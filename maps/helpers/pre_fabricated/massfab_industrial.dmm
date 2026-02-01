@@ -20,7 +20,7 @@
 	},
 /obj/structure/table/steel,
 /obj/item/storage/belt/mining,
-/obj/item/device/gps/mining,
+/obj/item/gps/mining,
 /turf/simulated/floor/tiled/steel,
 /area/space)
 "aS" = (
@@ -235,7 +235,7 @@
 /obj/item/clothing/gloves/yellow/specialu,
 /obj/item/storage/belt/utility/full,
 /obj/item/clothing/glasses/welding,
-/obj/item/device/robotanalyzer,
+/obj/item/robotanalyzer,
 /obj/item/stack/cable_coil,
 /obj/item/stack/cable_coil,
 /turf/simulated/floor/tiled/steel,
@@ -411,7 +411,7 @@
 /obj/effect/floor_decal/spline/plain/orange,
 /obj/structure/table/steel,
 /obj/item/storage/belt/mining,
-/obj/item/device/gps/mining,
+/obj/item/gps/mining,
 /turf/simulated/floor/tiled/steel,
 /area/space)
 "sW" = (
@@ -576,7 +576,7 @@
 /obj/item/clothing/gloves/yellow/specialu,
 /obj/item/storage/belt/utility/full,
 /obj/item/clothing/glasses/welding,
-/obj/item/device/robotanalyzer,
+/obj/item/robotanalyzer,
 /obj/item/stack/cable_coil,
 /obj/item/stack/cable_coil,
 /turf/simulated/floor/tiled/steel,
@@ -713,7 +713,7 @@
 	},
 /obj/structure/table/steel,
 /obj/item/storage/belt/mining,
-/obj/item/device/gps/mining,
+/obj/item/gps/mining,
 /turf/simulated/floor/tiled/steel,
 /area/space)
 "Ep" = (
@@ -722,7 +722,7 @@
 	},
 /obj/structure/table/steel,
 /obj/item/storage/belt/mining,
-/obj/item/device/gps/mining,
+/obj/item/gps/mining,
 /turf/simulated/floor/tiled/steel,
 /area/space)
 "EV" = (
@@ -802,7 +802,7 @@
 /obj/item/clothing/gloves/yellow/specialu,
 /obj/item/storage/belt/utility/full,
 /obj/item/clothing/glasses/welding,
-/obj/item/device/robotanalyzer,
+/obj/item/robotanalyzer,
 /obj/item/stack/cable_coil,
 /obj/item/stack/cable_coil,
 /turf/simulated/floor/tiled/steel,
@@ -1145,7 +1145,7 @@
 /obj/item/clothing/gloves/yellow/specialu,
 /obj/item/storage/belt/utility/full,
 /obj/item/clothing/glasses/welding,
-/obj/item/device/robotanalyzer,
+/obj/item/robotanalyzer,
 /obj/item/stack/cable_coil,
 /obj/item/stack/cable_coil,
 /turf/simulated/floor/tiled/steel,

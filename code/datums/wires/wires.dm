@@ -56,7 +56,7 @@ GLOBAL_LIST_INIT(wire_name_directory, list())
 	holder = null
 	//properly clear refs to avoid harddels & other problems
 	for(var/color in assemblies)
-		var/obj/item/device/assembly/assembly = assemblies[color]
+		var/obj/item/assembly/assembly = assemblies[color]
 		assembly.holder = null
 	LAZYCLEARLIST(assemblies)
 	return ..()
@@ -171,13 +171,13 @@ GLOBAL_LIST_INIT(wire_name_directory, list())
 /datum/wires/proc/pulse_color(color, mob/living/user, force=FALSE)
 	pulse(get_wire(color), user, force)
 
-/datum/wires/proc/pulse_assembly(obj/item/device/assembly/signaler/S)
+/datum/wires/proc/pulse_assembly(obj/item/assembly/signaler/S)
 	for(var/color in assemblies)
 		if(S == assemblies[color])
 			pulse_color(color, force=TRUE)
 			return TRUE
 
-/datum/wires/proc/attach_assembly(color, obj/item/device/assembly/signaler/S)
+/datum/wires/proc/attach_assembly(color, obj/item/assembly/signaler/S)
 	if(S && istype(S) && !is_attached(color))
 		assemblies[color] = S
 		S.forceMove(holder)
@@ -185,7 +185,7 @@ GLOBAL_LIST_INIT(wire_name_directory, list())
 		return S
 
 /datum/wires/proc/detach_assembly(color)
-	var/obj/item/device/assembly/signaler/S = get_attached(color)
+	var/obj/item/assembly/signaler/S = get_attached(color)
 	if(S && istype(S))
 		assemblies -= color
 		S.connected = null
@@ -318,7 +318,7 @@ GLOBAL_LIST_INIT(wire_name_directory, list())
 		if("attach")
 			// Attach
 			if(!is_attached(target_wire))
-				var/obj/item/device/assembly/signaler/I = L.get_type_in_hands(/obj/item/device/assembly/signaler)
+				var/obj/item/assembly/signaler/I = L.get_type_in_hands(/obj/item/assembly/signaler)
 				if(!istype(I))
 					to_chat(usr, SPAN_WARNING("You do not have a signaler to attach!"))
 					return
@@ -334,16 +334,11 @@ GLOBAL_LIST_INIT(wire_name_directory, list())
 					. = TRUE
 
 		if("cut") // Toggles the cut/mend status
-			var/obj/item/I = L.get_active_hand()
-			if(!I || !I.iswirecutter())
-				if(isrobot(L))
-					var/mob/living/silicon/robot/R = L
-					I = R.return_wirecutter()
-				else
-					for (var/obj/item/_I in L.get_inactive_held_items())
-						if (_I.iswirecutter())
-							I = _I
-			if(I?.iswirecutter())
+			var/obj/item/I = get_held_tool(TOOL_WIRECUTTER)
+			if(isrobot(L))
+				var/mob/living/silicon/robot/R = L
+				I = R.return_wirecutter()
+			if(I)
 				cut_color(target_wire, source = L)
 				holder.add_hiddenprint(L)
 				I.play_tool_sound(holder, 50)
@@ -352,16 +347,11 @@ GLOBAL_LIST_INIT(wire_name_directory, list())
 				to_chat(L, SPAN_WARNING("You need wirecutters!"))
 
 		if("pulse")
-			var/obj/item/I = L.get_active_hand()
-			if(!I || !I.ismultitool())
-				if(isrobot(L))
-					var/mob/living/silicon/robot/R = L
-					I = R.return_multitool()
-				else
-					for (var/obj/item/_I in L.get_inactive_held_items())
-						if (_I.iswirecutter())
-							I = _I
-			if(I?.ismultitool())
+			var/obj/item/I = get_held_tool(TOOL_MULTITOOL)
+			if(isrobot(L))
+				var/mob/living/silicon/robot/R = L
+				I = R.return_multitool()
+			if(I)
 				pulse_color(target_wire, L)
 				holder.add_hiddenprint(L)
 				. = TRUE

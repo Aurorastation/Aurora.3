@@ -485,7 +485,7 @@
 		user.visible_message(SPAN_NOTICE("[user] places \the [attacking_item] in \the [src]."), SPAN_NOTICE("You place \the [attacking_item] in \the [src]."))
 		update_icon()
 		return TRUE
-	if(attacking_item.iswrench())
+	if(attacking_item.tool_behaviour == TOOL_WRENCH)
 		if(!tank)
 			to_chat(user, "There isn't a tank installed for you to secure!")
 			return TRUE

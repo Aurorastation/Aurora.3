@@ -1,4 +1,4 @@
-/obj/item/device/assembly/mousetrap
+/obj/item/assembly/mousetrap
 	name = "mousetrap"
 	desc = "A handy little spring-loaded trap for catching pesty rodents."
 	item_icons = list(
@@ -13,17 +13,26 @@
 	matter = list(DEFAULT_WALL_MATERIAL = 100)
 	var/armed = FALSE
 
-/obj/item/device/assembly/mousetrap/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
+/obj/item/assembly/mousetrap/Initialize(mapload)
 	. = ..()
-	if(armed)
-		. += "It looks like it's armed."
 
-/obj/item/device/assembly/mousetrap/update_icon()
+	var/static/list/loc_connections = list(
+		COMSIG_ATOM_ENTERED = PROC_REF(on_entered),
+	)
+
+	AddElement(/datum/element/connect_loc, loc_connections)
+
+/obj/item/assembly/mousetrap/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(armed)
+		. += SPAN_NOTICE("It looks like it's armed.")
+
+/obj/item/assembly/mousetrap/update_icon()
 	icon_state = armed ? "mousetraparmed" : "mousetrap"
 	if(holder)
 		holder.update_icon()
 
-/obj/item/device/assembly/mousetrap/proc/triggered(var/mob/living/target, var/type = "feet")
+/obj/item/assembly/mousetrap/proc/triggered(var/mob/living/target, var/type = "feet")
 	if(!armed || !istype(target))
 		return
 
@@ -56,7 +65,7 @@
 	update_icon()
 	pulse(FALSE)
 
-/obj/item/device/assembly/mousetrap/attack_self(mob/living/user)
+/obj/item/assembly/mousetrap/attack_self(mob/living/user)
 	if(!armed)
 		to_chat(user, SPAN_NOTICE("You arm \the [src]."))
 	else
@@ -67,12 +76,12 @@
 	update_icon()
 	playsound(user.loc, 'sound/weapons/handcuffs.ogg', 30, 1, -3)
 
-/obj/item/device/assembly/mousetrap/attack_hand(mob/living/user)
+/obj/item/assembly/mousetrap/attack_hand(mob/living/user)
 	if(armed && clumsy_check(user))
 		return
 	return ..()
 
-/obj/item/device/assembly/mousetrap/proc/clumsy_check(var/mob/living/user)
+/obj/item/assembly/mousetrap/proc/clumsy_check(var/mob/living/user)
 	if((user.is_clumsy() || (user.mutations & DUMB)) && prob(50))
 		var/which_hand = BP_L_HAND
 		if(!user.hand)
@@ -82,7 +91,7 @@
 		return TRUE
 	return FALSE
 
-/obj/item/device/assembly/mousetrap/on_entered(datum/source, atom/movable/arrived, atom/old_loc, list/atom/old_locs)
+/obj/item/assembly/mousetrap/on_entered(datum/source, atom/movable/arrived, atom/old_loc, list/atom/old_locs)
 	if(armed)
 		if(israt(arrived))
 			triggered(arrived)
@@ -97,24 +106,24 @@
 			L.visible_message(SPAN_WARNING("\The [L] accidentally steps on \the [src]."), SPAN_WARNING("You accidentally step on \the [src]."))
 
 
-/obj/item/device/assembly/mousetrap/on_found(mob/finder)
+/obj/item/assembly/mousetrap/on_found(mob/finder)
 	if(armed)
 		finder.visible_message(SPAN_WARNING("[finder] accidentally sets off \the [src]!"), SPAN_WARNING("You accidentally trigger \the [src]!"))
 		triggered(finder, finder.hand ? BP_L_HAND : BP_R_HAND)
 		return TRUE
 	return FALSE
 
-/obj/item/device/assembly/mousetrap/hitby(atom/movable/hitting_atom, skipcatch, hitpush, blocked, datum/thrownthing/throwingdatum)
+/obj/item/assembly/mousetrap/hitby(atom/movable/hitting_atom, skipcatch, hitpush, blocked, datum/thrownthing/throwingdatum)
 	if(!armed)
 		return ..()
 	visible_message(SPAN_WARNING("\The [src] is triggered by \the [hitting_atom]."))
 	triggered(null)
 
-/obj/item/device/assembly/mousetrap/armed
+/obj/item/assembly/mousetrap/armed
 	icon_state = "mousetraparmed"
 	armed = TRUE
 
-/obj/item/device/assembly/mousetrap/verb/hide_under()
+/obj/item/assembly/mousetrap/verb/hide_under()
 	set src in oview(1)
 	set name = "Hide"
 	set category = "Object"

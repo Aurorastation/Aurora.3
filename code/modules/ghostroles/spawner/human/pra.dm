@@ -67,4 +67,4 @@
 						/obj/item/storage/box/hadii_manifesto = 1,
 						/obj/item/storage/box/hadii_card = 1
 						)
-	hands = list(/obj/item/device/megaphone, /obj/item/martial_manual/tajara)
+	hands = list(/obj/item/megaphone, /obj/item/martial_manual/tajara)

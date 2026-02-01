@@ -1997,6 +1997,12 @@ Follow by example and make good judgement based on length which list to include 
 	length = 1
 	chatname = "bowl cut"
 
+/datum/sprite_accessory/hair/balding/taro
+	name = "Taro"
+	icon_state = "hair_taro"
+	length = 2
+	chatname = "long hair"
+
 /datum/sprite_accessory/hair/balding/waxed
 	name = "Waxed"
 	icon_state = "hair_waxed"

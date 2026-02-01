@@ -59,7 +59,8 @@ export const SupermatterWindow = (props, context) => {
             }}
             value={data.ambient_temp}
             minValue={0}
-            maxValue={10000}>
+            maxValue={10000}
+          >
             {data.ambient_temp} K
           </ProgressBar>
         </LabeledList.Item>

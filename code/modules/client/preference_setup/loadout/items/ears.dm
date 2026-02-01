@@ -33,17 +33,17 @@
 /datum/gear/ears/hearing_aid
 	display_name = "hearing aid selection"
 	description = "A selection of hearing aids. If you select a pair, you should pick a wristbound or clip-on radio to keep both ears free for the hearing aids."
-	path = /obj/item/device/hearing_aid
+	path = /obj/item/hearing_aid
 	cost = 1
 
 /datum/gear/ears/hearing_aid/New()
 	..()
 	var/list/hearingaids = list()
-	hearingaids["hearing aid, black"] = /obj/item/device/hearing_aid/black
-	hearingaids["hearing aid, grey"] = /obj/item/device/hearing_aid
-	hearingaids["hearing aid, silver"] = /obj/item/device/hearing_aid/silver
-	hearingaids["hearing aid, white"] = /obj/item/device/hearing_aid/white
-	hearingaids["hearing aid, skrellian"] = /obj/item/device/hearing_aid/skrell
+	hearingaids["hearing aid, black"] = /obj/item/hearing_aid/black
+	hearingaids["hearing aid, grey"] = /obj/item/hearing_aid
+	hearingaids["hearing aid, silver"] = /obj/item/hearing_aid/silver
+	hearingaids["hearing aid, white"] = /obj/item/hearing_aid/white
+	hearingaids["hearing aid, skrellian"] = /obj/item/hearing_aid/skrell
 	hearingaids["hearing aid pair, black"] = /obj/item/storage/hearing_aid_case/black
 	hearingaids["hearing aid pair, grey"] = /obj/item/storage/hearing_aid_case
 	hearingaids["hearing aid pair, silver"] = /obj/item/storage/hearing_aid_case/silver

@@ -188,7 +188,7 @@
 /area/moghes_village)
 "lh" = (
 /obj/structure/table/wood,
-/obj/item/device/flashlight/lamp,
+/obj/item/flashlight/lamp,
 /turf/simulated/floor/exoplanet/wood/birch{
 	temperature = 303.15
 	},
@@ -371,7 +371,7 @@
 /turf/simulated/floor/exoplanet/marble/dark,
 /area/moghes_village/shrine)
 "rL" = (
-/obj/item/device/radio/phone,
+/obj/item/radio/phone,
 /obj/structure/table/wood,
 /turf/simulated/floor/exoplanet/wood/birch{
 	temperature = 303.15
@@ -789,8 +789,8 @@
 /area/moghes_village/indoors)
 "UJ" = (
 /obj/structure/table/wood,
-/obj/item/device/flashlight/lantern,
-/obj/item/device/flashlight/lantern,
+/obj/item/flashlight/lantern,
+/obj/item/flashlight/lantern,
 /turf/simulated/floor/exoplanet/grass/moghes/dirt,
 /area/moghes_village/indoors)
 "Wx" = (

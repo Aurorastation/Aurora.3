@@ -189,7 +189,7 @@
 /area/dungeon/anomaly_outpost)
 "aG" = (
 /obj/structure/table/standard,
-/obj/item/device/gps,
+/obj/item/gps,
 /turf/simulated/floor/tiled,
 /area/dungeon/anomaly_outpost)
 "aH" = (

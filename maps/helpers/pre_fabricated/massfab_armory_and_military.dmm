@@ -116,15 +116,15 @@
 	dir = 4
 	},
 /obj/structure/table/standard,
-/obj/item/device/radio/sec/off,
-/obj/item/device/radio/sec/off,
-/obj/item/device/radio/sec/off,
-/obj/item/device/radio/sec/off,
-/obj/item/device/radio/sec/off,
-/obj/item/device/radio/sec/off,
-/obj/item/device/radio/sec/off,
-/obj/item/device/radio/sec/off,
-/obj/item/device/hand_labeler{
+/obj/item/radio/sec/off,
+/obj/item/radio/sec/off,
+/obj/item/radio/sec/off,
+/obj/item/radio/sec/off,
+/obj/item/radio/sec/off,
+/obj/item/radio/sec/off,
+/obj/item/radio/sec/off,
+/obj/item/radio/sec/off,
+/obj/item/hand_labeler{
 	pixel_x = 7;
 	pixel_y = 10
 	},
@@ -479,15 +479,15 @@
 	dir = 4
 	},
 /obj/structure/table/standard,
-/obj/item/device/radio/sec/off,
-/obj/item/device/radio/sec/off,
-/obj/item/device/radio/sec/off,
-/obj/item/device/radio/sec/off,
-/obj/item/device/radio/sec/off,
-/obj/item/device/radio/sec/off,
-/obj/item/device/radio/sec/off,
-/obj/item/device/radio/sec/off,
-/obj/item/device/hand_labeler{
+/obj/item/radio/sec/off,
+/obj/item/radio/sec/off,
+/obj/item/radio/sec/off,
+/obj/item/radio/sec/off,
+/obj/item/radio/sec/off,
+/obj/item/radio/sec/off,
+/obj/item/radio/sec/off,
+/obj/item/radio/sec/off,
+/obj/item/hand_labeler{
 	pixel_x = 7;
 	pixel_y = 10
 	},
@@ -840,15 +840,15 @@
 	dir = 4
 	},
 /obj/structure/table/standard,
-/obj/item/device/radio/sec/off,
-/obj/item/device/radio/sec/off,
-/obj/item/device/radio/sec/off,
-/obj/item/device/radio/sec/off,
-/obj/item/device/radio/sec/off,
-/obj/item/device/radio/sec/off,
-/obj/item/device/radio/sec/off,
-/obj/item/device/radio/sec/off,
-/obj/item/device/hand_labeler{
+/obj/item/radio/sec/off,
+/obj/item/radio/sec/off,
+/obj/item/radio/sec/off,
+/obj/item/radio/sec/off,
+/obj/item/radio/sec/off,
+/obj/item/radio/sec/off,
+/obj/item/radio/sec/off,
+/obj/item/radio/sec/off,
+/obj/item/hand_labeler{
 	pixel_x = 7;
 	pixel_y = 10
 	},
@@ -942,15 +942,15 @@
 	pixel_x = 10
 	},
 /obj/structure/table/standard,
-/obj/item/device/radio/sec/off,
-/obj/item/device/radio/sec/off,
-/obj/item/device/radio/sec/off,
-/obj/item/device/radio/sec/off,
-/obj/item/device/radio/sec/off,
-/obj/item/device/radio/sec/off,
-/obj/item/device/radio/sec/off,
-/obj/item/device/radio/sec/off,
-/obj/item/device/hand_labeler{
+/obj/item/radio/sec/off,
+/obj/item/radio/sec/off,
+/obj/item/radio/sec/off,
+/obj/item/radio/sec/off,
+/obj/item/radio/sec/off,
+/obj/item/radio/sec/off,
+/obj/item/radio/sec/off,
+/obj/item/radio/sec/off,
+/obj/item/hand_labeler{
 	pixel_x = 7;
 	pixel_y = 10
 	},

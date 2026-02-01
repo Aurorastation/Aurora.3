@@ -205,7 +205,7 @@
 /turf/simulated/floor/tiled,
 /area/piratebase/eva)
 "aV" = (
-/obj/item/device/flashlight/flare/glowstick/random{
+/obj/item/flashlight/flare/glowstick/random{
 	pixel_y = -10;
 	pixel_x = -5
 	},
@@ -294,7 +294,7 @@
 	},
 /obj/random/dirt_75,
 /obj/random/dirt_75,
-/obj/effect/decal/cleanable/greenglow/radioactive{
+/obj/effect/decal/cleanable/greenglow/radioactive/medium{
 	pixel_x = 8;
 	pixel_y = -6
 	},
@@ -571,7 +571,7 @@
 	pixel_y = 4
 	},
 /obj/random/dirt_75,
-/obj/item/device/transfer_valve{
+/obj/item/transfer_valve{
 	pixel_x = -7;
 	pixel_y = 5
 	},
@@ -688,7 +688,7 @@
 /area/piratebase/power)
 "dx" = (
 /obj/structure/table/steel,
-/obj/item/device/binoculars,
+/obj/item/binoculars,
 /obj/effect/floor_decal/corner/beige{
 	dir = 6
 	},
@@ -3292,11 +3292,11 @@
 /obj/effect/floor_decal/corner/grey/full{
 	dir = 1
 	},
-/obj/item/device/suit_cooling_unit,
-/obj/item/device/suit_cooling_unit,
-/obj/item/device/suit_cooling_unit,
-/obj/item/device/suit_cooling_unit,
-/obj/item/device/suit_cooling_unit,
+/obj/item/suit_cooling_unit,
+/obj/item/suit_cooling_unit,
+/obj/item/suit_cooling_unit,
+/obj/item/suit_cooling_unit,
+/obj/item/suit_cooling_unit,
 /turf/simulated/floor/tiled,
 /area/piratebase/eva)
 "pB" = (
@@ -3413,11 +3413,11 @@
 	dir = 10
 	},
 /obj/structure/table/standard,
-/obj/item/device/healthanalyzer{
+/obj/item/healthanalyzer{
 	pixel_x = -4;
 	pixel_y = 7
 	},
-/obj/item/device/breath_analyzer{
+/obj/item/breath_analyzer{
 	pixel_x = 7
 	},
 /obj/item/bodybag/cryobag{
@@ -3452,7 +3452,7 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 10
 	},
-/obj/item/device/paicard{
+/obj/item/paicard{
 	pixel_x = -4;
 	pixel_y = 5
 	},
@@ -4413,7 +4413,7 @@
 	pixel_x = 6;
 	pixel_y = 1
 	},
-/obj/item/device/flashlight/lamp/green{
+/obj/item/flashlight/lamp/green{
 	pixel_y = 14
 	},
 /turf/simulated/floor/tiled,
@@ -4520,7 +4520,7 @@
 "wB" = (
 /obj/structure/table/steel,
 /obj/random/dirt_75,
-/obj/item/device/assembly/signaler{
+/obj/item/assembly/signaler{
 	pixel_x = 8;
 	pixel_y = 5
 	},
@@ -4780,7 +4780,7 @@
 /area/shuttle/pirate_shuttle/storage)
 "xQ" = (
 /obj/structure/table/steel,
-/obj/item/device/versebook/trinary{
+/obj/item/versebook/trinary{
 	pixel_x = 4;
 	pixel_y = 3
 	},
@@ -5081,7 +5081,7 @@
 /area/piratebase/hallway_north)
 "zs" = (
 /obj/structure/table/steel,
-/obj/item/device/healthanalyzer,
+/obj/item/healthanalyzer,
 /obj/effect/floor_decal/corner/lime/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/shuttle/pirate_shuttle/med)
@@ -7352,7 +7352,7 @@
 /turf/simulated/floor/plating,
 /area/piratebase/hallway_south)
 "KX" = (
-/obj/item/device/flashlight/flare{
+/obj/item/flashlight/flare{
 	pixel_x = -8;
 	pixel_y = 6
 	},
@@ -8066,7 +8066,7 @@
 "Ox" = (
 /obj/structure/table/steel,
 /obj/random/dirt_75,
-/obj/item/device/assembly/timer{
+/obj/item/assembly/timer{
 	pixel_y = -21;
 	pixel_x = -4
 	},
@@ -8288,22 +8288,22 @@
 	dir = 5
 	},
 /obj/structure/table/rack,
-/obj/item/device/gps{
+/obj/item/gps{
 	pixel_x = 5
 	},
-/obj/item/device/gps{
+/obj/item/gps{
 	pixel_x = -6
 	},
-/obj/item/device/gps{
+/obj/item/gps{
 	pixel_x = 5
 	},
-/obj/item/device/gps{
+/obj/item/gps{
 	pixel_x = -6
 	},
-/obj/item/device/gps{
+/obj/item/gps{
 	pixel_x = 5
 	},
-/obj/item/device/gps{
+/obj/item/gps{
 	pixel_x = -6
 	},
 /turf/simulated/floor/tiled,
@@ -8377,19 +8377,19 @@
 	pixel_x = -3;
 	pixel_y = -9
 	},
-/obj/item/device/flashlight/flare/glowstick/random{
+/obj/item/flashlight/flare/glowstick/random{
 	pixel_x = -4;
 	pixel_y = 4
 	},
-/obj/item/device/flashlight/flare/glowstick/random{
+/obj/item/flashlight/flare/glowstick/random{
 	pixel_x = -4;
 	pixel_y = 4
 	},
-/obj/item/device/flashlight/flare/glowstick/random{
+/obj/item/flashlight/flare/glowstick/random{
 	pixel_x = -4;
 	pixel_y = 4
 	},
-/obj/item/device/flashlight/flare/glowstick/random{
+/obj/item/flashlight/flare/glowstick/random{
 	pixel_x = -4;
 	pixel_y = 4
 	},
@@ -8397,7 +8397,7 @@
 /area/piratebase/equipment)
 "PX" = (
 /obj/random/dirt_75,
-/obj/item/device/flashlight/marshallingwand{
+/obj/item/flashlight/marshallingwand{
 	pixel_x = -9;
 	pixel_y = 5
 	},
@@ -8993,7 +8993,7 @@
 /obj/machinery/light/small/emergency{
 	dir = 1
 	},
-/obj/item/device/flashlight{
+/obj/item/flashlight{
 	pixel_x = 2;
 	pixel_y = -1
 	},
@@ -9592,7 +9592,7 @@
 /obj/structure/table/standard,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
-/obj/item/device/flashlight/lamp/off{
+/obj/item/flashlight/lamp/off{
 	pixel_x = -6;
 	pixel_y = 11
 	},
@@ -9723,36 +9723,36 @@
 "Wt" = (
 /obj/structure/table/rack,
 /obj/effect/floor_decal/industrial/outline/grey,
-/obj/item/device/radio/off{
+/obj/item/radio/off{
 	pixel_x = -6;
 	pixel_y = 4
 	},
-/obj/item/device/radio/off{
+/obj/item/radio/off{
 	pixel_x = -6;
 	pixel_y = 4
 	},
-/obj/item/device/radio/off{
+/obj/item/radio/off{
 	pixel_x = -6;
 	pixel_y = 4
 	},
-/obj/item/device/radio/off{
+/obj/item/radio/off{
 	pixel_x = 6;
 	pixel_y = 6
 	},
-/obj/item/device/radio/off{
+/obj/item/radio/off{
 	pixel_x = 6;
 	pixel_y = 6
 	},
-/obj/item/device/radio/off{
+/obj/item/radio/off{
 	pixel_x = 6;
 	pixel_y = 6
 	},
-/obj/item/device/flashlight/flare,
-/obj/item/device/flashlight/flare,
-/obj/item/device/flashlight/flare,
-/obj/item/device/flashlight/flare,
-/obj/item/device/flashlight/flare,
-/obj/item/device/flashlight/flare,
+/obj/item/flashlight/flare,
+/obj/item/flashlight/flare,
+/obj/item/flashlight/flare,
+/obj/item/flashlight/flare,
+/obj/item/flashlight/flare,
+/obj/item/flashlight/flare,
 /turf/simulated/floor/tiled/dark,
 /area/piratebase/equipment)
 "Wu" = (
@@ -9817,7 +9817,7 @@
 	pixel_x = 12;
 	pixel_y = 10
 	},
-/obj/item/device/hand_labeler{
+/obj/item/hand_labeler{
 	pixel_x = -5;
 	pixel_y = 1
 	},
@@ -10032,19 +10032,19 @@
 /area/piratebase/quarters)
 "XP" = (
 /obj/structure/table/rack,
-/obj/item/device/flashlight/lantern{
+/obj/item/flashlight/lantern{
 	pixel_x = -6;
 	pixel_y = 3
 	},
-/obj/item/device/flashlight/lantern{
+/obj/item/flashlight/lantern{
 	pixel_x = -6;
 	pixel_y = 3
 	},
-/obj/item/device/flashlight/lantern{
+/obj/item/flashlight/lantern{
 	pixel_x = -6;
 	pixel_y = 3
 	},
-/obj/item/device/flashlight{
+/obj/item/flashlight{
 	pixel_x = 5;
 	pixel_y = 5
 	},
@@ -10052,23 +10052,23 @@
 /obj/machinery/light{
 	dir = 4
 	},
-/obj/item/device/flashlight{
+/obj/item/flashlight{
 	pixel_x = 5;
 	pixel_y = 5
 	},
-/obj/item/device/flashlight{
+/obj/item/flashlight{
 	pixel_x = 5;
 	pixel_y = 5
 	},
-/obj/item/device/flashlight{
+/obj/item/flashlight{
 	pixel_x = 5;
 	pixel_y = 5
 	},
-/obj/item/device/flashlight{
+/obj/item/flashlight{
 	pixel_x = 5;
 	pixel_y = 5
 	},
-/obj/item/device/flashlight/heavy,
+/obj/item/flashlight/heavy,
 /turf/simulated/floor/plating,
 /area/piratebase/equipment)
 "XS" = (

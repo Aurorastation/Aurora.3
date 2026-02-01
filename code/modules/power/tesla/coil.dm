@@ -36,7 +36,7 @@
 	if(default_part_replacement(user, attacking_item))
 		return
 
-	if(attacking_item.iswrench())
+	if(attacking_item.tool_behaviour == TOOL_WRENCH)
 		attacking_item.play_tool_sound(get_turf(src), 50)
 		to_chat(user, SPAN_NOTICE("You [anchored ? "unfasten" : "fasten"] [src] to the flooring."))
 		anchored = !anchored
@@ -90,7 +90,7 @@
 	if(default_part_replacement(user, attacking_item))
 		return
 
-	if(attacking_item.iswrench())
+	if(attacking_item.tool_behaviour == TOOL_WRENCH)
 		attacking_item.play_tool_sound(get_turf(src), 50)
 		to_chat(user, SPAN_NOTICE("You [anchored ? "unfasten" : "fasten"] [src] to the flooring."))
 		anchored = !anchored

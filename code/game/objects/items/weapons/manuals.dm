@@ -1585,6 +1585,6 @@
 	if(src.dat)
 		user << browse(HTML_SKELETON("<TT><I>Penned by [author].</I></TT> <BR>" + "[dat]"), "window=book")
 		user.visible_message("[user] opens a pamphlet titled \"[src.title]\" and begins reading intently.")
-		playsound(loc, 'sound/bureaucracy/paperfold.ogg', 50, 1)
+		playsound(loc, 'sound/items/bureaucracy/paperfold.ogg', 50, 1)
 		onclose(user, "book")
-		onclose(playsound(loc, 'sound/bureaucracy/paperfold.ogg', 50, 1))
+		onclose(playsound(loc, 'sound/items/bureaucracy/paperfold.ogg', 50, 1))

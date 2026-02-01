@@ -108,7 +108,7 @@
 		unload(user)			//unload if loaded
 
 /obj/vehicle/train/attackby(obj/item/attacking_item, mob/user)
-	if(attacking_item.iswrench())
+	if(attacking_item.tool_behaviour == TOOL_WRENCH)
 		attacking_item.play_tool_sound(get_turf(src), 70)
 		unattach(user)
 		return

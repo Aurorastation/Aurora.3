@@ -3,7 +3,7 @@
 // Depth scanner - scans rock turfs / boulders and tells players if there is anything interesting inside, logs all finds + coordinates + times
 
 //also known as the x-ray diffractor
-/obj/item/device/depth_scanner
+/obj/item/depth_scanner
 	name = "depth analysis scanner"
 	desc = "Used to check spatial depth and density of rock outcroppings."
 	icon = 'icons/obj/xenoarchaeology.dmi'
@@ -23,7 +23,7 @@
 	var/dissonance_spread = 1
 	var/material = "unknown"
 
-/obj/item/device/depth_scanner/proc/scan_atom(var/mob/user, var/atom/A)
+/obj/item/depth_scanner/proc/scan_atom(var/mob/user, var/atom/A)
 	user.visible_message(SPAN_NOTICE("[user] scans [A], the air around them humming gently."))
 	if(istype(A,/turf/simulated/mineral))
 		var/turf/simulated/mineral/M = A
@@ -69,10 +69,10 @@
 				to_chat(L, SPAN_NOTICE("[icon2html(src, L)] [src] pings [pick("madly","wildly","excitedly","crazily")]!"))
 				playsound(loc, 'sound/machines/triplebeep.ogg', 40)
 
-/obj/item/device/depth_scanner/attack_self(var/mob/user as mob)
+/obj/item/depth_scanner/attack_self(var/mob/user as mob)
 	return src.interact(user)
 
-/obj/item/device/depth_scanner/interact(var/mob/user as mob)
+/obj/item/depth_scanner/interact(var/mob/user as mob)
 	var/dat = "<b>Co-ordinates with positive matches</b><br>"
 	dat += "<A href='byond://?src=[REF(src)];clear=0'>== Clear all ==</a><br>"
 	if(current)
@@ -108,7 +108,7 @@
 	scanner_win.set_content(dat)
 	scanner_win.open()
 
-/obj/item/device/depth_scanner/Topic(href, href_list)
+/obj/item/depth_scanner/Topic(href, href_list)
 	..()
 	usr.set_machine(src)
 

@@ -256,7 +256,7 @@
 /area/ouerea/ouerea_hegemony_base/outdoors)
 "gC" = (
 /obj/structure/table/wood,
-/obj/item/device/flashlight/lamp/green,
+/obj/item/flashlight/lamp/green,
 /turf/simulated/floor/exoplanet/carpet/red,
 /area/ouerea/ouerea_hegemony_base)
 "gG" = (
@@ -458,8 +458,8 @@
 /obj/item/storage/box/handcuffs,
 /obj/item/reagent_containers/spray/pepper,
 /obj/item/reagent_containers/spray/pepper,
-/obj/item/device/flash,
-/obj/item/device/flash,
+/obj/item/flash,
+/obj/item/flash,
 /turf/simulated/floor/exoplanet/concrete/square{
 	temperature = 303.15
 	},
@@ -852,7 +852,7 @@
 	pixel_y = 4;
 	pixel_x = -5
 	},
-/obj/item/device/healthanalyzer,
+/obj/item/healthanalyzer,
 /obj/item/storage/belt/medical,
 /obj/item/bodybag/cryobag,
 /turf/simulated/floor/exoplanet/tiled/white{
@@ -1617,11 +1617,11 @@
 	dir = 6
 	},
 /obj/structure/table/rack,
-/obj/item/device/radio,
-/obj/item/device/radio,
-/obj/item/device/radio,
-/obj/item/device/radio,
-/obj/item/device/radio,
+/obj/item/radio,
+/obj/item/radio,
+/obj/item/radio,
+/obj/item/radio,
+/obj/item/radio,
 /obj/item/storage/toolbox/mechanical,
 /turf/simulated/floor/exoplanet/concrete/square{
 	temperature = 303.15
@@ -1721,7 +1721,7 @@
 /area/ouerea/ouerea_hegemony_base)
 "Zb" = (
 /obj/structure/table/steel,
-/obj/item/device/versebook/skakh,
+/obj/item/versebook/skakh,
 /turf/simulated/floor/exoplanet/concrete/square{
 	temperature = 303.15
 	},

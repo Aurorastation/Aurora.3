@@ -17,9 +17,10 @@
 	var/power = 250
 	toggled = 1
 
-/obj/item/spell/radiance/New()
-	..()
-	set_light(7, 4, l_color = "#D9D900")
+/obj/item/spell/radiance/Initialize()
+	. = ..()
+	set_light_range_power_color(7, 4, "#D9D900")
+	set_light_on(TRUE)
 	START_PROCESSING(SSprocessing, src)
 	log_and_message_admins("has casted [src].")
 

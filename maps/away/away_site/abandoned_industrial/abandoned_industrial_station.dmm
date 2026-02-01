@@ -1157,7 +1157,7 @@
 /area/abandoned_industrial_station/bridge)
 "dI" = (
 /obj/structure/table/standard,
-/obj/item/device/radio/phone{
+/obj/item/radio/phone{
 	frequency = 1280;
 	pixel_y = 11
 	},
@@ -1441,7 +1441,7 @@
 /area/abandoned_industrial_station/maint_a2)
 "eA" = (
 /obj/structure/table/standard,
-/obj/item/device/integrated_electronics/debugger{
+/obj/item/integrated_electronics/debugger{
 	pixel_x = 6
 	},
 /turf/simulated/floor/tiled,
@@ -2146,7 +2146,7 @@
 /turf/simulated/floor/tiled,
 /area/abandoned_industrial_station/hangar)
 "gY" = (
-/obj/item/device/flashlight{
+/obj/item/flashlight{
 	pixel_x = 9;
 	pixel_y = 4
 	},
@@ -2306,7 +2306,7 @@
 /turf/simulated/floor/airless,
 /area/abandoned_industrial_station/atmos)
 "hv" = (
-/obj/item/device/flashlight/marshallingwand{
+/obj/item/flashlight/marshallingwand{
 	pixel_y = -11
 	},
 /obj/random/dirt_75,
@@ -2445,7 +2445,7 @@
 "hV" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/random/dirt_75,
-/obj/item/device/radio{
+/obj/item/radio{
 	pixel_x = -6;
 	pixel_y = -12
 	},
@@ -3287,7 +3287,7 @@
 /turf/simulated/floor/tiled,
 /area/abandoned_industrial_station/hangar)
 "kx" = (
-/obj/item/device/suit_cooling_unit,
+/obj/item/suit_cooling_unit,
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/abandoned_industrial_station/engineering)
@@ -3790,7 +3790,7 @@
 "mq" = (
 /obj/effect/floor_decal/corner/green/diagonal,
 /obj/structure/table/steel,
-/obj/item/device/flashlight/lamp/off{
+/obj/item/flashlight/lamp/off{
 	pixel_y = 4
 	},
 /obj/random/dirt_75,
@@ -3976,7 +3976,7 @@
 	},
 /area/abandoned_industrial_station/engineering)
 "mS" = (
-/obj/item/device/flashlight{
+/obj/item/flashlight{
 	pixel_x = -4;
 	pixel_y = -6
 	},
@@ -4583,7 +4583,7 @@
 /area/abandoned_industrial_station/service)
 "oN" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/item/device/radio{
+/obj/item/radio{
 	pixel_x = -6;
 	pixel_y = -12
 	},
@@ -5203,7 +5203,7 @@
 /turf/simulated/floor/reinforced/airless,
 /area/abandoned_industrial_station/atmos)
 "qF" = (
-/obj/item/device/flashlight{
+/obj/item/flashlight{
 	pixel_x = -1;
 	pixel_y = -6
 	},
@@ -5937,7 +5937,7 @@
 	},
 /obj/structure/closet/crate,
 /obj/machinery/light/colored/dying,
-/obj/item/device/flashlight/heavy,
+/obj/item/flashlight/heavy,
 /turf/simulated/floor/tiled,
 /area/abandoned_industrial_station/bridge)
 "sU" = (
@@ -6371,7 +6371,7 @@
 /obj/structure/table/standard{
 	no_cargo = 1
 	},
-/obj/item/device/hand_labeler{
+/obj/item/hand_labeler{
 	pixel_x = -9;
 	pixel_y = 5
 	},
@@ -6539,7 +6539,7 @@
 /turf/simulated/floor/tiled/full,
 /area/abandoned_industrial_station/hallways)
 "uS" = (
-/obj/item/device/healthanalyzer{
+/obj/item/healthanalyzer{
 	pixel_x = -2;
 	pixel_y = 3
 	},
@@ -6977,7 +6977,7 @@
 /obj/effect/floor_decal/corner/green{
 	dir = 6
 	},
-/obj/item/device/healthanalyzer{
+/obj/item/healthanalyzer{
 	pixel_x = -2;
 	pixel_y = 3
 	},
@@ -7220,7 +7220,7 @@
 	req_one_access = null
 	},
 /obj/item/storage/box/lights/mixed,
-/obj/item/device/flashlight/maglight,
+/obj/item/flashlight/maglight,
 /turf/simulated/floor/tiled,
 /area/abandoned_industrial_station/docks_east)
 "wZ" = (
@@ -9569,7 +9569,7 @@
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 1
 	},
-/obj/item/device/binoculars{
+/obj/item/binoculars{
 	pixel_x = -2;
 	pixel_y = -11
 	},
@@ -9641,7 +9641,7 @@
 /obj/structure/table/glass{
 	table_reinf = "glass"
 	},
-/obj/item/device/flashlight/lamp/off{
+/obj/item/flashlight/lamp/off{
 	pixel_x = -3;
 	pixel_y = 4
 	},
@@ -9786,7 +9786,7 @@
 /area/abandoned_industrial_station/engineering)
 "EH" = (
 /obj/structure/table/wood,
-/obj/item/device/flashlight/lamp/lava/pink{
+/obj/item/flashlight/lamp/lava/pink{
 	pixel_x = 4;
 	pixel_y = 5
 	},
@@ -10137,7 +10137,7 @@
 "FL" = (
 /obj/structure/table/standard,
 /obj/random/dirt_75,
-/obj/item/device/radio{
+/obj/item/radio{
 	pixel_x = 4;
 	pixel_y = -3
 	},
@@ -13587,7 +13587,7 @@
 /obj/effect/floor_decal/corner/beige{
 	dir = 5
 	},
-/obj/item/device/flashlight/empty{
+/obj/item/flashlight/empty{
 	pixel_x = 6;
 	pixel_y = 4
 	},
@@ -14197,7 +14197,7 @@
 	dir = 1
 	},
 /obj/random/dirt_75,
-/obj/item/device/radio{
+/obj/item/radio{
 	pixel_x = 1;
 	pixel_y = 7
 	},
@@ -14348,7 +14348,7 @@
 /obj/effect/floor_decal/corner/orange{
 	dir = 9
 	},
-/obj/item/device/flashlight/lantern{
+/obj/item/flashlight/lantern{
 	pixel_x = -4;
 	pixel_y = 6
 	},
@@ -14934,7 +14934,7 @@
 	dir = 1
 	},
 /obj/random/dirt_75,
-/obj/item/device/radio{
+/obj/item/radio{
 	pixel_x = -6;
 	pixel_y = -12
 	},
@@ -15130,7 +15130,7 @@
 /area/abandoned_industrial_station/atmos)
 "VZ" = (
 /obj/effect/floor_decal/corner/yellow/diagonal,
-/obj/item/device/hand_labeler{
+/obj/item/hand_labeler{
 	pixel_x = 3;
 	pixel_y = 12
 	},
@@ -15183,7 +15183,7 @@
 /turf/simulated/floor/plating,
 /area/abandoned_industrial_station/maint_central)
 "Wg" = (
-/obj/item/device/flashlight/lantern{
+/obj/item/flashlight/lantern{
 	pixel_x = 10;
 	pixel_y = 6
 	},
@@ -15608,7 +15608,7 @@
 /area/abandoned_industrial_station/docks_east)
 "XE" = (
 /obj/structure/table/steel,
-/obj/item/device/flashlight/lamp/off{
+/obj/item/flashlight/lamp/off{
 	pixel_x = -5;
 	pixel_y = 4
 	},
@@ -15672,11 +15672,11 @@
 /area/abandoned_industrial_station/service)
 "XO" = (
 /obj/structure/table/standard,
-/obj/item/device/gps{
+/obj/item/gps{
 	pixel_x = 5;
 	pixel_y = -14
 	},
-/obj/item/device/flashlight/lamp/off{
+/obj/item/flashlight/lamp/off{
 	pixel_x = -6;
 	pixel_y = 1
 	},
@@ -15966,7 +15966,7 @@
 /turf/simulated/floor/tiled,
 /area/abandoned_industrial_station/hangar)
 "YD" = (
-/obj/item/device/assembly/prox_sensor{
+/obj/item/assembly/prox_sensor{
 	pixel_x = 8
 	},
 /turf/simulated/floor/tiled,
@@ -16020,7 +16020,7 @@
 	pixel_x = 10;
 	pixel_y = 3
 	},
-/obj/item/device/integrated_electronics/wirer{
+/obj/item/integrated_electronics/wirer{
 	pixel_x = -6
 	},
 /obj/random/dirt_75,
@@ -16240,7 +16240,7 @@
 	pixel_x = -5;
 	pixel_y = 2
 	},
-/obj/item/device/assembly/mousetrap/armed{
+/obj/item/assembly/mousetrap/armed{
 	pixel_x = 6;
 	pixel_y = 2
 	},

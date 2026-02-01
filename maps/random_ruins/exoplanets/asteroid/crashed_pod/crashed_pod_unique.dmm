@@ -115,7 +115,7 @@
 /turf/simulated/floor/shuttle/dark_blue/airless,
 /area/template_noop)
 "x" = (
-/obj/item/device/gps,
+/obj/item/gps,
 /turf/simulated/floor/shuttle/dark_blue/airless,
 /area/template_noop)
 "y" = (

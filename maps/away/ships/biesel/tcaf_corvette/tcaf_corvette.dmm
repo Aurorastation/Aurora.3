@@ -74,7 +74,7 @@
 /obj/structure/table/reinforced/steel,
 /obj/effect/floor_decal/corner_wide/brown/full,
 /obj/item/storage/toolbox/mechanical,
-/obj/item/device/binoculars{
+/obj/item/binoculars{
 	pixel_y = 13
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -931,7 +931,7 @@
 	dir = 10
 	},
 /obj/structure/table/wood,
-/obj/item/device/flashlight/lamp/green{
+/obj/item/flashlight/lamp/green{
 	pixel_y = 10;
 	pixel_x = 5
 	},
@@ -1043,9 +1043,7 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/tcaf_corvette/hangar)
 "dB" = (
-/obj/machinery/autolathe{
-	hacked = 1
-	},
+/obj/machinery/fabricator/autolathe/hacked,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/light/small,
 /obj/effect/decal/cleanable/dirt,
@@ -2320,7 +2318,7 @@
 	dir = 8
 	},
 /obj/structure/table/steel,
-/obj/item/device/paint_sprayer{
+/obj/item/paint_sprayer{
 	pixel_y = 7;
 	pixel_x = 4
 	},
@@ -2532,7 +2530,7 @@
 	pixel_x = -8
 	},
 /obj/effect/decal/cleanable/dirt,
-/obj/item/device/flashlight/lamp/lava/purple{
+/obj/item/flashlight/lamp/lava/purple{
 	pixel_x = 7;
 	pixel_y = 9
 	},
@@ -2643,6 +2641,18 @@
 	},
 /turf/simulated/floor/tiled/full,
 /area/tcaf_corvette/hydroponics)
+"jy" = (
+/obj/effect/floor_decal/industrial/outline/custodial,
+/obj/machinery/alarm/south{
+	req_one_access = list(204)
+	},
+/obj/structure/cart/storage/janitorialcart/full{
+	dir = 4
+	},
+/obj/item/reagent_containers/glass/bucket,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/full,
+/area/tcaf_corvette/custodial)
 "jz" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -2650,7 +2660,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/table/glass,
-/obj/item/device/flashlight/lamp/green{
+/obj/item/flashlight/lamp/green{
 	pixel_y = 6;
 	pixel_x = -3
 	},
@@ -3156,7 +3166,7 @@
 	dir = 8
 	},
 /obj/structure/table/glass,
-/obj/item/device/flashlight/lamp{
+/obj/item/flashlight/lamp{
 	on = 0;
 	pixel_y = -5;
 	pixel_x = -6
@@ -3259,7 +3269,7 @@
 /obj/structure/bed/stool/chair/shuttle{
 	dir = 4
 	},
-/obj/item/device/gps/stationary{
+/obj/item/gps/stationary{
 	pixel_x = -24;
 	pixel_y = 32;
 	gps_prefix = "TCAF";
@@ -4172,10 +4182,10 @@
 	pixel_x = 34;
 	pixel_y = -8
 	},
-/obj/item/device/binoculars/high_power,
-/obj/item/device/binoculars,
-/obj/item/device/radio/hailing,
-/obj/item/device/radio,
+/obj/item/binoculars/high_power,
+/obj/item/binoculars,
+/obj/item/radio/hailing,
+/obj/item/radio,
 /obj/item/storage/toolbox/mechanical{
 	pixel_y = -2
 	},
@@ -4464,11 +4474,23 @@
 /obj/item/storage/toolbox/mechanical{
 	pixel_y = 14
 	},
-/obj/item/device/hand_labeler{
+/obj/item/hand_labeler{
 	pixel_y = 4
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/tcaf_corvette/storage)
+"qp" = (
+/obj/effect/floor_decal/corner_wide/brown{
+	dir = 6
+	},
+/obj/machinery/media/jukebox{
+	anchored = 1;
+	density = 0
+	},
+/obj/effect/floor_decal/industrial/outline/service,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/white,
+/area/tcaf_corvette/messhall)
 "qq" = (
 /obj/effect/floor_decal/corner/brown{
 	dir = 5
@@ -4825,9 +4847,9 @@
 "rJ" = (
 /obj/structure/closet/cabinet,
 /obj/effect/floor_decal/industrial/outline/service,
-/obj/item/device/megaphone,
+/obj/item/megaphone,
 /obj/item/material/twohanded/pike/flag,
-/obj/item/device/taperecorder,
+/obj/item/taperecorder,
 /obj/item/spacecash/c1000,
 /obj/item/spacecash/c1000,
 /obj/item/spacecash/c1000,
@@ -4838,7 +4860,7 @@
 	},
 /obj/item/storage/briefcase,
 /obj/item/storage/secure/briefcase,
-/obj/item/device/camera,
+/obj/item/camera,
 /obj/item/clothing/accessory/badge/tcaf_papers/service,
 /obj/item/reagent_containers/food/drinks/flask,
 /turf/simulated/floor/tiled/dark/full,
@@ -5071,11 +5093,11 @@
 	pixel_x = 2;
 	pixel_y = 11
 	},
-/obj/item/device/spaceflare{
+/obj/item/spaceflare{
 	pixel_y = 6;
 	pixel_x = -5
 	},
-/obj/item/device/spaceflare{
+/obj/item/spaceflare{
 	pixel_y = 6;
 	pixel_x = 6
 	},
@@ -5321,7 +5343,7 @@
 /area/tcaf_corvette/cargo_bay)
 "tZ" = (
 /obj/structure/table/glass,
-/obj/item/device/versebook/biesel{
+/obj/item/versebook/biesel{
 	pixel_y = 5;
 	pixel_x = -16
 	},
@@ -5458,7 +5480,7 @@
 	},
 /obj/structure/closet/crate/drop,
 /obj/effect/decal/cleanable/dirt,
-/obj/item/device/robotanalyzer,
+/obj/item/robotanalyzer,
 /obj/item/stack/cable_coil/orange,
 /obj/item/stack/cable_coil/orange,
 /obj/item/clothing/head/welding,
@@ -5536,11 +5558,11 @@
 	must_start_working = 1
 	},
 /obj/structure/table/reinforced/steel,
-/obj/item/device/radio/hailing{
+/obj/item/radio/hailing{
 	pixel_y = 6;
 	pixel_x = -4
 	},
-/obj/item/device/radio/hailing{
+/obj/item/radio/hailing{
 	pixel_y = 6;
 	pixel_x = 7
 	},
@@ -5840,7 +5862,7 @@
 /obj/item/storage/toolbox/mechanical{
 	pixel_y = 13
 	},
-/obj/item/device/binoculars{
+/obj/item/binoculars{
 	pixel_y = 1;
 	pixel_x = 7
 	},
@@ -6513,7 +6535,7 @@
 	pixel_x = 34;
 	pixel_y = -6
 	},
-/obj/item/device/radio/intercom/expedition/north,
+/obj/item/radio/intercom/expedition/north,
 /obj/effect/floor_decal/industrial/outline/security,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/gunmetal,
@@ -7024,7 +7046,7 @@
 	pixel_x = -8;
 	pixel_y = 2
 	},
-/obj/item/device/hand_labeler{
+/obj/item/hand_labeler{
 	pixel_y = -1;
 	pixel_x = 4
 	},
@@ -7061,7 +7083,7 @@
 	dir = 4
 	},
 /obj/structure/table/reinforced/steel,
-/obj/item/device/flashlight/lantern{
+/obj/item/flashlight/lantern{
 	pixel_y = -1;
 	pixel_x = -7
 	},
@@ -7095,12 +7117,12 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/obj/item/device/flashlight/maglight,
-/obj/item/device/flashlight/maglight,
-/obj/item/device/flashlight/maglight,
-/obj/item/device/flashlight/maglight,
-/obj/item/device/flashlight/maglight,
-/obj/item/device/flashlight/maglight,
+/obj/item/flashlight/maglight,
+/obj/item/flashlight/maglight,
+/obj/item/flashlight/maglight,
+/obj/item/flashlight/maglight,
+/obj/item/flashlight/maglight,
+/obj/item/flashlight/maglight,
 /obj/item/storage/box/handcuffs,
 /obj/item/storage/box/tactical/flashbangs,
 /obj/item/storage/box/tactical/smokebombs,
@@ -7545,7 +7567,7 @@
 	},
 /obj/structure/table/wood,
 /obj/effect/decal/cleanable/dirt,
-/obj/item/device/synthesized_instrument/guitar{
+/obj/item/synthesized_instrument/guitar{
 	pixel_y = 22;
 	pixel_x = 2
 	},
@@ -8038,18 +8060,18 @@
 /obj/item/grenade/chem_grenade,
 /obj/item/grenade/chem_grenade,
 /obj/item/grenade/chem_grenade,
-/obj/item/device/assembly/igniter,
-/obj/item/device/assembly/igniter,
-/obj/item/device/assembly/igniter,
-/obj/item/device/assembly/igniter,
-/obj/item/device/assembly/timer,
-/obj/item/device/assembly/timer,
-/obj/item/device/assembly/timer,
-/obj/item/device/assembly/timer,
+/obj/item/assembly/igniter,
+/obj/item/assembly/igniter,
+/obj/item/assembly/igniter,
+/obj/item/assembly/igniter,
+/obj/item/assembly/timer,
+/obj/item/assembly/timer,
+/obj/item/assembly/timer,
+/obj/item/assembly/timer,
 /obj/item/stack/material/phoron{
 	amount = 6
 	},
-/obj/item/device/mass_spectrometer,
+/obj/item/mass_spectrometer,
 /obj/item/material/stool/chair/wheelchair,
 /obj/item/material/stool/chair/wheelchair,
 /obj/item/cane/crutch,
@@ -8600,7 +8622,7 @@
 /obj/item/clothing/accessory/crucifix/gold,
 /obj/item/clothing/head/hijab/black,
 /obj/item/clothing/ears/skrell/scrunchy,
-/obj/item/device/flashlight/headlights,
+/obj/item/flashlight/headlights,
 /obj/item/clothing/mask/trinary_mask,
 /obj/item/clothing/accessory/badge/trinary,
 /obj/item/clothing/head/kippah,
@@ -8648,12 +8670,12 @@
 	icon_state = "bible";
 	desc = "This is a copy of the Bible, the holy text of Christianity, embossed at the front with a fancy golden image of a crucifix. On closer inspection, this one contains seventy-three books inside it, indicating that it is a Catholic variation of the book. There are several notes dispersed throughout clarifying the original words in Latin Vulgate where they may not translate perfectly to Tau Ceti Basic."
 	},
-/obj/item/device/versebook/tribunal,
-/obj/item/device/versebook/autakh,
-/obj/item/device/versebook/siakh,
-/obj/item/device/versebook/skakh,
-/obj/item/device/versebook/thakh,
-/obj/item/device/versebook/trinary,
+/obj/item/versebook/tribunal,
+/obj/item/versebook/autakh,
+/obj/item/versebook/siakh,
+/obj/item/versebook/skakh,
+/obj/item/versebook/thakh,
+/obj/item/versebook/trinary,
 /obj/item/clothing/accessory/tajaran/charm,
 /obj/item/flag/trinaryperfection,
 /obj/item/flag/traverse,
@@ -8969,27 +8991,27 @@
 /obj/item/tank/jetpack/carbondioxide,
 /obj/item/tank/jetpack/carbondioxide,
 /obj/item/tank/jetpack/carbondioxide,
-/obj/item/device/gps{
+/obj/item/gps{
 	gps_prefix = "TCAF";
 	gpstag = "TCAF0"
 	},
-/obj/item/device/gps{
+/obj/item/gps{
 	gps_prefix = "TCAF";
 	gpstag = "TCAF0"
 	},
-/obj/item/device/gps{
+/obj/item/gps{
 	gps_prefix = "TCAF";
 	gpstag = "TCAF0"
 	},
-/obj/item/device/gps{
+/obj/item/gps{
 	gps_prefix = "TCAF";
 	gpstag = "TCAF0"
 	},
-/obj/item/device/gps{
+/obj/item/gps{
 	gps_prefix = "TCAF";
 	gpstag = "TCAF0"
 	},
-/obj/item/device/gps{
+/obj/item/gps{
 	gps_prefix = "TCAF";
 	gpstag = "TCAF0"
 	},
@@ -9677,10 +9699,10 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/obj/item/device/magnetic_lock/security/legion,
-/obj/item/device/magnetic_lock/security/legion,
-/obj/item/device/magnetic_lock/security/legion,
-/obj/item/device/magnetic_lock/security/legion,
+/obj/item/magnetic_lock/security/legion,
+/obj/item/magnetic_lock/security/legion,
+/obj/item/magnetic_lock/security/legion,
+/obj/item/magnetic_lock/security/legion,
 /obj/item/deployable_kit/legion_barrier,
 /obj/item/deployable_kit/legion_barrier,
 /obj/item/deployable_kit/legion_barrier,
@@ -11143,7 +11165,7 @@
 	pixel_y = 9;
 	pixel_x = 6
 	},
-/obj/item/device/radio/intercom/expedition/north,
+/obj/item/radio/intercom/expedition/north,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/ridged,
 /area/tcaf_corvette/cic)
@@ -11171,18 +11193,6 @@
 	},
 /turf/simulated/floor,
 /area/tcaf_corvette/workshop)
-"Sd" = (
-/obj/effect/floor_decal/industrial/outline/custodial,
-/obj/machinery/alarm/south{
-	req_one_access = list(204)
-	},
-/obj/structure/cart/storage/janitorialcart/full{
-	dir = 4
-	},
-/obj/item/reagent_containers/glass/bucket,
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/full,
-/area/tcaf_corvette/custodial)
 "Sf" = (
 /obj/effect/floor_decal/corner_wide/brown{
 	dir = 10
@@ -11442,7 +11452,7 @@
 "SR" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/table/steel,
-/obj/item/device/flashlight{
+/obj/item/flashlight{
 	pixel_x = -8;
 	pixel_y = 14
 	},
@@ -11452,7 +11462,7 @@
 /obj/item/tank/hydrogen/shuttle{
 	pixel_x = 3
 	},
-/obj/item/device/flashlight{
+/obj/item/flashlight{
 	pixel_x = 6;
 	pixel_y = 16
 	},
@@ -11669,18 +11679,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
 /area/tcaf_corvette/central_ring)
-"TG" = (
-/obj/effect/floor_decal/corner_wide/brown{
-	dir = 6
-	},
-/obj/machinery/media/jukebox{
-	anchored = 1;
-	density = 0
-	},
-/obj/effect/floor_decal/industrial/outline/service,
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/white,
-/area/tcaf_corvette/messhall)
 "TI" = (
 /obj/machinery/atmospherics/unary/engine,
 /turf/simulated/floor,
@@ -12083,7 +12081,7 @@
 "Vi" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/table/rack/folding_table,
-/obj/item/device/flashlight/heavy{
+/obj/item/flashlight/heavy{
 	pixel_y = 6;
 	pixel_x = 2
 	},
@@ -12679,12 +12677,12 @@
 /obj/item/tank/emergency_oxygen/double,
 /obj/item/tank/emergency_oxygen/double,
 /obj/item/tank/emergency_oxygen/double,
-/obj/item/device/suit_cooling_unit,
-/obj/item/device/suit_cooling_unit,
-/obj/item/device/suit_cooling_unit,
-/obj/item/device/suit_cooling_unit,
-/obj/item/device/suit_cooling_unit,
-/obj/item/device/suit_cooling_unit,
+/obj/item/suit_cooling_unit,
+/obj/item/suit_cooling_unit,
+/obj/item/suit_cooling_unit,
+/obj/item/suit_cooling_unit,
+/obj/item/suit_cooling_unit,
+/obj/item/suit_cooling_unit,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/carpet/rubber,
 /area/tcaf_corvette/storage)
@@ -110863,7 +110861,7 @@ qQ
 bU
 Rq
 lm
-TG
+qp
 Ps
 GP
 zF
@@ -113679,7 +113677,7 @@ Ne
 ml
 UP
 KO
-Sd
+jy
 ml
 uY
 Ro

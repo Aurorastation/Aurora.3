@@ -86,8 +86,9 @@
 	icon_state = "shield_armor_[active]"
 	item_state = "shield_armor_[active]"
 	if(active)
-		set_light(2, 1, l_color = "#006AFF")
+		set_light_range_power_color(2, 1, "#006AFF")
+		set_light_on(TRUE)
 	else
-		set_light(0, 0, l_color = "#000000")
+		set_light_on(FALSE)
 	..()
 	return

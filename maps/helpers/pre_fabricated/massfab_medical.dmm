@@ -164,7 +164,7 @@
 /obj/item/storage/box/unique/sharps{
 	pixel_x = -5
 	},
-/obj/item/device/mass_spectrometer{
+/obj/item/mass_spectrometer{
 	pixel_x = 6;
 	pixel_y = 2
 	},
@@ -578,7 +578,7 @@
 /obj/item/storage/box/unique/sharps{
 	pixel_x = -5
 	},
-/obj/item/device/mass_spectrometer{
+/obj/item/mass_spectrometer{
 	pixel_x = 6;
 	pixel_y = 2
 	},
@@ -631,7 +631,7 @@
 "kO" = (
 /obj/structure/table/stone/marble,
 /obj/item/clipboard,
-/obj/item/device/flashlight/pen,
+/obj/item/flashlight/pen,
 /turf/simulated/floor/tiled/full,
 /area/space)
 "kP" = (
@@ -1057,11 +1057,11 @@
 	pixel_x = -8;
 	pixel_y = 4
 	},
-/obj/item/device/flashlight/pen{
+/obj/item/flashlight/pen{
 	pixel_x = 6;
 	pixel_y = 8
 	},
-/obj/item/device/flashlight/pen{
+/obj/item/flashlight/pen{
 	pixel_x = 6;
 	pixel_y = 8
 	},
@@ -2025,7 +2025,7 @@
 /area/space)
 "He" = (
 /obj/structure/table/standard,
-/obj/item/device/advanced_healthanalyzer,
+/obj/item/advanced_healthanalyzer,
 /turf/simulated/floor/tiled/white,
 /area/space)
 "Hq" = (
@@ -2144,7 +2144,7 @@
 /obj/item/storage/box/unique/sharps{
 	pixel_x = -5
 	},
-/obj/item/device/mass_spectrometer{
+/obj/item/mass_spectrometer{
 	pixel_x = 6;
 	pixel_y = 2
 	},
@@ -2341,11 +2341,11 @@
 	pixel_x = 8;
 	pixel_y = 4
 	},
-/obj/item/device/flashlight/pen{
+/obj/item/flashlight/pen{
 	pixel_x = -6;
 	pixel_y = 8
 	},
-/obj/item/device/flashlight/pen{
+/obj/item/flashlight/pen{
 	pixel_x = -6;
 	pixel_y = 8
 	},
@@ -2414,7 +2414,7 @@
 /obj/item/storage/box/unique/sharps{
 	pixel_x = -5
 	},
-/obj/item/device/mass_spectrometer{
+/obj/item/mass_spectrometer{
 	pixel_x = 6;
 	pixel_y = 2
 	},
@@ -3147,32 +3147,32 @@
 /area/space)
 "Xe" = (
 /obj/structure/table/standard,
-/obj/item/device/radio{
+/obj/item/radio{
 	pixel_x = -6;
 	pixel_y = 6
 	},
-/obj/item/device/radio{
+/obj/item/radio{
 	pixel_x = -6;
 	pixel_y = 6
 	},
-/obj/item/device/radio{
+/obj/item/radio{
 	pixel_x = 5;
 	pixel_y = 6
 	},
-/obj/item/device/radio{
+/obj/item/radio{
 	pixel_x = 5;
 	pixel_y = 6
 	},
-/obj/item/device/gps/medical{
+/obj/item/gps/medical{
 	pixel_x = -7
 	},
-/obj/item/device/gps/medical{
+/obj/item/gps/medical{
 	pixel_x = 5
 	},
-/obj/item/device/gps/medical{
+/obj/item/gps/medical{
 	pixel_x = -7
 	},
-/obj/item/device/gps/medical{
+/obj/item/gps/medical{
 	pixel_x = 5
 	},
 /obj/item/storage/belt/medical/paramedic,

@@ -22,18 +22,18 @@
 	pixel_x = 4;
 	pixel_y = -4
 	},
-/obj/item/device/debugger{
+/obj/item/debugger{
 	pixel_x = 2;
 	pixel_y = -5
 	},
-/obj/item/device/debugger{
+/obj/item/debugger{
 	pixel_y = -5
 	},
-/obj/item/device/multitool{
+/obj/item/multitool{
 	pixel_x = -2;
 	pixel_y = -6
 	},
-/obj/item/device/multitool{
+/obj/item/multitool{
 	pixel_x = -4;
 	pixel_y = -6
 	},
@@ -87,11 +87,11 @@
 /obj/item/ammo_casing/slugger,
 /obj/item/ammo_casing/slugger,
 /obj/item/ammo_casing/slugger,
-/obj/item/device/binoculars{
+/obj/item/binoculars{
 	pixel_x = -4;
 	pixel_y = -6
 	},
-/obj/item/device/binoculars{
+/obj/item/binoculars{
 	pixel_x = 4;
 	pixel_y = -6
 	},

@@ -5,7 +5,7 @@
 	icon_state = "wm_10"
 	density = 1
 	anchored = TRUE
-	clicksound = /singleton/sound_category/button_sound
+	clicksound = SFX_BUTTON
 	clickvol = 40
 
 	var/state = 1
@@ -115,7 +115,7 @@
 				return ..()
 		else
 			return ..()
-	else if(attacking_item.iswrench())
+	else if(attacking_item.tool_behaviour == TOOL_WRENCH)
 		if(anchored)
 			to_chat(user, SPAN_NOTICE("You lean down and unwrench \the [src]."))
 			anchored = FALSE

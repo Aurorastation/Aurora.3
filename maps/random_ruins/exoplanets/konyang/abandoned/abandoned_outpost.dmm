@@ -82,7 +82,7 @@
 /area/konyang_telecomms_outpost)
 "dB" = (
 /obj/structure/table/wood,
-/obj/item/device/flashlight/lamp/green{
+/obj/item/flashlight/lamp/green{
 	pixel_x = -2;
 	pixel_y = 6
 	},
@@ -394,8 +394,8 @@
 /obj/structure/closet/secure_closet/guncabinet{
 	req_access = null
 	},
-/obj/item/device/radio,
-/obj/item/device/radio,
+/obj/item/radio,
+/obj/item/radio,
 /turf/simulated/floor/tiled,
 /area/konyang_telecomms_outpost)
 "uk" = (
@@ -745,7 +745,7 @@
 /obj/structure/table/steel,
 /obj/item/paper_bin,
 /obj/item/pen/black,
-/obj/item/device/radio/phone{
+/obj/item/radio/phone{
 	pixel_y = 10;
 	pixel_x = 10
 	},
@@ -974,7 +974,7 @@
 	pixel_x = 6;
 	pixel_y = 6
 	},
-/obj/item/device/radio/phone{
+/obj/item/radio/phone{
 	pixel_y = 10;
 	pixel_x = -10
 	},

@@ -298,7 +298,7 @@
 		if(victim == M)
 			if(prob(60))
 				visible_message(SPAN_WARNING("[M] attempts to wrestle \the [name] off!"))
-				playsound(loc, /singleton/sound_category/punchmiss_sound, 25, 1, -1)
+				playsound(loc, SFX_PUNCH_MISS, 25, 1, -1)
 			else
 				visible_message(SPAN_WARNING("[M] manages to wrestle \the [name] off!"))
 				playsound(loc, 'sound/weapons/thudswoosh.ogg', 50, 1, -1)
@@ -319,7 +319,7 @@
 		else
 			if(prob(30))
 				visible_message(SPAN_WARNING("[M] attempts to wrestle \the [name] off of [victim]!"))
-				playsound(loc, /singleton/sound_category/punchmiss_sound, 25, 1, -1)
+				playsound(loc, SFX_PUNCH_MISS, 25, 1, -1)
 			else
 				visible_message(SPAN_WARNING("[M] manages to wrestle \the [name] off of [victim]!"))
 				playsound(loc, 'sound/weapons/thudswoosh.ogg', 50, 1, -1)

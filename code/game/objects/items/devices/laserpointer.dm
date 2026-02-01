@@ -1,9 +1,9 @@
 
 
-/obj/item/device/laser_pointer
+/obj/item/laser_pointer
 	name = "laser pointer"
 	desc = "Don't shine it in your eyes!"
-	icon = 'icons/obj/item/device/laser_pointer.dmi'
+	icon = 'icons/obj/item/laser_pointer.dmi'
 	icon_state = "pointer"
 	item_state = "pen"
 	var/pointer_icon_state
@@ -12,34 +12,34 @@
 	var/turf/pointer_loc
 	var/obj/item/stock_parts/micro_laser/diode //cant use the laser without it
 
-/obj/item/device/laser_pointer/red
+/obj/item/laser_pointer/red
 	pointer_icon_state = "red_laser"
-/obj/item/device/laser_pointer/green
+/obj/item/laser_pointer/green
 	pointer_icon_state = "green_laser"
-/obj/item/device/laser_pointer/blue
+/obj/item/laser_pointer/blue
 	pointer_icon_state = "blue_laser"
-/obj/item/device/laser_pointer/purple
+/obj/item/laser_pointer/purple
 	pointer_icon_state = "purple_laser"
 
 
-/obj/item/device/laser_pointer/Initialize()
+/obj/item/laser_pointer/Initialize()
 	. = ..()
 	diode = new(src)
 	icon_state = "pointer"
 	if(!pointer_icon_state)
 		pointer_icon_state = pick("red_laser","green_laser","blue_laser","purple_laser")
 
-/obj/item/device/laser_pointer/upgraded/Initialize()
+/obj/item/laser_pointer/upgraded/Initialize()
 	. = ..()
 	diode = new /obj/item/stock_parts/micro_laser/ultra
 
 
 
-/obj/item/device/laser_pointer/attack(mob/living/target_mob, mob/living/user, target_zone)
+/obj/item/laser_pointer/attack(mob/living/target_mob, mob/living/user, target_zone)
 	laser_act(target_mob, user)
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 
-/obj/item/device/laser_pointer/attackby(obj/item/attacking_item, mob/user)
+/obj/item/laser_pointer/attackby(obj/item/attacking_item, mob/user)
 	if(istype(attacking_item, /obj/item/stock_parts/micro_laser))
 		if(!diode)
 			user.drop_item()
@@ -50,20 +50,20 @@
 			to_chat(user, SPAN_NOTICE("[src] already has a laser diode."))
 		return TRUE
 
-	else if(attacking_item.isscrewdriver())
+	else if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 		if(diode)
 			to_chat(user, SPAN_NOTICE("You remove the [diode.name] from the [src]."))
 			diode.forceMove(get_turf(user))
 			diode = null
 		return TRUE
 
-/obj/item/device/laser_pointer/afterattack(var/atom/target, var/mob/living/user, flag, params)
+/obj/item/laser_pointer/afterattack(var/atom/target, var/mob/living/user, flag, params)
 	if(flag)	//we're placing the object on a table or in backpack
 		return
 	laser_act(target, user)
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 
-/obj/item/device/laser_pointer/proc/laser_act(var/atom/target, var/mob/living/user)
+/obj/item/laser_pointer/proc/laser_act(var/atom/target, var/mob/living/user)
 	if( !(user in (viewers(7,target))) )
 		return
 	if (!diode)
@@ -123,7 +123,7 @@
 	flick_overlay(I, showto, 15)
 	icon_state = "pointer"
 
-/obj/item/device/laser_pointer/Destroy()
+/obj/item/laser_pointer/Destroy()
 	if (diode)
 		QDEL_NULL(diode)
 

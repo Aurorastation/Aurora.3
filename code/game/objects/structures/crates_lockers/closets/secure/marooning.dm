@@ -21,8 +21,8 @@
 	starts_with = list(
 		// Tools
 		/obj/item/crowbar/red = 1,
-		/obj/item/device/flashlight/heavy = 1,
-		/obj/item/device/gps/marooning_equipment = 1,
+		/obj/item/flashlight/heavy = 1,
+		/obj/item/gps/marooning_equipment = 1,
 		/obj/item/airbubble = 1,
 
 		// Rations

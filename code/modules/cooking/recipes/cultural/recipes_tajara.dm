@@ -150,6 +150,16 @@
 	result = /obj/item/reagent_containers/food/snacks/adhomian_porridge
 	reagent_mix = RECIPE_REAGENT_REPLACE //Simplify end product
 
+/singleton/recipe/zharkir
+	appliance = POT | SAUCEPAN
+	fruit = list("mtear" = 1, "earthenroot" = 1)
+	items = list(
+		/obj/item/reagent_containers/food/snacks/dip/sarmikhir
+	)
+	finished_temperature = T0C + 200
+	reagent_mix = RECIPE_REAGENT_REPLACE
+	result = /obj/item/reagent_containers/food/snacks/soup/zharkir
+
 // Tajaran cakes
 /singleton/recipe/conecake
 	appliance = OVEN

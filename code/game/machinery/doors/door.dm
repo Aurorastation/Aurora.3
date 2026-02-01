@@ -324,7 +324,7 @@
 	if(!istype(attacking_item, /obj/item/forensics))
 		src.add_fingerprint(user)
 
-	if(attacking_item.ishammer() && user.a_intent != I_HURT)
+	if(attacking_item.tool_behaviour == TOOL_HAMMER && user.a_intent != I_HURT)
 		for(var/obj/item/stack/stack in user.get_inactive_held_items())
 			if(istype(stack) && stack.get_material_name() == get_material_name())
 				if(stat & BROKEN)
@@ -357,7 +357,7 @@
 
 				return TRUE
 
-	if(repairing && attacking_item.iswelder())
+	if(repairing && attacking_item.tool_behaviour == TOOL_WELDER)
 		if(!density)
 			to_chat(user, SPAN_WARNING("\The [src] must be closed before you can repair it."))
 			return TRUE
@@ -373,7 +373,7 @@
 				repairing = null
 		return TRUE
 
-	if(repairing && attacking_item.iscrowbar())
+	if(repairing && attacking_item.tool_behaviour == TOOL_CROWBAR)
 		to_chat(user, SPAN_NOTICE("You remove \the [repairing]."))
 		attacking_item.play_tool_sound(get_turf(src), 50)
 		repairing.forceMove(user.loc)
@@ -567,7 +567,7 @@
 	operating = FALSE
 
 	//I shall not add a check every x ticks if a door has closed over some fire.
-	var/obj/fire/fire = locate() in loc
+	var/obj/hotspot/fire = locate() in loc
 	if(fire)
 		qdel(fire)
 	return

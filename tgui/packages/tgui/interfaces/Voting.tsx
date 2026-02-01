@@ -66,7 +66,8 @@ export const VoteWindow = (props, context) => {
         ) : (
           ''
         )
-      }>
+      }
+    >
       <Table>
         <Table.Row header>
           <Table.Cell>
@@ -104,7 +105,8 @@ export const VoteWindow = (props, context) => {
                   } else {
                     return 'gray';
                   }
-                })()}>
+                })()}
+              >
                 {choice.required_players ? choice.required_players : ''}
               </Table.Cell>
             )}

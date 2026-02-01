@@ -17,7 +17,7 @@
 /area/template_noop)
 "f" = (
 /obj/structure/table/wood,
-/obj/item/device/flashlight/lantern/on,
+/obj/item/flashlight/lantern/on,
 /obj/structure/lattice/catwalk/indoor/planks{
 	name = "duckboard"
 	},
@@ -63,7 +63,7 @@
 /area/template_noop)
 "o" = (
 /obj/structure/table/wood,
-/obj/item/device/radio,
+/obj/item/radio,
 /obj/random/dirt_75,
 /turf/simulated/floor/wood,
 /area/template_noop)
@@ -197,14 +197,14 @@
 /area/template_noop)
 "O" = (
 /obj/structure/table/wood,
-/obj/item/device/flashlight/lantern/on,
+/obj/item/flashlight/lantern/on,
 /turf/simulated/floor/wood,
 /area/template_noop)
 "P" = (
 /turf/simulated/wall/wood,
 /area/template_noop)
 "R" = (
-/obj/item/device/flashlight/lantern/on,
+/obj/item/flashlight/lantern/on,
 /obj/structure/table/wood,
 /obj/structure/lattice/catwalk/indoor/planks{
 	name = "duckboard"

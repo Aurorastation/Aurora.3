@@ -71,7 +71,8 @@ export const CargoDelivery = (props, context) => {
                       page: 'order_overview',
                       order_overview: data.order_details.order_id.toString(),
                     })
-                  }>
+                  }
+                >
                   Overview
                 </Tabs.Tab>
                 <Tabs.Tab
@@ -80,7 +81,8 @@ export const CargoDelivery = (props, context) => {
                       page: 'order_payment',
                       order_payment: data.order_details.order_id.toString(),
                     })
-                  }>
+                  }
+                >
                   Payment
                 </Tabs.Tab>
               </>
@@ -239,7 +241,8 @@ export const Payment = (props, context) => {
           color="green"
           onClick={() => act('deliver', { deliver: 'true' })}
         />
-      }>
+      }
+    >
       <LabeledList>
         <LabeledList.Item label="Price">
           {data.order_details.price.toFixed(2)} 电

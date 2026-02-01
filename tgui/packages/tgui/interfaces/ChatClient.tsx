@@ -39,12 +39,12 @@ export const ChatClient = (props, context) => {
   const [editingRingtone, setEditingRingtone] = useLocalState(
     context,
     'editingRingtone',
-    0
+    0,
   );
   const [searchTerm, setSearchTerm] = useLocalState<string>(
     context,
     `searchTerm`,
-    ``
+    ``,
   );
 
   return (
@@ -86,7 +86,8 @@ export const ChatClient = (props, context) => {
                 ''
               )}
             </>
-          }>
+          }
+        >
           {data.users && data.users.length ? <Users /> : 'There are no users.'}
           {!data.active ? <ChannelsWindow /> : ''}
         </Section>
@@ -100,7 +101,7 @@ export const Users = (props, context) => {
   const [searchTerm, setSearchTerm] = useLocalState<string>(
     context,
     `searchTerm`,
-    ``
+    ``,
   );
 
   return (
@@ -110,23 +111,25 @@ export const Users = (props, context) => {
           <Tabs.Tab
             height="20%"
             selected={!data.active}
-            onClick={() => act('set_active', { set_active: null })}>
+            onClick={() => act('set_active', { set_active: null })}
+          >
             All
           </Tabs.Tab>
           {data.channels?.length
             ? data.channels
-              .filter((chn) => chn.can_interact)
-              .map((channel) => (
-                <Tabs.Tab
-                  height="10%"
-                  key={channel.ref}
-                  selected={data.active && data.active.ref === channel.ref}
-                  onClick={() =>
-                    act('set_active', { set_active: channel.ref })
-                  }>
-                  {channel.title}
-                </Tabs.Tab>
-              ))
+                .filter((chn) => chn.can_interact)
+                .map((channel) => (
+                  <Tabs.Tab
+                    height="10%"
+                    key={channel.ref}
+                    selected={data.active && data.active.ref === channel.ref}
+                    onClick={() =>
+                      act('set_active', { set_active: channel.ref })
+                    }
+                  >
+                    {channel.title}
+                  </Tabs.Tab>
+                ))
             : null}
         </Tabs>
       </Section>
@@ -140,7 +143,7 @@ export const AllUsers = (props, context) => {
   const [searchTerm, setSearchTerm] = useLocalState<string>(
     context,
     `searchTerm`,
-    ``
+    ``,
   );
 
   return (
@@ -162,7 +165,8 @@ export const AllUsers = (props, context) => {
         data.users
           .filter(
             (usr) =>
-              usr.username?.toLowerCase().indexOf(searchTerm.toLowerCase()) > -1
+              usr.username?.toLowerCase().indexOf(searchTerm.toLowerCase()) >
+              -1,
           )
           .map((user) => (
             <Stack.Item key={user.ref}>
@@ -181,25 +185,25 @@ export const Chat = (props, context) => {
   const [newMessage, setNewMessage] = useLocalState<string>(
     context,
     `newMessage`,
-    ``
+    ``,
   );
 
   const [creatingJoinPassword, setCreatingJoinPassword] = useLocalState(
     context,
     'creatingJoinPassword',
-    0
+    0,
   );
 
   const [password, setPassword] = useLocalState<string>(
     context,
     `password`,
-    ``
+    ``,
   );
 
   const [creatingTitle, setCreatingTitle] = useLocalState(
     context,
     'creatingTitle',
-    0
+    0,
   );
 
   const [title, setTitle] = useLocalState<string>(context, `title`, ``);
@@ -286,7 +290,8 @@ export const Chat = (props, context) => {
             }
           />
         </>
-      }>
+      }
+    >
       {data.active &&
         data.msg &&
         data.msg.map((message) => (
@@ -294,7 +299,8 @@ export const Chat = (props, context) => {
             key={message}
             preserveWhitespace
             fontFamily="arial"
-            backgroundColor="#000000">
+            backgroundColor="#000000"
+          >
             {message}
           </Box>
         ))}
@@ -348,31 +354,31 @@ export const ChannelsWindow = (props, context) => {
   const [channelSearchTerm, setChannelSearchTerm] = useLocalState<string>(
     context,
     `channelSearchTerm`,
-    ``
+    ``,
   );
 
   const [creatingChannelName, setCreatingChannelName] = useLocalState(
     context,
     'creatingChannelName',
-    0
+    0,
   );
 
   const [channelName, setChannelName] = useLocalState(
     context,
     'channelName',
-    ''
+    '',
   );
 
   const [enteringJoinPassword, setEnteringJoinPassword] = useLocalState(
     context,
     'enteringJoinPassword',
-    0
+    0,
   );
 
   const [joinPassword, setJoinPassword] = useLocalState(
     context,
     'joinPassword',
-    ''
+    '',
   );
 
   return (
@@ -402,7 +408,8 @@ export const ChannelsWindow = (props, context) => {
             ''
           )}
         </>
-      }>
+      }
+    >
       <Stack vertical>
         <Input
           autoFocus
@@ -418,49 +425,50 @@ export const ChannelsWindow = (props, context) => {
         />
         {data.channels?.length
           ? data.channels
-            .filter(
-              (chn) =>
-                chn.title
-                  ?.toLowerCase()
-                  .indexOf(channelSearchTerm.toLowerCase()) > -1 && !chn.direct
-            )
-            .map((channel) => (
-              <Stack.Item key={channel.ref}>
-                {channel.password ? (
-                  <>
-                    <Button
-                      content={channel.title}
-                      onClick={() => {
-                        setJoinPassword('');
-                        setEnteringJoinPassword(enteringJoinPassword ? 0 : 1);
-                      }}
-                    />
-                    {enteringJoinPassword ? (
-                      <Input
-                        placeholder="Enter Password"
-                        value={joinPassword}
-                        strict
-                        onInput={(e, v) => setJoinPassword(v)}
-                        onChange={(e, v) => {
-                          act('join', {
-                            target: channel.ref,
-                            password: joinPassword,
-                          });
-                          setEnteringJoinPassword(0);
+              .filter(
+                (chn) =>
+                  chn.title
+                    ?.toLowerCase()
+                    .indexOf(channelSearchTerm.toLowerCase()) > -1 &&
+                  !chn.direct,
+              )
+              .map((channel) => (
+                <Stack.Item key={channel.ref}>
+                  {channel.password ? (
+                    <>
+                      <Button
+                        content={channel.title}
+                        onClick={() => {
+                          setJoinPassword('');
+                          setEnteringJoinPassword(enteringJoinPassword ? 0 : 1);
                         }}
                       />
-                    ) : (
-                      ''
-                    )}
-                  </>
-                ) : (
-                  <Button
-                    content={channel.title}
-                    onClick={() => act('join', { target: channel.ref })}
-                  />
-                )}
-              </Stack.Item>
-            ))
+                      {enteringJoinPassword ? (
+                        <Input
+                          placeholder="Enter Password"
+                          value={joinPassword}
+                          strict
+                          onInput={(e, v) => setJoinPassword(v)}
+                          onChange={(e, v) => {
+                            act('join', {
+                              target: channel.ref,
+                              password: joinPassword,
+                            });
+                            setEnteringJoinPassword(0);
+                          }}
+                        />
+                      ) : (
+                        ''
+                      )}
+                    </>
+                  ) : (
+                    <Button
+                      content={channel.title}
+                      onClick={() => act('join', { target: channel.ref })}
+                    />
+                  )}
+                </Stack.Item>
+              ))
           : null}
       </Stack>
     </Section>

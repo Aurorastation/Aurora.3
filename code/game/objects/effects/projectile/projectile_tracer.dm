@@ -4,7 +4,9 @@
 	var/datum/point/midpoint = point_midpoint_points(starting, ending)
 	var/obj/effect/projectile/tracer/PB = new beam_type
 	if(isnull(light_color_override))
-		light_color_override = color
+		if(isnull(PB.light_color))
+			light_color_override = color
+		else light_color_override = PB.light_color
 	PB.apply_vars(angle_between_points(starting, ending), midpoint.return_px(), midpoint.return_py(), color, pixel_length_between_points(starting, ending) / world.icon_size, midpoint.return_turf(), 0)
 	. = PB
 	if(light_range > 0 && light_intensity > 0)
@@ -90,7 +92,7 @@
 
 /obj/effect/projectile/tracer/emitter
 	icon_state = "emitter"
-	light_color = LIGHT_COLOR_GREEN
+	light_color = COLOR_SPRING_GREEN
 
 /obj/effect/projectile/tracer/tachyon
 	name = "particle beam"

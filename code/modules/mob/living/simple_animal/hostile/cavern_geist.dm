@@ -33,7 +33,7 @@
 	attacktext = "mangled"
 	attack_sound = 'sound/weapons/bloodyslice.ogg'
 
-	see_invisible = SEE_INVISIBLE_NOLIGHTING
+	lighting_alpha = LIGHTING_PLANE_ALPHA_SOMEWHAT_INVISIBLE
 	pixel_x = -16
 	speed = -1
 

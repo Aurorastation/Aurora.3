@@ -124,3 +124,9 @@
 	name = "hull plating"
 	icon = 'icons/turf/flooring/tiles.dmi'
 	icon_state = "reinforced_light"
+
+/turf/simulated/IgniteTurf(power, fire_color)
+	if(turf_fire)
+		turf_fire.AddPower(power)
+		return
+	new /obj/turf_fire(src, power, fire_color)

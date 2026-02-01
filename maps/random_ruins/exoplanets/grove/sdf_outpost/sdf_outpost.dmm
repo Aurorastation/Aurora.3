@@ -158,7 +158,7 @@
 /turf/simulated/floor/tiled,
 /area/grove_sdf_outpost)
 "ls" = (
-/obj/item/device/flashlight/maglight/on,
+/obj/item/flashlight/maglight/on,
 /turf/simulated/floor/exoplanet/grass/grove,
 /area/grove_sdf_outpost)
 "lG" = (
@@ -171,7 +171,7 @@
 	opened = 1;
 	req_access = null
 	},
-/obj/item/device/flashlight/maglight,
+/obj/item/flashlight/maglight,
 /obj/item/storage/belt/military,
 /obj/item/storage/belt/military,
 /turf/simulated/floor/tiled,
@@ -679,7 +679,7 @@
 /obj/structure/closet/crate/tool,
 /obj/item/clothing/head/welding,
 /obj/item/clothing/gloves/yellow,
-/obj/item/device/multitool,
+/obj/item/multitool,
 /turf/simulated/floor/tiled,
 /area/grove_sdf_outpost)
 "MM" = (
@@ -721,7 +721,7 @@
 	pixel_y = 30;
 	req_access = null
 	},
-/obj/item/device/gps,
+/obj/item/gps,
 /turf/simulated/floor/tiled,
 /area/grove_sdf_outpost)
 "OW" = (

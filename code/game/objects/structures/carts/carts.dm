@@ -9,27 +9,24 @@ ABSTRACT_TYPE(/obj/structure/cart)
 	material = DEFAULT_WALL_MATERIAL
 	slowdown = 0
 	movable_flags = MOVABLE_FLAG_WHEELED
+	atom_flags = CRITICAL_ATOM
 	var/movesound = 'sound/effects/roll.ogg'
 
 /obj/structure/cart/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()
-	. += "\
-		You can <b>CTRL-Click</b> to start dragging this cart. This object has a special dragging behaviour: when dragged, character's movement \
-		directs the cart and the character is subsequently pulled by it. \
-		"
+	. += "<b>CTRL-Click</b> to start dragging this cart. This object has a special dragging behaviour: when dragged, character's movement \
+		directs the cart and the character is subsequently pulled by it."
 
 /obj/structure/cart/disassembly_hints(mob/user, distance, is_adjacent)
 	. += ..()
-	. += "An empty cart can be taken apart with a <b>wrench</b> or a <b>welder</b>. Or a <b>plasma cutter</b>, if you're that hardcore."
-
-/obj/structure/cart/proc/take_apart(var/mob/user = null, var/obj/I)
+	. += "An empty cart can be taken apart with a <b>wrench</b> or a <b>welder</b>. Or a <b>plasma cutter</b>, if you're that hardcore. If it contains anything when disassembled, these contents will spill onto the floor."
+/obj/structure/cart/proc/take_apart(var/mob/user = null, var/obj/item/object)
 	if(user)
-		if(iswelder(I))
-			var/obj/item/welder = I
+		if(object.tool_behaviour == TOOL_WELDER)
+			var/obj/item/welder = object
 			welder.play_tool_sound(get_turf(src), 50)
-
 		user.visible_message("<b>[user]</b> starts taking apart the [src]...", SPAN_NOTICE("You start disassembling the [src]..."))
-		if (!do_after(user, 30, do_flags = DO_DEFAULT & ~DO_USER_SAME_HAND))
+		if(!do_after(user, 30, do_flags = DO_DEFAULT & ~DO_USER_SAME_HAND))
 			return
 
 	dismantle()
@@ -84,7 +81,7 @@ ABSTRACT_TYPE(/obj/structure/cart/storage)
 
 /obj/structure/cart/storage/proc/get_storage_contents_list()
 
-/obj/structure/cart/storage/take_apart(var/mob/user = null, var/obj/I)
+/obj/structure/cart/storage/take_apart(var/mob/user = null, var/obj/object)
 	if(has_items)
 		spill()
 	. = ..()

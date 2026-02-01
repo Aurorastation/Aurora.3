@@ -38,7 +38,7 @@
 		installed_gun = gun
 		size += gun.w_class
 		to_chat(user, SPAN_NOTICE("You slide \the [gun] into the firing mechanism."))
-		playsound(src.loc, /singleton/sound_category/crowbar_sound, 50, 1)
+		playsound(src.loc, SFX_CROWBAR, 50, 1)
 	else
 		..()
 
@@ -47,7 +47,7 @@
 		installed_gun.forceMove(get_turf(src))
 		to_chat(user, SPAN_NOTICE("You slide \the [installed_gun] out of the firing mechanism."))
 		size = initial(size)
-		playsound(loc, /singleton/sound_category/crowbar_sound, 50, 1)
+		playsound(loc, SFX_CROWBAR, 50, 1)
 		installed_gun = null
 	else
 		to_chat(user, SPAN_NOTICE("There's no weapon to remove from the mechanism."))

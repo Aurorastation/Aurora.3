@@ -16,7 +16,7 @@
 				step_away(src,user,15)
 				sleep(3)
 				step_away(src,user,15)
-		playsound(loc, /singleton/sound_category/punch_sound, 25, 1, -1)
+		playsound(loc, SFX_PUNCH, 25, 1, -1)
 		for(var/mob/O in viewers(src, null))
 			if ((O.client && !( O.blinded )))
 				O.show_message(SPAN_DANGER("[user] has punched [src]!"), 1)
@@ -30,7 +30,7 @@
 		adjustBruteLoss(damage)
 		updatehealth()
 	else
-		playsound(loc, /singleton/sound_category/punchmiss_sound, 25, 1, -1)
+		playsound(loc, SFX_PUNCH_MISS, 25, 1, -1)
 		for(var/mob/O in viewers(src, null))
 			if ((O.client && !( O.blinded )))
 				O.show_message(SPAN_DANGER("[user] has attempted to punch [src]!"), 1)

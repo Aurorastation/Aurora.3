@@ -57,11 +57,15 @@ Deployable Kits
 		visible_message(SPAN_WARNING("\The [src] is hit by \the [hitting_projectile]!"))
 
 /obj/structure/blocker/attackby(obj/item/attacking_item, mob/user)
-	if(attacking_item.ishammer() && user.a_intent != I_HURT)
-		for(var/obj/item/I in user.get_inactive_held_items())
-			if(I && istype(I, /obj/item/stack))
-				var/obj/item/stack/D = I
-				if(D.get_material_name() != material.name)
+	if(attacking_item.tool_behaviour == TOOL_HAMMER && user.a_intent != I_HURT)
+		var/obj/item/I = user.get_type_in_hands(/obj/item/stack)
+		if(I)
+			var/obj/item/stack/D = I
+			if(D.get_material_name() != material.name)
+				to_chat(user, SPAN_WARNING("You need one sheet of [material.display_name] to repair \the [src]."))
+				return ..()
+			if(health < maxhealth)
+				if(D.get_amount() < 1)
 					to_chat(user, SPAN_WARNING("You need one sheet of [material.display_name] to repair \the [src]."))
 					return ..()
 				if(health < maxhealth)
@@ -174,7 +178,7 @@ Deployable Kits
 				visible_message(SPAN_WARNING("BZZzZZzZZzZT"))
 				return
 		return
-	else if (attacking_item.iswrench())
+	else if (attacking_item.tool_behaviour == TOOL_WRENCH)
 		if (src.health < src.maxhealth)
 			user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 			src.health = src.maxhealth

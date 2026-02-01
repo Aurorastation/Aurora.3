@@ -154,7 +154,7 @@
 	back = /obj/item/storage/backpack/satchel/leather
 
 	id = null
-	backpack_contents = list(/obj/item/storage/box/survival = 1, /obj/item/screwdriver = 1, /obj/item/wirecutters = 1, /obj/item/device/radio = 1, /obj/item/device/multitool = 1)
+	backpack_contents = list(/obj/item/storage/box/survival = 1, /obj/item/screwdriver = 1, /obj/item/wirecutters = 1, /obj/item/radio = 1, /obj/item/multitool = 1)
 	species_shoes = list(
 		SPECIES_UNATHI = /obj/item/clothing/shoes/jackboots/toeless,
 		SPECIES_TAJARA = /obj/item/clothing/shoes/jackboots/toeless,

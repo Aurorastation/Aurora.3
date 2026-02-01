@@ -27,7 +27,8 @@ export const AccessTerminal = (props, context) => {
             ) : (
               <Button content="Insert Card" onClick={() => act('insert_id')} />
             )
-          }>
+          }
+        >
           {data.is_card_in ? (
             <LabeledList>
               <LabeledList.Item label="Registered Name">

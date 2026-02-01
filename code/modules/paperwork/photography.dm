@@ -9,7 +9,7 @@
 /*******
 * film *
 *******/
-/obj/item/device/camera_film
+/obj/item/camera_film
 	name = "film cartridge"
 	icon = 'icons/obj/bureaucracy.dmi'
 	desc = "A camera film cartridge. Insert it into a camera to reload it."
@@ -17,7 +17,7 @@
 	item_state = "electropack"
 	w_class = WEIGHT_CLASS_TINY
 
-/obj/item/device/camera_film/taj_film
+/obj/item/camera_film/taj_film
 	name = "film canister"
 	icon = 'icons/obj/tajara_items.dmi'
 	desc = "A rolle of 35mm film intended for cameras of Tajaran make."
@@ -47,7 +47,7 @@ GLOBAL_VAR_INIT(photo_count, 0)
 
 /obj/item/photo/feedback_hints(mob/user, distance, is_adjacent)
 	. += ..()
-	if(distance <= 1)
+	if(distance <= 1 || in_slide_projector(user))
 		show(user)
 		. += SPAN_NOTICE("[picture_desc]")
 	else
@@ -61,7 +61,7 @@ GLOBAL_VAR_INIT(photo_count, 0)
 	examinate(user, src)
 
 /obj/item/photo/attackby(obj/item/attacking_item, mob/user)
-	if(attacking_item.ispen())
+	if(attacking_item.tool_behaviour == TOOL_PEN)
 		var/txt = sanitize( tgui_input_text(user, "What would you like to write on the back?", "Photo Writing", max_length = 128), 128 )
 		if(loc == user && user.stat == 0)
 			scribble = txt
@@ -117,7 +117,7 @@ GLOBAL_VAR_INIT(photo_count, 0)
 	if(!istype(user) || !istype(hand))
 		return ..()
 
-	playsound(loc, /singleton/sound_category/rustle_sound, 50, 1, -5)
+	playsound(loc, SFX_RUSTLE, 50, 1, -5)
 	if((!( H.restrained() ) && !( H.stat ) && H.back == src))
 		H.u_equip(src)
 		H.equip_to_slot_if_possible(src, hand.slot_id)
@@ -130,7 +130,7 @@ GLOBAL_VAR_INIT(photo_count, 0)
 /*********
 * camera *
 *********/
-/obj/item/device/camera
+/obj/item/camera
 	name = "camera"
 	icon = 'icons/obj/bureaucracy.dmi'
 	desc = "A polaroid camera."
@@ -148,12 +148,12 @@ GLOBAL_VAR_INIT(photo_count, 0)
 	var/icon_off = "camera_off"
 	var/size = 3
 
-/obj/item/device/camera/feedback_hints(mob/user, distance, is_adjacent)
+/obj/item/camera/feedback_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	if(is_adjacent)
 		. += SPAN_NOTICE("It has <b>[pictures_left] photos</b> left.")
 
-/obj/item/device/camera/verb/change_size()
+/obj/item/camera/verb/change_size()
 	set name = "Set Photo Focus"
 	set category = "Object"
 	set src in usr
@@ -163,10 +163,10 @@ GLOBAL_VAR_INIT(photo_count, 0)
 		size = nsize
 		to_chat(usr, SPAN_NOTICE("Camera will now take [size]x[size] photos."))
 
-/obj/item/device/camera/attack(mob/living/target_mob, mob/living/user, target_zone)
+/obj/item/camera/attack(mob/living/target_mob, mob/living/user, target_zone)
 	return
 
-/obj/item/device/camera/attack_self(mob/user as mob)
+/obj/item/camera/attack_self(mob/user as mob)
 	on = !on
 	if(on)
 		src.icon_state = icon_on
@@ -175,8 +175,8 @@ GLOBAL_VAR_INIT(photo_count, 0)
 	to_chat(user, "You switch the camera [on ? "on" : "off"].")
 	return
 
-/obj/item/device/camera/attackby(obj/item/attacking_item, mob/user)
-	if(istype(attacking_item, /obj/item/device/camera_film))
+/obj/item/camera/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/camera_film))
 		if(pictures_left)
 			to_chat(user, SPAN_NOTICE("[src] still has some film in it!"))
 			return TRUE
@@ -187,10 +187,10 @@ GLOBAL_VAR_INIT(photo_count, 0)
 		return TRUE
 	return ..()
 
-/obj/item/device/camera/AltClick(var/mob/user)
+/obj/item/camera/AltClick(var/mob/user)
 	change_size()
 
-/obj/item/device/camera/proc/get_mobs(turf/the_turf as turf)
+/obj/item/camera/proc/get_mobs(turf/the_turf as turf)
 	var/mob_detail
 	for(var/mob/living/carbon/A in the_turf)
 		if(A.invisibility) continue
@@ -209,7 +209,7 @@ GLOBAL_VAR_INIT(photo_count, 0)
 			mob_detail += "You can also see [A] in the photo[A.health < 75 ? " - [A] looks hurt":""].[holding ? " [holding]":"."]."
 	return mob_detail
 
-/obj/item/device/camera/afterattack(atom/target as mob|obj|turf|area, mob/user as mob, flag)
+/obj/item/camera/afterattack(atom/target as mob|obj|turf|area, mob/user as mob, flag)
 	if(!on || !pictures_left || ismob(target.loc)) return
 	captureimage(target, user, flag)
 
@@ -223,10 +223,10 @@ GLOBAL_VAR_INIT(photo_count, 0)
 		icon_state = icon_on
 		on = 1
 
-/obj/item/device/camera/proc/do_photo_sound()
-	playsound(loc, /singleton/sound_category/print_sound, 75, 1, -3)
+/obj/item/camera/proc/do_photo_sound()
+	playsound(loc, SFX_PRINT, 75, 1, -3)
 
-/obj/item/device/camera/detective
+/obj/item/camera/detective
 	name = "detectives camera"
 	desc = "A one use - polaroid camera."
 	pictures_left = 30
@@ -235,11 +235,11 @@ GLOBAL_VAR_INIT(photo_count, 0)
 /mob/living/proc/can_capture_turf(turf/T)
 	return TRUE	// DVIEW will do sanity checks, we've got no special checks.
 
-/obj/item/device/camera/proc/captureimage(atom/target, mob/living/user, flag)
+/obj/item/camera/proc/captureimage(atom/target, mob/living/user, flag)
 	var/obj/item/photo/p = createpicture(get_turf(target), user, flag)
 	printpicture(user, p)
 
-/obj/item/device/camera/proc/createpicture(atom/target, mob/living/user, flag)
+/obj/item/camera/proc/createpicture(atom/target, mob/living/user, flag)
 	var/mobs = ""
 	var/list/turfs = list()
 
@@ -284,7 +284,7 @@ GLOBAL_VAR_INIT(photo_count, 0)
 
 	return p
 
-/obj/item/device/camera/proc/printpicture(mob/user, obj/item/photo/p)
+/obj/item/camera/proc/printpicture(mob/user, obj/item/photo/p)
 	if(!user.put_in_hands())
 		p.forceMove(user.loc)
 
@@ -306,7 +306,7 @@ GLOBAL_VAR_INIT(photo_count, 0)
 
 	return p
 
-/obj/item/device/camera/adhomai
+/obj/item/camera/adhomai
 	name = "adhomian camera"
 	icon = 'icons/obj/tajara_items.dmi'
 	desc = "A slightly antiquated camera with a large flash bulb. Still popular with Tajara all over Adhomai."
@@ -317,6 +317,6 @@ GLOBAL_VAR_INIT(photo_count, 0)
 	icon_on = "taj_camera_on"
 	icon_off = "taj_camera_off"
 
-/obj/item/device/camera/adhomai/do_photo_sound()
+/obj/item/camera/adhomai/do_photo_sound()
 	flick("taj_camera_flash", src)
 	playsound(loc, 'sound/items/camerabulb.ogg', 75, 1, -3)

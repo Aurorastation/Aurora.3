@@ -5,9 +5,9 @@ GLOBAL_LIST_INIT(ventcrawl_machinery, list(
 
 /// Vent crawling whitelisted items, whoo
 GLOBAL_LIST_INIT(can_enter_vent_with, list(
-	/obj/item/device/mmi,
+	/obj/item/mmi,
 	/obj/item/implant,
-	/obj/item/device/radio/borg,
+	/obj/item/radio/borg,
 	/obj/item/holder,
 	/obj/machinery/camera,
 	/mob/living/simple_animal/borer,
@@ -108,7 +108,7 @@ GLOBAL_LIST_INIT(can_enter_vent_with, list(
 /mob/living/proc/vent_trap_check(var/status, var/atom/location)
 	switch (status)
 		if ("departing")
-			for (var/obj/item/device/assembly/mousetrap/S in location.loc)
+			for (var/obj/item/assembly/mousetrap/S in location.loc)
 				if (prob(25))
 					visible_message(SPAN_DANGER("[src] gets caught in the mousetrap while trying to crawl into the vent!"),
 									SPAN_DANGER("You get caught in the mousetrap while trying to crawl into the vent!"))
@@ -116,7 +116,7 @@ GLOBAL_LIST_INIT(can_enter_vent_with, list(
 					S.Crossed(src) // Triggers mousetrap
 					forceMove(location.loc)
 		if ("arriving")
-			for (var/obj/item/device/assembly/mousetrap/S in location.loc)
+			for (var/obj/item/assembly/mousetrap/S in location.loc)
 				if (prob(75))
 					S.Crossed(src) // Triggers mousetrap
 		else

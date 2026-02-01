@@ -57,7 +57,7 @@
 /area/trove/vault)
 "ap" = (
 /obj/random/dirt_75,
-/obj/item/device/flashlight/lantern/on,
+/obj/item/flashlight/lantern/on,
 /turf/simulated/floor/plating/asteroid,
 /area/trove/vault)
 "aq" = (
@@ -520,7 +520,7 @@
 /area/trove/vault)
 "de" = (
 /obj/random/dirt_75,
-/obj/item/device/personal_shield,
+/obj/item/personal_shield,
 /obj/item/rig/unathi/fancy/equipped,
 /obj/item/melee/energy/glaive,
 /turf/simulated/floor/carpet/red,
@@ -1807,7 +1807,7 @@
 /area/trove/tunnels)
 "jN" = (
 /obj/random/dirt_75,
-/obj/item/device/flashlight/lantern/on,
+/obj/item/flashlight/lantern/on,
 /turf/simulated/floor/exoplanet/barren/cave,
 /area/trove/vault)
 "jP" = (
@@ -3132,7 +3132,7 @@
 	},
 /obj/effect/decal/cleanable/vomit,
 /obj/random/dirt_75,
-/obj/item/device/flashlight/lamp/box,
+/obj/item/flashlight/lamp/box,
 /turf/simulated/floor/wood/mahogany,
 /area/trove/vault)
 "rg" = (
@@ -3462,8 +3462,8 @@
 	req_one_access = list(229, 217)
 	},
 /obj/effect/floor_decal/industrial/outline/custodial,
-/obj/item/device/hand_labeler,
-/obj/item/device/price_scanner,
+/obj/item/hand_labeler,
+/obj/item/price_scanner,
 /obj/random/dirt_75,
 /turf/simulated/floor/marble/dark,
 /area/trove/vault)
@@ -3698,7 +3698,7 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/trove/vault)
 "uZ" = (
-/obj/item/device/flashlight/lantern/on,
+/obj/item/flashlight/lantern/on,
 /turf/simulated/floor/exoplanet/wood/walnut,
 /area/trove/beach)
 "vf" = (
@@ -3824,7 +3824,7 @@
 "vK" = (
 /obj/random/dirt_75,
 /obj/effect/decal/cleanable/liquid_fuel,
-/obj/item/device/flashlight/flare/torch,
+/obj/item/flashlight/flare/torch,
 /turf/simulated/floor/exoplanet/asphalt,
 /area/trove/vault)
 "vL" = (
@@ -4364,7 +4364,7 @@
 "zB" = (
 /obj/random/dirt_75,
 /obj/item/gun/bang/pirate,
-/obj/item/device/flashlight/lantern/on,
+/obj/item/flashlight/lantern/on,
 /turf/simulated/floor/wood/mahogany,
 /area/trove/vault)
 "zD" = (
@@ -5225,7 +5225,7 @@
 /obj/structure/bed/handrail{
 	dir = 4
 	},
-/obj/item/device/radio/intercom/hailing/west,
+/obj/item/radio/intercom/hailing/west,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/trove/vault)
@@ -5476,7 +5476,7 @@
 /area/trove/vault)
 "FV" = (
 /obj/random/dirt_75,
-/obj/item/device/flashlight/lantern/on,
+/obj/item/flashlight/lantern/on,
 /turf/unsimulated/floor/carpet,
 /area/trove/vault)
 "FW" = (
@@ -5715,8 +5715,8 @@
 "GN" = (
 /obj/effect/floor_decal/spline/fancy/wood,
 /obj/structure/table/reinforced/steel,
-/obj/item/device/radio/intercom/hailing/north,
-/obj/item/device/radio/hailing{
+/obj/item/radio/intercom/hailing/north,
+/obj/item/radio/hailing{
 	pixel_x = 5;
 	pixel_y = 6
 	},
@@ -5830,7 +5830,7 @@
 /area/trove/vault)
 "Hr" = (
 /obj/random/dirt_75,
-/obj/item/device/flashlight/lantern/on,
+/obj/item/flashlight/lantern/on,
 /turf/simulated/floor/wood/mahogany,
 /area/trove/vault)
 "Hs" = (
@@ -6476,8 +6476,8 @@
 	},
 /obj/item/stack/material/steel/full,
 /obj/item/stack/rods/full,
-/obj/item/device/oxycandle,
-/obj/item/device/oxycandle,
+/obj/item/oxycandle,
+/obj/item/oxycandle,
 /obj/item/storage/bag/inflatable,
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
@@ -6593,7 +6593,7 @@
 /turf/simulated/floor/wood,
 /area/trove/vault)
 "LN" = (
-/obj/item/device/flashlight/flare/torch,
+/obj/item/flashlight/flare/torch,
 /obj/effect/decal/cleanable/floor_damage/random_burned,
 /turf/simulated/floor/exoplanet/barren,
 /area/trove/beach)
@@ -8253,7 +8253,7 @@
 "UI" = (
 /obj/structure/table/wood/gamblingtable,
 /obj/random/dirt_75,
-/obj/item/device/flashlight/lantern/on,
+/obj/item/flashlight/lantern/on,
 /turf/simulated/floor/wood/mahogany,
 /area/trove/vault)
 "UJ" = (

@@ -20,9 +20,9 @@
 	has_sealed_state = TRUE
 
 	allowed = list(
-		/obj/item/device/flashlight,
+		/obj/item/flashlight,
 		/obj/item/tank,
-		/obj/item/device/suit_cooling_unit,
+		/obj/item/suit_cooling_unit,
 		/obj/item/gun,
 		/obj/item/ammo_magazine,
 		/obj/item/ammo_casing,

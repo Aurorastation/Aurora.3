@@ -1,9 +1,3 @@
-//Define a macro that we can use to assemble all the circuit board names
-#ifdef T_BOARD
-#error T_BOARD already defined elsewhere, we can't use it.
-#endif
-#define T_BOARD(name)	"" + "circuit board " + "(" + (name) + ")"
-
 /obj/item/circuitboard
 	name = "circuit board"
 	desc = "A circuitboard, an electronic device which forms the backbone of most modern machinery."
@@ -18,12 +12,6 @@
 	throw_speed = 3
 	throw_range = 15
 	var/build_path
-
-	/**
-	 * The type of board
-	 *
-	 * One of the BOARD_* defines, see `code\game\objects\items\weapons\circuitboards\_defines.dm`
-	 */
 	var/board_type = BOARD_COMPUTER
 	var/list/req_components
 	var/contain_parts = 1

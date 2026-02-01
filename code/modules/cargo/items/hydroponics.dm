@@ -313,7 +313,7 @@
 	description = "A hand-held environmental scanner which reports current gas levels."
 	price = 70
 	items = list(
-		/obj/item/device/analyzer/plant_analyzer
+		/obj/item/analyzer/plant_analyzer
 	)
 	access = 0
 	container_type = "crate"

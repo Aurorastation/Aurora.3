@@ -93,7 +93,6 @@
 	icon = 'maps/away/away_site/blueriver/blueriver.dmi'
 	icon_state = "bluespacecrystal1"
 	opacity = 0
-	dynamic_lighting = 0
 
 /turf/unsimulated/wall/supermatter/no_spread/blueriver/Initialize()
 	. = ..()

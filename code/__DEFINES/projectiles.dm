@@ -8,7 +8,7 @@
 // Delete self without hitting
 #define PROJECTILE_DELETE_WITHOUT_HITTING 3
 
-// IFF values
+// IFF values. As of 2025/11, these are not used by any game mechanics; see 'var/iff_faction' and 'var/iff_capable'
 #define IFF_DEFAULT "station"
 #define IFF_TCFL "tcfl"
 #define IFF_SYNDICATE "syndicate"

@@ -17,7 +17,7 @@
 
 	if(isipc(target))
 		var/mob/living/carbon/human/H = target
-		var/obj/item/organ/internal/surge/s = H.internal_organs_by_name["surge"]
+		var/obj/item/organ/internal/machine/surge/s = H.internal_organs_by_name[BP_SURGE_PROTECTOR]
 		if(!isnull(s))
 			if(s.surge_left >= 0.5)
 				playsound(src.loc, 'sound/magic/LightningShock.ogg', 25, 1)
@@ -268,7 +268,7 @@
 /obj/projectile/magic/teleport/on_hit(atom/target, blocked, def_zone)
 	var/turf/T = get_turf(target)
 	single_spark(T)
-	playsound(src.loc, /singleton/sound_category/spark_sound, 50, 1)
+	playsound(src.loc, SFX_SPARKS, 50, 1)
 	if(isliving(target))
 		blink_mob(target)
 	return ..()

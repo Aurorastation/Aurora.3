@@ -18,6 +18,10 @@
 	var/obj/item/key/key
 	var/key_type = /obj/item/key/cargo_train
 
+/obj/vehicle/train/cargo/engine/Destroy()
+	QDEL_NULL(key)
+	return ..()
+
 /obj/vehicle/train/cargo/engine/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	. += "Click-drag yourself onto the truck to climb onto it."
@@ -144,7 +148,7 @@
 	return ..()
 
 /obj/vehicle/train/cargo/trolley/attackby(obj/item/attacking_item, mob/user)
-	if(open && attacking_item.iswirecutter())
+	if(open && attacking_item.tool_behaviour == TOOL_WIRECUTTER)
 		passenger_allowed = !passenger_allowed
 		user.visible_message(SPAN_NOTICE("[user] [passenger_allowed ? "cuts" : "mends"] a cable in [src]."),
 								SPAN_NOTICE("You [passenger_allowed ? "cut" : "mend"] the load limiter cable."))

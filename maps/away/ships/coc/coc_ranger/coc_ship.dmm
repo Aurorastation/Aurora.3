@@ -445,7 +445,7 @@
 /obj/structure/railing/mapped,
 /obj/structure/table/rack,
 /obj/item/hoist_kit,
-/obj/item/device/multitool,
+/obj/item/multitool,
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/gunnery)
 "bxl" = (
@@ -644,8 +644,8 @@
 	dir = 8
 	},
 /obj/structure/table/steel,
-/obj/item/device/binoculars,
-/obj/item/device/binoculars{
+/obj/item/binoculars,
+/obj/item/binoculars{
 	pixel_y = 5
 	},
 /turf/simulated/floor/tiled/dark/full,
@@ -1146,12 +1146,12 @@
 "eFo" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/table/rack,
-/obj/item/device/gps,
-/obj/item/device/gps,
-/obj/item/device/gps,
-/obj/item/device/gps,
-/obj/item/device/gps,
-/obj/item/device/gps,
+/obj/item/gps,
+/obj/item/gps,
+/obj/item/gps,
+/obj/item/gps,
+/obj/item/gps,
+/obj/item/gps,
 /obj/item/tank/emergency_oxygen/double,
 /obj/item/tank/emergency_oxygen/double,
 /obj/item/tank/emergency_oxygen/double,
@@ -1163,7 +1163,7 @@
 /obj/item/tank/jetpack/carbondioxide,
 /obj/item/tank/jetpack/carbondioxide,
 /obj/item/tank/jetpack/carbondioxide,
-/obj/item/device/suit_cooling_unit,
+/obj/item/suit_cooling_unit,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ranger_corvette/voidsuits)
 "eFH" = (
@@ -1800,7 +1800,7 @@
 /area/ship/ranger_corvette/crew)
 "gUN" = (
 /obj/structure/table/wood,
-/obj/item/device/electronic_assembly/simple{
+/obj/item/electronic_assembly/simple{
 	desc = "The remote for a PanaVision 2400. This one feels a bit hollow.";
 	name = "television remote";
 	pixel_x = 6;
@@ -2185,7 +2185,7 @@
 	req_access = null;
 	req_one_access = list(221,222)
 	},
-/obj/machinery/autolathe,
+/obj/machinery/fabricator/autolathe,
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/engine2)
 "iDh" = (
@@ -2545,7 +2545,7 @@
 	desc = "A rectangular steel footlocker.";
 	name = "footlocker"
 	},
-/obj/item/device/paicard,
+/obj/item/paicard,
 /obj/item/clothing/suit/storage/hooded/wintercoat/konyang,
 /obj/item/clothing/accessory/flagpatch/konyang,
 /obj/item/toy/comic/inspector,
@@ -3282,7 +3282,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/gunnery)
 "ndT" = (
-/obj/item/device/assembly/mousetrap/armed,
+/obj/item/assembly/mousetrap/armed,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
@@ -4700,7 +4700,7 @@
 "stJ" = (
 /obj/structure/table/steel,
 /obj/item/shovel/gadpathur,
-/obj/item/device/versebook/gadpathur,
+/obj/item/versebook/gadpathur,
 /obj/machinery/light{
 	dir = 4;
 	icon_state = "tube_empty"
@@ -5048,12 +5048,12 @@
 /obj/item/flag/fisanduh,
 /obj/item/clothing/head/ushanka/dominia,
 /obj/item/clothing/suit/storage/toggle/dominia/bomber,
-/obj/item/device/flashlight/maglight,
-/obj/item/device/flashlight/maglight,
-/obj/item/device/flashlight/maglight,
-/obj/item/device/flashlight/maglight,
-/obj/item/device/flashlight/maglight,
-/obj/item/device/flashlight/maglight,
+/obj/item/flashlight/maglight,
+/obj/item/flashlight/maglight,
+/obj/item/flashlight/maglight,
+/obj/item/flashlight/maglight,
+/obj/item/flashlight/maglight,
+/obj/item/flashlight/maglight,
 /obj/item/clothing/accessory/storage/black_vest,
 /obj/item/clothing/accessory/storage/black_vest,
 /obj/item/clothing/accessory/storage/pouches/brown,

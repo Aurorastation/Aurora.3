@@ -145,6 +145,7 @@
 	anchored = TRUE
 	simulated = FALSE
 	plane = ABOVE_LIGHTING_PLANE
+	mouse_opacity = MOUSE_OPACITY_ICON
 	alpha = 100
 	var/datum/weakref/source
 

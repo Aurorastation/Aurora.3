@@ -1,13 +1,13 @@
 /obj/machinery/space_heater
 	name = "portable temperature control unit"
-	desc = "A portable temperature control unit. It can heat or cool a room to your liking."
+	desc = "A portable temperature control unit. It can heat or cool a compartment to your liking."
 	icon = 'icons/obj/atmos.dmi'
 	icon_state = "sheater-off"
 	anchored = FALSE
 	density = TRUE
 	use_power = POWER_USE_OFF
-	clicksound = /singleton/sound_category/switch_sound
 	movable_flags = MOVABLE_FLAG_WHEELED
+	clicksound = SFX_SWITCH
 	var/on = FALSE
 	/// Currently heating or cooling the environment, if on.
 	var/active = 0
@@ -83,7 +83,7 @@
 		else
 			to_chat(user, SPAN_NOTICE("The hatch must be open to insert a power cell."))
 		return TRUE
-	else if(attacking_item.isscrewdriver())
+	else if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 		panel_open = !panel_open
 		user.visible_message(SPAN_NOTICE("[user] [panel_open ? "opens" : "closes"] the hatch on the [src]."),
 				SPAN_NOTICE("You [panel_open ? "open" : "close"] the hatch on the [src]."))
@@ -192,7 +192,7 @@
 //For mounting on walls in planetary buildings and stuff.
 /obj/machinery/space_heater/stationary
 	name = "stationary temperature control unit"
-	desc = "A stationary temperature control unit. It can heat or cool a room to your liking."
+	desc = "A stationary temperature control unit. It can heat or cool a compartment to your liking."
 	anchored = TRUE
 	can_be_unanchored = FALSE
 	density = FALSE

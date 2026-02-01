@@ -256,13 +256,13 @@
  * Accepted style is SPAN_NOTICE for minor damage and SPAN_ALERT for anything worse. If the object's destruction
  * could have major adverse consequences, you might use SPAN_DANGER for critical damage.
  */
-/atom/proc/condition_hints()
+/atom/proc/condition_hints(mob/user, distance, is_adjacent)
 	. = list()
 
 /**
  * Should return a list() of regular strings.
  */
-/atom/proc/mechanics_hints()
+/atom/proc/mechanics_hints(mob/user, distance, is_adjacent)
 	. = list()
 
 /*

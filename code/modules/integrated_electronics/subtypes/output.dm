@@ -69,7 +69,8 @@
 	var/light_brightness = 3
 	var/light_rgb = COLOR_WHITE
 	power_draw_idle = 0 // Adjusted based on brightness.
-	light_wedge = LIGHT_WIDE
+
+	light_system = MOVABLE_LIGHT
 
 /obj/item/integrated_circuit/output/light/do_work()
 	light_toggled = !light_toggled
@@ -77,12 +78,13 @@
 
 /obj/item/integrated_circuit/output/light/proc/update_lighting()
 	if(assembly)
-		var/atom/atom_holder = assembly.get_assembly_holder()
-		if(light_toggled)
-			atom_holder.set_light(l_range = light_brightness, l_power = light_brightness, l_color = light_rgb, uv = 0, angle = light_wedge)
-		else
-			atom_holder.set_light(0)
-	power_draw_idle = light_toggled ? light_brightness * 2 : 0
+		var/atom/movable/atom_holder = assembly.get_assembly_holder()
+		if(istype(atom_holder))
+			if(light_toggled)
+				atom_holder.set_light_on(FALSE) //make sure the atom holder has movable_light set
+			else
+				atom_holder.set_light_on(TRUE)
+			power_draw_idle = light_toggled ? light_brightness * 2 : 0
 
 /obj/item/integrated_circuit/output/light/disconnect_all()
 	..()
@@ -97,6 +99,10 @@
 		brightness = clamp(brightness, 0, 6)
 		light_rgb = new_color
 		light_brightness = brightness
+
+	var/atom/movable/atom_holder = assembly.get_assembly_holder()
+	if(istype(atom_holder))
+		atom_holder.set_light_range_power_color(light_brightness, light_brightness, light_rgb)
 
 	..()
 
@@ -201,7 +207,6 @@
 		"freeze"       = 'sound/voice/bfreeze.ogg',
 		"god"          = 'sound/voice/bgod.ogg',
 		"i am the law" = 'sound/voice/biamthelaw.ogg',
-		"insult"       = 'sound/voice/binsult.ogg',
 		"radio"        = 'sound/voice/bradio.ogg',
 		"secure day"   = 'sound/voice/bsecureday.ogg'
 	)
@@ -217,7 +222,6 @@
 		"feel better" = 'sound/voice/medbot/mfeelbetter.ogg',
 		"patched up"  = 'sound/voice/medbot/mpatchedup.ogg',
 		"injured"     = 'sound/voice/medbot/minjured.ogg',
-		"insult"      = 'sound/voice/medbot/minsult.ogg',
 		"coming"      = 'sound/voice/medbot/mcoming.ogg',
 		"help"        = 'sound/voice/medbot/mhelp.ogg',
 		"live"        = 'sound/voice/medbot/mlive.ogg',

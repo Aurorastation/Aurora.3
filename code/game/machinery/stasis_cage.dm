@@ -141,7 +141,7 @@
 /obj/machinery/stasis_cage/attackby(obj/item/attacking_item, mob/user)
 	. = ..()
 	// Crowbar - Pry thing out of cage
-	if (attacking_item.iscrowbar())
+	if (attacking_item.tool_behaviour == TOOL_CROWBAR)
 		if (panel_open)
 			to_chat(user, SPAN_NOTICE("\The [src]'s panel is open!"))
 			return TRUE
@@ -164,7 +164,7 @@
 			return TRUE
 
 	// Wrench - Repair lid
-	if (attacking_item.iswrench())
+	if (attacking_item.tool_behaviour == TOOL_WRENCH)
 		if (broken)
 			user.visible_message(SPAN_NOTICE("\The [user] begins to clamp \the [src]'s lid back into position."), SPAN_NOTICE("You begin to clamp \the [src]'s lid back into position."))
 			playsound(src, 'sound/items/Ratchet.ogg', 50, 1)
@@ -176,7 +176,7 @@
 			return TRUE
 
 	// Screwdriver - Open panel
-	if(attacking_item.isscrewdriver())
+	if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 		panel_open = !panel_open
 		to_chat(user, SPAN_NOTICE("You [panel_open ? "unscrew" : "screw shut"] the maintainance panel of \the [src]"))
 

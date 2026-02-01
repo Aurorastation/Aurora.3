@@ -53,18 +53,18 @@ export const CommandCommunications = (props, context) => {
   const [choosingAlert, setChoosingAlert] = useLocalState<boolean>(
     context,
     `choosingAlert`,
-    false
+    false,
   );
 
   const [firstLine, setFirstLine] = useLocalState<string>(
     context,
     `firstLine`,
-    ''
+    '',
   );
   const [secondLine, setSecondLine] = useLocalState<string>(
     context,
     `secondLine`,
-    ''
+    '',
   );
 
   return (
@@ -179,7 +179,8 @@ export const CommandCommunications = (props, context) => {
                 icon="trash"
                 onClick={() => act('setstatus', { target: 'blank' })}
               />
-            }>
+            }
+          >
             <Button
               content="Ship Time"
               icon="clock"
@@ -204,7 +205,8 @@ export const CommandCommunications = (props, context) => {
                     })
                   }
                 />
-              }>
+              }
+            >
               <Input
                 value={firstLine}
                 placeholder="First line"
@@ -279,7 +281,7 @@ export const MessageList = (props, context) => {
   const [viewingMessage, setViewingMessage] = useLocalState<number | null>(
     context,
     'viewingMessage',
-    null
+    null,
   );
 
   return viewingMessage ? (
@@ -316,7 +318,8 @@ export const MessageList = (props, context) => {
                   onClick={() => act('delmessage', { messageid: message.id })}
                 />
               </>
-            }>
+            }
+          >
             <Box
               style={{ 'white-space': 'pre-line' }}
               dangerouslySetInnerHTML={processMessage(message.contents)}

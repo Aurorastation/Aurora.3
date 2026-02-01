@@ -6,6 +6,8 @@
 	item_state = "watch"
 	var/wired = TRUE
 	var/screwed = TRUE
+	action_button_name = "Check time"
+	default_action_type = /datum/action/item_action/watch
 
 /obj/item/clothing/wrists/watch/silver
 	desc = "It's a GaussIo ZeitMeister, a finely tuned wristwatch encased in silver."
@@ -38,7 +40,7 @@
 	item_state = "watch_silver"
 
 /obj/item/clothing/wrists/watch/spy/checktime()
-	to_chat(usr, "You check your watch. Unfortunately for you, it's not a real watch, dork.")
+	to_chat(usr, SPAN_NOTICE("You check your watch. Unfortunately for you, it's not a real watch, dork."))
 
 /obj/item/clothing/wrists/watch/pocketwatch
 	name = "pocketwatch"
@@ -77,9 +79,9 @@
 
 /obj/item/clothing/wrists/watch/pocketwatch/checktime(mob/user)
 	if(closed)
-		to_chat(usr, "You check your watch, realising it's closed.")
+		to_chat(usr, SPAN_NOTICE("You check your watch, realising it's closed."))
 	else
-		to_chat(usr, "You check your watch, glancing over at the watch face, reading the time to be '[worldtime2text()]'. Today's date is '[time2text(world.time, "Month DD")]. [GLOB.game_year]'.")
+		to_chat(usr, SPAN_NOTICE("You check your watch, glancing over at the watch face, reading the time to be '[worldtime2text()]'. Today's date is '[time2text(world.time, "Month DD")]. [GLOB.game_year]'."))
 
 /obj/item/clothing/wrists/watch/pocketwatch/pointatwatch()
 	if(closed)
@@ -93,13 +95,13 @@
 	set src in usr
 
 	if(wired && screwed)
-		to_chat(usr, "You check your watch, spotting a digital collection of numbers reading '[worldtime2text()]'. Today's date is '[time2text(world.time, "Month DD")]. [GLOB.game_year]'.")
+		to_chat(usr, SPAN_NOTICE("You check your watch, spotting a digital collection of numbers reading '[worldtime2text()]'. Today's date is '[time2text(world.time, "Month DD")]. [GLOB.game_year]'."))
 		if (GLOB.evacuation_controller.get_status_panel_eta())
 			to_chat(usr, SPAN_WARNING("Time until Bluespace Jump: [GLOB.evacuation_controller.get_status_panel_eta()]."))
 	else if(wired && !screwed)
-		to_chat(usr, "You check your watch, realising it's still open.")
+		to_chat(usr, SPAN_NOTICE("You check your watch, realising it's still open."))
 	else
-		to_chat(usr, "You check your watch as it dawns on you that it's broken.")
+		to_chat(usr, SPAN_NOTICE("You check your watch as it dawns on you that it's broken."))
 
 /obj/item/clothing/wrists/watch/verb/pointatwatch()
 	set category = "Object.Equipped"
@@ -114,7 +116,7 @@
 		usr.visible_message (SPAN_NOTICE("<b>[usr]</b> taps their foot on the floor, arrogantly pointing at the [src] on their wrist with a look of derision in their eyes, not noticing it's broken."), SPAN_NOTICE("You point down at the [src] with an arrogant look about your eyes."))
 
 /obj/item/clothing/wrists/watch/attackby(obj/item/attacking_item, mob/user)
-	if(attacking_item.isscrewdriver())
+	if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 		user.visible_message(SPAN_NOTICE("<b>[user]</b> [screwed ? "unscrews" : "screws"] the cover of the [src] [screwed ? "open" : "closed"]."),
 							SPAN_NOTICE("You [screwed ? "unscrews" : "screws"] the cover of the [src] [screwed ? "open" : "closed"]."))
 		playsound(src.loc, 'sound/items/Screwdriver.ogg', 100, 1)
@@ -122,7 +124,7 @@
 		return
 	if(wired)
 		return
-	if(attacking_item.iscoil())
+	if(attacking_item.tool_behaviour == TOOL_CABLECOIL)
 		var/obj/item/stack/cable_coil/C = attacking_item
 		if(screwed)
 			to_chat(user, SPAN_NOTICE("The [src] is not open."))

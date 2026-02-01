@@ -123,10 +123,10 @@
 /area/konyang/rural_clinic)
 "qz" = (
 /obj/structure/table/rack/retail_shelf,
-/obj/item/device/healthanalyzer{
+/obj/item/healthanalyzer{
 	pixel_y = -1
 	},
-/obj/item/device/healthanalyzer{
+/obj/item/healthanalyzer{
 	pixel_y = 6
 	},
 /turf/simulated/floor/tiled/white,

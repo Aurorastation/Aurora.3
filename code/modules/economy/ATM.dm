@@ -66,7 +66,7 @@
 
 	for(var/obj/item/spacecash/S in src)
 		S.forceMove(src.loc)
-		playsound(loc, /singleton/sound_category/print_sound, 50, 1)
+		playsound(loc, SFX_PRINT, 50, 1)
 
 /obj/machinery/atm/emag_act(var/remaining_charges, var/mob/user)
 	if(emagged)
@@ -107,7 +107,7 @@
 			var/obj/item/spacecash/cash = attacking_item
 			//consume the money
 			authenticated_account.money += cash.worth
-			playsound(loc, /singleton/sound_category/print_sound, 50, 1)
+			playsound(loc, SFX_PRINT, 50, 1)
 
 			//create a transaction log entry
 			var/datum/transaction/T = new()
@@ -329,7 +329,7 @@
 				release_held_id(usr) // printing ends the ATM session similar to real life + prevents spam
 				. = TRUE
 
-			playsound(loc, /singleton/sound_category/print_sound, 50, 1)
+			playsound(loc, SFX_PRINT, 50, 1)
 		if ("print_transaction")
 			if(authenticated_account)
 				var/obj/item/paper/R = new()
@@ -371,7 +371,7 @@
 				R.stamps += "<HR><i>This paper has been stamped by the Automatic Teller Machine.</i>"
 				print(R, user = usr)
 
-			playsound(loc, /singleton/sound_category/print_sound, 50, 1)
+			playsound(loc, SFX_PRINT, 50, 1)
 			release_held_id(usr) // printing ends the ATM session similar to real life + prevents spam
 			. = TRUE
 

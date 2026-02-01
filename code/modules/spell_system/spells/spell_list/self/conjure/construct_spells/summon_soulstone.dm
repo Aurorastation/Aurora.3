@@ -8,7 +8,7 @@
 	invocation_type = SpI_NONE
 	range = 0
 
-	summon_type = list(/obj/item/device/soulstone)
+	summon_type = list(/obj/item/soulstone)
 
 	hud_state = "const_stone"
 	override_base = "const"

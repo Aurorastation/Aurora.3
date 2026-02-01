@@ -160,10 +160,10 @@ SUBSYSTEM_DEF(explosives)
 						// If inside the blast radius + world.view - 2
 						if (dist <= closedist)
 							to_chat(M, FONT_LARGE(SPAN_WARNING("You hear the sound of a nearby explosion coming from \the [explosion_dir].")))
-							M.playsound_local(epicenter, get_sfx(/singleton/sound_category/explosion_sound), min(100, volume), vary = TRUE, falloff_distance = 5)
+							M.playsound_local(epicenter, SFX_EXPLOSION, min(100, volume), vary = TRUE, falloff_distance = 5)
 						else if (dist > closedist && dist <= extendeddist) // People with sensitive hearing get a better idea of how far it is
 							to_chat(M, FONT_LARGE(SPAN_WARNING("You hear the sound of a semi-close explosion coming from \the [explosion_dir].")))
-							M.playsound_local(epicenter, get_sfx(/singleton/sound_category/explosion_sound), min(100, volume), vary = TRUE, falloff_distance = 5)
+							M.playsound_local(epicenter, SFX_EXPLOSION, min(100, volume), vary = TRUE, falloff_distance = 5)
 						else //You hear a far explosion if you're outside the blast radius. Small bombs shouldn't be heard all over the station.
 							volume = M.playsound_local(epicenter, 'sound/effects/explosionfar.ogg', volume, vary = TRUE, falloff_distance = 1000, pressure_affected = TRUE)
 							if(volume)
@@ -305,13 +305,6 @@ SUBSYSTEM_DEF(explosives)
 		act_turfs[current_turf] = current_power
 		current_power -= current_turf.explosion_resistance
 
-		// Attempt to shortcut on empty tiles: if a turf only has a LO on it, we don't need to check object resistance. Some turfs might not have LOs, so we need to check it actually has one.
-		if (current_turf.contents.len > !!current_turf.lighting_overlay)
-			for (var/thing in current_turf)
-				var/atom/movable/AM = thing
-				if (AM.simulated && AM.explosion_resistance)
-					current_power -= AM.explosion_resistance
-
 		if (current_power <= 0)
 			CHECK_TICK
 			continue
@@ -330,7 +323,7 @@ SUBSYSTEM_DEF(explosives)
 
 	var/close_dist = round(power + world.view - 2, 1)
 
-	var/sound/explosion_sound = sound(get_sfx(/singleton/sound_category/explosion_sound))
+	var/sound/explosion_sound = sound(SFX_EXPLOSION)
 
 	if(power >= 100)
 		new /obj/effect/shockwave(epicenter, power / 60)
@@ -395,7 +388,7 @@ SUBSYSTEM_DEF(explosives)
 
 		if (T.simulated)
 			T.ex_act(severity)
-		if (T.contents.len > !!T.lighting_overlay)
+		if (T.contents.len)
 			for (var/subthing in T)
 				var/atom/movable/AM = subthing
 				if (AM.simulated)

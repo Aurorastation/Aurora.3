@@ -195,9 +195,9 @@
 		return FALSE
 	else if(istype(I, /obj/item/reagent_containers/glass))
 		to_chat(user, SPAN_WARNING("That would probably break [I]."))
-		return FALSE
-	else if(I.iscrowbar() || I.isscrewdriver() || istype(I, /obj/item/storage/part_replacer))
-		return FALSE
+		return CANNOT_INSERT
+	else if(I.tool_behaviour == TOOL_CROWBAR || I.tool_behaviour == TOOL_SCREWDRIVER || istype(I, /obj/item/storage/part_replacer))
+		return CANNOT_INSERT
 	else if(!istype(check) && !istype(I, /obj/item/holder))
 		to_chat(user, SPAN_WARNING("That's not edible."))
 		return FALSE

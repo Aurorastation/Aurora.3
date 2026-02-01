@@ -61,6 +61,7 @@
 	rarity_value = 3
 	break_cuffs = TRUE
 	mob_size = 10
+	mob_weight = MOB_WEIGHT_HEAVY
 	climb_coeff = 1.35
 
 	blurb = "A heavily reptillian species, Unathi (or 'Sinta as they call themselves) hail from the Uuosa-Eso \
@@ -106,7 +107,7 @@
 		"Your scales bristle against the cold."
 		)
 
-	footsound = /singleton/sound_category/footstep_unathi_sound
+	footsound = SFX_FOOTSTEP_UNATHI
 
 	has_organ = list(
 		BP_BRAIN =    /obj/item/organ/internal/brain/unathi,

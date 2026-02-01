@@ -19,10 +19,10 @@ STOCK_ITEM_RARE(combatmeds, 3)
 	new /obj/item/storage/firstaid/combat(L)
 
 STOCK_ITEM_RARE(batterer, 0.75)
-	new /obj/item/device/batterer(L)
+	new /obj/item/batterer(L)
 
 STOCK_ITEM_RARE(posibrain, 3)
-	new /obj/item/device/mmi/digital/posibrain(L)
+	new /obj/item/mmi/digital/posibrain(L)
 
 STOCK_ITEM_RARE(bsbeaker, 3)
 	new /obj/item/reagent_containers/glass/beaker/bluespace(L)
@@ -148,7 +148,7 @@ STOCK_ITEM_RARE(rare_clothing, 1)
 		new C(L)
 
 STOCK_ITEM_RARE(megacorp_goods, 0.25)
-	var/obj/item/adv_item = pick(/obj/item/storage/backpack/service, /obj/item/device/advanced_healthanalyzer)
+	var/obj/item/adv_item = pick(/obj/item/storage/backpack/service, /obj/item/advanced_healthanalyzer)
 	new adv_item(L)
 
 STOCK_ITEM_RARE(pistols, 1)

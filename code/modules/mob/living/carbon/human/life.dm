@@ -439,7 +439,8 @@
 
 /mob/living/carbon/human/proc/stabilize_body_temperature()
 	if (species.passive_temp_gain) // We produce heat naturally.
-		bodytemperature += species.passive_temp_gain
+		species.handle_temperature_regulation(src)
+
 	if (species.body_temperature == null)
 		return //this species doesn't have metabolic thermoregulation
 
@@ -664,13 +665,20 @@
 			sprint_cost_factor -= 0.35 * chem_effects[CE_ADRENALINE]
 			stamina_recovery += max ((stamina_recovery * 0.7 * chem_effects[CE_ADRENALINE]), 5)
 
-		var/obj/item/clothing/C = wear_suit
-		if(!(C && (C.body_parts_covered & HANDS) && !(C.heat_protection & HANDS)) && !gloves)
-			for(var/obj/item/I in src)
-				if(I.contaminated && !(species.flags & PHORON_IMMUNE))
-					if(I == r_hand)
+		var/obj/item/clothing/suit = wear_suit
+		var/protected = FALSE
+		if(suit && (suit.body_parts_covered & HANDS) && (suit.heat_protection & HANDS))
+			protected = TRUE
+
+		if(gloves && (gloves.heat_protection & HANDS))
+			protected = TRUE
+
+		if(!protected)
+			for(var/obj/item/held_item in src)
+				if(held_item.contaminated && !(species.flags & PHORON_IMMUNE))
+					if(held_item == r_hand)
 						apply_damage(GLOB.vsc.plc.CONTAMINATION_LOSS, DAMAGE_BURN, BP_R_HAND)
-					else if(I == l_hand)
+					else if(held_item == l_hand)
 						apply_damage(GLOB.vsc.plc.CONTAMINATION_LOSS, DAMAGE_BURN, BP_L_HAND)
 					else
 						adjustFireLoss(GLOB.vsc.plc.CONTAMINATION_LOSS)
@@ -1008,7 +1016,7 @@
 					nut_icon = 2
 				else if (nut_factor >= CREW_NUTRITION_HUNGRY)
 					nut_icon = 3
-				else if (nut_factor >= CREW_NUTRITION_VERYHUNGRY )
+				else if (nut_factor >= CREW_NUTRITION_VERYHUNGRY)
 					nut_icon = 4
 				var/new_val = "[isSynthetic() ? "charge" : "nutrition"][nut_icon]"
 				if (nutrition_icon.icon_state != new_val)
@@ -1032,7 +1040,7 @@
 					hydration_icon.icon_state = new_val
 
 			if(isSynthetic())
-				var/obj/item/organ/internal/cell/IC = internal_organs_by_name[BP_CELL]
+				var/obj/item/organ/internal/machine/power_core/IC = internal_organs_by_name[BP_CELL]
 				if(istype(IC) && IC.is_usable())
 					var/chargeNum = clamp(Ceiling(IC.percent()/25), 0, 4)	//0-100 maps to 0-4, but give it a paranoid clamp just in case.
 					cells.icon_state = "charge[chargeNum]"
@@ -1490,6 +1498,7 @@
 		return
 	if((mutations & XRAY))
 		set_sight(sight|SEE_TURFS|SEE_MOBS|SEE_OBJS)
+	lighting_alpha = default_lighting_alpha
 
 /**
  * This proc assumes that if shock_value = null, then a shock value was NOT passed in, and thus it calculates it itself.

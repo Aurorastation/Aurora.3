@@ -3067,7 +3067,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/water_barge/dockingport/port)
 "Eo" = (
-/obj/item/device/gps/engineering{
+/obj/item/gps/engineering{
 	pixel_y = 12;
 	pixel_x = -7
 	},
@@ -3078,15 +3078,15 @@
 /obj/item/storage/bag/inflatable,
 /obj/item/storage/bag/inflatable,
 /obj/machinery/recharger,
-/obj/item/device/gps/engineering{
+/obj/item/gps/engineering{
 	pixel_y = 12;
 	pixel_x = 2
 	},
-/obj/item/device/gps/engineering{
+/obj/item/gps/engineering{
 	pixel_y = 12;
 	pixel_x = -2
 	},
-/obj/item/device/gps/engineering{
+/obj/item/gps/engineering{
 	pixel_y = 12;
 	pixel_x = 6
 	},

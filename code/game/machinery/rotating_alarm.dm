@@ -113,5 +113,5 @@
 		set_light(0)
 	else
 		vis_contents += spin_effect
-		set_light(2, 0.5, alarm_light_color)
+		set_light(2, 1, alarm_light_color)
 	on = !on

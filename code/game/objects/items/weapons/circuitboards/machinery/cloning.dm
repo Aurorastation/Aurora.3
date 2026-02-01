@@ -1,7 +1,3 @@
-#ifndef T_BOARD
-#error T_BOARD macro is not defined but we need it!
-#endif
-
 /obj/item/circuitboard/clonepod
 	name = T_BOARD("clone pod")
 	build_path = /obj/machinery/clonepod

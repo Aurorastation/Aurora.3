@@ -13,6 +13,10 @@
 /area/horizon/maintenance/deck_1
 	horizon_deck = 1
 
+/area/horizon/maintenance/deck_1/atmos_crosser
+	name = "Atmospherics Cross Corridor"
+	location_ns = LOC_AFT
+
 /area/horizon/maintenance/deck_1/main/starboard
 	name = "Primary Maintenance Conduit"
 	location_ew = LOC_STARBOARD
@@ -20,6 +24,9 @@
 /area/horizon/maintenance/deck_1/main/port
 	name = "Primary Maintenance Conduit"
 	location_ew = LOC_PORT
+
+/area/horizon/maintenance/deck_1/main/port/shortcut
+	name = "Maintenance Conduit Access"
 
 /area/horizon/maintenance/deck_1/main/interstitial
 	name = "Primary Maintenance Conduit"
@@ -44,6 +51,10 @@
 /area/horizon/maintenance/deck_1/operations/starboard/far
 	name = "Operations Maintenance"
 	location_ew = LOC_STARBOARD_FAR
+
+/area/horizon/maintenance/deck_1/medical/cryo
+	name = "Cryogenics Control"
+	location_ew = LOC_AMIDSHIPS
 
 /area/horizon/maintenance/deck_1/workshop
 	name = "Auxiliary Engineering Maintenance"
@@ -75,10 +86,19 @@
 /area/horizon/maintenance/deck_2
 	horizon_deck = 2
 
+/area/horizon/maintenance/deck_2/main/starboard
+	name = "Primary Maintenance Conduit"
+	location_ew = LOC_STARBOARD
+
+/area/horizon/maintenance/deck_2/cryo
+	name = "Cryogenics Control Overlook"
+	location_ew = LOC_STARBOARD
+
 /area/horizon/maintenance/deck_2/service/starboard
 	name = "Service Maintenance"
 	location_ew = LOC_STARBOARD
 	location_ns = LOC_FORE
+	hostile_events = FALSE
 
 /area/horizon/maintenance/deck_2/service/port
 	name = "Service Maintenance"
@@ -107,6 +127,24 @@
 
 /area/horizon/maintenance/deck_2/cargo_compartment
 	name = "Auxiliary Cargo Maintenance"
+
+/area/horizon/maintenance/deck_2/elevator
+	name = "Elevator Maintenance"
+
+/area/horizon/maintenance/deck_2/central_ring
+	name = "Central Ring Maintenance"
+
+/area/horizon/maintenance/deck_2/main
+	name = "Primary Maintenance Conduit"
+	location_ew = LOC_STARBOARD_FAR
+
+/area/horizon/maintenance/deck_2/main/starboard
+	name = "Primary Maintenance Conduit Overlook"
+	location_ew = LOC_STARBOARD
+
+/area/horizon/maintenance/deck_2/operations
+	name = "Operations Maintenance"
+	location_ew = LOC_STARBOARD
 
 /area/horizon/maintenance/deck_2/wing/starboard
 	name = "Wing Frame Interior"
@@ -148,6 +186,10 @@
 /area/horizon/maintenance/deck_3
 	horizon_deck = 3
 
+/area/horizon/maintenance/deck_3/cafe
+	name = "Cafe Maintenance"
+	hostile_events = FALSE
+
 /area/horizon/maintenance/deck_3/aft/holodeck
 	name = "Holodeck Maintenance"
 	location_ew = LOC_STARBOARD
@@ -185,6 +227,17 @@
 	icon_state = "maintcentral"
 	location_ew = LOC_STARBOARD
 	location_ns = LOC_FORE
+
+/area/horizon/maintenance/deck_3/auxatmos
+	name = "Auxiliary Atmospherics"
+	subdepartment = SUBLOC_ATMOS
+	location_ew = LOC_PORT
+
+/area/horizon/maintenance/deck_3/crewlounge
+	name = "Crew Lounge Maintenance"
+	location_ew = LOC_STARBOARD
+	location_ns = LOC_FORE
+	hostile_events = FALSE
 
 /// SUBSTATIONS (Subtype of maint)
 /area/horizon/maintenance/substation

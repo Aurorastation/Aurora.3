@@ -18,7 +18,7 @@ GLOBAL_LIST_INIT(minevendor_list, list(
 	new /datum/data/mining_equipment(/obj/item/stack/flag/purple,								10,					50),
 	new /datum/data/mining_equipment(/obj/item/storage/bag/ore,									25,					50),
 	new /datum/data/mining_equipment(pick(subtypesof(/obj/item/pizzabox)), 						2, 					50),
-	new /datum/data/mining_equipment(/obj/item/device/flashlight/lantern,						10,					75),
+	new /datum/data/mining_equipment(/obj/item/flashlight/lantern,						10,					75),
 	new /datum/data/mining_equipment(/obj/item/shovel,											15,					100),
 	new /datum/data/mining_equipment(/obj/item/pickaxe,											10,					100),
 	new /datum/data/mining_equipment(/obj/item/rfd_ammo,										50,					100),
@@ -35,32 +35,32 @@ GLOBAL_LIST_INIT(minevendor_list, list(
 	new /datum/data/mining_equipment(/obj/item/gun/custom_ka/frame02/prebuilt,					12,					400),
 	new /datum/data/mining_equipment(/obj/item/autochisel,										10,					400),
 	new /datum/data/mining_equipment(/obj/item/tank/jetpack,									10,					400),
-	new /datum/data/mining_equipment(/obj/item/device/mine_bot_upgrade,							10,					400),
+	new /datum/data/mining_equipment(/obj/item/mine_bot_upgrade,							10,					400),
 	new /datum/data/mining_equipment(/obj/machinery/mining/brace,								-1,					500,	1),
 	new /datum/data/mining_equipment(/obj/item/card/mining_point_card,							-1,					500),
 	new /datum/data/mining_equipment(/obj/item/storage/belt/mining,								10,					500),
 	new /datum/data/mining_equipment(/obj/item/warp_core,										25,					500),
 	new /datum/data/mining_equipment(/obj/item/extraction_pack,									25,					600),
-	new /datum/data/mining_equipment(/obj/item/device/mine_bot_upgrade/health,					20,					600),
+	new /datum/data/mining_equipment(/obj/item/mine_bot_upgrade/health,					20,					600),
 	new /datum/data/mining_equipment(/obj/item/storage/firstaid/trauma,							30,					600),
 	new /datum/data/mining_equipment(/obj/item/oremagnet,										10,					600),
 	new /datum/data/mining_equipment(/obj/item/resonator,										10,					700),
-	new /datum/data/mining_equipment(/obj/item/device/wormhole_jaunter,							20,					750),
+	new /datum/data/mining_equipment(/obj/item/wormhole_jaunter,							20,					750),
 	new /datum/data/mining_equipment(/obj/item/rig/industrial,									5,					1000),
 	new /datum/data/mining_equipment(/obj/item/mass_driver_diy,									5,					800),
 	new /datum/data/mining_equipment(/mob/living/silicon/robot/drone/mining,					15,					800),
-	new /datum/data/mining_equipment(/obj/item/device/mine_bot_upgrade/ka,						10,					800),
+	new /datum/data/mining_equipment(/obj/item/mine_bot_upgrade/ka,						10,					800),
 	new /datum/data/mining_equipment(/obj/item/oreportal,										35,					800),
-	new /datum/data/mining_equipment(/obj/item/device/spaceflare,								5,					800),
+	new /datum/data/mining_equipment(/obj/item/spaceflare,								5,					800),
 	new /datum/data/mining_equipment(/obj/item/lazarus_injector,								25,					1000),
 	new /datum/data/mining_equipment(/obj/item/storage/backpack/cell,							5,					1000),
 	new /datum/data/mining_equipment(/obj/machinery/mining/drill,								-1,					1000,	1),
 	new /datum/data/mining_equipment(/obj/item/resonator/upgraded,								10,					1250),
 	new /datum/data/mining_equipment(/obj/item/pickaxe/diamond,									10,					1500),
 	new /datum/data/mining_equipment(/obj/item/gun/energy/vaurca/thermaldrill,					5,					1750),
-	new /datum/data/mining_equipment(/obj/item/device/orbital_dropper/minecart,					5,					2000),
-	new /datum/data/mining_equipment(/obj/item/device/orbital_dropper/drill,					10,					3250),
-	new /datum/data/mining_equipment(/obj/item/device/orbital_dropper/mecha/miner,				2,					3500)
+	new /datum/data/mining_equipment(/obj/item/orbital_dropper/minecart,					5,					2000),
+	new /datum/data/mining_equipment(/obj/item/orbital_dropper/drill,					10,					3250),
+	new /datum/data/mining_equipment(/obj/item/orbital_dropper/mecha/miner,				2,					3500)
 	))
 
 /obj/machinery/mineral/equipment_vendor
@@ -89,7 +89,7 @@ GLOBAL_LIST_INIT(minevendor_list, list(
 	shuttle = set_shuttle
 
 /obj/item/circuitboard/machine/mining_equipment_vendor
-	name = "circuit board (Mining Equipment Vendor)"
+	name = T_BOARD("Mining Equipment Vendor")
 	build_path = /obj/machinery/mineral/equipment_vendor
 	origin_tech = list(TECH_DATA = 1, TECH_ENGINEERING = 1)
 	req_components = list(	/obj/item/stock_parts/console_screen = 1,

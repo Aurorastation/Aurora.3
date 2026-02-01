@@ -13,7 +13,7 @@
 	pixel_y = 25;
 	density = 0
 	},
-/obj/item/device/flashlight/lamp/box{
+/obj/item/flashlight/lamp/box{
 	pixel_y = 16;
 	pixel_x = -1
 	},
@@ -267,7 +267,7 @@
 /obj/structure/lattice/catwalk/indoor/tatami{
 	dir = 8
 	},
-/obj/item/device/versebook/trinary{
+/obj/item/versebook/trinary{
 	pixel_y = 7;
 	pixel_x = -4
 	},
@@ -708,11 +708,11 @@
 /obj/structure/lattice/catwalk/indoor/tatami{
 	dir = 4
 	},
-/obj/item/device/versebook/trinary{
+/obj/item/versebook/trinary{
 	pixel_y = 9;
 	pixel_x = -7
 	},
-/obj/item/device/versebook/trinary{
+/obj/item/versebook/trinary{
 	pixel_y = 5;
 	pixel_x = 7
 	},
@@ -989,7 +989,7 @@
 	pixel_y = 25;
 	density = 0
 	},
-/obj/item/device/flashlight/lamp/box{
+/obj/item/flashlight/lamp/box{
 	pixel_y = 15;
 	pixel_x = -2
 	},

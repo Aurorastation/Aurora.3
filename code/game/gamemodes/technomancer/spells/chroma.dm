@@ -17,7 +17,8 @@
 
 /obj/item/spell/chroma/Initialize()
 	. = ..()
-	set_light(6, 5, l_color = color_to_use)
+	set_light_range_power_color(6, 5, color_to_use)
+	set_light_on(TRUE)
 
 /obj/effect/temporary_effect/chroma
 	name = "chroma"
@@ -27,7 +28,8 @@
 
 /obj/effect/temporary_effect/chroma/Initialize(var/mapload, var/new_color = "#FFFFFF")
 	. = ..()
-	set_light(6, 5, l_color = new_color)
+	set_light_range_power_color(6, 5, new_color)
+	set_light_on(TRUE)
 
 /obj/item/spell/chroma/on_ranged_cast(atom/hit_atom, mob/user)
 	. = ..()
@@ -42,4 +44,4 @@
 	var/new_color = input(user, "Choose the color you want your light to be.", "Color selection") as null|color
 	if(new_color)
 		color_to_use = new_color
-		set_light(6, 5, l_color = new_color)
+		set_light_range_power_color(6, 5, new_color)

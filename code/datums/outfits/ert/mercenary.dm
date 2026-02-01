@@ -13,7 +13,7 @@
 	glasses = /obj/item/clothing/glasses/sunglasses/aviator
 	l_pocket = /obj/item/tank/emergency_oxygen/double
 
-	l_ear = /obj/item/device/radio/headset/distress
+	l_ear = /obj/item/radio/headset/distress
 
 	backpack_contents = list(
 		/obj/item/storage/box/survival = 1,
@@ -50,7 +50,7 @@
 		/obj/item/ammo_magazine/c45m = 1,
 		/obj/item/storage/firstaid/combat = 1,
 		/obj/item/storage/firstaid/adv = 1,
-		/obj/item/device/healthanalyzer = 1,
+		/obj/item/healthanalyzer = 1,
 		/obj/item/reagent_containers/hypospray/autoinjector/coagzolug = 1
 	)
 
@@ -93,7 +93,7 @@
 		/obj/item/ammo_magazine/c45m = 2,
 		/obj/item/handcuffs/ziptie = 1,
 		/obj/item/shield/energy = 1,
-		/obj/item/device/flashlight/flare = 1,
+		/obj/item/flashlight/flare = 1,
 	)
 
 /obj/outfit/admin/ert/mercenary/leader

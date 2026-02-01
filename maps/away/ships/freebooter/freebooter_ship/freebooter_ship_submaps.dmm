@@ -1503,9 +1503,9 @@
 /obj/structure/railing/mapped{
 	dir = 8
 	},
-/obj/item/device/flashlight/maglight,
-/obj/item/device/flashlight/maglight,
-/obj/item/device/flashlight/maglight,
+/obj/item/flashlight/maglight,
+/obj/item/flashlight/maglight,
+/obj/item/flashlight/maglight,
 /turf/simulated/floor,
 /area/ship/freebooter_ship/pod2)
 "ivW" = (
@@ -2471,7 +2471,7 @@
 	},
 /obj/random/civgun/rifle,
 /obj/item/grenade/frag,
-/obj/item/device/flashlight/maglight,
+/obj/item/flashlight/maglight,
 /obj/item/gun/projectile/shotgun/pump/rifle,
 /obj/item/ammo_magazine/boltaction,
 /obj/item/ammo_magazine/boltaction,
@@ -2674,7 +2674,7 @@
 /obj/structure/closet/crate/bin{
 	name = "trashbin"
 	},
-/obj/item/device/electronic_assembly/simple{
+/obj/item/electronic_assembly/simple{
 	desc = "The remote for a PanaVision 2400. This one feels a bit hollow.";
 	name = "television remote";
 	pixel_x = 6;
@@ -2893,7 +2893,7 @@
 /obj/item/reagent_containers/food/snacks/grown/ambrosiavulgaris,
 /obj/item/reagent_containers/food/snacks/grown/ambrosiavulgaris,
 /obj/item/reagent_containers/food/snacks/grown/ambrosiavulgaris,
-/obj/item/device/analyzer/plant_analyzer,
+/obj/item/analyzer/plant_analyzer,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/freebooter_ship/pod5)
 "qpm" = (
@@ -3089,7 +3089,7 @@
 /obj/effect/floor_decal/corner{
 	dir = 4
 	},
-/obj/item/device/paicard{
+/obj/item/paicard{
 	pixel_x = 5;
 	pixel_y = 6
 	},

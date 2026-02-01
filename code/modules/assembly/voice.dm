@@ -1,4 +1,4 @@
-/obj/item/device/assembly/voice
+/obj/item/assembly/voice
 	name = "voice analyzer"
 	desc = "A small electronic device able to record a voice sample, and send a signal when that sample is repeated."
 	icon_state = "voice"
@@ -9,14 +9,14 @@
 	var/listening = FALSE
 	var/recorded //the activation message
 
-/obj/item/device/assembly/voice/Initialize(mapload, ...)
+/obj/item/assembly/voice/Initialize(mapload, ...)
 	. = ..()
 	become_hearing_sensitive()
 
-/obj/item/device/assembly/voice/Destroy()
+/obj/item/assembly/voice/Destroy()
 	return ..()
 
-/obj/item/device/assembly/voice/hear_talk(mob/living/M, msg)
+/obj/item/assembly/voice/hear_talk(mob/living/M, msg)
 	if(listening)
 		recorded = msg
 		listening = FALSE
@@ -26,18 +26,18 @@
 		if(findtext(msg, recorded))
 			pulse(FALSE)
 
-/obj/item/device/assembly/voice/activate()
+/obj/item/assembly/voice/activate()
 	if(secured && !holder)
 		listening = !listening
 		var/turf/T = get_turf(src)
 		T.audible_message("[icon2html(src, viewers(get_turf(T)))] beeps, \"[listening ? "Now" : "No longer"] recording input.\"")
 
-/obj/item/device/assembly/voice/attack_self(mob/user)
+/obj/item/assembly/voice/attack_self(mob/user)
 	if(!user)
 		return FALSE
 	activate()
 	return TRUE
 
-/obj/item/device/assembly/voice/toggle_secure()
+/obj/item/assembly/voice/toggle_secure()
 	. = ..()
 	listening = FALSE

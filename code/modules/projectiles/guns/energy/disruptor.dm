@@ -37,7 +37,7 @@
 	)
 
 /obj/item/gun/energy/disruptorpistol/security
-	pin = /obj/item/device/firing_pin/wireless
+	pin = /obj/item/firing_pin/wireless
 
 /obj/item/gun/energy/disruptorpistol/miniature
 	name = "miniature disruptor pistol"
@@ -49,7 +49,7 @@
 	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/gun/energy/disruptorpistol/miniature/security
-	pin = /obj/item/device/firing_pin/wireless
+	pin = /obj/item/firing_pin/wireless
 
 /obj/item/gun/energy/disruptorpistol/magnum
 	name = "magnum disruptor pistol"
@@ -59,4 +59,4 @@
 	force = 14
 
 /obj/item/gun/energy/disruptorpistol/magnum/security
-	pin = /obj/item/device/firing_pin/wireless
+	pin = /obj/item/firing_pin/wireless

@@ -392,7 +392,7 @@
 		if(direction != "clear")
 			security_announcement.Announce("Enemy fire inbound, enemy fire inbound! [sanitizeSafe(direction)]!", "Brace for shock!", sound('sound/mecha/internaldmgalarm.ogg', volume = 90), 0)
 		else
-			security_announcement.Announce("No fire is incoming at the current moment, resume damage control.", "Space clear!", sound('sound/misc/announcements/security_level_old.ogg'), 0)
+			security_announcement.Announce("No fire is incoming at the current moment, resume damage control.", "Space clear!", sound('sound/ai/announcements/security_level_old.ogg'), 0)
 		return TRUE
 
 /obj/machinery/shipsensors
@@ -439,7 +439,7 @@
 	if(default_part_replacement(user, attacking_item))
 		return TRUE
 	var/damage = max_health - health
-	if(damage && attacking_item.iswelder())
+	if(damage && attacking_item.tool_behaviour == TOOL_WELDER)
 
 		var/obj/item/weldingtool/WT = attacking_item
 

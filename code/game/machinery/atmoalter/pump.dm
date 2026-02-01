@@ -1,6 +1,6 @@
 /obj/machinery/portable_atmospherics/powered/pump
 	name = "portable air pump"
-	desc = "Used to fill or drain rooms without differentiating between gases. Invaluable for filling air in a room rapidly after a breach repair."
+	desc = "Used to fill or drain rooms without differentiating between gases. Invaluable for filling air in a compartment rapidly after a breach repair."
 	icon = 'icons/obj/atmos.dmi'
 	icon_state = "psiphon:0"
 	density = TRUE

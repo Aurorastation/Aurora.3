@@ -16,16 +16,16 @@
 		/obj/item/clothing/under/rank/scientist = 6,
 		/obj/item/clothing/suit/hazmat = 6,
 		/obj/item/clothing/head/hazmat = 6,
-		/obj/item/device/transfer_valve = 6,
-		/obj/item/device/assembly/timer = 6,
-		/obj/item/device/assembly/signaler = 6,
-		/obj/item/device/assembly/igniter = 6
+		/obj/item/transfer_valve = 6,
+		/obj/item/assembly/timer = 6,
+		/obj/item/assembly/signaler = 6,
+		/obj/item/assembly/igniter = 6
 	)
 	contraband = list(
-		/obj/item/device/assembly/prox_sensor = 4,
-		/obj/item/device/assembly/infra = 4,
-		/obj/item/device/assembly/mousetrap = 4,
-		/obj/item/device/assembly/voice = 4
+		/obj/item/assembly/prox_sensor = 4,
+		/obj/item/assembly/infra = 4,
+		/obj/item/assembly/mousetrap = 4,
+		/obj/item/assembly/voice = 4
 	)
 	premium = list(
 		/obj/item/clothing/head/collectable/petehat = 1
@@ -72,7 +72,7 @@
 	random_itemcount = FALSE
 	light_color = COLOR_BABY_BLUE
 
-/obj/item/device/vending_refill/battlemonsters
+/obj/item/vending_refill/battlemonsters
 	name = "Battlemonsters resupply canister"
 	vend_id = "battlemonsters"
 	charges = 40

@@ -33,19 +33,20 @@
 	sound_environment = SOUND_AREA_LARGE_SOFTFLOOR
 	horizon_deck = 2
 	area_blurb = "The soft rustling of actual paper and rich book-smell fill this compartment. Whoever designed the acoustics did a great job: sounds seem softened and subdued in here."
+	lightswitch = FALSE
 
-/// Kitchen areas
+/// Galley areas
 /area/horizon/service/kitchen
-	name = "Kitchen"
+	name = "Galley"
 	icon_state = "kitchen"
 	allow_nightmode = FALSE
 	horizon_deck = 2
-	area_blurb = "The clattering of cookware and dinnerware, the smells of every variety of meal; it's rare the crew who doesn't find something deeply ingrained and familiar about a bustling kitchen."
+	area_blurb = "The clattering of cookware and dinnerware, the smells of every variety of meal; it's rare the crew who doesn't find something deeply ingrained and familiar about a bustling galley."
 
 /area/horizon/service/kitchen/freezer
-	name = "Kitchen - Freezer"
+	name = "Galley - Freezer"
 	sound_environment = SOUND_AREA_SMALL_ENCLOSED
-	area_blurb = "It's really cold in here. How about that?"
+	area_blurb = "It's really cold in here!"
 
 /// Bar areas
 /area/horizon/service/bar
@@ -57,10 +58,11 @@
 /area/horizon/service/bar/backroom
 	name = "Bar - Backroom"
 	area_flags = AREA_FLAG_RAD_SHIELDED
+	lightswitch = FALSE
 
-// Dining Hall
-/area/horizon/service/dining_hall
-	name = "Dining Hall"
+// Mess Hall
+/area/horizon/service/mess_hall
+	name = "Mess Hall"
 	icon_state = "lounge"
 	sound_environment = SOUND_AREA_SMALL_SOFTFLOOR
 	horizon_deck = 2
@@ -105,11 +107,13 @@
 	name = "Auxiliary Custodial Closet"
 	sound_environment = SOUND_AREA_SMALL_ENCLOSED
 	horizon_deck = 2
+	lightswitch = FALSE
 
 /area/horizon/service/chapel
 	sound_environment = SOUND_AREA_LARGE_ENCLOSED
 	ambience = AMBIENCE_CHAPEL
 	horizon_deck = 2
+	lightswitch = FALSE
 
 /area/horizon/service/chapel/main
 	name = "Chapel"

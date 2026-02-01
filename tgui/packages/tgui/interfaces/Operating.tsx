@@ -72,17 +72,20 @@ export const OperatingWindow = (props, context) => {
                 </LabeledList.Item>
                 <LabeledList.Item
                   label="Status"
-                  color={consciousnessLabel(data.stat)}>
+                  color={consciousnessLabel(data.stat)}
+                >
                   {consciousnessText(data.stat)}
                 </LabeledList.Item>
                 <LabeledList.Item
                   label="Brain Activity"
-                  color={progressClass(data.brain_activity)}>
+                  color={progressClass(data.brain_activity)}
+                >
                   {brainText(data.brain_activity)}
                 </LabeledList.Item>
                 <LabeledList.Item
                   label="Pulse"
-                  color={progressClass(data.brain_activity)}>
+                  color={progressClass(data.brain_activity)}
+                >
                   {data.pulse}
                 </LabeledList.Item>
               </LabeledList>
@@ -91,17 +94,20 @@ export const OperatingWindow = (props, context) => {
               <LabeledList>
                 <LabeledList.Item
                   label="Blood Pressure"
-                  color={getPressureClass(data.blood_pressure_level)}>
+                  color={getPressureClass(data.blood_pressure_level)}
+                >
                   {data.blood_pressure}
                 </LabeledList.Item>
                 <LabeledList.Item
                   label="Blood Oxygenation"
-                  color={progressClass(data.blood_o2)}>
+                  color={progressClass(data.blood_o2)}
+                >
                   {Math.round(data.blood_o2)}%
                 </LabeledList.Item>
                 <LabeledList.Item
                   label="Blood Volume"
-                  color={progressClass(data.brain_activity)}>
+                  color={progressClass(data.brain_activity)}
+                >
                   {Math.round(data.blood_volume)}%
                 </LabeledList.Item>
                 <LabeledList.Item label="Blood Type">

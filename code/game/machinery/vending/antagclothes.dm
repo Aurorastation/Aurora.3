@@ -11,7 +11,7 @@
 	icon_vend = "generic-vend"
 	light_mask = "generic-lightmask"
 	products = list(
-		/obj/item/device/radio/headset/ship/odyssey = 12,
+		/obj/item/radio/headset/ship/odyssey = 12,
 		/obj/item/portable_map_reader/odyssey = 12,
 		/obj/item/card/id/syndicate = 12,
 		/obj/item/storage/box/syndie_kit/chameleon = 12,
@@ -36,7 +36,7 @@ If you want to expand this to more than primarily generic items, I recommend des
 	random_itemcount = FALSE
 	products = list (
 		// This item allows players to change the colour of recolourable items from this vendor without needing admin intervention.
-		/obj/item/device/clothes_dyer = 6,
+		/obj/item/clothes_dyer = 6,
 
 		// Generic suits.
 		/obj/item/clothing/suit/storage/toggle/labcoat = 6,

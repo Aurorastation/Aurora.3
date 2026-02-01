@@ -45,7 +45,7 @@
 	faction = "cavern"
 
 	flying = TRUE
-	see_invisible = SEE_INVISIBLE_NOLIGHTING
+	lighting_alpha = LIGHTING_PLANE_ALPHA_SOMEWHAT_INVISIBLE
 
 /mob/living/simple_animal/hostile/retaliate/cavern_dweller/Allow_Spacemove(var/check_drift = 0)
 	return 1
@@ -93,7 +93,7 @@
 	melee_damage_lower = 0
 	melee_damage_upper = 0
 	attacktext = "barrels into"
-	attack_sound = /singleton/sound_category/punch_sound
+	attack_sound = SFX_PUNCH
 	a_intent = I_HURT
 	speak_emote = list("chirps","buzzes","whirrs")
 	emote_hear = list("chirps cheerfully","buzzes","whirrs","hums placidly","chirps","hums")
@@ -110,7 +110,6 @@
 	max_n2 = 0
 	minbodytemp = 0
 	light_range = 10
-	light_wedge = LIGHT_WIDE
 	psi_pingable = FALSE
 
 	faction = "sol"

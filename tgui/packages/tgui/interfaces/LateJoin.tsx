@@ -88,7 +88,8 @@ export const JobsList = (props, context) => {
         <Section
           title={department}
           key={department}
-          className={'border-dept-' + department.toLowerCase()}>
+          className={'border-dept-' + department.toLowerCase()}
+        >
           {data.jobs_list
             .filter((job) => job.department === department)
             .map((job) => (
@@ -97,11 +98,11 @@ export const JobsList = (props, context) => {
                 content={
                   job.total_positions !== -1
                     ? job.title +
-                    ' (' +
-                    job.current_positions +
-                    ' / ' +
-                    job.total_positions +
-                    ')'
+                      ' (' +
+                      job.current_positions +
+                      ' / ' +
+                      job.total_positions +
+                      ')'
                     : job.title
                 }
                 bold={job.head}

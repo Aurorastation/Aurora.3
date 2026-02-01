@@ -45,7 +45,7 @@
 		. += "You can see \a [modulator] attached."
 
 /obj/item/gun/energy/laser/prototype/attackby(obj/item/attacking_item, mob/user)
-	if(!attacking_item.isscrewdriver())
+	if(attacking_item.tool_behaviour != TOOL_SCREWDRIVER)
 		return ..()
 	to_chat(user, "You disassemble \the [src].")
 	disassemble(user)
@@ -146,7 +146,7 @@
 			if(MOD_SILENCE)
 				suppressed = TRUE
 			if(MOD_NUCLEAR_CHARGE)
-				self_recharge = 1
+				self_recharge = TRUE
 				criticality *= 2
 		fire_delay *= modifier.fire_delay
 		reliability += modifier.reliability
@@ -217,11 +217,11 @@
 		pin = null
 	switch(origin_chassis)
 		if(CHASSIS_SMALL)
-			new /obj/item/device/laser_assembly(A)
+			new /obj/item/laser_assembly(A)
 		if(CHASSIS_MEDIUM)
-			new /obj/item/device/laser_assembly/medium(A)
+			new /obj/item/laser_assembly/medium(A)
 		if(CHASSIS_LARGE)
-			new /obj/item/device/laser_assembly/large(A)
+			new /obj/item/laser_assembly/large(A)
 	qdel(src)
 
 /obj/item/gun/energy/laser/prototype/small_fail(var/mob/user)

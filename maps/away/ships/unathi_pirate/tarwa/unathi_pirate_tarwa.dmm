@@ -934,7 +934,7 @@
 	pixel_x = 7;
 	pixel_y = -2
 	},
-/obj/item/device/radio{
+/obj/item/radio{
 	pixel_x = -6;
 	pixel_y = 6
 	},
@@ -2623,7 +2623,7 @@
 	id = "tarwa_exosuit_containment"
 	},
 /obj/item/clothing/ears/earmuffs,
-/obj/item/device/binoculars/spyglass,
+/obj/item/binoculars/spyglass,
 /turf/simulated/floor/plating,
 /area/tarwa_ship/oldhangar)
 "zy" = (
@@ -3043,11 +3043,11 @@
 /area/tarwa_ship/cic)
 "De" = (
 /obj/structure/table/rack,
-/obj/item/device/gps,
-/obj/item/device/gps,
-/obj/item/device/gps,
-/obj/item/device/gps,
-/obj/item/device/gps,
+/obj/item/gps,
+/obj/item/gps,
+/obj/item/gps,
+/obj/item/gps,
+/obj/item/gps,
 /obj/effect/floor_decal/corner/yellow{
 	dir = 6
 	},
@@ -3846,7 +3846,7 @@
 	dir = 5
 	},
 /obj/structure/table/wood,
-/obj/item/device/flashlight/lamp/green{
+/obj/item/flashlight/lamp/green{
 	pixel_y = 13;
 	pixel_x = 5
 	},
@@ -3899,11 +3899,11 @@
 "Kl" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/table/rack,
-/obj/item/device/radio,
-/obj/item/device/radio,
-/obj/item/device/radio,
-/obj/item/device/radio,
-/obj/item/device/radio,
+/obj/item/radio,
+/obj/item/radio,
+/obj/item/radio,
+/obj/item/radio,
+/obj/item/radio,
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/tarwa_ship/bridge)
@@ -3964,7 +3964,7 @@
 /turf/simulated/floor/diona,
 /area/tarwa_ship/diona)
 "KP" = (
-/obj/machinery/autolathe,
+/obj/machinery/fabricator/autolathe,
 /obj/effect/floor_decal/industrial/hatch/grey,
 /turf/simulated/floor/plating,
 /area/tarwa_ship/engineering1)
@@ -4154,7 +4154,7 @@
 	dir = 4
 	},
 /obj/structure/table/diona,
-/obj/item/device/binoculars/spyglass,
+/obj/item/binoculars/spyglass,
 /turf/simulated/floor/diona,
 /area/tarwa_ship/bridge)
 "Mq" = (
@@ -4309,7 +4309,7 @@
 	req_one_access = list(210)
 	},
 /obj/item/clothing/ears/earmuffs,
-/obj/item/device/binoculars/spyglass,
+/obj/item/binoculars/spyglass,
 /turf/simulated/floor/diona,
 /area/tarwa_ship/gun)
 "Nw" = (
@@ -4847,15 +4847,15 @@
 /obj/structure/closet/crate{
 	name = "Emergency Lights"
 	},
-/obj/item/device/uv_light,
-/obj/item/device/uv_light,
-/obj/item/device/uv_light,
+/obj/item/uv_light,
+/obj/item/uv_light,
+/obj/item/uv_light,
 /obj/random/glowstick,
 /obj/random/glowstick,
 /obj/random/glowstick,
-/obj/item/device/flashlight/lantern,
-/obj/item/device/flashlight/lantern,
-/obj/item/device/flashlight/lantern,
+/obj/item/flashlight/lantern,
+/obj/item/flashlight/lantern,
+/obj/item/flashlight/lantern,
 /turf/simulated/floor/plating,
 /area/tarwa_ship/oldhangar)
 "RK" = (

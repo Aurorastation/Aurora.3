@@ -7,7 +7,16 @@
 import { EventEmitter } from 'common/events';
 import { classes } from 'common/react';
 import { createLogger } from 'tgui/logging';
-import { COMBINE_MAX_MESSAGES, COMBINE_MAX_TIME_WINDOW, IMAGE_RETRY_DELAY, IMAGE_RETRY_LIMIT, IMAGE_RETRY_MESSAGE_AGE, MESSAGE_TYPES, MESSAGE_TYPE_INTERNAL, MESSAGE_TYPE_UNKNOWN } from './constants';
+import {
+  COMBINE_MAX_MESSAGES,
+  COMBINE_MAX_TIME_WINDOW,
+  IMAGE_RETRY_DELAY,
+  IMAGE_RETRY_LIMIT,
+  IMAGE_RETRY_MESSAGE_AGE,
+  MESSAGE_TYPES,
+  MESSAGE_TYPE_INTERNAL,
+  MESSAGE_TYPE_UNKNOWN,
+} from './constants';
 import { render } from 'inferno';
 import { canPageAcceptType, createMessage, isSameMessage } from './model';
 import { highlightNode, linkifyNode } from './replaceInTextNode';
@@ -27,8 +36,8 @@ export const TGUI_CHAT_COMPONENTS = {
 // List of injectable attibute names mapped to their proper prop
 // We need this because attibutes don't support lowercase names
 export const TGUI_CHAT_ATTRIBUTES_TO_PROPS = {
-  'position': 'position',
-  'content': 'content',
+  position: 'position',
+  content: 'content',
 };
 
 const findNearestScrollableParent = (startingNode) => {
@@ -205,7 +214,7 @@ class ChatRenderer {
             // Must be alphanumeric (with some punctuation)
             allowedRegex.test(str) &&
             // Reset lastIndex so it does not mess up the next word
-            ((allowedRegex.lastIndex = 0) || true)
+            ((allowedRegex.lastIndex = 0) || true),
         );
       let highlightWords;
       let highlightRegex;
@@ -400,7 +409,7 @@ class ChatRenderer {
             <Element {...outputProps}>
               <span dangerouslySetInnerHTML={oldHtml} />
             </Element>,
-            childNode
+            childNode,
           );
           /* eslint-enable react/no-danger */
         }
@@ -412,16 +421,16 @@ class ChatRenderer {
               node,
               parser.highlightRegex,
               parser.highlightWords,
-              (text) => createHighlightNode(text, parser.highlightColor)
+              (text) => createHighlightNode(text, parser.highlightColor),
             );
             if (highlighted && parser.highlightWholeMessage) {
               node.style.setProperty(
                 '--highlight-color',
-                parser.backgroundHighlightColor || 'rgba(255, 221, 68)'
+                parser.backgroundHighlightColor || 'rgba(255, 221, 68)',
               );
               node.style.setProperty(
                 '--highlight-color-opacity',
-                (parser.backgroundHighlightOpacity ?? 10) / 100
+                (parser.backgroundHighlightOpacity ?? 10) / 100,
               );
               node.className += ' ChatMessage--highlighted';
             }
@@ -521,7 +530,7 @@ class ChatRenderer {
     {
       const fromIndex = Math.max(
         0,
-        this.messages.length - max_visible_messages
+        this.messages.length - max_visible_messages,
       );
       if (fromIndex > 0) {
         this.messages = this.messages.slice(fromIndex);

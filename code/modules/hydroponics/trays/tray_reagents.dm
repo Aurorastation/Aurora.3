@@ -92,3 +92,8 @@
 	icon_state = "plastic_jug_rh"
 	desc = "This is a jug of Robust Harvest, among the more reputable - and expensive - brands of fertiliser on the market. Increases yield of crops."
 	reagents_to_add = list(/singleton/reagent/toxin/fertilizer/robustharvest = 80)
+
+/obj/item/reagent_containers/glass/fertilizer/rh/mechanics_hints(mob/user, distance, is_adjacent)
+	. = ..()
+	. += "Every 10u of Robust Harvest added to a plant increases its maximum yield by up to 2 extra produce."
+	. += "Bonus yield only applies on the next harvest for plants that can be harvested more than once, such as fruit trees."

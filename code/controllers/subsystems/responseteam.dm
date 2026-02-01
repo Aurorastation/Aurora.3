@@ -51,7 +51,7 @@ SUBSYSTEM_DEF(distress)
 	ert_count++
 	feedback_inc("responseteam_count")
 
-	command_announcement.Announce("An emergency response team has picked up the distress signal. A specialized relief team will arrive shortly.", "[SSatlas.current_map.station_name] Distress Suite", 'sound/misc/announcements/security_level_old.ogg')
+	command_announcement.Announce("An emergency response team has picked up the distress signal. A specialized relief team will arrive shortly.", "[SSatlas.current_map.station_name] Distress Suite", 'sound/ai/announcements/security_level_old.ogg')
 
 	if(forced_choice && forced_choice != "Random")
 		for(var/datum/responseteam/R in available_teams)
@@ -84,7 +84,7 @@ SUBSYSTEM_DEF(distress)
 	ert_count++
 	feedback_inc("responseteam_count")
 
-	command_announcement.Announce("A distress beacon has been broadcasted to nearby vessels in the sector. Please remain calm and make preparations for the arrival of third parties.", "[SSatlas.current_map.station_name] Distress Suite", 'sound/misc/announcements/security_level_old.ogg', zlevels = requester.map_z)
+	command_announcement.Announce("A distress beacon has been broadcasted to nearby vessels in the sector. Please remain calm and make preparations for the arrival of third parties.", "[SSatlas.current_map.station_name] Distress Suite", 'sound/ai/announcements/security_level_old.ogg', zlevels = requester.map_z)
 
 	log_and_message_admins("has launched a distress beacon from the [requester.name] with message: [distress_message].", user)
 	var/datum/distress_beacon/beacon = new()

@@ -60,7 +60,8 @@ export const ShowFiles = (props, context) => {
           icon="folder"
           onClick={() => act('PRG_newtextfile')}
         />
-      }>
+      }
+    >
       <Table>
         <Table.Row header>
           <Table.Cell>Name</Table.Cell>
@@ -181,7 +182,8 @@ export const ShowFile = (props, context) => {
             }
           />
         </>
-      }>
+      }
+    >
       <Box dangerouslySetInnerHTML={contentHtml} />
     </Section>
   );

@@ -40,6 +40,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	attack_verb = list("burnt", "singed")
 	drop_sound = 'sound/items/drop/food.ogg'
 	pickup_sound = 'sound/items/pickup/food.ogg'
+	light_system = MOVABLE_LIGHT
 
 /obj/item/trash/match
 	name = "burnt match"
@@ -112,7 +113,8 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 		var/mob/living/M = loc
 		M.update_inv_wear_mask(0)
 		M.update_inv_hands()
-	set_light(2, 0.25, "#E38F46")
+	set_light_range_power_color(2, 0.25, "#E38F46")
+	set_light_on(TRUE)
 	START_PROCESSING(SSprocessing, src)
 
 /obj/item/flame/match/proc/die(var/nomessage = FALSE)
@@ -133,7 +135,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 				M.remove_from_mob(src) // if it dies in your hand.
 				M.update_inv_hands()
 				M.put_in_hands(burnt)
-		set_light(0)
+		set_light_on(FALSE)
 		STOP_PROCESSING(SSprocessing, src)
 		qdel(src)
 
@@ -224,12 +226,13 @@ ABSTRACT_TYPE(/obj/item/clothing/mask/smokable)
 			M.update_inv_hands()
 		var/turf/T = get_turf(src)
 		T.visible_message(flavor_text)
-		set_light(2, 0.25, "#E38F46")
+		set_light_range_power_color(2, 0.25, "#E38F46")
+		set_light_on(TRUE)
 		START_PROCESSING(SSprocessing, src)
 
 /obj/item/clothing/mask/smokable/proc/die(var/no_message = FALSE, var/intentionally = FALSE)
 	var/turf/T = get_turf(src)
-	set_light(0)
+	set_light_on(FALSE)
 	playsound(src.loc, 'sound/items/cigs_lighters/cig_snuff.ogg', 50, 1)
 	if(type_butt)
 		var/obj/item/butt = new type_butt(src.loc)
@@ -276,9 +279,9 @@ ABSTRACT_TYPE(/obj/item/clothing/mask/smokable)
 			text = zippomes
 		else if(istype(attacking_item, /obj/item/flame/lighter))
 			text = lightermes
-		else if(attacking_item.iswelder())
+		else if(attacking_item.tool_behaviour == TOOL_WELDER)
 			text = weldermes
-		else if(istype(attacking_item, /obj/item/device/assembly/igniter))
+		else if(istype(attacking_item, /obj/item/assembly/igniter))
 			text = ignitermes
 		else
 			text = genericmes
@@ -660,7 +663,7 @@ ABSTRACT_TYPE(/obj/item/clothing/mask/smokable)
 		if(M.lit)
 			light(SPAN_NOTICE("[user] lights their [name] with their [attacking_item]."))
 
-	else if(istype(attacking_item, /obj/item/device/assembly/igniter))
+	else if(istype(attacking_item, /obj/item/assembly/igniter))
 		light(SPAN_NOTICE("[user] fiddles with [attacking_item], and manages to light their [name] with the power of science."))
 
 	user.update_inv_wear_mask(0)
@@ -957,7 +960,7 @@ ABSTRACT_TYPE(/obj/item/clothing/mask/smokable)
 				else
 					user.visible_message(SPAN_NOTICE("<b>[user]</b> quietly shuts off \the [src]."), range = 3)
 
-			set_light(0)
+			set_light_on(FALSE)
 			STOP_PROCESSING(SSprocessing, src)
 	else
 		return ..()
@@ -967,7 +970,8 @@ ABSTRACT_TYPE(/obj/item/clothing/mask/smokable)
 	lit = TRUE
 	update_icon()
 	playsound(src.loc, pick(activation_sound), 75, 1)
-	set_light(flame_light_power, flame_light_range, l_color = flame_light_color)
+	set_light_range_power_color(flame_light_range, flame_light_power, flame_light_color)
+	set_light_on(TRUE)
 	START_PROCESSING(SSprocessing, src)
 
 /obj/item/flame/lighter/vendor_action(var/obj/machinery/vending/V)
@@ -1024,7 +1028,7 @@ ABSTRACT_TYPE(/obj/item/clothing/mask/smokable)
 		lit = 0
 		icon_state = "[base_state]"
 		item_state = "[base_state]"
-		set_light(0)
+		set_light_on(FALSE)
 		STOP_PROCESSING(SSprocessing, src)
 	return
 
@@ -1069,9 +1073,9 @@ ABSTRACT_TYPE(/obj/item/clothing/mask/smokable)
 	can_fold = FALSE
 
 /obj/item/paper/cig/attackby(obj/item/attacking_item, mob/user)
-	if(istype(attacking_item, /obj/item/flame) || attacking_item.iswelder())
+	if(istype(attacking_item, /obj/item/flame) || attacking_item.tool_behaviour == TOOL_WELDER)
 		..()
-	if(attacking_item.ispen())
+	if(attacking_item.tool_behaviour == TOOL_PEN)
 		..()
 	else
 		return

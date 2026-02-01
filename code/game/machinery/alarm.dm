@@ -112,10 +112,9 @@ pixel_x = 10;
 	active_power_usage = 1500 //For heating/cooling rooms. 1000 joules equates to about 1 degree every 2 seconds for a single tile of air.
 	power_channel = AREA_USAGE_ENVIRON
 	req_one_access = list(ACCESS_ATMOSPHERICS, ACCESS_ENGINE_EQUIP)
-	clicksound = /singleton/sound_category/button_sound
+	clicksound = SFX_BUTTON
 	clickvol = 30
 	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
-	z_flags = ZMM_MANGLE_PLANES
 
 	var/alarm_id = null
 	var/frequency = 1439
@@ -222,7 +221,7 @@ pixel_x = 10;
 /obj/machinery/alarm/server
 	req_one_access = list(ACCESS_RD, ACCESS_ATMOSPHERICS, ACCESS_ENGINE_EQUIP)
 	target_temperature = 80
-	desc = "A device that controls the local air regulation machinery. This one is designed for use in small server rooms."
+	desc = "A device that controls the local air regulation machinery. This one is designed for use in small server compartments."
 	highpower = 1
 
 /obj/machinery/alarm/server/north
@@ -255,7 +254,7 @@ pixel_x = 10;
 	PRESET_SOUTH
 
 /obj/machinery/alarm/freezer
-	req_one_access = list(ACCESS_KITCHEN, ACCESS_ATMOSPHERICS, ACCESS_ENGINE_EQUIP)
+	req_one_access = list(ACCESS_GALLEY, ACCESS_ATMOSPHERICS, ACCESS_ENGINE_EQUIP)
 	highpower = 1
 	target_temperature = T0C - 20
 
@@ -502,7 +501,7 @@ pixel_x = 10;
 		if(!danger_level && abs(environment.temperature - target_temperature) > 2.0)
 			update_use_power(POWER_USE_ACTIVE)
 			regulating_temperature = 1
-			visible_message("\The [src] clicks as it starts [environment.temperature > target_temperature ? "cooling" : "heating"] the room.",\
+			visible_message("\The [src] clicks as it starts [environment.temperature > target_temperature ? "cooling" : "heating"] the compartment.",\
 			"You hear a click and a faint electronic hum.")
 			update_icon()
 	else
@@ -510,7 +509,7 @@ pixel_x = 10;
 		if (danger_level || abs(environment.temperature - target_temperature) <= 0.5)
 			update_use_power(POWER_USE_IDLE)
 			regulating_temperature = 0
-			visible_message("\The [src] clicks quietly as it stops [environment.temperature > target_temperature ? "cooling" : "heating"] the room.",\
+			visible_message("\The [src] clicks quietly as it stops [environment.temperature > target_temperature ? "cooling" : "heating"] the compartment.",\
 			"You hear a click as a faint electronic humming stops.")
 			update_icon()
 
@@ -583,7 +582,7 @@ pixel_x = 10;
 	alarm_overlay = image(icon, "alarm[icon_level]")
 	AddOverlays(alarm_overlay)
 
-	var/emissive_overlay = emissive_appearance(icon, "alarm[icon_level]")
+	emissive_overlay = emissive_appearance(icon, "alarm[icon_level]")
 	AddOverlays(emissive_overlay)
 
 	var/new_color = null
@@ -595,7 +594,8 @@ pixel_x = 10;
 		if (2)
 			new_color = COLOR_RED_LIGHT
 
-	set_light(l_range = L_WALLMOUNT_RANGE, l_power = L_WALLMOUNT_POWER, l_color = new_color)
+	if(light_color != new_color)
+		set_light(L_WALLMOUNT_RANGE, L_WALLMOUNT_POWER, new_color)
 
 	if(regulating_temperature)
 		AddOverlays("alarm_fan_on")
@@ -813,7 +813,7 @@ pixel_x = 10;
 			var/modes[0]
 			modes[++modes.len] = list("name" = "Filtering - Scrubs out contaminants", 			"mode" = AALARM_MODE_SCRUBBING,		"selected" = mode == AALARM_MODE_SCRUBBING, 	"danger" = 0)
 			modes[++modes.len] = list("name" = "Replace Air - Siphons out air while replacing", "mode" = AALARM_MODE_REPLACEMENT,	"selected" = mode == AALARM_MODE_REPLACEMENT,	"danger" = 0)
-			modes[++modes.len] = list("name" = "Panic - Siphons air out of the room", 			"mode" = AALARM_MODE_PANIC,			"selected" = mode == AALARM_MODE_PANIC, 		"danger" = 1)
+			modes[++modes.len] = list("name" = "Panic - Siphons air out of the compartment", 			"mode" = AALARM_MODE_PANIC,			"selected" = mode == AALARM_MODE_PANIC, 		"danger" = 1)
 			modes[++modes.len] = list("name" = "Cycle - Siphons air before replacing", 			"mode" = AALARM_MODE_CYCLE,			"selected" = mode == AALARM_MODE_CYCLE, 		"danger" = 1)
 			modes[++modes.len] = list("name" = "Fill - Shuts off scrubbers and opens vents", 	"mode" = AALARM_MODE_FILL,			"selected" = mode == AALARM_MODE_FILL, 			"danger" = 0)
 			modes[++modes.len] = list("name" = "Off - Shuts off vents and scrubbers", 			"mode" = AALARM_MODE_OFF,			"selected" = mode == AALARM_MODE_OFF, 			"danger" = 0)
@@ -1017,13 +1017,13 @@ pixel_x = 10;
 
 	switch(buildstage)
 		if(2)
-			if(attacking_item.isscrewdriver())  // Opening that Air Alarm up.
+			if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)  // Opening that Air Alarm up.
 				panel_open = !panel_open
 				to_chat(user, SPAN_NOTICE("You [panel_open ? "open" : "close"] the maintenance panel."))
 				update_icon()
 				return TRUE
 
-			if (panel_open && attacking_item.iswirecutter())
+			if (panel_open && attacking_item.tool_behaviour == TOOL_WIRECUTTER)
 				user.visible_message(SPAN_WARNING("[user] has cut the wires inside \the [src]!"), "You cut the wires inside \the [src].")
 				playsound(src.loc, 'sound/items/Wirecutter.ogg', 50, 1)
 				new/obj/item/stack/cable_coil(get_turf(src), 5)
@@ -1032,7 +1032,7 @@ pixel_x = 10;
 				return TRUE
 
 		if(1)
-			if(attacking_item.iscoil())
+			if(attacking_item.tool_behaviour == TOOL_CABLECOIL)
 				var/obj/item/stack/cable_coil/C = attacking_item
 				if (C.use(5))
 					to_chat(user, SPAN_NOTICE("You wire \the [src]."))
@@ -1044,7 +1044,7 @@ pixel_x = 10;
 					to_chat(user, SPAN_WARNING("You need 5 pieces of cable to do wire \the [src]."))
 				return TRUE
 
-			else if(attacking_item.iscrowbar())
+			else if(attacking_item.tool_behaviour == TOOL_CROWBAR)
 				to_chat(user, "You start prying out the circuit.")
 				if(attacking_item.use_tool(src, user, 20, volume = 50))
 					to_chat(user, "You pry out the circuit!")
@@ -1062,7 +1062,7 @@ pixel_x = 10;
 				update_icon()
 				return TRUE
 
-			else if(attacking_item.iswrench())
+			else if(attacking_item.tool_behaviour == TOOL_WRENCH)
 				to_chat(user, "You remove the air alarm assembly from the wall!")
 				new /obj/item/frame/air_alarm(get_turf(user))
 				attacking_item.play_tool_sound(src.loc, 50)

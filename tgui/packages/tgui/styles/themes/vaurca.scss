@@ -4,12 +4,12 @@
 @use '../colors.scss' with (
   $primary: #ff0000,
   $fg-map-keys: (),
-  $bg-map-keys: (),
+  $bg-map-keys: ()
 );
 
 @use '../base.scss' with (
   $color-bg: #1b1212,
-  $color-bg-grad-spread: 0%,
+  $color-bg-grad-spread: 0%
 );
 
 .theme-vaurca {

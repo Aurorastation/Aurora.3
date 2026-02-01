@@ -113,8 +113,8 @@
 // Effect helpers.
 #define QUEUE_EFFECT(effect) if (!(effect.datum_flags & DF_ISPROCESSING)) {effect.datum_flags |= DF_ISPROCESSING; SSeffects.effect_systems += effect;}
 #define QUEUE_VISUAL(visual) if (!(visual.datum_flags & DF_ISPROCESSING)) {visual.datum_flags |= DF_ISPROCESSING; SSeffects.visuals += visual;}
-#define STOP_EFFECT(effect) effect.datum_flags &= ~DF_ISPROCESSING; SSeffects.effect_systems -= effect;
-#define STOP_VISUAL(visual)	visual.datum_flags &= ~DF_ISPROCESSING; SSeffects.visuals -= visual;
+#define STOP_EFFECT(effect) SSeffects.effect_systems -= effect;
+#define STOP_VISUAL(visual)	SSeffects.visuals -= visual;
 
 // -- SSfalling --
 #define ADD_FALLING_ATOM(atom) if (!atom.multiz_falling) { atom.multiz_falling = 1; SSfalling.falling[atom] = 0; }
@@ -215,6 +215,7 @@
 #define INIT_ORDER_PROFILER 101
 #define INIT_ORDER_GARBAGE 99
 #define INIT_ORDER_DBCORE 95
+#define INIT_ORDER_AUTH 94 //Admin permissions should be loaded early on
 #define INIT_ORDER_SOUNDS 83
 #define INIT_ORDER_DISCORD 78
 #define INIT_ORDER_JOBS 65 // Must init before atoms, to set up properly the dynamic job lists.

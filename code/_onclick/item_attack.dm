@@ -11,6 +11,10 @@ mob/attacked_with_item() should then do mob-type specific stuff (like determinin
 Item Hit Effects:
 item/apply_hit_effect() can be overriden to do whatever you want. However "standard" physical damage based weapons should make use of the target mob's hit_with_weapon() proc to
 avoid code duplication. This includes items that may sometimes act as a standard weapon in addition to having other effects (e.g. stunbatons on harm intent).
+
+[obj/item/proc/base_item_interaction] handles all non-combat interactions of an item with an atom.
+This calls [atom/proc/tool_act], among others.
+
 */
 
 // Called when the item is in the active hand, and clicked; alternately, there is an 'activate held object' verb or you can hit pagedown.
@@ -57,6 +61,12 @@ avoid code duplication. This includes items that may sometimes act as a standard
 
 	if((user?.a_intent == I_HURT) && !(attacking_item.item_flags & ITEM_FLAG_NO_BLUDGEON))
 		visible_message(SPAN_DANGER("[src] has been hit by [user] with [attacking_item]."))
+
+	var/item_interact_result = src.base_item_interaction(user, src, modifiers)
+	if(item_interact_result & ITEM_INTERACT_SUCCESS)
+		return TRUE
+	if(item_interact_result & ITEM_INTERACT_BLOCKING)
+		return FALSE
 
 /mob/living/attackby(obj/item/attacking_item, mob/user, params)
 	if(..())

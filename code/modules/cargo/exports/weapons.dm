@@ -44,7 +44,7 @@
 /datum/export/weapon/flash
 	cost = 5
 	unit_name = "handheld flash"
-	export_types = list(/obj/item/device/flash)
+	export_types = list(/obj/item/flash)
 	include_subtypes = TRUE
 
 /datum/export/weapon/handcuffs

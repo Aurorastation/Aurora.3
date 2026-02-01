@@ -819,7 +819,7 @@
 /turf/simulated/floor/tiled/white,
 /area/crystal_planet_outpost/living)
 "kP" = (
-/obj/item/device/versebook/biesel{
+/obj/item/versebook/biesel{
 	pixel_x = -3;
 	pixel_y = 4
 	},
@@ -1027,7 +1027,7 @@
 "nK" = (
 /obj/effect/floor_decal/corner_wide/pink/diagonal,
 /obj/structure/table/standard,
-/obj/item/device/flashlight/lamp/off{
+/obj/item/flashlight/lamp/off{
 	pixel_y = 7
 	},
 /turf/simulated/floor/tiled,
@@ -2082,11 +2082,11 @@
 "DG" = (
 /obj/item/storage/belt/archaeology,
 /obj/item/storage/box/unique/excavation,
-/obj/item/device/flashlight/lantern,
-/obj/item/device/ano_scanner,
-/obj/item/device/depth_scanner,
-/obj/item/device/core_sampler,
-/obj/item/device/measuring_tape,
+/obj/item/flashlight/lantern,
+/obj/item/ano_scanner,
+/obj/item/depth_scanner,
+/obj/item/core_sampler,
+/obj/item/measuring_tape,
 /obj/item/pickaxe/hand,
 /obj/item/storage/bag/fossils,
 /obj/item/stack/flag/green,
@@ -2702,7 +2702,7 @@
 /turf/simulated/floor/tiled,
 /area/crystal_planet_outpost/engineering)
 "Ml" = (
-/obj/item/device/flashlight/lamp/green{
+/obj/item/flashlight/lamp/green{
 	pixel_y = 6;
 	on = 0
 	},
@@ -2842,7 +2842,7 @@
 /area/crystal_planet_outpost/caves)
 "Ob" = (
 /obj/structure/table/standard,
-/obj/item/device/flashlight/heavy{
+/obj/item/flashlight/heavy{
 	pixel_x = 5;
 	pixel_y = 5
 	},
@@ -3232,7 +3232,7 @@
 "SS" = (
 /obj/effect/floor_decal/corner_wide/pink/diagonal,
 /obj/structure/table/standard,
-/obj/item/device/flashlight{
+/obj/item/flashlight{
 	pixel_x = -4;
 	pixel_y = 5
 	},

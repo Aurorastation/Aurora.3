@@ -6,7 +6,7 @@
 	gloves = /obj/item/clothing/gloves/combat
 	shoes = /obj/item/clothing/shoes/magboots
 	belt = /obj/item/storage/belt/military
-	l_ear = /obj/item/device/radio/headset/syndicate
+	l_ear = /obj/item/radio/headset/syndicate
 	suit_store = /obj/item/gun/energy/laser
 	suit = /obj/item/clothing/suit/space/void/hephaestus
 	head = /obj/item/clothing/head/helmet/space/void/hephaestus
@@ -21,7 +21,7 @@
 
 	belt_contents = list(
 			/obj/item/shield/energy = 1,
-			/obj/item/device/flash = 1,
+			/obj/item/flash = 1,
 			/obj/item/handcuffs/ziptie = 2,
 			/obj/item/melee/baton/loaded = 1,
 			/obj/item/grenade/flashbang = 2
@@ -49,7 +49,7 @@
 	gloves = /obj/item/clothing/gloves/combat
 	shoes = /obj/item/clothing/shoes/magboots
 	belt = /obj/item/storage/belt/military
-	l_ear = /obj/item/device/radio/headset/syndicate
+	l_ear = /obj/item/radio/headset/syndicate
 	suit_store = /obj/item/gun/energy/laser
 	suit = /obj/item/clothing/suit/space/void/zenghu
 	head = /obj/item/clothing/head/helmet/space/void/zenghu
@@ -64,7 +64,7 @@
 
 	belt_contents = list(
 			/obj/item/shield/energy = 1,
-			/obj/item/device/flash = 1,
+			/obj/item/flash = 1,
 			/obj/item/handcuffs/ziptie = 2,
 			/obj/item/melee/baton/loaded = 1,
 			/obj/item/grenade/flashbang = 2
@@ -87,7 +87,7 @@
 	gloves = /obj/item/clothing/gloves/combat
 	shoes = /obj/item/clothing/shoes/magboots
 	belt = /obj/item/storage/belt/military
-	l_ear = /obj/item/device/radio/headset/syndicate
+	l_ear = /obj/item/radio/headset/syndicate
 	suit_store = /obj/item/gun/projectile/automatic/wt550
 	suit = /obj/item/clothing/suit/space/void/zavodskoi
 	head = /obj/item/clothing/head/helmet/space/void/zavodskoi
@@ -102,7 +102,7 @@
 
 	belt_contents = list(
 			/obj/item/shield/energy = 1,
-			/obj/item/device/flash = 1,
+			/obj/item/flash = 1,
 			/obj/item/handcuffs/ziptie = 2,
 			/obj/item/melee/baton/loaded = 1,
 			/obj/item/grenade/flashbang = 2
@@ -139,7 +139,7 @@
 	shoes = null
 	gloves = null
 	mask = /obj/item/clothing/mask/gas/swat
-	l_ear = /obj/item/device/radio/headset/syndicate
+	l_ear = /obj/item/radio/headset/syndicate
 	glasses = /obj/item/clothing/glasses/sunglasses/sechud/tactical
 	id = /obj/item/card/id/syndicate
 	l_pocket = /obj/item/plastique

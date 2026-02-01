@@ -88,7 +88,7 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/item/clothing/suit/space/void/einstein,
 /obj/item/clothing/head/helmet/space/void/einstein,
-/obj/item/device/gps,
+/obj/item/gps,
 /turf/simulated/floor/tiled/dark,
 /area/ship/ee_spy_ship)
 "aHs" = (
@@ -318,7 +318,7 @@
 	icon_state = "tube_empty"
 	},
 /obj/structure/table/steel,
-/obj/item/device/flashlight/lamp,
+/obj/item/flashlight/lamp,
 /obj/structure/window/reinforced{
 	dir = 4
 	},
@@ -715,7 +715,7 @@
 /area/ship/ee_spy_ship)
 "lwj" = (
 /obj/structure/table/wood,
-/obj/item/device/flashlight/lamp/lava/blue,
+/obj/item/flashlight/lamp/lava/blue,
 /turf/simulated/floor/carpet/rubber,
 /area/ship/ee_spy_ship)
 "lFg" = (
@@ -739,7 +739,7 @@
 /area/ship/ee_spy_ship)
 "mwP" = (
 /obj/structure/table/standard,
-/obj/item/device/flashlight/lamp,
+/obj/item/flashlight/lamp,
 /turf/simulated/floor/tiled/dark,
 /area/ship/ee_spy_ship)
 "mEc" = (
@@ -807,7 +807,7 @@
 /area/shuttle/fsf_shuttle)
 "nty" = (
 /obj/structure/table/steel,
-/obj/item/device/camera,
+/obj/item/camera,
 /turf/simulated/floor/carpet/rubber,
 /area/ship/ee_spy_ship)
 "nzr" = (
@@ -819,7 +819,7 @@
 /turf/simulated/floor/airless,
 /area/ship/ee_spy_ship)
 "nDn" = (
-/obj/item/device/flashlight/lamp,
+/obj/item/flashlight/lamp,
 /obj/structure/table/steel,
 /turf/simulated/floor/carpet/rubber,
 /area/ship/ee_spy_ship)
@@ -952,7 +952,7 @@
 /area/ship/ee_spy_ship)
 "pXP" = (
 /obj/structure/table/steel,
-/obj/item/device/flashlight/lamp/lava/green,
+/obj/item/flashlight/lamp/lava/green,
 /turf/simulated/floor/carpet/rubber,
 /area/ship/ee_spy_ship)
 "pYB" = (
@@ -1065,7 +1065,7 @@
 /obj/structure/table/standard,
 /obj/item/paper_bin,
 /obj/item/pen/multi,
-/obj/item/device/binoculars,
+/obj/item/binoculars,
 /turf/simulated/floor/tiled/dark,
 /area/ship/ee_spy_ship)
 "uaE" = (
@@ -1255,7 +1255,7 @@
 /obj/structure/table/rack,
 /obj/item/clothing/suit/space/void/einstein,
 /obj/item/clothing/head/helmet/space/void/einstein,
-/obj/item/device/gps,
+/obj/item/gps,
 /turf/simulated/floor/tiled/dark,
 /area/ship/ee_spy_ship)
 "wZf" = (

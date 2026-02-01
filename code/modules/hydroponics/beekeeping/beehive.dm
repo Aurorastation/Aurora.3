@@ -81,12 +81,12 @@
 				AddOverlays("bees3")
 
 /obj/machinery/beehive/attackby(obj/item/attacking_item, mob/user)
-	if(attacking_item.iscrowbar())
+	if(attacking_item.tool_behaviour == TOOL_CROWBAR)
 		closed = !closed
 		user.visible_message(SPAN_NOTICE("\The [user] [closed ? "closes" : "opens"] \the [src]."), SPAN_NOTICE("You [closed ? "close" : "open"] \the [src]."))
 		update_icon()
 		return
-	else if(attacking_item.iswrench())
+	else if(attacking_item.tool_behaviour == TOOL_WRENCH)
 		anchored = !anchored
 		user.visible_message(SPAN_NOTICE("\The [user] [anchored ? "wrenches" : "unwrenches"] \the [src]."), SPAN_NOTICE("You [anchored ? "wrench" : "unwrench"] \the [src]."))
 		if(!smoked && !anchored && (bee_count > 10))
@@ -133,7 +133,7 @@
 			B.fill()
 		update_icon()
 		return
-	else if(istype(attacking_item, /obj/item/device/analyzer/plant_analyzer))
+	else if(istype(attacking_item, /obj/item/analyzer/plant_analyzer))
 		to_chat(user, SPAN_NOTICE("Scan result of \the [src]:"))
 		to_chat(user, SPAN_NOTICE("Beehive is <b>[bee_count ? "[round(bee_count)]% full" : "empty"]</b>.[bee_count > 90 ? " Colony is ready to split." : ""]"))
 		if(frames)
@@ -145,7 +145,7 @@
 		if(smoked)
 			to_chat(user, SPAN_NOTICE("The hive is <b>smoked</b>."))
 		return
-	else if(attacking_item.isscrewdriver())
+	else if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 		to_chat(user, SPAN_NOTICE("You start dismantling \the [src]. This will take a while..."))
 		if(attacking_item.use_tool(src, user, 150, volume = 50))
 			user.visible_message(SPAN_NOTICE("\The [user] dismantles \the [src]."), SPAN_NOTICE("You dismantle \the [src]."))

@@ -49,7 +49,6 @@
 		STOP_PROCESSING(SScalamity, src)
 
 /turf/unsimulated/wall/supermatter/proc/after_tick(turf/T)
-	T.lighting_clear_overlay()
 	for(var/atom/movable/A in T)
 		if (A && A.simulated)	// No eating lighting overlays.
 			if(istype(A, /mob/living))
