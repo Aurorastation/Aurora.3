@@ -49,7 +49,8 @@
 	species_restricted = list(BODYTYPE_TAJARA)
 
 /obj/item/clothing/gloves/black_leather/tajara
-	desc = "Black leather gloves made for Tajaran use."
+	name = "black tajaran leather gloves"
+	desc = "A pair of tight-fitting leather gloves made for Tajaran use."
 	species_restricted = list(BODYTYPE_TAJARA)
 
 /obj/item/clothing/gloves/black/tajara/smithgloves

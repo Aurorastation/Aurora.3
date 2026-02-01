@@ -5,6 +5,6 @@ delete-after: True
 changes:
   - rscadd: "Black gloves have been renamed to work gloves, to better indicate that they are unique from other colored gloves."
   - rscadd: "Added taj and unathi variants of work gloves to the drobes having them, and taj workboots to the ones having normal workboots."
-  - rscadd: "Renamed taj and unathi work gloves and workboots to be clear who can wear it."
+  - rscadd: "Renamed taj and unathi work gloves, leather gloves and workboots to be clear who can wear it."
   - rscadd: "Made hangar techs spawn with work gloves and work boots by default, instead of purely in their drobe."
   - rscadd: "The antag toolbox now also have insulated gloves fitting taj and unathi."

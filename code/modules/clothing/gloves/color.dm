@@ -174,8 +174,8 @@
 	item_state = "black_leather"
 
 /obj/item/clothing/gloves/black_leather/unathi
-	name = "black leather gloves"
-	desc = "Black leather gloves made for Unathi use."
+	name = "black unathi leather gloves"
+	desc = "A pair of tight-fitting synthleather gloves made for Unathi use."
 	species_restricted = list(BODYTYPE_UNATHI)
 
 /obj/item/clothing/gloves/black_leather/colour
