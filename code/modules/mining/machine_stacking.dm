@@ -80,9 +80,9 @@
 				"amount" = machine.stack_storage[stacktype]
 			))
 
-	ui = SSnanoui.try_update_ui(user, src, ui_key, ui, data, force_open)
+	ui = SStgui.try_update_ui(user, src, ui) // NANO NANOUI REPLACEME
 	if(!ui)
-		ui = new(user, src, ui_key, "stacking_machine.tmpl", "Stacking Machine", 500, 400, state = state)
+		ui = new(user, src, "UI_NAME", "UI_WINDOW_NAME") // NANO NANOUI REPLACEMEstacking_machine.tmpl", "Stacking Machine", 500, 400, state = state)
 		ui.set_initial_data(data)
 		ui.open()
 		ui.set_auto_update(1)

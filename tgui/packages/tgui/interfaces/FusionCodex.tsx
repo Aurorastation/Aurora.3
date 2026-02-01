@@ -1,5 +1,5 @@
+import { Box, Flex, Input, LabeledList, Section } from 'tgui-core/components';
 import { useBackend, useLocalState } from '../backend';
-import { Box, Flex, Input, LabeledList, Section } from '../components';
 import { NtosWindow } from '../layouts';
 
 export type CodexData = {
@@ -27,13 +27,9 @@ type Product = {
   amount: number;
 };
 
-export const FusionCodex = (props, context) => {
-  const { act, data } = useBackend<CodexData>(context);
-  const [searchTerm, setSearchTerm] = useLocalState<string>(
-    context,
-    `searchTerm`,
-    ``,
-  );
+export const FusionCodex = (props) => {
+  const { act, data } = useBackend<CodexData>();
+  const [searchTerm, setSearchTerm] = useLocalState<string>(`searchTerm`, ``);
 
   return (
     <NtosWindow resizable>
@@ -48,7 +44,7 @@ export const FusionCodex = (props, context) => {
               placeholder="Search by name"
               width="40vw"
               maxLength={512}
-              onInput={(e, value) => {
+              onChange={(value) => {
                 setSearchTerm(value);
               }}
               value={searchTerm}

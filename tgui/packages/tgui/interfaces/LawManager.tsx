@@ -1,5 +1,3 @@
-import { BooleanLike } from '../../common/react';
-import { useBackend } from '../backend';
 import {
   Box,
   Button,
@@ -8,7 +6,9 @@ import {
   Section,
   Table,
   Tabs,
-} from '../components';
+} from 'tgui-core/components';
+import type { BooleanLike } from 'tgui-core/react';
+import { useBackend } from '../backend';
 import { NtosWindow } from '../layouts';
 
 export type LawData = {
@@ -60,11 +60,11 @@ type LawSetLaws = {
   supplied_laws: Law[];
 };
 
-export const LawManager = (props, context) => {
-  const { act, data } = useBackend<LawData>(context);
+export const LawManager = (props) => {
+  const { act, data } = useBackend<LawData>();
 
   return (
-    <NtosWindow resizable width={800}>
+    <NtosWindow width={800}>
       <NtosWindow.Content scrollable>
         <Tabs>
           <Tabs.Tab
@@ -86,8 +86,8 @@ export const LawManager = (props, context) => {
   );
 };
 
-export const LawManagement = (props, context) => {
-  const { act, data } = useBackend<LawData>(context);
+export const LawManagement = (props) => {
+  const { act, data } = useBackend<LawData>();
 
   return (
     <Section>
@@ -96,12 +96,12 @@ export const LawManagement = (props, context) => {
       ) : (
         ''
       )}
-      {data.ion_laws && data.ion_laws.length ? <Ionlaws /> : ''}
-      {data.inherent_laws && data.inherent_laws.length ? <InherentLaws /> : ''}
-      {data.supplied_laws && data.supplied_laws.length ? <SuppliedLaws /> : ''}
+      {data.ion_laws?.length ? <Ionlaws /> : ''}
+      {data.inherent_laws?.length ? <InherentLaws /> : ''}
+      {data.supplied_laws?.length ? <SuppliedLaws /> : ''}
       <LabeledList>
         <LabeledList.Item label="State on Channel">
-          {data.channels && data.channels.length
+          {data.channels?.length
             ? data.channels.map((channel) => (
                 <Button
                   key={channel.channel}
@@ -127,8 +127,8 @@ export const LawManagement = (props, context) => {
   );
 };
 
-export const AddLaws = (props, context) => {
-  const { act, data } = useBackend<LawData>(context);
+export const AddLaws = (props) => {
+  const { act, data } = useBackend<LawData>();
 
   return (
     <Section title="Add Laws">
@@ -189,11 +189,11 @@ export const AddLaws = (props, context) => {
   );
 };
 
-export const Ionlaws = (props, context) => {
-  const { act, data } = useBackend<LawData>(context);
+export const Ionlaws = (props) => {
+  const { act, data } = useBackend<LawData>();
 
   return (
-    <Section title={data.ion_law_nr + ' Laws'}>
+    <Section title={`${data.ion_law_nr} Laws`}>
       <Table>
         <Table.Row header>
           <Table.Cell>Index</Table.Cell>
@@ -247,8 +247,8 @@ export const Ionlaws = (props, context) => {
   );
 };
 
-export const InherentLaws = (props, context) => {
-  const { act, data } = useBackend<LawData>(context);
+export const InherentLaws = (props) => {
+  const { act, data } = useBackend<LawData>();
 
   return (
     <Section title="Inherent Laws">
@@ -266,7 +266,7 @@ export const InherentLaws = (props, context) => {
             ''
           )}
         </Table.Row>
-        {data.zeroth_laws && data.zeroth_laws.length
+        {data.zeroth_laws?.length
           ? data.zeroth_laws.map((law) => (
               <Table.Row key={law.ref}>
                 <Table.Cell>
@@ -347,8 +347,8 @@ export const InherentLaws = (props, context) => {
   );
 };
 
-export const SuppliedLaws = (props, context) => {
-  const { act, data } = useBackend<LawData>(context);
+export const SuppliedLaws = (props) => {
+  const { act, data } = useBackend<LawData>();
 
   return (
     <Section title="Supplied Laws">
@@ -405,8 +405,8 @@ export const SuppliedLaws = (props, context) => {
   );
 };
 
-export const LawSets = (props, context) => {
-  const { act, data } = useBackend<LawData>(context);
+export const LawSets = (props) => {
+  const { act, data } = useBackend<LawData>();
 
   return (
     <Section
@@ -427,7 +427,7 @@ export const LawSets = (props, context) => {
         for decomissioning.
         <Box textAlign="center">-Stellar Corporate Conglomerate</Box>
       </NoticeBox>
-      {data.law_sets && data.law_sets.length
+      {data.law_sets?.length
         ? data.law_sets.map((set) => (
             <Section
               title={set.name}
@@ -460,7 +460,7 @@ export const LawSets = (props, context) => {
                   <Table.Cell>Index</Table.Cell>
                   <Table.Cell>Law</Table.Cell>
                 </Table.Row>
-                {set.laws.ion_laws && set.laws.ion_laws.length
+                {set.laws.ion_laws?.length
                   ? set.laws.ion_laws.map((law) => (
                       <Table.Row key={law.ref}>
                         <Table.Cell>{law.index}</Table.Cell>
@@ -468,8 +468,8 @@ export const LawSets = (props, context) => {
                       </Table.Row>
                     ))
                   : ''}
-                {(set.laws.inherent_laws && set.laws.inherent_laws.length) ||
-                (set.laws.zeroth_laws && set.laws.zeroth_laws.length) ? (
+                {set.laws.inherent_laws?.length ||
+                set.laws.zeroth_laws?.length ? (
                   <>
                     {set.laws.zeroth_laws.length
                       ? set.laws.zeroth_laws.map((law) => (
@@ -489,7 +489,7 @@ export const LawSets = (props, context) => {
                 ) : (
                   ''
                 )}
-                {set.laws.supplied_laws && set.laws.supplied_laws.length
+                {set.laws.supplied_laws?.length
                   ? set.laws.supplied_laws.map((law) => (
                       <Table.Row key={law.ref}>
                         <Table.Cell>{law.index}</Table.Cell>

@@ -1,5 +1,3 @@
-import { BooleanLike } from '../../common/react';
-import { useBackend } from '../backend';
 import {
   Box,
   Button,
@@ -7,7 +5,9 @@ import {
   NoticeBox,
   Section,
   Table,
-} from '../components';
+} from 'tgui-core/components';
+import type { BooleanLike } from 'tgui-core/react';
+import { useBackend } from '../backend';
 import { NtosWindow } from '../layouts';
 
 export type MonitorData = {
@@ -25,11 +25,11 @@ export type MonitorData = {
   ntnetmaxlogs: number;
 };
 
-export const NTMonitor = (props, context) => {
-  const { act, data } = useBackend<MonitorData>(context);
+export const NTMonitor = (props) => {
+  const { act, data } = useBackend<MonitorData>();
 
   return (
-    <NtosWindow resizable>
+    <NtosWindow>
       <NtosWindow.Content scrollable>
         <Section title="Wireless Connectivity">
           <LabeledList>
@@ -123,7 +123,7 @@ export const NTMonitor = (props, context) => {
           </LabeledList>
         </Section>
         <Section title="System Logs">
-          {data.ntnetlogs && data.ntnetlogs.length ? (
+          {data.ntnetlogs?.length ? (
             data.ntnetlogs.map((log) => (
               <Box key={log} backgroundColor="#000000">
                 {log}
@@ -134,7 +134,7 @@ export const NTMonitor = (props, context) => {
           )}
         </Section>
         <Section title="Message Logs">
-          {data.ntnetmessages && data.ntnetmessages.length ? (
+          {data.ntnetmessages?.length ? (
             data.ntnetmessages.map((log) => (
               <Box key={log} backgroundColor="#000000">
                 {log}

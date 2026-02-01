@@ -1,6 +1,5 @@
-import { paginate } from 'common/collections';
+import { NoticeBox, Section, Slider, Table, Tabs } from 'tgui-core/components';
 import { useBackend, useLocalState } from '../backend';
-import { Tabs, Slider, Section, NoticeBox, Table } from '../components';
 import { NtosWindow } from '../layouts';
 
 export type MapData = {
@@ -14,17 +13,15 @@ export type MapData = {
   pois: { name: string; desc: string; x: number; y: number; z: number }[];
 };
 
-export const Map = (props, context) => {
-  const { act, data } = useBackend<MapData>(context);
+export const MiniMap = (props) => {
+  const { act, data } = useBackend<MapData>();
 
   const [minimapZoom, setMinimapZoom] = useLocalState<number>(
-    context,
     `minimapZoom`,
     150,
   );
 
   const [showLegend, setShowLegend] = useLocalState<boolean>(
-    context,
     `showLegend`,
     false,
   );
@@ -37,7 +34,7 @@ export const Map = (props, context) => {
   const zoom_mod = minimapZoom / 100.0;
 
   return (
-    <NtosWindow resizable>
+    <NtosWindow>
       <NtosWindow.Content scrollable>
         <Section title="Map Program">
           <Tabs>
@@ -75,10 +72,9 @@ export const Map = (props, context) => {
           {showLegend ? (
             <NoticeBox color="grey">
               <Table>
-                {paginate(data.dept_colors_map, 2).map((a) => (
+                {data.dept_colors_map.map((a: any) => (
                   <Table.Row key={a}>
-                    <Table.Cell color={a[0].c}>{a[0].d}</Table.Cell>
-                    <Table.Cell color={a[1].c}>{a[1].d}</Table.Cell>
+                    <Table.Cell color={a.d}>{a.c}</Table.Cell>
                   </Table.Row>
                 ))}
               </Table>

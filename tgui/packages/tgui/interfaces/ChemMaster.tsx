@@ -1,15 +1,15 @@
-import { useBackend } from '../backend';
 import {
+  Box,
   Button,
+  Collapsible,
+  Divider,
+  Flex,
+  LabeledList,
   Section,
   Stack,
   Table,
-  Flex,
-  Box,
-  Collapsible,
-  LabeledList,
-  Divider,
-} from '../components';
+} from 'tgui-core/components';
+import { useBackend } from '../backend';
 import { Window } from '../layouts';
 
 export type DispenserData = {
@@ -27,25 +27,25 @@ export type DispenserData = {
   is_condimaster: boolean;
 };
 
-let modes = new Map<number, string>([
+const modes = new Map<number, string>([
   [0, 'Disposals'],
   [1, 'Beaker'],
 ]);
 
 type Reagent = {
-  name: String;
+  name: string;
   volume: number;
-  typepath: String;
+  typepath: string;
 };
 
 type Blood = {
-  name: String;
-  type: String;
-  DNA: String;
+  name: string;
+  type: string;
+  DNA: string;
 };
 
-const ReagentFactory = (props, context) => {
-  const { act, data } = useBackend<DispenserData>(context);
+const ReagentFactory = (props) => {
+  const { act, data } = useBackend<DispenserData>();
   const { reagents, quantities, clickOperation } = props;
 
   return (
@@ -54,7 +54,7 @@ const ReagentFactory = (props, context) => {
         ? reagents.map((reagent) => (
             <Table.Row key={reagent.name}>
               <Section
-                title={reagent.name + ' (' + reagent.volume + ')'}
+                title={`${reagent.name} (${reagent.volume})`}
                 buttons={
                   reagent.name === 'Blood' && clickOperation === 'add' ? (
                     <Button
@@ -81,8 +81,8 @@ const ReagentFactory = (props, context) => {
   );
 };
 
-const DispenseButton = (props, context) => {
-  const { act, data } = useBackend<DispenserData>(context);
+const DispenseButton = (props) => {
+  const { act, data } = useBackend<DispenserData>();
   const { quantity, reagent, operation } = props;
 
   if (quantity === 'Custom') {
@@ -90,7 +90,7 @@ const DispenseButton = (props, context) => {
       <Button.Input
         key={quantity}
         content={quantity}
-        onCommit={(e, value: string) => {
+        onCommit={(value: string) => {
           act(operation, {
             [operation]: reagent.typepath,
             amount: parseFloat(value),
@@ -116,9 +116,9 @@ const DispenseButton = (props, context) => {
   }
 };
 
-export const ChemMaster = (props, context) => {
-  const { act, data } = useBackend<DispenserData>(context);
-  let dispensable_quantities = [1, 2, 5, 10, 15, 20, 30, 60, 'Custom', 'All'];
+export const ChemMaster = (props) => {
+  const { act, data } = useBackend<DispenserData>();
+  const dispensable_quantities = [1, 2, 5, 10, 15, 20, 30, 60, 'Custom', 'All'];
 
   return (
     <Window
@@ -189,7 +189,7 @@ export const ChemMaster = (props, context) => {
           </Table>
         </Section>
         <Divider />
-        <Section title={data.machine_name.split(' ')[0] + ' Content'}>
+        <Section title={`${data.machine_name.split(' ')[0]} Content`}>
           <Stack vertical>
             <Stack.Item>
               <Flex fill>
@@ -271,7 +271,6 @@ export const ChemMaster = (props, context) => {
                       key={icon}
                       className={icon}
                       style={{
-                        '-ms-interpolation-mode': 'bicubic',
                         transform: 'scale(1.5)',
                       }}
                     />
@@ -310,7 +309,6 @@ export const ChemMaster = (props, context) => {
                         key={icon}
                         className={icon}
                         style={{
-                          '-ms-interpolation-mode': 'bicubic',
                           transform: 'scale(1.5)',
                         }}
                       />

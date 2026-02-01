@@ -1,13 +1,13 @@
-import { BooleanLike } from 'common/react';
-import { useBackend } from '../backend';
 import {
-  Section,
   Box,
-  ProgressBar,
   Button,
   Knob,
   LabeledList,
-} from '../components';
+  ProgressBar,
+  Section,
+} from 'tgui-core/components';
+import type { BooleanLike } from 'tgui-core/react';
+import { useBackend } from '../backend';
 import { Window } from '../layouts';
 
 export type PumpData = {
@@ -30,12 +30,12 @@ type Tank = {
   tankPressure: number;
 };
 
-export const PortablePump = (props, context) => {
-  const { act, data } = useBackend<PumpData>(context);
+export const PortablePump = (props) => {
+  const { act, data } = useBackend<PumpData>();
   // Extract `health` and `color` variables from the `data` object.
 
   return (
-    <Window resizable>
+    <Window>
       <Window.Content scrollable>
         <Section
           title="Pump Status"
@@ -44,6 +44,7 @@ export const PortablePump = (props, context) => {
               <Button
                 content={data.on ? 'On' : 'Off'}
                 icon={data.on ? 'power-off' : 'times'}
+                disabled={!data.cellCharge}
                 color={!data.on && 'danger'}
                 onClick={() => act('power')}
               />
@@ -127,8 +128,8 @@ export const PortablePump = (props, context) => {
   );
 };
 
-export const HoldingTankWindow = (props, context) => {
-  const { act, data } = useBackend<PumpData>(context);
+export const HoldingTankWindow = (props) => {
+  const { act, data } = useBackend<PumpData>();
   return (
     <Section>
       <LabeledList>

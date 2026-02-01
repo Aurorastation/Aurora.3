@@ -1,5 +1,3 @@
-import { BooleanLike } from '../../common/react';
-import { useBackend } from '../backend';
 import {
   Box,
   Button,
@@ -9,7 +7,9 @@ import {
   LabeledList,
   NoticeBox,
   Section,
-} from '../components';
+} from 'tgui-core/components';
+import type { BooleanLike } from 'tgui-core/react';
+import { useBackend } from '../backend';
 import { NtosWindow } from '../layouts';
 
 export type IDData = {
@@ -56,11 +56,11 @@ type Job = {
   job: string;
 };
 
-export const IDCardModification = (props, context) => {
-  const { act, data } = useBackend<IDData>(context);
+export const IDCardModification = (props) => {
+  const { act, data } = useBackend<IDData>();
 
   return (
-    <NtosWindow resizable width={650} height={700}>
+    <NtosWindow width={650} height={700}>
       <NtosWindow.Content scrollable>
         <Section title="Identification Input">
           {!data.has_id ? (
@@ -84,8 +84,8 @@ export const IDCardModification = (props, context) => {
   );
 };
 
-export const AccessModification = (props, context) => {
-  const { act, data } = useBackend<IDData>(context);
+export const AccessModification = (props) => {
+  const { act, data } = useBackend<IDData>();
 
   return (
     <Section title="Access Modification">
@@ -118,7 +118,7 @@ export const AccessModification = (props, context) => {
         </LabeledList.Item>
       </LabeledList>
       <Section title="Assignments">
-        <Collapsible content="Collapse" open>
+        <Collapsible title="Collapse" open>
           <LabeledList>
             <LabeledList.Item label="Custom" labelColor="white">
               <Button

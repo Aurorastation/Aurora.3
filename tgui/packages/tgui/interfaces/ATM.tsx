@@ -1,5 +1,3 @@
-import { BooleanLike } from '../../common/react';
-import { useBackend, useLocalState, useSharedState } from '../backend';
 import {
   Box,
   Button,
@@ -11,7 +9,9 @@ import {
   Section,
   Stack,
   Table,
-} from '../components';
+} from 'tgui-core/components';
+import type { BooleanLike } from 'tgui-core/react';
+import { useBackend, useLocalState, useSharedState } from '../backend';
 import { Window } from '../layouts';
 
 export type ATMData = {
@@ -38,11 +38,11 @@ type Transaction = {
   source_terminal: string;
 };
 
-export const ATM = (props, context) => {
-  const { act, data } = useBackend<ATMData>(context);
+export const ATM = (props) => {
+  const { act, data } = useBackend<ATMData>();
 
   return (
-    <Window resizable theme="idris">
+    <Window theme="idris">
       <Window.Content scrollable>
         <Section
           title={
@@ -75,10 +75,10 @@ export const ATM = (props, context) => {
   );
 };
 
-export const LoginWindow = (props, context) => {
-  const { act, data } = useBackend<ATMData>(context);
-  const [acc, setAcc] = useSharedState<string>(context, 'acc', '');
-  const [pin, setPin] = useLocalState<string>(context, 'pin', '');
+export const LoginWindow = (props) => {
+  const { act, data } = useBackend<ATMData>();
+  const [acc, setAcc] = useSharedState<string>('acc', '');
+  const [pin, setPin] = useLocalState<string>('pin', '');
 
   return (
     <Section>
@@ -91,16 +91,14 @@ export const LoginWindow = (props, context) => {
           <Input
             value={acc}
             placeholder="Account"
-            onInput={(e, v) => setAcc(v)}
-            onChange={(e, v) => setAcc(v)}
+            onChange={(value) => setAcc(value)}
           />
         </LabeledList.Item>
         <LabeledList.Item label="PIN">
           <Input
             value={pin}
             placeholder="PIN"
-            onInput={(e, v) => setPin(v)}
-            onChange={(e, v) => setPin(v)}
+            onChange={(value) => setPin(value)}
           />
         </LabeledList.Item>
         <LabeledList.Item label="Card">
@@ -122,27 +120,18 @@ export const LoginWindow = (props, context) => {
   );
 };
 
-export const AuthenticatedWindow = (props, context) => {
-  const { act, data } = useBackend<ATMData>(context);
-  const [withdraw, setWithdraw] = useLocalState<number>(context, 'withdraw', 0);
-  const [security, setSecurity] = useLocalState<boolean>(
-    context,
-    'security',
-    false,
-  );
-  const [transfer, setTransfer] = useLocalState<boolean>(
-    context,
-    'transfer',
-    false,
-  );
-  const [target, setTarget] = useLocalState<string>(context, 'target', '');
-  const [funds, setFunds] = useLocalState<number>(context, 'funds', 0);
+export const AuthenticatedWindow = (props) => {
+  const { act, data } = useBackend<ATMData>();
+  const [withdraw, setWithdraw] = useLocalState<number>('withdraw', 0);
+  const [security, setSecurity] = useLocalState<boolean>('security', false);
+  const [transfer, setTransfer] = useLocalState<boolean>('transfer', false);
+  const [target, setTarget] = useLocalState<string>('target', '');
+  const [funds, setFunds] = useLocalState<number>('funds', 0);
   const [purpose, setPurpose] = useLocalState<string>(
-    context,
     'purpose',
     'Funds transfer',
   );
-  const [logs, setLogs] = useLocalState<boolean>(context, 'logs', false);
+  const [logs, setLogs] = useLocalState<boolean>('logs', false);
 
   return (
     <Section>
@@ -165,7 +154,7 @@ export const AuthenticatedWindow = (props, context) => {
             unit="电"
             step={5}
             stepPixelSize={5}
-            onChange={(e, v) => setWithdraw(v)}
+            onChange={(value) => setWithdraw(value)}
           />
           &nbsp;
           <Button
@@ -237,8 +226,7 @@ export const AuthenticatedWindow = (props, context) => {
                   <Input
                     value={target}
                     placeholder="Account number"
-                    onChange={(e, v) => setTarget(v)}
-                    onInput={(e, v) => setTarget(v)}
+                    onChange={(value) => setTarget(value)}
                   />
                 </LabeledList.Item>
                 <LabeledList.Item label="Funds">
@@ -251,15 +239,14 @@ export const AuthenticatedWindow = (props, context) => {
                     unit="电"
                     step={5}
                     stepPixelSize={5}
-                    onChange={(e, v) => setFunds(v)}
+                    onChange={(value) => setFunds(value)}
                   />
                 </LabeledList.Item>
                 <LabeledList.Item label="Purpose">
                   <Input
                     value={purpose}
                     placeholder="Transaction"
-                    onChange={(e, v) => setPurpose(v)}
-                    onInput={(e, v) => setPurpose(v)}
+                    onChange={(value) => setPurpose(value)}
                   />
                 </LabeledList.Item>
                 <LabeledList.Item label="Confirm">

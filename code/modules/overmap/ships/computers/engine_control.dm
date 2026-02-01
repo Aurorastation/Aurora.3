@@ -55,9 +55,9 @@
 	data["engines_info"] = enginfo
 	data["total_thrust"] = total_thrust
 
-	ui = SSnanoui.try_update_ui(user, src, ui_key, ui, data, force_open)
+	ui = SStgui.try_update_ui(user, src, ui) // NANO NANOUI REPLACEME
 	if (!ui)
-		ui = new(user, src, ui_key, "engines_control.tmpl", "[connected.get_real_name()] Engines Control", 390, 530)
+		ui = new(user, src, "UI_NAME", "UI_WINDOW_NAME") // NANO NANOUI REPLACEMEengines_control.tmpl", "[connected.get_real_name()] Engines Control", 390, 530)
 		ui.set_initial_data(data)
 		ui.open()
 		ui.set_auto_update(1)

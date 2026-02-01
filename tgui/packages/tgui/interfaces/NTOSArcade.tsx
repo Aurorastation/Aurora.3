@@ -1,5 +1,3 @@
-import { BooleanLike } from '../../common/react';
-import { useBackend } from '../backend';
 import {
   Box,
   Button,
@@ -7,7 +5,9 @@ import {
   LabeledList,
   ProgressBar,
   Section,
-} from '../components';
+} from 'tgui-core/components';
+import type { BooleanLike } from 'tgui-core/react';
+import { useBackend } from '../backend';
 import { NtosWindow } from '../layouts';
 
 export type ArcadeData = {
@@ -22,11 +22,11 @@ export type ArcadeData = {
   information: string;
 };
 
-export const NTOSArcade = (props, context) => {
-  const { act, data } = useBackend<ArcadeData>(context);
+export const NTOSArcade = (props) => {
+  const { act, data } = useBackend<ArcadeData>();
 
   return (
-    <NtosWindow resizable>
+    <NtosWindow>
       <NtosWindow.Content scrollable>
         {data.gameover ? <GameOverWindow /> : <GameWindow />}
       </NtosWindow.Content>
@@ -34,8 +34,8 @@ export const NTOSArcade = (props, context) => {
   );
 };
 
-export const GameOverWindow = (props, context) => {
-  const { act, data } = useBackend<ArcadeData>(context);
+export const GameOverWindow = (props) => {
+  const { act, data } = useBackend<ArcadeData>();
 
   return (
     <Section>
@@ -52,8 +52,8 @@ export const GameOverWindow = (props, context) => {
   );
 };
 
-export const GameWindow = (props, context) => {
-  const { act, data } = useBackend<ArcadeData>(context);
+export const GameWindow = (props) => {
+  const { act, data } = useBackend<ArcadeData>();
 
   return (
     <Section>

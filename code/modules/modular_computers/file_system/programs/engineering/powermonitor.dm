@@ -22,7 +22,7 @@
 	..()
 
 /datum/computer_file/program/power_monitor/ui_data(mob/user)
-	var/list/data = initial_data()
+	var/list/data = list()
 	var/list/sensors = list()
 	var/obj/machinery/power/sensor/focus // Placeholder for selected sensor, if one has been selected from the UI list
 

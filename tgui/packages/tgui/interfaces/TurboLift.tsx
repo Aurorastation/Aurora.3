@@ -1,5 +1,5 @@
+import { Button, Divider, LabeledList, Section } from 'tgui-core/components';
 import { useBackend } from '../backend';
-import { Button, Section, LabeledList, Divider } from '../components';
 import { Window } from '../layouts';
 
 export type TurboLiftData = {
@@ -8,11 +8,11 @@ export type TurboLiftData = {
   doorsOpen: boolean;
 };
 
-export const TurboLift = (props, context) => {
-  const { act, data } = useBackend<TurboLiftData>(context);
+export const TurboLift = (props) => {
+  const { act, data } = useBackend<TurboLiftData>();
 
   return (
-    <Window resizable>
+    <Window>
       <Window.Content scrollable>
         <Section title="Lift Panel">
           <LabeledList>

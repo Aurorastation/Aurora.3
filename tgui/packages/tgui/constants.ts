@@ -28,6 +28,7 @@ export const COLORS = {
     science: '#9b59b6',
     engineering: '#f1c40f',
     cargo: '#f39c12',
+    service: '#7cc46a',
     centcom: '#00c100',
     other: '#c38312',
   },
@@ -47,25 +48,43 @@ export const COLORS = {
 
 // Colors defined in CSS
 export const CSS_COLORS = [
-  'black',
-  'white',
-  'red',
-  'orange',
-  'yellow',
-  'olive',
-  'green',
-  'teal',
-  'blue',
-  'violet',
-  'purple',
-  'pink',
-  'brown',
-  'grey',
-  'good',
   'average',
   'bad',
+  'black',
+  'blue',
+  'brown',
+  'good',
+  'green',
+  'grey',
   'label',
-];
+  'olive',
+  'orange',
+  'pink',
+  'purple',
+  'red',
+  'teal',
+  'transparent',
+  'violet',
+  'white',
+  'yellow',
+] as const;
+
+export enum Direction {
+  NONE = 0,
+  NORTH = 1,
+  SOUTH = 2,
+  EAST = 4,
+  WEST = 8,
+  NORTHEAST = NORTH | EAST,
+  NORTHWEST = NORTH | WEST,
+  SOUTHEAST = SOUTH | EAST,
+  SOUTHWEST = SOUTH | WEST,
+  VERTICAL = NORTH | SOUTH,
+  HORIZONTAL = EAST | WEST,
+  ALL = NORTH | SOUTH | EAST | WEST,
+}
+
+export type CssColor = (typeof CSS_COLORS)[number];
 
 /* IF YOU CHANGE THIS KEEP IT IN SYNC WITH CHAT CSS */
 export const RADIO_CHANNELS = [
@@ -159,7 +178,7 @@ const GASES = [
     path: '/datum/gas/nitrogen',
     name: 'Nitrogen',
     label: 'N₂',
-    color: 'red',
+    color: 'yellow',
   },
   {
     id: 'co2',
@@ -183,7 +202,7 @@ const GASES = [
     color: 'lightsteelblue',
   },
   {
-    id: 'nob',
+    id: 'hypernoblium',
     path: '/datum/gas/hypernoblium',
     name: 'Hyper-noblium',
     label: 'Hyper-nob',
@@ -218,7 +237,7 @@ const GASES = [
     color: 'mediumpurple',
   },
   {
-    id: 'pluox',
+    id: 'pluoxium',
     path: '/datum/gas/pluoxium',
     name: 'Pluoxium',
     label: 'Pluoxium',
@@ -232,7 +251,7 @@ const GASES = [
     color: 'olive',
   },
   {
-    id: 'Freon',
+    id: 'freon',
     path: '/datum/gas/freon',
     name: 'Freon',
     label: 'Freon',
@@ -286,6 +305,13 @@ const GASES = [
     name: 'Antinoblium',
     label: 'Anti-Noblium',
     color: 'maroon',
+  },
+  {
+    id: 'nitrium',
+    path: '/datum/gas/nitrium',
+    name: 'Nitrium',
+    label: 'Nitrium',
+    color: 'brown',
   },
 ] as const;
 

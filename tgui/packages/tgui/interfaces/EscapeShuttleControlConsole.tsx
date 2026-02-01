@@ -1,5 +1,5 @@
+import { Box, Button, LabeledList, Section } from 'tgui-core/components';
 import { useBackend } from '../backend';
-import { Button, Section, Box, LabeledList } from '../components';
 import { Window } from '../layouts';
 
 export type AuthData = {
@@ -20,11 +20,11 @@ export type EscapeShuttleControlConsoleData = {
   has_auth: boolean;
 };
 
-export const EscapeShuttleControlConsole = (props, context) => {
-  const { act, data } = useBackend<EscapeShuttleControlConsoleData>(context);
+export const EscapeShuttleControlConsole = (props) => {
+  const { act, data } = useBackend<EscapeShuttleControlConsoleData>();
 
   return (
-    <Window resizable>
+    <Window>
       <Window.Content scrollable>
         <Section title="Shuttle Status">
           <Box>{data.shuttle_status}</Box>
@@ -68,12 +68,18 @@ export const EscapeShuttleControlConsole = (props, context) => {
           {data.auth_list.map((auth) =>
             auth.auth_hash ? (
               <Button
+                key={auth.auth_hash}
                 content={auth.auth_name}
                 icon="eject"
                 onClick={() => act('removeid', { removeid: auth.auth_hash })}
               />
             ) : (
-              <Button content="" icon="eject" onClick={() => act('scanid')} />
+              <Button
+                key={auth.auth_hash}
+                content=""
+                icon="eject"
+                onClick={() => act('scanid')}
+              />
             ),
           )}
         </Section>

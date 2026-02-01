@@ -48,7 +48,7 @@
 	var/list/monitored_networks = list()
 
 /datum/computer_file/program/camera_monitor/ui_data(mob/user)
-	var/list/data = initial_data()
+	var/list/data = list()
 
 	data["current_camera"] = current_camera ? current_camera.nano_structure() : null
 	data["current_network"] = current_network
@@ -223,12 +223,8 @@
 	filedesc = "Advanced Camera Monitoring"
 	extended_desc = "This program allows remote access to station's camera system. Some camera networks may have additional access requirements. This version has an integrated database with additional encrypted keys."
 	size = 14
-	nanomodule_path = /datum/nano_module/camera_monitor/ert
+	tgui_id = "CameraMonitoring"
 	available_on_ntnet = FALSE
-
-/datum/nano_module/camera_monitor/ert
-	name = "Advanced Camera Monitoring Program"
-	available_to_ai = FALSE
 
 // The ERT variant has access to ERT and crescent cams, but still checks for accesses. ERT members should be able to use it.
 /datum/computer_file/program/camera_monitor/ert/modify_networks_list(var/list/networks)
@@ -242,12 +238,9 @@
 	filedesc = "Journalism Camera Monitoring"
 	extended_desc = "This program allows remote access to station's camera system. Some camera networks may have additional access requirements. This version has has a connection to news networks."
 	size = 2
-	nanomodule_path = /datum/nano_module/camera_monitor/news
+	tgui_id = "CameraMonitoring"
 	required_access_download = null
 	usage_flags = PROGRAM_ALL
-
-/datum/nano_module/camera_monitor/news
-	name = "Journalism Camera Monitoring Program"
 
 /datum/computer_file/program/camera_monitor/news/modify_networks_list(var/list/networks)
 	networks = list()

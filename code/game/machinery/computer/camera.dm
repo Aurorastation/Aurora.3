@@ -96,9 +96,6 @@
 		return
 	if(stat & (NOPOWER|BROKEN))	return
 
-	if(!isAI(user))
-		user.set_machine(src)
-		user.reset_view(current_camera)
 	ui_interact(user)
 
 /obj/machinery/computer/security/proc/switch_to_camera(var/mob/user, var/obj/machinery/camera/C)

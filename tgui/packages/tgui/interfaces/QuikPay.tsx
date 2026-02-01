@@ -1,12 +1,12 @@
-import { BooleanLike } from '../../common/react';
-import { useBackend } from '../backend';
 import {
-  LabeledList,
   Button,
   Input,
+  LabeledList,
   NumberInput,
   Section,
-} from '../components';
+} from 'tgui-core/components';
+import type { BooleanLike } from 'tgui-core/react';
+import { useBackend } from '../backend';
 import { Window } from '../layouts';
 
 export type PayData = {
@@ -29,11 +29,11 @@ type ItemBuy = {
   amount: number;
 };
 
-export const QuikPay = (props, context) => {
-  const { act, data } = useBackend<PayData>(context);
+export const QuikPay = (props) => {
+  const { act, data } = useBackend<PayData>();
 
   return (
-    <Window resizable theme="idris">
+    <Window theme="idris">
       <Window.Content scrollable>
         <Section
           title="Ordering"
@@ -64,8 +64,8 @@ export const QuikPay = (props, context) => {
   );
 };
 
-export const ItemWindow = (props, context) => {
-  const { act, data } = useBackend<PayData>(context);
+export const ItemWindow = (props) => {
+  const { act, data } = useBackend<PayData>();
 
   return (
     <Section>
@@ -122,28 +122,29 @@ export const ItemWindow = (props, context) => {
   );
 };
 
-export const AddItems = (props, context) => {
-  const { act, data } = useBackend<PayData>(context);
+export const AddItems = (props) => {
+  const { act, data } = useBackend<PayData>();
   return (
     <Section>
       <Input
         value={data.new_item}
-        onChange={(e, value) => act('set_new_item', { set_new_item: value })}
+        onChange={(value) => act('set_new_item', { set_new_item: value })}
       />
       <NumberInput
         value={data.new_price}
         minValue={0}
         maxValue={100}
+        step={1}
         stepPixelSize={5}
-        onDrag={(e, value) => act('set_new_price', { set_new_price: value })}
+        onDrag={(value) => act('set_new_price', { set_new_price: value })}
       />
       <Button content="Add" onClick={() => act('add')} />
     </Section>
   );
 };
 
-export const CartWindow = (props, context) => {
-  const { act, data } = useBackend<PayData>(context);
+export const CartWindow = (props) => {
+  const { act, data } = useBackend<PayData>();
   return (
     <Section>
       <LabeledList>

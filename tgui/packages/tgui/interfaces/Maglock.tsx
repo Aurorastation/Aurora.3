@@ -1,23 +1,23 @@
-import { BooleanLike } from '../../common/react';
+import { Button, Input, LabeledList, Section } from 'tgui-core/components';
+import type { BooleanLike } from 'tgui-core/react';
 import { useBackend } from '../backend';
-import { LabeledList, Input, Section, Button } from '../components';
 import { Window } from '../layouts';
 
 export type MaglockData = {
   locked: BooleanLike;
 };
 
-export const Maglock = (props, context) => {
-  const { act, data } = useBackend<MaglockData>(context);
+export const Maglock = (props) => {
+  const { act, data } = useBackend<MaglockData>();
 
   return (
-    <Window resizable>
+    <Window>
       <Window.Content scrollable>
         <Section title="Unlock">
           <LabeledList>
             <LabeledList.Item label="Passcode">
               <Input
-                onChange={(e, value) => act('passcode', { passcode: value })}
+                onChange={(value) => act('passcode', { passcode: value })}
               />
             </LabeledList.Item>
           </LabeledList>
@@ -28,17 +28,15 @@ export const Maglock = (props, context) => {
   );
 };
 
-export const ConfigureWindow = (props, context) => {
-  const { act, data } = useBackend<MaglockData>(context);
+export const ConfigureWindow = (props) => {
+  const { act, data } = useBackend<MaglockData>();
 
   return (
     <Section title="Configure">
       <LabeledList>
         <LabeledList.Item label="Passcode">
           <Input
-            onChange={(e, value) =>
-              act('set_passcode', { set_passcode: value })
-            }
+            onChange={(value) => act('set_passcode', { set_passcode: value })}
           />
         </LabeledList.Item>
         <LabeledList.Item label="Lock">

@@ -1,12 +1,12 @@
-import { BooleanLike } from '../../common/react';
-import { useBackend } from '../backend';
 import {
-  LabeledList,
   Button,
   Input,
+  LabeledList,
   NumberInput,
   Section,
-} from '../components';
+} from 'tgui-core/components';
+import type { BooleanLike } from 'tgui-core/react';
+import { useBackend } from '../backend';
 import { Window } from '../layouts';
 
 export type TerminalData = {
@@ -29,11 +29,11 @@ type ItemBuy = {
   amount: number;
 };
 
-export const OrderTerminal = (props, context) => {
-  const { act, data } = useBackend<TerminalData>(context);
+export const OrderTerminal = (props) => {
+  const { act, data } = useBackend<TerminalData>();
 
   return (
-    <Window resizable theme="idris">
+    <Window theme="idris">
       <Window.Content scrollable>
         <Section
           title="Ordering"
@@ -54,8 +54,8 @@ export const OrderTerminal = (props, context) => {
   );
 };
 
-export const ItemWindow = (props, context) => {
-  const { act, data } = useBackend<TerminalData>(context);
+export const ItemWindow = (props) => {
+  const { act, data } = useBackend<TerminalData>();
 
   return (
     <Section>
@@ -66,9 +66,7 @@ export const ItemWindow = (props, context) => {
             <Button
               content="Buy"
               icon="calendar"
-              onClick={(e, value) =>
-                act('buy', { buying: item.name, amount: 1 })
-              }
+              onClick={(value) => act('buy', { buying: item.name, amount: 1 })}
             />
           </LabeledList.Item>
         ))}
@@ -103,28 +101,29 @@ export const ItemWindow = (props, context) => {
   );
 };
 
-export const AddItems = (props, context) => {
-  const { act, data } = useBackend<TerminalData>(context);
+export const AddItems = (props) => {
+  const { act, data } = useBackend<TerminalData>();
   return (
     <Section>
       <Input
         value={data.new_item}
-        onChange={(e, value) => act('set_new_item', { set_new_item: value })}
+        onChange={(value) => act('set_new_item', { set_new_item: value })}
       />
       <NumberInput
         value={data.new_price}
+        step={1}
         minValue={0}
         maxValue={100}
         stepPixelSize={5}
-        onDrag={(e, value) => act('set_new_price', { set_new_price: value })}
+        onChange={(value) => act('set_new_price', { set_new_price: value })}
       />
       <Button content="Add" onClick={() => act('add')} />
     </Section>
   );
 };
 
-export const CartWindow = (props, context) => {
-  const { act, data } = useBackend<TerminalData>(context);
+export const CartWindow = (props) => {
+  const { act, data } = useBackend<TerminalData>();
   return (
     <Section>
       <LabeledList>

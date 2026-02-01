@@ -1,7 +1,3 @@
-import { round } from '../../common/math';
-import { BooleanLike } from '../../common/react';
-import { capitalize } from '../../common/string';
-import { useBackend, useSharedState } from '../backend';
 import {
   Box,
   Button,
@@ -13,7 +9,11 @@ import {
   NumberInput,
   ProgressBar,
   Section,
-} from '../components';
+} from 'tgui-core/components';
+import { round } from 'tgui-core/math';
+import type { BooleanLike } from 'tgui-core/react';
+import { capitalize } from 'tgui-core/string';
+import { useBackend, useSharedState } from '../backend';
 import { Window } from '../layouts';
 
 export type FusionCoreData = {
@@ -46,20 +46,16 @@ type Reactant = {
   amount: number;
 };
 
-export const FusionCoreControl = (props, context) => {
-  const { act, data } = useBackend<FusionCoreData>(context);
-  const [override, setOverride] = useSharedState<boolean>(
-    context,
-    'override',
-    false,
-  );
+export const FusionCoreControl = (props) => {
+  const { act, data } = useBackend<FusionCoreData>();
+  const [override, setOverride] = useSharedState<boolean>('override', false);
   return (
-    <Window resizable width={800} height={500} theme={data.manufacturer}>
+    <Window width={800} height={500} theme={data.manufacturer}>
       <Window.Content scrollable>
-        {data.cores && data.cores.length ? (
+        {data.cores?.length ? (
           data.cores.map((core) => (
             <Section
-              title={'INDRA Core ' + core.id}
+              title={`INDRA Core ${core.id}`}
               key={core.id}
               buttons={
                 core.field ? (
@@ -138,10 +134,11 @@ export const FusionCoreControl = (props, context) => {
                         <NumberInput
                           value={core.field_strength}
                           unit="tesla"
+                          step={1}
                           minValue={20}
                           maxValue={core.field_strength_max * 100}
                           stepPixelSize={15}
-                          onDrag={(e, value) =>
+                          onChange={(value) =>
                             act('strength', {
                               strength: value,
                               machine: core.ref,
@@ -177,7 +174,7 @@ export const FusionCoreControl = (props, context) => {
                             Core offline.
                           </Box>
                         ) : (
-                          round(core.temperature, 0.1) + ' kelvin'
+                          `${round(core.temperature, 0.1)} kelvin`
                         )}
                       </LabeledList.Item>
                     </LabeledList>
@@ -186,7 +183,7 @@ export const FusionCoreControl = (props, context) => {
                 <Flex.Item grow={1}>
                   <Box m={2}>
                     <Box fontSize={1.5}>Reactants</Box>
-                    {core.reactants && core.reactants.length ? (
+                    {core.reactants?.length ? (
                       core.reactants.map((reactant) => (
                         <Section key={reactant.name}>
                           <Dimmer>

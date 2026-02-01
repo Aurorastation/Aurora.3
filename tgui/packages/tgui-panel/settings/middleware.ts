@@ -5,9 +5,12 @@
  */
 
 import { storage } from 'common/storage';
+
 import { setClientTheme } from '../themes';
 import {
   addHighlightSetting,
+  exportSettings,
+  importSettings,
   loadSettings,
   removeHighlightSetting,
   updateHighlightSetting,
@@ -16,6 +19,7 @@ import {
 import { selectSettings } from './selectors';
 import { FONTS_DISABLED } from './constants';
 import { setDisplayScaling } from './scaling';
+import { exportChatSettings } from './settingsImExport';
 
 let statFontTimer: NodeJS.Timeout;
 let statTabsTimer: NodeJS.Timeout;
@@ -37,7 +41,7 @@ function updateGlobalOverrideRule() {
 
   if (overrideRule === undefined) {
     overrideRule = document.createElement('style');
-    document.querySelector('head')?.append(overrideRule);
+    document.querySelector('head')!.append(overrideRule);
   }
 
   // no other way to force a CSS refresh other than to update its innerText
@@ -81,10 +85,12 @@ function setStatTabsStyle(style: string) {
   }, 1500);
 }
 
-export const settingsMiddleware = (store) => {
+export function settingsMiddleware(store) {
   let initialized = false;
+
   return (next) => (action) => {
     const { type, payload } = action;
+
     if (!initialized) {
       initialized = true;
 
@@ -125,6 +131,47 @@ export const settingsMiddleware = (store) => {
       storage.set('panel-settings', settings);
       return;
     }
-    return next(action);
+    if (
+      type !== updateSettings.type &&
+      type !== loadSettings.type &&
+      type !== addHighlightSetting.type &&
+      type !== removeHighlightSetting.type &&
+      type !== updateHighlightSetting.type &&
+      type !== importSettings.type
+    ) {
+      return next(action);
+    }
+
+    // Set client theme
+    const theme = payload?.theme;
+    if (theme) {
+      setClientTheme(theme);
+    }
+
+    // Pass action to get an updated state
+    next(action);
+
+    const settings = selectSettings(store.getState());
+
+    if (importSettings.type) {
+      setClientTheme(settings.theme);
+    }
+
+    // Update stat panel settings
+    setStatTabsStyle(settings.statTabsStyle);
+
+    // Update global UI font size
+    setGlobalFontSize(
+      settings.fontSize,
+      settings.statFontSize,
+      settings.statLinked,
+    );
+    setGlobalFontFamily(settings.fontFamily);
+    updateGlobalOverrideRule();
+
+    // Save settings to the web storage
+    storage.set('panel-settings', settings);
+
+    return;
   };
-};
+}

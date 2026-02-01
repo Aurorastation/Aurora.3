@@ -51,7 +51,7 @@
 			update_lighting()
 
 /datum/computer_file/program/lighting_control/ui_data(mob/user)
-	var/list/data = initial_data()
+	var/list/data = list()
 
 	lusr = WEAKREF(user)
 	data["context"] = context

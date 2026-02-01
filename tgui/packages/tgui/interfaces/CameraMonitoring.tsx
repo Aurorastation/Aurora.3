@@ -1,6 +1,6 @@
-import { BooleanLike } from '../../common/react';
+import { Button, Input, NoticeBox, Section } from 'tgui-core/components';
+import type { BooleanLike } from 'tgui-core/react';
 import { useBackend, useLocalState } from '../backend';
-import { Button, Input, NoticeBox, Section } from '../components';
 import { NtosWindow } from '../layouts';
 
 export type CameraData = {
@@ -24,13 +24,13 @@ type Network = {
   has_access: BooleanLike;
 };
 
-export const CameraMonitoring = (props, context) => {
-  const { act, data } = useBackend<CameraData>(context);
+export const CameraMonitoring = (props) => {
+  const { act, data } = useBackend<CameraData>();
 
   return (
-    <NtosWindow resizable height={800} width={900}>
+    <NtosWindow height={800} width={900}>
       <NtosWindow.Content scrollable>
-        {data.networks && data.networks.length ? (
+        {data.networks?.length ? (
           <ShowNetworks />
         ) : (
           <NoticeBox>No networks available.</NoticeBox>
@@ -41,8 +41,8 @@ export const CameraMonitoring = (props, context) => {
   );
 };
 
-export const ShowNetworks = (props, context) => {
-  const { act, data } = useBackend<CameraData>(context);
+export const ShowNetworks = (props) => {
+  const { act, data } = useBackend<CameraData>();
 
   return (
     <Section
@@ -71,13 +71,9 @@ export const ShowNetworks = (props, context) => {
   );
 };
 
-export const ShowNetworkCameras = (props, context) => {
-  const { act, data } = useBackend<CameraData>(context);
-  const [searchTerm, setSearchTerm] = useLocalState<string>(
-    context,
-    `searchTerm`,
-    ``,
-  );
+export const ShowNetworkCameras = (props) => {
+  const { act, data } = useBackend<CameraData>();
+  const [searchTerm, setSearchTerm] = useLocalState<string>(`searchTerm`, ``);
 
   return (
     <Section
@@ -89,14 +85,14 @@ export const ShowNetworkCameras = (props, context) => {
           placeholder="Search by name"
           width="40vw"
           maxLength={512}
-          onInput={(e, value) => {
+          onChange={(value) => {
             setSearchTerm(value);
           }}
           value={searchTerm}
         />
       }
     >
-      {data.cameras && data.cameras.length ? (
+      {data.cameras?.length ? (
         data.cameras
           .filter(
             (c) => c.name?.toLowerCase().indexOf(searchTerm.toLowerCase()) > -1,

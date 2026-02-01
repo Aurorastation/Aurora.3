@@ -1,5 +1,4 @@
-import { BooleanLike } from '../../common/react';
-import { useBackend } from '../backend';
+import { sortBy } from 'es-toolkit';
 import {
   Box,
   Button,
@@ -7,9 +6,10 @@ import {
   NoticeBox,
   Section,
   Table,
-} from '../components';
+} from 'tgui-core/components';
+import type { BooleanLike } from 'tgui-core/react';
+import { useBackend } from '../backend';
 import { NtosWindow } from '../layouts';
-import { sortBy } from 'es-toolkit';
 
 export type PowerData = {
   all_sensors: Sensor[];
@@ -43,11 +43,11 @@ type APCData = {
   name: string;
 };
 
-export const PowerMonitor = (props, context) => {
-  const { act, data } = useBackend<PowerData>(context);
+export const PowerMonitor = (props) => {
+  const { act, data } = useBackend<PowerData>();
 
   return (
-    <NtosWindow resizable width={800}>
+    <NtosWindow width={800}>
       <NtosWindow.Content scrollable>
         {data.focus ? <SensorMonitoring /> : <ShowMasterList />}
       </NtosWindow.Content>
@@ -55,15 +55,15 @@ export const PowerMonitor = (props, context) => {
   );
 };
 
-export const ShowMasterList = (props, context) => {
-  const { act, data } = useBackend<PowerData>(context);
+export const ShowMasterList = (props) => {
+  const { act, data } = useBackend<PowerData>();
 
   return (
     <Section
       title="Sensor Monitoring"
       buttons={<Button content="Scan" onClick={() => act('refresh')} />}
     >
-      {data.all_sensors && data.all_sensors.length ? (
+      {data.all_sensors?.length ? (
         data.all_sensors.map((sensor) => (
           <Box key={sensor.name}>
             <Button
@@ -80,16 +80,15 @@ export const ShowMasterList = (props, context) => {
   );
 };
 
-export const SensorMonitoring = (props, context) => {
-  const { act, data } = useBackend<PowerData>(context);
+export const SensorMonitoring = (props) => {
+  const { act, data } = useBackend<PowerData>();
   const { apc_data = [] } = data.focus;
   const apcs_sorted: APCData[] = sortBy(apc_data, [
     (APCData: APCData) => APCData.name,
   ]);
-
   return (
     <Section
-      title={'Network Information: ' + data.focus.name}
+      title={`Network Information: ${data.focus.name}`}
       buttons={<Button content="Return" onClick={() => act('clear')} />}
     >
       <LabeledList>
@@ -122,7 +121,7 @@ export const SensorMonitoring = (props, context) => {
             <Table.Cell>Cell Status</Table.Cell>
             <Table.Cell>APC Load</Table.Cell>
           </Table.Row>
-          {apcs_sorted && apcs_sorted.length ? (
+          {apcs_sorted?.length ? (
             apcs_sorted.map((apc) => (
               <Table.Row key={apc.name}>
                 <Table.Cell>{apc.name}</Table.Cell>
@@ -140,7 +139,7 @@ export const SensorMonitoring = (props, context) => {
                             : 'bad'
                       }
                     >
-                      {apc.cell_charge + '%'}
+                      {`${apc.cell_charge}%`}
                     </Box>
                   ) : (
                     'Discharged'

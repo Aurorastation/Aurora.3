@@ -1,7 +1,12 @@
-import { BooleanLike } from '../../common/react';
+import {
+  Button,
+  Collapsible,
+  NumberInput,
+  Section,
+} from 'tgui-core/components';
+import type { BooleanLike } from 'tgui-core/react';
+import { capitalize } from 'tgui-core/string';
 import { useBackend } from '../backend';
-import { capitalize } from '../../common/string';
-import { Button, Collapsible, NumberInput, Section } from '../components';
 import { Window } from '../layouts';
 
 export type ChangerData = {
@@ -58,11 +63,11 @@ export type ChangerData = {
   change_prosthetics: BooleanLike;
 };
 
-export const AppearanceChanger = (props, context) => {
-  const { act, data } = useBackend<ChangerData>(context);
+export const AppearanceChanger = (props) => {
+  const { act, data } = useBackend<ChangerData>();
 
   return (
-    <Window resizable>
+    <Window>
       <Window.Content scrollable>
         {data.change_race ? <SpeciesWindow /> : ''}
         {data.change_gender ? <GenderWindow /> : ''}
@@ -80,12 +85,12 @@ export const AppearanceChanger = (props, context) => {
   );
 };
 
-export const SpeciesWindow = (props, context) => {
-  const { act, data } = useBackend<ChangerData>(context);
+export const SpeciesWindow = (props) => {
+  const { act, data } = useBackend<ChangerData>();
 
   return (
     <Section title="Species">
-      <Collapsible content="Species">
+      <Collapsible title="Species">
         {data.valid_species.map((species) => (
           <Button
             key={species}
@@ -99,8 +104,8 @@ export const SpeciesWindow = (props, context) => {
   );
 };
 
-export const GenderWindow = (props, context) => {
-  const { act, data } = useBackend<ChangerData>(context);
+export const GenderWindow = (props) => {
+  const { act, data } = useBackend<ChangerData>();
 
   return (
     <Section title="Bodytype">
@@ -125,8 +130,8 @@ export const GenderWindow = (props, context) => {
     </Section>
   );
 };
-export const BodyWindow = (props, context) => {
-  const { act, data } = useBackend<ChangerData>(context);
+export const BodyWindow = (props) => {
+  const { act, data } = useBackend<ChangerData>();
 
   return (
     <Section title="Body Modifications">
@@ -143,18 +148,19 @@ export const BodyWindow = (props, context) => {
       <Section title="Height">
         <NumberInput
           value={data.owner_height}
+          step={1}
           maxValue={data.height_max}
           minValue={data.height_min}
           unit="cm"
-          onDrag={(e, value) => act('set_height', { height: value })}
+          onDrag={(value) => act('set_height', { height: value })}
         />
       </Section>
     </Section>
   );
 };
 
-export const CultureWindow = (props, context) => {
-  const { act, data } = useBackend<ChangerData>(context);
+export const CultureWindow = (props) => {
+  const { act, data } = useBackend<ChangerData>();
 
   return (
     <Section title="Cultures">
@@ -214,8 +220,8 @@ export const CultureWindow = (props, context) => {
   );
 };
 
-export const LanguagesWindow = (props, context) => {
-  const { act, data } = useBackend<ChangerData>(context);
+export const LanguagesWindow = (props) => {
+  const { act, data } = useBackend<ChangerData>();
 
   return (
     <Section title="Languages">
@@ -231,8 +237,8 @@ export const LanguagesWindow = (props, context) => {
   );
 };
 
-export const ColorsWindow = (props, context) => {
-  const { act, data } = useBackend<ChangerData>(context);
+export const ColorsWindow = (props) => {
+  const { act, data } = useBackend<ChangerData>();
 
   return (
     <Section title="Colors">
@@ -281,12 +287,12 @@ export const ColorsWindow = (props, context) => {
   );
 };
 
-export const HairWindow = (props, context) => {
-  const { act, data } = useBackend<ChangerData>(context);
+export const HairWindow = (props) => {
+  const { act, data } = useBackend<ChangerData>();
 
   return (
     <Section title="Hair Styles">
-      <Collapsible content="Hair Styles">
+      <Collapsible title="Hair Styles">
         {data.valid_hair_styles.map((new_hair_style) => (
           <Button
             key={new_hair_style}
@@ -296,7 +302,7 @@ export const HairWindow = (props, context) => {
           />
         ))}
       </Collapsible>
-      <Collapsible content="Gradient Styles">
+      <Collapsible title="Gradient Styles">
         {data.valid_gradient_styles.map((new_gradient_style) => (
           <Button
             key={new_gradient_style}
@@ -307,7 +313,7 @@ export const HairWindow = (props, context) => {
         ))}
       </Collapsible>
       {data.change_facial_hair && data.valid_facial_hair_styles.length && (
-        <Collapsible content="Facial Hair Styles">
+        <Collapsible title="Facial Hair Styles">
           {data.valid_facial_hair_styles.map((new_facial_hair_style) => (
             <Button
               key={new_facial_hair_style}

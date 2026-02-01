@@ -1,6 +1,6 @@
-import { BooleanLike } from '../../common/react';
+import { Button, Section, Table } from 'tgui-core/components';
+import type { BooleanLike } from 'tgui-core/react';
 import { useBackend } from '../backend';
-import { Button, Section, Table } from '../components';
 import { NtosWindow } from '../layouts';
 
 export type SensorsData = {
@@ -28,11 +28,11 @@ type CrewMember = {
   z: number;
 };
 
-export const SuitSensors = (props, context) => {
-  const { act, data } = useBackend<SensorsData>(context);
+export const SuitSensors = (props) => {
+  const { act, data } = useBackend<SensorsData>();
 
   return (
-    <NtosWindow resizable width={900}>
+    <NtosWindow width={900}>
       <NtosWindow.Content scrollable>
         <Section title="Suit Sensors">
           <Table>
@@ -57,7 +57,7 @@ export const SuitSensors = (props, context) => {
                     }
                   >
                     {crewmember.stype > 0 && data.security_level > 1
-                      ? crewmember.pulse + ' BPM'
+                      ? `${crewmember.pulse} BPM`
                       : 'N/A'}
                   </Table.Cell>
                 ) : (
@@ -69,7 +69,7 @@ export const SuitSensors = (props, context) => {
                     }
                   >
                     {crewmember.stype > 0 && data.security_level > 1
-                      ? Math.round(crewmember.cellCharge) + '%'
+                      ? `${Math.round(crewmember.cellCharge)}%`
                       : 'N/A'}
                   </Table.Cell>
                 )}
@@ -98,7 +98,7 @@ export const SuitSensors = (props, context) => {
                 </Table.Cell>
                 <Table.Cell>
                   {crewmember.stype > 1 && data.security_level > 1
-                    ? Math.round(crewmember.bodytemp * 10) / 10 + 'C'
+                    ? `${Math.round(crewmember.bodytemp * 10) / 10}C`
                     : 'N/A'}
                 </Table.Cell>
 

@@ -1,6 +1,12 @@
-import { BooleanLike } from '../../common/react';
+import {
+  Button,
+  Input,
+  LabeledControls,
+  Section,
+  Table,
+} from 'tgui-core/components';
+import type { BooleanLike } from 'tgui-core/react';
 import { useBackend } from '../backend';
-import { Button, Input, LabeledControls, Section, Table } from '../components';
 import { Window } from '../layouts';
 
 export type GPSData = {
@@ -24,11 +30,11 @@ type GPSDevice = {
   compass_color: string;
 };
 
-export const GPS = (props, context) => {
-  const { act, data } = useBackend<GPSData>(context);
+export const GPS = (props) => {
+  const { act, data } = useBackend<GPSData>();
 
   return (
-    <Window resizable>
+    <Window>
       <Window.Content scrollable>
         <Section
           title="Controls"
@@ -43,13 +49,11 @@ export const GPS = (props, context) => {
             <LabeledControls.Item label="Set New Tag">
               <Input
                 placeholder={data.own_tag}
-                onChange={(e, value) => act('tag', { tag: value })}
+                onChange={(value) => act('tag', { tag: value })}
               />
             </LabeledControls.Item>
             <LabeledControls.Item label="Track New Tag">
-              <Input
-                onChange={(e, value) => act('add_tag', { add_tag: value })}
-              />
+              <Input onChange={(value) => act('add_tag', { add_tag: value })} />
             </LabeledControls.Item>
           </LabeledControls>
         </Section>
@@ -82,10 +86,7 @@ export const GPS = (props, context) => {
                   <Button
                     content="Compass"
                     disabled={data.own_tag === track.gps.tag}
-                    selected={
-                      data.compass_list &&
-                      data.compass_list.includes(track.gps.tag)
-                    }
+                    selected={data.compass_list?.includes(track.gps.tag)}
                     onClick={() => act('compass', { compass: track.gps.tag })}
                   />
                 </Table.Cell>

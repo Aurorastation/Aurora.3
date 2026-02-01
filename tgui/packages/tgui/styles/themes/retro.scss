@@ -21,11 +21,11 @@
 // It was made almost purely for the nuke ui, and requires a good amount of manual hacks to get it working as intended.
 .theme-retro {
   // Atomic classes
-  @include meta.load-css('../atomic/color.scss');
+  @include meta.load-css('~tgui-core/styles/atomic/color.scs');
 
   // Components
   @include meta.load-css(
-    '../components/Button.scss',
+    'tgui-core/components/Button.scss',
     $with: (
       'color-default': #e8e4c9,
       'color-disabled': #505046,
@@ -35,10 +35,10 @@
     )
   );
   @include meta.load-css(
-    '../components/ProgressBar.scss',
+    'tgui-core/components/ProgressBar.scss',
     $with: ('background-color': rgba(0, 0, 0, 0.5))
   );
-  @include meta.load-css('../components/Section.scss');
+  @include meta.load-css('tgui-core/components/Section.scss');
 
   // Layouts
   @include meta.load-css('../layouts/Layout.scss');

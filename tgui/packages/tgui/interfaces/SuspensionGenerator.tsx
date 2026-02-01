@@ -1,6 +1,11 @@
-import { BooleanLike } from '../../common/react';
+import {
+  Button,
+  LabeledList,
+  ProgressBar,
+  Section,
+} from 'tgui-core/components';
+import type { BooleanLike } from 'tgui-core/react';
 import { useBackend } from '../backend';
-import { Button, LabeledList, ProgressBar, Section } from '../components';
 import { Window } from '../layouts';
 
 export type SuspensionData = {
@@ -16,11 +21,11 @@ type Field = {
   type: string;
 };
 
-export const SuspensionGenerator = (props, context) => {
-  const { act, data } = useBackend<SuspensionData>(context);
+export const SuspensionGenerator = (props) => {
+  const { act, data } = useBackend<SuspensionData>();
 
   return (
-    <Window resizable>
+    <Window>
       <Window.Content scrollable>
         <Section title="Overview">
           <LabeledList>

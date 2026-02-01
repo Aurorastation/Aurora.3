@@ -70,3 +70,6 @@ define_sanity_output.txt
 
 # Unit test / coverage reports
 .cache
+
+# JavaScript tools
+**/node_modules

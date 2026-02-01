@@ -1,18 +1,6 @@
-import { round } from '../../common/math';
+import { round } from 'tgui-core/math';
 import { useBackend } from '../backend';
-import {
-  AnimatedNumber,
-  Box,
-  Button,
-  Flex,
-  LabeledControls,
-  LabeledList,
-  NoticeBox,
-  ProgressBar,
-  Section,
-  Table,
-  Tabs,
-} from '../components';
+import { AnimatedNumber, Box, Button, Flex, LabeledControls, LabeledList, NoticeBox, ProgressBar, Section, Table, Tabs } from 'tgui-core/components';
 import { Window } from '../layouts';
 
 export type FabricatorData = {
@@ -64,11 +52,11 @@ type Material = {
   amount: number;
 };
 
-export const SyntheticFabricator = (props, context) => {
-  const { act, data } = useBackend<FabricatorData>(context);
+export const SyntheticFabricator = (props) => {
+  const { act, data } = useBackend<FabricatorData>();
 
   return (
-    <Window resizable theme={data.manufacturer}>
+    <Window theme={data.manufacturer}>
       <Window.Content scrollable>
         <Flex fontSize="1.2rem" wrap>
           <Flex.Item>
@@ -86,9 +74,7 @@ export const SyntheticFabricator = (props, context) => {
             >
               <LabeledControls>
                 {data.materials.map((material) => (
-                  <LabeledControls.Item
-                    key={material.name}
-                    label={
+                  <LabeledControls.Item label= "eject" key={material.name}>
                       <Button
                         icon="eject"
                         content={material.name}
@@ -101,8 +87,6 @@ export const SyntheticFabricator = (props, context) => {
                           })
                         }
                       />
-                    }
-                  >
                     <ProgressBar
                       ranges={{
                         good: [
@@ -145,7 +129,6 @@ export const SyntheticFabricator = (props, context) => {
                       textAlign="center"
                       selected={data.category === category.name}
                       key={category.name}
-                      collapsing
                       onClick={() =>
                         act('category', { category: category.name })
                       }

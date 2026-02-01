@@ -1,6 +1,6 @@
-import { BooleanLike } from '../../common/react';
+import { Box, Button, Flex, LabeledList, Section } from 'tgui-core/components';
+import type { BooleanLike } from 'tgui-core/react';
 import { useBackend } from '../backend';
-import { Section, Box, Button, LabeledList, Flex } from '../components';
 import { Window } from '../layouts';
 
 export type MobTrackerData = {
@@ -11,8 +11,8 @@ export type MobTrackerData = {
   no_data_description: string;
 };
 
-export const MobTracker = (props, context) => {
-  const { act, data } = useBackend<MobTrackerData>(context);
+export const MobTracker = (props) => {
+  const { act, data } = useBackend<MobTrackerData>();
 
   const total_entities = Object.values(data.areas_containing_mobs || {}).reduce(
     (sum, count) => sum + count,
@@ -24,10 +24,10 @@ export const MobTracker = (props, context) => {
   ).reduce((sum, count) => sum + count, 0);
 
   return (
-    <Window resizable theme={data.tgui_theme || 'default'}>
+    <Window theme={data.tgui_theme || 'default'}>
       <Window.Content scrollable>
         {data.disabled ? (
-          <Box
+          <Flex
             textAlign="center"
             height="100%"
             display="flex"
@@ -36,11 +36,14 @@ export const MobTracker = (props, context) => {
             justify="center"
             fontFamily="monospace"
           >
-            <Box fontSize="24px" mb={1}>
-              NO DATA AVAILABLE
-            </Box>
+            <Flex.Item>
+              {' '}
+              <Box fontSize="24px" mb={1}>
+                NO DATA AVAILABLE
+              </Box>
+            </Flex.Item>
             <Box fontSize="12px">{data.no_data_description}</Box>
-          </Box>
+          </Flex>
         ) : (
           <div>
             <Flex direction="row" align="stretch">

@@ -1,7 +1,12 @@
-import { BooleanLike } from 'common/react';
-import { decodeHtmlEntities } from 'common/string';
+import {
+  Button,
+  LabeledList,
+  NumberInput,
+  Section,
+} from 'tgui-core/components';
+import type { BooleanLike } from 'tgui-core/react';
+import { decodeHtmlEntities } from 'tgui-core/string';
 import { useBackend } from '../../backend';
-import { Button, LabeledList, NumberInput, Section } from '../../components';
 import { getGasLabel } from '../../constants';
 
 export type VentProps = {
@@ -31,8 +36,8 @@ export type ScrubberProps = {
   }[];
 };
 
-export const Vent = (props: VentProps, context) => {
-  const { act } = useBackend(context);
+export const Vent = (props: VentProps) => {
+  const { act } = useBackend();
   const {
     refID,
     long_name,
@@ -110,7 +115,7 @@ export const Vent = (props: VentProps, context) => {
               minValue={0}
               step={10}
               maxValue={5066}
-              onChange={(e, value) =>
+              onChange={(value) =>
                 act('set_internal_pressure', {
                   ref: refID,
                   value,
@@ -138,7 +143,7 @@ export const Vent = (props: VentProps, context) => {
               minValue={0}
               step={10}
               maxValue={5066}
-              onChange={(e, value) =>
+              onChange={(value) =>
                 act('set_external_pressure', {
                   ref: refID,
                   value,
@@ -162,8 +167,8 @@ export const Vent = (props: VentProps, context) => {
   );
 };
 
-export const Scrubber = (props: ScrubberProps, context) => {
-  const { act } = useBackend(context);
+export const Scrubber = (props: ScrubberProps) => {
+  const { act } = useBackend();
   const { long_name, power, scrubbing, refID, widenet, filter_types } = props;
   return (
     <Section
@@ -213,8 +218,6 @@ export const Scrubber = (props: ScrubberProps, context) => {
               <Button
                 key={filter.gas_id}
                 icon={filter.enabled ? 'check-square-o' : 'square-o'}
-                content={getGasLabel(filter.gas_id, filter.gas_name)}
-                title={filter.gas_name}
                 selected={filter.enabled}
                 onClick={() =>
                   act('toggle_filter', {
@@ -222,7 +225,9 @@ export const Scrubber = (props: ScrubberProps, context) => {
                     val: filter.gas_id,
                   })
                 }
-              />
+              >
+                {getGasLabel(filter.gas_id, filter.gas_name)}
+              </Button>
             ))) ||
             'N/A'}
         </LabeledList.Item>

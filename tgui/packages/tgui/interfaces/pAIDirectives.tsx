@@ -1,5 +1,5 @@
+import { Button, LabeledList, NoticeBox, Section } from 'tgui-core/components';
 import { useBackend } from '../backend';
-import { Button, LabeledList, NoticeBox, Section } from '../components';
 import { NtosWindow } from '../layouts';
 
 export type DirectivesData = {
@@ -9,11 +9,11 @@ export type DirectivesData = {
   supplemental: string;
 };
 
-export const pAIDirectives = (props, context) => {
-  const { act, data } = useBackend<DirectivesData>(context);
+export const pAIDirectives = (props) => {
+  const { act, data } = useBackend<DirectivesData>();
 
   return (
-    <NtosWindow resizable>
+    <NtosWindow>
       <NtosWindow.Content scrollable>
         <Section title="Directives">
           <LabeledList>

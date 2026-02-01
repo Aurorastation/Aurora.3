@@ -1,5 +1,11 @@
+import {
+  Button,
+  LabeledList,
+  NoticeBox,
+  Section,
+  Table,
+} from 'tgui-core/components';
 import { useBackend } from '../backend';
-import { Button, LabeledList, NoticeBox, Section, Table } from '../components';
 import { NtosWindow } from '../layouts';
 
 export type WarrantData = {
@@ -15,11 +21,11 @@ type Warrant = {
   wtype: string;
 };
 
-export const DigitalWarrant = (props, context) => {
-  const { act, data } = useBackend<WarrantData>(context);
+export const DigitalWarrant = (props) => {
+  const { act, data } = useBackend<WarrantData>();
 
   return (
-    <NtosWindow resizable width={900} height={600}>
+    <NtosWindow width={900} height={600}>
       <NtosWindow.Content scrollable>
         {data.active_warrant ? <ActiveWarrantEdit /> : <AllWarrants />}
       </NtosWindow.Content>
@@ -27,8 +33,8 @@ export const DigitalWarrant = (props, context) => {
   );
 };
 
-export const ActiveWarrantEdit = (props, context) => {
-  const { act, data } = useBackend<WarrantData>(context);
+export const ActiveWarrantEdit = (props) => {
+  const { act, data } = useBackend<WarrantData>();
 
   return (
     <Section
@@ -83,8 +89,8 @@ export const ActiveWarrantEdit = (props, context) => {
   );
 };
 
-export const AllWarrants = (props, context) => {
-  const { act, data } = useBackend<WarrantData>(context);
+export const AllWarrants = (props) => {
+  const { act, data } = useBackend<WarrantData>();
 
   return (
     <>
@@ -94,7 +100,7 @@ export const AllWarrants = (props, context) => {
           <Button content="Add Warrant" onClick={() => act('addwarrant')} />
         }
       >
-        {data.allwarrants && data.allwarrants.length ? (
+        {data.allwarrants?.length ? (
           <Table>
             <Table.Row header>
               <Table.Cell>Name</Table.Cell>
@@ -123,7 +129,7 @@ export const AllWarrants = (props, context) => {
         )}
       </Section>
       <Section title="Search Warrants">
-        {data.allwarrants && data.allwarrants.length ? (
+        {data.allwarrants?.length ? (
           <Table>
             <Table.Row header>
               <Table.Cell>Name</Table.Cell>

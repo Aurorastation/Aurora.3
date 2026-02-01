@@ -1,6 +1,13 @@
-import { BooleanLike } from '../../common/react';
+import {
+  Box,
+  Button,
+  Image,
+  LabeledList,
+  NoticeBox,
+  Section,
+} from 'tgui-core/components';
+import type { BooleanLike } from 'tgui-core/react';
 import { useBackend } from '../backend';
-import { Box, Button, LabeledList, NoticeBox, Section } from '../components';
 import { Window } from '../layouts';
 
 export type LateJoinData = {
@@ -18,30 +25,25 @@ export type LateJoinData = {
 type Job = {
   title: string;
   department: string;
-  head: BooleanLike;
+  head: boolean;
   total_positions: number;
   current_positions: number;
 };
 
-export const LateJoin = (props, context) => {
-  const { act, data } = useBackend<LateJoinData>(context);
+export const LateJoin = (props) => {
+  const { act, data } = useBackend<LateJoinData>();
 
   return (
-    <Window resizable>
+    <Window>
       <Window.Content scrollable>
         <Section>
           <Section textAlign="center">
-            Welcome, <Box bold>{data.character_name + '.'}</Box>
+            Welcome, <Box bold>{`${data.character_name}.`}</Box>
             {
-              <Box
-                as="img"
-                m={0}
-                src={`data:image/jpeg;base64,${data.character_image}`}
+              <Image
                 width="35%"
                 height="35%"
-                style={{
-                  '-ms-interpolation-mode': 'nearest-neighbor',
-                }}
+                src={`data:image/jpeg;base64,${data.character_image}`}
               />
             }
           </Section>
@@ -79,8 +81,8 @@ export const LateJoin = (props, context) => {
   );
 };
 
-export const JobsList = (props, context) => {
-  const { act, data } = useBackend<LateJoinData>(context);
+export const JobsList = (props) => {
+  const { act, data } = useBackend<LateJoinData>();
 
   return (
     <Section textAlign="center">
@@ -88,7 +90,7 @@ export const JobsList = (props, context) => {
         <Section
           title={department}
           key={department}
-          className={'border-dept-' + department.toLowerCase()}
+          className={`border-dept-${department.toLowerCase()}`}
         >
           {data.jobs_list
             .filter((job) => job.department === department)

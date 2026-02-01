@@ -21,20 +21,20 @@ $neutral: #ffb300;
 .theme-neutral {
   // Components
   @include meta.load-css(
-    '../components/Button.scss',
+    'tgui-core/components/Button.scss',
     $with: (
       'color-default': color.scale($neutral, $lightness: -30%),
       'color-transparent-text': color.scale($neutral, $lightness: 30%)
     )
   );
   @include meta.load-css(
-    '../components/ProgressBar.scss',
+    'tgui-core/components/ProgressBar.scss',
     $with: (
       'color-default-fill': $neutral,
       'background-color': rgba(0, 0, 0, 0.5)
     )
   );
-  @include meta.load-css('../components/Section.scss');
+  @include meta.load-css('tgui-core/components/Section.scss');
 
   // Layouts
   @include meta.load-css('../layouts/Layout.scss');
