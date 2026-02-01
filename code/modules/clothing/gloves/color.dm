@@ -19,8 +19,8 @@
 	siemens_coefficient = pick(0, 0.1, 0.3, 0.5, 0.5, 0.75, 1.35)
 
 /obj/item/clothing/gloves/black
+	name = "work gloves"
 	desc = "These work gloves are thick and fire-resistant."
-	name = "black gloves"
 	icon_state = "black"
 	item_state = "black"
 	siemens_coefficient = 0.50
@@ -101,8 +101,8 @@
 	species_restricted = list(BODYTYPE_UNATHI)
 
 /obj/item/clothing/gloves/black/unathi
-	name = "black gloves"
-	desc = "Black gloves made for Unathi use."
+	name = "unathi work gloves"
+	desc = "These work gloves are thick and fire-resistant. These are made for Unathi use."
 	species_restricted = list(BODYTYPE_UNATHI)
 
 //more snowflake gloves for the custom loadout

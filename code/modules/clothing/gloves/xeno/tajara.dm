@@ -4,7 +4,8 @@
 	species_restricted = list(BODYTYPE_TAJARA)
 
 /obj/item/clothing/gloves/black/tajara
-	desc = "Black gloves made for Tajara use."
+	name = "tajaran work gloves"
+	desc = "These work gloves are thick and fire-resistant. These are made for Tajaran use."
 	species_restricted = list(BODYTYPE_TAJARA)
 
 /obj/item/clothing/gloves/red/tajara
