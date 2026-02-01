@@ -49,10 +49,10 @@ default behaviour is:
 	if(istype(target_movable_atom, /mob/living))
 		var/mob/living/target_mob = target_movable_atom
 
-		for(var/mob/living/M in range(tmob, 1))
+		for(var/mob/living/M in range(target_mob, 1))
 			if(target_mob.pinned.len || locate(/obj/item/grab, LAZYLEN(target_mob.grabbed_by)))
 				if (last_push_notif + 0.5 SECONDS <= world.time)
-					to_chat(src, SPAN_WARNING("[tmob] is restrained, you cannot push past."))
+					to_chat(src, SPAN_WARNING("[target_mob] is restrained, you cannot push past."))
 					last_push_notif = world.time
 
 				now_pushing = FALSE
@@ -69,7 +69,7 @@ default behaviour is:
 			var/turf/target_mob_oldloc = get_turf(target_mob)
 			var/turf/src_oldloc = get_turf(src)
 			forceMove(target_mob_oldloc)
-			tmob.forceMove(src_oldloc)
+			target_mob.forceMove(src_oldloc)
 			now_pushing = FALSE
 			for(var/mob/living/carbon/slime/slime in view(2, target_mob))
 				if(slime.victim == target_mob)
@@ -173,7 +173,7 @@ default behaviour is:
 	if(swap_density_check(target_mob, src))
 		return FALSE
 
-	return can_move_mob(tmob, 1, 0)
+	return can_move_mob(target_mob, 1, 0)
 
 /mob/living/verb/succumb()
 	set hidden = 1

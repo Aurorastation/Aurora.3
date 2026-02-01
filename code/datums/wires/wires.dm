@@ -334,7 +334,7 @@ GLOBAL_LIST_INIT(wire_name_directory, list())
 					. = TRUE
 
 		if("cut") // Toggles the cut/mend status
-			var/obj/item/I = get_held_tool(TOOL_WIRECUTTER)
+			var/obj/item/I = L.get_held_tool(TOOL_WIRECUTTER)
 			if(isrobot(L))
 				var/mob/living/silicon/robot/R = L
 				I = R.return_wirecutter()
@@ -347,7 +347,7 @@ GLOBAL_LIST_INIT(wire_name_directory, list())
 				to_chat(L, SPAN_WARNING("You need wirecutters!"))
 
 		if("pulse")
-			var/obj/item/I = get_held_tool(TOOL_MULTITOOL)
+			var/obj/item/I = L.get_held_tool(TOOL_MULTITOOL)
 			if(isrobot(L))
 				var/mob/living/silicon/robot/R = L
 				I = R.return_multitool()

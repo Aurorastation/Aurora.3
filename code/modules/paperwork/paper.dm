@@ -514,7 +514,7 @@
 			if(T.pen)
 				i = T.pen
 
-		if(!i || !i.ispen())
+		if(!i || i.tool_behaviour != TOOL_PEN)
 			i = usr.get_held_tool(TOOL_PEN)
 
 		var/obj/item/clipboard/c

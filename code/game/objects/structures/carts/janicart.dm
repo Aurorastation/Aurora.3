@@ -213,6 +213,7 @@
 	..()
 
 /obj/structure/cart/storage/janitorialcart/attack_hand(mob/user)
+	. = ..()
 	if(!isliving(user))
 		return
 
