@@ -90,7 +90,7 @@
 	/// Wires datum.
 	var/datum/wires/airlock/wires
 	/// Any active brace.
-	var/obj/item/device/magnetic_lock/bracer
+	var/obj/item/magnetic_lock/bracer
 	/// If the panel is visible when open.
 	var/panel_visible_while_open = FALSE
 
@@ -282,7 +282,7 @@
 	if(ishuman(usr))
 		var/mob/living/carbon/human/H = usr
 		var/list/modifiers = params2list(params)
-		var/obj/item/device/paint_sprayer/paint_sprayer = H.get_active_hand()
+		var/obj/item/paint_sprayer/paint_sprayer = H.get_active_hand()
 		if(istype(paint_sprayer))
 			if(!istype(H.buckled_to))
 				H.face_atom(src)
@@ -1753,11 +1753,11 @@ About the new airlock wires panel:
 		if (!cut_bolts(attacking_item,user))
 			return ..()
 		return TRUE
-	if (istype(attacking_item, /obj/item/device/magnetic_lock))
+	if (istype(attacking_item, /obj/item/magnetic_lock))
 		if (bracer)
 			to_chat(user, SPAN_NOTICE("There is already a [bracer] on [src]!"))
 			return TRUE
-		var/obj/item/device/magnetic_lock/newbracer = attacking_item
+		var/obj/item/magnetic_lock/newbracer = attacking_item
 		newbracer.attachto(src, user)
 		return TRUE
 	if(!repairing && (attacking_item.tool_behaviour == TOOL_WELDER && !( src.operating > 0 ) && src.density))
@@ -1794,9 +1794,9 @@ About the new airlock wires panel:
 		return src.attack_hand(user)
 	else if(attacking_item.tool_behaviour == TOOL_MULTITOOL)
 		return src.attack_hand(user)
-	else if(istype(attacking_item, /obj/item/device/assembly/signaler))
+	else if(istype(attacking_item, /obj/item/assembly/signaler))
 		return src.attack_hand(user)
-	else if(istype(attacking_item, /obj/item/device/paint_sprayer))
+	else if(istype(attacking_item, /obj/item/paint_sprayer))
 		return FALSE
 	else if(istype(attacking_item, /obj/item/pai_cable))	// -- TLE
 		var/obj/item/pai_cable/cable = attacking_item

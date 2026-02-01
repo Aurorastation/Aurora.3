@@ -1,4 +1,4 @@
-/obj/item/device/multitool/hacktool
+/obj/item/multitool/hacktool
 	var/is_hacking = 0
 
 	var/in_hack_mode = 0
@@ -13,14 +13,14 @@
 	var/multihack = FALSE
 	var/allow_movement = FALSE
 
-/obj/item/device/multitool/hacktool/New()
+/obj/item/multitool/hacktool/New()
 	..()
 	known_targets = list()
 	current_hacks = list()
 	supported_types = list(/obj/machinery/door/airlock)
 	hack_state = new(src)
 
-/obj/item/device/multitool/hacktool/Destroy()
+/obj/item/multitool/hacktool/Destroy()
 	for(var/T in known_targets)
 		var/atom/target = T
 		UnregisterSignal(target, COMSIG_QDELETING)
@@ -29,7 +29,7 @@
 	hack_state = null
 	return ..()
 
-/obj/item/device/multitool/hacktool/attackby(obj/item/attacking_item, mob/user)
+/obj/item/multitool/hacktool/attackby(obj/item/attacking_item, mob/user)
 	if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 		in_hack_mode = !in_hack_mode
 		playsound(src.loc, 'sound/items/Screwdriver.ogg', 50, TRUE)
@@ -37,7 +37,7 @@
 	else
 		return ..()
 
-/obj/item/device/multitool/hacktool/resolve_attackby(atom/A, mob/user)
+/obj/item/multitool/hacktool/resolve_attackby(atom/A, mob/user)
 	sanity_check()
 
 	if(!in_hack_mode || istype(A, /obj/item/storage))
@@ -50,7 +50,7 @@
 		A.ui_interact(user)
 	return TRUE
 
-/obj/item/device/multitool/hacktool/proc/attempt_hack(var/mob/user, var/atom/target)
+/obj/item/multitool/hacktool/proc/attempt_hack(var/mob/user, var/atom/target)
 	if(is_hacking && !multihack)
 		to_chat(user, SPAN_WARNING("You are already hacking!"))
 		return FALSE
@@ -91,7 +91,7 @@
 	RegisterSignal(target, COMSIG_QDELETING, PROC_REF(on_target_destroy))
 	return TRUE
 
-/obj/item/device/multitool/hacktool/proc/sanity_check()
+/obj/item/multitool/hacktool/proc/sanity_check()
 	if(max_known_targets < 1)
 		max_known_targets = 1
 	// Cut away the oldest items if the capacity has been reached
@@ -101,10 +101,10 @@
 			UnregisterSignal(A, COMSIG_QDELETING)
 		known_targets.Cut(max_known_targets + 1)
 
-/obj/item/device/multitool/hacktool/proc/on_target_destroy(var/target)
+/obj/item/multitool/hacktool/proc/on_target_destroy(var/target)
 	known_targets -= target
 
-/obj/item/device/multitool/hacktool/rig //For ninjas; Credits to BurgerBB
+/obj/item/multitool/hacktool/rig //For ninjas; Credits to BurgerBB
 	hack_time = 5 SECONDS
 	max_known_targets = 10
 	in_hack_mode = TRUE
@@ -114,15 +114,15 @@
 	reach = 8
 	var/mob/living/creator
 
-/obj/item/device/multitool/hacktool/rig/Initialize()
+/obj/item/multitool/hacktool/rig/Initialize()
 	. = ..()
 	START_PROCESSING(SSprocessing, src)
 
-/obj/item/device/multitool/hacktool/rig/Destroy()
+/obj/item/multitool/hacktool/rig/Destroy()
 	STOP_PROCESSING(SSprocessing, src)
 	return ..()
 
-/obj/item/device/multitool/hacktool/rig/process()
+/obj/item/multitool/hacktool/rig/process()
 	if(!creator || loc != creator || (creator.l_hand != src && creator.r_hand != src))
 		// Tidy up a bit.
 		if(istype(loc,/mob/living))
@@ -138,7 +138,7 @@
 		QDEL_IN(src, 1)
 
 /datum/ui_state/default/must_hack
-	var/obj/item/device/multitool/hacktool/hacktool
+	var/obj/item/multitool/hacktool/hacktool
 
 /datum/ui_state/default/must_hack/New(var/hacktool)
 	src.hacktool = hacktool

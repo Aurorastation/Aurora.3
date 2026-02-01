@@ -198,7 +198,7 @@
 
 	if(action == "ringtone")
 		var/new_ringtone = params["ringtone"]
-		var/obj/item/device/uplink/hidden/H = computer.hidden_uplink
+		var/obj/item/uplink/hidden/H = computer.hidden_uplink
 		if(istype(H) && H.check_trigger(usr, lowertext(new_ringtone), lowertext(H.pda_code)))
 			to_chat(usr, SPAN_NOTICE("\The [computer] softly beeps."))
 			syndi_auth = TRUE

@@ -45,11 +45,11 @@
 	shoes = null
 	glasses = /obj/item/clothing/glasses/sunglasses/sechud/head
 
-	headset = /obj/item/device/radio/headset/heads/hos
-	bowman = /obj/item/device/radio/headset/heads/hos/alt
-	double_headset = /obj/item/device/radio/headset/alt/double/hos
-	wrist_radio = /obj/item/device/radio/headset/wrist/hos
-	clipon_radio = /obj/item/device/radio/headset/wrist/clip/hos
+	headset = /obj/item/radio/headset/heads/hos
+	bowman = /obj/item/radio/headset/heads/hos/alt
+	double_headset = /obj/item/radio/headset/alt/double/hos
+	wrist_radio = /obj/item/radio/headset/wrist/hos
+	clipon_radio = /obj/item/radio/headset/wrist/clip/hos
 
 	tab_pda = /obj/item/modular_computer/handheld/pda/security/hos
 	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/security/hos
@@ -110,11 +110,11 @@
 	glasses = /obj/item/clothing/glasses/sunglasses/sechud/aviator
 	shoes = null
 
-	headset = /obj/item/device/radio/headset/headset_warden
-	bowman = /obj/item/device/radio/headset/headset_warden/alt
-	double_headset = /obj/item/device/radio/headset/alt/double/sec/warden
-	wrist_radio = /obj/item/device/radio/headset/wrist/sec/warden
-	clipon_radio = /obj/item/device/radio/headset/wrist/clip/sec/warden
+	headset = /obj/item/radio/headset/headset_warden
+	bowman = /obj/item/radio/headset/headset_warden/alt
+	double_headset = /obj/item/radio/headset/alt/double/sec/warden
+	wrist_radio = /obj/item/radio/headset/wrist/sec/warden
+	clipon_radio = /obj/item/radio/headset/wrist/clip/sec/warden
 
 	tab_pda = /obj/item/modular_computer/handheld/pda/security
 	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/security
@@ -172,11 +172,11 @@
 	uniform = /obj/item/clothing/under/det
 	shoes = /obj/item/clothing/shoes/laceup
 
-	headset = /obj/item/device/radio/headset/headset_sec
-	bowman = /obj/item/device/radio/headset/headset_sec/alt
-	double_headset = /obj/item/device/radio/headset/alt/double/sec
-	wrist_radio = /obj/item/device/radio/headset/wrist/sec
-	clipon_radio = /obj/item/device/radio/headset/wrist/clip/sec
+	headset = /obj/item/radio/headset/headset_sec
+	bowman = /obj/item/radio/headset/headset_sec/alt
+	double_headset = /obj/item/radio/headset/alt/double/sec
+	wrist_radio = /obj/item/radio/headset/wrist/sec
+	clipon_radio = /obj/item/radio/headset/wrist/clip/sec
 
 	tab_pda = /obj/item/modular_computer/handheld/pda/security/detective
 	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/security/detective
@@ -231,11 +231,11 @@
 	uniform = /obj/item/clothing/under/rank/security
 	shoes = null
 
-	headset = /obj/item/device/radio/headset/headset_sec
-	bowman = /obj/item/device/radio/headset/headset_sec/alt
-	double_headset = /obj/item/device/radio/headset/alt/double/sec
-	wrist_radio = /obj/item/device/radio/headset/wrist/sec
-	clipon_radio = /obj/item/device/radio/headset/wrist/clip/sec
+	headset = /obj/item/radio/headset/headset_sec
+	bowman = /obj/item/radio/headset/headset_sec/alt
+	double_headset = /obj/item/radio/headset/alt/double/sec
+	wrist_radio = /obj/item/radio/headset/wrist/sec
+	clipon_radio = /obj/item/radio/headset/wrist/clip/sec
 
 	tab_pda = /obj/item/modular_computer/handheld/pda/security
 	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/security
@@ -299,11 +299,11 @@
 	suit = /obj/item/clothing/suit/storage/hazardvest/security
 	head = /obj/item/clothing/head/beret/security
 
-	headset = /obj/item/device/radio/headset/headset_sec
-	bowman = /obj/item/device/radio/headset/headset_sec/alt
-	double_headset = /obj/item/device/radio/headset/alt/double/sec
-	wrist_radio = /obj/item/device/radio/headset/wrist/sec
-	clipon_radio = /obj/item/device/radio/headset/wrist/clip/sec
+	headset = /obj/item/radio/headset/headset_sec
+	bowman = /obj/item/radio/headset/headset_sec/alt
+	double_headset = /obj/item/radio/headset/alt/double/sec
+	wrist_radio = /obj/item/radio/headset/wrist/sec
+	clipon_radio = /obj/item/radio/headset/wrist/clip/sec
 
 	backpack = /obj/item/storage/backpack/security
 	satchel = /obj/item/storage/backpack/satchel/sec

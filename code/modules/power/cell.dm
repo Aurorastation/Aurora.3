@@ -132,14 +132,14 @@
 
 		S.reagents.clear_reagents()
 		return
-	else if(istype(attacking_item, /obj/item/device/assembly_holder))
-		var/obj/item/device/assembly_holder/assembly = attacking_item
-		if (istype(assembly.a_left, /obj/item/device/assembly/signaler) && istype(assembly.a_right, /obj/item/device/assembly/signaler))
+	else if(istype(attacking_item, /obj/item/assembly_holder))
+		var/obj/item/assembly_holder/assembly = attacking_item
+		if (istype(assembly.a_left, /obj/item/assembly/signaler) && istype(assembly.a_right, /obj/item/assembly/signaler))
 			//TODO: Look into this bad code
 			user.drop_item()
 			user.drop_from_inventory(src)
 
-			new /obj/item/device/radiojammer/improvised(assembly, src, user)
+			new /obj/item/radiojammer/improvised(assembly, src, user)
 		else
 			to_chat(user, SPAN_NOTICE("You'd need both devices to be signallers for this to work."))
 		return

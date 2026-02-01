@@ -254,7 +254,7 @@
 /area/exoplanet/grass/konyang)
 "jW" = (
 /obj/structure/table/steel,
-/obj/item/device/assembly/timer,
+/obj/item/assembly/timer,
 /obj/random/dirt_75,
 /turf/simulated/floor/sidewalk/dark,
 /area/konyang/arms_factory)
@@ -274,7 +274,7 @@
 /area/exoplanet/grass/konyang)
 "kh" = (
 /obj/structure/table/steel,
-/obj/item/device/binoculars,
+/obj/item/binoculars,
 /obj/random/dirt_75,
 /turf/simulated/floor/sidewalk/dark,
 /area/konyang/arms_factory)
@@ -294,7 +294,7 @@
 /area/konyang/arms_factory)
 "kZ" = (
 /obj/structure/table/steel,
-/obj/item/device/assembly/timer,
+/obj/item/assembly/timer,
 /turf/simulated/floor/foundation,
 /area/konyang/arms_factory)
 "lo" = (
@@ -355,7 +355,7 @@
 /area/konyang/arms_factory)
 "mP" = (
 /obj/structure/table/steel,
-/obj/item/device/assembly/prox_sensor,
+/obj/item/assembly/prox_sensor,
 /obj/random/dirt_75,
 /obj/random/energy,
 /turf/simulated/floor/foundation,
@@ -486,7 +486,7 @@
 /area/konyang/arms_factory)
 "rq" = (
 /obj/structure/table/steel,
-/obj/item/device/geiger,
+/obj/item/geiger,
 /turf/simulated/floor/foundation,
 /area/konyang/arms_factory)
 "rT" = (
@@ -521,7 +521,7 @@
 /area/konyang/arms_factory)
 "tn" = (
 /obj/structure/table/steel,
-/obj/item/device/assembly/igniter,
+/obj/item/assembly/igniter,
 /obj/random/dirt_75,
 /turf/simulated/floor/foundation,
 /area/konyang/arms_factory)
@@ -540,7 +540,7 @@
 /area/exoplanet/grass/konyang)
 "tW" = (
 /obj/structure/table/steel,
-/obj/item/device/analyzer{
+/obj/item/analyzer{
 	pixel_y = 5
 	},
 /obj/random/dirt_75,
@@ -585,7 +585,7 @@
 /area/exoplanet/grass/konyang)
 "vT" = (
 /obj/structure/table/steel,
-/obj/item/device/assembly/prox_sensor,
+/obj/item/assembly/prox_sensor,
 /turf/simulated/floor/sidewalk/dark,
 /area/konyang/arms_factory)
 "wj" = (
@@ -610,7 +610,7 @@
 /area/exoplanet/grass/konyang)
 "wU" = (
 /obj/structure/table/standard,
-/obj/item/device/hand_labeler,
+/obj/item/hand_labeler,
 /obj/item/pen,
 /turf/simulated/floor/sidewalk/dark,
 /area/konyang/arms_factory)
@@ -685,7 +685,7 @@
 /area/exoplanet/grass/konyang)
 "zC" = (
 /obj/structure/table/steel,
-/obj/item/device/assembly/prox_sensor,
+/obj/item/assembly/prox_sensor,
 /turf/simulated/floor/foundation,
 /area/konyang/arms_factory)
 "Ay" = (
@@ -696,7 +696,7 @@
 /area/exoplanet/grass/konyang)
 "BD" = (
 /obj/structure/table/steel,
-/obj/item/device/assembly/prox_sensor,
+/obj/item/assembly/prox_sensor,
 /obj/random/energy,
 /turf/simulated/floor/foundation,
 /area/konyang/arms_factory)
@@ -739,8 +739,8 @@
 /area/exoplanet/grass/konyang)
 "Dq" = (
 /obj/structure/table/steel,
-/obj/item/device/assembly/signaler,
-/obj/item/device/assembly/igniter{
+/obj/item/assembly/signaler,
+/obj/item/assembly/igniter{
 	pixel_x = 9;
 	pixel_y = 12
 	},
@@ -846,7 +846,7 @@
 /area/exoplanet/grass/konyang)
 "Iv" = (
 /obj/structure/table/steel,
-/obj/item/device/assembly/timer,
+/obj/item/assembly/timer,
 /turf/simulated/floor/sidewalk/dark,
 /area/konyang/arms_factory)
 "ID" = (
@@ -1031,7 +1031,7 @@
 /area/exoplanet/grass/konyang)
 "PZ" = (
 /obj/structure/table/steel,
-/obj/item/device/assembly/signaler,
+/obj/item/assembly/signaler,
 /turf/simulated/floor/sidewalk/dark,
 /area/konyang/arms_factory)
 "Qk" = (
@@ -1235,7 +1235,7 @@
 /area/exoplanet/grass/konyang)
 "Zl" = (
 /obj/structure/table/steel,
-/obj/item/device/assembly/signaler,
+/obj/item/assembly/signaler,
 /turf/simulated/floor/foundation,
 /area/konyang/arms_factory)
 "Zz" = (

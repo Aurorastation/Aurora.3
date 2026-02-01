@@ -195,7 +195,7 @@
 	name = "Curator - Idris"
 	jobtype = /datum/job/librarian
 
-	r_pocket = /obj/item/device/price_scanner
+	r_pocket = /obj/item/price_scanner
 	l_hand = null
 
 /obj/outfit/job/librarian/idris/tech_support
@@ -205,7 +205,7 @@
 	l_pocket = /obj/item/modular_computer/handheld/preset/generic
 	r_pocket = /obj/item/card/tech_support
 	r_hand = /obj/item/storage/bag/circuits/basic
-	l_hand = /obj/item/device/debugger
+	l_hand = /obj/item/debugger
 	wrist = /obj/item/modular_computer/handheld/wristbound/preset/advanced/civilian
 
 /obj/outfit/job/chaplain/idris
@@ -245,7 +245,7 @@
 	messengerbag_faction = /obj/item/storage/backpack/messenger/idris
 
 	backpack_contents = list(
-		/obj/item/device/camera = 1,
+		/obj/item/camera = 1,
 		/obj/item/gun/energy/pistol = 1,
 		/obj/item/stamp/idris = 1
 	)

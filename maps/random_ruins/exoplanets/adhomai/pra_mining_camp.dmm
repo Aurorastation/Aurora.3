@@ -46,7 +46,7 @@
 /area/pra_mining_camp)
 "eJ" = (
 /obj/structure/table/standard,
-/obj/item/device/flashlight/lantern,
+/obj/item/flashlight/lantern,
 /turf/simulated/floor/exoplanet/concrete,
 /area/pra_mining_camp)
 "ft" = (
@@ -214,16 +214,16 @@
 /turf/simulated/floor/exoplanet/concrete,
 /area/pra_mining_camp)
 "wx" = (
-/obj/item/device/flashlight/lantern,
-/obj/item/device/flashlight/lantern,
-/obj/item/device/flashlight/lantern,
+/obj/item/flashlight/lantern,
+/obj/item/flashlight/lantern,
+/obj/item/flashlight/lantern,
 /obj/structure/closet/toolcloset/empty,
 /obj/item/ore_detector,
 /obj/item/ore_detector,
 /obj/item/ore_detector,
-/obj/item/device/gps/mining,
-/obj/item/device/gps/mining,
-/obj/item/device/gps/mining,
+/obj/item/gps/mining,
+/obj/item/gps/mining,
+/obj/item/gps/mining,
 /turf/simulated/floor/exoplanet/concrete,
 /area/pra_mining_camp)
 "wW" = (
@@ -515,9 +515,9 @@
 /obj/item/crowbar/red,
 /obj/item/crowbar/red,
 /obj/item/crowbar/red,
-/obj/item/device/analyzer,
-/obj/item/device/analyzer,
-/obj/item/device/analyzer,
+/obj/item/analyzer,
+/obj/item/analyzer,
+/obj/item/analyzer,
 /obj/item/clothing/head/welding,
 /obj/item/clothing/head/welding,
 /turf/simulated/floor/exoplanet/concrete,

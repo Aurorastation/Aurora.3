@@ -8,23 +8,23 @@ ABSTRACT_TYPE(/singleton/fabricator_recipe/components)
 
 /singleton/fabricator_recipe/components/igniter
 	name = "igniter"
-	path = /obj/item/device/assembly/igniter
+	path = /obj/item/assembly/igniter
 
 /singleton/fabricator_recipe/components/signaler
 	name = "signaler"
-	path = /obj/item/device/assembly/signaler
+	path = /obj/item/assembly/signaler
 
 /singleton/fabricator_recipe/components/sensor_infra
 	name = "infrared sensor"
-	path = /obj/item/device/assembly/infra
+	path = /obj/item/assembly/infra
 
 /singleton/fabricator_recipe/components/timer
 	name = "timer"
-	path = /obj/item/device/assembly/timer
+	path = /obj/item/assembly/timer
 
 /singleton/fabricator_recipe/components/sensor_prox
 	name = "proximity sensor"
-	path = /obj/item/device/assembly/prox_sensor
+	path = /obj/item/assembly/prox_sensor
 
 /singleton/fabricator_recipe/components/cable_coil
 	name = "cable coil"

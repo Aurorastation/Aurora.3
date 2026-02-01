@@ -2472,7 +2472,7 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
 	},
-/obj/item/device/flashlight/lamp/green,
+/obj/item/flashlight/lamp/green,
 /obj/structure/table/wood,
 /turf/simulated/floor/wood/mahogany,
 /area/ship/fishing_trawler/Captain)
@@ -2774,7 +2774,7 @@
 /area/ship/fishing_trawler/corridor/port)
 "vf" = (
 /obj/structure/table/wood,
-/obj/item/device/electronic_assembly/simple{
+/obj/item/electronic_assembly/simple{
 	desc = "The remote for a PanaVision 2400. This one feels a bit hollow.";
 	name = "television remote";
 	pixel_x = 6;
@@ -3486,13 +3486,13 @@
 /area/ship/fishing_trawler/corridor/starboard)
 "AQ" = (
 /obj/structure/table/reinforced/steel,
-/obj/item/device/radio/off{
+/obj/item/radio/off{
 	pixel_x = -6;
 	pixel_y = 6
 	},
 /obj/effect/floor_decal/corner/black/full,
-/obj/item/device/binoculars/high_power,
-/obj/item/device/binoculars{
+/obj/item/binoculars/high_power,
+/obj/item/binoculars{
 	pixel_y = 6
 	},
 /turf/simulated/floor/tiled/dark,
@@ -3746,7 +3746,7 @@
 	pixel_y = 6
 	},
 /obj/item/clothing/gloves/yellow/specialu,
-/obj/item/device/multitool,
+/obj/item/multitool,
 /obj/machinery/firealarm/north,
 /obj/item/pipewrench,
 /obj/item/clothing/gloves/yellow/specialu,

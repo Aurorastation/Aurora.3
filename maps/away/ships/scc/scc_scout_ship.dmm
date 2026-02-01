@@ -348,8 +348,8 @@
 /obj/structure/table/rack{
 	dir = 8
 	},
-/obj/item/device/suit_cooling_unit,
-/obj/item/device/suit_cooling_unit,
+/obj/item/suit_cooling_unit,
+/obj/item/suit_cooling_unit,
 /obj/item/clothing/mask/breath,
 /obj/item/clothing/mask/breath,
 /obj/item/tank/emergency_oxygen/engi{
@@ -370,7 +370,7 @@
 /obj/random/spacecash,
 /obj/item/spacecash/c500,
 /obj/item/spacecash/c500,
-/obj/item/device/flash,
+/obj/item/flash,
 /obj/item/gun/projectile/revolver/detective,
 /obj/item/ammo_magazine/c38,
 /obj/item/ammo_magazine/c38/rubber,
@@ -384,11 +384,11 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
 	},
-/obj/item/device/encryptionkey/heads/captain{
+/obj/item/encryptionkey/heads/captain{
 	pixel_x = -4;
 	pixel_y = -4
 	},
-/obj/item/device/encryptionkey/heads/captain{
+/obj/item/encryptionkey/heads/captain{
 	pixel_x = 5;
 	pixel_y = -1
 	},
@@ -883,14 +883,14 @@
 "eI" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/closet/crate,
-/obj/item/device/flashlight/flare,
-/obj/item/device/flashlight/flare,
-/obj/item/device/flashlight/flare,
-/obj/item/device/flashlight/flare,
-/obj/item/device/radio,
-/obj/item/device/radio,
-/obj/item/device/flashlight,
-/obj/item/device/flashlight,
+/obj/item/flashlight/flare,
+/obj/item/flashlight/flare,
+/obj/item/flashlight/flare,
+/obj/item/flashlight/flare,
+/obj/item/radio,
+/obj/item/radio,
+/obj/item/flashlight,
+/obj/item/flashlight,
 /obj/machinery/power/apc/west{
 	req_access = null
 	},
@@ -979,7 +979,7 @@
 	dir = 8
 	},
 /obj/random/dirt_75,
-/obj/item/device/flashlight/lantern{
+/obj/item/flashlight/lantern{
 	pixel_x = 7;
 	pixel_y = -9
 	},
@@ -1031,8 +1031,8 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/closet/crate,
 /obj/item/storage/box/lights/mixed,
-/obj/item/device/radio,
-/obj/item/device/radio,
+/obj/item/radio,
+/obj/item/radio,
 /obj/random/powercell,
 /obj/random/tech_supply,
 /obj/random/tech_supply,
@@ -1506,7 +1506,7 @@
 	},
 /obj/random/dirt_75,
 /obj/random/dirt_75,
-/obj/item/device/analyzer{
+/obj/item/analyzer{
 	pixel_x = 7;
 	pixel_y = -7
 	},
@@ -1888,7 +1888,7 @@
 /area/shuttle/scc_scout_ship_shuttle/medbay)
 "kH" = (
 /obj/structure/table/wood,
-/obj/item/device/paicard,
+/obj/item/paicard,
 /obj/random/plushie,
 /turf/simulated/floor/carpet/darkblue,
 /area/ship/scc_scout_ship/mess)
@@ -2386,28 +2386,28 @@
 "nB" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/structure/closet/crate,
-/obj/item/device/gps/science{
+/obj/item/gps/science{
 	pixel_y = 1;
 	pixel_x = 6;
 	gpstag = "SCC12"
 	},
-/obj/item/device/gps/science{
+/obj/item/gps/science{
 	pixel_y = 1;
 	pixel_x = 8;
 	gpstag = "SCC11"
 	},
-/obj/item/device/gps/science{
+/obj/item/gps/science{
 	pixel_y = 1;
 	pixel_x = -6;
 	gpstag = "SCC13"
 	},
-/obj/item/device/gps/science{
+/obj/item/gps/science{
 	pixel_y = 1;
 	pixel_x = -8;
 	gpstag = "SCC14"
 	},
-/obj/item/device/radio,
-/obj/item/device/radio,
+/obj/item/radio,
+/obj/item/radio,
 /turf/simulated/floor/carpet/rubber,
 /area/shuttle/scc_scout_ship_shuttle/cargo)
 "nE" = (
@@ -2737,7 +2737,7 @@
 	pixel_y = 1;
 	pixel_x = 3
 	},
-/obj/item/device/flashlight/lamp{
+/obj/item/flashlight/lamp{
 	pixel_x = -4;
 	pixel_y = 8
 	},
@@ -2993,7 +2993,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/scc_scout_ship_shuttle/propulsion_port)
 "qM" = (
-/obj/item/device/taperecorder{
+/obj/item/taperecorder{
 	pixel_x = -10;
 	pixel_y = 4
 	},
@@ -3367,11 +3367,11 @@
 "tt" = (
 /obj/structure/closet/crate,
 /obj/effect/floor_decal/industrial/outline/operations,
-/obj/item/device/flashlight,
-/obj/item/device/radio,
-/obj/item/device/flashlight/heavy,
-/obj/item/device/flashlight/marshallingwand,
-/obj/item/device/flashlight,
+/obj/item/flashlight,
+/obj/item/radio,
+/obj/item/flashlight/heavy,
+/obj/item/flashlight/marshallingwand,
+/obj/item/flashlight,
 /turf/simulated/floor/carpet/rubber,
 /area/shuttle/scc_scout_ship_shuttle/cargo)
 "tu" = (
@@ -3682,7 +3682,7 @@
 	dir = 9
 	},
 /obj/item/folder/yellow,
-/obj/item/device/flashlight/lamp,
+/obj/item/flashlight/lamp,
 /obj/structure/table/reinforced/steel,
 /turf/simulated/floor/tiled/dark,
 /area/ship/scc_scout_ship/bridge)
@@ -3992,7 +3992,7 @@
 /area/ship/scc_scout_ship/maint_propulsion_port)
 "xs" = (
 /obj/structure/table/steel,
-/obj/item/device/hand_labeler,
+/obj/item/hand_labeler,
 /obj/item/stack/packageWrap,
 /obj/effect/floor_decal/corner/brown{
 	dir = 6
@@ -6951,7 +6951,7 @@
 	pixel_x = -7;
 	pixel_y = 2
 	},
-/obj/item/device/gps/science{
+/obj/item/gps/science{
 	pixel_y = 1;
 	pixel_x = 6;
 	gpstag = "SCC10"
@@ -7311,11 +7311,11 @@
 /turf/simulated/floor/marble,
 /area/ship/scc_scout_ship/mess)
 "UZ" = (
-/obj/item/device/multitool{
+/obj/item/multitool{
 	pixel_x = 3;
 	pixel_y = 7
 	},
-/obj/item/device/binoculars{
+/obj/item/binoculars{
 	pixel_x = -3
 	},
 /obj/effect/floor_decal/spline/plain/black{
@@ -7754,7 +7754,7 @@
 /area/ship/scc_scout_ship/engineering_cargo)
 "WU" = (
 /obj/structure/table/wood,
-/obj/item/device/versebook/biesel{
+/obj/item/versebook/biesel{
 	pixel_x = -4;
 	pixel_y = 4
 	},
@@ -7779,11 +7779,11 @@
 "Xa" = (
 /obj/item/storage/belt/archaeology,
 /obj/item/storage/box/unique/excavation,
-/obj/item/device/flashlight/lantern,
-/obj/item/device/ano_scanner,
-/obj/item/device/depth_scanner,
-/obj/item/device/core_sampler,
-/obj/item/device/measuring_tape,
+/obj/item/flashlight/lantern,
+/obj/item/ano_scanner,
+/obj/item/depth_scanner,
+/obj/item/core_sampler,
+/obj/item/measuring_tape,
 /obj/item/pickaxe/hand,
 /obj/item/storage/bag/fossils,
 /obj/item/stack/flag/green,
@@ -7855,7 +7855,7 @@
 	pixel_y = 9;
 	pixel_x = -5
 	},
-/obj/item/device/gps{
+/obj/item/gps{
 	pixel_x = 7;
 	pixel_y = 2;
 	gps_prefix = "SCC";
@@ -8243,7 +8243,7 @@
 /turf/simulated/floor/marble,
 /area/ship/scc_scout_ship/mess)
 "ZJ" = (
-/obj/item/device/suit_cooling_unit,
+/obj/item/suit_cooling_unit,
 /obj/item/tank/jetpack/carbondioxide{
 	pixel_x = -6
 	},

@@ -151,7 +151,7 @@ Class Procs:
 	var/clicksound //played sound on usage
 	var/clickvol = 40 //volume
 	/// Signaller attached to the machine
-	var/obj/item/device/assembly/signaler/signaler
+	var/obj/item/assembly/signaler/signaler
 	/// Overmap sector the machine is linked to
 	var/obj/effect/overmap/visitable/linked
 
@@ -355,7 +355,7 @@ Class Procs:
 			if(signaler)
 				to_chat(user, SPAN_WARNING("\The [src] already has a signaler attached."))
 				return TRUE
-			var/obj/item/device/assembly/signaler/S = attacking_item
+			var/obj/item/assembly/signaler/S = attacking_item
 			user.drop_from_inventory(attacking_item, src)
 			signaler = S
 			S.machine = src
@@ -379,7 +379,7 @@ Class Procs:
 		LOG_DEBUG("[src] tried to drop a signaler, but it had no turf ([src.x]-[src.y]-[src.z])")
 		return
 
-	var/obj/item/device/assembly/signaler/S = signaler
+	var/obj/item/assembly/signaler/S = signaler
 
 	signaler.forceMove(detach_turf)
 	signaler.machine = null

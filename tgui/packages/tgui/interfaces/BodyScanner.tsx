@@ -66,6 +66,7 @@ type Organ = {
   brute_damage: string;
   wounds: string;
   infection: string;
+  amputation: BooleanLike;
 };
 
 type InternalOrgan = {
@@ -430,7 +431,13 @@ export const ExternalOrganWindow = (props) => {
             {organ.burn_damage}
           </Table.Cell>
           <Table.Cell color={organ.wounds !== 'None' ? 'orange' : 'white'}>
-            {organ.wounds}
+            {organ.amputation ? (
+              <Box color="red" bold>
+                (AMPUTATION REQUIRED)
+              </Box>
+            ) : (
+              organ.wounds
+            )}
           </Table.Cell>
           <Table.Cell color={organ.infection !== 'None' ? 'yellow' : 'white'}>
             {organ.infection}
@@ -510,16 +517,18 @@ const brainText = (value) => {
 };
 
 const damageLabel = (value) => {
-  if (value === 'Fatal' || value < 10) {
-    return 'bad';
+  if (value === 'Irreparable') {
+    return 'purple';
   }
-  if (value === 'Critical' || value < 20) {
+  if (value === 'Critical' || value === 0) {
+    return 'red';
+  } else if (value === 'Extreme' || value < 25) {
     return 'bad';
-  } else if (value === 'Severe' || value < 40) {
+  } else if (value === 'Severe' || value < 50) {
     return 'average';
-  } else if (value === 'Significant' || value < 60) {
+  } else if (value === 'Significant' || value < 75) {
     return 'orange';
-  } else if (value === 'Moderate' || value < 80) {
+  } else if (value === 'Moderate' || value < 90) {
     return 'yellow';
   } else if (value === 'Minor' || value < 100) {
     return 'good';

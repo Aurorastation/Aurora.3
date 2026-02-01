@@ -537,12 +537,12 @@
 	if(LAZYLEN(can_hold))
 		var/can_hold_item = can_hold_strict ? (item_to_check.type in can_hold) : is_type_in_list(item_to_check, can_hold)
 		if(!can_hold_item)
-			if(!stop_messages && ! istype(item_to_check, /obj/item/device/hand_labeler))
+			if(!stop_messages && ! istype(item_to_check, /obj/item/hand_labeler))
 				to_chat(usr, SPAN_NOTICE("\The [src] cannot hold \the [item_to_check]."))
 			return FALSE
 		var/max_instances = can_hold[item_to_check.type]
 		if(max_instances && instances_of_type_in_list(item_to_check, contents, TRUE) >= max_instances)
-			if(!stop_messages && !istype(item_to_check, /obj/item/device/hand_labeler))
+			if(!stop_messages && !istype(item_to_check, /obj/item/hand_labeler))
 				to_chat(usr, SPAN_NOTICE("\The [src] has no more space specifically for \the [item_to_check]."))
 			return FALSE
 
@@ -733,8 +733,8 @@
 			to_chat(user, SPAN_WARNING("Trying to place a loaded tray into [src] was a bad idea."))
 			return
 
-	if(istype(attacking_item, /obj/item/device/hand_labeler))
-		var/obj/item/device/hand_labeler/HL = attacking_item
+	if(istype(attacking_item, /obj/item/hand_labeler))
+		var/obj/item/hand_labeler/HL = attacking_item
 		if(HL.mode == 1)
 			return
 

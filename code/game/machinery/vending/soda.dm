@@ -130,7 +130,7 @@
 		/obj/item/reagent_containers/food/drinks/bottle/space_up = 2
 	)
 
-/obj/item/device/vending_refill/cola
+/obj/item/vending_refill/cola
 	name = "cola resupply canister"
 	vend_id = "cola"
 	charges = 50
@@ -195,7 +195,7 @@
 		/obj/item/reagent_containers/food/drinks/cans/zorasoda/dyn = 1
 	)
 
-/obj/item/device/vending_refill/zora
+/obj/item/vending_refill/zora
 	name = "Zo'ra Soda resupply canister"
 	vend_id = "zora"
 	charges = 40

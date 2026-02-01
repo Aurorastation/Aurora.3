@@ -4,7 +4,7 @@
 
 #define LAYER_NORMAL 3
 
-/obj/item/device/magnetic_lock
+/obj/item/magnetic_lock
 	name = "magnetic door lock"
 	desc = "A large, ID locked device used for completely locking down airlocks."
 	icon = 'icons/obj/magnetic_locks.dmi'
@@ -28,12 +28,12 @@
 	var/obj/machinery/door/airlock/target = null
 	var/obj/item/cell/powercell
 
-/obj/item/device/magnetic_lock/condition_hints(mob/user, distance, is_adjacent)
+/obj/item/magnetic_lock/condition_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	if (status == STATUS_BROKEN)
 		. += SPAN_DANGER("It looks broken!")
 
-/obj/item/device/magnetic_lock/feedback_hints(mob/user, distance, is_adjacent)
+/obj/item/magnetic_lock/feedback_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	if (powercell)
 		var/power = round(powercell.charge / powercell.maxcharge * 100)
@@ -41,33 +41,33 @@
 	else
 		. += SPAN_WARNING("It has no powercell to power it!")
 
-/obj/item/device/magnetic_lock/mechanics_hints(mob/user, distance, is_adjacent)
+/obj/item/magnetic_lock/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	if(department)
 		. += "Once applied to an airlock, this device can be activated/deactivated by swiping an ID from the <b>[department] department</b> across it."
 
-/obj/item/device/magnetic_lock/security
+/obj/item/magnetic_lock/security
 	department = "Security"
 	icon_state = "inactive_Security"
 	req_access = list(ACCESS_SECURITY)
 
-/obj/item/device/magnetic_lock/engineering
+/obj/item/magnetic_lock/engineering
 	department = "Engineering"
 	icon_state = "inactive_Engineering"
 	req_access = null
 	req_one_access = list(ACCESS_ENGINE_EQUIP, ACCESS_ATMOSPHERICS)
 
-/obj/item/device/magnetic_lock/security/legion
+/obj/item/magnetic_lock/security/legion
 	name = "legion magnetic door lock"
 	req_access = null
 	req_one_access = list(ACCESS_LEGION, ACCESS_TCAF_SHIPS)
 	w_class = WEIGHT_CLASS_SMALL
 
-/obj/item/device/magnetic_lock/security/legion/Initialize()
+/obj/item/magnetic_lock/security/legion/Initialize()
 	. = ..()
 	desc = "A large, ID locked device used for completely locking down airlocks. This one carries the insignia of the Tau Ceti Foreign Legion."
 
-/obj/item/device/magnetic_lock/Initialize()
+/obj/item/magnetic_lock/Initialize()
 	. = ..()
 
 	powercell = new /obj/item/cell/high()
@@ -93,7 +93,7 @@
 		status = STATUS_ACTIVE
 		attach(newtarget)
 
-/obj/item/device/magnetic_lock/attack_hand(var/mob/user)
+/obj/item/magnetic_lock/attack_hand(var/mob/user)
 	add_fingerprint(user)
 	if (constructionstate == 1 && powercell)
 		powercell.update_icon()
@@ -112,14 +112,14 @@
 	else
 		..()
 
-/obj/item/device/magnetic_lock/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
+/obj/item/magnetic_lock/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
 	. = ..()
 	if(. != BULLET_ACT_HIT)
 		return .
 
 	takedamage(hitting_projectile.damage)
 
-/obj/item/device/magnetic_lock/attackby(obj/item/attacking_item, mob/user)
+/obj/item/magnetic_lock/attackby(obj/item/attacking_item, mob/user)
 	if (status == STATUS_BROKEN)
 		to_chat(user, SPAN_DANGER("[src] is broken beyond repair!"))
 		return TRUE
@@ -249,7 +249,7 @@
 				setconstructionstate(3)
 				return TRUE
 
-/obj/item/device/magnetic_lock/process()
+/obj/item/magnetic_lock/process()
 	if(!processpower)
 		return
 	var/obj/item/cell/C = powercell
@@ -267,7 +267,7 @@
 		detach(0)
 	last_process_time = world.time
 
-/obj/item/device/magnetic_lock/proc/check_target(var/obj/machinery/door/airlock/newtarget, var/mob/user as mob)
+/obj/item/magnetic_lock/proc/check_target(var/obj/machinery/door/airlock/newtarget, var/mob/user as mob)
 	if (status == STATUS_BROKEN)
 		to_chat(user, SPAN_DANGER("[src] is damaged beyond repair! It cannot be used!"))
 		return 0
@@ -290,7 +290,7 @@
 
 	return 1
 
-/obj/item/device/magnetic_lock/proc/attachto(var/obj/machinery/door/airlock/newtarget, var/mob/user as mob)
+/obj/item/magnetic_lock/proc/attachto(var/obj/machinery/door/airlock/newtarget, var/mob/user as mob)
 	if (!check_target(newtarget, user)) return
 
 	user.visible_message(SPAN_NOTICE("[user] starts mounting [src] onto [newtarget]."),
@@ -341,7 +341,7 @@
 		return
 
 
-/obj/item/device/magnetic_lock/proc/setconstructionstate(var/newstate)
+/obj/item/magnetic_lock/proc/setconstructionstate(var/newstate)
 	if (!powercell && newstate == 1)
 		setconstructionstate(2)
 		return
@@ -351,7 +351,7 @@
 	constructionstate = newstate
 	update_icon()
 
-/obj/item/device/magnetic_lock/proc/detach(var/playflick = 1)
+/obj/item/magnetic_lock/proc/detach(var/playflick = 1)
 	if (target)
 
 		if (playflick)
@@ -375,7 +375,7 @@
 		STOP_PROCESSING(SSprocessing, src)
 		last_process_time = 0
 
-/obj/item/device/magnetic_lock/proc/attach(var/obj/machinery/door/airlock/newtarget as obj)
+/obj/item/magnetic_lock/proc/attach(var/obj/machinery/door/airlock/newtarget as obj)
 	layer = ABOVE_DOOR_LAYER
 
 	newtarget.bracer = src
@@ -389,7 +389,7 @@
 		flick("deploy_[department]", src)
 	update_icon()
 
-/obj/item/device/magnetic_lock/update_icon()
+/obj/item/magnetic_lock/update_icon()
 	if (status == STATUS_ACTIVE && target)
 		icon_state = "active_[department]"
 		switch (dir)
@@ -415,7 +415,7 @@
 		pixel_y = 0
 	update_overlays()
 
-/obj/item/device/magnetic_lock/proc/update_overlays()
+/obj/item/magnetic_lock/proc/update_overlays()
 	ClearOverlays()
 	switch (status)
 		if (STATUS_BROKEN)
@@ -435,7 +435,7 @@
 				if (1 to 4)
 					AddOverlays("overlay_deconstruct_[constructionstate]")
 
-/obj/item/device/magnetic_lock/proc/takedamage(var/damage)
+/obj/item/magnetic_lock/proc/takedamage(var/damage)
 	if(invincible)
 		return
 	health -= rand(damage/2, damage)
@@ -453,7 +453,7 @@
 	if (prob(50))
 		spark(target ? target : src, 5, GLOB.alldirs)
 
-/obj/item/device/magnetic_lock/keypad
+/obj/item/magnetic_lock/keypad
 	name = "magnetic door lock"
 	desc = "A large, passcode locked device used for completely locking down airlocks."
 
@@ -462,35 +462,35 @@
 	var/passcode = "open"
 	var/configurable = TRUE
 
-/obj/item/device/magnetic_lock/keypad/mechanics_hints(mob/user, distance, is_adjacent)
+/obj/item/magnetic_lock/keypad/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	. += "Keypad-enabled magnetic locks require a custom passcode to unlock them, configured on initial use."
 
-/obj/item/device/magnetic_lock/keypad/update_overlays()
+/obj/item/magnetic_lock/keypad/update_overlays()
 	..()
 	switch (status)
 		if (STATUS_INACTIVE to STATUS_ACTIVE)
-			if(istype(src, /obj/item/device/magnetic_lock/keypad))
+			if(istype(src, /obj/item/magnetic_lock/keypad))
 				AddOverlays("overlay_keypad")
 
-/obj/item/device/magnetic_lock/keypad/ui_interact(mob/user, datum/tgui/ui)
+/obj/item/magnetic_lock/keypad/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
 		ui = new(user, src, "Maglock", "Maglock", 300, 250)
 		ui.open()
 
-/obj/item/device/magnetic_lock/keypad/attack_hand(var/mob/user)
+/obj/item/magnetic_lock/keypad/attack_hand(var/mob/user)
 	. = ..()
 	if(.)
 		return
 	ui_interact(user)
 
-/obj/item/device/magnetic_lock/keypad/ui_data(mob/user)
+/obj/item/magnetic_lock/keypad/ui_data(mob/user)
 	var/list/data = list()
 	data["locked"] = locked
 	return data
 
-/obj/item/device/magnetic_lock/keypad/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
+/obj/item/magnetic_lock/keypad/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	. = ..()
 	if(.)
 		return

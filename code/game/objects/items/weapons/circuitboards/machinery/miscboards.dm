@@ -52,7 +52,7 @@
 	req_components = list(
 							"/obj/item/stock_parts/capacitor" = 1,
 							"/obj/item/stock_parts/scanning_module" = 1,
-							"/obj/item/device/healthanalyzer" = 1)
+							"/obj/item/healthanalyzer" = 1)
 
 /obj/item/circuitboard/bodyscannerconsole
 	name = T_BOARD("Body Scanner Console")

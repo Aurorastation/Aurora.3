@@ -77,7 +77,7 @@
 	if(istype(attacking_item,/obj/item/storage/part_replacer))
 		if(!reagents || !reagents.total_volume)
 			return ..()
-	if(attacking_item.tool_behaviour == TOOL_PEN || istype(attacking_item, /obj/item/device/flashlight/pen))
+	if(attacking_item.tool_behaviour == TOOL_PEN || istype(attacking_item, /obj/item/flashlight/pen))
 		var/tmp_label = sanitizeSafe( tgui_input_text(user, "Enter a label for [name]", "Label", label_text, MAX_NAME_LEN), MAX_NAME_LEN )
 		if(length(tmp_label) > 15)
 			to_chat(user, SPAN_NOTICE("The label can be at most 15 characters long."))

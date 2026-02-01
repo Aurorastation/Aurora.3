@@ -369,12 +369,12 @@
 /obj/item/material/hatchet,
 /obj/item/material/hatchet,
 /obj/item/material/hatchet,
-/obj/item/device/flashlight/lantern,
-/obj/item/device/flashlight/lantern,
-/obj/item/device/flashlight/lantern,
-/obj/item/device/flashlight/lantern,
-/obj/item/device/flashlight/lantern,
-/obj/item/device/flashlight/lantern,
+/obj/item/flashlight/lantern,
+/obj/item/flashlight/lantern,
+/obj/item/flashlight/lantern,
+/obj/item/flashlight/lantern,
+/obj/item/flashlight/lantern,
+/obj/item/flashlight/lantern,
 /obj/machinery/light{
 	dir = 8
 	},
@@ -474,9 +474,9 @@
 /obj/item/material/minihoe,
 /obj/item/material/minihoe,
 /obj/item/material/minihoe,
-/obj/item/device/analyzer/plant_analyzer,
-/obj/item/device/analyzer/plant_analyzer,
-/obj/item/device/analyzer/plant_analyzer,
+/obj/item/analyzer/plant_analyzer,
+/obj/item/analyzer/plant_analyzer,
+/obj/item/analyzer/plant_analyzer,
 /turf/simulated/floor/tiled{
 	temperature = 298.15
 	},

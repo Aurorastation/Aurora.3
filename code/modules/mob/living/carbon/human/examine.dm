@@ -306,6 +306,12 @@
 
 	for(var/obj/item/organ/external/temp in organs)
 		if(temp)
+			if(temp.CheckNeedsAmputation())
+				var/damage_descriptor = "mangled"
+				if(!(temp.burn_ratio < 100))
+					damage_descriptor = "charred"
+				wound_flavor_text["[temp.name]"] = SPAN_DANGER("<b>[get_pronoun("He")] [get_pronoun("has")] \a [temp.name] that is [damage_descriptor] beyond recognition.</b>\n")
+				continue//If it's this bad, we don't care about the rest of the wounds. The limb is gone.
 			var/body_part = temp.body_part
 			if(temp.body_part & HEAD)
 				body_part &= ~HEAD

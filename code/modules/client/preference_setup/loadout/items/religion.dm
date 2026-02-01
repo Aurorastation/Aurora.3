@@ -51,12 +51,12 @@ ABSTRACT_TYPE(/datum/gear/religion/trinary)
 /datum/gear/religion/trinary/book
 	display_name = "The Order"
 	description = "The holy text of the Trinary Perfection."
-	path = /obj/item/device/versebook/trinary
+	path = /obj/item/versebook/trinary
 
 /datum/gear/religion/trinary/book/temple
 	display_name = "The Voice of Temple"
 	description = "A supplementary holy text belonging to the Lodge of Temple Architect, an order within the Trinary Perfection."
-	path = /obj/item/device/versebook/templeist
+	path = /obj/item/versebook/templeist
 
 /datum/gear/religion/rosary
 	display_name = "rosary"
@@ -198,7 +198,7 @@ ABSTRACT_TYPE(/datum/gear/religion/dominia)
 
 /datum/gear/religion/dominia/codex
 	display_name = "tribunal codex"
-	path = /obj/item/device/versebook/tribunal
+	path = /obj/item/versebook/tribunal
 
 /datum/gear/religion/dominia/icon
 	display_name = "tribunal iconography"
@@ -228,7 +228,7 @@ ABSTRACT_TYPE(/datum/gear/religion/assunzione)
 /datum/gear/religion/assunzione/scripture
 	display_name = "luceian scripture"
 	description = "A collection of texts belonging to Luceism, the dominant religion of Assunzione."
-	path = /obj/item/device/versebook/assunzione
+	path = /obj/item/versebook/assunzione
 
 /datum/gear/religion/assunzione/cloak
 	display_name = "assunzione cloak selection"
@@ -261,13 +261,13 @@ ABSTRACT_TYPE(/datum/gear/religion/assunzione)
 
 /datum/gear/religion/assunzione/scripture
 	display_name = "luceian scripture"
-	path = /obj/item/device/versebook/assunzione
+	path = /obj/item/versebook/assunzione
 
 /datum/gear/religion/assunzione/scripture/New()
 	..()
 	var/list/book = list()
-	book["luceian book of scripture"] = /obj/item/device/versebook/assunzione
-	book["pocket luceian book of scripture"] = /obj/item/device/versebook/assunzione/pocket
+	book["luceian book of scripture"] = /obj/item/versebook/assunzione
+	book["pocket luceian book of scripture"] = /obj/item/versebook/assunzione/pocket
 	gear_tweaks += new /datum/gear_tweak/path(book)
 
 /datum/gear/religion/assunzione/orb

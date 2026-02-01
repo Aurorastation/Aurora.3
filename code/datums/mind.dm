@@ -432,7 +432,7 @@
 				memory = null//Remove any memory they may have had.
 			if("crystals")
 				if (usr.client.holder.rights & R_FUN)
-					var/obj/item/device/uplink/hidden/suplink = find_syndicate_uplink()
+					var/obj/item/uplink/hidden/suplink = find_syndicate_uplink()
 					var/crystals
 					if (suplink)
 						crystals = suplink.telecrystals + suplink.bluecrystals
@@ -469,7 +469,7 @@
 	return null
 
 /datum/mind/proc/take_uplink()
-	var/obj/item/device/uplink/hidden/H = find_syndicate_uplink()
+	var/obj/item/uplink/hidden/H = find_syndicate_uplink()
 	if(H)
 		qdel(H)
 

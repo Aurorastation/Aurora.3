@@ -253,7 +253,7 @@
 		/obj/item/surgery/fix_o_vein = "tray_fixovein",
 		/obj/item/stack/medical/advanced/bruise_pack = "tray_bruise_pack",
 		/obj/item/autopsy_scanner = "tray_autopsy_scanner",
-		/obj/item/device/mass_spectrometer = "tray_mass_spectrometer",
+		/obj/item/mass_spectrometer = "tray_mass_spectrometer",
 		/obj/item/reagent_containers/glass/beaker/vial = "tray_vial",
 		/obj/item/reagent_containers/syringe = "tray_syringe"
 	)
@@ -313,7 +313,7 @@
 		/obj/item/surgery/surgicaldrill = 1,
 		/obj/item/surgery/cautery = 1,
 		/obj/item/autopsy_scanner = 1,
-		/obj/item/device/mass_spectrometer = 1,
+		/obj/item/mass_spectrometer = 1,
 		/obj/item/reagent_containers/glass/beaker/vial = 1,
 		/obj/item/reagent_containers/syringe = 1
 	)
@@ -326,7 +326,7 @@
 		/obj/item/surgery/surgicaldrill,
 		/obj/item/surgery/cautery,
 		/obj/item/autopsy_scanner,
-		/obj/item/device/mass_spectrometer,
+		/obj/item/mass_spectrometer,
 		/obj/item/reagent_containers/glass/beaker/vial,
 		/obj/item/reagent_containers/syringe
 	)

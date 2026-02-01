@@ -349,7 +349,7 @@
 
 /obj/item/rig_module/device/door_hack/process()
 	if(holder && holder.wearer)
-		if(!(locate(/obj/item/device/multitool/hacktool/rig) in holder.wearer))
+		if(!(locate(/obj/item/multitool/hacktool/rig) in holder.wearer))
 			deactivate()
 			return FALSE
 
@@ -368,7 +368,7 @@
 		deactivate()
 		return
 
-	var/obj/item/device/multitool/hacktool/rig/hacktool = new(M)
+	var/obj/item/multitool/hacktool/rig/hacktool = new(M)
 	hacktool.creator = M
 	M.put_in_hands(hacktool)
 
@@ -380,5 +380,5 @@
 	if(!M)
 		return
 
-	for(var/obj/item/device/multitool/hacktool/rig/hacktool in M.contents)
+	for(var/obj/item/multitool/hacktool/rig/hacktool in M.contents)
 		qdel(hacktool)

@@ -662,9 +662,9 @@
 /turf/simulated/floor/exoplanet/water/shallow/konyang,
 /area/konyang_pirate_outpost)
 "HX" = (
-/obj/item/device/suit_cooling_unit,
-/obj/item/device/suit_cooling_unit,
-/obj/item/device/suit_cooling_unit,
+/obj/item/suit_cooling_unit,
+/obj/item/suit_cooling_unit,
+/obj/item/suit_cooling_unit,
 /obj/structure/closet/crate,
 /obj/item/clothing/shoes/magboots,
 /obj/item/clothing/shoes/magboots,
@@ -930,7 +930,7 @@
 	pixel_x = 1;
 	pixel_y = 6
 	},
-/obj/item/device/radio,
+/obj/item/radio,
 /turf/simulated/floor/wood,
 /area/konyang_pirate_outpost)
 "WP" = (

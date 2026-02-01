@@ -199,7 +199,7 @@
 		/obj/item/reagent_containers/food/drinks/zobo = 1.75
 	)
 
-/obj/item/device/vending_refill/snack
+/obj/item/vending_refill/snack
 	name = "snacks resupply canister"
 	vend_id = "snacks"
 	charges = 38
@@ -305,7 +305,7 @@
 	desc = "A complimentary FrontierVend machine. No money? No worries."
 	prices = list()
 
-/obj/item/device/vending_refill/frontiervend
+/obj/item/vending_refill/frontiervend
 	name = "frontiervend resupply canister"
 	vend_id = "frontiervend"
 	charges = 220

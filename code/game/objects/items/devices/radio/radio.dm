@@ -38,7 +38,7 @@ var/global/list/default_interrogation_channels = list(
 // Radios
 //
 
-/obj/item/device/radio
+/obj/item/radio
 	name = "shortwave radio"
 	icon = 'icons/obj/radio.dmi'
 	icon_state = "walkietalkie"
@@ -107,7 +107,7 @@ var/global/list/default_interrogation_channels = list(
 	var/datum/radio_frequency/radio_connection
 	var/list/datum/radio_frequency/secure_radio_connections = list()
 
-/obj/item/device/radio/feedback_hints(mob/user, distance, is_adjacent)
+/obj/item/radio/feedback_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	if(show_modify_on_examine && (distance <= 1))
 		if (b_stat)
@@ -118,21 +118,21 @@ var/global/list/default_interrogation_channels = list(
 	if(radio_desc)
 		. += radio_desc
 
-/obj/item/device/radio/mechanics_hints(mob/user, distance, is_adjacent)
+/obj/item/radio/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	. += "The radio key .i will allow you to speak into a nearby intercom, .r will speak into a radio in your right hand, and .l will speak into your left. The microphone does not need to be enabled for this to work."
 
-/obj/item/device/radio/proc/set_frequency(new_frequency)
+/obj/item/radio/proc/set_frequency(new_frequency)
 	SSradio.remove_object(src, frequency)
 	if(new_frequency)
 		frequency = new_frequency
 		radio_connection = SSradio.add_object(src, new_frequency, RADIO_CHAT)
 
 /// By default copies default_internal_channels. Override on child for radios that need snowflake.
-/obj/item/device/radio/proc/set_internal_channels()
+/obj/item/radio/proc/set_internal_channels()
 	return default_internal_channels.Copy()
 
-/obj/item/device/radio/Initialize()
+/obj/item/radio/Initialize()
 	. = ..()
 
 	wires = new(src)
@@ -149,22 +149,22 @@ var/global/list/default_interrogation_channels = list(
 	set_frequency(default_frequency)
 	set_on(on)
 
-/obj/item/device/radio/Destroy()
+/obj/item/radio/Destroy()
 	SSradio.remove_object_all(src)
 	QDEL_NULL(announcer)
 	QDEL_NULL(wires)
 	return ..()
 
-/obj/item/device/radio/proc/is_on()
+/obj/item/radio/proc/is_on()
 	return on
 
-/obj/item/device/radio/proc/get_frequency()
+/obj/item/radio/proc/get_frequency()
 	return frequency
 
-/obj/item/device/radio/proc/get_broadcasting()
+/obj/item/radio/proc/get_broadcasting()
 	return broadcasting
 
-/obj/item/device/radio/proc/get_listening()
+/obj/item/radio/proc/get_listening()
 	return listening
 
 /**
@@ -173,7 +173,7 @@ var/global/list/default_interrogation_channels = list(
  * * new_listening - the new value we want to set listening to
  * * actual_setting - whether or not the radio is supposed to be listening, sets should_be_listening to the new listening value if true, otherwise just changes listening
  */
-/obj/item/device/radio/proc/set_listening(new_listening, actual_setting = TRUE)
+/obj/item/radio/proc/set_listening(new_listening, actual_setting = TRUE)
 
 	listening = new_listening
 	if(actual_setting)
@@ -195,7 +195,7 @@ var/global/list/default_interrogation_channels = list(
  * * new_broadcasting- the new value we want to set broadcasting to
  * * actual_setting - whether or not the radio is supposed to be broadcasting, sets should_be_broadcasting to the new value if true, otherwise just changes broadcasting
  */
-/obj/item/device/radio/proc/set_broadcasting(new_broadcasting, actual_setting = TRUE)
+/obj/item/radio/proc/set_broadcasting(new_broadcasting, actual_setting = TRUE)
 
 	broadcasting = new_broadcasting
 	if(actual_setting)
@@ -207,7 +207,7 @@ var/global/list/default_interrogation_channels = list(
 		lose_hearing_sensitivity(INNATE_TRAIT)
 
 ///setter for the on var that sets both broadcasting and listening to off or whatever they were supposed to be
-/obj/item/device/radio/proc/set_on(new_on)
+/obj/item/radio/proc/set_on(new_on)
 
 	on = new_on
 
@@ -218,11 +218,11 @@ var/global/list/default_interrogation_channels = list(
 		set_broadcasting(FALSE, actual_setting = FALSE)//fake set them to off
 		set_listening(FALSE, actual_setting = FALSE)
 
-/obj/item/device/radio/attack_self(mob/user as mob)
+/obj/item/radio/attack_self(mob/user as mob)
 	user.set_machine(src)
 	interact(user)
 
-/obj/item/device/radio/interact(mob/user)
+/obj/item/radio/interact(mob/user)
 	if(!user)
 		return 0
 
@@ -231,7 +231,7 @@ var/global/list/default_interrogation_channels = list(
 
 	return ui_interact(user)
 
-/obj/item/device/radio/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1)
+/obj/item/radio/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1)
 	var/data[0]
 
 	data["mic_status"] = broadcasting
@@ -257,7 +257,7 @@ var/global/list/default_interrogation_channels = list(
 		ui.set_initial_data(data)
 		ui.open()
 
-/obj/item/device/radio/proc/setupRadioDescription(var/additional_radio_desc)
+/obj/item/radio/proc/setupRadioDescription(var/additional_radio_desc)
 	var/radio_text = ""
 	var/found_first_department = FALSE
 	for(var/i = 1 to channels.len)
@@ -276,10 +276,10 @@ var/global/list/default_interrogation_channels = list(
 	if(additional_radio_desc)
 		radio_desc += additional_radio_desc
 
-/obj/item/device/radio/proc/list_channels(var/mob/user)
+/obj/item/radio/proc/list_channels(var/mob/user)
 	return list_internal_channels(user)
 
-/obj/item/device/radio/proc/list_secure_channels(var/mob/user)
+/obj/item/radio/proc/list_secure_channels(var/mob/user)
 	var/dat[0]
 
 	for(var/ch_name in channels)
@@ -290,7 +290,7 @@ var/global/list/default_interrogation_channels = list(
 
 	return dat
 
-/obj/item/device/radio/proc/list_internal_channels(var/mob/user)
+/obj/item/radio/proc/list_internal_channels(var/mob/user)
 	var/dat[0]
 	for(var/internal_chan in internal_channels)
 		if(has_channel_access(user, internal_chan))
@@ -298,7 +298,7 @@ var/global/list/default_interrogation_channels = list(
 
 	return dat
 
-/obj/item/device/radio/proc/has_channel_access(var/mob/user, var/freq)
+/obj/item/radio/proc/has_channel_access(var/mob/user, var/freq)
 	if(!user)
 		return 0
 
@@ -314,30 +314,30 @@ var/global/list/default_interrogation_channels = list(
 /mob/abstract/ghost/observer/has_internal_radio_channel_access(var/list/req_one_accesses)
 	return can_admin_interact()
 
-/obj/item/device/radio/proc/text_wires()
+/obj/item/radio/proc/text_wires()
 	if (b_stat)
 		return wires.get_status()
 	return
 
 
-/obj/item/device/radio/proc/text_sec_channel(var/chan_name, var/chan_stat)
+/obj/item/radio/proc/text_sec_channel(var/chan_name, var/chan_stat)
 	var/list = !!(chan_stat&FREQ_LISTENING)!=0
 	return {"
 			<B>[chan_name]</B><br>
 			Speaker: <A href='byond://?src=[REF(src)];ch_name=[chan_name];listen=[!list]'>[list ? "Engaged" : "Disengaged"]</A><BR>
 			"}
 
-/obj/item/device/radio/CanUseTopic()
+/obj/item/radio/CanUseTopic()
 	if(!on)
 		return STATUS_CLOSE
 	return ..()
 
-/obj/item/device/radio/CouldUseTopic(var/mob/user)
+/obj/item/radio/CouldUseTopic(var/mob/user)
 	..()
 	if(clicksound && iscarbon(user))
 		playsound(loc, clicksound, clickvol)
 
-/obj/item/device/radio/Topic(href, href_list)
+/obj/item/radio/Topic(href, href_list)
 	if(..())
 		return TRUE
 
@@ -388,7 +388,7 @@ var/global/list/default_interrogation_channels = list(
 		SStgui.update_uis(src)
 		update_icon()
 
-/obj/item/device/radio/proc/autosay(var/message, var/from, var/channel) //BS12 EDIT
+/obj/item/radio/proc/autosay(var/message, var/from, var/channel) //BS12 EDIT
 	var/datum/radio_frequency/connection = null
 	if(channel && channels && channels.len > 0)
 		if(channel == "department")
@@ -417,7 +417,7 @@ var/global/list/default_interrogation_channels = list(
 	announcer.ResetAfterBroadcast()
 
 // Interprets the message mode when talking into a radio, possibly returning a connection datum
-/obj/item/device/radio/proc/handle_message_mode(mob/living/M as mob, message, message_mode)
+/obj/item/radio/proc/handle_message_mode(mob/living/M as mob, message, message_mode)
 	// If a channel isn't specified, send to common.
 	if(!message_mode || message_mode == "headset")
 		return radio_connection
@@ -438,7 +438,7 @@ var/global/list/default_interrogation_channels = list(
 	// If we were to send to a channel we don't have, drop it.
 	return null
 
-/obj/item/device/radio/talk_into(mob/living/M, message, channel, var/say_verb = "says", var/datum/language/speaking = null, var/ignore_restrained)
+/obj/item/radio/talk_into(mob/living/M, message, channel, var/say_verb = "says", var/datum/language/speaking = null, var/ignore_restrained)
 	if(!on)
 		return FALSE
 	if(!M || !message)
@@ -495,7 +495,7 @@ var/global/list/default_interrogation_channels = list(
 	// Non-subspace radios will check in a couple of seconds, and if the signal was never received, we send a mundane broadcast
 	addtimer(CALLBACK(src, PROC_REF(backup_transmission), signal), 2 SECONDS)
 
-/obj/item/device/radio/proc/backup_transmission(datum/signal/subspace/vocal/signal)
+/obj/item/radio/proc/backup_transmission(datum/signal/subspace/vocal/signal)
 	var/turf/T = get_turf(src)
 	if (signal.data["done"] && (T.z in signal.levels))
 		return
@@ -506,13 +506,13 @@ var/global/list/default_interrogation_channels = list(
 	signal.levels = GetConnectedZlevels(T.z)
 	signal.broadcast()
 
-/obj/item/device/radio/hear_talk(mob/M as mob, msg, var/verb = "says", var/datum/language/speaking = null)
+/obj/item/radio/hear_talk(mob/M as mob, msg, var/verb = "says", var/datum/language/speaking = null)
 	if (!broadcasting || get_dist(src, M) > canhear_range)
 		return
 
 	return talk_into(M, msg, null, verb, speaking, ignore_restrained = TRUE)
 
-/obj/item/device/radio/proc/can_receive(input_frequency, list/levels)
+/obj/item/radio/proc/can_receive(input_frequency, list/levels)
 	// check if the radio can receive on the given frequency
 	if (!listening)
 		return
@@ -538,19 +538,19 @@ var/global/list/default_interrogation_channels = list(
 
 	return FALSE
 
-/obj/item/device/radio/proc/send_hear(freq, level)
+/obj/item/radio/proc/send_hear(freq, level)
 	if(!can_receive(freq, level))
 		return
 
 	return get_hearers_in_view(canhear_range, src)
 
-/obj/item/device/radio/attackby(obj/item/attacking_item, mob/user)
+/obj/item/radio/attackby(obj/item/attacking_item, mob/user)
 	..()
 	user.set_machine(src)
 	if (!( attacking_item.tool_behaviour == TOOL_SCREWDRIVER ))
 		return
 	b_stat = !( b_stat )
-	if(!istype(src, /obj/item/device/radio/beacon))
+	if(!istype(src, /obj/item/radio/beacon))
 		if (b_stat)
 			user.show_message(SPAN_NOTICE("\The [src] can now be attached and modified!"))
 		else
@@ -561,7 +561,7 @@ var/global/list/default_interrogation_channels = list(
 		return
 	else return
 
-/obj/item/device/radio/emp_act(severity)
+/obj/item/radio/emp_act(severity)
 	. = ..()
 
 	set_broadcasting(FALSE)
@@ -573,9 +573,9 @@ var/global/list/default_interrogation_channels = list(
 // Vesselbound Synthetic Radio
 //
 
-/obj/item/device/radio/borg
+/obj/item/radio/borg
 	var/mob/living/silicon/robot/myborg = null // Cyborg which owns this radio. Used for power checks
-	var/obj/item/device/encryptionkey/keyslot = null//Borg radios can handle a single encryption key
+	var/obj/item/encryptionkey/keyslot = null//Borg radios can handle a single encryption key
 	var/shut_up = 1
 	icon = 'icons/obj/robot_component.dmi' // Cyborgs radio icons should look like the component.
 	icon_state = "radio"
@@ -584,25 +584,25 @@ var/global/list/default_interrogation_channels = list(
 	name = "integrated radio"
 	var/radio_sound = null
 
-/obj/item/device/radio/borg/Destroy()
+/obj/item/radio/borg/Destroy()
 	myborg = null
 	. = ..()
 	GC_TEMPORARY_HARDDEL
 
-/obj/item/device/radio/borg/list_channels(var/mob/user)
+/obj/item/radio/borg/list_channels(var/mob/user)
 	return list_secure_channels(user)
 
-/obj/item/device/radio/borg/talk_into(mob/living/M, message, channel, verb, datum/language/speaking, var/ignore_restrained)
+/obj/item/radio/borg/talk_into(mob/living/M, message, channel, verb, datum/language/speaking, var/ignore_restrained)
 	. = ..()
 	if (isrobot(src.loc))
 		var/mob/living/silicon/robot/R = src.loc
 		var/datum/robot_component/C = R.components["radio"]
 		R.cell_use_power(C.active_usage)
 
-/obj/item/device/radio/borg/attackby(obj/item/attacking_item, mob/user)
+/obj/item/radio/borg/attackby(obj/item/attacking_item, mob/user)
 //	..()
 	user.set_machine(src)
-	if (!( attacking_item.tool_behaviour == TOOL_SCREWDRIVER || (istype(attacking_item, /obj/item/device/encryptionkey/ ))))
+	if (!( attacking_item.tool_behaviour == TOOL_SCREWDRIVER || (istype(attacking_item, /obj/item/encryptionkey/ ))))
 		return
 
 	if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
@@ -626,7 +626,7 @@ var/global/list/default_interrogation_channels = list(
 		else
 			to_chat(user, "This radio doesn't have any encryption keys!")
 
-	if(istype(attacking_item, /obj/item/device/encryptionkey/))
+	if(istype(attacking_item, /obj/item/encryptionkey/))
 		if(keyslot)
 			to_chat(user, "The radio can't hold another key!")
 			return
@@ -639,7 +639,7 @@ var/global/list/default_interrogation_channels = list(
 
 	return
 
-/obj/item/device/radio/borg/proc/recalculateChannels()
+/obj/item/radio/borg/proc/recalculateChannels()
 	channels = list(CHANNEL_COMMON = TRUE, CHANNEL_ENTERTAINMENT = TRUE, CHANNEL_EXPED = TRUE)
 	syndie = FALSE
 
@@ -674,7 +674,7 @@ var/global/list/default_interrogation_channels = list(
 	setupRadioDescription()
 	return
 
-/obj/item/device/radio/borg/Topic(href, href_list)
+/obj/item/radio/borg/Topic(href, href_list)
 	if(..())
 		return 1
 	if (href_list["mode"])
@@ -706,13 +706,13 @@ var/global/list/default_interrogation_channels = list(
 	if(.)
 		SStgui.update_uis(src)
 
-/obj/item/device/radio/borg/interact(mob/user as mob)
+/obj/item/radio/borg/interact(mob/user as mob)
 	if(!on)
 		return
 
 	. = ..()
 
-/obj/item/device/radio/borg/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1)
+/obj/item/radio/borg/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1)
 	var/data[0]
 
 	data["mic_status"] = broadcasting
@@ -740,8 +740,7 @@ var/global/list/default_interrogation_channels = list(
 		ui.set_initial_data(data)
 		ui.open()
 
-/obj/item/device/radio/proc/config(var/op)
-
+/obj/item/radio/proc/config(op)
 	if(SSradio)
 		for (var/ch_name in channels)
 			SSradio.remove_object(src, radiochannels[ch_name])
@@ -756,10 +755,10 @@ var/global/list/default_interrogation_channels = list(
 // Radio Variants
 //
 
-/obj/item/device/radio/map_preset
+/obj/item/radio/map_preset
 	channels = list()
 
-/obj/item/device/radio/map_preset/Initialize()
+/obj/item/radio/map_preset/Initialize()
 	if(!SSatlas.current_map.use_overmap)
 		return ..()
 
@@ -780,86 +779,86 @@ var/global/list/default_interrogation_channels = list(
 
 	return ..()
 
-/obj/item/device/radio/map_preset/set_internal_channels()
+/obj/item/radio/map_preset/set_internal_channels()
 	return list(
 		num2text(default_frequency) = list(),
 		num2text(HAIL_FREQ) = list()
 	)
 
-/obj/item/device/radio/hailing
+/obj/item/radio/hailing
 	default_frequency = HAIL_FREQ
 
-/obj/item/device/radio/hailing/set_internal_channels()
+/obj/item/radio/hailing/set_internal_channels()
 	return list(
 		num2text(HAIL_FREQ) = list()
 	)
 
-/obj/item/device/radio/hailing/Initialize()
+/obj/item/radio/hailing/Initialize()
 	channels = list(
 		CHANNEL_HAILING = TRUE
 	)
 	return ..()
 
 // Radio (Off)
-/obj/item/device/radio/off/Initialize()
+/obj/item/radio/off/Initialize()
 	. = ..()
 	set_listening(FALSE)
 
 // Medical
-/obj/item/device/radio/med
+/obj/item/radio/med
 	icon_state = "walkietalkie-med"
 
 // Medical (Off)
-/obj/item/device/radio/med/off/Initialize()
+/obj/item/radio/med/off/Initialize()
 	. = ..()
 	set_listening(FALSE)
 
 // Security
-/obj/item/device/radio/sec
+/obj/item/radio/sec
 	icon_state = "walkietalkie-sec"
 
 // Security (Off)
-/obj/item/device/radio/sec/off/Initialize()
+/obj/item/radio/sec/off/Initialize()
 	. = ..()
 	set_listening(FALSE)
 
 // Engineering
-/obj/item/device/radio/eng
+/obj/item/radio/eng
 	icon_state = "walkietalkie-eng"
 
 // Engineering (Off)
-/obj/item/device/radio/eng/off/Initialize()
+/obj/item/radio/eng/off/Initialize()
 	. = ..()
 	set_listening(FALSE)
 
 // Science
-/obj/item/device/radio/sci
+/obj/item/radio/sci
 	icon_state = "walkietalkie-sci"
 
 // Science (Off)
-/obj/item/device/radio/sci/off/Initialize()
+/obj/item/radio/sci/off/Initialize()
 	. = ..()
 	set_listening(FALSE)
 
 // Phone
-/obj/item/device/radio/phone
+/obj/item/radio/phone
 	icon = 'icons/obj/radio.dmi'
 	icon_state = "red_phone"
 	name = "phone"
 	var/radio_sound = null
 
-/obj/item/device/radio/phone/Initialize()
+/obj/item/radio/phone/Initialize()
 	. = ..()
 	set_broadcasting(FALSE)
 	set_listening(TRUE)
 
 // Medical Phone
-/obj/item/device/radio/phone/medbay/Initialize()
+/obj/item/radio/phone/medbay/Initialize()
 	. = ..()
 	set_frequency(MED_I_FREQ)
 	internal_channels = default_medbay_channels.Copy()
 
 // All-channel Radio
-/obj/item/device/radio/all_channels/Initialize()
+/obj/item/radio/all_channels/Initialize()
 	channels = ALL_RADIO_CHANNELS.Copy()
 	. = ..()

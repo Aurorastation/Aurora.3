@@ -38,8 +38,8 @@
 	qdel(src)
 
 /obj/structure/bigDelivery/attackby(obj/item/attacking_item, mob/user)
-	if(istype(attacking_item, /obj/item/device/destTagger))
-		var/obj/item/device/destTagger/O = attacking_item
+	if(istype(attacking_item, /obj/item/destTagger))
+		var/obj/item/destTagger/O = attacking_item
 		if(O.currTag)
 			if(src.sortTag != O.currTag)
 				to_chat(user, SPAN_NOTICE("You have labeled the destination as [O.currTag]."))
@@ -153,8 +153,8 @@
 	return
 
 /obj/item/smallDelivery/attackby(obj/item/attacking_item, mob/user)
-	if(istype(attacking_item, /obj/item/device/destTagger))
-		var/obj/item/device/destTagger/O = attacking_item
+	if(istype(attacking_item, /obj/item/destTagger))
+		var/obj/item/destTagger/O = attacking_item
 		if(O.currTag)
 			if(src.sortTag != O.currTag)
 				to_chat(user, SPAN_NOTICE("You have labeled the destination as [O.currTag]."))
@@ -247,10 +247,10 @@
 		AM.forceMove(T)
 	return ..()
 
-/obj/item/device/destTagger
+/obj/item/destTagger
 	name = "destination tagger"
 	desc = "Used to set the destination of properly wrapped packages."
-	icon = 'icons/obj/item/device/dest_tagger.dmi'
+	icon = 'icons/obj/item/dest_tagger.dmi'
 	icon_state = "dest_tagger"
 	var/currTag = 0
 	matter = list(DEFAULT_WALL_MATERIAL = 250, MATERIAL_GLASS = 140)
@@ -258,7 +258,7 @@
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BELT
 
-/obj/item/device/destTagger/proc/openwindow(mob/user)
+/obj/item/destTagger/proc/openwindow(mob/user)
 	var/dat = "<tt><center><h1><b>TagMaster 2.3</b></h1></center>"
 	var/ui_ref = REF(src)
 
@@ -274,11 +274,11 @@
 	user << browse(HTML_SKELETON(dat), "window=destTagScreen;size=450x375")
 	onclose(user, "destTagScreen")
 
-/obj/item/device/destTagger/attack_self(mob/user)
+/obj/item/destTagger/attack_self(mob/user)
 	openwindow(user)
 	return
 
-/obj/item/device/destTagger/Topic(href, href_list)
+/obj/item/destTagger/Topic(href, href_list)
 	src.add_fingerprint(usr)
 
 	if(href_list["nextTag"] && (html_decode(href_list["nextTag"]) in SSdisposals.tagger_locations))
