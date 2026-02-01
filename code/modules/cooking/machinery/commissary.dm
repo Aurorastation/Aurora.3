@@ -187,7 +187,7 @@
 		visible_message("\The [user] remove some credits from \the [src]." )
 		return
 
-/obj/structure/cash_register/commissary/proc/print_receipt()
+/obj/structure/cash_register/commissary/proc/print_receipt(mob/user)
 	var/obj/item/paper/R = new(loc)
 	var/receiptname = "Receipt: [machine_id]"
 	R.set_content_unsafe(receiptname, receipt, sum)
@@ -200,7 +200,7 @@
 	R.stamped += /obj/item/stamp
 	R.AddOverlays(stampoverlay)
 	R.stamps += "<HR><i>This paper has been stamped by the Idris Quik-Pay Register.</i>"
-	usr.put_in_any_hand_if_possible(R)
+	user.put_in_hands(R)
 
 /obj/structure/cash_register/commissary/attackby(obj/item/attacking_item, mob/user)
 	if(sum == 0)
@@ -239,7 +239,7 @@
 		if(left)
 			spawn_money(left, get_turf(user), user)
 	credit += transaction_amount
-	print_receipt()
+	print_receipt(user)
 	clear_order()
 	return 1
 
@@ -257,7 +257,7 @@
 		playsound(src, 'sound/machines/chime.ogg', 50, 1)
 		visible_message(SPAN_NOTICE("[icon2html(src, viewers(get_turf(src)))] \The [src] chimes."))
 		visible_message("\The [user] swipes a card on \the [src]." )
-		print_receipt()
+		print_receipt(user)
 		sum = 0
 		receipt = ""
 		to_chat(user, SPAN_NOTICE("Transaction completed, please return to the home screen."))
@@ -276,7 +276,7 @@
 		visible_message("\The [user] swipes a card on \the [src]." )
 		playsound(src, 'sound/machines/chime.ogg', 50, 1)
 		src.audible_message(SPAN_NOTICE("[icon2html(src, viewers(get_turf(src)))] \The [src] chimes."))
-		print_receipt()
+		print_receipt(user)
 		sum = 0
 		receipt = ""
 		to_chat(user, SPAN_NOTICE("Transaction completed, please return to the home screen."))

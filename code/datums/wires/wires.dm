@@ -334,16 +334,11 @@ GLOBAL_LIST_INIT(wire_name_directory, list())
 					. = TRUE
 
 		if("cut") // Toggles the cut/mend status
-			var/obj/item/I = L.get_active_hand()
-			if(!I || !I.tool_behaviour == TOOL_WIRECUTTER)
-				if(isrobot(L))
-					var/mob/living/silicon/robot/R = L
-					I = R.return_wirecutter()
-				else
-					for (var/obj/item/_I in L.get_inactive_held_items())
-						if (_I?.tool_behaviour == TOOL_WIRECUTTER)
-							I = _I
-			if(I?.tool_behaviour == TOOL_WIRECUTTER)
+			var/obj/item/I = L.get_held_tool(TOOL_WIRECUTTER)
+			if(isrobot(L))
+				var/mob/living/silicon/robot/R = L
+				I = R.return_wirecutter()
+			if(I)
 				cut_color(target_wire, source = L)
 				holder.add_hiddenprint(L)
 				I.play_tool_sound(holder, 50)
@@ -352,16 +347,11 @@ GLOBAL_LIST_INIT(wire_name_directory, list())
 				to_chat(L, SPAN_WARNING("You need wirecutters!"))
 
 		if("pulse")
-			var/obj/item/I = L.get_active_hand()
-			if(!I || !I.tool_behaviour == TOOL_MULTITOOL)
-				if(isrobot(L))
-					var/mob/living/silicon/robot/R = L
-					I = R.return_multitool()
-				else
-					for (var/obj/item/_I in L.get_inactive_held_items())
-						if (_I?.tool_behaviour == TOOL_MULTITOOL)
-							I = _I
-			if(I?.tool_behaviour == TOOL_MULTITOOL)
+			var/obj/item/I = L.get_held_tool(TOOL_MULTITOOL)
+			if(isrobot(L))
+				var/mob/living/silicon/robot/R = L
+				I = R.return_multitool()
+			if(I)
 				pulse_color(target_wire, L)
 				holder.add_hiddenprint(L)
 				. = TRUE

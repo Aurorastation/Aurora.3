@@ -516,11 +516,8 @@
 			if(T.pen)
 				i = T.pen
 
-		if(!i || !i.tool_behaviour == TOOL_PEN)
-			for (var/obj/item/pen in usr.get_held_items())
-				if(pen.ispen())
-					i = pen
-					break
+		if(!i || i.tool_behaviour != TOOL_PEN)
+			i = usr.get_held_tool(TOOL_PEN)
 
 		var/obj/item/clipboard/c
 		var/iscrayon = FALSE

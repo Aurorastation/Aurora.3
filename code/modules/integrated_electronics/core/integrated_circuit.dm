@@ -182,10 +182,11 @@ a creative player the means to solve many problems.  Circuits are held inside an
 	B.open()
 
 /obj/item/integrated_circuit/Topic(href, href_list, state = GLOB.always_state)
-	if(!check_interactivity(usr))
+	var/mob/user = usr
+	if(!user || !check_interactivity(user))
 		return
 	if (assembly && !assembly.opened)
-		to_chat(usr, SPAN_WARNING("\The [assembly] is not open!"))
+		to_chat(user, SPAN_WARNING("\The [assembly] is not open!"))
 		return
 	if(..())
 		return 1
@@ -198,45 +199,38 @@ a creative player the means to solve many problems.  Circuits are held inside an
 	if(href_list["link"])
 		linked = locate(href_list["link"]) in pin.linked
 
-	var/obj/held_item = usr.get_active_hand()
-	var/obj/item/device/multitool/M
-	if(held_item?.tool_behaviour == TOOL_MULTITOOL)
-		M = held_item
-	else
-		for(var/obj/item/I in usr.get_inactive_held_items())
-			if (I.tool_behaviour == TOOL_MULTITOOL)
-				M = I
-				break
+	var/obj/item/held_item = user.get_active_hand()
+	var/obj/item/multitool/M = user.get_type_in_hands(/obj/item/multitool)
 	if(M?.tracking_apc)
-		to_chat(usr, SPAN_WARNING("\The [M]'s smart tracking is enabled! Disable it to regain I/O functionality."))
+		to_chat(user, SPAN_WARNING("\The [M]'s smart tracking is enabled! Disable it to regain I/O functionality."))
 		return TRUE
 
 	if(href_list["rename"])
-		rename_component(usr)
+		rename_component(user)
 		if(href_list["from_assembly"])
 			update = 0
 			var/obj/item/electronic_assembly/ea = loc
 			if(istype(ea))
-				ea.interact(usr)
+				ea.interact(user)
 
 	if(href_list["pin_name"])
 		if(!M || !allow_multitool)
 			href_list["wire"] = 1
 		else
-			M.wire(pin,usr)
+			M.wire(pin, user)
 
 	if(href_list["pin_data"])
 		if(!M || !allow_multitool)
 			href_list["wire"] = 1
 		else
 			var/datum/integrated_io/io = pin
-			io.ask_for_pin_data(usr) // The pins themselves will determine how to ask for data, and will validate the data.
+			io.ask_for_pin_data(user) // The pins themselves will determine how to ask for data, and will validate the data.
 
 	if(href_list["pin_unwire"])
 		if(!M || !allow_multitool)
 			href_list["wire"] = 1
 		else
-			M.unwire(pin, linked, usr)
+			M.unwire(pin, linked, user)
 
 	if(href_list["wire"])
 		if(istype(held_item, /obj/item/integrated_electronics/wirer))
