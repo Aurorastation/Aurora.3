@@ -1,4 +1,4 @@
-/obj/item/device/assembly/igniter
+/obj/item/assembly/igniter
 	name = "igniter"
 	desc = "A small electronic device able to ignite combustable substances."
 	icon_state = "igniter"
@@ -10,7 +10,7 @@
 	secured = TRUE
 	wires = WIRE_RECEIVE_ASSEMBLY
 
-/obj/item/device/assembly/igniter/activate()
+/obj/item/assembly/igniter/activate()
 	. = ..()
 	if(!.)
 		return FALSE //Cooldown check
@@ -22,7 +22,7 @@
 		var/turf/location = get_turf(loc)
 		if(location)
 			location.hotspot_expose(1000, 1000)
-		if(istype(src.loc, /obj/item/device/assembly_holder))
+		if(istype(src.loc, /obj/item/assembly_holder))
 			if(istype(src.loc.loc, /obj/structure/reagent_dispensers/fueltank))
 				var/obj/structure/reagent_dispensers/fueltank/tank = src.loc.loc
 				if(tank?.is_leaking)
@@ -30,9 +30,9 @@
 		spark(src, 4, GLOB.cardinals)
 	return TRUE
 
-/obj/item/device/assembly/igniter/attack_self(mob/user)
+/obj/item/assembly/igniter/attack_self(mob/user)
 	activate()
 	add_fingerprint(user)
 
-/obj/item/device/assembly/igniter/isFlameSource()
+/obj/item/assembly/igniter/isFlameSource()
 	return TRUE

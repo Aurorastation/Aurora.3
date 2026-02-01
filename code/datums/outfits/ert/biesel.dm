@@ -8,7 +8,7 @@
 	shoes = /obj/item/clothing/shoes/jackboots
 	id = /obj/item/card/id/distress/legion/tcaf
 	accessory = /obj/item/clothing/accessory/holster/hip
-	l_ear = /obj/item/device/radio/headset/legion
+	l_ear = /obj/item/radio/headset/legion
 	r_pocket = /obj/item/crowbar/red
 	l_pocket = /obj/item/tank/emergency_oxygen/double
 	back = /obj/item/storage/backpack/tcaf
@@ -84,7 +84,7 @@
 		/obj/item/storage/firstaid/combat = 1,
 		/obj/item/storage/firstaid/adv = 1,
 		/obj/item/handcuffs/ziptie = 1,
-		/obj/item/device/healthanalyzer = 1,
+		/obj/item/healthanalyzer = 1,
 		/obj/item/stack/medical/advanced/bruise_pack = 1,
 		/obj/item/stack/medical/advanced/ointment = 1,
 		/obj/item/melee/energy/sword/knife = 1,

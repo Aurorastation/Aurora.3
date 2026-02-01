@@ -134,7 +134,7 @@
 /obj/item/laser_components/modulator/degrade()
 	return
 
-/obj/item/device/laser_assembly
+/obj/item/laser_assembly
 	name = "laser assembly (small)"
 	desc = "A case for shoving things into. Hopefully they work."
 	w_class = WEIGHT_CLASS_SMALL
@@ -153,11 +153,11 @@
 	var/ready_to_craft = FALSE // Use by weapons analyzer.
 	var/datum/weakref/analyzer
 
-/obj/item/device/laser_assembly/Initialize()
+/obj/item/laser_assembly/Initialize()
 	. = ..()
 	update_icon()
 
-/obj/item/device/laser_assembly/attackby(obj/item/attacking_item, mob/user)
+/obj/item/laser_assembly/attackby(obj/item/attacking_item, mob/user)
 	var/obj/item/laser_components/A = attacking_item
 	var/success = FALSE
 	if(!istype(A))
@@ -203,7 +203,7 @@
 
 	return success
 
-/obj/item/device/laser_assembly/update_icon()
+/obj/item/laser_assembly/update_icon()
 	..()
 	underlays.Cut()
 	icon_state = "[base_icon_state]_[stage]"
@@ -213,11 +213,11 @@
 				underlays += mod.gun_overlay
 
 
-/obj/item/device/laser_assembly/proc/check_completion()
+/obj/item/laser_assembly/proc/check_completion()
 	if(capacitor && focusing_lens && modulator)
 		return finish()
 
-/obj/item/device/laser_assembly/proc/finish()
+/obj/item/laser_assembly/proc/finish()
 
 	var/obj/machinery/r_n_d/weapons_analyzer/an = analyzer.resolve()
 	if(!an)
@@ -250,7 +250,7 @@
 	qdel(src)
 	return TRUE
 
-/obj/item/device/laser_assembly/get_print_info()
+/obj/item/laser_assembly/get_print_info()
 	. = ""
 	for(var/i in list(capacitor, focusing_lens, modulator) + gun_mods)
 		var/obj/item/laser_components/l_component = i

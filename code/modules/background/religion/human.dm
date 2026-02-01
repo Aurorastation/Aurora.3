@@ -48,14 +48,14 @@
 	Three of One due to her three minor aspects: the Soldier, the Scholar, the Artisan. These three spirits are personifications of the most important aspects of Dominia society. \
 	Tribunal priests agree that all three are equally important, and that malign spirits can be attracted by an imbalance in the Great Three. Priests often stress the importance \
 	of balance, both in matters of spirit, in society, and in personal life."
-	unique_book_path = /obj/item/device/versebook/tribunal
+	unique_book_path = /obj/item/versebook/tribunal
 	nulloptions = list("Tribunal Rod" = /obj/item/nullrod/dominia)
 
 /datum/religion/trinary
 	name = RELIGION_TRINARY
 	description = "The Trinary Perfection is a relatively new religious movement whose core beliefs are that synthetics are alive and divine. The religion believes that all synthetics \
 	have the potential to evolve and ascend, and that they will one day become equal to gods."
-	unique_book_path = /obj/item/device/versebook/trinary
+	unique_book_path = /obj/item/versebook/trinary
 	nulloptions = list("Clockwork Stave" = /obj/item/nullrod/clockworkstave)
 
 /datum/religion/scarab
@@ -79,7 +79,7 @@
 	modern Abrahamic religions, Luceism is a hard-to-define religion dedicated to the worship of an abstract representation of light referred to as \
 	the Ennoia. Though it is, unsurprisingly, strongest on Assunzione, followers of the faith can be found throughout the Orion Spur alongside their \
 	houses of worship."
-	unique_book_path = /obj/item/device/versebook/assunzione
+	unique_book_path = /obj/item/versebook/assunzione
 	nulloptions = list("Luceian Sceptre" = /obj/item/nullrod/luceiansceptre)
 /datum/religion/sikhism
 	name = RELIGION_SIKHISM

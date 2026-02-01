@@ -1,9 +1,9 @@
 // Light meter, intended for debugging.
 
-/obj/item/device/light_meter
+/obj/item/light_meter
 	name = "light meter"
 	desc = "A simple device that measures ambient light levels."
-	icon = 'icons/obj/item/device/gps.dmi'
+	icon = 'icons/obj/item/gps.dmi'
 	icon_state = "gps"
 	item_state = "radio"
 	// Copied from debugger.dm
@@ -17,7 +17,7 @@
 	var/low = 0
 	var/high = 1
 
-/obj/item/device/light_meter/attack_self(mob/user as mob)
+/obj/item/light_meter/attack_self(mob/user as mob)
 	var/turf/T = get_turf(user.loc)
 	if (!T)
 		to_chat(user, SPAN_ALERT("Unable to read light levels."))
@@ -30,7 +30,7 @@
 
 	to_chat(usr, SPAN_NOTICE(reading))
 
-/obj/item/device/light_meter/verb/set_low_bound()
+/obj/item/light_meter/verb/set_low_bound()
 	set category = "Object.Held"
 	set name = "Set Detector Low-Bound"
 	set src in usr
@@ -41,7 +41,7 @@
 
 	low = num
 
-/obj/item/device/light_meter/verb/set_high_bound()
+/obj/item/light_meter/verb/set_high_bound()
 	set category = "Object.Held"
 	set name = "Set Detector High-Bound"
 	set src in usr

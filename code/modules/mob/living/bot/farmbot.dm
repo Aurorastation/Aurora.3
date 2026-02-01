@@ -327,8 +327,8 @@
 
 	new /obj/item/material/minihoe(T)
 	new /obj/item/reagent_containers/glass/bucket(T)
-	new /obj/item/device/assembly/prox_sensor(T)
-	new /obj/item/device/analyzer/plant_analyzer(T)
+	new /obj/item/assembly/prox_sensor(T)
+	new /obj/item/analyzer/plant_analyzer(T)
 	if(tank)
 		tank.forceMove(T)
 	if(prob(50))
@@ -384,7 +384,7 @@
 
 /obj/item/farmbot_arm_assembly/attackby(obj/item/attacking_item, mob/user)
 	..()
-	if(istype(attacking_item, /obj/item/device/analyzer/plant_analyzer) && build_step == 0)
+	if(istype(attacking_item, /obj/item/analyzer/plant_analyzer) && build_step == 0)
 		build_step++
 		to_chat(user, SPAN_NOTICE("You add the plant analyzer to [src]."))
 		name = "farmbot assembly"

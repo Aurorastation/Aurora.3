@@ -116,7 +116,7 @@ ABSTRACT_TYPE(/obj/structure/engineer_maintenance)
 	panel_tools = list(
 		/obj/item/pipewrench = /singleton/engineer_maintenance_tool/steam_pipe,
 		/obj/item/hammer = /singleton/engineer_maintenance_tool/steam_pipe,
-		/obj/item/device/multitool = /singleton/engineer_maintenance_tool/steam_pipe
+		/obj/item/multitool = /singleton/engineer_maintenance_tool/steam_pipe
 	)
 
 /obj/structure/engineer_maintenance/pipe/wall
@@ -145,7 +145,7 @@ ABSTRACT_TYPE(/obj/structure/engineer_maintenance)
 	panel_tools = list(
 		/obj/item/wirecutters = /singleton/engineer_maintenance_tool/electrical_spark,
 		/obj/item/stack/cable_coil = /singleton/engineer_maintenance_tool/electrical_spark,
-		/obj/item/device/multitool = /singleton/engineer_maintenance_tool/electrical_hum
+		/obj/item/multitool = /singleton/engineer_maintenance_tool/electrical_hum
 	)
 
 /obj/structure/engineer_maintenance/electric/wall

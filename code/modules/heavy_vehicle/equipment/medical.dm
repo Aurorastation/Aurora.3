@@ -319,7 +319,7 @@
 /obj/item/mecha_equipment/mounted_system/medanalyzer
 	name = "mounted health analyzer"
 	icon_state = "mecha_healthyanalyzer"
-	holding_type = /obj/item/device/healthanalyzer/mech
+	holding_type = /obj/item/healthanalyzer/mech
 	restricted_hardpoints = list(HARDPOINT_LEFT_HAND, HARDPOINT_RIGHT_HAND)
 	restricted_software = list(MECH_SOFTWARE_MEDICAL)
 	module_hints = list(
@@ -328,16 +328,16 @@
 	)
 
 /// Special health analyzer used by the exosuit health analyzer.
-/obj/item/device/healthanalyzer/mech
+/obj/item/healthanalyzer/mech
 	name = "mounted health analyzer"
 	var/obj/machinery/body_scanconsole/connected = null
 	/// Toggle whether to do full or basic scan
 	var/fullScan = FALSE
 
-/obj/item/device/healthanalyzer/mech/get_hardpoint_maptext()
+/obj/item/healthanalyzer/mech/get_hardpoint_maptext()
 	return "[(fullScan ? "Full" : "Basic")]"
 
-/obj/item/device/healthanalyzer/mech/Initialize()
+/obj/item/healthanalyzer/mech/Initialize()
 	. = ..()
 	if(!connected)
 		var/obj/machinery/body_scanconsole/S = new (src)
@@ -345,13 +345,13 @@
 		S.update_use_power(POWER_USE_OFF)
 		connected = S
 
-/obj/item/device/healthanalyzer/mech/Destroy()
+/obj/item/healthanalyzer/mech/Destroy()
 	if(connected)
 		QDEL_NULL(connected)
 	. = ..()
 
 /obj/item/mecha_equipment/mounted_system/medanalyzer/CtrlClick(mob/user)
-	var/obj/item/device/healthanalyzer/mech/HA = holding
+	var/obj/item/healthanalyzer/mech/HA = holding
 	if(istype(HA))
 		HA.fullScan = !HA.fullScan
 		to_chat(user, SPAN_NOTICE("You switch to \the [src]'s [HA.fullScan ? "full body" : "basic"] scan mode."))
@@ -362,7 +362,7 @@
 		update_icon()
 		owner.update_icon()
 
-/obj/item/device/healthanalyzer/mech/attack(mob/living/target_mob, mob/living/user, target_zone)
+/obj/item/healthanalyzer/mech/attack(mob/living/target_mob, mob/living/user, target_zone)
 	user.setClickCooldown(DEFAULT_QUICK_COOLDOWN)
 	user.do_attack_animation(src)
 	var/mob/living/heavy_vehicle/user_vehicle = user
@@ -380,7 +380,7 @@
 				return FALSE
 		print_scan(target_mob, user_vehicle)
 
-/obj/item/device/healthanalyzer/mech/proc/print_scan(var/mob/M, var/mob/living/heavy_vehicle/user_vehicle)
+/obj/item/healthanalyzer/mech/proc/print_scan(var/mob/M, var/mob/living/heavy_vehicle/user_vehicle)
 	var/obj/item/paper/medscan/R = new /obj/item/paper/medscan(user_vehicle.loc, connected.format_occupant_data(get_medical_data(M)), "Scan ([M.name])", M)
 	for(var/mob/pilot in user_vehicle.pilots)
 		R.show_content(pilot)
@@ -388,7 +388,7 @@
 	playsound(user_vehicle.loc, SFX_PRINT, 50, 1)
 	R.forceMove(user_vehicle.loc)
 
-/obj/item/device/healthanalyzer/mech/proc/get_medical_data(var/mob/living/carbon/human/H)
+/obj/item/healthanalyzer/mech/proc/get_medical_data(var/mob/living/carbon/human/H)
 	if (!ishuman(H))
 		return
 

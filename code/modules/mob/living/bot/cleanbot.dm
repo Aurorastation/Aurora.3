@@ -307,7 +307,7 @@ GLOBAL_LIST_INIT_TYPED(cleanbot_types, /obj/effect/decal/cleanable, typesof(/obj
 	visible_message(SPAN_WARNING("[src] blows apart!"))
 	var/turf/T = get_turf(src)
 	new /obj/item/reagent_containers/glass/bucket(T)
-	new /obj/item/device/assembly/prox_sensor(T)
+	new /obj/item/assembly/prox_sensor(T)
 	if(prob(50))
 		new /obj/item/robot_parts/l_arm(T)
 	spark(src, 3, GLOB.alldirs)

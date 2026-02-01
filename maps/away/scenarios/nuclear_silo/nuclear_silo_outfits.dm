@@ -3,9 +3,9 @@
 
 /obj/outfit/admin/generic/nuclear_silo_crew
 	name = "Arctic Valley Citizen Uniform"
-	l_ear = /obj/item/device/radio/headset/ship
+	l_ear = /obj/item/radio/headset/ship
 	id = /obj/item/card/id/syndicate
-	l_pocket = /obj/item/device/radio/hailing
+	l_pocket = /obj/item/radio/hailing
 
 /obj/outfit/admin/generic/nuclear_silo_crew/get_id_access()
 	return list(
@@ -98,7 +98,7 @@
 	accessory = /obj/item/clothing/accessory/holster/hip/brown
 	accessory_contents = list(/obj/item/gun/projectile/leyon)
 
-	l_ear = /obj/item/device/radio/headset/distress
+	l_ear = /obj/item/radio/headset/distress
 
 	backpack_contents = list(
 		/obj/item/storage/wallet/random = 1,
@@ -214,8 +214,8 @@
 	backpack_contents = list(
 		/obj/item/tape_roll = 1,
 		/obj/item/taperoll/engineering = 1,
-		/obj/item/device/magnetic_lock/engineering = 1,
-		/obj/item/device/gps/engineering = 1,
+		/obj/item/magnetic_lock/engineering = 1,
+		/obj/item/gps/engineering = 1,
 	)
 	species_shoes = list(
 		SPECIES_UNATHI = /obj/item/clothing/shoes/workboots/toeless,
@@ -270,7 +270,7 @@
 	mask = null
 	glasses = null
 	r_pocket = /obj/item/reagent_containers/hypospray
-	l_pocket = /obj/item/device/healthanalyzer
+	l_pocket = /obj/item/healthanalyzer
 	species_gloves = list(
 		SPECIES_UNATHI = /obj/item/clothing/gloves/latex/nitrile/unathi,
 		SPECIES_TAJARA = /obj/item/clothing/gloves/latex/nitrile/tajara,
@@ -363,7 +363,7 @@
 		/obj/item/clothing/glasses/sunglasses/sechud/aviator,
 	)
 	l_pocket = /obj/item/handcuffs/ziptie
-	r_pocket = /obj/item/device/gps
+	r_pocket = /obj/item/gps
 	accessory = list (
 		/obj/item/clothing/accessory/holster/armpit,
 		/obj/item/clothing/accessory/holster/armpit/brown,
@@ -412,7 +412,7 @@
 	accessory_contents = list(/obj/item/gun/projectile/revolver)
 	id = /obj/item/card/id/syndicate
 
-	l_ear = /obj/item/device/radio/headset/distress
+	l_ear = /obj/item/radio/headset/distress
 
 	backpack_contents = list(
 		/obj/item/storage/wallet/random = 1,
@@ -452,7 +452,7 @@
 		/obj/item/storage/backpack/satchel/pocketbook,
 	)
 	id = /obj/item/card/id/syndicate
-	l_ear = /obj/item/device/radio/headset/distress
+	l_ear = /obj/item/radio/headset/distress
 	backpack_contents = list(
 		/obj/item/storage/box/fancy/cigarettes/dromedaryco = 1,
 		/obj/item/flame/lighter/zippo = 1,

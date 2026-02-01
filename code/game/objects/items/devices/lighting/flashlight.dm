@@ -1,4 +1,4 @@
-/obj/item/device/flashlight
+/obj/item/flashlight
 	name = "flashlight"
 	desc = "A hand-held emergency light."
 	icon = 'icons/obj/lighting.dmi'
@@ -40,13 +40,13 @@
 	/// A way for mappers to force which way a flashlight faces upon spawning
 	var/spawn_dir
 
-/obj/item/device/flashlight/mechanics_hints(mob/user, distance, is_adjacent)
+/obj/item/flashlight/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	if(!always_on)
 		. += "Left-click \the [src] in-hand to toggle the light."
 		. += "While held, left-click \the [src] with your free hand to remove the power cell."
 
-/obj/item/device/flashlight/feedback_hints(mob/user, distance, is_adjacent)
+/obj/item/flashlight/feedback_hints(mob/user, distance, is_adjacent)
 	. = list()
 	. = ..()
 	if(power_use && brightness_level)
@@ -54,7 +54,7 @@
 		if(cell)
 			. += "\The [src] has \a [cell] attached. It has [round(cell.percent())]% charge remaining."
 
-/obj/item/device/flashlight/Initialize()
+/obj/item/flashlight/Initialize()
 
 	if(power_use && cell_type)
 		if(starts_with_cell)
@@ -62,7 +62,7 @@
 		brightness_levels = list("low" = 2, "medium" = 3, "high" = 4)
 		power_usage = ((brightness_levels[brightness_level]/ 10 ) / efficiency_modifier)
 	else
-		verbs -= /obj/item/device/flashlight/verb/toggle_brightness
+		verbs -= /obj/item/flashlight/verb/toggle_brightness
 
 	if (on)
 		if(brightness_level == "low")
@@ -76,15 +76,15 @@
 
 	. = ..()
 
-/obj/item/device/flashlight/Destroy()
+/obj/item/flashlight/Destroy()
 	STOP_PROCESSING(SSprocessing, src)
 	QDEL_NULL(cell)
 	return ..()
 
-/obj/item/device/flashlight/get_cell()
+/obj/item/flashlight/get_cell()
 	return cell
 
-/obj/item/device/flashlight/proc/set_brightness(mob/user)
+/obj/item/flashlight/proc/set_brightness(mob/user)
 	var/choice = tgui_input_list(user, "Choose a brightness level.", "Flashlight", brightness_levels)
 	if(choice)
 		set_light_range(brightness_levels[choice])
@@ -92,7 +92,7 @@
 		to_chat(user, SPAN_NOTICE("You set the brightness level on \the [src] to [brightness_level]."))
 		update_icon()
 
-/obj/item/device/flashlight/process()
+/obj/item/flashlight/process()
 	if(!on || !cell)
 		return PROCESS_KILL
 
@@ -105,7 +105,7 @@
 			toggle()
 			return PROCESS_KILL
 
-/obj/item/device/flashlight/update_icon()
+/obj/item/flashlight/update_icon()
 	if(always_on)
 		return
 
@@ -119,7 +119,7 @@
 		M.update_inv_r_ear()
 		M.update_inv_head()
 
-/obj/item/device/flashlight/attack_self(mob/user)
+/obj/item/flashlight/attack_self(mob/user)
 	if(always_on)
 		to_chat(user, SPAN_NOTICE("You cannot toggle \the [name]."))
 		return 0
@@ -139,7 +139,7 @@
 	user.update_action_buttons()
 	return 1
 
-/obj/item/device/flashlight/attack_hand(mob/user)
+/obj/item/flashlight/attack_hand(mob/user)
 	if(user.get_inactive_hand() == src)
 		if(cell)
 			STOP_PROCESSING(SSprocessing, src)
@@ -155,7 +155,7 @@
 	else
 		return ..()
 
-/obj/item/device/flashlight/attackby(obj/item/attacking_item, mob/user)
+/obj/item/flashlight/attackby(obj/item/attacking_item, mob/user)
 	if(power_use)
 		if(istype(attacking_item, /obj/item/cell))
 			if(istype(attacking_item, /obj/item/cell/device) || accepts_large_cells)
@@ -174,7 +174,7 @@
 	else
 		..()
 
-/obj/item/device/flashlight/proc/toggle()
+/obj/item/flashlight/proc/toggle()
 	on = !on
 	if(on && activation_sound)
 		playsound(src.loc, activation_sound, 75, 1)
@@ -185,16 +185,16 @@
 	set_light_on(on)
 	update_icon()
 
-/obj/item/device/flashlight/vendor_action(var/obj/machinery/vending/V)
+/obj/item/flashlight/vendor_action(var/obj/machinery/vending/V)
 	toggle()
 
-/obj/item/device/flashlight/emp_act(severity)
+/obj/item/flashlight/emp_act(severity)
 	. = ..()
 
 	for(var/obj/O in contents)
 		O.emp_act(severity)
 
-/obj/item/device/flashlight/attack(mob/living/target_mob, mob/living/user, target_zone)
+/obj/item/flashlight/attack(mob/living/target_mob, mob/living/user, target_zone)
 	add_fingerprint(user)
 	if(on && user.zone_sel.selecting == BP_EYES)
 
@@ -230,10 +230,10 @@
 	else
 		return ..()
 
-/obj/item/device/flashlight/AltClick()
+/obj/item/flashlight/AltClick()
 	toggle_brightness()
 
-/obj/item/device/flashlight/proc/inspect_vision(obj/item/organ/vision, mob/living/user)
+/obj/item/flashlight/proc/inspect_vision(obj/item/organ/vision, mob/living/user)
 	var/mob/living/carbon/human/H = vision.owner
 
 	if (H == user)	//can't look into your own eyes buster
@@ -263,19 +263,19 @@
 		else
 			to_chat(user, SPAN_NOTICE("\The [H]'s pupils narrow."))
 
-/obj/item/device/flashlight/verb/toggle_brightness()
+/obj/item/flashlight/verb/toggle_brightness()
 	set name = "Toggle Flashlight Brightness"
 	set category = "Object.Held"
 	set src in usr
 	set_brightness(usr)
 
-/obj/item/device/flashlight/empty
+/obj/item/flashlight/empty
 	starts_with_cell = FALSE
 
-/obj/item/device/flashlight/on
+/obj/item/flashlight/on
 	on = TRUE
 
-/obj/item/device/flashlight/pen
+/obj/item/flashlight/pen
 	name = "penlight"
 	desc = "A pen-sized light, used by medical staff."
 	icon_state = "penlight"
@@ -287,7 +287,7 @@
 	light_range = 2
 	w_class = WEIGHT_CLASS_TINY
 
-/obj/item/device/flashlight/drone
+/obj/item/flashlight/drone
 	name = "low-power flashlight"
 	desc = "A miniature lamp, that might be used by small robots."
 	icon_state = "penlight"
@@ -297,7 +297,7 @@
 	efficiency_modifier = 2
 	w_class = WEIGHT_CLASS_TINY
 
-/obj/item/device/flashlight/heavy
+/obj/item/flashlight/heavy
 	name = "heavy duty flashlight"
 	desc = "A high-luminosity flashlight, for specialist duties."
 	icon_state = "heavyflashlight"
@@ -306,10 +306,10 @@
 	w_class = WEIGHT_CLASS_NORMAL
 	matter = list(MATERIAL_PLASTIC = 100, MATERIAL_GLASS = 70)
 
-/obj/item/device/flashlight/heavy/on
+/obj/item/flashlight/heavy/on
 	on = TRUE
 
-/obj/item/device/flashlight/maglight
+/obj/item/flashlight/maglight
 	name = "maglight"
 	desc = "A heavy flashlight, designed for security personnel."
 	icon_state = "maglight"
@@ -322,17 +322,17 @@
 	matter = list(MATERIAL_ALUMINIUM = 200, MATERIAL_GLASS = 100)
 	hitsound = 'sound/weapons/smash.ogg'
 
-/obj/item/device/flashlight/maglight/update_icon()
+/obj/item/flashlight/maglight/update_icon()
 	..()
 	if(on)
 		item_state = "maglight-on"
 	else
 		item_state = "maglight"
 
-/obj/item/device/flashlight/maglight/on
+/obj/item/flashlight/maglight/on
 	on = TRUE
 
-/obj/item/device/flashlight/slime
+/obj/item/flashlight/slime
 	gender = PLURAL
 	name = "glowing slime extract"
 	desc = "A glowing ball of what appears to be amber."
@@ -347,7 +347,7 @@
 	light_color = LIGHT_COLOR_SLIME_LAMP
 	light_system = MOVABLE_LIGHT
 
-/obj/item/device/flashlight/headlights
+/obj/item/flashlight/headlights
 	name = "headlights"
 	desc = "Some nifty lamps drawing from internal battery sources to produce a light, though a dim one."
 	icon_state = "headlights"
@@ -360,7 +360,7 @@
 
 /******************************Lantern*******************************/
 
-/obj/item/device/flashlight/lantern
+/obj/item/flashlight/lantern
 	name = "lantern"
 	desc = "A mining lantern. Accepts larger cells than normal flashlights."
 	icon_state = "lantern"
@@ -374,12 +374,12 @@
 	light_color = LIGHT_COLOR_FIRE
 	light_system = MOVABLE_LIGHT
 
-/obj/item/device/flashlight/lantern/update_icon()
+/obj/item/flashlight/lantern/update_icon()
 	..()
 	if(on)
 		item_state = "lantern-on"
 	else
 		item_state = "lantern"
 
-/obj/item/device/flashlight/lantern/on
+/obj/item/flashlight/lantern/on
 	on = TRUE

@@ -19,7 +19,7 @@
 	var/offset_x = -8
 	var/offset_y = 0
 
-	var/obj/item/device/radio/exosuit/radio
+	var/obj/item/radio/exosuit/radio
 	var/obj/machinery/camera/camera
 
 	var/wreckage_path = /obj/structure/mech_wreckage
@@ -277,24 +277,24 @@
 	else
 		to_chat(reciever, SPAN_WARNING("Error: No power cell was detected."))
 
-/obj/item/device/radio/exosuit
+/obj/item/radio/exosuit
 	name = "exosuit radio"
 	cell = null
 
-/obj/item/device/radio/exosuit/get_cell()
+/obj/item/radio/exosuit/get_cell()
 	. = ..()
 	if(!.)
 		var/mob/living/heavy_vehicle/E = loc
 		if(istype(E))
 			return E.get_cell()
 
-/obj/item/device/radio/exosuit/ui_host()
+/obj/item/radio/exosuit/ui_host()
 	var/mob/living/heavy_vehicle/E = loc
 	if(istype(E))
 		return E
 	return null
 
-/obj/item/device/radio/exosuit/attack_self(var/mob/user)
+/obj/item/radio/exosuit/attack_self(var/mob/user)
 	var/mob/living/heavy_vehicle/exosuit = loc
 	if(istype(exosuit) && exosuit.head && exosuit.head.radio && exosuit.head.radio.is_functional())
 		user.set_machine(src)
@@ -302,14 +302,14 @@
 	else
 		to_chat(user, SPAN_WARNING("The radio is too damaged to function."))
 
-/obj/item/device/radio/exosuit/CanUseTopic()
+/obj/item/radio/exosuit/CanUseTopic()
 	. = ..()
 	if(.)
 		var/mob/living/heavy_vehicle/exosuit = loc
 		if(istype(exosuit) && exosuit.head && exosuit.head.radio && exosuit.head.radio.is_functional())
 			return ..()
 
-/obj/item/device/radio/exosuit/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/datum/ui_state/state = GLOB.mech_state)
+/obj/item/radio/exosuit/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/datum/ui_state/state = GLOB.mech_state)
 	. = ..()
 
 /mob/living/heavy_vehicle/proc/become_remote()
@@ -330,7 +330,7 @@
 	dummy.name = dummy.real_name
 	// Give dummy a blank encryption key for later editing if spiderbot
 	if(istype(dummy, /mob/living/simple_animal/spiderbot) && !istype(dummy, /mob/living/simple_animal/spiderbot/ai))
-		dummy.radio.keyslot = new /obj/item/device/encryptionkey
+		dummy.radio.keyslot = new /obj/item/encryptionkey
 	remove_verb(dummy, /mob/living/proc/ventcrawl)
 	remove_verb(dummy, /mob/living/proc/hide)
 	if(dummy_colour)

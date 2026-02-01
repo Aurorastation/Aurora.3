@@ -133,7 +133,7 @@
 			B.fill()
 		update_icon()
 		return
-	else if(istype(attacking_item, /obj/item/device/analyzer/plant_analyzer))
+	else if(istype(attacking_item, /obj/item/analyzer/plant_analyzer))
 		to_chat(user, SPAN_NOTICE("Scan result of \the [src]:"))
 		to_chat(user, SPAN_NOTICE("Beehive is <b>[bee_count ? "[round(bee_count)]% full" : "empty"]</b>.[bee_count > 90 ? " Colony is ready to split." : ""]"))
 		if(frames)

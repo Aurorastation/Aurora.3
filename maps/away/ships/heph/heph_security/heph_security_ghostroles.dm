@@ -24,7 +24,7 @@
 	head = /obj/item/clothing/head/hephaestus_military
 	shoes = /obj/item/clothing/shoes/jackboots
 	gloves = /obj/item/clothing/gloves/combat
-	l_ear = /obj/item/device/radio/headset/ship
+	l_ear = /obj/item/radio/headset/ship
 	belt = /obj/item/storage/belt/military
 	back = /obj/item/storage/backpack/satchel/heph
 	id = /obj/item/card/id/hephaestus

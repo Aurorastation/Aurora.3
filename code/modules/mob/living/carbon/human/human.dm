@@ -218,7 +218,7 @@
 
 	/// This needs to be updated to use signals.
 	var/holding_gps = FALSE
-	if(istype(src.get_active_hand(), /obj/item/device/gps) || istype(src.get_inactive_hand(), /obj/item/device/gps))
+	if(istype(src.get_active_hand(), /obj/item/gps) || istype(src.get_inactive_hand(), /obj/item/gps))
 		holding_gps = TRUE
 
 	var/area/A = get_area(src)

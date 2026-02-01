@@ -12,7 +12,7 @@
 /obj/effect/overlay/cultify()
 	return
 
-/obj/item/device/flashlight/lamp/cultify()
+/obj/item/flashlight/lamp/cultify()
 	new /obj/structure/cult/pylon(get_turf(src))
 	qdel(src)
 	return "As you cast \the [src] into the forge, a great pylon grows beneath your feet, achieving its form in seconds."

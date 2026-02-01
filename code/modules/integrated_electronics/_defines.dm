@@ -46,7 +46,7 @@
 	icon = 'icons/obj/assemblies/electronic_components.dmi'
 	icon_state = "template"
 	w_class = WEIGHT_CLASS_TINY
-	var/obj/item/device/electronic_assembly/assembly // Reference to the assembly holding this circuit, if any.
+	var/obj/item/electronic_assembly/assembly // Reference to the assembly holding this circuit, if any.
 	var/extended_desc
 	var/list/inputs = list()
 	var/list/inputs_default = list()  // Assoc list which will fill a pin with data upon creation.  e.g. "2" = 0 will set input pin 2 to equal 0 instead of null.

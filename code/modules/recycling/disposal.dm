@@ -134,8 +134,8 @@
 /obj/machinery/disposal/proc/contents_count()
 	var/things = 0
 	for(var/thing in contents)
-		if(istype(thing, /obj/item/device/assembly/signaler))
-			var/obj/item/device/assembly/signaler/S = thing
+		if(istype(thing, /obj/item/assembly/signaler))
+			var/obj/item/assembly/signaler/S = thing
 			if(S.connected == wires)
 				continue
 		things++
@@ -216,9 +216,9 @@
 			user.visible_message("<b>[user]</b> pours [attacking_item] out into [src].", SPAN_NOTICE("You pour [attacking_item] out into [src]."))
 		return TRUE
 
-	else if (istype (attacking_item, /obj/item/device/lightreplacer))
+	else if (istype (attacking_item, /obj/item/lightreplacer))
 		var/count = 0
-		var/obj/item/device/lightreplacer/R = attacking_item
+		var/obj/item/lightreplacer/R = attacking_item
 		if (R.store_broken)
 			for(var/obj/item/light/L in R.contents)
 				count++
@@ -701,8 +701,8 @@
 	// now everything inside the disposal gets put into the holder
 	// note AM since can contain mobs or objs
 	for(var/atom/movable/AM in D)
-		if(istype(AM, /obj/item/device/assembly/signaler))
-			var/obj/item/device/assembly/signaler/S = AM
+		if(istype(AM, /obj/item/assembly/signaler))
+			var/obj/item/assembly/signaler/S = AM
 			if(S.connected == D.wires)
 				continue
 		AM.forceMove(src)
@@ -1326,8 +1326,8 @@
 	if(..())
 		return
 
-	if(istype(attacking_item, /obj/item/device/destTagger))
-		var/obj/item/device/destTagger/O = attacking_item
+	if(istype(attacking_item, /obj/item/destTagger))
+		var/obj/item/destTagger/O = attacking_item
 
 		if(O.currTag)// Tag set
 			sort_tag = O.currTag
@@ -1397,8 +1397,8 @@
 	if(..())
 		return
 
-	if(istype(attacking_item, /obj/item/device/destTagger))
-		var/obj/item/device/destTagger/O = attacking_item
+	if(istype(attacking_item, /obj/item/destTagger))
+		var/obj/item/destTagger/O = attacking_item
 
 		if(O.currTag)// Tag set
 			sortType = O.currTag

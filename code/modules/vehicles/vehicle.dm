@@ -89,7 +89,7 @@
 	return
 
 /obj/vehicle/attackby(obj/item/attacking_item, mob/user)
-	if(istype(attacking_item, /obj/item/device/hand_labeler))
+	if(istype(attacking_item, /obj/item/hand_labeler))
 		return
 	if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER && !organic)
 		if(!locked)

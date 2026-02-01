@@ -78,7 +78,7 @@ GLOBAL_LIST_EMPTY(trackables_pool)
 // If the mob was burned before time ran out, we stop the timer and processing.
 /mob/living/simple_animal/hostile/revivable/process()
 	var/turf/T = get_turf(src)
-	var/obj/item/device/flashlight/flare/F = locate(/obj/item/device/flashlight/flare) in T
+	var/obj/item/flashlight/flare/F = locate(/obj/item/flashlight/flare) in T
 	if(F?.on)
 		src.IgniteMob(2)
 		F.fuel = 0
@@ -639,7 +639,7 @@ GLOBAL_LIST_EMPTY(trackables_pool)
 		toggle_fastening(user)
 		return TRUE
 
-	if(istype(attacking_item, /obj/item/device/analyzer) && Adjacent(user))
+	if(istype(attacking_item, /obj/item/analyzer) && Adjacent(user))
 		to_chat(user, "[icon2html(src, user)] The pressure indicator on \the [src] reads: [percentage]% full!")
 		return TRUE
 	return ..()
@@ -820,7 +820,7 @@ GLOBAL_LIST_EMPTY(trackables_pool)
 		post_activation()
 
 /obj/machinery/mob_tracker/server_relay/attackby(obj/item/attacking_item, mob/user)
-	if(istype(attacking_item, /obj/item/device/multitool))
+	if(istype(attacking_item, /obj/item/multitool))
 		if(stat & NOPOWER)
 			to_chat(user, SPAN_NOTICE("\The [src] is not powered, completely unresponsive to your inputs."))
 			return

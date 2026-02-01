@@ -23,7 +23,7 @@
 	var/last_emote = 0 // timer for emotes
 
 	var/can_take_pai = TRUE
-	var/obj/item/device/paicard/pAI
+	var/obj/item/paicard/pAI
 	var/old_name
 
 /mob/living/bot/Initialize()
@@ -136,14 +136,14 @@
 		user.put_in_hands(pAI)
 		user.visible_message(SPAN_NOTICE("\The [user] pries \the [pAI.pai] out of \the [src]."), SPAN_NOTICE("You pry \the [pAI.pai] out of \the [src]."))
 		pAI = null
-	else if(istype(attacking_item, /obj/item/device/paicard))
+	else if(istype(attacking_item, /obj/item/paicard))
 		if(!can_take_pai)
 			to_chat(user, SPAN_WARNING("\The [src] cannot take a pAI!"))
 			return
 		if(pAI)
 			to_chat(user, SPAN_WARNING("\The [src] already has a pAI installed!"))
 			return
-		var/obj/item/device/paicard/P = attacking_item
+		var/obj/item/paicard/P = attacking_item
 		P.pai.open_up(FALSE)
 		P.pai.close_up()
 		user.drop_from_inventory(P, src)

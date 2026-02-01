@@ -492,7 +492,7 @@
 	},
 /obj/item/storage/bible,
 /obj/item/pen/blue,
-/obj/item/device/flashlight/lamp/green,
+/obj/item/flashlight/lamp/green,
 /obj/structure/table/wood,
 /turf/simulated/floor/carpet/purple,
 /area/shuttle/yacht/living)

@@ -235,7 +235,7 @@
 		attacking_item.pixel_x = 10 //make sure they reach the pillow
 		attacking_item.pixel_y = -6
 
-	else if(istype(attacking_item, /obj/item/device/paint_sprayer))
+	else if(istype(attacking_item, /obj/item/paint_sprayer))
 		return
 
 	else if(!istype(attacking_item, /obj/item/bedsheet))

@@ -25,9 +25,9 @@ GLOBAL_VAR_INIT(running_create_and_destroy, FALSE)
 		//Internal organs
 		/obj/item/organ/external,
 		// Requires an organ to init, so would not work here without snowflake code
-		/obj/item/device/augment_implanter,
+		/obj/item/augment_implanter,
 		// Wants to be put in hand on creation, so would not work here
-		/obj/item/device/radiojammer/improvised,
+		/obj/item/radiojammer/improvised,
 		// Requires a path of some sort to init
 		/obj/item/storage/bag/stockparts_box/telecomms,
 		// Paint fails on init, probably not because of us, whoever wrote the chemistry of it have probably also eat the leaded one

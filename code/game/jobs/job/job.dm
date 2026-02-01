@@ -353,11 +353,11 @@
 	back = /obj/item/storage/backpack
 	shoes = /obj/item/clothing/shoes/sneakers/black
 
-	headset = /obj/item/device/radio/headset
-	bowman = /obj/item/device/radio/headset/alt
-	double_headset = /obj/item/device/radio/headset/alt/double
-	wrist_radio = /obj/item/device/radio/headset/wrist
-	clipon_radio = /obj/item/device/radio/headset/wrist/clip
+	headset = /obj/item/radio/headset
+	bowman = /obj/item/radio/headset/alt
+	double_headset = /obj/item/radio/headset/alt/double
+	wrist_radio = /obj/item/radio/headset/wrist
+	clipon_radio = /obj/item/radio/headset/wrist/clip
 
 	tab_pda = /obj/item/modular_computer/handheld/pda/civilian
 	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/civilian

@@ -84,11 +84,11 @@
 	var/wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/civilian
 
 	var/allow_headset_choice = FALSE
-	var/headset = /obj/item/device/radio/headset
-	var/bowman = /obj/item/device/radio/headset/alt
-	var/double_headset = /obj/item/device/radio/headset/alt/double
-	var/wrist_radio = /obj/item/device/radio/headset/wrist
-	var/clipon_radio = /obj/item/device/radio/headset/wrist/clip
+	var/headset = /obj/item/radio/headset
+	var/bowman = /obj/item/radio/headset/alt
+	var/double_headset = /obj/item/radio/headset/alt/double
+	var/wrist_radio = /obj/item/radio/headset/wrist
+	var/clipon_radio = /obj/item/radio/headset/wrist/clip
 
 	/// When spawning in, the ID will be set to this iff, preventing friendly fire.
 	var/id_iff = IFF_DEFAULT
@@ -325,7 +325,7 @@
 	else if (wrist)
 		equip_item(H, wrist, slot_wrists, callback = radio_callback)
 
-/obj/outfit/proc/turn_into_thinset(var/obj/item/device/radio/headset/wrist/radio)
+/obj/outfit/proc/turn_into_thinset(var/obj/item/radio/headset/wrist/radio)
 	if(istype(radio))
 		radio.icon_state = replacetext(radio.icon_state, "wrist", "thin")
 		radio.item_state = replacetext(radio.item_state, "wrist", "thin")

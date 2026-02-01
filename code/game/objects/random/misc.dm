@@ -159,15 +159,15 @@
 	desc = "This is a random lava lamp."
 	icon_state = "lavalamp"
 	spawnlist = list(
-		/obj/item/device/flashlight/lamp/lava,
-		/obj/item/device/flashlight/lamp/lava/red,
-		/obj/item/device/flashlight/lamp/lava/orange,
-		/obj/item/device/flashlight/lamp/lava/yellow,
-		/obj/item/device/flashlight/lamp/lava/green,
-		/obj/item/device/flashlight/lamp/lava/cyan,
-		/obj/item/device/flashlight/lamp/lava/blue,
-		/obj/item/device/flashlight/lamp/lava/purple,
-		/obj/item/device/flashlight/lamp/lava/pink
+		/obj/item/flashlight/lamp/lava,
+		/obj/item/flashlight/lamp/lava/red,
+		/obj/item/flashlight/lamp/lava/orange,
+		/obj/item/flashlight/lamp/lava/yellow,
+		/obj/item/flashlight/lamp/lava/green,
+		/obj/item/flashlight/lamp/lava/cyan,
+		/obj/item/flashlight/lamp/lava/blue,
+		/obj/item/flashlight/lamp/lava/purple,
+		/obj/item/flashlight/lamp/lava/pink
 	)
 
 /obj/random/glowstick
@@ -175,11 +175,11 @@
 	desc = "This is a random glowstick."
 	icon_state = "glowstick"
 	spawnlist = list(
-		/obj/item/device/flashlight/flare/glowstick,
-		/obj/item/device/flashlight/flare/glowstick/red,
-		/obj/item/device/flashlight/flare/glowstick/blue,
-		/obj/item/device/flashlight/flare/glowstick/orange,
-		/obj/item/device/flashlight/flare/glowstick/yellow
+		/obj/item/flashlight/flare/glowstick,
+		/obj/item/flashlight/flare/glowstick/red,
+		/obj/item/flashlight/flare/glowstick/blue,
+		/obj/item/flashlight/flare/glowstick/orange,
+		/obj/item/flashlight/flare/glowstick/yellow
 	)
 
 /obj/random/arcade
@@ -220,13 +220,13 @@
 		/obj/item/clothing/mask/gas/mime = 11,
 		/obj/item/clothing/shoes/slippers/carp = 9,
 		/obj/item/gun/energy/wand/toy = 5,
-		/obj/item/device/binoculars = 11,
-		/obj/item/device/megaphone = 11,
+		/obj/item/binoculars = 11,
+		/obj/item/megaphone = 11,
 		/obj/item/eightball = 11,
 		/obj/item/eightball/haunted = 1,
 		/obj/item/eightball/broken = 1,
 		/obj/item/spirit_board = 5,
-		/obj/item/device/laser_pointer = 1,
+		/obj/item/laser_pointer = 1,
 		/obj/item/clothing/accessory/badge/press/plastic = 2,
 		/obj/item/storage/box/partypopper = 11
 	)
@@ -250,8 +250,8 @@
 		/obj/item/pen/invisible = 10,
 		/obj/item/grenade/fake = 7,
 		/obj/item/gun/energy/wand/toy = 7,
-		/obj/item/device/binoculars = 11,
-		/obj/item/device/megaphone = 11,
+		/obj/item/binoculars = 11,
+		/obj/item/megaphone = 11,
 		/obj/item/eightball = 11,
 		/obj/item/eightball/haunted = 5,
 		/obj/item/spirit_board = 5,
@@ -381,7 +381,7 @@
 		/obj/item/lipstick/random = 0.25,
 		/obj/item/reagent_containers/glass/beaker/vial/random = 0.1,
 		/obj/item/towel/random = 0.1,
-		/obj/item/device/flashlight/flare/glowstick/random = 0.25,
+		/obj/item/flashlight/flare/glowstick/random = 0.25,
 		/obj/item/stack/cable_coil/random/ = 0.1,
 		/obj/item/bananapeel = 0.1, //honk,
 		/obj/item/key = 0.1,

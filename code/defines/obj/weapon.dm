@@ -382,7 +382,7 @@
 	var/uses = 4.0
 	var/selfdestruct = 0.0
 	var/traitor_frequency = 0.0
-	var/obj/item/device/radio/origradio = null
+	var/obj/item/radio/origradio = null
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BELT
 	throwforce = 5
@@ -472,9 +472,9 @@
 	icon_state = "power_mod"
 	desc = "Charging circuits for power cells."
 
-/obj/item/device/camera_bug
+/obj/item/camera_bug
 	name = "camera bug"
-	icon = 'icons/obj/item/device/flash.dmi'
+	icon = 'icons/obj/item/flash.dmi'
 	icon_state = "flash"
 	item_state = "flash"
 	w_class = WEIGHT_CLASS_TINY
@@ -522,7 +522,7 @@
 
 /obj/item/neuralbroke/attackby(obj/item/attacking_item, mob/user)
 	if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
-		new /obj/item/device/encryptionkey/hivenet(user.loc)
+		new /obj/item/encryptionkey/hivenet(user.loc)
 		attacking_item.play_tool_sound(get_turf(src), 50)
 		to_chat(user, "You bypass the fried security chip and extract the encryption key.")
 		to_chat(user, "The fried neural socket crumbles away like dust.")

@@ -122,7 +122,7 @@
 	var/reliability = 100
 
 	/// Standard firing pin for most guns.
-	var/obj/item/device/firing_pin/pin = /obj/item/device/firing_pin
+	var/obj/item/firing_pin/pin = /obj/item/firing_pin
 
 	var/cyborg_maptext_override
 	var/displays_maptext = FALSE
@@ -234,7 +234,7 @@
 
 	if (needspin)
 		if(!pin)
-			pin = /obj/item/device/firing_pin
+			pin = /obj/item/firing_pin
 		pin = new pin(src)
 	else
 		pin = null

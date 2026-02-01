@@ -37,7 +37,7 @@
 	name = "Idris Cruise Crew Member"
 	uniform = /obj/item/clothing/under/librarian/idris
 	shoes = /obj/item/clothing/shoes/laceup
-	l_ear = /obj/item/device/radio/headset/ship
+	l_ear = /obj/item/radio/headset/ship
 	back = /obj/item/storage/backpack/satchel/leather
 	id = /obj/item/card/id/idris
 	l_pocket = /obj/item/reagent_containers/glass/rag/advanced/idris
