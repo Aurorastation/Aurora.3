@@ -5,16 +5,6 @@ Add custom items to this file, their sprites into their own dmi. in the icons/ob
 All custom items with worn sprites must follow the contained sprite system: http://forums.aurorastation.org/viewtopic.php?f=23&t=6798
 */
 
-/obj/item/clothing/suit/armor/vest/fluff/zubari_jacket //Fancy Jacket - Zubari Akenzua - filthyfrankster
-	name = "fancy jacket"
-	desc = "A well tailored unathi styled armored jacket, fitted for one too."
-	icon = 'icons/obj/custom_items/zubari_jacket.dmi'
-	icon_override = 'icons/obj/custom_items/zubari_jacket.dmi'
-	icon_state = "zubari_jacket"
-	item_state = "zubari_jacket"
-	contained_sprite = TRUE
-
-
 /obj/item/implanter/fluff //snowflake implanters for snowflakes
 	var/allowed_ckey = ""
 	var/implant_type = null
@@ -84,25 +74,6 @@ All custom items with worn sprites must follow the contained sprite system: http
 	contained_sprite = TRUE
 
 
-/obj/item/clothing/head/det/fluff/leo_hat //Tagged brown hat - Leo Wyatt - keinto
-	name = "tagged brown hat"
-	desc = "A worn mid 20th century brown hat. If you look closely at the back, you can see a an embedded tag from the \"Museum of Terran Culture and Technology\"."
-	icon = 'icons/obj/custom_items/leo_coat.dmi'
-	icon_override = 'icons/obj/custom_items/leo_coat.dmi'
-	icon_state = "leo_hat"
-	item_state = "leo_hat"
-	contained_sprite = TRUE
-
-/obj/item/clothing/suit/storage/det_trench/fluff/leo_coat //Tagged brown coat - Leo Wyatt - keinto
-	name = "tagged brown coat"
-	desc = "A worn mid 20th century brown trenchcoat. If you look closely at bottom of the back, you can see an embedded tag from the \"Museum of Terran Culture and Technology\"."
-	icon = 'icons/obj/custom_items/leo_coat.dmi'
-	icon_override = 'icons/obj/custom_items/leo_coat.dmi'
-	icon_state = "leo_coat"
-	item_state = "leo_coat"
-	contained_sprite = TRUE
-
-
 /obj/item/reagent_containers/glass/beaker/teapot/fluff/brianne_teapot //Ceramic Teapot - Sean Brianne - zelmana
 	name = "ceramic teapot"
 	desc = "A blue ceramic teapot, gilded with the abbreviation for NanoTrasen."
@@ -149,54 +120,6 @@ All custom items with worn sprites must follow the contained sprite system: http
 		. += "It is [active ? "on" : "off"]."
 
 
-/obj/item/clothing/suit/storage/fluff/vira_coat //Designer Military Coat - Vira Bolivar - scheveningen
-	name = "designer military coat"
-	desc = "A dark funnel neck designer military-style dress coat, specially fitted on commission, clearly designed for a woman's figure. \
-	A skillfully stitched 'NT' pattern is laden above a chest pocket, the phrase \"15 years of loyal service to the Corp\" below the insignia, followed by the personal signature of \"Vira Bolivar Taryk\"."
-	icon = 'icons/obj/custom_items/vira_coat.dmi'
-	icon_override = 'icons/obj/custom_items/vira_coat.dmi'
-	icon_state = "vira_coat"
-	item_state = "vira_coat"
-	contained_sprite = TRUE
-
-
-/obj/item/clothing/suit/fluff/leo_scarf //Scarf - Leo Wyatt - keinto
-	name = "striped scarf"
-	desc = "A soft scarf striped in black and blue."
-	icon = 'icons/obj/custom_items/leo_scarf.dmi'
-	icon_override = 'icons/obj/custom_items/leo_scarf.dmi'
-	icon_state = "leo_scarf"
-	item_state = "leo_scarf"
-	contained_sprite = TRUE
-
-
-/obj/item/clothing/wrists/watch/fluff/rex_watch //Engraved Wristwatch - Rex Winters - tailson
-	name = "engraved wristwatch"
-	desc = "A fine gold watch. On the inside is an engraving that reads \"Happy birthday dad, thinking of you always\"."
-	icon = 'icons/obj/custom_items/rex_watch.dmi'
-	icon_override = 'icons/obj/custom_items/rex_watch.dmi'
-	icon_state = "rex_watch"
-
-
-/obj/item/camera/fluff/hadley_camera //Hadley's Camera - Hadley Dawson - fekkor
-	name = "customized camera"
-	desc = "A early 2450's Sunny camera with an adjustable lens, this one has a sticker with the name \"Hadley\" on the back."
-	icon = 'icons/obj/custom_items/hadley_camera.dmi'
-	icon_override = 'icons/obj/custom_items/hadley_camera.dmi'
-	icon_state = "hadley_camera"
-	icon_on = "hadley_camera"
-	icon_off = "hadley_camera_off"
-
-
-/obj/item/clothing/accessory/holster/thigh/fluff/rifler_holster //Rifler's Holster - Sophie Rifler - shodan43893
-	name = "tan leather thigh holster"
-	desc = "A version of the security thigh holster done up in tan leather - this one appears to have the word \"Rifler\" engraved down the side. It appears to be rather well made and hard wearing; more of a worker's holster than a show piece."
-	icon = 'icons/obj/custom_items/rifler_holster.dmi'
-	icon_override = 'icons/obj/custom_items/rifler_holster.dmi'
-	icon_state = "rifler_holster"
-	contained_sprite = TRUE
-
-
 /obj/item/storage/backpack/satchel/fluff/xerius_bag //Tote Bag - Shiur'izzi Xerius - witchebells
 	name = "tote bag"
 	desc = "A sackcloth bag with an image of Moghes printed onto it. Floating above the planet are the words \"Save Moghes!\"."
@@ -205,27 +128,6 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon_state = "xerius_bag"
 	item_state = "xerius_bag"
 	contained_sprite = TRUE
-
-
-/obj/item/clothing/mask/fluff/ird_mask //Titanium Faceplate - IRD - kyres1
-	name = "titanium faceplate"
-	desc = "An odd mask seeming to mimic the face of a Human with some artistic liberties taken. Small lights keep it dimly illuminated from within with holographic projectors emulating two bright blue eyes.  \
-	Its rigid frame is composed of what looks like polished titanium."
-	icon = 'icons/obj/custom_items/ird_face.dmi'
-	icon_override = 'icons/obj/custom_items/ird_face.dmi'
-	icon_state = "ird_mask"
-	item_state = "ird_mask"
-	contained_sprite = TRUE
-	flags_inv = HIDEEARS|HIDEFACE
-	body_parts_covered = FACE
-	w_class = WEIGHT_CLASS_NORMAL
-
-
-/obj/item/flame/lighter/zippo/fluff/nikit_zippo //Vasili Mine Zippo - Nikit Vasili - sampletex
-	desc = "An old looking zippo lighter with Vasili Mine Logo engraved on it. \"Good Luck Nikit\" is crudely scratched on under the logo in small writing."
-	icon = 'icons/obj/custom_items/nikit_zippo.dmi'
-	icon_override = 'icons/obj/custom_items/nikit_zippo.dmi'
-	icon_state = "nikit_zippo"
 
 
 /obj/item/clothing/accessory/locket/fluff/klavdiya_amulet //Moon Shaped Amulet - Klavdiya Tikhomirov - alberyk
@@ -237,53 +139,12 @@ All custom items with worn sprites must follow the contained sprite system: http
 	contained_sprite = TRUE
 
 
-/obj/item/clothing/suit/storage/toggle/fluff/talon_coat //Embroidered Coat - Talon Hatfield - dronzthewolf
-	name = "embroidered coat"
-	desc = " Martian long coat, made to fend off dust storms and other unpleasantries. This one has a few patches sewn into it depicting: A Solarian flag, a Batallion number, and a large sun."
-	icon = 'icons/obj/custom_items/talon_coat.dmi'
-	icon_override = 'icons/obj/custom_items/talon_coat.dmi'
-	icon_state = "talon_coat"
-	item_state = "talon_coat"
-	contained_sprite = TRUE
-
-
-/obj/item/storage/backpack/cloak/fluff/ryn_cloak //Security Tunnel Cloak - Za'Akaix'Ryn Zo'ra - jamchop23334
-	name = "security tunnel cloak"
-	desc = "A blue, tailor-made tunnel cloak with paltry storage options. The fabric is smoother and less abrasive than regular tunnel cloaks, though it looks difficult to wear."
-	icon = 'icons/obj/custom_items/ryn_clothing.dmi'
-	icon_override = 'icons/obj/custom_items/ryn_clothing.dmi'
-	icon_state = "ryn_cloak"
-	item_state = "ryn_cloak"
-	contained_sprite = TRUE
-
-/obj/item/clothing/head/fluff/ryn_hood //Security Tunnel Hood - Za'Akaix'Ryn Zo'ra - jamchop23334
-	name = "security tunnel hood"
-	desc = "A silky smooth blue hood, though its more of a headwrap. You're having a hard time wrapping your head around how to wear this."
-	icon = 'icons/obj/custom_items/ryn_clothing.dmi'
-	icon_override = 'icons/obj/custom_items/ryn_clothing.dmi'
-	icon_state = "ryn_hood"
-	item_state = "ryn_hood"
-	contained_sprite = TRUE
-
-
 /obj/item/sign/fluff/tokash_sign //Shark Jaw Trophy - Suvek Tokash - evandorf
 	name = "shark jaw trophy"
 	desc = "A pair of jaws from what must have been a large and impressive shark."
 	icon_state = "tokash_sign"
 	sign_state = "tokash_sign"
 	w_class = WEIGHT_CLASS_SMALL
-
-
-/obj/item/clothing/head/fluff/aavs_mask //Reflective Mask - Aavs Guwan - dronzthewolf
-	name = "reflective mask"
-	desc = "This odd mask and hood combination covers the wearer, and seems to be made of a one-way dome mirror and some old cloth or rope."
-	icon = 'icons/obj/custom_items/aavs_mask.dmi'
-	icon_override = 'icons/obj/custom_items/aavs_mask.dmi'
-	icon_state = "aavs_mask"
-	item_state = "aavs_mask"
-	contained_sprite = TRUE
-	flags_inv = HIDEEARS|HIDEFACE|BLOCKHAIR|BLOCKHEADHAIR
-	body_parts_covered = HEAD|FACE|EYES
 
 
 /obj/item/cane/fluff/qrqil_cane //Energy Cane - Qrqil Qrrzix - yonnimer
@@ -320,35 +181,6 @@ All custom items with worn sprites must follow the contained sprite system: http
 	else
 		icon_state = initial(icon_state)
 		item_state = icon_state
-
-
-/obj/item/clothing/accessory/poncho/fluff/djar_cape //Zandiziite Cape - D'Jar Sa'Kuate - firstact
-	name = "zandiziite cape"
-	desc = "A dominian cape, with a clasp bearing the symbol of a champion Zandiziite wrestler. It looks well worn, of the finest material."
-	icon = 'icons/obj/custom_items/djar_cape.dmi'
-	icon_override = 'icons/obj/custom_items/djar_cape.dmi'
-	icon_state = "djar_cape"
-	item_state = "djar_cape"
-	contained_sprite = TRUE
-
-
-/obj/item/clothing/suit/chaplain_hoodie/fluff/hidemichi_robes //Zen Monk Robes - Yoshihama Hidemichi - dobhranthedruid
-	name = "zen monk robes"
-	desc = "A traditional Soto Zen buddhist robes for meditation and services"
-	icon = 'icons/obj/custom_items/hidemichi_items.dmi'
-	icon_override = 'icons/obj/custom_items/hidemichi_items.dmi'
-	icon_state = "hidemichi_robes"
-	item_state = "hidemichi_robes"
-	contained_sprite = TRUE
-
-/obj/item/clothing/head/fluff/hidemichi_hat //Takuhatsugasa - Yoshihama Hidemichi - dobhranthedruid
-	name = "takuhatsugasa"
-	desc = "A dome shaped rice hat, this one is dyed a darker color."
-	icon = 'icons/obj/custom_items/hidemichi_items.dmi'
-	icon_override = 'icons/obj/custom_items/hidemichi_items.dmi'
-	icon_state = "hidemichi_hat"
-	item_state = "hidemichi_hat"
-	contained_sprite = TRUE
 
 
 /obj/item/radio/headset/fluff/resolve_headset //Antennae - Decisive Resolve - itanimulli
@@ -480,66 +312,6 @@ All custom items with worn sprites must follow the contained sprite system: http
 	item_state = "khasan_helmet"
 	contained_sprite = TRUE
 
-
-/obj/item/synthesized_instrument/guitar/multi/fluff/akinyi_symphette //Holo-symphette - Akinyi Idowu - kyres1
-	name = "holo-symphette"
-	desc = "A cheap, collapsible musical instrument which utilizes holographic projections to generate a rough noise. It's shaped like a small harp, and seems to be  \
-	able to be tuned to mimic several old stringed Solarian instruments with some distorted audio. It's still got its price tag sticker on it."
-	icon = 'icons/obj/custom_items/akinyi_symphette.dmi'
-	icon_override = 'icons/obj/custom_items/akinyi_symphette.dmi'
-	icon_state = "akinyi_symphette"
-	item_state = "akinyi_symphette"
-	w_class = WEIGHT_CLASS_NORMAL
-	slot_flags = SLOT_BACK
-	contained_sprite = TRUE
-	var/deployed = FALSE
-
-/obj/item/synthesized_instrument/guitar/multi/fluff/akinyi_symphette/update_icon()
-	if(deployed)
-		icon_state = "akinyi_symphette_on"
-		item_state = "akinyi_symphette_on"
-	else
-		icon_state = "akinyi_symphette"
-		item_state = "akinyi_symphette"
-
-/obj/item/synthesized_instrument/guitar/multi/fluff/akinyi_symphette/AltClick(var/mob/user)
-	deployed = !deployed
-	to_chat(user, SPAN_NOTICE("You [deployed ? "expand" : "collapse"] \the [src]."))
-	update_icon()
-	user.update_inv_l_hand()
-	user.update_inv_r_hand()
-
-/obj/item/reagent_containers/glass/beaker/teapot/fluff/thea_teapot //Bronze Teapot - Thea Reeves - shestrying
-	name = "bronze teapot"
-	desc = "A round-bottomed, well-used teapot. It looks as though it's been carefully maintained."
-	icon = 'icons/obj/custom_items/thea_tea.dmi'
-	icon_override = 'icons/obj/custom_items/thea_tea.dmi'
-	icon_state = "thea_teapot"
-	center_of_mass = list("x"=16, "y"=13)
-
-/obj/item/reagent_containers/food/drinks/fluff/thea_teacup //Bonze Teacup - Thea Reeves - shestrying
-	name = "bronze teacup"
-	desc = "A shallow, bronze teacup. Looks heavy."
-	icon = 'icons/obj/custom_items/thea_tea.dmi'
-	icon_override = 'icons/obj/custom_items/thea_tea.dmi'
-	icon_state = "thea_teacup"
-	volume = 20
-	center_of_mass = list("x"=16, "y"=12)
-
-/obj/item/storage/box/fluff/thea_teabox //Tea Box - Thea Reeves - shestrying
-	desc = "A black, wooden box, the edges softened with transport and use."
-	icon = 'icons/obj/custom_items/thea_tea.dmi'
-	icon_override = 'icons/obj/custom_items/thea_tea.dmi'
-	icon_state = "thea_teabox"
-	foldable = null
-	can_hold = list(/obj/item/reagent_containers/glass/beaker/teapot/fluff/thea_teapot, /obj/item/reagent_containers/food/drinks/fluff/thea_teacup)
-	make_exact_fit = TRUE
-
-/obj/item/storage/box/fluff/thea_teabox/fill()
-	new /obj/item/reagent_containers/glass/beaker/teapot/fluff/thea_teapot(src)
-	for(var/i in 1 to 4)
-		new /obj/item/reagent_containers/food/drinks/fluff/thea_teacup(src)
-
 /obj/item/fluff/fraseq_journal //Fraseq's Journal of Mysteries - Quorrdash Fraseq - kingoftheping
 	name = "leather journal"
 	desc = "An old, worn out journal made out of leather. It has a lot of lose pages stuck in it, it surely has seen better days. The front just says \"Fraseq\"."
@@ -547,7 +319,6 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon_override = 'icons/obj/custom_items/fraseq_journal.dmi'
 	icon_state = "fraseq_journal"
 	w_class = WEIGHT_CLASS_NORMAL
-
 
 /obj/item/clothing/accessory/poncho/fluff/ioraks_cape //Iorakian Cape - Kuhserze Ioraks - geeves
 	name = "iorakian cape"
@@ -557,18 +328,6 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon_state = "ioraks_cape"
 	item_state = "ioraks_cape"
 	contained_sprite = TRUE
-
-
-/obj/item/clothing/suit/storage/fluff/strauss_jacket //Custom Firesuit - Lena Strauss - oddbomber3768
-	name = "modified firesuit"
-	desc = "An old industrial firesuit belonging to a defunct and forgotten company. The wearer has sawn off both of the arms, added two buttons on the front and replaced the back name \
-	tag with one reading \"FIREAXE\". Doesn't look really fire resistant anymore"
-	icon = 'icons/obj/custom_items/strauss_jacket.dmi'
-	icon_override = 'icons/obj/custom_items/strauss_jacket.dmi'
-	icon_state = "strauss_jacket"
-	item_state = "strauss_jacket"
-	contained_sprite = TRUE
-	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS
 
 
 /obj/item/clothing/suit/storage/toggle/labcoat/fluff/likho_labcoat //Terraneus Diagnostics Labcoat - Likho - neworiginalschwann
