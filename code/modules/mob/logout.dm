@@ -10,7 +10,6 @@
 	disconnect_time = world.realtime
 	log_access("Logout: [key_name(src)]")
 	SSstatistics.update_status()
-	ClearRenderers()
 	clear_important_client_contents()
 
 	my_client = null

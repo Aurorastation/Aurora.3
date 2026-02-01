@@ -73,7 +73,7 @@
 	name = "cat"
 	supplier = "molinaris"
 	description = "A domesticated, feline pet. Has a tendency to adopt crewmembers."
-	price = 150
+	price = 350
 	items = list(
 		/mob/living/simple_animal/cat
 	)
@@ -87,7 +87,7 @@
 	name = "chicken"
 	supplier = "molinaris"
 	description = "Adorable! They make such a racket though."
-	price = 30
+	price = 80
 	items = list(
 		/mob/living/simple_animal/chick
 	)
@@ -115,13 +115,69 @@
 	name = "cow"
 	supplier = "molinaris"
 	description = "Known for their milk, just don't tip them over."
-	price = 1200
+	price = 800
 	items = list(
 		/mob/living/simple_animal/cow
 	)
 	access = 0
 	container_type = "box"
 	groupable = FALSE
+	spawn_amount = 1
+
+/singleton/cargo_item/icetunneler
+	category = "hydroponics"
+	name = "ice tunneler"
+	supplier = "zharkov"
+	description = "A crate containing a ice tunneler."
+	price = 700
+	items = list(
+		/obj/structure/largecrate/animal/adhomai
+	)
+	access = 0
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/goat
+	category = "hydroponics"
+	name = "goat"
+	supplier = "molinaris"
+	description = "Not known for their pleasant disposition."
+	price = 400
+	items = list(
+		/mob/living/simple_animal/hostile/retaliate/goat
+	)
+	access = 0
+	container_type = "box"
+	groupable = FALSE
+	spawn_amount = 1
+
+/singleton/cargo_item/pig
+	category = "hydroponics"
+	name = "pig"
+	supplier = "molinaris"
+	description = "Used in the past simply as meat farms, modern people recognize the affectionate side of these bacon factories."
+	price = 300
+	items = list(
+		/mob/living/simple_animal/pig
+	)
+	access = 0
+	container_type = "box"
+	groupable = FALSE
+	spawn_amount = 1
+
+/singleton/cargo_item/hakhma
+	category = "hydroponics"
+	name = "hakhma"
+	supplier = "molinaris"
+	description = "An oversized insect breed by Scarab colony ships, known for their milk."
+	price = 800
+	items = list(
+		/mob/living/simple_animal/hakhma
+	)
+	access = 0
+	container_type = "box"
+	groupable = TRUE
 	spawn_amount = 1
 
 /singleton/cargo_item/schlorrgoegg
@@ -166,34 +222,6 @@
 	groupable = TRUE
 	spawn_amount = 1
 
-/singleton/cargo_item/goat
-	category = "hydroponics"
-	name = "goat"
-	supplier = "molinaris"
-	description = "Not known for their pleasant disposition."
-	price = 250
-	items = list(
-		/mob/living/simple_animal/hostile/retaliate/goat
-	)
-	access = 0
-	container_type = "box"
-	groupable = FALSE
-	spawn_amount = 1
-
-/singleton/cargo_item/hakhma
-	category = "hydroponics"
-	name = "hakhma"
-	supplier = "molinaris"
-	description = "An oversized insect breed by Scarab colony ships, known for their milk."
-	price = 300
-	items = list(
-		/mob/living/simple_animal/hakhma
-	)
-	access = 0
-	container_type = "box"
-	groupable = TRUE
-	spawn_amount = 1
-
 /singleton/cargo_item/honeyextractor
 	category = "hydroponics"
 	name = "honey extractor"
@@ -213,23 +241,9 @@
 	name = "hydroponics tray"
 	supplier = "nanotrasen"
 	description = "A safe space to raise your plants."
-	price = 50
+	price = 100
 	items = list(
 		/obj/machinery/portable_atmospherics/hydroponics
-	)
-	access = 0
-	container_type = "crate"
-	groupable = TRUE
-	spawn_amount = 1
-
-/singleton/cargo_item/icetunneler
-	category = "hydroponics"
-	name = "ice tunneler"
-	supplier = "zharkov"
-	description = "A crate containing a ice tunneler."
-	price = 300
-	items = list(
-		/obj/structure/largecrate/animal/adhomai
 	)
 	access = 0
 	container_type = "crate"

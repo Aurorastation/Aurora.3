@@ -33,14 +33,7 @@
 // No trashbag and no light replacer, this is inside the custodian's locker.
 /obj/structure/cart/storage/janitorialcart/Initialize()
 	. = ..()
-	mymop = new /obj/item/mop(src)
-	myspray = new /obj/item/reagent_containers/spray/cleaner(src)
-
 	mybucket = new /obj/structure/mopbucket(src)
-
-	for(signs, signs < 4, signs++)
-		new /obj/item/clothing/suit/caution(src)
-
 	update_icon()
 
 // Full Variant
@@ -63,17 +56,7 @@
 // Has everything as well as water in the mop bucket.
 /obj/structure/cart/storage/janitorialcart/full/water/Initialize()
 	. = ..()
-	mybag = new /obj/item/storage/bag/trash(src)
-	mymop = new /obj/item/mop(src)
-	myspray = new /obj/item/reagent_containers/spray/cleaner(src)
-	myreplacer = new /obj/item/device/lightreplacer(src)
-
-	mybucket = new /obj/structure/mopbucket(src)
 	mybucket.reagents.add_reagent(/singleton/reagent/water, mybucket.bucketsize)
-
-	for(signs, signs < 4, signs++)
-		new /obj/item/clothing/suit/caution(src)
-
 	update_icon()
 
 /obj/structure/cart/storage/janitorialcart/New()

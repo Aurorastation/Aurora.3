@@ -12,6 +12,34 @@
 	groupable = TRUE
 	spawn_amount = 5
 
+/singleton/cargo_item/package_wrapper
+	category = "supply"
+	name = "package wrapping paper (x2)"
+	supplier = "orion"
+	description = "Package wrapping paper, for deliveries."
+	price = 10
+	items = list(
+		/obj/item/stack/packageWrap
+	)
+	access = 0
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 2
+
+/singleton/cargo_item/gift_wrapper
+	category = "supply"
+	name = "gift wrapping paper (x2)"
+	supplier = "orion"
+	description = "Gift wrapping paper, for festive activities."
+	price = 10
+	items = list(
+		/obj/item/stack/wrapping_paper
+	)
+	access = 0
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 2
+
 /singleton/cargo_item/bucket
 	category = "supply"
 	name = "bucket"
@@ -44,7 +72,7 @@
 	category = "supply"
 	name = "clipboard"
 	supplier = "orion"
-	description = "The timeless prop for looking like your working."
+	description = "The timeless prop for looking like you're working."
 	price = 12
 	items = list(
 		/obj/item/clipboard
@@ -56,9 +84,9 @@
 
 /singleton/cargo_item/folderblue
 	category = "supply"
-	name = "blue folder"
+	name = "blue folders (x5)"
 	supplier = "orion"
-	description = "A blue folder."
+	description = "Five blue folders."
 	price = 4.50
 	items = list(
 		/obj/item/folder/blue
@@ -66,13 +94,13 @@
 	access = 0
 	container_type = "crate"
 	groupable = TRUE
-	spawn_amount = 1
+	spawn_amount = 5
 
 /singleton/cargo_item/folderyellow
 	category = "supply"
-	name = "yellow folder"
+	name = "yellow folders (x5)"
 	supplier = "orion"
-	description = "A yellow folder."
+	description = "Five yellow folders."
 	price = 4.50
 	items = list(
 		/obj/item/folder/yellow
@@ -80,13 +108,13 @@
 	access = 0
 	container_type = "crate"
 	groupable = TRUE
-	spawn_amount = 1
+	spawn_amount = 5
 
 /singleton/cargo_item/folderred
 	category = "supply"
-	name = "red folder"
+	name = "red folders (x5)"
 	supplier = "orion"
-	description = "A red folder."
+	description = "Five red folders."
 	price = 4.50
 	items = list(
 		/obj/item/folder/red
@@ -94,13 +122,13 @@
 	access = 0
 	container_type = "crate"
 	groupable = TRUE
-	spawn_amount = 1
+	spawn_amount = 5
 
 /singleton/cargo_item/folderwhite
 	category = "supply"
-	name = "white folder"
+	name = "white folders (x5)"
 	supplier = "orion"
-	description = "A white folder."
+	description = "Five white folders."
 	price = 4.50
 	items = list(
 		/obj/item/folder/white
@@ -108,7 +136,7 @@
 	access = 0
 	container_type = "crate"
 	groupable = TRUE
-	spawn_amount = 1
+	spawn_amount = 5
 
 /singleton/cargo_item/handlabeler
 	category = "supply"
@@ -126,7 +154,7 @@
 
 /singleton/cargo_item/inflatableduck
 	category = "supply"
-	name = "inflatable duck"
+	name = "rubber duck"
 	supplier = "nanotrasen"
 	description = "No bother to sink or swim when you can just float!"
 	price = 4.50
@@ -249,6 +277,104 @@
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 2
+
+/singleton/cargo_item/camera
+	category = "supply"
+	name = "camera"
+	supplier = "nanotrasen"
+	description = "A polaroid camera. 10 photos left."
+	price = 45
+	items = list(
+		/obj/item/device/camera
+	)
+	access = 0
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/filmcartridge
+	category = "supply"
+	name = "film cartridge"
+	supplier = "nanotrasen"
+	description = "A camera film cartridge. Insert it into a camera to reload it."
+	price = 8
+	items = list(
+		/obj/item/device/camera_film
+	)
+	access = 0
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/pda
+	category = "supply"
+	name = "PDA"
+	supplier = "nanotrasen"
+	description = "A personal data assistant. Useful for replacing lost ones, or ordering for new crew."
+	price = 200
+	items = list(
+		/obj/item/modular_computer/handheld/pda
+	)
+	access = 0
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/taperecorder
+	category = "supply"
+	name = "universal recorder"
+	supplier = "nanotrasen"
+	description = "A device that can record up to an hour of dialogue and play it back. It automatically translates the content in playback."
+	price = 20
+	items = list(
+		/obj/item/device/taperecorder
+	)
+	access = 0
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/paperscanner
+	category = "supply"
+	name = "paper scanner"
+	supplier = "nanotrasen"
+	description = "A simple device that can be used to scan paper or paper bundles in order to digitize them."
+	price = 15
+	items = list(
+		/obj/item/paper_scanner
+	)
+	access = 0
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/datadisk
+	category = "supply"
+	name = "basic data disk"
+	supplier = "nanotrasen"
+	description = "Small diskette with imprinted photonic circuits that can be used to store data. Its capacity is 16 GQ."
+	price = 8.50
+	items = list(
+		/obj/item/computer_hardware/hard_drive/portable
+	)
+	access = 0
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/datadisk_adv
+	category = "supply"
+	name = "advanced data disk"
+	supplier = "nanotrasen"
+	description = "Small diskette with imprinted high-density photonic circuits that can be used to store data. Its capacity is 64 GQ."
+	price = 20
+	items = list(
+		/obj/item/computer_hardware/hard_drive/portable/advanced
+	)
+	access = 0
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
 
 /singleton/cargo_item/potted_plant_small
 	category = "supply"

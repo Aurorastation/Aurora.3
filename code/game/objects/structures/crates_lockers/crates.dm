@@ -192,9 +192,9 @@
 	else
 		//Add time based on mass of contents
 		for (var/obj/O in contents)
-			timeneeded += 3* O.w_class
+			timeneeded += 1.5* O.w_class
 		for (var/mob/M in contents)
-			timeneeded += 3* M.mob_size
+			timeneeded += 1.5* M.mob_size
 
 	if (timeneeded > 0)
 		user.visible_message("[user] starts hoisting \the [src] onto \the [table].", "You start hoisting \the [src] onto \the [table]. This will take about [timeneeded * 0.1] seconds.")
@@ -204,6 +204,10 @@
 		else
 			forceMove(get_turf(table))
 			set_tablestatus(ABOVE_TABLE)
+			var/loudness = "thunk."
+			if(timeneeded * 0.1 > 10)
+				loudness = "loud THUNK!"
+			visible_message("[user] puts \the [src] onto \the [table] with a [loudness]", "[user] puts \the [src] onto \the [table].", intent_message = THUNK_SOUND)
 			return TRUE
 
 /*

@@ -26,6 +26,10 @@
 	if(tow)
 		. += SPAN_NOTICE("It towing \the [tow] in the [dir2text(get_dir(src, tow))].")
 
+/obj/vehicle/train/cargo/engine/antagonist_hints(mob/user, distance, is_adjacent)
+	. = ..()
+	. += "When emagged, it can be used to run people over with."
+
 //-------------------------------------------
 // Standard procs
 //-------------------------------------------

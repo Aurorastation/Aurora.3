@@ -132,12 +132,10 @@ If it gains pressure too slowly, it may leak or just rupture instead of explodin
 	icon = 'icons/effects/fire.dmi'
 	icon_state = "3"
 	appearance_flags = PIXEL_SCALE | NO_CLIENT_COLOR
-	render_target = HEAT_EFFECT_TARGET
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 
 /obj/fire
 	//Icon for fire on turfs.
-
 	anchored = 1
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 

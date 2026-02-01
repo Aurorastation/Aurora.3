@@ -81,7 +81,7 @@
 /turf/template_noop,
 /area/template_noop)
 "bv" = (
-/obj/structure/cart/storage/janitorialcart,
+/obj/structure/cart/storage/janitorialcart/full,
 /turf/template_noop,
 /area/template_noop)
 "bw" = (

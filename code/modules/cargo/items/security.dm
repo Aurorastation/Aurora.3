@@ -217,7 +217,7 @@
 	name = "standard plate carrier"
 	supplier = "zavodskoi"
 	description = "A plate carrier with basic accessories and an armor plate."
-	price = 800
+	price = 600
 	items = list(
 		/obj/item/clothing/suit/armor/carrier/officer
 	)
@@ -557,6 +557,20 @@
 	price = 25
 	items = list(
 		/obj/item/storage/box/swabs
+	)
+	access = ACCESS_FORENSICS_LOCKERS
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/autopsy_scanner
+	category = "security"
+	name = "autopsy scanner"
+	supplier = "nanotrasen"
+	description = "A handheld autopsy scanner that extracts information on wounds."
+	price = 250
+	items = list(
+		/obj/item/autopsy_scanner
 	)
 	access = ACCESS_FORENSICS_LOCKERS
 	container_type = "crate"

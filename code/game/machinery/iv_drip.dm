@@ -64,16 +64,19 @@
 
 /obj/machinery/iv_drip/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()
-	. += "IV drips can be supplied beakers/bloodpacks for reagent transfusions, as well as one breath mask and gas tank for supplemental gas therapy."
-	. += "Use a wrench when it has a tank installed to secure it. Use it again to unsecure it before removal."
-	. += "Click-drag to attach/detach the IV or secure/remove the breath mask on your target."
-	. += "Click the stand with an empty hand to toggle between various modes."
-	. += "ALT-Click the stand to remove items contained in the stand."
+	. += "- IV drips can be supplied beakers/bloodpacks for reagent transfusions, as well as one breath mask and gas tank for supplemental gas therapy."
+	. += "- Use a wrench when it has a tank installed to secure it. Use it again to unsecure it before removal."
+	. += "- Click-drag to attach/detach the IV or secure/remove the breath mask on your target."
+	. += "- Click the stand with an empty hand to toggle between various modes."
+	. += "- ALT-Click the stand to remove items contained in the stand."
 
 /obj/machinery/iv_drip/upgrade_hints(mob/user, distance, is_adjacent)
 	. += ..()
-	. += "Upgraded <b>scanning modules</b> will provide the exact volume and composition of attached beakers."
-	. += "Upgraded <b>manipulators</b> will allow patients to be hooked to IV through armor and increase the maximum reagent transfer rate."
+	. += "- Upgraded <b>scanning modules</b> will provide the exact volume and composition of attached beakers."
+	. += adv_scan ? SPAN_GOOD("	- Advanced Scan is enabled") : SPAN_ALERT("	- Advanced Scan is not enabled")
+	. += "- Upgraded <b>manipulators</b> will allow patients to be hooked to IV through armor and increase the maximum reagent transfer rate."
+	. += SPAN_NOTICE("	- Maximum transfer rate is <b>[transfer_limit]u/s</b>")
+	. += armor_check ? SPAN_ALERT("	- Armor punch-through is not enabled") : SPAN_GOOD("	- Armor punch-through is enabled")
 
 /obj/machinery/iv_drip/feedback_hints(mob/user, distance, is_adjacent)
 	. += ..()

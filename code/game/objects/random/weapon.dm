@@ -246,3 +246,12 @@
 		E.charge_cost *= 2
 		E.self_recharge = 0
 		E.reliability = 90
+
+/obj/random/mine
+	name = "random deployed mine"
+	desc = "This will choose from a number of available mines and they will be active at start."
+	icon_state = "landmine"
+	spawnlist = list(
+		/obj/item/landmine/frag/deployed,
+		/obj/item/landmine/emp/deployed,
+	)

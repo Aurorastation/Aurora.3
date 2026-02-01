@@ -53,7 +53,7 @@ field_generator power level display
 		if(state == 2)
 			AddOverlays("+welding")
 			var/image/lights_image = image(icon, null, "+lights")
-			lights_image.plane = EFFECTS_ABOVE_LIGHTING_PLANE
+			lights_image.plane = ABOVE_LIGHTING_PLANE
 			AddOverlays(lights_image)
 
 /obj/machinery/field_generator/process()

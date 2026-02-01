@@ -6779,7 +6779,7 @@
 /obj/machinery/light/small{
 	dir = 4
 	},
-/obj/structure/cart/storage/janitorialcart{
+/obj/structure/cart/storage/janitorialcart/full{
 	dir = 4
 	},
 /obj/item/reagent_containers/glass/bucket,

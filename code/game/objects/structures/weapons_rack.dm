@@ -159,7 +159,7 @@
 		transform_matrix.Translate((((world.icon_size/2)+BASE_OFFSET_RIFLE_SLOT) - world.icon_size) + (i*INTER_OFFSET_RIFLE_SLOT), 0)
 
 		//Why not the rifle itself you might ask? Because there's the safety icon on it
-		var/mutable_appearance/weapon_appearance = mutable_appearance(G.icon, G.icon_state, plane = src.plane, flags = G.appearance_flags, layer = G.layer)
+		var/mutable_appearance/weapon_appearance = mutable_appearance(G.icon, G.icon_state, plane = src.plane, layer = G.layer)
 		weapon_appearance.transform = transform_matrix
 
 		visual_holder.overlays += weapon_appearance
