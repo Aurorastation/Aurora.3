@@ -98,7 +98,7 @@
 			Stun(2)
 
 		//Being hit while using a deadman switch
-		var/obj/item/device/assembly/signaler/signaler = get_active_hand()
+		var/obj/item/assembly/signaler/signaler = get_active_hand()
 		if(istype(signaler))
 			if(signaler.deadman && prob(80))
 				log_and_message_admins("has triggered a signaler deadman's switch")

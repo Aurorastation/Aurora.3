@@ -186,7 +186,7 @@
 			G.clean_blood()
 
 /obj/machinery/shower/attackby(obj/item/attacking_item, mob/user)
-	if(attacking_item.type == /obj/item/device/analyzer)
+	if(attacking_item.type == /obj/item/analyzer)
 		to_chat(user, SPAN_NOTICE("The water temperature seems to be [watertemp]."))
 	if(attacking_item.tool_behaviour == TOOL_WRENCH)
 		var/newtemp = input(user, "What setting would you like to set the temperature valve to?", "Water Temperature Valve") in temperature_settings

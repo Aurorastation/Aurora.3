@@ -130,7 +130,7 @@
 	var/gun_path = /obj/item/gun/energy/lasertag/red
 
 /obj/structure/closet/lasertag/fill()
-	new /obj/item/device/multitool(src)
+	new /obj/item/multitool(src)
 	for(var/i = 1 to 3)
 		new helmet_path(src)
 		new armor_path(src)

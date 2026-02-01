@@ -247,7 +247,7 @@
 	},
 /obj/structure/closet/crate/internals,
 /obj/item/storage/bag/inflatable,
-/obj/item/device/oxycandle,
+/obj/item/oxycandle,
 /obj/item/tank/emergency_oxygen{
 	pixel_x = 5
 	},
@@ -5035,7 +5035,7 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
-/obj/item/device/radio{
+/obj/item/radio{
 	pixel_x = -6;
 	pixel_y = 14
 	},
@@ -5335,7 +5335,7 @@
 	dir = 1
 	},
 /obj/structure/table/wood,
-/obj/item/device/paicard{
+/obj/item/paicard{
 	pixel_y = 4;
 	pixel_x = -4
 	},
@@ -5933,9 +5933,9 @@
 	dir = 5
 	},
 /obj/item/storage/toolbox/emergency,
-/obj/item/device/flashlight,
-/obj/item/device/flashlight/flare,
-/obj/item/device/flashlight/flare/glowstick/random,
+/obj/item/flashlight,
+/obj/item/flashlight/flare,
+/obj/item/flashlight/flare/glowstick/random,
 /obj/random/tool,
 /obj/item/tank/emergency_oxygen{
 	pixel_x = 5

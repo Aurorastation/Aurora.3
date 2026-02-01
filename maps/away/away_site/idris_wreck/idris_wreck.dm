@@ -82,7 +82,7 @@
 	corpseglasses = /obj/item/clothing/glasses/sunglasses/sechud/aviator/idris
 	corpsesuit = /obj/item/clothing/suit/storage/toggle/armor/vest/idris/longcoat
 	corpsehelmet = null
-	corpseback = /obj/item/device/suit_cooling_unit
+	corpseback = /obj/item/suit_cooling_unit
 	corpseidjob = "Idris Security Unit"
 	species = SPECIES_IPC
 

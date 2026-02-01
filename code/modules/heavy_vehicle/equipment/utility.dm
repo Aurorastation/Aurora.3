@@ -589,12 +589,12 @@
 
 /obj/item/gun/launcher/mech/flarelauncher/consume_next_projectile()
 	if(proj < 1) return null
-	var/obj/item/device/flashlight/flare/mech/g = new (src)
+	var/obj/item/flashlight/flare/mech/g = new (src)
 	proj--
 	addtimer(CALLBACK(src, PROC_REF(regen_proj)), proj_gen_time, TIMER_UNIQUE)
 	return g
 
-/obj/item/device/flashlight/flare/mech/Initialize()
+/obj/item/flashlight/flare/mech/Initialize()
 	fuel = rand(800, 1000) // Sorry for changing this so much but I keep under-estimating how long X number of ticks last in seconds.
 	on = 1
 	src.force = on_damage

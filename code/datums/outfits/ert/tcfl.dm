@@ -3,7 +3,7 @@
 
 	head = /obj/item/clothing/head/beret/legion/field
 	uniform = /obj/item/clothing/under/legion
-	l_ear = /obj/item/device/radio/headset/legion
+	l_ear = /obj/item/radio/headset/legion
 	shoes = /obj/item/clothing/shoes/combat
 	gloves = /obj/item/clothing/gloves/swat/ert
 	glasses = /obj/item/clothing/glasses/sunglasses/aviator
@@ -47,7 +47,7 @@
 	back = null
 	belt = /obj/item/storage/belt/security/tactical
 	accessory = /obj/item/clothing/accessory/storage/webbingharness/pouches/ert
-	accessory_contents = list(/obj/item/gun/energy/blaster/pilot_special = 1, /obj/item/device/binoculars = 1)
+	accessory_contents = list(/obj/item/gun/energy/blaster/pilot_special = 1, /obj/item/binoculars = 1)
 
 	backpack_contents = null
 

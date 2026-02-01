@@ -453,7 +453,7 @@
 
 /datum/gear/gadbook
 	display_name = "gadpathurian morale manual"
-	path = /obj/item/device/versebook/gadpathur
+	path = /obj/item/versebook/gadpathur
 	origin_restriction = list(/singleton/origin_item/origin/gadpathur)
 
 /datum/gear/aurora_miniature
@@ -464,16 +464,16 @@
 /datum/gear/instruments
 	display_name = "instrument selection"
 	description = "A selection of instruments for the musically inclined."
-	path = /obj/item/device/synthesized_instrument
+	path = /obj/item/synthesized_instrument
 	allowed_roles = list("Off-Duty Crew Member", "Passenger")
 
 /datum/gear/instruments/New()
 	..()
 	var/list/instruments = list()
-	instruments["guitar"] = /obj/item/device/synthesized_instrument/guitar
-	instruments["polyguitar"] = /obj/item/device/synthesized_instrument/guitar/multi
-	instruments["violin"] = /obj/item/device/synthesized_instrument/violin
-	instruments["Omnitrumpet"] = /obj/item/device/synthesized_instrument/trumpet
+	instruments["guitar"] = /obj/item/synthesized_instrument/guitar
+	instruments["polyguitar"] = /obj/item/synthesized_instrument/guitar/multi
+	instruments["violin"] = /obj/item/synthesized_instrument/violin
+	instruments["Omnitrumpet"] = /obj/item/synthesized_instrument/trumpet
 	gear_tweaks += new /datum/gear_tweak/path(instruments)
 
 /datum/gear/lore_radio

@@ -15,7 +15,7 @@
 	req_access = list(227)
 	},
 /obj/structure/table/steel,
-/obj/item/device/radio,
+/obj/item/radio,
 /obj/machinery/light{
 	dir = 8
 	},
@@ -292,9 +292,9 @@
 /obj/item/weldingtool/largetank,
 /obj/item/crowbar/red,
 /obj/item/crowbar/red,
-/obj/item/device/multitool,
-/obj/item/device/multitool,
-/obj/item/device/multitool,
+/obj/item/multitool,
+/obj/item/multitool,
+/obj/item/multitool,
 /turf/simulated/floor/exoplanet/tiled{
 	temperature = 315.15
 	},
@@ -329,10 +329,10 @@
 /obj/item/clothing/gloves/yellow/specialu,
 /obj/item/clothing/gloves/yellow/specialu,
 /obj/item/clothing/gloves/yellow/specialu,
-/obj/item/device/geiger,
-/obj/item/device/geiger,
-/obj/item/device/geiger,
-/obj/item/device/geiger,
+/obj/item/geiger,
+/obj/item/geiger,
+/obj/item/geiger,
+/obj/item/geiger,
 /turf/simulated/floor/exoplanet/tiled{
 	temperature = 315.15
 	},

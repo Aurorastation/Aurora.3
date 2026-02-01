@@ -63,7 +63,7 @@
 	backpack_contents = list(
 		/obj/item/storage/box/ceti_visa = 1,
 		/obj/item/storage/box/tcaf_pamphlet = 1,
-		/obj/item/device/versebook/biesel = 1, //constitution
+		/obj/item/versebook/biesel = 1, //constitution
 		/obj/item/stamp/biesel = 1,
 	)
 
@@ -196,7 +196,7 @@
 	backpack_contents = list(
 		/obj/item/storage/box/sol_visa = 1,
 		/obj/item/stamp/sol = 1,
-		/obj/item/device/camera = 1
+		/obj/item/camera = 1
 	)
 
 /obj/outfit/job/diplomatic_aide/sol
@@ -271,7 +271,7 @@
 	name = "Coalition Consular Officer"
 
 	backpack_contents = list(
-		/obj/item/device/camera = 1
+		/obj/item/camera = 1
 	)
 
 /obj/outfit/job/diplomatic_bodyguard/coalition

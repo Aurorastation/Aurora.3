@@ -29,8 +29,8 @@
 
 	backpack_contents = list(
 		/obj/item/storage/box/survival = 1,
-		/obj/item/device/radio/map_preset = 1,
-		/obj/item/device/flashlight = 1,
+		/obj/item/radio/map_preset = 1,
+		/obj/item/flashlight = 1,
 		/obj/item/storage/wallet = 1,
 		/obj/item/clothing/accessory/badge/passport/sol = 1,
 		/obj/item/spacecash/c200 = 1,
@@ -65,8 +65,8 @@
 
 	backpack_contents = list(
 		/obj/item/storage/box/survival = 1,
-		/obj/item/device/radio/map_preset = 1,
-		/obj/item/device/flashlight = 1,
+		/obj/item/radio/map_preset = 1,
+		/obj/item/flashlight = 1,
 		/obj/item/storage/wallet = 1
 	)
 

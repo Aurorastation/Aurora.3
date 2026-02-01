@@ -37,7 +37,7 @@
 
 	if(panel_open)
 		if(attacking_item.tool_behaviour == TOOL_MULTITOOL)
-			var/obj/item/device/multitool/M = attacking_item
+			var/obj/item/multitool/M = attacking_item
 			M.buffer = src
 			to_chat(user, "<span class='caution'>You save the data in the [attacking_item.name]'s buffer.</span>")
 	else
@@ -92,7 +92,7 @@
 		qdel(src)
 
 ///TELEPAD CALLER///
-/obj/item/device/telepad_beacon
+/obj/item/telepad_beacon
 	name = "telepad beacon"
 	desc = "Use to warp in a cargo telepad."
 	icon = 'icons/obj/radio.dmi'
@@ -101,7 +101,7 @@
 
 	origin_tech = list(TECH_BLUESPACE = 3)
 
-/obj/item/device/telepad_beacon/attack_self(mob/user)
+/obj/item/telepad_beacon/attack_self(mob/user)
 	if(user)
 		to_chat(user, "<span class='caution'>Locked In</span>")
 		new /obj/machinery/telepad_cargo(user.loc)

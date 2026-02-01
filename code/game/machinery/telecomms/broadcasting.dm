@@ -153,25 +153,25 @@
 			var/list/all_radios_of_our_frequency = SSradio.get_devices(frequency, RADIO_CHAT)
 			radios = all_radios_of_our_frequency.Copy()
 
-			for (var/obj/item/device/radio/subspace_radio in radios)
+			for (var/obj/item/radio/subspace_radio in radios)
 				if(!subspace_radio.can_receive(frequency, signal_reaches_every_z_level))
 					radios -= subspace_radio
 
 			// Cool antag radios can hear all Horizon comms
 			for (var/antag_freq in list(SYND_FREQ, RAID_FREQ, NINJ_FREQ))
-				for (var/obj/item/device/radio/syndicate_radios in SSradio.get_devices(antag_freq, RADIO_CHAT))
+				for (var/obj/item/radio/syndicate_radios in SSradio.get_devices(antag_freq, RADIO_CHAT))
 					if(syndicate_radios.can_receive(antag_freq, signal_reaches_every_z_level))
 						radios |= syndicate_radios
 
 		if (TRANSMISSION_RADIO)
 			// Only radios not in subspace mode
-			for (var/obj/item/device/radio/non_subspace_radio in SSradio.get_devices(frequency, RADIO_CHAT))
+			for (var/obj/item/radio/non_subspace_radio in SSradio.get_devices(frequency, RADIO_CHAT))
 				if(!non_subspace_radio.subspace_transmission && non_subspace_radio.can_receive(frequency, levels))
 					radios += non_subspace_radio
 
 		if (TRANSMISSION_SUPERSPACE)
 			// Independent radios
-			for (var/obj/item/device/radio/indie_radio in SSradio.get_devices(frequency, RADIO_CHAT))
+			for (var/obj/item/radio/indie_radio in SSradio.get_devices(frequency, RADIO_CHAT))
 				if(indie_radio.independent && indie_radio.can_receive(frequency, levels))
 					radios += indie_radio
 

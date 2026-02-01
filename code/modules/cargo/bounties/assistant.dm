@@ -89,7 +89,7 @@
 	reward_high = 80
 	required_count = 3
 	random_count = 1
-	wanted_types = list(/obj/item/device/camera_film)
+	wanted_types = list(/obj/item/camera_film)
 
 /datum/bounty/item/assistant/trash
 	name = "Trash"

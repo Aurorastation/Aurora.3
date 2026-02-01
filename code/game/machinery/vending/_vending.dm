@@ -365,7 +365,7 @@
 		return 1
 
 /obj/machinery/vending/attackby(obj/item/attacking_item, mob/user)
-	if(istype(attacking_item, /obj/item/device/debugger))
+	if(istype(attacking_item, /obj/item/debugger))
 		if(!shut_up)
 			to_chat(user, SPAN_WARNING("\The [attacking_item] reads, \"Software error detected. Rectifying.\"."))
 			if(attacking_item.use_tool(src, user, 100, volume = 50))
@@ -452,9 +452,9 @@
 			power_change()
 		return TRUE
 
-	else if(istype(attacking_item,/obj/item/device/vending_refill))
+	else if(istype(attacking_item,/obj/item/vending_refill))
 		if(panel_open)
-			var/obj/item/device/vending_refill/VR = attacking_item
+			var/obj/item/vending_refill/VR = attacking_item
 			if(VR.charges)
 				if(VR.vend_id == vend_id)
 					VR.restock_inventory(src)
@@ -983,7 +983,7 @@
  * Arguments:
  * * canister - the vending canister we are refilling from
  */
-/obj/item/device/vending_refill
+/obj/item/vending_refill
 	name = "resupply canister"
 	desc = "A vending machine restock cart."
 	icon = 'icons/obj/assemblies/electronic_setups.dmi'
@@ -997,14 +997,14 @@
 	var/vend_id = "generic"
 	var/charges = 0
 
-/obj/item/device/vending_refill/feedback_hints(mob/user, distance, is_adjacent)
+/obj/item/vending_refill/feedback_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	if(charges > 0)
 		. +=  "It can restock [charges] item(s)."
 	else
 		. += SPAN_WARNING("It's empty!")
 
-/obj/item/device/vending_refill/proc/restock_inventory(var/obj/machinery/vending/vendor)
+/obj/item/vending_refill/proc/restock_inventory(var/obj/machinery/vending/vendor)
 	if(vendor)
 		for(var/datum/data/vending_product/product in vendor.product_records)
 			if(product.amount < product.max_amount)

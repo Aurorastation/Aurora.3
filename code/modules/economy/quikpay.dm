@@ -1,9 +1,9 @@
 
 
-/obj/item/device/quikpay
+/obj/item/quikpay
 	name = "\improper Idris Quik-Pay"
 	desc = "Swipe your ID to make direct company purchases."
-	icon = 'icons/obj/item/device/eftpos.dmi'
+	icon = 'icons/obj/item/eftpos.dmi'
 	icon_state = "quikpay"
 	item_state = "electronic"
 	w_class = WEIGHT_CLASS_SMALL
@@ -19,7 +19,7 @@
 	var/receipt = ""
 	var/destinationact = "Service"
 
-/obj/item/device/quikpay/Initialize()
+/obj/item/quikpay/Initialize()
 	. = ..()
 	machine_id = "[station_name()] Idris Quik-Pay #[SSeconomy.num_financial_terminals++]"
 
@@ -49,14 +49,14 @@
 	R.AddOverlays(stampoverlay)
 	R.stamps += "<HR><i>This paper has been stamped by the Executive Officer's desk.</i>"
 
-/obj/item/device/quikpay/AltClick(var/mob/user)
+/obj/item/quikpay/AltClick(var/mob/user)
 	var/obj/item/card/id/I = user.GetIdCard()
 	if(istype(I) && (ACCESS_HEADS in I.access))
 		editmode = TRUE
 		to_chat(user, SPAN_NOTICE("Command access granted."))
 		SStgui.update_uis(src)
 
-/obj/item/device/quikpay/proc/print_receipt()
+/obj/item/quikpay/proc/print_receipt()
 	var/obj/item/paper/R = new(usr.loc)
 	var/receiptname = "Receipt: [machine_id]"
 	R.set_content_unsafe(receiptname, receipt, sum)
@@ -70,7 +70,7 @@
 	R.AddOverlays(stampoverlay)
 	R.stamps += "<HR><i>This paper has been stamped by the Quik-Pay device.</i>"
 
-/obj/item/device/quikpay/attackby(obj/item/attacking_item, mob/user)
+/obj/item/quikpay/attackby(obj/item/attacking_item, mob/user)
 	if (istype(attacking_item, /obj/item/spacecash/ewallet))
 		var/obj/item/spacecash/ewallet/E = attacking_item
 		var/transaction_amount = sum
@@ -111,16 +111,16 @@
 		receipt = ""
 		to_chat(user, SPAN_NOTICE("Transaction completed, please return to the home screen."))
 
-/obj/item/device/quikpay/attack_self(var/mob/user)
+/obj/item/quikpay/attack_self(var/mob/user)
 	ui_interact(user)
 
-/obj/item/device/quikpay/ui_interact(mob/user, datum/tgui/ui)
+/obj/item/quikpay/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
 		ui = new(user, src, "QuikPay", "Idris Quik-Pay", 400, 400)
 		ui.open()
 
-/obj/item/device/quikpay/ui_data(var/mob/user)
+/obj/item/quikpay/ui_data(var/mob/user)
 	var/list/data = list()
 
 	data["items"] = items
@@ -133,7 +133,7 @@
 
 	return data
 
-/obj/item/device/quikpay/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
+/obj/item/quikpay/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	. = ..()
 	if(.)
 		return
@@ -224,12 +224,12 @@
 			destinationact = dest
 			return TRUE
 
-/obj/item/device/quikpay/proc/clear_order()
+/obj/item/quikpay/proc/clear_order()
 	buying.Cut()
 	sum = 0
 	receipt = ""
 
-/obj/item/device/quikpay/afterattack(atom/target, mob/user, proximity)
+/obj/item/quikpay/afterattack(atom/target, mob/user, proximity)
 	if (!proximity) return
 	if (!istype(target, /obj))
 		return

@@ -732,7 +732,7 @@
 	pixel_x = 5;
 	pixel_y = 5
 	},
-/obj/item/device/versebook/tribunal{
+/obj/item/versebook/tribunal{
 	pixel_y = 3;
 	pixel_x = -4
 	},
@@ -1915,7 +1915,7 @@
 "dtB" = (
 /obj/structure/lattice/catwalk/indoor,
 /obj/structure/table/rack/folding_table,
-/obj/item/device/versebook/tribunal{
+/obj/item/versebook/tribunal{
 	pixel_y = 2
 	},
 /turf/simulated/floor,
@@ -2850,7 +2850,7 @@
 	pixel_x = 5;
 	pixel_y = 5
 	},
-/obj/item/device/versebook/tribunal{
+/obj/item/versebook/tribunal{
 	pixel_y = 3;
 	pixel_x = -4
 	},
@@ -3132,7 +3132,7 @@
 /obj/effect/floor_decal/industrial/outline_segment/grey{
 	dir = 4
 	},
-/obj/item/device/binoculars{
+/obj/item/binoculars{
 	pixel_y = 5;
 	pixel_x = -1
 	},
@@ -4668,7 +4668,7 @@
 	dir = 8
 	},
 /obj/structure/table/reinforced/steel,
-/obj/item/device/radio/intercom/east,
+/obj/item/radio/intercom/east,
 /obj/item/paper_bin{
 	pixel_y = 3;
 	pixel_x = 4
@@ -5459,7 +5459,7 @@
 /obj/item/storage/belt/medical,
 /obj/item/reagent_containers/hypospray,
 /obj/item/clothing/accessory/stethoscope,
-/obj/item/device/mass_spectrometer,
+/obj/item/mass_spectrometer,
 /obj/item/cane/crutch,
 /obj/item/cane/crutch,
 /obj/effect/floor_decal/corner/green{
@@ -5514,7 +5514,7 @@
 /obj/effect/floor_decal/industrial/outline_segment/grey{
 	dir = 4
 	},
-/obj/item/device/binoculars{
+/obj/item/binoculars{
 	pixel_y = 5;
 	pixel_x = -1
 	},
@@ -7330,7 +7330,7 @@
 "nIE" = (
 /obj/structure/bed/stool/chair/sofa/right/black,
 /obj/effect/decal/cleanable/dirt,
-/obj/item/device/synthesized_instrument/guitar{
+/obj/item/synthesized_instrument/guitar{
 	pixel_y = 2;
 	pixel_x = 3
 	},
@@ -7352,11 +7352,11 @@
 /obj/machinery/light/small{
 	dir = 8
 	},
-/obj/item/device/radio/hailing{
+/obj/item/radio/hailing{
 	pixel_x = -6;
 	pixel_y = 6
 	},
-/obj/item/device/radio{
+/obj/item/radio{
 	pixel_x = 7;
 	pixel_y = 6
 	},
@@ -7678,11 +7678,11 @@
 	req_access = list(212)
 	},
 /obj/item/storage/box/dominia_honor,
-/obj/item/device/versebook/tribunal,
-/obj/item/device/versebook/tribunal,
-/obj/item/device/versebook/tribunal,
-/obj/item/device/versebook/tribunal,
-/obj/item/device/versebook/tribunal,
+/obj/item/versebook/tribunal,
+/obj/item/versebook/tribunal,
+/obj/item/versebook/tribunal,
+/obj/item/versebook/tribunal,
+/obj/item/versebook/tribunal,
 /obj/item/sticker/religious/tribunal,
 /obj/item/sticker/religious/tribunal,
 /obj/item/sticker/religious/tribunal,
@@ -8120,7 +8120,7 @@
 	dir = 4
 	},
 /obj/structure/table/reinforced/steel,
-/obj/item/device/radio/intercom/hailing/west,
+/obj/item/radio/intercom/hailing/west,
 /obj/machinery/recharger{
 	pixel_x = -5;
 	pixel_y = 3
@@ -8129,11 +8129,11 @@
 	pixel_x = 5;
 	pixel_y = 3
 	},
-/obj/item/device/radio/hailing{
+/obj/item/radio/hailing{
 	pixel_x = -6;
 	pixel_y = 6
 	},
-/obj/item/device/radio{
+/obj/item/radio{
 	pixel_x = 7;
 	pixel_y = 6
 	},
@@ -8683,7 +8683,7 @@
 	pixel_y = 6;
 	pixel_x = -6
 	},
-/obj/item/device/flashlight/lamp/green{
+/obj/item/flashlight/lamp/green{
 	pixel_y = 3;
 	pixel_x = 7
 	},
@@ -9404,8 +9404,8 @@
 	pixel_y = -2
 	},
 /obj/item/storage/toolbox/emergency,
-/obj/item/device/binoculars,
-/obj/item/device/binoculars/high_power,
+/obj/item/binoculars,
+/obj/item/binoculars/high_power,
 /obj/structure/sign/flag/dominia{
 	pixel_x = 32;
 	stand_icon = "banner"
@@ -9636,12 +9636,12 @@
 /obj/item/tank/jetpack/carbondioxide,
 /obj/item/tank/jetpack/carbondioxide,
 /obj/item/tank/jetpack/carbondioxide,
-/obj/item/device/gps,
-/obj/item/device/gps,
-/obj/item/device/gps,
-/obj/item/device/gps,
-/obj/item/device/gps,
-/obj/item/device/gps,
+/obj/item/gps,
+/obj/item/gps,
+/obj/item/gps,
+/obj/item/gps,
+/obj/item/gps,
+/obj/item/gps,
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 10
 	},
@@ -10180,7 +10180,7 @@
 	pixel_y = 2;
 	pixel_x = 5
 	},
-/obj/item/device/flashlight/lamp/green{
+/obj/item/flashlight/lamp/green{
 	pixel_y = 14;
 	pixel_x = -7
 	},
@@ -10939,11 +10939,11 @@
 	pixel_x = 3;
 	pixel_y = 8
 	},
-/obj/item/device/spaceflare{
+/obj/item/spaceflare{
 	pixel_y = 1;
 	pixel_x = -5
 	},
-/obj/item/device/spaceflare{
+/obj/item/spaceflare{
 	pixel_y = 3;
 	pixel_x = 6
 	},
@@ -11896,12 +11896,12 @@
 	name = "Chapel Closet";
 	req_access = list(212)
 	},
-/obj/item/device/versebook/tribunal,
-/obj/item/device/versebook/tribunal,
-/obj/item/device/versebook/tribunal,
-/obj/item/device/versebook/tribunal,
-/obj/item/device/versebook/tribunal,
-/obj/item/device/versebook/tribunal,
+/obj/item/versebook/tribunal,
+/obj/item/versebook/tribunal,
+/obj/item/versebook/tribunal,
+/obj/item/versebook/tribunal,
+/obj/item/versebook/tribunal,
+/obj/item/versebook/tribunal,
 /obj/item/reagent_containers/food/drinks/bottle/dominian_wine,
 /obj/item/reagent_containers/food/drinks/drinkingglass,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -12271,7 +12271,7 @@
 	dir = 4
 	},
 /obj/structure/table/steel,
-/obj/item/device/hand_labeler{
+/obj/item/hand_labeler{
 	pixel_y = 5
 	},
 /turf/simulated/floor/tiled/gunmetal/full,

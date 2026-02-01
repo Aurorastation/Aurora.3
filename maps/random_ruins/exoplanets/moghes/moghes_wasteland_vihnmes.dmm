@@ -331,7 +331,7 @@
 	dir = 1
 	},
 /obj/structure/bed/stool/wood,
-/obj/item/device/synthesized_instrument/guitar,
+/obj/item/synthesized_instrument/guitar,
 /obj/effect/floor_decal/spline/plain/beige{
 	dir = 1
 	},
@@ -576,7 +576,7 @@
 /area/exoplanet/moghes)
 "wQ" = (
 /obj/structure/table/wood,
-/obj/item/device/flashlight/lamp/box,
+/obj/item/flashlight/lamp/box,
 /turf/simulated/floor/exoplanet/wood/birch{
 	temperature = 303.15
 	},
@@ -1213,7 +1213,7 @@
 /obj/structure/closet/crate/weapon,
 /obj/item/material/twohanded/spear/plasteel,
 /obj/item/material/twohanded/spear/plasteel,
-/obj/item/device/geiger,
+/obj/item/geiger,
 /obj/effect/floor_decal/spline/plain/beige{
 	dir = 10
 	},

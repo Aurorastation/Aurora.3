@@ -1,4 +1,4 @@
-/obj/item/device/assembly
+/obj/item/assembly
 	name = "assembly"
 	desc = "A small electronic device that should never exist."
 	icon = 'icons/obj/assemblies/new_assemblies.dmi'
@@ -16,7 +16,7 @@
 
 	var/secured = TRUE
 	var/list/attached_overlays = null
-	var/obj/item/device/assembly_holder/holder = null
+	var/obj/item/assembly_holder/holder = null
 	var/cooldown = 0 //To prevent spam
 
 	/**
@@ -33,7 +33,7 @@
 	 */
 	var/wires = WIRE_RECEIVE_ASSEMBLY | WIRE_PULSE_ASSEMBLY
 
-/obj/item/device/assembly/Destroy()
+/obj/item/assembly/Destroy()
 	STOP_PROCESSING(SSprocessing, src)
 
 	holder = null
@@ -42,11 +42,11 @@
 
 	. = ..()
 
-/obj/item/device/assembly/proc/holder_movement()
+/obj/item/assembly/proc/holder_movement()
 	return
 
 //Called via spawn(10) to have it count down the cooldown var
-/obj/item/device/assembly/proc/process_cooldown()
+/obj/item/assembly/proc/process_cooldown()
 	cooldown--
 	if(cooldown <= 0)
 		return FALSE
@@ -54,7 +54,7 @@
 	return TRUE
 
 // Called when another assembly acts on this one, var/radio will determine where it came from for wire calcs
-/obj/item/device/assembly/proc/pulsed(var/radio = 0)
+/obj/item/assembly/proc/pulsed(var/radio = 0)
 	if(holder && (wires & WIRE_RECEIVE_ASSEMBLY))
 		activate()
 	if(radio && (wires & WIRE_RADIO_RECEIVE))
@@ -62,36 +62,36 @@
 	return TRUE
 
 // Called when this device attempts to act on another device, var/radio determines if it was sent via radio or direct
-/obj/item/device/assembly/proc/pulse(var/radio = 0)
+/obj/item/assembly/proc/pulse(var/radio = 0)
 	if(holder && (wires & WIRE_PULSE_ASSEMBLY))
 		holder.process_activation(src, TRUE, FALSE)
 	if(holder && (wires & WIRE_PULSE_SPECIAL))
 		holder.process_activation(src, FALSE, TRUE)
 	return TRUE
 
-/obj/item/device/assembly/proc/activate()
+/obj/item/assembly/proc/activate()
 	if(!secured || cooldown)
 		return FALSE
 	cooldown = 2
 	addtimer(CALLBACK(src, PROC_REF(process_cooldown)), 1 SECOND)
 	return TRUE
 
-/obj/item/device/assembly/proc/toggle_secure()
+/obj/item/assembly/proc/toggle_secure()
 	secured = !secured
 	update_icon()
 	return secured
 
 // Called when an assembly is attacked by another
-/obj/item/device/assembly/proc/attach_assembly(var/obj/item/device/assembly/A, var/mob/user)
-	holder = new /obj/item/device/assembly_holder(get_turf(src))
+/obj/item/assembly/proc/attach_assembly(var/obj/item/assembly/A, var/mob/user)
+	holder = new /obj/item/assembly_holder(get_turf(src))
 	if(holder.attach(A, src, user))
 		to_chat(user, SPAN_NOTICE("You attach \the [A] to \the [src]!"))
 		return TRUE
 	return FALSE
 
-/obj/item/device/assembly/attackby(obj/item/attacking_item, mob/user)
+/obj/item/assembly/attackby(obj/item/attacking_item, mob/user)
 	if(isassembly(attacking_item))
-		var/obj/item/device/assembly/A = attacking_item
+		var/obj/item/assembly/A = attacking_item
 		if(!A.secured && !secured)
 			attach_assembly(A, user)
 			return
@@ -101,31 +101,31 @@
 		return
 	return ..()
 
-/obj/item/device/assembly/process()
+/obj/item/assembly/process()
 	STOP_PROCESSING(SSprocessing, src)
 	return
 
-/obj/item/device/assembly/feedback_hints(mob/user, distance, is_adjacent)
+/obj/item/assembly/feedback_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	if((distance <= 1 || loc == user) && !secured)
 		. += SPAN_NOTICE("\The [src] can be attached!")
 
-/obj/item/device/assembly/attack_self(mob/user)
+/obj/item/assembly/attack_self(mob/user)
 	if(!user)
 		return FALSE
 	interact(user)
 	return TRUE
 
-/obj/item/device/assembly/proc/on_entered(datum/source, atom/movable/arrived, atom/old_loc, list/atom/old_locs)
+/obj/item/assembly/proc/on_entered(datum/source, atom/movable/arrived, atom/old_loc, list/atom/old_locs)
 	SIGNAL_HANDLER
 
-/obj/item/device/assembly/interact(mob/user)
+/obj/item/assembly/interact(mob/user)
 	return
 
-/obj/item/device/assembly/ui_host(mob/user)
+/obj/item/assembly/ui_host(mob/user)
 	. = ..()
 	// Sets the UI host to the transfer valve if its mounted on a transfer_valve
-	if(istype(loc,/obj/item/device/transfer_valve))
+	if(istype(loc,/obj/item/transfer_valve))
 		return loc
 
 	return holder || .

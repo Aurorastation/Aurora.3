@@ -579,12 +579,12 @@
 "QJ" = (
 /obj/structure/table/stone/marble,
 /obj/item/flame/candle,
-/obj/item/device/versebook/autakh,
-/obj/item/device/versebook/autakh,
-/obj/item/device/versebook/autakh,
-/obj/item/device/versebook/autakh,
-/obj/item/device/versebook/autakh,
-/obj/item/device/versebook/autakh,
+/obj/item/versebook/autakh,
+/obj/item/versebook/autakh,
+/obj/item/versebook/autakh,
+/obj/item/versebook/autakh,
+/obj/item/versebook/autakh,
+/obj/item/versebook/autakh,
 /turf/simulated/floor/exoplanet/marble,
 /area/ouerea_autakh)
 "SL" = (

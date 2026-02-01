@@ -61,7 +61,7 @@
 
 	id = /obj/item/card/id/ssrm_ship
 
-	l_ear = /obj/item/device/radio/headset/ship
+	l_ear = /obj/item/radio/headset/ship
 
 /obj/outfit/admin/ssrm_navy_chief_petty_officer/solfrig_xo/get_id_access()
 	return list(ACCESS_SOL_SHIPS, ACCESS_EXTERNAL_AIRLOCKS)
