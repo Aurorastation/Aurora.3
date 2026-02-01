@@ -844,18 +844,9 @@
 	slot_flags = 0
 	var/obj/item/paper/stickynotes/stuck = null
 
-/obj/item/paper/stickynotes/Initialize()
-	. = ..()
-
-/obj/item/paper/stickynotes/Destroy()
-	. = ..()
-
 /obj/item/paper/stickynotes/update_icon()
 	if(icon_state != "stickynote_scrap")
 		icon_state = info ? "stickynote_words" : "stickynote"
-
-/obj/item/paper/stickynotes/attack_hand()
-	. = ..()
 
 /obj/item/paper/stickynotes/afterattack(var/A, mob/user, var/prox, var/params)
 	if(!in_range(user, A) || istype(A, /obj/machinery/door) || stuck || istype(A, /obj/item/paper))
@@ -869,6 +860,7 @@
 		dir_offset = get_dir(source_turf, target_turf)
 
 	if(params && prox)
+		SSpersistence.register_track(src, ckey(user.key))
 		user.drop_from_inventory(src,source_turf)
 		var/list/mouse_control = mouse_safe_xy(params)
 		if(mouse_control["icon-x"])
