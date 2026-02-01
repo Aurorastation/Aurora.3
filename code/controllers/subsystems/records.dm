@@ -280,11 +280,12 @@ SUBSYSTEM_DEF(records)
 	// Start with the "Crew", which are all of the IC manifest members.
 	for(var/datum/record/general/general_record in records)
 		var/datum/job/job = SSjobs.GetJob(make_list_rank(general_record.real_rank))
-		var/list/departments
-		if(istype(job) && job.departments.len > 0 && all_in_list(job.departments, manifest))
-			departments = job.departments
-		else // no department set or there's something weird
-			departments = list(DEPARTMENT_MISCELLANEOUS = JOBROLE_DEFAULT)
+		var/list/departments = /* Jobs can be in more than one department. So we fact check that the departments are real. */\
+			(istype(job) && job.departments.len > 0 && all_in_list(job.departments, manifest))\
+				/* Accept the departments if they're real. */\
+				? job.departments \
+				/* Dump any jobs with invalid departments into a fallback holding pen. */\
+				: list(DEPARTMENT_MISCELLANEOUS = JOBROLE_DEFAULT)
 
 		for(var/department in departments) // add them to their departments
 			var/supervisor = departments[department] & JOBROLE_SUPERVISOR
