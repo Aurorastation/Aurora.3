@@ -27,7 +27,7 @@ SUBSYSTEM_DEF(skybox)
 		space.icon_state = "white"
 		space.overlays += dust
 		space_appearance_cache[i + 1] = space.appearance
-		background_color = SSatlas.current_sector.starlight_color
+		background_color = SSmapping.current_sector.starlight_color
 
 /datum/controller/subsystem/skybox/Initialize()
 	build_space_appearances()
@@ -40,7 +40,7 @@ SUBSYSTEM_DEF(skybox)
 /datum/controller/subsystem/skybox/proc/get_skybox(z)
 	if(!skybox_cache["[z]"])
 		skybox_cache["[z]"] = generate_skybox(z)
-		if(SSatlas.current_map.use_overmap)
+		if(SSmapping.current_map.use_overmap)
 			var/obj/effect/overmap/visitable/O = GLOB.map_sectors["[z]"]
 			if(istype(O))
 				for(var/zlevel in O.map_z)
@@ -51,7 +51,7 @@ SUBSYSTEM_DEF(skybox)
 	var/image/res = image(skybox_icon)
 	res.appearance_flags = KEEP_TOGETHER
 
-	var/sector_icon = SSatlas.current_sector.skybox_icon
+	var/sector_icon = SSmapping.current_sector.skybox_icon
 	var/image/base = overlay_image(skybox_icon, sector_icon)
 
 	if(use_stars)
@@ -60,7 +60,7 @@ SUBSYSTEM_DEF(skybox)
 
 	res.overlays += base
 
-	if(SSatlas.current_map.use_overmap && use_overmap_details)
+	if(SSmapping.current_map.use_overmap && use_overmap_details)
 		var/obj/effect/overmap/visitable/O = GLOB.map_sectors["[z]"]
 		if(istype(O))
 			var/image/overmap = image(skybox_icon)

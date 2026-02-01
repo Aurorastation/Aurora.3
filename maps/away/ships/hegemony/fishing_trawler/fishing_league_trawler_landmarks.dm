@@ -1,6 +1,4 @@
 /obj/effect/shuttle_landmark/fishing_trawler
-	base_area = /area/space
-	base_turf = /turf/space/dynamic
 
 //Fore
 /obj/effect/shuttle_landmark/fishing_trawler/fore
@@ -34,8 +32,6 @@
 	landmark_tag = "fishing_trawler_shuttle"
 	docking_controller = "fishing_trawler_shuttle_dock"
 	movable_flags = MOVABLE_FLAG_EFFECTMOVE
-	base_area = /area/space
-	base_turf = /turf/space
 
 /obj/effect/shuttle_landmark/fishing_trawler/aux_dock
 	name = "Fishing Trawler - Auxiliary Dock"
@@ -50,5 +46,3 @@
 /obj/effect/shuttle_landmark/fishing_trawler/transit
 	name = "In transit"
 	landmark_tag = "fishing_trawler_transit"
-	base_turf = /turf/space/transit/north
-	base_area = /area/space

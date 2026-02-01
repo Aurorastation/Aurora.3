@@ -14,7 +14,7 @@
 	id = "xanu_frigate"
 
 	unit_test_groups = list(3)
-	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/xanu_fighter, /datum/shuttle/autodock/overmap/xanu_boarder)
+	shuttles_to_initialise = list(/datum/shuttle/overmap/xanu_fighter, /datum/shuttle/overmap/xanu_boarder)
 
 /singleton/submap_archetype/xanu_frigate
 	map = "Xanu Spacefleet Frigate"
@@ -45,6 +45,8 @@
 	vessel_mass = 6000
 	vessel_size = SHIP_SIZE_LARGE
 	fore_dir = SOUTH
+
+	ship_area_type = /area/ship/xanu_frigate
 
 	invisible_until_ghostrole_spawn = TRUE
 
@@ -94,6 +96,8 @@
 	sizeclass = "Heavy fighter and interceptor"
 	shiptype = "Anti-ship high-speed combat and interception"
 
+	ship_area_type = /area/shuttle/xanu_fighter
+
 /obj/effect/overmap/visitable/ship/landable/xanu_fighter/New()
 	designation = "[pick("Halberd", "Guisarme", "Ranseur", "Goedendag", "Bardiche", "Swordstaff", "Mancatcher")]"
 	..()
@@ -102,13 +106,12 @@
 	name = "fightercraft control console"
 	shuttle_tag = "Xanu Fighter"
 
-/datum/shuttle/autodock/overmap/xanu_fighter
+/datum/shuttle/overmap/xanu_fighter
 	name = "Xanu Fighter"
 	move_time = 15
 	shuttle_area = list(/area/shuttle/xanu_fighter)
 	dock_target = "xanu_fighter"
 	current_location = "xanufrigate_hangar"
-	landmark_transition = "xanufrigate_transit_b"
 	range = 1
 	fuel_consumption = 1
 	logging_home_tag = "xanufrigate_hangar"
@@ -135,6 +138,8 @@
 	sizeclass = "Military transporter shuttlecraft"
 	shiptype = "Transportation and combat boarding"
 
+	ship_area_type = /area/shuttle/xanu_boarder
+
 /obj/effect/overmap/visitable/ship/landable/xanu_boarder/New()
 	designation = "[pick("Phoebe", "Lark", "Siskin", "Grosbeak", "Cormorant", "Skua", "Gannet")]"
 	..()
@@ -143,13 +148,12 @@
 	name = "shuttle control console"
 	shuttle_tag = "Xanu Boarder"
 
-/datum/shuttle/autodock/overmap/xanu_boarder
+/datum/shuttle/overmap/xanu_boarder
 	name = "Xanu Boarder"
 	move_time = 15
 	shuttle_area = list(/area/shuttle/xanu_boarder/main, /area/shuttle/xanu_boarder/cockpit, /area/shuttle/xanu_boarder/engineering)
 	dock_target = "xanu_boarder"
 	current_location = "xanufrigate_aft"
-	landmark_transition = "xanufrigate_transit_a"
 	range = 1
 	fuel_consumption = 1
 	logging_home_tag = "xanufrigate_aft"

@@ -29,7 +29,6 @@
 	name = "Grand Romanovich Casino"
 	icon_state = "away"
 	requires_power = FALSE
-	base_turf = /turf/space
 	no_light_control = TRUE
 
 /area/grand_romanovich/outdoors

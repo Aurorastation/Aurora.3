@@ -12,7 +12,7 @@
 	id = "fishing_trawler"
 
 	unit_test_groups = list(2)
-	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/fishing_trawler)
+	shuttles_to_initialise = list(/datum/shuttle/overmap/fishing_trawler)
 
 /singleton/submap_archetype/fishing_trawler
 	map = "Fishing League Trawler"
@@ -54,6 +54,8 @@
 		"fishing_trawler_aux_dock"
 	)
 
+	ship_area_type = /area/ship/fishing_trawler
+
 /obj/effect/overmap/visitable/ship/fishing_trawler/New()
 	designation = "[pick("Hegemon's Bounty", "Fisher's Reach", "Fisher's Net", "Kasavakh Rising" , "Violet Scale" , "Feast Bringer")]"
 	..()
@@ -80,18 +82,19 @@
 	weapons = "No Apparent Weapons"
 	sizeclass = "Merchant Transport Shuttlecraft"
 
+	ship_area_type = /area/shuttle/fishing_trawler
+
 /obj/machinery/computer/shuttle_control/explore/terminal/fishing_trawler
 	name = "shuttle control console"
 	shuttle_tag = "Fishing League Shuttle"
 	req_access = list(ACCESS_FISHING_LEAGUE)
 
-/datum/shuttle/autodock/overmap/fishing_trawler
+/datum/shuttle/overmap/fishing_trawler
 	name = "Fishing League Shuttle"
 	move_time = 20
 	shuttle_area = list(/area/shuttle/fishing_trawler)
 	dock_target = "trawler_shuttle_airlock"
 	current_location = "fishing_trawler_shuttle"
-	landmark_transition = "fishing_trawler_transit"
 	range = 1
 	fuel_consumption = 2
 	logging_home_tag = "fishing_trawler_shuttle"

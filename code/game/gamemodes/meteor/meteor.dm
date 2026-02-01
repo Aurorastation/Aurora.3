@@ -38,8 +38,8 @@
 /datum/game_mode/meteor/post_setup()
 	..()
 	alert_title = "Automated Beacon AB-[rand(10, 99)]"
-	alert_text = "This is an automatic warning. The [SSatlas.current_map.station_name] is on a collision course with a nearby asteroid belt. Estimated time until impact is: [meteor_grace_period / 1200] MINUTES. Please perform necessary actions to secure your ship or station from the threat. Have a nice day."
-	start_text = "This is an automatic warning. The [SSatlas.current_map.station_name] has entered an asteroid belt. Estimated time until you leave the belt is: [rand(20,30)] HOURS and [rand(1, 59)] MINUTES. For your safety, please consider changing course or using protective equipment. Have a nice day."
+	alert_text = "This is an automatic warning. The [SSmapping.current_map.station_name] is on a collision course with a nearby asteroid belt. Estimated time until impact is: [meteor_grace_period / 1200] MINUTES. Please perform necessary actions to secure your ship or station from the threat. Have a nice day."
+	start_text = "This is an automatic warning. The [SSmapping.current_map.station_name] has entered an asteroid belt. Estimated time until you leave the belt is: [rand(20,30)] HOURS and [rand(1, 59)] MINUTES. For your safety, please consider changing course or using protective equipment. Have a nice day."
 	next_wave = round_duration_in_ticks + meteor_grace_period
 
 /datum/game_mode/meteor/proc/on_meteor_warn()
@@ -49,7 +49,7 @@
 /datum/game_mode/meteor/proc/on_enter_field()
 	alert_sent = 2
 	command_announcement.Announce(start_text, alert_title)
-	if(SSatlas.current_map.use_overmap)
+	if(SSmapping.current_map.use_overmap)
 		var/area/map = GLOB.map_overmap
 		for(var/turf/T in map)
 			new/obj/effect/overmap/event/meteor(T)
@@ -82,19 +82,19 @@
 /datum/game_mode/meteor/proc/get_meteor_types()
 	switch(meteor_severity)
 		if(1 to 9)
-			return SSatlas.current_sector.meteors_dust
+			return SSmapping.current_sector.meteors_dust
 		if(10 to 19)
-			return SSatlas.current_sector.meteors_normal
+			return SSmapping.current_sector.meteors_normal
 		if(20 to 29)
-			return SSatlas.current_sector.meteors_threatening
+			return SSmapping.current_sector.meteors_threatening
 		if(30 to 34)
-			return SSatlas.current_sector.meteors_catastrophic
+			return SSmapping.current_sector.meteors_catastrophic
 		if(35 to 39)
-			return SSatlas.current_sector.meteors_armageddon
+			return SSmapping.current_sector.meteors_armageddon
 		if(40 to INFINITY)
-			return SSatlas.current_sector.meteors_cataclysm
+			return SSmapping.current_sector.meteors_cataclysm
 	// Just in case we /somehow/ get here (looking at you, varedit)
-	return SSatlas.current_sector.meteors_normal
+	return SSmapping.current_sector.meteors_normal
 
 
 #undef METEOR_FAILSAFE_THRESHOLD

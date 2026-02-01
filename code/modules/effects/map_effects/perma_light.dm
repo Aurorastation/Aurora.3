@@ -13,7 +13,7 @@
 /obj/effect/map_effect/perma_light/Initialize(mapload, ...)
 	if (uses_starlight_color)
 		light_color = SSskybox.background_color
-		light_power = SSatlas.current_sector.starlight_power
+		light_power = SSmapping.current_sector.starlight_power
 	return ..()
 
 /obj/effect/map_effect/perma_light/brighter

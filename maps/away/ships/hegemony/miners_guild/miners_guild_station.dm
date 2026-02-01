@@ -10,7 +10,7 @@
 	sectors = list(SECTOR_BADLANDS, SECTOR_UUEOAESA)
 	spawn_weight_sector_dependent = list(SECTOR_UUEOAESA = 1.5)
 	id = "miners_guild_station"
-	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/miners_guild)
+	shuttles_to_initialise = list(/datum/shuttle/overmap/miners_guild)
 
 	unit_test_groups = list(1)
 
@@ -42,8 +42,6 @@
 	)
 
 /obj/effect/shuttle_landmark/miners_guild
-	base_turf = /turf/space
-	base_area = /area/space
 
 /obj/effect/shuttle_landmark/miners_guild/nav1
 	name = "Fore"
@@ -102,6 +100,8 @@
 	fore_dir = NORTH
 	vessel_size = SHIP_SIZE_TINY
 
+	ship_area_type = /area/shuttle/miners_guild
+
 /obj/effect/overmap/visitable/ship/landable/miners_guild/New()
 	designation = "[pick("Stonebreaker", "Son of Kutah", "Asteroid's Bane", "Sinta Pride", "Ancestors' Glory", "Azhal's Blessing", "Fires of Sk'akh", "Pickaxe", "Where's The Phoron", "How Do I Reset The IFF")]"
 	..()
@@ -111,12 +111,11 @@
 	shuttle_tag = "Miners' Guild Shuttle"
 
 
-/datum/shuttle/autodock/overmap/miners_guild
+/datum/shuttle/overmap/miners_guild
 	name = "Miners' Guild Shuttle"
 	move_time = 20
 	shuttle_area = list(/area/shuttle/miners_guild)
 	current_location = "miners_guild_navhangar"
-	landmark_transition = "miners_guild_navtransit"
 	dock_target = "airlock_guild_shuttle"
 	range = 1
 	fuel_consumption = 2
@@ -127,11 +126,8 @@
 	name = "Hangar"
 	landmark_tag = "miners_guild_navhangar"
 	docking_controller = "guild_shuttle_dock"
-	base_area = /area/miners_guild/hangar
-	base_turf = /turf/simulated/floor/plating
 	movable_flags = MOVABLE_FLAG_EFFECTMOVE
 
 /obj/effect/shuttle_landmark/miners_guild/transit
 	name = "In transit"
 	landmark_tag = "miners_guild_navtransit"
-	base_turf = /turf/space/transit/north

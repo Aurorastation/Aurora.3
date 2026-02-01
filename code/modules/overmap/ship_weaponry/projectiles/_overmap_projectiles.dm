@@ -25,7 +25,7 @@
 	. = ..()
 	x = sx
 	y = sy
-	z = SSatlas.current_map.overmap_z
+	z = SSmapping.current_map.overmap_z
 	addtimer(CALLBACK(src, PROC_REF(move_to)), 1)
 
 /obj/effect/overmap/projectile/Bump(var/atom/A)
@@ -37,7 +37,7 @@
 	var/nx = x
 	var/ny = y
 	var/low_edge = 1
-	var/high_edge = SSatlas.current_map.overmap_size - 1
+	var/high_edge = SSmapping.current_map.overmap_size - 1
 
 	if((dir & WEST) && x == low_edge)
 		nx = high_edge
@@ -108,8 +108,8 @@
 					if(istype(V, /obj/effect/overmap/visitable/ship))
 						var/obj/effect/overmap/visitable/ship/VS = V
 						if(istype(ammunition.origin, /obj/effect/overmap/visitable/ship))
-							var/naval_heading = SSatlas.headings_to_naval["[VS.dir]"]["[ammunition.heading]"]
-							var/corrected_heading = SSatlas.naval_to_dir["[VS.fore_dir]"][naval_heading]
+							var/naval_heading = GLOB.headings_to_naval["[VS.dir]"]["[ammunition.heading]"]
+							var/corrected_heading = GLOB.naval_to_dir["[VS.fore_dir]"][naval_heading]
 							ammunition.heading = corrected_heading
 					else //if it's not a ship it doesn't have a fore direction, so we need to autocorrect
 						ammunition.heading = entry_target.dir

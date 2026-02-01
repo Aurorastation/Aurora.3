@@ -13,13 +13,8 @@
 	ring_chance = 0
 	ruin_planet_type = PLANET_LORE
 	ruin_type_whitelist = list (/datum/map_template/ruin/exoplanet/pra_exploration_drone)
-
-/obj/effect/overmap/visitable/sector/exoplanet/barren/aethemir/generate_atmosphere()
-	..()
-	if(atmosphere)
-		atmosphere.remove_ratio(1)
-		atmosphere.adjust_gas(GAS_NITROGEN, MOLES_O2STANDARD)
-		atmosphere.update_values()
+	possible_atmospheres = /singleton/atmosphere/nitrogen
+	turftype = /turf/simulated/floor/exoplanet/mineral/adhomai
 
 /obj/effect/overmap/visitable/sector/exoplanet/barren/aethemir/get_surface_color()
 	return "#B1A69B"
@@ -46,20 +41,13 @@
 	ring_chance = 0
 	ruin_planet_type = PLANET_LORE
 	ruin_type_whitelist = list (/datum/map_template/ruin/exoplanet/pra_exploration_drone)
+	possible_atmospheres = /singleton/atmosphere/chlorine/azmar
 
 /obj/effect/overmap/visitable/sector/exoplanet/barren/azmar/get_surface_color()
 	return "#4a3f41"
 
 /obj/effect/overmap/visitable/sector/exoplanet/barren/azmar/get_atmosphere_color()
 	return "#D8E2E9"
-
-/obj/effect/overmap/visitable/sector/exoplanet/barren/azmar/generate_atmosphere()
-	..()
-	if(atmosphere)
-		atmosphere.remove_ratio(1)
-		atmosphere.adjust_gas(GAS_CHLORINE, MOLES_O2STANDARD)
-		atmosphere.temperature = T0C + 500
-		atmosphere.update_values()
 
 /obj/effect/overmap/visitable/sector/exoplanet/barren/azmar/update_icon()
 	return
@@ -106,6 +94,7 @@
 	ruin_planet_type = PLANET_LORE
 	ruin_type_whitelist = list (/datum/map_template/ruin/exoplanet/raskara_ritual, /datum/map_template/ruin/exoplanet/raskara_okon, /datum/map_template/ruin/exoplanet/raskara_wreck, /datum/map_template/ruin/exoplanet/pra_exploration_drone)
 	place_near_main = list(3, 3)
+	turftype = /turf/simulated/floor/exoplanet/barren/raskara
 
 /obj/effect/overmap/visitable/sector/exoplanet/barren/raskara/get_surface_color()
 	return "#373737"
@@ -160,11 +149,13 @@
 	/datum/map_template/ruin/exoplanet/adhomai_war_memorial, /datum/map_template/ruin/exoplanet/adhomai_raskara_ritual, /datum/map_template/ruin/exoplanet/adhomai_raskariim_hideout, /datum/map_template/ruin/exoplanet/adhomai_cavern_geist,
 	/datum/map_template/ruin/exoplanet/adhomai_tunneler_nest, /datum/map_template/ruin/exoplanet/adhomai_rafama_herd)
 	place_near_main = list(2, 2)
+	possible_atmospheres = /singleton/atmosphere/breathable/earthlike/adhomai
 	var/landing_faction
 
 /obj/effect/overmap/visitable/sector/exoplanet/adhomai/pre_ruin_preparation()
 	if(prob(15))
 		landing_faction = "North Pole"
+		possible_atmospheres = /singleton/atmosphere/breathable/earthlike/adhomai/northpole
 	else
 		landing_faction = pick("People's Republic of Adhomai", "Democratic People's Republic of Adhomai", "New Kingdom of Adhomai")
 	switch(landing_faction)
@@ -205,9 +196,6 @@
 
 	desc += " The landing sites are located at the [landing_faction]'s territory."
 
-/obj/effect/overmap/visitable/sector/exoplanet/adhomai/generate_habitability()
-	return HABITABILITY_IDEAL
-
 /obj/effect/overmap/visitable/sector/exoplanet/adhomai/generate_map()
 	if(prob(75))
 		lightlevel = rand(3,10)/10
@@ -223,18 +211,6 @@
 	skybox_image = image('icons/skybox/lore_planets.dmi', "adhomai")
 	skybox_image.pixel_x = rand(0,64)
 	skybox_image.pixel_y = rand(128,256)
-
-/obj/effect/overmap/visitable/sector/exoplanet/adhomai/generate_atmosphere()
-	..()
-	if(atmosphere)
-		atmosphere.remove_ratio(1)
-		atmosphere.adjust_gas(GAS_OXYGEN, MOLES_O2STANDARD, 1)
-		atmosphere.adjust_gas(GAS_NITROGEN, MOLES_N2STANDARD, 1)
-		if(landing_faction == "North Pole")
-			atmosphere.temperature = T0C - 40
-		else
-			atmosphere.temperature = T0C - 5
-		atmosphere.update_values()
 
 /obj/effect/overmap/visitable/sector/exoplanet/adhomai/update_icon()
 	return

@@ -66,8 +66,6 @@
 
 /obj/effect/shuttle_landmark/orion_automated_station
 	name = "orion_automated_station parent landmark"
-	base_area = /area/space
-	base_turf = /turf/space
 
 /obj/effect/shuttle_landmark/orion_automated_station/dock/west
 	name = "Dock, West"
@@ -176,6 +174,7 @@
 /area/orion_automated_station/exterior
 	name = "Exterior Catwalks/Lattices"
 	icon_state = "exterior"
+	area_flags = AREA_FLAG_NO_GRAVITY | AREA_FLAG_SHIP_EXTERIOR
 
 // -------------------------------- items
 

@@ -28,9 +28,6 @@
 	/// Z-levels available to various consoles, such as the crew monitor. Defaults to station_levels if unset.
 	var/list/map_levels
 
-	/// Custom base turf by Z-level. Defaults to world.turf for unlisted Z-levels
-	var/list/base_turf_by_z = list()
-
 	/// This list contains the z-level numbers which can be accessed via space travel and the percentile chances to get there.
 	var/list/accessible_z_levels = list()
 
@@ -191,7 +188,7 @@
 
 // By default transition randomly to another zlevel
 /datum/map/proc/get_transit_zlevel(var/current_z_level)
-	var/list/candidates = SSatlas.current_map.accessible_z_levels.Copy()
+	var/list/candidates = SSmapping.current_map.accessible_z_levels.Copy()
 	candidates.Remove(num2text(current_z_level))
 
 	if(!candidates.len)
@@ -215,7 +212,7 @@
 		log_admin("Not building exoplanets because the config specifies not to")
 		return
 
-	var/datum/space_sector/sector = SSatlas.current_sector
+	var/datum/space_sector/sector = SSmapping.current_sector
 	var/list/possible_exoplanets = sector.possible_exoplanets
 	var/list/guaranteed_exoplanets = sector.guaranteed_exoplanets
 
@@ -313,7 +310,7 @@
 			if ((site.template_flags & TEMPLATE_FLAG_ALLOW_DUPLICATES) && !(site.template_flags & TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED))
 				available[site] = site.spawn_weight
 		else if((site.template_flags & TEMPLATE_FLAG_PORT_SPAWN) && (site.spawns_in_current_sector()))
-			if(SSatlas.is_port_call_day()) //we check here as we only want sites with PORT_SPAWN flag to spawn if this is true, else we want it not considered.
+			if(SSmapping.is_port_call_day()) //we check here as we only want sites with PORT_SPAWN flag to spawn if this is true, else we want it not considered.
 				guaranteed += site
 				if ((site.template_flags & TEMPLATE_FLAG_ALLOW_DUPLICATES) && !(site.template_flags & TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED))
 					available[site] = site.spawn_weight

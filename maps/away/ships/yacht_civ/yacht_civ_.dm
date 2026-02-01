@@ -10,7 +10,7 @@
 	spawn_weight = 1
 	ship_cost = 1
 	id = "yacht_civ"
-	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/yacht_civ_shuttle)
+	shuttles_to_initialise = list(/datum/shuttle/overmap/yacht_civ_shuttle)
 	unit_test_groups = list(3)
 
 /singleton/submap_archetype/yacht_civ
@@ -59,6 +59,8 @@
 		"nav_yacht_civ_space_starboard_far",
 	)
 
+	ship_area_type = /area/ship/yacht_civ
+
 /obj/effect/overmap/visitable/ship/yacht_civ/New()
 	var/pretentious_reference = pick(
 		"Ulysses", "Priam", "Helen", "Aeneas", "Virgil", "Dante", "Palamon", "Arcita", "Nimue", "Morgana", "Gawain", //IRL
@@ -91,6 +93,8 @@
 	sizeclass = "Glass-class Shuttle"
 	shiptype = "Short-range transport"
 
+	ship_area_type = /area/shuttle/yacht_civ_shuttle
+
 /obj/effect/overmap/visitable/ship/landable/yacht_civ_shuttle/New()
 	var/planetary_body = pick(
 		"Jupiter", "Saturn", "Uranus", "Neptune", "Venus", "Mars", "Ganymede", "Titan",
@@ -108,13 +112,12 @@
 	name = "shuttle control console"
 	shuttle_tag = "Civilian Yacht Shuttle"
 
-/datum/shuttle/autodock/overmap/yacht_civ_shuttle
+/datum/shuttle/overmap/yacht_civ_shuttle
 	name = "Civilian Yacht Shuttle"
 	move_time = 20
 	shuttle_area = list(/area/shuttle/yacht_civ_shuttle)
 	dock_target = "airlock_yacht_civ_shuttle"
 	current_location = "nav_yacht_civ_shuttle_dock"
-	landmark_transition = "nav_yacht_civ_shuttle_transit"
 	range = 1
 	fuel_consumption = 2
 	logging_home_tag = "nav_yacht_civ_shuttle_dock"

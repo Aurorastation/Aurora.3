@@ -9,7 +9,7 @@
 	spawn_weight = 0 // outdated and not following current standards, could be enabled after it's fixed
 	ship_cost = 1
 	id = "tcfl_peacekeeper_ship"
-	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/tcfl_shuttle)
+	shuttles_to_initialise = list(/datum/shuttle/overmap/tcfl_shuttle)
 	ban_ruins = list(/datum/map_template/ruin/away_site/tcaf_corvette)
 
 	unit_test_groups = list(3)
@@ -58,6 +58,8 @@
 
 	invisible_until_ghostrole_spawn = TRUE
 
+	ship_area_type = /area/ship/tcfl_peacekeeper_ship
+
 /obj/effect/overmap/visitable/ship/tcfl_peacekeeper_ship/New()
 	designation = "[pick("Castle", "Rook", "Gin Rummy", "Pawn", "Bishop", "Knight", "Blackjack", "Torch", "Liberty", "President Dorn", "Independence", "Civic Duty", "Democracy", "Progress", "Prosperity", "New Gibson", "Biesel", "Justice", "Equality")]"
 	..()
@@ -71,19 +73,14 @@
 /obj/effect/shuttle_landmark/tcfl_peacekeeper_ship/nav1
 	name = "TCFL Corvette - Port Side"
 	landmark_tag = "nav_tcfl_peacekeeper_ship_1"
-	base_turf = /turf/space/dynamic
-	base_area = /area/space
 
 /obj/effect/shuttle_landmark/tcfl_peacekeeper_ship/nav2
 	name = "TCFL Corvette - Port Airlock"
 	landmark_tag = "nav_tcfl_peacekeeper_ship_2"
-	base_turf = /turf/space/dynamic
-	base_area = /area/space
 
 /obj/effect/shuttle_landmark/tcfl_peacekeeper_ship/transit
 	name = "In transit"
 	landmark_tag = "nav_transit_tcfl_peacekeeper_ship"
-	base_turf = /turf/space/transit/north
 
 //shuttle stuff
 /obj/effect/overmap/visitable/ship/landable/tcfl_shuttle
@@ -101,17 +98,18 @@
 	fore_dir = NORTH
 	vessel_size = SHIP_SIZE_TINY
 
+	ship_area_type = /area/shuttle/tcfl_shuttle
+
 /obj/machinery/computer/shuttle_control/explore/tcfl_shuttle
 	name = "shuttle control console"
 	shuttle_tag = "TCFL Shuttle"
 	req_access = list(ACCESS_TCAF_SHIPS)
 
-/datum/shuttle/autodock/overmap/tcfl_shuttle
+/datum/shuttle/overmap/tcfl_shuttle
 	name = "TCFL Shuttle"
 	move_time = 20
 	shuttle_area = list(/area/shuttle/tcfl_shuttle)
 	current_location = "nav_hangar_tcfl"
-	landmark_transition = "nav_transit_tcfl_shuttle"
 	range = 1
 	fuel_consumption = 2
 	logging_home_tag = "nav_hangar_tcfl"
@@ -121,11 +119,8 @@
 	name = "TCFL Shuttle Hangar"
 	landmark_tag = "nav_hangar_tcfl"
 	docking_controller = "tcfl_shuttle_dock"
-	base_area = /area/ship/tcfl_peacekeeper_ship
-	base_turf = /turf/simulated/floor/plating
 	movable_flags = MOVABLE_FLAG_EFFECTMOVE
 
 /obj/effect/shuttle_landmark/tcfl_shuttle/transit
 	name = "In transit"
 	landmark_tag = "nav_transit_tcfl_shuttle"
-	base_turf = /turf/space/transit/north

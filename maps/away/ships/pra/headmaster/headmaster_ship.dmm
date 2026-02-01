@@ -7761,7 +7761,7 @@
 /turf/simulated/wall/shuttle/raider,
 /area/headmaster_ship/commissar_quarters)
 "Fm" = (
-/obj/effect/floor_decal/plaque,
+/obj/structure/sign/floor_plaque,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},

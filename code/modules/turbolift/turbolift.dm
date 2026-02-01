@@ -106,6 +106,7 @@
 					move_candidates += AM
 
 	origin.move_contents_to(destination)
+
 	for(var/thing in move_candidates)
 		var/atom/movable/AM = thing
 		var/turf/T = get_turf(AM)

@@ -9,7 +9,7 @@
 	spawn_weight = 1
 	ship_cost = 1
 	id = "water_barge"
-	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/water_barge_shuttle)
+	shuttles_to_initialise = list(/datum/shuttle/overmap/water_barge_shuttle)
 
 	unit_test_groups = list(3)
 
@@ -46,13 +46,13 @@
 		"water_barge_dock_s"
 	)
 
+	ship_area_type = /area/water_barge
+
 /obj/effect/overmap/visitable/ship/water_barge/New()
 	designation = "[pick("Shelfer", "Sapsalgae", "Harmony", "Reciprocity", "Qixi")]"
 	..()
 
 /obj/effect/shuttle_landmark/water_barge
-	base_turf = /turf/space/dynamic
-	base_area = /area/space
 
 /obj/effect/shuttle_landmark/water_barge/nav1
 	name = "PACHROM Water Barge - Fore"
@@ -96,12 +96,13 @@
 	fore_dir = NORTH
 	vessel_size = SHIP_SIZE_TINY
 
-/datum/shuttle/autodock/overmap/water_barge_shuttle
+	ship_area_type = /area/shuttle/water_barge
+
+/datum/shuttle/overmap/water_barge_shuttle
 	name = "Water Barge Shuttle"
 	move_time = 20
 	shuttle_area = list(/area/shuttle/water_barge)
 	current_location = "nav_water_barge_hangar"
-	landmark_transition = "nav_water_barge_transit"
 	dock_target = "airlock_waterbarge_shuttle"
 	range = 1
 	fuel_consumption = 2
@@ -115,12 +116,9 @@
 /obj/effect/shuttle_landmark/water_barge_shuttle/transit
 	name = "In transit"
 	landmark_tag = "nav_water_barge_transit"
-	base_turf = /turf/space/transit/north
 
 /obj/effect/shuttle_landmark/water_barge_shuttle/hangar
 	name = "PACHROM Water Barge - Hangar"
 	landmark_tag = "nav_water_barge_hangar"
 	docking_controller = "water_barge_hangar"
-	base_area = /area/water_barge/hangar
-	base_turf = /turf/simulated/floor/plating
 	movable_flags = MOVABLE_FLAG_EFFECTMOVE

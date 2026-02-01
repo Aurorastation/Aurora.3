@@ -1,6 +1,4 @@
 /obj/effect/shuttle_landmark/tramp_freighter
-	base_area = /area/space
-	base_turf = /turf/space
 
 //space landmarks
 /obj/effect/shuttle_landmark/tramp_freighter/nav1
@@ -54,7 +52,6 @@
 /obj/effect/shuttle_landmark/tramp_freighter/transit
 	name = "In transit"
 	landmark_tag = "nav_transit_tramp_freighter"
-	base_turf = /turf/space/transit/east
 
 //airlocks, port
 /obj/effect/map_effect/marker/airlock/docking/tramp_freighter/port_aft
@@ -106,7 +103,6 @@
 /obj/effect/shuttle_landmark/freighter_shuttle/transit
 	name = "In transit"
 	landmark_tag = "nav_transit_freighter_shuttle"
-	base_turf = /turf/space/transit/north
 
 /obj/effect/map_effect/marker/airlock/docking/tramp_freighter/shuttle_dock
 	name = "tramp_shuttle_dock"

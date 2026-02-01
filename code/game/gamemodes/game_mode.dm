@@ -276,9 +276,9 @@ GLOBAL_LIST_EMPTY(additional_antag_types)
 	addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(display_logout_report)), ROUNDSTART_LOGOUT_REPORT_TIME)
 
 	var/welcome_delay = rand(waittime_l, waittime_h)
-	addtimer(CALLBACK(SSatlas.current_map, TYPE_PROC_REF(/datum/map, send_welcome)), welcome_delay)
+	addtimer(CALLBACK(SSmapping.current_map, TYPE_PROC_REF(/datum/map, send_welcome)), welcome_delay)
 
-	addtimer(CALLBACK(SSatlas.current_map, TYPE_PROC_REF(/datum/map, load_holodeck_programs)), 5 MINUTES)
+	addtimer(CALLBACK(SSmapping.current_map, TYPE_PROC_REF(/datum/map, load_holodeck_programs)), 5 MINUTES)
 
 	//Assign all antag types for this game mode. Any players spawned as antags earlier should have been removed from the pending list, so no need to worry about those.
 	for(var/datum/antagonist/antag in antag_templates)

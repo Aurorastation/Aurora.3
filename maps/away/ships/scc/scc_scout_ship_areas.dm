@@ -53,6 +53,7 @@
 	name = "Exterior Catwalks/Lattices"
 	icon_state = "exterior"
 	needs_starlight = TRUE
+	area_flags = AREA_FLAG_NO_GRAVITY | AREA_FLAG_SHIP_EXTERIOR
 
 // ---------------------- shuttle
 

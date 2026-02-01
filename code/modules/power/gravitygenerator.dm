@@ -1,3 +1,6 @@
+/// We will keep track of this by adding new gravity generators to the list, and keying it with the z level.
+GLOBAL_LIST_EMPTY(gravity_generators)
+
 #define POWER_IDLE 0
 #define POWER_UP 1
 #define POWER_DOWN 2
@@ -6,11 +9,6 @@
 #define GRAV_NEEDS_WELDING 1
 #define GRAV_NEEDS_PLASTEEL 2
 #define GRAV_NEEDS_WRENCH 3
-
-#define AREA_ERRNONE 0
-#define AREA_STATION 1
-#define AREA_SPACE 2
-#define AREA_SPECIAL 3
 //
 // Abstract Generator
 //
@@ -125,6 +123,7 @@
 	var/round_start = 2 //To help stop a bug with round start
 	var/backpanelopen = 0
 	var/eventon = 0
+	var/setting = 1
 
 /obj/machinery/gravity_generator/main/Destroy()
 	LOG_DEBUG("Gravity Generator Destroyed")
@@ -341,7 +340,6 @@
 // Set the state of the gravity.
 /obj/machinery/gravity_generator/main/proc/set_state(var/new_state)
 	charging_state = POWER_IDLE
-	var/gravity_changed = (on != new_state)
 	on = new_state
 	update_use_power(on ? POWER_USE_ACTIVE : POWER_USE_IDLE)
 	// Sound the alert if gravity was just enabled or disabled.
@@ -351,20 +349,18 @@
 	if(new_state) // If we turned on
 		if(!area.has_gravity())
 			alert = 1
-			GLOB.gravity_is_on = 1
 			soundloop.start(src)
 			investigate_log("was brought online and is now producing gravity for this level.", "gravity")
 			message_admins("The gravity generator was brought online. (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[x];Y=[y];Z=[z]'>[areadisplayname]</a>)")
 	else
 		if(area.has_gravity())
 			alert = 1
-			GLOB.gravity_is_on = 0
 			soundloop.stop(src)
 			investigate_log("was brought offline and there is now no gravity for this level.", "gravity")
 			message_admins("The gravity generator was brought offline with no backup generator. (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[x];Y=[y];Z=[z]'>[areadisplayname]</a>)")
 
 	update_icon()
-	update_list(gravity_changed)
+	update_list()
 	src.updateUsrDialog()
 	if(alert)
 		shake_everyone()
@@ -432,49 +428,47 @@
 				shake_camera(M, 5, 1)
 				M.playsound_local(our_turf, 'sound/effects/alert.ogg', 100, vary = TRUE, falloff_distance = 0.5)
 
-/obj/machinery/gravity_generator/main/proc/update_list(var/gravity_changed = FALSE)
-	var/turf/T = get_turf(src.loc)
-	if(T)
-		if(!SSmachinery.gravity_generators)
-			SSmachinery.gravity_generators = list()
+/obj/machinery/gravity_generator/main/proc/gravity_in_level()
+	var/turf/T = get_turf(src)
+	if(!T)
+		return FALSE
+	if(GLOB.gravity_generators["[T.z]"])
+		return length(GLOB.gravity_generators["[T.z]"])
+	return FALSE
 
-		if(on && gravity_changed)
-			for(var/area/A in localareas)
-				A.gravitychange(TRUE)
-			SSmachinery.gravity_generators += src
-		else if (!on)
-			for(var/area/A in localareas)
-				A.gravitychange(FALSE)
-			SSmachinery.gravity_generators -= src
+/obj/machinery/gravity_generator/main/proc/update_list()
+	var/turf/T = get_turf(src)
+	if(!T)
+		return
+	var/list/z_list = list()
+	// Multi-Z, station gravity generator generates gravity on all ZTRAIT_STATION z-levels.
+	if(SSmapping.level_trait(T.z, ZTRAIT_STATION))
+		for(var/z in SSmapping.levels_by_trait(ZTRAIT_STATION))
+			z_list += z
+	else
+		z_list += T.z
+	for(var/z in z_list)
+		if(!GLOB.gravity_generators["[z]"])
+			GLOB.gravity_generators["[z]"] = list()
+		if(on)
+			GLOB.gravity_generators["[z]"] |= src
+		else
+			GLOB.gravity_generators["[z]"] -= src
+		SSmapping.calculate_z_level_gravity(z)
 
 /obj/machinery/gravity_generator/main/Initialize()
 	. = ..()
 	soundloop = new(src, start_immediately = FALSE)
-	addtimer(CALLBACK(src, PROC_REF(updateareas)), 10)
 	return INITIALIZE_HINT_LATELOAD
 
 /obj/machinery/gravity_generator/main/LateInitialize()
 	..()
-	if(SSatlas.current_map.use_overmap && !linked)
+	if(SSmapping.current_map.use_overmap && !linked)
 		var/my_sector = GLOB.map_sectors["[z]"]
 		if (istype(my_sector, /obj/effect/overmap/visitable))
 			attempt_hook_up(my_sector)
 	if(linked)
 		linked.gravity_generator = src
-
-/obj/machinery/gravity_generator/main/proc/updateareas()
-	for(var/area/A in GLOB.the_station_areas)
-		if(!(get_area_type(A) == AREA_STATION))
-			continue
-		localareas += A
-
-/obj/machinery/gravity_generator/main/proc/get_area_type(var/area/A = get_area(src))
-	if (A.name == "Space")
-		return AREA_SPACE
-	else if(A.alwaysgravity == 1 || A.nevergravity == 1)
-		return AREA_SPECIAL
-	else
-		return AREA_STATION
 
 /obj/machinery/gravity_generator/main/proc/throw_up_and_down(var/area/Area)
 	if(!Area)
@@ -505,8 +499,3 @@
 #undef GRAV_NEEDS_WELDING
 #undef GRAV_NEEDS_PLASTEEL
 #undef GRAV_NEEDS_WRENCH
-
-#undef AREA_ERRNONE
-#undef AREA_STATION
-#undef AREA_SPACE
-#undef AREA_SPECIAL

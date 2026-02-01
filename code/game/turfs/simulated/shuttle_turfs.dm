@@ -626,6 +626,10 @@
 	)
 
 /turf/simulated/shuttle_roof/ex_act(severity)
-	if(severity == 1)
-		src.ChangeTurf(baseturf)
+	var/shuttle_depth = depth_to_find_baseturf(/turf/baseturf_skipover/shuttle)
+
+	if(shuttle_depth)
+		scrape_away(shuttle_depth + 2)
+	else
+		scrape_away(2)
 	return

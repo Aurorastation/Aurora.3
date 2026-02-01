@@ -1,8 +1,6 @@
 // --------------------- base type
 
 /obj/effect/shuttle_landmark/saniorios_outpost
-	base_turf = /turf/space
-	base_area = /area/space
 
 // --------------------- shuttle
 
@@ -10,8 +8,6 @@
 	name = "Sani'Orios Hangar"
 	landmark_tag = "nav_hangar_saniorios_outpost"
 	docking_controller = "tajara_saniorios_outpost_dock"
-	base_area = /area/space
-	base_turf = /turf/space
 	movable_flags = MOVABLE_FLAG_EFFECTMOVE
 
 /obj/effect/map_effect/marker/airlock/docking/saniorios_outpost
@@ -24,7 +20,6 @@
 /obj/effect/shuttle_landmark/saniorios_outpost/transit
 	name = "In transit"
 	landmark_tag = "nav_transit_saniorios_outpost"
-	base_turf = /turf/space/transit/north
 
 // --------------------- docks
 

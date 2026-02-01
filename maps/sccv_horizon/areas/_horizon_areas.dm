@@ -36,13 +36,11 @@
 /area/horizon/exterior
 	name = "Horizon - Exterior"
 	icon_state = "exterior"
-	base_turf = /turf/space
 	requires_power = FALSE
 	// This area will place starlight on any turf it's put on!
 	needs_starlight = TRUE
-	has_gravity = FALSE
 	no_light_control = TRUE
 	allow_nightmode = FALSE
 	ambience = AMBIENCE_SPACE
-	area_flags = AREA_FLAG_HIDE_FROM_HOLOMAP | AREA_FLAG_PREVENT_PERSISTENT_TRASH
+	area_flags = AREA_FLAG_HIDE_FROM_HOLOMAP | AREA_FLAG_PREVENT_PERSISTENT_TRASH | AREA_FLAG_NO_GRAVITY | AREA_FLAG_SHIP_EXTERIOR
 	area_blurb = "The sheer scale of the SCCV Horizon is never more apparent when crawling across its hull like an ant."

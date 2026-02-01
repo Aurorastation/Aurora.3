@@ -7,7 +7,7 @@
 	prefix = "away_site/uueoaesa/tret/"
 	suffix = "tret_industrial_complex.dmm"
 	id = "tret_industrial_complex"
-	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/tret_industrial)
+	shuttles_to_initialise = list(/datum/shuttle/overmap/tret_industrial)
 
 	sectors = list(SECTOR_UUEOAESA)
 	spawn_weight = 1
@@ -89,6 +89,8 @@
 	fore_dir = NORTH
 	vessel_size = SHIP_SIZE_TINY
 
+	ship_area_type = /area/shuttle/tret_industrial
+
 /obj/effect/overmap/visitable/ship/landable/tret_industrial/New()
 	designation = pick("Xk'tiik", "Kl'axkia", "Xahth", "Aaxkia'tiik", "Lak'tixa", "Laxka")
 	..()
@@ -97,14 +99,13 @@
 	name = "shuttle control console"
 	shuttle_tag = "Tret Mining Shuttle"
 
-/datum/shuttle/autodock/overmap/tret_industrial
+/datum/shuttle/overmap/tret_industrial
 	name = "Tret Mining Shuttle"
 	move_time = 20
 	shuttle_area = list(/area/shuttle/tret_industrial/main, /area/shuttle/tret_industrial/propulsion)
 	dock_target = "airlock_tret_industrial_shuttle"
 	current_location = "nav_tret_industrial_dock_outpost_1"
 	logging_home_tag = "nav_tret_industrial_dock_outpost_1"
-	landmark_transition = "nav_tret_industrial_shuttle_transit"
 	range = 1
 	fuel_consumption = 2
 	defer_initialisation = TRUE

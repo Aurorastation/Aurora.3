@@ -196,7 +196,6 @@
 
 /turf/simulated/floor/airless/ceiling
 	icon_state = "asteroidplating"
-	baseturf = /turf/space
 
 // ------------------------------- tiled/dark
 

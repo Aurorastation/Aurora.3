@@ -93,3 +93,10 @@
 #else
 #define TEST_OUTPUT_YELLOW(text) (text)
 #endif
+
+/// ASSERT(), but it only actually does anything during unit tests
+#ifdef UNIT_TESTS
+#define TEST_ONLY_ASSERT(test, explanation) if(!(test)) {CRASH(explanation)}
+#else
+#define TEST_ONLY_ASSERT(test, explanation)
+#endif

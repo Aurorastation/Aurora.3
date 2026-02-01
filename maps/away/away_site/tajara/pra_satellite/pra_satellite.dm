@@ -35,8 +35,6 @@
 	comms_name = "pra satellite"
 
 /obj/effect/shuttle_landmark/pra_satellite
-	base_turf = /turf/space
-	base_area = /area/space
 
 /obj/effect/shuttle_landmark/pra_satellite/nav1
 	name = "Hadiist Satellite Navpoint #1"
@@ -71,6 +69,5 @@
 	icon_state = "research"
 	area_flags = AREA_FLAG_RAD_SHIELDED
 	requires_power = TRUE
-	base_turf = /turf/simulated/floor/plating
 	no_light_control = TRUE
 	ambience = AMBIENCE_TECH_RUINS

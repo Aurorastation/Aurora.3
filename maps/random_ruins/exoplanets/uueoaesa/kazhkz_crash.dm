@@ -7,7 +7,7 @@
 	sectors = list(SECTOR_UUEOAESA)
 	prefix = "uueoaesa/"
 	suffix = "kazhkz_crash.dmm"
-	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/kazhkz_crash)
+	shuttles_to_initialise = list(/datum/shuttle/overmap/kazhkz_crash)
 
 	unit_test_groups = list(3)
 
@@ -33,16 +33,17 @@
 	fore_dir = SOUTH
 	vessel_size = SHIP_SIZE_TINY
 
+	ship_area_type = /area/shuttle/kazhkz_crash
+
 /obj/machinery/computer/shuttle_control/explore/kazhkz_crash
 	name = "shuttle control console"
 	shuttle_tag = "Crashed Kazhkz Shuttle"
 
-/datum/shuttle/autodock/overmap/kazhkz_crash
+/datum/shuttle/overmap/kazhkz_crash
 	name = "Crashed Kazhkz Shuttle"
 	move_time = 90
 	shuttle_area = list(/area/shuttle/kazhkz_crash)
 	current_location = "nav_start_kazhkz_crash"
-	landmark_transition = "nav_transit_kazhkz_crash"
 	range = 1
 	fuel_consumption = 2
 	logging_home_tag = "nav_start_kazhkz_crash"
@@ -52,13 +53,11 @@
 	name = "Shuttle Crash Site"
 	landmark_tag = "nav_start_kazhkz_crash"
 	docking_controller = "airlock_kazhkz_crash"
-	landmark_flags = SLANDMARK_FLAG_AUTOSET //Can spawn on multiple planet types
 	movable_flags = MOVABLE_FLAG_EFFECTMOVE
 
 /obj/effect/shuttle_landmark/kazhkz_crash/transit
 	name = "In transit"
 	landmark_tag = "nav_transit_kazhkz_crash"
-	base_turf = /turf/space/transit/north
 
 /obj/effect/landmark/corpse/kazhkz_crash
 	name = "Dead Kazhkz Warrior"

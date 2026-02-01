@@ -42,9 +42,9 @@
 /// Multiplies the price modifier by any sector-dependent price modifier this supplier has and returns it. Used for sectors in which a certain supplier might be more expensive or cheaper due to regional influences, tariffs, etc.
 /singleton/cargo_supplier/proc/get_total_price_coefficient()
 	var/final_coef = price_modifier
-	if(SSatlas.current_sector)
-		if(short_name in SSatlas.current_sector.cargo_price_coef)
-			final_coef = SSatlas.current_sector.cargo_price_coef[short_name] * price_modifier
+	if(SSmapping.current_sector)
+		if(short_name in SSmapping.current_sector.cargo_price_coef)
+			final_coef = SSmapping.current_sector.cargo_price_coef[short_name] * price_modifier
 
 	log_subsystem_cargo("get_total_price_coefficient() called on suppliers '[name]' is multiplying original value [price_modifier] to [final_coef].")
 	return final_coef

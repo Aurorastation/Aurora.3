@@ -48,7 +48,7 @@
 	data["can_call_shuttle"] = can_call_shuttle()
 	data["isAI"] = issilicon(usr)
 	data["authenticated"] = is_authenticated(user)
-	data["boss_short"] = SSatlas.current_map.boss_short
+	data["boss_short"] = SSmapping.current_map.boss_short
 	data["current_security_level"] = GLOB.security_level
 	data["current_security_level_title"] = num2seclevel(GLOB.security_level)
 	data["current_maint_all_access"] = GLOB.maint_all_access
@@ -155,12 +155,12 @@
 					if(!is_relay_online())//Contact Centcom has a check, Syndie doesn't to allow for Traitor funs.
 						to_chat(usr, SPAN_WARNING("No Emergency Bluespace Relay detected. Unable to transmit message."))
 						return
-					var/input = sanitize(tgui_input_text(usr, "Please choose a message to transmit to [SSatlas.current_map.boss_name] via quantum entanglement.", "Emergency Message", multiline = TRUE, encode = FALSE))
+					var/input = sanitize(tgui_input_text(usr, "Please choose a message to transmit to [SSmapping.current_map.boss_name] via quantum entanglement.", "Emergency Message", multiline = TRUE, encode = FALSE))
 					if(!input || computer.use_check_and_message(usr))
 						return
 					Centcomm_announce(input, usr)
 					to_chat(usr, SPAN_NOTICE("Message successfully transmitted."))
-					log_say("[key_name(usr)] has sent a message to [SSatlas.current_map.boss_short]: [input]")
+					log_say("[key_name(usr)] has sent a message to [SSmapping.current_map.boss_short]: [input]")
 					centcomm_message_cooldown = TRUE
 					addtimer(CALLBACK(src, PROC_REF(set_centcomm_message_cooldown), FALSE), 300) // thirty second cooldown
 		if("evac")
@@ -303,12 +303,12 @@ Command action procs
 	if(!(ROUND_IS_STARTED) || !GLOB.evacuation_controller)
 		return FALSE
 
-	if(SSatlas.current_map.shuttle_call_restarts && SSatlas.current_map.shuttle_call_restart_timer)
-		deltimer(SSatlas.current_map.shuttle_call_restart_timer)
-		SSatlas.current_map.shuttle_call_restart_timer = null
+	if(SSmapping.current_map.shuttle_call_restarts && SSmapping.current_map.shuttle_call_restart_timer)
+		deltimer(SSmapping.current_map.shuttle_call_restart_timer)
+		SSmapping.current_map.shuttle_call_restart_timer = null
 		log_game("[key_name(user)] has stopped the 'shuttle' round restart.", key_name(user))
 		message_admins("[key_name_admin(user)] has stopped the 'shuttle' round restart.", 1)
-		to_world(FONT_LARGE(SPAN_VOTE(SSatlas.current_map.shuttle_recall_message)))
+		to_world(FONT_LARGE(SPAN_VOTE(SSmapping.current_map.shuttle_recall_message)))
 		return
 
 	if(SSticker.mode.name == "Meteor")
@@ -359,11 +359,11 @@ Command action procs
 	if(!(ROUND_IS_STARTED) || !GLOB.evacuation_controller)
 		return
 
-	if(SSatlas.current_map.shuttle_call_restarts)
-		SSatlas.current_map.shuttle_call_restart_timer = addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(reboot_world)), 10 MINUTES, TIMER_UNIQUE|TIMER_STOPPABLE)
+	if(SSmapping.current_map.shuttle_call_restarts)
+		SSmapping.current_map.shuttle_call_restart_timer = addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(reboot_world)), 10 MINUTES, TIMER_UNIQUE|TIMER_STOPPABLE)
 		log_game("[user? key_name(user) : "Autotransfer"] has called the 'shuttle' round restart.")
 		message_admins("[user? key_name_admin(user) : "Autotransfer"] has called the 'shuttle' round restart.", 1)
-		to_world(FONT_LARGE(SPAN_VOTE(SSatlas.current_map.shuttle_called_message)))
+		to_world(FONT_LARGE(SPAN_VOTE(SSmapping.current_map.shuttle_called_message)))
 		return
 
 	. = GLOB.evacuation_controller.call_evacuation(null, _evac_type = TRANSFER_CREW, autotransfer = TRUE)

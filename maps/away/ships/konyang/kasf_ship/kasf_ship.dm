@@ -6,7 +6,7 @@
 	suffix = "kasf_ship.dmm"
 
 	id = "kasf_corvette"
-	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/kasf_shuttle)
+	shuttles_to_initialise = list(/datum/shuttle/overmap/kasf_shuttle)
 
 	ship_cost = 1
 	sectors = list(ALL_COALITION_SECTORS)
@@ -55,6 +55,8 @@
 
 	invisible_until_ghostrole_spawn = TRUE
 
+	ship_area_type = /area/ship/kasf_corvette
+
 /obj/effect/overmap/visitable/ship/kasf_corvette/New()
 	designation = "[pick("Jiyu", "Fuchin", "Luren", "Pyeongon", "Kikai", "Fenjin", "Arashi", "Saikuron", "Senpo", "Suwon", "Kuenoi", "Kyung-Sun", "Nageune", "Singijeon", "Hyeopdo", "Dangpa")]"
 	..()
@@ -68,57 +70,40 @@
 /obj/effect/shuttle_landmark/kasf_corvette/nav1
 	name = "Port Navpoint"
 	landmark_tag = "nav_kasf_corvette_1"
-	base_turf = /turf/space/dynamic
-	base_area = /area/space
 
 /obj/effect/shuttle_landmark/kasf_corvette/nav2
 	name = "Fore Navpoint"
 	landmark_tag = "nav_kasf_corvette_2"
-	base_turf = /turf/space/dynamic
-	base_area = /area/space
 
 /obj/effect/shuttle_landmark/kasf_corvette/nav3
 	name = "Starboard Navpoint"
 	landmark_tag = "nav_kasf_corvette_3"
-	base_turf = /turf/space/dynamic
-	base_area = /area/space
 
 /obj/effect/shuttle_landmark/kasf_corvette/nav4
 	name = "Aft Navpoint"
 	landmark_tag = "nav_kasf_corvette_4"
-	base_turf = /turf/space/dynamic
-	base_area = /area/space
 
 /obj/effect/shuttle_landmark/kasf_corvette/nav5
 	name = "Far Port Navpoint"
 	landmark_tag = "nav_kasf_corvette_5"
-	base_turf = /turf/space/dynamic
-	base_area = /area/space
 
 /obj/effect/shuttle_landmark/kasf_corvette/nav6
 	name = "Far Starboard Navpoint"
 	landmark_tag = "nav_kasf_corvette_6"
-	base_turf = /turf/space/dynamic
-	base_area = /area/space
 
 /obj/effect/shuttle_landmark/kasf_corvette/transit
 	name = "In transit"
 	landmark_tag = "nav_transit_kasf_corvette"
-	base_turf = /turf/space/transit/north
 
 /obj/effect/shuttle_landmark/kasf_corvette/starboard_dock
 	name = "KASF Starboard Dock"
 	landmark_tag = "nav_kasf_dock_starboard"
 	docking_controller = "airlock_kasf_dock_starboard"
-	base_turf = /turf/space
-	base_area = /area/space
 
 /obj/effect/shuttle_landmark/kasf_corvette/port_dock
 	name = "KASF Port Dock"
 	landmark_tag = "nav_kasf_dock_port"
 	docking_controller = "airlock_kasf_dock_port"
-	base_turf = /turf/space
-	base_area = /area/space
 
 
 //shuttle stuff
@@ -141,17 +126,18 @@
 	sizeclass = "Stalwart-class Transport Craft"
 	shiptype = "All-environment troop transport"
 
+	ship_area_type = /area/shuttle/kasf_shuttle
+
 /obj/machinery/computer/shuttle_control/explore/terminal/kasf_shuttle
 	name = "shuttle control console"
 	shuttle_tag = "KASF Shuttle"
 
-/datum/shuttle/autodock/overmap/kasf_shuttle
+/datum/shuttle/overmap/kasf_shuttle
 	name = "KASF Shuttle"
 	move_time = 20
 	shuttle_area = list(/area/shuttle/kasf_shuttle)
 	current_location = "nav_hangar_kasf"
 	dock_target = "airlock_kasf_shuttle"
-	landmark_transition = "nav_transit_kasf_shuttle"
 	range = 1
 	fuel_consumption = 2
 	logging_home_tag = "nav_hangar_kasf"
@@ -161,11 +147,8 @@
 	name = "KASF Shuttle Hangar"
 	landmark_tag = "nav_hangar_kasf"
 	docking_controller = "kasf_shuttle_dock"
-	base_area = /area/ship/kasf_corvette/hangar
-	base_turf = /turf/simulated/floor
 	movable_flags = MOVABLE_FLAG_EFFECTMOVE
 
 /obj/effect/shuttle_landmark/kasf_shuttle/transit
 	name = "In transit"
 	landmark_tag = "nav_transit_kasf_shuttle"
-	base_turf = /turf/space/transit/north

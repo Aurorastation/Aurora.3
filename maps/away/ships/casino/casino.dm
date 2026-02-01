@@ -9,7 +9,7 @@
 	spawn_weight = 1
 	spawn_cost = 1
 	id = "awaysite_casino"
-	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/casino_cutter)
+	shuttles_to_initialise = list(/datum/shuttle/overmap/casino_cutter)
 
 	unit_test_groups = list(2)
 
@@ -45,6 +45,8 @@
 		"Casino Cutter" = list("nav_casino_hangar"),
 	)
 
+	ship_area_type = /area/casino
+
 /obj/effect/overmap/visitable/ship/casino/New()
 	designation = "[pick("Lady Luck","Gold Rush","Fortune's Favoured","Four Leaves", "Over Easy")]"
 	..()
@@ -52,8 +54,6 @@
 //Landmarks
 
 /obj/effect/shuttle_landmark/nav_casino
-	base_turf = /turf/space
-	base_area = /area/space
 
 /obj/effect/shuttle_landmark/nav_casino/nav1
 	name = "Casino Ship Navpoint #1"
@@ -93,13 +93,14 @@
 	fore_dir = WEST
 	vessel_size = SHIP_SIZE_TINY
 
-/datum/shuttle/autodock/overmap/casino_cutter
+	ship_area_type = /area/shuttle/casino_cutter
+
+/datum/shuttle/overmap/casino_cutter
 	name = "Casino Cutter"
-	warmup_time = 13
+	warmup_time = 13 SECONDS
 	move_time = 30
 	shuttle_area = /area/shuttle/casino_cutter
 	current_location = "nav_casino_hangar"
-	landmark_transition = "nav_casino_transit"
 	fuel_consumption = 2
 	logging_home_tag = "nav_casino_hangar"
 	range = 1
@@ -108,8 +109,6 @@
 /obj/effect/shuttle_landmark/nav_casino/cutter_hangar
 	name = "Casino Hangar"
 	landmark_tag = "nav_casino_hangar"
-	base_area = /area/casino/casino_hangar
-	base_turf = /turf/simulated/floor/plating
 
 /obj/effect/shuttle_landmark/nav_casino/cutter_transit
 	name = "In transit"

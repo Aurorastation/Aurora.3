@@ -17,21 +17,21 @@
 
 	var/departed = 0
 	var/autopilot = 1
-	var/datum/shuttle/autodock/ferry/emergency/shuttle // Set in shuttle_emergency.dm
+	var/datum/shuttle/ferry/emergency/shuttle // Set in shuttle_emergency.dm
 	var/shuttle_launch_time
 
 /datum/evacuation_controller/shuttle/has_evacuated()
 	return departed
 
 /datum/evacuation_controller/shuttle/waiting_to_leave()
-	return (!autopilot || (shuttle && shuttle.is_launching()))
+	return (!autopilot || (shuttle?.moving_status == SHUTTLE_WARMUP))
 
 /datum/evacuation_controller/shuttle/launch_evacuation()
 
 	if(waiting_to_leave())
 		return
 
-	for (var/datum/shuttle/autodock/ferry/escape_pod/pod in GLOB.escape_pods)
+	for (var/datum/shuttle/ferry/escape_pod/pod in GLOB.escape_pods)
 		if (!pod.arming_controller || pod.arming_controller.armed)
 			pod.move_time = evac_transit_delay
 			pod.launch(src)
@@ -43,11 +43,11 @@
 
 	switch(evacuation_type)
 		if(TRANSFER_EMERGENCY)
-			priority_announcement.Announce(replacetext(replacetext(SSatlas.current_map.emergency_shuttle_leaving_dock, "%dock%", "[SSatlas.current_map.dock_name]"),  "%ETA%", "[round(get_eta()/60,1)] minute\s"))
+			priority_announcement.Announce(replacetext(replacetext(SSmapping.current_map.emergency_shuttle_leaving_dock, "%dock%", "[SSmapping.current_map.dock_name]"),  "%ETA%", "[round(get_eta()/60,1)] minute\s"))
 		if(TRANSFER_JUMP)
-			priority_announcement.Announce(replacetext(replacetext(SSatlas.current_map.bluespace_leaving_dock, "%dock%", "[SSatlas.current_map.dock_name]"),  "%ETA%", "[round(get_eta()/60,1)] minute\s"))
+			priority_announcement.Announce(replacetext(replacetext(SSmapping.current_map.bluespace_leaving_dock, "%dock%", "[SSmapping.current_map.dock_name]"),  "%ETA%", "[round(get_eta()/60,1)] minute\s"))
 		if(TRANSFER_CREW)
-			priority_announcement.Announce(replacetext(replacetext(SSatlas.current_map.shuttle_leaving_dock, "%dock%", "[SSatlas.current_map.dock_name]"),  "%ETA%", "[round(get_eta()/60,1)] minute\s"))
+			priority_announcement.Announce(replacetext(replacetext(SSmapping.current_map.shuttle_leaving_dock, "%dock%", "[SSmapping.current_map.dock_name]"),  "%ETA%", "[round(get_eta()/60,1)] minute\s"))
 
 
 /datum/evacuation_controller/shuttle/finish_preparing_evac()
@@ -59,7 +59,7 @@
 	. = ..()
 	// Arm the escape pods.
 	if(evacuation_type == TRANSFER_EMERGENCY)
-		for (var/datum/shuttle/autodock/ferry/escape_pod/pod in GLOB.escape_pods)
+		for (var/datum/shuttle/ferry/escape_pod/pod in GLOB.escape_pods)
 			if (pod.arming_controller)
 				pod.arming_controller.arm()
 
@@ -67,7 +67,7 @@
 	if(..())
 		autopilot = 1
 		shuttle_launch_time = evac_no_return
-		evac_ready_time += shuttle.warmup_time*10
+		evac_ready_time += shuttle.warmup_time
 		return 1
 	return 0
 
@@ -80,7 +80,7 @@
 
 /datum/evacuation_controller/shuttle/get_eta()
 	if (shuttle && shuttle.has_arrive_time())
-		return (shuttle.arrive_time-world.time)/10
+		return (shuttle.arrive_time-world.time)
 	return ..()
 
 /datum/evacuation_controller/shuttle/get_status_panel_eta()

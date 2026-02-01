@@ -69,7 +69,6 @@ ABSTRACT_TYPE(/obj/item/rfd)
 	return INITIALIZE_HINT_LATELOAD
 
 /obj/item/rfd/LateInitialize()
-	. = ..()
 	update_icon()
 
 /obj/item/rfd/attack(mob/living/target_mob, mob/living/user, target_zone)
@@ -257,7 +256,7 @@ ABSTRACT_TYPE(/obj/item/rfd)
 	// The lower istypes will return false if T is null, which means we don't have to check whether it's an atom or a turf
 	var/turf/T = isturf(A) ? A : null
 	if(mode == RFD_FLOORS_AND_WALL)
-		if(istype(T, /turf/space) || istype(T, T.baseturf))
+		if(istype(T, /turf/space) || istype(T.baseturf_at_depth(1), /turf/baseturf_bottom))
 			build_cost = 1
 			build_type = "floor"
 			build_atom = /turf/simulated/floor/airless
@@ -311,7 +310,7 @@ ABSTRACT_TYPE(/obj/item/rfd)
 			build_cost = 10
 			build_delay = 50
 			build_type = "floor"
-			build_atom = T.baseturf
+			build_atom = T.baseturf_at_depth(1)
 		// Window Frames
 		if(istype(A, /obj/structure/window_frame))
 			if(locate(/obj/structure/window/full) in get_turf(A))

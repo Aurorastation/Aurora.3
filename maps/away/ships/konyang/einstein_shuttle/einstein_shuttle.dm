@@ -8,7 +8,7 @@
 
 	spawn_weight = 1
 	ship_cost = 1
-	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/einstein_shuttle)
+	shuttles_to_initialise = list(/datum/shuttle/overmap/einstein_shuttle)
 	sectors = list(SECTOR_HANEUNIM)
 
 	unit_test_groups = list(3)
@@ -23,7 +23,6 @@
 	icon_state = "bluenew"
 	requires_power = TRUE
 	no_light_control = FALSE
-	base_turf = /turf/space
 	area_flags = AREA_FLAG_RAD_SHIELDED
 
 /area/shuttle/einstein_shuttle/helm
@@ -81,17 +80,18 @@
 	fore_dir = SOUTH
 	use_mapped_z_levels = TRUE
 
+	ship_area_type = /area/shuttle/einstein_shuttle
+
 /obj/machinery/computer/shuttle_control/explore/einstein_shuttle
 	name = "shuttle control console"
 	shuttle_tag = "Einstein Shuttle"
 	req_access = list(ACCESS_EE_SPY_SHIP)
 
-/datum/shuttle/autodock/overmap/einstein_shuttle
+/datum/shuttle/overmap/einstein_shuttle
 	name = "Einstein Shuttle"
 	move_time = 20
 	shuttle_area = list(/area/shuttle/einstein_shuttle/helm, /area/shuttle/einstein_shuttle/main, /area/shuttle/einstein_shuttle/room, /area/shuttle/einstein_shuttle/room/two, /area/shuttle/einstein_shuttle/room/three, /area/shuttle/einstein_shuttle/room/four, /area/shuttle/einstein_shuttle/conference, /area/shuttle/einstein_shuttle/bathroom, /area/shuttle/einstein_shuttle/porteng, /area/shuttle/einstein_shuttle/starbeng, /area/shuttle/einstein_shuttle/dock)
 	current_location = "nav_start_einstein"
-	landmark_transition = "nav_transit_einstein"
 	range = 1
 	fuel_consumption = 2
 	logging_home_tag = "nav_start_einstein"
@@ -104,7 +104,6 @@
 /obj/effect/shuttle_landmark/einstein_shuttle_transit
 	name = "In transit"
 	landmark_tag = "nav_transit_einstein"
-	base_turf = /turf/space/transit/north
 
 //Ghostroles
 /datum/ghostspawner/human/einstein_crew

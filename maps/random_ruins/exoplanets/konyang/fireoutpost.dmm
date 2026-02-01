@@ -881,7 +881,7 @@
 /area/konyang_fireoutpost)
 "OE" = (
 /turf/template_noop,
-/area/space)
+/area/template_noop)
 "OG" = (
 /obj/structure/rope_post{
 	dir = 8;

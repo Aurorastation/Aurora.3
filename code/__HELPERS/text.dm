@@ -587,7 +587,7 @@
 	t = replacetext(t, "\[/large\]", "</font>")
 	t = replacetext(t, "\[small\]", "<font size = \"1\">")
 	t = replacetext(t, "\[/small\]", "</font>")
-	t = replacetext(t, "\[station\]", SSatlas.current_map.station_name)
+	t = replacetext(t, "\[station\]", SSmapping.current_map.station_name)
 
 	var/regex/redacted_text = new(@"(\[redacted\])(.*?)(\[\/redacted\])", "g")
 	while (redacted_text.Find(t))
@@ -687,7 +687,7 @@
 	t = replacetext(t, "</font>", "\[/large\]")
 	t = replacetext(t, "<font size = \"1\">", "\[small\]")
 	t = replacetext(t, "</font>", "\[/small\]")
-	t = replacetext(t, SSatlas.current_map.station_name, "\[station\]")
+	t = replacetext(t, SSmapping.current_map.station_name, "\[station\]")
 	t = replacetext(t, "<BR>", "\n")
 	t = replacetext(t, "<center>", "\[center\]")
 	t = replacetext(t, "</center>", "\[/center\]")

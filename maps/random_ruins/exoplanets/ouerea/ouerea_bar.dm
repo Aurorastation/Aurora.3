@@ -15,7 +15,6 @@
 	icon_state = "bar"
 	requires_power = FALSE
 	no_light_control = FALSE
-	base_turf = /turf/simulated/floor/exoplanet/barren
 	area_flags = AREA_FLAG_RAD_SHIELDED|AREA_FLAG_INDESTRUCTIBLE_TURFS
 	area_blurb = "The sound of music and the warmth of a fire fill this place."
 

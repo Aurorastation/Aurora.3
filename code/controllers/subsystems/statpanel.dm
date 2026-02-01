@@ -27,16 +27,19 @@ SUBSYSTEM_DEF(statpanels)
 		var/eta_status = "No ETA"
 		if(GLOB.evacuation_controller)
 			eta_status = GLOB.evacuation_controller.get_status_panel_eta()
+		var/map_name = SSmapping.current_map ? SSmapping.current_map.name : "LOADING"
+		var/current_sector_text = SSmapping.current_sector ? SSmapping.current_sector.name : "LOADING"
+		var/next_port_visit = SSmapping.current_sector ? SSmapping.current_sector.next_port_visit_string : "LOADING"
 		global_data = list(
-			"Map: [SSatlas.current_map.name]",
+			"Map: [map_name]",
 			"Round ID: [GLOB.round_id ? GLOB.round_id : "NULL"]",
 			"Server Time: [time2text(world.timeofday, "YYYY-MM-DD hh:mm:ss")]",
 			"Current Date: [GLOB.game_year]-[current_month]-[current_day]",
 			"Round Time: [get_round_duration_formatted()]",
 			"Ship Time: [worldtime2text()]",
-			"Current Space Sector: [SSatlas.current_sector.name]",
+			"Current Space Sector: [current_sector_text]",
 			"Last Transfer Vote: [GLOB.last_transfer_vote ? time2text(GLOB.last_transfer_vote, "hh:mm") : "Never"]",
-			"Next Port Visit: [SSatlas.current_sector.next_port_visit_string]"
+			"Next Port Visit: [next_port_visit]"
 		)
 		if(eta_status)
 			global_data += eta_status
@@ -105,14 +108,14 @@ SUBSYSTEM_DEF(statpanels)
 /datum/controller/subsystem/statpanels/proc/set_status_tab(client/target)
 	if(!global_data)//statbrowser hasnt fired yet and we were called from immediate_send_stat_data()
 		var/list/preliminary_stats = list("The server is initializing...")
-		if(SSatlas?.current_map?.name)
-			preliminary_stats.Add("Map: [SSatlas.current_map.name]")
+		if(SSmapping?.current_map?.name)
+			preliminary_stats.Add("Map: [SSmapping.current_map.name]")
 		if(GLOB?.round_id)
 			preliminary_stats.Add("Round ID: [GLOB.round_id]")
 		if(world?.timeofday)
 			preliminary_stats.Add("Server Time: [time2text(world.timeofday, "YYYY-MM-DD hh:mm:ss")]")
-		if(SSatlas?.current_sector?.name)
-			preliminary_stats.Add("Current Space Sector: [SSatlas.current_sector.name]")
+		if(SSmapping?.current_sector?.name)
+			preliminary_stats.Add("Current Space Sector: [SSmapping.current_sector.name]")
 		target.stat_panel.send_message("update_stat", list(global_data = preliminary_stats, other_str = target.mob?.get_status_tab_items()))
 
 	target.stat_panel.send_message("update_stat", list(

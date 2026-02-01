@@ -74,7 +74,7 @@
 /area/konyang_swamp_4)
 "hM" = (
 /turf/template_noop,
-/area/space)
+/area/template_noop)
 "if" = (
 /obj/structure/flora/ausbushes/sparsegrass,
 /obj/structure/flora/ausbushes/reedbush,

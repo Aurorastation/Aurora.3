@@ -7,6 +7,7 @@
 	return base
 
 /obj/effect/overmap/visitable/sector/exoplanet/proc/generate_planet_image()
+	var/build_time = world.time
 	skybox_image = image('icons/skybox/planet.dmi', "")
 
 	skybox_image.overlays += get_base_image()
@@ -49,3 +50,4 @@
 	skybox_image.pixel_y = rand(128,256)
 	skybox_image.appearance_flags = DEFAULT_APPEARANCE_FLAGS | RESET_COLOR
 	skybox_image.blend_mode = BLEND_OVERLAY
+	. = "Planet skybox generated in [(world.time - build_time)/10]s."

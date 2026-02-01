@@ -3,9 +3,8 @@
 	icon_state = "blue"
 	requires_power = TRUE
 	no_light_control = FALSE
-	base_turf = /turf/space
 	area_flags = AREA_FLAG_RAD_SHIELDED
-	has_gravity = FALSE
+	default_gravity = ZERO_GRAVITY
 
 /area/ship/coc_scarab/bridge
 	name = "Scarab Salvage Vessel - Bridge"
@@ -127,12 +126,13 @@
 	requires_power = FALSE
 	icon_state = "exterior"
 	needs_starlight = TRUE
+	area_flags = AREA_FLAG_NO_GRAVITY | AREA_FLAG_SHIP_EXTERIOR
 
 // Shuttle
 /area/shuttle/coc_scarab
 	name = "Scarab Shuttle"
 	requires_power = TRUE
-	has_gravity = FALSE
+	default_gravity = ZERO_GRAVITY
 
 /area/shuttle/coc_scarab/central
 	name = "Scarab Shuttle Central Compartment"

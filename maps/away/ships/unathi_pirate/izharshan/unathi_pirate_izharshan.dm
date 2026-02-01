@@ -8,7 +8,7 @@
 
 	spawn_weight = 1
 	ship_cost = 1
-	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/unathi_pirate_izharshan)
+	shuttles_to_initialise = list(/datum/shuttle/overmap/unathi_pirate_izharshan)
 	sectors = list(SECTOR_NRRAHRAHUL, SECTOR_BADLANDS, SECTOR_GAKAL, SECTOR_UUEOAESA)
 	spawn_weight_sector_dependent = list(SECTOR_UUEOAESA = 0.5, SECTOR_NRRAHRAHUL = 0.5) //Rarer due to actual government/military presence
 
@@ -87,6 +87,8 @@
 	use_mapped_z_levels = TRUE
 	invisible_until_ghostrole_spawn = TRUE
 
+	ship_area_type = /area/shuttle/unathi_pirate_izharshan
+
 /obj/effect/overmap/visitable/ship/landable/unathi_pirate_izharshan/get_skybox_representation()
 	var/image/skybox_image = image('icons/skybox/subcapital_ships.dmi', "unathi_freighter1")
 	skybox_image.pixel_x = rand(0,64)
@@ -97,7 +99,7 @@
 	name = "shuttle control console"
 	shuttle_tag = "Izharshan Freighter"
 
-/datum/shuttle/autodock/overmap/unathi_pirate_izharshan
+/datum/shuttle/overmap/unathi_pirate_izharshan
 	name = "Izharshan Freighter"
 	move_time = 35
 	range = 2
@@ -105,7 +107,6 @@
 	shuttle_area = list(/area/shuttle/unathi_pirate_izharshan/operations, /area/shuttle/unathi_pirate_izharshan/dorms, /area/shuttle/unathi_pirate_izharshan/helm)
 	current_location = "nav_izharshan_space"
 	dock_target = "unathi_pirate_izharshan"
-	landmark_transition = "nav_izharshan_transit"
 	logging_home_tag = "nav_izharshan_space"
 	defer_initialisation = TRUE
 
@@ -116,4 +117,3 @@
 /obj/effect/shuttle_landmark/izharshan_transit
 	name = "In transit"
 	landmark_tag = "nav_izharshan_transit"
-	base_turf = /turf/space

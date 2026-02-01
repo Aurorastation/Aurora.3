@@ -12,6 +12,7 @@
 	ruin_allowed_tags = RUIN_AIRLESS|RUIN_LOWPOP|RUIN_MINING|RUIN_SCIENCE|RUIN_HOSTILE|RUIN_WRECK|RUIN_NATURAL
 
 	place_near_main = list(1, 1)
+	turftype = /turf/simulated/floor/exoplanet/asteroid/ash
 
 	unit_test_groups = list(2)
 
@@ -27,9 +28,6 @@
 	skybox_image.pixel_y = rand(128,256)
 	skybox_image.appearance_flags = DEFAULT_APPEARANCE_FLAGS | RESET_COLOR
 	skybox_image.blend_mode = BLEND_OVERLAY
-
-/obj/effect/overmap/visitable/sector/exoplanet/barren/asteroid/generate_atmosphere()
-	atmosphere = null
 
 /obj/effect/overmap/visitable/sector/exoplanet/barren/asteroid/romanovich
 	name = "romanovich cloud asteroid"

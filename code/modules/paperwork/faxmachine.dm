@@ -43,7 +43,7 @@ GLOBAL_LIST_EMPTY(admin_departments)
 	GLOB.allfaxes += src
 	if( !(("[department]" in GLOB.alldepartments) || ("[department]" in GLOB.admin_departments)) )
 		GLOB.alldepartments |= department
-	destination = SSatlas.current_map.boss_name
+	destination = SSmapping.current_map.boss_name
 
 /obj/machinery/photocopier/faxmachine/Destroy()
 	GLOB.allfaxes -= src
@@ -54,7 +54,7 @@ GLOBAL_LIST_EMPTY(admin_departments)
 /obj/machinery/photocopier/faxmachine/ui_data(mob/user)
 	var/list/data = list()
 	data["destination"] = destination
-	data["bossname"] = SSatlas.current_map.boss_name
+	data["bossname"] = SSmapping.current_map.boss_name
 	data["auth"] = is_authenticated()
 	data["cooldown_end"] = sendtime + sendcooldown
 	data["world_time"] = world.time
@@ -274,9 +274,9 @@ GLOBAL_LIST_EMPTY(admin_departments)
 
 	use_power_oneoff(200)
 
-	if(SSatlas.current_sector.ccia_link == FALSE)
+	if(SSmapping.current_sector.ccia_link == FALSE)
 		if(destination in GLOB.admin_departments)
-			visible_message("[src] beeps, \"Unable to connect to route to [SSatlas.current_map.boss_name].\"")
+			visible_message("[src] beeps, \"Unable to connect to route to [SSmapping.current_map.boss_name].\"")
 			return
 
 	var/obj/item/rcvdcopy
@@ -294,8 +294,8 @@ GLOBAL_LIST_EMPTY(admin_departments)
 	GLOB.arrived_faxes += rcvdcopy
 
 	//message badmins that a fax has arrived
-	if (destination == SSatlas.current_map.boss_name)
-		message_admins(sender, "[uppertext(SSatlas.current_map.boss_short)] FAX", rcvdcopy, "CentcommFaxReply", "#006100")
+	if (destination == SSmapping.current_map.boss_name)
+		message_admins(sender, "[uppertext(SSmapping.current_map.boss_short)] FAX", rcvdcopy, "CentcommFaxReply", "#006100")
 	else if (destination == "External Routing")
 		message_admins(sender, "EXTERNAL ROUTING FAX", rcvdcopy, "CentcommFaxReply", "#1F66A0")
 

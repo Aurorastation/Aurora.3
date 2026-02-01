@@ -65,8 +65,8 @@ ABSTRACT_TYPE(/atom/movable/screen/new_player)
 	. = ..()
 
 /atom/movable/screen/new_player/proc/set_sector_things()
-	if(SSatlas.current_sector.sector_hud_menu)
-		icon = SSatlas.current_sector.sector_hud_menu
+	if(SSmapping.current_sector.sector_hud_menu)
+		icon = SSmapping.current_sector.sector_hud_menu
 
 /**
  * # Title screen
@@ -93,36 +93,36 @@ ABSTRACT_TYPE(/atom/movable/screen/new_player)
 	return
 
 /**
- * Sets up the icon for the title screen, wait until SSAtlas made them for us then setup the update cycle after picking one
+ * Sets up the icon for the title screen, wait until SSmapping made them for us then setup the update cycle after picking one
  */
 /atom/movable/screen/new_player/title/proc/setup_icon()
 	set waitfor = FALSE
-	UNTIL((SSatlas.current_map))
+	UNTIL((SSmapping.current_map))
 
-	if(SSatlas.current_sector.sector_lobby_art)
-		SSatlas.current_map.lobby_icon = pick(SSatlas.current_sector.sector_lobby_art)
-	else if(!SSatlas.current_map.lobby_icon)
-		SSatlas.current_map.lobby_icon = pick(SSatlas.current_map.lobby_icons)
+	if(SSmapping.current_sector.sector_lobby_art)
+		SSmapping.current_map.lobby_icon = pick(SSmapping.current_sector.sector_lobby_art)
+	else if(!SSmapping.current_map.lobby_icon)
+		SSmapping.current_map.lobby_icon = pick(SSmapping.current_map.lobby_icons)
 
-	if(!LAZYLEN(SSatlas.current_map.lobby_screens))
-		var/list/known_icon_states = icon_states(SSatlas.current_map.lobby_icon)
+	if(!LAZYLEN(SSmapping.current_map.lobby_screens))
+		var/list/known_icon_states = icon_states(SSmapping.current_map.lobby_icon)
 		for(var/screen in known_icon_states)
-			if(!LAZYISIN(SSatlas.current_map.lobby_screens, screen))
-				LAZYADD(SSatlas.current_map.lobby_screens, screen)
-	icon = SSatlas.current_map.lobby_icon
+			if(!LAZYISIN(SSmapping.current_map.lobby_screens, screen))
+				LAZYADD(SSmapping.current_map.lobby_screens, screen)
+	icon = SSmapping.current_map.lobby_icon
 
-	if(!LAZYLEN(SSatlas.current_map.lobby_screens))
+	if(!LAZYLEN(SSmapping.current_map.lobby_screens))
 		CRASH("No lobby screens found!")
 
-	if(SSatlas.current_map.lobby_transitions && isnum(SSatlas.current_map.lobby_transitions))
-		icon_state = SSatlas.current_map.lobby_screens[lobby_screen_index]
+	if(SSmapping.current_map.lobby_transitions && isnum(SSmapping.current_map.lobby_transitions))
+		icon_state = SSmapping.current_map.lobby_screens[lobby_screen_index]
 		if(!MC_RUNNING())
-			spawn(SSatlas.current_map.lobby_transitions)
+			spawn(SSmapping.current_map.lobby_transitions)
 				update_icon()
 		else
-			addtimer(CALLBACK(src, PROC_REF(update_icon)), SSatlas.current_map.lobby_transitions, TIMER_UNIQUE | TIMER_OVERRIDE)
+			addtimer(CALLBACK(src, PROC_REF(update_icon)), SSmapping.current_map.lobby_transitions, TIMER_UNIQUE | TIMER_OVERRIDE)
 	else
-		icon_state = pick(SSatlas.current_map.lobby_screens)
+		icon_state = pick(SSmapping.current_map.lobby_screens)
 
 /atom/movable/screen/new_player/title/update_icon()
 	..()
@@ -133,24 +133,24 @@ ABSTRACT_TYPE(/atom/movable/screen/new_player)
 	if(!istype(hud) || !isnewplayer(hud.mymob))
 		return
 
-	if(!SSatlas.current_map.lobby_transitions)
+	if(!SSmapping.current_map.lobby_transitions)
 		if(!icon_state)
-			icon_state = pick(SSatlas.current_map.lobby_screens)
+			icon_state = pick(SSmapping.current_map.lobby_screens)
 		return
 
-	if(length(SSatlas.current_map.lobby_screens) >= 2)
+	if(length(SSmapping.current_map.lobby_screens) >= 2)
 		//Advance to the next icon
-		lobby_screen_index = max(++lobby_screen_index % length(SSatlas.current_map.lobby_screens), 1)
+		lobby_screen_index = max(++lobby_screen_index % length(SSmapping.current_map.lobby_screens), 1)
 
 		animate(src, alpha = 0, time = 1 SECOND)
 
-		animate(alpha = 255, icon_state = SSatlas.current_map.lobby_screens[lobby_screen_index], time = 1 SECOND)
+		animate(alpha = 255, icon_state = SSmapping.current_map.lobby_screens[lobby_screen_index], time = 1 SECOND)
 
 	if(!MC_RUNNING())
-		spawn(SSatlas.current_map.lobby_transitions)
+		spawn(SSmapping.current_map.lobby_transitions)
 			update_icon()
 	else
-		addtimer(CALLBACK(src, PROC_REF(update_icon)), SSatlas.current_map.lobby_transitions, TIMER_UNIQUE | TIMER_OVERRIDE)
+		addtimer(CALLBACK(src, PROC_REF(update_icon)), SSmapping.current_map.lobby_transitions, TIMER_UNIQUE | TIMER_OVERRIDE)
 
 
 /**
@@ -175,10 +175,10 @@ ABSTRACT_TYPE(/atom/movable/screen/new_player/selection)
 
 /atom/movable/screen/new_player/selection/set_sector_things()
 	. = ..()
-	if(SSatlas.current_sector.sector_hud_menu_sound)
-		click_sound = SSatlas.current_sector.sector_hud_menu_sound
-	if(SSatlas.current_sector.sector_hud_arrow)
-		hud_arrow = SSatlas.current_sector.sector_hud_arrow
+	if(SSmapping.current_sector.sector_hud_menu_sound)
+		click_sound = SSmapping.current_sector.sector_hud_menu_sound
+	if(SSmapping.current_sector.sector_hud_arrow)
+		hud_arrow = SSmapping.current_sector.sector_hud_arrow
 		animate(src, color = null, transform = null, time = 3, easing = CUBIC_EASING)
 
 

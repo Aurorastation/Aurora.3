@@ -12,8 +12,9 @@
 
 	contact_levels = list(1)
 	player_levels = list(1)
-	base_turf_by_z = list(
-		"1" = /turf/simulated/floor/grass
+	traits = list(
+		//Z1
+		list(ZTRAIT_STATION = TRUE, ZTRAIT_BASETURF = /turf/simulated/floor/grass),
 	)
 
 	station_name = "NSS Event"

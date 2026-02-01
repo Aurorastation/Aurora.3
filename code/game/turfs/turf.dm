@@ -32,7 +32,6 @@
 
 	/// If true, turf will be treated as space or a hole
 	var/is_hole
-	var/tmp/turf/baseturf
 
 	/// The turf type we spawn as a roof.
 	var/roof_type = null
@@ -93,6 +92,13 @@
 	/// WARNING: Currently to use a density shortcircuiting this does not support dense turfs with special allow through function
 	var/pathing_pass_method = TURF_PATHING_PASS_DENSITY
 
+	// baseturfs can be either a list or a single turf type.
+	// In class definition like here it should always be a single type.
+	// A list will be created in initialization that figures out the baseturf's baseturf etc.
+	// In the case of a list it is sorted from bottom layer to top.
+	// This shouldn't be modified directly, use the helper procs.
+	var/list/baseturfs = /turf/baseturf_bottom
+
 	// Some quick notes on the vars below: is_outside should be left set to OUTSIDE_AREA unless you
 	// EXPLICITLY NEED a turf to have a different outside state to its area (ie. you have used a
 	// roofing tile). By default, it will ask the area for the state to use, and will update on
@@ -130,9 +136,6 @@
 
 	var/area/A = loc
 
-	if(A.base_turf)
-		baseturf = A.base_turf
-
 	update_starlight()
 
 	if (light_range && light_power)
@@ -145,10 +148,6 @@
 
 	if(opacity)
 		directional_opacity = ALL_CARDINALS
-
-	else if(!baseturf)
-		// Hard-coding this for performance reasons.
-		baseturf = SSatlas.current_map.base_turf_by_z["[z]"] || /turf/space
 
 	if (A.area_flags & AREA_FLAG_SPAWN_ROOF)
 		spawn_roof()
@@ -209,7 +208,7 @@
 	// We do this prior to the unique space logic so this also covers space turfs within a needs_starlight area.
 	var/area/A = get_area(src)
 	if(A.needs_starlight)
-		set_light(SSatlas.current_sector.starlight_range, SSatlas.current_sector.starlight_power, SSskybox.background_color)
+		set_light(SSmapping.current_sector.starlight_range, SSmapping.current_sector.starlight_power, SSskybox.background_color)
 		return TRUE
 	else // If we aren't assigning starlight lighting, set the lighting to default so it's possible to undo starlight lighting if an area changes.
 		set_default_lighting()
@@ -261,6 +260,10 @@
 
 	//move the turf
 
+	LISTASSERTLEN(old_area.turfs_to_uncontain_by_zlevel, z, list())
+	LISTASSERTLEN(new_area.turfs_by_zlevel, z, list())
+	old_area.turfs_to_uncontain_by_zlevel[z] += src
+	new_area.turfs_by_zlevel[z] += src
 	new_area.contents += src
 
 	/* START AURORA SNOWFLAKE */
@@ -275,9 +278,6 @@
 
 		if(is_new_area_valid)
 			new_area.Entered(AM)
-			if(istype(AM, /obj/machinery))
-				var/obj/machinery/M = AM
-				M.shuttle_move(src)
 
 	last_outside_check = OUTSIDE_UNCERTAIN
 	if(is_outside == OUTSIDE_AREA && (is_outside() != old_outside))

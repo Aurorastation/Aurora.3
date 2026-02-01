@@ -9,7 +9,7 @@
 	spawn_weight = 1
 	ship_cost = 1
 	id = "iac_rescue_ship"
-	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/iac_shuttle)
+	shuttles_to_initialise = list(/datum/shuttle/overmap/iac_shuttle)
 
 	unit_test_groups = list(3)
 
@@ -135,6 +135,8 @@
 
 	invisible_until_ghostrole_spawn = TRUE
 
+	ship_area_type = /area/ship/iac_rescue_ship
+
 /obj/effect/overmap/visitable/ship/iac_rescue_ship/New()
 	designation = "[pick("Angitia", "Eir", "Vejovis", "Dharti", "Serket", "He Xiangu", "Sirona", "Ixtlilton", "Boris Yegorov", "Simi", "Aleksandra Hro'makar", "Assistance", "Helping Hand", "Free Aid", "Safe Haven", "Grace", "Compassion", "Relief")]"
 	..()
@@ -148,37 +150,26 @@
 /obj/effect/shuttle_landmark/iac_rescue_ship/nav1
 	name = "IAC Rescue Ship - Port Side"
 	landmark_tag = "nav_iac_rescue_ship_1"
-	base_turf = /turf/space/dynamic
-	base_area = /area/space
 
 /obj/effect/shuttle_landmark/iac_rescue_ship/nav2
 	name = "IAC Rescue Ship - Port Airlock"
 	landmark_tag = "nav_iac_rescue_ship_2"
-	base_turf = /turf/space/dynamic
-	base_area = /area/space
 
 /obj/effect/shuttle_landmark/iac_rescue_ship/nav3
 	name = "IAC Rescue Ship - Starboard Side"
 	landmark_tag = "nav_iac_rescue_ship_3"
-	base_turf = /turf/space/dynamic
-	base_area = /area/space
 
 /obj/effect/shuttle_landmark/iac_rescue_ship/nav4
 	name = "IAC Rescue Ship - Aft Side"
 	landmark_tag = "nav_iac_rescue_ship_4"
-	base_turf = /turf/space/dynamic
-	base_area = /area/space
 
 /obj/effect/shuttle_landmark/iac_rescue_ship/nav5
 	name = "IAC Rescue Ship - Fore Side"
 	landmark_tag = "nav_iac_rescue_ship_5"
-	base_turf = /turf/space/dynamic
-	base_area = /area/space
 
 /obj/effect/shuttle_landmark/iac_rescue_ship/transit
 	name = "In transit"
 	landmark_tag = "nav_transit_iac_rescue_ship"
-	base_turf = /turf/space/transit/north
 
 //Starboard Docking Arm
 
@@ -230,19 +221,20 @@
 	fore_dir = NORTH
 	vessel_size = SHIP_SIZE_TINY
 
+	ship_area_type = /area/shuttle/iac_shuttle
+
 /obj/machinery/computer/shuttle_control/explore/terminal/iac_shuttle
 	name = "shuttle control console"
 	shuttle_tag = "IAC Ambulance Shuttle"
 	req_access = list(ACCESS_IAC_RESCUE_SHIP)
 
-/datum/shuttle/autodock/overmap/iac_shuttle
+/datum/shuttle/overmap/iac_shuttle
 	name = "IAC Ambulance Shuttle"
 	move_time = 20
 	shuttle_area = list(/area/shuttle/iac_shuttle)
 	dock_target = "airlock_iac_rescue_shuttle"
 	current_location = "nav_hangar_iac"
 
-	landmark_transition = "nav_transit_iac_shuttle"
 
 	range = 1
 	fuel_consumption = 2
@@ -256,15 +248,12 @@
 
 	docking_controller = "iac_shuttle_dock"
 
-	base_area = /area/ship/iac_rescue_ship/hangar
-	base_turf = /turf/simulated/floor/plating
 	movable_flags = MOVABLE_FLAG_EFFECTMOVE
 
 /obj/effect/shuttle_landmark/iac_shuttle/transit
 	name = "In Transit"
 	landmark_tag = "nav_transit_iac_shuttle"
 
-	base_turf = /turf/space/transit/north
 
 // airlocks
 

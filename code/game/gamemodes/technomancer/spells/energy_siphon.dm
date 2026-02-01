@@ -64,7 +64,7 @@
 
 /obj/item/spell/energy_siphon/proc/populate_siphon_list(atom/movable/target)
 	things_to_siphon.Cut()
-	things_to_siphon |= target.GetAllContents()
+	things_to_siphon |= target.get_all_contents()
 	for(var/atom/movable/AM in things_to_siphon)
 		if(ishuman(AM)) // We can drain FBPs, so we can skip the test below.
 			var/mob/living/carbon/human/H = AM

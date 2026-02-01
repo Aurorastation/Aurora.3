@@ -75,7 +75,7 @@
 	data["have_printer"] = !!computer.nano_printer
 
 	//Shuttle Stuff
-	var/datum/shuttle/autodock/ferry/supply/shuttle = SScargo.shuttle
+	var/datum/shuttle/ferry/supply/shuttle = SScargo.shuttle
 	if(shuttle)
 		data["shuttle_available"] = 1
 		data["shuttle_has_arrive_time"] = shuttle.has_arrive_time()
@@ -100,7 +100,7 @@
 
 	var/obj/item/card/id/I = usr.GetIdCard()
 
-	var/datum/shuttle/autodock/ferry/supply/shuttle = SScargo.shuttle
+	var/datum/shuttle/ferry/supply/shuttle = SScargo.shuttle
 	if (!shuttle)
 		LOG_DEBUG("## ERROR: Eek. The supply/shuttle datum is missing somehow.")
 		return

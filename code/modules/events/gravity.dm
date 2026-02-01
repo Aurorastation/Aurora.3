@@ -12,9 +12,6 @@
 /datum/event/gravity/start()
 	..()
 
-	// TO-DO: I'm not gonna touch this can of worms right now, but this effectively means that gravity is global for everyone,
-	// meaning, if the horizon loses gravity, EVERYONE DOES. this seriously needs to be fixed, and i'm commenting out the gravity flux event until that is done
-	GLOB.gravity_is_on = 0
-	for(var/obj/machinery/gravity_generator/main/generator in SSmachinery.gravity_generators)
-		if(generator.z in affecting_z)
-			generator.eventshutofftoggle()
+	for(var/z in affecting_z)
+		for(var/obj/machinery/gravity_generator/main/gen as anything in GLOB.gravity_generators["[z]"])
+			INVOKE_ASYNC(gen, TYPE_PROC_REF(/obj/machinery/gravity_generator/main, eventshutofftoggle))

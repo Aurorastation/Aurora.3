@@ -24,12 +24,8 @@
 			qdel(M)
 		for(var/obj/O in orange(1,src))
 			qdel(O)
-		var/turf/T = loc
-		var/base_turf = T.baseturf
-		for(var/turf/simulated/ST in orange(1,src))
-			if(ST.type == base_turf)
-				continue
-			ST.ChangeTurf(base_turf)
+		for(var/turf/T in orange(1,src))
+			T.scrape_away(2)
 
 		sleep(6)
 		grav(10, 4, 10, 0 )
@@ -86,8 +82,5 @@
 			step_towards(M,src)
 
 	//Destroying the turf
-	if( T && istype(T,/turf/simulated) && prob(turf_removal_chance) )
-		var/turf/simulated/ST = T
-		var/base_turf = get_base_turf_by_area(src)
-		if(ST.type != base_turf)
-			ST.ChangeTurf(base_turf)
+	if(T && prob(turf_removal_chance))
+		T.scrape_away()

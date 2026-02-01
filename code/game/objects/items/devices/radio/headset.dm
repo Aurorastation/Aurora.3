@@ -934,7 +934,7 @@
 	var/use_common = FALSE
 
 /obj/item/radio/headset/ship/Initialize()
-	if(!SSatlas.current_map.use_overmap)
+	if(!SSmapping.current_map.use_overmap)
 		return ..()
 
 	var/sector_z = get_sector_z()

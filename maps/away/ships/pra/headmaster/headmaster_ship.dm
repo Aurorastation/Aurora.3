@@ -17,7 +17,7 @@
 	spawn_weight = 1
 	ship_cost = 1
 	id = "headmaster_ship"
-	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/headmaster_shuttle, /datum/shuttle/autodock/multi/lift/headmaster)
+	shuttles_to_initialise = list(/datum/shuttle/overmap/headmaster_shuttle, /datum/shuttle/multi/lift/headmaster)
 
 	unit_test_groups = list(3)
 
@@ -61,6 +61,8 @@
 
 	invisible_until_ghostrole_spawn = TRUE
 
+	ship_area_type = /area/headmaster_ship
+
 /obj/effect/overmap/visitable/ship/headmaster_ship/New()
 	if (prob(50))
 		designation = "Hadii"
@@ -90,18 +92,19 @@
 	fore_dir = SOUTH
 	vessel_size = SHIP_SIZE_TINY
 
+	ship_area_type = /area/shuttle/headmaster_shuttle
+
 /obj/machinery/computer/shuttle_control/explore/terminal/headmaster_shuttle
 	name = "shuttle control console"
 	shuttle_tag = "Orbital Fleet Shuttle"
 	req_access = list(ACCESS_PRA)
 
 // Controls docking behaviour
-/datum/shuttle/autodock/overmap/headmaster_shuttle
+/datum/shuttle/overmap/headmaster_shuttle
 	name = "Orbital Fleet Shuttle"
 	move_time = 20
 	shuttle_area = list(/area/shuttle/headmaster_shuttle)
 	current_location = "nav_hangar_headmaster"
-	landmark_transition = "nav_transit_headmaster_shuttle"
 	dock_target = "headmaster_shuttle"
 	range = 1
 	fuel_consumption = 2
@@ -113,8 +116,6 @@
 	name = "Orbital Fleet Shuttle Hangar"
 	landmark_tag = "nav_hangar_headmaster"
 	docking_controller = "headmaster_shuttle_dock"
-	base_area = /area/space
-	base_turf = /turf/space
 	movable_flags = MOVABLE_FLAG_EFFECTMOVE
 
 // Shuttle docking port
@@ -127,7 +128,6 @@
 /obj/effect/shuttle_landmark/headmaster_shuttle/transit
 	name = "In transit"
 	landmark_tag = "nav_transit_headmaster_shuttle"
-	base_turf = /turf/space/transit/north
 
 // Shuttle airlock
 /obj/effect/map_effect/marker/airlock/shuttle/headmaster_shuttle

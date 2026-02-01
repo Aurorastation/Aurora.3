@@ -3,7 +3,7 @@
 	if(!network)
 		return FALSE
 
-	. = SSatlas.current_map.get_network_access(network)
+	. = SSmapping.current_map.get_network_access(network)
 	if (.)
 		return
 
@@ -62,7 +62,7 @@
 
 	// ...otherwise (if it was launched from a standard modular computer), get all networks to which the user has access.
 	else
-		available_networks = SSatlas.current_map.station_networks
+		available_networks = SSmapping.current_map.station_networks
 
 	for(var/network in available_networks)
 		all_networks += list(

@@ -7,7 +7,7 @@ SUBSYSTEM_DEF(evac)
 
 /datum/controller/subsystem/evac/Initialize()
 	if(!GLOB.evacuation_controller)
-		GLOB.evacuation_controller = new SSatlas.current_map.evac_controller_type ()
+		GLOB.evacuation_controller = new SSmapping.current_map.evac_controller_type ()
 		GLOB.evacuation_controller.set_up()
 
 	return SS_INIT_SUCCESS

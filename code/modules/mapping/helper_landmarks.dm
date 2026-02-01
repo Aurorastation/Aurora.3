@@ -9,12 +9,9 @@
 	return INITIALIZE_HINT_LATELOAD
 
 /obj/effect/landmark/clear/LateInitialize()
-	var/turf/simulated/wall/W = get_turf(src)
-	if(istype(W))
-		W.dismantle_wall(TRUE, TRUE)
-	var/turf/simulated/mineral/M = W
-	if(istype(M))
-		M.GetDrilled()
+	var/turf/T = get_turf(src)
+	if(T.density)
+		T.scrape_away()
 
 	qdel(src) //Our job here is done
 

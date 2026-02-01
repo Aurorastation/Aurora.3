@@ -81,7 +81,7 @@ Put them on map, hook up to pipes with any gas. Heavier gas (CO2/plasma) + More 
 Lets you control shuttles that can change destinations and visit other sectors/ships.
 ### HOW TO USE
 1. Define starting shuttle landmark.
-2. Define a /datum/shuttle/autodock/overmap for your shuttle. Same as normal shuttle, aside from 'range' var - how many squares on overmap it can travel on its own.
+2. Define a /datum/shuttle/overmap for your shuttle. Same as normal shuttle, aside from 'range' var - how many squares on overmap it can travel on its own.
 3. Place console anywhere on the ship/sector. Set shuttle_tag to shuttle's name.
 4. Use. You can select destinations if you're in range (on same tile by defualt) on the map and sector has waypoints lists defined
 */

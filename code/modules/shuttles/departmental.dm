@@ -19,12 +19,12 @@
 	req_access = list(ACCESS_RESEARCH)
 	circuit = /obj/item/circuitboard/research_shuttle
 
-/datum/shuttle/autodock/multi/research_aurora
+/datum/shuttle/multi/research_aurora
 	var/triggered_away_sites = FALSE
 
-/datum/shuttle/autodock/multi/research_aurora/shuttle_moved()
+/datum/shuttle/multi/research_aurora/transit_to_landmark(obj/effect/shuttle_landmark/destination, movement_direction, force)
 	. = ..()
-	if(!triggered_away_sites && !is_station_level(next_location.loc.z))
+	if(!triggered_away_sites && !is_station_level(destination.loc.z))
 		for(var/s in SSghostroles.spawners)
 			var/datum/ghostspawner/G = SSghostroles.spawners[s]
 			if(G.away_site)

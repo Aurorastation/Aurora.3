@@ -16,18 +16,19 @@
 	fore_dir = SOUTH
 	vessel_size = SHIP_SIZE_TINY
 
+	ship_area_type = /area/shuttle/dominian_shuttle
+
 /obj/machinery/computer/shuttle_control/explore/terminal/dominian_shuttle
 	name = "shuttle control console"
 	shuttle_tag = "Dominian Shuttle"
 	req_access = list(ACCESS_IMPERIAL_FLEET_VOIDSMAN_SHIP)
 
 // Controls docking behaviour
-/datum/shuttle/autodock/overmap/dominian_shuttle
+/datum/shuttle/overmap/dominian_shuttle
 	name = "Dominian Shuttle"
 	move_time = 20
 	shuttle_area = list(/area/shuttle/dominian_shuttle)
 	current_location = "nav_hangar_dominia"
-	landmark_transition = "nav_transit_dominian_shuttle"
 	dock_target = "dominian_shuttle"
 	range = 1
 	fuel_consumption = 2
@@ -39,15 +40,12 @@
 	name = "Shuttle Port"
 	landmark_tag = "nav_hangar_dominia"
 	docking_controller = "dominian_shuttle_dock"
-	base_area = /area/space
-	base_turf = /turf/space
 	movable_flags = MOVABLE_FLAG_EFFECTMOVE
 
 // Transit landmark
 /obj/effect/shuttle_landmark/dominian_shuttle/transit
 	name = "In transit"
 	landmark_tag = "nav_transit_dominian_shuttle"
-	base_turf = /turf/space/transit/north
 
 // Shuttle docking port
 /obj/effect/map_effect/marker/airlock/docking/dominian_corvette/shuttle_port

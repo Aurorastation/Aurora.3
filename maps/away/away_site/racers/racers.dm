@@ -12,8 +12,8 @@
 
 	unit_test_groups = list(1)
 	shuttles_to_initialise = list(
-		/datum/shuttle/autodock/overmap/racers_red,
-		/datum/shuttle/autodock/overmap/racers_blue
+		/datum/shuttle/overmap/racers_red,
+		/datum/shuttle/overmap/racers_blue
 	)
 
 /singleton/submap_archetype/racers
@@ -31,7 +31,6 @@
 	name = "unregistered station"
 	icon_state = "bar"
 	requires_power = FALSE
-	base_turf = /turf/space
 	no_light_control = TRUE
 
 /area/shuttle/racers_blue
@@ -57,12 +56,13 @@
 	fore_dir = NORTH
 	vessel_size = SHIP_SIZE_TINY
 
-/datum/shuttle/autodock/overmap/racers_red
+	ship_area_type = /area/shuttle/racers_red
+
+/datum/shuttle/overmap/racers_red
 	name = "Red Racer"
 	move_time = 20
 	shuttle_area = /area/shuttle/racers_red
 	current_location = "nav_red_racer_hangar"
-	landmark_transition = "nav_red_racer_transit"
 	fuel_consumption = 2
 	logging_home_tag = "nav_red_racer_hangar"
 	range = 1
@@ -84,12 +84,13 @@
 	fore_dir = NORTH
 	vessel_size = SHIP_SIZE_TINY
 
-/datum/shuttle/autodock/overmap/racers_blue
+	ship_area_type = /area/shuttle/racers_blue
+
+/datum/shuttle/overmap/racers_blue
 	name = "Blue Racer"
 	move_time = 20
 	shuttle_area = /area/shuttle/racers_blue
 	current_location = "nav_blue_racer_hangar"
-	landmark_transition = "nav_blue_racer_transit"
 	fuel_consumption = 2
 	logging_home_tag = "nav_blue_racer_hangar"
 	range = 1
@@ -106,21 +107,15 @@
 /obj/effect/shuttle_landmark/red_racer_hangar
 	name = "Unregistered Station Hangar"
 	landmark_tag = "nav_red_racer_hangar"
-	base_area = /area/racers
-	base_turf = /turf/simulated/floor/plating
 
 /obj/effect/shuttle_landmark/red_racer_transit
 	name = "In transit"
 	landmark_tag = "nav_red_racer_transit"
-	base_turf = /turf/space/transit
 
 /obj/effect/shuttle_landmark/blue_racer_hangar
 	name = "Unregistered Station Hangar"
 	landmark_tag = "nav_blue_racer_hangar"
-	base_area = /area/racers
-	base_turf = /turf/simulated/floor/plating
 
 /obj/effect/shuttle_landmark/blue_racer_transit
 	name = "In transit"
 	landmark_tag = "nav_blue_racer_transit"
-	base_turf = /turf/space/transit

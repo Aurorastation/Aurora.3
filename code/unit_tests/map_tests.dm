@@ -25,15 +25,15 @@
 
 	var/fail_message = ""
 
-	if (!SSatlas.current_map)
+	if (!SSmapping.current_map)
 		return
 
 	// This is formatted strangely because it fails the indentation test if it's formatted properly.
 	// ¯\_(ツ)_/¯
-	var/list/exempt_areas = typecacheof(SSatlas.current_map.ut_environ_exempt_areas)
-	var/list/exempt_from_atmos = typecacheof(SSatlas.current_map.ut_atmos_exempt_areas)
-	var/list/exempt_from_apc = typecacheof(SSatlas.current_map.ut_apc_exempt_areas)
-	var/list/exempt_from_fire = typecacheof(SSatlas.current_map.ut_fire_exempt_areas)
+	var/list/exempt_areas = typecacheof(SSmapping.current_map.ut_environ_exempt_areas)
+	var/list/exempt_from_atmos = typecacheof(SSmapping.current_map.ut_atmos_exempt_areas)
+	var/list/exempt_from_apc = typecacheof(SSmapping.current_map.ut_apc_exempt_areas)
+	var/list/exempt_from_fire = typecacheof(SSmapping.current_map.ut_fire_exempt_areas)
 
 	for(var/area/A in typecache_filter_list_reverse(get_sorted_areas(), exempt_areas))
 		if(is_station_level(A.z))

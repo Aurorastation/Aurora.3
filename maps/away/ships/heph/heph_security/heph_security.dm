@@ -9,7 +9,7 @@
 	spawn_weight = 1
 	ship_cost = 1
 	id = "Hephaestus Security Vessel"
-	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/hephsec_shuttle)
+	shuttles_to_initialise = list(/datum/shuttle/overmap/hephsec_shuttle)
 
 	unit_test_groups = list(2)
 
@@ -45,13 +45,13 @@
 	)
 	invisible_until_ghostrole_spawn = TRUE
 
+	ship_area_type = /area/heph_security_ship
+
 /obj/effect/overmap/visitable/ship/heph_security/New()
 	designation = "[pick("Erebus", "Tisiphone", "Megaera", "Alecto", "Erinyes")]"
 	..()
 
 /obj/effect/shuttle_landmark/heph_security
-	base_turf = /turf/space/dynamic
-	base_area = /area/space
 
 /obj/effect/shuttle_landmark/heph_security/nav1
 	name = "Fore"
@@ -89,16 +89,17 @@
 	fore_dir = NORTH
 	vessel_size = SHIP_SIZE_TINY
 
+	ship_area_type = /area/shuttle/heph_security
+
 /obj/machinery/computer/shuttle_control/explore/hephsec_shuttle
 	name = "shuttle control console"
 	shuttle_tag = "Hephaestus Security Shuttle"
 
-/datum/shuttle/autodock/overmap/hephsec_shuttle
+/datum/shuttle/overmap/hephsec_shuttle
 	name = "Hephaestus Security Shuttle"
 	move_time = 20
 	shuttle_area = list(/area/shuttle/heph_security)
 	current_location = "hephsec_shuttle"
-	landmark_transition = "hephsec_shuttle_transit"
 	dock_target = "airlock_heph_shuttle"
 	range = 1
 	fuel_consumption = 2
@@ -109,11 +110,7 @@
 	name = "Security Shuttle Dock"
 	landmark_tag = "hephsec_shuttle"
 	docking_controller = "heph_security_dock"
-	base_turf = /turf/space/dynamic
-	base_area = /area/space
 
 /obj/effect/shuttle_landmark/hephsec_shuttle_transit
 	name = "In transit"
 	landmark_tag = "hephsec_shuttle_transit"
-	base_turf = /turf/space/transit/north
-	base_area = /area/space

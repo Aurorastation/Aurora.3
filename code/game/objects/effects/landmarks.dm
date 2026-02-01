@@ -251,7 +251,7 @@ INITIALIZE_IMMEDIATE(/obj/effect/landmark/lobby_mobs_location)
 	return INITIALIZE_HINT_LATELOAD
 
 /obj/effect/landmark/entry_point/LateInitialize()
-	if(SSatlas.current_map.use_overmap)
+	if(SSmapping.current_map.use_overmap)
 		SSshuttle.entry_points_to_initialize += src
 	name += " [x], [y]"
 

@@ -2,6 +2,43 @@
 	plane = 0
 	use_space_appearance = TRUE
 	var/pushdirection
+	baseturfs = /turf/space/transit
+
+/turf/space/transit/Initialize()
+	. = ..()
+	RegisterSignal(src, COMSIG_TURF_RESERVATION_RELEASED, PROC_REF(launch_contents))
+
+/turf/space/transit/Destroy()
+	UnregisterSignal(src, COMSIG_TURF_RESERVATION_RELEASED)
+	return ..()
+
+/turf/space/transit/Exited(atom/movable/Obj, atom/newloc)
+	. = ..()
+
+	var/turf/location = Obj.loc
+	if(istype(location, /turf/space) && !istype(location, src.type))
+		dump_in_space(Obj)
+
+/turf/space/transit/proc/launch_contents(datum/turf_reservation/reservation)
+	SIGNAL_HANDLER
+
+	for(var/atom/movable/movable in contents)
+		dump_in_space(movable)
+
+/proc/dump_in_space(atom/movable/dumpee)
+	var/max = world.maxx - TRANSITIONEDGE
+	var/min = 1 + TRANSITIONEDGE
+
+	var/list/possible_transitions
+
+	for(var/datum/space_level/level as anything in SSmapping.z_list)
+		if(level.linkage == CROSSLINKED)
+			LAZYADD(possible_transitions, level.z_value)
+
+	if(!LAZYLEN(possible_transitions))
+		possible_transitions = SSmapping.levels_by_trait(ZTRAIT_STATION) // throw them on the station or runtime
+
+	dumpee.forceMove(locate(rand(min, max), rand(min, max), pick(possible_transitions)))
 
 //Overwrite because we dont want people building rods in space.
 /turf/space/transit/attackby(obj/item/attacking_item, mob/user)
@@ -57,9 +94,11 @@
 	plane = 0
 	use_space_appearance = FALSE
 	use_starlight = FALSE
+	baseturfs = /turf/space/transit/bluespace
 
-/turf/space/transit/bluespace/ChangeTurf(path, tell_universe = TRUE, force_lighting_update = FALSE, ignore_override = FALSE, mapload = FALSE)
-	return ..(path, tell_universe, 1, ignore_override, mapload)
+/turf/space/transit/bluespace/ChangeTurf(path, list/new_baseturfs, flags, parent_datum)
+	flags |= CHANGETURF_FORCE_LIGHTING
+	return ..()
 
 /turf/space/transit/bluespace/east
 	icon_state = "bluespace-e"

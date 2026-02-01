@@ -244,9 +244,12 @@
 	if(!ability_prechecks(user, price) || !ability_pay(user,price))
 		return
 
-	for(var/A in SSmachinery.gravity_generators)
-		var/obj/machinery/gravity_generator/main/B = A
-		B.throw_up_and_down(Area)
+	var/station_levels = SSmapping.levels_by_trait(ZTRAIT_STATION)
+
+	for(var/grav_z in GLOB.gravity_generators)
+		if(grav_z in station_levels)
+			for(var/obj/machinery/gravity_generator/main/B as anything in GLOB.gravity_generators[grav_z])
+				B.throw_up_and_down(Area)
 	log_ability_use(user, "gravity malfunction")
 
 // END ABILITY VERBS

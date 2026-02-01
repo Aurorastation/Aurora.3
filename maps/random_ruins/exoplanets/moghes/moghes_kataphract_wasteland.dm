@@ -16,14 +16,12 @@
 	icon_state = "bluenew"
 	requires_power = FALSE
 	no_light_control = FALSE
-	base_turf = /turf/simulated/floor/exoplanet/desert
 	area_flags = AREA_FLAG_RAD_SHIELDED|AREA_FLAG_INDESTRUCTIBLE_TURFS
 
 /area/moghes/kataphract_wasteland/tent
 	name = "Kataphract Campsite Tent"
 	icon_state = "red"
 	is_outside = OUTSIDE_NO
-	base_turf = /turf/simulated/floor/exoplanet/desert
 
 /datum/ghostspawner/human/moghes_kataphract_wasteland
 	name = "Wasteland Kataphract-Hopeful"

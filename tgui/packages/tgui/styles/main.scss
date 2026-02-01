@@ -75,3 +75,84 @@
 :root {
   --scaling-amount: 1;
 }
+
+.overlay-message {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 24px;
+  color: #f00;
+  //background: rgba(255, 255, 255, 0.4); /* optional translucent overlay */
+  backdrop-filter: blur(2px); /* optional subtle glass effect */
+  pointer-events: none;
+  text-shadow: 1px 1px 0 black, -1px 1px 0 black, 1px -1px 0 black,
+    -1px -1px 0 black;
+}
+
+.clearance-parent {
+  position: relative;
+  border: 10px solid pink;
+  border-image: repeating-linear-gradient(
+      -55deg,
+      #000,
+      #000 20px,
+      #ffb101 20px,
+      #ffb101 40px
+    )
+    10;
+}
+
+.clearance-tape {
+  box-sizing: border-box;
+  width: 100%;
+}
+
+$background-color: base.$color-bg !default;
+
+.clearance-tape > * {
+  filter: blur(4px);
+  opacity: 0.6;
+  pointer-events: none;
+  user-select: none;
+}
+
+.button-3d {
+  display: block;
+  position: relative;
+  top: 0;
+  transition: all ease 0.2s;
+  //background: linear-gradient(to bottom,#fff,#ebebeb) #fff;
+  background-color: #d00;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.3),
+    inset 0 -1px 1px rgba(255, 255, 255, 0.15), 0 7px 0 #a00,
+    0 8px 3px rgba(0, 0, 0, 0.2);
+  border: 1px solid #c40000;
+  height: auto;
+  width: 100%;
+  padding: 0.8rem;
+  line-height: 2;
+  //text-shadow: 0 1px 1px #fff;
+  text-decoration: none;
+  border-radius: 1rem;
+  color: #ccc;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: 24px;
+  &:active {
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.3),
+      inset 0 -1px 1px rgba(255, 255, 255, 0.15), 0 2px 0 #a00,
+      0 3px 3px rgba(0, 0, 0, 0.2);
+    background: linear-gradient(to bottom, #c90000, #d30000) #c00;
+    top: 5px;
+    color: #666;
+  }
+  cursor: pointer;
+
+  font-size: 16px;
+  font-weight: 700;
+  color: #f0f0f0; /* Text color, often a lighter shade */
+  text-shadow: 1px 1px 0px rgba(255, 0, 0, 0.7),
+    -1px -1px 0px rgba(0, 0, 0, 0.5);
+}

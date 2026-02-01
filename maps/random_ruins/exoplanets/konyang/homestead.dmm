@@ -1014,7 +1014,7 @@
 /area/konyang_homestead)
 "Uz" = (
 /turf/template_noop,
-/area/space)
+/area/template_noop)
 "UT" = (
 /obj/structure/bed/chair,
 /obj/structure/lattice/catwalk/indoor/tatami{

@@ -5,8 +5,8 @@
 #define ELEVATOR_DEPARTING_X 224
 #define ELEVATOR_DEPARTING_Y -96
 
-/datum/shuttle/autodock/ferry/supply
-	category = /datum/shuttle/autodock/ferry/supply
+/datum/shuttle/ferry/supply
+	category = /datum/shuttle/ferry/supply
 	/// The location to hide at while pretending to be in-transit.
 	var/away_location = 1
 	var/late_chance = 80
@@ -39,12 +39,12 @@
 	/// Underlays of the elevator saved before transit.
 	var/list/saved_underlays
 
-/datum/shuttle/autodock/ferry/supply/New(var/_name, var/obj/effect/shuttle_landmark/start_waypoint)
+/datum/shuttle/ferry/supply/New(var/_name, var/obj/effect/shuttle_landmark/start_waypoint)
 	..(_name, start_waypoint)
 	SScargo.shuttle = src
 	addtimer(CALLBACK(src, PROC_REF(prepare_elevator)), 1 MINUTE) // pseudo initialize. We give mapload some time before initializing rest of the properties
 
-/datum/shuttle/autodock/ferry/supply/proc/prepare_elevator()
+/datum/shuttle/ferry/supply/proc/prepare_elevator()
 	var/obj/dest_helper = SSshuttle.cargo_dest_helper
 	if(!dest_helper)
 		crash_with("No cargo destination helper found for the elevator!")
@@ -85,61 +85,50 @@
 	NW.forceMove(locate(target_dest_x, target_dest_y, target_dest_z))
 	NE.forceMove(locate(target_dest_x + SHAFT_WIDTH, target_dest_y, target_dest_z))
 
-/datum/shuttle/autodock/ferry/supply/short_jump(var/area/destination)
-	if(moving_status != SHUTTLE_IDLE)
+/datum/shuttle/ferry/supply/takeoff(obj/effect/shuttle_landmark/destination, travel_time)
+	if (moving_status == SHUTTLE_IDLE)
 		return
 
-	if(isnull(location))
+	if(at_station() && forbidden_atoms_check())
+		set_moving_status(SHUTTLE_IDLE)
 		return
 
-	//it would be cool to play a sound here
-	moving_status = SHUTTLE_WARMUP
-	spawn(warmup_time*10)
-		if (moving_status == SHUTTLE_IDLE)
-			return	//someone cancelled the launch
-
-		if (at_station() && forbidden_atoms_check())
-			//cancel the launch because of forbidden atoms. announce over supply channel?
-			moving_status = SHUTTLE_IDLE
+	if(!at_station())
+		if(!SScargo.buy())
+			set_moving_status(SHUTTLE_IDLE)
 			return
 
-		if (!at_station()) //at centcom
-			if(!SScargo.buy()) //Check if the shuttle can be sent
-				moving_status = SHUTTLE_IDLE //Dont move the shuttle
-				return
+		flip_rotating_alarms()
+		playsound(locate(target_dest_x + SHAFT_CENTER_OFFSET, target_dest_y - SHAFT_CENTER_OFFSET, target_dest_z), 'sound/machines/warning-buzzer-2.ogg', 60, FALSE)
 
-			flip_rotating_alarms() // elevator is coming up, prepare the lights
-			playsound(locate(target_dest_x + SHAFT_CENTER_OFFSET, target_dest_y - SHAFT_CENTER_OFFSET, target_dest_z), 'sound/machines/warning-buzzer-2.ogg', 60, FALSE)
+	//We pretend it's a long_jump by making the shuttle stay at centcom for the "in-transit" period.
+	var/obj/effect/shuttle_landmark/away_waypoint = get_location_waypoint(away_location)
 
-		//We pretend it's a long_jump by making the shuttle stay at centcom for the "in-transit" period.
-		var/obj/effect/shuttle_landmark/away_waypoint = get_location_waypoint(away_location)
-		moving_status = SHUTTLE_INTRANSIT
+	if (next_location == away_waypoint)
+		transit_to_landmark(away_waypoint)
+		play_elevator_animation(TRUE)
+		set_moving_status(SHUTTLE_LANDING)
+	else
+		set_moving_status(SHUTTLE_INTRANSIT)
 
-		//If we are at the away_landmark then we are just pretending to move, otherwise actually do the move
-		if (next_location == away_waypoint)
-			attempt_move(away_waypoint)
-			play_elevator_animation(TRUE) // returning to CC, play the animation after elevator physically leaves
+	set_timer(SScargo.movetime)
 
-		//wait ETA here.
-		arrive_time = world.time + SScargo.movetime
-		while (world.time <= arrive_time)
-			sleep(5)
+/datum/shuttle/ferry/supply/spooldown(obj/effect/shuttle_landmark/destination)
+	if (next_location != get_location_waypoint(away_location))
+		if(prob(late_chance))
+			set_timer(rand(0, max_late_time))
+	set_moving_status(SHUTTLE_LANDING)
 
-		if (next_location != away_waypoint)
-			//late
-			if (prob(late_chance))
-				sleep(rand(0,max_late_time))
-
-			play_elevator_animation() // coming from CC, play the animation before elevator physically arrives, delay the process
-			attempt_move(destination)
-
-		moving_status = SHUTTLE_IDLE
-
-		if (!at_station())	//at centcom
-			SScargo.sell()
+/datum/shuttle/ferry/supply/land(obj/effect/shuttle_landmark/destination)
+	if (next_location != get_location_waypoint(away_location))
+		play_elevator_animation()
+		transit_to_landmark(destination)
+	set_moving_status(SHUTTLE_IDLE)
+	if(!at_station())
+		SScargo.sell()
 
 // returns 1 if the supply shuttle should be prevented from moving because it contains forbidden atoms
-/datum/shuttle/autodock/ferry/supply/proc/forbidden_atoms_check()
+/datum/shuttle/ferry/supply/proc/forbidden_atoms_check()
 	if (!at_station())
 		return 0	//if badmins want to send mobs or a nuke on the supply shuttle from centcom we don't care
 
@@ -147,15 +136,15 @@
 		if(SScargo.forbidden_atoms_check(A))
 			return 1
 
-/datum/shuttle/autodock/ferry/supply/proc/at_station()
+/datum/shuttle/ferry/supply/proc/at_station()
 	return (!location)
 
 //returns 1 if the shuttle is idle and we can still mess with the cargo shopping list
-/datum/shuttle/autodock/ferry/supply/proc/idle()
+/datum/shuttle/ferry/supply/proc/idle()
 	return (moving_status == SHUTTLE_IDLE)
 
 //returns the ETA in minutes
-/datum/shuttle/autodock/ferry/supply/proc/eta_minutes()
+/datum/shuttle/ferry/supply/proc/eta_minutes()
 	var/ticksleft = arrive_time - world.time
 	return round(ticksleft/600,1)
 
@@ -163,7 +152,7 @@
 	Elevator Animations
 ***************************/
 
-/datum/shuttle/autodock/ferry/supply/proc/play_elevator_animation(returning_to_CC = FALSE)
+/datum/shuttle/ferry/supply/proc/play_elevator_animation(returning_to_CC = FALSE)
 	// Positioning the shafts
 	NW.forceMove(locate(target_dest_x, target_dest_y, target_dest_z))
 	NE.forceMove(locate(target_dest_x + SHAFT_WIDTH, target_dest_y, target_dest_z))
@@ -178,7 +167,7 @@
 	elevator_animation.icon_state = "elevator_test"
 
 	for(var/area/A in shuttle_area) // an image copy of the elevator platform is prepared here
-		for(var/turf/T in A)
+		for(var/turf/T as anything in A.get_turfs_from_all_zlevels())
 			LAZYADDASSOC(saved_underlays, T, T.underlays)
 			T.underlays.Cut()
 			elevator_animation.vis_contents += T
@@ -206,7 +195,7 @@
 
 	elevator_animation.vis_contents.Cut() // animation is done, we can get rid of the elevator platform image
 
-/datum/shuttle/autodock/ferry/supply/proc/handle_arrival_sequence()
+/datum/shuttle/ferry/supply/proc/handle_arrival_sequence()
 	var/obj/effect/step_trigger/cargo_elevator/trigger
 
 	playsound(locate(target_dest_x + SHAFT_CENTER_OFFSET, target_dest_y - SHAFT_CENTER_OFFSET, target_dest_z), 'sound/machines/industrial_lift_raising.ogg', 100, FALSE)
@@ -230,7 +219,7 @@
 	addtimer(CALLBACK(src, PROC_REF(flip_rotating_alarms)), 4 SECONDS)
 	addtimer(CALLBACK(src, PROC_REF(toggle_railings)), 2 SECONDS)
 
-/datum/shuttle/autodock/ferry/supply/proc/handle_departure_sequence()
+/datum/shuttle/ferry/supply/proc/handle_departure_sequence()
 	flip_rotating_alarms()
 	toggle_railings()
 	sleep(2 SECONDS)
@@ -246,7 +235,7 @@
 	addtimer(CALLBACK(src, PROC_REF(flip_rotating_alarms)), 9 SECOND)
 
 /// This attempts to sync up with hatch animation, by activating groups of step triggers in delayed order.
-/datum/shuttle/autodock/ferry/supply/proc/handle_step_triggers()
+/datum/shuttle/ferry/supply/proc/handle_step_triggers()
 	var/obj/effect/step_trigger/cargo_elevator/trigger
 	var/group_key
 	for(var/i in 0 to 3)
@@ -260,11 +249,11 @@
 
 		sleep(1 SECOND)
 
-/datum/shuttle/autodock/ferry/supply/proc/flip_rotating_alarms()
+/datum/shuttle/ferry/supply/proc/flip_rotating_alarms()
 	for(var/obj/machinery/rotating_alarm/RA in horizon_elevator_area)
 		RA.toggle_state()
 
-/datum/shuttle/autodock/ferry/supply/proc/toggle_railings()
+/datum/shuttle/ferry/supply/proc/toggle_railings()
 	for(var/obj/structure/railing/retractable/R in horizon_elevator_area)
 		R.toggle_state()
 

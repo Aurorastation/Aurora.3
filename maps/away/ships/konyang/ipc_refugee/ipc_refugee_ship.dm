@@ -9,7 +9,7 @@
 	spawn_weight = 1
 	ship_cost = 1
 	id = "ipc_refugee_ship"
-	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/ipc_refugee_shuttle)
+	shuttles_to_initialise = list(/datum/shuttle/overmap/ipc_refugee_shuttle)
 
 	unit_test_groups = list(3)
 
@@ -52,6 +52,8 @@
 
 	invisible_until_ghostrole_spawn = TRUE
 
+	ship_area_type = /area/ship/ipc_refugee
+
 /obj/effect/overmap/visitable/ship/ipc_refugee_ship/New()
 	designation = "[pick("HELP", "PLS NO MORE PIRATES", "Need Fuel, Air, n' Repairs", "Spare Change?", "Fix Me", "Need Directions, Starmap Broken", "KONYANG HERE WE COME", "Can't Have Sh!t", "01010011 01001111 01010011", "How's My Flying", "Ignore The Bullet Holes", "(insert designation)", "Press Any Key to Start", "Don't Tell Mom I'm In Burzsia", "SNAFU", "FUBAR")]"
 	..()
@@ -65,57 +67,40 @@
 /obj/effect/shuttle_landmark/ipc_refugee_ship/nav1
 	name = "Port Navpoint"
 	landmark_tag = "nav_ipc_refugee_ship_1"
-	base_turf = /turf/space/dynamic
-	base_area = /area/space
 
 /obj/effect/shuttle_landmark/ipc_refugee_ship/nav2
 	name = "Fore Navpoint"
 	landmark_tag = "nav_ipc_refugee_ship_2"
-	base_turf = /turf/space/dynamic
-	base_area = /area/space
 
 /obj/effect/shuttle_landmark/ipc_refugee_ship/nav3
 	name = "Starboard Navpoint"
 	landmark_tag = "nav_ipc_refugee_ship_3"
-	base_turf = /turf/space/dynamic
-	base_area = /area/space
 
 /obj/effect/shuttle_landmark/ipc_refugee_ship/nav4
 	name = "Aft Navpoint"
 	landmark_tag = "nav_ipc_refugee_ship_4"
-	base_turf = /turf/space/dynamic
-	base_area = /area/space
 
 /obj/effect/shuttle_landmark/ipc_refugee_ship/nav5
 	name = "Far Port Navpoint"
 	landmark_tag = "nav_ipc_refugee_ship_5"
-	base_turf = /turf/space/dynamic
-	base_area = /area/space
 
 /obj/effect/shuttle_landmark/ipc_refugee_ship/nav6
 	name = "Far Starboard Navpoint"
 	landmark_tag = "nav_ipc_refugee_ship_6"
-	base_turf = /turf/space/dynamic
-	base_area = /area/space
 
 /obj/effect/shuttle_landmark/ipc_refugee_ship/transit
 	name = "In transit"
 	landmark_tag = "nav_transit_ipc_refugee_ship"
-	base_turf = /turf/space/transit/north
 
 /obj/effect/shuttle_landmark/ipc_refugee_ship/starboard_dock
 	name = "Decrepit Freighter Starboard Dock"
 	landmark_tag = "nav_refugee_dock_starboard"
 	docking_controller = "airlock_refugee_dock_starboard"
-	base_turf = /turf/space
-	base_area = /area/space
 
 /obj/effect/shuttle_landmark/ipc_refugee_ship/port_dock
 	name = "Decrepit Freighter Port Dock"
 	landmark_tag = "nav_refugee_dock_port"
 	docking_controller = "airlock_refugee_dock_port"
-	base_turf = /turf/space
-	base_area = /area/space
 
 /obj/effect/overmap/visitable/ship/landable/ipc_refugee_shuttle
 	name = "Decrepit Cargo Tug"
@@ -136,17 +121,18 @@
 	sizeclass = "Stout-class Utility Craft"
 	shiptype = "Cargo Tug"
 
+	ship_area_type = /area/shuttle/ipc_refugee_shuttle
+
 /obj/machinery/computer/shuttle_control/explore/ipc_refugee_shuttle
 	name = "shuttle control console"
 	shuttle_tag = "Decrepit Cargo Tug"
 
-/datum/shuttle/autodock/overmap/ipc_refugee_shuttle
+/datum/shuttle/overmap/ipc_refugee_shuttle
 	name = "Decrepit Cargo Tug"
 	move_time = 40
 	shuttle_area = list(/area/shuttle/ipc_refugee_shuttle)
 	current_location = "nav_hangar_ipc_refugee"
 	dock_target = "ipc_refugee_shuttle"
-	landmark_transition = "nav_transit_ipc_refugee_shuttle"
 	range = 1
 	fuel_consumption = 4 // very old, so not as efficient as other shuttles
 	logging_home_tag = "nav_hangar_ipc_refugee"
@@ -156,14 +142,11 @@
 	name = "Cargo Tug Dock"
 	landmark_tag = "nav_hangar_ipc_refugee"
 	docking_controller = "ipc_refugee_ship_aft_airlock"
-	base_area = /area/ship/ipc_refugee
-	base_turf = /turf/space
 	movable_flags = MOVABLE_FLAG_EFFECTMOVE
 
 /obj/effect/shuttle_landmark/ipc_refugee_shuttle/transit
 	name = "In transit"
 	landmark_tag = "nav_transit_ipc_refugee_shuttle"
-	base_turf = /turf/space/transit/north
 
 
 

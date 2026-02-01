@@ -9,7 +9,7 @@
 	spawn_weight = 1
 	ship_cost = 1
 	id = "air_konyang"
-	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/air_konyang)
+	shuttles_to_initialise = list(/datum/shuttle/overmap/air_konyang)
 	unit_test_groups = list(3)
 
 /singleton/submap_archetype/air_konyang
@@ -36,6 +36,8 @@
 	shuttle = "Air Konyang Transport"
 	use_mapped_z_levels = TRUE
 
+	ship_area_type = /area/shuttle/air_konyang
+
 /obj/effect/overmap/visitable/ship/landable/air_konyang/New()
 	designation = "[pick("Qianlima", "Senrima", "Cheollima", "Chollima")]"
 	..()
@@ -44,7 +46,7 @@
 	name = "shuttle control console"
 	shuttle_tag = "Air Konyang Transport"
 
-/datum/shuttle/autodock/overmap/air_konyang
+/datum/shuttle/overmap/air_konyang
 	name = "Air Konyang Transport"
 	move_time = 35
 	range = 2
@@ -52,7 +54,6 @@
 	shuttle_area = list(/area/shuttle/air_konyang/atmos, /area/shuttle/air_konyang/engineering, /area/shuttle/air_konyang/storage, /area/shuttle/air_konyang/starbwing, /area/shuttle/air_konyang/crew, /area/shuttle/air_konyang/mainroom, /area/shuttle/air_konyang/bridge, /area/shuttle/air_konyang/rear_hall)
 	current_location = "nav_air_konyang_start"
 	dock_target = "airlock_air_konyang"
-	landmark_transition = "nav_air_konyang_transit"
 	logging_home_tag = "nav_air_konyang_start"
 	defer_initialisation = TRUE
 
@@ -63,4 +64,3 @@
 /obj/effect/shuttle_landmark/air_konyang_transit
 	name = "In transit"
 	landmark_tag = "nav_air_konyang_transit"
-	base_turf = /turf/space/transit/north

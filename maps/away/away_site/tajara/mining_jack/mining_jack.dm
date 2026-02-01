@@ -10,7 +10,7 @@
 	spawn_weight = 1
 	ship_cost = 1
 	id = "tajara_mining_jack"
-	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/tajara_mining_jack)
+	shuttles_to_initialise = list(/datum/shuttle/overmap/tajara_mining_jack)
 
 	unit_test_groups = list(2)
 
@@ -38,8 +38,6 @@
 	comms_name = "adhomian mining"
 
 /obj/effect/shuttle_landmark/tajara_mining_jack
-	base_turf = /turf/space
-	base_area = /area/space
 
 /obj/effect/shuttle_landmark/tajara_mining_jack/nav1
 	name = "Adhomian Mining Outpost Navpoint #1"
@@ -73,6 +71,8 @@
 	fore_dir = NORTH
 	vessel_size = SHIP_SIZE_TINY
 
+	ship_area_type = /area/shuttle/mining_jack
+
 /obj/effect/overmap/visitable/ship/landable/tajara_mining_jack/New()
 	designation = "[pick("Rock Breaker", "Mining Zhan", "Flying Pickaxe", "Asteroid's Worst Nightmare", "Twin Suns Drills", "Minharrzka's Blessing", "Driller", "Stardust", "Dhrarmela's Smelter")]"
 	..()
@@ -81,13 +81,12 @@
 	name = "shuttle control console"
 	shuttle_tag = "Mining Jack"
 
-/datum/shuttle/autodock/overmap/tajara_mining_jack
+/datum/shuttle/overmap/tajara_mining_jack
 	name = "Mining Jack"
 	move_time = 20
 	shuttle_area = list(/area/shuttle/mining_jack/bridge, /area/shuttle/mining_jack/engines)
 	dock_target = "tajara_mining_jack"
 	current_location = "nav_hangar_tajara_mining_jack"
-	landmark_transition = "nav_transit_tajara_mining_jack"
 	range = 1
 	fuel_consumption = 2
 	logging_home_tag = "nav_hangar_tajara_mining_jack"

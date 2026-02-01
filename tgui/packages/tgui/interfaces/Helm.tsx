@@ -1,12 +1,11 @@
 import { BooleanLike } from '../../common/react';
 import { useBackend } from '../backend';
-import { Box, Button, Section, Table } from '../components';
+import { Box, BlockQuote, Button, Section, Table, Flex } from '../components';
 import { NtosWindow } from '../layouts';
 
 export type HelmData = {
   sector: string;
   sector_info: string;
-  landed: string;
   ship_coord_x: number;
   ship_coord_y: number;
   dest: BooleanLike;
@@ -27,6 +26,34 @@ export type HelmData = {
   ship_speed_y: number;
   ETAnext: number;
   locations: Location[];
+  shuttle_state?: string;
+  has_docking?: BooleanLike;
+  docking_status?: string;
+  docking_override?: BooleanLike;
+  can_launch?: boolean;
+  can_cancel?: boolean;
+  can_force?: boolean;
+  destination_name?: string;
+  destination_map_image?: any; // base64 icon
+  destination_x?: number;
+  destination_y?: number;
+  can_pick?: boolean;
+  fuel_usage?: number;
+  remaining_fuel?: number;
+  fuel_span?: string;
+  global_state: boolean;
+  global_limit: number;
+  eng_info: Engine[];
+  total_thrust: number;
+};
+
+type Engine = {
+  type: string;
+  on: boolean;
+  thrust: number;
+  thrust_limiter: number;
+  status: string;
+  ref: string;
 };
 
 type Location = {
@@ -343,24 +370,21 @@ const NavSection = function (act, data) {
     <Section title="Navigation Data">
       <Table>
         <Table.Row>
-          <Table.Cell>Location:</Table.Cell>
+          <Table.Cell>Status:</Table.Cell>
           <Table.Cell>{data.sector}</Table.Cell>
         </Table.Row>
         <Table.Row>
           <Table.Cell>Coordinates:</Table.Cell>
           <Table.Cell>
-            {data.ship_coord_x} : {data.ship_coord_y}
+            ({data.ship_coord_x}, {data.ship_coord_y})
           </Table.Cell>
         </Table.Row>
-        <Table.Row>
-          <Table.Cell>Scan data:</Table.Cell>
-          <Table.Cell>{data.sector_info}</Table.Cell>
-        </Table.Row>
-        <Table.Row>
+        {/* <Table.Row>
           <Table.Cell>Status:</Table.Cell>
           <Table.Cell>{data.landed}</Table.Cell>
-        </Table.Row>{' '}
+        </Table.Row>{' '} */}
       </Table>
+      <BlockQuote mt={2}>{data.sector_info}</BlockQuote>
     </Section>
   );
 };
@@ -422,23 +446,61 @@ const PosSection = function (act, data) {
   );
 };
 
+const LaunchSection = function (act, data) {
+  const isLanded = data.shuttle_state === 'idle';
+  return (
+    <Section title="Landing Controls">
+      <div>
+        {!isLanded && (
+          <button class="button-3d" type="button">
+            LAND
+          </button>
+        )}
+        {isLanded && (
+          <button onclick={() => act('move')} class="button-3d" type="button">
+            LAUNCH
+          </button>
+        )}
+      </div>
+    </Section>
+  );
+};
+
 export const Helm = (props, context) => {
   const { act, data } = useBackend<HelmData>(context);
+
+  const isLanded = data.shuttle_state === 'idle';
 
   return (
     <NtosWindow resizable>
       <NtosWindow.Content scrollable>
-        <Table>
-          <Table.Row>
-            <Table.Cell width="50%">{FlightSection(act, data)}</Table.Cell>
-            <Table.Cell width="50%">{BearingsSection(act, data)}</Table.Cell>
-          </Table.Row>
-          <Table.Row>
-            <Table.Cell width="50%">{ManualSection(act, data)}</Table.Cell>
-            <Table.Cell width="50%">{AutopilotSection(act, data)}</Table.Cell>
-          </Table.Row>
-        </Table>
-        {NavSection(act, data)}
+        <Box class="clearance-parent">
+          <Table class="clearance-tape">
+            <Table.Row>
+              <Table.Cell width="50%">{FlightSection(act, data)}</Table.Cell>
+              <Table.Cell width="50%">{BearingsSection(act, data)}</Table.Cell>
+            </Table.Row>
+            <Table.Row>
+              <Table.Cell width="50%">{ManualSection(act, data)}</Table.Cell>
+              <Table.Cell width="50%">{AutopilotSection(act, data)}</Table.Cell>
+            </Table.Row>
+          </Table>
+          {isLanded && (
+            <div class="overlay-message">
+              CONTROLS LOCKED
+              <br />
+              Shuttle is currently landed.
+            </div>
+          )}
+        </Box>
+        <Flex style={{ alignItems: 'stretch' }}>
+          <Flex.Item grow={1} width="67%">
+            {NavSection(act, data)}
+          </Flex.Item>
+          <Flex.Item grow={1} width="33%">
+            {LaunchSection(act, data)}
+          </Flex.Item>
+        </Flex>
         {PosSection(act, data)}
       </NtosWindow.Content>
     </NtosWindow>

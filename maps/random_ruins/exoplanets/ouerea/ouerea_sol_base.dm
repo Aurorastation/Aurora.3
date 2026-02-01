@@ -13,7 +13,6 @@
 	icon_state = "bluenew"
 	requires_power = TRUE
 	no_light_control = FALSE
-	base_turf = /turf/simulated/floor/exoplanet/barren
 	area_flags = AREA_FLAG_RAD_SHIELDED|AREA_FLAG_INDESTRUCTIBLE_TURFS
 	area_blurb = "This area seems to be a shuttle port - though one long-since abandoned. Flags of the Sol Alliance hang tattered, occasionally stirred in the breeze."
 

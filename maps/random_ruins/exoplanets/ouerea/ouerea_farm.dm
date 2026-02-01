@@ -15,7 +15,6 @@
 	icon_state = "bluenew"
 	requires_power = FALSE
 	no_light_control = FALSE
-	base_turf = /turf/simulated/floor/exoplanet/barren
 	area_flags = AREA_FLAG_RAD_SHIELDED|AREA_FLAG_INDESTRUCTIBLE_TURFS
 	area_blurb = "The sound of enormous water pipes and the low electrical hum of vast machines can be heard here. Catwalks strech over vast expanses of water. The banners of Hephaestus Industries can be seen, displayed proudly for all to see."
 

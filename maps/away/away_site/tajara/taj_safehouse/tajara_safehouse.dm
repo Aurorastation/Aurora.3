@@ -9,7 +9,7 @@
 	spawn_weight = 0 // outdated and not following current standards, could be enabled after it's fixed
 	ship_cost = 1
 	id = "tajara_safehouse"
-	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/tajara_safehouse_shuttle)
+	shuttles_to_initialise = list(/datum/shuttle/overmap/tajara_safehouse_shuttle)
 
 	unit_test_groups = list(1)
 
@@ -35,7 +35,6 @@
 	icon_state = "bar"
 	area_flags = AREA_FLAG_RAD_SHIELDED | AREA_FLAG_HIDE_FROM_HOLOMAP
 	requires_power = FALSE
-	base_turf = /turf/simulated/floor/plating
 	no_light_control = TRUE
 
 /area/tajara_safehouse/hangar
@@ -62,17 +61,18 @@
 	fore_dir = NORTH
 	vessel_size = SHIP_SIZE_TINY
 
+	ship_area_type = /area/shuttle/tajara_safehouse_shuttle
+
 /obj/machinery/computer/shuttle_control/explore/tajara_safehouse_shuttle
 	name = "shuttle control console"
 	shuttle_tag = "Unmarked Civilian Shuttle"
 
 
-/datum/shuttle/autodock/overmap/tajara_safehouse_shuttle
+/datum/shuttle/overmap/tajara_safehouse_shuttle
 	name = "Unmarked Civilian Shuttle"
 	move_time = 20
 	shuttle_area = list(/area/shuttle/tajara_safehouse_shuttle)
 	current_location = "nav_hangar_tajara_safehouse"
-	landmark_transition = "nav_transit_tajara_safehouse"
 	range = 1
 	fuel_consumption = 2
 	logging_home_tag = "nav_hangar_tajara_safehouse"
@@ -82,11 +82,8 @@
 	name = "Unmarked Civilian Hangar"
 	landmark_tag = "nav_hangar_tajara_safehouse"
 	docking_controller = "tajara_safehouse_shuttle_dock"
-	base_area = /area/tajara_safehouse/hangar
-	base_turf = /turf/simulated/floor/plating
 	movable_flags = MOVABLE_FLAG_EFFECTMOVE
 
 /obj/effect/shuttle_landmark/tajara_safehouse_shuttle/transit
 	name = "In transit"
 	landmark_tag = "nav_transit_tajara_safehouse"
-	base_turf = /turf/space/transit/north

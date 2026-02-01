@@ -9,3 +9,12 @@
 
 ///From base of /datum/move_loop/process() after attempting to move a movable: (datum/move_loop/loop, old_dir)
 #define COMSIG_MOVABLE_MOVED_FROM_LOOP "movable_moved_from_loop"
+
+/// From base of /atom/movable/beforeShuttleMove (turf/newT, direction, move_mode, /obj/effect/shuttle_landmark/shuttle)
+#define COMSIG_ATOM_BEFORE_SHUTTLE_MOVE "movable_before_shuttle_move"
+	// Docking turf movement return values - return a combination of these to override the move_mode for the turf containing the atom
+	#define COMPONENT_MOVE_TURF MOVE_TURF
+	#define COMPONENT_MOVE_AREA MOVE_AREA
+	#define COMPONENT_MOVE_CONTENTS MOVE_CONTENTS
+/// From base of /atom/movable/afterShuttleMove (turf/oldT)
+#define COMSIG_ATOM_AFTER_SHUTTLE_MOVE "movable_after_shuttle_move"

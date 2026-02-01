@@ -18,7 +18,6 @@
 	icon_state = "bluenew"
 	requires_power = FALSE
 	no_light_control = FALSE
-	base_turf = /turf/simulated/floor/exoplanet/mineral/adhomai
 	area_flags = AREA_FLAG_RAD_SHIELDED
 	ambience = AMBIENCE_HIGHSEC
 	area_blurb = "You feel watched inside this ominous compound."

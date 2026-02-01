@@ -1410,12 +1410,14 @@ ABSTRACT_TYPE(/obj/machinery/power/apc)
 			offset += rand(5, 10)
 
 /obj/machinery/power/apc/proc/toggle_nightlight(var/force = null)
-	for (var/obj/machinery/light/L in area.contents)
-		if (force == "on")
-			L.nightmode = TRUE
-		else if (force == "off")
-			L.nightmode = FALSE
-		L.update()
+	for(var/list/zlevel_turfs as anything in area.get_zlevel_turf_lists())
+		for(var/turf/T as anything in zlevel_turfs)
+			for(var/obj/machinery/light/L in T)
+				if (force == "on")
+					L.nightmode = TRUE
+				else if (force == "off")
+					L.nightmode = FALSE
+				L.update()
 	switch (force)
 		if ("on")
 			night_mode = 1

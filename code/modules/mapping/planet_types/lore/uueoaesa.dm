@@ -47,14 +47,7 @@
 	ruin_planet_type = PLANET_LORE
 	planetary_area = /area/exoplanet/barren/pid
 	ruin_type_whitelist = list(/datum/map_template/ruin/exoplanet/pid_crashed_shuttle, /datum/map_template/ruin/exoplanet/pid_kois_farm, /datum/map_template/ruin/exoplanet/izweski_probe, /datum/map_template/ruin/exoplanet/heph_survey_post, /datum/map_template/ruin/exoplanet/kazhkz_crash)
-
-/obj/effect/overmap/visitable/sector/exoplanet/barren/pid/generate_atmosphere()
-	..()
-	if(atmosphere)
-		atmosphere.remove_ratio(1)
-		atmosphere.adjust_gas(GAS_NITROGEN, MOLES_N2STANDARD)
-		atmosphere.temperature = T0C + 20
-		atmosphere.update_values()
+	possible_atmospheres = /singleton/atmosphere/breathable/nitrogen
 
 /obj/effect/overmap/visitable/sector/exoplanet/barren/pid/generate_ground_survey_result()
 	..()
@@ -144,6 +137,8 @@
 	ruin_type_whitelist = list(/datum/map_template/ruin/exoplanet/moghes_village) //defaults to village bc for some reason nothing spawns if this is empty
 	place_near_main = list(2,2)
 	actors = list("reptilian humanoid", "three-faced reptilian humanoid", "a statue", "a sword", "an unidentifiable object", "an Unathi skull", "a staff", "a fishing spear", "reptilian humanoids", "unusual devices", "a pyramid")
+	possible_atmospheres = /singleton/atmosphere/breathable/earthlike/moghes
+	turftype = /turf/simulated/floor/exoplanet/grass/moghes/dirt
 	var/landing_region
 
 /obj/effect/overmap/visitable/sector/exoplanet/moghes/pre_ruin_preparation()
@@ -174,6 +169,7 @@
 
 		if("Wasteland")
 			possible_themes = list(/datum/exoplanet_theme/desert/wasteland) //nuked theme
+			possible_atmospheres = /singleton/atmosphere/breathable/earthlike/moghes/wasteland
 			surface_color = "#faeac5"
 			set_weather(/singleton/state/weather/calm/desert_planet)
 			//Wasteland ruins
@@ -206,25 +202,10 @@
 
 	desc += " The landing sites are located in the [landing_region]."
 
-/obj/effect/overmap/visitable/sector/exoplanet/moghes/generate_habitability()
-	return HABITABILITY_IDEAL
-
 /obj/effect/overmap/visitable/sector/exoplanet/moghes/generate_map()
 	if(prob(75))
 		lightlevel = rand(5,10)/10
 	..()
-
-/obj/effect/overmap/visitable/sector/exoplanet/moghes/generate_atmosphere()
-	..()
-	if(atmosphere)
-		atmosphere.remove_ratio(1)
-		atmosphere.adjust_gas(GAS_OXYGEN, MOLES_O2STANDARD, 1)
-		atmosphere.adjust_gas(GAS_NITROGEN, MOLES_N2STANDARD, 1)
-		if(landing_region == "Wasteland")
-			atmosphere.temperature = T0C + rand(40, 50)
-		else
-			atmosphere.temperature = T0C + rand(30, 40)
-		atmosphere.update_values()
 
 /obj/effect/overmap/visitable/sector/exoplanet/moghes/update_icon()
 	return
@@ -298,23 +279,13 @@
 		/datum/map_template/ruin/exoplanet/ouerea_threshbeast_herd
 	)
 	place_near_main = list(2,2)
-
-/obj/effect/overmap/visitable/sector/exoplanet/ouerea/generate_habitability()
-	return HABITABILITY_IDEAL
+	possible_atmospheres = /singleton/atmosphere/breathable/earthlike/ouerea
+	turftype = /turf/simulated/floor/exoplanet/barren
 
 /obj/effect/overmap/visitable/sector/exoplanet/ouerea/generate_map()
 	if(prob(75))
 		lightlevel = rand(5,10)/10
 	..()
-
-/obj/effect/overmap/visitable/sector/exoplanet/ouerea/generate_atmosphere()
-	..()
-	if(atmosphere)
-		atmosphere.remove_ratio(1)
-		atmosphere.adjust_gas(GAS_OXYGEN, MOLES_O2STANDARD, 1)
-		atmosphere.adjust_gas(GAS_NITROGEN, MOLES_N2STANDARD, 1)
-		atmosphere.temperature = T0C + rand(25, 30)
-		atmosphere.update_values()
 
 /obj/effect/overmap/visitable/sector/exoplanet/ouerea/update_icon()
 	return
