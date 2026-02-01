@@ -183,6 +183,13 @@ GLOBAL_LIST_INIT(slot_equipment_priority, list(
 			return item
 	return null
 
+/mob/proc/get_held_tool(var/behaviour)
+	if(!behaviour)
+		return
+	for(var/obj/item/I in get_held_items())
+		if(I.tool_behaviour == behaviour)
+			return I
+
 /**
  * Puts the item in the active hand of the mob, if possible
  *
