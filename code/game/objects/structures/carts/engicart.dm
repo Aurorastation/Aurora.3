@@ -7,7 +7,7 @@
 	var/list/my_glass = list()
 	var/list/my_metal = list()
 	var/list/my_plasteel = list()
-	var/obj/item/device/lightreplacer/my_lightreplacer = null
+	var/obj/item/lightreplacer/my_lightreplacer = null
 	var/obj/item/storage/toolbox/mechanical/my_blue_toolbox = null
 	var/obj/item/storage/toolbox/electrical/my_yellow_toolbox = null
 	var/obj/item/storage/toolbox/emergency/my_red_toolbox = null
@@ -18,7 +18,7 @@
 		/obj/item/stack/material/glass,
 		/obj/item/stack/material/steel,
 		/obj/item/stack/material/plasteel,
-		/obj/item/device/lightreplacer,
+		/obj/item/lightreplacer,
 		/obj/item/storage/toolbox/mechanical,
 		/obj/item/storage/toolbox/electrical,
 		/obj/item/storage/toolbox/emergency
@@ -134,7 +134,7 @@
 					else
 						storage_is_full = TRUE
 
-		if(istype(attacking_item, /obj/item/device/lightreplacer)) //---- light replacer
+		if(istype(attacking_item, /obj/item/lightreplacer)) //---- light replacer
 			if(!my_lightreplacer)
 				my_lightreplacer = attacking_item
 				should_store = TRUE
@@ -144,7 +144,7 @@
 		handle_storing(attacking_item, user, should_store, storage_is_full)
 		return TRUE
 
-	else if(!has_items && (attacking_item.iswrench() || attacking_item.iswelder() || istype(attacking_item, /obj/item/gun/energy/plasmacutter)))
+	else if (!has_items && (attacking_item.tool_behaviour == TOOL_WRENCH || attacking_item.tool_behaviour == TOOL_WELDER || istype(attacking_item, /obj/item/gun/energy/plasmacutter)))
 		take_apart(user, attacking_item)
 		return
 	..()
@@ -239,7 +239,7 @@
 						user.put_in_hands(chosen_item)
 						to_chat(user, SPAN_NOTICE("You take [my_plasteel[chosen_item]] from [src]."))
 						my_plasteel -= chosen_item
-				if(/obj/item/device/lightreplacer, /obj/item/device/lightreplacer/advanced)
+				if(/obj/item/lightreplacer, /obj/item/lightreplacer/advanced)
 					if(my_lightreplacer)
 						user.put_in_hands(my_lightreplacer)
 						to_chat(user, SPAN_NOTICE("You take [my_lightreplacer] from [src]."))
@@ -302,7 +302,7 @@
 
 /obj/structure/cart/storage/engineeringcart/full/Initialize()
 	. = ..()
-	my_lightreplacer = new /obj/item/device/lightreplacer(src)
+	my_lightreplacer = new /obj/item/lightreplacer(src)
 	my_blue_toolbox = new /obj/item/storage/toolbox/mechanical(src)
 	my_yellow_toolbox = new /obj/item/storage/toolbox/electrical(src)
 	my_red_toolbox = new /obj/item/storage/toolbox/emergency(src)

@@ -44,7 +44,7 @@
 	tab_pda = /obj/item/modular_computer/handheld/pda/civilian/merchant
 	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/civilian
 	tablet = /obj/item/modular_computer/handheld/preset/civilian
-	r_pocket = /obj/item/device/price_scanner
+	r_pocket = /obj/item/price_scanner
 
 /obj/outfit/merchant_assistant
 	name = "Merchant's Assistant"
@@ -52,7 +52,7 @@
 	tab_pda = /obj/item/modular_computer/handheld/pda/civilian/merchant
 	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/civilian
 	tablet = /obj/item/modular_computer/handheld/preset/civilian
-	r_pocket = /obj/item/device/price_scanner
+	r_pocket = /obj/item/price_scanner
 	belt = /obj/item/storage/belt/utility/full
 	uniform = list(
 		/obj/item/clothing/under/suit_jacket/charcoal,

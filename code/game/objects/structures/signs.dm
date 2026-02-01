@@ -23,7 +23,7 @@
 	qdel(src)
 
 /obj/structure/sign/attackby(obj/item/attacking_item, mob/user) // Deconstruction.
-	if(attacking_item.isscrewdriver() && !istype(src, /obj/structure/sign/double))
+	if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER && !istype(src, /obj/structure/sign/double))
 		user.visible_message(SPAN_NOTICE("\The [user] starts to unfasten \the [src]."), SPAN_NOTICE("You start to unfasten \the [src]."))
 		if(attacking_item.use_tool(src, user, 0, volume = 50))
 			unfasten(user)
@@ -54,7 +54,7 @@
 	pickup_sound = 'sound/items/pickup/axe.ogg'
 
 /obj/item/sign/attackby(obj/item/attacking_item, mob/user) // Construction.
-	if(attacking_item.isscrewdriver() && isturf(user.loc))
+	if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER && isturf(user.loc))
 		var/direction = tgui_input_list(user, "In which direction?", "Select Direction", list("North", "East", "South", "West", "Cancel"))
 		if(direction == "Cancel") return
 		if(QDELETED(src)) //Prevents spawning multiple new signs with queued dialogues

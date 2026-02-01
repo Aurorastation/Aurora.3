@@ -1,6 +1,15 @@
 import { InfernoNode } from 'inferno';
 import { useBackend, useLocalState } from '../../backend';
-import { Box, Button, Flex, Input, LabeledList, Section, Stack, Tooltip } from '../../components';
+import {
+  Box,
+  Button,
+  Flex,
+  Input,
+  LabeledList,
+  Section,
+  Stack,
+  Tooltip,
+} from '../../components';
 
 /**
  * This describes something that influences a particular reaction
@@ -43,7 +52,7 @@ const GasSearchBar = (
     activeInput: boolean;
     setActiveInput: (toggle: boolean) => void;
   },
-  context
+  context,
 ) => {
   const { title, onChange, activeInput, setActiveInput } = props;
   return (
@@ -74,17 +83,17 @@ const GasHandbook = (props, context) => {
   const [activeGasId, setActiveGasId] = useLocalState(
     context,
     'activeGasId',
-    ''
+    '',
   );
   const [activeReactionId, setActiveReactionId] = useLocalState(
     context,
     'activeReactionId',
-    ''
+    '',
   );
   const [gasActiveInput, setGasActiveInput] = useLocalState(
     context,
     'gasActiveInput',
-    false
+    false,
   );
   const relevantGas = gasInfo.find((gas) => gas.id === activeGasId);
   return (
@@ -95,14 +104,15 @@ const GasHandbook = (props, context) => {
           onChange={(keyword) =>
             setActiveGasId(
               gasInfo.find((gas) =>
-                gas.name.toLowerCase().startsWith(keyword.toLowerCase())
-              )?.id || ''
+                gas.name.toLowerCase().startsWith(keyword.toLowerCase()),
+              )?.id || '',
             )
           }
           activeInput={gasActiveInput}
           setActiveInput={setGasActiveInput}
         />
-      }>
+      }
+    >
       {relevantGas && (
         <>
           <Box mb="0.5em">{relevantGas.description}</Box>
@@ -118,7 +128,7 @@ const GasHandbook = (props, context) => {
                   content={reaction_name}
                 />
               </Box>
-            )
+            ),
           )}
         </>
       )}
@@ -132,20 +142,20 @@ const ReactionHandbook = (props, context) => {
   const [activeGasId, setActiveGasId] = useLocalState(
     context,
     'activeGasId',
-    ''
+    '',
   );
   const [activeReactionId, setActiveReactionId] = useLocalState(
     context,
     'activeReactionId',
-    ''
+    '',
   );
   const [reactionActiveInput, setReactionActiveInput] = useLocalState(
     context,
     'reactionActiveInput',
-    false
+    false,
   );
   const relevantReaction = reactionInfo?.find(
-    (reaction) => reaction.id === activeReactionId
+    (reaction) => reaction.id === activeReactionId,
   );
   return (
     <Section
@@ -159,14 +169,15 @@ const ReactionHandbook = (props, context) => {
           onChange={(keyword) =>
             setActiveReactionId(
               reactionInfo.find((reaction) =>
-                reaction.name.toLowerCase().startsWith(keyword.toLowerCase())
-              )?.id || ''
+                reaction.name.toLowerCase().startsWith(keyword.toLowerCase()),
+              )?.id || '',
             )
           }
           activeInput={reactionActiveInput}
           setActiveInput={setReactionActiveInput}
         />
-      }>
+      }
+    >
       {relevantReaction && (
         <>
           <Box mb="0.5em">{relevantReaction.description}</Box>
@@ -186,7 +197,8 @@ const ReactionHandbook = (props, context) => {
                       <Flex>
                         <Flex.Item
                           style={{ 'border-bottom': 'dotted 2px' }}
-                          shrink>
+                          shrink
+                        >
                           {factor.factor_name + ':'}
                         </Flex.Item>
                       </Flex>
@@ -194,7 +206,8 @@ const ReactionHandbook = (props, context) => {
                   ) : (
                     factor.factor_name
                   )
-                }>
+                }
+              >
                 {factor.desc}
               </LabeledList.Item>
             ))}
@@ -207,7 +220,7 @@ const ReactionHandbook = (props, context) => {
 
 export const AtmosHandbookContent = (
   props: { vertical?: boolean },
-  context
+  context,
 ) => {
   return props.vertical ? (
     <>
@@ -230,12 +243,12 @@ export const atmosHandbookHooks = (context) => {
   const [activeGasId, setActiveGasId] = useLocalState(
     context,
     'activeGasId',
-    ''
+    '',
   );
   const [activeReactionId, setActiveReactionId] = useLocalState(
     context,
     'activeReactionId',
-    ''
+    '',
   );
   return [setActiveGasId, setActiveReactionId];
 };

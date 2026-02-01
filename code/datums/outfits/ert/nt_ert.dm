@@ -11,7 +11,7 @@
 	id = /obj/item/card/id/ert
 	back = /obj/item/rig/ert/security
 
-	l_ear = /obj/item/device/radio/headset/ert
+	l_ear = /obj/item/radio/headset/ert
 
 	belt_contents = list(
 		/obj/item/handcuffs = 2,

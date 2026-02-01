@@ -203,12 +203,12 @@
 	var/old_broken_state = broken_state
 	switch(broken_state)
 		if(GRAV_NEEDS_SCREWDRIVER)
-			if(attacking_item.isscrewdriver())
+			if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 				to_chat(user, SPAN_NOTICE("You secure the screws of the framework."))
 				attacking_item.play_tool_sound(get_turf(src), 50)
 				broken_state++
 		if(GRAV_NEEDS_WELDING)
-			if(attacking_item.iswelder())
+			if(attacking_item.tool_behaviour == TOOL_WELDER)
 				var/obj/item/weldingtool/WT = attacking_item
 				if(WT.use(1, user))
 					to_chat(user, SPAN_NOTICE("You mend the damaged framework."))
@@ -225,13 +225,13 @@
 				else
 					to_chat(user, SPAN_NOTICE("You need 10 sheets of plasteel."))
 		if(GRAV_NEEDS_WRENCH)
-			if(attacking_item.iswrench())
+			if(attacking_item.tool_behaviour == TOOL_WRENCH)
 				to_chat(user, SPAN_NOTICE("You secure the plating to the framework."))
 				attacking_item.play_tool_sound(get_turf(src), 75)
 				set_fix()
 		else
 			..()
-	if(attacking_item.iscrowbar())
+	if(attacking_item.tool_behaviour == TOOL_CROWBAR)
 		if(backpanelopen)
 			attacking_item.play_tool_sound(get_turf(src), 50)
 			to_chat(user, SPAN_NOTICE("You replace the back panel."))

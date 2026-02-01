@@ -211,7 +211,7 @@
 /area/space)
 "ei" = (
 /obj/random/dirt_75,
-/obj/item/device/flashlight/lantern{
+/obj/item/flashlight/lantern{
 	pixel_x = 5;
 	pixel_y = -3
 	},
@@ -408,7 +408,7 @@
 /turf/simulated/floor/exoplanet/barren/cave,
 /area/hivebot_burrows_1)
 "hJ" = (
-/obj/item/device/flashlight/flare{
+/obj/item/flashlight/flare{
 	pixel_y = 7;
 	pixel_x = -6
 	},
@@ -571,7 +571,7 @@
 /turf/simulated/floor/exoplanet/barren,
 /area/space)
 "kJ" = (
-/obj/item/device/flashlight/lantern,
+/obj/item/flashlight/lantern,
 /obj/structure/lattice/catwalk/indoor/planks{
 	name = "duckboard"
 	},
@@ -799,7 +799,7 @@
 "qE" = (
 /obj/random/dirt_75,
 /obj/structure/flora/rock/konyang/small,
-/obj/item/device/flashlight/flare{
+/obj/item/flashlight/flare{
 	pixel_y = 7;
 	pixel_x = -6
 	},
@@ -846,7 +846,7 @@
 /turf/simulated/floor/exoplanet/barren/cave,
 /area/space)
 "ro" = (
-/obj/item/device/flashlight/flare{
+/obj/item/flashlight/flare{
 	pixel_y = 7;
 	pixel_x = -6
 	},
@@ -1330,7 +1330,7 @@
 /turf/simulated/floor/exoplanet/barren,
 /area/space)
 "Bt" = (
-/obj/item/device/gps/mining{
+/obj/item/gps/mining{
 	pixel_x = 8;
 	pixel_y = 6
 	},
@@ -1769,7 +1769,7 @@
 /area/hivebot_burrows_1)
 "KD" = (
 /obj/random/dirt_75,
-/obj/item/device/flashlight/flare{
+/obj/item/flashlight/flare{
 	pixel_y = 7;
 	pixel_x = -6
 	},
@@ -1912,7 +1912,7 @@
 /turf/simulated/floor/exoplanet/barren/cave,
 /area/hivebot_burrows_1)
 "NB" = (
-/obj/item/device/radio,
+/obj/item/radio,
 /obj/structure/lattice/catwalk/indoor/planks{
 	name = "duckboard"
 	},
@@ -1947,7 +1947,7 @@
 /turf/simulated/floor/exoplanet/konyang,
 /area/space)
 "NU" = (
-/obj/item/device/flashlight/flare{
+/obj/item/flashlight/flare{
 	pixel_y = 7;
 	pixel_x = -6
 	},
@@ -2179,7 +2179,7 @@
 /area/hivebot_burrows_1)
 "SN" = (
 /obj/random/dirt_75,
-/obj/item/device/radio,
+/obj/item/radio,
 /turf/simulated/floor/exoplanet/basalt/cave,
 /area/hivebot_burrows_1)
 "Tf" = (
@@ -2452,7 +2452,7 @@
 "YF" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
-/obj/item/device/flashlight/lantern{
+/obj/item/flashlight/lantern{
 	pixel_y = 12;
 	pixel_x = 4
 	},
@@ -2467,7 +2467,7 @@
 /area/hivebot_burrows_1)
 "Za" = (
 /obj/random/dirt_75,
-/obj/item/device/radio{
+/obj/item/radio{
 	pixel_x = 6;
 	pixel_y = 12
 	},
@@ -2539,13 +2539,13 @@
 /area/hivebot_burrows_1)
 "ZK" = (
 /obj/structure/table/rack,
-/obj/item/device/flashlight/lantern{
+/obj/item/flashlight/lantern{
 	pixel_y = 4;
 	pixel_x = -4
 	},
 /obj/effect/decal/cleanable/floor_damage/random_wood_broken,
 /obj/random/dirt_75,
-/obj/item/device/flashlight/lantern,
+/obj/item/flashlight/lantern,
 /turf/simulated/floor/wood,
 /area/hivebot_burrows_1)
 "ZL" = (

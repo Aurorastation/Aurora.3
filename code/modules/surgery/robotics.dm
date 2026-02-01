@@ -25,7 +25,7 @@
 /singleton/surgery_step/robotics/unscrew_hatch
 	name = "Unscrew Hatch"
 	allowed_tools = list(
-		SCREWDRIVER = 100,
+		TOOL_SCREWDRIVER = 100,
 		/obj/item/coin = 50,
 		/obj/item/material/kitchen/utensil/knife = 50
 	)
@@ -67,7 +67,7 @@
 /singleton/surgery_step/robotics/screw_hatch
 	name = "Screw Hatch"
 	allowed_tools = list(
-		SCREWDRIVER = 100,
+		TOOL_SCREWDRIVER = 100,
 		/obj/item/coin = 50,
 		/obj/item/material/kitchen/utensil/knife = 50
 	)
@@ -109,8 +109,8 @@
 /singleton/surgery_step/robotics/open_hatch
 	name = "Open Hatch"
 	allowed_tools = list(
-		/obj/item/surgery/retractor = 100,
-		CROWBAR = 100,
+		TOOL_RETRACTOR = 100,
+		TOOL_CROWBAR = 100,
 		/obj/item/material/kitchen/utensil = 50
 	)
 
@@ -146,8 +146,8 @@
 /singleton/surgery_step/robotics/close_hatch
 	name = "Close Hatch"
 	allowed_tools = list(
-		/obj/item/surgery/retractor = 100,
-		CROWBAR = 100,
+		TOOL_RETRACTOR = 100,
+		TOOL_CROWBAR = 100,
 		/obj/item/material/kitchen/utensil = 50
 	)
 
@@ -187,7 +187,7 @@
 /singleton/surgery_step/robotics/repair_brute
 	name = "Repair Damage"
 	allowed_tools = list(
-		/obj/item/weldingtool = 100,
+		TOOL_WELDER = 100,
 		/obj/item/gun/energy/plasmacutter = 50
 	)
 
@@ -199,7 +199,7 @@
 		return FALSE
 
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
-	if(tool.iswelder())
+	if(tool.tool_behaviour == TOOL_WELDER)
 		var/obj/item/weldingtool/welder = tool
 		if(!welder.isOn() || welder.get_fuel() < 2)
 			return FALSE
@@ -212,7 +212,7 @@
 	..()
 
 /singleton/surgery_step/robotics/repair_brute/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
-	if(tool.iswelder())
+	if(tool.tool_behaviour == TOOL_WELDER)
 		var/obj/item/weldingtool/welder = tool
 		if(!welder.isOn() && !welder.use(2, user))
 			user.visible_message(SPAN_WARNING("[user]'s [tool] shut off before the procedure was finished."), \
@@ -232,8 +232,7 @@
 /singleton/surgery_step/robotics/repair_burn
 	name = "Repair Burns"
 	allowed_tools = list(
-		/obj/item/stack/cable_coil = 100,
-		/obj/item/stack/cable_coil/cyborg = 100
+		TOOL_CABLECOIL = 100
 	)
 
 	min_duration = 30
@@ -276,7 +275,7 @@
 /singleton/surgery_step/robotics/detach_organ_robotic
 	name = "Detach Robotic Organ"
 	allowed_tools = list(
-	/obj/item/device/multitool = 100
+	TOOL_MULTITOOL = 100
 	)
 
 	min_duration = 70
@@ -326,7 +325,7 @@
 /singleton/surgery_step/robotics/attach_organ_robotic
 	name = "Attach Robotic Organ"
 	allowed_tools = list(
-		SCREWDRIVER = 100
+		TOOL_SCREWDRIVER = 100
 	)
 
 	min_duration = 80
@@ -377,7 +376,7 @@
 /singleton/surgery_step/robotics/install_mmi
 	name = "Install MMI"
 	allowed_tools = list(
-	/obj/item/device/mmi = 100
+	/obj/item/mmi = 100
 	)
 
 	min_duration = 40
@@ -390,7 +389,7 @@
 	if(target_zone != BP_HEAD)
 		return FALSE
 
-	var/obj/item/device/mmi/M = tool
+	var/obj/item/mmi/M = tool
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	if(!(affected && affected.open == ORGAN_ENCASED_RETRACTED))
 		return FALSE
@@ -435,7 +434,7 @@
 	user.visible_message("<b>[user]</b> has installed \the [tool] into [target]'s [affected.name].", \
 		SPAN_NOTICE("You have installed \the [tool] into [target]'s [affected.name]."))
 
-	var/obj/item/device/mmi/M = tool
+	var/obj/item/mmi/M = tool
 	var/obj/item/organ/internal/machine/posibrain/holder = new(target, 1)
 	target.internal_organs_by_name[BP_BRAIN] = holder
 	user.drop_from_inventory(tool,holder)
@@ -452,8 +451,7 @@
 /singleton/surgery_step/internal/fix_internal_wiring
 	name = "Repair Internal Wiring"
 	allowed_tools = list(
-		/obj/item/stack/cable_coil = 100,
-		/obj/item/stack/cable_coil/cyborg = 100
+		TOOL_CABLECOIL = 100
 	)
 
 	min_duration = 50
@@ -502,7 +500,7 @@
 /singleton/surgery_step/internal/fix_internal_electronics
 	name = "Repair Internal Electronics"
 	allowed_tools = list(
-		/obj/item/device/multitool = 100,
+		TOOL_MULTITOOL = 100,
 	)
 
 	min_duration = 100
@@ -727,7 +725,7 @@
 /singleton/surgery_step/robotics/repair_endoskeleton
 	name = "Repair Endoskeleton"
 	allowed_tools = list(
-		/obj/item/weldingtool = 100,
+		TOOL_WELDER = 100,
 		/obj/item/gun/energy/plasmacutter = 50
 	)
 
@@ -739,7 +737,7 @@
 		return FALSE
 
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
-	if(tool.iswelder())
+	if(tool.tool_behaviour == TOOL_WELDER)
 		var/obj/item/weldingtool/welder = tool
 		if(!welder.isOn() || welder.get_fuel() < 5)
 			return FALSE
@@ -755,7 +753,7 @@
 	..()
 
 /singleton/surgery_step/robotics/repair_endoskeleton/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
-	if(tool.iswelder())
+	if(tool.tool_behaviour == TOOL_WELDER)
 		var/obj/item/weldingtool/welder = tool
 		if(!welder.isOn() && !welder.use(5, user))
 			user.visible_message(SPAN_WARNING("[user]'s [tool] shut off before the procedure was finished."), \

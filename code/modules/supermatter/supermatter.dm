@@ -95,7 +95,7 @@
 	//How much hallucination should it produce per unit of power?
 	var/config_hallucination_power = 0.1
 
-	var/obj/item/device/radio/radio
+	var/obj/item/radio/radio
 
 	var/debug = 0
 	var/last_message_time = -100 //for message
@@ -119,7 +119,7 @@
 
 /obj/machinery/power/supermatter/Initialize()
 	. = ..()
-	radio = new /obj/item/device/radio{channels=list("Engineering")}(src)
+	radio = new /obj/item/radio{channels=list("Engineering")}(src)
 	soundloop = new(src, TRUE)
 
 /obj/machinery/power/supermatter/Destroy()

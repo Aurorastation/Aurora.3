@@ -31,7 +31,7 @@
 	uniform = /obj/item/clothing/under/unathi
 	shoes = /obj/item/clothing/shoes/workboots
 	back = /obj/item/storage/backpack/satchel/hegemony
-	l_ear = /obj/item/device/radio/headset/ship
+	l_ear = /obj/item/radio/headset/ship
 	id = /obj/item/card/id/hephaestus
 	backpack_contents = list(/obj/item/storage/box/survival = 1)
 

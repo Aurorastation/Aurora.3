@@ -1379,11 +1379,11 @@
 	pixel_x = 3;
 	pixel_y = 8
 	},
-/obj/item/device/spaceflare{
+/obj/item/spaceflare{
 	pixel_y = 1;
 	pixel_x = -5
 	},
-/obj/item/device/spaceflare{
+/obj/item/spaceflare{
 	pixel_y = 3;
 	pixel_x = 6
 	},
@@ -2291,12 +2291,12 @@
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/item/clothing/head/helmet/pilot,
 /obj/item/clothing/head/helmet/pilot,
-/obj/item/device/radio/hailing,
-/obj/item/device/radio/hailing,
-/obj/item/device/binoculars{
+/obj/item/radio/hailing,
+/obj/item/radio/hailing,
+/obj/item/binoculars{
 	pixel_y = -3
 	},
-/obj/item/device/binoculars/high_power{
+/obj/item/binoculars/high_power{
 	pixel_y = 3
 	},
 /obj/item/storage/toolbox/mechanical,
@@ -3308,7 +3308,7 @@
 	},
 /obj/item/storage/toolbox/mechanical,
 /obj/item/hoist_kit,
-/obj/item/device/multitool,
+/obj/item/multitool,
 /turf/simulated/floor/tiled/dark,
 /area/ship/ssrm_corvette/starboard_battery)
 "gGU" = (
@@ -3584,7 +3584,7 @@
 	},
 /obj/structure/table/rack,
 /obj/item/gun/energy/plasmacutter,
-/obj/item/device/suit_cooling_unit,
+/obj/item/suit_cooling_unit,
 /turf/simulated/floor/tiled/dark,
 /area/ship/ssrm_corvette/synthroom)
 "hwL" = (
@@ -3960,7 +3960,7 @@
 	},
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/structure/table/rack,
-/obj/item/device/binoculars{
+/obj/item/binoculars{
 	pixel_y = 5
 	},
 /obj/item/clothing/suit/storage/hazardvest/red,
@@ -4151,11 +4151,11 @@
 	pixel_x = 3;
 	pixel_y = 2
 	},
-/obj/item/device/radio/hailing{
+/obj/item/radio/hailing{
 	pixel_x = -12;
 	pixel_y = 3
 	},
-/obj/item/device/radio/hailing{
+/obj/item/radio/hailing{
 	pixel_x = -12;
 	pixel_y = 3
 	},
@@ -4513,11 +4513,11 @@
 	},
 /obj/structure/cable,
 /obj/structure/table/reinforced/steel,
-/obj/item/device/binoculars{
+/obj/item/binoculars{
 	pixel_x = 1;
 	pixel_y = -2
 	},
-/obj/item/device/binoculars/high_power{
+/obj/item/binoculars/high_power{
 	pixel_x = 1;
 	pixel_y = 7
 	},
@@ -5159,7 +5159,7 @@
 /obj/item/storage/toolbox/mechanical{
 	pixel_x = -8
 	},
-/obj/item/device/hand_labeler{
+/obj/item/hand_labeler{
 	pixel_y = 5;
 	pixel_x = 3
 	},
@@ -5184,7 +5184,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 8
 	},
-/obj/item/device/gps/stationary{
+/obj/item/gps/stationary{
 	pixel_y = 32;
 	gps_prefix = "SSRM";
 	gpstag = "SAMV";
@@ -6071,12 +6071,12 @@
 /obj/item/clothing/accessory/flagpatch/sol,
 /obj/item/clothing/accessory/flagpatch/sol,
 /obj/item/clothing/accessory/flagpatch/sol,
-/obj/item/device/gps,
-/obj/item/device/gps,
-/obj/item/device/gps,
-/obj/item/device/gps,
-/obj/item/device/gps,
-/obj/item/device/gps,
+/obj/item/gps,
+/obj/item/gps,
+/obj/item/gps,
+/obj/item/gps,
+/obj/item/gps,
+/obj/item/gps,
 /turf/simulated/floor/tiled/dark,
 /area/ship/ssrm_corvette/eva_preperation)
 "ngs" = (
@@ -6504,7 +6504,7 @@
 	},
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/structure/table/rack,
-/obj/item/device/binoculars{
+/obj/item/binoculars{
 	pixel_y = 5
 	},
 /obj/item/clothing/suit/storage/hazardvest/red,
@@ -7835,18 +7835,18 @@
 /obj/item/grenade/chem_grenade,
 /obj/item/grenade/chem_grenade,
 /obj/item/grenade/chem_grenade,
-/obj/item/device/assembly/igniter,
-/obj/item/device/assembly/igniter,
-/obj/item/device/assembly/igniter,
-/obj/item/device/assembly/igniter,
-/obj/item/device/assembly/timer,
-/obj/item/device/assembly/timer,
-/obj/item/device/assembly/timer,
-/obj/item/device/assembly/timer,
+/obj/item/assembly/igniter,
+/obj/item/assembly/igniter,
+/obj/item/assembly/igniter,
+/obj/item/assembly/igniter,
+/obj/item/assembly/timer,
+/obj/item/assembly/timer,
+/obj/item/assembly/timer,
+/obj/item/assembly/timer,
 /obj/item/stack/material/phoron{
 	amount = 6
 	},
-/obj/item/device/mass_spectrometer,
+/obj/item/mass_spectrometer,
 /obj/item/material/stool/chair/wheelchair,
 /obj/item/material/stool/chair/wheelchair,
 /obj/item/cane/crutch,
@@ -7862,7 +7862,7 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
-/obj/item/device/hand_labeler,
+/obj/item/hand_labeler,
 /turf/simulated/floor/tiled/white,
 /area/ship/ssrm_corvette/infirmary)
 "rGD" = (
@@ -8100,7 +8100,7 @@
 /obj/effect/floor_decal/industrial/outline_corner/service{
 	dir = 1
 	},
-/obj/item/device/megaphone,
+/obj/item/megaphone,
 /obj/item/clothing/accessory/holster/thigh,
 /obj/item/storage/belt/military,
 /obj/item/clothing/accessory/storage/pouches/black,
@@ -8866,7 +8866,7 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/outline/grey,
-/obj/item/device/paint_sprayer{
+/obj/item/paint_sprayer{
 	pixel_y = 4;
 	pixel_x = 4
 	},
@@ -8874,7 +8874,7 @@
 	pixel_x = 3;
 	pixel_y = 12
 	},
-/obj/item/device/robotanalyzer,
+/obj/item/robotanalyzer,
 /turf/simulated/floor/tiled/dark,
 /area/ship/ssrm_corvette/garage)
 "uyh" = (
@@ -9572,7 +9572,7 @@
 	},
 /obj/item/storage/toolbox/mechanical,
 /obj/item/hoist_kit,
-/obj/item/device/multitool,
+/obj/item/multitool,
 /turf/simulated/floor/tiled/dark,
 /area/ship/ssrm_corvette/port_battery)
 "waK" = (
@@ -10096,10 +10096,10 @@
 	req_access = list(203)
 	},
 /obj/item/storage/belt/security/full{
-	starts_with = list(/obj/item/reagent_containers/spray/pepper = 1, /obj/item/handcuffs = 2, /obj/item/device/flash = 1)
+	starts_with = list(/obj/item/reagent_containers/spray/pepper = 1, /obj/item/handcuffs = 2, /obj/item/flash = 1)
 	},
 /obj/item/storage/belt/security/full{
-	starts_with = list(/obj/item/reagent_containers/spray/pepper = 1, /obj/item/handcuffs = 2, /obj/item/device/flash = 1)
+	starts_with = list(/obj/item/reagent_containers/spray/pepper = 1, /obj/item/handcuffs = 2, /obj/item/flash = 1)
 	},
 /obj/item/gun/energy/taser,
 /obj/item/gun/energy/taser,

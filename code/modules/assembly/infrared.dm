@@ -1,4 +1,4 @@
-/obj/item/device/assembly/infra
+/obj/item/assembly/infra
 	name = "infrared emitter"
 	desc = "Emits a visible or invisible beam and is triggered when the beam is interrupted."
 	icon_state = "infrared"
@@ -15,18 +15,18 @@
 	var/obj/effect/beam/i_beam/first = null
 	var/turf/beam_origin //If we're not on this turf anymore, we've moved. Catches holder.master movements when we're attached to bombs and stuff.
 
-/obj/item/device/assembly/infra/feedback_hints(mob/user, distance, is_adjacent)
+/obj/item/assembly/infra/feedback_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	var/direction_text = dir2text(dir)
 	. += SPAN_NOTICE("It is facing [direction_text].")
 
-/obj/item/device/assembly/infra/activate()
+/obj/item/assembly/infra/activate()
 	if(!..())
 		return FALSE //Cooldown check
 	toggle_on()
 	return TRUE
 
-/obj/item/device/assembly/infra/proc/toggle_on()
+/obj/item/assembly/infra/proc/toggle_on()
 	on = !on
 	if(secured && on)
 		START_PROCESSING(SSprocessing, src)
@@ -36,7 +36,7 @@
 		STOP_PROCESSING(SSprocessing, src)
 	update_icon()
 
-/obj/item/device/assembly/infra/toggle_secure()
+/obj/item/assembly/infra/toggle_secure()
 	secured = !secured
 	if(secured && on)
 		START_PROCESSING(SSprocessing, src)
@@ -47,7 +47,7 @@
 	update_icon()
 	return secured
 
-/obj/item/device/assembly/infra/update_icon()
+/obj/item/assembly/infra/update_icon()
 	ClearOverlays()
 	attached_overlays = list()
 	if(on)
@@ -57,13 +57,13 @@
 	if(holder)
 		holder.update_icon()
 
-/obj/item/device/assembly/infra/rotate(var/mob/user, var/anchored_ignore = FALSE)
+/obj/item/assembly/infra/rotate(var/mob/user, var/anchored_ignore = FALSE)
 	if(..())
 		var/direction_text = dir2text(dir)
 		to_chat(user, SPAN_NOTICE("You rotate \the [src] to face [direction_text]."))
 		QDEL_NULL(first)
 
-/obj/item/device/assembly/infra/process()
+/obj/item/assembly/infra/process()
 
 	if(!on || !secured)
 		QDEL_NULL(first)
@@ -100,23 +100,23 @@
 		first.process()
 
 
-/obj/item/device/assembly/infra/attack_hand()
+/obj/item/assembly/infra/attack_hand()
 	QDEL_NULL(first)
 	return ..()
 
-/obj/item/device/assembly/infra/Move()
+/obj/item/assembly/infra/Move()
 	var/t = dir
 	. = ..()
 	set_dir(t)
 	QDEL_NULL(first)
 
-/obj/item/device/assembly/infra/holder_movement()
+/obj/item/assembly/infra/holder_movement()
 	if(!holder)
 		return FALSE
 	QDEL_NULL(first)
 	return TRUE
 
-/obj/item/device/assembly/infra/proc/trigger_beam()
+/obj/item/assembly/infra/proc/trigger_beam()
 	if(!secured || !on || cooldown)
 		return FALSE
 	pulse(FALSE)
@@ -125,26 +125,26 @@
 	cooldown = 2
 	addtimer(CALLBACK(src, PROC_REF(process_cooldown)), 10)
 
-/obj/item/device/assembly/infra/interact(mob/user)
+/obj/item/assembly/infra/interact(mob/user)
 	. = ..()
 	if(!secured)
 		to_chat(user, SPAN_WARNING("\The [src] is unsecured!"))
 		return
 	ui_interact(user)
 
-/obj/item/device/assembly/infra/ui_interact(mob/user, datum/tgui/ui)
+/obj/item/assembly/infra/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
 		ui = new(user, src, "Infrared", "Infrared Emitter", 320, 220)
 		ui.open()
 
-/obj/item/device/assembly/infra/ui_data(mob/user)
+/obj/item/assembly/infra/ui_data(mob/user)
 	var/list/data = list()
 	data["active"] = on
 	data["visible"] = visible
 	return data
 
-/obj/item/device/assembly/infra/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
+/obj/item/assembly/infra/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	. = ..()
 	if(.)
 		return
@@ -166,7 +166,7 @@
 	icon = 'icons/obj/projectiles.dmi'
 	icon_state = "ibeam"
 	var/obj/effect/beam/i_beam/next = null
-	var/obj/item/device/assembly/infra/master = null
+	var/obj/item/assembly/infra/master = null
 	var/limit = null
 
 /obj/effect/beam/i_beam/New(loc, var/set_master)

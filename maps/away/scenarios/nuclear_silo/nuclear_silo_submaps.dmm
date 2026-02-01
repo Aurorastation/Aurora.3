@@ -917,7 +917,7 @@
 /area/template_noop)
 "rf" = (
 /obj/structure/table/steel,
-/obj/item/device/flashlight/lamp/off{
+/obj/item/flashlight/lamp/off{
 	pixel_y = 4
 	},
 /obj/random/dirt_75,
@@ -1203,7 +1203,7 @@
 /area/template_noop)
 "vE" = (
 /obj/structure/table/steel,
-/obj/item/device/flashlight/lamp/off{
+/obj/item/flashlight/lamp/off{
 	pixel_y = 4
 	},
 /obj/machinery/atmospherics/unary/vent_pump/on{
@@ -1319,7 +1319,7 @@
 /area/template_noop)
 "xl" = (
 /obj/structure/table/steel,
-/obj/item/device/flashlight/lamp/off{
+/obj/item/flashlight/lamp/off{
 	pixel_y = 4
 	},
 /obj/item/gamehelm/brown,
@@ -1684,7 +1684,7 @@
 /area/template_noop)
 "DZ" = (
 /obj/structure/table/steel,
-/obj/item/device/flashlight/lamp/off{
+/obj/item/flashlight/lamp/off{
 	pixel_y = 4
 	},
 /turf/simulated/floor/tiled,
@@ -1996,7 +1996,7 @@
 /area/template_noop)
 "Id" = (
 /obj/structure/table/steel,
-/obj/item/device/flashlight/lamp/off{
+/obj/item/flashlight/lamp/off{
 	pixel_y = 4
 	},
 /obj/machinery/light{
@@ -2048,7 +2048,7 @@
 /area/template_noop)
 "Jm" = (
 /obj/structure/table/steel,
-/obj/item/device/flashlight/lamp/off{
+/obj/item/flashlight/lamp/off{
 	pixel_y = 4
 	},
 /turf/simulated/floor/wood/mahogany,
@@ -2177,7 +2177,7 @@
 /area/template_noop)
 "Mk" = (
 /obj/structure/table/steel,
-/obj/item/device/flashlight/lamp/off{
+/obj/item/flashlight/lamp/off{
 	pixel_y = 4
 	},
 /obj/machinery/light{
@@ -2649,7 +2649,7 @@
 /area/template_noop)
 "Vc" = (
 /obj/structure/table/steel,
-/obj/item/device/flashlight/lamp/off{
+/obj/item/flashlight/lamp/off{
 	pixel_y = 4
 	},
 /obj/random/dirt_75,

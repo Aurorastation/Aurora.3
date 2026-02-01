@@ -568,7 +568,7 @@
 /area/magshield/east)
 "bG" = (
 /obj/structure/closet,
-/obj/item/device/flashlight/flare/glowstick/random,
+/obj/item/flashlight/flare/glowstick/random,
 /turf/simulated/floor/airless,
 /area/magshield/smes_storage)
 "bH" = (
@@ -884,7 +884,7 @@
 /turf/simulated/floor/airless,
 /area/magshield/smes_storage)
 "cA" = (
-/obj/item/device/flashlight/flare/glowstick/yellow,
+/obj/item/flashlight/flare/glowstick/yellow,
 /turf/simulated/floor/airless,
 /area/magshield/smes_storage)
 "cB" = (
@@ -965,7 +965,7 @@
 "cL" = (
 /obj/structure/closet,
 /obj/item/clothing/suit/radiation,
-/obj/item/device/flashlight,
+/obj/item/flashlight,
 /turf/simulated/floor/airless,
 /area/magshield/engine)
 "cM" = (

@@ -103,7 +103,7 @@
 	light_color = COLOR_PALE_BLUE_GRAY
 	ui_size = 60
 
-/obj/item/device/vending_refill/booze
+/obj/item/vending_refill/booze
 	name = "booze resupply canister"
 	vend_id = "booze"
 	charges = 100 //holy shit that's a lot of booze

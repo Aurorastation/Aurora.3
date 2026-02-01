@@ -122,7 +122,7 @@
 	var/reliability = 100
 
 	/// Standard firing pin for most guns.
-	var/obj/item/device/firing_pin/pin = /obj/item/device/firing_pin
+	var/obj/item/firing_pin/pin = /obj/item/firing_pin
 
 	var/cyborg_maptext_override
 	var/displays_maptext = FALSE
@@ -234,7 +234,7 @@
 
 	if (needspin)
 		if(!pin)
-			pin = /obj/item/device/firing_pin
+			pin = /obj/item/firing_pin
 		pin = new pin(src)
 	else
 		pin = null
@@ -1055,7 +1055,7 @@
 		w_class += attacking_item.w_class
 		return TRUE
 
-	if(attacking_item.iscrowbar() && bayonet)
+	if(attacking_item.tool_behaviour == TOOL_CROWBAR && bayonet)
 		to_chat(user, SPAN_NOTICE("You detach \the [bayonet] from \the [src]."))
 		bayonet.forceMove(get_turf(src))
 		user.put_in_hands(bayonet)
@@ -1064,7 +1064,7 @@
 		update_icon()
 		return TRUE
 
-	if(attacking_item.iswrench() && ammo_display)
+	if(attacking_item.tool_behaviour == TOOL_WRENCH && ammo_display)
 		to_chat(user, SPAN_NOTICE("You wrench the ammo display loose from \the [src]."))
 		ammo_display.forceMove(get_turf(src))
 		user.put_in_hands(ammo_display)
@@ -1074,7 +1074,7 @@
 		maptext = ""
 		return TRUE
 
-	if(pin && attacking_item.isscrewdriver())
+	if(pin && attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 		visible_message(SPAN_WARNING("\The [user] begins to try and pry out \the [src]'s firing pin!"))
 		if(attacking_item.use_tool(src, user, 45, volume = 50))
 			if(pin.durable || prob(50))

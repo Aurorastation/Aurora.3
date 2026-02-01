@@ -34,6 +34,7 @@
 	matter = list(DEFAULT_WALL_MATERIAL = 10000, MATERIAL_GLASS = 5000)
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	origin_tech = list(TECH_MATERIAL = 1, TECH_BIO = 1)
+	tool_behaviour = TOOL_RETRACTOR
 
 /*
  * Hemostat
@@ -48,6 +49,7 @@
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	origin_tech = list(TECH_MATERIAL = 1, TECH_BIO = 1)
 	attack_verb = list("attacked", "pinched")
+	tool_behaviour = TOOL_HEMOSTAT
 
 /*
  * Cautery
@@ -62,6 +64,7 @@
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	origin_tech = list(TECH_MATERIAL = 1, TECH_BIO = 1)
 	attack_verb = list("burnt")
+	tool_behaviour = TOOL_CAUTERY
 
 /*
  * Surgical Drill
@@ -81,6 +84,7 @@
 	attack_verb = list("drilled")
 	drop_sound = 'sound/items/drop/accessory.ogg'
 	pickup_sound = 'sound/items/pickup/accessory.ogg'
+	tool_behaviour = TOOL_DRILL
 
 /*
  * Scalpel
@@ -105,6 +109,7 @@
 	attack_verb = list("attacked", "slashed", "stabbed", "sliced", "torn", "ripped", "diced", "cut")
 	drop_sound = 'sound/items/drop/knife.ogg'
 	pickup_sound = 'sound/items/pickup/knife.ogg'
+	tool_behaviour = TOOL_SCALPEL
 
 /*
  * Researchable Scalpels
@@ -150,6 +155,7 @@
 	edge = TRUE
 	drop_sound = 'sound/items/drop/accessory.ogg'
 	pickup_sound = 'sound/items/pickup/accessory.ogg'
+	tool_behaviour = TOOL_SAW
 
 // Miscellanous
 /obj/item/surgery/bone_gel
@@ -187,6 +193,7 @@
 	throw_speed = 3
 	throw_range = 5
 	attack_verb = list("attacked", "hit", "bludgeoned")
+	tool_behaviour = TOOL_BONESET
 
 /obj/item/storage/box/fancy/tray
 	name = "surgery tray"
@@ -246,7 +253,7 @@
 		/obj/item/surgery/fix_o_vein = "tray_fixovein",
 		/obj/item/stack/medical/advanced/bruise_pack = "tray_bruise_pack",
 		/obj/item/autopsy_scanner = "tray_autopsy_scanner",
-		/obj/item/device/mass_spectrometer = "tray_mass_spectrometer",
+		/obj/item/mass_spectrometer = "tray_mass_spectrometer",
 		/obj/item/reagent_containers/glass/beaker/vial = "tray_vial",
 		/obj/item/reagent_containers/syringe = "tray_syringe"
 	)
@@ -306,7 +313,7 @@
 		/obj/item/surgery/surgicaldrill = 1,
 		/obj/item/surgery/cautery = 1,
 		/obj/item/autopsy_scanner = 1,
-		/obj/item/device/mass_spectrometer = 1,
+		/obj/item/mass_spectrometer = 1,
 		/obj/item/reagent_containers/glass/beaker/vial = 1,
 		/obj/item/reagent_containers/syringe = 1
 	)
@@ -319,7 +326,7 @@
 		/obj/item/surgery/surgicaldrill,
 		/obj/item/surgery/cautery,
 		/obj/item/autopsy_scanner,
-		/obj/item/device/mass_spectrometer,
+		/obj/item/mass_spectrometer,
 		/obj/item/reagent_containers/glass/beaker/vial,
 		/obj/item/reagent_containers/syringe
 	)

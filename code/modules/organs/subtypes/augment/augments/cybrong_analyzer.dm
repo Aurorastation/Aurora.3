@@ -5,7 +5,7 @@
 	action_button_icon = "augment-tool"
 	organ_tag = BP_AUG_CYBORG_ANALYZER
 	parent_organ = BP_R_HAND
-	augment_type = /obj/item/device/robotanalyzer/augment
+	augment_type = /obj/item/robotanalyzer/augment
 
 /obj/item/organ/internal/augment/tool/cyborg_analyzer/left
 	parent_organ = BP_L_HAND

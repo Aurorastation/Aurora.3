@@ -1,4 +1,4 @@
-/obj/item/device/synthesized_instrument/guitar
+/obj/item/synthesized_instrument/guitar
 	name = "guitar"
 	desc = "A wooden musical instrument with six strings. This one looks like it may actually work."
 	icon = 'icons/obj/musician.dmi'
@@ -9,7 +9,7 @@
 	path = /datum/instrument/guitar/clean_crisis
 
 
-/obj/item/device/synthesized_instrument/guitar/multi
+/obj/item/synthesized_instrument/guitar/multi
 	name = "Polyguitar"
 	desc = "An instrument for a more ass-kicking era."
 	icon = 'icons/obj/musician.dmi'

@@ -31,15 +31,15 @@
 	starts_with = list(
 		/obj/item/crowbar/red = 1,
 		/obj/item/extinguisher/mini = 1,
-		/obj/item/device/radio = 1
+		/obj/item/radio = 1
 	)
 
 /obj/item/storage/toolbox/emergency/fill()
 	. = ..()
 	if(prob(50))
-		new /obj/item/device/flashlight(src)
+		new /obj/item/flashlight(src)
 	else
-		new /obj/item/device/flashlight/flare/glowstick/red(src)
+		new /obj/item/flashlight/flare/glowstick/red(src)
 	if(prob(30))
 		new /obj/item/weldingtool/emergency(src)
 		new /obj/item/clothing/glasses/welding/emergency(src)
@@ -53,7 +53,7 @@
 		/obj/item/wrench = 1,\
 		/obj/item/weldingtool = 1,
 		/obj/item/crowbar = 1,\
-		/obj/item/device/analyzer = 1,\
+		/obj/item/analyzer = 1,\
 		/obj/item/wirecutters = 1\
 	)
 
@@ -64,7 +64,7 @@
 	starts_with = list(\
 		/obj/item/screwdriver = 1,\
 		/obj/item/wirecutters = 1,\
-		/obj/item/device/t_scanner = 1,\
+		/obj/item/t_scanner = 1,\
 		/obj/item/crowbar = 1\
 	)
 
@@ -90,7 +90,7 @@
 		/obj/item/wrench = 1,
 		/obj/item/mining_scanner = 1,
 		/obj/item/cell/high = 1,
-		/obj/item/device/orbital_dropper/drill = 1
+		/obj/item/orbital_dropper/drill = 1
 	)
 
 /obj/item/storage/toolbox/ka
@@ -120,7 +120,7 @@
 		/obj/item/weldingtool = 1,
 		/obj/item/crowbar = 1,\
 		/obj/item/wirecutters = 1,\
-		/obj/item/device/multitool = 1,\
+		/obj/item/multitool = 1,\
 	)
 
 

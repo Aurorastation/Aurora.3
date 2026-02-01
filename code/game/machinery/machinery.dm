@@ -151,7 +151,7 @@ Class Procs:
 	var/clicksound //played sound on usage
 	var/clickvol = 40 //volume
 	/// Signaller attached to the machine
-	var/obj/item/device/assembly/signaler/signaler
+	var/obj/item/assembly/signaler/signaler
 	/// Overmap sector the machine is linked to
 	var/obj/effect/overmap/visitable/linked
 
@@ -355,14 +355,14 @@ Class Procs:
 			if(signaler)
 				to_chat(user, SPAN_WARNING("\The [src] already has a signaler attached."))
 				return TRUE
-			var/obj/item/device/assembly/signaler/S = attacking_item
+			var/obj/item/assembly/signaler/S = attacking_item
 			user.drop_from_inventory(attacking_item, src)
 			signaler = S
 			S.machine = src
 			user.visible_message("<b>[user]</b> attaches \the [S] to \the [src].", SPAN_NOTICE("You attach \the [S] to \the [src]."), range = 3)
 			log_and_message_admins("has attached a signaler to \the [src].", user, get_turf(src))
 			return TRUE
-		else if(attacking_item.iswirecutter() && signaler)
+		else if(attacking_item.tool_behaviour == TOOL_WIRECUTTER && signaler)
 			user.visible_message("<b>[user]</b> removes \the [signaler] from \the [src].", SPAN_NOTICE("You remove \the [signaler] from \the [src]."), range = 3)
 			user.put_in_hands(detach_signaler())
 			return TRUE
@@ -379,7 +379,7 @@ Class Procs:
 		LOG_DEBUG("[src] tried to drop a signaler, but it had no turf ([src.x]-[src.y]-[src.z])")
 		return
 
-	var/obj/item/device/assembly/signaler/S = signaler
+	var/obj/item/assembly/signaler/S = signaler
 
 	signaler.forceMove(detach_turf)
 	signaler.machine = null
@@ -454,14 +454,14 @@ Class Procs:
 	return 0
 
 /obj/machinery/proc/default_deconstruction_crowbar(var/mob/user, var/obj/item/C)
-	if(!istype(C) || !C.iscrowbar())
+	if(!istype(C) || C.tool_behaviour != TOOL_CROWBAR)
 		return 0
 	if(!panel_open)
 		return 0
 	. = dismantle()
 
 /obj/machinery/proc/default_deconstruction_screwdriver(var/mob/user, var/obj/item/S)
-	if(!istype(S) || !S.isscrewdriver())
+	if(!istype(S) || S.tool_behaviour != TOOL_SCREWDRIVER)
 		return FALSE
 	S.play_tool_sound(get_turf(src), 50)
 	panel_open = !panel_open

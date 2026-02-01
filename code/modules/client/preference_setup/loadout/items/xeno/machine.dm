@@ -93,7 +93,7 @@
 
 /datum/gear/ears/headlights
 	display_name = "headlights"
-	path = /obj/item/device/flashlight/headlights
+	path = /obj/item/flashlight/headlights
 	cost = 2
 	whitelisted = list(SPECIES_IPC, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU, SPECIES_IPC_BISHOP, SPECIES_IPC_SHELL)
 	sort_category = "Xenowear - IPC"

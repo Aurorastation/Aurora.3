@@ -25,3 +25,10 @@
 	reagents = list(/singleton/reagent/nutriment/coating/batter = 5)
 	result = /obj/item/reagent_containers/food/snacks/plaincrepe
 	reagent_mix = RECIPE_REAGENT_REPLACE
+
+/singleton/recipe/pickle
+	appliance = MIX
+	fruit = list("cucumber" = 1)
+	reagents = list(/singleton/reagent/enzyme = 5)
+	result = /obj/item/reagent_containers/food/snacks/pickle
+	reagent_mix = RECIPE_REAGENT_REPLACE

@@ -365,9 +365,7 @@
 	origin_tech = list(TECH_MATERIAL = 1, TECH_ENGINEERING = 1, TECH_COMBAT = 2)
 	attack_verb = list("bashed", "bludgeoned", "thrashed", "whacked", "slashed", "cut")
 	sharp = TRUE
-
-/obj/item/shovel/gadpathur/iscrowbar()
-	return TRUE
+	tool_behaviour = TOOL_CROWBAR
 
 // Flags.
 
@@ -513,7 +511,7 @@
 		var/turf/T = get_turf(src)
 		T.attackby(attacking_item, user)
 		return
-	if(attacking_item.iswelder())
+	if(attacking_item.tool_behaviour == TOOL_WELDER)
 		var/obj/item/weldingtool/WT = attacking_item
 		if(WT.use(0, user))
 			to_chat(user, SPAN_NOTICE("You slice apart the track."))
@@ -677,7 +675,7 @@
 
 /**********************Jaunter**********************/
 
-/obj/item/device/wormhole_jaunter
+/obj/item/wormhole_jaunter
 	name = "wormhole jaunter"
 	desc = "A single use device harnessing outdated warp technology. The wormholes it creates are unpleasant to travel through, to say the least."
 	contained_sprite = TRUE
@@ -691,29 +689,29 @@
 	slot_flags = SLOT_BELT
 	origin_tech = list(TECH_BLUESPACE = 2, TECH_PHORON = 4, TECH_ENGINEERING = 4)
 
-/obj/item/device/wormhole_jaunter/attack_self(mob/user)
+/obj/item/wormhole_jaunter/attack_self(mob/user)
 	user.visible_message(SPAN_NOTICE("\The [user] activates \the [src]!"))
 	feedback_add_details("jaunter", "U") // user activated
 	activate(user)
 
-/obj/item/device/wormhole_jaunter/proc/turf_check(mob/user)
+/obj/item/wormhole_jaunter/proc/turf_check(mob/user)
 	var/turf/device_turf = get_turf(user)
 	if(!device_turf || device_turf.z == 0)
 		to_chat(user, SPAN_NOTICE("You're having difficulties getting \the [src] to work."))
 		return FALSE
 	return TRUE
 
-/obj/item/device/wormhole_jaunter/proc/get_destinations(mob/user)
+/obj/item/wormhole_jaunter/proc/get_destinations(mob/user)
 	var/list/destinations = list()
 
-	for(var/obj/item/device/radio/beacon/B in GLOB.teleportbeacons)
+	for(var/obj/item/radio/beacon/B in GLOB.teleportbeacons)
 		var/turf/T = get_turf(B)
 		if(is_station_level(T.z))
 			destinations += B
 
 	return destinations
 
-/obj/item/device/wormhole_jaunter/proc/activate(mob/user)
+/obj/item/wormhole_jaunter/proc/activate(mob/user)
 	if(!turf_check(user))
 		return
 
@@ -727,7 +725,7 @@
 	playsound(src,'sound/effects/sparks4.ogg', 50, 1)
 	qdel(src)
 
-/obj/item/device/wormhole_jaunter/emp_act(severity)
+/obj/item/wormhole_jaunter/emp_act(severity)
 	. = ..()
 
 	var/triggered = FALSE
@@ -1189,7 +1187,7 @@ GLOBAL_LIST_INIT_TYPED(total_extraction_beacons, /obj/structure/extraction_point
 	var/busy_sculpting = FALSE
 
 /obj/structure/sculpting_block/attackby(obj/item/attacking_item, mob/user)
-	if(attacking_item.iswrench())
+	if(attacking_item.tool_behaviour == TOOL_WRENCH)
 		visible_message("<b>[user]</b> starts to [anchored ? "un" : ""]anchor \the [src].", SPAN_NOTICE("You start to [anchored ? "un" : ""]anchor \the [src]."))
 		if(attacking_item.use_tool(src, user, 50, volume = 50))
 			anchored = !anchored

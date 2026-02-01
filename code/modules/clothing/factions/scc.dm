@@ -27,7 +27,7 @@
 		/obj/item/ammo_casing,
 		/obj/item/melee/baton,
 		/obj/item/handcuffs,
-		/obj/item/device/flashlight
+		/obj/item/flashlight
 	)
 	body_parts_covered = UPPER_TORSO
 	armor = list(
@@ -57,7 +57,7 @@
 		/obj/item/ammo_casing,
 		/obj/item/melee/baton,
 		/obj/item/handcuffs,
-		/obj/item/device/flashlight
+		/obj/item/flashlight
 	)
 	body_parts_covered = UPPER_TORSO|ARMS
 	armor = list(

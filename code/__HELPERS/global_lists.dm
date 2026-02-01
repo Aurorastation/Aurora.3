@@ -67,7 +67,7 @@ GLOBAL_LIST_INIT(whitelisted_species, list(SPECIES_HUMAN))
 GLOBAL_LIST_EMPTY(playable_species)
 
 /// All uplinks.
-GLOBAL_LIST_EMPTY_TYPED(world_uplinks, /obj/item/device/uplink)
+GLOBAL_LIST_EMPTY_TYPED(world_uplinks, /obj/item/uplink)
 
 /// Preferences stuff below.
 /// Stores /datum/sprite_accessory/hair indexed by name.

@@ -1,8 +1,8 @@
-/obj/item/device/suit_cooling_unit
+/obj/item/suit_cooling_unit
 	name = "portable suit cooling unit"
 	desc = "A portable heat sink and liquid cooled radiator that can be hooked up to a space suit's existing temperature controls to provide industrial levels of cooling."
 	w_class = WEIGHT_CLASS_BULKY
-	icon = 'icons/obj/item/device/suitcooler.dmi'
+	icon = 'icons/obj/item/suitcooler.dmi'
 	icon_state = "suitcooler0"
 	item_state = "coolingpack"
 	action_button_name = "Toggle Cooling Unit"
@@ -29,7 +29,7 @@
 
 	//TODO: make it heat up the surroundings when not in space
 
-/obj/item/device/suit_cooling_unit/feedback_hints(mob/user, distance, is_adjacent)
+/obj/item/suit_cooling_unit/feedback_hints(mob/user, distance, is_adjacent)
 	. += ..()
 
 	if(!distance <= 1)
@@ -58,26 +58,26 @@
 	else
 		. += SPAN_NOTICE("It doesn't have a power cell installed.")
 
-/obj/item/device/suit_cooling_unit/Initialize()
+/obj/item/suit_cooling_unit/Initialize()
 	. = ..()
 	if(celltype)
 		cell = new celltype(src)
 
-/obj/item/device/suit_cooling_unit/Destroy()
+/obj/item/suit_cooling_unit/Destroy()
 	STOP_PROCESSING(SSmobs, src)
 	QDEL_NULL(cell)
 	return ..()
 
 // Checks whether the cooling unit is being worn on the back/suit slot.
 // That way you can't carry it in your hands while it's running to cool yourself down.
-/obj/item/device/suit_cooling_unit/proc/is_in_slot()
+/obj/item/suit_cooling_unit/proc/is_in_slot()
 	var/mob/living/carbon/human/H = loc
 	if(!istype(H))
 		return FALSE
 
 	return (H.back == src) || (H.s_store == src)
 
-/obj/item/device/suit_cooling_unit/process()
+/obj/item/suit_cooling_unit/process()
 	if(!on || !cell)
 		return
 
@@ -104,7 +104,7 @@
 
 	update_icon()
 
-/obj/item/device/suit_cooling_unit/proc/get_environment_temperature()
+/obj/item/suit_cooling_unit/proc/get_environment_temperature()
 	if(ishuman(loc))
 		var/mob/living/carbon/human/H = loc
 		if(istype(H.loc, /obj/machinery/atmospherics/unary/cryo_cell))
@@ -121,7 +121,7 @@
 
 	return environment.temperature
 
-/obj/item/device/suit_cooling_unit/proc/attached_to_suit(mob/M)
+/obj/item/suit_cooling_unit/proc/attached_to_suit(mob/M)
 	if(!ishuman(M))
 		return FALSE
 
@@ -132,7 +132,7 @@
 
 	return TRUE
 
-/obj/item/device/suit_cooling_unit/proc/turn_on()
+/obj/item/suit_cooling_unit/proc/turn_on()
 	if(!cell)
 		return
 	if(cell.charge <= 0)
@@ -142,7 +142,7 @@
 	START_PROCESSING(SSmobs, src)
 	update_icon()
 
-/obj/item/device/suit_cooling_unit/proc/turn_off()
+/obj/item/suit_cooling_unit/proc/turn_off()
 	if(ismob(src.loc))
 		var/mob/M = src.loc
 		to_chat(M, SPAN_WARNING("\The [src] clicks and whines as it powers down."))
@@ -150,7 +150,7 @@
 	STOP_PROCESSING(SSmobs, src)
 	update_icon()
 
-/obj/item/device/suit_cooling_unit/attack_self(mob/user)
+/obj/item/suit_cooling_unit/attack_self(mob/user)
 	if(cover_open && cell)
 		if(ishuman(user))
 			user.put_in_hands(cell)
@@ -166,11 +166,11 @@
 		return
 	toggle_power(user)
 
-/obj/item/device/suit_cooling_unit/AltClick(mob/user)
+/obj/item/suit_cooling_unit/AltClick(mob/user)
 	if(Adjacent(user))
 		toggle_power(user)
 
-/obj/item/device/suit_cooling_unit/proc/toggle_power(var/mob/user)
+/obj/item/suit_cooling_unit/proc/toggle_power(var/mob/user)
 	if(on)
 		turn_off()
 	else
@@ -178,8 +178,8 @@
 		if(on)
 			to_chat(user, SPAN_NOTICE("You switch on \the [src]."))
 
-/obj/item/device/suit_cooling_unit/attackby(obj/item/attacking_item, mob/user)
-	if(attacking_item.isscrewdriver())
+/obj/item/suit_cooling_unit/attackby(obj/item/attacking_item, mob/user)
+	if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 		if(cover_open)
 			cover_open = FALSE
 			to_chat(user, SPAN_NOTICE("You screw the panel into place."))
@@ -205,7 +205,7 @@
 
 	return ..()
 
-/obj/item/device/suit_cooling_unit/update_icon()
+/obj/item/suit_cooling_unit/update_icon()
 	ClearOverlays()
 	if(cover_open)
 		if(cell)
@@ -241,5 +241,5 @@
 		M.update_inv_back()
 		M.update_inv_s_store()
 
-/obj/item/device/suit_cooling_unit/no_cell
+/obj/item/suit_cooling_unit/no_cell
 	celltype = null

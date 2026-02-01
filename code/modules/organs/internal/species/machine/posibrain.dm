@@ -15,10 +15,10 @@
 
 	relative_size = 85
 
-	/// The type of 'robotic brain'. Must be a subtype of /obj/item/device/mmi/digital.
-	var/robotic_brain_type = /obj/item/device/mmi/digital/posibrain
+	/// The type of 'robotic brain'. Must be a subtype of /obj/item/mmi/digital.
+	var/robotic_brain_type = /obj/item/mmi/digital/posibrain
 	/// The stored MMI object.
-	var/obj/item/device/mmi/stored_mmi
+	var/obj/item/mmi/stored_mmi
 	/// The cooldown between each alarm warning.
 	var/heat_alarm_cooldown = 0
 	/// The cooldown between each integrity alarm warning.
@@ -487,7 +487,7 @@
 /obj/item/organ/internal/machine/posibrain/circuit
 	name = "robotic intelligence circuit"
 	desc = "The pinnacle of artifical intelligence which can be achieved using classical computer science."
-	robotic_brain_type = /obj/item/device/mmi/digital/robot
+	robotic_brain_type = /obj/item/mmi/digital/robot
 
 /obj/item/organ/internal/machine/posibrain/terminator
 	name = "advanced positronic brain"
