@@ -1,0 +1,4 @@
+author: Hellfirejag
+delete-after: True
+changes:
+  - refactor: "Killed the last few ancient Goto statements."
