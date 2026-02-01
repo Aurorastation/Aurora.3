@@ -253,7 +253,7 @@ Due to our current situation with 5 different HTML UI systems we are now enforci
 4.  TGUI can't accommodate that type of UI.
 
 ### Globals
-
+ 
 All globals must use the defines found in `__defines/_globals.dm`. This is to store globals inside the Global Controller, allowing us to view and edit them at runtime. Here are a few examples.
 `GLOBAL_VAR(thing)` will create a global variable `var/thing` accessed with `GLOB.thing`.
 `GLOBAL_LIST_INIT(list_of_stuff, list("stuff", "thing"))` will create a global list `var/list/list_of_stuff = list("stuff, thing")` accessed with `GLOB.list_of_stuff`.
