@@ -18,7 +18,6 @@
 	dynamic_lighting = TRUE
 	no_light_control = FALSE
 	is_outside = OUTSIDE_NO
-	base_turf = /turf/simulated/floor/exoplanet/desert
 	area_flags = AREA_FLAG_RAD_SHIELDED|AREA_FLAG_INDESTRUCTIBLE_TURFS
 	area_blurb = "This place is dark and silent, with only the low hum of machinery audible."
 

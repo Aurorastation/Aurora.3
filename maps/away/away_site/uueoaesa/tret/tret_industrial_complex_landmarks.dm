@@ -2,8 +2,6 @@
 // --------------------- base type
 
 /obj/effect/shuttle_landmark/tret_industrial
-	base_area = /area/tret_industrial/outside/landing
-	base_turf = /turf/simulated/floor/exoplanet/basalt/tret
 
 /obj/effect/map_effect/marker/airlock/docking/tret_industrial/dock
 	cycle_to_external_air = TRUE
@@ -15,8 +13,6 @@
 /obj/effect/shuttle_landmark/tret_industrial/transit
 	name = "In transit"
 	landmark_tag = "nav_tret_industrial_shuttle_transit"
-	base_turf = /turf/space/transit/north
-	base_area = /area/space
 
 // --------------------- docks
 

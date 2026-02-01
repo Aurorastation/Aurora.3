@@ -22,16 +22,12 @@
 	water_data = list("Sodium ions present", "Calcium ions present", "Nitrate ions present", "Magnesium ions present", "Copper ions present")
 
 	unit_test_groups = list(2)
-
-/obj/effect/overmap/visitable/sector/exoplanet/snow/generate_atmosphere()
-	..()
-	if(atmosphere)
-		var/limit = 0
-		if(habitability_class <= HABITABILITY_OKAY)
-			var/datum/species/human/H = /datum/species/human
-			limit = initial(H.cold_level_1) + rand(1,10)
-		atmosphere.temperature = max(T0C - rand(10, 100), limit)
-		atmosphere.update_values()
+	possible_atmospheres = list(
+		/singleton/atmosphere/cold = 0.5,
+		/singleton/atmosphere/breathable/cold = 0.4,
+		/singleton/atmosphere/breathable/earthlike/cold = 0.1
+	)
+	turftype = /turf/simulated/floor/exoplanet/snow
 
 /obj/effect/overmap/visitable/sector/exoplanet/snow/generate_ground_survey_result()
 	..()

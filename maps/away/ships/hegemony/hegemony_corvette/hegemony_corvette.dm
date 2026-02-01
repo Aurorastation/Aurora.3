@@ -10,7 +10,7 @@
 	spawn_weight = 1
 	ship_cost = 1
 	id = "hegemony_corvette"
-	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/hegemony_shuttle)
+	shuttles_to_initialise = list(/datum/shuttle/overmap/hegemony_shuttle)
 
 	unit_test_groups = list(2)
 
@@ -48,6 +48,8 @@
 		"nav_hegemony_corvette4"
 	)
 
+	ship_area_type = /area/hegemony_ship
+
 /obj/effect/overmap/visitable/ship/hegemony_corvette/New()
 	designation = "[pick("Three Heads' Chosen", "Revenge for Gakal'zaal", "Child of Chanterel", "Horns of the Hegemon", "Hide of Steel", "Battle-Talon", "Roaming Warrior", "Abiding Victory", "Scorched Scales", "Wildfire of Moghes", "Travakh Unending", "Blessed By The Spirits", "Blackened Tail", "Legend Foretold", "Molten Claws", "Unfading River", "Emberstorm")]"
 	..()
@@ -59,8 +61,6 @@
 	return skybox_image
 
 /obj/effect/shuttle_landmark/hegemony_corvette
-	base_turf = /turf/space/dynamic
-	base_area = /area/space
 
 /obj/effect/shuttle_landmark/hegemony_corvette/nav1
 	name = "Hegemony Corvette - Fore"
@@ -104,16 +104,17 @@
 	fore_dir = SOUTH
 	vessel_size = SHIP_SIZE_TINY
 
+	ship_area_type = /area/shuttle/hegemony
+
 /obj/machinery/computer/shuttle_control/explore/hegemony_shuttle
 	name = "shuttle control console"
 	shuttle_tag = "Hegemony Shuttle"
 
-/datum/shuttle/autodock/overmap/hegemony_shuttle
+/datum/shuttle/overmap/hegemony_shuttle
 	name = "Hegemony Shuttle"
 	move_time = 20
 	shuttle_area = list(/area/shuttle/hegemony)
 	current_location = "nav_hegemony_corvette_shuttle"
-	landmark_transition = "nav_transit_hegemony_corvette"
 	dock_target = "airlock_hegemony_shuttle"
 	range = 1
 	fuel_consumption = 2
@@ -123,12 +124,9 @@
 /obj/effect/shuttle_landmark/hegemony_shuttle/transit
 	name = "In transit"
 	landmark_tag = "nav_transit_hegemony_corvette"
-	base_turf = /turf/space/transit/north
 
 /obj/effect/shuttle_landmark/hegemony_shuttle/dock
 	name = "Hegemony Corvette - Shuttle Dock"
 	landmark_tag = "nav_hegemony_corvette_shuttle"
 	docking_controller = "airlock_hegemony_dock"
-	base_area = /area/space
-	base_turf = /turf/space
 	movable_flags = MOVABLE_FLAG_EFFECTMOVE

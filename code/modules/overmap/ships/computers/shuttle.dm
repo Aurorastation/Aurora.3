@@ -24,7 +24,7 @@
 /obj/machinery/computer/shuttle_control/explore/ui_data(mob/user)
 	. = ..()
 
-	var/datum/shuttle/autodock/overmap/shuttle = SSshuttle.shuttles[shuttle_tag]
+	var/datum/shuttle/overmap/shuttle = SSshuttle.shuttles[shuttle_tag]
 	if(istype(shuttle))
 		var/total_gas = 0
 		for(var/obj/structure/fuel_port/FP in shuttle.fuel_ports) //loop through fuel ports
@@ -47,7 +47,7 @@
 			"fuel_span" = fuel_span
 		)
 
-/obj/machinery/computer/shuttle_control/explore/handle_topic_href(var/mob/user, var/datum/shuttle/autodock/overmap/shuttle, var/action, var/list/params)
+/obj/machinery/computer/shuttle_control/explore/handle_topic_href(var/mob/user, var/datum/shuttle/overmap/shuttle, var/action, var/list/params)
 	. = ..()
 	if(. != null)
 		return

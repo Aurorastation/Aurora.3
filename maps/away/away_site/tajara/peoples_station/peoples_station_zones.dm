@@ -4,7 +4,6 @@
 	requires_power = TRUE
 	dynamic_lighting = TRUE
 	no_light_control = TRUE
-	base_turf = /turf/space
 	area_flags = AREA_FLAG_RAD_SHIELDED
 	area_blurb = "The clean and highly organized walls of the station welcomes you. The People's Republic of Adhomai's anthem can be heard from the speakers."
 
@@ -92,7 +91,7 @@
 	name = "People's Space Zero Gravity Chamber"
 	icon_state = "fitness_pool"
 	requires_power = FALSE
-	has_gravity = FALSE
+	area_flags = AREA_FLAG_NO_GRAVITY
 
 //Shuttle
 /area/shuttle/fang

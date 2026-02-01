@@ -26,7 +26,6 @@
 	lift_floor_label = "Deck 1"
 	lift_floor_name = "Lower Deck"
 
-	base_turf = /turf/simulated/floor/plating
 
 /area/turbolift/primary/deck_2
 	name = "Primary Lift - Deck 2"
@@ -64,7 +63,6 @@
 	lift_floor_label = "Deck 1"
 	lift_floor_name = "Lower Deck"
 
-	base_turf = /turf/simulated/floor/plating
 
 /area/turbolift/research/deck_2
 	name = "Research Lift - Deck 2"
@@ -74,7 +72,7 @@
 	lift_floor_name = "Main Deck"
 
 //Morgue Lift
-/datum/shuttle/autodock/ferry/lift/scc_ship/morgue
+/datum/shuttle/ferry/lift/scc_ship/morgue
 	name = "Morgue Lift"
 	location = 1
 	shuttle_area = /area/turbolift/scc_ship/morgue_lift
@@ -88,15 +86,10 @@
 /obj/effect/shuttle_landmark/lift/morgue_top
 	name = "Morgue Top"
 	landmark_tag = "nav_morgue_lift_top"
-	base_area = /area/horizon/medical/hallway
-	base_turf = /turf/simulated/open
 
 /obj/effect/shuttle_landmark/lift/morgue_bottom
 	name = "Morgue Bottom"
 	landmark_tag = "nav_morgue_lift_bottom"
-	landmark_flags = SLANDMARK_FLAG_AUTOSET
-	base_area = /area/horizon/medical/morgue
-	base_turf = /turf/simulated/floor/plating
 
 /area/turbolift/scc_ship/morgue_lift
 	name = "Morgue Lift"
@@ -104,7 +97,7 @@
 	ambience = AMBIENCE_GHOSTLY
 
 //Operations Lift
-/datum/shuttle/autodock/multi/lift/operations
+/datum/shuttle/multi/lift/operations
 	name = "Operations Lift"
 	current_location = "nav_operations_lift_first_deck"
 	shuttle_area = /area/turbolift/scc_ship/operations_lift
@@ -117,20 +110,14 @@
 /obj/effect/shuttle_landmark/lift/operations_first_deck
 	name = "Operations Lift - First Deck"
 	landmark_tag = "nav_operations_lift_first_deck"
-	base_area = /area/horizon/operations/warehouse
-	base_turf = /turf/simulated/floor/plating
 
 /obj/effect/shuttle_landmark/lift/operations_second_deck
 	name = "Operations Lift - Second Deck"
 	landmark_tag = "nav_operations_lift_second_deck"
-	base_area = /area/horizon/operations/office
-	base_turf = /turf/simulated/open
 
 /obj/effect/shuttle_landmark/lift/operations_third_deck
 	name = "Operations Lift - Third Deck"
 	landmark_tag = "nav_operations_lift_third_deck"
-	base_area = /area/horizon/operations/office_aux
-	base_turf = /turf/simulated/open
 
 /obj/machinery/computer/shuttle_control/multi/lift/operations
 	shuttle_tag = "Operations Lift"
@@ -145,7 +132,7 @@
 
 
 //Robotics Lift
-/datum/shuttle/autodock/multi/lift/robotics
+/datum/shuttle/multi/lift/robotics
 	name = "Robotics Lift 2"
 	current_location = "nav_robotics_lift_second_deck"
 	shuttle_area = /area/turbolift/scc_ship/robotics_lift
@@ -158,23 +145,14 @@
 /obj/effect/shuttle_landmark/lift/robotics_first_deck
 	name = "Robotics Lift - First Deck"
 	landmark_tag = "nav_robotics_lift_first_deck"
-	landmark_flags = SLANDMARK_FLAG_AUTOSET
-	base_area = /area/horizon/rnd/eva
-	base_turf = /turf/simulated/floor/plating
 
 /obj/effect/shuttle_landmark/lift/robotics_second_deck
 	name = "Robotics Lift - Second Deck"
 	landmark_tag = "nav_robotics_lift_second_deck"
-	// landmark_flags = SLANDMARK_FLAG_AUTOSET
-	base_area = /area/horizon/medical/hallway
-	base_turf = /turf/simulated/open
 
 /obj/effect/shuttle_landmark/lift/robotics_third_deck
 	name = "Robotics Lift - Third Deck"
 	landmark_tag = "nav_robotics_lift_third_deck"
-	landmark_flags = SLANDMARK_FLAG_AUTOSET
-	base_area = /area/horizon/medical/hallway
-	base_turf = /turf/simulated/open
 
 /obj/machinery/computer/shuttle_control/multi/lift/robotics
 	shuttle_tag = "Robotics Lift 2"

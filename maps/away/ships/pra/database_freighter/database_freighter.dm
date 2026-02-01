@@ -8,7 +8,7 @@
 
 	ship_cost = 1
 	spawn_weight = 1
-	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/database_freighter_shuttle)
+	shuttles_to_initialise = list(/datum/shuttle/overmap/database_freighter_shuttle)
 	sectors = list(SECTOR_BADLANDS, SECTOR_SRANDMARR, SECTOR_NRRAHRAHUL)
 	spawn_weight_sector_dependent = list(SECTOR_BADLANDS = 0.5)
 
@@ -48,6 +48,8 @@
 
 	invisible_until_ghostrole_spawn = TRUE
 
+	ship_area_type = /area/database_freighter
+
 /obj/effect/overmap/visitable/ship/database_freighter/New()
 	if (prob(50))
 		designation = "Hadii"
@@ -63,8 +65,6 @@
 	return skybox_image
 
 /obj/effect/shuttle_landmark/database_freighter
-	base_turf = /turf/space
-	base_area = /area/space
 
 /obj/effect/shuttle_landmark/nav_database_freighter/nav1
 	name = "Database Freighter Navpoint #1"
@@ -98,17 +98,18 @@
 	fore_dir = SOUTH
 	vessel_size = SHIP_SIZE_TINY
 
+	ship_area_type = /area/shuttle/database_freighter_shuttle
+
 /obj/machinery/computer/shuttle_control/explore/terminal/database_freighter_shuttle
 	name = "shuttle control console"
 	shuttle_tag = "Database Freighter Shuttle"
 
-/datum/shuttle/autodock/overmap/database_freighter_shuttle
+/datum/shuttle/overmap/database_freighter_shuttle
 	name = "Database Freighter Shuttle"
 	move_time = 20
 	shuttle_area = list(/area/shuttle/database_freighter_shuttle)
 	dock_target = "airlock_database_freighter_shuttle"
 	current_location = "nav_database_freighter_shuttle"
-	landmark_transition = "nav_transit_database_freighter_shuttle"
 	range = 1
 	fuel_consumption = 2
 	logging_home_tag = "nav_database_freighter_shuttle"

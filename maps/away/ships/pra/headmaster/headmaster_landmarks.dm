@@ -1,5 +1,5 @@
 // Lift
-/datum/shuttle/autodock/multi/lift/headmaster
+/datum/shuttle/multi/lift/headmaster
 	name = "Headmaster Lift"
 	current_location = "nav_headmaster_lift_second_deck"
 	shuttle_area = /area/turbolift/headmaster_ship/headmaster_lift
@@ -11,22 +11,16 @@
 /obj/effect/shuttle_landmark/lift/headmaster_first_deck
 	name = "Headmaster Ship - First Deck"
 	landmark_tag = "nav_headmaster_lift_first_deck"
-	base_area = /area/headmaster_ship/hangar
-	base_turf = /turf/simulated/floor/plating
 
 /obj/effect/shuttle_landmark/lift/headmaster_second_deck
 	name = "Headmaster Ship - Second Deck"
 	landmark_tag = "nav_headmaster_lift_second_deck"
-	base_area = /area/headmaster_ship/lift_area
-	base_turf = /turf/simulated/open
 
 /obj/machinery/computer/shuttle_control/multi/lift/headmaster
 	shuttle_tag = "Headmaster Lift"
 
 // Shuttle landmarks
 /obj/effect/shuttle_landmark/headmaster_ship
-	base_turf = /turf/space
-	base_area = /area/space
 
 /obj/effect/shuttle_landmark/headmaster_ship/nav1
 	name = "Fore"

@@ -150,7 +150,7 @@ GLOBAL_LIST_EMPTY(turfs_to_map_type)
 
 	async = TRUE				// We're moving the shuttle using built in procs.
 
-	var/datum/shuttle/autodock/ferry/supply/shuttle = null
+	var/datum/shuttle/ferry/supply/shuttle = null
 
 	var/testtime = 0	//Used as a timer.
 
@@ -159,7 +159,7 @@ GLOBAL_LIST_EMPTY(turfs_to_map_type)
 		TEST_FAIL("The shuttle controller is not setup at time of test.")
 		return 1
 	if(!SSshuttle.shuttles.len)
-		if(length(SSatlas.current_map.map_shuttles))
+		if(length(SSmapping.current_map.map_shuttles))
 			TEST_FAIL("This map should have shuttles, but it doesn't!")
 			return 1
 		else
@@ -172,7 +172,9 @@ GLOBAL_LIST_EMPTY(turfs_to_map_type)
 
 	// Initiate the Move.
 	SScargo.movetime = 5 // Speed up the shuttle movement.
-	shuttle.short_jump(shuttle.get_location_waypoint(!shuttle.location))
+	shuttle.spoolup(shuttle.get_location_waypoint(!shuttle.location))
+
+	UNTIL(shuttle.moving_status == SHUTTLE_IDLE)
 
 	return 1
 

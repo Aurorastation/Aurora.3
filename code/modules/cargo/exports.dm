@@ -30,7 +30,7 @@ then the player gets the profit from selling his own wasted time.
 	var/sold_str = ""
 	var/cost = 0
 
-	var/list/contents = AM.GetAllContents()
+	var/list/contents = AM.get_all_contents()
 
 	// We go backwards, so it'll be innermost objects sold first
 	for(var/i in reverseRange(contents))

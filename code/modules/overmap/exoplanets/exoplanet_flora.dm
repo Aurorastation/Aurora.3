@@ -1,5 +1,7 @@
 /obj/effect/overmap/visitable/sector/exoplanet/proc/generate_flora()
+	var/flora_time = world.time
 	if(flora_diversity == 0)
+		. = "No flora generated."
 		return
 
 	/// Generate custom seeds for lore planets.
@@ -49,6 +51,16 @@
 			adapt_seed(S)
 			S.update_growth_stages()
 			big_flora_seeds += S
+
+	. = list("Flora generated in [(world.time - flora_time)/10]s.")
+	var/list/small_seeds = list()
+	for(var/datum/seed/s in small_flora_seeds)
+		small_seeds += "[s.seed_name]"
+	var/list/large_seeds = list()
+	for(var/datum/seed/s in big_flora_seeds)
+		large_seeds += "[s.seed_name]"
+	. += "\tSmall plants: [english_list(small_seeds, "None")]."
+	. += "\tLarge plants: [english_list(large_seeds, "None")]."
 
 /obj/effect/landmark/exoplanet_spawn/plant
 	name = "spawn exoplanet plant"

@@ -117,8 +117,8 @@
 	slot_flags = null
 	w_class = WEIGHT_CLASS_HUGE
 
-/obj/item/device/robotanalyzer/augment/throw_at(atom/target, range, speed, mob/user)
-	user.drop_from_inventory(src)
+/obj/item/device/robotanalyzer/augment/throw_at(atom/target, range, speed, mob/thrower, spin = TRUE, diagonals_first = FALSE, datum/callback/callback, force = MOVE_FORCE_STRONG, gentle = FALSE, quickstart = TRUE)
+	thrower.drop_from_inventory(src)
 
 /obj/item/device/robotanalyzer/augment/dropped()
 	. = ..()

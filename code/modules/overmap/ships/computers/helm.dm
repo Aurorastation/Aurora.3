@@ -83,7 +83,7 @@
 /obj/machinery/computer/ship/helm/process()
 	..()
 	if (autopilot && dx && dy)
-		var/turf/T = locate(dx,dy,SSatlas.current_map.overmap_z)
+		var/turf/T = locate(dx,dy,SSmapping.current_map.overmap_z)
 		if(connected.loc == T)
 			if(connected.is_still())
 				autopilot = 0
@@ -130,11 +130,10 @@
 		display_reconnect_dialog(user, "helm")
 	else
 		var/turf/T = get_turf(connected)
-		var/obj/effect/overmap/visitable/sector/current_sector = locate() in T
+		var/obj/effect/overmap/visitable/current_visit = locate() in T
 
-		data["sector"] = current_sector ? current_sector.name : "Deep Space"
-		data["sector_info"] = current_sector ? current_sector.desc : "Not Available"
-		data["landed"] = connected.get_landed_info()
+		data["sector"] = connected.get_landed_info()
+		data["sector_info"] = current_visit ? current_visit.desc : "No Data Available"
 		data["ship_coord_x"] = connected.x
 		data["ship_coord_y"] = connected.y
 		data["dest"] = dy && dx
@@ -175,6 +174,65 @@
 			locations.Add(list(rdata))
 
 		data["locations"] = locations
+
+		// control stuff
+		var/obj/effect/overmap/visitable/ship/landable/overmap_shuttle = connected
+		if(istype(overmap_shuttle))
+			var/datum/shuttle/overmap/shuttle = SSshuttle.shuttles[overmap_shuttle.shuttle]
+			var/shuttle_state
+			switch(shuttle.moving_status)
+				if(SHUTTLE_IDLE) shuttle_state = "idle"
+				if(SHUTTLE_WARMUP) shuttle_state = "warmup"
+				if(SHUTTLE_INTRANSIT, SHUTTLE_LANDING) shuttle_state = "in_transit"
+
+			data["shuttle_state"] = shuttle_state
+			var/datum/computer/file/embedded_program/docking/docking_ctrl = shuttle.active_docking_controller
+			data["has_docking"] = !!docking_ctrl
+			if(docking_ctrl)
+				data["docking_status"] = docking_ctrl.get_docking_status()
+				data["docking_override"] = docking_ctrl.override_enabled
+			data["can_launch"] = shuttle.can_launch()
+			data["can_cancel"] = shuttle.can_cancel()
+			data["can_force"] = shuttle.can_force()
+
+			var/total_gas = 0
+			for(var/obj/structure/fuel_port/FP in shuttle.fuel_ports) //loop through fuel ports
+				var/obj/item/tank/fuel_tank = locate() in FP
+				if(fuel_tank)
+					total_gas += fuel_tank.air_contents.total_moles
+
+			var/fuel_span = (total_gas < shuttle.fuel_consumption * 2) ? "bad" : "good"
+
+			data["destination_name"] = shuttle.get_destination_name()
+			if(shuttle.next_location)
+				data["destination_map_image"] = SSholomap.minimaps_scan_base64[shuttle.next_location.z]
+				data["destination_x"] = shuttle.next_location.x
+				data["destination_y"] = shuttle.next_location.y
+			data["can_pick"] = shuttle.moving_status == SHUTTLE_INTRANSIT
+			data["fuel_usage"] = shuttle.fuel_consumption * 100
+			data["remaining_fuel"] = round(total_gas, 0.01) * 100
+			data["fuel_span"] = fuel_span
+
+		// engine stuff
+		data["global_state"] = connected.engines_state
+		data["global_limit"] = round(connected.thrust_limit*100)
+		var/total_thrust = 0
+		var/list/eng_info = list()
+		for(var/datum/ship_engine/E in connected.engines)
+			eng_info.Add(
+				list(
+					"type" = E.name,
+					"on" = E.is_on(),
+					"thrust" = E.get_thrust(),
+					"thrust_limiter" = round(E.get_thrust_limit()*100),
+					"status" = E.get_status(),
+					"ref" = "[REF(E)]"
+				)
+			)
+			total_thrust += E.get_thrust()
+
+		data["engines"] = eng_info
+		data["total_thrust"] = total_thrust
 
 	return data
 
@@ -255,7 +313,7 @@
 			var/mob/living/carbon/human/H = usr
 			var/dir_to_move = turn(connected.dir, ndir == WEST ? 90 : -90)
 			var/turf/new_turf = get_step(connected, dir_to_move)
-			if(new_turf.x > SSatlas.current_map.overmap_size || new_turf.y > SSatlas.current_map.overmap_size)
+			if(new_turf.x > SSmapping.current_map.overmap_size || new_turf.y > SSmapping.current_map.overmap_size)
 				to_chat(H, SPAN_WARNING("Automated piloting safeties prevent you from going into deep space."))
 				return
 			if(do_after(H, 1 SECOND) && connected.can_combat_roll())
@@ -274,6 +332,35 @@
 		var/newlimit = input("Input new acceleration limit", "Acceleration limit", accellimit*1000) as num|null
 		if(newlimit)
 			accellimit = max(newlimit/1000, 0)
+
+	var/obj/effect/overmap/visitable/ship/landable/overmap_shuttle = connected
+	if(istype(overmap_shuttle))
+		var/datum/shuttle/overmap/shuttle = SSshuttle.shuttles[overmap_shuttle.shuttle]
+		if(action == "move")
+			if(shuttle.check_and_message(usr))
+				shuttle.launch(usr)
+				return TRUE
+			return FALSE
+
+		if(action == "force")
+			if(shuttle.check_and_message(usr))
+				shuttle.force_launch(usr)
+				return TRUE
+			return FALSE
+
+		if(action == "cancel")
+			shuttle.cancel_launch(usr)
+			return TRUE
+
+		if(action == "pick")
+			var/list/possible_d = shuttle.get_possible_destinations()
+			if(!length(possible_d))
+				to_chat(usr, SPAN_WARNING("No valid landing sites in range."))
+				return FALSE
+			var/D = tgui_input_list(usr, "Choose shuttle destination.", "Shuttle Destination", possible_d)
+			if(CanInteract(usr, GLOB.physical_state) && (D in possible_d))
+				shuttle.set_destination(possible_d[D])
+			return TRUE
 
 	if(!issilicon(usr)) // AI and robots aren't allowed to pilot
 		if (action == "move")
@@ -352,10 +439,10 @@
 		display_reconnect_dialog(user, "navigation")
 	else
 		var/turf/T = get_turf(connected)
-		var/obj/effect/overmap/visitable/sector/current_sector = locate() in T
+		var/obj/effect/overmap/visitable/current_visit = locate() in T
 
-		data["sector"] = current_sector ? current_sector.name : "Deep Space"
-		data["sector_info"] = current_sector ? current_sector.desc : "Not Available"
+		data["sector"] = connected.get_landed_info()
+		data["sector_info"] = current_visit ? current_visit.desc : "No Data Available"
 		data["ship_coord_x"] = connected.x
 		data["ship_coord_y"] = connected.y
 		data["speed"] = round(connected.get_speed()*1000, 0.01)

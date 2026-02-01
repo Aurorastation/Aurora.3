@@ -11,7 +11,7 @@
 	spawn_weight = 1
 	ship_cost = 1
 	id = "ranger_corvette"
-	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/ranger_shuttle)
+	shuttles_to_initialise = list(/datum/shuttle/overmap/ranger_shuttle)
 
 	unit_test_groups = list(2)
 
@@ -117,6 +117,8 @@
 
 	invisible_until_ghostrole_spawn = TRUE
 
+	ship_area_type = /area/ship/ranger_corvette
+
 /obj/effect/overmap/visitable/ship/ranger_corvette/New()
 	designation = "[pick("Nouvelle Rochelle", "Kuenoi", "Xansan", "Greentree", "Rautakaivos Kaupunki", "Dorshafen", "Inverkeithing", "Uusi Viipuri",
 					"Horner Station", "Commander Ashia Patvardhan", "Sevaschaiv", "Rahe", "Czsari", "Suwon", "Kamoga", "Jagalaw", "Dalakyhr", "Gurmori", "Ohdker",
@@ -137,26 +139,18 @@
 /obj/effect/shuttle_landmark/ranger_corvette/nav1
 	name = "Ranger Gunboat - Port Side"
 	landmark_tag = "nav_ranger_corvette_1"
-	base_turf = /turf/space/dynamic
-	base_area = /area/space
 
 /obj/effect/shuttle_landmark/ranger_corvette/nav2
 	name = "Ranger Gunboat - Dock Airlock"
 	landmark_tag = "nav_ranger_corvette_2"
-	base_turf = /turf/space/dynamic
-	base_area = /area/space
 
 /obj/effect/shuttle_landmark/ranger_corvette/nav3
 	name = "Ranger Gunboat - Starboard Side"
 	landmark_tag = "nav_ranger_corvette_3"
-	base_turf = /turf/space/dynamic
-	base_area = /area/space
 
 /obj/effect/shuttle_landmark/ranger_corvette/nav4
 	name = "Ranger Gunboat - Aft side"
 	landmark_tag = "nav_ranger_corvette_4"
-	base_turf = /turf/space/dynamic
-	base_area = /area/space
 
 // Aft Dock
 /obj/effect/shuttle_landmark/ranger_corvette/dock_aft
@@ -172,7 +166,6 @@
 /obj/effect/shuttle_landmark/ranger_corvette/transit
 	name = "In transit"
 	landmark_tag = "nav_transit_ranger_corvette"
-	base_turf = /turf/space/transit/north
 
 //shuttle stuff
 /obj/effect/overmap/visitable/ship/landable/ranger_shuttle
@@ -190,16 +183,17 @@
 	fore_dir = NORTH
 	vessel_size = SHIP_SIZE_TINY
 
+	ship_area_type = /area/shuttle/ranger_shuttle
+
 /obj/machinery/computer/shuttle_control/explore/ranger_shuttle
 	name = "shuttle control console"
 	shuttle_tag = "Ranger Shuttle"
 
-/datum/shuttle/autodock/overmap/ranger_shuttle
+/datum/shuttle/overmap/ranger_shuttle
 	name = "Ranger Shuttle"
 	move_time = 20
 	shuttle_area = list(/area/shuttle/ranger_shuttle)
 	current_location = "nav_hangar_ranger"
-	landmark_transition = "nav_transit_ranger_shuttle"
 	dock_target = "ranger_shuttle_dock2"
 	range = 1
 	fuel_consumption = 2
@@ -210,11 +204,8 @@
 	name = "Ranger Shuttle Hangar"
 	landmark_tag = "nav_hangar_ranger"
 	docking_controller = "ranger_shuttle_dock"
-	base_area = /area/space
-	base_turf = /turf/space/dynamic
 	movable_flags = MOVABLE_FLAG_EFFECTMOVE
 
 /obj/effect/shuttle_landmark/ranger_shuttle/transit
 	name = "In transit"
 	landmark_tag = "nav_transit_ranger_shuttle"
-	base_turf = /turf/space/transit/north

@@ -60,6 +60,17 @@
 
 	var/list/possible_themes = list(/datum/exoplanet_theme)
 	var/datum/exoplanet_theme/theme
+	var/turftype = /turf/simulated/floor/exoplanet
+
+	/* Assoc list of possible [/singleton/atmosphere]s
+	 * [singleton instance => % chance]
+	 * Can also be a single type if guaranteed type, or null if no atmosphere
+	 */
+	var/list/possible_atmospheres = list(
+		/singleton/atmosphere = 0.5,
+		/singleton/atmosphere/breathable = 0.4,
+		/singleton/atmosphere/breathable/earthlike = 0.1
+	)
 
 	/// What weather state to use for this planet initially. If null, will not initialize any weather system. Must be a typepath rather than an instance.
 	var/singleton/state/weather/initial_weather_state = /singleton/state/weather/calm
@@ -85,8 +96,6 @@
 	var/ruin_planet_type = PLANET_BARREN
 	var/ruin_allowed_tags = RUIN_ALL_TAGS
 
-	var/habitability_class
-
 	var/list/mobs_to_tolerate = list()
 	var/generated_name = TRUE
 	///The random name generated for the planet by generate_planet_name()
@@ -96,17 +105,6 @@
 	///A list of groups, as strings, that this exoplanet belongs to. When adding new map templates, try to keep this balanced on the CI execution time, or consider adding a new one
 	///ONLY IF IT'S THE LONGEST RUNNING CI POD AND THEY ARE ALREADY BALANCED
 	var/list/unit_test_groups = list()
-
-
-/obj/effect/overmap/visitable/sector/exoplanet/proc/generate_habitability()
-	var/roll = rand(1,100)
-	switch(roll)
-		if(1 to 10)
-			habitability_class = HABITABILITY_IDEAL
-		if(11 to 50)
-			habitability_class = HABITABILITY_OKAY
-		else
-			habitability_class = HABITABILITY_BAD
 
 /obj/effect/overmap/visitable/sector/exoplanet/Initialize()
 	. = ..()
@@ -144,7 +142,7 @@
 	#endif //UNIT_TEST
 
 
-	if(!SSatlas.current_map.use_overmap)
+	if(!SSmapping.current_map.use_overmap)
 		return
 
 	maxx = max_x ? max_x : world.maxx
@@ -155,7 +153,7 @@
 		planet_name = generate_planet_name()
 		name = "[planet_name], \a [name]"
 
-	var/datum/space_level/exoplanet_level = SSmapping.add_new_zlevel("Exoplanet [name]", ZTRAITS_AWAY, contain_turfs = FALSE)
+	var/datum/space_level/exoplanet_level = SSmapping.add_new_zlevel("Exoplanet [name]", ZTRAITS_PLANET(src), contain_turfs = FALSE)
 	forceMove(locate(1, 1, exoplanet_level.z_value))
 
 	pre_ruin_preparation()
@@ -213,31 +211,43 @@
 	..()
 
 /obj/effect/overmap/visitable/sector/exoplanet/proc/build_level()
-	generate_habitability()
-	generate_atmosphere()
+	var/build_time = REALTIMEOFDAY
+	. = list("<b>Exoplanet Generation: [name] (Z: [english_list(map_z)])</b>")
+	. += generate_atmosphere()
 	if(ispath(initial_weather_state))
-		generate_weather()
-	generate_flora()
-	generate_map()
-	generate_features()
+		. += generate_weather()
+	. += generate_flora()
+	. += generate_map()
+	update_ruin_tags()
+	. += generate_features()
 	theme.after_map_generation(src)
-	generate_landing(2)
-	update_biome()
-	generate_planet_image()
+	. += generate_landing(2)
+	. += update_biome()
+	. += generate_planet_image()
 	START_PROCESSING(SSprocessing, src)
 
+	. += SPAN_GOOD("<br>Generation complete in [(REALTIMEOFDAY - build_time)/10]s!")
+
+	var/list/gen_logs = flatten_list(.)
+	to_admins(EXAMINE_BLOCK(gen_logs.Join("\n")))
+
 /obj/effect/overmap/visitable/sector/exoplanet/proc/pre_ruin_preparation()
-	switch(habitability_class)
-		if(HABITABILITY_IDEAL)
-			if(prob(75))
-				ruin_allowed_tags |= RUIN_HIGHPOP
-			ruin_allowed_tags &= ~RUIN_AIRLESS
-		if(HABITABILITY_OKAY)
-			if(prob(25))
-				ruin_allowed_tags |= RUIN_HIGHPOP
-			ruin_allowed_tags &= ~RUIN_AIRLESS
-		if(HABITABILITY_BAD)
-			ruin_allowed_tags |= RUIN_AIRLESS
+	return
+
+/// The difference between this and [pre_ruin_preparation()] is that this runs just before generate_features(), aka after atmospheres have been settled.
+/obj/effect/overmap/visitable/sector/exoplanet/proc/update_ruin_tags()
+	SHOULD_CALL_PARENT(TRUE)
+
+	var/has_oxygen = atmosphere && atmosphere.get_gas(GAS_OXYGEN) >= MOLES_O2STANDARD
+	if(has_oxygen)
+		var/has_nitrogen = atmosphere.get_gas(GAS_NITROGEN) >= MOLES_N2STANDARD
+		ruin_allowed_tags &= ~RUIN_AIRLESS
+		if(has_nitrogen && prob(75))
+			ruin_allowed_tags |= RUIN_HIGHPOP
+		else if(prob(25))
+			ruin_allowed_tags |= RUIN_HIGHPOP
+	else
+		ruin_allowed_tags |= RUIN_AIRLESS
 
 //attempt at more consistent history generation for xenoarch finds.
 /obj/effect/overmap/visitable/sector/exoplanet/proc/get_engravings()
@@ -290,6 +300,7 @@
 	repopulate_types |= M.type
 
 /obj/effect/overmap/visitable/sector/exoplanet/proc/generate_map()
+	var/build_time = REALTIMEOFDAY
 	if(!istype(theme))
 		CRASH("Exoplanet [src] attempted to generate without valid theme!")
 
@@ -315,15 +326,21 @@
 
 	theme.cleanup(src, map_z[1], 1 + TRANSITIONEDGE, 1 + TRANSITIONEDGE, maxx - (1 + TRANSITIONEDGE), maxy - (1 + TRANSITIONEDGE))
 
+	. = "<b>Turf generation complete in [(REALTIMEOFDAY - build_time)/10]s!</b>"
+
 /obj/effect/overmap/visitable/sector/exoplanet/proc/generate_features()
+	var/build_time = REALTIMEOFDAY
 	spawned_features = seedRuins(map_z, features_budget, possible_features, /area/exoplanet, maxx, maxy)
+	. = list("POIs generated in [(REALTIMEOFDAY - build_time)/10]s:", spawned_features)
 
 /obj/effect/overmap/visitable/sector/exoplanet/proc/update_biome()
+	var/build_time = REALTIMEOFDAY
 	for(var/datum/seed/S as anything in seeds)
 		adapt_seed(S)
 
 	for(var/mob/living/simple_animal/A as anything in animals)
 		adapt_animal(A)
+	. = "Flora / fauna adaptation complete in [(REALTIMEOFDAY - build_time)/10]s."
 
 /obj/effect/overmap/visitable/sector/exoplanet/proc/adapt_seed(var/datum/seed/S)
 	SET_SEED_TRAIT_BOUNDED(S, TRAIT_IDEAL_HEAT, atmosphere.temperature + rand(-5,5), 800, 70, null)
@@ -391,10 +408,6 @@
 // If it that does not work, it tries to clear the area
 //There is also a sanity check to ensure that the map isnt too small to handle the landing spot
 /obj/effect/overmap/visitable/sector/exoplanet/proc/generate_landing(num = 1)
-	var/places = list()
-	var/attempts = 20
-	var/new_type = landmark_type
-
 	//sanity-check map size
 	var/lm_min_x = TRANSITIONEDGE+LANDING_ZONE_RADIUS
 	var/lm_max_x = maxx-TRANSITIONEDGE-LANDING_ZONE_RADIUS
@@ -404,78 +417,136 @@
 		log_and_message_admins("Map Size is too small to Support Away Mission Shuttle Landmark. [lm_min_x] [lm_max_x] [lm_min_y] [lm_max_y]")
 		return
 
-	while(num)
-		attempts--
-		var/turf/T = locate(rand(lm_min_x, lm_max_x), rand(lm_min_y, lm_max_y),map_z[map_z.len])
-		if(!T || (T in places)) // Two landmarks on one turf is forbidden as the landmark code doesn't work with it.
-			continue
-		if(attempts >= 0) // While we have the patience, try to find better spawn points. If out of patience, put them down wherever, so long as there are no repeats.
-			var/valid = TRUE
-			var/list/block_to_check = block(locate(T.x - LANDING_ZONE_RADIUS, T.y - LANDING_ZONE_RADIUS, T.z), locate(T.x + LANDING_ZONE_RADIUS, T.y + LANDING_ZONE_RADIUS, T.z))
-			// Ruins check - try to avoid blowing up ruins with our LZ
-			// We do this until we run out of attempts
-			for(var/turf/check in block_to_check)
-				if(!istype(get_area(check), /area/exoplanet) || check.turf_flags & TURF_NORUINS)
-					valid = FALSE
-					break
-			// Landability check - try to find an already-open space for an LZ
-			if(attempts >= 10)
-				if(check_collision(block_to_check))
-					valid = FALSE
-			else // If we're running low on attempts we try to make our own LZ, ignoring landability but still checking for ruins
-				new_type = /obj/effect/shuttle_landmark/automatic/clearing
+	. = list("<b>Placing landing zones.</b>")
+	var/hmap_time = REALTIMEOFDAY
 
-			if(!valid)
-				continue
+	var/list/planet_turfs = block(1, 1, map_z[1], maxx, maxy, map_z[map_z.len])
+	var/list/heightmap = heightmap_from_turfs(planet_turfs)
+	. += "\tHeightmap generated in [(REALTIMEOFDAY - hmap_time)/10]s."
+
+	var/sanity = 10
+
+	while(num && sanity)
+		sanity--
+		var/start_time = REALTIMEOFDAY
+		var/list/new_lz = maximal_rectangle(heightmap)
+		var/lz_min_x = new_lz["min_x"]
+		var/lz_min_y = new_lz["min_y"]
+		var/lz_max_x = new_lz["max_x"]
+		var/lz_max_y = new_lz["max_y"]
+		var/should_clear = new_lz["clearing"]
+
+		var/width = lz_max_x - lz_min_x + 1
+		var/height = lz_max_y - lz_min_y + 1
+
+		var/turf/center_turf = locate(lz_min_x + (width / 2), lz_min_y + (height / 2), z)
+		if(!center_turf)
+			CRASH("Failed to locate turf during landing zone generation. X: [lz_min_x + (width / 2)], Y: [lz_min_y + (height / 2)], Z: [z]")
+
+		// we only want to take up twice our required LZ space, not the entire planet if its a flat plain
+		width = should_clear ? LANDING_ZONE_RADIUS*2 : min(width, LANDING_ZONE_RADIUS*4)
+		height = should_clear ? LANDING_ZONE_RADIUS*2 : min(height, LANDING_ZONE_RADIUS*4)
+
+		var/list/blacklist_turfs = RECT_TURFS((width / 2) + 1, (height / 2) + 1, center_turf)
+		var/valid_place = TRUE
+		if(should_clear)
+			for(var/turf/T as anything in blacklist_turfs)
+				if(heightmap[T.x][T.y] == -1)
+					valid_place = FALSE
+
+		if(!valid_place)
+			heightmap[center_turf.x][center_turf.y] = -1
+			continue
+
+		for(var/turf/T as anything in blacklist_turfs)
+			if(heightmap[T.x][T.y] != -1)
+				T.turf_flags |= TURF_NORUINS
+			heightmap[T.x][T.y] = -1 // so we don't have to regen the lists
+			T.color = COLOR_RED
+
+		if(should_clear)
+			new /obj/effect/shuttle_landmark/automatic/clearing(center_turf)
+		else
+			new landmark_type(center_turf)
+
+		. += "\t- [width]x[height] LZ placed @ X [center_turf.x], Y [center_turf.y] in [(REALTIMEOFDAY - start_time)/10]s"
 
 		num--
-		places += T
-		new new_type(T)
-		attempts = 20
 
+	if(num)
+		stack_trace("Failed to generate [num] LZs for [name].")
+		. += "\t- [SPAN_DANGER("Failed to generate [num] LZs.")]"
+
+/// Atmosphere generation. Should always call parent. If you want to stop atmosphere generating, set class to HABITABILITY_NONE
 /obj/effect/overmap/visitable/sector/exoplanet/proc/generate_atmosphere()
+	SHOULD_CALL_PARENT(TRUE)
+	var/picked_atm = islist(possible_atmospheres) ? pickweight(possible_atmospheres) : possible_atmospheres
+	if(!picked_atm)
+		return "No atmosphere generated."
+	var/singleton/atmosphere/atm_type = GET_SINGLETON(picked_atm)
+	if(!atm_type)
+		CRASH("Failed to get atmosphere type [picked_atm]!")
+
+	var/expected_atm = 0
+	if(islist(atm_type.expected_atms))
+		expected_atm = rand(atm_type.expected_atms[1] * 100, atm_type.expected_atms[2] * 100)/100
+	else
+		expected_atm = atm_type.expected_atms
+	var/total_moles = MOLES_CELLSTANDARD * expected_atm
+
+	if(!expected_atm)
+		return "No atmosphere generated."
+
 	atmosphere = new
-	if(habitability_class == HABITABILITY_IDEAL)
-		atmosphere.adjust_gas(GAS_OXYGEN, MOLES_O2STANDARD, 0)
-		atmosphere.adjust_gas(GAS_NITROGEN, MOLES_N2STANDARD)
-	else //let the fuckery commence
-		var/list/newgases = gas_data.gases.Copy()
-		newgases -= GAS_PHORON
-		if(prob(50)) //alium gas should be slightly less common than mundane shit
-			newgases -= GAS_ALIEN
-		newgases -= GAS_WATERVAPOR
+	for(var/gas in atm_type.gases)
+		atmosphere.adjust_gas(gas, atm_type.gases[gas] * MOLES_CELLSTANDARD, FALSE)
+	atmosphere.update_values()
 
-		var/total_moles = MOLES_CELLSTANDARD * rand(80,120)/100
-		var/badflag = 0
+	if(atmosphere.get_total_moles() < total_moles) // We must fill in the rest with random gases.
+		var/list/new_gases = gas_data.gases.Copy()
+		for(var/gas in atm_type.gas_potential)
+			var/gas_prob = atm_type.gas_potential[gas] * 100
+			if(prob(100 - gas_prob))
+				new_gases -= gas
 
-		//Breathable planet
-		if(habitability_class == HABITABILITY_OKAY)
-			atmosphere.gas[GAS_OXYGEN] += MOLES_O2STANDARD
-			total_moles -= MOLES_O2STANDARD
-			badflag = XGM_GAS_FUEL|XGM_GAS_CONTAMINANT
+		for(var/gas in new_gases)
+			if(gas_data.flags[gas] & atm_type.ban_flags)
+				new_gases -= gas
 
-		var/gasnum = rand(1,4)
-		var/i = 1
-		var/sanity = prob(99.9)
-		while(i <= gasnum && total_moles && newgases.len)
-			if(badflag && sanity)
-				for(var/g in newgases)
-					if(gas_data.flags[g] & badflag)
-						newgases -= g
-			var/ng = pick_n_take(newgases)	//pick a gas
-			if(sanity) //make sure atmosphere is not flammable... always
-				if(gas_data.flags[ng] & XGM_GAS_OXIDIZER)
-					badflag |= XGM_GAS_FUEL
-				if(gas_data.flags[ng] & XGM_GAS_FUEL)
-					badflag |= XGM_GAS_OXIDIZER
-				sanity = 0
+		var/remaining_moles = total_moles - atmosphere.get_total_moles()
+		while(remaining_moles > 0)
+			total_moles = MOLES_CELLSTANDARD * expected_atm
+			remaining_moles = total_moles - atmosphere.get_total_moles()
 
-			var/part = total_moles * rand(3,80)/100 //allocate percentage to it
-			if(i == gasnum || !newgases.len) //if it's last gas, let it have all remaining moles
-				part = total_moles
-			atmosphere.gas[ng] += part
-			total_moles = max(total_moles - part, 0)
-			i++
+			var/new_gas = pick_n_take(new_gases)
+			if(gas_data.flags[new_gas] & XGM_GAS_OXIDIZER)
+				for(var/bad_gas in new_gases)
+					if(gas_data.flags[bad_gas] & XGM_GAS_FUEL)
+						new_gases -= bad_gas
+			else if(gas_data.flags[new_gas] & XGM_GAS_FUEL)
+				for(var/bad_gas in new_gases)
+					if(gas_data.flags[bad_gas] & XGM_GAS_OXIDIZER)
+						new_gases -= bad_gas
+
+			var/part = remaining_moles * rand(0.03, 0.80)
+			if(!length(new_gases))
+				part = remaining_moles
+			atmosphere.adjust_gas(new_gas, part)
+
+	var/expected_temp = T20C
+	if(islist(atm_type.temperature))
+		expected_temp = rand(atm_type.temperature[1], atm_type.temperature[2])
+	else
+		expected_temp = atm_type.temperature
+	atmosphere.temperature = expected_temp
+
+	atmosphere.update_values()
+
+	. = list("Atmospheric Conditions:", "\tTemperature: [atmosphere.temperature - T0C] °C", "\tPressure: [atmosphere.return_pressure() / ONE_ATMOSPHERE] atm ([atmosphere.return_pressure()] kPa)")
+	var/list/atmospheric_contents = list()
+	for(var/gas in atmosphere.gas)
+		atmospheric_contents += "[gas_data.name[gas]] ([(atmosphere.get_gas(gas) / atmosphere.get_total_moles()) * 100]%)"
+	. += "\tGases: [english_list(atmospheric_contents, "N/A")]"
 
 /obj/effect/overmap/visitable/sector/exoplanet/generate_ground_survey_result()
 	..()
@@ -565,3 +636,4 @@
 	if(ispath(initial_weather_state))
 		initial_weather_state = GET_SINGLETON(initial_weather_state)
 	set_weather(initial_weather_state)
+	. = "Starting weather state is [initial_weather_state.name]."

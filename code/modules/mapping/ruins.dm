@@ -17,6 +17,8 @@ GLOBAL_LIST_EMPTY(banned_ruin_ids)
 	var/list/selected = list()
 	var/list/force_spawn = list()
 
+	var/list/selected_log = list()
+
 	/// List of ruin paths we've already processed as potential ruins, so we don't get stuck in an infinite loop if there's a cross-reference
 	var/list/handled_ruin_paths = list()
 	while(length(potentialRuins) > 0)
@@ -42,7 +44,7 @@ GLOBAL_LIST_EMPTY(banned_ruin_ids)
 			continue
 
 		if((ruin.template_flags & TEMPLATE_FLAG_PORT_SPAWN))
-			if(SSatlas.is_port_call_day())
+			if(SSmapping.is_port_call_day())
 				force_spawn |= ruin
 				for(var/ruin_path in ruin.force_ruins)
 					var/datum/map_template/ruin/force_ruin = new ruin_path
@@ -70,12 +72,12 @@ GLOBAL_LIST_EMPTY(banned_ruin_ids)
 			available -= ruin
 			continue
 
-		var/turf/choice = validate_ruin(ruin, zlevels, remaining, allowed_area, maxx, maxy)
+		var/turf/choice = validate_ruin(ruin, zlevels, remaining, maxx, maxy)
 		if(!choice)
 			available -= ruin
 			continue
 
-		log_admin("Loading ruin \"[ruin.name]\" ([ruin.type]) with center turf ([choice.x], [choice.y], [choice.z])!")
+		selected_log += "\t[ruin.name] ([ruin.width]x[ruin.height]) @ [choice.x], [choice.y], [choice.z]"
 		load_ruin(choice, ruin)
 		log_module_ruins("Ruin \"[ruin.name]\" ([ruin.type]) loaded with geometry: Lower X: [choice.x - round(ruin.width / 2)] - Lower Y [choice.y - round(ruin.height / 2)] -- Upper X: [choice.x + round(ruin.width / 2)] - Upper Y: [choice.y + round(ruin.height / 2)]")
 
@@ -106,12 +108,12 @@ GLOBAL_LIST_EMPTY(banned_ruin_ids)
 		if(ruin.id in GLOB.banned_ruin_ids)
 			continue
 
-		var/turf/choice = validate_ruin(ruin, zlevels, filter_area = allowed_area, max_x = maxx, max_y = maxy)
+		var/turf/choice = validate_ruin(ruin, zlevels, max_x = maxx, max_y = maxy)
 		if(!choice)
-			log_admin("Ruin \"[ruin.name]\" failed to force-spawned at ([choice.x], [choice.y], [choice.z])!!!")
+			selected_log += "\t[SPAN_WARNING("[ruin.name] ([ruin.width]x[ruin.height]) failed to force-spawn in Z: [english_list(zlevels)]")]"
 			continue
 
-		log_admin("Ruin \"[ruin.name]\" force-spawned at ([choice.x], [choice.y], [choice.z])!")
+		selected_log += "\t[ruin.name] ([ruin.width]x[ruin.height]) @ [choice.x], [choice.y], [choice.z] [SPAN_WARNING("(forced)")]"
 		load_ruin(choice, ruin)
 
 		#if defined(UNIT_TEST)
@@ -124,54 +126,56 @@ GLOBAL_LIST_EMPTY(banned_ruin_ids)
 		if(!(ruin.template_flags & TEMPLATE_FLAG_ALLOW_DUPLICATES))
 			GLOB.banned_ruin_ids += ruin.id
 
+	var/message = "\t[selected.len] ruins selected using [budget - remaining] pts of [budget] budget."
 	if (remaining)
-		log_admin("Ruin loader had no ruins to pick from with [budget] left to spend.")
+		message = SPAN_WARNING(message)
+	selected_log += message
 
 	if (length(selected))
 		log_module_ruins("Finished selecting planet ruins ([english_list(selected)]) for [budget - remaining] cost of [budget] budget.")
 
-	return selected
+	return selected_log
 
-/proc/validate_ruin(datum/map_template/ruin/ruin, list/zlevels, budget = 0, filter_area = /area/exoplanet, max_x = world.maxx, max_y = world.maxy)
+/proc/validate_ruin(datum/map_template/ruin/ruin, list/zlevels, budget = 0, max_x = world.maxx, max_y = world.maxy)
 	if(!istype(ruin) || !length(zlevels))
 		return
 
 	if(budget && (ruin.spawn_cost > budget))
 		return
 
+	var/z = pick(zlevels)
+
 	var/width = TRANSITIONEDGE + RUIN_MAP_EDGE_PAD + round(ruin.width / 2)
 	var/height = TRANSITIONEDGE + RUIN_MAP_EDGE_PAD + round(ruin.height / 2)
+	var/list/planet_turfs = block(1, 1, z, max_x, max_y, z)
 
 	if(width > max_x - width || height > max_y - height)
 		return
 
-	var/valid = TRUE
+	var/list/heightmap = heightmap_from_turfs(planet_turfs, x_buffer = width, y_buffer = height, ignore_density = TRUE)
 
 	for(var/attempts = 20, attempts > 0, --attempts)
-		var/z = pick(zlevels)
-		var/turf/choice = locate(rand(width, max_x - width), rand(height, max_y - height), z)
+		var/list/spot = maximal_rectangle(heightmap, desired_height = ruin.height, desired_width = ruin.width)
+		var/spot_min_x = spot["min_x"]
+		var/spot_min_y = spot["min_y"]
+		var/spot_max_x = spot["max_x"]
+		var/spot_max_y = spot["max_y"]
 
-		valid = TRUE
-		for(var/turf/check_turf in ruin.get_affected_turfs(choice, TRUE))
-			var/area/check_area = get_area(check_turf)
-			if(!istype(check_area, filter_area) || check_turf.turf_flags & TURF_NORUINS)
-				valid = FALSE
-				break
+		var/spot_width = spot_max_x - spot_min_x + 1
+		var/spot_height = spot_max_y - spot_min_y + 1
 
-		if(valid)
-			return choice
+		var/turf/spot_center = locate(spot_min_x + (spot_width / 2), spot_min_y + (spot_height / 2), zlevels[1])
+		if(spot["should_clear"])
+			heightmap[spot_center.x][spot_center.y] = -1
+			continue
+
+		return spot_center
 
 /proc/load_ruin(turf/central_turf, datum/map_template/template)
 	if(!template)
 		return FALSE
-	for(var/i in template.get_affected_turfs(central_turf, 1))
-		var/turf/T = i
-		for(var/mob/living/simple_animal/monster in T)
-			qdel(monster)
-		for(var/obj/structure/S in T)
-			qdel(S)
-		for(var/obj/machinery/M in T)
-			qdel(M)
+	for(var/turf/T as anything in template.get_affected_turfs(central_turf, 1))
+		T.empty()
 		if(LAZYLEN(T.decals))
 			T.decals.Cut()
 		T.ClearOverlays()

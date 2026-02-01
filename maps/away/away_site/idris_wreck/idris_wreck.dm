@@ -34,8 +34,6 @@
 	..()
 
 /obj/effect/shuttle_landmark/idris_wreck
-	base_turf = /turf/space
-	base_area = /area/space
 
 /obj/effect/shuttle_landmark/idris_wreck/nav1
 	name = "Idris Vault Ship - Fore"
@@ -130,7 +128,6 @@
 	requires_power = TRUE
 	dynamic_lighting = TRUE
 	no_light_control = FALSE
-	base_turf = /turf/space
 	area_flags = AREA_FLAG_RAD_SHIELDED
 
 /area/idris_wreck/bridge

@@ -271,7 +271,7 @@
 /turf/simulated/floor/airless,
 /area/template_noop)
 "Ab" = (
-/obj/random/document/junk,
+/obj/random/junk,
 /obj/item/trash/cigbutt/cigarbutt,
 /turf/simulated/floor/exoplanet/asteroid/ash,
 /area/template_noop)

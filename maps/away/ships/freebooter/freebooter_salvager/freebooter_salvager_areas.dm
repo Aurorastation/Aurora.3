@@ -4,7 +4,6 @@
 	requires_power = TRUE
 	dynamic_lighting = TRUE
 	no_light_control = FALSE
-	base_turf = /turf/space
 	area_flags = AREA_FLAG_RAD_SHIELDED
 
 /area/ship/freebooter_salvager/afthallway
@@ -46,6 +45,7 @@
 /area/ship/freebooter_salvager/exterior
 	name = "Freebooter Salvager Exterior"
 	icon_state = "exterior"
+	area_flags = AREA_FLAG_NO_GRAVITY | AREA_FLAG_SHIP_EXTERIOR
 
 /area/ship/freebooter_salvager/forehallway
 	name = "Freebooter Salvager Fore Hallway"

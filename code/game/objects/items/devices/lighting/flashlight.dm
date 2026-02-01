@@ -209,7 +209,7 @@
 		set_dir(user.dir)
 		update_light()
 
-/obj/item/device/flashlight/throw_at(atom/target, range, speed, thrower, do_throw_animation)
+/obj/item/device/flashlight/throw_at(atom/target, range, speed, mob/thrower, spin = TRUE, diagonals_first = FALSE, datum/callback/callback, force = MOVE_FORCE_STRONG, gentle = FALSE, quickstart = TRUE)
 	. = ..()
 	if(light_wedge)
 		var/new_dir = pick(NORTH, SOUTH, EAST, WEST)

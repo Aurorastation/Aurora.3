@@ -34,8 +34,8 @@ SUBSYSTEM_DEF(events)
 	)
 	initialized = TRUE
 
-	if(SSatlas.current_map.use_overmap)
-		overmap_event_handler.create_events(SSatlas.current_map.overmap_z, SSatlas.current_map.overmap_size, SSatlas.current_map.overmap_event_areas)
+	if(SSmapping.current_map.use_overmap)
+		overmap_event_handler.create_events(SSmapping.current_map.overmap_z, SSmapping.current_map.overmap_size, SSmapping.current_map.overmap_event_areas)
 
 	return SS_INIT_SUCCESS
 

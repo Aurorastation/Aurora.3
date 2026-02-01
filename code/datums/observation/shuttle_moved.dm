@@ -1,5 +1,5 @@
 //	Observer Pattern Implementation: Shuttle Moved
-//		Registration type: /datum/shuttle/autodock
+//		Registration type: /datum/shuttle
 //
 //		Raised when: A shuttle has moved to a new landmark.
 //
@@ -9,7 +9,7 @@
 //			/obj/effect/shuttle_landmark/new_location: the new location's shuttle landmark
 
 //	Observer Pattern Implementation: Shuttle Pre Move
-//		Registration type: /datum/shuttle/autodock
+//		Registration type: /datum/shuttle
 //
 //		Raised when: A shuttle is about to move to a new landmark.
 //

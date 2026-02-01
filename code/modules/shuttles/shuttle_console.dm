@@ -106,9 +106,9 @@
 	if(check_rights(R_ADMIN, 0, user))
 		ui_interact(user)
 
-/obj/machinery/computer/shuttle_control/proc/get_shuttle_status(var/datum/shuttle/autodock/shuttle)
-	switch(shuttle.process_state)
-		if(IDLE_STATE)
+/obj/machinery/computer/shuttle_control/proc/get_shuttle_status(var/datum/shuttle/shuttle)
+	switch(shuttle.moving_status)
+		if(SHUTTLE_IDLE)
 			var/cannot_depart = shuttle.current_location.cannot_depart(shuttle)
 			if(shuttle.in_use)
 				. = "Busy."
@@ -117,20 +117,20 @@
 			else
 				. = "Standing-by at \the [shuttle.get_location_name()]."
 
-		if(WAIT_LAUNCH, FORCE_LAUNCH)
+		if(SHUTTLE_WARMUP)
 			. = "Shuttle has received a command and will depart shortly."
-		if(WAIT_ARRIVE)
+		if(SHUTTLE_INTRANSIT)
 			. = "Proceeding to \the [shuttle.get_destination_name()]."
-		if(WAIT_FINISH)
+		if(SHUTTLE_LANDING)
 			. = "Arriving at destination now."
 
 // This is a subset of the actual checks; contains those that give messages to the user.
-/obj/machinery/computer/shuttle_control/proc/can_move(var/datum/shuttle/autodock/shuttle, var/user)
+/obj/machinery/computer/shuttle_control/proc/can_move(var/datum/shuttle/shuttle, var/user)
 	var/cannot_depart = shuttle.current_location.cannot_depart(shuttle)
 	if(cannot_depart)
 		to_chat(user, SPAN_WARNING(cannot_depart))
 		return FALSE
-	if(!shuttle.next_location.is_valid(shuttle))
+	if(shuttle.check_landing_zone() != DOCKING_SUCCESS)
 		to_chat(user, SPAN_WARNING("Destination zone is invalid or obstructed."))
 		return FALSE
 	if(GET_Z(shuttle.next_location) in SSodyssey.scenario_zlevels)
@@ -140,7 +140,7 @@
 	return TRUE
 
 /obj/machinery/computer/shuttle_control/ui_interact(mob/user, datum/tgui/ui)
-	var/datum/shuttle/autodock/shuttle = SSshuttle.shuttles[shuttle_tag]
+	var/datum/shuttle/shuttle = SSshuttle.shuttles[shuttle_tag]
 	if(!istype(shuttle))
 		to_chat(user, SPAN_WARNING("Unable to establish link with the shuttle."))
 		return
@@ -151,13 +151,13 @@
 		ui.open()
 
 /obj/machinery/computer/shuttle_control/ui_data(mob/user)
-	var/datum/shuttle/autodock/shuttle = SSshuttle.shuttles[shuttle_tag]
+	var/datum/shuttle/shuttle = SSshuttle.shuttles[shuttle_tag]
 
 	var/shuttle_state
 	switch(shuttle.moving_status)
 		if(SHUTTLE_IDLE) shuttle_state = "idle"
 		if(SHUTTLE_WARMUP) shuttle_state = "warmup"
-		if(SHUTTLE_INTRANSIT) shuttle_state = "in_transit"
+		if(SHUTTLE_INTRANSIT, SHUTTLE_LANDING) shuttle_state = "in_transit"
 
 	return list(
 		"shuttle_status" = get_shuttle_status(shuttle),
@@ -179,7 +179,7 @@
 
 	return handle_topic_href(usr, SSshuttle.shuttles[shuttle_tag], action, params)
 
-/obj/machinery/computer/shuttle_control/proc/handle_topic_href(var/mob/user, var/datum/shuttle/autodock/shuttle, var/action, var/list/params)
+/obj/machinery/computer/shuttle_control/proc/handle_topic_href(var/mob/user, var/datum/shuttle/shuttle, var/action, var/list/params)
 	if(!istype(shuttle))
 		return FALSE
 
@@ -205,7 +205,7 @@
 			shuttle.name = new_name
 		return TRUE
 
-/obj/machinery/computer/shuttle_control/proc/update_helmets(var/datum/shuttle/autodock/shuttle)
+/obj/machinery/computer/shuttle_control/proc/update_helmets(var/datum/shuttle/shuttle)
 	var/shuttle_status = get_shuttle_status(shuttle)
 	for(var/obj/item/clothing/head/helmet/pilot/PH as anything in linked_helmets)
 		PH.set_hud_maptext("Shuttle Status: [shuttle_status]")

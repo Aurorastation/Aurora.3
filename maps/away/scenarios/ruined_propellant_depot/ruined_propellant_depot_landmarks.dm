@@ -2,8 +2,6 @@
 // --------------------- base type
 
 /obj/effect/shuttle_landmark/ruined_propellant_depot
-	base_area = /area/space
-	base_turf = /turf/space
 
 // --------------------- docks
 

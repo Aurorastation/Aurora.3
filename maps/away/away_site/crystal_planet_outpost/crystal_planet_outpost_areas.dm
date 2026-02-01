@@ -2,9 +2,8 @@
 /area/crystal_planet_outpost
 	name = "Crystal Planet Outpost (abstract/base)"
 	requires_power = TRUE
-	has_gravity = TRUE
+	default_gravity = STANDARD_GRAVITY
 	is_outside = OUTSIDE_NO
-	base_turf = /turf/simulated/floor/exoplanet/basalt/crystal
 
 /area/crystal_planet_outpost/caves
 	name = "Crystal Planet Outpost Caves"
@@ -19,13 +18,11 @@
 	name = "Crystal Planet Outpost Surface"
 	icon_state = "yellow"
 	is_outside = OUTSIDE_YES
-	base_turf = /turf/simulated/floor/exoplanet/crystal
 
 /area/crystal_planet_outpost/landing
 	name = "Crystal Planet Outpost Landing Pads"
 	icon_state = "blue"
 	is_outside = OUTSIDE_YES
-	base_turf = /turf/simulated/floor/exoplanet/crystal
 
 /area/crystal_planet_outpost/engineering
 	name = "Crystal Planet Outpost Caves"

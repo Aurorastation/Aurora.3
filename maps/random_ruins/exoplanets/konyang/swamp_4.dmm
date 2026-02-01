@@ -75,7 +75,7 @@
 /area/konyang_swamp_4)
 "hM" = (
 /turf/template_noop,
-/area/space)
+/area/template_noop)
 "ia" = (
 /obj/effect/step_trigger/thrower{
 	icon_state = "dir_arrow";

@@ -4,9 +4,9 @@
 	var/max_z = 0
 	for(var/z in SSmapping.levels_by_trait(ZTRAIT_STATION))
 		max_z = max(z, max_z)
-	for(var/z in SSatlas.current_map.admin_levels)
+	for(var/z in SSmapping.current_map.admin_levels)
 		max_z = max(z, max_z)
-	for(var/z in SSatlas.current_map.player_levels)
+	for(var/z in SSmapping.current_map.player_levels)
 		max_z = max(z, max_z)
 	return max_z
 

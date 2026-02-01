@@ -13,18 +13,19 @@
 	fore_dir = NORTH
 	vessel_size = SHIP_SIZE_TINY
 
+	ship_area_type = /area/shuttle/ssrm_shuttle
+
 /obj/machinery/computer/shuttle_control/explore/terminal/ssrm_shuttle
 	name = "shuttle control console"
 	shuttle_tag = "SSRM Shuttle"
 	req_access = list(ACCESS_SOL_SHIPS)
 
 // Controls docking behaviour
-/datum/shuttle/autodock/overmap/ssrm_shuttle
+/datum/shuttle/overmap/ssrm_shuttle
 	name = "SSRM Shuttle"
 	move_time = 20
 	shuttle_area = list(/area/shuttle/ssrm_shuttle)
 	current_location = "nav_ssrm_dock"
-	landmark_transition = "nav_transit_ssrm_shuttle"
 	dock_target = "airlock_ssrm_shuttle"
 	range = 1
 	fuel_consumption = 2
@@ -36,15 +37,12 @@
 	name = "SSRM Docking Port"
 	landmark_tag = "nav_ssrm_dock"
 	docking_controller = "ssrm_shuttle_dock"
-	base_area = /area/ship/ssrm_corvette
-	base_turf = /turf/simulated/floor/plating
 	movable_flags = MOVABLE_FLAG_EFFECTMOVE
 
 // Transit landmark
 /obj/effect/shuttle_landmark/ssrm_shuttle/transit
 	name = "In transit"
 	landmark_tag = "nav_transit_ssrm_shuttle"
-	base_turf = /turf/space/transit/north
 
 // Shuttle docking port
 /obj/effect/map_effect/marker/airlock/docking/ssrm_ship/shuttle_port

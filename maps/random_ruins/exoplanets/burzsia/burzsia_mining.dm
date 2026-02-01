@@ -19,7 +19,6 @@
 	requires_power = TRUE
 	dynamic_lighting = TRUE
 	no_light_control = FALSE
-	base_turf = /turf/simulated/floor/exoplanet/barren
 	area_flags = AREA_FLAG_RAD_SHIELDED
 	is_outside = OUTSIDE_NO
 

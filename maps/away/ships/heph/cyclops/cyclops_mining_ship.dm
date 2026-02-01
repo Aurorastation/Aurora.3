@@ -9,7 +9,7 @@
 	spawn_weight = 1
 	ship_cost = 1
 	id = "Cyclops Mining Vessel"
-	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/cyclops_shuttle)
+	shuttles_to_initialise = list(/datum/shuttle/overmap/cyclops_shuttle)
 
 	unit_test_groups = list(2)
 
@@ -52,73 +52,53 @@
 
 	invisible_until_ghostrole_spawn = TRUE
 
+	ship_area_type = /area/hephmining_ship/cyclops
+
 /obj/effect/overmap/visitable/ship/cyclops_mining/New()
 	designation = "[pick("Archemedes", "Pallas", "Crius", "Pothos", "Nyx")]"
 	..()
 
 /obj/effect/shuttle_landmark/cyclops
-	base_turf = /turf/space/dynamic
-	base_area = /area/space
 
 /obj/effect/shuttle_landmark/cyclops/nav1
 	name = "Cyclops Mining Vessel - Port Side"
 	landmark_tag = "nav_cyclops_1"
-	base_turf = /turf/space/dynamic
-	base_area = /area/space
 
 /obj/effect/shuttle_landmark/cyclops/nav2
 	name = "Cyclops Mining Vessel - Port EVA Docking"
 	landmark_tag = "nav_cyclops_2"
-	base_turf = /turf/space/dynamic
-	base_area = /area/space
 
 /obj/effect/shuttle_landmark/cyclops/nav3
 	name = "Cyclops Mining Vessel - Starboard Side"
 	landmark_tag = "nav_cyclops_3"
-	base_turf = /turf/space/dynamic
-	base_area = /area/space
 
 /obj/effect/shuttle_landmark/cyclops/nav4
 	name = "Cyclops Mining Vessel - Aft"
 	landmark_tag = "nav_cyclops_4"
-	base_turf = /turf/space/dynamic
-	base_area = /area/space
 
 /obj/effect/shuttle_landmark/cyclops/nav5
 	name = "Cyclops Mining Vessel - Fore"
 	landmark_tag = "nav_cyclops_5"
-	base_turf = /turf/space/dynamic
-	base_area = /area/space
 
 /obj/effect/shuttle_landmark/cyclops/nav6
 	name = "Cyclops Mining Vessel - Port Fore EVA Docking"
 	landmark_tag = "nav_cyclops_6"
-	base_turf = /turf/space/dynamic
-	base_area = /area/space
 
 /obj/effect/shuttle_landmark/cyclops/nav7
 	name = "Cyclops Mining Vessel - Port Aft EVA Docking"
 	landmark_tag = "nav_cyclops_7"
-	base_turf = /turf/space/dynamic
-	base_area = /area/space
 
 /obj/effect/shuttle_landmark/cyclops/nav8
 	name = "Cyclops Mining Vessel - Starboard EVA Docking"
 	landmark_tag = "nav_cyclops_8"
-	base_turf = /turf/space/dynamic
-	base_area = /area/space
 
 /obj/effect/shuttle_landmark/cyclops/nav9
 	name = "Cyclops Mining Vessel - Starboard Fore EVA Docking"
 	landmark_tag = "nav_cyclops_9"
-	base_turf = /turf/space/dynamic
-	base_area = /area/space
 
 /obj/effect/shuttle_landmark/cyclops/nav10
 	name = "Cyclops Mining Vessel - Starboard Aft EVA Docking"
 	landmark_tag = "nav_cyclops_10"
-	base_turf = /turf/space/dynamic
-	base_area = /area/space
 
 //shuttle stuff
 /obj/effect/overmap/visitable/ship/landable/cyclops_shuttle
@@ -136,16 +116,17 @@
 	fore_dir = NORTH
 	vessel_size = SHIP_SIZE_TINY
 
+	ship_area_type = /area/shuttle/cyclops_shuttle
+
 /obj/machinery/computer/shuttle_control/explore/terminal/cyclops_shuttle
 	name = "shuttle control console"
 	shuttle_tag = "Cyclops Shuttle"
 
-/datum/shuttle/autodock/overmap/cyclops_shuttle
+/datum/shuttle/overmap/cyclops_shuttle
 	name = "Cyclops Shuttle"
 	move_time = 20
 	shuttle_area = list(/area/shuttle/cyclops_shuttle)
 	current_location = "nav_hangar_cyclops"
-	landmark_transition = "nav_transit_cyclops_shuttle"
 	dock_target = "airlock_shuttle_cyclops"
 	range = 1
 	fuel_consumption = 2
@@ -156,14 +137,11 @@
 	name = "Cyclops Shuttle Hangar"
 	landmark_tag = "nav_hangar_cyclops"
 	docking_controller = "airlock_cyclops_hangar"
-	base_area = /area/hephmining_ship/cyclops
-	base_turf = /turf/simulated/floor/plating
 	movable_flags = MOVABLE_FLAG_EFFECTMOVE
 
 /obj/effect/shuttle_landmark/cyclops_shuttle/transit
 	name = "In transit"
 	landmark_tag = "nav_transit_cyclops_shuttle"
-	base_turf = /turf/space/transit/north
 
 // airlocks
 

@@ -3,16 +3,16 @@
 		/area/space,
 		/area/turbolift
 	)
-	ut_apc_exempt_areas = list(/area/maintenance/maintcentral)
+	ut_apc_exempt_areas = list(/area/runtime/maintenance/maintcentral)
 	ut_atmos_exempt_areas = list(/area)
 	ut_fire_exempt_areas = list(
-		/area/maintenance/maintcentral,
+		/area/runtime/maintenance/maintcentral,
 		/area/shuttle/runtime,
 		/area/space,
 		/area/turbolift,
 		/area/construction/storage,
 		/area/turret_protected,
-		/area/tcommsat,
+		/area/runtime/tcommsat,
 		/area/construction/hallway
 	)
 	excluded_test_types = list(

@@ -10,7 +10,7 @@
 	spawn_weight = 1
 	spawn_weight_sector_dependent = list(SECTOR_UUEOAESA = 1.5)
 	sectors = list(SECTOR_ROMANOVICH, SECTOR_TAU_CETI, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_BADLANDS, SECTOR_UUEOAESA, SECTOR_WEEPING_STARS, SECTOR_BURZSIA)
-	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/kataphract_transport)
+	shuttles_to_initialise = list(/datum/shuttle/overmap/kataphract_transport)
 	unit_test_groups = list(3)
 
 /obj/effect/overmap/visitable/ship/kataphract_ship
@@ -49,13 +49,13 @@
 
 	invisible_until_ghostrole_spawn = TRUE
 
+	ship_area_type = /area/kataphract_chapter
+
 /obj/effect/overmap/visitable/ship/kataphract_ship/New()
 	designation = "[pick("Pious Avenger", "Persistent Conviction", "Solemn Retribution", "Venerable Ironscales", "Blade of Faith", "Glorious Succor", "Sacred Retribution", "Unflinching Soul", "Unrelenting Fervor", "Ascendant Absolution")]"
 	..()
 
 /obj/effect/shuttle_landmark/nav_kataphract_ship
-	base_turf = /turf/space
-	base_area = /area/space
 
 /obj/effect/shuttle_landmark/nav_kataphract_ship/nav1
 	name = "Kataphract Ship Navpoint #1"
@@ -113,18 +113,19 @@
 	fore_dir = NORTH
 	vessel_size = SHIP_SIZE_TINY
 
+	ship_area_type = /area/shuttle/kataphract_shuttle
+
 /obj/machinery/computer/shuttle_control/explore/terminal/kataphract_transport
 	name = "shuttle control console"
 	shuttle_tag = "Kataphract Transport"
 	req_access = list(ACCESS_KATAPHRACT)
 
-/datum/shuttle/autodock/overmap/kataphract_transport
+/datum/shuttle/overmap/kataphract_transport
 	name = "Kataphract Transport"
 	move_time = 20
-	shuttle_area = list(/area/shuttle/kataphract_shuttle/main_compartment, /area/shuttle/kataphract_shuttle/engine_compartment)
+	shuttle_area = list(/area/shuttle/kataphract_shuttle/main_compartment)
 	current_location = "nav_hangar_kataphract_shuttle"
 	dock_target = "airlock_kataphract_transport"
-	landmark_transition = "nav_kataphract_transport_transit"
 	range = 2 // It's a big boy
 	fuel_consumption = 4
 	logging_home_tag = "nav_hangar_kataphract_shuttle"
@@ -140,8 +141,6 @@
 	name = "Kataphract Transport Shuttle Hangar"
 	landmark_tag = "nav_hangar_kataphract_shuttle"
 	docking_controller = "kataphract_dock"
-	base_turf = /turf/space
-	base_area = /area/space
 	movable_flags = MOVABLE_FLAG_EFFECTMOVE
 
 /obj/effect/map_effect/marker/airlock/docking/kataphract_shuttle/hangar
@@ -152,4 +151,3 @@
 /obj/effect/shuttle_landmark/kataphract_transport/transit
 	name = "In transit"
 	landmark_tag = "nav_kataphract_transport_transit"
-	base_turf = /turf/space/transit/east

@@ -4,7 +4,6 @@
 	requires_power = TRUE
 	dynamic_lighting = TRUE
 	no_light_control = FALSE
-	base_turf = /turf/space
 	area_flags = AREA_FLAG_RAD_SHIELDED
 
 /area/ship/gadpathur_patrol/exterior
@@ -13,7 +12,7 @@
 	area_flags = null
 	ambience = AMBIENCE_SPACE
 	sound_environment = SOUND_AREA_SPACE
-	has_gravity = FALSE
+	area_flags = AREA_FLAG_NO_GRAVITY | AREA_FLAG_SHIP_EXTERIOR
 
 /area/ship/gadpathur_patrol/cic
 	name = "Gadpathurian Corvette - Command Information Center"

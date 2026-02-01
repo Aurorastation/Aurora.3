@@ -13,15 +13,10 @@
 	ruin_planet_type = PLANET_CRYSTAL
 	ruin_allowed_tags = RUIN_AIRLESS|RUIN_LOWPOP|RUIN_MINING|RUIN_SCIENCE|RUIN_HOSTILE|RUIN_WRECK|RUIN_NATURAL
 
+	turftype = /turf/simulated/floor/exoplanet/crystal
+	possible_atmospheres = /singleton/atmosphere/thin
 	unit_test_groups = list(3)
 	soil_data = list("Porous crystal layer", "High density silicon carbide layer", "Layer of fused refractive crystals", "Degrading volatile layer", "Silica aerogel layer", "Crystal mush layer")
-
-/obj/effect/overmap/visitable/sector/exoplanet/crystal/generate_habitability()
-	return HABITABILITY_BAD
-
-/obj/effect/overmap/visitable/sector/exoplanet/crystal/generate_atmosphere()
-	..()
-	atmosphere.remove_ratio(0.9)
 
 /obj/effect/overmap/visitable/sector/exoplanet/crystal/get_surface_color()
 	return "#6ba7f7"

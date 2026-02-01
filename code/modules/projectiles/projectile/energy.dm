@@ -140,8 +140,8 @@
 // 			A.ex_act(2)
 // 			playsound(src, 'sound/magic/LightningShock.ogg', 75, 1)
 
-/obj/projectile/energy/gravitydisabler
-	name = "gravity disabler"
+/obj/projectile/energy/gravity_blast
+	name = "gravitational blast"
 	icon = 'icons/obj/projectiles.dmi'
 	icon_state = "bluespace"
 	damage = 0
@@ -153,19 +153,19 @@
 	light_range = 4
 	light_color = "#b5ff5b"
 
-/obj/projectile/energy/gravitydisabler/on_hit(atom/target, blocked, def_zone)
+/obj/projectile/energy/gravity_blast/on_hit(atom/target, blocked, def_zone)
 	. = ..()
-	var/area/A = get_area(target)
-	if(A && A.has_gravity())
-		A.gravitychange(FALSE)
-		addtimer(CALLBACK(src, PROC_REF(turnongravity)), 150)
-
-	if(istype(target, /obj/machinery/gravity_generator/main))
-		var/obj/machinery/gravity_generator/main/T = target
-		T.eshutoff()
-
-/obj/projectile/energy/gravitydisabler/proc/turnongravity(var/area/A)
-	A.gravitychange(TRUE)
+	var/turf/T = get_turf(src)
+	var/list/thrown_items = list()
+	for(var/atom/movable/A in range(T, 4))
+		if(A == src || (firer && A == src.firer) || A.anchored || thrown_items[A])
+			continue
+		if(ismob(A))
+			var/mob/M = A
+			if(M.mob_negates_gravity())
+				continue
+		A.throw_at(get_edge_target_turf(A, pick(GLOB.cardinals)), 5, 1, force = MOVE_FORCE_EXTREMELY_STRONG)
+		thrown_items[A] = A
 
 /obj/projectile/energy/blaster
 	name = "blaster bolt"

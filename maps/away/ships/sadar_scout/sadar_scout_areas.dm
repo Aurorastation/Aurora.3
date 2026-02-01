@@ -3,13 +3,12 @@
 	requires_power = TRUE
 	dynamic_lighting = TRUE
 	no_light_control = FALSE
-	base_turf = /turf/space
 	area_flags = AREA_FLAG_RAD_SHIELDED
-	has_gravity = FALSE
 
 /area/ship/sadar_scout/exterior
 	name = "Ancient Expeditionary Vessel - Exterior"
 	requires_power = FALSE
+	area_flags = AREA_FLAG_NO_GRAVITY | AREA_FLAG_SHIP_EXTERIOR
 
 /area/ship/sadar_scout/thrusters
 	name = "Ancient Expeditionary Vessel - Propulsion"
@@ -87,4 +86,3 @@
 	requires_power = TRUE
 	name = "Modified Salvage Skiff"
 	icon_state = "shuttle2"
-	has_gravity = FALSE

@@ -7,7 +7,7 @@
 	spawn_weight = 1
 	spawn_cost = 2
 	id = "saniorios_outpost"
-	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/saniorios_outpost)
+	shuttles_to_initialise = list(/datum/shuttle/overmap/saniorios_outpost)
 	unit_test_groups = list(1)
 
 /singleton/submap_archetype/saniorios_outpost
@@ -71,16 +71,17 @@
 	fore_dir = SOUTH
 	vessel_size = SHIP_SIZE_TINY
 
+	ship_area_type = /area/shuttle/saniorios_outpost
+
 /obj/machinery/computer/shuttle_control/explore/terminal/saniorios_outpost
 	name = "shuttle control console"
 	shuttle_tag = "Unmarked Adhomian Shuttle"
 
-/datum/shuttle/autodock/overmap/saniorios_outpost
+/datum/shuttle/overmap/saniorios_outpost
 	name = "Unmarked Adhomian Shuttle"
 	move_time = 20
 	shuttle_area = list(/area/shuttle/saniorios_outpost)
 	current_location = "nav_hangar_saniorios_outpost"
-	landmark_transition = "nav_transit_saniorios_outpost"
 	range = 1
 	fuel_consumption = 2
 	logging_home_tag = "nav_hangar_saniorios_outpost"

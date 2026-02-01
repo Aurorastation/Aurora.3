@@ -9,20 +9,13 @@
 	color = "#cf1020"
 	generated_name = FALSE
 	ring_chance = 0
+	possible_atmospheres = /singleton/atmosphere/nitrogen/caprice
 
 /obj/effect/overmap/visitable/sector/exoplanet/lava/caprice/update_icon()
 	return
 
 /obj/effect/overmap/visitable/sector/exoplanet/lava/caprice/generate_ground_survey_result()
 	ground_survey_result = "<br>Natural caverns and artificial tunnels"
-
-/obj/effect/overmap/visitable/sector/exoplanet/lava/caprice/generate_atmosphere()
-	..()
-	if(atmosphere)
-		atmosphere.remove_ratio(1)
-		atmosphere.adjust_gas(GAS_NITROGEN, MOLES_O2STANDARD)
-		atmosphere.temperature = T0C + 400
-		atmosphere.update_values()
 
 // --------------------------------- Luthien
 
@@ -35,22 +28,13 @@
 	color = "#e49135"
 	generated_name = FALSE
 	ring_chance = 0
+	possible_atmospheres = /singleton/atmosphere/nitrogen/luthien
 
 /obj/effect/overmap/visitable/sector/exoplanet/lava/luthien/update_icon()
 	return
 
-/obj/effect/overmap/visitable/sector/exoplanet/desert/luthien/generate_habitability()
-	return HABITABILITY_BAD
-
 /obj/effect/overmap/visitable/sector/exoplanet/desert/luthien/generate_ground_survey_result()
 	ground_survey_result = "<br>Sandy soil with organic fungal contamination"
-
-/obj/effect/overmap/visitable/sector/exoplanet/desert/luthien/generate_atmosphere()
-	..()
-	if(atmosphere)
-		atmosphere.remove_ratio(1)
-		atmosphere.adjust_gas(GAS_NITROGEN, MOLES_O2STANDARD)
-		atmosphere.update_values()
 
 // --------------------------------- Valkyrie
 
@@ -85,30 +69,20 @@
 	generated_name = FALSE
 	ring_chance = 0
 	ruin_planet_type = PLANET_LORE
+	possible_atmospheres = /singleton/atmosphere/nitrogen/new_gibson
 	ruin_type_whitelist = list(/datum/map_template/ruin/exoplanet/gibson_mining, /datum/map_template/ruin/exoplanet/gibson_resupply)
 
 /obj/effect/overmap/visitable/sector/exoplanet/snow/new_gibson/update_icon()
 	return
 
-/obj/effect/overmap/visitable/sector/exoplanet/snow/new_gibson/generate_habitability()
-	return HABITABILITY_BAD
-
 /obj/effect/overmap/visitable/sector/exoplanet/snow/new_gibson/generate_ground_survey_result()
 	ground_survey_result = "<br>Mineral-rich soil with presence of artificial structures"
-
-/obj/effect/overmap/visitable/sector/exoplanet/snow/new_gibson/generate_atmosphere()
-	..()
-	if(atmosphere)
-		atmosphere.remove_ratio(1)
-		atmosphere.adjust_gas(GAS_NITROGEN, MOLES_O2STANDARD)
-		atmosphere.temperature = T0C - 200
-		atmosphere.update_values()
 
 // --------------------------------- Chandras
 
 /obj/effect/overmap/visitable/sector/exoplanet/barren/asteroid/ice/chandras
 	name = "Chandras"
-	desc = "An an icy body in a distant orbit of Tau Ceti."
+	desc = "An icy body in a distant orbit of Tau Ceti."
 	charted = "Charted 2147CE, Sol Alliance Department of Colonization."
 	icon_state = "globe1"
 	color = "#b2abbf"
@@ -118,9 +92,6 @@
 
 /obj/effect/overmap/visitable/sector/exoplanet/barren/asteroid/ice/chandras/update_icon()
 	return
-
-/obj/effect/overmap/visitable/sector/exoplanet/barren/asteroid/ice/chandras/generate_habitability()
-	return HABITABILITY_BAD
 
 /obj/effect/overmap/visitable/sector/exoplanet/barren/asteroid/ice/chandras/generate_ground_survey_result()
 	ground_survey_result = "<br>Soil with presence of nitrogen and ice deposits"
@@ -175,9 +146,7 @@
 		/datum/map_template/ruin/exoplanet/cargo_ruins_3,
 		/datum/map_template/ruin/exoplanet/pra_camp_site)
 	place_near_main = list(2, 2)
-
-/obj/effect/overmap/visitable/sector/exoplanet/biesel/generate_habitability()
-	return HABITABILITY_IDEAL
+	possible_atmospheres = /singleton/atmosphere/breathable/earthlike
 
 /obj/effect/overmap/visitable/sector/exoplanet/biesel/generate_map()
 	if(prob(75))
@@ -188,15 +157,6 @@
 	skybox_image = image('icons/skybox/lore_planets.dmi', "biesel")
 	skybox_image.pixel_x = rand(0,64)
 	skybox_image.pixel_y = rand(128,256)
-
-/obj/effect/overmap/visitable/sector/exoplanet/biesel/generate_atmosphere()
-	..()
-	if(atmosphere)
-		atmosphere.remove_ratio(1)
-		atmosphere.adjust_gas(GAS_OXYGEN, MOLES_O2STANDARD, 1)
-		atmosphere.adjust_gas(GAS_NITROGEN, MOLES_N2STANDARD, 1)
-		atmosphere.temperature = T20C
-		atmosphere.update_values()
 
 /obj/effect/overmap/visitable/sector/exoplanet/biesel/update_icon()
 	return

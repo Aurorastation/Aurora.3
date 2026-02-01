@@ -21,7 +21,7 @@
 	channels = list()
 
 /obj/item/device/encryptionkey/ship/Initialize()
-	if(!SSatlas.current_map.use_overmap)
+	if(!SSmapping.current_map.use_overmap)
 		return ..()
 
 	if(flags_1 & INITIALIZED_1)

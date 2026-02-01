@@ -52,6 +52,7 @@
 /area/ship/scc_scout_ship/exterior
 	name = "Exterior Catwalks/Lattices"
 	icon_state = "exterior"
+	area_flags = AREA_FLAG_NO_GRAVITY | AREA_FLAG_SHIP_EXTERIOR
 
 // ---------------------- shuttle
 

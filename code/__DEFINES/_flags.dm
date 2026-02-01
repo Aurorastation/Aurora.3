@@ -67,15 +67,40 @@ GLOBAL_LIST_INIT(bitflags, list(1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 204
 /// The mob is walking on the ceiling. Or is generally just, upside down.
 #define UPSIDE_DOWN (1<<5)
 
-//TURF FLAGS
-/// If a turf is an usused reservation turf awaiting assignment
-#define UNUSED_RESERVATION_TURF BITFLAG(1)
-/// If a turf is a reserved turf
-#define RESERVATION_TURF BITFLAG(2)
-
 // Turf-only flags.
 ///Blocks the jaunting spell from accessing the turf
 #define TURF_FLAG_NOJAUNT BITFLAG(3)
 
 ///Used by shuttle movement to determine if it should be ignored by turf translation
 #define TURF_FLAG_BACKGROUND BITFLAG(4)
+
+///This turf forces movables on it to have no gravity (unless they themselves have forced gravity)
+#define TURF_FLAG_NO_GRAVITY BITFLAG(5)
+
+// AREAS
+/// Area is shielded from exterior radiation
+#define AREA_FLAG_RAD_SHIELDED				BITFLAG(1)
+/// Area attempts to spawn a roof over itself on init
+#define AREA_FLAG_SPAWN_ROOF				BITFLAG(2)
+/// Area is not drawn on station holomaps
+#define AREA_FLAG_HIDE_FROM_HOLOMAP			BITFLAG(3)
+/// Area is treated as a 'firing range' for firing pins
+#define AREA_FLAG_FIRING_RANGE				BITFLAG(4)
+/// Station crew are never expected to be in this area; used to differentiate crew-accessible and antag areas on centcom level
+#define AREA_FLAG_NO_CREW_EXPECTED			BITFLAG(5)
+/// This area is a prison for purposes of checking if brigged/imprisoned
+#define AREA_FLAG_PRISON					BITFLAG(6)
+/// Ghosts cannot access this area by teleporting
+#define AREA_FLAG_NO_GHOST_TELEPORT_ACCESS	BITFLAG(7)
+/// Turfs cannot be destroyed by explosions in this area
+#define AREA_FLAG_INDESTRUCTIBLE_TURFS		BITFLAG(8)
+/// Blueprints can create areas on top of this area
+#define AREA_FLAG_IS_BACKGROUND				BITFLAG(9)
+/// Area does not persist trash
+#define AREA_FLAG_PREVENT_PERSISTENT_TRASH	BITFLAG(10)
+/// There should only be one instance of this area, even if used in multiple loaded maps
+#define AREA_FLAG_UNIQUE					BITFLAG(11)
+/// This area is prevented from having gravity (ie. space, nearstation, or outside solars)
+#define AREA_FLAG_NO_GRAVITY				BITFLAG(12)
+/// This area is not considered part of the ship. Only used for areas like [/area/horizon/exterior] which extend the [/area/horizon] type but are not actually part of the Horizon.
+#define AREA_FLAG_SHIP_EXTERIOR				BITFLAG(13)

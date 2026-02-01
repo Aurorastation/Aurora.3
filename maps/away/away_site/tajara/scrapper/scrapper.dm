@@ -10,7 +10,7 @@
 	spawn_weight = 1
 	ship_cost = 1
 	id = "tajara_scrapper"
-	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/tajara_scrapper)
+	shuttles_to_initialise = list(/datum/shuttle/overmap/tajara_scrapper)
 
 	unit_test_groups = list(2)
 
@@ -37,8 +37,6 @@
 	color = "#DAA06D"
 
 /obj/effect/shuttle_landmark/tajara_scrapper
-	base_turf = /turf/space
-	base_area = /area/space
 
 /obj/effect/shuttle_landmark/tajara_scrapper/nav1
 	name = "Scrapper Outpost Navpoint #1"
@@ -68,6 +66,8 @@
 	fore_dir = SOUTH
 	vessel_size = SHIP_SIZE_TINY
 
+	ship_area_type = /area/shuttle/scrapper_ship
+
 /obj/effect/overmap/visitable/ship/landable/tajara_scrapper/New()
 	designation = "[pick("Space Scavenger", "Cheap Repair", "Adhomian Handyman", "Iron Rafama", "Wreck Wrecker", "Messa's Mechanic", "Grease Farwa", "Cold Gears", "Scrap's Bane")]"
 	..()
@@ -76,14 +76,13 @@
 	name = "shuttle control console"
 	shuttle_tag = "Scrapper Ship"
 
-/datum/shuttle/autodock/overmap/tajara_scrapper
+/datum/shuttle/overmap/tajara_scrapper
 	name = "Scrapper Ship"
 	move_time = 20
 	shuttle_area = list(/area/shuttle/scrapper_ship/bridge, /area/shuttle/scrapper_ship/port_engines, /area/shuttle/scrapper_ship/starboard_engines,
 						/area/shuttle/scrapper_ship/atmos, /area/shuttle/scrapper_ship/power_station, /area/shuttle/scrapper_ship/workshop, /area/shuttle/scrapper_ship/storage)
 	dock_target = "tajara_scrapper"
 	current_location = "nav_hangar_tajara_scrapper"
-	landmark_transition = "nav_transit_tajara_scrapper"
 	range = 1
 	fuel_consumption = 2
 	logging_home_tag = "nav_hangar_tajara_scrapper"

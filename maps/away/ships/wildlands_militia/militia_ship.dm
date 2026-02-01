@@ -9,7 +9,7 @@
 	spawn_weight = 0 // outdated and not following current standards, could be enabled after it's fixed
 	ship_cost = 1
 	id = "militia_ship"
-	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/militia_shuttle)
+	shuttles_to_initialise = list(/datum/shuttle/overmap/militia_shuttle)
 
 	unit_test_groups = list(3)
 
@@ -50,6 +50,8 @@
 
 	invisible_until_ghostrole_spawn = TRUE
 
+	ship_area_type = /area/ship/militia_ship
+
 /obj/effect/overmap/visitable/ship/militia_ship/New()
 	designation = "[pick("Volunteer", "Part-Timer", "Last Line", "Fearless", "Protector", "Minuteman", "Watchdog", "Family Man", "Guardian", "Hoplite", "Home Guard", "Defender")]"
 	..()
@@ -57,19 +59,14 @@
 /obj/effect/shuttle_landmark/militia_ship/nav1
 	name = "Militia Ship - Port Side"
 	landmark_tag = "nav_militia_ship_1"
-	base_turf = /turf/space/dynamic
-	base_area = /area/space
 
 /obj/effect/shuttle_landmark/militia_ship/nav2
 	name = "Militia Ship - Port Airlock"
 	landmark_tag = "nav_militia_ship_2"
-	base_turf = /turf/space/dynamic
-	base_area = /area/space
 
 /obj/effect/shuttle_landmark/militia_ship/transit
 	name = "In transit"
 	landmark_tag = "nav_transit_militia_ship"
-	base_turf = /turf/space/transit/north
 
 //shuttle stuff
 /obj/effect/overmap/visitable/ship/landable/militia_shuttle
@@ -87,17 +84,18 @@
 	fore_dir = NORTH
 	vessel_size = SHIP_SIZE_TINY
 
+	ship_area_type = /area/shuttle/militia_shuttle
+
 /obj/machinery/computer/shuttle_control/explore/militia_shuttle
 	name = "shuttle control console"
 	shuttle_tag = "Militia Ship"
 
 
-/datum/shuttle/autodock/overmap/militia_shuttle
+/datum/shuttle/overmap/militia_shuttle
 	name = "Militia Ship"
 	move_time = 20
 	shuttle_area = list(/area/shuttle/militia_shuttle)
 	current_location = "nav_hangar_militia"
-	landmark_transition = "nav_transit_militia_shuttle"
 	range = 1
 	fuel_consumption = 2
 	logging_home_tag = "nav_hangar_militia"
@@ -107,11 +105,8 @@
 	name = "Militia Ship Hangar"
 	landmark_tag = "nav_hangar_militia"
 	docking_controller = "militia_shuttle_dock"
-	base_area = /area/ship/militia_ship
-	base_turf = /turf/simulated/floor/plating
 	movable_flags = MOVABLE_FLAG_EFFECTMOVE
 
 /obj/effect/shuttle_landmark/militia_shuttle/transit
 	name = "In transit"
 	landmark_tag = "nav_transit_militia_shuttle"
-	base_turf = /turf/space/transit/north

@@ -74,7 +74,7 @@
 	landmark_tag = "nav_dominian_corvette_4"
 
 // Lift
-/datum/shuttle/autodock/multi/lift/dominia
+/datum/shuttle/multi/lift/dominia
 	name = "Dominian Corvette Lift"
 	current_location = "nav_dominia_lift_second_deck"
 	shuttle_area = /area/turbolift/dominian_corvette/dominian_lift
@@ -86,14 +86,10 @@
 /obj/effect/shuttle_landmark/lift/dominia_first_deck
 	name = "Dominian Corvette - First Deck"
 	landmark_tag = "nav_dominia_lift_first_deck"
-	base_area = /area/dominian_corvette/hangar
-	base_turf = /turf/simulated/floor/plating
 
 /obj/effect/shuttle_landmark/lift/dominia_second_deck
 	name = "Dominian Corvette - Second Deck"
 	landmark_tag = "nav_dominia_lift_second_deck"
-	base_area = /area/dominian_corvette/central_lift
-	base_turf = /turf/simulated/open
 
 /obj/machinery/computer/shuttle_control/multi/lift/dominian_corvette
 	shuttle_tag = "Dominian Corvette Lift"

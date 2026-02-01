@@ -2,10 +2,10 @@
 "a" = (
 /obj/effect/landmark/clear,
 /turf/template_noop,
-/area/space)
+/area/template_noop)
 "i" = (
 /turf/simulated/mineral/planet,
-/area/space)
+/area/template_noop)
 "L" = (
 /obj/structure/sign/flag/sol/old,
 /obj/structure/sign/kiddieplaque{
@@ -15,7 +15,7 @@
 	},
 /obj/effect/landmark/clear,
 /turf/template_noop,
-/area/space)
+/area/template_noop)
 
 (1,1,1) = {"
 i

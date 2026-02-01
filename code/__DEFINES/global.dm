@@ -97,8 +97,6 @@ GLOBAL_DATUM(debugobj, /datum/debug)
 
 GLOBAL_DATUM_INIT(mods, /datum/moduletypes, new())
 
-GLOBAL_VAR_INIT(gravity_is_on, 1)
-
 GLOBAL_LIST_EMPTY(awaydestinations) // Away missions. A list of landmarks that the warpgate can take you to.
 
 // For FTP requests. (i.e. downloading runtime logs.)

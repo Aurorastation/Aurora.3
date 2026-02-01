@@ -1,9 +1,7 @@
 /obj/effect/shuttle_landmark/nuclear_silo
-	base_area = /area/nuclear_silo/outside/landing
-	base_turf = /turf/simulated/floor/exoplanet/dirt_konyang
 
 // --- Lift
-/datum/shuttle/autodock/multi/lift/nuclear_silo
+/datum/shuttle/multi/lift/nuclear_silo
 	name = "Bunker Lift"
 	current_location = "nav_nuclear_silo_lift_upper_level"
 	shuttle_area = /area/turbolift/nuclear_silo/bunker_lift
@@ -15,14 +13,10 @@
 /obj/effect/shuttle_landmark/lift/nuclear_silo_lower_level
 	name = "Nuclear Missile Silo Bunker - Lower Level"
 	landmark_tag = "nav_nuclear_silo_lift_lower_level"
-	base_area = /area/nuclear_silo/lower_level_lift
-	base_turf = /turf/simulated/floor/plating
 
 /obj/effect/shuttle_landmark/lift/nuclear_silo_upper_level
 	name = "Nuclear Missile Silo Bunker - Upper Level"
 	landmark_tag = "nav_nuclear_silo_lift_upper_level"
-	base_area = /area/nuclear_silo/upper_level_lift
-	base_turf = /turf/simulated/open
 
 /obj/machinery/computer/shuttle_control/multi/lift/nuclear_silo
 	shuttle_tag = "Bunker Lift"

@@ -117,7 +117,7 @@
 	. = ..()
 
 /turf/simulated/floor/exoplanet/asteroid/ReplaceWithLattice()
-	ChangeTurf(baseturf)
+	scrape_away()
 	new /obj/structure/lattice(src)
 
 /turf/simulated/floor/exoplanet/asteroid/basalt/air

@@ -154,7 +154,7 @@
 		//L_PROF(loc, "overlay_forcemove")
 		. = ..()
 
-/atom/movable/lighting_overlay/shuttle_move(turf/loc)
+/atom/movable/lighting_overlay/on_shuttle_move(turf/new_turf, turf/old_turf, list/movement_force, move_dir, obj/effect/shuttle_landmark/old_dock, datum/shuttle/shuttle)
 	return
 
 /atom/movable/lighting_overlay/conveyor_act()

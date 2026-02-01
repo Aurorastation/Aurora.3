@@ -18,7 +18,6 @@
 
 /area/shuttle/city
 	name = "City Transit Shuttle"
-	base_turf = /turf/unsimulated/floor/plating
 	luminosity = 1
 	dynamic_lighting = 0
 	requires_power = 0

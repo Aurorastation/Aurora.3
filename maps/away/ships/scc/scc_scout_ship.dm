@@ -9,7 +9,7 @@
 	spawn_weight = 1
 	ship_cost = 1
 	id = "scc_scout_ship"
-	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/scc_scout_shuttle)
+	shuttles_to_initialise = list(/datum/shuttle/overmap/scc_scout_shuttle)
 	unit_test_groups = list(3)
 
 /singleton/submap_archetype/scc_scout_ship
@@ -56,6 +56,8 @@
 		"nav_scc_scout_space_starboard_far",
 	)
 
+	ship_area_type = /area/ship/scc_scout_ship
+
 /obj/effect/overmap/visitable/ship/scc_scout_ship/New()
 	designation = "[pick("Dew Point", "Monsoon", "Cyclogenesis", "Warm Fronts", "Moisture Deficit", "Borealis", "Surface Tension", "Precipitation", "Oscillation", "Coalescence", "Double Rainbow", "Through a Cloud, Darkly", "Relative Humidity", "Evapotranspiration", "Alluvial Plain", "Dehydration", "Hydrophobia", "The Rain Formerly Known as Purple", "Lacrimosum", "Island of Ignorance", "Intertropical", "Once in a Lullaby", "A Boat Made from a Sheet of Newspaper", "Flood Control")]"
 	..()
@@ -80,6 +82,8 @@
 	sizeclass = "Pathfinder Exploration Shuttle"
 	shiptype = "Field expeditions and private research uses"
 
+	ship_area_type = /area/shuttle/scc_scout_ship_shuttle
+
 /obj/effect/overmap/visitable/ship/landable/scc_scout_shuttle/get_skybox_representation()
 	var/image/skybox_image = image('icons/skybox/subcapital_ships.dmi', "intrepid")
 	skybox_image.pixel_x = rand(0,64)
@@ -94,13 +98,12 @@
 	name = "shuttle control console"
 	shuttle_tag = "SCC Scout Shuttle"
 
-/datum/shuttle/autodock/overmap/scc_scout_shuttle
+/datum/shuttle/overmap/scc_scout_shuttle
 	name = "SCC Scout Shuttle"
 	move_time = 20
 	shuttle_area = list(/area/shuttle/scc_scout_ship_shuttle/cockpit, /area/shuttle/scc_scout_ship_shuttle/eva, /area/shuttle/scc_scout_ship_shuttle/cargo, /area/shuttle/scc_scout_ship_shuttle/medbay, /area/shuttle/scc_scout_ship_shuttle/propulsion_starboard, /area/shuttle/scc_scout_ship_shuttle/propulsion_port)
 	dock_target = "airlock_scc_scout_shuttle"
 	current_location = "nav_scc_scout_shuttle_dock"
-	landmark_transition = "nav_scc_scout_shuttle_transit"
 	range = 1
 	fuel_consumption = 2
 	logging_home_tag = "nav_scc_scout_shuttle_dock"

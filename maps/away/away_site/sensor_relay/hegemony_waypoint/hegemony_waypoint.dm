@@ -36,6 +36,8 @@
 		"hegemony_waypoint_s_space"
 	)
 
+	ship_area_type = /area/hegemony_waypoint
+
 /obj/effect/overmap/visitable/ship/stationary/hegemony_waypoint/New(loc, ...)
 	designation = "Waypoint Station #[rand(100, 999)]"
 	..()
@@ -45,7 +47,6 @@
 	area_flags = AREA_FLAG_HIDE_FROM_HOLOMAP
 	requires_power = TRUE
 	ambience = AMBIENCE_GENERIC
-	base_turf = /turf/space
 	icon_state = "green"
 
 /area/hegemony_waypoint/monitoring
@@ -83,9 +84,9 @@
 
 /area/hegemony_waypoint/exterior
 	name = "Hegemonic Waypoint Installation - Exterior"
-	has_gravity = FALSE
 	requires_power = FALSE
 	icon_state = "exterior"
+	area_flags = AREA_FLAG_NO_GRAVITY | AREA_FLAG_SHIP_EXTERIOR
 
 // Unique objects
 /obj/item/paper/fluff/hegemony_waypoint_1

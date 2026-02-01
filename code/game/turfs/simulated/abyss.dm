@@ -17,7 +17,7 @@
 	icon_state = "Fill"
 
 /turf/simulated/abyss/Entered(atom/movable/AM, atom/oldloc)
-	if(is_type_in_typecache(forbidden_types))
+	if(is_type_in_typecache(src, forbidden_types))
 		return TRUE
 
 	else if(istype(AM, /mob/living))

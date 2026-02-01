@@ -1,7 +1,5 @@
 // Landmarks
 /obj/effect/shuttle_landmark/hegemony_waypoint
-	base_area = /area/space
-	base_turf = /turf/space
 
 /obj/effect/shuttle_landmark/hegemony_waypoint/north_docking
 	name = "Hegemonic Waypoint Installation - North External Dock"

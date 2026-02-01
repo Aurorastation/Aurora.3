@@ -1,6 +1,4 @@
 /obj/effect/shuttle_landmark/golden_deep
-	base_turf = /turf/space/dynamic
-	base_area = /area/space
 
 /obj/effect/shuttle_landmark/golden_deep/nav1
 	name = "Golden Deep Mercantile Vessel, Fore"
@@ -96,7 +94,7 @@
 	master_tag = "airlock_gd_aft_port_d2"
 
 // Lift
-/datum/shuttle/autodock/multi/lift/gd
+/datum/shuttle/multi/lift/gd
 	name = "Golden Deep Lift"
 	current_location = "nav_gd_lift_first_deck"
 	shuttle_area = /area/turbolift/golden_deep/gd_lift
@@ -108,14 +106,10 @@
 /obj/effect/shuttle_landmark/lift/gd_first_deck
 	name = "Collective Mercantile Vessel - First Deck"
 	landmark_tag = "nav_gd_lift_first_deck"
-	base_area = /area/golden_deep/warehouse
-	base_turf = /turf/simulated/floor/plating
 
 /obj/effect/shuttle_landmark/lift/gd_second_deck
 	name = "Collective Mercantile Vessel - Second Deck"
 	landmark_tag = "nav_gd_lift_second_deck"
-	base_area = /area/golden_deep/central_hallway
-	base_turf = /turf/simulated/open
 
 /obj/machinery/computer/shuttle_control/multi/lift/gd
 	shuttle_tag = "Golden Deep Lift"

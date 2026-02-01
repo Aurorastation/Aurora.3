@@ -41,3 +41,6 @@
 
 /// From base of area/Exited(): (area/left, direction)
 #define COMSIG_MOVABLE_EXITED_AREA "movable_exited_area"
+
+///from base of atom/movable/on_changed_z_level(): (turf/old_turf, turf/new_turf, same_z_layer)
+#define COMSIG_MOVABLE_Z_CHANGED "movable_ztransit"

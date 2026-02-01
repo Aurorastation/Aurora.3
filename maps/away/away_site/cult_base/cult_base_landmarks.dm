@@ -2,8 +2,6 @@
 // --------------------- base type
 
 /obj/effect/shuttle_landmark/cult_base
-	base_area = /area/space
-	base_turf = /turf/space
 	ghostspawners_to_activate_on_shuttle_arrival = list("cult_base_cultist")
 
 /obj/effect/map_effect/marker/airlock/docking/cult_base
@@ -27,7 +25,6 @@
 /obj/effect/shuttle_landmark/cult_base/shuttle_transit
 	name = "In transit"
 	landmark_tag = "nav_cult_base_shuttle_transit"
-	base_turf = /turf/space/transit/north
 
 // --------------------- docks
 

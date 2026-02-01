@@ -48,7 +48,7 @@
 	var/last_burn = 0
 	/// Determines how often the ship can accelerate or decelerate.
 	var/burn_delay = 1 SECOND
-	/// The direction ships fly towards. Make sure this is correct or else entry points will not work correctly.
+	/// Orientation of the ship when initialized, its "ideal" direction. Should never change.
 	var/fore_dir = NORTH
 	var/last_combat_roll = 0
 	var/last_turn = 0
@@ -63,6 +63,11 @@
 
 	var/list/colors = list() // Pick a color from this list on init.
 
+	/// The parent type of all ship areas.
+	var/ship_area_type
+	/// A list of areas containing the turfs of the attached ship.
+	var/list/area/ship_areas
+
 /obj/effect/overmap/visitable/ship/Initialize()
 	. = ..()
 	glide_size = world.icon_size
@@ -74,6 +79,33 @@
 	if(LAZYLEN(colors))
 		color = pick(colors)
 
+	return INITIALIZE_HINT_LATELOAD
+
+/obj/effect/overmap/visitable/ship/LateInitialize()
+	var/list/areas = list()
+
+	for(var/T in typesof(ship_area_type))
+		var/area/A = GLOB.areas_by_type[T]
+		if(!istype(A) || (A.area_flags & AREA_FLAG_SHIP_EXTERIOR))
+			continue
+		areas += A
+		RegisterSignal(A, COMSIG_QDELETING, PROC_REF(remove_ship_area))
+
+	if(!length(areas))
+		CRASH("Ship [name] late init with no found areas. Attempted to find: [english_list(typesof(ship_area_type))]")
+	ship_areas = areas
+
+	AddComponent(/datum/component/bounding/area, ship_areas)
+
+/obj/effect/overmap/visitable/ship/proc/remove_ship_area(area/area_to_remove)
+	UnregisterSignal(area_to_remove, COMSIG_QDELETING)
+	ship_areas -= area_to_remove
+	if(!length(ship_areas))
+		qdel(src)
+
+/obj/effect/overmap/visitable/ship/get_areas()
+	return ship_areas
+
 /// Parent object for stationary objects that still need to access ship systems (such as the Sensor Relays)
 /obj/effect/overmap/visitable/ship/stationary
 	name = "generic station"
@@ -83,9 +115,6 @@
 	static_vessel = TRUE
 	propulsion = "None equipped, flight incapable"
 	halted = TRUE // Cannot fly under any circumstances
-
-/obj/effect/overmap/visitable/ship/find_z_levels(var/fore_direction)
-	. = ..(fore_dir)
 
 /obj/effect/overmap/visitable/ship/Destroy()
 	SSshuttle.ships -= src
@@ -160,6 +189,14 @@
 // returns a two-item list with the speed of the ship on x and y axes
 /obj/effect/overmap/visitable/ship/proc/get_speed_xy()
 	return list(round(speed[1], SHIP_MOVE_RESOLUTION), round(speed[2], SHIP_MOVE_RESOLUTION))
+
+/obj/effect/overmap/visitable/ship/proc/get_bounds()
+	var/datum/component/bounding/area/A = GetComponent(/datum/component/bounding/area)
+	. = list()
+	if(!istype(A))
+		return
+
+	return A.return_coords(x, y, dir)
 
 /obj/effect/overmap/visitable/ship/get_heading()
 	var/res = 0

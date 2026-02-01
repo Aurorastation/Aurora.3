@@ -9,7 +9,7 @@
 	ship_cost = 1
 	spawn_weight = 0 //the merchants guild has gone bankrupt, don't spawn this until we figure out how to rework it.
 
-	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/merchants_guild)
+	shuttles_to_initialise = list(/datum/shuttle/overmap/merchants_guild)
 	sectors = list(SECTOR_BADLANDS, SECTOR_UUEOAESA, SECTOR_VALLEY_HALE, SECTOR_CORP_ZONE, SECTOR_TAU_CETI)
 
 	unit_test_groups = list(2)
@@ -47,6 +47,8 @@
 		"merchantsguild_nav4"
 	)
 
+	ship_area_type = /area/merchants_guild
+
 /obj/effect/overmap/visitable/ship/merchants_guild/New()
 	designation = "[pick("Fisher's Bounty", "Scales of Silver", "Gharr's Greed", "Pride of Skalamar", "Horns of Diamond", "Memory of Dukhul", "Glory through Profit", "Razi's Pride")]"
 	..()
@@ -58,8 +60,6 @@
 	return skybox_image
 
 /obj/effect/shuttle_landmark/merchants_guild
-	base_turf = /turf/space/dynamic
-	base_area = /area/space
 
 /obj/effect/shuttle_landmark/merchants_guild/nav1
 	name = "Merchants' Guild Freighter, Fore"
@@ -94,17 +94,18 @@
 	fore_dir = EAST
 	vessel_size = SHIP_SIZE_TINY
 
+	ship_area_type = /area/shuttle/merchants_guild
+
 /obj/machinery/computer/shuttle_control/explore/merchants_guild
 	name = "shuttle control console"
 	shuttle_tag = "Merchants' Guild Shuttle"
 	req_access = list(ACCESS_MERCHANTS_GUILD)
 
-/datum/shuttle/autodock/overmap/merchants_guild
+/datum/shuttle/overmap/merchants_guild
 	name = "Merchants' Guild Shuttle"
 	move_time = 20
 	shuttle_area = list(/area/shuttle/merchants_guild)
 	current_location = "merchantsguild_nav_hangar"
-	landmark_transition = "merchantsguild_nav_transit"
 	dock_target = "merchant_guild_shuttle"
 	range = 1
 	fuel_consumption = 2
@@ -114,12 +115,9 @@
 /obj/effect/shuttle_landmark/merchants_guild_shuttle/hangar
 	name = "Merchants' Guild Freighter - Shuttle Hangar"
 	landmark_tag = "merchantsguild_nav_hangar"
-	base_turf = /turf/simulated/floor/plating
-	base_area = /area/merchants_guild/hangar
 	docking_controller = "merchant_guild_shuttle_dock"
 	movable_flags = MOVABLE_FLAG_EFFECTMOVE
 
 /obj/effect/shuttle_landmark/merchants_guild_shuttle/transit
 	name = "In transit"
 	landmark_tag = "merchantsguild_nav_transit"
-	base_turf = /turf/space/transit/north

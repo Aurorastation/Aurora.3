@@ -46,6 +46,8 @@
 		"relay_se",
 	)
 
+	ship_area_type = /area/sensor_relay
+
 /obj/effect/overmap/visitable/ship/stationary/sensor_relay/New(loc, ...)
 	designation = "Sensor Relay #[rand(100, 999)]"
 	..()
@@ -65,7 +67,6 @@
 	area_flags = AREA_FLAG_HIDE_FROM_HOLOMAP
 	requires_power = TRUE
 	ambience = AMBIENCE_GENERIC
-	base_turf = /turf/space
 
 /area/sensor_relay/maintenance
 	name = "Sensor Relay - Maintenance"
@@ -102,8 +103,6 @@
 //Landmarks
 
 /obj/effect/shuttle_landmark/sensor_relay
-	base_area = /area/space
-	base_turf = /turf/space
 
 /obj/effect/shuttle_landmark/sensor_relay/north_docking
 	name = "Sensor Relay - North External Dock"

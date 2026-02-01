@@ -12,8 +12,6 @@
 
 	roof_type = /turf/simulated/floor/airless/ceiling
 
-	baseturf = /turf/space
-
 /turf/simulated/Initialize(mapload)
 	if (mapload)
 		if(istype(loc, /area/horizon/service/chapel))

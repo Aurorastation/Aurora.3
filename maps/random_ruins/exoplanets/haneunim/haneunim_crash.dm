@@ -9,7 +9,7 @@
 	prefix = "haneunim/"
 	suffix = "haneunim_crash.dmm"
 
-	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/haneunim_crash)
+	shuttles_to_initialise = list(/datum/shuttle/overmap/haneunim_crash)
 
 	unit_test_groups = list(1)
 
@@ -35,16 +35,17 @@
 	fore_dir = SOUTH
 	vessel_size = SHIP_SIZE_TINY
 
+	ship_area_type = /area/shuttle/haneunim_crash
+
 /obj/machinery/computer/shuttle_control/explore/haneunim_crash
 	name = "shuttle control console"
 	shuttle_tag = "Crashed League Shuttle"
 
-/datum/shuttle/autodock/overmap/haneunim_crash
+/datum/shuttle/overmap/haneunim_crash
 	name = "Crashed League Shuttle"
 	move_time = 90
 	shuttle_area = list(/area/shuttle/haneunim_crash)
 	current_location = "nav_start_haneunim_crash"
-	landmark_transition = "nav_transit_haneunim_crash"
 	range = 1
 	fuel_consumption = 2
 	logging_home_tag = "nav_start_haneunim_crash"
@@ -53,15 +54,12 @@
 /obj/effect/shuttle_landmark/haneunim_crash/start
 	name = "Haneunim Asteroid - Shuttle Crash Site"
 	landmark_tag = "nav_start_haneunim_crash"
-	base_turf = /turf/simulated/floor/exoplanet/ice/dark
-	base_area = /area/exoplanet/barren/asteroid
 	docking_controller = "airlock_haneunim_crash"
 	movable_flags = MOVABLE_FLAG_EFFECTMOVE
 
 /obj/effect/shuttle_landmark/haneunim_crash/transit
 	name = "In transit"
 	landmark_tag = "nav_transit_haneunim_crash"
-	base_turf = /turf/space/transit/north
 
 /obj/effect/landmark/corpse/league_smuggler
 	name = "League Smuggler"

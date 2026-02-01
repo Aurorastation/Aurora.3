@@ -29,7 +29,7 @@ ABSTRACT_TYPE(/mob/living/simple_animal/hostile/retaliate)
 	set category = "IC.Critters"
 	set src in view()
 
-	if(!SSatlas.current_map.use_overmap)
+	if(!SSmapping.current_map.use_overmap)
 		return
 
 	if(use_check_and_message(usr))

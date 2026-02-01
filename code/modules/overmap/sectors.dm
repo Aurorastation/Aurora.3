@@ -77,16 +77,15 @@ GLOBAL_DATUM(map_overmap, /area/overmap)
 	var/invisible_until_ghostrole_spawn = FALSE
 	var/hide_from_reports = FALSE
 
+/obj/effect/overmap/visitable/New(loc, ...)
+	. = ..()
+	find_z_levels()
+	register_z_levels()
+
 /obj/effect/overmap/visitable/Initialize()
 	. = ..()
 	if(. == INITIALIZE_HINT_QDEL)
 		return
-
-	find_z_levels()     // This populates map_z and assigns z levels to the ship.
-	register_z_levels() // This makes external calls to update global z level information.
-
-	if(!SSatlas.current_map.overmap_z)
-		build_overmap()
 
 	initial_generic_waypoints = flatten_list(initial_generic_waypoints)
 	tracked_dock_tags = flatten_list(tracked_dock_tags)
@@ -126,7 +125,7 @@ GLOBAL_DATUM(map_overmap, /area/overmap)
 
 /obj/effect/overmap/visitable/proc/move_to_starting_location()
 	var/map_low = OVERMAP_EDGE
-	var/map_high = SSatlas.current_map.overmap_size - OVERMAP_EDGE
+	var/map_high = SSmapping.current_map.overmap_size - OVERMAP_EDGE
 	var/turf/home
 	if (place_near_main)
 		var/obj/effect/overmap/visitable/main = GLOB.map_sectors["1"] ? GLOB.map_sectors["1"] : GLOB.map_sectors[GLOB.map_sectors[1]]
@@ -139,7 +138,7 @@ GLOBAL_DATUM(map_overmap, /area/overmap)
 	else
 		start_x = start_x || rand(map_low, map_high)
 		start_y = start_y || rand(map_low, map_high)
-		home = locate(start_x, start_y, SSatlas.current_map.overmap_z)
+		home = locate(start_x, start_y, SSmapping.current_map.overmap_z)
 
 	if(!invisible_until_ghostrole_spawn)
 		forceMove(home)
@@ -161,13 +160,12 @@ GLOBAL_DATUM(map_overmap, /area/overmap)
 	for(var/zlevel in map_z)
 		GLOB.map_sectors["[zlevel]"] = src
 
-	SSatlas.current_map.player_levels |= map_z
+	SSmapping.current_map.player_levels |= map_z
 	if(!in_space)
-		SSatlas.current_map.sealed_levels |= map_z
+		SSmapping.current_map.sealed_levels |= map_z
 	if(base)
-		// SSatlas.current_map.station_levels |= map_z
-		SSatlas.current_map.contact_levels |= map_z
-		SSatlas.current_map.map_levels |= map_z
+		SSmapping.current_map.contact_levels |= map_z
+		SSmapping.current_map.map_levels |= map_z
 
 //Helper for init.
 /obj/effect/overmap/visitable/proc/check_ownership(obj/object)
@@ -281,31 +279,6 @@ GLOBAL_DATUM(map_overmap, /area/overmap)
 
 /obj/effect/overmap/visitable/sector/proc/generate_magnet_survey_result()
 	magnet_survey_result = ""
-
-/proc/build_overmap()
-	set waitfor = FALSE
-	if(!SSatlas.current_map.use_overmap)
-		return 1
-
-	log_module_sectors("Building overmap...")
-	var/datum/space_level/overmap_spacelevel = SSmapping.add_new_zlevel("Overmap", ZTRAITS_OVERMAP, contain_turfs = FALSE)
-	SSatlas.current_map.overmap_z = overmap_spacelevel.z_value
-
-	log_module_sectors("Putting overmap on [SSatlas.current_map.overmap_z]")
-	var/area/overmap/A = new
-	GLOB.map_overmap = A
-	for (var/square in block(locate(1,1,SSatlas.current_map.overmap_z), locate(SSatlas.current_map.overmap_size,SSatlas.current_map.overmap_size,SSatlas.current_map.overmap_z)))
-		var/turf/T = square
-		if(T.x == SSatlas.current_map.overmap_size || T.y == SSatlas.current_map.overmap_size)
-			T = T.ChangeTurf(/turf/unsimulated/map/edge)
-		else
-			T = T.ChangeTurf(/turf/unsimulated/map)
-		T.change_area(T.loc, A)
-
-	SSatlas.current_map.sealed_levels |= SSatlas.current_map.overmap_z
-
-	log_module_sectors("Overmap build complete.")
-	return 1
 
 /// A circular random coordinate pair from 0, unit by default, scaled by radius, then rounded if round.
 /proc/CircularRandomCoordinate(radius = 1, round)

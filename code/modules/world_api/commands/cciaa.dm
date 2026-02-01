@@ -163,7 +163,7 @@
 	if(reportannounce == 1)
 		command_announcement.Announce(reportbody, reporttitle, new_sound = 'sound/AI/commandreport.ogg', do_newscast = 1, msg_sanitized = 1);
 	if(reportannounce == 0)
-		to_world(SPAN_ALERT("New [SSatlas.current_map.boss_name] Update available at all communication consoles."))
+		to_world(SPAN_ALERT("New [SSmapping.current_map.boss_name] Update available at all communication consoles."))
 		sound_to_playing_players('sound/AI/commandreport.ogg')
 
 
@@ -238,7 +238,7 @@
 /datum/topic_command/send_fax/proc/send_fax(var/obj/machinery/photocopier/faxmachine/F, title, body, senderkey, stamptext)
 	// Create the reply message
 	var/obj/item/paper/P = new /obj/item/paper( null ) //hopefully the null loc won't cause trouble for us
-	P.name = "[SSatlas.current_map.boss_name] - [title]"
+	P.name = "[SSmapping.current_map.boss_name] - [title]"
 	P.info = body
 	P.update_icon()
 

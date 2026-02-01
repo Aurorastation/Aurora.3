@@ -10,3 +10,7 @@
 #define COMSIG_GLOB_ATOM_AFTER_POST_INIT "!atom_after_post_init"
 /// mob died somewhere : (mob/living, gibbed)
 #define COMSIG_GLOB_MOB_DEATH "!mob_death"
+/// sent after world.maxx and/or world.maxy are expanded: (has_expanded_world_maxx, has_expanded_world_maxy)
+#define COMSIG_GLOB_EXPANDED_WORLD_BOUNDS "!expanded_world_bounds"
+/// when we expand maxz
+#define COMSIG_GLOB_NEW_Z "!new_z"

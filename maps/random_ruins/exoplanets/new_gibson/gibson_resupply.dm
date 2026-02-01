@@ -17,4 +17,3 @@
 	requires_power = FALSE
 	dynamic_lighting = TRUE
 	no_light_control = FALSE
-	base_turf = /turf/simulated/floor/exoplanet/snow

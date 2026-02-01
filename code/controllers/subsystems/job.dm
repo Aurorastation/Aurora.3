@@ -43,7 +43,7 @@ SUBSYSTEM_DEF(jobs)
 
 /datum/controller/subsystem/jobs/proc/SetupOccupations(faction = "Station")
 	occupations = list()
-	var/list/all_jobs = SSatlas.current_map.allowed_jobs
+	var/list/all_jobs = SSmapping.current_map.allowed_jobs
 	if(!all_jobs.len)
 		to_world(SPAN_WARNING("Error setting up jobs, no job datums found!"))
 		return FALSE
@@ -285,12 +285,12 @@ SUBSYSTEM_DEF(jobs)
 
 	Debug("ER/([H]): Entry, joined_late=[joined_late].")
 
-	if(SSatlas.current_sector.description)
-		to_chat(H, SSatlas.current_sector.get_chat_description())
+	if(SSmapping.current_sector.description)
+		to_chat(H, SSmapping.current_sector.get_chat_description())
 
-	if(("Arrivals Shuttle" in SSatlas.current_map.allowed_spawns) && spawning_at == "Arrivals Shuttle")
+	if(("Arrivals Shuttle" in SSmapping.current_map.allowed_spawns) && spawning_at == "Arrivals Shuttle")
 		H.centcomm_despawn_timer = addtimer(CALLBACK(H, TYPE_PROC_REF(/mob/living, centcomm_timeout)), 10 MINUTES, TIMER_STOPPABLE)
-		to_chat(H,SPAN_NOTICE("You have ten minutes to reach the [SSatlas.current_map.station_name] before you will be forced there."))
+		to_chat(H,SPAN_NOTICE("You have ten minutes to reach the [SSmapping.current_map.station_name] before you will be forced there."))
 
 	var/datum/job/job = GetJob(rank)
 	var/list/spawn_in_storage = list()
@@ -394,7 +394,7 @@ SUBSYSTEM_DEF(jobs)
 	INVOKE_ASYNC(GLOBAL_PROC, GLOBAL_PROC_REF(show_location_blurb), H.client, 10 SECONDS)
 
 	if(spawning_at == "Arrivals Shuttle")
-		to_chat(H, "<b>[SSatlas.current_map.command_spawn_message]</b>")
+		to_chat(H, "<b>[SSmapping.current_map.command_spawn_message]</b>")
 
 	if(joined_late)
 		var/antag_count = 0
@@ -430,9 +430,9 @@ SUBSYSTEM_DEF(jobs)
 	if (!.)
 		return FALSE
 
-	var/datum/spawnpoint/spawnpos = SSatlas.spawn_locations["Cryogenic Storage"]
+	var/datum/spawnpoint/spawnpos = SSmapping.spawn_locations["Cryogenic Storage"]
 	if(spawnpos && istype(spawnpos))
-		to_chat(src, SPAN_WARNING("You come to the sudden realization that you never left the [SSatlas.current_map.station_name] at all! You were in cryo the whole time!"))
+		to_chat(src, SPAN_WARNING("You come to the sudden realization that you never left the [SSmapping.current_map.station_name] at all! You were in cryo the whole time!"))
 		src.forceMove(pick(spawnpos.turfs))
 		GLOB.global_announcer.autosay("[real_name], [mind.role_alt_title], [spawnpos.msg].", "Cryogenic Oversight")
 		var/rank= src.mind.assigned_role
@@ -448,9 +448,9 @@ SUBSYSTEM_DEF(jobs)
 	if (!.)
 		return FALSE
 
-	var/datum/spawnpoint/spawnpos = SSatlas.spawn_locations["Cyborg Storage"]
+	var/datum/spawnpoint/spawnpos = SSmapping.spawn_locations["Cyborg Storage"]
 	if(spawnpos && istype(spawnpos))
-		to_chat(src, SPAN_WARNING("You come to the sudden realization that you never left the [SSatlas.current_map.station_name] at all! You were in robotic storage the whole time!"))
+		to_chat(src, SPAN_WARNING("You come to the sudden realization that you never left the [SSmapping.current_map.station_name] at all! You were in robotic storage the whole time!"))
 		src.forceMove(pick(spawnpos.turfs))
 		GLOB.global_announcer.autosay("[real_name], [mind.role_alt_title], [spawnpos.msg].", "Robotic Oversight")
 	else
@@ -461,18 +461,18 @@ SUBSYSTEM_DEF(jobs)
 // Convenience wrapper.
 /datum/controller/subsystem/jobs/proc/centcomm_despawn_mob(mob/living/H)
 	if(ishuman(H))
-		GLOB.global_announcer.autosay("[H.real_name], [H.mind.role_alt_title], has entered long-term storage.", "[SSatlas.current_map.dock_name] Cryogenic Oversight")
+		GLOB.global_announcer.autosay("[H.real_name], [H.mind.role_alt_title], has entered long-term storage.", "[SSmapping.current_map.dock_name] Cryogenic Oversight")
 
-		H.visible_message(SPAN_NOTICE("[H.name] makes their way to the [SSatlas.current_map.dock_short]'s cryostorage, and departs."),
-							SPAN_NOTICE("You make your way into [SSatlas.current_map.dock_short]'s cryostorage, and depart."), range = 3)
+		H.visible_message(SPAN_NOTICE("[H.name] makes their way to the [SSmapping.current_map.dock_short]'s cryostorage, and departs."),
+							SPAN_NOTICE("You make your way into [SSmapping.current_map.dock_short]'s cryostorage, and depart."), range = 3)
 
 		DespawnMob(H)
 	else
 		if(!isDrone(H))
-			GLOB.global_announcer.autosay("[H.real_name], [H.mind.role_alt_title], has entered robotic storage.", "[SSatlas.current_map.dock_name] Robotic Oversight")
+			GLOB.global_announcer.autosay("[H.real_name], [H.mind.role_alt_title], has entered robotic storage.", "[SSmapping.current_map.dock_name] Robotic Oversight")
 
-			H.visible_message(SPAN_NOTICE("[H.name] makes their way to the [SSatlas.current_map.dock_short]'s robotic storage, and departs."),
-								SPAN_NOTICE("You make your way into [SSatlas.current_map.dock_short]'s robotic storage, and depart."), range = 3)
+			H.visible_message(SPAN_NOTICE("[H.name] makes their way to the [SSmapping.current_map.dock_short]'s robotic storage, and departs."),
+								SPAN_NOTICE("You make your way into [SSmapping.current_map.dock_short]'s robotic storage, and depart."), range = 3)
 
 		DespawnMob(H)
 
@@ -564,7 +564,7 @@ SUBSYSTEM_DEF(jobs)
 
 	H.job = rank
 
-	if(SSatlas.current_map.force_spawnpoint && LAZYLEN(GLOB.force_spawnpoints))
+	if(SSmapping.current_map.force_spawnpoint && LAZYLEN(GLOB.force_spawnpoints))
 		if(GLOB.force_spawnpoints[rank])
 			H.forceMove(pick(GLOB.force_spawnpoints[rank]))
 		else
@@ -580,14 +580,14 @@ SUBSYSTEM_DEF(jobs)
 
 		var/datum/spawnpoint/spawnpos
 
-		if(H.client.prefs.spawnpoint in SSatlas.spawn_locations)
-			spawnpos = SSatlas.spawn_locations[H.client.prefs.spawnpoint]
+		if(H.client.prefs.spawnpoint in SSmapping.spawn_locations)
+			spawnpos = SSmapping.spawn_locations[H.client.prefs.spawnpoint]
 
 		if(rank == "Cyborg")
 			spawnpos = new/datum/spawnpoint/cyborg
 
 		if(!spawnpos)
-			spawnpos = SSatlas.spawn_locations[SSatlas.current_map.default_spawn]
+			spawnpos = SSmapping.spawn_locations[SSmapping.current_map.default_spawn]
 
 		if(spawnpos && istype(spawnpos))
 			if(spawnpos.check_job_spawning(rank))
@@ -598,12 +598,12 @@ SUBSYSTEM_DEF(jobs)
 				. = spawnpos.msg
 				spawnpos.after_join(H)
 			else
-				to_chat(H, "Your chosen spawnpoint ([spawnpos.display_name]) is unavailable for your chosen job. Spawning you at the [SSatlas.current_map.default_spawn] instead.")
+				to_chat(H, "Your chosen spawnpoint ([spawnpos.display_name]) is unavailable for your chosen job. Spawning you at the [SSmapping.current_map.default_spawn] instead.")
 				H.forceMove(pick(GLOB.latejoin))
-				. = "is inbound from the [SSatlas.current_map.default_spawn]"
+				. = "is inbound from the [SSmapping.current_map.default_spawn]"
 		else
 			H.forceMove(pick(GLOB.latejoin))
-			. = "is inbound from the [SSatlas.current_map.default_spawn]"
+			. = "is inbound from the [SSmapping.current_map.default_spawn]"
 
 	H.mind.selected_faction = SSjobs.GetFaction(H)
 
@@ -861,7 +861,7 @@ SUBSYSTEM_DEF(jobs)
 	set waitfor = 0
 
 	var/style = "font-family: 'Fixedsys'; -dm-text-outline: 1 black; font-size: 11px;"
-	var/text = "[worlddate2text()], [worldtime2text()]\n[station_name()], [SSatlas.current_sector.name]"
+	var/text = "[worlddate2text()], [worldtime2text()]\n[station_name()], [SSmapping.current_sector.name]"
 	text = uppertext(text)
 
 	var/obj/effect/overlay/T = new()

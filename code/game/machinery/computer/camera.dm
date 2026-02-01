@@ -16,7 +16,7 @@
 
 /obj/machinery/computer/security/Initialize()
 	if(!network)
-		network = SSatlas.current_map.station_networks.Copy()
+		network = SSmapping.current_map.station_networks.Copy()
 	. = ..()
 	if(network.len)
 		current_network = network[1]

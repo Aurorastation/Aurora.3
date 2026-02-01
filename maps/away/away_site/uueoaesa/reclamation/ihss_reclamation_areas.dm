@@ -4,7 +4,6 @@
 	requires_power = TRUE
 	dynamic_lighting = TRUE
 	no_light_control = TRUE
-	base_turf = /turf/space
 	area_flags = AREA_FLAG_RAD_SHIELDED
 
 /area/ihss_reclamation/bridge

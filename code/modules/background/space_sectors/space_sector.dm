@@ -152,18 +152,18 @@
 		/obj/effect/meteor/supermatter=1\
 		)
 
-/// When SSAtlas chooses us as the current sector, this function is called, which will set us up to start processing
+/// When SSmapping chooses us as the current sector, this function is called, which will set us up to start processing
 /datum/space_sector/proc/setup_current_sector()
 	SHOULD_CALL_PARENT(TRUE)
 	SHOULD_NOT_SLEEP(TRUE)
 
-	if(SSatlas.current_map.ports_of_call && length(SSatlas.current_sector.scheduled_port_visits))
+	if(SSmapping.current_map.ports_of_call && length(SSmapping.current_sector.scheduled_port_visits))
 		var/current_day_index = GLOB.all_days.Find(time2text(world.realtime, "Day"))
 		var/days_calculated = 0
 		// The main problem to consider here is that you have to loop around for two weeks to find all the days, basically.
 		// It could be Thursday with Wednesday as a port of call, for example.
 		while(!next_port_visit)
-			if(!(GLOB.all_days[current_day_index] in SSatlas.current_sector.scheduled_port_visits))
+			if(!(GLOB.all_days[current_day_index] in SSmapping.current_sector.scheduled_port_visits))
 				days_calculated++
 				current_day_index++
 				if(current_day_index > length(GLOB.all_days))

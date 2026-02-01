@@ -1,8 +1,6 @@
 // --------------------- base type
 
 /obj/effect/shuttle_landmark/crystal_planet_outpost
-	base_area = /area/crystal_planet_outpost/landing
-	base_turf = /turf/simulated/floor/plating/asteroid
 
 // --------------------- shuttle
 

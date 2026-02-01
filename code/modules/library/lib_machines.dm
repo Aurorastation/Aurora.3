@@ -233,7 +233,7 @@
 			<a href='byond://?src=[REF(src)];switchscreen=0'>No.</a><br>"}
 
 	//dat += "<a href='byond://?src=[REF(user)];mach_close=library'>Close</a><br><br>"
-	user << browse(HTML_SKELETON_TITLE(is_public ? "[SSatlas.current_map.station_name] Library" : "[SSatlas.current_map.station_name] Library Management", dat), "window=library")
+	user << browse(HTML_SKELETON_TITLE(is_public ? "[SSmapping.current_map.station_name] Library" : "[SSmapping.current_map.station_name] Library Management", dat), "window=library")
 	onclose(user, "library")
 
 /obj/machinery/librarycomp/emag_act(var/remaining_charges, var/mob/user)

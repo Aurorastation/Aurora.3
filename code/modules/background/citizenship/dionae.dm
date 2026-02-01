@@ -79,7 +79,7 @@
 /datum/citizenship/consortium/get_objectives(mission_level, var/mob/living/carbon/human/H)
 	switch(mission_level)
 		if(REPRESENTATIVE_MISSION_LOW)
-			var/picked_objective = pick("Hold a meeting to promote the relationship between the Consortium of Hieroaetheria and [SSatlas.current_map.boss_name].", "Secure [rand(2,4)] investments worth a total of [rand(5000,20000)] into the Hieroaetherian company [pick("Biomatik Inovations", "CosmoForge Technologies", "AstroTerra Enterprises")].", "Advertise positions that will be open at the [pick("Hieroaetherian College", "University of Western Mede")] next student intake, available to non-Hieroaetherian dionae and skrell. The university has set aside one scholarship you may award that will cover half of any tuition fees.")
+			var/picked_objective = pick("Hold a meeting to promote the relationship between the Consortium of Hieroaetheria and [SSmapping.current_map.boss_name].", "Secure [rand(2,4)] investments worth a total of [rand(5000,20000)] into the Hieroaetherian company [pick("Biomatik Inovations", "CosmoForge Technologies", "AstroTerra Enterprises")].", "Advertise positions that will be open at the [pick("Hieroaetherian College", "University of Western Mede")] next student intake, available to non-Hieroaetherian dionae and skrell. The university has set aside one scholarship you may award that will cover half of any tuition fees.")
 			return picked_objective
 
 /datum/citizenship/glaorr

@@ -2,8 +2,6 @@
 //Base
 
 /obj/effect/shuttle_landmark/idris_cruiser
-	base_area = /area/space
-	base_turf = /turf/space
 
 //Starboard Docking Arm
 
@@ -68,4 +66,3 @@
 /obj/effect/shuttle_landmark/idris_cruiser/transit
 	name = "In Transit"
 	landmark_tag = "nav_idris_cruiser_transit"
-	base_turf = /turf/space/transit

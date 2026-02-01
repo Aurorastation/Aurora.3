@@ -1,6 +1,4 @@
 /obj/effect/shuttle_landmark/freebooter_salvager
-	base_turf = /turf/space/dynamic
-	base_area = /area/space
 
 /obj/effect/shuttle_landmark/freebooter_salvager/fore
 	name = "Freebooter Salvager Ship, Fore"
@@ -58,7 +56,7 @@
 
 // Lift
 
-/datum/shuttle/autodock/multi/lift/freebooter_salvager
+/datum/shuttle/multi/lift/freebooter_salvager
 	name = "Freebooter Salvager Lift"
 	current_location = "nav_freebooter_salvager_lift_first_deck"
 	shuttle_area = /area/turbolift/freebooter_salvager/freebooter_salvager_lift
@@ -70,14 +68,10 @@
 /obj/effect/shuttle_landmark/lift/freebooter_salvager_first_deck
 	name = "Freebooter Salvager Ship - First Deck"
 	landmark_tag = "nav_freebooter_salvager_lift_first_deck"
-	base_area = /area/ship/freebooter_salvager/mining
-	base_turf = /turf/simulated/floor/plating
 
 /obj/effect/shuttle_landmark/lift/freebooter_salvager_second_deck
 	name = "Freebooter Salvager Ship - Second Deck"
 	landmark_tag = "nav_freebooter_salvager_lift_second_deck"
-	base_area = /area/ship/freebooter_salvager/warehouse
-	base_turf = /turf/simulated/open
 
 /obj/machinery/computer/shuttle_control/multi/lift/freebooter_salvager
 	shuttle_tag = "Freebooter Salvager Lift"

@@ -18,3 +18,4 @@
 	icon_state = "shuttle3"
 	requires_power = 0
 	centcomm_area = 1
+	default_gravity = STANDARD_GRAVITY

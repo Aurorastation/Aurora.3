@@ -10,7 +10,7 @@
 	spawn_weight = 1
 	ship_cost = 1
 	id = "idris_cruiser"
-	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/idris_cruiser_shuttle)
+	shuttles_to_initialise = list(/datum/shuttle/overmap/idris_cruiser_shuttle)
 	unit_test_groups = list(3)
 
 /singleton/submap_archetype/idris_cruiser
@@ -57,6 +57,8 @@
 		"nav_idris_cruiser_space_starboard_far",
 	)
 
+	ship_area_type = /area/ship/idris_cruiser
+
 /obj/effect/overmap/visitable/ship/idris_cruiser/New()
 	designation = "[pick("Celestial Spirit", "Celestial Crown", "Celestial Splendor", "Celestial Dreamer", "Celestial Fantasy", "Celestial Odyssey", "Celestial Serenade", "Celestial Starlight", "Celestial Paradise", "Celestial Enchantress", "Celestial Luminance")]"
 	..()
@@ -79,6 +81,8 @@
 	sizeclass = "Cruise liner tender"
 	shiptype = "Short-distance passenger transport between ships or between ship and planet"
 
+	ship_area_type = /area/shuttle/idris_cruiser_shuttle
+
 /obj/effect/overmap/visitable/ship/landable/idris_cruiser_shuttle/New()
 	designation = "Idris Runabout"
 	..()
@@ -87,13 +91,12 @@
 	name = "shuttle control console"
 	shuttle_tag = "Idris Runabout"
 
-/datum/shuttle/autodock/overmap/idris_cruiser_shuttle
+/datum/shuttle/overmap/idris_cruiser_shuttle
 	name = "Idris Runabout"
 	move_time = 15
 	shuttle_area = list(/area/shuttle/idris_cruiser_shuttle/main, /area/shuttle/idris_cruiser_shuttle/bridge, /area/shuttle/idris_cruiser_shuttle/engineering,)
 	dock_target = "airlock_idris_cruiser_shuttle"
 	current_location = "nav_idris_cruiser_stbd_aft"
-	landmark_transition = "nav_idris_cruiser_transit"
 	range = 1
 	fuel_consumption = 1
 	logging_home_tag = "nav_idris_cruiser_stbd_aft"

@@ -5,7 +5,6 @@
 	icon_state = "storage"
 	ambience = AMBIENCE_RUINS
 	no_light_control = 1
-	base_turf = /turf/space
 	requires_power = FALSE
 
 /area/derelict/hallway/northwest
@@ -94,7 +93,6 @@
 	requires_power = 1
 	always_unpowered = 1
 	ambience = AMBIENCE_SPACE
-	base_turf = /turf/space
 
 /area/solar/derelict_starboard
 	name = "Derelict Starboard Solar Array"
@@ -170,7 +168,6 @@
 	name = "Engineering Construction Area"
 	icon_state = "yellow"
 	no_light_control = 1
-	base_turf = /turf/space
 	station_area = TRUE
 
 /area/construction/supplyshuttle

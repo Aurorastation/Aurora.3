@@ -15,6 +15,8 @@
 	fore_dir = SOUTH
 	vessel_size = SHIP_SIZE_TINY
 
+	ship_area_type = /area/shuttle/hailstorm_shuttle
+
 /obj/machinery/computer/shuttle_control/explore/terminal/hailstorm_shuttle
 	name = "shuttle control console"
 	shuttle_tag = "Spacer Militia Shuttle"
@@ -22,12 +24,11 @@
 // --------
 
 // Controls docking behaviour
-/datum/shuttle/autodock/overmap/hailstorm_shuttle
+/datum/shuttle/overmap/hailstorm_shuttle
 	name = "Spacer Militia Shuttle"
 	move_time = 20
 	shuttle_area = list(/area/shuttle/hailstorm_shuttle)
 	current_location = "nav_hangar_hailstorm"
-	landmark_transition = "nav_transit_hailstorm_shuttle"
 	dock_target = "hailstorm_shuttle"
 	range = 1
 	fuel_consumption = 2
@@ -40,8 +41,6 @@
 	name = "Shuttle Port"
 	landmark_tag = "nav_hangar_hailstorm"
 	docking_controller = "hailstorm_shuttle_dock"
-	base_area = /area/space
-	base_turf = /turf/space
 	movable_flags = MOVABLE_FLAG_EFFECTMOVE
 // --------
 
@@ -49,7 +48,6 @@
 /obj/effect/shuttle_landmark/hailstorm_shuttle/transit
 	name = "In transit"
 	landmark_tag = "nav_transit_hailstorm_shuttle"
-	base_turf = /turf/space/transit/north
 // --------
 
 // Shuttle docking port

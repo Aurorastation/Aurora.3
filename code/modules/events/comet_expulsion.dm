@@ -95,7 +95,7 @@
 	var/meteors_random = 0
 
 /datum/event/comet_expulsion/setup()
-	if(!SSatlas.current_map.use_overmap)
+	if(!SSmapping.current_map.use_overmap)
 		qdel(src)
 		return
 
@@ -140,7 +140,7 @@
 	var/list/turf/unsimulated/map/edge/overmap_edges = list()
 	var/projectile_angle
 
-	for(var/turf/unsimulated/map/edge/E in block(locate(1,1,SSatlas.current_map.overmap_z), locate(SSatlas.current_map.overmap_size,SSatlas.current_map.overmap_size,SSatlas.current_map.overmap_z)))
+	for(var/turf/unsimulated/map/edge/E in block(locate(1,1,SSmapping.current_map.overmap_z), locate(SSmapping.current_map.overmap_size,SSmapping.current_map.overmap_size,SSmapping.current_map.overmap_z)))
 		overmap_edges += E
 
 	var/turf/unsimulated/map/edge/source = pick(overmap_edges)

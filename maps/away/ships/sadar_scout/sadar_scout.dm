@@ -10,7 +10,7 @@
 	spawn_weight = 1
 	ship_cost = 1
 	id = "sadar_scout"
-	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/sadar_shuttle)
+	shuttles_to_initialise = list(/datum/shuttle/overmap/sadar_shuttle)
 
 	unit_test_groups = list(3)
 
@@ -57,6 +57,8 @@
 
 	invisible_until_ghostrole_spawn = TRUE
 
+	ship_area_type = /area/ship/sadar_scout
+
 /obj/effect/overmap/visitable/ship/sadar_scout/New()
 	designation = "[pick("Released", "New Dawn", "Exodus", "Shiwuniket", "Nitaniket", "Legitimate Salvage", "Beloved Hakhma", "Fortuitous Omen", "Tujmansaal", "Hard Won Bliss", "Spare Wrench", "Dim Eyes", "Screw Gravity")]"
 	..()
@@ -71,69 +73,47 @@
 /obj/effect/shuttle_landmark/sadar_scout/nav1
 	name = "Port Navpoint"
 	landmark_tag = "nav_sadar_scout_1"
-	base_turf = /turf/space/dynamic
-	base_area = /area/space
 
 /obj/effect/shuttle_landmark/sadar_scout/nav2
 	name = "Fore Navpoint"
 	landmark_tag = "nav_sadar_scout_2"
-	base_turf = /turf/space/dynamic
-	base_area = /area/space
 
 /obj/effect/shuttle_landmark/sadar_scout/nav3
 	name = "Starboard Navpoint"
 	landmark_tag = "nav_sadar_scout_3"
-	base_turf = /turf/space/dynamic
-	base_area = /area/space
 
 /obj/effect/shuttle_landmark/sadar_scout/nav4
 	name = "Aft Navpoint"
 	landmark_tag = "nav_sadar_scout_4"
-	base_turf = /turf/space/dynamic
-	base_area = /area/space
 
 /obj/effect/shuttle_landmark/sadar_scout/dock/fore
 	name = "Fore Dock"
 	landmark_tag = "nav_sadar_scout_dock_fore"
 	docking_controller = "airlock_sadar_scout_dock_fore"
-	base_turf = /turf/space
-	base_area = /area/space
 
 /obj/effect/shuttle_landmark/sadar_scout/dock/fore_port
 	name = "Solar Dock Fore - Portside"
 	landmark_tag = "nav_sadar_scout_dock_fore_port"
-	base_turf = /turf/space
-	base_area = /area/space
 
 /obj/effect/shuttle_landmark/sadar_scout/dock/fore_starboard
 	name = "Solar Dock Fore - Starboardside"
 	landmark_tag = "nav_sadar_scout_dock_fore_starboard"
-	base_turf = /turf/space
-	base_area = /area/space
 
 /obj/effect/shuttle_landmark/sadar_scout/dock/aft_port
 	name = "Solar Dock Aft - Portside"
 	landmark_tag = "nav_sadar_scout_dock_aft_port"
-	base_turf = /turf/space
-	base_area = /area/space
 
 /obj/effect/shuttle_landmark/sadar_scout/dock/aft_starboard
 	name = "Solar Dock Aft - Starboardside"
 	landmark_tag = "nav_sadar_scout_dock_aft_starboard"
-	base_turf = /turf/space
-	base_area = /area/space
 
 /obj/effect/shuttle_landmark/sadar_scout/dock/port
 	name = "Solar Dock Port"
 	landmark_tag = "nav_sadar_scout_dock_port"
-	base_turf = /turf/space
-	base_area = /area/space
 
 /obj/effect/shuttle_landmark/sadar_scout/dock/starboard
 	name = "Solar Dock Starboard"
 	landmark_tag = "nav_sadar_scout_dock_starboard"
-	base_turf = /turf/space
-	base_area = /area/space
 
 //shuttle stuff
 /obj/effect/overmap/visitable/ship/landable/sadar_shuttle
@@ -156,6 +136,8 @@
 	sizeclass = "Monax-class Salvage Skiff"
 	shiptype = "Salvage & Construction Utility"
 
+	ship_area_type = /area/shuttle/sadar_shuttle
+
 /obj/machinery/computer/shuttle_control/explore/sadar_shuttle
 	name = "shuttle control console"
 	shuttle_tag = "Modified Salvage Skiff"
@@ -169,13 +151,12 @@
 	can_pass_under = FALSE
 	light_power_on = 1
 
-/datum/shuttle/autodock/overmap/sadar_shuttle
+/datum/shuttle/overmap/sadar_shuttle
 	name = "Modified Salvage Skiff"
 	move_time = 20
 	shuttle_area = list(/area/shuttle/sadar_shuttle)
 	current_location = "nav_hangar_sadar_scout"
 	dock_target = "airlock_sadar_shuttle"
-	landmark_transition = "nav_transit_sadar_shuttle"
 	range = 1
 	fuel_consumption = 2
 	logging_home_tag = "nav_hangar_sadar_scout"
@@ -185,14 +166,11 @@
 	name = "Raiding Skiff Dock"
 	landmark_tag = "nav_hangar_sadar_scout"
 	docking_controller = "sadar_shuttle_dock"
-	base_area = /area/space
-	base_turf = /turf/space
 	movable_flags = MOVABLE_FLAG_EFFECTMOVE
 
 /obj/effect/shuttle_landmark/sadar_shuttle/transit
 	name = "In transit"
 	landmark_tag = "nav_transit_sadar_shuttle"
-	base_turf = /turf/space/transit/north
 
 
 // CUSTOM STUFF

@@ -16,6 +16,8 @@
 	fore_dir = SOUTH
 	vessel_size = SHIP_SIZE_TINY
 
+	ship_area_type = /area/shuttle/splf
+
 /obj/effect/overmap/visitable/ship/landable/splf_shuttle/New()
 	designation = "[pick("Ours Now", "Better Use", "Watch It Closer", "Repurposed", "Liberated", "People's Mule", "You're Welcome")]"
 	..()
@@ -27,12 +29,11 @@
 // --------
 
 // Controls docking behaviour
-/datum/shuttle/autodock/overmap/splf_shuttle
+/datum/shuttle/overmap/splf_shuttle
 	name = "SPLF Shuttle"
 	move_time = 20
 	shuttle_area = list(/area/shuttle/splf)
 	current_location = "nav_hangar_splf"
-	landmark_transition = "nav_transit_splf_shuttle"
 	dock_target = "splf_shuttle"
 	range = 1
 	fuel_consumption = 2
@@ -45,8 +46,6 @@
 	name = "Shuttle Port"
 	landmark_tag = "nav_hangar_splf"
 	docking_controller = "splf_shuttle_dock"
-	base_area = /area/space
-	base_turf = /turf/space
 	movable_flags = MOVABLE_FLAG_EFFECTMOVE
 // --------
 
@@ -54,7 +53,6 @@
 /obj/effect/shuttle_landmark/splf_shuttle/transit
 	name = "In transit"
 	landmark_tag = "nav_transit_splf_shuttle"
-	base_turf = /turf/space/transit/north
 // --------
 
 // Shuttle docking port

@@ -204,7 +204,7 @@ var/datum/controller/subsystem/ticker/SSticker
 				else
 					feedback_set_details("end_proper","universe destroyed")
 				if(!delay_end)
-					to_world(SPAN_NOTICE("<b>Rebooting due to destruction of \the [SSatlas.current_map.station_name] in [restart_timeout/10] seconds</b>"))
+					to_world(SPAN_NOTICE("<b>Rebooting due to destruction of \the [SSmapping.current_map.station_name] in [restart_timeout/10] seconds</b>"))
 			else
 				feedback_set_details("end_proper","proper completion")
 				if(!delay_end)
@@ -435,8 +435,8 @@ var/datum/controller/subsystem/ticker/SSticker
 	set waitfor = FALSE
 	sleep(1)	// Sleep so the MC has a chance to update its init time.
 	if(!login_music)
-		if(SSatlas.current_sector && SSatlas.current_sector.lobby_tracks)
-			login_music = SSatlas.current_sector.lobby_tracks
+		if(SSmapping.current_sector && SSmapping.current_sector.lobby_tracks)
+			login_music = SSmapping.current_sector.lobby_tracks
 		else
 			login_music = default_lobby_tracks
 
@@ -489,7 +489,7 @@ var/datum/controller/subsystem/ticker/SSticker
 			+ "<br>" \
 		)
 
-	var/datum/space_sector/current_sector = SSatlas.current_sector
+	var/datum/space_sector/current_sector = SSmapping.current_sector
 	var/html = SPAN_NOTICE("Current sector: [current_sector].") + {"\
 		<span> \
 			<a href='byond://?src=[REF(src)];current_sector_show_sites_id=1'>Click here</a> \
@@ -628,8 +628,8 @@ var/datum/controller/subsystem/ticker/SSticker
 		var/atom/movable/screen/new_player/selection/join_game/JG = locate() in NP.client.screen
 		JG.update_icon(NP)
 	to_world(SPAN_NOTICE("<b>Enjoy the round!</b>"))
-	if(SSatlas.current_sector.sector_welcome_message)
-		sound_to(world, sound(SSatlas.current_sector.sector_welcome_message))
+	if(SSmapping.current_sector.sector_welcome_message)
+		sound_to(world, sound(SSmapping.current_sector.sector_welcome_message))
 	else
 		sound_to(world, sound('sound/AI/welcome.ogg'))
 	//Holiday Round-start stuff	~Carn
@@ -788,8 +788,8 @@ var/datum/controller/subsystem/ticker/SSticker
 
 /datum/controller/subsystem/ticker/Topic(href, href_list)
 	if(href_list["current_sector_show_sites_id"])
-		var/datum/space_sector/current_sector = SSatlas.current_sector
-		var/list/sites = SSatlas.current_sector.possible_sites_in_sector()
+		var/datum/space_sector/current_sector = SSmapping.current_sector
+		var/list/sites = SSmapping.current_sector.possible_sites_in_sector()
 		var/list/site_names = list()
 		var/list/ship_names = list()
 		for(var/datum/map_template/ruin/site in sites)

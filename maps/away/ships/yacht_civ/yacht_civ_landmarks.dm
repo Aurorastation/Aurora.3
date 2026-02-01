@@ -2,8 +2,6 @@
 // --------------------- base type
 
 /obj/effect/shuttle_landmark/yacht_civ
-	base_area = /area/space
-	base_turf = /turf/space
 
 // --------------------- shuttle
 
@@ -11,7 +9,6 @@
 	name = "Shuttle Hangar"
 	landmark_tag = "nav_yacht_civ_shuttle_dock"
 	docking_controller = "airlock_yacht_civ_shuttle_dock"
-	base_turf = /turf/simulated/floor/reinforced/airless
 
 /obj/effect/map_effect/marker/airlock/docking/yacht_civ/shuttle_hangar
 	name = "Shuttle Hangar"
@@ -23,7 +20,6 @@
 /obj/effect/shuttle_landmark/yacht_civ/shuttle_transit
 	name = "In transit"
 	landmark_tag = "nav_yacht_civ_shuttle_transit"
-	base_turf = /turf/space/transit
 
 // --------------------- docks
 

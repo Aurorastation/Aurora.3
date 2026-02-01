@@ -1,6 +1,4 @@
 /obj/effect/shuttle_landmark/abandoned_diner
-	base_area = /area/space
-	base_turf = /turf/space
 
 /obj/effect/shuttle_landmark/abandoned_diner/dock_a1
 	name = "Docking Port A1"

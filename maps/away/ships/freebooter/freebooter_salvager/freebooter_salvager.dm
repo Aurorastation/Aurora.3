@@ -14,7 +14,7 @@
 	ship_cost = 1
 	spawn_weight = 0.5 // halved from 1 as this is a variation
 
-	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/freebooter_salvager, /datum/shuttle/autodock/multi/lift/freebooter_salvager)
+	shuttles_to_initialise = list(/datum/shuttle/overmap/freebooter_salvager, /datum/shuttle/multi/lift/freebooter_salvager)
 	sectors = list(ALL_POSSIBLE_SECTORS)
 	ban_ruins = list(/datum/map_template/ruin/away_site/freebooter_ship)
 
@@ -58,6 +58,8 @@
 		"freebooter_salvager_upfore"
 	)
 
+	ship_area_type = /area/ship/freebooter_salvager
+
 /obj/effect/overmap/visitable/ship/freebooter_salvager/New()
 	designation = pick(/obj/effect/overmap/visitable/ship/freebooter_ship::designations)
 	..()
@@ -78,16 +80,17 @@
 	fore_dir = SOUTH
 	vessel_size = SHIP_SIZE_TINY
 
+	ship_area_type = /area/shuttle/freebooter_salvager
+
 /obj/machinery/computer/shuttle_control/explore/freebooter_salvager
 	name = "shuttle control console"
 	shuttle_tag = "Freebooter Salvager Shuttle"
 
-/datum/shuttle/autodock/overmap/freebooter_salvager
+/datum/shuttle/overmap/freebooter_salvager
 	name = "Freebooter Salvager Shuttle"
 	move_time = 20
 	shuttle_area = list(/area/shuttle/freebooter_salvager)
 	current_location = "freebooter_salvager_nav_hangar"
-	landmark_transition = "freebooter_salvager_nav_transit"
 	dock_target = "airlock_freebooter_salvager_shuttle"
 	range = 1
 	fuel_consumption = 2
@@ -111,14 +114,11 @@
 	name = "Freebooter Salvager Ship - Hangar"
 	landmark_tag = "freebooter_salvager_nav_hangar"
 	docking_controller = "freebooter_salvager_hangar"
-	base_turf = /turf/space
-	base_area = /area/space
 	movable_flags = MOVABLE_FLAG_EFFECTMOVE
 
 /obj/effect/shuttle_landmark/freebooter_salvager_shuttle/transit
 	name = "In transit"
 	landmark_tag = "freebooter_salvager_nav_transit"
-	base_turf = /turf/space/transit/north
 
 /obj/item/paper/fluff/freebooter_salvager/captain_note
 	name = "old captain's note"

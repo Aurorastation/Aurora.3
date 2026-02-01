@@ -18,14 +18,8 @@
 	soil_data = list("Low density silicon dioxide layer", "Iron pyroxene layer", "Magnesium olivine layer", "Large rock particle layer", "Aluminium biotite layer")
 
 	unit_test_groups = list(1)
-
-/obj/effect/overmap/visitable/sector/exoplanet/lava/generate_habitability()
-	return HABITABILITY_BAD
-
-/obj/effect/overmap/visitable/sector/exoplanet/lava/generate_atmosphere()
-	..()
-	atmosphere.temperature = T20C + rand(220, 800)
-	atmosphere.update_values()
+	possible_atmospheres = /singleton/atmosphere/sulfur/lava
+	turftype = /turf/simulated/floor/exoplanet/basalt
 
 /obj/effect/overmap/visitable/sector/exoplanet/lava/get_surface_color()
 	return "#575d5e"

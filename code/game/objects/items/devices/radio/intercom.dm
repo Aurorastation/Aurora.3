@@ -64,7 +64,7 @@ pixel_x = 8;
 	PRESET_EAST
 
 /obj/item/device/radio/intercom/ship/Initialize()
-	if(!SSatlas.current_map.use_overmap)
+	if(!SSmapping.current_map.use_overmap)
 		return ..()
 
 	var/turf/T = get_turf(src)

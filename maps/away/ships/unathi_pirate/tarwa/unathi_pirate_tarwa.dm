@@ -8,7 +8,7 @@
 	sectors = list(SECTOR_BADLANDS, SECTOR_GAKAL, SECTOR_LIGHTS_EDGE, SECTOR_WEEPING_STARS)
 	spawn_weight = 1
 	ship_cost = 1
-	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/tarwa_shuttle)
+	shuttles_to_initialise = list(/datum/shuttle/overmap/tarwa_shuttle)
 	id = "tarwa_conglomerate"
 
 	unit_test_groups = list(2)
@@ -47,6 +47,8 @@
 	)
 	invisible_until_ghostrole_spawn = TRUE
 
+	ship_area_type = /area/tarwa_ship
+
 /obj/effect/overmap/visitable/ship/tarwa/New()
 	designation = "[pick("Silent Sentinel", "Symbiosis", "Flying Dead", "Immortal", "Blood for Blood", "Unnatural Compatibility", "Barkscale", "Boneclaw", "Watcher in the Dark")]"
 	..()
@@ -58,8 +60,6 @@
 	return skybox_image
 
 /obj/effect/shuttle_landmark/tarwa_ship
-	base_turf = /turf/space/dynamic
-	base_area = /area/space
 
 /obj/effect/shuttle_landmark/tarwa_ship/nav1
 	name = "Fore"
@@ -94,16 +94,17 @@
 	fore_dir = EAST
 	vessel_size = SHIP_SIZE_TINY
 
+	ship_area_type = /area/shuttle/tarwa
+
 /obj/machinery/computer/shuttle_control/explore/tarwa_shuttle
 	name = "shuttle control console"
 	shuttle_tag = "Tarwa Conglomerate Shuttle"
 
-/datum/shuttle/autodock/overmap/tarwa_shuttle
+/datum/shuttle/overmap/tarwa_shuttle
 	name = "Tarwa Conglomerate Shuttle"
 	move_time = 20
 	shuttle_area = list(/area/shuttle/tarwa)
 	current_location = "nav_hangar_tarwa"
-	landmark_transition = "nav_transit_tarwa"
 	dock_target = "airlock_tarwa_shuttle"
 	range = 1
 	fuel_consumption = 2
@@ -113,12 +114,9 @@
 /obj/effect/shuttle_landmark/tarwa_shuttle/hangar
 	name = "Tarwa Conglomerate Freighter - Hangar"
 	landmark_tag = "nav_hangar_tarwa"
-	base_area = /area/tarwa_ship/hangar
-	base_turf = /turf/simulated/floor/plating
 	docking_controller = "tarwa_shuttle_dock"
 	movable_flags = MOVABLE_FLAG_EFFECTMOVE
 
 /obj/effect/shuttle_landmark/tarwa_shuttle/transit
 	name = "In transit"
 	landmark_tag = "nav_transit_tarwa"
-	base_turf = /turf/space/transit/east

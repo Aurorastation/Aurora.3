@@ -29,5 +29,4 @@
 	area_flags = AREA_FLAG_HIDE_FROM_HOLOMAP
 	requires_power = FALSE
 	ambience = AMBIENCE_RUINS
-	base_turf = /turf/space
 	icon_state = "bluenew"

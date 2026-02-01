@@ -8,7 +8,7 @@
 	sectors = list(SECTOR_BADLANDS, SECTOR_GAKAL)
 	spawn_weight = 1
 	ship_cost = 1
-	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/hiskyn_shuttle)
+	shuttles_to_initialise = list(/datum/shuttle/overmap/hiskyn_shuttle)
 	id = "hiskyn_revanchists"
 
 	unit_test_groups = list(2)
@@ -50,6 +50,8 @@
 		"nav_hiskyn_aft_port"
 	)
 	invisible_until_ghostrole_spawn = TRUE
+
+	ship_area_type = /area/hiskyn_ship
 
 /obj/effect/overmap/visitable/ship/hiskyn/New()
 	designation = "[pick("Red-Taloned Vengeance", "Fer'is' Fury", "Storms of Ha'zana", "Knees Unbent", "Seryo's Honor", "Traveller Returning", "Roaring Skrazi", "Heartseeker", "Winds of Travakh", "Charging Eskazal", "No Surrender", "Red Reprisal", "Retribution Incarnadine", "Betrayer's Bane", "Eye for an Eye", "Vengeful Dagger")]"
@@ -106,17 +108,18 @@
 	fore_dir = SOUTH
 	vessel_size = SHIP_SIZE_TINY
 
+	ship_area_type = /area/shuttle/hiskyn_revanchists
+
 /obj/machinery/computer/shuttle_control/explore/hiskyn_shuttle
 	name = "shuttle control console"
 	shuttle_tag = "Hiskyn's Revanchist Shuttle"
 	req_access = list(ACCESS_UNATHI_PIRATE)
 
-/datum/shuttle/autodock/overmap/hiskyn_shuttle
+/datum/shuttle/overmap/hiskyn_shuttle
 	name = "Hiskyn's Revanchist Shuttle"
 	move_time = 20
 	shuttle_area = list(/area/shuttle/hiskyn_revanchists)
 	current_location = "nav_dock_hiskyn"
-	landmark_transition = "nav_transit_hiskyn"
 	dock_target = "airlock_hiskyn_shuttle"
 	range = 1
 	fuel_consumption = 2
@@ -132,7 +135,6 @@
 /obj/effect/shuttle_landmark/hiskyn_shuttle/transit
 	name = "In transit"
 	landmark_tag = "nav_transit_hiskyn"
-	base_turf = /turf/space/transit/north
 
 /obj/item/clothing/under/unathi/hiskyn
 	color = "#231f1c"
