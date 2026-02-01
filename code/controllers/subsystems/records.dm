@@ -272,15 +272,14 @@ SUBSYSTEM_DEF(records)
 	if(!SSjobs)
 		log_world("ERROR: SSjobs not available, cannot build manifest")
 		return
+
+	// No pre-existing manifest, setup an empty list of all possible departments.
 	manifest = DEPARTMENTS_LIST_INIT
+
+	/* ----- START OF CASE FOR CREW ----- */
+	// Start with the "Crew", which are all of the IC manifest members.
 	for(var/datum/record/general/general_record in records)
-		var/name = general_record.name
-		var/rank = general_record.rank
-		var/real_rank = make_list_rank(general_record.real_rank)
-
-		var/datum/job/job = SSjobs.GetJob(real_rank)
-		var/activity_state = get_activity_state(general_record)
-
+		var/datum/job/job = SSjobs.GetJob(make_list_rank(general_record.real_rank))
 		var/list/departments
 		if(istype(job) && job.departments.len > 0 && all_in_list(job.departments, manifest))
 			departments = job.departments
@@ -290,56 +289,84 @@ SUBSYSTEM_DEF(records)
 		for(var/department in departments) // add them to their departments
 			var/supervisor = departments[department] & JOBROLE_SUPERVISOR
 			manifest[department][++manifest[department].len] = list(\
-				"name" = name, \
-				"rank" = rank, \
-				"active" = activity_state, \
+				"name" = general_record.name, \
+				"rank" = general_record.rank, \
+				"active" = get_activity_state(general_record), \
 				"head" = supervisor, \
 				"ooc_role" = FALSE)
 			if(supervisor) // they are a supervisor/head, put them on top
 				manifest[department].Swap(1, manifest[department].len)
 
-	// silicons are not in records, we need to add them manually
-	var/dept = DEPARTMENT_EQUIPMENT
+	/* ----- END OF CASE FOR CREW ----- */
+
+	/* ----- START OF CASE FOR SILICONS ----- */
 	for(var/mob/living/silicon/S in GLOB.player_list)
 		// Case for Cyborgs
-		if(isrobot(S))
+		if (isrobot(S))
 			var/mob/living/silicon/robot/R = S
-			manifest[dept][++manifest[dept].len] = list(\
+			manifest[DEPARTMENT_EQUIPMENT][++manifest[DEPARTMENT_EQUIPMENT].len] = list(\
 				"name" = R.name, \
 				"rank" = R.module \
+				/* Cyborg ranks on the manifest change whenever they pick a new module.
+					With a fallback for when they haven't decided yet. */
 					? capitalize_first_letters(R.module.name) \
 					: "Default Module", \
 				"active" = "Online", \
 				"head" = FALSE, \
+				/* Cyborgs uniquely can be either a Crew or OOC role.
+					Player-character borgs will typically show up on the IC manifest.
+					While ghost-role and event borgs show up on the OOC manifest. */
 				"ooc_role" = R.scrambled_codes)
+			continue // Skip to the next player since it's not possible for them to also be one of the other types.
 
 		// Case for Ship AIs
-		else if(isAI(S))
-			var/mob/living/silicon/ai/A = S
-			manifest[dept][++manifest[dept].len] = list(\
-				"name" = A.name, \
+		if (isAI(S))
+			manifest[DEPARTMENT_EQUIPMENT][++manifest[DEPARTMENT_EQUIPMENT].len] = list(\
+				"name" = S.name, \
 				"rank" = "Vessel Intelligence", \
 				"active" = "Online", \
 				"head" = TRUE, \
 				"ooc_role" = FALSE)
-			manifest[dept].Swap(1, manifest[dept].len)
+			manifest[DEPARTMENT_EQUIPMENT].Swap(1, manifest[DEPARTMENT_EQUIPMENT].len)
+			continue // Skip to the next player since it's not possible for them to also be one of the other types.
 
+		// Strictly OOC listing for pAIs, which aren't typically caught by the ghostrole check.
+		if (ispAI(S))
+			manifest[DEPARTMENT_EQUIPMENT][++manifest[DEPARTMENT_EQUIPMENT].len] = list(\
+			"name" = S.name \
+			/* It's possible for a pAI to have no name,
+				so we fact check it here and provide a fallback if needed. */
+				? S.name \
+				: "Unknown", \
+			"rank" = "Personal AI Assistant", \
+			"active" = "Online", \
+			"head" = FALSE, \
+			"ooc_role" = TRUE)
+			continue
+	/* ----- END OF CASE FOR SILICONS ----- */
+
+	/* ----- START OF CASE FOR GHOSTROLES ----- */
 	// Build the list of off-ships too. These will be hidden for anyone in-game.
-	var/ghost_dept = DEPARTMENT_OFFSHIP
 	for (var/mob/ghostrole_mob in SSghostroles.get_ghostrole_mobs())
-		manifest[ghost_dept][++manifest[ghost_dept].len] = list(\
-			"name" = ghostrole_mob.name ? ghostrole_mob.name : "Unknown",\
+		manifest[DEPARTMENT_OFFSHIP][++manifest[DEPARTMENT_OFFSHIP].len] = list(\
+			"name" = ghostrole_mob.name \
+			/* It's possible for a ghostrole to spawn with no name,
+				so we fact check it here and provide a fallback if needed. */
+				? ghostrole_mob.name \
+				: "Unknown",\
 			"rank" = ghostrole_mob.mind && ghostrole_mob.mind.assigned_role \
-				/* Use the mind's role if they have one. */\
+				/* Use the mind's role if they have one. */
 				? ghostrole_mob.mind.assigned_role \
 				: ishuman(ghostrole_mob) \
-				/* Or a fallback if they don't. */\
+				/* Or a fallback if they don't. */
 					? "Independent Spacer" \
 					: "Non-Humanoid Role",\
 			"active" = ghostrole_mob.stat == DEAD ? "*Deceased*" : "Active",\
 			"head" = FALSE,\
 			"ooc_role" = TRUE)
+	/* ----- END OF CASE FOR GHOSTROLES ----- */
 
+	// Finally, trim all empty departments from the list.
 	for(var/department in manifest)
 		if(!length(manifest[department]))
 			manifest -= department

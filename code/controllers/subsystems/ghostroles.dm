@@ -292,9 +292,6 @@ SUBSYSTEM_DEF(ghostroles)
  */
 /datum/controller/subsystem/ghostroles/proc/get_ghostrole_mobs()
 	var/list/mob/found_mobs = list()
-	if (!length(spawned_ghostrole_mobs))
-		return found_mobs
-
 	for (var/datum/weakref/nullable_spawn in spawned_ghostrole_mobs)
 		var/possible_spawn = nullable_spawn.resolve()
 		if (!possible_spawn || !ismob(possible_spawn))
