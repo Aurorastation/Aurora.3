@@ -185,7 +185,7 @@
 		//crumple dat paper
 		info = stars(info,85)
 		user.visible_message("\The [user] crumples \the [src] into a ball!", "You crumple \the [src] into a ball.")
-		playsound(src, 'sound/bureaucracy/papercrumple.ogg', 50, 1)
+		playsound(src, 'sound/items/bureaucracy/papercrumple.ogg', 50, 1)
 		if(istype(src, /obj/item/paper/stickynotes))
 			icon_state = "stickynote_scrap"
 		else
@@ -587,7 +587,7 @@
 		else
 			if(istype(src, /obj/item/paper/stickynotes))
 				usr.visible_message(SPAN_NOTICE("\The [usr] jots a note down on \the [src]."))
-			playsound(src, pick('sound/bureaucracy/pen1.ogg','sound/bureaucracy/pen2.ogg'), 20)
+			playsound(src, pick('sound/items/bureaucracy/pen1.ogg','sound/items/bureaucracy/pen2.ogg'), 20)
 
 		update_icon()
 		if(c)
@@ -804,8 +804,6 @@
 /obj/item/paper/notepad/receipt
 	name = "receipt paper"
 	desc = "A receipt."
-	icon_state = "notepad"
-	slot_flags = NONE
 	color = null
 
 /*#############################################
@@ -842,6 +840,7 @@
 	item_state = "stickynote"
 	w_class = WEIGHT_CLASS_TINY
 	color = COLOR_PALE_YELLOW
+	free_space = MAX_MESSAGE_LEN //Smaller piece of paper means less space to write.
 	slot_flags = 0
 	var/obj/item/paper/stickynotes/stuck = null
 
@@ -859,7 +858,7 @@
 	. = ..()
 
 /obj/item/paper/stickynotes/afterattack(var/A, mob/user, var/prox, var/params)
-	if(!in_range(user, A) || istype(A, /obj/machinery/door) || stuck || istype(A, /obj/item/paper/stickynotes/pad))
+	if(!in_range(user, A) || istype(A, /obj/machinery/door) || stuck || istype(A, /obj/item/paper))
 		return
 
 	var/turf/target_turf = get_turf(A)
@@ -890,12 +889,9 @@
 /obj/item/paper/stickynotes/pad
 	name = "sticky note pad"
 	desc = "A pad of densely packed sticky notes."
-	color = COLOR_YELLOW_GRAY //Yellow gray to save the eyes of everyone.
-	icon = 'icons/obj/bureaucracy.dmi'
 	icon_state = "stickypad_full"
 	item_state = "stickynote"
 	w_class = WEIGHT_CLASS_SMALL
-	free_space = MAX_MESSAGE_LEN //Smaller piece of paper means less space to write.
 	var/papers = 25
 	var/paper_type = /obj/item/paper/stickynotes
 
