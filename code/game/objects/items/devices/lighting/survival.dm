@@ -1,4 +1,4 @@
-/obj/item/device/flashlight/survival
+/obj/item/flashlight/survival
 	name = "survival flashlight"
 	desc = "A hand-held emergency light. This one has been modified with a larger, more efficient bulb pointing inwards."
 	icon_state = "survival_flashlight"

@@ -46,7 +46,7 @@
 	construction_cost = list("$glass" = 5250, DEFAULT_WALL_MATERIAL = 2500)
 	construction_time = 300
 
-	device_type = /obj/item/device/healthanalyzer
+	device_type = /obj/item/healthanalyzer
 
 	category = MODULE_MEDICAL
 
@@ -101,7 +101,7 @@
 	engage_string = "Begin Scan"
 	usable = TRUE
 	selectable = 0
-	device_type = /obj/item/device/ano_scanner
+	device_type = /obj/item/ano_scanner
 
 	category = MODULE_UTILITY
 

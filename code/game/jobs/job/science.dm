@@ -44,11 +44,11 @@
 	id = /obj/item/card/id/scc/silver
 	l_hand = /obj/item/clipboard
 
-	headset = /obj/item/device/radio/headset/heads/rd
-	bowman = /obj/item/device/radio/headset/heads/rd/alt
-	double_headset = /obj/item/device/radio/headset/alt/double/rd
-	wrist_radio = /obj/item/device/radio/headset/wrist/rd
-	clipon_radio = /obj/item/device/radio/headset/wrist/clip/rd
+	headset = /obj/item/radio/headset/heads/rd
+	bowman = /obj/item/radio/headset/heads/rd/alt
+	double_headset = /obj/item/radio/headset/alt/double/rd
+	wrist_radio = /obj/item/radio/headset/wrist/rd
+	clipon_radio = /obj/item/radio/headset/wrist/clip/rd
 
 	tab_pda = /obj/item/modular_computer/handheld/pda/research/rd
 	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/research/rd
@@ -93,11 +93,11 @@
 	shoes = /obj/item/clothing/shoes/sneakers/medsci
 	id = /obj/item/card/id/white
 
-	headset = /obj/item/device/radio/headset/headset_sci
-	bowman = /obj/item/device/radio/headset/headset_sci/alt
-	double_headset = /obj/item/device/radio/headset/alt/double/sci
-	wrist_radio = /obj/item/device/radio/headset/wrist/sci
-	clipon_radio = /obj/item/device/radio/headset/wrist/clip/sci
+	headset = /obj/item/radio/headset/headset_sci
+	bowman = /obj/item/radio/headset/headset_sci/alt
+	double_headset = /obj/item/radio/headset/alt/double/sci
+	wrist_radio = /obj/item/radio/headset/wrist/sci
+	clipon_radio = /obj/item/radio/headset/wrist/clip/sci
 
 	tab_pda = /obj/item/modular_computer/handheld/pda/research
 	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/research
@@ -145,11 +145,11 @@
 
 	uniform = /obj/item/clothing/under/rank/scientist/xenoarchaeologist
 
-	headset = /obj/item/device/radio/headset/headset_xenology
-	bowman = /obj/item/device/radio/headset/headset_xenology/alt
-	double_headset = /obj/item/device/radio/headset/alt/double/xenology
-	wrist_radio = /obj/item/device/radio/headset/wrist/xenology
-	clipon_radio = /obj/item/device/radio/headset/wrist/clip/xenology
+	headset = /obj/item/radio/headset/headset_xenology
+	bowman = /obj/item/radio/headset/headset_xenology/alt
+	double_headset = /obj/item/radio/headset/alt/double/xenology
+	wrist_radio = /obj/item/radio/headset/wrist/xenology
+	clipon_radio = /obj/item/radio/headset/wrist/clip/xenology
 
 /obj/outfit/job/scientist/anomalist
 	name = "Anomalist"
@@ -157,11 +157,11 @@
 
 	uniform = /obj/item/clothing/under/rank/scientist/anomalist
 
-	headset = /obj/item/device/radio/headset/headset_anom
-	bowman = /obj/item/device/radio/headset/headset_anom/alt
-	double_headset = /obj/item/device/radio/headset/alt/double/anom
-	wrist_radio = /obj/item/device/radio/headset/wrist/anom
-	clipon_radio = /obj/item/device/radio/headset/wrist/clip/anom
+	headset = /obj/item/radio/headset/headset_anom
+	bowman = /obj/item/radio/headset/headset_anom/alt
+	double_headset = /obj/item/radio/headset/alt/double/anom
+	wrist_radio = /obj/item/radio/headset/wrist/anom
+	clipon_radio = /obj/item/radio/headset/wrist/clip/anom
 
 /datum/job/xenobiologist
 	title = "Xenobiologist"
@@ -195,11 +195,11 @@
 
 	uniform = /obj/item/clothing/under/rank/scientist/xenobio
 
-	headset = /obj/item/device/radio/headset/headset_xenology
-	bowman = /obj/item/device/radio/headset/headset_xenology/alt
-	double_headset = /obj/item/device/radio/headset/alt/double/xenology
-	wrist_radio = /obj/item/device/radio/headset/wrist/xenology
-	clipon_radio = /obj/item/device/radio/headset/wrist/clip/xenology
+	headset = /obj/item/radio/headset/headset_xenology
+	bowman = /obj/item/radio/headset/headset_xenology/alt
+	double_headset = /obj/item/radio/headset/alt/double/xenology
+	wrist_radio = /obj/item/radio/headset/wrist/xenology
+	clipon_radio = /obj/item/radio/headset/wrist/clip/xenology
 
 /datum/job/xenobotanist
 	title = "Xenobotanist"
@@ -234,11 +234,11 @@
 
 	uniform = /obj/item/clothing/under/rank/scientist/botany
 
-	headset = /obj/item/device/radio/headset/headset_xenology
-	bowman = /obj/item/device/radio/headset/headset_xenology/alt
-	double_headset = /obj/item/device/radio/headset/alt/double/xenology
-	wrist_radio = /obj/item/device/radio/headset/wrist/xenology
-	clipon_radio = /obj/item/device/radio/headset/wrist/clip/xenology
+	headset = /obj/item/radio/headset/headset_xenology
+	bowman = /obj/item/radio/headset/headset_xenology/alt
+	double_headset = /obj/item/radio/headset/alt/double/xenology
+	wrist_radio = /obj/item/radio/headset/wrist/xenology
+	clipon_radio = /obj/item/radio/headset/wrist/clip/xenology
 
 /datum/job/intern_sci
 	title = "Research Intern"
@@ -262,11 +262,11 @@
 
 	uniform = /obj/item/clothing/under/rank/scientist/intern
 	shoes = /obj/item/clothing/shoes/sneakers/medsci
-	headset = /obj/item/device/radio/headset/headset_sci
-	bowman = /obj/item/device/radio/headset/headset_sci/alt
-	double_headset = /obj/item/device/radio/headset/alt/double/sci
-	wrist_radio = /obj/item/device/radio/headset/wrist/sci
-	clipon_radio = /obj/item/device/radio/headset/wrist/clip/sci
+	headset = /obj/item/radio/headset/headset_sci
+	bowman = /obj/item/radio/headset/headset_sci/alt
+	double_headset = /obj/item/radio/headset/alt/double/sci
+	wrist_radio = /obj/item/radio/headset/wrist/sci
+	clipon_radio = /obj/item/radio/headset/wrist/clip/sci
 
 	backpack = /obj/item/storage/backpack/toxins
 	backpack_faction = /obj/item/storage/backpack/nt

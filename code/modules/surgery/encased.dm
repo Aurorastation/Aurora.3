@@ -18,7 +18,7 @@
 
 /singleton/surgery_step/open_encased/saw
 	allowed_tools = list(
-	/obj/item/surgery/circular_saw = 100,
+	TOOL_SAW = 100,
 	/obj/item/melee/energy = 100,
 	/obj/item/melee/chainsword = 70,
 	/obj/item/material/hatchet = 75
@@ -67,8 +67,8 @@
 /singleton/surgery_step/open_encased/retract
 	name = "Retract Sawed Bone"
 	allowed_tools = list(
-	/obj/item/surgery/retractor = 100, 	\
-	/obj/item/crowbar = 75
+	TOOL_RETRACTOR = 100, 	\
+	TOOL_CROWBAR = 75
 	)
 
 	min_duration = 20
@@ -121,8 +121,8 @@
 /singleton/surgery_step/open_encased/close
 	name = "Bend Sawed Bone Closed"
 	allowed_tools = list(
-	/obj/item/surgery/retractor = 100, 	\
-	/obj/item/crowbar = 75
+	TOOL_RETRACTOR = 100, 	\
+	TOOL_CROWBAR = 75
 	)
 
 	min_duration = 20

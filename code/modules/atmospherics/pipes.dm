@@ -95,15 +95,15 @@
 	if (istype(src, /obj/machinery/atmospherics/pipe/tank))
 		return ..()
 
-	if(istype(attacking_item,/obj/item/device/pipe_painter))
+	if(istype(attacking_item,/obj/item/pipe_painter))
 		return FALSE
 
-	if(istype(attacking_item, /obj/item/device/analyzer) && Adjacent(user))
-		var/obj/item/device/analyzer/A = attacking_item
+	if(istype(attacking_item, /obj/item/analyzer) && Adjacent(user))
+		var/obj/item/analyzer/A = attacking_item
 		A.analyze_gases(src, user)
 		return FALSE
 
-	if (!attacking_item.iswrench() && !istype(attacking_item, /obj/item/pipewrench))
+	if (attacking_item.tool_behaviour != TOOL_WRENCH && !istype(attacking_item, /obj/item/pipewrench))
 		return ..()
 	var/turf/T = src.loc
 	if (level==1 && isturf(T) && !T.is_plating())
@@ -1303,11 +1303,11 @@
 	return null
 
 /obj/machinery/atmospherics/pipe/tank/attackby(obj/item/attacking_item, mob/user)
-	if(istype(attacking_item, /obj/item/device/pipe_painter))
+	if(istype(attacking_item, /obj/item/pipe_painter))
 		return FALSE
 
-	if(istype(attacking_item, /obj/item/device/analyzer) && in_range(user, src))
-		var/obj/item/device/analyzer/A = attacking_item
+	if(istype(attacking_item, /obj/item/analyzer) && in_range(user, src))
+		var/obj/item/analyzer/A = attacking_item
 		A.analyze_gases(src, user)
 		return TRUE
 

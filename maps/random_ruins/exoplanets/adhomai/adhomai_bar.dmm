@@ -334,7 +334,7 @@
 /area/adhomai_bar)
 "sE" = (
 /obj/structure/table/wood,
-/obj/item/device/flashlight/lamp,
+/obj/item/flashlight/lamp,
 /obj/item/key/door_key,
 /turf/simulated/floor/exoplanet/wood,
 /area/adhomai_bar)
@@ -514,7 +514,7 @@
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 4
 	},
-/obj/item/device/hand_labeler,
+/obj/item/hand_labeler,
 /turf/simulated/floor/exoplanet/lino/diamond,
 /area/adhomai_bar)
 "Fl" = (

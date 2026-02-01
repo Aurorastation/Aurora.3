@@ -113,7 +113,7 @@
 				state = 3
 		else
 			return ..()
-	else if(attacking_item.iswrench())
+	else if(attacking_item.tool_behaviour == TOOL_WRENCH)
 		if(anchored)
 			to_chat(user, SPAN_NOTICE("You lean down and unwrench \the [src]."))
 			anchored = FALSE

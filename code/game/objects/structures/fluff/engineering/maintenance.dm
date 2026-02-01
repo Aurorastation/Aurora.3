@@ -73,8 +73,8 @@ ABSTRACT_TYPE(/obj/structure/engineer_maintenance)
 	icon_state = "[panel_location]_[panel_type]_[icon_number]"
 
 /obj/structure/engineer_maintenance/attackby(obj/item/attacking_item, mob/user, params)
-	if(attacking_item.iswrench()) // Any wrench is good, but we explicltly include the impact drill to send a helpful msg if they just have the screwdriver bit attached.
-		if(!attacking_item.iswrench())
+	if(attacking_item.tool_behaviour == TOOL_WRENCH) // Any wrench is good, but we explicitly include the impact drill to send a helpful msg if they just have the screwdriver bit attached.
+		if(attacking_item.tool_behaviour != TOOL_WRENCH)
 			to_chat(user, SPAN_WARNING("\The [attacking_item] must have its wrenchbit inserted to remove \the [src]'s bolts!"))
 			return
 		if (istype(attacking_item, /obj/item/powerdrill))
@@ -116,7 +116,7 @@ ABSTRACT_TYPE(/obj/structure/engineer_maintenance)
 	panel_tools = list(
 		/obj/item/pipewrench = /singleton/engineer_maintenance_tool/steam_pipe,
 		/obj/item/hammer = /singleton/engineer_maintenance_tool/steam_pipe,
-		/obj/item/device/multitool = /singleton/engineer_maintenance_tool/steam_pipe
+		/obj/item/multitool = /singleton/engineer_maintenance_tool/steam_pipe
 	)
 
 /obj/structure/engineer_maintenance/pipe/wall
@@ -145,7 +145,7 @@ ABSTRACT_TYPE(/obj/structure/engineer_maintenance)
 	panel_tools = list(
 		/obj/item/wirecutters = /singleton/engineer_maintenance_tool/electrical_spark,
 		/obj/item/stack/cable_coil = /singleton/engineer_maintenance_tool/electrical_spark,
-		/obj/item/device/multitool = /singleton/engineer_maintenance_tool/electrical_hum
+		/obj/item/multitool = /singleton/engineer_maintenance_tool/electrical_hum
 	)
 
 /obj/structure/engineer_maintenance/electric/wall

@@ -9,4 +9,4 @@
 	new /obj/item/clothing/suit/space/void(src)
 	new /obj/item/crowbar(src)
 	new /obj/item/cell(src)
-	new /obj/item/device/multitool(src)
+	new /obj/item/multitool(src)

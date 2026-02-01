@@ -310,7 +310,7 @@
 	},
 /obj/machinery/recharge_station,
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/item/device/gps/stationary/mining_shuttle{
+/obj/item/gps/stationary/mining_shuttle{
 	pixel_y = 27;
 	name = "static GPS (Orion Miner)";
 	gpstag = "OMINER";
@@ -1610,7 +1610,7 @@
 	pixel_x = 8;
 	pixel_y = 4
 	},
-/obj/item/device/mass_spectrometer{
+/obj/item/mass_spectrometer{
 	pixel_x = -6;
 	pixel_y = 3
 	},
@@ -3853,10 +3853,10 @@
 "HN" = (
 /obj/structure/table/reinforced/steel,
 /obj/item/storage/toolbox/mechanical,
-/obj/item/device/binoculars{
+/obj/item/binoculars{
 	pixel_y = 4
 	},
-/obj/item/device/binoculars{
+/obj/item/binoculars{
 	pixel_y = 10
 	},
 /turf/simulated/floor/tiled/dark,
@@ -5290,10 +5290,10 @@
 /area/shuttle/orion_miner/corridor)
 "Un" = (
 /obj/structure/table/steel,
-/obj/item/device/suit_cooling_unit,
-/obj/item/device/suit_cooling_unit,
-/obj/item/device/suit_cooling_unit,
-/obj/item/device/suit_cooling_unit,
+/obj/item/suit_cooling_unit,
+/obj/item/suit_cooling_unit,
+/obj/item/suit_cooling_unit,
+/obj/item/suit_cooling_unit,
 /obj/machinery/light/colored/decayed,
 /obj/item/tank/jetpack/oxygen,
 /obj/item/tank/jetpack/oxygen,
@@ -5439,19 +5439,19 @@
 /area/shuttle/orion_miner/main_engineering_port)
 "VZ" = (
 /obj/structure/table/reinforced/steel,
-/obj/item/device/gps/mining{
+/obj/item/gps/mining{
 	pixel_x = -8;
 	pixel_y = 12
 	},
-/obj/item/device/gps/mining{
+/obj/item/gps/mining{
 	pixel_x = -8;
 	pixel_y = 8
 	},
-/obj/item/device/gps/mining{
+/obj/item/gps/mining{
 	pixel_x = -8;
 	pixel_y = 4
 	},
-/obj/item/device/gps/mining{
+/obj/item/gps/mining{
 	pixel_x = -8
 	},
 /obj/item/plastique/seismic{
@@ -5462,11 +5462,11 @@
 	pixel_x = 10;
 	pixel_y = 6
 	},
-/obj/item/device/spaceflare{
+/obj/item/spaceflare{
 	pixel_x = -5;
 	pixel_y = -3
 	},
-/obj/item/device/spaceflare{
+/obj/item/spaceflare{
 	pixel_x = -5;
 	pixel_y = -11
 	},
@@ -5697,7 +5697,7 @@
 /obj/structure/table/rack,
 /obj/item/storage/box/lights/mixed,
 /obj/item/storage/box/lights/mixed,
-/obj/item/device/lightreplacer,
+/obj/item/lightreplacer,
 /turf/simulated/floor/tiled,
 /area/shuttle/orion_miner/tech_storage)
 "XX" = (
@@ -5837,7 +5837,7 @@
 /obj/machinery/light/colored/red,
 /obj/machinery/telecomms/allinone/ship,
 /obj/effect/floor_decal/industrial/hatch/security,
-/obj/item/device/multitool{
+/obj/item/multitool{
 	pixel_x = -7;
 	pixel_y = 5
 	},

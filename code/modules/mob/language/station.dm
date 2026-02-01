@@ -321,8 +321,8 @@
 		return 1
 
 	if (M.l_ear || M.r_ear)
-		var/obj/item/device/radio/headset/dongle
-		if(istype(M.l_ear,/obj/item/device/radio/headset))
+		var/obj/item/radio/headset/dongle
+		if(istype(M.l_ear,/obj/item/radio/headset))
 			dongle = M.l_ear
 		else
 			dongle = M.r_ear

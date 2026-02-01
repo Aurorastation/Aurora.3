@@ -37,9 +37,7 @@
 	surgerysound = 'sound/items/surgery/bonesetter.ogg'
 	drop_sound = 'sound/items/drop/wrench.ogg'
 	pickup_sound = 'sound/items/pickup/wrench.ogg'
-
-/obj/item/wrench/iswrench()
-	return TRUE
+	tool_behaviour = TOOL_WRENCH
 
 /*
  * Screwdriver
@@ -70,6 +68,7 @@
 	lock_picking_level = 5
 	build_from_parts = TRUE
 	worn_overlay = "head"
+	tool_behaviour = TOOL_SCREWDRIVER
 
 /obj/item/screwdriver/Initialize()
 	. = ..()
@@ -115,9 +114,6 @@
 		M = user
 	return eyestab(M,user)
 
-/obj/item/screwdriver/isscrewdriver()
-	return TRUE
-
 /*
  * Wirecutters
  */
@@ -152,6 +148,8 @@
 	worn_overlay = "head"
 
 	var/list/color_options = list(COLOR_BLUE, COLOR_RED, COLOR_PURPLE, COLOR_BROWN, COLOR_GREEN, COLOR_CYAN, COLOR_YELLOW)
+
+	tool_behaviour = TOOL_WIRECUTTER
 
 /obj/item/wirecutters/Initialize()
 	. = ..()
@@ -204,9 +202,6 @@
 	else
 		..()
 
-/obj/item/wirecutters/iswirecutter()
-	return TRUE
-
 /obj/item/wirecutters/toolbelt
 	color_options = list(COLOR_TOOLS)
 
@@ -248,26 +243,28 @@
 	throw_range = 5
 	w_class = WEIGHT_CLASS_SMALL
 
-	//Cost to make in the autolathe
+	/// Cost to make in the autolathe
 	matter = list(DEFAULT_WALL_MATERIAL = 70, MATERIAL_GLASS = 30)
 
-	//R&D tech level
+	/// R&D tech level
 	origin_tech = list(TECH_ENGINEERING = 1)
 
 	//Welding tool specific stuff
-	var/welding = 0 	//Whether or not the welding tool is off(0), on(1) or currently welding(2)
-	var/status = TRUE		//Whether the welder is secured or unsecured (able to attach rods to it to make a flamethrower)
-	var/max_fuel = 20 	//The max amount of fuel the welder can hold
+	/// Whether or not the welding tool is off(0), on(1) or currently welding(2)
+	var/welding = 0
+	/// Whether the welder is secured or unsecured (able to attach rods to it to make a flamethrower)
+	var/status = TRUE
+	/// The max amount of fuel the welder can hold
+	var/max_fuel = 20
 	var/change_icons = TRUE
 	var/produces_flash = TRUE
+
+	tool_behaviour = TOOL_WELDER
 
 /obj/item/weldingtool/feedback_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	if(distance <= 0)
 		. += "It contains [get_fuel()]/[max_fuel] units of fuel."
-
-/obj/item/weldingtool/iswelder()
-	return TRUE
 
 /obj/item/weldingtool/largetank
 	name = "industrial welding tool"
@@ -364,7 +361,7 @@
 	return ..()
 
 /obj/item/weldingtool/attackby(obj/item/attacking_item, mob/user)
-	if(attacking_item.isscrewdriver())
+	if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 		if(isrobot(loc))
 			to_chat(user, SPAN_ALERT("You cannot modify your own welder!"))
 			return TRUE
@@ -398,8 +395,7 @@
 		if(get_fuel() < 1)
 			setWelding(0)
 
-	//I'm not sure what this does. I assume it has to do with starting fires...
-	//...but it doesnt check to see if the welder is on or not.
+	// If we're running process(), we're currently running. Hotspot on the current tile.
 	var/turf/location = src.loc
 	if(istype(location, /mob/))
 		var/mob/M = location
@@ -612,7 +608,7 @@
 		AddOverlays("overcap_attached", ATOM_ICON_CACHE_PROTECTED)
 		toolspeed *= 2
 		return TRUE
-	if(attacking_item.isscrewdriver())
+	if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 		if(!eyeshield && !overcap)
 			to_chat(user, SPAN_WARNING("\The [src] doesn't have any accessories to remove!"))
 			return TRUE
@@ -694,91 +690,6 @@
 	. += ..()
 	. += "This can be attached to an experimental welder to double the speed it works at, at the cost of tripling the fuel cost of using it."
 
-/*
- * Crowbar
- */
-
-/obj/item/crowbar
-	name = "crowbar"
-	desc = "An iron bar with a flattened end, used as a lever to remove floors and pry open doors."
-	icon = 'icons/obj/tools.dmi'
-	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items/lefthand_tools.dmi',
-		slot_r_hand_str = 'icons/mob/items/righthand_tools.dmi',
-		)
-	icon_state = "crowbar"
-	item_state = "crowbar"
-	obj_flags = OBJ_FLAG_CONDUCTABLE
-	slot_flags = SLOT_BELT
-	force = 18
-	throwforce = 7
-	w_class = WEIGHT_CLASS_NORMAL
-	drop_sound = 'sound/items/drop/crowbar.ogg'
-	pickup_sound = 'sound/items/pickup/crowbar.ogg'
-	usesound = SFX_CROWBAR
-	surgerysound = 'sound/items/surgery/retractor.ogg'
-	origin_tech = list(TECH_ENGINEERING = 1)
-	matter = list(DEFAULT_WALL_MATERIAL = 50)
-	attack_verb = list("attacked", "bashed", "battered", "bludgeoned", "whacked")
-
-/obj/item/crowbar/iscrowbar()
-	return TRUE
-
-/obj/item/crowbar/red
-	icon = 'icons/obj/tools.dmi'
-	icon_state = "crowbar_red"
-	item_state = "crowbar_red"
-
-/obj/item/crowbar/rescue_axe // Imagine something like a crash axe found on airplanes or forcing tools used by emergency services. This is a tool first and foremost.
-	name = "rescue axe"
-	desc = "A short lightweight emergency tool meant to chop, pry and pierce. Most of the handle is insulated excepting the wedge at the very bottom. The axe head atop the tool has a short pick opposite of the blade."
-	icon_state = "rescue_axe"
-	item_state = "rescue_axe"
-	w_class = WEIGHT_CLASS_NORMAL
-	force = 18
-	throwforce = 12
-	obj_flags = null // Handle is insulated, so this means it won't conduct electricity and hurt you.
-	sharp = TRUE
-	edge = TRUE
-	origin_tech = list(TECH_ENGINEERING = 2)
-
-/obj/item/crowbar/rescue_axe/resolve_attackby(atom/A) // In practice this means it just does full damage to reinforced windows, which halve the force of attacks done against it already. That's just fine.
-	if(istype(A, /obj/structure/window))
-		force = initial(force) * 2
-	else
-		force = initial(force)
-	. = ..()
-
-/obj/item/crowbar/rescue_axe/iscrowbar()
-	if(ismob(loc))
-		var/mob/M = loc
-		if(M.a_intent && M.a_intent == I_HURT)
-			return FALSE
-
-	return TRUE
-
-/obj/item/crowbar/rescue_axe/can_woodcut()
-	return TRUE
-
-/obj/item/crowbar/rescue_axe/red
-	icon_state = "rescue_axe_red"
-	item_state = "rescue_axe_red"
-
-/obj/item/crowbar/hydraulic_rescue_tool
-	name = "hydraulic rescue tool"
-	desc = "A hydraulic rescue tool that functions like a crowbar by applying strong amounts of hydraulic pressure to force open different things. Also known as jaws of life."
-	icon = 'icons/obj/item/hydraulic_rescue_tool.dmi'
-	icon_state = "jawspry"
-	force = 15
-	throwforce = 1
-	w_class = WEIGHT_CLASS_NORMAL
-	drop_sound = 'sound/items/drop/crowbar.ogg'
-	pickup_sound = 'sound/items/pickup/crowbar.ogg'
-	usesound = SFX_CROWBAR
-	origin_tech = list(TECH_ENGINEERING = 1)
-	matter = list(DEFAULT_WALL_MATERIAL = 50)
-	attack_verb = list("attacked", "rammed", "battered", "bludgeoned")
-
 // Pipe wrench
 /obj/item/pipewrench
 	name = "pipe wrench"
@@ -798,6 +709,7 @@
 	origin_tech = list(TECH_MATERIAL = 1, TECH_ENGINEERING = 2)
 	matter = list(DEFAULT_WALL_MATERIAL = 150)
 	attack_verb = list("bashed", "battered", "bludgeoned", "whacked")
+	tool_behaviour = TOOL_PIPEWRENCH
 
 /obj/item/pipewrench/Initialize()
 	. = ..()
@@ -839,21 +751,6 @@
 		tools[tool] = image('icons/obj/tools.dmi', icon_state = "[icon_state]-[tool]")
 	. = ..()
 
-/obj/item/combitool/iswrench()
-	return current_tool == "wrench"
-
-/obj/item/combitool/isscrewdriver()
-	return current_tool == "screwdriver"
-
-/obj/item/combitool/iswirecutter()
-	return current_tool == "wirecutters"
-
-/obj/item/combitool/iscrowbar()
-	return current_tool == "crowbar"
-
-/obj/item/combitool/ismultitool()
-	return current_tool == "multitool"
-
 /obj/item/combitool/proc/update_tool()
 	icon_state = "[initial(icon_state)]-[current_tool]"
 
@@ -868,18 +765,23 @@
 			if("wrench")
 				usesound = 'sound/items/wrench.ogg'
 				surgerysound = 'sound/items/surgery/bonesetter.ogg'
+				tool_behaviour = TOOL_WRENCH
 			if("screwdriver")
 				usesound = 'sound/items/screwdriver.ogg'
 				surgerysound = 'sound/items/screwdriver.ogg'
+				tool_behaviour = TOOL_SCREWDRIVER
 			if("wirecutters")
 				usesound = 'sound/items/wirecutter.ogg'
 				surgerysound = 'sound/items/surgery/hemostat.ogg'
+				tool_behaviour = TOOL_WIRECUTTER
 			if("crowbar")
 				usesound = SFX_CROWBAR
 				surgerysound = 'sound/items/surgery/retractor.ogg'
+				tool_behaviour = TOOL_CROWBAR
 			if("multitool")
 				usesound = null
 				surgerysound = null
+				tool_behaviour = TOOL_MULTITOOL
 		update_tool()
 	return 1
 
@@ -898,8 +800,8 @@
 	usesound = 'sound/items/drill_use.ogg'
 	var/current_tool = 1
 	var/list/tools = list(
-		"screwdriver bit",
-		"wrench bit"
+		"screwdriver",
+		"wrench"
 		)
 
 /obj/item/powerdrill/mechanics_hints(mob/user, distance, is_adjacent)
@@ -908,6 +810,8 @@
 
 /obj/item/powerdrill/Initialize()
 	. = ..()
+	// When spawned, it has the screwdriver bit enabled. Reflect that.
+	tool_behaviour = TOOL_SCREWDRIVER
 	update_tool()
 
 /obj/item/powerdrill/set_initial_maptext()
@@ -924,21 +828,17 @@
 	. = ..()
 	closeToolTip(usr)
 
-/obj/item/powerdrill/iswrench()
-	return tools[current_tool] == "wrench bit"
-
-/obj/item/powerdrill/isscrewdriver()
-	return tools[current_tool] == "screwdriver bit"
-
-/obj/item/powerdrill/proc/update_tool()
-	if(isscrewdriver())
+/obj/item/powerdrill/proc/update_tool(var/tool)
+	if(tool == TOOL_SCREWDRIVER)
 		usesound = 'sound/items/drill_use.ogg'
 		icon_state = "impact_wrench-screw"
 		check_maptext(SMALL_FONTS(7, "S"))
-	else if(iswrench())
+		tool_behaviour = TOOL_SCREWDRIVER
+	else if(tool == TOOL_WRENCH)
 		usesound = 'sound/items/air_wrench.ogg'
 		icon_state = "impact_wrench-wrench"
 		check_maptext(SMALL_FONTS(7, "W"))
+		tool_behaviour = TOOL_WRENCH
 
 /obj/item/powerdrill/attack_self(var/mob/user)
 	if(++current_tool > tools.len)
@@ -949,7 +849,7 @@
 	else
 		to_chat(user, "You switch \the [src] to the [tool] fitting.")
 		playsound(loc, 'sound/items/change_drill.ogg', 50, 1)
-	update_tool()
+	update_tool(tool)
 	return TRUE
 
 /obj/item/powerdrill/issurgerycompatible()
@@ -1037,6 +937,7 @@
 	attack_verb = list("smashed", "hammered")
 	drop_sound = 'sound/items/drop/crowbar.ogg'
 	pickup_sound = 'sound/items/pickup/crowbar.ogg'
+	tool_behaviour = TOOL_HAMMER
 	usesound = SFX_HAMMER
 
 /obj/item/hammer/Initialize()
@@ -1045,5 +946,3 @@
 	handle.color = pick(COLOR_BLUE, COLOR_RED, COLOR_PURPLE, COLOR_BROWN, COLOR_GREEN, COLOR_CYAN, COLOR_YELLOW)
 	AddOverlays(handle)
 
-/obj/item/hammer/ishammer()
-	return TRUE

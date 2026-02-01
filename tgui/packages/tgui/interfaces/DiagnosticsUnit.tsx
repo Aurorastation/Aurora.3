@@ -53,7 +53,8 @@ export const DiagnosticsUnit = (props, context) => {
   return (
     <Window
       resizable
-      theme={data.broken ? 'spookyconsole' : data.machine_ui_theme}>
+      theme={data.broken ? 'spookyconsole' : data.machine_ui_theme}
+    >
       <Window.Content scrollable>
         {data.broken ? <Broken /> : <IPCDiagnostics />}
       </Window.Content>

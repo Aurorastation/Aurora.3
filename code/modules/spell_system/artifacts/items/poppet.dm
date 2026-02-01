@@ -88,13 +88,13 @@
 			playsound(get_turf(H), 'sound/weapons/Egloves.ogg', 50, 1, -1)
 			return TRUE
 
-		if(istype(attacking_item, /obj/item/device/flashlight))
+		if(istype(attacking_item, /obj/item/flashlight))
 			to_chat(H, SPAN_WARNING("You direct \the [attacking_item] towards \the [src]'s eyes!"))
 			playsound(get_turf(H), 'sound/items/flashlight.ogg', 50, 1, -1)
 			H.flash_act()
 			return TRUE
 
-		if(attacking_item.iscoil())
+		if(attacking_item.tool_behaviour == TOOL_CABLECOIL)
 			to_chat(H, SPAN_WARNING("You strangle \the [src] with \the [attacking_item]!"))
 			H.silent += 10
 			playsound(get_turf(H), 'sound/effects/noosed.ogg', 50, 1, -1)

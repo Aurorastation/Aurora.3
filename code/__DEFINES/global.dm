@@ -155,7 +155,7 @@ GLOBAL_LIST_INIT(scarySounds, list(
 GLOBAL_VAR_INIT(max_explosion_range, 14)
 
 // Announcer intercom, because too much stuff creates an intercom for one message then hard del()s it.
-GLOBAL_DATUM_INIT(global_announcer, /obj/item/device/radio/all_channels, new)
+GLOBAL_DATUM_INIT(global_announcer, /obj/item/radio/all_channels, new)
 
 // the number next to it denotes how much money the department receives when its account is generated
 GLOBAL_LIST_INIT(department_funds, list(

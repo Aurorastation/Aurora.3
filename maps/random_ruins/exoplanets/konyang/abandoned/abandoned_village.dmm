@@ -637,7 +637,7 @@
 /obj/item/pen/black{
 	pixel_y = 13
 	},
-/obj/item/device/flashlight/lamp/box{
+/obj/item/flashlight/lamp/box{
 	pixel_y = 1;
 	pixel_x = -5
 	},
@@ -1674,7 +1674,7 @@
 /area/konyang_village)
 "Xq" = (
 /obj/structure/table/wood,
-/obj/item/device/flashlight/lamp,
+/obj/item/flashlight/lamp,
 /turf/simulated/floor/exoplanet/wood,
 /area/konyang_village)
 "Xy" = (

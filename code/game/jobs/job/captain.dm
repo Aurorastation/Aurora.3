@@ -36,11 +36,11 @@ GLOBAL_DATUM_INIT(captain_announcement, /datum/announcement/minor, new(do_newsca
 	glasses = /obj/item/clothing/glasses/sunglasses
 	id = /obj/item/card/id/scc/gold/captain
 
-	headset = /obj/item/device/radio/headset/heads/captain
-	bowman = /obj/item/device/radio/headset/heads/captain/alt
-	double_headset = /obj/item/device/radio/headset/alt/double/captain
-	wrist_radio = /obj/item/device/radio/headset/wrist/captain
-	clipon_radio = /obj/item/device/radio/headset/wrist/clip/captain
+	headset = /obj/item/radio/headset/heads/captain
+	bowman = /obj/item/radio/headset/heads/captain/alt
+	double_headset = /obj/item/radio/headset/alt/double/captain
+	wrist_radio = /obj/item/radio/headset/wrist/captain
+	clipon_radio = /obj/item/radio/headset/wrist/clip/captain
 
 	tab_pda = /obj/item/modular_computer/handheld/pda/command/captain
 	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/command/captain
@@ -123,11 +123,11 @@ GLOBAL_DATUM_INIT(captain_announcement, /datum/announcement/minor, new(do_newsca
 	shoes = /obj/item/clothing/shoes/laceup/brown
 	id = /obj/item/card/id/scc/silver
 
-	headset = /obj/item/device/radio/headset/heads/xo
-	bowman = /obj/item/device/radio/headset/heads/xo/alt
-	double_headset = /obj/item/device/radio/headset/alt/double/xo
-	wrist_radio = /obj/item/device/radio/headset/wrist/xo
-	clipon_radio = /obj/item/device/radio/headset/wrist/clip/xo
+	headset = /obj/item/radio/headset/heads/xo
+	bowman = /obj/item/radio/headset/heads/xo/alt
+	double_headset = /obj/item/radio/headset/alt/double/xo
+	wrist_radio = /obj/item/radio/headset/wrist/xo
+	clipon_radio = /obj/item/radio/headset/wrist/clip/xo
 
 	tab_pda = /obj/item/modular_computer/handheld/pda/command/xo
 	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/command/xo
@@ -181,11 +181,11 @@ GLOBAL_DATUM_INIT(captain_announcement, /datum/announcement/minor, new(do_newsca
 	shoes = /obj/item/clothing/shoes/laceup
 	id = /obj/item/card/id/scc/bridge
 
-	headset = /obj/item/device/radio/headset/headset_com
-	bowman = /obj/item/device/radio/headset/headset_com/alt
-	double_headset = /obj/item/device/radio/headset/alt/double/command
-	wrist_radio = /obj/item/device/radio/headset/wrist/command
-	clipon_radio = /obj/item/device/radio/headset/wrist/clip/command
+	headset = /obj/item/radio/headset/headset_com
+	bowman = /obj/item/radio/headset/headset_com/alt
+	double_headset = /obj/item/radio/headset/alt/double/command
+	wrist_radio = /obj/item/radio/headset/wrist/command
+	clipon_radio = /obj/item/radio/headset/wrist/clip/command
 	messengerbag = /obj/item/storage/backpack/messenger/com
 
 	tab_pda = /obj/item/modular_computer/handheld/pda/bridge

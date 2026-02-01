@@ -30,7 +30,7 @@
 
 	id = /obj/item/card/id/tcfl_ship
 
-	l_ear = /obj/item/device/radio/headset/ship
+	l_ear = /obj/item/radio/headset/ship
 
 	backpack_contents = list(/obj/item/storage/box/survival = 1, /obj/item/melee/energy/sword/knife = 1, /obj/item/clothing/accessory/storage/pouches/brown = 1)
 	species_shoes = list(

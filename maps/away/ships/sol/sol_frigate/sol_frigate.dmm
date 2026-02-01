@@ -1194,7 +1194,7 @@
 /obj/structure/bed/stool/chair/padded/green{
 	dir = 4
 	},
-/obj/item/device/synthesized_instrument/violin,
+/obj/item/synthesized_instrument/violin,
 /turf/simulated/floor/tiled/dark,
 /area/ship/sol_frigate/bunks)
 "fj" = (
@@ -1421,7 +1421,7 @@
 /area/ship/sol_frigate/Port_docking_port)
 "gj" = (
 /obj/structure/closet/crate/elec,
-/obj/item/device/multitool,
+/obj/item/multitool,
 /obj/item/storage/toolbox/electrical,
 /obj/item/circuitboard/smes,
 /obj/item/circuitboard/smes,
@@ -1773,7 +1773,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/sol_frigate/armoury)
 "hJ" = (
-/obj/item/device/synthesized_instrument/guitar,
+/obj/item/synthesized_instrument/guitar,
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/structure/bed/stool/chair/padded/green,
 /turf/simulated/floor/tiled/dark,
@@ -1924,7 +1924,7 @@
 /area/space)
 "iA" = (
 /obj/structure/table/reinforced,
-/obj/item/device/binoculars,
+/obj/item/binoculars,
 /obj/effect/floor_decal/corner/red{
 	dir = 10
 	},
@@ -2831,7 +2831,7 @@
 /obj/item/storage/firstaid/radiation,
 /obj/item/clothing/suit/radiation,
 /obj/item/clothing/head/radiation,
-/obj/item/device/geiger,
+/obj/item/geiger,
 /obj/effect/floor_decal/corner/brown{
 	dir = 9
 	},
@@ -3055,7 +3055,7 @@
 /area/ship/sol_frigate/cic)
 "nF" = (
 /obj/structure/table/reinforced/steel,
-/obj/item/device/paint_sprayer,
+/obj/item/paint_sprayer,
 /obj/item/clothing/glasses/welding{
 	pixel_y = 12;
 	pixel_x = 7
@@ -5750,12 +5750,12 @@
 /obj/item/tank/emergency_oxygen/double,
 /obj/item/tank/emergency_oxygen/double,
 /obj/item/tank/emergency_oxygen/double,
-/obj/item/device/gps,
-/obj/item/device/gps,
-/obj/item/device/gps,
-/obj/item/device/gps,
-/obj/item/device/gps,
-/obj/item/device/gps,
+/obj/item/gps,
+/obj/item/gps,
+/obj/item/gps,
+/obj/item/gps,
+/obj/item/gps,
+/obj/item/gps,
 /turf/simulated/floor/tiled/dark,
 /area/ship/sol_frigate/eva_storage)
 "AJ" = (
@@ -6481,7 +6481,7 @@
 	pixel_y = -3;
 	pixel_x = -8
 	},
-/obj/item/device/synthesized_instrument/violin,
+/obj/item/synthesized_instrument/violin,
 /turf/simulated/floor/carpet,
 /area/ship/sol_frigate/captain_cabin)
 "DT" = (
@@ -6550,10 +6550,10 @@
 /obj/item/grenade/chem_grenade/metalfoam,
 /obj/item/stack/rods/full,
 /obj/item/stack/material/glass/full,
-/obj/item/device/oxycandle,
-/obj/item/device/oxycandle,
-/obj/item/device/flashlight/flare,
-/obj/item/device/flashlight/flare,
+/obj/item/oxycandle,
+/obj/item/oxycandle,
+/obj/item/flashlight/flare,
+/obj/item/flashlight/flare,
 /obj/item/storage/bag/inflatable,
 /obj/effect/floor_decal/corner/orange{
 	dir = 9
@@ -6845,7 +6845,7 @@
 /obj/item/storage/firstaid/radiation,
 /obj/item/clothing/suit/radiation,
 /obj/item/clothing/head/radiation,
-/obj/item/device/geiger,
+/obj/item/geiger,
 /obj/effect/floor_decal/corner/brown{
 	dir = 5
 	},
@@ -7452,10 +7452,10 @@
 /area/ship/sol_frigate/hangar)
 "Iu" = (
 /obj/structure/table/reinforced,
-/obj/item/device/binoculars{
+/obj/item/binoculars{
 	pixel_x = -9
 	},
-/obj/item/device/radio,
+/obj/item/radio,
 /obj/item/clipboard{
 	pixel_x = 6
 	},
@@ -8240,7 +8240,7 @@
 	pixel_y = 12;
 	pixel_x = -8
 	},
-/obj/item/device/advanced_healthanalyzer,
+/obj/item/advanced_healthanalyzer,
 /turf/simulated/floor/tiled/white,
 /area/ship/sol_frigate/sickbay)
 "Ls" = (
@@ -9041,7 +9041,7 @@
 /obj/effect/floor_decal/corner/orange/full{
 	dir = 8
 	},
-/obj/item/device/radio/intercom/hailing/west,
+/obj/item/radio/intercom/hailing/west,
 /obj/machinery/light{
 	dir = 1
 	},
@@ -9702,7 +9702,7 @@
 /area/ship/sol_frigate/oquarters)
 "SV" = (
 /obj/structure/filingcabinet/chestdrawer,
-/obj/item/device/flashlight/lamp{
+/obj/item/flashlight/lamp{
 	pixel_y = 9
 	},
 /turf/simulated/floor/carpet,

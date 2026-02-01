@@ -74,7 +74,7 @@ export const EscapeShuttleControlConsole = (props, context) => {
               />
             ) : (
               <Button content="" icon="eject" onClick={() => act('scanid')} />
-            )
+            ),
           )}
         </Section>
         <Section title="Shuttle Control">

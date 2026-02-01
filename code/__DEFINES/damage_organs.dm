@@ -57,12 +57,20 @@
 #define ORGAN_DAMAGE_STATES ORGAN_CUT_AWAY|ORGAN_BLEEDING|ORGAN_BROKEN|ORGAN_DESTROYED|ORGAN_SPLINTED|ORGAN_DEAD|ORGAN_MUTATED|ORGAN_ARTERY_CUT
 
 // Limb behaviour defines.
-#define ORGAN_CAN_AMPUTATE (1<<0) //Can this organ be amputated?
-#define ORGAN_CAN_BREAK    (1<<1) //Can this organ break?
-#define ORGAN_CAN_GRASP    (1<<2) //Can this organ grasp things?
-#define ORGAN_CAN_STAND    (1<<3) //Can this organ allow you to stand?
-#define ORGAN_CAN_MAIM     (1<<4) //Can this organ be maimed?
-#define ORGAN_HAS_TENDON   (1<<5) //Does this organ have tendons?
+///Can this organ be amputated?
+#define ORGAN_CAN_AMPUTATE BITFLAG(0)
+///Can this organ break?
+#define ORGAN_CAN_BREAK    BITFLAG(1)
+///Can this organ grasp things?
+#define ORGAN_CAN_GRASP    BITFLAG(2)
+///Can this organ allow you to stand?
+#define ORGAN_CAN_STAND    BITFLAG(3)
+///Can this organ be maimed?
+#define ORGAN_CAN_MAIM     BITFLAG(4)
+///Does this organ have tendons?
+#define ORGAN_HAS_TENDON   BITFLAG(5)
+/// Does this organ heal from overkill?
+#define ORGAN_HEALS_OVERKILL BITFLAG(6)
 
 #define TENDON_BRUISED (1<<0)
 #define TENDON_CUT     (1<<1)

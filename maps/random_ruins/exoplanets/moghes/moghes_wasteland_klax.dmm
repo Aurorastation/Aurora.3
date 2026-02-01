@@ -273,10 +273,10 @@
 /area/moghes_klax)
 "ox" = (
 /obj/structure/table/rack,
-/obj/item/device/radio/off,
-/obj/item/device/radio/off,
-/obj/item/device/gps,
-/obj/item/device/gps,
+/obj/item/radio/off,
+/obj/item/radio/off,
+/obj/item/gps,
+/obj/item/gps,
 /turf/simulated/floor/exoplanet/tiled,
 /area/moghes_klax)
 "oE" = (
@@ -342,10 +342,10 @@
 "se" = (
 /obj/structure/table/standard,
 /obj/machinery/reagentgrinder,
-/obj/item/device/reagent_scanner/adv{
+/obj/item/reagent_scanner/adv{
 	pixel_x = -8
 	},
-/obj/item/device/mass_spectrometer/adv,
+/obj/item/mass_spectrometer/adv,
 /obj/effect/floor_decal/corner_wide/orange{
 	dir = 10
 	},
@@ -582,7 +582,7 @@
 "EF" = (
 /obj/structure/table/rack,
 /obj/item/storage/toolbox/mechanical,
-/obj/item/device/analyzer,
+/obj/item/analyzer,
 /turf/simulated/floor/exoplanet/tiled,
 /area/moghes_klax)
 "EL" = (
@@ -727,7 +727,7 @@
 /obj/machinery/light{
 	dir = 4
 	},
-/obj/item/device/analyzer/plant_analyzer,
+/obj/item/analyzer/plant_analyzer,
 /obj/effect/floor_decal/corner/dark_green/full{
 	dir = 1
 	},
@@ -818,7 +818,7 @@
 /area/moghes_klax)
 "Rn" = (
 /obj/structure/closet/crate/hydroponics,
-/obj/item/device/analyzer/plant_analyzer,
+/obj/item/analyzer/plant_analyzer,
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 5
 	},

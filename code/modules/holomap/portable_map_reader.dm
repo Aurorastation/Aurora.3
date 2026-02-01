@@ -2,7 +2,7 @@
 /obj/item/portable_map_reader
 	name = "portable map reader"
 	desc = "Displays a map of the local space, as well as any marked points of interest."
-	icon = 'icons/obj/item/device/gps.dmi'
+	icon = 'icons/obj/item/gps.dmi'
 	icon_state = "gps"
 	item_state = "radio"
 	contained_sprite = TRUE

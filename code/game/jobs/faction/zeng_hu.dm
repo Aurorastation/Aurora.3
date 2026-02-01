@@ -1,18 +1,18 @@
 /datum/faction/zeng_hu
 	name = "Zeng-Hu Pharmaceuticals"
-	description = {"<p>
+	description = {"
 	Zeng-Hu Pharmaceuticals, born of a merger of two major biotech companies on
 	Earth in 2032, was the first to successfully develop cryogenics in the 21st
 	century for the purposes of space travel. This development, crucial to
 	interstellar colonization, helped propel them to their current position as the
-	largest pharmaceutical and medical corporation in the Orion Spur. In more recent
+	largest pharmaceutical and medical corporation in the Orion Spur.<br> In more recent
 	years, they were also the first mega-corporation to partner with the newly-discovered
 	Skrell, working closely with this alien species to pioneer cloning, a once
 	controversial field that is now more accepted today.
-	</p>"}
-
-	departments = {"Medical<br>Research"}
+	"}
+	departments = list(DEPARTMENT_MEDICAL, DEPARTMENT_SCIENCE)
 	title_suffix = "Zeng"
+	wiki_page = "Zeng-Hu_Pharmaceuticals"
 
 	allowed_role_types = ZENG_ROLES
 
@@ -240,7 +240,7 @@
 	messengerbag_faction = /obj/item/storage/backpack/messenger/zeng
 
 	backpack_contents = list(
-		/obj/item/device/camera = 1,
+		/obj/item/camera = 1,
 		/obj/item/gun/energy/pistol = 1,
 		/obj/item/stamp/zeng_hu = 1
 	)

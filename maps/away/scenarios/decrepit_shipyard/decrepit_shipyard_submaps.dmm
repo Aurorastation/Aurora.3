@@ -869,11 +869,11 @@
 /area/shuttle/decrepit_shipyard_shuttle)
 "qu" = (
 /obj/structure/table/reinforced/steel,
-/obj/item/device/binoculars{
+/obj/item/binoculars{
 	pixel_x = 5;
 	pixel_y = 5
 	},
-/obj/item/device/flashlight/lamp{
+/obj/item/flashlight/lamp{
 	pixel_y = 1;
 	pixel_x = -7
 	},
@@ -1416,7 +1416,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/blue{
 	dir = 9
 	},
-/obj/item/device/binoculars{
+/obj/item/binoculars{
 	pixel_x = 6;
 	pixel_y = -2
 	},
@@ -1621,7 +1621,7 @@
 	pixel_x = 4;
 	pixel_y = 4
 	},
-/obj/item/device/analyzer{
+/obj/item/analyzer{
 	pixel_x = -4
 	},
 /obj/machinery/light/small/decayed{
@@ -2332,7 +2332,7 @@
 /area/shuttle/decrepit_shipyard_shuttle)
 "RT" = (
 /obj/structure/table/reinforced/steel,
-/obj/item/device/binoculars{
+/obj/item/binoculars{
 	pixel_x = 6;
 	pixel_y = -2
 	},

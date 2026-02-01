@@ -50,7 +50,7 @@
 /obj/outfit/admin/golden_deep
 	name = "Golden Deep Collective, Indentured Citizen"
 	id = /obj/item/card/id/gold
-	l_ear = /obj/item/device/radio/headset/ship
+	l_ear = /obj/item/radio/headset/ship
 	back = /obj/item/storage/backpack/satchel/eng
 	r_pocket = /obj/item/storage/wallet/random
 	uniform = /obj/item/clothing/under/goldendeep/porter

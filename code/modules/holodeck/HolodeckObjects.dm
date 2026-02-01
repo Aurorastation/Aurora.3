@@ -172,11 +172,11 @@
 
 	if(attacking_item.item_flags & ITEM_FLAG_NO_BLUDGEON) return
 
-	if(attacking_item.isscrewdriver())
+	if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 		to_chat(user, (SPAN_NOTICE("It's a holowindow, you can't unfasten it!")))
-	else if(attacking_item.iscrowbar() && reinf && state <= 1)
+	else if(attacking_item.tool_behaviour == TOOL_CROWBAR && reinf && state <= 1)
 		to_chat(user, (SPAN_NOTICE("It's a holowindow, you can't pry it!")))
-	else if(attacking_item.iswrench() && !anchored && (!state || !reinf))
+	else if(attacking_item.tool_behaviour == TOOL_WRENCH && !anchored && (!state || !reinf))
 		to_chat(user, (SPAN_NOTICE("It's a holowindow, you can't dismantle it!")))
 	else
 		if(attacking_item.damtype == DAMAGE_BRUTE || attacking_item.damtype == DAMAGE_BURN)
@@ -245,7 +245,7 @@
 	return ..()
 
 /obj/structure/bed/stool/chair/holochair/attackby(obj/item/attacking_item, mob/user)
-	if(attacking_item.iswrench())
+	if(attacking_item.tool_behaviour == TOOL_WRENCH)
 		to_chat(user, (SPAN_NOTICE("It's a holochair, you can't dismantle it!")))
 	return
 

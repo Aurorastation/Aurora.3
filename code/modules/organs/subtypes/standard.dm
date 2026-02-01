@@ -16,7 +16,7 @@
 	artery_name = "internal thoracic artery"
 	dislocated = -1
 	gendered_icon = 1
-	limb_flags = ORGAN_CAN_BREAK
+	limb_flags = ORGAN_CAN_BREAK | ORGAN_HEALS_OVERKILL
 	parent_organ = null
 	encased = "ribcage"
 	augment_limit = 3
@@ -240,6 +240,7 @@
 	gendered_icon = 1
 	encased = "skull"
 	augment_limit = 3
+	limb_flags = ORGAN_CAN_AMPUTATE | ORGAN_CAN_BREAK | ORGAN_CAN_MAIM | ORGAN_HEALS_OVERKILL
 	var/can_intake_reagents = 1
 
 /obj/item/organ/external/head/body_part_class()

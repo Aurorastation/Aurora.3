@@ -106,7 +106,7 @@
 	name = "Izweski Hegemony Consular Officer"
 
 	uniform = /obj/item/clothing/under/unathi
-	backpack_contents = list(/obj/item/device/camera = 1)
+	backpack_contents = list(/obj/item/camera = 1)
 
 /obj/outfit/job/representative/consular/izweski/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	if(H)
@@ -118,7 +118,7 @@
 			H.equip_to_slot_or_del(new /obj/item/clothing/suit/vaurca/breeder/klax(H), slot_wear_suit)
 			H.equip_to_slot_or_del(new /obj/item/storage/backpack/typec/klax(H), slot_back)
 		else if(H.is_diona())
-			H.equip_or_collect(new /obj/item/device/uv_light(src), slot_in_backpack)
+			H.equip_or_collect(new /obj/item/uv_light(src), slot_in_backpack)
 		else
 			H.equip_to_slot_or_del(new /obj/item/clothing/accessory/poncho/unathimantle(H), slot_wear_suit)
 		if(!visualsOnly)
