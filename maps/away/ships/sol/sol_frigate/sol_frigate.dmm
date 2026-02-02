@@ -57,6 +57,9 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
+/obj/structure/mirror{
+	pixel_y = 35
+	},
 /turf/simulated/floor/tiled/white,
 /area/ship/sol_frigate/captain_cabin)
 "ar" = (
@@ -249,7 +252,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/vending/medical,
+/obj/machinery/vending/medical{
+	req_access = list(203)
+	},
 /turf/simulated/floor/tiled/white,
 /area/ship/sol_frigate/sickbay)
 "bb" = (
@@ -311,7 +316,8 @@
 /obj/structure/cable/blue{
 	icon_state = "2-8"
 	},
-/turf/unsimulated/floor/wood,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/turf/simulated/floor/plating,
 /area/ship/sol_frigate/starboard_gunnery)
 "bx" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
@@ -2244,6 +2250,9 @@
 	pixel_x = 12
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/mirror{
+	pixel_x = 32
+	},
 /turf/simulated/floor/tiled/white,
 /area/ship/sol_frigate/oquarters)
 "jP" = (
@@ -3455,6 +3464,7 @@
 	id = "solfrig_workshop";
 	name = "Garage door"
 	},
+/obj/structure/closet/crate/bin,
 /turf/simulated/floor/tiled/dark,
 /area/ship/sol_frigate/Exo_Bay)
 "pd" = (
@@ -3848,6 +3858,9 @@
 /obj/structure/sink{
 	pixel_y = 16
 	},
+/obj/structure/mirror{
+	pixel_y = 35
+	},
 /turf/simulated/floor/tiled/white,
 /area/ship/sol_frigate/head)
 "qT" = (
@@ -4154,9 +4167,12 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/sol_frigate/hallway_fore)
 "sJ" = (
-/obj/structure/mirror,
-/turf/simulated/wall/shuttle/raider,
-/area/ship/sol_frigate/captain_cabin)
+/obj/effect/floor_decal/corner/yellow{
+	dir = 10
+	},
+/obj/structure/closet/crate/bin,
+/turf/simulated/floor/tiled/dark,
+/area/ship/sol_frigate/starboard_gunnery)
 "sN" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -4269,11 +4285,11 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/sol_frigate/engineering)
 "tr" = (
-/obj/machinery/seed_storage,
 /obj/effect/floor_decal/corner/green/diagonal,
 /obj/machinery/light{
 	dir = 1
 	},
+/obj/machinery/vending/hydroseeds,
 /turf/simulated/floor/tiled/freezer{
 	name = "cooled tiles";
 	temperature = 253.15
@@ -5022,6 +5038,7 @@
 	dir = 4
 	},
 /obj/machinery/alarm/north,
+/obj/structure/closet/crate/bin,
 /turf/simulated/floor/tiled/dark,
 /area/ship/sol_frigate/Starboard_docking_port)
 "wn" = (
@@ -6325,6 +6342,7 @@
 /obj/structure/cable/blue{
 	icon_state = "0-8"
 	},
+/obj/structure/closet/crate/bin,
 /turf/simulated/floor/wood,
 /area/ship/sol_frigate/captain_office)
 "CG" = (
@@ -8182,7 +8200,7 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/obj/structure/flora/pottedplant/woodyshrubdying,
+/obj/structure/closet/crate/bin,
 /turf/simulated/floor/tiled/white,
 /area/ship/sol_frigate/canteen)
 "Ld" = (
@@ -8551,8 +8569,8 @@
 	},
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/light{
-	dir = 4
+/obj/structure/mirror{
+	pixel_x = 32
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/sol_frigate/oquarters)
@@ -8725,6 +8743,7 @@
 "Nl" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/machinery/light,
+/obj/structure/closet/crate/bin,
 /turf/simulated/floor/tiled/dark,
 /area/ship/sol_frigate/bunks)
 "Nr" = (
@@ -8837,6 +8856,7 @@
 /obj/structure/cable/blue{
 	icon_state = "0-2"
 	},
+/obj/structure/closet/crate/bin,
 /turf/simulated/floor/tiled/dark,
 /area/ship/sol_frigate/brig)
 "NP" = (
@@ -9294,9 +9314,15 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/sol_frigate/brig)
 "Qc" = (
-/obj/structure/mirror,
-/turf/simulated/wall/shuttle/raider,
-/area/ship/sol_frigate/head)
+/obj/effect/floor_decal/corner/yellow{
+	dir = 9
+	},
+/obj/structure/cable/blue{
+	icon_state = "1-2"
+	},
+/obj/structure/closet/crate/bin,
+/turf/simulated/floor/tiled/dark,
+/area/ship/sol_frigate/hallway_fore)
 "Qd" = (
 /obj/structure/lattice,
 /turf/template_noop,
@@ -9579,6 +9605,13 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/sol_frigate/engineering)
+"RI" = (
+/obj/structure/cable/blue{
+	icon_state = "4-8"
+	},
+/obj/structure/closet/crate/bin,
+/turf/simulated/floor/tiled/dark,
+/area/ship/sol_frigate/engineering)
 "RJ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -9758,6 +9791,7 @@
 	dir = 5
 	},
 /obj/machinery/light,
+/obj/structure/closet/crate/bin,
 /turf/simulated/floor/tiled/dark,
 /area/ship/sol_frigate/hallway_fore)
 "SF" = (
@@ -9808,9 +9842,9 @@
 /turf/simulated/wall/shuttle/raider,
 /area/ship/sol_frigate/Port_docking_port)
 "SR" = (
-/obj/structure/mirror,
-/turf/simulated/wall/shuttle/raider,
-/area/ship/sol_frigate/oquarters)
+/obj/structure/closet/crate/bin,
+/turf/simulated/floor/tiled/dark,
+/area/ship/sol_frigate/cic)
 "SV" = (
 /obj/structure/filingcabinet/chestdrawer,
 /obj/item/device/flashlight/lamp{
@@ -10196,6 +10230,7 @@
 /obj/structure/cable/blue{
 	icon_state = "0-2"
 	},
+/obj/structure/closet/crate/bin,
 /turf/simulated/floor/wood,
 /area/ship/sol_frigate/ocountry)
 "Vi" = (
@@ -44251,7 +44286,7 @@ Tw
 uX
 Cm
 BV
-sJ
+EA
 aq
 EA
 cx
@@ -44539,7 +44574,7 @@ hy
 BB
 vI
 vI
-vI
+SR
 QX
 yt
 uf
@@ -45258,7 +45293,7 @@ SM
 WS
 SM
 aC
-Rl
+RI
 iE
 tF
 SM
@@ -45778,7 +45813,7 @@ WH
 mw
 kF
 FF
-jB
+sJ
 Kp
 ek
 eC
@@ -46053,8 +46088,8 @@ dr
 XX
 MG
 MG
-SR
-SR
+MG
+MG
 MG
 MG
 YB
@@ -46335,7 +46370,7 @@ Nv
 Nv
 TV
 Hy
-Nv
+Qc
 Nv
 ky
 Hy
@@ -47610,7 +47645,7 @@ TE
 xf
 Ih
 aW
-Qc
+IT
 qS
 Nc
 IT
@@ -47867,7 +47902,7 @@ pW
 iM
 Wv
 uR
-Qc
+IT
 qS
 Nc
 xG
@@ -48124,7 +48159,7 @@ aW
 In
 Ih
 aW
-Qc
+IT
 qS
 iP
 IT
