@@ -914,7 +914,7 @@ GLOBAL_LIST_INIT(common_tools, list(
 	/obj/item/wirecutters,
 	/obj/item/powerdrill,
 	/obj/item/combitool,
-	/obj/item/device/multitool,
+	/obj/item/multitool,
 	/obj/item/crowbar))
 
 /proc/istool(O)
@@ -1005,7 +1005,7 @@ GLOBAL_LIST_INIT(common_tools, list(
 GLOBAL_LIST_INIT(wall_items, typecacheof(list(
 	/obj/machinery/power/apc,
 	/obj/machinery/alarm,
-	/obj/item/device/radio/intercom,
+	/obj/item/radio/intercom,
 	/obj/structure/extinguisher_cabinet,
 	/obj/structure/reagent_dispensers/peppertank,
 	/obj/machinery/status_display,

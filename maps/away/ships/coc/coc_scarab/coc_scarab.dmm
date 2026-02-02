@@ -1256,8 +1256,8 @@
 /obj/item/reagent_containers/food/drinks/cans/beetle_milk,
 /obj/item/reagent_containers/glass/bucket,
 /obj/effect/floor_decal/industrial/outline/service,
-/obj/item/device/radio/off,
-/obj/item/device/radio/off,
+/obj/item/radio/off,
+/obj/item/radio/off,
 /obj/item/reagent_containers/food/drinks/waterbottle,
 /obj/item/reagent_containers/food/drinks/waterbottle,
 /turf/simulated/floor/tiled/dark/full,
@@ -1682,7 +1682,7 @@
 /obj/item/storage/bag/trash,
 /obj/item/clothing/gloves/janitor,
 /obj/item/reagent_containers/glass/rag/advanced,
-/obj/item/device/lightreplacer,
+/obj/item/lightreplacer,
 /obj/item/reagent_containers/spray/cleaner,
 /obj/structure/closet/crate,
 /turf/simulated/floor/tiled/dark,
@@ -2814,7 +2814,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
-/obj/item/device/binoculars,
+/obj/item/binoculars,
 /obj/item/clothing/ears/earmuffs{
 	pixel_y = 2
 	},
@@ -3177,12 +3177,12 @@
 	},
 /obj/machinery/cell_charger,
 /obj/random/powercell,
-/obj/item/device/radio/off,
-/obj/item/device/analyzer,
-/obj/item/device/radio/off,
-/obj/item/device/radio/off,
-/obj/item/device/radio/off,
-/obj/item/device/radio/off,
+/obj/item/radio/off,
+/obj/item/analyzer,
+/obj/item/radio/off,
+/obj/item/radio/off,
+/obj/item/radio/off,
+/obj/item/radio/off,
 /obj/item/plastique/seismic{
 	pixel_y = 15;
 	pixel_x = -5
@@ -3275,18 +3275,18 @@
 /obj/effect/floor_decal/corner/brown{
 	dir = 5
 	},
-/obj/item/device/gps/mining,
-/obj/item/device/gps/mining,
-/obj/item/device/gps/mining,
-/obj/item/device/gps/mining,
-/obj/item/device/gps/mining,
+/obj/item/gps/mining,
+/obj/item/gps/mining,
+/obj/item/gps/mining,
+/obj/item/gps/mining,
+/obj/item/gps/mining,
 /obj/item/tank/jetpack/carbondioxide,
 /obj/item/tank/jetpack/carbondioxide,
 /obj/item/tank/jetpack/carbondioxide,
 /obj/item/tank/jetpack/carbondioxide,
 /obj/item/tank/jetpack/carbondioxide,
 /obj/item/tank/emergency_oxygen/double,
-/obj/item/device/hand_labeler,
+/obj/item/hand_labeler,
 /turf/simulated/floor/tiled/dark,
 /area/ship/coc_scarab/equipment)
 "nN" = (
@@ -4911,7 +4911,7 @@
 /obj/machinery/cell_charger{
 	pixel_x = -3
 	},
-/obj/item/device/radio/intercom/expedition/hailing/west,
+/obj/item/radio/intercom/expedition/hailing/west,
 /turf/simulated/floor/carpet/rubber,
 /area/ship/coc_scarab/bridge)
 "ur" = (
@@ -5757,6 +5757,16 @@
 /obj/structure/lattice/catwalk/indoor,
 /turf/simulated/open/airless,
 /area/ship/coc_scarab/exterior)
+"xd" = (
+/obj/effect/floor_decal/corner_wide/dark_green/diagonal,
+/obj/effect/floor_decal/spline/plain/black{
+	dir = 6
+	},
+/obj/machinery/media/jukebox{
+	anchored = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ship/coc_scarab/mess)
 "xe" = (
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/ship/coc_scarab/telecommunications)
@@ -8234,7 +8244,7 @@
 	pixel_x = -7;
 	pixel_y = -1
 	},
-/obj/item/device/binoculars{
+/obj/item/binoculars{
 	pixel_y = 10;
 	pixel_x = 8
 	},
@@ -8665,7 +8675,7 @@
 	pixel_y = 10;
 	pixel_x = -6
 	},
-/obj/item/device/binoculars{
+/obj/item/binoculars{
 	pixel_y = 10;
 	pixel_x = -8
 	},
@@ -8684,7 +8694,7 @@
 /obj/machinery/light/small{
 	dir = 4
 	},
-/obj/item/device/radio/intercom/expedition/hailing/east,
+/obj/item/radio/intercom/expedition/hailing/east,
 /turf/simulated/floor/carpet/rubber,
 /area/ship/coc_scarab/bridge)
 "IK" = (
@@ -8800,7 +8810,7 @@
 	req_access = null
 	},
 /obj/structure/table/reinforced/steel,
-/obj/item/device/flashlight/lamp{
+/obj/item/flashlight/lamp{
 	brightness_level = "low";
 	pixel_y = 10;
 	pixel_x = -2
@@ -9811,10 +9821,10 @@
 /obj/item/storage/bag/ore,
 /obj/item/storage/bag/ore,
 /obj/item/storage/bag/ore,
-/obj/item/device/flashlight/lantern,
-/obj/item/device/flashlight/lantern,
-/obj/item/device/flashlight/lantern,
-/obj/item/device/flashlight/lantern,
+/obj/item/flashlight/lantern,
+/obj/item/flashlight/lantern,
+/obj/item/flashlight/lantern,
+/obj/item/flashlight/lantern,
 /obj/machinery/power/apc/high/north{
 	req_access = null
 	},
@@ -10948,16 +10958,6 @@
 /obj/structure/railing/mapped,
 /turf/simulated/floor/plating,
 /area/ship/coc_scarab/thrust1)
-"Rl" = (
-/obj/effect/floor_decal/corner_wide/dark_green/diagonal,
-/obj/effect/floor_decal/spline/plain/black{
-	dir = 6
-	},
-/obj/machinery/media/jukebox{
-	anchored = 1
-	},
-/turf/simulated/floor/tiled/dark,
-/area/ship/coc_scarab/mess)
 "Rn" = (
 /obj/effect/floor_decal/corner_wide/paleblue/full{
 	dir = 1
@@ -11192,7 +11192,7 @@
 	pixel_y = 30;
 	pixel_x = -45
 	},
-/obj/item/device/radio/intercom/expedition/hailing/north{
+/obj/item/radio/intercom/expedition/hailing/north{
 	pixel_x = -27;
 	pixel_y = 19
 	},
@@ -112979,7 +112979,7 @@ vH
 bJ
 CW
 ng
-Rl
+xd
 ht
 KA
 zD

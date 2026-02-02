@@ -104,7 +104,7 @@
 		LASER = ARMOR_LASER_SMALL
 	)
 	drop_sound = 'sound/items/drop/sword.ogg'
-	pickup_sound = /singleton/sound_category/sword_pickup_sound
+	pickup_sound = SFX_PICKUP_SWORD
 	matter = list(MATERIAL_BRONZE = 1000)
 
 /obj/item/clothing/shoes/ancient_unathi/mador

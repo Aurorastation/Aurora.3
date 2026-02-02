@@ -66,7 +66,7 @@
 /obj/machinery/appliance/cooker/microwave/attackby(obj/item/O, mob/living/user, list/click_params)
 	if (broken)
 		// Start repairs by using a screwdriver
-		if(broken == SCREWDRIVER_BROKEN && O.isscrewdriver())
+		if(broken == SCREWDRIVER_BROKEN && O.tool_behaviour == TOOL_SCREWDRIVER)
 			user.visible_message( \
 				SPAN_NOTICE("\The [user] starts to fix part of \the [src]."), \
 				SPAN_NOTICE("You start to fix part of \the [src].") \
@@ -80,7 +80,7 @@
 			return TRUE
 
 		// Finish repairs using a wrench
-		if (broken == WRENCH_BROKEN && O.iswrench())
+		if (broken == WRENCH_BROKEN && O.tool_behaviour == TOOL_WRENCH)
 			user.visible_message( \
 				SPAN_NOTICE("\The [user] starts to fix part of \the [src]."), \
 				SPAN_NOTICE("You start to fix part of \the [src].") \
@@ -202,7 +202,7 @@
 
 /obj/machinery/appliance/cooker/microwave/proc/broke()
 	spark(loc, 2, GLOB.alldirs)
-	playsound(loc, /singleton/sound_category/spark_sound, 50, 1)
+	playsound(loc, SFX_SPARKS, 50, 1)
 	if (prob(100 * break_multiplier))
 		visible_message(SPAN_WARNING("\The [src] sputters and grinds to a halt!")) //Let them know they're stupid
 		broken = WRENCH_BROKEN // Make it broken so it can't be used until fixed

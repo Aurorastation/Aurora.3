@@ -78,6 +78,10 @@
 	icon_state = "alaberet"
 	item_state = "alaberet"
 
+/obj/item/clothing/head/beret/tajaran/dpra/ajic
+	name = "protective services group of the adhomai joint intelligence committee beret."
+	desc = "A surplus Adhomai Liberation Army beret. The ALA symbol has been replaced with the symbol of the Adhomai Joint Intelligence Committee."
+
 /obj/item/clothing/head/beret/tajaran/dpra/alt
 	icon_state = "alaberetalt"
 	item_state = "alaberetalt"

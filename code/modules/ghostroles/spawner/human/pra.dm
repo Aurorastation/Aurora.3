@@ -68,5 +68,5 @@
 						/obj/item/storage/box/hadii_manifesto = 1,
 						/obj/item/storage/box/hadii_card = 1
 						)
-	l_hand = /obj/item/device/megaphone
+	l_hand = /obj/item/megaphone
 	r_hand = /obj/item/martial_manual/tajara

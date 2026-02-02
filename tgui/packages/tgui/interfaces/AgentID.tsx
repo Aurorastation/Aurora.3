@@ -1,6 +1,12 @@
 import { BooleanLike } from '../../common/react';
 import { useBackend } from '../backend';
-import { Button, LabeledList, NumberInput, Input, Section } from '../components';
+import {
+  Button,
+  LabeledList,
+  NumberInput,
+  Input,
+  Section,
+} from '../components';
 import { Window } from '../layouts';
 
 export type CardData = {

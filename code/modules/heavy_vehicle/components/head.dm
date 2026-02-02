@@ -133,7 +133,7 @@
 	if(istype(attacking_item, /obj/item/circuitboard/exosystem))
 		install_software(attacking_item, user)
 		return
-	else if(attacking_item.isscrewdriver())
+	else if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 		var/result = ..()
 		update_software()
 		return result

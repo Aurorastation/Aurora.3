@@ -76,7 +76,7 @@
 	busy = FALSE
 
 /obj/structure/barricade/plasteel/attackby(obj/item/attacking_item, mob/user)
-	if(attacking_item.iswelder())
+	if(attacking_item.tool_behaviour == TOOL_WELDER)
 		if(busy || tool_cooldown > world.time)
 			return
 		tool_cooldown = world.time + 10
@@ -94,7 +94,7 @@
 
 	switch(build_state)
 		if(2) //Fully constructed step. Use screwdriver to remove the protection panels to reveal the bolts
-			if(attacking_item.isscrewdriver())
+			if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 				if(busy || tool_cooldown > world.time)
 					return
 				tool_cooldown = world.time + 10
@@ -108,7 +108,7 @@
 				SPAN_NOTICE("You remove [src]'s protection panels, exposing the anchor bolts."))
 				build_state = BARRICADE_BSTATE_UNSECURED
 				return
-			if(attacking_item.iscrowbar())
+			if(attacking_item.tool_behaviour == TOOL_CROWBAR)
 				playsound(src.loc, 'sound/items/crowbar_pry.ogg', 25, 1)
 				if(linked)
 					user.visible_message(SPAN_NOTICE("[user] removes the linking on [src]."),
@@ -125,7 +125,7 @@
 						cade.update_icon()
 				update_icon()
 		if(1) //Protection panel removed step. Screwdriver to put the panel back, wrench to unsecure the anchor bolts
-			if(attacking_item.isscrewdriver())
+			if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 				if(busy || tool_cooldown > world.time)
 					return
 				tool_cooldown = world.time + 10
@@ -135,7 +135,7 @@
 				SPAN_NOTICE("You set [src]'s protection panel back."))
 				build_state = BARRICADE_BSTATE_SECURED
 				return
-			if(attacking_item.iswrench())
+			if(attacking_item.tool_behaviour == TOOL_WRENCH)
 				if(busy || tool_cooldown > world.time)
 					return
 				if(!attacking_item.use_tool(src, user, 10, volume = 50))
@@ -148,7 +148,7 @@
 				return
 
 		if(0) //Anchor bolts loosened step. Apply crowbar to unseat the panel and take apart the whole thing. Apply wrench to rescure anchor bolts
-			if(attacking_item.iswrench())
+			if(attacking_item.tool_behaviour == TOOL_WRENCH)
 				if(busy || tool_cooldown > world.time)
 					return
 				tool_cooldown = world.time + 10
@@ -164,7 +164,7 @@
 				build_state = BARRICADE_BSTATE_UNSECURED
 				update_icon() //unanchored changes layer
 				return
-			if(attacking_item.iscrowbar())
+			if(attacking_item.tool_behaviour == TOOL_CROWBAR)
 				if(busy || tool_cooldown > world.time)
 					return
 				tool_cooldown = world.time + 10

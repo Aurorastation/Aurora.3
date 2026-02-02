@@ -341,7 +341,7 @@
 /obj/item/clothing/shoes/magboots,
 /obj/item/clothing/suit/space/void/engineering,
 /obj/item/clothing/head/helmet/space/void/engineering,
-/obj/item/device/suit_cooling_unit,
+/obj/item/suit_cooling_unit,
 /obj/item/clothing/mask/breath,
 /obj/machinery/light,
 /turf/simulated/floor/tiled/dark,
@@ -1071,7 +1071,7 @@
 /area/konyang_wreck/mechbay)
 "io" = (
 /obj/structure/table/wood,
-/obj/item/device/flashlight/lamp/green,
+/obj/item/flashlight/lamp/green,
 /obj/machinery/light,
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/captain)
@@ -1527,7 +1527,7 @@
 /obj/item/clothing/shoes/magboots,
 /obj/item/clothing/suit/space/void/engineering,
 /obj/item/clothing/head/helmet/space/void/engineering,
-/obj/item/device/suit_cooling_unit,
+/obj/item/suit_cooling_unit,
 /obj/item/clothing/mask/breath,
 /obj/machinery/light{
 	dir = 4;
@@ -4801,7 +4801,7 @@
 /obj/item/clothing/shoes/magboots,
 /obj/item/clothing/mask/gas,
 /obj/effect/floor_decal/industrial/outline/operations,
-/obj/item/device/suit_cooling_unit,
+/obj/item/suit_cooling_unit,
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/atmos)
 "PH" = (
@@ -5514,7 +5514,7 @@
 /obj/item/clothing/shoes/magboots,
 /obj/item/clothing/suit/space/void/engineering,
 /obj/item/clothing/head/helmet/space/void/engineering,
-/obj/item/device/suit_cooling_unit,
+/obj/item/suit_cooling_unit,
 /obj/item/clothing/mask/breath,
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/engineering)

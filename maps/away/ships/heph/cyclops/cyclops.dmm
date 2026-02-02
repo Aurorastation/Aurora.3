@@ -953,8 +953,8 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/obj/item/device/gps/mining,
-/obj/item/device/suit_cooling_unit,
+/obj/item/gps/mining,
+/obj/item/suit_cooling_unit,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops)
@@ -3272,8 +3272,8 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/obj/item/device/gps/mining,
-/obj/item/device/suit_cooling_unit,
+/obj/item/gps/mining,
+/obj/item/suit_cooling_unit,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops)
@@ -3492,7 +3492,7 @@
 /area/hephmining_ship/cyclops/cyclops_hangar)
 "DW" = (
 /obj/structure/table/standard,
-/obj/item/device/binoculars,
+/obj/item/binoculars,
 /obj/effect/floor_decal/corner/orange{
 	dir = 6
 	},
@@ -3632,8 +3632,8 @@
 /obj/item/storage/belt/mining,
 /obj/item/pickaxe,
 /obj/item/storage/bag/ore,
-/obj/item/device/gps/mining,
-/obj/item/device/suit_cooling_unit,
+/obj/item/gps/mining,
+/obj/item/suit_cooling_unit,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops)
@@ -4640,7 +4640,7 @@
 /area/hephmining_ship/cyclops/cyclops_barracks)
 "OE" = (
 /obj/structure/table/standard,
-/obj/item/device/flashlight/lamp,
+/obj/item/flashlight/lamp,
 /obj/effect/floor_decal/corner/orange{
 	dir = 5
 	},
@@ -5033,8 +5033,8 @@
 /obj/item/clothing/shoes/magboots/vaurca,
 /obj/item/clothing/shoes/magboots/vaurca,
 /obj/item/clothing/shoes/magboots/vaurca,
-/obj/item/device/gps/mining,
-/obj/item/device/suit_cooling_unit,
+/obj/item/gps/mining,
+/obj/item/suit_cooling_unit,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops)

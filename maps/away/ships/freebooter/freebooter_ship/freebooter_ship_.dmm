@@ -550,7 +550,7 @@
 /obj/item/clothing/gloves/yellow,
 /obj/item/clothing/gloves/yellow/specialu,
 /obj/item/clothing/gloves/yellow/specialt,
-/obj/item/device/multitool,
+/obj/item/multitool,
 /obj/machinery/firealarm/south,
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/engineering)
@@ -2077,9 +2077,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/forehallwayport)
 "iCP" = (
-/obj/machinery/computer/ship/helm{
-	req_access = list(203)
-	},
+/obj/machinery/computer/ship/helm,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/freebooter_shuttle)
 "iDR" = (
@@ -2913,11 +2911,11 @@
 /area/ship/freebooter_ship/engineering)
 "lHL" = (
 /obj/effect/decal/cleanable/generic,
-/obj/item/device/suit_cooling_unit,
-/obj/item/device/suit_cooling_unit,
-/obj/item/device/suit_cooling_unit,
-/obj/item/device/suit_cooling_unit,
-/obj/item/device/suit_cooling_unit,
+/obj/item/suit_cooling_unit,
+/obj/item/suit_cooling_unit,
+/obj/item/suit_cooling_unit,
+/obj/item/suit_cooling_unit,
+/obj/item/suit_cooling_unit,
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/structure/table/rack,
 /turf/simulated/floor/tiled/dark,
@@ -5597,11 +5595,11 @@
 	},
 /obj/structure/railing/mapped,
 /obj/structure/table/steel,
-/obj/item/device/binoculars{
+/obj/item/binoculars{
 	pixel_x = 12;
 	pixel_y = 8
 	},
-/obj/item/device/binoculars{
+/obj/item/binoculars{
 	pixel_y = 10;
 	pixel_x = -4
 	},

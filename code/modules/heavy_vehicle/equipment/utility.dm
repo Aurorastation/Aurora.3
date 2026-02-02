@@ -589,12 +589,12 @@
 
 /obj/item/gun/launcher/mech/flarelauncher/consume_next_projectile()
 	if(proj < 1) return null
-	var/obj/item/device/flashlight/flare/mech/g = new (src)
+	var/obj/item/flashlight/flare/mech/g = new (src)
 	proj--
 	addtimer(CALLBACK(src, PROC_REF(regen_proj)), proj_gen_time, TIMER_UNIQUE)
 	return g
 
-/obj/item/device/flashlight/flare/mech/Initialize()
+/obj/item/flashlight/flare/mech/Initialize()
 	fuel = rand(800, 1000) // Sorry for changing this so much but I keep under-estimating how long X number of ticks last in seconds.
 	on = 1
 	src.force = on_damage
@@ -689,7 +689,7 @@
 		lathe.attackby(target, owner)
 
 /obj/item/mecha_equipment/autolathe/attackby(obj/item/attacking_item, mob/user)
-	if(attacking_item.isscrewdriver() || attacking_item.ismultitool() || attacking_item.iswirecutter() || istype(attacking_item, /obj/item/storage/part_replacer))
+	if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER || attacking_item.tool_behaviour == TOOL_MULTITOOL || attacking_item.tool_behaviour == TOOL_WIRECUTTER || istype(attacking_item, /obj/item/storage/part_replacer))
 		lathe.attackby(attacking_item, user)
 		update_icon()
 		return TRUE
@@ -736,6 +736,7 @@
 			if(!selected_tool)
 				return
 			mounted_tool.current_tool = 1
+			tool_behaviour = mounted_tool.current_tool
 			for(var/tool in mounted_tool.tools)
 				if(mounted_tool.tools[mounted_tool.current_tool] == selected_tool)
 					break
@@ -752,21 +753,12 @@
 		var/tool_name = capitalize(replacetext(mounted_tool.tools[mounted_tool.current_tool], "bit", ""))
 		return "Tool: [tool_name]"
 
-/obj/item/mecha_equipment/toolset/isscrewdriver()
-	return mounted_tool.tools[mounted_tool.current_tool] == "screwdriverbit"
-
-/obj/item/mecha_equipment/toolset/iswrench()
-	return mounted_tool.tools[mounted_tool.current_tool] == "wrenchbit"
-
-/obj/item/mecha_equipment/toolset/iscrowbar()
-	return mounted_tool.tools[mounted_tool.current_tool] == "crowbarbit"
-
 /obj/item/powerdrill/mech
 	name = "mounted toolset"
 	tools = list(
-		"screwdriverbit",
-		"wrenchbit",
-		"crowbarbit"
+		"screwdriver",
+		"wrench",
+		"crowbar"
 		)
 
 /obj/item/mecha_equipment/quick_enter
@@ -834,7 +826,7 @@
 		anomaly_overlay.pixel_y = 3
 		AddOverlays(anomaly_overlay)
 		return TRUE
-	if(attacking_item.iswrench())
+	if(attacking_item.tool_behaviour == TOOL_WRENCH)
 		if(!AC)
 			to_chat(user, SPAN_WARNING("\The [src] doesn't have an anomaly core installed!"))
 			return TRUE

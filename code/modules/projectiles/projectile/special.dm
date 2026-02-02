@@ -268,7 +268,7 @@
 /obj/projectile/magic/teleport/on_hit(atom/target, blocked, def_zone)
 	var/turf/T = get_turf(target)
 	single_spark(T)
-	playsound(src.loc, /singleton/sound_category/spark_sound, 50, 1)
+	playsound(src.loc, SFX_SPARKS, 50, 1)
 	if(isliving(target))
 		blink_mob(target)
 	return ..()

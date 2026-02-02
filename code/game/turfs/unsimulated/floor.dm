@@ -19,7 +19,7 @@
 	name = "snow"
 	icon = 'icons/turf/flooring/snow.dmi'
 	icon_state = "snow0"
-	footstep_sound = /singleton/sound_category/snow_footstep
+	footstep_sound = SFX_FOOTSTEP_SNOW
 
 /turf/unsimulated/floor/concrete
 	name = "concrete"

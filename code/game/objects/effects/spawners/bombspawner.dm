@@ -23,7 +23,7 @@
 	icon = 'icons/mob/screen/generic.dmi'
 	icon_state = "x"
 
-	var/assembly_type = /obj/item/device/assembly/signaler
+	var/assembly_type = /obj/item/assembly/signaler
 
 	//Note that the maximum amount of gas you can put in a 70L air tank at 1013.25 kPa and 519K is 16.44 mol.
 	var/phoron_amt = 10.96
@@ -32,7 +32,7 @@
 
 /obj/effect/spawner/newbomb/timer
 	name = "TTV bomb - timer"
-	assembly_type = /obj/item/device/assembly/timer
+	assembly_type = /obj/item/assembly/timer
 
 /obj/effect/spawner/newbomb/timer/syndicate
 	name = "TTV bomb - merc"
@@ -42,7 +42,7 @@
 
 /obj/effect/spawner/newbomb/proximity
 	name = "TTV bomb - proximity"
-	assembly_type = /obj/item/device/assembly/prox_sensor
+	assembly_type = /obj/item/assembly/prox_sensor
 
 /obj/effect/spawner/newbomb/radio/custom/Initialize(mapload, ph, ox, co)
 	if(ph != null) phoron_amt = ph
@@ -53,7 +53,7 @@
 /obj/effect/spawner/newbomb/Initialize()
 	. = ..()
 
-	var/obj/item/device/transfer_valve/V = new(src.loc)
+	var/obj/item/transfer_valve/V = new(src.loc)
 	var/obj/item/tank/phoron/PT = new(V)
 	var/obj/item/tank/oxygen/OT = new(V)
 
@@ -72,7 +72,7 @@
 	OT.air_contents.gas[GAS_OXYGEN] = oxygen_amt
 	OT.air_contents.update_values()
 
-	var/obj/item/device/assembly/S = new assembly_type(V)
+	var/obj/item/assembly/S = new assembly_type(V)
 
 
 	V.attached_device = S

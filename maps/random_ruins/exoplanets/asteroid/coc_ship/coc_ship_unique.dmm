@@ -668,7 +668,7 @@
 /area/template_noop)
 "nG" = (
 /obj/effect/decal/cleanable/liquid_fuel,
-/obj/item/device/suit_cooling_unit/no_cell,
+/obj/item/suit_cooling_unit/no_cell,
 /turf/simulated/floor/airless,
 /area/template_noop)
 "nH" = (
@@ -778,7 +778,7 @@
 	},
 /obj/item/stack/cable_coil/random,
 /obj/item/cell,
-/obj/item/device/flashlight/lamp{
+/obj/item/flashlight/lamp{
 	pixel_x = -6;
 	pixel_y = 14
 	},
@@ -1255,7 +1255,7 @@
 /area/template_noop)
 "Bc" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/item/device/binoculars,
+/obj/item/binoculars,
 /obj/structure/table/reinforced/steel,
 /turf/simulated/floor/tiled/dark/airless,
 /area/template_noop)

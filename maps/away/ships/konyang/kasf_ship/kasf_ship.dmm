@@ -562,7 +562,7 @@
 /obj/item/clothing/head/welding{
 	pixel_x = 4
 	},
-/obj/item/device/robotanalyzer{
+/obj/item/robotanalyzer{
 	pixel_y = -8
 	},
 /obj/structure/table/standard,
@@ -1898,7 +1898,7 @@
 	name = "Shuttle Safety Shutters";
 	pixel_y = 10
 	},
-/obj/item/device/binoculars{
+/obj/item/binoculars{
 	pixel_x = -4;
 	pixel_y = 2
 	},
@@ -1906,7 +1906,7 @@
 	pixel_y = 10;
 	pixel_x = -6
 	},
-/obj/item/device/gps{
+/obj/item/gps{
 	pixel_x = 6;
 	pixel_y = -2
 	},
@@ -2282,7 +2282,7 @@
 /obj/item/clothing/glasses/safety/goggles{
 	pixel_y = 4
 	},
-/obj/item/device/binoculars{
+/obj/item/binoculars{
 	pixel_y = 4
 	},
 /turf/simulated/floor/carpet/rubber,
@@ -2549,7 +2549,7 @@
 	pixel_x = 4;
 	pixel_y = 12
 	},
-/obj/item/device/paint_sprayer,
+/obj/item/paint_sprayer,
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 4
 	},
@@ -5013,7 +5013,7 @@
 /obj/structure/table/rack,
 /obj/item/hoist_kit,
 /obj/item/storage/toolbox/mechanical,
-/obj/item/device/multitool,
+/obj/item/multitool,
 /turf/simulated/floor/carpet/rubber,
 /area/ship/kasf_corvette/starboardwep)
 "CU" = (
@@ -5281,7 +5281,7 @@
 /obj/item/clothing/glasses/safety/goggles{
 	pixel_y = 4
 	},
-/obj/item/device/binoculars{
+/obj/item/binoculars{
 	pixel_y = 4
 	},
 /turf/simulated/floor/carpet/rubber,
@@ -5985,7 +5985,7 @@
 	pixel_y = -2;
 	pixel_x = -4
 	},
-/obj/item/device/electronic_assembly/simple{
+/obj/item/electronic_assembly/simple{
 	desc = "The remote for a PanaVision 2400. This one feels a bit hollow.";
 	name = "television remote";
 	pixel_y = 7;
@@ -6242,8 +6242,8 @@
 /obj/item/handcuffs/ziptie,
 /obj/item/handcuffs/ziptie,
 /obj/item/handcuffs/ziptie,
-/obj/item/device/flash,
-/obj/item/device/flash,
+/obj/item/flash,
+/obj/item/flash,
 /obj/item/grenade/flashbang,
 /obj/item/grenade/flashbang,
 /obj/item/gun/energy/rifle/ionrifle,
@@ -7469,20 +7469,20 @@
 	dir = 5
 	},
 /obj/structure/table/rack,
-/obj/item/device/suit_cooling_unit,
-/obj/item/device/suit_cooling_unit,
-/obj/item/device/suit_cooling_unit,
-/obj/item/device/suit_cooling_unit,
-/obj/item/device/suit_cooling_unit,
-/obj/item/device/suit_cooling_unit,
-/obj/item/device/suit_cooling_unit,
-/obj/item/device/gps,
-/obj/item/device/gps,
-/obj/item/device/gps,
-/obj/item/device/gps,
-/obj/item/device/gps,
-/obj/item/device/gps,
-/obj/item/device/gps,
+/obj/item/suit_cooling_unit,
+/obj/item/suit_cooling_unit,
+/obj/item/suit_cooling_unit,
+/obj/item/suit_cooling_unit,
+/obj/item/suit_cooling_unit,
+/obj/item/suit_cooling_unit,
+/obj/item/suit_cooling_unit,
+/obj/item/gps,
+/obj/item/gps,
+/obj/item/gps,
+/obj/item/gps,
+/obj/item/gps,
+/obj/item/gps,
+/obj/item/gps,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/kasf_corvette/armory)
@@ -7610,14 +7610,14 @@
 /obj/effect/floor_decal/corner_wide/dark_blue{
 	dir = 5
 	},
-/obj/item/device/radio/off{
+/obj/item/radio/off{
 	pixel_y = 10
 	},
-/obj/item/device/radio/off{
+/obj/item/radio/off{
 	pixel_y = 10
 	},
-/obj/item/device/binoculars,
-/obj/item/device/binoculars{
+/obj/item/binoculars,
+/obj/item/binoculars{
 	pixel_y = 5
 	},
 /turf/simulated/floor/tiled/dark/full,
@@ -7707,7 +7707,7 @@
 /obj/structure/table/rack,
 /obj/item/hoist_kit,
 /obj/item/storage/toolbox/mechanical,
-/obj/item/device/multitool,
+/obj/item/multitool,
 /turf/simulated/floor/carpet/rubber,
 /area/ship/kasf_corvette/portwep)
 "RA" = (
@@ -8268,7 +8268,7 @@
 /obj/item/clothing/head/radiation,
 /obj/item/clothing/suit/radiation,
 /obj/item/clothing/glasses/safety/goggles,
-/obj/item/device/geiger,
+/obj/item/geiger,
 /turf/simulated/floor/carpet/rubber,
 /area/ship/kasf_corvette/engie)
 "Vv" = (

@@ -7,10 +7,10 @@ REAGENT SCANNER
 BREATH ANALYZER
 */
 
-/obj/item/device/healthanalyzer
+/obj/item/healthanalyzer
 	name = "health analyzer"
 	desc = "A hand-held body scanner able to distinguish vital signs of the subject."
-	icon = 'icons/obj/item/device/healthanalyzer.dmi'
+	icon = 'icons/obj/item/healthanalyzer.dmi'
 	icon_state = "health"
 	item_state = "analyzer"
 	obj_flags = OBJ_FLAG_CONDUCTABLE
@@ -25,7 +25,7 @@ BREATH ANALYZER
 	var/mode = 1
 	var/sound_scan = FALSE
 
-/obj/item/device/healthanalyzer/attack(mob/living/target_mob, mob/living/user, target_zone)
+/obj/item/healthanalyzer/attack(mob/living/target_mob, mob/living/user, target_zone)
 	sound_scan = FALSE
 	if(last_scan <= world.time - 20) //Spam limiter.
 		last_scan = world.time
@@ -35,7 +35,7 @@ BREATH ANALYZER
 	health_scan_mob(target_mob, user, mode, sound_scan = sound_scan)
 	add_fingerprint(user)
 
-/obj/item/device/healthanalyzer/attack_self(mob/user)
+/obj/item/healthanalyzer/attack_self(mob/user)
 	sound_scan = FALSE
 	if(last_scan <= world.time - 20) //Spam limiter.
 		last_scan = world.time
@@ -46,7 +46,7 @@ BREATH ANALYZER
 	add_fingerprint(user)
 
 /// Calculates severity based on the ratios defined external limbs.
-/proc/get_wound_severity(damage_ratio, uppercase = FALSE)
+/proc/get_wound_severity(damage_ratio, can_heal_overkill, uppercase = FALSE)
 	var/degree = "none"
 
 	switch(damage_ratio)
@@ -60,14 +60,14 @@ BREATH ANALYZER
 			degree = "severe"
 		if (76 to 99)
 			degree = "extreme"
-		if (99 to INFINITY)
-			degree = "irreparable"
+		if (100 to INFINITY)
+			degree = can_heal_overkill ? "critical" : "irreparable"
 
 	if(uppercase)
 		degree = capitalize(degree)
 	return degree
 
-/proc/get_severity(amount, uppercase = FALSE)
+/proc/get_severity(amount, can_heal_overkill, uppercase = FALSE)
 	var/output = "none"
 
 	switch(amount)
@@ -84,7 +84,7 @@ BREATH ANALYZER
 		if (76 to 99)
 			output = "extreme"
 		if (100 to INFINITY)
-			output = "irreparable"
+			output = can_heal_overkill ? "critical" : "irreparable"
 
 	if(uppercase)
 		output = capitalize(output)
@@ -360,7 +360,7 @@ BREATH ANALYZER
 		to_chat(user, .)
 		to_chat(user, "<hr>")
 
-/obj/item/device/healthanalyzer/verb/toggle_mode()
+/obj/item/healthanalyzer/verb/toggle_mode()
 	set name = "Switch Verbosity"
 	set category = "Object.Held"
 	set src in usr
@@ -372,10 +372,10 @@ BREATH ANALYZER
 	else
 		to_chat(usr, "The scanner no longer shows limb damage.")
 
-/obj/item/device/analyzer
+/obj/item/analyzer
 	name = "analyzer"
 	desc = "A hand-held environmental scanner which reports current gas levels."
-	icon = 'icons/obj/item/device/air_analyzer.dmi'
+	icon = 'icons/obj/item/air_analyzer.dmi'
 	icon_state = "analyzer"
 	item_state = "analyzer"
 	w_class = WEIGHT_CLASS_SMALL
@@ -389,14 +389,14 @@ BREATH ANALYZER
 
 	origin_tech = list(TECH_MAGNET = 1, TECH_ENGINEERING = 1)
 
-/obj/item/device/analyzer/atmosanalyze(var/mob/user)
+/obj/item/analyzer/atmosanalyze(var/mob/user)
 	if(!user) return
 	var/air = user.return_air()
 	if (!air) return
 
 	return atmosanalyzer_scan(src, air, user)
 
-/obj/item/device/analyzer/attack_self(mob/user as mob)
+/obj/item/analyzer/attack_self(mob/user as mob)
 
 	if (user.stat)
 		return
@@ -407,10 +407,10 @@ BREATH ANALYZER
 	analyze_gases(src, user)
 	return
 
-/obj/item/device/mass_spectrometer
+/obj/item/mass_spectrometer
 	name = "mass spectrometer"
 	desc = "A hand-held mass spectrometer which identifies trace chemicals in a blood sample."
-	icon = 'icons/obj/item/device/mass_spectrometer.dmi'
+	icon = 'icons/obj/item/mass_spectrometer.dmi'
 	icon_state = "spectrometer"
 	item_state = "spectrometer"
 	w_class = WEIGHT_CLASS_SMALL
@@ -426,11 +426,11 @@ BREATH ANALYZER
 	origin_tech = list(TECH_MAGNET = 2, TECH_BIO = 2)
 	var/details = FALSE
 
-/obj/item/device/mass_spectrometer/Initialize()
+/obj/item/mass_spectrometer/Initialize()
 	. = ..()
 	create_reagents(5)
 
-/obj/item/device/mass_spectrometer/on_reagent_change()
+/obj/item/mass_spectrometer/on_reagent_change()
 	clear_blood_overlay()
 	if(reagents.total_volume)
 		icon_state = initial(icon_state) + "_s"
@@ -440,13 +440,13 @@ BREATH ANALYZER
 	else
 		icon_state = initial(icon_state)
 
-/obj/item/device/mass_spectrometer/proc/clear_blood_overlay()
+/obj/item/mass_spectrometer/proc/clear_blood_overlay()
 	underlays = null
 
-/obj/item/device/mass_spectrometer/proc/add_blood_overlay(var/image/I)
+/obj/item/mass_spectrometer/proc/add_blood_overlay(var/image/I)
 	underlays += I
 
-/obj/item/device/mass_spectrometer/attack_self(mob/user)
+/obj/item/mass_spectrometer/attack_self(mob/user)
 	if(use_check_and_message(user))
 		return
 	if(reagents.total_volume)
@@ -470,23 +470,23 @@ BREATH ANALYZER
 			output_text[1] = SPAN_NOTICE("No trace chemicals found.")
 		to_chat(user, jointext(output_text, "\n"))
 
-/obj/item/device/mass_spectrometer/adv
+/obj/item/mass_spectrometer/adv
 	name = "advanced mass spectrometer"
 	icon_state = "adv_spectrometer"
 	item_state = "adv_spectrometer"
 	details = TRUE
 	origin_tech = list(TECH_MAGNET = 4, TECH_BIO = 2)
 
-/obj/item/device/mass_spectrometer/adv/clear_blood_overlay()
+/obj/item/mass_spectrometer/adv/clear_blood_overlay()
 	ClearOverlays()
 
-/obj/item/device/mass_spectrometer/adv/add_blood_overlay(var/image/I)
+/obj/item/mass_spectrometer/adv/add_blood_overlay(var/image/I)
 	AddOverlays(I)
 
-/obj/item/device/reagent_scanner
+/obj/item/reagent_scanner
 	name = "reagent scanner"
 	desc = "A hand-held reagent scanner which identifies chemical agents."
-	icon = 'icons/obj/item/device/reagent_scanner.dmi'
+	icon = 'icons/obj/item/reagent_scanner.dmi'
 	icon_state = "reagent_scanner"
 	item_state = "analyzer"
 	w_class = WEIGHT_CLASS_SMALL
@@ -501,7 +501,7 @@ BREATH ANALYZER
 	var/details = 0
 	var/recent_fail = 0
 
-/obj/item/device/reagent_scanner/afterattack(obj/O, mob/user, proximity)
+/obj/item/reagent_scanner/afterattack(obj/O, mob/user, proximity)
 	if(!proximity)
 		return
 	if(use_check_and_message(user))
@@ -519,16 +519,16 @@ BREATH ANALYZER
 		dat += "\n \t [R][details ? ": [O.reagents.reagent_volumes[_R] / one_percent]%" : ""]"
 	to_chat(user, SPAN_NOTICE("Chemicals found: [dat]"))
 
-/obj/item/device/reagent_scanner/adv
+/obj/item/reagent_scanner/adv
 	name = "advanced reagent scanner"
 	icon_state = "adv_reagent_scanner"
 	item_state = "analyzer"
 	details = 1
 	origin_tech = list(TECH_MAGNET = 4, TECH_BIO = 2)
 
-/obj/item/device/slime_scanner
+/obj/item/slime_scanner
 	name = "slime scanner"
-	icon = 'icons/obj/item/device/slime_scanner.dmi'
+	icon = 'icons/obj/item/slime_scanner.dmi'
 	icon_state = "slime_scanner"
 	item_state = "analyzer"
 	origin_tech = list(TECH_BIO = 1)
@@ -539,7 +539,7 @@ BREATH ANALYZER
 	throw_range = 7
 	matter = list(MATERIAL_ALUMINIUM = 30, MATERIAL_GLASS = 20)
 
-/obj/item/device/slime_scanner/attack(mob/living/target_mob, mob/living/user, target_zone)
+/obj/item/slime_scanner/attack(mob/living/target_mob, mob/living/user, target_zone)
 	if(!isslime(target_mob))
 		to_chat(user, SPAN_WARNING("This device can only scan slimes!"))
 		return
@@ -571,10 +571,10 @@ BREATH ANALYZER
 		to_chat(user, SPAN_NOTICE("Instability: [mut_chance]% chance of mutation upon reproduction."))
 		to_chat(user, SPAN_NOTICE("**************************"))
 
-/obj/item/device/price_scanner
+/obj/item/price_scanner
 	name = "price scanner"
 	desc = "Using an up-to-date database of various costs and prices, this device estimates the market price of an item up to 0.001% accuracy."
-	icon = 'icons/obj/item/device/price_scanner.dmi'
+	icon = 'icons/obj/item/price_scanner.dmi'
 	icon_state = "price_scanner"
 	item_flags = ITEM_FLAG_NO_BLUDGEON
 	slot_flags = SLOT_BELT
@@ -584,7 +584,7 @@ BREATH ANALYZER
 	throw_range = 3
 	matter = list(DEFAULT_WALL_MATERIAL = 25, MATERIAL_GLASS = 25)
 
-/obj/item/device/price_scanner/afterattack(atom/movable/target, mob/user as mob, proximity)
+/obj/item/price_scanner/afterattack(atom/movable/target, mob/user as mob, proximity)
 	if(!proximity)
 		return
 
@@ -592,10 +592,10 @@ BREATH ANALYZER
 	user.visible_message(SPAN_NOTICE("\The [user] scans \the [target] with \the [src]."))
 	to_chat(user, SPAN_NOTICE("\The [src] estimates the price of \the [target] at <b>[value ? value : "N/A"]</b>."))
 
-/obj/item/device/breath_analyzer
+/obj/item/breath_analyzer
 	name = "breath analyzer"
 	desc = "A hand-held breath analyzer that provides a robust amount of information about the subject's respiratory system."
-	icon = 'icons/obj/item/device/breath_analyzer.dmi'
+	icon = 'icons/obj/item/breath_analyzer.dmi'
 	icon_state = "breath_analyzer"
 	item_state = "analyzer"
 	w_class = WEIGHT_CLASS_SMALL
@@ -607,7 +607,7 @@ BREATH ANALYZER
 	matter = list(MATERIAL_ALUMINIUM = 30, MATERIAL_GLASS = 20)
 	origin_tech = list(TECH_MAGNET = 2, TECH_BIO = 2)
 
-/obj/item/device/breath_analyzer/attack(mob/living/target_mob, mob/living/user, target_zone)
+/obj/item/breath_analyzer/attack(mob/living/target_mob, mob/living/user, target_zone)
 
 	var/mob/living/carbon/human/H = target_mob
 
@@ -702,10 +702,10 @@ BREATH ANALYZER
 			to_chat(user,SPAN_WARNING("Non-medical reagent[(unknown > 1)?"s":""] found in subject's respiratory system."))
 
 
-/obj/item/device/advanced_healthanalyzer
+/obj/item/advanced_healthanalyzer
 	name = "advanced health analyzer"
 	desc = "An expensive and varied-use health analyzer that prints full-body scans after a short scanning delay."
-	icon = 'icons/obj/item/device/advanced_healthanalyzer.dmi'
+	icon = 'icons/obj/item/advanced_healthanalyzer.dmi'
 	icon_state = "health_adv"
 	item_state = "analyzer"
 	slot_flags = SLOT_BELT
@@ -713,7 +713,7 @@ BREATH ANALYZER
 	origin_tech = list(TECH_MAGNET = 2, TECH_BIO = 3)
 	var/obj/machinery/body_scanconsole/connected = null //this is used to print the date and to deal with extra
 
-/obj/item/device/advanced_healthanalyzer/Initialize()
+/obj/item/advanced_healthanalyzer/Initialize()
 	. = ..()
 	if(!connected)
 		var/obj/machinery/body_scanconsole/S = new (src)
@@ -721,12 +721,12 @@ BREATH ANALYZER
 		S.update_use_power(POWER_USE_OFF)
 		connected = S
 
-/obj/item/device/advanced_healthanalyzer/Destroy()
+/obj/item/advanced_healthanalyzer/Destroy()
 	if(connected)
 		QDEL_NULL(connected)
 	return ..()
 
-/obj/item/device/advanced_healthanalyzer/attack(mob/living/target_mob, mob/living/user, target_zone)
+/obj/item/advanced_healthanalyzer/attack(mob/living/target_mob, mob/living/user, target_zone)
 	if(!connected)
 		return
 	user.setClickCooldown(DEFAULT_QUICK_COOLDOWN)
@@ -736,18 +736,18 @@ BREATH ANALYZER
 		print_scan(target_mob, user)
 		add_fingerprint(user)
 
-/obj/item/device/advanced_healthanalyzer/proc/print_scan(var/mob/M, var/mob/living/user)
+/obj/item/advanced_healthanalyzer/proc/print_scan(var/mob/M, var/mob/living/user)
 	var/obj/item/paper/medscan/R = new /obj/item/paper/medscan(src, connected.format_occupant_data(get_occupant_data(M)), "Scan ([M.name]) ([worldtime2text()])", M)
 	connected.print(R, message = "\The [src] beeps, printing \the [R] after a moment.", user = user)
 
 /// Variant of print_scan(), main difference is different method to print the paper
-/obj/item/device/advanced_healthanalyzer/cyborg/print_scan(var/mob/M, var/mob/living/user)
+/obj/item/advanced_healthanalyzer/cyborg/print_scan(var/mob/M, var/mob/living/user)
 	var/obj/item/paper/medscan/R = new /obj/item/paper/medscan(src, connected.format_occupant_data(get_occupant_data(M)), "Scan ([M.name]) ([worldtime2text()])", M)
 	user.visible_message(SPAN_NOTICE("\The [src] beeps, printing \the [R] after a moment."))
-	playsound(user.loc, /singleton/sound_category/print_sound, 50, 1)
+	playsound(user.loc, SFX_PRINT, 50, 1)
 	R.forceMove(user.loc)
 
-/obj/item/device/advanced_healthanalyzer/proc/get_occupant_data(var/mob/living/carbon/human/H)
+/obj/item/advanced_healthanalyzer/proc/get_occupant_data(var/mob/living/carbon/human/H)
 	if (!ishuman(H))
 		return
 

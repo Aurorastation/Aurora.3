@@ -21,7 +21,7 @@ export const AtmosAlarmControl = (props, context) => {
   const [searchTerm, setSearchTerm] = useLocalState<string>(
     context,
     `searchTerm`,
-    ``
+    ``,
   );
 
   return (
@@ -44,7 +44,8 @@ export const AtmosAlarmControl = (props, context) => {
                 value={searchTerm}
               />
             </>
-          }>
+          }
+        >
           <Table>
             <Table.Row header>
               <Table.Cell>Deck</Table.Cell>
@@ -58,7 +59,7 @@ export const AtmosAlarmControl = (props, context) => {
                   (alarm) =>
                     alarm.searchname
                       ?.toLowerCase()
-                      .indexOf(searchTerm.toLowerCase()) > -1
+                      .indexOf(searchTerm.toLowerCase()) > -1,
                 )
                 .sort((a, b) => a.dept?.localeCompare(b?.dept))
                 .map((alarm) => (

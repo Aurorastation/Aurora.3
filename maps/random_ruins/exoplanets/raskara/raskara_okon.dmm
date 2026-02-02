@@ -858,11 +858,11 @@
 	},
 /area/raskara_okon/observatory)
 "kL" = (
-/obj/item/device/radio,
-/obj/item/device/radio,
-/obj/item/device/radio,
-/obj/item/device/radio,
-/obj/item/device/radio,
+/obj/item/radio,
+/obj/item/radio,
+/obj/item/radio,
+/obj/item/radio,
+/obj/item/radio,
 /obj/structure/table/standard,
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
@@ -961,9 +961,9 @@
 /area/raskara_okon/eva)
 "lq" = (
 /obj/structure/table/standard,
-/obj/item/device/flashlight/heavy,
-/obj/item/device/flashlight/heavy,
-/obj/item/device/flashlight/heavy,
+/obj/item/flashlight/heavy,
+/obj/item/flashlight/heavy,
+/obj/item/flashlight/heavy,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -1928,9 +1928,9 @@
 /obj/item/crowbar/red,
 /obj/item/crowbar/red,
 /obj/item/crowbar/red,
-/obj/item/device/analyzer,
-/obj/item/device/analyzer,
-/obj/item/device/analyzer,
+/obj/item/analyzer,
+/obj/item/analyzer,
+/obj/item/analyzer,
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
@@ -2742,7 +2742,7 @@
 /area/raskara_okon/mining)
 "IO" = (
 /obj/structure/table/standard,
-/obj/item/device/flashlight/lamp,
+/obj/item/flashlight/lamp,
 /obj/effect/floor_decal/corner/red/full{
 	dir = 1
 	},
@@ -2806,9 +2806,9 @@
 	},
 /area/raskara_okon/observatory)
 "JO" = (
-/obj/item/device/flashlight/lantern,
-/obj/item/device/flashlight/lantern,
-/obj/item/device/flashlight/lantern,
+/obj/item/flashlight/lantern,
+/obj/item/flashlight/lantern,
+/obj/item/flashlight/lantern,
 /obj/structure/closet/toolcloset/empty,
 /obj/item/ore_detector,
 /obj/item/ore_detector,
@@ -3002,7 +3002,7 @@
 /area/raskara_okon/entry)
 "Mf" = (
 /obj/structure/table/standard,
-/obj/item/device/flashlight/lamp,
+/obj/item/flashlight/lamp,
 /obj/effect/floor_decal/corner/red/full{
 	dir = 4
 	},
@@ -3573,7 +3573,7 @@
 /area/raskara_okon/laboratory)
 "TS" = (
 /obj/structure/table/standard,
-/obj/item/device/flashlight/lamp,
+/obj/item/flashlight/lamp,
 /obj/effect/floor_decal/corner/red/full,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15

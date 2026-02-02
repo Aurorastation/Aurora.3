@@ -217,7 +217,7 @@
 /obj/machinery/light/small{
 	dir = 4
 	},
-/obj/item/device/binoculars{
+/obj/item/binoculars{
 	pixel_y = 11;
 	pixel_x = -4
 	},
@@ -652,7 +652,7 @@
 	dir = 5
 	},
 /obj/random/dirt_75,
-/obj/item/device/versebook/thakh{
+/obj/item/versebook/thakh{
 	pixel_y = 6;
 	pixel_x = 3
 	},
@@ -1955,7 +1955,7 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8
 	},
-/obj/item/device/versebook/thakh{
+/obj/item/versebook/thakh{
 	pixel_y = 6;
 	pixel_x = 3
 	},
@@ -1974,7 +1974,7 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8
 	},
-/obj/item/device/versebook/skakh{
+/obj/item/versebook/skakh{
 	pixel_x = 5;
 	pixel_y = 9
 	},
@@ -2246,7 +2246,7 @@
 	pixel_x = -10;
 	pixel_y = 16
 	},
-/obj/item/device/versebook/skakh{
+/obj/item/versebook/skakh{
 	pixel_x = 4;
 	pixel_y = 7
 	},
@@ -2697,7 +2697,7 @@
 	pixel_y = -12;
 	pixel_x = 3
 	},
-/obj/item/device/personal_shield{
+/obj/item/personal_shield{
 	pixel_y = 4;
 	pixel_x = 8
 	},
@@ -2792,7 +2792,7 @@
 	},
 /obj/random/dirt_75,
 /obj/effect/decal/cleanable/ash,
-/obj/item/device/oxycandle{
+/obj/item/oxycandle{
 	pixel_y = 7;
 	pixel_x = -5
 	},
@@ -2833,7 +2833,7 @@
 /obj/machinery/light/small{
 	dir = 4
 	},
-/obj/item/device/binoculars{
+/obj/item/binoculars{
 	pixel_y = 11;
 	pixel_x = -4
 	},

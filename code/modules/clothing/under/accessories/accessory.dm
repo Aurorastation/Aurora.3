@@ -135,28 +135,32 @@
 //default attack_self behaviour
 /obj/item/clothing/accessory/attack_self(mob/user as mob)
 	if(flippable)
-		if(!flipped)
-			if(!overlay_state)
-				icon_state = "[initial(icon_state)]_flip"
-				item_state = "[initial(item_state)]_flip"
-				flipped = 1
-			else
-				overlay_state = "[overlay_state]_flip"
-				flipped = 1
-		else
-			if(!overlay_state)
-				icon_state = initial(icon_state)
-				item_state = initial(item_state)
-				flipped = 0
-			else
-				overlay_state = initial(overlay_state)
-				flipped = 0
+		flipped = !flipped
+		update_icon()
 		flip_message(user)
 		update_clothing_icon()
 		inv_overlay = null
 		accessory_mob_overlay = null
 		return
 	..()
+
+/obj/item/clothing/accessory/update_icon()
+	. = ..()
+	flip_sprite()
+
+/obj/item/clothing/accessory/proc/flip_sprite()
+	if(flipped)
+		if(!overlay_state)
+			icon_state = "[initial(icon_state)]_flip"
+			item_state = "[initial(item_state)]_flip"
+		else
+			overlay_state = "[overlay_state]_flip"
+	else
+		if(!overlay_state)
+			icon_state = initial(icon_state)
+			item_state = initial(item_state)
+		else
+			overlay_state = initial(overlay_state)
 
 /obj/item/clothing/accessory/proc/flip_message(mob/user)
 	to_chat(user, "You change \the [src] to be on your [src.flipped ? "right" : "left"] side.")
@@ -1228,7 +1232,7 @@
 	color = "#3429d1"
 	allowed = list(
 		/obj/item/reagent_containers/spray/plantbgone,
-		/obj/item/device/analyzer/plant_analyzer,
+		/obj/item/analyzer/plant_analyzer,
 		/obj/item/seeds,
 		/obj/item/reagent_containers/glass/fertilizer,
 		/obj/item/material/minihoe
@@ -1245,11 +1249,11 @@
 		/obj/item/reagent_containers/dropper,
 		/obj/item/reagent_containers/hypospray,
 		/obj/item/reagent_containers/syringe,
-		/obj/item/device/healthanalyzer,
-		/obj/item/device/flashlight,
-		/obj/item/device/radio,
+		/obj/item/healthanalyzer,
+		/obj/item/flashlight,
+		/obj/item/radio,
 		/obj/item/tank/emergency_oxygen,
-		/obj/item/device/breath_analyzer,
+		/obj/item/breath_analyzer,
 		/obj/item/reagent_containers/blood
 	)
 

@@ -268,6 +268,17 @@
 /obj/item/organ/external/proc/invalidate_marking_cache()
 	cached_markings = null
 
+///If the organ requires amputation, returns TRUE. Otherwise, returns FALSE
+/obj/item/organ/external/proc/CheckNeedsAmputation()
+	var/extreme_damage = FALSE
+	if(!(brute_ratio < 100))
+		extreme_damage = TRUE
+	if(!(burn_ratio < 100))
+		extreme_damage = TRUE
+	if(extreme_damage && !(limb_flags & ORGAN_HEALS_OVERKILL))
+		return TRUE // Limb took too much damage, nothing left to heal
+	return FALSE
+
 /obj/item/organ/external/attack_self(var/mob/user)
 	if(!length(contents))
 		return ..()
@@ -1032,6 +1043,11 @@ Note that amputating the affected organ does in fact remove the infection from t
 
 	//update damage counts
 	for(var/datum/wound/W in wounds)
+
+		if(W.damage <= 0)
+			qdel(W)
+			continue
+
 		if(W.damage_type == INJURY_TYPE_BURN)
 			burn_dam += W.damage
 		else
@@ -1283,7 +1299,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 		if(owner.species && owner.can_feel_pain())
 			owner.emote("scream")
 			owner.flash_strong_pain()
-		playsound(src.loc, /singleton/sound_category/fracture_sound, 100, 1, -2)
+		playsound(src.loc, SFX_FRACTURE, 100, 1, -2)
 
 	status |= ORGAN_BROKEN
 	broken_description = pick("broken", "fracture", "hairline fracture")

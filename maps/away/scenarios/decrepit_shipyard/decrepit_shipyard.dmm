@@ -1587,7 +1587,7 @@
 	pixel_x = 6;
 	pixel_y = 11
 	},
-/obj/item/device/assembly/signaler{
+/obj/item/assembly/signaler{
 	pixel_x = -9;
 	pixel_y = -4
 	},
@@ -2327,8 +2327,8 @@
 "bGF" = (
 /obj/structure/lattice/catwalk/indoor/urban,
 /obj/structure/table/steel,
-/obj/item/device/flashlight/flare,
-/obj/item/device/flashlight/flare,
+/obj/item/flashlight/flare,
+/obj/item/flashlight/flare,
 /turf/simulated/floor,
 /area/decrepit_shipyard/engineering_equipment_room)
 "bHc" = (
@@ -6046,7 +6046,7 @@
 /area/decrepit_shipyard/docking_arm)
 "egD" = (
 /obj/structure/table/rack/folding_table,
-/obj/item/device/flashlight/lamp/off{
+/obj/item/flashlight/lamp/off{
 	pixel_x = 5;
 	pixel_y = 12
 	},
@@ -6968,7 +6968,7 @@
 	pixel_x = 7;
 	pixel_y = -4
 	},
-/obj/item/device/paint_sprayer{
+/obj/item/paint_sprayer{
 	pixel_x = -2;
 	pixel_y = 8
 	},
@@ -10149,7 +10149,7 @@
 	pixel_y = 15;
 	pixel_x = 22
 	},
-/obj/item/device/paint_sprayer{
+/obj/item/paint_sprayer{
 	pixel_x = 3;
 	pixel_y = 13
 	},
@@ -11119,7 +11119,7 @@
 "hDT" = (
 /obj/structure/lattice/catwalk/indoor/urban,
 /obj/structure/table/rack/folding_table,
-/obj/item/device/hand_labeler,
+/obj/item/hand_labeler,
 /obj/random/pottedplant_small{
 	pixel_x = -9;
 	pixel_y = 11
@@ -16969,7 +16969,7 @@
 	pixel_x = -7;
 	pixel_y = -6
 	},
-/obj/item/device/assembly/igniter{
+/obj/item/assembly/igniter{
 	pixel_x = 1;
 	pixel_y = 12
 	},
@@ -19002,7 +19002,7 @@
 "mSt" = (
 /obj/structure/table/reinforced/steel,
 /obj/random/dirt_75,
-/obj/item/device/geiger{
+/obj/item/geiger{
 	pixel_x = -6;
 	pixel_y = -2
 	},
@@ -20437,15 +20437,15 @@
 	dir = 5
 	},
 /obj/structure/table/reinforced/steel,
-/obj/item/device/radio{
+/obj/item/radio{
 	pixel_x = 8;
 	pixel_y = 11
 	},
-/obj/item/device/pipe_painter{
+/obj/item/pipe_painter{
 	pixel_x = -6;
 	pixel_y = 9
 	},
-/obj/item/device/paint_sprayer,
+/obj/item/paint_sprayer,
 /turf/simulated/floor/tiled/gridded,
 /area/decrepit_shipyard/main_workshop)
 "nQk" = (
@@ -21068,7 +21068,7 @@
 	dir = 4
 	},
 /obj/structure/table/rack,
-/obj/item/device/pipe_painter,
+/obj/item/pipe_painter,
 /turf/simulated/floor/tiled/gridded,
 /area/decrepit_shipyard/atmospherics)
 "oit" = (
@@ -24715,9 +24715,9 @@
 "qMm" = (
 /obj/structure/lattice/catwalk/indoor/urban,
 /obj/structure/table/rack,
-/obj/item/device/flashlight/heavy,
-/obj/item/device/flashlight/heavy,
-/obj/item/device/flashlight/heavy,
+/obj/item/flashlight/heavy,
+/obj/item/flashlight/heavy,
+/obj/item/flashlight/heavy,
 /turf/simulated/floor,
 /area/decrepit_shipyard/engineering_equipment_room)
 "qMR" = (
@@ -33600,7 +33600,7 @@
 "xzI" = (
 /obj/structure/table/reinforced/steel,
 /obj/random/dirt_75,
-/obj/item/device/geiger{
+/obj/item/geiger{
 	pixel_x = 7;
 	pixel_y = 6
 	},

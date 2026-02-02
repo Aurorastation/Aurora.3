@@ -215,7 +215,7 @@
 	description = "Its said that green pipes are safe to travel through."
 	price = 25
 	items = list(
-		/obj/item/device/pipe_painter
+		/obj/item/pipe_painter
 	)
 	access = ACCESS_ENGINE
 	container_type = "crate"

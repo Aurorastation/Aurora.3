@@ -179,7 +179,7 @@
 	flags_inv = 0
 	hoodtype = /obj/item/clothing/head/winterhood/hoodie/taj_scrubs
 	allowed = list(/obj/item/stack/medical, /obj/item/reagent_containers/dropper, /obj/item/reagent_containers/hypospray, /obj/item/reagent_containers/syringe, \
-	/obj/item/device/healthanalyzer, /obj/item/device/flashlight, /obj/item/device/radio, /obj/item/tank/emergency_oxygen, /obj/item/device/breath_analyzer, /obj/item/reagent_containers/blood)
+	/obj/item/healthanalyzer, /obj/item/flashlight, /obj/item/radio, /obj/item/tank/emergency_oxygen, /obj/item/breath_analyzer, /obj/item/reagent_containers/blood)
 	species_restricted = list(BODYTYPE_TAJARA)
 	desc_extended = null
 
@@ -396,7 +396,7 @@
 	item_state = "hunter_coat"
 	contained_sprite = TRUE
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
-	allowed = list(/obj/item/gun/projectile/shotgun, /obj/item/gun/projectile/shotgun/pump/rifle, /obj/item/ammo_magazine/boltaction, /obj/item/material/knife, /obj/item/device/flashlight)
+	allowed = list(/obj/item/gun/projectile/shotgun, /obj/item/gun/projectile/shotgun/pump/rifle, /obj/item/ammo_magazine/boltaction, /obj/item/material/knife, /obj/item/flashlight)
 
 /obj/item/clothing/suit/storage/tajaran/archeologist
 	name = "archeologist jacket"

@@ -197,10 +197,10 @@
 				. -= target
 				break
 
-/proc/get_hearers_in_radio_ranges(list/obj/item/device/radios)
+/proc/get_hearers_in_radio_ranges(list/obj/item/radios)
 	. = list()
 	// Returns a list of mobs who can hear any of the radios given in @radios
-	for(var/obj/item/device/radio/radio as anything in radios)
+	for(var/obj/item/radio/radio as anything in radios)
 		. |= get_hearers_in_LOS(radio.canhear_range, radio, FALSE)
 
 ///Calculate if two atoms are in sight, returns TRUE or FALSE

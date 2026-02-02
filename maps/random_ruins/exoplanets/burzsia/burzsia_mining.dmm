@@ -12,7 +12,7 @@
 /area/burzsia_mining)
 "bk" = (
 /obj/structure/table/steel,
-/obj/item/device/flashlight/lamp/lava/yellow,
+/obj/item/flashlight/lamp/lava/yellow,
 /obj/effect/floor_decal/corner/orange/diagonal,
 /turf/simulated/floor/tiled/dark,
 /area/burzsia_mining/foreman)
@@ -178,8 +178,8 @@
 /obj/item/plastique/seismic,
 /obj/item/gun/custom_ka/frame01/prebuilt,
 /obj/item/ore_detector,
-/obj/item/device/flashlight/lantern,
-/obj/item/device/radio,
+/obj/item/flashlight/lantern,
+/obj/item/radio,
 /obj/item/stack/flag/yellow,
 /obj/item/stack/flag/yellow,
 /turf/simulated/floor/tiled/steel,
@@ -592,8 +592,8 @@
 /obj/item/clothing/shoes/magboots,
 /obj/item/clothing/suit/space/void/mining,
 /obj/item/clothing/head/helmet/space/void/mining,
-/obj/item/device/suit_cooling_unit,
-/obj/item/device/gps/mining,
+/obj/item/suit_cooling_unit,
+/obj/item/gps/mining,
 /turf/simulated/floor/tiled/steel,
 /area/burzsia_mining/mining)
 "oN" = (
@@ -616,11 +616,11 @@
 /obj/item/plastique/seismic,
 /obj/item/gun/custom_ka/frame01/prebuilt,
 /obj/item/ore_detector,
-/obj/item/device/flashlight/lantern,
+/obj/item/flashlight/lantern,
 /obj/machinery/alarm/west{
 	req_one_access = list(202)
 	},
-/obj/item/device/radio,
+/obj/item/radio,
 /obj/item/stack/flag/yellow,
 /obj/item/stack/flag/yellow,
 /turf/simulated/floor/tiled/steel,
@@ -804,7 +804,7 @@
 /area/burzsia_mining/engineering)
 "tP" = (
 /obj/structure/table/steel,
-/obj/item/device/flashlight/lamp,
+/obj/item/flashlight/lamp,
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 9
 	},
@@ -1036,11 +1036,11 @@
 /obj/item/plastique/seismic,
 /obj/item/gun/custom_ka/frame01/prebuilt,
 /obj/item/ore_detector,
-/obj/item/device/flashlight/lantern,
+/obj/item/flashlight/lantern,
 /obj/machinery/light{
 	dir = 8
 	},
-/obj/item/device/radio,
+/obj/item/radio,
 /obj/item/stack/flag/yellow,
 /obj/item/stack/flag/yellow,
 /turf/simulated/floor/tiled/steel,
@@ -1334,7 +1334,7 @@
 /area/burzsia_mining/mining)
 "EF" = (
 /obj/structure/table/steel,
-/obj/item/device/flashlight/lamp,
+/obj/item/flashlight/lamp,
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 9
 	},
@@ -1733,9 +1733,9 @@
 /obj/item/crowbar/red,
 /obj/item/crowbar/red,
 /obj/item/crowbar/red,
-/obj/item/device/analyzer,
-/obj/item/device/analyzer,
-/obj/item/device/analyzer,
+/obj/item/analyzer,
+/obj/item/analyzer,
+/obj/item/analyzer,
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
@@ -1858,9 +1858,9 @@
 /obj/item/crowbar/red,
 /obj/item/crowbar/red,
 /obj/item/crowbar/red,
-/obj/item/device/analyzer,
-/obj/item/device/analyzer,
-/obj/item/device/analyzer,
+/obj/item/analyzer,
+/obj/item/analyzer,
+/obj/item/analyzer,
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
@@ -2003,11 +2003,11 @@
 /obj/item/plastique/seismic,
 /obj/item/gun/custom_ka/frame01/prebuilt,
 /obj/item/ore_detector,
-/obj/item/device/flashlight/lantern,
+/obj/item/flashlight/lantern,
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
-/obj/item/device/radio,
+/obj/item/radio,
 /obj/item/stack/flag/yellow,
 /obj/item/stack/flag/yellow,
 /turf/simulated/floor/tiled/steel,

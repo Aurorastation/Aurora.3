@@ -22,7 +22,7 @@
 		/obj/item/tank,
 		/obj/item/circuitboard,
 		/obj/item/smes_coil,
-		/obj/item/device/assembly,//Primarily for making improved cameras, but opens many possibilities
+		/obj/item/assembly,//Primarily for making improved cameras, but opens many possibilities
 		/obj/item/computer_hardware,
 		/obj/item/pipe,
 		/obj/item/smallDelivery,
@@ -242,7 +242,7 @@
 		/obj/item/extraction_pack,
 		/obj/item/smallDelivery,
 		/obj/item/gift,
-		/obj/item/device/mine_bot_upgrade
+		/obj/item/mine_bot_upgrade
 	)
 
 /obj/item/gripper/paperwork
@@ -276,26 +276,26 @@
 	can_hold = list(
 		/obj/item/cell,
 		/obj/item/stock_parts,
-		/obj/item/device/mmi,
+		/obj/item/mmi,
 		/obj/item/robot_parts,
 		/obj/item/mech_component,
 		/obj/item/mecha_equipment,
-		/obj/item/device/radio/exosuit,
+		/obj/item/radio/exosuit,
 		/obj/item/borg/upgrade,
-		/obj/item/device/flash, // to build borgs,
+		/obj/item/flash, // to build borgs,
 		/obj/item/organ/internal/brain, // to insert into MMIs,
 		/obj/item/stack/cable_coil, // again, for borg building,
 		/obj/item/circuitboard,
 		/obj/item/slime_extract,
-		/obj/item/device/slime_scanner,
+		/obj/item/slime_scanner,
 		/obj/item/reagent_containers/glass,
 		/obj/item/reagent_containers/food/snacks/monkeycube,
 		/obj/item/seeds, // To be able to plant things for Xenobotany
 		/obj/item/grown, // To be able to plant things for Xenobotany
-		/obj/item/device/assembly, // For building bots and similar complex R&D devices
-		/obj/item/device/healthanalyzer,// For building medibots
+		/obj/item/assembly, // For building bots and similar complex R&D devices
+		/obj/item/healthanalyzer,// For building medibots
 		/obj/item/disk,
-		/obj/item/device/analyzer/plant_analyzer,//For farmbot construction
+		/obj/item/analyzer/plant_analyzer,//For farmbot construction
 		/obj/item/material/minihoe, // Farmbots and xenoflora
 		/obj/item/computer_hardware,
 		/obj/item/slimesteroid,
@@ -305,7 +305,7 @@
 		/obj/item/remote_mecha,
 		/obj/item/smallDelivery,
 		/obj/item/gift,
-		/obj/item/device/integrated_circuit_printer
+		/obj/item/integrated_circuit_printer
 		)
 
 /obj/item/gripper/chemistry //A gripper designed for chemistry, to allow borgs to work efficiently in the lab
@@ -324,7 +324,7 @@
 		/obj/item/reagent_containers/inhaler,
 		/obj/item/reagent_containers/hypospray,
 		/obj/item/storage/pill_bottle,
-		/obj/item/device/hand_labeler,
+		/obj/item/hand_labeler,
 		/obj/item/paper,
 		/obj/item/stack/material/phoron,
 		/obj/item/reagent_containers/blood,

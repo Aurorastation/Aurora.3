@@ -29,7 +29,7 @@
 	)
 	belt_contents = list(
 		/obj/item/gun/custom_ka/frame01/prebuilt=1,
-		/obj/item/device/flashlight/lantern=1,
+		/obj/item/flashlight/lantern=1,
 	)
 	head = list(
 		/obj/item/clothing/head/hardhat,

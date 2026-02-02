@@ -1,7 +1,7 @@
-/obj/item/device/mine_detector
+/obj/item/mine_detector
 	name = "mine detector"
 	desc = "A device capable of detecting mines and traps in a range."
-	icon = 'icons/obj/item/device/gps.dmi'
+	icon = 'icons/obj/item/gps.dmi'
 	icon_state = "gps"
 	item_state = "radio"
 
@@ -26,7 +26,7 @@
 	///The timer ID for the automatic rescans
 	var/timer_id = null
 
-/obj/item/device/mine_detector/attack_self(mob/user)
+/obj/item/mine_detector/attack_self(mob/user)
 	. = ..()
 	ClearOverlays()
 	//Apply the delay and check it is passed, so a new scan can be done
@@ -51,7 +51,7 @@
 			timer_id = null
 
 
-/obj/item/device/mine_detector/proc/perform_scan(mob/user)
+/obj/item/mine_detector/proc/perform_scan(mob/user)
 
 	var/list/turfs_scanned = get_turfs_in_cone(get_turf(src), dir2angle(user.dir), detection_range, detection_angle)
 
@@ -99,7 +99,7 @@
 	Subtypes
 #############*/
 
-/obj/item/device/mine_detector/advanced
+/obj/item/mine_detector/advanced
 	name = "advanced mine detector"
 	desc = "A device capable of detecting mines and traps in a range. This one is more advanced, featuring automatic scanning as well as a broader detection angle."
 	detection_angle = 45

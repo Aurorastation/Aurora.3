@@ -1,9 +1,9 @@
 //
 //Robotic Component Analyzer, basically a health analyzer for robots
 //
-/obj/item/device/robotanalyzer
+/obj/item/robotanalyzer
 	name = "cyborg analyzer"
-	icon = 'icons/obj/item/device/robotanalyzer.dmi'
+	icon = 'icons/obj/item/robotanalyzer.dmi'
 	icon_state = "robotanalyzer"
 	item_state = "analyzer"
 	desc = "A hand-held scanner able to diagnose robotic injuries."
@@ -16,7 +16,7 @@
 	origin_tech = list(TECH_MAGNET = 2, TECH_BIO = 1, TECH_ENGINEERING = 2)
 	matter = list(DEFAULT_WALL_MATERIAL = 500, MATERIAL_GLASS = 200)
 
-/obj/item/device/robotanalyzer/attack(mob/living/target_mob, mob/living/user, target_zone)
+/obj/item/robotanalyzer/attack(mob/living/target_mob, mob/living/user, target_zone)
 	robotic_analyze_mob(target_mob, user)
 	add_fingerprint(user)
 
@@ -132,19 +132,19 @@
 	else
 		. = "minor"
 
-/obj/item/device/robotanalyzer/augment
+/obj/item/robotanalyzer/augment
 	name = "retractable cyborg analyzer"
 	desc = "An scanner implanted directly into the hand, popping through the finger. This scanner can diagnose robotic injuries."
-	icon = 'icons/obj/item/device/robotanalyzer.dmi'
+	icon = 'icons/obj/item/robotanalyzer.dmi'
 	icon_state = "robotanalyzer"
 	item_state = "analyzer"
 	slot_flags = null
 	w_class = WEIGHT_CLASS_HUGE
 
-/obj/item/device/robotanalyzer/augment/throw_at(atom/target, range, speed, mob/user)
+/obj/item/robotanalyzer/augment/throw_at(atom/target, range, speed, mob/user)
 	user.drop_from_inventory(src)
 
-/obj/item/device/robotanalyzer/augment/dropped()
+/obj/item/robotanalyzer/augment/dropped()
 	. = ..()
 	loc = null
 	qdel(src)

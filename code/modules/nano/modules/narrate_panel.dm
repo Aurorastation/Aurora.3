@@ -8,6 +8,7 @@
 	var/list/data = list()
 	data["narrate_styles"] = list("danger", "notice", "warning", "alien", "cult")
 	data["narrate_locations"] = list("View", "Range", "Z-Level", "Global")
+	data["narrate_filters"] = list("None", "Skrell-like Psi-sensitives", "Human-like Psi-sensitives", "Silicons", "Silicons + Implants", "Hivenet")
 	return data
 
 /datum/tgui_module/narrate_panel/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
@@ -62,6 +63,66 @@
 
 			if("Global")
 				mobs_to_message = GLOB.player_list.Copy()
+
+		// Skip the switch if no filter was selected.
+		if (params["narrate_filter"] == "None")
+			for(var/mob/actor in mobs_to_message)
+				to_chat(actor, "<font size=[narrate_size]><span class='[narrate_style]'>[narrate_text]</span></font>")
+			return
+
+		// Create a copy of the message receivers. We have to iterate the copy of the list in order to safely remove entries from the list of message receivers.
+		// Otherwise we'll get memory exceptions.
+		var/list/filtered_list = mobs_to_message.Copy()
+		var/narrate_filter = params["narrate_filter"]
+		switch(narrate_filter)
+			if ("Skrell-like Psi-sensitives")
+				for(var/mob/filteree in filtered_list)
+					// This will check for anyone who is capable of receiving and interpreting telepathic messages.
+					// It will include Skrell who don't have a mindshield or the Low Psi-sensitivity trait.
+					// It will also include characters who have Psi-receivers, the High Psi-sensitivity trait, or are under the effects of Psycho-nootropic drugs.
+					if (IS_TELEPATHY_BLOCKED(filteree, PSI_RANK_SENSITIVE))
+						mobs_to_message.Remove(filteree)
+						continue
+			if ("Human-like Psi-sensitives")
+				for(var/mob/filteree in filtered_list)
+					// This will check for anyone who has a Zona Bovina capable of hearing psionics at all.
+					if (IS_TELEPATHY_BLOCKED(filteree, 0))
+						mobs_to_message.Remove(filteree)
+						continue
+			if ("Silicons")
+				for(var/mob/filteree in filtered_list)
+					// List will include Borgs, Robots, Shipbounds, pAIs, and IPCs.
+					if(issilicon(filteree) || isipc(filteree) || ispAI(filteree))
+						continue
+
+					// Remove anyone not made of silicon.
+					mobs_to_message.Remove(filteree)
+			if ("Silicons + Implants")
+				for(var/mob/filteree in filtered_list)
+					// List will include Borgs, Robots, Shipbounds, pAIs, and IPCs.
+					if(issilicon(filteree) || isipc(filteree) || ispAI(filteree))
+						continue
+
+
+					if (!ishuman(filteree))
+						// The mob in question can't have a brain at all, filter it early.
+						mobs_to_message.Remove(filteree)
+						continue
+
+					var/mob/living/carbon/human/brain_haver = filteree
+					// Check for silicon brain implants.
+					var/obj/item/organ/internal/brain = brain_haver.internal_organs_by_name[BP_BRAIN]
+					if (brain && ((brain.status & ORGAN_ASSISTED) || (brain.status & ORGAN_ROBOT)))
+						continue
+
+					// Remove anyone not made of silicon or doesn't have a cranial implant.
+					mobs_to_message.Remove(filteree)
+			if ("Hivenet")
+				for(var/mob/filteree in filtered_list)
+					// Filter anyone who doesn't have the Vaurca language at all.
+					if (!(GLOB.all_languages[LANGUAGE_VAURCA] in filteree.languages))
+						mobs_to_message.Remove(filteree)
+						continue
 
 		for(var/mob/actor in mobs_to_message)
 			to_chat(actor, "<font size=[narrate_size]><span class='[narrate_style]'>[narrate_text]</span></font>")
