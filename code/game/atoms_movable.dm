@@ -31,6 +31,15 @@
 	var/moved_recently = 0
 	var/atom/movable/pulledby = null
 
+	/// Use get_default_say_verb() in say.dm instead of reading verb_say.
+	var/verb_say = "says"
+	var/verb_ask = "asks"
+	var/verb_exclaim = "exclaims"
+	var/verb_whisper = "whispers"
+	var/verb_sing = "sings"
+	var/verb_yell = "yells"
+	var/speech_span
+
 	///Base name of the image used for when the item is in someone's hand. Suffixes are added to this. Doubles as legacy overlay_state.
 	var/item_state = null
 

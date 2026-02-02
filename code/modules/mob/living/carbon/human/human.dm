@@ -479,7 +479,7 @@
 		return if_no_id
 
 /// Repurposed proc. Now it combines get_id_name() and get_face_name() to determine a mob's name variable.
-/mob/living/carbon/human/proc/get_visible_name()
+/mob/living/carbon/human/get_visible_name()
 	if( wear_mask && (wear_mask.flags_inv&HIDEFACE) )	//Wearing a mask which hides our face, use id-name if possible
 		return get_id_name("Unknown")
 	if( head && (head.flags_inv&HIDEFACE) )

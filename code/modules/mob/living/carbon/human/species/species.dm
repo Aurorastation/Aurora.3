@@ -1119,7 +1119,7 @@
  * If it returns FALSE, the mob will not be able to speak.
  * Make sure to give the user the relevant error message in the override.
  */
-/datum/species/proc/can_speak(mob/living/carbon/human/speaker, datum/language/speaking, message)
+/datum/species/can_speak(mob/living/carbon/human/speaker, datum/language/speaking, message)
 	return TRUE
 
 /**
