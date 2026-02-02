@@ -58,12 +58,14 @@
 
 	for(signs, signs < max_signs, signs++)
 		new /obj/item/clothing/suit/caution(src)
+	get_storage_contents_list()
 
 // Full with Water Variant
 // Has everything as well as water in the mop bucket.
 /obj/structure/cart/storage/janitorialcart/full/water/Initialize()
 	. = ..()
 	my_bucket.reagents.add_reagent(/singleton/reagent/water, my_bucket.bucketsize)
+	get_storage_contents_list()
 
 /obj/structure/cart/storage/janitorialcart/New()
 	..()
