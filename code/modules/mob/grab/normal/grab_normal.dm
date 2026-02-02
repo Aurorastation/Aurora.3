@@ -217,10 +217,10 @@
 	if(!(damage_flags & (DAMAGE_FLAG_SHARP|DAMAGE_FLAG_EDGE)) || W.damtype != DAMAGE_BRUTE)
 		return FALSE //unsuitable weapon
 
-	user.visible_message(SPAN_DANGER("\The [user] begins to slit [src]'s throat with \the [W]!"))
+	user.visible_message(SPAN_DANGER("\The [user] begins to slit [grabbed]'s throat with \the [W]!"))
 
 	user.next_move = world.time + 20 //also should prevent user from triggering this repeatedly
-	if(!W.use_tool(src, user, 20, volume = 50))
+	if(!W.use_tool(user, grabbed, 20, volume = 50))
 		return 0
 	if(!(G && G.grabber == user && G.grabbed == grabbed)) //check that we still have a grab
 		return 0
@@ -247,15 +247,15 @@
 
 	if(total_damage)
 		if(grabbed.getOxyLoss() >= 40)
-			user.visible_message(SPAN_DANGER("\The [user] slices [src]'s throat open with \the [W]!"))
+			user.visible_message(SPAN_DANGER("\The [user] slices [grabbed]'s throat open with \the [W]!"))
 		else
-			user.visible_message(SPAN_DANGER("\The [user] cuts [src]'s neck open with \the [W]!"))
+			user.visible_message(SPAN_DANGER("\The [user] cuts [grabbed]'s neck open with \the [W]!"))
 
 		if(W.hitsound)
 			playsound(user.loc, W.hitsound, W.get_clamped_volume(), 1, -1)
 
-	if(ishuman(src))
-		var/mob/living/carbon/human/H = src
+	if(ishuman(user))
+		var/mob/living/carbon/human/H = user
 		var/obj/item/organ/external/head = H.get_organ(BP_HEAD)
 		if(head)
 			head.sever_artery()
@@ -264,7 +264,7 @@
 
 	user.attack_log += "\[[time_stamp()]\]<span class='warning'> Knifed [grabbed.name] ([grabbed.ckey]) with [W.name] (INTENT: [uppertext(user.a_intent)]) (DAMTYE: [uppertext(W.damtype)])</span>"
 	grabbed.attack_log += "\[[time_stamp()]\]<font color='orange'> Got knifed by [user.name] ([user.ckey]) with [W.name] (INTENT: [uppertext(user.a_intent)]) (DAMTYE: [uppertext(W.damtype)])</font>"
-	msg_admin_attack("[key_name_admin(user)] knifed [key_name_admin(src)] with [W.name] (INTENT: [uppertext(user.a_intent)]) (DAMTYE: [uppertext(W.damtype)])",ckey=key_name(user),ckey_target=key_name(src) )
+	msg_admin_attack("[key_name_admin(user)] knifed [key_name_admin(grabbed)] with [W.name] (INTENT: [uppertext(user.a_intent)]) (DAMTYE: [uppertext(W.damtype)])",ckey=key_name(user),ckey_target=key_name(grabbed))
 	return 1
 
 /singleton/grab/normal/proc/attack_tendons(var/obj/item/grab/G, var/obj/item/used_item, mob/user, var/target_zone)
@@ -281,7 +281,7 @@
 		return FALSE
 	user.visible_message(SPAN_DANGER("\The [user] begins to cut \the [grabbed]'s [O.tendon_name] with \the [used_item]!"))
 	user.next_move = world.time + 20
-	if(!used_item.use_tool(src, user, 20, volume = 50))
+	if(!used_item.use_tool(user, grabbed, 20, volume = 50))
 		return 0
 	if(!(G && G.grabbed == grabbed)) //check that we still have a grab
 		return 0
