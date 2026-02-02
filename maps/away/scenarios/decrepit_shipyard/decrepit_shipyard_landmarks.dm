@@ -1,8 +1,6 @@
 //---- Base types
 
 /obj/effect/shuttle_landmark/decrepit_shipyard
-	base_area = /area/space
-	base_turf = /turf/space
 
 // Upper deck docking landmarks
 
@@ -40,8 +38,6 @@
 	name = "Docking Arm, South-West, 1c"
 	landmark_tag = "nav_decrepit_shipyard_dock_1c"
 	docking_controller = "airlock_decrepit_shipyard_dock_1c"
-	base_area = /area/decrepit_shipyard/exterior
-	base_turf = /turf/simulated/floor/reinforced/airless
 	dir = SOUTH
 
 /obj/effect/map_effect/marker/airlock/docking/decrepit_shipyard/upper/dock_1c

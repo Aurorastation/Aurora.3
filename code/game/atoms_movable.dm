@@ -1082,13 +1082,6 @@
 	set_light_power(power)
 	set_light_color(color)
 
-/**
- * Called when a movable is moved by a shuttle. Eventually, God willing, replace this with the TG shuttle version.
- */
-/atom/movable/proc/afterShuttleMove(obj/effect/shuttle_landmark/destination)
-	if(light)
-		update_light()
-
 /atom/movable/proc/set_glide_size(target = 8)
 	if (HAS_TRAIT(src, TRAIT_NO_GLIDE))
 		return

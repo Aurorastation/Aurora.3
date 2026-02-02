@@ -10,7 +10,7 @@
 	spawn_weight = 1
 	ship_cost = 1
 	id = "orion_miner"
-	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/orion_miner)
+	shuttles_to_initialise = list(/datum/shuttle/overmap/orion_miner)
 
 	unit_test_groups = list(3)
 
@@ -48,7 +48,7 @@
 	shuttle_tag = "Orion Express Mining Skiff"
 
 // This controls how docking behaves
-/datum/shuttle/autodock/overmap/orion_miner
+/datum/shuttle/overmap/orion_miner
 	name = "Orion Express Mining Skiff"
 	move_time = 20
 	range = 2
@@ -77,7 +77,6 @@
 	)
 	current_location = "nav_orion_miner_space"
 	dock_target = "orion_miner"
-	landmark_transition = "nav_orion_miner_transit"
 	logging_home_tag = "nav_orion_miner_space"
 	defer_initialisation = TRUE
 
@@ -91,7 +90,6 @@
 /obj/effect/shuttle_landmark/orion_miner
 	name = "In transit"
 	landmark_tag = "nav_orion_miner_transit"
-	base_turf = /turf/space
 
 // Shuttle airlock
 /obj/effect/map_effect/marker/airlock/shuttle/orion_miner

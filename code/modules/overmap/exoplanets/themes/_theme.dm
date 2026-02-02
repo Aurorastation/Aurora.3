@@ -353,10 +353,6 @@
 		if(away_site.exoplanet_lightlevel && T.is_outside())
 			T.set_light(MINIMUM_USEFUL_LIGHT_RANGE, away_site.exoplanet_lightlevel, away_site.exoplanet_lightcolor)
 
-	var/turf/simulated/mineral/M = T
-	if(use_area && istype(M))
-		M.mined_turf = use_area.base_turf
-
 /datum/exoplanet_theme/proc/cleanup(obj/effect/overmap/visitable/sector/exoplanet/E, z_to_check, min_x, min_y, max_x, max_y)
 	if(E.planetary_area)
 		var/area/global_area = GLOB.areas_by_type[world.area]
