@@ -421,7 +421,6 @@
 	uniform = /obj/item/clothing/under/rank/hangar_technician
 	id = /obj/item/card/id/silver
 	shoes = /obj/item/clothing/shoes/workboots
-	gloves = /obj/item/clothing/gloves/black
 
 	tab_pda = /obj/item/modular_computer/handheld/pda/supply
 	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/supply
@@ -437,10 +436,8 @@
 	. = ..()
 	if(istajara(H))
 		H.equip_to_slot_or_del(new /obj/item/clothing/shoes/workboots/tajara(H), slot_shoes)
-		H.equip_to_slot_or_del(new /obj/item/clothing/gloves/black/tajara(H), slot_gloves)
 	else if(isunathi(H))
 		H.equip_to_slot_or_del(new /obj/item/clothing/shoes/workboots/toeless(H), slot_shoes)
-		H.equip_to_slot_or_del(new /obj/item/clothing/gloves/black/unathi(H), slot_gloves)
 
 /datum/job/mining
 	title = "Shaft Miner"
