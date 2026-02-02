@@ -169,7 +169,7 @@
 	/// Multiplicative time modifier on syringe injections
 	var/injection_mod = 1
 
- 	/// The species' default grab type.
+	/// The species' default grab type.
 	var/grab_type = /singleton/grab/normal/passive
 
 	/// Same flags as glasses.
