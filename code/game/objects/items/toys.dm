@@ -618,8 +618,8 @@
 	icon_state = "katana"
 	item_state = "katana"
 	drop_sound = 'sound/items/drop/gun.ogg'
-	pickup_sound = /singleton/sound_category/sword_pickup_sound
-	equip_sound = /singleton/sound_category/sword_equip_sound
+	pickup_sound = SFX_PICKUP_SWORD
+	equip_sound = SFX_EQUIP_SWORD
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BELT | SLOT_BACK
 	force = 11
@@ -1413,7 +1413,7 @@
 
 /obj/item/toy/desk
 	var/on = FALSE
-	var/activation_sound = /singleton/sound_category/switch_sound
+	var/activation_sound = SFX_SWITCH
 
 /obj/item/toy/desk/update_icon()
 	if(on)

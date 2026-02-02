@@ -27,7 +27,7 @@
 	shoes = /obj/item/clothing/shoes/jackboots/tajara
 
 	uniform = /obj/item/clothing/under/tajaran/cosmonaut
-	l_ear = /obj/item/device/radio/headset/ship
+	l_ear = /obj/item/radio/headset/ship
 
 	belt = /obj/item/storage/belt/military
 
@@ -108,5 +108,5 @@
 						/obj/item/storage/box/hadii_manifesto = 1,
 						/obj/item/storage/box/hadii_card = 1
 						)
-	l_hand = /obj/item/device/megaphone
+	l_hand = /obj/item/megaphone
 	r_hand = /obj/item/martial_manual/tajara

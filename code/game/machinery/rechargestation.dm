@@ -117,6 +117,9 @@
 		return
 
 	var/obj/item/cell/target
+
+	// We use the reactor variable to see if this is an IPC that's charging.
+	var/obj/item/organ/internal/machine/reactor/reactor
 	if(isrobot(occupant))
 		var/mob/living/silicon/robot/R = occupant
 
@@ -132,9 +135,15 @@
 
 	if(ishuman(occupant))
 		var/mob/living/carbon/human/H = occupant
-		var/obj/item/organ/internal/cell/IC = H.internal_organs_by_name[BP_CELL]
-		if(IC)
+		var/obj/item/organ/internal/machine/power_core/IC = H.internal_organs_by_name[BP_CELL]
+		if(istype(IC))
 			target = IC.cell
+
+		// Different reactor types have different external recharge speeds.
+		reactor = H.internal_organs_by_name[BP_REACTOR]
+		if(!istype(reactor))
+			return
+
 		if((!target || target.percent() > 95) && istype(H.back, /obj/item/rig))
 			var/obj/item/rig/R = H.back
 			if(R.cell && !R.cell.fully_charged())
@@ -143,7 +152,11 @@
 	if(target && !target.fully_charged())
 		var/diff = min(target.maxcharge - target.charge, charging_power * CELLRATE * seconds_per_tick) // Capped by charging_power / tick
 		var/charge_used = cell.use(diff)
-		target.give(charge_used*charging_efficiency)
+
+		if(!reactor) // not an IPC
+			target.give(charge_used * charging_efficiency)
+		else
+			reactor.generate_power(charge_used * charging_efficiency * reactor.external_charge_multiplier)
 
 	if(isDrone(occupant))
 		var/mob/living/silicon/robot/drone/D = occupant
@@ -171,6 +184,13 @@
 		go_out()
 	if(cell)
 		cell.emp_act(severity)
+
+/obj/machinery/recharge_station/attack_hand(mob/user)
+	. = ..()
+	if(occupant && (user != occupant))
+		if(do_after(user, 1 SECOND, src))
+			user.visible_message(SPAN_NOTICE("[user] lowers the manual release lever on \the [src]."), SPAN_NOTICE("You lower the manual release lever on \the [src]."))
+			go_out()
 
 /obj/machinery/recharge_station/attackby(obj/item/attacking_item, mob/user)
 	if(!occupant)

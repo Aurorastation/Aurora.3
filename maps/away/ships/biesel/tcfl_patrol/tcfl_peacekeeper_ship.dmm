@@ -488,8 +488,8 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/obj/item/device/gps,
-/obj/item/device/gps,
+/obj/item/gps,
+/obj/item/gps,
 /turf/simulated/floor/tiled/dark,
 /area/ship/tcfl_peacekeeper_ship)
 "ehg" = (
@@ -587,7 +587,7 @@
 	dir = 8
 	},
 /obj/structure/table/steel,
-/obj/item/device/flashlight/maglight,
+/obj/item/flashlight/maglight,
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/tcfl_shuttle)
 "ett" = (
@@ -785,8 +785,8 @@
 /obj/structure/table/rack,
 /obj/item/deployable_kit/legion_barrier,
 /obj/item/deployable_kit/legion_barrier,
-/obj/item/device/magnetic_lock/security/legion,
-/obj/item/device/magnetic_lock/security/legion,
+/obj/item/magnetic_lock/security/legion,
+/obj/item/magnetic_lock/security/legion,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/extinguisher_cabinet/west,
 /obj/machinery/light{
@@ -894,10 +894,10 @@
 "fQq" = (
 /obj/structure/table/rack,
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/item/device/suit_cooling_unit,
-/obj/item/device/suit_cooling_unit,
-/obj/item/device/suit_cooling_unit,
-/obj/item/device/suit_cooling_unit,
+/obj/item/suit_cooling_unit,
+/obj/item/suit_cooling_unit,
+/obj/item/suit_cooling_unit,
+/obj/item/suit_cooling_unit,
 /turf/simulated/floor/tiled/dark,
 /area/ship/tcfl_peacekeeper_ship)
 "fQL" = (
@@ -1477,7 +1477,7 @@
 "iQk" = (
 /obj/effect/floor_decal/industrial/outline/blue,
 /obj/structure/table/rack,
-/obj/item/device/suit_cooling_unit,
+/obj/item/suit_cooling_unit,
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/tcfl_shuttle)
 "iSW" = (
@@ -1745,7 +1745,7 @@
 "kiO" = (
 /obj/structure/table/wood,
 /obj/item/clothing/suit/storage/legion,
-/obj/item/device/versebook/biesel{
+/obj/item/versebook/biesel{
 	pixel_y = -6
 	},
 /turf/simulated/floor/wood,
@@ -1909,7 +1909,7 @@
 /obj/item/storage/toolbox/electrical,
 /obj/item/storage/toolbox/mechanical,
 /obj/item/storage/bag/inflatable,
-/obj/item/device/lightreplacer,
+/obj/item/lightreplacer,
 /obj/item/storage/belt/utility,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor,
@@ -2204,8 +2204,8 @@
 /area/ship/tcfl_peacekeeper_ship)
 "mPM" = (
 /obj/structure/table/steel,
-/obj/item/device/versebook/biesel,
-/obj/item/device/flashlight/maglight,
+/obj/item/versebook/biesel,
+/obj/item/flashlight/maglight,
 /obj/machinery/light{
 	dir = 1;
 	icon_state = "tube_empty"
@@ -2329,7 +2329,7 @@
 /area/ship/tcfl_peacekeeper_ship)
 "nFw" = (
 /obj/structure/table/steel,
-/obj/item/device/flashlight/lamp,
+/obj/item/flashlight/lamp,
 /turf/simulated/floor/shuttle/tan,
 /area/ship/tcfl_peacekeeper_ship)
 "nJs" = (
@@ -2383,7 +2383,7 @@
 /area/ship/tcfl_peacekeeper_ship)
 "opS" = (
 /obj/structure/table/wood,
-/obj/item/device/flashlight/lamp/lava/blue,
+/obj/item/flashlight/lamp/lava/blue,
 /obj/structure/sign/flag/biesel{
 	pixel_x = -32;
 	pixel_y = 32
@@ -2588,7 +2588,7 @@
 /area/ship/tcfl_peacekeeper_ship)
 "pCa" = (
 /obj/structure/table/standard,
-/obj/item/device/megaphone/red{
+/obj/item/megaphone/red{
 	pixel_y = -4
 	},
 /obj/item/paper_bin{
@@ -2606,7 +2606,7 @@
 /area/ship/tcfl_peacekeeper_ship)
 "pIz" = (
 /obj/structure/table/standard,
-/obj/item/device/flashlight/lamp,
+/obj/item/flashlight/lamp,
 /obj/effect/floor_decal/corner/dark_blue/full{
 	dir = 8
 	},
@@ -2657,7 +2657,7 @@
 /obj/item/gun/energy/stunrevolver,
 /obj/item/gun/energy/taser,
 /obj/item/storage/box/zipties,
-/obj/item/device/flash,
+/obj/item/flash,
 /obj/item/reagent_containers/spray/pepper,
 /obj/machinery/light/small{
 	dir = 1
@@ -2674,7 +2674,7 @@
 /obj/item/gun/energy/stunrevolver,
 /obj/item/gun/energy/taser,
 /obj/item/storage/box/zipties,
-/obj/item/device/flash,
+/obj/item/flash,
 /obj/item/reagent_containers/spray/pepper,
 /obj/item/storage/box/tactical/smokebombs,
 /obj/item/storage/belt/security,
@@ -3248,8 +3248,8 @@
 	dir = 10
 	},
 /obj/structure/table/standard,
-/obj/item/device/magnetic_lock/security/legion,
-/obj/item/device/magnetic_lock/security/legion,
+/obj/item/magnetic_lock/security/legion,
+/obj/item/magnetic_lock/security/legion,
 /turf/simulated/floor/tiled/dark,
 /area/ship/tcfl_peacekeeper_ship)
 "tqn" = (
@@ -3408,7 +3408,7 @@
 	dir = 5
 	},
 /obj/structure/table/standard,
-/obj/item/device/flashlight/lamp,
+/obj/item/flashlight/lamp,
 /turf/simulated/floor/tiled/dark,
 /area/ship/tcfl_peacekeeper_ship)
 "urq" = (
@@ -3779,8 +3779,8 @@
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 6
 	},
-/obj/item/device/gps,
-/obj/item/device/gps,
+/obj/item/gps,
+/obj/item/gps,
 /turf/simulated/floor/tiled/dark,
 /area/ship/tcfl_peacekeeper_ship)
 "yiy" = (

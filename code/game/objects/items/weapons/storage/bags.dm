@@ -56,9 +56,9 @@
 	else icon_state = "trashbag3"
 
 /obj/item/storage/bag/trash/attackby(obj/item/attacking_item, mob/user)
-	if (istype (attacking_item, /obj/item/device/lightreplacer))
+	if (istype (attacking_item, /obj/item/lightreplacer))
 		var/count = 0
-		var/obj/item/device/lightreplacer/R = attacking_item
+		var/obj/item/lightreplacer/R = attacking_item
 		var/bagfull = 0
 		if (R.store_broken)
 			for(var/obj/item/light/L in R.contents)
@@ -127,7 +127,7 @@
 	max_storage_space = 100
 	max_w_class = WEIGHT_CLASS_NORMAL
 	w_class = WEIGHT_CLASS_SMALL
-	can_hold = list(/obj/item/reagent_containers/food/snacks/grown,/obj/item/seeds,/obj/item/grown)
+	can_hold = list(/obj/item/reagent_containers/food/snacks/grown, /obj/item/seeds, /obj/item/grown, /obj/item/mollusc)
 
 /obj/item/storage/bag/plants/full
 	starts_with = list(/obj/random_produce/box = 50)

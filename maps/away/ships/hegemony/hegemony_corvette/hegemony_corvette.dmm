@@ -3571,22 +3571,22 @@
 /area/hegemony_ship)
 "ve" = (
 /obj/structure/table/standard,
-/obj/item/device/radio,
-/obj/item/device/radio,
-/obj/item/device/radio,
-/obj/item/device/radio,
-/obj/item/device/radio,
-/obj/item/device/radio,
+/obj/item/radio,
+/obj/item/radio,
+/obj/item/radio,
+/obj/item/radio,
+/obj/item/radio,
+/obj/item/radio,
 /obj/effect/floor_decal/corner/dark_blue/diagonal,
 /obj/item/storage/bag/inflatable,
 /obj/machinery/firealarm/north,
 /obj/item/storage/bag/inflatable,
-/obj/item/device/gps,
-/obj/item/device/gps,
-/obj/item/device/gps,
-/obj/item/device/gps,
-/obj/item/device/gps,
-/obj/item/device/gps,
+/obj/item/gps,
+/obj/item/gps,
+/obj/item/gps,
+/obj/item/gps,
+/obj/item/gps,
+/obj/item/gps,
 /turf/simulated/floor/tiled,
 /area/hegemony_ship/eva_storage)
 "vf" = (
@@ -6859,7 +6859,7 @@
 	dir = 4
 	},
 /obj/structure/table/steel,
-/obj/item/device/binoculars{
+/obj/item/binoculars{
 	pixel_x = -7;
 	pixel_y = 7
 	},
@@ -7507,7 +7507,7 @@
 	pixel_y = 4;
 	pixel_x = 1
 	},
-/obj/item/device/multitool,
+/obj/item/multitool,
 /turf/simulated/floor/tiled,
 /area/hegemony_ship/gun_deck_bruiser)
 "RK" = (
@@ -8233,7 +8233,7 @@
 	pixel_y = -5
 	},
 /obj/structure/table/glass,
-/obj/item/device/binoculars/spyglass,
+/obj/item/binoculars/spyglass,
 /obj/structure/window/reinforced{
 	dir = 1
 	},
@@ -8245,7 +8245,7 @@
 /turf/simulated/floor/plating,
 /area/hegemony_ship/trophy_room)
 "VB" = (
-/obj/item/device/binoculars,
+/obj/item/binoculars,
 /obj/structure/table/reinforced/steel,
 /obj/effect/floor_decal/spline/plain,
 /obj/machinery/button/distress{

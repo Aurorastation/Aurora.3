@@ -1,7 +1,6 @@
 /area/ship/sadar_scout
 	name = "Ancient Expeditionary Vessel"
 	requires_power = TRUE
-	dynamic_lighting = TRUE
 	no_light_control = FALSE
 	area_flags = AREA_FLAG_RAD_SHIELDED
 
@@ -9,6 +8,7 @@
 	name = "Ancient Expeditionary Vessel - Exterior"
 	requires_power = FALSE
 	area_flags = AREA_FLAG_NO_GRAVITY | AREA_FLAG_SHIP_EXTERIOR
+	needs_starlight = TRUE
 
 /area/ship/sadar_scout/thrusters
 	name = "Ancient Expeditionary Vessel - Propulsion"

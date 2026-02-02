@@ -40,7 +40,7 @@
 	item_state = "cult_armor"
 	desc = "A bulky armored voidsuit, bristling with menacing spikes. It looks space proof."
 	w_class = WEIGHT_CLASS_NORMAL
-	allowed = list(/obj/item/book/tome, /obj/item/melee/cultblade, /obj/item/gun/energy/rifle/cult, /obj/item/tank, /obj/item/device/suit_cooling_unit)
+	allowed = list(/obj/item/book/tome, /obj/item/melee/cultblade, /obj/item/gun/energy/rifle/cult, /obj/item/tank, /obj/item/suit_cooling_unit)
 	slowdown = 1
 	armor = list(
 		MELEE = ARMOR_MELEE_VERY_HIGH,

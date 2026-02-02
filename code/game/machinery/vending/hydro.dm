@@ -56,7 +56,7 @@
 		/obj/item/plantspray/pests = 20,
 		/obj/item/reagent_containers/syringe = 6,
 		/obj/item/storage/bag/plants = 6,
-		/obj/item/device/analyzer/plant_analyzer = 2,
+		/obj/item/analyzer/plant_analyzer = 2,
 		/obj/item/material/minihoe = 2,
 		/obj/item/material/hatchet = 2,
 		/obj/item/wirecutters/clippers = 2,
@@ -72,7 +72,7 @@
 		/obj/item/plantspray/pests = 12,
 		/obj/item/reagent_containers/syringe = 4,
 		/obj/item/storage/bag/plants = 2,
-		/obj/item/device/analyzer/plant_analyzer = 1,
+		/obj/item/analyzer/plant_analyzer = 1,
 		/obj/item/material/minihoe = 1,
 		/obj/item/material/hatchet = 1,
 		/obj/item/wirecutters/clippers = 1,
@@ -92,7 +92,7 @@
 		/obj/item/plantspray/pests = 10,
 		/obj/item/reagent_containers/syringe = 6,
 		/obj/item/storage/bag/plants = 6,
-		/obj/item/device/analyzer/plant_analyzer = 2,
+		/obj/item/analyzer/plant_analyzer = 2,
 		/obj/item/material/minihoe = 2,
 		/obj/item/material/hatchet = 2,
 		/obj/item/wirecutters/clippers = 2,
@@ -155,7 +155,7 @@
 		/obj/item/reagent_containers/spray/plantbgone = 1
 	)
 
-/obj/item/device/vending_refill/hydro
+/obj/item/vending_refill/hydro
 	name = "hydro resupply canister"
 	vend_id = "hydro"
 	charges = 23
@@ -187,6 +187,7 @@
 		/obj/item/seeds/cocoapodseed = 3,
 		/obj/item/seeds/coffeeseed = 3,
 		/obj/item/seeds/cornseed = 3,
+		/obj/item/seeds/cucumberseed = 3,
 		/obj/item/seeds/dynseed = 3,
 		/obj/item/seeds/earthenroot = 2,
 		/obj/item/seeds/eggplantseed = 3,
@@ -274,6 +275,7 @@
 		/obj/item/seeds/cocoapodseed = 6.00,
 		/obj/item/seeds/coffeeseed = 12.00,
 		/obj/item/seeds/cornseed = 4.00,
+		/obj/item/seeds/cucumberseed = 4.00,
 		/obj/item/seeds/dynseed = 8.50,
 		/obj/item/seeds/earthenroot = 12.00,
 		/obj/item/seeds/eggplantseed = 4.00,
@@ -329,7 +331,7 @@
 	random_itemcount = 0
 	light_color = COLOR_BABY_BLUE
 
-/obj/item/device/vending_refill/seeds
+/obj/item/vending_refill/seeds
 	name = "resupply canister"
 	vend_id = SEED_NOUN_SEEDS
 	charges = 175

@@ -134,8 +134,8 @@
 /obj/machinery/disposal/proc/contents_count()
 	var/things = 0
 	for(var/thing in contents)
-		if(istype(thing, /obj/item/device/assembly/signaler))
-			var/obj/item/device/assembly/signaler/S = thing
+		if(istype(thing, /obj/item/assembly/signaler))
+			var/obj/item/assembly/signaler/S = thing
 			if(S.connected == wires)
 				continue
 		things++
@@ -153,14 +153,14 @@
 	src.add_fingerprint(user)
 	if(!is_on)
 		has_contents = contents_count()
-		if(attacking_item.isscrewdriver())
+		if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 			if(has_contents)
 				to_chat(user, SPAN_WARNING("Eject the items first!"))
 				return TRUE
 			else if(default_deconstruction_screwdriver(user, attacking_item))
 				update()
 				return TRUE
-		else if(attacking_item.iswelder() && panel_open)
+		else if(attacking_item.tool_behaviour == TOOL_WELDER && panel_open)
 			if(has_contents)
 				to_chat(user, SPAN_WARNING("Eject the items first!"))
 				return TRUE
@@ -216,9 +216,9 @@
 			user.visible_message("<b>[user]</b> pours [attacking_item] out into [src].", SPAN_NOTICE("You pour [attacking_item] out into [src]."))
 		return TRUE
 
-	else if (istype (attacking_item, /obj/item/device/lightreplacer))
+	else if (istype (attacking_item, /obj/item/lightreplacer))
 		var/count = 0
-		var/obj/item/device/lightreplacer/R = attacking_item
+		var/obj/item/lightreplacer/R = attacking_item
 		if (R.store_broken)
 			for(var/obj/item/light/L in R.contents)
 				count++
@@ -701,8 +701,8 @@
 	// now everything inside the disposal gets put into the holder
 	// note AM since can contain mobs or objs
 	for(var/atom/movable/AM in D)
-		if(istype(AM, /obj/item/device/assembly/signaler))
-			var/obj/item/device/assembly/signaler/S = AM
+		if(istype(AM, /obj/item/assembly/signaler))
+			var/obj/item/assembly/signaler/S = AM
 			if(S.connected == D.wires)
 				continue
 		AM.forceMove(src)
@@ -1067,7 +1067,7 @@
 	if(!T.is_plating())
 		return		// prevent interaction with T-scanner revealed pipes
 	src.add_fingerprint(user)
-	if(attacking_item.iswelder())
+	if(attacking_item.tool_behaviour == TOOL_WELDER)
 		var/obj/item/weldingtool/W = attacking_item
 
 		if(W.use(0,user))
@@ -1326,8 +1326,8 @@
 	if(..())
 		return
 
-	if(istype(attacking_item, /obj/item/device/destTagger))
-		var/obj/item/device/destTagger/O = attacking_item
+	if(istype(attacking_item, /obj/item/destTagger))
+		var/obj/item/destTagger/O = attacking_item
 
 		if(O.currTag)// Tag set
 			sort_tag = O.currTag
@@ -1397,8 +1397,8 @@
 	if(..())
 		return
 
-	if(istype(attacking_item, /obj/item/device/destTagger))
-		var/obj/item/device/destTagger/O = attacking_item
+	if(istype(attacking_item, /obj/item/destTagger))
+		var/obj/item/destTagger/O = attacking_item
 
 		if(O.currTag)// Tag set
 			sortType = O.currTag
@@ -1526,7 +1526,7 @@
 	if(!T.is_plating())
 		return		// prevent interaction with T-scanner revealed pipes
 	src.add_fingerprint(user)
-	if(attacking_item.iswelder())
+	if(attacking_item.tool_behaviour == TOOL_WELDER)
 		var/obj/item/weldingtool/W = attacking_item
 
 		if(W.use(0,user))
@@ -1684,7 +1684,7 @@
 	if(!attacking_item || !user)
 		return
 	src.add_fingerprint(user)
-	if(attacking_item.isscrewdriver())
+	if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 		if(mode==0)
 			mode=1
 			attacking_item.play_tool_sound(get_turf(src), 50)
@@ -1695,7 +1695,7 @@
 			attacking_item.play_tool_sound(get_turf(src), 50)
 			to_chat(user, "You attach the screws around the power connection.")
 			return
-	else if(attacking_item.iswelder() && mode==1)
+	else if(attacking_item.tool_behaviour == TOOL_WELDER && mode==1)
 		var/obj/item/weldingtool/W = attacking_item
 		if(W.use(0,user))
 			to_chat(user, "You start slicing the floorweld off the disposal outlet.")

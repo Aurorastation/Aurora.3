@@ -12,12 +12,12 @@ GLOBAL_LIST_INIT(area_blurb_stated_to, list())
 /area
 	var/global/global_uid = 0
 	var/uid
-	///Bitflag (Any of `AREA_FLAG_*`). See `code\__DEFINES\misc.dm`.
+	/// Bitflag (Any of `AREA_FLAG_*`). See "code\__DEFINES\misc.dm".
 	var/area_flags
 	/// Color of this area on the holomap. Must be a hex color (as string) or null.
 	var/holomap_color
 
-	///Do we have an active fire alarm?
+	/// Do we have an active fire alarm?
 	var/fire = FALSE
 
 	var/atmosalm = 0
@@ -29,15 +29,16 @@ GLOBAL_LIST_INIT(area_blurb_stated_to, list())
 	icon = 'icons/turf/areas.dmi'
 	icon_state = "unknown"
 	layer = AREA_LAYER
-	luminosity = 0
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	invisibility = INVISIBILITY_LIGHTING
+	plane = BLACKNESS_PLANE
 
 	var/obj/machinery/power/apc/apc = null
 
 	var/default_gravity = ZERO_GRAVITY
 
-	var/lightswitch = FALSE
+	/// If this area has a light switch (or multiple), do the lights start on or off? FALSE = off, TRUE = on.
+	var/lightswitch = TRUE
 
 	var/eject = null
 
@@ -57,15 +58,15 @@ GLOBAL_LIST_INIT(area_blurb_stated_to, list())
 	var/oneoff_equip 	= 0
 	var/oneoff_light 	= 0
 	var/oneoff_environ 	= 0
-
-	var/list/all_doors = list() //Added by Strumpetplaya - Alarm Change - Contains a list of doors adjacent to this area
+	/// Contains a list of doors adjacent to this area.
+	var/list/all_doors = list()
 	var/air_doors_activated = FALSE
 
 	var/list/ambience = list()
 	var/list/forced_ambience = null
 	var/list/music = list()
 
-	///Used to decide what kind of reverb the area makes sound have
+	/// Used to decide what kind of reverb the area makes sound have
 	var/sound_environment = SOUND_AREA_STANDARD_STATION
 
 	/// If TRUE, lights in area cannot be toggled with light controller.
@@ -116,6 +117,9 @@ GLOBAL_LIST_INIT(area_blurb_stated_to, list())
 	/// This uses the same nested list format as turfs_by_zlevel
 	var/list/list/turf/turfs_to_uncontain_by_zlevel = list()
 
+	/// defaults to TRUE, false disables hostile events (like drone uprising).
+	var/hostile_events = TRUE
+
 /**
  * Don't move this to Initialize(). Things in here need to run before SSatoms does.
  */
@@ -141,11 +145,6 @@ GLOBAL_LIST_INIT(area_blurb_stated_to, list())
 		power_equip = 0
 		power_environ = 0
 
-	if(dynamic_lighting)
-		luminosity = 0
-	else
-		luminosity = 1
-
 	if(centcomm_area)
 		GLOB.centcom_areas[src] = TRUE
 
@@ -162,8 +161,7 @@ GLOBAL_LIST_INIT(area_blurb_stated_to, list())
 
 	. = ..()
 
-	if(dynamic_lighting)
-		luminosity = FALSE
+	update_base_lighting()
 
 	if (mapload && turf_initializer)
 		for(var/turf/T in src)
@@ -651,6 +649,9 @@ GLOBAL_LIST_INIT(area_blurb_stated_to, list())
 		//Although hostile mobs instadying to turrets is fun
 		//If there's no AI they'll just be hit with stunbeams all day and spam the attack logs.
 		if (istype(A, /area/turret_protected) || LAZYLEN(A.turret_controls))
+			continue
+
+		if(!A.hostile_events)
 			continue
 
 		if(filter_players)

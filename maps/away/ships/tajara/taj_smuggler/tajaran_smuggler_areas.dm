@@ -2,7 +2,6 @@
 	name = "Adhomian Freighter"
 	icon_state = "bluenew"
 	requires_power = 1
-	dynamic_lighting = 1
 	no_light_control = 0
 	area_flags = AREA_FLAG_RAD_SHIELDED
 

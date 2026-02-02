@@ -139,7 +139,7 @@
 	START_PROCESSING(SSfast_process, src)
 
 /obj/structure/metronome/attackby(obj/item/attacking_item, mob/user)
-	if(attacking_item.iswrench())
+	if(attacking_item.tool_behaviour == TOOL_WRENCH)
 		attacking_item.play_tool_sound(get_turf(src), 50)
 		if(anchored)
 			to_chat(user, SPAN_NOTICE("You unanchor \the [src] and it destabilizes."))

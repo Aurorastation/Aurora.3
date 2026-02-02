@@ -35,6 +35,7 @@
 	calculate_z_level_gravity(new_z)
 	adding_new_zlevel = FALSE
 	SEND_GLOBAL_SIGNAL(COMSIG_GLOB_NEW_Z, S)
+	SSzcopy.calculate_zstack_limits()
 	return S
 
 /// Returns the /datum/space_level associated with the given z level.

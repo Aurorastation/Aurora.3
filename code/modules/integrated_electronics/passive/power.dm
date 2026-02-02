@@ -86,8 +86,8 @@
 
 /obj/item/integrated_circuit/passive/power/metabolic_siphon/make_energy()
 	var/mob/living/carbon/human/host
-	if(assembly && istype(assembly, /obj/item/device/electronic_assembly/implant))
-		var/obj/item/device/electronic_assembly/implant/implant_assembly = assembly
+	if(assembly && istype(assembly, /obj/item/electronic_assembly/implant))
+		var/obj/item/electronic_assembly/implant/implant_assembly = assembly
 		if(implant_assembly.implant.imp_in)
 			host = implant_assembly.implant.imp_in
 			if(!get_pin_data(IC_INPUT, 1))

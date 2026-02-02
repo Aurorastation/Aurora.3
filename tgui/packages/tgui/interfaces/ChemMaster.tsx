@@ -1,5 +1,15 @@
 import { useBackend } from '../backend';
-import { Button, Section, Stack, Table, Flex, Box, Collapsible, LabeledList, Divider } from '../components';
+import {
+  Button,
+  Section,
+  Stack,
+  Table,
+  Flex,
+  Box,
+  Collapsible,
+  LabeledList,
+  Divider,
+} from '../components';
 import { Window } from '../layouts';
 
 export type DispenserData = {
@@ -42,29 +52,30 @@ const ReagentFactory = (props, context) => {
     <Table>
       {reagents?.length
         ? reagents.map((reagent) => (
-          <Table.Row key={reagent.name}>
-            <Section
-              title={reagent.name + ' (' + reagent.volume + ')'}
-              buttons={
-                reagent.name === 'Blood' && clickOperation === 'add' ? (
-                  <Button
-                    content="Analyze"
-                    onClick={() => act('analyze', { name: 'Blood' })}
+            <Table.Row key={reagent.name}>
+              <Section
+                title={reagent.name + ' (' + reagent.volume + ')'}
+                buttons={
+                  reagent.name === 'Blood' && clickOperation === 'add' ? (
+                    <Button
+                      content="Analyze"
+                      onClick={() => act('analyze', { name: 'Blood' })}
+                    />
+                  ) : null
+                }
+                mt="-3px"
+              >
+                {quantities.map((quantity) => (
+                  <DispenseButton
+                    key={quantity}
+                    quantity={quantity}
+                    reagent={reagent}
+                    operation={clickOperation}
                   />
-                ) : null
-              }
-              mt="-3px">
-              {quantities.map((quantity) => (
-                <DispenseButton
-                  key={quantity}
-                  quantity={quantity}
-                  reagent={reagent}
-                  operation={clickOperation}
-                />
-              ))}
-            </Section>
-          </Table.Row>
-        ))
+                ))}
+              </Section>
+            </Table.Row>
+          ))
         : 'Empty'}
     </Table>
   );
@@ -112,7 +123,8 @@ export const ChemMaster = (props, context) => {
   return (
     <Window
       title={data.machine_name}
-      theme={data.is_condimaster ? 'idris' : 'zenghu'}>
+      theme={data.is_condimaster ? 'idris' : 'zenghu'}
+    >
       <Window.Content scrollable fitted fontSize={0.95}>
         <Section
           title={data.machine_name}
@@ -135,7 +147,8 @@ export const ChemMaster = (props, context) => {
                 </Stack.Item>
               ) : null}
             </Stack>
-          }>
+          }
+        >
           <Table nowrap>
             <Table.Row>
               <Section title="Beaker content">
@@ -150,7 +163,8 @@ export const ChemMaster = (props, context) => {
                               content="Close"
                               onClick={() => act('analyze', { name: 'Close' })}
                             />
-                          }>
+                          }
+                        >
                           {data.analysis.name}
                         </LabeledList.Item>
                         <LabeledList.Item label="Type">
@@ -238,18 +252,20 @@ export const ChemMaster = (props, context) => {
                   style={
                     icon.split(' ')[1] === data.current_bottle_icon
                       ? {
-                        border: '6px solid red',
-                        'border-top': '10px solid red',
-                      }
+                          border: '6px solid red',
+                          'border-top': '10px solid red',
+                        }
                       : ''
-                  }>
+                  }
+                >
                   <Button
                     tooltip={icon.split(' ')[1]}
                     onClick={() =>
                       act('bottle_sprite', {
                         bottle_sprite: icon.split(' ')[1],
                       })
-                    }>
+                    }
+                  >
                     <Box
                       as="img"
                       key={icon}
@@ -275,18 +291,20 @@ export const ChemMaster = (props, context) => {
                     style={
                       icon.split(' ')[1] === data.current_pill_icon
                         ? {
-                          border: '6px solid red',
-                          'border-top': '10px solid red',
-                        }
+                            border: '6px solid red',
+                            'border-top': '10px solid red',
+                          }
                         : ''
-                    }>
+                    }
+                  >
                     <Button
                       tooltip={icon.split(' ')[1]}
                       onClick={() =>
                         act('pill_sprite', {
                           pill_sprite: icon.split(' ')[1],
                         })
-                      }>
+                      }
+                    >
                       <Box
                         as="img"
                         key={icon}

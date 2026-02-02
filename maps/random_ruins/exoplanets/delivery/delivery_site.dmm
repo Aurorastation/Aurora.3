@@ -141,7 +141,7 @@
 /obj/structure/closet/crate,
 /obj/item/storage/backpack/duffel/orion,
 /obj/item/stack/packageWrap,
-/obj/item/device/hand_labeler,
+/obj/item/hand_labeler,
 /obj/random/tech_supply,
 /obj/random/tool,
 /obj/item/crowbar,

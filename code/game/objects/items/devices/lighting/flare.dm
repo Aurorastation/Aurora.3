@@ -1,33 +1,31 @@
-/obj/item/device/flashlight/flare
+/obj/item/flashlight/flare
 	name = "flare"
 	desc = "A red standard-issue flare. There are instructions on the side reading 'twist cap off, make light'."
 	w_class = WEIGHT_CLASS_TINY
-	brightness_on = 5 // Pretty bright.
+	light_range = 5 // Pretty bright.
 	light_power = 6
 	light_color = LIGHT_COLOR_FLARE //"#E58775"
 	icon_state = "flare"
 	item_state = "flare"
 	action_button_name = null //just pull it manually, neckbeard.
 	var/fuel = 0
-	uv_intensity = 100
 	var/on_damage = 7
 	var/produce_heat = 1500
-	light_wedge = LIGHT_OMNI
 	power_use = FALSE
 	activation_sound = 'sound/items/flare.ogg'
 	toggle_sound = null
 	drop_sound = 'sound/items/drop/gloves.ogg'
 	pickup_sound = 'sound/items/pickup/gloves.ogg'
 
-/obj/item/device/flashlight/flare/mechanics_hints(mob/user, distance, is_adjacent)
+/obj/item/flashlight/flare/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	. += "Left-click \the [src] in-hand to activate it."
 
-/obj/item/device/flashlight/flare/Initialize()
+/obj/item/flashlight/flare/Initialize()
 	. = ..()
 	fuel = rand(12 MINUTES, 15 MINUTES)
 
-/obj/item/device/flashlight/flare/process()
+/obj/item/flashlight/flare/process()
 	if(produce_heat)
 		var/turf/pos = get_turf(src)
 		if(pos)
@@ -40,7 +38,7 @@
 		if(!fuel)
 			src.icon_state = "[initial(icon_state)]-empty"
 
-/obj/item/device/flashlight/flare/update_icon()
+/obj/item/flashlight/flare/update_icon()
 	..()
 	item_state = icon_state
 	if(ismob(src.loc))
@@ -48,7 +46,7 @@
 		H.update_inv_l_hand()
 		H.update_inv_r_hand()
 
-/obj/item/device/flashlight/flare/attack_self(mob/user)
+/obj/item/flashlight/flare/attack_self(mob/user)
 	// Usual checks
 	if(!fuel)
 		to_chat(user, SPAN_WARNING("\The [src] is spent."))
@@ -63,7 +61,7 @@
 		START_PROCESSING(SSprocessing, src)
 		update_icon()
 
-/obj/item/device/flashlight/flare/proc/activate(mob/user)
+/obj/item/flashlight/flare/proc/activate(mob/user)
 	if(istype(user))
 		user.visible_message(
 			SPAN_NOTICE("\The [user] activates the flare."),
@@ -71,14 +69,15 @@
 			SPAN_NOTICE("You hear a flare sparking to life.")
 		)
 
-/obj/item/device/flashlight/flare/proc/turn_off()
+/obj/item/flashlight/flare/proc/turn_off()
 	on = FALSE
 	visible_message(
 		SPAN_NOTICE("\The [src] sputters out.")
 	)
 	update_icon()
+	set_light_on(on)
 
-/obj/item/device/flashlight/flare/proc/update_damage()
+/obj/item/flashlight/flare/proc/update_damage()
 	if(on)
 		force = on_damage
 		damtype = "fire"
@@ -86,34 +85,33 @@
 		force = initial(force)
 		damtype = initial(damtype)
 
-/obj/item/device/flashlight/flare/torch
+/obj/item/flashlight/flare/torch
 	name = "torch"
 	desc = "A rustic source of light."
 	w_class = WEIGHT_CLASS_BULKY
-	brightness_on = 2
+	light_range = 2
 	light_power = 3
 	light_color = LIGHT_COLOR_FIRE
 	icon_state = "torch"
 	item_state = "torch"
-	uv_intensity = 40
 	produce_heat = 1000
 	on_damage = 10
 
 	drop_sound = 'sound/items/drop/woodweapon.ogg'
 	pickup_sound = 'sound/items/pickup/woodweapon.ogg'
 
-/obj/item/device/flashlight/flare/torch/mechanics_hints(mob/user, distance, is_adjacent)
+/obj/item/flashlight/flare/torch/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	. += "Click on a source of flame with the torch to light it."
 
-/obj/item/device/flashlight/flare/torch/attack_self(mob/user)
+/obj/item/flashlight/flare/torch/attack_self(mob/user)
 	if (on)
 		turn_off()
 		update_damage()
 		user.visible_message("<b>[user]</b> extinguishes \the [src].", SPAN_NOTICE("You extinguish \the [src]."))
 	return
 
-/obj/item/device/flashlight/flare/torch/update_icon()
+/obj/item/flashlight/flare/torch/update_icon()
 	..()
 	item_state = icon_state
 	if(ismob(src.loc))
@@ -121,25 +119,25 @@
 		H.update_inv_l_hand()
 		H.update_inv_r_hand()
 
-
-/obj/item/device/flashlight/flare/torch/proc/light(mob/user)
+/obj/item/flashlight/flare/torch/proc/light(mob/user)
 	user.visible_message(SPAN_NOTICE("\The [user] lights \the [src]."),	SPAN_NOTICE("You light \the [src]."))
 	force = on_damage
 	damtype = "fire"
 	on = TRUE
+	set_light_on(on)
 	START_PROCESSING(SSprocessing, src)
 	update_icon()
 
-/obj/item/device/flashlight/flare/torch/attackby(obj/item/attacking_item, mob/user)
+/obj/item/flashlight/flare/torch/attackby(obj/item/attacking_item, mob/user)
 	if(attacking_item.isFlameSource() && !on && fuel)
 		light(user)
 	else
 		..()
 
-/obj/item/device/flashlight/flare/torch/isFlameSource()
+/obj/item/flashlight/flare/torch/isFlameSource()
 	return on
 
-/obj/item/device/flashlight/flare/torch/process()
+/obj/item/flashlight/flare/torch/process()
 	var/turf/pos = get_turf(src)
 	if(pos)
 		pos.hotspot_expose(produce_heat, 5)
@@ -169,26 +167,26 @@
 /obj/item/torch/attackby(obj/item/attacking_item, mob/user)
 	if(istype(attacking_item, /obj/item/reagent_containers/glass/rag))
 		to_chat(user, SPAN_NOTICE("You add \the [attacking_item] to \the [src]."))
-		var/obj/item/device/flashlight/flare/torch/T = new()
+		var/obj/item/flashlight/flare/torch/T = new()
 		qdel(attacking_item)
 		user.put_in_hands(T)
 		qdel(src)
 
-/obj/item/device/flashlight/flare/torch/stick
+/obj/item/flashlight/flare/torch/stick
 	name = "flaming stick"
 	desc = "How exciting!"
-	brightness_on = 1.5
+	light_range = 1.5
 	light_power = 1
 	produce_heat = 400
 
-/obj/item/device/flashlight/flare/torch/stick/Initialize()
+/obj/item/flashlight/flare/torch/stick/Initialize()
 	. = ..()
 	fuel = rand(30, 45)
 	on = TRUE
 	START_PROCESSING(SSprocessing, src)
 	update_icon()
 
-/obj/item/device/flashlight/flare/torch/stick/turn_off()
+/obj/item/flashlight/flare/torch/stick/turn_off()
 	visible_message("\The [src] burns out.")
 	new /obj/effect/decal/cleanable/ash(get_turf(src))
 	qdel(src)

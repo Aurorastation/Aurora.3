@@ -64,7 +64,7 @@
 	item_state = "space_suit_syndicate"
 	desc = "A crimson red plastic replica of a space suit. This is a toy, it is not made for use in space!"
 	w_class = WEIGHT_CLASS_NORMAL
-	allowed = list(/obj/item/device/flashlight,/obj/item/tank/emergency_oxygen,/obj/item/toy)
+	allowed = list(/obj/item/flashlight,/obj/item/tank/emergency_oxygen,/obj/item/toy)
 	flags_inv = HIDEWRISTS|HIDEGLOVES|HIDESHOES|HIDEJUMPSUIT
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS|HANDS|LEGS|FEET
 
@@ -258,7 +258,7 @@
 	desc = "A military-styled jacket made from thick, distressed canvas. Popular among Martian punks. Patches not included."
 	icon_state = "mgreen"
 	item_state = "mgreen"
-	allowed = list (/obj/item/pen, /obj/item/paper, /obj/item/device/flashlight, /obj/item/tank/emergency_oxygen, /obj/item/storage/box/fancy/matches, /obj/item/reagent_containers/food/drinks/flask)
+	allowed = list (/obj/item/pen, /obj/item/paper, /obj/item/flashlight, /obj/item/tank/emergency_oxygen, /obj/item/storage/box/fancy/matches, /obj/item/reagent_containers/food/drinks/flask)
 
 /obj/item/clothing/suit/storage/toggle/leather_jacket/military/tan
 	icon_state = "mtan"
@@ -399,78 +399,13 @@
 	item_state = "trench_colorable2"
 	has_accents = TRUE
 
-/obj/item/clothing/suit/storage/toggle/highvis
-	name = "high visibility jacket"
-	desc = "A loose-fitting, high visibility jacket to help the wearer be recognizable in high traffic areas with large industrial equipment."
-	icon = 'icons/obj/item/clothing/suit/storage/toggle/highvis.dmi'
-	icon_state = "jacket_highvis"
-	item_state = "jacket_highvis"
-	body_parts_covered = UPPER_TORSO|ARMS
-	contained_sprite = TRUE
-
-/obj/item/clothing/suit/storage/toggle/highvis/get_mob_overlay(mob/living/carbon/human/H, mob_icon, mob_state, slot)
-	var/image/I = ..()
-	if(slot == slot_wear_suit_str)
-		var/image/emissive_overlay = emissive_appearance(mob_icon, "[opened ? "jacket_highvis_open_su-emis" : "jacket_highvis_su-emis"]", alpha = src.alpha)
-		I.AddOverlays(emissive_overlay)
-	return I
-
-/obj/item/clothing/suit/storage/toggle/highvis_alt
-	name = "high visibility jacket"
-	desc = "A bright yellow jacket with reflective stripes. For use in operations, engineering, and sometimes even law enforcement, in cold and poor weather or when visibility is low."
-	icon = 'icons/obj/item/clothing/suit/storage/toggle/highvis.dmi'
-	icon_state = "jacket_highvis_alt"
-	item_state = "jacket_highvis_alt"
-	body_parts_covered = UPPER_TORSO|ARMS
-	contained_sprite = TRUE
-
-/obj/item/clothing/suit/storage/toggle/highvis_alt/get_mob_overlay(mob/living/carbon/human/H, mob_icon, mob_state, slot)
-	var/image/I = ..()
-	if(slot == slot_wear_suit_str)
-		var/image/emissive_overlay = emissive_appearance(mob_icon, "[opened ? "jacket_highvis_alt_open_su-emis" : "jacket_highvis_alt_su-emis"]", alpha = src.alpha)
-		I.AddOverlays(emissive_overlay)
-	return I
-
-/obj/item/clothing/suit/storage/toggle/highvis_red
-	name = "high visibility jacket"
-	desc = "A red jacket with reflective stripes. For use in different departments, commonly found in civilian emergency services, in cold and poor weather or when visibility is low."
-	icon = 'icons/obj/item/clothing/suit/storage/toggle/highvis.dmi'
-	icon_state = "jacket_highvis_red"
-	item_state = "jacket_highvis_red"
-	body_parts_covered = UPPER_TORSO|ARMS
-	contained_sprite = TRUE
-
-/obj/item/clothing/suit/storage/toggle/highvis_red/get_mob_overlay(mob/living/carbon/human/H, mob_icon, mob_state, slot)
-	var/image/I = ..()
-	if(slot == slot_wear_suit_str)
-		var/image/emissive_overlay = emissive_appearance(mob_icon, "[opened ? "jacket_highvis_red_open_su-emis" : "jacket_highvis_red_su-emis"]", alpha = src.alpha)
-		I.AddOverlays(emissive_overlay)
-	return I
-
-/obj/item/clothing/suit/storage/toggle/highvis_orange
-	name = "high visibility jacket"
-	desc = "An orange jacket with reflective stripes. For use in different departments, commonly found in civilian industrial services, in dark or secluded areas where visibility is critical for safety."
-	icon = 'icons/obj/item/clothing/suit/storage/toggle/highvis.dmi'
-	icon_state = "jacket_highvis_orange"
-	item_state = "jacket_highvis_orange"
-	body_parts_covered = UPPER_TORSO|ARMS
-	contained_sprite = TRUE
-
-/obj/item/clothing/suit/storage/toggle/highvis_orange/get_mob_overlay(mob/living/carbon/human/H, mob_icon, mob_state, slot)
-	var/image/I = ..()
-	if(slot == slot_wear_suit_str)
-		var/image/emissive_overlay = emissive_appearance(mob_icon, "[opened ? "jacket_highvis_orange_open_su-emis" : "jacket_highvis_orange_su-emis"]", alpha = src.alpha)
-		I.AddOverlays(emissive_overlay)
-	return I
-
-
 /obj/item/clothing/suit/storage/toggle/track
 	name = "track jacket"
 	desc = "a track jacket, for the athletic."
 	icon = 'icons/obj/tracksuit.dmi'
 	icon_state = "trackjacket"
 	item_state = "trackjacket"
-	allowed = list (/obj/item/pen, /obj/item/paper, /obj/item/device/flashlight, /obj/item/tank/emergency_oxygen, /obj/item/storage/box/fancy/cigarettes, /obj/item/storage/box/fancy/matches, /obj/item/reagent_containers/food/drinks/flask)
+	allowed = list (/obj/item/pen, /obj/item/paper, /obj/item/flashlight, /obj/item/tank/emergency_oxygen, /obj/item/storage/box/fancy/cigarettes, /obj/item/storage/box/fancy/matches, /obj/item/reagent_containers/food/drinks/flask)
 	contained_sprite = TRUE
 
 /obj/item/clothing/suit/storage/toggle/track/blue
@@ -502,7 +437,7 @@
 	desc = "A favorite of jocks everywhere from Sol to the Coalition."
 	icon_state = "varsity"
 	item_state = "varsity"
-	allowed = list (/obj/item/pen, /obj/item/paper, /obj/item/device/flashlight, /obj/item/tank/emergency_oxygen, /obj/item/storage/box/fancy/matches, /obj/item/reagent_containers/food/drinks/flask)
+	allowed = list (/obj/item/pen, /obj/item/paper, /obj/item/flashlight, /obj/item/tank/emergency_oxygen, /obj/item/storage/box/fancy/matches, /obj/item/reagent_containers/food/drinks/flask)
 
 /obj/item/clothing/suit/storage/toggle/varsity/red
 	name = "red varsity jacket"

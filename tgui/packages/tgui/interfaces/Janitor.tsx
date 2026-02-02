@@ -32,7 +32,8 @@ export const Janitor = (props, context) => {
               <Tabs.Tab
                 key={cat}
                 selected={tab === cat}
-                onClick={() => setTab(cat)}>
+                onClick={() => setTab(cat)}
+              >
                 {cat}
               </Tabs.Tab>
             ))}
@@ -57,7 +58,7 @@ export const Janitor = (props, context) => {
                     <Table.Cell>{supply.dir}</Table.Cell>
                     <Table.Cell>{supply.status}</Table.Cell>
                   </Table.Row>
-                )
+                ),
             )}
           </Table>
         </Section>

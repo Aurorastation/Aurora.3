@@ -33,11 +33,11 @@ STOCK_ITEM_COMMON(cardboard, 1)
 
 //A lightreplacer and a kit of lights
 STOCK_ITEM_COMMON(lightreplacer, 1)
-	var/obj/item/device/lightreplacer/LR
+	var/obj/item/lightreplacer/LR
 	if(prob(5))
-		LR = new /obj/item/device/lightreplacer/advanced(L)
+		LR = new /obj/item/lightreplacer/advanced(L)
 	else
-		LR = new /obj/item/device/lightreplacer(L)
+		LR = new /obj/item/lightreplacer(L)
 	LR.uses = 0
 
 	new /obj/item/storage/box/lights/mixed(L)
@@ -53,11 +53,11 @@ STOCK_ITEM_COMMON(bodybag, 2.2)
 		new /obj/item/storage/box/bodybags(L)
 
 STOCK_ITEM_COMMON(lamp, 2)
-	var/obj/item/device/flashlight/lamp/P
+	var/obj/item/flashlight/lamp/P
 	if(prob(50))
-		P = new /obj/item/device/flashlight/lamp/green(L)
+		P = new /obj/item/flashlight/lamp/green(L)
 	else
-		P = new /obj/item/device/flashlight/lamp(L)
+		P = new /obj/item/flashlight/lamp(L)
 	P.on = FALSE
 	P.queue_icon_update()
 
@@ -236,41 +236,41 @@ STOCK_ITEM_COMMON(insulated, 1.5)
 STOCK_ITEM_COMMON(scanners, 3.2)
 	//A random scanning device, most are useless
 	var/list/possible = list(
-		/obj/item/device/healthanalyzer = 5,
-		/obj/item/device/analyzer = 0.5,
-		/obj/item/device/mass_spectrometer = 0.5,
-		/obj/item/device/mass_spectrometer/adv = 0.5,
-		/obj/item/device/slime_scanner = 1,
+		/obj/item/healthanalyzer = 5,
+		/obj/item/analyzer = 0.5,
+		/obj/item/mass_spectrometer = 0.5,
+		/obj/item/mass_spectrometer/adv = 0.5,
+		/obj/item/slime_scanner = 1,
 		/obj/item/autopsy_scanner = 1,
-		/obj/item/device/robotanalyzer = 4,
+		/obj/item/robotanalyzer = 4,
 		/obj/item/mining_scanner = 1,
-		/obj/item/device/ano_scanner = 1,
-		/obj/item/device/reagent_scanner = 2,
-		/obj/item/device/reagent_scanner/adv = 2,
+		/obj/item/ano_scanner = 1,
+		/obj/item/reagent_scanner = 2,
+		/obj/item/reagent_scanner/adv = 2,
 		/obj/item/barcodescanner = 1,
-		/obj/item/device/depth_scanner = 1
+		/obj/item/depth_scanner = 1
 	)
 	for(var/i in 1 to rand(1, 2))
 		var/stype = pickweight(possible)
 		new stype(L)
 
 STOCK_ITEM_COMMON(binoculars, 1.5)
-	new /obj/item/device/binoculars(L)
+	new /obj/item/binoculars(L)
 
 STOCK_ITEM_COMMON(flash, 1)
-	new /obj/item/device/flash(L)
+	new /obj/item/flash(L)
 
 STOCK_ITEM_COMMON(maglock, 2)
 	if(prob(50))
-		new /obj/item/device/magnetic_lock/engineering(L)
+		new /obj/item/magnetic_lock/engineering(L)
 	else
-		new /obj/item/device/magnetic_lock/security(L)
+		new /obj/item/magnetic_lock/security(L)
 
 STOCK_ITEM_COMMON(forensic, 1)
 	if(prob(50))
 		new /obj/item/reagent_containers/spray/luminol(L)
 	else
-		new /obj/item/device/uv_light(L)
+		new /obj/item/uv_light(L)
 	if(prob(25))
 		new /obj/item/storage/box/slides(L)
 
@@ -334,11 +334,11 @@ STOCK_ITEM_COMMON(cosmetic, 2.2)
 		new /obj/item/haircomb(L)
 
 STOCK_ITEM_COMMON(suitcooler, 1.2)
-	new /obj/item/device/suit_cooling_unit(L)
+	new /obj/item/suit_cooling_unit(L)
 
 STOCK_ITEM_COMMON(paperwork, 1.2)
 	if(prob(50))
-		new /obj/item/device/hand_labeler(L)
+		new /obj/item/hand_labeler(L)
 	else
 		new /obj/item/clipboard(L)
 	if(prob(15))
@@ -400,9 +400,9 @@ STOCK_ITEM_COMMON(extinguish, 2.2)
 
 STOCK_ITEM_COMMON(hailer, 1.1)
 	if(prob(50))
-		new /obj/item/device/megaphone(L)
+		new /obj/item/megaphone(L)
 	else
-		new /obj/item/device/hailer(L)
+		new /obj/item/hailer(L)
 
 //A target, for target practice
 //Take em up to science for gun testing
@@ -504,13 +504,13 @@ STOCK_ITEM_COMMON(gasmask, 2)
 	new type(L)
 
 STOCK_ITEM_COMMON(mining, 2)
-	var/list/mine_items = list(/obj/item/shovel, /obj/item/device/flashlight/lantern, /obj/item/mining_scanner, /obj/item/storage/box/unique/excavation)
+	var/list/mine_items = list(/obj/item/shovel, /obj/item/flashlight/lantern, /obj/item/mining_scanner, /obj/item/storage/box/unique/excavation)
 	for(var/i in 1 to rand(1, 2))
 		var/to_spawn = pick(mine_items)
 		new to_spawn(L)
 
 STOCK_ITEM_COMMON(paicard, 2)
-	new /obj/item/device/paicard(L)
+	new /obj/item/paicard(L)
 
 STOCK_ITEM_COMMON(hide, 1)
 	new /obj/item/stack/material/animalhide(L, rand(5,50))
@@ -522,9 +522,9 @@ STOCK_ITEM_COMMON(towel, 1)
 	new /obj/item/towel(L)
 
 STOCK_ITEM_COMMON(camera, 1)
-	new /obj/item/device/camera(L)
+	new /obj/item/camera(L)
 	if(prob(60))
-		new /obj/item/device/camera_film(L)
+		new /obj/item/camera_film(L)
 
 STOCK_ITEM_COMMON(flagbox, 3)
 	var/list/flagbox_type = list(
@@ -544,6 +544,17 @@ STOCK_ITEM_COMMON(flagbox, 3)
 		/obj/item/storage/box/large/flags/misc
 	)
 	var/type = pick(flagbox_type)
+	new type(L)
+
+STOCK_ITEM_COMMON(teatin, 3)
+	var/list/teatin_type = list(
+		/obj/item/storage/box/unique/tea,
+		/obj/item/storage/box/unique/tea/tieguanyin,
+		/obj/item/storage/box/unique/tea/jaekseol,
+		/obj/item/storage/box/unique/tea/messa,
+		/obj/item/storage/box/unique/tea/rasnif
+	)
+	var/type = pick(teatin_type)
 	new type(L)
 
 STOCK_ITEM_COMMON(nothing, 0)

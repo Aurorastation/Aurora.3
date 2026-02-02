@@ -5,9 +5,9 @@ GLOBAL_LIST_INIT(ventcrawl_machinery, list(
 
 /// Vent crawling whitelisted items, whoo
 GLOBAL_LIST_INIT(can_enter_vent_with, list(
-	/obj/item/device/mmi,
+	/obj/item/mmi,
 	/obj/item/implant,
-	/obj/item/device/radio/borg,
+	/obj/item/radio/borg,
 	/obj/item/holder,
 	/obj/machinery/camera,
 	/mob/living/simple_animal/borer,
@@ -108,7 +108,7 @@ GLOBAL_LIST_INIT(can_enter_vent_with, list(
 /mob/living/proc/vent_trap_check(var/status, var/atom/location)
 	switch (status)
 		if ("departing")
-			for (var/obj/item/device/assembly/mousetrap/S in location.loc)
+			for (var/obj/item/assembly/mousetrap/S in location.loc)
 				if (prob(25))
 					visible_message(SPAN_DANGER("[src] gets caught in the mousetrap while trying to crawl into the vent!"),
 									SPAN_DANGER("You get caught in the mousetrap while trying to crawl into the vent!"))
@@ -116,7 +116,7 @@ GLOBAL_LIST_INIT(can_enter_vent_with, list(
 					S.Crossed(src) // Triggers mousetrap
 					forceMove(location.loc)
 		if ("arriving")
-			for (var/obj/item/device/assembly/mousetrap/S in location.loc)
+			for (var/obj/item/assembly/mousetrap/S in location.loc)
 				if (prob(75))
 					S.Crossed(src) // Triggers mousetrap
 		else
@@ -222,13 +222,13 @@ GLOBAL_LIST_INIT(can_enter_vent_with, list(
 		for(var/obj/machinery/atmospherics/A in (pipeline.members || pipeline.edges)) // Adds pipe and manifold images
 			if(!A.pipe_image)
 				A.pipe_image = image(A, A.loc, dir = A.dir)
-				A.pipe_image.plane = EFFECTS_ABOVE_LIGHTING_PLANE
+				A.pipe_image.plane = ABOVE_LIGHTING_PLANE
 			pipes_shown += A.pipe_image
 			client.images += A.pipe_image
 	for (var/obj/machinery/atmospherics/V in network.normal_members) // Adds vent and scrubber images
 		if (!V.pipe_image || istype(V, /obj/machinery/atmospherics/unary/vent_pump/))
 			V.pipe_image = image(V, V.loc, dir = V.dir)
-			V.pipe_image.plane = EFFECTS_ABOVE_LIGHTING_PLANE
+			V.pipe_image.plane = ABOVE_LIGHTING_PLANE
 		pipes_shown += V.pipe_image
 		client.images += V.pipe_image
 

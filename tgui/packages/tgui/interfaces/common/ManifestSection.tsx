@@ -30,14 +30,16 @@ export const ManifestSection = (props, context) => {
             title={dept}
             textAlign="center"
             className={'border-dept-' + dept.toLowerCase()}
-            backgroundColor="rgba(10, 10, 10, 0.75)">
+            backgroundColor="rgba(10, 10, 10, 0.75)"
+          >
             <Table>
               {deptCrew.map((crewmate) => {
                 return (
                   <TableRow
                     key={crewmate.name}
                     bold={crewmate.head}
-                    overflow="hidden">
+                    overflow="hidden"
+                  >
                     <TableCell width="50%" textAlign="center" pt="10px" nowrap>
                       {crewmate.name}
                     </TableCell>
@@ -46,7 +48,8 @@ export const ManifestSection = (props, context) => {
                       textAlign="right"
                       pr="2%"
                       pt="10px"
-                      nowrap>
+                      nowrap
+                    >
                       {crewmate.rank}
                     </TableCell>
                     <TableCell textAlign="right" width="5%" pr="3%" pt="10px">

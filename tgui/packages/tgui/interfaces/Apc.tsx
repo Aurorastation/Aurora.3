@@ -1,6 +1,13 @@
 import { BooleanLike } from '../../common/react';
 import { useBackend } from '../backend';
-import { Section, Box, Button, BlockQuote, LabeledList, ProgressBar } from '../components';
+import {
+  Section,
+  Box,
+  Button,
+  BlockQuote,
+  LabeledList,
+  ProgressBar,
+} from '../components';
 import { Window } from '../layouts';
 
 export type APCData = {
@@ -55,7 +62,8 @@ export const FailWindow = (props, context) => {
           color="bad"
           onClick={() => act('reboot')}
         />
-      }>
+      }
+    >
       <Box color="red">
         I/O regulator malfuction detected! Waiting for system reboot...
       </Box>

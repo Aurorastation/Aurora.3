@@ -188,14 +188,14 @@
 			else
 				to_chat(user, SPAN_NOTICE("You need at least five metal sheets to complete this task."))
 			return
-	else if(istype(attacking_item,/obj/item/device/transfer_valve))
+	else if(istype(attacking_item,/obj/item/transfer_valve))
 		if(buildstate == 4)
 			qdel(attacking_item)
 			to_chat(user, SPAN_NOTICE("You install the transfer valve and connect it to the piping."))
 			buildstate++
 			update_icon()
 			return
-	else if(attacking_item.iswelder())
+	else if(attacking_item.tool_behaviour == TOOL_WELDER)
 		if(buildstate == 1)
 			var/obj/item/weldingtool/T = attacking_item
 			if(T.use(0,user))

@@ -1,6 +1,3 @@
-/obj/item/crowbar/robotic
-	icon = 'icons/obj/robot_items.dmi'
-
 /obj/item/wrench/robotic
 	icon = 'icons/obj/robot_items.dmi'
 
@@ -9,7 +6,7 @@
 	icon_state = "screwdriver"
 	build_from_parts = FALSE
 
-/obj/item/device/multitool/robotic
+/obj/item/multitool/robotic
 	icon = 'icons/obj/robot_items.dmi'
 
 /obj/item/wirecutters/robotic

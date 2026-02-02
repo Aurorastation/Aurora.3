@@ -38,7 +38,7 @@
 "k" = (
 /obj/structure/reagent_dispensers/radioactive_waste,
 /obj/machinery/light/small,
-/obj/effect/decal/cleanable/greenglow/radioactive,
+/obj/effect/decal/cleanable/greenglow/radioactive/medium,
 /turf/simulated/floor/exoplanet/wood,
 /area/adhomai_nuclear_waste_makeshift)
 "q" = (
@@ -46,11 +46,11 @@
 /obj/structure/sign/painting_frame/nated{
 	pixel_x = -32
 	},
-/obj/effect/decal/cleanable/greenglow/radioactive,
+/obj/effect/decal/cleanable/greenglow/radioactive/medium,
 /turf/simulated/floor/exoplanet/wood,
 /area/adhomai_nuclear_waste_makeshift)
 "w" = (
-/obj/effect/decal/cleanable/greenglow/radioactive,
+/obj/effect/decal/cleanable/greenglow/radioactive/medium,
 /turf/simulated/floor/exoplanet/wood,
 /area/adhomai_nuclear_waste_makeshift)
 "H" = (
@@ -95,7 +95,7 @@
 /area/exoplanet/adhomai)
 "P" = (
 /obj/structure/reagent_dispensers/radioactive_waste,
-/obj/effect/decal/cleanable/greenglow/radioactive,
+/obj/effect/decal/cleanable/greenglow/radioactive/medium,
 /turf/simulated/floor/exoplanet/wood,
 /area/adhomai_nuclear_waste_makeshift)
 "S" = (

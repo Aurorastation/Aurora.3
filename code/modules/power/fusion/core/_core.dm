@@ -108,12 +108,12 @@
 		to_chat(user,SPAN_WARNING("Shut \the [src] off first!"))
 		return
 
-	if(attacking_item.ismultitool())
+	if(attacking_item.tool_behaviour == TOOL_MULTITOOL)
 		var/datum/component/local_network_member/fusion = GetComponent(/datum/component/local_network_member)
 		fusion.get_new_tag(user)
 		return
 
-	else if(attacking_item.iswrench())
+	else if(attacking_item.tool_behaviour == TOOL_WRENCH)
 		anchored = !anchored
 		playsound(src.loc, 'sound/items/Ratchet.ogg', 75, 1)
 		if(anchored)

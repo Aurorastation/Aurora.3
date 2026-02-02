@@ -1,6 +1,13 @@
 import { BooleanLike } from '../../common/react';
 import { useBackend, useLocalState } from '../backend';
-import { BlockQuote, Box, Button, LabeledList, Section, Input } from '../components';
+import {
+  BlockQuote,
+  Box,
+  Button,
+  LabeledList,
+  Section,
+  Input,
+} from '../components';
 import { Window } from '../layouts';
 
 export type FridgeData = {
@@ -23,7 +30,7 @@ export const SmartFridge = (props, context) => {
   const [searchTerm, setSearchTerm] = useLocalState<string>(
     context,
     `searchTerm`,
-    ``
+    ``,
   );
 
   return (
@@ -47,7 +54,8 @@ export const SmartFridge = (props, context) => {
                 onClick={() => act('switch_sort_alphabetically')}
               />
             </Section>
-          }>
+          }
+        >
           {data.secure ? (
             data.locked === -1 ? (
               <BlockQuote>
@@ -77,12 +85,12 @@ export const ContentsWindow = (props, context) => {
   const [searchTerm] = useLocalState<string>(context, `searchTerm`, ``);
   const itemList = data.contents.filter(
     (item) =>
-      item.display_name.toLowerCase().indexOf(searchTerm.toLowerCase()) > -1
+      item.display_name.toLowerCase().indexOf(searchTerm.toLowerCase()) > -1,
   );
   const itemListSorted = data.sort_alphabetically
     ? itemList.sort((item1, item2) => {
-      return item1.display_name.localeCompare(item2.display_name);
-    })
+        return item1.display_name.localeCompare(item2.display_name);
+      })
     : itemList;
 
   return (

@@ -56,7 +56,7 @@
 /area/cursed/mineral_processing)
 "atI" = (
 /obj/structure/table/wood,
-/obj/item/device/versebook/gadpathur{
+/obj/item/versebook/gadpathur{
 	pixel_y = 2
 	},
 /turf/simulated/floor/wood,
@@ -230,7 +230,7 @@
 /turf/simulated/floor,
 /area/cursed/hangar)
 "beQ" = (
-/obj/item/device/mmi/digital/posibrain,
+/obj/item/mmi/digital/posibrain,
 /obj/machinery/constructable_frame/temp_deco,
 /obj/item/stack/material/plasteel/full,
 /obj/item/circuitboard/aicore,
@@ -547,8 +547,8 @@
 /turf/simulated/floor/tiled/yellow,
 /area/cursed/hangar)
 "cVh" = (
-/obj/item/device/binoculars/high_power,
-/obj/item/device/radio{
+/obj/item/binoculars/high_power,
+/obj/item/radio{
 	icon_state = "radio";
 	pixel_x = -1;
 	pixel_y = 16
@@ -2149,7 +2149,7 @@
 /turf/simulated/floor/reinforced/airless,
 /area/cursed/eva_storage)
 "mQc" = (
-/obj/item/device/versebook/tribunal,
+/obj/item/versebook/tribunal,
 /obj/structure/table/wood,
 /obj/item/reagent_containers/food/drinks/bottle/sarezhiwine{
 	pixel_x = 9;
@@ -2872,7 +2872,7 @@
 /area/cursed/storage)
 "qFB" = (
 /obj/structure/table/wood,
-/obj/item/device/flashlight/lamp{
+/obj/item/flashlight/lamp{
 	pixel_y = 12;
 	pixel_x = -3
 	},
@@ -3179,7 +3179,7 @@
 /area/cursed/mineral_processing)
 "rSt" = (
 /obj/structure/table/wood,
-/obj/item/device/camera,
+/obj/item/camera,
 /obj/machinery/chemical_dispenser/coffee{
 	pixel_y = 17;
 	pixel_x = -26
@@ -3565,7 +3565,7 @@
 "uwc" = (
 /obj/machinery/cell_charger,
 /obj/structure/table/steel,
-/obj/item/device/orbital_dropper/drill,
+/obj/item/orbital_dropper/drill,
 /turf/simulated/floor/tiled/yellow,
 /area/cursed/storage)
 "uwQ" = (
@@ -3920,7 +3920,7 @@
 /area/cursed/medical)
 "wDZ" = (
 /obj/structure/bookcase,
-/obj/item/device/versebook/dpra,
+/obj/item/versebook/dpra,
 /turf/simulated/floor/wood,
 /area/cursed/living_area)
 "wHA" = (

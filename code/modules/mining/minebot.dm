@@ -30,7 +30,7 @@
 	cell.maxcharge = 10000
 	cell.charge = 10000
 
-	mmi = /obj/item/organ/internal/mmi_holder/circuit
+	mmi = /obj/item/organ/internal/machine/posibrain/circuit
 
 	// Allows mining drones to pull ore boxes, might be useful for supporting miners
 	pull_list |= /obj/structure/ore_box
@@ -88,8 +88,8 @@
 		to_chat(user, SPAN_WARNING("\The [src] is not compatible with \the [attacking_item]."))
 		return
 
-	if(istype(attacking_item, /obj/item/device/mine_bot_upgrade))
-		var/obj/item/device/mine_bot_upgrade/MBU = attacking_item
+	if(istype(attacking_item, /obj/item/mine_bot_upgrade))
+		var/obj/item/mine_bot_upgrade/MBU = attacking_item
 		MBU.upgrade_bot(src, user)
 		return
 
@@ -132,19 +132,19 @@
 
 /mob/living/silicon/robot/drone/mining/update_robot_light()
 	if(lights_on)
-		set_light(5, 1, LIGHT_COLOR_FIRE, angle = LIGHT_OMNI)
+		set_light(5, 1, LIGHT_COLOR_FIRE)
 	else
 		set_light(0)
 
 /**********************Minebot Upgrades**********************/
 
-/obj/item/device/mine_bot_upgrade
+/obj/item/mine_bot_upgrade
 	name = "minebot drill upgrade"
 	desc = "A minebot upgrade."
 	icon_state = "mainboard"
 	icon = 'icons/obj/module.dmi'
 
-/obj/item/device/mine_bot_upgrade/proc/upgrade_bot(var/mob/living/silicon/robot/drone/mining/M, mob/user)
+/obj/item/mine_bot_upgrade/proc/upgrade_bot(var/mob/living/silicon/robot/drone/mining/M, mob/user)
 	if(M.drill_upgrade)
 		to_chat(user, SPAN_WARNING("[src] already has a drill upgrade installed!"))
 		return
@@ -161,10 +161,10 @@
 	to_chat(user, SPAN_NOTICE("You successfully install \the [src] into \the [M]."))
 	qdel(src)
 
-/obj/item/device/mine_bot_upgrade/health
+/obj/item/mine_bot_upgrade/health
 	name = "minebot chassis upgrade"
 
-/obj/item/device/mine_bot_upgrade/health/upgrade_bot(var/mob/living/silicon/robot/drone/mining/M, mob/user)
+/obj/item/mine_bot_upgrade/health/upgrade_bot(var/mob/living/silicon/robot/drone/mining/M, mob/user)
 	if(M.health_upgrade)
 		to_chat(user, SPAN_WARNING("[src] already has a reinforced chassis!"))
 		return
@@ -178,10 +178,10 @@
 	to_chat(user, SPAN_NOTICE("You successfully install \the [src] into \the [M]."))
 	qdel(src)
 
-/obj/item/device/mine_bot_upgrade/ka
+/obj/item/mine_bot_upgrade/ka
 	name = "minebot kinetic accelerator upgrade"
 
-/obj/item/device/mine_bot_upgrade/ka/upgrade_bot(var/mob/living/silicon/robot/drone/mining/M, mob/user)
+/obj/item/mine_bot_upgrade/ka/upgrade_bot(var/mob/living/silicon/robot/drone/mining/M, mob/user)
 	if(M.ranged_upgrade)
 		to_chat(user, "[src] already has a KA upgrade installed!")
 		return

@@ -2,7 +2,11 @@
 	var/name
 	var/description
 	var/title_suffix
-	var/departments
+	var/list/departments
+	var/wiki_page
+
+	/// Number indicating the list index of this faction in the 'faction select' interface.
+	var/ui_priority
 
 	var/list/allowed_role_types
 	var/list/allowed_species_types
@@ -60,33 +64,31 @@
 				role.blacklisted_species = J.blacklisted_species
 			. += role
 
-/datum/faction/proc/get_selection_error(datum/preferences/prefs, var/mob/user)
+/datum/faction/proc/get_selection_error(datum/preferences/prefs, mob/user)
 	if(length(allowed_species_types))
-
 		var/datum/species/S = prefs.get_species_datum()
 
 		if(!S)
-			return "No valid species selected."
+			return "No valid species"
 
 		if(!is_type_in_typecache(S, allowed_species_types))
-			return "Invalid species selected."
+			return "Invalid species"
 
 	if(length(blacklisted_citizenship_types))
-
 		var/datum/citizenship/C = SSrecords.citizenships[prefs.citizenship]
 
 		if(!C)
-			return "No valid nation selected."
+			return "No valid nation"
 
 		if(is_type_in_typecache(C, blacklisted_citizenship_types))
-			return "Invalid nation selected."
+			return "Invalid nation"
 
-	if (!is_visible(user))
-		return "This faction is not available to you."
+	if(!is_visible(user))
+		return "This faction is not available to you"
 
 	return null
 
-/datum/faction/proc/can_select(datum/preferences/prefs, var/mob/user)
+/datum/faction/proc/can_select(datum/preferences/prefs, mob/user)
 	return !get_selection_error(prefs, user)
 
 /datum/faction/proc/get_logo_name()

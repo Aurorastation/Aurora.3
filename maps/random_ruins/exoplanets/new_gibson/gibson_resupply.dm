@@ -15,5 +15,4 @@
 	name = "New Gibson Supply Outpost"
 	icon_state = "bluenew"
 	requires_power = FALSE
-	dynamic_lighting = TRUE
 	no_light_control = FALSE

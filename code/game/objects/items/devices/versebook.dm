@@ -1,4 +1,4 @@
-/obj/item/device/versebook
+/obj/item/versebook
 	name = "\improper versebook"
 	desc = "If you see this, someone fucked up. Make a issue request."
 	desc_extended = "No, seriously. Make a issue request"
@@ -16,7 +16,7 @@
 	/// takes `file2list(FILE.txt)`. Each line in the .txt file is a verse that is randomly selected
 	var/list/randomquip = list()
 
-/obj/item/device/versebook/attack_self(mob/user)
+/obj/item/versebook/attack_self(mob/user)
 	if(!length(randomquip))
 		return
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
@@ -27,7 +27,7 @@
 	reading = TRUE //begin reading
 
 	user.visible_message(SPAN_NOTICE("[user] begins to flip through [src]."))
-	playsound(loc, 'sound/bureaucracy/bookopen.ogg', 50, 1)
+	playsound(loc, 'sound/items/bureaucracy/bookopen.ogg', 50, 1)
 
 	var/q // recycled from tip of the day code. it just works!(TM)
 	q = pick(randomquip)
@@ -36,51 +36,51 @@
 		to_chat(user, SPAN_NOTICE("You notice a particular verse: [q]"))
 	reading = FALSE
 
-/obj/item/device/versebook/tribunal
+/obj/item/versebook/tribunal
 	name = "\improper tribunal codex"
 	desc = "A holy text of the Moroz Holy Tribunal, the state religion of the Empire of Dominia."
 	desc_extended = "An almost mandatory possession for any Dominian household, containing a list of edicts, litanies, and rituals."
 	icon_state = "dominiabook"
 	item_state = "dominia"
 
-/obj/item/device/versebook/tribunal/Initialize()
+/obj/item/versebook/tribunal/Initialize()
 	. = ..()
 	randomquip = file2list('texts/ingame_manuals/dominia.txt')  //Needs a .txt file, each line is a 'verse' the book will randomly choose to display to user.
 
-/obj/item/device/versebook/gadpathur
+/obj/item/versebook/gadpathur
 	name = "\improper gadpathurian morale manual"
 	desc = "A popular Gadpathurian pocket guide, used to carry a fragment of the Commander's wisdom abroad."
 	desc_extended = "Manufactured using recycled paper and canvas. The wisdom within the text is based on the collected speeches of Commander Patvardhan and her assorted councillors."
 	icon_state = "gadpathurbook"
 	item_state = "gadpathur"
 
-/obj/item/device/versebook/gadpathur/Initialize()
+/obj/item/versebook/gadpathur/Initialize()
 	. = ..()
 	randomquip = file2list('texts/ingame_manuals/gadpathur.txt')
 
-/obj/item/device/versebook/biesel
+/obj/item/versebook/biesel
 	name = "\improper Constitution of The Federal Republic of Biesel"
 	desc = "A common possession by Biesel government officals, the printed text of the constitution for the Federal Republic of Biesel and the Corporate Reconstruction Zone, adopted in 2452."
 	desc_extended = "This book has the Republic of Biesel's iconic symbol etched on the cover, the text within details the structure of the Federal Democracy the Republic is today."
 	icon_state = "bieselbook"
 	item_state = "biesel"
 
-/obj/item/device/versebook/biesel/Initialize()
+/obj/item/versebook/biesel/Initialize()
 	. = ..()
 	randomquip = file2list('texts/ingame_manuals/biesel.txt')
 
-/obj/item/device/versebook/trinary
+/obj/item/versebook/trinary
 	name = "\improper The Order (abdridged version)"
 	desc = "The holy text of the Trinary Perfection, who believe in synthetic perfection and eventual salvation."
 	desc_extended = "This book contains some verses of the core beliefs of the Trinary Perfection, including some of the original works by the Corkfells, some additions by the prophet-like figure Flock, and a few recent additions by Ecclesiarch ARM-1DRIL. This is the abridged version, with only the core beliefs present."
 	icon_state = "trinarybook"
 	item_state = "trinary"
 
-/obj/item/device/versebook/trinary/Initialize()
+/obj/item/versebook/trinary/Initialize()
 	. = ..()
 	randomquip = file2list('texts/ingame_manuals/trinary.txt')
 
-/obj/item/device/versebook/templeist
+/obj/item/versebook/templeist
 	name = "\improper The Voice of Temple (abdridged version)"
 	desc = "The holy text of the Lodge of Temple Architect, an order within the Trinary Perfection that seeks to attain its goals via technological advancement and scientific discovery."
 	desc_extended = "This book contains some of the words of Temple, a sacred AI within the Trinary Perfection and namesake of the Lodge of the Temple Architect. It also includes some teachings by leading members within the sect. Due to its recent establishment, this book is frequently changed and amended \
@@ -88,11 +88,11 @@
 	icon_state = "templeistbook"
 	item_state = "templeist"
 
-/obj/item/device/versebook/templeist/Initialize()
+/obj/item/versebook/templeist/Initialize()
 	. = ..()
 	randomquip = file2list('texts/ingame_manuals/templeist.txt')
 
-/obj/item/device/versebook/siakh
+/obj/item/versebook/siakh
 	name = "\improper Writings of Judizah Si'akh"
 	desc = "A collection of musings, commands and theological discussions, copied many times over from the alleged words of the controversial prophet Judizah Si'akh himself."
 	desc_extended = "As close to a 'holy text' as the Si'akh faith has, this book can be found across Moghes and rarely beyond, despite efforts of the nobility to stamp out the firebrand religion. It lays down the \
@@ -100,11 +100,11 @@
 	icon_state = "holybook"
 	item_state = "book1"
 
-/obj/item/device/versebook/siakh/Initialize()
+/obj/item/versebook/siakh/Initialize()
 	. = ..()
 	randomquip = file2list('texts/ingame_manuals/siakh.txt')
 
-/obj/item/device/versebook/autakh
+/obj/item/versebook/autakh
 	name = "\improper Reflections upon the Aut'akh Faith"
 	desc = "An illegal tome in the Izweski Hegemony, Reflections is a short book penned by the Unathi known as Emzal Paossini, known by Aut'akh as 'Creator of Paradigms', infamous for their role in the creation of the Aut'akh faith."
 	desc_extended = "The Aut'akh faith is highly decentralised and does not have holy texts per se. This book is simply a collection of personal musings from one of the Aut'akh's most influential figures.\
@@ -112,11 +112,11 @@
 	icon_state = "book10"
 	item_state = "book10"
 
-/obj/item/device/versebook/autakh/Initialize()
+/obj/item/versebook/autakh/Initialize()
 	. = ..()
 	randomquip = file2list('texts/ingame_manuals/autakh.txt')
 
-/obj/item/device/versebook/skakh
+/obj/item/versebook/skakh
 	name = "\improper Sk'akh Legends"
 	desc = "This is a collection of legends, commandments and doctrines of the Sk'akh faith, published by the Church."
 	desc_extended = "Variations of this tome have been published for centuries, in one form or another, often changing to deal with recent developments for the Unathi people. This variation looks to have been published \
@@ -124,22 +124,22 @@
 	icon_state = "book3"
 	item_state = "book3"
 
-/obj/item/device/versebook/skakh/Initialize()
+/obj/item/versebook/skakh/Initialize()
 	. = ..()
 	randomquip = file2list('texts/ingame_manuals/skakh.txt')
 
-/obj/item/device/versebook/thakh
+/obj/item/versebook/thakh
 	name = "\improper collected Th'akh fables"
 	desc = "Th'akh is a decentralised religion, with thousands of variants across Moghes and beyond. This book is a collection of common ancient tales and fables, translated from an archaic form of Sinta'Azaziba into Basic."
 	desc_extended = "The tales of various Th'akh sects are numbered beyond count. This particular copy seems to be written by a shaman of the Court of Stars, and the names of their spirit-gods often crop up throughout the text."
 	icon_state = "holybook"
 	item_state = "book1"
 
-/obj/item/device/versebook/thakh/Initialize()
+/obj/item/versebook/thakh/Initialize()
 	. = ..()
 	randomquip = file2list('texts/ingame_manuals/thakh.txt')
 
-/obj/item/device/versebook/assunzione
+/obj/item/versebook/assunzione
 	name = "\improper Luceian Book of Scripture"
 	desc = "A collection of historically-backed texts mixed with fables and stories detailing the reasonings, history, and beliefs of the Luceism religion of Assunzione. Translated into Basic by the Luceian Monastery on Biesel."
 	desc_extended = "Luceism's founding was unusually well-documented for a religion, and as a result this book features several photographs of cataclysmic events that happened during Assunzione's crisis \
@@ -147,11 +147,11 @@
 	icon_state = "luce"
 	item_state = "luce"
 
-/obj/item/device/versebook/assunzione/Initialize()
+/obj/item/versebook/assunzione/Initialize()
 	. = ..()
 	randomquip = file2list('texts/ingame_manuals/assunzione.txt')
 
-/obj/item/device/versebook/assunzione/pocket
+/obj/item/versebook/assunzione/pocket
 	name = "pocket Luceian Book of Scripture"
 	desc = "A miniaturized edition of the Luceian Book of Scripture, a collection of historically-backed texts mixed with fables and stories detailing the reasonings, history, and \
 	beliefs of the Luceism religion of Assunzione. Translated into Basic by the Luceian Monastery on Biesel. This one fits nicely in a pocket or in a bag."
@@ -160,7 +160,7 @@
 
 /// Tajaran Political Books
 
-/obj/item/device/versebook/pra
+/obj/item/versebook/pra
 	name = "\improper Hadiist Manifesto"
 	desc = "A compact red book that outlines the principles of Hadiism, required reading for PRA citizens."
 	desc_extended = "A political document supposedly written by Al’mari Hadii after the First Revolution. It is regarded as the foundation of the Hadiist Ideology. \
@@ -169,11 +169,11 @@
 	icon_state = "prabook"
 	item_state = "pra"
 
-/obj/item/device/versebook/pra/Initialize()
+/obj/item/versebook/pra/Initialize()
 	. = ..()
 	randomquip = file2list("texts/ingame_manuals/hadiism.txt")
 
-/obj/item/device/versebook/dpra
+/obj/item/versebook/dpra
 	name = "\improper In Defense of Al'mari's Legacy"
 	desc = "The manifesto of the Democratic People’s Republic of Adhomai’s founder, Supreme Commander Nated."
 	desc_extended = "the political manifesto that laid the foundations of the Al’mariist ideology, written by Supreme Commander Nated briefly after the coup attempt. \
@@ -182,11 +182,11 @@
 	icon_state = "dprabook"
 	item_state = "dpra"
 
-/obj/item/device/versebook/dpra/Initialize()
+/obj/item/versebook/dpra/Initialize()
 	. = ..()
 	randomquip = file2list("texts/ingame_manuals/almariism.txt")
 
-/obj/item/device/versebook/nka
+/obj/item/versebook/nka
 	name = "\improper The New Kingdom"
 	desc = "This is a political text written by the New Kingdom of Adhomai’s first King Vahzirthaamro Azunja."
 	desc_extended = "a political text written by King Vahzirthaamro Azunja during his time in hiding. \
@@ -196,13 +196,13 @@
 	icon_state = "nkabook"
 	item_state = "nka"
 
-/obj/item/device/versebook/nka/Initialize()
+/obj/item/versebook/nka/Initialize()
 	. = ..()
 	randomquip = file2list("texts/ingame_manuals/royalism.txt")
 
 /// Tajaran Religious Texts
 
-/obj/item/device/versebook/twinsuns
+/obj/item/versebook/twinsuns
 	name = "\improper Holy Scrolls"
 	desc = "An abridged collection of teachings for those worshipers of S’rendarr and Messa."
 	desc_extended = "Books and teachings of the S’randmarr worship have seen numerous variations over the storied existence of the faith. \
@@ -211,11 +211,11 @@
 	icon_state = "twinsunsbook"
 	item_state = "twinsuns"
 
-/obj/item/device/versebook/twinsuns/Initialize()
+/obj/item/versebook/twinsuns/Initialize()
 	. = ..()
 	randomquip = file2list("texts/ingame_manuals/twinsuns.txt")
 
-/obj/item/device/versebook/matake
+/obj/item/versebook/matake
 	name = "\improper Ma'ta'ke legends"
 	desc = "An abridged collection of stories and teachings from the Ma’ta’ke gods."
 	desc_extended = "The Ma’ta’ke Gods and their worship has never been organized, \
@@ -224,6 +224,6 @@
 	icon_state = "matakebook"
 	item_state = "matake"
 
-/obj/item/device/versebook/matake/Initialize()
+/obj/item/versebook/matake/Initialize()
 	. = ..()
 	randomquip = file2list("texts/ingame_manuals/matake.txt")

@@ -29,20 +29,20 @@
 		H.drop_from_inventory(attacking_item)
 		attacking_item.forceMove(src)
 		update_icon()
-	else if(istype(attacking_item, /obj/item/device/laser_assembly))
+	else if(istype(attacking_item, /obj/item/laser_assembly))
 		check_swap(user, attacking_item)
-		var/obj/item/device/laser_assembly/A = attacking_item
+		var/obj/item/laser_assembly/A = attacking_item
 		A.ready_to_craft = TRUE
 		item = A
 		H.drop_from_inventory(attacking_item)
 		attacking_item.forceMove(src)
 		A.analyzer = WEAKREF(src)
 		update_icon()
-	else if(istype(attacking_item, /obj/item/laser_components) && istype(item, /obj/item/device/laser_assembly))
+	else if(istype(attacking_item, /obj/item/laser_components) && istype(item, /obj/item/laser_assembly))
 		if(process)
 			to_chat(user, SPAN_WARNING("\The [src] is busy installing a component already."))
 			return
-		var/obj/item/device/laser_assembly/A = item
+		var/obj/item/laser_assembly/A = item
 		var/success = A.attackby(attacking_item, user)
 		if(!success)
 			return
@@ -73,8 +73,8 @@
 /obj/machinery/r_n_d/weapons_analyzer/proc/check_swap(var/mob/user, var/obj/I)
 	if(item)
 		to_chat(user, SPAN_NOTICE("You swap \the [item] out for \the [I]."))
-		if(istype(item, /obj/item/device/laser_assembly))
-			var/obj/item/device/laser_assembly/A = item
+		if(istype(item, /obj/item/laser_assembly))
+			var/obj/item/laser_assembly/A = item
 			A.ready_to_craft = FALSE
 			A.analyzer = null
 		item.forceMove(get_turf(src))
@@ -90,8 +90,8 @@
 	if(use_check_and_message(usr))
 		return
 
-	if(istype(item, /obj/item/device/laser_assembly))
-		var/obj/item/device/laser_assembly/A = item
+	if(istype(item, /obj/item/laser_assembly))
+		var/obj/item/laser_assembly/A = item
 		A.ready_to_craft = FALSE
 		A.analyzer = null
 		A.forceMove(get_turf(src))
@@ -112,8 +112,8 @@
 
 	var/icon/Icon_used
 
-	if(istype(item, /obj/item/device/laser_assembly))
-		var/obj/item/device/laser_assembly/A = item
+	if(istype(item, /obj/item/laser_assembly))
+		var/obj/item/laser_assembly/A = item
 		A.update_icon()
 		icon_state = process ?  "[icon_state]_working" : "[icon_state]_on"
 		Icon_used = new /icon(item.icon, item.icon_state)
@@ -132,8 +132,8 @@
 /obj/machinery/r_n_d/weapons_analyzer/ui_data(mob/user)
 	var/list/data = list()
 
-	if(istype(item, /obj/item/device/laser_assembly))
-		var/obj/item/device/laser_assembly/assembly = item
+	if(istype(item, /obj/item/laser_assembly))
+		var/obj/item/laser_assembly/assembly = item
 		var/list/mods = list()
 		for(var/i in list(assembly.capacitor, assembly.focusing_lens, assembly.modulator) + assembly.gun_mods)
 			var/obj/item/laser_components/l_component = i
@@ -252,7 +252,7 @@
 /obj/machinery/r_n_d/weapons_analyzer/ui_interact(mob/user, var/datum/tgui/ui)
 	var/height = item ? 600: 300
 	var/width = item ? 500 : 300
-	if(istype(item, /obj/item/gun/energy/laser/prototype) || istype(item, /obj/item/device/laser_assembly))
+	if(istype(item, /obj/item/gun/energy/laser/prototype) || istype(item, /obj/item/laser_assembly))
 		width = 600
 
 	ui = SStgui.try_update_ui(user, src, ui)

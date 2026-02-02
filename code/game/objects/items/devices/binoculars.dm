@@ -1,8 +1,8 @@
-/obj/item/device/binoculars
+/obj/item/binoculars
 
 	name = "binoculars"
 	desc = "A pair of binoculars."
-	icon = 'icons/obj/item/device/binoculars.dmi'
+	icon = 'icons/obj/item/binoculars.dmi'
 	icon_state = "binoculars"
 	item_state = "binoculars"
 	action_button_name = "Toggle Binoculars"
@@ -16,12 +16,12 @@
 	var/tileoffset = 7
 	var/viewsize = 7
 
-/obj/item/device/binoculars/attack_self(mob/user)
+/obj/item/binoculars/attack_self(mob/user)
 	if(do_after(user, 1.5 SECONDS))
 		user.visible_message(SPAN_NOTICE("[user] looks into the binoculars."), SPAN_NOTICE("You look through the binoculars."))
 		zoom(user, tileoffset, viewsize, show_zoom_message = FALSE)
 
-/obj/item/device/binoculars/high_power
+/obj/item/binoculars/high_power
 	name = "high power binoculars"
 	desc = "A pair of high power binoculars."
 	icon_state = "binoculars_high"

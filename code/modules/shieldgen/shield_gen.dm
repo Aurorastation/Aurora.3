@@ -59,7 +59,7 @@
 			updateDialog()
 		else
 			to_chat(user, SPAN_ALERT("Access denied."))
-	else if(attacking_item.iswrench())
+	else if(attacking_item.tool_behaviour == TOOL_WRENCH)
 		anchored = !anchored
 		visible_message(SPAN_NOTICE("\The [src] has been [anchored ? "bolted to the floor":"unbolted from the floor"] by \the [user]."))
 

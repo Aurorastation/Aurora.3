@@ -91,7 +91,6 @@
 	//initialize things that are normally initialized after map load
 	initTemplateBounds(bounds)
 	init_shuttles(shuttle_state)
-	create_lighting_overlays_zlevel(world.maxz)
 	log_game("Z-level [name] loaded at [x], [y], [world.maxz]")
 	message_admins("Z-level [name] loaded at [x], [y], [world.maxz]")
 	SSicon_smooth.can_fire = TRUE
@@ -178,6 +177,12 @@
 		if(istype(T,/turf/simulated))
 			var/turf/simulated/sim = T
 			sim.update_air_properties()
+
+		if(SSlighting.initialized) //don't generate lighting overlays before SSlighting in case these templates are loaded before
+			var/area/A = T.loc
+			if(A?.area_has_base_lighting)
+				continue
+			T.static_lighting_build_overlay()
 
 /datum/map_template/proc/load(turf/T, centered = FALSE)
 	if(centered)

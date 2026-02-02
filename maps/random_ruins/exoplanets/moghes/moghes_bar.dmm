@@ -187,7 +187,7 @@
 	pixel_y = 9
 	},
 /obj/item/reagent_containers/glass/rag,
-/obj/item/device/hand_labeler,
+/obj/item/hand_labeler,
 /turf/simulated/floor/exoplanet/lino{
 	temperature = 303.15
 	},
@@ -1231,7 +1231,7 @@
 /area/moghes_bar)
 "Lx" = (
 /obj/structure/table/wood,
-/obj/item/device/flashlight/lamp/box,
+/obj/item/flashlight/lamp/box,
 /turf/simulated/floor/exoplanet/wood{
 	temperature = 303.15
 	},
@@ -1393,7 +1393,7 @@
 /area/moghes_bar)
 "Qo" = (
 /obj/structure/table/wood,
-/obj/item/device/flashlight/lamp/box,
+/obj/item/flashlight/lamp/box,
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 4
 	},
@@ -1467,7 +1467,7 @@
 /obj/effect/floor_decal/spline/plain{
 	dir = 4
 	},
-/obj/item/device/radio/phone,
+/obj/item/radio/phone,
 /turf/simulated/floor/exoplanet/lino{
 	temperature = 303.15
 	},
@@ -1672,7 +1672,7 @@
 /area/moghes_bar)
 "ZN" = (
 /obj/structure/table/wood,
-/obj/item/device/flashlight/lamp/box,
+/obj/item/flashlight/lamp/box,
 /turf/simulated/floor/exoplanet/wood{
 	temperature = 303.15
 	},

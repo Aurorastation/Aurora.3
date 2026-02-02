@@ -715,7 +715,7 @@
 		<h3>The [/obj/machinery/bluespacedrive::name] comes equipped with:</h3><BR>
 		<ul style="list-style:circle">
 			<li>Two separate gas feeding circuits: A Phoron line on the west and a moderator gas mix line on the north.</li>
-			<li>Two independent power circuits: The primary circuit, which feeds the outer shield ring, the room APC and the drive itself, and the secondary circuit, which feeds the inner shield ring.</li>
+			<li>Two independent power circuits: The primary circuit, which feeds the outer shield ring, the compartment APC and the drive itself, and the secondary circuit, which feeds the inner shield ring.</li>
 			<li>A same-room control console.</li>
 		</ul>
 

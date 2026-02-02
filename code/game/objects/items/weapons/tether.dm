@@ -3,7 +3,7 @@ GLOBAL_LIST_INIT_TYPED(all_tethers, /obj/item/tethering_device, list())
 /obj/item/tethering_device
 	name = "tethering device"
 	desc = "A device used by explorers to keep track of partners by way of electro-tether."
-	icon = 'icons/obj/item/device/gps.dmi'
+	icon = 'icons/obj/item/gps.dmi'
 	icon_state = "gps"
 	item_state = "radio"
 	contained_sprite = TRUE

@@ -104,10 +104,7 @@
 	// Handle light requirements for upcoming logic.
 	var/light_supplied
 	if(!closed_system)
-		if (TURF_IS_DYNAMICALLY_LIT(T))
-			light_supplied = T.get_lumcount(0, 3) * 10
-		else
-			light_supplied = 5
+		light_supplied = T.get_lumcount(0, 3) * 5
 	else
 		light_supplied = tray_light
 

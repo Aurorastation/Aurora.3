@@ -13,7 +13,7 @@
 	ammo_type = /obj/item/ammo_casing/a357
 	magazine_type = /obj/item/ammo_magazine/a357
 	fire_sound = 'sound/weapons/gunshot/gunshot_revolver.ogg'
-	empty_sound = /singleton/sound_category/out_of_ammo_revolver
+	empty_sound = SFX_OUT_OF_AMMO_REVOLVER
 	fire_delay = ROF_RIFLE
 	var/chamber_offset = 0 //how many empty chambers in the cylinder until you hit a round
 
@@ -157,7 +157,7 @@
 	needspin = FALSE
 
 /obj/item/gun/projectile/revolver/capgun/attackby(obj/item/attacking_item, mob/user)
-	if(!attacking_item.iswirecutter() || icon_state == "revolver")
+	if(attacking_item.tool_behaviour != TOOL_WIRECUTTER || icon_state == "revolver")
 		return ..()
 	to_chat(user, SPAN_NOTICE("You snip off the toy markings off the [src]."))
 	icon = 'icons/obj/guns/revolver.dmi'

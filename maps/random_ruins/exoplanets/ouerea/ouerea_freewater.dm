@@ -13,7 +13,6 @@
 	name = "Freewater Camp"
 	icon_state = "bluenew"
 	requires_power = FALSE
-	dynamic_lighting = TRUE
 	no_light_control = FALSE
 	area_flags = AREA_FLAG_RAD_SHIELDED|AREA_FLAG_INDESTRUCTIBLE_TURFS
 	area_blurb = "A fortified encampment, with the signs of training equipment everywhere. A green banner displaying a red-and-gold eye flies above the central building."

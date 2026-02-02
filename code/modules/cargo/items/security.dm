@@ -21,7 +21,7 @@
 	description = "Used for blinding and being an asshole."
 	price = 235
 	items = list(
-		/obj/item/device/flash
+		/obj/item/flash
 	)
 	access = ACCESS_SECURITY
 	container_type = "crate"
@@ -35,7 +35,7 @@
 	description = "A small handheld black light."
 	price = 115
 	items = list(
-		/obj/item/device/uv_light
+		/obj/item/uv_light
 	)
 	access = 0
 	container_type = "crate"
@@ -63,7 +63,7 @@
 	description = "A heavy flashlight designed for security personnel."
 	price = 75
 	items = list(
-		/obj/item/device/flashlight/maglight
+		/obj/item/flashlight/maglight
 	)
 	access = ACCESS_SECURITY
 	container_type = "crate"
@@ -77,7 +77,7 @@
 	description = "A large, ID locked device used for completely locking down airlocks. It is painted with Security colors."
 	price = 50
 	items = list(
-		/obj/item/device/magnetic_lock/security
+		/obj/item/magnetic_lock/security
 	)
 	access = ACCESS_SECURITY
 	container_type = "crate"
@@ -217,7 +217,7 @@
 	name = "standard plate carrier"
 	supplier = "zavodskoi"
 	description = "A plate carrier with basic accessories and an armor plate."
-	price = 800
+	price = 600
 	items = list(
 		/obj/item/clothing/suit/armor/carrier/officer
 	)
@@ -456,7 +456,7 @@
 	description = "A small authentication device, to be inserted into a firearm receiver to allow operation."
 	price = 2000
 	items = list(
-		/obj/item/device/firing_pin
+		/obj/item/firing_pin
 	)
 	access = ACCESS_SECURITY
 	container_type = "crate"
@@ -557,6 +557,20 @@
 	price = 25
 	items = list(
 		/obj/item/storage/box/swabs
+	)
+	access = ACCESS_FORENSICS_LOCKERS
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/autopsy_scanner
+	category = "security"
+	name = "autopsy scanner"
+	supplier = "nanotrasen"
+	description = "A handheld autopsy scanner that extracts information on wounds."
+	price = 250
+	items = list(
+		/obj/item/autopsy_scanner
 	)
 	access = ACCESS_FORENSICS_LOCKERS
 	container_type = "crate"

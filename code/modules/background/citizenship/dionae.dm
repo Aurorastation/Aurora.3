@@ -72,7 +72,7 @@
 /obj/outfit/job/diplomatic_bodyguard/consortium
 	name = "Consortium of Hieroaetheria Diplomatic Bodyguard"
 	backpack_contents = list(
-		/obj/item/device/camera = 1,
+		/obj/item/camera = 1,
 		/obj/item/gun/energy/pistol = 1
 	)
 
@@ -158,7 +158,7 @@
 /obj/outfit/job/diplomatic_bodyguard/glaorr
 	name = "Union of Gla'orr Diplomatic Bodyguard"
 	backpack_contents = list(
-		/obj/item/device/camera = 1,
+		/obj/item/camera = 1,
 		/obj/item/gun/energy/pistol = 1
 	)
 
@@ -244,7 +244,7 @@
 /obj/outfit/job/diplomatic_bodyguard/ekane
 	name = "Eternal Republic of The Ekane Diplomatic Bodyguard"
 	backpack_contents = list(
-		/obj/item/device/camera = 1,
+		/obj/item/camera = 1,
 		/obj/item/gun/energy/pistol = 1
 	)
 

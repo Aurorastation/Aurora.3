@@ -202,7 +202,7 @@
 	slot_flags = SLOT_BACK
 	load_method = MAGAZINE
 	fire_sound = 'sound/weapons/gunshot/gunshot_rifle.ogg'
-	empty_sound = /singleton/sound_category/out_of_ammo_rifle
+	empty_sound = SFX_OUT_OF_AMMO_RIFLE
 	magazine_type = /obj/item/ammo_magazine/c762
 	allowed_magazines = list(/obj/item/ammo_magazine/c762)
 	fire_delay = ROF_RIFLE
@@ -527,7 +527,7 @@
 		return
 	..()
 
-/obj/item/gun/projectile/automatic/rifle/l6_saw/unload_ammo(mob/user, var/allow_dump=1)
+/obj/item/gun/projectile/automatic/rifle/l6_saw/unload_ammo(mob/user, allow_dump = TRUE, drop_mag = FALSE)
 	if(!cover_open)
 		to_chat(user, SPAN_WARNING("You need to open the cover to unload [src]."))
 		return

@@ -1,6 +1,15 @@
 import { BooleanLike } from '../../common/react';
 import { useBackend, useLocalState } from '../backend';
-import { Box, Button, Input, LabeledList, NumberInput, Section, Table, Tabs } from '../components';
+import {
+  Box,
+  Button,
+  Input,
+  LabeledList,
+  NumberInput,
+  Section,
+  Table,
+  Tabs,
+} from '../components';
 import { NtosWindow } from '../layouts';
 
 export type DatabaseData = {
@@ -68,7 +77,7 @@ export const AccountWindow = (props, context) => {
   const [make_new_acc, setMakeNewAcc] = useLocalState(
     context,
     'make_new_acc',
-    0
+    0,
   );
   const [new_name, setNewName] = useLocalState(context, 'new_name', '');
   const [new_funds, setNewFunds] = useLocalState(context, 'new_funds', 0);
@@ -82,7 +91,8 @@ export const AccountWindow = (props, context) => {
           icon="print"
           onClick={() => act('print')}
         />
-      }>
+      }
+    >
       {active ? (
         <Tabs>
           <Tabs.Tab onClick={() => setTab('All Accounts')}>
@@ -120,7 +130,8 @@ export const AccountWindow = (props, context) => {
             title="New Account Creation"
             buttons={
               <Button content="Begin" onClick={() => setMakeNewAcc(1)} />
-            }>
+            }
+          >
             {make_new_acc ? (
               <>
                 <Input
@@ -166,17 +177,17 @@ export const SpecificAccountData = (props, context) => {
   const [removing_funds, setRemoving] = useLocalState(
     context,
     'removing_funds',
-    0
+    0,
   );
   const [funds_to_add, setFundsToAdd] = useLocalState(
     context,
     'funds_to_add',
-    0
+    0,
   );
   const [funds_to_remove, setFundsToRemove] = useLocalState(
     context,
     'funds_to_remove',
-    0
+    0,
   );
 
   return (
@@ -214,7 +225,8 @@ export const SpecificAccountData = (props, context) => {
                   }
                 />
               </>
-            }>
+            }
+          >
             <LabeledList>
               <LabeledList.Item label="Number">
                 {account.account_number}
@@ -321,7 +333,7 @@ export const SpecificAccountData = (props, context) => {
           </Section>
         ) : (
           ''
-        )
+        ),
       )}
     </Section>
   );

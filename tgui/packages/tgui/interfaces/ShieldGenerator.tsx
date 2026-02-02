@@ -35,7 +35,8 @@ export const ShieldGenerator = (props, context) => {
               icon={data.active ? 'power-off' : 'times'}
               onClick={() => act('toggle')}
             />
-          }>
+          }
+        >
           <LabeledList>
             <LabeledList.Item label="Capacitor">
               {data.owned_capacitor ? (

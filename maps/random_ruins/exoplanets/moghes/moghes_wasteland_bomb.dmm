@@ -11,7 +11,7 @@
 /area/template_noop)
 "C" = (
 /obj/effect/landmark/scorcher,
-/obj/effect/decal/cleanable/greenglow/radioactive,
+/obj/effect/decal/cleanable/greenglow/radioactive/medium,
 /turf/simulated/floor/exoplanet/desert/rough{
 	temperature = 315.15
 	},

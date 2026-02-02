@@ -87,7 +87,6 @@
 	name = "Fishing Catwalk"
 	icon_state = "exterior"
 	requires_power = FALSE
-	dynamic_lighting = TRUE
 	area_flags = AREA_FLAG_NO_GRAVITY
 	no_light_control = TRUE
 	allow_nightmode = FALSE

@@ -17,7 +17,6 @@
 	name = "Adhomian Inn"
 	icon_state = "bluenew"
 	requires_power = FALSE
-	dynamic_lighting = TRUE
 	no_light_control = FALSE
 	area_flags = AREA_FLAG_RAD_SHIELDED
 	area_blurb = "A typical Adhomian inn. The scent of alcohol and cigarette smoke as well as the warmth welcomes you."

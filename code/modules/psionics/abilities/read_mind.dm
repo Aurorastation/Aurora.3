@@ -39,8 +39,8 @@
 		return
 
 	var/safe_mode = FALSE
-	var/mob/living/L = user
-	if(L.psi.get_rank() < PSI_RANK_HARMONIOUS)
+	// Safe mode triggers if the caster's psi-sensitivity isn't 2 or more points greater than the receiver's sensitivity.
+	if(user.check_psi_sensitivity() - target.check_psi_sensitivity() < PSI_RANK_HARMONIOUS)
 		safe_mode = TRUE
 
 	user.visible_message(SPAN_WARNING("[user] lays a palm on [hit_atom]'s forehead..."))

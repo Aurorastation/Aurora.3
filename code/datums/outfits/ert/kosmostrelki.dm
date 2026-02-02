@@ -5,7 +5,7 @@
 	shoes = /obj/item/clothing/shoes/magboots
 	gloves = /obj/item/clothing/gloves/black/tajara
 	uniform = /obj/item/clothing/under/tajaran/cosmonaut
-	l_ear = /obj/item/device/radio/headset/distress
+	l_ear = /obj/item/radio/headset/distress
 	head = /obj/item/clothing/head/helmet/space/void/pra
 	suit = /obj/item/clothing/suit/space/void/pra
 	suit_store = /obj/item/tank/oxygen/red
@@ -41,7 +41,7 @@
 
 	back = /obj/item/storage/backpack/satchel/leather
 	backpack_contents = list(
-						/obj/item/device/versebook/pra = 1,
+						/obj/item/versebook/pra = 1,
 						/obj/item/storage/box/hadii_card = 1,
 						/obj/item/gun/projectile/deagle/adhomai = 1,
 						/obj/item/clothing/accessory/holster/hip/brown = 1,
@@ -49,7 +49,7 @@
 						/obj/item/clothing/head/tajaran/cosmonaut_commissar = 1
 						)
 
-	l_pocket = /obj/item/device/megaphone
+	l_pocket = /obj/item/megaphone
 	accessory = /obj/item/clothing/accessory/hadii_pin
 	l_hand = /obj/item/martial_manual/tajara
 
@@ -70,10 +70,10 @@
 	backpack_contents = list(
 						/obj/item/gun/projectile/automatic/tommygun = 1,
 						/obj/item/clothing/accessory/holster/hip/brown = 1,
-						/obj/item/device/binoculars = 1,
+						/obj/item/binoculars = 1,
 						/obj/item/ammo_magazine/submachinedrum = 1)
 
-	l_pocket = /obj/item/device/megaphone
+	l_pocket = /obj/item/megaphone
 	l_hand = /obj/item/martial_manual/tajara
 
 /obj/outfit/admin/ert/pra_cosmonaut/tesla
@@ -117,7 +117,7 @@
 		/obj/item/ammo_magazine/c45uzi = 2,
 		/obj/item/storage/firstaid/combat = 1,
 		/obj/item/storage/firstaid/adv = 1,
-		/obj/item/device/flashlight/pen = 1,
+		/obj/item/flashlight/pen = 1,
 		/obj/item/gun/projectile/pistol/adhomai = 1
 	)
 
@@ -129,7 +129,7 @@
 		/obj/item/reagent_containers/glass/bottle/dexalin_plus = 1,
 		/obj/item/reagent_containers/glass/bottle/bicaridine = 1,
 		/obj/item/reagent_containers/glass/bottle/dermaline = 1,
-		/obj/item/device/healthanalyzer = 1
+		/obj/item/healthanalyzer = 1
 	)
 
 	l_hand = /obj/item/martial_manual/tajara

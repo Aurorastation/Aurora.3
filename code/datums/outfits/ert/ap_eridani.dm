@@ -14,7 +14,7 @@
 	back = /obj/item/storage/backpack/satchel/sec
 	belt = /obj/item/storage/belt/military
 	id = /obj/item/card/id/distress/ap_eridani
-	l_ear = /obj/item/device/radio/headset/distress
+	l_ear = /obj/item/radio/headset/distress
 	l_pocket = /obj/item/grenade/chem_grenade/teargas
 	r_pocket = /obj/item/tank/emergency_oxygen/double
 
@@ -29,10 +29,10 @@
 
 	belt_contents = list(
 		/obj/item/ammo_magazine/c45m/auto = 3,
-		/obj/item/device/flash = 1,
+		/obj/item/flash = 1,
 		/obj/item/handcuffs/ziptie = 1,
 		/obj/item/melee/baton/stunrod = 1,
-		/obj/item/device/flashlight/maglight = 1,
+		/obj/item/flashlight/maglight = 1,
 		/obj/item/shield/riot/tact = 1,
 		/obj/item/grenade/flashbang = 1
 	)
@@ -74,7 +74,7 @@
 
 	belt_contents = list(
 		/obj/item/ammo_magazine/c45m/auto = 3,
-		/obj/item/device/flash = 1,
+		/obj/item/flash = 1,
 		/obj/item/handcuffs/ziptie = 1,
 		/obj/item/melee/baton/stunrod = 1,
 		/obj/item/grenade/flashbang = 1,
@@ -97,8 +97,8 @@
 	back = /obj/item/storage/backpack/satchel/med
 	accessory = /obj/item/clothing/accessory/holster/thigh
 	accessory_contents = list(/obj/item/gun/energy/disruptorpistol/magnum = 1)
-	r_ear = /obj/item/device/flashlight/pen
-	l_pocket = /obj/item/device/healthanalyzer
+	r_ear = /obj/item/flashlight/pen
+	l_pocket = /obj/item/healthanalyzer
 	r_pocket = /obj/item/melee/telebaton
 	l_hand = /obj/item/clothing/head/helmet/space/void/medical
 	r_hand = /obj/item/clothing/suit/space/void/medical
@@ -108,7 +108,7 @@
 		/obj/item/storage/box/survival = 1,
 		/obj/item/storage/firstaid/adv = 1,
 		/obj/item/storage/firstaid/surgery = 1,
-		/obj/item/device/advanced_healthanalyzer = 1,
+		/obj/item/advanced_healthanalyzer = 1,
 		/obj/item/clothing/accessory/storage/pouches/black = 1,
 		/obj/item/reagent_containers/glass/bottle/thetamycin = 1,
 		/obj/item/surgery/scalpel/manager = 1,
@@ -141,7 +141,7 @@
 	belt = /obj/item/storage/belt/medical/paramedic/combat
 	accessory = /obj/item/clothing/accessory/holster/thigh
 	accessory_contents = list(/obj/item/gun/energy/disruptorpistol/magnum = 1)
-	l_pocket = /obj/item/device/healthanalyzer
+	l_pocket = /obj/item/healthanalyzer
 	r_pocket = /obj/item/crowbar
 	l_hand = /obj/item/storage/firstaid/adv
 

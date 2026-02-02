@@ -16,7 +16,6 @@
 	name = "Gawgaryn Raider Camp"
 	icon_state = "bluenew"
 	requires_power = FALSE
-	dynamic_lighting = TRUE
 	no_light_control = FALSE
 	area_flags = AREA_FLAG_RAD_SHIELDED|AREA_FLAG_INDESTRUCTIBLE_TURFS
 	area_blurb = "The smell of blood, cooking meat, and fuel lingers in the air here."

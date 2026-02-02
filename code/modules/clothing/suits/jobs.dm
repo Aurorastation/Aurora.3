@@ -104,11 +104,11 @@
 	item_state = "nt_invest_coat"
 	allowed = list(
 		/obj/item/tank/emergency_oxygen,
-		/obj/item/device/flashlight,
+		/obj/item/flashlight,
 		/obj/item/gun/energy,
 		/obj/item/gun/projectile,
 		/obj/item/melee/baton,
-		/obj/item/device/taperecorder,
+		/obj/item/taperecorder,
 		/obj/item/clothing/accessory/badge/investigator
 	)
 
@@ -157,7 +157,7 @@
 	item_state = "detective"
 	blood_overlay_type = "coat"
 	body_parts_covered = UPPER_TORSO|ARMS
-	allowed = list(/obj/item/tank/emergency_oxygen,/obj/item/device/flashlight,/obj/item/gun/energy,/obj/item/gun/projectile,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/handcuffs,/obj/item/storage/box/fancy/cigarettes,/obj/item/flame/lighter,/obj/item/device/taperecorder,/obj/item/clothing/accessory/badge/investigator)
+	allowed = list(/obj/item/tank/emergency_oxygen,/obj/item/flashlight,/obj/item/gun/energy,/obj/item/gun/projectile,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/handcuffs,/obj/item/storage/box/fancy/cigarettes,/obj/item/flame/lighter,/obj/item/taperecorder,/obj/item/clothing/accessory/badge/investigator)
 
 /obj/item/clothing/suit/storage/toggle/trench/det_trench/black
 	name = "black trenchcoat"
@@ -248,7 +248,7 @@
 	item_state = "nt_emt_jacket"
 	blood_overlay_type = "armor"
 	allowed = list(/obj/item/stack/medical, /obj/item/reagent_containers/dropper, /obj/item/reagent_containers/hypospray, /obj/item/reagent_containers/syringe, \
-	/obj/item/device/healthanalyzer, /obj/item/device/flashlight, /obj/item/device/radio, /obj/item/tank/emergency_oxygen, /obj/item/device/breath_analyzer, /obj/item/reagent_containers/blood, /obj/item/clothing/head/hardhat/paramedic)
+	/obj/item/healthanalyzer, /obj/item/flashlight, /obj/item/radio, /obj/item/tank/emergency_oxygen, /obj/item/breath_analyzer, /obj/item/reagent_containers/blood, /obj/item/clothing/head/hardhat/paramedic)
 	body_parts_covered = UPPER_TORSO|ARMS
 
 /obj/item/clothing/suit/storage/toggle/para_jacket/zeng
@@ -272,7 +272,7 @@
 	item_state = "paramed_armor"
 	blood_overlay_type = "armor"
 	allowed = list(/obj/item/stack/medical, /obj/item/reagent_containers/dropper, /obj/item/reagent_containers/hypospray, /obj/item/reagent_containers/syringe, \
-	/obj/item/device/healthanalyzer, /obj/item/device/flashlight, /obj/item/device/radio, /obj/item/tank/emergency_oxygen, /obj/item/device/breath_analyzer, /obj/item/reagent_containers/blood, /obj/item/clothing/head/hardhat/paramedic)
+	/obj/item/healthanalyzer, /obj/item/flashlight, /obj/item/radio, /obj/item/tank/emergency_oxygen, /obj/item/breath_analyzer, /obj/item/reagent_containers/blood, /obj/item/clothing/head/hardhat/paramedic)
 	body_parts_covered = UPPER_TORSO
 
 /obj/item/clothing/suit/storage/surgical_gown
@@ -284,9 +284,9 @@
 	item_state = "generic_surgown"
 	blood_overlay_type = "suit"
 	allowed = list(
-		/obj/item/device/analyzer,/obj/item/stack/medical,/obj/item/dnainjector,/obj/item/reagent_containers/dropper,/obj/item/reagent_containers/syringe,
-		/obj/item/reagent_containers/hypospray,/obj/item/device/healthanalyzer,/obj/item/device/flashlight/pen,/obj/item/reagent_containers/glass/bottle,/obj/item/reagent_containers/glass/beaker,
-		/obj/item/reagent_containers/pill,/obj/item/storage/pill_bottle,/obj/item/paper, /obj/item/device/breath_analyzer
+		/obj/item/analyzer,/obj/item/stack/medical,/obj/item/dnainjector,/obj/item/reagent_containers/dropper,/obj/item/reagent_containers/syringe,
+		/obj/item/reagent_containers/hypospray,/obj/item/healthanalyzer,/obj/item/flashlight/pen,/obj/item/reagent_containers/glass/bottle,/obj/item/reagent_containers/glass/beaker,
+		/obj/item/reagent_containers/pill,/obj/item/storage/pill_bottle,/obj/item/paper, /obj/item/breath_analyzer
 	)
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
 	armor = list(

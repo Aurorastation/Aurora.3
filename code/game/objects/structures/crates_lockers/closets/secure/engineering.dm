@@ -15,22 +15,23 @@
 	new /obj/item/storage/backpack/duffel/eng(src)
 	new /obj/item/blueprints(src)
 	new /obj/item/clothing/head/welding(src)
-	new /obj/item/device/megaphone/engi(src)
+	new /obj/item/megaphone/engi(src)
 	new /obj/item/storage/toolbox/mechanical(src)
-	new /obj/item/device/multitool(src)
-	new /obj/item/device/flash(src)
+	new /obj/item/multitool(src)
+	new /obj/item/flash(src)
 	new /obj/item/taperoll/engineering(src)
 	new /obj/item/rfd/piping(src)
 	new /obj/item/gun/energy/disruptorpistol/miniature(src)
 	new /obj/item/clothing/accessory/holster/waist(src)
-	new /obj/item/device/gps/engineering(src)
+	new /obj/item/gps/engineering(src)
 	new /obj/item/pipewrench(src)
 	new /obj/item/grenade/chem_grenade/large/phoroncleaner(src)
 	new /obj/item/crowbar/rescue_axe/red(src)
-	new /obj/item/device/radio/eng/off(src)
+	new /obj/item/radio/eng/off(src)
 	new /obj/item/grenade/chem_grenade/antifuel(src)
 	new /obj/item/storage/lockbox/shuttle_blueprints(src)
 	new /obj/item/blueprints/outpost(src)
+	new /obj/item/base_planning_blueprints(src)
 
 // Chief Engineer - Clothing Satchel
 // This satchel is used nowhere except in conjunction with the locker above,
@@ -46,8 +47,8 @@
 		/obj/item/clothing/gloves/yellow/specialu = 1,
 		/obj/item/clothing/gloves/yellow/specialt = 1,
 		/obj/item/clothing/shoes/workboots/brown = 1,
-		/obj/item/device/radio/headset/heads/ce = 1,
-		/obj/item/device/radio/headset/heads/ce/alt = 1,
+		/obj/item/radio/headset/heads/ce = 1,
+		/obj/item/radio/headset/heads/ce/alt = 1,
 		/obj/item/clothing/suit/storage/hazardvest/ce = 1,
 		/obj/item/clothing/mask/gas/alt = 1,
 		/obj/item/clothing/mask/gas/half = 1,
@@ -67,25 +68,25 @@
 	new /obj/item/clothing/accessory/storage/brown_vest(src)
 	new /obj/item/clothing/accessory/storage/pouches/brown(src)
 	new /obj/item/storage/toolbox/mechanical(src)
-	new /obj/item/device/radio/headset/headset_eng(src)
-	new /obj/item/device/radio/headset/headset_eng/alt(src)
+	new /obj/item/radio/headset/headset_eng(src)
+	new /obj/item/radio/headset/headset_eng/alt(src)
 	new /obj/item/clothing/mask/gas/alt(src)
 	new /obj/item/clothing/mask/gas/half(src)
 	new /obj/item/taperoll/engineering(src)
-	new /obj/item/device/radio/eng/off(src)
+	new /obj/item/radio/eng/off(src)
 	new /obj/item/storage/belt/utility(src)
 	new /obj/item/storage/belt/utility/alt(src)
-	new /obj/item/device/gps/engineering(src)
+	new /obj/item/gps/engineering(src)
 	new /obj/item/pipewrench(src)
-	new /obj/item/device/flashlight/heavy(src)
+	new /obj/item/flashlight/heavy(src)
 	new /obj/item/grenade/chem_grenade/antifuel(src)
 	new /obj/item/clothing/gloves/yellow(src)
 	new /obj/item/clothing/gloves/yellow/specialu(src)
 	new /obj/item/clothing/gloves/yellow/specialt(src)
 
 	// Painters
-	new /obj/item/device/paint_sprayer(src)
-	new /obj/item/device/pipe_painter(src)
+	new /obj/item/paint_sprayer(src)
+	new /obj/item/pipe_painter(src)
 
 // Atmospherics Technician
 /obj/structure/closet/secure_closet/atmos_personal
@@ -100,26 +101,26 @@
 	new /obj/item/clothing/accessory/storage/pouches/brown(src)
 	new /obj/item/clothing/suit/fire/atmos(src)
 	new /obj/item/extinguisher(src)
-	new /obj/item/device/radio/headset/headset_eng(src)
-	new /obj/item/device/radio/headset/headset_eng/alt(src)
+	new /obj/item/radio/headset/headset_eng(src)
+	new /obj/item/radio/headset/headset_eng/alt(src)
 	new /obj/item/clothing/mask/gas/alt(src)
 	new /obj/item/clothing/mask/gas/half(src)
 	new /obj/item/taperoll/engineering(src)
 	new /obj/item/reagent_containers/extinguisher_refill(src)
 	new /obj/item/rfd/piping(src)
-	new /obj/item/device/radio/eng/off(src)
+	new /obj/item/radio/eng/off(src)
 	new /obj/item/storage/belt/utility(src)
 	new /obj/item/storage/belt/utility/alt(src)
-	new /obj/item/device/gps/engineering(src)
+	new /obj/item/gps/engineering(src)
 	new /obj/item/pipewrench(src)
 	new /obj/item/crowbar/rescue_axe(src)
-	new /obj/item/device/flashlight/heavy(src)
+	new /obj/item/flashlight/heavy(src)
 	new /obj/item/grenade/chem_grenade/antifuel(src)
-	new /obj/item/device/debugger(src)
+	new /obj/item/debugger(src)
 
 	// Painters
-	new /obj/item/device/paint_sprayer(src)
-	new /obj/item/device/pipe_painter(src)
+	new /obj/item/paint_sprayer(src)
+	new /obj/item/pipe_painter(src)
 
 // Electrical Supplies
 /obj/structure/closet/secure_closet/engineering_electrical
@@ -143,12 +144,12 @@
 	new /obj/item/module/power_control(src)
 	new /obj/item/module/power_control(src)
 	// 3 Multitools
-	new /obj/item/device/multitool(src)
-	new /obj/item/device/multitool(src)
-	new /obj/item/device/multitool(src)
+	new /obj/item/multitool(src)
+	new /obj/item/multitool(src)
+	new /obj/item/multitool(src)
 	// 2 Debuggers
-	new /obj/item/device/debugger(src)
-	new /obj/item/device/debugger(src)
+	new /obj/item/debugger(src)
+	new /obj/item/debugger(src)
 
 // Welding Supplies
 /obj/structure/closet/secure_closet/engineering_welding

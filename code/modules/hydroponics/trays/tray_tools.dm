@@ -23,9 +23,9 @@
 	transform = tf
 
 /// Like a health analyzer, but for plants! Tells you everything you need to know.
-/obj/item/device/analyzer/plant_analyzer
+/obj/item/analyzer/plant_analyzer
 	name = "plant analyzer"
-	icon = 'icons/obj/item/device/plant_analyzer.dmi'
+	icon = 'icons/obj/item/plant_analyzer.dmi'
 	icon_state = "hydro"
 	item_state = "hydro"
 	var/form_title
@@ -33,7 +33,7 @@
 	matter = list(DEFAULT_WALL_MATERIAL = 80, MATERIAL_GLASS = 20)
 	origin_tech = list(TECH_MAGNET = 1, TECH_BIO = 1)
 
-/obj/item/device/analyzer/plant_analyzer/proc/print_report_verb()
+/obj/item/analyzer/plant_analyzer/proc/print_report_verb()
 	set name = "Print Plant Report"
 	set category = "Object.Held"
 	set src = usr
@@ -42,13 +42,13 @@
 		return
 	print_report(usr)
 
-/obj/item/device/analyzer/plant_analyzer/Topic(href, href_list)
+/obj/item/analyzer/plant_analyzer/Topic(href, href_list)
 	if(..())
 		return
 	if(href_list["print"])
 		print_report(usr)
 
-/obj/item/device/analyzer/plant_analyzer/proc/print_report(var/mob/living/user)
+/obj/item/analyzer/plant_analyzer/proc/print_report(var/mob/living/user)
 	if(!last_data)
 		to_chat(user, "There is no scan data to print.")
 		return
@@ -59,11 +59,11 @@
 	user.visible_message("\The [src] spits out a piece of paper.")
 	return
 
-/obj/item/device/analyzer/plant_analyzer/attack_self(mob/user as mob)
+/obj/item/analyzer/plant_analyzer/attack_self(mob/user as mob)
 	print_report(user)
 	return 0
 
-/obj/item/device/analyzer/plant_analyzer/afterattack(obj/target, mob/user, flag)
+/obj/item/analyzer/plant_analyzer/afterattack(obj/target, mob/user, flag)
 	if(!flag) return
 
 	var/datum/seed/grown_seed

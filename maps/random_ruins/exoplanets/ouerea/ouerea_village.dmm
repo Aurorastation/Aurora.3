@@ -323,7 +323,7 @@
 /area/ouerea_village)
 "wB" = (
 /obj/structure/table/wood,
-/obj/item/device/flashlight/lamp,
+/obj/item/flashlight/lamp,
 /turf/simulated/floor/exoplanet/wood/birch{
 	temperature = 303.15
 	},
@@ -432,8 +432,8 @@
 /area/ouerea_village)
 "Dc" = (
 /obj/structure/table/wood,
-/obj/item/device/flashlight/lantern,
-/obj/item/device/flashlight/lantern,
+/obj/item/flashlight/lantern,
+/obj/item/flashlight/lantern,
 /turf/simulated/floor/exoplanet/barren{
 	temperature = 298.15
 	},
@@ -691,7 +691,7 @@
 	},
 /area/ouerea_village)
 "SZ" = (
-/obj/item/device/radio/phone,
+/obj/item/radio/phone,
 /obj/structure/table/wood,
 /turf/simulated/floor/exoplanet/wood/birch{
 	temperature = 303.15

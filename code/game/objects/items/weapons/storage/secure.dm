@@ -39,15 +39,15 @@ ABSTRACT_TYPE(/obj/item/storage/secure)
 			var/obj/item/melee/energy/blade/blade = attacking_item
 			blade.spark_system.queue()
 			playsound(src.loc, 'sound/weapons/blade.ogg', 50, 1)
-			playsound(src.loc, /singleton/sound_category/spark_sound, 50, 1)
+			playsound(src.loc, SFX_SPARKS, 50, 1)
 			return
 
-		if (attacking_item.isscrewdriver())
+		if (attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 			if(attacking_item.use_tool(src, user, 20, volume = 50))
 				src.open =! src.open
 				to_chat(user, SPAN_NOTICE("You [src.open ? "open" : "close"] the service panel."))
 			return
-		if ((attacking_item.ismultitool()) && (src.open == 1)&& (!src.l_hacking))
+		if ((attacking_item.tool_behaviour == TOOL_MULTITOOL) && (src.open == 1)&& (!src.l_hacking))
 			to_chat(user, SPAN_NOTICE("Now attempting to reset internal memory, please hold."))
 			src.l_hacking = 1
 			if (do_after(usr, 100))
@@ -196,3 +196,37 @@ ABSTRACT_TYPE(/obj/item/storage/secure)
 	..()
 	//new /obj/item/storage/lockbox/clusterbang(src) This item is currently broken... and probably shouldnt exist to begin with (even though it's cool)
 */
+
+// -----------------------------
+//    ID-Access Secure Safe
+// -----------------------------
+
+/obj/item/storage/secure/safe/id_lock
+	name = "ID-locked safe"
+	desc = "A secure safe with an ID card scanner instead of a combination lock."
+
+/obj/item/storage/secure/safe/id_lock/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/card/id))
+		if(!allowed(user))
+			to_chat(user, SPAN_WARNING("Access denied."))
+			return
+		if(locked)
+			playsound(src, 'sound/machines/boop1.ogg', 30, 1)
+			to_chat(user, SPAN_NOTICE("\The [src] beeps and unlocks."))
+			locked = 0
+			ClearOverlays()
+			AddOverlays(icon_opened)
+		else
+			playsound(src, 'sound/machines/boop2.ogg', 30, 1)
+			to_chat(user, SPAN_NOTICE("\The [src] beeps and locks."))
+			locked = 1
+			ClearOverlays()
+			close(user)
+		return
+	return ..()
+
+/obj/item/storage/secure/safe/id_lock/attack_self(mob/user)
+	if(!locked)
+		open(user)
+	else
+		to_chat(user, SPAN_WARNING("\The [src] is locked. Swipe an authorized ID card to unlock it."))

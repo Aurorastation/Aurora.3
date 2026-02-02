@@ -16,7 +16,6 @@
 	name = "Moghes - Th'akh Shrine"
 	icon_state = "bluenew"
 	requires_power = FALSE
-	dynamic_lighting = TRUE
 	no_light_control = FALSE
 	area_flags = AREA_FLAG_RAD_SHIELDED|AREA_FLAG_INDESTRUCTIBLE_TURFS
 	area_blurb = "A small building stands at the heart of this place, engraved with symbols in honor of countless spirits. The gentle sound of a river can be heard."

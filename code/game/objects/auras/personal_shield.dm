@@ -31,7 +31,7 @@
 	..()
 
 /obj/aura/personal_shield/device
-	var/obj/item/device/personal_shield/shield
+	var/obj/item/personal_shield/shield
 
 /obj/aura/personal_shield/device/bullet_act()
 	. = ..()

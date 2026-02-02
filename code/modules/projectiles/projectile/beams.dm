@@ -13,6 +13,7 @@
 	var/frequency = 1
 	hitscan = 1
 	invisibility = 101	//beam projectiles are invisible as they are rendered by the effect engine
+	// color = COLOR_RED
 
 	muzzle_type = /obj/effect/projectile/muzzle/laser
 	tracer_type = /obj/effect/projectile/tracer/laser
@@ -150,6 +151,7 @@
 	name = "emitter beam"
 	icon_state = "emitter"
 	damage = 0 // The actual damage is computed in /code/modules/power/singularity/emitter.dm
+	color = COLOR_SPRING_GREEN
 
 	muzzle_type = /obj/effect/projectile/muzzle/emitter
 	tracer_type = /obj/effect/projectile/tracer/emitter
@@ -354,6 +356,16 @@
 	if(is_type_in_list(target, list(/mob/living/simple_animal/hostile/retaliate/cavern_dweller, /mob/living/simple_animal/hostile/carp, /mob/living/simple_animal/carp, /mob/living/simple_animal/hostile/giant_spider)))
 		var/mob/living/simple_animal/SA = target
 		SA.take_organ_damage(0, 20)
+	return TRUE
+
+/obj/projectile/beam/mousegun/xenofauna_holo
+	damage = 0
+
+/obj/projectile/beam/mousegun/xenofauna_holo/on_hit(atom/target, blocked, def_zone)
+	. = ..()
+	if(istype(target, /mob/living/simple_animal/hostile/carp/holodeck))
+		var/mob/living/simple_animal/hostile/carp/holodeck/C = target
+		C.take_organ_damage(15)
 	return TRUE
 
 /obj/projectile/beam/shotgun

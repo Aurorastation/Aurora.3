@@ -78,6 +78,7 @@
 	name = "Freebooter Ship Exterior"
 	requires_power = FALSE
 	area_flags = AREA_FLAG_NO_GRAVITY | AREA_FLAG_SHIP_EXTERIOR
+	needs_starlight = TRUE
 
 /area/shuttle/freebooter_shuttle
 	name = "Freebooter Shuttle"

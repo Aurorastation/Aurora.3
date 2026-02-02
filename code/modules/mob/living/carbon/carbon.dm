@@ -145,7 +145,7 @@
 		return 0
 
 	src.apply_damage(shock_damage, DAMAGE_BURN, def_zone, used_weapon="Electrocution")
-	playsound(loc, /singleton/sound_category/spark_sound, 50, 1, -1)
+	playsound(loc, SFX_SPARKS, 50, 1, -1)
 	if(shock_damage > 15 || tesla_shock)
 		src.visible_message(
 			SPAN_WARNING("[src] was shocked by the [source]!"), \

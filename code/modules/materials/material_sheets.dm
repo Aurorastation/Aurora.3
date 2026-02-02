@@ -95,7 +95,7 @@
 		..()
 
 /obj/item/stack/material/attackby(obj/item/attacking_item, mob/user)
-	if(iscoil(attacking_item))
+	if(attacking_item.tool_behaviour == TOOL_CABLECOIL)
 		material.build_wired_product(user, attacking_item, src)
 		return
 	else if(istype(attacking_item, /obj/item/stack/rods))

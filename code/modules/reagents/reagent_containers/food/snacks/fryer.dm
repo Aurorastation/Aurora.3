@@ -445,3 +445,15 @@
 	bitesize = 3
 	reagents_to_add = list(/singleton/reagent/nutriment = 4, /singleton/reagent/nutriment/triglyceride/oil = 1.2, /singleton/reagent/capsaicin = 2)
 	reagent_data = list(/singleton/reagent/nutriment = list("crispy potato" = 5), /singleton/reagent/capsaicin = list("paprika" = 5))
+
+/obj/item/reagent_containers/food/snacks/fried_pickles
+	name = "fried pickles"
+	gender = PLURAL
+	desc = "Add some crunching to your munching."
+	icon = 'icons/obj/item/reagent_containers/food/fryer.dmi'
+	icon_state = "fried_pickles"
+	filling_color = "#cfda70"
+	bitesize = 1
+	trash = /obj/item/trash/bowl_small
+	reagents_to_add = list(/singleton/reagent/nutriment = 1)
+	reagent_data = list(/singleton/reagent/nutriment = list("crunch" = 5))

@@ -7,6 +7,7 @@
  *		Low Supply
  *	NanoPharm Mini
  *		Low Supply
+ *	NanoPharm Mini (commissary)
  */
 
 /obj/machinery/vending/medical
@@ -25,8 +26,8 @@
 		/obj/item/reagent_containers/glass/bottle/coagzolug = 2,
 		/obj/item/reagent_containers/glass/bottle/thetamycin = 2,
 		/obj/item/reagent_containers/syringe = 12,
-		/obj/item/device/healthanalyzer = 5,
-		/obj/item/device/breath_analyzer = 2,
+		/obj/item/healthanalyzer = 5,
+		/obj/item/breath_analyzer = 2,
 		/obj/item/reagent_containers/glass/beaker = 4,
 		/obj/item/reagent_containers/dropper = 2,
 		/obj/item/stack/medical/bruise_pack = 5,
@@ -59,7 +60,7 @@
 		/obj/item/reagent_containers/glass/bottle/toxin = 1,
 		/obj/item/reagent_containers/glass/bottle/thetamycin = 1,
 		/obj/item/reagent_containers/syringe = 8,
-		/obj/item/device/healthanalyzer = 1,
+		/obj/item/healthanalyzer = 1,
 		/obj/item/stack/medical/bruise_pack = 2,
 		/obj/item/stack/medical/ointment = 1,
 		/obj/item/stack/medical/splint = 1,
@@ -87,8 +88,8 @@
 		/obj/item/storage/box/fancy/med_pouch/burn = 1,
 		/obj/item/storage/box/fancy/med_pouch/oxyloss = 1,
 		/obj/item/storage/box/fancy/med_pouch/toxin = 1,
-		/obj/item/device/healthanalyzer = 1,
-		/obj/item/device/breath_analyzer  = 1
+		/obj/item/healthanalyzer = 1,
+		/obj/item/breath_analyzer  = 1
 	)
 	contraband = list(
 		/obj/item/reagent_containers/syringe/dylovene = 4,
@@ -128,8 +129,8 @@
 		/obj/item/storage/box/fancy/med_pouch/oxyloss = 1,
 		/obj/item/storage/box/fancy/med_pouch/toxin = 1,
 		/obj/item/storage/box/fancy/med_pouch/radiation = 1,
-		/obj/item/device/healthanalyzer = 1,
-		/obj/item/device/breath_analyzer = 1
+		/obj/item/healthanalyzer = 1,
+		/obj/item/breath_analyzer = 1
 	)
 	contraband = list(
 		/obj/item/reagent_containers/pill/tox = 3
@@ -151,7 +152,7 @@
 		/obj/item/storage/box/fancy/med_pouch/radiation = 1
 	)
 
-/obj/item/device/vending_refill/meds
+/obj/item/vending_refill/meds
 	name = "meds resupply canister"
 	vend_id = "meds"
 	charges = 38
@@ -205,4 +206,26 @@
 		/obj/item/storage/pill_bottle/vitamin = 2,
 		/obj/item/storage/pill_bottle/cetahydramine  = 1,
 		/obj/item/storage/pill_bottle/rmt = 1
+	)
+
+/obj/machinery/vending/wallpharm/commissary
+	random_itemcount = TRUE
+	products = list(
+		/obj/item/storage/box/mms_inhaler = 3,
+		/obj/item/storage/box/ambrosia = 3,
+		/obj/item/storage/box/reishi = 3,
+		/obj/item/storage/box/wulumunusha = 3,
+		/obj/item/storage/pill_bottle/colorspace = 3,
+		/obj/item/storage/pill_bottle/snowflake = 3,
+		/obj/item/storage/pill_bottle/psilocybin = 3,
+		/obj/item/reagent_containers/food/condiment/wulumunusha = 3,
+		/obj/item/reagent_containers/food/condiment/ambrosia = 3,
+		/obj/item/storage/pill_bottle/antidexafen = 3,
+		/obj/item/storage/pill_bottle/vitamin = 3,
+		/obj/item/storage/pill_bottle/cetahydramine  = 3,
+		/obj/item/storage/pill_bottle/caffeine = 3,
+		/obj/item/storage/pill_bottle/nicotine  = 3,
+		/obj/item/storage/pill_bottle/rmt = 3
+	)
+	prices = list(
 	)

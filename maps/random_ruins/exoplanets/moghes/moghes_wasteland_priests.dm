@@ -15,7 +15,6 @@
 	name = "Moghes - Sk'akh Wasteland Outpost"
 	icon_state = "bluenew"
 	requires_power = FALSE
-	dynamic_lighting = TRUE
 	no_light_control = FALSE
 	area_flags = AREA_FLAG_RAD_SHIELDED|AREA_FLAG_INDESTRUCTIBLE_TURFS
 	area_blurb = "A repurposed ruin, built of stone and scrap. The smell of blood and filth fills the air, and the occasional hums and beeps of some machinery can be made out. This is a place of desperation, home to the dead and dying."

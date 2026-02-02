@@ -17,7 +17,6 @@
 	name = "People's Republic Mining Camp"
 	icon_state = "bluenew"
 	requires_power = FALSE
-	dynamic_lighting = TRUE
 	no_light_control = FALSE
 	area_flags = AREA_FLAG_RAD_SHIELDED
 	area_blurb = "The sound of heavy machinery is heard around this camp."
@@ -51,7 +50,7 @@
 	shoes = /obj/item/clothing/shoes/workboots/tajara
 	belt = /obj/item/storage/belt/mining
 	back = /obj/item/storage/backpack/industrial
-	l_pocket = /obj/item/device/radio/hailing
+	l_pocket = /obj/item/radio/hailing
 
 	l_ear = null
 

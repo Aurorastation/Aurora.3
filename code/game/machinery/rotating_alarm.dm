@@ -6,7 +6,7 @@
 	var/_offset = 30
 	var/_color = COLOR_ORANGE
 	alpha = 200
-	plane = EFFECTS_ABOVE_LIGHTING_PLANE
+	plane = ABOVE_LIGHTING_PLANE
 	layer = EYE_GLOW_LAYER
 	mouse_opacity = 0
 
@@ -113,5 +113,5 @@
 		set_light(0)
 	else
 		vis_contents += spin_effect
-		set_light(2, 0.5, alarm_light_color)
+		set_light(2, 1, alarm_light_color)
 	on = !on

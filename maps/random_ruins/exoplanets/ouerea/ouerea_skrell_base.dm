@@ -12,7 +12,6 @@
 	name = "Nralakk Research Base"
 	icon_state = "bluenew"
 	requires_power = TRUE
-	dynamic_lighting = TRUE
 	no_light_control = FALSE
 	area_flags = AREA_FLAG_RAD_SHIELDED|AREA_FLAG_INDESTRUCTIBLE_TURFS
 	area_blurb = "This encampment bears the unmistakable signs of Skrell construction, with several large Nralakk Federation flags hanging by its entryway. The walls have begun to rust, and the banners seem to be quite tattered."

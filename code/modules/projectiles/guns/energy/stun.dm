@@ -8,15 +8,15 @@
 	max_shots = 5
 	accuracy = 1 // More of a buff to secborgs and mounted taser users.
 	projectile_type = /obj/projectile/energy/electrode
-	can_turret = 1
+	can_turret = TRUE
 	turret_sprite_set = "carbine"
-	turret_is_lethal = 0
+	turret_is_lethal = FALSE
 
 /obj/item/gun/energy/taser/mounted
 	name = "mounted taser gun"
-	self_recharge = 1
-	use_external_power = 1
-	can_turret = 0
+	self_recharge = TRUE
+	use_external_power = TRUE
+	can_turret = FALSE
 
 /obj/item/gun/energy/stunrevolver
 	name = "stun revolver"
@@ -48,9 +48,9 @@
 	fire_sound = 'sound/weapons/Genhit.ogg'
 	projectile_type = /obj/projectile/energy/bolt
 	max_shots = 5
-	self_recharge = 1
+	self_recharge = TRUE
 	charge_meter = 0
-	can_turret = 1
+	can_turret = TRUE
 	turret_sprite_set = "crossbow"
 	charge_failure_message = "'s charging socket was removed to make room for a minaturized reactor."
 

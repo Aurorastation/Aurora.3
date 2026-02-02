@@ -66,13 +66,13 @@
 		return
 	switch(href_list["info"])
 		if("manipulators")
-			to_chat(usr, SPAN_NOTICE("Manipulators, the arms of the exosuit, can be created at a mechatronic fabricator."))
+			to_chat(usr, SPAN_NOTICE("Manipulators, the arms of the exosuit, can be created at a synthetic fabricator."))
 		if("propulsion")
-			to_chat(usr, SPAN_NOTICE("Propulsion, the legs of the exosuit, can be created at a mechatronic fabricator."))
+			to_chat(usr, SPAN_NOTICE("Propulsion, the legs of the exosuit, can be created at a synthetic fabricator."))
 		if("sensors")
-			to_chat(usr, SPAN_NOTICE("Sensors, the head of the exosuit, can be created at a mechatronic fabricator."))
+			to_chat(usr, SPAN_NOTICE("Sensors, the head of the exosuit, can be created at a synthetic fabricator."))
 		if("chassis")
-			to_chat(usr, SPAN_NOTICE("A chassis, the body of the exosuit, can be created at a mechatronic fabricator."))
+			to_chat(usr, SPAN_NOTICE("A chassis, the body of the exosuit, can be created at a synthetic fabricator."))
 		if("wire")
 			if(!is_wired)
 				to_chat(usr, SPAN_NOTICE("The frame requires wiring between its components. This can be added with cable coil."))
@@ -111,7 +111,7 @@
 /obj/structure/heavy_vehicle_frame/attackby(obj/item/attacking_item, mob/user)
 
 	// Removing components.
-	if(attacking_item.iscrowbar())
+	if(attacking_item.tool_behaviour == TOOL_CROWBAR)
 		if(is_reinforced == FRAME_REINFORCED)
 			user.visible_message(SPAN_NOTICE("\The [user] crowbars the reinforcement off \the [src]."))
 			new /obj/item/stack/material/steel(loc, 15)
@@ -138,7 +138,7 @@
 		return
 
 	// Final construction step.
-	else if(attacking_item.isscrewdriver())
+	else if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 
 		// Check for basic components.
 		if(!(arms && legs && head && body))
@@ -180,7 +180,7 @@
 		return
 
 	// Installing wiring.
-	else if(attacking_item.iscoil())
+	else if(attacking_item.tool_behaviour == TOOL_CABLECOIL)
 
 		if(is_wired)
 			to_chat(user, SPAN_WARNING("\The [src] has already been wired."))
@@ -204,7 +204,7 @@
 		playsound(user.loc, 'sound/items/Deconstruct.ogg', 50, 1)
 		is_wired = FRAME_WIRED
 	// Securing wiring.
-	else if(attacking_item.iswirecutter())
+	else if(attacking_item.tool_behaviour == TOOL_WIRECUTTER)
 		if(!is_wired)
 			to_chat(user, "There is no wiring in \the [src] to neaten.")
 			return
@@ -229,7 +229,7 @@
 		else
 			return ..()
 	// Securing metal.
-	else if(attacking_item.iswrench())
+	else if(attacking_item.tool_behaviour == TOOL_WRENCH)
 		if(!is_reinforced)
 			to_chat(user, SPAN_WARNING("There is no metal to secure inside \the [src]."))
 			return
@@ -240,7 +240,7 @@
 		attacking_item.play_tool_sound(get_turf(src), 100)
 		is_reinforced = (is_reinforced == FRAME_REINFORCED_SECURE) ? FRAME_REINFORCED : FRAME_REINFORCED_SECURE
 	// Welding metal.
-	else if(attacking_item.iswelder())
+	else if(attacking_item.tool_behaviour == TOOL_WELDER)
 		var/obj/item/weldingtool/WT = attacking_item
 		if(!is_reinforced)
 			to_chat(user, SPAN_WARNING("There is no metal to secure inside \the [src]."))

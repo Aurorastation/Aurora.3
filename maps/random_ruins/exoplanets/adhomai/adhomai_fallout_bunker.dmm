@@ -234,7 +234,7 @@
 /area/adhomai_fallout_bunker)
 "jz" = (
 /obj/structure/table/standard,
-/obj/item/device/radio,
+/obj/item/radio,
 /obj/machinery/light{
 	dir = 8
 	},
@@ -318,12 +318,12 @@
 /area/adhomai_fallout_bunker)
 "mV" = (
 /obj/structure/table/standard,
-/obj/item/device/versebook/pra,
-/obj/item/device/versebook/pra,
-/obj/item/device/versebook/pra,
-/obj/item/device/versebook/pra,
-/obj/item/device/versebook/pra,
-/obj/item/device/versebook/pra,
+/obj/item/versebook/pra,
+/obj/item/versebook/pra,
+/obj/item/versebook/pra,
+/obj/item/versebook/pra,
+/obj/item/versebook/pra,
+/obj/item/versebook/pra,
 /obj/effect/floor_decal/corner/red/full{
 	dir = 8
 	},
@@ -390,7 +390,7 @@
 /area/adhomai_fallout_bunker)
 "nQ" = (
 /obj/structure/table/standard,
-/obj/item/device/flashlight/lamp,
+/obj/item/flashlight/lamp,
 /obj/effect/floor_decal/corner/red/full{
 	dir = 1
 	},
@@ -474,7 +474,7 @@
 /area/adhomai_fallout_bunker)
 "pT" = (
 /obj/structure/table/standard,
-/obj/item/device/radio,
+/obj/item/radio,
 /obj/machinery/light{
 	dir = 4;
 	status = 2
@@ -691,11 +691,11 @@
 /area/adhomai_fallout_bunker)
 "wn" = (
 /obj/structure/closet/crate,
-/obj/item/device/radio,
-/obj/item/device/radio,
-/obj/item/device/radio,
-/obj/item/device/radio,
-/obj/item/device/radio,
+/obj/item/radio,
+/obj/item/radio,
+/obj/item/radio,
+/obj/item/radio,
+/obj/item/radio,
 /obj/effect/floor_decal/corner/red{
 	dir = 10
 	},
@@ -883,7 +883,7 @@
 /area/adhomai_fallout_bunker)
 "CW" = (
 /obj/structure/table/standard,
-/obj/item/device/flashlight/lamp,
+/obj/item/flashlight/lamp,
 /obj/effect/floor_decal/corner/red/full{
 	dir = 8
 	},
@@ -1070,7 +1070,7 @@
 /area/adhomai_fallout_bunker)
 "KG" = (
 /obj/structure/table/standard,
-/obj/item/device/binoculars,
+/obj/item/binoculars,
 /obj/effect/floor_decal/corner/red/full,
 /turf/simulated/floor/tiled{
 	temperature = 278.15
@@ -1199,10 +1199,10 @@
 /obj/item/shovel,
 /obj/item/shovel,
 /obj/item/shovel,
-/obj/item/device/flashlight/lantern,
-/obj/item/device/flashlight/lantern,
-/obj/item/device/flashlight/lantern,
-/obj/item/device/flashlight/lantern,
+/obj/item/flashlight/lantern,
+/obj/item/flashlight/lantern,
+/obj/item/flashlight/lantern,
+/obj/item/flashlight/lantern,
 /obj/item/pickaxe/drill,
 /obj/item/pickaxe/drill,
 /obj/item/pickaxe/drill,
@@ -1250,7 +1250,7 @@
 /area/adhomai_fallout_bunker)
 "Rw" = (
 /obj/structure/table/standard,
-/obj/item/device/binoculars,
+/obj/item/binoculars,
 /obj/effect/floor_decal/corner/red/full{
 	dir = 4
 	},

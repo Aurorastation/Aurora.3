@@ -70,7 +70,7 @@
 	var/list/obj/item/bluespace_crystal/crystals = list()
 
 	///A GPS that this console contains
-	var/obj/item/device/gps/inserted_gps
+	var/obj/item/gps/inserted_gps
 
 	///A list of Zlevels that belong to the visitable (generally a ship) we are in
 	var/list/our_zlevels = list()
@@ -161,7 +161,7 @@
 								SPAN_NOTICE("You insert [attacking_item] into \the [src]'s crystal slot."))
 		updateDialog()
 
-	else if(istype(attacking_item, /obj/item/device/gps))
+	else if(istype(attacking_item, /obj/item/gps))
 
 		if(!inserted_gps)
 			inserted_gps = attacking_item
@@ -170,9 +170,9 @@
 			user.visible_message("[user] inserts [attacking_item] into \the [src]'s GPS device slot.",
 									SPAN_NOTICE("You insert [attacking_item] into \the [src]'s GPS device slot."))
 
-	else if(attacking_item.ismultitool())
+	else if(attacking_item.tool_behaviour == TOOL_MULTITOOL)
 
-		var/obj/item/device/multitool/M = attacking_item
+		var/obj/item/multitool/M = attacking_item
 		if(M.buffer && istype(M.buffer, /obj/machinery/telepad))
 			telepad = M.buffer
 			M.buffer = null

@@ -189,12 +189,12 @@
 	dir = 1
 	},
 /obj/random/dirt_75,
-/obj/item/device/oxycandle,
-/obj/item/device/oxycandle,
-/obj/item/device/oxycandle,
-/obj/item/device/oxycandle,
-/obj/item/device/oxycandle,
-/obj/item/device/oxycandle,
+/obj/item/oxycandle,
+/obj/item/oxycandle,
+/obj/item/oxycandle,
+/obj/item/oxycandle,
+/obj/item/oxycandle,
+/obj/item/oxycandle,
 /turf/simulated/floor/tiled/dark,
 /area/hegemony_waypoint/hallway)
 "dm" = (
@@ -429,7 +429,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/aux,
 /obj/machinery/atmospherics/pipe/simple/hidden,
-/obj/item/device/assembly/mousetrap/armed,
+/obj/item/assembly/mousetrap/armed,
 /turf/simulated/floor/tiled/dark,
 /area/hegemony_waypoint/hallway)
 "it" = (
@@ -1005,7 +1005,7 @@
 	dir = 6
 	},
 /obj/random/dirt_75,
-/obj/item/device/assembly/mousetrap/armed,
+/obj/item/assembly/mousetrap/armed,
 /turf/simulated/floor/tiled/dark,
 /area/hegemony_waypoint/hallway)
 "up" = (
@@ -1657,8 +1657,8 @@
 /area/hegemony_waypoint/engineering)
 "Gl" = (
 /obj/structure/table/steel,
-/obj/item/device/radio/intercom/hailing/east,
-/obj/item/device/radio/hailing{
+/obj/item/radio/intercom/hailing/east,
+/obj/item/radio/hailing{
 	pixel_y = 4;
 	pixel_x = -9
 	},

@@ -1,6 +1,13 @@
 import { BooleanLike } from '../../common/react';
 import { useBackend } from '../backend';
-import { Box, Button, Section, Table, ProgressBar, Slider } from '../components';
+import {
+  Box,
+  Button,
+  Section,
+  Table,
+  ProgressBar,
+  Slider,
+} from '../components';
 import { NtosWindow } from '../layouts';
 import { round, clamp } from 'common/math';
 import { Color } from 'common/color';
@@ -79,7 +86,8 @@ const SensorSection = function (act, data: SensorsData) {
           }
           onClick={() => act('viewing')}
         />
-      }>
+      }
+    >
       <Table>
         <Table.Row>
           <Table.Cell>State:</Table.Cell>
@@ -108,7 +116,8 @@ const SensorSection = function (act, data: SensorsData) {
                 default:
                   return null;
               }
-            })()}>
+            })()}
+          >
             {data.status}
           </Table.Cell>
         </Table.Row>
@@ -124,7 +133,8 @@ const SensorSection = function (act, data: SensorsData) {
               maxValue={range_choice_max}
               onChange={(e, value) =>
                 act('range_choice', { range_choice: value })
-              }>
+              }
+            >
               Desired Range: {data.desired_range} / {range_choice_max}
             </Slider>
             <ProgressBar
@@ -132,11 +142,12 @@ const SensorSection = function (act, data: SensorsData) {
               backgroundColor={Color.lerp(
                 new Color(62, 97, 137, 0),
                 new Color(189, 32, 32),
-                data.range / range_choice_max
+                data.range / range_choice_max,
               )}
               minValue={1}
               maxValue={range_choice_max}
-              value={data.range}>
+              value={data.range}
+            >
               Current Range: {data.range} / {range_choice_max}
             </ProgressBar>
           </Table.Cell>
@@ -166,7 +177,7 @@ const SensorSection = function (act, data: SensorsData) {
               backgroundColor={Color.lerp(
                 Color.fromHex('#20b142'),
                 Color.fromHex('#db2828'),
-                data.health / data.max_health
+                data.health / data.max_health,
               )}
               color={(() => {
                 if (data.health > (data.max_health / 3) * 2) {
@@ -179,7 +190,8 @@ const SensorSection = function (act, data: SensorsData) {
               })()}
               minValue={0}
               maxValue={data.max_health}
-              value={data.health}>
+              value={data.health}
+            >
               {data.health} / {data.max_health}
             </ProgressBar>
           </Table.Cell>
@@ -192,7 +204,7 @@ const SensorSection = function (act, data: SensorsData) {
               backgroundColor={Color.lerp(
                 Color.fromHex('#20b142'),
                 Color.fromHex('#db2828'),
-                data.heat / data.critical_heat
+                data.heat / data.critical_heat,
               )}
               color={(() => {
                 if (data.heat > (data.critical_heat / 3) * 2) {
@@ -205,7 +217,8 @@ const SensorSection = function (act, data: SensorsData) {
               })()}
               minValue={0}
               maxValue={data.critical_heat}
-              value={data.heat}>
+              value={data.heat}
+            >
               {data.heat} / {data.critical_heat}
             </ProgressBar>
           </Table.Cell>
@@ -362,7 +375,8 @@ const CompassSection = function (context, act, data: SensorsData) {
                     text-anchor="middle"
                     fill="white"
                     font-size="5"
-                    transform={'rotate(' + contact.bearing + ' 50 50)'}>
+                    transform={'rotate(' + contact.bearing + ' 50 50)'}
+                  >
                     {contact.bearing}
                   </text>
                 </>
@@ -375,7 +389,8 @@ const CompassSection = function (context, act, data: SensorsData) {
                 text-anchor="middle"
                 fill="white"
                 font-size="8"
-                transform={'rotate(' + b + ' 50 50)'}>
+                transform={'rotate(' + b + ' 50 50)'}
+              >
                 {b}
               </text>
             ))}

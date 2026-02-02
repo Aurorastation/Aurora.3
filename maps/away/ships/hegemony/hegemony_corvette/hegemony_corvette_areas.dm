@@ -2,7 +2,6 @@
 	name = "Hegemony Corvette"
 	icon_state = "yellow"
 	requires_power = 1
-	dynamic_lighting = 1
 	no_light_control = 1
 	area_flags = AREA_FLAG_RAD_SHIELDED
 

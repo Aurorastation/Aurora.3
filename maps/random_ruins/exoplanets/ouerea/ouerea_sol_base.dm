@@ -12,7 +12,6 @@
 	name = "Solarian Shuttle Port"
 	icon_state = "bluenew"
 	requires_power = TRUE
-	dynamic_lighting = TRUE
 	no_light_control = FALSE
 	area_flags = AREA_FLAG_RAD_SHIELDED|AREA_FLAG_INDESTRUCTIBLE_TURFS
 	area_blurb = "This area seems to be a shuttle port - though one long-since abandoned. Flags of the Sol Alliance hang tattered, occasionally stirred in the breeze."

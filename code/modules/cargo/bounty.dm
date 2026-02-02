@@ -16,7 +16,7 @@
 
 /datum/bounty/New()
 	if(reward_low > 0 && reward_high > reward_low)
-		reward = round(rand(reward_low, reward_high), 100)
+		reward = round(rand(reward_low, reward_high), 10)
 	description = replacetext(description, "%DOCKNAME", SSmapping.current_map.dock_name)
 	description = replacetext(description, "%DOCKSHORT", SSmapping.current_map.dock_short)
 	description = replacetext(description, "%BOSSNAME", SSmapping.current_map.boss_name)

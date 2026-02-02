@@ -23,6 +23,8 @@ export const NtosWindow = (props, context) => {
     PC_stationtime,
     PC_programheaders = [],
     PC_showexitprogram,
+    PC_hascable,
+    PC_cableout,
     PC_haslight,
     PC_lighton,
   } = data;
@@ -35,7 +37,8 @@ export const NtosWindow = (props, context) => {
       title={title}
       width={width}
       height={height}
-      theme={theme ? theme : PC_device_theme}>
+      theme={theme ? theme : PC_device_theme}
+    >
       <div className="NtosWindow">
         <div className="NtosWindow__header NtosHeader">
           <div className="NtosHeader__left">
@@ -52,7 +55,7 @@ export const NtosWindow = (props, context) => {
               {PC_stationtime}
             </Box>
             <Box inline italic mr={2} opacity={0.33}>
-              {(PC_device_theme === 'syndicate' && 'Syndix') || 'NtOS'}
+              {(PC_device_theme === 'syndicate' && 'Syndix') || 'NTOS'}
             </Box>
           </div>
           <div className="NtosHeader__right">
@@ -88,6 +91,19 @@ export const NtosWindow = (props, context) => {
                   src={resolveAsset(PC_apclinkicon)}
                 />
               </Box>
+            )}
+            {!!PC_hascable && (
+              <Button
+                width="26px"
+                lineHeight="22px"
+                textAlign="center"
+                color="transparent"
+                icon="network-wired"
+                selected={PC_cableout}
+                tooltip="Take cable"
+                tooltipPosition="bottom"
+                onClick={() => act('PC_takecable')}
+              />
             )}
             {!!PC_haslight && (
               <Button

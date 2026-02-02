@@ -135,7 +135,7 @@
 "fU" = (
 /obj/structure/table/rack/folding_table,
 /obj/item/weldingtool/hugetank,
-/obj/item/device/robotanalyzer{
+/obj/item/robotanalyzer{
 	pixel_y = 13
 	},
 /turf/simulated/floor/carpet/rubber,
@@ -921,8 +921,8 @@
 /area/template_noop)
 "Vn" = (
 /obj/structure/closet/crate/drop,
-/obj/item/device/paint_sprayer,
-/obj/item/device/mmi/digital/posibrain,
+/obj/item/paint_sprayer,
+/obj/item/mmi/digital/posibrain,
 /obj/item/stack/nanopaste,
 /obj/item/stack/nanopaste,
 /obj/item/stack/nanopaste,

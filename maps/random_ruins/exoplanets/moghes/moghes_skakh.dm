@@ -16,7 +16,6 @@
 	name = "Moghes - Sk'akh Chapel"
 	icon_state = "bluenew"
 	requires_power = FALSE
-	dynamic_lighting = TRUE
 	no_light_control = FALSE
 	area_flags = AREA_FLAG_RAD_SHIELDED|AREA_FLAG_INDESTRUCTIBLE_TURFS
 	area_blurb = "The light of Uueoa-Esa shines dimly through stained-glass windows. The walls are decorated with iconography of a three-headed Unathi, and engraved with Sinta'Unathi scripture."

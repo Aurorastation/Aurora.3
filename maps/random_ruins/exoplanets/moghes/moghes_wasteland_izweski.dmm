@@ -21,11 +21,11 @@
 	dir = 6
 	},
 /obj/structure/table/rack,
-/obj/item/device/radio,
-/obj/item/device/radio,
-/obj/item/device/radio,
-/obj/item/device/radio,
-/obj/item/device/radio,
+/obj/item/radio,
+/obj/item/radio,
+/obj/item/radio,
+/obj/item/radio,
+/obj/item/radio,
 /obj/item/storage/toolbox/mechanical,
 /turf/simulated/floor/exoplanet/concrete/square{
 	temperature = 303.15
@@ -147,10 +147,10 @@
 	name = "footlocker"
 	},
 /obj/machinery/light/colored/decayed,
-/obj/item/device/geiger,
+/obj/item/geiger,
 /obj/item/clothing/shoes/sandals/caligae,
 /obj/item/clothing/head/unathi/deco/dark/blue,
-/obj/item/device/versebook/thakh,
+/obj/item/versebook/thakh,
 /obj/item/clothing/accessory/poncho/red,
 /obj/item/clothing/accessory/poncho/red,
 /obj/item/clothing/accessory/poncho,
@@ -208,7 +208,7 @@
 	name = "footlocker"
 	},
 /obj/machinery/light/colored/decayed,
-/obj/item/device/geiger,
+/obj/item/geiger,
 /obj/item/clothing/shoes/sandals/caligae,
 /obj/item/clothing/suit/unathi/robe/beige,
 /obj/item/clothing/under/unathi/mogazali/blue,
@@ -425,7 +425,7 @@
 	pixel_y = 4;
 	pixel_x = -5
 	},
-/obj/item/device/healthanalyzer,
+/obj/item/healthanalyzer,
 /obj/item/storage/belt/medical,
 /obj/item/bodybag/cryobag,
 /turf/simulated/floor/exoplanet/tiled/white{
@@ -450,9 +450,9 @@
 /obj/machinery/light/colored/decayed{
 	dir = 1
 	},
-/obj/item/device/geiger,
+/obj/item/geiger,
 /obj/item/clothing/accessory/poncho/red,
-/obj/item/device/versebook/skakh,
+/obj/item/versebook/skakh,
 /obj/item/clothing/shoes/sandals/caligae,
 /obj/item/clothing/suit/unathi/robe/robe_coat,
 /turf/simulated/floor/exoplanet/concrete/square{
@@ -994,7 +994,7 @@
 /area/moghes/hegemony_wasteland)
 "GG" = (
 /obj/structure/table/wood,
-/obj/item/device/flashlight/lamp/green,
+/obj/item/flashlight/lamp/green,
 /turf/simulated/floor/exoplanet/carpet/red,
 /area/moghes/hegemony_wasteland)
 "Hb" = (
@@ -1014,7 +1014,7 @@
 /obj/machinery/light/colored/decayed{
 	dir = 1
 	},
-/obj/item/device/geiger,
+/obj/item/geiger,
 /obj/item/clothing/accessory/poncho/red,
 /obj/item/clothing/shoes/sandals/caligae,
 /obj/item/clothing/suit/unathi/robe/robe_coat/red,
@@ -1062,9 +1062,9 @@
 /obj/structure/closet/crate{
 	name = "footlocker"
 	},
-/obj/item/device/geiger,
+/obj/item/geiger,
 /obj/item/toy/plushie/xana,
-/obj/item/device/versebook/skakh,
+/obj/item/versebook/skakh,
 /obj/item/clothing/shoes/sandals/caligae,
 /obj/item/clothing/under/unathi/mogazali/green,
 /obj/item/clothing/accessory/poncho,
@@ -1364,10 +1364,10 @@
 /obj/structure/closet/crate{
 	name = "footlocker"
 	},
-/obj/item/device/geiger,
+/obj/item/geiger,
 /obj/item/clothing/shoes/sandals/caligae,
 /obj/item/clothing/head/unathi/dark,
-/obj/item/device/versebook/thakh,
+/obj/item/versebook/thakh,
 /turf/simulated/floor/exoplanet/concrete/square{
 	temperature = 303.15
 	},

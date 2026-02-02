@@ -21,11 +21,11 @@
 	var/ticket = ""
 	var/destinationact = "Service"
 	var/ticket_number = 1
-	req_one_access = list(ACCESS_BAR, ACCESS_KITCHEN) // Access to change the menu
+	req_one_access = list(ACCESS_BAR, ACCESS_GALLEY) // Access to change the menu
 
 /obj/machinery/orderterminal/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()
-	. += "To edit the menu, select 'Toggle Lock' while wearing an ID with kitchen access."
+	. += "To edit the menu, select 'Toggle Lock' while wearing an ID with galley access."
 	. += "All credits from the machine will automatically go to the civilian account."
 
 /obj/machinery/orderterminal/Initialize()
@@ -43,7 +43,7 @@
 		set_light(FALSE)
 		return
 
-	var/mutable_appearance/screen_overlay = mutable_appearance(icon, "kitchenterminal-active", plane = EFFECTS_ABOVE_LIGHTING_PLANE)
+	var/mutable_appearance/screen_overlay = mutable_appearance(icon, "kitchenterminal-active", plane = ABOVE_LIGHTING_PLANE)
 	AddOverlays(screen_overlay)
 	set_light(1.4, 1, COLOR_CYAN)
 

@@ -78,7 +78,7 @@
 	description = "A trumpet for those triumphant tooting sessions."
 	price = 300
 	items = list(
-		/obj/item/device/synthesized_instrument/trumpet
+		/obj/item/synthesized_instrument/trumpet
 	)
 	access = 0
 	container_type = "crate"
@@ -92,7 +92,7 @@
 	description = "An acoustic guitar for those balcony serenades."
 	price = 190
 	items = list(
-		/obj/item/device/synthesized_instrument/guitar
+		/obj/item/synthesized_instrument/guitar
 	)
 	access = 0
 	container_type = "crate"
@@ -106,7 +106,7 @@
 	description = "A wooden musical instrument with four strings and a bow."
 	price = 250
 	items = list(
-		/obj/item/device/synthesized_instrument/violin
+		/obj/item/synthesized_instrument/violin
 	)
 	access = 0
 	container_type = "crate"
@@ -120,7 +120,7 @@
 	description = "An electric polyguitar. 100% digital audio."
 	price = 250
 	items = list(
-		/obj/item/device/synthesized_instrument/guitar/multi
+		/obj/item/synthesized_instrument/guitar/multi
 	)
 	access = 0
 	container_type = "crate"
@@ -363,6 +363,20 @@
 	price = 120 //It's a niche novelty thing made in relatively small export quantities
 	items = list(
 		/obj/item/storage/box/lyodii
+	)
+	access = 0
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/game_helm
+	category = "recreation"
+	name = "InUs Game-Helm"
+	supplier = "orion"
+	description = "A popular portable gaming console with thousands of games available for play."
+	price = 150
+	items = list(
+		/obj/item/gamehelm
 	)
 	access = 0
 	container_type = "crate"

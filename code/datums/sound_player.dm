@@ -1,15 +1,14 @@
 GLOBAL_DATUM_INIT(sound_player, /singleton/sound_player, new)
 
-/*
-	A sound player/manager for looping 3D sound effects.
-	Due to how the BYOND sound engine works a sound datum must be played on a specific channel for updates to work properly.
-	If a channel is not assigned it will just result in a new sound effect playing, even if re-using the same datum instance.
-	We also use the channel to play a null-sound on Stop(), just in case BYOND clients don't like having a large nuber, albeit stopped, looping sounds.
-	As such there is a maximum limit of 1024 sound sources, with further limitations due to some channels already being potentially in use.
-	However, multiple sources may share the same sound_id and there is a best-effort attempt to play the closest source where possible.
-	The line above is currently a lie. Will probably just have to enforce moderately short sound ranges.
-*/
-
+/**
+ * A sound player/manager for looping 3D sound effects.
+ * Due to how the BYOND sound engine works a sound datum must be played on a specific channel for updates to work properly.
+ * If a channel is not assigned it will just result in a new sound effect playing, even if re-using the same datum instance.
+ * We also use the channel to play a null-sound on Stop(), just in case BYOND clients don't like having a large nuber, albeit stopped, looping sounds.
+ * As such there is a maximum limit of 1024 sound sources, with further limitations due to some channels already being potentially in use.
+ * However, multiple sources may share the same sound_id and there is a best-effort attempt to play the closest source where possible.
+ * The line above is currently a lie. Will probably just have to enforce moderately short sound ranges.
+ */
 /singleton/sound_player
 	var/list/taken_channels // taken_channels and source_id_uses can be merged into one but would then require a meta-object to store the different values I desire.
 	var/list/sound_tokens_by_sound_id
@@ -20,7 +19,7 @@ GLOBAL_DATUM_INIT(sound_player, /singleton/sound_player, new)
 	sound_tokens_by_sound_id = list()
 
 
-//This can be called if either we're doing whole sound setup ourselves or it will be as part of from-file sound setup
+/// This can be called if either we're doing whole sound setup ourselves or it will be as part of from-file sound setup
 /singleton/sound_player/proc/PlaySoundDatum(atom/source, sound_id, sound/sound, range, prefer_mute, sound_type = ASFX_AMBIENCE)
 	var/token_type = isnum(sound.environment) ? /datum/sound_token : /datum/sound_token/static_environment
 	return new token_type(source, sound_id, sound, range, prefer_mute, sound_type)
@@ -80,20 +79,29 @@ GLOBAL_DATUM_INIT(sound_player, /singleton/sound_player, new)
 
 #define SOUND_STOPPED FLAG(15)
 
-/*
-	Outwardly this is a merely a toke/little helper that a user utilize to adjust sounds as desired (and possible).
-	In reality this is where the heavy-lifting happens.
-*/
+/**
+ * Outwardly this is a merely a toke/little helper that a user utilize to adjust sounds as desired (and possible).
+ * In reality this is where the heavy-lifting happens.
+ */
 /datum/sound_token
-	var/atom/source    // Where the sound originates from
-	var/list/listeners // Assoc: Atoms hearing this sound, and their sound datum
-	var/range          // How many turfs away the sound will stop playing completely
-	var/prefer_mute    // If sound should be muted instead of stopped when mob moves out of range. In the general case this should be avoided because listeners will remain tracked.
-	var/sound/sound    // Sound datum, holds most sound relevant data
-	var/sound_id       // The associated sound id, used for cleanup
-	var/status = 0     // Paused, muted, running? Global for all listeners
-	var/listener_status// Paused, muted, running? Specific for the given listener.
-	var/sound_type // Type of sound this token is handling, it's set by default (arbitrarily) as ambience, gets set on init with the actual one if specified.
+	/// Where the sound originates from
+	var/atom/source
+	/// Assoc: Atoms hearing this sound, and their sound datum
+	var/list/listeners
+	/// How many turfs away the sound will stop playing completely
+	var/range
+	/// If sound should be muted instead of stopped when mob moves out of range. In the general case this should be avoided because listeners will remain tracked.
+	var/prefer_mute
+	/// Sound datum, holds most sound relevant data
+	var/sound/sound
+	/// The associated sound id, used for cleanup
+	var/sound_id
+	/// Paused, muted, running? Global for all listeners
+	var/status = 0
+	/// Paused, muted, running? Specific for the given listener.
+	var/listener_status
+	/// Type of sound this token is handling, it's set by default (arbitrarily) as ambience, gets set on init with the actual one if specified.
+	var/sound_type
 
 
 /datum/sound_token/New(atom/source, sound_id, sound/sound, range = 4, prefer_mute = FALSE, sound_type = ASFX_AMBIENCE)
@@ -150,7 +158,7 @@ GLOBAL_DATUM_INIT(sound_player, /singleton/sound_player, new)
 /datum/sound_token/proc/Pause()
 	PrivUpdateStatus(status|SOUND_PAUSED)
 
-// Normally called Resume but I don't want to give people false hope about being unable to un-stop a sound
+/// Normally called Resume but I don't want to give people false hope about being unable to un-stop a sound
 /datum/sound_token/proc/Unpause()
 	PrivUpdateStatus(status & ~SOUND_PAUSED)
 
@@ -187,7 +195,8 @@ GLOBAL_DATUM_INIT(sound_player, /singleton/sound_player, new)
 			PrivRemoveListener(listener)
 
 	for(var/mob/listener in new_listeners)
-		if((listener.client?.prefs.sfx_toggles & sound_type) && (!isdeaf(listener))) //Only give the sound token if the listener has the preference for the type of token active, and is not deaf
+		// Only give the sound token if the listener has the preference for the type of token active, and is not deaf
+		if((listener.client?.prefs.sfx_toggles & sound_type) && (!isdeaf(listener)))
 			PrivAddListener(listener)
 
 	for(var/mob/listener in current_listeners)
@@ -254,7 +263,8 @@ GLOBAL_DATUM_INIT(sound_player, /singleton/sound_player, new)
 	sound.status = status|listener_status[listener]
 	if(update_sound)
 		sound.status |= SOUND_UPDATE
-	if((listener.client?.prefs.sfx_toggles & sound_type) && (!isdeaf(listener))) //Send the sound only if the preference for the type of sound is set and is not deaf, otherwise remove the listener.
+	// Send the sound only if the preference for the type of sound is set and is not deaf, otherwise remove the listener.
+	if((listener.client?.prefs.sfx_toggles & sound_type) && (!isdeaf(listener)))
 		sound_to(listener, sound)
 	else
 		PrivRemoveListener(listener)

@@ -15,7 +15,6 @@
 	name = "Miners' Guild Camp"
 	icon_state = "bluenew"
 	requires_power = FALSE
-	dynamic_lighting = TRUE
 	no_light_control = FALSE
 	area_flags = AREA_FLAG_RAD_SHIELDED|AREA_FLAG_INDESTRUCTIBLE_TURFS
 	area_blurb = "The faint sounds of heavy machinery can be heard - the whirring of drills, the quiet noise of conveyor belts, and the electrical hum of power cables."

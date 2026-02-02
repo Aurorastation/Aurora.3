@@ -110,7 +110,7 @@
 
 	uniform = /obj/item/clothing/under/skrell
 	backpack_contents = list(
-		/obj/item/device/camera = 1,
+		/obj/item/camera = 1,
 		/obj/item/storage/box/psireceiver = 1
 	)
 

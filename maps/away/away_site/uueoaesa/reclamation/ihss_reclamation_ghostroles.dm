@@ -23,7 +23,7 @@
 	id = /obj/item/card/id
 	shoes = /obj/item/clothing/shoes/sandals/caligae/socks
 	uniform = /obj/item/clothing/under/unathi
-	l_ear = /obj/item/device/radio/headset/ship
+	l_ear = /obj/item/radio/headset/ship
 	r_pocket = /obj/item/storage/wallet/random
 
 /obj/outfit/admin/ihss_reclamation/get_id_access()
@@ -39,7 +39,7 @@
 		H.equip_or_collect(new /obj/item/reagent_containers/food/snacks/koisbar, slot_in_backpack)
 		H.update_body()
 	if(H.is_diona())
-		H.equip_or_collect(new /obj/item/device/uv_light, slot_in_backpack)
+		H.equip_or_collect(new /obj/item/uv_light, slot_in_backpack)
 
 /datum/ghostspawner/human/ihss_reclamation/security
 	short_name = "ihss_security"

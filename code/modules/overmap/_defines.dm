@@ -16,12 +16,11 @@ GLOBAL_LIST_EMPTY(map_templates)
 	name = "System Map"
 	icon_state = "start"
 	requires_power = 0
-	dynamic_lighting = 0
+	base_lighting_alpha = 255
 
 /turf/unsimulated/map
 	icon = 'icons/obj/overmap/overmap.dmi'
 	icon_state = "map"
-	permit_ao = FALSE
 
 /turf/unsimulated/map/edge
 	opacity = 1

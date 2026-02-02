@@ -17,7 +17,7 @@ emp_act
 		var/deflection_chance = check_martial_deflection_chance()
 		if(prob(deflection_chance))
 			visible_message(SPAN_WARNING("\The [src] deftly dodges \the [hitting_projectile]!"), SPAN_NOTICE("You deftly dodge \the [hitting_projectile]!"))
-			playsound(src, /singleton/sound_category/bulletflyby_sound, 75, TRUE)
+			playsound(src, SFX_BULLET_MISS, 75, TRUE)
 			return BULLET_ACT_FORCE_PIERCE
 
 	def_zone = check_zone(def_zone)
@@ -441,12 +441,12 @@ emp_act
 		Weaken(3)
 		visible_message(SPAN_WARNING("[src] get knocked over by [H]!"), SPAN_WARNING("You get knocked over by [H]!"))
 
-/mob/living/carbon/human/embed(var/obj/O, var/def_zone=null)
+/mob/living/carbon/human/embed(obj/O, def_zone=null, datum/wound/supplied_wound)
 	if(!def_zone) ..()
 
 	var/obj/item/organ/external/affecting = get_organ(def_zone)
 	if(affecting)
-		affecting.embed(O)
+		affecting.embed(O, supplied_wound = supplied_wound)
 
 
 /mob/living/carbon/human/proc/bloody_hands(var/mob/living/source, var/amount = 2)

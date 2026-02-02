@@ -15,7 +15,6 @@
 	name = "Adhomian Schlorrgo Testing Site"
 	icon_state = "bluenew"
 	requires_power = FALSE
-	dynamic_lighting = TRUE
 	no_light_control = FALSE
 	area_flags = AREA_FLAG_RAD_SHIELDED
 	area_blurb = "The sounds of animals and machines can be heard in this installation."

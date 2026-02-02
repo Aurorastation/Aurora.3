@@ -1,6 +1,14 @@
 import { BooleanLike } from '../../common/react';
 import { useBackend } from '../backend';
-import { Box, BlockQuote, Button, LabeledList, Section, ProgressBar, NumberInput } from '../components';
+import {
+  Box,
+  BlockQuote,
+  Button,
+  LabeledList,
+  Section,
+  ProgressBar,
+  NumberInput,
+} from '../components';
 import { Window } from '../layouts';
 
 export type SMESData = {
@@ -47,7 +55,8 @@ export const FailWindow = (props, context) => {
           color="bad"
           onClick={() => act('reboot')}
         />
-      }>
+      }
+    >
       <Box>I/O regulator malfuction detected! Waiting for system reboot...</Box>
       <BlockQuote>Automatic reboot in {data.fail_time} seconds...</BlockQuote>
     </Section>
@@ -71,15 +80,15 @@ export const SMESWindow = (props, context) => {
         <LabeledList.Item label="Charge Status">
           {data.charge_mode === 1
             ? `Charge will complete in ${time_remaining(
-              data.time,
-              data.wtime
-            )}.`
+                data.time,
+                data.wtime,
+              )}.`
             : data.charge_mode === 2
               ? 'Output and input balanced.'
               : `Charge will run out in ${time_remaining(
-                data.time,
-                data.wtime
-              )}.`}
+                  data.time,
+                  data.wtime,
+                )}.`}
         </LabeledList.Item>
       </LabeledList>
       <Section title="Input Management">
@@ -115,7 +124,8 @@ export const SMESWindow = (props, context) => {
               color={data.charge_taken < data.charge_level ? 'average' : 'good'}
               value={data.charge_taken}
               minValue={0}
-              maxValue={data.charge_max}>
+              maxValue={data.charge_max}
+            >
               {data.charge_taken} W
             </ProgressBar>
           </LabeledList.Item>
@@ -154,7 +164,8 @@ export const SMESWindow = (props, context) => {
               color={data.output_load < data.output_level ? 'average' : 'good'}
               value={data.output_load}
               minValue={0}
-              maxValue={data.output_max}>
+              maxValue={data.output_max}
+            >
               {data.output_load} W
             </ProgressBar>
           </LabeledList.Item>

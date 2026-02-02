@@ -2037,7 +2037,7 @@
 /obj/structure/table/wood,
 /obj/item/paper_bin,
 /obj/item/pen/fountain/black,
-/obj/item/device/flashlight/lamp/green{
+/obj/item/flashlight/lamp/green{
 	pixel_x = 9
 	},
 /obj/effect/floor_decal/spline/fancy/wood,
@@ -2392,18 +2392,18 @@
 /area/kataphract_chapter/portentry)
 "iW" = (
 /obj/structure/table/reinforced/steel,
-/obj/item/device/gps,
-/obj/item/device/gps,
-/obj/item/device/gps,
-/obj/item/device/gps,
-/obj/item/device/gps,
-/obj/item/device/gps,
-/obj/item/device/radio,
-/obj/item/device/radio,
-/obj/item/device/radio,
-/obj/item/device/radio,
-/obj/item/device/radio,
-/obj/item/device/radio,
+/obj/item/gps,
+/obj/item/gps,
+/obj/item/gps,
+/obj/item/gps,
+/obj/item/gps,
+/obj/item/gps,
+/obj/item/radio,
+/obj/item/radio,
+/obj/item/radio,
+/obj/item/radio,
+/obj/item/radio,
+/obj/item/radio,
 /obj/effect/floor_decal/corner/red{
 	dir = 10
 	},
@@ -4240,7 +4240,7 @@
 /area/shuttle/kataphract_shuttle/main_compartment)
 "rL" = (
 /obj/structure/table/wood,
-/obj/item/device/versebook/skakh,
+/obj/item/versebook/skakh,
 /obj/item/storage/pill_bottle/dice,
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
@@ -4398,7 +4398,7 @@
 /obj/structure/table/reinforced/steel,
 /obj/item/storage/bag/inflatable,
 /obj/item/storage/toolbox/mechanical,
-/obj/item/device/multitool,
+/obj/item/multitool,
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/armoury)
 "sZ" = (
@@ -4795,7 +4795,7 @@
 /obj/structure/table/wood,
 /obj/item/paper_bin,
 /obj/item/pen/fountain/black,
-/obj/item/device/flashlight/lamp/green{
+/obj/item/flashlight/lamp/green{
 	pixel_x = 9
 	},
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -7243,7 +7243,7 @@
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/portentry)
 "XZ" = (
-/obj/machinery/autolathe,
+/obj/machinery/fabricator/autolathe,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/engineering)

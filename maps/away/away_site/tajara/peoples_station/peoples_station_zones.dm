@@ -2,7 +2,6 @@
 	name = "People's Space Station"
 	icon_state = "bluenew"
 	requires_power = TRUE
-	dynamic_lighting = TRUE
 	no_light_control = TRUE
 	area_flags = AREA_FLAG_RAD_SHIELDED
 	area_blurb = "The clean and highly organized walls of the station welcomes you. The People's Republic of Adhomai's anthem can be heard from the speakers."

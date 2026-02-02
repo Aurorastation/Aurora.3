@@ -9,18 +9,18 @@
 		/obj/item/crowbar,
 		/obj/item/wrench,
 		/obj/item/hammer,
-		/obj/item/device/flashlight
+		/obj/item/flashlight
 	)
 
 /obj/random/technology_scanner
 	name = "random scanner"
 	desc = "This is a random technology scanner."
-	icon = 'icons/obj/item/device/air_analyzer.dmi'
+	icon = 'icons/obj/item/air_analyzer.dmi'
 	icon_state = "analyzer"
 	problist = list(
-		/obj/item/device/t_scanner = 5,
-		/obj/item/device/radio = 2,
-		/obj/item/device/analyzer = 5
+		/obj/item/t_scanner = 5,
+		/obj/item/radio = 2,
+		/obj/item/analyzer = 5
 	)
 
 /obj/random/powercell
@@ -43,11 +43,11 @@
 	icon = 'icons/obj/assemblies/new_assemblies.dmi'
 	icon_state = "signaller"
 	problist = list(
-		/obj/item/device/assembly/igniter = 2,
-		/obj/item/device/assembly/prox_sensor = 2,
-		/obj/item/device/assembly/signaler = 2,
-		/obj/item/device/multitool = 1,
-		/obj/item/device/transfer_valve = 0.5
+		/obj/item/assembly/igniter = 2,
+		/obj/item/assembly/prox_sensor = 2,
+		/obj/item/assembly/signaler = 2,
+		/obj/item/multitool = 1,
+		/obj/item/transfer_valve = 0.5
 	)
 
 /obj/random/toolbox

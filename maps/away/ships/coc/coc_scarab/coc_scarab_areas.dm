@@ -2,7 +2,6 @@
 	name = "Scarab Salvage Vessel"
 	icon_state = "blue"
 	requires_power = TRUE
-	dynamic_lighting = TRUE
 	no_light_control = FALSE
 	area_flags = AREA_FLAG_RAD_SHIELDED
 	default_gravity = ZERO_GRAVITY
@@ -127,6 +126,7 @@
 	requires_power = FALSE
 	icon_state = "exterior"
 	area_flags = AREA_FLAG_NO_GRAVITY | AREA_FLAG_SHIP_EXTERIOR
+	needs_starlight = TRUE
 
 // Shuttle
 /area/shuttle/coc_scarab

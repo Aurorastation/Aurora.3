@@ -1,6 +1,16 @@
 import { BooleanLike } from '../../common/react';
 import { useBackend, useLocalState } from '../backend';
-import { Box, Button, Collapsible, Input, LabeledList, NoticeBox, NumberInput, ProgressBar, Section } from '../components';
+import {
+  Box,
+  Button,
+  Collapsible,
+  Input,
+  LabeledList,
+  NoticeBox,
+  NumberInput,
+  ProgressBar,
+  Section,
+} from '../components';
 import { NtosWindow } from '../layouts';
 
 export type RCONData = {
@@ -52,7 +62,7 @@ export const SMESInfo = (props, context) => {
   const [smesSearchTerm, setSmesSearchTerm] = useLocalState<string>(
     context,
     `smesSearchTerm`,
-    ``
+    ``,
   );
 
   return (
@@ -69,12 +79,13 @@ export const SMESInfo = (props, context) => {
             }}
             value={smesSearchTerm}
           />
-        }>
+        }
+      >
         {data.smes_info
           .filter(
             (s) =>
               s.RCON_tag.toLowerCase().indexOf(smesSearchTerm.toLowerCase()) >
-              -1
+              -1,
           )
           .map((smes) => (
             <Section title={smes.RCON_tag} key={smes.RCON_tag}>
@@ -199,7 +210,7 @@ export const BreakerInfo = (props, context) => {
   const [breakerSearchTerm, setBreakerSearchTerm] = useLocalState<string>(
     context,
     `breakerSearchTerm`,
-    ``
+    ``,
   );
 
   return (
@@ -216,14 +227,15 @@ export const BreakerInfo = (props, context) => {
             }}
             value={breakerSearchTerm}
           />
-        }>
+        }
+      >
         <LabeledList>
           {data.breaker_info
             .filter(
               (b) =>
                 b.RCON_tag.toLowerCase().indexOf(
-                  breakerSearchTerm.toLowerCase()
-                ) > -1
+                  breakerSearchTerm.toLowerCase(),
+                ) > -1,
             )
             .map((breaker) => (
               <LabeledList.Item label={breaker.RCON_tag} key={breaker.RCON_tag}>

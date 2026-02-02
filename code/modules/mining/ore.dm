@@ -96,8 +96,8 @@
 	material = null
 
 /obj/item/ore/attackby(obj/item/attacking_item, mob/user)
-	if(istype(attacking_item,/obj/item/device/core_sampler))
-		var/obj/item/device/core_sampler/C = attacking_item
+	if(istype(attacking_item,/obj/item/core_sampler))
+		var/obj/item/core_sampler/C = attacking_item
 		C.sample_item(src, user)
 	else
 		return ..()
