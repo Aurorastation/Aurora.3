@@ -227,7 +227,7 @@
 	playsound(src, 'sound/machines/vehicles/button.ogg', 50, FALSE)
 
 /obj/vehicle/train/cargo/RunOver(var/mob/living/carbon/human/H)
-	if(!H.lying)
+	if(HAS_TRAIT(H, TRAIT_LEANING))
 		return
 
 	var/list/parts = list(BP_HEAD, BP_CHEST, BP_L_LEG, BP_R_LEG, BP_L_ARM, BP_R_ARM)
@@ -239,14 +239,14 @@
 
 /obj/vehicle/train/cargo/trolley/RunOver(var/mob/living/carbon/human/H)
 	..()
-	if(!H.lying)
+	if(HAS_TRAIT(H, TRAIT_LEANING))
 		return
 	attack_log += "\[[time_stamp()]\] <span class='warning'>ran over [H.name] ([H.ckey])</span>"
 
 /obj/vehicle/train/cargo/engine/RunOver(var/mob/living/carbon/human/H)
 	..()
 
-	if(!H.lying)
+	if(HAS_TRAIT(H, TRAIT_LEANING))
 		return
 
 	if(is_train_head() && istype(load, /mob/living/carbon/human))
