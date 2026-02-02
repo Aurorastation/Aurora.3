@@ -855,13 +855,12 @@
 		return
 
 	var/turf/target_turf = get_turf(A)
-	var/turf/source_turf = get_turf(user)
 
 	if(!params || !prox)
 		return
 
 	SSpersistence.register_track(src, ckey(user.key))
-	user.drop_from_inventory(src,source_turf)
+	user.drop_from_inventory(src,target_turf)
 	var/list/mouse_control = mouse_safe_xy(params)
 	pixel_x = mouse_control["icon-x"] - 16
 	pixel_y = mouse_control["icon-y"] - 16
