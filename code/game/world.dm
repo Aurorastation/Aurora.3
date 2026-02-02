@@ -462,6 +462,8 @@ GLOBAL_LIST_INIT(world_api_rate_limit, list())
 
 /world/proc/incrementMaxZ()
 	maxz++
+	SEND_GLOBAL_SIGNAL(COMSIG_GLOB_NEW_Z, world.maxz)
+	SSzcopy.calculate_zstack_limits()
 
 /world/proc/change_fps(new_value = 20)
 	if(new_value <= 0)
