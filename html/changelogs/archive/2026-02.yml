@@ -9,3 +9,45 @@
   - rscadd: Nitrogen Dioxide and Chlorine are now oxidizers.
   - bugfix: ZAS Hotspots (renamed from fires) no longer generate CO2 from nothing.
       They solely use the reaction to do this.
+2026-02-02:
+  GeneralCamo:
+  - code_imp: Refactored away /item/device/
+  HanSolo1519:
+  - rscadd: Adds Sankt Frederick flags and banners, places them in loadout. Sprites
+      by The Ill_Fated
+  - imageadd: Updated sprites for the Carthusian Sazerac, April Shower, Poussee Cafe,
+      Ice Pick, Caruso, and Dewey Cocktail. Sprites by TomixComics.
+  Hellfirejag:
+  - bugfix: Fixed the Schlorgo test fail.
+  - rscadd: Added 2 new traits (which are temporarily in the disabilities tab) related
+      to psi-sensitivity.
+  - rscadd: Magic powers of all kinds no longer by-default play the generic pickup
+      and drop sounds. This includes psionic powers, which are now silent to equip.
+  - rscadd: Canonical psionic powers and some antag psi powers are now invisible when
+      held.
+  - rscadd: Psi-Suppression is now a passively toggled ability which works like a
+      stronger mindshield/mindblanker. It no longer requires you hold the power in
+      hand.
+  - bugfix: Psi-protection sources like Mindshield, Mindblanker, and Psi-Suppression
+      no longer play messages when they passively hide you from Psi-Search.
+  - rscadd: Assay no longer gives away antag status by telling you outright if someone
+      is an antag psychic. It instead gives you hints as to the target's psi-sensitivity
+      (which aren't conclusive of antags).
+  - rscadd: Overdosing on Wulumunusha now temporarily increases psi-sensitivity until
+      the high wears off.
+  - rscadd: Psi-receivers are now a Bioaug instead of a mechanical augment.
+  - rscadd: Having low psi-sensitivity now interferes with telepathic messages, such
+      as from Commune, Emotional Suggestion, and Read Mind. Causing them to become
+      distorted similarly to whispers from 2 tiles away.
+  SabreML:
+  - bugfix: Adjusted the styling of the chat input box.
+  TheGreyWolf:
+  - rscadd: Added the ability to charge department accounts directly for operation
+      orders through the operations delivery app, without command presence required.
+  - rscadd: Separated the delivery and the pay buttons in the operations delivery
+      app.
+  - bugfix: Fixed the display of who accepted a delivery order when printing an invoice.
+  - bugfix: Prices shown on the delivery app are now correct.
+  - bugfix: The paper spawning in crates from the cargo elevator now properly show
+      the supposed contents.
+  - rscadd: The quikpay ui was updated.
