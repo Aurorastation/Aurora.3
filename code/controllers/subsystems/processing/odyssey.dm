@@ -66,7 +66,7 @@ SUBSYSTEM_DEF(odyssey)
 		var/list/singleton/scenario/all_scenarios = GET_SINGLETON_SUBTYPE_LIST(/singleton/scenario)
 		var/list/possible_scenarios = list()
 		for(var/singleton/scenario/S as anything in all_scenarios)
-			if((SSatlas.current_sector.name in S.sector_whitelist) || !length(S.sector_whitelist))
+			if((SSmapping.current_sector.name in S.sector_whitelist) || !length(S.sector_whitelist))
 				possible_scenarios[S] = S.weight
 
 		if(!length(possible_scenarios))

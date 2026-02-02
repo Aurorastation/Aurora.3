@@ -23,8 +23,7 @@
 /area/shuttle/transit
 	name = "Transit Space"
 	ambience = list('sound/ambience/shipambience.ogg')
-	dynamic_lighting = 0
-	// base_lighting_alpha = 255
+	base_lighting_alpha = 255
 
 /area/shuttle/arrival
 	name = "Arrival Shuttle"

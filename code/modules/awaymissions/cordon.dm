@@ -10,8 +10,6 @@
 	density = TRUE
 	blocks_air = TRUE
 	turf_flags = TURF_FLAG_BACKGROUND
-	permit_ao = FALSE
-	dynamic_lighting = 0
 
 /turf/cordon/singularity_act()
 	return FALSE
@@ -27,7 +25,6 @@
 /area/misc/cordon
 	name = "CORDON"
 	icon_state = "cordon"
-	dynamic_lighting = FALSE
 	area_flags = AREA_FLAG_NO_GHOST_TELEPORT_ACCESS | AREA_FLAG_UNIQUE | AREA_FLAG_HIDE_FROM_HOLOMAP
 	requires_power = FALSE
 

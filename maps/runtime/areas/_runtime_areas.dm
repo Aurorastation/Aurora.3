@@ -36,7 +36,6 @@
 /area/runtime/exterior
 	name = "Runtime - Exterior"
 	icon_state = "exterior"
-	dynamic_lighting = TRUE
 	requires_power = FALSE
 	// This area will place starlight on any turf it's put on!
 	needs_starlight = TRUE

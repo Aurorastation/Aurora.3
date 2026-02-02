@@ -141,5 +141,6 @@
 
 	return (!density || air_group)
 
-/obj/effect/energy_field/afterShuttleMove(obj/effect/shuttle_landmark/destination)
+/obj/effect/energy_field/after_shuttle_move(turf/old_turf, list/movement_force, shuttle_dir, shuttle_preferred_dir, move_dir, rotation)
+	..()
 	qdel_self()

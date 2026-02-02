@@ -36,7 +36,6 @@
 /area/horizon/exterior
 	name = "Horizon - Exterior"
 	icon_state = "exterior"
-	base_turf = /turf/space
 	requires_power = FALSE
 	// This area will place starlight on any turf it's put on!
 	needs_starlight = TRUE

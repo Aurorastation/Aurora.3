@@ -48,7 +48,7 @@
 	footprint_color = dirt_color
 	update_icon(1)
 
-	if(SSatlas.current_map.use_overmap)
+	if(SSmapping.current_map.use_overmap)
 		// if exoplanet
 		var/datum/site = GLOB.map_sectors["[z]"]
 		var/datum/template = GLOB.map_templates["[z]"]
@@ -75,7 +75,7 @@
 
 /turf/simulated/floor/exoplanet/Initialize()
 	. = ..()
-	if(SSatlas.current_map.use_overmap)
+	if(SSmapping.current_map.use_overmap)
 		// if exoplanet
 		var/datum/site = GLOB.map_sectors["[z]"]
 		var/datum/template = GLOB.map_templates["[z]"]
