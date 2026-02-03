@@ -50,7 +50,7 @@ ABSTRACT_TYPE(/datum/gear/shoes/tajara)
 /datum/gear/gloves/tajara/New()
 	..()
 	var/list/taj_gloves = list()
-	taj_gloves["black gloves"] = /obj/item/clothing/gloves/black/tajara
+	taj_gloves["work gloves"] = /obj/item/clothing/gloves/black/tajara
 	taj_gloves["red gloves"] = /obj/item/clothing/gloves/red/tajara
 	taj_gloves["blue gloves"] = /obj/item/clothing/gloves/blue/tajara
 	taj_gloves["orange gloves"] = /obj/item/clothing/gloves/orange/tajara
