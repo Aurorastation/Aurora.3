@@ -13,7 +13,7 @@
 	attacktext = "chomped"
 	attack_sound = 'sound/weapons/bite.ogg'
 	faction = "creature"
-	speed = 1
+	speed = 4
 	mob_size = 14
 
 	tameable = FALSE

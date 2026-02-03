@@ -27,7 +27,7 @@
 	min_n2 = 0
 	max_n2 = 0
 	minbodytemp = 0
-	speed = 1
+	speed = 4
 	tameable = FALSE
 	flying = TRUE
 	smart_melee = FALSE

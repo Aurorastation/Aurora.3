@@ -133,7 +133,7 @@
 	response_help = "touches"
 	response_disarm = "pushes"
 	response_harm = "hits"
-	speed = 1
+	speed = 4
 	maxHealth = 50
 	health = 50
 
@@ -154,7 +154,6 @@
 	minbodytemp = 0
 
 	faction = "Krampus"
-	speed = 1
 
 	tameable = FALSE
 
