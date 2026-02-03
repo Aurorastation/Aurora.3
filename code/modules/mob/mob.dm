@@ -103,6 +103,10 @@
 
 	become_hearing_sensitive()
 
+	// This impacts area/entered(), gravity drifting, and probably plenty more. This will likely
+	// need to be removed/moved if and when any 'moodlet' system is implemented (ref. TG component).
+	become_area_sensitive(INNATE_TRAIT)
+
 /**
  * Generate the tag for this mob
  *

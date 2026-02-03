@@ -215,21 +215,6 @@
 
 /mob/living/carbon/human/get_status_tab_items()
 	. = ..()
-
-	/// This needs to be updated to use signals.
-	var/holding_gps = FALSE
-	if(istype(src.get_active_hand(), /obj/item/gps) || istype(src.get_inactive_hand(), /obj/item/gps))
-		holding_gps = TRUE
-
-	var/area/A = get_area(src)
-	var/area_name
-	if(holding_gps)
-		area_name = get_area_display_name(A)
-		. += "[area_name]"
-		. += ""
-	if(A.area_blurb)
-		. += "[A.area_blurb]"
-		. += ""
 	. += "Intent: [a_intent]"
 	. += "Move Mode: [m_intent]"
 	if(is_diona() && DS)
