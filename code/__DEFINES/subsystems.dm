@@ -223,6 +223,7 @@
 #define INIT_ORDER_JOBS 65 // Must init before atoms, to set up properly the dynamic job lists.
 #define INIT_ORDER_AI_CONTROLLERS 55 //So the controller can get the ref
 #define INIT_ORDER_TICKER 55
+#define INIT_ORDER_ANABASIS 53 //unreasonably high at the moment, todo: see if this will be needed. I think it will as Anabasis game state will determine spawned stuff
 #define INIT_ORDER_SEEDS 52 // More aurora snowflake, needs to load before the atoms init as it generates images for seeds that are used
 #define INIT_ORDER_MISC_FIRST 51 //Another aurora snowflake system? Who would have guessed... Anyways, need to load before mapping or global HUDs are not ready when atoms request them
 #define INIT_ORDER_MAPPING 50 //This is the ATLAS subsystem
