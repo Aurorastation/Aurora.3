@@ -7,7 +7,6 @@
 	item_flags = ITEM_FLAG_SHOW_FLAVOR_TEXT
 	contained_sprite = TRUE
 	var/flipped = FALSE
-	var/flippable = TRUE
 	siemens_coefficient = 0.9
 
 /obj/item/clothing/head/softcap/dropped()
@@ -21,13 +20,14 @@
 	set category = "Object.Equipped"
 	set src in usr
 
-	if(use_check_and_message(usr) || !flippable)
+	if(use_check_and_message(usr))
 		return 0
 
 	flipped = !flipped
 	icon_state = "[initial(icon_state)][flipped ? "_flipped" : ""]"
 	item_state = icon_state
 	to_chat(usr, "You flip the hat [flipped ? "backwards" : "forwards"].")
+	update_icon()
 	update_clothing_icon()	// So our mob-overlays update.
 
 /obj/item/clothing/head/softcap/colorable
@@ -40,7 +40,6 @@
 
 /obj/item/clothing/head/softcap/colorable/accent
 	has_accents = TRUE
-	flippable = FALSE
 
 /obj/item/clothing/head/softcap/rainbow
 	name = "rainbow cap"
