@@ -769,8 +769,8 @@ GLOBAL_LIST_INIT(admin_verbs_storyteller, list(
 	set name = "Drop Bomb"
 	set desc = "Cause an explosion of varying strength at your location."
 
-	var/turf/epicenter = get_turf(mob)
 	var/choice = tgui_input_list(usr, "What size explosion would you like to produce?", "Drop Bomb", list("Small Bomb", "Medium Bomb", "Big Bomb", "Custom Bomb"))
+	var/turf/epicenter = get_turf(mob)
 	switch(choice)
 		if(null)
 			return 0
