@@ -17,7 +17,7 @@
 	spawn_weight = 0
 	sectors = list(ALL_POSSIBLE_SECTORS)
 	template_flags = TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED
-	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/decrepit_shipyard_shuttle)
+	shuttles_to_initialise = list(/datum/shuttle/overmap/decrepit_shipyard_shuttle)
 	unit_test_groups = list(3)
 
 /singleton/submap_archetype/decrepit_shipyard
@@ -85,12 +85,11 @@
 	name = "shuttle control console"
 	shuttle_tag = "Decrepit Shuttle"
 
-/datum/shuttle/autodock/overmap/decrepit_shipyard_shuttle
+/datum/shuttle/overmap/decrepit_shipyard_shuttle
 	name = "Decrepit Shuttle"
 	move_time = 20
 	shuttle_area = list(/area/shuttle/decrepit_shipyard_shuttle)
 	current_location = "nav_decrepit_shipyard_drydock"
-	landmark_transition = "nav_decrepit_shipyard_transit"
 	dock_target = "airlock_decrepit_shipyard_shuttle_docking"
 	range = 1
 	fuel_consumption = 2
@@ -102,8 +101,6 @@
 	name = "Dry Dock #07-F"
 	landmark_tag = "nav_decrepit_shipyard_drydock"
 	// there ain't no docking controller, chief
-	base_area = /area/space
-	base_turf = /turf/space/dynamic
 	movable_flags = MOVABLE_FLAG_EFFECTMOVE
 
 // Shuttle docking airlock
@@ -131,7 +128,6 @@
 /obj/effect/shuttle_landmark/decrepit_shipyard_shuttle/transit
 	name = "In transit"
 	landmark_tag = "nav_decrepit_shipyard_transit"
-	base_turf = /turf/space/transit/north
 
 // ---- Mapmanip markers
 

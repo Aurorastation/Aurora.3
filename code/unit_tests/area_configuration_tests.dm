@@ -3,30 +3,30 @@ ABSTRACT_TYPE(/datum/unit_test/area_configuration)
 	groups = list("generic")
 	priority = 1
 
-/datum/unit_test/area_configuration/exoplanet_area_with_exoplanet_base_turfs
-	name = "AREA CONFIG: Exoplanet areas must have exoplanet base turfs"
+/datum/unit_test/area_configuration/exoplanet_obj_with_exoplanet_base_turfs
+	name = "AREA CONFIG: Exoplanet objs must have exoplanet base turfs"
 
-/datum/unit_test/area_configuration/exoplanet_area_with_exoplanet_base_turfs/start_test()
+/datum/unit_test/area_configuration/exoplanet_obj_with_exoplanet_base_turfs/start_test()
 	var/test_status = UNIT_TEST_PASSED
 
-	for(var/area/exoplanet/exoplanet_area_typepath in subtypesof(/area/exoplanet))
-		//No need for abstract areas to respect this really
-		if(is_abstract(exoplanet_area_typepath))
-			TEST_DEBUG("Skipping abstract exoplanet area [exoplanet_area_typepath]")
+	for(var/obj/effect/overmap/visitable/sector/exoplanet/exoplanet_obj_typepath in subtypesof(/obj/effect/overmap/visitable/sector/exoplanet))
+		//No need for abstract planets to respect this really
+		if(is_abstract(exoplanet_obj_typepath))
+			TEST_DEBUG("Skipping abstract exoplanet [exoplanet_obj_typepath]")
 			continue
 
-		TEST_DEBUG("Now testing exoplanet area [exoplanet_area_typepath]")
+		TEST_DEBUG("Now testing exoplanet [exoplanet_obj_typepath]")
 
 		//The bounds have to be set based on the direction of the stairs, that must be set in code for sanity
-		if(!istype(exoplanet_area_typepath::base_turf, /turf/simulated/floor/exoplanet))
-			test_status = TEST_FAIL("The exoplanet area [exoplanet_area_typepath] does not have an exoplanet base turf!")
+		if(!istype(exoplanet_obj_typepath::turftype, /turf/simulated/floor/exoplanet))
+			test_status = TEST_FAIL("The exoplanet [exoplanet_obj_typepath] does not have an exoplanet base turf!")
 
 		else
-			TEST_NOTICE("The exoplanet area [exoplanet_area_typepath] has an exoplanet base turf.")
-			TEST_DEBUG("The exoplanet area [exoplanet_area_typepath] has [exoplanet_area_typepath::base_turf] as its base turf.")
+			TEST_NOTICE("The exoplanet [exoplanet_obj_typepath] has an exoplanet base turf.")
+			TEST_DEBUG("The exoplanet [exoplanet_obj_typepath] has [exoplanet_obj_typepath::turftype] as its base turf.")
 
 	if(test_status == UNIT_TEST_PASSED)
-		TEST_PASS("All exoplanet areas have an exoplanet base turf.")
+		TEST_PASS("All exoplanets have an exoplanet base turf.")
 
 	return test_status
 

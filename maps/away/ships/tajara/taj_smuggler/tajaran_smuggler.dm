@@ -10,7 +10,7 @@
 	spawn_weight = 1
 	ship_cost = 1
 	id = "tajaran_smuggler"
-	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/tajaran_smuggler_shuttle, /datum/shuttle/autodock/overmap/tajaran_smuggler_cargo)
+	shuttles_to_initialise = list(/datum/shuttle/overmap/tajaran_smuggler_shuttle, /datum/shuttle/overmap/tajaran_smuggler_cargo)
 
 	unit_test_groups = list(3)
 
@@ -51,6 +51,8 @@
 
 	invisible_until_ghostrole_spawn = TRUE
 
+	ship_area_type = /area/tajaran_smuggler
+
 /obj/effect/overmap/visitable/ship/tajaran_smuggler/New()
 	designation = "[pick("Brave Ha'rron", "Trickster Farwa", "Legal and Safe Cargo", "Adhomian Trader", "Minharrzka", "Rredouane's Chosen", "Adhomai's Pride")]"
 	..()
@@ -58,19 +60,14 @@
 /obj/effect/shuttle_landmark/tajaran_smuggler/nav1
 	name = "Adhomian Freighter - Port Side"
 	landmark_tag = "nav_tajaran_smuggler_1"
-	base_turf = /turf/space/dynamic
-	base_area = /area/space
 
 /obj/effect/shuttle_landmark/tajaran_smuggler/nav2
 	name = "Adhomian Freighter - Port Airlock"
 	landmark_tag = "nav_tajaran_smuggler_2"
-	base_turf = /turf/space/dynamic
-	base_area = /area/space
 
 /obj/effect/shuttle_landmark/tajaran_smuggler/transit
 	name = "In transit"
 	landmark_tag = "nav_transit_tajaran_smuggler"
-	base_turf = /turf/space/transit/north
 
 //shuttle stuff
 /obj/effect/overmap/visitable/ship/landable/tajaran_smuggler_shuttle
@@ -88,18 +85,19 @@
 	fore_dir = SOUTH
 	vessel_size = SHIP_SIZE_TINY
 
+	ship_area_type = /area/shuttle/tajaran_smuggler
+
 /obj/machinery/computer/shuttle_control/explore/tajaran_smuggler_shuttle
 	name = "shuttle control console"
 	shuttle_tag = "Adhomian Freight Shuttle"
 
 
-/datum/shuttle/autodock/overmap/tajaran_smuggler_shuttle
+/datum/shuttle/overmap/tajaran_smuggler_shuttle
 	name = "Adhomian Freight Shuttle"
 	move_time = 20
 	shuttle_area = list(/area/shuttle/tajaran_smuggler)
 	dock_target = "tajaran_smuggler_shuttle"
 	current_location = "nav_tajaran_smuggler_shuttle"
-	landmark_transition = "nav_transit_tajaran_smuggler_shuttle"
 	range = 1
 	fuel_consumption = 2
 	logging_home_tag = "nav_tajaran_smuggler_shuttle"
@@ -126,6 +124,8 @@
 	vessel_mass = 3000 //very inefficient pod
 	fore_dir = SOUTH
 	vessel_size = SHIP_SIZE_TINY
+
+	ship_area_type = /area/shuttle/tajaran_smuggler_cargo
 
 /obj/machinery/computer/shuttle_control/explore/tajaran_smuggler_cargo
 	name = "cargo ejection control console"

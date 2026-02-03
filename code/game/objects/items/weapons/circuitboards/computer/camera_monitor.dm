@@ -8,7 +8,7 @@
 
 /obj/item/circuitboard/security/Initialize()
 	. = ..()
-	console_networks = SSatlas.current_map.station_networks
+	console_networks = SSmapping.current_map.station_networks
 
 /obj/item/circuitboard/security/engineering
 	name = T_BOARD("engineering camera monitor")

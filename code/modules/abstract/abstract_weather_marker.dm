@@ -18,7 +18,6 @@
 	return INITIALIZE_HINT_LATELOAD
 
 /obj/abstract/weather_marker/LateInitialize()
-	. = ..()
 	if(!ispath(weather_type))
 		log_debug("Invalid weather type mapped in at [x] [y] [z]!")
 		return INITIALIZE_HINT_QDEL

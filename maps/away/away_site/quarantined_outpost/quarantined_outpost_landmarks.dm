@@ -1,17 +1,12 @@
 //---- Base types
 
 /obj/effect/shuttle_landmark/quarantined_outpost
-	base_area = /area/space
-	base_turf = /turf/space
 
 /obj/effect/shuttle_landmark/quarantined_outpost/asteroid
-	base_area = /area/quarantined_outpost/exterior
-	base_turf = /turf/simulated/floor/exoplanet/asteroid/ash/rocky
 
 /obj/effect/shuttle_landmark/quarantined_outpost/shuttle_transit
 	name = "In transit"
 	landmark_tag = "nav_quarantined_outpost_shuttle_transit"
-	base_turf = /turf/space/transit/north
 	dir = NORTH
 
 // ---- Inner docking zones

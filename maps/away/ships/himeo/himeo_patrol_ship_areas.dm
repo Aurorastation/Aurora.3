@@ -101,7 +101,7 @@
 /area/shuttle/himeo_patrol
 	name = "Himean Patrol Shuttle"
 	requires_power = TRUE
-	has_gravity = TRUE
+	default_gravity = STANDARD_GRAVITY
 	icon_state = "exterior"
 
 /area/shuttle/himeo_patrol/central

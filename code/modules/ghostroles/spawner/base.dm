@@ -217,12 +217,12 @@
 	if(welcome_message_ooc)
 		to_chat(user, EXAMINE_BLOCK(SPAN_INFO("(OOC Notes: [welcome_message_ooc])")))
 	GLOB.universe.OnPlayerLatejoin(user)
-	if(SSatlas.current_map.use_overmap)
+	if(SSmapping.current_map.use_overmap)
 		var/obj/effect/overmap/visitable/sector = GLOB.map_sectors["[user.z]"]
 		if(sector?.invisible_until_ghostrole_spawn)
 			sector.x = sector.start_x
 			sector.y = sector.start_y
-			sector.z = SSatlas.current_map.overmap_z
+			sector.z = SSmapping.current_map.overmap_z
 			sector.invisible_until_ghostrole_spawn = FALSE
 			SEND_SIGNAL(sector, COMSIG_GHOSTROLE_TAKEN)
 	return TRUE

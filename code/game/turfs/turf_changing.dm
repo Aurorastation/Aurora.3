@@ -2,8 +2,22 @@
 	var/tmp/changing_turf
 	var/openspace_override_type	// If defined, this type is spawned instead of openturfs.
 
+/turf/proc/empty(turf_type=/turf/space, baseturf_type, list/ignore_typecache, flags)
+	// Remove all atoms except observers, landmarks, docking ports
+	var/static/list/ignored_atoms = typecacheof(list(/mob/abstract, /obj/effect/landmark))
+	var/list/allowed_contents = typecache_filter_list_reverse(get_all_contents_ignoring(ignore_typecache), ignored_atoms)
+	allowed_contents -= src
+	for(var/i in 1 to allowed_contents.len)
+		var/thing = allowed_contents[i]
+		qdel(thing, force=TRUE)
+
+	if(turf_type)
+		var/turf/new_turf = ChangeTurf(turf_type, baseturf_type, flags)
+		if(new_turf)
+			new_turf.post_change(TRUE)
+
 /turf/proc/ReplaceWithLattice()
-	ChangeTurf(baseturf)
+	scrape_away()
 	new /obj/structure/lattice(src)
 
 // Removes all signs of lattice on the pos of the turf -Donkieyo
@@ -20,10 +34,9 @@
 
 	if(queue_neighbors)
 		QUEUE_SMOOTH_NEIGHBORS(src)
-	else if(smoothing_flags && !(smoothing_flags & SMOOTH_QUEUED)) // we check here because proc overhead
-		QUEUE_SMOOTH(src)
+	QUEUE_SMOOTH(src)
 
-	if (SSatlas.current_map.use_overmap)
+	if (SSmapping.current_map.use_overmap)
 		// exoplanet
 		var/obj/effect/overmap/visitable/sector/exoplanet/exoplanet = GLOB.map_sectors["[z]"]
 		if (istype(exoplanet) && istype(exoplanet.theme))
@@ -38,17 +51,31 @@
 	. = ChangeTurf(/turf/space)
 
 //Creates a new turf
-/turf/proc/ChangeTurf(path, tell_universe = TRUE, force_lighting_update = FALSE, ignore_override = FALSE, mapload = FALSE)
-	if (!path)
-		return
+/turf/proc/ChangeTurf(path, list/new_baseturfs, flags)
+	switch(path)
+		if(null)
+			return
+		if(/turf/baseturf_bottom)
+			path = SSmapping.level_trait(z, ZTRAIT_BASETURF) || /turf/space
+			if(!ispath(path))
+				path = text2path(path)
+				if(!ispath(path))
+					warning("Z-level [z] has invalid baseturf '[SSmapping.level_trait(z, ZTRAIT_BASETURF)]'")
+					path = /turf/space
+		if(/turf/space)
+			// This makes sure that turfs are not changed to space when there's a multi-z turf below
+			if(GET_TURF_BELOW(src) && !(flags & CHANGETURF_FORCEOP))
+				path = openspace_override_type || /turf/simulated/open/airless
 
-	// This makes sure that turfs are not changed to space when there's a multi-z turf below
-	if(ispath(path, /turf/space) && GET_TURF_BELOW(src) && !ignore_override)
-		path = openspace_override_type || /turf/simulated/open/airless
+	if(!GLOB.use_preloader && path == type && !(flags & CHANGETURF_FORCEOP) && (baseturfs == new_baseturfs))
+		return src
+
+	if(flags & CHANGETURF_SKIP)
+		return new path(src)
 
 	var/old_hotspot = hotspot
 	var/old_turf_fire = turf_fire
-	var/old_baseturf = baseturf
+	var/list/old_baseturfs = baseturfs
 	var/old_above = above
 	var/list/old_blueprints = blueprints
 	var/list/old_decals = decals
@@ -84,8 +111,9 @@
 	//We do this here so anything that doesn't want to persist can clear itself
 	var/list/old_listen_lookup = _listen_lookup?.Copy()
 	var/list/old_signal_procs = _signal_procs?.Copy()
-
+	var/carryover_turf_flags = (RESERVATION_TURF | UNUSED_RESERVATION_TURF) & turf_flags
 	var/turf/new_turf = new path(src)
+	new_turf.turf_flags |= carryover_turf_flags
 
 	if(!density)
 		turf_fire = old_turf_fire
@@ -147,7 +175,7 @@
 	else if(hotspot)
 		qdel(hotspot)
 
-	if(tell_universe)
+	if(!(flags & CHANGETURF_IGNORE_UNIVERSE))
 		GLOB.universe.OnTurfChange(new_turf)
 
 	// we check the var rather than the proc, because area outside values usually shouldn't be set on turfs
@@ -155,10 +183,13 @@
 	if(new_turf.is_outside != old_outside)
 		new_turf.set_outside(old_outside, skip_weather_update = TRUE)
 
-	SSair.mark_for_update(src) //handle the addition of the new turf.
+	if(!(flags & CHANGETURF_IGNORE_AIR))
+		SSair.mark_for_update(src) //handle the addition of the new turf.
 
-	if(!new_turf.baseturf)
-		new_turf.baseturf = old_baseturf
+	if(new_baseturfs)
+		new_turf.baseturfs = baseturfs_string_list(new_baseturfs, new_turf)
+	else
+		new_turf.baseturfs = baseturfs_string_list(old_baseturfs, new_turf) //Just to be safe
 
 	new_turf.blueprints = old_blueprints
 	for(var/image/I as anything in new_turf.blueprints)
@@ -167,7 +198,21 @@
 
 	new_turf.decals = old_decals
 
-	new_turf.post_change(!mapload)
+	if(!(flags & CHANGETURF_DEFER_CHANGE))
+		new_turf.post_change(!(flags & CHANGETURF_IGNORE_NEIGHBORS))
+
+	if(flags & CHANGETURF_GENERATE_SHUTTLE_CEILING)
+		if(loc?.type in SSshuttle.areas_to_shuttles)
+			var/datum/shuttle/shuttle = SSshuttle.areas_to_shuttles[loc.type]
+			var/turf/new_ceiling = GET_TURF_ABOVE(new_turf)
+			if(new_ceiling)
+				var/shuttle_depth = new_ceiling.depth_to_find_baseturf(/turf/baseturf_skipover/shuttle_ceiling)
+				if(!shuttle_depth) // if two shuttles trade places in the exact same second this'll break I guess. oh no! anyways
+					if(new_ceiling.is_open())
+						new_ceiling.place_on_top(shuttle.ceiling_baseturf)
+					else
+						new_ceiling.stack_ontop_of_baseturf(/turf/simulated/open, shuttle.ceiling_baseturf)
+						new_ceiling.stack_ontop_of_baseturf(/turf/space, shuttle.ceiling_baseturf)
 
 	new_turf.update_weather(force_update_below = new_turf.is_open() != old_is_open)
 

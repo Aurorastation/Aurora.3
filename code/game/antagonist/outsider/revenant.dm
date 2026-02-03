@@ -27,7 +27,7 @@ GLOBAL_DATUM(revenants, /datum/antagonist/revenant)
 	GLOB.revenants.revenant_rift = null
 	GLOB.revenants.rifts_left--
 	if(GLOB.revenants.rifts_left <= 0)
-		command_announcement.Announce("[SSatlas.current_map.station_name], we aren't detecting any more rift energy signatures. Mop up the rest of the invaders. Good work.", "Bluespace Breach Alert")
+		command_announcement.Announce("[SSmapping.current_map.station_name], we aren't detecting any more rift energy signatures. Mop up the rest of the invaders. Good work.", "Bluespace Breach Alert")
 
 /datum/antagonist/revenant/is_obvious_antag(datum/mind/player)
 	return TRUE

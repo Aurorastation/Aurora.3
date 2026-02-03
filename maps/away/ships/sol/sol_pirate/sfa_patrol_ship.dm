@@ -9,7 +9,7 @@
 	spawn_weight = 0.5 // Lowered to represent increasing scarcity of faction.
 	ship_cost = 1
 	id = "sfa_patrol_ship"
-	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/sfa_shuttle)
+	shuttles_to_initialise = list(/datum/shuttle/overmap/sfa_shuttle)
 
 	unit_test_groups = list(3)
 
@@ -122,6 +122,8 @@
 
 	invisible_until_ghostrole_spawn = TRUE
 
+	ship_area_type = /area/ship/sfa_patrol_ship
+
 /obj/effect/overmap/visitable/ship/sfa_patrol_ship/New()
 	designation = "[pick("Brigand", "Zheng Yi Sao", "Corruption", "Edward Teach", "Beauchamp's Revenge", "Blackguard", "Viking", "Despoiler", "Wayward Son", "Black Sheep", "Gluttony", "Pride", "Avarice", "Greed", "Envy", "Sloth", "Wrath", "We're The Good Ones", "Reformed", "Repentant", "Recidivist", "Just Following Orders", "Habitual Offender", "Felon", "Misdemeanor", "Conscientious Objector")]"
 	..()
@@ -135,38 +137,27 @@
 /obj/effect/shuttle_landmark/sfa_patrol_ship/nav1
 	name = "SFA Corvette - Port Side"
 	landmark_tag = "nav_sfa_patrol_ship_1"
-	base_turf = /turf/space/dynamic
-	base_area = /area/space
 
 /obj/effect/shuttle_landmark/sfa_patrol_ship/nav2
 	name = "SFA Corvette - Starboard Side"
 	landmark_tag = "nav_sfa_patrol_ship_2"
-	base_turf = /turf/space/dynamic
-	base_area = /area/space
 
 /obj/effect/shuttle_landmark/sfa_patrol_ship/nav3
 	name = "SFA Corvette - Aft"
 	landmark_tag = "nav_sfa_patrol_ship_3"
-	base_turf = /turf/space/dynamic
-	base_area = /area/space
 
 /obj/effect/shuttle_landmark/sfa_patrol_ship/nav4
 	name = "SFA Corvette - Fore"
 	landmark_tag = "nav_sfa_patrol_ship_4"
-	base_turf = /turf/space/dynamic
-	base_area = /area/space
 
 /obj/effect/shuttle_landmark/sfa_patrol_ship/airlock
 	name = "SFA Corvette - Port Airlock"
 	landmark_tag = "nav_sfa_port_airlock"
 	docking_controller = "airlock_sfa_port_airlock"
-	base_turf = /turf/space/dynamic
-	base_area = /area/space
 
 /obj/effect/shuttle_landmark/sfa_patrol_ship/transit
 	name = "In transit"
 	landmark_tag = "nav_transit_sfa_patrol_ship"
-	base_turf = /turf/space/transit/north
 
 //shuttle stuff
 /obj/effect/overmap/visitable/ship/landable/sfa_shuttle
@@ -184,18 +175,19 @@
 	fore_dir = SOUTH
 	vessel_size = SHIP_SIZE_TINY
 
+	ship_area_type = /area/shuttle/sfa_shuttle
+
 /obj/machinery/computer/shuttle_control/explore/sfa_shuttle
 	name = "shuttle control console"
 	shuttle_tag = "SFA Shuttle"
 	req_access = list(ACCESS_SOL_SHIPS)
 
-/datum/shuttle/autodock/overmap/sfa_shuttle
+/datum/shuttle/overmap/sfa_shuttle
 	name = "SFA Shuttle"
 	move_time = 20
 	shuttle_area = list(/area/shuttle/sfa_shuttle)
 	current_location = "nav_hangar_sfa"
 	dock_target = "airlock_sfa_shuttle"
-	landmark_transition = "nav_transit_sfa_shuttle"
 	range = 1
 	fuel_consumption = 2
 	logging_home_tag = "nav_hangar_sfa"
@@ -205,11 +197,8 @@
 	name = "SFA Shuttle Hangar"
 	landmark_tag = "nav_hangar_sfa"
 	docking_controller = "sfa_shuttle_dock"
-	base_area = /area/ship/sfa_patrol_ship
-	base_turf = /turf/simulated/floor/plating
 	movable_flags = MOVABLE_FLAG_EFFECTMOVE
 
 /obj/effect/shuttle_landmark/sfa_shuttle/transit
 	name = "In transit"
 	landmark_tag = "nav_transit_sfa_shuttle"
-	base_turf = /turf/space/transit/north

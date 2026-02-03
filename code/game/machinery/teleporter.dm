@@ -80,7 +80,7 @@
 	if(T)
 		if (AreConnectedZLevels(z, T.z))
 			return TRUE
-		else if(SSatlas.current_map.use_overmap)
+		else if(SSmapping.current_map.use_overmap)
 			var/my_sector = GLOB.map_sectors["[z]"]
 			var/target_sector = GLOB.map_sectors["[T.z]"]
 			if (istype(my_sector, /obj/effect/overmap/visitable) && istype(target_sector, /obj/effect/overmap/visitable))

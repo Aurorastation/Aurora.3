@@ -2,7 +2,6 @@
 	name = "Solarian Frigate"
 	requires_power = TRUE
 	no_light_control = FALSE
-	base_turf = /turf/space
 	area_flags = AREA_FLAG_RAD_SHIELDED
 	ambience = AMBIENCE_ENGINEERING
 
@@ -11,7 +10,7 @@
 	icon_state = "exterior"
 	always_unpowered = TRUE
 	needs_starlight = TRUE
-	has_gravity = FALSE
+	area_flags = AREA_FLAG_NO_GRAVITY | AREA_FLAG_SHIP_EXTERIOR
 
 /area/ship/sol_frigate/hallway_fore
 	name = "Solarian Frigate - Fore Hallway"

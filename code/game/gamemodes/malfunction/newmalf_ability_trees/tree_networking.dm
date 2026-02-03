@@ -181,7 +181,7 @@
 			//	log_ability_use(user, "advanced encryption hack (FAIL - title: [reporttitle])")
 			//	return
 			log_ability_use(user, "advanced encryption hack (SUCCESS - title: [reporttitle])")
-			to_world(SPAN_ALERT("New [SSatlas.current_map.company_name] Update available at all communication consoles."))
+			to_world(SPAN_ALERT("New [SSmapping.current_map.company_name] Update available at all communication consoles."))
 			sound_to_playing_players('sound/AI/commandreport.ogg')
 			post_comm_message(reporttitle, reportbody)
 
@@ -249,7 +249,7 @@
 			sleep(duration/5)
 			if(!user || user.stat == DEAD)
 				return
-			command_announcement.Announce("Notice: Trace Update. Abnormal network activity originating from: Network terminal aboard [SSatlas.current_map.station_name]. External network connections disabled. Trace cancelled.", "Network Monitoring")
+			command_announcement.Announce("Notice: Trace Update. Abnormal network activity originating from: Network terminal aboard [SSmapping.current_map.station_name]. External network connections disabled. Trace cancelled.", "Network Monitoring")
 			sleep(duration/5)
 			if(!user || user.stat == DEAD)
 				return

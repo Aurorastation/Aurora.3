@@ -143,7 +143,7 @@ SUBSYSTEM_DEF(ghostroles)
 					manifest += spawned_mob.real_name
 
 		var/atom/spawn_overmap_location = null
-		if(SSatlas.current_map.use_overmap)
+		if(SSmapping.current_map.use_overmap)
 			var/atom/spawner = G.select_spawnlocation(FALSE)
 			if(istype(spawner))
 				var/obj/effect/overmap/visitable/sector = GLOB.map_sectors["[spawner.z]"]

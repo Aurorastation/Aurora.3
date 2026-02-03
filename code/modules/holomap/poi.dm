@@ -10,7 +10,6 @@
 	return INITIALIZE_HINT_LATELOAD
 
 /obj/effect/landmark/minimap_poi/LateInitialize()
-	. = ..()
 	SSholomap.pois += src
 
 /obj/effect/landmark/minimap_poi/Destroy()

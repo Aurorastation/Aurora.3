@@ -16,7 +16,6 @@
 	icon_state = "bluenew"
 	requires_power = FALSE
 	no_light_control = FALSE
-	base_turf = /turf/simulated/mineral
 	area_flags = AREA_FLAG_HIDE_FROM_HOLOMAP | AREA_FLAG_INDESTRUCTIBLE_TURFS
 
 /area/konyang_landing_zone/command_center
@@ -43,17 +42,11 @@
 /obj/effect/shuttle_landmark/konyang_landing_zone_intrepid
 	name = "SCC Expedition Command Center - Intrepid"
 	landmark_tag = "nav_konyang_landing_zone_intrepid"
-	base_turf = /turf/simulated/floor/asphalt
-	base_area = /area/konyang_landing_zone
 
 /obj/effect/shuttle_landmark/konyang_landing_zone_canary
 	name = "SCC Expedition Command Center - Canary"
 	landmark_tag = "nav_konyang_landing_zone_canary"
-	base_turf = /turf/simulated/floor/asphalt
-	base_area = /area/konyang_landing_zone
 
 /obj/effect/shuttle_landmark/konyang_landing_zone_spark
 	name = "SCC Expedition Command Center - Spark"
 	landmark_tag = "nav_konyang_landing_zone_spark"
-	base_turf = /turf/simulated/floor/asphalt
-	base_area = /area/konyang_landing_zone

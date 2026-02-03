@@ -37,6 +37,7 @@
 #define CanInteractWith(user, target, state) (target.CanUseTopic(user, state) == STATUS_INTERACTIVE)
 
 #define isopenturf(target) istype(target, /turf/simulated/open)
+#define isclosedturf(target) (istype(A, /turf/closed))
 #define isweakref(target) istype(target, /datum/weakref)
 #define isopenspace(A) istype(A, /turf/simulated/open)
 #define isatom(D) istype(D, /atom)

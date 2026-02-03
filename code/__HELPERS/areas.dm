@@ -16,9 +16,10 @@
 	A = istype(A) ? A : locate(A)
 	if(!A)
 		return
-	for(var/turf/T in A.contents)
-		if(!predicates || all_predicates_true(list(T), predicates))
-			. += T
+	for(var/list/zlevel_list as anything in A.get_zlevel_turf_lists())
+		for(var/turf/T as anything in zlevel_list)
+			if(!predicates || all_predicates_true(list(T), predicates))
+				. += T
 
 /proc/get_subarea_turfs(var/area/A, var/list/predicates)
 	. = new/list()
@@ -27,9 +28,10 @@
 		return
 	for(var/sub_area_type in typesof(A))
 		var/area/sub_area = locate(sub_area_type)
-		for(var/turf/T in sub_area.contents)
-			if(!predicates || all_predicates_true(list(T), predicates))
-				. += T
+		for(var/list/zlevel_list as anything in sub_area.get_zlevel_turf_lists())
+			for(var/turf/T as anything in zlevel_list)
+				if(!predicates || all_predicates_true(list(T), predicates))
+					. += T
 
 /proc/group_areas_by_name(var/list/predicates)
 	. = list()

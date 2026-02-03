@@ -75,7 +75,7 @@
 	icon = 'icons/turf/flooring/circuit.dmi'
 	icon_state = "bcircuit"
 
-/turf/unsimulated/mask/ChangeTurf(path, tell_universe = TRUE, force_lighting_update = FALSE, ignore_override = FALSE, mapload = FALSE)
+/turf/unsimulated/mask/ChangeTurf(path, list/new_baseturfs, flags, parent_datum)
 	if(!path)
 		return
 

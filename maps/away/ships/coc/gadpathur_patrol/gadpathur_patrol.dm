@@ -10,7 +10,7 @@
 	spawn_weight = 1
 	ship_cost = 1
 	id = "gadpathur_patroller"
-	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/gadpathur_shuttle)
+	shuttles_to_initialise = list(/datum/shuttle/overmap/gadpathur_shuttle)
 
 	unit_test_groups = list(1)
 
@@ -48,13 +48,13 @@
 		"Gadpathurian Corvette Shuttle" = list("nav_gadpathur_corvette_shuttle")
 	)
 
+	ship_area_type = /area/ship/gadpathur_patrol
+
 /obj/effect/overmap/visitable/ship/gadpathur_patrol/New()
 	designation = "[rand(100, 500)]"
 	..()
 
 /obj/effect/shuttle_landmark/gadpathur_patrol
-	base_turf = /turf/space/dynamic
-	base_area = /area/space
 
 /obj/effect/shuttle_landmark/gadpathur_patrol/nav1
 	name = "Gadpathurian Patrol Corvette - Fore"
@@ -93,6 +93,8 @@
 	fore_dir = SOUTH
 	vessel_size = SHIP_SIZE_TINY
 
+	ship_area_type = /area/shuttle/gadpathur_shuttle
+
 /obj/effect/overmap/visitable/ship/gadpathur_shuttle/New()
 	designation = "[rand(1000, 1500)]"
 	..()
@@ -107,12 +109,11 @@
 	icon_keyboard = null
 	circuit = null
 
-/datum/shuttle/autodock/overmap/gadpathur_shuttle
+/datum/shuttle/overmap/gadpathur_shuttle
 	name = "Gadpathurian Corvette Shuttle"
 	move_time = 20
 	shuttle_area = list(/area/shuttle/gadpathur_shuttle)
 	current_location = "nav_gadpathur_corvette_shuttle"
-	landmark_transition = "nav_transit_gadpathur_corvette"
 	dock_target = "gadpathur_shuttle"
 	range = 1
 	fuel_consumption = 2
@@ -123,14 +124,11 @@
 	name = "Gadpathurian Patrol Corvette - Shuttle Dock"
 	landmark_tag = "nav_gadpathur_corvette_shuttle"
 	docking_controller = "gadpathur_hangar_dock"
-	base_area = /area/ship/gadpathur_patrol/hangar
-	base_turf = /turf/simulated/floor/plating
 	movable_flags = MOVABLE_FLAG_EFFECTMOVE
 
 /obj/effect/shuttle_landmark/gadpathur_shuttle/transit
 	name = "In transit"
 	landmark_tag = "nav_transit_gadpathur_corvette"
-	base_turf = /turf/space/transit/north
 
 /obj/structure/closet/secure_closet/guncabinet/gadpathur
 	req_access = list(ACCESS_GADPATHUR_NAVY_OFFICER)

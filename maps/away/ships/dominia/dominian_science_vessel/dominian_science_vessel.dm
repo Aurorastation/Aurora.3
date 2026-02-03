@@ -9,7 +9,7 @@
 	spawn_weight = 1
 	ship_cost = 1
 	id = "dominian_science_vessel"
-	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/dominian_science_shuttle)
+	shuttles_to_initialise = list(/datum/shuttle/overmap/dominian_science_shuttle)
 
 	unit_test_groups = list(3)
 
@@ -52,6 +52,8 @@
 
 	invisible_until_ghostrole_spawn = TRUE
 
+	ship_area_type = /area/ship/dominian_science_vessel
+
 /obj/effect/overmap/visitable/ship/dominian_science_vessel/New()
 	designation = "[pick("Vanguard", "Voyager", "Explorer", "Owl", "Ocular")]"//td
 	..()
@@ -65,31 +67,22 @@
 /obj/effect/shuttle_landmark/dominian_science_vessel/nav1
 	name = "Dominian Science Vessel - Fore"
 	landmark_tag = "nav_dominian_science_vessel_1"
-	base_turf = /turf/space/dynamic
-	base_area = /area/space
 
 /obj/effect/shuttle_landmark/dominian_science_vessel/nav2
 	name = "Dominian Science Vessel - Aft"
 	landmark_tag = "nav_dominian_science_vessel_2"
-	base_turf = /turf/space/dynamic
-	base_area = /area/space
 
 /obj/effect/shuttle_landmark/dominian_science_vessel/nav3
 	name = "Dominian Science Vessel - Starboard"
 	landmark_tag = "nav_dominian_science_vessel_3"
-	base_turf = /turf/space/dynamic
-	base_area = /area/space
 
 /obj/effect/shuttle_landmark/dominian_science_vessel/nav4
 	name = "Dominian Science Vessel - Port"
 	landmark_tag = "nav_dominian_science_vessel_4"
-	base_turf = /turf/space/dynamic
-	base_area = /area/space
 
 /obj/effect/shuttle_landmark/dominian_science_vessel/shuttle_transit
 	name = "In transit"
 	landmark_tag = "nav_transit_dominian_science_shuttle"
-	base_turf = /turf/space/transit
 
 /obj/effect/shuttle_landmark/dominian_science_vessel/dock/port
 	name = "Dock, Port"
@@ -117,17 +110,18 @@
 	fore_dir = NORTH
 	vessel_size = SHIP_SIZE_TINY
 
+	ship_area_type = /area/shuttle/dominian_science_shuttle
+
 /obj/machinery/computer/shuttle_control/explore/dominian_science_shuttle
 	name = "shuttle control console"
 	shuttle_tag = "Dominian Science Shuttle"
 	req_access = list(ACCESS_HOUSE_VOLVALAAD_SHIP)
 
-/datum/shuttle/autodock/overmap/dominian_science_shuttle
+/datum/shuttle/overmap/dominian_science_shuttle
 	name = "Dominian Science Shuttle"
 	move_time = 20
 	shuttle_area = list(/area/shuttle/dominian_science_shuttle)
 	current_location = "nav_hangar_dominian_science_vessel"
-	landmark_transition = "nav_transit_dominian_science_shuttle"
 	dock_target = "airlock_dominian_science_shuttle"
 	range = 1
 	fuel_consumption = 2
@@ -138,11 +132,8 @@
 	name = "Dominian Shuttle Hangar"
 	landmark_tag = "nav_hangar_dominian_science_vessel"
 	docking_controller = "dominian_science_shuttle_dock"
-	base_area = /area/ship/dominian_science_vessel
-	base_turf = /turf/simulated/floor/plating
 	movable_flags = MOVABLE_FLAG_EFFECTMOVE
 
 /obj/effect/shuttle_landmark/dominian_science_shuttle/transit
 	name = "In transit"
 	landmark_tag = "nav_transit_dominian_science_shuttle"
-	base_turf = /turf/space/transit/north

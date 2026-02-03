@@ -79,7 +79,7 @@
 
 /area/holodeck/source_space
 	name = "Holodeck - Space"
-	has_gravity = 0
+	area_flags = AREA_FLAG_NO_GRAVITY
 	sound_environment = SOUND_AREA_SPACE
 
 /area/holodeck/source_battlemonsters

@@ -4,14 +4,10 @@
 /obj/effect/shuttle_landmark/horizon/hangar1
 	name = "First Deck Port Hangar Bay 1a"
 	landmark_tag = "nav_horizon_hangar_1"
-	base_turf = /turf/simulated/floor/plating
-	base_area = /area/horizon/hangar/auxiliary
 
 /obj/effect/shuttle_landmark/horizon/hangar2
 	name = "First Deck Port Hangar Bay 2a"
 	landmark_tag = "nav_horizon_hangar_2"
-	base_turf = /turf/simulated/floor/plating
-	base_area = /area/horizon/hangar/auxiliary
 
 // ================================ exterior docks
 
@@ -32,51 +28,37 @@
 	name = "Third Deck Starboard Dock 1"
 	landmark_tag = "nav_horizon_dock_deck_3_starboard_1"
 	docking_controller = "airlock_horizon_dock_deck_3_starboard_1"
-	base_turf = /turf/simulated/floor/reinforced/airless
-	base_area = /area/horizon/exterior
 
 /obj/effect/shuttle_landmark/horizon/dock/deck_3/starboard_2
 	name = "Third Deck Starboard Dock 2"
 	landmark_tag = "nav_horizon_dock_deck_3_starboard_2"
 	docking_controller = "airlock_horizon_dock_deck_3_starboard_2"
-	base_turf = /turf/simulated/floor/reinforced/airless
-	base_area = /area/horizon/exterior
 
 /obj/effect/shuttle_landmark/horizon/dock/deck_3/starboard_3
 	name = "Third Deck Starboard Dock 3"
 	landmark_tag = "nav_horizon_dock_deck_3_starboard_3"
 	docking_controller = "airlock_horizon_dock_deck_3_starboard_3"
-	base_turf = /turf/simulated/floor/reinforced/airless
-	base_area = /area/horizon/exterior
 
 /obj/effect/shuttle_landmark/horizon/dock/deck_3/port_1
 	name = "Third Deck Port Dock 1"
 	landmark_tag = "nav_horizon_dock_deck_3_port_2"
 	docking_controller = "airlock_horizon_dock_deck_3_port_2"
-	base_turf = /turf/simulated/floor/reinforced/airless
-	base_area = /area/horizon/exterior
 
 /obj/effect/shuttle_landmark/horizon/dock/deck_3/port_2
 	name = "Third Deck Port Dock 2"
 	landmark_tag = "nav_horizon_dock_deck_3_port_4"
 	docking_controller = "airlock_horizon_dock_deck_3_port_4"
-	base_turf = /turf/simulated/floor/reinforced/airless
-	base_area = /area/horizon/exterior
 
 /obj/effect/shuttle_landmark/horizon/dock/deck_3/port_3
 	name = "Third Deck Port Dock 3"
 	landmark_tag = "nav_horizon_dock_deck_3_port_5"
 	docking_controller = "airlock_horizon_dock_deck_3_port_5"
-	base_turf = /turf/simulated/floor/reinforced/airless
-	base_area = /area/horizon/exterior
 
 // ================================ exterior
 
 #define NAV_HORIZON_EXTERIOR_ALL_DECKS list(NAV_HORIZON_EXTERIOR_ALL_DECK_1, NAV_HORIZON_EXTERIOR_ALL_DECK_2, NAV_HORIZON_EXTERIOR_ALL_DECK_3)
 
 /obj/effect/shuttle_landmark/horizon/exterior
-	base_turf = /turf/space
-	base_area = /area/space
 
 // ================================ exterior deck 1
 

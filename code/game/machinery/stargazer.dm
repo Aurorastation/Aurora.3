@@ -11,11 +11,11 @@
 /obj/machinery/stargazer/feedback_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	if(!(stat & BROKEN) && !(stat & NOPOWER))
-		. += SPAN_NOTICE("\The [src] shows the current sector to be <a href='byond://?src=[REF(src)];examine=1'>[SSatlas.current_sector.name]</a>.")
+		. += SPAN_NOTICE("\The [src] shows the current sector to be <a href='byond://?src=[REF(src)];examine=1'>[SSmapping.current_sector.name]</a>.")
 
 /obj/machinery/stargazer/Initialize(mapload, d, populate_components)
 	. = ..()
-	star_system_image = image(icon, null, "stargazer_[SSatlas.current_sector.name]")
+	star_system_image = image(icon, null, "stargazer_[SSmapping.current_sector.name]")
 	star_system_image.plane = ABOVE_LIGHTING_PLANE
 	star_system_image.layer = SUPERMATTER_WALL_LAYER
 	power_change()
@@ -30,8 +30,8 @@
 		icon_state = "stargazer_on"
 		AddOverlays(star_system_image)
 		var/stargazer_light_color = LIGHT_COLOR_HALOGEN
-		if(SSatlas.current_sector.starlight_color)
-			stargazer_light_color = SSatlas.current_sector.starlight_color
+		if(SSmapping.current_sector.starlight_color)
+			stargazer_light_color = SSmapping.current_sector.starlight_color
 		set_light(6, 2, stargazer_light_color)
 	else
 		icon_state = "stargazer_off"
@@ -47,4 +47,4 @@
 		return TRUE
 
 	if(href_list["examine"])
-		to_chat(usr, SSatlas.current_sector.get_chat_description())
+		to_chat(usr, SSmapping.current_sector.get_chat_description())

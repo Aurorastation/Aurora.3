@@ -64,7 +64,7 @@
 	var/suffix = null
 
 	/// Template flags for this ruin
-	template_flags = TEMPLATE_FLAG_NO_RUINS
+	template_flags = 0
 
 	///Listed ruins are always spawned unless disallowed by flags
 	var/list/force_ruins
@@ -92,7 +92,7 @@
 	sectors.RemoveAll(sectors_blacklist)
 
 	// adjust weight from sector dependent override
-	var/datum/space_sector/current_sector = SSatlas.current_sector
+	var/datum/space_sector/current_sector = SSmapping.current_sector
 	if(current_sector && spawn_weight_sector_dependent)
 		for(var/sectors in spawn_weight_sector_dependent)
 			var/weight_in_sector = spawn_weight_sector_dependent[sectors]
@@ -106,4 +106,4 @@
 
 /// Returns `TRUE` if this ruin can spawn in current sector, otherwise `FALSE`.
 /datum/map_template/ruin/proc/spawns_in_current_sector()
-	return (SSatlas.current_sector.name in sectors)
+	return (SSmapping.current_sector.name in sectors)

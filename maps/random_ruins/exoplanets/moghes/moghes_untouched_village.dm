@@ -18,7 +18,6 @@
 	icon_state = "bluenew"
 	requires_power = FALSE
 	no_light_control = FALSE
-	base_turf = /turf/simulated/floor/exoplanet/grass/moghes/dirt
 	area_flags = AREA_FLAG_RAD_SHIELDED|AREA_FLAG_INDESTRUCTIBLE_TURFS
 	area_blurb = "A cozy Unathi village. Lights can be seen through the windows of the buildings here, and the smell of cooking fish drifts on the wind."
 

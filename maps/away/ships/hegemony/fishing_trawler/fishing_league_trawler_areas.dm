@@ -86,9 +86,8 @@
 /area/ship/fishing/trawler/fishing_catwalk
 	name = "Fishing Catwalk"
 	icon_state = "exterior"
-	base_turf = /turf/space
 	requires_power = FALSE
-	has_gravity = FALSE
+	area_flags = AREA_FLAG_NO_GRAVITY
 	no_light_control = TRUE
 	allow_nightmode = FALSE
 	ambience = AMBIENCE_SPACE

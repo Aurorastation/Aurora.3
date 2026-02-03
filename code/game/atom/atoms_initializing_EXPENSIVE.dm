@@ -63,7 +63,7 @@
 /atom/New(loc, ...)
 	// For the DMM Suite.
 	if(GLOB.use_preloader && (src.type == GLOB._preloader_path))//in case the instanciated atom is creating other atoms in New()
-		GLOB._preloader.load(src)
+		world.preloader_load(src)
 
 	//. = ..() //uncomment if you are dumb enough to add a /datum/New() proc
 
@@ -164,6 +164,5 @@
  */
 /atom/proc/LateInitialize()
 	set waitfor = FALSE
-
-	//You can override this in your inheritance if you *really* need to, but probably shouldn't
-	SHOULD_NOT_SLEEP(TRUE)
+	SHOULD_CALL_PARENT(FALSE)
+	stack_trace("[src] ([type]) called LateInitialize but has nothing on it!")

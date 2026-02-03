@@ -104,3 +104,6 @@
 
 	/// If true, ignores weather effects
 	var/resists_weather = FALSE
+
+	/// What our current gravity state is. Used to avoid duplicate animates and such
+	var/gravity_state = null

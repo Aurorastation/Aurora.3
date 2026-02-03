@@ -10,7 +10,7 @@
 	spawn_weight = 0 //Disabled until remapped due to outdated mapping.
 	ship_cost = 1
 	id = "adhomian_circus_ship"
-	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/adhomian_circus_shuttle)
+	shuttles_to_initialise = list(/datum/shuttle/overmap/adhomian_circus_shuttle)
 
 	unit_test_groups = list(3)
 
@@ -53,6 +53,8 @@
 
 	invisible_until_ghostrole_spawn = TRUE
 
+	ship_area_type = /area/adhomian_circus
+
 /obj/effect/overmap/visitable/ship/adhomian_circus/New()
 	designation = "[pick("Kalmykova", "Flying Rafama", "Harazhimir Brothers")]"
 	..()
@@ -60,7 +62,6 @@
 /obj/effect/shuttle_landmark/adhomian_circus/transit
 	name = "In transit"
 	landmark_tag = "nav_transit_adhomian_circus"
-	base_turf = /turf/space/transit/north
 
 /obj/effect/shuttle_landmark/adhomian_circus/nav1
 	name = "Adhomian Traveling Circus Fore Navpoint #1"
@@ -94,17 +95,18 @@
 	fore_dir = NORTH
 	vessel_size = SHIP_SIZE_TINY
 
+	ship_area_type = /area/shuttle/adhomian_circus_shuttle
+
 /obj/machinery/computer/shuttle_control/explore/adhomian_circus_shuttle
 	name = "shuttle control console"
 	shuttle_tag = "Adhomian Circus Shuttle"
 
-/datum/shuttle/autodock/overmap/adhomian_circus_shuttle
+/datum/shuttle/overmap/adhomian_circus_shuttle
 	name = "Adhomian Circus Shuttle"
 	move_time = 20
 	shuttle_area = list(/area/shuttle/adhomian_circus_shuttle)
 	dock_target = "adhomian_circus_shuttle"
 	current_location = "nav_hangar_adhomian_circus_shuttle"
-	landmark_transition = "nav_transit_adhomian_circus_shuttle"
 	range = 1
 	fuel_consumption = 2
 	logging_home_tag = "nav_hangar_adhomian_circus_shuttle"

@@ -22,13 +22,10 @@
 	var/capacity = 10
 	drop_sound = 'sound/misc/slip.ogg'
 
-/obj/item/soap/New()
-	..()
-	create_reagents(capacity)
-	wet()
-
 /obj/item/soap/Initialize()
 	. = ..()
+	create_reagents(capacity)
+	wet()
 
 	var/static/list/loc_connections = list(
 		COMSIG_ATOM_ENTERED = PROC_REF(on_entered),

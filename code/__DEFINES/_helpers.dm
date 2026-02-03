@@ -26,3 +26,6 @@
 
 /// Takes a datum as input, returns its ref string
 #define text_ref(datum) ref(datum)
+
+///Checks for specific types in specifically structured (Assoc "type" = TRUE|FALSE) lists ('typecaches')
+#define is_type_in_typecache(A, L) (A && length(L) && L[(ispath(A) ? A : A:type)])

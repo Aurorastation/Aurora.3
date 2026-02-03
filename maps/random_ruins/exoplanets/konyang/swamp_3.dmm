@@ -466,7 +466,7 @@
 /area/exoplanet/grass/konyang)
 "wQ" = (
 /turf/template_noop,
-/area/space)
+/area/template_noop)
 "xg" = (
 /obj/structure/flora/rock/konyang/small,
 /obj/structure/flora/ausbushes/sparsegrass,

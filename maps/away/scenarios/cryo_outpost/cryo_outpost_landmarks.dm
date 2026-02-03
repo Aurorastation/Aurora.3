@@ -2,16 +2,13 @@
 // --------------------- base type
 
 /obj/effect/shuttle_landmark/cryo_outpost
-	base_area = /area/cryo_outpost/outside/landing
-	base_turf = /turf/simulated/floor/exoplanet/barren
 
 // --------------------- shuttle
 
 // /obj/effect/shuttle_landmark/cryo_outpost/transit
 // 	name = "In transit"
 // 	landmark_tag = "nav_cryo_outpost_shuttle_transit"
-// 	base_turf = /turf/space/transit/north
-// 	base_area = /area/space
+// // 	base_area = /area/space
 
 // --------------------- surface, close
 

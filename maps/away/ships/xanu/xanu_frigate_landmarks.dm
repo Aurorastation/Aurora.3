@@ -1,7 +1,5 @@
 
 /obj/effect/shuttle_landmark/xanu_frigate
-	base_area = /area/space
-	base_turf = /turf/space
 
 //Fore
 
@@ -38,8 +36,6 @@
 	name = "Strike Craft Hangar Bay"
 	landmark_tag = "xanufrigate_hangar"
 	docking_controller = "xanufrigate_hangar"
-	base_turf = /turf/simulated/floor/plating
-	base_area = /area/ship/xanu_frigate/hangar
 
 /obj/effect/shuttle_landmark/xanu_frigate/aft
 	name = "Aft Dock"
@@ -83,9 +79,7 @@
 /obj/effect/shuttle_landmark/xanu_frigate/transit_a
 	name = "In Transit"
 	landmark_tag = "xanufrigate_transit_a"
-	base_turf = /turf/space/transit/east
 
 /obj/effect/shuttle_landmark/xanu_frigate/transit_b
 	name = "In Transit"
 	landmark_tag = "xanufrigate_transit_b"
-	base_turf = /turf/space/transit

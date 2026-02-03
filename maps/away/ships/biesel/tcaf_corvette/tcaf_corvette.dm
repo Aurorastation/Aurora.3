@@ -16,7 +16,7 @@
 	spawn_weight = 1
 	ship_cost = 1
 	id = "tcaf_corvette"
-	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/tcaf_shuttle, /datum/shuttle/autodock/multi/lift/tcaf)
+	shuttles_to_initialise = list(/datum/shuttle/overmap/tcaf_shuttle, /datum/shuttle/multi/lift/tcaf)
 	ban_ruins = list(/datum/map_template/ruin/away_site/tcfl_peacekeeper_ship) // This might not work, I haven't tested it.
 
 	unit_test_groups = list(3)
@@ -61,6 +61,8 @@
 
 	invisible_until_ghostrole_spawn = TRUE
 
+	ship_area_type = /area/tcaf_corvette
+
 /obj/effect/overmap/visitable/ship/tcaf_corvette/New()
 	designation = "[pick("Shining Liberty", "Zoleth's Lance", "Live Free or Die", "Watchman", "Velazco", "Valkyrian Dream", "Astraeus", "Caxamalca", "Vezdukh", "Independence", "Light of Liberty", "Bright Tomorrow", "Chandras", "Retribution", "Myrmidon", "Wide Flock", "Old Neopolymus", "Captivity and Freedom", "Home at Last")]"
 	..()
@@ -89,6 +91,8 @@
 	fore_dir = SOUTH
 	vessel_size = SHIP_SIZE_TINY
 
+	ship_area_type = /area/shuttle/tcaf
+
 /obj/effect/overmap/visitable/ship/landable/tcaf_shuttle/New()
 	designation = "[pick("Firestorm", "Romanovich", "Hawk of Caprice", "Reade of the Heavens", "Dumas", "As'dak'ii", "Three Served", "Frostfire", "Burning Blue", "2458 Never Again", "Dark Night", "Long Days")]"
 	..()
@@ -98,12 +102,11 @@
 	shuttle_tag = "TCAF Gunship"
 	req_access = list(ACCESS_TCAF_SHIPS)
 
-/datum/shuttle/autodock/overmap/tcaf_shuttle
+/datum/shuttle/overmap/tcaf_shuttle
 	name = "TCAF Gunship"
 	move_time = 20
 	shuttle_area = list(/area/shuttle/tcaf)
 	current_location = "nav_hangar_tcaf"
-	landmark_transition = "nav_transit_tcaf_shuttle"
 	dock_target = "airlock_tcaf_shuttle"
 	range = 1
 	fuel_consumption = 2
@@ -114,14 +117,11 @@
 	name = "Gunship Hangar"
 	landmark_tag = "nav_hangar_tcaf"
 	docking_controller = "tcaf_shuttle_dock"
-	base_area = /area/tcaf_corvette/hangar
-	base_turf = /turf/simulated/floor/plating
 	movable_flags = MOVABLE_FLAG_EFFECTMOVE
 
 /obj/effect/shuttle_landmark/tcaf_shuttle/transit
 	name = "In transit"
 	landmark_tag = "nav_transit_tcaf_shuttle"
-	base_turf = /turf/space/transit/north
 
 /// So people know how to use the engine. There's also a pre-wired spare PACMAN.
 /obj/item/paper/fluff/tcaf_corvette_engine_guide

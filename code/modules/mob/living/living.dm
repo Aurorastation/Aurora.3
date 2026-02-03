@@ -440,13 +440,46 @@ default behaviour is:
 /mob/living/proc/restore_all_organs()
 	return
 
-/mob/living/update_gravity(has_gravity)
-	if(!ROUND_IS_STARTED)
+/mob/living/Moved(atom/old_loc, movement_dir, forced, list/old_locs)
+	. = ..()
+	var/turf/old_turf = get_turf(old_loc)
+	var/turf/new_turf = get_turf(src)
+	// If we're moving to/from nullspace, refresh
+	// Easier then adding nullchecks to all this shit, and technically right since a null turf means nograv
+	if(isnull(old_turf) || isnull(new_turf))
+		if(!QDELING(src))
+			refresh_gravity()
 		return
-	if(has_gravity)
-		stop_floating()
-	else
-		start_floating()
+	// If the turf gravity has changed, then it's possible that our state has changed, so update
+	if(((old_turf.turf_flags & TURF_FLAG_NO_GRAVITY) != (new_turf.turf_flags & TURF_FLAG_NO_GRAVITY)))
+		refresh_gravity()
+
+	// Going to do area gravity checking here
+	var/area/old_area = old_turf.loc
+	var/area/new_area = new_turf.loc
+	// If the area gravity has changed, then it's possible that our state has changed, so update
+	if(old_area.default_gravity != new_area.default_gravity)
+		refresh_gravity()
+
+/mob/living/on_changed_z_level(turf/old_turf, turf/new_turf, same_z_layer, notify_contents)
+	. = ..()
+
+	if(!old_turf || !new_turf || SSmapping.gravity_by_z_level[old_turf.z] != SSmapping.gravity_by_z_level[new_turf.z])
+		refresh_gravity()
+
+/// Living Mob use event based gravity
+/// We check here to ensure we haven't dropped any gravity changes
+/mob/living/proc/gravity_setup()
+	refresh_gravity()
+
+/// Handles gravity effects. Call if something about our gravity has potentially changed!
+/mob/living/proc/refresh_gravity()
+	var/old_grav_state = gravity_state
+	gravity_state = has_gravity()
+	if(gravity_state == old_grav_state)
+		return
+
+	update_gravity(gravity_state)
 
 /mob/living/proc/revive(reset_to_roundstart = TRUE)	// this param is only used in human regen.
 	// Stop killing yourself. Please.

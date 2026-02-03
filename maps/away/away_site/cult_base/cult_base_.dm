@@ -10,7 +10,7 @@
 	spawn_cost = 1
 	spawn_weight = 1
 	sectors = list(ALL_POSSIBLE_SECTORS)
-	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/cult_base_shuttle)
+	shuttles_to_initialise = list(/datum/shuttle/overmap/cult_base_shuttle)
 	unit_test_groups = list(3)
 
 /singleton/submap_archetype/cult_base
@@ -79,6 +79,8 @@
 	sizeclass = "Pioneer Exploration Shuttle"
 	shiptype = "Field expeditions and private research uses"
 
+	ship_area_type = /area/shuttle/cult_base
+
 /obj/effect/overmap/visitable/ship/landable/cult_base_shuttle/New()
 	designation = pick(
 		"Battle Against Evil", "Winds Over Aoyama", "Doll's Polyphony", "Shohmyoh",
@@ -90,13 +92,12 @@
 	name = "shuttle control console"
 	shuttle_tag = "Cult Base Shuttle"
 
-/datum/shuttle/autodock/overmap/cult_base_shuttle
+/datum/shuttle/overmap/cult_base_shuttle
 	name = "Cult Base Shuttle"
 	move_time = 20
 	shuttle_area = list(/area/shuttle/cult_base/crew, /area/shuttle/cult_base/cargo, /area/shuttle/cult_base/propulsion)
 	dock_target = "airlock_cult_base_shuttle"
 	current_location = "nav_cult_base_dock_hangar"
-	landmark_transition = "nav_cult_base_shuttle_transit"
 	range = 1
 	fuel_consumption = 2
 	logging_home_tag = "nav_cult_base_dock_hangar"

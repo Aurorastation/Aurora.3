@@ -2,8 +2,6 @@
 // --------------------- base type
 
 /obj/effect/shuttle_landmark/abandoned_industrial_station
-	base_area = /area/space
-	base_turf = /turf/space
 
 // --------------------- docks
 

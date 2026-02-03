@@ -42,9 +42,7 @@
 	icon_state = "red"
 	requires_power = TRUE
 	no_light_control = FALSE
-	base_turf = /turf/space
 	area_flags = AREA_FLAG_RAD_SHIELDED
-	has_gravity = FALSE
 
 /area/hivebothub/portdocks
 	name = "Independent Supply Hub - Port Docks"
@@ -85,11 +83,10 @@
 /area/hivebothub/exterior
 	name = "Independent Supply Hub - Exterior"
 	icon_state = "exterior"
+	area_flags = AREA_FLAG_NO_GRAVITY | AREA_FLAG_SHIP_EXTERIOR
 
 // Docks
 /obj/effect/shuttle_landmark/hivebot_hub
-	base_turf = /turf/space
-	base_area = /area/space
 
 /obj/effect/shuttle_landmark/hivebot_hub/nav1
 	name = "Independent Supply Hub - Port Dock #1"

@@ -179,7 +179,7 @@
 		bullet.throw_at_random(FALSE, 2, 7)
 		remove_ammo(bullet)
 
-/obj/item/ammo_pile/throw_at()
+/obj/item/ammo_pile/throw_at(atom/target, range, speed, mob/thrower, spin = TRUE, diagonals_first = FALSE, datum/callback/callback, force = MOVE_FORCE_STRONG, gentle = FALSE, quickstart = TRUE)
 	..()
 	scatter()
 

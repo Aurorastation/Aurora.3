@@ -27,7 +27,7 @@
 
 /obj/item/spell/proc/allowed_to_teleport()
 	if(owner)
-		if(owner.z in SSatlas.current_map.admin_levels)
+		if(owner.z in SSmapping.current_map.admin_levels)
 			return FALSE
 	return TRUE
 

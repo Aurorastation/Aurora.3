@@ -47,7 +47,7 @@ GLOBAL_LIST_INIT_TYPED(all_cargo_receptacles, /obj/structure/cargo_receptacle, l
 	var/turf/current_turf = get_turf(loc)
 	var/obj/effect/overmap/visitable/my_sector = GLOB.map_sectors["[current_turf.z]"]
 
-	if(SSatlas.current_map.use_overmap)
+	if(SSmapping.current_map.use_overmap)
 		if(my_sector)
 			delivery_sector = WEAKREF(my_sector)
 		else
@@ -72,9 +72,9 @@ GLOBAL_LIST_INIT_TYPED(all_cargo_receptacles, /obj/structure/cargo_receptacle, l
 	var/list/warehouse_turfs = list()
 	var/list/area_types
 	if(late_spawner)
-		area_types = typesof(SSatlas.current_map.warehouse_packagearea)
+		area_types = typesof(SSmapping.current_map.warehouse_packagearea)
 	else
-		area_types = typesof(SSatlas.current_map.warehouse_basearea)
+		area_types = typesof(SSmapping.current_map.warehouse_basearea)
 	for(var/area_path in area_types)
 		var/area/warehouse = locate(area_path)
 		if(warehouse)

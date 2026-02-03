@@ -180,8 +180,8 @@ GLOBAL_VAR_INIT(running_create_and_destroy, FALSE)
 
 	var/list/cached_contents = spawn_at.contents.Copy()
 	var/original_turf_type = spawn_at.type
-	var/original_baseturf = islist(spawn_at.baseturf) ? spawn_at.baseturf:Copy() : spawn_at.baseturf
-	var/original_baseturf_count = length(original_baseturf)
+	var/original_baseturfs = islist(spawn_at.baseturfs) ? spawn_at.baseturfs.Copy() : spawn_at.baseturfs
+	var/original_baseturf_count = length(original_baseturfs)
 
 	GLOB.running_create_and_destroy = TRUE
 	for(var/type_path in typesof(/atom/movable, /turf) - ignore) //No areas please
@@ -196,11 +196,11 @@ GLOBAL_VAR_INIT(running_create_and_destroy, FALSE)
 			spawn_at.ChangeTurf(type_path)
 			//We change it back to prevent baseturfs stacking and hitting the limit
 			spawn_at.ChangeTurf(original_turf_type)
-			if(original_baseturf_count != length(spawn_at.baseturf))
-				TEST_FAIL("[type_path] changed the amount of baseturfs from [original_baseturf_count] to [length(spawn_at.baseturf)]; [english_list(original_baseturf)] to [islist(spawn_at.baseturf) ? english_list(spawn_at.baseturf) : spawn_at.baseturf]")
+			if(original_baseturf_count != length(spawn_at.baseturfs))
+				TEST_FAIL("[type_path] changed the amount of baseturfs from [original_baseturf_count] to [length(spawn_at.baseturfs)]; [english_list(original_baseturfs)] to [islist(spawn_at.baseturfs) ? english_list(spawn_at.baseturfs) : spawn_at.baseturfs]")
 				//Warn if it changes again
-				original_baseturf = islist(spawn_at.baseturf) ? spawn_at.baseturf:Copy() : spawn_at.baseturf
-				original_baseturf_count = length(original_baseturf)
+				original_baseturfs = islist(spawn_at.baseturfs) ? spawn_at.baseturfs.Copy() : spawn_at.baseturfs
+				original_baseturf_count = length(original_baseturfs)
 		else
 			var/atom/creation = new type_path(spawn_at)
 			if(QDELETED(creation))

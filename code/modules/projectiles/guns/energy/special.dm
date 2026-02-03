@@ -491,7 +491,7 @@
 
 /obj/item/gun/energy/gravity_gun
 	name = "gravity gun"
-	desc = "This nifty gun disables the gravity in the area you shoot at. Use with caution."
+	desc = "An experimental device that fires a projectile capable of causing local gravitational distortions. Use with extreme caution."
 	icon = 'icons/obj/guns/gravity_gun.dmi'
 	icon_state = "gravity_gun"
 	item_state = "gravity_gun"
@@ -500,7 +500,7 @@
 	w_class = WEIGHT_CLASS_BULKY
 	fire_sound = 'sound/magic/Repulse.ogg'
 	force = 33
-	projectile_type = /obj/projectile/energy/gravitydisabler
+	projectile_type = /obj/projectile/energy/gravity_blast
 	slot_flags = SLOT_BACK
 	max_shots = 2
 	sel_mode = 1

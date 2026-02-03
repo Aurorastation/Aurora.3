@@ -39,13 +39,13 @@
 	)
 	fore_dir = SOUTH
 
+	ship_area_type = /area/konyang_wreck
+
 /obj/effect/overmap/visitable/ship/konyang_wreck/New()
 	. = ..()
 	designation = "[pick("Hauler", "Special Delivery", "50% Off Shipping", "Courier", "Telegram")]"
 
 /obj/effect/shuttle_landmark/konyang_wreck
-	base_turf = /turf/space/dynamic
-	base_area = /area/space
 
 /obj/effect/shuttle_landmark/konyang_wreck/nav1
 	name = "Orion Express Cargo Vessel - Fore"

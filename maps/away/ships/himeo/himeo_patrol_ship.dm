@@ -14,7 +14,7 @@
 	spawn_weight = 1
 	ship_cost = 1
 	id = "Himean Planetary Guard Vessel"
-	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/himeo_patrol_shuttle, /datum/shuttle/autodock/multi/lift/himeo_patrol_ship)
+	shuttles_to_initialise = list(/datum/shuttle/overmap/himeo_patrol_shuttle, /datum/shuttle/multi/lift/himeo_patrol_ship)
 	unit_test_groups = list(1)
 
 /singleton/submap_archetype/himeo_patrol_ship
@@ -52,6 +52,8 @@
 	)
 	invisible_until_ghostrole_spawn = TRUE
 
+	ship_area_type = /area/himeo_patrol_ship
+
 /obj/effect/overmap/visitable/ship/himeo_patrol_ship/New()
 	designation = "[pick("Ilmarinen", "Vetehinen", "Vesikko", "Saukko", "Jaakarhu", "Sampo", "Lieska", "Riilahti", "Griffwn", "Llew Du", "Rhyfelog", "Hydd Gwyn", "Roisin", "Niamh", "Aoibhinn", "Gobnait" )]"
 	..()
@@ -76,17 +78,18 @@
 	sizeclass = "Hiirihaukka-class Fighter Shuttle"
 	shiptype = "Troop transport and anti-ship combat operations"
 
+	ship_area_type = /area/shuttle/himeo_patrol
+
 /obj/machinery/computer/shuttle_control/explore/terminal/himeo_patrol_shuttle
 	name = "shuttle control terminal"
 	shuttle_tag = "Himean Patrol Shuttle"
 
-/datum/shuttle/autodock/overmap/himeo_patrol_shuttle
+/datum/shuttle/overmap/himeo_patrol_shuttle
 	name = "Himean Patrol Shuttle"
 	move_time = 20
 	shuttle_area = list(/area/shuttle/himeo_patrol, /area/shuttle/himeo_patrol/central)
 	dock_target = "airlock_himeo_patrol_shuttle"
 	current_location = "himeo_patrol_nav_dock"
-	landmark_transition = "himeo_patrol_nav_transit"
 	dock_target = "airlock_himeo_patrol_shuttle"
 	range = 1
 	fuel_consumption = 2
@@ -108,17 +111,14 @@
 	name = "Himean Patrol Ship - Kotka Dock"
 	landmark_tag = "himeo_patrol_nav_dock"
 	docking_controller = "himean_patrol_dock"
-	base_turf = /turf/space
-	base_area = /area/space
 	movable_flags = MOVABLE_FLAG_EFFECTMOVE
 
 /obj/effect/shuttle_landmark/himeo_patrol_shuttle/transit
 	name = "In transit"
 	landmark_tag = "himeo_patrol_nav_transit"
-	base_turf = /turf/space/transit/north
 
 // Lift
-/datum/shuttle/autodock/multi/lift/himeo_patrol_ship
+/datum/shuttle/multi/lift/himeo_patrol_ship
 	name = "Himean Patrol Ship Lift"
 	current_location = "nav_himeo_patrol_ship_lift_first_deck"
 	shuttle_area = /area/turbolift/himeo_patrol/himeo_patrol_lift
@@ -130,14 +130,10 @@
 /obj/effect/shuttle_landmark/lift/nav_himeo_patrol_ship_lift_first_deck
 	name = "Himean Patrol Ship Lift - First Deck"
 	landmark_tag = "nav_himeo_patrol_ship_lift_first_deck"
-	base_area = /area/himeo_patrol_ship
-	base_turf = /turf/simulated/floor/plating
 
 /obj/effect/shuttle_landmark/lift/nav_himeo_patrol_ship_lift_second_deck
 	name = "Himean Patrol Ship Lift - Second Deck"
 	landmark_tag = "nav_himeo_patrol_ship_lift_second_deck"
-	base_area = /area/himeo_patrol_ship/deck_2_interstitial
-	base_turf = /turf/simulated/open
 
 /obj/machinery/computer/shuttle_control/multi/lift/himeo_patrol_ship
 	shuttle_tag = "Himean Patrol Ship Lift"

@@ -100,7 +100,7 @@
 
 /obj/machinery/telecomms/LateInitialize()
 	. = ..()
-	if(SSatlas.current_map.use_overmap && !linked)
+	if(SSmapping.current_map.use_overmap && !linked)
 		var/my_sector = GLOB.map_sectors["[z]"]
 		if (istype(my_sector, /obj/effect/overmap/visitable))
 			attempt_hook_up(my_sector)
@@ -132,7 +132,7 @@
 		return
 
 	. = GetConnectedZlevels(z)
-	if(SSatlas.current_map.use_overmap && linked)
+	if(SSmapping.current_map.use_overmap && linked)
 		for(var/obj/effect/overmap/visitable/V in range(overmap_range, linked))
 			. |= V.map_z
 
@@ -304,7 +304,7 @@
  * Returns distance, not a boolean value, so don't do !get_reception or so help me god
  */
 /obj/machinery/telecomms/proc/get_signal_dist(datum/signal/subspace/signal)
-	if(!SSatlas.current_map.use_overmap || !istype(linked) || !istype(signal.sector))
+	if(!SSmapping.current_map.use_overmap || !istype(linked) || !istype(signal.sector))
 		if(z == signal.origin_level || (signal.origin_level in GetConnectedZlevels(z)))
 			return 1
 		else

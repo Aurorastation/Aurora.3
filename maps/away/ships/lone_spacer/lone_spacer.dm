@@ -8,7 +8,7 @@
 
 	spawn_weight = 1
 	ship_cost = 1
-	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/lone_spacer)
+	shuttles_to_initialise = list(/datum/shuttle/overmap/lone_spacer)
 	sectors = list(ALL_POSSIBLE_SECTORS)
 
 	unit_test_groups = list(1)
@@ -40,6 +40,8 @@
 	sizeclass = "Minnow-class Hauler"
 	shiptype = "Eclectic short-distance shipping utilities"
 
+	ship_area_type = /area/shuttle/lone_spacer
+
 /obj/effect/overmap/visitable/ship/landable/lone_spacer/New()
 	designation = "[pick("Roach", "Moonskipper", "Thunder", "Firefly", "Starfarer", "Workhorse", "Light-in-the-Dark", "Gift Horse", "Rain", "Mirth", "Ever-Lucky", "Tin-and-Copper", "Bright Burning", "Bird-of-the-Heavens", "Ruby", "Old Story", "Fardancer", "Albedo", "Lightchaser", "Sooner-than-Later", "Sunlight", "Pearl-of-the-Morning", "Endless", "Finity", "Calm Drift", "Mercury's Hand")]"
 	..()
@@ -50,7 +52,7 @@
 	shuttle_tag = "Independent Skiff"
 
 // This controls how docking behaves
-/datum/shuttle/autodock/overmap/lone_spacer
+/datum/shuttle/overmap/lone_spacer
 	name = "Independent Skiff"
 	move_time = 20
 	range = 2
@@ -58,7 +60,6 @@
 	shuttle_area = list(/area/shuttle/lone_spacer/bridge, /area/shuttle/lone_spacer/bridge_foyer, /area/shuttle/lone_spacer/fore_hall, /area/shuttle/lone_spacer/washroom, /area/shuttle/lone_spacer/storage, /area/shuttle/lone_spacer/port_storage, /area/shuttle/lone_spacer/port_nacelle, /area/shuttle/lone_spacer/starboard_storage, /area/shuttle/lone_spacer/starboard_nacelle)
 	current_location = "nav_lone_spacer_space"
 	dock_target = "lone_spacer"
-	landmark_transition = "nav_lone_spacer_transit"
 	logging_home_tag = "nav_lone_spacer_space"
 	defer_initialisation = TRUE
 
@@ -71,7 +72,6 @@
 /obj/effect/shuttle_landmark/lone_spacer_transit
 	name = "In transit"
 	landmark_tag = "nav_lone_spacer_transit"
-	base_turf = /turf/space
 
 // Custom stuff
 /obj/machinery/light/colored/decayed/lone_spacer_dimmed

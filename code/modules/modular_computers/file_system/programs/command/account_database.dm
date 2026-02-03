@@ -18,7 +18,7 @@
 
 /datum/computer_file/program/account_db/New(obj/item/modular_computer/comp)
 	..()
-	if(SSatlas.current_map)
+	if(SSmapping.current_map)
 		machine_id = "[station_name()] Acc. DB #[SSeconomy.num_financial_terminals++]"
 	else
 		machine_id = "NT-Net Relay Back-up Software DB" // created during map generation inside the ntnet relay, not used by players

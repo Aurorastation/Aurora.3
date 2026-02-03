@@ -17,12 +17,12 @@
 /datum/bounty/New()
 	if(reward_low > 0 && reward_high > reward_low)
 		reward = round(rand(reward_low, reward_high), 10)
-	description = replacetext(description, "%DOCKNAME", SSatlas.current_map.dock_name)
-	description = replacetext(description, "%DOCKSHORT", SSatlas.current_map.dock_short)
-	description = replacetext(description, "%BOSSNAME", SSatlas.current_map.boss_name)
-	description = replacetext(description, "%BOSSSHORT", SSatlas.current_map.boss_short)
-	description = replacetext(description, "%COMPNAME", SSatlas.current_map.company_name)
-	description = replacetext(description, "%COMPSHORT", SSatlas.current_map.company_short)
+	description = replacetext(description, "%DOCKNAME", SSmapping.current_map.dock_name)
+	description = replacetext(description, "%DOCKSHORT", SSmapping.current_map.dock_short)
+	description = replacetext(description, "%BOSSNAME", SSmapping.current_map.boss_name)
+	description = replacetext(description, "%BOSSSHORT", SSmapping.current_map.boss_short)
+	description = replacetext(description, "%COMPNAME", SSmapping.current_map.company_name)
+	description = replacetext(description, "%COMPSHORT", SSmapping.current_map.company_short)
 	description = replacetext(description, "%PERSONNAME","[pick("Trooper", "Commander", "Agent", "Director", "Doctor")] [pick(GLOB.last_names)]")
 
 // Displayed on bounty UI screen.
@@ -88,7 +88,7 @@
 // It handles items shipped for bounties.
 /datum/controller/subsystem/cargo/proc/bounty_ship_item_and_contents(atom/movable/AM, dry_run=FALSE)
 	var/list/matched_one = FALSE
-	var/list/contents = AM.GetAllContents()
+	var/list/contents = AM.get_all_contents()
 	for(var/thing in reverseRange(contents))
 		var/matched_this = FALSE
 		for(var/datum/bounty/B in bounties_list)

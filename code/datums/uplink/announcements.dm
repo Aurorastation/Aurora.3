@@ -11,10 +11,10 @@
 
 /datum/uplink_item/abstract/announcements/fake_centcom/New()
 	..()
-	name = "[SSatlas.current_map.boss_name] Update Announcement"
+	name = "[SSmapping.current_map.boss_name] Update Announcement"
 	telecrystal_cost = 5
 	bluecrystal_cost = 5
-	desc = "Causes a falsified [SSatlas.current_map.boss_name] Update. Triggers immediately after supplying additional data."
+	desc = "Causes a falsified [SSmapping.current_map.boss_name] Update. Triggers immediately after supplying additional data."
 
 /datum/uplink_item/abstract/announcements/fake_centcom/extra_args(var/mob/user)
 	var/title = tgui_input_text(user, "Enter your announcement title.", "Announcement Title", encode = FALSE)
@@ -90,7 +90,7 @@
 /datum/uplink_item/abstract/announcements/fake_ion_storm/New()
 	..()
 	name = "Ion Storm Announcement"
-	desc = "Interferes with the [SSatlas.current_map.station_short]'s ion sensors. Triggers immediately upon investment."
+	desc = "Interferes with the [SSmapping.current_map.station_short]'s ion sensors. Triggers immediately upon investment."
 	telecrystal_cost = 2
 	var/static/cooldown = FALSE
 
@@ -113,7 +113,7 @@
 /datum/uplink_item/abstract/announcements/fake_radiation/New()
 	..()
 	name = "Radiation Storm Announcement"
-	desc = "Interferes with the [SSatlas.current_map.station_short]'s radiation sensors. Triggers immediately upon investment."
+	desc = "Interferes with the [SSmapping.current_map.station_short]'s radiation sensors. Triggers immediately upon investment."
 	telecrystal_cost = 3
 	var/static/cooldown = 0
 

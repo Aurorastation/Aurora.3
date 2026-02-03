@@ -19,7 +19,7 @@
 	/// How 'zoomed in' we are to the noise map, with higher numbers generating smoother transitions and lower variability. 65 results in a relatively smooth noise map.
 	var/perlin_zoom = 65
 
-	/* Assoc list of possible /singleton/biomes, denoted by heat level and humidity
+	/* Assoc list of possible [/singleton/biome]s, denoted by heat level and humidity
 	 * possible_biomes => biome heat level: list(biome humidity => singleton/biome)
 	 */
 	var/list/possible_biomes
@@ -250,12 +250,12 @@
 		if(!ispath(turf_type_to_gen, /turf))
 			turf_type_to_gen = selected_biome.turf_type
 
-		gen_turf.ChangeTurf(turf_type_to_gen, mapload = TRUE)
+		gen_turf.ChangeTurf(turf_type_to_gen, flags = CHANGETURF_IGNORE_NEIGHBORS)
 		if(istype(selected_biome, mountain_biome))
 			for(var/ore in ore_seeds)
 				if(text2num(ore_seeds[ore][coord_to_str]))
 					var/turf/simulated/mineral/M = gen_turf
-					M.change_mineral(ore, TRUE)
+					M.mineral = GLOB.ore_data[ore]
 					ore_counts[ore]++
 					break
 
@@ -353,11 +353,11 @@
 		if(away_site.exoplanet_lightlevel && T.is_outside())
 			T.set_light(MINIMUM_USEFUL_LIGHT_RANGE, away_site.exoplanet_lightlevel, away_site.exoplanet_lightcolor)
 
-	var/turf/simulated/mineral/M = T
-	if(use_area && istype(M))
-		M.mined_turf = use_area.base_turf
-
 /datum/exoplanet_theme/proc/cleanup(obj/effect/overmap/visitable/sector/exoplanet/E, z_to_check, min_x, min_y, max_x, max_y)
+	if(E.planetary_area)
+		var/area/global_area = GLOB.areas_by_type[world.area]
+		global_area.canonize_contained_turfs_by_zlevel(z_to_check)
+		E.planetary_area.canonize_contained_turfs_by_zlevel(z_to_check)
 	if(!LAZYLEN(ore_counts) || !LAZYLEN(wall_ore_levels))
 		return
 
@@ -382,7 +382,6 @@
 		for(var/ore in ore_seeds)
 			if(text2num(ore_seeds[ore][coord_to_str]))
 				M.mineral = GLOB.ore_data[ore]
-				M.UpdateMineral() // It's already a mineral turf, so we can avoid changeturf here
 
 /datum/exoplanet_theme/proc/get_planet_image_extra()
 

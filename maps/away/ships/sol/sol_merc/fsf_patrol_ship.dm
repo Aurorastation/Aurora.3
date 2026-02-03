@@ -9,7 +9,7 @@
 	spawn_weight = 0 // The FSF no longer exists as a separate entity outside of the Alliance, verify with human lore before re-adding!
 	ship_cost = 1
 	id = "fsf_patrol_ship"
-	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/fsf_shuttle)
+	shuttles_to_initialise = list(/datum/shuttle/overmap/fsf_shuttle)
 
 	unit_test_groups = list(3)
 
@@ -54,6 +54,8 @@
 
 	invisible_until_ghostrole_spawn = TRUE
 
+	ship_area_type = /area/ship/fsf_patrol_ship
+
 /obj/effect/overmap/visitable/ship/fsf_patrol_ship/New()
 	designation = "[pick("Varangian", "Swiss Guard", "Free Company", "Praetorian", "Gurkha", "Roland", "Whispering Death", "Gordon Ingram", "Jungle Work", "Habiru", "Francs-Tireurs", "Catalan", "Navarrese", "Breton", "Corsair", "Landsknecht", "Hessian")]"
 	..()
@@ -67,33 +69,23 @@
 /obj/effect/shuttle_landmark/fsf_fore
 	name = "Fore"
 	landmark_tag = "nav_fsf_patrol_ship_fore"
-	base_turf = /turf/space/dynamic
-	base_area = /area/space
 
 /obj/effect/shuttle_landmark/fsf_aft
 	name = "Aft"
 	landmark_tag = "nav_fsf_patrol_ship_aft"
-	base_turf = /turf/space/dynamic
-	base_area = /area/space
 
 /obj/effect/shuttle_landmark/fsf_port
 	name = "Port"
 	landmark_tag = "nav_fsf_patrol_ship_port"
-	base_turf = /turf/space/dynamic
-	base_area = /area/space
 
 /obj/effect/shuttle_landmark/fsf_starboard
 	name = "Starboard"
 	landmark_tag = "nav_fsf_patrol_ship_starboard"
-	base_turf = /turf/space/dynamic
-	base_area = /area/space
 
 /obj/effect/shuttle_landmark/fsf_dock
 	name = "Port Docking Bay"
 	landmark_tag = "nav_fsf_dock"
 	docking_controller = "airlock_fsf_dock"
-	base_turf = /turf/space/dynamic
-	base_area = /area/space
 
 /obj/effect/shuttle_landmark/fsf_dock/aft
 	name = "Aft Docking Bay"
@@ -121,17 +113,18 @@
 	fore_dir = SOUTH
 	vessel_size = SHIP_SIZE_TINY
 
+	ship_area_type = /area/shuttle/fsf_shuttle
+
 /obj/machinery/computer/shuttle_control/explore/fsf_shuttle
 	name = "shuttle control console"
 	shuttle_tag = "FSF Shuttle"
 	req_access = list(ACCESS_SOL_SHIPS)
 
-/datum/shuttle/autodock/overmap/fsf_shuttle
+/datum/shuttle/overmap/fsf_shuttle
 	name = "FSF Shuttle"
 	move_time = 20
 	shuttle_area = list(/area/shuttle/fsf_shuttle)
 	current_location = "nav_hangar_fsf"
-	landmark_transition = "nav_transit_fsf_shuttle"
 	range = 1
 	fuel_consumption = 2
 	logging_home_tag = "nav_hangar_fsf"
@@ -142,10 +135,7 @@
 	name = "FSF Shuttle Hangar"
 	landmark_tag = "nav_hangar_fsf"
 	docking_controller = "fsf_hangar"
-	base_area = /area/ship/fsf_patrol_ship/hangar
-	base_turf = /turf/simulated/floor/plating
 
 /obj/effect/shuttle_landmark/fsf_shuttle/transit
 	name = "In transit"
 	landmark_tag = "nav_transit_fsf_shuttle"
-	base_turf = /turf/space/transit/north

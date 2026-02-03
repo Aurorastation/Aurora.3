@@ -16,25 +16,6 @@
 	if(loc)
 		return loc.return_air()
 
-// Returns src and all recursive contents in a list.
-/atom/proc/GetAllContents()
-	. = list(src)
-	var/i = 0
-	while(i < length(.))
-		var/atom/A = .[++i]
-		. += A.contents
-
-// identical to GetAllContents but returns a list of atoms of the type passed in the argument
-/atom/proc/get_all_contents_of_type(type)
-	var/list/processing_list = list(src)
-	. = list()
-	while(length(processing_list))
-		var/atom/A = processing_list[1]
-		processing_list.Cut(1, 2)
-		processing_list += A.contents
-		if(istype(A, type))
-			. += A
-
 // Returns a list of all locations (except the area) the movable is within
 /proc/get_nested_locs(atom/movable/atom_on_location, include_turf = FALSE)
 	. = list()

@@ -19,7 +19,6 @@
 	return INITIALIZE_HINT_LATELOAD
 
 /obj/item/blueprints/LateInitialize()
-	. = ..()
 	if(show_wires)
 		airlock_wires = new(src)
 		vending_wires = new(src)
@@ -54,7 +53,7 @@
 	to_chat(user, SPAN_WARNING("The markings on this are useless!"))
 
 /obj/item/blueprints/proc/set_valid_z_levels()
-	if(SSatlas.current_map.use_overmap)
+	if(SSmapping.current_map.use_overmap)
 		var/obj/effect/overmap/visitable/sector/S = GLOB.map_sectors["[GET_Z(src)]"]
 		if(!S) //Blueprints are useless now, but keep them around for fluff
 			desc = "Some dusty old blueprints. The markings are old, and seem entirely irrelevant for your wherabouts."
@@ -94,7 +93,7 @@
 	. = ..()
 
 /obj/item/blueprints/outpost/set_valid_z_levels()
-	if(!SSatlas.current_map.use_overmap)
+	if(!SSmapping.current_map.use_overmap)
 		desc = "Some dusty old blueprints. The markings are old, and seem entirely irrelevant for your wherabouts."
 		return FALSE
 	desc = "Blueprints for the daring souls wanting to establish a planetary outpost. Has some sketchy looking stains and what appears to be bite holes."
@@ -117,7 +116,7 @@
 	. += "Newly-created areas will be automatically added to the shuttle. If all shuttle areas are removed, the shuttle will be destroyed!"
 
 /obj/item/blueprints/shuttle/set_valid_z_levels()
-	if(SSatlas.current_map.use_overmap)
+	if(SSmapping.current_map.use_overmap)
 		var/area/A = get_area(src)
 
 		if(!shuttle_type)

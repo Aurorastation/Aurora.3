@@ -200,8 +200,8 @@
 	item_state = "anchor" //won't appear in-hand and looks suitably aut'akh spiritual
 	can_change_form = FALSE //this is integrated so we dont want anything silly with it
 
-/obj/item/nullrod/autakh/throw_at()
-	usr.drop_from_inventory(src)
+/obj/item/nullrod/autakh/throw_at(atom/target, range, speed, mob/thrower, spin = TRUE, diagonals_first = FALSE, datum/callback/callback, force = MOVE_FORCE_STRONG, gentle = FALSE, quickstart = TRUE)
+	thrower.drop_from_inventory(src)
 
 /obj/item/nullrod/autakh/dropped()
 	. = ..()

@@ -1,9 +1,9 @@
-/datum/shuttle/autodock/ferry/emergency
-	category = /datum/shuttle/autodock/ferry/emergency
+/datum/shuttle/ferry/emergency
+	category = /datum/shuttle/ferry/emergency
 	move_time = 10 MINUTES
 	var/datum/evacuation_controller/shuttle/emergency_controller
 
-/datum/shuttle/autodock/ferry/emergency/New()
+/datum/shuttle/ferry/emergency/New()
 	..()
 	emergency_controller = GLOB.evacuation_controller
 	if(!istype(emergency_controller))
@@ -12,7 +12,7 @@
 		CRASH("An emergency shuttle has already been created.")
 	emergency_controller.shuttle = src
 
-/datum/shuttle/autodock/ferry/emergency/arrived()
+/datum/shuttle/ferry/emergency/arrived()
 	. = ..()
 
 	if(!emergency_controller.has_evacuated())
@@ -25,32 +25,32 @@
 	if((current_location == waypoint_offsite) && emergency_controller.has_evacuated())
 		emergency_controller.shuttle_evacuated()
 
-/datum/shuttle/autodock/ferry/emergency/long_jump(var/obj/effect/shuttle_landmark/destination, var/obj/effect/shuttle_landmark/interim, var/travel_time)
-	..(destination, interim, emergency_controller.get_long_jump_time(), direction)
+/datum/shuttle/ferry/emergency/takeoff(obj/effect/shuttle_landmark/destination, travel_time)
+	..(destination, emergency_controller.get_long_jump_time())
 
-/datum/shuttle/autodock/ferry/emergency/shuttle_moved()
-	if(next_location != waypoint_station)
+/datum/shuttle/ferry/emergency/transit_to_landmark(obj/effect/shuttle_landmark/destination, movement_direction, force)
+	if(destination != waypoint_station)
 		emergency_controller.shuttle_leaving() // This is a hell of a line. v
-	..()
+	return ..()
 
-/datum/shuttle/autodock/ferry/emergency/can_launch(var/user)
+/datum/shuttle/ferry/emergency/can_launch(var/user)
 	if (istype(user, /obj/machinery/computer/shuttle_control/emergency))
 		var/obj/machinery/computer/shuttle_control/emergency/C = user
 		if (!C.has_authorization())
 			return 0
 	return ..()
 
-/datum/shuttle/autodock/ferry/emergency/can_force(var/user)
+/datum/shuttle/ferry/emergency/can_force(var/user)
 	if (istype(user, /obj/machinery/computer/shuttle_control/emergency))
 		var/obj/machinery/computer/shuttle_control/emergency/C = user
 
 		//initiating or cancelling a launch ALWAYS requires authorization, but if we are already set to launch anyways than forcing does not.
 		//this is so that people can force launch if the docking controller cannot safely undock without needing X heads to swipe.
-		if (!(process_state == WAIT_LAUNCH || C.has_authorization()))
+		if (!(moving_status == SHUTTLE_IDLE || C.has_authorization()))
 			return 0
 	return ..()
 
-/datum/shuttle/autodock/ferry/emergency/can_cancel(var/user)
+/datum/shuttle/ferry/emergency/can_cancel(var/user)
 	if(emergency_controller.has_evacuated())
 		return 0
 	//If we try to cancel it via the shuttle computer
@@ -66,7 +66,7 @@
 
 	return ..()
 
-/datum/shuttle/autodock/ferry/emergency/launch(var/user)
+/datum/shuttle/ferry/emergency/launch(var/user)
 	if (!can_launch(user))
 		return
 
@@ -81,7 +81,7 @@
 
 	..(user)
 
-/datum/shuttle/autodock/ferry/emergency/force_launch(var/user)
+/datum/shuttle/ferry/emergency/force_launch(var/user)
 	if (!can_force(user))
 		return
 
@@ -96,7 +96,7 @@
 
 	..(user)
 
-/datum/shuttle/autodock/ferry/emergency/cancel_launch(var/user)
+/datum/shuttle/ferry/emergency/cancel_launch(var/user)
 	if (!can_cancel(user))
 		return
 
@@ -177,7 +177,7 @@
 	..()
 
 /obj/machinery/computer/shuttle_control/emergency/ui_interact(mob/user, datum/tgui/ui)
-	var/datum/shuttle/autodock/ferry/emergency/shuttle = SSshuttle.shuttles[shuttle_tag]
+	var/datum/shuttle/ferry/emergency/shuttle = SSshuttle.shuttles[shuttle_tag]
 	if(!istype(shuttle))
 		to_chat(user, SPAN_WARNING("Unable to establish link with the shuttle."))
 		return
@@ -188,31 +188,31 @@
 		ui.open()
 
 /obj/machinery/computer/shuttle_control/emergency/ui_data(mob/user)
-	var/datum/shuttle/autodock/ferry/emergency/shuttle = SSshuttle.shuttles[shuttle_tag]
+	var/datum/shuttle/ferry/emergency/shuttle = SSshuttle.shuttles[shuttle_tag]
 	if (!istype(shuttle))
 		return
 
 	var/shuttle_state
 	switch(shuttle.moving_status)
 		if(SHUTTLE_IDLE) shuttle_state = "idle"
-		if(SHUTTLE_WARMUP) shuttle_state = "warmup"
+		if(SHUTTLE_WARMUP, SHUTTLE_LANDING) shuttle_state = "warmup"
 		if(SHUTTLE_INTRANSIT) shuttle_state = "in_transit"
 		if(SHUTTLE_HALT) shuttle_state = "halt"
 
 	var/shuttle_status
-	switch (shuttle.process_state)
-		if(IDLE_STATE)
+	switch (shuttle.moving_status)
+		if(SHUTTLE_IDLE)
 			if (shuttle.in_use)
 				shuttle_status = "Busy."
 			else if (!shuttle.location)
-				shuttle_status = "Standing-by at [SSatlas.current_map.station_name]."
+				shuttle_status = "Standing-by at [SSmapping.current_map.station_name]."
 			else
-				shuttle_status = "Standing-by at [SSatlas.current_map.dock_name]."
-		if(WAIT_LAUNCH, FORCE_LAUNCH)
+				shuttle_status = "Standing-by at [SSmapping.current_map.dock_name]."
+		if(SHUTTLE_WARMUP)
 			shuttle_status = "Shuttle has received command and will depart shortly."
-		if(WAIT_ARRIVE)
+		if(SHUTTLE_INTRANSIT)
 			shuttle_status = "Proceeding to destination."
-		if(WAIT_FINISH)
+		if(SHUTTLE_LANDING)
 			shuttle_status = "Arriving at destination now."
 
 	//build a list of authorizations

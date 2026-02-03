@@ -87,28 +87,6 @@
 #define 	  LIFE_HUD 10 // STATUS_HUD that only reports dead or alive
 #define     TRIAGE_HUD 11 // a HUD that creates a bar above the user showing their medical status
 
-//	Shuttles.
-
-// These define the time taken for the shuttle to get to the space station, and the time before it leaves again.
-#define SHUTTLE_PREPTIME                300 // 5 minutes = 300 seconds - after this time, the shuttle departs centcom and cannot be recalled.
-#define SHUTTLE_LEAVETIME               180 // 3 minutes = 180 seconds - the duration for which the shuttle will wait at the station after arriving.
-#define SHUTTLE_FORCETIME               300 // 5 minutes = 300 seconds - time after which the shuttle is automatically forced
-#define SHUTTLE_TRANSIT_DURATION        300 // 5 minutes = 300 seconds - how long it takes for the shuttle to get to the station.
-#define SHUTTLE_TRANSIT_DURATION_RETURN 120 // 2 minutes = 120 seconds - for some reason it takes less time to come back, go figure.
-
-// Shuttle moving status.
-#define SHUTTLE_IDLE      0
-#define SHUTTLE_WARMUP    1
-#define SHUTTLE_INTRANSIT 2
-#define SHUTTLE_HALT      3 // State of no recovery
-
-// Ferry shuttle processing status.
-#define IDLE_STATE   0
-#define WAIT_LAUNCH  1
-#define FORCE_LAUNCH 2
-#define WAIT_ARRIVE  3
-#define WAIT_FINISH  4
-
 // Setting this much higher than 1024 could allow spammers to DOS the server easily.
 #define MAX_MESSAGE_LEN       1024
 #define MAX_PAPER_MESSAGE_LEN 3072
@@ -125,18 +103,6 @@
 #define HYDRO_SPEED_MULTIPLIER 1
 
 #define DEFAULT_JOB_TYPE /datum/job/assistant
-
-//Area flags, possibly more to come
-#define AREA_FLAG_RAD_SHIELDED				BITFLAG(1)	// shielded from radiation, clearly
-#define AREA_FLAG_SPAWN_ROOF				BITFLAG(2)	// if we should attempt to spawn a roof above us.
-#define AREA_FLAG_HIDE_FROM_HOLOMAP			BITFLAG(3)	// if we shouldn't be drawn on station holomaps
-#define AREA_FLAG_FIRING_RANGE				BITFLAG(4)	// Area dedicated for firing pin logic
-#define AREA_FLAG_NO_CREW_EXPECTED			BITFLAG(5)	// Areas where crew is not expected to ever be. Used to tell antag bases and such from crew-accessible areas on centcom level.
-#define AREA_FLAG_PRISON					BITFLAG(6)	// Marks prison area for purposes of checking if brigged/imprisoned
-#define AREA_FLAG_NO_GHOST_TELEPORT_ACCESS	BITFLAG(7)	// Marks whether ghosts should not have teleport access to this area
-#define AREA_FLAG_INDESTRUCTIBLE_TURFS		BITFLAG(8)	// Marks whether or not turfs in this area can be destroyed by explosions
-#define AREA_FLAG_IS_BACKGROUND				BITFLAG(9)	// Marks whether or not blueprints can create areas on top of this area
-#define AREA_FLAG_PREVENT_PERSISTENT_TRASH	BITFLAG(10)	// Marks whether or not the area allows trash to become persistent in it
 
 // Convoluted setup so defines can be supplied by Bay12 main server compile script.
 // Should still work fine for people jamming the icons into their repo.
@@ -320,10 +286,10 @@
 
 #define DEFAULT_SIGHT (SEE_SELF)
 
-#define isAdminLevel(Z) ((Z) in SSatlas.current_map.admin_levels)
+#define isAdminLevel(Z) ((Z) in SSmapping.current_map.admin_levels)
 #define isNotAdminLevel(Z) !isAdminLevel(Z)
 
-#define isContactLevel(Z) ((Z) in SSatlas.current_map.contact_levels)
+#define isContactLevel(Z) ((Z) in SSmapping.current_map.contact_levels)
 #define isNotContactLevel(Z) !isContactLevel(Z)
 
 //Cargo Container Types
@@ -441,11 +407,6 @@ example:
 
 #define STATION_TAG "Aurora"
 
-//Planet habitability class
-#define HABITABILITY_IDEAL  1
-#define HABITABILITY_OKAY  2
-#define HABITABILITY_BAD  3
-
 //Map template flags
 /// Lets multiple copies of the template to be spawned
 #define TEMPLATE_FLAG_ALLOW_DUPLICATES BITFLAG(1)
@@ -514,3 +475,20 @@ example:
 #define MIN_WIND_PRESSURE 10
 
 #define NO_EMAG_ACT -50
+
+/**
+ * The point where gravity is negative enough to pull you upwards.
+ * That means walking checks for a ceiling instead of a floor, and you can fall "upwards"
+ *
+ * This should only be possible on multi-z maps because it works like shit on maps that aren't.
+ */
+#define NEGATIVE_GRAVITY -1
+/// Used to indicate no gravity
+#define ZERO_GRAVITY 0
+#define STANDARD_GRAVITY 1 //Anything above this is high gravity, anything below no grav until negative gravity
+/// The gravity strength threshold for high gravity damage.
+#define GRAVITY_DAMAGE_THRESHOLD 3
+/// The scaling factor for high gravity damage.
+#define GRAVITY_DAMAGE_SCALING 0.5
+/// The maximum [BRUTE] damage a mob can take from high gravity per second.
+#define GRAVITY_DAMAGE_MAXIMUM 1.5

@@ -27,7 +27,7 @@
 	. = ..()
 	// Arm the escape pods.
 	if(evacuation_type == TRANSFER_EMERGENCY)
-		for (var/datum/shuttle/autodock/ferry/escape_pod/pod in GLOB.escape_pods)
+		for (var/datum/shuttle/ferry/escape_pod/pod in GLOB.escape_pods)
 			if (pod.arming_controller)
 				pod.arming_controller.arm()
 
@@ -38,19 +38,19 @@
 	switch(evacuation_type)
 		if("evacuation")
 			// Abandon Ship
-			for(var/datum/shuttle/autodock/ferry/escape_pod/pod in GLOB.escape_pods) // Launch the pods!
+			for(var/datum/shuttle/ferry/escape_pod/pod in GLOB.escape_pods) // Launch the pods!
 				if(!pod.arming_controller || pod.arming_controller.armed)
 					pod.move_time = (evac_transit_delay/10)
 					pod.launch(src)
 
-			priority_announcement.Announce(replacetext(replacetext(SSatlas.current_map.emergency_shuttle_leaving_dock, "%dock_name%", "[SSatlas.current_map.dock_name]"),  "%ETA%", "[round(get_eta()/60,1)] minute\s"))
+			priority_announcement.Announce(replacetext(replacetext(SSmapping.current_map.emergency_shuttle_leaving_dock, "%dock_name%", "[SSmapping.current_map.dock_name]"),  "%ETA%", "[round(get_eta()/60,1)] minute\s"))
 		if(TRANSFER_JUMP)
 			// Bluespace Jump
-			priority_announcement.Announce(replacetext(replacetext(SSatlas.current_map.bluespace_leaving_dock, "%dock_name%", "[SSatlas.current_map.dock_name]"),  "%ETA%", "[round(get_eta()/60,1)] minute\s"))
+			priority_announcement.Announce(replacetext(replacetext(SSmapping.current_map.bluespace_leaving_dock, "%dock_name%", "[SSmapping.current_map.dock_name]"),  "%ETA%", "[round(get_eta()/60,1)] minute\s"))
 			SetUniversalState(/datum/universal_state/bluespace_jump, arguments=list(SSmapping.levels_by_trait(ZTRAIT_STATION)))
 
 		if(TRANSFER_CREW)
-			priority_announcement.Announce(replacetext(replacetext(SSatlas.current_map.shuttle_leaving_dock, "%dock_name%", "[SSatlas.current_map.dock_name]"),  "%ETA%", "[round(get_eta()/60,1)] minute\s"))
+			priority_announcement.Announce(replacetext(replacetext(SSmapping.current_map.shuttle_leaving_dock, "%dock_name%", "[SSmapping.current_map.dock_name]"),  "%ETA%", "[round(get_eta()/60,1)] minute\s"))
 
 /datum/evacuation_controller/starship/finish_evacuation()
 	..()

@@ -25,10 +25,10 @@
 	name = "wrecked NT ship"
 	icon_state = "wrecked_nt_ship"
 	requires_power = FALSE
-	base_turf = /turf/space
 	no_light_control = TRUE
 	area_flags = AREA_FLAG_HIDE_FROM_HOLOMAP
 
 /area/wrecked_nt_ship/exterior
 	name = "wrecked NT ship exterior"
 	icon_state = "exterior"
+	area_flags = AREA_FLAG_HIDE_FROM_HOLOMAP | AREA_FLAG_NO_GRAVITY | AREA_FLAG_SHIP_EXTERIOR

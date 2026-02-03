@@ -22,5 +22,5 @@
 		var/designation = "[drone_tag]-[rand(100,999)]"
 		M.set_name("NT-[designation]")
 		M.designation = designation
-		assign_drone_to_matrix(M, SSatlas.current_map.station_short)
+		assign_drone_to_matrix(M, SSmapping.current_map.station_short)
 	return M

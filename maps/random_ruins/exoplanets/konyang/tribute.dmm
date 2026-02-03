@@ -6,7 +6,7 @@
 	density = 0
 	},
 /turf/simulated/floor/exoplanet/konyang,
-/area/space)
+/area/template_noop)
 "aC" = (
 /obj/structure/konyang_cliff{
 	icon_state = "cliff2-bottom";
@@ -19,7 +19,7 @@
 	},
 /obj/structure/flora/rock/konyang,
 /turf/simulated/floor/exoplanet/konyang,
-/area/space)
+/area/template_noop)
 "aE" = (
 /obj/structure/konyang_cliff{
 	icon_state = "cliff2-bottom";
@@ -28,44 +28,44 @@
 	},
 /obj/structure/flora/bush/konyang_reeds,
 /turf/simulated/floor/exoplanet/konyang,
-/area/space)
+/area/template_noop)
 "aF" = (
 /obj/structure/flora/rock/konyang/moss,
 /turf/simulated/floor/exoplanet/konyang/wilting,
-/area/space)
+/area/template_noop)
 "bW" = (
 /obj/effect/floor_decal/konyang_flowers,
 /obj/structure/flora/bush/konyang_reeds,
 /turf/simulated/floor/exoplanet/konyang,
-/area/space)
+/area/template_noop)
 "cq" = (
 /obj/structure/flora/rock/konyang/water{
 	density = 0
 	},
 /turf/simulated/floor/exoplanet/water/shallow/konyang,
-/area/space)
+/area/template_noop)
 "cA" = (
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/dirt_konyang,
-/area/space)
+/area/template_noop)
 "cT" = (
 /obj/structure/flora/rock/konyang/small,
 /obj/structure/flora/ausbushes/sparsegrass,
 /obj/structure/flora/ausbushes/reedbush,
 /turf/simulated/floor/exoplanet/konyang,
-/area/space)
+/area/template_noop)
 "dk" = (
 /obj/structure/konyang_cliff{
 	icon_state = "innercorner3"
 	},
 /turf/simulated/floor/exoplanet/dirt_konyang,
-/area/space)
+/area/template_noop)
 "dB" = (
 /obj/structure/konyang_cliff{
 	icon_state = "innercorner4"
 	},
 /turf/simulated/floor/exoplanet/dirt_konyang,
-/area/space)
+/area/template_noop)
 "dM" = (
 /obj/structure/flora/rock/konyang,
 /obj/structure/konyang_cliff{
@@ -74,13 +74,13 @@
 	density = 0
 	},
 /turf/simulated/floor/exoplanet/konyang,
-/area/space)
+/area/template_noop)
 "eA" = (
 /obj/structure/konyang_cliff{
 	icon_state = "innercorner5"
 	},
 /turf/simulated/floor/exoplanet/dirt_konyang,
-/area/space)
+/area/template_noop)
 "eO" = (
 /obj/structure/konyang_cliff{
 	icon_state = "cliff2-bottom";
@@ -90,36 +90,36 @@
 /obj/structure/flora/bush/konyang_reeds,
 /obj/structure/flora/ausbushes/reedbush,
 /turf/simulated/floor/exoplanet/konyang,
-/area/space)
+/area/template_noop)
 "eP" = (
 /obj/structure/flora/ausbushes/sparsegrass,
 /obj/structure/flora/ausbushes/sparsegrass,
 /turf/simulated/floor/exoplanet/konyang,
-/area/space)
+/area/template_noop)
 "fk" = (
 /obj/structure/flora/rock/konyang/small,
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/dirt_konyang,
-/area/space)
+/area/template_noop)
 "fR" = (
 /obj/structure/flora/ausbushes/sparsegrass,
 /obj/structure/konyang_cliff{
 	icon_state = "cliff-top1"
 	},
 /turf/simulated/floor/exoplanet/konyang,
-/area/space)
+/area/template_noop)
 "gd" = (
 /obj/structure/flora/bush/konyang_reeds,
 /obj/structure/flora/ausbushes/sparsegrass,
 /turf/simulated/floor/exoplanet/konyang,
-/area/space)
+/area/template_noop)
 "hd" = (
 /turf/simulated/floor/exoplanet/konyang/wilting,
-/area/space)
+/area/template_noop)
 "hf" = (
 /obj/structure/flora/tree/konyang,
 /turf/simulated/floor/exoplanet/konyang,
-/area/space)
+/area/template_noop)
 "hQ" = (
 /obj/structure/konyang_cliff{
 	icon_state = "cliff2-bottom";
@@ -128,20 +128,20 @@
 	},
 /obj/effect/floor_decal/konyang_flowers,
 /turf/simulated/floor/exoplanet/konyang,
-/area/space)
+/area/template_noop)
 "ib" = (
 /obj/effect/decal/exterior_stairs/left{
 	dir = 1
 	},
 /turf/simulated/floor/exoplanet/dirt_konyang,
-/area/space)
+/area/template_noop)
 "if" = (
 /obj/structure/konyang_cliff{
 	icon_state = "cliff-top1"
 	},
 /obj/structure/flora/ausbushes/sparsegrass,
 /turf/simulated/floor/exoplanet/konyang,
-/area/space)
+/area/template_noop)
 "iy" = (
 /obj/structure/flora/ausbushes/sparsegrass,
 /obj/structure/flora/ausbushes/reedbush,
@@ -151,17 +151,17 @@
 	density = 0
 	},
 /turf/simulated/floor/exoplanet/konyang,
-/area/space)
+/area/template_noop)
 "jc" = (
 /obj/structure/konyang_cliff{
 	icon_state = "innercorner2"
 	},
 /turf/simulated/floor/exoplanet/konyang,
-/area/space)
+/area/template_noop)
 "jn" = (
 /obj/structure/flora/rock/konyang/water,
 /turf/simulated/floor/exoplanet/water/shallow/konyang,
-/area/space)
+/area/template_noop)
 "jz" = (
 /obj/structure/flora/bush/konyang_reeds,
 /obj/structure/konyang_cliff{
@@ -170,22 +170,22 @@
 	density = 0
 	},
 /turf/simulated/floor/exoplanet/konyang,
-/area/space)
+/area/template_noop)
 "jD" = (
 /obj/structure/konyang_cliff{
 	icon_state = "innercorner5"
 	},
 /turf/simulated/floor/exoplanet/konyang,
-/area/space)
+/area/template_noop)
 "jJ" = (
 /obj/effect/floor_decal/konyang_flowers,
 /turf/simulated/floor/exoplanet/konyang,
-/area/space)
+/area/template_noop)
 "jL" = (
 /obj/structure/flora/bush/konyang_reeds,
 /obj/structure/flora/rock/konyang,
 /turf/simulated/floor/exoplanet/konyang/wilting,
-/area/space)
+/area/template_noop)
 "jV" = (
 /obj/structure/flora/rock/konyang,
 /obj/structure/konyang_cliff{
@@ -195,7 +195,7 @@
 	},
 /obj/structure/flora/ausbushes/sparsegrass,
 /turf/simulated/floor/exoplanet/konyang,
-/area/space)
+/area/template_noop)
 "ki" = (
 /obj/structure/konyang_cliff{
 	icon_state = "cliff2-bottom";
@@ -205,13 +205,13 @@
 	},
 /obj/structure/flora/bush/konyang_reeds,
 /turf/simulated/floor/exoplanet/konyang,
-/area/space)
+/area/template_noop)
 "kZ" = (
 /obj/structure/konyang_cliff{
 	icon_state = "cliff2"
 	},
 /turf/simulated/floor/exoplanet/konyang,
-/area/space)
+/area/template_noop)
 "lr" = (
 /obj/effect/floor_decal/konyang_flowers,
 /obj/structure/konyang_cliff{
@@ -219,7 +219,7 @@
 	density = 0
 	},
 /turf/simulated/floor/exoplanet/konyang,
-/area/space)
+/area/template_noop)
 "ls" = (
 /obj/effect/decal/exterior_stairs/left{
 	dir = 8
@@ -231,38 +231,38 @@
 	density = 0
 	},
 /turf/simulated/floor/exoplanet/dirt_konyang,
-/area/space)
+/area/template_noop)
 "lD" = (
 /turf/simulated/floor/sidewalk/blocks,
-/area/space)
+/area/template_noop)
 "mh" = (
 /obj/structure/konyang_cliff{
 	icon_state = "cliff2"
 	},
 /turf/simulated/floor/exoplanet/water/shallow/konyang,
-/area/space)
+/area/template_noop)
 "mt" = (
 /obj/structure/konyang_cliff{
 	icon_state = "topcorner_west";
 	density = 0
 	},
 /turf/simulated/floor/exoplanet/konyang,
-/area/space)
+/area/template_noop)
 "mu" = (
 /obj/structure/flora/bush/konyang_reeds,
 /turf/simulated/floor/exoplanet/konyang/wilting,
-/area/space)
+/area/template_noop)
 "nh" = (
 /obj/effect/step_trigger/thrower{
 	tiles = 1;
 	dir = 8
 	},
 /turf/simulated/floor/exoplanet/water/konyang,
-/area/space)
+/area/template_noop)
 "ns" = (
 /obj/structure/flora/rock/konyang,
 /turf/simulated/floor/exoplanet/konyang,
-/area/space)
+/area/template_noop)
 "nt" = (
 /obj/structure/lattice/catwalk/indoor/tatami{
 	dir = 8
@@ -276,7 +276,7 @@
 	pixel_x = 11
 	},
 /turf/simulated/floor/sidewalk/detail,
-/area/space)
+/area/template_noop)
 "nv" = (
 /obj/effect/floor_decal/konyang_flowers,
 /obj/structure/konyang_cliff{
@@ -285,36 +285,36 @@
 	density = 0
 	},
 /turf/simulated/floor/exoplanet/konyang/pink,
-/area/space)
+/area/template_noop)
 "ny" = (
 /obj/structure/konyang_cliff{
 	icon_state = "cliff-east"
 	},
 /turf/simulated/floor/exoplanet/konyang,
-/area/space)
+/area/template_noop)
 "nK" = (
 /obj/structure/konyang_cliff{
 	icon_state = "corner_west"
 	},
 /turf/simulated/floor/exoplanet/konyang,
-/area/space)
+/area/template_noop)
 "oh" = (
 /obj/structure/konyang_cliff{
 	icon_state = "innercorner1"
 	},
 /turf/simulated/floor/exoplanet/konyang,
-/area/space)
+/area/template_noop)
 "pF" = (
 /obj/structure/flora/rock/konyang/small,
 /turf/simulated/floor/exoplanet/konyang,
-/area/space)
+/area/template_noop)
 "pW" = (
 /obj/structure/konyang_cliff{
 	icon_state = "cliff-west";
 	density = 0
 	},
 /turf/simulated/floor/exoplanet/konyang,
-/area/space)
+/area/template_noop)
 "qg" = (
 /obj/structure/konyang_cliff{
 	icon_state = "cliff2-bottom";
@@ -325,7 +325,7 @@
 	tiles = 1
 	},
 /turf/simulated/floor/exoplanet/water/shallow/konyang,
-/area/space)
+/area/template_noop)
 "qk" = (
 /obj/structure/konyang_cliff{
 	icon_state = "cliff2-bottom";
@@ -334,33 +334,33 @@
 	},
 /obj/structure/flora/bush/konyang_reeds,
 /turf/simulated/floor/exoplanet/konyang,
-/area/space)
+/area/template_noop)
 "qx" = (
 /obj/structure/konyang_cliff{
 	icon_state = "cliff-top1"
 	},
 /obj/structure/flora/rock/konyang,
 /turf/simulated/floor/exoplanet/konyang,
-/area/space)
+/area/template_noop)
 "qy" = (
 /obj/effect/step_trigger/thrower{
 	tiles = 1;
 	dir = 5
 	},
 /turf/simulated/floor/exoplanet/water/konyang,
-/area/space)
+/area/template_noop)
 "ro" = (
 /obj/effect/step_trigger/thrower{
 	tiles = 1;
 	dir = 4
 	},
 /turf/simulated/floor/exoplanet/water/konyang,
-/area/space)
+/area/template_noop)
 "rw" = (
 /obj/structure/flora/bush/konyang_reeds,
 /obj/effect/floor_decal/konyang_flowers,
 /turf/simulated/floor/exoplanet/konyang,
-/area/space)
+/area/template_noop)
 "sf" = (
 /obj/effect/konyang_waterfall/mist{
 	pixel_y = -16
@@ -374,20 +374,20 @@
 	opacity = 1
 	},
 /turf/simulated/floor/exoplanet/water/shallow/konyang,
-/area/space)
+/area/template_noop)
 "st" = (
 /turf/simulated/floor/exoplanet/water/konyang,
-/area/space)
+/area/template_noop)
 "tg" = (
 /obj/structure/flora/tree/konyang,
 /obj/effect/floor_decal/konyang_flowers,
 /turf/simulated/floor/exoplanet/konyang/pink,
-/area/space)
+/area/template_noop)
 "tk" = (
 /obj/structure/flora/tree/konyang,
 /obj/structure/flora/bush/konyang_reeds,
 /turf/simulated/floor/exoplanet/konyang,
-/area/space)
+/area/template_noop)
 "tA" = (
 /obj/structure/flora/ausbushes/sparsegrass,
 /obj/structure/konyang_cliff{
@@ -396,13 +396,13 @@
 	density = 0
 	},
 /turf/simulated/floor/exoplanet/konyang,
-/area/space)
+/area/template_noop)
 "tI" = (
 /obj/structure/flora/tree/konyang,
 /obj/structure/flora/bush/konyang_reeds,
 /obj/structure/flora/ausbushes/sparsegrass,
 /turf/simulated/floor/exoplanet/konyang,
-/area/space)
+/area/template_noop)
 "tK" = (
 /obj/structure/konyang_cliff{
 	icon_state = "cliff2-bottom";
@@ -410,13 +410,13 @@
 	density = 0
 	},
 /turf/simulated/floor/exoplanet/konyang/wilting,
-/area/space)
+/area/template_noop)
 "tR" = (
 /obj/structure/konyang_cliff{
 	icon_state = "corner_east"
 	},
 /turf/simulated/floor/exoplanet/konyang,
-/area/space)
+/area/template_noop)
 "tT" = (
 /obj/structure/flora/ausbushes/sparsegrass,
 /obj/structure/konyang_cliff{
@@ -426,7 +426,7 @@
 	},
 /obj/structure/flora/ausbushes/sparsegrass,
 /turf/simulated/floor/exoplanet/konyang,
-/area/space)
+/area/template_noop)
 "uv" = (
 /obj/structure/konyang_cliff{
 	icon_state = "cliff2-bottom";
@@ -435,7 +435,7 @@
 	},
 /obj/effect/floor_decal/konyang_flowers,
 /turf/simulated/floor/exoplanet/konyang,
-/area/space)
+/area/template_noop)
 "vn" = (
 /obj/structure/konyang_cliff{
 	icon_state = "topcorner_east";
@@ -443,29 +443,29 @@
 	},
 /obj/structure/flora/ausbushes/sparsegrass,
 /turf/simulated/floor/exoplanet/konyang,
-/area/space)
+/area/template_noop)
 "vx" = (
 /obj/structure/flora/ausbushes/sparsegrass,
 /obj/structure/flora/ausbushes/reedbush,
 /turf/simulated/floor/exoplanet/konyang,
-/area/space)
+/area/template_noop)
 "vQ" = (
 /obj/structure/flora/tree/konyang/fall,
 /obj/effect/decal/cleanable/generic/beet_tree_petals,
 /turf/simulated/floor/exoplanet/konyang/pink,
-/area/space)
+/area/template_noop)
 "vS" = (
 /obj/effect/step_trigger/thrower{
 	tiles = 1;
 	dir = 6
 	},
 /turf/simulated/floor/exoplanet/water/konyang,
-/area/space)
+/area/template_noop)
 "ww" = (
 /obj/structure/flora/rock/konyang/small,
 /obj/structure/flora/ausbushes/sparsegrass,
 /turf/simulated/floor/exoplanet/konyang,
-/area/space)
+/area/template_noop)
 "wX" = (
 /obj/structure/konyang_cliff{
 	icon_state = "cliff2-bottom";
@@ -473,110 +473,110 @@
 	density = 0
 	},
 /turf/simulated/floor/exoplanet/konyang/wilting,
-/area/space)
+/area/template_noop)
 "xL" = (
 /obj/structure/flora/tree/konyang/blossom{
 	pixel_x = -36
 	},
 /obj/effect/decal/cleanable/generic/beet_tree_petals,
 /turf/simulated/floor/exoplanet/konyang/pink,
-/area/space)
+/area/template_noop)
 "xO" = (
 /obj/structure/flora/rock/konyang/small,
 /obj/structure/flora/bush/konyang_reeds,
 /turf/simulated/floor/exoplanet/konyang,
-/area/space)
+/area/template_noop)
 "ye" = (
 /obj/structure/konyang_cliff{
 	icon_state = "cliff-top1"
 	},
 /obj/effect/floor_decal/konyang_flowers,
 /turf/simulated/floor/exoplanet/konyang/pink,
-/area/space)
+/area/template_noop)
 "yv" = (
 /obj/structure/konyang_cliff{
 	icon_state = "innercorner1"
 	},
 /turf/simulated/floor/exoplanet/dirt_konyang,
-/area/space)
+/area/template_noop)
 "zv" = (
 /obj/structure/flora/rock/konyang,
 /turf/simulated/floor/exoplanet/konyang/wilting,
-/area/space)
+/area/template_noop)
 "zB" = (
 /turf/simulated/floor/exoplanet/dirt_konyang,
-/area/space)
+/area/template_noop)
 "zX" = (
 /obj/structure/flora/ausbushes/sparsegrass,
 /turf/simulated/floor/exoplanet/dirt_konyang,
-/area/space)
+/area/template_noop)
 "Af" = (
 /turf/template_noop,
-/area/space)
+/area/template_noop)
 "An" = (
 /obj/structure/konyang_cliff{
 	icon_state = "topcorner_east";
 	density = 0
 	},
 /turf/simulated/floor/exoplanet/konyang,
-/area/space)
+/area/template_noop)
 "AF" = (
 /obj/structure/konyang_cliff{
 	icon_state = "cliff-top1"
 	},
 /obj/effect/floor_decal/konyang_flowers,
 /turf/simulated/floor/exoplanet/konyang,
-/area/space)
+/area/template_noop)
 "AY" = (
 /obj/structure/konyang_cliff{
 	icon_state = "cliff-top1"
 	},
 /obj/structure/flora/bush/konyang_reeds,
 /turf/simulated/floor/exoplanet/konyang,
-/area/space)
+/area/template_noop)
 "Br" = (
 /obj/effect/decal/exterior_stairs/right{
 	dir = 8
 	},
 /turf/simulated/floor/exoplanet/dirt_konyang,
-/area/space)
+/area/template_noop)
 "Bw" = (
 /obj/structure/flora/rock/konyang,
 /obj/structure/flora/ausbushes/sparsegrass,
 /obj/structure/flora/ausbushes/reedbush,
 /turf/simulated/floor/exoplanet/konyang,
-/area/space)
+/area/template_noop)
 "BR" = (
 /mob/living/simple_animal/aquatic/fish/cod,
 /turf/simulated/floor/exoplanet/water/shallow/konyang,
-/area/space)
+/area/template_noop)
 "Ck" = (
 /obj/effect/floor_decal/konyang_flowers,
 /obj/structure/flora/tree/konyang,
 /turf/simulated/floor/exoplanet/konyang/pink,
-/area/space)
+/area/template_noop)
 "Cz" = (
 /obj/structure/flora/rock/konyang/small,
 /obj/structure/flora/bush/konyang_reeds,
 /turf/simulated/floor/exoplanet/konyang/wilting,
-/area/space)
+/area/template_noop)
 "CD" = (
 /obj/effect/step_trigger/thrower{
 	tiles = 1;
 	dir = 10
 	},
 /turf/simulated/floor/exoplanet/water/konyang,
-/area/space)
+/area/template_noop)
 "Do" = (
 /obj/structure/flora/rock/konyang/moss,
 /turf/simulated/floor/exoplanet/konyang,
-/area/space)
+/area/template_noop)
 "FE" = (
 /obj/structure/konyang_cliff{
 	icon_state = "cliff-top1"
 	},
 /turf/simulated/floor/exoplanet/konyang/wilting,
-/area/space)
+/area/template_noop)
 "FY" = (
 /obj/effect/konyang_waterfall/mist{
 	pixel_y = -16
@@ -590,7 +590,7 @@
 	opacity = 1
 	},
 /turf/simulated/floor/exoplanet/water/shallow/konyang,
-/area/space)
+/area/template_noop)
 "FZ" = (
 /obj/structure/konyang_cliff{
 	icon_state = "cliff-top1";
@@ -599,7 +599,7 @@
 /obj/structure/flora/rock/konyang,
 /obj/structure/flora/ausbushes/sparsegrass,
 /turf/simulated/floor/exoplanet/konyang,
-/area/space)
+/area/template_noop)
 "Gk" = (
 /obj/effect/floor_decal/konyang_flowers,
 /obj/structure/konyang_cliff{
@@ -607,7 +607,7 @@
 	density = 0
 	},
 /turf/simulated/floor/exoplanet/konyang,
-/area/space)
+/area/template_noop)
 "Gl" = (
 /obj/structure/flora/rock/konyang/small,
 /obj/structure/flora/bush/konyang_reeds,
@@ -617,7 +617,7 @@
 	density = 0
 	},
 /turf/simulated/floor/exoplanet/konyang,
-/area/space)
+/area/template_noop)
 "GL" = (
 /obj/structure/konyang_cliff{
 	icon_state = "cliff2-bottom";
@@ -628,7 +628,7 @@
 /obj/effect/floor_decal/konyang_flowers,
 /obj/structure/flora/ausbushes/sparsegrass,
 /turf/simulated/floor/exoplanet/konyang,
-/area/space)
+/area/template_noop)
 "GT" = (
 /obj/structure/konyang_cliff{
 	icon_state = "cliff2-bottom";
@@ -637,18 +637,18 @@
 	},
 /obj/structure/flora/rock/konyang,
 /turf/simulated/floor/exoplanet/konyang,
-/area/space)
+/area/template_noop)
 "GU" = (
 /obj/structure/flora/tree/konyang,
 /obj/effect/floor_decal/konyang_flowers,
 /turf/simulated/floor/exoplanet/konyang,
-/area/space)
+/area/template_noop)
 "Hc" = (
 /obj/structure/konyang_cliff{
 	icon_state = "corner_east"
 	},
 /turf/simulated/floor/exoplanet/dirt_konyang,
-/area/space)
+/area/template_noop)
 "Hq" = (
 /obj/structure/konyang_cliff{
 	icon_state = "cliff2-bottom";
@@ -659,14 +659,14 @@
 	},
 /obj/structure/flora/rock/konyang/water,
 /turf/simulated/floor/exoplanet/water/shallow/konyang,
-/area/space)
+/area/template_noop)
 "HJ" = (
 /obj/effect/step_trigger/thrower{
 	tiles = 1;
 	dir = 1
 	},
 /turf/simulated/floor/exoplanet/water/konyang,
-/area/space)
+/area/template_noop)
 "HS" = (
 /obj/structure/flora/bush/konyang_reeds,
 /obj/structure/konyang_cliff{
@@ -674,17 +674,17 @@
 	density = 0
 	},
 /turf/simulated/floor/exoplanet/konyang,
-/area/space)
+/area/template_noop)
 "Ib" = (
 /obj/effect/step_trigger/thrower{
 	tiles = 1
 	},
 /turf/simulated/floor/exoplanet/water/konyang,
-/area/space)
+/area/template_noop)
 "Ik" = (
 /obj/effect/decal/exterior_stairs/left,
 /turf/simulated/floor/exoplanet/dirt_konyang,
-/area/space)
+/area/template_noop)
 "Il" = (
 /obj/structure/flora/tree/konyang,
 /obj/structure/flora/ausbushes/sparsegrass,
@@ -694,7 +694,7 @@
 	density = 0
 	},
 /turf/simulated/floor/exoplanet/konyang,
-/area/space)
+/area/template_noop)
 "Io" = (
 /obj/structure/konyang_cliff{
 	icon_state = "cliff2-bottom";
@@ -703,7 +703,7 @@
 	},
 /obj/structure/flora/bush/konyang_reeds/water,
 /turf/simulated/floor/exoplanet/water/shallow/konyang,
-/area/space)
+/area/template_noop)
 "IA" = (
 /obj/structure/lattice/catwalk/indoor/tatami{
 	dir = 4
@@ -717,12 +717,12 @@
 	pixel_x = 7
 	},
 /turf/simulated/floor/sidewalk/detail,
-/area/space)
+/area/template_noop)
 "IB" = (
 /obj/structure/flora/bush/konyang_reeds,
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/konyang,
-/area/space)
+/area/template_noop)
 "Ji" = (
 /obj/structure/konyang_cliff{
 	icon_state = "cliff2-bottom";
@@ -731,19 +731,19 @@
 	},
 /obj/structure/flora/ausbushes/sparsegrass,
 /turf/simulated/floor/exoplanet/konyang,
-/area/space)
+/area/template_noop)
 "Jj" = (
 /obj/structure/flora/bush/konyang_reeds,
 /obj/structure/flora/ausbushes/sparsegrass,
 /turf/simulated/floor/exoplanet/konyang/wilting,
-/area/space)
+/area/template_noop)
 "Jn" = (
 /obj/structure/flora/bush/konyang_reeds,
 /turf/simulated/floor/exoplanet/konyang,
-/area/space)
+/area/template_noop)
 "KC" = (
 /turf/simulated/floor/exoplanet/konyang,
-/area/space)
+/area/template_noop)
 "KZ" = (
 /obj/structure/konyang_cliff{
 	icon_state = "cliff-top1"
@@ -751,32 +751,32 @@
 /obj/structure/flora/rock/konyang,
 /obj/effect/floor_decal/konyang_flowers,
 /turf/simulated/floor/exoplanet/konyang/pink,
-/area/space)
+/area/template_noop)
 "Lk" = (
 /obj/effect/floor_decal/konyang_flowers,
 /turf/simulated/floor/exoplanet/konyang/pink,
-/area/space)
+/area/template_noop)
 "LB" = (
 /obj/structure/flora/tree/konyang,
 /turf/simulated/floor/exoplanet/konyang/wilting,
-/area/space)
+/area/template_noop)
 "LD" = (
 /obj/effect/step_trigger/thrower{
 	tiles = 1;
 	dir = 9
 	},
 /turf/simulated/floor/exoplanet/water/konyang,
-/area/space)
+/area/template_noop)
 "LJ" = (
 /obj/structure/flora/tree/konyang/blossom,
 /obj/effect/decal/cleanable/generic/beet_tree_petals,
 /turf/simulated/floor/exoplanet/konyang/pink,
-/area/space)
+/area/template_noop)
 "LY" = (
 /obj/structure/flora/rock/konyang/small,
 /obj/structure/flora/ausbushes/reedbush,
 /turf/simulated/floor/exoplanet/konyang,
-/area/space)
+/area/template_noop)
 "Mj" = (
 /obj/structure/flora/bush/konyang_reeds,
 /obj/effect/floor_decal/konyang_flowers,
@@ -786,13 +786,13 @@
 	density = 0
 	},
 /turf/simulated/floor/exoplanet/konyang,
-/area/space)
+/area/template_noop)
 "Mq" = (
 /obj/structure/flora/rock/konyang{
 	density = 0
 	},
 /turf/simulated/floor/exoplanet/konyang,
-/area/space)
+/area/template_noop)
 "MO" = (
 /obj/structure/konyang_cliff{
 	icon_state = "cliff-top1";
@@ -800,19 +800,19 @@
 	},
 /obj/structure/flora/bush/konyang_reeds,
 /turf/simulated/floor/exoplanet/konyang,
-/area/space)
+/area/template_noop)
 "Ns" = (
 /obj/structure/konyang_cliff{
 	icon_state = "innercorner6"
 	},
 /turf/simulated/floor/exoplanet/konyang,
-/area/space)
+/area/template_noop)
 "Nw" = (
 /obj/structure/konyang_cliff{
 	icon_state = "cliff-west"
 	},
 /turf/simulated/floor/exoplanet/konyang,
-/area/space)
+/area/template_noop)
 "OW" = (
 /obj/effect/floor_decal/konyang_flowers,
 /obj/structure/konyang_cliff{
@@ -821,12 +821,12 @@
 	density = 0
 	},
 /turf/simulated/floor/exoplanet/konyang,
-/area/space)
+/area/template_noop)
 "Pi" = (
 /obj/structure/flora/tree/konyang,
 /obj/structure/flora/ausbushes/sparsegrass,
 /turf/simulated/floor/exoplanet/konyang,
-/area/space)
+/area/template_noop)
 "PR" = (
 /obj/structure/flora/bush/konyang_reeds,
 /obj/structure/konyang_cliff{
@@ -834,12 +834,12 @@
 	density = 0
 	},
 /turf/simulated/floor/exoplanet/konyang/wilting,
-/area/space)
+/area/template_noop)
 "PV" = (
 /obj/structure/flora/rock/konyang/moss,
 /obj/structure/flora/ausbushes/sparsegrass,
 /turf/simulated/floor/exoplanet/konyang,
-/area/space)
+/area/template_noop)
 "PY" = (
 /obj/structure/table/fancy/cyan,
 /obj/item/trash/candle{
@@ -869,7 +869,7 @@
 	pixel_x = 3
 	},
 /turf/simulated/floor/concrete,
-/area/space)
+/area/template_noop)
 "Qh" = (
 /obj/structure/flora/tree/konyang/fall{
 	pixel_x = -31;
@@ -877,12 +877,12 @@
 	},
 /obj/effect/decal/cleanable/generic/beet_tree_petals,
 /turf/simulated/floor/exoplanet/konyang/pink,
-/area/space)
+/area/template_noop)
 "Qj" = (
 /obj/effect/decal/cleanable/generic/beet_tree_petals,
 /obj/structure/flora/tree/konyang/blossom,
 /turf/simulated/floor/exoplanet/konyang/pink,
-/area/space)
+/area/template_noop)
 "Qm" = (
 /obj/structure/konyang_cliff{
 	icon_state = "cliff2-bottom";
@@ -891,12 +891,12 @@
 	},
 /obj/effect/floor_decal/konyang_flowers,
 /turf/simulated/floor/exoplanet/konyang/pink,
-/area/space)
+/area/template_noop)
 "Qo" = (
 /obj/structure/flora/rock/konyang/small,
 /obj/structure/flora/ausbushes/sparsegrass,
 /turf/simulated/floor/exoplanet/dirt_konyang,
-/area/space)
+/area/template_noop)
 "QA" = (
 /obj/structure/flora/ausbushes/sparsegrass,
 /obj/structure/konyang_cliff{
@@ -904,23 +904,23 @@
 	density = 0
 	},
 /turf/simulated/floor/exoplanet/konyang,
-/area/space)
+/area/template_noop)
 "QF" = (
 /obj/effect/konyang_waterfall{
 	icon_state = "waterfall_topleft";
 	pixel_y = -16
 	},
 /turf/simulated/floor/exoplanet/water/shallow/konyang,
-/area/space)
+/area/template_noop)
 "QJ" = (
 /obj/structure/flora/bush/konyang_reeds,
 /obj/structure/flora/bush/konyang_reeds,
 /turf/simulated/floor/exoplanet/konyang,
-/area/space)
+/area/template_noop)
 "QK" = (
 /obj/structure/flora/bush/konyang_reeds/water,
 /turf/simulated/floor/exoplanet/water/shallow/konyang,
-/area/space)
+/area/template_noop)
 "QL" = (
 /obj/structure/flora/tree/konyang/fall{
 	pixel_x = -38
@@ -929,20 +929,20 @@
 	pixel_x = -6
 	},
 /turf/simulated/floor/exoplanet/konyang/pink,
-/area/space)
+/area/template_noop)
 "Sh" = (
 /mob/living/simple_animal/aquatic/fish,
 /turf/simulated/floor/exoplanet/water/shallow/konyang,
-/area/space)
+/area/template_noop)
 "Sl" = (
 /obj/structure/konyang_cliff{
 	icon_state = "innercorner6"
 	},
 /turf/simulated/floor/exoplanet/dirt_konyang,
-/area/space)
+/area/template_noop)
 "Sp" = (
 /turf/simulated/floor/exoplanet/konyang/pink,
-/area/space)
+/area/template_noop)
 "ST" = (
 /obj/structure/konyang_cliff{
 	icon_state = "topcorner_east";
@@ -953,7 +953,7 @@
 	icon_state = "cliff-east"
 	},
 /turf/simulated/floor/exoplanet/konyang,
-/area/space)
+/area/template_noop)
 "Ti" = (
 /obj/structure/konyang_cliff{
 	icon_state = "cliff2-bottom";
@@ -963,13 +963,13 @@
 /obj/structure/flora/rock/konyang,
 /obj/structure/flora/ausbushes/sparsegrass,
 /turf/simulated/floor/exoplanet/konyang,
-/area/space)
+/area/template_noop)
 "Tu" = (
 /obj/structure/konyang_cliff{
 	icon_state = "innercorner2"
 	},
 /turf/simulated/floor/exoplanet/dirt_konyang,
-/area/space)
+/area/template_noop)
 "Ut" = (
 /obj/structure/konyang_cliff{
 	icon_state = "cliff2-bottom";
@@ -979,10 +979,10 @@
 /obj/structure/flora/rock/konyang,
 /obj/structure/flora/bush/konyang_reeds,
 /turf/simulated/floor/exoplanet/konyang,
-/area/space)
+/area/template_noop)
 "UM" = (
 /turf/simulated/floor/exoplanet/water/shallow/konyang,
-/area/space)
+/area/template_noop)
 "UN" = (
 /obj/structure/konyang_cliff{
 	icon_state = "cliff2-bottom";
@@ -995,13 +995,13 @@
 	},
 /obj/structure/flora/rock/konyang/moss,
 /turf/simulated/floor/exoplanet/konyang,
-/area/space)
+/area/template_noop)
 "UO" = (
 /obj/structure/konyang_cliff{
 	icon_state = "cliff-top1"
 	},
 /turf/simulated/floor/exoplanet/konyang,
-/area/space)
+/area/template_noop)
 "VG" = (
 /obj/structure/konyang_cliff{
 	icon_state = "cliff2-bottom";
@@ -1010,7 +1010,7 @@
 	},
 /obj/effect/floor_decal/konyang_flowers,
 /turf/simulated/floor/exoplanet/konyang,
-/area/space)
+/area/template_noop)
 "VJ" = (
 /obj/structure/konyang_cliff{
 	icon_state = "topcorner_west";
@@ -1018,29 +1018,29 @@
 	},
 /obj/effect/floor_decal/konyang_flowers,
 /turf/simulated/floor/exoplanet/konyang/pink,
-/area/space)
+/area/template_noop)
 "Wc" = (
 /obj/structure/flora/ausbushes/sparsegrass,
 /turf/simulated/floor/exoplanet/konyang,
-/area/space)
+/area/template_noop)
 "Wn" = (
 /obj/effect/konyang_waterfall{
 	icon_state = "waterfall_topright";
 	pixel_y = -16
 	},
 /turf/simulated/floor/exoplanet/water/shallow/konyang,
-/area/space)
+/area/template_noop)
 "Wr" = (
 /obj/structure/flora/tree/konyang{
 	pixel_y = -6;
 	pixel_x = -22
 	},
 /turf/simulated/floor/exoplanet/konyang,
-/area/space)
+/area/template_noop)
 "Wu" = (
 /obj/structure/flora/rock/konyang/small,
 /turf/simulated/floor/exoplanet/konyang/wilting,
-/area/space)
+/area/template_noop)
 "WD" = (
 /obj/structure/flora/ausbushes/sparsegrass,
 /obj/structure/konyang_cliff{
@@ -1048,21 +1048,21 @@
 	density = 0
 	},
 /turf/simulated/floor/exoplanet/konyang,
-/area/space)
+/area/template_noop)
 "Xp" = (
 /obj/structure/flora/rock/konyang/small,
 /turf/simulated/floor/exoplanet/dirt_konyang,
-/area/space)
+/area/template_noop)
 "Xs" = (
 /obj/structure/flora/rock/konyang,
 /obj/structure/flora/ausbushes/sparsegrass,
 /turf/simulated/floor/exoplanet/konyang,
-/area/space)
+/area/template_noop)
 "Xt" = (
 /obj/structure/flora/bush/konyang_reeds/water,
 /obj/structure/flora/bush/konyang_reeds/water,
 /turf/simulated/floor/exoplanet/water/shallow/konyang,
-/area/space)
+/area/template_noop)
 "Xz" = (
 /obj/structure/flora/tree/konyang/fall{
 	pixel_x = -31;
@@ -1070,30 +1070,30 @@
 	},
 /obj/effect/decal/cleanable/generic/beet_tree_petals,
 /turf/simulated/floor/exoplanet/konyang/pink,
-/area/space)
+/area/template_noop)
 "XS" = (
 /obj/structure/konyang_cliff{
 	icon_state = "innercorner3"
 	},
 /turf/simulated/floor/exoplanet/konyang,
-/area/space)
+/area/template_noop)
 "Yb" = (
 /obj/random/dirt_75,
 /obj/structure/flora/rock/konyang/small,
 /turf/simulated/floor/exoplanet/dirt_konyang,
-/area/space)
+/area/template_noop)
 "Yo" = (
 /obj/structure/flora/ausbushes/sparsegrass,
 /obj/structure/konyang_cliff{
 	icon_state = "topcorner_east"
 	},
 /turf/simulated/floor/exoplanet/konyang,
-/area/space)
+/area/template_noop)
 "YD" = (
 /obj/structure/flora/rock/konyang/small,
 /obj/effect/floor_decal/konyang_flowers,
 /turf/simulated/floor/exoplanet/konyang,
-/area/space)
+/area/template_noop)
 "YH" = (
 /obj/structure/flora/bush/konyang_reeds,
 /obj/structure/konyang_cliff{
@@ -1101,7 +1101,7 @@
 	density = 0
 	},
 /turf/simulated/floor/exoplanet/konyang,
-/area/space)
+/area/template_noop)
 "YK" = (
 /obj/structure/konyang_cliff{
 	icon_state = "botcorner_east";
@@ -1109,11 +1109,11 @@
 	density = 0
 	},
 /turf/simulated/floor/exoplanet/dirt_konyang,
-/area/space)
+/area/template_noop)
 "YP" = (
 /obj/structure/konyang_cliff,
 /turf/simulated/floor/exoplanet/konyang,
-/area/space)
+/area/template_noop)
 "YW" = (
 /obj/structure/table/fancy/cyan,
 /obj/item/trash/candle{
@@ -1140,7 +1140,7 @@
 	pixel_x = 6
 	},
 /turf/simulated/floor/concrete,
-/area/space)
+/area/template_noop)
 "Zq" = (
 /obj/structure/flora/tree/konyang/blossom{
 	pixel_y = -4;
@@ -1148,37 +1148,37 @@
 	},
 /obj/effect/decal/cleanable/generic/beet_tree_petals,
 /turf/simulated/floor/exoplanet/konyang/pink,
-/area/space)
+/area/template_noop)
 "ZA" = (
 /obj/structure/flora/rock/konyang,
 /obj/structure/flora/bush/konyang_reeds,
 /turf/simulated/floor/exoplanet/konyang,
-/area/space)
+/area/template_noop)
 "ZB" = (
 /obj/structure/konyang_cliff{
 	icon_state = "corner_west"
 	},
 /turf/simulated/floor/exoplanet/dirt_konyang,
-/area/space)
+/area/template_noop)
 "ZN" = (
 /obj/structure/flora/rock/konyang/water,
 /obj/structure/flora/bush/konyang_reeds/water,
 /turf/simulated/floor/exoplanet/water/shallow/konyang,
-/area/space)
+/area/template_noop)
 "ZQ" = (
 /obj/structure/flora/ausbushes/sparsegrass,
 /obj/structure/konyang_cliff{
 	icon_state = "topcorner_west"
 	},
 /turf/simulated/floor/exoplanet/konyang,
-/area/space)
+/area/template_noop)
 "ZU" = (
 /obj/structure/konyang_cliff{
 	icon_state = "cliff-top1"
 	},
 /obj/structure/flora/tree/konyang,
 /turf/simulated/floor/exoplanet/konyang,
-/area/space)
+/area/template_noop)
 
 (1,1,1) = {"
 Af

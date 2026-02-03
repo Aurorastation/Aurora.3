@@ -245,7 +245,7 @@
 		if("Yes")
 			command_announcement.Announce("[reportbody]", reporttitle, new_sound = 'sound/AI/commandreport.ogg', msg_sanitized = 1);
 		if("No")
-			to_world(SPAN_WARNING("New [SSatlas.current_map.company_name] Update available at all communication consoles."))
+			to_world(SPAN_WARNING("New [SSmapping.current_map.company_name] Update available at all communication consoles."))
 			sound_to_playing_players('sound/AI/commandreport.ogg')
 
 	log_admin("Storyteller [key_name(src)] has created a command report: [reportbody]")
@@ -274,7 +274,7 @@
 		if("Yes")
 			command_announcement.Announce("[reportbody]", reporttitle, new_sound = 'sound/AI/commandreport.ogg', msg_sanitized = 1)
 		if("No")
-			command_announcement.Announce("New [SSatlas.current_map.company_name] update available at all communication consoles.", "[SSatlas.current_map.company_name] Report", new_sound = 'sound/AI/commandreport.ogg', msg_sanitized = 1)
+			command_announcement.Announce("New [SSmapping.current_map.company_name] update available at all communication consoles.", "[SSmapping.current_map.company_name] Report", new_sound = 'sound/AI/commandreport.ogg', msg_sanitized = 1)
 
 	SSodyssey.scenario.unrestrict_away_site_landing()
 	log_admin("Storyteller [key_name(src)] has lifted the away site landing restrictions: [reportbody]")

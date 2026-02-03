@@ -71,7 +71,7 @@
 /obj/random/dirt_75,
 /obj/structure/flora/ausbushes/sparsegrass,
 /turf/simulated/floor/exoplanet/dirt_konyang,
-/area/space)
+/area/template_noop)
 "bi" = (
 /obj/structure/pit,
 /obj/random/dirt_75,
@@ -80,11 +80,11 @@
 "bn" = (
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/dirt_konyang,
-/area/space)
+/area/template_noop)
 "br" = (
 /obj/structure/flora/rock/konyang/small,
 /turf/simulated/floor/exoplanet/dirt_konyang,
-/area/space)
+/area/template_noop)
 "bD" = (
 /obj/structure/barricade/wooden{
 	dir = 1
@@ -121,7 +121,7 @@
 	name = "dried blood"
 	},
 /turf/simulated/floor/exoplanet/dirt_konyang,
-/area/space)
+/area/template_noop)
 "bZ" = (
 /obj/random/dirt_75,
 /obj/structure/flora/rock/konyang{
@@ -169,7 +169,7 @@
 	},
 /obj/structure/flora/ausbushes/sparsegrass,
 /turf/simulated/floor/exoplanet/konyang,
-/area/space)
+/area/template_noop)
 "dn" = (
 /obj/random/dirt_75,
 /obj/structure/barricade/wooden{
@@ -181,7 +181,7 @@
 /obj/structure/flora/ausbushes/stalkybush,
 /obj/structure/flora/bush/konyang_reeds,
 /turf/simulated/floor/exoplanet/konyang,
-/area/space)
+/area/template_noop)
 "dv" = (
 /obj/random/bomb_supply,
 /obj/structure/lattice/catwalk/indoor/planks{
@@ -204,11 +204,11 @@
 "dO" = (
 /obj/structure/flora/ausbushes/sparsegrass,
 /turf/simulated/floor/exoplanet/dirt_konyang,
-/area/space)
+/area/template_noop)
 "eb" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/exoplanet/dirt_konyang,
-/area/space)
+/area/template_noop)
 "ei" = (
 /obj/random/dirt_75,
 /obj/item/flashlight/lantern{
@@ -216,7 +216,7 @@
 	pixel_y = -3
 	},
 /turf/simulated/floor/exoplanet/barren,
-/area/space)
+/area/template_noop)
 "et" = (
 /obj/structure/lattice/catwalk/indoor/planks{
 	name = "duckboard"
@@ -280,7 +280,7 @@
 /obj/random/dirt_75,
 /obj/structure/flora/rock/konyang/small,
 /turf/simulated/floor/exoplanet/dirt_konyang,
-/area/space)
+/area/template_noop)
 "fA" = (
 /obj/random/dirt_75,
 /obj/item/broken_device{
@@ -293,7 +293,7 @@
 "fE" = (
 /obj/structure/flora/rock/konyang/small,
 /turf/simulated/floor/exoplanet/konyang,
-/area/space)
+/area/template_noop)
 "fH" = (
 /obj/random/dirt_75,
 /obj/random/junk,
@@ -307,7 +307,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/exoplanet/barren,
-/area/space)
+/area/template_noop)
 "gc" = (
 /obj/item/pickaxe/drill{
 	pixel_x = 5;
@@ -338,7 +338,7 @@
 /obj/structure/flora/tree/konyang/spring,
 /obj/structure/flora/ausbushes/ppflowers,
 /turf/simulated/floor/exoplanet/konyang,
-/area/space)
+/area/template_noop)
 "gG" = (
 /obj/structure/rope_post{
 	dir = 1
@@ -358,14 +358,14 @@
 	},
 /obj/structure/flora/bush/konyang_reeds,
 /turf/simulated/floor/exoplanet/konyang,
-/area/space)
+/area/template_noop)
 "gQ" = (
 /obj/random/dirt_75,
 /obj/effect/decal/fake_object/light_source/invisible{
 	light_color = "#ffffff"
 	},
 /turf/simulated/floor/exoplanet/dirt_konyang,
-/area/space)
+/area/template_noop)
 "hb" = (
 /obj/structure/lattice/catwalk/indoor/planks{
 	name = "duckboard"
@@ -439,7 +439,7 @@
 "il" = (
 /obj/structure/flora/ausbushes/ppflowers,
 /turf/simulated/floor/exoplanet/konyang,
-/area/space)
+/area/template_noop)
 "im" = (
 /obj/structure/chainlink_fence{
 	dir = 1
@@ -447,11 +447,11 @@
 /obj/random/dirt_75,
 /obj/structure/flora/ausbushes/sparsegrass,
 /turf/simulated/floor/exoplanet/dirt_konyang,
-/area/space)
+/area/template_noop)
 "iq" = (
 /obj/effect/floor_decal/konyang_flowers,
 /turf/simulated/floor/exoplanet/konyang,
-/area/space)
+/area/template_noop)
 "iS" = (
 /obj/structure/rope_railing{
 	dir = 1
@@ -477,7 +477,7 @@
 /obj/structure/flora/ausbushes/sparsegrass,
 /obj/structure/flora/rock/konyang/small,
 /turf/simulated/floor/exoplanet/konyang,
-/area/space)
+/area/template_noop)
 "iZ" = (
 /obj/random/dirt_75,
 /obj/structure/track,
@@ -496,19 +496,19 @@
 "jd" = (
 /obj/structure/flora/tree/konyang/spring,
 /turf/simulated/floor/exoplanet/konyang,
-/area/space)
+/area/template_noop)
 "jg" = (
 /obj/structure/flora/rock/konyang/small,
 /obj/structure/flora/bush/konyang_reeds,
 /turf/simulated/floor/exoplanet/konyang,
-/area/space)
+/area/template_noop)
 "jl" = (
 /obj/structure/flora/rock/konyang/moss{
 	density = 0
 	},
 /obj/structure/flora/ausbushes/stalkybush,
 /turf/simulated/floor/exoplanet/konyang,
-/area/space)
+/area/template_noop)
 "jt" = (
 /obj/structure/rope_post{
 	dir = 1
@@ -569,7 +569,7 @@
 	basecolor = "#400000"
 	},
 /turf/simulated/floor/exoplanet/barren,
-/area/space)
+/area/template_noop)
 "kJ" = (
 /obj/item/flashlight/lantern,
 /obj/structure/lattice/catwalk/indoor/planks{
@@ -595,7 +595,7 @@
 /obj/structure/flora/rock/konyang,
 /obj/structure/flora/ausbushes/stalkybush,
 /turf/simulated/floor/exoplanet/konyang,
-/area/space)
+/area/template_noop)
 "lw" = (
 /obj/random/dirt_75,
 /obj/structure/pit,
@@ -621,7 +621,7 @@
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/dirt_konyang,
-/area/space)
+/area/template_noop)
 "lX" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
@@ -648,12 +648,12 @@
 	name = "crumpled note"
 	},
 /turf/simulated/floor/exoplanet/dirt_konyang,
-/area/space)
+/area/template_noop)
 "my" = (
 /obj/random/dirt_75,
 /obj/effect/decal/cleanable/generic,
 /turf/simulated/floor/exoplanet/dirt_konyang,
-/area/space)
+/area/template_noop)
 "mF" = (
 /obj/random/dirt_75,
 /obj/structure/flora/rock/konyang/small,
@@ -695,12 +695,12 @@
 /obj/structure/track,
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/barren,
-/area/space)
+/area/template_noop)
 "nt" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/flora/ausbushes/sparsegrass,
 /turf/simulated/floor/exoplanet/dirt_konyang,
-/area/space)
+/area/template_noop)
 "oc" = (
 /obj/random/bomb_supply,
 /turf/simulated/floor/exoplanet/basalt/cave,
@@ -733,12 +733,12 @@
 /area/hivebot_burrows_1)
 "oJ" = (
 /turf/simulated/floor/exoplanet/dirt_konyang,
-/area/space)
+/area/template_noop)
 "oL" = (
 /obj/structure/flora/tree/konyang/spring,
 /obj/effect/floor_decal/konyang_flowers,
 /turf/simulated/floor/exoplanet/konyang,
-/area/space)
+/area/template_noop)
 "oV" = (
 /obj/structure/flora/rock/konyang/small,
 /turf/simulated/floor/exoplanet/dirt_konyang/cave,
@@ -751,7 +751,7 @@
 "pu" = (
 /obj/structure/flora/ausbushes/sparsegrass,
 /turf/simulated/floor/exoplanet/konyang,
-/area/space)
+/area/template_noop)
 "pG" = (
 /obj/item/trash/can{
 	pixel_x = 7;
@@ -768,7 +768,7 @@
 	basecolor = "#400000"
 	},
 /turf/simulated/floor/exoplanet/dirt_konyang,
-/area/space)
+/area/template_noop)
 "pJ" = (
 /obj/random/dirt_75,
 /obj/item/pickaxe/hand{
@@ -808,7 +808,7 @@
 "qH" = (
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/barren,
-/area/space)
+/area/template_noop)
 "qQ" = (
 /obj/structure/flora/rock/konyang/small,
 /obj/random/dirt_75,
@@ -844,7 +844,7 @@
 /obj/structure/flora/rock/konyang/small,
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/barren/cave,
-/area/space)
+/area/template_noop)
 "ro" = (
 /obj/item/flashlight/flare{
 	pixel_y = 7;
@@ -865,12 +865,12 @@
 	light_color = "#ffffff"
 	},
 /turf/simulated/floor/exoplanet/barren/cave,
-/area/space)
+/area/template_noop)
 "sg" = (
 /obj/effect/decal/cleanable/generic,
 /obj/item/stack/rods,
 /turf/simulated/floor/exoplanet/dirt_konyang,
-/area/space)
+/area/template_noop)
 "sA" = (
 /obj/structure/flora/rock/konyang/small,
 /obj/random/dirt_75,
@@ -890,7 +890,7 @@
 	basecolor = "#400000"
 	},
 /turf/simulated/floor/exoplanet/dirt_konyang,
-/area/space)
+/area/template_noop)
 "sF" = (
 /obj/random/dirt_75,
 /obj/random/junk,
@@ -898,7 +898,7 @@
 	light_color = "#ffffff"
 	},
 /turf/simulated/floor/exoplanet/barren,
-/area/space)
+/area/template_noop)
 "sG" = (
 /obj/random/dirt_75,
 /obj/structure/flora/rock/konyang{
@@ -916,7 +916,7 @@
 /obj/structure/flora/ausbushes/sparsegrass,
 /obj/structure/flora/ausbushes/sparsegrass,
 /turf/simulated/floor/exoplanet/konyang,
-/area/space)
+/area/template_noop)
 "sN" = (
 /obj/structure/bonfire,
 /obj/random/dirt_75,
@@ -962,14 +962,14 @@
 /area/hivebot_burrows_1)
 "ug" = (
 /turf/unsimulated/mineral/asteroid,
-/area/space)
+/area/template_noop)
 "uo" = (
 /obj/structure/flora/rock/konyang{
 	density = 0
 	},
 /obj/structure/flora/ausbushes/stalkybush,
 /turf/simulated/floor/exoplanet/konyang,
-/area/space)
+/area/template_noop)
 "uq" = (
 /obj/effect/decal/remains/robot,
 /obj/effect/decal/cleanable/blood/oil,
@@ -1056,7 +1056,7 @@
 	light_color = "#ffffff"
 	},
 /turf/simulated/floor/exoplanet/dirt_konyang,
-/area/space)
+/area/template_noop)
 "wG" = (
 /obj/item/archaeological_find,
 /obj/random/dirt_75,
@@ -1072,7 +1072,7 @@
 	pixel_y = 8
 	},
 /turf/simulated/floor/exoplanet/dirt_konyang,
-/area/space)
+/area/template_noop)
 "wP" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
@@ -1122,11 +1122,11 @@
 "xD" = (
 /obj/structure/flora/bush/konyang_reeds,
 /turf/template_noop,
-/area/space)
+/area/template_noop)
 "xF" = (
 /obj/structure/grille/broken,
 /turf/simulated/floor/exoplanet/dirt_konyang,
-/area/space)
+/area/template_noop)
 "xN" = (
 /obj/random/dirt_75,
 /obj/structure/track,
@@ -1142,7 +1142,7 @@
 	basecolor = "#400000"
 	},
 /turf/simulated/floor/exoplanet/barren,
-/area/space)
+/area/template_noop)
 "xW" = (
 /obj/item/paper/crumpled{
 	pixel_y = 6;
@@ -1185,7 +1185,7 @@
 	density = 0
 	},
 /turf/simulated/floor/exoplanet/konyang,
-/area/space)
+/area/template_noop)
 "yQ" = (
 /obj/structure/ore_box,
 /obj/random/dirt_75,
@@ -1198,7 +1198,7 @@
 	pixel_y = 4
 	},
 /turf/simulated/floor/exoplanet/barren,
-/area/space)
+/area/template_noop)
 "zx" = (
 /obj/random/dirt_75,
 /obj/structure/flora/rock/konyang/small,
@@ -1299,18 +1299,18 @@
 	basecolor = "#400000"
 	},
 /turf/simulated/floor/exoplanet/dirt_konyang,
-/area/space)
+/area/template_noop)
 "AA" = (
 /obj/structure/flora/ausbushes/sparsegrass,
 /obj/effect/floor_decal/konyang_flowers,
 /turf/simulated/floor/exoplanet/konyang,
-/area/space)
+/area/template_noop)
 "AC" = (
 /obj/item/stack/material/steel,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/dirt_konyang,
-/area/space)
+/area/template_noop)
 "AW" = (
 /obj/structure/table/wood,
 /obj/item/deck/cards,
@@ -1328,7 +1328,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/exoplanet/barren,
-/area/space)
+/area/template_noop)
 "Bt" = (
 /obj/item/gps/mining{
 	pixel_x = 8;
@@ -1339,7 +1339,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/exoplanet/barren,
-/area/space)
+/area/template_noop)
 "BL" = (
 /obj/structure/flora/rock/konyang{
 	density = 0
@@ -1378,7 +1378,7 @@
 /obj/item/ore/coal,
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/dirt_konyang,
-/area/space)
+/area/template_noop)
 "BR" = (
 /obj/random/dirt_75,
 /obj/item/shovel{
@@ -1429,7 +1429,7 @@
 	density = 0
 	},
 /turf/simulated/floor/exoplanet/dirt_konyang,
-/area/space)
+/area/template_noop)
 "Cw" = (
 /obj/structure/lattice/catwalk/indoor/planks{
 	name = "duckboard"
@@ -1524,7 +1524,7 @@
 /obj/structure/flora/bush/mushroom,
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/dirt_konyang,
-/area/space)
+/area/template_noop)
 "EV" = (
 /obj/structure/track,
 /obj/random/dirt_75,
@@ -1535,15 +1535,15 @@
 /obj/random/dirt_75,
 /obj/structure/ore_box,
 /turf/simulated/floor/exoplanet/barren,
-/area/space)
+/area/template_noop)
 "Fn" = (
 /obj/structure/flora/ausbushes/stalkybush,
 /turf/template_noop,
-/area/space)
+/area/template_noop)
 "Fo" = (
 /obj/structure/flora/ausbushes/reedbush,
 /turf/simulated/floor/exoplanet/konyang,
-/area/space)
+/area/template_noop)
 "Fv" = (
 /obj/random/dirt_75,
 /obj/item/arrow/rod,
@@ -1558,7 +1558,7 @@
 "FO" = (
 /obj/structure/flora/tree/konyang/fall,
 /turf/simulated/floor/exoplanet/konyang,
-/area/space)
+/area/template_noop)
 "Gc" = (
 /obj/random/dirt_75,
 /obj/structure/track,
@@ -1599,7 +1599,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/exoplanet/dirt_konyang,
-/area/space)
+/area/template_noop)
 "GD" = (
 /obj/effect/decal/cleanable/blood/splatter{
 	basecolor = "#400000";
@@ -1625,7 +1625,7 @@
 	light_color = "#ffffff"
 	},
 /turf/simulated/floor/exoplanet/barren,
-/area/space)
+/area/template_noop)
 "GT" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
@@ -1633,18 +1633,18 @@
 	light_color = "#ffffff"
 	},
 /turf/simulated/floor/exoplanet/dirt_konyang,
-/area/space)
+/area/template_noop)
 "GX" = (
 /obj/random/dirt_75,
 /obj/structure/flora/rock/konyang{
 	density = 0
 	},
 /turf/simulated/floor/exoplanet/dirt_konyang,
-/area/space)
+/area/template_noop)
 "GZ" = (
 /obj/structure/flora/ausbushes/stalkybush,
 /turf/simulated/floor/exoplanet/konyang,
-/area/space)
+/area/template_noop)
 "Hd" = (
 /obj/random/dirt_75,
 /obj/effect/decal/cleanable/blood/drip,
@@ -1663,14 +1663,14 @@
 "HB" = (
 /obj/structure/flora/rock/pile,
 /turf/simulated/floor/exoplanet/dirt_konyang,
-/area/space)
+/area/template_noop)
 "HE" = (
 /obj/structure/lattice/catwalk/indoor/planks{
 	name = "duckboard"
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/exoplanet/dirt_konyang,
-/area/space)
+/area/template_noop)
 "Ig" = (
 /obj/random/dirt_75,
 /obj/item/anomaly_core,
@@ -1689,7 +1689,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/exoplanet/barren,
-/area/space)
+/area/template_noop)
 "IL" = (
 /obj/random/dirt_75,
 /obj/machinery/artifact,
@@ -1701,7 +1701,7 @@
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/dirt_konyang,
-/area/space)
+/area/template_noop)
 "IQ" = (
 /obj/effect/decal/cleanable/blood/gibs/robot,
 /obj/random/dirt_75,
@@ -1743,7 +1743,7 @@
 	light_color = "#ffffff"
 	},
 /turf/simulated/floor/exoplanet/dirt_konyang,
-/area/space)
+/area/template_noop)
 "Ki" = (
 /obj/random/dirt_75,
 /obj/random/bomb_supply,
@@ -1753,12 +1753,12 @@
 /obj/structure/flora/rock/konyang/small,
 /obj/structure/flora/ausbushes/sparsegrass,
 /turf/simulated/floor/exoplanet/konyang,
-/area/space)
+/area/template_noop)
 "Kv" = (
 /obj/structure/chainlink_fence,
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/dirt_konyang,
-/area/space)
+/area/template_noop)
 "Kw" = (
 /obj/random/dirt_75,
 /obj/structure/lattice/catwalk/indoor/planks{
@@ -1839,7 +1839,7 @@
 /obj/structure/flora/bush/mushroom,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/exoplanet/dirt_konyang,
-/area/space)
+/area/template_noop)
 "Mg" = (
 /obj/random/bomb_supply,
 /obj/structure/lattice/catwalk/indoor/planks{
@@ -1895,7 +1895,7 @@
 /obj/structure/flora/ausbushes/stalkybush,
 /obj/structure/flora/ausbushes/ppflowers,
 /turf/simulated/floor/exoplanet/konyang,
-/area/space)
+/area/template_noop)
 "Ng" = (
 /obj/random/dirt_75,
 /obj/structure/flora/bush/mushroom,
@@ -1945,7 +1945,7 @@
 	},
 /obj/structure/flora/ausbushes/sparsegrass,
 /turf/simulated/floor/exoplanet/konyang,
-/area/space)
+/area/template_noop)
 "NU" = (
 /obj/item/flashlight/flare{
 	pixel_y = 7;
@@ -1972,11 +1972,11 @@
 "Oh" = (
 /obj/effect/floor_decal/konyang_flowers,
 /turf/template_noop,
-/area/space)
+/area/template_noop)
 "Om" = (
 /obj/structure/flora/bush/konyang_reeds,
 /turf/simulated/floor/exoplanet/konyang,
-/area/space)
+/area/template_noop)
 "Ox" = (
 /obj/machinery/floodlight,
 /turf/simulated/floor/exoplanet/basalt/cave,
@@ -2083,7 +2083,7 @@
 "Qe" = (
 /obj/structure/flora/bush/mushroom,
 /turf/simulated/floor/exoplanet/dirt_konyang,
-/area/space)
+/area/template_noop)
 "Qi" = (
 /obj/random/dirt_75,
 /obj/item/stack/rods,
@@ -2103,12 +2103,12 @@
 /obj/structure/flora/tree/konyang/fall,
 /obj/effect/decal/cleanable/generic/beet_tree_petals,
 /turf/simulated/floor/exoplanet/konyang,
-/area/space)
+/area/template_noop)
 "Qy" = (
 /obj/structure/flora/ausbushes/sparsegrass,
 /obj/structure/flora/tree/konyang/spring,
 /turf/simulated/floor/exoplanet/konyang,
-/area/space)
+/area/template_noop)
 "QA" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
@@ -2163,7 +2163,7 @@
 	density = 0
 	},
 /turf/simulated/floor/exoplanet/dirt_konyang,
-/area/space)
+/area/template_noop)
 "SF" = (
 /obj/random/dirt_75,
 /obj/item/stack/rods{
@@ -2171,7 +2171,7 @@
 	pixel_x = 5
 	},
 /turf/simulated/floor/exoplanet/dirt_konyang,
-/area/space)
+/area/template_noop)
 "SJ" = (
 /obj/random/dirt_75,
 /obj/effect/decal/cleanable/blood/oil/streak,
@@ -2203,13 +2203,13 @@
 /area/hivebot_burrows_1)
 "TI" = (
 /turf/simulated/floor/exoplanet/konyang,
-/area/space)
+/area/template_noop)
 "TR" = (
 /obj/structure/flora/rock/konyang{
 	density = 0
 	},
 /turf/simulated/floor/exoplanet/konyang,
-/area/space)
+/area/template_noop)
 "TV" = (
 /obj/structure/flora/rock/konyang/small,
 /obj/random/dirt_75,
@@ -2273,7 +2273,7 @@
 "Vj" = (
 /obj/structure/flora/ausbushes/sparsegrass,
 /turf/template_noop,
-/area/space)
+/area/template_noop)
 "Vk" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
@@ -2293,7 +2293,7 @@
 /obj/structure/flora/ausbushes/sparsegrass,
 /obj/structure/flora/ausbushes/ppflowers,
 /turf/simulated/floor/exoplanet/konyang,
-/area/space)
+/area/template_noop)
 "Vv" = (
 /obj/vehicle/train/cargo/trolley/mining,
 /obj/random/dirt_75,
@@ -2307,7 +2307,7 @@
 /area/hivebot_burrows_1)
 "Vy" = (
 /turf/template_noop,
-/area/space)
+/area/template_noop)
 "VG" = (
 /obj/random/dirt_75,
 /obj/item/arrow/rod,
@@ -2327,7 +2327,7 @@
 	basecolor = "#400000"
 	},
 /turf/simulated/floor/exoplanet/barren,
-/area/space)
+/area/template_noop)
 "VV" = (
 /obj/structure/flora/rock/konyang/small,
 /turf/simulated/floor/exoplanet/barren/cave,
@@ -2343,12 +2343,12 @@
 	},
 /obj/structure/flora/bush/konyang_reeds,
 /turf/simulated/floor/exoplanet/konyang,
-/area/space)
+/area/template_noop)
 "Wr" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/flora/rock/konyang/small,
 /turf/simulated/floor/exoplanet/dirt_konyang,
-/area/space)
+/area/template_noop)
 "Ww" = (
 /obj/random/bomb_supply,
 /obj/structure/lattice/catwalk/indoor/planks{
@@ -2364,7 +2364,7 @@
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/dirt_konyang,
-/area/space)
+/area/template_noop)
 "WE" = (
 /obj/structure/closet/crate/miningcart/ore,
 /obj/random/dirt_75,
@@ -2448,7 +2448,7 @@
 /obj/item/arrow/rod,
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/dirt_konyang,
-/area/space)
+/area/template_noop)
 "YF" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
@@ -2483,7 +2483,7 @@
 /obj/machinery/floodlight,
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/dirt_konyang,
-/area/space)
+/area/template_noop)
 "Zc" = (
 /obj/random/dirt_75,
 /obj/structure/track,
@@ -2552,7 +2552,7 @@
 /obj/structure/flora/tree/konyang/spring,
 /obj/structure/flora/ausbushes/sparsegrass,
 /turf/simulated/floor/exoplanet/konyang,
-/area/space)
+/area/template_noop)
 "ZM" = (
 /obj/structure/flora/rock/konyang/small,
 /obj/random/dirt_75,
@@ -2563,7 +2563,7 @@
 /obj/random/dirt_75,
 /obj/random/junk,
 /turf/simulated/floor/exoplanet/dirt_konyang,
-/area/space)
+/area/template_noop)
 "ZW" = (
 /obj/effect/decal/remains/human,
 /obj/item/clothing/head/hardhat{

@@ -321,7 +321,7 @@ GLOBAL_LIST_INIT_TYPED(allCasters, /obj/machinery/newscaster, list())
 					dat+="<HR><B>Feed Security functions:</B><BR>"
 					dat+="<BR><A href='byond://?src=[REF(src)];menu_wanted=1'>[(wanted_already) ? ("Manage") : ("Publish")] \"Wanted\" Issue</A>"
 					dat+="<BR><A href='byond://?src=[REF(src)];menu_censor_story=1'>Censor Feed Stories</A>"
-					dat+="<BR><A href='byond://?src=[REF(src)];menu_censor_channel=1'>Mark Feed Channel with [SSatlas.current_map.company_name] D-Notice</A>"
+					dat+="<BR><A href='byond://?src=[REF(src)];menu_censor_channel=1'>Mark Feed Channel with [SSmapping.current_map.company_name] D-Notice</A>"
 				dat+="<BR><HR>The newscaster recognises you as: <span class='good'>[src.scanned_user]</span>"
 			if(1)
 				dat+= "Feed Channels<HR>"
@@ -407,7 +407,7 @@ GLOBAL_LIST_INIT_TYPED(allCasters, /obj/machinery/newscaster, list())
 			if(9)
 				dat+="<B>[src.viewing_channel.channel_name]: </B><FONT SIZE=1>\[created by: <span class='boldannounce'>[src.viewing_channel.author]</span>\]</font><HR>"
 				if(src.viewing_channel.censored)
-					dat += SPAN_WARNING("<B>ATTENTION:</B> ") + "This channel has been deemed as threatening to the welfare of the [station_name(TRUE)], and marked with a [SSatlas.current_map.company_name] D-Notice.<BR>"
+					dat += SPAN_WARNING("<B>ATTENTION:</B> ") + "This channel has been deemed as threatening to the welfare of the [station_name(TRUE)], and marked with a [SSmapping.current_map.company_name] D-Notice.<BR>"
 					dat+="No further feed story additions are allowed while the D-Notice is in effect.<BR><BR>"
 				else
 					if( isemptylist(src.viewing_channel.messages) )
@@ -428,7 +428,7 @@ GLOBAL_LIST_INIT_TYPED(allCasters, /obj/machinery/newscaster, list())
 				dat+="<BR><HR><A href='byond://?src=[REF(src)];refresh=1'>Refresh</A>"
 				dat+="<BR><A href='byond://?src=[REF(src)];setScreen=[1]'>Back</A>"
 			if(10)
-				dat+="<B>[SSatlas.current_map.company_name] Feed Censorship Tool</B><BR>"
+				dat+="<B>[SSmapping.current_map.company_name] Feed Censorship Tool</B><BR>"
 				dat+="<FONT SIZE=1>NOTE: Due to the nature of news Feeds, total deletion of a Feed Story is not possible.<BR>"
 				dat+="Keep in mind that users attempting to view a censored feed will instead see the \[REDACTED\] tag above it.</font>"
 				dat+="<HR>Select Feed channel to get Stories from:<BR>"
@@ -440,7 +440,7 @@ GLOBAL_LIST_INIT_TYPED(allCasters, /obj/machinery/newscaster, list())
 						dat+="<A href='byond://?src=[REF(src)];pick_censor_channel=[REF(FC)]'>[FC.channel_name]</A> [(FC.censored) ? (SPAN_WARNING("***")) : null]<BR>"
 				dat+="<BR><A href='byond://?src=[REF(src)];setScreen=[0]'>Cancel</A>"
 			if(11)
-				dat+="<B>[SSatlas.current_map.company_name] D-Notice Handler</B><HR>"
+				dat+="<B>[SSmapping.current_map.company_name] D-Notice Handler</B><HR>"
 				dat+="<FONT SIZE=1>A D-Notice is to be bestowed upon the channel if the handling Authority deems it as harmful for the [station_name(TRUE)]'s"
 				dat+="morale, integrity or disciplinary behaviour. A D-Notice will render a channel unable to be updated by anyone, without deleting any feed"
 				dat+="stories it might contain at the time. You can lift a D-Notice if you have the required access at any time.</font><HR>"
@@ -468,7 +468,7 @@ GLOBAL_LIST_INIT_TYPED(allCasters, /obj/machinery/newscaster, list())
 				dat+="<B>[src.viewing_channel.channel_name]: </B><FONT SIZE=1>\[ created by: <span class='boldannounce'>[src.viewing_channel.author]</span> \]</font><BR>"
 				dat+="Channel messages listed below. If you deem them dangerous to the [station_name(TRUE)], you can <A href='byond://?src=[REF(src)];toggle_d_notice=[REF(src.viewing_channel)]'>Bestow a D-Notice upon the channel</A>.<HR>"
 				if(src.viewing_channel.censored)
-					dat += SPAN_WARNING("<B>ATTENTION:</B> ") + "This channel has been deemed as threatening to the welfare of the [station_name(TRUE)], and marked with a [SSatlas.current_map.company_name] D-Notice.<BR>"
+					dat += SPAN_WARNING("<B>ATTENTION:</B> ") + "This channel has been deemed as threatening to the welfare of the [station_name(TRUE)], and marked with a [SSmapping.current_map.company_name] D-Notice.<BR>"
 					dat+="No further feed story additions are allowed while the D-Notice is in effect.<BR><BR>"
 				else
 					if( isemptylist(src.viewing_channel.messages) )
@@ -754,7 +754,7 @@ GLOBAL_LIST_INIT_TYPED(allCasters, /obj/machinery/newscaster, list())
 						src.screen = 15
 					else
 						if(SSnews.wanted_issue.is_admin_message)
-							alert("The wanted issue has been distributed by a [SSatlas.current_map.company_name] higherup. You cannot edit it.","Ok")
+							alert("The wanted issue has been distributed by a [SSmapping.current_map.company_name] higherup. You cannot edit it.","Ok")
 							return
 						SSnews.wanted_issue.author = src.channel_name
 						SSnews.wanted_issue.body = src.msg
@@ -767,7 +767,7 @@ GLOBAL_LIST_INIT_TYPED(allCasters, /obj/machinery/newscaster, list())
 
 		else if(href_list["cancel_wanted"])
 			if(SSnews.wanted_issue.is_admin_message)
-				alert("The wanted issue has been distributed by a [SSatlas.current_map.company_name] higherup. You cannot take it down.","Ok")
+				alert("The wanted issue has been distributed by a [SSmapping.current_map.company_name] higherup. You cannot take it down.","Ok")
 				return
 			var/choice = alert("Please confirm Wanted Issue removal","Network Security Handler","Confirm","Cancel")
 			if(choice=="Confirm")
@@ -783,7 +783,7 @@ GLOBAL_LIST_INIT_TYPED(allCasters, /obj/machinery/newscaster, list())
 		else if(href_list["censor_channel_author"])
 			var/datum/feed_channel/FC = locate(href_list["censor_channel_author"])
 			if(FC.is_admin_channel)
-				alert("This channel was created by a [SSatlas.current_map.company_name] Officer or a external news agency. You cannot censor it.","Ok")
+				alert("This channel was created by a [SSmapping.current_map.company_name] Officer or a external news agency. You cannot censor it.","Ok")
 				return
 			if(FC.author != "<B>\[REDACTED\]</B>")
 				FC.backup_author = FC.author
@@ -796,7 +796,7 @@ GLOBAL_LIST_INIT_TYPED(allCasters, /obj/machinery/newscaster, list())
 		else if(href_list["censor_channel_story_author"])
 			var/datum/feed_message/MSG = locate(href_list["censor_channel_story_author"])
 			if(MSG.is_admin_message)
-				alert("This message was created by a [SSatlas.current_map.company_name] Officer or a external news agency. You cannot censor its author.","Ok")
+				alert("This message was created by a [SSmapping.current_map.company_name] Officer or a external news agency. You cannot censor its author.","Ok")
 				return
 			if(MSG.author != "<B>\[REDACTED\]</B>")
 				MSG.backup_author = MSG.author
@@ -809,7 +809,7 @@ GLOBAL_LIST_INIT_TYPED(allCasters, /obj/machinery/newscaster, list())
 		else if(href_list["censor_channel_story_body"])
 			var/datum/feed_message/MSG = locate(href_list["censor_channel_story_body"])
 			if(MSG.is_admin_message)
-				alert("This channel was created by a [SSatlas.current_map.company_name] Officer or a external news agency. You cannot censor it.","Ok")
+				alert("This channel was created by a [SSmapping.current_map.company_name] Officer or a external news agency. You cannot censor it.","Ok")
 				return
 			if(MSG.body != "<B>\[REDACTED\]</B>")
 				MSG.backup_body = MSG.body
@@ -835,7 +835,7 @@ GLOBAL_LIST_INIT_TYPED(allCasters, /obj/machinery/newscaster, list())
 		else if(href_list["toggle_d_notice"])
 			var/datum/feed_channel/FC = locate(href_list["toggle_d_notice"])
 			if(FC.is_admin_channel)
-				alert("This channel was created by a [SSatlas.current_map.company_name] Officer or a external news agency. You cannot place a D-Notice upon it.","Ok")
+				alert("This channel was created by a [SSmapping.current_map.company_name] Officer or a external news agency. You cannot place a D-Notice upon it.","Ok")
 				return
 			FC.censored = !FC.censored
 			FC.update()
@@ -987,7 +987,7 @@ GLOBAL_LIST_INIT_TYPED(allCasters, /obj/machinery/newscaster, list())
 		switch(screen)
 			if(0) //Cover
 				dat+="<DIV ALIGN='center'><B><FONT SIZE=6>The Griffon</font></B></div>"
-				dat+="<DIV ALIGN='center'><FONT SIZE=2>[SSatlas.current_map.company_name]-standard newspaper, for use on [SSatlas.current_map.company_name] Vessels.</font></div><HR>"
+				dat+="<DIV ALIGN='center'><FONT SIZE=2>[SSmapping.current_map.company_name]-standard newspaper, for use on [SSmapping.current_map.company_name] Vessels.</font></div><HR>"
 				if(isemptylist(src.news_content))
 					if(src.important_message)
 						dat+="Contents:<BR><ul><B><span class='warning'>**</span>Important Security Announcement<span class='warning'>**</span></B> <FONT SIZE=2>\[page [src.pages+2]\]</font><BR></ul>"

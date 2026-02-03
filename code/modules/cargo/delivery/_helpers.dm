@@ -1,7 +1,7 @@
 /proc/get_cargo_package_delivery_point(var/atom/atom, var/horizon_only = FALSE)
 	var/obj/effect/overmap/visitable/ship/horizon
-	if(SSatlas.current_map.overmap_visitable_type)
-		horizon = SSshuttle.ship_by_type(SSatlas.current_map.overmap_visitable_type)
+	if(SSmapping.current_map.overmap_visitable_type)
+		horizon = SSshuttle.ship_by_type(SSmapping.current_map.overmap_visitable_type)
 
 	var/turf/current_turf = get_turf(atom)
 

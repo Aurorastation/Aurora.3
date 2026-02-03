@@ -10,7 +10,7 @@
 
 	prefix = "konyang/"
 	suffix = "pirate_outpost.dmm"
-	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/konyang_pirate)
+	shuttles_to_initialise = list(/datum/shuttle/overmap/konyang_pirate)
 
 	unit_test_groups = list(3)
 
@@ -20,7 +20,6 @@
 	icon_state = "bluenew"
 	requires_power = FALSE
 	no_light_control = FALSE
-	base_turf = /turf/simulated/mineral
 	area_flags = AREA_FLAG_HIDE_FROM_HOLOMAP | AREA_FLAG_INDESTRUCTIBLE_TURFS
 
 /area/shuttle/konyang_pirate
@@ -44,16 +43,17 @@
 	fore_dir = SOUTH
 	vessel_size = SHIP_SIZE_TINY
 
+	ship_area_type = /area/shuttle/konyang_pirate
+
 /obj/machinery/computer/shuttle_control/explore/konyang_pirate
 	name = "shuttle control console"
 	shuttle_tag = "Konyang Pirate Shuttle"
 
-/datum/shuttle/autodock/overmap/konyang_pirate
+/datum/shuttle/overmap/konyang_pirate
 	name = "Konyang Pirate Shuttle"
 	move_time = 90
 	shuttle_area = list(/area/shuttle/konyang_pirate)
 	current_location = "nav_start_konyang_pirate"
-	landmark_transition = "nav_transit_konyang_pirate"
 	range = 1
 	fuel_consumption = 2
 	logging_home_tag = "nav_start_konyang_pirate"
@@ -63,14 +63,11 @@
 	name = "Konyang Pirate Outpost - Landing Pad"
 	landmark_tag = "nav_start_konyang_pirate"
 	docking_controller = "airlock_konyang_pirate"
-	base_area = /area/konyang_pirate_outpost
-	base_turf = /turf/simulated/floor/exoplanet/dirt_konyang
 	movable_flags = MOVABLE_FLAG_EFFECTMOVE
 
 /obj/effect/shuttle_landmark/konyang_pirate/transit
 	name = "In transit"
 	landmark_tag = "nav_transit_konyang_pirate"
-	base_turf = /turf/space/transit/north
 
 /datum/ghostspawner/human/konyang_pirate
 	short_name = "konyang_pirate"

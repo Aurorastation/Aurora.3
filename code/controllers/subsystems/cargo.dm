@@ -37,7 +37,7 @@ SUBSYSTEM_DEF(cargo)
 	var/movetime = 300
 	var/min_movetime = 300
 	var/max_movetime = 2400
-	var/datum/shuttle/autodock/ferry/supply/shuttle
+	var/datum/shuttle/ferry/supply/shuttle
 
 	// Item Variables
 	var/last_item_id = 0 // The ID of the last item that has been added.

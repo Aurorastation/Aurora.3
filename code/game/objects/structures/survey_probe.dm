@@ -177,7 +177,7 @@
 	var/datum/gas_mixture/air = T.return_air()
 	if(air && air.total_moles>0)
 		. += "<br><small>[english_list(atmosanalyzer_scan(T, air))]</small>"
-		if((is_exoplanet || is_asteroid) && SSatlas.current_map.use_overmap)
+		if((is_exoplanet || is_asteroid) && SSmapping.current_map.use_overmap)
 			var/obj/effect/overmap/visitable/sector/exoplanet/exoplanet = GLOB.map_sectors["[z]"]
 			if(istype(exoplanet))
 				. += "<br><b>Apparent Weather Data: </b>[exoplanet.weather]"
@@ -251,7 +251,7 @@
 		. += "The probe cannot penetrate the ground deep enough to get any meaningful data."
 
 	// survey from sector / exoplanet
-	if((is_exoplanet || is_asteroid) && SSatlas.current_map.use_overmap)
+	if((is_exoplanet || is_asteroid) && SSmapping.current_map.use_overmap)
 		var/obj/effect/overmap/visitable/sector/sector = GLOB.map_sectors["[z]"]
 		var/obj/effect/overmap/visitable/sector/exoplanet/exoplanet = sector
 		if(istype(sector))
@@ -281,7 +281,7 @@
 /obj/structure/survey_probe/magnet/get_report(T, is_exoplanet, is_asteroid)
 	. = "<b>Geomagnetic survey results:</b>"
 	// survey from sector / exoplanet
-	if((is_exoplanet || is_asteroid) && SSatlas.current_map.use_overmap)
+	if((is_exoplanet || is_asteroid) && SSmapping.current_map.use_overmap)
 		var/obj/effect/overmap/visitable/sector/sector = GLOB.map_sectors["[z]"]
 		var/obj/effect/overmap/visitable/sector/exoplanet/exoplanet = sector
 		if(istype(sector))

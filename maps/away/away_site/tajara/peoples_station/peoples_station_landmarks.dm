@@ -1,8 +1,6 @@
 // --------------------- base type
 
 /obj/effect/shuttle_landmark/saniorios_outpost
-	base_turf = /turf/space
-	base_area = /area/space
 
 // --------------------- shuttle
 
@@ -12,14 +10,11 @@
 	name = "People's Station Fang Hangar"
 	landmark_tag = "nav_hangar_peoples_station_fang"
 	docking_controller = "peoples_station_fang_dock"
-	base_area = /area/peoples_station/fang
-	base_turf = /turf/simulated/floor/plating
 	movable_flags = MOVABLE_FLAG_EFFECTMOVE
 
 /obj/effect/shuttle_landmark/peoples_station_fang/transit
 	name = "In transit"
 	landmark_tag = "nav_transit_peoples_station_fang"
-	base_turf = /turf/space/transit/north
 
 // ---- transport
 
@@ -27,14 +22,11 @@
 	name = "People's Station Transport Hangar"
 	landmark_tag = "nav_peoples_station_transport"
 	docking_controller = "peoples_station_transport_dock"
-	base_area = /area/peoples_station/transport_hangar
-	base_turf = /turf/simulated/floor/plating
 	movable_flags = MOVABLE_FLAG_EFFECTMOVE
 
 /obj/effect/shuttle_landmark/peoples_station_transport/transit
 	name = "In transit"
 	landmark_tag = "nav_transit_peoples_station_transport"
-	base_turf = /turf/space/transit/north
 
 /obj/effect/map_effect/marker/airlock/shuttle/peoples_station_transport
 	name = "People's Station Transport Shuttle"

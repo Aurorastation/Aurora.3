@@ -9,7 +9,7 @@
 	spawn_weight = 2.5
 	spawn_cost = 1
 	id = "peoples_station"
-	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/peoples_station_fang, /datum/shuttle/autodock/overmap/peoples_station_transport)
+	shuttles_to_initialise = list(/datum/shuttle/overmap/peoples_station_fang, /datum/shuttle/overmap/peoples_station_transport)
 
 	unit_test_groups = list(2)
 
@@ -51,6 +51,8 @@
 	comms_support = TRUE
 	comms_name = "people's station"
 
+	ship_area_type = /area/peoples_station
+
 /obj/effect/overmap/visitable/ship/stationary/peoples_station/get_skybox_representation()
 	var/image/skybox_image = image('icons/skybox/subcapital_ships.dmi', "pss")
 	skybox_image.pixel_x = rand(0,64)
@@ -60,8 +62,6 @@
 /obj/effect/shuttle_landmark/nav_peoples_station/dockintrepid
 	name = "People's Space Station Intrepid Docking"
 	landmark_tag = "nav_peoples_station_dockintrepid"
-	base_area = /area/peoples_station/hangar
-	base_turf = /turf/simulated/floor/plating
 
 /obj/effect/shuttle_landmark/nav_peoples_station/nav1
 	name = "People's Space Station Navpoint #1"
@@ -90,6 +90,8 @@
 	fore_dir = NORTH
 	vessel_size = SHIP_SIZE_TINY
 
+	ship_area_type = /area/shuttle/fang
+
 /obj/effect/overmap/visitable/ship/landable/peoples_station_fang/New()
 	if (prob(50))
 		designation = "Hadii"
@@ -100,12 +102,11 @@
 	name = "shuttle control console"
 	shuttle_tag = "Orbital Fleet Fang"
 
-/datum/shuttle/autodock/overmap/peoples_station_fang
+/datum/shuttle/overmap/peoples_station_fang
 	name = "Orbital Fleet Fang"
 	move_time = 20
 	shuttle_area = list(/area/shuttle/fang)
 	current_location = "nav_hangar_peoples_station_fang"
-	landmark_transition = "nav_transit_peoples_station_fang"
 	range = 1
 	fuel_consumption = 2
 	dock_target = "peoples_station_fang"
@@ -129,16 +130,17 @@
 	fore_dir = NORTH
 	vessel_size = SHIP_SIZE_TINY
 
+	ship_area_type = /area/shuttle/peoples_station_transport
+
 /obj/machinery/computer/shuttle_control/explore/terminal/peoples_station_transport
 	name = "shuttle control console"
 	shuttle_tag = "People's Station Transport Shuttle"
 
-/datum/shuttle/autodock/overmap/peoples_station_transport
+/datum/shuttle/overmap/peoples_station_transport
 	name = "People's Station Transport Shuttle"
 	move_time = 20
 	shuttle_area = list(/area/shuttle/peoples_station_transport)
 	current_location = "nav_peoples_station_transport"
-	landmark_transition = "nav_transit_peoples_station_transport"
 	dock_target = "peoples_station_transport"
 	range = 1
 	fuel_consumption = 2
@@ -149,11 +151,8 @@
 	name = "People's Station Transport Shuttle"
 	landmark_tag = "nav_peoples_station_transport"
 	docking_controller = "peoples_station_transport_dock"
-	base_area = /area/peoples_station/transport_hangar
-	base_turf = /turf/simulated/floor/plating
 	movable_flags = MOVABLE_FLAG_EFFECTMOVE
 
 /obj/effect/shuttle_landmark/peoples_station_transport/transit
 	name = "In transit"
 	landmark_tag = "nav_transit_peoples_station_transport"
-	base_turf = /turf/space/transit/north

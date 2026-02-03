@@ -49,8 +49,7 @@ SUBSYSTEM_DEF(falling)
 			REMOVE_AND_CONTINUE
 
 		// Check if the victim's current position is affected by gravity.
-		var/area/mob_area = get_area(mob_loc)
-		if (!mob_area.has_gravity())
+		if (!victim.has_gravity(mob_loc))
 			REMOVE_AND_CONTINUE
 
 		// Thrown objects don't fall, generally speaking.

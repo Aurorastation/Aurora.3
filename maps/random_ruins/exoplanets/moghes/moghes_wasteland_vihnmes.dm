@@ -18,7 +18,6 @@
 	requires_power = FALSE
 	no_light_control = FALSE
 	is_outside = OUTSIDE_NO
-	base_turf = /turf/simulated/floor/exoplanet/desert
 	area_flags = AREA_FLAG_RAD_SHIELDED|AREA_FLAG_INDESTRUCTIBLE_TURFS
 	area_blurb = "The sound of music and the warmth of a fire fill this place - an oasis of rest in the danger of the Wasteland."
 

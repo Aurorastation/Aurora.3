@@ -24,14 +24,6 @@
 	restricted_levels = list()
 	accessible_z_levels = list("1" = 5, "2" = 5, "3" = 5, "5" = 75)
 	empty_levels = list(5)
-	base_turf_by_z = list(
-		"1" = /turf/space,
-		"2" = /turf/space,
-		"3" = /turf/space,
-		"4" = /turf/space,
-		"5" = /turf/space,
-		"6" = /turf/space
-	)
 
 	station_name = "SCCV Horizon"
 	station_short = "Horizon"
@@ -114,35 +106,35 @@
 	ports_of_call = TRUE
 
 	map_shuttles = list(
-		/datum/shuttle/autodock/ferry/lift/scc_ship/morgue,
-		/datum/shuttle/autodock/multi/lift/operations,
-		/datum/shuttle/autodock/multi/lift/robotics,
-		/datum/shuttle/autodock/ferry/escape_pod/pod/escape_pod1,
-		/datum/shuttle/autodock/ferry/escape_pod/pod/escape_pod2,
-		/datum/shuttle/autodock/ferry/escape_pod/pod/escape_pod3,
-		/datum/shuttle/autodock/ferry/escape_pod/pod/escape_pod4,
-		/datum/shuttle/autodock/ferry/supply/horizon,
-		/datum/shuttle/autodock/ferry/specops/ert_aurora,
-		/datum/shuttle/autodock/multi/antag/skipjack_ship,
-		/datum/shuttle/autodock/multi/antag/burglar_ship,
-		/datum/shuttle/autodock/multi/antag/merc_ship,
-		/datum/shuttle/autodock/multi/legion,
-		/datum/shuttle/autodock/multi/distress,
-		/datum/shuttle/autodock/multi/crescent,
-		/datum/shuttle/autodock/overmap/intrepid,
-		/datum/shuttle/autodock/overmap/mining,
-		/datum/shuttle/autodock/overmap/canary,
-		/datum/shuttle/autodock/overmap/quark,
-		/datum/shuttle/autodock/ferry/merchant_aurora,
-		/datum/shuttle/autodock/ferry/autoreturn/ccia,
-		/datum/shuttle/autodock/overmap/orion_express_shuttle,
-		/datum/shuttle/autodock/overmap/sfa_shuttle,
-		/datum/shuttle/autodock/overmap/tcfl_shuttle,
-		/datum/shuttle/autodock/overmap/ee_shuttle,
-		/datum/shuttle/autodock/overmap/fsf_shuttle,
-		/datum/shuttle/autodock/overmap/freighter_shuttle,
-		/datum/shuttle/autodock/overmap/kataphract_transport,
-		/datum/shuttle/autodock/overmap/iac_shuttle
+		/datum/shuttle/ferry/lift/scc_ship/morgue,
+		/datum/shuttle/multi/lift/operations,
+		/datum/shuttle/multi/lift/robotics,
+		/datum/shuttle/ferry/escape_pod/pod/escape_pod1,
+		/datum/shuttle/ferry/escape_pod/pod/escape_pod2,
+		/datum/shuttle/ferry/escape_pod/pod/escape_pod3,
+		/datum/shuttle/ferry/escape_pod/pod/escape_pod4,
+		/datum/shuttle/ferry/supply/horizon,
+		/datum/shuttle/ferry/specops/ert_aurora,
+		/datum/shuttle/multi/antag/skipjack_ship,
+		/datum/shuttle/multi/antag/burglar_ship,
+		/datum/shuttle/multi/antag/merc_ship,
+		/datum/shuttle/multi/legion,
+		/datum/shuttle/multi/distress,
+		/datum/shuttle/multi/crescent,
+		/datum/shuttle/overmap/intrepid,
+		/datum/shuttle/overmap/mining,
+		/datum/shuttle/overmap/canary,
+		/datum/shuttle/overmap/quark,
+		/datum/shuttle/ferry/merchant_aurora,
+		/datum/shuttle/ferry/autoreturn/ccia,
+		/datum/shuttle/overmap/orion_express_shuttle,
+		/datum/shuttle/overmap/sfa_shuttle,
+		/datum/shuttle/overmap/tcfl_shuttle,
+		/datum/shuttle/overmap/ee_shuttle,
+		/datum/shuttle/overmap/fsf_shuttle,
+		/datum/shuttle/overmap/freighter_shuttle,
+		/datum/shuttle/overmap/kataphract_transport,
+		/datum/shuttle/overmap/iac_shuttle
 	)
 
 	evac_controller_type = /datum/evacuation_controller/starship
@@ -169,14 +161,14 @@
 
 	var/welcome_text = "<center><img src = scclogo.png><br />[FONT_LARGE("<b>SCCV Horizon</b> Ultra-Range Sensor Readings:")]<br>"
 	welcome_text += "Report generated on [worlddate2text()] at [worldtime2text()]</center><br /><br />"
-	welcome_text += "<hr>Current sector:<br /><b>[SSatlas.current_sector.name]</b><br /><br>"
+	welcome_text += "<hr>Current sector:<br /><b>[SSmapping.current_sector.name]</b><br /><br>"
 
 	if (horizon) //If the overmap is disabled, it's possible for there to be no Horizon.
 		var/list/space_things = list()
 		welcome_text += "Current Coordinates:<br /><b>[horizon.x]:[horizon.y]</b><br /><br>"
-		welcome_text += "Available Ports of Call: <b>[english_list(SSatlas.current_sector.ports_of_call, "none")]</b><br>"
-		if(SSatlas.current_sector.next_port_visit)
-			welcome_text += "Next Port Visit: <b>in [SSatlas.current_sector.next_port_visit] days</b><br>"
+		welcome_text += "Available Ports of Call: <b>[english_list(SSmapping.current_sector.ports_of_call, "none")]</b><br>"
+		if(SSmapping.current_sector.next_port_visit)
+			welcome_text += "Next Port Visit: <b>in [SSmapping.current_sector.next_port_visit] days</b><br>"
 		else
 			welcome_text += "<b>There is no port visit scheduled.</b><br><br>"
 		welcome_text += "<b>It is advised to inform crew of the available ports of call and the date of the next port visit.</b><br><br>"

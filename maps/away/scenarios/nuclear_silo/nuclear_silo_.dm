@@ -18,7 +18,7 @@
 	spawn_weight = 0
 	spawn_cost = 1
 	id = "nuclear_silo"
-	shuttles_to_initialise = list(/datum/shuttle/autodock/multi/lift/nuclear_silo)
+	shuttles_to_initialise = list(/datum/shuttle/multi/lift/nuclear_silo)
 	exoplanet_theme_base = /datum/exoplanet_theme/snow/nuclear_silo
 	exoplanet_themes = list(
 		/turf/unsimulated/marker = /datum/exoplanet_theme/snow/nuclear_silo,

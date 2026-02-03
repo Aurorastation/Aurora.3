@@ -24,7 +24,6 @@
 /area/zavod_shuttle_destroyed
 	name = "destroyed zavod shuttle"
 	requires_power = TRUE
-	base_turf = /turf/space
 	no_light_control = TRUE
 	area_flags = AREA_FLAG_HIDE_FROM_HOLOMAP
 

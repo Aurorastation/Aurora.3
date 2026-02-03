@@ -15,7 +15,6 @@
 	icon_state = "bluenew"
 	requires_power = FALSE
 	no_light_control = FALSE
-	base_turf = /turf/simulated/floor/exoplanet/desert
 	area_flags = AREA_FLAG_RAD_SHIELDED|AREA_FLAG_INDESTRUCTIBLE_TURFS
 	area_blurb = "There is a campsite here, seemingly set up not too long ago. A pen has been erected, to hold some kind of animal. The air carries a faint scent of sulfur."
 

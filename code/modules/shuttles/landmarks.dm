@@ -23,14 +23,8 @@
 	//ID of controller used for this landmark for shuttles with multiple ones.
 	var/list/special_dock_targets
 
-	//when the shuttle leaves this landmark, it will leave behind the base area
-	//also used to determine if the shuttle can arrive here without obstruction
-	var/area/base_area
-	//Will also leave this type of turf behind if set.
-	var/turf/base_turf
 	//Name of the shuttle, null for generic waypoint
 	var/shuttle_restricted
-	var/landmark_flags = 0
 
 	/// Effects that show where the shuttle will land, to prevent unfair squishing
 	var/list/landing_indicators
@@ -52,21 +46,33 @@
 	 */
 	var/announce_channel = "Common"
 
+	/// /datum/shuttle currently inhabiting this landmark, if any
+	var/datum/shuttle/occupant
+
+	var/area_type
+
+	var/override_landing_checks = FALSE
+
+	///Delete this landmark after ship fly off.
+	var/delete_after = FALSE
+
 /obj/effect/shuttle_landmark/Initialize()
 	. = ..()
 	clean_name = name
 	name = name + " ([x],[y])"
 	SSshuttle.register_landmark(landmark_tag, src)
+	if(!area_type)
+		var/area/place = get_area(src)
+		area_type = place?.type // We might be created in nullspace
 	return INITIALIZE_HINT_LATELOAD
 
+/obj/effect/shuttle_landmark/Destroy()
+	docking_controller = null
+	occupant = null
+	return ..()
+
 /obj/effect/shuttle_landmark/LateInitialize()
-	if(landmark_flags & SLANDMARK_FLAG_AUTOSET)
-		base_area = get_area(src)
-		var/turf/T = get_turf(src)
-		if(T)
-			base_turf = T.type
-	else
-		base_area = locate(base_area || world.area)
+	AddComponent(/datum/component/bounding/bfs)
 
 	if(!docking_controller)
 		return
@@ -90,28 +96,31 @@
 /obj/effect/shuttle_landmark/proc/sector_set(var/obj/effect/overmap/visitable/O, shuttle_name)
 	shuttle_restricted = shuttle_name
 
-/obj/effect/shuttle_landmark/proc/is_valid(var/datum/shuttle/shuttle)
-	if(shuttle.current_location == src)
-		return FALSE
-	for(var/area/A in shuttle.shuttle_area)
-		var/list/translation = get_turf_translation(get_turf(shuttle.current_location), get_turf(src), A.contents)
-		if(check_collision(list_values(translation)))
-			return FALSE
-	var/conn = GetConnectedZlevels(z)
-	for(var/w in (z - shuttle.multiz) to z)
-		if(!(w in conn))
-			return FALSE
-	return TRUE
-
-/obj/effect/shuttle_landmark/proc/deploy_landing_indicators(var/datum/shuttle/shuttle)
+/obj/effect/shuttle_landmark/proc/deploy_landing_indicators(datum/shuttle/shuttle)
 	LAZYINITLIST(landing_indicators)
-	for(var/area/A in shuttle.shuttle_area)
-		var/list/translation = get_turf_translation(get_turf(shuttle.current_location), get_turf(src), A.contents)
-		for(var/target_turf in list_values(translation))
-			landing_indicators += new /obj/effect/shuttle_warning(target_turf)
+	var/list/turfs = get_landing_area(shuttle)
+	for(var/t in turfs)
+		landing_indicators += new /obj/effect/shuttle_warning(t)
 
 /obj/effect/shuttle_landmark/proc/clear_landing_indicators()
 	QDEL_LIST(landing_indicators) // lazyclear but we delete the effects as well
+
+/obj/effect/shuttle_landmark/proc/get_landing_area(datum/shuttle/shuttle)
+	var/datum/component/bounding/bfs/lz_bounds = GetComponent(/datum/component/bounding/bfs)
+	var/obj/effect/overmap/visitable/ship/landable/ovr = shuttle.overmap_shuttle
+	var/list/L0 = lz_bounds.return_ordered_turfs(x, y, z, dir)
+	var/list/L1 = lz_bounds.return_ordered_turfs(ovr.x, ovr.y, ovr.z, ovr.dir)
+
+	var/list/landing_turfs = list()
+	var/stop = min(L0.len, L1.len)
+	for(var/i in 1 to stop)
+		var/turf/T0 = L0[i]
+		var/turf/T1 = L1[i]
+		if(!(T0.loc in shuttle.shuttle_area) || istype(T0.loc, /area/shuttle/transit))
+			continue  // not part of the shuttle
+		landing_turfs += T1
+
+	return landing_turfs
 
 /obj/effect/shuttle_landmark/proc/cannot_depart(datum/shuttle/shuttle)
 	return FALSE
@@ -122,29 +131,37 @@
 	for(var/spawner_name in ghostspawners_to_activate_on_shuttle_arrival)
 		var/datum/ghostspawner/spawner = SSghostroles.spawners[spawner_name]
 		if(istype(spawner))
-			spawner.enable()
+			INVOKE_ASYNC(spawner, TYPE_PROC_REF(/datum/ghostspawner, enable))
+
+/obj/effect/shuttle_landmark/proc/shuttle_inbound(datum/shuttle/shuttle)
+	RegisterSignal(shuttle, COMSIG_SHUTTLE_INBOUND, PROC_REF(shuttle_arrived))
 
 /obj/effect/shuttle_landmark/proc/shuttle_arrived(datum/shuttle/shuttle)
+	SIGNAL_HANDLER
+	UnregisterSignal(shuttle, COMSIG_SHUTTLE_INBOUND)
 	clear_landing_indicators()
 	activate_ghostroles()
+	occupant = shuttle
 	if(announce_docking)
-		var/datum/shuttle/autodock/multi/antag/antag_shuttle
-		if(istype(shuttle, /datum/shuttle/autodock/multi/antag))
+		var/datum/shuttle/multi/antag/antag_shuttle
+		if(istype(shuttle, /datum/shuttle/multi/antag))
 			antag_shuttle = shuttle
 		if(!antag_shuttle || (antag_shuttle && !antag_shuttle.cloaked))
 			var/message = "[shuttle.name] has docked at [src.clean_name]."
 			GLOB.global_announcer.autosay(message, "Docking Oversight", announce_channel)
-	GLOB.shuttle_moved_event.register(shuttle, src, PROC_REF(announce_departure))
+	RegisterSignal(shuttle, COMSIG_SHUTTLE_OUTBOUND, PROC_REF(shuttle_departed))
 
-/obj/effect/shuttle_landmark/proc/announce_departure(datum/shuttle/shuttle)
+/obj/effect/shuttle_landmark/proc/shuttle_departed(datum/shuttle/shuttle)
+	SIGNAL_HANDLER
+	occupant = null
 	if(announce_docking)
-		var/datum/shuttle/autodock/multi/antag/antag_shuttle
-		if(istype(shuttle, /datum/shuttle/autodock/multi/antag))
+		var/datum/shuttle/multi/antag/antag_shuttle
+		if(istype(shuttle, /datum/shuttle/multi/antag))
 			antag_shuttle = shuttle
 		if(!antag_shuttle || (antag_shuttle && !antag_shuttle.cloaked))
 			var/message = "[shuttle.name] has undocked from [src.clean_name]."
 			GLOB.global_announcer.autosay(message, "Docking Oversight", announce_channel)
-	GLOB.shuttle_moved_event.unregister(shuttle, src)
+	UnregisterSignal(shuttle, COMSIG_SHUTTLE_OUTBOUND)
 
 /proc/check_collision(list/target_turfs)
 	for(var/target_turf in target_turfs)
@@ -169,7 +186,6 @@
 /obj/effect/shuttle_landmark/automatic
 	name = "Navpoint"
 	landmark_tag = "navpoint"
-	landmark_flags = SLANDMARK_FLAG_AUTOSET
 
 /obj/effect/shuttle_landmark/automatic/Initialize()
 	landmark_tag += "-[x]-[y]-[z]"
@@ -192,20 +208,48 @@
 	..()
 	name = "SCCV Canary Landing Beacon ([x],[y])"
 
+/obj/effect/shuttle_landmark/transit
+	name = "In Transit"
+	landmark_tag = "transit"
+	var/datum/turf_reservation/reserved_area
+	var/area/shuttle/transit/assigned_area
+	var/datum/shuttle/owner
+
+	var/spawn_time
+
+	delete_after = TRUE
+
+/obj/effect/shuttle_landmark/transit/Initialize()
+	landmark_tag += "-[SSshuttle.transit.len + 1]"
+	. = ..()
+	SSshuttle.transit += src
+	spawn_time = world.time
+
+/obj/effect/shuttle_landmark/transit/Destroy(force = FALSE)
+	if(force)
+		if(occupant)
+			log_world("A transit landmark was destroyed while a shuttle was occupying it.")
+		SSshuttle.transit -= src
+		if(owner)
+			if(owner.assigned_transit == src)
+				log_world("A transit landmark was qdeled while it was assigned to [owner].")
+				owner.assigned_transit = null
+			owner = null
+		if(!QDELETED(reserved_area))
+			qdel(reserved_area)
+		reserved_area = null
+	return ..()
+
 //Subtype that calls explosion on init to clear space for shuttles
 /obj/effect/shuttle_landmark/automatic/clearing
 	dir = NORTH // compatible with Horizon's shuttles
 	var/radius = LANDING_ZONE_RADIUS
 
 /obj/effect/shuttle_landmark/automatic/clearing/LateInitialize()
-	// with directional shuttle landmarks, the landmark is at the airlock of the shuttle,
-	// so the shuttle extends south from this automatic landmark,
-	// and and so we explode around not this landmark,
-	// but instead around where the center of shuttle could be
-	var/turf/C = locate(src.x, src.y - LANDING_ZONE_RADIUS, src.z)
+	var/turf/C = locate(src.x, src.y, src.z)
 	for(var/turf/T in RANGE_TURFS(LANDING_ZONE_RADIUS, C))
 		if(T.density)
-			T.ChangeTurf(get_base_turf_by_area(T))
+			T.scrape_away()
 		for(var/obj/structure/S in T)
 			qdel(S)
 	..()
@@ -332,5 +376,5 @@
 				landmark_position = L.loc.z
 			if(landmark_position == src.loc.z)
 				if(!(G.enabled))
-					G.enable()
+					INVOKE_ASYNC(G, TYPE_PROC_REF(/datum/ghostspawner, enable))
 		triggered_away_sites = TRUE

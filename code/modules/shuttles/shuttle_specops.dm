@@ -7,7 +7,7 @@
 	to_chat(user, SPAN_WARNING("Access denied."))
 	return 1
 
-/datum/shuttle/autodock/ferry/specops
+/datum/shuttle/ferry/specops
 	var/specops_return_delay = 6000		//After moving, the amount of time that must pass before the shuttle may move again
 	var/specops_countdown_time = 600	//Length of the countdown when moving the shuttle
 
@@ -15,18 +15,18 @@
 	var/reset_time = 0	//the world.time at which the shuttle will be ready to move again.
 	var/launch_prep = 0
 	var/cancel_countdown = 0
-	category = /datum/shuttle/autodock/ferry/specops
+	category = /datum/shuttle/ferry/specops
 
-/datum/shuttle/autodock/ferry/specops/New()
+/datum/shuttle/ferry/specops/New()
 	..()
 	announcer = new /obj/item/radio/intercom(null)//We need a fake AI to announce some stuff below. Otherwise it will be wonky.
 	announcer.config(list("Response Team" = 0))
 
-/datum/shuttle/autodock/ferry/specops/proc/radio_announce(var/message)
+/datum/shuttle/ferry/specops/proc/radio_announce(var/message)
 	if(announcer)
 		announcer.autosay(message, "Bubble", "Response Team")
 
-/datum/shuttle/autodock/ferry/specops/launch(var/user)
+/datum/shuttle/ferry/specops/launch(var/user)
 	if (!can_launch())
 		return
 
@@ -34,7 +34,7 @@
 		var/obj/machinery/computer/C = user
 
 		if(world.time <= reset_time)
-			C.visible_message(SPAN_NOTICE("[SSatlas.current_map.boss_name] will not allow the Special Operations shuttle to launch yet."))
+			C.visible_message(SPAN_NOTICE("[SSmapping.current_map.boss_name] will not allow the Special Operations shuttle to launch yet."))
 			if (((world.time - reset_time)/10) > 60)
 				C.visible_message(SPAN_NOTICE("[-((world.time - reset_time)/10)/60] minutes remain!"))
 			else
@@ -50,32 +50,31 @@
 
 	sleep_until_launch()
 
-	if (location)
-		var/obj/machinery/light/small/readylight/light = locate() in shuttle_area
-		if(light) light.set_state(0)
+	for(var/area/A as anything in shuttle_area)
+		for(var/turf/T as anything in A.get_turfs_from_all_zlevels())
+			for(var/obj/machinery/light/small/readylight/light in T)
+				light.set_state(0)
 
 	//launch
 	radio_announce("ALERT: INITIATING LAUNCH SEQUENCE")
 	..(user)
 
-/datum/shuttle/autodock/ferry/specops/shuttle_moved()
+/datum/shuttle/ferry/specops/process_arrived()
 	. = ..()
+	if (!location)	//just arrived home
+		for(var/turf/T in get_area_turfs(shuttle_area))
+			var/mob/M = locate(/mob) in T
+			to_chat(M, SPAN_DANGER("You have arrived at [SSmapping.current_map.boss_name]. Operation has ended!"))
+	else	//just left for the station
+		launch_mauraders()
+		for(var/turf/T in get_area_turfs(shuttle_area))
+			var/mob/M = locate(/mob) in T
+			to_chat(M, SPAN_DANGER("You have arrived at [SSmapping.current_map.station_name]. Commence operation!"))
 
-	spawn(20)
-		if (!location)	//just arrived home
-			for(var/turf/T in get_area_turfs(shuttle_area))
-				var/mob/M = locate(/mob) in T
-				to_chat(M, SPAN_DANGER("You have arrived at [SSatlas.current_map.boss_name]. Operation has ended!"))
-		else	//just left for the station
-			launch_mauraders()
-			for(var/turf/T in get_area_turfs(shuttle_area))
-				var/mob/M = locate(/mob) in T
-				to_chat(M, SPAN_DANGER("You have arrived at [SSatlas.current_map.station_name]. Commence operation!"))
+			var/obj/machinery/light/small/readylight/light = locate() in T
+			if(light) light.set_state(1)
 
-				var/obj/machinery/light/small/readylight/light = locate() in T
-				if(light) light.set_state(1)
-
-/datum/shuttle/autodock/ferry/specops/cancel_launch()
+/datum/shuttle/ferry/specops/cancel_launch()
 	if (!can_cancel())
 		return
 
@@ -87,21 +86,17 @@
 
 	..()
 
-/datum/shuttle/autodock/ferry/specops/can_launch()
+/datum/shuttle/ferry/specops/can_launch()
 	if(launch_prep)
 		return 0
 	return ..()
 
-//should be fine to allow forcing. process_state only becomes WAIT_LAUNCH after the countdown is over.
-///datum/shuttle/autodock/ferry/specops/can_force()
-//	return 0
-
-/datum/shuttle/autodock/ferry/specops/can_cancel()
+/datum/shuttle/ferry/specops/can_cancel()
 	if(launch_prep)
 		return 1
 	return ..()
 
-/datum/shuttle/autodock/ferry/specops/proc/sleep_until_launch()
+/datum/shuttle/ferry/specops/proc/sleep_until_launch()
 	var/message_tracker[] = list(0,1,2,3,5,10,30,45)//Create a a list with potential time values.
 
 	var/launch_time = world.time + specops_countdown_time

@@ -1,25 +1,25 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "aa" = (
 /turf/template_noop,
-/area/template_noop)
+/area/runtime/exterior)
 "ab" = (
 /obj/structure/lattice,
 /turf/template_noop,
-/area/template_noop)
+/area/runtime/exterior)
 "ac" = (
 /turf/simulated/wall/r_wall,
-/area/maintenance/maintcentral)
+/area/runtime/maintenance/maintcentral)
 "ad" = (
 /obj/structure/lattice,
 /obj/structure/grille,
 /turf/template_noop,
-/area/template_noop)
+/area/runtime/exterior)
 "ae" = (
 /turf/simulated/floor/plating,
-/area/maintenance/maintcentral)
+/area/runtime/maintenance/maintcentral)
 "af" = (
 /turf/simulated/wall/r_wall,
-/area/engineering/atmos)
+/area/runtime/engineering/atmos)
 "ag" = (
 /obj/machinery/power/rtg/advanced,
 /obj/structure/cable{
@@ -27,13 +27,13 @@
 	icon_state = "0-2"
 	},
 /turf/simulated/floor/airless,
-/area/template_noop)
+/area/runtime/exterior)
 "ah" = (
 /turf/simulated/wall/r_wall,
-/area/engineering)
+/area/runtime/engineering)
 "ai" = (
 /turf/simulated/wall/r_wall,
-/area/engineering/gravity_gen)
+/area/runtime/engineering/gravity_gen)
 "aj" = (
 /obj/machinery/alarm/north{
 	locked = 0;
@@ -41,11 +41,11 @@
 	},
 /obj/structure/closet/secure_closet/atmos_personal,
 /turf/simulated/floor/plating,
-/area/engineering/atmos)
+/area/runtime/engineering/atmos)
 "ak" = (
 /obj/machinery/atmospherics/pipe/tank/air,
 /turf/simulated/floor/plating,
-/area/engineering/atmos)
+/area/runtime/engineering/atmos)
 "al" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/cable{
@@ -54,7 +54,7 @@
 	icon_state = "1-4"
 	},
 /turf/template_noop,
-/area/template_noop)
+/area/runtime/exterior)
 "am" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/cable{
@@ -68,7 +68,7 @@
 	icon_state = "2-8"
 	},
 /turf/template_noop,
-/area/template_noop)
+/area/runtime/exterior)
 "an" = (
 /obj/machinery/alarm/north{
 	locked = 0;
@@ -81,7 +81,7 @@
 	icon_state = "0-4"
 	},
 /turf/simulated/floor/plating,
-/area/engineering)
+/area/runtime/engineering)
 "ao" = (
 /obj/structure/cable{
 	d1 = 2;
@@ -89,11 +89,11 @@
 	icon_state = "2-8"
 	},
 /turf/simulated/floor/plating,
-/area/engineering)
+/area/runtime/engineering)
 "ap" = (
 /obj/structure/closet/secure_closet/engineering_welding,
 /turf/simulated/floor/plating,
-/area/engineering)
+/area/runtime/engineering)
 "aq" = (
 /obj/machinery/alarm/north{
 	locked = 0;
@@ -114,7 +114,7 @@
 	output_level = 200000
 	},
 /turf/simulated/floor/tiled,
-/area/engineering/gravity_gen)
+/area/runtime/engineering/gravity_gen)
 "ar" = (
 /obj/machinery/power/apc/north,
 /obj/structure/cable{
@@ -133,7 +133,7 @@
 	name_tag = "Master"
 	},
 /turf/simulated/floor/tiled,
-/area/engineering/gravity_gen)
+/area/runtime/engineering/gravity_gen)
 "as" = (
 /obj/effect/map_effect/window_spawner/full/reinforced,
 /obj/structure/sign/securearea{
@@ -143,30 +143,30 @@
 	pixel_y = 32
 	},
 /turf/simulated/floor/plating,
-/area/engineering/gravity_gen)
+/area/runtime/engineering/gravity_gen)
 "at" = (
 /turf/simulated/floor/tiled/dark,
-/area/engineering/gravity_gen)
+/area/runtime/engineering/gravity_gen)
 "au" = (
 /turf/simulated/floor/plating,
-/area/engineering/atmos)
+/area/runtime/engineering/atmos)
 "av" = (
 /obj/machinery/atmospherics/pipe/simple/visible/blue{
 	dir = 5
 	},
 /turf/simulated/floor/plating,
-/area/engineering/atmos)
+/area/runtime/engineering/atmos)
 "aw" = (
 /obj/machinery/atmospherics/pipe/manifold/visible/blue,
 /turf/simulated/floor/plating,
-/area/engineering/atmos)
+/area/runtime/engineering/atmos)
 "ax" = (
 /obj/machinery/meter,
 /obj/machinery/atmospherics/pipe/manifold/visible/blue{
 	dir = 4
 	},
 /turf/simulated/floor/plating,
-/area/engineering/atmos)
+/area/runtime/engineering/atmos)
 "ay" = (
 /obj/structure/cable{
 	d2 = 4;
@@ -177,7 +177,7 @@
 	output_attempt = 1
 	},
 /turf/simulated/floor/airless,
-/area/template_noop)
+/area/runtime/exterior)
 "az" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/cable{
@@ -196,7 +196,7 @@
 	icon_state = "2-4"
 	},
 /turf/template_noop,
-/area/template_noop)
+/area/runtime/exterior)
 "aA" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/cable{
@@ -205,7 +205,7 @@
 	icon_state = "4-8"
 	},
 /turf/template_noop,
-/area/template_noop)
+/area/runtime/exterior)
 "aC" = (
 /obj/structure/cable{
 	d1 = 4;
@@ -213,7 +213,7 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/plating,
-/area/engineering)
+/area/runtime/engineering)
 "aD" = (
 /obj/structure/cable{
 	d1 = 1;
@@ -226,7 +226,7 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/plating,
-/area/engineering)
+/area/runtime/engineering)
 "aE" = (
 /obj/machinery/door/airlock/external{
 	dir = 4
@@ -250,7 +250,7 @@
 	icon_state = "0-8"
 	},
 /turf/simulated/floor/tiled,
-/area/engineering/gravity_gen)
+/area/runtime/engineering/gravity_gen)
 "aG" = (
 /obj/structure/cable{
 	d1 = 1;
@@ -261,37 +261,37 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
-/area/engineering/gravity_gen)
+/area/runtime/engineering/gravity_gen)
 "aH" = (
 /obj/effect/map_effect/window_spawner/full/reinforced,
 /turf/simulated/floor/plating,
-/area/engineering/gravity_gen)
+/area/runtime/engineering/gravity_gen)
 "aI" = (
 /obj/structure/table/rack,
 /obj/item/clothing/suit/space/void/engineering,
 /obj/item/clothing/head/helmet/space/void/engineering,
 /obj/item/clothing/shoes/magboots,
 /turf/simulated/floor/plating,
-/area/engineering/atmos)
+/area/runtime/engineering/atmos)
 "aJ" = (
 /obj/machinery/portable_atmospherics/canister/sleeping_agent,
 /obj/machinery/atmospherics/portables_connector{
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
-/area/engineering/atmos)
+/area/runtime/engineering/atmos)
 "aK" = (
 /obj/machinery/atmospherics/binary/pump{
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
-/area/engineering/atmos)
+/area/runtime/engineering/atmos)
 "aL" = (
 /obj/machinery/atmospherics/pipe/manifold/visible/blue{
 	dir = 4
 	},
 /turf/simulated/floor/plating,
-/area/engineering/atmos)
+/area/runtime/engineering/atmos)
 "aM" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/cable{
@@ -300,7 +300,7 @@
 	icon_state = "2-4"
 	},
 /turf/template_noop,
-/area/template_noop)
+/area/runtime/exterior)
 "aN" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/cable{
@@ -312,7 +312,7 @@
 	icon_state = "1-2"
 	},
 /turf/template_noop,
-/area/template_noop)
+/area/runtime/exterior)
 "aO" = (
 /obj/item/flashlight{
 	pixel_y = 5
@@ -322,7 +322,7 @@
 	name = "Common Channel"
 	},
 /turf/simulated/floor/plating,
-/area/engineering)
+/area/runtime/engineering)
 "aP" = (
 /obj/structure/cable{
 	d1 = 1;
@@ -335,7 +335,7 @@
 	icon_state = "2-4"
 	},
 /turf/simulated/floor/plating,
-/area/engineering)
+/area/runtime/engineering)
 "aQ" = (
 /obj/machinery/door/airlock/glass_engineering{
 	dir = 4;
@@ -348,7 +348,7 @@
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled,
-/area/engineering/gravity_gen)
+/area/runtime/engineering/gravity_gen)
 "aR" = (
 /obj/structure/cable{
 	d1 = 4;
@@ -362,7 +362,7 @@
 	name = "Chief Engineer"
 	},
 /turf/simulated/floor/tiled,
-/area/engineering/gravity_gen)
+/area/runtime/engineering/gravity_gen)
 "aS" = (
 /obj/structure/cable{
 	icon_state = "1-8"
@@ -371,7 +371,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
-/area/engineering/gravity_gen)
+/area/runtime/engineering/gravity_gen)
 "aT" = (
 /obj/machinery/door/airlock/glass_engineering{
 	dir = 4;
@@ -379,7 +379,7 @@
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/dark,
-/area/engineering/gravity_gen)
+/area/runtime/engineering/gravity_gen)
 "aU" = (
 /obj/machinery/light{
 	brightness_range = 16;
@@ -387,40 +387,40 @@
 	must_start_working = 1
 	},
 /turf/simulated/floor/tiled/dark,
-/area/engineering/gravity_gen)
+/area/runtime/engineering/gravity_gen)
 "aV" = (
 /obj/structure/dispenser{
 	pixel_x = -1
 	},
 /turf/simulated/floor/plating,
-/area/engineering/atmos)
+/area/runtime/engineering/atmos)
 "aW" = (
 /obj/machinery/atmospherics/unary/vent_pump,
 /turf/simulated/floor/plating,
-/area/engineering/atmos)
+/area/runtime/engineering/atmos)
 "aX" = (
 /obj/machinery/portable_atmospherics/canister,
 /obj/machinery/atmospherics/portables_connector{
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
-/area/engineering/atmos)
+/area/runtime/engineering/atmos)
 "aY" = (
 /obj/machinery/atmospherics/binary/pump{
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
-/area/engineering/atmos)
+/area/runtime/engineering/atmos)
 "aZ" = (
 /obj/machinery/power/rtg/advanced,
 /obj/structure/cable,
 /turf/simulated/floor/airless,
-/area/template_noop)
+/area/runtime/exterior)
 "ba" = (
 /obj/item/weldingtool/experimental,
 /obj/structure/table/standard,
 /turf/simulated/floor/plating,
-/area/engineering)
+/area/runtime/engineering)
 "bb" = (
 /obj/structure/cable{
 	d1 = 1;
@@ -428,11 +428,11 @@
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/plating,
-/area/engineering)
+/area/runtime/engineering)
 "bc" = (
 /obj/structure/closet/secure_closet/engineering_chief,
 /turf/simulated/floor/plating,
-/area/engineering)
+/area/runtime/engineering)
 "bd" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
@@ -443,17 +443,17 @@
 	},
 /obj/machinery/firealarm/west,
 /turf/simulated/floor/tiled,
-/area/engineering/gravity_gen)
+/area/runtime/engineering/gravity_gen)
 "be" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
-/area/engineering/gravity_gen)
+/area/runtime/engineering/gravity_gen)
 "bf" = (
 /obj/machinery/gravity_generator/main/station,
 /turf/simulated/floor/tiled/dark,
-/area/engineering/gravity_gen)
+/area/runtime/engineering/gravity_gen)
 "bg" = (
 /obj/machinery/power/apc/west,
 /obj/structure/cable{
@@ -469,13 +469,13 @@
 /obj/item/wrench,
 /obj/structure/table/standard,
 /turf/simulated/floor/plating,
-/area/engineering/atmos)
+/area/runtime/engineering/atmos)
 "bh" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 8
 	},
 /turf/simulated/floor/plating,
-/area/engineering/atmos)
+/area/runtime/engineering/atmos)
 "bi" = (
 /obj/machinery/meter,
 /obj/machinery/atmospherics/pipe/simple/visible/universal{
@@ -483,13 +483,13 @@
 	},
 /obj/machinery/firealarm/south,
 /turf/simulated/floor/plating,
-/area/engineering/atmos)
+/area/runtime/engineering/atmos)
 "bj" = (
 /obj/machinery/atmospherics/valve{
 	dir = 4
 	},
 /turf/simulated/floor/plating,
-/area/engineering/atmos)
+/area/runtime/engineering/atmos)
 "bk" = (
 /obj/machinery/light{
 	brightness_range = 16;
@@ -499,7 +499,7 @@
 	dir = 9
 	},
 /turf/simulated/floor/plating,
-/area/engineering/atmos)
+/area/runtime/engineering/atmos)
 "bl" = (
 /obj/machinery/atmospherics/unary/vent_pump,
 /obj/item/screwdriver,
@@ -507,7 +507,7 @@
 /obj/structure/table/standard,
 /obj/machinery/firealarm/south,
 /turf/simulated/floor/plating,
-/area/engineering)
+/area/runtime/engineering)
 "bm" = (
 /obj/machinery/light{
 	brightness_range = 16;
@@ -517,20 +517,20 @@
 /obj/item/lightreplacer,
 /obj/structure/table/standard,
 /turf/simulated/floor/plating,
-/area/engineering)
+/area/runtime/engineering)
 "bn" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 10
 	},
 /turf/simulated/floor/tiled,
-/area/engineering/gravity_gen)
+/area/runtime/engineering/gravity_gen)
 "bo" = (
 /obj/structure/closet/radiation,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 6
 	},
 /turf/simulated/floor/tiled,
-/area/engineering/gravity_gen)
+/area/runtime/engineering/gravity_gen)
 "bp" = (
 /obj/structure/cable{
 	d1 = 1;
@@ -538,7 +538,7 @@
 	icon_state = "1-2"
 	},
 /turf/simulated/wall/r_wall,
-/area/hallway/primary/central_one)
+/area/runtime/hallway/primary/central_one)
 "bq" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/door/airlock/engineering{
@@ -546,18 +546,18 @@
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled,
-/area/engineering/atmos)
+/area/runtime/engineering/atmos)
 "br" = (
 /turf/simulated/wall/r_wall,
-/area/bridge)
+/area/runtime/bridge)
 "bs" = (
 /obj/effect/map_effect/window_spawner/full/reinforced,
 /turf/simulated/floor/plating,
-/area/bridge)
+/area/runtime/bridge)
 "bt" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/wall/r_wall,
-/area/engineering)
+/area/runtime/engineering)
 "bu" = (
 /obj/machinery/door/airlock{
 	dir = 1
@@ -569,10 +569,10 @@
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
-/area/engineering)
+/area/runtime/engineering)
 "bv" = (
 /turf/simulated/wall/r_wall,
-/area/hallway/primary/central_two)
+/area/runtime/hallway/primary/central_two)
 "bw" = (
 /obj/machinery/light{
 	brightness_range = 16;
@@ -580,10 +580,10 @@
 	must_start_working = 1
 	},
 /turf/simulated/floor/plating,
-/area/maintenance/maintcentral)
+/area/runtime/maintenance/maintcentral)
 "bx" = (
 /turf/simulated/wall/r_wall,
-/area/hallway/primary/central_one)
+/area/runtime/hallway/primary/central_one)
 "by" = (
 /obj/machinery/power/apc/west,
 /obj/structure/cable,
@@ -598,26 +598,26 @@
 	},
 /obj/structure/closet/secure_closet/custodial,
 /turf/simulated/floor/tiled,
-/area/hallway/primary/central_one)
+/area/runtime/hallway/primary/central_one)
 "bz" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
-/area/hallway/primary/central_one)
+/area/runtime/hallway/primary/central_one)
 "bA" = (
 /obj/machinery/atmospherics/unary/vent_pump{
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
-/area/hallway/primary/central_one)
+/area/runtime/hallway/primary/central_one)
 "bB" = (
 /turf/simulated/floor/tiled,
-/area/hallway/primary/central_one)
+/area/runtime/hallway/primary/central_one)
 "bC" = (
 /obj/structure/closet/secure_closet/CMO,
 /turf/simulated/floor/tiled,
-/area/hallway/primary/central_one)
+/area/runtime/hallway/primary/central_one)
 "bD" = (
 /obj/machinery/alarm/north{
 	locked = 0;
@@ -634,21 +634,21 @@
 	dir = 9
 	},
 /turf/simulated/floor/tiled,
-/area/bridge)
+/area/runtime/bridge)
 "bE" = (
 /obj/machinery/computer/ship/sensors,
 /turf/simulated/floor/tiled,
-/area/bridge)
+/area/runtime/bridge)
 "bF" = (
 /obj/item/card/id/captains_spare,
 /obj/structure/table/standard,
 /turf/simulated/floor/tiled,
-/area/bridge)
+/area/runtime/bridge)
 "bG" = (
 /obj/item/storage/backpack/holding,
 /obj/structure/table/standard,
 /turf/simulated/floor/tiled,
-/area/bridge)
+/area/runtime/bridge)
 "bH" = (
 /obj/item/rfd_ammo,
 /obj/item/rfd_ammo,
@@ -656,7 +656,7 @@
 /obj/item/rfd/construction,
 /obj/structure/table/standard,
 /turf/simulated/floor/tiled,
-/area/bridge)
+/area/runtime/bridge)
 "bI" = (
 /obj/structure/closet/secure_closet/xo,
 /obj/effect/floor_decal/corner/dark_blue{
@@ -664,11 +664,11 @@
 	},
 /obj/machinery/firealarm/east,
 /turf/simulated/floor/tiled,
-/area/bridge)
+/area/runtime/bridge)
 "bJ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled,
-/area/hallway/primary/central_one)
+/area/runtime/hallway/primary/central_one)
 "bK" = (
 /obj/structure/cable{
 	d1 = 1;
@@ -676,27 +676,27 @@
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled,
-/area/hallway/primary/central_one)
+/area/runtime/hallway/primary/central_one)
 "bL" = (
 /obj/machinery/vending/cigarette,
 /turf/simulated/floor/tiled/dark,
-/area/hallway/primary/central_one)
+/area/runtime/hallway/primary/central_one)
 "bM" = (
 /obj/machinery/vending/coffee,
 /turf/simulated/floor/tiled/dark,
-/area/hallway/primary/central_one)
+/area/runtime/hallway/primary/central_one)
 "bN" = (
 /obj/machinery/vending/cola,
 /turf/simulated/floor/tiled/dark,
-/area/hallway/primary/central_one)
+/area/runtime/hallway/primary/central_one)
 "bO" = (
 /obj/machinery/vending/snack,
 /turf/simulated/floor/tiled/dark,
-/area/hallway/primary/central_one)
+/area/runtime/hallway/primary/central_one)
 "bP" = (
 /obj/machinery/computer/arcade,
 /turf/simulated/floor/tiled/dark,
-/area/hallway/primary/central_one)
+/area/runtime/hallway/primary/central_one)
 "bQ" = (
 /obj/machinery/alarm/north{
 	locked = 0;
@@ -719,7 +719,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
-/area/hallway/primary/central_two)
+/area/runtime/hallway/primary/central_two)
 "bR" = (
 /obj/machinery/light{
 	brightness_range = 16;
@@ -734,7 +734,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
-/area/hallway/primary/central_two)
+/area/runtime/hallway/primary/central_two)
 "bS" = (
 /obj/structure/closet/secure_closet/hos,
 /obj/effect/floor_decal/corner/dark_blue{
@@ -744,7 +744,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
-/area/hallway/primary/central_two)
+/area/runtime/hallway/primary/central_two)
 "bT" = (
 /obj/structure/closet/emcloset,
 /obj/effect/floor_decal/corner/dark_blue{
@@ -754,15 +754,15 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
-/area/hallway/primary/central_two)
+/area/runtime/hallway/primary/central_two)
 "bU" = (
 /obj/effect/map_effect/window_spawner/full/reinforced,
 /turf/simulated/floor/plating,
-/area/maintenance/maintcentral)
+/area/runtime/maintenance/maintcentral)
 "bV" = (
 /obj/effect/map_effect/window_spawner/full/reinforced,
 /turf/simulated/floor/plating,
-/area/hallway/primary/central_one)
+/area/runtime/hallway/primary/central_one)
 "bW" = (
 /obj/structure/cable{
 	d1 = 1;
@@ -780,7 +780,7 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled,
-/area/hallway/primary/central_one)
+/area/runtime/hallway/primary/central_one)
 "bX" = (
 /obj/structure/cable{
 	d1 = 4;
@@ -789,7 +789,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled,
-/area/hallway/primary/central_one)
+/area/runtime/hallway/primary/central_one)
 "bY" = (
 /obj/structure/cable{
 	d1 = 4;
@@ -797,7 +797,7 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled,
-/area/hallway/primary/central_one)
+/area/runtime/hallway/primary/central_one)
 "bZ" = (
 /obj/effect/map_effect/window_spawner/full/reinforced,
 /obj/structure/cable{
@@ -806,7 +806,7 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/plating,
-/area/bridge)
+/area/runtime/bridge)
 "ca" = (
 /obj/structure/cable{
 	d1 = 4;
@@ -822,7 +822,7 @@
 	dir = 9
 	},
 /turf/simulated/floor/tiled,
-/area/bridge)
+/area/runtime/bridge)
 "cb" = (
 /obj/structure/cable{
 	d1 = 4;
@@ -830,7 +830,7 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled,
-/area/bridge)
+/area/runtime/bridge)
 "cc" = (
 /obj/structure/cable{
 	d1 = 4;
@@ -841,7 +841,7 @@
 	dir = 6
 	},
 /turf/simulated/floor/tiled,
-/area/bridge)
+/area/runtime/bridge)
 "cd" = (
 /obj/effect/map_effect/window_spawner/full/reinforced,
 /obj/structure/cable{
@@ -855,7 +855,7 @@
 	icon_state = "2-4"
 	},
 /turf/simulated/floor/plating,
-/area/bridge)
+/area/runtime/bridge)
 "ce" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable{
@@ -864,7 +864,7 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled,
-/area/hallway/primary/central_one)
+/area/runtime/hallway/primary/central_one)
 "cf" = (
 /obj/structure/cable{
 	d1 = 4;
@@ -875,7 +875,7 @@
 	icon_state = "1-8"
 	},
 /turf/simulated/floor/tiled,
-/area/hallway/primary/central_one)
+/area/runtime/hallway/primary/central_one)
 "cg" = (
 /obj/structure/cable{
 	d1 = 4;
@@ -883,7 +883,7 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/wall/r_wall,
-/area/hallway/primary/central_two)
+/area/runtime/hallway/primary/central_two)
 "ch" = (
 /obj/structure/cable{
 	d1 = 1;
@@ -897,17 +897,17 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
-/area/hallway/primary/central_two)
+/area/runtime/hallway/primary/central_two)
 "ci" = (
 /turf/simulated/floor/tiled,
-/area/hallway/primary/central_two)
+/area/runtime/hallway/primary/central_two)
 "cj" = (
 /obj/machinery/door/airlock/maintenance{
 	dir = 4
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
-/area/hallway/primary/central_two)
+/area/runtime/hallway/primary/central_two)
 "ck" = (
 /obj/machinery/light{
 	brightness_range = 16;
@@ -915,7 +915,7 @@
 	must_start_working = 1
 	},
 /turf/simulated/floor/tiled,
-/area/hallway/primary/central_one)
+/area/runtime/hallway/primary/central_one)
 "cl" = (
 /obj/machinery/light{
 	brightness_range = 16;
@@ -925,13 +925,13 @@
 /obj/effect/floor_decal/corner/dark_blue/full,
 /obj/item/modular_computer/console/preset/ai,
 /turf/simulated/floor/tiled,
-/area/bridge)
+/area/runtime/bridge)
 "cm" = (
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 10
 	},
 /turf/simulated/floor/tiled,
-/area/bridge)
+/area/runtime/bridge)
 "cn" = (
 /obj/machinery/light{
 	brightness_range = 16;
@@ -942,7 +942,7 @@
 	},
 /obj/item/modular_computer/console/preset/command/account,
 /turf/simulated/floor/tiled,
-/area/bridge)
+/area/runtime/bridge)
 "co" = (
 /obj/structure/cable{
 	d1 = 1;
@@ -950,7 +950,7 @@
 	icon_state = "1-2"
 	},
 /turf/simulated/wall/r_wall,
-/area/bridge)
+/area/runtime/bridge)
 "cp" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/light{
@@ -959,7 +959,7 @@
 	must_start_working = 1
 	},
 /turf/simulated/floor/tiled,
-/area/hallway/primary/central_one)
+/area/runtime/hallway/primary/central_one)
 "cq" = (
 /obj/machinery/power/apc/south,
 /turf/simulated/wall/r_wall,
@@ -967,7 +967,7 @@
 "cr" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/wall/r_wall,
-/area/bridge)
+/area/runtime/bridge)
 "cs" = (
 /obj/machinery/door/airlock/glass_command{
 	dir = 1;
@@ -975,35 +975,35 @@
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled,
-/area/bridge)
+/area/runtime/bridge)
 "ct" = (
 /obj/machinery/door/airlock/glass{
 	dir = 4
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled,
-/area/hallway/primary/central_two)
+/area/runtime/hallway/primary/central_two)
 "cu" = (
 /obj/effect/floor_decal/industrial/loading/yellow{
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
-/area/hallway/primary/central_two)
+/area/runtime/hallway/primary/central_two)
 "cv" = (
 /obj/machinery/door/airlock/external{
 	dir = 4
 	},
 /turf/simulated/floor/plating,
-/area/hallway/primary/central_two)
+/area/runtime/hallway/primary/central_two)
 "cw" = (
 /turf/simulated/floor/plating,
-/area/hallway/primary/central_two)
+/area/runtime/hallway/primary/central_two)
 "cx" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
-/area/hallway/primary/central_one)
+/area/runtime/hallway/primary/central_one)
 "cy" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -1017,7 +1017,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
-/area/hallway/primary/central_one)
+/area/runtime/hallway/primary/central_one)
 "cz" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
 /obj/effect/floor_decal/corner/dark_blue{
@@ -1027,7 +1027,7 @@
 	pixel_y = 32
 	},
 /turf/simulated/floor/tiled,
-/area/hallway/primary/central_one)
+/area/runtime/hallway/primary/central_one)
 "cA" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -1036,7 +1036,7 @@
 	dir = 5
 	},
 /turf/simulated/floor/tiled,
-/area/hallway/primary/central_one)
+/area/runtime/hallway/primary/central_one)
 "cB" = (
 /obj/structure/cable{
 	d1 = 1;
@@ -1056,17 +1056,17 @@
 	},
 /obj/machinery/newscaster/north,
 /turf/simulated/floor/tiled,
-/area/hallway/primary/central_one)
+/area/runtime/hallway/primary/central_one)
 "cC" = (
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
 /turf/simulated/floor/tiled,
-/area/hallway/primary/central_one)
+/area/runtime/hallway/primary/central_one)
 "cD" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /turf/simulated/wall/r_wall,
-/area/hallway/primary/central_two)
+/area/runtime/hallway/primary/central_two)
 "cE" = (
 /obj/machinery/atmospherics/unary/vent_pump{
 	dir = 8
@@ -1078,7 +1078,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
-/area/hallway/primary/central_two)
+/area/runtime/hallway/primary/central_two)
 "cF" = (
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 1
@@ -1088,7 +1088,7 @@
 	},
 /obj/structure/table/standard,
 /turf/simulated/floor/tiled,
-/area/hallway/primary/central_two)
+/area/runtime/hallway/primary/central_two)
 "cG" = (
 /obj/item/storage/box/fancy/donut,
 /obj/effect/floor_decal/corner/dark_blue{
@@ -1100,7 +1100,7 @@
 	},
 /obj/structure/table/standard,
 /turf/simulated/floor/tiled,
-/area/hallway/primary/central_two)
+/area/runtime/hallway/primary/central_two)
 "cH" = (
 /obj/item/stack/material/glass{
 	amount = 50
@@ -1118,7 +1118,7 @@
 	},
 /obj/structure/table/standard,
 /turf/simulated/floor/tiled,
-/area/hallway/primary/central_two)
+/area/runtime/hallway/primary/central_two)
 "cI" = (
 /obj/item/paper_bin{
 	pixel_x = -3;
@@ -1130,7 +1130,7 @@
 	},
 /obj/structure/table/standard,
 /turf/simulated/floor/tiled,
-/area/hallway/primary/central_two)
+/area/runtime/hallway/primary/central_two)
 "cJ" = (
 /obj/item/healthanalyzer,
 /obj/effect/floor_decal/corner/dark_blue,
@@ -1139,7 +1139,7 @@
 	},
 /obj/structure/table/standard,
 /turf/simulated/floor/tiled,
-/area/hallway/primary/central_two)
+/area/runtime/hallway/primary/central_two)
 "cK" = (
 /turf/simulated/wall/r_wall,
 /area/construction)
@@ -1168,7 +1168,7 @@
 /area/construction)
 "cP" = (
 /turf/simulated/wall/r_wall,
-/area/storage/primary)
+/area/runtime/storage/primary)
 "cQ" = (
 /obj/structure/cable{
 	d1 = 1;
@@ -1176,11 +1176,11 @@
 	icon_state = "1-2"
 	},
 /turf/simulated/wall/r_wall,
-/area/storage/primary)
+/area/runtime/storage/primary)
 "cR" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/wall/r_wall,
-/area/storage/primary)
+/area/runtime/storage/primary)
 "cS" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -1230,20 +1230,20 @@
 /obj/machinery/power/apc/west,
 /obj/structure/cable,
 /turf/simulated/floor/tiled,
-/area/storage/primary)
+/area/runtime/storage/primary)
 "cY" = (
 /obj/machinery/atmospherics/unary/vent_pump{
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
-/area/storage/primary)
+/area/runtime/storage/primary)
 "cZ" = (
 /obj/effect/map_effect/window_spawner/full/reinforced,
 /turf/simulated/floor/tiled/full,
-/area/storage/primary)
+/area/runtime/storage/primary)
 "da" = (
 /turf/simulated/floor/tiled,
-/area/storage/primary)
+/area/runtime/storage/primary)
 "db" = (
 /obj/effect/landmark{
 	name = "RevenantRift"
@@ -1252,7 +1252,7 @@
 /area/construction)
 "dc" = (
 /turf/simulated/floor/plating,
-/area/storage/primary)
+/area/runtime/storage/primary)
 "dd" = (
 /obj/machinery/light{
 	brightness_range = 16;
@@ -1285,7 +1285,7 @@
 	must_start_working = 1
 	},
 /turf/simulated/floor/tiled,
-/area/storage/primary)
+/area/runtime/storage/primary)
 "dh" = (
 /obj/machinery/light{
 	brightness_range = 16;
@@ -1293,7 +1293,7 @@
 	must_start_working = 1
 	},
 /turf/simulated/floor/tiled,
-/area/storage/primary)
+/area/runtime/storage/primary)
 "di" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -1323,21 +1323,21 @@
 	dir = 4
 	},
 /turf/simulated/floor/plating,
-/area/engineering)
+/area/runtime/engineering)
 "dm" = (
 /turf/simulated/wall,
-/area/storage/primary)
+/area/runtime/storage/primary)
 "dn" = (
 /obj/machinery/door/airlock/glass{
 	dir = 1
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled,
-/area/storage/primary)
+/area/runtime/storage/primary)
 "dp" = (
 /obj/structure/window_frame/empty,
 /turf/simulated/floor/tiled/full,
-/area/storage/primary)
+/area/runtime/storage/primary)
 "dq" = (
 /obj/effect/landmark/thunderdome1,
 /turf/simulated/floor/plating,
@@ -1348,7 +1348,7 @@
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled,
-/area/storage/primary)
+/area/runtime/storage/primary)
 "ds" = (
 /obj/item/storage/box/lights/mixed,
 /obj/item/storage/box/lights/tubes,
@@ -1364,7 +1364,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
-/area/hallway/primary/central_one)
+/area/runtime/hallway/primary/central_one)
 "du" = (
 /obj/structure/table/standard,
 /turf/simulated/floor/tiled,
@@ -1409,7 +1409,7 @@
 	name = "runtime_airlock_1_1"
 	},
 /turf/simulated/floor/plating,
-/area/maintenance/maintcentral)
+/area/runtime/maintenance/maintcentral)
 "dC" = (
 /obj/machinery/light{
 	brightness_range = 16;
@@ -1502,11 +1502,11 @@
 	},
 /obj/item/radio/intercom/south,
 /turf/simulated/floor/tiled,
-/area/hallway/primary/central_one)
+/area/runtime/hallway/primary/central_one)
 "eY" = (
 /obj/machinery/computer/ship/engines/terminal,
 /turf/simulated/floor/tiled,
-/area/storage/primary)
+/area/runtime/storage/primary)
 "fm" = (
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/plating,
@@ -1538,7 +1538,7 @@
 	name = "cooled floor";
 	temperature = 278
 	},
-/area/tcommsat/computer)
+/area/runtime/tcommsat/computer)
 "fy" = (
 /obj/structure/cable{
 	d1 = 16;
@@ -1556,15 +1556,15 @@
 "fH" = (
 /obj/machinery/door/airlock/glass,
 /turf/simulated/floor/tiled/dark,
-/area/engineering/gravity_gen)
+/area/runtime/engineering/gravity_gen)
 "fM" = (
 /turf/unsimulated/wall/steel,
-/area/template_noop)
+/area/runtime/exterior)
 "fV" = (
 /obj/machinery/atmospherics/portables_connector,
 /obj/machinery/portable_atmospherics/canister/air/airlock,
 /turf/simulated/floor/plating,
-/area/maintenance/maintcentral)
+/area/runtime/maintenance/maintcentral)
 "fX" = (
 /turf/template_noop,
 /area/space)
@@ -1591,7 +1591,7 @@
 "gr" = (
 /obj/effect/landmark/newplayer_start,
 /turf/simulated/floor/tiled,
-/area/hallway/primary/central_one)
+/area/runtime/hallway/primary/central_one)
 "gv" = (
 /obj/structure/disposalpipe/segment{
 	dir = 1;
@@ -1601,13 +1601,13 @@
 /area/construction)
 "gC" = (
 /turf/simulated/wall/r_wall,
-/area/outpost/mining_main/eva)
+/area/runtime/outpost/mining_main/eva)
 "gF" = (
 /obj/machinery/light{
 	dir = 4
 	},
 /turf/simulated/floor/plating,
-/area/maintenance/maintcentral)
+/area/runtime/maintenance/maintcentral)
 "gU" = (
 /obj/structure/cable/cyan{
 	d1 = 4;
@@ -1711,7 +1711,7 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/plating,
-/area/hallway/primary/central_one)
+/area/runtime/hallway/primary/central_one)
 "if" = (
 /obj/effect/landmark/start{
 	name = "Lab Assistant"
@@ -1766,13 +1766,13 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
-/area/storage/primary)
+/area/runtime/storage/primary)
 "iQ" = (
 /obj/effect/landmark/start{
 	name = "Shaft Miner"
 	},
 /turf/simulated/floor/plating,
-/area/outpost/mining_main/eva)
+/area/runtime/outpost/mining_main/eva)
 "iR" = (
 /obj/effect/landmark/skrell_srom,
 /turf/simulated/floor/tiled,
@@ -1784,7 +1784,7 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/wall/r_wall,
-/area/engineering/gravity_gen)
+/area/runtime/engineering/gravity_gen)
 "jj" = (
 /obj/machinery/r_n_d/destructive_analyzer,
 /turf/simulated/floor/tiled,
@@ -1814,7 +1814,7 @@
 	icon_state = "0-8"
 	},
 /turf/simulated/floor/plating,
-/area/engineering)
+/area/runtime/engineering)
 "kt" = (
 /obj/machinery/door/airlock{
 	dir = 4
@@ -1824,7 +1824,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
-/area/storage/primary)
+/area/runtime/storage/primary)
 "kI" = (
 /obj/machinery/power/apc/super/critical/west,
 /obj/structure/cable/cyan,
@@ -1847,7 +1847,7 @@
 	must_start_working = 1
 	},
 /turf/simulated/floor/plating,
-/area/engineering)
+/area/runtime/engineering)
 "kV" = (
 /obj/effect/landmark/start{
 	name = "Hangar Technician"
@@ -1873,7 +1873,7 @@
 	name = "cooled floor";
 	temperature = 278
 	},
-/area/tcommsat/computer)
+/area/runtime/tcommsat/computer)
 "kX" = (
 /turf/simulated/open,
 /area/turbolift/main_mid)
@@ -1898,7 +1898,7 @@
 	name = "cooled floor";
 	temperature = 278
 	},
-/area/tcommsat/computer)
+/area/runtime/tcommsat/computer)
 "lF" = (
 /obj/structure/lattice/catwalk,
 /turf/simulated/open,
@@ -1940,7 +1940,7 @@
 	},
 /obj/machinery/computer/security,
 /turf/simulated/floor/tiled,
-/area/bridge)
+/area/runtime/bridge)
 "mo" = (
 /obj/machinery/light{
 	brightness_range = 16;
@@ -1958,7 +1958,7 @@
 	pixel_x = 10
 	},
 /turf/simulated/floor/plating,
-/area/outpost/mining_main/eva)
+/area/runtime/outpost/mining_main/eva)
 "my" = (
 /obj/structure/cable/cyan{
 	d1 = 2;
@@ -2016,7 +2016,7 @@
 	name = "cooled floor";
 	temperature = 278
 	},
-/area/tcommsat/chamber)
+/area/runtime/tcommsat/chamber)
 "nh" = (
 /obj/structure/cable{
 	d1 = 2;
@@ -2043,7 +2043,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/plating,
-/area/storage/primary)
+/area/runtime/storage/primary)
 "nD" = (
 /obj/machinery/light{
 	brightness_range = 16;
@@ -2072,7 +2072,7 @@
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/plating,
-/area/maintenance/maintcentral)
+/area/runtime/maintenance/maintcentral)
 "og" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
@@ -2102,7 +2102,7 @@
 "oN" = (
 /obj/machinery/door/airlock/glass,
 /turf/simulated/floor/plating,
-/area/outpost/mining_main/eva)
+/area/runtime/outpost/mining_main/eva)
 "oP" = (
 /obj/machinery/telecomms/server/presets/engineering,
 /obj/machinery/light{
@@ -2114,7 +2114,7 @@
 	name = "cooled mainframe floor";
 	temperature = 278
 	},
-/area/tcommsat/chamber)
+/area/runtime/tcommsat/chamber)
 "oR" = (
 /obj/machinery/camera/network/command{
 	c_tag = "Telecomms";
@@ -2124,16 +2124,16 @@
 	name = "cooled floor";
 	temperature = 278
 	},
-/area/tcommsat/chamber)
+/area/runtime/tcommsat/chamber)
 "oS" = (
 /turf/simulated/wall/r_wall,
-/area/tcommsat/chamber)
+/area/runtime/tcommsat/chamber)
 "pd" = (
 /obj/effect/landmark/start{
 	name = "Atmospheric Technician"
 	},
 /turf/simulated/floor/plating,
-/area/engineering/atmos)
+/area/runtime/engineering/atmos)
 "pe" = (
 /obj/machinery/chem_master,
 /obj/item/reagent_containers/glass/beaker/bluespace,
@@ -2147,7 +2147,7 @@
 	},
 /obj/effect/overmap/visitable/ship/runtime,
 /turf/simulated/floor/tiled,
-/area/bridge)
+/area/runtime/bridge)
 "pA" = (
 /obj/machinery/r_n_d/protolathe,
 /turf/simulated/floor/tiled,
@@ -2160,7 +2160,7 @@
 /area/construction)
 "pI" = (
 /turf/simulated/wall/r_wall,
-/area/tcommsat/computer)
+/area/runtime/tcommsat/computer)
 "pM" = (
 /turf/simulated/floor/tiled,
 /area/construction)
@@ -2183,11 +2183,11 @@
 /obj/machinery/atmospherics/pipe/zpipe/up/supply,
 /obj/structure/disposalpipe/up,
 /turf/simulated/floor/plating,
-/area/maintenance/maintcentral)
+/area/runtime/maintenance/maintcentral)
 "qa" = (
 /obj/machinery/hologram/holopad,
 /turf/simulated/floor/tiled,
-/area/hallway/primary/central_one)
+/area/runtime/hallway/primary/central_one)
 "qb" = (
 /obj/machinery/hologram/holopad,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -2217,7 +2217,7 @@
 	name = "runtime_airlock_1_1"
 	},
 /turf/simulated/floor/plating,
-/area/maintenance/maintcentral)
+/area/runtime/maintenance/maintcentral)
 "qq" = (
 /turf/simulated/open,
 /area/construction/storage)
@@ -2226,7 +2226,7 @@
 	name = "cooled floor";
 	temperature = 278
 	},
-/area/tcommsat/chamber)
+/area/runtime/tcommsat/chamber)
 "qx" = (
 /obj/effect/landmark/entry_point/aft,
 /turf/simulated/wall/r_wall,
@@ -2246,7 +2246,7 @@
 	},
 /obj/machinery/photocopier,
 /turf/simulated/floor/tiled,
-/area/hallway/primary/central_one)
+/area/runtime/hallway/primary/central_one)
 "rm" = (
 /obj/item/blueprints/shuttle,
 /turf/simulated/floor/shuttle,
@@ -2271,7 +2271,7 @@
 "sf" = (
 /obj/machinery/computer/ship/sensors/terminal,
 /turf/simulated/floor/tiled,
-/area/storage/primary)
+/area/runtime/storage/primary)
 "sh" = (
 /obj/structure/cable/cyan{
 	d1 = 1;
@@ -2363,7 +2363,7 @@
 	dir = 9
 	},
 /turf/simulated/floor/plating,
-/area/maintenance/maintcentral)
+/area/runtime/maintenance/maintcentral)
 "sX" = (
 /obj/machinery/atmospherics/pipe/simple/visible/black{
 	dir = 5
@@ -2377,7 +2377,7 @@
 	name = "cooled floor";
 	temperature = 278
 	},
-/area/tcommsat/computer)
+/area/runtime/tcommsat/computer)
 "sY" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 5
@@ -2386,7 +2386,7 @@
 	dir = 9
 	},
 /turf/simulated/floor/plating,
-/area/maintenance/maintcentral)
+/area/runtime/maintenance/maintcentral)
 "tl" = (
 /obj/effect/floor_decal/industrial/warning,
 /obj/effect/landmark/start{
@@ -2397,7 +2397,7 @@
 "tr" = (
 /obj/machinery/alarm/south,
 /turf/simulated/floor/tiled,
-/area/storage/primary)
+/area/runtime/storage/primary)
 "tA" = (
 /obj/structure/cable/cyan{
 	d1 = 1;
@@ -2408,7 +2408,7 @@
 	name = "cooled floor";
 	temperature = 278
 	},
-/area/tcommsat/computer)
+/area/runtime/tcommsat/computer)
 "tI" = (
 /turf/simulated/floor/tiled{
 	name = "cooled floor";
@@ -2430,22 +2430,22 @@
 	},
 /obj/machinery/hologram/holopad,
 /turf/simulated/floor/tiled,
-/area/bridge)
+/area/runtime/bridge)
 "uh" = (
 /turf/simulated/floor/airless,
-/area/template_noop)
+/area/runtime/exterior)
 "uw" = (
 /turf/simulated/floor/bluegrid{
 	name = "cooled mainframe floor";
 	temperature = 278
 	},
-/area/tcommsat/chamber)
+/area/runtime/tcommsat/chamber)
 "uA" = (
 /obj/machinery/atmospherics/pipe/tank/phoron{
 	dir = 1
 	},
 /turf/simulated/floor/plating,
-/area/storage/primary)
+/area/runtime/storage/primary)
 "uC" = (
 /obj/effect/landmark/start{
 	name = "Research Director"
@@ -2470,7 +2470,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
-/area/hallway/primary/central_two)
+/area/runtime/hallway/primary/central_two)
 "uQ" = (
 /obj/structure/sink,
 /turf/simulated/floor/tiled,
@@ -2485,13 +2485,13 @@
 	name = "cooled floor";
 	temperature = 278
 	},
-/area/tcommsat/chamber)
+/area/runtime/tcommsat/chamber)
 "vl" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 4
 	},
 /turf/simulated/floor/plating,
-/area/maintenance/maintcentral)
+/area/runtime/maintenance/maintcentral)
 "vm" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/cable{
@@ -2500,7 +2500,7 @@
 	icon_state = "4-8"
 	},
 /turf/template_noop,
-/area/engineering)
+/area/runtime/engineering)
 "vV" = (
 /turf/simulated/wall/r_wall,
 /area/turret_protected/ai)
@@ -2518,20 +2518,20 @@
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/plating,
-/area/maintenance/maintcentral)
+/area/runtime/maintenance/maintcentral)
 "wk" = (
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 10
 	},
 /obj/item/modular_computer/console/preset/command,
 /turf/simulated/floor/tiled,
-/area/bridge)
+/area/runtime/bridge)
 "wI" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
 	},
 /turf/simulated/floor/plating,
-/area/maintenance/maintcentral)
+/area/runtime/maintenance/maintcentral)
 "wL" = (
 /obj/machinery/computer/ship/engines,
 /turf/simulated/floor/shuttle,
@@ -2541,18 +2541,18 @@
 	dir = 4
 	},
 /turf/simulated/floor/plating,
-/area/storage/primary)
+/area/runtime/storage/primary)
 "xi" = (
 /obj/effect/map_effect/window_spawner/full/reinforced,
 /turf/simulated/floor/tiled{
 	name = "cooled floor";
 	temperature = 278
 	},
-/area/tcommsat/computer)
+/area/runtime/tcommsat/computer)
 "xv" = (
 /obj/machinery/atmospherics/pipe/manifold4w/hidden,
 /turf/simulated/floor/plating,
-/area/storage/primary)
+/area/runtime/storage/primary)
 "xz" = (
 /obj/item/destTagger,
 /obj/item/stack/packageWrap,
@@ -2571,7 +2571,7 @@
 	name = "cooled floor";
 	temperature = 278
 	},
-/area/tcommsat/chamber)
+/area/runtime/tcommsat/chamber)
 "xP" = (
 /obj/effect/landmark/latejoin,
 /turf/simulated/floor/plating,
@@ -2597,7 +2597,7 @@
 	icon_state = "pipe-c"
 	},
 /turf/simulated/floor/tiled,
-/area/storage/primary)
+/area/runtime/storage/primary)
 "yr" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -2613,7 +2613,7 @@
 	dir = 4
 	},
 /turf/template_noop,
-/area/template_noop)
+/area/runtime/exterior)
 "yE" = (
 /obj/structure/bed/stool/chair/shuttle,
 /obj/effect/landmark/start{
@@ -2632,7 +2632,7 @@
 	name = "cooled floor";
 	temperature = 278
 	},
-/area/tcommsat/computer)
+/area/runtime/tcommsat/computer)
 "zd" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
@@ -2673,21 +2673,21 @@
 	pixel_x = 28
 	},
 /turf/template_noop,
-/area/template_noop)
+/area/runtime/exterior)
 "zE" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /obj/effect/map_effect/window_spawner/full/reinforced,
 /turf/simulated/floor/tiled/full,
-/area/hallway/primary/central_one)
+/area/runtime/hallway/primary/central_one)
 "zF" = (
 /obj/machinery/telecomms/receiver/preset_right,
 /turf/simulated/floor/bluegrid{
 	name = "cooled mainframe floor";
 	temperature = 278
 	},
-/area/tcommsat/chamber)
+/area/runtime/tcommsat/chamber)
 "zM" = (
 /obj/machinery/telecomms/bus/preset_four,
 /obj/machinery/light{
@@ -2699,14 +2699,14 @@
 	name = "cooled mainframe floor";
 	temperature = 278
 	},
-/area/tcommsat/chamber)
+/area/runtime/tcommsat/chamber)
 "zO" = (
 /obj/machinery/ntnet_relay,
 /turf/simulated/floor/tiled{
 	name = "cooled floor";
 	temperature = 278
 	},
-/area/tcommsat/computer)
+/area/runtime/tcommsat/computer)
 "zP" = (
 /obj/machinery/camera/network/civilian_main{
 	c_tag = "Central Corridor 2";
@@ -2714,11 +2714,11 @@
 	},
 /obj/item/radio/intercom/south,
 /turf/simulated/floor/tiled,
-/area/hallway/primary/central_one)
+/area/runtime/hallway/primary/central_one)
 "zQ" = (
 /obj/machinery/firealarm/south,
 /turf/simulated/floor/tiled,
-/area/hallway/primary/central_one)
+/area/runtime/hallway/primary/central_one)
 "zV" = (
 /obj/structure/cable{
 	d1 = 1;
@@ -2754,7 +2754,7 @@
 	name = "runtime_airlock_1_1"
 	},
 /turf/simulated/floor/plating,
-/area/maintenance/maintcentral)
+/area/runtime/maintenance/maintcentral)
 "Bc" = (
 /obj/machinery/power/sensor{
 	long_range = 1;
@@ -2791,18 +2791,18 @@
 	name = "cooled floor";
 	temperature = 278
 	},
-/area/tcommsat/computer)
+/area/runtime/tcommsat/computer)
 "Cd" = (
 /obj/structure/engineer_maintenance/pipe/wall,
 /turf/simulated/floor/tiled,
-/area/storage/primary)
+/area/runtime/storage/primary)
 "Ct" = (
 /obj/machinery/door/airlock/glass{
 	dir = 4
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
-/area/storage/primary)
+/area/runtime/storage/primary)
 "Cu" = (
 /obj/effect/landmark/latejoinlift,
 /turf/simulated/floor/plating,
@@ -2815,7 +2815,7 @@
 	name = "cooled floor";
 	temperature = 278
 	},
-/area/tcommsat/computer)
+/area/runtime/tcommsat/computer)
 "CD" = (
 /obj/machinery/door/window{
 	dir = 4
@@ -2843,7 +2843,7 @@
 "CI" = (
 /obj/structure/engineer_maintenance/electric,
 /turf/simulated/floor/tiled,
-/area/storage/primary)
+/area/runtime/storage/primary)
 "CZ" = (
 /obj/machinery/atmospherics/unary/vent_pump{
 	dir = 8;
@@ -2858,7 +2858,7 @@
 	name = "cooled floor";
 	temperature = 278
 	},
-/area/tcommsat/chamber)
+/area/runtime/tcommsat/chamber)
 "Dq" = (
 /obj/machinery/atmospherics/pipe/simple/visible/black{
 	dir = 5
@@ -2877,7 +2877,7 @@
 	name = "cooled floor";
 	temperature = 278
 	},
-/area/tcommsat/chamber)
+/area/runtime/tcommsat/chamber)
 "Es" = (
 /obj/structure/railing/mapped{
 	dir = 4
@@ -2906,7 +2906,7 @@
 "Eu" = (
 /obj/effect/landmark/entry_point/aft,
 /turf/simulated/wall/r_wall,
-/area/maintenance/maintcentral)
+/area/runtime/maintenance/maintcentral)
 "Ew" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
@@ -2953,7 +2953,7 @@
 /obj/structure/lattice/catwalk,
 /obj/machinery/shipsensors,
 /turf/template_noop,
-/area/engineering)
+/area/runtime/engineering)
 "Fn" = (
 /obj/machinery/light{
 	brightness_range = 16;
@@ -2968,11 +2968,11 @@
 "Ft" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden,
 /turf/simulated/floor/plating,
-/area/maintenance/maintcentral)
+/area/runtime/maintenance/maintcentral)
 "Fw" = (
 /obj/machinery/alarm/west,
 /turf/simulated/floor/tiled,
-/area/storage/primary)
+/area/runtime/storage/primary)
 "FC" = (
 /obj/item/modular_computer/console/preset/ai,
 /obj/machinery/camera/network/command{
@@ -2997,7 +2997,7 @@
 	name = "cooled floor";
 	temperature = 278
 	},
-/area/tcommsat/chamber)
+/area/runtime/tcommsat/chamber)
 "FT" = (
 /obj/machinery/power/smes/buildable{
 	charge = 5000000;
@@ -3017,16 +3017,16 @@
 	name = "Bridge Crew"
 	},
 /turf/simulated/floor/tiled,
-/area/storage/primary)
+/area/runtime/storage/primary)
 "FZ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/recharge_station,
 /turf/simulated/floor/tiled/dark,
-/area/hallway/primary/central_one)
+/area/runtime/hallway/primary/central_one)
 "Gb" = (
 /obj/structure/engineer_maintenance/pipe,
 /turf/simulated/floor/tiled,
-/area/storage/primary)
+/area/runtime/storage/primary)
 "Go" = (
 /obj/structure/cable{
 	d1 = 1;
@@ -3034,7 +3034,7 @@
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/plating,
-/area/maintenance/maintcentral)
+/area/runtime/maintenance/maintcentral)
 "Gp" = (
 /obj/effect/landmark/start{
 	name = "Psychiatrist"
@@ -3081,7 +3081,7 @@
 	name = "cooled floor";
 	temperature = 278
 	},
-/area/tcommsat/computer)
+/area/runtime/tcommsat/computer)
 "Hg" = (
 /obj/effect/landmark/start{
 	name = "Chaplain"
@@ -3094,7 +3094,7 @@
 	},
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/plating,
-/area/maintenance/maintcentral)
+/area/runtime/maintenance/maintcentral)
 "HD" = (
 /obj/effect/landmark/start{
 	name = "Captain"
@@ -3108,7 +3108,7 @@
 	icon_state = "2-4"
 	},
 /turf/simulated/floor/plating,
-/area/maintenance/maintcentral)
+/area/runtime/maintenance/maintcentral)
 "HK" = (
 /obj/machinery/light{
 	brightness_range = 16;
@@ -3137,11 +3137,11 @@
 "HV" = (
 /obj/machinery/alarm/east,
 /turf/simulated/floor/tiled,
-/area/storage/primary)
+/area/runtime/storage/primary)
 "In" = (
 /obj/machinery/computer/ship/helm,
 /turf/simulated/floor/tiled,
-/area/bridge)
+/area/runtime/bridge)
 "IL" = (
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 4
@@ -3154,12 +3154,12 @@
 	name = "cooled mainframe floor";
 	temperature = 278
 	},
-/area/tcommsat/chamber)
+/area/runtime/tcommsat/chamber)
 "IY" = (
 /obj/machinery/computer/ship/engines,
 /obj/item/paper/fluff/runtime/dontforgetuseovermap,
 /turf/simulated/floor/plating,
-/area/storage/primary)
+/area/runtime/storage/primary)
 "Jd" = (
 /obj/effect/landmark{
 	name = "Observer-Start"
@@ -3210,7 +3210,7 @@
 "JB" = (
 /obj/structure/engineer_maintenance/electric/wall,
 /turf/simulated/floor/tiled,
-/area/storage/primary)
+/area/runtime/storage/primary)
 "JC" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -3222,7 +3222,7 @@
 	pixel_x = 7
 	},
 /turf/simulated/floor/tiled,
-/area/hallway/primary/central_one)
+/area/runtime/hallway/primary/central_one)
 "JE" = (
 /obj/machinery/access_button{
 	dir = 1;
@@ -3236,14 +3236,14 @@
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/plating,
-/area/maintenance/maintcentral)
+/area/runtime/maintenance/maintcentral)
 "JT" = (
 /obj/machinery/telecomms/server/presets/common,
 /turf/simulated/floor/bluegrid{
 	name = "cooled mainframe floor";
 	temperature = 278
 	},
-/area/tcommsat/chamber)
+/area/runtime/tcommsat/chamber)
 "Kj" = (
 /obj/structure/table/standard,
 /obj/item/gun/projectile/automatic/rifle/sol,
@@ -3279,7 +3279,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/plating,
-/area/engineering/atmos)
+/area/runtime/engineering/atmos)
 "KC" = (
 /obj/machinery/light{
 	dir = 8
@@ -3291,7 +3291,7 @@
 	pixel_y = -17
 	},
 /turf/simulated/floor/tiled,
-/area/storage/primary)
+/area/runtime/storage/primary)
 "KM" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
@@ -3326,23 +3326,23 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
-/area/hallway/primary/central_one)
+/area/runtime/hallway/primary/central_one)
 "LF" = (
 /obj/machinery/computer/ship/targeting/terminal,
 /obj/item/paper/fluff/runtime/dontforgetuseovermap,
 /turf/simulated/floor/tiled,
-/area/storage/primary)
+/area/runtime/storage/primary)
 "LM" = (
 /obj/effect/landmark/lobby_mobs_location,
 /turf/unsimulated/floor,
-/area/template_noop)
+/area/runtime/exterior)
 "ME" = (
 /obj/machinery/atmospherics/portables_connector/aux{
 	dir = 4
 	},
 /obj/machinery/portable_atmospherics/canister/air/airlock,
 /turf/simulated/floor/plating,
-/area/maintenance/maintcentral)
+/area/runtime/maintenance/maintcentral)
 "MW" = (
 /obj/effect/landmark/latejoincryo,
 /turf/simulated/floor/plating,
@@ -3376,7 +3376,7 @@
 	name = "runtime_airlock_1_1"
 	},
 /turf/simulated/floor/plating,
-/area/maintenance/maintcentral)
+/area/runtime/maintenance/maintcentral)
 "Nu" = (
 /obj/structure/cable{
 	d1 = 1;
@@ -3435,7 +3435,7 @@
 	name = "runtime_airlock_1_1"
 	},
 /turf/simulated/floor/plating,
-/area/maintenance/maintcentral)
+/area/runtime/maintenance/maintcentral)
 "OX" = (
 /obj/structure/cable{
 	d1 = 4;
@@ -3469,7 +3469,7 @@
 	name = "Revenant"
 	},
 /turf/simulated/floor/plating,
-/area/maintenance/maintcentral)
+/area/runtime/maintenance/maintcentral)
 "Qe" = (
 /turf/simulated/wall/r_wall,
 /area/shuttle/runtime)
@@ -3481,7 +3481,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
-/area/hallway/primary/central_one)
+/area/runtime/hallway/primary/central_one)
 "QS" = (
 /obj/structure/cable/cyan{
 	d1 = 4;
@@ -3512,11 +3512,11 @@
 	name = "cooled floor";
 	temperature = 278
 	},
-/area/tcommsat/chamber)
+/area/runtime/tcommsat/chamber)
 "QV" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden,
 /turf/simulated/floor/plating,
-/area/storage/primary)
+/area/runtime/storage/primary)
 "Rl" = (
 /obj/machinery/conveyor{
 	dir = 8;
@@ -3529,7 +3529,7 @@
 	dir = 10
 	},
 /turf/simulated/floor/plating,
-/area/storage/primary)
+/area/runtime/storage/primary)
 "RL" = (
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 10
@@ -3540,7 +3540,7 @@
 	},
 /obj/item/radio/intercom/south,
 /turf/simulated/floor/tiled,
-/area/bridge)
+/area/runtime/bridge)
 "RN" = (
 /obj/machinery/telecomms/message_server,
 /turf/simulated/floor/tiled{
@@ -3554,7 +3554,7 @@
 	name = "cooled mainframe floor";
 	temperature = 278
 	},
-/area/tcommsat/chamber)
+/area/runtime/tcommsat/chamber)
 "RY" = (
 /obj/structure/lattice/catwalk,
 /turf/simulated/floor/tiled,
@@ -3586,7 +3586,7 @@
 "Sz" = (
 /obj/machinery/alarm/north,
 /turf/simulated/floor/tiled,
-/area/storage/primary)
+/area/runtime/storage/primary)
 "SA" = (
 /obj/effect/landmark/start{
 	name = "First Responder"
@@ -3614,14 +3614,14 @@
 /area/construction/storage)
 "Th" = (
 /turf/simulated/floor/plating,
-/area/outpost/mining_main/eva)
+/area/runtime/outpost/mining_main/eva)
 "Ti" = (
 /obj/machinery/light{
 	dir = 4
 	},
 /obj/machinery/firealarm/east,
 /turf/simulated/floor/plating,
-/area/outpost/mining_main/eva)
+/area/runtime/outpost/mining_main/eva)
 "Tj" = (
 /obj/machinery/atmospherics/pipe/manifold4w/hidden,
 /obj/machinery/atmospherics/pipe/simple/hidden/aux,
@@ -3630,7 +3630,7 @@
 	name = "runtime_airlock_1_1"
 	},
 /turf/simulated/floor/plating,
-/area/maintenance/maintcentral)
+/area/runtime/maintenance/maintcentral)
 "Tq" = (
 /obj/effect/overmap/visitable/ship/landable/runtime,
 /turf/simulated/floor/shuttle,
@@ -3644,7 +3644,7 @@
 	name = "runtime_airlock_1_1"
 	},
 /turf/simulated/floor/plating,
-/area/maintenance/maintcentral)
+/area/runtime/maintenance/maintcentral)
 "TA" = (
 /obj/machinery/light{
 	brightness_range = 16;
@@ -3670,7 +3670,7 @@
 	dir = 6
 	},
 /turf/simulated/floor/plating,
-/area/storage/primary)
+/area/runtime/storage/primary)
 "TL" = (
 /obj/structure/cable{
 	d2 = 8;
@@ -3730,7 +3730,7 @@
 	name = "cooled floor";
 	temperature = 278
 	},
-/area/tcommsat/computer)
+/area/runtime/tcommsat/computer)
 "Ut" = (
 /obj/machinery/r_n_d/server/advanced/core,
 /turf/simulated/floor/tiled,
@@ -3741,7 +3741,7 @@
 	name = "cooled mainframe floor";
 	temperature = 278
 	},
-/area/tcommsat/chamber)
+/area/runtime/tcommsat/chamber)
 "UF" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -3753,22 +3753,22 @@
 	pixel_y = 32
 	},
 /turf/simulated/floor/tiled,
-/area/hallway/primary/central_one)
+/area/runtime/hallway/primary/central_one)
 "UP" = (
 /obj/effect/map_effect/window_spawner/full/reinforced,
 /turf/simulated/floor/plating,
-/area/storage/primary)
+/area/runtime/storage/primary)
 "UQ" = (
 /obj/machinery/telecomms/processor/preset_four,
 /turf/simulated/floor/bluegrid{
 	name = "cooled mainframe floor";
 	temperature = 278
 	},
-/area/tcommsat/chamber)
+/area/runtime/tcommsat/chamber)
 "UW" = (
 /obj/effect/map_effect/window_spawner/full/reinforced,
 /turf/simulated/floor/tiled/full,
-/area/hallway/primary/central_one)
+/area/runtime/hallway/primary/central_one)
 "Vm" = (
 /turf/simulated/floor/shuttle,
 /area/shuttle/runtime)
@@ -3786,7 +3786,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
-/area/hallway/primary/central_one)
+/area/runtime/hallway/primary/central_one)
 "Wf" = (
 /obj/structure/table/rack,
 /obj/item/stack/material/glass/full,
@@ -3831,7 +3831,7 @@
 /area/turret_protected/ai)
 "WP" = (
 /turf/simulated/wall,
-/area/hallway/primary/central_one)
+/area/runtime/hallway/primary/central_one)
 "WS" = (
 /obj/turbolift_map_holder/runtime,
 /turf/simulated/floor/plating,
@@ -3859,13 +3859,13 @@
 	},
 /obj/machinery/firealarm/west,
 /turf/simulated/floor/tiled,
-/area/hallway/primary/central_two)
+/area/runtime/hallway/primary/central_two)
 "Yc" = (
 /obj/effect/landmark{
 	name = "carpspawn"
 	},
 /turf/template_noop,
-/area/template_noop)
+/area/runtime/exterior)
 "Yi" = (
 /obj/effect/landmark/start{
 	name = "Chief Medical Officer"
@@ -3893,20 +3893,20 @@
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/plating,
-/area/maintenance/maintcentral)
+/area/runtime/maintenance/maintcentral)
 "YP" = (
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 10
 	},
 /obj/item/modular_computer/console/preset/command/captain,
 /turf/simulated/floor/tiled,
-/area/bridge)
+/area/runtime/bridge)
 "YR" = (
 /obj/machinery/atmospherics/unary/engine{
 	dir = 1
 	},
 /turf/simulated/floor/plating,
-/area/storage/primary)
+/area/runtime/storage/primary)
 "YX" = (
 /obj/effect/floor_decal/industrial/warning/corner,
 /turf/simulated/floor/tiled,
@@ -3914,7 +3914,7 @@
 "Zp" = (
 /obj/machinery/suit_cycler/mining/prepared,
 /turf/simulated/floor/plating,
-/area/outpost/mining_main/eva)
+/area/runtime/outpost/mining_main/eva)
 "ZA" = (
 /obj/item/modular_computer/console/preset/ai,
 /turf/simulated/floor/bluegrid{
@@ -3930,7 +3930,7 @@
 	name = "cooled floor";
 	temperature = 278
 	},
-/area/tcommsat/computer)
+/area/runtime/tcommsat/computer)
 "ZD" = (
 /obj/machinery/blackbox_recorder,
 /turf/simulated/floor/tiled{
@@ -3941,7 +3941,7 @@
 "ZE" = (
 /obj/structure/lattice/catwalk,
 /turf/template_noop,
-/area/engineering)
+/area/runtime/engineering)
 "ZH" = (
 /obj/structure/fuel_port/phoron,
 /turf/simulated/wall/r_wall,
@@ -3949,11 +3949,11 @@
 "ZJ" = (
 /obj/structure/closet/secure_closet/miner,
 /turf/simulated/floor/plating,
-/area/outpost/mining_main/eva)
+/area/runtime/outpost/mining_main/eva)
 "ZU" = (
 /obj/structure/table/standard,
 /turf/simulated/floor/tiled,
-/area/storage/primary)
+/area/runtime/storage/primary)
 "ZZ" = (
 /obj/structure/closet/crate,
 /turf/simulated/floor/tiled,

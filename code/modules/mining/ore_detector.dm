@@ -165,7 +165,7 @@
 		M.client.images -= ore_pings
 	ore_pings.Cut()
 
-/obj/item/ore_detector/throw_at()
+/obj/item/ore_detector/throw_at(atom/target, range, speed, mob/thrower, spin = TRUE, diagonals_first = FALSE, datum/callback/callback, force = MOVE_FORCE_STRONG, gentle = FALSE, quickstart = TRUE)
 	..()
 	deactivate()
 

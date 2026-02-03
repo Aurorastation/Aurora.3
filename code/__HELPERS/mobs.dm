@@ -263,7 +263,7 @@ Proc for attack log creation, because really why not
 				break
 
 		//update our pda and id if we have them on our person
-		var/list/searching = GetAllContents()
+		var/list/searching = get_all_contents()
 		var/search_id = TRUE
 		var/search_pda = TRUE
 

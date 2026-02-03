@@ -177,7 +177,7 @@
 		return FALSE
 
 	//Check if the z level is in the restricted list
-	if (!(check in SSatlas.current_map.restricted_levels))
+	if (!(check in SSmapping.current_map.restricted_levels))
 		return FALSE
 
 	return TRUE

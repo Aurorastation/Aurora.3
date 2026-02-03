@@ -34,8 +34,6 @@
 //Landmarks
 
 /obj/effect/shuttle_landmark/phoron_deposit
-	base_area = /area/mine
-	base_turf = /turf/simulated/floor/exoplanet/asteroid/ash/rocky
 
 /obj/effect/shuttle_landmark/phoron_deposit/alpha
 	name = "Landing Point Alpha"

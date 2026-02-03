@@ -160,7 +160,7 @@
 	pref.real_name          = sanitize_name(pref.real_name, pref.species)
 	if(!pref.real_name)
 		pref.real_name      = random_name(pref.gender, pref.species)
-	pref.spawnpoint         = sanitize_inlist(pref.spawnpoint, SSatlas.spawn_locations, initial(pref.spawnpoint))
+	pref.spawnpoint         = sanitize_inlist(pref.spawnpoint, SSmapping.spawn_locations, initial(pref.spawnpoint))
 	pref.machine_tag_status = text2num(pref.machine_tag_status) // SQL queries return as text, so make this a num
 	pref.hidden_shell_status = text2num(pref.hidden_shell_status) // this too
 	pref.floating_chat_color = sanitize_hexcolor(pref.floating_chat_color, get_random_colour(0, 160, 230))
@@ -305,10 +305,10 @@
 
 	else if(href_list["spawnpoint"])
 		var/list/spawnkeys = list()
-		for(var/S in SSatlas.spawn_locations)
+		for(var/S in SSmapping.spawn_locations)
 			spawnkeys += S
 		var/choice = input(user, "Where would you like to spawn when late-joining?") as null|anything in spawnkeys
-		if(!choice || !SSatlas.spawn_locations[choice] || !CanUseTopic(user))	return TOPIC_NOACTION
+		if(!choice || !SSmapping.spawn_locations[choice] || !CanUseTopic(user))	return TOPIC_NOACTION
 		pref.spawnpoint = choice
 		return TOPIC_REFRESH
 

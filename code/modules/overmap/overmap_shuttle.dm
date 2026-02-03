@@ -1,77 +1,85 @@
-/datum/shuttle/autodock/overmap
-	warmup_time = 10
+/datum/shuttle/overmap
+	warmup_time = 10 SECONDS
 
 	var/range = 0	//how many overmap tiles can shuttle go, for picking destinations and returning.
 	var/fuel_consumption = 0 //Amount of moles of gas consumed per trip; If zero, then shuttle is magic and does not need fuel
 	var/list/obj/structure/fuel_port/fuel_ports //the fuel ports of the shuttle (but usually just one)
 
-	category = /datum/shuttle/autodock/overmap
+	category = /datum/shuttle/overmap
 
-/datum/shuttle/autodock/overmap/New(var/_name, var/obj/effect/shuttle_landmark/start_waypoint)
+/datum/shuttle/overmap/New(var/_name, var/obj/effect/shuttle_landmark/start_waypoint)
 	..(_name, start_waypoint)
 	refresh_fuel_ports_list()
 	for(var/area/A in shuttle_area) //If shuttles initialize after the blueprints, they won't set correctly so we do it here.
-		var/obj/item/blueprints/shuttle/blueprints = locate() in A
-		if(blueprints)
-			blueprints.set_valid_z_levels()
+		for(var/turf/T as anything in A.get_turfs_from_all_zlevels())
+			for(var/obj/item/blueprints/shuttle/blueprints in T)
+				if(blueprints)
+					blueprints.set_valid_z_levels()
 
-/datum/shuttle/autodock/overmap/proc/refresh_fuel_ports_list() //loop through all
+/datum/shuttle/overmap/proc/refresh_fuel_ports_list() //loop through all
 	fuel_ports = list()
 	for(var/area/A in shuttle_area)
-		for(var/obj/structure/fuel_port/fuel_port_in_area in A)
-			fuel_port_in_area.parent_shuttle = src
-			fuel_ports |= fuel_port_in_area
+		for(var/turf/T as anything in A.get_turfs_from_all_zlevels())
+			for(var/obj/structure/fuel_port/fuel_port_in_area in T)
+				fuel_port_in_area.parent_shuttle = src
+				fuel_ports |= fuel_port_in_area
 
-/datum/shuttle/autodock/overmap/fuel_check(var/check_only = FALSE) // "check_only" lets you check the fuel levels without using any.
+/datum/shuttle/overmap/fuel_check(var/check_only = FALSE) // "check_only" lets you check the fuel levels without using any.
 	if(!src.try_consume_fuel(check_only)) //insufficient fuel
 		for(var/area/A in shuttle_area)
-			for(var/mob/living/M in A)
-				M.show_message(SPAN_WARNING("You hear the shuttle engines sputter... perhaps it doesn't have enough fuel?"), 2,
-								SPAN_WARNING("The shuttle shakes but fails to take off."), 1)
-				return 0 //failure!
-	return 1 //sucess, continue with launch
+			for(var/turf/T as anything in A.get_turfs_from_all_zlevels())
+				for(var/mob/living/M in T)
+					M.show_message(SPAN_WARNING("You hear the shuttle engines sputter... perhaps it doesn't have enough fuel?"), 2,
+									SPAN_WARNING("The shuttle shakes but fails to take off."), 1)
+					return 0 //failure!
+	return 1 // success, continue with launch
 
-/datum/shuttle/autodock/overmap/proc/can_go()
-	if(!next_location)
-		return FALSE
-	if(moving_status == SHUTTLE_INTRANSIT)
-		return FALSE //already going somewhere, current_location may be an intransit location instead of in a sector
-	return get_dist(waypoint_sector(current_location), waypoint_sector(next_location)) <= range
+// /datum/shuttle/overmap/proc/can_go()
+// 	if(!next_location)
+// 		return FALSE
+// 	if(moving_status == SHUTTLE_INTRANSIT)
+// 		return FALSE //already going somewhere, current_location may be an intransit location instead of in a sector
+// 	return get_dist(waypoint_sector(current_location), waypoint_sector(next_location)) <= range
 
-/datum/shuttle/autodock/overmap/can_launch()
-	return ..() && can_go()
+// /datum/shuttle/overmap/can_launch()
+// 	return ..() && can_go()
 
-/datum/shuttle/autodock/overmap/can_force()
-	return ..() && can_go()
+// /datum/shuttle/overmap/can_force()
+// 	return ..() && can_go()
 
-/datum/shuttle/autodock/overmap/get_travel_time()
-	var/distance_mod = get_dist(waypoint_sector(current_location),waypoint_sector(next_location))
-	return move_time * (1 + distance_mod)
+/datum/shuttle/overmap/get_travel_time()
+	return minimum_move_time + (1 SECOND)
+	// var/distance_mod = get_dist(waypoint_sector(current_location),waypoint_sector(next_location))
+	// return move_time * (1 + distance_mod)
 
-/datum/shuttle/autodock/overmap/proc/set_destination(var/obj/effect/shuttle_landmark/A)
+/datum/shuttle/overmap/proc/set_destination(var/obj/effect/shuttle_landmark/A)
 	if(A != current_location)
 		next_location = A
 
-/datum/shuttle/autodock/overmap/proc/get_possible_destinations()
+/datum/shuttle/overmap/transit_success()
+	next_location = assigned_transit
+
+/datum/shuttle/overmap/proc/get_possible_destinations()
 	var/list/res = list()
 	for (var/obj/effect/overmap/visitable/S in range(get_turf(waypoint_sector(current_location)), range))
 		var/list/waypoints = S.get_waypoints(name)
 		for(var/obj/effect/shuttle_landmark/LZ in waypoints)
-			if(LZ.is_valid(src))
+			if(check_landing_zone(LZ) == DOCKING_SUCCESS)
 				res["[waypoints[LZ]] - [LZ.name]"] = LZ
 	return res
 
-/datum/shuttle/autodock/overmap/get_location_name()
+/datum/shuttle/overmap/get_location_name()
 	if(moving_status == SHUTTLE_INTRANSIT)
 		return "In transit"
 	return "[waypoint_sector(current_location)] - [current_location]"
 
-/datum/shuttle/autodock/overmap/get_destination_name()
+/datum/shuttle/overmap/get_destination_name()
 	if(!next_location)
 		return "None"
 	return "[waypoint_sector(next_location)] - [next_location]"
 
-/datum/shuttle/autodock/overmap/proc/try_consume_fuel(var/check_only = FALSE) //returns 1 if sucessful, returns 0 if error (like insufficient fuel)
+// wildtodo: just rewrite this. god it sucks
+/datum/shuttle/overmap/proc/try_consume_fuel(var/check_only = FALSE) //returns 1 if sucessful, returns 0 if error (like insufficient fuel)
 	if(!fuel_consumption)
 		return 1 //shuttles with zero fuel consumption are magic and can always launch
 	if(!fuel_ports.len)
@@ -103,7 +111,7 @@
 			fuel_to_consume -= fuel_available
 			FT.remove_air_by_flag(XGM_GAS_FUEL, fuel_available)
 
-/datum/shuttle/autodock/overmap/on_move_interim()
+/datum/shuttle/overmap/on_move_interim()
 	..()
 	for(var/obj/machinery/computer/shuttle_control/explore/E in shuttle_computers)
 		var/obj/effect/overmap/visitable/ship/S = E.connected
@@ -270,7 +278,7 @@
 	var/area/A = get_area(src)
 	if(A in SSshuttle.shuttle_areas) //Check if we're in a shuttle and refresh its fuel ports
 		for(var/shuttle_tag in SSshuttle.shuttles)
-			var/datum/shuttle/autodock/overmap/S = SSshuttle.shuttles[shuttle_tag]
+			var/datum/shuttle/overmap/S = SSshuttle.shuttles[shuttle_tag]
 			if(istype(S) && (A in S.shuttle_area))
 				S.refresh_fuel_ports_list()
 

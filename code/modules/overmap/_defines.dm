@@ -16,7 +16,6 @@ GLOBAL_LIST_EMPTY(map_templates)
 	name = "System Map"
 	icon_state = "start"
 	requires_power = 0
-	base_turf = /turf/unsimulated/map
 	base_lighting_alpha = 255
 
 /turf/unsimulated/map
@@ -35,11 +34,11 @@ GLOBAL_LIST_EMPTY(map_templates)
 	name = "[x]-[y]"
 	var/list/numbers = list()
 
-	if(x == 1 || x == SSatlas.current_map.overmap_size)
+	if(x == 1 || x == SSmapping.current_map.overmap_size)
 		numbers += list("[round(y/10)]","[round(y%10)]")
-		if(y == 1 || y == SSatlas.current_map.overmap_size)
+		if(y == 1 || y == SSmapping.current_map.overmap_size)
 			numbers += "-"
-	if(y == 1 || y == SSatlas.current_map.overmap_size)
+	if(y == 1 || y == SSmapping.current_map.overmap_size)
 		numbers += list("[round(x/10)]","[round(x%10)]")
 
 	for(var/i = 1 to numbers.len)
@@ -49,12 +48,12 @@ GLOBAL_LIST_EMPTY(map_templates)
 		if(y == 1)
 			I.pixel_y = 3
 			I.pixel_x = 5*i + 4
-		if(y == SSatlas.current_map.overmap_size)
+		if(y == SSmapping.current_map.overmap_size)
 			I.pixel_y = world.icon_size - 9
 			I.pixel_x = 5*i + 4
 		if(x == 1)
 			I.pixel_x = 5*i - 2
-		if(x == SSatlas.current_map.overmap_size)
+		if(x == SSmapping.current_map.overmap_size)
 			I.pixel_x = 5*i + 2
 		overlays += I
 
