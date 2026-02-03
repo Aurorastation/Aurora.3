@@ -51,7 +51,7 @@ SUBSYSTEM_DEF(anabasis)
 /datum/controller/subsystem/anabasis/proc/complete_objective(datum/component/objective/objective)
 	SIGNAL_HANDLER
 	log_and_message_admins("An Anabasis objective has been completed: [objective.objective_id]")
-	LAZYREMOVE(incomplete_objectives, completed_objective.objective_id)
+	LAZYREMOVE(incomplete_objectives, objective.objective_id)
 	LAZYSET(complete_objectives, objective.objective_id, objective)
 
 	check_contract_completion()
