@@ -60,7 +60,7 @@
 	R.AddOverlays(stampoverlay)
 	R.stamps += "<HR><i>This paper has been stamped by the EFTPOS device.</i>"
 
-/obj/item/device/eftpos/proc/print_reference()
+/obj/item/eftpos/proc/print_reference()
 	var/obj/item/paper/notepad/receipt/R = new(src.loc)
 	var/pname = "Reference: [eftpos_name]"
 	var/info = "<b>[eftpos_name] reference</b><br><br>"

@@ -56,7 +56,7 @@
 		to_chat(user, SPAN_NOTICE("Command access granted."))
 		SStgui.update_uis(src)
 
-/obj/item/device/quikpay/proc/print_receipt()
+/obj/item/quikpay/proc/print_receipt()
 	var/obj/item/paper/notepad/receipt/R = new(usr.loc)
 	var/receiptname = "Receipt: [machine_id]"
 	R.set_content_unsafe(receiptname, receipt, sum)
