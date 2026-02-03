@@ -771,7 +771,7 @@ ABSTRACT_TYPE(/datum/gear/shoes/tajara)
 /datum/gear/tajara_camera_film
 	display_name = "adhomian film canister"
 	description = "Spare film for the Adhomian camera."
-	path = /obj/item/device/camera_film/taj_film
+	path = /obj/item/camera_film/taj_film
 	whitelisted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
 
@@ -786,7 +786,7 @@ ABSTRACT_TYPE(/datum/gear/shoes/tajara)
 	display_name = "p'rrama"
 	whitelisted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
 	sort_category = "Xenowear - Tajara"
-	path = /obj/item/device/synthesized_instrument/guitar/prrama
+	path = /obj/item/synthesized_instrument/guitar/prrama
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
 	allowed_roles = list("Off-Duty Crew Member", "Passenger")
 

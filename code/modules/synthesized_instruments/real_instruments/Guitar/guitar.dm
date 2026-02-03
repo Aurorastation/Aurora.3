@@ -19,14 +19,14 @@
 	sound_player = /datum/sound_player/synthesizer
 	path = /datum/instrument/guitar
 
-/obj/item/device/synthesized_instrument/guitar/prrama
+/obj/item/synthesized_instrument/guitar/prrama
 	name = "p'rrama"
 	desc = "A traditional Adhomian string instrument, played with the hands and tail."
 	icon = 'icons/obj/tajara_items.dmi'
 	icon_state = "prrama"
 	item_state = "prrama"
 
-/obj/item/device/synthesized_instrument/guitar/prrama/interact(mob/user)
+/obj/item/synthesized_instrument/guitar/prrama/interact(mob/user)
 	if(!istajara(user))
 		balloon_alert(user, "not a tajara!")
 		return
