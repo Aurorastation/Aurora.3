@@ -154,6 +154,7 @@
 	minbodytemp = 0
 
 	faction = "Krampus"
+	speed = 4
 
 	tameable = FALSE
 

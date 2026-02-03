@@ -38,7 +38,7 @@
 	attacktext = "slashed"
 	attack_sound = 'sound/weapons/bladeslice.ogg'
 
-	speed = 4
+	speed = 2
 
 	min_oxy = 0
 	max_oxy = 0
