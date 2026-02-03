@@ -100,10 +100,20 @@
 		var/sublist_title = sublist ? " ([capitalize_first_letters(sublist.title)])" : ""
 		t1 += "<h2>Recipes[sublist_title]</h2>"
 	for(var/datum/stack_recipe/R in recipes_sublist)
+		var/lacks_skill = FALSE
+		if(length(R.required_skills))
+			for(var/skill_type in R.required_skills)
+				var/skill_level = R.required_skills[skill_type]
+				if(!user.skill_check(skill_type, skill_level))
+					lacks_skill = TRUE
+					break
+
 		var/max_multiplier = round(src.get_amount() / R.req_amount)
 		var/title = ""
 		var/can_build = TRUE
 		can_build = (max_multiplier > 0)
+		if(lacks_skill)
+			can_build = FALSE
 
 		if(R.res_amount > 1)
 			title += "[R.res_amount]x [R.title]\s"
@@ -116,7 +126,7 @@
 			var/sublist_var = sublist ? "[REF(sublist)]" : ""
 			t1 += "<a href='byond://?src=[REF(src)];make=[REF(R)];sublist=[sublist_var];multiplier=1'>[title]</a>"
 		else
-			t1 += "<div class='no-build inline'>[title]</div><br>"
+			t1 += "[lacks_skill ? "<s><span class='warning'>" : ""]<div class='no-build inline'>[title]</div><br>[lacks_skill ? "</s> Missing Skill</span>" : ""]"
 			continue
 
 		if(R.max_res_amount > 1 && max_multiplier > 1)
@@ -160,8 +170,12 @@
 
 	to_chat(user, SPAN_NOTICE("Building [recipe.title]..."))
 	if (recipe.time)
-		if (!do_after(user, recipe.time, do_flags = DO_REPAIR_CONSTRUCT))
-			return
+		if(length(recipe.required_skills))
+			if (!user.do_after_skill(recipe.time, src, user.get_highest_skill_from_list(recipe.required_skills), do_flags = DO_REPAIR_CONSTRUCT))
+				return
+		else
+			if (!user.do_after_skill(recipe.time, src, /singleton/skill/mechanical_engineering, do_flags = DO_REPAIR_CONSTRUCT))
+				return
 
 	if (use(required))
 		recipe.Produce(produced, user.loc, user.dir, user)
@@ -365,8 +379,10 @@
 	var/one_per_turf = 0
 	var/on_floor = 0
 	var/use_material
+	/// Assoc list of required skills to required skill levels. This is the MINIMUM to craft the item. You must have ALL these skills at that level to see the item as craftable.
+	var/list/required_skills
 
-/datum/stack_recipe/New(title, result_type, req_amount = 1, res_amount = 1, max_res_amount = 1, time = 0, one_per_turf = 0, on_floor = 0, supplied_material = null)
+/datum/stack_recipe/New(title, result_type, req_amount = 1, res_amount = 1, max_res_amount = 1, time = 0, one_per_turf = 0, on_floor = 0, supplied_material = null, list/required_skills)
 	src.title = title
 	src.result_type = result_type
 	if(ispath(result_type, /obj/structure))
@@ -380,6 +396,7 @@
 	src.one_per_turf = one_per_turf
 	src.on_floor = on_floor
 	src.use_material = supplied_material
+	src.required_skills = required_skills
 
 /datum/stack_recipe/proc/Produce(var/amount = 1, var/loc = null, var/dir = NORTH, var/user = null)
 	if(amount < 1)

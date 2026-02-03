@@ -1,11 +1,15 @@
 /singleton/origin_item
 	var/name = "generic origin item"
 	var/desc = DESC_PARENT
-	var/important_information //Big red text. Should only be used if not following it would incur a bwoink.
+	/// Big red text. Should only be used if not following it would incur a bwoink.
+	var/important_information
+	/// A list of the origin traits given by this culture item.
 	var/list/origin_traits = list()
 	/// Format for the following list: "Characters from this origin: [list entry], [list entry]."
 	/// One list item per trait.
 	var/list/origin_traits_descriptions = list()
+	/// A list of skills given by this origin. Assoc list of skill singleton type to level.
+	var/list/given_skills = list()
 
 /singleton/origin_item/culture
 	name = "generic culture"
