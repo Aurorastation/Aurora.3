@@ -1,6 +1,0 @@
-author: Hellfirejag
-delete-after: True
-changes:
-  - rscadd: "The Narrator panel now includes optional filter selections, allowing admins and storytellers to narrate to certain kinds of players, such as Synthetics or Psi-sensitives."
-  - rscadd: "The Narration panel can now be found in the Special Verbs tab for admins. Its usage will be logged."
-  - bugfix: "Fixed issues with admin announcements being improperly sanitized."

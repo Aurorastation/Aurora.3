@@ -51,3 +51,28 @@
   - bugfix: The paper spawning in crates from the cargo elevator now properly show
       the supposed contents.
   - rscadd: The quikpay ui was updated.
+2026-02-03:
+  Batrachophrenoboocosmomachia:
+  - bugfix: Escape pod controls now launch the correct escape pods.
+  - bugfix: Ventilation fixes for Xenobotany hazardous specimens vestibule and D2
+      disposals.
+  - bugfix: Adds two missing air alarms to Bar.
+  - bugfix: Swaps mismatched D2 atmos locker room air station signs.
+  - bugfix: Fixes wiring for D3 security bathroom APC.
+  - bugfix: Adds missing disposal pipe segments to security meetting room.
+  - rscdel: Removes two excess light switches from Engineering lobby.
+  Evandorf:
+  - balance: Changes the description in the cargo order menu to depict Mortaphenyl
+      as a weak, synthetic, opioid.
+  Greenjoe:
+  - rscadd: Changes the uniforms of the Tajaran diplomatic bodyguards.
+  Hellfirejag:
+  - rscadd: The Narrator panel now includes optional filter selections, allowing admins
+      and storytellers to narrate to certain kinds of players, such as Synthetics
+      or Psi-sensitives.
+  - rscadd: The Narration panel can now be found in the Special Verbs tab for admins.
+      Its usage will be logged.
+  - bugfix: Fixed issues with admin announcements being improperly sanitized.
+  TheGreyWolf:
+  - bugfix: Fixes janitorial carts not showing their contents after spawning.
+  - bugfix: The tug will no longer run over people who are leaning on walls.
