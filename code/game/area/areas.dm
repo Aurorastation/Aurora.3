@@ -432,7 +432,7 @@ GLOBAL_LIST_INIT(area_blurb_stated_to, list())
  * * mob/living/L - Affected mob.
  */
 /area/proc/play_ambience(var/mob/living/L)
-	if((world.time >= L.client.ambience_last_played_time + 5 MINUTES) && prob(20))
+	if((world.time >= L.client.ambience_last_played_time + 3 MINUTES) && prob(30))
 		var/picked_ambience = pick(ambience)
 		L << sound(picked_ambience, volume = VOLUME_AMBIENCE, channel = CHANNEL_AMBIENCE)
 		L.client.ambience_last_played_time = world.time
