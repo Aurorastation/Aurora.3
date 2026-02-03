@@ -48,13 +48,13 @@ else
     echo "PASS: UIDEBUG is not defined" >> code_error.log
 fi
 
-echo "Checking if _anabasis.dm is defined" >> code_error.log
-grep -r --include=\*.dm '#define ANABASIS' ./
+echo "Checking if ANABASIS_NBT2 is defined" >> code_error.log
+grep -r --include=\*.dm '#define ANABASIS_NBT2' ./
 if [ $? -eq 0 ]; then
     ERROR_COUNT=$(($ERROR_COUNT+1))
-    echo "FAIL: ANABASIS is defined" >> code_error.log
+    echo "FAIL: ANABASIS_NBT2 is defined" >> code_error.log
 else
-    echo "PASS: ANABASIS is not defined" >> code_error.log
+    echo "PASS: ANABASIS_NBT2 is not defined" >> code_error.log
 fi
 
 echo "Checking for link() in to_chat()" >> code_error.log

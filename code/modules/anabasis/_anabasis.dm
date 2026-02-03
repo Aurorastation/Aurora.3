@@ -1,6 +1,6 @@
 //nbt2 defines: add includes when you add files, uncomment ANABASIS to test, recomment when pushing
 
-#ifdef ANABASIS
+#ifdef ANABASIS_NBT2
 
 #include "code\__DEFINES\anabasis.dm"
 #include "code\controllers\subsystems\anabasis.dm"
