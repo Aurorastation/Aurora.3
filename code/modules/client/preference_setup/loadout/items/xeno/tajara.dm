@@ -356,7 +356,7 @@ ABSTRACT_TYPE(/datum/gear/shoes/tajara)
 /datum/gear/accessory/tajaranbooksrel
 	display_name = "tajaran religious books"
 	description = "Tajaran religious texts."
-	path = /obj/item/device/versebook/twinsuns
+	path = /obj/item/versebook/twinsuns
 	sort_category = "Xenowear - Tajara"
 	whitelisted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
 	flags = GEAR_HAS_DESC_SELECTION
@@ -364,8 +364,8 @@ ABSTRACT_TYPE(/datum/gear/shoes/tajara)
 /datum/gear/accessory/tajaranbooksrel/New()
 	..()
 	var/list/card = list()
-	card["holy scrolls"] = /obj/item/device/versebook/twinsuns
-	card["ma'ta'ke legends"] = /obj/item/device/versebook/matake
+	card["holy scrolls"] = /obj/item/versebook/twinsuns
+	card["ma'ta'ke legends"] = /obj/item/versebook/matake
 	gear_tweaks += new /datum/gear_tweak/path(card)
 
 // Accessories
@@ -678,7 +678,7 @@ ABSTRACT_TYPE(/datum/gear/shoes/tajara)
 /datum/gear/accessory/tajaranbookspol
 	display_name = "tajaran political books"
 	description = "Tajaran books on the Adhomian ideologies."
-	path = /obj/item/device/versebook/pra
+	path = /obj/item/versebook/pra
 	sort_category = "Xenowear - Tajara"
 	whitelisted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
 	flags = GEAR_HAS_DESC_SELECTION
@@ -686,9 +686,9 @@ ABSTRACT_TYPE(/datum/gear/shoes/tajara)
 /datum/gear/accessory/tajaranbookspol/New()
 	..()
 	var/list/card = list()
-	card["hadiist manifesto"] = /obj/item/device/versebook/pra
-	card["in defense of al'mari's legacy"] = /obj/item/device/versebook/dpra
-	card["the new kingdom"] = /obj/item/device/versebook/nka
+	card["hadiist manifesto"] = /obj/item/versebook/pra
+	card["in defense of al'mari's legacy"] = /obj/item/versebook/dpra
+	card["the new kingdom"] = /obj/item/versebook/nka
 	gear_tweaks += new /datum/gear_tweak/path(card)
 
 /datum/gear/accessory/tajaran_portraits
@@ -754,7 +754,7 @@ ABSTRACT_TYPE(/datum/gear/shoes/tajara)
 
 /datum/gear/tajara_camera
 	display_name = "adhomian camera"
-	path = /obj/item/device/camera/adhomai
+	path = /obj/item/camera/adhomai
 	whitelisted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
 	sort_category = "Xenowear - Tajara"
 	flags = GEAR_HAS_DESC_SELECTION

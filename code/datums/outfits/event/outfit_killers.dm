@@ -7,7 +7,7 @@
 	gloves = /obj/item/clothing/gloves/latex
 	mask = /obj/item/clothing/mask/surgical
 	head = /obj/item/clothing/head/welding
-	l_ear = /obj/item/device/radio/headset
+	l_ear = /obj/item/radio/headset
 	glasses = /obj/item/clothing/glasses/thermal/plain/monocle
 	l_pocket = /obj/item/material/knife
 	r_pocket = /obj/item/surgery/scalpel
@@ -27,7 +27,7 @@
 	suit = /obj/item/clothing/suit/wcoat
 	shoes = /obj/item/clothing/shoes/sneakers/black
 	gloves = /obj/item/clothing/gloves/black
-	l_ear = /obj/item/device/radio/headset
+	l_ear = /obj/item/radio/headset
 	glasses = /obj/item/clothing/glasses/sunglasses
 	l_pocket = /obj/item/melee/energy/sword
 	r_pocket = /obj/item/cloaking_device

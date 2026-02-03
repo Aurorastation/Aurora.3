@@ -211,7 +211,7 @@
 /obj/item/gun/energy/laser/shotgun/research
 	name = "expedition shotgun"
 	desc = "A NanoTrasen designed laser weapon, designed to split a single amplified beam four times. This one is marked for expeditionary use."
-	pin = /obj/item/device/firing_pin/away_site
+	pin = /obj/item/firing_pin/away_site
 
 ////////Laser Tag////////////////////
 
@@ -226,7 +226,7 @@
 	matter = list(DEFAULT_WALL_MATERIAL = 2000)
 	fire_sound = 'sound/weapons/laser1.ogg'
 	projectile_type = /obj/projectile/beam/laser_tag
-	pin = /obj/item/device/firing_pin/tag/red
+	pin = /obj/item/firing_pin/tag/red
 	can_turret = TRUE
 	turret_is_lethal = FALSE
 	turret_sprite_set = "red"
@@ -245,7 +245,7 @@
 	projectile_type = text2path("/obj/projectile/beam/laser_tag/[set_color]")
 	if(pin)
 		QDEL_NULL(pin)
-		var/pin_path = text2path("/obj/item/device/firing_pin/tag/[set_color]")
+		var/pin_path = text2path("/obj/item/firing_pin/tag/[set_color]")
 		pin = new pin_path(src)
 	switch(set_color)
 		if("red")
@@ -262,7 +262,7 @@
 	icon_state = "bluetag"
 	item_state = "bluetag"
 	projectile_type = /obj/projectile/beam/laser_tag/blue
-	pin = /obj/item/device/firing_pin/tag/blue
+	pin = /obj/item/firing_pin/tag/blue
 	turret_sprite_set = "blue"
 
 /obj/item/gun/energy/lasertag/red

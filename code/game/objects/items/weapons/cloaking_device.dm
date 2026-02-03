@@ -1,7 +1,7 @@
 /obj/item/cloaking_device
 	name = "cloaking device"
 	desc = "Use this to become invisible to the human eye. Contains a removable power cell behind a screwed compartment"
-	icon = 'icons/obj/item/device/chameleon.dmi'
+	icon = 'icons/obj/item/chameleon.dmi'
 	icon_state = "shield0"
 	item_state = "electronic"
 	contained_sprite = TRUE

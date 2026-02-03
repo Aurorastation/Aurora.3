@@ -52,7 +52,7 @@
 	shoes = /obj/item/clothing/shoes/jackboots
 	head = /obj/item/clothing/head/konyang/army
 	l_pocket = /obj/item/storage/wallet/random
-	r_pocket = /obj/item/device/radio
+	r_pocket = /obj/item/radio
 	back = /obj/item/storage/backpack/rucksack/green
 	id = /obj/item/card/id/konyang_army
 

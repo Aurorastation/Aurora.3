@@ -95,7 +95,7 @@
 	},
 /area/trove/tunnels)
 "bG" = (
-/obj/item/device/flashlight/lantern/on,
+/obj/item/flashlight/lantern/on,
 /obj/structure/platform_deco/ledge{
 	dir = 8
 	},
@@ -125,7 +125,7 @@
 /turf/simulated/floor/exoplanet/basalt/cave,
 /area/trove/tunnels)
 "cl" = (
-/obj/item/device/flashlight/lantern/on,
+/obj/item/flashlight/lantern/on,
 /turf/simulated/floor/exoplanet/concrete/square,
 /area/trove/tunnels)
 "cn" = (
@@ -228,7 +228,7 @@
 /area/trove/tunnels)
 "el" = (
 /obj/random/dirt_75,
-/obj/item/device/flashlight/lantern/on,
+/obj/item/flashlight/lantern/on,
 /turf/simulated/floor/exoplanet/barren,
 /area/trove/tunnels)
 "em" = (
@@ -1010,7 +1010,7 @@
 /obj/structure/sign/radiation{
 	pixel_y = 32
 	},
-/obj/item/device/geiger,
+/obj/item/geiger,
 /turf/simulated/floor/exoplanet/basalt/cave,
 /area/trove/tunnels)
 "qM" = (
@@ -1105,7 +1105,7 @@
 /turf/simulated/floor/exoplanet/asphalt,
 /area/trove/tunnels)
 "rY" = (
-/obj/item/device/flashlight/lantern/on,
+/obj/item/flashlight/lantern/on,
 /turf/simulated/floor/wood/mahogany,
 /area/trove/tunnels)
 "sb" = (
@@ -2066,7 +2066,7 @@
 /area/trove/tunnels)
 "Ia" = (
 /obj/random/dirt_75,
-/obj/item/device/flashlight/lantern/on,
+/obj/item/flashlight/lantern/on,
 /turf/simulated/floor/exoplanet/grass,
 /area/trove/tunnels)
 "If" = (
@@ -3193,7 +3193,7 @@
 /turf/simulated/open,
 /area/trove/tunnels)
 "Zb" = (
-/obj/item/device/flashlight/flare/torch,
+/obj/item/flashlight/flare/torch,
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/basalt/cave,
 /area/trove/tunnels)

@@ -1,27 +1,27 @@
-/obj/item/device/tvcamera
+/obj/item/tvcamera
 	name = "press camera drone"
 	desc = "An Ingi Usang Entertainment Co. livestreaming press camera drone. Weapon of choice for war correspondents and reality show cameramen. It does not appear to have any internal memory storage."
-	icon = 'icons/obj/item/device/tvcamera.dmi'
+	icon = 'icons/obj/item/tvcamera.dmi'
 	icon_state = "camcorder"
 	item_state = "camcorder"
 	w_class = WEIGHT_CLASS_BULKY
 	slot_flags = SLOT_BELT
 	var/channel = "General News Feed"
 	var/obj/machinery/camera/network/news/camera
-	var/obj/item/device/radio/radio
+	var/obj/item/radio/radio
 
-/obj/item/device/tvcamera/feedback_hints(mob/user, distance, is_adjacent)
+/obj/item/tvcamera/feedback_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	. += "Video feed is currently: [camera.status ? "<span style='color: rgb(51, 204, 51);font-weight: bold;'>Online</span>" : "<span style='color: rgb(204, 0, 0); font-weight: bold;'>Offline</span>"]"
 	. += "Audio feed is currently: [radio.get_broadcasting() ? "<span style='color: rgb(51, 204, 51); font-weight: bold;'>Online</span>" : "<span style='color: rgb(204, 0, 0); font-weight: bold;'>Offline</span>"]"
 
-/obj/item/device/tvcamera/Destroy()
+/obj/item/tvcamera/Destroy()
 	GLOB.listening_objects -= src
 	QDEL_NULL(camera)
 	QDEL_NULL(radio)
 	. = ..()
 
-/obj/item/device/tvcamera/Initialize()
+/obj/item/tvcamera/Initialize()
 	camera = new(src)
 	camera.c_tag = channel
 	camera.status = FALSE
@@ -31,7 +31,7 @@
 	GLOB.listening_objects += src
 	. = ..()
 
-/obj/item/device/tvcamera/attack_self(mob/user)
+/obj/item/tvcamera/attack_self(mob/user)
 	add_fingerprint(user)
 	user.set_machine(src)
 	var/dat = list()
@@ -43,7 +43,7 @@
 	popup.set_content(jointext(dat,null))
 	popup.open()
 
-/obj/item/device/tvcamera/Topic(bred, href_list, state = GLOB.physical_state)
+/obj/item/tvcamera/Topic(bred, href_list, state = GLOB.physical_state)
 	if(..())
 		return 1
 	if(href_list["channel"])
@@ -76,7 +76,7 @@
 	if(!href_list["close"])
 		attack_self(usr)
 
-/obj/item/device/tvcamera/update_icon()
+/obj/item/tvcamera/update_icon()
 	..()
 	if(camera.status)
 		icon_state = "camcorder_on"
@@ -109,7 +109,7 @@ Using robohead because of restricting to roboticist */
 				desc = "This TV camera assembly has a camera module."
 				buildstep++
 		if(1)
-			if(istype(attacking_item, /obj/item/device/taperecorder))
+			if(istype(attacking_item, /obj/item/taperecorder))
 				qdel(attacking_item)
 				buildstep++
 				to_chat(user, SPAN_NOTICE("You add the tape recorder to [src]."))
@@ -139,7 +139,7 @@ Using robohead because of restricting to roboticist */
 					buildstep++
 					to_chat(user, SPAN_NOTICE("You encase the assembly."))
 					var/turf/T = get_turf(src)
-					new /obj/item/device/tvcamera(T)
+					new /obj/item/tvcamera(T)
 					qdel(src)
 					return
 	..()

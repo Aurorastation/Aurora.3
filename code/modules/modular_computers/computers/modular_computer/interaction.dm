@@ -280,7 +280,7 @@
 		else
 			to_chat(user, SPAN_WARNING("This component is too large for \the [src]."))
 		return TRUE
-	if(istype(attacking_item, /obj/item/device/paicard))
+	if(istype(attacking_item, /obj/item/paicard))
 		try_install_component(user, attacking_item)
 		return TRUE
 	if(attacking_item.tool_behaviour == TOOL_WRENCH)

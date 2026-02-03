@@ -4,7 +4,7 @@
 #define STATE_DIODES 3 // brain gets prepared at this step
 #define STATE_SEALED 4 // sealed and fully operation
 
-/obj/item/device/mmi
+/obj/item/mmi
 	name = "man-machine interface"
 	desc = "The delicate nature of organic brains required a more novel and permanent solution to the problem of just rotting in the old MMI cradles. Zeng-Hu's unique (and very proprietary) formaldehyde-analogue preservation solution was the key ingredient in what became the new Zeng-Hu/Hephaestus joint venture brain-cases."
 	icon = 'icons/obj/assemblies.dmi'
@@ -32,11 +32,11 @@
 
 	var/static/list/valid_braintype = list("Skrell", "Vaurca")
 
-/obj/item/device/mmi/Initialize()
+/obj/item/mmi/Initialize()
 	. = ..()
 	set_cradle_state(STATE_EMPTY)
 
-/obj/item/device/mmi/update_icon()
+/obj/item/mmi/update_icon()
 	underlays = null
 	switch(cradle_state) // there's probably a way to optimize this to not need to regenerate the image, but this'll happen once a round every month or so? no reason to.
 		if(STATE_EMPTY)
@@ -53,13 +53,13 @@
 		if(STATE_SEALED)
 			icon_state = "mmi-sealedon"
 
-/obj/item/device/mmi/proc/update_name()
+/obj/item/mmi/proc/update_name()
 	if(brainmob)
 		name = "[initial(name)]: [brainmob.real_name]"
 	else
 		name = initial(name)
 
-/obj/item/device/mmi/proc/set_cradle_state(var/new_state)
+/obj/item/mmi/proc/set_cradle_state(var/new_state)
 	cradle_state = new_state
 	switch(cradle_state)
 		if(STATE_EMPTY)
@@ -74,12 +74,12 @@
 			extra_examine_info = "The braincase is sealed and ready for use. The only thing that will undo the seal is a circular saw, and that will destroy the brain inside."
 	update_icon()
 
-/obj/item/device/mmi/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
+/obj/item/mmi/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(extra_examine_info)
 		. += SPAN_NOTICE(extra_examine_info)
 
-/obj/item/device/mmi/attackby(obj/item/attacking_item, mob/user)
+/obj/item/mmi/attackby(obj/item/attacking_item, mob/user)
 	switch(cradle_state)
 		if(STATE_EMPTY)
 			if(!brainmob && istype(attacking_item, /obj/item/organ/internal/brain)) //Time to stick a brain in it --NEO
@@ -145,7 +145,7 @@
 					set_cradle_state(STATE_EMPTY)
 					update_name()
 
-/obj/item/device/mmi/attack_self(mob/user)
+/obj/item/mmi/attack_self(mob/user)
 	if(cradle_state == STATE_BRAIN)
 		to_chat(user, SPAN_NOTICE("You flip the case over \the [brainobj], getting it in place for diode insertion."))
 		set_cradle_state(STATE_NODIODES)
@@ -153,7 +153,7 @@
 		to_chat(user, SPAN_NOTICE("You flip the case up, exposing \the [brainobj]."))
 		set_cradle_state(STATE_BRAIN)
 
-/obj/item/device/mmi/attack_hand(mob/user)
+/obj/item/mmi/attack_hand(mob/user)
 	if(brainobj && cradle_state == STATE_BRAIN && user.get_inactive_hand() == src)
 		to_chat(user, SPAN_NOTICE("You remove \the [brainobj] from \the [src]."))
 		user.put_in_hands(brainobj)
@@ -163,7 +163,7 @@
 		return
 	return ..()
 
-/obj/item/device/mmi/proc/transfer_mob_to_brain()
+/obj/item/mmi/proc/transfer_mob_to_brain()
 	brainmob.container = null //Reset brainmob mmi var.
 	brainmob.forceMove(brainobj) //Throw mob into brain.
 	GLOB.living_mob_list -= brainmob //Get outta here
@@ -172,7 +172,7 @@
 	brainmob = null
 	braintype = null
 
-/obj/item/device/mmi/proc/ready_for_use(var/mob/user)
+/obj/item/mmi/proc/ready_for_use(var/mob/user)
 	if(cradle_state != STATE_SEALED)
 		to_chat(user, SPAN_WARNING("\The [src] hasn't been completed and sealed yet!"))
 		return FALSE
@@ -181,7 +181,7 @@
 		return FALSE
 	return TRUE
 
-/obj/item/device/mmi/proc/transfer_identity(var/mob/living/carbon/human/H)//Same deal as the regular brain proc. Used for human-->robot people.
+/obj/item/mmi/proc/transfer_identity(var/mob/living/carbon/human/H)//Same deal as the regular brain proc. Used for human-->robot people.
 	brainmob = new(src)
 	brainmob.name = H.real_name
 	brainmob.real_name = H.real_name
@@ -191,7 +191,7 @@
 	set_cradle_state(STATE_SEALED)
 	update_name()
 
-/obj/item/device/mmi/proc/braintype_check()
+/obj/item/mmi/proc/braintype_check()
 	if(!brainobj)
 		return
 	var/species_check = brainobj.species.category_name
@@ -201,7 +201,7 @@
 		if("Vaurca")
 			braintype = "vaurca"
 
-/obj/item/device/mmi/relaymove(mob/living/user, direction)
+/obj/item/mmi/relaymove(mob/living/user, direction)
 	. = ..()
 
 	if(user.stat || user.stunned)
@@ -210,7 +210,7 @@
 	if(istype(rig))
 		rig.forced_move(direction, user)
 
-/obj/item/device/mmi/emag_act(remaining_charges, mob/user, emag_source)
+/obj/item/mmi/emag_act(remaining_charges, mob/user, emag_source)
 	if(cradle_state == STATE_SEALED)
 		if(memory_suppression)
 			to_chat(user, SPAN_NOTICE("You disable \the [src]'s memory suppression systems."))
@@ -228,7 +228,7 @@
 			memory_suppression = TRUE
 		return 1
 
-/obj/item/device/mmi/Destroy()
+/obj/item/mmi/Destroy()
 	if(isrobot(loc))
 		var/mob/living/silicon/robot/borg = loc
 		borg.mmi = null
@@ -243,20 +243,20 @@
 
 	return ..()
 
-/obj/item/device/mmi/radio_enabled
+/obj/item/mmi/radio_enabled
 	name = "radio-enabled man-machine interface"
 	desc = "The delicate nature of organic brains required a more novel and permanent solution to the problem of just rotting in the old MMI cradles. Zeng-Hu's unique (and very proprietary) formaldehyde-analogue preservation solution was the key ingredient in what became the new Zeng-Hu/Hephaestus joint venture brain-cases. This one comes with a built-in radio."
 	origin_tech = list(TECH_BIO = 4)
 
-	var/obj/item/device/radio/radio = null//Let's give it a radio.
+	var/obj/item/radio/radio = null//Let's give it a radio.
 
-/obj/item/device/mmi/radio_enabled/Initialize()
+/obj/item/mmi/radio_enabled/Initialize()
 	. = ..()
 	radio = new(src)//Spawns a radio inside the MMI.
 	radio.set_broadcasting(TRUE) //So it's broadcasting from the start.
 
 //Allows the brain to toggle the radio functions.
-/obj/item/device/mmi/radio_enabled/verb/Toggle_Broadcasting()
+/obj/item/mmi/radio_enabled/verb/Toggle_Broadcasting()
 	set name = "Toggle Broadcasting"
 	set desc = "Toggle broadcasting channel on or off."
 	set category = "MMI"
@@ -269,7 +269,7 @@
 	radio.set_broadcasting(!radio.get_broadcasting())
 	to_chat(brainmob, SPAN_NOTICE("Radio is [radio.get_broadcasting() ? "now" : "no longer"] broadcasting."))
 
-/obj/item/device/mmi/radio_enabled/verb/Toggle_Listening()
+/obj/item/mmi/radio_enabled/verb/Toggle_Listening()
 	set name = "Toggle Listening"
 	set desc = "Toggle listening channel on or off."
 	set category = "MMI"
@@ -282,7 +282,7 @@
 	radio.set_listening(!radio.get_listening())
 	to_chat(brainmob, SPAN_NOTICE("Radio is [radio.get_listening() ? "now" : "no longer"] receiving broadcast."))
 
-/obj/item/device/mmi/emp_act(severity)
+/obj/item/mmi/emp_act(severity)
 	. = ..()
 
 	if(!brainmob)
@@ -294,7 +294,7 @@
 		if(EMP_LIGHT)
 			brainmob.emp_damage += rand(10,20)
 
-/obj/item/device/mmi/digital/Initialize(mapload, ...)
+/obj/item/mmi/digital/Initialize(mapload, ...)
 	. = ..()
 	brainmob = new(src)
 	brainmob.add_language(LANGUAGE_EAL)
@@ -302,23 +302,23 @@
 	brainmob.container = src
 	brainmob.silent = 0
 
-/obj/item/device/mmi/digital/transfer_identity(var/mob/living/carbon/H)
+/obj/item/mmi/digital/transfer_identity(var/mob/living/carbon/H)
 	brainmob.dna = H.dna
 	brainmob.timeofhostdeath = H.timeofdeath
 	brainmob.set_stat(CONSCIOUS)
 	if(H.mind)
 		H.mind.transfer_to(brainmob)
 
-/obj/item/device/mmi/shell
+/obj/item/mmi/shell
 	name = "ai shell control module"
 	desc = "A specialised circuit created to permit an artificial intelligence to take over the body of a stationbound unit."
 	icon = 'icons/obj/module.dmi'
 	origin_tech = list(TECH_DATA = 6, TECH_ENGINEERING = 6)
 
-/obj/item/device/mmi/shell/attackby()
+/obj/item/mmi/shell/attackby()
 	return
 
-/obj/item/device/mmi/shell/Initialize()
+/obj/item/mmi/shell/Initialize()
 	. = ..()
 	set_cradle_state(STATE_SEALED)
 	icon_state = "shell_circuit"

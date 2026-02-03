@@ -132,7 +132,7 @@
 	var/list/allowed = null
 
 	/// All items can have an uplink hidden inside, just remember to add the triggers.
-	var/obj/item/device/uplink/hidden/hidden_uplink
+	var/obj/item/uplink/hidden/hidden_uplink
 
 	/// Name used for message when binoculars/scope is used
 	var/zoomdevicename

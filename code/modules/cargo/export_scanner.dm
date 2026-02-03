@@ -1,7 +1,7 @@
 /obj/item/export_scanner
 	name = "export scanner"
 	desc = "A device used to check objects against NanoTrasen exports and bounty database."
-	icon = 'icons/obj/item/device/export_scanner.dmi'
+	icon = 'icons/obj/item/export_scanner.dmi'
 	icon_state = "export_scanner"
 	slot_flags = SLOT_BELT
 	item_flags = ITEM_FLAG_NO_BLUDGEON

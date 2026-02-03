@@ -166,7 +166,7 @@
 		/obj/item/reagent_containers/ecig_cartridge/high_nicotine = 10
 	)
 
-/obj/item/device/vending_refill/smokes
+/obj/item/vending_refill/smokes
 	name = "smokes resupply canister"
 	vend_id = "smokes"
 	charges = 25

@@ -26,7 +26,7 @@
 	// ID and Access
 	req_access = list(ACCESS_SYNDICATE)
 	id_card_type = /obj/item/card/id/syndicate
-	key_type = /obj/item/device/encryptionkey/syndicate
+	key_type = /obj/item/encryptionkey/syndicate
 	var/datum/antagonist/assigned_antagonist
 
 /mob/living/silicon/robot/combat/Initialize()
@@ -45,7 +45,7 @@
 		assigned_antagonist.add_antagonist_mind(src.mind, TRUE)
 		if(assigned_antagonist.get_antag_radio())
 			module.channels[assigned_antagonist.get_antag_radio()] = TRUE
-			INVOKE_ASYNC(radio, TYPE_PROC_REF(/obj/item/device/radio/borg, recalculateChannels))
+			INVOKE_ASYNC(radio, TYPE_PROC_REF(/obj/item/radio/borg, recalculateChannels))
 	client.init_verbs()
 	say("Boot sequence complete!")
 	return src

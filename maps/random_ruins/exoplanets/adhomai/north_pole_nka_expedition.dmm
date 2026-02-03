@@ -153,9 +153,9 @@
 /area/exoplanet/adhomai)
 "x" = (
 /obj/structure/closet/crate,
-/obj/item/device/flashlight/lantern,
-/obj/item/device/flashlight/lantern,
-/obj/item/device/flashlight/lantern,
+/obj/item/flashlight/lantern,
+/obj/item/flashlight/lantern,
+/obj/item/flashlight/lantern,
 /obj/machinery/light/small{
 	dir = 8
 	},
@@ -182,7 +182,7 @@
 /obj/structure/table/standard,
 /obj/item/paper_bin,
 /obj/item/pen/black,
-/obj/item/device/flashlight/lamp{
+/obj/item/flashlight/lamp{
 	pixel_y = 15
 	},
 /turf/simulated/floor/exoplanet/carpet/rubber,
@@ -305,8 +305,8 @@
 /area/adhomai_archeology)
 "W" = (
 /obj/structure/table/rack,
-/obj/item/device/binoculars/spyglass,
-/obj/item/device/binoculars/spyglass,
+/obj/item/binoculars/spyglass,
+/obj/item/binoculars/spyglass,
 /turf/simulated/floor/exoplanet/carpet/rubber,
 /area/adhomai_archeology)
 "X" = (

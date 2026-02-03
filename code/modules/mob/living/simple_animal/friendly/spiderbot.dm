@@ -7,12 +7,12 @@
 	maxbodytemp = 500
 	mob_size = MOB_TINY
 
-	var/radio_type = /obj/item/device/radio/borg
-	var/obj/item/device/radio/borg/radio = null
+	var/radio_type = /obj/item/radio/borg
+	var/obj/item/radio/borg/radio = null
 	var/mob/living/silicon/ai/connected_ai = null
 	var/obj/item/cell/cell = null
 	var/obj/machinery/camera/camera = null
-	var/obj/item/device/mmi/mmi = null
+	var/obj/item/mmi/mmi = null
 	var/obj/item/card/id/internal_id = null
 	var/list/req_access = list(ACCESS_ROBOTICS) //Access needed to pop out the brain.
 	var/positronic
@@ -79,8 +79,8 @@
 
 /mob/living/simple_animal/spiderbot/attackby(obj/item/attacking_item, mob/user)
 
-	if(istype(attacking_item, /obj/item/device/mmi))
-		var/obj/item/device/mmi/B = attacking_item
+	if(istype(attacking_item, /obj/item/mmi))
+		var/obj/item/mmi/B = attacking_item
 		if(src.mmi)
 			to_chat(user, SPAN_WARNING("There's already a brain in [src]!"))
 			return
@@ -108,7 +108,7 @@
 
 		to_chat(user, SPAN_NOTICE("You install \the [attacking_item] in \the [src]!"))
 
-		if(istype(attacking_item, /obj/item/device/mmi/digital))
+		if(istype(attacking_item, /obj/item/mmi/digital))
 			positronic = 1
 			add_language("Robot Talk")
 
@@ -183,7 +183,7 @@
 		spawn(200)	to_chat(src, SPAN_DANGER("Internal heat sensors are spiking! Something is badly wrong with your cell!"))
 		spawn(300)	src.explode()
 
-/mob/living/simple_animal/spiderbot/proc/transfer_personality(var/obj/item/device/mmi/M as obj)
+/mob/living/simple_animal/spiderbot/proc/transfer_personality(var/obj/item/mmi/M as obj)
 	src.mind = M.brainmob.mind
 	src.mind.key = M.brainmob.key
 	src.ckey = M.brainmob.ckey
@@ -354,7 +354,7 @@
 			used_radios += radio
 		if("intercom")
 			var/turf/T = get_turf(src)
-			for(var/obj/item/device/radio/intercom/I in view(1, T))
+			for(var/obj/item/radio/intercom/I in view(1, T))
 				I.talk_into(src, message, null, verb, speaking)
 				used_radios += I
 	if(message_mode)
@@ -371,7 +371,7 @@
 		radio.interact(src)
 
 /mob/living/simple_animal/spiderbot/ai
-	radio_type = /obj/item/device/radio/headset/heads/ai_integrated
+	radio_type = /obj/item/radio/headset/heads/ai_integrated
 
 /mob/living/simple_animal/spiderbot/ai/Initialize()
 	. = ..()

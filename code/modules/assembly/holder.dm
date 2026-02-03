@@ -1,4 +1,4 @@
-/obj/item/device/assembly_holder
+/obj/item/assembly_holder
 	name = "assembly"
 	icon = 'icons/obj/assemblies/new_assemblies.dmi'
 	icon_state = "holder"
@@ -11,11 +11,11 @@
 	throw_range = 10
 
 	var/secured = FALSE
-	var/obj/item/device/assembly/a_left = null
-	var/obj/item/device/assembly/a_right = null
+	var/obj/item/assembly/a_left = null
+	var/obj/item/assembly/a_right = null
 	var/obj/special_assembly = null
 
-/obj/item/device/assembly_holder/feedback_hints(mob/user, distance, is_adjacent)
+/obj/item/assembly_holder/feedback_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	if(distance <= 1 || src.loc == user)
 		if (src.secured)
@@ -23,7 +23,7 @@
 		else
 			. += SPAN_NOTICE("\The [src] can be attached!")
 
-/obj/item/device/assembly_holder/Initialize(mapload, ...)
+/obj/item/assembly_holder/Initialize(mapload, ...)
 	. = ..()
 	become_hearing_sensitive()
 
@@ -33,7 +33,7 @@
 
 	AddElement(/datum/element/connect_loc, loc_connections)
 
-/obj/item/device/assembly_holder/Destroy()
+/obj/item/assembly_holder/Destroy()
 	lose_hearing_sensitivity()
 
 	QDEL_NULL(a_left)
@@ -42,17 +42,17 @@
 
 	. = ..()
 
-/obj/item/device/assembly_holder/proc/detached()
+/obj/item/assembly_holder/proc/detached()
 	if(a_left)
 		a_left.holder_movement()
 	if(a_right)
 		a_right.holder_movement()
 	return
 
-/obj/item/device/assembly_holder/IsAssemblyHolder()
+/obj/item/assembly_holder/IsAssemblyHolder()
 	return TRUE
 
-/obj/item/device/assembly_holder/proc/attach(var/obj/item/device/assembly/D, var/obj/item/device/assembly/D2, var/mob/user)
+/obj/item/assembly_holder/proc/attach(var/obj/item/assembly/D, var/obj/item/assembly/D2, var/mob/user)
 	if(!istype(D) || !istype(D2))
 		return FALSE
 	if(D.secured || D2.secured)
@@ -71,13 +71,13 @@
 	user.put_in_hands(src)
 	return TRUE
 
-/obj/item/device/assembly_holder/proc/attach_special(var/obj/O, var/mob/user)
+/obj/item/assembly_holder/proc/attach_special(var/obj/O, var/mob/user)
 	if(!O)
 		return
 	if(!O.IsSpecialAssembly())
 		return FALSE
 
-/obj/item/device/assembly_holder/update_icon()
+/obj/item/assembly_holder/update_icon()
 	ClearOverlays()
 	if(a_left)
 		AddOverlays("[a_left.icon_state]_left")
@@ -90,7 +90,7 @@
 	if(master)
 		master.update_icon()
 
-/obj/item/device/assembly_holder/HasProximity(atom/movable/AM as mob|obj)
+/obj/item/assembly_holder/HasProximity(atom/movable/AM as mob|obj)
 	if(a_left)
 		a_left.HasProximity(AM)
 	if(a_right)
@@ -98,7 +98,7 @@
 	if(special_assembly)
 		special_assembly.HasProximity(AM)
 
-/obj/item/device/assembly_holder/proc/on_entered(datum/source, atom/movable/arrived, atom/old_loc, list/atom/old_locs)
+/obj/item/assembly_holder/proc/on_entered(datum/source, atom/movable/arrived, atom/old_loc, list/atom/old_locs)
 	SIGNAL_HANDLER
 
 	if(a_left)
@@ -106,7 +106,7 @@
 	if(a_right)
 		a_right.on_entered(source, arrived, old_loc, old_locs)
 
-/obj/item/device/assembly_holder/on_found(mob/finder)
+/obj/item/assembly_holder/on_found(mob/finder)
 	if(a_left)
 		a_left.on_found(finder)
 	if(a_right)
@@ -116,20 +116,20 @@
 			var/obj/item/S = special_assembly
 			S.on_found(finder)
 
-/obj/item/device/assembly_holder/Move()
+/obj/item/assembly_holder/Move()
 	. = ..()
 	if(a_left && a_right)
 		a_left.holder_movement()
 		a_right.holder_movement()
 
 
-/obj/item/device/assembly_holder/attack_hand()//Perhapse this should be a holder_pickup proc instead, can add if needbe I guess
+/obj/item/assembly_holder/attack_hand()//Perhapse this should be a holder_pickup proc instead, can add if needbe I guess
 	if(a_left && a_right)
 		a_left.holder_movement()
 		a_right.holder_movement()
 	return ..()
 
-/obj/item/device/assembly_holder/attackby(obj/item/attacking_item, mob/user)
+/obj/item/assembly_holder/attackby(obj/item/attacking_item, mob/user)
 	if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 		if(!a_left || !a_right)
 			to_chat(user, SPAN_DANGER("BUG: Assembly part missing, please report this!"))
@@ -148,7 +148,7 @@
 	else
 		return ..()
 
-/obj/item/device/assembly_holder/attack_self(mob/user)
+/obj/item/assembly_holder/attack_self(mob/user)
 	add_fingerprint(user)
 	if(secured)
 		if(!a_left || !a_right)
@@ -162,9 +162,9 @@
 					a_right.attack_self(user)
 			return
 		else
-			if(!istype(a_left, /obj/item/device/assembly/igniter))
+			if(!istype(a_left, /obj/item/assembly/igniter))
 				a_left.attack_self(user)
-			if(!istype(a_right, /obj/item/device/assembly/igniter))
+			if(!istype(a_right, /obj/item/assembly/igniter))
 				a_right.attack_self(user)
 	else
 		var/turf/T = get_turf(src)
@@ -184,7 +184,7 @@
 		qdel(src)
 
 
-/obj/item/device/assembly_holder/proc/process_activation(var/obj/D, var/normal = 1, var/special = 1)
+/obj/item/assembly_holder/proc/process_activation(var/obj/D, var/normal = 1, var/special = 1)
 	if(!D)
 		return FALSE
 	if(!secured)
@@ -198,22 +198,22 @@
 		master.receive_signal()
 	return TRUE
 
-/obj/item/device/assembly_holder/hear_talk(mob/living/M, msg, verb, datum/language/speaking)
+/obj/item/assembly_holder/hear_talk(mob/living/M, msg, verb, datum/language/speaking)
 	if(a_right)
 		a_right.hear_talk(M, msg, verb, speaking)
 	if(a_left)
 		a_left.hear_talk(M, msg, verb, speaking)
 
-/obj/item/device/assembly_holder/timer_igniter
+/obj/item/assembly_holder/timer_igniter
 	name = "timer-igniter assembly"
 
-/obj/item/device/assembly_holder/timer_igniter/Initialize(mapload, ...)
+/obj/item/assembly_holder/timer_igniter/Initialize(mapload, ...)
 	. = ..()
 
-	var/obj/item/device/assembly/igniter/ign = new(src)
+	var/obj/item/assembly/igniter/ign = new(src)
 	ign.secured = TRUE
 	ign.holder = src
-	var/obj/item/device/assembly/timer/tmr = new(src)
+	var/obj/item/assembly/timer/tmr = new(src)
 	tmr.time = 5
 	tmr.secured = TRUE
 	tmr.holder = src
@@ -224,26 +224,26 @@
 	update_icon()
 	name = "[initial(name)] ([tmr.time] secs)"
 
-	loc.verbs += /obj/item/device/assembly_holder/timer_igniter/verb/configure
+	loc.verbs += /obj/item/assembly_holder/timer_igniter/verb/configure
 
-/obj/item/device/assembly_holder/timer_igniter/detached()
-	loc.verbs -= /obj/item/device/assembly_holder/timer_igniter/verb/configure
+/obj/item/assembly_holder/timer_igniter/detached()
+	loc.verbs -= /obj/item/assembly_holder/timer_igniter/verb/configure
 	..()
 
-/obj/item/device/assembly_holder/timer_igniter/verb/configure()
+/obj/item/assembly_holder/timer_igniter/verb/configure()
 	set name = "Set Timer"
 	set category = "Object.Held"
 	set src in usr
 
 	if(!(usr.stat || usr.restrained()))
-		var/obj/item/device/assembly_holder/holder
+		var/obj/item/assembly_holder/holder
 		if(istype(src,/obj/item/grenade/chem_grenade))
 			var/obj/item/grenade/chem_grenade/gren = src
 			holder = gren.detonator
-		var/obj/item/device/assembly/timer/tmr = holder.a_left
-		if(!istype(tmr, /obj/item/device/assembly/timer))
+		var/obj/item/assembly/timer/tmr = holder.a_left
+		if(!istype(tmr, /obj/item/assembly/timer))
 			tmr = holder.a_right
-		if(!istype(tmr, /obj/item/device/assembly/timer))
+		if(!istype(tmr, /obj/item/assembly/timer))
 			to_chat(usr, SPAN_WARNING("This detonator has no timer."))
 			return
 

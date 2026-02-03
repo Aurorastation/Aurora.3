@@ -53,7 +53,7 @@
 		BIO = ARMOR_BIO_SHIELDED,
 		RAD = ARMOR_RAD_MINOR
 	)
-	allowed = list(/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit)
+	allowed = list(/obj/item/flashlight,/obj/item/tank,/obj/item/suit_cooling_unit)
 	heat_protection = UPPER_TORSO|LOWER_TORSO|LEGS|FEET|ARMS|HANDS
 	max_heat_protection_temperature = SPACE_SUIT_MAX_HEAT_PROTECTION_TEMPERATURE
 	siemens_coefficient = 0.5
@@ -87,7 +87,7 @@
 	var/obj/item/clothing/shoes/magboots/boots = null // Deployable boots, if any.
 	var/obj/item/clothing/head/helmet/helmet = null   // Deployable helmet, if any.
 	var/obj/item/tank/tank = null              // Deployable tank, if any.
-	var/obj/item/device/suit_cooling_unit/cooler = null // Deployable suit cooler, if any
+	var/obj/item/suit_cooling_unit/cooler = null // Deployable suit cooler, if any
 
 /obj/item/clothing/suit/space/void/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
@@ -261,7 +261,7 @@
 
 	if(!istype(user,/mob/living)) return
 
-	if(istype(attacking_item, /obj/item/clothing/accessory) || istype(attacking_item, /obj/item/device/hand_labeler))
+	if(istype(attacking_item, /obj/item/clothing/accessory) || istype(attacking_item, /obj/item/hand_labeler))
 		return ..()
 
 	if(user.get_inventory_slot(src) == slot_wear_suit)
@@ -324,7 +324,7 @@
 			user.drop_from_inventory(attacking_item, src)
 			tank = attacking_item
 		return
-	else if (istype(attacking_item, /obj/item/device/suit_cooling_unit))
+	else if (istype(attacking_item, /obj/item/suit_cooling_unit))
 		if(cooler)
 			to_chat(user, "\The [src] already has a suit cooler installed.")
 		else if(tank)

@@ -591,7 +591,7 @@
 /obj/item/clothing/suit/space/void/engineering,
 /obj/item/clothing/head/helmet/space/void/engineering,
 /obj/item/clothing/mask/breath,
-/obj/item/device/gps/engineering,
+/obj/item/gps/engineering,
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
@@ -869,7 +869,7 @@
 /obj/item/clothing/suit/space/void/engineering,
 /obj/item/clothing/head/helmet/space/void/engineering,
 /obj/item/clothing/mask/breath,
-/obj/item/device/gps/engineering,
+/obj/item/gps/engineering,
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
@@ -2165,7 +2165,7 @@
 /obj/effect/floor_decal/corner/beige{
 	dir = 10
 	},
-/obj/item/device/flashlight/lamp,
+/obj/item/flashlight/lamp,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/scrapper_ship/bridge)
 "zx" = (
@@ -2361,7 +2361,7 @@
 /obj/item/clothing/suit/space/void/engineering,
 /obj/item/clothing/head/helmet/space/void/engineering,
 /obj/item/clothing/mask/breath,
-/obj/item/device/gps/engineering,
+/obj/item/gps/engineering,
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},

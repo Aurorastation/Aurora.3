@@ -357,7 +357,7 @@ export class TguiSay extends Component<{}, State> {
               className={`button button-${theme}`}
               onClick={this.handleClose}
               type="submit"
-              style={{ width: '2rem', marginRight: '5px' }}
+              style={{ width: '2rem' }}
             >
               X
             </button>

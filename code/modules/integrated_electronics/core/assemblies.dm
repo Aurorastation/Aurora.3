@@ -1,4 +1,4 @@
-/obj/item/device/electronic_assembly
+/obj/item/electronic_assembly
 	name = "electronic assembly"
 	desc = "It's a case, for building small electronics with."
 	w_class = WEIGHT_CLASS_SMALL
@@ -15,7 +15,7 @@
 	var/detail_color = COLOR_ASSEMBLY_BLACK
 	var/obj/item/card/id/access_card
 
-/obj/item/device/electronic_assembly/implant
+/obj/item/electronic_assembly/implant
 	name = "electronic implant"
 	icon_state = "setup_implant"
 	desc = "It's a case, for building very tiny electronics with."
@@ -24,20 +24,20 @@
 	max_complexity = IC_COMPLEXITY_BASE * 3/4
 	var/obj/item/implant/integrated_circuit/implant = null
 
-/obj/item/device/electronic_assembly/Initialize(mapload, printed = FALSE)
+/obj/item/electronic_assembly/Initialize(mapload, printed = FALSE)
 	. = ..()
 	if (!printed)
 		battery = new(src)
 	START_PROCESSING(SSelectronics, src)
 	access_card = new /obj/item/card/id(src)
 
-/obj/item/device/electronic_assembly/Destroy()
+/obj/item/electronic_assembly/Destroy()
 	QDEL_NULL(battery)
 	STOP_PROCESSING(SSelectronics, src)
 	QDEL_NULL(access_card)
 	return ..()
 
-/obj/item/device/electronic_assembly/Collide(atom/AM)
+/obj/item/electronic_assembly/Collide(atom/AM)
 	var/collw = AM
 	.=..()
 	if((istype(collw, /obj/machinery/door/airlock) ||  istype(collw, /obj/machinery/door/window)) && (!isnull(access_card)))
@@ -45,10 +45,10 @@
 		if(D.check_access(access_card))
 			D.open()
 
-/obj/item/device/electronic_assembly/process()
+/obj/item/electronic_assembly/process()
 	handle_idle_power()
 
-/obj/item/device/electronic_assembly/proc/handle_idle_power()
+/obj/item/electronic_assembly/proc/handle_idle_power()
 	// First we generate power.
 	for(var/obj/item/integrated_circuit/passive/power/P in contents)
 		P.make_energy()
@@ -58,25 +58,25 @@
 		if(IC.power_draw_idle && !draw_power(IC.power_draw_idle))
 			IC.power_fail()
 
-/obj/item/device/electronic_assembly/implant/update_icon()
+/obj/item/electronic_assembly/implant/update_icon()
 	..()
 	implant.icon_state = icon_state
 
-/obj/item/device/electronic_assembly/implant/ui_host()
+/obj/item/electronic_assembly/implant/ui_host()
 	return implant
 
-/obj/item/device/electronic_assembly/proc/resolve_ui_host()
+/obj/item/electronic_assembly/proc/resolve_ui_host()
 	return src
 
-/obj/item/device/electronic_assembly/implant/resolve_ui_host()
+/obj/item/electronic_assembly/implant/resolve_ui_host()
 	return implant
 
-/obj/item/device/electronic_assembly/proc/check_interactivity(mob/user)
+/obj/item/electronic_assembly/proc/check_interactivity(mob/user)
 	if(!CanInteract(user, GLOB.physical_state))
 		return 0
 	return 1
 
-/obj/item/device/electronic_assembly/interact(mob/user)
+/obj/item/electronic_assembly/interact(mob/user)
 	if(!check_interactivity(user))
 		return
 
@@ -125,7 +125,7 @@
 	B.set_content(HTML.Join())
 	B.open(FALSE)
 
-/obj/item/device/electronic_assembly/Topic(href, href_list[])
+/obj/item/electronic_assembly/Topic(href, href_list[])
 	if(..())
 		return 1
 	if(!opened)
@@ -147,7 +147,7 @@
 
 	interact(usr) // To refresh the UI.
 
-/obj/item/device/electronic_assembly/verb/rename()
+/obj/item/electronic_assembly/verb/rename()
 	set name = "Rename Circuit"
 	set category = "Object"
 	set desc = "Rename your circuit, useful to stay organized."
@@ -164,10 +164,10 @@
 		return input
 	return null
 
-/obj/item/device/electronic_assembly/proc/can_move()
+/obj/item/electronic_assembly/proc/can_move()
 	return FALSE
 
-/obj/item/device/electronic_assembly/update_icon()
+/obj/item/electronic_assembly/update_icon()
 	if(opened)
 		icon_state = "[initial(icon_state)]-open"
 	else
@@ -179,12 +179,12 @@
 	detail_overlay.color = detail_color
 	AddOverlays(detail_overlay)
 
-/obj/item/device/electronic_assembly/GetAccess()
+/obj/item/electronic_assembly/GetAccess()
 	. = list()
 	for(var/obj/item/integrated_circuit/part in contents)
 		. |= part.GetAccess()
 
-/obj/item/device/electronic_assembly/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
+/obj/item/electronic_assembly/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(distance <= 1)
 		for(var/obj/item/integrated_circuit/IC in contents)
@@ -192,18 +192,18 @@
 		if(opened)
 			interact(user)
 
-/obj/item/device/electronic_assembly/proc/get_part_complexity()
+/obj/item/electronic_assembly/proc/get_part_complexity()
 	. = 0
 	for(var/obj/item/integrated_circuit/part in contents)
 		. += part.complexity
 
-/obj/item/device/electronic_assembly/proc/get_part_size()
+/obj/item/electronic_assembly/proc/get_part_size()
 	. = 0
 	for(var/obj/item/integrated_circuit/part in contents)
 		. += part.size
 
 // Returns true if the circuit made it inside.
-/obj/item/device/electronic_assembly/proc/add_circuit(obj/item/integrated_circuit/IC, mob/user)
+/obj/item/electronic_assembly/proc/add_circuit(obj/item/integrated_circuit/IC, mob/user)
 	if(!opened)
 		to_chat(user, SPAN_WARNING("\The [src] isn't opened, so you can't put anything inside.  Try using a crowbar."))
 		return FALSE
@@ -230,15 +230,15 @@
 	return TRUE
 
 // Non-interactive version of above that always succeeds, intended for build-in circuits that get added on assembly initialization.
-/obj/item/device/electronic_assembly/proc/force_add_circuit(var/obj/item/integrated_circuit/IC)
+/obj/item/electronic_assembly/proc/force_add_circuit(var/obj/item/integrated_circuit/IC)
 	IC.forceMove(src)
 	IC.assembly = src
 
-/obj/item/device/electronic_assembly/afterattack(atom/target, mob/user, proximity)
+/obj/item/electronic_assembly/afterattack(atom/target, mob/user, proximity)
 	for(var/obj/item/integrated_circuit/input/sensor/S in contents)
 		S.sense(target, user)
 
-/obj/item/device/electronic_assembly/attackby(obj/item/attacking_item, mob/user)
+/obj/item/electronic_assembly/attackby(obj/item/attacking_item, mob/user)
 	if(istype(attacking_item, /obj/item/integrated_circuit))
 		if(!user.unEquip(attacking_item))
 			return FALSE
@@ -266,7 +266,7 @@
 		update_icon()
 		return TRUE
 
-	else if(istype(attacking_item, /obj/item/device/integrated_electronics/wirer) || istype(attacking_item, /obj/item/device/integrated_electronics/debugger) || attacking_item.tool_behaviour == TOOL_MULTITOOL || attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
+	else if(istype(attacking_item, /obj/item/integrated_electronics/wirer) || istype(attacking_item, /obj/item/integrated_electronics/debugger) || attacking_item.tool_behaviour == TOOL_MULTITOOL || attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 		if(opened)
 			interact(user)
 		else
@@ -295,8 +295,8 @@
 		to_chat(user, SPAN_NOTICE("You slot \the [cell] inside \the [src]'s power supply."))
 		interact(user)
 		return TRUE
-	else if(istype(attacking_item, /obj/item/device/integrated_electronics/detailer))
-		var/obj/item/device/integrated_electronics/detailer/D = attacking_item
+	else if(istype(attacking_item, /obj/item/integrated_electronics/detailer))
+		var/obj/item/integrated_electronics/detailer/D = attacking_item
 		detail_color = D.detail_color
 		update_icon()
 		return TRUE
@@ -310,7 +310,7 @@
 				return TRUE
 		return ..()
 
-/obj/item/device/electronic_assembly/attack_self(mob/user)
+/obj/item/electronic_assembly/attack_self(mob/user)
 	if(!check_interactivity(user))
 		return
 	if(opened)
@@ -340,28 +340,28 @@
 	if(choice)
 		choice.ask_for_input(user)
 
-/obj/item/device/electronic_assembly/emp_act(severity)
+/obj/item/electronic_assembly/emp_act(severity)
 	. = ..()
 
 	for(var/atom/movable/AM in contents)
 		AM.emp_act(severity)
 
 // Returns true if power was successfully drawn.
-/obj/item/device/electronic_assembly/proc/draw_power(amount)
+/obj/item/electronic_assembly/proc/draw_power(amount)
 	if(battery && battery.checked_use(amount * CELLRATE))
 		return TRUE
 	return FALSE
 
 // Ditto for giving.
-/obj/item/device/electronic_assembly/proc/give_power(amount)
+/obj/item/electronic_assembly/proc/give_power(amount)
 	if(battery && battery.give(amount * CELLRATE))
 		return TRUE
 	return FALSE
 
-/obj/item/device/electronic_assembly/proc/on_anchored()
+/obj/item/electronic_assembly/proc/on_anchored()
 	for(var/obj/item/integrated_circuit/IC in contents)
 		IC.on_anchored()
 
-/obj/item/device/electronic_assembly/proc/on_unanchored()
+/obj/item/electronic_assembly/proc/on_unanchored()
 	for(var/obj/item/integrated_circuit/IC in contents)
 		IC.on_unanchored()

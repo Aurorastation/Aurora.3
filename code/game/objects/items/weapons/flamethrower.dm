@@ -23,7 +23,7 @@
 	var/lit = FALSE //on or off
 	var/operating = FALSE //cooldown
 	var/obj/item/weldingtool/welding_tool = null
-	var/obj/item/device/assembly/igniter/igniter = null
+	var/obj/item/assembly/igniter/igniter = null
 	var/obj/item/reagent_containers/fuel_container = null
 	/// How much range the flamethrower has. Upgraded welding tools increase this.
 	var/range = 4
@@ -149,7 +149,7 @@
 		return TRUE
 
 	else if(isigniter(attacking_item))
-		var/obj/item/device/assembly/igniter/I = attacking_item
+		var/obj/item/assembly/igniter/I = attacking_item
 		if(I.secured)
 			to_chat(user, SPAN_WARNING("\The [I] is not ready to attach yet! Use a screwdriver on it first."))
 			return TRUE
@@ -310,7 +310,7 @@
 /obj/item/flamethrower/full/Initialize() // slightly weird looking initialize cuz it has to do some stuff first
 	welding_tool = new /obj/item/weldingtool(src)
 	welding_tool.status = FALSE
-	igniter = new /obj/item/device/assembly/igniter(src)
+	igniter = new /obj/item/assembly/igniter(src)
 	igniter.secured = FALSE
 	secured = TRUE
 	fuel_container = new /obj/item/reagent_containers/glass/beaker/large(src)

@@ -238,10 +238,10 @@ SUBSYSTEM_DEF(radio)
 	LAZYREPLACEKEY(ALL_RADIO_CHANNELS, old_channel, new_channel)
 	reverseradiochannels["[freq]"] = new_channel
 
-	for(var/obj/item/device/radio/R in RF.devices[RADIO_CHAT])
-		var/obj/item/device/radio/headset/H = R
+	for(var/obj/item/radio/R in RF.devices[RADIO_CHAT])
+		var/obj/item/radio/headset/H = R
 		if(istype(H))
-			for(var/obj/item/device/encryptionkey/EK in list(H.keyslot1, H.keyslot2))
+			for(var/obj/item/encryptionkey/EK in list(H.keyslot1, H.keyslot2))
 				if(old_channel in EK.channels)
 					LAZYREPLACEKEY(EK.channels, old_channel, new_channel)
 
