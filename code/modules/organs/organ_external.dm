@@ -1525,7 +1525,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 	victim.organs_by_name[limb_name] = null // Remove from owner's vars.
 	victim.organs_by_name -= organ_tag
 
-	SEND_SIGNAL(user, COMSIG_ORGAN_DISMEMBERED, src)
+	SEND_SIGNAL(owner, COMSIG_ORGAN_DISMEMBERED, src)
 
 	//Robotic limbs explode if sabotaged.
 	if(is_robotic && sabotaged)
