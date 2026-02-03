@@ -2,6 +2,7 @@
 	name = "journal"
 	desc = "A journal, kind of like a folder, but bigger! And personal."
 	var/closed_desc
+	var/has_closed_overlay = TRUE
 	icon = 'icons/obj/library.dmi'
 	icon_state = "journal"
 	item_state = "journal"
@@ -35,7 +36,8 @@
 	ClearOverlays()
 	if(!open)
 		icon_state = "[initial(icon_state)]_closed"
-		AddOverlays(overlay_image(icon, "closed", flags=RESET_COLOR))
+		if(has_closed_overlay)
+			AddOverlays(overlay_image(icon, "closed", flags=RESET_COLOR))
 	else if(LAZYLEN(indices))
 		icon_state = initial(icon_state)
 		AddOverlays(overlay_image(icon, "writing", flags=RESET_COLOR))
@@ -74,7 +76,7 @@
 			return
 		insert_item(attacking_item, user)
 		return
-	if(attacking_item.ispen())
+	if(attacking_item.tool_behaviour == TOOL_PEN)
 		if(!open)
 			to_chat(user, SPAN_NOTICE("You open \the [src] with \the [attacking_item]."))
 			open = !open
@@ -161,7 +163,7 @@
 
 /obj/item/journal/notepad/filled/Initialize()
 	. = ..()
-	var/obj/item/folder/embedded/E = generate_index("Notepad")
+	var/obj/item/folder/embedded/E = generate_index("Notes")
 	for(var/i = 1 to 5)
 		new /obj/item/paper(E)
 	update_icon()
@@ -177,7 +179,10 @@
 
 /obj/item/journal/notepad/scc/filled/Initialize()
 	. = ..()
-	var/obj/item/folder/embedded/E = generate_index("Notepad")
+	var/obj/item/folder/embedded/E = generate_index("Notes")
 	for(var/i = 1 to 5)
 		new /obj/item/paper(E)
 	update_icon()
+
+/obj/item/journal/notepad/filled/security
+	color = COLOR_DARK_BLUE_GRAY

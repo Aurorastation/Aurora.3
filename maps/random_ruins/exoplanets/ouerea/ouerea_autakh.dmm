@@ -179,7 +179,7 @@
 /obj/effect/floor_decal/corner/orange{
 	dir = 5
 	},
-/obj/machinery/autolathe,
+/obj/machinery/fabricator/autolathe,
 /turf/simulated/floor/exoplanet/tiled,
 /area/ouerea_autakh)
 "pC" = (
@@ -579,12 +579,12 @@
 "QJ" = (
 /obj/structure/table/stone/marble,
 /obj/item/flame/candle,
-/obj/item/device/versebook/autakh,
-/obj/item/device/versebook/autakh,
-/obj/item/device/versebook/autakh,
-/obj/item/device/versebook/autakh,
-/obj/item/device/versebook/autakh,
-/obj/item/device/versebook/autakh,
+/obj/item/versebook/autakh,
+/obj/item/versebook/autakh,
+/obj/item/versebook/autakh,
+/obj/item/versebook/autakh,
+/obj/item/versebook/autakh,
+/obj/item/versebook/autakh,
 /turf/simulated/floor/exoplanet/marble,
 /area/ouerea_autakh)
 "SL" = (

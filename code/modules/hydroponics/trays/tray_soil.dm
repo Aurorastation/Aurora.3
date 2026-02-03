@@ -25,7 +25,7 @@
 					RC.reagents.remove_reagent(/singleton/reagent/water, amountToRemove, 1)
 					waterlevel += amountToRemove
 					user.visible_message("[user] pours [amountToRemove]u of water into the soil."," You pour [amountToRemove]u of water into the soil.")
-					playsound(src, /singleton/sound_category/generic_pour_sound, 25, 1)
+					playsound(src, SFX_POUR, 25, 1)
 				else
 					to_chat(user, "The soil is saturated with water already.")
 				return 1

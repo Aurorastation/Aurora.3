@@ -29,12 +29,24 @@
 
 /obj/item/circuitboard/autolathe
 	name = T_BOARD("autolathe")
-	build_path = /obj/machinery/autolathe
+	build_path = /obj/machinery/fabricator/autolathe
 	board_type = BOARD_MACHINE
 	origin_tech = list(TECH_ENGINEERING = 2, TECH_DATA = 2)
 	req_components = list(
 							"/obj/item/stock_parts/matter_bin" = 3,
 							"/obj/item/stock_parts/manipulator" = 1,
+							"/obj/item/stock_parts/micro_laser" = 1,
+							"/obj/item/stock_parts/console_screen" = 1)
+
+/obj/item/circuitboard/microlathe
+	name = T_BOARD("microlathe")
+	build_path = /obj/machinery/fabricator/microlathe
+	board_type = BOARD_MACHINE
+	origin_tech = list(TECH_ENGINEERING = 2, TECH_DATA = 2)
+	req_components = list(
+							"/obj/item/stock_parts/matter_bin" = 3,
+							"/obj/item/stock_parts/manipulator" = 1,
+							"/obj/item/stock_parts/micro_laser" = 1,
 							"/obj/item/stock_parts/console_screen" = 1)
 
 /obj/item/circuitboard/protolathe

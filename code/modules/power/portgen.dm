@@ -284,7 +284,7 @@
 		addstack.use(amount)
 		return
 	else if(!active)
-		if(attacking_item.iswrench())
+		if(attacking_item.tool_behaviour == TOOL_WRENCH)
 
 			if(!anchored)
 				connect_to_network()
@@ -296,14 +296,14 @@
 			playsound(loc, 'sound/items/Deconstruct.ogg', 50, 1)
 			anchored = !anchored
 
-		else if(attacking_item.isscrewdriver())
+		else if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 			open = !open
 			attacking_item.play_tool_sound(get_turf(src), 50)
 			if(open)
 				to_chat(user, SPAN_NOTICE("You open the access panel."))
 			else
 				to_chat(user, SPAN_NOTICE("You close the access panel."))
-		else if(open && attacking_item.iscrowbar())
+		else if(open && attacking_item.tool_behaviour == TOOL_CROWBAR)
 			var/obj/machinery/constructable_frame/machine_frame/new_frame = new /obj/machinery/constructable_frame/machine_frame(loc)
 			for(var/obj/item/I in component_parts)
 				I.forceMove(loc)

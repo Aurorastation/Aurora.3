@@ -203,7 +203,7 @@
 	var/time_till_despawn = 1200		// Two minute safe period before being despawned.
 	var/time_till_force_cryo = 3000		// Five minutes safe period until they're despawned even if active.
 	var/time_entered = 0				// Used to keep track of the safe period.
-	var/obj/item/device/radio/intercom/announce
+	var/obj/item/radio/intercom/announce
 
 	var/obj/machinery/computer/cryopod/control_computer
 
@@ -213,8 +213,8 @@
 		/obj/item/implant,
 		/obj/item/card/id,
 		/obj/item/modular_computer,
-		/obj/item/device/radio/headset,
-		/obj/item/device/encryptionkey
+		/obj/item/radio/headset,
+		/obj/item/encryptionkey
 	)
 
 	//For subtypes of the blacklist that are allowed to be kept
@@ -352,8 +352,8 @@
 		occupant.drop_from_inventory(W, src)
 	//Prepare items tnat require modification before dropping
 	for(var/obj/item/W in items)
-		if(istype(W, /obj/item/device/mmi))
-			var/obj/item/device/mmi/brain = W
+		if(istype(W, /obj/item/mmi))
+			var/obj/item/mmi/brain = W
 			if(brain.brainmob && brain.brainmob.client && brain.brainmob.key)
 				brain.forceMove(T)
 				items -= brain
@@ -554,7 +554,7 @@
 	var/choice = alert(M, "Would you like to save your tag data?", "Tag Persistence", "Yes", "No")
 	if(choice == "Yes")
 		var/mob/living/carbon/human/H = M
-		var/obj/item/organ/internal/ipc_tag/tag = H.internal_organs_by_name[BP_IPCTAG]
+		var/obj/item/organ/internal/machine/ipc_tag/tag = H.internal_organs_by_name[BP_IPCTAG]
 		if(tag)
 			M.client.prefs.machine_ownership_status = tag.ownership_info
 			M.client.prefs.machine_serial_number = tag.serial_number

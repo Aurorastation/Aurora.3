@@ -8,7 +8,7 @@
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 
 /obj/item/frame/apc/attackby(obj/item/attacking_item, mob/user)
-	if (attacking_item.iswrench())
+	if (attacking_item.tool_behaviour == TOOL_WRENCH)
 		new /obj/item/stack/material/steel( get_turf(src.loc), 2 )
 		qdel(src)
 		return TRUE

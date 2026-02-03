@@ -1,5 +1,13 @@
 import { useBackend } from '../backend';
-import { Button, LabeledList, NoticeBox, Section, Flex, Table, Collapsible } from '../components';
+import {
+  Button,
+  LabeledList,
+  NoticeBox,
+  Section,
+  Flex,
+  Table,
+  Collapsible,
+} from '../components';
 import { NtosWindow } from '../layouts';
 
 export type AwayShuttleData = {
@@ -72,7 +80,8 @@ export const ManifestEntryEdit = (props, context) => {
             onClick={() => act('deleteentry')}
           />
         </>
-      }>
+      }
+    >
       <LabeledList>
         <LabeledList.Item label="Name">
           {data.active_record.name}&nbsp;
@@ -112,7 +121,8 @@ export const AllShuttles = (props, context) => {
             title={name}
             color={Shuttle.color}
             icon={Shuttle.icon}
-            key={name}>
+            key={name}
+          >
             <Section title={name}>
               <Flex>
                 <Table>
@@ -201,7 +211,8 @@ export const AllShuttles = (props, context) => {
                   color="green"
                   onClick={() => act('addentry')}
                 />
-              }>
+              }
+            >
               {data.shuttle_manifest && data.shuttle_manifest.length ? (
                 <Flex>
                   <Table>

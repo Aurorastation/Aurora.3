@@ -78,7 +78,7 @@ ABSTRACT_TYPE(/obj/machinery/power/apc)
 	use_power = POWER_USE_OFF
 	req_access = list(ACCESS_ENGINE_EQUIP)
 	gfi_layer_rotation = GFI_ROTATION_DEFDIR
-	clicksound = /singleton/sound_category/switch_sound
+	clicksound = SFX_SWITCH
 	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
 	var/area/area
 	var/areastring = null
@@ -491,7 +491,7 @@ ABSTRACT_TYPE(/obj/machinery/power/apc)
 			return
 
 	// CROWBAR: Try to remove circuit board OR open unlocked cover.
-	if (attacking_item.iscrowbar() && opened)
+	if (attacking_item.tool_behaviour == TOOL_CROWBAR && opened)
 		if (has_electronics == HAS_ELECTRONICS_CONNECT)
 			if (terminal)
 				to_chat(user, SPAN_WARNING("Disconnect wires first."))
@@ -515,7 +515,7 @@ ABSTRACT_TYPE(/obj/machinery/power/apc)
 			panel_open = FALSE
 			opened = COVER_CLOSED
 			update_icon()
-	else if (attacking_item.iscrowbar() && !((stat & BROKEN) || hacker) )
+	else if (attacking_item.tool_behaviour == TOOL_CROWBAR && !((stat & BROKEN) || hacker) )
 		if(coverlocked && !(stat & MAINT))
 			to_chat(user, SPAN_WARNING("The cover is locked and cannot be opened."))
 			return
@@ -560,7 +560,7 @@ ABSTRACT_TYPE(/obj/machinery/power/apc)
 		update_icon()
 
 	// SCREWDRIVER: Expose wiring panel.
-	else if	(attacking_item.isscrewdriver())
+	else if	(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 		if(opened != COVER_CLOSED)
 			if (cell)
 				to_chat(user, SPAN_WARNING("Close the APC first.")) //Less hints more mystery!
@@ -586,7 +586,7 @@ ABSTRACT_TYPE(/obj/machinery/power/apc)
 			update_icon()
 
 	// CABLE COIL: Install the power terminal (wire stuff on the floor in front of the APC).
-	else if (attacking_item.iscoil() && !terminal && opened != COVER_CLOSED && has_electronics != HAS_ELECTRONICS_SECURED)
+	else if (attacking_item.tool_behaviour == TOOL_CABLECOIL && !terminal && opened != COVER_CLOSED && has_electronics != HAS_ELECTRONICS_SECURED)
 		var/turf/T = loc
 		if(istype(T) && !T.is_plating())
 			to_chat(user, SPAN_WARNING("You must remove the floor plating in front of the APC first."))
@@ -612,7 +612,7 @@ ABSTRACT_TYPE(/obj/machinery/power/apc)
 				terminal.connect_to_network()
 
 	// WIRECUTTER: Dismantle the power terminal (wire stuff on the floor in front of APC).
-	else if (attacking_item.iswirecutter() && terminal && opened != COVER_CLOSED && has_electronics != HAS_ELECTRONICS_SECURED)
+	else if (attacking_item.tool_behaviour == TOOL_WIRECUTTER && terminal && opened != COVER_CLOSED && has_electronics != HAS_ELECTRONICS_SECURED)
 		var/turf/T = loc
 		if(istype(T) && !T.is_plating())
 			to_chat(user, SPAN_WARNING("You must remove the floor plating in front of the APC first."))
@@ -647,7 +647,7 @@ ABSTRACT_TYPE(/obj/machinery/power/apc)
 
 	// WELDER: If the APC is broken, remove the cover.
 	//         If the cover is open and APC has been stripped down, dismantle it back into steel.
-	else if (attacking_item.iswelder())
+	else if (attacking_item.tool_behaviour == TOOL_WELDER)
 		var/obj/item/weldingtool/WT = attacking_item
 		if (opened != COVER_REMOVED && (stat & BROKEN))
 			if (!WT.isOn()) return
@@ -726,7 +726,7 @@ ABSTRACT_TYPE(/obj/machinery/power/apc)
 				update_icon()
 
 	// DEBUGGER: Repair emagged/infected/fucked up APCs.
-	else if (istype(attacking_item, /obj/item/device/debugger))
+	else if (istype(attacking_item, /obj/item/debugger))
 		if(emagged || hacker || infected)
 			to_chat(user, SPAN_WARNING("There is a software error with the device. Attempting to fix..."))
 			if(attacking_item.use_tool(src, user, 50, volume = 50))
@@ -771,8 +771,8 @@ ABSTRACT_TYPE(/obj/machinery/power/apc)
 			if (issilicon(user))
 				return attack_hand(user)
 			if (opened == COVER_CLOSED && panel_open && \
-				attacking_item.ismultitool() || \
-				attacking_item.iswirecutter() || istype(attacking_item, /obj/item/device/assembly/signaler))
+				attacking_item.tool_behaviour == TOOL_MULTITOOL || \
+				attacking_item.tool_behaviour == TOOL_WIRECUTTER || istype(attacking_item, /obj/item/assembly/signaler))
 				return attack_hand(user)
 			user.visible_message(SPAN_DANGER("The [name] has been hit with the [attacking_item.name] by [user.name]!"), \
 				SPAN_DANGER("You hit the [name] with your [attacking_item.name]!"), \
@@ -841,7 +841,7 @@ ABSTRACT_TYPE(/obj/machinery/power/apc)
 	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
 
-		if(isipc(H) && H.a_intent == I_GRAB)
+		if(isipc(H) && H.a_intent == I_GRAB && Adjacent(user))
 			if(emagged || stat & BROKEN)
 				spark(src, 5, GLOB.alldirs)
 				to_chat(H, SPAN_DANGER("The APC power currents surge eratically, damaging your chassis!"))
@@ -858,27 +858,10 @@ ABSTRACT_TYPE(/obj/machinery/power/apc)
 				if(issilicon(hacker))
 					to_chat(hacker, SPAN_NOTICE("Corrupt files transferred to [H]. They are now under your control until they are repaired."))
 			else if(cell && cell.charge > 0)
-				var/obj/item/organ/internal/cell/C = H.internal_organs_by_name[BP_CELL]
-				var/obj/item/cell/HC
-				if(C)
-					HC = C.cell
-				if(HC && HC.percent() < 95)
-					var/used = cell.use(500)
-					HC.give(used)
-					to_chat(user, SPAN_NOTICE("You slot your fingers into the APC interface and siphon off some of the stored charge for your own use."))
-					if (cell.charge < 0)
-						cell.charge = 0
-					if (prob(0.5))
-						spark(src, 5, GLOB.alldirs)
-						to_chat(H, SPAN_DANGER("The APC power currents surge eratically, damaging your chassis!"))
-						H.adjustFireLoss(10, 0)
-
-					charging = CHARGING_ON
-				else
-					to_chat(user, SPAN_NOTICE("You are already fully charged."))
+				synthetic_siphon_power(H)
 			else
 				to_chat(user, SPAN_NOTICE("There is no charge to draw from that APC."))
-			return
+				return
 
 		else if(H.species.can_shred(H))
 			user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
@@ -1018,6 +1001,37 @@ ABSTRACT_TYPE(/obj/machinery/power/apc)
 			return FALSE
 
 	return TRUE
+
+/obj/machinery/power/apc/proc/synthetic_siphon_power(mob/living/carbon/human/synthetic)
+	var/obj/item/organ/internal/machine/power_core/C = synthetic.internal_organs_by_name[BP_CELL]
+	var/obj/item/cell/HC
+	if(C)
+		HC = C.cell
+	var/obj/item/organ/internal/machine/reactor/reactor = synthetic.internal_organs_by_name[BP_REACTOR]
+	if(!istype(reactor))
+		to_chat(synthetic, SPAN_WARNING("You are missing the electronic prongs to charge from the APC!"))
+		return
+	if(!(reactor.power_supply_type & POWER_SUPPLY_ELECTRIC))
+		to_chat(synthetic, SPAN_NOTICE("You start siphoning power from the APC..."))
+		if(!do_after(synthetic, 2 SECONDS, src))
+			return
+	if(HC && HC.percent() < 95)
+		var/used = cell.use(500)
+		HC.give(used)
+		to_chat(synthetic, SPAN_NOTICE("You slot your fingers into the APC interface and siphon off some of the stored charge for your own use."))
+		if (cell.charge < 0)
+			cell.charge = 0
+		if(!(reactor.power_supply_type & POWER_SUPPLY_ELECTRIC))
+			if(prob(0.5))
+				spark(src, 5, GLOB.alldirs)
+				to_chat(synthetic, SPAN_DANGER("The APC power currents surge eratically, damaging your chassis!"))
+				synthetic.adjustFireLoss(10, 0)
+			if(HC.percent() < 95)
+				synthetic_siphon_power(synthetic)
+
+		charging = CHARGING_ON
+	else
+		to_chat(synthetic, SPAN_NOTICE("You are already fully charged."))
 
 /obj/machinery/power/apc/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	. = ..()

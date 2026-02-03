@@ -1148,8 +1148,8 @@
 /area/template_noop)
 "dZ" = (
 /obj/structure/table/standard,
-/obj/item/device/flashlight/lamp,
-/obj/item/device/taperecorder,
+/obj/item/flashlight/lamp,
+/obj/item/taperecorder,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/airless,
@@ -1239,7 +1239,7 @@
 /area/template_noop)
 "es" = (
 /obj/structure/lattice,
-/obj/item/device/megaphone,
+/obj/item/megaphone,
 /turf/template_noop,
 /area/template_noop)
 "et" = (
@@ -1287,7 +1287,7 @@
 /area/template_noop)
 "ez" = (
 /obj/structure/table/wood,
-/obj/item/device/radio,
+/obj/item/radio,
 /turf/simulated/floor/airless,
 /area/derelict/hallway/northeast)
 "eA" = (
@@ -1387,7 +1387,7 @@
 /area/derelict/hallway/northeast)
 "eP" = (
 /obj/structure/table/standard,
-/obj/item/device/camera,
+/obj/item/camera,
 /turf/simulated/floor/tiled/airless,
 /area/derelict/hallway/northeast)
 "eQ" = (
@@ -1607,7 +1607,7 @@
 /area/derelict/hallway/northeast)
 "ft" = (
 /obj/structure/table/standard,
-/obj/item/device/flashlight/lamp,
+/obj/item/flashlight/lamp,
 /turf/simulated/floor/tiled/airless,
 /area/derelict/hallway/northeast)
 "fu" = (
@@ -1932,9 +1932,9 @@
 /area/derelict/hallway/northwest)
 "gu" = (
 /obj/structure/table/rack,
-/obj/item/device/radio/off,
-/obj/item/device/radio/off,
-/obj/item/device/radio/off,
+/obj/item/radio/off,
+/obj/item/radio/off,
+/obj/item/radio/off,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
@@ -2233,7 +2233,7 @@
 /turf/simulated/floor/tiled/airless,
 /area/derelict/hallway/northeast)
 "hq" = (
-/obj/item/device/flash,
+/obj/item/flash,
 /turf/template_noop,
 /area/template_noop)
 "hs" = (
@@ -2706,7 +2706,7 @@
 /obj/item/paper_bin,
 /obj/item/pen/blue,
 /obj/item/pen/red,
-/obj/item/device/camera{
+/obj/item/camera{
 	name = "Autopsy Camera";
 	pixel_x = -2;
 	pixel_y = 7
@@ -2754,7 +2754,7 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/obj/item/device/mmi,
+/obj/item/mmi,
 /obj/structure/table/standard,
 /turf/simulated/floor/tiled/white/airless,
 /area/derelict/hallway/southeast)
@@ -2792,7 +2792,7 @@
 /turf/simulated/floor/airless,
 /area/derelict/hallway/southeast)
 "jC" = (
-/obj/machinery/autolathe,
+/obj/machinery/fabricator/autolathe,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/white/airless,
 /area/derelict/hallway/southeast)
@@ -2821,7 +2821,7 @@
 /turf/simulated/floor/airless,
 /area/derelict/hallway/southwest)
 "jH" = (
-/obj/item/device/flashlight,
+/obj/item/flashlight,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/airless,
 /area/derelict/hallway/southwest)
@@ -2956,7 +2956,7 @@
 /area/derelict/hallway/southwest)
 "ki" = (
 /obj/structure/table/standard,
-/obj/item/device/mass_spectrometer,
+/obj/item/mass_spectrometer,
 /obj/item/autopsy_scanner,
 /turf/simulated/floor/tiled/dark,
 /area/derelict/hallway/southeast)
@@ -2977,7 +2977,7 @@
 /turf/template_noop,
 /area/derelict/hallway/southeast)
 "km" = (
-/obj/item/device/mmi,
+/obj/item/mmi,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/white/airless,
@@ -3510,7 +3510,7 @@
 /turf/simulated/floor/tiled/airless,
 /area/derelict/hallway/southeast)
 "lX" = (
-/obj/item/device/mmi/digital/posibrain,
+/obj/item/mmi/digital/posibrain,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/white/airless,
 /area/derelict/hallway/southeast)
@@ -3663,7 +3663,7 @@
 /turf/simulated/floor/tiled/airless,
 /area/derelict/hallway/southwest)
 "mv" = (
-/obj/machinery/autolathe,
+/obj/machinery/fabricator/autolathe,
 /obj/machinery/light_switch{
 	pixel_x = -27
 	},
@@ -3724,7 +3724,7 @@
 	pixel_x = 3;
 	pixel_y = 3
 	},
-/obj/item/device/multitool,
+/obj/item/multitool,
 /turf/simulated/floor/tiled/airless,
 /area/derelict/hallway/southwest)
 "mH" = (
@@ -3928,7 +3928,7 @@
 /turf/simulated/floor/airless,
 /area/derelict/hallway/southwest)
 "nm" = (
-/obj/item/device/radio/intercom/south,
+/obj/item/radio/intercom/south,
 /obj/machinery/light,
 /turf/simulated/floor/tiled/airless,
 /area/derelict/hallway/southwest)
@@ -3964,7 +3964,7 @@
 /turf/simulated/floor/tiled/white/airless,
 /area/derelict/hallway/southeast)
 "ns" = (
-/obj/item/device/flashlight/pen,
+/obj/item/flashlight/pen,
 /obj/item/material/shard{
 	icon_state = "small"
 	},
@@ -4114,7 +4114,7 @@
 /turf/template_noop,
 /area/derelict/hallway/southwest)
 "nR" = (
-/obj/item/device/flashlight/pen,
+/obj/item/flashlight/pen,
 /turf/simulated/floor/tiled/white/airless,
 /area/derelict/hallway/southeast)
 "nS" = (
@@ -4153,7 +4153,7 @@
 /turf/simulated/floor/tiled,
 /area/derelict/hallway/southwest)
 "nW" = (
-/obj/item/device/radio/intercom/east,
+/obj/item/radio/intercom/east,
 /turf/simulated/floor/tiled,
 /area/derelict/hallway/southwest)
 "nX" = (
@@ -4204,7 +4204,7 @@
 /turf/template_noop,
 /area/template_noop)
 "oh" = (
-/obj/item/device/paicard,
+/obj/item/paicard,
 /turf/template_noop,
 /area/template_noop)
 "oi" = (
@@ -4269,7 +4269,7 @@
 	pixel_x = -3;
 	pixel_y = 7
 	},
-/obj/item/device/megaphone,
+/obj/item/megaphone,
 /obj/structure/table/standard{
 	name = "plastic table frame"
 	},
@@ -4511,7 +4511,7 @@
 	pixel_y = 3
 	},
 /obj/item/coin/silver,
-/obj/item/device/eftpos{
+/obj/item/eftpos{
 	eftpos_name = "Quartermaster EFTPOS scanner"
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -4589,7 +4589,7 @@
 /area/derelict/hallway/southeast)
 "pm" = (
 /obj/structure/table/glass,
-/obj/item/device/radio{
+/obj/item/radio{
 	canhear_range = 4;
 	desc = "Are you going to make the call?";
 	frequency = 1347;
@@ -4881,7 +4881,7 @@
 /turf/simulated/floor/airless,
 /area/derelict/hallway/southeast)
 "qf" = (
-/obj/item/device/gps/science,
+/obj/item/gps/science,
 /turf/simulated/floor/tiled/white/airless,
 /area/derelict/hallway/southeast)
 "qg" = (
@@ -5211,7 +5211,7 @@
 /area/derelict/hallway/southeast)
 "rl" = (
 /obj/structure/table/wood,
-/obj/item/device/flashlight/lamp/green,
+/obj/item/flashlight/lamp/green,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/wood,
 /area/derelict/hallway/southeast)
@@ -5313,7 +5313,7 @@
 /turf/simulated/floor/plating,
 /area/derelict/hallway/southeast)
 "rB" = (
-/obj/item/device/t_scanner,
+/obj/item/t_scanner,
 /obj/structure/table/steel,
 /turf/simulated/floor/plating,
 /area/derelict/hallway/southeast)

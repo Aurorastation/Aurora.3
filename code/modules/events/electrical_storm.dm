@@ -34,6 +34,15 @@
 	for(var/obj/machinery/power/apc/valid_apc in SSmachinery.apc_units)
 		if((valid_apc.z in affecting_z) && !valid_apc.is_critical)
 			valid_apcs += valid_apc
+	for(var/mob/living/carbon/human/victim_ipc in GLOB.human_mob_list)
+		if(!isipc(victim_ipc))
+			continue
+		if(!(victim_ipc.z in affecting_z))
+			continue
+		var/obj/item/organ/internal/machine/posibrain/brain = victim_ipc.internal_organs_by_name[BP_BRAIN]
+		if(istype(brain))
+			to_chat(victim_ipc, SPAN_MACHINE_WARNING("A jolt of ambient electricity rumbles through your circuitry! Your processors go to work putting the bits back together..."))
+			brain.brain_scrambling += rand(severity * 35, severity * 45)
 	endWhen = (severity * 35) + startWhen
 
 /datum/event/electrical_storm/end(faked)

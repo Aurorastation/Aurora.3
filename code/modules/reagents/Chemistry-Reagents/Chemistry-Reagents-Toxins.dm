@@ -409,7 +409,7 @@
 	if(!istype(T))
 		return
 
-	var/hotspot = (locate(/obj/fire) in T)
+	var/hotspot = (locate(/obj/hotspot) in T)
 	if(hotspot && !istype(T, /turf/space))
 		var/datum/gas_mixture/lowertemp = T.return_air()
 		lowertemp.temperature = max(lowertemp.temperature-2000, lowertemp.temperature / 2, T0C)
@@ -443,6 +443,11 @@
 	if(istype(O, /obj/structure/bonfire))
 		var/obj/structure/bonfire/B = O
 		B.fuel = max(0, B.fuel - (150 * amount))
+	if(istype(O, /obj/turf_fire))
+		var/obj/turf_fire/F = O
+		F.AddPower(-30 * amount) //Thirty times as effective as water
+		if (F.fire_power <= 0)
+			qdel(F)
 
 /singleton/reagent/toxin/plantbgone
 	name = "Plant-B-Gone"
@@ -1061,8 +1066,13 @@
 		if(victim.chem_effects[CE_ANTIPARASITE])
 			return
 
-		if(!victim.internal_organs_by_name[BP_GREIMORIAN_EGGCLUSTER])
+		if(!victim.internal_organs_by_name[BP_GREIMORIAN_EGGCLUSTER] && prob(20))
 			var/obj/item/organ/external/affected = pick(victim.organs)
+			if(BP_IS_ROBOTIC(affected))
+				return
+			// Give the victim an extra chance to NOT get an eggsac in their head; reroll. Ditto mechanical limbs.
+			if(affected == BP_HEAD)
+				affected = pick(victim.organs)
 			var/obj/item/organ/internal/parasite/greimorian_eggcluster/infest = new()
 			infest.parent_organ = affected.limb_name
 			infest.replaced(victim, affected)

@@ -1,7 +1,18 @@
 import { capitalize } from '../../common/string';
 import { BooleanLike } from '../../common/react';
 import { useBackend, useLocalState } from '../backend';
-import { Box, Button, Collapsible, Input, LabeledList, NoticeBox, Section, Stack, Tabs, Tooltip } from '../components';
+import {
+  Box,
+  Button,
+  Collapsible,
+  Input,
+  LabeledList,
+  NoticeBox,
+  Section,
+  Stack,
+  Tabs,
+  Tooltip,
+} from '../components';
 import { NtosWindow } from '../layouts';
 import { Dropdown } from '../components/Dropdown';
 
@@ -85,7 +96,7 @@ export const Records = (props, context) => {
   const [searchTerm, setSearchTerm] = useLocalState<string>(
     context,
     `searchTerm`,
-    ``
+    ``,
   );
 
   return (
@@ -128,7 +139,7 @@ export const ListAllRecords = (props, context) => {
   const [searchTerm, setSearchTerm] = useLocalState<string>(
     context,
     `searchTerm`,
-    ``
+    ``,
   );
 
   return (
@@ -153,14 +164,15 @@ export const ListAllRecords = (props, context) => {
             onClick={() => act(data.authenticated ? 'logout' : 'login')}
           />
         </Tooltip>
-      }>
+      }
+    >
       <Tabs vertical>
         {data.allrecords
           .filter(
             (record) =>
               record.name.toLowerCase().indexOf(searchTerm) > -1 ||
               record.fingerprint.toLowerCase().indexOf(searchTerm) > -1 ||
-              record.dna.toLowerCase().indexOf(searchTerm) > -1
+              record.dna.toLowerCase().indexOf(searchTerm) > -1,
           )
           .map((record) => (
             <Tabs.Tab
@@ -170,7 +182,8 @@ export const ListAllRecords = (props, context) => {
                   ? 'align-justify'
                   : 'strikethrough'
               }
-              onClick={() => act('setactive', { setactive: record.id })}>
+              onClick={() => act('setactive', { setactive: record.id })}
+            >
               {record.id + ': ' + record.name + ' (' + record.rank + ')'}
             </Tabs.Tab>
           ))}
@@ -186,65 +199,65 @@ export const ListActive = (props, context) => {
   const [editingPhysStatus, setEditingPhysStatus] = useLocalState<boolean>(
     context,
     'editingPhysStatus',
-    false
+    false,
   );
   const [editingMentalStatus, setEditingMentalStatus] = useLocalState<boolean>(
     context,
     'editingMentalStatus',
-    false
+    false,
   );
   const [editingBloodType, setEditingBloodType] = useLocalState<boolean>(
     context,
     'editingBloodType',
-    false
+    false,
   );
   const [editingFingerprint, setEditingFingerprint] = useLocalState<boolean>(
     context,
     'editingFingerprint',
-    false
+    false,
   );
   const [editingCriminalStatus, setEditingCriminalStatus] =
     useLocalState<boolean>(context, 'editingCriminalStatus', false);
   const [editingSpecies, setEditingSpecies] = useLocalState<boolean>(
     context,
     'editingSpecies',
-    false
+    false,
   );
   const [editingCitizenship, setEditingCitizenship] = useLocalState<boolean>(
     context,
     'editingCitizenship',
-    false
+    false,
   );
   const [editingReligion, setEditingReligion] = useLocalState<boolean>(
     context,
     'editingReligion',
-    false
+    false,
   );
   const [editingEmployer, setEditingEmployer] = useLocalState<boolean>(
     context,
     'editingEmployer',
-    false
+    false,
   );
   const [editingDNA, setEditingDNA] = useLocalState<boolean>(
     context,
     'editingDNA',
-    false
+    false,
   );
 
   const [editingDisabilities, setEditingDisabilities] = useLocalState<boolean>(
     context,
     'editingDisabilities',
-    false
+    false,
   );
   const [editingAllergies, setEditingAllergies] = useLocalState<boolean>(
     context,
     'editingAllergies',
-    false
+    false,
   );
   const [editingDisease, setEditingDisease] = useLocalState<boolean>(
     context,
     'editingDisease',
-    false
+    false,
   );
 
   return (
@@ -253,12 +266,14 @@ export const ListActive = (props, context) => {
       title={data.active.name}
       buttons={
         <Button content="Print" icon="print" onClick={() => act('print')} />
-      }>
+      }
+    >
       <Tabs>
         {data.available_types & 8 ? (
           <Tabs.Tab
             selected={recordTab === 'All (Locked)'}
-            onClick={() => setRecordTab('All (Locked)')}>
+            onClick={() => setRecordTab('All (Locked)')}
+          >
             All (Locked)
           </Tabs.Tab>
         ) : (
@@ -269,7 +284,8 @@ export const ListActive = (props, context) => {
             {data.available_types & 1 ? (
               <Tabs.Tab
                 selected={recordTab === 'General'}
-                onClick={() => setRecordTab('General')}>
+                onClick={() => setRecordTab('General')}
+              >
                 General - #{data.active.id}
               </Tabs.Tab>
             ) : (
@@ -278,7 +294,8 @@ export const ListActive = (props, context) => {
             {data.available_types & 4 ? (
               <Tabs.Tab
                 selected={recordTab === 'Security'}
-                onClick={() => setRecordTab('Security')}>
+                onClick={() => setRecordTab('Security')}
+              >
                 Security - #{data.active.id}
               </Tabs.Tab>
             ) : (
@@ -287,7 +304,8 @@ export const ListActive = (props, context) => {
             {data.available_types & 2 ? (
               <Tabs.Tab
                 selected={recordTab === 'Medical'}
-                onClick={() => setRecordTab('Medical')}>
+                onClick={() => setRecordTab('Medical')}
+              >
                 Medical - #{data.active.id}
               </Tabs.Tab>
             ) : (
@@ -307,8 +325,8 @@ export const ListActive = (props, context) => {
         style={{
           '-ms-interpolation-mode': 'nearest-neighbor',
           'pointer-events': 'none',
-          'width': `${64}px`,
-          'height': `${64}px`,
+          width: `${64}px`,
+          height: `${64}px`,
         }}
       />
       <Box
@@ -320,8 +338,8 @@ export const ListActive = (props, context) => {
         style={{
           '-ms-interpolation-mode': 'nearest-neighbor',
           'pointer-events': 'none',
-          'width': `${64}px`,
-          'height': `${64}px`,
+          width: `${64}px`,
+          height: `${64}px`,
         }}
       />
       <LabeledList>
@@ -751,24 +769,24 @@ export const ListActive = (props, context) => {
             {data.active.security.incidents &&
             data.active.security.incidents.length
               ? data.active.security.incidents.map((incident) => (
-                <Box backgroundColor="#223449" key={incident.id}>
-                  <Collapsible title={incident.datetime}>
-                    <Box fontSize={1.3} bold color="red">
-                      {incident.charges.toLocaleString()}
-                    </Box>
-                    <Box color="red">
-                      {incident.fine
-                        ? 'Fined ' + incident.fine.toFixed(2) + '电.'
-                        : 'Sentenced to ' +
-                        incident.brig_sentence +
-                        ' minutes of brig time.'}
-                    </Box>
-                    <br />
-                    <br />
-                    {incident.notes}
-                  </Collapsible>
-                </Box>
-              ))
+                  <Box backgroundColor="#223449" key={incident.id}>
+                    <Collapsible title={incident.datetime}>
+                      <Box fontSize={1.3} bold color="red">
+                        {incident.charges.toLocaleString()}
+                      </Box>
+                      <Box color="red">
+                        {incident.fine
+                          ? 'Fined ' + incident.fine.toFixed(2) + '电.'
+                          : 'Sentenced to ' +
+                            incident.brig_sentence +
+                            ' minutes of brig time.'}
+                      </Box>
+                      <br />
+                      <br />
+                      {incident.notes}
+                    </Collapsible>
+                  </Box>
+                ))
               : 'No incidents on record.'}
           </Section>
           <Section title="Crimes">{data.active.security.crimes}</Section>
@@ -790,8 +808,8 @@ export const ListActive = (props, context) => {
         <Section title="CCIA Actions">
           {data.active.ccia_actions.length
             ? data.active.ccia_actions.map((line) => (
-              <Box key={line}>{line}</Box>
-            ))
+                <Box key={line}>{line}</Box>
+              ))
             : 'No CCIA actions on record.'}
         </Section>
       ) : (

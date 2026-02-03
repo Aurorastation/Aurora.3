@@ -168,10 +168,10 @@
 /area/exoplanet/moghes)
 "oK" = (
 /obj/structure/table/rack,
-/obj/item/device/flashlight/lantern,
-/obj/item/device/flashlight/lantern,
-/obj/item/device/flashlight/lantern,
-/obj/item/device/flashlight/lantern,
+/obj/item/flashlight/lantern,
+/obj/item/flashlight/lantern,
+/obj/item/flashlight/lantern,
+/obj/item/flashlight/lantern,
 /turf/simulated/floor/exoplanet/wood{
 	temperature = 303.15
 	},
@@ -186,7 +186,7 @@
 /area/moghes_diona_traders)
 "pd" = (
 /obj/structure/table/wood,
-/obj/item/device/flashlight/lamp/green{
+/obj/item/flashlight/lamp/green{
 	pixel_y = 4
 	},
 /obj/item/paper/fluff/moghes_diona_ad,
@@ -439,9 +439,9 @@
 /area/exoplanet/moghes)
 "Kb" = (
 /obj/structure/table/wood,
-/obj/item/device/flashlight/lantern,
-/obj/item/device/flashlight/lantern,
-/obj/item/device/flashlight/lantern,
+/obj/item/flashlight/lantern,
+/obj/item/flashlight/lantern,
+/obj/item/flashlight/lantern,
 /turf/simulated/floor/exoplanet/wood{
 	temperature = 303.15
 	},

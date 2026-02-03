@@ -858,7 +858,7 @@
 	dir = 5
 	},
 /obj/structure/table/skrell,
-/obj/item/device/price_scanner{
+/obj/item/price_scanner{
 	pixel_x = 4
 	},
 /obj/item/reagent_containers/food/drinks/bottle/skrellwineylpha{
@@ -1504,7 +1504,7 @@
 	dir = 4
 	},
 /obj/structure/table/skrell,
-/obj/item/device/binoculars{
+/obj/item/binoculars{
 	pixel_y = 5
 	},
 /obj/effect/floor_decal/spline/plain/black{
@@ -1651,7 +1651,7 @@
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 4
 	},
-/obj/item/device/radio/intercom/hailing{
+/obj/item/radio/intercom/hailing{
 	dir = 1;
 	pixel_y = 22;
 	pixel_x = -6
@@ -1866,11 +1866,11 @@
 	dir = 8
 	},
 /obj/structure/table/skrell,
-/obj/item/device/radio/off{
+/obj/item/radio/off{
 	pixel_y = 10;
 	pixel_x = -5
 	},
-/obj/item/device/gps{
+/obj/item/gps{
 	pixel_x = 4
 	},
 /obj/effect/floor_decal/spline/plain/black{
@@ -2145,7 +2145,7 @@
 /obj/item/paper_scanner{
 	pixel_x = -16
 	},
-/obj/item/device/cratescanner{
+/obj/item/cratescanner{
 	pixel_x = -8;
 	pixel_y = 3
 	},
@@ -2500,7 +2500,7 @@
 /obj/item/clothing/accessory/badge/passport/nralakk{
 	pixel_x = 4
 	},
-/obj/item/device/flashlight/lamp/lava/cyan{
+/obj/item/flashlight/lamp/lava/cyan{
 	pixel_x = -8
 	},
 /obj/machinery/power/apc/super/south{
@@ -3920,7 +3920,7 @@
 	pixel_x = 8;
 	pixel_y = 7
 	},
-/obj/item/device/radio/intercom/hailing{
+/obj/item/radio/intercom/hailing{
 	dir = 1;
 	pixel_y = -10;
 	pixel_x = 4
@@ -4094,7 +4094,7 @@
 	pixel_y = 4;
 	pixel_x = -4
 	},
-/obj/item/device/flashlight/lamp/lava/purple{
+/obj/item/flashlight/lamp/lava/purple{
 	pixel_x = 6
 	},
 /turf/simulated/floor/shuttle/skrell,
@@ -4983,7 +4983,7 @@
 /obj/structure/window/borosilicate/reinforced/skrell{
 	dir = 8
 	},
-/obj/item/device/flashlight/lamp/lava/purple{
+/obj/item/flashlight/lamp/lava/purple{
 	pixel_x = -6;
 	pixel_y = 6
 	},
@@ -5188,34 +5188,34 @@
 /area/shuttle/tirakqi_smuggler_shuttle)
 "Fo" = (
 /obj/structure/table/skrell,
-/obj/item/device/radio/off{
+/obj/item/radio/off{
 	pixel_y = 10;
 	pixel_x = 5
 	},
-/obj/item/device/gps{
+/obj/item/gps{
 	pixel_x = -5
 	},
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 1
 	},
-/obj/item/device/gps{
+/obj/item/gps{
 	pixel_x = -5
 	},
-/obj/item/device/gps{
+/obj/item/gps{
 	pixel_x = -5
 	},
-/obj/item/device/gps{
+/obj/item/gps{
 	pixel_x = -5
 	},
-/obj/item/device/radio/off{
+/obj/item/radio/off{
 	pixel_y = 10;
 	pixel_x = 5
 	},
-/obj/item/device/radio/off{
+/obj/item/radio/off{
 	pixel_y = 10;
 	pixel_x = 5
 	},
-/obj/item/device/radio/off{
+/obj/item/radio/off{
 	pixel_y = 10;
 	pixel_x = 5
 	},
@@ -6669,7 +6669,7 @@
 /area/ship/tirakqi_smuggler/port_hall)
 "Oy" = (
 /obj/machinery/light/skrell,
-/obj/machinery/autolathe,
+/obj/machinery/fabricator/autolathe/hacked,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/tirakqi_smuggler/engi)
@@ -6848,8 +6848,8 @@
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 4
 	},
-/obj/item/device/binoculars,
-/obj/item/device/binoculars{
+/obj/item/binoculars,
+/obj/item/binoculars{
 	pixel_y = 5
 	},
 /obj/effect/floor_decal/spline/plain/black{
@@ -7190,7 +7190,7 @@
 /area/ship/tirakqi_smuggler/engi)
 "RO" = (
 /obj/structure/table/skrell,
-/obj/item/device/radio/intercom/hailing{
+/obj/item/radio/intercom/hailing{
 	dir = 1;
 	pixel_y = -10
 	},
@@ -7987,7 +7987,7 @@
 /obj/item/clothing/head/radiation,
 /obj/item/clothing/suit/radiation,
 /obj/item/clothing/glasses/safety/goggles,
-/obj/item/device/geiger,
+/obj/item/geiger,
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor/plating,
 /area/ship/tirakqi_smuggler/engi)

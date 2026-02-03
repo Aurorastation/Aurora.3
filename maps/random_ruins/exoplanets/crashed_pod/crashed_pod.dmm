@@ -62,7 +62,7 @@
 /turf/simulated/floor/tiled,
 /area/map_template/crashed_pod)
 "n" = (
-/obj/machinery/autolathe,
+/obj/machinery/fabricator/autolathe,
 /turf/simulated/floor/tiled,
 /area/map_template/crashed_pod)
 "o" = (

@@ -633,7 +633,7 @@
 /obj/structure/table/rack,
 /obj/random/tech_supply,
 /obj/random/tech_supply,
-/obj/item/device/multitool,
+/obj/item/multitool,
 /turf/simulated/floor/carpet/rubber,
 /area/ship/sadar_scout/solars)
 "eC" = (
@@ -4650,7 +4650,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
-/obj/machinery/autolathe,
+/obj/machinery/fabricator/autolathe,
 /obj/machinery/button/remote/blast_door{
 	pixel_y = 28;
 	dir = 1;
@@ -5197,7 +5197,7 @@
 	dir = 4
 	},
 /obj/structure/lattice/catwalk/indoor,
-/obj/item/device/radio/intercom/hailing{
+/obj/item/radio/intercom/hailing{
 	pixel_x = -6;
 	dir = 8
 	},
@@ -6196,14 +6196,14 @@
 /obj/machinery/light/colored/decayed/dimmed{
 	dir = 8
 	},
-/obj/item/device/radio/off{
+/obj/item/radio/off{
 	pixel_y = 10
 	},
-/obj/item/device/radio/off{
+/obj/item/radio/off{
 	pixel_y = 10
 	},
-/obj/item/device/binoculars,
-/obj/item/device/binoculars{
+/obj/item/binoculars,
+/obj/item/binoculars{
 	pixel_y = 6
 	},
 /turf/simulated/floor/carpet/rubber,
@@ -6810,7 +6810,7 @@
 	name = "Bridge Blast Shield";
 	pixel_y = 8
 	},
-/obj/item/device/radio/intercom/hailing{
+/obj/item/radio/intercom/hailing{
 	dir = 1;
 	pixel_y = -10
 	},

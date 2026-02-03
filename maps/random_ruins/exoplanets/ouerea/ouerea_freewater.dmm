@@ -46,14 +46,14 @@
 /obj/structure/reagent_dispensers/peppertank{
 	pixel_y = 25
 	},
-/obj/item/device/flash,
-/obj/item/device/flash,
-/obj/item/device/flash,
-/obj/item/device/flash,
-/obj/item/device/flashlight/maglight,
-/obj/item/device/flashlight/maglight,
-/obj/item/device/flashlight/maglight,
-/obj/item/device/flashlight/maglight,
+/obj/item/flash,
+/obj/item/flash,
+/obj/item/flash,
+/obj/item/flash,
+/obj/item/flashlight/maglight,
+/obj/item/flashlight/maglight,
+/obj/item/flashlight/maglight,
+/obj/item/flashlight/maglight,
 /obj/item/storage/box/tactical/flashbangs,
 /obj/item/storage/box/tactical/teargas,
 /obj/item/storage/box/handcuffs,
@@ -431,7 +431,7 @@
 /area/ouerea_freewater)
 "vj" = (
 /obj/structure/table/wood,
-/obj/item/device/radio/phone,
+/obj/item/radio/phone,
 /obj/item/toy/desk/newtoncradle{
 	pixel_y = 10
 	},
@@ -762,23 +762,23 @@
 /obj/machinery/recharger{
 	pixel_x = -6
 	},
-/obj/item/device/gps{
+/obj/item/gps{
 	pixel_y = 14;
 	pixel_x = -6
 	},
-/obj/item/device/gps{
+/obj/item/gps{
 	pixel_y = 14;
 	pixel_x = -6
 	},
-/obj/item/device/gps{
+/obj/item/gps{
 	pixel_y = 14;
 	pixel_x = -6
 	},
-/obj/item/device/gps{
+/obj/item/gps{
 	pixel_y = 14;
 	pixel_x = -6
 	},
-/obj/item/device/gps{
+/obj/item/gps{
 	pixel_y = 14;
 	pixel_x = -6
 	},
@@ -1086,7 +1086,7 @@
 	},
 /area/ouerea_freewater)
 "Zx" = (
-/obj/machinery/autolathe,
+/obj/machinery/fabricator/autolathe,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled{
 	temperature = 298.15

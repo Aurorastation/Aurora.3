@@ -4,7 +4,7 @@
 /obj/structure/closet/walllocker
 	name = "wall locker"
 	desc = "A wall mounted storage locker."
-	icon = 'icons/obj/walllocker.dmi'
+	icon = 'icons/obj/containers/walllocker.dmi'
 	icon_state = "walllocker" //...man, how OLD is this $#!?
 	door_anim_angle = 132
 	door_anim_squish = 0.38
@@ -64,7 +64,7 @@
 	new /obj/item/clothing/head/hardhat/firefighter(src)
 	new /obj/item/clothing/suit/fire(src)
 	new /obj/item/clothing/mask/gas/alt(src)
-	new /obj/item/device/flashlight(src)
+	new /obj/item/flashlight(src)
 	new /obj/item/crowbar/rescue_axe/red(src)
 	new /obj/item/tank/oxygen/red(src)
 	new /obj/item/extinguisher(src)
@@ -79,7 +79,7 @@
 	new /obj/item/clothing/head/hardhat/firefighter(src)
 	new /obj/item/clothing/suit/fire(src)
 	new /obj/item/clothing/mask/gas/alt(src)
-	new /obj/item/device/flashlight(src)
+	new /obj/item/flashlight(src)
 	new /obj/item/tank/oxygen/red(src)
 	new /obj/item/extinguisher(src)
 	new /obj/item/ladder_mobile(src)

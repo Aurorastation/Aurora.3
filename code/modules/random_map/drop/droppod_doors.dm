@@ -31,7 +31,7 @@
 
 /obj/structure/droppod_door/attackby(obj/item/attacking_item, mob/user)
 	. = ..()
-	if(attacking_item.iswelder())
+	if(attacking_item.tool_behaviour == TOOL_WELDER)
 		var/obj/item/weldingtool/WT = attacking_item
 		if(WT.isOn())
 			user.visible_message(

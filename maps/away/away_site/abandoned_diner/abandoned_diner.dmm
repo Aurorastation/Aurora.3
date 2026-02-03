@@ -1110,7 +1110,7 @@
 /obj/item/storage/box/lights/mixed{
 	pixel_y = 4
 	},
-/obj/item/device/lightreplacer{
+/obj/item/lightreplacer{
 	pixel_y = 6
 	},
 /turf/simulated/floor/tiled/dark,
@@ -1450,7 +1450,7 @@
 /obj/random/dirt_75,
 /obj/effect/decal/cleanable/floor_damage/random_tiled_broken,
 /obj/structure/closet/walllocker/emerglocker/east,
-/obj/item/device/oxycandle,
+/obj/item/oxycandle,
 /obj/item/storage/bag/inflatable/emergency,
 /turf/simulated/floor/tiled,
 /area/abandoned_diner/docking/b)
@@ -1695,7 +1695,7 @@
 /area/abandoned_diner/maintenance)
 "aEQ" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/item/device/flashlight/lamp{
+/obj/item/flashlight/lamp{
 	pixel_y = 12;
 	pixel_x = -4
 	},
@@ -3549,7 +3549,7 @@
 /obj/structure/bed/stool/chair/folding{
 	dir = 8
 	},
-/obj/item/device/multitool{
+/obj/item/multitool{
 	pixel_y = -18;
 	pixel_x = -11
 	},
@@ -5343,10 +5343,10 @@
 	},
 /obj/structure/closet/crate,
 /obj/machinery/power/apc/west,
-/obj/item/device/vending_refill/snack,
-/obj/item/device/vending_refill/cola,
-/obj/item/device/vending_refill/smokes,
-/obj/item/device/vending_refill/seeds,
+/obj/item/vending_refill/snack,
+/obj/item/vending_refill/cola,
+/obj/item/vending_refill/smokes,
+/obj/item/vending_refill/seeds,
 /obj/random/loot,
 /obj/random/loot,
 /obj/random/loot,
@@ -5525,7 +5525,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
 	},
-/obj/machinery/autolathe,
+/obj/machinery/fabricator/autolathe,
 /turf/simulated/floor/plating,
 /area/abandoned_diner/maintenance)
 "uRz" = (

@@ -8,6 +8,7 @@
 	fallback_specific_heat = 0.567
 
 	value = 0.27
+	accelerant_quality = 3
 
 /singleton/reagent/acetone/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	M.adjustToxLoss(removed * 3)
@@ -159,6 +160,9 @@ ABSTRACT_TYPE(/singleton/reagent/alcohol)
 	glass_icon_state = "glass_clear"
 	glass_name = "glass of coder fuckups"
 	glass_desc = "A glass of distilled maintainer tears."
+
+	accelerant_quality = 5
+	fire_color = COLOR_CYAN_BLUE
 
 	var/hydration_factor = 1 //How much hydration to add per unit.
 	var/nutriment_factor = 0.5 //How much nutrition to add per unit.
@@ -444,7 +448,7 @@ ABSTRACT_TYPE(/singleton/reagent/alcohol)
 		if(!istype(T, /turf/space))
 			var/obj/effect/decal/cleanable/greenglow/glow = locate(/obj/effect/decal/cleanable/greenglow, T)
 			if(!glow)
-				new /obj/effect/decal/cleanable/greenglow(T)
+				new /obj/effect/decal/cleanable/greenglow/radioactive/low(T)
 			return
 
 /singleton/reagent/acid

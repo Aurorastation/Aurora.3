@@ -76,7 +76,7 @@ Frequency:
 			if (sr)
 				src.temp += "<B>Located Beacons:</B><BR>"
 
-				for(var/obj/item/device/radio/beacon/W in GLOB.teleportbeacons)
+				for(var/obj/item/radio/beacon/W in GLOB.teleportbeacons)
 					if (W.get_frequency() == src.frequency)
 						var/turf/tr = get_turf(W)
 						if (tr.z == sr.z && tr)

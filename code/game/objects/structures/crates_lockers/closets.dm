@@ -1,7 +1,7 @@
 /obj/structure/closet
 	name = "closet"
 	desc = "It's a basic storage unit."
-	icon = 'icons/obj/closet.dmi'
+	icon = 'icons/obj/containers/closet.dmi'
 	icon_state = "generic"
 	density = TRUE
 	build_amt = 2
@@ -364,7 +364,7 @@
 			var/obj/item/grab/G = attacking_item
 			mouse_drop_receive(G.affecting, user) //act like they were dragged onto the closet
 			return 0
-		if(attacking_item.isscrewdriver()) // Moved here so you can only detach linked teleporters when the door is open. So you can like unscrew and bolt the locker normally in most circumstances.
+		if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER) // Moved here so you can only detach linked teleporters when the door is open. So you can like unscrew and bolt the locker normally in most circumstances.
 			if(linked_teleporter)
 				user.visible_message(SPAN_NOTICE("\The [user] starts detaching \the [linked_teleporter] from \the [src]..."), SPAN_NOTICE("You begin detaching \the [linked_teleporter] from \the [src]..."), range = 3)
 				if(do_after(user, 30, src, DO_REPAIR_CONSTRUCT))
@@ -373,7 +373,7 @@
 					user.put_in_hands(linked_teleporter)
 					linked_teleporter = null
 				return
-		if(attacking_item.iswelder())
+		if(attacking_item.tool_behaviour == TOOL_WELDER)
 			var/obj/item/weldingtool/WT = attacking_item
 			if(WT.isOn())
 				user.visible_message(
@@ -414,8 +414,8 @@
 			user.drop_from_inventory(attacking_item,loc)
 		else
 			user.drop_item()
-	else if(istype(attacking_item, /obj/item/device/cratescanner))
-		var/obj/item/device/cratescanner/Cscanner = attacking_item
+	else if(istype(attacking_item, /obj/item/cratescanner))
+		var/obj/item/cratescanner/Cscanner = attacking_item
 		if(locked)
 			to_chat(user, SPAN_WARNING("[attacking_item] refuses to scan \the [src]. Unlock it first!"))
 			return
@@ -430,7 +430,7 @@
 		return
 	else if(istype(attacking_item, /obj/item/ducttape))
 		return
-	else if(attacking_item.iswelder())
+	else if(attacking_item.tool_behaviour == TOOL_WELDER)
 		var/obj/item/weldingtool/WT = attacking_item
 		if(WT.isOn())
 			user.visible_message(
@@ -452,7 +452,7 @@
 			)
 		else
 			attack_hand(user)
-	else if(attacking_item.isscrewdriver() && canbemoved)
+	else if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER && canbemoved)
 		if(screwed)
 			to_chat(user,  SPAN_NOTICE("You start to unscrew \the [src] from the floor..."))
 			attacking_item.play_tool_sound(get_turf(src), 50)
@@ -467,7 +467,7 @@
 				to_chat(user,  SPAN_NOTICE("You screw \the [src]!"))
 				attacking_item.play_tool_sound(get_turf(src), 50)
 				screwed = TRUE
-	else if(attacking_item.iswrench() && canbemoved)
+	else if(attacking_item.tool_behaviour == TOOL_WRENCH && canbemoved)
 		if(wrenched && !screwed)
 			to_chat(user,  SPAN_NOTICE("You start to unfasten the bolts holding \the [src] in place..."))
 			attacking_item.play_tool_sound(get_turf(src), 50)
@@ -484,8 +484,8 @@
 				attacking_item.play_tool_sound(get_turf(src), 50)
 				wrenched = TRUE
 				anchored = TRUE
-	else if(istype(attacking_item, /obj/item/device/hand_labeler))
-		var/obj/item/device/hand_labeler/HL = attacking_item
+	else if(istype(attacking_item, /obj/item/hand_labeler))
+		var/obj/item/hand_labeler/HL = attacking_item
 		if(HL.mode == 1)
 			return
 		else
@@ -626,6 +626,7 @@
 			update_secure_overlays()
 
 /obj/structure/closet/proc/update_secure_overlays()
+	AddOverlays("[icon_door_overlay]securitypanel")
 	if(broken)
 		AddOverlays("[icon_door_overlay]emag")
 	else
@@ -839,17 +840,17 @@
 	Contents Scanner
 ==========================
 */
-/obj/item/device/cratescanner
+/obj/item/cratescanner
 	name = "crate contents scanner"
 	desc = "A  handheld device used to scan and print a manifest of a container's contents. Does not work on locked crates, for privacy reasons."
-	icon = 'icons/obj/item/device/cratescanner.dmi'
+	icon = 'icons/obj/item/cratescanner.dmi'
 	icon_state = "cratescanner"
 	matter = list(DEFAULT_WALL_MATERIAL = 250, MATERIAL_GLASS = 140)
 	w_class = WEIGHT_CLASS_SMALL
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BELT
 
-/obj/item/device/cratescanner/proc/print_contents(targetname, targetcontents, targetloc)
+/obj/item/cratescanner/proc/print_contents(targetname, targetcontents, targetloc)
 	var/output = list()
 	var/list/outputstring
 	for(var/atom/item in targetcontents)

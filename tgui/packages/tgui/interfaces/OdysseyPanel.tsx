@@ -35,7 +35,8 @@ export const OdysseyPanel = (props, context) => {
               disabled={!data.is_storyteller}
               onClick={() => act('edit_scenario_name')}
             />
-          }>
+          }
+        >
           {data.scenario_desc}{' '}
           <Button
             icon="pencil"
@@ -50,7 +51,8 @@ export const OdysseyPanel = (props, context) => {
               as="span"
               color={
                 data.scenario_canonicity === 'Non-Canon' ? 'orange' : 'green'
-              }>
+              }
+            >
               {data.scenario_canonicity}
             </Box>{' '}
             scenario. Please remember that the one thing you cannot change about
@@ -118,7 +120,8 @@ export const RoleDisplay = (props, context) => {
             ) : (
               ''
             )
-          }>
+          }
+        >
           {role.desc}{' '}
           {data.is_storyteller ? (
             <Button

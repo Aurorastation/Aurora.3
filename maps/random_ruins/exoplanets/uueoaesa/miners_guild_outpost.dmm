@@ -10,10 +10,10 @@
 /area/miners_guild_outpost/mining)
 "aw" = (
 /obj/structure/table/rack,
-/obj/item/device/radio/hailing,
-/obj/item/device/radio/hailing,
-/obj/item/device/radio/hailing,
-/obj/item/device/radio/hailing,
+/obj/item/radio/hailing,
+/obj/item/radio/hailing,
+/obj/item/radio/hailing,
+/obj/item/radio/hailing,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/steel{
 	temperature = 303.15
@@ -1691,10 +1691,10 @@
 /obj/item/ore_detector,
 /obj/item/ore_detector,
 /obj/item/ore_detector,
-/obj/item/device/flashlight/lantern,
-/obj/item/device/flashlight/lantern,
-/obj/item/device/flashlight/lantern,
-/obj/item/device/flashlight/lantern,
+/obj/item/flashlight/lantern,
+/obj/item/flashlight/lantern,
+/obj/item/flashlight/lantern,
+/obj/item/flashlight/lantern,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/steel{
 	temperature = 303.15
@@ -1833,7 +1833,7 @@
 	dir = 4;
 	status = 2
 	},
-/obj/machinery/autolathe,
+/obj/machinery/fabricator/autolathe,
 /turf/simulated/floor{
 	temperature = 303.15
 	},
@@ -2206,14 +2206,14 @@
 /area/miners_guild_outpost/mining)
 "QJ" = (
 /obj/structure/table/rack,
-/obj/item/device/analyzer,
-/obj/item/device/analyzer,
-/obj/item/device/analyzer,
-/obj/item/device/analyzer,
-/obj/item/device/gps/mining,
-/obj/item/device/gps/mining,
-/obj/item/device/gps/mining,
-/obj/item/device/gps/mining,
+/obj/item/analyzer,
+/obj/item/analyzer,
+/obj/item/analyzer,
+/obj/item/analyzer,
+/obj/item/gps/mining,
+/obj/item/gps/mining,
+/obj/item/gps/mining,
+/obj/item/gps/mining,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/steel{
 	temperature = 303.15

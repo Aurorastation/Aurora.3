@@ -111,7 +111,7 @@
 /obj/effect/floor_decal/corner/purple{
 	dir = 6
 	},
-/obj/item/device/flashlight/heavy,
+/obj/item/flashlight/heavy,
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /obj/structure/cable/green{
 	icon_state = "0-2"
@@ -238,7 +238,7 @@
 /area/nuclear_silo/lower_level/security)
 "aA" = (
 /obj/structure/table/reinforced/steel,
-/obj/item/device/flashlight/lamp,
+/obj/item/flashlight/lamp,
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 5
 	},
@@ -387,7 +387,7 @@
 /area/nuclear_silo/outside/cave/bunker)
 "aU" = (
 /obj/structure/table/wood,
-/obj/item/device/flashlight/lamp,
+/obj/item/flashlight/lamp,
 /turf/simulated/floor/carpet/darkblue,
 /area/nuclear_silo/outside/buildings)
 "aV" = (
@@ -2541,8 +2541,8 @@
 /obj/random/tool,
 /obj/random/tool,
 /obj/random/tool,
-/obj/item/device/multitool,
-/obj/item/device/multitool,
+/obj/item/multitool,
+/obj/item/multitool,
 /obj/effect/floor_decal/corner/dark_blue/full{
 	dir = 4
 	},
@@ -3319,7 +3319,7 @@
 /area/nuclear_silo/lower_level/hallway)
 "hs" = (
 /obj/structure/table/wood,
-/obj/item/device/flashlight/lamp/green{
+/obj/item/flashlight/lamp/green{
 	pixel_y = 16;
 	pixel_x = -7
 	},
@@ -3361,7 +3361,7 @@
 /area/nuclear_silo/lower_level/hallway)
 "hx" = (
 /obj/structure/table/steel,
-/obj/item/device/flashlight/lamp,
+/obj/item/flashlight/lamp,
 /obj/effect/floor_decal/corner/blue{
 	dir = 5
 	},
@@ -3519,7 +3519,7 @@
 /area/nuclear_silo/lower_level/civilian/messhall)
 "hP" = (
 /obj/structure/table/wood,
-/obj/item/device/flashlight/lamp/box,
+/obj/item/flashlight/lamp/box,
 /obj/effect/landmark/minimap_poi{
 	name = "Wooden Town"
 	},
@@ -4495,7 +4495,7 @@
 /obj/random/medical,
 /obj/random/medical,
 /obj/item/auto_cpr,
-/obj/item/device/healthanalyzer,
+/obj/item/healthanalyzer,
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
@@ -4632,7 +4632,7 @@
 /area/nuclear_silo/outside/buildings)
 "kp" = (
 /obj/structure/table/wood,
-/obj/item/device/flashlight/lamp,
+/obj/item/flashlight/lamp,
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
@@ -5102,7 +5102,7 @@
 "lk" = (
 /obj/structure/closet,
 /obj/item/clothing/suit/storage/toggle/labcoat,
-/obj/item/device/healthanalyzer,
+/obj/item/healthanalyzer,
 /obj/item/clothing/accessory/storage/pouches/white,
 /obj/item/auto_cpr,
 /obj/item/clothing/accessory/stethoscope,
@@ -5655,7 +5655,7 @@
 	pixel_x = -8;
 	pixel_y = 16
 	},
-/obj/item/device/flashlight/lamp/off{
+/obj/item/flashlight/lamp/off{
 	pixel_x = -6
 	},
 /turf/simulated/floor/tiled/steel,
@@ -5665,7 +5665,7 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/obj/item/device/flashlight/lamp/green{
+/obj/item/flashlight/lamp/green{
 	pixel_y = 14;
 	pixel_x = 5
 	},
@@ -5931,7 +5931,7 @@
 /area/nuclear_silo/lower_level/civilian/messhall)
 "nc" = (
 /obj/structure/table/standard,
-/obj/item/device/hand_labeler{
+/obj/item/hand_labeler{
 	pixel_y = 6
 	},
 /obj/effect/floor_decal/corner/blue{
@@ -6663,7 +6663,7 @@
 /area/nuclear_silo/outside/buildings)
 "oK" = (
 /obj/structure/table/wood,
-/obj/item/device/flashlight/lamp,
+/obj/item/flashlight/lamp,
 /turf/simulated/floor/carpet/purple,
 /area/nuclear_silo/outside/buildings)
 "oL" = (
@@ -7255,7 +7255,7 @@
 /area/nuclear_silo/outside/buildings)
 "qf" = (
 /obj/structure/table/wood,
-/obj/item/device/flashlight/lantern,
+/obj/item/flashlight/lantern,
 /obj/effect/decal/cleanable/floor_damage/random_wood_broken,
 /obj/item/gun/projectile/improvised_handgun,
 /obj/item/ammo_magazine/c45m{
@@ -7271,7 +7271,7 @@
 /obj/structure/closet/crate/miningcart,
 /obj/item/clothing/head/hardhat,
 /obj/item/clothing/head/hardhat,
-/obj/item/device/flashlight/flare,
+/obj/item/flashlight/flare,
 /turf/simulated/floor/exoplanet/barren,
 /area/nuclear_silo/outside/mountain)
 "qh" = (
@@ -8012,7 +8012,7 @@
 	name = "adjusted railing"
 	},
 /obj/structure/table/steel,
-/obj/item/device/camera,
+/obj/item/camera,
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 10
 	},
@@ -10409,12 +10409,12 @@
 	dir = 9
 	},
 /obj/structure/table/wood,
-/obj/item/device/flashlight/lamp,
+/obj/item/flashlight/lamp,
 /turf/simulated/floor/tiled/white,
 /area/nuclear_silo/lower_level/medbay)
 "xb" = (
 /obj/structure/table/reinforced/steel,
-/obj/item/device/flashlight/lamp,
+/obj/item/flashlight/lamp,
 /turf/simulated/floor/tiled/full,
 /area/nuclear_silo/outside/buildings)
 "xc" = (
@@ -10733,7 +10733,7 @@
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 10
 	},
-/obj/item/device/flashlight/lamp,
+/obj/item/flashlight/lamp,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
 	},
@@ -10837,7 +10837,7 @@
 /area/nuclear_silo/outside/buildings)
 "xX" = (
 /obj/structure/table/reinforced/steel,
-/obj/item/device/flashlight/lamp,
+/obj/item/flashlight/lamp,
 /obj/machinery/turretid/lethal{
 	dir = 8;
 	name = "Bunker Turrets Control";
@@ -10942,7 +10942,7 @@
 	name = "Armoury Bolts"
 	},
 /obj/structure/table/standard,
-/obj/item/device/firing_pin{
+/obj/item/firing_pin{
 	pixel_y = -5
 	},
 /obj/item/wrench{
@@ -12024,7 +12024,7 @@
 	pixel_x = 8;
 	pixel_y = 8
 	},
-/obj/item/device/hand_labeler{
+/obj/item/hand_labeler{
 	pixel_x = 9;
 	pixel_y = -7
 	},
@@ -12082,7 +12082,7 @@
 /area/nuclear_silo/outside/surface)
 "AM" = (
 /obj/structure/flora/rock/pile/random,
-/obj/item/device/flashlight/flare{
+/obj/item/flashlight/flare{
 	pixel_x = -5;
 	pixel_y = 3
 	},
@@ -12270,7 +12270,7 @@
 /area/nuclear_silo/lower_level/maintenance/engimed)
 "Be" = (
 /obj/structure/table/reinforced/steel,
-/obj/item/device/taperecorder,
+/obj/item/taperecorder,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
@@ -12733,7 +12733,7 @@
 /obj/structure/track,
 /obj/structure/closet/crate/miningcart,
 /obj/item/pickaxe,
-/obj/item/device/flashlight/lantern,
+/obj/item/flashlight/lantern,
 /turf/simulated/floor/exoplanet/barren,
 /area/nuclear_silo/outside/mountain)
 "Cf" = (
@@ -12984,11 +12984,11 @@
 	pixel_x = -1;
 	pixel_y = 1
 	},
-/obj/item/device/flashlight/lamp{
+/obj/item/flashlight/lamp{
 	pixel_y = 13;
 	pixel_x = -6
 	},
-/obj/item/device/pin_extractor{
+/obj/item/pin_extractor{
 	pixel_y = -7
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
@@ -13271,7 +13271,7 @@
 /area/nuclear_silo/lower_level/nuke_silo)
 "Dl" = (
 /obj/structure/table/wood,
-/obj/item/device/flashlight/lamp/green{
+/obj/item/flashlight/lamp/green{
 	pixel_y = 15
 	},
 /obj/item/material/ashtray/glass{
@@ -14128,7 +14128,7 @@
 "Fi" = (
 /obj/structure/table/standard,
 /obj/effect/floor_decal/industrial/outline_straight/security,
-/obj/item/device/flashlight/lamp,
+/obj/item/flashlight/lamp,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/full,
@@ -14545,7 +14545,7 @@
 /turf/simulated/floor/tiled/white,
 /area/nuclear_silo/lower_level/civilian/bathrooms)
 "Ge" = (
-/obj/item/device/flashlight/lantern,
+/obj/item/flashlight/lantern,
 /turf/simulated/floor/exoplanet/barren,
 /area/nuclear_silo/outside/mountain)
 "Gf" = (
@@ -14913,7 +14913,7 @@
 /obj/item/clothing/head/beret/security,
 /obj/item/clothing/suit/storage/hazardvest/security/officer,
 /obj/item/clothing/suit/storage/hooded/wintercoat/security,
-/obj/item/device/binoculars,
+/obj/item/binoculars,
 /obj/item/clothing/glasses/sunglasses/sechud/aviator,
 /obj/effect/floor_decal/corner/blue{
 	dir = 6
@@ -15405,14 +15405,14 @@
 /obj/item/stack/material/phoron{
 	amount = 6
 	},
-/obj/item/device/assembly/timer,
-/obj/item/device/assembly/timer,
-/obj/item/device/assembly/timer,
-/obj/item/device/assembly/timer,
-/obj/item/device/assembly/igniter,
-/obj/item/device/assembly/igniter,
-/obj/item/device/assembly/igniter,
-/obj/item/device/assembly/igniter,
+/obj/item/assembly/timer,
+/obj/item/assembly/timer,
+/obj/item/assembly/timer,
+/obj/item/assembly/timer,
+/obj/item/assembly/igniter,
+/obj/item/assembly/igniter,
+/obj/item/assembly/igniter,
+/obj/item/assembly/igniter,
 /obj/item/grenade/chem_grenade,
 /obj/item/grenade/chem_grenade,
 /obj/item/grenade/chem_grenade,
@@ -16706,7 +16706,7 @@
 /obj/item/clothing/head/beret/security,
 /obj/item/clothing/suit/storage/hazardvest/security/officer,
 /obj/item/clothing/suit/storage/hooded/wintercoat/security,
-/obj/item/device/binoculars,
+/obj/item/binoculars,
 /obj/item/clothing/glasses/sunglasses/sechud/aviator,
 /obj/effect/floor_decal/corner/blue{
 	dir = 6
@@ -16715,7 +16715,7 @@
 /turf/simulated/floor/tiled,
 /area/nuclear_silo/lower_level/security)
 "KR" = (
-/obj/item/device/flashlight/lantern,
+/obj/item/flashlight/lantern,
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/dirt_konyang,
 /area/nuclear_silo/outside/mountain)
@@ -17595,7 +17595,7 @@
 /obj/item/stack/cable_coil,
 /obj/item/wirecutters,
 /obj/item/weldingtool,
-/obj/item/device/hand_labeler,
+/obj/item/hand_labeler,
 /obj/random/powercell,
 /obj/random/powercell,
 /obj/structure/table/rack/folding_table,
@@ -18634,7 +18634,7 @@
 /area/nuclear_silo/lower_level/maintenance/engimed)
 "Pp" = (
 /obj/structure/table/wood,
-/obj/item/device/flashlight/lamp,
+/obj/item/flashlight/lamp,
 /turf/simulated/floor/exoplanet/carpet/red,
 /area/nuclear_silo/outside/buildings)
 "Pq" = (
@@ -20140,7 +20140,7 @@
 /area/nuclear_silo/lower_level/security)
 "SG" = (
 /obj/structure/table/standard,
-/obj/item/device/mass_spectrometer,
+/obj/item/mass_spectrometer,
 /obj/effect/floor_decal/corner_wide/green{
 	dir = 10
 	},
@@ -20693,7 +20693,7 @@
 /area/nuclear_silo/lower_level/maintenance/east)
 "TR" = (
 /obj/structure/table/wood,
-/obj/item/device/flashlight/lamp,
+/obj/item/flashlight/lamp,
 /obj/random/dirt_75,
 /turf/simulated/floor/carpet/lightblue,
 /area/nuclear_silo/outside/cave/bunker)
@@ -20877,7 +20877,7 @@
 /turf/simulated/floor/tiled/full,
 /area/nuclear_silo/outside/buildings)
 "Un" = (
-/obj/item/device/flashlight/lantern,
+/obj/item/flashlight/lantern,
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/barren,
 /area/nuclear_silo/outside/mountain)
@@ -21499,11 +21499,11 @@
 /area/nuclear_silo/lower_level/nuke_monitoring)
 "VK" = (
 /obj/structure/table/rack/folding_table,
-/obj/item/device/flashlight/flare{
+/obj/item/flashlight/flare{
 	pixel_x = -5;
 	pixel_y = 3
 	},
-/obj/item/device/flashlight/flare{
+/obj/item/flashlight/flare{
 	pixel_y = 4;
 	pixel_x = -10
 	},
@@ -22969,7 +22969,7 @@
 /area/nuclear_silo/outside/buildings/town)
 "YH" = (
 /obj/structure/table/wood,
-/obj/item/device/flashlight/lamp/green{
+/obj/item/flashlight/lamp/green{
 	pixel_y = 10;
 	pixel_x = -2
 	},
@@ -23489,8 +23489,8 @@
 "ZQ" = (
 /obj/random/dirt_75,
 /obj/structure/table/standard,
-/obj/item/device/radio,
-/obj/item/device/radio,
+/obj/item/radio,
+/obj/item/radio,
 /turf/simulated/floor/tiled,
 /area/nuclear_silo/lower_level/engineering)
 "ZR" = (

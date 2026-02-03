@@ -173,11 +173,11 @@
 /obj/effect/decal/road_marking/no_pass{
 	dir = 4
 	},
-/obj/item/device/gps/mining,
-/obj/item/device/gps/mining{
+/obj/item/gps/mining,
+/obj/item/gps/mining{
 	pixel_x = -7
 	},
-/obj/item/device/gps/mining{
+/obj/item/gps/mining{
 	pixel_x = 6
 	},
 /obj/structure/table/rack,
@@ -1445,7 +1445,7 @@
 	},
 /obj/machinery/recharger,
 /obj/structure/table/wood,
-/obj/item/device/flashlight/flare{
+/obj/item/flashlight/flare{
 	pixel_x = 8
 	},
 /turf/simulated/floor/wood,
@@ -1611,7 +1611,7 @@
 /obj/item/wrench,
 /obj/machinery/light/small,
 /obj/item/clothing/gloves/yellow,
-/obj/item/device/analyzer,
+/obj/item/analyzer,
 /obj/item/extinguisher,
 /turf/simulated/floor/tiled/full,
 /area/konyang_landing_zone/command_center/reactor)
@@ -1719,7 +1719,7 @@
 /turf/simulated/floor/carpet/magenta,
 /area/konyang_landing_zone/command_center/living)
 "wJ" = (
-/obj/machinery/autolathe,
+/obj/machinery/fabricator/autolathe,
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 5
 	},
@@ -1774,7 +1774,7 @@
 "xD" = (
 /obj/structure/table/wood,
 /obj/structure/window/reinforced,
-/obj/item/device/flashlight/lamp/box{
+/obj/item/flashlight/lamp/box{
 	pixel_y = 5
 	},
 /turf/simulated/floor/carpet/magenta,
@@ -2005,7 +2005,7 @@
 /area/konyang_landing_zone)
 "Ab" = (
 /obj/structure/bed/stool/chair/sofa/left/red,
-/obj/item/device/laser_pointer,
+/obj/item/laser_pointer,
 /turf/simulated/floor/carpet/magenta,
 /area/konyang_landing_zone/command_center/living)
 "Aj" = (
@@ -2067,7 +2067,7 @@
 /obj/item/clothing/gloves/yellow,
 /obj/item/storage/box/lights/bulbs,
 /obj/item/storage/box/lights,
-/obj/item/device/suit_cooling_unit,
+/obj/item/suit_cooling_unit,
 /turf/simulated/floor/reinforced,
 /area/konyang_landing_zone/command_center/garage)
 "Bi" = (
@@ -2145,7 +2145,7 @@
 /area/konyang_landing_zone/command_center/greenhouse)
 "BM" = (
 /obj/machinery/shipsensors/weak,
-/obj/item/device/gps/stationary{
+/obj/item/gps/stationary{
 	pixel_x = -23;
 	name = "static GPS (Command Center)";
 	gpstag = "SCC-FOB"
@@ -2756,7 +2756,7 @@
 	dir = 1
 	},
 /obj/item/pen,
-/obj/item/device/binoculars,
+/obj/item/binoculars,
 /turf/simulated/floor/wood,
 /area/konyang_landing_zone/command_center)
 "IE" = (
@@ -2935,21 +2935,21 @@
 /obj/item/stack/material/glass/full{
 	pixel_y = 9
 	},
-/obj/item/device/radio{
+/obj/item/radio{
 	pixel_x = 8;
 	pixel_y = 3
 	},
-/obj/item/device/radio{
+/obj/item/radio{
 	pixel_x = 8;
 	pixel_y = 3
 	},
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
 	},
-/obj/item/device/ano_scanner{
+/obj/item/ano_scanner{
 	pixel_x = -5
 	},
-/obj/item/device/measuring_tape,
+/obj/item/measuring_tape,
 /turf/simulated/floor/wood,
 /area/konyang_landing_zone/command_center)
 "KU" = (
@@ -3640,8 +3640,8 @@
 /obj/structure/table/wood,
 /obj/item/paper_bin,
 /obj/item/pen,
-/obj/item/device/camera,
-/obj/item/device/camera_film,
+/obj/item/camera,
+/obj/item/camera_film,
 /obj/item/tape_roll{
 	pixel_x = 14
 	},
@@ -3968,7 +3968,7 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 5
 	},
-/obj/item/device/paicard,
+/obj/item/paicard,
 /turf/simulated/floor/wood,
 /area/konyang_landing_zone/command_center/living)
 "Ye" = (
@@ -4066,7 +4066,7 @@
 /obj/item/clothing/accessory/armband/scc,
 /obj/item/flag/scc,
 /obj/item/flag/scc,
-/obj/item/device/taperecorder,
+/obj/item/taperecorder,
 /turf/simulated/floor/carpet/purple,
 /area/konyang_landing_zone/command_center/living)
 "ZL" = (

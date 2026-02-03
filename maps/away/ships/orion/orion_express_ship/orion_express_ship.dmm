@@ -1174,19 +1174,19 @@
 /obj/item/storage/toolbox/mechanical{
 	pixel_x = 9
 	},
-/obj/item/device/radio/off{
+/obj/item/radio/off{
 	pixel_y = 3;
 	pixel_x = -9
 	},
-/obj/item/device/radio/off{
+/obj/item/radio/off{
 	pixel_y = 3;
 	pixel_x = -9
 	},
-/obj/item/device/radio/off{
+/obj/item/radio/off{
 	pixel_y = 3;
 	pixel_x = -9
 	},
-/obj/item/device/radio/off{
+/obj/item/radio/off{
 	pixel_y = 3;
 	pixel_x = -9
 	},
@@ -1549,7 +1549,7 @@
 /area/shuttle/orion_shuttle/storage)
 "fau" = (
 /obj/machinery/computer/shuttle_control/explore/orion_express_shuttle,
-/obj/item/device/radio/intercom/expedition/hailing/west,
+/obj/item/radio/intercom/expedition/hailing/west,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/orion_shuttle/cockpit)
 "fbf" = (
@@ -1852,7 +1852,7 @@
 /obj/item/pen{
 	pixel_x = -2
 	},
-/obj/item/device/flashlight/lamp{
+/obj/item/flashlight/lamp{
 	pixel_x = -7;
 	pixel_y = 15;
 	brightness_level = "low"
@@ -3058,7 +3058,7 @@
 "kog" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/random/pottedplant,
-/obj/item/device/gps/stationary{
+/obj/item/gps/stationary{
 	gps_prefix = "ORION";
 	gpstag = "ORIONSHUTTLE";
 	pixel_x = -24
@@ -3572,7 +3572,7 @@
 /obj/effect/floor_decal/corner_wide/beige{
 	dir = 10
 	},
-/obj/item/device/suit_cooling_unit,
+/obj/item/suit_cooling_unit,
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion/bridge)
 "mkT" = (
@@ -3869,7 +3869,7 @@
 /turf/simulated/floor,
 /area/ship/orion/docking1)
 "nnl" = (
-/obj/item/device/assembly/mousetrap/armed,
+/obj/item/assembly/mousetrap/armed,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled{
 	name = "cooled floor";
@@ -4247,7 +4247,7 @@
 /obj/machinery/recharger{
 	pixel_x = 6
 	},
-/obj/item/device/binoculars{
+/obj/item/binoculars{
 	pixel_y = 9;
 	pixel_x = -3
 	},
@@ -5660,8 +5660,8 @@
 /turf/simulated/floor,
 /area/ship/orion/docking1)
 "sIh" = (
-/obj/item/device/suit_cooling_unit,
-/obj/item/device/suit_cooling_unit,
+/obj/item/suit_cooling_unit,
+/obj/item/suit_cooling_unit,
 /obj/item/tank/jetpack/oxygen,
 /obj/item/tank/jetpack/oxygen,
 /obj/item/clothing/shoes/magboots,
@@ -5674,11 +5674,11 @@
 /obj/item/clothing/suit/space/void/engineering,
 /obj/item/clothing/head/helmet/space/void/engineering,
 /obj/item/clothing/head/helmet/space/void/engineering,
-/obj/item/device/gps/engineering{
+/obj/item/gps/engineering{
 	gps_prefix = "ORION";
 	gpstag = "ORION0"
 	},
-/obj/item/device/gps/engineering{
+/obj/item/gps/engineering{
 	gps_prefix = "ORION";
 	gpstag = "ORION0"
 	},
@@ -5761,7 +5761,7 @@
 /area/space)
 "sSQ" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/autolathe,
+/obj/machinery/fabricator/autolathe,
 /turf/simulated/floor,
 /area/ship/orion/engie)
 "sTm" = (
@@ -6152,7 +6152,7 @@
 /obj/machinery/light{
 	inserted_light = /obj/item/light/tube/colored/blue
 	},
-/obj/item/device/gps/stationary{
+/obj/item/gps/stationary{
 	gps_prefix = "ORION";
 	gpstag = "ORIONBASE";
 	pixel_y = -24;
@@ -6340,8 +6340,8 @@
 /turf/simulated/floor/airless,
 /area/ship/orion/thruster1)
 "uyk" = (
-/obj/item/device/suit_cooling_unit,
-/obj/item/device/suit_cooling_unit,
+/obj/item/suit_cooling_unit,
+/obj/item/suit_cooling_unit,
 /obj/item/tank/jetpack/oxygen,
 /obj/item/tank/jetpack/oxygen,
 /obj/item/clothing/shoes/magboots,
@@ -6351,11 +6351,11 @@
 /obj/item/clothing/suit/space/void/engineering,
 /obj/item/clothing/head/helmet/space/void/engineering,
 /obj/item/clothing/head/helmet/space/void/engineering,
-/obj/item/device/gps/engineering{
+/obj/item/gps/engineering{
 	gps_prefix = "ORION";
 	gpstag = "ORION0"
 	},
-/obj/item/device/gps/engineering{
+/obj/item/gps/engineering{
 	gps_prefix = "ORION";
 	gpstag = "ORION0"
 	},
@@ -7028,7 +7028,7 @@
 /obj/item/stack/packageWrap,
 /obj/item/stack/packageWrap,
 /obj/item/stack/packageWrap,
-/obj/item/device/hand_labeler{
+/obj/item/hand_labeler{
 	pixel_y = 6;
 	pixel_x = 3
 	},

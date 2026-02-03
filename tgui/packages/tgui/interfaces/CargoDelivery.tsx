@@ -15,6 +15,7 @@ export type CargoData = {
   order_details: Order;
   page: string;
   status_message: string;
+  paying_account: string;
 };
 
 type Order = {
@@ -71,7 +72,8 @@ export const CargoDelivery = (props, context) => {
                       page: 'order_overview',
                       order_overview: data.order_details.order_id.toString(),
                     })
-                  }>
+                  }
+                >
                   Overview
                 </Tabs.Tab>
                 <Tabs.Tab
@@ -80,7 +82,8 @@ export const CargoDelivery = (props, context) => {
                       page: 'order_payment',
                       order_payment: data.order_details.order_id.toString(),
                     })
-                  }>
+                  }
+                >
                   Payment
                 </Tabs.Tab>
               </>
@@ -158,13 +161,10 @@ export const Overview = (props, context) => {
             : 'Unauthorised'}
         </LabeledList.Item>
         <LabeledList.Item label="Price">
-          {data.order_details.price}.toFixed(2) 电
+          {data.order_details.price.toFixed(2)} 电
         </LabeledList.Item>
         <LabeledList.Item label="Operations Expense">
           {data.order_details.price_cargo.toFixed(2)} 电
-        </LabeledList.Item>
-        <LabeledList.Item label="Personal Expense">
-          {data.order_details.price_customer.toFixed(2)} 电
         </LabeledList.Item>
         <LabeledList.Item label="Personal Expense">
           {data.order_details.price_customer.toFixed(2)} 电
@@ -221,28 +221,41 @@ export const Payment = (props, context) => {
     <Section
       title={'Payment: Order No. ' + data.order_details.order_id}
       buttons={
-        <Button
-          content={
-            data.order_details.status === 'shipped'
-              ? 'Confirm Delivery and Pay'
-              : data.order_details.status === 'delivered'
-                ? 'Delivered Already'
-                : data.order_details.needs_payment
-                  ? 'Pay'
-                  : 'Paid but not Shipped'
-          }
-          disabled={
-            !data.order_details.needs_payment ||
-            data.order_details.status === 'delivered'
-          }
-          icon="check"
-          color="green"
-          onClick={() => act('deliver', { deliver: 'true' })}
-        />
-      }>
+        <>
+          <Button
+            content="Account"
+            color="good"
+            onClick={() => act('accountselect')}
+          />
+          <Button
+            content={
+              data.order_details.status === 'shipped'
+                ? 'Confirm Delivery'
+                : data.order_details.status === 'delivered'
+                  ? 'Delivered Already'
+                  : 'Not Shipped'
+            }
+            disabled={data.order_details.status !== 'shipped'}
+            icon="check"
+            color="green"
+            onClick={() => act('deliver', { deliver: 'true' })}
+          />
+          <Button
+            content="Pay"
+            disabled={!data.order_details.needs_payment}
+            icon="credit-card"
+            color="green"
+            onClick={() => act('pay', { deliver: 'true' })}
+          />
+        </>
+      }
+    >
       <LabeledList>
         <LabeledList.Item label="Price">
-          {data.order_details.price.toFixed(2)} 电
+          {data.order_details.price_customer.toFixed(2)} 电
+        </LabeledList.Item>
+        <LabeledList.Item label="Paying Account">
+          {data.paying_account}
         </LabeledList.Item>
         <LabeledList.Item label="Customer">
           {data.order_details.ordered_by}
