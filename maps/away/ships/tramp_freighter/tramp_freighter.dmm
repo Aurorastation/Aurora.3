@@ -291,7 +291,7 @@
 /area/tramp_freighter/kitchen)
 "bC" = (
 /obj/structure/table/steel,
-/obj/item/device/flashlight/lamp/green{
+/obj/item/flashlight/lamp/green{
 	pixel_y = 5;
 	pixel_x = -2
 	},
@@ -2819,7 +2819,7 @@
 /obj/random/contraband,
 /obj/random/contraband,
 /obj/structure/closet/crate,
-/obj/item/device/synthesized_instrument/guitar,
+/obj/item/synthesized_instrument/guitar,
 /obj/item/reagent_containers/food/drinks/bottle/pwine,
 /turf/simulated/floor/plating,
 /area/tramp_freighter/cargo)
@@ -5163,7 +5163,7 @@
 "zH" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/bed,
-/obj/item/device/flashlight/heavy,
+/obj/item/flashlight/heavy,
 /obj/machinery/light/small/emergency{
 	dir = 4
 	},
@@ -5292,7 +5292,7 @@
 "Ao" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/bed,
-/obj/item/device/flashlight,
+/obj/item/flashlight,
 /turf/simulated/floor/plating,
 /area/tramp_freighter/cargo)
 "Ap" = (
@@ -5676,7 +5676,7 @@
 "Cv" = (
 /obj/structure/table/reinforced/steel,
 /obj/effect/decal/cleanable/dirt,
-/obj/item/device/binoculars{
+/obj/item/binoculars{
 	pixel_y = -4;
 	pixel_x = 7
 	},
@@ -5826,7 +5826,7 @@
 /obj/item/spacecash/c1000,
 /obj/structure/closet/cabinet,
 /obj/item/clothing/suit/armor/material/makeshift/trenchcoat,
-/obj/item/device/flash,
+/obj/item/flash,
 /obj/item/storage/secure/briefcase,
 /obj/machinery/light_switch{
 	pixel_y = 30;
@@ -6589,14 +6589,14 @@
 /obj/random/bomb_supply,
 /obj/random/bomb_supply,
 /obj/random/bomb_supply,
-/obj/item/device/robotanalyzer,
+/obj/item/robotanalyzer,
 /obj/item/storage/bag/circuits/basic,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/effect/decal/cleanable/dirt,
 /obj/item/clothing/head/circuitry,
 /obj/item/clothing/under/circuitry,
 /obj/item/clothing/glasses/circuitry,
-/obj/item/device/paicard,
+/obj/item/paicard,
 /obj/item/ipc_tag_scanner,
 /turf/simulated/floor/tiled/dark/full,
 /area/tramp_freighter/cargo)
@@ -6903,7 +6903,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/obj/item/device/geiger,
+/obj/item/geiger,
 /obj/structure/table/rack,
 /turf/simulated/floor/tiled/dark,
 /area/tramp_freighter/power)
@@ -7074,7 +7074,7 @@
 /obj/structure/table/reinforced/steel,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/obj/item/device/radio/intercom/expedition/hailing/east,
+/obj/item/radio/intercom/expedition/hailing/east,
 /obj/item/paper_bin{
 	pixel_x = 4;
 	pixel_y = 5
@@ -7276,7 +7276,7 @@
 /area/tramp_freighter/starboard_docking)
 "LX" = (
 /obj/structure/table/steel,
-/obj/item/device/flashlight/lamp{
+/obj/item/flashlight/lamp{
 	pixel_x = -13;
 	pixel_y = 2
 	},
@@ -7589,7 +7589,7 @@
 /area/tramp_freighter/lounge)
 "Nx" = (
 /obj/structure/table/steel,
-/obj/item/device/radio/intercom/expedition/hailing/east,
+/obj/item/radio/intercom/expedition/hailing/east,
 /obj/item/folder/yellow{
 	pixel_x = 3
 	},
@@ -7712,7 +7712,7 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/tramp_freighter/afthallway)
 "Oj" = (
-/obj/machinery/autolathe,
+/obj/machinery/fabricator/autolathe,
 /obj/machinery/light{
 	dir = 8
 	},
@@ -7905,14 +7905,14 @@
 "Ph" = (
 /obj/structure/table/rack,
 /obj/effect/floor_decal/industrial/outline/operations,
-/obj/item/device/suit_cooling_unit,
-/obj/item/device/suit_cooling_unit,
-/obj/item/device/suit_cooling_unit,
-/obj/item/device/suit_cooling_unit,
-/obj/item/device/gps/mining,
-/obj/item/device/gps/mining,
-/obj/item/device/gps/mining,
-/obj/item/device/gps/mining,
+/obj/item/suit_cooling_unit,
+/obj/item/suit_cooling_unit,
+/obj/item/suit_cooling_unit,
+/obj/item/suit_cooling_unit,
+/obj/item/gps/mining,
+/obj/item/gps/mining,
+/obj/item/gps/mining,
+/obj/item/gps/mining,
 /obj/machinery/light{
 	dir = 4
 	},
@@ -8040,7 +8040,7 @@
 	dir = 10
 	},
 /obj/machinery/meter,
-/obj/item/device/analyzer{
+/obj/item/analyzer{
 	pixel_x = -13;
 	pixel_y = -7
 	},
@@ -8212,7 +8212,7 @@
 /area/shuttle/freighter_shuttle)
 "QI" = (
 /obj/effect/floor_decal/industrial/hatch/grey,
-/obj/item/device/radio/intercom/expedition/hailing/north,
+/obj/item/radio/intercom/expedition/hailing/north,
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/computer/ship/engines/terminal,
 /turf/simulated/floor/carpet/rubber,
@@ -9779,11 +9779,11 @@
 /area/tramp_freighter/equipment)
 "Yp" = (
 /obj/structure/table/steel,
-/obj/item/device/multitool{
+/obj/item/multitool{
 	pixel_x = -7;
 	pixel_y = 4
 	},
-/obj/item/device/taperecorder{
+/obj/item/taperecorder{
 	pixel_x = 10;
 	pixel_y = 3
 	},

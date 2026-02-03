@@ -2410,7 +2410,7 @@
 	dir = 10
 	},
 /obj/random/dirt_75,
-/obj/machinery/autolathe,
+/obj/machinery/fabricator/autolathe,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled,
 /area/quarantined_outpost/cargo_bay)
@@ -4225,7 +4225,7 @@
 "cYx" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/table/reinforced/steel,
-/obj/item/device/multitool{
+/obj/item/multitool{
 	pixel_x = -9;
 	pixel_y = 8
 	},
@@ -4655,7 +4655,7 @@
 	pixel_x = -6;
 	pixel_y = 2
 	},
-/obj/item/device/flashlight/maglight,
+/obj/item/flashlight/maglight,
 /turf/simulated/floor/tiled,
 /area/quarantined_outpost/entrance_lobby)
 "dnn" = (
@@ -5085,7 +5085,7 @@
 	},
 /obj/random/tech_supply,
 /obj/random/tech_supply,
-/obj/item/device/radio{
+/obj/item/radio{
 	pixel_x = 8
 	},
 /turf/simulated/floor/exoplanet/basalt,
@@ -8026,7 +8026,7 @@
 /obj/structure/table/standard,
 /obj/random/dirt_75,
 /obj/random/tech_supply,
-/obj/item/device/radio{
+/obj/item/radio{
 	pixel_x = 8
 	},
 /obj/random/powercell{
@@ -13288,7 +13288,7 @@
 "iZI" = (
 /obj/effect/floor_decal/corner/yellow/full,
 /obj/structure/table/standard,
-/obj/item/device/flashlight/heavy,
+/obj/item/flashlight/heavy,
 /turf/simulated/floor/tiled/gunmetal,
 /area/quarantined_outpost/engineering/tunnel)
 "iZS" = (
@@ -14108,7 +14108,7 @@
 /obj/structure/platform{
 	dir = 1
 	},
-/obj/item/device/flashlight/flare{
+/obj/item/flashlight/flare{
 	pixel_y = 8;
 	pixel_x = 6
 	},
@@ -18332,7 +18332,7 @@
 "mnk" = (
 /obj/structure/table/standard,
 /obj/item/folder/yellow,
-/obj/item/device/price_scanner,
+/obj/item/price_scanner,
 /turf/simulated/floor/tiled,
 /area/quarantined_outpost/cargo_bay)
 "mnq" = (
@@ -19829,7 +19829,7 @@
 /area/quarantined_outpost/elevator_hallway)
 "nnj" = (
 /obj/structure/table/standard,
-/obj/item/device/laser_pointer/red,
+/obj/item/laser_pointer/red,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/airless,
 /area/quarantined_outpost/security)
@@ -23261,7 +23261,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 1
 	},
-/obj/item/device/flashlight/flare{
+/obj/item/flashlight/flare{
 	pixel_x = -7
 	},
 /turf/simulated/floor/plating,
@@ -27114,7 +27114,7 @@
 	pixel_x = 5;
 	pixel_y = -7
 	},
-/obj/item/device/flashlight/maglight{
+/obj/item/flashlight/maglight{
 	pixel_y = 10;
 	pixel_x = -3
 	},
@@ -27321,7 +27321,7 @@
 	dir = 8
 	},
 /obj/random/dirt_75,
-/obj/item/device/flashlight/heavy,
+/obj/item/flashlight/heavy,
 /turf/simulated/floor/tiled/gunmetal,
 /area/quarantined_outpost/engineering)
 "rZl" = (
@@ -29255,7 +29255,7 @@
 	dir = 1
 	},
 /obj/structure/table/standard,
-/obj/item/device/flashlight/maglight,
+/obj/item/flashlight/maglight,
 /turf/simulated/floor/tiled/dark/full,
 /area/quarantined_outpost/elevator_hallway)
 "toM" = (
@@ -32007,7 +32007,7 @@
 	dir = 4
 	},
 /obj/random/junk,
-/obj/item/device/binoculars{
+/obj/item/binoculars{
 	pixel_y = 7;
 	pixel_x = -7
 	},
@@ -36448,11 +36448,11 @@
 	dir = 9
 	},
 /obj/structure/table/reinforced/steel,
-/obj/item/device/flashlight/lamp/off{
+/obj/item/flashlight/lamp/off{
 	pixel_y = 14;
 	pixel_x = 3
 	},
-/obj/item/device/pin_extractor{
+/obj/item/pin_extractor{
 	pixel_x = 3
 	},
 /turf/simulated/floor/reinforced,

@@ -116,7 +116,7 @@
 /datum/gear/gloves/unathi/New()
 	..()
 	var/list/un_gloves = list()
-	un_gloves["black gloves"] = /obj/item/clothing/gloves/black/unathi
+	un_gloves["work gloves"] = /obj/item/clothing/gloves/black/unathi
 	un_gloves["red gloves"] = /obj/item/clothing/gloves/red/unathi
 	un_gloves["blue gloves"] = /obj/item/clothing/gloves/blue/unathi
 	un_gloves["orange gloves"] = /obj/item/clothing/gloves/orange/unathi
@@ -156,7 +156,7 @@
 
 /datum/gear/religion/unathi_book
 	display_name = "unathi religious texts"
-	path = /obj/item/device/versebook/skakh
+	path = /obj/item/versebook/skakh
 	cost = 1
 	whitelisted = list(SPECIES_UNATHI, SPECIES_DIONA, SPECIES_DIONA_COEUS)
 	sort_category = "Xenowear - Unathi"
@@ -165,10 +165,10 @@
 /datum/gear/religion/unathi_book/New()
 	..()
 	var/list/unathi_book = list()
-	unathi_book["Sk'akh Legends"] = /obj/item/device/versebook/skakh
-	unathi_book["assorted Th'akh fables"] = /obj/item/device/versebook/thakh
-	unathi_book["Reflections on the Aut'akh Faith"] = /obj/item/device/versebook/autakh
-	unathi_book["Writings of Judizah Si'akh"] = /obj/item/device/versebook/siakh
+	unathi_book["Sk'akh Legends"] = /obj/item/versebook/skakh
+	unathi_book["assorted Th'akh fables"] = /obj/item/versebook/thakh
+	unathi_book["Reflections on the Aut'akh Faith"] = /obj/item/versebook/autakh
+	unathi_book["Writings of Judizah Si'akh"] = /obj/item/versebook/siakh
 	gear_tweaks += new /datum/gear_tweak/path(unathi_book)
 
 /datum/gear/uniform/unathi

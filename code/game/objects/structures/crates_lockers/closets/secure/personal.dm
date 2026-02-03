@@ -9,8 +9,8 @@
 		new /obj/item/storage/backpack(src)
 	else
 		new /obj/item/storage/backpack/satchel(src)
-	new /obj/item/device/radio/headset(src)
-	new /obj/item/device/radio/headset/alt(src)
+	new /obj/item/radio/headset(src)
+	new /obj/item/radio/headset/alt(src)
 
 /obj/structure/closet/secure_closet/personal/patient
 	name = "patient's closet"
@@ -33,8 +33,8 @@
 
 /obj/structure/closet/secure_closet/personal/cabinet/fill()
 	new /obj/item/storage/backpack/satchel/leather/withwallet(src)
-	new /obj/item/device/radio/headset(src)
-	new /obj/item/device/radio/headset/alt(src)
+	new /obj/item/radio/headset(src)
+	new /obj/item/radio/headset/alt(src)
 
 /obj/structure/closet/secure_closet/personal/attackby(obj/item/attacking_item, mob/user)
 	if (opened)
@@ -70,7 +70,7 @@
 		if(emag_act(INFINITY, user, "The locker has been sliced open by [user] with \an [blade]!", "You hear metal being sliced and sparks flying."))
 			blade.spark_system.queue()
 			playsound(loc, 'sound/weapons/blade.ogg', 50, 1)
-			playsound(loc, /singleton/sound_category/spark_sound, 50, 1)
+			playsound(loc, SFX_SPARKS, 50, 1)
 	else
 		to_chat(user, SPAN_WARNING("Access denied"))
 	return

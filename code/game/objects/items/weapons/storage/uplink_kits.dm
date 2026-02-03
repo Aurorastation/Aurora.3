@@ -83,9 +83,9 @@
 	starts_with = list(
 		/obj/item/stamp/chameleon = 1,
 		/obj/item/pen/chameleon = 1,
-		/obj/item/device/destTagger = 1,
+		/obj/item/destTagger = 1,
 		/obj/item/stack/packageWrap = 1,
-		/obj/item/device/hand_labeler = 1,
+		/obj/item/hand_labeler = 1,
 		/obj/item/folder/filled = 1
 	)
 
@@ -109,7 +109,7 @@
 /obj/item/storage/box/syndie_kit/spy
 	name = "spy kit"
 	desc = "For when you want to conduct voyeurism from afar."
-	starts_with = list(/obj/item/device/spy_bug = 6, /obj/item/device/spy_monitor = 1)
+	starts_with = list(/obj/item/spy_bug = 6, /obj/item/spy_monitor = 1)
 
 /obj/item/storage/box/syndie_kit/spy/hidden
 	name = "box"
@@ -228,7 +228,7 @@
 /obj/item/storage/box/syndie_kit/radsuit
 	name = "radiation suit kit"
 	desc = "Contains a radiation suit and geiger counter to protect you from radiation."
-	starts_with = list(/obj/item/clothing/head/radiation = 1, /obj/item/clothing/suit/radiation = 1, /obj/item/clothing/glasses/safety/goggles = 1, /obj/item/device/geiger = 1, /obj/item/reagent_containers/pill/hyronalin = 1)
+	starts_with = list(/obj/item/clothing/head/radiation = 1, /obj/item/clothing/suit/radiation = 1, /obj/item/clothing/glasses/safety/goggles = 1, /obj/item/geiger = 1, /obj/item/reagent_containers/pill/hyronalin = 1)
 
 /obj/item/storage/box/syndie_kit/syringe_gun
 	name = "syringe gun kit"

@@ -207,7 +207,7 @@
 	if(ishuman(hit_mob))
 		var/mob/living/carbon/human/H = hit_mob
 		if(prob(20))
-			var/obj/item/organ/internal/cell/cell_holder = locate() in H.internal_organs
+			var/obj/item/organ/internal/machine/power_core/cell_holder = locate() in H.internal_organs
 			if(cell_holder)
 				var/obj/item/cell/C = cell_holder.cell
 				if(C)

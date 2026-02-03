@@ -2425,7 +2425,7 @@
 /obj/effect/floor_decal/corner/orange{
 	dir = 9
 	},
-/obj/machinery/autolathe,
+/obj/machinery/fabricator/autolathe,
 /turf/simulated/floor/tiled/dark,
 /area/omgolo_tourist/engineering)
 "aRr" = (
@@ -2442,7 +2442,7 @@
 /area/omgolo_tourist/room3)
 "aRv" = (
 /obj/structure/table/wood,
-/obj/item/device/flashlight/lamp/green,
+/obj/item/flashlight/lamp/green,
 /turf/simulated/floor/carpet/red,
 /area/omgolo_tourist/room1)
 "aRx" = (
@@ -2712,7 +2712,7 @@
 "aVY" = (
 /obj/structure/table/wood,
 /obj/random/spacecash,
-/obj/item/device/flashlight/lamp/green,
+/obj/item/flashlight/lamp/green,
 /turf/simulated/floor/carpet/red,
 /area/omgolo_tourist/room2)
 "aVZ" = (
@@ -2904,7 +2904,7 @@
 /area/omgolo_tourist/room2)
 "aZZ" = (
 /obj/structure/table/wood,
-/obj/item/device/flashlight/lamp/green,
+/obj/item/flashlight/lamp/green,
 /turf/simulated/floor/carpet/red,
 /area/omgolo_tourist/room3)
 "baC" = (

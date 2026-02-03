@@ -611,7 +611,7 @@
 	pixel_y = 5;
 	pixel_x = 6
 	},
-/obj/item/device/binoculars{
+/obj/item/binoculars{
 	pixel_y = -9;
 	pixel_x = -3
 	},
@@ -1631,7 +1631,7 @@
 /turf/simulated/floor/plating,
 /area/cult_base/engineering)
 "aeR" = (
-/obj/item/device/flashlight/flare{
+/obj/item/flashlight/flare{
 	pixel_x = 8
 	},
 /obj/structure/cable{
@@ -3803,7 +3803,7 @@
 /area/cult_base/atmos_supply)
 "arD" = (
 /obj/structure/table/steel,
-/obj/item/device/flashlight/lamp/off{
+/obj/item/flashlight/lamp/off{
 	pixel_x = 5;
 	pixel_y = 5
 	},
@@ -3978,7 +3978,7 @@
 /obj/random/gloves,
 /obj/random/loot,
 /obj/item/clothing/suit/storage/toggle/leather_jacket/flight/green,
-/obj/item/clothing/suit/storage/toggle/highvis_alt,
+/obj/item/clothing/suit/storage/toggle/highvis/alt,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/crew_quarters)
@@ -5466,11 +5466,11 @@
 /obj/effect/floor_decal/corner/grey{
 	dir = 9
 	},
-/obj/item/device/multitool{
+/obj/item/multitool{
 	pixel_x = 3;
 	pixel_y = 3
 	},
-/obj/item/device/radio/intercom/hailing/north,
+/obj/item/radio/intercom/hailing/north,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/cult_base/crew)
 "aBH" = (
@@ -5712,7 +5712,7 @@
 "aDH" = (
 /obj/structure/closet,
 /obj/item/clothing/shoes/winter/tajara,
-/obj/item/clothing/suit/storage/toggle/highvis_alt,
+/obj/item/clothing/suit/storage/toggle/highvis/alt,
 /obj/random/spacecash,
 /obj/random/loot,
 /obj/random/colored_jumpsuit,
@@ -5791,7 +5791,7 @@
 /area/cult_base/atmos_waste)
 "aEo" = (
 /obj/random/dirt_75,
-/obj/item/device/binoculars{
+/obj/item/binoculars{
 	pixel_y = -5;
 	pixel_x = 3
 	},
@@ -5919,7 +5919,7 @@
 	pixel_y = 4;
 	pixel_x = -3
 	},
-/obj/item/device/radio/hailing{
+/obj/item/radio/hailing{
 	pixel_x = 6;
 	pixel_y = -8
 	},
@@ -7314,7 +7314,7 @@
 	pixel_y = 5;
 	pixel_x = 4
 	},
-/obj/item/device/radio/hailing{
+/obj/item/radio/hailing{
 	pixel_x = -3;
 	pixel_y = 6
 	},
@@ -7890,7 +7890,7 @@
 "aRf" = (
 /obj/structure/table/steel,
 /obj/machinery/light/broken,
-/obj/item/device/flashlight/lamp/off{
+/obj/item/flashlight/lamp/off{
 	pixel_y = 6
 	},
 /turf/simulated/floor/tiled/dark,
@@ -8431,7 +8431,7 @@
 /area/cult_base/crew_quarters)
 "aTL" = (
 /obj/machinery/atmospherics/unary/vent_pump/on,
-/obj/item/device/radio/intercom/hailing/north,
+/obj/item/radio/intercom/hailing/north,
 /turf/simulated/floor/tiled/dark/full,
 /area/cult_base/bridge)
 "aTO" = (
@@ -8442,7 +8442,7 @@
 /area/shuttle/cult_base/cargo)
 "aTT" = (
 /obj/structure/table/steel,
-/obj/item/device/flashlight/lamp/off{
+/obj/item/flashlight/lamp/off{
 	pixel_x = -4;
 	pixel_y = 5
 	},
@@ -10003,7 +10003,7 @@
 /obj/effect/floor_decal/industrial/arrow/yellow{
 	dir = 4
 	},
-/obj/item/device/binoculars{
+/obj/item/binoculars{
 	pixel_y = -5;
 	pixel_x = 3
 	},
@@ -10392,7 +10392,7 @@
 	pixel_y = 6;
 	pixel_x = 5
 	},
-/obj/item/device/binoculars{
+/obj/item/binoculars{
 	pixel_y = -7;
 	pixel_x = -5
 	},
@@ -10411,7 +10411,7 @@
 	pixel_y = 6;
 	pixel_x = 3
 	},
-/obj/item/device/binoculars{
+/obj/item/binoculars{
 	pixel_y = -10;
 	pixel_x = -4
 	},
@@ -10639,7 +10639,7 @@
 	pixel_y = 5;
 	pixel_x = 6
 	},
-/obj/item/device/binoculars{
+/obj/item/binoculars{
 	pixel_y = -6;
 	pixel_x = -8
 	},
@@ -11087,7 +11087,7 @@
 "llr" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
-/obj/item/device/binoculars{
+/obj/item/binoculars{
 	pixel_y = -5;
 	pixel_x = 3
 	},
@@ -11859,7 +11859,7 @@
 /area/cult_base/docks_south)
 "qpW" = (
 /obj/random/dirt_75,
-/obj/item/device/binoculars{
+/obj/item/binoculars{
 	pixel_y = -7;
 	pixel_x = -5
 	},
@@ -11880,7 +11880,7 @@
 /obj/effect/floor_decal/industrial/arrow/yellow{
 	dir = 8
 	},
-/obj/item/device/binoculars{
+/obj/item/binoculars{
 	pixel_y = -7;
 	pixel_x = -5
 	},
@@ -11905,7 +11905,7 @@
 "qKL" = (
 /obj/random/dirt_75,
 /obj/effect/floor_decal/industrial/arrow/yellow,
-/obj/item/device/binoculars{
+/obj/item/binoculars{
 	pixel_y = -5;
 	pixel_x = 3
 	},
@@ -12183,7 +12183,7 @@
 /area/cult_base/docks_west)
 "svP" = (
 /obj/random/dirt_75,
-/obj/item/device/binoculars{
+/obj/item/binoculars{
 	pixel_y = -7;
 	pixel_x = -5
 	},
@@ -12329,7 +12329,7 @@
 	pixel_y = 10;
 	pixel_x = -3
 	},
-/obj/item/device/binoculars{
+/obj/item/binoculars{
 	pixel_y = -5;
 	pixel_x = 3
 	},
@@ -12599,7 +12599,7 @@
 /area/shuttle/cult_base/crew)
 "uQf" = (
 /obj/random/dirt_75,
-/obj/item/device/binoculars{
+/obj/item/binoculars{
 	pixel_y = -5;
 	pixel_x = 3
 	},
@@ -12817,7 +12817,7 @@
 "wtJ" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
-/obj/item/device/binoculars{
+/obj/item/binoculars{
 	pixel_y = -7;
 	pixel_x = -5
 	},

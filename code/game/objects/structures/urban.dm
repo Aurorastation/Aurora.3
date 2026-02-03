@@ -332,7 +332,7 @@ ABSTRACT_TYPE(/obj/structure/stairs/urban/road_ramp)
 	var/open = 0
 
 /obj/structure/manhole/attackby(obj/item/attacking_item, mob/user)
-	if(attacking_item.iscrowbar())
+	if(attacking_item.tool_behaviour == TOOL_CROWBAR)
 		playsound(src.loc, 'sound/effects/stonedoor_openclose.ogg', 50, 1)
 		to_chat(user, "You forcibly relocate the manhole, hopefully in the right way.")
 	if(!open)

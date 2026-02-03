@@ -34,7 +34,7 @@
 	},
 /area/exoplanet/barren/burzsia)
 "F" = (
-/obj/item/organ/internal/ipc_tag,
+/obj/item/organ/internal/machine/ipc_tag,
 /turf/simulated/floor/exoplanet/barren{
 	color = "#b7410e"
 	},

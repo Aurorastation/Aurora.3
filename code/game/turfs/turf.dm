@@ -25,7 +25,7 @@
 	/// Has the turf been blessed?
 	var/blessed = 0
 
-	var/footstep_sound = /singleton/sound_category/tiles_footstep
+	var/footstep_sound = SFX_FOOTSTEP_TILES
 
 	var/list/decals
 	var/list/blueprints
@@ -524,7 +524,7 @@
 	if(istype(attacking_item, /obj/item/grab))
 		var/obj/item/grab/grab = attacking_item
 		step(grab.affecting, get_dir(grab.affecting, src))
-	if (can_lay_cable() && attacking_item.iscoil())
+	if (can_lay_cable() && attacking_item.tool_behaviour == TOOL_CABLECOIL)
 		var/obj/item/stack/cable_coil/coil = attacking_item
 		coil.turf_place(src, user)
 	else
@@ -616,6 +616,8 @@
 				// Only show message for visible runes
 				if(!R.invisibility)
 					to_chat(user, SPAN_WARNING("No matter how well you wash, the bloody symbols remain!"))
+		if(src.is_open())
+			update_mimic();
 	else
 		if(!(last_clean && world.time < last_clean + 100))
 			to_chat(user, SPAN_WARNING("\The [source] is too dry to wash that."))
@@ -804,3 +806,6 @@
 		if(istype(O,/obj/effect/rune) || istype(O,/obj/effect/decal/cleanable))
 			qdel(O)
 	clean_blood()
+
+/turf/proc/IgniteTurf(power, fire_color)
+	return

@@ -150,9 +150,9 @@ By design, d1 is the smallest direction and d2 is the highest
 	if(!T.can_have_cabling())
 		return
 
-	if(attacking_item.iswirecutter() || (attacking_item.sharp || attacking_item.edge))
+	if(attacking_item.tool_behaviour == TOOL_WIRECUTTER || (attacking_item.sharp || attacking_item.edge))
 
-		if(!attacking_item.iswirecutter())
+		if(attacking_item.tool_behaviour != TOOL_WIRECUTTER)
 			if(user.a_intent != I_HELP)
 				return
 
@@ -192,14 +192,14 @@ By design, d1 is the smallest direction and d2 is the highest
 		return
 
 
-	else if(attacking_item.iscoil())
+	else if(attacking_item.tool_behaviour == TOOL_CABLECOIL)
 		var/obj/item/stack/cable_coil/coil = attacking_item
 		if (coil.get_amount() < 1)
 			to_chat(user, "You don't have enough cable.")
 			return
 		coil.cable_join(src, user)
 
-	else if(attacking_item.ismultitool())
+	else if(attacking_item.tool_behaviour == TOOL_MULTITOOL)
 
 		if(powernet && (powernet.avail > 0))		// is it powered?
 			to_chat(user, SPAN_WARNING("[powernet.avail]W in power network."))
@@ -516,9 +516,7 @@ By design, d1 is the smallest direction and d2 is the highest
 	contained_sprite = TRUE
 	build_from_parts = TRUE
 	worn_overlay = "end"
-
-/obj/item/stack/cable_coil/iscoil()
-	return TRUE
+	tool_behaviour = TOOL_CABLECOIL
 
 /obj/item/stack/cable_coil/Initialize(mapload, amt, param_color = null)
 	. = ..(mapload, amt)
@@ -578,7 +576,7 @@ By design, d1 is the smallest direction and d2 is the highest
 								break
 							user.visible_message(SPAN_NOTICE("\The [user] barely manages to stitch \a [W.desc] on [target_mob]'s [affecting.name]."), \
 														SPAN_NOTICE("You barely manage to stitch \a [W.desc] on [target_mob]'s [affecting.name].") )
-							W.bandage("cable-stitched")
+							W.bandage()
 							use(10)
 							affecting.add_pain(25)
 							if(prob(min(30 + (germ_level/5), 65))) //Less chance of infection if you clean the coil. Coil's germ level is set to GERM_LEVEL_AMBIENT
@@ -659,7 +657,7 @@ By design, d1 is the smallest direction and d2 is the highest
 	check_maptext(SMALL_FONTS(7, get_amount()))
 
 /obj/item/stack/cable_coil/attackby(obj/item/attacking_item, mob/user)
-	if(attacking_item.ismultitool())
+	if(attacking_item.tool_behaviour == TOOL_MULTITOOL)
 		choose_cable_color(user)
 	return ..()
 
@@ -1065,7 +1063,7 @@ By design, d1 is the smallest direction and d2 is the highest
 	return ..()
 
 /obj/structure/noose/attackby(obj/item/attacking_item, mob/user, params)
-	if(attacking_item.iswirecutter())
+	if(attacking_item.tool_behaviour == TOOL_WIRECUTTER)
 		user.visible_message("<b>[user]</b> cuts \the [src].", SPAN_NOTICE("You cut \the [src]."))
 		playsound(src.loc, 'sound/items/Wirecutter.ogg', 50, 1)
 		if(istype(buckled, /mob/living))

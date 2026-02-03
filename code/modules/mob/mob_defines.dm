@@ -55,6 +55,8 @@
 	var/atom/movable/screen/energy/energy_display = null
 	var/atom/movable/screen/instability/instability_display = null
 	var/atom/movable/screen/up_hint = null
+	/// The IPC version of the fullscreen pain texture.
+	var/atom/movable/screen/fullscreen/robot_pain
 
 	//spells hud icons - this interacts with add_spell and remove_spell
 	var/list/atom/movable/screen/movable/spell_master/spell_masters = null
@@ -252,10 +254,16 @@
 	var/list/item_verbs = list()
 	var/list/shouldnt_see = list()	//typecache of objects that this mob shouldn't see in the stat panel. this silliness is needed because of AI alt+click and cult blood runes
 
-	var/list/active_genes=list()
+	var/list/active_genes = list()
+
 	var/mob_size = MOB_MEDIUM
 	/// The icon size width of the mob. Used for langchat resizing.
 	var/icon_size = 32
+
+	/// The weight of the mob. Affects if the mob can be easily lifted or not. Separate from size, as some mobs may be big but not particularly heavy.
+	var/mob_weight = MOB_WEIGHT_LIGHT
+	/// The strength of the mob. Affects what kind of mobs can be thrown or carried. By default, does not give any buff.
+	var/mob_strength = MOB_STRENGTH_NORMAL
 
 	var/list/progressbars
 

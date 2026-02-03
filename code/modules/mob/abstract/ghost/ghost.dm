@@ -8,7 +8,7 @@
 	/// If the ghost has antagHUD.
 	var/antagHUD = 0
 	/// Necessary for seeing wires.
-	var/obj/item/device/multitool/ghost_multitool
+	var/obj/item/multitool/ghost_multitool
 	/// The POI we're orbiting.
 	var/orbiting_ref
 

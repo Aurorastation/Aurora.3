@@ -34,11 +34,11 @@
 	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/civilian/bartender
 	tablet = /obj/item/modular_computer/handheld/preset/civilian/bartender
 
-	headset = /obj/item/device/radio/headset/headset_service
-	bowman = /obj/item/device/radio/headset/headset_service/alt
-	double_headset = /obj/item/device/radio/headset/alt/double/service
-	wrist_radio = /obj/item/device/radio/headset/wrist/service
-	clipon_radio = /obj/item/device/radio/headset/wrist/clip/service
+	headset = /obj/item/radio/headset/headset_service
+	bowman = /obj/item/radio/headset/headset_service/alt
+	double_headset = /obj/item/radio/headset/alt/double/service
+	wrist_radio = /obj/item/radio/headset/wrist/service
+	clipon_radio = /obj/item/radio/headset/wrist/clip/service
 
 	backpack_faction = /obj/item/storage/backpack/nt
 	satchel_faction = /obj/item/storage/backpack/satchel/nt
@@ -81,11 +81,11 @@
 	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/civilian
 	tablet = /obj/item/modular_computer/handheld/preset/civilian
 
-	headset = /obj/item/device/radio/headset/headset_service
-	bowman = /obj/item/device/radio/headset/headset_service/alt
-	double_headset = /obj/item/device/radio/headset/alt/double/service
-	wrist_radio = /obj/item/device/radio/headset/wrist/service
-	clipon_radio = /obj/item/device/radio/headset/wrist/clip/service
+	headset = /obj/item/radio/headset/headset_service
+	bowman = /obj/item/radio/headset/headset_service/alt
+	double_headset = /obj/item/radio/headset/alt/double/service
+	wrist_radio = /obj/item/radio/headset/wrist/service
+	clipon_radio = /obj/item/radio/headset/wrist/clip/service
 
 	backpack_faction = /obj/item/storage/backpack/nt
 	satchel_faction = /obj/item/storage/backpack/satchel/nt
@@ -132,11 +132,11 @@
 	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/civilian
 	tablet = /obj/item/modular_computer/handheld/preset/civilian
 
-	headset = /obj/item/device/radio/headset/headset_service
-	bowman = /obj/item/device/radio/headset/headset_service/alt
-	double_headset = /obj/item/device/radio/headset/alt/double/service
-	wrist_radio = /obj/item/device/radio/headset/wrist/service
-	clipon_radio = /obj/item/device/radio/headset/wrist/clip/service
+	headset = /obj/item/radio/headset/headset_service
+	bowman = /obj/item/radio/headset/headset_service/alt
+	double_headset = /obj/item/radio/headset/alt/double/service
+	wrist_radio = /obj/item/radio/headset/wrist/service
+	clipon_radio = /obj/item/radio/headset/wrist/clip/service
 
 	backpack = /obj/item/storage/backpack/hydroponics
 	backpack_faction = /obj/item/storage/backpack/nt
@@ -184,11 +184,11 @@
 	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/civilian/janitor
 	tablet = /obj/item/modular_computer/handheld/preset/civilian/janitor
 
-	headset = /obj/item/device/radio/headset/headset_service
-	bowman = /obj/item/device/radio/headset/headset_service/alt
-	double_headset = /obj/item/device/radio/headset/alt/double/service
-	wrist_radio = /obj/item/device/radio/headset/wrist/service
-	clipon_radio = /obj/item/device/radio/headset/wrist/clip/service
+	headset = /obj/item/radio/headset/headset_service
+	bowman = /obj/item/radio/headset/headset_service/alt
+	double_headset = /obj/item/radio/headset/alt/double/service
+	wrist_radio = /obj/item/radio/headset/wrist/service
+	clipon_radio = /obj/item/radio/headset/wrist/clip/service
 
 	backpack_faction = /obj/item/storage/backpack/nt
 	satchel_faction = /obj/item/storage/backpack/satchel/nt
@@ -227,11 +227,11 @@
 	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/civilian/librarian
 	tablet = /obj/item/modular_computer/handheld/preset/civilian/librarian
 
-	headset = /obj/item/device/radio/headset/headset_service
-	bowman = /obj/item/device/radio/headset/headset_service/alt
-	double_headset = /obj/item/device/radio/headset/alt/double/service
-	wrist_radio = /obj/item/device/radio/headset/wrist/service
-	clipon_radio = /obj/item/device/radio/headset/wrist/clip/service
+	headset = /obj/item/radio/headset/headset_service
+	bowman = /obj/item/radio/headset/headset_service/alt
+	double_headset = /obj/item/radio/headset/alt/double/service
+	wrist_radio = /obj/item/radio/headset/wrist/service
+	clipon_radio = /obj/item/radio/headset/wrist/clip/service
 
 	backpack_faction = /obj/item/storage/backpack/nt
 	satchel_faction = /obj/item/storage/backpack/satchel/nt
@@ -243,7 +243,7 @@
 	jobtype = /datum/job/librarian
 
 	uniform = /obj/item/clothing/under/suit_jacket
-	r_pocket = /obj/item/device/price_scanner
+	r_pocket = /obj/item/price_scanner
 	l_hand = null
 
 /obj/outfit/job/librarian/tech_support
@@ -254,7 +254,7 @@
 	l_pocket = /obj/item/modular_computer/handheld/preset/generic
 	r_pocket = /obj/item/card/tech_support
 	r_hand = /obj/item/storage/bag/circuits/basic
-	l_hand = /obj/item/device/debugger
+	l_hand = /obj/item/debugger
 	wrist = /obj/item/modular_computer/handheld/wristbound/preset/advanced/civilian
 
 /obj/outfit/job/librarian/tech_support/equip(mob/living/carbon/human/H, visualsOnly = FALSE)
@@ -287,11 +287,11 @@
 	uniform = /obj/item/clothing/under/rank/chaplain
 	shoes = /obj/item/clothing/shoes/sneakers/black
 
-	headset = /obj/item/device/radio/headset/headset_service
-	bowman = /obj/item/device/radio/headset/headset_service/alt
-	double_headset = /obj/item/device/radio/headset/alt/double/service
-	wrist_radio = /obj/item/device/radio/headset/wrist/service
-	clipon_radio = /obj/item/device/radio/headset/wrist/clip/service
+	headset = /obj/item/radio/headset/headset_service
+	bowman = /obj/item/radio/headset/headset_service/alt
+	double_headset = /obj/item/radio/headset/alt/double/service
+	wrist_radio = /obj/item/radio/headset/wrist/service
+	clipon_radio = /obj/item/radio/headset/wrist/clip/service
 
 	tab_pda = /obj/item/modular_computer/handheld/pda/civilian/chaplain
 	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/civilian/chaplain
@@ -311,7 +311,7 @@
 	var/datum/religion/religion = SSrecords.religions[H.religion]
 	if (religion)
 		if(religion.unique_book_path)
-			var/obj/item/device/versebook/U = new religion.unique_book_path(get_turf(H))
+			var/obj/item/versebook/U = new religion.unique_book_path(get_turf(H))
 			var/obj/item/storage/S = locate() in H.contents
 			if(S && istype(S))
 				U.forceMove(S)
@@ -375,11 +375,11 @@
 	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/supply/om
 	tablet = /obj/item/modular_computer/handheld/preset/supply/om
 
-	headset = /obj/item/device/radio/headset/operations_manager
-	bowman = /obj/item/device/radio/headset/operations_manager/alt
-	double_headset = /obj/item/device/radio/headset/alt/double/operations_manager
-	wrist_radio = /obj/item/device/radio/headset/wrist/cargo/operations_manager
-	clipon_radio = /obj/item/device/radio/headset/wrist/clip/cargo/operations_manager
+	headset = /obj/item/radio/headset/operations_manager
+	bowman = /obj/item/radio/headset/operations_manager/alt
+	double_headset = /obj/item/radio/headset/alt/double/operations_manager
+	wrist_radio = /obj/item/radio/headset/wrist/cargo/operations_manager
+	clipon_radio = /obj/item/radio/headset/wrist/clip/cargo/operations_manager
 
 	backpack = /obj/item/storage/backpack/om
 	satchel = /obj/item/storage/backpack/satchel/om
@@ -420,17 +420,24 @@
 
 	uniform = /obj/item/clothing/under/rank/hangar_technician
 	id = /obj/item/card/id/silver
-	shoes = /obj/item/clothing/shoes/sneakers/brown
+	shoes = /obj/item/clothing/shoes/workboots
 
 	tab_pda = /obj/item/modular_computer/handheld/pda/supply
 	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/supply
 	tablet = /obj/item/modular_computer/handheld/preset/supply
 
-	headset = /obj/item/device/radio/headset/headset_cargo
-	bowman = /obj/item/device/radio/headset/headset_cargo/alt
-	double_headset = /obj/item/device/radio/headset/alt/double/cargo
-	wrist_radio = /obj/item/device/radio/headset/wrist/cargo
-	clipon_radio = /obj/item/device/radio/headset/wrist/clip/cargo
+	headset = /obj/item/radio/headset/headset_cargo
+	bowman = /obj/item/radio/headset/headset_cargo/alt
+	double_headset = /obj/item/radio/headset/alt/double/cargo
+	wrist_radio = /obj/item/radio/headset/wrist/cargo
+	clipon_radio = /obj/item/radio/headset/wrist/clip/cargo
+
+/obj/outfit/job/hangar_tech/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+	. = ..()
+	if(istajara(H))
+		H.equip_to_slot_or_del(new /obj/item/clothing/shoes/workboots/tajara(H), slot_shoes)
+	else if(isunathi(H))
+		H.equip_to_slot_or_del(new /obj/item/clothing/shoes/workboots/toeless(H), slot_shoes)
 
 /datum/job/mining
 	title = "Shaft Miner"
@@ -473,11 +480,11 @@
 	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/supply/miner
 	tablet = /obj/item/modular_computer/handheld/preset/civilian
 
-	headset = /obj/item/device/radio/headset/headset_mining
-	bowman = /obj/item/device/radio/headset/headset_mining/alt
-	double_headset = /obj/item/device/radio/headset/alt/double/mining
-	wrist_radio = /obj/item/device/radio/headset/wrist/cargo/mining
-	clipon_radio = /obj/item/device/radio/headset/wrist/clip/cargo/mining
+	headset = /obj/item/radio/headset/headset_mining
+	bowman = /obj/item/radio/headset/headset_mining/alt
+	double_headset = /obj/item/radio/headset/alt/double/mining
+	wrist_radio = /obj/item/radio/headset/wrist/cargo/mining
+	clipon_radio = /obj/item/radio/headset/wrist/clip/cargo/mining
 
 	backpack_contents = list(
 		/obj/item/storage/bag/ore = 1
@@ -534,11 +541,11 @@
 	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/supply/machinist
 	tablet = /obj/item/modular_computer/handheld/preset/supply/machinist
 
-	headset = /obj/item/device/radio/headset/headset_cargo
-	bowman = /obj/item/device/radio/headset/headset_cargo/alt
-	double_headset = /obj/item/device/radio/headset/alt/double/cargo
-	wrist_radio = /obj/item/device/radio/headset/wrist/cargo
-	clipon_radio = /obj/item/device/radio/headset/wrist/clip/cargo
+	headset = /obj/item/radio/headset/headset_cargo
+	bowman = /obj/item/radio/headset/headset_cargo/alt
+	double_headset = /obj/item/radio/headset/alt/double/cargo
+	wrist_radio = /obj/item/radio/headset/wrist/cargo
+	clipon_radio = /obj/item/radio/headset/wrist/clip/cargo
 
 	belt_contents = list(
 		/obj/item/screwdriver = 1,

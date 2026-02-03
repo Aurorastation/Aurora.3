@@ -95,7 +95,7 @@
 	//How much hallucination should it produce per unit of power?
 	var/config_hallucination_power = 0.1
 
-	var/obj/item/device/radio/radio
+	var/obj/item/radio/radio
 
 	var/debug = 0
 	var/last_message_time = -100 //for message
@@ -119,7 +119,7 @@
 
 /obj/machinery/power/supermatter/Initialize()
 	. = ..()
-	radio = new /obj/item/device/radio{channels=list("Engineering")}(src)
+	radio = new /obj/item/radio{channels=list("Engineering")}(src)
 	soundloop = new(src, TRUE)
 
 /obj/machinery/power/supermatter/Destroy()
@@ -240,9 +240,9 @@
 	if(last_accent_sound < world.time && prob(20))
 		var/aggression = min(((damage / 800) * (power / 2500)), 1.0) * 100
 		if(damage >= 300)
-			playsound(src, /singleton/sound_category/supermatter_delam, clamp(aggression, 50, 75), FALSE, 10)
+			playsound(src, SFX_SM_DELAM, clamp(aggression, 50, 75), FALSE, 10)
 		else
-			playsound(src, /singleton/sound_category/supermatter_calm, clamp(aggression, 50, 75), FALSE, 10)
+			playsound(src, SFX_SM_CALM, clamp(aggression, 50, 75), FALSE, 10)
 		var/next_sound = round((100 - aggression) * 5)
 		last_accent_sound = world.time + max(SUPERMATTER_ACCENT_SOUND_MIN_COOLDOWN, next_sound)
 

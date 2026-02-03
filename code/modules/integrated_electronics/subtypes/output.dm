@@ -207,7 +207,6 @@
 		"freeze"       = 'sound/voice/bfreeze.ogg',
 		"god"          = 'sound/voice/bgod.ogg',
 		"i am the law" = 'sound/voice/biamthelaw.ogg',
-		"insult"       = 'sound/voice/binsult.ogg',
 		"radio"        = 'sound/voice/bradio.ogg',
 		"secure day"   = 'sound/voice/bsecureday.ogg'
 	)
@@ -223,7 +222,6 @@
 		"feel better" = 'sound/voice/medbot/mfeelbetter.ogg',
 		"patched up"  = 'sound/voice/medbot/mpatchedup.ogg',
 		"injured"     = 'sound/voice/medbot/minjured.ogg',
-		"insult"      = 'sound/voice/medbot/minsult.ogg',
 		"coming"      = 'sound/voice/medbot/mcoming.ogg',
 		"help"        = 'sound/voice/medbot/mhelp.ogg',
 		"live"        = 'sound/voice/medbot/mlive.ogg',

@@ -261,7 +261,7 @@
 	user.do_attack_animation(src)
 	SSplants.add_plant(src)
 
-	if(attacking_item.iswirecutter() || istype(attacking_item, /obj/item/surgery/scalpel))
+	if(attacking_item.tool_behaviour == TOOL_WIRECUTTER || istype(attacking_item, /obj/item/surgery/scalpel))
 		if(sampled)
 			to_chat(user, SPAN_WARNING("\The [src] has already been sampled recently."))
 			return
@@ -280,7 +280,7 @@
 		health -= (rand(3,5)*5)
 		sampled = 1
 	else
-		playsound(loc, /singleton/sound_category/wood_break_sound, 50, TRUE)
+		playsound(loc, SFX_BREAK_WOOD, 50, TRUE)
 		var/damage = attacking_item.force ? attacking_item.force : 1 //always do at least a little damage
 		if(attacking_item.edge || attacking_item.sharp)
 			damage *= 2
@@ -294,7 +294,7 @@
 	manual_unbuckle(user)
 
 	var/mob/living/carbon/human/H = user
-	playsound(loc, /singleton/sound_category/wood_break_sound, 50, TRUE)
+	playsound(loc, SFX_BREAK_WOOD, 50, TRUE)
 	var/damage = H.default_attack.get_unarmed_damage(H, src) ? H.default_attack.get_unarmed_damage(H, src) : 1
 	if(H.default_attack.edge || H.default_attack.sharp)
 		damage *= 2

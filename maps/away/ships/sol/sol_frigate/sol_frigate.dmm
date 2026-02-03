@@ -86,11 +86,11 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/sol_frigate/starboard_gunnery)
 "aw" = (
+/obj/structure/bed/stool/chair/sofa/corner/concave,
+/obj/item/clothing/ears/earphones/earbuds,
 /obj/machinery/light{
 	dir = 4
 	},
-/obj/structure/bed/stool/chair/sofa/corner/concave,
-/obj/item/clothing/ears/earphones/earbuds,
 /turf/simulated/floor/holofloor/wood,
 /area/ship/sol_frigate/hallway_fore)
 "ay" = (
@@ -265,6 +265,9 @@
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/machinery/door/airlock/external{
 	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/black{
+	dir = 8
 	},
 /obj/machinery/access_button{
 	pixel_x = 27;
@@ -666,8 +669,13 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/sol_frigate/cic)
 "di" = (
-/obj/effect/floor_decal/industrial/hatch,
-/turf/simulated/floor/tiled/dark,
+/obj/structure/ship_weapon_dummy/barrel,
+/obj/machinery/ship_weapon/coilgun{
+	pixel_y = -34;
+	weapon_id = "Starboard_Coilgun";
+	pixel_x = -31
+	},
+/turf/simulated/floor/reinforced,
 /area/ship/sol_frigate/port_battery)
 "dj" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
@@ -765,6 +773,7 @@
 	req_access = list(222)
 	},
 /obj/effect/floor_decal/industrial/hatch/red,
+/obj/effect/map_effect/marker/airlock/docking/Sol_frigate/shuttle_port,
 /turf/simulated/floor/plating,
 /area/ship/sol_frigate/hangar)
 "dv" = (
@@ -1103,6 +1112,16 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/sol_frigate/safe_room)
+"eO" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 6
+	},
+/obj/machinery/light{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/hatch,
+/turf/simulated/floor/tiled/dark,
+/area/ship/sol_frigate/port_battery)
 "eR" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -1162,15 +1181,12 @@
 /area/ship/sol_frigate/hallway_fore)
 "fg" = (
 /obj/structure/table/rack,
-/obj/item/warhead/longbow,
-/obj/item/warhead/longbow,
-/obj/item/warhead/longbow,
-/obj/item/warhead/longbow/ap,
-/obj/item/warhead/longbow/ap,
-/obj/item/warhead/longbow/ap,
 /obj/effect/floor_decal/corner/red{
 	dir = 6
 	},
+/obj/item/ship_ammunition/coilgun,
+/obj/item/ship_ammunition/coilgun,
+/obj/item/ship_ammunition/coilgun,
 /turf/simulated/floor/tiled/dark,
 /area/ship/sol_frigate/port_battery)
 "fi" = (
@@ -1178,7 +1194,7 @@
 /obj/structure/bed/stool/chair/padded/green{
 	dir = 4
 	},
-/obj/item/device/synthesized_instrument/violin,
+/obj/item/synthesized_instrument/violin,
 /turf/simulated/floor/tiled/dark,
 /area/ship/sol_frigate/bunks)
 "fj" = (
@@ -1281,6 +1297,10 @@
 /obj/item/reagent_containers/food/condiment/sugar,
 /obj/item/reagent_containers/food/condiment/flour,
 /obj/item/reagent_containers/food/condiment/flour,
+/obj/random_produce/box,
+/obj/random_produce/box,
+/obj/random_produce/box,
+/obj/random_produce/box,
 /turf/simulated/floor/tiled/freezer{
 	name = "cooled tiles";
 	temperature = 253.15
@@ -1354,11 +1374,11 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/sol_frigate/starboard_battery)
 "fN" = (
-/obj/machinery/ammunition_loader/longbow{
-	weapon_id = "Sol Frigate Longbow"
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 10
 	},
 /turf/simulated/floor/tiled/dark,
-/area/ship/sol_frigate/port_battery)
+/area/ship/sol_frigate/starboard_thrusters)
 "fO" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 4
@@ -1401,7 +1421,7 @@
 /area/ship/sol_frigate/Port_docking_port)
 "gj" = (
 /obj/structure/closet/crate/elec,
-/obj/item/device/multitool,
+/obj/item/multitool,
 /obj/item/storage/toolbox/electrical,
 /obj/item/circuitboard/smes,
 /obj/item/circuitboard/smes,
@@ -1460,7 +1480,7 @@
 /obj/structure/rod_railing{
 	dir = 4
 	},
-/turf/simulated/floor/airless,
+/turf/simulated/floor/plating,
 /area/shuttle/solfrig_shuttle)
 "gE" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -1674,18 +1694,15 @@
 /area/ship/sol_frigate/cic)
 "hz" = (
 /obj/structure/table/rack,
-/obj/item/ship_ammunition/longbow,
-/obj/item/ship_ammunition/longbow,
-/obj/item/ship_ammunition/longbow,
-/obj/item/ship_ammunition/longbow,
-/obj/item/ship_ammunition/longbow,
-/obj/item/ship_ammunition/longbow,
 /obj/effect/floor_decal/corner/red{
 	dir = 6
 	},
 /obj/effect/floor_decal/corner/red{
 	dir = 5
 	},
+/obj/item/ship_ammunition/coilgun,
+/obj/item/ship_ammunition/coilgun,
+/obj/item/ship_ammunition/coilgun,
 /turf/simulated/floor/tiled/dark,
 /area/ship/sol_frigate/port_battery)
 "hA" = (
@@ -1756,7 +1773,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/sol_frigate/armoury)
 "hJ" = (
-/obj/item/device/synthesized_instrument/guitar,
+/obj/item/synthesized_instrument/guitar,
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/structure/bed/stool/chair/padded/green,
 /turf/simulated/floor/tiled/dark,
@@ -1904,10 +1921,10 @@
 "ix" = (
 /obj/effect/floor_decal/sol,
 /turf/simulated/floor/airless,
-/area/ship/sol_frigate/exterior)
+/area/space)
 "iA" = (
 /obj/structure/table/reinforced,
-/obj/item/device/binoculars,
+/obj/item/binoculars,
 /obj/effect/floor_decal/corner/red{
 	dir = 10
 	},
@@ -2128,7 +2145,9 @@
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 5
 	},
-/obj/machinery/power/apc/north,
+/obj/machinery/power/apc/north{
+	req_access = list(203)
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/sol_frigate/hangar)
 "jt" = (
@@ -2315,6 +2334,7 @@
 /area/ship/sol_frigate/Starboard_docking_port)
 "kj" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/machinery/atmospherics/pipe/manifold/hidden/black,
 /obj/effect/floor_decal/industrial/outline/service,
 /obj/machinery/light/small,
 /obj/machinery/embedded_controller/radio/airlock/airlock_controller{
@@ -2342,6 +2362,7 @@
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 1
 	},
+/obj/effect/map_effect/marker/airlock/docking/Sol_frigate/shuttle_port,
 /turf/simulated/floor/tiled/dark,
 /area/ship/sol_frigate/hangar)
 "kl" = (
@@ -2710,6 +2731,10 @@
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 1
 	},
+/obj/effect/map_effect/marker/airlock/docking/Sol_frigate/shuttle_port,
+/obj/machinery/light{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/sol_frigate/hangar)
 "mj" = (
@@ -2806,7 +2831,7 @@
 /obj/item/storage/firstaid/radiation,
 /obj/item/clothing/suit/radiation,
 /obj/item/clothing/head/radiation,
-/obj/item/device/geiger,
+/obj/item/geiger,
 /obj/effect/floor_decal/corner/brown{
 	dir = 9
 	},
@@ -3021,16 +3046,16 @@
 /turf/simulated/floor/tiled/white,
 /area/ship/sol_frigate/canteen)
 "nE" = (
-/obj/machinery/computer/ship/helm/terminal{
+/obj/effect/floor_decal/industrial/outline/security,
+/obj/machinery/computer/ship/sensors/terminal{
 	dir = 1;
 	req_access = list(203)
 	},
-/obj/effect/floor_decal/industrial/outline/security,
 /turf/simulated/floor/tiled/dark,
 /area/ship/sol_frigate/cic)
 "nF" = (
 /obj/structure/table/reinforced/steel,
-/obj/item/device/paint_sprayer,
+/obj/item/paint_sprayer,
 /obj/item/clothing/glasses/welding{
 	pixel_y = 12;
 	pixel_x = 7
@@ -3255,6 +3280,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
 	},
+/obj/structure/cable/blue{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/sol_frigate/hallway_fore)
 "os" = (
@@ -3329,6 +3357,7 @@
 /obj/machinery/door/airlock/external,
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/effect/floor_decal/industrial/hatch/red,
+/obj/effect/map_effect/marker/airlock/docking/Sol_frigate/shuttle_port,
 /turf/simulated/floor/tiled/dark,
 /area/ship/sol_frigate/hangar)
 "oP" = (
@@ -3410,7 +3439,7 @@
 /obj/structure/ship_weapon_dummy{
 	opacity = 1
 	},
-/turf/simulated/floor/reinforced/airless,
+/turf/simulated/floor/reinforced,
 /area/ship/sol_frigate/port_battery)
 "ph" = (
 /obj/machinery/light{
@@ -3500,7 +3529,9 @@
 /area/ship/sol_frigate/bunks)
 "pF" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
-/obj/machinery/power/apc/south,
+/obj/machinery/power/apc/south{
+	req_access = list(203)
+	},
 /obj/structure/cable/blue{
 	icon_state = "0-8"
 	},
@@ -3672,11 +3703,10 @@
 	},
 /area/ship/sol_frigate/freezer)
 "qp" = (
-/obj/structure/viewport,
 /obj/effect/landmark/entry_point/fore{
 	name = "fore, main gunnery"
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/wall/shuttle/raider,
 /area/ship/sol_frigate/port_battery)
 "qq" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
@@ -3828,11 +3858,12 @@
 /area/ship/sol_frigate/head)
 "rl" = (
 /obj/structure/lattice/catwalk,
-/turf/space,
-/area/ship/sol_frigate/exterior)
+/turf/space/dynamic,
+/area/space)
 "rn" = (
-/turf/template_noop,
-/area/ship/sol_frigate/exterior)
+/obj/structure/lattice/catwalk,
+/turf/space/dynamic,
+/area/ship/sol_frigate/hangar)
 "ro" = (
 /obj/machinery/atmospherics/pipe/tank/carbon_dioxide,
 /obj/effect/floor_decal/corner/orange{
@@ -3917,7 +3948,7 @@
 /area/ship/sol_frigate/bunks)
 "rJ" = (
 /obj/structure/ship_weapon_dummy,
-/turf/simulated/floor/reinforced/airless,
+/turf/simulated/floor/reinforced,
 /area/ship/sol_frigate/port_battery)
 "rM" = (
 /obj/effect/floor_decal/corner/paleblue/diagonal,
@@ -4104,9 +4135,6 @@
 /obj/effect/floor_decal/corner/orange{
 	dir = 9
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 6
-	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/sol_frigate/starboard_thrusters)
 "sV" = (
@@ -4249,6 +4277,7 @@
 	id = "SFLD"
 	},
 /obj/effect/floor_decal/industrial/hatch/red,
+/obj/effect/map_effect/marker/airlock/docking/Sol_frigate/shuttle_port,
 /turf/simulated/floor/plating,
 /area/ship/sol_frigate/hangar)
 "tB" = (
@@ -4347,8 +4376,8 @@
 "tS" = (
 /obj/item/hullbeacon/red,
 /obj/structure/lattice,
-/turf/space,
-/area/ship/sol_frigate/exterior)
+/turf/template_noop,
+/area/space)
 "tT" = (
 /obj/machinery/door/airlock/external{
 	dir = 4
@@ -4587,6 +4616,10 @@
 	pixel_y = 5
 	},
 /obj/effect/floor_decal/corner/grey/diagonal,
+/obj/random_produce/box,
+/obj/random_produce/box,
+/obj/random_produce/box,
+/obj/random_produce/box,
 /turf/simulated/floor/tiled/freezer{
 	name = "cooled tiles";
 	temperature = 253.15
@@ -4626,7 +4659,7 @@
 "uG" = (
 /obj/effect/floor_decal/big/sol_full,
 /turf/simulated/floor/airless,
-/area/ship/sol_frigate/exterior)
+/area/space)
 "uH" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 1
@@ -4714,8 +4747,12 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/sol_frigate/starboard_gunnery)
 "vn" = (
-/obj/structure/sign/flag/sol/large/south,
-/turf/simulated/wall/shuttle/raider,
+/obj/structure/bed/stool/chair,
+/obj/effect/floor_decal/corner/paleblue/diagonal,
+/obj/structure/sign/flag/sol/large/south{
+	pixel_y = 31
+	},
+/turf/simulated/floor/tiled/white,
 /area/ship/sol_frigate/canteen)
 "vv" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -4808,7 +4845,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/sol_frigate/cic)
 "vJ" = (
-/obj/machinery/power/apc/south,
+/obj/machinery/power/apc/south{
+	req_access = list(203)
+	},
 /obj/effect/floor_decal/corner/orange{
 	dir = 10
 	},
@@ -4861,7 +4900,9 @@
 /area/ship/sol_frigate/engineering)
 "vW" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
-/obj/machinery/power/apc/east,
+/obj/machinery/power/apc/east{
+	req_access = list(203)
+	},
 /obj/structure/cable/blue{
 	icon_state = "0-2"
 	},
@@ -4898,8 +4939,16 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/sol_frigate/canteen)
 "wd" = (
-/turf/simulated/floor/reinforced/airless,
-/area/ship/sol_frigate/port_battery)
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable/blue{
+	icon_state = "1-2"
+	},
+/obj/structure/cable/blue{
+	icon_state = "2-4"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ship/sol_frigate/hallway_fore)
 "we" = (
 /turf/simulated/wall/shuttle/raider,
 /area/ship/sol_frigate/hallway_fore)
@@ -4998,11 +5047,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/sol_frigate/canteen)
-"wJ" = (
-/obj/effect/step_trigger/teleporter,
-/obj/effect/step_trigger/teleporter,
-/turf/space,
-/area/space)
 "wL" = (
 /obj/structure/cable/blue{
 	icon_state = "1-2"
@@ -5010,11 +5054,14 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/sol_frigate/hallway_mid)
 "wM" = (
+/obj/effect/map_effect/perma_light/brighter,
 /turf/simulated/floor/airless,
-/area/ship/sol_frigate/exterior)
+/area/space)
 "wO" = (
 /obj/effect/floor_decal/corner/green/diagonal,
-/obj/machinery/power/apc/south,
+/obj/machinery/power/apc/south{
+	req_access = list(203)
+	},
 /obj/structure/cable/blue,
 /turf/simulated/floor/tiled/white,
 /area/ship/sol_frigate/crew_lounge)
@@ -5099,9 +5146,8 @@
 /turf/simulated/wall/shuttle/raider,
 /area/ship/sol_frigate/port_battery)
 "xs" = (
-/obj/effect/map_effect/perma_light/brighter,
 /turf/simulated/floor/airless,
-/area/ship/sol_frigate/exterior)
+/area/space)
 "xy" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 8
@@ -5403,6 +5449,13 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/sol_frigate/hallway_mid)
+"zx" = (
+/obj/effect/map_effect/marker/airlock/docking/Sol_frigate/shuttle_port,
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ship/sol_frigate/hangar)
 "zy" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
@@ -5478,7 +5531,7 @@
 /area/ship/sol_frigate/port_thrusters)
 "zM" = (
 /obj/machinery/atmospherics/unary/vent_pump/siphon/on/atmos{
-	dir = 1;
+	dir = 4;
 	frequency = 1534;
 	id_tag = "xanufrigate_portco2_out"
 	},
@@ -5643,8 +5696,8 @@
 "At" = (
 /obj/structure/lattice/catwalk,
 /obj/item/hullbeacon/green,
-/turf/space,
-/area/ship/sol_frigate/exterior)
+/turf/space/dynamic,
+/area/ship/sol_frigate/hangar)
 "Az" = (
 /obj/machinery/airlock_sensor{
 	pixel_y = -25;
@@ -5697,12 +5750,12 @@
 /obj/item/tank/emergency_oxygen/double,
 /obj/item/tank/emergency_oxygen/double,
 /obj/item/tank/emergency_oxygen/double,
-/obj/item/device/gps,
-/obj/item/device/gps,
-/obj/item/device/gps,
-/obj/item/device/gps,
-/obj/item/device/gps,
-/obj/item/device/gps,
+/obj/item/gps,
+/obj/item/gps,
+/obj/item/gps,
+/obj/item/gps,
+/obj/item/gps,
+/obj/item/gps,
 /turf/simulated/floor/tiled/dark,
 /area/ship/sol_frigate/eva_storage)
 "AJ" = (
@@ -5897,6 +5950,9 @@
 	},
 /obj/structure/cable/blue{
 	icon_state = "2-4"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 9
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/sol_frigate/starboard_thrusters)
@@ -6188,7 +6244,9 @@
 /turf/simulated/floor/wood,
 /area/ship/sol_frigate/captain_office)
 "CF" = (
-/obj/machinery/power/apc/east,
+/obj/machinery/power/apc/east{
+	req_access = list(203)
+	},
 /obj/structure/cable/blue{
 	icon_state = "0-8"
 	},
@@ -6268,6 +6326,13 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/sol_frigate/sickbay)
+"Db" = (
+/obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor,
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ship/sol_frigate/starboard_thrusters)
 "Dc" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -6278,6 +6343,9 @@
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/machinery/door/airlock/external{
 	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/black{
+	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 8
@@ -6413,7 +6481,7 @@
 	pixel_y = -3;
 	pixel_x = -8
 	},
-/obj/item/device/synthesized_instrument/violin,
+/obj/item/synthesized_instrument/violin,
 /turf/simulated/floor/carpet,
 /area/ship/sol_frigate/captain_cabin)
 "DT" = (
@@ -6482,10 +6550,10 @@
 /obj/item/grenade/chem_grenade/metalfoam,
 /obj/item/stack/rods/full,
 /obj/item/stack/material/glass/full,
-/obj/item/device/oxycandle,
-/obj/item/device/oxycandle,
-/obj/item/device/flashlight/flare,
-/obj/item/device/flashlight/flare,
+/obj/item/oxycandle,
+/obj/item/oxycandle,
+/obj/item/flashlight/flare,
+/obj/item/flashlight/flare,
 /obj/item/storage/bag/inflatable,
 /obj/effect/floor_decal/corner/orange{
 	dir = 9
@@ -6755,7 +6823,9 @@
 /area/ship/sol_frigate/crew_lounge)
 "FJ" = (
 /obj/effect/floor_decal/corner/paleblue/diagonal,
-/obj/machinery/power/apc/east,
+/obj/machinery/power/apc/east{
+	req_access = list(203)
+	},
 /obj/structure/cable/blue{
 	icon_state = "0-2"
 	},
@@ -6775,16 +6845,12 @@
 /obj/item/storage/firstaid/radiation,
 /obj/item/clothing/suit/radiation,
 /obj/item/clothing/head/radiation,
-/obj/item/device/geiger,
+/obj/item/geiger,
 /obj/effect/floor_decal/corner/brown{
 	dir = 5
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/sol_frigate/engineering)
-"FX" = (
-/obj/effect/step_trigger/teleporter,
-/turf/space,
-/area/space)
 "FY" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -7333,8 +7399,8 @@
 "Ii" = (
 /obj/structure/lattice,
 /obj/item/hullbeacon/red,
-/turf/space,
-/area/ship/sol_frigate/exterior)
+/turf/template_noop,
+/area/space)
 "Ij" = (
 /obj/effect/landmark/entry_point/starboard{
 	name = "starboard, mess hall"
@@ -7386,10 +7452,10 @@
 /area/ship/sol_frigate/hangar)
 "Iu" = (
 /obj/structure/table/reinforced,
-/obj/item/device/binoculars{
+/obj/item/binoculars{
 	pixel_x = -9
 	},
-/obj/item/device/radio,
+/obj/item/radio,
 /obj/item/clipboard{
 	pixel_x = 6
 	},
@@ -7936,6 +8002,10 @@
 /obj/machinery/light{
 	dir = 8
 	},
+/obj/random_produce/box,
+/obj/random_produce/box,
+/obj/random_produce/box,
+/obj/random_produce/box,
 /turf/simulated/floor/tiled/freezer{
 	name = "cooled tiles";
 	temperature = 253.15
@@ -8041,7 +8111,7 @@
 /obj/structure/rod_railing{
 	dir = 8
 	},
-/turf/simulated/floor/airless,
+/turf/simulated/floor/plating,
 /area/shuttle/solfrig_shuttle)
 "Lf" = (
 /obj/effect/landmark/entry_point/aft,
@@ -8170,7 +8240,7 @@
 	pixel_y = 12;
 	pixel_x = -8
 	},
-/obj/item/device/advanced_healthanalyzer,
+/obj/item/advanced_healthanalyzer,
 /turf/simulated/floor/tiled/white,
 /area/ship/sol_frigate/sickbay)
 "Ls" = (
@@ -8269,7 +8339,10 @@
 /area/ship/sol_frigate/brig)
 "LJ" = (
 /obj/effect/floor_decal/industrial/hatch/operations,
-/turf/simulated/floor/tiled/dark/full/airless,
+/obj/machinery/atmospherics/pipe/simple/hidden/black{
+	dir = 8
+	},
+/turf/simulated/floor/reinforced/airless,
 /area/ship/sol_frigate/Port_docking_port)
 "LK" = (
 /obj/machinery/light,
@@ -8334,6 +8407,9 @@
 "LZ" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 9
+	},
+/obj/machinery/ammunition_loader/sol{
+	weapon_id = "Starboard_Coilgun"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/sol_frigate/port_battery)
@@ -8407,6 +8483,10 @@
 /obj/machinery/door/firedoor/noid{
 	dir = 4
 	},
+/obj/item/reagent_containers/food/condiment/shaker/salt,
+/obj/item/reagent_containers/food/condiment/shaker/peppermill{
+	pixel_x = 7
+	},
 /turf/simulated/floor/tiled/white,
 /area/ship/sol_frigate/canteen)
 "MC" = (
@@ -8454,6 +8534,7 @@
 /obj/structure/cable/blue{
 	icon_state = "4-8"
 	},
+/obj/machinery/portable_atmospherics/canister/empty/oxygen,
 /turf/simulated/floor/tiled/dark,
 /area/ship/sol_frigate/eva_storage)
 "MO" = (
@@ -8552,6 +8633,9 @@
 /obj/effect/floor_decal/corner/red{
 	dir = 9
 	},
+/obj/machinery/light{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/sol_frigate/port_battery)
 "Nv" = (
@@ -8645,7 +8729,9 @@
 /area/ship/sol_frigate/hangar)
 "NO" = (
 /obj/effect/floor_decal/corner/dark_blue/diagonal,
-/obj/machinery/power/apc/east,
+/obj/machinery/power/apc/east{
+	req_access = list(203)
+	},
 /obj/structure/cable/blue{
 	icon_state = "0-2"
 	},
@@ -8741,7 +8827,9 @@
 /area/ship/sol_frigate/starboard_gunnery)
 "Oi" = (
 /obj/structure/bed/stool/chair,
-/obj/machinery/power/apc/east,
+/obj/machinery/power/apc/east{
+	req_access = list(203)
+	},
 /obj/structure/cable/blue{
 	icon_state = "0-8"
 	},
@@ -8796,18 +8884,15 @@
 /area/ship/sol_frigate/cic)
 "Ou" = (
 /obj/structure/table/rack,
-/obj/item/primer,
-/obj/item/primer,
-/obj/item/primer,
-/obj/item/primer,
-/obj/item/primer,
-/obj/item/primer,
 /obj/machinery/light{
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/red{
 	dir = 6
 	},
+/obj/item/ship_ammunition/coilgun,
+/obj/item/ship_ammunition/coilgun,
+/obj/item/ship_ammunition/coilgun,
 /turf/simulated/floor/tiled/dark,
 /area/ship/sol_frigate/port_battery)
 "Ow" = (
@@ -8956,7 +9041,7 @@
 /obj/effect/floor_decal/corner/orange/full{
 	dir = 8
 	},
-/obj/item/device/radio/intercom/hailing/west,
+/obj/item/radio/intercom/hailing/west,
 /obj/machinery/light{
 	dir = 1
 	},
@@ -8978,6 +9063,7 @@
 	id = "SFLD"
 	},
 /obj/effect/floor_decal/industrial/hatch/red,
+/obj/effect/map_effect/marker/airlock/docking/Sol_frigate/shuttle_port,
 /turf/simulated/floor/plating,
 /area/ship/sol_frigate/hangar)
 "Pj" = (
@@ -9105,8 +9191,8 @@
 /area/ship/sol_frigate/head)
 "Qd" = (
 /obj/structure/lattice,
-/turf/space,
-/area/ship/sol_frigate/exterior)
+/turf/template_noop,
+/area/space)
 "Qg" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
@@ -9144,9 +9230,6 @@
 /area/ship/sol_frigate/canteen)
 "Qm" = (
 /obj/structure/bed/stool/chair,
-/obj/structure/bed/stool/chair{
-	dir = 4
-	},
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -9214,8 +9297,6 @@
 	dir = 9
 	},
 /obj/machinery/alarm/west,
-/obj/machinery/atmospherics/pipe/simple/hidden,
-/obj/item/pipe_meter,
 /turf/simulated/floor/tiled/dark,
 /area/ship/sol_frigate/starboard_thrusters)
 "QC" = (
@@ -9238,17 +9319,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable/blue{
 	icon_state = "1-2"
-	},
-/turf/simulated/floor/tiled/dark,
-/area/ship/sol_frigate/port_battery)
-"QP" = (
-/obj/machinery/ship_weapon/longbow{
-	pixel_x = -32;
-	pixel_y = -320;
-	weapon_id = "Sol Frigate Longbow"
-	},
-/obj/structure/ship_weapon_dummy{
-	opacity = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/sol_frigate/port_battery)
@@ -9360,8 +9430,8 @@
 "Rn" = (
 /obj/structure/lattice,
 /obj/item/hullbeacon/green,
-/turf/space,
-/area/ship/sol_frigate/exterior)
+/turf/template_noop,
+/area/space)
 "Rp" = (
 /obj/machinery/alarm/tcom,
 /obj/effect/floor_decal/corner/yellow{
@@ -9423,7 +9493,7 @@
 	dir = 4;
 	status = 2
 	},
-/obj/machinery/autolathe,
+/obj/machinery/fabricator/autolathe,
 /turf/simulated/floor/tiled/dark,
 /area/ship/sol_frigate/engineering)
 "RU" = (
@@ -9632,7 +9702,7 @@
 /area/ship/sol_frigate/oquarters)
 "SV" = (
 /obj/structure/filingcabinet/chestdrawer,
-/obj/item/device/flashlight/lamp{
+/obj/item/flashlight/lamp{
 	pixel_y = 9
 	},
 /turf/simulated/floor/carpet,
@@ -9711,10 +9781,27 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/sol_frigate/bunks)
 "TF" = (
-/obj/machinery/atmospherics/pipe/simple/hidden,
-/obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor,
-/turf/simulated/floor/tiled/dark,
-/area/ship/sol_frigate/starboard_thrusters)
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/structure/closet/crate/freezer,
+/obj/item/reagent_containers/food/snacks/icecreamsandwich,
+/obj/item/reagent_containers/food/snacks/icecreamsandwich,
+/obj/item/reagent_containers/food/snacks/icecreamsandwich,
+/obj/item/reagent_containers/food/snacks/icecreamsandwich,
+/obj/item/reagent_containers/food/snacks/icecreamsandwich,
+/obj/item/reagent_containers/food/snacks/icecreamsandwich,
+/obj/item/reagent_containers/food/snacks/icecreamsandwich,
+/obj/item/reagent_containers/food/snacks/icecreamsandwich,
+/obj/item/reagent_containers/food/snacks/icecreamsandwich,
+/obj/item/reagent_containers/food/snacks/icecreamsandwich,
+/obj/item/reagent_containers/food/snacks/icecreamsandwich,
+/obj/item/reagent_containers/food/snacks/icecreamsandwich,
+/obj/item/reagent_containers/food/snacks/icecreamsandwich,
+/obj/item/reagent_containers/food/snacks/icecreamsandwich,
+/turf/simulated/floor/tiled/freezer{
+	name = "cooled tiles";
+	temperature = 253.15
+	},
+/area/ship/sol_frigate/freezer)
 "TJ" = (
 /obj/machinery/door/airlock/external,
 /obj/machinery/atmospherics/pipe/simple/hidden,
@@ -9865,8 +9952,8 @@
 "UI" = (
 /obj/item/hullbeacon/green,
 /obj/structure/lattice,
-/turf/space,
-/area/ship/sol_frigate/exterior)
+/turf/template_noop,
+/area/space)
 "UJ" = (
 /obj/machinery/door/airlock/multi_tile/glass{
 	dir = 8;
@@ -9989,7 +10076,9 @@
 /obj/structure/closet/walllocker/firecloset{
 	pixel_x = 32
 	},
-/obj/machinery/power/apc/north,
+/obj/machinery/power/apc/north{
+	req_access = list(203)
+	},
 /obj/machinery/light{
 	dir = 1
 	},
@@ -10024,11 +10113,16 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/sol_frigate/port_battery)
 "Vn" = (
-/obj/machinery/power/apc/west,
+/obj/machinery/power/apc/west{
+	req_access = list(203)
+	},
 /obj/effect/floor_decal/corner/yellow{
 	dir = 9
 	},
 /obj/structure/cable/blue,
+/obj/structure/cable/blue{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/sol_frigate/hallway_fore)
 "Vo" = (
@@ -10506,9 +10600,9 @@
 /turf/simulated/floor/tiled/white,
 /area/ship/sol_frigate/sickbay)
 "XK" = (
-/obj/structure/ship_weapon_dummy/barrel,
-/turf/simulated/floor/reinforced/airless,
-/area/ship/sol_frigate/port_battery)
+/obj/machinery/atmospherics/pipe/simple/hidden,
+/turf/simulated/floor/tiled/dark,
+/area/ship/sol_frigate/starboard_thrusters)
 "XN" = (
 /obj/machinery/door/airlock/external{
 	dir = 4
@@ -10585,7 +10679,7 @@
 /area/ship/sol_frigate/hangar)
 "Yc" = (
 /obj/machinery/atmospherics/unary/engine,
-/turf/simulated/floor/airless,
+/turf/simulated/floor/plating,
 /area/shuttle/solfrig_shuttle)
 "Yd" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
@@ -10732,7 +10826,7 @@
 /area/ship/sol_frigate/hangar)
 "YM" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 9
+	dir = 5
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/sol_frigate/starboard_thrusters)
@@ -11250,53 +11344,53 @@ MO
 MO
 MO
 MO
-wJ
-FX
-FX
-FX
-FX
-FX
-FX
-FX
-FX
-FX
-FX
-FX
-FX
-FX
-FX
-FX
-FX
-FX
-FX
-FX
-FX
-FX
-FX
-FX
-FX
-FX
-FX
-FX
-FX
-FX
-FX
-FX
-FX
-FX
-FX
-FX
-FX
-FX
-FX
-FX
-FX
-FX
-FX
-FX
-FX
-FX
-wJ
+Xc
+Xc
+Xc
+Xc
+Xc
+Xc
+Xc
+Xc
+Xc
+Xc
+Xc
+Xc
+Xc
+Xc
+Xc
+Xc
+Xc
+Xc
+Xc
+Xc
+Xc
+Xc
+Xc
+Xc
+Xc
+Xc
+Xc
+Xc
+Xc
+Xc
+Xc
+Xc
+Xc
+Xc
+Xc
+Xc
+Xc
+Xc
+Xc
+Xc
+Xc
+Xc
+Xc
+Xc
+Xc
+Xc
+Xc
 "}
 (2,1,1) = {"
 MO
@@ -11507,7 +11601,6 @@ MO
 MO
 MO
 MO
-FX
 Xc
 Xc
 Xc
@@ -11553,7 +11646,8 @@ Xc
 Xc
 Xc
 Xc
-FX
+Xc
+Xc
 "}
 (3,1,1) = {"
 MO
@@ -11764,7 +11858,6 @@ MO
 MO
 MO
 MO
-FX
 Xc
 Xc
 Xc
@@ -11810,7 +11903,8 @@ Xc
 Xc
 Xc
 Xc
-FX
+Xc
+Xc
 "}
 (4,1,1) = {"
 MO
@@ -12021,7 +12115,6 @@ MO
 MO
 MO
 MO
-FX
 Xc
 Xc
 Xc
@@ -12067,7 +12160,8 @@ Xc
 Xc
 Xc
 Xc
-FX
+Xc
+Xc
 "}
 (5,1,1) = {"
 MO
@@ -12278,7 +12372,6 @@ MO
 MO
 MO
 MO
-FX
 Xc
 Xc
 Xc
@@ -12324,7 +12417,8 @@ Xc
 Xc
 Xc
 Xc
-FX
+Xc
+Xc
 "}
 (6,1,1) = {"
 MO
@@ -12535,7 +12629,6 @@ MO
 MO
 MO
 MO
-FX
 Xc
 Xc
 Xc
@@ -12581,7 +12674,8 @@ Xc
 Xc
 Xc
 Xc
-FX
+Xc
+Xc
 "}
 (7,1,1) = {"
 MO
@@ -12792,7 +12886,6 @@ MO
 MO
 MO
 MO
-FX
 Xc
 Xc
 Xc
@@ -12838,7 +12931,8 @@ Xc
 Xc
 Xc
 Xc
-FX
+Xc
+Xc
 "}
 (8,1,1) = {"
 MO
@@ -13049,7 +13143,6 @@ MO
 MO
 MO
 MO
-FX
 Xc
 Xc
 Xc
@@ -13095,7 +13188,8 @@ Xc
 Xc
 Xc
 Xc
-FX
+Xc
+Xc
 "}
 (9,1,1) = {"
 MO
@@ -13306,7 +13400,6 @@ MO
 MO
 MO
 MO
-FX
 Xc
 Xc
 Xc
@@ -13352,7 +13445,8 @@ Xc
 Xc
 Xc
 Xc
-FX
+Xc
+Xc
 "}
 (10,1,1) = {"
 MO
@@ -13563,7 +13657,6 @@ MO
 MO
 MO
 MO
-FX
 Xc
 Xc
 Xc
@@ -13609,7 +13702,8 @@ Xc
 Xc
 Xc
 Xc
-FX
+Xc
+Xc
 "}
 (11,1,1) = {"
 MO
@@ -13820,7 +13914,6 @@ MO
 MO
 MO
 MO
-FX
 Xc
 Xc
 Xc
@@ -13866,7 +13959,8 @@ Xc
 Xc
 Xc
 Xc
-FX
+Xc
+Xc
 "}
 (12,1,1) = {"
 MO
@@ -14077,7 +14171,6 @@ MO
 MO
 MO
 MO
-FX
 Xc
 Xc
 Xc
@@ -14123,7 +14216,8 @@ Xc
 Xc
 Xc
 Xc
-FX
+Xc
+Xc
 "}
 (13,1,1) = {"
 MO
@@ -14334,7 +14428,6 @@ MO
 MO
 MO
 MO
-FX
 Xc
 Xc
 Xc
@@ -14380,7 +14473,8 @@ Xc
 Xc
 Xc
 Xc
-FX
+Xc
+Xc
 "}
 (14,1,1) = {"
 MO
@@ -14591,7 +14685,6 @@ MO
 MO
 MO
 MO
-FX
 Xc
 Xc
 Xc
@@ -14637,7 +14730,8 @@ Xc
 Xc
 Xc
 Xc
-FX
+Xc
+Xc
 "}
 (15,1,1) = {"
 MO
@@ -14848,7 +14942,6 @@ MO
 MO
 MO
 MO
-FX
 Xc
 Xc
 Xc
@@ -14894,7 +14987,8 @@ Xc
 Xc
 Xc
 Xc
-FX
+Xc
+Xc
 "}
 (16,1,1) = {"
 MO
@@ -15105,7 +15199,6 @@ MO
 MO
 MO
 MO
-FX
 Xc
 Xc
 Xc
@@ -15151,7 +15244,8 @@ Xc
 Xc
 Xc
 Xc
-FX
+Xc
+Xc
 "}
 (17,1,1) = {"
 MO
@@ -15362,7 +15456,6 @@ MO
 MO
 MO
 MO
-FX
 Xc
 Xc
 Xc
@@ -15408,7 +15501,8 @@ Xc
 Xc
 Xc
 Xc
-FX
+Xc
+Xc
 "}
 (18,1,1) = {"
 MO
@@ -15619,7 +15713,6 @@ MO
 MO
 MO
 MO
-FX
 Xc
 Xc
 Xc
@@ -15665,7 +15758,8 @@ Xc
 Xc
 Xc
 Xc
-FX
+Xc
+Xc
 "}
 (19,1,1) = {"
 MO
@@ -15876,7 +15970,6 @@ MO
 MO
 MO
 MO
-FX
 Xc
 Xc
 Xc
@@ -15922,7 +16015,8 @@ Xc
 Xc
 Xc
 Xc
-FX
+Xc
+Xc
 "}
 (20,1,1) = {"
 MO
@@ -16133,7 +16227,6 @@ MO
 MO
 MO
 MO
-FX
 Xc
 Xc
 Xc
@@ -16179,7 +16272,8 @@ Xc
 Xc
 Xc
 Xc
-FX
+Xc
+Xc
 "}
 (21,1,1) = {"
 MO
@@ -16390,7 +16484,6 @@ MO
 MO
 MO
 MO
-FX
 Xc
 Xc
 Xc
@@ -16436,7 +16529,8 @@ Xc
 Xc
 Xc
 Xc
-FX
+Xc
+Xc
 "}
 (22,1,1) = {"
 MO
@@ -16647,7 +16741,6 @@ MO
 MO
 MO
 MO
-FX
 Xc
 Xc
 Xc
@@ -16693,7 +16786,8 @@ Xc
 Xc
 Xc
 Xc
-FX
+Xc
+Xc
 "}
 (23,1,1) = {"
 MO
@@ -16904,7 +16998,6 @@ MO
 MO
 MO
 MO
-FX
 Xc
 Xc
 Xc
@@ -16950,7 +17043,8 @@ Xc
 Xc
 Xc
 Xc
-FX
+Xc
+Xc
 "}
 (24,1,1) = {"
 MO
@@ -17161,7 +17255,6 @@ MO
 MO
 MO
 MO
-FX
 Xc
 Xc
 Xc
@@ -17207,7 +17300,8 @@ Xc
 Xc
 Xc
 Xc
-FX
+Xc
+Xc
 "}
 (25,1,1) = {"
 MO
@@ -17418,7 +17512,6 @@ MO
 MO
 MO
 MO
-FX
 Xc
 Xc
 Xc
@@ -17464,7 +17557,8 @@ Xc
 Xc
 Xc
 Xc
-FX
+Xc
+Xc
 "}
 (26,1,1) = {"
 MO
@@ -17675,7 +17769,6 @@ MO
 MO
 MO
 MO
-FX
 Xc
 Xc
 Xc
@@ -17721,7 +17814,8 @@ Xc
 Xc
 Xc
 Xc
-FX
+Xc
+Xc
 "}
 (27,1,1) = {"
 MO
@@ -17932,7 +18026,6 @@ MO
 MO
 MO
 MO
-FX
 Xc
 Xc
 Xc
@@ -17978,7 +18071,8 @@ Xc
 Xc
 Xc
 Xc
-FX
+Xc
+Xc
 "}
 (28,1,1) = {"
 MO
@@ -18189,7 +18283,6 @@ MO
 MO
 MO
 MO
-FX
 Xc
 Xc
 Xc
@@ -18235,7 +18328,8 @@ Xc
 Xc
 Xc
 Xc
-FX
+Xc
+Xc
 "}
 (29,1,1) = {"
 MO
@@ -18446,7 +18540,6 @@ MO
 MO
 MO
 MO
-FX
 Xc
 Xc
 Xc
@@ -18492,7 +18585,8 @@ Xc
 Xc
 Xc
 Xc
-FX
+Xc
+Xc
 "}
 (30,1,1) = {"
 MO
@@ -18703,7 +18797,6 @@ MO
 MO
 MO
 MO
-FX
 Xc
 Xc
 Xc
@@ -18749,7 +18842,8 @@ Xc
 Xc
 Xc
 Xc
-FX
+Xc
+Xc
 "}
 (31,1,1) = {"
 MO
@@ -18960,7 +19054,6 @@ MO
 MO
 MO
 MO
-FX
 Xc
 Xc
 Xc
@@ -19006,7 +19099,8 @@ Xc
 Xc
 Xc
 Xc
-FX
+Xc
+Xc
 "}
 (32,1,1) = {"
 MO
@@ -19217,7 +19311,6 @@ MO
 MO
 MO
 MO
-FX
 Xc
 Xc
 Xc
@@ -19263,7 +19356,8 @@ Xc
 Xc
 Xc
 Xc
-FX
+Xc
+Xc
 "}
 (33,1,1) = {"
 MO
@@ -19474,7 +19568,6 @@ MO
 MO
 MO
 MO
-FX
 Xc
 Xc
 Xc
@@ -19520,7 +19613,8 @@ Xc
 Xc
 Xc
 Xc
-FX
+Xc
+Xc
 "}
 (34,1,1) = {"
 MO
@@ -19731,7 +19825,6 @@ MO
 MO
 MO
 MO
-FX
 Xc
 Xc
 Xc
@@ -19777,7 +19870,8 @@ Xc
 Xc
 Xc
 Xc
-FX
+Xc
+Xc
 "}
 (35,1,1) = {"
 MO
@@ -19988,7 +20082,6 @@ MO
 MO
 MO
 MO
-FX
 Xc
 Xc
 Xc
@@ -20034,7 +20127,8 @@ Xc
 Xc
 Xc
 Xc
-FX
+Xc
+Xc
 "}
 (36,1,1) = {"
 MO
@@ -20245,7 +20339,6 @@ MO
 MO
 MO
 MO
-FX
 Xc
 Xc
 Xc
@@ -20291,7 +20384,8 @@ Xc
 Xc
 Xc
 Xc
-FX
+Xc
+Xc
 "}
 (37,1,1) = {"
 MO
@@ -20502,7 +20596,6 @@ MO
 MO
 MO
 MO
-FX
 Xc
 Xc
 Xc
@@ -20548,7 +20641,8 @@ Xc
 Xc
 Xc
 Xc
-FX
+Xc
+Xc
 "}
 (38,1,1) = {"
 MO
@@ -20759,7 +20853,6 @@ MO
 MO
 MO
 MO
-FX
 Xc
 Xc
 Xc
@@ -20805,7 +20898,8 @@ Xc
 Xc
 Xc
 Xc
-FX
+Xc
+Xc
 "}
 (39,1,1) = {"
 MO
@@ -21016,7 +21110,6 @@ MO
 MO
 MO
 MO
-FX
 Xc
 Xc
 Xc
@@ -21062,7 +21155,8 @@ Xc
 Xc
 Xc
 Xc
-FX
+Xc
+Xc
 "}
 (40,1,1) = {"
 MO
@@ -21273,7 +21367,6 @@ MO
 MO
 MO
 MO
-FX
 Xc
 Xc
 Xc
@@ -21319,7 +21412,8 @@ Xc
 Xc
 Xc
 Xc
-FX
+Xc
+Xc
 "}
 (41,1,1) = {"
 MO
@@ -21530,7 +21624,6 @@ MO
 MO
 MO
 MO
-FX
 Xc
 Xc
 Xc
@@ -21576,7 +21669,8 @@ Xc
 Xc
 Xc
 Xc
-FX
+Xc
+Xc
 "}
 (42,1,1) = {"
 MO
@@ -21787,7 +21881,6 @@ MO
 MO
 MO
 MO
-FX
 Xc
 Xc
 Xc
@@ -21833,7 +21926,8 @@ Xc
 Xc
 Xc
 Xc
-FX
+Xc
+Xc
 "}
 (43,1,1) = {"
 MO
@@ -22044,7 +22138,6 @@ MO
 MO
 MO
 MO
-FX
 Xc
 Xc
 Xc
@@ -22090,7 +22183,8 @@ Xc
 Xc
 Xc
 Xc
-FX
+Xc
+Xc
 "}
 (44,1,1) = {"
 MO
@@ -22301,7 +22395,6 @@ MO
 MO
 MO
 MO
-FX
 Xc
 Xc
 Xc
@@ -22347,7 +22440,8 @@ Xc
 Xc
 Xc
 Xc
-FX
+Xc
+Xc
 "}
 (45,1,1) = {"
 MO
@@ -22558,7 +22652,6 @@ MO
 MO
 MO
 MO
-FX
 Xc
 Xc
 Xc
@@ -22604,7 +22697,8 @@ Xc
 Xc
 Xc
 Xc
-FX
+Xc
+Xc
 "}
 (46,1,1) = {"
 MO
@@ -22815,7 +22909,6 @@ MO
 MO
 MO
 MO
-FX
 Xc
 Xc
 Xc
@@ -22861,7 +22954,8 @@ Xc
 Xc
 Xc
 Xc
-FX
+Xc
+Xc
 "}
 (47,1,1) = {"
 MO
@@ -23072,7 +23166,6 @@ MO
 MO
 MO
 MO
-FX
 Xc
 Xc
 Xc
@@ -23118,7 +23211,8 @@ Xc
 Xc
 Xc
 Xc
-FX
+Xc
+Xc
 "}
 (48,1,1) = {"
 MO
@@ -23329,53 +23423,53 @@ MO
 MO
 MO
 MO
-wJ
-FX
-FX
-FX
-FX
-FX
-FX
-FX
-FX
-FX
-FX
-FX
-FX
-FX
-FX
-FX
-FX
-FX
-FX
-FX
-FX
-FX
-FX
-FX
-FX
-FX
-FX
-FX
-FX
-FX
-FX
-FX
-FX
-FX
-FX
-FX
-FX
-FX
-FX
-FX
-FX
-FX
-FX
-FX
-FX
-FX
-FX
+Xc
+Xc
+Xc
+Xc
+Xc
+Xc
+Xc
+Xc
+Xc
+Xc
+Xc
+Xc
+Xc
+Xc
+Xc
+Xc
+Xc
+Xc
+Xc
+Xc
+Xc
+Xc
+Xc
+Xc
+Xc
+Xc
+Xc
+Xc
+Xc
+Xc
+Xc
+Xc
+Xc
+Xc
+Xc
+Xc
+Xc
+Xc
+Xc
+Xc
+Xc
+Xc
+Xc
+Xc
+Xc
+Xc
+Xc
 "}
 (49,1,1) = {"
 MO
@@ -40709,8 +40803,8 @@ MO
 MO
 MO
 MO
+mn
 vn
-cu
 ck
 dG
 th
@@ -40724,7 +40818,7 @@ AC
 qn
 Vz
 Sd
-Sd
+TF
 Xr
 pF
 Zs
@@ -41445,10 +41539,10 @@ MO
 MO
 MO
 MO
-MO
-MO
-MO
-MO
+bI
+bI
+bI
+bI
 MO
 MO
 MO
@@ -42216,8 +42310,8 @@ eT
 tp
 sQ
 QB
-TF
-TF
+UW
+UW
 zM
 bI
 bI
@@ -42475,7 +42569,7 @@ YM
 ZR
 ZR
 UW
-UW
+Db
 bI
 bI
 Vt
@@ -42728,10 +42822,10 @@ MO
 DD
 vR
 zA
-ZR
-ZR
-ZR
-ZR
+fN
+XK
+XK
+XK
 Bs
 GA
 bI
@@ -43055,15 +43149,15 @@ Iq
 Sa
 rl
 rl
-rn
-rn
-rn
-rn
-rn
-rn
-rn
-rn
-rn
+MO
+MO
+MO
+MO
+MO
+MO
+MO
+MO
+MO
 rl
 rl
 MO
@@ -43310,17 +43404,17 @@ pK
 pK
 pK
 pK
-rn
-rn
-rn
+MO
+MO
+MO
 Le
 px
 JF
-rn
-rn
-rn
-rn
-rn
+MO
+MO
+MO
+MO
+MO
 rl
 rl
 MO
@@ -43567,17 +43661,17 @@ pK
 At
 JF
 JF
-rn
-rn
+MO
+MO
 JF
 JF
 dS
 SI
-rn
-rn
-rn
-rn
-rn
+MO
+MO
+MO
+MO
+MO
 rl
 rl
 MO
@@ -43821,7 +43915,7 @@ yB
 Hw
 VK
 pK
-rl
+rn
 Yc
 ho
 SI
@@ -43831,10 +43925,10 @@ JF
 jZ
 JF
 in
-rn
-rn
-rn
-rn
+MO
+MO
+MO
+MO
 rl
 rl
 MO
@@ -44091,10 +44185,10 @@ JF
 SI
 UU
 UU
-rn
+MO
 rl
 wM
-wM
+xs
 wM
 uG
 MO
@@ -44350,10 +44444,10 @@ qg
 aI
 aI
 ix
-wM
-wM
-wM
-wM
+xs
+xs
+xs
+xs
 MO
 MO
 MO
@@ -44591,7 +44685,7 @@ pK
 XZ
 Hw
 pK
-fb
+zx
 oN
 Lf
 pX
@@ -44606,11 +44700,11 @@ pT
 cw
 ha
 Cc
-wM
-wM
+xs
 xs
 wM
-wM
+xs
+xs
 MO
 MO
 MO
@@ -44863,11 +44957,11 @@ cm
 Wq
 aI
 aI
-wM
-wM
-wM
-wM
-wM
+xs
+xs
+xs
+xs
+xs
 MO
 MO
 MO
@@ -45119,12 +45213,12 @@ JF
 SI
 UU
 UU
-rn
+MO
 rl
 wM
+xs
 wM
-wM
-wM
+xs
 MO
 MO
 MO
@@ -45363,7 +45457,7 @@ fq
 Hw
 gJ
 pK
-rl
+rn
 Yc
 SK
 SI
@@ -45373,10 +45467,10 @@ JF
 SI
 dS
 QQ
-rn
-rn
-rn
-rn
+MO
+MO
+MO
+MO
 rl
 rl
 MO
@@ -45620,20 +45714,20 @@ uk
 Hw
 hm
 pK
-rl
+rn
 JF
 JF
-rn
-rn
+MO
+MO
 JF
 JF
 JF
 jZ
-rn
-rn
-rn
-rn
-rn
+MO
+MO
+MO
+MO
+MO
 rl
 rl
 MO
@@ -45871,7 +45965,7 @@ yt
 yt
 we
 dg
-nr
+wd
 xi
 dL
 Ta
@@ -45880,17 +45974,17 @@ pK
 pK
 pK
 pK
-rn
-rn
-rn
+MO
+MO
+MO
 gD
 bT
 EG
-rn
-rn
-rn
-rn
-rn
+MO
+MO
+MO
+MO
+MO
 rl
 rl
 MO
@@ -46128,7 +46222,7 @@ Hy
 UJ
 Vn
 or
-hl
+Zz
 pK
 HF
 iJ
@@ -46138,16 +46232,16 @@ Lw
 hk
 ht
 rl
-rn
-rn
-rn
-rn
-rn
-rn
-rn
-rn
-rn
-rn
+MO
+MO
+MO
+MO
+MO
+MO
+MO
+MO
+MO
+MO
 rl
 rl
 MO
@@ -46643,7 +46737,7 @@ we
 jl
 EP
 ZN
-Xf
+UO
 Xf
 UO
 Xf
@@ -46659,7 +46753,7 @@ Xf
 Xf
 Xf
 Xf
-Xf
+bI
 Xf
 Xf
 Qd
@@ -47166,16 +47260,16 @@ lt
 Gt
 lt
 et
-Vl
-Vl
-Vl
-pg
-pg
-pg
-pg
-pg
-pg
-XK
+Xf
+Xf
+Xf
+Xf
+Xf
+Xf
+Xf
+Xf
+MO
+MO
 MO
 MO
 MO
@@ -47423,8 +47517,6 @@ uw
 BL
 lt
 rx
-QP
-Vl
 Vl
 pg
 pg
@@ -47433,6 +47525,8 @@ pg
 pg
 pg
 pg
+pg
+di
 MO
 MO
 MO
@@ -47681,15 +47775,15 @@ bn
 lt
 iA
 Ho
-Ho
-Ho
 rJ
-MO
-MO
-MO
-MO
-MO
-MO
+rJ
+rJ
+pg
+pg
+pg
+pg
+pg
+pg
 MO
 MO
 MO
@@ -47938,9 +48032,9 @@ Xf
 jC
 lt
 LZ
-fN
+Xf
+Xf
 qp
-wd
 MO
 MO
 MO
@@ -48194,8 +48288,8 @@ Xf
 Xf
 CX
 bn
-bn
-di
+eO
+lt
 Xf
 Xf
 MO
@@ -60126,7 +60220,7 @@ MO
 MO
 MO
 MO
-Xc
+MO
 "}
 (192,1,1) = {"
 MO
@@ -60383,7 +60477,7 @@ MO
 MO
 MO
 MO
-Xc
+MO
 "}
 (193,1,1) = {"
 MO
@@ -60640,7 +60734,7 @@ MO
 MO
 MO
 MO
-Xc
+MO
 "}
 (194,1,1) = {"
 MO
@@ -60897,7 +60991,7 @@ MO
 MO
 MO
 MO
-Xc
+MO
 "}
 (195,1,1) = {"
 MO
@@ -61154,7 +61248,7 @@ MO
 MO
 MO
 MO
-Xc
+MO
 "}
 (196,1,1) = {"
 MO
@@ -61411,7 +61505,7 @@ MO
 MO
 MO
 MO
-Xc
+MO
 "}
 (197,1,1) = {"
 MO
@@ -61668,7 +61762,7 @@ MO
 MO
 MO
 MO
-Xc
+MO
 "}
 (198,1,1) = {"
 MO
@@ -61925,7 +62019,7 @@ MO
 MO
 MO
 MO
-Xc
+MO
 "}
 (199,1,1) = {"
 MO
@@ -62182,7 +62276,7 @@ MO
 MO
 MO
 MO
-Xc
+MO
 "}
 (200,1,1) = {"
 MO
@@ -62439,7 +62533,7 @@ MO
 MO
 MO
 MO
-Xc
+MO
 "}
 (201,1,1) = {"
 MO
@@ -62696,7 +62790,7 @@ MO
 MO
 MO
 MO
-Xc
+MO
 "}
 (202,1,1) = {"
 MO
@@ -62953,7 +63047,7 @@ MO
 MO
 MO
 MO
-Xc
+MO
 "}
 (203,1,1) = {"
 MO
@@ -63210,7 +63304,7 @@ MO
 MO
 MO
 MO
-Xc
+MO
 "}
 (204,1,1) = {"
 MO
@@ -63467,7 +63561,7 @@ MO
 MO
 MO
 MO
-Xc
+MO
 "}
 (205,1,1) = {"
 MO
@@ -63724,7 +63818,7 @@ MO
 MO
 MO
 MO
-Xc
+MO
 "}
 (206,1,1) = {"
 MO
@@ -63981,7 +64075,7 @@ MO
 MO
 MO
 MO
-Xc
+MO
 "}
 (207,1,1) = {"
 MO
@@ -64238,7 +64332,7 @@ MO
 MO
 MO
 MO
-Xc
+MO
 "}
 (208,1,1) = {"
 MO
@@ -64495,7 +64589,7 @@ MO
 MO
 MO
 MO
-Xc
+MO
 "}
 (209,1,1) = {"
 MO
@@ -64752,7 +64846,7 @@ MO
 MO
 MO
 MO
-Xc
+MO
 "}
 (210,1,1) = {"
 MO
@@ -65009,7 +65103,7 @@ MO
 MO
 MO
 MO
-Xc
+MO
 "}
 (211,1,1) = {"
 MO
@@ -65266,7 +65360,7 @@ MO
 MO
 MO
 MO
-Xc
+MO
 "}
 (212,1,1) = {"
 MO
@@ -65523,7 +65617,7 @@ MO
 MO
 MO
 MO
-Xc
+MO
 "}
 (213,1,1) = {"
 MO
@@ -65780,7 +65874,7 @@ MO
 MO
 MO
 MO
-Xc
+MO
 "}
 (214,1,1) = {"
 MO

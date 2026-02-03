@@ -29,8 +29,8 @@
 
 	backpack_contents = list(
 		/obj/item/storage/box/survival = 1,
-		/obj/item/device/radio/map_preset = 1,
-		/obj/item/device/flashlight = 1,
+		/obj/item/radio/map_preset = 1,
+		/obj/item/flashlight = 1,
 		/obj/item/storage/wallet = 1,
 		/obj/item/clothing/accessory/badge/passport/sol = 1,
 		/obj/item/spacecash/c200 = 1,
@@ -65,13 +65,13 @@
 
 	backpack_contents = list(
 		/obj/item/storage/box/survival = 1,
-		/obj/item/device/radio/map_preset = 1,
-		/obj/item/device/flashlight = 1,
+		/obj/item/radio/map_preset = 1,
+		/obj/item/flashlight = 1,
 		/obj/item/storage/wallet = 1
 	)
 
 /obj/outfit/admin/refugee_crew/ipc/post_equip(mob/living/carbon/human/H, visualsOnly)
-	var/obj/item/organ/internal/ipc_tag/tag = H.internal_organs_by_name[BP_IPCTAG]
+	var/obj/item/organ/internal/machine/ipc_tag/tag = H.internal_organs_by_name[BP_IPCTAG]
 	if(istype(tag))
 		tag.serial_number = uppertext(dd_limittext(md5(H.real_name), 12))
 		tag.ownership_info = pick(IPC_OWNERSHIP_COMPANY, IPC_OWNERSHIP_PRIVATE) //fleeing solarian wildlands so probably none would be registered as self-owned

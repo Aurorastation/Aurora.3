@@ -172,10 +172,10 @@
 /area/moghes_guild_mining)
 "ra" = (
 /obj/structure/table/rack,
-/obj/item/device/radio/off,
-/obj/item/device/radio/off,
-/obj/item/device/radio/off,
-/obj/item/device/radio/off,
+/obj/item/radio/off,
+/obj/item/radio/off,
+/obj/item/radio/off,
+/obj/item/radio/off,
 /obj/machinery/light,
 /turf/simulated/floor/exoplanet/concrete{
 	temperature = 303.15
@@ -272,10 +272,10 @@
 /area/moghes_guild_mining)
 "wy" = (
 /obj/structure/table/rack,
-/obj/item/device/analyzer,
-/obj/item/device/analyzer,
-/obj/item/device/analyzer,
-/obj/item/device/analyzer,
+/obj/item/analyzer,
+/obj/item/analyzer,
+/obj/item/analyzer,
+/obj/item/analyzer,
 /obj/machinery/light,
 /turf/simulated/floor/exoplanet/concrete{
 	temperature = 303.15
@@ -314,10 +314,10 @@
 /obj/item/ore_detector,
 /obj/item/ore_detector,
 /obj/item/ore_detector,
-/obj/item/device/flashlight/lantern,
-/obj/item/device/flashlight/lantern,
-/obj/item/device/flashlight/lantern,
-/obj/item/device/flashlight/lantern,
+/obj/item/flashlight/lantern,
+/obj/item/flashlight/lantern,
+/obj/item/flashlight/lantern,
+/obj/item/flashlight/lantern,
 /turf/simulated/floor/exoplanet/concrete{
 	temperature = 303.15
 	},

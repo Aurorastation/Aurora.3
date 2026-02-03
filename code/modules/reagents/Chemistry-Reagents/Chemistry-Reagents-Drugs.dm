@@ -470,16 +470,25 @@
 	if(!prob(3))
 		return
 
-	if(M.psi && M.psi.get_rank() >= PSI_RANK_SENSITIVE)
+	if(M.check_psi_sensitivity() >= PSI_RANK_SENSITIVE)
 		to_chat(M, SPAN_ALIEN(pick("You can see the thoughts of those around you dancing in the air.", "You feel as if your mind has opened even further, your thought-field expanding.", "It's difficult to contain your thoughts - but why hide them anyway?", "You feel safe and comfortable.")))
 	else
 		to_chat(M, SPAN_GOOD(pick("You can almost see the currents of air as they dance around you.", "You see the colours around you beginning to bleed together.", "You feel safe and comfortable.")))
 
 /singleton/reagent/wulumunusha/overdose(mob/living/carbon/M, alien, removed = 0, scale = 1, datum/reagents/holder)
-	if(!M.psi || M.psi.get_rank() < PSI_RANK_SENSITIVE)
+	M.AddComponent(WULU_OVERDOSE_COMPONENT)
+	if(!M.psi || M.check_psi_sensitivity() < PSI_RANK_SENSITIVE)
 		return
 
 	M.hallucination = max(M.hallucination, 10 * scale)	//light hallucinations that afflict the psionically sensitive.
+
+/singleton/reagent/wulumunusha/final_effect(mob/living/carbon/M, datum/reagents/holder)
+	. = ..()
+	var/wulu_overdose_comp = M.GetComponent(WULU_OVERDOSE_COMPONENT)
+	if (!wulu_overdose_comp)
+		return
+
+	qdel(wulu_overdose_comp)
 
 /singleton/reagent/drugs/ambrosia_extract
 	name = "Ambrosia Extract"
@@ -492,12 +501,14 @@
 	taste_mult = 0.4
 	fallback_specific_heat = 1.6
 	value = 2.8
-	effect_messages = FALSE
+	effect_messages = TRUE
 	condiment_name = "Ambrosia Extract Bottle"
 	condiment_desc = "A small dropper bottle full of a stoner's paradise."
 	condiment_icon_state = "ambrosiaextract"
 	condiment_center_of_mass = list("x"=16, "y"=8)
 
+/singleton/reagent/drugs/ambrosia_extract/initial_effect(mob/living/carbon/human/M, alien, datum/reagents/holder)
+	return
 
 /singleton/reagent/drugs/ambrosia_extract/affect_blood(mob/living/carbon/M, alien, removed, datum/reagents/holder)
 	..()
@@ -574,7 +585,7 @@
 	M.add_chemical_effect(CE_PULSE, -1)
 	var/message_list = list("You feel soothed and at ease.", "You feel like sharing the wonderful memories and feelings you're experiencing.", "You feel like you're floating off the ground.", "You don't want this feeling to end.", "You wish to please all those around you.", "You feel particularly susceptible to persuasion.", "Everyone is so trustworthy nowadays.")
 	var/message_type = "good"
-	if(M.psi && M.psi.get_rank() >= PSI_RANK_SENSITIVE)
+	if(M.check_psi_sensitivity() >= PSI_RANK_SENSITIVE)
 		message_list += list("You can see the thoughts of those around you dancing in the air.", "You feel as if your mind has opened even further, your thought-field expanding.", "It's difficult to contain your thoughts - but why hide them anyway?")
 		message_type = "alium"
 	else
@@ -799,5 +810,32 @@
 /singleton/reagent/drugs/dionae_stimulant/diet/final_effect(mob/living/carbon/M, alien, removed, datum/reagents/holder)
 	return
 
-#undef DRUG_MESSAGE_DELAY
+/singleton/reagent/drugs/solar_salve
+	name = "solar salve"
+	description = "A herbal mixture originating from Southern Harr'masir, Solar Salve is used to ward off the feelings of hunger, thirst and cold. Now it commonly sees use on the docks of the city of Crevus."
+	color = "#5f8c37"
+	reagent_state = SOLID
+	taste_description = "honyed herbal paste"
+	ingest_met = REM * 0.1
+	sober_message_list = list("Your hunger returns to you...", "You start to feel thirsty again...", "You start to feel the cold again...")
+	initial_effect_message_list = list("Your hunger and thirst start to fade away...", "It feels like the cold no longer bothers you...")
 
+/singleton/reagent/drugs/solar_salve/initial_effect(mob/living/carbon/human/M, alien, datum/reagents/holder)
+	if(alien == (IS_UNATHI || IS_SKRELL || IS_VAURCA)) //solar salve doesn't affect ectothermic species
+		return
+	. = ..()
+
+/singleton/reagent/drugs/solar_salve/affect_blood(mob/living/carbon/M, alien, removed, datum/reagents/holder)
+	..()
+	if(alien == (IS_UNATHI || IS_SKRELL || IS_VAURCA))
+		return
+	else
+		if(prob(7))
+			to_chat(M, SPAN_GOOD(pick("You feel sated.", "You feel warmth throughout your body.")))
+
+/singleton/reagent/drugs/solar_salve/final_effect(mob/living/carbon/human/M, alien, datum/reagents/holder)
+	if(alien == (IS_UNATHI || IS_SKRELL || IS_VAURCA))
+		return
+	. = ..()
+
+#undef DRUG_MESSAGE_DELAY

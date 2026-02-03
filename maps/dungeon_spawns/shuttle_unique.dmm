@@ -59,7 +59,7 @@
 	pixel_y = 2
 	},
 /obj/structure/table/reinforced,
-/obj/item/device/binoculars,
+/obj/item/binoculars,
 /turf/simulated/floor/tiled/dark,
 /area/dungeon/crashed_ship)
 "ak" = (

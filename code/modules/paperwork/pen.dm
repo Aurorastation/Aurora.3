@@ -57,13 +57,11 @@
 	var/colour = "black"
 	/// Done here so other pen variants can access the cursive variable.
 	var/cursive = FALSE
+	tool_behaviour = TOOL_PEN
 
 /obj/item/pen/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	. += "Pens can be used on paper to write, or on a wide variety of objects, machinery, etc. to label or rename them."
-
-/obj/item/pen/ispen()
-	return TRUE
 
 /*
  * PDA Pens

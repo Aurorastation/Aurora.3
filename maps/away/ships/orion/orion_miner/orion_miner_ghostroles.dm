@@ -28,7 +28,7 @@
 
 	id = /obj/item/card/id/orion/miner
 
-	l_ear = /obj/item/device/radio/headset/ship
+	l_ear = /obj/item/radio/headset/ship
 
 	backpack_contents = list(/obj/item/storage/box/survival = 1, /obj/item/storage/wallet/random = 1)
 	species_shoes = list(
@@ -55,7 +55,7 @@
 		H.equip_or_collect(new /obj/item/storage/pill_bottle/rmt, slot_in_backpack)
 
 	if(isipc(H))
-		var/obj/item/organ/internal/ipc_tag/tag = H.internal_organs_by_name[BP_IPCTAG]
+		var/obj/item/organ/internal/machine/ipc_tag/tag = H.internal_organs_by_name[BP_IPCTAG]
 		H.equip_or_collect(new /obj/item/stack/nanopaste, slot_in_backpack)
 		if(istype(tag))
 			tag.modify_tag_data()

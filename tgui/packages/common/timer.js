@@ -43,7 +43,7 @@ export const throttle = (fn, time) => {
     } else {
       queuedToRun = setTimeout(
         invokeFn.bind(null, ...args),
-        time - (now - previouslyRun)
+        time - (now - previouslyRun),
       );
     }
   };
