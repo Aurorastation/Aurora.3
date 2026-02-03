@@ -382,6 +382,7 @@
 	/// If set, this organ is required to breathe. Defaults to BP_LUNGS if the species has them.
 	var/breathing_organ
 
+	/// Mapping of limbs/external organs to their actual path.
 	var/list/has_limbs = list(
 		BP_CHEST =  list("path" = /obj/item/organ/external/chest),
 		BP_GROIN =  list("path" = /obj/item/organ/external/groin),

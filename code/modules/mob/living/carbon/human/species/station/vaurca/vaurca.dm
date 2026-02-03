@@ -124,11 +124,16 @@
 		BP_R_LEG =  list("path" = /obj/item/organ/external/leg/right/vaurca),
 		BP_L_HAND = list("path" = /obj/item/organ/external/hand/vaurca),
 		BP_R_HAND = list("path" = /obj/item/organ/external/hand/right/vaurca),
-		BP_L_HAND_UPPER = list("path" = /obj/item/organ/external/hand/vaurca/upper),
-		BP_R_HAND_UPPER = list("path" = /obj/item/organ/external/hand/right/vaurca/upper),
+		//BP_L_HAND_UPPER = list("path" = /obj/item/organ/external/hand/vaurca/upper),
+		//BP_R_HAND_UPPER = list("path" = /obj/item/organ/external/hand/right/vaurca/upper),
 		BP_L_FOOT = list("path" = /obj/item/organ/external/foot/vaurca),
 		BP_R_FOOT = list("path" = /obj/item/organ/external/foot/right/vaurca)
 		)
+
+	// limb_mapping = list(
+	// 	BP_L_HAND = list(BP_L_HAND, BP_L_HAND_UPPER),
+	// 	BP_R_HAND = list(BP_R_HAND, BP_R_HAND_UPPER),
+	// )
 
 	inherent_verbs = list(
 		/mob/living/carbon/human/proc/hivenet_recieve,

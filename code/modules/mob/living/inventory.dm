@@ -18,6 +18,13 @@
 /mob/living/has_held_item_slot()
 	. = LAZYLEN(held_item_slots) >= 1
 
+/* *
+ * You can have more than two hands on a species. Define the extra hands with unique slot, ui_loc, overlay_slot, and label, and add them to has_limbs on the species.
+ * Then map the extra limbs to the limbs they should be able to act as in limb_mapping. Extra left hands should map to BP_L_HAND, extra right hands to BP_R_HAND, for example.
+ * Middle hands can probably map to both? Not tested.
+ * DO NOT IMPLEMENT THIS WITHOUT UPDATING WIELDING CODE FIRST, AND EXTENSIVE TESTING BESIDES. THE FRAMEWORK WAS ADDED AS A "WHILE I'M HERE" THING.
+ * */
+
 /mob/living/proc/add_held_item_slot(var/slot, var/new_ui_loc, var/new_overlay_slot, var/new_label)
 	has_had_gripper = TRUE
 	LAZYSET(held_item_slots, slot, new /datum/inventory_slot(slot, new_ui_loc, new_overlay_slot, new_label))

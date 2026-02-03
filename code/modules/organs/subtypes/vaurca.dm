@@ -608,14 +608,20 @@
 	limb_flags = ORGAN_CAN_AMPUTATE | ORGAN_CAN_MAIM
 
 /obj/item/organ/external/hand/vaurca/upper
+	name = "upper left grasper"
+	limb_name = BP_L_HAND_UPPER
 	organ_tag = BP_L_HAND_UPPER
 	icon_name = BP_L_HAND_UPPER
+	overlay_slot_id = BP_L_HAND_UPPER
 	gripper_ui_loc = "CENTER:16,BOTTOM+1:14"
 	gripper_ui_label = "UL"
 
 /obj/item/organ/external/hand/right/vaurca/upper
+	name = "upper right grasper"
+	limb_name = BP_R_HAND_UPPER
 	organ_tag = BP_R_HAND_UPPER
 	icon_name = BP_R_HAND_UPPER
+	overlay_slot_id = BP_R_HAND_UPPER
 	gripper_ui_loc = "CENTER-1:16,BOTTOM+1:14"
 	gripper_ui_label = "UR"
 
