@@ -52,7 +52,7 @@
 	back = /obj/item/storage/backpack/satchel
 	accessory = /obj/item/clothing/accessory/storage/webbing
 	gloves = /obj/item/clothing/gloves/unathi
-	l_ear = /obj/item/device/radio/headset/ship
+	l_ear = /obj/item/radio/headset/ship
 
 	backpack_contents = list(
 		/obj/item/storage/box/survival = 1
@@ -65,7 +65,7 @@
 	name = "Tarwa Conglomerate Diona"
 	suit = /obj/item/clothing/accessory/poncho/green
 	head = /obj/item/clothing/head/bandana/pirate
-	backpack_contents = list(/obj/item/device/uv_light = 1)
+	backpack_contents = list(/obj/item/uv_light = 1)
 
 /obj/outfit/admin/tarwa/captain
 	name = "Tarwa Conglomerate Captain"

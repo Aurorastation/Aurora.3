@@ -65,8 +65,8 @@
 				w.use(1)
 			return
 
-	else if(istype(attacking_item, /obj/item/device/core_sampler/))
-		var/obj/item/device/core_sampler/S = attacking_item
+	else if(istype(attacking_item, /obj/item/core_sampler/))
+		var/obj/item/core_sampler/S = attacking_item
 		S.sample_item(src, user)
 		return
 
@@ -90,7 +90,7 @@
 	if(new_item_type)
 		find_type = new_item_type
 	else
-		find_type = rand(1,36)	//update this when you add new find types
+		find_type = rand(1,40)	//update this when you add new find types
 
 	var/item_type = "object"
 	icon_state = "unknown[rand(1,4)]"
@@ -281,7 +281,7 @@
 			if(prob(10))
 				apply_image_decorations = 1
 			if(prob(25))
-				new_item = new /obj/item/device/soulstone(src.loc)
+				new_item = new /obj/item/soulstone(src.loc)
 				new_item.icon = 'icons/obj/xenoarchaeology.dmi'
 				new_item.icon_state = icon_state
 		if(17)
@@ -291,7 +291,7 @@
 			apply_material_decorations = 0
 			apply_image_decorations = 0
 		if(18)
-			new_item = new /obj/item/device/radio/beacon(src.loc)
+			new_item = new /obj/item/radio/beacon(src.loc)
 			talkative = 0
 			new_item.icon = 'icons/obj/xenoarchaeology.dmi'
 			new_item.icon_state = "unknown[rand(1,4)]"
@@ -314,7 +314,7 @@
 		if(21)
 			//soulstone
 			apply_prefix = 0
-			new_item = new /obj/item/device/soulstone(src.loc)
+			new_item = new /obj/item/soulstone(src.loc)
 			item_type = new_item.name
 			apply_material_decorations = 0
 		if(22)
@@ -495,6 +495,14 @@
 				new_item = new /obj/item/clothing/mask/gas(src.loc)
 		if(36)
 			new_item = new /obj/item/sarcophagus_key(src.loc)
+		if(37)
+			new_item = new /obj/item/cell/mecha/phoron/alien
+		if(38)
+			new_item = new /obj/item/mecha_equipment/crisis_drone/alien
+		if(39)
+			new_item = new /obj/item/organ/internal/heart/alien_heart
+		if(40)
+			new_item = new /obj/item/organ/internal/liver/alien_liver
 
 	var/decorations = ""
 	if(apply_material_decorations)

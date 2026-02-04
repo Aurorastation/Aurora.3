@@ -17,7 +17,6 @@
 	name = "Derelict Archaelogy Outpost"
 	icon_state = "bluenew"
 	requires_power = TRUE
-	dynamic_lighting = TRUE
 	base_turf = /turf/simulated/floor/exoplanet/basalt/cave
 	area_flags = AREA_FLAG_HIDE_FROM_HOLOMAP | AREA_FLAG_INDESTRUCTIBLE_TURFS
 

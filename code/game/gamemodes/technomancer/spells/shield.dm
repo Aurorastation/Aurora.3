@@ -19,7 +19,8 @@
 
 /obj/item/spell/shield/Initialize()
 	. = ..()
-	set_light(3, 2, l_color = "#006AFF")
+	set_light_range_power_color(3, 2, "#006AFF")
+	set_light_on(TRUE)
 
 /obj/item/spell/shield/update_icon()
 	var/mob/living/carbon/human/H = owner

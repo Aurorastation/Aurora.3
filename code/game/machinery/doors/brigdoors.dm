@@ -36,6 +36,7 @@
 	return INITIALIZE_HINT_LATELOAD
 
 /obj/machinery/door_timer/LateInitialize()
+	. = ..()
 	for(var/obj/machinery/door/airlock/glass_security/D in SSmachinery.machinery)
 		if(D.id_tag == src.id) // Airlocks use "id_tag" instead of "id".
 			targets += D

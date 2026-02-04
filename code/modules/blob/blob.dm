@@ -16,22 +16,27 @@
 	var/health
 	var/regen_rate = 5
 
-	// damage gets divided by these modifiers, based on damage type
+	/// Damage gets divided by these modifiers, based on damage type
 	var/brute_resist = 4.3
 	var/fire_resist = 0.8
-	var/laser_resist = 2	// Special resist for laser based weapons - Emitters or handheld energy weaponry. Damage is divided by this and THEN by fire_resist.
+	/// Special resist for laser based weapons - Emitters or handheld energy weaponry. Damage is divided by this and THEN by fire_resist.
+	var/laser_resist = 2
 
 	var/expandType = /obj/effect/blob
-	var/secondary_core_growth_chance = 5 //% chance to grow a secondary blob core instead of whatever was supposed to grow. Secondary cores are considerably weaker, but still nasty.
+	/// % chance to grow a secondary blob core instead of whatever was supposed to grow. Secondary cores are considerably weaker, but still nasty.
+	var/secondary_core_growth_chance = 5
 	var/damage_min = 15
 	var/damage_max = 25
 	var/pruned = FALSE
 	var/product = /obj/item/blob_tendril
 	var/attack_time = 0
-	var/attack_cooldown = 60 // time in deciseconds before next attack will occur
+	/// Time in deciseconds before next attack will occur
+	var/attack_cooldown = 60
 
-	var/obj/effect/blob/parent_core // the core this blob piece belongs to
-	var/is_core = FALSE // determines how to pass core inheritance
+	/// The core this blob piece belongs to
+	var/obj/effect/blob/parent_core
+	/// Determines how to pass core inheritance
+	var/is_core = FALSE
 
 /obj/effect/blob/Initialize()
 	. = ..()
@@ -210,7 +215,7 @@
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 	user.do_attack_animation(src)
 	playsound(get_turf(src), 'sound/effects/attackblob.ogg', 50, TRUE)
-	if(attacking_item.iswirecutter())
+	if(attacking_item.tool_behaviour == TOOL_WIRECUTTER)
 		if(!pruned)
 			to_chat(user, SPAN_NOTICE("You collect a sample from \the [src]."))
 			var/obj/P = new product(get_turf(user))
@@ -225,7 +230,7 @@
 	switch(attacking_item.damtype)
 		if(DAMAGE_BURN)
 			damage = (attacking_item.force / fire_resist)
-			if(attacking_item.iswelder())
+			if(attacking_item.tool_behaviour == TOOL_WELDER)
 				playsound(get_turf(src), 'sound/items/Welder.ogg', 100, TRUE)
 		if(DAMAGE_BRUTE)
 			damage = (attacking_item.force / brute_resist)

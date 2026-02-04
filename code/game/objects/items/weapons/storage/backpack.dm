@@ -160,6 +160,15 @@
 		return 1
 	return ..()
 
+/obj/item/storage/backpack/santabag
+	name = "\improper Santa's gift bag"
+	desc = "Space Santa uses this to deliver toys to all the nice children in space in Christmas! Wow, it's pretty big!"
+	icon_state = "giftbag0"
+	item_state = "giftbag"
+	w_class = WEIGHT_CLASS_BULKY
+	max_storage_space = 200 // can store a ton of shit!
+	empty_delay = 1 SECOND
+
 /obj/item/storage/backpack/cultpack
 	name = "trophy rack"
 	desc = "It's useful for both carrying extra gear and proudly declaring your insanity."
@@ -906,6 +915,20 @@
 	name = "tan rucksack"
 	icon_state = "rucksack_tan"
 	item_state = "rucksack_tan"
+
+/*
+ * Chest pouch
+ */
+
+/obj/item/storage/backpack/chestpouch
+	name = "chest pouch"
+	desc = "A small pouch that straps across your chest."
+	icon = 'icons/obj/storage/chestpouch.dmi'
+	icon_state = "chestpouch"
+	item_state = "chestpouch"
+	w_class = WEIGHT_CLASS_HUGE // to avoid recursive backpacks
+	max_w_class = WEIGHT_CLASS_NORMAL
+	max_storage_space = DEFAULT_LARGEBOX_STORAGE
 
 // Vaurca stuff.
 

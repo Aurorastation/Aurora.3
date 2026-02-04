@@ -69,7 +69,7 @@
 		/obj/item/reagent_containers/food/snacks/donut/normal = 2
 	)
 
-/obj/item/device/vending_refill/coffee
+/obj/item/vending_refill/coffee
 	name = "coffee resupply canister"
 	vend_id = "coffee"
 	charges = 38

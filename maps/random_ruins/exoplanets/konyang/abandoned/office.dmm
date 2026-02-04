@@ -75,7 +75,7 @@
 /obj/effect/decal/cleanable/generic,
 /obj/structure/table/standard,
 /obj/item/folder/red,
-/obj/item/device/radio/off{
+/obj/item/radio/off{
 	pixel_y = 5;
 	pixel_x = 13
 	},

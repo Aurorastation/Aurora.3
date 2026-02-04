@@ -259,8 +259,12 @@
 
 	var/obj/structure/stairs/staircase = locate() in target
 	var/target_dir = get_dir(mover, target)
+	// If moving laterally off a staircase...
 	if(!staircase && (target_dir != dir && target_dir != REVERSE_DIR(dir)))
-		INVOKE_ASYNC(src, PROC_REF(mob_fall), mover)
+		// And nothing blocks you from doing so...
+		if(CanPass(mover, target))
+			// Then fall over, idiot.
+			INVOKE_ASYNC(src, PROC_REF(mob_fall), mover)
 
 	return ..()
 
@@ -351,6 +355,7 @@
 	icon_state = "stairs_railing"
 	anchored = TRUE
 	density = TRUE
+	layer = ABOVE_ABOVE_HUMAN_LAYER
 
 /obj/structure/stairs_railing/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
 	if(mover?.movement_type & PHASING)
@@ -504,6 +509,9 @@
 
 /obj/structure/platform/cutout/CanPass()
 	return TRUE
+
+/obj/structure/platform/bar
+	layer = ABOVE_HUMAN_LAYER
 
 /// No special CanPass for this one.
 /obj/structure/platform_deco

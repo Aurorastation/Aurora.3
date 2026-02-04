@@ -1997,6 +1997,12 @@ Follow by example and make good judgement based on length which list to include 
 	length = 1
 	chatname = "bowl cut"
 
+/datum/sprite_accessory/hair/balding/taro
+	name = "Taro"
+	icon_state = "hair_taro"
+	length = 2
+	chatname = "long hair"
+
 /datum/sprite_accessory/hair/balding/waxed
 	name = "Waxed"
 	icon_state = "hair_waxed"
@@ -3358,7 +3364,7 @@ Follow by example and make good judgement based on length which list to include 
 
 /datum/sprite_accessory/hair/msai_ears/msai_ears_bobcut_overeye
 	name = "M'sai Bobcut, overeye"
-	icon_state = "hair_bobcut_overeye"
+	icon_state = "msai_bobcut_overeye"
 	length = 2
 	chatname = "bobcut"
 
@@ -3386,7 +3392,7 @@ Follow by example and make good judgement based on length which list to include 
 	length = 3
 	chatname = "curly mane"
 
-/datum/sprite_accessory/hair/msai_ears/msai_ears_curls
+/datum/sprite_accessory/hair/msai_ears/msai_ears_curlsalt
 	name = "M'sai Curly Alt"
 	icon_state = "msai_curlyalt"
 	length = 3
@@ -3617,7 +3623,7 @@ Follow by example and make good judgement based on length which list to include 
 
 /datum/sprite_accessory/hair/msai_ears/msai_ears_diagonal_bangs
 	name = "M'sai Diagonal Bangs"
-	icon_state = "hair_diagonal_bangs"
+	icon_state = "msai_diagonal_bangs"
 	length = 2
 	chatname = "bangs"
 

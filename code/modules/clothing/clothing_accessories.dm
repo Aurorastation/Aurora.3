@@ -9,9 +9,9 @@
 				return 0
 
 /obj/item/clothing/attackby(obj/item/attacking_item, mob/user)
-	if(IC && (istype(attacking_item, /obj/item/integrated_circuit) || attacking_item.iswrench() || attacking_item.iscrowbar() || \
-				istype(attacking_item, /obj/item/device/integrated_electronics/wirer) || istype(attacking_item, /obj/item/device/integrated_electronics/debugger) || \
-				attacking_item.ismultitool() || attacking_item.isscrewdriver() || istype(attacking_item, /obj/item/cell/device)))
+	if(IC && (istype(attacking_item, /obj/item/integrated_circuit) || attacking_item.tool_behaviour == TOOL_WRENCH || attacking_item.tool_behaviour == TOOL_CROWBAR || \
+				istype(attacking_item, /obj/item/integrated_electronics/wirer) || istype(attacking_item, /obj/item/integrated_electronics/debugger) || \
+				attacking_item.tool_behaviour == TOOL_MULTITOOL || attacking_item.tool_behaviour == TOOL_SCREWDRIVER || istype(attacking_item, /obj/item/cell/device)))
 
 		IC.attackby(attacking_item, user)
 
@@ -137,17 +137,14 @@
 	update_accessory_slowdown()
 	recalculate_body_temperature_change()
 
-/obj/item/clothing/proc/remove_accessory(mob/user, obj/item/clothing/accessory/A)
+/obj/item/clothing/proc/remove_accessory(mob/wearer, obj/item/clothing/accessory/A)
 	if(!(A in accessories))
 		return
 
-	if(use_check_and_message(user))
-		return
-
-	A.on_removed(user)
+	A.on_removed(wearer)
 	LAZYREMOVE(accessories, A)
 	update_clothing_icon()
-	update_accessory_slowdown(user)
+	update_accessory_slowdown(wearer)
 	recalculate_body_temperature_change()
 
 /obj/item/clothing/proc/remove_accessory_verb()
@@ -186,6 +183,9 @@
 		try_reopen_radial_after_removal = TRUE
 	else
 		A = accessories[1]
+
+	if(use_check_and_message(user))
+		return
 
 	remove_accessory(usr, A)
 

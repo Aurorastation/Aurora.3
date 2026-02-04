@@ -157,10 +157,11 @@
  * This is called when a client tries to move, usually it dispatches the moving request to the mob it's controlling
  */
 /client/Move(new_loc, direct)
-	if(world.time < move_delay) //do not move anything ahead of this check please
+	if(moving || world.time < move_delay) //do not move anything ahead of this check please
 		return FALSE
 
 	var/old_move_delay = move_delay
+	move_delay = world.time + world.tick_lag
 
 	if(!direct || !new_loc)
 		return FALSE
@@ -174,9 +175,6 @@
 		Process_Incorpmove(direct, mob)
 		return
 
-	if(moving || world.time < move_delay)
-		return 0
-
 	if(mob.stat == DEAD && isliving(mob))
 		mob.ghostize()
 		return
@@ -187,8 +185,6 @@
 
 	if(mob.transforming)
 		return	//This is sota the goto stop mobs from moving var
-
-	var/add_delay = mob.cached_multiplicative_slowdown
 
 	if(isliving(mob))
 		if(SEND_SIGNAL(mob, COMSIG_MOB_CLIENT_PRE_LIVING_MOVE, new_loc, direct) & COMSIG_MOB_CLIENT_BLOCK_PRE_LIVING_MOVE)
@@ -233,6 +229,7 @@
 
 	if(isobj(mob.loc) || ismob(mob.loc))	//Inside an object, tell it we are moving out
 		var/atom/O = mob.loc
+		move_delay += (mob.movement_delay() + GLOB.config.walk_speed) * GLOB.config.walk_delay_multiplier
 		return O.relaymove(mob, direct)
 
 	if(isturf(mob.loc))
@@ -244,7 +241,6 @@
 				return 0
 			else
 				mob.inertia_dir = 0 //If not then we can reset inertia and move
-
 
 		if(mob.restrained())		//Why being pulled while cuffed prevents you from moving
 			var/mob/puller = mob.pulledby
@@ -259,15 +255,6 @@
 			to_chat(src, SPAN_WARNING("You're pinned to a wall by [mob.pinned[1]]!"))
 			move_delay = world.time + 1 SECOND // prevent spam
 			return FALSE
-
-		//If the move was recent, count using old_move_delay
-		//We want fractional behavior and all
-		if(old_move_delay + world.tick_lag > world.time)
-			//Yes this makes smooth movement stutter if add_delay is too fractional
-			//Yes this is better then the alternative
-			move_delay = old_move_delay
-		else
-			move_delay = world.time
 
 		if(mob.buckled_to)
 			if(istype(mob.buckled_to, /obj/vehicle))
@@ -315,7 +302,6 @@
 			tally *= GLOB.config.walk_delay_multiplier
 
 		move_delay += tally
-		move_delay += add_delay
 
 		if(mob_is_human && mob.lying)
 			var/mob/living/carbon/human/H = mob
@@ -329,7 +315,7 @@
 
 		//Wheelchair pushing goes here for now.
 		//TODO: Fuck wheelchairs.
-		if(istype(mob.pulledby, /obj/structure/bed/stool/chair/office/wheelchair) || istype(mob.pulledby, /obj/structure/janitorialcart) || istype(mob.pulledby, /obj/structure/engineeringcart))
+		if(istype(mob.pulledby, /obj/structure/bed/stool/chair/office/wheelchair) || istype(mob.pulledby, /obj/structure/cart))
 			var/obj/structure/S = mob.pulledby
 			move_delay += S.slowdown
 			return mob.pulledby.relaymove(mob, direct)
@@ -338,6 +324,16 @@
 
 		//We are now going to move
 		moving = 1
+
+		var/new_glide_size = mob.glide_size
+
+		if(old_move_delay + world.tick_lag > world.time)
+			new_glide_size = DELAY_TO_GLIDE_SIZE((move_delay - old_move_delay) * ( (NSCOMPONENT(direct) && EWCOMPONENT(direct)) ? sqrt(2) : 1 ) )
+		else
+			new_glide_size = DELAY_TO_GLIDE_SIZE((move_delay - world.time) * ( (NSCOMPONENT(direct) && EWCOMPONENT(direct)) ? sqrt(2) : 1 ) )
+
+		mob.set_glide_size(new_glide_size) // set it now in case of pulled objects
+
 		if(mob_is_human)
 			for(var/obj/item/grab/G in list(mob.l_hand, mob.r_hand))
 				switch(G.get_grab_type())
@@ -355,9 +351,11 @@
 		for (var/obj/item/grab/G in list(mob.l_hand, mob.r_hand))
 			if (G.state == GRAB_NECK)
 				mob.set_dir(REVERSE_DIR(direct))
+			G.affecting.set_glide_size(new_glide_size)
 			G.adjust_position()
 
 		for (var/obj/item/grab/G in mob.grabbed_by)
+			G.affecting.set_glide_size(new_glide_size)
 			G.adjust_position()
 
 		moving = 0
@@ -452,11 +450,6 @@
 
 			use_mob.forceMove(get_step(use_mob, direct))
 			use_mob.dir = direct
-
-	// Crossed is always a bit iffy
-	for(var/obj/S in use_mob.loc)
-		if(istype(S,/obj/effect/step_trigger) || istype(S,/obj/effect/beam))
-			S.Crossed(use_mob)
 
 	var/area/A = get_area_master(use_mob)
 	if(A)

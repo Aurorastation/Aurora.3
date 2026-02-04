@@ -18,6 +18,7 @@
 	closed_layer = ABOVE_DOOR_LAYER
 	explosion_resistance = 25
 	pass_flags_self = PASSDOORS
+	rad_resistance_modifier = 6
 
 	/// Most blast doors are infrequently toggled and sometimes used with regular doors anyways.
 	/// Turning this off prevents awkward zone geometry in places like medbay lobby, for example.
@@ -138,7 +139,7 @@
 
 		return TRUE
 
-	if(attacking_item.ishammer() || istype(attacking_item, /obj/item/crowbar/hydraulic_rescue_tool))
+	if(attacking_item.tool_behaviour == TOOL_HAMMER || istype(attacking_item, /obj/item/crowbar/hydraulic_rescue_tool))
 		if(((stat & NOPOWER) || (stat & BROKEN)) && !src.operating)
 			force_toggle()
 		else

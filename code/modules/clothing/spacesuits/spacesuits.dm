@@ -30,8 +30,7 @@
 
 	action_button_name = "Toggle Helmet Light"
 	light_overlay = "helmet_light"
-	brightness_on = 4
-	light_wedge = LIGHT_WIDE
+	light_range = 4
 	on = 0
 
 /obj/item/clothing/head/helmet/space/Initialize()
@@ -52,7 +51,7 @@
 	permeability_coefficient = 0.02
 	item_flags = ITEM_FLAG_THICK_MATERIAL|ITEM_FLAG_INJECTION_PORT
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|FEET|ARMS|HANDS
-	allowed = list(/obj/item/device/flashlight, /obj/item/tank/emergency_oxygen, /obj/item/device/suit_cooling_unit, /obj/item/tank)
+	allowed = list(/obj/item/flashlight, /obj/item/tank/emergency_oxygen, /obj/item/suit_cooling_unit, /obj/item/tank)
 	slowdown = 1
 	armor = list(
 		BIO = ARMOR_BIO_SHIELDED,

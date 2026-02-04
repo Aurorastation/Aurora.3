@@ -7,6 +7,7 @@
 	var/id = null
 	var/active = 0
 	var/operating = 0
+	var/active_time = 1 SECOND
 	anchored = 1.0
 	idle_power_usage = 2
 	active_power_usage = 4
@@ -38,19 +39,22 @@
 	activate(user)
 	intent_message(BUTTON_FLICK, 5)
 
+/obj/machinery/button/proc/deactivate(mob/living/user)
+	active = FALSE
+	update_icon()
+	operating = FALSE
+
 /obj/machinery/button/proc/activate(mob/living/user)
 	if(operating || !istype(wifi_sender))
-		return
+		return FALSE
 
-	operating = 1
-	active = 1
+	operating = TRUE
+	active = TRUE
 	use_power_oneoff(5)
 	update_icon()
 	wifi_sender.activate(user)
-	sleep(10)
-	active = 0
-	update_icon()
-	operating = 0
+	addtimer(CALLBACK(src, PROC_REF(deactivate)), active_time, TIMER_DELETE_ME)
+	return TRUE
 
 /obj/machinery/button/update_icon()
 	if(active)
@@ -66,7 +70,7 @@
 	icon_state = "light[active]"
 
 /obj/machinery/button/switch/attack_hand()
-	playsound(src, /singleton/sound_category/switch_sound, 30)
+	playsound(src, SFX_BUTTON, 30)
 	intent_message(BUTTON_FLICK, 5)
 
 //alternate button with the same functionality, except has a door control sprite instead

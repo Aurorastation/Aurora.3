@@ -47,19 +47,19 @@
 	head = /obj/item/clothing/head/beret/scc/alt
 	belt = /obj/item/melee/telebaton
 
-	headset = /obj/item/device/radio/headset/representative
-	bowman = /obj/item/device/radio/headset/representative/alt
-	double_headset = /obj/item/device/radio/headset/alt/double/command/representative
-	wrist_radio = /obj/item/device/radio/headset/wrist/command/representative
+	headset = /obj/item/radio/headset/representative
+	bowman = /obj/item/radio/headset/representative/alt
+	double_headset = /obj/item/radio/headset/alt/double/command/representative
+	wrist_radio = /obj/item/radio/headset/wrist/command/representative
 
 	tab_pda = /obj/item/modular_computer/handheld/pda/civilian/lawyer
 	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/civilian/lawyer
 	tablet = /obj/item/modular_computer/handheld/preset/civilian/lawyer
 
 	l_pocket = /obj/item/reagent_containers/spray/pepper
-	r_pocket = /obj/item/device/taperecorder/cciaa
+	r_pocket = /obj/item/taperecorder/cciaa
 	l_hand = /obj/item/storage/lockbox/cciaa
-	id = /obj/item/card/id/gold
+	id = /obj/item/card/id/scc/gold
 
 	backpack_contents = list(
 			/obj/item/modular_computer/laptop/preset/command = 1,

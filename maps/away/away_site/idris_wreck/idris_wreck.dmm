@@ -575,8 +575,8 @@
 	},
 /obj/item/gun/projectile/shotgun/pump,
 /obj/item/gun/projectile/shotgun/pump,
-/obj/item/storage/box/shotgunammo,
-/obj/item/storage/box/shotgunammo,
+/obj/item/storage/box/shells/slugs,
+/obj/item/storage/box/shells/slugs,
 /turf/simulated/floor/tiled,
 /area/idris_wreck/armory)
 "fD" = (
@@ -1195,7 +1195,7 @@
 /obj/item/clothing/suit/space/void/security,
 /obj/item/clothing/head/helmet/space/void/security,
 /obj/item/clothing/shoes/magboots,
-/obj/item/device/suit_cooling_unit,
+/obj/item/suit_cooling_unit,
 /obj/item/clothing/mask/breath,
 /turf/simulated/floor/tiled,
 /area/idris_wreck/eva)
@@ -1624,7 +1624,7 @@
 /obj/item/clothing/suit/space/void/security,
 /obj/item/clothing/head/helmet/space/void/security,
 /obj/item/clothing/shoes/magboots,
-/obj/item/device/suit_cooling_unit,
+/obj/item/suit_cooling_unit,
 /obj/item/clothing/mask/breath,
 /turf/simulated/floor/tiled,
 /area/idris_wreck/eva)

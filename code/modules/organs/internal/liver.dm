@@ -46,7 +46,7 @@
 	var/filter_effect_from_critical_toxin = 2
 
 	/// Modifier on how efficiently this liver eliminates booze.
-	var/booze_filtering_modifier = 1
+	var/booze_filtering_modifier = 0.03
 
 	/// How much the liver being bruised contributes to filter effect.
 	var/filter_effect_from_bruise = 1
@@ -75,6 +75,9 @@
 
 	if(!owner)
 		return
+
+	if(owner.stasis_value > 0) // Decrease the effective tickrate when in stasis.
+		seconds_per_tick /= owner.stasis_value
 
 	if(germ_level > INFECTION_LEVEL_ONE)
 		owner.notify_message(SPAN_WARNING(infection_level_one_warning), 2 MINUTES)
@@ -140,7 +143,7 @@
 	var/res = owner.species ? owner.species.ethanol_resistance : 1
 	var/blackout_effects = (bac >= INTOX_BLACKOUT * res) ? blackout_booze_filtering_modifier : booze_filtering_modifier
 
-	owner.intoxication -= min(owner.intoxication, filter_strength * filter_effect * blackout_effects)
+	owner.intoxication -= min(owner.intoxication, filter_strength * (filter_effect / base_filter_effect) * blackout_effects * seconds_per_tick)
 
 	if(!owner.intoxication)
 		owner.handle_intoxication()
@@ -160,6 +163,7 @@
 		return TRUE
 	return FALSE
 
+// Galatean bioaugmented liver. Dramatically enhanced over a base human liver.
 /obj/item/organ/internal/liver/boosted_liver
 	name = "boosted liver"
 	desc = "Designed primarily for diplomats or Galateans abroad, the boosted liver improves toxin filtering, giving a resistance to toxin damage. As a consequence, it makes it impossible for the user to get drunk."
@@ -168,5 +172,35 @@
 	base_filter_strength = 1.5
 	base_filter_effect = 5
 	toxin_critical_mass = 90
-	booze_filtering_modifier = 100 // "Impossible to get drunk", this should make it impossible. :)
+	booze_filtering_modifier = 0.5 // "Impossible to get drunk", this should make it impossible. :)
 	blackout_booze_filtering_modifier = 1
+
+/obj/item/organ/internal/liver/alien_liver
+	name = "anomalous mercurial flesh"
+	desc = "A slab of flesh made seemingly from mercury, yet with a recognizably organic shape. It is soft to the touch, pliable like skin, yet is as tough as steel."
+	icon = 'icons/obj/organs/bioaugs.dmi'
+	icon_state = "alien_liver"
+	max_damage = 200
+	min_bruised_damage = 150
+	min_broken_damage = 175
+
+/obj/item/organ/internal/liver/alien_liver/Initialize()
+	. = ..()
+	base_filter_strength *= rand(0.5, 2)
+	base_filter_effect *= rand(0.5, 2)
+	// That negative bound is intentional.
+	// A negative filter effect value means dylovene will decrease the liver effectiveness.
+	filter_effect_from_dylovene *= rand(-2, 2)
+	intox_filter_bruised *= rand(0.5, 2)
+	intox_filter_broken *= rand(0.5, 2)
+	base_toxin_healing_rate *= rand(0.5, 2)
+	toxin_critical_mass *= rand(0.5, 2)
+	filter_effect_from_critical_toxin *= rand(0.5, 2)
+	booze_filtering_modifier *= rand(0, 10)
+	filter_effect_from_bruise *= rand(0.5, 2)
+	filter_effect_from_broken *= rand(0.5, 2)
+	blackout_booze_filtering_modifier *= rand(0, 10)
+	infection_level_one_warning = "Uncountable tiny metal scarabs dig into your flesh."
+	liver_regeneration_normal *= rand(0, 2)
+	liver_regeneration_bruised *= rand(0, 2)
+	liver_regeneration_broken = rand(0, 12)

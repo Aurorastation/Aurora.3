@@ -72,10 +72,10 @@
  * * item_to_equip - An `/obj/item` to try to equip
  * * slot - The slot to equip it to, one of the `slot_*` defines in `code\__DEFINES\items_clothing.dm`
  */
-/mob/proc/equip_to_slot_or_del(obj/item/item_to_equip, slot)
+/mob/proc/equip_to_slot_or_del(obj/item/item_to_equip, slot, initial = TRUE)
 	SHOULD_NOT_SLEEP(TRUE)
 
-	. = equip_to_slot_if_possible(item_to_equip, slot, TRUE, TRUE, FALSE, TRUE)
+	. = equip_to_slot_if_possible(item_to_equip, slot, TRUE, TRUE, FALSE, TRUE, initial)
 
 // Convinience proc.  Collects crap that fails to equip either onto the mob's back, or drops it.
 // Used in job equipping so shit doesn't pile up at the start loc.
@@ -421,6 +421,10 @@ GLOBAL_LIST_INIT(slot_equipment_priority, list(
 		item = G.throw_held() //throw the person instead of the grab
 		if(ismob(item) && G.state >= GRAB_NECK)
 			var/mob/M = item
+			if(M.mob_weight > get_mob_strength())
+				to_chat(src, SPAN_WARNING("[M] is far too heavy for you to throw around!"))
+				return
+
 			throw_range = round(throw_range * (src.mob_size/M.mob_size))
 			itemsize = round(M.mob_size/4)
 			var/turf/start_T = get_turf(loc) //Get the start and target tile for the descriptors
@@ -449,7 +453,7 @@ GLOBAL_LIST_INIT(slot_equipment_priority, list(
 	if(!item)
 		return FALSE //Grab processing has a chance of returning null
 
-	if(item.too_heavy_to_throw())
+	if(item.too_heavy_to_throw() && !(a_intent == I_HELP && Adjacent(target)))
 		to_chat(src, SPAN_DANGER("You try to throw \the [item] with a lot of difficulty..."))
 		if(do_after(src, 2 SECONDS))
 			to_chat(src, SPAN_DANGER("<font size=4>Your grip slips and \the [item] falls onto your foot!</font>"))

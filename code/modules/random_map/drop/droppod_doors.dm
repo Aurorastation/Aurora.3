@@ -20,7 +20,7 @@
 		return
 	attack_hand(user)
 
-/obj/structure/droppod_door/attack_generic(var/mob/user)
+/obj/structure/droppod_door/attack_generic(mob/user, damage, attack_message, environment_smash, armor_penetration, attack_flags, damage_type)
 	attack_hand(user)
 
 /obj/structure/droppod_door/attack_hand(var/mob/user)
@@ -31,7 +31,7 @@
 
 /obj/structure/droppod_door/attackby(obj/item/attacking_item, mob/user)
 	. = ..()
-	if(attacking_item.iswelder())
+	if(attacking_item.tool_behaviour == TOOL_WELDER)
 		var/obj/item/weldingtool/WT = attacking_item
 		if(WT.isOn())
 			user.visible_message(

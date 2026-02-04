@@ -349,7 +349,7 @@
 /area/haneunim_mining)
 "su" = (
 /obj/structure/table/rack,
-/obj/item/device/flashlight/lantern,
+/obj/item/flashlight/lantern,
 /turf/simulated/floor/tiled/rust,
 /area/haneunim_mining)
 "ta" = (
@@ -674,11 +674,11 @@
 /area/haneunim_mining)
 "Nm" = (
 /obj/structure/table/rack,
-/obj/item/device/flashlight/lantern,
-/obj/item/device/flashlight/lantern,
-/obj/item/device/flashlight/lantern,
-/obj/item/device/flashlight/lantern,
-/obj/item/device/flashlight/lantern,
+/obj/item/flashlight/lantern,
+/obj/item/flashlight/lantern,
+/obj/item/flashlight/lantern,
+/obj/item/flashlight/lantern,
+/obj/item/flashlight/lantern,
 /turf/simulated/floor/tiled/rust,
 /area/haneunim_mining)
 "Nt" = (

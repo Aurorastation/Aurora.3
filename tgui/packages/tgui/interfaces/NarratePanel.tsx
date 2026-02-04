@@ -1,11 +1,19 @@
 import { useBackend, useLocalState } from '../backend';
-import { Button, Divider, Input, LabeledList, NumberInput, Section } from '../components';
+import {
+  Button,
+  Divider,
+  Input,
+  LabeledList,
+  NumberInput,
+  Section,
+} from '../components';
 import { Dropdown } from '../components/Dropdown';
 import { Window } from '../layouts';
 
 export type NarrateData = {
   narrate_styles: string[];
   narrate_locations: string[];
+  narrate_filters: string[];
 };
 
 export const NarratePanel = (props, context) => {
@@ -13,27 +21,32 @@ export const NarratePanel = (props, context) => {
   const [narrateText, setNarrateText] = useLocalState(
     context,
     'narrateText',
-    ''
+    '',
   );
   const [narrateSize, setNarrateSize] = useLocalState(
     context,
     'narrateSize',
-    2
+    2,
   );
   const [narrateRange, setNarrateRange] = useLocalState(
     context,
     'narrateRange',
-    7
+    7,
   );
   const [narrateStyle, setNarrateStyle] = useLocalState(
     context,
     'textStyle',
-    'notice'
+    'notice',
   );
   const [narrateLocation, setNarrateLocation] = useLocalState(
     context,
     'narrateLocation',
-    'View'
+    'View',
+  );
+  const [narrateFilter, setNarrateFilter] = useLocalState(
+    context,
+    'narrateFilter',
+    'None',
   );
 
   return (
@@ -54,10 +67,12 @@ export const NarratePanel = (props, context) => {
                   narrate_range: narrateRange,
                   narrate_style: narrateStyle,
                   narrate_location: narrateLocation,
+                  narrate_filter: narrateFilter,
                 })
               }
             />
-          }>
+          }
+        >
           <Input
             fluid
             strict
@@ -106,6 +121,15 @@ export const NarratePanel = (props, context) => {
                 displayText={narrateLocation}
                 width="50%"
                 onSelected={(value) => setNarrateLocation(value)}
+              />
+            </LabeledList.Item>
+            <LabeledList.Item label="Filter">
+              <Dropdown
+                options={data.narrate_filters}
+                selected={data.narrate_filters[1]}
+                displayText={narrateFilter}
+                width="50%"
+                onSelected={(value) => setNarrateFilter(value)}
               />
             </LabeledList.Item>
           </LabeledList>

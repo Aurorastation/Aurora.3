@@ -41,6 +41,3 @@
 
 /obj/machinery/atmospherics/pipe/atmosanalyze(var/mob/user)
 	return atmosanalyzer_scan(src, src.parent.air, user)
-
-/obj/item/flamethrower/atmosanalyze(var/mob/user)
-	if(gas_tank)	return atmosanalyzer_scan(src, gas_tank.air_contents, user)

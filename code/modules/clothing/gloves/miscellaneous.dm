@@ -226,7 +226,7 @@
 	matter = list(DEFAULT_WALL_MATERIAL = 1000)
 
 	drop_sound = 'sound/items/drop/sword.ogg'
-	pickup_sound = /singleton/sound_category/sword_pickup_sound
+	pickup_sound = SFX_PICKUP_SWORD
 
 /obj/item/clothing/gloves/powerfist
 	name = "power fist"

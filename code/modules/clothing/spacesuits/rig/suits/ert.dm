@@ -25,9 +25,9 @@
 	)
 	siemens_coefficient = 0.1
 	allowed = list(
-	/obj/item/device/flashlight, /obj/item/tank, /obj/item/device/t_scanner, /obj/item/rfd/construction, /obj/item/crowbar, \
-	/obj/item/screwdriver, /obj/item/weldingtool, /obj/item/wirecutters, /obj/item/wrench, /obj/item/device/multitool, \
-	/obj/item/device/radio, /obj/item/device/analyzer, /obj/item/storage/bag/inflatable, /obj/item/melee/baton, /obj/item/gun, \
+	/obj/item/flashlight, /obj/item/tank, /obj/item/t_scanner, /obj/item/rfd/construction, /obj/item/crowbar, \
+	/obj/item/screwdriver, /obj/item/weldingtool, /obj/item/wirecutters, /obj/item/wrench, /obj/item/multitool, \
+	/obj/item/radio, /obj/item/analyzer, /obj/item/storage/bag/inflatable, /obj/item/melee/baton, /obj/item/gun, \
 	/obj/item/storage/firstaid, /obj/item/reagent_containers/hypospray, /obj/item/roller,/obj/item/material/twohanded/fireaxe)
 	initial_modules = list(
 		/obj/item/rig_module/ai_container,

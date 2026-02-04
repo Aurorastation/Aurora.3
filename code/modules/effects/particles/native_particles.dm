@@ -45,6 +45,14 @@
 	friction = 0.2
 	grow = 0.0015
 
+/particles/mist/back
+	name = "mist_back"
+	spawning = 7
+	position = generator("box", list(-20, -1), list(20, 20), UNIFORM_RAND)
+	lifespan = 6 SECONDS
+	fadein = 1.5 SECONDS
+
+
 /particles/heat
 	name = "heat"
 	width = 500
@@ -82,17 +90,12 @@
 	layer = BELOW_TABLE_LAYER
 	alpha = 128
 
-
-//Spawner object
-//Maybe we could pool them in and out
-
 /obj/particle_emitter
 	name = ""
 	anchored = TRUE
 	mouse_opacity = 0
 	appearance_flags = PIXEL_SCALE
 	var/particle_type = null
-
 
 /obj/particle_emitter/Initialize(mapload, time, _color)
 	. = ..()
@@ -103,20 +106,23 @@
 		QDEL_IN(src, time)
 	color = _color
 
+// Future medium-quality heat effect
 /obj/particle_emitter/heat
 	particle_type = "heat"
-	render_target = HEAT_EFFECT_TARGET
+	render_target = HEAT_EFFECT_PLATE_RENDER_TARGET
 	appearance_flags = PIXEL_SCALE | NO_CLIENT_COLOR
 
 
 /obj/particle_emitter/heat/Initialize()
 	. = ..()
-	filters += filter(type = "blur", size = 1)
+	add_filter("heat_blur", 1, gauss_blur_filter(1))
 
+// High-quality heat effect
 /obj/particle_emitter/heat/high
 	particle_type = "high heat"
 
 
+// Medium/High-quality cold effect
 /obj/particle_emitter/mist
 	particle_type = "mist"
 	layer = FIRE_LAYER
@@ -127,18 +133,18 @@
 
 
 /obj/particle_emitter/mist/back/gas
-	render_target = COLD_EFFECT_BACK_TARGET
+	render_target = COLD_EFFECT_BACK_PLATE_RENDER_TARGET
 
 /obj/particle_emitter/mist/back/gas/Initialize(mapload, time, _color)
 	. = ..()
-	filters += filter(type="alpha", render_source = COLD_EFFECT_TARGET, flags = MASK_INVERSE)
+	add_filter("cold_alpha", 1, alpha_mask_filter(render_source = COLD_EFFECT_PLATE_RENDER_TARGET, flags = MASK_INVERSE))
 
 //for cold gas effect
 /obj/particle_emitter/mist/gas
-	render_target = COLD_EFFECT_TARGET
+	render_target = COLD_EFFECT_PLATE_RENDER_TARGET
 	var/obj/particle_emitter/mist/back/b = /obj/particle_emitter/mist/back/gas
 
 /obj/particle_emitter/mist/gas/Initialize(mapload, time, _color)
 	. = ..()
 	b = new b(null)
-	vis_contents += b
+	add_vis_contents(b)

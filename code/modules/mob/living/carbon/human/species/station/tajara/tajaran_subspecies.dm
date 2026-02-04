@@ -10,10 +10,10 @@
 	crime rates."
 	species_height = HEIGHT_CLASS_TALL
 
-	secondary_langs = list(LANGUAGE_SIIK_MAAS, LANGUAGE_SIIK_TAJR, LANGUAGE_DELVAHII)
+	secondary_langs = list(LANGUAGE_SIIK_TAJR, LANGUAGE_DELVAHII)
 
-	slowdown = -0.8 //As opposed to -1 for Base tajara
-	sprint_speed_factor = 0.55 // As opposed to 0.65
+	slowdown = -0.2
+	sprint_speed_factor = 0.55
 	standing_jump_range = 2
 	stamina = 100 // As opposed to 90
 	brute_mod = 1.1 // Less Brute Damage
@@ -57,8 +57,8 @@
 	worked as hunters, later becoming warriors and soldiers as civilization developed."
 	species_height = HEIGHT_CLASS_AVERAGE
 
-	slowdown = -1.2 //As opposed to -1 for Base tajara
-	sprint_speed_factor = 0.75 // As opposed to 0.65
+	slowdown = -0.6
+	sprint_speed_factor = 0.75
 	standing_jump_range = 3
 	stamina = 80 // As opposed to 90
 	brute_mod = 1.3 // More Brute Damage
@@ -80,7 +80,7 @@
 
 	default_h_style = "M'sai Ears"
 
-	secondary_langs = list(LANGUAGE_SIIK_MAAS, LANGUAGE_SIIK_TAJR, LANGUAGE_SIGN_TAJARA)
+	secondary_langs = list(LANGUAGE_SIIK_TAJR, LANGUAGE_SIGN_TAJARA)
 
 	max_nutrition_factor = 1.2
 	max_hydration_factor = 1.2
@@ -157,7 +157,7 @@
 
 	injection_mod = 2
 
-	bodyfall_sound = /singleton/sound_category/bodyfall_machine_sound
+	bodyfall_sound = SFX_BODYFALL_MACHINE
 
 	has_organ = list(
 		BP_BRAIN =    /obj/item/organ/internal/brain/tajara,

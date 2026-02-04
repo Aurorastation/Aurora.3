@@ -53,7 +53,7 @@
 	//Items
 	var/obj/item/clothing/under/U = new /obj/item/clothing/under/rank/centcom_officer/bst(bst)
 	bst.equip_to_slot_or_del(U, slot_w_uniform)
-	bst.equip_to_slot_or_del(new /obj/item/device/radio/headset/ert/bst(bst), slot_l_ear)
+	bst.equip_to_slot_or_del(new /obj/item/radio/headset/ert/bst(bst), slot_l_ear)
 	bst.equip_to_slot_or_del(new /obj/item/storage/backpack/holding/bst(bst), slot_back)
 	bst.equip_to_slot_or_del(new /obj/item/storage/box/survival(bst.back), slot_in_backpack)
 	bst.equip_to_slot_or_del(new /obj/item/clothing/shoes/sneakers/black/bst(bst), slot_shoes)
@@ -65,9 +65,9 @@
 		bst.equip_to_slot_or_del(new /obj/item/storage/box/ids(bst), slot_r_hand)
 	else
 		bst.equip_to_slot_or_del(new /obj/item/storage/box/ids(bst.back), slot_in_backpack)
-		bst.equip_to_slot_or_del(new /obj/item/device/t_scanner(bst.back), slot_in_backpack)
+		bst.equip_to_slot_or_del(new /obj/item/t_scanner(bst.back), slot_in_backpack)
 		bst.equip_to_slot_or_del(new /obj/item/modular_computer/handheld/pda/command/bst(bst.back), slot_in_backpack)
-		bst.equip_to_slot_or_del(new /obj/item/device/healthanalyzer(bst.back), slot_in_backpack)
+		bst.equip_to_slot_or_del(new /obj/item/healthanalyzer(bst.back), slot_in_backpack)
 		bst.equip_to_slot_or_del(new /obj/item/research(bst.back), slot_in_backpack)
 
 		var/obj/item/storage/box/pills = new /obj/item/storage/box(null, TRUE)
@@ -353,16 +353,16 @@
 	max_w_class = WEIGHT_CLASS_GIGANTIC
 
 //Headset
-/obj/item/device/radio/headset/ert/bst
+/obj/item/radio/headset/ert/bst
 	name = "bluespace technician's headset"
 	desc = "A Bluespace Technician's headset. The letters 'BST' are stamped on the side."
 	translate_binary = 1
 	translate_hivenet = 1
 	canremove = 0
-	keyslot1 = new /obj/item/device/encryptionkey/binary
-	keyslot2 = new /obj/item/device/encryptionkey/ert
+	keyslot1 = new /obj/item/encryptionkey/binary
+	keyslot2 = new /obj/item/encryptionkey/ert
 
-/obj/item/device/radio/headset/ert/bst/attack_hand()
+/obj/item/radio/headset/ert/bst/attack_hand()
 	if(!usr)
 		return
 	if(!istype(usr, /mob/living/carbon/human/bst))
@@ -372,7 +372,7 @@
 		..()
 
 // overload this so we can force translate flags without the required keys
-/obj/item/device/radio/headset/ert/bst/recalculateChannels(var/setDescription = 0)
+/obj/item/radio/headset/ert/bst/recalculateChannels(var/setDescription = 0)
 	..(setDescription)
 	translate_binary = 1
 	translate_hivenet = 1
@@ -419,7 +419,7 @@
 	name = "bluespace technician's glasses"
 	desc = "A pair of modified sunglasses. The word 'BST' is stamped on the side."
 	vision_flags = (SEE_TURFS|SEE_OBJS|SEE_MOBS)
-	see_invisible = SEE_INVISIBLE_NOLIGHTING
+	lighting_alpha = LIGHTING_PLANE_ALPHA_SOMEWHAT_INVISIBLE
 	canremove = 0
 	flash_protection = FLASH_PROTECTION_MAJOR
 
@@ -431,17 +431,17 @@
 
 	switch (mode)
 		if ("X-Ray without Lighting")
-			vision_flags = SEE_TURFS|SEE_OBJS|SEE_MOBS|SEE_BLACKNESS|SEE_SELF
-			see_invisible = SEE_INVISIBLE_NOLIGHTING
+			vision_flags = SEE_TURFS|SEE_OBJS|SEE_MOBS|SEE_SELF
+			lighting_alpha = LIGHTING_PLANE_ALPHA_INVISIBLE
 		if ("X-Ray with Lighting")
-			vision_flags = SEE_TURFS|SEE_OBJS|SEE_MOBS|SEE_BLACKNESS|SEE_SELF
-			see_invisible = -1
+			vision_flags = SEE_TURFS|SEE_OBJS|SEE_MOBS|SEE_SELF
+			lighting_alpha = LIGHTING_PLANE_ALPHA_VISIBLE
 		if ("Darkvision")
-			vision_flags = SEE_BLACKNESS|SEE_SELF
-			see_invisible = SEE_INVISIBLE_NOLIGHTING
+			vision_flags = SEE_SELF
+			lighting_alpha = LIGHTING_PLANE_ALPHA_SOMEWHAT_INVISIBLE
 		if ("Normal vision")
 			vision_flags = 0
-			see_invisible = -1
+			lighting_alpha = LIGHTING_PLANE_ALPHA_VISIBLE
 
 	to_chat(usr, SPAN_NOTICE("\The [src]'s vision mode is now <b>[mode]</b>."))
 

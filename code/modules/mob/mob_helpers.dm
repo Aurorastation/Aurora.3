@@ -28,7 +28,7 @@
 /proc/isMMI(A)
 	if(isbrain(A))
 		var/mob/living/carbon/brain/B = A
-		return istype(B.container, /obj/item/device/mmi)
+		return istype(B.container, /obj/item/mmi)
 
 /mob/living/bot/isSynthetic()
 	return 1
@@ -1116,8 +1116,8 @@ GLOBAL_LIST_INIT(organ_rel_size, list(
 
 #undef SAFE_PERP
 
-/mob/proc/get_multitool(var/obj/P)
-	if(P?.ismultitool())
+/mob/proc/get_multitool(var/obj/item/P)
+	if(P?.tool_behaviour == TOOL_MULTITOOL)
 		return P
 
 /mob/abstract/ghost/observer/get_multitool()
@@ -1357,3 +1357,7 @@ GLOBAL_LIST_INIT(organ_rel_size, list(
 		message_notifications.Cut(1, 2)
 
 	message_notifications[key_check] = world.time + next_message_time
+
+/// Gets a mob's strength.
+/mob/proc/get_mob_strength()
+	return mob_weight + mob_strength

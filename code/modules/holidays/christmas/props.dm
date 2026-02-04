@@ -86,7 +86,7 @@
 /obj/effect/spresent/attackby(obj/item/attacking_item, mob/user)
 	..()
 
-	if (!attacking_item.iswirecutter())
+	if (attacking_item.tool_behaviour != TOOL_WIRECUTTER)
 		to_chat(user, SPAN_WARNING("I need wirecutters for that."))
 		return
 
@@ -104,7 +104,7 @@
 	var/gift_type = pick(
 		/obj/item/storage/wallet,
 		/obj/item/storage/photo_album,
-		/obj/item/storage/box/snappops,
+		/obj/item/storage/box/unique/snappops,
 		/obj/item/storage/box/fancy/crayons,
 		/obj/item/storage/belt/champion,
 		/obj/item/soap/deluxe,
@@ -139,8 +139,8 @@
 		/obj/item/toy/sword,
 		/obj/item/reagent_containers/food/snacks/grown/ambrosiadeus,
 		/obj/item/reagent_containers/food/snacks/grown/ambrosiavulgaris,
-		/obj/item/device/paicard,
-		/obj/item/device/synthesized_instrument/violin,
+		/obj/item/paicard,
+		/obj/item/synthesized_instrument/violin,
 		/obj/item/storage/belt/utility/full,
 		/obj/item/clothing/accessory/horrible)
 
@@ -202,7 +202,7 @@
 		/obj/random/wizard_dressup,
 		/obj/item/storage/wallet,
 		/obj/item/storage/photo_album,
-		/obj/item/storage/box/snappops,
+		/obj/item/storage/box/unique/snappops,
 		/obj/item/storage/box/fancy/crayons,
 		/obj/item/soap/deluxe,
 		/obj/item/pen/invisible,
@@ -224,12 +224,12 @@
 		/obj/item/toy/mech/phazon,
 		/obj/item/toy/mech/ripley,
 		/obj/item/toy/mech/seraph,
-		/obj/item/device/paicard,
+		/obj/item/paicard,
 		/obj/item/clothing/accessory/horrible,
-		/obj/item/device/camera,
+		/obj/item/camera,
 		/obj/item/bluespace_crystal,
 		/obj/item/flame/lighter/zippo,
-		/obj/item/device/taperecorder,
+		/obj/item/taperecorder,
 		/obj/item/storage/box/fancy/cigarettes/dromedaryco,
 		/obj/item/toy/bosunwhistle,
 		/obj/item/clothing/mask/fakemoustache,
@@ -291,12 +291,12 @@
 		/obj/item/toy/sword,
 		/obj/item/reagent_containers/food/snacks/grown/ambrosiadeus,
 		/obj/item/reagent_containers/food/snacks/grown/ambrosiavulgaris,
-		/obj/item/device/paicard,
+		/obj/item/paicard,
 		/obj/item/clothing/accessory/horrible,
 		/obj/item/clothing/shoes/heels,
-		/obj/item/storage/box/donkpockets,
+		/obj/item/storage/box/unique/donkpockets,
 		/obj/item/reagent_containers/glass/beaker/teapot,
-		/obj/item/device/flashlight/lantern,
+		/obj/item/flashlight/lantern,
 		/obj/item/clothing/mask/balaclava,
 		/obj/item/clothing/accessory/badge/old,
 		/obj/item/clothing/mask/gas/mime,
@@ -312,10 +312,10 @@
 		/obj/item/contraband/poster,
 		/obj/item/clothing/head/hardhat/atmos,
 		/mob/living/bot/cleanbot,
-		/obj/item/device/binoculars,
-		/obj/item/device/camera,
-		/obj/item/device/gps,
-		/obj/item/device/uv_light,
+		/obj/item/binoculars,
+		/obj/item/camera,
+		/obj/item/gps,
+		/obj/item/uv_light,
 		/obj/random/loot,
 		/obj/random/contraband,
 		/obj/item/autochisel,
@@ -323,12 +323,12 @@
 		/obj/item/ore/coal,
 		/obj/item/ore/coal,
 		/obj/item/phone,
-		/obj/item/device/dociler,
-		/obj/item/device/flashlight/maglight,
-		/obj/item/device/megaphone,
-		/obj/item/device/synthesized_instrument/violin,
-		/obj/item/device/synthesized_instrument/guitar,
-		/obj/item/device/synthesized_instrument/trumpet)
+		/obj/item/dociler,
+		/obj/item/flashlight/maglight,
+		/obj/item/megaphone,
+		/obj/item/synthesized_instrument/violin,
+		/obj/item/synthesized_instrument/guitar,
+		/obj/item/synthesized_instrument/trumpet)
 
 	return picked_gift_type
 
@@ -366,7 +366,7 @@
 		/mob/living/simple_animal/parrot,
 		/mob/living/simple_animal/hostile/commanded/dog/pug,
 		/obj/item/target/alien,
-		/obj/item/storage/box/candy)
+		/obj/item/storage/box/large/candy)
 
 	return picked_gift_type
 

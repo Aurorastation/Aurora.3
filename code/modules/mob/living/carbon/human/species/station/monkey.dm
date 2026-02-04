@@ -200,5 +200,5 @@
 	brute_mod = 0.8
 	burn_mod = 2
 	fall_mod = 0
-	slowdown = -1
+	slowdown = -0.3
 

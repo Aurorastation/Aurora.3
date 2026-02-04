@@ -2,6 +2,7 @@
  *	Idris Re-Fresh
  *		Low Supply
  *		Konyang
+ *		Horizon
  *	Zo'ra Soda
  *		Low Supply
  *	BODA (Soviet Soda)
@@ -108,7 +109,28 @@
 		/obj/item/reagent_containers/food/drinks/cans/melon_soda = 10
 	)
 
-/obj/item/device/vending_refill/cola
+// Reduced list of products as most are in the commissary
+/obj/machinery/vending/cola/horizon
+	products = list(
+		/obj/item/reagent_containers/food/drinks/cans/cola = 10,
+		/obj/item/reagent_containers/food/drinks/cans/diet_cola = 10,
+		/obj/item/reagent_containers/food/drinks/waterbottle = 10,
+		/obj/item/reagent_containers/food/drinks/carton/small/milk = 10,
+		/obj/item/reagent_containers/food/drinks/carton/small/milk/choco = 10,
+		/obj/item/reagent_containers/food/drinks/carton/small/milk/strawberry = 10,
+		/obj/item/reagent_containers/food/drinks/zobo = 10
+	)
+	contraband = list(
+		/obj/item/reagent_containers/food/drinks/cans/thirteenloko = 5,
+		/obj/item/reagent_containers/food/drinks/cans/koispunch = 3
+	)
+	premium = list(
+		/obj/item/reagent_containers/food/drinks/bottle/cola = 2,
+		/obj/item/reagent_containers/food/drinks/bottle/space_mountain_wind = 2,
+		/obj/item/reagent_containers/food/drinks/bottle/space_up = 2
+	)
+
+/obj/item/vending_refill/cola
 	name = "cola resupply canister"
 	vend_id = "cola"
 	charges = 50
@@ -173,7 +195,7 @@
 		/obj/item/reagent_containers/food/drinks/cans/zorasoda/dyn = 1
 	)
 
-/obj/item/device/vending_refill/zora
+/obj/item/vending_refill/zora
 	name = "Zo'ra Soda resupply canister"
 	vend_id = "zora"
 	charges = 40

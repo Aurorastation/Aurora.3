@@ -22,7 +22,8 @@ export const Signaler = (props, context) => {
               icon="wifi"
               onClick={() => act('send')}
             />
-          }>
+          }
+        >
           <LabeledList>
             <LabeledList.Item label="Frequency">
               <NumberInput

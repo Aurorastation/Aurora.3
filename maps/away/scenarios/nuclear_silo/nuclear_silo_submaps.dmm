@@ -475,10 +475,10 @@
 	req_access = list(247)
 	},
 /obj/effect/floor_decal/industrial/hatch/red,
-/obj/item/storage/box/frags,
-/obj/item/storage/box/smokebombs,
-/obj/item/storage/box/flashbangs,
-/obj/item/storage/box/teargas,
+/obj/item/storage/box/tactical/frags,
+/obj/item/storage/box/tactical/smokebombs,
+/obj/item/storage/box/tactical/flashbangs,
+/obj/item/storage/box/tactical/teargas,
 /obj/effect/map_effect/marker/mapmanip/submap/extract/nuclear_silo/armoury,
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
@@ -792,10 +792,10 @@
 	req_access = list(247)
 	},
 /obj/effect/floor_decal/industrial/hatch/red,
-/obj/item/storage/box/frags,
-/obj/item/storage/box/smokebombs,
-/obj/item/storage/box/flashbangs,
-/obj/item/storage/box/teargas,
+/obj/item/storage/box/tactical/frags,
+/obj/item/storage/box/tactical/smokebombs,
+/obj/item/storage/box/tactical/flashbangs,
+/obj/item/storage/box/tactical/teargas,
 /obj/item/recharger_backpack,
 /obj/item/recharger_backpack,
 /obj/item/recharger_backpack,
@@ -917,7 +917,7 @@
 /area/template_noop)
 "rf" = (
 /obj/structure/table/steel,
-/obj/item/device/flashlight/lamp/off{
+/obj/item/flashlight/lamp/off{
 	pixel_y = 4
 	},
 /obj/random/dirt_75,
@@ -1203,7 +1203,7 @@
 /area/template_noop)
 "vE" = (
 /obj/structure/table/steel,
-/obj/item/device/flashlight/lamp/off{
+/obj/item/flashlight/lamp/off{
 	pixel_y = 4
 	},
 /obj/machinery/atmospherics/unary/vent_pump/on{
@@ -1228,9 +1228,9 @@
 /obj/item/ammo_magazine/c45m/rubber,
 /obj/item/ammo_magazine/c45m/rubber,
 /obj/item/ammo_magazine/c45m/rubber,
-/obj/item/storage/box/stunshells,
-/obj/item/storage/box/flashshells,
-/obj/item/storage/box/beanbags,
+/obj/item/storage/box/shells/stunshells,
+/obj/item/storage/box/shells/flashshells,
+/obj/item/storage/box/shells/beanbags,
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
 "we" = (
@@ -1319,7 +1319,7 @@
 /area/template_noop)
 "xl" = (
 /obj/structure/table/steel,
-/obj/item/device/flashlight/lamp/off{
+/obj/item/flashlight/lamp/off{
 	pixel_y = 4
 	},
 /obj/item/gamehelm/brown,
@@ -1684,7 +1684,7 @@
 /area/template_noop)
 "DZ" = (
 /obj/structure/table/steel,
-/obj/item/device/flashlight/lamp/off{
+/obj/item/flashlight/lamp/off{
 	pixel_y = 4
 	},
 /turf/simulated/floor/tiled,
@@ -1804,8 +1804,8 @@
 /obj/item/ammo_magazine/a556/carbine,
 /obj/item/ammo_magazine/a556/carbine,
 /obj/item/ammo_magazine/a556/carbine,
-/obj/item/storage/box/shotgunshells,
-/obj/item/storage/box/shotgunshells,
+/obj/item/storage/box/shells/buckshot,
+/obj/item/storage/box/shells/buckshot,
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
 "FB" = (
@@ -1996,7 +1996,7 @@
 /area/template_noop)
 "Id" = (
 /obj/structure/table/steel,
-/obj/item/device/flashlight/lamp/off{
+/obj/item/flashlight/lamp/off{
 	pixel_y = 4
 	},
 /obj/machinery/light{
@@ -2048,7 +2048,7 @@
 /area/template_noop)
 "Jm" = (
 /obj/structure/table/steel,
-/obj/item/device/flashlight/lamp/off{
+/obj/item/flashlight/lamp/off{
 	pixel_y = 4
 	},
 /turf/simulated/floor/wood/mahogany,
@@ -2177,7 +2177,7 @@
 /area/template_noop)
 "Mk" = (
 /obj/structure/table/steel,
-/obj/item/device/flashlight/lamp/off{
+/obj/item/flashlight/lamp/off{
 	pixel_y = 4
 	},
 /obj/machinery/light{
@@ -2233,9 +2233,9 @@
 	req_access = list(247)
 	},
 /obj/effect/floor_decal/industrial/hatch/red,
-/obj/item/storage/box/teargas,
-/obj/item/storage/box/smokebombs,
-/obj/item/storage/box/flashbangs,
+/obj/item/storage/box/tactical/teargas,
+/obj/item/storage/box/tactical/smokebombs,
+/obj/item/storage/box/tactical/flashbangs,
 /obj/effect/map_effect/marker/mapmanip/submap/extract/nuclear_silo/armoury,
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
@@ -2649,7 +2649,7 @@
 /area/template_noop)
 "Vc" = (
 /obj/structure/table/steel,
-/obj/item/device/flashlight/lamp/off{
+/obj/item/flashlight/lamp/off{
 	pixel_y = 4
 	},
 /obj/random/dirt_75,

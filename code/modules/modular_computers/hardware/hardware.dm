@@ -1,4 +1,4 @@
-/obj/item/computer_hardware/
+/obj/item/computer_hardware
 	name = "Hardware"
 	desc = "Unknown Hardware."
 	icon = 'icons/obj/modular_components.dmi'
@@ -44,7 +44,7 @@
 
 /obj/item/computer_hardware/attackby(obj/item/attacking_item, mob/user)
 	/// Multitool. Runs diagnostics
-	if(attacking_item.ismultitool())
+	if(attacking_item.tool_behaviour == TOOL_MULTITOOL)
 		to_chat(user, SPAN_NOTICE("***** DIAGNOSTICS REPORT *****"))
 		diagnostics(user)
 		to_chat(user, SPAN_NOTICE("******************************"))
@@ -60,7 +60,7 @@
 			damage = 0
 		return TRUE
 	/// Cable coil. Works as repair method, but will probably require multiple applications and more cable.
-	if(S.iscoil())
+	if(S.tool_behaviour == TOOL_CABLECOIL)
 		if(!damage)
 			to_chat(user, SPAN_WARNING("\The [src] doesn't seem to require repairs."))
 			return TRUE

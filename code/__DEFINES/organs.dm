@@ -42,3 +42,24 @@
  * Raised on an entity whose liver is attempting to filter blood.
  */
 #define COMSIG_LIVER_FILTER_EVENT "liver_filter_event"
+
+/**
+ * Raised on an entity with the gravity weakness feature that is about to take damage from said weakness.
+ * Set the canceled variable to true in order to negate said weakness.
+ */
+#define COMSIG_GRAVITY_WEAKNESS_EVENT "gravity_weakness_event"
+
+/// Raised external organ (a limb) takes damage. Used for the synthetic endoskeleton at the moment. Must supply damage.
+#define COMSIG_EXTERNAL_ORGAN_DAMAGE "machine_internal_damage"
+
+/// Sent when the burst damage is cleared by the posibrain.
+#define COMSIG_SYNTH_EMP_DAMAGE_CLEARED "emp_damage_cleared"
+
+/// Sent when the synthetic enters self-preservation mode. Must supply a TRUE/FALSE state.
+#define COMSIG_SYNTH_SET_SELF_PRESERVATION "synth_self_preservation_set"
+
+/// Sent when endoskeleton repair is done. Must supply a number of damage healed.
+#define COMSIG_SYNTH_ENDOSKELETON_REPAIR "synth_endoskeleton_repair"
+
+/// Sent when a full endoskeleton repair is done. Unlike the normal one, also restores max_damage to initial state. No extra arguments.
+#define COMSIG_SYNTH_ENDOSKELETON_FULL_REPAIR "synth_endoskeleton_full_repair"
