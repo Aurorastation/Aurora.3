@@ -195,13 +195,14 @@ emp_act
 	return src
 
 /mob/living/carbon/human/resolve_item_attack(obj/item/I, mob/living/user, var/target_zone)
+	for (var/obj/item/grab/grab as anything in grabbed_by)
+		if(grab.resolve_item_attack(user, I, target_zone))
+			return null
+
 	if(user == src) // Attacking yourself can't miss
 		return target_zone
 
 	var/hit_zone = get_zone_with_miss_chance(target_zone, src)
-
-	if(user == src) // Attacking yourself can't miss
-		target_zone = user.zone_sel.selecting
 
 	if(!hit_zone)
 		visible_message(SPAN_DANGER("[user] misses [src] with \the [I]!"))

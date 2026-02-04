@@ -117,7 +117,7 @@
 		old_grabbed.reset_plane_and_layer()
 
 /obj/item/grab/proc/on_target_change(atom/movable/screen/zone_sel/zone, old_sel, new_sel)
-	if(src != grabber.get_active_hand() || target_zone != new_sel)
+	if(target_zone == new_sel)
 		return
 	var/old_zone = target_zone
 	target_zone = check_zone(new_sel, grabbed)

@@ -291,7 +291,7 @@ GLOBAL_LIST_EMPTY(sparring_attack_cache)
 		if(5)		user.visible_message(SPAN_DANGER("[user] landed a strong [pick(attack_noun)] against [target]'s [organ]!"))
 
 /datum/unarmed_attack/stomp
-	attack_verb = null
+	attack_verb = list("stomped")
 	attack_noun = list("stomp")
 	attack_sound = SFX_SWING_HIT
 	desc = "An incredible tactic for turning a downed opponent into tenderized meat! Stomping is a safe and sound method of dispatching downed enemies, but it only works if they're already lying down."
