@@ -60,5 +60,4 @@ changes:
   - qol: "Greimorians attempting to lay eggs or a servant now get feedback if it fails."
   - experiment: "Gives Greimorian Queens a melee attack reach of two tiles."
   - bugfix: "Greimorian servants can no longer speak Tau Ceti Basic."
-  - bugfix: "Player controlled simple mob attacks now properly pass armor penetration and other variables."
   - bugfix: "Fixes Greimorian Queen icon state being set to resting if the controlling player ghosts."
