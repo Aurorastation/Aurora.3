@@ -555,12 +555,14 @@ default behaviour is:
 	for(var/obj/item/grab/G as anything in my_grabs)
 		if(HAS_GRAB_FLAGS(G, GRAB_REVERSE_FACING))
 			set_dir(REVERSE_DIR(direction))
+		G.grabbed.set_glide_size(new_glide_size)
 		G.grabber_moved()
 		if(QDELETED(G) || QDELETED(G.grabbed))
 			my_grabs -= G
 
 	if(LAZYLEN(grabbed_by))
 		for(var/obj/item/grab/G as anything in grabbed_by)
+			G.grabbed.set_glide_size(new_glide_size)
 			G.adjust_position()
 		reset_offsets()
 		reset_plane_and_layer()
