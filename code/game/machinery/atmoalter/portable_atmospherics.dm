@@ -34,6 +34,7 @@
 	return INITIALIZE_HINT_LATELOAD
 
 /obj/machinery/portable_atmospherics/canister/LateInitialize()
+	. = ..()
 	update_icon()
 
 /obj/machinery/portable_atmospherics/process()
@@ -115,7 +116,7 @@
 		SStgui.update_uis(src)
 		return TRUE
 
-	else if (attacking_item.iswrench())
+	else if (attacking_item.tool_behaviour == TOOL_WRENCH)
 		if(connected_port)
 			disconnect()
 			to_chat(user, SPAN_NOTICE("You disconnect \the [src] from the port."))
@@ -139,8 +140,8 @@
 				to_chat(user, SPAN_NOTICE("Nothing happens."))
 				return TRUE
 
-	else if ((istype(attacking_item, /obj/item/device/analyzer)) && Adjacent(user))
-		var/obj/item/device/analyzer/A = attacking_item
+	else if ((istype(attacking_item, /obj/item/analyzer)) && Adjacent(user))
+		var/obj/item/analyzer/A = attacking_item
 		A.analyze_gases(src, user)
 		return TRUE
 
@@ -178,7 +179,7 @@
 		SStgui.update_uis(src)
 		return TRUE
 
-	if(attacking_item.isscrewdriver())
+	if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 		if(!cell)
 			to_chat(user, SPAN_WARNING("There is no power cell installed."))
 			return TRUE

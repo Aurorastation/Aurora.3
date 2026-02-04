@@ -378,7 +378,7 @@
 /obj/item/reagent_containers/food/snacks/meat,
 /obj/item/reagent_containers/food/snacks/meat,
 /obj/item/reagent_containers/food/snacks/meat,
-/obj/item/storage/box/produce{
+/obj/item/storage/box/large/produce{
 	pixel_x = 3;
 	pixel_y = -11
 	},
@@ -1281,12 +1281,12 @@
 "efK" = (
 /obj/item/clothing/accessory/storage/webbingharness,
 /obj/item/clothing/head/helmet/pilot,
-/obj/item/device/flashlight/flare,
-/obj/item/device/flashlight/flare,
-/obj/item/device/flashlight/flare,
-/obj/item/device/flashlight/flare,
-/obj/item/device/flashlight/flare,
-/obj/item/device/flashlight/flare,
+/obj/item/flashlight/flare,
+/obj/item/flashlight/flare,
+/obj/item/flashlight/flare,
+/obj/item/flashlight/flare,
+/obj/item/flashlight/flare,
+/obj/item/flashlight/flare,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/closet,
 /turf/simulated/floor/tiled/dark,
@@ -1512,8 +1512,8 @@
 /area/ship/fsf_patrol_ship/grauwolf)
 "far" = (
 /obj/structure/table/steel,
-/obj/item/device/binoculars,
-/obj/item/device/binoculars{
+/obj/item/binoculars,
+/obj/item/binoculars{
 	pixel_y = 5
 	},
 /turf/simulated/floor/tiled/dark,
@@ -2159,16 +2159,16 @@
 	icon_state = "tube_empty"
 	},
 /obj/item/tank/jetpack/carbondioxide,
-/obj/item/device/gps,
+/obj/item/gps,
 /obj/item/clothing/mask/gas/half,
-/obj/item/device/gps,
-/obj/item/device/gps,
-/obj/item/device/gps,
+/obj/item/gps,
+/obj/item/gps,
+/obj/item/gps,
 /obj/item/tank/jetpack/carbondioxide,
 /obj/item/tank/jetpack/carbondioxide,
 /obj/item/tank/jetpack/carbondioxide,
 /obj/item/tank/jetpack/carbondioxide,
-/obj/item/device/gps,
+/obj/item/gps,
 /obj/item/clothing/mask/gas/half,
 /obj/item/clothing/mask/gas/half,
 /obj/item/clothing/mask/gas/half,
@@ -2268,7 +2268,7 @@
 /obj/item/gun/projectile/automatic/rifle/sol,
 /obj/item/ammo_magazine/c762/sol,
 /obj/item/gun/projectile/shotgun/pump/combat/sol,
-/obj/item/storage/box/shotgunshells,
+/obj/item/storage/box/shells/buckshot,
 /obj/item/clothing/accessory/storage/bandolier,
 /turf/simulated/floor,
 /area/ship/fsf_patrol_ship/armory)
@@ -2400,7 +2400,7 @@
 /area/ship/fsf_patrol_ship/grauwolf)
 "ilo" = (
 /obj/structure/table/steel,
-/obj/item/device/flashlight/lamp,
+/obj/item/flashlight/lamp,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
@@ -2687,9 +2687,7 @@
 /obj/structure/cable/green{
 	icon_state = "1-8"
 	},
-/obj/machinery/autolathe{
-	hacked = 1
-	},
+/obj/machinery/fabricator/autolathe/hacked,
 /obj/effect/floor_decal/industrial/outline/operations,
 /turf/simulated/floor/tiled/dark,
 /area/ship/fsf_patrol_ship/engineering)
@@ -6046,7 +6044,7 @@
 /area/ship/fsf_patrol_ship/cic)
 "wFB" = (
 /obj/structure/table/wood,
-/obj/item/device/flashlight/lamp/lava/blue{
+/obj/item/flashlight/lamp/lava/blue{
 	pixel_x = 5;
 	pixel_y = 3
 	},
@@ -6173,8 +6171,8 @@
 	inserted_light = /obj/item/light/tube/colored/blue;
 	icon_state = "tube_empty"
 	},
-/obj/item/storage/box/flashbangs,
-/obj/item/storage/box/smokebombs,
+/obj/item/storage/box/tactical/flashbangs,
+/obj/item/storage/box/tactical/smokebombs,
 /obj/item/gun/energy/taser,
 /obj/item/gun/energy/taser,
 /turf/simulated/floor,

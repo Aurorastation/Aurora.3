@@ -2,6 +2,7 @@
 	name = "item"
 	icon = 'icons/obj/items.dmi'
 	w_class = WEIGHT_CLASS_NORMAL
+	light_system = MOVABLE_LIGHT
 	blocks_emissive = EMISSIVE_BLOCK_GENERIC
 
 	/// This saves our blood splatter overlay, which will be processed not to go over the edges of the sprite
@@ -15,7 +16,7 @@
 	var/burning
 
 	/// Generic hit sound
-	var/hitsound = /singleton/sound_category/swing_hit_sound
+	var/hitsound = SFX_SWING_HIT
 
 	var/storage_cost
 
@@ -131,7 +132,7 @@
 	var/list/allowed = null
 
 	/// All items can have an uplink hidden inside, just remember to add the triggers.
-	var/obj/item/device/uplink/hidden/hidden_uplink
+	var/obj/item/uplink/hidden/hidden_uplink
 
 	/// Name used for message when binoculars/scope is used
 	var/zoomdevicename
@@ -146,9 +147,9 @@
 	/// Sound used when equipping the item into a valid slot
 	var/equip_sound = null
 	/// Sound uses when picking the item up (into your hands)
-	var/pickup_sound = /singleton/sound_category/generic_pickup_sound
+	var/pickup_sound = SFX_PICKUP
 	/// Sound uses when dropping the item, or when its thrown.
-	var/drop_sound = /singleton/sound_category/generic_drop_sound
+	var/drop_sound = SFX_DROP
 
 	var/list/armor
 	/// How fast armor will degrade, multiplier to blocked damage to get armor damage value.
@@ -233,6 +234,14 @@
 	var/in_storage = FALSE
 	/// Holder var for the item outline filter, null when no outline filter on the item.
 	var/outline_filter
+
+	/// Persistency
+	/// Set this to true if you want the item to become persistent trash
+	/// Requires the usual implementation requirements for new persistent types but provides a single implementation for trash logic
+	var/persistency_considered_trash = FALSE
+
+	/// How a tool acts when you use it on something, such as wirecutters cutting wires while multitools measure power
+	var/tool_behaviour = null
 
 /obj/item/Initialize(mapload, ...)
 	. = ..()
@@ -337,7 +346,7 @@
 	//Changed this switch to ranges instead of tiered values, to cope with granularity and also
 	//things outside its range ~Nanako
 
-	. = ..(user, distance, "", "It is a [size] item.", get_extended = get_extended)
+	. = ..(user, distance, is_adjacent, "It is a [size] item.", get_extended = get_extended)
 	var/datum/component/armor/armor_component = GetComponent(/datum/component/armor)
 	if(armor_component)
 		. += FONT_SMALL(SPAN_NOTICE("\[?\] This item has armor values. <a href='byond://?src=[REF(src)];examine_armor=1'>\[Show Armor Values\]</a>"))
@@ -480,18 +489,41 @@
 
 	if(item_flags & ITEM_FLAG_HELD_MAP_TEXT)
 		check_maptext()
-
 	if(zoom)
 		zoom(user) //binoculars, scope, etc
 
 	SEND_SIGNAL(src, COMSIG_ITEM_DROPPED, user)
-
 	in_inventory = FALSE
 
-	if(user && (z_flags & ZMM_MANGLE_PLANES))
-		addtimer(CALLBACK(user, /mob/proc/check_emissive_equipment), 0, TIMER_UNIQUE)
-
 	user?.update_equipment_speed_mods()
+	try_make_persistent_trash()
+
+/obj/item/pipe_eject(var/direction)
+	SHOULD_CALL_PARENT(TRUE)
+	..()
+	try_make_persistent_trash() // Trash that gets thrown into disposal bins and ends up in the disposal areas shouldn't be persistent after all
+
+/obj/item/proc/try_make_persistent_trash()
+	SHOULD_NOT_OVERRIDE(TRUE)
+	PROTECTED_PROC(TRUE)
+	if(!persistency_considered_trash)
+		return
+
+	if(in_storage) // Items getting moved into storages (lunchboxes, backpacks) triggers the dropped handler and requires no persistency as a result
+		SSpersistence.deregister_track(src)
+		return
+
+	// Trash-like items should become only persistent when they are not dropped in an area flagged with AREA_FLAG_PREVENT_PERSISTENT_TRASH
+	var/turf/T = get_turf(src)
+	if(T)
+		var/area/A = get_area(T)
+		if(A && !(A.area_flags & AREA_FLAG_PREVENT_PERSISTENT_TRASH))
+			persistance_expiration_time_days = 3 // Ensure expiration date is set to prevent long term trash
+			SSpersistence.register_track(src, usr == null ? null : ckey(usr.key))
+			return
+
+	// Fallback - No persistency
+	SSpersistence.deregister_track(src)
 
 /obj/item/proc/remove_item_verbs(mob/user)
 	if(ismech(user)) //very snowflake, but necessary due to how mechs work
@@ -598,10 +630,10 @@
 	//Ěent for observable
 	SEND_SIGNAL(src, COMSIG_ITEM_REMOVE, src)
 
-	if(user && (z_flags & ZMM_MANGLE_PLANES))
-		addtimer(CALLBACK(user, /mob/proc/check_emissive_equipment), 0, TIMER_UNIQUE)
-
 	user.update_equipment_speed_mods()
+
+	if(persistency_considered_trash || persistence_track_active) // The moment trash like items get picked up they are no longer persistent
+		SSpersistence.deregister_track(src)
 
 /obj/item/proc/check_equipped(var/mob/user, var/slot, var/assisted_equip = FALSE)
 	return TRUE
@@ -703,7 +735,7 @@ GLOBAL_LIST_INIT(slot_flags_enumeration, list(
 				if(!disable_warning)
 					to_chat(usr, SPAN_WARNING("You somehow have a suit with no defined allowed items for suit storage, stop that."))
 				return 0
-			if(!istype(src, /obj/item/modular_computer) && !ispen() && !is_type_in_list(src, H.wear_suit.allowed))
+			if(!istype(src, /obj/item/modular_computer) && tool_behaviour == TOOL_PEN && !is_type_in_list(src, H.wear_suit.allowed))
 				return 0
 		if(slot_handcuffed)
 			if(!istype(src, /obj/item/handcuffs))

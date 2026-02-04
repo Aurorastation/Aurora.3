@@ -36,7 +36,7 @@
 	// There's a chance for a weed explosion to happen if the weeds take over.
 	// Plants that are themselves weeds (weed_tolerance > 10) are unaffected.
 	if (weedlevel >= 10 && prob(10))
-		if(!seed || weedlevel >= seed.get_trait(TRAIT_WEED_TOLERANCE))
+		if(!seed || weedlevel >= GET_SEED_TRAIT(seed, TRAIT_WEED_TOLERANCE))
 			weed_invasion()
 
 	// If there is no seed data (and hence nothing planted),
@@ -46,28 +46,28 @@
 		return
 
 	//Highly mutable plants have a chance of mutating every tick.
-	if(seed.get_trait(TRAIT_IMMUTABLE) == -1)
+	if(GET_SEED_TRAIT(seed, TRAIT_IMMUTABLE) == -1)
 		var/mut_prob = rand(1,100)
 		if(mut_prob <= 5) mutate(mut_prob == 1 ? 2 : 1)
 
 	// Other plants also mutate if enough mutagenic compounds have been added.
-	if(!seed.get_trait(TRAIT_IMMUTABLE))
+	if(!GET_SEED_TRAIT(seed, TRAIT_IMMUTABLE))
 		if(prob(min(mutation_level,100)))
 			mutate((rand(100) < 15) ? 2 : 1)
 			mutation_level = 0
 
 	// Maintain tray nutrient and water levels.
-	if(seed.get_trait(TRAIT_NUTRIENT_CONSUMPTION) > 0 && nutrilevel > 0 && prob(25))
-		nutrilevel -= max(0,seed.get_trait(TRAIT_NUTRIENT_CONSUMPTION) * HYDRO_SPEED_MULTIPLIER)
-	if(seed.get_trait(TRAIT_WATER_CONSUMPTION) > 0 && waterlevel > 0 && prob(25))
-		waterlevel -= max(0,seed.get_trait(TRAIT_WATER_CONSUMPTION) * HYDRO_SPEED_MULTIPLIER)
+	if(GET_SEED_TRAIT(seed, TRAIT_NUTRIENT_CONSUMPTION) > 0 && nutrilevel > 0 && prob(25))
+		nutrilevel -= max(0,GET_SEED_TRAIT(seed, TRAIT_NUTRIENT_CONSUMPTION) * HYDRO_SPEED_MULTIPLIER)
+	if(GET_SEED_TRAIT(seed, TRAIT_WATER_CONSUMPTION) > 0 && waterlevel > 0 && prob(25))
+		waterlevel -= max(0,GET_SEED_TRAIT(seed, TRAIT_WATER_CONSUMPTION) * HYDRO_SPEED_MULTIPLIER)
 
 	// Make sure the plant is not starving or thirsty. Adequate
 	// water and nutrients will cause a plant to become healthier.
 	var/healthmod = rand(1,3) * HYDRO_SPEED_MULTIPLIER
-	if(seed.get_trait(TRAIT_REQUIRES_NUTRIENTS) && prob(35))
+	if(GET_SEED_TRAIT(seed, TRAIT_REQUIRES_NUTRIENTS) && prob(35))
 		health += (nutrilevel < 2 ? -healthmod : healthmod)
-	if(seed.get_trait(TRAIT_REQUIRES_WATER) && prob(35))
+	if(GET_SEED_TRAIT(seed, TRAIT_REQUIRES_WATER) && prob(35))
 		health += (waterlevel < 10 ? -healthmod : healthmod)
 
 	// Check that pressure, heat and light are all within bounds.
@@ -104,10 +104,7 @@
 	// Handle light requirements for upcoming logic.
 	var/light_supplied
 	if(!closed_system)
-		if (TURF_IS_DYNAMICALLY_LIT(T))
-			light_supplied = T.get_lumcount(0, 3) * 10
-		else
-			light_supplied = 5
+		light_supplied = T.get_lumcount(0, 3) * 5
 	else
 		light_supplied = tray_light
 
@@ -120,25 +117,25 @@
 	// toxins are sucked up each tick and slowly reduce over time.
 	if(toxins > 0)
 		var/toxin_uptake = max(1,round(toxins/10))
-		if(toxins > seed.get_trait(TRAIT_TOXINS_TOLERANCE))
+		if(toxins > GET_SEED_TRAIT(seed, TRAIT_TOXINS_TOLERANCE))
 			health -= toxin_uptake
 		toxins -= toxin_uptake
 
 	// Check for pests and weeds.
 	// Some carnivorous plants happily eat pests.
 	if(pestlevel > 0)
-		if(seed.get_trait(TRAIT_CARNIVOROUS))
+		if(GET_SEED_TRAIT(seed, TRAIT_CARNIVOROUS))
 			health += HYDRO_SPEED_MULTIPLIER
 			pestlevel -= HYDRO_SPEED_MULTIPLIER
-		else if (pestlevel >= seed.get_trait(TRAIT_PEST_TOLERANCE))
+		else if (pestlevel >= GET_SEED_TRAIT(seed, TRAIT_PEST_TOLERANCE))
 			health -= HYDRO_SPEED_MULTIPLIER
 
 	// Some plants thrive and live off of weeds.
 	if(weedlevel > 0)
-		if(seed.get_trait(TRAIT_PARASITE))
+		if(GET_SEED_TRAIT(seed, TRAIT_PARASITE))
 			health += HYDRO_SPEED_MULTIPLIER
 			weedlevel -= HYDRO_SPEED_MULTIPLIER
-		else if (weedlevel >= seed.get_trait(TRAIT_WEED_TOLERANCE))
+		else if (weedlevel >= GET_SEED_TRAIT(seed, TRAIT_WEED_TOLERANCE))
 			health -= HYDRO_SPEED_MULTIPLIER
 
 	// Handle life and death.
@@ -146,7 +143,7 @@
 	check_health()
 
 	// If enough time (in cycles, not ticks) has passed since the plant was harvested, we're ready to harvest again.
-	if((age > seed.get_trait(TRAIT_MATURATION)) && ((age - lastproduce) > seed.get_trait(TRAIT_PRODUCTION)) && (!harvest && !dead))
+	if((age > GET_SEED_TRAIT(seed, TRAIT_MATURATION)) && ((age - lastproduce) > GET_SEED_TRAIT(seed, TRAIT_PRODUCTION)) && (!harvest && !dead))
 		// If the plant matures while not at either its light or heat preference, it becomes stunted, reducing its yield on harvest.
 		// Better grow your plants better next time.
 		if(!seed.check_light_preferences(light_supplied) || !seed.check_heat_preferences(environment))
@@ -154,13 +151,13 @@
 
 		harvest = TRUE
 		lastproduce = age
-		if(seed.get_trait(TRAIT_SPOROUS) && !closed_system)
+		if(GET_SEED_TRAIT(seed, TRAIT_SPOROUS) && !closed_system)
 			seed.create_spores(get_turf(src))
 			visible_message(SPAN_DANGER("\The [src] releases its spores!"))
 
 	// If we're a vine which is not in a closed tray and is at least half mature, and there's no vine currently on our turf: make one (maybe)
-	if(!closed_system && seed.get_trait(TRAIT_SPREAD) == 2 && 2 * age >= seed.get_trait(TRAIT_MATURATION) && !(locate(/obj/effect/plant) in get_turf(src)) && \
-		prob(2 * seed.get_trait(TRAIT_POTENCY)))
+	if(!closed_system && GET_SEED_TRAIT(seed, TRAIT_SPREAD) == 2 && 2 * age >= GET_SEED_TRAIT(seed, TRAIT_MATURATION) && !(locate(/obj/effect/plant) in get_turf(src)) && \
+		prob(2 * GET_SEED_TRAIT(seed, TRAIT_POTENCY)))
 
 		new /obj/effect/plant(get_turf(src), seed)
 

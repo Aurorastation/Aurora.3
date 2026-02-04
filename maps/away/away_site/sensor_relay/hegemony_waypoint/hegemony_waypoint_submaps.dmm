@@ -217,7 +217,7 @@
 /obj/machinery/light/small{
 	dir = 4
 	},
-/obj/item/device/binoculars{
+/obj/item/binoculars{
 	pixel_y = 11;
 	pixel_x = -4
 	},
@@ -478,7 +478,7 @@
 /area/hegemony_waypoint/atmos)
 "lO" = (
 /obj/structure/table/reinforced/steel,
-/obj/item/storage/box/donkpockets{
+/obj/item/storage/box/unique/donkpockets{
 	pixel_y = 9;
 	pixel_x = 1
 	},
@@ -515,7 +515,7 @@
 /obj/item/reagent_containers/food/snacks/fish/fishfillet,
 /obj/item/reagent_containers/food/snacks/meat/chicken,
 /obj/item/reagent_containers/food/snacks/meat/chicken,
-/obj/item/storage/box/produce,
+/obj/item/storage/box/large/produce,
 /turf/simulated/floor/tiled/dark/full/airless,
 /area/hegemony_waypoint/kitchen)
 "mo" = (
@@ -610,7 +610,7 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/universal,
-/obj/machinery/autolathe,
+/obj/machinery/fabricator/autolathe,
 /turf/simulated/floor/tiled/gridded,
 /area/hegemony_waypoint/atmos)
 "nm" = (
@@ -652,7 +652,7 @@
 	dir = 5
 	},
 /obj/random/dirt_75,
-/obj/item/device/versebook/thakh{
+/obj/item/versebook/thakh{
 	pixel_y = 6;
 	pixel_x = 3
 	},
@@ -1955,7 +1955,7 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8
 	},
-/obj/item/device/versebook/thakh{
+/obj/item/versebook/thakh{
 	pixel_y = 6;
 	pixel_x = 3
 	},
@@ -1974,7 +1974,7 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8
 	},
-/obj/item/device/versebook/skakh{
+/obj/item/versebook/skakh{
 	pixel_x = 5;
 	pixel_y = 9
 	},
@@ -2246,7 +2246,7 @@
 	pixel_x = -10;
 	pixel_y = 16
 	},
-/obj/item/device/versebook/skakh{
+/obj/item/versebook/skakh{
 	pixel_x = 4;
 	pixel_y = 7
 	},
@@ -2471,7 +2471,7 @@
 /obj/random/dirt_75,
 /obj/effect/decal/cleanable/blood/drip,
 /obj/effect/decal/cleanable/blood/drip,
-/obj/item/storage/box/produce{
+/obj/item/storage/box/large/produce{
 	pixel_y = -7
 	},
 /obj/item/reagent_containers/food/snacks/fish/fishfillet{
@@ -2697,7 +2697,7 @@
 	pixel_y = -12;
 	pixel_x = 3
 	},
-/obj/item/device/personal_shield{
+/obj/item/personal_shield{
 	pixel_y = 4;
 	pixel_x = 8
 	},
@@ -2792,7 +2792,7 @@
 	},
 /obj/random/dirt_75,
 /obj/effect/decal/cleanable/ash,
-/obj/item/device/oxycandle{
+/obj/item/oxycandle{
 	pixel_y = 7;
 	pixel_x = -5
 	},
@@ -2833,7 +2833,7 @@
 /obj/machinery/light/small{
 	dir = 4
 	},
-/obj/item/device/binoculars{
+/obj/item/binoculars{
 	pixel_y = 11;
 	pixel_x = -4
 	},
@@ -2930,7 +2930,7 @@
 /obj/item/reagent_containers/food/snacks/fish/fishfillet,
 /obj/item/reagent_containers/food/snacks/meat/chicken,
 /obj/item/reagent_containers/food/snacks/meat/chicken,
-/obj/item/storage/box/produce,
+/obj/item/storage/box/large/produce,
 /obj/item/storage/box/fancy/vkrexi_swollen_organ,
 /turf/simulated/floor/carpet/rubber,
 /area/hegemony_waypoint/kitchen)

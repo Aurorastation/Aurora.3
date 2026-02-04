@@ -3,7 +3,8 @@ GLOBAL_LIST_INIT_TYPED(rod_recipes, /datum/stack_recipe, list(
 	new /datum/stack_recipe("floor-mounted catwalk", /obj/structure/lattice/catwalk/indoor, 4, time = 10, one_per_turf = TRUE, on_floor = TRUE),
 	new /datum/stack_recipe("grate, dark", /obj/structure/lattice/catwalk/indoor/grate, 1, time = 10, one_per_turf = TRUE, on_floor = TRUE),
 	new /datum/stack_recipe("grate, light", /obj/structure/lattice/catwalk/indoor/grate/light, 1, time = 10, one_per_turf = TRUE, on_floor = TRUE),
-	new /datum/stack_recipe("table frame", /obj/structure/table, 2, time = 10, one_per_turf = 1, on_floor = 1),
+	new /datum/stack_recipe("table frame", /obj/structure/table, 2, time = 10, one_per_turf = TRUE, on_floor = TRUE),
+	new /datum/stack_recipe("crate shelf", /obj/structure/crate_shelf, req_amount = 10, time = 10, one_per_turf = TRUE, on_floor = TRUE),
 	new /datum/stack_recipe("mine track", /obj/structure/track, 3, time = 10, one_per_turf = TRUE, on_floor = TRUE),
 	new /datum/stack_recipe("cane", /obj/item/cane, 1, time = 6),
 	new /datum/stack_recipe("crowbar", /obj/item/crowbar, 1, time = 6),
@@ -71,7 +72,7 @@ GLOBAL_LIST_INIT_TYPED(rod_recipes, /datum/stack_recipe, list(
 
 /obj/item/stack/rods/attackby(obj/item/attacking_item, mob/user)
 	..()
-	if (attacking_item.iswelder())
+	if (attacking_item.tool_behaviour == TOOL_WELDER)
 		var/obj/item/weldingtool/WT = attacking_item
 
 		if(get_amount() < 2)

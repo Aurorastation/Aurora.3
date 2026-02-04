@@ -26,6 +26,9 @@
 	var/disallow_occupant_types = list()
 	var/display_loading_message = TRUE
 
+	/// rate at which alcohol is removed per tick (see process())
+	var/intoxication_removal_rate = 1
+
 	idle_power_usage = 15
 	active_power_usage = 250 //builtin health analyzer, dialysis machine, injectors.
 	var/stasis_power = 500
@@ -60,8 +63,8 @@
 	update_icon()
 	parts_power_usage = active_power_usage
 
-/obj/machinery/sleeper/process()
-	if(stat & (NOPOWER|BROKEN))
+/obj/machinery/sleeper/process(seconds_per_tick)
+	if((stat & (NOPOWER|BROKEN)) && !interact_offline)
 		return
 
 	if(filtering)
@@ -73,6 +76,9 @@
 					pumped++
 				if(ishuman(occupant))
 					occupant.vessel.trans_to_obj(beaker, pumped + 1)
+					if(occupant.intoxication)
+						//Removes alcohol in the bloodstream if present
+						occupant.intoxication -= min(occupant.intoxication, (seconds_per_tick * intoxication_removal_rate))
 		else
 			toggle_filter()
 	if(pump)
@@ -129,7 +135,7 @@
 
 /obj/machinery/sleeper/ui_data(mob/user)
 	var/list/data = list()
-	data["power"] = stat & (NOPOWER|BROKEN) ? FALSE : TRUE
+	data["power"] = (stat & (NOPOWER|BROKEN)) && !interact_offline ? FALSE : TRUE
 
 	if(occupant)
 		data["occupant"] = TRUE
@@ -139,6 +145,7 @@
 		data["brain_activity"] = occupant.get_brain_result()
 		data["blood_pressure"] = occupant.get_blood_pressure()
 		data["blood_pressure_level"] = occupant.get_blood_pressure_alert()
+		data["bac"] = occupant.get_blood_alcohol()
 		data["blood_o2"] = occupant.get_blood_oxygenation()
 		data["bloodreagents"] = list()
 		var/list/blood_reagents = list()
@@ -276,7 +283,7 @@
 			update_icon()
 			qdel(G)
 		return TRUE
-	else if(attacking_item.isscrewdriver())
+	else if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 		src.panel_open = !src.panel_open
 		to_chat(user, "You [src.panel_open ? "open" : "close"] the maintenance panel.")
 		ClearOverlays()
@@ -315,7 +322,7 @@
 	if(filtering)
 		toggle_filter()
 
-	if(stat & (BROKEN|NOPOWER))
+	if((stat & (BROKEN|NOPOWER)) && !interact_offline)
 		return
 
 	if(occupant)
@@ -341,7 +348,7 @@
 /obj/machinery/sleeper/proc/go_in(var/mob/M, var/mob/user)
 	if(!M)
 		return
-	if(stat & (BROKEN|NOPOWER))
+	if((stat & (BROKEN|NOPOWER)) && !interact_offline)
 		return
 	if(occupant)
 		to_chat(user, SPAN_WARNING("\The [src] is already occupied."))
@@ -395,7 +402,7 @@
 		toggle_pump()
 
 /obj/machinery/sleeper/proc/inject_chemical(var/mob/living/user, var/chemical, var/add_amount)
-	if(stat & (BROKEN|NOPOWER))
+	if((stat & (BROKEN|NOPOWER)) && !interact_offline)
 		return
 
 	if(occupant?.reagents)

@@ -77,3 +77,9 @@
 
 /obj/item/fuel_assembly/hydrogen/New(newloc)
 	..(newloc, MATERIAL_HYDROGEN_METALLIC)
+
+/obj/item/fuel_assembly/iron/New(newloc)
+	..(newloc, MATERIAL_IRON)
+
+/obj/item/fuel_assembly/boron/New(newloc)
+	..(newloc, MATERIAL_BORON)

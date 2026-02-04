@@ -56,7 +56,7 @@
 	if(stat & BROKEN)
 		return TRUE
 
-	if(attacking_item.iswrench())
+	if(attacking_item.tool_behaviour == TOOL_WRENCH)
 		if(charging)
 			to_chat(user, SPAN_WARNING("Remove the cell first!"))
 			return TRUE

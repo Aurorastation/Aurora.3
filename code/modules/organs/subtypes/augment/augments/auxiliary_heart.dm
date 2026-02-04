@@ -12,14 +12,14 @@
 	if(!owner)
 		return
 
-	RegisterSignal(owner, COMSIG_HEART_PUMP_EVENT, PROC_REF(stabilize_circulation))
+	RegisterSignal(owner, COMSIG_HEART_PUMP_EVENT, PROC_REF(stabilize_circulation), override = TRUE)
 
 /obj/item/organ/internal/augment/bioaug/auxiliary_heart/replaced()
 	. = ..()
 	if(!owner)
 		return
 
-	RegisterSignal(owner, COMSIG_HEART_PUMP_EVENT, PROC_REF(stabilize_circulation))
+	RegisterSignal(owner, COMSIG_HEART_PUMP_EVENT, PROC_REF(stabilize_circulation), override = TRUE)
 
 /obj/item/organ/internal/augment/bioaug/auxiliary_heart/removed()
 	. = ..()
@@ -28,7 +28,7 @@
 
 	UnregisterSignal(owner, COMSIG_HEART_PUMP_EVENT)
 
-/obj/item/organ/internal/augment/bioaug/auxiliary_heart/proc/stabilize_circulation(var/obj/item/organ/internal/heart/heart, var/blood_volume, var/recent_pump, var/pulse_mod, var/min_efficiency)
+/obj/item/organ/internal/augment/bioaug/auxiliary_heart/proc/stabilize_circulation(var/implantee, var/obj/item/organ/internal/heart/heart, var/blood_volume, var/recent_pump, var/pulse_mod, var/min_efficiency)
 	SIGNAL_HANDLER
 	*min_efficiency *= 1.5
 	*blood_volume += 2.5 // This doesn't affect actual blood volume, only the "effective" volume used for calculating thresholds.

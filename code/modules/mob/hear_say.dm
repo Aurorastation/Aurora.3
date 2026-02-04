@@ -1,33 +1,46 @@
 // At minimum every mob has a hear_say proc.
 
+/**
+ * hear_say's return value determines whether or not the mob in question also receives a langchat image.
+ */
 /mob/proc/hear_say(var/message, var/verb = "says", var/datum/language/language = null, var/alt_name = "",var/italics = 0, var/mob/speaker = null, var/sound/speech_sound, var/sound_vol, var/font_size = null)
 	if(!istype(src, /mob/living/test) && cant_hear())
-		return
+		return FALSE
 
 	if(speaker && !istype(speaker, /mob/living/test) && (!speaker.client && istype(src,/mob/abstract/ghost/observer) && client.prefs.toggles & CHAT_GHOSTEARS && !(speaker in view(src))))
 			//Does the speaker have a client?  It's either random stuff that observers won't care about (Experiment 97B says, 'EHEHEHEHEHEHEHE')
 			//Or someone snoring.  So we make it where they won't hear it.
-		return
-
-	if((language && (language.flags & KNOWONLYHEAR)) && !say_understands(speaker, language))
-		return
+		return FALSE
 
 	//make sure the air can transmit speech - hearer's side
 	var/turf/T = get_turf(src)
 	var/vacuum_proof = ((language && (language.flags & PRESSUREPROOF)) || isghost(src))
+	var/speaker_name = speaker.name
+
+	if(ishuman(speaker))
+		var/mob/living/carbon/human/H = speaker
+		speaker_name = H.GetVoice()
+
 	if(T && !vacuum_proof) //Ghosts can hear even in vacuum.
 		var/datum/gas_mixture/environment = T.return_air()
 		var/pressure = (environment)? environment.return_pressure() : 0
-		if(pressure < SOUND_MINIMUM_PRESSURE && get_dist(speaker, src) > 1)
-			return
+		var/distance_to_speaker = get_dist(speaker, src)
+		if(pressure < SOUND_MINIMUM_PRESSURE && distance_to_speaker > 1)
+			// Yeah, this isn't quite realistic to be able to see if someone is talking through, say, an opaque mask, but for gameplay purposes it should help indicate that you're not bugged.
+			if(distance_to_speaker <= 4 && !italics)
+				to_chat(src, SPAN_NOTICE("[speaker_name] talks, but you're in a vacuum. Maybe if you were close enough for the sound to transmit through touch..."))
+			return FALSE
 
 		if (pressure < ONE_ATMOSPHERE*0.4) //sound distortion pressure, to help clue people in that the air is thin, even if it isn't a vacuum yet
 			italics = 1
 			sound_vol *= 0.5 //muffle the sound a bit, so it's like we're actually talking through contact
 
+	if((language && (language.flags & KNOWONLYHEAR)) && !say_understands(speaker, language))
+		return TRUE
+
 	if(!vr_mob && (sleeping || stat == UNCONSCIOUS))
 		hear_sleep(message)
-		return
+		return FALSE
 
 	//non-verbal languages are garbled if you can't see the speaker. Yes, this includes if they are inside a closet.
 	if (language && (language.flags & NONVERBAL))
@@ -38,10 +51,6 @@
 		message = language ? language.scramble(message, languages) : stars(message)
 
 	var/accent_icon = speaker.get_accent_icon(language, src)
-	var/speaker_name = speaker.name
-	if(ishuman(speaker))
-		var/mob/living/carbon/human/H = speaker
-		speaker_name = H.GetVoice()
 
 	if(italics)
 		message = "<i>[message]</i>"
@@ -58,8 +67,10 @@
 		if(!language || !(language.flags & INNATE)) // INNATE is the flag for audible-emote-language, so we don't want to show an "x talks but you cannot hear them" message if it's set
 			if(speaker == src)
 				to_chat(src, SPAN_WARNING("You cannot hear yourself speak!"))
+				return FALSE
 			else
 				to_chat(src, "<span class='name'>[speaker_name]</span>[alt_name] talks but you cannot hear them.")
+				return FALSE
 	else
 		if(language)
 			if(font_size)

@@ -5,6 +5,7 @@
 	icon_state = "lattice"
 	density = FALSE
 	anchored = TRUE
+	opacity = FALSE
 	w_class = WEIGHT_CLASS_NORMAL
 	layer = ABOVE_TILE_LAYER
 	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
@@ -19,7 +20,7 @@
 		/obj/structure/grille,
 		/turf/unsimulated/mineral/asteroid
 	)
-	footstep_sound = /singleton/sound_category/catwalk_footstep
+	footstep_sound = SFX_FOOTSTEP_CATWALK
 
 /obj/structure/lattice/assembly_hints(mob/user, distance, is_adjacent)
 	. += ..()
@@ -27,11 +28,14 @@
 		. += "Add a <b>metal floor tile</b> to build a floor on top of the lattice."
 		. += "Lattices can be made by applying <b>metal rods</b> to a space tile."
 
+/obj/structure/lattice/disassembly_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(name == "lattice")
+		. += "Lattices can be broken back down into metal rods with a <b>welder</b>."
+
 /obj/structure/lattice/Initialize()
 	. = ..()
-	for(var/obj/structure/lattice/LAT in loc)
-		if(LAT == src)
-			continue
+	if(check_for_duplicates())
 		stack_trace("multiple lattices found in ([loc.x], [loc.y], [loc.z])")
 		return INITIALIZE_HINT_QDEL
 
@@ -53,12 +57,19 @@
 			qdel(src)
 	return
 
+/obj/structure/lattice/proc/check_for_duplicates()
+	for(var/obj/structure/lattice/found_lattice in get_turf(src))
+		if(found_lattice == src || found_lattice.type != src.type) // if the instance we're comparing is us or a different type, then it's not a duplicate
+			continue
+		return TRUE
+	return FALSE
+
 /obj/structure/lattice/attackby(obj/item/attacking_item, mob/user)
 	if (istype(attacking_item, /obj/item/stack/tile/floor))
 		var/turf/T = get_turf(src)
 		T.attackby(attacking_item, user) //BubbleWrap - hand this off to the underlying turf instead
 		return
-	if (attacking_item.iswelder())
+	if (attacking_item.tool_behaviour == TOOL_WELDER)
 		var/obj/item/weldingtool/WT = attacking_item
 		if(WT.use(1, user))
 			to_chat(user, SPAN_NOTICE("Slicing lattice joints ..."))
@@ -72,6 +83,21 @@
 			new /obj/structure/lattice/catwalk(src.loc)
 			qdel(src)
 		return
+
+/obj/structure/lattice/ceiling
+	layer = ABOVE_ABOVE_HUMAN_LAYER
+	canSmoothWith = list(
+		/obj/structure/lattice/ceiling,
+		/turf/simulated/wall,
+		/turf/simulated/mineral,
+		/turf/unsimulated/wall,
+		/obj/structure/grille,
+		/turf/unsimulated/mineral/asteroid
+	)
+
+/obj/structure/lattice/ceiling/Initialize()
+	. = ..()
+	AddComponent(/datum/component/large_transparency, 0, 0, 0, 0)
 
 /obj/structure/lattice/catwalk
 	name = "catwalk"
@@ -92,7 +118,7 @@
 	layer = CATWALK_LAYER
 
 /obj/structure/lattice/catwalk/attackby(obj/item/attacking_item, mob/user)
-	if(attacking_item.iswelder())
+	if(attacking_item.tool_behaviour == TOOL_WELDER)
 		var/obj/item/weldingtool/WT = attacking_item
 		if(!WT.use(1, user))
 			to_chat(user, SPAN_WARNING("You need more welding fuel to complete this task."))
@@ -105,7 +131,7 @@
 			qdel(src)
 
 /obj/structure/lattice/catwalk/indoor/attackby(obj/item/attacking_item, mob/user)
-	if(attacking_item.isscrewdriver())
+	if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 		if(attacking_item.use_tool(src, user, 5, volume = 50))
 			anchored = !anchored
 			to_chat(user, SPAN_NOTICE("You [anchored ? "" : "un"]anchor [src]."))
@@ -132,7 +158,7 @@
 	var/damaged = FALSE
 
 /obj/structure/lattice/catwalk/indoor/grate/attackby(obj/item/attacking_item, mob/user)
-	if(attacking_item.iswelder() && damaged)
+	if(attacking_item.tool_behaviour == TOOL_WELDER && damaged)
 		var/obj/item/weldingtool/WT = attacking_item
 		if(attacking_item.use_tool(src, user, 5, volume = 50) && WT.use(1, user))
 			user.visible_message(
@@ -199,6 +225,9 @@
 /obj/structure/lattice/catwalk/indoor/grate/slate
 	color = COLOR_SLATE
 
+/obj/structure/lattice/catwalk/indoor/grate/white
+	color = COLOR_WHITE
+
 /obj/structure/lattice/catwalk/indoor/urban
 	name = "grate"
 	desc = "A metal grate."
@@ -214,7 +243,7 @@
 	icon_state = "tatami"
 	return_amount = null
 	smoothing_flags = null
-	footstep_sound = /singleton/sound_category/carpet_footstep
+	footstep_sound = SFX_FOOTSTEP_CARPET
 
 /obj/structure/lattice/catwalk/indoor/planks
 	name = "flooring plank"
@@ -223,7 +252,7 @@
 	icon_state = "plank"
 	return_amount = null
 	smoothing_flags = null
-	footstep_sound = /singleton/sound_category/wood_footstep
+	footstep_sound = SFX_FOOTSTEP_WOOD
 
 /obj/structure/lattice/catwalk/indoor/planks/opaque
 	icon_state = "plank_dark"

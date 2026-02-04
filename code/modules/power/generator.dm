@@ -7,9 +7,9 @@
 	obj_flags = OBJ_FLAG_ROTATABLE
 
 	use_power = POWER_USE_OFF
-	idle_power_usage = 100 //Watts, I hope.  Just enough to do the computer and display things.
+	idle_power_usage = 1000
 
-	var/max_power = 500000
+	var/max_power = 2500000
 	var/thermal_efficiency = 0.65
 
 	var/obj/machinery/atmospherics/binary/circulator/circ1
@@ -146,7 +146,7 @@
 	//Exceeding maximum power leads to some power loss
 	if(effective_gen > max_power && prob(5))
 		spark_system.queue()
-		stored_energy *= 0.5
+		stored_energy *= 0.67
 
 	//Power
 	last_circ1_gen = circ1.return_stored_energy()
@@ -171,7 +171,7 @@
 	attack_hand(user)
 
 /obj/machinery/power/generator/attackby(obj/item/attacking_item, mob/user)
-	if(attacking_item.iswrench())
+	if(attacking_item.tool_behaviour == TOOL_WRENCH)
 		attacking_item.play_tool_sound(get_turf(src), 75)
 		anchored = !anchored
 		user.visible_message("[user.name] [anchored ? "secures" : "unsecures"] the bolts holding [src.name] to the floor.", \

@@ -41,9 +41,6 @@
 	///Overlay of a screen to display on the zombie's monitor
 	var/image/screen_overlay
 
-	///Emissive overlay of above
-	var/image/emissive_overlay
-
 	///IPC corpse to spawn on the simplemob's death
 	var/corpse = /obj/effect/landmark/corpse/ipc_zombie
 
@@ -94,7 +91,7 @@
 	species = SPECIES_IPC
 
 /obj/effect/landmark/corpse/ipc_zombie/do_extra_customization(mob/living/carbon/human/M)
-	var/obj/item/organ/internal/ipc_tag/tag = M.internal_organs_by_name[BP_IPCTAG]
+	var/obj/item/organ/internal/machine/ipc_tag/tag = M.internal_organs_by_name[BP_IPCTAG]
 	if(istype(tag))
 		tag.serial_number = uppertext(dd_limittext(md5(M.real_name), 12))
 		tag.ownership_info = IPC_OWNERSHIP_SELF

@@ -70,22 +70,18 @@
 	if(("[initial(icon_state)]_flip") in icon_states(icon)) // Check for whether it has a flipped icon. Prevents invisible sprites.
 		verbs += /obj/item/storage/belt/proc/flipbelt
 
-/obj/item/storage/belt/proc/flipbelt(mob/user, var/self = TRUE)
+/obj/item/storage/belt/proc/flipbelt()
 	set category = "Object.Equipped"
 	set name = "Flip Belt"
 	set src in usr
 
-	if(self)
-		if(use_check_and_message(user))
-			return
-	else
-		if(use_check_and_message(user, self ? USE_ALLOW_NON_ADJACENT : 0))
-			return
+	if(use_check_and_message(usr))
+		return
 
 	flipped = !flipped
 	icon_state = "[initial(icon_state)][flipped ? "_flip" : ""]"
 	item_state = "[initial(item_state)][flipped ? "_flip" : ""]"
-	to_chat(usr, SPAN_NOTICE("You change \the [src] to be [src.flipped ? "behind" : "in front of"] you."))
+	to_chat(usr, SPAN_NOTICE("You adjust \the [src] [src.flipped ? "to the other side" : "back"]."))
 	update_clothing_icon()
 
 /obj/item/storage/belt/utility
@@ -101,27 +97,32 @@
 		/obj/item/wirecutters,
 		/obj/item/wrench,
 		/obj/item/hammer,
-		/obj/item/device/multitool,
-		/obj/item/device/flashlight,
+		/obj/item/multitool,
+		/obj/item/flashlight,
 		/obj/item/stack/cable_coil,
-		/obj/item/device/t_scanner,
-		/obj/item/device/analyzer,
+		/obj/item/t_scanner,
+		/obj/item/analyzer,
 		/obj/item/taperoll/engineering,
-		/obj/item/device/robotanalyzer,
+		/obj/item/robotanalyzer,
 		/obj/item/material/minihoe,
 		/obj/item/material/hatchet,
-		/obj/item/device/analyzer/plant_analyzer,
+		/obj/item/analyzer/plant_analyzer,
 		/obj/item/extinguisher/mini,
 		/obj/item/pipewrench,
 		/obj/item/powerdrill,
-		/obj/item/device/radio,
-		/obj/item/device/debugger,
-		/obj/item/device/eftpos,
+		/obj/item/radio,
+		/obj/item/debugger,
+		/obj/item/eftpos,
 		/obj/item/tape_roll,
-		/obj/item/device/geiger,
+		/obj/item/geiger,
 		/obj/item/clothing/gloves/yellow,
 		/obj/item/clothing/gloves/yellow/specialu,
-		/obj/item/clothing/gloves/yellow/specialt
+		/obj/item/clothing/gloves/yellow/specialt,
+		/obj/item/export_scanner,
+		/obj/item/price_scanner,
+		/obj/item/cratescanner,
+		/obj/item/destTagger,
+		/obj/item/quikpay
 	)
 	content_overlays = TRUE
 
@@ -156,8 +157,8 @@
 		/obj/item/crowbar = 1,
 		/obj/item/wirecutters/toolbelt = 1,
 		/obj/item/stack/cable_coil/random = 1,
-		/obj/item/device/multitool = 1,
-		/obj/item/device/radio = 1
+		/obj/item/multitool = 1,
+		/obj/item/radio = 1
 	)
 
 
@@ -168,7 +169,7 @@
 		/obj/item/weldingtool = 1,
 		/obj/item/crowbar = 1,
 		/obj/item/wirecutters = 1,
-		/obj/item/device/t_scanner = 1
+		/obj/item/t_scanner = 1
 	)
 
 /obj/item/storage/belt/utility/alt
@@ -182,8 +183,8 @@
 	icon_state = "medicalbelt"
 	item_state = "medical"
 	can_hold = list(
-		/obj/item/device/breath_analyzer,
-		/obj/item/device/healthanalyzer,
+		/obj/item/breath_analyzer,
+		/obj/item/healthanalyzer,
 		/obj/item/dnainjector,
 		/obj/item/reagent_containers/dropper,
 		/obj/item/reagent_containers/glass/beaker,
@@ -197,16 +198,16 @@
 		/obj/item/storage/box/fancy/cigarettes,
 		/obj/item/storage/pill_bottle,
 		/obj/item/stack/medical,
-		/obj/item/device/flashlight/pen,
+		/obj/item/flashlight/pen,
 		/obj/item/clothing/mask/surgical,
 		/obj/item/clothing/head/surgery,
 		/obj/item/clothing/gloves/latex,
 		/obj/item/reagent_containers/hypospray,
 		/obj/item/clothing/glasses/hud/health,
 		/obj/item/crowbar,
-		/obj/item/device/flashlight,
+		/obj/item/flashlight,
 		/obj/item/extinguisher/mini,
-		/obj/item/device/radio,
+		/obj/item/radio,
 		/obj/item/taperoll/medical,
 		/obj/item/storage/box/fancy/med_pouch
 		)
@@ -220,17 +221,17 @@
 		/obj/item/reagent_containers/glass/bottle/butazoline = 1,
 		/obj/item/reagent_containers/glass/bottle/dermaline = 1,
 		/obj/item/reagent_containers/glass/bottle/perconol = 1,
-		/obj/item/device/flashlight/pen = 1,
+		/obj/item/flashlight/pen = 1,
 		/obj/item/storage/box/fancy/med_pouch/trauma = 1,
 	)
 
 /obj/item/storage/belt/medical/full/inaprov
 	starts_with = list(
-		/obj/item/device/healthanalyzer = 1,
+		/obj/item/healthanalyzer = 1,
 		/obj/item/reagent_containers/hypospray/autoinjector/inaprovaline = 2,
 		/obj/item/storage/pill_bottle/inaprovaline = 1,
 		/obj/item/clothing/gloves/latex = 1,
-		/obj/item/device/flashlight/pen = 1,
+		/obj/item/flashlight/pen = 1,
 		/obj/item/storage/box/fancy/med_pouch/trauma = 1,
 	)
 
@@ -257,8 +258,8 @@
 	storage_slots = 9
 	max_storage_space = DEFAULT_BACKPACK_STORAGE
 	can_hold = list(
-		/obj/item/device/breath_analyzer,
-		/obj/item/device/healthanalyzer,
+		/obj/item/breath_analyzer,
+		/obj/item/healthanalyzer,
 		/obj/item/dnainjector,
 		/obj/item/reagent_containers/dropper,
 		/obj/item/reagent_containers/glass/beaker,
@@ -272,23 +273,23 @@
 		/obj/item/storage/box/fancy/cigarettes,
 		/obj/item/storage/pill_bottle,
 		/obj/item/stack/medical,
-		/obj/item/device/flashlight/pen,
+		/obj/item/flashlight/pen,
 		/obj/item/clothing/mask/surgical,
 		/obj/item/clothing/head/surgery,
 		/obj/item/clothing/gloves/latex,
 		/obj/item/reagent_containers/hypospray,
 		/obj/item/clothing/glasses/hud/health,
 		/obj/item/crowbar,
-		/obj/item/device/flashlight,
+		/obj/item/flashlight,
 		/obj/item/extinguisher/mini,
-		/obj/item/device/radio,
+		/obj/item/radio,
 		/obj/item/taperoll/medical,
 		/obj/item/handcuffs,
 		/obj/item/ammo_casing/shotgun,
 		/obj/item/ammo_magazine,
-		/obj/item/device/flash,
-		/obj/item/device/flashlight/maglight,
-		/obj/item/device/flashlight/flare,
+		/obj/item/flash,
+		/obj/item/flashlight/maglight,
+		/obj/item/flashlight/flare,
 		/obj/item/material/knife,
 		/obj/item/stack/telecrystal,
 		/obj/item/melee/baton,
@@ -318,7 +319,7 @@
 		/obj/item/grenade,
 		/obj/item/reagent_containers/spray/pepper,
 		/obj/item/handcuffs,
-		/obj/item/device/flash,
+		/obj/item/flash,
 		/obj/item/clothing/glasses,
 		/obj/item/ammo_casing/shotgun,
 		/obj/item/ammo_magazine,
@@ -327,12 +328,12 @@
 		/obj/item/gun/energy/taser,
 		/obj/item/flame/lighter,
 		/obj/item/clothing/glasses/hud/security,
-		/obj/item/device/flashlight/maglight,
-		/obj/item/device/flashlight/flare,
+		/obj/item/flashlight/maglight,
+		/obj/item/flashlight/flare,
 		/obj/item/modular_computer/handheld,
-		/obj/item/device/radio/headset,
-		/obj/item/device/hailer,
-		/obj/item/device/megaphone,
+		/obj/item/radio/headset,
+		/obj/item/hailer,
+		/obj/item/megaphone,
 		/obj/item/melee,
 		/obj/item/crowbar,
 		/obj/item/gun/projectile/sec,
@@ -342,13 +343,14 @@
 		/obj/item/material/knife/trench,
 		/obj/item/shield/energy,
 		/obj/item/shield/riot/tact,
-		/obj/item/device/holowarrant,
-		/obj/item/device/taperecorder,
-		/obj/item/device/radio,
-		/obj/item/device/laser_pointer,
-		/obj/item/device/camera,
+		/obj/item/holowarrant,
+		/obj/item/taperecorder,
+		/obj/item/radio,
+		/obj/item/laser_pointer,
+		/obj/item/camera,
 		/obj/item/clipboard,
-		/obj/item/journal/notepad
+		/obj/item/journal/notepad,
+		/obj/item/breath_analyzer
 		)
 	content_overlays = TRUE
 
@@ -357,8 +359,8 @@
 		/obj/item/melee/baton/loaded = 1,
 		/obj/item/reagent_containers/spray/pepper = 1,
 		/obj/item/handcuffs = 2,
-		/obj/item/device/flash = 1,
-		/obj/item/device/holowarrant = 1
+		/obj/item/flash = 1,
+		/obj/item/holowarrant = 1
 	)
 
 /obj/item/storage/belt/security/full/alt
@@ -366,7 +368,7 @@
 		/obj/item/melee/baton/loaded = 1,
 		/obj/item/reagent_containers/spray/pepper = 1,
 		/obj/item/handcuffs = 2,
-		/obj/item/device/flash = 1,
+		/obj/item/flash = 1,
 		/obj/item/gun/energy/taser = 1,
 	)
 
@@ -375,9 +377,9 @@
 		/obj/item/melee/baton/loaded = 1,
 		/obj/item/reagent_containers/spray/pepper = 1,
 		/obj/item/handcuffs = 2,
-		/obj/item/device/flash = 1,
+		/obj/item/flash = 1,
 		/obj/item/gun/energy/disruptorpistol = 1,
-		/obj/item/device/flashlight/flare = 1,
+		/obj/item/flashlight/flare = 1,
 	)
 
 /obj/item/storage/belt/security/full/pistol45
@@ -385,7 +387,7 @@
 		/obj/item/melee/baton/loaded = 1,
 		/obj/item/reagent_containers/spray/pepper = 1,
 		/obj/item/handcuffs = 1,
-		/obj/item/device/flash = 1,
+		/obj/item/flash = 1,
 		/obj/item/gun/projectile/sec = 1,
 		/obj/item/ammo_magazine/c45m/rubber = 2,
 	)
@@ -393,9 +395,9 @@
 /obj/item/storage/belt/security/full/investigator
 	starts_with = list(
 		/obj/item/taperoll/police = 1,
-		/obj/item/device/flash = 1,
-		/obj/item/device/camera/detective = 1,
-		/obj/item/device/taperecorder = 1
+		/obj/item/flash = 1,
+		/obj/item/camera/detective = 1,
+		/obj/item/taperecorder = 1
 	)
 
 /obj/item/storage/belt/security/vestbelt
@@ -413,11 +415,11 @@
 	item_state = "soulstonebelt"
 	storage_slots = 6
 	can_hold = list(
-		/obj/item/device/soulstone
+		/obj/item/soulstone
 		)
 
 /obj/item/storage/belt/soulstone/full
-	starts_with = list(/obj/item/device/soulstone = 6)
+	starts_with = list(/obj/item/soulstone = 6)
 
 /obj/item/storage/belt/champion
 	name = "championship belt"
@@ -449,14 +451,14 @@
 	can_hold = list(
 		/obj/item/grenade,
 		/obj/item/handcuffs,
-		/obj/item/device/flash,
+		/obj/item/flash,
 		/obj/item/clothing/glasses,
 		/obj/item/ammo_casing/shotgun,
 		/obj/item/ammo_magazine,
 		/obj/item/melee/baton,
-		/obj/item/device/flashlight,
+		/obj/item/flashlight,
 		/obj/item/modular_computer/handheld,
-		/obj/item/device/radio/headset,
+		/obj/item/radio/headset,
 		/obj/item/melee,
 		/obj/item/shield/energy,
 		/obj/item/pinpointer,
@@ -466,12 +468,12 @@
 		/obj/item/gun/energy/crossbow,
 		/obj/item/material/knife/trench,
 		/obj/item/ammo_casing/a145,
-		/obj/item/device/radio/uplink,
+		/obj/item/radio/uplink,
 		/obj/item/card/emag,
-		/obj/item/device/multitool/hacktool,
+		/obj/item/multitool/hacktool,
 		/obj/item/reagent_containers/hypospray/combat,
 		/obj/item/stack/telecrystal,
-		/obj/item/device/radio,
+		/obj/item/radio,
 		/obj/item/shield/riot/tact,
 		/obj/item/material/knife/tacknife,
 		/obj/item/cell/hydrogen
@@ -495,19 +497,19 @@
 		/obj/item/crowbar,
 		/obj/item/screwdriver,
 		/obj/item/wrench,
-		/obj/item/device/flashlight,
+		/obj/item/flashlight,
 		/obj/item/extinguisher/mini,
-		/obj/item/device/radio,
+		/obj/item/radio,
 		/obj/item/clothing/gloves,
 		/obj/item/clothing/glasses,
 		/obj/item/reagent_containers/spray,
 		/obj/item/grenade/chem_grenade,
-		/obj/item/device/lightreplacer,
+		/obj/item/lightreplacer,
 		/obj/item/soap,
 		/obj/item/storage/bag/trash,
 		/obj/item/reagent_containers/glass/rag,
 		/obj/item/gun/energy/mousegun,
-		/obj/item/device/gps,
+		/obj/item/gps,
 		/obj/item/taperoll/custodial
 	)
 
@@ -532,13 +534,13 @@
 		/obj/item/plastique/seismic,
 		/obj/item/extraction_pack,
 		/obj/item/ore_radar,
-		/obj/item/device/flashlight,
+		/obj/item/flashlight,
 		/obj/item/stack/cable_coil,
 		/obj/item/stack/flag,
-		/obj/item/device/wormhole_jaunter,
-		/obj/item/device/analyzer,
+		/obj/item/wormhole_jaunter,
+		/obj/item/analyzer,
 		/obj/item/extinguisher/mini,
-		/obj/item/device/radio,
+		/obj/item/radio,
 		/obj/item/clothing/gloves,
 		/obj/item/clothing/glasses/material,
 		/obj/item/pickaxe,
@@ -549,7 +551,7 @@
 		/obj/item/reagent_containers/food/drinks/bottle,
 		/obj/item/stack/medical,
 		/obj/item/reagent_containers/hypospray,
-		/obj/item/device/gps,
+		/obj/item/gps,
 		/obj/item/storage/bag/ore,
 		/obj/item/reagent_containers/pill,
 		/obj/item/storage/pill_bottle,
@@ -560,9 +562,9 @@
 		/obj/item/extraction_pack,
 		/obj/item/rfd/mining,
 		/obj/item/gun/custom_ka,
-		/obj/item/device/orbital_dropper,
+		/obj/item/orbital_dropper,
 		/obj/item/ore_detector,
-		/obj/item/device/spaceflare,
+		/obj/item/spaceflare,
 		/obj/item/cell
 		)
 
@@ -571,7 +573,7 @@
 		/obj/item/crowbar = 1,
 		/obj/item/pickaxe = 1,
 		/obj/item/shovel = 1,
-		/obj/item/device/analyzer = 1,
+		/obj/item/analyzer = 1,
 		/obj/item/stack/flag/red = 1,
 		/obj/item/ore_radar = 1,
 		/obj/item/storage/bag/ore = 1,
@@ -598,12 +600,12 @@
 		/obj/item/material/hatchet,
 		/obj/item/wirecutters,
 		/obj/item/reagent_containers/spray, //includes if you ever wish to get a spraybottle full of other chemicals, Like water
-		/obj/item/device/analyzer/plant_analyzer,
+		/obj/item/analyzer/plant_analyzer,
 		/obj/item/clothing/gloves/botanic_leather,
-		/obj/item/device/radio,
+		/obj/item/radio,
 		/obj/item/crowbar,
-		/obj/item/device/analyzer,
-		/obj/item/device/t_scanner,
+		/obj/item/analyzer,
+		/obj/item/t_scanner,
 	)
 
 /obj/item/storage/belt/hydro/full
@@ -611,7 +613,7 @@
 		/obj/item/material/minihoe = 1,
 		/obj/item/material/hatchet = 1,
 		/obj/item/wirecutters/clippers = 1,
-		/obj/item/device/analyzer/plant_analyzer = 1,
+		/obj/item/analyzer/plant_analyzer = 1,
 		/obj/item/storage/bag/plants = 1
 	)
 
@@ -628,15 +630,15 @@
 	can_hold = list(
 		/obj/item/grenade,
 		/obj/item/handcuffs,
-		/obj/item/device/flash,
-		/obj/item/device/paicard,
+		/obj/item/flash,
+		/obj/item/paicard,
 		/obj/item/clothing/glasses,
 		/obj/item/ammo_casing/shotgun,
 		/obj/item/ammo_magazine,
 		/obj/item/melee/baton,
-		/obj/item/device/flashlight,
+		/obj/item/flashlight,
 		/obj/item/modular_computer/handheld,
-		/obj/item/device/radio/headset,
+		/obj/item/radio/headset,
 		/obj/item/melee,
 		/obj/item/crowbar,
 		/obj/item/screwdriver,
@@ -646,14 +648,14 @@
 		/obj/item/gun/projectile/pistol,
 		/obj/item/gun/energy/crossbow,
 		/obj/item/ammo_casing/a145,
-		/obj/item/device/radio/uplink,
+		/obj/item/radio/uplink,
 		/obj/item/card/emag,
-		/obj/item/device/multitool/hacktool,
+		/obj/item/multitool/hacktool,
 		/obj/item/reagent_containers,
 		/obj/item/stack/telecrystal,
 		/obj/item/material/sword,
 		/obj/item/material/star,
-		/obj/item/device/radio
+		/obj/item/radio
 	)
 
 /obj/item/storage/belt/fannypack
@@ -663,9 +665,23 @@
 	icon_state = "fannypack"
 	item_state = "fannypack"
 	max_w_class = WEIGHT_CLASS_SMALL
+	w_class = WEIGHT_CLASS_HUGE
 	contained_sprite = TRUE
 	storage_slots = null
 	max_storage_space = 8
+
+/obj/item/storage/belt/fannypack/waistpack
+	name = "waist pack"
+	desc = "A small, waist-mounted pack for... well, storing stuff!"
+	icon_state = "waistpack"
+	item_state = "waistpack"
+
+/obj/item/storage/belt/fannypack/pouchbelt
+	name = "belt with pouches"
+	desc = "A belt coated from front to back in pouches."
+	icon_state = "pouchbelt"
+	item_state = "pouchbelt"
+	max_storage_space = 10
 
 /obj/item/storage/belt/fannypack/recolorable
 	icon_state = "fannypack_colorable"

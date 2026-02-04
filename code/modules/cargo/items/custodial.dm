@@ -61,7 +61,7 @@
 	description = "A device to automatically replace lights. Refill with working lightbulbs or sheets of glass."
 	price = 30
 	items = list(
-		/obj/item/device/lightreplacer
+		/obj/item/lightreplacer
 	)
 	access = 0
 	container_type = "crate"
@@ -145,7 +145,7 @@
 	description = "The ultimate in custodial carts. Has space for water, mops, signs, trash bags, and more."
 	price = 190
 	items = list(
-		/obj/structure/janitorialcart
+		/obj/structure/cart/storage/janitorialcart/full
 	)
 	access = ACCESS_JANITOR
 	container_type = "crate"

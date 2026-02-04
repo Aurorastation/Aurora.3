@@ -59,8 +59,8 @@
 /area/exoplanet/adhomai)
 "v" = (
 /obj/structure/table/wood,
-/obj/item/device/flashlight/flare/torch,
-/obj/item/device/flashlight/flare/torch,
+/obj/item/flashlight/flare/torch,
+/obj/item/flashlight/flare/torch,
 /turf/simulated/floor/exoplanet/mineral/adhomai,
 /area/exoplanet/adhomai)
 "x" = (
@@ -150,9 +150,9 @@
 /obj/structure/sign/painting_frame/nated{
 	pixel_y = 32
 	},
-/obj/item/device/flashlight/lantern,
-/obj/item/device/flashlight/lantern,
-/obj/item/device/flashlight/lantern,
+/obj/item/flashlight/lantern,
+/obj/item/flashlight/lantern,
+/obj/item/flashlight/lantern,
 /turf/simulated/floor/exoplanet/mineral/adhomai,
 /area/exoplanet/adhomai)
 "U" = (
@@ -164,7 +164,7 @@
 /area/exoplanet/adhomai)
 "W" = (
 /obj/structure/closet/crate/weapon/alt,
-/obj/item/storage/box/dynamite,
+/obj/item/storage/box/unique/dynamite,
 /obj/item/flame/lighter/adhomai,
 /turf/simulated/floor/exoplanet/mineral/adhomai,
 /area/exoplanet/adhomai)

@@ -52,10 +52,11 @@ Pipelines + Other Objects -> Pipe network
 // atmos_init() and Initialize() must be separate, as atmos_init() can be called multiple times after the machine has been initialized.
 
 /obj/machinery/atmospherics/LateInitialize()
+	. = ..()
 	atmos_init()
 
 /obj/machinery/atmospherics/attackby(obj/item/attacking_item, mob/user)
-	if(istype(attacking_item, /obj/item/device/pipe_painter))
+	if(istype(attacking_item, /obj/item/pipe_painter))
 		return FALSE
 	..()
 

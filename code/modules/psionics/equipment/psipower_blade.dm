@@ -5,6 +5,7 @@
 	edge = TRUE
 	maintain_cost = 1
 	icon_state = "psiblade_short"
+	pickup_sound = 'sound/items/shield/energy/shield-start.ogg'
 	hitsound = 'sound/weapons/psisword.ogg'
 
 /obj/item/psychic_power/psiblade/Initialize()

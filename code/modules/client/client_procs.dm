@@ -453,7 +453,7 @@ GLOBAL_LIST_INIT(localhost_addresses, list(
 
 	to_chat_immediate(src, SPAN_ALERT("If the title screen is black, resources are still downloading. Please be patient until the title screen appears."))
 
-	var/local_connection = (GLOB.config.auto_local_admin && !GLOB.config.use_forumuser_api && (isnull(address) || GLOB.localhost_addresses[address]))
+	var/local_connection = (GLOB.config.auto_local_admin && !GLOB.config.use_authentik_api && (isnull(address) || GLOB.localhost_addresses[address]))
 	// Automatic admin rights for people connecting locally.
 	// Concept stolen from /tg/ with deepest gratitude.
 	// And ported from Nebula with love.
@@ -530,6 +530,9 @@ GLOBAL_LIST_INIT(localhost_addresses, list(
 	if(holder)
 		holder.owner = null
 		GLOB.staff -= src
+
+	if(mob)
+		mob.clear_important_client_contents()
 
 	SSping.currentrun -= src
 
@@ -1023,3 +1026,12 @@ GLOBAL_LIST_INIT(localhost_addresses, list(
 /// This grabs the DPI of the user per their skin
 /client/proc/acquire_dpi()
 	window_scaling = text2num(winget(src, null, "dpi"))
+
+/client/verb/set_icon_size()
+	set name = "Set View Zoom"
+	set desc = "Lets you zoom in."
+	set category = "OOC"
+
+	var/list/zoom_options = list("Default" = 0, "Low" = 3, "Medium" = 6, "High" = 10, "Extreme" = 15)
+	var/selected_zoom = tgui_input_list(usr, "Please select a zoom level for your view.", "Set View Zoom", zoom_options, zoom_options[1])
+	winset(src, "mapwindow.map", "zoom=[zoom_options[selected_zoom]]")

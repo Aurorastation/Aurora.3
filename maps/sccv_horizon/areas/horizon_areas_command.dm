@@ -17,6 +17,7 @@
 	name = "Head of Staff's Office (PARENT AREA - DON'T USE)"
 	area_flags = AREA_FLAG_RAD_SHIELDED
 	sound_environment = SOUND_AREA_SMALL_ENCLOSED
+	lightswitch = FALSE
 
 /area/horizon/command/heads/captain
 	name = "Captain's Office"
@@ -85,13 +86,14 @@
 	icon_state = "bridge"
 
 /area/horizon/command/bridge/minibar
-	name = "Bridge Break Room"
+	name = "Bridge Wardoom"
 	icon_state = "bridge"
 
 /area/horizon/command/bridge/aibunker
 	name = "Command Bunker"
 	icon_state = "ai_foyer"
 	area_flags = AREA_FLAG_RAD_SHIELDED | AREA_FLAG_HIDE_FROM_HOLOMAP
+	area_blurb = "Heavily armored and internal, the Combat Information Center is the secondary nerve center of the ship; the responsibility of the place weighs heavily."
 
 /area/horizon/command/bridge/meeting_room
 	name = "Bridge Conference Room"
@@ -121,11 +123,12 @@
 /area/horizon/command/bridge/selfdestruct
 	name = "Authentication Terminal Safe"
 	icon_state = "bridge"
-	area_flags = AREA_FLAG_HIDE_FROM_HOLOMAP
+	area_flags = AREA_FLAG_RAD_SHIELDED | AREA_FLAG_HIDE_FROM_HOLOMAP
+	area_blurb = "The air veritably throbs with doom."
 
 /area/horizon/command/bridge/controlroom
 	name = "Bridge Control Room"
-	area_blurb = "The full expanse of space lies beyond a thick pane of reinforced glass, all that protects you from a cold and painful death. The computers hum, showing various displays and holographic signs. The sight would be overwhelming if you are not used to such an environment. Even at full power, the sensors fail to map even a fraction of the dots of light making up the cosmic filament."
+	area_blurb = "The full expanse of space lies beyond a thick pane of reinforced glass, all that protects you from a cold and painful death. The computers hum, showing various displays and holographic signs. The sight would be overwhelming to one unused to such an environment. Even at full power, the sensors fail to map even a fraction of the dots of light making up the cosmic filament."
 	area_blurb_category = "bridge"
 	area_flags = AREA_FLAG_RAD_SHIELDED
 

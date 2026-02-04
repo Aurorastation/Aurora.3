@@ -18,7 +18,7 @@
 	use_power = POWER_USE_IDLE
 	idle_power_usage = 20
 	layer = BELOW_OBJ_LAYER
-	clicksound = /singleton/sound_category/button_sound
+	clicksound = SFX_BUTTON
 
 	var/obj/item/reagent_containers/glass/beaker = null
 	var/obj/item/storage/pill_bottle/loaded_pill_bottle = null
@@ -92,7 +92,7 @@
 		user.drop_from_inventory(attacking_item, src)
 		to_chat(user, "You add the pill bottle into the dispenser slot!")
 		src.updateUsrDialog()
-	else if(attacking_item.iswrench())
+	else if(attacking_item.tool_behaviour == TOOL_WRENCH)
 		anchored = !anchored
 		to_chat(user, "You [anchored ? "attach" : "detach"] the [src] [anchored ? "to" : "from"] the ground")
 		attacking_item.play_tool_sound(get_turf(src), 75)
@@ -141,6 +141,7 @@
 	return data
 
 /obj/machinery/chem_master/LateInitialize()
+	. = ..()
 	if(!chem_asset)
 		chem_asset = get_asset_datum(/datum/asset/spritesheet/chem_master)
 

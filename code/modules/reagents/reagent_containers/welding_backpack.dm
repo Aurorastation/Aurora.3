@@ -28,7 +28,7 @@
 		. += SPAN_WARNING("\The [src] is empty!")
 
 /obj/item/reagent_containers/weldpack/attackby(obj/item/attacking_item, mob/user)
-	if(attacking_item.iswrench())
+	if(attacking_item.tool_behaviour == TOOL_WRENCH)
 		if(atom_flags & ATOM_FLAG_OPEN_CONTAINER)
 			atom_flags &= ~ATOM_FLAG_OPEN_CONTAINER
 		else
@@ -36,7 +36,7 @@
 		attacking_item.play_tool_sound(get_turf(src), 70)
 		to_chat(user, SPAN_NOTICE("You wrench \the [src]'s fuel cap [(atom_flags & ATOM_FLAG_OPEN_CONTAINER) ? "open" : "closed"]."))
 		return
-	else if(attacking_item.iswelder())
+	else if(attacking_item.tool_behaviour == TOOL_WELDER)
 		var/obj/item/weldingtool/T = attacking_item
 		var/fuel_volume = REAGENT_VOLUME(reagents, /singleton/reagent/fuel)
 		if(!fuel_volume)

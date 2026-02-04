@@ -168,6 +168,7 @@
 	if(head)
 		sight = head.get_sight(powered)
 		see_invisible = head.get_invisible(powered)
+		lighting_alpha = head.get_lighting_alpha(power_profiled_time)
 	if(!hatch_closed || (body && (body.pilot_coverage < 100 || body.transparent_cabin)))
 		sight &= ~BLIND
 

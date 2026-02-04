@@ -151,15 +151,15 @@
 /area/moghes_skakh)
 "sw" = (
 /obj/structure/closet,
-/obj/item/device/versebook/skakh,
-/obj/item/device/versebook/skakh,
-/obj/item/device/versebook/skakh,
-/obj/item/device/versebook/skakh,
-/obj/item/device/versebook/skakh,
-/obj/item/device/versebook/skakh,
-/obj/item/device/versebook/skakh,
-/obj/item/device/versebook/skakh,
-/obj/item/device/versebook/skakh,
+/obj/item/versebook/skakh,
+/obj/item/versebook/skakh,
+/obj/item/versebook/skakh,
+/obj/item/versebook/skakh,
+/obj/item/versebook/skakh,
+/obj/item/versebook/skakh,
+/obj/item/versebook/skakh,
+/obj/item/versebook/skakh,
+/obj/item/versebook/skakh,
 /turf/simulated/floor/exoplanet/carpet/red{
 	temperature = 303.15
 	},
@@ -300,7 +300,7 @@
 /area/moghes_skakh)
 "DD" = (
 /obj/structure/table/wood,
-/obj/item/device/flashlight/lamp/green,
+/obj/item/flashlight/lamp/green,
 /turf/simulated/floor/exoplanet/marble{
 	temperature = 303.15
 	},
@@ -386,7 +386,7 @@
 /area/moghes_skakh)
 "Sy" = (
 /obj/structure/table/wood,
-/obj/item/device/radio/phone,
+/obj/item/radio/phone,
 /turf/simulated/floor/exoplanet/carpet/red{
 	temperature = 303.15
 	},

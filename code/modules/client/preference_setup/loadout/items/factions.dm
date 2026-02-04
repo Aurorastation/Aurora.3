@@ -55,7 +55,8 @@
 
 /datum/gear/faction/idris_passcard
 	display_name = "idris silversun passcard"
-	path = /obj/item/clothing/accessory/badge/passcard/sol/silversun
+	description = "A passcard issued to Idris employees currently or formerly employed on the planet Silversun."
+	path = /obj/item/clothing/accessory/badge/passcard/sol/silversun/idris
 	slot = slot_tie
 	faction = "Idris Incorporated"
 
@@ -96,8 +97,6 @@
 	var/list/idris_labcoats = list()
 	idris_labcoats["idris labcoat"] = /obj/item/clothing/suit/storage/toggle/labcoat/idris
 	idris_labcoats["idris labcoat, alt"] = /obj/item/clothing/suit/storage/toggle/labcoat/idris/alt
-	idris_labcoats["idris letterman labcoat"] = /obj/item/clothing/suit/storage/toggle/labcoat/idris/letterman
-	idris_labcoats["idris letterman labcoat, alt"] = /obj/item/clothing/suit/storage/toggle/labcoat/idris/letterman/alt
 	idris_labcoats["idris labcoat, long"] = /obj/item/clothing/suit/storage/toggle/longcoat/idris
 	idris_labcoats["idris windbreaker"] = /obj/item/clothing/suit/storage/toggle/idris
 	idris_labcoats["idris corporate jacket"] = /obj/item/clothing/suit/storage/toggle/corp/idris
@@ -176,8 +175,6 @@
 	var/list/zavodskoi_labcoats = list()
 	zavodskoi_labcoats["zavodskoi labcoat"] = /obj/item/clothing/suit/storage/toggle/labcoat/zavodskoi
 	zavodskoi_labcoats["zavodskoi labcoat, alt"] = /obj/item/clothing/suit/storage/toggle/labcoat/zavodskoi/alt
-	zavodskoi_labcoats["zavodskoi letterman labcoat"] = /obj/item/clothing/suit/storage/toggle/labcoat/zavodskoi/letterman
-	zavodskoi_labcoats["zavodskoi letterman labcoat, alt"] = /obj/item/clothing/suit/storage/toggle/labcoat/zavodskoi/letterman/alt
 	zavodskoi_labcoats["zavodskoi labcoat, long"] = /obj/item/clothing/suit/storage/toggle/longcoat/zavodskoi
 	zavodskoi_labcoats["zavodskoi corporate jacket"] = /obj/item/clothing/suit/storage/toggle/corp/zavod
 	zavodskoi_labcoats["zavodskoi corporate jacket, alt"] = /obj/item/clothing/suit/storage/toggle/corp/zavod/alt
@@ -530,6 +527,7 @@ GLOBAL_DATUM_INIT(gear_tweak_modsuit_configuration, /datum/gear_tweak/modsuit_co
 	var/list/epmc_uniform_phys_med = list()
 	epmc_uniform_phys_med["PMCG physician uniform"] = /obj/item/clothing/under/rank/medical/pmc/alt
 	epmc_uniform_phys_med["Nexus Corporate Security medic uniform"] = /obj/item/clothing/under/rank/medical/pmc/nexus
+	epmc_uniform_phys_med["Ve'katak Phalanx medical uniform"] = /obj/item/clothing/under/rank/medical/paramedic/pmc/vekatak_phalanx
 	gear_tweaks += new /datum/gear_tweak/path(epmc_uniform_phys_med)
 
 /datum/gear/faction/epmc_uniform_pharm_med
@@ -596,7 +594,7 @@ GLOBAL_DATUM_INIT(gear_tweak_modsuit_configuration, /datum/gear_tweak/modsuit_co
 	epmc_uniform_para_med["EPMC paramedic uniform"] = /obj/item/clothing/under/rank/medical/paramedic/pmc/epmc
 	epmc_uniform_para_med["PMCG paramedic uniform, alt"] = /obj/item/clothing/under/rank/medical/paramedic/pmc/alt
 	epmc_uniform_para_med["Sekhmet Intergalactic paramedic uniform"] = /obj/item/clothing/under/rank/medical/paramedic/pmc/sekh
-	epmc_uniform_para_med["Ve'katak Phalanx paramedic uniform"] = /obj/item/clothing/under/rank/medical/paramedic/pmc/vekatak_phalanx
+	epmc_uniform_para_med["Ve'katak Phalanx medical uniform"] = /obj/item/clothing/under/rank/medical/paramedic/pmc/vekatak_phalanx
 	epmc_uniform_para_med["Nexus Corporate Security paramedic uniform"] = /obj/item/clothing/under/rank/medical/paramedic/pmc/nexus
 	gear_tweaks += new /datum/gear_tweak/path(epmc_uniform_para_med)
 
@@ -672,9 +670,6 @@ GLOBAL_DATUM_INIT(gear_tweak_modsuit_configuration, /datum/gear_tweak/modsuit_co
 	zenghu_labcoats["zeng-hu labcoat"] = /obj/item/clothing/suit/storage/toggle/labcoat/zeng
 	zenghu_labcoats["zeng-hu labcoat, alt"] = /obj/item/clothing/suit/storage/toggle/labcoat/zeng/alt
 	zenghu_labcoats["zeng-hu labcoat, classic"] = /obj/item/clothing/suit/storage/toggle/labcoat/zeng/alt2
-	zenghu_labcoats["zeng-hu letterman labcoat"] = /obj/item/clothing/suit/storage/toggle/labcoat/zeng/letterman
-	zenghu_labcoats["zeng-hu letterman labcoat, alt"] = /obj/item/clothing/suit/storage/toggle/labcoat/zeng/letterman/alt
-	zenghu_labcoats["zeng-hu letterman labcoat, classic"] = /obj/item/clothing/suit/storage/toggle/labcoat/zeng/letterman/alt2
 	zenghu_labcoats["zeng-hu labcoat, long"] = /obj/item/clothing/suit/storage/toggle/longcoat/zeng
 	zenghu_labcoats["zeng-hu paramedic jacket"] = /obj/item/clothing/suit/storage/toggle/para_jacket/zeng
 	zenghu_labcoats["zeng-hu corporate jacket"] = /obj/item/clothing/suit/storage/toggle/corp/zeng
@@ -728,7 +723,6 @@ GLOBAL_DATUM_INIT(gear_tweak_modsuit_configuration, /datum/gear_tweak/modsuit_co
 	..()
 	var/list/heph_labcoats = list()
 	heph_labcoats["hephaestus labcoat"] = /obj/item/clothing/suit/storage/toggle/labcoat/heph
-	heph_labcoats["hephaestus letterman labcoat"] = /obj/item/clothing/suit/storage/toggle/labcoat/heph/letterman
 	heph_labcoats["hephaestus labcoat, long"] = /obj/item/clothing/suit/storage/toggle/longcoat/heph
 	heph_labcoats["hephaestus corporate jacket"] = /obj/item/clothing/suit/storage/toggle/corp/heph
 	heph_labcoats["hephaestus winter coat"] = /obj/item/clothing/suit/storage/hooded/wintercoat/heph
@@ -767,7 +761,6 @@ GLOBAL_DATUM_INIT(gear_tweak_modsuit_configuration, /datum/gear_tweak/modsuit_co
 	..()
 	var/list/nt_labcoats = list()
 	nt_labcoats["nanotrasen labcoat"] = /obj/item/clothing/suit/storage/toggle/labcoat/nt
-	nt_labcoats["nanotrasen letterman labcoat"] = /obj/item/clothing/suit/storage/toggle/labcoat/nt/letterman
 	nt_labcoats["nanotrasen labcoat, long"] = /obj/item/clothing/suit/storage/toggle/longcoat/nt
 	nt_labcoats["nanotrasen corporate jacket"] = /obj/item/clothing/suit/storage/toggle/corp/nt
 	nt_labcoats["nanotrasen winter coat"] = /obj/item/clothing/suit/storage/hooded/wintercoat/nt
@@ -822,7 +815,6 @@ GLOBAL_DATUM_INIT(gear_tweak_modsuit_configuration, /datum/gear_tweak/modsuit_co
 	..()
 	var/list/orion_labcoats = list()
 	orion_labcoats["orion labcoat"] = /obj/item/clothing/suit/storage/toggle/labcoat/orion
-	orion_labcoats["orion letterman labcoat"] = /obj/item/clothing/suit/storage/toggle/labcoat/orion/letterman
 	orion_labcoats["orion labcoat, long"] = /obj/item/clothing/suit/storage/toggle/longcoat/orion
 	orion_labcoats["orion corporate jacket"] = /obj/item/clothing/suit/storage/toggle/corp/orion
 	orion_labcoats["orion corporate jacket, alt"] = /obj/item/clothing/suit/storage/toggle/corp/orion/alt
@@ -919,7 +911,7 @@ GLOBAL_DATUM_INIT(gear_tweak_modsuit_configuration, /datum/gear_tweak/modsuit_co
 /datum/gear/faction/scc_notepad
 	display_name = "SCC notepad"
 	description = "A notepad for jotting down notes in corporate meetings. This one is navy blue with a gold SCC logo on the front."
-	path = /obj/item/journal/notepad/scc
+	path = /obj/item/journal/notepad/scc/filled
 	sort_category = "Factions"
 	cost = 1
 	faction = null

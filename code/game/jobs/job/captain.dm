@@ -1,4 +1,4 @@
-GLOBAL_DATUM_INIT(captain_announcement, /datum/announcement/minor, new(do_newscast = 1))
+GLOBAL_DATUM_INIT(captain_announcement, /datum/announcement/minor, new(do_newscast = TRUE))
 
 /datum/job/captain
 	title = "Captain"
@@ -34,13 +34,13 @@ GLOBAL_DATUM_INIT(captain_announcement, /datum/announcement/minor, new(do_newsca
 	shoes = /obj/item/clothing/shoes/laceup/brown
 	head = /obj/item/clothing/head/caphat/scc
 	glasses = /obj/item/clothing/glasses/sunglasses
-	id = /obj/item/card/id/gold
+	id = /obj/item/card/id/scc/gold/captain
 
-	headset = /obj/item/device/radio/headset/heads/captain
-	bowman = /obj/item/device/radio/headset/heads/captain/alt
-	double_headset = /obj/item/device/radio/headset/alt/double/captain
-	wrist_radio = /obj/item/device/radio/headset/wrist/captain
-	clipon_radio = /obj/item/device/radio/headset/wrist/clip/captain
+	headset = /obj/item/radio/headset/heads/captain
+	bowman = /obj/item/radio/headset/heads/captain/alt
+	double_headset = /obj/item/radio/headset/alt/double/captain
+	wrist_radio = /obj/item/radio/headset/wrist/captain
+	clipon_radio = /obj/item/radio/headset/wrist/clip/captain
 
 	tab_pda = /obj/item/modular_computer/handheld/pda/command/captain
 	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/command/captain
@@ -100,14 +100,14 @@ GLOBAL_DATUM_INIT(captain_announcement, /datum/announcement/minor, new(do_newsca
 
 	access = list(
 		ACCESS_SEC_DOORS, ACCESS_MEDICAL, ACCESS_ENGINE, ACCESS_SHIP_WEAPONS, ACCESS_CHANGE_IDS, ACCESS_EVA, ACCESS_HEADS, ACCESS_ALL_PERSONAL_LOCKERS,
-		ACCESS_MAINT_TUNNELS, ACCESS_BAR, ACCESS_JANITOR, ACCESS_CONSTRUCTION, ACCESS_CREMATORIUM, ACCESS_KITCHEN, ACCESS_HYDROPONICS, ACCESS_CHAPEL_OFFICE,
+		ACCESS_MAINT_TUNNELS, ACCESS_BAR, ACCESS_JANITOR, ACCESS_CONSTRUCTION, ACCESS_CREMATORIUM, ACCESS_GALLEY, ACCESS_HYDROPONICS, ACCESS_CHAPEL_OFFICE,
 		ACCESS_LIBRARY, ACCESS_RESEARCH, ACCESS_MINING, ACCESS_MAILSORTING, ACCESS_JANITOR, ACCESS_HOP, ACCESS_RC_ANNOUNCE, ACCESS_KEYCARD_AUTH, ACCESS_GATEWAY,
 		ACCESS_WEAPONS, ACCESS_JOURNALIST, ACCESS_BRIDGE_CREW, ACCESS_INTREPID, ACCESS_SPARK, ACCESS_QUARK, ACCESS_CANARY, ACCESS_TELEPORTER
 	)
 
 	minimal_access = list(
 		ACCESS_SEC_DOORS, ACCESS_MEDICAL, ACCESS_SHIP_WEAPONS, ACCESS_ENGINE, ACCESS_CHANGE_IDS, ACCESS_EVA, ACCESS_HEADS, ACCESS_ALL_PERSONAL_LOCKERS,
-		ACCESS_MAINT_TUNNELS, ACCESS_BAR, ACCESS_JANITOR, ACCESS_CONSTRUCTION, ACCESS_CREMATORIUM, ACCESS_KITCHEN, ACCESS_HYDROPONICS, ACCESS_CHAPEL_OFFICE,
+		ACCESS_MAINT_TUNNELS, ACCESS_BAR, ACCESS_JANITOR, ACCESS_CONSTRUCTION, ACCESS_CREMATORIUM, ACCESS_GALLEY, ACCESS_HYDROPONICS, ACCESS_CHAPEL_OFFICE,
 		ACCESS_LIBRARY, ACCESS_RESEARCH, ACCESS_MINING, ACCESS_MAILSORTING, ACCESS_JANITOR, ACCESS_HOP, ACCESS_RC_ANNOUNCE, ACCESS_KEYCARD_AUTH, ACCESS_GATEWAY,
 		ACCESS_WEAPONS, ACCESS_JOURNALIST, ACCESS_BRIDGE_CREW, ACCESS_INTREPID, ACCESS_SPARK, ACCESS_QUARK, ACCESS_CANARY, ACCESS_TELEPORTER
 	)
@@ -121,13 +121,13 @@ GLOBAL_DATUM_INIT(captain_announcement, /datum/announcement/minor, new(do_newsca
 	head = /obj/item/clothing/head/caphat/xo
 	uniform = /obj/item/clothing/under/rank/xo
 	shoes = /obj/item/clothing/shoes/laceup/brown
-	id = /obj/item/card/id/silver
+	id = /obj/item/card/id/scc/silver
 
-	headset = /obj/item/device/radio/headset/heads/xo
-	bowman = /obj/item/device/radio/headset/heads/xo/alt
-	double_headset = /obj/item/device/radio/headset/alt/double/xo
-	wrist_radio = /obj/item/device/radio/headset/wrist/xo
-	clipon_radio = /obj/item/device/radio/headset/wrist/clip/xo
+	headset = /obj/item/radio/headset/heads/xo
+	bowman = /obj/item/radio/headset/heads/xo/alt
+	double_headset = /obj/item/radio/headset/alt/double/xo
+	wrist_radio = /obj/item/radio/headset/wrist/xo
+	clipon_radio = /obj/item/radio/headset/wrist/clip/xo
 
 	tab_pda = /obj/item/modular_computer/handheld/pda/command/xo
 	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/command/xo
@@ -170,7 +170,7 @@ GLOBAL_DATUM_INIT(captain_announcement, /datum/announcement/minor, new(do_newsca
 		ACCESS_TELEPORTER, ACCESS_EXTERNAL_AIRLOCKS
 	)
 
-	blacklisted_species = list(SPECIES_TAJARA_MSAI, SPECIES_TAJARA_ZHAN, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_ATTENDANT, SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_BREEDER)
+	blacklisted_species = list(SPECIES_TAJARA_ZHAN, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_ATTENDANT, SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_BREEDER)
 
 /obj/outfit/job/bridge_crew
 	name = "Bridge Crew"
@@ -179,15 +179,21 @@ GLOBAL_DATUM_INIT(captain_announcement, /datum/announcement/minor, new(do_newsca
 	head = /obj/item/clothing/head/caphat/bridge_crew
 	uniform = /obj/item/clothing/under/rank/bridge_crew
 	shoes = /obj/item/clothing/shoes/laceup
-	id = /obj/item/card/id/silver
+	id = /obj/item/card/id/scc/bridge
 
-	headset = /obj/item/device/radio/headset/headset_com
-	bowman = /obj/item/device/radio/headset/headset_com/alt
-	double_headset = /obj/item/device/radio/headset/alt/double/command
-	wrist_radio = /obj/item/device/radio/headset/wrist/command
-	clipon_radio = /obj/item/device/radio/headset/wrist/clip/command
+	headset = /obj/item/radio/headset/headset_com
+	bowman = /obj/item/radio/headset/headset_com/alt
+	double_headset = /obj/item/radio/headset/alt/double/command
+	wrist_radio = /obj/item/radio/headset/wrist/command
+	clipon_radio = /obj/item/radio/headset/wrist/clip/command
 	messengerbag = /obj/item/storage/backpack/messenger/com
 
 	tab_pda = /obj/item/modular_computer/handheld/pda/bridge
 	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/bridge
 	tablet = /obj/item/modular_computer/handheld/preset/bridge
+
+	species_shoes = list(
+		SPECIES_UNATHI = /obj/item/clothing/shoes/winter/toeless,
+		SPECIES_TAJARA = /obj/item/clothing/shoes/laceup/tajara,
+		SPECIES_TAJARA_MSAI = /obj/item/clothing/shoes/laceup/tajara
+	)

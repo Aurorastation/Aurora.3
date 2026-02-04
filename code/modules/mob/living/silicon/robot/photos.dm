@@ -1,5 +1,5 @@
 /mob/living/silicon/robot/proc/photosync()
-	var/obj/item/device/camera/siliconcam/master_cam = connected_ai ? connected_ai.ai_camera : null
+	var/obj/item/camera/siliconcam/master_cam = connected_ai ? connected_ai.ai_camera : null
 	if(!master_cam)
 		return
 

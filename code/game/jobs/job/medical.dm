@@ -41,16 +41,16 @@
 
 	uniform = /obj/item/clothing/under/rank/chief_medical_officer
 	suit = /obj/item/clothing/suit/storage/toggle/labcoat/cmo
-	suit_store = /obj/item/device/flashlight/pen
+	suit_store = /obj/item/flashlight/pen
 	shoes = /obj/item/clothing/shoes/sneakers/brown
-	id = /obj/item/card/id/silver
+	id = /obj/item/card/id/scc/silver
 	l_hand = /obj/item/storage/firstaid/adv
 
-	headset = /obj/item/device/radio/headset/heads/cmo
-	bowman = /obj/item/device/radio/headset/heads/cmo/alt
-	double_headset = /obj/item/device/radio/headset/alt/double/cmo
-	wrist_radio = /obj/item/device/radio/headset/wrist/cmo
-	clipon_radio = /obj/item/device/radio/headset/wrist/clip/cmo
+	headset = /obj/item/radio/headset/heads/cmo
+	bowman = /obj/item/radio/headset/heads/cmo/alt
+	double_headset = /obj/item/radio/headset/alt/double/cmo
+	wrist_radio = /obj/item/radio/headset/wrist/cmo
+	clipon_radio = /obj/item/radio/headset/wrist/clip/cmo
 
 	tab_pda = /obj/item/modular_computer/handheld/pda/medical/cmo
 	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/medical/cmo
@@ -117,13 +117,13 @@
 	suit = /obj/item/clothing/suit/storage/toggle/labcoat/nt
 	shoes = /obj/item/clothing/shoes/sneakers/medsci
 	id = /obj/item/card/id/white
-	suit_store = /obj/item/device/flashlight/pen
+	suit_store = /obj/item/flashlight/pen
 
-	headset = /obj/item/device/radio/headset/headset_med
-	bowman = /obj/item/device/radio/headset/headset_med/alt
-	double_headset = /obj/item/device/radio/headset/alt/double/med
-	wrist_radio = /obj/item/device/radio/headset/wrist/med
-	clipon_radio = /obj/item/device/radio/headset/wrist/clip/med
+	headset = /obj/item/radio/headset/headset_med
+	bowman = /obj/item/radio/headset/headset_med/alt
+	double_headset = /obj/item/radio/headset/alt/double/med
+	wrist_radio = /obj/item/radio/headset/wrist/med
+	clipon_radio = /obj/item/radio/headset/wrist/clip/med
 
 	tab_pda = /obj/item/modular_computer/handheld/pda/medical
 	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/medical
@@ -182,11 +182,11 @@
 	shoes = /obj/item/clothing/shoes/sneakers/medsci
 	id = /obj/item/card/id/white
 
-	headset = /obj/item/device/radio/headset/headset_med
-	bowman = /obj/item/device/radio/headset/headset_med/alt
-	double_headset = /obj/item/device/radio/headset/alt/double/med
-	wrist_radio = /obj/item/device/radio/headset/wrist/med
-	clipon_radio = /obj/item/device/radio/headset/wrist/clip/med
+	headset = /obj/item/radio/headset/headset_med
+	bowman = /obj/item/radio/headset/headset_med/alt
+	double_headset = /obj/item/radio/headset/alt/double/med
+	wrist_radio = /obj/item/radio/headset/wrist/med
+	clipon_radio = /obj/item/radio/headset/wrist/clip/med
 
 	tab_pda = /obj/item/modular_computer/handheld/pda/medical
 	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/medical
@@ -236,11 +236,11 @@
 	shoes = /obj/item/clothing/shoes/sneakers/medsci
 	id = /obj/item/card/id/white
 
-	headset = /obj/item/device/radio/headset/headset_med
-	bowman = /obj/item/device/radio/headset/headset_med/alt
-	double_headset = /obj/item/device/radio/headset/alt/double/med
-	wrist_radio = /obj/item/device/radio/headset/wrist/med
-	clipon_radio = /obj/item/device/radio/headset/wrist/clip/med
+	headset = /obj/item/radio/headset/headset_med
+	bowman = /obj/item/radio/headset/headset_med/alt
+	double_headset = /obj/item/radio/headset/alt/double/med
+	wrist_radio = /obj/item/radio/headset/wrist/med
+	clipon_radio = /obj/item/radio/headset/wrist/clip/med
 
 	tab_pda = /obj/item/modular_computer/handheld/pda/medical/psych
 	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/medical/psych
@@ -294,11 +294,11 @@
 	shoes = /obj/item/clothing/shoes/jackboots
 	id = /obj/item/card/id/white
 
-	headset = /obj/item/device/radio/headset/headset_med
-	bowman = /obj/item/device/radio/headset/headset_med/alt
-	double_headset = /obj/item/device/radio/headset/alt/double/med
-	wrist_radio = /obj/item/device/radio/headset/wrist/med
-	clipon_radio = /obj/item/device/radio/headset/wrist/clip/med
+	headset = /obj/item/radio/headset/headset_med
+	bowman = /obj/item/radio/headset/headset_med/alt
+	double_headset = /obj/item/radio/headset/alt/double/med
+	wrist_radio = /obj/item/radio/headset/wrist/med
+	clipon_radio = /obj/item/radio/headset/wrist/clip/med
 
 	tab_pda = /obj/item/modular_computer/handheld/pda/medical
 	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/medical
@@ -365,11 +365,11 @@
 
 	uniform = /obj/item/clothing/under/rank/medical/intern
 	shoes = /obj/item/clothing/shoes/sneakers/medsci
-	headset = /obj/item/device/radio/headset/headset_med
-	bowman = /obj/item/device/radio/headset/headset_med/alt
-	double_headset = /obj/item/device/radio/headset/alt/double/med
-	wrist_radio = /obj/item/device/radio/headset/wrist/med
-	clipon_radio = /obj/item/device/radio/headset/wrist/clip/med
+	headset = /obj/item/radio/headset/headset_med
+	bowman = /obj/item/radio/headset/headset_med/alt
+	double_headset = /obj/item/radio/headset/alt/double/med
+	wrist_radio = /obj/item/radio/headset/wrist/med
+	clipon_radio = /obj/item/radio/headset/wrist/clip/med
 
 	backpack = /obj/item/storage/backpack/medic
 	backpack_faction = /obj/item/storage/backpack/nt

@@ -26,7 +26,7 @@
 
 	helm_type = /obj/item/clothing/head/helmet/space/rig/merc
 	boot_type =  /obj/item/clothing/shoes/magboots/rig/heavy
-	allowed = list(/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/melee/energy/sword,/obj/item/handcuffs,/obj/item/material/twohanded/fireaxe)
+	allowed = list(/obj/item/flashlight,/obj/item/tank,/obj/item/suit_cooling_unit,/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/melee/energy/sword,/obj/item/handcuffs,/obj/item/material/twohanded/fireaxe)
 
 	req_access = list(ACCESS_SYNDICATE)
 
@@ -51,6 +51,9 @@
 		/obj/item/rig_module/electrowarfare_suite, //might as well
 		/obj/item/rig_module/actuators/combat // What the dude above me said.
 		)
+
+/obj/item/rig/merc/trulyempty
+	initial_modules = list()
 
 /obj/item/rig/merc/ninja
 	initial_modules = list(
@@ -90,7 +93,7 @@
 	offline_vision_restriction = TINT_HEAVY
 	emp_protection = 20
 
-	allowed = list(/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/melee/energy/sword,/obj/item/handcuffs,/obj/item/material/twohanded/fireaxe)
+	allowed = list(/obj/item/flashlight,/obj/item/tank,/obj/item/suit_cooling_unit,/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/melee/energy/sword,/obj/item/handcuffs,/obj/item/material/twohanded/fireaxe)
 
 	helm_type = /obj/item/clothing/head/helmet/space/rig/merc/distress
 	boot_type =  /obj/item/clothing/shoes/magboots/rig/chonk
@@ -155,3 +158,6 @@
 		/obj/item/rig_module/ai_container,
 		/obj/item/rig_module/chem_dispenser/combat
 	)
+
+/obj/item/rig/merc/einstein/empty
+	initial_modules = list()

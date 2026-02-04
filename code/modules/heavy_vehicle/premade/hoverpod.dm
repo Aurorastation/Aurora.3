@@ -8,7 +8,7 @@
 	max_damage = 150
 	move_delay = 5
 	turn_delay = 2
-	power_use = 2000
+	power_use = 2500
 	trample_damage = 0
 	hover = TRUE
 
@@ -17,7 +17,7 @@
 	exosuit_desc_string = "light thrusters"
 	desc = "A set of fragile hover-thrusters. This variant seems to sacrifice vast structural integrity for... more speed."
 	icon_state = "light-hoverlegs"
-	max_damage = 40
+	max_damage = 75
 	move_delay = 2
 	turn_delay = 2
-	power_use = 725
+	power_use = 2000

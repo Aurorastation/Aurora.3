@@ -7,7 +7,6 @@ export type ShieldData = {
   owned_capacitor: BooleanLike;
   active: BooleanLike;
   time_since_fail: number;
-  multi_unlocked: BooleanLike;
   multiz: BooleanLike;
   field_radius: number;
   min_field_radius: number;
@@ -36,7 +35,8 @@ export const ShieldGenerator = (props, context) => {
               icon={data.active ? 'power-off' : 'times'}
               onClick={() => act('toggle')}
             />
-          }>
+          }
+        >
           <LabeledList>
             <LabeledList.Item label="Capacitor">
               {data.owned_capacitor ? (

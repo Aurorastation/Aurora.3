@@ -9,19 +9,15 @@
 		new /obj/item/storage/backpack(src)
 	else
 		new /obj/item/storage/backpack/satchel(src)
-	new /obj/item/device/radio/headset(src)
-	new /obj/item/device/radio/headset/alt(src)
+	new /obj/item/radio/headset(src)
+	new /obj/item/radio/headset/alt(src)
 
 /obj/structure/closet/secure_closet/personal/patient
 	name = "patient's closet"
 
 /obj/structure/closet/secure_closet/personal/patient/fill()
-	if(prob(50))
-		new /obj/item/clothing/under/medical_gown(src)
-		new /obj/item/clothing/under/medical_gown(src)
-	else
-		new /obj/item/clothing/under/medical_gown/white(src)
-		new /obj/item/clothing/under/medical_gown/white(src)
+	new /obj/random/medical_gown(src)
+	new /obj/random/medical_gown(src)
 	new /obj/item/clothing/shoes/sneakers( src )
 	new /obj/item/clothing/shoes/sneakers( src )
 
@@ -37,8 +33,8 @@
 
 /obj/structure/closet/secure_closet/personal/cabinet/fill()
 	new /obj/item/storage/backpack/satchel/leather/withwallet(src)
-	new /obj/item/device/radio/headset(src)
-	new /obj/item/device/radio/headset/alt(src)
+	new /obj/item/radio/headset(src)
+	new /obj/item/radio/headset/alt(src)
 
 /obj/structure/closet/secure_closet/personal/attackby(obj/item/attacking_item, mob/user)
 	if (opened)
@@ -68,15 +64,15 @@
 				registered_name = I.registered_name
 				desc = "Owned by [I.registered_name]."
 		else
-			to_chat(user, SPAN_WARNING("Access Denied"))
+			to_chat(user, SPAN_WARNING("Access denied"))
 	else if(istype(attacking_item, /obj/item/melee/energy/blade))
 		var/obj/item/melee/energy/blade/blade = attacking_item
 		if(emag_act(INFINITY, user, "The locker has been sliced open by [user] with \an [blade]!", "You hear metal being sliced and sparks flying."))
 			blade.spark_system.queue()
 			playsound(loc, 'sound/weapons/blade.ogg', 50, 1)
-			playsound(loc, /singleton/sound_category/spark_sound, 50, 1)
+			playsound(loc, SFX_SPARKS, 50, 1)
 	else
-		to_chat(user, SPAN_WARNING("Access Denied"))
+		to_chat(user, SPAN_WARNING("Access denied"))
 	return
 
 /obj/structure/closet/secure_closet/personal/emag_act(var/remaining_charges, var/mob/user, var/visual_feedback, var/audible_feedback)

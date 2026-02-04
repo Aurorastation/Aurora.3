@@ -95,15 +95,15 @@
 	location_ew = LOC_STARBOARD
 
 /area/horizon/stairwell/starboard/deck_1
-	name = "Stairwell"
+	name = "Starboard Stairwell"
 	horizon_deck = 1
 
 /area/horizon/stairwell/starboard/deck_2
-	name = "Stairwell"
+	name = "Starboard Stairwell"
 	horizon_deck = 2
 
 /area/horizon/stairwell/starboard/deck_3
-	name = "Stairwell"
+	name = "Starboard Stairwell"
 	horizon_deck = 3
 
 // Starboard Stairwell (Security/Cafe)
@@ -112,14 +112,14 @@
 	location_ew = LOC_PORT
 
 /area/horizon/stairwell/port/deck_2
-	name = "Stairwell"
+	name = "Port Stairwell"
 	horizon_deck = 2
 
 /area/horizon/stairwell/port/deck_3
-	name = "Stairwell"
+	name = "Port Stairwell"
 	horizon_deck = 3
 
-// Bridge Stairwell (Captain/Kitchen/Hydro)
+// Bridge Stairwell (Captain/Galley/Hydro)
 /area/horizon/stairwell/bridge
 	name = "Horizon - Bridge Stairwell (PARENT AREA - DON'T USE)"
 	icon_state = "bridge_stairs"
@@ -129,11 +129,11 @@
 	location_ns = LOC_FORE_FAR
 
 /area/horizon/stairwell/bridge/deck_2
-	name = "Stairwell"
+	name = "Bridge Stairwell"
 	horizon_deck = 2
 
 /area/horizon/stairwell/bridge/deck_3
-	name = "Stairwell"
+	name = "Bridge Stairwell"
 	horizon_deck = 3
 
 // Engineering Stairwell (Engineering/Atmos)
@@ -145,12 +145,12 @@
 	location_ns = LOC_AFT
 
 /area/horizon/stairwell/engineering/deck_1
-	name = "Stairwell"
+	name = "Engineering Stairwell"
 	horizon_deck = 1
 	area_blurb = "The exterior stowage tanks are visible from the window, hunched like patient stones."
 
 /area/horizon/stairwell/engineering/deck_2
-	name = "Stairwell"
+	name = "Engineering Stairwell"
 	horizon_deck = 2
 	area_blurb = "Filled with the sounds of machinery and an atmosphere of meaningful, directed purpose."
 
@@ -168,8 +168,10 @@
 /area/horizon/crew/resdeck/living_quarters_lift
 	name = "Living Quarters Lift"
 	sound_environment = SOUND_AREA_SMALL_ENCLOSED
+	area_flags = AREA_FLAG_RAD_SHIELDED
 	horizon_deck = 1
 	subdepartment = SUBLOC_RESDECK
+	area_blurb = "This compartment is a primary access point between the Operations Decks and the Residential Decks of the SCCV Horizon."
 
 /// Fitness Center (legacy)
 /area/horizon/crew/fitness
@@ -180,15 +182,19 @@
 /area/horizon/crew/fitness/gym
 	name = "Gym"
 	icon_state = "fitness_gym"
+	area_blurb = "It smells like sweat and sterilizing agents. Get pumped!"
 
+// This area contains the Cryo pods. Spawn area = rad shielding.
 /area/horizon/crew/fitness/changing
 	name = "Changing Room"
+	area_flags = AREA_FLAG_RAD_SHIELDED
 	icon_state = "fitness_changingroom"
 
 /area/horizon/crew/fitness/showers
 	name = "Showers"
 	icon_state = "showers"
 	sound_environment = SOUND_AREA_SMALL_ENCLOSED
+	area_blurb = "Kept cleaner than most communal showers on ResDeck 3."
 
 /// Representative and Consular offices.
 // Yeah yeah I know, they're technically not 'Crew,' but they're also not Command...
@@ -200,6 +206,7 @@
 	horizon_deck = 3
 	department = LOC_COMMAND
 	area_blurb = "An office well-suited to the powerful: a useful lair for the consular or representative to withdraw with victims found after prowling the ship for themselves."
+	lightswitch = FALSE
 
 /area/horizon/repoffice/consular_one
 	name = "Consular Office A"
@@ -222,6 +229,7 @@
 	name = "Journalist's Office"
 	sound_environment = SOUND_AREA_SMALL_SOFTFLOOR
 	horizon_deck = 3
+	lightswitch = FALSE
 
 /area/horizon/crew/lounge
 	name = "Crew Lounge"
@@ -229,23 +237,27 @@
 	horizon_deck = 3
 
 /area/horizon/crew/chargebay
-	name = "Mech Bay"
+	name = "Charge Bay"
 	icon_state = "mechbay"
 	horizon_deck = 1
+	area_blurb = "A discrete compartment frequented by the ship's many synthetics and IPCs."
 
+// Rad shielded because common afk area.
 /area/horizon/crew/washroom
-	name = "Horizon - Washroom (PARENT AREA - DON'T USE)"
+	name = "Horizon - Head (PARENT AREA - DON'T USE)"
 	icon_state = "washroom"
+	area_flags = AREA_FLAG_RAD_SHIELDED
 	sound_environment = SOUND_AREA_SMALL_ENCLOSED
+	lightswitch = FALSE
 
 /area/horizon/crew/washroom/deck_2
-	name = "Washroom"
+	name = "Head"
 	icon_state = "washroom"
 	sound_environment = SOUND_AREA_SMALL_ENCLOSED
 	horizon_deck = 2
 
 /area/horizon/crew/washroom/deck_3
-	name = "Washroom"
+	name = "Head"
 	icon_state = "washroom"
 	sound_environment = SOUND_AREA_SMALL_ENCLOSED
 	horizon_deck = 3
@@ -254,3 +266,4 @@
 	name = "Vacant Office"
 	no_light_control = 0
 	horizon_deck = 3
+	lightswitch = FALSE

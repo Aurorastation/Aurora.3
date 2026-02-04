@@ -26,7 +26,7 @@
 		return
 	switch(href_list["info"])
 		if("actuator")
-			to_chat(usr, SPAN_NOTICE("An actuator can be created at a mechatronic fabricator."))
+			to_chat(usr, SPAN_NOTICE("An actuator can be created at a synthetic fabricator."))
 
 /obj/item/mech_component/propulsion/return_diagnostics(mob/user)
 	..()

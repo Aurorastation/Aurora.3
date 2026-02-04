@@ -7,7 +7,7 @@
 	light_overlay = "hardhat_light"
 	contained_sprite = TRUE
 	action_button_name = "Toggle Headlamp"
-	brightness_on = 4 //luminosity when on
+	light_range = 4 //luminosity when on
 	armor = list(
 		MELEE = ARMOR_MELEE_RESISTANT,
 		BULLET = ARMOR_BALLISTIC_MINOR,
@@ -21,7 +21,6 @@
 	w_class = WEIGHT_CLASS_NORMAL
 	siemens_coefficient = 0.9
 	max_pressure_protection = FIRESUIT_MAX_PRESSURE
-	light_wedge = LIGHT_WIDE
 	drop_sound = 'sound/items/drop/helm.ogg'
 	pickup_sound = 'sound/items/pickup/helm.ogg'
 

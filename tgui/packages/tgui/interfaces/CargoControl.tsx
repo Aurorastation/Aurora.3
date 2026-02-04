@@ -133,46 +133,55 @@ export const CargoControl = (props, context) => {
                 onClick={() => act('shuttle_force')}
               />
             </>
-          }>
+          }
+        >
           <Tabs>
             <Tabs.Tab
               onClick={() => act('page', { page: 'overview_main' })}
-              selected={data.page === 'overview_main'}>
+              selected={data.page === 'overview_main'}
+            >
               Main
             </Tabs.Tab>
             <Tabs.Tab
               onClick={() => act('page', { page: 'overview_submitted' })}
-              selected={data.page === 'overview_submitted'}>
+              selected={data.page === 'overview_submitted'}
+            >
               Submitted
             </Tabs.Tab>
             <Tabs.Tab
               onClick={() => act('page', { page: 'overview_approved' })}
-              selected={data.page === 'overview_approved'}>
+              selected={data.page === 'overview_approved'}
+            >
               Approved
             </Tabs.Tab>
             <Tabs.Tab
               onClick={() => act('page', { page: 'overview_shipped' })}
-              selected={data.page === 'overview_shipped'}>
+              selected={data.page === 'overview_shipped'}
+            >
               Shipped
             </Tabs.Tab>
             <Tabs.Tab
               onClick={() => act('page', { page: 'overview_delivered' })}
-              selected={data.page === 'overview_delivered'}>
+              selected={data.page === 'overview_delivered'}
+            >
               Delivered
             </Tabs.Tab>
             <Tabs.Tab
               onClick={() => act('page', { page: 'overview_shipments' })}
-              selected={data.page === 'overview_shipments'}>
+              selected={data.page === 'overview_shipments'}
+            >
               Shipments
             </Tabs.Tab>
             <Tabs.Tab
               onClick={() => act('page', { page: 'bounties' })}
-              selected={data.page === 'bounties'}>
+              selected={data.page === 'bounties'}
+            >
               Bounties
             </Tabs.Tab>
             <Tabs.Tab
               onClick={() => act('page', { page: 'settings' })} // WHY IS IT DIFFERENT NOW? WHY AREN'T THEY ALL THE SAME FORMAT??
-              selected={data.page === 'settings'}>
+              selected={data.page === 'settings'}
+            >
               Settings
             </Tabs.Tab>
           </Tabs>
@@ -291,7 +300,7 @@ export const MainWindow = (props, context) => {
         </LabeledList.Item>
       </LabeledList>
       {data.shuttle_has_arrive_time ? (
-        <Section title="Shuttle Information">
+        <Section title="Elevator Information">
           <LabeledList>
             <LabeledList.Item label="ETA">
               {data.shuttle_eta_minutes} minutes
@@ -299,7 +308,7 @@ export const MainWindow = (props, context) => {
           </LabeledList>
         </Section>
       ) : (
-        'Shuttle awaiting orders.'
+        'Elevator awaiting orders.'
       )}
     </Section>
   );
@@ -316,10 +325,10 @@ export const OverviewSubmitted = (props, context) => {
         <LabeledList.Item label="Submitted Orders Value">
           {data.order_submitted_value}
         </LabeledList.Item>
-        <LabeledList.Item label="Estimated Shuttle Time">
+        <LabeledList.Item label="Estimated Elevator Time">
           {data.order_approved_shuttle_time / 10} seconds
         </LabeledList.Item>
-        <LabeledList.Item label="Estimated Shuttle Cost">
+        <LabeledList.Item label="Estimated Elevator Fee">
           {data.order_approved_shuttle_price.toFixed(2)} 电
         </LabeledList.Item>
       </LabeledList>
@@ -389,10 +398,10 @@ export const OverviewApproved = (props, context) => {
         <LabeledList.Item label="Approved Orders Value">
           {data.order_approved_shuttle_time}
         </LabeledList.Item>
-        <LabeledList.Item label="Estimated Shuttle Time">
+        <LabeledList.Item label="Estimated Elevator Time">
           {data.order_approved_shuttle_time / 10} seconds
         </LabeledList.Item>
-        <LabeledList.Item label="Estimated Shuttle Cost">
+        <LabeledList.Item label="Estimated Elevator Fee">
           {data.order_approved_shuttle_price.toFixed(2)} 电
         </LabeledList.Item>
       </LabeledList>
@@ -575,7 +584,8 @@ export const Bounties = (props, context) => {
           icon="print"
           onClick={() => act('bounty_print')}
         />
-      }>
+      }
+    >
       <Table>
         <Table.Row header>
           <Table.Cell>Name</Table.Cell>

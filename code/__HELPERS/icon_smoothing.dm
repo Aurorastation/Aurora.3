@@ -274,7 +274,7 @@
 /**
  * Blend atoms
  */
-/atom/proc/handle_blending(adjacencies, var/list/dir_mods, var/overlay_layer = 3)
+/atom/proc/handle_blending(adjacencies, var/list/dir_mods)
 	SHOULD_NOT_SLEEP(TRUE)
 
 	LAZYINITLIST(dir_mods)
@@ -285,7 +285,7 @@
 			var/turf/T = get_step(src, REVERSE_DIR(adjacency))
 			if(is_type_in_list(T, can_blend_with))
 				if(attach_overlay)
-					AddOverlays("[REVERSE_DIR(adjacency)]_[attach_overlay]", overlay_layer)
+					AddOverlays("[REVERSE_DIR(adjacency)]_[attach_overlay]")
 				walls_found |= adjacency
 				dir_mods["[adjacency]"] = "-[blend_overlay]"
 	for(var/adjacency in list(N_NORTH, N_SOUTH))
@@ -300,7 +300,7 @@
 			if(((adjacencies & adjacency) && (adjacencies && diagonal)) && (has_adjacency || has_diagonal))
 				dir_mods["[adjacency][diagonal]"] = "-[prefix][has_adjacency ? "wall" : "win"]-[suffix][has_diagonal ? "wall" : "win"]"
 				if(attach_overlay)
-					AddOverlays("[prefix][suffix]_[attach_overlay]", overlay_layer)
+					AddOverlays("[prefix][suffix]_[attach_overlay]")
 	return dir_mods
 
 #undef ndir_to_initial

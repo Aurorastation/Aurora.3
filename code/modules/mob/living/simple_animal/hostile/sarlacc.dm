@@ -316,7 +316,7 @@
 	desc = "This pulsating brain seems somehow connected to all the other orifices in this room..."
 	icon = 'icons/mob/npc/cavern.dmi'
 	icon_state = "sarlaccbrain"
-	see_invisible = SEE_INVISIBLE_NOLIGHTING
+	lighting_alpha = LIGHTING_PLANE_ALPHA_SOMEWHAT_INVISIBLE
 
 	universal_speak = 1
 	universal_understand = 1

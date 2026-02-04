@@ -183,7 +183,7 @@
 	spawn(0) healthcheck() //spawn to make sure we return properly if the grille is deleted
 
 /obj/structure/grille/attackby(obj/item/attacking_item, mob/user)
-	if(attacking_item.iswirecutter())
+	if(attacking_item.tool_behaviour == TOOL_WIRECUTTER)
 		if(!shock(user, 100))
 			playsound(loc, 'sound/items/Wirecutter.ogg', 100, 1)
 			new /obj/item/stack/rods(get_turf(src), destroyed ? 1 : 2)
@@ -196,7 +196,7 @@
 		playsound(loc, PC.fire_sound, 100, TRUE)
 		new /obj/item/stack/rods(get_turf(src), destroyed ? 1 : 2)
 		qdel(src)
-	else if((attacking_item.isscrewdriver()) && (istype(loc, /turf/simulated) || anchored))
+	else if((attacking_item.tool_behaviour == TOOL_SCREWDRIVER) && (istype(loc, /turf/simulated) || anchored))
 		if(!shock(user, 90))
 			playsound(loc, 'sound/items/Screwdriver.ogg', 100, 1)
 			anchored = !anchored
@@ -318,7 +318,7 @@
 			healthcheck()
 	..()
 
-/obj/structure/grille/attack_generic(var/mob/user, var/damage, var/attack_verb)
+/obj/structure/grille/attack_generic(mob/user, damage, attack_message, environment_smash, armor_penetration, attack_flags, damage_type)
 	visible_message(SPAN_DANGER("[user] [attack_verb] the [src]!"))
 	user.do_attack_animation(src)
 	health -= damage
@@ -357,7 +357,7 @@
 /obj/structure/grille/crescent/attackby()
 	return
 
-/obj/structure/grille/crescent/attack_generic()
+/obj/structure/grille/crescent/attack_generic(mob/user, damage, attack_message, environment_smash, armor_penetration, attack_flags, damage_type)
 	return
 
 /obj/structure/grille/crescent/ex_act(var/severity = 2.0)

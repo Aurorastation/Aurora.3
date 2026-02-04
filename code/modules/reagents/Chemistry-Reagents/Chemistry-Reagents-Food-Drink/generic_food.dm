@@ -5,12 +5,15 @@
 	taste_mult = 4
 	reagent_state = SOLID
 	metabolism = REM * 2
-	var/nutriment_factor = 8 // Per removed in digest.
-	var/hydration_factor = 0 // Per removed in digest.
+	/// Per removed in digest.
+	var/nutriment_factor = 8
+	/// Per removed in digest.
+	var/hydration_factor = 0
 	var/blood_factor = 2
 	var/regen_factor = 0.8
 	var/injectable = 0
-	var/attrition_factor = -(REM * 4)/BASE_MAX_NUTRITION // Decreases attrition rate.
+	/// Decreases attrition rate.
+	var/attrition_factor = -(REM * 4)/BASE_MAX_NUTRITION
 	color = "#664330"
 	unaffected_species = IS_MACHINE
 	taste_description = "food"
@@ -58,6 +61,10 @@
 	M.nutrition_attrition_rate = clamp(M.nutrition_attrition_rate + attrition_factor, 1, 2)
 	M.add_chemical_effect(CE_BLOODRESTORE, blood_factor * removed)
 	M.intoxication -= min(M.intoxication,nutriment_factor*removed*0.05) //Nutrients can absorb alcohol.
+
+/// Parent singleton. Provides fallback specific heat value to condiments unused in recipes.
+/singleton/reagent/condiment
+	fallback_specific_heat = 1
 
 //
 //Lipozine?
@@ -193,18 +200,19 @@
 	if(amount >= 3)
 		T.wet_floor(WET_TYPE_LUBE,amount)
 
-//Calculates a scaling factor for scalding damage, based on the temperature of the oil and creature's heat resistance
+/// Calculates a scaling factor for scalding damage, based on the temperature of the oil and creature's heat resistance
 /singleton/reagent/nutriment/triglyceride/oil/proc/heatdamage(var/mob/living/carbon/M, var/datum/reagents/holder)
-	var/threshold = 360//Human heatdamage threshold
+	/// Human heatdamage threshold.
+	var/threshold = 360
 	var/datum/species/S = M.get_species(1)
 	if (S && istype(S))
 		threshold = S.heat_level_1
 
-	//If temperature is too low to burn, return a factor of 0. no damage
+	// If temperature is too low to burn, return a factor of 0. no damage.
 	if (holder.get_temperature() < threshold)
 		return 0
 
-	//Step = degrees above heat level 1 for 1.0 multiplier
+	/// Step = degrees above heat level 1 for 1.0 multiplier.
 	var/step = 60
 	if (S && istype(S))
 		step = (S.heat_level_2 - S.heat_level_1)*1.5

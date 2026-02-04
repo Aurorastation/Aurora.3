@@ -372,7 +372,7 @@
 	..()
 	var/obj/icon = src
 
-	if ((istype(attacking_item, /obj/item/device/analyzer)) && get_dist(user, src) <= 1)
+	if ((istype(attacking_item, /obj/item/analyzer)) && get_dist(user, src) <= 1)
 		user.visible_message(SPAN_WARNING("[user] has used [attacking_item] on [icon2html(icon, viewers(get_turf(user)))] [src]."))
 
 		var/pressure = air_contents.return_pressure()
@@ -536,7 +536,7 @@
 
 	var/pressure = air_contents.return_pressure()
 	if(pressure > TANK_FRAGMENT_PRESSURE)
-		if(!istype(src.loc,/obj/item/device/transfer_valve))
+		if(!istype(src.loc,/obj/item/transfer_valve))
 			message_admins("Explosive tank rupture! last key to touch the tank was [src.fingerprintslast].")
 			log_game("Explosive tank rupture! last key to touch the tank was [src.fingerprintslast].")
 

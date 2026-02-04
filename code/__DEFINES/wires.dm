@@ -88,7 +88,7 @@
 
 /*################################
 	Wires for the assembly
-	/obj/item/device/assembly
+	/obj/item/assembly
 ################################*/
 
 ///Allows Pulsed(0) to call Activate()

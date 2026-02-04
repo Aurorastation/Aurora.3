@@ -5,7 +5,7 @@
 	suit = /obj/item/clothing/suit/storage/vest/legion/legate
 	gloves = /obj/item/clothing/gloves/swat/tactical
 	shoes = /obj/item/clothing/shoes/combat
-	l_ear = /obj/item/device/radio/headset/legion
+	l_ear = /obj/item/radio/headset/legion
 	head = /obj/item/clothing/head/legion/legate
 	glasses = /obj/item/clothing/glasses/sunglasses/aviator
 	id = /obj/item/card/id/distress/legion
