@@ -39,7 +39,8 @@ export const Doors = (props, context) => {
               disabled={data.main_power_lost_until !== 0}
               onClick={() => act('main_power')}
             />
-          }>
+          }
+        >
           <ProgressBar
             ranges={{
               good: [0, 1],
@@ -52,7 +53,8 @@ export const Doors = (props, context) => {
                 : data.main_power_lost_until
             }
             minValue={data.main_power_lost_until ? data.main_power_lost_at : 1}
-            maxValue={data.main_power_lost_until}>
+            maxValue={data.main_power_lost_until}
+          >
             {get_power_status_message(data.main_power_lost_until, data.wtime)}
           </ProgressBar>
         </Section>
@@ -64,7 +66,8 @@ export const Doors = (props, context) => {
               disabled={data.backup_power_lost_until !== 0}
               onClick={() => act('backup_power')}
             />
-          }>
+          }
+        >
           <ProgressBar
             ranges={{
               good: [0, 1],
@@ -79,7 +82,8 @@ export const Doors = (props, context) => {
             minValue={
               data.backup_power_lost_until ? data.backup_power_lost_at : 1
             }
-            maxValue={data.backup_power_lost_until}>
+            maxValue={data.backup_power_lost_until}
+          >
             {get_power_status_message(data.backup_power_lost_until, data.wtime)}
           </ProgressBar>
         </Section>
@@ -111,7 +115,8 @@ export const Doors = (props, context) => {
                 ''
               )}
             </>
-          }>
+          }
+        >
           <ProgressBar
             ranges={{
               good: [0, 1],
@@ -122,7 +127,8 @@ export const Doors = (props, context) => {
               data.electrified_until > 0 ? data.wtime : data.electrified_until
             }
             minValue={data.electrified_until ? data.electrified_at : 1}
-            maxValue={data.electrified_until}>
+            maxValue={data.electrified_until}
+          >
             {get_electrified_message(data.electrified_until, data.wtime)}
           </ProgressBar>
         </Section>
@@ -254,7 +260,7 @@ const get_electrified_message = (electrified, time) => {
   } else {
     let electrified_message = Math.max(
       Math.round((electrified - time) / 10),
-      0
+      0,
     );
     return 'Electrified, ' + electrified_message + 's remaining';
   }

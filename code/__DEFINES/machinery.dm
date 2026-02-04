@@ -24,11 +24,19 @@
 #define POWER_USE_ACTIVE    2
 
 // Bitflags for machine stat variable.
+// These definitions are copypasted in the dmdocs in 'code/game/machinery.dm' so they can be easily referenced by checking the 'stat' variable.
+// SO THAT MEANS IF YOU UPDATE THEM HERE, UPDATE THEM THERE FOR VISIBILITY!
 #define BROKEN   0x1
 #define NOPOWER  0x2
 #define POWEROFF 0x4  // TBD.
 #define MAINT    0x8  // Under maintenance.
 #define EMPED    0x10 // Temporary broken by EMP pulse.
+
+#define FABRICATOR_EXTRA_COST_FACTOR 1.25
+#define FAB_HACKED BITFLAG(1)
+#define FAB_DISABLED BITFLAG(2)
+#define FAB_SHOCKED BITFLAG(3)
+#define FAB_BUSY     BITFLAG(4)
 
 #define INOPERABLE(machine)  (machine.stat & (BROKEN|NOPOWER|MAINT|EMPED))
 #define OPERABLE(machine)    !INOPERABLE(machine)

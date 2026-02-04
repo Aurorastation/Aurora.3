@@ -33,6 +33,8 @@
 	var/blood_overlay_icon = 'icons/mob/npc/blood_overlay.dmi'
 	var/blood_state = BLOOD_NONE
 	var/image/blood_overlay
+	/// If true, `handle_blood()` will run without handling blood overlays. Useful for the cases if Byond unable to handle overlay shenanigans happening in your mob.
+	var/bypass_blood_overlay = FALSE
 
 	/// If the animal is bleeding.
 	var/bleeding = FALSE
@@ -120,7 +122,7 @@
 	var/armor_penetration = 0
 	var/attack_flags = 0
 	var/attacktext = "attacked"
-	var/attack_sound = /singleton/sound_category/swing_hit_sound
+	var/attack_sound = SFX_SWING_HIT
 	var/friendly = "nuzzles"
 	var/environment_smash = 0
 	/// Damage reduction
@@ -256,6 +258,11 @@
 	GC_TEMPORARY_HARDDEL
 
 /mob/living/simple_animal/Move(NewLoc, direct)
+	// this is a janky way to prevent mobs wandering into chasms, but allows them to be thrown into it by someone else if the mob is dead
+	if(ischasm(NewLoc))
+		var/obj/structure/lattice/L = locate(/obj/structure/lattice) in NewLoc
+		if(!L && stat != DEAD)
+			return
 	. = ..()
 	if(.)
 		if(src.nutrition && src.stat != DEAD && hunger_enabled)
@@ -431,7 +438,7 @@
 		purge -= 1
 
 /mob/living/simple_animal/proc/handle_blood(var/force_reset = FALSE)
-	if(!blood_overlay_icon)
+	if(!blood_overlay_icon && !bypass_blood_overlay)
 		return
 
 	if(blood_amount <= 0 && stat != DEAD)
@@ -460,7 +467,7 @@
 				blood_splatter(src, null, TRUE, sourceless_color = blood_type)
 				blood_amount -= 3
 
-	if(force_reset || current_blood_state != blood_state)
+	if((force_reset || current_blood_state != blood_state) && !bypass_blood_overlay)
 		if(blood_overlay)
 			CutOverlays(blood_overlay)
 		if(blood_state == BLOOD_NONE)
@@ -706,7 +713,7 @@
 	if(ismob(hitting_projectile.firer))
 		handle_attack_by(hitting_projectile.firer)
 
-/mob/living/simple_animal/apply_damage(damage = 0, damagetype = DAMAGE_BRUTE, def_zone, blocked, used_weapon, damage_flags = 0, armor_pen, silent = FALSE)
+/mob/living/simple_animal/apply_damage(damage = 0, damagetype = DAMAGE_BRUTE, def_zone, used_weapon, damage_flags = 0, armor_pen, silent = FALSE)
 	. = ..()
 	handle_bleeding_timer(damage)
 	handle_blood()
@@ -974,7 +981,7 @@
 //Todo: add snowflakey shit to it.
 /mob/living/simple_animal/electrocute_act(var/shock_damage, var/obj/source, var/base_siemens_coeff = 1.0, var/def_zone = null, var/tesla_shock = 0, var/ground_zero)
 	apply_damage(shock_damage, DAMAGE_BURN)
-	playsound(loc, /singleton/sound_category/spark_sound, 50, 1, -1)
+	playsound(loc, SFX_SPARKS, 50, 1, -1)
 	spark(loc, 5, GLOB.alldirs)
 	visible_message(SPAN_WARNING("\The [src] was shocked by \the [source]!"), SPAN_WARNING("You are shocked by \the [source]!"), SPAN_WARNING("You hear an electrical crack!"))
 
@@ -1025,6 +1032,41 @@
 				var/matrix/M = new()
 				B.transform = M.Scale(scale)
 				B.update_icon()
+
+
+/mob/living/simple_animal/handle_fire(seconds_per_tick)
+	if(..())
+		return
+
+	var/burn_temperature = fire_burn_temperature()
+	var/thermal_protection = get_heat_protection()
+
+	if (thermal_protection < 1 && bodytemperature < burn_temperature)
+		bodytemperature += round(BODYTEMP_HEATING_MAX*(1-thermal_protection) * 20 * seconds_per_tick, 1)
+
+	burn_temperature -= maxbodytemp
+
+	if(burn_temperature < 1)
+		return
+
+	adjustBruteLoss(log(10, (burn_temperature + 10)))
+
+/mob/living/simple_animal/update_fire()
+	. = ..()
+	var/image/upper_fire_overlay = image("icon" = 'icons/mob/burning/burning_generic.dmi', "icon_state" = "upper", layer = MOB_UPPER_FIRE_OVERLAY)
+	var/image/upper_fire_emissive = emissive_appearance("icon" = 'icons/mob/burning/burning_generic.dmi', "icon_state" = "upper", layer = MOB_UPPER_FIRE_OVERLAY)
+	var/image/lower_fire_overlay = image("icon" = 'icons/mob/burning/burning_generic.dmi', "icon_state" = "lower", layer = MOB_LOWER_FIRE_OVERLAY)
+	var/image/lower_fire_emissive = emissive_appearance("icon" = 'icons/mob/burning/burning_generic.dmi', "icon_state" = "lower", layer = MOB_LOWER_FIRE_OVERLAY)
+	CutOverlays(upper_fire_overlay)
+	CutOverlays(upper_fire_emissive)
+	CutOverlays(lower_fire_overlay)
+	CutOverlays(lower_fire_emissive)
+	if(on_fire)
+		AddOverlays(upper_fire_overlay)
+		AddOverlays(upper_fire_emissive)
+		AddOverlays(lower_fire_overlay)
+		AddOverlays(lower_fire_emissive)
+
 
 /mob/living/simple_animal/get_resist_power()
 	return resist_mod

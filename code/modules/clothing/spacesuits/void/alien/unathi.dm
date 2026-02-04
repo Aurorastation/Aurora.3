@@ -36,7 +36,7 @@
 		BIO = ARMOR_BIO_SHIELDED,
 		RAD = ARMOR_RAD_SMALL
 	)
-	allowed = list(/obj/item/device/flashlight,/obj/item/tank,/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/melee/energy/sword,/obj/item/handcuffs)
+	allowed = list(/obj/item/flashlight,/obj/item/tank,/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/melee/energy/sword,/obj/item/handcuffs)
 	siemens_coefficient = 0.35
 	species_restricted = list(BODYTYPE_UNATHI)
 	refittable = FALSE
@@ -82,7 +82,7 @@
 		RAD = ARMOR_RAD_SMALL
 	)
 	light_overlay = "helmet_light_dual_low"
-	brightness_on = 6
+	light_range = 6
 	species_restricted = list(BODYTYPE_UNATHI)
 	refittable = FALSE
 
@@ -102,7 +102,7 @@
 		BIO = ARMOR_BIO_SHIELDED,
 		RAD = ARMOR_RAD_SMALL
 	)
-	allowed = list(/obj/item/gun,/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/material/sword,/obj/item/melee/hammer,/obj/item/melee/energy)
+	allowed = list(/obj/item/gun,/obj/item/flashlight,/obj/item/tank,/obj/item/suit_cooling_unit,/obj/item/material/sword,/obj/item/melee/hammer,/obj/item/melee/energy)
 	species_restricted = list(BODYTYPE_UNATHI)
 	refittable = FALSE
 
@@ -135,7 +135,7 @@
 		BIO = ARMOR_BIO_SHIELDED,
 		RAD = ARMOR_RAD_SMALL
 	)
-	allowed = list(/obj/item/gun,/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/material/sword,/obj/item/melee/hammer,/obj/item/melee/energy)
+	allowed = list(/obj/item/gun,/obj/item/flashlight,/obj/item/tank,/obj/item/suit_cooling_unit,/obj/item/material/sword,/obj/item/melee/hammer,/obj/item/melee/energy)
 	species_restricted = list(BODYTYPE_UNATHI)
 	refittable = FALSE
 
@@ -156,7 +156,7 @@
 		RAD = ARMOR_RAD_SHIELDED
 	)
 	light_overlay = "helmet_light_dual_low"
-	brightness_on = 6
+	light_range = 6
 	species_restricted = list(BODYTYPE_UNATHI)
 	refittable = FALSE
 

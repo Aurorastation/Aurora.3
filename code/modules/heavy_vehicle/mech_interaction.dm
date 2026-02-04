@@ -369,7 +369,7 @@
 					become_remote()
 					qdel(attacking_item)
 				return
-			else if(attacking_item.ismultitool())
+			else if(attacking_item.tool_behaviour == TOOL_MULTITOOL)
 				if(hardpoints_locked)
 					to_chat(user, SPAN_WARNING("Hardpoint system access is disabled."))
 					return
@@ -386,7 +386,7 @@
 				to_chat(user, SPAN_WARNING("\The [src] has no hardpoint systems to remove."))
 				return
 
-			else if(attacking_item.iswrench())
+			else if(attacking_item.tool_behaviour == TOOL_WRENCH)
 				if(!remote && length(pilots))
 					to_chat(user, SPAN_WARNING("You can't disassemble \the [src] while it has a pilot!"))
 					return
@@ -412,7 +412,7 @@
 							new remote_type(get_turf(src))
 					dismantle()
 				return
-			else if(attacking_item.iswelder())
+			else if(attacking_item.tool_behaviour == TOOL_WELDER)
 				if(!getBruteLoss())
 					return
 				var/list/damaged_parts = list()
@@ -423,7 +423,7 @@
 				if(CanInteract(user, GLOB.physical_state) && !QDELETED(to_fix) && (to_fix in src) && to_fix.brute_damage)
 					to_fix.repair_brute_generic(attacking_item, user)
 				return
-			else if(attacking_item.iscoil())
+			else if(attacking_item.tool_behaviour == TOOL_CABLECOIL)
 				if(!getFireLoss())
 					return
 				var/list/damaged_parts = list()
@@ -434,7 +434,7 @@
 				if(CanInteract(user, GLOB.physical_state) && !QDELETED(to_fix) && (to_fix in src) && to_fix.burn_damage)
 					to_fix.repair_burn_generic(attacking_item, user)
 				return
-			else if(attacking_item.iscrowbar())
+			else if(attacking_item.tool_behaviour == TOOL_CROWBAR)
 				if(!maintenance_protocols)
 					to_chat(user, SPAN_WARNING("The cell compartment remains locked while maintenance protocols are disabled."))
 					return
@@ -472,7 +472,7 @@
 					playsound(user.loc, 'sound/items/Screwdriver.ogg', 50, 1)
 					user.visible_message(SPAN_NOTICE("\The [user] installs \the [body.cell] into \the [src]."), SPAN_NOTICE("You install \the [body.cell] into \the [src]."))
 				return
-			else if(istype(attacking_item, /obj/item/device/robotanalyzer))
+			else if(istype(attacking_item, /obj/item/robotanalyzer))
 				to_chat(user, SPAN_NOTICE("Diagnostic Report for \the [src]:"))
 				for(var/obj/item/mech_component/limb in list (head, body, arms, legs))
 					if(limb)
@@ -509,7 +509,7 @@
 	update_icon()
 	return
 
-/mob/living/heavy_vehicle/attack_generic(var/mob/user, var/damage, var/attack_message, var/armor_penetration, var/attack_flags, var/damage_type = DAMAGE_BRUTE)
+/mob/living/heavy_vehicle/attack_generic(mob/user, damage, attack_message, environment_smash, armor_penetration, attack_flags, damage_type)
 	if(!(user in pilots))
 		. = ..()
 

@@ -119,18 +119,19 @@ export const Uplink = (props, context) => {
 const ItemCategoriesSection = function (
   context: any,
   act: any,
-  data: UplinkData
+  data: UplinkData,
 ) {
   const [searchTerm, setSearchTerm] = useLocalState<string>(
     context,
     `searchTerm`,
-    ``
+    ``,
   );
 
   return (
     <Section
       title={'Gear ' + (!searchTerm ? 'categories' : 'search')}
-      buttons={ItemSearch(context)}>
+      buttons={ItemSearch(context)}
+    >
       {!searchTerm
         ? CategoriesList(act, data)
         : ItemSection(context, act, data)}
@@ -142,7 +143,7 @@ const ItemSearch = function (context: any) {
   const [searchTerm, setSearchTerm] = useLocalState<string>(
     context,
     `searchTerm`,
-    ``
+    ``,
   );
   return (
     <Input
@@ -175,7 +176,7 @@ const ItemSection = function (context: any, act: any, data: UplinkData) {
   const [sortDesc, setSortDesc] = useLocalState<boolean>(
     context,
     `sortDesc`,
-    true
+    true,
   );
 
   const [searchTerm] = useLocalState<string>(context, `searchTerm`, ``);
@@ -191,7 +192,7 @@ const ItemSection = function (context: any, act: any, data: UplinkData) {
     data.items = data.items?.filter(
       (i) =>
         i.name.toLowerCase().indexOf(searchTerm.toLowerCase()) > -1 ||
-        i.description.toLowerCase().indexOf(searchTerm.toLowerCase()) > -1
+        i.description.toLowerCase().indexOf(searchTerm.toLowerCase()) > -1,
     );
   }
   // sort by item cost first
@@ -218,7 +219,8 @@ const ItemSection = function (context: any, act: any, data: UplinkData) {
   return (
     <Section
       title="Request Gear"
-      buttons={data.menu === 1 ? ItemSearch(context) : ''}>
+      buttons={data.menu === 1 ? ItemSearch(context) : ''}
+    >
       <span class="white">
         <i>
           Each item costs a number of telecrystals or bluecrystals as indicated
@@ -334,9 +336,15 @@ const ExploitRecordSection = function (act: any, data: UplinkData) {
           </LabeledList.Item>
           <LabeledList.Item label="Acquired Information" />
         </LabeledList>
-        {exploit.tgui_exploit_record
-          ? exploit.tgui_exploit_record
-          : 'No additional information acquired.'}
+        <span
+          style={{
+            'white-space': 'pre-line',
+          }}
+        >
+          {exploit.tgui_exploit_record
+            ? exploit.tgui_exploit_record
+            : 'No additional information acquired.'}
+        </span>
       </Section>
     );
   } else {
@@ -364,7 +372,8 @@ const ContractsSection = function (act: any, data: UplinkData) {
             <Table.Row>
               <Table.Cell colspan={999} textAlign="center">
                 <Box
-                  backgroundColor={data.contracts_view === 1 ? 'good' : 'bad'}>
+                  backgroundColor={data.contracts_view === 1 ? 'good' : 'bad'}
+                >
                   {data.contracts_view === 1
                     ? 'Available Contracts'
                     : 'Closed Contracts'}
@@ -428,7 +437,8 @@ const ContractDetailsSection = function (act: any, data: UplinkData) {
           </LabeledList.Item>
           <LabeledList.Item label="Status">
             <Box
-              backgroundColor={data.contract.status === true ? 'good' : 'bad'}>
+              backgroundColor={data.contract.status === true ? 'good' : 'bad'}
+            >
               {data.contract.status === true ? 'Open' : 'Closed'}
             </Box>
           </LabeledList.Item>

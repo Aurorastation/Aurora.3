@@ -505,15 +505,20 @@
 
 /obj/item/clothing/under/medical_gown
 	name = "medical gown"
-	desc = "A loose pieces of clothing, commonly worn by medical patients."
+	desc = "A loose piece of clothing, commonly worn by medical patients."
 	icon_state = "medicalgown"
 	item_state = "medicalgown"
 	has_sensor = SUIT_LOCKED_SENSORS
 	sensor_mode = SUIT_SENSOR_TRACKING
 
-/obj/item/clothing/under/medical_gown/white
-	icon_state = "whitemedicalgown"
-	worn_state = "whitemedicalgown"
+/obj/item/clothing/under/medical_gown/blue
+	color = "#99ccff"
+
+/obj/item/clothing/under/medical_gown/green
+	color = "#8dd7a3"
+
+/obj/item/clothing/under/medical_gown/pink
+	color = "#ffb7db"
 
 /obj/item/clothing/under/legion
 	name = "Tau Ceti Foreign Legion uniform"

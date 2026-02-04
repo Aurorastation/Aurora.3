@@ -78,7 +78,7 @@
 	new /obj/item/ammo_magazine/gauss(src)
 	new /obj/item/ammo_magazine/gauss(src)
 	new /obj/item/ammo_magazine/gauss/emp(src)
-	new /obj/item/device/modkit/multi_species(src)
+	new /obj/item/modkit/multi_species(src)
 	new /obj/item/voidsuit_modkit_multi/coalition(src)
 
 /obj/structure/closet/crate/secure/gear_loadout/eridani/fill()
@@ -169,7 +169,7 @@
 	new /obj/item/gun/projectile/pistol(src)
 	new /obj/item/ammo_magazine/mc9mm(src)
 	new /obj/item/grenade/chem_grenade/large/phoroncleaner(src)
-	new /obj/item/device/modkit/ipc(src)
+	new /obj/item/modkit/ipc(src)
 
 /obj/structure/closet/crate/secure/gear_loadout/sol/fill()
 	new /obj/item/clothing/under/rank/sol/marine(src)
@@ -178,7 +178,7 @@
 	new /obj/item/clothing/under/rank/sol/marine(src)
 	new /obj/item/clothing/under/rank/sol/marine(src)
 	new /obj/item/clothing/under/rank/sol/marine(src)
-	new /obj/item/rig/military(src)
+	new /obj/item/rig/military/equipped(src)
 	new /obj/item/clothing/head/helmet/space/void/sol(src)
 	new /obj/item/clothing/head/helmet/space/void/sol(src)
 	new /obj/item/clothing/head/helmet/space/void/sol(src)
@@ -288,7 +288,7 @@
 	new /obj/item/clothing/suit/space/void/zenghu(src)
 	new /obj/item/tank/oxygen/red(src)
 	new /obj/item/clothing/shoes/magboots(src)
-	new /obj/item/device/modkit/multi_species(src)
+	new /obj/item/modkit/multi_species(src)
 
 /obj/structure/closet/crate/gear_loadout/nanotrasen/suit/fill()
 	new /obj/item/rig/nanotrasen(src)
@@ -299,14 +299,14 @@
 	new /obj/item/clothing/suit/space/void/hephaestus(src)
 	new /obj/item/tank/oxygen/red(src)
 	new /obj/item/clothing/shoes/magboots(src)
-	new /obj/item/device/modkit/unathi(src)
+	new /obj/item/modkit/unathi(src)
 
 /obj/structure/closet/crate/gear_loadout/einstein/suit/fill()
 	new /obj/item/clothing/head/helmet/space/void/einstein(src)
 	new /obj/item/clothing/suit/space/void/einstein(src)
 	new /obj/item/tank/oxygen/red(src)
 	new /obj/item/clothing/shoes/magboots(src)
-	new /obj/item/device/modkit/multi_species(src)
+	new /obj/item/modkit/multi_species(src)
 
 /obj/structure/closet/crate/secure/gear_loadout/dominia/fill()
 	new /obj/item/clothing/under/dominia/fleet(src)
@@ -390,7 +390,7 @@
 	new /obj/item/melee/energy/sword/pirate(src)
 	new /obj/item/shield/energy/dominia(src)
 	new /obj/item/voidsuit_modkit/dominianvoid(src)
-	new /obj/item/device/modkit/unathi(src)
+	new /obj/item/modkit/unathi(src)
 
 /obj/structure/closet/crate/secure/gear_loadout/kosmostrelki/fill()
 	new /obj/item/clothing/under/tajaran/cosmonaut(src)
@@ -432,7 +432,7 @@
 	new /obj/item/gun/projectile/deagle/adhomai(src)
 	new /obj/item/ammo_magazine/a50(src)
 	new /obj/item/ammo_magazine/a50(src)
-	new /obj/item/device/augment_implanter/advanced_tesla(src)
+	new /obj/item/augment_implanter/advanced_tesla(src)
 
 /obj/structure/closet/crate/secure/gear_loadout/kosmostrelki/single/fill()
 	new /obj/item/clothing/under/tajaran/cosmonaut(src)
@@ -572,7 +572,55 @@
 	new /obj/item/suppressor(src)
 	new /obj/item/ammo_magazine/mc9mm(src)
 	new /obj/item/ammo_magazine/mc9mm(src)
-	new /obj/item/device/modkit/multi_species(src)
+	new /obj/item/modkit/multi_species(src)
+
+/obj/structure/closet/crate/gear_loadout/ceres/fill()
+	new /obj/item/rig/bunker/nerfed/equipped(src)
+	new /obj/item/clothing/head/helmet/space/void/lancer(src)
+	new /obj/item/clothing/head/helmet/space/void/lancer(src)
+	new /obj/item/clothing/head/helmet/space/void/lancer(src)
+	new /obj/item/clothing/head/helmet/space/void/lancer(src)
+	new /obj/item/clothing/suit/space/void/lancer(src)
+	new /obj/item/clothing/suit/space/void/lancer(src)
+	new /obj/item/clothing/suit/space/void/lancer(src)
+	new /obj/item/clothing/suit/space/void/lancer(src)
+	new /obj/item/clothing/under/lance(src)
+	new /obj/item/clothing/under/lance(src)
+	new /obj/item/clothing/under/lance(src)
+	new /obj/item/clothing/under/lance(src)
+	new /obj/item/clothing/accessory/holster/hip(src)
+	new /obj/item/clothing/accessory/holster/hip(src)
+	new /obj/item/clothing/accessory/holster/hip(src)
+	new /obj/item/clothing/accessory/holster/hip(src)
+	new /obj/item/gun/energy/rifle/laser(src)
+	new /obj/item/gun/energy/rifle/laser(src)
+	new /obj/item/gun/energy/rifle/laser(src)
+	new /obj/item/gun/energy/rifle/laser(src)
+	new /obj/item/gun/energy/repeater/pistol(src)
+	new /obj/item/gun/energy/repeater/pistol(src)
+	new /obj/item/gun/energy/repeater/pistol(src)
+	new /obj/item/gun/energy/repeater/pistol(src)
+	new /obj/item/gun/energy/rifle/ionrifle(src)
+	new /obj/item/gun/projectile/peac(src)
+	new /obj/item/ammo_casing/peac(src)
+	new /obj/item/ammo_casing/peac(src)
+	new /obj/item/ammo_casing/peac/he(src)
+	new /obj/item/ammo_casing/peac/he(src)
+	new /obj/item/recharger_backpack/high(src)
+	new /obj/item/recharger_backpack/high(src)
+	new /obj/item/recharger_backpack/high(src)
+	new /obj/item/recharger_backpack/high(src)
+	new /obj/item/voidsuit_modkit/ceres_lance_unathi(src)
+
+/obj/structure/closet/crate/gear_loadout/ceres/single/fill()
+	new /obj/item/clothing/head/helmet/space/void/lancer(src)
+	new /obj/item/clothing/suit/space/void/lancer(src)
+	new /obj/item/clothing/under/lance(src)
+	new /obj/item/clothing/accessory/holster/hip(src)
+	new /obj/item/gun/energy/rifle/laser(src)
+	new /obj/item/gun/energy/repeater/pistol(src)
+	new /obj/item/recharger_backpack/high(src)
+	new /obj/item/voidsuit_modkit/ceres_lance_unathi(src)
 
 /obj/structure/closet/crate/secure/gear_loadout/hegemony/fill()
 	new/obj/item/clothing/under/unathi/izweski(src)
@@ -580,6 +628,7 @@
 	new/obj/item/clothing/under/unathi/izweski(src)
 	new/obj/item/clothing/under/unathi/izweski(src)
 	new/obj/item/clothing/under/unathi/izweski/officer(src)
+	new /obj/item/rig/unathi/fancy/equipped(src) // Knights get this so why not they?
 	new /obj/item/clothing/head/helmet/space/void/hegemony(src)
 	new /obj/item/clothing/head/helmet/space/void/hegemony(src)
 	new /obj/item/clothing/head/helmet/space/void/hegemony(src)
@@ -693,6 +742,7 @@
 	new /obj/item/clothing/under/unathi(src)
 	new /obj/item/clothing/under/unathi(src)
 	new /obj/item/clothing/under/unathi(src)
+	new /obj/item/rig/merc(src) // Courtesy of Hammertail
 	new /obj/item/clothing/head/helmet/space/void/unathi_pirate(src)
 	new /obj/item/clothing/suit/space/void/unathi_pirate(src)
 	new /obj/item/clothing/head/helmet/space/void/unathi_pirate(src)
@@ -845,6 +895,7 @@
 		new /obj/item/gun/projectile/automatic/rifle/sts35(src)
 		new /obj/item/ammo_magazine/c762(src)
 	new /obj/item/storage/box/species_modkit(src) //species modkits for switching on the fly
+	new /obj/item/rig/merc(src) // Im pretty sure they invented this thing.
 
 /obj/structure/closet/crate/secure/gear_loadout/hammertail/single/fill()
 	new /obj/item/clothing/under/syndicate/hammertail(src) //1 outfit
@@ -855,7 +906,7 @@
 	new /obj/item/ammo_magazine/a357(src)
 	new /obj/item/gun/projectile/gauss(src) //1 tungsten slug gun w/spare magazine
 	new /obj/item/ammo_magazine/gauss(src)
-	new /obj/item/device/modkit/multi_species(src)
+	new /obj/item/modkit/multi_species(src)
 
 /obj/structure/closet/crate/gear_loadout/qukala/fill()
 	new /obj/item/clothing/under/skrell/qukala(src)
@@ -909,7 +960,7 @@
 	new /obj/item/clothing/head/helmet/space/void/kala(src)
 	new /obj/item/clothing/shoes/jackboots/kala(src)
 
-/obj/structure/closet/crate/secure/gear_loadout/imperial_army/fill()
+/obj/structure/closet/crate/secure/gear_loadout/imperial_army/fill() // Was told the Jinxiang is only for the marines, so no rig
 	new /obj/item/gun/projectile/automatic/rifle/dominia(src)
 	new /obj/item/ammo_magazine/a556(src)
 	new /obj/item/ammo_magazine/a556(src)
@@ -977,6 +1028,7 @@
 	new /obj/item/clothing/shoes/jackboots/toeless(src)
 	new /obj/item/clothing/shoes/jackboots/toeless(src)
 	new /obj/item/clothing/shoes/jackboots/toeless(src)
+	new /obj/item/rig/combat/legionnaire/equipped(src)
 	new /obj/item/clothing/gloves/tcaf(src)
 	new /obj/item/clothing/gloves/tcaf(src)
 	new /obj/item/clothing/gloves/tcaf(src)
@@ -1047,7 +1099,7 @@
 	new /obj/item/clothing/head/helmet/tcaf/tcaf_visor(src)
 	new /obj/item/gun/energy/blaster/tcaf(src)
 	new /obj/item/storage/belt/military(src)
-	new /obj/item/device/modkit/multi_species(src)
+	new /obj/item/modkit/multi_species(src)
 
 /obj/structure/closet/crate/secure/gear_loadout/exclusionist/fill()
 	new /obj/item/clothing/under/gearharness(src)
@@ -1166,10 +1218,10 @@
 	new /obj/item/clothing/shoes/magboots(src)
 	new /obj/item/clothing/shoes/magboots(src)
 	new /obj/item/clothing/shoes/magboots(src)
-	new /obj/item/device/suit_cooling_unit(src)
-	new /obj/item/device/suit_cooling_unit(src)
-	new /obj/item/device/suit_cooling_unit(src)
-	new /obj/item/device/suit_cooling_unit(src)
+	new /obj/item/suit_cooling_unit(src)
+	new /obj/item/suit_cooling_unit(src)
+	new /obj/item/suit_cooling_unit(src)
+	new /obj/item/suit_cooling_unit(src)
 
 /obj/structure/closet/crate/secure/gear_loadout/hoplan/single/fill()
 	new /obj/item/clothing/shoes/jackboots(src)
@@ -1195,7 +1247,7 @@
 	new /obj/item/clothing/head/helmet/space/void/golden_deep/hoplan(src)
 	new /obj/item/clothing/suit/space/void/golden_deep/hoplan(src)
 	new /obj/item/clothing/shoes/magboots(src)
-	new /obj/item/device/suit_cooling_unit(src)
+	new /obj/item/suit_cooling_unit(src)
 
 //ninja stuff
 /obj/structure/closet/crate/secure/gear_loadout/ninja
@@ -1244,7 +1296,7 @@
 
 /obj/structure/closet/crate/secure/gear_loadout/ninja/tesla/fill()
 	..()
-	new /obj/item/device/augment_implanter/advanced_tesla(src)
+	new /obj/item/augment_implanter/advanced_tesla(src)
 	new /obj/item/clothing/accessory/holster/armpit/brown(src)
 	new /obj/item/gun/projectile/pistol/adhomai(src)
 	new /obj/item/ammo_magazine/mc9mm(src)
@@ -1335,6 +1387,18 @@
 	new /obj/item/ammo_magazine/mc9mm(src)
 	new /obj/item/ammo_magazine/mc9mm(src)
 
+/obj/structure/closet/crate/secure/gear_loadout/ninja/bunker
+	associated_hardsuit = /obj/item/rig/bunker/ninja
+
+/obj/structure/closet/crate/secure/gear_loadout/ninja/bunker/fill()
+	..()
+	new /obj/item/clothing/under/lance(src)
+	new /obj/item/clothing/accessory/holster/hip(src)
+	new /obj/item/gun/energy/rifle/laser(src)
+	new /obj/item/gun/projectile/pistol/super_heavy(src)
+	new /obj/item/ammo_magazine/super_heavy(src)
+	new /obj/item/ammo_magazine/super_heavy(src)
+
 /obj/structure/closet/crate/secure/gear_loadout/ninja/vaurca
 	associated_hardsuit = /obj/item/rig/vaurca
 
@@ -1353,7 +1417,7 @@
 	new /obj/item/reagent_containers/food/snacks/koisbar(src)
 	new /obj/item/reagent_containers/food/snacks/koisbar(src)
 	new /obj/item/gun/energy/vaurca/blaster(src)
-	new /obj/item/device/augment_implanter/hivenet_warfare(src)
+	new /obj/item/augment_implanter/hivenet_warfare(src)
 
 /obj/structure/closet/crate/secure/gear_loadout/ninja/skrell
 	associated_hardsuit = /obj/item/rig/skrell/tup/ninja

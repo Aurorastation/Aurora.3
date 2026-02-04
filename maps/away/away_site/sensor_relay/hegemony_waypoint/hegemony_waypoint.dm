@@ -6,7 +6,6 @@
 
 	sectors = list(SECTOR_UUEOAESA)
 	id = "hegemony_waypoint"
-	template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED
 
 	unit_test_groups = list(1)
 
@@ -14,14 +13,18 @@
 	map = "Hegemony Waypoint"
 	descriptor = "A hegemony waypoint."
 
-/obj/effect/overmap/visitable/sector/hegemony_waypoint
+/obj/effect/overmap/visitable/ship/stationary/hegemony_waypoint
 	name = "hegemony waypoint"
+	class = "IHSS"
 	icon = 'icons/obj/overmap/overmap_stationary.dmi'
 	icon_state = "waypoint"
 	color = COLOR_CHESTNUT
 	desc = "This is a waypoint station manufactued en masse by the Izweski Hegemony, designed to guide vessels through potentially perilous routes, and to maintain a watchful eye for pirates. These are cramped facilities that tend only to be manned for days at a time as contracted technicians see to the maintenance of their systems in a short stay before leaving to the next installation. Many waypoints in Uueoa-Esa have fallen into disrepair since their initial constructions, prone to structural damage, electrical malfunctions, and infestations of dangerous pests. The Izweski Hegemony is known to offer financial compensation for third parties willing to return them to full operational capacity. The exact condition of this one is challenging to ascertain from sensor scans, but it is likely to be inactive."
 	comms_support = TRUE
 	comms_name = "Hegemony Waypoint"
+	volume = "48 meters length, 22 meters beam/width, 20 meters vertical height"
+	designer = "Izweski Hegemony"
+	sizeclass = "Waypoint Station"
 	initial_generic_waypoints = list(
 		"hegemony_waypoint_dock_n",
 		"hegemony_waypoint_dock_e",
@@ -32,6 +35,10 @@
 		"hegemony_waypoint_w_space",
 		"hegemony_waypoint_s_space"
 	)
+
+/obj/effect/overmap/visitable/ship/stationary/hegemony_waypoint/New(loc, ...)
+	designation = "Waypoint Station #[rand(100, 999)]"
+	..()
 
 // Areas
 /area/hegemony_waypoint

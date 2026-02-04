@@ -11,6 +11,8 @@
 		BODYTYPE_VAURCA_BULWARK = 'icons/mob/species/bulwark/accessories.dmi'
 	)
 
+	light_system = MOVABLE_LIGHT
+
 	var/slot = ACCESSORY_SLOT_GENERIC
 
 	/// Determines how accessories will layer over eachother, with lower being beneath everything, and upper above
@@ -120,13 +122,6 @@
 /obj/item/clothing/accessory/proc/on_clothing_change(var/mob/user)
 	update_light()
 
-/obj/item/clothing/accessory/get_light_atom()
-	if(isclothing(loc))
-		if(ismob(loc.loc))
-			return loc.loc
-		return loc
-	return ..()
-
 //default attackby behaviour
 /obj/item/clothing/accessory/attackby(obj/item/attacking_item, mob/user)
 	..()
@@ -140,28 +135,32 @@
 //default attack_self behaviour
 /obj/item/clothing/accessory/attack_self(mob/user as mob)
 	if(flippable)
-		if(!flipped)
-			if(!overlay_state)
-				icon_state = "[initial(icon_state)]_flip"
-				item_state = "[initial(item_state)]_flip"
-				flipped = 1
-			else
-				overlay_state = "[overlay_state]_flip"
-				flipped = 1
-		else
-			if(!overlay_state)
-				icon_state = initial(icon_state)
-				item_state = initial(item_state)
-				flipped = 0
-			else
-				overlay_state = initial(overlay_state)
-				flipped = 0
+		flipped = !flipped
+		update_icon()
 		flip_message(user)
 		update_clothing_icon()
 		inv_overlay = null
 		accessory_mob_overlay = null
 		return
 	..()
+
+/obj/item/clothing/accessory/update_icon()
+	. = ..()
+	flip_sprite()
+
+/obj/item/clothing/accessory/proc/flip_sprite()
+	if(flipped)
+		if(!overlay_state)
+			icon_state = "[initial(icon_state)]_flip"
+			item_state = "[initial(item_state)]_flip"
+		else
+			overlay_state = "[overlay_state]_flip"
+	else
+		if(!overlay_state)
+			icon_state = initial(icon_state)
+			item_state = initial(item_state)
+		else
+			overlay_state = initial(overlay_state)
 
 /obj/item/clothing/accessory/proc/flip_message(mob/user)
 	to_chat(user, "You change \the [src] to be on your [src.flipped ? "right" : "left"] side.")
@@ -335,7 +334,7 @@
 	icon_state = "suspenders"
 	item_state = "suspenders"
 	gender = PLURAL
-	slot = ACCESSORY_SLOT_PANTS
+	slot = ACCESSORY_SLOT_GENERIC
 
 /obj/item/clothing/accessory/scarf
 	name = "scarf"
@@ -395,7 +394,7 @@
 	icon_state = "chaps"
 	item_state = "chaps"
 	gender = PLURAL
-	slot = ACCESSORY_SLOT_PANTS
+	slot = ACCESSORY_SLOT_GENERIC
 
 /obj/item/clothing/accessory/chaps/black
 	name = "black chaps"
@@ -823,6 +822,24 @@
 	item_state = "legbrace"
 	drop_sound = 'sound/items/drop/gun.ogg'
 
+/obj/item/clothing/accessory/offworlder/bracer/on_attached(obj/item/clothing/S, mob/user)
+	. = ..()
+	if(!user)
+		return
+
+	RegisterSignal(user, COMSIG_GRAVITY_WEAKNESS_EVENT, PROC_REF(negate_weakness))
+
+/obj/item/clothing/accessory/offworlder/bracer/on_removed(mob/user)
+	. = ..()
+	if(!user)
+		return
+
+	UnregisterSignal(user, COMSIG_GRAVITY_WEAKNESS_EVENT)
+
+/obj/item/clothing/accessory/offworlder/bracer/proc/negate_weakness(var/equipee, var/canceled)
+	SIGNAL_HANDLER
+	*canceled = TRUE //TODO: TCJ just make this a component I can shove onto anything.
+
 /obj/item/clothing/accessory/offworlder/bracer/neckbrace
 	name = "neckbrace"
 	desc = "A lightweight polymer frame meant to brace and hold someone's neck upright comfortably."
@@ -1215,7 +1232,7 @@
 	color = "#3429d1"
 	allowed = list(
 		/obj/item/reagent_containers/spray/plantbgone,
-		/obj/item/device/analyzer/plant_analyzer,
+		/obj/item/analyzer/plant_analyzer,
 		/obj/item/seeds,
 		/obj/item/reagent_containers/glass/fertilizer,
 		/obj/item/material/minihoe
@@ -1232,11 +1249,11 @@
 		/obj/item/reagent_containers/dropper,
 		/obj/item/reagent_containers/hypospray,
 		/obj/item/reagent_containers/syringe,
-		/obj/item/device/healthanalyzer,
-		/obj/item/device/flashlight,
-		/obj/item/device/radio,
+		/obj/item/healthanalyzer,
+		/obj/item/flashlight,
+		/obj/item/radio,
 		/obj/item/tank/emergency_oxygen,
-		/obj/item/device/breath_analyzer,
+		/obj/item/breath_analyzer,
 		/obj/item/reagent_containers/blood
 	)
 
@@ -1405,24 +1422,25 @@
 	icon = 'icons/obj/item/clothing/accessory/led_collar.dmi'
 	icon_state = "led_collar"
 	item_state = "led_collar"
-	plane = EFFECTS_ABOVE_LIGHTING_PLANE
+	plane = ABOVE_LIGHTING_PLANE
 	contained_sprite = TRUE
 	slot = ACCESSORY_SLOT_UTILITY_MINOR
 
 /obj/item/clothing/accessory/led_collar/Initialize()
 	. = ..()
 	color = pick("#00FFFF", "#FF0000", "#FF00FF", "#FF6600", "#CC00CC")
-	set_light(MINIMUM_USEFUL_LIGHT_RANGE, 1.2, color)
+	set_light_range_power_color(MINIMUM_USEFUL_LIGHT_RANGE, 1.2, color)
+	set_light_on(TRUE)
 
 /obj/item/clothing/accessory/led_collar/attack_self(mob/user)
 	. = ..()
 	var/new_color = input(user, "Select the color of \the [src]", "LED Collar Color Selection", color) as null|color
 	if(new_color)
 		color = new_color
-		set_light(MINIMUM_USEFUL_LIGHT_RANGE, 1.2, color)
+		set_light_range_power_color(MINIMUM_USEFUL_LIGHT_RANGE, 1.2, color)
 
 /obj/item/clothing/accessory/led_collar/get_accessory_mob_overlay(var/mob/living/carbon/human/H, var/force = FALSE)
 	var/image/I = ..()
-	I.plane = EFFECTS_ABOVE_LIGHTING_PLANE
+	I.plane = ABOVE_LIGHTING_PLANE
 	I.appearance_flags |= KEEP_APART
 	return I

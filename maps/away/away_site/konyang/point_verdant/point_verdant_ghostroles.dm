@@ -14,7 +14,7 @@
 	respawn_flag = null
 
 /obj/outfit/admin/konyang/post_equip(mob/living/carbon/human/H, visualsOnly)
-	var/obj/item/organ/internal/ipc_tag/tag = H.internal_organs_by_name[BP_IPCTAG]
+	var/obj/item/organ/internal/machine/ipc_tag/tag = H.internal_organs_by_name[BP_IPCTAG]
 	if(istype(tag))
 		tag.serial_number = uppertext(dd_limittext(md5(H.real_name), 12))
 		tag.ownership_info = IPC_OWNERSHIP_SELF
@@ -80,7 +80,7 @@
 	shoes = /obj/item/clothing/shoes/jackboots
 	head = /obj/item/clothing/head/konyang/police
 	id = /obj/item/card/id
-	l_ear = /obj/item/device/radio/headset/ship
+	l_ear = /obj/item/radio/headset/ship
 	belt = /obj/item/storage/belt/security
 	r_pocket = /obj/item/storage/wallet/random
 	back = /obj/item/storage/backpack/satchel
@@ -280,7 +280,7 @@
 	l_pocket = /obj/item/storage/wallet/random
 	back = /obj/item/storage/backpack/satchel/eng
 	belt = /obj/item/storage/belt/utility/full
-	r_pocket = /obj/item/device/radio
+	r_pocket = /obj/item/radio
 
 /datum/ghostspawner/human/konyang_gwok
 	short_name = "konyang_gwok"
@@ -332,7 +332,7 @@
 	shoes = /obj/item/clothing/shoes/jackboots
 	head = /obj/item/clothing/head/konyang/army
 	l_pocket = /obj/item/storage/wallet/random
-	l_ear = /obj/item/device/radio/headset/distress
+	l_ear = /obj/item/radio/headset/distress
 	belt = /obj/item/storage/belt/military
 	back = /obj/item/storage/backpack/rucksack/tan
 	id = /obj/item/card/id
@@ -368,7 +368,7 @@
 		/obj/item/storage/firstaid/adv = 1,
 		/obj/item/storage/firstaid/combat = 1,
 		/obj/item/handcuffs/ziptie = 1,
-		/obj/item/device/healthanalyzer = 1,
+		/obj/item/healthanalyzer = 1,
 		/obj/item/stack/medical/advanced/bruise_pack = 1,
 		/obj/item/stack/medical/advanced/ointment = 1,
 		/obj/item/stack/nanopaste = 1,
@@ -427,7 +427,7 @@
 	belt = /obj/item/storage/belt/military
 	gloves = /obj/item/clothing/gloves/swat/ert
 	glasses = /obj/item/clothing/glasses
-	l_ear = /obj/item/device/radio/headset/ert
+	l_ear = /obj/item/radio/headset/ert
 	id = /obj/item/card/id/zeng_hu
 	belt_contents = list(
 		/obj/item/handcuffs = 2,
@@ -477,7 +477,7 @@
 		/obj/item/storage/firstaid/combat = 1,
 		/obj/item/storage/firstaid/adv = 1,
 		/obj/item/handcuffs = 1,
-		/obj/item/device/healthanalyzer = 1,
+		/obj/item/healthanalyzer = 1,
 		/obj/item/stack/medical/advanced/bruise_pack = 1,
 		/obj/item/stack/medical/advanced/ointment = 1
 	)

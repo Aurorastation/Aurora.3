@@ -14,6 +14,10 @@
 	hold.max_storage_space = DEFAULT_BOX_STORAGE
 	hold.max_w_class = WEIGHT_CLASS_SMALL
 
+/obj/item/clothing/accessory/storage/Destroy()
+	QDEL_NULL(hold)
+	return ..()
+
 /obj/item/clothing/accessory/storage/attack_hand(mob/user as mob)
 	if (has_suit)	//if we are part of a suit
 		hold.open(user)

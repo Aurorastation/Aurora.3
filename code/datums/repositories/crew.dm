@@ -59,7 +59,7 @@ GLOBAL_DATUM_INIT(crew_repository, /datum/repository/crew, new())
 								crewmemberData["pulse"] = H.get_pulse(GETPULSE_TOOL)
 					else
 						if(isipc(H) && H.internal_organs_by_name[BP_IPCTAG]) // Don't make untagged IPCs obvious
-							var/obj/item/organ/internal/cell/cell = H.internal_organs_by_name[BP_CELL]
+							var/obj/item/organ/internal/machine/power_core/cell = H.internal_organs_by_name[BP_CELL]
 							if(cell)
 								crewmemberData["cellCharge"] = cell.percent()
 

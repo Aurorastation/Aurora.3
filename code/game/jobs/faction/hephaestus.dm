@@ -1,17 +1,18 @@
 /datum/faction/hephaestus_industries
 	name = "Hephaestus Industries"
-	description = {"<p>
+	description = {"
 	Hephaestus Industries, a sprawling and diverse mega-corporation
 	focused on engineering and manufacturing on a massive scale, found their start
-	as a conglomerate of several aerospace companies in the 22nd century. Initially
+	as a conglomerate of several aerospace companies in the 22nd century.<br><br> Initially
 	funded by sales of new designs for warp technology, the company fell on hard times
 	during the Second Great Depression in the late 23rd century. Receiving bailouts
 	from the Sol Alliance and securing several crucial production contracts, they have slowly
 	worked their way to become the dominant manufacturing mega-corporation in the
 	Sol Alliance, pioneering interstellar logistics and construction on an awe-inspiring scale.
-	</p>"}
-	departments = {"Engineering<br>Operations"}
+	"}
+	departments = list(DEPARTMENT_ENGINEERING, DEPARTMENT_CARGO)
 	title_suffix = "Hepht"
+	wiki_page = "Hephaestus_Industries"
 
 	allowed_role_types = HEPH_ROLES
 
@@ -49,6 +50,7 @@
 		"Atmospherics Apprentice" = /obj/outfit/job/intern_atmos/hephaestus,
 		"Corporate Reporter" = /obj/outfit/job/journalist/hephaestus,
 		"Corporate Liaison" = /obj/outfit/job/representative/hephaestus,
+		"Corporate Aide" = /obj/outfit/job/corporate_aide/hephaestus,
 		"Assistant" = /obj/outfit/job/assistant/hephaestus,
 		"Technical Assistant" = /obj/outfit/job/assistant/tech_assistant/hephaestus,
 		"Off-Duty Crew Member" = /obj/outfit/job/visitor/hephaestus,
@@ -153,10 +155,22 @@
 	messengerbag_faction = /obj/item/storage/backpack/messenger/heph
 
 	backpack_contents = list(
-		/obj/item/device/camera = 1,
+		/obj/item/camera = 1,
 		/obj/item/gun/energy/pistol = 1,
 		/obj/item/stamp/hephaestus = 1
 	)
+
+/obj/outfit/job/corporate_aide/hephaestus
+	name = "Hephaestus Corporate Aide"
+	id = /obj/item/card/id/hephaestus
+
+	head = /obj/item/clothing/head/beret/corporate/heph
+	suit = /obj/item/clothing/suit/storage/toggle/corp/heph
+
+	backpack_faction = /obj/item/storage/backpack/heph
+	satchel_faction = /obj/item/storage/backpack/satchel/heph
+	dufflebag_faction = /obj/item/storage/backpack/duffel/heph
+	messengerbag_faction = /obj/item/storage/backpack/messenger/heph
 
 /obj/outfit/job/journalist/hephaestus
 	name = "Corporate Reporter - Hephaestus"

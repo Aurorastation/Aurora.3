@@ -426,7 +426,7 @@
 	pixel_x = -8;
 	pixel_y = 9
 	},
-/obj/item/device/flashlight/lantern{
+/obj/item/flashlight/lantern{
 	pixel_y = 4;
 	on = 1
 	},
@@ -712,7 +712,7 @@
 	req_one_access = null
 	},
 /obj/structure/table/rack,
-/obj/item/device/suit_cooling_unit,
+/obj/item/suit_cooling_unit,
 /obj/item/tank/oxygen/yellow,
 /obj/effect/decal/cleanable/dirt,
 /obj/item/clothing/shoes/magboots,
@@ -1495,7 +1495,7 @@
 	dir = 6
 	},
 /obj/structure/table/steel,
-/obj/item/device/binoculars{
+/obj/item/binoculars{
 	pixel_y = 6
 	},
 /turf/simulated/floor/tiled/dark/full,
@@ -1510,7 +1510,7 @@
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 8
 	},
-/obj/item/device/flashlight/flare{
+/obj/item/flashlight/flare{
 	pixel_y = 12;
 	pixel_x = 8
 	},
@@ -1564,7 +1564,7 @@
 "mL" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/table/rack,
-/obj/item/device/suit_cooling_unit,
+/obj/item/suit_cooling_unit,
 /obj/item/tank/oxygen/yellow,
 /obj/item/clothing/shoes/magboots,
 /obj/item/clothing/suit/space,
@@ -1892,7 +1892,7 @@
 	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt,
-/obj/item/device/radio/intercom/hailing/west,
+/obj/item/radio/intercom/hailing/west,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ipc_refugee/bridge)
 "oA" = (
@@ -2350,7 +2350,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
-/obj/item/device/radio/intercom/hailing/east,
+/obj/item/radio/intercom/hailing/east,
 /obj/structure/bed/stool/chair/shuttle,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/ipc_refugee_shuttle)
@@ -2620,7 +2620,7 @@
 /area/ship/ipc_refugee/forehall)
 "ud" = (
 /obj/structure/lattice,
-/obj/item/storage/box/sharps{
+/obj/item/storage/box/unique/sharps{
 	pixel_x = -5;
 	pixel_y = -5
 	},
@@ -3059,7 +3059,7 @@
 	pixel_x = -8;
 	pixel_y = 9
 	},
-/obj/item/device/flashlight/lantern{
+/obj/item/flashlight/lantern{
 	pixel_y = 4;
 	on = 1
 	},
@@ -3203,9 +3203,9 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
-/obj/item/device/robotanalyzer,
+/obj/item/robotanalyzer,
 /obj/structure/table/rack,
-/obj/item/device/healthanalyzer{
+/obj/item/healthanalyzer{
 	pixel_y = 8
 	},
 /turf/simulated/floor/tiled/dark/full,
@@ -3382,7 +3382,7 @@
 	dir = 6
 	},
 /obj/effect/decal/cleanable/blood/drip/oil,
-/obj/item/device/flashlight/flare{
+/obj/item/flashlight/flare{
 	pixel_y = 12;
 	pixel_x = 8
 	},
@@ -4216,7 +4216,7 @@
 	icon_state = "0-8"
 	},
 /obj/structure/table/rack,
-/obj/item/device/suit_cooling_unit,
+/obj/item/suit_cooling_unit,
 /obj/item/tank/oxygen/yellow,
 /obj/item/clothing/shoes/magboots,
 /obj/item/clothing/suit/space/void/medical,
@@ -5579,7 +5579,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 6
 	},
-/obj/item/device/assembly/mousetrap/armed,
+/obj/item/assembly/mousetrap/armed,
 /turf/simulated/floor/tiled/dark,
 /area/ship/ipc_refugee/cargopod_b)
 "RD" = (
@@ -5735,7 +5735,7 @@
 	dir = 10
 	},
 /obj/effect/decal/cleanable/blood/drip/oil,
-/obj/item/device/assembly/mousetrap/armed,
+/obj/item/assembly/mousetrap/armed,
 /turf/simulated/floor/tiled/dark,
 /area/ship/ipc_refugee/cargopod_a)
 "Te" = (
@@ -6364,7 +6364,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
-/obj/item/device/flashlight/flare{
+/obj/item/flashlight/flare{
 	pixel_y = 12;
 	pixel_x = 8
 	},
@@ -6576,7 +6576,7 @@
 "Yw" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/table/rack,
-/obj/item/device/suit_cooling_unit,
+/obj/item/suit_cooling_unit,
 /obj/item/tank/oxygen/yellow,
 /obj/item/clothing/shoes/magboots,
 /obj/item/clothing/suit/space/void/mining,

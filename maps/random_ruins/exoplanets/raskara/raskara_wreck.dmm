@@ -14,7 +14,7 @@
 /area/exoplanet/barren/raskara)
 "aX" = (
 /obj/structure/table/standard,
-/obj/item/device/flashlight/lamp,
+/obj/item/flashlight/lamp,
 /turf/simulated/floor/airless,
 /area/exoplanet/barren/raskara)
 "br" = (

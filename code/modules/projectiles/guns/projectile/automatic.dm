@@ -95,6 +95,17 @@
 	..()
 	icon_state = (ammo_magazine)? "vityaz" : "vityaz-empty"
 
+/obj/item/gun/projectile/automatic/c20r/sol/siib
+	name = "solarian SIIB submachine gun"
+	desc = "Based off the standard solarian M470-L, this SMG is used by SIIB Operatives during raids and specialist operations. Officially, this variant of the SMG does not exist."
+	icon = 'icons/obj/guns/sol_smg.dmi'
+	icon_state = "vityaz-siib"
+	item_state = "vityaz-siib"
+
+/obj/item/gun/projectile/automatic/c20r/sol/siib/update_icon()
+	..()
+	icon_state = (ammo_magazine)? "vityaz-siib" : "vityaz-siib-empty"
+
 /obj/item/gun/projectile/automatic/xanusmg
 	name = "\improper Xanan submachine gun"
 	desc = "A sleek metal-framed submachine gun, produced by d.N.A Defense for the All-Xanu Armed Forces."
@@ -191,7 +202,7 @@
 	slot_flags = SLOT_BACK
 	load_method = MAGAZINE
 	fire_sound = 'sound/weapons/gunshot/gunshot_rifle.ogg'
-	empty_sound = /singleton/sound_category/out_of_ammo_rifle
+	empty_sound = SFX_OUT_OF_AMMO_RIFLE
 	magazine_type = /obj/item/ammo_magazine/c762
 	allowed_magazines = list(/obj/item/ammo_magazine/c762)
 	fire_delay = ROF_RIFLE
@@ -516,7 +527,7 @@
 		return
 	..()
 
-/obj/item/gun/projectile/automatic/rifle/l6_saw/unload_ammo(mob/user, var/allow_dump=1)
+/obj/item/gun/projectile/automatic/rifle/l6_saw/unload_ammo(mob/user, allow_dump = TRUE, drop_mag = FALSE)
 	if(!cover_open)
 		to_chat(user, SPAN_WARNING("You need to open the cover to unload [src]."))
 		return

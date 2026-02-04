@@ -7,6 +7,7 @@
 	var/base_icon = "portgen0"
 	density = TRUE
 	anchored = FALSE
+	atom_flags = CRITICAL_ATOM
 
 	var/active = FALSE
 	var/power_gen = 5000
@@ -120,7 +121,7 @@
 		temperature_gain and max_temperature are set so that the max safe power level is 4.
 		Setting to 5 or higher can only be done temporarily before the generator overheats.
 	*/
-	power_gen = 25000				//Watts output per power_output level
+	power_gen = 50000				//Watts output per power_output level
 	var/max_power_output = 5		//The maximum power setting without emagging.
 	var/max_safe_output = 4			// For UI use, maximal output that won't cause overheat.
 	var/time_per_sheet = 576		//fuel efficiency - how long 1 sheet lasts at power level 1
@@ -283,7 +284,7 @@
 		addstack.use(amount)
 		return
 	else if(!active)
-		if(attacking_item.iswrench())
+		if(attacking_item.tool_behaviour == TOOL_WRENCH)
 
 			if(!anchored)
 				connect_to_network()
@@ -295,14 +296,14 @@
 			playsound(loc, 'sound/items/Deconstruct.ogg', 50, 1)
 			anchored = !anchored
 
-		else if(attacking_item.isscrewdriver())
+		else if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 			open = !open
 			attacking_item.play_tool_sound(get_turf(src), 50)
 			if(open)
 				to_chat(user, SPAN_NOTICE("You open the access panel."))
 			else
 				to_chat(user, SPAN_NOTICE("You close the access panel."))
-		else if(open && attacking_item.iscrowbar())
+		else if(open && attacking_item.tool_behaviour == TOOL_CROWBAR)
 			var/obj/machinery/constructable_frame/machine_frame/new_frame = new /obj/machinery/constructable_frame/machine_frame(loc)
 			for(var/obj/item/I in component_parts)
 				I.forceMove(loc)
@@ -416,7 +417,7 @@
 	sheet_path = /obj/item/stack/material/uranium
 	board_path = "/obj/item/circuitboard/portgen/advanced"
 
-	power_gen = 50000 // 200 kW = safe max, 250 kW = unsafe max.
+	power_gen = 100000 // 400 kW = safe max, 500 kW = unsafe max.
 	max_temperature = 340
 	temperature_gain = 60
 
@@ -448,7 +449,7 @@
 	sheet_path = /obj/item/stack/material/tritium
 	board_path = "/obj/item/circuitboard/portgen/super"
 
-	power_gen = 80000 // 400 kW = safe max, 640 kW = unsafe max
+	power_gen = 160000 // 800 kW = safe max, 960 kW = unsafe max
 	max_power_output = 8
 	max_safe_output = 5
 	time_per_sheet = 576
@@ -462,7 +463,7 @@
 /obj/machinery/power/portgen/basic/fusion
 	name = "minature fusion reactor"
 	desc = "The RT7-0, an industrial all-in-one nuclear fusion power plant created by Hephaestus. It uses tritium as a fuel source and relies on coolant to keep the reactor cool. Rated for 500 kW max safe output."
-	power_gen =  100000
+	power_gen =  200000
 	icon_state = "reactor"
 	base_icon = "reactor"
 	portgen_lightcolour = "#458943"

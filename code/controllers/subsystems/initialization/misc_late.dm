@@ -34,9 +34,6 @@ SUBSYSTEM_DEF(misc_late)
 		thing.do_late_fire()
 		LAZYREMOVE(late_misc_firers, thing)
 
-	if (GLOB.config.use_forumuser_api)
-		update_admins_from_api(TRUE)
-
 	// Load outfits here so that the verb isn't laggy as balls.
 	for(var/outfit_type in subtypesof(/obj/outfit))
 		var/obj/outfit/new_outfit = new outfit_type()

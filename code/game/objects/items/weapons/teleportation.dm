@@ -76,7 +76,7 @@ Frequency:
 			if (sr)
 				src.temp += "<B>Located Beacons:</B><BR>"
 
-				for(var/obj/item/device/radio/beacon/W in GLOB.teleportbeacons)
+				for(var/obj/item/radio/beacon/W in GLOB.teleportbeacons)
 					if (W.get_frequency() == src.frequency)
 						var/turf/tr = get_turf(W)
 						if (tr.z == sr.z && tr)
@@ -308,8 +308,14 @@ Frequency:
 	var/obj/structure/closet/target_closet = linked_teleporter.attached_closet
 	user.forceMove(target_closet.opened ? get_turf(target_closet) : target_closet)
 	if(target_closet.opened)
+		if(user.client)
+			user.client.eye = user.client.mob
+			user.client.perspective = MOB_PERSPECTIVE
 		user.visible_message(SPAN_NOTICE("\The [user] steps out of the back of \the [target_closet]."), SPAN_NOTICE("You teleport into the linked closet, stepping out of it."))
+		user.set_fullscreen(FALSE, "closet_impaired", /atom/movable/screen/fullscreen/closet_impaired)
 	else
+		if(user.client)
+			user.client.eye = target_closet
 		target_closet.visible_message(SPAN_WARNING("\The [target_closet] rattles."))
 		to_chat(user, SPAN_NOTICE("You teleport into the target closet, bumping into the closed door."))
 		target_closet.shake_animation()

@@ -61,9 +61,8 @@
 	layer = STRUCTURE_LAYER
 	anchored = 1
 	density = 1
-	clicksound = /singleton/sound_category/button_sound
+	clicksound = SFX_BUTTON
 	manufacturer = "idris"
-	z_flags = ZMM_MANGLE_PLANES
 
 	// Every vending machine has one of these.
 	/// `icon_state` when off. Defined on init.
@@ -278,7 +277,12 @@
 	return INITIALIZE_HINT_LATELOAD
 
 /obj/machinery/vending/LateInitialize()
+	. = ..()
 	v_asset = get_asset_datum(/datum/asset/spritesheet/vending)
+
+/obj/machinery/vending/mouse_drop_receive(atom/dropping, mob/user, params)
+	//Adds the component only once. We do it here & not in Initialize() because there are tons of walls & we don't want to add to their init times
+	LoadComponent(/datum/component/leanable, dropping)
 
 /obj/machinery/vending/proc/reset_light()
 	set_light(initial(light_range), initial(light_power), initial(light_color))
@@ -361,7 +365,7 @@
 		return 1
 
 /obj/machinery/vending/attackby(obj/item/attacking_item, mob/user)
-	if(istype(attacking_item, /obj/item/device/debugger))
+	if(istype(attacking_item, /obj/item/debugger))
 		if(!shut_up)
 			to_chat(user, SPAN_WARNING("\The [attacking_item] reads, \"Software error detected. Rectifying.\"."))
 			if(attacking_item.use_tool(src, user, 100, volume = 50))
@@ -414,14 +418,14 @@
 
 	if (I || istype(attacking_item, /obj/item/spacecash))
 		return attack_hand(user)
-	else if(attacking_item.isscrewdriver())
+	else if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 		src.panel_open = !src.panel_open
 		to_chat(user, "You [src.panel_open ? "open" : "close"] the maintenance panel.")
 		ClearOverlays()
 		if(src.panel_open)
 			AddOverlays("[initial(icon_state)]-panel")
 		return TRUE
-	else if(attacking_item.ismultitool()||attacking_item.iswirecutter())
+	else if(attacking_item.tool_behaviour == TOOL_MULTITOOL||attacking_item.tool_behaviour == TOOL_WIRECUTTER)
 		if(src.panel_open)
 			return attack_hand(user)
 		return TRUE
@@ -435,7 +439,7 @@
 			to_chat(user, SPAN_NOTICE("You insert \the [attacking_item] into \the [src]."))
 		SStgui.update_uis(src)
 		return TRUE
-	else if(attacking_item.iswrench())
+	else if(attacking_item.tool_behaviour == TOOL_WRENCH)
 		if(!can_move)
 			return TRUE
 		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
@@ -448,9 +452,9 @@
 			power_change()
 		return TRUE
 
-	else if(istype(attacking_item,/obj/item/device/vending_refill))
+	else if(istype(attacking_item,/obj/item/vending_refill))
 		if(panel_open)
-			var/obj/item/device/vending_refill/VR = attacking_item
+			var/obj/item/vending_refill/VR = attacking_item
 			if(VR.charges)
 				if(VR.vend_id == vend_id)
 					VR.restock_inventory(src)
@@ -979,7 +983,7 @@
  * Arguments:
  * * canister - the vending canister we are refilling from
  */
-/obj/item/device/vending_refill
+/obj/item/vending_refill
 	name = "resupply canister"
 	desc = "A vending machine restock cart."
 	icon = 'icons/obj/assemblies/electronic_setups.dmi'
@@ -993,14 +997,14 @@
 	var/vend_id = "generic"
 	var/charges = 0
 
-/obj/item/device/vending_refill/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
+/obj/item/vending_refill/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
 	if(charges > 0)
 		. +=  "It can restock [charges] item(s)."
 	else
 		. += SPAN_WARNING("It's empty!")
 
-/obj/item/device/vending_refill/proc/restock_inventory(var/obj/machinery/vending/vendor)
+/obj/item/vending_refill/proc/restock_inventory(var/obj/machinery/vending/vendor)
 	if(vendor)
 		for(var/datum/data/vending_product/product in vendor.product_records)
 			if(product.amount < product.max_amount)

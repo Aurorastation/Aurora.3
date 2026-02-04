@@ -6,7 +6,7 @@
 /obj/item/clothing/suit/storage/tajaran/pra_jacket/armored,
 /obj/item/clothing/head/beret/tajaran/pra,
 /obj/item/clothing/accessory/holster/hip,
-/obj/item/device/versebook/pra,
+/obj/item/versebook/pra,
 /obj/item/clothing/accessory/badge/pra_passport,
 /turf/simulated/floor/concrete/square{
 	temperature = 268.15
@@ -830,10 +830,10 @@
 /area/pra_base)
 "Fk" = (
 /obj/structure/table/wood,
-/obj/item/device/binoculars{
+/obj/item/binoculars{
 	pixel_y = 8
 	},
-/obj/item/device/flashlight/lamp/green,
+/obj/item/flashlight/lamp/green,
 /turf/simulated/floor/carpet/art{
 	temperature = 278.15
 	},
@@ -845,7 +845,7 @@
 /area/exoplanet/adhomai)
 "FZ" = (
 /obj/structure/table/standard,
-/obj/item/device/flashlight/lamp,
+/obj/item/flashlight/lamp,
 /obj/structure/sign/flag/pra/large/south{
 	pixel_y = -32
 	},
@@ -1057,13 +1057,13 @@
 /obj/item/clothing/shoes/jackboots/tajara,
 /obj/item/clothing/accessory/holster/hip,
 /obj/item/storage/backpack/satchel/leather,
-/obj/item/device/radio/headset/ship,
+/obj/item/radio/headset/ship,
 /obj/item/clothing/accessory/badge/pra_passport,
 /obj/item/ammo_magazine/a50,
 /obj/item/ammo_magazine/a50,
 /obj/item/storage/box/hadii_manifesto,
 /obj/item/storage/box/hadii_card,
-/obj/item/device/megaphone,
+/obj/item/megaphone,
 /obj/item/clothing/accessory/hadii_pin,
 /obj/item/flame/lighter/adhomai,
 /obj/item/clothing/under/tajaran/army_commissar,
@@ -1106,7 +1106,7 @@
 /obj/item/clothing/suit/storage/tajaran/pra_jacket/armored,
 /obj/item/clothing/head/beret/tajaran/pra,
 /obj/item/clothing/accessory/holster/hip,
-/obj/item/device/versebook/pra,
+/obj/item/versebook/pra,
 /obj/item/clothing/accessory/badge/pra_passport,
 /obj/structure/sign/flag/pra/large/south{
 	pixel_y = -32
@@ -1223,7 +1223,7 @@
 /obj/structure/sign/painting_frame/hadii{
 	pixel_y = 32
 	},
-/obj/item/device/versebook/pra,
+/obj/item/versebook/pra,
 /turf/simulated/floor/concrete/square{
 	temperature = 268.15
 	},

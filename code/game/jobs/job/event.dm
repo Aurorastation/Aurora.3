@@ -69,11 +69,11 @@
 	belt = /obj/item/storage/belt/medical/paramedic
 	belt_contents = list(
 		/obj/item/reagent_containers/hypospray = 1,
-		/obj/item/device/healthanalyzer = 1
+		/obj/item/healthanalyzer = 1
 	)
 	glasses = /obj/item/clothing/glasses/hud/health
 	gloves = /obj/item/clothing/gloves/latex/nitrile
-	r_ear = /obj/item/device/flashlight/pen
+	r_ear = /obj/item/flashlight/pen
 	species_gloves = list(
 		SPECIES_UNATHI = /obj/item/clothing/gloves/latex/nitrile/unathi,
 		SPECIES_TAJARA = /obj/item/clothing/gloves/latex/nitrile/tajara,
@@ -129,7 +129,7 @@
 		/obj/item/crowbar = 1,
 		/obj/item/wirecutters = 1,
 		/obj/item/stack/cable_coil/random = 1,
-		/obj/item/device/multitool = 1,
+		/obj/item/multitool = 1,
 		/obj/item/hammer = 1
 	)
 
@@ -162,9 +162,9 @@
 	name = "Research Personnel"
 	backpack_contents = list(
 		/obj/item/storage/box/survival = 1,
-		/obj/item/device/camera = 1,
-		/obj/item/device/camera_film = 2,
-		/obj/item/device/taperecorder = 1
+		/obj/item/camera = 1,
+		/obj/item/camera_film = 2,
+		/obj/item/taperecorder = 1
 	)
 	belt = /obj/item/storage/belt/archaeology/full
 
@@ -216,5 +216,5 @@
 		SPECIES_SKRELL = 50,
 		SPECIES_SKRELL_AXIORI = 50
 	)
-	access = list(ACCESS_HYDROPONICS, ACCESS_BAR, ACCESS_KITCHEN)
+	access = list(ACCESS_HYDROPONICS, ACCESS_BAR, ACCESS_GALLEY)
 	outfit = /obj/outfit/job/bartender

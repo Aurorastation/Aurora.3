@@ -2,6 +2,7 @@
 //HUB
 
 /obj/machinery/telecomms/hub/preset_map/LateInitialize()
+	. = ..()
 	if(SSatlas.current_map.use_overmap && !linked)
 		var/my_sector = GLOB.map_sectors["[z]"]
 		if (istype(my_sector, /obj/effect/overmap/visitable))
@@ -18,8 +19,6 @@
 			"[name_lower]_receiver",
 			"[name_lower]_server"
 		)
-
-	return ..()
 
 /obj/machinery/telecomms/hub/preset
 	id = "Hub"
@@ -39,6 +38,7 @@
 	var/use_common = FALSE
 
 /obj/machinery/telecomms/receiver/preset_map/LateInitialize()
+	. = ..()
 	if(SSatlas.current_map.use_overmap && !linked)
 		var/my_sector = GLOB.map_sectors["[z]"]
 		if (istype(my_sector, /obj/effect/overmap/visitable))
@@ -55,8 +55,6 @@
 		autolinkers = list(
 			"[name_lower]_receiver"
 		)
-
-	return ..()
 
 /obj/machinery/telecomms/receiver/preset_right
 	id = "Receiver A"
@@ -83,6 +81,7 @@
 	var/use_common = FALSE
 
 /obj/machinery/telecomms/bus/preset_map/LateInitialize()
+	. = ..()
 	if(SSatlas.current_map.use_overmap && !linked)
 		var/my_sector = GLOB.map_sectors["[z]"]
 		if (istype(my_sector, /obj/effect/overmap/visitable))
@@ -100,8 +99,6 @@
 			"[name_lower]_processor",
 			"[name_lower]_server"
 		)
-
-	return ..()
 
 /obj/machinery/telecomms/bus/preset_one
 	id = "Bus 1"
@@ -144,6 +141,7 @@
 //Processors
 
 /obj/machinery/telecomms/processor/preset_map/LateInitialize()
+	. = ..()
 	if(SSatlas.current_map.use_overmap && !linked)
 		var/my_sector = GLOB.map_sectors["[z]"]
 		if (istype(my_sector, /obj/effect/overmap/visitable))
@@ -157,8 +155,6 @@
 		autolinkers = list(
 			"[name_lower]_processor"
 		)
-
-	return ..()
 
 /obj/machinery/telecomms/processor/preset_one
 	id = "Processor 1"
@@ -191,6 +187,7 @@
 	var/use_common = FALSE
 
 /obj/machinery/telecomms/server/preset_map/LateInitialize()
+	. = ..()
 	if(SSatlas.current_map.use_overmap && !linked)
 		var/my_sector = GLOB.map_sectors["[z]"]
 		if (istype(my_sector, /obj/effect/overmap/visitable))
@@ -210,8 +207,6 @@
 		autolinkers = list(
 			"[name_lower]_server"
 		)
-
-	return ..()
 
 /obj/machinery/telecomms/server/presets
 	network = "tcommsat"
@@ -281,6 +276,7 @@
 //--PRESET LEFT--//
 
 /obj/machinery/telecomms/broadcaster/preset_map/LateInitialize()
+	. = ..()
 	if(SSatlas.current_map.use_overmap && !linked)
 		var/my_sector = GLOB.map_sectors["[z]"]
 		if (istype(my_sector, /obj/effect/overmap/visitable))
@@ -294,8 +290,6 @@
 		autolinkers = list(
 			"[name_lower]_broadcaster"
 		)
-
-	return ..()
 
 /obj/machinery/telecomms/broadcaster/preset_right
 	id = "Broadcaster A"

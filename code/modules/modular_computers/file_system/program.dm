@@ -103,10 +103,12 @@ ABSTRACT_TYPE(/datum/computer_file/program)
 		crash_with("Comp was not sent for [src.filename]")
 
 /datum/computer_file/program/Destroy()
-	if(!QDELETED(computer))
+	if(computer)
 		computer.idle_threads -= src
 		computer.enabled_services -= src
-		set_computer(null)
+		UnregisterSignal(computer, COMSIG_QDELETING)
+	computer = null
+
 	. = ..()
 	GC_TEMPORARY_HARDDEL
 
@@ -233,19 +235,19 @@ ABSTRACT_TYPE(/datum/computer_file/program)
 		if(access_to_check in I.access)
 			return TRUE
 		else if(loud)
-			to_chat(user, SPAN_WARNING("\The [computer] flashes, \"Access Denied.\"."))
+			to_chat(user, SPAN_WARNING("\The [computer] flashes, \"Access denied.\"."))
 			return FALSE
 	else if(check_type == PROGRAM_ACCESS_LIST_ONE)
 		for(var/check in access_to_check) //Loop through all the accesse's to check
 			if(check in I.access) //Success on first match
 				return TRUE
 		if(loud)
-			to_chat(user, SPAN_WARNING("\The [computer] flashes, \"Access Denied.\"."))
+			to_chat(user, SPAN_WARNING("\The [computer] flashes, \"Access denied.\"."))
 	else if(check_type == PROGRAM_ACCESS_LIST_ALL)
 		for(var/check in access_to_check) //Loop through all the accesse's to check
 			if(!(check in I.access)) //Fail on first miss
 				if(loud)
-					to_chat(user, SPAN_WARNING("\The [computer] flashes, \"Access Denied.\"."))
+					to_chat(user, SPAN_WARNING("\The [computer] flashes, \"Access denied.\"."))
 				return FALSE
 	else // Should never happen - So fail silently
 		return FALSE
@@ -288,20 +290,20 @@ ABSTRACT_TYPE(/datum/computer_file/program)
 		if(access_to_check in I.access)
 			return TRUE
 		else if(loud)
-			to_chat(user, SPAN_WARNING("\The [computer] flashes, \"Access Denied.\"."))
+			to_chat(user, SPAN_WARNING("\The [computer] flashes, \"Access denied.\"."))
 			return FALSE
 	else if(check_type == PROGRAM_ACCESS_LIST_ONE)
 		for(var/check in access_to_check) //Loop through all the accesse's to check
 			if(check in I.access) //Success on first match
 				return TRUE
 		if(loud)
-			to_chat(user, SPAN_WARNING("\The [computer] flashes, \"Access Denied.\"."))
+			to_chat(user, SPAN_WARNING("\The [computer] flashes, \"Access denied.\"."))
 			return FALSE
 	else if(check_type == PROGRAM_ACCESS_LIST_ALL)
 		for(var/check in access_to_check) //Loop through all the accesse's to check
 			if(!(check in I.access)) //Fail on first miss
 				if(loud)
-					to_chat(user, SPAN_WARNING("\The [computer] flashes, \"Access Denied.\"."))
+					to_chat(user, SPAN_WARNING("\The [computer] flashes, \"Access denied.\"."))
 				return FALSE
 	else // Should never happen - So fail silently
 		return FALSE

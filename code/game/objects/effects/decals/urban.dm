@@ -1,8 +1,8 @@
 /obj/effect/decal/curb
 	icon = 'icons/obj/structure/urban/road_edges.dmi'
 	icon_state = "curb"
-	layer = 2
-	mouse_opacity = 0
+	layer = STRUCTURE_LAYER
+	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 
 /obj/effect/decal/curb/corner
 	icon_state = "curb_corner"
@@ -10,8 +10,8 @@
 /obj/effect/decal/road_marking
 	icon = 'icons/obj/decals/street/road_markings.dmi'
 	icon_state = "line"
-	layer = 2
-	mouse_opacity = 0
+	layer = DECAL_LAYER
+	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 
 /obj/effect/decal/road_marking/thin
 	icon_state = "line_thin"
@@ -42,7 +42,7 @@
 
 /obj/effect/decal/road_marking/incline
 	icon_state = "incline_line"
-	layer = 2.03
+	layer = DECAL_LAYER
 
 /obj/effect/decal/road_marking/incline/center
 	icon_state = "incline_center-line"
@@ -50,7 +50,7 @@
 /obj/effect/decal/exterior_stairs
 	icon = 'icons/obj/structure/urban/ledges.dmi'
 	icon_state = "stairs-single"
-	layer = 2
+	layer = DECAL_LAYER
 
 /obj/effect/decal/exterior_stairs/center
 	icon_state = "stairs-center"

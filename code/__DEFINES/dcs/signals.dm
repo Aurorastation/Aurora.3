@@ -15,10 +15,16 @@
 
 // /atom signals
 
+/// Called from atom/Initialize() of target: (atom/target)
+#define COMSIG_ATOM_INITIALIZED_ON "atom_initialized_on"
+
 // /area signals
 #define COMSIG_AREA_FIRE_ALARM "fire_alarm"
 
 // /turf signals
+
+/// From base of turf/ChangeTurf(): (path)
+#define COMSIG_TURF_CHANGE "turf_change"
 
 // /atom/movable signals
 
@@ -60,6 +66,8 @@
 #define COMSIG_ITEM_UPDATE_STATE "update_state"
 /// updates sprites
 #define COMSIG_ITEM_ICON_UPDATE "icon_update"
+/// when a gun mag is emptied
+#define COMSIG_EMPTIED_MAGAZINE "emptied_magazine"
 
 // tgui signals
 #define COMSIG_TGUI_CLOSE "tgui_close"
@@ -67,5 +75,8 @@
 // Psionics signals
 /// Raised on the target of a "mind-affecting" psionic power.
 #define COMSIG_PSI_MIND_POWER "psi_block_check"
+
+/// Raised on a mob to check it's psi-sensitivity rating. This is not the same thing as checking if someone is psionic, but psionic people have an innate bonus to the check.
+#define COMSIG_PSI_CHECK_SENSITIVITY "psi_check_sensitivity"
 
 /*******Component Specific Signals*******/

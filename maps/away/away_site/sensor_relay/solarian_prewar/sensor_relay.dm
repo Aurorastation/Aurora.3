@@ -22,11 +22,15 @@
 	map = "sensor_relay"
 	descriptor = "A sensor relay."
 
-/obj/effect/overmap/visitable/sector/sensor_relay
+/obj/effect/overmap/visitable/ship/stationary/sensor_relay
 	name = "sensor relay"
+	class = "SASS"
 	icon = 'icons/obj/overmap/overmap_stationary.dmi'
 	icon_state = "sensor_relay"
 	color = COLOR_STEEL
+	designer = "Solarian Alliance"
+	sizeclass = "Sensor Installation"
+	volume = "32 meters length, 48 meters beam/width, 20 meters vertical height"
 	desc = "A ring-shaped installation with a powerful sensor suite. These stations were originally built during the pre-Interstellar War era by the Solarian Alliance's \
 	Department of Colonization as a method of making interstellar travel safer. Thousands of these 'beacon stations' were built by the Alliance and many were abandoned during the \
 	Interstellar War and its aftermath. While they have been mostly replaced in more developed sectors, such as Liberty's Cradle and the Jewel Worlds, beacon stations are still \
@@ -42,7 +46,11 @@
 		"relay_se",
 	)
 
-/obj/effect/overmap/visitable/sector/sensor_relay/handle_sensor_state_change(var/on)
+/obj/effect/overmap/visitable/ship/stationary/sensor_relay/New(loc, ...)
+	designation = "Sensor Relay #[rand(100, 999)]"
+	..()
+
+/obj/effect/overmap/visitable/ship/stationary/sensor_relay/handle_sensor_state_change(var/on)
 	if(on)
 		icon_state = "[initial(icon_state)]_active"
 	else

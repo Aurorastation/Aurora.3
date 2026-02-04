@@ -46,13 +46,13 @@
 /datum/gear/utility/journal
 	display_name = "journal"
 	description = "A journal, kind of like a folder, but bigger! And personal."
-	path = /obj/item/journal
+	path = /obj/item/journal/filled
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/utility/notepad
 	display_name = "notepad"
 	description = "A notepad for jotting down notes in meetings or interrogations."
-	path = /obj/item/journal/notepad
+	path = /obj/item/journal/notepad/filled
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/utility/fountainpen
@@ -72,7 +72,7 @@
 
 /datum/gear/utility/paicard
 	display_name = "personal AI device"
-	path = /obj/item/device/paicard
+	path = /obj/item/paicard
 
 /datum/gear/utility/classicwallet
 	display_name = "wallet"
@@ -98,11 +98,11 @@
 
 /datum/gear/utility/recorder
 	display_name = "universal recorder"
-	path = /obj/item/device/taperecorder
+	path = /obj/item/taperecorder
 
 /datum/gear/utility/camera
 	display_name = "camera"
-	path = /obj/item/device/camera
+	path = /obj/item/camera
 
 /datum/gear/utility/himeo_kit
 	display_name = "himean voidsuit kit"

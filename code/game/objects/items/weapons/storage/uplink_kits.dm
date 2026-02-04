@@ -1,7 +1,8 @@
 /obj/item/storage/box/syndie_kit
 	name = "box"
 	desc = "A sleek, sturdy box."
-	icon_state = "syndiebox"
+	color = COLOR_WALL_GUNMETAL
+	label = "label_syndie"
 	worn_overlay = "writing_syndie"
 
 /obj/item/storage/box/syndie_kit/imp_freedom
@@ -52,7 +53,7 @@
 
 /obj/item/storage/box/syndie_kit/chameleon
 	name = "chameleon kit"
-	desc = "Comes with all the clothes you need to impersonate most people.  Acting lessons sold seperately."
+	desc = "Comes with all the clothes you need to impersonate most people. Acting lessons sold seperately."
 	worn_overlay = "syndiesuit"
 	starts_with = list(
 		/obj/item/clothing/under/chameleon = 1,
@@ -66,16 +67,25 @@
 		/obj/item/gun/energy/chameleon = 1
 	)
 
+/obj/item/storage/box/syndie_kit/chameleonarmor
+	name = "chameleon armor kit"
+	desc = "Comes with a full armor-kit that is capable of mimicking other clothing items while also offering protection."
+	worn_overlay = "syndiesuit"
+	starts_with = list(
+		/obj/item/clothing/head/helmet/chameleon = 1,
+		/obj/item/clothing/suit/armor/chameleon = 1
+	)
+
 /obj/item/storage/box/syndie_kit/clerical
 	name = "clerical kit"
-	desc = "Comes with all you need to fake paperwork. Assumes you have passed basic writing lessons."
+	desc = "Comes with all you need to fake paperwork or write with invisible ink. Assumes you have passed basic writing lessons."
 	worn_overlay = "pen"
 	starts_with = list(
 		/obj/item/stamp/chameleon = 1,
 		/obj/item/pen/chameleon = 1,
-		/obj/item/device/destTagger = 1,
+		/obj/item/destTagger = 1,
 		/obj/item/stack/packageWrap = 1,
-		/obj/item/device/hand_labeler = 1,
+		/obj/item/hand_labeler = 1,
 		/obj/item/folder/filled = 1
 	)
 
@@ -99,7 +109,7 @@
 /obj/item/storage/box/syndie_kit/spy
 	name = "spy kit"
 	desc = "For when you want to conduct voyeurism from afar."
-	starts_with = list(/obj/item/device/spy_bug = 6, /obj/item/device/spy_monitor = 1)
+	starts_with = list(/obj/item/spy_bug = 6, /obj/item/spy_monitor = 1)
 
 /obj/item/storage/box/syndie_kit/spy/hidden
 	name = "box"
@@ -210,10 +220,15 @@
 	desc = "Contains the eggs of a Heart Fluke (lethal)."
 	starts_with = list(/obj/item/reagent_containers/glass/beaker/vial/heartworm_eggs = 1, /obj/item/reagent_containers/syringe = 1, /obj/item/reagent_containers/pill/antiparasitic = 1, /obj/item/reagent_containers/pill/asinodryl = 1)
 
+/obj/item/storage/box/syndie_kit/greimorians
+	name = "greimorian clade kit"
+	desc = "Contains the eggs of greimorian clade (semi-lethal, incapacitating)."
+	starts_with = list(/obj/item/reagent_containers/glass/beaker/vial/greimorian_eggs = 1, /obj/item/reagent_containers/syringe = 1, /obj/item/reagent_containers/pill/antiparasitic = 1, /obj/item/reagent_containers/pill/asinodryl = 1)
+
 /obj/item/storage/box/syndie_kit/radsuit
 	name = "radiation suit kit"
 	desc = "Contains a radiation suit and geiger counter to protect you from radiation."
-	starts_with = list(/obj/item/clothing/head/radiation = 1, /obj/item/clothing/suit/radiation = 1, /obj/item/clothing/glasses/safety/goggles = 1, /obj/item/device/geiger = 1, /obj/item/reagent_containers/pill/hyronalin = 1)
+	starts_with = list(/obj/item/clothing/head/radiation = 1, /obj/item/clothing/suit/radiation = 1, /obj/item/clothing/glasses/safety/goggles = 1, /obj/item/geiger = 1, /obj/item/reagent_containers/pill/hyronalin = 1)
 
 /obj/item/storage/box/syndie_kit/syringe_gun
 	name = "syringe gun kit"

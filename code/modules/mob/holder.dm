@@ -651,3 +651,12 @@
 	hitsound = 'sound/effects/snap.ogg'
 	force = 14//quite large fishey
 	throwforce = 6
+
+//Holder for snakes
+/obj/item/holder/snake
+	name = "snake"
+	icon = 'icons/mob/npc/animal.dmi'
+	icon_state = "snake_rest"
+	item_state = "snake"
+	w_class = WEIGHT_CLASS_NORMAL
+	slot_flags = SLOT_EARS

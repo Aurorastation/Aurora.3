@@ -19,7 +19,7 @@
 	var/law_channel = DEFAULT_LAW_CHANNEL
 	var/list/additional_law_channels = list("State" = "")
 	var/list/stating_laws = list() // Channels laws are currently being stated on
-	var/obj/item/device/radio/common_radio // Used to determine default channels
+	var/obj/item/radio/common_radio // Used to determine default channels
 
 	// Hud Stuff
 	var/list/hud_list[10]
@@ -38,7 +38,7 @@
 	)
 
 	// Utility
-	var/obj/item/device/camera/siliconcam/ai_camera //photography
+	var/obj/item/camera/siliconcam/ai_camera //photography
 
 	// ID and Access
 	var/list/access_rights
@@ -53,7 +53,6 @@
 	var/can_hear_hivenet = TRUE
 
 	// Misc
-	uv_intensity = 175 //Lights cast by robots have reduced effect on diona
 	mob_thinks = FALSE
 
 	var/can_speak_basic = TRUE

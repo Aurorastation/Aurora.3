@@ -717,7 +717,7 @@
 	req_one_access = null;
 	req_access = list(214)
 	},
-/obj/item/device/flashlight/lamp/green{
+/obj/item/flashlight/lamp/green{
 	pixel_x = 8;
 	pixel_y = 16
 	},
@@ -1006,11 +1006,11 @@
 "fW" = (
 /obj/structure/table/reinforced/steel,
 /obj/effect/floor_decal/industrial/hatch/grey,
-/obj/item/device/radio/hailing{
+/obj/item/radio/hailing{
 	pixel_x = -4;
 	pixel_y = 4
 	},
-/obj/item/device/radio/hailing{
+/obj/item/radio/hailing{
 	pixel_x = 8;
 	pixel_y = 7
 	},
@@ -1434,7 +1434,7 @@
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/outline/grey,
-/obj/item/device/radio/intercom/expedition/hailing/east,
+/obj/item/radio/intercom/expedition/hailing/east,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled{
 	temperature = 278.15
@@ -1698,12 +1698,12 @@
 /obj/item/tank/emergency_oxygen/double,
 /obj/item/tank/emergency_oxygen/double,
 /obj/item/tank/emergency_oxygen/double,
-/obj/item/device/gps,
-/obj/item/device/gps,
-/obj/item/device/gps,
-/obj/item/device/gps,
-/obj/item/device/gps,
-/obj/item/device/gps,
+/obj/item/gps,
+/obj/item/gps,
+/obj/item/gps,
+/obj/item/gps,
+/obj/item/gps,
+/obj/item/gps,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled{
 	temperature = 278.15
@@ -2214,7 +2214,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
 	},
-/obj/item/storage/box/condiment{
+/obj/item/storage/box/large/condiment{
 	pixel_y = 4
 	},
 /obj/random/dirt_75,
@@ -2495,7 +2495,7 @@
 /obj/item/storage/toolbox/mechanical{
 	pixel_y = 2
 	},
-/obj/item/device/hand_labeler{
+/obj/item/hand_labeler{
 	pixel_y = 18;
 	pixel_x = -2
 	},
@@ -2653,7 +2653,7 @@
 	pixel_y = 13
 	},
 /obj/machinery/light/small,
-/obj/item/device/versebook/dpra{
+/obj/item/versebook/dpra{
 	pixel_y = 2;
 	pixel_x = 5
 	},
@@ -2861,8 +2861,8 @@
 "sY" = (
 /obj/effect/floor_decal/industrial/outline/service,
 /obj/structure/closet/secure_closet/refrigerator,
-/obj/item/storage/box/produce,
-/obj/item/storage/box/produce,
+/obj/item/storage/box/large/produce,
+/obj/item/storage/box/large/produce,
 /obj/item/storage/box/fancy/egg_box,
 /obj/item/storage/box/fancy/egg_box,
 /obj/item/reagent_containers/food/condiment/enzyme,
@@ -3951,8 +3951,8 @@
 /obj/item/ammo_magazine/c762/dpra,
 /obj/item/ammo_magazine/c762/dpra,
 /obj/item/gun/projectile/shotgun/foldable,
-/obj/item/storage/box/shotgunshells,
-/obj/item/storage/box/shotgunshells,
+/obj/item/storage/box/shells/buckshot,
+/obj/item/storage/box/shells/buckshot,
 /obj/effect/floor_decal/industrial/outline/red,
 /obj/machinery/light/colored/decayed{
 	dir = 1
@@ -4069,7 +4069,7 @@
 	dir = 4;
 	pixel_x = 32
 	},
-/obj/item/device/flashlight/lamp/green{
+/obj/item/flashlight/lamp/green{
 	pixel_x = 8;
 	pixel_y = 14
 	},
@@ -5599,7 +5599,7 @@
 /obj/machinery/light/small{
 	dir = 1
 	},
-/obj/item/device/versebook/dpra{
+/obj/item/versebook/dpra{
 	pixel_y = 2;
 	pixel_x = 5
 	},
@@ -6592,15 +6592,15 @@
 	req_one_access = null;
 	req_access = list(214)
 	},
-/obj/item/device/camera_film/taj_film{
+/obj/item/camera_film/taj_film{
 	pixel_x = -4;
 	pixel_y = -3
 	},
-/obj/item/device/camera_film/taj_film{
+/obj/item/camera_film/taj_film{
 	pixel_x = 4;
 	pixel_y = -1
 	},
-/obj/item/device/camera/adhomai{
+/obj/item/camera/adhomai{
 	pixel_y = 7
 	},
 /obj/random/dirt_75,
@@ -6949,12 +6949,7 @@
 	},
 /area/hailstorm_ship/atmospherics)
 "XR" = (
-/obj/machinery/autolathe{
-	desc = "Your typical Autolathe. It appears to have much more options than your regular one, however...";
-	hacked = 1;
-	name = "Modified Autolathe";
-	req_access = list(212)
-	},
+/obj/machinery/fabricator/autolathe/hacked,
 /obj/effect/floor_decal/industrial/hatch/engineering,
 /obj/machinery/light/colored/decayed{
 	dir = 4
@@ -7112,10 +7107,10 @@
 /obj/random/dirt_75,
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/structure/table/standard,
-/obj/item/device/binoculars{
+/obj/item/binoculars{
 	pixel_x = -3
 	},
-/obj/item/device/binoculars{
+/obj/item/binoculars{
 	pixel_y = 5;
 	pixel_x = -1
 	},

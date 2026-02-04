@@ -41,15 +41,15 @@
 
 	uniform = /obj/item/clothing/under/rank/head_of_security
 	head = /obj/item/clothing/head/hos
-	id = /obj/item/card/id/silver
+	id = /obj/item/card/id/scc/silver
 	shoes = null
 	glasses = /obj/item/clothing/glasses/sunglasses/sechud/head
 
-	headset = /obj/item/device/radio/headset/heads/hos
-	bowman = /obj/item/device/radio/headset/heads/hos/alt
-	double_headset = /obj/item/device/radio/headset/alt/double/hos
-	wrist_radio = /obj/item/device/radio/headset/wrist/hos
-	clipon_radio = /obj/item/device/radio/headset/wrist/clip/hos
+	headset = /obj/item/radio/headset/heads/hos
+	bowman = /obj/item/radio/headset/heads/hos/alt
+	double_headset = /obj/item/radio/headset/alt/double/hos
+	wrist_radio = /obj/item/radio/headset/wrist/hos
+	clipon_radio = /obj/item/radio/headset/wrist/clip/hos
 
 	tab_pda = /obj/item/modular_computer/handheld/pda/security/hos
 	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/security/hos
@@ -99,7 +99,7 @@
 	minimal_player_age = 7
 	outfit = /obj/outfit/job/warden
 
-	blacklisted_species = list(SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION, SPECIES_IPC_XION_REMOTE, SPECIES_VAURCA_BULWARK, SPECIES_DIONA_COEUS, SPECIES_VAURCA_BREEDER)
+	blacklisted_species = list(SPECIES_IPC_XION_REMOTE, SPECIES_VAURCA_BULWARK, SPECIES_DIONA_COEUS, SPECIES_VAURCA_BREEDER)
 
 /obj/outfit/job/warden
 	name = "Warden"
@@ -110,11 +110,11 @@
 	glasses = /obj/item/clothing/glasses/sunglasses/sechud/aviator
 	shoes = null
 
-	headset = /obj/item/device/radio/headset/headset_warden
-	bowman = /obj/item/device/radio/headset/headset_warden/alt
-	double_headset = /obj/item/device/radio/headset/alt/double/sec/warden
-	wrist_radio = /obj/item/device/radio/headset/wrist/sec/warden
-	clipon_radio = /obj/item/device/radio/headset/wrist/clip/sec/warden
+	headset = /obj/item/radio/headset/headset_warden
+	bowman = /obj/item/radio/headset/headset_warden/alt
+	double_headset = /obj/item/radio/headset/alt/double/sec/warden
+	wrist_radio = /obj/item/radio/headset/wrist/sec/warden
+	clipon_radio = /obj/item/radio/headset/wrist/clip/sec/warden
 
 	tab_pda = /obj/item/modular_computer/handheld/pda/security
 	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/security
@@ -163,7 +163,7 @@
 	)
 	minimal_player_age = 3
 	outfit = /obj/outfit/job/forensics
-	blacklisted_species = list(SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION, SPECIES_IPC_XION_REMOTE, SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_BREEDER)
+	blacklisted_species = list(SPECIES_IPC_XION_REMOTE, SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_BREEDER)
 
 /obj/outfit/job/forensics
 	name = "Investigator"
@@ -172,11 +172,11 @@
 	uniform = /obj/item/clothing/under/det
 	shoes = /obj/item/clothing/shoes/laceup
 
-	headset = /obj/item/device/radio/headset/headset_sec
-	bowman = /obj/item/device/radio/headset/headset_sec/alt
-	double_headset = /obj/item/device/radio/headset/alt/double/sec
-	wrist_radio = /obj/item/device/radio/headset/wrist/sec
-	clipon_radio = /obj/item/device/radio/headset/wrist/clip/sec
+	headset = /obj/item/radio/headset/headset_sec
+	bowman = /obj/item/radio/headset/headset_sec/alt
+	double_headset = /obj/item/radio/headset/alt/double/sec
+	wrist_radio = /obj/item/radio/headset/wrist/sec
+	clipon_radio = /obj/item/radio/headset/wrist/clip/sec
 
 	tab_pda = /obj/item/modular_computer/handheld/pda/security/detective
 	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/security/detective
@@ -222,7 +222,7 @@
 	minimal_player_age = 7
 	outfit = /obj/outfit/job/officer
 
-	blacklisted_species = list(SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION, SPECIES_IPC_XION_REMOTE, SPECIES_VAURCA_BULWARK, SPECIES_DIONA_COEUS, SPECIES_VAURCA_BREEDER)
+	blacklisted_species = list(SPECIES_IPC_XION_REMOTE, SPECIES_VAURCA_BULWARK, SPECIES_DIONA_COEUS, SPECIES_VAURCA_BREEDER)
 
 /obj/outfit/job/officer
 	name = "Security Officer"
@@ -231,11 +231,11 @@
 	uniform = /obj/item/clothing/under/rank/security
 	shoes = null
 
-	headset = /obj/item/device/radio/headset/headset_sec
-	bowman = /obj/item/device/radio/headset/headset_sec/alt
-	double_headset = /obj/item/device/radio/headset/alt/double/sec
-	wrist_radio = /obj/item/device/radio/headset/wrist/sec
-	clipon_radio = /obj/item/device/radio/headset/wrist/clip/sec
+	headset = /obj/item/radio/headset/headset_sec
+	bowman = /obj/item/radio/headset/headset_sec/alt
+	double_headset = /obj/item/radio/headset/alt/double/sec
+	wrist_radio = /obj/item/radio/headset/wrist/sec
+	clipon_radio = /obj/item/radio/headset/wrist/clip/sec
 
 	tab_pda = /obj/item/modular_computer/handheld/pda/security
 	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/security
@@ -289,7 +289,7 @@
 		SPECIES_SKRELL_AXIORI = 50
 	)
 
-	blacklisted_species = list(SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION, SPECIES_IPC_XION_REMOTE, SPECIES_VAURCA_BULWARK, SPECIES_DIONA_COEUS, SPECIES_VAURCA_BREEDER)
+	blacklisted_species = list(SPECIES_IPC_XION_REMOTE, SPECIES_VAURCA_BULWARK, SPECIES_DIONA_COEUS, SPECIES_VAURCA_BREEDER)
 
 /obj/outfit/job/intern_sec
 	name = "Security Cadet"
@@ -299,11 +299,11 @@
 	suit = /obj/item/clothing/suit/storage/hazardvest/security
 	head = /obj/item/clothing/head/beret/security
 
-	headset = /obj/item/device/radio/headset/headset_sec
-	bowman = /obj/item/device/radio/headset/headset_sec/alt
-	double_headset = /obj/item/device/radio/headset/alt/double/sec
-	wrist_radio = /obj/item/device/radio/headset/wrist/sec
-	clipon_radio = /obj/item/device/radio/headset/wrist/clip/sec
+	headset = /obj/item/radio/headset/headset_sec
+	bowman = /obj/item/radio/headset/headset_sec/alt
+	double_headset = /obj/item/radio/headset/alt/double/sec
+	wrist_radio = /obj/item/radio/headset/wrist/sec
+	clipon_radio = /obj/item/radio/headset/wrist/clip/sec
 
 	backpack = /obj/item/storage/backpack/security
 	satchel = /obj/item/storage/backpack/satchel/sec
