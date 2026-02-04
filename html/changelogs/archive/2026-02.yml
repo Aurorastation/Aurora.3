@@ -76,3 +76,33 @@
   TheGreyWolf:
   - bugfix: Fixes janitorial carts not showing their contents after spawning.
   - bugfix: The tug will no longer run over people who are leaning on walls.
+2026-02-04:
+  Batrachophrenoboocosmomachia:
+  - bugfix: Restores area_sensitive trait for mobs, fixing zero-gravity drifting,
+      ambience and ship hum, and area blurbs.
+  - rscdel: Removes area blurb text from status window (band-aid fix prior to discovering
+      root cause of them not appearing consistently).
+  Greenjoe:
+  - rscadd: Adds the Adhomian p'rrama to the game.
+  - rscadd: Adds Adhomian dogtags and a walking stick (maikahar) to the Tajaran loadout.
+  - rscadd: Adds the Adhomian hunting coat to the Tajaran coat selection.
+  - rscadd: The shillelagh is renamed to maikahar.
+  Hellfirejag:
+  - rscadd: Off-ship player characters can now be viewed from the crew manifest, so
+      long as you are either an observer, or are in the lobby.
+  - bugfix: Fixed player characters with apostrophes in their name showing up weirdly
+      on the manifest.
+  MattAtlas, FluffyGhost:
+  - experiment: Atom gliding is now in, which gives us smoother movement. Remember
+      that this is affected by your FPS setting.
+  - experiment: The baseline speed is now twice as fast for everything. Fast species
+      were nerfed slightly to compensate.
+  TheGreyWolf:
+  - rscadd: Black gloves have been renamed to work gloves, to better indicate that
+      they are unique from other colored gloves.
+  - rscadd: Added taj and unathi variants of work gloves to the drobes having them,
+      and taj workboots to the ones having normal workboots.
+  - rscadd: Renamed taj and unathi work gloves, leather gloves and workboots to be
+      clear who can wear it.
+  - rscadd: Made hangar techs spawn with workboots by default, instead of with sneakers.
+      Safety first.
