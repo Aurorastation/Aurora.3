@@ -6,11 +6,11 @@ GLOBAL_LIST_EMPTY(all_exonet_connections)
 /datum/exonet_protocol
 	var/address = "" //Resembles IPv6, but with only five 'groups', e.g. XXXX:XXXX:XXXX:XXXX:XXXX
 	var/visible_on_network = TRUE
-	var/atom/movable/holder = null
+	var/obj/item/communicator/holder = null
 
 	var/datum/callback/on_message_recieved
 
-/datum/exonet_protocol/New(atom/movable/holder, address_seed, datum/callback/on_message_recieved)
+/datum/exonet_protocol/New(obj/item/communicator/holder, address_seed, datum/callback/on_message_recieved)
 	. = ..()
 	src.holder = holder
 
@@ -57,6 +57,7 @@ GLOBAL_LIST_EMPTY(all_exonet_connections)
 	if(target)
 		return target.holder
 
+// returns true if the target recieved the message successfully
 /datum/exonet_protocol/proc/send_message(target_address, data_type, content)
 	//var/obj/machinery/exonet_node/node = get_exonet_node()
 	//if(!node) // Telecomms went boom, ion storm, etc.
@@ -64,12 +65,11 @@ GLOBAL_LIST_EMPTY(all_exonet_connections)
 	var/datum/exonet_protocol/target = find_exonet_datum(target_address)
 	if(target)
 		//node.write_log(src.address, target_address, data_type, content)
-		target.receive_message(src, data_type, content)
-		return TRUE
+		return target.receive_message(src, data_type, content)
 	return FALSE
 
 /datum/exonet_protocol/proc/receive_message(datum/exonet_protocol/origin_datum, data_type, content)
-	on_message_recieved?.Invoke(origin_datum, data_type, content)
+	return on_message_recieved?.Invoke(origin_datum, data_type, content)
 
 /proc/hexadecimal_to_EPv2(hex)
 	if(!hex)
