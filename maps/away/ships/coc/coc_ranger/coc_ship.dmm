@@ -148,7 +148,104 @@
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/ship/ranger_corvette/engine1)
 "ayi" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/obj/effect/floor_decal/industrial/hatch/blue,
+/obj/structure/closet,
+/obj/item/clothing/accessory/armband/sec{
+	name = "Frontier Protection Bureau armband";
+	desc = "An armband, commonly worn by the Rangers of the Frontier Protection Bureau as a inexpensive means to tell friend from foe. This one is navy blue, with the flag of the Coalition of Colonies emblazoned in the center."
+	},
+/obj/item/clothing/accessory/armband/sec{
+	name = "Frontier Protection Bureau armband";
+	desc = "An armband, commonly worn by the Rangers of the Frontier Protection Bureau as a inexpensive means to tell friend from foe. This one is navy blue, with the flag of the Coalition of Colonies emblazoned in the center."
+	},
+/obj/item/clothing/accessory/armband/sec{
+	name = "Frontier Protection Bureau armband";
+	desc = "An armband, commonly worn by the Rangers of the Frontier Protection Bureau as a inexpensive means to tell friend from foe. This one is navy blue, with the flag of the Coalition of Colonies emblazoned in the center."
+	},
+/obj/item/clothing/accessory/armband/sec{
+	name = "Frontier Protection Bureau armband";
+	desc = "An armband, commonly worn by the Rangers of the Frontier Protection Bureau as a inexpensive means to tell friend from foe. This one is navy blue, with the flag of the Coalition of Colonies emblazoned in the center."
+	},
+/obj/item/clothing/accessory/armband/sec{
+	name = "Frontier Protection Bureau armband";
+	desc = "An armband, commonly worn by the Rangers of the Frontier Protection Bureau as a inexpensive means to tell friend from foe. This one is navy blue, with the flag of the Coalition of Colonies emblazoned in the center."
+	},
+/obj/item/clothing/accessory/armband/sec{
+	name = "Frontier Protection Bureau armband";
+	desc = "An armband, commonly worn by the Rangers of the Frontier Protection Bureau as a inexpensive means to tell friend from foe. This one is navy blue, with the flag of the Coalition of Colonies emblazoned in the center."
+	},
+/obj/item/clothing/accessory/armband/sec{
+	name = "Frontier Protection Bureau armband";
+	desc = "An armband, commonly worn by the Rangers of the Frontier Protection Bureau as a inexpensive means to tell friend from foe. This one is navy blue, with the flag of the Coalition of Colonies emblazoned in the center."
+	},
+/obj/item/clothing/accessory/armband/sec{
+	name = "Frontier Protection Bureau armband";
+	desc = "An armband, commonly worn by the Rangers of the Frontier Protection Bureau as a inexpensive means to tell friend from foe. This one is navy blue, with the flag of the Coalition of Colonies emblazoned in the center."
+	},
+/obj/item/storage/belt/military,
+/obj/item/storage/belt/military,
+/obj/item/storage/belt/military,
+/obj/item/storage/belt/military,
+/obj/item/storage/belt/military,
+/obj/item/storage/belt/military,
+/obj/item/clothing/accessory/holster,
+/obj/item/clothing/accessory/holster,
+/obj/item/clothing/accessory/holster,
+/obj/item/clothing/accessory/holster/thigh/fluff,
+/obj/item/clothing/accessory/holster/thigh/fluff,
+/obj/item/clothing/accessory/holster/thigh/fluff,
+/obj/item/clothing/head/helmet{
+	name = "Cheap-looking helmet";
+	desc = "A cheap helmet, most likely purchased off the aftermarket for some raggedy band of Frontier law enforcement. It might, **might** be able to stop a 9mm and some shrapnel."
+	},
+/obj/item/clothing/head/helmet{
+	name = "Cheap-looking helmet";
+	desc = "A cheap helmet, most likely purchased off the aftermarket for some raggedy band of Frontier law enforcement. It might, **might** be able to stop a 9mm and some shrapnel."
+	},
+/obj/item/clothing/head/helmet{
+	name = "Cheap-looking helmet";
+	desc = "A cheap helmet, most likely purchased off the aftermarket for some raggedy band of Frontier law enforcement. It might, **might** be able to stop a 9mm and some shrapnel."
+	},
+/obj/item/clothing/head/helmet{
+	name = "Cheap-looking helmet";
+	desc = "A cheap helmet, most likely purchased off the aftermarket for some raggedy band of Frontier law enforcement. It might, **might** be able to stop a 9mm and some shrapnel."
+	},
+/obj/item/clothing/head/helmet{
+	name = "Cheap-looking helmet";
+	desc = "A cheap helmet, most likely purchased off the aftermarket for some raggedy band of Frontier law enforcement. It might, **might** be able to stop a 9mm and some shrapnel."
+	},
+/obj/item/clothing/head/helmet{
+	name = "Cheap-looking helmet";
+	desc = "A cheap helmet, most likely purchased off the aftermarket for some raggedy band of Frontier law enforcement. It might, **might** be able to stop a 9mm and some shrapnel."
+	},
+/obj/item/clothing/head/helmet{
+	name = "Cheap-looking helmet";
+	desc = "A cheap helmet, most likely purchased off the aftermarket for some raggedy band of Frontier law enforcement. It might, **might** be able to stop a 9mm and some shrapnel."
+	},
+/obj/item/clothing/suit/armor/carrier/heavy{
+	name = "cheap-looking plate carrier";
+	desc = "A cheap-looking aftermarket plate carrier that was most likely bought for a raggedy bunch of Frontier law enforcement. Usually carrying similarly generic and cheap heavy-duty inserts. You *might* be able to hold yourself against anything short of 5.56, with this."
+	},
+/obj/item/clothing/suit/armor/carrier/heavy{
+	name = "cheap-looking plate carrier";
+	desc = "A cheap-looking aftermarket plate carrier that was most likely bought for a raggedy bunch of Frontier law enforcement. Usually carrying similarly generic and cheap heavy-duty inserts. You *might* be able to hold yourself against anything short of 5.56, with this."
+	},
+/obj/item/clothing/suit/armor/carrier/heavy{
+	name = "cheap-looking plate carrier";
+	desc = "A cheap-looking aftermarket plate carrier that was most likely bought for a raggedy bunch of Frontier law enforcement. Usually carrying similarly generic and cheap heavy-duty inserts. You *might* be able to hold yourself against anything short of 5.56, with this."
+	},
+/obj/item/clothing/suit/armor/carrier/heavy{
+	name = "cheap-looking plate carrier";
+	desc = "A cheap-looking aftermarket plate carrier that was most likely bought for a raggedy bunch of Frontier law enforcement. Usually carrying similarly generic and cheap heavy-duty inserts. You *might* be able to hold yourself against anything short of 5.56, with this."
+	},
+/obj/item/clothing/suit/armor/carrier/heavy{
+	name = "cheap-looking plate carrier";
+	desc = "A cheap-looking aftermarket plate carrier that was most likely bought for a raggedy bunch of Frontier law enforcement. Usually carrying similarly generic and cheap heavy-duty inserts. You *might* be able to hold yourself against anything short of 5.56, with this."
+	},
+/obj/item/clothing/suit/armor/carrier/heavy{
+	name = "cheap-looking plate carrier";
+	desc = "A cheap-looking aftermarket plate carrier that was most likely bought for a raggedy bunch of Frontier law enforcement. Usually carrying similarly generic and cheap heavy-duty inserts. You *might* be able to hold yourself against anything short of 5.56, with this."
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/gunnery)
 "ayD" = (
@@ -710,6 +807,10 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
 /obj/structure/cable/green{
 	icon_state = "4-8"
+	},
+/obj/machinery/power/apc/south,
+/obj/structure/cable/green{
+	icon_state = "0-4"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/gunnery)
@@ -1351,20 +1452,11 @@
 /turf/simulated/floor/carpet,
 /area/ship/ranger_corvette/foyer)
 "fmY" = (
-/obj/machinery/door/airlock/highsecurity{
-	name = "Gunnery Comparment";
-	dir = 4;
-	req_one_access = list(221,222)
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
-	},
-/obj/machinery/door/firedoor{
-	dir = 4;
-	req_one_access = list(221,222)
 	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -2141,6 +2233,9 @@
 /obj/machinery/light{
 	dir = 4;
 	icon_state = "tube_empty"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/gunnery)
@@ -3837,12 +3932,7 @@
 /turf/simulated/floor/tiled/white,
 /area/ship/ranger_corvette/canteen)
 "pia" = (
-/obj/machinery/ship_weapon/francisca{
-	pixel_x = -64;
-	pixel_y = -162;
-	weapon_id = "Ranger Francisca Rotary Gun"
-	},
-/obj/structure/ship_weapon_dummy,
+/obj/structure/ship_weapon_dummy/barrel,
 /turf/simulated/floor/airless,
 /area/ship/ranger_corvette/engine1)
 "plP" = (
@@ -4260,12 +4350,11 @@
 /turf/simulated/floor/tiled/white,
 /area/ship/ranger_corvette/canteen)
 "qHO" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	dir = 8
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ranger_corvette/gunnery)
@@ -4648,22 +4737,7 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ranger_corvette/foyer)
 "smG" = (
-/obj/structure/closet/secure_closet/guncabinet{
-	req_access = null
-	},
-/obj/effect/floor_decal/industrial/outline/security,
-/obj/item/gun/projectile/pistol/adhomai,
-/obj/item/ammo_magazine/mc9mm,
-/obj/item/ammo_magazine/mc9mm,
-/obj/item/gun/energy/pistol/hegemony,
-/obj/item/gun/projectile/xanupistol,
-/obj/item/ammo_magazine/c46m,
-/obj/item/ammo_magazine/c46m,
-/obj/item/gun/energy/blaster,
-/obj/item/gun/projectile/revolver/lemat,
-/obj/item/ammo_magazine/c38,
-/obj/item/ammo_magazine/c38,
-/obj/item/gun/energy/retro,
+/obj/effect/floor_decal/industrial/hatch/red,
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/gunnery)
 "smZ" = (
@@ -4816,25 +4890,11 @@
 /turf/simulated/floor/wood,
 /area/ship/ranger_corvette/foyer)
 "sMm" = (
-/obj/structure/filingcabinet{
-	desc = "A large cabinet with drawers. Those are some fancy cabinets, High-Speed.";
-	name = "gun parts cabinet";
-	pixel_x = -6
+/obj/machinery/ship_weapon/autocannon{
+	weapon_id = "Ranger Francisca Rotary Gun"
 	},
-/obj/structure/filingcabinet{
-	desc = "A large cabinet with drawers. Those are some fancy cabinets, High-Speed.";
-	name = "gun parts cabinet";
-	pixel_x = 6
-	},
-/obj/item/receivergun{
-	desc = "The PTR-7 is man-portable anti-armor rifle fitted with a high-powered scope, capable of penetrating through most windows, airlocks, and non-reinforced walls with ease. Fires armor piercing 14.5mm shells. This one has suffered extensive wear and battle damage - the most noteworthy of which being a shot to the receiver that has destroyed it, rendering it useful as a paperweight at most.";
-	icon = 'icons/obj/guns/heavysniper.dmi';
-	icon_state = "heavysniper";
-	name = "anti-material rifle";
-	pixel_y = 14
-	},
-/turf/simulated/floor/tiled/dark,
-/area/ship/ranger_corvette/gunnery)
+/turf/template_noop,
+/area/space)
 "sMD" = (
 /obj/machinery/shower{
 	dir = 1
@@ -5238,22 +5298,18 @@
 /obj/machinery/door/window/eastleft{
 	dir = 2
 	},
+/obj/machinery/light{
+	dir = 1
+	},
 /obj/machinery/light/small/emergency{
 	dir = 8
 	},
-/obj/machinery/light{
-	dir = 8;
-	icon_state = "tube_empty"
-	},
-/obj/item/ship_ammunition/francisca/frag{
-	pixel_y = 4
-	},
-/obj/item/ship_ammunition/francisca/frag{
-	pixel_y = 4
-	},
-/obj/item/ship_ammunition/francisca/frag{
-	pixel_y = 4
-	},
+/obj/item/ship_ammunition/autocannon/he,
+/obj/item/ship_ammunition/autocannon/he,
+/obj/item/ship_ammunition/autocannon/he,
+/obj/item/ship_ammunition/autocannon/he,
+/obj/item/ship_ammunition/autocannon/he,
+/obj/item/ship_ammunition/autocannon/he,
 /turf/simulated/floor/reinforced,
 /area/ship/ranger_corvette/munitions)
 "tQD" = (
@@ -5307,9 +5363,6 @@
 /turf/simulated/floor/reinforced,
 /area/ship/ranger_corvette/munitions)
 "tUC" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 8
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
 	},
@@ -5370,42 +5423,10 @@
 /turf/simulated/floor/airless,
 /area/ship/ranger_corvette)
 "udj" = (
-/obj/structure/closet/secure_closet/guncabinet{
-	req_access = null
-	},
-/obj/effect/floor_decal/industrial/outline/security,
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 8
 	},
-/obj/item/gun/projectile/automatic/rifle/shorty,
-/obj/item/gun/projectile/automatic/rifle/shorty,
-/obj/item/ammo_magazine/c762,
-/obj/item/ammo_magazine/c762,
-/obj/item/gun/projectile/shotgun/pump,
-/obj/item/storage/box/shells/buckshot,
-/obj/item/storage/box/shells/flashshells,
-/obj/item/storage/box/shells/beanbags,
-/obj/item/gun/projectile/automatic/tommygun,
-/obj/item/ammo_magazine/submachinemag,
-/obj/item/ammo_magazine/submachinemag,
-/obj/item/gun/projectile/tanto,
-/obj/item/ammo_magazine/mc10mm,
-/obj/item/ammo_magazine/mc10mm,
-/obj/item/ammo_magazine/mc10mm,
-/obj/item/gun/projectile/gauss,
-/obj/item/ammo_magazine/gauss,
-/obj/machinery/light{
-	dir = 8;
-	icon_state = "tube_empty"
-	},
-/obj/item/grenade/frag{
-	desc = "A military fragmentation grenade, designed to explode in a deadly shower of fragments. This one has the word 'CATCH!!' written on it in white paint."
-	},
-/obj/machinery/power/apc/high/north,
-/obj/structure/cable/green{
-	d2 = 2;
-	icon_state = "0-2"
-	},
+/obj/effect/floor_decal/industrial/hatch/red,
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/gunnery)
 "ueq" = (
@@ -5554,21 +5575,11 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ranger_corvette/foyer)
 "uty" = (
-/obj/structure/table/steel,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/item/screwdriver{
-	pixel_y = 9
-	},
-/obj/item/laser_components/modifier/bayonet,
-/obj/item/laser_components/modifier/grip{
-	pixel_y = 8
-	},
 /obj/machinery/recharger/wallcharger{
 	pixel_x = 4;
 	pixel_y = 32
 	},
+/obj/effect/floor_decal/industrial/hatch/red,
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/gunnery)
 "uvJ" = (
@@ -5795,31 +5806,18 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ranger_corvette/gunnery)
 "vyi" = (
-/obj/structure/bed/stool/chair/office/dark{
-	dir = 4
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ranger_corvette/gunnery)
 "vyy" = (
-/obj/structure/table/steel,
-/obj/structure/window/reinforced{
-	name = "adjusted reinforced window"
-	},
-/obj/machinery/door/window/northleft{
-	dir = 4
-	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ranger_corvette/gunnery)
 "vyC" = (
-/obj/effect/floor_decal/industrial/loading/yellow{
-	dir = 8
-	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 1
 	},
@@ -5837,10 +5835,6 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
-/obj/structure/cable/green{
-	icon_state = "1-2"
-	},
-/obj/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/gunnery)
 "vzU" = (
@@ -6171,12 +6165,11 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/obj/structure/cable/green{
-	icon_state = "1-4"
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/gunnery)
@@ -6383,30 +6376,12 @@
 	dir = 8;
 	icon_state = "tube_empty"
 	},
-/obj/item/ship_ammunition/francisca/ap{
-	pixel_y = 8
-	},
-/obj/item/ship_ammunition/francisca/ap{
-	pixel_y = 8
-	},
-/obj/item/ship_ammunition/francisca/ap{
-	pixel_y = 8
-	},
-/obj/item/ship_ammunition/francisca/ap{
-	pixel_y = 8
-	},
-/obj/item/ship_ammunition/francisca/ap{
-	pixel_y = 8
-	},
-/obj/item/ship_ammunition/francisca/ap{
-	pixel_y = 8
-	},
-/obj/item/ship_ammunition/francisca,
-/obj/item/ship_ammunition/francisca,
-/obj/item/ship_ammunition/francisca,
-/obj/item/ship_ammunition/francisca,
-/obj/item/ship_ammunition/francisca,
-/obj/item/ship_ammunition/francisca,
+/obj/item/ship_ammunition/autocannon,
+/obj/item/ship_ammunition/autocannon,
+/obj/item/ship_ammunition/autocannon,
+/obj/item/ship_ammunition/autocannon,
+/obj/item/ship_ammunition/autocannon,
+/obj/item/ship_ammunition/autocannon,
 /turf/simulated/floor/reinforced,
 /area/ship/ranger_corvette/munitions)
 "xuX" = (
@@ -34709,10 +34684,10 @@ xRX
 xRX
 xRX
 xRX
+sXv
+sXv
 xRX
-xRX
-xRX
-xRX
+sMm
 xRX
 xRX
 xRX
@@ -34969,7 +34944,7 @@ uFD
 uFD
 uFD
 uFD
-jYf
+pia
 xRX
 xRX
 xRX
@@ -35222,9 +35197,9 @@ xRX
 xRX
 xRX
 xRX
-pia
-uFD
-xRX
+jYf
+jYf
+sXv
 xRX
 xRX
 xRX
@@ -37028,7 +37003,7 @@ jwy
 lNh
 rzM
 tLA
-sMm
+smG
 vyi
 cxr
 tLA
