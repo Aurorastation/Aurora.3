@@ -49,6 +49,7 @@ GLOBAL_LIST_INIT(admin_verbs_admin, list(
 	/client/proc/cmd_admin_local_narrate,	//sends text to all mobs within 7 tiles of src.mob
 	/client/proc/cmd_admin_local_screen_text,
 	/client/proc/cmd_admin_global_screen_text,
+	/client/proc/cmd_admin_open_narrate_panel, // Admin logged variant of the narrator panel.
 	/client/proc/cmd_admin_world_narrate,	//sends text to all players with no padding,
 	/client/proc/cmd_admin_create_centcom_report,
 	/client/proc/check_ai_laws,			//shows AI and borg laws,
@@ -309,6 +310,7 @@ GLOBAL_LIST_INIT(admin_verbs_hideable, list(
 	/client/proc/cmd_admin_local_narrate,
 	/client/proc/cmd_admin_local_screen_text,
 	/client/proc/cmd_admin_global_screen_text,
+	/client/proc/cmd_admin_open_narrate_panel, // Admin logged variant of the narrator panel.
 	/client/proc/cmd_admin_world_narrate,
 	/client/proc/cmd_admin_grab_observers,
 	/client/proc/cmd_admin_create_centcom_report,

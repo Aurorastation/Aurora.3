@@ -172,8 +172,6 @@
 	if(mob.transforming)
 		return	//This is sota the goto stop mobs from moving var
 
-	var/add_delay = mob.cached_multiplicative_slowdown
-
 	if(isliving(mob))
 		if(SEND_SIGNAL(mob, COMSIG_MOB_CLIENT_PRE_LIVING_MOVE, new_loc, direct) & COMSIG_MOB_CLIENT_BLOCK_PRE_LIVING_MOVE)
 			return FALSE
@@ -224,15 +222,6 @@
 			move_delay = world.time + 1 SECOND // prevent spam
 			return FALSE
 
-		//If the move was recent, count using old_move_delay
-		//We want fractional behavior and all
-		if(old_move_delay + world.tick_lag > world.time)
-			//Yes this makes smooth movement stutter if add_delay is too fractional
-			//Yes this is better then the alternative
-			move_delay = old_move_delay
-		else
-			move_delay = world.time
-
 		if(mob.buckled_to)
 			if(istype(mob.buckled_to, /obj/vehicle))
 				//manually set move_delay for vehicles so we don't inherit any mob movement penalties
@@ -279,7 +268,6 @@
 			tally *= GLOB.config.walk_delay_multiplier
 
 		move_delay += tally
-		move_delay += add_delay
 
 		if(mob_is_human && mob.lying)
 			var/mob/living/carbon/human/H = mob
@@ -300,6 +288,16 @@
 		var/old_loc = mob.loc
 
 		moving = TRUE
+
+		var/new_glide_size = mob.glide_size
+
+		if(old_move_delay + world.tick_lag > world.time)
+			new_glide_size = DELAY_TO_GLIDE_SIZE((move_delay - old_move_delay) * ( (NSCOMPONENT(direct) && EWCOMPONENT(direct)) ? sqrt(2) : 1 ) )
+		else
+			new_glide_size = DELAY_TO_GLIDE_SIZE((move_delay - world.time) * ( (NSCOMPONENT(direct) && EWCOMPONENT(direct)) ? sqrt(2) : 1 ) )
+
+		mob.set_glide_size(new_glide_size) // set it now in case of pulled objects
+
 		if(mob.confused && prob(25) && mob.m_intent == M_RUN)
 			step(mob, pick(GLOB.cardinals))
 		else

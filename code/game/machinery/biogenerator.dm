@@ -364,7 +364,7 @@ CLOTHING
 	cost = 150
 
 /singleton/biorecipe/clothes/gloves
-	name = "Random Black Gloves"
+	name = "Random Work Gloves"
 	object = /obj/random/biogenerator/gloves
 	cost = 125
 

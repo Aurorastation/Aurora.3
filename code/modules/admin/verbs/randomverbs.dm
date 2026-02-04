@@ -26,7 +26,7 @@
 		to_chat(src, "Only administrators may use this command.")
 		return
 
-	var/msg = sanitize(input("Message:", "Subtle PM to [M.key]"))
+	var/msg = tgui_input_text(usr, "Enter your subtle message", "Subtle PM to [M.key]")
 
 	if (!msg)
 		return
@@ -83,7 +83,7 @@
 		to_chat(src, "Only administrators may use this command.")
 		return
 
-	var/msg = html_decode(sanitize(input("Message:", "Enter the text you wish to appear to everyone:")))
+	var/msg = tgui_input_text(usr, "Enter the text you wish to appear to everyone:", "Message:")
 
 	if (!msg)
 		return
@@ -110,7 +110,7 @@
 	else
 		return
 
-	var/msg = html_decode(sanitize(input("Message:", "Enter the text you wish to appear to everyone within seven tiles of you:")))
+	var/msg = tgui_input_text(usr, "Enter the text you wish to appear to everyone within seven tiles of you:", "Message:")
 	if(!msg)
 		return
 	for(var/M in message_mobs)
@@ -192,7 +192,7 @@
 	if(!M)
 		return
 
-	var/msg = html_decode(sanitize(input("Message:", "Enter the text you wish to appear to your target:")))
+	var/msg = tgui_input_text(usr, "Enter the text you wish to appear to your target:", "Message:")
 
 	if( !msg )
 		return
@@ -1126,3 +1126,18 @@ Traitors and the like can also be revived with the previous role mostly intact.
 	message_admins("[key_name_admin(usr)] sent a pregenerated tip of the round.")
 	log_admin("[key_name(usr)] sent a pregenerated Tip of the Round.")
 	feedback_add_details("admin_verb","FAP")
+
+// Variant of the narrate panel that is for admins. This is logged to check if people are abusing it.
+/client/proc/cmd_admin_open_narrate_panel()
+	set category = "Special Verbs"
+	set name = "Narration Panel"
+
+	if (!check_rights(R_ADMIN, TRUE))
+		return
+
+	var/datum/tgui_module/narrate_panel/NP = new /datum/tgui_module/narrate_panel(usr)
+	NP.ui_interact(usr)
+
+	message_admins("[key_name_admin(usr)] used the Narration Panel")
+	log_admin("[key_name(usr)] used the Narration Panel")
+	feedback_add_details("admin_verb", "AONP")

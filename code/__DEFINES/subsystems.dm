@@ -161,6 +161,7 @@
 #define DEPARTMENT_CIVILIAN "Civilian"
 #define DEPARTMENT_EQUIPMENT "Equipment"
 #define DEPARTMENT_MISCELLANEOUS "Miscellaneous"
+#define DEPARTMENT_OFFSHIP "Off-ship"
 #define DEPARTMENTS_LIST_INIT list(\
 	DEPARTMENT_COMMAND = list(),\
 	DEPARTMENT_COMMAND_SUPPORT = list(),\
@@ -173,6 +174,7 @@
 	DEPARTMENT_CIVILIAN = list(),\
 	DEPARTMENT_EQUIPMENT = list(),\
 	DEPARTMENT_MISCELLANEOUS = list(),\
+	DEPARTMENT_OFFSHIP = list(),\
 )
 
 // job roles within departments

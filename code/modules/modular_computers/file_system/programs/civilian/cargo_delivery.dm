@@ -16,6 +16,7 @@
 	var/list/order_details = list() //Order Details for the order
 	var/datum/cargo_order/co
 	var/mod_mode = TRUE //If it can be used to pay for orders
+	var/destinationact = "Personal"
 
 /datum/computer_file/program/civilian/cargodelivery/ui_data(mob/user)
 	var/list/data = initial_data()
@@ -46,6 +47,8 @@
 	//Pass the status message along
 	data["status_message"] = status_message
 
+	data["paying_account"] = destinationact
+
 	return data
 
 /datum/computer_file/program/civilian/cargodelivery/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
@@ -55,18 +58,35 @@
 
 	var/obj/item/card/id/I = usr.GetIdCard()
 
-	//Check if we want to deliver or pay
-	//If we are at the status shipped, then only the confirm delivery and pay button should be shown (deliver)
-	//If the status is not shipped, then only show the pay button as we can not confirm that it has been paid so far
-	//Everyone can pay / confirm delivery
 	if(action == "deliver")
-		order_details = co.get_list()
 
-		//Check if its already delivered
-		if(order_details["status"] == "delivered" && !order_details["needs_payment"])
-			status_message = "Unable to Deliver - Order has already been delivered and paid for."
+		if(computer && computer.card_slot && computer.network_card)
+			var/obj/item/card/id/id_card
+			if(computer.card_slot?.stored_card)
+				id_card = computer.card_slot.stored_card
+			if(!id_card?.registered_name)
+				status_message = "Card Error: Invalid ID Card in Card Reader"
+				return TRUE
+			order_details = co.get_list()
+
+			//Check if its already delivered
+			if(order_details["status"] == "delivered")
+				status_message = "Unable to Deliver - Order has already been delivered."
+				return TRUE
+
+			//If a payment is not needed and we are at the status shipped, then confirm the delivery
+			else if(order_details["status"] == "shipped")
+				playsound(computer, 'sound/machines/chime.ogg', 50, TRUE)
+				status_message = co.set_delivered(GetNameAndAssignmentFromId(id_card), usr.character_id)
+				order_details = co.get_list()
+			else
+				status_message = "The order is not yet shipped."
+				return TRUE
+		else
+			status_message = "Unable to process - Network Card or Card Reader Missing"
 			return TRUE
 
+	if(action == "pay")
 		if(computer && computer.card_slot && computer.network_card)
 			var/using_id = FALSE
 			var/obj/item/card/id/id_card
@@ -77,6 +97,13 @@
 				using_id = FALSE
 				status_message = "Card Error: Invalid ID Card in Card Reader"
 
+			order_details = co.get_list()
+
+			//Check if its already paid for
+			if(!order_details["needs_payment"])
+				status_message = "Unable to pay - Order has already been paid for."
+				return TRUE
+
 			var/obj/item/spacecash/ewallet/charge_card
 			if(!using_id)
 				if(isliving(usr))
@@ -85,14 +112,18 @@
 				if(!istype(charge_card))
 					return TRUE
 
-			//Check if a payment is required
 			if(order_details["needs_payment"])
 				var/transaction_amount = order_details["price_customer"]
 				var/transaction_purpose = "Cargo Order #[order_details["order_id"]]"
 				var/transaction_terminal = "Modular Computer #[computer.network_card.identification_id]"
 
 				if(using_id)
-					var/status = SSeconomy.transfer_money(id_card.associated_account_number, SScargo.supply_account.account_number,transaction_purpose,transaction_terminal,transaction_amount,null,usr)
+					var/status
+					if(destinationact == "Personal")
+						status = SSeconomy.transfer_money(id_card.associated_account_number, SScargo.supply_account.account_number,transaction_purpose,transaction_terminal,transaction_amount,null,usr)
+					else
+						transaction_purpose = "Cargo Order #[order_details["order_id"]] by [id_card.registered_name]"
+						status = SSeconomy.transfer_money(SSeconomy.get_department_account(destinationact)?.account_number, SScargo.supply_account.account_number,transaction_purpose,transaction_terminal,transaction_amount,null,usr)
 					if(status)
 						status_message = status
 						return TRUE
@@ -106,22 +137,10 @@
 					charge_card.worth -= transaction_amount
 
 				playsound(computer, 'sound/machines/chime.ogg', 50, TRUE)
-
-				//Check if we have delivered it aswell or only paid
-				if(order_details["status"] == "shipped")
-					status_message = co.set_delivered(GetNameAndAssignmentFromId(I), usr.character_id, 1)
-				else
-					status_message = co.set_paid(GetNameAndAssignmentFromId(I), usr.character_id)
+				status_message = co.set_paid(GetNameAndAssignmentFromId(id_card), usr.character_id)
 				order_details = co.get_list()
-
-			else
-				//If a payment is not needed and we are at the status shipped, then confirm the delivery
-				if(order_details["status"] == "shipped")
-					playsound(computer, 'sound/machines/chime.ogg', 50, TRUE)
-					status_message = co.set_delivered(GetNameAndAssignmentFromId(I), usr.character_id, 0)
-			order_details = co.get_list()
 		else
-			status_message = "Unable to process - Network Card or Cardreader Missing"
+			status_message = "Unable to process - Network Card or Card Reader Missing"
 			return TRUE
 
 
@@ -146,4 +165,12 @@
 				order_details = co.get_list()
 			else
 				page = "overview_main" //fall back to overview_main if a unknown page has been supplied
+		return TRUE
+	if(action == "accountselect")
+		var/list/choices = assoc_to_keys(SSeconomy.department_accounts)
+		choices += "Personal"
+		var/dest = tgui_input_list(usr, "What account would you like to select?", "Destination Account", choices)
+		if(!dest)
+			return FALSE
+		destinationact = dest
 		return TRUE

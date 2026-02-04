@@ -149,7 +149,7 @@
 	pass_flags = PASSTABLE | PASSGRILLE | PASSRAILING
 	range = 10
 	embed = 0
-	speed = 2
+	speed = 1
 	light_range = 4
 	light_color = "#b5ff5b"
 

@@ -328,7 +328,7 @@
 	category = "medical"
 	name = "mortaphenyl bottle"
 	supplier = "nanotrasen"
-	description = "A bottle of mortaphenyl, a strong non-opioid painkiller."
+	description = "A bottle of mortaphenyl, a weak, synthetic, opioid painkiller."
 	price = 455
 	items = list(
 		/obj/item/reagent_containers/glass/bottle/mortaphenyl

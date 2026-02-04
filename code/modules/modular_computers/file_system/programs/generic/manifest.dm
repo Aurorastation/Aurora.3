@@ -19,4 +19,5 @@
 	var/list/data = list()
 	data["manifest"] = SSrecords.get_manifest_list()
 	data["allow_follow"] = isobserver(usr)
+	data["show_ooc_roles"] = isabstractmob(usr)
 	return data

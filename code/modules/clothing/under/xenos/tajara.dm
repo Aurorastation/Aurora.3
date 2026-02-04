@@ -232,6 +232,9 @@
 	starting_accessories = list(/obj/item/clothing/accessory/storage/bayonet)
 	armor = list(MELEE = ARMOR_MELEE_SMALL)
 
+/obj/item/clothing/under/tajaran/nka_uniform/nosheath
+	starting_accessories = null
+
 /obj/item/clothing/under/tajaran/nka_uniform/commander
 	name = "imperial adhomian army officer uniform"
 	desc = "A military uniform used by the officers of the New Kingdom of Adhomai's army."
@@ -374,6 +377,11 @@
 	name = "adhomai liberation army dress uniform"
 	icon_state = "ala-soldatdress"
 	item_state = "ala-soldatdress"
+
+/obj/item/clothing/under/tajaran/ala/black/dress/ajic
+	name = "protective services group of the adhomai joint intelligence committee uniform"
+	desc = "A surplus Adhomai Liberation Army dress uniform. The ALA symbols have been replaced with the symbol of the Adhomai Joint Intelligence Committee."
+	starting_accessories = null
 
 /obj/item/clothing/under/tajaran/ala/black/officer
 	name = "adhomai liberation army officer uniform"
