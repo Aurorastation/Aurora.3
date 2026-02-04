@@ -53,15 +53,15 @@
 		to_chat(grabber, SPAN_WARNING("\The [grabbed] is missing that body part!"))
 		return FALSE
 
-	grabber.visible_message(SPAN_DANGER("\The [grabber] begins to [pick("bend", "twist")] \the [grabbed]'s [limb.name] into a jointlock!"))
+	grabber.visible_message(SPAN_DANGER("\The [grabber] begins to [pick("bend", "twist")] \the [grabbed]'s [limb.joint] into a jointlock!"))
 	if(do_mob(grabber, grabbed, action_cooldown - 1))
 		G.action_used()
 		limb.jointlock(grabber)
-		grabber.visible_message(SPAN_DANGER("\The [grabbed]'s [limb.name] is twisted!"))
+		grabber.visible_message(SPAN_DANGER("\The [grabbed]'s [limb.joint] is twisted!"))
 		playsound(grabber.loc, 'sound/weapons/thudswoosh.ogg', 50, 1, -1)
 		return TRUE
 
-	grabbed.visible_message(SPAN_WARNING("\The [grabber] fails to jointlock \the [grabbed]'s [limb.name]."))
+	grabbed.visible_message(SPAN_WARNING("\The [grabber] fails to jointlock \the [grabbed]'s [limb.joint]."))
 	return FALSE
 
 /singleton/grab/normal/on_hit_harm(obj/item/grab/G, atom/A, proximity)
