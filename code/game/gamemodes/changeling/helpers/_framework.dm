@@ -280,6 +280,8 @@ GLOBAL_LIST_INIT(possible_changeling_IDs, list("Alpha","Beta","Gamma","Delta","E
 		to_chat(H, SPAN_WARNING("You've already awakened your changeling potential!"))
 		return
 
-	GLOB.changelings.add_antagonist(H.mind)
-	to_chat(H, SPAN_NOTICE("You've awakened your changeling potential!"))
-	qdel(src)
+	if(GLOB.changelings.add_antagonist(H.mind))
+		to_chat(H, SPAN_NOTICE("You've awakened your changeling potential!"))
+		qdel(src)
+	else
+		to_chat(H, SPAN_WARNING("Something prevented you from becoming a changeling."))

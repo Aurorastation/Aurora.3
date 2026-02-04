@@ -321,6 +321,8 @@
 		return
 
 	//H.make_vampire()
-	GLOB.vamp.add_antagonist(H.mind)
-	to_chat(H, SPAN_NOTICE("You've awakened your vampiric potential!"))
-	qdel(src)
+	if(GLOB.vamp.add_antagonist(H.mind))
+		to_chat(H, SPAN_NOTICE("You've awakened your vampiric potential!"))
+		qdel(src)
+	else
+		to_chat(H, SPAN_WARNING("Something prevented you from becoming a vampire."))
