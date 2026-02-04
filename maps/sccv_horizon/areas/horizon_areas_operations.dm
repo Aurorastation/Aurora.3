@@ -12,7 +12,6 @@
 	icon_state = "dark160"
 	sound_environment = SOUND_AREA_LARGE_ENCLOSED
 	area_blurb = "Scuff marks scar the floor from the movement of many crates and stored goods."
-	area_blurb_category = "ops_warehouse"
 	horizon_deck = 1
 
 /area/horizon/operations/package_conveyors
@@ -90,7 +89,6 @@
 /area/horizon/hangar/intrepid
 	name = "Primary Hangar"
 	area_blurb = "A big, open room, home to the SCCV Horizon's largest shuttle, the Intrepid."
-	area_blurb_category = "hanger"
 
 /area/horizon/hangar/intrepid/interstitial
 	name = "Intrepid Hangar Access"
@@ -99,19 +97,16 @@
 	name = "Starboard Auxiliary Hangar"
 	holomap_color = HOLOMAP_AREACOLOR_OPERATIONS
 	area_blurb = "A big, open room, home to the SCCV Horizon's mining shuttle, the Spark."
-	area_blurb_category = "hanger"
 
 /area/horizon/hangar/auxiliary
 	name = "Port Auxiliary Hangar"
 	area_blurb = "A big, open room, home to two of the SCCV Horizon's shuttles, the Quark and the Canary."
-	area_blurb_category = "hanger"
 
 /// OPERATIONS_AREAS - MACHINIST_AREAS
 /area/horizon/operations/machinist
 	name = "Machinist Workshop"
 	icon_state = "machinist_workshop"
 	area_blurb = "The scents of oil and mechanical lubricants fill the air in this workshop."
-	area_blurb_category = "robotics"
 	subdepartment = SUBLOC_MACHINING
 	horizon_deck = 2
 
@@ -119,7 +114,6 @@
 	name = "Machinist Surgical Bay"
 	icon_state = "machinist_workshop"
 	area_blurb = "Back in the workshop's surgical bay, the sharp-edged odor of sterilized equipment predominates."
-	area_blurb_category = "robotics"
 	horizon_deck = 2
 
 /// OPERATIONS_AREAS - MINING_AREAS
