@@ -190,6 +190,7 @@ ABSTRACT_TYPE(/obj/item/storage/secure)
 	starts_with = list(/obj/item/paper = 1, /obj/item/pen = 1)
 
 /obj/item/storage/secure/safe/attack_hand(mob/user as mob)
+	. = ..()
 	return attack_self(user)
 
 /*obj/item/storage/secure/safe/HoS/New()

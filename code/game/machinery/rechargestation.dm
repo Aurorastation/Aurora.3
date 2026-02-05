@@ -200,19 +200,6 @@
 			return TRUE
 		else if(default_part_replacement(user, attacking_item))
 			return TRUE
-
-	if(istype(attacking_item, /obj/item/grab))
-		var/obj/item/grab/grab = attacking_item
-		var/mob/living/L = grab.affecting
-		if(!L.isSynthetic())
-			return TRUE
-
-		var/bucklestatus = L.bucklecheck(user)
-		if(!bucklestatus)
-			return TRUE
-
-		move_ipc(grab.affecting)
-		qdel(attacking_item)
 	return ..()
 
 /obj/machinery/recharge_station/RefreshParts()

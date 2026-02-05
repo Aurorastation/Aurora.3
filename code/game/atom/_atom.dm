@@ -56,6 +56,10 @@
 
 	var/gfi_layer_rotation = GFI_ROTATION_DEFAULT
 
+	var/tmp/default_pixel_x
+	var/tmp/default_pixel_y
+	var/tmp/default_pixel_z
+	var/tmp/default_pixel_w
 	//light stuff
 
 	///Light systems, only one of the three should be active at the same time.
@@ -185,6 +189,12 @@
 	ricocheting_projectile.set_angle(new_angle_s)
 	return TRUE
 
+/atom/proc/CanMoveOnto(atom/movable/mover, turf/target, height=1.5, direction = 0)
+	//Purpose: Determines if the object can move through this
+	//Uses regular limitations plus whatever we think is an exception for the purpose of
+	//moving up and down z levles
+	return CanPass(mover, target, height, 0)
+
 /**
  * Purpose: Determines if the object (or airflow) can pass this atom.
  * Called by: Movement, airflow.
@@ -212,7 +222,7 @@
 	return (!density || !height || air_group)
 
 /**
- * An atom we are buckled or is contained within us has tried to move.
+ * An atom we have buckled or is contained within us has tried to move.
  */
 /atom/proc/relaymove(mob/living/user, direction)
 	SHOULD_NOT_SLEEP(TRUE)

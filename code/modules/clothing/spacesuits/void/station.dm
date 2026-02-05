@@ -7,8 +7,8 @@
 	icon_state = "engineering_helm"
 	item_state = "engineering_helm"
 	item_state_slots = list( //so that it isn't overridden on refit
-		slot_r_hand_str = "engineering_helm",
-		slot_l_hand_str = "engineering_helm"
+		BP_R_HAND = "engineering_helm",
+		BP_L_HAND = "engineering_helm"
 	)
 	contained_sprite = TRUE
 	icon_supported_species_tags = list("skr", "taj", "una", "ipc", "vau")
@@ -33,8 +33,8 @@
 	icon_state = "engineering"
 	item_state = "engineering"
 	item_state_slots = list( //so that it isn't overridden on refit
-		slot_r_hand_str = "engineering",
-		slot_l_hand_str = "engineering"
+		BP_R_HAND = "engineering",
+		BP_L_HAND = "engineering"
 	)
 	contained_sprite = TRUE
 	icon_supported_species_tags = list("skr", "taj", "una", "ipc", "vau")
@@ -60,8 +60,8 @@
 	icon_state = "mining_helm"
 	item_state = "mining_helm"
 	item_state_slots = list( //so that it isn't overridden on refit
-		slot_r_hand_str = "mining_helm",
-		slot_l_hand_str = "mining_helm"
+		BP_R_HAND = "mining_helm",
+		BP_L_HAND = "mining_helm"
 	)
 	contained_sprite = TRUE
 	icon_supported_species_tags = list("skr", "taj", "una", "ipc", "vau")
@@ -83,8 +83,8 @@
 	icon_state = "mining"
 	item_state = "mining"
 	item_state_slots = list( //so that it isn't overridden on refit
-		slot_r_hand_str = "mining",
-		slot_l_hand_str = "mining"
+		BP_R_HAND = "mining",
+		BP_L_HAND = "mining"
 	)
 	contained_sprite = TRUE
 	icon_supported_species_tags = list("skr", "taj", "una", "ipc", "vau")
@@ -107,8 +107,8 @@
 	icon_state = "medical_helm"
 	item_state = "medical_helm"
 	item_state_slots = list( //so that it isn't overridden on refit
-		slot_r_hand_str = "medical_helm",
-		slot_l_hand_str = "medical_helm"
+		BP_R_HAND = "medical_helm",
+		BP_L_HAND = "medical_helm"
 	)
 	contained_sprite = TRUE
 	icon_supported_species_tags = list("skr", "taj", "una", "ipc")
@@ -130,8 +130,8 @@
 	icon_state = "medical"
 	item_state = "medical"
 	item_state_slots = list( //so that it isn't overridden on refit
-		slot_r_hand_str = "medical",
-		slot_l_hand_str = "medical"
+		BP_R_HAND = "medical",
+		BP_L_HAND = "medical"
 	)
 	contained_sprite = TRUE
 	icon_supported_species_tags = list("skr", "taj", "una", "ipc")
@@ -153,8 +153,8 @@
 	icon_state = "security_helm"
 	item_state = "security_helm"
 	item_state_slots = list( //so that it isn't overridden on refit
-		slot_r_hand_str = "security_helm",
-		slot_l_hand_str = "security_helm"
+		BP_R_HAND = "security_helm",
+		BP_L_HAND = "security_helm"
 	)
 	contained_sprite = TRUE
 	icon_supported_species_tags = list("skr", "taj", "una", "ipc")
@@ -177,8 +177,8 @@
 	icon_state = "security"
 	item_state = "security"
 	item_state_slots = list( //so that it isn't overridden on refit
-		slot_r_hand_str = "security",
-		slot_l_hand_str = "security"
+		BP_R_HAND = "security",
+		BP_L_HAND = "security"
 	)
 	contained_sprite = TRUE
 	icon_supported_species_tags = list("skr", "taj", "una", "ipc")
@@ -201,8 +201,8 @@
 	icon_state = "atmos_helm"
 	item_state = "atmos_helm"
 	item_state_slots = list( //so that it isn't overridden on refit
-		slot_r_hand_str = "atmos_helm",
-		slot_l_hand_str = "atmos_helm"
+		BP_R_HAND = "atmos_helm",
+		BP_L_HAND = "atmos_helm"
 	)
 	contained_sprite = TRUE
 	icon_supported_species_tags = list("skr", "taj", "una", "ipc", "vau")
@@ -227,8 +227,8 @@
 	icon_state = "atmos"
 	item_state = "atmos"
 	item_state_slots = list( //so that it isn't overridden on refit
-		slot_r_hand_str = "atmos",
-		slot_l_hand_str = "atmos"
+		BP_R_HAND = "atmos",
+		BP_L_HAND = "atmos"
 	)
 	contained_sprite = TRUE
 	icon_supported_species_tags = list("skr", "taj", "una", "ipc", "vau")
@@ -253,8 +253,8 @@
 	icon_state = "hos_helm"
 	item_state = "hos_helm"
 	item_state_slots = list( //so that it isn't overridden on refit
-		slot_r_hand_str = "security_helm",
-		slot_l_hand_str = "security_helm"
+		BP_R_HAND = "security_helm",
+		BP_L_HAND = "security_helm"
 	)
 	contained_sprite = TRUE
 	icon_supported_species_tags = list("skr", "taj", "una", "ipc")
@@ -276,8 +276,8 @@
 	icon_state = "hos"
 	item_state = "hos"
 	item_state_slots = list( //so that it isn't overridden on refit
-		slot_r_hand_str = "security",
-		slot_l_hand_str = "security"
+		BP_R_HAND = "security",
+		BP_L_HAND = "security"
 	)
 	contained_sprite = TRUE
 	icon_supported_species_tags = list("skr", "taj", "una", "ipc")
@@ -300,8 +300,8 @@
 	icon_state = "research_helm"
 	item_state = "research_helm"
 	item_state_slots = list( //so that it isn't overridden on refit
-		slot_r_hand_str = "research_helm",
-		slot_l_hand_str = "research_helm"
+		BP_R_HAND = "research_helm",
+		BP_L_HAND = "research_helm"
 	)
 	contained_sprite = TRUE
 	icon_supported_species_tags = list("skr", "taj", "una", "ipc", "vau")
@@ -321,8 +321,8 @@
 	icon_state = "research"
 	item_state = "research"
 	item_state_slots = list( //so that it isn't overridden on refit
-		slot_r_hand_str = "research",
-		slot_l_hand_str = "research"
+		BP_R_HAND = "research",
+		BP_L_HAND = "research"
 	)
 	contained_sprite = TRUE
 	icon_supported_species_tags = list("skr", "taj", "una", "ipc", "vau")

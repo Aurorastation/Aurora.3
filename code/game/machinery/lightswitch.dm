@@ -46,6 +46,13 @@
 		set_light(FALSE)
 
 /obj/machinery/light_switch/attack_hand(mob/user)
+	. = ..()
+	on_interact(user)
+
+/obj/machinery/light_switch/proc/on_interact(mob/user)
+	handle_power_toggle()
+
+/obj/machinery/light_switch/proc/handle_power_toggle()
 	playsound(src, SFX_SWITCH, 30)
 	on = !on
 	sync_lights()
@@ -119,11 +126,7 @@
 		on = TRUE
 		area.lightswitch = TRUE
 
-/obj/machinery/light_switch/idris/attack_hand(mob/user)
-	if(stat & NOPOWER)
-		to_chat(user, SPAN_WARNING("\The [src] is not responding."))
-		return
-
+/obj/machinery/light_switch/idris/on_interact(mob/user)
 	var/choice = show_control_menu(user)
 	if(!choice)
 		return
@@ -167,12 +170,6 @@
 		return
 
 	handle_preset_color(choice)
-
-/obj/machinery/light_switch/idris/proc/handle_power_toggle()
-	playsound(src, SFX_SWITCH, 30)
-	on = !on
-	sync_lights()
-	intent_message(BUTTON_FLICK, 5)
 
 //brightness adjustment
 /obj/machinery/light_switch/idris/proc/handle_brightness_adjustment(mob/user)

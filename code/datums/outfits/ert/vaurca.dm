@@ -41,7 +41,7 @@
 	if(H?.shoes)
 		H.shoes.color = "#391610"
 		var/obj/item/clothing/shoes/magboots/vaurca/boots = new(H)
-		H.equip_to_slot_if_possible(boots, slot_shoes)
+		H.equip_to_slot_if_possible(boots, slot_shoes_str)
 	if(H?.w_uniform)
 		H.w_uniform.color = "#391610"
 	if(H?.glasses)
@@ -96,7 +96,7 @@
 	if(H?.shoes)
 		H.shoes.color = "#391610"
 		var/obj/item/clothing/shoes/magboots/vaurca/boots = new(H)
-		H.equip_to_slot_if_possible(boots, slot_shoes)
+		H.equip_to_slot_if_possible(boots, slot_shoes_str)
 	if(H?.w_uniform)
 		H.w_uniform.color = "#391610"
 	if(H?.glasses)
@@ -133,7 +133,7 @@
 
 /obj/outfit/admin/ert/zora/heavy
 	name = "Zo'ra Heavy"
-	r_hand = /obj/item/gun/energy/vaurca/gatlinglaser
+	hands = list(/obj/item/gun/energy/vaurca/gatlinglaser)
 	back = /obj/item/rig/vaurca
 	suit_store = null
 	suit = null
@@ -154,7 +154,7 @@
 	l_ear = /obj/item/radio/headset/distress
 	r_pocket = /obj/item/crowbar/red
 	accessory = /obj/item/clothing/accessory/holster/hip
-	r_hand = /obj/item/recharger_backpack/high //so they can charge the hegemony weapons
+	hands = list(/obj/item/recharger_backpack/high) //so they can charge the hegemony weapons
 	accessory_contents = list(
 		/obj/item/gun/energy/pistol/hegemony = 1
 	)
@@ -185,7 +185,7 @@
 	if(H?.shoes)
 		H.shoes.color = "#0e3a11"
 		var/obj/item/clothing/shoes/magboots/vaurca/boots = new(H)
-		H.equip_to_slot_if_possible(boots, slot_shoes)
+		H.equip_to_slot_if_possible(boots, slot_shoes_str)
 	if(H?.w_uniform)
 		H.w_uniform.color = "#0e3a11"
 	if(H?.glasses)
@@ -198,7 +198,7 @@
 	name = "K'lax Field Biotechnician"
 	belt = /obj/item/storage/belt/medical/paramedic/combat
 	gloves = /obj/item/clothing/gloves/latex/nitrile/vaurca
-	r_hand = null
+	hands = null
 
 	backpack_contents = list(
 		/obj/item/reagent_containers/food/snacks/koisbar = 3,
@@ -241,7 +241,7 @@
 	name = "K'lax Sapper"
 	belt = /obj/item/storage/belt/utility/very_full
 	accessory = /obj/item/clothing/accessory/storage/brown_vest
-	r_hand = null
+	hands = null
 	accessory_contents = list(
 		/obj/item/plastique = 5
 	)
@@ -267,7 +267,7 @@
 
 /obj/outfit/admin/ert/klax/heavy
 	name = "K'lax Heavy"
-	r_hand = /obj/item/melee/energy/vaurca_zweihander
+	hands = list(/obj/item/melee/energy/vaurca_zweihander)
 	back = /obj/item/rig/vaurca
 	suit_store = null
 	suit = null

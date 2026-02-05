@@ -168,7 +168,6 @@
 				if(H.shoes && H.shoes.item_flags & ITEM_FLAG_NO_SLIP)
 					return
 
-			M.stop_pulling()
 			to_chat(M, SPAN_NOTICE("You slipped on the [name]!"))
 			playsound(src.loc, 'sound/misc/slip.ogg', 50, 1, -3)
 			M.Stun(8)

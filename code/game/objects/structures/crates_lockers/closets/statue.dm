@@ -36,8 +36,7 @@
 			L.client.perspective = EYE_PERSPECTIVE
 			L.client.eye = src
 
-		L.drop_r_hand()
-		L.drop_l_hand()
+		L.drop_held_items()
 
 		L.forceMove(src)
 		L.sdisabilities |= MUTE
@@ -157,7 +156,7 @@
 	return
 
 /obj/structure/closet/statue/attack_hand()
-	return
+	SHOULD_CALL_PARENT(FALSE)
 
 /obj/structure/closet/statue/verb_toggleopen()
 	return

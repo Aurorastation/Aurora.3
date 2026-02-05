@@ -128,21 +128,6 @@
 	owner.ui_action_click()
 	return 1
 
-/atom/movable/screen/grab
-	name = "grab"
-
-/atom/movable/screen/grab/Click()
-	var/obj/item/grab/G = master
-	G.s_click(src)
-	return 1
-
-/atom/movable/screen/grab/attack_hand()
-	return
-
-/atom/movable/screen/grab/attackby()
-	return
-
-
 /atom/movable/screen/storage
 	name = "storage"
 	screen_loc = "7,7 to 10,8"
@@ -285,9 +270,9 @@
 	if(isobserver(user))
 		return
 	if(choice != selecting)
+		SEND_SIGNAL(user, COMSIG_MOB_ZONE_SEL_CHANGE, selecting, choice)
 		selecting = choice
 		update_icon()
-		SEND_SIGNAL(user, COMSIG_MOB_ZONE_SEL_CHANGE, user)
 
 /atom/movable/screen/zone_sel/update_icon()
 	ClearOverlays()
@@ -335,8 +320,6 @@
 			usr.set_intent(I_DISARM)
 			usr.hud_used.action_intent.icon_state = "intent_disarm"
 
-		if("pull")
-			usr.stop_pulling()
 		if("throw")
 			if(!usr.stat && isturf(usr.loc) && !usr.restrained())
 				usr.toggle_throw_mode()
@@ -463,8 +446,7 @@
 			usr.swap_hand()
 		else
 			if(usr.attack_ui(slot_id))
-				usr.update_inv_l_hand(0)
-				usr.update_inv_r_hand(0)
+				usr.update_inv_hands(FALSE)
 
 	return 1
 
@@ -563,23 +545,28 @@
 	..()
 	if(!hud)
 		return
+
+	var/is_left = slot_id == BP_L_HAND ? BP_L_HAND : slot_id == BP_R_HAND ? BP_R_HAND : null
+	var/mob/living/L = hud.mymob
+	var/mob/living/carbon/human/H = L
+
+	if(istype(H) && !is_left)
+		is_left = LAZYACCESSASSOC(H.species.limb_mapping, BP_L_HAND, slot_id) ? BP_L_HAND : BP_R_HAND
+
 	if(!handcuff_overlay)
-		var/state = (hud.l_hand_hud_object == src) ? "l_hand_hud_handcuffs" : "r_hand_hud_handcuffs"
+		var/state = is_left ? "l_hand_hud_handcuffs" : "r_hand_hud_handcuffs"
 		handcuff_overlay = image("icon"='icons/mob/screen_gen.dmi', "icon_state" = state)
 	if(!disabled_hand_overlay)
-		var/state = (hud.l_hand_hud_object == src) ? "l_hand_disabled" : "r_hand_disabled"
+		var/state = is_left ? "l_hand_disabled" : "r_hand_disabled"
 		disabled_hand_overlay = image("icon" = 'icons/mob/screen_gen.dmi', "icon_state" = state)
 	if(!removed_hand_overlay)
-		var/state = (hud.l_hand_hud_object == src) ? "l_hand_removed" : "r_hand_removed"
+		var/state = is_left ? "l_hand_removed" : "r_hand_removed"
 		removed_hand_overlay = image("icon" = 'icons/mob/screen_gen.dmi', "icon_state" = state)
-	ClearOverlays()
-	if(hud.mymob && ishuman(hud.mymob))
-		var/mob/living/carbon/human/H = hud.mymob
-		var/obj/item/organ/external/O
-		if(hud.l_hand_hud_object == src)
-			O = H.organs_by_name[BP_L_HAND]
-		else
-			O = H.organs_by_name[BP_R_HAND]
+	CutOverlays(list("hand_selected", handcuff_overlay, disabled_hand_overlay, removed_hand_overlay))
+	if(istype(L) && slot_id == L.get_active_held_item_slot())
+		AddOverlays("hand_selected")
+	if(istype(H))
+		var/obj/item/organ/external/O = H.organs_by_name[slot_id]
 		if(!O || O.is_stump())
 			AddOverlays(removed_hand_overlay)
 		else if(O && (!O.is_usable() || O.is_malfunctioning()))

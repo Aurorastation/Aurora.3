@@ -56,6 +56,7 @@
 	ui_interact(user)
 
 /obj/effect/ghostspawpoint/attack_hand(mob/user)
+	. = ..()
 	if(!ROUND_IS_STARTED)
 		to_chat(usr, SPAN_DANGER("The round hasn't started yet!"))
 		return

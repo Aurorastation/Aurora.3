@@ -291,6 +291,7 @@
 	checkhp()
 
 /obj/machinery/shieldgen/attack_hand(mob/user)
+	. = ..()
 	if(locked)
 		to_chat(user, SPAN_WARNING("The machine is locked!"))
 		return

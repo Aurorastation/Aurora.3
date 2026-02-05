@@ -29,8 +29,8 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	icon_state = "match_unlit"
 	item_state = "match_unlit"
 	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items/lefthand_cigs_lighters.dmi',
-		slot_r_hand_str = 'icons/mob/items/righthand_cigs_lighters.dmi',
+		BP_L_HAND = 'icons/mob/items/lefthand_cigs_lighters.dmi',
+		BP_R_HAND = 'icons/mob/items/righthand_cigs_lighters.dmi',
 		)
 	var/smoketime = 10
 	var/type_burnt = /obj/item/trash/match
@@ -49,8 +49,8 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	icon_state = "match_burnt"
 	item_state = "match_burnt"
 	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items/lefthand_cigs_lighters.dmi',
-		slot_r_hand_str = 'icons/mob/items/righthand_cigs_lighters.dmi',
+		BP_L_HAND = 'icons/mob/items/lefthand_cigs_lighters.dmi',
+		BP_R_HAND = 'icons/mob/items/righthand_cigs_lighters.dmi',
 		)
 	randpixel = 10
 	slot_flags = SLOT_EARS | SLOT_MASK
@@ -112,8 +112,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	if(ismob(loc))
 		var/mob/living/M = loc
 		M.update_inv_wear_mask(0)
-		M.update_inv_l_hand(0)
-		M.update_inv_r_hand(1)
+		M.update_inv_hands()
 	set_light_range_power_color(2, 0.25, "#E38F46")
 	set_light_on(TRUE)
 	START_PROCESSING(SSprocessing, src)
@@ -131,11 +130,10 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 			if(M.wear_mask)
 				M.remove_from_mob(src) //un-equip it so the overlays can update
 				M.update_inv_wear_mask(0)
-				M.equip_to_slot_if_possible(burnt, slot_wear_mask)
+				M.equip_to_slot_if_possible(burnt, slot_wear_mask_str)
 			else
 				M.remove_from_mob(src) // if it dies in your hand.
-				M.update_inv_l_hand(0)
-				M.update_inv_r_hand(1)
+				M.update_inv_hands()
 				M.put_in_hands(burnt)
 		set_light_on(FALSE)
 		STOP_PROCESSING(SSprocessing, src)
@@ -225,8 +223,7 @@ ABSTRACT_TYPE(/obj/item/clothing/mask/smokable)
 		if(ismob(loc))
 			var/mob/living/M = loc
 			M.update_inv_wear_mask(0)
-			M.update_inv_l_hand(0)
-			M.update_inv_r_hand(1)
+			M.update_inv_hands()
 		var/turf/T = get_turf(src)
 		T.visible_message(flavor_text)
 		set_light_range_power_color(2, 0.25, "#E38F46")
@@ -249,12 +246,11 @@ ABSTRACT_TYPE(/obj/item/clothing/mask/smokable)
 			else if(M.wear_mask == src)
 				M.remove_from_mob(src) //un-equip it so the overlays can update
 				M.update_inv_wear_mask(0)
-				if(!(M.equip_to_slot_if_possible(butt, slot_wear_mask, bypass_blocked_check = TRUE)))
+				if(!(M.equip_to_slot_if_possible(butt, slot_wear_mask_str, bypass_blocked_check = TRUE)))
 					M.put_in_hands(butt) // In case the above somehow fails, ensure it is placed somewhere
 			else
 				M.remove_from_mob(src) // if it dies in your hand.
-				M.update_inv_l_hand(0)
-				M.update_inv_r_hand(1)
+				M.update_inv_hands()
 				M.put_in_hands(butt)
 
 		STOP_PROCESSING(SSprocessing, src)
@@ -267,8 +263,7 @@ ABSTRACT_TYPE(/obj/item/clothing/mask/smokable)
 				to_chat(M, SPAN_NOTICE("Your [name] goes out, and you empty the ash."))
 				playsound(src.loc, 'sound/items/cigs_lighters/cig_snuff.ogg', 50, 1)
 			M.update_inv_wear_mask(0)
-			M.update_inv_l_hand(0)
-			M.update_inv_r_hand(1)
+			M.update_inv_hands()
 		lit = FALSE
 		icon_state = icon_off
 		item_state = icon_off
@@ -563,8 +558,7 @@ ABSTRACT_TYPE(/obj/item/clothing/mask/smokable)
 /obj/item/clothing/mask/smokable/cigarette/cigar/attackby(obj/item/attacking_item, mob/user)
 	..()
 	user.update_inv_wear_mask(0)
-	user.update_inv_l_hand(0)
-	user.update_inv_r_hand(1)
+	user.update_inv_hands()
 
 /obj/item/clothing/mask/smokable/cigarette/cigar/sausage
 	name = "sausage"
@@ -620,8 +614,7 @@ ABSTRACT_TYPE(/obj/item/clothing/mask/smokable)
 		if(ismob(loc))
 			var/mob/living/M = loc
 			M.update_inv_wear_mask(0)
-			M.update_inv_l_hand(0)
-			M.update_inv_r_hand(1)
+			M.update_inv_hands()
 
 /obj/item/clothing/mask/smokable/pipe/attack_self(mob/user as mob)
 	if(lit == TRUE)
@@ -674,8 +667,7 @@ ABSTRACT_TYPE(/obj/item/clothing/mask/smokable)
 		light(SPAN_NOTICE("[user] fiddles with [attacking_item], and manages to light their [name] with the power of science."))
 
 	user.update_inv_wear_mask(0)
-	user.update_inv_l_hand(0)
-	user.update_inv_r_hand(1)
+	user.update_inv_hands()
 
 /obj/item/clothing/mask/smokable/pipe/cobpipe
 	name = "corn cob pipe"
@@ -706,8 +698,8 @@ ABSTRACT_TYPE(/obj/item/clothing/mask/smokable)
 	icon_state = "lighter-g"
 	item_state = "lighter-g"
 	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items/lefthand_cigs_lighters.dmi',
-		slot_r_hand_str = 'icons/mob/items/righthand_cigs_lighters.dmi',
+		BP_L_HAND = 'icons/mob/items/lefthand_cigs_lighters.dmi',
+		BP_R_HAND = 'icons/mob/items/righthand_cigs_lighters.dmi',
 		)
 	w_class = WEIGHT_CLASS_TINY
 	throwforce = 4

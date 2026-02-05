@@ -393,6 +393,7 @@ pixel_x = 8;
 	INVOKE_ASYNC(src, TYPE_PROC_REF(/obj/item, attack_self), user)
 
 /obj/item/radio/intercom/attack_hand(mob/user as mob)
+	. = ..()
 	src.add_fingerprint(user)
 	INVOKE_ASYNC(src, TYPE_PROC_REF(/obj/item, attack_self), user)
 

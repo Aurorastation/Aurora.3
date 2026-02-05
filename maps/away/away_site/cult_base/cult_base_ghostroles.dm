@@ -164,22 +164,24 @@
 		/obj/item/storage/backpack/satchel/pocketbook,
 		/obj/item/storage/backpack/cultpack,
 	)
-	r_hand = list(
-		/obj/item/flashlight/on,
-		/obj/item/flashlight/lantern/on,
-		/obj/item/flashlight/maglight/on,
-		/obj/item/flashlight/heavy/on,
-	)
-	l_hand = list(
-		/obj/item/melee/cultblade,
-		/obj/item/melee/cultblade,
-		/obj/item/melee/telebaton,
-		/obj/item/melee/baton/stunrod,
-		/obj/item/material/sword/improvised_sword,
-		/obj/item/material/sword/longsword,
-		/obj/item/material/hatchet/machete/steel,
-		/obj/item/material/kitchen/utensil/knife/boot,
-		/obj/item/material/knife/butterfly,
+	hands = list(
+		list(
+			/obj/item/flashlight/on,
+			/obj/item/flashlight/lantern/on,
+			/obj/item/flashlight/maglight/on,
+			/obj/item/flashlight/heavy/on,
+		),
+		list(
+			/obj/item/melee/cultblade,
+			/obj/item/melee/cultblade,
+			/obj/item/melee/telebaton,
+			/obj/item/melee/baton/stunrod,
+			/obj/item/material/sword/improvised_sword,
+			/obj/item/material/sword/longsword,
+			/obj/item/material/hatchet/machete/steel,
+			/obj/item/material/kitchen/utensil/knife/boot,
+			/obj/item/material/knife/butterfly,
+		)
 	)
 	backpack_contents = list(
 		/obj/item/storage/box/survival = 1,
@@ -205,28 +207,28 @@
 
 	// add species equipment
 	if(isoffworlder(human))
-		human.equip_or_collect(new /obj/item/storage/pill_bottle/rmt, slot_in_backpack)
+		human.equip_or_collect(new /obj/item/storage/pill_bottle/rmt, slot_in_backpack_str)
 
 	// add matching matching head items
 	if(istype(human.wear_suit, /obj/item/clothing/suit/cultrobes/alt))
-		human.equip_or_collect(new /obj/item/clothing/head/culthood/alt, slot_head)
+		human.equip_or_collect(new /obj/item/clothing/head/culthood/alt, slot_head_str)
 	if(istype(human.wear_suit, /obj/item/clothing/suit/space/cult))
-		human.equip_or_collect(new /obj/item/clothing/head/helmet/space/cult, slot_head)
+		human.equip_or_collect(new /obj/item/clothing/head/helmet/space/cult, slot_head_str)
 
 	// add other random equipment
 	if(prob(10))
-		human.equip_or_collect(new /obj/item/gun/projectile/revolver/detective, slot_in_backpack)
-		human.equip_or_collect(new /obj/item/ammo_magazine/c38, slot_in_backpack)
+		human.equip_or_collect(new /obj/item/gun/projectile/revolver/detective, slot_in_backpack_str)
+		human.equip_or_collect(new /obj/item/ammo_magazine/c38, slot_in_backpack_str)
 	if(prob(10))
-		human.equip_or_collect(new /obj/random/firstaid, slot_in_backpack)
+		human.equip_or_collect(new /obj/random/firstaid, slot_in_backpack_str)
 	if(prob(20))
-		human.equip_or_collect(new /obj/random/medical, slot_in_backpack)
+		human.equip_or_collect(new /obj/random/medical, slot_in_backpack_str)
 	if(prob(20))
-		human.equip_or_collect(new /obj/random/loot, slot_in_backpack)
+		human.equip_or_collect(new /obj/random/loot, slot_in_backpack_str)
 	if(prob(20))
-		human.equip_or_collect(new /obj/random/tool, slot_in_backpack)
+		human.equip_or_collect(new /obj/random/tool, slot_in_backpack_str)
 	if(prob(25))
-		human.equip_or_collect(new /obj/item/crowbar/red, slot_in_backpack)
+		human.equip_or_collect(new /obj/item/crowbar/red, slot_in_backpack_str)
 
 	// make into a cultist
 	if(human.mind)

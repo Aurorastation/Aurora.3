@@ -31,15 +31,15 @@
 
 /obj/outfit/admin/ihss_reclamation/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	if(isvaurca(H))
-		H.equip_to_slot_or_del(new /obj/item/clothing/mask/gas/vaurca/filter(H), slot_wear_mask)
-		H.equip_to_slot_or_del(new /obj/item/clothing/shoes/vaurca(H), slot_shoes)
+		H.equip_to_slot_or_del(new /obj/item/clothing/mask/gas/vaurca/filter(H), slot_wear_mask_str)
+		H.equip_to_slot_or_del(new /obj/item/clothing/shoes/vaurca(H), slot_shoes_str)
 		var/obj/item/organ/internal/vaurca/preserve/preserve = H.internal_organs_by_name[BP_PHORON_RESERVE]
 		H.internal = preserve
 		H.internals.icon_state = "internal1"
-		H.equip_or_collect(new /obj/item/reagent_containers/food/snacks/koisbar, slot_in_backpack)
+		H.equip_or_collect(new /obj/item/reagent_containers/food/snacks/koisbar, slot_in_backpack_str)
 		H.update_body()
 	if(H.is_diona())
-		H.equip_or_collect(new /obj/item/uv_light, slot_in_backpack)
+		H.equip_or_collect(new /obj/item/uv_light, slot_in_backpack_str)
 
 /datum/ghostspawner/human/ihss_reclamation/security
 	short_name = "ihss_security"

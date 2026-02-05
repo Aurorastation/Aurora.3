@@ -240,6 +240,29 @@
 		return
 	return attack_hand(user)
 
+/obj/machinery/sleeper/grab_attack(obj/item/grab/G, mob/user)
+	var/mob/living/victim = G.get_grabbed_mob()
+	if(!istype(victim) || !victim.bucklecheck(user))
+		return FALSE
+
+	if(display_loading_message)
+		user.visible_message(SPAN_NOTICE("[user] starts putting [victim] into \the [src]."), SPAN_NOTICE("You start putting [victim] into \the [src]."), range = 3)
+
+	if(do_mob(user, victim, 2 SECONDS, needhand = FALSE))
+		if(occupant)
+			to_chat(user, SPAN_WARNING("\The [src] is already occupied."))
+			return FALSE
+		if(victim != G.grabbed)
+			return FALSE
+
+		victim.forceMove(src)
+		update_use_power(POWER_USE_ACTIVE)
+		occupant = victim
+		update_icon()
+		qdel(G)
+		return TRUE
+	return FALSE
+
 /obj/machinery/sleeper/attackby(obj/item/attacking_item, mob/user)
 	if(!istype(attacking_item, /obj/item/forensics))
 		add_fingerprint(user)
@@ -252,36 +275,6 @@
 
 		else
 			to_chat(user, SPAN_WARNING("\The [src] has a beaker already."))
-		return TRUE
-	else if(istype(attacking_item, /obj/item/grab))
-
-		var/obj/item/grab/G = attacking_item
-		var/mob/living/L = G.affecting
-		var/bucklestatus = L.bucklecheck(user)
-		if(!bucklestatus)
-			return TRUE
-
-		if(!istype(L))
-			to_chat(user, SPAN_WARNING("The machine won't accept that."))
-			return TRUE
-
-		if(display_loading_message)
-			user.visible_message(SPAN_NOTICE("[user] starts putting [G.affecting] into [src]."),
-									SPAN_NOTICE("You start putting [G.affecting] into [src]."), range = 3)
-
-		if (do_mob(user, G.affecting, 20, needhand = 0))
-			if(occupant)
-				to_chat(user, SPAN_WARNING("\The [src] is already occupied."))
-				return TRUE
-			if(L != G.affecting)//incase it isn't the same mob we started with
-				return TRUE
-
-			var/mob/M = G.affecting
-			M.forceMove(src)
-			update_use_power(POWER_USE_ACTIVE)
-			occupant = M
-			update_icon()
-			qdel(G)
 		return TRUE
 	else if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 		src.panel_open = !src.panel_open
@@ -364,7 +357,6 @@
 		if(occupant)
 			to_chat(user, SPAN_WARNING("\The [src] is already occupied."))
 			return
-		M.stop_pulling()
 		if(M.client)
 			M.client.perspective = EYE_PERSPECTIVE
 			M.client.eye = src

@@ -231,28 +231,6 @@
 			update()
 			return TRUE
 
-	var/obj/item/grab/G = attacking_item
-	// handle grabbed mob
-	if(istype(G))
-		if(ismob(G.affecting))
-			var/mob/GM = G.affecting
-			if(!check_mob_size(GM))
-				to_chat(user, SPAN_NOTICE("The opening is too narrow for [G.affecting] to fit!"))
-				return TRUE
-			for (var/mob/V in viewers(usr))
-				V.show_message("[usr] starts putting [GM.name] into the disposal.", 3)
-			if(do_after(usr, 20))
-				if (GM.client)
-					GM.client.perspective = EYE_PERSPECTIVE
-					GM.client.eye = src
-				GM.forceMove(src)
-				for (var/mob/C in viewers(src))
-					C.show_message(SPAN_WARNING("[GM.name] has been placed in the [src] by [user]."), 3)
-				qdel(G)
-				usr.attack_log += "\[[time_stamp()]\] <span class='warning'>Has placed [GM.name] ([GM.ckey]) in disposals.</span>"
-				GM.attack_log += "\[[time_stamp()]\] <font color='orange'>Has been placed in disposals by [usr.name] ([usr.ckey])</font>"
-				msg_admin_attack("[key_name_admin(usr)] placed [key_name_admin(GM)] in a disposals unit. (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[usr.x];Y=[usr.y];Z=[usr.z]'>JMP</a>)",ckey=key_name(usr),ckey_target=key_name(GM))
-		return TRUE
 	if(!attacking_item.dropsafety())
 		return TRUE
 
@@ -263,6 +241,30 @@
 
 	user.visible_message("<b>[user]</b> places \the [attacking_item] into \the [src].", SPAN_NOTICE("You place \the [attacking_item] into the [src]."), range = 3)
 	update()
+
+/obj/machinery/disposal/grab_attack(obj/item/grab/G, mob/user)
+	var/mob/living/victim = G.grabbed
+	if(!istype(victim))
+		return FALSE
+
+	if(!check_mob_size(victim))
+		to_chat(user, SPAN_NOTICE("\The [victim] won't fit in \the [src]!"))
+		return FALSE
+
+	visible_message("[user] starts putting [victim] into \the [src].", range = 3)
+
+	if(do_mob(user, victim, 2 SECONDS, needhand = FALSE))
+		if(victim.client)
+			victim.client.perspective = EYE_PERSPECTIVE
+			victim.client.eye = src
+		victim.forceMove(src)
+		visible_message(SPAN_WARNING("[victim] has been placed in \the [src] by [user]!"), range = 3)
+		qdel(G)
+		user.attack_log += "\[[time_stamp()]\] <span class='warning'>Has placed [victim.name] ([victim.ckey]) in disposals.</span>"
+		victim.attack_log += "\[[time_stamp()]\] <font color='orange'>Has been placed in disposals by [user.name] ([user.ckey])</font>"
+		msg_admin_attack("[key_name_admin(user)] placed [key_name_admin(victim)] in a disposals unit. (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(victim))
+		return TRUE
+	return FALSE
 
 /**
  * Handles mouse-dropping another mob or self onto disposal.
@@ -369,6 +371,7 @@
  * Human interacts with machine.
  */
 /obj/machinery/disposal/attack_hand(mob/user as mob)
+	. = ..()
 	if(stat & BROKEN)
 		return
 

@@ -165,11 +165,11 @@
 
 /obj/item/auto_cpr/mob_can_equip(mob/living/carbon/human/H, slot, disable_warning = 0, force = 0)
 	. = ..()
-	if(slot == slot_wear_suit)
+	if(slot == slot_wear_suit_str)
 		if(panel_open)
 			return FALSE
 		return
-	if(force || !istype(H) || slot != slot_wear_suit)
+	if(force || !istype(H) || slot != slot_wear_suit_str)
 		return
 	if(H.species.get_bodytype() in list(BODYTYPE_HUMAN, BODYTYPE_TAJARA, BODYTYPE_SKRELL, BODYTYPE_UNATHI)) //gtfo stinky bugs
 		return
@@ -192,7 +192,7 @@
 			return
 
 		if(user.unEquip(src))
-			if(!H.equip_to_slot_if_possible(src, slot_wear_suit, delete_on_fail = FALSE, disable_warning = TRUE, redraw_mob = TRUE))
+			if(!H.equip_to_slot_if_possible(src, slot_wear_suit_str, delete_on_fail = FALSE, disable_warning = TRUE, redraw_mob = TRUE))
 				user.put_in_active_hand(src)
 			return 1
 	else
@@ -202,7 +202,7 @@
 	if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 		if(ishuman(loc))
 			var/mob/living/carbon/human/H = loc
-			if(H.get_inventory_slot(src) == slot_wear_suit)
+			if(H.get_inventory_slot(src) == slot_wear_suit_str)
 				to_chat(user, SPAN_WARNING("You must unequip \the [src] before doing that!"))
 				return TRUE
 		panel_open = !panel_open
@@ -313,7 +313,7 @@
 		return PROCESS_KILL
 
 	var/mob/living/carbon/human/H = loc
-	if(H.get_inventory_slot(src) != slot_wear_suit)
+	if(H.get_inventory_slot(src) != slot_wear_suit_str)
 		if(mask_on)
 			breath_mask_off()
 		update_icon()
@@ -369,7 +369,7 @@
 		return
 
 	var/mask_check = breath_mask.get_equip_slot()
-	if(mask_check != slot_wear_mask)
+	if(mask_check != slot_wear_mask_str)
 		breath_mask_off()
 		return
 	if(breath_mask.hanging)
@@ -428,7 +428,7 @@
 	src.visible_message(SPAN_INFO("\The [src] automatically fastens \the [breath_mask] onto \the [H]."))
 	playsound(H, 'sound/effects/buckle.ogg', 50)
 	breath_mask.forceMove(H.loc)
-	H.equip_to_slot(breath_mask, slot_wear_mask)
+	H.equip_to_slot(breath_mask, slot_wear_mask_str)
 	H.update_inv_wear_mask()
 	breather = H
 	mask_on = TRUE
@@ -451,8 +451,7 @@
 			var/mob/living/carbon/human/holder = loc_check
 			holder.remove_from_mob(breath_mask)
 			holder.update_inv_wear_mask()
-			holder.update_inv_l_hand()
-			holder.update_inv_r_hand()
+			holder.update_inv_hands()
 		breath_mask.forceMove(src)
 		breather = null
 		mask_on = FALSE

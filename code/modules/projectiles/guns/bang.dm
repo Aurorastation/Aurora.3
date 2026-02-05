@@ -44,7 +44,7 @@
 	fired_gun = 1
 
 /obj/item/gun/bang/attack_hand(mob/user as mob)
-	if(user.get_inactive_hand() == src && fired_gun)
+	if(user.is_holding_offhand(src) && fired_gun)
 		src.CutOverlays(bang_flag)
 		user.visible_message(SPAN_NOTICE("\The [user] pushes the flag back into the barrel of \the [src.name]."),
 								SPAN_NOTICE("You push the flag back into the barrel of \the [src.name]."))

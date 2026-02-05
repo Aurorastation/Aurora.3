@@ -69,8 +69,8 @@
 	if(secondary_effect)
 		secondary_effect.process()
 
-	if(pulledby)
-		CollidedWith(pulledby)
+	for(var/obj/item/grab/G as anything in grabbed_by)
+		CollidedWith(G.grabber)
 
 	//if either of our effects rely on environmental factors, work that out
 	var/trigger_cold = 0
@@ -171,6 +171,7 @@
 			secondary_effect.ToggleActivate()
 
 /obj/machinery/artifact/attack_hand(mob/user)
+	. = ..()
 	if(use_check_and_message(user, USE_ALLOW_NON_ADV_TOOL_USR))
 		return
 	if(ishuman(user))

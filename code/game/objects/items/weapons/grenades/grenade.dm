@@ -4,8 +4,8 @@
 	w_class = WEIGHT_CLASS_SMALL
 	icon = 'icons/obj/grenade.dmi'
 	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items/weapons/lefthand_grenade.dmi',
-		slot_r_hand_str = 'icons/mob/items/weapons/righthand_grenade.dmi',
+		BP_L_HAND = 'icons/mob/items/weapons/lefthand_grenade.dmi',
+		BP_R_HAND = 'icons/mob/items/weapons/righthand_grenade.dmi',
 		)
 	icon_state = "grenade"
 	item_state = "grenade"

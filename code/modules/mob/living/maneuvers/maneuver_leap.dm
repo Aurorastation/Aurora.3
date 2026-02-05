@@ -40,7 +40,9 @@
 					shake_camera(L, 2, 4)
 				for(var/mob/living/rebecca in T)
 					if(rebecca.lying || from_above)
-						rebecca.apply_damage(40 * damage_mod, DAMAGE_BRUTE, pick(BP_ALL_LIMBS), used_weapon = "landing", armor_pen = 30) //so true choomfie
+						var/mob/living/carbon/human/TH = rebecca
+						var/obj/item/organ/external/def_zone = istype(TH) ? pick(TH.organs) : pick(BP_ALL_LIMBS)
+						rebecca.apply_damage(40 * damage_mod, DAMAGE_BRUTE, def_zone, used_weapon = "landing", armor_pen = 30) //so true choomfie
 						T.visible_message(SPAN_DANGER("<font size=4>[H] lands on [rebecca]!</font>"))
 						to_chat(H, SPAN_DANGER("<font size=4>You land on [rebecca]!</font>")) //since the mob won't be on the turf yet
 	user.post_maneuver()
@@ -74,24 +76,9 @@
 
 /singleton/maneuver/leap/grab/end_leap(mob/living/user, atom/target, pass_flag)
 	. = ..()
-	if(ishuman(user) && !user.lying && ismob(target) && user.Adjacent(target))
-		var/mob/living/carbon/human/H = user
-		var/use_hand = "left"
-		if(H.l_hand)
-			if(H.r_hand)
-				to_chat(H, SPAN_DANGER("You need to have one hand free to grab someone."))
-				return
-			else
-				use_hand = "right"
-		var/obj/item/grab/G = new(H, target)
-		if(use_hand == "left")
-			H.l_hand = G
-		else
-			H.r_hand = G
-
-		G.state = GRAB_PASSIVE
-		G.icon_state = "grabbed1"
-		G.synch()
+	var/atom/movable/AM = target
+	if(istype(AM))
+		AM.try_make_grab(user, TRUE)
 
 /singleton/maneuver/leap/industrial
 	cooldown = 8 SECONDS
@@ -150,15 +137,5 @@
 			INVOKE_ASYNC(subject, TYPE_PROC_REF(/mob/living, Weaken), 5)
 
 		if(ismob(very_unlucky_guy) && user.Adjacent(very_unlucky_guy))
-
-			var/obj/item/grab/G = new(user, user, very_unlucky_guy)
-
-			user.put_in_active_hand(G)
-
-			G.state = GRAB_NECK
-			G.icon_state = "grabbed+1"
-			G.synch()
-			G.update_icon()
-			G.hud.icon_state = "kill"
-			G.hud.name = "kill"
+			very_unlucky_guy.try_make_grab(user)
 

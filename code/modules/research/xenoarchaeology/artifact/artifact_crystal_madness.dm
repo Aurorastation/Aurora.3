@@ -175,6 +175,7 @@
 			)
 
 /obj/structure/crystal_madness/attack_hand(mob/user as mob)
+	. = ..()
 	if(stage < 1)
 		user.visible_message(
 			SPAN_WARNING("\The [user] reaches out and touches \the [src]."),

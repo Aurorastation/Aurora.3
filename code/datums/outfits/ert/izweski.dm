@@ -24,7 +24,7 @@
 /obj/outfit/admin/ert/izweski/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	if(H?.shoes)
 		var/obj/item/clothing/shoes/magboots/hegemony/boots = new(H)
-		H.equip_to_slot_if_possible(boots, slot_shoes)
+		H.equip_to_slot_if_possible(boots, slot_shoes_str)
 
 /obj/outfit/admin/ert/izweski/get_id_access()
 	return get_distress_access_lesser()
@@ -62,7 +62,7 @@
 	suit = /obj/item/clothing/suit/armor/unathi/klax
 	shoes = /obj/item/clothing/shoes/vaurca
 	gloves = null
-	l_hand = /obj/item/martial_manual/vaurca
+	hands = list(/obj/item/martial_manual/vaurca)
 	suit_store = /obj/item/gun/projectile/heavysniper/unathi
 	back = /obj/item/storage/backpack/satchel/hegemony
 	backpack_contents = list(
@@ -80,15 +80,14 @@
 		H.internals.icon_state = "internal1"
 	if(H?.shoes)
 		var/obj/item/clothing/shoes/magboots/hegemony/boots = new(H)
-		H.equip_to_slot_if_possible(boots, slot_shoes)
+		H.equip_to_slot_if_possible(boots, slot_shoes_str)
 
 	H.update_body()
 
 /obj/outfit/admin/ert/izweski/leader
 	name = "Izweski Navy Squad Leader"
 	uniform = /obj/item/clothing/under/unathi/izweski/officer
-	l_hand = /obj/item/melee/hammer/powered/hegemony
-	r_hand = /obj/item/gun/energy/rifle/hegemony
+	hands = list(/obj/item/melee/hammer/powered/hegemony, /obj/item/gun/energy/rifle/hegemony)
 	back = /obj/item/rig/unathi/fancy/equipped
 	suit_store = null
 	suit = null

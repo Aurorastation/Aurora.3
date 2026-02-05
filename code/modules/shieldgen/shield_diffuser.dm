@@ -43,6 +43,7 @@
 	return attack_hand(user)
 
 /obj/machinery/shield_diffuser/attack_hand(mob/user)
+	. = ..()
 	if(stat & BROKEN)
 		return
 	interact(user)

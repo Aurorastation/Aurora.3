@@ -201,7 +201,7 @@
 
 /obj/item/forensics/sample_kit/mouse_drop_dragged(atom/over, mob/user, src_location, over_location, params)
 	var/mob/M = loc
-	if(ismob(M) && (M.get_active_hand() == src || M.get_inactive_hand() == src))
+	if(ismob(M) && M.is_holding(src))
 		afterattack(over, user, TRUE)
 
 /obj/item/forensics/sample_kit/powder

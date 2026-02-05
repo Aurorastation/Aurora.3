@@ -638,3 +638,14 @@
 /atom/proc/clear_bulletholes()
 	for(var/obj/effect/overlay/bmark/bullet_mark in src)
 		qdel(bullet_mark)
+
+/**
+	Handle this atom being hit by a grab.
+
+	Called by resolve_attackby()
+
+	- `G`: The grab hitting this atom
+	- Return: `TRUE` to skip attackby() and afterattack() or `FALSE`
+*/
+/atom/proc/grab_attack(obj/item/grab/G, mob/user)
+	return FALSE

@@ -194,6 +194,7 @@
 	filling_color = "#FFF454"
 
 /obj/item/reagent_containers/food/snacks/chipplate/attack_hand(mob/user as mob)
+	. = ..()
 	var/obj/item/reagent_containers/food/snacks/returningitem = new vendingobject(loc)
 	returningitem.reagents.clear_reagents()
 	reagents.trans_to(returningitem, bitesize)

@@ -29,7 +29,6 @@
 	var/atom/movable/screen/flash = null
 	var/atom/movable/screen/blind = null
 	var/atom/movable/screen/hands = null
-	var/atom/movable/screen/pullin = null
 	var/atom/movable/screen/purged = null
 	var/atom/movable/screen/internals/internals = null
 	var/atom/movable/screen/oxygen = null
@@ -78,7 +77,6 @@
 	var/height = HEIGHT_NOT_USED
 	var/sdisabilities = 0				//Carbon
 	var/disabilities = 0				//Carbon
-	var/atom/movable/pulling = null
 	var/next_move = null
 	var/transforming = null				//Carbon
 	var/other = 0.0
@@ -174,7 +172,6 @@
 
 	var/datum/hud/hud_used = null
 
-	var/list/grabbed_by = list(  )
 	var/list/requests = list(  )
 
 	var/list/mapobjs = list()

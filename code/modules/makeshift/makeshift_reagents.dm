@@ -57,6 +57,7 @@
 		A.forceMove(loc)
 
 /obj/structure/chemkit/attack_hand(mob/user)
+	. = ..()
 	transfer_out = !transfer_out
 	to_chat(user, SPAN_NOTICE("You are now [transfer_out ? "removing from" : "adding to"] \the [src]."))
 

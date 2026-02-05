@@ -134,6 +134,7 @@
 	activated = FALSE
 
 /obj/structure/environmental_storytelling_holopad/attack_hand(mob/user)
+	. = ..()
 	if(activated)
 		to_chat(user, SPAN_WARNING("\The [src] is already active!"))
 		return

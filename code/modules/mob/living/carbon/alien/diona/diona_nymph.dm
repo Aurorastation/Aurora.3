@@ -152,19 +152,6 @@
 	else
 		to_chat(usr, SPAN_NOTICE("This warm radiance is bliss. Here we are safe and energised! Stay a while..."))
 
-/mob/living/carbon/alien/diona/start_pulling(var/atom/movable/AM)
-	//TODO: Collapse these checks into one proc (see pai and drone)
-	if(istype(AM,/obj/item))
-		var/obj/item/O = AM
-		if(O.w_class > 2)
-			to_chat(src, SPAN_WARNING("You are too small to pull that."))
-			return
-		else
-			..()
-	else
-		to_chat(src, SPAN_WARNING("You are too small to pull that."))
-		return
-
 /mob/living/carbon/alien/diona/put_in_hands(obj/item/item_to_equip) // No hands.
 	item_to_equip.forceMove(get_turf(src))
 	return FALSE

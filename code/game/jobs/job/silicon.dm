@@ -58,9 +58,9 @@
 	var/equip_preview_mob = prefs.equip_preview_mob
 
 	if(equip_preview_mob & EQUIP_PREVIEW_JOB_HAT)
-		H.equip_to_slot_or_del(new /obj/item/clothing/head/cardborg(H), slot_head)
+		H.equip_to_slot_or_del(new /obj/item/clothing/head/cardborg(H), slot_head_str)
 
 	if(equip_preview_mob & EQUIP_PREVIEW_JOB_SUIT)
-		H.equip_to_slot_or_del(new /obj/item/clothing/suit/cardborg(H), slot_wear_suit)
+		H.equip_to_slot_or_del(new /obj/item/clothing/suit/cardborg(H), slot_wear_suit_str)
 
 	return TRUE

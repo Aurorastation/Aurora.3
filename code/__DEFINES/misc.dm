@@ -418,10 +418,6 @@ example:
 #define MICROWAVE			1 << 7
 
 // Cooking misc.
-// can_insert return values
-#define CANNOT_INSERT		0
-#define CAN_INSERT			1
-#define INSERT_GRABBED		2
 // check_contents return values
 #define CONTAINER_EMPTY		0
 #define CONTAINER_SINGLE	1

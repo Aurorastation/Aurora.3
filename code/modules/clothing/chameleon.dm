@@ -539,8 +539,7 @@
 	update_icon()
 	if (ismob(src.loc))
 		var/mob/M = src.loc
-		M.update_inv_r_hand()
-		M.update_inv_l_hand()
+		M.update_inv_hands()
 
 /obj/item/gun/energy/chameleon/disguise(var/newtype)
 	var/obj/item/gun/copy = ..()
@@ -571,5 +570,4 @@
 	//so our overlays update.
 	if (ismob(src.loc))
 		var/mob/M = src.loc
-		M.update_inv_r_hand()
-		M.update_inv_l_hand()
+		M.update_inv_hands()

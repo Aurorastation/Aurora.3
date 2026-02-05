@@ -11,6 +11,7 @@
 	layer = 3.1		//to go over ores
 
 /obj/machinery/giga_drill/attack_hand(mob/user as mob)
+	. = ..()
 	if(active)
 		active = 0
 		icon_state = "gigadrill"

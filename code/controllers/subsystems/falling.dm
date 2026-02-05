@@ -82,17 +82,11 @@ SUBSYSTEM_DEF(falling)
 			if(mob_openturf.is_hole)
 				victim.begin_falling(victim.loc, below)
 				victim.forceMove(below)
-				if(victim.pulledby && victim.pulledby.z != victim.z)
-					var/mob/M = victim.pulledby
-					M.stop_pulling()
 
 				if (locate(/obj/structure/stairs) in victim.loc)	// If there's stairs, we're probably going down them.
 					if (falling[victim] <= 1)	// Just moving down a flight, skip damage.
 						victim.multiz_falling = 0
 						falling -= victim
-						for(var/obj/item/grab/grab in victim)
-							if(grab.affecting)
-								grab.affecting.forceMove(victim.loc)
 					else
 						// Falling more than a level, fuck 'em up.
 						victim.fall_impact(falling[victim], FALSE)

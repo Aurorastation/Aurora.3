@@ -25,7 +25,7 @@
 	add_to_streak("G",D)
 	if(check_streak(A,D))
 		return 1
-	D.grabbedby(A,1)
+	A.make_grab(D, /singleton/grab/normal/aggressive, FALSE, TRUE)
 	return 1
 
 /datum/martial_art/vkutet/harm_act(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)
@@ -55,28 +55,21 @@
 	return 1
 
 /datum/martial_art/vkutet/proc/swift_bite(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)
-	D.grabbedby(A,1)
-	if(istype(A.get_active_hand(),/obj/item/grab))
-		var/obj/item/grab/G = A.get_active_hand()
-		if(G && G.affecting == D)
-			G.state = GRAB_AGGRESSIVE
-			D.visible_message(SPAN_DANGER("[A] gets a strong grip on [D]!"))
-			if(isvaurca(A))
-				A.bugbite(TRUE)
-				qdel(G)
+	var/obj/item/grab/G = A.make_grab(D, /singleton/grab/normal/aggressive, FALSE, TRUE)
+	if(isvaurca(A))
+		A.bugbite(TRUE)
+		qdel(G)
 	return 1
 
 /datum/martial_art/vkutet/proc/crushing_jaws(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)
 	if(!isvaurca(A))
 		return 0
-	D.grabbedby(A,1)
-	if(istype(A.get_active_hand(),/obj/item/grab))
-		var/obj/item/grab/G = A.get_active_hand()
-		if(G && G.affecting == D)
-			A.visible_message(SPAN_WARNING("[A] crushes [D] with its mandibles!"))
-			D.apply_damage(30, DAMAGE_BRUTE)
-			D.apply_effect(6, WEAKEN)
-			qdel(G)
+	var/obj/item/grab/G = A.make_grab(D, /singleton/grab/normal/aggressive, FALSE, TRUE)
+	if(G && !QDELETED(G))
+		A.visible_message(SPAN_WARNING("[A] crushes [D] with its mandibles!"))
+		D.apply_damage(30, DAMAGE_BRUTE)
+		D.apply_effect(6, WEAKEN)
+		qdel(G)
 	return 1
 
 /datum/martial_art/vkutet/proc/vkutet_help()

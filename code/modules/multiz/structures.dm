@@ -70,6 +70,7 @@
 	attack_hand(user)
 
 /obj/structure/ladder/attack_hand(var/mob/M)
+	. = ..()
 	if(!M.may_climb_ladders(src))
 		return
 
@@ -85,9 +86,6 @@
 	if(M.loc != T && !M.Move(T))
 		to_chat(M, SPAN_NOTICE("You fail to reach \the [src]."))
 		return
-
-	if (istype(G))
-		G.affecting.forceMove(get_turf(src))
 
 	var/direction = target_ladder == target_up ? "up" : "down"
 
@@ -172,11 +170,6 @@
 				return FALSE
 	playsound(src, pick(climbsounds), climb_sound_vol, climb_sound_vary)
 	playsound(target_ladder, pick(climbsounds), climb_sound_vol, climb_sound_vary)
-	var/obj/item/grab/G = M.l_hand
-	if (!istype(G))
-		G = M.r_hand
-	if (istype(G))
-		G.affecting.forceMove(T)
 	return M.forceMove(T)
 
 /obj/structure/ladder/CanPass(obj/mover, turf/source, height, airflow)
@@ -287,11 +280,8 @@
 		AM.forceMove(target)
 		if(isliving(AM))
 			var/mob/living/living_mob = AM
-			if(living_mob.pulling)
-				living_mob.pulling.forceMove(target)
-			for(var/obj/item/grab/grab in living_mob)
-				if(grab.affecting)
-					grab.affecting.forceMove(target)
+			for(var/obj/item/grab/G as anything in living_mob.get_active_grabs())
+				G.grabbed.forceMove(target)
 			if(ishuman(living_mob))
 				playsound(src, 'sound/effects/stairs_step.ogg', 50)
 				playsound(target, 'sound/effects/stairs_step.ogg', 50)

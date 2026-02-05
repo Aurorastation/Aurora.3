@@ -50,6 +50,7 @@
 	return ..()
 
 /obj/machinery/power/radial_floodlight/attack_hand(mob/user)
+	. = ..()
 	if(!anchored)
 		to_chat(user, SPAN_WARNING("\The [src] isn't anchored."))
 		return

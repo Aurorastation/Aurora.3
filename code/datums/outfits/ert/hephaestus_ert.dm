@@ -41,7 +41,7 @@
 /obj/outfit/admin/ert/hephaestuss/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	if(H?.shoes)
 		var/obj/item/clothing/shoes/magboots/boots = new(H)
-		H.equip_to_slot_if_possible(boots, slot_shoes)
+		H.equip_to_slot_if_possible(boots, slot_shoes_str)
 
 /obj/outfit/admin/ert/hephaestus/medic
 	name = "Hephaestus Asset Protection - Medic"

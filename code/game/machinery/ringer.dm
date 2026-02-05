@@ -200,7 +200,7 @@ pixel_x = 8;
 		icon_state = "ringer"
 
 /obj/machinery/ringer_button/attack_hand(mob/living/user)
-
+	. = ..()
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 
 	flick("ringer_on", src)

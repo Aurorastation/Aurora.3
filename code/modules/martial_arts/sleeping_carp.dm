@@ -99,10 +99,7 @@
 	add_to_streak("G",D)
 	if(check_streak(A,D))
 		return 1
-	D.grabbedby(A,1)
-	var/obj/item/grab/G = A.get_active_hand()
-	if(G)
-		G.state = GRAB_AGGRESSIVE //Instant aggressive grab
+	A.make_grab(D, /singleton/grab/normal/aggressive, FALSE, TRUE)
 
 /datum/martial_art/the_sleeping_carp/disarm_act(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)
 	add_to_streak("D",D)

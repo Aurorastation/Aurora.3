@@ -40,7 +40,7 @@
 	gloves = /obj/item/clothing/gloves/unathi
 	l_ear = null
 	id = null
-	r_hand = /obj/item/martial_manual/unathi
+	hands = list(/obj/item/martial_manual/unathi)
 
 /obj/outfit/admin/moghes_kung_fu/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	if(!H)

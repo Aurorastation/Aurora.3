@@ -235,32 +235,35 @@
 		return FALSE
 	return TRUE
 
+/obj/structure/railing/grab_attack(obj/item/grab/G, mob/user)
+	var/mob/living/L = G.get_grabbed_mob()
+	if(!istype(L))
+		return FALSE
+
+	var/obj/occupied = turf_is_crowded(TRUE)
+	if(occupied)
+		to_chat(user, SPAN_WARNING("There's \a [occupied] in the way!"))
+		return FALSE
+
+	if(!G.has_grab_flags(GRAB_RESTRAINS))
+		to_chat(user, SPAN_WARNING("You need a stronger grip for that!"))
+		return FALSE
+
+	if(user.a_intent == I_HURT)
+		visible_message(SPAN_DANGER("[G.grabber] slams [G.grabbed]'s face against \the [src]!"))
+		playsound(get_turf(src), 'sound/effects/grillehit.ogg', 50, TRUE)
+		if(prob(30))
+			L.Weaken(5)
+		L.apply_damage(15, DAMAGE_BRUTE, BP_HEAD)
+	else
+		L.forceMove(get_step(src, get_dir(user, src)))
+		L.Weaken(5)
+		visible_message(SPAN_DANGER("[G.grabber] throws [G.grabbed] over \the [src]!"))
+
+	qdel(G)
+	return TRUE
+
 /obj/structure/railing/attackby(obj/item/attacking_item, mob/user)
-	// Handle harm intent grabbing/tabling.
-	if(istype(attacking_item, /obj/item/grab) && user.Adjacent(src))
-		var/obj/item/grab/G = attacking_item
-		if(ishuman(G.affecting))
-			var/obj/occupied = turf_is_crowded(TRUE)
-			if(occupied)
-				to_chat(user, SPAN_WARNING("There's \a [occupied] in the way!"))
-				return
-
-			if(G.state >= GRAB_NECK)
-				if(user.a_intent == I_HURT)
-					visible_message(SPAN_DANGER("[G.assailant] slams [G.affecting]'s face against \the [src]!"))
-					playsound(get_turf(src), 'sound/effects/grillehit.ogg', 50, TRUE)
-					if(prob(30))
-						G.affecting.Weaken(5)
-					G.affecting.apply_damage(15, DAMAGE_BRUTE, BP_HEAD)
-				else
-					G.affecting.forceMove(get_step(src, get_dir(user, src)))
-					G.affecting.Weaken(5)
-					visible_message(SPAN_WARNING("[G.assailant] throws \the [G.affecting] over \the [src]!"))
-				qdel(G)
-			else
-				to_chat(user, SPAN_WARNING("You need a better grip to do that!"))
-			return
-
 	// Dismantle
 	if(attacking_item.tool_behaviour == TOOL_WRENCH)
 		if(!can_wrench)

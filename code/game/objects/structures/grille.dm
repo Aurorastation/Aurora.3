@@ -106,6 +106,7 @@
 		shock(bumped_atom, 70)
 
 /obj/structure/grille/attack_hand(mob/user as mob)
+	. = ..()
 
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 	playsound(loc, 'sound/effects/grillehit.ogg', 80, 1)
@@ -352,7 +353,7 @@
 	. = ..()
 
 /obj/structure/grille/crescent/attack_hand()
-	return
+	SHOULD_CALL_PARENT(FALSE)
 
 /obj/structure/grille/crescent/attackby()
 	return

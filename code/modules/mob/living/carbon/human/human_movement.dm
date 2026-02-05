@@ -10,7 +10,8 @@
 		tally += (8 + ((weakened * 3) + (confused * 2)))
 
 	if (!(species.flags & NO_EQUIP_SPEEDMODS))
-		tally += get_pulling_movement_delay()
+		for(var/obj/item/grab/G as anything in get_active_grabs())
+			tally += G.grab_slowdown()
 
 	if (istype(loc, /turf/space) || isopenturf(loc))
 		if(!(locate(/obj/structure/lattice, loc) || locate(/obj/structure/stairs, loc) || locate(/obj/structure/ladder, loc)))
@@ -50,15 +51,6 @@
 	tally += max(2 * stance_damage, 0) //damaged/missing feet or legs is slow
 	if((mutations & mRun))
 		tally = 0
-
-	if(isitem(pulling) && !(species.flags & NO_EQUIP_SPEEDMODS))
-		var/obj/item/P = pulling
-		tally += P.slowdown
-
-	var/obj/item/grab/grab = get_type_in_hands(/obj/item/grab)
-	if(istype(grab) && ishuman(grab.affecting))
-		if(grab.affecting.mob_weight > get_mob_strength())
-			tally += grab.affecting.mob_weight - get_mob_strength()
 
 	var/turf/T = get_turf(src)
 	if(T) // changelings don't get movement costs
@@ -185,12 +177,3 @@
 
 /mob/living/carbon/human/mob_negates_gravity()
 	return (shoes && shoes.negates_gravity())
-
-/mob/living/carbon/human/get_pulling_movement_delay()
-	. = ..()
-
-	if(ishuman(pulling))
-		var/mob/living/carbon/human/H = pulling
-		if(H.species.slowdown > species.slowdown)
-			. += H.species.slowdown - species.slowdown
-

@@ -188,6 +188,7 @@
 	return..()
 
 /obj/machinery/zat_lever/attack_hand(mob/user)
+	. = ..()
 	if(!use_check_and_message(user, USE_DISALLOW_SILICONS) && !stat && (cooldown + 10 SECONDS < world.time))
 		if(do_after(user, 1 SECOND))
 			visible_message(SPAN_DANGER("[user] pulls \the [src] [toggled ? "up" : "down"]!"))
@@ -337,6 +338,7 @@
 			playsound(src, 'sound/effects/ship_weapons/levi_key_insert.ogg', 50)
 
 /obj/machinery/leviathan_safeguard/attack_hand(mob/user)
+	. = ..()
 	if(key && !stat && opened && !locked)
 		if(use_check_and_message(user))
 			return
@@ -381,6 +383,7 @@
 
 /obj/machinery/leviathan_button/attack_hand(mob/user)
 	set waitfor = FALSE
+	. = ..()
 	if(open)
 		if(use_check_and_message(user))
 			return

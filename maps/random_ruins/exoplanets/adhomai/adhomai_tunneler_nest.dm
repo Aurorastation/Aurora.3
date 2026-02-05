@@ -28,6 +28,7 @@
 	icon_state = "tunneler_nest[eggs]"
 
 /obj/structure/ice_tunneler_nest/attack_hand(mob/user)
+	. = ..()
 	if(!eggs)
 		to_chat(user, SPAN_WARNING("\The [src] is empty."))
 		return

@@ -31,10 +31,10 @@
 		Z.cancel_camera()
 
 	else if(ishuman(user))
-		user.equip_to_slot_or_del(new /obj/item/clothing/head/culthood/alt(user), slot_head)
-		user.equip_to_slot_or_del(new /obj/item/clothing/suit/cultrobes/alt(user), slot_wear_suit)
-		user.equip_to_slot_or_del(new /obj/item/clothing/shoes/cult(user), slot_shoes)
-		user.equip_to_slot_or_del(new /obj/item/storage/backpack/cultpack(user), slot_back)
+		user.equip_to_slot_or_del(new /obj/item/clothing/head/culthood/alt(user), slot_head_str)
+		user.equip_to_slot_or_del(new /obj/item/clothing/suit/cultrobes/alt(user), slot_wear_suit_str)
+		user.equip_to_slot_or_del(new /obj/item/clothing/shoes/cult(user), slot_shoes_str)
+		user.equip_to_slot_or_del(new /obj/item/storage/backpack/cultpack(user), slot_back_str)
 		user.put_in_hands(new /obj/item/melee/cultblade(user))
 
 	qdel(A)

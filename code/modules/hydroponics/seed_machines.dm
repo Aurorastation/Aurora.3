@@ -63,6 +63,7 @@
 	return attack_hand(user)
 
 /obj/machinery/botany/attack_hand(mob/user as mob)
+	. = ..()
 	ui_interact(user)
 
 /obj/machinery/botany/proc/finished_task()

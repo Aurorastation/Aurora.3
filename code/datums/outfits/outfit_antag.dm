@@ -61,7 +61,7 @@
 	glasses = /obj/item/clothing/glasses/night
 	shoes = /obj/item/clothing/shoes/magboots/syndie
 	l_pocket = /obj/item/pinpointer/nukeop
-	l_hand = /obj/item/tank/jetpack/void
+	hands = list(/obj/item/tank/jetpack/void)
 
 	backpack_contents = list(
 		/obj/item/storage/box/survival/engineer = 1,
@@ -117,7 +117,7 @@
 	allow_backbag_choice = FALSE
 
 	uniform = /obj/item/clothing/under/syndicate/ninja
-	l_hand = /obj/item/hardsuit_token
+	hands = list(/obj/item/hardsuit_token)
 	back = null
 	belt = /obj/item/storage/belt/ninja
 	shoes = /obj/item/clothing/shoes/combat
@@ -146,7 +146,7 @@
 	if(visualsOnly)
 		return
 
-	H.equip_to_slot_or_del(new /obj/item/special_uplink/ninja(H, H.mind), slot_l_store)
+	H.equip_to_slot_or_del(new /obj/item/special_uplink/ninja(H, H.mind), slot_l_store_str)
 
 /obj/outfit/admin/syndicate/mercenary
 	name = "Mercenary"
@@ -171,7 +171,7 @@
 		return
 
 	if(!H.shoes)
-		H.equip_to_slot_or_del(new /obj/item/clothing/shoes/jackboots/toeless(H), slot_shoes)
+		H.equip_to_slot_or_del(new /obj/item/clothing/shoes/jackboots/toeless(H), slot_shoes_str)
 
 /obj/outfit/admin/syndicate/mercenary/loner
 	name = "Loner"
@@ -364,9 +364,9 @@
 		accessory = pick(typesof(/obj/item/clothing/accessory/holster) - typesof(/obj/item/clothing/accessory/holster/thigh/fluff))
 
 	if(!back)
-		H.equip_to_slot_or_del(bag, slot_back)
+		H.equip_to_slot_or_del(bag, slot_back_str)
 	else
-		H.put_in_any_hand_if_possible(bag)
+		H.put_in_hands_or_del(bag)
 
 	return ..()
 
@@ -377,7 +377,7 @@
 
 	if(!H.shoes)
 		var/fallback_type = pick(/obj/item/clothing/shoes/sandals, /obj/item/clothing/shoes/jackboots/toeless, /obj/item/clothing/shoes/laceup/brown, /obj/item/clothing/shoes/laceup)
-		H.equip_to_slot_or_del(new fallback_type(H), slot_shoes)
+		H.equip_to_slot_or_del(new fallback_type(H), slot_shoes_str)
 
 	var/obj/item/storage/wallet/W = H.wear_id
 	var/obj/item/card/id/syndicate/raider/passport = new(H.loc)
@@ -425,7 +425,7 @@
 	r_pocket = /obj/item/special_uplink/burglar
 	id = /obj/item/storage/wallet
 
-	r_hand = /obj/item/storage/briefcase/black
+	hands = list(/obj/item/storage/briefcase/black)
 
 	backpack_contents = list()
 
@@ -456,11 +456,11 @@
 		holster.holstered = primary
 		primary.forceMove(holster)
 	else if(!H.belt && (primary.slot_flags & SLOT_BELT))
-		H.equip_to_slot_or_del(primary, slot_belt)
+		H.equip_to_slot_or_del(primary, slot_belt_str)
 	else if(!H.back && (primary.slot_flags & SLOT_BACK))
-		H.equip_to_slot_or_del(primary, slot_back)
+		H.equip_to_slot_or_del(primary, slot_back_str)
 	else
-		H.put_in_any_hand_if_possible(primary)
+		H.put_in_hands_or_del(primary)
 
 	if(istype(primary, /obj/item/gun/projectile))
 		var/obj/item/gun/projectile/bullet_thrower = primary
@@ -479,7 +479,7 @@
 		if(istype(uniform) && uniform.can_attach_accessory(holster))
 			uniform.attackby(holster, H)
 		else
-			H.put_in_any_hand_if_possible(holster)
+			H.put_in_hands_or_del(holster)
 
 	var/obj/item/storage/wallet/W = H.wear_id
 	var/obj/item/card/id/syndicate/raider/passport = new(H.loc)
@@ -533,7 +533,7 @@
 	var/turf/T = get_turf(H)
 	var/obj/item/gun/projectile/primary = new /obj/item/gun/projectile/silenced(T)
 	var/obj/item/magazine = new primary.magazine_type(T)
-	H.equip_to_slot_or_del(magazine, slot_l_store)
+	H.equip_to_slot_or_del(magazine, slot_l_store_str)
 	var/obj/item/clothing/accessory/holster/armpit/holster = new /obj/item/clothing/accessory/holster/armpit(T)
 	holster.holstered = primary
 	primary.forceMove(holster)
@@ -556,7 +556,7 @@
 	head = /obj/item/clothing/head/beret/red
 	shoes = /obj/item/clothing/shoes/combat
 	l_ear = /obj/item/radio/headset/heads/captain
-	l_hand = /obj/item/material/sword
+	hands = list(/obj/item/material/sword)
 	l_pocket = /obj/item/pinpointer
 
 	id = /obj/item/card/id/highlander
@@ -588,7 +588,7 @@
 	r_pocket = null
 	backpack_contents = null
 
-	r_hand = /obj/item/melee/cultblade
+	hands = list(/obj/item/melee/cultblade)
 
 	id_iff = IFF_CULTIST
 
@@ -673,7 +673,7 @@
 
 	if(!H.shoes)
 		var/fallback_type = pick(/obj/item/clothing/shoes/sandals, /obj/item/clothing/shoes/jackboots/toeless, /obj/item/clothing/shoes/laceup/brown, /obj/item/clothing/shoes/laceup)
-		H.equip_to_slot_or_del(new fallback_type(H), slot_shoes)
+		H.equip_to_slot_or_del(new fallback_type(H), slot_shoes_str)
 
 	var/obj/item/storage/wallet/W = H.wear_id
 	var/obj/item/card/id/syndicate/raider/passport = new(H.loc)

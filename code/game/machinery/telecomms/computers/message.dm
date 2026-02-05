@@ -92,6 +92,7 @@
 	..()
 
 /obj/machinery/computer/message_monitor/attack_hand(var/mob/living/user as mob)
+	. = ..()
 	if(stat & (NOPOWER|BROKEN))
 		return
 	if(!istype(user))

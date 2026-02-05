@@ -149,6 +149,7 @@ GLOBAL_VAR(bomb_set)
 	attack_hand(user)
 
 /obj/machinery/nuclearbomb/attack_hand(mob/user as mob)
+	. = ..()
 	if (extended)
 		if (panel_open)
 			wires.interact(user)

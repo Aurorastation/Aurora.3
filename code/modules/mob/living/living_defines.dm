@@ -104,3 +104,6 @@
 
 	/// If true, ignores weather effects
 	var/resists_weather = FALSE
+
+	/// Has this mob -ever- had a gripper? Used to skip hand checks in some cases.
+	var/has_had_gripper = FALSE

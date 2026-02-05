@@ -276,7 +276,7 @@
 /mob/living/simple_animal/parrot/think()
 	..()
 	//Sprite and AI update for when a parrot gets pulled
-	if(pulledby && stat == CONSCIOUS)
+	if(!LAZYLEN(grabbed_by) && stat == CONSCIOUS)
 		icon_state = "parrot_fly"
 		if(!client)
 			parrot_state = PARROT_WANDER
@@ -483,7 +483,7 @@
 
 			if(ishuman(parrot_interest))
 				var/mob/living/carbon/human/H = parrot_interest
-				var/obj/item/organ/external/affecting = H.get_organ(ran_zone(pick(parrot_dam_zone)))
+				var/obj/item/organ/external/affecting = H.get_organ(ran_zone(H, pick(parrot_dam_zone)))
 
 				H.apply_damage(damage, DAMAGE_BRUTE, affecting, damage_flags = DAMAGE_FLAG_SHARP)
 				visible_emote(pick("pecks [H]'s [affecting].", "cuts [H]'s [affecting] with its talons."))

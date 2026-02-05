@@ -46,6 +46,7 @@
 		icon_state = "Shield_Gen"
 
 /obj/machinery/shieldwallgen/attack_hand(mob/user)
+	. = ..()
 	if(!wrenched)
 		to_chat(user, SPAN_WARNING("The shield generator needs to be firmly secured to the floor first."))
 		return TRUE
@@ -262,6 +263,7 @@
 	return ..()
 
 /obj/shieldwall/attack_hand(mob/user)
+	SHOULD_CALL_PARENT(FALSE)
 	to_chat(user, SPAN_WARNING("\The [src] pushes you back as you try to touch it."))
 
 /obj/shieldwall/process()

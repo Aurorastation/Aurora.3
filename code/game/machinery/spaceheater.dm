@@ -6,6 +6,7 @@
 	anchored = FALSE
 	density = TRUE
 	use_power = POWER_USE_OFF
+	movable_flags = MOVABLE_FLAG_WHEELED
 	clicksound = SFX_SWITCH
 	var/on = FALSE
 	/// Currently heating or cooling the environment, if on.
@@ -91,6 +92,7 @@
 	return ..()
 
 /obj/machinery/space_heater/attack_hand(mob/user)
+	. = ..()
 	src.add_fingerprint(user)
 	if(panel_open)
 		if(cell)

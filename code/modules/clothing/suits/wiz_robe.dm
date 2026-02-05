@@ -3,8 +3,8 @@
 	desc = "Strange-looking hat-wear that most certainly belongs to a real magic user."
 	icon_state = "wizard"
 	item_state_slots = list(
-		slot_l_hand_str = "wizhat",
-		slot_r_hand_str = "wizhat"
+		BP_L_HAND = "wizhat",
+		BP_R_HAND = "wizhat"
 		)
 	body_parts_covered = 0
 
@@ -25,8 +25,8 @@
 	icon_state = "magus"
 	item_state = "magus"
 	item_state_slots = list(
-		slot_l_hand_str = "helmet",
-		slot_r_hand_str = "helmet"
+		BP_L_HAND = "helmet",
+		BP_R_HAND = "helmet"
 		)
 	body_parts_covered = HEAD|FACE|EYES
 
@@ -35,8 +35,8 @@
 	desc = "A crown-of-thorns psychic amplifier. Kind of looks like a tiara having sex with an industrial robot."
 	icon_state = "amp"
 	item_state_slots = list(
-		slot_l_hand_str = "helmet",
-		slot_r_hand_str = "helmet"
+		BP_L_HAND = "helmet",
+		BP_R_HAND = "helmet"
 		)
 
 /obj/item/clothing/suit/wizrobe

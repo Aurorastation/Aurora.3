@@ -18,6 +18,7 @@
 	update_icon()
 
 /obj/structure/toilet/attack_hand(mob/living/user as mob)
+	. = ..()
 	if(swirlie)
 		usr.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 		usr.visible_message(SPAN_DANGER("[user] slams the toilet seat onto [swirlie.name]'s head!"), SPAN_NOTICE("You slam the toilet seat onto [swirlie.name]'s head!"), "You hear reverberating porcelain.")
@@ -44,6 +45,35 @@
 /obj/structure/toilet/update_icon()
 	icon_state = "toilet[open][cistern]"
 
+/obj/structure/toilet/grab_attack(obj/item/grab/G, mob/user)
+	var/mob/living/grabbed = G.grabbed
+	if(!istype(grabbed))
+		return FALSE
+
+	if(grabbed.loc != get_turf(src))
+		to_chat(user, SPAN_NOTICE("[grabbed] needs to be on the toilet."))
+		return FALSE
+
+	if(!G.has_grab_flags(GRAB_FORCE_HARM))
+		to_chat(user, "You need a stronger grip on [grabbed]!")
+		return FALSE
+
+	if(open && !swirlie)
+		user.visible_message(SPAN_DANGER("[user] starts to give [grabbed.name] a swirlie!"), SPAN_NOTICE("You start to give [grabbed.name] a swirlie!"))
+		swirlie = grabbed
+		if(do_after(user, 3 SECONDS, grabbed, do_flags = DO_UNIQUE))
+			user.visible_message(SPAN_DANGER("[user] gives [grabbed.name] a swirlie!"), SPAN_NOTICE("You give [grabbed.name] a swirlie!"), "You hear a toilet flushing.")
+			if(!grabbed.internal)
+				grabbed.adjustOxyLoss(5)
+			SSstatistics.IncrementSimpleStat("swirlies")
+			return TRUE
+		swirlie = null
+	else
+		user.visible_message(SPAN_DANGER("[user] slams [grabbed.name] into \the [src]!"), SPAN_NOTICE("You slam [grabbed.name] into \the [src]!"))
+		grabbed.adjustBruteLoss(8)
+		return TRUE
+	return FALSE
+
 /obj/structure/toilet/attackby(obj/item/attacking_item, mob/user)
 	if(attacking_item.tool_behaviour == TOOL_CROWBAR)
 		to_chat(user, SPAN_NOTICE("You start to [cistern ? "replace the lid on the cistern" : "lift the lid off the cistern"]."))
@@ -53,32 +83,6 @@
 			cistern = !cistern
 			update_icon()
 			return
-
-	if(istype(attacking_item, /obj/item/grab))
-		usr.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
-		var/obj/item/grab/G = attacking_item
-
-		if(isliving(G.affecting))
-			var/mob/living/GM = G.affecting
-
-			if(G.state>1)
-				if(!GM.loc == get_turf(src))
-					to_chat(user, SPAN_NOTICE("[GM.name] needs to be on the toilet."))
-					return
-				if(open && !swirlie)
-					user.visible_message(SPAN_DANGER("[user] starts to give [GM.name] a swirlie!"), SPAN_NOTICE("You start to give [GM.name] a swirlie!"))
-					swirlie = GM
-					if(do_after(user, 30, GM, do_flags = DO_UNIQUE))
-						user.visible_message(SPAN_DANGER("[user] gives [GM.name] a swirlie!"), SPAN_NOTICE("You give [GM.name] a swirlie!"), "You hear a toilet flushing.")
-						if(!GM.internal)
-							GM.adjustOxyLoss(5)
-						SSstatistics.IncrementSimpleStat("swirlies")
-					swirlie = null
-				else
-					user.visible_message(SPAN_DANGER("[user] slams [GM.name] into the [src]!"), SPAN_NOTICE("You slam [GM.name] into the [src]!"))
-					GM.adjustBruteLoss(8)
-			else
-				to_chat(user, SPAN_NOTICE("You need a tighter grip."))
 
 	if(cistern && !istype(user,/mob/living/silicon/robot)) //STOP PUTTING YOUR MODULES IN THE TOILET.
 		if(attacking_item.w_class > 3)
@@ -109,22 +113,23 @@
 	density = 0
 	anchored = 1
 
-/obj/structure/urinal/attackby(obj/item/attacking_item, mob/user)
-	if(istype(attacking_item, /obj/item/grab))
-		var/obj/item/grab/G = attacking_item
-		if(isliving(G.affecting))
-			var/mob/living/GM = G.affecting
-			if(G.state>1)
-				if(!GM.loc == get_turf(src))
-					to_chat(user, SPAN_NOTICE("[GM.name] needs to be on the urinal."))
-					return
-				user.visible_message(SPAN_DANGER("[user] slams [GM.name] into the [src]!"), SPAN_NOTICE("You slam [GM.name] into the [src]!"))
-				GM.apply_damage(8, def_zone = BP_HEAD, used_weapon = "blunt force")
-				user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN * 1.5)
-			else
-				to_chat(user, SPAN_NOTICE("You need a tighter grip."))
+/obj/structure/urinal/grab_attack(obj/item/grab/G, mob/user)
+	var/mob/living/grabbed = G.grabbed
+	if(!istype(grabbed))
+		return FALSE
 
+	if(!G.has_grab_flags(GRAB_FORCE_HARM))
+		to_chat(user, SPAN_NOTICE("You need a tighter grip on [user]!"))
+		return FALSE
 
+	if(grabbed.loc != get_turf(src))
+		to_chat(user, SPAN_NOTICE("[grabbed] needs to be on the urinal to do that!"))
+		return FALSE
+
+	user.visible_message(SPAN_DANGER("[user] slams [grabbed] into \the [src]!"), SPAN_NOTICE("You slam [grabbed] into \the [src]!"))
+	grabbed.apply_damage(8, def_zone = BP_HEAD, used_weapon = "blunt force")
+	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN * 1.5)
+	return TRUE
 
 /obj/machinery/shower
 	name = "shower"
@@ -176,6 +181,7 @@
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 
 /obj/machinery/shower/attack_hand(mob/M as mob)
+	. = ..()
 	on = !on
 	update_icon()
 	if(on)
@@ -335,6 +341,7 @@
 		amount_per_transfer_from_this = N
 
 /obj/structure/sink/attack_hand(mob/user as mob)
+	. = ..()
 	if (ishuman(user))
 		var/mob/living/carbon/human/H = user
 		var/obj/item/organ/external/temp = H.organs_by_name[BP_R_HAND]

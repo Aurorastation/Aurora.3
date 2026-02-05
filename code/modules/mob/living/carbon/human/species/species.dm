@@ -169,6 +169,9 @@
 	/// Multiplicative time modifier on syringe injections
 	var/injection_mod = 1
 
+	/// The species' default grab type.
+	var/grab_type = /singleton/grab/normal/passive
+
 	/// Same flags as glasses.
 	var/vision_flags = DEFAULT_SIGHT
 	/// If set, this species has this level of inherent eye protection.
@@ -379,6 +382,7 @@
 	/// If set, this organ is required to breathe. Defaults to BP_LUNGS if the species has them.
 	var/breathing_organ
 
+	/// Mapping of limbs/external organs to their actual path.
 	var/list/has_limbs = list(
 		BP_CHEST =  list("path" = /obj/item/organ/external/chest),
 		BP_GROIN =  list("path" = /obj/item/organ/external/groin),
@@ -392,6 +396,9 @@
 		BP_L_FOOT = list("path" = /obj/item/organ/external/foot),
 		BP_R_FOOT = list("path" = /obj/item/organ/external/foot/right)
 		)
+
+	/// An associative list of target zones (ex. BP_CHEST, BP_MOUTH) mapped to all possible keys associated. Used for non-standard organs like extra arms.
+	var/list/limb_mapping
 
 	var/natural_armor_type = /datum/component/armor/natural
 	var/list/natural_armor
@@ -1065,6 +1072,8 @@
 /datum/species/proc/sleep_examine_msg(var/mob/M)
 	return SPAN_NOTICE("[M.get_pronoun("He")] appears to be fast asleep.\n")
 
+/datum/species/proc/get_limb_from_zone(var/limb)
+	. = length(LAZYACCESS(limb_mapping, limb)) ? pick(limb_mapping[limb]) : limb
 /**
  * This proc is used to override speech checks for human mobs.
  * If it returns FALSE, the mob will not be able to speak.

@@ -78,11 +78,11 @@
 				/obj/item/storage/box/fancy/cigarettes/cigar,
 				/obj/item/storage/box/fancy/cigarettes
 			))
-			H.equip_or_collect(new path(), slot_wear_mask)
+			H.equip_or_collect(new path(), slot_wear_mask_str)
 
 		if(prob(20)) //Equip some headgear
 			var/datum/gear/G = GLOB.gear_datums[pick(list("cap selection","beret, red","hat selection","hijab selection","turban selection"))]
-			H.equip_or_collect(G.spawn_random(), slot_head)
+			H.equip_or_collect(G.spawn_random(), slot_head_str)
 
 		if(prob(20)) //Equip some sunglasses
 			var/path = pick(list(
@@ -93,11 +93,11 @@
 				/obj/item/clothing/glasses/sunglasses/aviator,
 				/obj/item/clothing/glasses/sunglasses/prescription
 			))
-			H.equip_or_collect(new path(), slot_glasses)
+			H.equip_or_collect(new path(), slot_glasses_str)
 
 		if(prob(20)) //Equip some gloves
 			var/datum/gear/G = GLOB.gear_datums["gloves selection"]
-			H.equip_or_collect(G.spawn_random(), slot_gloves)
+			H.equip_or_collect(G.spawn_random(), slot_gloves_str)
 
 /obj/outfit/admin/random/visitor
 	name = "Random Visitor"

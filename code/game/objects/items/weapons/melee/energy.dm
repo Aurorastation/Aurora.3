@@ -13,8 +13,8 @@
 	var/shield_power = 100
 	var/can_block_bullets = 0
 	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items/weapons/lefthand_energy.dmi',
-		slot_r_hand_str = 'icons/mob/items/weapons/righthand_energy.dmi'
+		BP_L_HAND = 'icons/mob/items/weapons/lefthand_energy.dmi',
+		BP_R_HAND = 'icons/mob/items/weapons/righthand_energy.dmi'
 		)
 
 /obj/item/melee/energy/proc/activate(mob/living/user)
@@ -56,8 +56,7 @@
 
 	if(istype(user,/mob/living/carbon/human))
 		var/mob/living/carbon/human/H = user
-		H.update_inv_l_hand()
-		H.update_inv_r_hand()
+		H.update_inv_hands()
 
 	add_fingerprint(user)
 	return
@@ -300,10 +299,7 @@
 
 	if(target_zone == BP_R_ARM || target_zone == BP_L_ARM || target_zone == BP_R_HAND || target_zone == BP_L_HAND)
 		if(prob(80 - armor_reduction))
-			if(target_zone == BP_R_ARM || target_zone == BP_R_HAND)
-				target.drop_r_hand()
-			else
-				target.drop_l_hand()
+			target.drop_held_items()
 			return TRUE
 
 	if(target_zone == BP_R_FOOT || target_zone == BP_R_FOOT || target_zone == BP_R_LEG || target_zone == BP_L_LEG)

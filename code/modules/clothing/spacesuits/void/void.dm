@@ -118,13 +118,13 @@
 		return
 
 	if(boots)
-		if (H.equip_to_slot_if_possible(boots, slot_shoes))
+		if (H.equip_to_slot_if_possible(boots, slot_shoes_str))
 			boots.canremove = 0
 
 	if(helmet)
 		if(H.head)
 			to_chat(M, "You are unable to deploy your suit's helmet as \the [H.head] is in the way.")
-		else if (H.equip_to_slot_if_possible(helmet, slot_head))
+		else if (H.equip_to_slot_if_possible(helmet, slot_head_str))
 			to_chat(M, "Your suit's helmet deploys with a hiss.")
 			playsound(loc, helmet_deploy_sound, 30)
 			helmet.canremove = 0
@@ -132,12 +132,12 @@
 	if(tank)
 		if(H.s_store) //In case someone finds a way.
 			to_chat(M, "Alarmingly, the valve on your suit's installed tank fails to engage.")
-		else if (H.equip_to_slot_if_possible(tank, slot_s_store))
+		else if (H.equip_to_slot_if_possible(tank, slot_s_store_str))
 			to_chat(M, "The valve on your suit's installed tank safely engages.")
 			tank.canremove = 0
 
 	if(cooler)
-		if (H.equip_to_slot_if_possible(cooler, slot_s_store))
+		if (H.equip_to_slot_if_possible(cooler, slot_s_store_str))
 			cooler.canremove = 0
 
 /obj/item/clothing/suit/space/void/proc/cleanup_from_mob()
@@ -200,7 +200,7 @@
 		if(H.head)
 			to_chat(H, SPAN_DANGER("You cannot deploy your helmet while wearing \the [H.head]."))
 			return
-		if(H.equip_to_slot_if_possible(helmet, slot_head))
+		if(H.equip_to_slot_if_possible(helmet, slot_head_str))
 			helmet.pickup(H)
 			helmet.canremove = 0
 			to_chat(H, "<span class='info'>You deploy your suit helmet, sealing you off from the world.</span>")
@@ -224,7 +224,7 @@
 	tank.canremove = 1
 	playsound(src, 'sound/effects/air_seal.ogg', 50, 1)
 
-	if(user.get_inventory_slot(src) == slot_wear_suit)
+	if(user.get_inventory_slot(src) == slot_wear_suit_str)
 		user.drop_from_inventory(tank)
 	else
 		tank.forceMove(get_turf(src))
@@ -248,7 +248,7 @@
 	cooler.canremove = 1
 	playsound(src, 'sound/items/Deconstruct.ogg', 30, 1)
 
-	if(user.get_inventory_slot(src) == slot_wear_suit)
+	if(user.get_inventory_slot(src) == slot_wear_suit_str)
 		user.drop_from_inventory(cooler)
 	else
 		cooler.forceMove(get_turf(src))
@@ -264,7 +264,7 @@
 	if(istype(attacking_item, /obj/item/clothing/accessory) || istype(attacking_item, /obj/item/hand_labeler))
 		return ..()
 
-	if(user.get_inventory_slot(src) == slot_wear_suit)
+	if(user.get_inventory_slot(src) == slot_wear_suit_str)
 		to_chat(user, SPAN_WARNING("You cannot modify \the [src] while it is being worn."))
 		return
 

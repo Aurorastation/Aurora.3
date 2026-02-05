@@ -532,37 +532,6 @@
 	to_chat(src, SPAN_NOTICE("Remember, you are <b>lawed against interference with the crew</b>. Also remember, <b>you DO NOT take orders from the AI.</b>"))
 	to_chat(src, SPAN_NOTICE("Use <b>say ;Hello</b> to talk to other drones and <b>say Hello</b> to speak silently to your nearby fellows."))
 
-/mob/living/silicon/robot/drone/start_pulling(atom/movable/AM)
-	if(!AM)
-		return
-
-	for(var/A in pull_list)
-		if(istype(AM, A))
-			if(pulling)
-				var/pulling_old = pulling
-				stop_pulling()
-				// Are we pulling the same thing twice? Just stop pulling.
-				if(pulling_old == AM)
-					return
-
-			src.pulling = AM
-			AM.pulledby = src
-
-			if(pullin)
-				pullin.icon_state = "pull1"
-				return
-			return
-	if(istype(AM, /obj/item))
-		var/obj/item/O = AM
-		if(O.w_class > can_pull_size)
-			to_chat(src, SPAN_WARNING("You are too small to pull that."))
-			return
-	else
-		if(!can_pull_mobs)
-			to_chat(src, SPAN_WARNING("You are too small to pull that."))
-			return
-	..()
-
 /mob/living/silicon/robot/drone/add_robot_verbs()
 	add_verb(src, silicon_subsystems)
 

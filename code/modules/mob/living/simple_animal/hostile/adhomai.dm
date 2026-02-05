@@ -147,6 +147,7 @@
 	blood_overlay_icon = null
 
 /mob/living/simple_animal/hostile/plasmageist/attack_hand(mob/living/carbon/human/M as mob)
+	. = ..()
 	M.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 	visible_message(SPAN_WARNING("\The [M] tries to touch \the [src]!"))
 	tesla_zap(M, 5, 5000)

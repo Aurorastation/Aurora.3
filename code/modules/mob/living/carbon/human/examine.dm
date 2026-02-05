@@ -412,7 +412,7 @@
 	var/datum/vampire/V = get_antag_datum(MODE_VAMPIRE)
 	if(V && (V.status & VAMP_DRAINING))
 		var/obj/item/grab/G = get_active_hand()
-		msg += SPAN_ALERT(FONT_LARGE("\n[get_pronoun("He")] is biting [G.affecting]'[G.affecting.get_pronoun("end")] neck!"))
+		msg += SPAN_ALERT(FONT_LARGE("\n[get_pronoun("He")] is biting [G.grabbed]'[G.grabbed.get_pronoun("end")] neck!"))
 
 	if(pose)
 		if(findtext(pose, ".", length(pose)) == 0 && findtext(pose, "!", length(pose)) == 0 && findtext(pose, "?", length(pose)) == 0)

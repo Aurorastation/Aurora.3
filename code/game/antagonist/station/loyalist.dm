@@ -53,9 +53,9 @@ GLOBAL_DATUM(loyalists, /datum/antagonist/loyalists)
 		return FALSE
 
 	if(!player.back)
-		player.equip_to_slot_or_del(new /obj/item/storage/backpack(player), slot_back) // if they have no backpack, spawn one
-	player.equip_to_slot_or_del(new /obj/item/announcer(player), slot_in_backpack)
-	player.equip_to_slot_or_del(new /obj/item/special_uplink/rev(player, player.mind), slot_in_backpack)
+		player.equip_to_slot_or_del(new /obj/item/storage/backpack(player), slot_back_str) // if they have no backpack, spawn one
+	player.equip_to_slot_or_del(new /obj/item/announcer(player), slot_in_backpack_str)
+	player.equip_to_slot_or_del(new /obj/item/special_uplink/rev(player, player.mind), slot_in_backpack_str)
 
 	give_codewords(player)
 	INVOKE_ASYNC(src, PROC_REF(alert_loyalist_status), player)

@@ -214,7 +214,7 @@
 
 /datum/gear/accessory/sinta_hood
 	display_name = "clan hood"
-	slot = slot_head
+	slot = slot_head_str
 	path = /obj/item/clothing/accessory/sinta_hood
 	whitelisted = list(SPECIES_UNATHI)
 	sort_category = "Xenowear - Unathi"

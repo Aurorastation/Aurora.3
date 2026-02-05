@@ -185,6 +185,7 @@
 	. = ..()
 
 /obj/structure/barricade/plasteel/attack_hand(mob/user as mob)
+	. = ..()
 	// For preventing cyborgs from flipping barricades remotely.
 	if(get_dist(src, user) > 1)
 		return FALSE

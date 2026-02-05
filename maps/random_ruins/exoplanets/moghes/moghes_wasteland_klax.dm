@@ -72,7 +72,7 @@
 	name = "K'laxan Outpost Warrior"
 	back = /obj/item/storage/backpack/cloak/sec
 	belt = /obj/item/melee/energy/vaurca
-	l_hand = /obj/item/martial_manual/vaurca
+	hands = list(/obj/item/martial_manual/vaurca)
 
 /obj/outfit/admin/moghes_wasteland_klax/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	if(H?.wear_mask && H.species.has_organ[BP_PHORON_RESERVE])

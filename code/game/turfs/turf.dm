@@ -231,22 +231,15 @@
 /turf/proc/is_intact()
 	return 0
 
+/turf/grab_attack(obj/item/grab/G, mob/user)
+	if(G.grabbed != user)
+		step(G.grabbed, get_dir(G.grabbed.loc, src))
+	return TRUE
+
 /turf/attack_hand(mob/user)
+	. = ..()
 	if(!(user.canmove) || user.restrained())
 		return FALSE
-	if(user.pulling)
-		if(user.pulling.anchored || !isturf(user.pulling.loc))
-			return FALSE
-		if(user.pulling.loc != user.loc && get_dist(user, user.pulling) > 1)
-			return FALSE
-		if(ismob(user.pulling))
-			var/mob/M = user.pulling
-			var/atom/movable/t = M.pulling
-			M.stop_pulling()
-			step(user.pulling, get_dir(user.pulling.loc, src))
-			M.start_pulling(t)
-		else
-			step(user.pulling, get_dir(user.pulling.loc, src))
 
 	. = handle_hand_interception(user)
 	if (!.)
@@ -521,9 +514,6 @@
 	return can_have_cabling()
 
 /turf/attackby(obj/item/attacking_item, mob/user)
-	if(istype(attacking_item, /obj/item/grab))
-		var/obj/item/grab/grab = attacking_item
-		step(grab.affecting, get_dir(grab.affecting, src))
 	if (can_lay_cable() && attacking_item.tool_behaviour == TOOL_CABLECOIL)
 		var/obj/item/stack/cable_coil/coil = attacking_item
 		coil.turf_place(src, user)
@@ -539,7 +529,7 @@
 			M.inertia_dir = 0
 			return
 		spawn(5)
-			if((M && !(M.anchored) && !(M.pulledby) && (M.loc == src)))
+			if((M && !(M.anchored) && !(LAZYLEN(M.grabbed_by)) && (M.loc == src)))
 				if(M.inertia_dir)
 					step(M, M.inertia_dir)
 					return

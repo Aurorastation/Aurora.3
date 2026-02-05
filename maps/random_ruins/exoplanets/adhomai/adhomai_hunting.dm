@@ -102,12 +102,12 @@
 
 	l_ear = null
 
-	l_hand = list(/obj/item/material/twohanded/spear/silver,
+	hands = list(list(/obj/item/material/twohanded/spear/silver,
 				/obj/item/material/twohanded/pike/silver,
 				/obj/item/material/knife/bayonet/silver,
 				/obj/item/material/knife/trench/silver,
 				/obj/item/material/sword/sabre/silver
-				)
+				))
 	id = null
 	back = /obj/item/gun/projectile/shotgun/pump/rifle/scope
 	l_pocket = list(/obj/item/storage/wallet/random = 1)

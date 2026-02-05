@@ -132,8 +132,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 		to_chat(user, SPAN_NOTICE("You turn \the [src] off."))
 
 	update_icon()
-	user.update_inv_l_hand(FALSE)
-	user.update_inv_r_hand()
+	user.update_inv_hands()
 
 /obj/item/clothing/mask/fluff/corvo_cigarette/update_icon()
 	if(active)
@@ -310,8 +309,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 		w_class = initial(w_class)
 
 	update_icon()
-	user.update_inv_l_hand(FALSE)
-	user.update_inv_r_hand()
+	user.update_inv_hands()
 
 /obj/item/cane/fluff/qrqil_cane/update_icon()
 	if(active)
@@ -408,6 +406,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 		icon_state = "stand"
 
 /obj/item/fluff/tokash_spear/attack_hand(var/mob/user)
+	. = ..()
 	if(has_spear)
 		to_chat(user, SPAN_NOTICE("You remove the spearhead from \the [src]."))
 		var/obj/item/fluff/tokash_spearhead/piece = new(get_turf(user))
@@ -506,8 +505,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	deployed = !deployed
 	to_chat(user, SPAN_NOTICE("You [deployed ? "expand" : "collapse"] \the [src]."))
 	update_icon()
-	user.update_inv_l_hand()
-	user.update_inv_r_hand()
+	user.update_inv_hands()
 
 /obj/item/reagent_containers/glass/beaker/teapot/fluff/thea_teapot //Bronze Teapot - Thea Reeves - shestrying
 	name = "bronze teapot"
@@ -861,8 +859,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 		collapsed = TRUE
 
 	update_icon()
-	user.update_inv_l_hand()
-	user.update_inv_r_hand()
+	user.update_inv_hands()
 
 /obj/item/fluff/akinyi_stand/update_icon()
 	if(collapsed)
@@ -1116,7 +1113,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	update_icon()
 
 /obj/item/fluff/holocase/attack_hand(mob/user)
-	if(contained_console && src == user.get_inactive_hand())
+	if(contained_console && user.is_holding_offhand(src))
 		user.visible_message("<b>[usr]</b> removes \the [contained_console] from \the [src].", SPAN_NOTICE("You remove \the [contained_console] from \the [src]."))
 		user.put_in_hands(contained_console)
 		contained_console = null

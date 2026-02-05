@@ -66,6 +66,7 @@
 		update_ide()
 
 /obj/machinery/computer/telecomms/traffic/attack_hand(mob/user as mob)
+	. = ..()
 	if(stat & (BROKEN|NOPOWER))
 		return
 	user.set_machine(src)

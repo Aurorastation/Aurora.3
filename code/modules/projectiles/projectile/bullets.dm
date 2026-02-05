@@ -82,7 +82,7 @@
 		// pellet hits spread out across different zones, but 'aim at' the targeted zone with higher probability
 		// whether the pellet actually hits the def_zone or a different zone should still be determined by the parent using get_zone_with_miss_chance().
 		var/old_zone = def_zone
-		def_zone = ran_zone(def_zone, spread)
+		def_zone = ran_zone(target, def_zone, spread)
 		// relatively hacky way of basing a shotgun pellet's likelihood of hitting on the first pellet of the burst while not affecting shrapnel explosions.
 		if (base_spread > 0)
 			if (i == 1)
@@ -157,7 +157,7 @@
 			continue
 
 		var/old_zone = def_zone
-		def_zone = ran_zone(def_zone, spread)
+		def_zone = ran_zone(target, def_zone, spread)
 		if (..())
 			hits++
 		def_zone = old_zone

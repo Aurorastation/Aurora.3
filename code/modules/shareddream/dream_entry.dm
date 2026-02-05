@@ -33,16 +33,15 @@ GLOBAL_LIST_EMPTY_TYPED(dream_entries, /turf)
 			if(willfully_sleeping)
 				to_chat(bg, "To wake up, use the \"Awaken\" verb in the IC tab.")
 			if(!srom_pulling && is_psionic)
-				var/obj/item/grab/G = r_hand
-				if(!G)
-					G = l_hand
-				if(G)
-					var/mob/living/carbon/human/victim = G.affecting
+				for(var/obj/item/grab/G as anything in get_active_grabs())
+					var/mob/living/carbon/human/victim = G.get_grabbed_mob()
 					// Victims must be capable of RECEIVING.
 					if(!victim.is_psi_blocked(src) && ((victim.check_psi_sensitivity() > 0) || victim.has_zona_bovinae()))
 						to_chat(bg, SPAN_NOTICE("You have taken [victim] to the Srom with you."))
 						victim.srom_pulled_by = WEAKREF(src)
 						srom_pulling = WEAKREF(victim)
+					if(srom_pulling)
+						break
 			for(var/thing in SSpsi.processing)
 				var/datum/psi_complexus/psi = thing
 				to_chat(psi.owner, SPAN_CULT("You sense an increase in the activity of Srom..."))

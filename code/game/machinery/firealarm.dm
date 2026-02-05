@@ -203,6 +203,7 @@
 		ui.open()
 
 /obj/machinery/firealarm/attack_hand(mob/user as mob)
+	. = ..()
 	if (buildstage != 2 || stat & (NOPOWER|BROKEN))
 		return
 

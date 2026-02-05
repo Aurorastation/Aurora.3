@@ -95,6 +95,7 @@
 		return ..()
 
 /obj/structure/displaycase/attack_hand(mob/user)
+	. = ..()
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 	if(destroyed || open)
 		if(!held_obj)
