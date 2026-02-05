@@ -4734,11 +4734,8 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ranger_corvette/foyer)
 "smG" = (
-/obj/machinery/ship_weapon/autocannon{
-	weapon_id = "Ranger Francisca Rotary Gun"
-	},
-/turf/template_noop,
-/area/space)
+/turf/space,
+/area/ship/ranger_corvette/gunnery)
 "smZ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/dark/full,
@@ -4889,9 +4886,11 @@
 /turf/simulated/floor/wood,
 /area/ship/ranger_corvette/foyer)
 "sMm" = (
-/obj/effect/floor_decal/industrial/hatch/red,
-/turf/simulated/floor/tiled/dark,
-/area/ship/ranger_corvette/gunnery)
+/obj/machinery/ship_weapon/autocannon{
+	weapon_id = "Ranger Francisca Rotary Gun"
+	},
+/turf/template_noop,
+/area/space)
 "sMD" = (
 /obj/machinery/shower{
 	dir = 1
@@ -5424,8 +5423,7 @@
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 8
 	},
-/obj/effect/floor_decal/industrial/hatch/red,
-/turf/simulated/floor/tiled/dark,
+/turf/space,
 /area/ship/ranger_corvette/gunnery)
 "ueq" = (
 /obj/machinery/atmospherics/unary/engine,
@@ -5577,8 +5575,7 @@
 	pixel_x = 4;
 	pixel_y = 32
 	},
-/obj/effect/floor_decal/industrial/hatch/red,
-/turf/simulated/floor/tiled/dark,
+/turf/space,
 /area/ship/ranger_corvette/gunnery)
 "uvJ" = (
 /obj/machinery/light{
@@ -6300,6 +6297,13 @@
 	icon_state = "4-8"
 	},
 /obj/structure/table/rack/folding_table,
+/obj/item/storage/toolbox{
+	pixel_y = 6
+	},
+/obj/effect/decal/cleanable/blood/oil,
+/obj/item/screwdriver{
+	pixel_y = -2
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/gunnery)
 "xdG" = (
@@ -34686,7 +34690,7 @@ xRX
 sXv
 sXv
 xRX
-smG
+sMm
 xRX
 xRX
 xRX
@@ -36745,7 +36749,7 @@ rBK
 wlN
 rBK
 tLA
-sMm
+smG
 vwc
 wZf
 tLA
@@ -37002,7 +37006,7 @@ jwy
 lNh
 rzM
 tLA
-sMm
+smG
 vyi
 cxr
 tLA
