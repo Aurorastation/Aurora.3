@@ -18,6 +18,7 @@
 	var/editmode = FALSE
 	var/receipt = ""
 	var/destinationact = "Service"
+	var/shop_name = "Quikpay"
 
 /obj/item/quikpay/Initialize()
 	. = ..()
@@ -69,6 +70,7 @@
 	R.stamped += /obj/item/stamp
 	R.AddOverlays(stampoverlay)
 	R.stamps += "<HR><i>This paper has been stamped by the Quik-Pay device.</i>"
+	usr.put_in_any_hand_if_possible(R)
 
 /obj/item/quikpay/attackby(obj/item/attacking_item, mob/user)
 	if (istype(attacking_item, /obj/item/spacecash/ewallet))
@@ -190,13 +192,23 @@
 			. = TRUE
 
 		if("confirm")
+			// Ensuring it is clear, in case the button is clicked multiple times
+			receipt = ""
+			sum = 0
+			var/obj/item/card/id/id_card = usr.GetIdCard()
+			var/cashier = id_card? id_card.registered_name : "Unknown"
+			receipt = "<center><H2>[shop_name] receipt</H2>Today's date: [worlddate2text()]<BR>Cashier: [cashier]</center><HR>Purchased items:<ul>"
 			for(var/list/bought_item in buying)
 				var/item_name = bought_item["name"]
 				var/item_amount = bought_item["amount"]
 				var/item_price = items_to_price[item_name]
 
-				receipt += "<b>[name]</b>: [item_name] x[item_amount] at [item_price]cr each<br>"
-				sum += item_price
+				receipt += "<li><b>[item_name]</b>: [item_amount] x [item_price]cr: [item_amount * item_price]cr<br>"
+				sum += item_price * item_amount
+
+			receipt += "</ul><HR>Total:</b> [sum]cr<br>"
+			playsound(src, 'sound/machines/ping.ogg', 25, 1)
+			audible_message(SPAN_NOTICE("[icon2html(src, viewers(get_turf(src)))] \The [src] pings."))
 			. = TRUE
 
 		if("locking")
