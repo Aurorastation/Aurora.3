@@ -98,6 +98,13 @@ SUBSYSTEM_DEF(vis_contents_update)
 /atom/proc/get_vis_contents_to_add()
 	return
 
+/turf/proc/refresh_vis_contents()
+	var/new_vis_contents = get_vis_contents_to_add()
+	if(length(new_vis_contents))
+		set_vis_contents(new_vis_contents)
+	else if(length(vis_contents))
+		clear_vis_contents()
+
 /atom/movable/proc/update_vis_contents(force_no_queue = FALSE)
 	if(!force_no_queue && (!SSvis_contents_update.initialized || TICK_CHECK))
 		queue_vis_contents_update()
