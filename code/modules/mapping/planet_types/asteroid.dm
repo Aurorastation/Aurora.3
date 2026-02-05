@@ -16,6 +16,7 @@
 	unit_test_groups = list(2)
 
 	soil_data = list("Rich aluminium oxide layer", "Rich iron oxide layer", "Rich silver dust layer", "Rich gold dust layer", "Low density silicon dioxide layer", "Large rock particle layer")
+	habitability_weight = HABITABILITY_LOCKED
 
 /obj/effect/overmap/visitable/sector/exoplanet/barren/asteroid/update_icon()
 	icon_state = "asteroid[rand(1,3)]"
@@ -29,7 +30,7 @@
 	skybox_image.blend_mode = BLEND_OVERLAY
 
 /obj/effect/overmap/visitable/sector/exoplanet/barren/asteroid/generate_atmosphere()
-	atmosphere = null
+	exterior_atmosphere = new
 
 /obj/effect/overmap/visitable/sector/exoplanet/barren/asteroid/romanovich
 	name = "romanovich cloud asteroid"

@@ -14,6 +14,8 @@
 
 	baseturf = /turf/space
 
+	zone_membership_candidate = TRUE
+
 /turf/simulated/Initialize(mapload)
 	if (mapload)
 		if(istype(loc, /area/horizon/service/chapel))

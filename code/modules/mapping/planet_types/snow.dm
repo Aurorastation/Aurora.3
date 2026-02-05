@@ -22,16 +22,15 @@
 	water_data = list("Sodium ions present", "Calcium ions present", "Nitrate ions present", "Magnesium ions present", "Copper ions present")
 
 	unit_test_groups = list(2)
+	habitability_weight = HABITABILITY_BAD
 
 /obj/effect/overmap/visitable/sector/exoplanet/snow/generate_atmosphere()
 	..()
-	if(atmosphere)
-		var/limit = 0
-		if(habitability_class <= HABITABILITY_OKAY)
-			var/datum/species/human/H = /datum/species/human
-			limit = initial(H.cold_level_1) + rand(1,10)
-		atmosphere.temperature = max(T0C - rand(10, 100), limit)
-		atmosphere.update_values()
+	var/datum/species/H = GLOB.all_species[SPECIES_HUMAN]
+	var/generator/new_temp = generator("num", H.cold_level_1 - 50, H.cold_level_3, NORMAL_RAND)
+	exterior_atmosphere.temperature = new_temp.Rand()
+	exterior_atmosphere.update_values()
+	exterior_atmosphere.check_tile_graphic()
 
 /obj/effect/overmap/visitable/sector/exoplanet/snow/generate_ground_survey_result()
 	..()

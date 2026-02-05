@@ -13,13 +13,14 @@
 	ring_chance = 0
 	ruin_planet_type = PLANET_LORE
 	ruin_type_whitelist = list (/datum/map_template/ruin/exoplanet/pra_exploration_drone)
+	habitability_weight = HABITABILITY_BAD
 
 /obj/effect/overmap/visitable/sector/exoplanet/barren/aethemir/generate_atmosphere()
 	..()
-	if(atmosphere)
-		atmosphere.remove_ratio(1)
-		atmosphere.adjust_gas(GAS_NITROGEN, MOLES_O2STANDARD)
-		atmosphere.update_values()
+	exterior_atmosphere.remove_ratio(1)
+	exterior_atmosphere.adjust_gas(GAS_NITROGEN, MOLES_O2STANDARD)
+	exterior_atmosphere.update_values()
+	exterior_atmosphere.check_tile_graphic()
 
 /obj/effect/overmap/visitable/sector/exoplanet/barren/aethemir/get_surface_color()
 	return "#B1A69B"
@@ -46,6 +47,7 @@
 	ring_chance = 0
 	ruin_planet_type = PLANET_LORE
 	ruin_type_whitelist = list (/datum/map_template/ruin/exoplanet/pra_exploration_drone)
+	habitability_weight = HABITABILITY_EXTREME
 
 /obj/effect/overmap/visitable/sector/exoplanet/barren/azmar/get_surface_color()
 	return "#4a3f41"
@@ -55,11 +57,11 @@
 
 /obj/effect/overmap/visitable/sector/exoplanet/barren/azmar/generate_atmosphere()
 	..()
-	if(atmosphere)
-		atmosphere.remove_ratio(1)
-		atmosphere.adjust_gas(GAS_CHLORINE, MOLES_O2STANDARD)
-		atmosphere.temperature = T0C + 500
-		atmosphere.update_values()
+	exterior_atmosphere.remove_ratio(1)
+	exterior_atmosphere.adjust_gas(GAS_CHLORINE, MOLES_O2STANDARD)
+	exterior_atmosphere.temperature = T0C + 500
+	exterior_atmosphere.update_values()
+	exterior_atmosphere.check_tile_graphic()
 
 /obj/effect/overmap/visitable/sector/exoplanet/barren/azmar/update_icon()
 	return
@@ -161,6 +163,7 @@
 	/datum/map_template/ruin/exoplanet/adhomai_tunneler_nest, /datum/map_template/ruin/exoplanet/adhomai_rafama_herd)
 	place_near_main = list(2, 2)
 	var/landing_faction
+	habitability_weight = HABITABILITY_LOCKED
 
 /obj/effect/overmap/visitable/sector/exoplanet/adhomai/pre_ruin_preparation()
 	if(prob(15))
@@ -205,9 +208,6 @@
 
 	desc += " The landing sites are located at the [landing_faction]'s territory."
 
-/obj/effect/overmap/visitable/sector/exoplanet/adhomai/generate_habitability()
-	return HABITABILITY_IDEAL
-
 /obj/effect/overmap/visitable/sector/exoplanet/adhomai/generate_map()
 	if(prob(75))
 		lightlevel = rand(3,10)/10
@@ -226,15 +226,18 @@
 
 /obj/effect/overmap/visitable/sector/exoplanet/adhomai/generate_atmosphere()
 	..()
-	if(atmosphere)
-		atmosphere.remove_ratio(1)
-		atmosphere.adjust_gas(GAS_OXYGEN, MOLES_O2STANDARD, 1)
-		atmosphere.adjust_gas(GAS_NITROGEN, MOLES_N2STANDARD, 1)
-		if(landing_faction == "North Pole")
-			atmosphere.temperature = T0C - 40
-		else
-			atmosphere.temperature = T0C - 5
-		atmosphere.update_values()
+	exterior_atmosphere.remove_ratio(1)
+	exterior_atmosphere.adjust_gas(GAS_OXYGEN, MOLES_O2STANDARD, 1)
+	exterior_atmosphere.adjust_gas(GAS_NITROGEN, MOLES_N2STANDARD, 1)
+	var/datum/species/H = GLOB.all_species[SPECIES_TAJARA]
+	var/generator/new_temp
+	if(landing_faction == "North Pole")
+		new_temp = generator("num", H.cold_level_1, H.cold_level_2, NORMAL_RAND)
+	else
+		new_temp = generator("num", 5, -15, NORMAL_RAND)
+	exterior_atmosphere.temperature = new_temp.Rand()
+	atmosphere.update_values()
+	exterior_atmosphere.check_tile_graphic()
 
 /obj/effect/overmap/visitable/sector/exoplanet/adhomai/update_icon()
 	return

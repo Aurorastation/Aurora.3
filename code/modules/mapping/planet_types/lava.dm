@@ -18,14 +18,16 @@
 	soil_data = list("Low density silicon dioxide layer", "Iron pyroxene layer", "Magnesium olivine layer", "Large rock particle layer", "Aluminium biotite layer")
 
 	unit_test_groups = list(1)
-
-/obj/effect/overmap/visitable/sector/exoplanet/lava/generate_habitability()
-	return HABITABILITY_BAD
+	habitability_weight = HABITABILITY_BAD
 
 /obj/effect/overmap/visitable/sector/exoplanet/lava/generate_atmosphere()
 	..()
-	atmosphere.temperature = T20C + rand(220, 800)
-	atmosphere.update_values()
+	var/datum/species/H = GLOB.all_species[SPECIES_HUMAN]
+	var/xtreme = H.heat_level_2 + (rand(1,3) *  H.heat_level_2)
+	var/generator/new_temp = generator("num", H.heat_level_2, xtreme, UNIFORM_RAND)
+	exterior_atmosphere.temperature = new_temp.Rand()
+	exterior_atmosphere.update_values()
+	exterior_atmosphere.check_tile_graphic()
 
 /obj/effect/overmap/visitable/sector/exoplanet/lava/get_surface_color()
 	return "#575d5e"

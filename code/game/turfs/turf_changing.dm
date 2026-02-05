@@ -55,6 +55,7 @@
 	var/old_outside = is_outside
 	var/old_is_open = is_open()
 	var/list/old_resources = resources ? resources.Copy() : null
+	var/old_zone_membership_candidate = zone_membership_candidate
 
 	SEND_SIGNAL(src, COMSIG_TURF_CHANGE, path)
 
@@ -77,6 +78,14 @@
 
 	if(connections)
 		connections.erase_all()
+
+	if(istype(src,/turf/simulated))
+		//Yeah, we're just going to rebuild the whole thing.
+		//Despite this being called a bunch during explosions,
+		//the zone will only really do heavy lifting once.
+		var/turf/simulated/S = src
+		if(S.zone) S.zone.rebuild()
+		old_zone_membership_candidate = S.zone_membership_candidate
 
 	// So we call destroy.
 	qdel(src)
@@ -174,6 +183,34 @@
 	new_turf.resources = old_resources
 
 	. = new_turf
+
+	// Outside/weather stuff. set_outside() updates weather already
+	// so only call it again if it doesn't already handle it.
+	// we check the var rather than the proc, because area outside values usually shouldn't be set on turfs
+	new_turf.last_outside_check = OUTSIDE_UNCERTAIN
+	if(new_turf.is_outside != old_outside)
+		// This will check the exterior atmos participation of this turf and all turfs connected by open space below.
+		new_turf.set_outside(old_outside, skip_weather_update = TRUE)
+	else // If what changed was a ceiling, it's quite likely outside changed for others below
+		if(GET_TURF_BELOW(src) && (new_turf.is_open() != old_is_open)) // Otherwise, we do it here if the open status of the turf has changed.
+			var/turf/checking = src
+			while(GET_TURF_BELOW(checking))
+				checking = GET_TURF_BELOW(checking)
+				if(!isturf(checking))
+					break
+				var/turf/simulated/checksim = checking
+				if (istype(checksim))
+					checksim.update_external_atmos_participation()
+				if(!checking.is_open())
+					break
+
+	// In case the turf isn't marked for update in Initialize (e.g. space), we call this to create any unsimulated edges necessary.
+	//Todo move all of this to base turf and get rid of simulated subtype
+	var/turf/simulated/W = src
+	if(istype(W) && W.zone_membership_candidate != old_zone_membership_candidate)
+		W.update_external_atmos_participation()
+
+	new_turf.update_weather(force_update_below = new_turf.is_open() != old_is_open)
 
 	for(var/turf/T in RANGE_TURFS(1, src))
 		T.update_icon()

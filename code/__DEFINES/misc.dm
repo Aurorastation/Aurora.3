@@ -434,10 +434,12 @@ example:
 
 #define STATION_TAG "Aurora"
 
-//Planet habitability class
-#define HABITABILITY_IDEAL  1
-#define HABITABILITY_OKAY  2
-#define HABITABILITY_BAD  3
+//Planet habitability weight
+#define HABITABILITY_LOCKED			1
+#define HABITABILITY_TYPICAL		2
+#define HABITABILITY_BAD 			3
+#define HABITABILITY_EXTREME		4
+#define HABITABILITY_RANDOM			5
 
 //Map template flags
 /// Lets multiple copies of the template to be spawned

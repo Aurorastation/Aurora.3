@@ -110,6 +110,12 @@
 	var/tmp/is_outside = OUTSIDE_AREA
 	var/tmp/last_outside_check = OUTSIDE_UNCERTAIN
 
+	//In practice only used by simulated turfs but I would like to get rid of unsimmed ones some day
+	/// Will participate in ZAS, join zones, etc.
+	var/zone_membership_candidate = FALSE
+	/// Will participate in external atmosphere simulation if the turf is outside and no zone is set.
+	var/external_atmosphere_participation = TRUE
+
 // Parent code is duplicated in here instead of ..() for performance reasons.
 // There's ALSO a copy of this in mine_turfs.dm!
 /turf/Initialize(mapload, ...)
@@ -137,6 +143,9 @@
 
 	if (light_range && light_power)
 		update_light()
+
+	if(is_outside())
+		update_weather(force_update_below = TRUE)
 
 	//Get area light
 	var/area/current_area = loc
@@ -706,7 +715,8 @@
 /turf/proc/is_floor()
 	return FALSE
 
-/turf/proc/is_outside()
+///Determine if a turf is considered external for purpose of light and weather
+/turf/is_outside()
 
 	// Can't rain inside or through solid walls.
 	if(density)
@@ -742,11 +752,15 @@
 		. = top_of_stack.is_outside()
 	last_outside_check = . // Cache this for later calls.
 
-/turf/proc/set_outside(var/new_outside, var/skip_weather_update = FALSE)
+/turf/proc/set_outside(new_outside, skip_weather_update = FALSE)
 	if(is_outside == new_outside)
 		return FALSE
 
 	is_outside = new_outside
+	var/turf/simulated/W = src
+	if (istype(W))
+		W.update_external_atmos_participation()
+
 	if(!skip_weather_update)
 		update_weather()
 
@@ -761,6 +775,9 @@
 		checking = GET_TURF_BELOW(checking)
 		if(!isturf(checking))
 			break
+		var/turf/simulated/checksim = checking
+		if (istype(checksim))
+			checksim.update_external_atmos_participation()
 		checking.last_outside_check = OUTSIDE_UNCERTAIN
 		if(!checking.is_open())
 			break
@@ -791,6 +808,25 @@
 		var/turf/below = GET_TURF_BELOW(src)
 		if(below)
 			below.update_weather(new_weather)
+
+/// Updates turf participation in ZAS according to outside status and atmosphere participation bools. Must be called whenever any of those values may change.
+/turf/simulated/proc/update_external_atmos_participation()
+	var/old_outside = last_outside_check
+	last_outside_check = OUTSIDE_UNCERTAIN
+	if(is_outside())
+		if(zone && external_atmosphere_participation)
+			if(can_safely_remove_from_zone())
+				zone.remove(src)
+			else
+				zone.rebuild()
+	else if(!zone && zone_membership_candidate && old_outside == OUTSIDE_YES)
+		// Set the turf's air to the external atmosphere to add to its new zone.
+		air = get_external_air(FALSE)
+
+	SSair.mark_for_update(src)
+
+/turf/proc/get_air_graphic()
+	return
 
 /turf/proc/remove_cleanables()
 	for(var/obj/effect/O in src)
