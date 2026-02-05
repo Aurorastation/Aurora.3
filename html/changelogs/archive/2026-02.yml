@@ -106,3 +106,11 @@
       clear who can wear it.
   - rscadd: Made hangar techs spawn with workboots by default, instead of with sneakers.
       Safety first.
+2026-02-05:
+  Batrachophrenoboocosmomachia:
+  - qol: Moves area blurbs entirely from chat window to status tab.
+  - code_imp: Updates comments in affected files to use dmdocs.
+  Hellfirejag:
+  - bugfix: Observers (such as Storytellers) are now always included in Narrates with
+      a filter.
+  - bugfix: Fixed admin bombs being dropped at the wrong location.
