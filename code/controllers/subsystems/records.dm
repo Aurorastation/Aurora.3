@@ -233,7 +233,7 @@ SUBSYSTEM_DEF(records)
 	var/list/data = list()
 	data["manifest"] = SSrecords.get_manifest_list()
 	data["allow_follow"] = isghost(user)
-	data["show_ooc_roles"] = isabstractmob(usr)
+	data["show_ooc_roles"] = isabstractmob(user)
 	return data
 
 /datum/controller/subsystem/records/proc/open_manifest_tgui(mob/user, datum/tgui/ui)
