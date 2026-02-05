@@ -50,7 +50,7 @@ ABSTRACT_TYPE(/datum/gear/shoes/tajara)
 /datum/gear/gloves/tajara/New()
 	..()
 	var/list/taj_gloves = list()
-	taj_gloves["black gloves"] = /obj/item/clothing/gloves/black/tajara
+	taj_gloves["work gloves"] = /obj/item/clothing/gloves/black/tajara
 	taj_gloves["red gloves"] = /obj/item/clothing/gloves/red/tajara
 	taj_gloves["blue gloves"] = /obj/item/clothing/gloves/blue/tajara
 	taj_gloves["orange gloves"] = /obj/item/clothing/gloves/orange/tajara
@@ -162,6 +162,7 @@ ABSTRACT_TYPE(/datum/gear/shoes/tajara)
 	coat["fine brown coat"] = /obj/item/clothing/suit/storage/tajaran/finecoat
 	coat["fine blue coat"] = /obj/item/clothing/suit/storage/tajaran/finecoat/blue
 	coat["fancy royalist jacket"] = /obj/item/clothing/suit/storage/tajaran/fancy
+	coat["adhomian hunting coat"] = /obj/item/clothing/suit/storage/tajaran/hunting
 	gear_tweaks += new /datum/gear_tweak/path(coat)
 
 /datum/gear/suit/tajaran_labcoat
@@ -568,6 +569,14 @@ ABSTRACT_TYPE(/datum/gear/shoes/tajara)
 	whitelisted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
 	sort_category = "Xenowear - Tajara"
 
+/datum/gear/accessory/tajara_dogtags
+	display_name = "adhomian dogtags"
+	description = "An engraved metal identification tag. The description you assign to the dogtags will carry over to both halves when separated."
+	path = /obj/item/clothing/accessory/dogtags/adhomai
+	whitelisted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
+	sort_category = "Xenowear - Tajara"
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
+
 // Hats, masks and earrings
 
 /datum/gear/head/tajara
@@ -759,12 +768,34 @@ ABSTRACT_TYPE(/datum/gear/shoes/tajara)
 	sort_category = "Xenowear - Tajara"
 	flags = GEAR_HAS_DESC_SELECTION
 
+/datum/gear/tajara_camera_film
+	display_name = "adhomian film canister"
+	description = "Spare film for the Adhomian camera."
+	path = /obj/item/camera_film/taj_film
+	whitelisted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
+
 /datum/gear/typewriter
 	display_name = "adhomian portable typewriter"
 	whitelisted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
 	sort_category = "Xenowear - Tajara"
 	path = /obj/item/typewriter_case
 	flags = GEAR_HAS_DESC_SELECTION
+
+/datum/gear/prrama
+	display_name = "p'rrama"
+	whitelisted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
+	sort_category = "Xenowear - Tajara"
+	path = /obj/item/synthesized_instrument/guitar/prrama
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
+	allowed_roles = list("Off-Duty Crew Member", "Passenger")
+
+/datum/gear/maikahar
+	display_name = "maikahar"
+	whitelisted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
+	sort_category = "Xenowear - Tajara"
+	path = /obj/item/cane/maikahar
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
 
 // All the rest
 

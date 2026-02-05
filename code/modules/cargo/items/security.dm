@@ -367,9 +367,9 @@
 	spawn_amount = 1
 /singleton/cargo_item/blackgloves
 	category = "security"
-	name = "black gloves"
+	name = "work gloves"
 	supplier = "nanotrasen"
-	description = "Black gloves that are somewhat fire resistant."
+	description = "Work gloves that are somewhat fire resistant."
 	price = 70
 	items = list(
 		/obj/item/clothing/gloves/black
