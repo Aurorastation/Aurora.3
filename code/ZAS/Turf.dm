@@ -227,6 +227,7 @@
 				else
 					#ifdef ZASDBG
 					log_subsystem_zas("Connecting non-ZAS turf to [unsim]")
+					#endif
 					SSair.connect(unsim, src)
 
 			#ifdef ZASDBG
@@ -234,13 +235,17 @@
 				log_subsystem_zas("[d] has same zone.")
 			#endif
 
-		#ifdef ZASDBG
-		log_subsystem_zas("[d] has invalid or rebuilding zone.")
-		#endif
-
 		else if(zas_participation)
+			#ifdef ZASDBG
+			log_subsystem_zas("[d] has invalid or rebuilding zone.")
+			#endif
 			//Postponing connections to tiles until a zone is assured.
 			LAZYADD(postponed, unsim)
+
+		#ifdef ZASDBG
+		else
+			log_subsystem_zas("[d] has invalid zone.")
+		#endif
 
 	if(zas_participation && !TURF_HAS_VALID_ZONE(src)) //Still no zone, make a new one.
 		var/zone/newzone = new
