@@ -3,4 +3,4 @@ author: TheGreyWolf
 delete-after: True
 
 changes:
-  - bugfix: "Added a changelog editing system that should cause fewer conflicts and more accurate timestamps."
+  - bugfix: "Added hammers to the autolathe."
