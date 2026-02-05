@@ -812,6 +812,7 @@
 /obj/structure/cable/green{
 	icon_state = "0-4"
 	},
+/obj/structure/table/rack/folding_table,
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/gunnery)
 "cHm" = (
@@ -1461,6 +1462,7 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
+/obj/structure/table/rack/folding_table,
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/gunnery)
 "fnq" = (
@@ -2227,16 +2229,11 @@
 /turf/simulated/floor/tiled/white,
 /area/ship/ranger_corvette/canteen)
 "ioB" = (
-/obj/structure/flora/pottedplant{
-	icon_state = "plant-21"
-	},
 /obj/machinery/light{
 	dir = 4;
 	icon_state = "tube_empty"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 6
-	},
+/obj/machinery/fabricator/autolathe/hacked,
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/gunnery)
 "itg" = (
@@ -4737,9 +4734,11 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ranger_corvette/foyer)
 "smG" = (
-/obj/effect/floor_decal/industrial/hatch/red,
-/turf/simulated/floor/tiled/dark,
-/area/ship/ranger_corvette/gunnery)
+/obj/machinery/ship_weapon/autocannon{
+	weapon_id = "Ranger Francisca Rotary Gun"
+	},
+/turf/template_noop,
+/area/space)
 "smZ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/dark/full,
@@ -4890,11 +4889,9 @@
 /turf/simulated/floor/wood,
 /area/ship/ranger_corvette/foyer)
 "sMm" = (
-/obj/machinery/ship_weapon/autocannon{
-	weapon_id = "Ranger Francisca Rotary Gun"
-	},
-/turf/template_noop,
-/area/space)
+/obj/effect/floor_decal/industrial/hatch/red,
+/turf/simulated/floor/tiled/dark,
+/area/ship/ranger_corvette/gunnery)
 "sMD" = (
 /obj/machinery/shower{
 	dir = 1
@@ -5372,6 +5369,7 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
+/obj/structure/table/rack/folding_table,
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/gunnery)
 "tVB" = (
@@ -6301,6 +6299,7 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
+/obj/structure/table/rack/folding_table,
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/gunnery)
 "xdG" = (
@@ -34687,7 +34686,7 @@ xRX
 sXv
 sXv
 xRX
-sMm
+smG
 xRX
 xRX
 xRX
@@ -36746,7 +36745,7 @@ rBK
 wlN
 rBK
 tLA
-smG
+sMm
 vwc
 wZf
 tLA
@@ -37003,7 +37002,7 @@ jwy
 lNh
 rzM
 tLA
-smG
+sMm
 vyi
 cxr
 tLA
