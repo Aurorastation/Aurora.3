@@ -142,7 +142,7 @@ SUBSYSTEM_DEF(air)
 			continue
 		simulated_turf_count++
 		// We also skip anything already queued, since it'll be settled when fire() runs anyway.
-		if(T.needs_air_update)
+		if(S.needs_air_update)
 			continue
 		S.update_air_properties()
 		// air state is necessarily globally incomplete during this
