@@ -165,6 +165,8 @@
 	if (z_flags & ZM_MIMIC_BELOW)
 		setup_zmimic(mapload)
 
+	update_vis_contents()
+
 	return INITIALIZE_HINT_NORMAL
 
 /turf/Destroy()
@@ -804,20 +806,13 @@
 		. = TRUE
 
 	if(.)
-		refresh_vis_contents()
+		update_vis_contents()
 
 	// Propagate our weather downwards if we permit it.
 	if(force_update_below || (is_open() && .))
 		var/turf/below = GET_TURF_BELOW(src)
 		if(below)
 			below.update_weather(new_weather)
-
-/turf/get_vis_contents_to_add()
-	var/air_graphic = get_air_graphic()
-	if(length(air_graphic))
-		LAZYDISTINCTADD(., air_graphic)
-	if(length(weather?.vis_contents_additions))
-		LAZYADD(., weather.vis_contents_additions)
 
 /// Updates turf participation in ZAS according to outside status and atmosphere participation bools. Must be called whenever any of those values may change.
 /turf/simulated/proc/update_external_atmos_participation()
@@ -840,6 +835,13 @@
 
 /turf/proc/get_air_graphic()
 	return
+
+/turf/get_vis_contents_to_add()
+	var/air_graphic = get_air_graphic()
+	if(length(air_graphic))
+		LAZYDISTINCTADD(., air_graphic)
+	if(length(weather?.vis_contents_additions))
+		LAZYADD(., weather.vis_contents_additions)
 
 /turf/proc/remove_cleanables()
 	for(var/obj/effect/O in src)

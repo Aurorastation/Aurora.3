@@ -74,7 +74,7 @@ Class Procs:
 	if(T.hotspot)
 		LAZYADD(fire_tiles, T)
 		SSair.active_fire_zones |= src
-	T.update_graphic(air.graphic)
+	T.update_vis_contents()
 
 /zone/proc/remove(turf/simulated/T)
 #ifdef ZASDBG
@@ -86,7 +86,7 @@ Class Procs:
 	contents -= T
 	LAZYREMOVE(fire_tiles, T)
 	T.zone = null
-	T.update_graphic(graphic_remove = air.graphic)
+	T.update_vis_contents()
 	if(contents.len)
 		air.group_multiplier = contents.len
 	else
@@ -102,7 +102,7 @@ Class Procs:
 	c_invalidate()
 	for(var/turf/simulated/T in contents)
 		into.add(T)
-		T.update_graphic(graphic_remove = air.graphic)
+		T.update_vis_contents()
 		#ifdef ZASDBG
 		T.dbg(GLOB.merged)
 		#endif
@@ -128,7 +128,7 @@ Class Procs:
 	if(invalid) return //Short circuit for explosions where rebuild is called many times over.
 	c_invalidate()
 	for(var/turf/simulated/T in contents)
-		T.update_graphic(graphic_remove = air.graphic) //we need to remove the overlays so they're not doubled when the zone is rebuilt
+		T.update_vis_contents()
 		//T.dbg(invalid_zone)
 		T.needs_air_update = 0 //Reset the marker so that it will be added to the list.
 		SSair.mark_for_update(T)
@@ -152,15 +152,17 @@ Class Procs:
 
 	// Update gas overlays.
 	if(air.check_tile_graphic(graphic_add, graphic_remove))
-		for(var/turf/simulated/T in contents)
-			T.update_graphic(graphic_add, graphic_remove)
+		for(var/turf/simulated/T as anything in contents)
+			T.update_vis_contents()
+			CHECK_TICK
 		graphic_add.Cut()
 		graphic_remove.Cut()
 
 	// Update connected edges.
-	for(var/connection_edge/E in edges)
+	for(var/connection_edge/E as anything in edges)
 		if(E.sleeping)
 			E.recheck()
+			CHECK_TICK
 
 /zone/proc/dbg_data(mob/M)
 	to_chat(M, name)
