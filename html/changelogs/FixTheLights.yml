@@ -1,0 +1,7 @@
+author: TheGreyWolf
+
+delete-after: True
+
+changes:
+  - bugfix: "Fixes several light in-hand sprites."
+  - bugfix: "Fixes the directional glow to be a radius instead for the torch, flare and marshal wand."

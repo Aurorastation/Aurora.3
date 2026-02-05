@@ -7,6 +7,7 @@
 	w_class = WEIGHT_CLASS_SMALL
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BELT
+	contained_sprite = TRUE
 	light_color = LIGHT_COLOR_HALOGEN
 	light_system = DIRECTIONAL_LIGHT
 	light_range = 4
