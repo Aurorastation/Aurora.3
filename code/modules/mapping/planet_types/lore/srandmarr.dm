@@ -236,7 +236,7 @@
 	else
 		new_temp = generator("num", 5, -15, NORMAL_RAND)
 	exterior_atmosphere.temperature = new_temp.Rand()
-	atmosphere.update_values()
+	exterior_atmosphere.update_values()
 	exterior_atmosphere.check_tile_graphic()
 
 /obj/effect/overmap/visitable/sector/exoplanet/adhomai/update_icon()

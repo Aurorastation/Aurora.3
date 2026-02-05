@@ -10,9 +10,14 @@
 			var/mob/living/simple_animal/hostile/AH = A
 			AH.tolerated_types = mobs_to_tolerate.Copy()
 
-		A.minbodytemp = atmosphere.temperature - 20
-		A.maxbodytemp = atmosphere.temperature + 30
+		A.minbodytemp = exterior_atmosphere.temperature - 20
+		A.maxbodytemp = exterior_atmosphere.temperature + 30
 		A.bodytemperature = (A.maxbodytemp+A.minbodytemp)/2
+		if (A.min_gas)
+			A.min_gas = breathgas.Copy()
+		if (A.max_gas)
+			A.max_gas = list()
+			A.max_gas[badgas] = 5
 
 /obj/effect/overmap/visitable/sector/exoplanet/proc/remove_animal(mob/M)
 	animals -= M

@@ -217,15 +217,15 @@
 
 /obj/effect/overmap/visitable/sector/exoplanet/moghes/generate_atmosphere()
 	..()
-	if(atmosphere)
-		atmosphere.remove_ratio(1)
-		atmosphere.adjust_gas(GAS_OXYGEN, MOLES_O2STANDARD, 1)
-		atmosphere.adjust_gas(GAS_NITROGEN, MOLES_N2STANDARD, 1)
-		if(landing_region == "Wasteland")
-			atmosphere.temperature = T0C + rand(40, 50)
-		else
-			atmosphere.temperature = T0C + rand(30, 40)
-		atmosphere.update_values()
+	exterior_atmosphere.remove_ratio(1)
+	exterior_atmosphere.adjust_gas(GAS_OXYGEN, MOLES_O2STANDARD, 1)
+	exterior_atmosphere.adjust_gas(GAS_NITROGEN, MOLES_N2STANDARD, 1)
+	if(landing_region == "Wasteland")
+		exterior_atmosphere.temperature = T0C + rand(40, 50)
+	else
+		exterior_atmosphere.temperature = T0C + rand(30, 40)
+	exterior_atmosphere.update_values()
+	exterior_atmosphere.check_tile_graphic()
 
 /obj/effect/overmap/visitable/sector/exoplanet/moghes/update_icon()
 	return

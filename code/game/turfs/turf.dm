@@ -190,6 +190,10 @@
 	if (z_flags & ZM_MIMIC_BELOW)
 		cleanup_zmimic()
 
+	if(weather)
+		remove_vis_contents(src,  weather.vis_contents_additions)
+		weather = null
+
 	resource_indicator = null
 
 	..()
@@ -783,31 +787,37 @@
 			break
 	return TRUE
 
-/turf/proc/update_weather(var/obj/abstract/weather_system/new_weather, var/force_update_below = FALSE)
+/turf/proc/update_weather(obj/abstract/weather_system/new_weather, force_update_below = FALSE)
 
 	if(isnull(new_weather))
-		new_weather = SSweather.weather_by_z["[z]"]
+		new_weather = LAZYACCESS(SSweather.weather_by_z, z)
 
 	// We have a weather system and we are exposed to it; update our vis contents.
 	if(istype(new_weather) && is_outside())
 		if(weather != new_weather)
-			if(weather)
-				remove_vis_contents(weather.vis_contents_additions)
 			weather = new_weather
-			add_vis_contents(weather.vis_contents_additions)
 			. = TRUE
 
 	// We are indoors or there is no local weather system, clear our vis contents.
 	else if(weather)
-		remove_vis_contents(weather.vis_contents_additions)
 		weather = null
 		. = TRUE
+
+	if(.)
+		refresh_vis_contents()
 
 	// Propagate our weather downwards if we permit it.
 	if(force_update_below || (is_open() && .))
 		var/turf/below = GET_TURF_BELOW(src)
 		if(below)
 			below.update_weather(new_weather)
+
+/turf/get_vis_contents_to_add()
+	var/air_graphic = get_air_graphic()
+	if(length(air_graphic))
+		LAZYDISTINCTADD(., air_graphic)
+	if(length(weather?.vis_contents_additions))
+		LAZYADD(., weather.vis_contents_additions)
 
 /// Updates turf participation in ZAS according to outside status and atmosphere participation bools. Must be called whenever any of those values may change.
 /turf/simulated/proc/update_external_atmos_participation()
@@ -824,6 +834,9 @@
 		air = get_external_air(FALSE)
 
 	SSair.mark_for_update(src)
+
+/turf/get_affecting_weather()
+	return weather
 
 /turf/proc/get_air_graphic()
 	return

@@ -97,11 +97,11 @@
 
 /obj/effect/overmap/visitable/sector/exoplanet/snow/new_gibson/generate_atmosphere()
 	..()
-	if(atmosphere)
-		atmosphere.remove_ratio(1)
-		atmosphere.adjust_gas(GAS_NITROGEN, MOLES_O2STANDARD)
-		atmosphere.temperature = T0C - 200
-		atmosphere.update_values()
+	exterior_atmosphere.remove_ratio(1)
+	exterior_atmosphere.adjust_gas(GAS_NITROGEN, MOLES_O2STANDARD)
+	exterior_atmosphere.temperature = T0C - 200
+	exterior_atmosphere.update_values()
+	exterior_atmosphere.check_tile_graphic()
 
 // --------------------------------- Chandras
 
@@ -187,12 +187,12 @@
 
 /obj/effect/overmap/visitable/sector/exoplanet/biesel/generate_atmosphere()
 	..()
-	if(atmosphere)
-		atmosphere.remove_ratio(1)
-		atmosphere.adjust_gas(GAS_OXYGEN, MOLES_O2STANDARD, 1)
-		atmosphere.adjust_gas(GAS_NITROGEN, MOLES_N2STANDARD, 1)
-		atmosphere.temperature = T20C
-		atmosphere.update_values()
+	exterior_atmosphere.remove_ratio(1)
+	exterior_atmosphere.adjust_gas(GAS_OXYGEN, MOLES_O2STANDARD, 1)
+	exterior_atmosphere.adjust_gas(GAS_NITROGEN, MOLES_N2STANDARD, 1)
+	exterior_atmosphere.temperature = T20C
+	exterior_atmosphere.update_values()
+	exterior_atmosphere.check_tile_graphic()
 
 /obj/effect/overmap/visitable/sector/exoplanet/biesel/update_icon()
 	return
