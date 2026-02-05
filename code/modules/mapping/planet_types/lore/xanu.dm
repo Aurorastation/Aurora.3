@@ -32,9 +32,7 @@
 	possible_themes = list(/datum/exoplanet_theme/grass/xanu_nayakhyber)
 	surface_color = "#7c945c"
 	var/landing_region = "grasslands and mountains of Naya Khyber"
-
-/obj/effect/overmap/visitable/sector/exoplanet/xanu/generate_habitability()
-	return HABITABILITY_IDEAL
+	habitability_weight = HABITABILITY_LOCKED
 
 /obj/effect/overmap/visitable/sector/exoplanet/xanu/generate_map()
 	lightlevel = rand(1,10)

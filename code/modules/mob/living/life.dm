@@ -199,11 +199,11 @@
 /mob/living
 	var/datum/weakref/last_weather
 
-/mob/living/proc/is_outside()
+/mob/living/is_outside()
 	var/turf/T = loc
 	return istype(T) && T.is_outside()
 
-/mob/living/proc/get_affecting_weather()
+/mob/living/get_affecting_weather()
 	var/turf/my_turf = get_turf(src)
 	if(!istype(my_turf))
 		return

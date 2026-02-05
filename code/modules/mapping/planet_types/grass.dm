@@ -27,9 +27,11 @@
 
 /obj/effect/overmap/visitable/sector/exoplanet/grass/generate_atmosphere()
 	..()
-	if(atmosphere)
-		atmosphere.temperature = T20C + rand(10, 30)
-		atmosphere.update_values()
+	var/datum/species/H = GLOB.all_species[SPECIES_HUMAN]
+	var/generator/new_temp = generator("num", T0C, H.heat_level_1 - 10, UNIFORM_RAND)
+	exterior_atmosphere.temperature = new_temp.Rand()
+	exterior_atmosphere.update_values()
+	exterior_atmosphere.check_tile_graphic()
 
 /obj/effect/overmap/visitable/sector/exoplanet/grass/get_surface_color()
 	return grass_color
