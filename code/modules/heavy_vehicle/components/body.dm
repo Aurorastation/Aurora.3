@@ -128,7 +128,7 @@
 				transfer_moles = min(transfer_moles, (air_supply.release_flow_rate/air_supply.air_contents.volume)*air_supply.air_contents.total_moles)
 				pump_gas_passive(air_supply, air_supply.air_contents, cockpit, transfer_moles)
 				changed = TRUE
-		else if(pressure_delta < 0) //Release overpressure.
+		else if(pressure_delta > 0) //Release overpressure.
 			var/turf/T = get_turf(src)
 			if(!T)
 				return
