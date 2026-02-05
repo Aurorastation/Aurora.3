@@ -4,12 +4,6 @@
 /turf/var/needs_air_update = 0
 /turf/var/datum/gas_mixture/air
 
-/turf/simulated/proc/update_graphic(list/graphic_add = null, list/graphic_remove = null)
-	if(graphic_add && LAZYLEN(graphic_add))
-		add_vis_contents(graphic_add)
-	if(graphic_remove && LAZYLEN(graphic_remove))
-		remove_vis_contents(graphic_remove)
-
 /turf/simulated/get_air_graphic()
 	if(zone && !zone.invalid)
 		return zone.air?.graphic
@@ -112,7 +106,7 @@
 
 /turf/simulated/update_air_properties()
 
-	if(zone && zone.invalid) //this turf's zone is in the process of being rebuilt
+	if(zone?.invalid) //this turf's zone is in the process of being rebuilt
 		c_copy_air() //not very efficient :(
 		zone = null //Easier than iterating through the list at the zone.
 
@@ -121,7 +115,7 @@
 	if(s_block & AIR_BLOCKED)
 		#ifdef ZASDBG
 		log_subsystem_zas_debug("Self-blocked.")
-		//dbg(blocked)
+		dbg(GLOB.blocked)
 		#endif
 		if(zone)
 			var/zone/z = zone
@@ -200,7 +194,9 @@
 						//    they are blocking us and we are not blocking them, or if
 						//    we are blocking them and not blocking ourselves - this prevents tiny zones from forming on doorways.
 						if(((block & ZONE_BLOCKED) && !(r_block & ZONE_BLOCKED)) || ((r_block & ZONE_BLOCKED) && !(s_block & ZONE_BLOCKED)))
+							#ifdef ZASDBG
 							log_subsystem_zas_debug("[d] is zone blocked.")
+							#endif
 
 							//dbg(zone_blocked, d)
 
@@ -209,25 +205,38 @@
 						else
 							sim.zone.add(src)
 
+							#ifdef ZASDBG
 							dbg(GLOB.assigned)
 							log_subsystem_zas_debug("Added to [zone]")
+							#endif
 
 					else if(sim.zone != zone)
 
+						#ifdef ZASDBG
 						log_subsystem_zas_debug("Connecting to [sim.zone]")
+						#endif
 
 						SSair.connect(src, sim)
 
+
+					#ifdef ZASDBG
 					else
 						log_subsystem_zas("[dir2text(d)] has same zone.")
+					#endif
 
 				else
+					#ifdef ZASDBG
 					log_subsystem_zas("Connecting non-ZAS turf to [unsim]")
 					SSair.connect(unsim, src)
-					log_subsystem_zas("[d] has same zone.")
 
+			#ifdef ZASDBG
 			else
-				log_subsystem_zas("[d] has invalid or rebuilding zone.")
+				log_subsystem_zas("[d] has same zone.")
+			#endif
+
+		#ifdef ZASDBG
+		log_subsystem_zas("[d] has invalid or rebuilding zone.")
+		#endif
 
 		else if(zas_participation)
 			//Postponing connections to tiles until a zone is assured.
@@ -239,6 +248,7 @@
 
 	#ifdef ZASDBG
 		dbg(GLOB.created)
+		log_subsystem_zas("New zone created for src.")
 
 	ASSERT(!zas_participation || zone)
 	#endif
