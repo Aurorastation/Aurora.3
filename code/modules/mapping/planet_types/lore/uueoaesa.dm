@@ -50,11 +50,13 @@
 
 /obj/effect/overmap/visitable/sector/exoplanet/barren/pid/generate_atmosphere()
 	..()
-	if(atmosphere)
-		atmosphere.remove_ratio(1)
-		atmosphere.adjust_gas(GAS_NITROGEN, MOLES_N2STANDARD)
-		atmosphere.temperature = T0C + 20
-		atmosphere.update_values()
+	exterior_atmosphere.remove_ratio(1)
+	exterior_atmosphere.adjust_gas(GAS_NITROGEN, MOLES_N2STANDARD)
+	var/datum/species/H = GLOB.all_species[SPECIES_UNATHI]
+	var/generator/new_temp = generator("num", T0C, H.heat_level_1 - 10, UNIFORM_RAND)
+	exterior_atmosphere.temperature = new_temp.Rand()
+	exterior_atmosphere.update_values()
+	exterior_atmosphere.check_tile_graphic()
 
 /obj/effect/overmap/visitable/sector/exoplanet/barren/pid/generate_ground_survey_result()
 	..()
@@ -99,6 +101,7 @@
 	place_near_main = list(2,2)
 	ruin_type_whitelist = list(/datum/map_template/ruin/exoplanet/heph_mining_station, /datum/map_template/ruin/exoplanet/miners_guild_outpost, /datum/map_template/ruin/exoplanet/digsite, /datum/map_template/ruin/exoplanet/crashed_sol_shuttle_01, /datum/map_template/ruin/exoplanet/crashed_skrell_shuttle_01, /datum/map_template/ruin/exoplanet/izweski_probe, /datum/map_template/ruin/exoplanet/heph_survey_post, /datum/map_template/ruin/exoplanet/kazhkz_crash)
 	scanimage = "chanterel.png"
+	habitability_weight = HABITABILITY_BAD
 
 /obj/effect/overmap/visitable/sector/exoplanet/barren/asteroid/chanterel/generate_planet_image()
 	skybox_image = image('icons/skybox/lore_planets.dmi', "chanterel")
@@ -145,6 +148,7 @@
 	place_near_main = list(2,2)
 	actors = list("reptilian humanoid", "three-faced reptilian humanoid", "a statue", "a sword", "an unidentifiable object", "an Unathi skull", "a staff", "a fishing spear", "reptilian humanoids", "unusual devices", "a pyramid")
 	var/landing_region
+	habitability_weight = HABITABILITY_LOCKED
 
 /obj/effect/overmap/visitable/sector/exoplanet/moghes/pre_ruin_preparation()
 	if(prob(30))
@@ -205,9 +209,6 @@
 			)
 
 	desc += " The landing sites are located in the [landing_region]."
-
-/obj/effect/overmap/visitable/sector/exoplanet/moghes/generate_habitability()
-	return HABITABILITY_IDEAL
 
 /obj/effect/overmap/visitable/sector/exoplanet/moghes/generate_map()
 	if(prob(75))
@@ -298,9 +299,7 @@
 		/datum/map_template/ruin/exoplanet/ouerea_threshbeast_herd
 	)
 	place_near_main = list(2,2)
-
-/obj/effect/overmap/visitable/sector/exoplanet/ouerea/generate_habitability()
-	return HABITABILITY_IDEAL
+	habitability_weight = HABITABILITY_LOCKED
 
 /obj/effect/overmap/visitable/sector/exoplanet/ouerea/generate_map()
 	if(prob(75))
@@ -309,12 +308,11 @@
 
 /obj/effect/overmap/visitable/sector/exoplanet/ouerea/generate_atmosphere()
 	..()
-	if(atmosphere)
-		atmosphere.remove_ratio(1)
-		atmosphere.adjust_gas(GAS_OXYGEN, MOLES_O2STANDARD, 1)
-		atmosphere.adjust_gas(GAS_NITROGEN, MOLES_N2STANDARD, 1)
-		atmosphere.temperature = T0C + rand(25, 30)
-		atmosphere.update_values()
+	exterior_atmosphere.remove_ratio(1)
+	exterior_atmosphere.adjust_gas(GAS_OXYGEN, MOLES_O2STANDARD, 1)
+	exterior_atmosphere.adjust_gas(GAS_NITROGEN, MOLES_N2STANDARD, 1)
+	exterior_atmosphere.temperature = T0C + rand(25, 30)
+	exterior_atmosphere.update_values()
 
 /obj/effect/overmap/visitable/sector/exoplanet/ouerea/update_icon()
 	return
