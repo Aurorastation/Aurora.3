@@ -7,4 +7,4 @@ changes:
   - rscadd: "Added tape to the commissary."
   - rscadd: "Modified the disposal leading to the commissary to always output packages in the customer section."
   - bugfix: "Added the missing request console to the machinist workshop."
-  - bugfix: "Fixed one of the signs on teh security elevator moving with the elevator."
+  - bugfix: "Fixed one of the signs on the security elevator moving with the elevator."
