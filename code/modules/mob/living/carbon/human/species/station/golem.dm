@@ -320,7 +320,7 @@ GLOBAL_LIST_INIT(golem_types, list(
 
 	bodytype = "Human"
 
-	slowdown = -2
+	slowdown = -0.6
 
 	brute_mod = 1.5
 	burn_mod = 3
@@ -345,7 +345,7 @@ GLOBAL_LIST_INIT(golem_types, list(
 	icobase = 'icons/mob/human_races/golem/r_cardboard.dmi'
 	deform = 'icons/mob/human_races/golem/r_cardboard.dmi'
 
-	slowdown = -1
+	slowdown = -0.3
 
 	brute_mod = 1.5
 	burn_mod = 3
@@ -656,7 +656,7 @@ GLOBAL_LIST_INIT(golem_types, list(
 
 	brute_mod = 1.2
 	burn_mod = 1
-	slowdown = -2
+	slowdown = -0.8
 
 	meat_type = /obj/item/ore/glass
 
@@ -711,7 +711,7 @@ GLOBAL_LIST_INIT(golem_types, list(
 
 	brute_mod = 1.2
 	burn_mod = 1.3
-	slowdown = -1
+	slowdown = -0.3
 
 	meat_type = /obj/item/stack/material/plastic
 

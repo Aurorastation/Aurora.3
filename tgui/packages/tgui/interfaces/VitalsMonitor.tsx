@@ -41,22 +41,26 @@ const PatientVitals = (props, context) => {
         </LabeledList.Item>
         <LabeledList.Item
           label="Brain Activity"
-          color={ProgressClass(data.brain_activity)}>
+          color={ProgressClass(data.brain_activity)}
+        >
           {data.brain_activity}%
         </LabeledList.Item>
         <LabeledList.Item
           label="BP"
-          color={PressureClass(data.blood_pressure_level)}>
+          color={PressureClass(data.blood_pressure_level)}
+        >
           {data.blood_pressure}
         </LabeledList.Item>
         <LabeledList.Item
           label="Blood Oxygenation"
-          color={ProgressClass(Math.round(data.blood_o2))}>
+          color={ProgressClass(Math.round(data.blood_o2))}
+        >
           {Math.round(data.blood_o2)}%
         </LabeledList.Item>
         <LabeledList.Item
           label="Blood Volume"
-          color={ProgressClass(Math.round(data.blood_volume))}>
+          color={ProgressClass(Math.round(data.blood_volume))}
+        >
           {Math.round(data.blood_volume)}%
         </LabeledList.Item>
       </LabeledList>

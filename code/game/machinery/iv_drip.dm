@@ -485,7 +485,7 @@
 		user.visible_message(SPAN_NOTICE("[user] places \the [attacking_item] in \the [src]."), SPAN_NOTICE("You place \the [attacking_item] in \the [src]."))
 		update_icon()
 		return TRUE
-	if(attacking_item.iswrench())
+	if(attacking_item.tool_behaviour == TOOL_WRENCH)
 		if(!tank)
 			to_chat(user, "There isn't a tank installed for you to secure!")
 			return TRUE
@@ -716,18 +716,15 @@
 
 	if(use_check_and_message(usr))
 		return
-	set_rate:
-		var/amount = tgui_input_number(usr, "Set the IV drip's transfer rate.", "IV Drip", transfer_amount, transfer_limit, 0.001, round_value = FALSE)
-		if(!amount)
-			return
-		if ((0.001 > amount || amount > transfer_limit) && amount != 0)
-			to_chat(usr, SPAN_WARNING("Entered value must be between 0.001 and [transfer_limit]."))
-			goto set_rate
-		if (transfer_amount == 0)
-			transfer_amount = REM
-			return
-		transfer_amount = amount
-		to_chat(usr, SPAN_NOTICE("Transfer rate set to [src.transfer_amount] u/sec."))
+
+	transfer_amount = tgui_input_number( \
+		usr, \
+		"Set the IV drip's transfer rate between 0.001 and [transfer_limit].", \
+		"IV Drip", \
+		transfer_amount, \
+		transfer_limit, 0.001, \
+		round_value = FALSE)
+	to_chat(usr, SPAN_NOTICE("Transfer rate set to [src.transfer_amount] u/sec."))
 
 /obj/machinery/iv_drip/RefreshParts()
 	..()

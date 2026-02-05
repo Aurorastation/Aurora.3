@@ -62,7 +62,7 @@
 
 /obj/structure/crate_shelf/attackby(obj/item/attacking_item, mob/user, params)
 	. = ..()
-	if(attacking_item.iswrench())
+	if(attacking_item.tool_behaviour == TOOL_WRENCH)
 		dismantle(attacking_item, user)
 
 /obj/structure/crate_shelf/dismantle(obj/item/W, mob/user)

@@ -80,7 +80,7 @@
 
 	var/animating_ripple = FALSE
 
-	var/obj/item/device/radio/radio
+	var/obj/item/radio/radio
 	var/safe_alert = "NOTICE: INDRA reactor stabilizing."
 	var/safe_warned = FALSE
 	var/public_alert = FALSE
@@ -177,7 +177,7 @@
 /obj/effect/fusion_em_field/Initialize()
 	. = ..()
 	addtimer(CALLBACK(src, PROC_REF(update_light_colors)), 10 SECONDS, TIMER_LOOP)
-	radio = new /obj/item/device/radio{channels=list("Engineering")}(src)
+	radio = new /obj/item/radio{channels=list("Engineering")}(src)
 
 /**
  * What are we doing every tick? A lot.

@@ -118,6 +118,7 @@
 	//LETTING SIMPLE ANIMALS ATTACK? WHAT COULD GO WRONG. Defaults to zero so Ian can still be cuddly
 	var/melee_damage_lower = 0
 	var/melee_damage_upper = 0
+	var/melee_reach = 1
 	var/armor_penetration = 0
 	var/attack_flags = 0
 	var/attacktext = "attacked"
@@ -1032,6 +1033,41 @@
 				B.transform = M.Scale(scale)
 				B.update_icon()
 
+
+/mob/living/simple_animal/handle_fire(seconds_per_tick)
+	if(..())
+		return
+
+	var/burn_temperature = fire_burn_temperature()
+	var/thermal_protection = get_heat_protection()
+
+	if (thermal_protection < 1 && bodytemperature < burn_temperature)
+		bodytemperature += round(BODYTEMP_HEATING_MAX*(1-thermal_protection) * 20 * seconds_per_tick, 1)
+
+	burn_temperature -= maxbodytemp
+
+	if(burn_temperature < 1)
+		return
+
+	adjustBruteLoss(log(10, (burn_temperature + 10)))
+
+/mob/living/simple_animal/update_fire()
+	. = ..()
+	var/image/upper_fire_overlay = image("icon" = 'icons/mob/burning/burning_generic.dmi', "icon_state" = "upper", layer = MOB_UPPER_FIRE_OVERLAY)
+	var/image/upper_fire_emissive = emissive_appearance("icon" = 'icons/mob/burning/burning_generic.dmi', "icon_state" = "upper", layer = MOB_UPPER_FIRE_OVERLAY)
+	var/image/lower_fire_overlay = image("icon" = 'icons/mob/burning/burning_generic.dmi', "icon_state" = "lower", layer = MOB_LOWER_FIRE_OVERLAY)
+	var/image/lower_fire_emissive = emissive_appearance("icon" = 'icons/mob/burning/burning_generic.dmi', "icon_state" = "lower", layer = MOB_LOWER_FIRE_OVERLAY)
+	CutOverlays(upper_fire_overlay)
+	CutOverlays(upper_fire_emissive)
+	CutOverlays(lower_fire_overlay)
+	CutOverlays(lower_fire_emissive)
+	if(on_fire)
+		AddOverlays(upper_fire_overlay)
+		AddOverlays(upper_fire_emissive)
+		AddOverlays(lower_fire_overlay)
+		AddOverlays(lower_fire_emissive)
+
+
 /mob/living/simple_animal/get_resist_power()
 	return resist_mod
 
@@ -1085,6 +1121,16 @@
 /mob/living/simple_animal/proc/derez()
 	visible_message(SPAN_NOTICE("\The [src] fades away!"))
 	qdel(src)
+
+//Taken from /obj/item/proc/attack_can_reach
+/mob/living/simple_animal/proc/attack_can_reach(var/atom/us, var/atom/them, var/range)
+	if(us.Adjacent(them))
+		return TRUE // Already adjacent.
+	else if(range <= 1)
+		return FALSE
+	if(AStar(get_turf(us), get_turf(them), /turf/proc/AdjacentTurfsRanged, /turf/proc/Distance, max_nodes=25, max_node_depth=range))
+		return TRUE
+	return FALSE
 
 #undef BLOOD_NONE
 #undef BLOOD_LIGHT

@@ -63,7 +63,7 @@
 	description = "Swipe your ID card to make purchases electronically."
 	price = 35
 	items = list(
-		/obj/item/device/eftpos
+		/obj/item/eftpos
 	)
 	access = 0
 	container_type = "crate"
@@ -105,7 +105,7 @@
 	description = "Good for illuminating dark areas or burning someones face off."
 	price = 8
 	items = list(
-		/obj/item/device/flashlight/flare
+		/obj/item/flashlight/flare
 	)
 	access = 0
 	container_type = "crate"
@@ -407,7 +407,7 @@
 	description = "A vending machine restock cart."
 	price = 2250
 	items = list(
-		/obj/item/device/vending_refill/battlemonsters
+		/obj/item/vending_refill/battlemonsters
 	)
 	access = 0
 	container_type = "crate"
@@ -421,7 +421,7 @@
 	description = "A vending machine restock cart."
 	price = 4500
 	items = list(
-		/obj/item/device/vending_refill/booze
+		/obj/item/vending_refill/booze
 	)
 	access = 0
 	container_type = "crate"
@@ -435,7 +435,7 @@
 	description = "A vending machine restock cart."
 	price = 1255
 	items = list(
-		/obj/item/device/vending_refill/zora
+		/obj/item/vending_refill/zora
 	)
 	access = 0
 	container_type = "crate"
@@ -449,7 +449,7 @@
 	description = "A vending machine restock cart."
 	price = 2450
 	items = list(
-		/obj/item/device/vending_refill/tools
+		/obj/item/vending_refill/tools
 	)
 	access = 0
 	container_type = "crate"
@@ -463,7 +463,7 @@
 	description = "A vending machine restock cart."
 	price = 2250
 	items = list(
-		/obj/item/device/vending_refill/smokes
+		/obj/item/vending_refill/smokes
 	)
 	access = 0
 	container_type = "crate"
@@ -477,7 +477,7 @@
 	description = "A vending machine restock cart."
 	price = 1255
 	items = list(
-		/obj/item/device/vending_refill/snack
+		/obj/item/vending_refill/snack
 	)
 	access = 0
 	container_type = "crate"
@@ -491,7 +491,7 @@
 	description = "A vending machine restock cart."
 	price = 2500
 	items = list(
-		/obj/item/device/vending_refill/robo
+		/obj/item/vending_refill/robo
 	)
 	access = 0
 	container_type = "crate"
@@ -505,7 +505,7 @@
 	description = "A vending machine restock cart."
 	price = 4500
 	items = list(
-		/obj/item/device/vending_refill/robust
+		/obj/item/vending_refill/robust
 	)
 	access = 0
 	container_type = "crate"
@@ -519,7 +519,7 @@
 	description = "A vending machine restock cart."
 	price = 5500
 	items = list(
-		/obj/item/device/vending_refill/meds
+		/obj/item/vending_refill/meds
 	)
 	access = 0
 	container_type = "crate"
@@ -533,7 +533,7 @@
 	description = "A vending machine restock cart."
 	price = 2500
 	items = list(
-		/obj/item/device/vending_refill/hydro
+		/obj/item/vending_refill/hydro
 	)
 	access = 0
 	container_type = "crate"
@@ -547,7 +547,7 @@
 	description = "A vending machine restock cart."
 	price = 1350
 	items = list(
-		/obj/item/device/vending_refill/coffee
+		/obj/item/vending_refill/coffee
 	)
 	access = 0
 	container_type = "crate"
@@ -561,7 +561,7 @@
 	description = "A vending machine restock cart."
 	price = 1250
 	items = list(
-		/obj/item/device/vending_refill/cola
+		/obj/item/vending_refill/cola
 	)
 	access = 0
 	container_type = "crate"
@@ -575,7 +575,7 @@
 	description = "A vending machine restock cart."
 	price = 850
 	items = list(
-		/obj/item/device/vending_refill/cutlery
+		/obj/item/vending_refill/cutlery
 	)
 	access = 0
 	container_type = "crate"

@@ -267,7 +267,7 @@
 /area/sensor_relay)
 "aat" = (
 /obj/effect/floor_decal/industrial/warning,
-/obj/item/device/radio/intercom/ship/north,
+/obj/item/radio/intercom/ship/north,
 /turf/simulated/floor/airless,
 /area/sensor_relay)
 "aau" = (
@@ -1458,7 +1458,7 @@
 	},
 /obj/machinery/meter,
 /obj/effect/decal/cleanable/floor_damage/random_tiled_broken,
-/obj/item/device/multitool{
+/obj/item/multitool{
 	pixel_x = -12
 	},
 /obj/machinery/power/portgen/basic,
@@ -1508,7 +1508,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/sensor_relay/workshop)
 "axF" = (
-/obj/item/device/oxycandle{
+/obj/item/oxycandle{
 	pixel_y = 7;
 	pixel_x = -5
 	},
@@ -1521,7 +1521,7 @@
 /obj/structure/closet,
 /obj/random/bandana,
 /obj/item/gun/energy/blaster,
-/obj/item/device/personal_shield,
+/obj/item/personal_shield,
 /obj/item/inflatable/wall,
 /obj/item/clothing/under/service_overalls,
 /obj/item/clothing/under/service_overalls,
@@ -1573,7 +1573,7 @@
 	pixel_x = -6;
 	pixel_y = 3
 	},
-/obj/item/device/oxycandle{
+/obj/item/oxycandle{
 	pixel_y = 7;
 	pixel_x = 3
 	},
@@ -1789,7 +1789,7 @@
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 10
 	},
-/obj/item/device/radio/intercom/ship/south,
+/obj/item/radio/intercom/ship/south,
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1;
 	level = 2
@@ -2082,7 +2082,7 @@
 	dir = 1
 	},
 /obj/item/storage/bag/circuits/basic,
-/obj/item/device/multitool,
+/obj/item/multitool,
 /obj/random/tech_supply,
 /obj/item/stack/cable_coil/yellow,
 /obj/item/cell/high/empty{
@@ -2331,7 +2331,7 @@
 	dir = 4
 	},
 /obj/random/dirt_75,
-/obj/item/device/radio/intercom/ship/south,
+/obj/item/radio/intercom/ship/south,
 /turf/simulated/floor/tiled/full,
 /area/sensor_relay/dining)
 "aRK" = (
@@ -2367,7 +2367,7 @@
 	pixel_y = 8;
 	pixel_x = 12
 	},
-/obj/item/device/radio/hailing{
+/obj/item/radio/hailing{
 	pixel_y = 6;
 	pixel_x = -8
 	},
@@ -2492,7 +2492,7 @@
 	pixel_x = 1
 	},
 /obj/machinery/power/apc/empty/east,
-/obj/item/device/radio/hailing{
+/obj/item/radio/hailing{
 	pixel_y = 4;
 	pixel_x = -10
 	},
@@ -2537,7 +2537,7 @@
 /obj/machinery/fabricator/autolathe,
 /obj/effect/decal/cleanable/cobweb,
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/item/device/radio/intercom/ship/west,
+/obj/item/radio/intercom/ship/west,
 /obj/structure/sign/nosmoking_1{
 	pixel_y = 27
 	},
@@ -2552,7 +2552,7 @@
 /obj/item/storage/bag/inflatable{
 	pixel_y = 2
 	},
-/obj/item/device/radio/intercom/ship/north,
+/obj/item/radio/intercom/ship/north,
 /turf/simulated/floor/carpet/rubber,
 /area/sensor_relay/monitoring)
 "aYf" = (
@@ -2613,7 +2613,7 @@
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 6
 	},
-/obj/item/device/radio/intercom/ship/east,
+/obj/item/radio/intercom/ship/east,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
 /area/sensor_relay)
@@ -2888,7 +2888,7 @@
 	icon_state = "4-8"
 	},
 /obj/structure/lattice/catwalk/indoor,
-/obj/item/device/radio/intercom/ship/north,
+/obj/item/radio/intercom/ship/north,
 /turf/simulated/floor/airless,
 /area/sensor_relay)
 "dWa" = (
@@ -3770,7 +3770,7 @@
 	dir = 9
 	},
 /obj/random/dirt_75,
-/obj/item/device/radio/intercom/ship/west,
+/obj/item/radio/intercom/ship/west,
 /turf/simulated/floor/tiled,
 /area/sensor_relay)
 "sEV" = (

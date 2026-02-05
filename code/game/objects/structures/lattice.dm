@@ -69,7 +69,7 @@
 		var/turf/T = get_turf(src)
 		T.attackby(attacking_item, user) //BubbleWrap - hand this off to the underlying turf instead
 		return
-	if (attacking_item.iswelder())
+	if (attacking_item.tool_behaviour == TOOL_WELDER)
 		var/obj/item/weldingtool/WT = attacking_item
 		if(WT.use(1, user))
 			to_chat(user, SPAN_NOTICE("Slicing lattice joints ..."))
@@ -118,7 +118,7 @@
 	layer = CATWALK_LAYER
 
 /obj/structure/lattice/catwalk/attackby(obj/item/attacking_item, mob/user)
-	if(attacking_item.iswelder())
+	if(attacking_item.tool_behaviour == TOOL_WELDER)
 		var/obj/item/weldingtool/WT = attacking_item
 		if(!WT.use(1, user))
 			to_chat(user, SPAN_WARNING("You need more welding fuel to complete this task."))
@@ -131,7 +131,7 @@
 			qdel(src)
 
 /obj/structure/lattice/catwalk/indoor/attackby(obj/item/attacking_item, mob/user)
-	if(attacking_item.isscrewdriver())
+	if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 		if(attacking_item.use_tool(src, user, 5, volume = 50))
 			anchored = !anchored
 			to_chat(user, SPAN_NOTICE("You [anchored ? "" : "un"]anchor [src]."))
@@ -158,7 +158,7 @@
 	var/damaged = FALSE
 
 /obj/structure/lattice/catwalk/indoor/grate/attackby(obj/item/attacking_item, mob/user)
-	if(attacking_item.iswelder() && damaged)
+	if(attacking_item.tool_behaviour == TOOL_WELDER && damaged)
 		var/obj/item/weldingtool/WT = attacking_item
 		if(attacking_item.use_tool(src, user, 5, volume = 50) && WT.use(1, user))
 			user.visible_message(

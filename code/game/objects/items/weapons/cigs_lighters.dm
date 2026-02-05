@@ -284,9 +284,9 @@ ABSTRACT_TYPE(/obj/item/clothing/mask/smokable)
 			text = zippomes
 		else if(istype(attacking_item, /obj/item/flame/lighter))
 			text = lightermes
-		else if(attacking_item.iswelder())
+		else if(attacking_item.tool_behaviour == TOOL_WELDER)
 			text = weldermes
-		else if(istype(attacking_item, /obj/item/device/assembly/igniter))
+		else if(istype(attacking_item, /obj/item/assembly/igniter))
 			text = ignitermes
 		else
 			text = genericmes
@@ -670,7 +670,7 @@ ABSTRACT_TYPE(/obj/item/clothing/mask/smokable)
 		if(M.lit)
 			light(SPAN_NOTICE("[user] lights their [name] with their [attacking_item]."))
 
-	else if(istype(attacking_item, /obj/item/device/assembly/igniter))
+	else if(istype(attacking_item, /obj/item/assembly/igniter))
 		light(SPAN_NOTICE("[user] fiddles with [attacking_item], and manages to light their [name] with the power of science."))
 
 	user.update_inv_wear_mask(0)
@@ -1081,9 +1081,9 @@ ABSTRACT_TYPE(/obj/item/clothing/mask/smokable)
 	can_fold = FALSE
 
 /obj/item/paper/cig/attackby(obj/item/attacking_item, mob/user)
-	if(istype(attacking_item, /obj/item/flame) || attacking_item.iswelder())
+	if(istype(attacking_item, /obj/item/flame) || attacking_item.tool_behaviour == TOOL_WELDER)
 		..()
-	if(attacking_item.ispen())
+	if(attacking_item.tool_behaviour == TOOL_PEN)
 		..()
 	else
 		return

@@ -15,12 +15,12 @@
 	products = list(
 		/obj/item/handcuffs = 8,
 		/obj/item/grenade/chem_grenade/teargas = 4,
-		/obj/item/device/flash = 5,
+		/obj/item/flash = 5,
 		/obj/item/reagent_containers/spray/pepper = 5,
 		/obj/item/storage/box/evidence = 6,
-		/obj/item/device/holowarrant = 5,
-		/obj/item/device/flashlight/maglight = 5,
-		/obj/item/device/hailer = 5,
+		/obj/item/holowarrant = 5,
+		/obj/item/flashlight/maglight = 5,
+		/obj/item/hailer = 5,
 		/obj/item/reagent_containers/food/snacks/donut/normal = 6
 	)
 	premium = list(
@@ -34,7 +34,7 @@
 	restock_blocked_items = list(
 		/obj/item/storage/box/fancy/donut,
 		/obj/item/storage/box/evidence,
-		/obj/item/device/flash,
+		/obj/item/flash,
 		/obj/item/reagent_containers/spray/pepper
 		)
 	restock_items = TRUE
@@ -46,15 +46,15 @@
 	products = list(
 		/obj/item/handcuffs = 2,
 		/obj/item/grenade/chem_grenade/teargas = 1,
-		/obj/item/device/flash = 2,
+		/obj/item/flash = 2,
 		/obj/item/reagent_containers/spray/pepper = 2,
 		/obj/item/storage/box/evidence = 4,
-		/obj/item/device/holowarrant = 3,
-		/obj/item/device/flashlight/maglight = 2,
-		/obj/item/device/hailer = 1
+		/obj/item/holowarrant = 3,
+		/obj/item/flashlight/maglight = 2,
+		/obj/item/hailer = 1
 	)
 
-/obj/item/device/vending_refill/robust
+/obj/item/vending_refill/robust
 	name = "security resupply canister"
 	vend_id = "security"
 	charges = 25
@@ -104,7 +104,7 @@
 		/obj/item/ammo_magazine/a556 = 12,
 		/obj/item/ammo_magazine/a556/ap = 4,
 		/obj/item/material/knife/tacknife = 4,
-		/obj/item/device/firing_pin = 12
+		/obj/item/firing_pin = 12
 	)
 	contraband = list(
 		/obj/item/gun/bang/deagle = 1

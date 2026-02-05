@@ -88,7 +88,7 @@
 	new /obj/item/storage/box/fancy/candle_box(src)
 	new /obj/item/storage/box/fancy/candle_box(src)
 	new /obj/item/deck/tarot(src)
-	new /obj/item/device/radio/headset/headset_service(src)
+	new /obj/item/radio/headset/headset_service(src)
 	new /obj/item/spirit_board(src)
 	new /obj/item/mesmetron(src)
 	new /obj/item/toy/plushie/therapy(src)

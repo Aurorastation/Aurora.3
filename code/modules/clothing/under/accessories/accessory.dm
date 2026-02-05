@@ -1232,7 +1232,7 @@
 	color = "#3429d1"
 	allowed = list(
 		/obj/item/reagent_containers/spray/plantbgone,
-		/obj/item/device/analyzer/plant_analyzer,
+		/obj/item/analyzer/plant_analyzer,
 		/obj/item/seeds,
 		/obj/item/reagent_containers/glass/fertilizer,
 		/obj/item/material/minihoe
@@ -1249,11 +1249,11 @@
 		/obj/item/reagent_containers/dropper,
 		/obj/item/reagent_containers/hypospray,
 		/obj/item/reagent_containers/syringe,
-		/obj/item/device/healthanalyzer,
-		/obj/item/device/flashlight,
-		/obj/item/device/radio,
+		/obj/item/healthanalyzer,
+		/obj/item/flashlight,
+		/obj/item/radio,
 		/obj/item/tank/emergency_oxygen,
-		/obj/item/device/breath_analyzer,
+		/obj/item/breath_analyzer,
 		/obj/item/reagent_containers/blood
 	)
 

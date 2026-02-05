@@ -49,6 +49,7 @@ GLOBAL_LIST_INIT(admin_verbs_admin, list(
 	/client/proc/cmd_admin_local_narrate,	//sends text to all mobs within 7 tiles of src.mob
 	/client/proc/cmd_admin_local_screen_text,
 	/client/proc/cmd_admin_global_screen_text,
+	/client/proc/cmd_admin_open_narrate_panel, // Admin logged variant of the narrator panel.
 	/client/proc/cmd_admin_world_narrate,	//sends text to all players with no padding,
 	/client/proc/cmd_admin_create_centcom_report,
 	/client/proc/check_ai_laws,			//shows AI and borg laws,
@@ -309,6 +310,7 @@ GLOBAL_LIST_INIT(admin_verbs_hideable, list(
 	/client/proc/cmd_admin_local_narrate,
 	/client/proc/cmd_admin_local_screen_text,
 	/client/proc/cmd_admin_global_screen_text,
+	/client/proc/cmd_admin_open_narrate_panel, // Admin logged variant of the narrator panel.
 	/client/proc/cmd_admin_world_narrate,
 	/client/proc/cmd_admin_grab_observers,
 	/client/proc/cmd_admin_create_centcom_report,
@@ -767,8 +769,8 @@ GLOBAL_LIST_INIT(admin_verbs_storyteller, list(
 	set name = "Drop Bomb"
 	set desc = "Cause an explosion of varying strength at your location."
 
-	var/turf/epicenter = get_turf(mob)
 	var/choice = tgui_input_list(usr, "What size explosion would you like to produce?", "Drop Bomb", list("Small Bomb", "Medium Bomb", "Big Bomb", "Custom Bomb"))
+	var/turf/epicenter = get_turf(mob)
 	switch(choice)
 		if(null)
 			return 0
@@ -783,6 +785,7 @@ GLOBAL_LIST_INIT(admin_verbs_storyteller, list(
 			var/heavy_impact_range = tgui_input_number(usr, "Set the heavy impact range (in tiles).", "Heavy")
 			var/light_impact_range = tgui_input_number(usr, "Set the light impact range (in tiles).", "Light")
 			var/flash_range = tgui_input_number(usr, "Set the flash range (in tiles).", "Flash")
+			epicenter = get_turf(mob)
 			explosion(epicenter, devastation_range, heavy_impact_range, light_impact_range, flash_range)
 	message_admins(SPAN_NOTICE("[ckey] creating an admin explosion at [epicenter.loc]."))
 	feedback_add_details("admin_verb","DB") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!

@@ -140,7 +140,7 @@
 "adY" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/bluespace_beacon,
-/obj/item/device/radio/beacon,
+/obj/item/radio/beacon,
 /turf/unsimulated/floor{
 	icon_state = "dark_preview"
 	},
@@ -456,7 +456,7 @@
 /obj/structure/railing/mapped{
 	dir = 8
 	},
-/obj/item/device/radio/intercom/south,
+/obj/item/radio/intercom/south,
 /obj/machinery/light{
 	dir = 8
 	},
@@ -967,7 +967,7 @@
 	},
 /area/cruise/pool/sauna1)
 "aJq" = (
-/obj/item/device/radio/intercom/west,
+/obj/item/radio/intercom/west,
 /turf/unsimulated/floor{
 	icon_state = "dark"
 	},
@@ -1136,7 +1136,7 @@
 	},
 /area/cruise/central)
 "aQy" = (
-/obj/item/device/radio/intercom/east{
+/obj/item/radio/intercom/east{
 	pixel_y = -22
 	},
 /turf/unsimulated/floor{
@@ -1164,7 +1164,7 @@
 /obj/item/storage/backpack/rucksack/navy,
 /obj/item/material/knife/tacknife,
 /obj/structure/closet,
-/obj/item/device/radio/headset/ert,
+/obj/item/radio/headset/ert,
 /obj/item/storage/belt/utility/very_full,
 /turf/unsimulated/floor{
 	icon_state = "carpet10-8"
@@ -1671,7 +1671,7 @@
 /turf/unsimulated/floor,
 /area/cruise/centerline)
 "bjA" = (
-/obj/item/device/radio/intercom/east,
+/obj/item/radio/intercom/east,
 /turf/unsimulated/floor{
 	icon_state = "dark"
 	},
@@ -1934,7 +1934,7 @@
 /area/cruise/main_bar/aft)
 "brk" = (
 /obj/machinery/bluespace_beacon,
-/obj/item/device/radio/beacon,
+/obj/item/radio/beacon,
 /turf/unsimulated/floor{
 	icon_state = "dark_preview"
 	},
@@ -2806,7 +2806,7 @@
 /area/cruise/beach)
 "ckz" = (
 /obj/structure/table/wood,
-/obj/item/device/flashlight/lamp{
+/obj/item/flashlight/lamp{
 	pixel_y = 5
 	},
 /turf/unsimulated/floor{
@@ -3325,11 +3325,11 @@
 /obj/structure/railing/mapped{
 	dir = 8
 	},
-/obj/item/device/radio/intercom/south,
+/obj/item/radio/intercom/south,
 /turf/unsimulated/floor,
 /area/cruise/beach)
 "cFP" = (
-/obj/item/device/radio/intercom/west,
+/obj/item/radio/intercom/west,
 /turf/unsimulated/floor{
 	icon_state = "tiles_small"
 	},
@@ -3366,11 +3366,11 @@
 /area/cruise/central)
 "cGU" = (
 /obj/structure/table/stone/marble,
-/obj/item/device/megaphone/stagemicrophone{
+/obj/item/megaphone/stagemicrophone{
 	pixel_x = 8;
 	pixel_y = -3
 	},
-/obj/item/device/megaphone/stagemicrophone,
+/obj/item/megaphone/stagemicrophone,
 /turf/unsimulated/floor,
 /area/cruise/main_bar/aft)
 "cIA" = (
@@ -3847,7 +3847,7 @@
 /area/cruise/jungle)
 "daT" = (
 /obj/structure/table/wood,
-/obj/item/device/flashlight/lamp,
+/obj/item/flashlight/lamp,
 /turf/unsimulated/floor{
 	icon_state = "carpet"
 	},
@@ -4229,7 +4229,7 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/item/device/versebook/dpra,
+/obj/item/versebook/dpra,
 /turf/simulated/floor/wood,
 /area/cruise/pool)
 "dsS" = (
@@ -4528,7 +4528,7 @@
 	},
 /area/cruise/e_supplies)
 "dJt" = (
-/obj/item/device/flashlight/lamp/stage,
+/obj/item/flashlight/lamp/stage,
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 8
 	},
@@ -4698,7 +4698,7 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/obj/item/device/radio/intercom/west,
+/obj/item/radio/intercom/west,
 /obj/machinery/door/firedoor,
 /turf/unsimulated/floor{
 	icon_state = "wood_cherry"
@@ -4913,7 +4913,7 @@
 	dir = 8
 	},
 /obj/structure/table/stone/marble,
-/obj/item/device/flashlight/lamp/green,
+/obj/item/flashlight/lamp/green,
 /turf/unsimulated/floor{
 	dir = 8;
 	icon_state = "wood"
@@ -4934,7 +4934,7 @@
 	},
 /area/cruise/jungle)
 "ejQ" = (
-/obj/item/device/radio/intercom/east,
+/obj/item/radio/intercom/east,
 /obj/effect/landmark/force_spawnpoint{
 	job_tag = "Passenger"
 	},
@@ -5488,7 +5488,7 @@
 /obj/item/storage/backpack/rucksack/navy,
 /obj/item/material/knife/tacknife,
 /obj/structure/closet,
-/obj/item/device/radio/headset/ert,
+/obj/item/radio/headset/ert,
 /turf/simulated/floor/tiled/dark,
 /area/cruise/escort)
 "eDB" = (
@@ -5784,7 +5784,7 @@
 	pixel_x = -25;
 	pixel_y = 4
 	},
-/obj/item/device/flashlight/lamp,
+/obj/item/flashlight/lamp,
 /turf/unsimulated/floor{
 	icon_state = "carpet"
 	},
@@ -5942,7 +5942,7 @@
 	},
 /area/cruise/escort)
 "eZS" = (
-/obj/item/device/radio/intercom/east,
+/obj/item/radio/intercom/east,
 /turf/unsimulated/floor{
 	icon_state = "tiles_small"
 	},
@@ -6299,7 +6299,7 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8
 	},
-/obj/item/device/radio/intercom/east,
+/obj/item/radio/intercom/east,
 /turf/unsimulated/floor{
 	icon_state = "wood_cherry"
 	},
@@ -7093,7 +7093,7 @@
 	},
 /area/cruise/pool)
 "fWc" = (
-/obj/item/device/radio/intercom/east,
+/obj/item/radio/intercom/east,
 /turf/simulated/floor/tiled/ramp,
 /area/cruise/aft)
 "fWm" = (
@@ -7148,7 +7148,7 @@
 /turf/unsimulated/floor,
 /area/cruise/arcade)
 "fXP" = (
-/obj/item/device/radio/intercom/north,
+/obj/item/radio/intercom/north,
 /turf/unsimulated/floor,
 /area/cruise/arcade)
 "fYO" = (
@@ -7290,24 +7290,24 @@
 	},
 /area/cruise/virtual_reality)
 "geN" = (
-/obj/item/device/flashlight,
-/obj/item/device/flashlight,
-/obj/item/device/flashlight,
-/obj/item/device/flashlight,
-/obj/item/device/flashlight,
+/obj/item/flashlight,
+/obj/item/flashlight,
+/obj/item/flashlight,
+/obj/item/flashlight,
+/obj/item/flashlight,
 /obj/structure/table/rack,
-/obj/item/device/flashlight,
-/obj/item/device/flashlight,
-/obj/item/device/flashlight,
-/obj/item/device/flashlight,
-/obj/item/device/flashlight,
-/obj/item/device/flashlight,
-/obj/item/device/flashlight,
-/obj/item/device/flashlight,
-/obj/item/device/flashlight,
-/obj/item/device/flashlight,
-/obj/item/device/flashlight,
-/obj/item/device/flashlight,
+/obj/item/flashlight,
+/obj/item/flashlight,
+/obj/item/flashlight,
+/obj/item/flashlight,
+/obj/item/flashlight,
+/obj/item/flashlight,
+/obj/item/flashlight,
+/obj/item/flashlight,
+/obj/item/flashlight,
+/obj/item/flashlight,
+/obj/item/flashlight,
+/obj/item/flashlight,
 /obj/structure/railing/mapped,
 /obj/machinery/light{
 	dir = 8
@@ -7318,7 +7318,7 @@
 /area/cruise/jungle)
 "gfE" = (
 /obj/structure/bed/stool/padded/red,
-/obj/item/device/radio/intercom/west,
+/obj/item/radio/intercom/west,
 /obj/machinery/light/small{
 	dir = 1
 	},
@@ -8175,7 +8175,7 @@
 /obj/structure/bed/stool/chair/wood{
 	dir = 4
 	},
-/obj/item/device/radio/intercom/west,
+/obj/item/radio/intercom/west,
 /turf/unsimulated/floor{
 	icon_state = "tiles_small"
 	},
@@ -8253,7 +8253,7 @@
 	},
 /area/cruise/security)
 "gPT" = (
-/obj/item/device/flashlight/lamp/stage,
+/obj/item/flashlight/lamp/stage,
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 8
 	},
@@ -8264,7 +8264,7 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8
 	},
-/obj/item/device/radio/intercom/east,
+/obj/item/radio/intercom/east,
 /turf/unsimulated/floor{
 	dir = 8;
 	icon_state = "wood"
@@ -8559,8 +8559,8 @@
 /area/cruise/main_bar/aft)
 "hdC" = (
 /obj/structure/table/wood,
-/obj/item/device/camera,
-/obj/item/device/camera,
+/obj/item/camera,
+/obj/item/camera,
 /turf/unsimulated/floor{
 	icon_state = "wood_cherry"
 	},
@@ -8642,7 +8642,7 @@
 /obj/structure/railing/mapped{
 	dir = 1
 	},
-/obj/item/device/camera,
+/obj/item/camera,
 /turf/unsimulated/floor{
 	icon_state = "wood_preview"
 	},
@@ -9100,43 +9100,43 @@
 	},
 /area/cruise/escort)
 "hDo" = (
-/obj/item/device/flashlight/flare/torch{
+/obj/item/flashlight/flare/torch{
 	pixel_x = -5
 	},
-/obj/item/device/flashlight/flare/torch,
-/obj/item/device/flashlight/flare/torch{
+/obj/item/flashlight/flare/torch,
+/obj/item/flashlight/flare/torch{
 	pixel_x = 5
 	},
 /obj/structure/table/rack,
-/obj/item/device/flashlight/flare/torch{
+/obj/item/flashlight/flare/torch{
 	pixel_x = -5
 	},
-/obj/item/device/flashlight/flare/torch{
+/obj/item/flashlight/flare/torch{
 	pixel_x = -5
 	},
-/obj/item/device/flashlight/flare/torch{
+/obj/item/flashlight/flare/torch{
 	pixel_x = -5
 	},
-/obj/item/device/flashlight/flare/torch{
+/obj/item/flashlight/flare/torch{
 	pixel_x = -5
 	},
-/obj/item/device/flashlight/flare/torch,
-/obj/item/device/flashlight/flare/torch,
-/obj/item/device/flashlight/flare/torch,
-/obj/item/device/flashlight/flare/torch,
-/obj/item/device/flashlight/flare/torch{
+/obj/item/flashlight/flare/torch,
+/obj/item/flashlight/flare/torch,
+/obj/item/flashlight/flare/torch,
+/obj/item/flashlight/flare/torch,
+/obj/item/flashlight/flare/torch{
 	pixel_x = 5
 	},
-/obj/item/device/flashlight/flare/torch{
+/obj/item/flashlight/flare/torch{
 	pixel_x = 5
 	},
-/obj/item/device/flashlight/flare/torch{
+/obj/item/flashlight/flare/torch{
 	pixel_x = 5
 	},
-/obj/item/device/flashlight/flare/torch{
+/obj/item/flashlight/flare/torch{
 	pixel_x = 5
 	},
-/obj/item/device/flashlight/flare/torch{
+/obj/item/flashlight/flare/torch{
 	pixel_x = 5
 	},
 /turf/unsimulated/floor{
@@ -10508,7 +10508,7 @@
 "iOQ" = (
 /obj/structure/table/reinforced,
 /obj/structure/window/reinforced/crescent,
-/obj/item/device/flashlight/lamp,
+/obj/item/flashlight/lamp,
 /obj/effect/decal/fake_object{
 	desc = "A descriptive sign.";
 	icon = 'icons/effects/ship_idris_cruise.dmi';
@@ -10919,7 +10919,7 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8
 	},
-/obj/item/device/radio/intercom/east,
+/obj/item/radio/intercom/east,
 /turf/unsimulated/floor{
 	icon_state = "wood_preview"
 	},
@@ -11097,7 +11097,7 @@
 /area/cruise/virtual_reality)
 "jli" = (
 /obj/structure/closet/emcloset,
-/obj/item/device/radio/intercom/west,
+/obj/item/radio/intercom/west,
 /obj/machinery/light/small{
 	dir = 8
 	},
@@ -11126,7 +11126,7 @@
 /obj/structure/window/reinforced/crescent{
 	dir = 1
 	},
-/obj/item/device/radio/intercom/east,
+/obj/item/radio/intercom/east,
 /obj/machinery/light/small{
 	dir = 1
 	},
@@ -11724,7 +11724,7 @@
 	},
 /area/cruise/escort)
 "jUE" = (
-/obj/item/device/radio/intercom/west,
+/obj/item/radio/intercom/west,
 /turf/unsimulated/floor{
 	icon_state = "dark_preview"
 	},
@@ -11841,8 +11841,8 @@
 	pixel_x = 9
 	},
 /obj/item/stack/packageWrap,
-/obj/item/device/destTagger,
-/obj/item/device/hand_labeler,
+/obj/item/destTagger,
+/obj/item/hand_labeler,
 /turf/unsimulated/floor{
 	icon_state = "white"
 	},
@@ -12029,9 +12029,9 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/structure/table/rack,
 /obj/random/soap,
-/obj/item/device/lightreplacer/advanced,
-/obj/item/device/lightreplacer/advanced,
-/obj/item/device/lightreplacer/advanced,
+/obj/item/lightreplacer/advanced,
+/obj/item/lightreplacer/advanced,
+/obj/item/lightreplacer/advanced,
 /turf/unsimulated/floor{
 	icon_state = "dark_preview"
 	},
@@ -12054,7 +12054,7 @@
 /area/cruise/dining_hall)
 "kkc" = (
 /obj/structure/table/steel,
-/obj/item/device/hand_labeler,
+/obj/item/hand_labeler,
 /obj/item/paper_bin{
 	pixel_x = -3;
 	pixel_y = 7
@@ -12796,10 +12796,10 @@
 /obj/item/storage/toolbox/lunchbox/scc/filled,
 /obj/item/clothing/accessory/armband/scc,
 /obj/item/clothing/glasses/sunglasses/big,
-/obj/item/device/megaphone/command,
+/obj/item/megaphone/command,
 /obj/item/clothing/accessory/holster/hip,
 /obj/structure/closet,
-/obj/item/device/radio/headset/ert/ccia,
+/obj/item/radio/headset/ert/ccia,
 /turf/simulated/floor/tiled/dark,
 /area/cruise/escort)
 "kOy" = (
@@ -14649,7 +14649,7 @@
 	},
 /area/cruise/e_supplies)
 "mlx" = (
-/obj/item/device/radio/intercom/south,
+/obj/item/radio/intercom/south,
 /turf/unsimulated/floor{
 	dir = 6;
 	icon_state = "carpet"
@@ -14716,7 +14716,7 @@
 	},
 /area/cruise/main_bar/aft)
 "mpp" = (
-/obj/item/device/radio/intercom/west,
+/obj/item/radio/intercom/west,
 /obj/machinery/light{
 	dir = 8
 	},
@@ -15082,9 +15082,9 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/structure/table/rack,
 /obj/random/soap,
-/obj/item/device/lightreplacer/advanced,
-/obj/item/device/lightreplacer/advanced,
-/obj/item/device/lightreplacer/advanced,
+/obj/item/lightreplacer/advanced,
+/obj/item/lightreplacer/advanced,
+/obj/item/lightreplacer/advanced,
 /turf/unsimulated/floor{
 	icon_state = "dark_preview"
 	},
@@ -15905,7 +15905,7 @@
 	dir = 8
 	},
 /obj/structure/table/wood,
-/obj/item/device/flashlight/lamp/green,
+/obj/item/flashlight/lamp/green,
 /turf/unsimulated/floor{
 	dir = 8;
 	icon_state = "wood"
@@ -15945,7 +15945,7 @@
 	dir = 4
 	},
 /obj/structure/table/wood,
-/obj/item/device/paicard,
+/obj/item/paicard,
 /obj/structure/window/reinforced/crescent,
 /obj/machinery/light/small{
 	dir = 4
@@ -16028,7 +16028,7 @@
 /area/cruise/escort)
 "nyD" = (
 /obj/machinery/bluespace_beacon,
-/obj/item/device/radio/beacon,
+/obj/item/radio/beacon,
 /turf/unsimulated/floor{
 	icon_state = "tiles_small"
 	},
@@ -16555,8 +16555,8 @@
 /area/cruise/security)
 "nSN" = (
 /obj/structure/table/steel,
-/obj/item/device/multitool,
-/obj/item/device/multitool,
+/obj/item/multitool,
+/obj/item/multitool,
 /turf/unsimulated/floor{
 	icon_state = "plating"
 	},
@@ -17361,7 +17361,7 @@
 	},
 /area/cruise/security)
 "oAK" = (
-/obj/item/device/radio/intercom/east,
+/obj/item/radio/intercom/east,
 /turf/unsimulated/floor{
 	icon_state = "tiles_small"
 	},
@@ -17486,12 +17486,12 @@
 /turf/unsimulated/floor/plating,
 /area/cruise/pool/sauna1)
 "oJl" = (
-/obj/item/device/magnetic_lock,
-/obj/item/device/magnetic_lock,
-/obj/item/device/magnetic_lock,
-/obj/item/device/magnetic_lock,
-/obj/item/device/magnetic_lock,
-/obj/item/device/magnetic_lock,
+/obj/item/magnetic_lock,
+/obj/item/magnetic_lock,
+/obj/item/magnetic_lock,
+/obj/item/magnetic_lock,
+/obj/item/magnetic_lock,
+/obj/item/magnetic_lock,
 /obj/structure/closet/crate,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/unsimulated/floor{
@@ -17722,7 +17722,7 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/obj/item/device/radio/intercom/west,
+/obj/item/radio/intercom/west,
 /turf/simulated/floor/tiled/ramp,
 /area/cruise/centerline)
 "oVa" = (
@@ -18819,7 +18819,7 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/obj/item/device/radio/intercom/north,
+/obj/item/radio/intercom/north,
 /turf/unsimulated/floor{
 	icon_state = "dark_preview"
 	},
@@ -18885,7 +18885,7 @@
 /obj/item/flame/candle{
 	pixel_x = 9
 	},
-/obj/item/device/flashlight/lamp{
+/obj/item/flashlight/lamp{
 	pixel_y = 5
 	},
 /turf/unsimulated/floor,
@@ -18920,18 +18920,18 @@
 /area/cruise/escort)
 "pSr" = (
 /obj/structure/table/steel,
-/obj/item/device/radio/off,
-/obj/item/device/radio/off,
-/obj/item/device/radio/off,
-/obj/item/device/radio/off,
-/obj/item/device/radio/off,
-/obj/item/device/radio/off,
-/obj/item/device/radio/off,
-/obj/item/device/radio/off,
-/obj/item/device/radio/off,
-/obj/item/device/radio/off,
-/obj/item/device/radio/off,
-/obj/item/device/radio/off,
+/obj/item/radio/off,
+/obj/item/radio/off,
+/obj/item/radio/off,
+/obj/item/radio/off,
+/obj/item/radio/off,
+/obj/item/radio/off,
+/obj/item/radio/off,
+/obj/item/radio/off,
+/obj/item/radio/off,
+/obj/item/radio/off,
+/obj/item/radio/off,
+/obj/item/radio/off,
 /turf/unsimulated/floor{
 	icon_state = "floor7"
 	},
@@ -19001,7 +19001,7 @@
 /area/cruise/fore_p)
 "pWh" = (
 /obj/structure/table/wood,
-/obj/item/device/flashlight/lamp/lava/red,
+/obj/item/flashlight/lamp/lava/red,
 /turf/unsimulated/floor{
 	dir = 8;
 	icon_state = "wood"
@@ -19835,9 +19835,9 @@
 /area/cruise/virtual_reality)
 "qKD" = (
 /obj/structure/table/rack,
-/obj/item/device/flashlight,
-/obj/item/device/flashlight,
-/obj/item/device/flashlight,
+/obj/item/flashlight,
+/obj/item/flashlight,
+/obj/item/flashlight,
 /turf/unsimulated/floor{
 	dir = 8;
 	icon_state = "wood"
@@ -20201,7 +20201,7 @@
 /area/cruise/pool)
 "rei" = (
 /obj/structure/table/wood,
-/obj/item/device/camera,
+/obj/item/camera,
 /turf/unsimulated/floor{
 	icon_state = "dark_preview"
 	},
@@ -20472,13 +20472,13 @@
 /area/cruise/main_bar)
 "rri" = (
 /obj/machinery/bluespace_beacon,
-/obj/item/device/radio/beacon,
+/obj/item/radio/beacon,
 /turf/unsimulated/floor{
 	icon_state = "dark_preview"
 	},
 /area/cruise/escort)
 "rrj" = (
-/obj/item/device/radio/intercom/east{
+/obj/item/radio/intercom/east{
 	pixel_y = -22
 	},
 /turf/unsimulated/floor{
@@ -20723,7 +20723,7 @@
 "rzJ" = (
 /obj/effect/floor_decal/corner/black/diagonal,
 /obj/machinery/bluespace_beacon,
-/obj/item/device/radio/beacon,
+/obj/item/radio/beacon,
 /turf/unsimulated/floor{
 	icon_state = "dark_preview"
 	},
@@ -20763,7 +20763,7 @@
 	},
 /area/cruise/escort)
 "rCz" = (
-/obj/item/device/radio/intercom/east,
+/obj/item/radio/intercom/east,
 /turf/unsimulated/floor{
 	icon_state = "wood_cherry"
 	},
@@ -20912,7 +20912,7 @@
 /obj/item/rfd_ammo,
 /obj/item/rfd/construction,
 /obj/item/rfd/construction,
-/obj/item/device/multitool,
+/obj/item/multitool,
 /obj/structure/table/steel,
 /obj/effect/floor_decal/corner/yellow/diagonal,
 /turf/unsimulated/floor{
@@ -21156,7 +21156,7 @@
 /area/cruise/aft)
 "rWF" = (
 /obj/structure/table/steel,
-/obj/item/device/hand_labeler,
+/obj/item/hand_labeler,
 /obj/item/paper_bin{
 	pixel_x = -3;
 	pixel_y = 7
@@ -21337,7 +21337,7 @@
 /turf/simulated/floor/reinforced,
 /area/cruise/virtual_reality)
 "sek" = (
-/obj/item/device/radio/intercom/east{
+/obj/item/radio/intercom/east{
 	pixel_y = -22
 	},
 /turf/unsimulated/floor{
@@ -22121,7 +22121,7 @@
 /area/cruise/central)
 "sQm" = (
 /obj/structure/table/wood,
-/obj/item/device/flashlight/lamp/lava/red,
+/obj/item/flashlight/lamp/lava/red,
 /turf/unsimulated/floor{
 	icon_state = "wood_cherry"
 	},
@@ -22726,7 +22726,7 @@
 	dir = 4
 	},
 /obj/structure/table/stone/marble,
-/obj/item/device/flashlight/lamp,
+/obj/item/flashlight/lamp,
 /turf/unsimulated/floor{
 	dir = 8;
 	icon_state = "wood"
@@ -23518,7 +23518,7 @@
 /area/cruise/dining_hall)
 "tRu" = (
 /obj/random/pottedplant,
-/obj/item/device/radio/intercom/west,
+/obj/item/radio/intercom/west,
 /turf/unsimulated/floor{
 	icon_state = "wood_cherry"
 	},
@@ -23545,20 +23545,20 @@
 /turf/simulated/floor/beach/water/pool,
 /area/cruise/pool)
 "tUl" = (
-/obj/item/device/flashlight/flare,
-/obj/item/device/flashlight/flare,
-/obj/item/device/flashlight/flare,
-/obj/item/device/flashlight/flare,
-/obj/item/device/flashlight/flare{
+/obj/item/flashlight/flare,
+/obj/item/flashlight/flare,
+/obj/item/flashlight/flare,
+/obj/item/flashlight/flare,
+/obj/item/flashlight/flare{
 	pixel_y = 6
 	},
-/obj/item/device/flashlight/flare{
+/obj/item/flashlight/flare{
 	pixel_y = 6
 	},
-/obj/item/device/flashlight/flare{
+/obj/item/flashlight/flare{
 	pixel_y = 6
 	},
-/obj/item/device/flashlight/flare{
+/obj/item/flashlight/flare{
 	pixel_y = 6
 	},
 /obj/structure/table/steel,
@@ -23726,7 +23726,7 @@
 /area/cruise/jungle)
 "tYk" = (
 /obj/structure/table/wood,
-/obj/item/device/flashlight/lamp/green,
+/obj/item/flashlight/lamp/green,
 /turf/unsimulated/floor{
 	icon_state = "carpet"
 	},
@@ -24290,7 +24290,7 @@
 /area/cruise/hangar)
 "usO" = (
 /obj/machinery/bluespace_beacon,
-/obj/item/device/radio/beacon,
+/obj/item/radio/beacon,
 /turf/unsimulated/floor,
 /area/cruise/tcomms_sat)
 "usR" = (
@@ -24538,9 +24538,9 @@
 /area/cruise/arcade)
 "uDB" = (
 /obj/structure/table/rack,
-/obj/item/device/flashlight,
-/obj/item/device/flashlight,
-/obj/item/device/flashlight,
+/obj/item/flashlight,
+/obj/item/flashlight,
+/obj/item/flashlight,
 /obj/effect/decal/fake_object/light_source{
 	desc = "A cozy lamp.";
 	icon = 'icons/effects/32x96.dmi';
@@ -24626,7 +24626,7 @@
 	},
 /area/cruise/beach)
 "uGN" = (
-/obj/item/device/camera,
+/obj/item/camera,
 /obj/structure/table/stone/marble,
 /turf/unsimulated/floor{
 	icon_state = "wood_cherry"
@@ -24912,7 +24912,7 @@
 	},
 /area/cruise/jungle)
 "uRK" = (
-/obj/item/device/radio/intercom/west,
+/obj/item/radio/intercom/west,
 /turf/unsimulated/floor{
 	icon_state = "tiles_small"
 	},
@@ -24953,7 +24953,7 @@
 	dir = 4
 	},
 /obj/structure/table/wood,
-/obj/item/device/paicard,
+/obj/item/paicard,
 /turf/unsimulated/floor{
 	dir = 8;
 	icon_state = "wood"
@@ -25263,10 +25263,10 @@
 	dir = 1
 	},
 /obj/structure/table/wood,
-/obj/item/device/flashlight/lamp{
+/obj/item/flashlight/lamp{
 	pixel_y = 5
 	},
-/obj/item/device/radio/intercom/west,
+/obj/item/radio/intercom/west,
 /obj/machinery/light{
 	dir = 8
 	},
@@ -26101,7 +26101,7 @@
 /obj/structure/window/reinforced/crescent{
 	dir = 1
 	},
-/obj/item/device/flashlight/lamp,
+/obj/item/flashlight/lamp,
 /obj/structure/table/wood,
 /turf/unsimulated/floor{
 	dir = 8;
@@ -26356,7 +26356,7 @@
 /turf/unsimulated/floor,
 /area/cruise/arcade)
 "whR" = (
-/obj/item/device/radio/intercom/east,
+/obj/item/radio/intercom/east,
 /turf/unsimulated/floor,
 /area/cruise/beach)
 "whY" = (
@@ -26797,7 +26797,7 @@
 /turf/unsimulated/floor,
 /area/cruise/main_bar)
 "wFi" = (
-/obj/item/device/radio/intercom/east,
+/obj/item/radio/intercom/east,
 /turf/unsimulated/floor{
 	icon_state = "floor7"
 	},
@@ -27041,7 +27041,7 @@
 /area/cruise/escort)
 "wNo" = (
 /obj/structure/table/stone/marble,
-/obj/item/device/camera,
+/obj/item/camera,
 /turf/unsimulated/floor,
 /area/cruise/main_bar/aft)
 "wON" = (
@@ -27323,7 +27323,7 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 4
 	},
-/obj/item/device/radio/intercom/west,
+/obj/item/radio/intercom/west,
 /turf/unsimulated/floor{
 	icon_state = "wood_birch"
 	},
@@ -27409,7 +27409,7 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/obj/item/device/radio/intercom/west,
+/obj/item/radio/intercom/west,
 /turf/simulated/floor/tiled/ramp/bottom,
 /area/cruise/aft)
 "xhh" = (
@@ -27666,7 +27666,7 @@
 /turf/unsimulated/floor,
 /area/template_noop)
 "xpJ" = (
-/obj/item/device/radio/intercom/west,
+/obj/item/radio/intercom/west,
 /turf/unsimulated/floor{
 	icon_state = "dark_preview"
 	},
@@ -27946,24 +27946,24 @@
 /obj/effect/floor_decal/corner/mauve{
 	dir = 10
 	},
-/obj/item/device/flashlight,
-/obj/item/device/flashlight,
-/obj/item/device/flashlight,
-/obj/item/device/flashlight,
-/obj/item/device/flashlight,
+/obj/item/flashlight,
+/obj/item/flashlight,
+/obj/item/flashlight,
+/obj/item/flashlight,
+/obj/item/flashlight,
 /obj/structure/table/rack,
-/obj/item/device/flashlight,
-/obj/item/device/flashlight,
-/obj/item/device/flashlight,
-/obj/item/device/flashlight,
-/obj/item/device/flashlight,
-/obj/item/device/flashlight,
-/obj/item/device/flashlight,
-/obj/item/device/flashlight,
-/obj/item/device/flashlight,
-/obj/item/device/flashlight,
-/obj/item/device/flashlight,
-/obj/item/device/flashlight,
+/obj/item/flashlight,
+/obj/item/flashlight,
+/obj/item/flashlight,
+/obj/item/flashlight,
+/obj/item/flashlight,
+/obj/item/flashlight,
+/obj/item/flashlight,
+/obj/item/flashlight,
+/obj/item/flashlight,
+/obj/item/flashlight,
+/obj/item/flashlight,
+/obj/item/flashlight,
 /turf/unsimulated/floor{
 	icon_state = "dark"
 	},
@@ -27991,7 +27991,7 @@
 	dir = 9
 	},
 /obj/structure/table/reinforced/steel,
-/obj/item/device/flashlight/lamp,
+/obj/item/flashlight/lamp,
 /turf/unsimulated/floor{
 	icon_state = "dark_preview"
 	},
@@ -28644,7 +28644,7 @@
 /area/cruise/beach_cave)
 "ygx" = (
 /obj/structure/table/wood,
-/obj/item/device/flashlight/lamp,
+/obj/item/flashlight/lamp,
 /obj/machinery/door/firedoor,
 /turf/unsimulated/floor{
 	dir = 8;

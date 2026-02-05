@@ -260,7 +260,7 @@
 			to_chat(user, SPAN_WARNING("The plating is going to need some support."))
 
 	//To lay cable.
-	if(attacking_item.iscoil())
+	if(attacking_item.tool_behaviour == TOOL_CABLECOIL)
 		var/obj/item/stack/cable_coil/coil = attacking_item
 		coil.turf_place(src, user)
 		return

@@ -1,9 +1,9 @@
 // Powersink - used to drain station power
 
-/obj/item/device/powersink
+/obj/item/powersink
 	name = "power sink"
 	desc = "A nulling power sink which drains energy from electrical systems."
-	icon = 'icons/obj/item/device/powersink.dmi'
+	icon = 'icons/obj/item/powersink.dmi'
 	icon_state = "powersink0"
 	item_state = "powersink0"
 	w_class = WEIGHT_CLASS_BULKY
@@ -37,18 +37,18 @@
 	var/datum/powernet/PN			// Our powernet
 	var/obj/structure/cable/attached		// the attached cable
 
-/obj/item/device/powersink/antagonist_hints(mob/user, distance, is_adjacent)
+/obj/item/powersink/antagonist_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	. += "Dead APCs means their emergency shutters won't automatically close pressure loss. You could rapidly vent an entire department this way."
 
-/obj/item/device/powersink/Destroy()
+/obj/item/powersink/Destroy()
 	PN = null
 	attached = null
 
 	return ..()
 
-/obj/item/device/powersink/attackby(obj/item/attacking_item, mob/user)
-	if(attacking_item.isscrewdriver())
+/obj/item/powersink/attackby(obj/item/attacking_item, mob/user)
+	if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 		if(mode == 0)
 			var/turf/T = loc
 			if(isturf(T) && !!T.is_plating())
@@ -76,17 +76,17 @@
 	else
 		return ..()
 
-/obj/item/device/powersink/attack_ai()
+/obj/item/powersink/attack_ai()
 	return
 
-/obj/item/device/powersink/attack_hand(var/mob/user)
+/obj/item/powersink/attack_hand(var/mob/user)
 	if(!mode)
 		..()
 	else
 		toggle_mode(user)
 
 /// Used to be handled in attack_hand(), but moved to its own proc to handle future signaler usage.
-/obj/item/device/powersink/proc/toggle_mode(var/mob/user)
+/obj/item/powersink/proc/toggle_mode(var/mob/user)
 	switch(mode)
 		if(1)
 			if(user)
@@ -108,7 +108,7 @@
 			item_state = "powersink0"
 			STOP_PROCESSING(SSprocessing, src)
 
-/obj/item/device/powersink/proc/siphon_power(seconds_per_tick)
+/obj/item/powersink/proc/siphon_power(seconds_per_tick)
 	if(!attached)
 		return 0
 
@@ -141,7 +141,7 @@
 	power_drained += drained
 	return 1
 
-/obj/item/device/powersink/process(seconds_per_tick)
+/obj/item/powersink/process(seconds_per_tick)
 	drained_this_tick = 0
 	power_drained -= min(dissipation_rate, power_drained)
 
@@ -160,7 +160,7 @@
 
 	siphon_power(seconds_per_tick)
 
-/obj/item/device/powersink/proc/handle_overload()
+/obj/item/powersink/proc/handle_overload()
 	if (QDELETED(src))
 		return
 

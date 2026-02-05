@@ -8,7 +8,7 @@ ABSTRACT_TYPE(/singleton/fabricator_recipe/general)
 
 /singleton/fabricator_recipe/general/flashlight
 	name = "flashlight"
-	path = /obj/item/device/flashlight/empty
+	path = /obj/item/flashlight/empty
 
 /singleton/fabricator_recipe/general/extinguisher
 	name = "extinguisher"
@@ -16,11 +16,11 @@ ABSTRACT_TYPE(/singleton/fabricator_recipe/general)
 
 /singleton/fabricator_recipe/general/radio_headset
 	name = "radio headset"
-	path = /obj/item/device/radio/headset
+	path = /obj/item/radio/headset
 
 /singleton/fabricator_recipe/general/radio_bounced
 	name = "shortwave radio"
-	path = /obj/item/device/radio/off
+	path = /obj/item/radio/off
 
 /singleton/fabricator_recipe/general/weldermask
 	name = "welding mask"
@@ -28,7 +28,7 @@ ABSTRACT_TYPE(/singleton/fabricator_recipe/general)
 
 /singleton/fabricator_recipe/general/taperecorder
 	name = "tape recorder"
-	path = /obj/item/device/taperecorder
+	path = /obj/item/taperecorder
 
 /singleton/fabricator_recipe/general/tube
 	name = "light tube"
@@ -40,12 +40,12 @@ ABSTRACT_TYPE(/singleton/fabricator_recipe/general)
 
 /singleton/fabricator_recipe/general/labeler
 	name = "hand labeler"
-	path = /obj/item/device/hand_labeler
+	path = /obj/item/hand_labeler
 
 /singleton/fabricator_recipe/general/destTagger
 	name = "destination tagger"
-	path = /obj/item/device/destTagger
+	path = /obj/item/destTagger
 
 /singleton/fabricator_recipe/general/cratescanner
 	name = "crate contents scanner"
-	path = /obj/item/device/cratescanner
+	path = /obj/item/cratescanner

@@ -360,7 +360,7 @@
 //********************
 
 /obj/item/clothing/gloves/chameleon
-	name = "black gloves"
+	name = "work gloves"
 	icon_state = "black"
 	item_state = "black"
 	desc = "It looks like a pair of gloves, but it seems to have a small dial inside."
@@ -377,7 +377,7 @@
 /obj/item/clothing/gloves/chameleon/emp_act(severity) //Because we don't have psych for all slots right now but still want a downside to EMP.  In this case your cover's blown.
 	. = ..()
 
-	name = "black gloves"
+	name = "work gloves"
 	desc = "It looks like a pair of gloves, but it seems to have a small dial inside."
 	icon_state = "black"
 	update_icon()

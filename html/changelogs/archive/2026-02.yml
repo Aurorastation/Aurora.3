@@ -1,0 +1,116 @@
+2026-02-01:
+  GeneralCamo:
+  - rscadd: 'Added turf fires: Flamethrowers, fuel decals, and very hot atmos fires
+      will now generate these fires.'
+  - balance: Simple Mobs can now take damage from burning.
+  - rscadd: The flamethrower now works on liquid fuel (chems) instead of gasses. Several
+      reagents now have accelerant values, determining how effective they are in a
+      flamethrower.
+  - rscadd: Nitrogen Dioxide and Chlorine are now oxidizers.
+  - bugfix: ZAS Hotspots (renamed from fires) no longer generate CO2 from nothing.
+      They solely use the reaction to do this.
+2026-02-02:
+  GeneralCamo:
+  - code_imp: Refactored away /item/device/
+  HanSolo1519:
+  - rscadd: Adds Sankt Frederick flags and banners, places them in loadout. Sprites
+      by The Ill_Fated
+  - imageadd: Updated sprites for the Carthusian Sazerac, April Shower, Poussee Cafe,
+      Ice Pick, Caruso, and Dewey Cocktail. Sprites by TomixComics.
+  Hellfirejag:
+  - bugfix: Fixed the Schlorgo test fail.
+  - rscadd: Added 2 new traits (which are temporarily in the disabilities tab) related
+      to psi-sensitivity.
+  - rscadd: Magic powers of all kinds no longer by-default play the generic pickup
+      and drop sounds. This includes psionic powers, which are now silent to equip.
+  - rscadd: Canonical psionic powers and some antag psi powers are now invisible when
+      held.
+  - rscadd: Psi-Suppression is now a passively toggled ability which works like a
+      stronger mindshield/mindblanker. It no longer requires you hold the power in
+      hand.
+  - bugfix: Psi-protection sources like Mindshield, Mindblanker, and Psi-Suppression
+      no longer play messages when they passively hide you from Psi-Search.
+  - rscadd: Assay no longer gives away antag status by telling you outright if someone
+      is an antag psychic. It instead gives you hints as to the target's psi-sensitivity
+      (which aren't conclusive of antags).
+  - rscadd: Overdosing on Wulumunusha now temporarily increases psi-sensitivity until
+      the high wears off.
+  - rscadd: Psi-receivers are now a Bioaug instead of a mechanical augment.
+  - rscadd: Having low psi-sensitivity now interferes with telepathic messages, such
+      as from Commune, Emotional Suggestion, and Read Mind. Causing them to become
+      distorted similarly to whispers from 2 tiles away.
+  SabreML:
+  - bugfix: Adjusted the styling of the chat input box.
+  TheGreyWolf:
+  - rscadd: Added the ability to charge department accounts directly for operation
+      orders through the operations delivery app, without command presence required.
+  - rscadd: Separated the delivery and the pay buttons in the operations delivery
+      app.
+  - bugfix: Fixed the display of who accepted a delivery order when printing an invoice.
+  - bugfix: Prices shown on the delivery app are now correct.
+  - bugfix: The paper spawning in crates from the cargo elevator now properly show
+      the supposed contents.
+  - rscadd: The quikpay ui was updated.
+2026-02-03:
+  Batrachophrenoboocosmomachia:
+  - bugfix: Escape pod controls now launch the correct escape pods.
+  - bugfix: Ventilation fixes for Xenobotany hazardous specimens vestibule and D2
+      disposals.
+  - bugfix: Adds two missing air alarms to Bar.
+  - bugfix: Swaps mismatched D2 atmos locker room air station signs.
+  - bugfix: Fixes wiring for D3 security bathroom APC.
+  - bugfix: Adds missing disposal pipe segments to security meetting room.
+  - rscdel: Removes two excess light switches from Engineering lobby.
+  Evandorf:
+  - balance: Changes the description in the cargo order menu to depict Mortaphenyl
+      as a weak, synthetic, opioid.
+  Greenjoe:
+  - rscadd: Changes the uniforms of the Tajaran diplomatic bodyguards.
+  Hellfirejag:
+  - rscadd: The Narrator panel now includes optional filter selections, allowing admins
+      and storytellers to narrate to certain kinds of players, such as Synthetics
+      or Psi-sensitives.
+  - rscadd: The Narration panel can now be found in the Special Verbs tab for admins.
+      Its usage will be logged.
+  - bugfix: Fixed issues with admin announcements being improperly sanitized.
+  TheGreyWolf:
+  - bugfix: Fixes janitorial carts not showing their contents after spawning.
+  - bugfix: The tug will no longer run over people who are leaning on walls.
+2026-02-04:
+  Batrachophrenoboocosmomachia:
+  - bugfix: Restores area_sensitive trait for mobs, fixing zero-gravity drifting,
+      ambience and ship hum, and area blurbs.
+  - rscdel: Removes area blurb text from status window (band-aid fix prior to discovering
+      root cause of them not appearing consistently).
+  Greenjoe:
+  - rscadd: Adds the Adhomian p'rrama to the game.
+  - rscadd: Adds Adhomian dogtags and a walking stick (maikahar) to the Tajaran loadout.
+  - rscadd: Adds the Adhomian hunting coat to the Tajaran coat selection.
+  - rscadd: The shillelagh is renamed to maikahar.
+  Hellfirejag:
+  - rscadd: Off-ship player characters can now be viewed from the crew manifest, so
+      long as you are either an observer, or are in the lobby.
+  - bugfix: Fixed player characters with apostrophes in their name showing up weirdly
+      on the manifest.
+  MattAtlas, FluffyGhost:
+  - experiment: Atom gliding is now in, which gives us smoother movement. Remember
+      that this is affected by your FPS setting.
+  - experiment: The baseline speed is now twice as fast for everything. Fast species
+      were nerfed slightly to compensate.
+  TheGreyWolf:
+  - rscadd: Black gloves have been renamed to work gloves, to better indicate that
+      they are unique from other colored gloves.
+  - rscadd: Added taj and unathi variants of work gloves to the drobes having them,
+      and taj workboots to the ones having normal workboots.
+  - rscadd: Renamed taj and unathi work gloves, leather gloves and workboots to be
+      clear who can wear it.
+  - rscadd: Made hangar techs spawn with workboots by default, instead of with sneakers.
+      Safety first.
+2026-02-05:
+  Batrachophrenoboocosmomachia:
+  - qol: Moves area blurbs entirely from chat window to status tab.
+  - code_imp: Updates comments in affected files to use dmdocs.
+  Hellfirejag:
+  - bugfix: Observers (such as Storytellers) are now always included in Narrates with
+      a filter.
+  - bugfix: Fixed admin bombs being dropped at the wrong location.

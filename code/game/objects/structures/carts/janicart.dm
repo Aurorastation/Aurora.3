@@ -7,7 +7,7 @@
 	var/obj/item/storage/bag/trash/my_bag = null
 	var/obj/item/mop/my_mop = null
 	var/obj/item/reagent_containers/spray/my_spray = null
-	var/obj/item/device/lightreplacer/my_lightreplacer = null
+	var/obj/item/lightreplacer/my_lightreplacer = null
 	var/obj/structure/mopbucket/my_bucket = null
 	var/signs = 0
 	var/max_signs = 4
@@ -16,7 +16,7 @@
 		/obj/item/storage/bag/trash,
 		/obj/item/mop,
 		/obj/item/reagent_containers/spray,
-		/obj/item/device/lightreplacer,
+		/obj/item/lightreplacer,
 		/obj/item/clothing/suit/caution
 	))
 
@@ -54,16 +54,18 @@
 	my_bag = new /obj/item/storage/bag/trash(src)
 	my_mop = new /obj/item/mop(src)
 	my_spray = new /obj/item/reagent_containers/spray/cleaner(src)
-	my_lightreplacer = new /obj/item/device/lightreplacer(src)
+	my_lightreplacer = new /obj/item/lightreplacer(src)
 
 	for(signs, signs < max_signs, signs++)
 		new /obj/item/clothing/suit/caution(src)
+	get_storage_contents_list()
 
 // Full with Water Variant
 // Has everything as well as water in the mop bucket.
 /obj/structure/cart/storage/janitorialcart/full/water/Initialize()
 	. = ..()
 	my_bucket.reagents.add_reagent(/singleton/reagent/water, my_bucket.bucketsize)
+	get_storage_contents_list()
 
 /obj/structure/cart/storage/janitorialcart/New()
 	..()
@@ -144,8 +146,8 @@
 		held_container.afterattack(my_bucket, user, 1)
 
 	/// If its an advanced light replacer, try to dump the broken lights in the trash.
-	else if(istype(held_item, /obj/item/device/lightreplacer))
-		var/obj/item/device/lightreplacer/held_lightreplacer = held_item
+	else if(istype(held_item, /obj/item/lightreplacer))
+		var/obj/item/lightreplacer/held_lightreplacer = held_item
 		if(held_lightreplacer.store_broken)
 			return my_bag.attackby(held_item, user)
 
@@ -171,7 +173,7 @@
 		var/should_store = FALSE
 		var/storage_is_full = FALSE
 
-		if(istype(attacking_item, /obj/item/device/lightreplacer)) //---- light replacer
+		if(istype(attacking_item, /obj/item/lightreplacer)) //---- light replacer
 			if(!my_lightreplacer)
 				my_lightreplacer = attacking_item
 				should_store = TRUE
@@ -198,7 +200,6 @@
 				signs++
 			else
 				storage_is_full = TRUE
-
 		handle_storing(attacking_item, user, should_store, storage_is_full)
 		return
 
@@ -207,7 +208,7 @@
 		// This prevents dumb stuff like splashing the cart with the contents of a container, after putting said container into trash.
 		return my_bag.attackby(attacking_item, user)
 
-	else if(!has_items && (attacking_item.iswrench() || attacking_item.iswelder() || istype(attacking_item, /obj/item/gun/energy/plasmacutter)))
+	else if (!has_items && (attacking_item.tool_behaviour == TOOL_WRENCH || attacking_item.tool_behaviour == TOOL_WELDER || istype(attacking_item, /obj/item/gun/energy/plasmacutter)))
 		take_apart(user, attacking_item)
 		return
 
@@ -239,7 +240,7 @@
 				user.put_in_hands(my_spray)
 				to_chat(user, SPAN_NOTICE("You take [my_spray] from [src]."))
 				my_spray = null
-			if(istype(chosen_item, /obj/item/device/lightreplacer) && my_lightreplacer)
+			if(istype(chosen_item, /obj/item/lightreplacer) && my_lightreplacer)
 				user.put_in_hands(my_lightreplacer)
 				to_chat(user, SPAN_NOTICE("You take [my_lightreplacer] from [src]."))
 				my_lightreplacer = null
@@ -323,7 +324,7 @@
 		AddOverlays("cart_spray")
 		has_items = TRUE
 	if(my_lightreplacer)
-		if(istype(my_lightreplacer, /obj/item/device/lightreplacer/advanced))
+		if(istype(my_lightreplacer, /obj/item/lightreplacer/advanced))
 			AddOverlays("cart_adv_replacer")
 		else
 			AddOverlays("cart_replacer")

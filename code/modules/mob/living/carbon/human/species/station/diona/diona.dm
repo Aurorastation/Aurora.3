@@ -217,7 +217,7 @@ They are very slow, reasonably strong, and quite durable. They also require ligh
 			if(SB)
 				break
 	if(SB)
-		SB.handle_item_insertion(new /obj/item/device/flashlight/survival(get_turf(H)), TRUE)
+		SB.handle_item_insertion(new /obj/item/flashlight/survival(get_turf(H)), TRUE)
 
 /datum/species/diona/is_naturally_insulated()
 	return TRUE

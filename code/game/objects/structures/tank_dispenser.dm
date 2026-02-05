@@ -122,7 +122,7 @@
 			to_chat(user, SPAN_WARNING("\The [src] is full."))
 		updateUsrDialog()
 		return
-	if(attacking_item.iswrench())
+	if(attacking_item.tool_behaviour == TOOL_WRENCH)
 		if(anchored)
 			to_chat(user, SPAN_NOTICE("You lean down and unwrench \the [src]."))
 			anchored = FALSE

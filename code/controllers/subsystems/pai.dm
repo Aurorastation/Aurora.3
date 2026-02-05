@@ -49,7 +49,7 @@ SUBSYSTEM_DEF(pai)
 				to_chat(usr, SPAN_WARNING("Please set your pAI name."))
 				return
 			candidate.ready = TRUE
-			for(var/obj/item/device/paicard/p in all_pai_devices)
+			for(var/obj/item/paicard/p in all_pai_devices)
 				if(p.looking_for_personality)
 					p.alertUpdate()
 			ui.close()
@@ -81,13 +81,13 @@ SUBSYSTEM_DEF(pai)
 /datum/controller/subsystem/pai/Topic(href, list/href_list)
 	if(href_list["download"])
 		var/datum/paiCandidate/candidate = locate(href_list["candidate"])
-		var/obj/item/device/paicard/card = locate(href_list["device"])
+		var/obj/item/paicard/card = locate(href_list["device"])
 		if (!(candidate in pai_candidates))
 			return
 
 		if(card.pai)
 			return
-		if(istype(card,/obj/item/device/paicard) && istype(candidate,/datum/paiCandidate))
+		if(istype(card,/obj/item/paicard) && istype(candidate,/datum/paiCandidate))
 			var/mob/living/silicon/pai/pai = new(card)
 			if(!candidate.name)
 				pai.name = pick(GLOB.ninja_names)
@@ -175,7 +175,7 @@ SUBSYSTEM_DEF(pai)
 
 	return data
 
-/datum/controller/subsystem/pai/proc/findPAI(obj/item/device/paicard/p, mob/user)
+/datum/controller/subsystem/pai/proc/findPAI(obj/item/paicard/p, mob/user)
 	requestRecruits(user)
 	var/list/available = list()
 	for(var/datum/paiCandidate/c in SSpai.pai_candidates)

@@ -835,7 +835,7 @@
 /obj/item/storage/box/fancy/candle_box,
 /obj/item/reagent_containers/toothpaste,
 /obj/item/reagent_containers/toothpaste,
-/obj/item/device/quikpay,
+/obj/item/quikpay,
 /obj/item/storage/box/fancy/matches,
 /obj/item/storage/box/shells/beanbags,
 /obj/item/storage/box/shells/beanbags,
@@ -1193,7 +1193,7 @@
 /area/space)
 "AH" = (
 /obj/structure/table/wood,
-/obj/item/device/flashlight/lamp/green{
+/obj/item/flashlight/lamp/green{
 	pixel_y = 9
 	},
 /obj/machinery/light_switch{
@@ -2013,7 +2013,7 @@
 /area/space)
 "PK" = (
 /obj/structure/table/wood,
-/obj/item/device/flashlight/lamp/green{
+/obj/item/flashlight/lamp/green{
 	pixel_y = 9
 	},
 /obj/machinery/light_switch{
@@ -2233,7 +2233,7 @@
 /obj/item/storage/box/fancy/candle_box,
 /obj/item/reagent_containers/toothpaste,
 /obj/item/reagent_containers/toothpaste,
-/obj/item/device/quikpay,
+/obj/item/quikpay,
 /obj/item/storage/box/fancy/matches,
 /obj/item/storage/box/shells/beanbags,
 /obj/item/storage/box/shells/beanbags,
@@ -2408,7 +2408,7 @@
 /area/space)
 "XA" = (
 /obj/structure/table/wood,
-/obj/item/device/flashlight/lamp/green{
+/obj/item/flashlight/lamp/green{
 	pixel_y = 9
 	},
 /turf/simulated/floor/wood,
@@ -2544,7 +2544,7 @@
 /area/space)
 "ZA" = (
 /obj/structure/table/wood,
-/obj/item/device/flashlight/lamp/green,
+/obj/item/flashlight/lamp/green,
 /turf/simulated/floor/wood,
 /area/space)
 "ZB" = (
