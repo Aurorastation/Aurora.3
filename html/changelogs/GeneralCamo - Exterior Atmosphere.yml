@@ -61,3 +61,4 @@ changes:
   - bugfix: "Mech cockpits no longer transport air around."
   - balance: "Open-air mech cockpits (such as powerloaders) no longer protect their occupants from the exterior atmosphere."
   - bugfix: "Exoplanet flora now only will ever consume and exude gasses already present in the planet's atmosphere."
+  - code_imp: "Added more tick checks to SSair, to improve its performance during peak loads in the server."
