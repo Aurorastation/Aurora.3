@@ -104,7 +104,7 @@ So, hopefully this is helpful if any more icons are to be added/changed/wonderin
 
 
 /obj/structure/particle_accelerator/Move()
-	..()
+	. = ..()
 	if(master && master.active)
 		master.toggle_power()
 		investigate_log("was moved whilst active; it <span class='warning'>powered down</span>.","singulo")
@@ -174,36 +174,36 @@ So, hopefully this is helpful if any more icons are to be added/changed/wonderin
 
 	switch(construction_state)//TODO:Might be more interesting to have it need several parts rather than a single list of steps
 		if(0)
-			if(O.iswrench())
+			if(O.tool_behaviour == TOOL_WRENCH)
 				O.play_tool_sound(get_turf(src), 75)
 				anchored = TRUE
 				user.visible_message(SPAN_NOTICE("\The [user] secures \the [src] to the floor."), \
 					SPAN_NOTICE("You secure the external bolts."))
 				temp_state++
 		if(1)
-			if(O.iswrench())
+			if(O.tool_behaviour == TOOL_WRENCH)
 				O.play_tool_sound(get_turf(src), 75)
 				anchored = FALSE
 				user.visible_message(SPAN_NOTICE("\The [user] detaches \the [src] from the floor."), \
 					SPAN_NOTICE("You remove the external bolts."))
 				temp_state--
-			else if(O.iscoil())
+			else if(O.tool_behaviour == TOOL_CABLECOIL)
 				var/obj/item/stack/cable_coil/C = O
 				if(C.use(1))
 					user.visible_message(SPAN_NOTICE("\The [user] adds wires to \the [src]."), \
 						SPAN_NOTICE("You add some wires."))
 					temp_state++
 		if(2)
-			if(O.iswirecutter())//TODO:Shock user if its on?
+			if(O.tool_behaviour == TOOL_WIRECUTTER)//TODO:Shock user if its on?
 				user.visible_message(SPAN_NOTICE("\The [user] removes some wires from \the [src]."), \
 					SPAN_NOTICE("You remove some wires."))
 				temp_state--
-			else if(O.isscrewdriver())
+			else if(O.tool_behaviour == TOOL_SCREWDRIVER)
 				user.visible_message(SPAN_NOTICE("\The [user] closes \the [src]'s access panel."), \
 					SPAN_NOTICE("You close the access panel."))
 				temp_state++
 		if(3)
-			if(O.isscrewdriver())
+			if(O.tool_behaviour == TOOL_SCREWDRIVER)
 				user.visible_message(SPAN_NOTICE("\The [user] opens \the [src]'s access panel."), \
 					SPAN_NOTICE("You open the access panel."))
 				temp_state--
@@ -280,36 +280,36 @@ So, hopefully this is helpful if any more icons are to be added/changed/wonderin
 	var/temp_state = construction_state
 	switch(construction_state)//TODO:Might be more interesting to have it need several parts rather than a single list of steps
 		if(0)
-			if(O.iswrench())
+			if(O.tool_behaviour == TOOL_WRENCH)
 				O.play_tool_sound(get_turf(src), 75)
 				anchored = TRUE
 				user.visible_message(SPAN_NOTICE("\The [user] secures \the [src] to the floor."), \
 					SPAN_NOTICE("You secure the external bolts."))
 				temp_state++
 		if(1)
-			if(O.iswrench())
+			if(O.tool_behaviour == TOOL_WRENCH)
 				O.play_tool_sound(get_turf(src), 75)
 				anchored = FALSE
 				user.visible_message(SPAN_NOTICE("\The [user] detaches \the [src] from the floor."), \
 					SPAN_NOTICE("You remove the external bolts."))
 				temp_state--
-			else if(O.iscoil())
+			else if(O.tool_behaviour == TOOL_CABLECOIL)
 				var/obj/item/stack/cable_coil/C = O
 				if(C.use(1))
 					user.visible_message(SPAN_NOTICE("\The [user] removes some wires from \the [src]."), \
 						SPAN_NOTICE("You remove some wires."))
 					temp_state++
 		if(2)
-			if(O.iswirecutter())//TODO:Shock user if its on?
+			if(O.tool_behaviour == TOOL_WIRECUTTER)//TODO:Shock user if its on?
 				user.visible_message(SPAN_NOTICE("\The [user] removes some wires from \the [src]."), \
 					SPAN_NOTICE("You remove some wires."))
 				temp_state--
-			else if(O.isscrewdriver())
+			else if(O.tool_behaviour == TOOL_SCREWDRIVER)
 				user.visible_message(SPAN_NOTICE("\The [user] closes \the [src]'s access panel."), \
 					SPAN_NOTICE("You close the access panel."))
 				temp_state++
 		if(3)
-			if(O.isscrewdriver())
+			if(O.tool_behaviour == TOOL_SCREWDRIVER)
 				user.visible_message(SPAN_NOTICE("\The [user] opens \the [src]'s access panel."), \
 					SPAN_NOTICE("You open the access panel."))
 				temp_state--

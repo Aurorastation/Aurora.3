@@ -67,13 +67,13 @@
 	icon_state = "ancient_armor"
 	item_state = "ancient_armor"
 	armor = list( //not designed to hold up to bullets or lasers, but still better than nothing.
-		melee = ARMOR_MELEE_MAJOR,
-		bullet = ARMOR_BALLISTIC_MINOR,
-		laser = ARMOR_LASER_SMALL
+		MELEE = ARMOR_MELEE_MAJOR,
+		BULLET = ARMOR_BALLISTIC_MINOR,
+		LASER = ARMOR_LASER_SMALL
 	)
 	matter = list(MATERIAL_BRONZE = 1000)
 	drop_sound = 'sound/items/drop/sword.ogg'
-	pickup_sound = /singleton/sound_category/sword_pickup_sound
+	pickup_sound = SFX_PICKUP_SWORD
 
 /obj/item/clothing/suit/armor/unathi/ancient/mador
 	name = "\improper Sinta'Mador bronze armor"

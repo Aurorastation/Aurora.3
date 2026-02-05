@@ -5,7 +5,7 @@
 
 /datum/rune/summon_cultist/do_rune_action(mob/living/user, atom/movable/A)
 	var/list/mob/living/carbon/cultists = list()
-	for(var/datum/mind/H in cult.current_antagonists)
+	for(var/datum/mind/H in GLOB.cult.current_antagonists)
 		if(iscarbon(H.current))
 			cultists += H.current
 

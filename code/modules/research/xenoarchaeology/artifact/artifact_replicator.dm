@@ -29,17 +29,17 @@
 	/mob/living/simple_animal/hostile/mimic,\
 	/mob/living/simple_animal/hostile/viscerator,\
 	/mob/living/simple_animal/hostile/hivebot,\
-	/obj/item/device/analyzer,\
-	/obj/item/device/camera,\
-	/obj/item/device/flash,\
-	/obj/item/device/flashlight,\
-	/obj/item/device/healthanalyzer,\
-	/obj/item/device/breath_analyzer,\
-	/obj/item/device/multitool,\
-	/obj/item/device/paicard,\
-	/obj/item/device/radio,\
-	/obj/item/device/radio/headset,\
-	/obj/item/device/radio/beacon,\
+	/obj/item/analyzer,\
+	/obj/item/camera,\
+	/obj/item/flash,\
+	/obj/item/flashlight,\
+	/obj/item/healthanalyzer,\
+	/obj/item/breath_analyzer,\
+	/obj/item/multitool,\
+	/obj/item/paicard,\
+	/obj/item/radio,\
+	/obj/item/radio/headset,\
+	/obj/item/radio/beacon,\
 	/obj/item/autopsy_scanner,\
 	/obj/item/bikehorn,\
 	/obj/item/surgery/bonesetter,\
@@ -122,9 +122,9 @@
 	var/dat = "The control panel displays an incomprehensible selection of controls, many with unusual markings or text around them.<br>"
 	dat += "<br>"
 	for(var/index=1, index<=construction.len, index++)
-		dat += "<A href='?src=[REF(src)];activate=[index]'>\[[construction[index]]\]</a><br>"
+		dat += "<A href='byond://?src=[REF(src)];activate=[index]'>\[[construction[index]]\]</a><br>"
 
-	user << browse(dat, "window=alien_replicator")
+	user << browse(HTML_SKELETON(dat), "window=alien_replicator")
 
 /obj/machinery/replicator/attackby(obj/item/attacking_item, mob/user)
 	user.drop_from_inventory(attacking_item, src)

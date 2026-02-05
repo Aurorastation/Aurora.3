@@ -8,7 +8,7 @@
 	size = 8
 	requires_ntnet = TRUE
 	available_on_ntnet = TRUE
-	usage_flags = PROGRAM_ALL_REGULAR
+	usage_flags = PROGRAM_ALL_REGULAR | PROGRAM_SILICON
 	tgui_id = "AwayShuttleManifest"
 	var/datum/record/shuttle_manifest/active_record
 
@@ -79,7 +79,7 @@
 	if(!istype(usr))
 		return
 	var/obj/item/card/id/I = usr.GetIdCard()
-	if(!istype(I) || !I.registered_name || issilicon(usr) || (!(ACCESS_HEADS in I.access) && !(ACCESS_RESEARCH in I.access) && !(ACCESS_MINING in I.access)))
+	if(!istype(I) || !I.registered_name || (!(ACCESS_HEADS in I.access) && !(ACCESS_RESEARCH in I.access) && !(ACCESS_MINING in I.access)))
 		to_chat(usr, SPAN_WARNING("Authentication error: Unable to locate ID with appropriate access to allow this operation."))
 		return
 
@@ -87,10 +87,9 @@
 		if("addentry")
 			. = TRUE
 			var/datum/record/shuttle_manifest/m = new()
-			if(!computer.use_check_and_message(usr))
-				m.name = "Unknown"
-				m.shuttle = "Unknown"
-				active_record = m
+			m.name = "Unknown"
+			m.shuttle = "Unknown"
+			active_record = m
 
 		if("saveentry")
 			. = TRUE
@@ -110,35 +109,31 @@
 			for(var/datum/record/general/r in SSrecords.records)
 				names += r.name
 			var/newname = sanitize(tgui_input_list(usr, "Please select name.", "Name select", names, active_record.name))
-			if(!computer.use_check_and_message(usr))
-				if(!newname)
-					return
-				active_record.name = newname
+			if(!newname)
+				return
+			active_record.name = newname
 
 		if("editentrynamecustom")
 			. = TRUE
 			var/newname = sanitize(tgui_input_text(usr, "Please enter name.", "Name entry", active_record.name))
-			if(!computer.use_check_and_message(usr))
-				if(!newname)
-					return
-				active_record.name = newname
+			if(!newname)
+				return
+			active_record.name = newname
 
 		if("editentryshuttle")
 			. = TRUE
 			var/newshuttle = tgui_input_list(usr, "Please select shuttle.", "Shuttle select", SSatlas.current_map.shuttle_manifests, active_record.shuttle)
-			if(!computer.use_check_and_message(usr))
-				if(!newshuttle)
-					return
-				active_record.shuttle = newshuttle
+			if(!newshuttle)
+				return
+			active_record.shuttle = newshuttle
 
 		if("editdestination")
 			for(var/datum/record/shuttle_assignment/a in SSrecords.shuttle_assignments)
 				if(a.shuttle == params["editdestination"])
 					var/new_dest = sanitize(tgui_input_text(usr, "Please enter destination.", "Destination entry", a.destination))
-					if(!computer.use_check_and_message(usr))
-						if(!new_dest)
-							return
-						a.destination = new_dest
+					if(!new_dest)
+						return
+					a.destination = new_dest
 
 		if("editheading")
 			for(var/datum/record/shuttle_assignment/a in SSrecords.shuttle_assignments)
@@ -146,35 +141,31 @@
 					var/new_head = floor(tgui_input_number(usr, "Please enter heading.", "Heading entry", a.heading, 359, 0))
 					if(new_head < 0 || new_head > 359 || !new_head)
 						new_head = 0
-					if(!computer.use_check_and_message(usr))
-						a.heading = new_head
+					a.heading = new_head
 
 		if("editmission")
 			for(var/datum/record/shuttle_assignment/a in SSrecords.shuttle_assignments)
 				if(a.shuttle == params["editmission"])
 					var/new_mis = tgui_input_list(usr, "Please select mission.", "Mission select", SSatlas.current_map.shuttle_missions, a.mission)
-					if(!computer.use_check_and_message(usr))
-						if(!new_mis)
-							return
-						a.mission = new_mis
+					if(!new_mis)
+						return
+					a.mission = new_mis
 
 		if("editdeparturetime")
 			for(var/datum/record/shuttle_assignment/a in SSrecords.shuttle_assignments)
 				if(a.shuttle == params["editdeparturetime"])
 					var/new_depart = sanitize(tgui_input_text(usr, "Please enter new departure time.", "Departure time entry", a.departure_time))
-					if(!computer.use_check_and_message(usr))
-						if(!new_depart)
-							return
-						a.departure_time = new_depart
+					if(!new_depart)
+						return
+					a.departure_time = new_depart
 
 		if("editreturntime")
 			for(var/datum/record/shuttle_assignment/a in SSrecords.shuttle_assignments)
 				if(a.shuttle == params["editreturntime"])
 					var/new_return = sanitize(tgui_input_text(usr, "Please enter new return time.", "Return time entry", a.departure_time))
-					if(!computer.use_check_and_message(usr))
-						if(!new_return)
-							return
-						a.return_time = new_return
+					if(!new_return)
+						return
+					a.return_time = new_return
 
 		if("editlead")
 			for(var/datum/record/shuttle_manifest/m in SSrecords.shuttle_manifests)

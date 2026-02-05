@@ -1,12 +1,12 @@
 // PRESETS
-var/global/list/engineering_networks = list(
+GLOBAL_LIST_INIT(engineering_networks, list(
 	NETWORK_REACTOR,
 	NETWORK_ENGINEERING,
 	NETWORK_ENGINEERING_OUTPOST,
 	"Atmosphere Alarms",
 	"Fire Alarms",
 	"Power Alarms"
-)
+))
 
 /obj/machinery/camera/network/crescent
 	network = list(NETWORK_CRESCENT)
@@ -181,7 +181,7 @@ var/global/list/engineering_networks = list(
 	return null
 
 /obj/machinery/camera/proc/isMotion()
-	var/O = locate(/obj/item/device/assembly/prox_sensor) in assembly.upgrades
+	var/O = locate(/obj/item/assembly/prox_sensor) in assembly.upgrades
 	return O
 
 // UPGRADE PROCS
@@ -197,7 +197,7 @@ var/global/list/engineering_networks = list(
 	update_coverage()
 
 /obj/machinery/camera/proc/upgradeMotion()
-	assembly.upgrades.Add(new /obj/item/device/assembly/prox_sensor(assembly))
+	assembly.upgrades.Add(new /obj/item/assembly/prox_sensor(assembly))
 	setPowerUsage()
 	if(!(SSmachinery.processing[src]))
 		START_PROCESSING_MACHINE(src, MACHINERY_PROCESS_SELF)

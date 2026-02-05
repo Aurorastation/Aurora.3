@@ -103,18 +103,17 @@
 	the riots. More on this at 6."}
 	round_time = 60 * 60
 
-
-var/global/list/newscaster_standard_feeds = list(/datum/news_announcement/bluespace_research, /datum/news_announcement/lotus_tree, /datum/news_announcement/random_junk,  /datum/news_announcement/food_riots)
+GLOBAL_LIST_INIT(newscaster_standard_feeds, list(/datum/news_announcement/bluespace_research, /datum/news_announcement/lotus_tree, /datum/news_announcement/random_junk,  /datum/news_announcement/food_riots))
 
 /proc/process_newscaster()
 	check_for_newscaster_updates(SSticker.mode.newscaster_announcements)
 
-var/global/tmp/announced_news_types = list()
+GLOBAL_LIST_INIT(announced_news_types, list())
 /proc/check_for_newscaster_updates(type)
 	for(var/subtype in typesof(type)-type)
 		var/datum/news_announcement/news = new subtype()
-		if(news.round_time * 10 <= world.time && !(subtype in announced_news_types))
-			announced_news_types += subtype
+		if(news.round_time * 10 <= world.time && !(subtype in GLOB.announced_news_types))
+			GLOB.announced_news_types += subtype
 			announce_newscaster_news(news)
 
 /proc/announce_newscaster_news(datum/news_announcement/news)

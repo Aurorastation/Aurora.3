@@ -47,6 +47,12 @@
 	caliber = "trod"
 	projectile_type = /obj/projectile/bullet/trod
 
+/obj/item/ammo_casing/c9mm/polymer
+	desc = "A 9mm polymer bullet casing."
+	caliber = "9mm"
+	projectile_type = /obj/projectile/bullet/pistol/polymer
+	max_stack = 15
+
 /obj/item/ammo_casing/c9mm
 	desc = "A 9mm bullet casing."
 	caliber = "9mm"
@@ -127,8 +133,8 @@
 	caliber = "shotgun"
 	projectile_type = /obj/projectile/bullet/shotgun
 	matter = list(DEFAULT_WALL_MATERIAL = 360)
-	reload_sound = /singleton/sound_category/shotgun_reload
-	drop_sound = /singleton/sound_category/casing_drop_sound_shotgun
+	reload_sound = SFX_RELOAD_SHOTGUN
+	drop_sound = SFX_CASING_DROP_SHOTGUN
 	max_stack = 8
 
 /obj/item/ammo_casing/shotgun/used/Initialize()
@@ -419,7 +425,7 @@
 	slot_flags = null
 	max_stack = 1
 	reload_sound = 'sound/weapons/reloads/shotgun_pump.ogg'
-	drop_sound = /singleton/sound_category/generic_drop_sound
+	drop_sound = SFX_DROP
 
 /obj/item/ammo_casing/cannon/explosive
 	name = "explosive cannonball"
@@ -440,7 +446,7 @@
 	slot_flags = null
 	desc = "A miniaturized version of a nuclear bomb."
 	projectile_type = /obj/projectile/bullet/nuke
-	drop_sound = /singleton/sound_category/generic_drop_sound
+	drop_sound = SFX_DROP
 	max_stack = 2
 
 /obj/item/ammo_casing/musket
@@ -481,6 +487,33 @@
 /obj/item/ammo_casing/peac/shrapnel
 	name = "anti-materiel FRAG cannon cartridge"
 	projectile_type = /obj/projectile/bullet/peac/shrapnel
+
+/obj/item/ammo_casing/peac/attack(mob/living/target_mob, mob/living/user, target_zone)
+	if(!istype(target_mob, /mob/living/carbon/human))
+		return ..()
+
+	var/mob/living/carbon/human/H = target_mob
+	if(!user.Adjacent(H))
+		return ..()
+
+	var/obj/item/gun/projectile/peac/G = null
+	var/obj/item/I = H.get_active_hand()
+	if(istype(I, /obj/item/gun/projectile/peac))
+		G = I
+	else
+		I = H.get_inactive_hand()
+		if(istype(I, /obj/item/gun/projectile/peac)) //we check the other hand as well so the wield error message can get sent despite what hand it is in, to avoid confusion
+			G = I
+	if(G && !G.wielded)
+		to_chat(H, SPAN_WARNING("You need to wield [G] before it can be loaded!"))
+		to_chat(user, SPAN_WARNING("[H] needs to wield [G] before you can load it!"))
+		return TRUE
+	if(G && G.get_ammo() <= 0 && G.loaded.len < G.max_shells && G.caliber == caliber && src.loc == user)
+		if(!do_after(user, 0.5 SECONDS, G))
+			return TRUE
+		G.load_ammo(src, user, TRUE)
+		return TRUE
+	..()
 
 /obj/item/ammo_casing/kumar_super
 	name =".599 kumar super casing"

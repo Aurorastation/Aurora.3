@@ -1,15 +1,18 @@
 /datum/faction/nano_trasen
 	name = "NanoTrasen"
-	description = {"<p>
-	Considered the largest megacorporation within the Orion Spur, many will find themselves doing the biddings of NanoTrasen.
+	description = {"
+	Considered the largest megacorporation within the Orion Spur, many will find themselves doing the biddings of NanoTrasen.<br>
 	Initially a biotechnical research company, it rapidly grew in size after the discovery of phoron.
-	NanoTrasen's continued monopoly on the resource catapulted it into the limelight, where it has remained for the last forty-odd years.
+	NanoTrasen's continued monopoly on the resource catapulted it into the limelight, where it has remained for the last forty-odd years.<br><br>
 	During the Phoron Scarcity, NanoTrasen's power has since begun to waver, resulting in their profit margins diminishing considerably.
 	Nonetheless, NanoTrasen has managed to secure itself as a crucial member of the newly-founded Stellar Corporate Conglomerate
 	allowing themselves to remain as a dominant corporate presence within the Orion Spur.
-	</p>"}
-	departments = {"Medical<br>Research<br>Service"}
+	"}
+	departments = list(DEPARTMENT_MEDICAL, DEPARTMENT_SCIENCE, DEPARTMENT_SERVICE)
 	title_suffix = "NT"
+	wiki_page = "NanoTrasen_Corporation"
+
+	ui_priority = -1
 
 	is_default = TRUE
 
@@ -39,15 +42,15 @@
 	switch(mission_level)
 		if(REPRESENTATIVE_MISSION_HIGH)
 			objective = pick("Have [rand(1,4)] crewmember sign NT apprenticeship contracts",
-						"Make sure that the station fullfils [rand(4,12)] cargo bounties",
-						"Make sure that the station raises [rand(5000,12000)] credits by the end of the shift")
+						"Make sure that the [station_name()] fullfils [rand(4,12)] cargo bounties",
+						"Make sure that the [station_name()] raises [rand(5000,12000)] credits by the end of the shift")
 		if(REPRESENTATIVE_MISSION_MEDIUM)
 			objective = pick("Have [rand(2,5)] crewmembers sign contract extensions",
 						"Have [rand(2,5)] crewmembers buy Odin real estate",
 						"[rand(3,10)] crewmember must buy Getmore products from the vendors")
 		else
 			objective = pick("Conduct and present a survey on crew morale and content",
-						"Make sure that [rand(2,4)] complaints are solved on the station",
+						"Make sure that [rand(2,4)] complaints are solved on the [station_name()]",
 						"Have [rand(3,10)] crewmembers buy Getmore products from the vendors")
 
 	return objective

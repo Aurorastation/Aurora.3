@@ -8,15 +8,15 @@
 	max_shots = 5
 	accuracy = 1 // More of a buff to secborgs and mounted taser users.
 	projectile_type = /obj/projectile/energy/electrode
-	can_turret = 1
+	can_turret = TRUE
 	turret_sprite_set = "carbine"
-	turret_is_lethal = 0
+	turret_is_lethal = FALSE
 
 /obj/item/gun/energy/taser/mounted
 	name = "mounted taser gun"
-	self_recharge = 1
-	use_external_power = 1
-	can_turret = 0
+	self_recharge = TRUE
+	use_external_power = TRUE
+	can_turret = FALSE
 
 /obj/item/gun/energy/stunrevolver
 	name = "stun revolver"
@@ -35,10 +35,6 @@
 /obj/item/gun/energy/crossbow
 	name = "mini energy-crossbow"
 	desc = "A weapon favored by many mercenary stealth specialists."
-	desc_info = "This is an energy weapon.  To fire the weapon, ensure your intent is *not* set to 'help', have your gun mode set to 'fire', \
-	then click where you want to fire."
-	desc_antag = "This is a stealthy weapon which fires paralyzing bolts at your target.  When it hits someone, they will suffer a stun effect. \
-	The energy crossbow recharges itself slowly, and can be concealed in your pocket or bag."
 	icon = 'icons/obj/guns/crossbow.dmi'
 	icon_state = "crossbow"
 	item_state = "crossbow"
@@ -52,11 +48,16 @@
 	fire_sound = 'sound/weapons/Genhit.ogg'
 	projectile_type = /obj/projectile/energy/bolt
 	max_shots = 5
-	self_recharge = 1
+	self_recharge = TRUE
 	charge_meter = 0
-	can_turret = 1
+	can_turret = TRUE
 	turret_sprite_set = "crossbow"
 	charge_failure_message = "'s charging socket was removed to make room for a minaturized reactor."
+
+/obj/item/gun/energy/crossbow/antagonist_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "This is a stealthy weapon which fires paralyzing bolts at your target. When it hits someone, they will suffer a stun effect."
+	. += "The energy crossbow recharges itself slowly, and can be concealed in your pocket or bag."
 
 /obj/item/gun/energy/crossbow/get_cell()
 	return DEVICE_NO_CELL

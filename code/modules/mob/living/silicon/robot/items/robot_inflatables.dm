@@ -6,6 +6,8 @@
 	desc = "Small device which allows rapid deployment and removal of inflatables."
 	icon = 'icons/obj/item/inflatables.dmi'
 	icon_state = "inf_deployer"
+	item_state = "RPED" //inhands
+	contained_sprite = TRUE
 	w_class = WEIGHT_CLASS_NORMAL
 	var/deploying = FALSE
 	var/max_walls = 10
@@ -14,15 +16,15 @@
 	var/stored_doors = 5
 	var/mode = MODE_WALL // 0 - Walls 1 - Doors
 
+/obj/item/inflatable_dispenser/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += SPAN_NOTICE("It has <b>[stored_walls] wall segment\s</b> and <b>[stored_doors] door segment\s</b> stored.")
+	. += SPAN_NOTICE("It is set to deploy <b>[mode ? "doors" : "walls"]</b>.")
+
 /obj/item/inflatable_dispenser/Initialize(mapload, ...)
 	. = ..()
 	stored_walls = max_walls
 	stored_doors = max_doors
-
-/obj/item/inflatable_dispenser/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	. += SPAN_NOTICE("It has [stored_walls] wall segment\s and [stored_doors] door segment\s stored.")
-	. += SPAN_NOTICE("It is set to deploy [mode ? "doors" : "walls"]")
 
 /obj/item/inflatable_dispenser/attack_self(mob/user)
 	if(!deploying)

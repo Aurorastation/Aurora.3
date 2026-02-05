@@ -41,11 +41,13 @@
 					msg += "<font color='darkgray'><b>Unconscious</b></font>"
 				if(DEAD)
 					if(isobserver(client.mob))
-						var/mob/abstract/observer/O = client.mob
+						var/mob/abstract/ghost/observer/O = client.mob
 						if(O.started_as_observer)
 							msg += "<font color='gray'>Observing</font>"
 						else
 							msg += "<font color='black'><b>DEAD</b></font>"
+					else if(isstoryteller(client.mob))
+						msg += "<font color='blue'><b>STORYTELLING</b></font>"
 					else
 						msg += "<font color='black'><b>DEAD</b></font>"
 			msg += "</td>"
@@ -75,7 +77,7 @@
 				msg += "<td></td>"
 
 			// more info button
-			msg += "<td><A HREF='?_src_=holder;adminmoreinfo=[REF(client.mob)]'>?</A></td>"
+			msg += "<td><A href='byond://?_src_=holder;adminmoreinfo=[REF(client.mob)]'>?</A></td>"
 
 			total_num++
 			msg += "</tr>"
@@ -123,8 +125,10 @@
 
 				if(isobserver(client.mob))
 					msg += " - Observing"
-				else if(istype(client.mob, /mob/abstract/new_player))
+				else if(isnewplayer(client.mob))
 					msg += " - Lobby"
+				else if(isstoryteller(client.mob))
+					msg += "- Storytelling"
 				else
 					msg += " - Playing"
 
@@ -138,8 +142,10 @@
 
 				if(isobserver(client.mob))
 					modmsg += " - Observing"
-				else if(istype(client.mob, /mob/abstract/new_player))
+				else if(isnewplayer(client.mob))
 					modmsg += " - Lobby"
+				else if(isstoryteller(client.mob))
+					modmsg += "- Storytelling"
 				else
 					modmsg += " - Playing"
 
@@ -150,10 +156,13 @@
 
 			else if (R_CCIAA & client.holder.rights)
 				cciaamsg += "\t[client.key]"
-				if (isobserver(client.mob))
+
+				if(isobserver(client.mob))
 					cciaamsg += " - Observing"
-				else if (istype(client.mob, /mob/abstract/new_player))
+				else if(isnewplayer(client.mob))
 					cciaamsg += " - Lobby"
+				else if(isstoryteller(client.mob))
+					cciaamsg += "- Storytelling"
 				else
 					cciaamsg += " - Playing"
 
@@ -164,10 +173,13 @@
 
 			else if(client.holder.rights & R_DEV)
 				devmsg += "\t[client.key] is a [client.holder.rank]"
+
 				if(isobserver(client.mob))
 					devmsg += " - Observing"
-				else if(istype(client.mob, /mob/abstract/new_player))
+				else if(isnewplayer(client.mob))
 					devmsg += " - Lobby"
+				else if(isstoryteller(client.mob))
+					devmsg += "- Storytelling"
 				else
 					devmsg += " - Playing"
 
@@ -175,7 +187,6 @@
 					devmsg += " (AFK)"
 				devmsg += "<br>"
 				num_devs_online++
-
 	else
 		for(var/s in GLOB.staff)
 			var/client/client = s

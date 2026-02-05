@@ -17,7 +17,6 @@
 	name = "Abandoned House"
 	icon_state = "bluenew"
 	requires_power = FALSE
-	dynamic_lighting = TRUE
 	no_light_control = FALSE
 	base_turf = /turf/simulated/floor/exoplanet/mineral/adhomai
 	area_flags = AREA_FLAG_RAD_SHIELDED
@@ -58,10 +57,14 @@
 
 	uniform = list(
 				/obj/item/clothing/under/tajaran,
-				/obj/item/clothing/under/tajaran/summer,
-				/obj/item/clothing/under/pants/tajaran,
-				/obj/item/clothing/under/pants/track
+				/obj/item/clothing/under/tajaran/summer
+
 	)
+
+	pants = list(
+				/obj/item/clothing/pants/tajaran,
+				/obj/item/clothing/pants/track
+				)
 
 	suit = list(
 				/obj/item/clothing/suit/storage/toggle/bomber,

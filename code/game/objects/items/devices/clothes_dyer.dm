@@ -2,21 +2,23 @@
 #define ACCENT_COLOR "Accent Color"
 
 // Only works for clothes that are already recolorable.
-/obj/item/device/clothes_dyer
+/obj/item/clothes_dyer
 	name = "clothes dyer"
 	desc = "This is a device designed to rapidly dye clothes to new colors. Naysayers say it isn't great for the fabric, but what do they know?"
-	desc_info = "Select the desired color by using the item on yourself, and alternate between the primary and secondary colour of the item by alt-clicking the item. This only works on clothing items that are recolorable."
-	icon = 'icons/obj/item/tools/paint_sprayer.dmi'
-	icon_state = "floor_painter"
-	item_state = "floor_painter"
-	contained_sprite = TRUE
+	icon = 'icons/obj/item/paint_sprayer.dmi'
+	icon_state = "paint_sprayer"
+	item_state = "paint_sprayer"
 	/// Controls whether the dyer changes the primary or accent color of the clothes item.
 	var/selected_mode = BASE_COLOR
 	/// Contains the colors the dyer is set to for each possible mode.
 	var/list/colors_by_mode = list(BASE_COLOR = "#FFFFFF", ACCENT_COLOR = "#FFFFFF")
 
+/obj/item/clothes_dyer/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Select the desired color by using the item on yourself, and alternate between the primary and secondary colour of the item by alt-clicking the item. This only works on clothing items that are recolorable."
+
 // Changes the color of the selected mode.
-/obj/item/device/clothes_dyer/attack_self(mob/user)
+/obj/item/clothes_dyer/attack_self(mob/user)
 	var/selected_color = input(user, "Please select dye color.", "Dye Color", colors_by_mode[selected_mode]) as color|null
 	if (!selected_color)
 		return
@@ -25,7 +27,7 @@
 	to_chat(user, SPAN_NOTICE("You adjust the color of <span style='color:[selected_color]'>[selected_mode]</span>."))
 
 // Switches the mode.
-/obj/item/device/clothes_dyer/AltClick(mob/user)
+/obj/item/clothes_dyer/AltClick(mob/user)
 	if (!Adjacent(user))
 		return
 
@@ -37,7 +39,7 @@
 	to_chat(user, SPAN_NOTICE("You adjust the mode of the clothes dyer to <span style='color:[colors_by_mode[new_selected_mode]]'>[new_selected_mode]</span>."))
 
 // Changes the color on clothing.
-/obj/item/device/clothes_dyer/afterattack(atom/target, mob/user, proximity_flag, click_parameters)
+/obj/item/clothes_dyer/afterattack(atom/target, mob/user, proximity_flag, click_parameters)
 	if (!proximity_flag)
 		return
 

@@ -1,4 +1,4 @@
-var/repository/unique/uniqueness_repository = new()
+GLOBAL_DATUM_INIT(uniqueness_repository, /repository/unique, new())
 
 /repository/unique
 	var/list/generators

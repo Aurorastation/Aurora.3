@@ -50,7 +50,7 @@
 						M.attack_log += "\[[time_stamp()]\] <span class='warning'>Stungloved [src.name] ([src.ckey])</span>"
 						src.attack_log += "\[[time_stamp()]\] <font color='orange'>Has been stungloved by [M.name] ([M.ckey])</font>"
 
-						msg_admin_attack("[key_name_admin(M)] stungloved [src.name] ([src.ckey]) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[M.x];Y=[M.y];Z=[M.z]'>JMP</a>)",ckey=key_name(M),ckey_target=key_name(src))
+						msg_admin_attack("[key_name_admin(M)] stungloved [src.name] ([src.ckey]) (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[M.x];Y=[M.y];Z=[M.z]'>JMP</a>)",ckey=key_name(M),ckey_target=key_name(src))
 
 						apply_effects(5,5,0,0,5,0,0,0,0)
 						apply_damage(rand(5,25), DAMAGE_BURN, M.zone_sel.selecting)
@@ -78,7 +78,7 @@
 			H.do_attack_animation(src)
 			var/damage = rand(0, 9)
 			if(!damage)
-				playsound(loc, /singleton/sound_category/punchmiss_sound, 25, 1, -1)
+				playsound(loc, SFX_PUNCH_MISS, 25, 1, -1)
 				visible_message(SPAN_DANGER("[H] has attempted to punch [src]!"))
 				return 0
 			var/obj/item/organ/external/affecting = get_organ(ran_zone(H.zone_sel.selecting))
@@ -86,7 +86,7 @@
 			if((H.mutations & HULK) || H.is_berserk())
 				damage += 5
 
-			playsound(loc, /singleton/sound_category/punch_sound, 25, 1, -1)
+			playsound(loc, SFX_PUNCH, 25, 1, -1)
 
 			visible_message(SPAN_DANGER("[H] has punched [src]!"))
 
@@ -143,7 +143,7 @@
 			LAssailant = WEAKREF(M)
 
 			H.do_attack_animation(src)
-			playsound(loc, /singleton/sound_category/grab_sound, 50, FALSE, -1)
+			playsound(loc, SFX_GRAB, 50, FALSE, -1)
 			if(H.gloves && istype(H.gloves,/obj/item/clothing/gloves/force/syndicate)) //only antag gloves can do this for now
 				G.state = GRAB_AGGRESSIVE
 				G.icon_state = "grabbed1"
@@ -250,7 +250,7 @@
 			playsound(loc, ((miss_type) ? (miss_type == 1 ? attack.miss_sound : 'sound/weapons/thudswoosh.ogg') : attack.attack_sound), 25, 1, -1)
 			H.attack_log += "\[[time_stamp()]\] <span class='warning'>[miss_type ? (miss_type == 1 ? "Missed" : "Blocked") : "[pick(attack.attack_verb)]"] [src.name] ([src.ckey])</span>"
 			src.attack_log += "\[[time_stamp()]\] <font color='orange'>[miss_type ? (miss_type == 1 ? "Was missed by" : "Has blocked") : "Has Been [pick(attack.attack_verb)]"] by [H.name] ([H.ckey])</font>"
-			msg_admin_attack("[key_name(H)] [miss_type ? (miss_type == 1 ? "has missed" : "was blocked by") : "has [pick(attack.attack_verb)]"] [key_name(src)] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[H.x];Y=[H.y];Z=[H.z]'>JMP</a>)",ckey=key_name(H),ckey_target=key_name(src))
+			msg_admin_attack("[key_name(H)] [miss_type ? (miss_type == 1 ? "has missed" : "was blocked by") : "has [pick(attack.attack_verb)]"] [key_name(src)] (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[H.x];Y=[H.y];Z=[H.z]'>JMP</a>)",ckey=key_name(H),ckey_target=key_name(src))
 
 			if(miss_type)
 				return 0
@@ -306,7 +306,7 @@
 				return FALSE
 
 			var/disarm_cost
-			var/obj/item/organ/internal/cell/cell = M.internal_organs_by_name[BP_CELL]
+			var/obj/item/organ/internal/machine/power_core/cell = M.internal_organs_by_name[BP_CELL]
 			var/obj/item/cell/potato
 			if(cell)
 				potato = cell.cell
@@ -338,7 +338,7 @@
 			M.attack_log += "\[[time_stamp()]\] <span class='warning'>Disarmed [src.name] ([src.ckey])</span>"
 			src.attack_log += "\[[time_stamp()]\] <font color='orange'>Has been disarmed by [M.name] ([M.ckey])</font>"
 
-			msg_admin_attack("[key_name(M)] disarmed [src.name] ([src.ckey]) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[M.x];Y=[M.y];Z=[M.z]'>JMP</a>)",ckey=key_name(M),ckey_target=key_name(src))
+			msg_admin_attack("[key_name(M)] disarmed [src.name] ([src.ckey]) (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[M.x];Y=[M.y];Z=[M.z]'>JMP</a>)",ckey=key_name(M),ckey_target=key_name(src))
 			M.do_attack_animation(src)
 
 			if(w_uniform)
@@ -371,7 +371,7 @@
 								return M.attackby(W,src)
 
 			var/randn = rand(1, 100)
-			if(z_eye && z_eye.tile_shifted) //They're looking down in front of them.
+			if(z_eye) //They're looking down in front of them.
 				var/turf/T = loc
 				var/obj/structure/railing/problem_railing
 				var/same_loc = FALSE
@@ -450,7 +450,7 @@
 						to_chat(M, SPAN_WARNING("You cannot disarm \the [I] from \the [src], as it's attached to them!"))
 						//No return here is intentional, as it will then try to disarm other items, and/or play a failed disarm message
 
-			playsound(loc, /singleton/sound_category/punchmiss_sound, 25, 1, -1)
+			playsound(loc, SFX_PUNCH_MISS, 25, 1, -1)
 			visible_message(SPAN_DANGER("[M] attempted to disarm [src]!"))
 	return
 
@@ -542,7 +542,7 @@
 /mob/living/carbon/human/proc/afterattack(atom/target as mob|obj|turf|area, mob/living/user as mob|obj, inrange, params)
 	return
 
-/mob/living/carbon/human/attack_generic(var/mob/user, var/damage, var/attack_message, var/armor_penetration, var/attack_flags)
+/mob/living/carbon/human/attack_generic(mob/user, damage, attack_message, environment_smash, armor_penetration, attack_flags, damage_type)
 	if(!damage)
 		return
 
@@ -557,7 +557,7 @@
 	var/dam_zone = user.zone_sel?.selecting
 	var/obj/item/organ/external/affecting = dam_zone ? get_organ(dam_zone) : pick(organs)
 	if(affecting)
-		apply_damage(damage, DAMAGE_BRUTE, affecting, armor_pen = armor_penetration, damage_flags = attack_flags)
+		apply_damage(damage, damage_type ? damage_type : DAMAGE_BRUTE, affecting, armor_pen = armor_penetration, damage_flags = attack_flags)
 		updatehealth()
 	return affecting
 

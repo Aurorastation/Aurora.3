@@ -68,18 +68,15 @@
 /obj/item/implanter/ipc_tag
 	name = "IPC tag implanter"
 	desc = "A special implanter used for implanting synthetics with a special tag."
-	var/obj/item/organ/internal/ipc_tag/ipc_tag
+	var/obj/item/organ/internal/machine/ipc_tag/ipc_tag
 
 /obj/item/implanter/ipc_tag/Initialize()
 	. = ..()
-	ipc_tag = new /obj/item/organ/internal/ipc_tag(src)
+	ipc_tag = new /obj/item/organ/internal/machine/ipc_tag(src)
 	update_icon()
 
 /obj/item/implanter/ipc_tag/update_icon()
-	if(ipc_tag)
-		icon_state = "cimplanter1"
-	else
-		icon_state = "cimplanter0"
+	icon_state = "implanter-[ipc_tag ? "1" : "0"]"
 	return
 
 /obj/item/implanter/ipc_tag/attack(mob/living/target_mob, mob/living/user, target_zone)
@@ -103,7 +100,7 @@
 
 	target_mob.attack_log += "\[[time_stamp()]\] <font color='orange'> Implanted with [name] ([ipc_tag.name])  by [user.name] ([user.ckey])</font>"
 	user.attack_log += "\[[time_stamp()]\] <span class='warning'>Used the [name] ([ipc_tag.name]) to implant [target_mob.name] ([target_mob.ckey])</span>"
-	msg_admin_attack("[key_name_admin(user)] implanted [key_name_admin(target_mob)] with [name] (INTENT: [uppertext(user.a_intent)]) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(target_mob))
+	msg_admin_attack("[key_name_admin(user)] implanted [key_name_admin(target_mob)] with [name] (INTENT: [uppertext(user.a_intent)]) (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(target_mob))
 
 	ipc_tag.replaced(H, H.organs_by_name[BP_HEAD])
 	ipc_tag.forceMove(target_mob)
@@ -114,7 +111,7 @@
 	update_icon()
 
 /obj/item/implanter/ipc_tag/attackby(obj/item/attacking_item, mob/user)
-	if(attacking_item.isscrewdriver())
+	if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 		if(!ipc_tag)
 			to_chat(user, SPAN_WARNING("\The [src] doesn't have an IPC tag loaded."))
 			return
@@ -124,7 +121,7 @@
 		ipc_tag = null
 		update_icon()
 		return
-	if(istype(attacking_item, /obj/item/organ/internal/ipc_tag))
+	if(istype(attacking_item, /obj/item/organ/internal/machine/ipc_tag))
 		if(ipc_tag)
 			to_chat(user, SPAN_WARNING("\The [src] already has an IPC tag loaded."))
 			return

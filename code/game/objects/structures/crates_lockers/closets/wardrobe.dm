@@ -88,7 +88,7 @@
 	new /obj/item/storage/box/fancy/candle_box(src)
 	new /obj/item/storage/box/fancy/candle_box(src)
 	new /obj/item/deck/tarot(src)
-	new /obj/item/device/radio/headset/headset_service(src)
+	new /obj/item/radio/headset/headset_service(src)
 	new /obj/item/spirit_board(src)
 	new /obj/item/mesmetron(src)
 	new /obj/item/toy/plushie/therapy(src)
@@ -177,7 +177,7 @@
 	new /obj/item/clothing/suit/storage/hazardvest/red(src)
 	new /obj/item/clothing/suit/storage/hazardvest/blue/atmos(src)
 	new /obj/item/clothing/suit/storage/toggle/highvis(src)
-	new /obj/item/clothing/suit/storage/toggle/highvis_alt(src)
+	new /obj/item/clothing/suit/storage/toggle/highvis/alt(src)
 	return
 
 
@@ -205,7 +205,7 @@
 	new /obj/item/clothing/head/bandana/engineering(src)
 	new /obj/item/clothing/head/bandana/engineering(src)
 	new /obj/item/clothing/suit/storage/toggle/highvis(src)
-	new /obj/item/clothing/suit/storage/toggle/highvis_alt(src)
+	new /obj/item/clothing/suit/storage/toggle/highvis/alt(src)
 	new /obj/item/clothing/suit/storage/hazardvest/green(src)
 	new /obj/item/clothing/suit/storage/hazardvest/red(src)
 
@@ -344,8 +344,8 @@
 	new /obj/item/clothing/shoes/sneakers/green(src)
 	new /obj/item/clothing/shoes/sneakers/blue(src)
 	new /obj/item/clothing/shoes/sneakers/purple(src)
-	new /obj/item/clothing/accessory/silversun/random(src)
-	new /obj/item/clothing/accessory/silversun/random(src)
+	new /obj/item/clothing/under/dressshirt/silversun/random(src)
+	new /obj/item/clothing/under/dressshirt/silversun/random(src)
 	return
 
 /obj/structure/closet/wardrobe/tactical

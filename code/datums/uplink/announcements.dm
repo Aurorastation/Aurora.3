@@ -4,7 +4,7 @@
 /datum/uplink_item/abstract/announcements
 	category = /datum/uplink_category/services
 
-/datum/uplink_item/abstract/announcements/buy(var/obj/item/device/uplink/U, var/mob/user)
+/datum/uplink_item/abstract/announcements/buy(var/obj/item/uplink/U, var/mob/user)
 	. = ..()
 	if(.)
 		log_and_message_admins("has triggered a falsified [src]", user)
@@ -25,17 +25,17 @@
 		return
 	return list("title" = strip_html_readd_newlines(title), "message" = strip_html_readd_newlines(message))
 
-/datum/uplink_item/abstract/announcements/fake_centcom/get_goods(var/obj/item/device/uplink/U, var/loc, var/mob/user, var/list/args)
-	command_announcement.Announce(args["message"], args["title"], do_newscast=1, do_print=1, msg_sanitized=TRUE)
+/datum/uplink_item/abstract/announcements/fake_centcom/get_goods(var/obj/item/uplink/U, var/loc, var/mob/user, var/list/arguments)
+	command_announcement.Announce(arguments["message"], arguments["title"], do_newscast=1, do_print=1, msg_sanitized=TRUE)
 	return TRUE
 
 /datum/uplink_item/abstract/announcements/fake_crew_arrival
 	name = "Crew Arrival Announcement/Records"
 	desc = "Creates a fake crew arrival announcement as well as fake crew records, using your current appearance (including held items!) and worn id card. Trigger with care!"
-	antag_roles = list(MODE_MERCENARY)
 	telecrystal_cost = 4
+	bluecrystal_cost = 4
 
-/datum/uplink_item/abstract/announcements/fake_crew_arrival/get_goods(var/obj/item/device/uplink/U, var/loc, var/mob/user, var/list/args)
+/datum/uplink_item/abstract/announcements/fake_crew_arrival/get_goods(var/obj/item/uplink/U, var/loc, var/mob/user, var/list/arguments)
 	if(!user)
 		return 0
 
@@ -85,12 +85,16 @@
 	return 1
 
 /datum/uplink_item/abstract/announcements/fake_ion_storm
+	var/static/cooldown = FALSE
+
+/datum/uplink_item/abstract/announcements/fake_ion_storm/New()
+	..()
 	name = "Ion Storm Announcement"
-	desc = "Interferes with the station's ion sensors. Triggers immediately upon investment."
+	desc = "Interferes with the [SSatlas.current_map.station_short]'s ion sensors. Triggers immediately upon investment."
 	telecrystal_cost = 2
 	var/static/cooldown = FALSE
 
-/datum/uplink_item/abstract/announcements/fake_ion_storm/get_goods(var/obj/item/device/uplink/U, var/loc)
+/datum/uplink_item/abstract/announcements/fake_ion_storm/get_goods(var/obj/item/uplink/U, var/loc)
 	if(cooldown != TRUE)
 		ion_storm_announcement()
 		cooldown = TRUE
@@ -104,12 +108,16 @@
 	cooldown = FALSE
 
 /datum/uplink_item/abstract/announcements/fake_radiation
+	var/static/cooldown = FALSE
+
+/datum/uplink_item/abstract/announcements/fake_radiation/New()
+	..()
 	name = "Radiation Storm Announcement"
-	desc = "Interferes with the station's radiation sensors. Triggers immediately upon investment."
+	desc = "Interferes with the [SSatlas.current_map.station_short]'s radiation sensors. Triggers immediately upon investment."
 	telecrystal_cost = 3
 	var/static/cooldown = 0
 
-/datum/uplink_item/abstract/announcements/fake_radiation/get_goods(var/obj/item/device/uplink/U, var/loc)
+/datum/uplink_item/abstract/announcements/fake_radiation/get_goods(var/obj/item/uplink/U, var/loc)
 	if(cooldown != TRUE)
 		var/datum/event_meta/EM = new(EVENT_LEVEL_MUNDANE, "Fake Radiation Storm", add_to_queue = 0)
 		new/datum/event/radiation_storm/syndicate(EM)

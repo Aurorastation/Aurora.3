@@ -82,14 +82,14 @@
 	corpseglasses = /obj/item/clothing/glasses/sunglasses/sechud/aviator/idris
 	corpsesuit = /obj/item/clothing/suit/storage/toggle/armor/vest/idris/longcoat
 	corpsehelmet = null
-	corpseback = /obj/item/device/suit_cooling_unit
+	corpseback = /obj/item/suit_cooling_unit
 	corpseidjob = "Idris Security Unit"
 	species = SPECIES_IPC
 
 /obj/effect/landmark/corpse/idris/robot/do_extra_customization(mob/living/carbon/human/M)
 	M.adjustBruteLoss(rand(200,400))
 	M.dir = pick(GLOB.cardinals)
-	var/obj/item/organ/internal/ipc_tag/tag = M.internal_organs_by_name[BP_IPCTAG]
+	var/obj/item/organ/internal/machine/ipc_tag/tag = M.internal_organs_by_name[BP_IPCTAG]
 	if(istype(tag))
 		tag.serial_number = uppertext(dd_limittext(md5(M.real_name), 12))
 		tag.ownership_info = IPC_OWNERSHIP_COMPANY
@@ -128,7 +128,6 @@
 	name = "Idris Vault Ship"
 	icon_state = "green"
 	requires_power = TRUE
-	dynamic_lighting = TRUE
 	no_light_control = FALSE
 	base_turf = /turf/space
 	area_flags = AREA_FLAG_RAD_SHIELDED

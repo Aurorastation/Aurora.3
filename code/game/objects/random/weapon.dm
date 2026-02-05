@@ -36,10 +36,10 @@
 	icon = 'icons/obj/ammo.dmi'
 	icon_state = "45-10"
 	problist = list(
-		/obj/item/storage/box/beanbags = 6,
-		/obj/item/storage/box/shotgunammo = 2,
-		/obj/item/storage/box/shotgunshells = 4,
-		/obj/item/storage/box/stunshells = 1,
+		/obj/item/storage/box/shells/beanbags = 6,
+		/obj/item/storage/box/shells/slugs = 2,
+		/obj/item/storage/box/shells/buckshot = 4,
+		/obj/item/storage/box/shells/stunshells = 1,
 		/obj/item/ammo_magazine/c45m = 2,
 		/obj/item/ammo_magazine/c45m/rubber = 4,
 		/obj/item/ammo_magazine/c45m/flash = 4,
@@ -113,8 +113,7 @@
 /obj/random/sword
 	name = "random sword"
 	desc = "This is a random sword."
-	icon = 'icons/obj/weapons.dmi'
-	icon_state = "claymore"
+	icon_state = "melee"
 	spawnlist = list(
 		/obj/item/material/sword,
 		/obj/item/material/sword/katana,
@@ -245,5 +244,14 @@
 	if(istype(spawned,/obj/item/gun/energy/))
 		var/obj/item/gun/energy/E = spawned
 		E.charge_cost *= 2
-		E.self_recharge = 0
+		E.self_recharge = FALSE
 		E.reliability = 90
+
+/obj/random/mine
+	name = "random deployed mine"
+	desc = "This will choose from a number of available mines and they will be active at start."
+	icon_state = "landmine"
+	spawnlist = list(
+		/obj/item/landmine/frag/deployed,
+		/obj/item/landmine/emp/deployed,
+	)

@@ -1,10 +1,11 @@
 
 
-/obj/item/device/quikpay
+/obj/item/quikpay
 	name = "\improper Idris Quik-Pay"
 	desc = "Swipe your ID to make direct company purchases."
-	icon = 'icons/obj/device.dmi'
+	icon = 'icons/obj/item/eftpos.dmi'
 	icon_state = "quikpay"
+	item_state = "electronic"
 	w_class = WEIGHT_CLASS_SMALL
 	slot_flags = SLOT_BELT
 	var/machine_id = ""
@@ -18,7 +19,7 @@
 	var/receipt = ""
 	var/destinationact = "Service"
 
-/obj/item/device/quikpay/Initialize()
+/obj/item/quikpay/Initialize()
 	. = ..()
 	machine_id = "[station_name()] Idris Quik-Pay #[SSeconomy.num_financial_terminals++]"
 
@@ -48,14 +49,14 @@
 	R.AddOverlays(stampoverlay)
 	R.stamps += "<HR><i>This paper has been stamped by the Executive Officer's desk.</i>"
 
-/obj/item/device/quikpay/AltClick(var/mob/user)
+/obj/item/quikpay/AltClick(var/mob/user)
 	var/obj/item/card/id/I = user.GetIdCard()
 	if(istype(I) && (ACCESS_HEADS in I.access))
 		editmode = TRUE
 		to_chat(user, SPAN_NOTICE("Command access granted."))
 		SStgui.update_uis(src)
 
-/obj/item/device/quikpay/proc/print_receipt()
+/obj/item/quikpay/proc/print_receipt()
 	var/obj/item/paper/R = new(usr.loc)
 	var/receiptname = "Receipt: [machine_id]"
 	R.set_content_unsafe(receiptname, receipt, sum)
@@ -69,7 +70,7 @@
 	R.AddOverlays(stampoverlay)
 	R.stamps += "<HR><i>This paper has been stamped by the Quik-Pay device.</i>"
 
-/obj/item/device/quikpay/attackby(obj/item/attacking_item, mob/user)
+/obj/item/quikpay/attackby(obj/item/attacking_item, mob/user)
 	if (istype(attacking_item, /obj/item/spacecash/ewallet))
 		var/obj/item/spacecash/ewallet/E = attacking_item
 		var/transaction_amount = sum
@@ -110,16 +111,16 @@
 		receipt = ""
 		to_chat(user, SPAN_NOTICE("Transaction completed, please return to the home screen."))
 
-/obj/item/device/quikpay/attack_self(var/mob/user)
+/obj/item/quikpay/attack_self(var/mob/user)
 	ui_interact(user)
 
-/obj/item/device/quikpay/ui_interact(mob/user, datum/tgui/ui)
+/obj/item/quikpay/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
-		ui = new(user, src, "QuikPay", "Idris Quik-Pay", 400, 400)
+		ui = new(user, src, "QuikPay", "Idris Quik-Pay", 550, 550)
 		ui.open()
 
-/obj/item/device/quikpay/ui_data(var/mob/user)
+/obj/item/quikpay/ui_data(var/mob/user)
 	var/list/data = list()
 
 	data["items"] = items
@@ -132,7 +133,7 @@
 
 	return data
 
-/obj/item/device/quikpay/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
+/obj/item/quikpay/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	. = ..()
 	if(.)
 		return
@@ -151,9 +152,11 @@
 			if(!editmode)
 				to_chat(usr, SPAN_NOTICE("Device locked."))
 				return FALSE
-
-			items -= params["remove"]
-			items_to_price -= params["remove"]
+			var/index = 0
+			for(var/list/L in items)
+				index++
+				if(L["name"] == params["removing"])
+					items.Cut(index, index+1)
 			. = TRUE
 
 		if("set_new_price")
@@ -173,15 +176,17 @@
 				if(L["name"] == params["buying"])
 					L["amount"]++
 					return TRUE
-			buying += list(list("name" = params["buying"], "amount" = params["amount"]))
+			buying += list(list("name" = params["buying"], "amount" = params["amount"], "price" = items_to_price[params["buying"]]))
 
 		if("removal")
+			var/index = 0
 			for(var/list/L in buying)
+				index++
 				if(L["name"] == params["removal"])
 					if(L["amount"] > 1)
 						L["amount"]--
 					else
-						buying -= L
+						buying.Cut(index, index+1)
 			. = TRUE
 
 		if("confirm")
@@ -213,24 +218,34 @@
 				to_chat(usr, SPAN_WARNING("Device locked."))
 				return FALSE
 
-			switch(input("What account would you like to select?", "Destination Account") as null|anything in list("Service", "Operations", "Command", "Medical", "Security", "Engineering", "Science"))
-				if("Service")
-					destinationact = "Service"
-				if("Operations")
-					destinationact = "Operations"
-				if("Command")
-					destinationact = "Command"
-				if("Medical")
-					destinationact = "Medical"
-				if("Security")
-					destinationact = "Security"
-				if("Engineering")
-					destinationact = "Engineering"
-				if("Science")
-					destinationact = "Science"
-			. = TRUE
+			var/dest = tgui_input_list(usr, "What account would you like to select?", "Destination Account", assoc_to_keys(SSeconomy.department_accounts))
+			if(!dest)
+				return FALSE
+			destinationact = dest
+			return TRUE
 
-/obj/item/device/quikpay/proc/clear_order()
+/obj/item/quikpay/proc/clear_order()
 	buying.Cut()
 	sum = 0
 	receipt = ""
+
+/obj/item/quikpay/afterattack(atom/target, mob/user, proximity)
+	if (!proximity) return
+	if (!istype(target, /obj))
+		return
+	if (!editmode)
+		to_chat(user, SPAN_NOTICE("Unlock \the [src] to add items."))
+		return
+
+	var/obj/O = target
+	var/name_guess = O.name
+	var/price_guess = 0
+
+	price_guess = text2num(sanitizeSafe( tgui_input_text(user, "Set price for [name_guess]:", "QuikPay", 0, 10), 10))
+	if(isnull(price_guess) || price_guess == 0)
+		return
+	price_guess = max(0, round(price_guess, 0.01))
+
+	items += list(list("name" = "[name_guess]", "price" = price_guess))
+
+	to_chat(user, SPAN_NOTICE("[src]: added '[name_guess]' for [price_guess]."))

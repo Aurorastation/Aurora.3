@@ -1,8 +1,7 @@
 /obj/machinery/stasis_bed
 	name = "lifeform stasis unit"
 	desc = "A not so comfortable looking bed with some nozzles at the top and bottom. It will keep someone in stasis."
-	desc_info = "You can alt-click this to toggle it on or off."
-	icon = 'icons/obj/stasis_bed.dmi'
+	icon = 'icons/obj/machinery/sleeper.dmi'
 	icon_state = "stasis"
 	anchored = TRUE
 
@@ -19,6 +18,15 @@
 	var/last_stasis_sound = FALSE
 	var/stasis_can_toggle = 0
 
+	/// The amount of Stasis Value that this machine provides to an occupant.
+	var/stasis_power = 10
+
+	/**
+	 * The type of stasis this machine provides to an occupant.
+	 * Two identical stasis source names do not stack.
+	 */
+	var/stasis_source_name = "Stasis Bed"
+
 	component_types = list(
 		/obj/item/circuitboard/stasis_bed,
 		/obj/item/stock_parts/micro_laser = 1,
@@ -26,6 +34,16 @@
 		/obj/item/stock_parts/scanning_module = 2,
 		/obj/item/stock_parts/console_screen
 	)
+
+/obj/machinery/stasis_bed/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "ALT-click this to toggle it on or off."
+	. += "Applies a [stasis_power]x stasis effect to any living creature buckled to an active stasis unit."
+	. += "This causes effects such as bleeding and brain damage to accumulate [stasis_power]x slower."
+
+/obj/machinery/stasis_bed/upgrade_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Upgraded <b>scanning modules</b> increase the unit's stasis strength."
 
 /obj/machinery/stasis_bed/Initialize(mapload, d, populate_components)
 	. = ..()
@@ -39,6 +57,16 @@
 	else if(default_deconstruction_crowbar(user, attacking_item))
 		return TRUE
 	return ..()
+
+/obj/machinery/stasis_bed/RefreshParts()
+	..()
+	var/scanner_rating = 0
+
+	for(var/obj/item/stock_parts/P in component_parts)
+		if(isscanner(P))
+			scanner_rating += P.rating
+
+	stasis_power = initial(stasis_power) * scanner_rating / 2
 
 /obj/machinery/stasis_bed/proc/play_power_sound()
 	var/_running = stasis_running()
@@ -123,4 +151,4 @@
 	if(!chilled_occupant)
 		chill_occupant(occupant)
 
-	occupant.SetStasis(10)
+	occupant.SetStasis(stasis_power, stasis_source_name)

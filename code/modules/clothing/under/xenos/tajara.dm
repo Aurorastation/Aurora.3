@@ -57,8 +57,8 @@
 	starting_accessories = (/obj/item/clothing/accessory/storage/bayonet)
 	siemens_coefficient = 0.5 // Every Kosmostrelki is expected to assist in repairs when push comes to shove, so their uniform is slightly better at absorbing shocks compared to other combat uniforms
 	armor = list(
-		melee = ARMOR_MELEE_SMALL,
-		bullet = ARMOR_BALLISTIC_MINOR)
+		MELEE = ARMOR_MELEE_SMALL,
+		BULLET = ARMOR_BALLISTIC_MINOR)
 
 /obj/item/clothing/under/tajaran/cosmonaut/commissar
 	name = "kosmostrelki commissar uniform"
@@ -201,7 +201,7 @@
 	body_parts_covered = LOWER_TORSO
 	starting_accessories = list(/obj/item/clothing/accessory/tajaran/summershirt)
 
-/obj/item/clothing/under/pants/tajaran
+/obj/item/clothing/pants/tajaran
 	name = "adhomian summer pants"
 	desc = "A pair of adhomian pants usually worn during the summer."
 	icon = 'icons/obj/tajara_items.dmi'
@@ -221,8 +221,8 @@
 	starting_accessories = list(/obj/item/clothing/accessory/storage/bayonet)
 	siemens_coefficient = 0.7
 	armor = list(
-		melee = ARMOR_MELEE_SMALL,
-		bullet = ARMOR_BALLISTIC_MINOR)
+		MELEE = ARMOR_MELEE_SMALL,
+		BULLET = ARMOR_BALLISTIC_MINOR)
 
 /obj/item/clothing/under/tajaran/nka_uniform
 	name = "imperial adhomian army uniform"
@@ -230,7 +230,10 @@
 	icon_state = "nka_uniform"
 	item_state = "nka_uniform"
 	starting_accessories = list(/obj/item/clothing/accessory/storage/bayonet)
-	armor = list(melee = ARMOR_MELEE_SMALL)
+	armor = list(MELEE = ARMOR_MELEE_SMALL)
+
+/obj/item/clothing/under/tajaran/nka_uniform/nosheath
+	starting_accessories = null
 
 /obj/item/clothing/under/tajaran/nka_uniform/commander
 	name = "imperial adhomian army officer uniform"
@@ -250,26 +253,40 @@
 	desc = "An olive uniform used by the diplomatic service of the People's Republic of Adhomai."
 	icon_state = "pra_consular"
 	item_state = "pra_consular"
+	desc_extended = "The People's Republic of Adhomai has enjoyed recognition across the Spur for longer than any other nation on Adhomai. \
+	Given the ambitions of the Republic, its Diplomatic Service remains an important part of Hadiist foreign affairs, being seen everywhere \
+	from Tau Ceti to the Coalition. The Service's mission is twofold. While ensuring cooperation and cordial affairs with potential trade \
+	partners, Consulars are typically expected to assist in intelligence gathering."
 
 /obj/item/clothing/under/tajaran/consular/female
-	icon_state = "pra_con_f"
-	item_state = "pra_con_f"
+	icon_state = "pra_consular_f"
+	item_state = "pra_consular_f"
 
 /obj/item/clothing/under/tajaran/consular/dpra
 	name = "democratic people's republic consular uniform"
 	desc = "A grey uniform used by the diplomatic service of the Democratic People's Republic of Adhomai."
 	icon_state = "dpra_consular"
 	item_state = "dpra_consular"
+	desc_extended = "The Democratic People's Republic of Adhomai continues a stance of restrained diplomatic relations. Few nations enjoy a communicative \
+	let alone cordial relationship with the rebel nation. However, to achieve its mission in freeing the Tajaran people, off-world or otherwise, the Democratic \
+	Republic maintains a small diplomatic service focused entirely on Tajaran communities and little else."
 
 /obj/item/clothing/under/tajaran/consular/dpra/female
-	icon_state = "dpra_con_f"
-	item_state = "dpra_con_f"
+	icon_state = "dpra_consular_f"
+	item_state = "dpra_consular_f"
 
 /obj/item/clothing/under/tajaran/consular/nka
 	name = "new kingdom consular uniform"
-	desc = "A blue uniform used by the diplomatic service of the New Kingdom of Adhomai."
+	desc = "A blue and white uniform used by the diplomatic service of the New Kingdom of Adhomai."
 	icon_state = "nka_consular"
 	item_state = "nka_consular"
+	desc_extended = "The New Kingdom of Adhomai has seen a rise in its international relations since it revolted in 2450. Having few working relationships, \
+	such as the Empire of Dominia, the New Kingdom's approach remains tied to its continued efforts to bring in Megacorporations. While the focus is improving \
+	relations for economic benefit, the Diplomatic Service does have an additional duty of aiding the Royalist communities across the Spur."
+
+/obj/item/clothing/under/tajaran/consular/nka/female
+	icon_state = "nka_consular_f"
+	item_state = "nka_consular_f"
 
 /obj/item/clothing/under/tajaran/dpra
 	name = "al'mariist laborer clothes"
@@ -328,8 +345,8 @@
 	starting_accessories = (/obj/item/clothing/accessory/storage/bayonet)
 	siemens_coefficient = 0.5
 	armor = list(
-		melee = ARMOR_MELEE_SMALL,
-		bullet = ARMOR_BALLISTIC_MINOR)
+		MELEE = ARMOR_MELEE_SMALL,
+		BULLET = ARMOR_BALLISTIC_MINOR)
 
 /obj/item/clothing/under/tajaran/pvsm/captain
 	name = "people's volunteer spacer militia captain uniform"
@@ -345,8 +362,8 @@
 	starting_accessories = list(/obj/item/clothing/accessory/storage/bayonet)
 	siemens_coefficient = 0.7
 	armor = list(
-		melee = ARMOR_MELEE_SMALL,
-		bullet = ARMOR_BALLISTIC_MINOR)
+		MELEE = ARMOR_MELEE_SMALL,
+		BULLET = ARMOR_BALLISTIC_MINOR)
 
 /obj/item/clothing/under/tajaran/ala/wraps
 	icon_state = "ala-grunt-wraps"
@@ -360,6 +377,11 @@
 	name = "adhomai liberation army dress uniform"
 	icon_state = "ala-soldatdress"
 	item_state = "ala-soldatdress"
+
+/obj/item/clothing/under/tajaran/ala/black/dress/ajic
+	name = "protective services group of the adhomai joint intelligence committee uniform"
+	desc = "A surplus Adhomai Liberation Army dress uniform. The ALA symbols have been replaced with the symbol of the Adhomai Joint Intelligence Committee."
+	starting_accessories = null
 
 /obj/item/clothing/under/tajaran/ala/black/officer
 	name = "adhomai liberation army officer uniform"
@@ -402,6 +424,22 @@
 	icon_state = "psis"
 	item_state = "psis"
 	starting_accessories = (/obj/item/clothing/accessory/holster/hip)
+
+/obj/item/clothing/under/tajaran/pra_cop
+	name = "PRA NPD uniform"
+	desc = "A dark uniform bearing the markings of the PRA national police department. It is most commonly found within the cities of the PRA."
+	desc_extended = "The National Police Department is the largest and best equipped police force on Adhomai. \
+	Responsible for law enforcement in the People's Republic, the olive drab uniforms and polished badges have maintained peace and order, \
+	or inspired fear, within the population since the nation's founding."
+	icon = 'icons/obj/tajara_items.dmi'
+	icon_state = "taj_cop_uniform"
+	item_state = "taj_cop_uniform"
+
+/obj/item/clothing/under/tajaran/pra_cop/rural
+	name = "rural PRA NPD uniform"
+	desc = "A light uniform bearing the markings of the PRA national police department. It is most commonly found in the rural parts of the PRA."
+	icon_state = "taj_cop_uniform_rural"
+	item_state = "taj_cop_uniform_rural"
 
 // Red Polka Dot Dress
 /obj/item/clothing/under/dress/tajaran/polka_dot

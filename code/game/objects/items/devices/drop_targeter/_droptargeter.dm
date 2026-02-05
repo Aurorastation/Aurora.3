@@ -1,8 +1,8 @@
-/obj/item/device/orbital_dropper
+/obj/item/orbital_dropper
 	name = "laser targeting dropper"
 	desc = "A device used to paint a target, which will then promptly orbitally drop the requested items."
-	icon = 'icons/obj/device.dmi'
-	icon_state = "drillpointer"
+	icon = 'icons/obj/item/binoculars.dmi'
+	icon_state = "binoculars"
 	item_state = "binoculars"
 	slot_flags = SLOT_BELT
 	w_class = WEIGHT_CLASS_SMALL
@@ -25,18 +25,18 @@
 
 	var/datum/map_template/map
 
-/obj/item/device/orbital_dropper/attack_self(mob/user)
+/obj/item/orbital_dropper/attack_self(mob/user)
 	zoom(user, tileoffset, viewsize)
 
-/obj/item/device/orbital_dropper/attack(mob/living/target_mob, mob/living/user, target_zone)
+/obj/item/orbital_dropper/attack(mob/living/target_mob, mob/living/user, target_zone)
 	laser_act(target_mob, user)
 
-/obj/item/device/orbital_dropper/afterattack(var/atom/target, var/mob/living/user, flag, params)
+/obj/item/orbital_dropper/afterattack(var/atom/target, var/mob/living/user, flag, params)
 	if(flag)	//we're placing the targetter on a table or in backpack
 		return
 	laser_act(target, user)
 
-/obj/item/device/orbital_dropper/proc/laser_act(var/atom/target, var/mob/living/user)
+/obj/item/orbital_dropper/proc/laser_act(var/atom/target, var/mob/living/user)
 	if(has_dropped >= drop_amount)
 		to_chat(user, SPAN_WARNING("You can't use this device again!"))
 		return
@@ -59,7 +59,7 @@
 	add_fingerprint(user)
 
 	//laser pointer image
-	icon_state = "drillpointer_on"
+	icon_state = "binoculars_high"
 	var/list/showto = list()
 	for(var/mob/M in viewers(targloc))
 		if(M.client)
@@ -91,16 +91,16 @@
 	addtimer(CALLBACK(src, PROC_REF(orbital_drop), targloc, user), 105)
 
 	flick_overlay(I, showto, 20) //2 seconds of the red dot appearing
-	icon_state = "drillpointer"
+	icon_state = "binoculars"
 
-/obj/item/device/orbital_dropper/proc/orbital_drop(var/turf/target, var/user)
+/obj/item/orbital_dropper/proc/orbital_drop(var/turf/target, var/user)
 	if(!map)
 		return
-	log_and_message_admins("[key_name_admin(user)] has used a [src] at <A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[target.x];Y=[target.y];Z=[target.z]'>JMP</a>.")
+	log_and_message_admins("[key_name_admin(user)] has used a [src] at <A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[target.x];Y=[target.y];Z=[target.z]'>JMP</a>.")
 	map.load(target, TRUE) //Target must be the center!
 
 
-/obj/item/device/orbital_dropper/emag_act(var/remaining_charges, var/mob/user)
+/obj/item/orbital_dropper/emag_act(var/remaining_charges, var/mob/user)
 	if(!emagged)
 		emagged = TRUE
 		to_chat(user, SPAN_DANGER("You override \the [src]'s area safety checks!"))

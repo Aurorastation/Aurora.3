@@ -28,3 +28,8 @@
 	key = "deny"
 	emote_message_3p = "USER emits a negative blip."
 	emote_sound = 'sound/machines/synth_no.ogg'
+
+/singleton/emote/audible/synth/alarm
+	key = "alarm"
+	emote_message_3p = "USER sounds an alarm!"
+	emote_sound = 'sound/machines/warning-buzzer.ogg'

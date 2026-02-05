@@ -147,13 +147,13 @@
 	drop_sound = 'sound/items/drop/gloves.ogg'
 	pickup_sound = 'sound/items/pickup/gloves.ogg'
 	use_sound = 'sound/items/storage/wrapper.ogg'
-	open_sound = /singleton/sound_category/rip_sound
+	open_sound = SFX_RIP
 	open_message = "You tear open the bag, breaking the vacuum seal."
+	make_exact_fit = TRUE
 
 /obj/item/storage/box/fancy/vkrexi_swollen_organ/fill()
 	new /obj/item/reagent_containers/food/drinks/bottle/skyemok(src)
 	. = ..()
-	make_exact_fit()
 
 /obj/item/storage/box/fancy/vkrexi_swollen_organ/attack_self(mob/user)
 	open(user)

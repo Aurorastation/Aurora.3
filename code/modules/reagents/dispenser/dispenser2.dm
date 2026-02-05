@@ -2,13 +2,11 @@
 	name = "chemical dispenser"
 	icon = 'icons/obj/chemical.dmi'
 	icon_state = "dispenser"
-	clicksound = /singleton/sound_category/button_sound
+	clicksound = SFX_BUTTON
 	idle_power_usage = 100
 	density = TRUE
 	anchored = TRUE
 	manufacturer = "zenghu"
-
-	obj_flags = OBJ_FLAG_ROTATABLE
 
 	/// Icon state when used.
 	var/icon_state_active = "dispenser_active"
@@ -33,15 +31,15 @@
 	/// Allow these cans/glasses/condiment bottles but forbid ACTUAL food.
 	var/list/drink_accepted = list(/obj/item/reagent_containers/food/drinks, /obj/item/reagent_containers/food/condiment)
 
+/obj/machinery/chemical_dispenser/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "It has [cartridges.len] cartridges installed, and has space for [DISPENSER_MAX_CARTRIDGES - cartridges.len] more."
+
 /obj/machinery/chemical_dispenser/Initialize()
 	. = ..()
 	if(spawn_cartridges)
 		for(var/type in spawn_cartridges)
 			add_cartridge(new type(src))
-
-/obj/machinery/chemical_dispenser/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	. += "It has [cartridges.len] cartridges installed, and has space for [DISPENSER_MAX_CARTRIDGES - cartridges.len] more."
 
 /obj/machinery/chemical_dispenser/proc/add_cartridge(obj/item/reagent_containers/chem_disp_cartridge/C, mob/user)
 	if(!istype(C))
@@ -96,7 +94,7 @@
 		eject()
 
 /obj/machinery/chemical_dispenser/attackby(obj/item/attacking_item, mob/user)
-	if(attacking_item.iswrench())
+	if(attacking_item.tool_behaviour == TOOL_WRENCH)
 		to_chat(user, SPAN_NOTICE("You begin to [anchored ? "un" : ""]fasten [src]."))
 		if(attacking_item.use_tool(src, user, 20, volume = 50))
 			user.visible_message(
@@ -110,7 +108,7 @@
 	else if(istype(attacking_item, /obj/item/reagent_containers/chem_disp_cartridge))
 		add_cartridge(attacking_item, user)
 
-	else if(attacking_item.isscrewdriver())
+	else if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 		var/label = tgui_input_list(user, "Which cartridge would you like to remove?", "Chemical Dispenser", cartridges)
 		if(!label)
 			return

@@ -136,7 +136,7 @@
 /singleton/reagent/drugs/snowflake/affect_blood(mob/living/carbon/M, alien, removed, datum/reagents/holder)
 	..()
 	M.add_chemical_effect(CE_PAINKILLER, 3 * power)
-	M.bodytemperature = max(M.bodytemperature - 15 * TEMPERATURE_DAMAGE_COEFFICIENT * power, 0)
+	M.bodytemperature = max(M.bodytemperature - 10 * TEMPERATURE_DAMAGE_COEFFICIENT, 0)
 	if(prob(12))
 		M.emote(pick("shiver", "sniff"))
 	if(prob(5))
@@ -467,14 +467,28 @@
 /singleton/reagent/wulumunusha/affect_blood(mob/living/carbon/M, alien, removed, datum/reagents/holder)
 	M.druggy = max(M.druggy, 100)
 	M.silent = max(M.silent, 5)
-	if(prob(3) && !isskrell(M))
-		to_chat(M, SPAN_GOOD(pick("You can almost see the currents of air as they dance around you.", "You see the colours around you beginning to bleed together.", "You feel safe and comfortable.")))
-	if(prob(3) && isskrell(M))
+	if(!prob(3))
+		return
+
+	if(M.check_psi_sensitivity() >= PSI_RANK_SENSITIVE)
 		to_chat(M, SPAN_ALIEN(pick("You can see the thoughts of those around you dancing in the air.", "You feel as if your mind has opened even further, your thought-field expanding.", "It's difficult to contain your thoughts - but why hide them anyway?", "You feel safe and comfortable.")))
+	else
+		to_chat(M, SPAN_GOOD(pick("You can almost see the currents of air as they dance around you.", "You see the colours around you beginning to bleed together.", "You feel safe and comfortable.")))
 
 /singleton/reagent/wulumunusha/overdose(mob/living/carbon/M, alien, removed = 0, scale = 1, datum/reagents/holder)
-	if(isskrell(M))
-		M.hallucination = max(M.hallucination, 10 * scale)	//light hallucinations that afflict skrell
+	M.AddComponent(WULU_OVERDOSE_COMPONENT)
+	if(!M.psi || M.check_psi_sensitivity() < PSI_RANK_SENSITIVE)
+		return
+
+	M.hallucination = max(M.hallucination, 10 * scale)	//light hallucinations that afflict the psionically sensitive.
+
+/singleton/reagent/wulumunusha/final_effect(mob/living/carbon/M, datum/reagents/holder)
+	. = ..()
+	var/wulu_overdose_comp = M.GetComponent(WULU_OVERDOSE_COMPONENT)
+	if (!wulu_overdose_comp)
+		return
+
+	qdel(wulu_overdose_comp)
 
 /singleton/reagent/drugs/ambrosia_extract
 	name = "Ambrosia Extract"
@@ -487,11 +501,14 @@
 	taste_mult = 0.4
 	fallback_specific_heat = 1.6
 	value = 2.8
+	effect_messages = TRUE
 	condiment_name = "Ambrosia Extract Bottle"
 	condiment_desc = "A small dropper bottle full of a stoner's paradise."
 	condiment_icon_state = "ambrosiaextract"
 	condiment_center_of_mass = list("x"=16, "y"=8)
 
+/singleton/reagent/drugs/ambrosia_extract/initial_effect(mob/living/carbon/human/M, alien, datum/reagents/holder)
+	return
 
 /singleton/reagent/drugs/ambrosia_extract/affect_blood(mob/living/carbon/M, alien, removed, datum/reagents/holder)
 	..()
@@ -568,7 +585,7 @@
 	M.add_chemical_effect(CE_PULSE, -1)
 	var/message_list = list("You feel soothed and at ease.", "You feel like sharing the wonderful memories and feelings you're experiencing.", "You feel like you're floating off the ground.", "You don't want this feeling to end.", "You wish to please all those around you.", "You feel particularly susceptible to persuasion.", "Everyone is so trustworthy nowadays.")
 	var/message_type = "good"
-	if(isskrell(M))
+	if(M.check_psi_sensitivity() >= PSI_RANK_SENSITIVE)
 		message_list += list("You can see the thoughts of those around you dancing in the air.", "You feel as if your mind has opened even further, your thought-field expanding.", "It's difficult to contain your thoughts - but why hide them anyway?")
 		message_type = "alium"
 	else
@@ -727,7 +744,7 @@
 
 /singleton/reagent/drugs/dionae_stimulant
 	name = "Diesel"
-	description = "Fondly dubbed Diesel by the dionae of the Narrows where it is served in the ship's cafeteria, this viscous sludge is the byproduct of refining radioactive materialls and provides an invigorating kick to a dionae's workday."
+	description = "Fondly dubbed Diesel by the dionae of the Narrows where it is served in the ship's cafeteria, this viscous sludge is the byproduct of refining radioactive materials and provides an invigorating kick to a dionae's workday."
 	color = "#465044"
 	taste_description = "gritty corium"
 	reagent_state = SOLID
@@ -749,6 +766,8 @@
 		if(prob(5))
 			to_chat(M, SPAN_GOOD(pick("A bubbling sensation is felt by your nymphs.", "A nymph comments that this is the most energetic it has ever been!", "A warm energy builds within your central structure.", "Your nymphs can't stay still!")))
 			M.emote(pick("chirp", "twitch", "shiver"))
+	else
+		M.apply_damage(10, DAMAGE_TOXIN, damage_flags = DAMAGE_FLAG_DISPERSED)
 
 /singleton/reagent/drugs/dionae_stimulant/overdose(mob/living/carbon/M, alien, removed, datum/reagents/holder)
 	..()
@@ -772,5 +791,51 @@
 		M.remove_movespeed_modifier(/datum/movespeed_modifier/reagent/dionae_stimulant)
 	. = ..()
 
-#undef DRUG_MESSAGE_DELAY
+/singleton/reagent/drugs/dionae_stimulant/diet
+	name = "diet Diesel"
+	description = "Diesel produced straight from the Narrows that has been made \"diet\" or decontaminated of radiation, making it safe for distribution around the Orion Spur."
+	fallback_specific_heat = 1
 
+/singleton/reagent/drugs/dionae_stimulant/diet/initial_effect(mob/living/carbon/M, alien, datum/reagents/holder)
+	return
+
+/singleton/reagent/drugs/dionae_stimulant/diet/affect_blood(mob/living/carbon/M, alien, removed, datum/reagents/holder)
+	if(alien == IS_DIONA)
+		if(prob(5))
+			to_chat(M, SPAN_GOOD(pick("A bubbling sensation is felt by your nymphs.", "A nymph comments that this is the most energetic it has ever been!", "A warm energy builds within your central structure.", "Your nymphs can't stay still!")))
+			M.emote(pick("chirp", "twitch", "shiver"))
+	else
+		M.apply_damage(5, DAMAGE_TOXIN, damage_flags = DAMAGE_FLAG_DISPERSED) //Less toxic than regular Diesel due to the lack of radioactivity, but still toxic
+
+/singleton/reagent/drugs/dionae_stimulant/diet/final_effect(mob/living/carbon/M, alien, removed, datum/reagents/holder)
+	return
+
+/singleton/reagent/drugs/solar_salve
+	name = "solar salve"
+	description = "A herbal mixture originating from Southern Harr'masir, Solar Salve is used to ward off the feelings of hunger, thirst and cold. Now it commonly sees use on the docks of the city of Crevus."
+	color = "#5f8c37"
+	reagent_state = SOLID
+	taste_description = "honyed herbal paste"
+	ingest_met = REM * 0.1
+	sober_message_list = list("Your hunger returns to you...", "You start to feel thirsty again...", "You start to feel the cold again...")
+	initial_effect_message_list = list("Your hunger and thirst start to fade away...", "It feels like the cold no longer bothers you...")
+
+/singleton/reagent/drugs/solar_salve/initial_effect(mob/living/carbon/human/M, alien, datum/reagents/holder)
+	if(alien == (IS_UNATHI || IS_SKRELL || IS_VAURCA)) //solar salve doesn't affect ectothermic species
+		return
+	. = ..()
+
+/singleton/reagent/drugs/solar_salve/affect_blood(mob/living/carbon/M, alien, removed, datum/reagents/holder)
+	..()
+	if(alien == (IS_UNATHI || IS_SKRELL || IS_VAURCA))
+		return
+	else
+		if(prob(7))
+			to_chat(M, SPAN_GOOD(pick("You feel sated.", "You feel warmth throughout your body.")))
+
+/singleton/reagent/drugs/solar_salve/final_effect(mob/living/carbon/human/M, alien, datum/reagents/holder)
+	if(alien == (IS_UNATHI || IS_SKRELL || IS_VAURCA))
+		return
+	. = ..()
+
+#undef DRUG_MESSAGE_DELAY

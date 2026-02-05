@@ -2,7 +2,7 @@
 	name = "welding kit"
 	desc = "A heavy-duty, portable welding fluid carrier."
 	slot_flags = SLOT_BACK
-	icon = 'icons/obj/item/tools/welderpack.dmi'
+	icon = 'icons/obj/item/reagent_containers/weldpack.dmi'
 	icon_state = "welderpack"
 	item_state = "welderpack"
 	contained_sprite = TRUE
@@ -15,8 +15,8 @@
 	drop_sound = 'sound/items/drop/backpack.ogg'
 	pickup_sound = 'sound/items/pickup/backpack.ogg'
 
-/obj/item/reagent_containers/weldpack/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
+/obj/item/reagent_containers/weldpack/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
 	if(ishuman(loc) && user != loc) // what if we want to sneak some reagents out of somewhere?
 		return
 	if(reagents.total_volume)
@@ -28,7 +28,7 @@
 		. += SPAN_WARNING("\The [src] is empty!")
 
 /obj/item/reagent_containers/weldpack/attackby(obj/item/attacking_item, mob/user)
-	if(attacking_item.iswrench())
+	if(attacking_item.tool_behaviour == TOOL_WRENCH)
 		if(atom_flags & ATOM_FLAG_OPEN_CONTAINER)
 			atom_flags &= ~ATOM_FLAG_OPEN_CONTAINER
 		else
@@ -36,7 +36,7 @@
 		attacking_item.play_tool_sound(get_turf(src), 70)
 		to_chat(user, SPAN_NOTICE("You wrench \the [src]'s fuel cap [(atom_flags & ATOM_FLAG_OPEN_CONTAINER) ? "open" : "closed"]."))
 		return
-	else if(attacking_item.iswelder())
+	else if(attacking_item.tool_behaviour == TOOL_WELDER)
 		var/obj/item/weldingtool/T = attacking_item
 		var/fuel_volume = REAGENT_VOLUME(reagents, /singleton/reagent/fuel)
 		if(!fuel_volume)

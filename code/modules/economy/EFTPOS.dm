@@ -1,8 +1,9 @@
-/obj/item/device/eftpos
+/obj/item/eftpos
 	name = "\improper EFTPOS scanner"
 	desc = "Swipe your ID card to make purchases electronically."
-	icon = 'icons/obj/device.dmi'
+	icon = 'icons/obj/item/eftpos.dmi'
 	icon_state = "eftpos"
+	item_state = "electronic"
 	w_class = WEIGHT_CLASS_TINY
 	var/machine_id = ""
 	var/eftpos_name = "Default EFTPOS scanner"
@@ -14,7 +15,7 @@
 	var/datum/money_account/linked_account
 	var/prelocked_account = null
 
-/obj/item/device/eftpos/Initialize()
+/obj/item/eftpos/Initialize()
 	..()
 	machine_id = "[station_name()] EFTPOS #[SSeconomy.num_financial_terminals++]"
 	access_code = rand(1111,111111)
@@ -23,14 +24,14 @@
 
 	return INITIALIZE_HINT_LATELOAD
 
-/obj/item/device/eftpos/proc/link_account()
+/obj/item/eftpos/proc/link_account()
 	//Link to the station account, unless prelocked_account is set
 	if(!prelocked_account)
 		linked_account = SSeconomy.station_account
 	else
 		linked_account = SSeconomy.get_department_account(prelocked_account)
 
-/obj/item/device/eftpos/LateInitialize()
+/obj/item/eftpos/LateInitialize()
 	print_reference()
 
 	//create a short manual as well
@@ -59,7 +60,7 @@
 	R.AddOverlays(stampoverlay)
 	R.stamps += "<HR><i>This paper has been stamped by the EFTPOS device.</i>"
 
-/obj/item/device/eftpos/proc/print_reference()
+/obj/item/eftpos/proc/print_reference()
 	var/obj/item/paper/R = new(src.loc)
 	var/pname = "Reference: [eftpos_name]"
 	var/info = "<b>[eftpos_name] reference</b><br><br>"
@@ -80,12 +81,12 @@
 	D.wrapped = R
 	D.name = "small parcel - 'EFTPOS access code'"
 
-/obj/item/device/eftpos/attack_self(mob/user as mob)
+/obj/item/eftpos/attack_self(mob/user as mob)
 	if(get_dist(src,user) <= 1)
 		var/dat = "<b>[eftpos_name]</b><br>"
 		dat += "<i>This terminal is</i> [machine_id]. <i>Report this code when contacting IT Support</i><br>"
 		if(transaction_locked)
-			dat += "<a href='?src=[REF(src)];choice=toggle_lock'>Back[transaction_paid ? "" : " (authentication required)"]</a><br><br>"
+			dat += "<a href='byond://?src=[REF(src)];choice=toggle_lock'>Back[transaction_paid ? "" : " (authentication required)"]</a><br><br>"
 
 			dat += "Transaction purpose: <b>[transaction_purpose]</b><br>"
 			dat += "Value: <b>$[transaction_amount]</b><br>"
@@ -94,24 +95,24 @@
 				dat += "<i>This transaction has been processed successfully.</i><hr>"
 			else
 				dat += "<i>Swipe your card below the line to finish this transaction.</i><hr>"
-				dat += "<a href='?src=[REF(src)];choice=scan_card'>\[------\]</a>"
+				dat += "<a href='byond://?src=[REF(src)];choice=scan_card'>\[------\]</a>"
 		else
-			dat += "<a href='?src=[REF(src)];choice=toggle_lock'>Lock in new transaction</a><br><br>"
+			dat += "<a href='byond://?src=[REF(src)];choice=toggle_lock'>Lock in new transaction</a><br><br>"
 
-			dat += "<a href='?src=[REF(src)];choice=trans_purpose'>Transaction purpose: [transaction_purpose]</a><br>"
-			dat += "Value: <a href='?src=[REF(src)];choice=trans_value'>$[transaction_amount]</a><br>"
+			dat += "<a href='byond://?src=[REF(src)];choice=trans_purpose'>Transaction purpose: [transaction_purpose]</a><br>"
+			dat += "Value: <a href='byond://?src=[REF(src)];choice=trans_value'>$[transaction_amount]</a><br>"
 			if(!prelocked_account)
-				dat += "Linked account: <a href='?src=[REF(src)];choice=link_account'>[linked_account ? linked_account.owner_name : "None"]</a><hr>"
+				dat += "Linked account: <a href='byond://?src=[REF(src)];choice=link_account'>[linked_account ? linked_account.owner_name : "None"]</a><hr>"
 			else
 				dat += "Linked account: [linked_account.owner_name]<hr>"
-			dat += "<a href='?src=[REF(src)];choice=change_code'>Change access code</a><br>"
-			dat += "<a href='?src=[REF(src)];choice=change_id'>Change EFTPOS ID</a><br>"
-			dat += "Scan card to reset access code <a href='?src=[REF(src)];choice=reset'>\[------\]</a>"
-		user << browse(dat,"window=eftpos")
+			dat += "<a href='byond://?src=[REF(src)];choice=change_code'>Change access code</a><br>"
+			dat += "<a href='byond://?src=[REF(src)];choice=change_id'>Change EFTPOS ID</a><br>"
+			dat += "Scan card to reset access code <a href='byond://?src=[REF(src)];choice=reset'>\[------\]</a>"
+		user << browse(HTML_SKELETON(dat),"window=eftpos")
 	else
 		user << browse(null,"window=eftpos")
 
-/obj/item/device/eftpos/attackby(obj/item/attacking_item, mob/user)
+/obj/item/eftpos/attackby(obj/item/attacking_item, mob/user)
 
 	var/obj/item/card/id/I = attacking_item.GetID()
 
@@ -153,7 +154,7 @@
 	else
 		..()
 
-/obj/item/device/eftpos/Topic(var/href, var/href_list)
+/obj/item/eftpos/Topic(var/href, var/href_list)
 	if(href_list["choice"])
 		switch(href_list["choice"])
 			if("change_code")
@@ -229,7 +230,7 @@
 
 	src.attack_self(usr)
 
-/obj/item/device/eftpos/proc/scan_card(var/obj/item/card/I, var/obj/item/ID_container)
+/obj/item/eftpos/proc/scan_card(var/obj/item/card/I, var/obj/item/ID_container)
 	if (istype(I, /obj/item/card/id))
 		var/obj/item/card/id/C = I
 		if(I==ID_container || ID_container == null)

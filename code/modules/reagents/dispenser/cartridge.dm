@@ -18,6 +18,15 @@
 
 	var/temperature_override = 0 //A non-zero value with set the temperature of the reagents inside to this value, in kelvin.
 
+/obj/item/reagent_containers/chem_disp_cartridge/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "It has a capacity of [volume] units."
+	if(reagents.total_volume <= 0)
+		. += "It is empty."
+	else
+		. += "It contains [reagents.total_volume] units of liquid."
+	if(!is_open_container())
+		. += "The cap is sealed."
 
 /obj/item/reagent_containers/chem_disp_cartridge/Initialize(mapload,temperature_override)
 	. = ..()
@@ -43,16 +52,6 @@
 		var/lid_icon = "lid_[icon_state]"
 		var/mutable_appearance/lid = mutable_appearance(icon, lid_icon)
 		AddOverlays(lid)
-
-/obj/item/reagent_containers/chem_disp_cartridge/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	. += "It has a capacity of [volume] units."
-	if(reagents.total_volume <= 0)
-		. += "It is empty."
-	else
-		. += "It contains [reagents.total_volume] units of liquid."
-	if(!is_open_container())
-		. += "The cap is sealed."
 
 /obj/item/reagent_containers/chem_disp_cartridge/verb/verb_set_label(L as text)
 	set name = "Set Cartridge Label"
@@ -101,9 +100,10 @@
 		return
 
 	else if(istype(target, /obj/structure/reagent_dispensers)) //A dispenser. Transfer FROM it TO us.
-		target.add_fingerprint(user)
+		var/obj/structure/reagent_dispensers/reagent_dispensers = target
+		reagent_dispensers.add_fingerprint(user)
 
-		if(!target.reagents.total_volume && target.reagents)
+		if(!reagent_dispensers.reagents.total_volume && reagent_dispensers.reagents)
 			to_chat(user, SPAN_WARNING("\The [target] is empty."))
 			return
 
@@ -111,7 +111,7 @@
 			to_chat(user, SPAN_WARNING("\The [src] is full."))
 			return
 
-		var/trans = target.reagents.trans_to(src, target:amount_per_transfer_from_this)
+		var/trans = reagent_dispensers.reagents.trans_to(src, reagent_dispensers.amount_per_transfer_from_this)
 		to_chat(user, SPAN_NOTICE("You fill \the [src] with [trans] units of the contents of \the [target]."))
 
 	else if(target.is_open_container() && target.reagents) //Something like a glass. Player probably wants to transfer TO it.

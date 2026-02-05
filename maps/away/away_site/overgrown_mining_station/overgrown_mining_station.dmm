@@ -72,7 +72,7 @@
 /area/overgrown_mining_station)
 "an" = (
 /obj/structure/table/reinforced/wood,
-/obj/item/device/flashlight/lamp/lava/green,
+/obj/item/flashlight/lamp/lava/green,
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 5
 	},
@@ -122,7 +122,7 @@
 /turf/simulated/floor/wood/airless,
 /area/overgrown_mining_station)
 "bQ" = (
-/obj/machinery/autolathe,
+/obj/machinery/fabricator/autolathe,
 /turf/simulated/floor/tiled/airless,
 /area/overgrown_mining_station)
 "bU" = (
@@ -1066,7 +1066,7 @@
 /turf/simulated/floor/tiled/rust/airless,
 /area/overgrown_mining_station)
 "xi" = (
-/obj/item/device/flashlight,
+/obj/item/flashlight,
 /turf/simulated/floor/tiled/airless,
 /area/overgrown_mining_station)
 "xk" = (
@@ -1671,7 +1671,7 @@
 "Jw" = (
 /obj/structure/table/standard,
 /obj/item/trash/plate,
-/obj/item/device/flashlight,
+/obj/item/flashlight,
 /turf/simulated/floor/tiled/rust/airless,
 /area/overgrown_mining_station)
 "JD" = (
@@ -1813,7 +1813,7 @@
 /turf/simulated/floor/exoplanet/asteroid/ash,
 /area/overgrown_mining_station)
 "Nb" = (
-/obj/item/device/flashlight,
+/obj/item/flashlight,
 /turf/simulated/floor/diona/airless,
 /area/overgrown_mining_station)
 "Nh" = (
@@ -2051,7 +2051,7 @@
 	icon_state = "coil2"
 	},
 /obj/effect/floor_decal/corner_wide/lime/diagonal,
-/obj/structure/flora/pottedplant/orientaltree,
+/obj/structure/flora/pottedplant/cherrytree,
 /turf/simulated/floor/tiled/white/airless,
 /area/overgrown_mining_station)
 "TE" = (
@@ -2149,7 +2149,7 @@
 /turf/simulated/floor/diona/airless,
 /area/overgrown_mining_station)
 "VA" = (
-/obj/item/device/electronic_assembly/large/industrial,
+/obj/item/electronic_assembly/large/industrial,
 /turf/simulated/floor/tiled/airless,
 /area/overgrown_mining_station)
 "VC" = (

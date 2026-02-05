@@ -330,7 +330,7 @@
 /obj/effect/decal/fake_object{
 	density = 1;
 	desc = "A no longer functional cryogenic freezer.";
-	icon = 'icons/obj/sleeper.dmi';
+	icon = 'icons/obj/machinery/sleeper.dmi';
 	icon_state = "body_scanner";
 	name = "dilapitated cryogenic freezer";
 	pixel_x = 1
@@ -566,7 +566,8 @@
 	tag_chamber_sensor = "coc_skipjack_sensor";
 	tag_exterior_door = "coc_skipjack_out";
 	tag_interior_door = "coc_skipjack_in";
-	pixel_x = 24
+	pixel_x = 24;
+	dir = 8
 	},
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 1;
@@ -667,7 +668,7 @@
 /area/template_noop)
 "nG" = (
 /obj/effect/decal/cleanable/liquid_fuel,
-/obj/item/device/suit_cooling_unit/no_cell,
+/obj/item/suit_cooling_unit/no_cell,
 /turf/simulated/floor/airless,
 /area/template_noop)
 "nH" = (
@@ -777,7 +778,7 @@
 	},
 /obj/item/stack/cable_coil/random,
 /obj/item/cell,
-/obj/item/device/flashlight/lamp{
+/obj/item/flashlight/lamp{
 	pixel_x = -6;
 	pixel_y = 14
 	},
@@ -1092,12 +1093,7 @@
 	},
 /area/template_noop)
 "wR" = (
-/obj/machinery/autolathe{
-	desc = "Your typical Autolathe. It appears to have much more options than your regular one, however...";
-	hacked = 1;
-	name = "modified autolathe";
-	pixel_y = 2
-	},
+/obj/machinery/fabricator/autolathe/hacked,
 /obj/effect/decal/cleanable/liquid_fuel,
 /turf/simulated/floor/tiled/airless,
 /area/template_noop)
@@ -1259,7 +1255,7 @@
 /area/template_noop)
 "Bc" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/item/device/binoculars,
+/obj/item/binoculars,
 /obj/structure/table/reinforced/steel,
 /turf/simulated/floor/tiled/dark/airless,
 /area/template_noop)
@@ -1371,7 +1367,7 @@
 /obj/effect/decal/fake_object{
 	density = 1;
 	desc = "A no longer functional cryogenic freezer.";
-	icon = 'icons/obj/sleeper.dmi';
+	icon = 'icons/obj/machinery/sleeper.dmi';
 	icon_state = "body_scanner";
 	name = "dilapitated cryogenic freezer";
 	pixel_x = 1
@@ -1451,7 +1447,9 @@
 "Fd" = (
 /obj/random/booze,
 /obj/structure/table/wood,
-/obj/structure/sign/flag/coalition/large/north,
+/obj/structure/sign/flag/coalition/large/north{
+	pixel_y = 32
+	},
 /turf/simulated/floor/tiled/airless,
 /area/template_noop)
 "Fm" = (

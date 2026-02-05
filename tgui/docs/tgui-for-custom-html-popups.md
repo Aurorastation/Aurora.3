@@ -35,7 +35,7 @@ window.close()
 
 ## Sending assets
 
-TGUI in /tg/station codebase has `/datum/asset`, that packs scripts and stylesheets for delivery via CDN for efficiency. TGUI internally uses this asset system to render TGUI interfaces *proper* and TGUI chat. This is a snippet from internal TGUI code:
+TGUI in /tg/station codebase has `/datum/asset`, that packs scripts and stylesheets for delivery via CDN for efficiency. TGUI internally uses this asset system to render TGUI interfaces _proper_ and TGUI chat. This is a snippet from internal TGUI code:
 
 ```dm
 window.initialize(
@@ -64,8 +64,8 @@ Finally, you can use the `Byond` API object to load JS and CSS files directly vi
 
 ```html
 <script>
-Byond.loadJs('https://example.com/bundle.js');
-Byond.loadCss('https://example.com/bundle.css');
+  Byond.loadJs('https://example.com/bundle.js');
+  Byond.loadCss('https://example.com/bundle.css');
 </script>
 ```
 
@@ -91,7 +91,7 @@ window.initialize(
 )
 ```
 
-If you need to inline multiple JS or CSS files, you can concatenate them for now, and separate contents of each file with an `\n` symbol. *This can be a point of improvement (add support for file lists)*.
+If you need to inline multiple JS or CSS files, you can concatenate them for now, and separate contents of each file with an `\n` symbol. _This can be a point of improvement (add support for file lists)_.
 
 ## Fancy mode
 
@@ -108,7 +108,7 @@ This removes the native window titlebar and border, which effectively turns wind
 It is very often necessary to exchange data between DM and JS, and in vanilla BYOND programming it is a huge pain in the butt, because the `browse()` API is very convoluted, out of box it can send only strings, and sending data back to DM requires using hrefs.
 
 ```
-location.href = '?src=12345&param=1'
+location.href='byond://?src=12345&param=1'
 ```
 
 If you're familiar with the href syntax of BYOND topic calls, then perhaps this doesn't surprise you, but this API artificially limits you to sending 2048 characters of string-typed data; you need to reinvent the wheel if you want to send something more complex than strings. It differs from the way you send messages from DM. And it's very hard to read as well.
@@ -134,7 +134,7 @@ You can think of it in these terms:
 
 Of course we're not working with functions here, but hopefully this analogy makes the concept easier to understand.
 
-Finally, message can contain custom properties, and how you use them is *completely up to you*. They have an important limitation - all additional properties are string-typed, and require you to use a slightly more verbose API for sending them (more about it in the next section).
+Finally, message can contain custom properties, and how you use them is _completely up to you_. They have an important limitation - all additional properties are string-typed, and require you to use a slightly more verbose API for sending them (more about it in the next section).
 
 ```js
 Byond.sendMessage({
@@ -209,8 +209,8 @@ You can send messages with custom fields in case if you want to bypass JSON seri
 
 ```js
 Byond.sendMessage({
-  type: "something",
-  ref: "[0x12345678]",
+  type: 'something',
+  ref: '[0x12345678]',
 });
 ```
 

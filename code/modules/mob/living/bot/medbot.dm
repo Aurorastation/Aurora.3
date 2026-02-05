@@ -127,7 +127,7 @@
 	if(!underlays.len)
 		underlays += image(firstaid_item.icon, firstaid_item.icon_state)
 		var/matrix/M = matrix()
-		var/image/ha_image = image('icons/obj/device.dmi', "health")
+		var/image/ha_image = image('icons/obj/item/healthanalyzer.dmi', "health")
 		M.Translate(5, 0)
 		ha_image.transform = M
 		underlays += ha_image
@@ -142,35 +142,35 @@
 		return
 
 	var/dat = ""
-	dat += "Status: <A href='?src=[REF(src)];power=1'>[on ? "On" : "Off"]</A><BR>"
+	dat += "Status: <A href='byond://?src=[REF(src)];power=1'>[on ? "On" : "Off"]</A><BR>"
 	dat += "Maintenance panel is [open ? "opened" : "closed"]<BR>"
 	dat += "Beaker: "
 	if (reagent_glass)
-		dat += "<A href='?src=[REF(src)];eject=1'>Loaded \[[reagent_glass.reagents.total_volume]/[reagent_glass.reagents.maximum_volume]\]</a>"
+		dat += "<A href='byond://?src=[REF(src)];eject=1'>Loaded \[[reagent_glass.reagents.total_volume]/[reagent_glass.reagents.maximum_volume]\]</a>"
 	else
 		dat += "None Loaded"
 	dat += "<br>Behaviour controls are [locked ? "locked" : "unlocked"]<hr>"
 	if(!locked || issilicon(user))
 		dat += "<TT>Healing Threshold: "
-		dat += "<a href='?src=[REF(src)];adj_threshold=-10'>--</a> "
-		dat += "<a href='?src=[REF(src)];adj_threshold=-5'>-</a> "
+		dat += "<a href='byond://?src=[REF(src)];adj_threshold=-10'>--</a> "
+		dat += "<a href='byond://?src=[REF(src)];adj_threshold=-5'>-</a> "
 		dat += "[heal_threshold] "
-		dat += "<a href='?src=[REF(src)];adj_threshold=5'>+</a> "
-		dat += "<a href='?src=[REF(src)];adj_threshold=10'>++</a>"
+		dat += "<a href='byond://?src=[REF(src)];adj_threshold=5'>+</a> "
+		dat += "<a href='byond://?src=[REF(src)];adj_threshold=10'>++</a>"
 		dat += "</TT><br>"
 
 		dat += "<TT>Injection Level: "
-		dat += "<a href='?src=[REF(src)];adj_inject=-5'>-</a> "
+		dat += "<a href='byond://?src=[REF(src)];adj_inject=-5'>-</a> "
 		dat += "[injection_amount] "
-		dat += "<a href='?src=[REF(src)];adj_inject=5'>+</a> "
+		dat += "<a href='byond://?src=[REF(src)];adj_inject=5'>+</a> "
 		dat += "</TT><br>"
 
 		dat += "Reagent Source: "
-		dat += "<a href='?src=[REF(src)];use_beaker=1'>[use_beaker ? "Loaded Beaker (When available)" : "Internal Synthesizer"]</a><br>"
+		dat += "<a href='byond://?src=[REF(src)];use_beaker=1'>[use_beaker ? "Loaded Beaker (When available)" : "Internal Synthesizer"]</a><br>"
 
-		dat += "Treatment report is [declare_treatment ? "on" : "off"]. <a href='?src=[REF(src)];declaretreatment=[1]'>Toggle</a><br>"
-		dat += "The speaker switch is [speech ? "on" : "off"]. <a href='?src=[REF(src)];speaker=[1]'>Toggle</a><br>"
-		dat += "Message is [message ? message : "unset"]. <a href='?src=[REF(src)];msg=[1]'>Set</a><br>"
+		dat += "Treatment report is [declare_treatment ? "on" : "off"]. <a href='byond://?src=[REF(src)];declaretreatment=[1]'>Toggle</a><br>"
+		dat += "The speaker switch is [speech ? "on" : "off"]. <a href='byond://?src=[REF(src)];speaker=[1]'>Toggle</a><br>"
+		dat += "Message is [message ? message : "unset"]. <a href='byond://?src=[REF(src)];msg=[1]'>Set</a><br>"
 
 	var/datum/browser/bot_win = new(user, "automed", "Automatic Medibot v1.2 Controls")
 	bot_win.set_content(dat)
@@ -273,8 +273,8 @@
 		firstaid_item.forceMove(Tsec)
 		firstaid_item.contents = null
 		firstaid_item = null
-	new /obj/item/device/assembly/prox_sensor(Tsec)
-	new /obj/item/device/healthanalyzer(Tsec)
+	new /obj/item/assembly/prox_sensor(Tsec)
+	new /obj/item/healthanalyzer(Tsec)
 	if (prob(50))
 		new /obj/item/robot_parts/l_arm(Tsec)
 
@@ -359,7 +359,7 @@
 
 /obj/item/firstaid_arm_assembly/attackby(obj/item/attacking_item, mob/user)
 	..()
-	if(attacking_item.ispen())
+	if(attacking_item.tool_behaviour == TOOL_PEN)
 		var/t = sanitizeSafe( tgui_input_text(user, "Enter new robot name", name, created_name, MAX_NAME_LEN), MAX_NAME_LEN )
 		if(!t)
 			return
@@ -369,14 +369,14 @@
 	else
 		switch(build_step)
 			if(0)
-				if(istype(attacking_item, /obj/item/device/healthanalyzer))
+				if(istype(attacking_item, /obj/item/healthanalyzer))
 					user.drop_from_inventory(attacking_item,get_turf(src))
 					qdel(attacking_item)
 					build_step++
 					to_chat(user, SPAN_NOTICE("You add the health sensor to [src]."))
 					name = "first-aid/robot arm/health analyzer assembly"
 					var/matrix/M = matrix()
-					var/image/ha_image = image('icons/obj/device.dmi', "health")
+					var/image/ha_image = image('icons/obj/item/healthanalyzer.dmi', "health")
 					M.Translate(5, 0)
 					ha_image.transform = M
 					underlays += ha_image

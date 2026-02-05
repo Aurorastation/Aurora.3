@@ -99,14 +99,14 @@
 	var/list/dat = list()
 	var/singleton/origin_item/culture/CL = GET_SINGLETON(text2path(pref.culture))
 	var/singleton/origin_item/origin/OR = GET_SINGLETON(text2path(pref.origin))
-	dat += "<b>Culture: </b><a href='?src=[REF(src)];open_culture_menu=1'>[CL.name]</a><br>"
+	dat += "<b>Culture: </b><a href='byond://?src=[REF(src)];open_culture_menu=1'>[CL.name]</a><br>"
 	dat += "<i>- [CL.desc]</i><br><br>"
 	if(length(CL.origin_traits_descriptions))
 		dat += "- Characters from this culture "
 		dat += "<b>[english_list(CL.origin_traits_descriptions)]</b>."
 	if(CL.important_information)
 		dat += "<br><i>- <font color=red>[CL.important_information]</font></i>"
-	dat += "<hr><b>Origin: </b><a href='?src=[REF(src)];open_origin_menu=1'>[OR.name]</a><br>"
+	dat += "<hr><b>Origin: </b><a href='byond://?src=[REF(src)];open_origin_menu=1'>[OR.name]</a><br>"
 	dat += "<i>- [OR.desc]</i><br>"
 	if(length(OR.origin_traits_descriptions))
 		dat += "- Characters from this origin "
@@ -114,17 +114,17 @@
 	if(OR.important_information)
 		dat += "<br><i>- <font color=red>[OR.important_information]</font></i>"
 	dat += "<hr>"
-	dat += "<b>Economic Status:</b> <a href='?src=[REF(src)];economic_status=1'>[pref.economic_status]</a><br/>"
-	dat += "<b>Citizenship:</b> <a href='?src=[REF(src)];citizenship=1'>[pref.citizenship]</a><br/>"
-	dat += "<b>Religion:</b> <a href='?src=[REF(src)];religion=1'>[pref.religion]</a><br/>"
-	dat += "<b>Accent:</b> <a href='?src=[REF(src)];accent=1'>[pref.accent]</a><br/>"
+	dat += "<b>Economic Status:</b> <a href='byond://?src=[REF(src)];economic_status=1'>[pref.economic_status]</a><br/>"
+	dat += "<b>Citizenship:</b> <a href='byond://?src=[REF(src)];citizenship=1'>[pref.citizenship]</a><br/>"
+	dat += "<b>Religion:</b> <a href='byond://?src=[REF(src)];religion=1'>[pref.religion]</a><br/>"
+	dat += "<b>Accent:</b> <a href='byond://?src=[REF(src)];accent=1'>[pref.accent]</a><br/>"
 	. = dat.Join()
 
 /datum/category_item/player_setup_item/origin/OnTopic(href, href_list, user)
 	var/datum/species/S = GLOB.all_species[pref.species]
 	if(href_list["open_culture_menu"])
 		var/list/options = list()
-		var/list/possible_cultures = Singletons.GetMap(S.possible_cultures)
+		var/list/possible_cultures = GLOB.Singletons.GetMap(S.possible_cultures)
 		for(var/decl_type in possible_cultures)
 			var/singleton/origin_item/culture/CL = possible_cultures[decl_type]
 			options[CL.name] = CL
@@ -137,7 +137,7 @@
 	if(href_list["open_origin_menu"])
 		var/list/options = list()
 		var/singleton/origin_item/culture/our_culture = GET_SINGLETON(text2path(pref.culture)) //plutonians be like
-		var/list/singleton/origin_item/origin/origins_list = Singletons.GetMap(our_culture.possible_origins)
+		var/list/singleton/origin_item/origin/origins_list = GLOB.Singletons.GetMap(our_culture.possible_origins)
 		for(var/decl_type in origins_list)
 			var/singleton/origin_item/origin/OR = origins_list[decl_type]
 			options[OR.name] = OR
@@ -213,7 +213,7 @@
 	dat += "<hr>[OI.desc]<br>"
 	if(OI.important_information)
 		dat += "<font color=red><i>[OI.important_information]</i></font>"
-	dat += "<br><center>\[<a href='?src=[REF(src)];[topic_data]=[html_encode(OI.type)]'>Select</a>\]</center>"
+	dat += "<br><center>\[<a href='byond://?src=[REF(src)];[topic_data]=[html_encode(OI.type)]'>Select</a>\]</center>"
 	dat += "</html>"
 	origin_win.set_content(dat)
 	origin_win.open()
@@ -223,9 +223,9 @@
 	if(citizenship)
 		var/datum/browser/citizen_win = new(user, "citizen_win", "Citizenship")
 		var/dat = "<html><center><b>[citizenship.name]</center></b>"
-		dat += "<br><br><center><a href='?src=[REF(user.client)];JSlink=wiki;wiki_page=[replacetext(citizenship.name, " ", "_")]'>Read the Wiki</a></center>"
+		dat += "<br><br><center><a href='byond://?src=[REF(user.client)];JSlink=wiki;wiki_page=[replacetext(citizenship.name, " ", "_")]'>Read the Wiki</a></center>"
 		dat += "<br>[citizenship.description]"
-		dat += "<br><center>\[<a href='?src=[REF(src)];set_citizenship=[html_encode(citizenship.name)]'>Select</a>\]</center>"
+		dat += "<br><center>\[<a href='byond://?src=[REF(src)];set_citizenship=[html_encode(citizenship.name)]'>Select</a>\]</center>"
 		dat += "</html>"
 		citizen_win.set_content(dat)
 		citizen_win.open()
@@ -236,7 +236,7 @@
 		var/datum/browser/rel_win = new(user, "rel_win", "Religion")
 		var/dat = "<center><b>[religion.name]</center></b>"
 		dat += "<br>[religion.description]"
-		dat += "<br><center>\[<a href='?src=[REF(src)];set_religion=[html_encode(religion.name)]'>Select</a>\]</center>"
+		dat += "<br><center>\[<a href='byond://?src=[REF(src)];set_religion=[html_encode(religion.name)]'>Select</a>\]</center>"
 		dat += "</html>"
 		rel_win.set_content(dat)
 		rel_win.open()
@@ -247,7 +247,7 @@
 		var/datum/browser/acc_win = new(user, "acc_win", "Accent")
 		var/dat = "<html><center><b>[accent.name]</center></b>"
 		dat += "<br>[accent.description]"
-		dat += "<br><center>\[<a href='?src=[REF(src)];set_accent=[html_encode(accent.name)]'>Select</a>\]</center>"
+		dat += "<br><center>\[<a href='byond://?src=[REF(src)];set_accent=[html_encode(accent.name)]'>Select</a>\]</center>"
 		dat += "</html>"
 		acc_win.set_content(dat)
 		acc_win.open()

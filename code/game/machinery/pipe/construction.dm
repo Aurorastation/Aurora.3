@@ -14,8 +14,8 @@
 	level = 2
 	obj_flags = OBJ_FLAG_ROTATABLE
 
-/obj/item/pipe/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
+/obj/item/pipe/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
 	var/pipe_color_check = color || PIPE_COLOR_GREY
 	var/found_color_name = "Unknown"
 	for(var/color_name in GLOB.pipe_colors)
@@ -229,6 +229,9 @@
 			connect_types = CONNECT_TYPE_REGULAR|CONNECT_TYPE_SUPPLY|CONNECT_TYPE_SCRUBBER|CONNECT_TYPE_FUEL|CONNECT_TYPE_AUX
 	//src.pipe_dir = get_pipe_dir()
 	update()
+
+/obj/item/pipe/Initialize(mapload)
+	. = ..()
 	randpixel_xy()
 
 //update the name and icon of the pipe item depending on the type
@@ -403,7 +406,7 @@
 		set_dir(2)
 
 /obj/item/pipe/Move()
-	..()
+	. = ..()
 	if ((pipe_type in list (PIPE_SIMPLE_BENT, PIPE_SUPPLY_BENT, PIPE_SCRUBBERS_BENT, PIPE_FUEL_BENT, PIPE_AUX_BENT, PIPE_HE_BENT)) \
 		&& (src.dir in GLOB.cardinals))
 		src.set_dir(src.dir|turn(src.dir, 90))
@@ -504,7 +507,7 @@
 /obj/item/pipe/attackby(obj/item/attacking_item, mob/user)
 	..()
 	//*
-	if (!attacking_item.iswrench() && !istype(attacking_item, /obj/item/pipewrench))
+	if (attacking_item.tool_behaviour != TOOL_WRENCH && !istype(attacking_item, /obj/item/pipewrench))
 		return ..()
 	if(istype(attacking_item, /obj/item/pipewrench))
 		var/action = tgui_input_list(user, "Change pipe?", "Change pipe", list("Yes", "No"), "No")
@@ -1540,7 +1543,7 @@
 	w_class = WEIGHT_CLASS_BULKY
 
 /obj/item/pipe_meter/attackby(obj/item/attacking_item, mob/user)
-	if (attacking_item.iswrench())
+	if (attacking_item.tool_behaviour == TOOL_WRENCH)
 		if(!locate(/obj/machinery/atmospherics/pipe, src.loc))
 			to_chat(user, SPAN_WARNING("You need to fasten it to a pipe"))
 			return 1

@@ -27,22 +27,24 @@
 	icon_state = "carp_poncho"
 	item_state = "carp_poncho"
 
-/obj/item/clothing/suit/diona/carp/emporium
-	name = "sun bleached carp hide poncho"
-	desc = "A poncho made up of carp hide. This one has been bleached nearly white as a result of being in space for so long."
-	icon_state = "emporium_poncho"
-	item_state = "emporium_poncho"
+/obj/item/clothing/suit/diona/eternal/refined
+	name = "eternal ceremonial robes"
+	desc = "A set of ceremonial robes used by various branches of the eternal faith."
+	icon_state = "eternal_robes"
+	item_state = "eternal_robes"
+	build_from_parts = TRUE
+	has_accents = TRUE
 
-/obj/item/clothing/suit/diona/rokz
-	name = "reinforced bone armor"
-	desc = "A set of antiquated armor reinforced with bone."
-	icon = 'icons/obj/diona_items.dmi'
-	icon_state = "rokz_armor"
-	item_state = "rokz_armor"
+/obj/item/clothing/suit/diona/narrows
+	name = "antiquated hephaestus prison jacket"
+	desc = "An old prison jacket, showing some age, but with some care shown towards restoring it, featuring several pieces of colorful fabric patched into it."
+	icon_state = "narrows_vest"
+	item_state = "narrows_vest"
+	build_from_parts = TRUE
+	has_accents = TRUE
 
-/obj/item/clothing/suit/diona/serz
-	name = "reinforced carp hide armor"
-	desc = "A set of antiquated armor reinforced with carp hide."
-	icon = 'icons/obj/diona_items.dmi'
-	icon_state = "serz_armor"
-	item_state = "serz_armor"
+/obj/item/clothing/suit/diona/ekane
+	name = "feathered jacket"
+	desc = "A blue set of clothing mimicking a jacket, adorned with feathers along the jacket's collar, sleeves, and chest."
+	icon_state = "ekanejacket"
+	item_state = "ekanejacket"

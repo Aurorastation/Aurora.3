@@ -7,7 +7,7 @@ on:
 jobs:
   compile:
     name: "Compile changelogs"
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
     steps:
       - name: "Check for BOT_TOKEN_AURORA secret and pass true to output if it exists to be checked by later steps"
         id: value_holder

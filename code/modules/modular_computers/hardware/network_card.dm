@@ -1,4 +1,4 @@
-var/global/ntnet_card_uid = 1
+GLOBAL_VAR_INIT(ntnet_card_uid, 1)
 
 /obj/item/computer_hardware/network_card
 	name = "basic NTNet network card"
@@ -12,7 +12,7 @@ var/global/ntnet_card_uid = 1
 	var/identification_string = ""	// Identification string, technically nickname seen in the network. Can be set by user.
 	var/long_range = FALSE
 	var/ethernet = FALSE // Hard-wired, therefore always on, ignores NTNet wireless checks.
-	var/obj/item/radio/integrated/signal/sradio = FALSE // integrated signaler - not present on basic model.
+	var/obj/item/integrated_signaler/signal/sradio = FALSE // integrated signaler - not present on basic model.
 	malfunction_probability = 1
 
 /obj/item/computer_hardware/network_card/diagnostics(mob/user)
@@ -30,8 +30,8 @@ var/global/ntnet_card_uid = 1
 
 /obj/item/computer_hardware/network_card/Initialize()
 	. = ..()
-	identification_id = ntnet_card_uid
-	ntnet_card_uid++
+	identification_id = GLOB.ntnet_card_uid
+	GLOB.ntnet_card_uid++
 
 /obj/item/computer_hardware/network_card/signaler
 	name = "NTNet signaler network card"
@@ -41,7 +41,7 @@ var/global/ntnet_card_uid = 1
 
 /obj/item/computer_hardware/network_card/signaler/Initialize()
 	. = ..()
-	sradio = new /obj/item/radio/integrated/signal(src)
+	sradio = new /obj/item/integrated_signaler/signal(src)
 
 /obj/item/computer_hardware/network_card/advanced
 	name = "advanced NTNet network card"
@@ -54,7 +54,7 @@ var/global/ntnet_card_uid = 1
 
 /obj/item/computer_hardware/network_card/advanced/Initialize()
 	. = ..()
-	sradio = new /obj/item/radio/integrated/signal(src)
+	sradio = new /obj/item/integrated_signaler/signal(src)
 
 /obj/item/computer_hardware/network_card/wired
 	name = "wired NTNet network card"
@@ -67,7 +67,7 @@ var/global/ntnet_card_uid = 1
 
 /obj/item/computer_hardware/network_card/wired/Initialize()
 	. = ..()
-	sradio = new /obj/item/radio/integrated/signal(src)
+	sradio = new /obj/item/integrated_signaler/signal(src)
 
 // Returns a string identifier of this network card
 /obj/item/computer_hardware/network_card/proc/get_network_tag()

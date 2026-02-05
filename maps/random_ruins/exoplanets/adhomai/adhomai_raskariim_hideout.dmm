@@ -21,7 +21,7 @@
 /area/adhomai_raskariim_hideout)
 "ch" = (
 /obj/structure/table/wood,
-/obj/item/pocketwatch/adhomai,
+/obj/item/clothing/wrists/watch/pocketwatch/adhomai,
 /turf/simulated/floor/exoplanet/wood,
 /area/adhomai_raskariim_hideout)
 "cq" = (
@@ -143,7 +143,7 @@
 /turf/simulated/floor/exoplanet/wood,
 /area/adhomai_raskariim_hideout)
 "lI" = (
-/obj/item/device/flashlight/lamp,
+/obj/item/flashlight/lamp,
 /obj/structure/table/wood,
 /turf/simulated/floor/exoplanet/carpet/art,
 /area/adhomai_raskariim_hideout)
@@ -393,7 +393,7 @@
 /area/adhomai_raskariim_hideout)
 "zd" = (
 /obj/structure/table/wood,
-/obj/item/device/flashlight/lamp{
+/obj/item/flashlight/lamp{
 	pixel_y = 6;
 	pixel_x = 5
 	},

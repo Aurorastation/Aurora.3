@@ -11,10 +11,6 @@
 		/obj/random/suit,
 	)
 	suit = list(
-		/obj/item/clothing/suit/storage/hooded/wintercoat,
-		/obj/item/clothing/suit/storage/hooded/wintercoat/hoodie/random,
-		/obj/item/clothing/suit/storage/toggle/leather_jacket/flight/white,
-		/obj/item/clothing/suit/storage/toggle/leather_jacket/military/tan,
 		/obj/item/clothing/suit/storage/toggle/labcoat,
 		/obj/item/clothing/suit/storage/toggle/labcoat,
 		/obj/item/clothing/suit/storage/toggle/labcoat/accent,

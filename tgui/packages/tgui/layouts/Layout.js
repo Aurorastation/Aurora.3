@@ -10,11 +10,14 @@ import { addScrollableNode, removeScrollableNode } from '../events';
 
 export const Layout = (props) => {
   const { className, theme = 'scc', children, ...rest } = props;
+  document.documentElement.className = `theme-${theme}`;
+
   return (
     <div className={'theme-' + theme}>
       <div
         className={classes(['Layout', className, computeBoxClassName(rest)])}
-        {...computeBoxProps(rest)}>
+        {...computeBoxProps(rest)}
+      >
         {children}
       </div>
     </div>
@@ -31,7 +34,8 @@ const LayoutContent = (props) => {
         className,
         computeBoxClassName(rest),
       ])}
-      {...computeBoxProps(rest)}>
+      {...computeBoxProps(rest)}
+    >
       {children}
     </div>
   );

@@ -135,6 +135,7 @@
 	color = "#b5dfeb"
 	planetary_area = /area/exoplanet/adhomai
 	initial_weather_state = /singleton/state/weather/calm/snow_planet
+	has_icy_weather = TRUE
 	scanimage = "adhomai.png"
 	massvolume = "0.86/0.98"
 	surfacegravity = "0.80"
@@ -153,7 +154,7 @@
 	water_color = "#b5dfeb"
 	generated_name = FALSE
 	ruin_planet_type = PLANET_LORE
-	small_flora_types = list(/datum/seed/shand, /datum/seed/mtear, /datum/seed/earthenroot, /datum/seed/nifberries, /datum/seed/mushroom/nfrihi, /datum/seed/nmshaan)
+	small_flora_types = list(/datum/seed/shand, /datum/seed/mtear, /datum/seed/earthenroot, /datum/seed/dirtberries, /datum/seed/mushroom/nfrihi, /datum/seed/sugartree)
 	ruin_type_whitelist = list (/datum/map_template/ruin/exoplanet/adhomai_hunting, /datum/map_template/ruin/exoplanet/adhomai_minefield, /datum/map_template/ruin/exoplanet/adhomai_village,
 	/datum/map_template/ruin/exoplanet/adhomai_abandoned_village, /datum/map_template/ruin/exoplanet/adhomai_battlefield, /datum/map_template/ruin/exoplanet/adhomai_cavern, /datum/map_template/ruin/exoplanet/adhomai_bar,
 	/datum/map_template/ruin/exoplanet/adhomai_war_memorial, /datum/map_template/ruin/exoplanet/adhomai_raskara_ritual, /datum/map_template/ruin/exoplanet/adhomai_raskariim_hideout, /datum/map_template/ruin/exoplanet/adhomai_cavern_geist,

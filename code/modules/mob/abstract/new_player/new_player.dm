@@ -8,7 +8,7 @@
 
 	invisibility = 101
 
-	density = 0
+	density = FALSE
 	stat = DEAD
 	canmove = 0
 
@@ -107,7 +107,13 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 				alert(src, "You can not ready up, because you have unacknowledged warnings or notifications. Acknowledge them in OOC->Warnings and Notifications.")
 				return
 
-			ready = text2num(href_list["ready"])
+			var/new_ready_state = text2num(href_list["ready"])
+
+			if(SSticker.prevent_unready && new_ready_state == FALSE)
+				tgui_alert(src, "You may not unready during Odyssey setup!", "Odyssey")
+				return
+
+			ready = new_ready_state
 		else
 			ready = 0
 
@@ -133,7 +139,7 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 				return 0
 
 			if(!(S.spawn_flags & CAN_JOIN))
-				to_chat(usr, SPAN_DANGER("Your current species, [client.prefs.species], is not available for play on the station."))
+				to_chat(usr, SPAN_DANGER("Your current species, [client.prefs.species], is not available for play on the [station_name(TRUE)]."))
 				return 0
 
 		LateChoices()
@@ -153,7 +159,7 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 			to_chat(usr, SPAN_NOTICE("There is an administrative lock on entering the game!"))
 			return
 		else if(SSticker.mode && SSticker.mode.explosion_in_progress)
-			to_chat(usr, SPAN_DANGER("The station is currently exploding. Joining would go poorly."))
+			to_chat(usr, SPAN_DANGER("The [station_name(TRUE)] is currently exploding. Joining would go poorly."))
 			return
 
 		if(client.unacked_warning_count > 0)
@@ -166,7 +172,7 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 			return 0
 
 		if(!(S.spawn_flags & CAN_JOIN))
-			to_chat(usr, SPAN_DANGER("Your current species, [client.prefs.species], is not available for play on the station."))
+			to_chat(usr, SPAN_DANGER("Your current species, [client.prefs.species], is not available for play on the [station_name(TRUE)]."))
 			return 0
 
 		AttemptLateSpawn(href_list["SelectedJob"],client.prefs.spawnpoint)
@@ -293,8 +299,10 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 
 	var/mob/living/character = create_character()	//creates the human and transfers vars and mind
 
+	equip_custom_items(character, body_only = TRUE) // Equips body-related custom items, like augments and prosthetics.
 	SSjobs.EquipAugments(character, character.client.prefs)
 	character = SSjobs.EquipRank(character, rank, TRUE, spawning_at)					//equips the human
+	equip_custom_items(character, body_only = FALSE) // Equips all other custom items.
 
 	// AIs don't need a spawnpoint, they must spawn at an empty core
 	if(character.mind.assigned_role == "AI")
@@ -317,8 +325,6 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 
 	//Find our spawning point.
 	var/join_message = SSjobs.LateSpawn(character, rank)
-
-	equip_custom_items(character)
 
 	character.lastarea = get_area(loc)
 	// Moving wheelchair if they have one
@@ -345,7 +351,7 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 	if (SSticker.current_state == GAME_STATE_PLAYING)
 		if(character.mind.role_alt_title)
 			rank = character.mind.role_alt_title
-		// can't use their name here, since cyborg namepicking is done post-spawn, so we'll just say "A new Cyborg has arrived"/"A new Android has arrived"/etc.
+		// can't use their name here, since cyborg namepicking is done post-spawn, so we'll just say "A new Cyborg has arrived"/"A new Robot has arrived"/etc.
 		GLOB.global_announcer.autosay("A new[rank ? " [rank]" : " visitor" ] [join_message ? join_message : "has arrived on the [SSatlas.current_map.station_type]"].", "Arrivals Announcer")
 
 /mob/abstract/new_player/proc/LateChoices()

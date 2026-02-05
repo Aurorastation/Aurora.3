@@ -59,6 +59,11 @@
 	SSradio.remove_object(src,frequency)
 	return ..()
 
+// screens have a layer above, so we can't attach here
+/obj/machinery/status_display/can_attach_sticker(var/mob/user, var/obj/item/sticker/S)
+	to_chat(user, SPAN_WARNING("\The [src]'s non-stick surface prevents you from attaching a sticker to it!"))
+	return FALSE
+
 // register for radio system
 /obj/machinery/status_display/Initialize()
 	. = ..()
@@ -98,40 +103,23 @@
 			remove_messages()
 			return 1
 		if(STATUS_DISPLAY_TRANSFER_SHUTTLE_TIME)				//emergency shuttle timer
-			if(evacuation_controller)
-				if(evacuation_controller.is_prepared())
+			if(GLOB.evacuation_controller)
+				if(GLOB.evacuation_controller.is_prepared())
 					message1 = "-ETD-"
-					if (evacuation_controller.waiting_to_leave())
+					if (GLOB.evacuation_controller.waiting_to_leave())
 						message2 = "Launch"
 					else
 						message2 = get_shuttle_timer()
 					set_messages(message1, message2)
 					AddOverlays(emissive_appearance(icon, "outline", src, alpha = src.alpha))
-				else if(evacuation_controller.has_eta())
+				else if(GLOB.evacuation_controller.has_eta())
 					message1 = "-ETA-"
 					message2 = get_shuttle_timer()
 					set_messages(message1, message2)
 					AddOverlays(emissive_appearance(icon, "outline", src, alpha = src.alpha))
 				return 1
 		if(STATUS_DISPLAY_MESSAGE)	//custom messages
-			var/line1_metric
-			var/line2_metric
-			var/line_pair
-			var/datum/font/display_font = new STATUS_DISPLAY_FONT_DATUM()
-			line1_metric = display_font.get_metrics(message1)
-			line2_metric = display_font.get_metrics(message2)
-			line_pair = (line1_metric > line2_metric ? line1_metric : line2_metric)
-			var/overlay = update_message(message1_overlay, LINE1_Y, message1, LINE1_X, line_pair)
-			if(overlay)
-				message1_overlay = overlay
-			overlay = update_message(message2_overlay, LINE2_Y, message2, LINE2_X, line_pair)
-			if(overlay)
-				message2_overlay = overlay
-			if(message1 == "" && message2 == "")
-				return 1
-			else
-				AddOverlays(emissive_appearance(icon, "outline", src, alpha = src.alpha))
-				return 1
+			arrange_displayed_texts(message1, message2)
 		if(STATUS_DISPLAY_ALERT)
 			set_picture(picture_state)
 			return 1
@@ -139,25 +127,28 @@
 			message1 = "-Time-"
 			message2 = worldtime2text()
 			set_messages(message1, message2)
-			var/line1_metric
-			var/line2_metric
-			var/line_pair
-			var/datum/font/display_font = new STATUS_DISPLAY_FONT_DATUM()
-			line1_metric = display_font.get_metrics(message1)
-			line2_metric = display_font.get_metrics(message2)
-			line_pair = (line1_metric > line2_metric ? line1_metric : line2_metric)
-			var/overlay = update_message(message1_overlay, LINE1_Y, message1, LINE1_X, line_pair)
-			if(overlay)
-				message1_overlay = overlay
-			overlay = update_message(message2_overlay, LINE2_Y, message2, LINE2_X, line_pair)
-			if(overlay)
-				message2_overlay = overlay
-			if(message1 == "" && message2 == "")
-				return 1
-			else
-				AddOverlays(emissive_appearance(icon, "outline", src, alpha = src.alpha))
-			return 1
+			arrange_displayed_texts(message1, message2)
 	return 0
+
+/obj/machinery/status_display/proc/arrange_displayed_texts(message1, message2)
+	var/line1_metric
+	var/line2_metric
+	var/line_pair
+	var/datum/font/display_font = new STATUS_DISPLAY_FONT_DATUM()
+	line1_metric = display_font.get_metrics(message1)
+	line2_metric = display_font.get_metrics(message2)
+	line_pair = (line1_metric > line2_metric ? line1_metric : line2_metric)
+	var/overlay = update_message(message1_overlay, LINE1_Y, message1, LINE1_X, line_pair)
+	if(overlay)
+		message1_overlay = overlay
+	overlay = update_message(message2_overlay, LINE2_Y, message2, LINE2_X, line_pair)
+	if(overlay)
+		message2_overlay = overlay
+	if(message1 == "" && message2 == "")
+		return 1
+	else
+		AddOverlays(emissive_appearance(icon, "outline", src, alpha = src.alpha))
+		return 1
 
 /obj/machinery/status_display/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
@@ -231,10 +222,10 @@
 	)
 		set_light(0)
 		return
-	set_light(1.5, 0.7, LIGHT_COLOR_FAINT_CYAN) // blue light
+	set_light(L_WALLMOUNT_RANGE, L_WALLMOUNT_POWER, LIGHT_COLOR_FAINT_CYAN) // blue light
 
 /obj/machinery/status_display/proc/get_shuttle_timer()
-	var/timeleft = evacuation_controller.get_eta()
+	var/timeleft = GLOB.evacuation_controller.get_eta()
 	if(timeleft < 0)
 		return ""
 	return "[add_zero(num2text((timeleft / 60) % 60),2)]:[add_zero(num2text(timeleft % 60), 2)]"

@@ -7,14 +7,14 @@
 	storage_capacity = 45 //such a big closet deserves a little more capacity
 	door_anim_angle = 160
 	door_anim_squish = 0.22
-	door_hinge_alt = 7.5
+	door_hinge_x_alt = 7.5
 	double_doors = TRUE
 
 /obj/structure/closet/cabinet/attackby(obj/item/attacking_item, mob/user)
 	if(opened)
 		if(istype(attacking_item, /obj/item/grab))
 			var/obj/item/grab/G = attacking_item
-			MouseDrop_T(G.affecting, user)      //act like they were dragged onto the closet
+			mouse_drop_receive(G.affecting, user)      //act like they were dragged onto the closet
 			return 0
 		if(!attacking_item.dropsafety())
 			return
@@ -91,9 +91,9 @@
 	new /obj/item/melee/baton(src)
 	new /obj/item/melee/baton(src)
 	new /obj/item/melee/baton(src)
-	new /obj/item/storage/box/flashbangs(src)
-	new /obj/item/storage/box/flashbangs(src)
-	new /obj/item/storage/box/flashbangs(src)
+	new /obj/item/storage/box/tactical/flashbangs(src)
+	new /obj/item/storage/box/tactical/flashbangs(src)
+	new /obj/item/storage/box/tactical/flashbangs(src)
 	new /obj/item/clothing/head/helmet/thunderdome(src)
 	new /obj/item/clothing/head/helmet/thunderdome(src)
 	new /obj/item/clothing/head/helmet/thunderdome(src)
@@ -115,9 +115,9 @@
 	new /obj/item/melee/baton(src)
 	new /obj/item/melee/baton(src)
 	new /obj/item/melee/baton(src)
-	new /obj/item/storage/box/flashbangs(src)
-	new /obj/item/storage/box/flashbangs(src)
-	new /obj/item/storage/box/flashbangs(src)
+	new /obj/item/storage/box/tactical/flashbangs(src)
+	new /obj/item/storage/box/tactical/flashbangs(src)
+	new /obj/item/storage/box/tactical/flashbangs(src)
 	new /obj/item/clothing/head/helmet/thunderdome(src)
 	new /obj/item/clothing/head/helmet/thunderdome(src)
 	new /obj/item/clothing/head/helmet/thunderdome(src)

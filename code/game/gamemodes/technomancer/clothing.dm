@@ -8,12 +8,12 @@
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS|LEGS|FEET|HANDS
 	allowed = list(/obj/item/tank)
 	armor = list(
-		melee = ARMOR_MELEE_MAJOR,
-		bullet = ARMOR_BALLISTIC_SMALL,
-		laser = ARMOR_LASER_PISTOL,
-		energy = ARMOR_ENERGY_RESISTANT,
-		bomb = ARMOR_BOMB_MINOR,
-		rad = ARMOR_RAD_RESISTANT
+		MELEE = ARMOR_MELEE_MAJOR,
+		BULLET = ARMOR_BALLISTIC_SMALL,
+		LASER = ARMOR_LASER_PISTOL,
+		ENERGY = ARMOR_ENERGY_RESISTANT,
+		BOMB = ARMOR_BOMB_MINOR,
+		RAD = ARMOR_RAD_RESISTANT
 	)
 	siemens_coefficient = 0.75
 
@@ -26,7 +26,7 @@
 	icon = 'icons/obj/clothing/technomancer.dmi'
 	contained_sprite = TRUE
 	armor = list(
-		melee = ARMOR_MELEE_MINOR,
+		MELEE = ARMOR_MELEE_MINOR,
 	)
 	siemens_coefficient = 0.3
 
@@ -54,7 +54,7 @@
 	icon_state = "initiate_hat"
 	item_state = "initiate_hat"
 	armor = list(
-		melee = ARMOR_MELEE_MINOR,
+		MELEE = ARMOR_MELEE_MINOR,
 	)
 	siemens_coefficient = 0.3
 	icon = 'icons/obj/clothing/technomancer.dmi'
@@ -78,40 +78,40 @@
 
 /obj/item/clothing/under/chameleon/technomancer
 	armor = list(
-		melee = ARMOR_MELEE_MAJOR,
-		bullet = ARMOR_BALLISTIC_SMALL,
-		laser = ARMOR_LASER_PISTOL,
-		energy = ARMOR_ENERGY_RESISTANT,
-		bomb = ARMOR_BOMB_MINOR,
-		rad = ARMOR_RAD_RESISTANT
+		MELEE = ARMOR_MELEE_MAJOR,
+		BULLET = ARMOR_BALLISTIC_SMALL,
+		LASER = ARMOR_LASER_PISTOL,
+		ENERGY = ARMOR_ENERGY_RESISTANT,
+		BOMB = ARMOR_BOMB_MINOR,
+		RAD = ARMOR_RAD_RESISTANT
 	)
 
 /obj/item/clothing/head/chameleon/technomancer
 	armor = list(
-		melee = ARMOR_MELEE_MAJOR,
-		bullet = ARMOR_BALLISTIC_SMALL,
-		laser = ARMOR_LASER_PISTOL,
-		energy = ARMOR_ENERGY_RESISTANT,
-		bomb = ARMOR_BOMB_MINOR,
-		rad = ARMOR_RAD_RESISTANT
+		MELEE = ARMOR_MELEE_MAJOR,
+		BULLET = ARMOR_BALLISTIC_SMALL,
+		LASER = ARMOR_LASER_PISTOL,
+		ENERGY = ARMOR_ENERGY_RESISTANT,
+		BOMB = ARMOR_BOMB_MINOR,
+		RAD = ARMOR_RAD_RESISTANT
 	)
 
 /obj/item/clothing/shoes/chameleon/technomancer
 	armor = list(
-		melee = ARMOR_MELEE_MAJOR,
-		bullet = ARMOR_BALLISTIC_SMALL,
-		laser = ARMOR_LASER_PISTOL,
-		energy = ARMOR_ENERGY_RESISTANT,
-		bomb = ARMOR_BOMB_MINOR,
-		rad = ARMOR_RAD_RESISTANT
+		MELEE = ARMOR_MELEE_MAJOR,
+		BULLET = ARMOR_BALLISTIC_SMALL,
+		LASER = ARMOR_LASER_PISTOL,
+		ENERGY = ARMOR_ENERGY_RESISTANT,
+		BOMB = ARMOR_BOMB_MINOR,
+		RAD = ARMOR_RAD_RESISTANT
 	)
 
 /obj/item/clothing/suit/chameleon/technomancer
 	armor = list(
-		melee = ARMOR_MELEE_MAJOR,
-		bullet = ARMOR_BALLISTIC_SMALL,
-		laser = ARMOR_LASER_PISTOL,
-		energy = ARMOR_ENERGY_RESISTANT,
-		bomb = ARMOR_BOMB_MINOR,
-		rad = ARMOR_RAD_RESISTANT
+		MELEE = ARMOR_MELEE_MAJOR,
+		BULLET = ARMOR_BALLISTIC_SMALL,
+		LASER = ARMOR_LASER_PISTOL,
+		ENERGY = ARMOR_ENERGY_RESISTANT,
+		BOMB = ARMOR_BOMB_MINOR,
+		RAD = ARMOR_RAD_RESISTANT
 	)

@@ -13,8 +13,7 @@
 	var/list/modcount = list()	// assoc list of the count of modules for a type
 
 
-var/list/modules = list(			// global associative list
-"/obj/machinery/power/apc" = "card_reader,power_control,id_auth,cell_power,cell_charge")
+GLOBAL_LIST_INIT(modules, list("/obj/machinery/power/apc" = "card_reader,power_control,id_auth,cell_power,cell_charge"))
 
 
 /datum/module/New(var/obj/O)
@@ -32,18 +31,18 @@ var/list/modules = list(			// global associative list
 	installed = needed
 
 /datum/moduletypes/proc/addmod(var/type, var/modtextlist)
-	modules += type	// index by type text
-	modules[type] = modtextlist
+	GLOB.modules += type	// index by type text
+	GLOB.modules[type] = modtextlist
 
 /datum/moduletypes/proc/inmodlist(var/type)
-	return ("[type]" in modules)
+	return ("[type]" in GLOB.modules)
 
 /datum/moduletypes/proc/getbitmask(var/type)
 	var/count = modcount["[type]"]
 	if(count)
 		return 2**count-1
 
-	var/modtext = modules["[type]"]
+	var/modtext = GLOB.modules["[type]"]
 	var/num = 1
 	var/pos = 1
 

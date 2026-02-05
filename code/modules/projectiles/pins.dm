@@ -5,7 +5,7 @@ Alright boys, Firing pins. hopefully with minimal shitcode.
 Firing pins as a rule can't be removed without replacing them, blame a really shitty mechanism for it by NT or something idk, this is to stop people from just taking pins from like a capgun or something.
 */
 
-/obj/item/device/firing_pin
+/obj/item/firing_pin
 	name = "electronic firing pin"
 	desc = "A small authentication device, to be inserted into a firearm receiver to allow operation. NT safety regulations require all new designs to incorporate one."
 	icon = 'icons/obj/firingpins.dmi'
@@ -25,16 +25,36 @@ Firing pins as a rule can't be removed without replacing them, blame a really sh
 	drop_sound = 'sound/items/drop/component.ogg'
 	pickup_sound = 'sound/items/pickup/component.ogg'
 
-/obj/item/device/firing_pin/Initialize(mapload)
+/obj/item/firing_pin/Initialize(mapload)
 	.=..()
 	if(istype(loc, /obj/item/gun))
 		gun = loc
+	update_icon()
 
-/obj/item/device/firing_pin/proc/examine_info() // Part of what allows people to see what firing mode  their wireless control pin is in. Returns nothing here if there's no wireless-control firing pin.
+/obj/item/firing_pin/pickup(mob/user)
+	..()
+	update_icon()
+
+/obj/item/firing_pin/dropped(mob/user)
+	..()
+	update_icon()
+
+/obj/item/firing_pin/attack_hand()
+	..()
+	update_icon()
+
+/obj/item/firing_pin/update_icon()
+	var/matrix/tf = matrix()
+	var/obj/item/storage/S = loc
+	if(istype(S, /obj/item/storage) && !S.storage_slots)
+		tf.Turn(-90) //Vertical for storing compactly
+		tf.Translate(-1, 0) //Could do this with pixel_x but let's just update the appearance once.
+	transform = tf
+
+/obj/item/firing_pin/proc/examine_info() // Part of what allows people to see what firing mode  their wireless control pin is in. Returns nothing here if there's no wireless-control firing pin.
 		return
 
-
-/obj/item/device/firing_pin/afterattack(atom/target, mob/user, proximity_flag)
+/obj/item/firing_pin/afterattack(atom/target, mob/user, proximity_flag)
 	if(proximity_flag)
 		if(istype(target, /obj/item/gun))
 			var/obj/item/gun/G = target
@@ -53,27 +73,27 @@ Firing pins as a rule can't be removed without replacing them, blame a really sh
 			else
 				to_chat(user, SPAN_NOTICE("This firearm already has a firing pin installed."))
 
-/obj/item/device/firing_pin/emag_act()
+/obj/item/firing_pin/emag_act()
 	if(!emagged)
 		emagged = TRUE
 		to_chat(get_holding_mob(src), SPAN_NOTICE("You override the authentication mechanism."))
 
-/obj/item/device/firing_pin/proc/gun_insert(mob/living/user, obj/item/gun/G)
+/obj/item/firing_pin/proc/gun_insert(mob/living/user, obj/item/gun/G)
 	gun = G
 	user.drop_from_inventory(src,gun)
 	gun.pin = src
 	return
 
-/obj/item/device/firing_pin/proc/gun_remove(mob/living/user)
+/obj/item/firing_pin/proc/gun_remove(mob/living/user)
 	gun.pin = null
 	gun = null
 	qdel(src)
 	return
 
-/obj/item/device/firing_pin/proc/pin_auth(mob/living/user)
+/obj/item/firing_pin/proc/pin_auth(mob/living/user)
 	return 1
 
-/obj/item/device/firing_pin/proc/auth_fail(mob/living/carbon/human/user)
+/obj/item/firing_pin/proc/auth_fail(mob/living/carbon/human/user)
 	to_chat(user, fail_message)
 	if(selfdestruct)//sound stolen from the lawgiver. todo, remove this from the lawgiver. there can only be one.
 		user.show_message(SPAN_DANGER("SELF-DESTRUCTING...<br>"), 1)
@@ -90,7 +110,7 @@ Pins Below.
 */
 
 // Test pin, works only near firing ranges.
-/obj/item/device/firing_pin/test_range
+/obj/item/firing_pin/test_range
 	name = "test-range firing pin"
 	desc = "This safety firing pin allows weapons to be fired within proximity to a firing range."
 	fail_message = SPAN_WARNING("TEST RANGE CHECK FAILED.")
@@ -98,7 +118,7 @@ Pins Below.
 	durable = TRUE
 	origin_tech = list(TECH_MATERIAL = 2, TECH_COMBAT = 2)
 
-/obj/item/device/firing_pin/test_range/pin_auth(mob/living/user)
+/obj/item/firing_pin/test_range/pin_auth(mob/living/user)
 	var/area/A = get_area(src)
 	if (A && (A.area_flags & AREA_FLAG_FIRING_RANGE))
 		return 1
@@ -106,31 +126,31 @@ Pins Below.
 		return 0
 
 // Psionics pin, checks for psionics (psi aug not included)
-/obj/item/device/firing_pin/psionic
+/obj/item/firing_pin/psionic
 	name = "psionics firing pin"
 	desc = "This is a psionics-locked firing pin which only authorizes users who are capable of psionics."
 	fail_message = SPAN_WARNING("PSIONICS CHECK FAILED.")
 
-/obj/item/device/firing_pin/psionic/pin_auth(mob/living/user)
+/obj/item/firing_pin/psionic/pin_auth(mob/living/user)
 	if(user.has_psionics())
 		return 1
 	else
 		return 0
 
 // Implant pin, checks for implant
-/obj/item/device/firing_pin/implant
+/obj/item/firing_pin/implant
 	name = "implant-keyed firing pin"
 	desc = "This is a implant-locked firing pin which only authorizes users who are implanted with a certain device."
 	fail_message = SPAN_WARNING("IMPLANT CHECK FAILED.")
 	var/req_implant
 
-/obj/item/device/firing_pin/implant/pin_auth(mob/living/user)
+/obj/item/firing_pin/implant/pin_auth(mob/living/user)
 	if (locate(req_implant) in user)
 		return 1
 	else
 		return 0
 
-/obj/item/device/firing_pin/implant/loyalty
+/obj/item/firing_pin/implant/loyalty
 	name = "mind shield firing pin"
 	desc = "This implant-locked firing pin authorizes the weapon for only mind shielded users."
 	icon_state = "firing_pin_loyalty"
@@ -138,27 +158,27 @@ Pins Below.
 
 // Honk pin, clown joke item.
 // Can replace other pins. Replace a pin in cap's laser for extra fun! This is generally adminbus only unless someone thinks of a use for it.
-/obj/item/device/firing_pin/clown
+/obj/item/firing_pin/clown
 	name = "hilarious firing pin"
 	desc = "Advanced clowntech that can convert any firearm into a far more useful object."
 	color = "#FFFF00"
 	fail_message = SPAN_WARNING("HONK!")
 	force_replace = 1
 
-/obj/item/device/firing_pin/clown/pin_auth(mob/living/user)
+/obj/item/firing_pin/clown/pin_auth(mob/living/user)
 	playsound(src.loc, 'sound/items/bikehorn.ogg', 50, 1)
 	return 0
 
 // DNA-keyed pin.
 // When you want to keep your toys for youself.
-/obj/item/device/firing_pin/dna
+/obj/item/firing_pin/dna
 	name = "DNA-keyed firing pin"
 	desc = "This is a DNA-locked firing pin which only authorizes one user. Attempt to fire once to DNA-link."
 	icon_state = "firing_pin_dna"
 	fail_message = SPAN_WARNING("DNA CHECK FAILED.")
 	var/unique_enzymes = null
 
-/obj/item/device/firing_pin/dna/afterattack(atom/target, mob/user, proximity_flag)
+/obj/item/firing_pin/dna/afterattack(atom/target, mob/user, proximity_flag)
 	..()
 	if(proximity_flag && iscarbon(target))
 		var/mob/living/carbon/M = target
@@ -166,14 +186,14 @@ Pins Below.
 			unique_enzymes = M.dna.unique_enzymes
 			to_chat(user, SPAN_NOTICE("DNA-LOCK SET."))
 
-/obj/item/device/firing_pin/dna/pin_auth(mob/living/carbon/user)
+/obj/item/firing_pin/dna/pin_auth(mob/living/carbon/user)
 	if(istype(user) && user.dna && user.dna.unique_enzymes)
 		if(user.dna.unique_enzymes == unique_enzymes)
 			return 1
 
 	return 0
 
-/obj/item/device/firing_pin/dna/auth_fail(mob/living/carbon/user)
+/obj/item/firing_pin/dna/auth_fail(mob/living/carbon/user)
 	if(!unique_enzymes)
 		if(istype(user) && user.dna && user.dna.unique_enzymes)
 			unique_enzymes = user.dna.unique_enzymes
@@ -181,19 +201,19 @@ Pins Below.
 	else
 		..()
 
-/obj/item/device/firing_pin/dna/dredd
+/obj/item/firing_pin/dna/dredd
 	desc = "This is a DNA-locked firing pin which only authorizes one user. Attempt to fire once to DNA-link. It has a small explosive charge on it."
 	selfdestruct = 1
 
 
 // Laser tag pins
-/obj/item/device/firing_pin/tag
+/obj/item/firing_pin/tag
 	name = "laser tag firing pin"
 	desc = "A recreational firing pin, used in laser tag units to ensure users have their vests on."
 	fail_message = SPAN_WARNING("SUIT CHECK FAILED.")
 	var/tag_color = ""
 
-/obj/item/device/firing_pin/tag/pin_auth(mob/living/user)
+/obj/item/firing_pin/tag/pin_auth(mob/living/user)
 	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
 		var/obj/item/clothing/suit/armor/riot/laser_tag/LT = H.wear_suit
@@ -202,50 +222,52 @@ Pins Below.
 	to_chat(user, SPAN_WARNING("You need to be wearing [tag_color] laser tag armor!"))
 	return FALSE
 
-/obj/item/device/firing_pin/tag/red
+/obj/item/firing_pin/tag/red
 	name = "red laser tag firing pin"
 	icon_state = "firing_pin_red"
 	tag_color = "red"
 
-/obj/item/device/firing_pin/tag/blue
+/obj/item/firing_pin/tag/blue
 	name = "blue laser tag firing pin"
 	icon_state = "firing_pin_blue"
 	tag_color = "blue"
 
-/obj/item/device/firing_pin/Destroy()
+/obj/item/firing_pin/Destroy()
 	if(gun)
 		gun.pin = null
+	gun = null
 	return ..()
 
 //this firing pin checks for access
-/obj/item/device/firing_pin/access
+/obj/item/firing_pin/access
 	name = "access-keyed firing pin"
 	desc = "This access locked firing pin allows weapons to be fired only when the user has the required access."
 	fail_message = SPAN_WARNING("ACCESS CHECK FAILED.")
 	req_access = list(ACCESS_WEAPONS)
 
-/obj/item/device/firing_pin/access/pin_auth(mob/living/user)
+/obj/item/firing_pin/access/pin_auth(mob/living/user)
 	return !allowed(user)
 
-/obj/item/device/firing_pin/away_site
+/obj/item/firing_pin/away_site
 	name = "away site firing pin"
 	desc = "This access locked firing pin allows weapons to be fired only when the user is not on-ship."
 	fail_message = SPAN_WARNING("USER ON SHIP LEVEL.")
 
-/obj/item/device/firing_pin/away_site/pin_auth(mob/living/user)
+/obj/item/firing_pin/away_site/pin_auth(mob/living/user)
 	var/turf/T = get_turf(src)
 	return !is_station_level(T.z)
 
-var/list/wireless_firing_pins = list() //A list of all initialized wireless firing pins. Used in the firearm tracking program in guntracker.dm
+///A list of all initialized wireless firing pins. Used in the firearm tracking program in guntracker.dm
+GLOBAL_LIST_EMPTY_TYPED(wireless_firing_pins, /obj/item/firing_pin/wireless)
 
-/obj/item/device/firing_pin/wireless
+/obj/item/firing_pin/wireless
 	name = "wireless-control firing pin"
 	desc = "This firing pin is wirelessly controlled. On automatic mode it allow allows weapons to be fired on stun unless the alert level is elevated. Otherwise, it can be controlled from a firearm control console."
 	fail_message = SPAN_WARNING("The wireless-control firing pin clicks!")
 	var/registered_user = null
 	var/lock_status = WIRELESS_PIN_AUTOMATIC
 
-/obj/item/device/firing_pin/wireless/examine_info(mob/user)
+/obj/item/firing_pin/wireless/examine_info(mob/user)
 	var/wireless_description
 	switch(lock_status)
 		if(WIRELESS_PIN_AUTOMATIC)
@@ -258,12 +280,13 @@ var/list/wireless_firing_pins = list() //A list of all initialized wireless firi
 			wireless_description = "is in unrestricted mode"
 	to_chat(user, SPAN_NOTICE("The wireless-control firing pin <b>[wireless_description]</b>."))
 
-/obj/item/device/firing_pin/wireless/Initialize() //Adds wireless pins to the list of initialized wireless firing pins.
-	wireless_firing_pins += src
-	return ..()
+/obj/item/firing_pin/wireless/Initialize() //Adds wireless pins to the list of initialized wireless firing pins.
+	. = ..()
 
-/obj/item/device/firing_pin/wireless/Destroy() //Removes the wireless pins from the list of initialized wireless firing pins.
-	wireless_firing_pins -= src
+	GLOB.wireless_firing_pins += src
+
+/obj/item/firing_pin/wireless/Destroy() //Removes the wireless pins from the list of initialized wireless firing pins.
+	GLOB.wireless_firing_pins -= src
 	return ..()
 
 /*
@@ -274,7 +297,7 @@ var/list/wireless_firing_pins = list() //A list of all initialized wireless firi
 	Stun-Only: The weapon will only fire on stun regardless of the current security level.
 	Lethal: The weapon will fire on all modes regardless of the current security level.
 */
-/obj/item/device/firing_pin/wireless/pin_auth(mob/living/user)
+/obj/item/firing_pin/wireless/pin_auth(mob/living/user)
 	if(!registered_user)
 		fail_message = SPAN_WARNING("Unable to fire: no registered user detected.")
 		return FALSE
@@ -318,7 +341,7 @@ var/list/wireless_firing_pins = list() //A list of all initialized wireless firi
 				return FALSE
 
 
-/obj/item/device/firing_pin/wireless/proc/set_mode(var/new_mode) // Changes the current lock_status of the weapon, and sends a message and sfx to whoever is holding it.
+/obj/item/firing_pin/wireless/proc/set_mode(var/new_mode) // Changes the current lock_status of the weapon, and sends a message and sfx to whoever is holding it.
 	var/mob/user = get_holding_mob(src)
 
 	if(new_mode == lock_status)
@@ -346,7 +369,7 @@ var/list/wireless_firing_pins = list() //A list of all initialized wireless firi
 
 	return
 
-/obj/item/device/firing_pin/wireless/attackby(obj/item/attacking_item, mob/user) //Lets people register their IDs to the pin. Using it once registers you, using it again clears you.
+/obj/item/firing_pin/wireless/attackby(obj/item/attacking_item, mob/user) //Lets people register their IDs to the pin. Using it once registers you, using it again clears you.
 	if(istype(attacking_item, /obj/item/card/id))
 		var/obj/item/card/id/idcard = attacking_item
 		if(idcard.registered_name == registered_user)

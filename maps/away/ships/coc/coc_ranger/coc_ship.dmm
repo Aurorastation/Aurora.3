@@ -277,7 +277,8 @@
 	},
 /obj/structure/railing/mapped,
 /obj/machinery/computer/ship/helm{
-	dir = 1
+	dir = 1;
+	req_one_access = list(221,222)
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ranger_corvette/bridge)
@@ -444,7 +445,7 @@
 /obj/structure/railing/mapped,
 /obj/structure/table/rack,
 /obj/item/hoist_kit,
-/obj/item/device/multitool,
+/obj/item/multitool,
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/gunnery)
 "bxl" = (
@@ -643,8 +644,8 @@
 	dir = 8
 	},
 /obj/structure/table/steel,
-/obj/item/device/binoculars,
-/obj/item/device/binoculars{
+/obj/item/binoculars,
+/obj/item/binoculars{
 	pixel_y = 5
 	},
 /turf/simulated/floor/tiled/dark/full,
@@ -1145,12 +1146,12 @@
 "eFo" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/table/rack,
-/obj/item/device/gps,
-/obj/item/device/gps,
-/obj/item/device/gps,
-/obj/item/device/gps,
-/obj/item/device/gps,
-/obj/item/device/gps,
+/obj/item/gps,
+/obj/item/gps,
+/obj/item/gps,
+/obj/item/gps,
+/obj/item/gps,
+/obj/item/gps,
 /obj/item/tank/emergency_oxygen/double,
 /obj/item/tank/emergency_oxygen/double,
 /obj/item/tank/emergency_oxygen/double,
@@ -1162,7 +1163,7 @@
 /obj/item/tank/jetpack/carbondioxide,
 /obj/item/tank/jetpack/carbondioxide,
 /obj/item/tank/jetpack/carbondioxide,
-/obj/item/device/suit_cooling_unit,
+/obj/item/suit_cooling_unit,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ranger_corvette/voidsuits)
 "eFH" = (
@@ -1799,7 +1800,7 @@
 /area/ship/ranger_corvette/crew)
 "gUN" = (
 /obj/structure/table/wood,
-/obj/item/device/electronic_assembly/simple{
+/obj/item/electronic_assembly/simple{
 	desc = "The remote for a PanaVision 2400. This one feels a bit hollow.";
 	name = "television remote";
 	pixel_x = 6;
@@ -2184,7 +2185,7 @@
 	req_access = null;
 	req_one_access = list(221,222)
 	},
-/obj/machinery/autolathe,
+/obj/machinery/fabricator/autolathe,
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/engine2)
 "iDh" = (
@@ -2544,7 +2545,7 @@
 	desc = "A rectangular steel footlocker.";
 	name = "footlocker"
 	},
-/obj/item/device/paicard,
+/obj/item/paicard,
 /obj/item/clothing/suit/storage/hooded/wintercoat/konyang,
 /obj/item/clothing/accessory/flagpatch/konyang,
 /obj/item/toy/comic/inspector,
@@ -2815,7 +2816,9 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ranger_corvette/bridge)
 "lvN" = (
-/obj/machinery/computer/shuttle_control/explore/ranger_shuttle,
+/obj/machinery/computer/shuttle_control/explore/ranger_shuttle{
+	req_one_access = list(221,222)
+	},
 /turf/simulated/floor/tiled/full,
 /area/shuttle/ranger_shuttle)
 "lxT" = (
@@ -2923,7 +2926,8 @@
 	dir = 4
 	},
 /obj/machinery/computer/ship/helm{
-	dir = 4
+	dir = 4;
+	req_access = list(221,222)
 	},
 /obj/effect/floor_decal/corner_wide/blue/diagonal,
 /turf/simulated/floor/tiled/dark,
@@ -3278,7 +3282,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/gunnery)
 "ndT" = (
-/obj/item/device/assembly/mousetrap/armed,
+/obj/item/assembly/mousetrap/armed,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
@@ -3657,7 +3661,7 @@
 /obj/item/reagent_containers/food/snacks/meat,
 /obj/item/reagent_containers/food/snacks/meat,
 /obj/item/reagent_containers/food/snacks/meat,
-/obj/item/storage/box/produce{
+/obj/item/storage/box/large/produce{
 	pixel_x = 3;
 	pixel_y = -11
 	},
@@ -4064,7 +4068,8 @@
 /area/ship/ranger_corvette/bridge)
 "qhi" = (
 /obj/machinery/computer/ship/targeting{
-	dir = 8
+	dir = 8;
+	req_access = list(221,222)
 	},
 /obj/effect/floor_decal/corner_wide/blue/diagonal,
 /turf/simulated/floor/tiled/dark,
@@ -4490,7 +4495,7 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
-/obj/structure/janitorialcart/full,
+/obj/structure/cart/storage/janitorialcart/full,
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/janitor)
 "rzM" = (
@@ -4695,7 +4700,7 @@
 "stJ" = (
 /obj/structure/table/steel,
 /obj/item/shovel/gadpathur,
-/obj/item/device/versebook/gadpathur,
+/obj/item/versebook/gadpathur,
 /obj/machinery/light{
 	dir = 4;
 	icon_state = "tube_empty"
@@ -5043,20 +5048,20 @@
 /obj/item/flag/fisanduh,
 /obj/item/clothing/head/ushanka/dominia,
 /obj/item/clothing/suit/storage/toggle/dominia/bomber,
-/obj/item/device/flashlight/maglight,
-/obj/item/device/flashlight/maglight,
-/obj/item/device/flashlight/maglight,
-/obj/item/device/flashlight/maglight,
-/obj/item/device/flashlight/maglight,
-/obj/item/device/flashlight/maglight,
+/obj/item/flashlight/maglight,
+/obj/item/flashlight/maglight,
+/obj/item/flashlight/maglight,
+/obj/item/flashlight/maglight,
+/obj/item/flashlight/maglight,
+/obj/item/flashlight/maglight,
 /obj/item/clothing/accessory/storage/black_vest,
 /obj/item/clothing/accessory/storage/black_vest,
 /obj/item/clothing/accessory/storage/pouches/brown,
 /obj/item/clothing/accessory/storage/pouches/colour,
-/obj/item/clothing/under/pants/camo,
-/obj/item/clothing/under/pants/camo,
-/obj/item/clothing/under/pants/camo,
-/obj/item/clothing/under/pants/camo,
+/obj/item/clothing/pants/camo,
+/obj/item/clothing/pants/camo,
+/obj/item/clothing/pants/camo,
+/obj/item/clothing/pants/camo,
 /obj/item/clothing/under/syndicate/tracksuit,
 /obj/item/clothing/under/syndicate/tracksuit,
 /obj/item/clothing/gloves/black_leather/unathi,
@@ -5151,7 +5156,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/crew)
 "twl" = (
-/obj/machinery/computer/ship/helm,
+/obj/machinery/computer/ship/helm{
+	req_one_access = list(221,222)
+	},
 /turf/simulated/floor/tiled/full,
 /area/shuttle/ranger_shuttle)
 "tAd" = (
@@ -5375,9 +5382,9 @@
 /obj/item/ammo_magazine/c762,
 /obj/item/ammo_magazine/c762,
 /obj/item/gun/projectile/shotgun/pump,
-/obj/item/storage/box/shotgunshells,
-/obj/item/storage/box/flashshells,
-/obj/item/storage/box/beanbags,
+/obj/item/storage/box/shells/buckshot,
+/obj/item/storage/box/shells/flashshells,
+/obj/item/storage/box/shells/beanbags,
 /obj/item/gun/projectile/automatic/tommygun,
 /obj/item/ammo_magazine/submachinemag,
 /obj/item/ammo_magazine/submachinemag,
@@ -6058,7 +6065,8 @@
 "wmN" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/machinery/computer/ship/targeting{
-	dir = 1
+	dir = 1;
+	req_one_access = list(221,222)
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ranger_corvette/bridge)

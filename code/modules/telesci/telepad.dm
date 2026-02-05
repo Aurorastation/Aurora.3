@@ -18,7 +18,14 @@
 		/obj/item/stack/cable_coil{amount = 1}
 	)
 
+	parts_power_mgmt = FALSE
+
+/obj/machinery/telepad/upgrade_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Upgraded <b>capacitors</b> will improve the power efficiency of the telepad."
+
 /obj/machinery/telepad/RefreshParts()
+	..()
 	var/E
 	for(var/obj/item/stock_parts/capacitor/C in component_parts)
 		E += C.rating
@@ -29,12 +36,12 @@
 		return
 
 	if(panel_open)
-		if(attacking_item.ismultitool())
-			var/obj/item/device/multitool/M = attacking_item
+		if(attacking_item.tool_behaviour == TOOL_MULTITOOL)
+			var/obj/item/multitool/M = attacking_item
 			M.buffer = src
 			to_chat(user, "<span class='caution'>You save the data in the [attacking_item.name]'s buffer.</span>")
 	else
-		if(attacking_item.ismultitool())
+		if(attacking_item.tool_behaviour == TOOL_MULTITOOL)
 			to_chat(user, "<span class='caution'>You should open [src]'s maintenance panel first.</span>")
 
 	default_deconstruction_crowbar(user, attacking_item)
@@ -59,7 +66,7 @@
 	var/stage = 0
 
 /obj/machinery/telepad_cargo/attackby(obj/item/attacking_item, mob/user, params)
-	if(attacking_item.iswrench())
+	if(attacking_item.tool_behaviour == TOOL_WRENCH)
 		anchored = 0
 		attacking_item.play_tool_sound(get_turf(src), 50)
 		if(anchored)
@@ -68,7 +75,7 @@
 		else if(!anchored)
 			anchored = 1
 			to_chat(user, "<span class='caution'>\The [src] is now secured.</span>")
-	if(attacking_item.isscrewdriver())
+	if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 		if(stage == 0)
 			attacking_item.play_tool_sound(get_turf(src), 50)
 			to_chat(user, "<span class='caution'>You unscrew the telepad's tracking beacon.</span>")
@@ -77,7 +84,7 @@
 			attacking_item.play_tool_sound(get_turf(src), 50)
 			to_chat(user, "<span class='caution'>You screw in the telepad's tracking beacon.</span>")
 			stage = 0
-	if(attacking_item.iswelder() && stage == 1)
+	if(attacking_item.tool_behaviour == TOOL_WELDER && stage == 1)
 		playsound(src, 'sound/items/Welder.ogg', 50, 1)
 		to_chat(user, "<span class='caution'>You disassemble the telepad.</span>")
 		new /obj/item/stack/material/steel(get_turf(src))
@@ -85,15 +92,16 @@
 		qdel(src)
 
 ///TELEPAD CALLER///
-/obj/item/device/telepad_beacon
+/obj/item/telepad_beacon
 	name = "telepad beacon"
 	desc = "Use to warp in a cargo telepad."
 	icon = 'icons/obj/radio.dmi'
 	icon_state = "beacon"
 	item_state = "signaler"
+
 	origin_tech = list(TECH_BLUESPACE = 3)
 
-/obj/item/device/telepad_beacon/attack_self(mob/user)
+/obj/item/telepad_beacon/attack_self(mob/user)
 	if(user)
 		to_chat(user, "<span class='caution'>Locked In</span>")
 		new /obj/machinery/telepad_cargo(user.loc)
@@ -121,8 +129,8 @@
 	var/emagged = 0
 	var/teleporting = 0
 
-/obj/item/rcs/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
+/obj/item/rcs/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
 	. += "There are [rcharges] charge\s left."
 
 /obj/item/rcs/process()

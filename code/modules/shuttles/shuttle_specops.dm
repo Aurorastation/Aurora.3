@@ -4,14 +4,14 @@
 	req_access = list(ACCESS_CENT_SPECOPS)
 
 /obj/machinery/computer/shuttle_control/specops/attack_ai(user as mob)
-	to_chat(user, SPAN_WARNING("Access Denied."))
+	to_chat(user, SPAN_WARNING("Access denied."))
 	return 1
 
 /datum/shuttle/autodock/ferry/specops
 	var/specops_return_delay = 6000		//After moving, the amount of time that must pass before the shuttle may move again
 	var/specops_countdown_time = 600	//Length of the countdown when moving the shuttle
 
-	var/obj/item/device/radio/intercom/announcer
+	var/obj/item/radio/intercom/announcer
 	var/reset_time = 0	//the world.time at which the shuttle will be ready to move again.
 	var/launch_prep = 0
 	var/cancel_countdown = 0
@@ -19,7 +19,7 @@
 
 /datum/shuttle/autodock/ferry/specops/New()
 	..()
-	announcer = new /obj/item/device/radio/intercom(null)//We need a fake AI to announce some stuff below. Otherwise it will be wonky.
+	announcer = new /obj/item/radio/intercom(null)//We need a fake AI to announce some stuff below. Otherwise it will be wonky.
 	announcer.config(list("Response Team" = 0))
 
 /datum/shuttle/autodock/ferry/specops/proc/radio_announce(var/message)

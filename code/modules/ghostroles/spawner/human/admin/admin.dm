@@ -177,7 +177,7 @@
 	if(start_location.landmark_tag != "nav_emergency_start")
 		return TRUE
 
-	if(evacuation_controller.evacuation_type == TRANSFER_EMERGENCY)
+	if(GLOB.evacuation_controller.evacuation_type == TRANSFER_EMERGENCY)
 		if(get_security_level() != "green" )
 			var/datum/wifi/sender/door/wifi_sender = new("odin_arrivals_lockdown", SSghostroles)
 			wifi_sender.activate("close")

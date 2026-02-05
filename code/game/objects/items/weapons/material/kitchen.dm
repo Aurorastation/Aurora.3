@@ -24,6 +24,7 @@
 	var/list/bite_sizes = list(1,2,3,4,5)
 	use_material_name = FALSE
 	applies_material_colour = FALSE
+	default_material = MATERIAL_ALUMINIUM
 
 /obj/item/material/kitchen/utensil/Initialize(newloc, material_key)
 	. = ..()
@@ -76,8 +77,8 @@
 	return
 
 /obj/item/material/kitchen/utensil/verb/bite_size()
-	set name = "Change bite size"
-	set category = "Object"
+	set name = "Change Bite Size"
+	set category = "Object.Held"
 	set src in usr
 
 	var/nsize = tgui_input_list(usr, "Select the amount of reagents to pick up.", "Bite Size", bite_sizes, transfer_amt)
@@ -89,11 +90,19 @@
 	name = "fork"
 	desc = "It's a fork. Sure is pointy."
 	icon_state = "fork"
+	item_state = "fork"
 	sharp = TRUE
 	surgerysound = 'sound/items/surgery/hemostat.ogg'
 
+/obj/item/material/kitchen/utensil/fork/bamboo
+	icon_state = "plastic_fork"
+	default_material = MATERIAL_BAMBOO
+	use_material_name = TRUE
+	applies_material_colour = TRUE
+
 /obj/item/material/kitchen/utensil/fork/plastic
 	icon_state = "plastic_fork"
+	item_state = "fork"
 	default_material = MATERIAL_PLASTIC
 	use_material_name = TRUE
 	applies_material_colour = TRUE
@@ -102,9 +111,17 @@
 	name = "spork"
 	desc = "It's a spork. It's much like a fork, but much blunter."
 	icon_state = "spork"
+	item_state = "fork"
+
+/obj/item/material/kitchen/utensil/spork/bamboo
+	icon_state = "plastic_spork"
+	default_material = MATERIAL_BAMBOO
+	use_material_name = TRUE
+	applies_material_colour = TRUE
 
 /obj/item/material/kitchen/utensil/spork/plastic
 	icon_state = "plastic_spork"
+	item_state = "fork"
 	default_material = MATERIAL_PLASTIC
 	use_material_name = TRUE
 	applies_material_colour = TRUE
@@ -113,10 +130,18 @@
 	name = "chopsticks"
 	desc = "A pair of chopsticks. An extension of one's fingers, one might say."
 	icon_state = "chopsticks"
+	item_state = "chopsticks"
 
 /obj/item/material/kitchen/utensil/fork/chopsticks/bamboo
 	icon_state = "plastic_chopsticks"
+	item_state = "chopsticks"
 	default_material = MATERIAL_BAMBOO
+	use_material_name = TRUE
+	applies_material_colour = TRUE
+
+/obj/item/material/kitchen/utensil/fork/chopsticks/plastic
+	icon_state = "plastic_chopsticks"
+	default_material = MATERIAL_PLASTIC
 	use_material_name = TRUE
 	applies_material_colour = TRUE
 
@@ -124,11 +149,19 @@
 	name = "spoon"
 	desc = "It's a spoon. You can see your own upside-down face in it."
 	icon_state = "spoon"
+	item_state = "spoon"
 	attack_verb = list("attacked", "poked")
 	force_divisor = 0.1 //2 when wielded with weight 20 (steel)
 
+/obj/item/material/kitchen/utensil/spoon/bamboo
+	icon_state = "plastic_spoon"
+	default_material = MATERIAL_BAMBOO
+	use_material_name = TRUE
+	applies_material_colour = TRUE
+
 /obj/item/material/kitchen/utensil/spoon/plastic
 	icon_state = "plastic_spoon"
+	item_state = "spoon"
 	default_material = MATERIAL_PLASTIC
 	use_material_name = TRUE
 	applies_material_colour = TRUE
@@ -140,6 +173,7 @@
 	name = "knife"
 	desc = "A knife for eating with. Can cut through any food."
 	icon_state = "knife"
+	item_state = "knife"
 	force_divisor = 0.1 // 6 when wielded with hardness 60 (steel)
 	scoop_food = FALSE
 	sharp = TRUE
@@ -163,8 +197,15 @@
 		return
 	return ..()
 
+/obj/item/material/kitchen/utensil/knife/bamboo
+	icon_state = "plastic_knife"
+	default_material = MATERIAL_BAMBOO
+	use_material_name = TRUE
+	applies_material_colour = TRUE
+
 /obj/item/material/kitchen/utensil/knife/plastic
 	icon_state = "plastic_knife"
+	item_state = "knife"
 	default_material = MATERIAL_PLASTIC
 	use_material_name = TRUE
 	applies_material_colour = TRUE
@@ -177,6 +218,7 @@
 	name = "rolling pin"
 	desc = "Used to knock out the Bartender."
 	icon_state = "rolling_pin"
+	item_state = "rolling_pin"
 	attack_verb = list("bashed", "battered", "bludgeoned", "thrashed", "whacked")
 	default_material = "wood"
 	force_divisor = 0.7 // 10 when wielded with weight 15 (wood)

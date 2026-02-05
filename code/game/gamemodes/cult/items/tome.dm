@@ -1,6 +1,5 @@
 /obj/item/book/tome
 	name = "arcane tome"
-	desc_antag = null // It's already been forged once.
 	icon_state = "tome"
 	item_state = "tome"
 	throw_speed = 1
@@ -9,9 +8,15 @@
 	unique = TRUE
 	slot_flags = SLOT_BELT
 
+/obj/item/book/tome/antagonist_hints(mob/user, distance, is_adjacent)
+	. = list()
+	. = ..()
+	. += "The scriptures of Nar-Sie, The One Who Sees, The Geometer of Blood. Contains the details of every ritual his followers could think of. Most of these are useless, though."
+	. += SPAN_WARNING("\[?\] This tome contains arcane knowledge of the Geometer's runes. <a href='byond://?src=[REF(src)];read_tome=1>\[Read Tome\]</a>")
+
 /obj/item/book/tome/attack(mob/living/target_mob, mob/living/user, target_zone)
 	if(isobserver(target_mob))
-		var/mob/abstract/observer/D = target_mob
+		var/mob/abstract/ghost/observer/D = target_mob
 		D.manifest(user)
 		attack_admins(D, user)
 		return
@@ -34,7 +39,7 @@
 /obj/item/book/tome/proc/attack_admins(var/mob/living/target_mob, var/mob/living/user)
 	target_mob.attack_log += "\[[time_stamp()]\] <font color='orange'>Has had the [name] used on them by [user.name] ([user.ckey])</font>"
 	user.attack_log += "\[[time_stamp()]\] <span class='warning'>Used [name] on [target_mob.name] ([target_mob.ckey])</span>"
-	msg_admin_attack("[key_name_admin(user)] used [name] on [target_mob.name] ([target_mob.ckey]) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(target_mob))
+	msg_admin_attack("[key_name_admin(user)] used [name] on [target_mob.name] ([target_mob.ckey]) (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(target_mob))
 
 
 /obj/item/book/tome/afterattack(atom/target, mob/user, proximity_flag, click_parameters)
@@ -95,14 +100,6 @@
 
 	if(do_after(scribe, 3 SECONDS))
 		create_rune(scribe, chosen_rune, target_turf)
-
-/obj/item/book/tome/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if(iscultist(user) || isobserver(user))
-		. += "The scriptures of Nar-Sie, The One Who Sees, The Geometer of Blood. Contains the details of every ritual his followers could think of. Most of these are useless, though."
-		. += SPAN_WARNING("\[?\] This tome contains arcane knowledge of the Geometer's runes. <a href=?src=[REF(src)];read_tome=1>\[Read Tome\]</a>")
-	else
-		. += "An old, dusty tome with frayed edges and a sinister looking cover."
 
 /obj/item/book/tome/Topic(href, href_list)
 	if(href_list["read_tome"])

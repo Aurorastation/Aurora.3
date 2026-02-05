@@ -13,12 +13,12 @@
 /turf/unsimulated/mineral/konyang
 	color = "#514e5c"
 
-// This is a global list so we can share the same list with all mineral turfs; it's the same for all of them anyways.
-var/list/mineral_can_smooth_with = list(
+/// This is a global list so we can share the same list with all mineral turfs; it's the same for all of them anyways.
+GLOBAL_LIST_INIT(mineral_can_smooth_with, list(
 	/turf/simulated/mineral,
 	/turf/simulated/wall,
 	/turf/unsimulated/wall
-)
+))
 
 /turf/simulated/mineral
 	name = "rock"
@@ -76,23 +76,29 @@ var/list/mineral_can_smooth_with = list(
 	if(is_station_level(z))
 		GLOB.station_turfs += src
 
-	if(dynamic_lighting)
-		luminosity = 0
-	else
-		luminosity = 1
+	if (light_range && light_power)
+		update_light()
 
-	has_opaque_atom = TRUE
+	//Get area light
+	var/area/current_area = loc
+	if(current_area?.lighting_effect)
+		overlays += current_area.lighting_effect
+
+	if(opacity)
+		directional_opacity = ALL_CARDINALS
 
 	if(smoothing_flags)
-		canSmoothWith = mineral_can_smooth_with
+		canSmoothWith = GLOB.mineral_can_smooth_with
 
 	rock_health = rand(10,20)
 
 	var/area/A = loc
 
-	if(!baseturf)
+	if(A.base_turf)
+		baseturf = A.base_turf
+	else if(!baseturf)
 		// Hard-coding this for performance reasons.
-		baseturf = A.base_turf || SSatlas.current_map.base_turf_by_z["[z]"] || /turf/space
+		baseturf = SSatlas.current_map.base_turf_by_z["[z]"] || /turf/space
 
 	return INITIALIZE_HINT_NORMAL
 
@@ -208,12 +214,16 @@ var/list/mineral_can_smooth_with = list(
 	if(is_station_level(z))
 		GLOB.station_turfs += src
 
-	if(dynamic_lighting)
-		luminosity = 0
-	else
-		luminosity = 1
+	if (light_range && light_power)
+		update_light()
 
-	has_opaque_atom = TRUE
+	//Get area light
+	var/area/current_area = loc
+	if(current_area?.lighting_effect)
+		overlays += current_area.lighting_effect
+
+	if(opacity)
+		directional_opacity = ALL_CARDINALS
 
 	if(smoothing_flags)
 		canSmoothWith = asteroid_can_smooth_with
@@ -253,18 +263,18 @@ var/list/mineral_can_smooth_with = list(
 		to_chat(user, SPAN_WARNING("You don't have the dexterity to do this!"))
 		return
 
-	if(istype(attacking_item, /obj/item/device/core_sampler))
-		var/obj/item/device/core_sampler/C = attacking_item
+	if(istype(attacking_item, /obj/item/core_sampler))
+		var/obj/item/core_sampler/C = attacking_item
 		C.sample_item(src, user)
 		return
 
-	if(istype(attacking_item, /obj/item/device/depth_scanner))
-		var/obj/item/device/depth_scanner/C = attacking_item
+	if(istype(attacking_item, /obj/item/depth_scanner))
+		var/obj/item/depth_scanner/C = attacking_item
 		C.scan_atom(user, src)
 		return
 
-	if(istype(attacking_item, /obj/item/device/measuring_tape))
-		var/obj/item/device/measuring_tape/P = attacking_item
+	if(istype(attacking_item, /obj/item/measuring_tape))
+		var/obj/item/measuring_tape/P = attacking_item
 		user.visible_message(SPAN_NOTICE("\The [user] extends \the [P] towards \the [src].") , SPAN_NOTICE("You extend \the [P] towards \the [src]."))
 		if(do_after(user,25))
 			if(!istype(src, /turf/simulated/mineral))
@@ -693,7 +703,7 @@ var/list/mineral_can_smooth_with = list(
 
 /turf/simulated/mineral/crystal
 	color = "#6fb1b5"
-	mined_turf = /turf/simulated/floor/exoplanet/basalt
+	mined_turf = /turf/simulated/floor/exoplanet/basalt/crystal
 
 /turf/simulated/mineral/lava
 	color = "#444444"
@@ -722,18 +732,19 @@ var/list/mineral_can_smooth_with = list(
 	var/dug = 0 //Increments by 1 everytime it's dug. 11 is the last integer that should ever be here.
 	var/digging
 	has_resources = 1
-	footstep_sound = /singleton/sound_category/asteroid_footstep
+	footstep_sound = SFX_FOOTSTEP_ASTEROID
+	does_footprint = TRUE
 
 	roof_type = null
 	turf_flags = TURF_FLAG_BACKGROUND
 
-// Same as the other, this is a global so we don't have a lot of pointless lists floating around.
-// Basalt is explicitly omitted so ash will spill onto basalt turfs.
-var/list/asteroid_floor_smooth = list(
+/// Same as the other, this is a global so we don't have a lot of pointless lists floating around.
+/// Basalt is explicitly omitted so ash will spill onto basalt turfs.
+GLOBAL_LIST_INIT(asteroid_floor_smooth, list(
 	/turf/simulated/floor/exoplanet/asteroid/ash,
 	/turf/simulated/mineral,
 	/turf/simulated/wall
-)
+))
 
 // Copypaste parent for performance.
 /turf/simulated/floor/exoplanet/asteroid/Initialize(mapload)
@@ -750,21 +761,19 @@ var/list/asteroid_floor_smooth = list(
 	if(is_station_level(z))
 		GLOB.station_turfs += src
 
-	if(dynamic_lighting)
-		luminosity = 0
-	else
-		luminosity = 1
-
-	if(mapload && permit_ao)
-		queue_ao()
-
 	if(smoothing_flags)
-		canSmoothWith = asteroid_floor_smooth
-		pixel_x = -4
-		pixel_y = -4
+		canSmoothWith = GLOB.asteroid_floor_smooth
+		var/matrix/M = new
+		M.Translate(-4, -4)
+		transform = M
 
 	if(light_range && light_power)
 		update_light()
+
+	//Get area light
+	var/area/current_area = loc
+	if(current_area?.lighting_effect)
+		overlays += current_area.lighting_effect
 
 	return INITIALIZE_HINT_NORMAL
 
@@ -923,7 +932,7 @@ var/list/asteroid_floor_smooth = list(
 	return
 
 /turf/simulated/floor/exoplanet/asteroid/proc/gets_dug(mob/user)
-	AddOverlays("asteroid_dug", TRUE)
+	AddOverlays("asteroid_dug")
 
 	if(prob(75))
 		new /obj/item/ore/glass(src)
@@ -977,7 +986,7 @@ var/list/asteroid_floor_smooth = list(
 
 	if(dug <= 10)
 		dug += 1
-		AddOverlays("asteroid_dug", TRUE)
+		AddOverlays("asteroid_dug")
 	else
 		var/turf/below = GET_TURF_BELOW(src)
 		if(below)

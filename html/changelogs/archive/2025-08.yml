@@ -1,0 +1,503 @@
+2025-08-02:
+  Batrachophrenoboocosmomachia:
+  - code_imp: Updated alarms to use parent 'panel_open' var instead of child 'wiresexposed'
+      var.
+  - code_imp: Filled missing area metadata for a few cases, corrected engi SM SMES
+      area parentage.
+  - qol: Refactored Atmos control app to use grid-based UI using new area metadata.
+  - bugfix: Atmos control app search no longer crashes on init (no defined search
+      term given).
+  - bugfix: Atmos control app search field now returns correct/full results based
+      on area name, deck, and department.
+  - bugfix: Removed several manually defined air alarm 'name' fields from map.
+  - bugfix: Fixed swapped ops and aux hangar descriptions.
+  - qol: More area metadata cleanup and more replacements of area.name with area display
+      names for clarity.
+  Ben10083:
+  - rscadd: Adds S'rendmarr and Ma'ta'ke versebooks to Tajaran loadout.
+  - qol: S'rendmarr and Ma'ta'ke chaplains now spawn with their respective versebook.
+  CometBlaze:
+  - rscadd: Added a colorable exo-stellar skeletons offworlders can pick in the loadout.
+  TheGreyWolf, Noble Row:
+  - rscadd: Added an alternative to the security belt, the security chestrig, to the
+      warden, HoS and sec officer's lockers as well as the loadout.
+  notagonk:
+  - rscadd: Remaps the Hailstorm Ship.
+2025-08-03:
+  Batrachophrenoboocosmomachia:
+  - code_imp: Added support for reagent/mental to return different feedback text strings
+      based on species.
+  - bugfix: Koko Reed Juice now only returns drug feedback messages to Unathi.
+  CourierBravo:
+  - bugfix: Added vehiclefiller for the cars in the warehouse submap, so you can't
+      walk through them anymore.
+  hazelmouse:
+  - rscadd: Botany mechanics have been substantially overhauled to hinge much more
+      substantially on light and temperature levels to determine the viability of
+      a crop. Mushrooms require slightly cooler temperatures, tropical fruit require
+      slightly higher temperatures, and so on. Moghresian and Adhomian crops in particular
+      will not grow at room temperature at all, and require a botanist to get them
+      to their ideal conditions.
+  - rscadd: Hydroponics and Xenobotany have been remapped with additional atmospheric
+      equipment to match the new mechanical changes.
+  - bugfix: Hydroponics trays no longer lack density.
+  - bugfix: You can now see the nutrient and water levels of a hydroponics tray when
+      there is no seed planted inside it.
+  - rscadd: More descriptive examine text has been added to a lot of hydroponics items
+      and equipment, particularly everything to do with beekeeping, to help elucidate
+      their mechanics a little.
+  - rscadd: Seed packets now show their ideal ranges of heat and light!
+  - rscadd: Heat tolerances for plants are now tighter, down from 20K to 12K of tolerance
+      from their ideal heat.
+  - rscadd: Growing a plant at a temperature or light outside of its tolerances now
+      stunts the harvest, reducing its yield by half for that harvest.
+  - rscadd: Due to the inaccessibility of certain crops to the public garden, the
+      chef now has a number of alien produce boxes in their kitchen. You should still
+      be able to prepare Skrellian, Unathi, or Tajaran meals without a hydroponicist.
+  - rscadd: The xenobotanist now spawns with three random seeds inside their laboratory,
+      so you don't invariably need to order these from operations at roundstart.
+2025-08-04:
+  Batrachophrenoboocosmomachia:
+  - bugfix: Fixes Hardsuit Module Press duplication bug.
+  - balance: Added Xenobiology and Xenobotany to the job roles allowed to pilot shuttles.
+  - balance: Added Xenobiology and Xenobotany to the job roles allowed to access the
+      Pilot Room.
+  - refactor: Added defined ACCESS_* roles for the Spark, Quark, and Canary to make
+      them easier to manage in future (only need to update shuttle access rights from
+      job access lists).
+  - code_imp: Created new prefab APCs and Air Alarms for the different shuttles to
+      make it easier to build (no more manually overriding access_req on default objs).
+  - bugfix: Loadout laptop hard drives again initialize with default software.
+  - qol: Attempt to improve reliability of Atmos Control app gathering ALL air alarms.
+  - rscadd: Added 'refresh' button to Atmos Control app as an in-game fallback to
+      manually repopulate the list.
+  - code_imp: Updated several files related to modular computers and software to use
+      dmdocs.
+  Hellfirejag:
+  - soundadd: Added 'medium', 'heavy', and 'chonk' alternate sounds for hardsuits.
+      Many pre-existing hardsuits now use heavier sounds depending on type.
+  MattAtlas:
+  - rscadd: Ported wall leaning from CM. Click-drag your sprite to a wall to lean
+      on it.
+  hazelmouse:
+  - bugfix: Removes an erroenously mapped water tank in hydroponics.
+  kermit:
+  - rscadd: Adds a Europa music cartridge and tracks to go with it.
+  - bugfix: Fixes the 'Spacer Classics' music cartridge loadout selection not working.
+  - qol: Reduces volume of most recently added music tracks.
+2025-08-05:
+  Batrachophrenoboocosmomachia:
+  - bugfix: Remove reagent feedback message spam by correcting delay time (debug value).
+  Hellfirejag:
+  - refactor: Gently refactored organ code in preparation for Galatean BioAugs.
+  - rscadd: Added Auxiliary Heart as a new loadout implant available to Galateans
+  - rscadd: Added Platelet Factories and Subdermal Carapace as new loadout implants
+      available only to Galatean Consulars.
+  - rscadd: Auxiliary Heart, Mind Blankers (both types), Platelet Factories, and Subdermal
+      Carapace are now available to antagonists via their uplink.
+  Wowzewow (Wezzy):
+  - rscadd: Readds microwaves. They've got most of their old recipes, give or take.
+      They've been remapped in where appropriate.
+  - imageadd: Resprites the small oven.
+2025-08-06:
+  Batrachophrenoboocosmomachia:
+  - bugfix: Fixed obj path name for Spark APC.
+  - bugfix: Updated magazine area assignments to include turret controller obj.
+  ChangeMe:
+  - rscadd: Offworlder slowdown is now removed by all hardsuits instead of just the
+      exostellar skeleton.
+  CometBlaze:
+  - rscadd: Exo-stellar skeletons now come with a storage module by default.
+2025-08-07:
+  Batrachophrenoboocosmomachia:
+  - rscadd: Grants Odyssey Storytellers access to 22 different moderator/admin/debug
+      commands to make their lives easier.
+  ElorgRHG:
+  - rscadd: Added colorable versions of some Tajara cloaks to the loadout.
+  - rscadd: Added colorable versions of Tajara fur scarf to the loadout.
+  Hellfirejag:
+  - rscadd: Added missing recipes for mounted Teargas and Smoke grenade launchers
+      to the mechatronic fabricator.
+  - rscadd: Added the falcata exoskeleton as a new low-tier 'combat hardsuit' for
+      machinists to make.
+  MattAtlas:
+  - bugfix: Wall leaning now properly updates mob density, meaning that you can walk
+      through tiles where there are people leaning on walls.
+  - bugfix: Medical items like bandages and ATKs can no longer be used on robotic
+      limbs.
+  - bugfix: Look Up will now follow the user around until they go under a solid tile.
+  - bugfix: TGUI Say Light Mode preference will now actually save.
+  - experiment: Increased the lobby roundstart time.
+  Wowzewow (Wezzy):
+  - bugfix: Hopefully fixes Schlorrgos from breaking unit tests.
+  hazelmouse:
+  - rscadd: Renames cyborg recharging stations to synthetic recharging stations.
+2025-08-08:
+  ElorgRHG:
+  - bugfix: Fixes tajaran earrings not displaying properly.
+  Hellfirejag:
+  - bugfix: Fixed augments failing to spawn.
+  - rscadd: Added mechanics examine text for mech modules. Uniquely, examining a mech
+      lets you see the mechanics of its equipped modules.
+  - rscadd: Mech ore summoners can now be linked to warp extraction ore boxes.
+  - refactor: Removed all lag-inducing hard deletes from mech code.
+  Wowzewow (Wezzy):
+  - bugfix: Fixes icecream cart icon2html.
+2025-08-09:
+  Kano:
+  - bugfix: Fixed shuttles not being able to dock with Horizon's docking arms.
+2025-08-10:
+  AlaunusLux:
+  - bugfix: '''Weakened'' hivebot beacons will no longer be summoned by golden slime
+      extracts.'
+  Batrachophrenoboocosmomachia:
+  - code_imp: Unit test added for debugging flag on away sites.
+  - code_imp: DMdocs comment/documentation conversion progress.
+  Ben10083:
+  - bugfix: AI core display change verb fixed.
+  - code_imp: Improvements to ai.dm, mostly documentation.
+  Hellfirejag:
+  - balance: Changed the falcata to give a slight slowdown even when powered, instead
+      of unintentionally speeding up the user. Its still less encumbering than heavy
+      armor.
+  - rscadd: Added missing recipes needed to make a falcata exoskeleton.
+  Kano:
+  - qol: Tweaked cargo package spawning logic for the hidden off-ships. It'll now
+      be available after the ship is visible on overmap.
+  - rscadd: Added an engineering cart. Its sprites are ported from Paradise Station.
+2025-08-11:
+  Batrachophrenoboocosmomachia:
+  - balance: Double SM maximum damage rate.
+  - qol: Reduced maximum delamination sound volume from 100 to 75.
+  - rscadd: Added colorable scrubs and scrubs selection to the allowed loadout items
+      list for Medical Orderlies.
+  - bugfix: Simple mobs no longer allowed to move at hyper-speed when chasing targets.
+  - bugfix: Objects thrown onto Open Space turfs should more reliably drop down remaining
+      Z-level (if there is gravity).
+  - bugfix: Area adjustments to fix D3 bunker turret controls.
+  - bugfix: Fixed naming convention for scuttling device compartment.
+  - bugfix: Replaced parent stairwell area with correct child.
+  - bugfix: Replaces misleading AI shell exosuit charger with synthetic recharger.
+  - qol: Replaces the Engi break room stripped-down soda dispenser with stripped-down
+      coffee dispenser.
+  - qol: APCs in the Power Monitor app now listed in alphabetical order.
+  - code_imp: es-toolkit 1.39.3 added to TGUI dependencies for sorting funcs.
+  - rscadd: Added 13 new 'Drobe' vending machines, containing stock for associated
+      departments/jobs, throughout the ship.
+  - rscdel: Removed old wardrobe lockers where a Drobe machine existed to replace
+      them.
+  - rscadd: Updated all Vending machine product ads, made them display at random on
+      the purchase screen.
+  - code_imp: Split vending machine prefab code for readability, added documentation.
+  - bugfix: Added floor 'hatch' markings to existing SCCV Horizon vending machines
+      that were missing them.
+  Ben10083:
+  - experiment: Greimorian bombardiers now shoot an acid instead of capsaicin.
+  - balance: Schlorrgos now have a max amount of eggs they will produce before they
+      stop, to help prevent singularity.
+  - balance: Schlorrgos egg making chance reduced.
+  ChangeMe:
+  - code_imp: Added support for reagent/mental to return different feedback text strings
+      based on species.
+  - bugfix: Koko Reed Juice now only returns drug feedback messages to Unathi.
+  CometBlaze:
+  - rscadd: Updated the shirt and polo selection to the new palette and tweaked the
+      sprites a little.
+  - rscdel: Removed the generic polo selection as its superseded by the colourable
+      polos.
+  ElorgRHG:
+  - imageadd: Resprited the tajara laborer, al'mariist laborer clothes, the PRA medical
+      coat and the naval coat.
+  Geeves:
+  - bugfix: Ported an alt-click statpanel fix.
+  MattAtlas:
+  - rscadd: IVs now have a visible beam leading to their attached patient.
+  Wowzewow (Wezzy):
+  - imageadd: Updates stack inhand sprites, makes them use contained sprites, and
+      touches up the tile sprites to be more accurate.
+  meep109:
+  - bugfix: Fixes Himean patrol ship APC accceses
+  nauticall:
+  - imageadd: Resprited vents, scrubbers, and the disposal system sprites to be sleeker/more
+      industrial/less dated.
+2025-08-12:
+  Batrachophrenoboocosmomachia:
+  - qol: Verb organization improvements.
+  CatsinHD:
+  - rscadd: Added uniforms for Security and Medical roles for Kazarrhaldiye Operations
+      Group.
+  - rscadd: Added jackets for Security Officers, Wardens, Heads of Security, and Medical
+      roles for Kazarrhaldiye Operations Group.
+  - rscadd: Added shoulder tabs for PRA, DPRA/ALA, and NKA members of Kazarrhaldiye
+      Operations Group.
+  TheGreyWolf:
+  - rscadd: The security belt in the investigator locker now starts with some of their
+      equipment already in it.
+  - rscadd: The security belt can now hold notepads.
+  notagonk:
+  - rscadd: Allows Human Offworlders to play as Heads of Security.
+2025-08-13:
+  Ben10083:
+  - bugfix: Tajara, Unathi and other mobs with animated parts should now be properly
+      shown in records and other UI.
+  - qol: Orion Express station now has stationary gps units and are linked to each
+      other.
+  - balance: Orion Express station engine airlocks now have access requirements
+  Geeves:
+  - bugfix: Fixes Falcata sprite handling and emissives.
+  - bugfix: Fixes telescience portals not working correctly, causing an infinite loop.
+  MattAtlas:
+  - rscdel: 'Removed attack animations from health scanners, breath analyzers, '
+  Snowy1237:
+  - rscadd: Adds the loadout hoplan clothing to diplomatic bodyguards.
+2025-08-14:
+  Batrachophrenoboocosmomachia:
+  - bugfix: Update move-down hotkey defs missed after verb renamed to Move-Downwards.
+  Ben10083:
+  - qol: Headmaster ship now has GPS network.
+  - qol: Additional access requirements added to certain Headmaster equipment, such
+      as airlocks
+2025-08-15:
+  Batrachophrenoboocosmomachia:
+  - bugfix: Space heater gets env data on init for safety, to avoid TGUI edge case
+      crash from attempting to round a null value.
+  Maxspells:
+  - bugfix: Fixed alcohol not making you drunk.
+2025-08-16:
+  AlaunusLux:
+  - balance: Adds an overlay to reduce vision while in a trash pile or closed locker.
+  - bugfix: Fixed vision not updating when using closet teleporters.
+  - bugfix: Fixed closet density and closet closing sound being lost while closets
+      with teleporters were on cooldown.
+  Batrachophrenoboocosmomachia:
+  - qol: Unifies headsets of Xenoarchaeology, Xenobiology, and Xenobotany in 'Xenology
+      Headsets' so they all share appropriate hailing access.
+  Ben10083:
+  - bugfix: Adds missing access checks for airlock equipment.
+  - spellcheck: Fixes improper capitalization with 'Access denied' messages.
+  ChangeMe:
+  - rscadd: Adds GPS units to Himean Patrol Ship.
+  - rscadd: Slight remap of Himean Patrol Ship shuttle to provide exterior vents.
+  - qol: Access requirements added to airlocks for Himean Patrol Ship.
+  - qol: Adds proper access requirements to Himean Patrol Ship fireshutters and other
+      equipment.
+  CourierBravo:
+  - imageadd: Added a new title screen to the IPC title screen rotation, depicting
+      Hazel IPCs
+  Hellfirejag:
+  - balance: Many mech recipes now require new materials such as Aluminium or Lead,
+      and have had their build time tripled. Hoverthrusters of both kinds now require
+      rare materials.
+  - balance: Light hoverthrusters are somewhat less fragile (from 45 to 75 health),
+      while their power consumption has been significantly increased. Heavy hoverthrusters
+      also now draw more power.
+  - balance: Most hardsuits now require new materials such as Aluminium or Lead.
+  - balance: To help encourage more experimenting with mech parts, quad-legged mechs
+      no longer require research to build.
+  Kano:
+  - qol: Floor plaques can now be examined and interacted such as signs.
+  SimpleMaroon:
+  - rscdel: Removed the blurbs relating to the Orepit origins for both humans and
+      IPCs due to lore developments.
+  UltraBigRat:
+  - rscadd: Lowers higher than usual prices of NT, Imperial army and TCAF gearloadouts.
+  meep109:
+  - bugfix: Minor fixes and tweaks to the COC surveyor ship and shuttle.
+  nauticall:
+  - spellcheck: Renamed the NTCC Odin's AI from 'Bubble' to 'Huginn' to comply with
+      recent lore changes.
+2025-08-17:
+  FabianK3:
+  - rscadd: Added subsystem for persistent data between rounds. The framework includes
+      the subsystem responsible for managing persistent data and provides functionality
+      for objects to be added to said system. See PR and GitHub Wiki documentation
+      for more technical details.
+  - config: Added new log type for the persistence subsystem.
+  - experiment: Added papers and noticeboards to the persistence subsystem. Papers
+      and their contents (title and text) will now be persistent across rounds when
+      they get pinned to noticeboards. They will loose persistence when they either
+      get unpinned during a round or after no changes within 30 days. Unpinning and
+      re-pinning will keep them persistent but not update the 30 days expiration date;
+      Unpinning, editing and re-pinning them will reset the 30 days expiration date.
+2025-08-18:
+  Kano:
+  - bugfix: Fixed mobs ignoring their speed value.
+  KingOfThePing:
+  - rscadd: Added a reminder header to the gun reload sounds .dm to remind people
+      that there are a variety of sounds available.
+  TheGreyWolf:
+  - rscadd: Raskariim can now pick between if their records show they follow the ma'ta'ke
+      or the twin suns religion. As a result, all raskariim will need to re-select
+      their religion.
+  - rscadd: A set of raskariim charms were added to the tajaran loadout. They can
+      be identified by any other tajara who selected raskariim as their religion.
+  UltraBigRat:
+  - rscadd: Gave all cult constructs armor, and increased their health.
+  hazelmouse:
+  - rscadd: Remapped medical by shuffling the positions of the psychiatric office,
+      paramedics' quarters, and recovery room. This is primarily intended to make
+      recovery a more appealing and visible spot.
+2025-08-23:
+  ASmallCuteCat:
+  - rscadd: Adds snakes to the game
+  - imageadd: Ports the snake sprites over from Baystation.
+  - qol: Swapped the pair of roller beds in the Intrepid's Medbay for a roller bed
+      holder that spawns with two beds.
+  - qol: Moved a handrail in the Intrepid's Medbay to a less cluttered part of the
+      area.
+  Batrachophrenoboocosmomachia:
+  - qol: 'Radstorm shielding added to the following areas: ResDeck lifts, changing
+      room, recovery ward, psych office, ALL washrooms, AI rooms, self-destruct room,
+      INDRA monitoring, SM monitoring, C-Goliath monitoring.'
+  - qol: In-game stairwell names clarified (I.E. the starboard-side stairwell updated
+      from 'Stairwell' to 'Starboard Stairwell', etc.)
+  - qol: Deck 1 recharging compartment renamed from 'Mech Bay' to 'Charge Bay'.
+  - rscadd: More areas given custom blurbs (cheers to Stripes for the Commissary blurb!)
+  CactusMouth:
+  - rscadd: Added the SIIB weapons alongside SIIB Outfits for Admins to use.
+  - imageadd: Adds SIIB Weapons based off standard Sol weapons. (SMG and Pistol)
+  - rscadd: 'Added new desert exoplanet ruin: Abandoned Solarian Relay Station'
+  ElorgRHG:
+  - imageadd: Resprited the sun priest robe, and the sun sister robe and veil.
+  Fyni:
+  - rscadd: Added the Zhurong accent, available to core world dominians.
+  KingOfThePing:
+  - soundadd: Added a variety of sounds for ballistic guns reloads. Includes rifles,
+      pistols, SMGs and racking shotguns.
+  - sounddel: 'Deleted rifle reload sound #3, because it was quite bad. It has been
+      replaced with a better sound.'
+  SimpleMaroon:
+  - rscadd: Added the Clockwork Stave, a Trinary Perfection variant of the null rod.
+  - qol: Renamed the 'Orepit' citizenship to 'Ecclesiarchy of Orepit', as well as
+      made a mention of the Ecclesiarchy in its description.
+  Snowy1237:
+  - qol: Overhauled the Bluespace Drive control UI to be generally nicer.
+  - rscadd: Added a navigation console to the Bluespace Drive chamber and added more
+      information to be displayed on the Bluespace Drive control UI.
+  TheGreyWolf:
+  - rscadd: Added breath analyzers to the warden and security officer lockers.
+  - rscadd: Security belts can now hold breath analyzers.
+  - rscadd: Added a gas mask to the investigator locker.
+  - rscdel: Removed the uniforms from the investigator locker, and the cap and beret
+      from the cadet locker, which can be found in the security drobe.
+  - bugfix: Paper bundles can now be read while next to them.
+  - bugfix: It is now possible to remove accessories on other people again.
+  UltraBigRat:
+  - balance: Changes berserk injector cost from 4 BC to 3 TC.
+  edomite-tricknology:
+  - qol: Removes reference to singularity in solar instructions and cleans up syntax/wording.
+2025-08-24:
+  KingOfThePing:
+  - imageadd: Added a few miscellaneous (direction) signs for general use on ships
+      and away sites.
+  Tomixcomics:
+  - rscadd: Added many new food dishes and ingredients (many of them pizzas).
+  - rscadd: Added some of the new ingredients to the Cargo order form.
+  - rscadd: Added 2 new drinks and a drink bottle for one of them.
+  - rscadd: Created new vending machine that sells microwave/instant foods.
+  - rscadd: Added shrimp to the required ingredients for North 60 squid.
+  - rscdel: Nerfed a few dishes that require cooking seafood or frying so that you
+      can no longer make them with the microwave (Before adding a bunch of new microwave
+      foods to make up for it).
+  - qol: Renamed empty Shakshouka pan to be something more generic so it can be used
+      for other dishes.
+  - qol: Adjusted the contents of Dyn Pozole so it doesn't take five years to finish
+      eating.
+  - code_imp: Defined a color for S'th berry juice.
+  - code_imp: Created new pages and files for microwave foods.
+2025-08-25:
+  Ben10083:
+  - qol: Various tweaks to People's Station such as GPS network.
+  Geeves:
+  - admin: Added a 'Create Portals' tool under the Admin tab, allowing admins to configure
+      one- or two-way portals easily.
+2025-08-26:
+  Geeves:
+  - rscadd: Added the option to set your view zoom in the OOC tab. Use this for screenshots
+      or cheating at melee fights.
+  MattAtlas:
+  - balance: Red Nightshade no longer totally negates all pain. It now applies a grace
+      period of 75 pain.
+  - balance: Red Nightshade no longer multiplies all melee damage by 1.25x. The multiplier
+      has been reduced to 1.1x.
+  - balance: Reduced Hulk melee damage modifier to 1.25x.
+  - balance: Binoculars have been severely nerfed in view offset.
+  - balance: Zeng-Hu and Aut'akh zoom augments have been nerfed to match.
+  - balance: Binoculars now have a 1.5 second windup.
+  SleepyGemmy:
+  - rscadd: Tweaked the security checkpoint on deck 1 by removing the lockdown "cage".
+  - rscadd: Added more evacuation route signs in the deck 1 hangars.
+  - rscadd: Added and tweaked some decals in the deck 1 hangar.
+  UltraBigRat:
+  - rscadd: Adds empty versions of most hardsuits to be buyable in the uplink.
+  - rscadd: Combat Actuator module to the uplink, slight price rebalances to uplink
+      modules.
+  - rscadd: Changed hardsuit modules section of the uplink, into Hardsuits and Modules.
+  - balance: Gave faction hardsuits to group gear loadouts that were missing them.
+  - balance: Solarian loadout hardsuit now gets modules like the others.
+2025-08-27:
+  ElorgRHG:
+  - imageadd: Resprited the unathi jizixi dress, and added a colorable version of
+      it.
+  - imageadd: Added a blank, unpatterned version of the unathi jizixi dress.
+  - rscdel: Removed the ability to change the colors of the jizixi dress due to a
+      colorable version now existing.
+  Greenjoe:
+  - bugfix: The Stargazer now has an icon for sectors without a specific one set.
+  nauticall:
+  - imageadd: Adds missing icon states for new scrubber and vent sprites.
+2025-08-29:
+  4000daniel1:
+  - rscadd: Added thermals and binoculars to the cultist spawn areas on the cult base
+      away site.
+  - rscadd: Also added more paper bins and pencils throughout the site.
+  CatsinHD:
+  - bugfix: Vertical ID cards no longer turn sideways in storage.
+  - bugfix: Fixes firing pins not turning vertical in storage.
+  - rscadd: Returns resprites for Command, CCIA, TCFL/TCAF IDs and Guest passes.
+  - rscadd: Adds regulation i120 Littering.
+  - balance: Adjusts fine values to CCIA approved ranges.
+  FlamingLily:
+  - rscadd: Increased the amount of syllables in Nral'malic for more diverse speech
+      and more notable use of the non-standard syllables.
+  Fyni:
+  - rscadd: Removes the apostrophes from the Zhurongese accent description.
+  MattAtlas:
+  - bugfix: Fixes surge damage not ticking properly on prosthetics.
+  SleepyGemmy:
+  - rscadd: Changed the cargo shuttle into a cargo elevator.
+  UltraBigRat:
+  - rscadd: Added ninja version for bunker suit, aswell aswell as a lighter bunker
+      suit version.
+  - rscadd: Added ceres lance gear loadouts to the uplink, aswell as a nerfed bunker
+      suit to the uplink.
+  - rscadd: Added a modkit for ceres lance voidsuits.
+2025-08-30:
+  ASmallCuteCat:
+  - rscadd: Added snakes to the list of animals that can infest the ship.
+  FabianK3:
+  - rscadd: Added a new area, the Hangar Air Station. The hallway in front of the
+      pilot room on deck one has been repurposed to an air station allowing the hanger
+      crew to handle refilling shuttles with air and allowing them to dispose of waste
+      air safely.
+  Fyni:
+  - rscadd: Nerfs door rigged mines.
+2025-08-31:
+  ElorgRHG:
+  - imageadd: Resprited the himean voidsuits and its tajaran variants.
+  - rscdel: Removed the mention of a flagpatch on the himean voidsuits to reflect
+      the appearance of the actual sprites.
+  Hellfirejag:
+  - bugfix: Fixed mobs having an unintended high time delta. Things like organs should
+      no longer work several dozen times faster than expected.
+  - bugfix: You can now actually get drunk again(The unexpectedly high time delta
+      was the culprit here).
+  - rscadd: Stasis sources(Such as cryogenics, stasis bags, and stasis beds) now decrease
+      the rate at which brain damage is both healed and accumulated. Thus, they now
+      properly buy time for medics.
+  MattAtlas:
+  - bugfix: Fixes energy shields and energy swords blocking everything regardless
+      of block chance.
+  - balance: EMPs no longer travel through Z-levels.
+  hazelmouse:
+  - rscdel: Removed departmental cloaks from wardrobe vendors.

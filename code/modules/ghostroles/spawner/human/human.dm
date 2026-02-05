@@ -72,11 +72,11 @@
 			pick_message = "[pick_message] Auto Prefix: \"[mob_name_prefix]\" "
 		if(mob_name_suffix)
 			pick_message = "[pick_message] Auto Suffix: \"[mob_name_suffix]\" "
-		mname = sanitizeName(sanitize_readd_odd_symbols(sanitizeSafe(input(user, pick_message, "Name for a [species] (without prefix/suffix)"))))
+		mname = sanitizeName(tgui_input_text(user, pick_message, "Name for a [species] (without prefix/suffix)"))
 
 	if(!length(mname))
 		if(mob_name_prefix || mob_name_suffix)
-			mname = capitalize(pick(last_names))
+			mname = capitalize(pick(GLOB.last_names))
 		else
 			mname = random_name(gender,species)
 

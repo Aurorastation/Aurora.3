@@ -1,8 +1,8 @@
 /obj/machinery/mecha_part_fabricator
-	name = "mechatronic fabricator"
-	desc = "A general purpose fabricator that can be used to fabricate robotic equipment."
-	icon = 'icons/obj/machinery/robotics.dmi'
-	icon_state = "fab-base"
+	name = "synthetic fabricator"
+	desc = "A general purpose fabricator that can be used to fabricate equipment for synthetics or exosuits."
+	icon = 'icons/obj/machinery/robotics_fabricator.dmi'
+	icon_state = "fab"
 	density = TRUE
 	anchored = TRUE
 	idle_power_usage = 20
@@ -15,6 +15,7 @@
 		/obj/item/stock_parts/micro_laser,
 		/obj/item/stock_parts/console_screen
 	)
+	manufacturer = "hephaestus"
 
 	/**
 	 * A `/list` of enqueued `/datum/design` to be printed, processed in the queue
@@ -31,10 +32,13 @@
 	 */
 	var/production_speed = 1
 
-	var/list/materials = list(DEFAULT_WALL_MATERIAL = 0, MATERIAL_GLASS = 0, MATERIAL_GOLD = 0, MATERIAL_SILVER = 0, MATERIAL_DIAMOND = 0, MATERIAL_PHORON = 0, MATERIAL_URANIUM = 0)
+	var/list/materials = list(DEFAULT_WALL_MATERIAL = 0, MATERIAL_GLASS = 0, MATERIAL_GOLD = 0, MATERIAL_SILVER = 0, MATERIAL_DIAMOND = 0, MATERIAL_PHORON = 0, MATERIAL_URANIUM = 0, MATERIAL_PLASTEEL = 0, MATERIAL_ALUMINIUM = 0, MATERIAL_LEAD = 0)
 	var/res_max_amount = 200000
 
 	var/datum/research/files
+
+	/// The looping sound for production.
+	var/datum/looping_sound/synth_fab/fab_loop
 
 	var/list/categories = list()
 	var/category = null
@@ -44,24 +48,54 @@
 	///The timer id for the build callback, if we're building something
 	var/build_callback_timer
 
+/obj/machinery/mecha_part_fabricator/upgrade_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "- Upgraded <b>matter bins</b> will increase material storage capacity."
+	. += SPAN_NOTICE("	- The current storage capacity is <b>[res_max_amount / 2000]</b> sheets")
+	. += "- Upgraded <b>micro-lasers</b> will increase fabrication speed."
+	. += SPAN_NOTICE("	- The current speed increase is <b>[round((1 - (1 / production_speed)) * 100)]%</b>")
+	. += "- Upgraded <b>manipulators</b> will improve material use efficiency."
+	. += SPAN_NOTICE("	- The current cost reduction is <b>[round((1 - mat_efficiency) * 100)]%</b>")
+
 /obj/machinery/mecha_part_fabricator/Initialize()
 	. = ..()
 
 	files = new /datum/research(src) //Setup the research data holder.
+	fab_loop = new(src)
 	limb_manufacturer = GLOB.basic_robolimb.company
 	update_categories()
 
+/// Make sure the machine starts the round properly synced.
+/obj/machinery/mecha_part_fabricator/LateInitialize()
+	. = ..()
+	sync()
+
 /obj/machinery/mecha_part_fabricator/update_icon()
 	ClearOverlays()
-	icon_state = "fab-base"
-	if(build_callback_timer)
-		AddOverlays("fab-active")
+	update_fab_audio()
 	if(panel_open)
-		AddOverlays("fab-panel")
+		AddOverlays("[icon_state]_panel")
+	if(!(stat & (NOPOWER|BROKEN)))
+		AddOverlays(emissive_appearance(icon, "[icon_state]_lights"))
+		AddOverlays("[icon_state]_lights")
+	if(build_callback_timer)
+		AddOverlays("[icon_state]_working")
+		AddOverlays(emissive_appearance(icon, "[icon_state]_lights_working"))
+		AddOverlays("[icon_state]_lights_working")
+
+/// Starts and stops the necessary audio.
+/obj/machinery/mecha_part_fabricator/proc/update_fab_audio()
+	if(!fab_loop)
+		return
+
+	if(build_callback_timer)
+		fab_loop.start()
+	else
+		fab_loop.stop()
 
 /obj/machinery/mecha_part_fabricator/dismantle()
 	for(var/f in materials)
-		eject_materials(f, -1)
+		eject_materials(f, materials[f])
 
 	//Stop the queue building if you're dismantling
 	deltimer(build_callback_timer)
@@ -69,6 +103,7 @@
 	..()
 
 /obj/machinery/mecha_part_fabricator/RefreshParts()
+	..()
 	res_max_amount = 0
 
 	for(var/obj/item/stock_parts/matter_bin/M in component_parts)
@@ -92,27 +127,36 @@
 	do_hair_pull(user)
 	ui_interact(user)
 
-/obj/machinery/mecha_part_fabricator/ui_interact(var/mob/user, var/ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1)
-	var/data[0]
+/obj/machinery/mecha_part_fabricator/ui_interact(mob/user, datum/tgui/ui)
+	. = ..()
+	ui = SStgui.try_update_ui(user, src, ui)
+	if(!ui)
+		ui = new(user, src, "SyntheticFabricator", "Synthetic Fabricator", 1200, 800)
+		ui.open()
 
+/obj/machinery/mecha_part_fabricator/ui_data(mob/user)
+	var/list/data = list()
+	data["manufacturer"] = manufacturer
 	var/datum/design/current = queue.len ? queue[1] : null
 	if(current)
 		data["current"] = current.name
 	data["queue"] = get_queue_names()
 	data["buildable"] = get_build_options()
 	data["category"] = category
-	data["categories"] = categories
+	data["available_categories"] = list()
+	for(var/possible_category in categories)
+		data["available_categories"] += list(list("name" = possible_category))
 
 	if(GLOB.fabricator_robolimbs)
 		var/list/T = list()
 		for(var/A in GLOB.fabricator_robolimbs)
 			var/datum/robolimb/R = GLOB.fabricator_robolimbs[A]
-			T += list(list("id" = A, "company" = R.company))
+			T += list(list("name" = R.company, "type" = A))
 		data["manufacturers"] = T
-		data["manufacturer"] = limb_manufacturer
+		data["selected_manufacturer"] = limb_manufacturer
 
 	data["materials"] = get_materials()
-	data["maxres"] = res_max_amount
+	data["maximum_resource_amount"] = res_max_amount
 	data["sync"] = sync_message
 
 	//If we have something in the queue that we're trying to build, show the time left if the build is undergoing, otherwise null
@@ -122,42 +166,46 @@
 			data["timeleft"] = round(timeleft(build_callback_timer))
 		else
 			data["timeleft"] = null
+	return data
 
-	ui = SSnanoui.try_update_ui(user, src, ui_key, ui, data, force_open)
-	if(!ui)
-		ui = new(user, src, ui_key, "mechfab.tmpl", "Exosuit Fabricator UI", 800, 600)
-		ui.set_initial_data(data)
-		ui.open()
-		ui.set_auto_update(1)
 
-/obj/machinery/mecha_part_fabricator/Topic(href, href_list)
-	if(..())
+/obj/machinery/mecha_part_fabricator/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
+	. = ..()
+	if(.)
 		return
 
-	if(href_list["build"])
-		var/path = text2path(href_list["build"])
-		add_to_queue(path)
+	switch(action)
+		if("build")
+			var/path = text2path(params["build"])
+			add_to_queue(path)
+			. = TRUE
 
-	if(href_list["remove"])
-		remove_from_queue(text2num(href_list["remove"]))
+		if("remove")
+			remove_from_queue(text2num(params["remove"]))
+			. = TRUE
 
-	if(href_list["category"])
-		if(href_list["category"] in categories)
-			category = href_list["category"]
+		if("category")
+			if(params["category"] in categories)
+				category = params["category"]
+				. = TRUE
 
-	if(href_list["manufacturer"])
-		if(href_list["manufacturer"] in GLOB.fabricator_robolimbs)
-			limb_manufacturer = href_list["manufacturer"]
+		if("manufacturer")
+			if(params["manufacturer"] in GLOB.fabricator_robolimbs)
+				limb_manufacturer = params["manufacturer"]
+				. = TRUE
 
-	if(href_list["eject"])
-		eject_materials(href_list["eject"], text2num(href_list["amount"]))
+		if("eject")
+			eject_materials(params["eject"], text2num(params["amount"]))
+			. = TRUE
 
-	if(href_list["sync"])
-		sync()
-	else
-		sync_message = ""
+		if("sync")
+			sync()
+			. = TRUE
+		else
+			sync_message = ""
 
-	return 1
+	if(.)
+		playsound(src, 'sound/machines/synthfab/synthfab_button.ogg', 50)
 
 /obj/machinery/mecha_part_fabricator/attackby(obj/item/attacking_item, mob/user)
 	if(build_callback_timer)
@@ -176,20 +224,23 @@
 	var/obj/item/stack/material/M = attacking_item
 	if(!M.material)
 		return ..()
-	if(!(M.material.name in list(MATERIAL_STEEL, MATERIAL_GLASS, MATERIAL_GOLD, MATERIAL_SILVER, MATERIAL_DIAMOND, MATERIAL_PHORON, MATERIAL_URANIUM)))
+	if(!(M.material.name in list(MATERIAL_STEEL, MATERIAL_GLASS, MATERIAL_GOLD, MATERIAL_SILVER, MATERIAL_DIAMOND, MATERIAL_PHORON, MATERIAL_URANIUM, MATERIAL_PLASTEEL, MATERIAL_ALUMINIUM, MATERIAL_LEAD)))
 		to_chat(user, SPAN_WARNING("\The [src] cannot hold [M.material.name]."))
 		return TRUE
 
 	var/sname = "[M.name]"
-	if(materials[M.material.name] + M.perunit <= res_max_amount)
+	if(materials[M.material.name] + SHEET_MATERIAL_AMOUNT <= res_max_amount)
 		if(M.amount >= 1)
 			var/count = 0
-			var/icon/load = icon(icon, "load")
-			load.Blend(M.material.icon_colour,ICON_MULTIPLY)
-			AddOverlays(load)
-			CUT_OVERLAY_IN(load, 6)
+			var/mutable_appearance/MA = mutable_appearance(icon, "material_insertion")
+			MA.color = M.material.icon_colour
+			//first play the insertion animation
+			flick_overlay_view(MA, 1 SECONDS)
 
-			while(materials[M.material.name] + M.perunit <= res_max_amount && M.amount >= 1)
+			//now play the progress bar animation
+			flick_overlay_view(mutable_appearance(icon, "fab_progress"), 1 SECONDS)
+
+			while(materials[M.material.name] + SHEET_MATERIAL_AMOUNT <= res_max_amount && M.amount >= 1)
 				materials[M.material.name] += M.perunit
 				M.use(1)
 				count++
@@ -202,8 +253,8 @@
 		to_chat(user, SPAN_NOTICE("\The [src] cannot hold more [sname]."))
 	return TRUE
 
-/obj/machinery/mecha_part_fabricator/MouseDrop_T(atom/dropping, mob/user)
-	var/mob/living/carbon/human/target = dropping
+/obj/machinery/mecha_part_fabricator/mouse_drop_receive(atom/dropped, mob/user, params)
+	var/mob/living/carbon/human/target = dropped
 	if (!istype(target) || target.buckled_to || get_dist(user, src) > 1 || get_dist(user, target) > 1 || user.stat || istype(user, /mob/living/silicon/ai))
 		return
 	if(target == user)
@@ -233,7 +284,7 @@
 			do_hair_pull(target)
 			user.attack_log += "\[[time_stamp()]\] <span class='warning'>Has fed [target.name]'s ([target.ckey]) hair into a [src].</span>"
 			target.attack_log += "\[[time_stamp()]\] <font color='orange'>Has had their hair fed into [src] by [user.name] ([user.ckey])</font>"
-			msg_admin_attack("[key_name_admin(user)] fed [key_name_admin(target)] in a [src]. (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(target))
+			msg_admin_attack("[key_name_admin(user)] fed [key_name_admin(target)] in a [src]. (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(target))
 		else
 			return
 		if(!do_after(user, 3.5 SECONDS, target, DO_UNIQUE))
@@ -327,6 +378,7 @@
 
 	else
 		visible_message(SPAN_NOTICE("[icon2html(src, viewers(get_turf(src)))] \The [src] flashes: Insufficient materials to complete build: [D.name]."))
+		remove_from_queue(1)
 
 	update_icon()
 
@@ -366,17 +418,17 @@
 
 /obj/machinery/mecha_part_fabricator/proc/get_queue_names()
 	. = list()
-	for(var/i = 2 to queue.len)
+	for(var/i = 1 to queue.len)
 		var/datum/design/D = queue[i]
-		. += D.name
+		. += list(list("name" = D.name, "time" = get_design_time(D), "index" = i))
 
 /obj/machinery/mecha_part_fabricator/proc/get_build_options()
 	. = list()
 	for(var/path in files.known_designs)
 		var/datum/design/D = files.known_designs[path]
-		if(!D.build_path || !(D.build_type & MECHFAB) || !D.category)
+		if(!D.build_path || !(D.build_type & MECHFAB) || !D.category || (D.category != category))
 			continue
-		. += list(list("name" = D.name, "id" = D.type, "category" = D.category, "resourses" = get_design_resourses(D), "time" = get_design_time(D)))
+		. += list(list("name" = D.name, "desc" = D.desc, "type" = D.type, "category" = D.category, "resources" = get_design_resourses(D), "time" = get_design_time(D)))
 
 /obj/machinery/mecha_part_fabricator/proc/get_design_resourses(var/datum/design/D)
 	var/list/F = list()
@@ -400,25 +452,19 @@
 /obj/machinery/mecha_part_fabricator/proc/get_materials()
 	. = list()
 	for(var/T in materials)
-		. += list(list("mat" = capitalize(T), "amt" = materials[T]))
+		. += list(list("name" = capitalize(T), "amount" = materials[T]))
 
-/obj/machinery/mecha_part_fabricator/proc/eject_materials(var/material, var/amount) // 0 amount = 0 means ejecting a full stack; -1 means eject everything
-	var/recursive = amount == -1 ? 1 : 0
+/obj/machinery/mecha_part_fabricator/proc/eject_materials(var/material, var/amount)
+	if(!amount)
+		return
 	material = lowertext(material)
 	var/material/mattype = SSmaterials.get_material_by_name(material)
 	var/stack_type = mattype.stack_type
 
-	var/obj/item/stack/material/S = new stack_type(loc)
-	if(amount <= 0)
-		amount = S.max_amount
-	var/ejected = min(round(materials[material] / S.perunit), amount)
-	S.amount = min(ejected, amount)
-	if(S.amount <= 0)
-		qdel(S)
-		return
-	materials[material] -= ejected * S.perunit
-	if(recursive && materials[material] >= S.perunit)
-		eject_materials(material, -1)
+	var/real_amount = round(amount / SHEET_MATERIAL_AMOUNT)
+	var/obj/item/stack/material/S = new stack_type(loc, real_amount)
+	S.update_icon()
+	materials[material] -= amount
 
 /obj/machinery/mecha_part_fabricator/proc/sync()
 	sync_message = "Error: no console found."

@@ -140,11 +140,13 @@ export class Input extends Component {
           monospace && 'Input--monospace',
           className,
         ])}
-        {...rest}>
+        {...rest}
+      >
         <div className="Input__baseline">.</div>
         <input
           ref={this.inputRef}
           className="Input__input"
+          type="search"
           placeholder={placeholder}
           onInput={this.handleInput}
           onFocus={this.handleFocus}

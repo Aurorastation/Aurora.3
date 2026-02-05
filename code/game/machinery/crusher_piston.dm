@@ -11,7 +11,6 @@
 	opacity = 1
 	//Just 300 Watts here. Power is drawn by the piston when it moves
 	idle_power_usage = 300
-	z_flags = ZMM_MANGLE_PLANES
 
 	var/obj/machinery/crusher_piston/pstn //Piston
 
@@ -105,7 +104,7 @@
 
 	//Stuff you can do if the maint hatch is open
 	if(panel_open)
-		if(attacking_item.iswrench())
+		if(attacking_item.tool_behaviour == TOOL_WRENCH)
 			to_chat(user, SPAN_NOTICE("You start [valve_open ? "closing" : "opening"] the pressure relief valve of [src]."))
 			if(attacking_item.use_tool(src, user, 50, volume = 50))
 				valve_open = !valve_open
@@ -158,8 +157,7 @@
 		icon_state = asmtype
 
 	var/image_overlay
-	var/emissive_overlay
-	if(powered(EQUIP))
+	if(powered(AREA_USAGE_EQUIP))
 		if(blocked == 1)
 			image_overlay = image(icon, "[asmtype]-overlay-red")
 			emissive_overlay = emissive_appearance(icon, "[asmtype]-overlay-red")
@@ -193,7 +191,7 @@
 	if(action == "idle")
 		action_start_time = world.time
 		initial = 1
-	else if(action == "extend" && blocked == 0 && powered(EQUIP))
+	else if(action == "extend" && blocked == 0 && powered(AREA_USAGE_EQUIP))
 		//If we are idle, flash the warning lights and then put us into pre_start once we are done
 		if(status == "idle")
 			if(initial)
@@ -271,7 +269,7 @@
 		update_icon()
 
 	//Retract the pistons
-	else if(action == "retract" && blocked == 0 && powered(EQUIP)) //Only retract if unblocked
+	else if(action == "retract" && blocked == 0 && powered(AREA_USAGE_EQUIP)) //Only retract if unblocked
 		update_icon()
 		num_progress = 0
 

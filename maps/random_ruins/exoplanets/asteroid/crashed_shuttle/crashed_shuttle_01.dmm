@@ -35,7 +35,12 @@
 /area/template_noop)
 "dh" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/effect/map_effect/window_spawner/full/reinforced/grille,
+/obj/effect/map_effect/window_spawner/full/shuttle{
+	color = "#6C7364";
+	frame_color = "#6C7364";
+	spawn_firedoor = 1;
+	spawn_grille = 1
+	},
 /turf/simulated/floor/airless,
 /area/template_noop)
 "dF" = (
@@ -104,7 +109,7 @@
 /obj/machinery/atmospherics/unary/engine{
 	dir = 4
 	},
-/turf/template_noop,
+/turf/simulated/floor/airless,
 /area/template_noop)
 "la" = (
 /obj/effect/decal/cleanable/dirt,
@@ -116,9 +121,14 @@
 /turf/simulated/floor/tiled/white/airless,
 /area/template_noop)
 "lv" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
+/obj/effect/map_effect/window_spawner/full/shuttle{
+	color = "#6C7364";
+	frame_color = "#6C7364";
+	spawn_firedoor = 1;
+	spawn_grille = 1
+	},
 /turf/simulated/floor/airless,
 /area/template_noop)
 "lA" = (
@@ -160,7 +170,7 @@
 /turf/unsimulated/mineral/asteroid,
 /area/template_noop)
 "rK" = (
-/obj/item/pocketwatch,
+/obj/item/clothing/wrists/watch/pocketwatch,
 /turf/template_noop,
 /area/template_noop)
 "rY" = (
@@ -224,6 +234,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
+/obj/random/gift,
 /turf/simulated/floor/tiled/white/airless,
 /area/template_noop)
 "AN" = (
@@ -233,7 +244,6 @@
 	start_pressure = 1298.5
 	},
 /obj/effect/decal/cleanable/dirt,
-/obj/random/gift,
 /turf/simulated/floor/tiled/white/airless,
 /area/template_noop)
 "Bu" = (
@@ -484,11 +494,6 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /turf/template_noop,
-/area/template_noop)
-"Zf" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille,
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/airless,
 /area/template_noop)
 
 (1,1,1) = {"
@@ -982,7 +987,7 @@ MT
 TG
 TG
 nM
-Zf
+dh
 vo
 VD
 lv

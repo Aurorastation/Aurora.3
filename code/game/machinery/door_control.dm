@@ -2,7 +2,7 @@
 	name = "remote object control"
 	desc = "It controls objects, remotely."
 	icon_state = "doorctrl0"
-	power_channel = ENVIRON
+	power_channel = AREA_USAGE_ENVIRON
 	var/desiredstate = 0
 	var/exposedwires = 0
 	var/wires = 3
@@ -32,7 +32,7 @@
 	if(req_access.len || req_one_access.len)
 		req_access = list()
 		req_one_access = list()
-		playsound(src.loc, /singleton/sound_category/spark_sound, 100, 1)
+		playsound(src.loc, SFX_SPARKS, 100, 1)
 		return 1
 
 /obj/machinery/button/remote/attack_hand(mob/user as mob)
@@ -44,7 +44,7 @@
 		return
 
 	if(!allowed(user) && (wires & 1))
-		to_chat(user, SPAN_WARNING("Access Denied"))
+		to_chat(user, SPAN_WARNING("Access denied"))
 		flick("doorctrl-denied",src)
 		return
 

@@ -1,4 +1,4 @@
-var/datum/antagonist/traitor/traitors
+GLOBAL_DATUM(traitors, /datum/antagonist/traitor)
 
 // Inherits most of its vars from the base datum.
 /datum/antagonist/traitor
@@ -13,10 +13,10 @@ var/datum/antagonist/traitor/traitors
 
 /datum/antagonist/traitor/New()
 	..()
-	traitors = src
+	GLOB.traitors = src
 
 /datum/antagonist/traitor/get_extra_panel_options(var/datum/mind/player)
-	return "<a href='?src=[REF(player)];common=crystals'>\[set crystals\]</a><a href='?src=[REF(src)];spawn_uplink=[REF(player.current)]'>\[spawn uplink\]</a>"
+	return "<a href='byond://?src=[REF(player)];common=crystals'>\[set crystals\]</a><a href='byond://?src=[REF(src)];spawn_uplink=[REF(player.current)]'>\[spawn uplink\]</a>"
 
 /datum/antagonist/traitor/Topic(href, href_list)
 	if (..())
@@ -121,7 +121,7 @@ var/datum/antagonist/traitor/traitors
 	var/obj/item/R = locate() //Hide the uplink in a PDA if available, otherwise radio
 
 	if(traitor_mob.client.prefs.uplinklocation == "Headset")
-		R = locate(/obj/item/device/radio) in traitor_mob.contents
+		R = locate(/obj/item/radio) in traitor_mob.contents
 		if(!R)
 			R = locate(/obj/item/modular_computer/handheld) in traitor_mob.contents
 			to_chat(traitor_mob, "Could not locate a Radio, installing in PDA instead!")
@@ -130,7 +130,7 @@ var/datum/antagonist/traitor/traitors
 	else if(traitor_mob.client.prefs.uplinklocation == "PDA")
 		R = locate(/obj/item/modular_computer/handheld) in traitor_mob.contents
 		if(!R)
-			R = locate(/obj/item/device/radio) in traitor_mob.contents
+			R = locate(/obj/item/radio) in traitor_mob.contents
 			to_chat(traitor_mob, "Could not locate a PDA, installing into a Radio instead!")
 		if(!R)
 			to_chat(traitor_mob, "Unfortunately, neither a radio or a PDA relay could be installed.")
@@ -141,7 +141,7 @@ var/datum/antagonist/traitor/traitors
 		to_chat(traitor_mob, "You have not selected a location for your relay in the antagonist options! Defaulting to PDA!")
 		R = locate(/obj/item/modular_computer/handheld) in traitor_mob.contents
 		if (!R)
-			R = locate(/obj/item/device/radio) in traitor_mob.contents
+			R = locate(/obj/item/radio) in traitor_mob.contents
 			to_chat(traitor_mob, "Could not locate a PDA, installing into a Radio instead!")
 		if (!R)
 			to_chat(traitor_mob, "Unfortunately, neither a radio or a PDA relay could be installed.")
@@ -149,9 +149,9 @@ var/datum/antagonist/traitor/traitors
 	if(!R)
 		return
 
-	if(istype(R,/obj/item/device/radio))
+	if(istype(R,/obj/item/radio))
 		// generate list of radio freqs
-		var/obj/item/device/radio/target_radio = R
+		var/obj/item/radio/target_radio = R
 		var/freq = PUBLIC_LOW_FREQ
 		var/list/freqlist = list()
 		while (freq <= PUBLIC_HIGH_FREQ)
@@ -161,7 +161,7 @@ var/datum/antagonist/traitor/traitors
 			if ((freq % 2) == 0)
 				freq += 1
 		freq = freqlist[rand(1, freqlist.len)]
-		var/obj/item/device/uplink/hidden/T = new(R, traitor_mob.mind)
+		var/obj/item/uplink/hidden/T = new(R, traitor_mob.mind)
 		target_radio.hidden_uplink = T
 		target_radio.traitor_frequency = freq
 		to_chat(traitor_mob, "A portable object teleportation relay has been installed in your [R.name] [loc]. Simply dial the frequency [format_frequency(freq)] to unlock its hidden features.")
@@ -170,7 +170,7 @@ var/datum/antagonist/traitor/traitors
 	else if (istype(R, /obj/item/modular_computer))
 		// generate a passcode if the uplink is hidden in a PDA
 		var/pda_pass = "[rand(100,999)] [pick("Alpha","Bravo","Delta","Omega")]"
-		var/obj/item/device/uplink/hidden/T = new(R, traitor_mob.mind)
+		var/obj/item/uplink/hidden/T = new(R, traitor_mob.mind)
 		R.hidden_uplink = T
 		T.pda_code = pda_pass
 		to_chat(traitor_mob, "A portable object teleportation relay has been installed in your [R.name] [loc]. Simply enter the code \"[pda_pass]\" into the ringtone select to unlock its hidden features.")

@@ -2,15 +2,29 @@
 				INTERNAL ORGANS DEFINES
 ****************************************************/
 /obj/item/organ/internal
-	var/dead_icon // Icon to use when the organ has died.
-	var/damage_reduction = 0.5     //modifier for internal organ injury
-	var/unknown_pain_location = TRUE // if TRUE, pain messages will point to the parent organ, otherwise it will print the organ name
+	/// Icon to use when the organ has died.
+	var/dead_icon
+	/// Modifier for internal organ injury.
+	var/damage_reduction = 0.5
+	/// If TRUE, pain messages will point to the parent organ, otherwise it will print the organ name.
+	var/unknown_pain_location = TRUE
 	var/toxin_type = "undefined"
-	var/relative_size = 25 //Used for size calcs
+	/// Used for size calcs.
+	var/relative_size = 25
+	/// The icon state to overlay on the mob.
 	var/on_mob_icon
-	var/list/possible_modifications = list("Normal","Assisted","Mechanical") //this is used in the character setup
+	/// If the icon state has an active overlay.
+	var/active_overlay = FALSE
+	/// If the icon state has an active emissive overlay.
+	var/active_emissive = FALSE
+	/// Used in character setup.
+	var/list/possible_modifications = list("Normal","Assisted","Mechanical")
 
-	min_broken_damage = 10 //Internal organs are frail, man.
+	/// The amount all organs heal themselves by per second when not being affected by chems.
+	var/organ_self_heal_per_second = 0.2
+
+	/// Internal organs are frail, man.
+	min_broken_damage = 10
 
 /obj/item/organ/internal/Destroy()
 	if(owner)
@@ -23,6 +37,7 @@
 		if(istype(E)) E.internal_organs -= src
 	return ..()
 
+/// Sets the internal organ as belonging to the targeted external organ, and matches the target's species/robotness. Also updates all organ lists belonging to the owner.
 /obj/item/organ/internal/replaced(var/mob/living/carbon/human/target, var/obj/item/organ/external/affected)
 	if(!istype(target))
 		return 0
@@ -60,7 +75,7 @@
 /obj/item/organ/internal/proc/get_scarring_results()
 	var/scar_level = get_scarring_level()
 	if(scar_level > 0.01)
-		. += "[get_wound_severity(get_scarring_level())] scarring"
+		. += "[get_wound_severity(get_scarring_level(), FALSE, FALSE)] scarring"
 
 /obj/item/organ/internal/is_usable()
 	if(robotize_type)
@@ -140,18 +155,26 @@
 
 /obj/item/organ/internal/process(seconds_per_tick)
 	..()
-	if(istype(owner) && (toxin_type in owner.chem_effects))
-		take_damage(owner.chem_effects[toxin_type] * 0.1 * PROCESS_ACCURACY, SPT_PROB(1, seconds_per_tick))
-	handle_regeneration()
+	if(!owner)
+		return
+
+	if(owner.stasis_value > 0)
+		// Putting a body in stasis will simultaneously slow down the rate at which organs die
+		// while also slowing down the rate at which they are healed.
+		seconds_per_tick /= owner.stasis_value
+
+	if(toxin_type in owner.chem_effects)
+		take_damage(owner.chem_effects[toxin_type] * seconds_per_tick)
+
+	handle_regeneration(seconds_per_tick)
 	tick_surge_damage() //Yes, this is intentional.
 
-/obj/item/organ/internal/proc/handle_regeneration()
+/obj/item/organ/internal/proc/handle_regeneration(seconds_per_tick)
 	SHOULD_CALL_PARENT(TRUE)
-	if(damage && !BP_IS_ROBOTIC(src) && istype(owner))
-		if(!owner.is_asystole())
-			if(!(owner.chem_effects[CE_TOXIN] || (toxin_type in owner.chem_effects)))
-				var/repair_modifier = owner.chem_effects[CE_ORGANREPAIR] || 0.1
-				if(damage < repair_modifier*max_damage)
-					heal_damage(repair_modifier)
-				return TRUE // regeneration is allowed
-	return FALSE // regeneration is prevented
+	if(!damage || BP_IS_ROBOTIC(src) || !istype(owner) || owner.is_asystole() || (owner.chem_effects[CE_TOXIN] || (toxin_type in owner.chem_effects)))
+		return FALSE
+
+	var/repair_modifier = owner.chem_effects[CE_ORGANREPAIR] || organ_self_heal_per_second
+	if(damage < repair_modifier*max_damage)
+		heal_damage(repair_modifier * seconds_per_tick)
+	return TRUE // regeneration is allowed

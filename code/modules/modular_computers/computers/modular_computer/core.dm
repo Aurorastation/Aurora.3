@@ -45,7 +45,7 @@
 	check_update_ui_need()
 
 	if(looping_sound && working && enabled && world.time > ambience_last_played_time + 30 SECONDS && prob(3))
-		playsound(get_turf(src), /singleton/sound_category/computerbeep_sound, 30, 1, 10, required_preferences = ASFX_AMBIENCE)
+		playsound(get_turf(src), SFX_COMPUTER_BEEP, 30, 1, 10, required_preferences = ASFX_AMBIENCE)
 		ambience_last_played_time = world.time
 
 /obj/item/modular_computer/proc/get_preset_programs(preset_type)
@@ -383,7 +383,7 @@
 		to_chat(user, SPAN_WARNING("\The [src]'s screen displays, \"I/O ERROR - Unable to run [prog]\"."))
 		return
 
-	P.computer = src
+	P.set_computer(src)
 
 	if(!P.is_supported_by_hardware(hardware_flag, TRUE, user))
 		return
@@ -501,7 +501,7 @@
 	if(QDELETED(S))
 		return
 
-	S.computer = src
+	S.set_computer(src)
 
 	if(!S.is_supported_by_hardware(hardware_flag, 1, user))
 		return

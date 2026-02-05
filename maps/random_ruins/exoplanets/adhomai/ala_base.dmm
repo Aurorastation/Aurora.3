@@ -204,7 +204,7 @@
 /area/ala_base)
 "lI" = (
 /obj/structure/table/wood,
-/obj/item/device/binoculars{
+/obj/item/binoculars{
 	pixel_y = 8
 	},
 /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/metal/dpra{
@@ -422,7 +422,7 @@
 /obj/item/storage/box/dpra_manifesto,
 /obj/item/storage/field_ration/dpra,
 /obj/item/flame/lighter/adhomai,
-/obj/item/pocketwatch/adhomai,
+/obj/item/clothing/wrists/watch/pocketwatch/adhomai,
 /obj/item/clothing/under/tajaran/ala/black/officer,
 /obj/item/clothing/head/tajaran/ala_officer,
 /turf/simulated/floor/exoplanet/wood,
@@ -475,10 +475,10 @@
 /area/ala_base)
 "vJ" = (
 /obj/structure/table/wood,
-/obj/item/device/flashlight/lamp{
+/obj/item/flashlight/lamp{
 	pixel_y = 9
 	},
-/obj/item/device/versebook/dpra{
+/obj/item/versebook/dpra{
 	pixel_y = 1;
 	pixel_x = 4
 	},
@@ -632,12 +632,12 @@
 /area/ala_base)
 "zJ" = (
 /obj/structure/table/standard,
-/obj/item/device/flashlight/lamp,
+/obj/item/flashlight/lamp,
 /turf/simulated/floor/exoplanet/wood,
 /area/ala_base)
 "zQ" = (
 /obj/structure/table/standard,
-/obj/item/device/flashlight/lamp/green{
+/obj/item/flashlight/lamp/green{
 	pixel_y = 12;
 	pixel_x = 5
 	},
@@ -1061,7 +1061,7 @@
 /area/ala_base)
 "Rg" = (
 /obj/structure/table/standard,
-/obj/item/device/flashlight/lamp,
+/obj/item/flashlight/lamp,
 /obj/machinery/light{
 	dir = 8
 	},
@@ -1101,7 +1101,7 @@
 /obj/structure/sign/painting_frame/nated{
 	pixel_y = 32
 	},
-/obj/item/device/versebook/dpra,
+/obj/item/versebook/dpra,
 /obj/structure/table/standard,
 /turf/simulated/floor/exoplanet/wood,
 /area/ala_base)

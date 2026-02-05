@@ -1,6 +1,6 @@
 /mob/living/simple_animal/carp
 	name = "tame space carp"
-	desc = "A domesticated, floating space carp. Careful around the teeth."
+	desc = "A tame, floating space carp. Careful around the teeth."
 	icon = 'icons/mob/npc/animal.dmi'
 	icon_state = "carp"
 	item_state = "carp"
@@ -112,8 +112,8 @@
 				say("Glub!")
 
 /mob/living/simple_animal/carp/fluff/verb/friend(var/mob/user)
-	set name = "Become Friends"
-	set category = "IC"
+	set name = "Befriend Carp"
+	set category = "IC.Critters"
 	set src in view(1)
 
 	if(friend && usr == friend)

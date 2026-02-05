@@ -27,7 +27,7 @@
 
 	id = /obj/item/card/id/hephaestus
 
-	l_ear = /obj/item/device/radio/headset/ship
+	l_ear = /obj/item/radio/headset/ship
 
 	backpack_contents = list(/obj/item/storage/box/survival = 1)
 	species_shoes = list(
@@ -52,7 +52,7 @@
 		H.internals.icon_state = "internal1"
 		H.update_body()
 	if(isipc(H))
-		var/obj/item/organ/internal/ipc_tag/tag = H.internal_organs_by_name[BP_IPCTAG]
+		var/obj/item/organ/internal/machine/ipc_tag/tag = H.internal_organs_by_name[BP_IPCTAG]
 		if(istype(tag))
 			tag.modify_tag_data()
 
@@ -101,6 +101,8 @@
 	name = "Cyclops Crew Captain"
 
 	uniform = /obj/item/clothing/under/rank/captain/hephaestus
+	head = /obj/item/clothing/head/caphat/cap/hephaestus
+	gloves = /obj/item/clothing/gloves/captain/hephaestus
 	back = /obj/item/storage/backpack/satchel/leather
 
 /datum/ghostspawner/human/cyclops_crew/engineer

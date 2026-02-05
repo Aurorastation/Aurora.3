@@ -96,7 +96,7 @@
 	if(world.time % 5 == 0) // Maintaining fat lists is expensive, I imagine.
 		maintain_summon_list()
 	if(wearer && wearer.mind)
-		if(!technomancers.is_technomancer(wearer.mind)) // In case someone tries to wear a stolen core.
+		if(!GLOB.technomancers.is_technomancer(wearer.mind)) // In case someone tries to wear a stolen core.
 			wearer.adjust_instability(20)
 	if(!never_remove && (!wearer || wearer.stat == DEAD)) // Unlock if we're dead or not worn.
 		canremove = TRUE
@@ -152,7 +152,7 @@
 	if(picked != "Reset" && !ispath(chameleon_options[picked]))
 		return
 
-	if(!usr.mind || !technomancers.is_technomancer(usr.mind))
+	if(!usr.mind || !GLOB.technomancers.is_technomancer(usr.mind))
 		to_chat(usr, SPAN_WARNING("You have no idea how to do this!"))
 		return
 
@@ -285,7 +285,7 @@
 	energy = 7000
 	max_energy = 7000
 	regen_rate = 70 //100 seconds to full
-	slowdown = -1
+	slowdown = -0.3
 	instability_modifier = 0.9
 	cooldown_modifier = 0.9
 

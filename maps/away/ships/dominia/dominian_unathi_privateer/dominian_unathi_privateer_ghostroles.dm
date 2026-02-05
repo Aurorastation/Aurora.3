@@ -26,12 +26,12 @@
 	shoes = /obj/item/clothing/shoes/sandals/caligae
 	id = /obj/item/card/id
 	back = /obj/item/storage/backpack/satchel
-	l_ear = /obj/item/device/radio/headset/ship
+	l_ear = /obj/item/radio/headset/ship
 
 	backpack_contents = list(
 		/obj/item/storage/box/survival = 1,
-		/obj/item/storage/box/donkpockets = 1,
-		/obj/item/device/versebook/tribunal = 1,
+		/obj/item/storage/box/unique/donkpockets = 1,
+		/obj/item/versebook/tribunal = 1,
 		/obj/item/shield/energy/dominia = 1
 	)
 

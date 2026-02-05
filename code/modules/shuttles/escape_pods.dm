@@ -1,5 +1,5 @@
-var/list/escape_pods = list()
-var/list/escape_pods_by_name = list()
+GLOBAL_LIST_EMPTY_TYPED(escape_pods, /datum/shuttle/autodock/ferry/escape_pod)
+GLOBAL_LIST_EMPTY(escape_pods_by_name)
 
 /datum/shuttle/autodock/ferry/escape_pod
 	var/datum/computer/file/embedded_program/docking/simple/escape_pod/arming_controller
@@ -13,15 +13,20 @@ var/list/escape_pods_by_name = list()
 	if(!istype(arming_controller))
 		CRASH("Could not find arming controller for escape pod \"[name]\", tag was '[arming_controller_tag]'.")
 
-	escape_pods += src
-	escape_pods_by_name[name] = src
-	move_time = evacuation_controller.evac_transit_delay + rand(-30, 60)
+	GLOB.escape_pods += src
+	GLOB.escape_pods_by_name[name] = src
+	move_time = GLOB.evacuation_controller.evac_transit_delay + rand(-30, 60)
 	if(dock_target)
 		var/datum/computer/file/embedded_program/docking/simple/own_target = SSshuttle.docking_registry[dock_target]
 		if(own_target)
 			var/obj/machinery/embedded_controller/radio/simple_docking_controller/escape_pod/own_target_master = own_target.master
 			if(own_target_master)
 				own_target_master.pod = src
+
+/datum/shuttle/autodock/ferry/escape_pod/Destroy()
+	GLOB.escape_pods -= src
+	GLOB.escape_pods_by_name -= name
+	. = ..()
 
 /datum/shuttle/autodock/ferry/escape_pod/can_launch()
 	if(arming_controller && !arming_controller.armed)	//must be armed
@@ -57,7 +62,7 @@ var/list/escape_pods_by_name = list()
 		"override_enabled" = docking_program.override_enabled,
 		"door_state" = 	docking_program.memory["door_status"]["state"],
 		"door_lock" = 	docking_program.memory["door_status"]["lock"],
-		"can_force" = pod.can_force() || (evacuation_controller.has_evacuated() && pod.can_launch()),	//allow players to manually launch ahead of time if the shuttle leaves
+		"can_force" = pod.can_force() || (GLOB.evacuation_controller.has_evacuated() && pod.can_launch()),	//allow players to manually launch ahead of time if the shuttle leaves
 		"is_armed" = pod.arming_controller.armed
 	)
 
@@ -73,7 +78,7 @@ var/list/escape_pods_by_name = list()
 		if(params["command"] == "force_launch")
 			if (pod.can_force())
 				pod.force_launch(src)
-			else if (evacuation_controller.has_evacuated() && pod.can_launch())	//allow players to manually launch ahead of time if the shuttle leaves
+			else if (GLOB.evacuation_controller.has_evacuated() && pod.can_launch())	//allow players to manually launch ahead of time if the shuttle leaves
 				pod.launch(src)
 			return TRUE
 
@@ -174,7 +179,7 @@ var/list/escape_pods_by_name = list()
 #define AURORA_ESCAPE_POD(NUMBER) \
 /datum/shuttle/autodock/ferry/escape_pod/pod/escape_pod##NUMBER { \
 	name = "Escape Pod " + #NUMBER; \
-	shuttle_area = /area/shuttle/escape_pod/pod##NUMBER; \
+	shuttle_area = /area/horizon/shuttle/escape_pod/pod##NUMBER; \
 	location = 0; \
 	dock_target = "escape_pod_" + #NUMBER; \
 	arming_controller = "escape_pod_"+ #NUMBER +"_berth"; \
@@ -442,7 +447,7 @@ AURORA_ESCAPE_POD(4)
 
 //-// Raider Skipjack //-//
 
-/datum/shuttle/autodock/multi/antag/skipjack_aurora
+/datum/shuttle/autodock/multi/antag/skipjack_aurora/New()
 	name = "Skipjack"
 	current_location = "nav_skipjack_start"
 	landmark_transition = "nav_skipjack_interim"
@@ -460,8 +465,9 @@ AURORA_ESCAPE_POD(4)
 		)
 
 	announcer = "NDV Icarus"
-	arrival_message = "Attention, we just tracked a small target bypassing our defensive perimeter. Can't fire on it without hitting the station - you've got incoming visitors, like it or not."
+	arrival_message = "Attention, we just tracked a small target bypassing our defensive perimeter. Can't fire on it without hitting the [station_name(TRUE)] - you've got incoming visitors, like it or not."
 	departure_message = "Attention, your guests are pulling away - moving too fast for us to draw a bead on them. Looks like they're heading out of the system at a rapid clip."
+	..()
 
 /obj/effect/shuttle_landmark/skipjack/start
 	name = "Raider Hideout"
@@ -503,7 +509,7 @@ AURORA_ESCAPE_POD(4)
 
 //-// Mercenary Shuttle //-//
 
-/datum/shuttle/autodock/multi/antag/merc_aurora
+/datum/shuttle/autodock/multi/antag/merc_aurora/New()
 	name = "ICV Raskolnikov"
 	current_location = "nav_merc_start"
 	landmark_transition = "nav_merc_interim"
@@ -520,8 +526,9 @@ AURORA_ESCAPE_POD(4)
 		)
 
 	announcer = "NDV Icarus"
-	arrival_message = "Attention, you have a large signature approaching the station - looks unarmed to surface scans. We're too far out to intercept - brace for visitors."
+	arrival_message = "Attention, you have a large signature approaching the [station_name(TRUE)] - looks unarmed to surface scans. We're too far out to intercept - brace for visitors."
 	departure_message = "Attention, your visitors are on their way out of the system, burning delta-v like it's nothing. Good riddance."
+	..()
 
 /obj/effect/shuttle_landmark/merc/start
 	name = "Mercenary Base"

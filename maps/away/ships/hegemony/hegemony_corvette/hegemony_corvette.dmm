@@ -925,7 +925,9 @@
 /obj/effect/floor_decal/spline/plain{
 	dir = 10
 	},
-/obj/machinery/computer/ship/targeting,
+/obj/machinery/computer/ship/targeting{
+	req_access = list(113)
+	},
 /turf/simulated/floor/tiled/dark,
 /area/hegemony_ship/bridge)
 "fB" = (
@@ -3569,22 +3571,22 @@
 /area/hegemony_ship)
 "ve" = (
 /obj/structure/table/standard,
-/obj/item/device/radio,
-/obj/item/device/radio,
-/obj/item/device/radio,
-/obj/item/device/radio,
-/obj/item/device/radio,
-/obj/item/device/radio,
+/obj/item/radio,
+/obj/item/radio,
+/obj/item/radio,
+/obj/item/radio,
+/obj/item/radio,
+/obj/item/radio,
 /obj/effect/floor_decal/corner/dark_blue/diagonal,
 /obj/item/storage/bag/inflatable,
 /obj/machinery/firealarm/north,
 /obj/item/storage/bag/inflatable,
-/obj/item/device/gps,
-/obj/item/device/gps,
-/obj/item/device/gps,
-/obj/item/device/gps,
-/obj/item/device/gps,
-/obj/item/device/gps,
+/obj/item/gps,
+/obj/item/gps,
+/obj/item/gps,
+/obj/item/gps,
+/obj/item/gps,
+/obj/item/gps,
 /turf/simulated/floor/tiled,
 /area/hegemony_ship/eva_storage)
 "vf" = (
@@ -4487,7 +4489,7 @@
 /turf/simulated/floor/plating,
 /area/shuttle/hegemony)
 "Aa" = (
-/obj/structure/janitorialcart/full/water{
+/obj/structure/cart/storage/janitorialcart/full/water{
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
@@ -5285,7 +5287,9 @@
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/shuttle/hegemony)
 "EY" = (
-/obj/machinery/computer/ship/helm,
+/obj/machinery/computer/ship/helm{
+	req_access = list(113)
+	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/shuttle/hegemony)
@@ -5829,7 +5833,9 @@
 /obj/structure/railing/mapped{
 	dir = 8
 	},
-/obj/machinery/computer/ship/targeting,
+/obj/machinery/computer/ship/targeting{
+	req_access = list(113)
+	},
 /turf/simulated/floor/plating,
 /area/hegemony_ship/gun_deck_bruiser)
 "HJ" = (
@@ -6132,7 +6138,9 @@
 /area/hegemony_ship)
 "JG" = (
 /obj/effect/floor_decal/spline/plain,
-/obj/machinery/computer/ship/helm,
+/obj/machinery/computer/ship/helm{
+	req_access = list(113)
+	},
 /turf/simulated/floor/tiled/dark,
 /area/hegemony_ship/bridge)
 "JN" = (
@@ -6851,7 +6859,7 @@
 	dir = 4
 	},
 /obj/structure/table/steel,
-/obj/item/device/binoculars{
+/obj/item/binoculars{
 	pixel_x = -7;
 	pixel_y = 7
 	},
@@ -7499,7 +7507,7 @@
 	pixel_y = 4;
 	pixel_x = 1
 	},
-/obj/item/device/multitool,
+/obj/item/multitool,
 /turf/simulated/floor/tiled,
 /area/hegemony_ship/gun_deck_bruiser)
 "RK" = (
@@ -8225,7 +8233,7 @@
 	pixel_y = -5
 	},
 /obj/structure/table/glass,
-/obj/item/device/binoculars/spyglass,
+/obj/item/binoculars/spyglass,
 /obj/structure/window/reinforced{
 	dir = 1
 	},
@@ -8237,7 +8245,7 @@
 /turf/simulated/floor/plating,
 /area/hegemony_ship/trophy_room)
 "VB" = (
-/obj/item/device/binoculars,
+/obj/item/binoculars,
 /obj/structure/table/reinforced/steel,
 /obj/effect/floor_decal/spline/plain,
 /obj/machinery/button/distress{
@@ -8920,10 +8928,10 @@
 	name = "wall cabinet";
 	pixel_x = -32
 	},
-/obj/item/storage/box/produce{
+/obj/item/storage/box/large/produce{
 	pixel_y = -3
 	},
-/obj/item/storage/box/produce{
+/obj/item/storage/box/large/produce{
 	pixel_y = 6
 	},
 /obj/item/storage/box/fancy/egg_box{

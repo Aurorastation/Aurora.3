@@ -63,7 +63,7 @@
 	return ..()
 
 /obj/machinery/computer/ship/helm/proc/get_known_sectors()
-	var/area/overmap/map = global.map_overmap
+	var/area/overmap/map = GLOB.map_overmap
 	if(!map)
 		return
 	for(var/obj/effect/overmap/visitable/sector/S in map)

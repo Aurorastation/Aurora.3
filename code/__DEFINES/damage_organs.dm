@@ -8,10 +8,12 @@
 #define DAMAGE_PAIN      "pain"
 #define DAMAGE_RADIATION "radiation"
 
-#define CUT       "cut"
-#define BRUISE    "bruise"
-#define PIERCE    "pierce"
-#define LASER     "laser"
+// Injury types for wounds
+#define INJURY_TYPE_CUT "cut"
+#define INJURY_TYPE_BRUISE "bruise"
+#define INJURY_TYPE_BURN "burn"
+#define INJURY_TYPE_PIERCE "pierce"
+#define INJURY_TYPE_LASER "laser"
 
 #define DAMAGE_FLAG_EDGE      1
 #define DAMAGE_FLAG_SHARP     2
@@ -55,12 +57,20 @@
 #define ORGAN_DAMAGE_STATES ORGAN_CUT_AWAY|ORGAN_BLEEDING|ORGAN_BROKEN|ORGAN_DESTROYED|ORGAN_SPLINTED|ORGAN_DEAD|ORGAN_MUTATED|ORGAN_ARTERY_CUT
 
 // Limb behaviour defines.
-#define ORGAN_CAN_AMPUTATE (1<<0) //Can this organ be amputated?
-#define ORGAN_CAN_BREAK    (1<<1) //Can this organ break?
-#define ORGAN_CAN_GRASP    (1<<2) //Can this organ grasp things?
-#define ORGAN_CAN_STAND    (1<<3) //Can this organ allow you to stand?
-#define ORGAN_CAN_MAIM     (1<<4) //Can this organ be maimed?
-#define ORGAN_HAS_TENDON   (1<<5) //Does this organ have tendons?
+///Can this organ be amputated?
+#define ORGAN_CAN_AMPUTATE BITFLAG(0)
+///Can this organ break?
+#define ORGAN_CAN_BREAK    BITFLAG(1)
+///Can this organ grasp things?
+#define ORGAN_CAN_GRASP    BITFLAG(2)
+///Can this organ allow you to stand?
+#define ORGAN_CAN_STAND    BITFLAG(3)
+///Can this organ be maimed?
+#define ORGAN_CAN_MAIM     BITFLAG(4)
+///Does this organ have tendons?
+#define ORGAN_HAS_TENDON   BITFLAG(5)
+/// Does this organ heal from overkill?
+#define ORGAN_HEALS_OVERKILL BITFLAG(6)
 
 #define TENDON_BRUISED (1<<0)
 #define TENDON_CUT     (1<<1)
@@ -92,3 +102,9 @@
 // (e.g. 0.6 == 60% lost if 200 burn damage is taken).
 #define FLUIDLOSS_WIDE_BURN 0.3 //for burns from heat applied over a wider area, like from fire
 #define FLUIDLOSS_CONC_BURN 0.2 //for concentrated burns, like from lasers
+
+// The bandage levels a limb can have, basically how badly bandaged up their are
+#define BANDAGE_LEVEL_NONE 0
+#define BANDAGE_LEVEL_LIGHT 1
+#define BANDAGE_LEVEL_MEDIUM 2
+#define BANDAGE_LEVEL_HEAVY 3

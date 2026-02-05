@@ -1,19 +1,22 @@
 /obj/item/forensics/swab
 	name = "swab kit"
 	desc = "A sterilized cotton swab and vial used to take forensic samples."
-	desc_info = "Swab kits can be used to gather blood with DNA attached to it by clicking the blood. \
-	If it fails to collect a sample, it means that particular bit of blood has no associated DNA. \
-	\nThey can also collect DNA samples directly from people by targetting their mouth to take a saliva sample. \
-	\nGunshot Residue (GSR) can be collected from someones hands by targetting them. If they are wearing gloves, \
-	the residue will be taken from the gloves instead. \
-	\n\nGSR samples are put in a slide and examined in a microscope. \
-	\nBlood and DNA samples are checked in the DNA analyzer"
 	icon_state = "swab"
 	var/list/gsr
 	var/list/dna
 	var/used
 	drop_sound = 'sound/items/drop/glass.ogg'
 	pickup_sound = 'sound/items/pickup/glass.ogg'
+
+/obj/item/forensics/swab/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Swab kits can be used to gather blood with DNA attached to it by clicking the blood."
+	. += "If it fails to collect a sample, it means that particular bit of blood has no associated DNA."
+	. += "They can also collect DNA samples directly from people by targetting their mouth to take a saliva sample."
+	. += "Gunshot Residue (GSR) can be collected from someones hands by targetting them. If they are wearing gloves, \
+	the residue will be taken from the gloves instead."
+	. += "GSR samples are put in a slide and examined in a microscope."
+	. += "Blood and DNA samples are checked in the DNA analyzer."
 
 /obj/item/forensics/swab/proc/is_used()
 	return used

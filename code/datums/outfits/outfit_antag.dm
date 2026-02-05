@@ -14,15 +14,15 @@
 	belt = /obj/item/storage/belt/utility/full
 	gloves = /obj/item/clothing/gloves/combat
 	shoes = /obj/item/clothing/shoes/combat
-	l_ear = /obj/item/device/radio/headset/syndicate/alt
+	l_ear = /obj/item/radio/headset/syndicate/alt
 	id = /obj/item/card/id/syndicate
-	r_pocket = /obj/item/device/radio/uplink
+	r_pocket = /obj/item/radio/uplink
 	backpack_contents = list(
 		/obj/item/storage/box/survival/engineer = 1,
-		/obj/item/device/flashlight = 1,
+		/obj/item/flashlight = 1,
 		/obj/item/card/emag = 1,
 		/obj/item/reagent_containers/food/snacks/donkpocket/sinpocket = 1,
-		/obj/item/device/multitool = 1
+		/obj/item/multitool = 1
 	)
 
 	id_iff = IFF_SYNDICATE
@@ -35,14 +35,14 @@
 	if(visualsOnly)
 		return
 
-	var/obj/item/device/radio/uplink/U = H.r_store
+	var/obj/item/radio/uplink/U = H.r_store
 	if(istype(U))
 		U.hidden_uplink.uplink_owner = H.mind
 		U.hidden_uplink.telecrystals = uplink_uses
 		U.hidden_uplink.bluecrystals = round(uplink_uses / 2)
 		U.hidden_uplink.tgui_menu = 1
 	if(isipc(H))
-		var/obj/item/organ/internal/ipc_tag/tag = H.internal_organs_by_name[BP_IPCTAG]
+		var/obj/item/organ/internal/machine/ipc_tag/tag = H.internal_organs_by_name[BP_IPCTAG]
 		if(istype(tag))
 			tag.modify_tag_data(TRUE)
 
@@ -57,7 +57,7 @@
 	belt = /obj/item/storage/belt/military/syndicate
 	head = /obj/item/clothing/head/helmet/space/void/merc
 	mask = /obj/item/clothing/mask/gas/syndicate
-	l_ear = /obj/item/device/radio/headset/syndicate
+	l_ear = /obj/item/radio/headset/syndicate
 	glasses = /obj/item/clothing/glasses/night
 	shoes = /obj/item/clothing/shoes/magboots/syndie
 	l_pocket = /obj/item/pinpointer/nukeop
@@ -71,7 +71,7 @@
 		/obj/item/crowbar/red = 1,
 		/obj/item/plastique = 1,
 		/obj/item/reagent_containers/food/snacks/donkpocket/sinpocket = 1,
-		/obj/item/device/flashlight = 1,
+		/obj/item/flashlight = 1,
 		/obj/item/clothing/shoes/combat = 1
 )
 
@@ -81,13 +81,13 @@
 	head = /obj/item/clothing/head/beret/red
 	mask = /obj/item/clothing/mask/smokable/cigarette/cigar/havana
 	belt = /obj/item/gun/projectile/deagle
-	l_ear = /obj/item/device/radio/headset/syndicate
+	l_ear = /obj/item/radio/headset/syndicate
 	l_pocket = /obj/item/pinpointer/advpinpointer
 	r_pocket = null // stop them getting a radio uplink, they get an implant instead
 
 	backpack_contents = list(
 		/obj/item/storage/box/survival/engineer = 1,
-		/obj/item/device/flashlight = 1,
+		/obj/item/flashlight = 1,
 		/obj/item/reagent_containers/pill/cyanide = 1,
 		/obj/item/reagent_containers/food/snacks/donkpocket/sinpocket = 1,
 		/obj/item/ammo_magazine/a50 = 2,
@@ -123,7 +123,7 @@
 	shoes = /obj/item/clothing/shoes/combat
 	gloves = /obj/item/clothing/ring/ninja
 	mask = /obj/item/clothing/mask/balaclava
-	l_ear = /obj/item/device/radio/headset/ninja
+	l_ear = /obj/item/radio/headset/ninja
 	glasses = /obj/item/clothing/glasses/sunglasses/sechud/tactical
 	id = /obj/item/card/id/syndicate
 	l_pocket = null
@@ -133,10 +133,10 @@
 	backpack_contents = list()
 
 	belt_contents = list(
-		/obj/item/device/flashlight/maglight = 1,
+		/obj/item/flashlight/maglight = 1,
 		/obj/item/crowbar = 1,
 		/obj/item/screwdriver = 1,
-		/obj/item/device/paicard = 1
+		/obj/item/paicard = 1
 	)
 
 	id_access = "Syndicate Agent"
@@ -146,7 +146,7 @@
 	if(visualsOnly)
 		return
 
-	H.equip_to_slot_or_del(new /obj/item/device/special_uplink/ninja(H, H.mind), slot_l_store)
+	H.equip_to_slot_or_del(new /obj/item/special_uplink/ninja(H, H.mind), slot_l_store)
 
 /obj/outfit/admin/syndicate/mercenary
 	name = "Mercenary"
@@ -156,7 +156,7 @@
 	gloves = /obj/item/clothing/gloves/swat
 	shoes = /obj/item/clothing/shoes/jackboots
 	pda = /obj/item/modular_computer/handheld/pda/syndicate
-	r_pocket = /obj/item/device/special_uplink/mercenary
+	r_pocket = /obj/item/special_uplink/mercenary
 
 	backpack_contents = list(
 		/obj/item/storage/box/survival/engineer = 1,
@@ -176,13 +176,13 @@
 /obj/outfit/admin/syndicate/mercenary/loner
 	name = "Loner"
 
-	l_ear = /obj/item/device/radio/headset/syndicate
-	r_pocket = /obj/item/device/special_uplink/burglar
+	l_ear = /obj/item/radio/headset/syndicate
+	r_pocket = /obj/item/special_uplink/burglar
 
 	backpack_contents = list(
 		/obj/item/storage/box/syndie_kit/space = 1,
 		/obj/item/gun/projectile/shotgun/foldable = 1,
-		/obj/item/device/multitool/hacktool = 1
+		/obj/item/multitool/hacktool = 1
 	)
 
 	id_iff = IFF_LONER
@@ -205,10 +205,6 @@
 		/obj/item/clothing/under/lance,
 		/obj/item/clothing/under/legion/pilot,
 		/obj/item/clothing/under/offworlder,
-		/obj/item/clothing/under/pants/jeans,
-		/obj/item/clothing/under/pants/camo,
-		/obj/item/clothing/under/pants/khaki,
-		/obj/item/clothing/under/pants/mustang,
 		/obj/item/clothing/under/rank/bartender,
 		/obj/item/clothing/under/rank/hangar_technician/heph,
 		/obj/item/clothing/under/rank/chef,
@@ -216,7 +212,7 @@
 		/obj/item/clothing/under/rank/engineer,
 		/obj/item/clothing/under/rank/sol,
 		/obj/item/clothing/under/rank/miner,
-		/obj/item/clothing/under/skirt/offworlder,
+		/obj/item/clothing/under/dress/offworlder/skirt,
 		/obj/item/clothing/under/suit_jacket/tan,
 		/obj/item/clothing/under/tactical,
 		/obj/item/clothing/under/tajaran,
@@ -324,8 +320,8 @@
 			/obj/item/clothing/glasses/sunglasses/big,
 			/obj/item/clothing/glasses/sunglasses/visor
 			)
-	l_ear = /obj/item/device/radio/headset/raider
-	l_pocket = /obj/item/device/special_uplink/raider
+	l_ear = /obj/item/radio/headset/raider
+	l_pocket = /obj/item/special_uplink/raider
 	r_pocket = list(
 			/obj/item/clothing/glasses/eyepatch/hud/thermal,
 			/obj/item/clothing/glasses/thermal,
@@ -424,9 +420,9 @@
 		/obj/item/clothing/wrists/watch/spy
 	)
 
-	l_ear = /obj/item/device/radio/headset/burglar
+	l_ear = /obj/item/radio/headset/burglar
 	l_pocket = /obj/item/syndie/teleporter
-	r_pocket = /obj/item/device/special_uplink/burglar
+	r_pocket = /obj/item/special_uplink/burglar
 	id = /obj/item/storage/wallet
 
 	r_hand = /obj/item/storage/briefcase/black
@@ -519,12 +515,12 @@
 
 	backpack_contents = list(
 		/obj/item/storage/box/survival/engineer = 1,
-		/obj/item/device/flashlight = 1,
+		/obj/item/flashlight = 1,
 		/obj/item/card/emag = 1
 	)
 
-	l_ear = /obj/item/device/radio/headset/jockey
-	r_pocket = /obj/item/device/special_uplink/jockey
+	l_ear = /obj/item/radio/headset/jockey
+	r_pocket = /obj/item/special_uplink/jockey
 	id = /obj/item/storage/wallet
 
 	id_iff = IFF_JOCKEY
@@ -559,7 +555,7 @@
 	uniform = /obj/item/clothing/under/kilt
 	head = /obj/item/clothing/head/beret/red
 	shoes = /obj/item/clothing/shoes/combat
-	l_ear = /obj/item/device/radio/headset/heads/captain
+	l_ear = /obj/item/radio/headset/heads/captain
 	l_hand = /obj/item/material/sword
 	l_pocket = /obj/item/pinpointer
 
@@ -618,7 +614,7 @@
 
 	belt = /obj/item/storage/belt/fannypack/component
 	gloves = null
-	l_ear = /obj/item/device/radio/headset/bluespace
+	l_ear = /obj/item/radio/headset/bluespace
 	l_pocket = /obj/item/technomancer_catalog/apprentice
 	r_pocket = null
 	id = /obj/item/storage/wallet/random
@@ -687,7 +683,7 @@
 
 	var/obj/item/technomancer_core/TC = H.back
 	if(TC)
-		technomancer_belongings.Add(TC)
+		GLOB.technomancer_belongings.Add(TC)
 
 	var/obj/item/technomancer_catalog/catalog = H.l_store
 	if(catalog)
@@ -697,7 +693,7 @@
 	name = "Bluespace Golem"
 	allow_backbag_choice = FALSE
 
-	l_ear = /obj/item/device/radio/headset/bluespace
+	l_ear = /obj/item/radio/headset/bluespace
 	id_iff = IFF_BLUESPACE
 
 /obj/outfit/admin/techomancer
@@ -705,10 +701,10 @@
 	allow_backbag_choice = FALSE
 
 	head = /obj/item/clothing/head/chameleon/technomancer
-	l_ear = /obj/item/device/radio/headset/bluespace
+	l_ear = /obj/item/radio/headset/bluespace
 	uniform = /obj/item/clothing/under/chameleon/technomancer
 	suit = /obj/item/clothing/suit/chameleon/technomancer
-	belt = /obj/item/device/flashlight
+	belt = /obj/item/flashlight
 	back = /obj/item/technomancer_core
 	shoes = /obj/item/clothing/shoes/chameleon/technomancer
 
@@ -732,7 +728,7 @@
 
 	var/obj/item/technomancer_core/TC = H.back
 	if(TC)
-		technomancer_belongings.Add(TC)
+		GLOB.technomancer_belongings.Add(TC)
 
 	var/obj/item/technomancer_catalog/catalog = H.l_store
 	if(catalog)
@@ -764,7 +760,7 @@
 	name = "Technomancer Golem"
 
 	head = null
-	l_ear = /obj/item/device/radio/headset/bluespace
+	l_ear = /obj/item/radio/headset/bluespace
 	uniform = null
 	suit = null
 	belt = null

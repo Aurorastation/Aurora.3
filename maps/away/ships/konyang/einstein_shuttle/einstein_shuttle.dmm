@@ -1765,7 +1765,9 @@
 /turf/simulated/floor/plating,
 /area/shuttle/einstein_shuttle/porteng)
 "TM" = (
-/obj/machinery/computer/ship/helm,
+/obj/machinery/computer/ship/helm{
+	req_access = list(205)
+	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/einstein_shuttle/helm)
 "Uv" = (

@@ -1,7 +1,7 @@
-#define SPIN_PRICE 5
-#define SMALL_PRIZE 400
-#define BIG_PRIZE 1000
-#define JACKPOT 10000
+#define SPIN_PRICE 1
+#define SMALL_PRIZE 40
+#define BIG_PRIZE 100
+#define JACKPOT 1000
 #define SPIN_TIME 65 //As always, deciseconds.
 #define REEL_DEACTIVATE_DELAY 7
 #define SEVEN "<font color='red'>7</font>"
@@ -107,7 +107,7 @@
 		else
 			to_chat(user, SPAN_WARNING("This machine is only accepting coins!"))
 		return TRUE
-	else if(attacking_item.ismultitool())
+	else if(attacking_item.tool_behaviour == TOOL_MULTITOOL)
 		if(balance > 0)
 			visible_message("<b>[src]</b> says, 'ERROR! Please empty the machine balance before altering paymode'") //Prevents converting coins into credits and vice versa
 		else
@@ -125,7 +125,7 @@
 	if(!emagged)
 		emmaged = TRUE
 		spark(src, 3)
-		playsound(src, /singleton/sound_category/spark_sound, 50, 1)
+		playsound(src, SFX_SPARKS, 50, 1)
 		return TRUE
 
 /obj/machinery/computer/slot_machine/ui_interact(mob/living/user)
@@ -143,16 +143,16 @@
 		dat = reeltext
 
 	else
-		dat = {"Five credits to play!<BR>
+		dat = {"One credit to play!<BR>
 		<B>Prize Money Available:</B> [money] (jackpot payout is ALWAYS 100%!)<BR>
 		<B>Credit Remaining:</B> [balance]<BR>
 		[plays] players have tried their luck today, and [jackpots] have won a jackpot!<BR>
 		<HR><BR>
-		<A href='?src=[REF(src)];spin=1'>Play!</A><BR>
+		<A href='byond://?src=[REF(src)];spin=1'>Play!</A><BR>
 		<BR>
 		[reeltext]
 		<BR>
-		<font size='1'><A href='?src=[REF(src)];refund=1'>Refund balance</font></A><BR>"}
+		<font size='1'><A href='byond://?src=[REF(src)];refund=1'>Refund balance</font></A><BR>"}
 
 	var/datum/browser/popup = new(user, "slotmachine", "Slot Machine")
 	popup.set_content(dat)
@@ -168,7 +168,7 @@
 		spin(usr)
 
 	else if(href_list["refund"])
-		playsound(src, /singleton/sound_category/button_sound, clickvol)
+		playsound(src, SFX_BUTTON, clickvol)
 		if(balance > 0)
 			give_payout(balance, usr)
 			balance = 0
@@ -282,17 +282,17 @@
 				C.forceMove(get_turf(src))
 
 	else if(linelength == 5)
-		visible_message("<b>[src]</b> says, 'Big Winner! You win a thousand credits!'")
+		visible_message("<b>[src]</b> says, 'Big Winner! You win one hundred credits!'")
 		playsound(loc, 'sound/arcade/sloto_jackpot.ogg', 10, 1, required_asfx_toggles = ASFX_ARCADE)
 		give_money(BIG_PRIZE)
 
 	else if(linelength == 4)
-		visible_message("<b>[src]</b> says, 'Winner! You win four hundred credits!'")
+		visible_message("<b>[src]</b> says, 'Winner! You win fourty credits!'")
 		playsound(loc, 'sound/arcade/sloto_jackpot.ogg', 10, 1, required_asfx_toggles = ASFX_ARCADE)
 		give_money(SMALL_PRIZE)
 
 	else if(linelength == 3)
-		to_chat(user, SPAN_NOTICE("You win three free games!"))
+		to_chat(user, SPAN_NOTICE("You win four free games!"))
 		playsound(loc, 'sound/arcade/sloto_token.ogg', 10, 1, required_asfx_toggles = ASFX_ARCADE)
 		balance += SPIN_PRICE * 4
 		money = max(money - SPIN_PRICE * 4, money)
@@ -324,14 +324,14 @@
 	money = max(0, money - amount)
 	balance += surplus
 
-/obj/machinery/computer/slot_machine/proc/give_payout(amount, usr)
+/obj/machinery/computer/slot_machine/proc/give_payout(amount, user)
 	if(paymode == CREDITCHIP)
 		cointype = /obj/item/spacecash
 	else
 		cointype = emagged ? /obj/item/coin/iron : /obj/item/coin/silver
 
 	if(!(emagged))
-		amount = dispense(amount, cointype, usr, 0)
+		amount = dispense(amount, cointype, user, 0)
 
 	else
 		var/mob/living/target = locate() in range(2, src)

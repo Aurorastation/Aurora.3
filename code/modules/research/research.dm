@@ -44,7 +44,7 @@ research holder datum.
 ***************************************************************/
 
 // Global design lists
-var/global/list/designs = null
+GLOBAL_LIST_INIT(designs, null)
 GLOBAL_LIST_EMPTY(designs_protolathe_categories)
 GLOBAL_LIST_EMPTY(designs_imprinter_categories)
 
@@ -68,7 +68,7 @@ GLOBAL_LIST_EMPTY(designs_imprinter_categories)
 			else
 				if(antag_start_level)
 					T.level = antag_start_level
-	if(load_designs && isnull(designs))
+	if(load_designs && isnull(GLOB.designs))
 		InitializeDesigns()
 	RefreshResearch()
 
@@ -79,10 +79,10 @@ GLOBAL_LIST_EMPTY(designs_imprinter_categories)
 	standard_start_level = 3
 
 /datum/research/proc/InitializeDesigns()
-	designs = list()
+	GLOB.designs = list()
 	for(var/T in subtypesof(/datum/design))
 		var/datum/design/D = new T
-		designs[D.type] = D
+		GLOB.designs[D.type] = D
 		if(D.build_type & PROTOLATHE)
 			GLOB.designs_protolathe_categories |= D.p_category
 		if(D.build_type & IMPRINTER)
@@ -129,8 +129,8 @@ GLOBAL_LIST_EMPTY(designs_imprinter_categories)
 /datum/research/proc/RefreshResearch()
 	known_designs.Cut() // this is to refresh the ordering of the designs, the alternative is an expensive insertion or sorting proc
 	if(load_designs)
-		for(var/path in designs)
-			var/datum/design/PD = designs[path]
+		for(var/path in GLOB.designs)
+			var/datum/design/PD = GLOB.designs[path]
 			if(DesignHasReqs(PD))
 				AddDesign2Known(PD)
 	for(var/id in known_tech)
@@ -250,19 +250,19 @@ GLOBAL_LIST_EMPTY(designs_imprinter_categories)
 	matter = list(DEFAULT_WALL_MATERIAL = 30, MATERIAL_GLASS = 10)
 	var/datum/tech/stored
 
+/obj/item/disk/tech_disk/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(distance <= 1)
+		if(stored)
+			. += "It is storing the following tech:"
+			. += " - [stored.name]: Level - [stored.level] | Progress - [stored.next_level_progress]/[stored.next_level_threshold]"
+		else
+			. += "It doesn't have any tech stored."
+
 /obj/item/disk/tech_disk/Initialize(mapload)
 	. = ..()
 	pixel_x = rand(-5, 5)
 	pixel_y = rand(-5, 5)
-
-/obj/item/disk/tech_disk/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if(distance <= 1)
-		if(stored)
-			. += FONT_SMALL("It is storing the following tech:")
-			. += FONT_SMALL(" - [stored.name]: Level - [stored.level] | Progress - [stored.next_level_progress]/[stored.next_level_threshold]")
-		else
-			. += FONT_SMALL("It doesn't have any tech stored.")
 
 /obj/item/disk/design_disk
 	name = "component design disk"
@@ -274,16 +274,16 @@ GLOBAL_LIST_EMPTY(designs_imprinter_categories)
 	matter = list(DEFAULT_WALL_MATERIAL = 30, MATERIAL_GLASS = 10)
 	var/datum/design/blueprint
 
+/obj/item/disk/design_disk/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(distance <= 1)
+		if(blueprint)
+			. += "It is storing the following design:"
+			. += " - [blueprint.name]"
+		else
+			. += "It doesn't have any blueprint stored."
+
 /obj/item/disk/design_disk/Initialize(mapload)
 	. = ..()
 	pixel_x = rand(-5, 5)
 	pixel_y = rand(-5, 5)
-
-/obj/item/disk/design_disk/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if(distance <= 1)
-		if(blueprint)
-			. += FONT_SMALL("It is storing the following design:")
-			. += FONT_SMALL(" - [blueprint.name]")
-		else
-			. += FONT_SMALL("It doesn't have any blueprint stored.")

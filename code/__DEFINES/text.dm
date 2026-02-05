@@ -49,19 +49,25 @@
 /// Max width of chat message in pixels
 #define CHAT_MESSAGE_WIDTH 112
 
-//Since we do not have GLOB (yet), this will have to do
-var/regex/html_tags = regex(@"<.*?>", "g")
-var/regex/angular_brackets = regex(@"[<>]", "g")
-var/regex/filename_forbidden_chars = regex(@{""|[\\\n\t/?%*:|<>]|\.\."}, "g")
+//All < and > characters
+GLOBAL_DATUM_INIT(angular_brackets, /regex, regex(@"[<>]", "g"))
+
+//All characters between < a > inclusive of the bracket
+GLOBAL_DATUM_INIT(html_tags, /regex, regex(@"<.*?>", "g"))
+
+//All characters forbidden by filenames: ", \, \n, \t, /, ?, %, *, :, |, <, >, ..
+GLOBAL_DATUM_INIT(filename_forbidden_chars, /regex, regex(@{""|[\\\n\t/?%*:|<>]|\.\."}, "g"))
+GLOBAL_PROTECT(filename_forbidden_chars)
+// had to use the OR operator for quotes instead of putting them in the character class because it breaks the syntax highlighting otherwise.
 
 /// Removes characters incompatible with file names.
-#define SANITIZE_FILENAME(text) (filename_forbidden_chars.Replace(text, ""))
+#define SANITIZE_FILENAME(text) (GLOB.filename_forbidden_chars.Replace(text, ""))
 
 /// Simply removes the < and > characters, and limits the length of the message.
-#define STRIP_HTML_SIMPLE(text, limit) (angular_brackets.Replace(copytext(text, 1, limit), ""))
+#define STRIP_HTML_SIMPLE(text, limit) (GLOB.angular_brackets.Replace(copytext(text, 1, limit), ""))
 
 /// Removes everything enclose in < and > inclusive of the bracket, and limits the length of the message.
-#define STRIP_HTML_FULL(text, limit) (html_tags.Replace(copytext(text, 1, limit), ""))
+#define STRIP_HTML_FULL(text, limit) (GLOB.html_tags.Replace(copytext(text, 1, limit), ""))
 
 /// BYOND's string procs don't support being used on datum references (as in it doesn't look for a name for stringification)
 /// We just use this macro to ensure that we will only pass strings to this BYOND-level function without developers needing to really worry about it.

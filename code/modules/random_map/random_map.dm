@@ -192,7 +192,7 @@ GLOBAL_LIST_EMPTY(map_count)
 		T.spawn_roof()
 	get_additional_spawns(map[tmp_cell],T,get_spawn_dir(x, y))
 	if(use_area)
-		ChangeArea(T, use_area)
+		T.change_area(T.loc, use_area)
 	return T
 
 /datum/random_map/proc/get_spawn_dir()

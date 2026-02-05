@@ -175,14 +175,17 @@
 	written_style = "nralmalic"
 	key = "k"
 	flags = WHITELISTED|TCOMSSIM
-	syllables = list("qr","qrr","xuq","qil","quum","xuqm","vol","xrim","zaoo","qu-uu","qix","qoo","zix","*","!")
+	syllables = list("*","!","'","-","qr","qrr","xuq","qil","quum","xuqm","vol","xrim","zaoo","qu-uu","qix","qoo","zix",
+	"xix", "zil", "rix", "qu", "xum", "xuuq", "qurm", "zazo", "qiu", "xiq", "qrrr", "vou", "vox", "quv", "vun", "v'qr",
+	"qrv", "su", "xu", "xi", "qi", "si", "ei", "qou", "qui", "kiu", "uiu", "eis", "seq", "eqa", "uiq", "kui", "muu", "muq",
+	"kuo", "omq", "xoi", "liq", "zuk", "iie", "squ", "ixu")
 	allow_accents = TRUE
 
 /datum/language/skrell/check_speech_restrict(mob/speaker)
 	if(!ishuman(speaker))
 		return FALSE
 	var/mob/living/carbon/human/H = speaker
-	var/obj/item/organ/internal/augment/language/zeng/aug = H.internal_organs_by_name[BP_AUG_LANGUAGE]
+	var/obj/item/organ/internal/augment/language/zeng/aug = H.internal_organs_by_name[BP_AUG_LANGUAGE_ZENG]
 	if(istype(aug) && !isskrell(H))
 		to_chat(speaker, SPAN_WARNING("You are not capable of speaking Nral'malic!"))
 		return FALSE
@@ -256,7 +259,7 @@
 	for(var/mob/player in GLOB.player_list)
 		if(player == speaker)
 			to_chat(player, msg)
-		else if(isobserver(player))
+		else if(isghost(player))
 			to_chat(player, "[ghost_follow_link(speaker, player)] [msg]")
 		else if(!within_jamming_range(player) && check_special_condition(player))
 			if(speaker_encryption_key)
@@ -265,7 +268,7 @@
 					to_chat(player, encrypted_msg)
 					continue
 				var/obj/item/organ/internal/vaurca/neuralsocket/listener_socket = listener_human.internal_organs_by_name[BP_NEURAL_SOCKET]
-				var/obj/item/organ/internal/augment/language/vekatak/receiver = listener_human.internal_organs_by_name[BP_AUG_LANGUAGE]
+				var/obj/item/organ/internal/augment/language/vekatak/receiver = listener_human.internal_organs_by_name[BP_AUG_LANGUAGE_VEKATAK]
 				if(listener_socket)
 					if(listener_socket.decryption_key == speaker_encryption_key)
 						to_chat(player, msg)
@@ -310,16 +313,16 @@
 		return 0
 	if(M.internal_organs_by_name[BP_NEURAL_SOCKET] && (GLOB.all_languages[LANGUAGE_VAURCA] in M.languages))
 		return 1
-	if(M.internal_organs_by_name[BP_AUG_LANGUAGE])
-		var/obj/item/organ/internal/augment/language/vekatak/V = M.internal_organs_by_name[BP_AUG_LANGUAGE]
+	if(M.internal_organs_by_name[BP_AUG_LANGUAGE_VEKATAK])
+		var/obj/item/organ/internal/augment/language/vekatak/V = M.internal_organs_by_name[BP_AUG_LANGUAGE_VEKATAK]
 		if(istype(V) && (GLOB.all_languages[LANGUAGE_VAURCA] in M.languages))
 			return 1
 	if(M.internal_organs_by_name["blackkois"])
 		return 1
 
 	if (M.l_ear || M.r_ear)
-		var/obj/item/device/radio/headset/dongle
-		if(istype(M.l_ear,/obj/item/device/radio/headset))
+		var/obj/item/radio/headset/dongle
+		if(istype(M.l_ear,/obj/item/radio/headset))
 			dongle = M.l_ear
 		else
 			dongle = M.r_ear
@@ -334,7 +337,7 @@
 /datum/language/bug/check_speech_restrict(var/mob/speaker)
 	var/mob/living/carbon/human/H = speaker
 	var/obj/item/organ/internal/vaurca/neuralsocket/S = H.internal_organs_by_name[BP_NEURAL_SOCKET]
-	var/obj/item/organ/internal/augment/language/vekatak/V = H.internal_organs_by_name[BP_AUG_LANGUAGE]
+	var/obj/item/organ/internal/augment/language/vekatak/V = H.internal_organs_by_name[BP_AUG_LANGUAGE_VEKATAK]
 
 	//Black k'ois zombies don't have neural sockets but need to talk, hence check if the socket exists, or it will runtime for them
 	if(S && (S.muted || S.disrupted))
@@ -370,9 +373,9 @@
 /datum/language/human/get_random_name(var/gender)
 	if (prob(80))
 		if(gender==FEMALE)
-			return capitalize(pick(first_names_female)) + " " + capitalize(pick(last_names))
+			return capitalize(pick(GLOB.first_names_female)) + " " + capitalize(pick(GLOB.last_names))
 		else
-			return capitalize(pick(first_names_male)) + " " + capitalize(pick(last_names))
+			return capitalize(pick(GLOB.first_names_male)) + " " + capitalize(pick(GLOB.last_names))
 	else
 		return ..()
 
@@ -409,7 +412,7 @@
 /datum/language/machine/get_random_name()
 	if(prob(70))
 		return "[pick(list("PBU","HIU","SINA","ARMA","OSI"))]-[rand(100, 999)]"
-	return pick(ai_names)
+	return pick(GLOB.ai_names)
 
 // we're trimming out the punctuation and not readding it, so we need to readd it at the very end
 /datum/language/machine/scramble(var/input, var/list/known_languages)

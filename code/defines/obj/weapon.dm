@@ -147,7 +147,7 @@
 	if(!no_attack_log)
 		user.attack_log += "\[[time_stamp()]\]<span class='warning'> Attacked [target_mob.name] ([target_mob.ckey]) with [name] (INTENT: [uppertext(user.a_intent)]) (DAMTYE: [uppertext(damagetype)])</span>"
 		target_mob.attack_log += "\[[time_stamp()]\]<font color='orange'> Attacked by [user.name] ([user.ckey]) with [name] (INTENT: [uppertext(user.a_intent)]) (DAMTYE: [uppertext(damagetype)])</font>"
-		msg_admin_attack("[key_name(user, highlight_special = 1)] attacked [key_name(target_mob, highlight_special = 1)] with [name] (INTENT: [uppertext(user.a_intent)]) (DAMTYE: [uppertext(damagetype)]) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(target_mob) )
+		msg_admin_attack("[key_name(user, highlight_special = 1)] attacked [key_name(target_mob, highlight_special = 1)] with [name] (INTENT: [uppertext(user.a_intent)]) (DAMTYE: [uppertext(damagetype)]) (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(target_mob) )
 	/////////////////////////
 
 	var/washit = 0
@@ -276,19 +276,18 @@
 	icon_state = "crutch"
 	item_state = "crutch"
 
-/obj/item/cane/white
-	name = "white cane"
-	desc = "A white cane, used by the visually impaired."
-	icon_state = "whitecane"
-	item_state = "whitecane"
-	can_support = FALSE
+/obj/item/cane/crutch/forearm
+	name = "forearm crutch"
+	desc = "A different style of crutch with a handle and a cuff that goes around the forearm for additional support."
+	icon_state = "forearm_crutch"
+	item_state = "forearm_crutch"
 
-/obj/item/cane/shillelagh
-	name = "adhomian shillelagh"
-	desc = "A sturdy walking stick made from adhomian wood."
+/obj/item/cane/maikahar
+	name = "adhomian maikahar"
+	desc = "A sturdy walking stick made from Adhomian wood. The name translates roughly to 'Stick of earth walk'."
 	icon = 'icons/obj/tajara_items.dmi'
-	icon_state = "shillelagh"
-	item_state = "shillelagh"
+	icon_state = "maikahar"
+	item_state = "maikahar"
 	contained_sprite = TRUE
 
 /obj/item/cane/telecane
@@ -303,22 +302,26 @@
 	pickup_sound = 'sound/items/pickup/crowbar.ogg'
 	var/on = FALSE
 	can_support = FALSE
+	var/extended_icon_state = "telecane_1"
+	var/extended_item_state = "telestick"
+	var/retracted_icon_state = "telecane"
+	var/retracted_item_state = "telestick_0"
 
 /obj/item/cane/telecane/attack_self(mob/user)
 	on = !on
 	if(on)
-		user.visible_message(SPAN_WARNING("With a flick of their wrist, [user] extends their telescopic cane."), SPAN_WARNING("You extend the cane."), SPAN_WARNING("You hear an ominous click."))
-		icon_state = "telecane_1"
-		item_state = "telestick"
+		user.visible_message(SPAN_NOTICE("With a flick of their wrist, [user] extends their [src.name]"), SPAN_NOTICE("You extend the [src.name]."), SPAN_NOTICE("You hear a click."))
+		icon_state = extended_icon_state
+		item_state = extended_item_state
 		w_class = WEIGHT_CLASS_BULKY
 		slot_flags = null
 		force = 14
 		attack_verb = list("smacked", "struck", "slapped")
 		can_support = TRUE
 	else
-		user.visible_message(SPAN_NOTICE("\The [user] collapses their telescopic cane."), SPAN_NOTICE("You collapse the cane."), SPAN_NOTICE("You hear a click."))
-		icon_state = "telecane"
-		item_state = "telestick_0"
+		user.visible_message(SPAN_NOTICE("\The [user] collapses their [src.name]."), SPAN_NOTICE("You collapse the [src.name]."), SPAN_NOTICE("You hear a click."))
+		icon_state = retracted_icon_state
+		item_state = retracted_item_state
 		w_class = WEIGHT_CLASS_SMALL
 		slot_flags = SLOT_BELT
 		force = 3
@@ -326,12 +329,22 @@
 		can_support = FALSE
 
 	if(istype(user,/mob/living/carbon/human))
-		var/mob/living/carbon/human/H = user
-		H.update_inv_l_hand()
-		H.update_inv_r_hand()
+		update_held_icon()
 
 	playsound(src.loc, 'sound/weapons/click.ogg', 50, 1)
 	add_fingerprint(user)
+
+/obj/item/cane/telecane/white
+	name = "white cane"
+	desc = "A white cane, used by the visually impaired."
+	icon = 'icons/obj/item/whitecane.dmi'
+	icon_state = "whitecane"
+	drop_sound = SFX_DROP
+	pickup_sound = SFX_PICKUP
+	extended_icon_state = "whitecane_extended"
+	extended_item_state = "whitecane"
+	retracted_icon_state = "whitecane"
+	retracted_item_state = "whitecane_0"
 
 /obj/item/disk
 	name = "disk"
@@ -363,14 +376,15 @@
 	desc = "Used to communicate, it appears."
 	icon = 'icons/obj/radio.dmi'
 	icon_state = "radio"
+	item_state = "radio"
+	contained_sprite = TRUE
 	var/temp = null
 	var/uses = 4.0
 	var/selfdestruct = 0.0
 	var/traitor_frequency = 0.0
-	var/obj/item/device/radio/origradio = null
+	var/obj/item/radio/origradio = null
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BELT
-	item_state = "radio"
 	throwforce = 5
 	w_class = WEIGHT_CLASS_SMALL
 	throw_speed = 4
@@ -436,7 +450,7 @@
 	matter = list(DEFAULT_WALL_MATERIAL = 50, MATERIAL_GLASS = 50)
 
 /obj/item/module/power_control/attackby(obj/item/attacking_item, mob/user)
-	if(attacking_item.ismultitool())
+	if(attacking_item.tool_behaviour == TOOL_MULTITOOL)
 		var/obj/item/circuitboard/ghettosmes/new_circuit = new /obj/item/circuitboard/ghettosmes(get_turf(src))
 		to_chat(user, SPAN_NOTICE("You modify \the [src] into a makeshift PSU circuitboard."))
 		qdel(src)
@@ -458,22 +472,22 @@
 	icon_state = "power_mod"
 	desc = "Charging circuits for power cells."
 
-/obj/item/device/camera_bug
+/obj/item/camera_bug
 	name = "camera bug"
-	icon = 'icons/obj/device.dmi'
+	icon = 'icons/obj/item/flash.dmi'
 	icon_state = "flash"
+	item_state = "flash"
 	w_class = WEIGHT_CLASS_TINY
-	item_state = "electronic"
 	throw_speed = 4
 	throw_range = 20
 
-/obj/item/camera_bug/attack_self(mob/usr as mob)
+/obj/item/camera_bug/attack_self(mob/user as mob)
 	var/list/cameras = new/list()
 	for (var/obj/machinery/camera/C in GLOB.cameranet.cameras)
 		if (C.bugged && C.status)
 			cameras.Add(C)
 	if (length(cameras) == 0)
-		to_chat(usr, SPAN_WARNING("No bugged functioning cameras found."))
+		to_chat(user, SPAN_WARNING("No bugged functioning cameras found."))
 		return
 
 	var/list/friendly_cameras = new/list()
@@ -481,16 +495,16 @@
 	for (var/obj/machinery/camera/C in cameras)
 		friendly_cameras.Add(C.c_tag)
 
-	var/target = tgui_input_list(usr, "Select the camera to observe", "Camera Bug", friendly_cameras)
+	var/target = tgui_input_list(user, "Select the camera to observe", "Camera Bug", friendly_cameras)
 	if (!target)
 		return
 	for (var/obj/machinery/camera/C in cameras)
 		if (C.c_tag == target)
 			target = C
 			break
-	if (usr.stat == 2) return
+	if (user.stat == 2) return
 
-	usr.client.eye = target
+	user.client.eye = target
 
 /obj/item/pai_cable
 	desc = "A flexible coated cable with a universal jack on one end."
@@ -507,8 +521,8 @@
 	icon_state = "neuralbroke"
 
 /obj/item/neuralbroke/attackby(obj/item/attacking_item, mob/user)
-	if(attacking_item.isscrewdriver())
-		new /obj/item/device/encryptionkey/hivenet(user.loc)
+	if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
+		new /obj/item/encryptionkey/hivenet(user.loc)
 		attacking_item.play_tool_sound(get_turf(src), 50)
 		to_chat(user, "You bypass the fried security chip and extract the encryption key.")
 		to_chat(user, "The fried neural socket crumbles away like dust.")
@@ -521,14 +535,15 @@
 	icon_state = "RPED"
 	item_state = "RPED"
 	icon = 'icons/obj/storage/misc.dmi'
+	contained_sprite = TRUE
 	w_class = WEIGHT_CLASS_HUGE
 	can_hold = list(/obj/item/stock_parts,/obj/item/reagent_containers/glass/beaker)
 	storage_slots = 50
-	use_to_pickup = 1
-	allow_quick_gather = 1
-	allow_quick_empty = 1
+	use_to_pickup = TRUE
+	allow_quick_gather = TRUE
+	allow_quick_empty = TRUE
 	collection_mode = 1
-	display_contents_with_number = 1
+	display_contents_with_number = TRUE
 	max_w_class = WEIGHT_CLASS_NORMAL
 	max_storage_space = 100
 

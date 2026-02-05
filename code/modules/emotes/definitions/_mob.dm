@@ -63,7 +63,7 @@
 		)
 
 /mob/living/carbon/brain/can_emote()
-	return (istype(container, /obj/item/device/mmi) && ..())
+	return (istype(container, /obj/item/mmi) && ..())
 
 /mob/living/carbon/brain
 	default_emotes = list(
@@ -85,6 +85,7 @@
 		/singleton/emote/audible/synth/buzz,
 		/singleton/emote/audible/synth/confirm,
 		/singleton/emote/audible/synth/deny,
+		/singleton/emote/audible/synth/alarm,
 		/singleton/emote/visible/nod,
 		/singleton/emote/visible/shake,
 		/singleton/emote/visible/shiver,

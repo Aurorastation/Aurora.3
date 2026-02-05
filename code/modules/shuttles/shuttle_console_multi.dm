@@ -14,7 +14,7 @@
 /obj/machinery/computer/shuttle_control/multi/handle_topic_href(var/mob/user, var/datum/shuttle/autodock/multi/shuttle, var/action, var/list/params)
 	if(action == "pick")
 		var/dest_key = tgui_input_list(user, "Choose shuttle destination.", "Shuttle Destination", shuttle.get_destinations())
-		if(dest_key && (!use_check(usr) || (isobserver(usr) && check_rights(R_ADMIN, FALSE))))
+		if(dest_key && (!use_check(usr) || (isobserver(usr) && check_rights(R_ADMIN, FALSE)) || isstoryteller(usr)))
 			shuttle.set_destination(dest_key, usr)
 		return TRUE
 

@@ -10,7 +10,7 @@
 	set desc = "Sets an extended description of your character's features."
 	set category = "IC"
 
-	var/HTML = "<body>"
+	var/HTML = ""
 	HTML += "<tt><center>"
 	HTML += "<b>Update Flavour Text</b> <hr />"
 	HTML += "<br></center>"
@@ -42,6 +42,6 @@
 	HTML += TextPreview(flavor_texts["feet"])
 	HTML += "<br>"
 	HTML += "<hr />"
-	HTML +="<a href='?src=[REF(src)];flavor_change=done'>\[Done\]</a>"
+	HTML +="<a href='byond://?src=[REF(src)];flavor_change=done'>\[Done\]</a>"
 	HTML += "<tt>"
-	src << browse(HTML, "window=flavor_changes;size=430x300")
+	src << browse(HTML_SKELETON(HTML), "window=flavor_changes;size=430x300")

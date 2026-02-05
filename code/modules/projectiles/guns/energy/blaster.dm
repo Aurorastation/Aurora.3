@@ -13,7 +13,7 @@
 	matter = list(DEFAULT_WALL_MATERIAL = 2000)
 	offhand_accuracy = 1
 	projectile_type = /obj/projectile/energy/blaster
-	max_shots = 6
+	max_shots = 12
 
 	burst_delay = 2
 	sel_mode = 1
@@ -41,7 +41,7 @@
 /obj/item/gun/energy/blaster/pilot_special
 	name = "pilot's sidearm"
 	desc = "A robust, low in maintenance blaster pistol. Customized for peak performance and perfect for self-defense purposes."
-	max_shots = 8
+	max_shots = 12
 	accuracy = 2 // Likely to get nothing else, so they gotta know how to make it count.
 	offhand_accuracy = 2
 
@@ -66,7 +66,7 @@
 	icon = 'icons/obj/guns/blaster_carbine.dmi'
 	icon_state = "blaster_carbine"
 	item_state = "blaster_carbine"
-	max_shots = 12
+	max_shots = 16
 	origin_tech = list(TECH_COMBAT = 3, TECH_MAGNET = 2)
 	offhand_accuracy = 0
 	projectile_type = /obj/projectile/energy/blaster
@@ -100,7 +100,7 @@
 	is_wieldable = TRUE
 
 /obj/item/gun/energy/blaster/rifle/verb/scope()
-	set category = "Object"
+	set category = "Object.Held"
 	set name = "Use Scope"
 	set src in usr
 
@@ -116,7 +116,7 @@
 	icon = 'icons/obj/guns/blaster_ar.dmi'
 	icon_state = "blaster_ar"
 	item_state = "blaster_ar"
-	max_shots = 20
+	max_shots = 24
 	projectile_type = /obj/projectile/energy/blaster/heavy
 	fire_sound = 'sound/weapons/laserstrong.ogg'
 	slot_flags = SLOT_BACK
@@ -145,7 +145,7 @@
 	icon = 'icons/obj/guns/himeo_blaster.dmi'
 	icon_state = "himeoblaster"
 	item_state = "himeoblaster"
-	projectile_type = /obj/projectile/energy/blaster
+	projectile_type = /obj/projectile/energy/blaster/heavy
 	usesound = 'sound/weapons/plasma_cutter.ogg'
 	fire_sound = 'sound/weapons/gunshot/slammer.ogg'
 	cell_type = /obj/item/cell/hydrogen
@@ -169,16 +169,20 @@
 		list(mode_name="full auto",	can_autofire=1, burst=1, fire_delay=5, fire_delay_wielded=2, one_hand_fa_penalty=12, burst_accuracy = list(0,-1,-1,-2,-2,-2,-3,-3), dispersion = list(5, 10, 15, 20, 25)) //same as the assault rifle
 		)
 
-/obj/item/gun/energy/blaster/himeo/get_examine_text(mob/user, distance, is_adjacent, infix, suffix) //stolen from the plasma cutter
-	. = ..()
+/obj/item/gun/energy/blaster/himeo/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "When fully drained, this weapon will automatically eject the empty energy cell, allowing for rapid reload."
+
+/obj/item/gun/energy/blaster/himeo/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
 	if(is_adjacent)
 		if(power_supply)
-			. += FONT_SMALL(SPAN_NOTICE("It has a <b>[capitalize_first_letters(power_supply.name)]</b> in the cell mount."))
+			. += SPAN_NOTICE("It has a <b>[capitalize_first_letters(power_supply.name)]</b> in the cell mount.")
 		else
-			. += FONT_SMALL(SPAN_WARNING("It has no cell installed."))
+			. += SPAN_WARNING("It has no cell installed.")
 
 /obj/item/gun/energy/blaster/himeo/attackby(obj/item/attacking_item, mob/user)
-	if(attacking_item.isscrewdriver())
+	if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 		if(power_supply)
 			playsound(user, 'sound/machines/compbeep1.ogg', 40, FALSE)
 			to_chat(user, SPAN_NOTICE("You uninstall \the [power_supply]."))

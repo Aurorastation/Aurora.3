@@ -14,7 +14,7 @@ MRE Stuff
 	drop_sound = 'sound/items/drop/gloves.ogg'
 	pickup_sound = 'sound/items/pickup/gloves.ogg'
 	use_sound = 'sound/items/storage/wrapper.ogg'
-	open_sound = /singleton/sound_category/rip_sound
+	open_sound = SFX_RIP
 	open_message = "You tear open the bag, breaking the vacuum seal."
 	var/main_meal = /obj/item/storage/box/fancy/mrebag
 	var/meal_desc = "This one is menu 1, meat pizza."
@@ -26,18 +26,18 @@ MRE Stuff
 		/obj/item/reagent_containers/food/condiment/small/packet/capsaicin = 1,
 		/obj/item/material/kitchen/utensil/fork/plastic = 1
 	)
+	make_exact_fit = TRUE
+
+/obj/item/storage/box/fancy/mre/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += meal_desc
 
 /obj/item/storage/box/fancy/mre/fill()
 	new main_meal(src)
 	. = ..()
-	make_exact_fit()
 
 /obj/item/storage/mre/attack_self(mob/user)
 	open(user)
-
-/obj/item/storage/box/fancy/mre/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	. += meal_desc
 
 /obj/item/storage/box/fancy/mre/menu2
 	name = "\improper MRE, menu 2"
@@ -240,7 +240,7 @@ MRE Stuff
 	name = "dessert"
 	desc = "A vacuum-sealed bag containing a MRE's dessert."
 	icon_state = "pouch_small"
-	open_sound = /singleton/sound_category/rip_sound
+	open_sound = SFX_RIP
 	open_message = "You tear open the bag, breaking the vacuum seal."
 	starts_with = list(/obj/random/mre/dessert = 1)
 

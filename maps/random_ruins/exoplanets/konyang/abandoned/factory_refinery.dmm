@@ -139,7 +139,7 @@
 /turf/simulated/floor/sidewalk/dark,
 /area/konyang/refinery)
 "eO" = (
-/obj/structure/shipping_container{
+/obj/structure/shipping_container_old{
 	icon_state = "green3"
 	},
 /turf/simulated/floor/sidewalk/flat,
@@ -722,7 +722,7 @@
 /turf/simulated/floor/sidewalk/dark,
 /area/konyang/refinery)
 "Fh" = (
-/obj/structure/shipping_container{
+/obj/structure/shipping_container_old{
 	icon_state = "green1"
 	},
 /obj/random/dirt_75,
@@ -896,7 +896,7 @@
 /turf/simulated/floor/sidewalk/dark,
 /area/konyang/refinery)
 "Mz" = (
-/obj/structure/shipping_container{
+/obj/structure/shipping_container_old{
 	icon_state = "green2"
 	},
 /obj/random/dirt_75,
@@ -1123,7 +1123,7 @@
 /turf/simulated/floor/asphalt,
 /area/exoplanet/grass/konyang)
 "Tz" = (
-/obj/structure/shipping_container{
+/obj/structure/shipping_container_old{
 	icon_state = "green2"
 	},
 /turf/simulated/floor/sidewalk/flat,

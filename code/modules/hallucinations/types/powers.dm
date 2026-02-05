@@ -19,9 +19,9 @@
 	duration = rand(2, 4) MINUTES
 	switch(rand(1, 3))
 		if(1)
-			sound_to(holder, 'sound/misc/announcements/notice.ogg')
+			sound_to(holder, 'sound/ai/announcements/notice.ogg')
 			to_chat(holder, "<h2 class='alert'>Ion Storm?</h2>")
-			to_chat(holder, SPAN_ALERT("It has come to our attention that the station has passed through an unusual ion storm. Several crewmembers are exhibiting unusual abilities."))
+			to_chat(holder, SPAN_ALERT("It has come to our attention that the [station_name(TRUE)] has passed through an unusual ion storm. Several crewmembers are exhibiting unusual abilities."))
 		if(2)
 			sound_to(holder, 'sound/hallucinations/behind_you1.ogg')
 			to_chat(holder, SPAN_GOOD("You hear a whispering in your mind. A promise of [pick("power", "enlightenment", "sight beyond sight", "knowledge terrible but true")]. Your vision goes white for a moment; when it returns, you feel... different."))
@@ -106,9 +106,9 @@
 	duration = rand(2, 4) MINUTES
 	switch(rand(1, 3))
 		if(1)
-			sound_to(holder, 'sound/misc/announcements/notice.ogg')
+			sound_to(holder, 'sound/ai/announcements/notice.ogg')
 			to_chat(holder, "<h2 class='alert'>Ion Storm?</h2>")
-			to_chat(holder, SPAN_ALERT("It has come to our attention that the station has passed through an unusual ion storm. Several crewmembers are exhibiting unusual abilities."))
+			to_chat(holder, SPAN_ALERT("It has come to our attention that the [station_name(TRUE)] has passed through an unusual ion storm. Several crewmembers are exhibiting unusual abilities."))
 		if(2)
 			sound_to(holder, 'sound/hallucinations/behind_you1.ogg')
 			to_chat(holder, SPAN_GOOD("You hear a whispering in your mind. A promise of [pick("power", "enlightenment", "sight beyond sight", "knowledge terrible but true")]. Your vision goes white for a moment; when it returns, you feel... different."))

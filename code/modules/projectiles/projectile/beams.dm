@@ -7,12 +7,13 @@
 	armor_penetration = 10
 	damage_type = DAMAGE_BURN
 	impact_sounds = list(BULLET_IMPACT_MEAT = SOUNDS_LASER_MEAT, BULLET_IMPACT_METAL = SOUNDS_LASER_METAL)
-	check_armor = "laser"
+	check_armor = LASER
 	eyeblur = 4
 	damage_flags = DAMAGE_FLAG_LASER
 	var/frequency = 1
 	hitscan = 1
 	invisibility = 101	//beam projectiles are invisible as they are rendered by the effect engine
+	// color = COLOR_RED
 
 	muzzle_type = /obj/effect/projectile/muzzle/laser
 	tracer_type = /obj/effect/projectile/tracer/laser
@@ -150,6 +151,7 @@
 	name = "emitter beam"
 	icon_state = "emitter"
 	damage = 0 // The actual damage is computed in /code/modules/power/singularity/emitter.dm
+	color = COLOR_SPRING_GREEN
 
 	muzzle_type = /obj/effect/projectile/muzzle/emitter
 	tracer_type = /obj/effect/projectile/tracer/emitter
@@ -161,7 +163,7 @@
 	pass_flags = PASSTABLE | PASSGLASS | PASSGRILLE | PASSRAILING
 	damage = 0
 	damage_type = DAMAGE_BURN
-	check_armor = "laser"
+	check_armor = LASER
 	var/laser_tag_color = "red"
 
 	muzzle_type = /obj/effect/projectile/muzzle/laser
@@ -356,6 +358,16 @@
 		SA.take_organ_damage(0, 20)
 	return TRUE
 
+/obj/projectile/beam/mousegun/xenofauna_holo
+	damage = 0
+
+/obj/projectile/beam/mousegun/xenofauna_holo/on_hit(atom/target, blocked, def_zone)
+	. = ..()
+	if(istype(target, /mob/living/simple_animal/hostile/carp/holodeck))
+		var/mob/living/simple_animal/hostile/carp/holodeck/C = target
+		C.take_organ_damage(15)
+	return TRUE
+
 /obj/projectile/beam/shotgun
 	name = "diffuse laser"
 	icon_state = "laser"
@@ -496,7 +508,7 @@
 	pass_flags = PASSTABLE | PASSRAILING
 	damage = 15
 	damage_type = DAMAGE_BURN
-	check_armor = "energy"
+	check_armor = ENERGY
 
 	muzzle_type = /obj/effect/projectile/muzzle/laser/blue
 	tracer_type = /obj/effect/projectile/tracer/laser/blue

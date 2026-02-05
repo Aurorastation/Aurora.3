@@ -21,7 +21,7 @@
 
 /datum/ghostspawner/revenant/cant_spawn(mob/user)
 	. = ..()
-	if(!. && revenants.rifts_left <= 0)
+	if(!. && GLOB.revenants.rifts_left <= 0)
 		return "The final rift has been closed."
 
 /datum/ghostspawner/revenant/spawn_mob(mob/user)
@@ -40,7 +40,7 @@
 		announce_ghost_joinleave(user, FALSE, "They are now a [name].")
 		R.ckey = user.ckey
 
-	revenants.add_antagonist(R.mind, TRUE, TRUE, FALSE, TRUE, TRUE)
+	GLOB.revenants.add_antagonist(R.mind, TRUE, TRUE, FALSE, TRUE, TRUE)
 	if(R.client)
 		to_chat(R, FONT_LARGE(SPAN_CULT("You can now speak with all revenants in the game world by using \"[R.client.prefs.language_prefixes[1]]rs\" before a message.")))
 	if(!has_fired)
@@ -59,10 +59,10 @@
 	has_fired = TRUE
 
 /datum/ghostspawner/revenant/proc/check_rift()
-	if(revenants.revenant_rift || revenants.rifts_left <= 0)
+	if(GLOB.revenants.revenant_rift || GLOB.revenants.rifts_left <= 0)
 		return
-	var/kills_needed = ((initial(revenants.rifts_left) - revenants.rifts_left) + 1) * 5
-	if(revenants.kill_count > kills_needed)
+	var/kills_needed = ((initial(GLOB.revenants.rifts_left) - GLOB.revenants.rifts_left) + 1) * 5
+	if(GLOB.revenants.kill_count > kills_needed)
 		var/turf/rift_turf
 		var/list/possible_landmarks = list()
 		for(var/thing in GLOB.landmarks_list)
@@ -75,7 +75,7 @@
 		if(rift_turf)
 			new /obj/effect/portal/revenant(rift_turf)
 			if(!first_rift_done)
-				command_announcement.Announce("[SSatlas.current_map.station_name], we're detecting energy signatures eerily similar to a bluespace rift breach inside your hull. [SScargo.shuttle ? "We're sending you a bluespace neutralizer via the cargo shuttle. If you need more, your research department should be able to print neutralizers as well if they've been increasing their bluespace research levels. " : ""]Locate the rift and shut it down.", "Bluespace Breach Alert")
+				command_announcement.Announce("[SSatlas.current_map.station_name], we're detecting energy signatures eerily similar to a bluespace rift breach inside your hull. [SScargo.shuttle ? "We're sending you a bluespace neutralizer via the cargo elevator. If you need more, your research department should be able to print neutralizers as well if they've been increasing their bluespace research levels. " : ""]Locate the rift and shut it down.", "Bluespace Breach Alert")
 				first_rift_done = TRUE
 				if(SScargo.shuttle)
 					var/turf/T = pick_area_turf(pick(SScargo.shuttle.shuttle_area), list(/proc/not_turf_contains_dense_objects))

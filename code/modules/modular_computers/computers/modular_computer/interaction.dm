@@ -181,13 +181,21 @@
 	else if(scan_mode == SCANNER_GAS)
 		analyze_gases(A, user)
 
-/obj/item/modular_computer/attack_ghost(var/mob/abstract/observer/user)
+/obj/item/modular_computer/attack_ghost(var/mob/abstract/ghost/user)
 	if(enabled)
 		ui_interact(user)
-	else if(check_rights(R_ADMIN, 0, user))
+	else if(check_rights(R_ADMIN, 0, user) || isstoryteller(user))
 		var/response = alert(user, "This computer is turned off. Would you like to turn it on?", "Admin Override", "Yes", "No")
 		if(response == "Yes")
 			turn_on(user)
+
+/obj/item/modular_computer/attack_ranged(mob/user, params)
+	. = ..()
+	if(ishuman(user) && isipc(user))
+		var/mob/living/carbon/human/robot = user
+		var/obj/item/organ/internal/machine/wireless_access/wireless_access_point = robot.internal_organs_by_name[BP_WIRELESS_ACCESS]
+		if(wireless_access_point?.access_terminal(src))
+			attack_hand(user)
 
 /obj/item/modular_computer/attack_hand(var/mob/user)
 	if(anchored)
@@ -272,10 +280,10 @@
 		else
 			to_chat(user, SPAN_WARNING("This component is too large for \the [src]."))
 		return TRUE
-	if(istype(attacking_item, /obj/item/device/paicard))
+	if(istype(attacking_item, /obj/item/paicard))
 		try_install_component(user, attacking_item)
 		return TRUE
-	if(attacking_item.iswrench())
+	if(attacking_item.tool_behaviour == TOOL_WRENCH)
 		var/list/components = get_all_components()
 		if(components.len)
 			to_chat(user, SPAN_WARNING("You have to remove all the components from \the [src] before disassembling it."))
@@ -286,7 +294,7 @@
 			user.visible_message(SPAN_NOTICE("\The [user] disassembles \the [src]."), SPAN_NOTICE("You disassemble \the [src]."), SPAN_NOTICE("You hear a ratcheting noise."))
 			qdel(src)
 		return TRUE
-	if(attacking_item.iswelder())
+	if(attacking_item.tool_behaviour == TOOL_WELDER)
 		var/obj/item/weldingtool/WT = attacking_item
 		if(!WT.isOn())
 			to_chat(user, SPAN_WARNING("\The [attacking_item] is off."))
@@ -304,7 +312,7 @@
 		update_icon()
 		return TRUE
 
-	if(attacking_item.isscrewdriver())
+	if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 		var/list/all_components = get_all_components()
 		if(!all_components.len)
 			to_chat(user, SPAN_WARNING("This device doesn't have any components installed."))
@@ -321,15 +329,29 @@
 			return TRUE
 		uninstall_component(user, H)
 		return TRUE
+
+	if(istype(attacking_item, /obj/item/access_cable))
+		var/obj/item/access_cable/access_cable = attacking_item
+		if(!universal_port)
+			to_chat(user, SPAN_WARNING("There isn't a port to slot \the [access_cable] into!"))
+			return
+
+		if(universal_port.access_cable)
+			to_chat(user, SPAN_WARNING("There's already a cable in the universal port!"))
+			return
+
+		if(do_after(user, 1 SECONDS))
+			visible_message(SPAN_NOTICE("[user] slots \the [access_cable] into \the [src]."))
+			universal_port.insert_cable(access_cable, user)
 	return ..()
 
-/obj/item/modular_computer/MouseDrop(atom/over_object)
-	var/mob/M = usr
+/obj/item/modular_computer/mouse_drop_dragged(atom/over, mob/user, src_location, over_location, params)
+	var/mob/M = user
 	if(use_check_and_message(M))
 		return
-	if(istype(over_object, /obj/machinery/power/apc) && tesla_link)
-		return over_object.attackby(src, M)
-	if(!istype(over_object, /atom/movable/screen) && !(over_object == src))
+	if(istype(over, /obj/machinery/power/apc) && tesla_link)
+		return over.attackby(src, M)
+	if(!istype(over, /atom/movable/screen) && !(over == src))
 		return attack_self(M)
 
 /obj/item/modular_computer/GetID()

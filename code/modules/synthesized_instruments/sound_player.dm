@@ -23,8 +23,8 @@
 /datum/sound_player/New(datum/real_instrument/where, datum/instrument/what)
 	src.song = new (src, what)
 	src.actual_instrument = where
-	src.echo = musical_config.echo_default.Copy()
-	src.env = musical_config.env_default.Copy()
+	src.echo = GLOB.musical_config.echo_default.Copy()
+	src.env = GLOB.musical_config.env_default.Copy()
 	GLOB.instrument_synchronizer.register_global(src, .proc/check_wait)
 
 /datum/sound_player/Destroy()
@@ -65,15 +65,15 @@
 /datum/sound_player/proc/apply_modifications(sound/what, note_num, which_line, which_note) // You don't need to override this
 	what.volume = volume
 	what.falloff = falloff
-	if (musical_config.env_settings_available)
-		what.environment = musical_config.is_custom_env(src.virtual_environment_selected) ? src.env : src.virtual_environment_selected
+	if (GLOB.musical_config.env_settings_available)
+		what.environment = GLOB.musical_config.is_custom_env(src.virtual_environment_selected) ? src.env : src.virtual_environment_selected
 	if (src.apply_echo)
 		what.echo = src.echo
 	return
 
 /datum/sound_player/proc/shouldStopPlaying(mob/user)
 	var/obj/structure/synthesized_instrument/S = actual_instrument
-	var/obj/item/device/synthesized_instrument/D = actual_instrument
+	var/obj/item/synthesized_instrument/D = actual_instrument
 	if(istype(S))
 		return S.shouldStopPlaying(user)
 	if(istype(D))

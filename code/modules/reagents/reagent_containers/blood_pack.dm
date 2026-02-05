@@ -34,6 +34,11 @@
 	drop_sound = 'sound/items/drop/food.ogg'
 	pickup_sound = 'sound/items/pickup/food.ogg'
 
+/obj/item/reagent_containers/blood/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if (distance <= 2 && vampire_marks)
+		. += SPAN_WARNING("There are sharp, canine-like teeth marks on it.")
+
 /obj/item/reagent_containers/blood/Initialize()
 	. = ..()
 	if(blood_type != null)
@@ -97,20 +102,20 @@
 	else
 		..()
 
-/obj/item/reagent_containers/blood/MouseDrop(over_object, src_location, over_location)
+/obj/item/reagent_containers/blood/mouse_drop_dragged(atom/over, mob/user, src_location, over_location, params)
 	if(!ismob(loc))
 		return
 	var/turf/our_turf = get_turf(src)
-	var/turf/target_turf = get_turf(over_object)
+	var/turf/target_turf = get_turf(over)
 	if(!our_turf.Adjacent(target_turf))
 		return
 	if(attached_mob)
 		remove_iv_mob()
-	else if(ishuman(over_object))
-		visible_message(SPAN_WARNING("\The [usr] starts hooking \the [over_object] up to \the [src]."))
-		if(do_after(usr, 30))
-			to_chat(usr, SPAN_NOTICE("You hook \the [over_object] up to \the [src]."))
-			attached_mob = WEAKREF(over_object)
+	else if(ishuman(over))
+		visible_message(SPAN_WARNING("\The [user] starts hooking \the [over] up to \the [src]."))
+		if(do_after(user, 30))
+			to_chat(user, SPAN_NOTICE("You hook \the [over] up to \the [src]."))
+			attached_mob = WEAKREF(over)
 			START_PROCESSING(SSprocessing, src)
 	update_icon()
 
@@ -155,14 +160,9 @@
 		attached_mob = null
 	STOP_PROCESSING(SSprocessing, src)
 
-/obj/item/reagent_containers/blood/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if (distance <= 2 && vampire_marks)
-		. += SPAN_WARNING("There are sharp, canine-like teeth marks on it.")
-
 /obj/item/reagent_containers/blood/attackby(obj/item/attacking_item, mob/user)
 	..()
-	if (attacking_item.ispen())
+	if (attacking_item.tool_behaviour == TOOL_PEN)
 		if (REAGENT_VOLUME(reagents, /singleton/reagent/blood) && name != "empty IV bag") //Stops people mucking with bloodpacks that are filled
 			to_chat(user, SPAN_NOTICE("You can't relabel [name] until it is empty!"))
 			return
@@ -173,7 +173,7 @@
 			return
 
 		var/obj/item/i = user.get_active_hand()
-		if(!i.ispen() || !in_range(user, src)) //Checks to see if pen is still held or bloodpack is in range
+		if(!i.tool_behaviour == TOOL_PEN || !in_range(user, src)) //Checks to see if pen is still held or bloodpack is in range
 			return
 
 		if(blood_name == "Clear")

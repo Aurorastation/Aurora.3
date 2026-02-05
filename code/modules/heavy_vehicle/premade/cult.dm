@@ -2,7 +2,7 @@
 /mob/living/heavy_vehicle/premade/cult
 	name = "Daemon Exosuit"
 	desc = "An unholy construction, a mecha ripped from the jaws of the underworld, here to wreak havoc on the living."
-	icon_state = "durand"
+	icon_state = "cult"
 
 	e_head = /obj/item/mech_component/sensors/cult
 	e_body = /obj/item/mech_component/chassis/cult

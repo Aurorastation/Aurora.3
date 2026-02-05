@@ -35,7 +35,7 @@
 	lipsticks["lipstick, teal"] = /obj/item/lipstick/teal
 
 	gear_tweaks += new /datum/gear_tweak/path(lipsticks)
-	gear_tweaks += list(gear_tweak_lipstick_application)
+	gear_tweaks += list(GLOB.gear_tweak_lipstick_application)
 
 /datum/gear/cosmetic/lipstick_colorable // not a subtype because we dont want the path gear_tweaks
 	display_name = "colorable lipstick"
@@ -44,10 +44,10 @@
 
 /datum/gear/cosmetic/lipstick_colorable/New()
 	..()
-	gear_tweaks += list(gear_tweak_lipstick_color)
-	gear_tweaks += list(gear_tweak_lipstick_application)
+	gear_tweaks += list(GLOB.gear_tweak_lipstick_color)
+	gear_tweaks += list(GLOB.gear_tweak_lipstick_application)
 
-var/datum/gear_tweak/color/lipstick/gear_tweak_lipstick_color = new()
+GLOBAL_DATUM_INIT(gear_tweak_lipstick_color, /datum/gear_tweak/color/lipstick, new())
 
 /datum/gear_tweak/color/lipstick/get_contents(var/metadata)
 	return "Lipstick Color: <font color='[metadata]'>&#9899;</font>"
@@ -57,7 +57,7 @@ var/datum/gear_tweak/color/lipstick/gear_tweak_lipstick_color = new()
 	lipstick.update_icon()
 
 
-var/datum/gear_tweak/lipstick_application/gear_tweak_lipstick_application = new()
+GLOBAL_DATUM_INIT(gear_tweak_lipstick_application, /datum/gear_tweak/lipstick_application, new())
 
 /datum/gear_tweak/lipstick_application/get_contents(var/metadata)
 	return "Lipstick Applied: [metadata]"

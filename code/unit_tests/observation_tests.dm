@@ -1,4 +1,4 @@
-/proc/is_listening_to_movement(var/atom/movable/listening_to, var/mob/abstract/observer/listener)
+/proc/is_listening_to_movement(var/atom/movable/listening_to, var/mob/abstract/ghost/listener)
 	if(!listener.orbiting)
 		return FALSE
 
@@ -20,7 +20,7 @@
 /datum/unit_test/observation/moved_observer_shall_register_on_follow/start_test()
 	var/turf/T = locate(20,20,1)
 	var/mob/living/carbon/human/H = new(T)
-	var/mob/abstract/observer/O = new(T)
+	var/mob/abstract/ghost/observer/O = new(T)
 
 	O.ManualFollow(H)
 	if(is_listening_to_movement(H, O))
@@ -39,7 +39,7 @@
 /datum/unit_test/observation/moved_observer_shall_unregister_on_nofollow/start_test()
 	var/turf/T = locate(20,20,1)
 	var/mob/living/carbon/human/H = new(T)
-	var/mob/abstract/observer/O = new(T)
+	var/mob/abstract/ghost/observer/O = new(T)
 
 	O.ManualFollow(H)
 	QDEL_NULL(O.orbiting)

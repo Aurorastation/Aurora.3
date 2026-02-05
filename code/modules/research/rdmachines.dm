@@ -5,8 +5,8 @@
 /obj/machinery/r_n_d
 	name = "R&D device"
 	icon = 'icons/obj/machinery/research.dmi'
-	density = 1
-	anchored = 1
+	density = TRUE
+	anchored = TRUE
 	var/busy = 0
 	var/obj/machinery/computer/rdconsole/linked_console
 

@@ -1,4 +1,4 @@
-/obj/item/device/paicard
+/obj/item/paicard
 	name = "personal AI device"
 	icon = 'icons/obj/pai.dmi'
 	icon_state = "pai"
@@ -7,7 +7,7 @@
 	slot_flags = SLOT_BELT
 	origin_tech = list(TECH_DATA = 2)
 	var/list/installed_encryptionkeys = list()
-	var/obj/item/device/radio/radio
+	var/obj/item/radio/radio
 	var/looking_for_personality = 0
 	var/mob/living/silicon/pai/pai
 	var/move_delay = 0
@@ -16,7 +16,7 @@
 	light_range = 1
 	light_color = COLOR_BRIGHT_GREEN
 
-/obj/item/device/paicard/relaymove(mob/living/user, direction)
+/obj/item/paicard/relaymove(mob/living/user, direction)
 	. = ..()
 
 	if(user.stat || user.stunned)
@@ -34,28 +34,28 @@
 	if(istype(rig))
 		rig.forced_move(direction, user)
 
-/obj/item/device/paicard/Initialize()
+/obj/item/paicard/Initialize()
 	. = ..()
 	AddOverlays("pai_off")
 	SSpai.all_pai_devices += src
 	update_light()
 
-/obj/item/device/paicard/Destroy()
+/obj/item/paicard/Destroy()
 	SSpai.all_pai_devices -= src
 	//Will stop people throwing friend pAIs into the singularity so they can respawn
 	if(pai)
 		pai.death(0)
 	return ..()
 
-/obj/item/device/paicard/attackby(obj/item/attacking_item, mob/user)
+/obj/item/paicard/attackby(obj/item/attacking_item, mob/user)
 	if(istype(attacking_item, /obj/item/card/id))
 		scan_ID(attacking_item, user)
 		return TRUE
-	else if(istype(attacking_item, /obj/item/device/encryptionkey))
+	else if(istype(attacking_item, /obj/item/encryptionkey))
 		if(length(installed_encryptionkeys) > 2)
 			to_chat(user, SPAN_WARNING("\The [src] already has the full number of possible encryption keys installed!"))
 			return TRUE
-		var/obj/item/device/encryptionkey/EK = attacking_item
+		var/obj/item/encryptionkey/EK = attacking_item
 		var/added_channels = FALSE
 		for(var/thing in (EK.channels | EK.additional_channels))
 			if(!radio.channels[thing])
@@ -71,13 +71,13 @@
 		else
 			to_chat(user, SPAN_WARNING("\The [src] would not gain any new channels from \the [EK]."))
 		return TRUE
-	else if(attacking_item.isscrewdriver())
+	else if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 		if(!length(installed_encryptionkeys))
 			to_chat(user, SPAN_WARNING("There are no installed encryption keys to remove!"))
 			return
 		user.visible_message("<b>[user]</b> uses \the [attacking_item] to pop the encryption key[length(installed_encryptionkeys) > 1 ? "s" : ""] out of \the [src].", SPAN_NOTICE("You use \the [attacking_item] to pop the encryption key[length(installed_encryptionkeys) > 1 ? "s" : ""] out of \the [src]."))
 		for(var/key in installed_encryptionkeys)
-			var/obj/item/device/encryptionkey/EK = key
+			var/obj/item/encryptionkey/EK = key
 			EK.forceMove(get_turf(src))
 			installed_encryptionkeys -= EK
 		recalculateChannels()
@@ -88,10 +88,10 @@
 		return TRUE
 	pai.attackby(attacking_item, user)
 
-/obj/item/device/paicard/proc/recalculateChannels()
+/obj/item/paicard/proc/recalculateChannels()
 	radio.channels = list("Common" = radio.FREQ_LISTENING, "Entertainment" = radio.FREQ_LISTENING)
 	for(var/keyslot in installed_encryptionkeys)
-		var/obj/item/device/encryptionkey/EK = keyslot
+		var/obj/item/encryptionkey/EK = keyslot
 		for(var/ch_name in (EK.channels | EK.additional_channels))
 			radio.channels[ch_name] = radio.FREQ_LISTENING
 
@@ -108,7 +108,7 @@
 //Scanning an ID replaces any previously stored access with the new set.
 //Only cards that match the imprinted DNA can be used, it's not a free Agent ID card.
 //Possible TODO in future, allow emagging a paicard to let it work like an agent ID, accumulating access from any ID
-/obj/item/device/paicard/proc/scan_ID(var/obj/item/card/id/card, var/mob/user)
+/obj/item/paicard/proc/scan_ID(var/obj/item/card/id/card, var/mob/user)
 	if (!pai)
 		to_chat(user, SPAN_WARNING("Error: ID Registration failed. No pAI personality installed."))
 		playsound(src.loc, 'sound/machines/buzz-two.ogg', 20, 0)
@@ -131,13 +131,13 @@
 	to_chat(user, SPAN_NOTICE("ID Registration for [pai.id_card.registered_name] is a success. PAI access updated!"))
 	return 1
 
-/obj/item/device/paicard/proc/ID_readout()
+/obj/item/paicard/proc/ID_readout()
 	if (pai.id_card && pai.id_card.registered_name)
 		return SPAN_NOTICE("Identity of owner: [pai.id_card.registered_name] registered.")
 	else
 		return SPAN_WARNING("No ID card registered! Please scan your ID to share access.")
 
-/obj/item/device/paicard/attack_self(mob/user)
+/obj/item/paicard/attack_self(mob/user)
 	if (!in_range(src, user))
 		return
 	user.set_machine(src)
@@ -337,7 +337,7 @@
 	onclose(user, "paicard")
 	return
 
-/obj/item/device/paicard/Topic(href, href_list)
+/obj/item/paicard/Topic(href, href_list)
 
 	if(!usr || usr.stat)
 		return
@@ -389,19 +389,19 @@
 //		WIRE_RECEIVE = 2
 //		WIRE_TRANSMIT = 4
 
-/obj/item/device/paicard/proc/setPersonality(mob/living/silicon/pai/personality)
+/obj/item/paicard/proc/setPersonality(mob/living/silicon/pai/personality)
 	src.pai = personality
 	AddOverlays("pai-happy")
 	playsound(src, 'sound/effects/pai/pai_restore.ogg', 75)
 
-/obj/item/device/paicard/proc/removePersonality()
+/obj/item/paicard/proc/removePersonality()
 	src.pai = null
 	ClearOverlays()
 	AddOverlays("pai-off")
 
-/obj/item/device/paicard
+/obj/item/paicard
 	var/current_emotion = 1
-/obj/item/device/paicard/proc/setEmotion(var/emotion)
+/obj/item/paicard/proc/setEmotion(var/emotion)
 	if(pai)
 		ClearOverlays()
 		var/new_state
@@ -425,30 +425,30 @@
 			AddOverlays(new_state)
 		current_emotion = emotion
 
-/obj/item/device/paicard/proc/alertUpdate()
+/obj/item/paicard/proc/alertUpdate()
 	var/turf/T = get_turf_or_move(src.loc)
 	for (var/mob/M in viewers(T))
 		M.show_message(SPAN_NOTICE("\The [src] flashes a message across its screen, \"Additional personalities available for download.\""), 3, SPAN_NOTICE("\The [src] bleeps electronically."), 2)
 
-/obj/item/device/paicard/emp_act(severity)
+/obj/item/paicard/emp_act(severity)
 	. = ..()
 
 	for(var/mob/M in src)
 		M.emp_act(severity)
 
-/obj/item/device/paicard/ex_act(severity)
+/obj/item/paicard/ex_act(severity)
 	if(pai)
 		pai.ex_act(severity)
 	else
 		qdel(src)
 
-/obj/item/device/paicard/see_emote(mob/living/M, text)
+/obj/item/paicard/see_emote(mob/living/M, text)
 	if(pai && pai.client && !pai.canmove)
 		var/rendered = span("message", "[text]")
 		pai.show_message(rendered, 2)
 	..()
 
-/obj/item/device/paicard/dropped(mob/user)
+/obj/item/paicard/dropped(mob/user)
 	. = ..()
 	///When an object is put into a container, drop fires twice.
 	//once with it on the floor, and then once in the container
@@ -457,11 +457,11 @@
 		update_location()
 
 
-/obj/item/device/paicard/equipped(var/mob/user, var/slot)
+/obj/item/paicard/equipped(var/mob/user, var/slot)
 	..()
 	update_location(slot)
 
-/obj/item/device/paicard/proc/update_location(var/slotnumber = null)
+/obj/item/paicard/proc/update_location(var/slotnumber = null)
 	if (!pai)
 		return
 
@@ -471,7 +471,7 @@
 
 	report_onmob_location(1, slotnumber, pai)
 
-/obj/item/device/paicard/show_message(msg, type, alt, alt_type)
+/obj/item/paicard/show_message(msg, type, alt, alt_type)
 	if(pai && pai.client)
 		var/rendered = span("message", "[msg]")
 		pai.show_message(rendered, type)

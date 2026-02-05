@@ -7,7 +7,7 @@
 
 /datum/gear/shoes/New()
 	..()
-	gear_tweaks += list(gear_tweak_shoe_layer)
+	gear_tweaks += list(GLOB.gear_tweak_shoe_layer)
 
 /datum/gear/shoes/color
 	display_name = "sneakers selection"
@@ -79,7 +79,6 @@
 	var/list/sandals = list()
 	sandals["sandals"] = /obj/item/clothing/shoes/sandals
 	sandals["rubber clogs"] = /obj/item/clothing/shoes/sandals/clogs
-	sandals["flip flops"] = /obj/item/clothing/shoes/sandals/flipflop
 	sandals["geta"] = /obj/item/clothing/shoes/sandals/geta
 	gear_tweaks += new /datum/gear_tweak/path(sandals)
 
@@ -193,7 +192,8 @@
 /*
 	Shoe Layer Adjustment
 */
-var/datum/gear_tweak/shoe_layer/gear_tweak_shoe_layer = new()
+
+GLOBAL_DATUM_INIT(gear_tweak_shoe_layer, /datum/gear_tweak/shoe_layer, new())
 
 /datum/gear_tweak/shoe_layer/get_contents(var/metadata)
 	return "Shoe Layer: [metadata] Uniform"

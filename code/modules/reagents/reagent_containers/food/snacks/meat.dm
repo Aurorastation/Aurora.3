@@ -424,9 +424,15 @@
 	var/percent = round((reagents.total_volume / 8) * 100)
 	switch(percent)
 		if(0 to 59)
-			icon_state = "schnitzel_half"
+			if(reagents.has_reagent(/singleton/reagent/condiment/gravy))
+				icon_state = "schnitzel_half_gravy"
+			else
+				icon_state = "schnitzel_half"
 		if(60 to INFINITY)
-			icon_state = "schnitzel"
+			if(reagents.has_reagent(/singleton/reagent/condiment/gravy))
+				icon_state = "schnitzel_gravy"
+			else
+				icon_state = "schnitzel"
 
 /obj/item/reagent_containers/food/snacks/cozmo_cubes
 	name = "cozmo cubes"
@@ -448,3 +454,46 @@
 			icon_state = "cozmo_cubes_half"
 		if(70 to INFINITY)
 			icon_state = "cozmo_cubes"
+
+/obj/item/reagent_containers/food/snacks/steak_tartare
+	name = "steak tartare"
+	desc = "Waiter! Is this a joke?! You just SLAPPED some raw beef onto a plate and sprinkled with condiments! Even the EGG isn't cooked! Are you trying to poison me?! No, don't give me that 'it's supposed to be like this' nonsense! Take this back and cook it until it stops mooing at me!"
+	icon = 'icons/obj/item/reagent_containers/food/meat.dmi'
+	icon_state = "tartare"
+	trash = /obj/item/trash/plate/steak
+	filling_color = "#b34d3b"
+	reagents_to_add = list(/singleton/reagent/nutriment/protein = 8, /singleton/reagent/nutriment = 1)
+	reagent_data = list(/singleton/reagent/nutriment/protein = list("raw beef" = 5, "egg yolk" = 4), /singleton/reagent/nutriment = list("seasoning" = 5))
+	center_of_mass = list("x"=16, "y"=13)
+	bitesize = 2
+
+/obj/item/reagent_containers/food/snacks/steak_tartare/update_icon()
+	var/percent = round((reagents.total_volume / 9) * 100)
+	switch(percent)
+		if(0 to 49)
+			icon_state = "tartare_half"
+		if(50 to INFINITY)
+			icon_state = "tartare"
+
+/obj/item/reagent_containers/food/snacks/sliceable/meatloaf
+	name = "meatloaf"
+	desc = "It's a loaf. Of meat. It's coated in a shiny red glaze."
+	icon = 'icons/obj/item/reagent_containers/food/meat.dmi'
+	icon_state = "meatloaf"
+	slice_path = /obj/item/reagent_containers/food/snacks/meatloaf_slice
+	slices_num = 5
+	filling_color = "#68451c"
+	center_of_mass = list("x"=16, "y"=9)
+	reagents_to_add = list(/singleton/reagent/nutriment = 10, /singleton/reagent/nutriment/protein = 15)
+	reagent_data = list(/singleton/reagent/nutriment = list("meat" = 5, "loaf" = 5, "tomatoes" = 3))
+	bitesize = 2
+	trash = /obj/item/trash/plate
+
+/obj/item/reagent_containers/food/snacks/meatloaf_slice
+	name = "meatloaf slice"
+	desc = "A slice of meatloaf. Very meaty, with some kind of zesty red glaze and added spices for extra flavor."
+	icon = 'icons/obj/item/reagent_containers/food/meat.dmi'
+	icon_state = "meatloaf_slice"
+	trash = /obj/item/trash/plate
+	filling_color = "#68451c"
+	bitesize = 2

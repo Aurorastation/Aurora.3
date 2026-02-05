@@ -1,4 +1,4 @@
-var/datum/antagonist/morph/morphs = null
+GLOBAL_DATUM(morphs, /datum/antagonist/morph)
 
 /datum/antagonist/morph
 	id = MODE_MORPH
@@ -12,7 +12,7 @@ var/datum/antagonist/morph/morphs = null
 
 /datum/antagonist/morph/New()
 	..()
-	morphs = src
+	GLOB.morphs = src
 
 /datum/antagonist/morph/greet(datum/mind/player)
 	. = ..()

@@ -1,4 +1,4 @@
-var/datum/antagonist/deathsquad/mercenary/commandos
+GLOBAL_DATUM(commandos, /datum/antagonist/deathsquad/mercenary)
 
 /datum/antagonist/deathsquad/mercenary
 	id = MODE_COMMANDO
@@ -19,5 +19,5 @@ var/datum/antagonist/deathsquad/mercenary/commandos
 	if(istype(M)) M.age = rand(25,45)
 
 /datum/antagonist/deathsquad/mercenary/New()
-	..(1)
-	commandos = src
+	..()
+	GLOB.commandos = src

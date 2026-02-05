@@ -53,7 +53,7 @@
 	attack_emote = "nashes at"
 
 	flying = TRUE
-	see_invisible = SEE_INVISIBLE_NOLIGHTING
+	lighting_alpha = LIGHTING_PLANE_ALPHA_SOMEWHAT_INVISIBLE
 
 	smart_melee = FALSE
 	sample_data = list("Cellular structure shows adaptation for survival in vacuum", "Genetic biomarkers identified linked with agressiveness", "Tissue sample contains micro-gas release structures")
@@ -73,7 +73,7 @@
 	stop_automated_movement = 1
 	if(istype(last_found_target, /obj/effect/energy_field) && !QDELETED(last_found_target) && (last_found_target in targets))
 		change_stance(HOSTILE_STANCE_ATTACKING)
-		GLOB.move_manager.move_to(src, last_found_target, 1, move_to_delay)
+		GLOB.move_manager.move_to(src, last_found_target, 1, speed)
 		return 1
 	..()
 
@@ -91,7 +91,7 @@
 		return
 	if(istype(last_found_target, /obj/effect/energy_field))
 		var/obj/effect/energy_field/e = last_found_target
-		e.Stress(rand(1,2))
+		e.damage_field(rand(1,2))
 		visible_message(SPAN_DANGER("\the [src] bites \the [e]!"))
 		src.do_attack_animation(e)
 		return e
@@ -152,6 +152,8 @@
 	maxHealth = 100
 	health = 100
 
+	speed = 10
+
 	mob_size = 15
 
 	melee_damage_lower = 30
@@ -185,7 +187,7 @@
 /mob/living/simple_animal/hostile/carp/shark/reaver/eel/Initialize()
 	. = ..()
 	eye_overlay = image(icon, "eel_eyeglow")
-	eye_overlay.plane = EFFECTS_ABOVE_LIGHTING_PLANE
+	eye_overlay.plane = ABOVE_LIGHTING_PLANE
 	eye_overlay.appearance_flags = KEEP_APART
 	AddOverlays(eye_overlay)
 	set_light(MINIMUM_USEFUL_LIGHT_RANGE, 2, LIGHT_COLOR_TUNGSTEN)
@@ -305,5 +307,5 @@
 	attack_emote = "nashes at"
 
 	flying = TRUE
-	see_invisible = SEE_INVISIBLE_NOLIGHTING
+	lighting_alpha = LIGHTING_PLANE_ALPHA_SOMEWHAT_INVISIBLE
 	sample_data = list("Cellular structure shows adaptation for survival in vacuum", "Genetic biomarkers identified linked with agressiveness", "Tissue sample contains micro-gas release structures")

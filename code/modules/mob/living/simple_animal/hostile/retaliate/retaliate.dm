@@ -26,7 +26,7 @@ ABSTRACT_TYPE(/mob/living/simple_animal/hostile/retaliate)
 
 /mob/living/simple_animal/proc/name_species()
 	set name = "Name Alien Species"
-	set category = "Object"
+	set category = "IC.Critters"
 	set src in view()
 
 	if(!SSatlas.current_map.use_overmap)

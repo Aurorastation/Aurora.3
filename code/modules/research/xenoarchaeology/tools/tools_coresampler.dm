@@ -14,7 +14,7 @@
 
 //////////////////////////////////////////////////////////////////
 
-/obj/item/device/core_sampler
+/obj/item/core_sampler
 	name = "core sampler"
 	desc = "Used to extract geological core samples."
 	icon = 'icons/obj/xenoarchaeology.dmi'
@@ -23,12 +23,12 @@
 	w_class = WEIGHT_CLASS_TINY
 	var/obj/item/sample
 
-/obj/item/device/core_sampler/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
+/obj/item/core_sampler/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
 	if(distance <= 2)
 		. += SPAN_NOTICE("This one is [sample ? "full" : "empty"].")
 
-/obj/item/device/core_sampler/proc/sample_item(var/item_to_sample, var/mob/user)
+/obj/item/core_sampler/proc/sample_item(var/item_to_sample, var/mob/user)
 	var/datum/geosample/geo_data
 
 	if(istype(item_to_sample, /turf/simulated/mineral))
@@ -49,10 +49,10 @@
 	else
 		to_chat(user, SPAN_WARNING("You are unable to take a geological sample of [item_to_sample]."))
 
-/obj/item/device/core_sampler/update_icon()
+/obj/item/core_sampler/update_icon()
 	icon_state = "sampler[!!sample]"
 
-/obj/item/device/core_sampler/attack_self(var/mob/living/user)
+/obj/item/core_sampler/attack_self(var/mob/living/user)
 	if(sample)
 		to_chat(user, SPAN_NOTICE("You eject the sample."))
 		user.put_in_hands(sample)

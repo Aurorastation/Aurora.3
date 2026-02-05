@@ -9,12 +9,12 @@
 	slot_flags = SLOT_BELT|SLOT_BACK
 	accuracy = 1
 	w_class = WEIGHT_CLASS_NORMAL
-	force = 15
+	force = 20
 	origin_tech = list(TECH_COMBAT = 3, TECH_MAGNET = 2)
 	matter = list(DEFAULT_WALL_MATERIAL = 2000)
 	projectile_type = /obj/projectile/beam/midlaser
-	can_turret = 1
-	turret_is_lethal = 1
+	can_turret = TRUE
+	turret_is_lethal = TRUE
 	turret_sprite_set = "laser"
 
 	modifystate = "laserrifle"
@@ -50,8 +50,8 @@
 	offhand_accuracy = 1
 	projectile_type = /obj/projectile/beam
 	fire_delay = 5
-	can_turret = 1
-	turret_is_lethal = 1
+	can_turret = TRUE
+	turret_is_lethal = TRUE
 	turret_sprite_set = "retro"
 
 	modifystate = "retro"
@@ -60,8 +60,6 @@
 	name = "antique laser gun"
 	icon = 'icons/obj/guns/caplaser.dmi'
 	desc = "This is an antique laser gun. All craftsmanship is of the highest quality. The object menaces with spikes of energy."
-	desc_info = "This is an energy weapon.  To fire the weapon, ensure your intent is *not* set to 'help', have your gun mode set to 'fire', \
-	then click where you want to fire.  Most energy weapons can fire through windows harmlessly. Unlike most weapons, this weapon recharges itself."
 	icon_state = "caplaser"
 	item_state = "caplaser"
 	has_item_ratio = FALSE
@@ -73,10 +71,14 @@
 	projectile_type = /obj/projectile/beam
 	origin_tech = null
 	max_shots = 5 //to compensate a bit for self-recharging
-	self_recharge = 1
-	can_turret = 1
-	turret_is_lethal = 1
+	self_recharge = TRUE
+	can_turret = TRUE
+	turret_is_lethal = TRUE
 	turret_sprite_set = "captain"
+
+/obj/item/gun/energy/captain/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Unlike most energy weapons, this weapon recharges itself."
 
 /obj/item/gun/energy/lasercannon
 	name = "laser cannon"
@@ -92,18 +94,18 @@
 	charge_cost = 400
 	max_shots = 5
 	fire_delay = 20
-	can_turret = 1
-	turret_is_lethal = 1
+	can_turret = TRUE
+	turret_is_lethal = TRUE
 	turret_sprite_set = "cannon"
 
 	modifystate = "lasercannon"
 
 /obj/item/gun/energy/lasercannon/mounted
 	name = "mounted laser cannon"
-	self_recharge = 1
-	use_external_power = 1
+	self_recharge = TRUE
+	use_external_power = TRUE
 	recharge_time = 10
-	can_turret = 0
+	can_turret = FALSE
 
 /obj/item/gun/energy/lasercannon/mounted/cyborg/overclocked
 	recharge_time = 1
@@ -124,24 +126,21 @@
 	max_shots = 20
 	fire_delay = 4
 	burst_delay = 4
-	can_turret = 1
-	turret_is_lethal = 1
+	can_turret = TRUE
+	turret_is_lethal = TRUE
 	turret_sprite_set = "xray"
 
 /obj/item/gun/energy/xray/mounted
 	name = "mounted xray laser gun"
 	charge_cost = 200
-	self_recharge = 1
-	use_external_power = 1
+	self_recharge = TRUE
+	use_external_power = TRUE
 	recharge_time = 5
-	can_turret = 0
+	can_turret = FALSE
 
 /obj/item/gun/energy/sniperrifle
 	name = "marksman energy rifle"
 	desc = "The HI L.W.A.P. is an older NanoTrasen design. A designated marksman rifle capable of shooting powerful ionized beams, this is a weapon to kill from a distance."
-	desc_info = "This is an energy weapon.  To fire the weapon, ensure your intent is *not* set to 'help', have your gun mode set to 'fire', \
-	then click where you want to fire.  Most energy weapons can fire through windows harmlessly.  To recharge this weapon, use a weapon recharger. \
-	To use the scope, use the appropriate verb in the object tab."
 	icon = 'icons/obj/guns/sniper.dmi'
 	icon_state = "sniper"
 	item_state = "sniper"
@@ -157,17 +156,21 @@
 	w_class = WEIGHT_CLASS_BULKY
 	accuracy = -3 //shooting at the hip
 	scoped_accuracy = 4
-	can_turret = 1
+	can_turret = TRUE
 	turret_sprite_set = "sniper"
-	turret_is_lethal = 1
+	turret_is_lethal = TRUE
 
 	is_wieldable = TRUE
 
 	fire_delay_wielded = 35
 	accuracy_wielded = 0
 
+/obj/item/gun/energy/sniperrifle/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "To use the scope, use the appropriate verb in the object tab."
+
 /obj/item/gun/energy/sniperrifle/verb/scope()
-	set category = "Object"
+	set category = "Object.Held"
 	set name = "Use Scope"
 	set src in usr
 
@@ -193,7 +196,7 @@
 	matter = list(DEFAULT_WALL_MATERIAL = 2000)
 	origin_tech = list(TECH_COMBAT = 4, TECH_MAGNET = 2)
 	projectile_type = /obj/projectile/beam/shotgun
-	max_shots = 20
+	max_shots = 28
 	sel_mode = 1
 	is_wieldable = TRUE
 	burst = 4
@@ -208,7 +211,7 @@
 /obj/item/gun/energy/laser/shotgun/research
 	name = "expedition shotgun"
 	desc = "A NanoTrasen designed laser weapon, designed to split a single amplified beam four times. This one is marked for expeditionary use."
-	pin = /obj/item/device/firing_pin/away_site
+	pin = /obj/item/firing_pin/away_site
 
 ////////Laser Tag////////////////////
 
@@ -223,13 +226,13 @@
 	matter = list(DEFAULT_WALL_MATERIAL = 2000)
 	fire_sound = 'sound/weapons/laser1.ogg'
 	projectile_type = /obj/projectile/beam/laser_tag
-	pin = /obj/item/device/firing_pin/tag/red
+	pin = /obj/item/firing_pin/tag/red
 	can_turret = TRUE
 	turret_is_lethal = FALSE
 	turret_sprite_set = "red"
 
 /obj/item/gun/energy/lasertag/attackby(obj/item/attacking_item, mob/user)
-	if(attacking_item.ismultitool())
+	if(attacking_item.tool_behaviour == TOOL_MULTITOOL)
 		var/chosen_color = tgui_input_list(user, "Which color do you wish your gun to be?", "Color Selection", list("blue", "red"))
 		if(!chosen_color)
 			return
@@ -242,7 +245,7 @@
 	projectile_type = text2path("/obj/projectile/beam/laser_tag/[set_color]")
 	if(pin)
 		QDEL_NULL(pin)
-		var/pin_path = text2path("/obj/item/device/firing_pin/tag/[set_color]")
+		var/pin_path = text2path("/obj/item/firing_pin/tag/[set_color]")
 		pin = new pin_path(src)
 	switch(set_color)
 		if("red")
@@ -259,7 +262,7 @@
 	icon_state = "bluetag"
 	item_state = "bluetag"
 	projectile_type = /obj/projectile/beam/laser_tag/blue
-	pin = /obj/item/device/firing_pin/tag/blue
+	pin = /obj/item/firing_pin/tag/blue
 	turret_sprite_set = "blue"
 
 /obj/item/gun/energy/lasertag/red

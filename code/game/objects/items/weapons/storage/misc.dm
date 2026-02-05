@@ -3,7 +3,7 @@
 	desc = "It's a small container with dice inside."
 	icon = 'icons/obj/dice.dmi'
 	icon_state = "dicebag"
-	use_sound = /singleton/sound_category/rustle_sound
+	use_sound = SFX_RUSTLE
 	drop_sound = 'sound/items/drop/hat.ogg'
 	pickup_sound = 'sound/items/pickup/hat.ogg'
 	starts_with = list(
@@ -67,15 +67,11 @@
 		slot_r_hand_str = 'icons/mob/items/righthand_cigs_lighters.dmi',
 		)
 	w_class = WEIGHT_CLASS_TINY
-	max_storage_space = 10
+	make_exact_fit = TRUE
 	throwforce = 2
 	slot_flags = SLOT_BELT
 	starts_with = list(/obj/item/paper/cig = 10)
-
-/obj/item/storage/box/fancy/cigpaper/Initialize()
-	. = ..()
-
-	make_exact_fit()
+	make_exact_fit = TRUE
 
 /obj/item/storage/box/fancy/cigpaper/update_icon()
 	. = ..()
@@ -99,11 +95,7 @@
 	drop_sound = 'sound/items/drop/gloves.ogg'
 	pickup_sound = 'sound/items/pickup/gloves.ogg'
 	use_sound = 'sound/items/storage/wrapper.ogg'
-
-/obj/item/storage/cigfilter/Initialize(mapload, defer_shrinkwrap)
-	. = ..()
-
-	make_exact_fit()
+	make_exact_fit = TRUE
 
 /obj/item/storage/box/fancy/cigpaper/fine
 	name = "\improper Trident cigarette paper"
@@ -131,11 +123,7 @@
 	throwforce = 2
 	slot_flags = SLOT_BELT
 	starts_with = list(/obj/item/clothing/mask/chewable/tobacco = 6)
-
-/obj/item/storage/chewables/Initialize(mapload, defer_shrinkwrap)
-	. = ..()
-
-	make_exact_fit()
+	make_exact_fit = TRUE
 
 /obj/item/storage/chewables/tobacco/bad
 	name = "can of Rredouane Cuts chewing tobacco"
@@ -154,7 +142,6 @@
 		slot_r_hand_str = 'icons/mob/items/righthand_cigs_lighters.dmi',
 		)
 	starts_with = list(/obj/item/clothing/mask/chewable/tobacco/generic = 6)
-	storage_slots = 6
 
 /obj/item/storage/chewables/tobacco/fine
 	name = "tin of Taba-Kamu chewing tobacco"
@@ -206,7 +193,6 @@
 		slot_r_hand_str = 'icons/mob/items/righthand_cigs_lighters.dmi',
 		)
 	w_class = WEIGHT_CLASS_TINY
-	max_storage_space = 8
 	drop_sound = 'sound/items/drop/cardboardbox.ogg'
 	pickup_sound = 'sound/items/pickup/cardboardbox.ogg'
 	use_sound = 'sound/items/storage/box.ogg'
@@ -245,3 +231,21 @@
 	starts_with = list(/obj/item/reagent_containers/food/snacks/grown/dried_oracle/fine = 8)
 	icon_state = "roll_vedamor"
 	item_state = "Epacket"
+
+//solar salve
+/obj/item/storage/chewables/solar_salve
+	name = "adhomian tin"
+	desc = "A tin labeled in Siik'maas. It has a picture of an icy harbour on it."
+	icon_state = "solar_salve"
+	drop_sound = 'sound/items/drop/metal_pot.ogg'
+	pickup_sound = 'sound/items/drop/metal_pot.ogg'
+	use_sound = 'sound/items/storage/box.ogg'
+	w_class = WEIGHT_CLASS_NORMAL
+	throwforce = 2
+	starts_with = list(/obj/item/clothing/mask/chewable/solar_salve = 6)
+	make_exact_fit = TRUE
+
+/obj/item/storage/chewables/solar_salve/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
+	. = ..()
+	if(GLOB.all_languages[LANGUAGE_SIIK_MAAS] in user.languages)
+		. += SPAN_NOTICE("The label says: \"Solar Salve\" and then goes on to describe how it helps against the tiredness of long shifts and cold nights.")

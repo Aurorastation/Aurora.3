@@ -254,3 +254,51 @@
 
 /singleton/biome/water/ice/polar
 	turf_type = /turf/simulated/floor/exoplanet/ice/dark
+
+// Xanu Biomes
+// TODO: Xanan wildlife
+/singleton/biome/snow/xanu
+	spawn_types = list(
+		PLANET_TURF = list(/turf/simulated/floor/exoplanet/permafrost = 1),
+		GRASSES = list(
+			/obj/structure/flora/grass/both = 2,
+			/obj/structure/flora/grass/green = 1,
+			/obj/structure/flora/grass/brown = 1
+		),
+		LARGE_FLORA = list(
+			/obj/effect/floor_decal/snowdrift/large/random = 4,
+			/obj/structure/flora/rock/snow = 4,
+			/obj/structure/flora/tree/dead = 2,
+			/obj/structure/flora/tree/pine = 1,
+			/obj/effect/landmark/exoplanet_spawn/large_plant = 1
+		),
+		SMALL_FLORA = list(
+			/obj/structure/flora/bush = 2,
+			/obj/effect/floor_decal/snowrocks = 1,
+			/obj/effect/floor_decal/snowdrift/random = 1,
+			/obj/effect/landmark/exoplanet_spawn/plant = 2
+		),
+		WILDLIFE = list() //No Xanu wildlife assets yet
+	)
+
+/singleton/biome/snow/forest/xanu
+	spawn_types = list(
+		GRASSES = list(
+			/obj/structure/flora/grass/both = 1,
+			/obj/structure/flora/grass/green = 2,
+			/obj/structure/flora/grass/brown = 1
+		),
+		LARGE_FLORA = list(
+			/obj/structure/flora/rock/snow = 1,
+			/obj/structure/flora/tree/dead = 2,
+			/obj/structure/flora/tree/pine = 4,
+			/obj/effect/landmark/exoplanet_spawn/large_plant = 3
+		),
+		SMALL_FLORA = list(
+			/obj/structure/flora/bush = 3,
+			/obj/effect/floor_decal/snowrocks = 1,
+			/obj/effect/floor_decal/snowdrift/random = 1,
+			/obj/effect/landmark/exoplanet_spawn/plant = 3
+		),
+		WILDLIFE = list() //no xanu wildlife assets yet
+	)

@@ -1,5 +1,3 @@
-var/list/floor_light_cache = list()
-
 /obj/machinery/floor_light
 	name = "floor light"
 	icon = 'icons/obj/machinery/floor_light.dmi'
@@ -10,7 +8,7 @@ var/list/floor_light_cache = list()
 	use_power = POWER_USE_ACTIVE
 	idle_power_usage = 2
 	active_power_usage = 20
-	power_channel = LIGHT
+	power_channel = AREA_USAGE_LIGHT
 	matter = list(DEFAULT_WALL_MATERIAL = 2500, MATERIAL_GLASS = 2750)
 	recyclable = TRUE
 
@@ -25,12 +23,12 @@ var/list/floor_light_cache = list()
 	anchored = 1
 
 /obj/machinery/floor_light/attackby(obj/item/attacking_item, mob/user)
-	if(attacking_item.isscrewdriver())
+	if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 		anchored = !anchored
 		visible_message(SPAN_NOTICE("\The [user] has [anchored ? "attached" : "detached"] \the [src]."))
 		playsound(src.loc, 'sound/items/Screwdriver.ogg', 100, 1)
 		return TRUE
-	else if(attacking_item.iswelder() && (damaged || (stat & BROKEN)))
+	else if(attacking_item.tool_behaviour == TOOL_WELDER && (damaged || (stat & BROKEN)))
 		var/obj/item/weldingtool/WT = attacking_item
 		if(!WT.use(0, user))
 			to_chat(user, SPAN_WARNING("\The [src] must be on to complete this task."))
@@ -47,7 +45,7 @@ var/list/floor_light_cache = list()
 		return TRUE
 	else if(attacking_item.force && user.a_intent == "hurt")
 		return attack_hand(user)
-	else if(attacking_item.iscrowbar())
+	else if(attacking_item.tool_behaviour == TOOL_CROWBAR)
 		if(anchored)
 			to_chat(user, SPAN_WARNING("\The [src] must be unfastened from the [loc] first!"))
 			return TRUE
@@ -67,7 +65,7 @@ var/list/floor_light_cache = list()
 	if(user.a_intent == I_HURT && !issmall(user))
 		if(!isnull(damaged) && !(stat & BROKEN))
 			visible_message(SPAN_DANGER("\The [user] smashes \the [src]!"))
-			playsound(src, /singleton/sound_category/glass_break_sound, 70, 1)
+			playsound(src, SFX_BREAK_GLASS, 70, 1)
 			update_icon()
 			stat |= BROKEN
 		else

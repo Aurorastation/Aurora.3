@@ -4,8 +4,6 @@
 /obj/machinery/atmospherics/binary/circulator
 	name = "circulator"
 	desc = "A gas circulator turbine and heat exchanger."
-	desc_info = "This generates electricity, depending on the difference in temperature between each side of the machine.  The meter in \
-	the center of the machine gives an indicator of how much elecrtricity is being generated."
 	icon = 'icons/obj/power.dmi'
 	icon_state = "circ-unassembled"
 	anchored = FALSE
@@ -25,6 +23,11 @@
 	var/temperature_overlay
 
 	density = TRUE
+
+/obj/machinery/atmospherics/binary/circulator/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "This generates electricity, depending on the difference in temperature between each side of the machine."
+	. += "The meter in the center of the machine gives an indicator of how much elecrtricity is being generated."
 
 /obj/machinery/atmospherics/binary/circulator/Initialize()
 	. = ..()
@@ -94,7 +97,7 @@
 	return TRUE
 
 /obj/machinery/atmospherics/binary/circulator/attackby(obj/item/attacking_item, mob/user)
-	if(attacking_item.iswrench())
+	if(attacking_item.tool_behaviour == TOOL_WRENCH)
 		attacking_item.play_tool_sound(get_turf(src), 50)
 		anchored = !anchored
 		user.visible_message("[user.name] [anchored ? "secures" : "unsecures"] the bolts holding [src.name] to the floor.", \

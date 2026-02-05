@@ -3,13 +3,14 @@
 	gender = NEUTER
 	voice_name = "Synthesized Voice"
 	accent = ACCENT_TTS
-	var/list/speech_synthesizer_langs = list() //which languages can be vocalized by the speech synthesizer
+	/// Which languages can be vocalized by the speech synthesizer
+	var/list/speech_synthesizer_langs = list()
 	var/speak_statement = "states"
 	var/speak_exclamation = "declares"
 	var/speak_query = "queries"
 
 	// Description
-	var/pose //Yes, now AIs can pose too.
+	var/pose
 
 	// Bad Guy Stuff
 	var/syndicate = FALSE
@@ -18,8 +19,10 @@
 	var/datum/ai_laws/laws
 	var/law_channel = DEFAULT_LAW_CHANNEL
 	var/list/additional_law_channels = list("State" = "")
-	var/list/stating_laws = list() // Channels laws are currently being stated on
-	var/obj/item/device/radio/common_radio // Used to determine default channels
+	/// Channels laws are currently being stated on
+	var/list/stating_laws = list()
+	/// Used to determine default channels
+	var/obj/item/radio/common_radio
 
 	// Hud Stuff
 	var/list/hud_list[10]
@@ -38,14 +41,14 @@
 	)
 
 	// Utility
-	var/obj/item/device/camera/siliconcam/ai_camera //photography
+	var/obj/item/camera/siliconcam/ai_camera //photography
 
 	// ID and Access
 	var/list/access_rights
 	var/obj/item/card/id/id_card
 	var/id_card_type = /obj/item/card/id/synthetic
 
-	// ACCENT_ALL_IPC with the added consideration that this selection can be used by the ship AI itself, and should not look bad for the SCC. No dregs, Himeans, Trinarists, etc.
+	/// ACCENT_ALL_IPC with the added consideration that this selection can be used by the ship AI itself, and should not look bad for the SCC. No dregs, Himeans, Trinarists, etc.
 	var/list/possible_accents = list(ACCENT_CETI, ACCENT_TTS, ACCENT_XANU, ACCENT_COC, ACCENT_ELYRA, ACCENT_ERIDANI, ACCENT_SOL, ACCENT_SILVERSUN_EXPATRIATE, ACCENT_SILVERSUN_ORIGINAL,
 	ACCENT_PHONG, ACCENT_MARTIAN, ACCENT_KONYAN, ACCENT_LUNA, ACCENT_GIBSON_OVAN, ACCENT_GIBSON_UNDIR, ACCENT_VYSOKA, ACCENT_VENUS, ACCENT_VENUSJIN, ACCENT_JUPITER, ACCENT_CALLISTO,
 	ACCENT_EUROPA, ACCENT_EARTH, ACCENT_ASSUNZIONE, ACCENT_VISEGRAD, ACCENT_SANCOLETTE, ACCENT_VALKYRIE, ACCENT_MICTLAN, ACCENT_PERSEPOLIS, ACCENT_MEDINA, ACCENT_NEWSUEZ, ACCENT_AEMAQ, ACCENT_DAMASCUS)
@@ -53,7 +56,6 @@
 	var/can_hear_hivenet = TRUE
 
 	// Misc
-	uv_intensity = 175 //Lights cast by robots have reduced effect on diona
 	mob_thinks = FALSE
 
 	var/can_speak_basic = TRUE
@@ -161,34 +163,42 @@
 	if(bot.connected_ai == ai)
 		return TRUE
 	return FALSE
-// This is a pure virtual function, it should be overwritten by all subclasses
+/// This is a pure virtual function, it should be overwritten by all subclasses
 /mob/living/silicon/proc/show_malf_ai()
 	return FALSE
 
-// this function displays the shuttles ETA in the status panel if the shuttle has been called
+/// This function displays the shuttles ETA in the status panel if the shuttle has been called
 /mob/living/silicon/proc/show_emergency_shuttle_eta()
-	if(evacuation_controller)
-		var/eta_status = evacuation_controller.get_status_panel_eta()
+	if(GLOB.evacuation_controller)
+		var/eta_status = GLOB.evacuation_controller.get_status_panel_eta()
 		if(eta_status)
 			stat(null, eta_status)
 
-// This adds the basic clock, shuttle recall timer, and malf_ai info to all silicon lifeforms
+/// This adds the basic clock, shuttle recall timer, and malf_ai info to all silicon lifeforms
 /mob/living/silicon/get_status_tab_items()
 	. = ..()
+
+	var/area/A = get_area(src)
+	var/area_name = get_area_display_name(A)
+	. += "[area_name]"
+	. += ""
+	if(A.area_blurb)
+		. += "[A.area_blurb]"
+		. += ""
+
 	if(!stat)
 		. += "System Integrity: [round((health/maxHealth)*100)]%"
 	else
 		. += "System Integrity: NON-FUNCTIONAL"
 		show_malf_ai()
 
-//can't inject synths
+/// can't inject synths
 /mob/living/silicon/can_inject(mob/user, error_msg)
 	if(error_msg)
 		to_chat(user, SPAN_ALERT("The armored plating is too tough."))
 	return 0
 
-//Silicon mob language procs
-
+// Silicon mob language procs
 /mob/living/silicon/can_speak(datum/language/speaking)
 	return universal_speak || (speaking in src.speech_synthesizer_langs) //need speech synthesizer support to vocalize a language
 
@@ -212,7 +222,7 @@
 
 /mob/living/silicon/check_languages()
 	set name = "Check Known Languages"
-	set category = "IC"
+	set category = "IC.Language"
 	set src = usr
 
 	var/dat = "<b><font size = 5>Known Languages</font></b><br/><br/>"
@@ -231,9 +241,10 @@
 			var/synth = (L in speech_synthesizer_langs)
 			dat += "<b>[L.name] ([get_language_prefix()][L.key])</b>[synth ? default_str : null]<br/>Speech Synthesizer: <i>[synth ? "YES" : "NOT SUPPORTED"]</i><br/>[L.desc]<br/><br/>"
 
-	src << browse(dat, "window=checklanguage")
+	src << browse(HTML_SKELETON(dat), "window=checklanguage")
 	return
 
+/// Prompts the silicon mob which HUD to choose from, changes `sensor_mode` depending on choice
 /mob/living/silicon/proc/toggle_sensor_mode()
 	var/sensor_type = tgui_input_list(src, "Please select sensor type.", "Sensor Integration", list("Security", "Medical", "Disable"))
 	switch(sensor_type)
@@ -333,15 +344,15 @@
 /mob/living/silicon/ai/raised_alarm(var/datum/alarm/A)
 	var/cameratext = ""
 	for(var/obj/machinery/camera/C in A.cameras())
-		cameratext += "[(cameratext == "")? "" : "|"]<A HREF=?src=[REF(src)];switchcamera=[REF(C)]>[C.c_tag]</A>"
+		cameratext += "[(cameratext == "")? "" : "|"]<A href='byond://?src=[REF(src)];switchcamera=[REF(C)]'>[C.c_tag]</A>"
 	to_chat(src, "[A.alarm_name()]! ([(cameratext)? cameratext : "No Camera"])")
 
 
 /mob/living/silicon/proc/is_traitor()
-	return mind && (mind in traitors.current_antagonists)
+	return mind && (mind in GLOB.traitors.current_antagonists)
 
 /mob/living/silicon/proc/is_malf()
-	return mind && (mind in malf.current_antagonists)
+	return mind && (mind in GLOB.malf.current_antagonists)
 
 /mob/living/silicon/proc/is_malf_or_traitor()
 	return is_traitor() || is_malf()

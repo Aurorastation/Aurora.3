@@ -236,7 +236,7 @@
 /turf/simulated/floor/shuttle/dark_blue,
 /area/shuttle/escape)
 "abX" = (
-/obj/item/device/radio/intercom/south{
+/obj/item/radio/intercom/south{
 	frequency = 1443;
 	name = "Spec Ops Intercom"
 	},
@@ -431,7 +431,7 @@
 /obj/item/rfd_ammo,
 /obj/item/rfd/construction,
 /obj/item/rfd/construction,
-/obj/item/device/multitool,
+/obj/item/multitool,
 /obj/structure/table/steel,
 /turf/unsimulated/floor/plating,
 /area/centcom/specops)
@@ -1790,7 +1790,7 @@
 /obj/item/clothing/glasses/sunglasses/sechud,
 /obj/item/clothing/accessory/badge/holo,
 /obj/item/clothing/accessory/holster/hip,
-/obj/item/device/radio/headset/ert,
+/obj/item/radio/headset/ert,
 /obj/item/clothing/head/beret/centcom/officer,
 /obj/structure/window/reinforced{
 	dir = 4
@@ -1877,7 +1877,7 @@
 /turf/unsimulated/floor/plating,
 /area/shuttle/escape)
 "aTs" = (
-/obj/item/device/radio/intercom/south,
+/obj/item/radio/intercom/south,
 /turf/simulated/floor/shuttle/tan,
 /area/shuttle/arrival)
 "aTW" = (
@@ -3037,9 +3037,9 @@
 	pixel_x = 1;
 	pixel_y = 2
 	},
-/obj/item/device/camera,
-/obj/item/device/megaphone/sec,
-/obj/item/device/megaphone/sec,
+/obj/item/camera,
+/obj/item/megaphone/sec,
+/obj/item/megaphone/sec,
 /turf/unsimulated/floor{
 	icon_state = "dark_preview"
 	},
@@ -3169,7 +3169,7 @@
 	pixel_x = 4;
 	pixel_y = 9
 	},
-/obj/item/device/hand_labeler{
+/obj/item/hand_labeler{
 	pixel_x = -6;
 	pixel_y = -4
 	},
@@ -3190,8 +3190,8 @@
 	},
 /area/centcom/control)
 "cus" = (
-/obj/item/device/camera_film,
-/obj/item/device/camera,
+/obj/item/camera_film,
+/obj/item/camera,
 /obj/effect/floor_decal/corner/red{
 	dir = 9
 	},
@@ -4091,7 +4091,7 @@
 /obj/item/pinpointer/advpinpointer,
 /obj/item/rig_module/mounted/plasmacutter,
 /obj/item/rig/ert/assetprotection,
-/obj/item/device/radio/headset/ert,
+/obj/item/radio/headset/ert,
 /obj/item/clothing/under/syndicate/combat,
 /obj/item/gun/energy/rifle/pulse,
 /obj/item/gun/projectile/revolver/mateba,
@@ -4492,7 +4492,7 @@
 	},
 /area/centcom/holding)
 "ekG" = (
-/obj/item/device/laser_pointer/blue{
+/obj/item/laser_pointer/blue{
 	pixel_x = -12;
 	pixel_y = 5
 	},
@@ -4614,7 +4614,7 @@
 /obj/item/pinpointer/advpinpointer,
 /obj/item/rig_module/mounted/plasmacutter,
 /obj/item/rig/ert/assetprotection,
-/obj/item/device/radio/headset/ert,
+/obj/item/radio/headset/ert,
 /obj/item/clothing/under/syndicate/combat,
 /obj/item/gun/energy/rifle/pulse,
 /obj/item/gun/projectile/revolver/mateba,
@@ -4763,11 +4763,11 @@
 /area/centcom/bar)
 "eDp" = (
 /obj/structure/table/rack,
-/obj/item/storage/box/teargas{
+/obj/item/storage/box/tactical/teargas{
 	pixel_x = -1;
 	pixel_y = -4
 	},
-/obj/item/storage/box/flashbangs{
+/obj/item/storage/box/tactical/flashbangs{
 	pixel_x = 4;
 	pixel_y = 4
 	},
@@ -5156,7 +5156,7 @@
 /obj/item/clothing/glasses/sunglasses/sechud,
 /obj/item/clothing/accessory/badge/holo,
 /obj/item/clothing/accessory/holster/hip,
-/obj/item/device/radio/headset/ert,
+/obj/item/radio/headset/ert,
 /obj/item/clothing/head/beret/centcom/officer,
 /turf/unsimulated/floor{
 	icon_state = "dark_preview"
@@ -5502,7 +5502,7 @@
 /turf/unsimulated/floor,
 /area/centcom/control)
 "fFd" = (
-/obj/item/aiModule/nanotrasen,
+/obj/item/aiModule/conglomerate,
 /obj/item/aiModule/reset,
 /obj/item/aiModule/freeformcore,
 /obj/item/aiModule/protectStation,
@@ -5676,7 +5676,7 @@
 /obj/effect/floor_decal/corner/red/diagonal{
 	dir = 8
 	},
-/obj/item/device/radio/intercom/east{
+/obj/item/radio/intercom/east{
 	pixel_y = -22
 	},
 /turf/simulated/floor/tiled/dark,
@@ -5695,7 +5695,7 @@
 	pixel_x = -9;
 	pixel_y = -14
 	},
-/obj/item/storage/box/produce{
+/obj/item/storage/box/large/produce{
 	pixel_x = 3;
 	pixel_y = -11
 	},
@@ -6442,7 +6442,7 @@
 /turf/unsimulated/floor/plating,
 /area/shuttle/administration)
 "gLC" = (
-/obj/structure/janitorialcart/full{
+/obj/structure/cart/storage/janitorialcart/full{
 	dir = 8
 	},
 /turf/unsimulated/floor{
@@ -6571,7 +6571,7 @@
 /obj/structure/window/reinforced/crescent{
 	dir = 1
 	},
-/obj/item/device/flashlight/lamp,
+/obj/item/flashlight/lamp,
 /turf/unsimulated/floor,
 /area/centcom/ferry)
 "gSc" = (
@@ -6818,7 +6818,7 @@
 	pixel_x = 7;
 	pixel_y = 9
 	},
-/obj/item/device/megaphone/red,
+/obj/item/megaphone/red,
 /obj/effect/floor_decal/corner/red{
 	dir = 6
 	},
@@ -6990,7 +6990,7 @@
 /turf/unsimulated/wall/darkshuttlewall,
 /area/centcom/bar)
 "hpf" = (
-/obj/item/device/camera,
+/obj/item/camera,
 /obj/effect/floor_decal/corner/blue/diagonal,
 /turf/unsimulated/floor{
 	icon_state = "white"
@@ -7287,7 +7287,7 @@
 	},
 /area/shuttle/transport1)
 "hOC" = (
-/obj/item/device/radio/intercom/north{
+/obj/item/radio/intercom/north{
 	broadcasting = 1;
 	frequency = 1443;
 	listening = 0;
@@ -8666,7 +8666,7 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
 	},
-/obj/item/device/flashlight/lamp/green{
+/obj/item/flashlight/lamp/green{
 	pixel_x = -2;
 	pixel_y = 6
 	},
@@ -8977,7 +8977,7 @@
 /obj/item/clothing/glasses/sunglasses/sechud,
 /obj/item/clothing/accessory/badge/holo,
 /obj/item/clothing/accessory/holster/hip,
-/obj/item/device/radio/headset/ert,
+/obj/item/radio/headset/ert,
 /obj/item/clothing/head/beret/centcom/captain,
 /obj/item/gun/energy/lawgiver,
 /obj/item/card/id/centcom,
@@ -9285,20 +9285,20 @@
 /turf/simulated/floor/reinforced,
 /area/shuttle/administration)
 "kqN" = (
-/obj/item/device/flashlight/flare,
-/obj/item/device/flashlight/flare,
-/obj/item/device/flashlight/flare,
-/obj/item/device/flashlight/flare,
-/obj/item/device/flashlight/flare{
+/obj/item/flashlight/flare,
+/obj/item/flashlight/flare,
+/obj/item/flashlight/flare,
+/obj/item/flashlight/flare,
+/obj/item/flashlight/flare{
 	pixel_y = 6
 	},
-/obj/item/device/flashlight/flare{
+/obj/item/flashlight/flare{
 	pixel_y = 6
 	},
-/obj/item/device/flashlight/flare{
+/obj/item/flashlight/flare{
 	pixel_y = 6
 	},
-/obj/item/device/flashlight/flare{
+/obj/item/flashlight/flare{
 	pixel_y = 6
 	},
 /obj/structure/table/steel,
@@ -9495,8 +9495,8 @@
 	pixel_y = 2
 	},
 /obj/item/storage/bag/inflatable,
-/obj/item/device/flashlight/flare,
-/obj/item/device/flashlight/flare,
+/obj/item/flashlight/flare,
+/obj/item/flashlight/flare,
 /obj/machinery/light{
 	dir = 4;
 	icon_state = "tube_empty"
@@ -9887,7 +9887,7 @@
 	dir = 8
 	},
 /obj/structure/table/reinforced/wood,
-/obj/item/device/flashlight/lamp,
+/obj/item/flashlight/lamp,
 /turf/unsimulated/floor{
 	icon_state = "wood"
 	},
@@ -10771,7 +10771,7 @@
 /area/centcom/control)
 "mqY" = (
 /obj/structure/table/steel,
-/obj/item/device/flashlight/lamp{
+/obj/item/flashlight/lamp{
 	pixel_y = 2
 	},
 /turf/unsimulated/floor,
@@ -11014,7 +11014,7 @@
 /obj/item/stack/packageWrap{
 	pixel_y = 5
 	},
-/obj/item/device/hand_labeler,
+/obj/item/hand_labeler,
 /turf/unsimulated/floor{
 	icon_state = "dark_preview"
 	},
@@ -11478,7 +11478,7 @@
 	},
 /obj/machinery/computer/security/telescreen{
 	name = "Spec. Ops. Monitor";
-	network = list("ZeEmergencyResponseTeam");
+	console_networks = list("ZeEmergencyResponseTeam");
 	pixel_x = -8;
 	pixel_y = 24
 	},
@@ -11497,7 +11497,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/administration)
 "nnf" = (
-/obj/item/device/radio/intercom/east{
+/obj/item/radio/intercom/east{
 	frequency = 1441;
 	name = "Spec Ops Intercom";
 	pixel_y = 20
@@ -11821,7 +11821,7 @@
 /obj/structure/table/reinforced/wood,
 /obj/item/folder/blue,
 /obj/item/stack/packageWrap,
-/obj/item/device/hand_labeler,
+/obj/item/hand_labeler,
 /turf/unsimulated/floor{
 	icon_state = "dark_preview"
 	},
@@ -12523,8 +12523,8 @@
 	},
 /area/centcom/specops)
 "oQM" = (
-/obj/item/device/paicard,
-/obj/item/device/paicard,
+/obj/item/paicard,
+/obj/item/paicard,
 /obj/machinery/light{
 	dir = 8;
 	icon_state = "tube_empty"
@@ -13788,11 +13788,9 @@
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 5
 	},
-/obj/structure/sign/poster{
-	icon_state = "tcflposter";
+/obj/structure/sign/poster/lore/tcaf{
 	pixel_x = -6;
-	pixel_y = 31;
-	poster_type = "/datum/poster/bay_67"
+	pixel_y = 31
 	},
 /turf/unsimulated/floor,
 /area/centcom/holding)
@@ -14054,10 +14052,10 @@
 /area/tdome/tdome2)
 "rhK" = (
 /obj/structure/table/reinforced,
-/obj/item/device/magnetic_lock,
-/obj/item/device/magnetic_lock,
-/obj/item/device/magnetic_lock,
-/obj/item/device/magnetic_lock,
+/obj/item/magnetic_lock,
+/obj/item/magnetic_lock,
+/obj/item/magnetic_lock,
+/obj/item/magnetic_lock,
 /obj/machinery/light{
 	dir = 8;
 	icon_state = "tube_empty"
@@ -15054,12 +15052,12 @@
 	},
 /area/shuttle/escape)
 "sZl" = (
-/obj/item/device/magnetic_lock,
-/obj/item/device/magnetic_lock,
-/obj/item/device/magnetic_lock,
-/obj/item/device/magnetic_lock,
-/obj/item/device/magnetic_lock,
-/obj/item/device/magnetic_lock,
+/obj/item/magnetic_lock,
+/obj/item/magnetic_lock,
+/obj/item/magnetic_lock,
+/obj/item/magnetic_lock,
+/obj/item/magnetic_lock,
+/obj/item/magnetic_lock,
 /obj/structure/closet/crate,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/unsimulated/floor{
@@ -15207,7 +15205,7 @@
 	dir = 4
 	},
 /obj/structure/table/reinforced/wood,
-/obj/item/device/flashlight/lamp,
+/obj/item/flashlight/lamp,
 /turf/unsimulated/floor{
 	icon_state = "wood"
 	},
@@ -15676,7 +15674,7 @@
 /turf/unsimulated/floor/plating,
 /area/shuttle/escape)
 "tUh" = (
-/obj/item/device/megaphone{
+/obj/item/megaphone{
 	pixel_x = -1;
 	pixel_y = 16
 	},
@@ -16862,12 +16860,7 @@
 	},
 /area/centcom/holding)
 "wjW" = (
-/obj/machinery/autolathe{
-	desc = "Your typical Autolathe. It appears to have much more options than your regular one, however...";
-	hacked = 1;
-	name = "Modified Autolathe";
-	pixel_y = 2
-	},
+/obj/machinery/fabricator/autolathe/hacked,
 /turf/unsimulated/floor/plating,
 /area/centcom/specops)
 "wkk" = (
@@ -17881,10 +17874,10 @@
 /area/centcom/specops)
 "xLO" = (
 /obj/structure/closet/crate/freezer/rations,
-/obj/item/device/flashlight/flare,
-/obj/item/device/flashlight/flare,
-/obj/item/device/flashlight/flare,
-/obj/item/device/flashlight/flare,
+/obj/item/flashlight/flare,
+/obj/item/flashlight/flare,
+/obj/item/flashlight/flare,
+/obj/item/flashlight/flare,
 /obj/item/storage/firstaid/o2,
 /obj/effect/floor_decal/corner/red{
 	dir = 6

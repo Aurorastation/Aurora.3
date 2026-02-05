@@ -19,6 +19,18 @@
 	/// The person from which the cure is being extracted.
 	var/mob/living/carbon/human/occupant
 
+/obj/machinery/antibody_extractor/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(!working)
+		. += "It's inactive, and beeping ominously every now and then."
+	switch(stage)
+		if(1)
+			. += SPAN_WARNING("It's sucking dark, almost black blood, from the arm of [occupant] into a container.")
+		if(2)
+			. += SPAN_DANGER("More and more dark, black blood is being collected and centrifuged.")
+		if(3)
+			. += SPAN_CULT("The dark, black blood is slowly being treated and filtered into a shiny, white substance...")
+
 /obj/machinery/antibody_extractor/Destroy()
 	occupant = null
 	return ..()
@@ -54,18 +66,6 @@
 				log_and_message_admins("has begun antibody extraction", usr, get_turf(src))
 				to_chat(occupant, SPAN_CULT(FONT_HUGE("You are locked by bindings into \the [src] and your arm is stabbed by a needle!")))
 				playsound(src, 'sound/effects/lingextends.ogg', 30)
-
-/obj/machinery/antibody_extractor/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if(!working)
-		. += "It's inactive, and beeping ominously every now and then."
-	switch(stage)
-		if(1)
-			. += SPAN_WARNING("It's sucking dark, almost black blood, from the arm of [occupant] into a container.")
-		if(2)
-			. += SPAN_DANGER("More and more dark, black blood is being collected and centrifuged.")
-		if(3)
-			. += SPAN_CULT("The dark, black blood is slowly being treated and filtered into a shiny, white substance...")
 
 /obj/machinery/antibody_extractor/process()
 	if(working)

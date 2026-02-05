@@ -132,7 +132,7 @@
 		new_notification("danger", custom_event_warn)
 
 	if (lastchangelog != GLOB.changelog_hash)
-		winset(user, "rpane.changelog", "background-color=#eaeaea;font-style=bold")
+		winset(user, "infowindow.changelog", "background-color=#eaeaea;font-style=bold")
 		if (GLOB.config.aggressive_changelog)
 			new_notification("info", "You have unread updates in the changelog.", callback_src = user, callback_proc = "changes")
 		else
@@ -203,9 +203,9 @@
 			"})
 			ackquery.Execute(list("id" = query.item[3]))
 	if(panel_notification)
-		new_notification("warning","You have <b>[notification_count] unread notifications!</b> Click <a href='?JSlink=warnings;notification=:src_ref'>here</a> to review and acknowledge them!")
+		new_notification("warning","You have <b>[notification_count] unread notifications!</b> Click <a href='byond://?JSlink=warnings;notification=:src_ref'>here</a> to review and acknowledge them!")
 	if(chat_notification)
-		to_chat(user,SPAN_WARNING("<BIG><B>You have unacknowledged notifications.</B></BIG><br>Click <a href='?JSlink=warnings;notification=:src_ref'>here</a> to review and acknowledge them!"))
+		to_chat(user,SPAN_WARNING("<BIG><B>You have unacknowledged notifications.</B></BIG><br>Click <a href='byond://?JSlink=warnings;notification=:src_ref'>here</a> to review and acknowledge them!"))
 
 /*
  * Helper proc for getting a count of active CCIA actions against the player's characters.

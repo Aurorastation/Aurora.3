@@ -70,8 +70,9 @@
 	/// A blacklist of citizenships that can't be this job.
 	var/list/blacklisted_citizenship = list()
 
-	/// The job name of the aide slot. Used for consulars and representatives.
+	/// The job name of the aide and bodyguard slots. Used for consulars and representatives.
 	var/aide_job
+	var/bodyguard_job
 
 //Only override this proc
 /datum/job/proc/pre_spawn(mob/abstract/new_player/player)
@@ -140,7 +141,7 @@
 		var/datum/species/human_species = GLOB.all_species[SPECIES_HUMAN]
 		species_modifier = human_species.economic_modifier
 
-	var/money_amount = initial_funds_override ? initial_funds_override : (rand(5,50) + rand(5, 50)) * econ_status * economic_modifier * species_modifier
+	var/money_amount = initial_funds_override ? initial_funds_override : (rand(5,10) + rand(5, 10)) * econ_status * economic_modifier * species_modifier + (rand(0,99) / 100)
 	var/datum/money_account/account = SSeconomy.create_and_assign_account(H, null, money_amount, public_account)
 	to_chat(H, SPAN_BOLD(SPAN_NOTICE("Your account number is: [account.account_number], your account pin is: [account.remote_access_pin]")))
 
@@ -156,11 +157,6 @@
 					var/obj/outfit/O = new new_outfit
 					O.pre_equip(H, TRUE)
 					O.equip(H, TRUE)
-					return
-
-	var/pre_hat_ref = H.head ? REF(H.head) : null
-	var/pre_uniform_ref = H.w_uniform ? REF(H.w_uniform) : null
-	var/pre_suit_ref = H.wear_suit ? REF(H.wear_suit) : null
 
 	pre_equip(H, TRUE)
 	. = equip(H, TRUE, FALSE, alt_title=alt_title)
@@ -168,19 +164,18 @@
 	// slightly hacky, but effectively what we're doing here is checking whether we want this preview mob to actually have the uniform we're putting onto it
 	// if not, we drop it from the inventory into nullspace, and then deleting it
 	// i don't THINK this'll make performance that much worse, considering how much we already do to equip the mob in the first place
-	// the reasoning for the ref checks is that we don't want to delete loadout uniforms, just the job ones, so we need to confirm the before and after
 
 	var/equip_preview_mob = prefs.equip_preview_mob
 
-	if(!(equip_preview_mob & EQUIP_PREVIEW_JOB_HAT) && H.head && REF(H.head) != pre_hat_ref)
+	if(!(equip_preview_mob & EQUIP_PREVIEW_JOB_HAT) && H.head)
 		H.drop_from_inventory(H.head)
 		qdel(H.head)
 
-	if(!(equip_preview_mob & EQUIP_PREVIEW_JOB_UNIFORM) && H.w_uniform && REF(H.w_uniform) != pre_uniform_ref)
+	if(!(equip_preview_mob & EQUIP_PREVIEW_JOB_UNIFORM) && H.w_uniform)
 		H.drop_from_inventory(H.w_uniform)
 		qdel(H.w_uniform)
 
-	if(!(equip_preview_mob & EQUIP_PREVIEW_JOB_SUIT) && H.wear_suit && REF(H.wear_suit) != pre_suit_ref)
+	if(!(equip_preview_mob & EQUIP_PREVIEW_JOB_SUIT) && H.wear_suit)
 		H.drop_from_inventory(H.wear_suit)
 		qdel(H.wear_suit)
 
@@ -282,12 +277,65 @@
  */
 /mob/living/carbon/human/proc/summon_aide()
 	set name = "Open Aide Slot"
-	set desc = "Allows an aide to join you as an assistant, companion, or bodyguard."
+	set desc = "Allows an aide to join you as an assistant or companion."
 	set category = "IC"
 
 	var/datum/job/J = SSjobs.GetJob(job)
 	if(J.open_aide_slot(src))
 		remove_verb(src, /mob/living/carbon/human/proc/summon_aide)
+
+/**
+ * This is the proc responsible for actually opening the bodyguard slot.
+ * The `bodyguard_job` on the job datum must be a valid, existing job. Blame the fact that we don't have job defines. Or singletons.
+ */
+/datum/job/proc/open_bodyguard_slot(mob/living/carbon/human/representative)
+	if(!bodyguard_job)
+		log_debug("Generic Open Bodyguard Slot called without an bodyguard job.")
+		return FALSE
+
+	if(!representative)
+		log_debug("Generic Open Bodyguard Slot called without a mob.")
+		return FALSE
+
+	var/confirm = tgui_alert(representative, "Are you sure you want to open a bodyguard slot? This can only be used once.", "Open Bodyguard Slot", list("Yes", "No"))
+	if(confirm != "Yes")
+		return FALSE
+	var/datum/job/J = SSjobs.GetJob(bodyguard_job)
+
+	// At this point, we add the relevant blacklists in the proc below.
+	post_open_bodyguard_slot(representative, J)
+
+	// Now that the blacklists are applied, open the job.
+	J.total_positions++
+	to_chat(representative, SPAN_NOTICE("A slot for a [bodyguard_job] has been opened."))
+	return TRUE
+
+/**
+ * This proc is called when a job opens a bodyguard slot. It MUST be called manually.
+ * It is responsible for adding any relevant blacklists to the bodyguard job datum.
+ */
+/datum/job/proc/post_open_bodyguard_slot(mob/living/carbon/human/representative, datum/job/bodyguard)
+	return
+
+/**
+ * This proc is called when a bodyguard slot is closed (cryoing or leaving the game).
+ * It is responsible for cleaning up existing slots and wiping any applied blacklists to the bodyguard's job datum.
+ */
+/datum/job/proc/close_bodyguard_slot(mob/living/carbon/human/representative, datum/job/bodyguard)
+	return
+
+/**
+ * This is the verb you should give to a mob to allow it to summon an bodyguard.
+ */
+/mob/living/carbon/human/proc/summon_bodyguard()
+	set name = "Open Bodyguard Slot"
+	set desc = "Allows a bodyguard to join you to help protect you."
+	set category = "IC"
+
+	var/datum/job/J = SSjobs.GetJob(job)
+	if(J.open_bodyguard_slot(src))
+		remove_verb(src, /mob/living/carbon/human/proc/summon_bodyguard)
+
 
 /obj/outfit/job
 	name = "Standard Gear"
@@ -305,11 +353,11 @@
 	back = /obj/item/storage/backpack
 	shoes = /obj/item/clothing/shoes/sneakers/black
 
-	headset = /obj/item/device/radio/headset
-	bowman = /obj/item/device/radio/headset/alt
-	double_headset = /obj/item/device/radio/headset/alt/double
-	wrist_radio = /obj/item/device/radio/headset/wrist
-	clipon_radio = /obj/item/device/radio/headset/wrist/clip
+	headset = /obj/item/radio/headset
+	bowman = /obj/item/radio/headset/alt
+	double_headset = /obj/item/radio/headset/alt/double
+	wrist_radio = /obj/item/radio/headset/wrist
+	clipon_radio = /obj/item/radio/headset/wrist/clip
 
 	tab_pda = /obj/item/modular_computer/handheld/pda/civilian
 	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/civilian

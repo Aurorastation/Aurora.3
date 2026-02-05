@@ -387,7 +387,8 @@
 /area/database_freighter/captain_quarters)
 "bE" = (
 /obj/machinery/computer/ship/helm{
-	dir = 1
+	dir = 1;
+	req_access = list(209)
 	},
 /obj/effect/floor_decal/corner/red{
 	dir = 10
@@ -1037,7 +1038,8 @@
 	pixel_y = -32
 	},
 /obj/machinery/computer/shuttle_control/explore/terminal/database_freighter_shuttle{
-	dir = 4
+	dir = 4;
+	req_access = list(209)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/database_freighter_shuttle)
@@ -1218,7 +1220,7 @@
 /obj/structure/table/standard,
 /obj/item/paper_bin,
 /obj/item/pen/multi,
-/obj/item/device/hand_labeler,
+/obj/item/hand_labeler,
 /obj/effect/floor_decal/corner/red{
 	dir = 8
 	},
@@ -1494,13 +1496,13 @@
 /area/database_freighter)
 "gm" = (
 /obj/structure/table/rack,
-/obj/item/storage/box/monkeycubes/farwacubes{
+/obj/item/storage/box/unique/monkeycubes/farwacubes{
 	pixel_x = -5
 	},
-/obj/item/storage/box/monkeycubes/farwacubes{
+/obj/item/storage/box/unique/monkeycubes/farwacubes{
 	pixel_x = 5
 	},
-/obj/item/storage/box/monkeycubes/farwacubes,
+/obj/item/storage/box/unique/monkeycubes/farwacubes,
 /obj/item/reagent_containers/spray/cleaner{
 	pixel_x = -4;
 	pixel_y = -3
@@ -1682,19 +1684,19 @@
 	},
 /area/database_freighter/bridge)
 "hk" = (
-/obj/item/device/radio,
-/obj/item/device/radio,
-/obj/item/device/radio,
-/obj/item/device/radio,
-/obj/item/device/radio,
-/obj/item/device/radio,
+/obj/item/radio,
+/obj/item/radio,
+/obj/item/radio,
+/obj/item/radio,
+/obj/item/radio,
+/obj/item/radio,
 /obj/structure/table/standard,
 /obj/structure/extinguisher_cabinet/north,
-/obj/item/device/gps/science,
-/obj/item/device/gps/science,
-/obj/item/device/gps/science,
-/obj/item/device/gps/science,
-/obj/item/device/gps/science,
+/obj/item/gps/science,
+/obj/item/gps/science,
+/obj/item/gps/science,
+/obj/item/gps/science,
+/obj/item/gps/science,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -2384,7 +2386,7 @@
 /area/database_freighter/hangar)
 "kU" = (
 /obj/structure/table/wood,
-/obj/item/device/flashlight/lamp,
+/obj/item/flashlight/lamp,
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/carpet/art{
 	temperature = 278.15
@@ -2453,7 +2455,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/database_freighter_shuttle)
 "lt" = (
-/obj/effect/floor_decal/plaque,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable/green{
@@ -2461,6 +2462,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
+/obj/structure/sign/floor_plaque,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -2743,7 +2745,8 @@
 /area/database_freighter)
 "mF" = (
 /obj/machinery/computer/ship/helm/terminal{
-	dir = 1
+	dir = 1;
+	req_access = list(209)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/database_freighter_shuttle)
@@ -4058,7 +4061,7 @@
 	},
 /obj/item/paper_bin,
 /obj/item/pen/multi,
-/obj/item/device/hand_labeler,
+/obj/item/hand_labeler,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -4198,7 +4201,7 @@
 	},
 /obj/structure/closet/crate/internals,
 /obj/item/storage/bag/inflatable,
-/obj/item/device/oxycandle,
+/obj/item/oxycandle,
 /obj/item/tank/emergency_oxygen{
 	pixel_x = 5
 	},
@@ -4895,7 +4898,7 @@
 /area/database_freighter/engineering)
 "Th" = (
 /obj/structure/table/wood,
-/obj/item/device/flashlight/lamp,
+/obj/item/flashlight/lamp,
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},

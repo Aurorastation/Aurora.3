@@ -49,7 +49,7 @@
 		return
 
 	var/dat = ""
-	dat += "Status: <A href='?src=[REF(src)];power=1'>[on ? "On" : "Off"]</A><BR>"
+	dat += "Status: <A href='byond://?src=[REF(src)];power=1'>[on ? "On" : "Off"]</A><BR>"
 	dat += "Water Tank: "
 	if (tank)
 		dat += "[tank.reagents.total_volume]/[tank.reagents.maximum_volume]"
@@ -58,16 +58,16 @@
 	dat += "<br>Behaviour controls are [locked ? "locked" : "unlocked"]<hr>"
 	if(!locked || issilicon(usr))
 		dat += "<TT>Watering controls:<br>"
-		dat += "Water plants : <A href='?src=[REF(src)];water=1'>[waters_trays ? "Yes" : "No"]</A><BR>"
-		dat += "Refill watertank : <A href='?src=[REF(src)];refill=1'>[refills_water ? "Yes" : "No"]</A><BR>"
+		dat += "Water plants : <A href='byond://?src=[REF(src)];water=1'>[waters_trays ? "Yes" : "No"]</A><BR>"
+		dat += "Refill watertank : <A href='byond://?src=[REF(src)];refill=1'>[refills_water ? "Yes" : "No"]</A><BR>"
 		dat += "<br>Preventive measures:<br>"
-		dat += "Weed plants: <A href='?src=[REF(src)];weed=1'>[uproots_weeds ? "Yes" : "No"]</A><BR>"
-		dat += "Eradicate pests: <A href='?src=[REF(src)];eradicatespests=1'>[eliminates_pests ? "Yes" : "No"]</A><BR>"
+		dat += "Weed plants: <A href='byond://?src=[REF(src)];weed=1'>[uproots_weeds ? "Yes" : "No"]</A><BR>"
+		dat += "Eradicate pests: <A href='byond://?src=[REF(src)];eradicatespests=1'>[eliminates_pests ? "Yes" : "No"]</A><BR>"
 		dat += "<br>Nutriment controls:<br>"
-		dat += "Replace fertilizer: <A href='?src=[REF(src)];replacenutri=1'>[replaces_nutriment ? "Yes" : "No"]</A><BR>"
+		dat += "Replace fertilizer: <A href='byond://?src=[REF(src)];replacenutri=1'>[replaces_nutriment ? "Yes" : "No"]</A><BR>"
 		dat += "<br>Plant controls:<br>"
-		dat += "Collect produce: <A href='?src=[REF(src)];collect=1'>[collects_produce ? "Yes" : "No"]</A><BR>"
-		dat += "Remove dead plants: <A href='?src=[REF(src)];removedead=1'>[removes_dead ? "Yes" : "No"]</A><BR>"
+		dat += "Collect produce: <A href='byond://?src=[REF(src)];collect=1'>[collects_produce ? "Yes" : "No"]</A><BR>"
+		dat += "Remove dead plants: <A href='byond://?src=[REF(src)];removedead=1'>[removes_dead ? "Yes" : "No"]</A><BR>"
 		dat += "</TT>"
 
 	var/datum/browser/bot_win = new(user, "autofarm", "Automatic Farmbot v1.2 Controls")
@@ -327,8 +327,8 @@
 
 	new /obj/item/material/minihoe(T)
 	new /obj/item/reagent_containers/glass/bucket(T)
-	new /obj/item/device/assembly/prox_sensor(T)
-	new /obj/item/device/analyzer/plant_analyzer(T)
+	new /obj/item/assembly/prox_sensor(T)
+	new /obj/item/analyzer/plant_analyzer(T)
 	if(tank)
 		tank.forceMove(T)
 	if(prob(50))
@@ -384,7 +384,7 @@
 
 /obj/item/farmbot_arm_assembly/attackby(obj/item/attacking_item, mob/user)
 	..()
-	if(istype(attacking_item, /obj/item/device/analyzer/plant_analyzer) && build_step == 0)
+	if(istype(attacking_item, /obj/item/analyzer/plant_analyzer) && build_step == 0)
 		build_step++
 		to_chat(user, SPAN_NOTICE("You add the plant analyzer to [src]."))
 		name = "farmbot assembly"
@@ -416,7 +416,7 @@
 		qdel(attacking_item)
 		qdel(src)
 		return TRUE
-	else if(attacking_item.ispen())
+	else if(attacking_item.tool_behaviour == TOOL_PEN)
 		var/t = tgui_input_text(user, "Enter new robot name", name, created_name)
 		t = sanitize(t, MAX_NAME_LEN)
 		if(!t)

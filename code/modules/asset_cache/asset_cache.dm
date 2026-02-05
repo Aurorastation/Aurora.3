@@ -2,15 +2,15 @@
 //Place any asset datums you create in asset_list_items.dm
 
 //all of our asset datums, used for referring to these later
-var/list/asset_datums = list()
+GLOBAL_LIST_EMPTY(asset_datums)
 
 //get an assetdatum or make a new one
 //does NOT ensure it's filled, if you want that use get_asset_datum()
 /proc/load_asset_datum(type)
-	return asset_datums[type] || new type()
+	return GLOB.asset_datums[type] || new type()
 
 /proc/get_asset_datum(type)
-	var/datum/asset/loaded_asset = asset_datums[type] || new type()
+	var/datum/asset/loaded_asset = GLOB.asset_datums[type] || new type()
 	return loaded_asset.ensure_ready()
 
 /proc/simple_asset_ensure_is_sent(client, type)
@@ -32,7 +32,7 @@ var/list/asset_datums = list()
 	var/cross_round_cachable = FALSE
 
 /datum/asset/New()
-	asset_datums[type] = src
+	GLOB.asset_datums[type] = src
 	register()
 
 /// Stub that allows us to react to something trying to get us

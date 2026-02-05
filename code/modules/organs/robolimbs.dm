@@ -48,6 +48,10 @@ GLOBAL_DATUM(basic_robolimb, /datum/robolimb)
 	var/paintable = 0
 	/// If this prosthetic glows in the dark
 	var/emissive = FALSE
+	/// If this prosthetic has an active overlay
+	var/overlay = FALSE
+	/// If this prosthetic is a tesla limb (required for some special handling)
+	var/is_tesla = FALSE
 	/// Which IPC species this prosthetic type will create.
 	var/linked_frame = SPECIES_IPC_UNBRANDED
 	/// How resistant this prosthetic type is to brute damage.
@@ -98,6 +102,7 @@ GLOBAL_DATUM(basic_robolimb, /datum/robolimb)
 	linked_frame = SPECIES_IPC_BISHOP
 	fabricator_available = TRUE
 	allows_internal = FALSE
+	emissive = TRUE
 
 /datum/robolimb/hesphaistos
 	company = PROSTHETIC_HI
@@ -106,6 +111,7 @@ GLOBAL_DATUM(basic_robolimb, /datum/robolimb)
 	linked_frame = SPECIES_IPC_G2
 	fabricator_available = TRUE
 	allows_internal = FALSE
+	emissive = TRUE
 
 /datum/robolimb/zenghu
 	company = PROSTHETIC_ZH
@@ -114,6 +120,7 @@ GLOBAL_DATUM(basic_robolimb, /datum/robolimb)
 	linked_frame = SPECIES_IPC_ZENGHU
 	fabricator_available = TRUE
 	allows_internal = FALSE
+	emissive = TRUE
 
 /datum/robolimb/xion
 	company = PROSTHETIC_XMG
@@ -122,6 +129,7 @@ GLOBAL_DATUM(basic_robolimb, /datum/robolimb)
 	linked_frame = SPECIES_IPC_XION
 	fabricator_available = TRUE
 	allows_internal = FALSE
+	emissive = TRUE
 
 /datum/robolimb/ipc
 	company = PROSTHETIC_IPC
@@ -141,6 +149,7 @@ GLOBAL_DATUM(basic_robolimb, /datum/robolimb)
 	linked_frame = SPECIES_IPC_G1
 	fabricator_available = TRUE
 	allows_internal = FALSE
+	emissive = TRUE
 
 /datum/robolimb/terminator
 	company = PROSTHETIC_HK
@@ -175,6 +184,9 @@ GLOBAL_DATUM(basic_robolimb, /datum/robolimb)
 	species_can_use = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
 	internal_organ_suffix = "tesla"
 	allowed_internal_organs = list(BP_HEART, BP_EYES, BP_LUNGS, BP_LIVER, BP_KIDNEYS, BP_STOMACH, BP_APPENDIX)
+	overlay = TRUE
+	emissive = TRUE
+	is_tesla = TRUE
 
 /datum/robolimb/tesla/malfunctioning_check(var/mob/living/carbon/human/H)
 	var/obj/item/organ/internal/augment/tesla/T = H.internal_organs_by_name[BP_AUG_TESLA]
@@ -221,6 +233,7 @@ GLOBAL_DATUM(basic_robolimb, /datum/robolimb)
 	linked_frame = SPECIES_IPC
 	icon = 'icons/mob/human_races/ipc/indricus.dmi'
 	allowed_external_organs = list(BP_HEAD)
+	emissive = TRUE
 
 /datum/robolimb/raxus
 	company = PROSTHETIC_RAXUS
@@ -231,6 +244,7 @@ GLOBAL_DATUM(basic_robolimb, /datum/robolimb)
 	linked_frame = SPECIES_IPC
 	icon = 'icons/mob/human_races/ipc/raxus.dmi'
 	allowed_external_organs = list(BP_HEAD)
+	emissive = TRUE
 
 /datum/robolimb/selen
 	company = PROSTHETIC_SELEN
@@ -255,3 +269,11 @@ GLOBAL_DATUM(basic_robolimb, /datum/robolimb)
 	linked_frame = SPECIES_IPC_BISHOP
 	icon = 'icons/mob/human_races/ipc/siseyo.dmi'
 	allowed_external_organs = list(BP_HEAD)
+
+/datum/robolimb/cheap
+	company = PROSTHETIC_CHEAP
+	desc = "A cheap, basic, and outdated prosthetic limb made out of plastic and metal. Straps onto the body."
+	allows_internal = FALSE
+	icon = 'icons/mob/human_races/cheap_prosthetic.dmi'
+	brute_mod = 1.1
+	burn_mod = 1.2

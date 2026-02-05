@@ -1,6 +1,6 @@
 /mob/living/proc/convert_to_rev()
 	set name = "Invite to the Revolutionaries"
-	set category = "IC"
+	set category = "IC.Antag"
 
 	var/list/mobs_to_convert = list()
 	for(var/mob/A in orange(world.view, src))
@@ -14,14 +14,14 @@
 		if (I.implanted)
 			to_chat(src, SPAN_WARNING("[M] is too loyal to be subverted!"))
 			return
-	convert_to_faction(src, M.mind, revs)
+	convert_to_faction(src, M.mind, GLOB.revs)
 
 /proc/convert_to_faction(var/client/antag, var/datum/mind/player, var/datum/antagonist/faction)
 
 	if(!player || !faction || !player.current)
 		return
 
-	if(!faction.faction_verb || !faction.faction_descriptor || !faction.faction_verb)
+	if(!faction.faction_descriptor || !LAZYLEN(faction.faction_verbs))
 		return
 
 	if(faction.is_antagonist(player))
@@ -55,7 +55,7 @@
 
 /mob/living/proc/convert_to_loyalist()
 	set name = "Invite to the Loyalists"
-	set category = "IC"
+	set category = "IC.Antag"
 
 	var/list/mobs_to_convert = list()
 	for(var/mob/A in orange(world.view, src))
@@ -65,5 +65,5 @@
 		return
 	if(!M.mind)
 		return
-	convert_to_faction(src, M.mind, loyalists)
+	convert_to_faction(src, M.mind, GLOB.loyalists)
 

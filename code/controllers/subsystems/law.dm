@@ -28,11 +28,11 @@ SUBSYSTEM_DEF(law)
 	laws = low_severity + med_severity + high_severity
 
 /datum/controller/subsystem/law/proc/load_from_sql()
-	if(!establish_db_connection(GLOB.dbcon))
+	if(!SSdbcore.Connect())
 		log_subsystem_law("SQL ERROR - Failed to connect.")
 		return load_from_code()
 
-	var/DBQuery/law_query = GLOB.dbcon.NewQuery("SELECT law_id, name, description, min_fine, max_fine, min_brig_time, max_brig_time, severity, felony FROM ss13_law WHERE deleted_at IS NULL ORDER BY law_id ASC")
+	var/datum/db_query/law_query = SSdbcore.NewQuery("SELECT law_id, name, description, min_fine, max_fine, min_brig_time, max_brig_time, severity, felony FROM ss13_law WHERE deleted_at IS NULL ORDER BY law_id ASC")
 	law_query.Execute()
 	while(law_query.NextRow())
 		CHECK_TICK
@@ -59,6 +59,7 @@ SUBSYSTEM_DEF(law)
 				qdel(L)
 		catch(var/exception/el)
 			log_subsystem_law("Error when loading law: [el]")
+	qdel(law_query)
 
 	laws = low_severity + med_severity + high_severity
 	if(!laws.len)
@@ -67,14 +68,15 @@ SUBSYSTEM_DEF(law)
 		migrate_to_sql()
 
 /datum/controller/subsystem/law/proc/migrate_to_sql()
-	for(var/datum/law/L in laws)
-		log_subsystem_law("Migrating law [L.id] to SQL")
-		var/DBQuery/law_update_query = GLOB.dbcon.NewQuery({"
+	var/datum/db_query_template/law_update_query = SSdbcore.NewQueryTemplate({"
 		INSERT IGNORE INTO ss13_law
 			(law_id, name, description, min_fine, max_fine, min_brig_time, max_brig_time, severity, felony)
 		VALUES
-			(:law_id:, :name:, :desc:, :min_fine:, :max_fine:, :min_brig_time:, :max_brig_time:, :severity:, :felony:)
+			(:law_id, :name, :desc, :min_fine, :max_fine, :min_brig_time, :max_brig_time, :severity, :felony)
 		"})
+	for(var/datum/law/L in laws)
+		log_subsystem_law("Migrating law [L.id] to SQL")
+
 		law_update_query.Execute(list(
 			"law_id"=L.id,
 			"name"=L.name,

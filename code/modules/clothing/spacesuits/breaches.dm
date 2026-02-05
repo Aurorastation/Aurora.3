@@ -21,21 +21,21 @@
 
 //Some simple descriptors for breaches. Global because lazy, TODO: work out a better way to do this.
 
-var/global/list/breach_brute_descriptors = list(
+GLOBAL_LIST_INIT(breach_brute_descriptors, list(
 	"tiny puncture",
 	"ragged tear",
 	"large split",
 	"huge tear",
 	"gaping wound"
-	)
+	))
 
-var/global/list/breach_burn_descriptors = list(
+GLOBAL_LIST_INIT(breach_burn_descriptors, list(
 	"small burn",
 	"melted patch",
 	"sizable burn",
 	"large scorched area",
 	"huge scorched area"
-	)
+	))
 
 /datum/breach/proc/update_descriptor()
 
@@ -43,9 +43,9 @@ var/global/list/breach_burn_descriptors = list(
 	class = between(1, round(class), 5)
 	//Apply the correct descriptor.
 	if(damtype == DAMAGE_BURN)
-		descriptor = breach_burn_descriptors[class]
+		descriptor = GLOB.breach_burn_descriptors[class]
 	else if(damtype == DAMAGE_BRUTE)
-		descriptor = breach_brute_descriptors[class]
+		descriptor = GLOB.breach_brute_descriptors[class]
 
 //Repair a certain amount of brute or burn damage to the suit.
 /obj/item/clothing/suit/space/proc/repair_breaches(var/damtype, var/amount, var/mob/user)
@@ -199,7 +199,7 @@ var/global/list/breach_burn_descriptors = list(
 			repair_breaches(DAMAGE_BURN, use_amt * repair_power, user)
 		return
 
-	else if(attacking_item.iswelder())
+	else if(attacking_item.tool_behaviour == TOOL_WELDER)
 
 		if(istype(src.loc,/mob/living))
 			to_chat(user, SPAN_WARNING("How do you intend to patch a voidsuit while someone is wearing it?"))

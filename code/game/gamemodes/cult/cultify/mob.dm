@@ -6,7 +6,7 @@
 /mob/proc/cultify()
 	return
 
-/mob/abstract/observer/cultify()
+/mob/abstract/ghost/observer/cultify()
 	if(icon_state != "ghost-narsie")
 		icon = 'icons/mob/mob.dmi'
 		icon_state = "ghost-narsie"
@@ -28,7 +28,7 @@
 		G.set_invisibility(0)
 		to_chat(G, SPAN_DANGER("You feel relieved as what's left of your soul finally escapes its prison of flesh."))
 
-		cult.harvested += G.mind
+		GLOB.cult.harvested += G.mind
 	else
 		dust()
 

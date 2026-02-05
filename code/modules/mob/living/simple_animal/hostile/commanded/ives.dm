@@ -68,7 +68,7 @@
 
 /mob/living/simple_animal/hostile/commanded/baby_harvester/verb/befriend()
 	set name = "Befriend Ives"
-	set category = "IC"
+	set category = "IC.Critters"
 	set src in view(1)
 
 	if(!master)
@@ -76,7 +76,7 @@
 		if(istype(H))
 			master = usr
 			audible_emote("bwuups happily!")
-			playsound(src, /singleton/sound_category/hivebot_wail, 100, FALSE, 4)
+			playsound(src, SFX_HIVEBOT_WAIL, 100, FALSE, 4)
 			return TRUE
 	else if(usr == master)
 		return TRUE

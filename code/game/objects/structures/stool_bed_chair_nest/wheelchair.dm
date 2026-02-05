@@ -129,6 +129,9 @@
 		usr.pulledby = null
 	..()
 
+/obj/structure/bed/stool/chair/office/wheelchair/generate_strings()
+	return
+
 /obj/item/material/stool/chair/wheelchair
 	name = "wheelchair"
 	desc = "A folded wheelchair that can be carried around."

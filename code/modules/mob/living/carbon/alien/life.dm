@@ -122,7 +122,7 @@
 		else
 			healths.icon_state = "health7"
 
-	client.screen.Remove(global_hud.blurry,global_hud.druggy,global_hud.vimpaired)
+	client.screen.Remove(GLOB.global_hud.blurry, GLOB.global_hud.druggy, GLOB.global_hud.vimpaired)
 
 	if(stat != DEAD)
 		if(blinded)
@@ -154,8 +154,9 @@
 	else
 		if (fire) fire.icon_state = "fire0"
 
-/mob/living/carbon/alien/handle_fire()
+/mob/living/carbon/alien/handle_fire(var/seconds_per_tick, var/datum/gas_mixture/environment)
 	if(..())
 		return
-	bodytemperature += BODYTEMP_HEATING_MAX //If you're on fire, you heat up!
+	// Increment bodytemp up by up to BODYTEMP_HEATING_MAX C / sec.
+	bodytemperature += BODYTEMP_HEATING_MAX * 20 * seconds_per_tick
 	return

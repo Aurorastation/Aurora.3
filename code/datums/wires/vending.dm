@@ -20,10 +20,6 @@
 	if(!..())
 		return FALSE
 	var/obj/machinery/vending/V = holder
-	if(!istype(user, /mob/living/silicon))
-		if(V.seconds_electrified)
-			if(V.shock(user, 100))
-				return FALSE
 	if(V.panel_open)
 		return TRUE
 	return FALSE
@@ -38,7 +34,7 @@
 	. += "The cyan light is [V.temperature_setting == -1 ? "on" : "off"]."
 	. += "The blue light is [V.temperature_setting == 1 ? "on" : "off"]."
 
-/datum/wires/vending/on_pulse(wire)
+/datum/wires/vending/on_pulse(wire, user)
 	var/obj/machinery/vending/V = holder
 	switch(wire)
 		if(WIRE_THROW)
@@ -46,6 +42,8 @@
 		if(WIRE_CONTRABAND)
 			V.categories ^= CAT_HIDDEN
 		if(WIRE_SHOCK)
+			if(ismob(user))
+				V.shock(user, 50)
 			V.seconds_electrified = 30
 		if(WIRE_IDSCAN)
 			V.scan_id = !V.scan_id

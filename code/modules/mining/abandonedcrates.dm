@@ -45,8 +45,8 @@
 		if(36 to 40)
 			new /obj/item/melee/baton(src)
 		if(41 to 45)
-			new /obj/item/clothing/under/shorts/athletic/red(src)
-			new /obj/item/clothing/under/shorts/athletic/blue(src)
+			new /obj/item/clothing/pants/shorts/athletic/red(src)
+			new /obj/item/clothing/pants/shorts/athletic/blue(src)
 		if(46 to 50)
 			new /obj/item/clothing/under/chameleon(src)
 			for(var/i = 0, i < 7, i++)
@@ -176,7 +176,7 @@
 
 /obj/structure/closet/crate/secure/loot/attackby(obj/item/attacking_item, mob/user)
 	if(locked)
-		if(attacking_item.ismultitool()) // Greetings Urist McProfessor, how about a nice game of cows and bulls?
+		if(attacking_item.tool_behaviour == TOOL_MULTITOOL) // Greetings Urist McProfessor, how about a nice game of cows and bulls?
 			to_chat(user, SPAN_NOTICE("DECA-CODE LOCK ANALYSIS:"))
 			if(attempts == 1)
 				to_chat(user, SPAN_WARNING("* Anti-Tamper system will activate on the next failed access attempt."))

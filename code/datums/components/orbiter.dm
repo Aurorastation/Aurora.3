@@ -122,7 +122,7 @@
 		orbiter_mob.glide_size = 8
 
 		if(isobserver(orbiter))
-			var/mob/abstract/observer/ghostie = orbiter //is var/mob/dead/observer/ghostie = orbiter in tg
+			var/mob/abstract/ghost/ghostie = orbiter //is var/mob/dead/observer/ghostie = orbiter in tg
 			ghostie.orbiting_ref = null
 
 	// REMOVE_TRAIT(orbiter, TRAIT_NO_FLOATING_ANIM, ORBITING_TRAIT)

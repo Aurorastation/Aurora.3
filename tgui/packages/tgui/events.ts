@@ -14,7 +14,7 @@ export const globalEvents = new EventEmitter();
 let ignoreWindowFocus = false;
 
 export const setupGlobalEvents = (
-  options: { ignoreWindowFocus?: boolean } = {}
+  options: { ignoreWindowFocus?: boolean } = {},
 ): void => {
   ignoreWindowFocus = !!options.ignoreWindowFocus;
 };
@@ -201,9 +201,9 @@ export class KeyEvent {
     if (this.code >= 48 && this.code <= 90) {
       this._str += String.fromCharCode(this.code);
     } else if (this.code >= KEY_F1 && this.code <= KEY_F12) {
-      this._str += 'F' + (this.code - 111);
+      this._str += `F${this.code - 111}`;
     } else {
-      this._str += '[' + this.code + ']';
+      this._str += `[${this.code}]`;
     }
     return this._str;
   }

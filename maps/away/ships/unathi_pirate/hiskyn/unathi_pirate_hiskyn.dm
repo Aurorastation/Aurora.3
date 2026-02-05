@@ -1,5 +1,5 @@
 /datum/map_template/ruin/away_site/hiskyn
-	name = "Hiskyn Revanchists Ship"
+	name = "Hiskyn's Revanchists Ship"
 	description = "Ship with pirate lizards."
 
 	prefix = "ships/unathi_pirate/hiskyn/"
@@ -14,12 +14,12 @@
 	unit_test_groups = list(2)
 
 /singleton/submap_archetype/hiskyn
-	map = "Hiskyn Revanchists Ship"
+	map = "Hiskyn's Revanchists Ship"
 	descriptor = "Ship with pirate lizards."
 
 //Overmap object
 /obj/effect/overmap/visitable/ship/hiskyn
-	name = "Hiskyn Revanchist Ship"
+	name = "Hiskyn's Revanchists Ship"
 	desc = "An Obrirava-class tanker, commonly used for transport of Helium-3 and other valuable gases by the Empire of Dominia. This one appears to have been heavily modified, with most of its fuel tanks seemingly removed and replaced based on initial scans."
 	class = "ICV"
 	icon_state = "freighter"
@@ -30,14 +30,14 @@
 	vessel_mass = 5000
 	fore_dir = SOUTH
 	vessel_size = SHIP_SIZE_SMALL
-	designer = "Zhurong Naval Arsenal, Empire of Dominia"
+	designer = "Zhurong Imperial Shipbuilding, Zavodskoi Interstellar"
 	volume = "65 meters length, 25 meters beam/width, 18 meters vertical height"
 	drive = "Low-Speed Warp Acceleration FTL Drive"
-	weapons = "Dual wingtip-mounted heavy ballistic, starboard obscured flight craft bay"
+	weapons = "Dual wingtip-mounted heavy ballistic, port obscured flight craft bay"
 	sizeclass = "Modified Obrirava-class tanker"
 	shiptype = "Unknown"
 	initial_restricted_waypoints = list(
-		"Hiskyn Revanchist Shuttle" = list("nav_dock_hiskyn")
+		"Hiskyn's Revanchist Shuttle" = list("nav_dock_hiskyn")
 	)
 	initial_generic_waypoints = list(
 		"nav_hiskyn_fore",
@@ -91,14 +91,14 @@
 //Shuttle stuff
 
 /obj/effect/overmap/visitable/ship/landable/hiskyn_shuttle
-	name = "Hiskyn Revanchist Shuttle"
+	name = "Hiskyn's Revanchist Shuttle"
 	class = "ICV"
 	designation = "Stalker"
-	desc = "A heavily modified Yupmi-class transport shuttle, a common cargo transport in the Dominian Imperial Fleet."
+	desc = "A heavily modified Yupmi-class transport shuttle, a design mostly found in the Imperial Frontier prior to its colonisation."
 	icon_state = "shuttle"
 	moving_state = "shuttle_moving"
 	colors = list("#9c0101")
-	shuttle = "Hiskyn Revanchist Shuttle"
+	shuttle = "Hiskyn's Revanchist Shuttle"
 	sizeclass = "Yupmi-class shuttle"
 	max_speed = 1/(3 SECONDS)
 	burn_delay = 2 SECONDS
@@ -108,11 +108,11 @@
 
 /obj/machinery/computer/shuttle_control/explore/hiskyn_shuttle
 	name = "shuttle control console"
-	shuttle_tag = "Hiskyn Revanchist Shuttle"
+	shuttle_tag = "Hiskyn's Revanchist Shuttle"
 	req_access = list(ACCESS_UNATHI_PIRATE)
 
 /datum/shuttle/autodock/overmap/hiskyn_shuttle
-	name = "Hiskyn Revanchist Shuttle"
+	name = "Hiskyn's Revanchist Shuttle"
 	move_time = 20
 	shuttle_area = list(/area/shuttle/hiskyn_revanchists)
 	current_location = "nav_dock_hiskyn"

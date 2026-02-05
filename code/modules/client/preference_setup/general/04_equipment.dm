@@ -112,7 +112,7 @@
 	if(!istype(pref.all_underwear))
 		pref.all_underwear = list()
 
-		for(var/datum/category_group/underwear/WRC in global_underwear.categories)
+		for(var/datum/category_group/underwear/WRC in GLOB.global_underwear.categories)
 			for(var/datum/category_item/underwear/WRI in WRC.items)
 				if(WRI.is_default(pref.gender ? pref.gender : MALE))
 					pref.all_underwear[WRC.name] = WRI.name
@@ -122,7 +122,7 @@
 		pref.all_underwear_metadata = list()
 
 	for(var/underwear_category in pref.all_underwear)
-		var/datum/category_group/underwear/UWC = global_underwear.categories_by_name[underwear_category]
+		var/datum/category_group/underwear/UWC = GLOB.global_underwear.categories_by_name[underwear_category]
 		if(!UWC)
 			pref.all_underwear -= underwear_category
 		else
@@ -147,26 +147,26 @@
 /datum/category_item/player_setup_item/general/equipment/content(var/mob/user)
 	. = list()
 	. += "<b>Equipment:</b><br>"
-	for(var/datum/category_group/underwear/UWC in global_underwear.categories)
+	for(var/datum/category_group/underwear/UWC in GLOB.global_underwear.categories)
 		var/item_name = pref.all_underwear[UWC.name] ? pref.all_underwear[UWC.name] : "None"
-		. += "[UWC.name]: <a href='?src=[REF(src)];change_underwear=[UWC.name]'><b>[item_name]</b></a>"
+		. += "[UWC.name]: <a href='byond://?src=[REF(src)];change_underwear=[UWC.name]'><b>[item_name]</b></a>"
 
 		var/datum/category_item/underwear/UWI = UWC.items_by_name[item_name]
 		if(UWI)
 			for(var/datum/gear_tweak/gt in UWI.tweaks)
-				. += " <a href='?src=[REF(src)];underwear=[UWC.name];tweak=[REF(gt)]'>[gt.get_contents(get_metadata(UWC.name, gt))]</a>"
+				. += " <a href='byond://?src=[REF(src)];underwear=[UWC.name];tweak=[REF(gt)]'>[gt.get_contents(get_metadata(UWC.name, gt))]</a>"
 
 		. += "<br>"
 
-	. += "Backpack Type: <a href='?src=[REF(src)];change_backpack=1'><b>[GLOB.backbaglist[pref.backbag]]</b></a><br>"
-	. += "Backpack Style: <a href='?src=[REF(src)];change_backpack_style=1'><b>[GLOB.backbagstyles[pref.backbag_style]]</b></a><br>"
+	. += "Backpack Type: <a href='byond://?src=[REF(src)];change_backpack=1'><b>[GLOB.backbaglist[pref.backbag]]</b></a><br>"
+	. += "Backpack Style: <a href='byond://?src=[REF(src)];change_backpack_style=1'><b>[GLOB.backbagstyles[pref.backbag_style]]</b></a><br>"
 	if(pref.backbag == OUTFIT_SATCHEL_ALT || pref.backbag == OUTFIT_RUCKSACK || pref.backbag == OUTFIT_POCKETBOOK) // Hardcoded. Sucks, I know.
-		. += "Backpack Color: <a href='?src=[REF(src)];change_backpack_color=1'><b>[GLOB.backbagcolors[pref.backbag_color]]</b></a><br>"
-	. += "Backpack Strap: <a href='?src=[REF(src)];change_backbag_strap=1'><b>[GLOB.backbagstrap[pref.backbag_strap]]</b></a><br>"
-	. += "PDA Type: <a href='?src=[REF(src)];change_pda=1'><b>[GLOB.pdalist[pref.pda_choice]]</b></a><br>"
-	. += "Headset Type: <a href='?src=[REF(src)];change_headset=1'><b>[GLOB.headsetlist[pref.headset_choice]]</b></a><br>"
-	. += "Primary Radio Slot: <a href='?src=[REF(src)];change_radio_slot=1'><b>[pref.primary_radio_slot]</b></a><br>"
-	. += "Suit Sensor Setting: <a href='?src=[REF(src)];change_sensor_setting=1'><b>[pref.sensor_setting]</b></a><br/>"
+		. += "Backpack Color: <a href='byond://?src=[REF(src)];change_backpack_color=1'><b>[GLOB.backbagcolors[pref.backbag_color]]</b></a><br>"
+	. += "Backpack Strap: <a href='byond://?src=[REF(src)];change_backbag_strap=1'><b>[GLOB.backbagstrap[pref.backbag_strap]]</b></a><br>"
+	. += "PDA Type: <a href='byond://?src=[REF(src)];change_pda=1'><b>[GLOB.pdalist[pref.pda_choice]]</b></a><br>"
+	. += "Headset Type: <a href='byond://?src=[REF(src)];change_headset=1'><b>[GLOB.headsetlist[pref.headset_choice]]</b></a><br>"
+	. += "Primary Radio Slot: <a href='byond://?src=[REF(src)];change_radio_slot=1'><b>[pref.primary_radio_slot]</b></a><br>"
+	. += "Suit Sensor Setting: <a href='byond://?src=[REF(src)];change_sensor_setting=1'><b>[pref.sensor_setting]</b></a><br/>"
 
 	return jointext(., null)
 
@@ -236,7 +236,7 @@
 			return TOPIC_REFRESH_UPDATE_PREVIEW
 
 	else if(href_list["change_underwear"])
-		var/datum/category_group/underwear/UWC = global_underwear.categories_by_name[href_list["change_underwear"]]
+		var/datum/category_group/underwear/UWC = GLOB.global_underwear.categories_by_name[href_list["change_underwear"]]
 		if(!UWC)
 			return TOPIC_NOACTION
 		var/datum/category_item/underwear/selected_underwear = tgui_input_list(user, "Choose underwear:", "Character Preference", UWC.items, pref.all_underwear[UWC.name])

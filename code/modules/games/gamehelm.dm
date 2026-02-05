@@ -5,7 +5,6 @@
 	being able to be purchased from an online marketplace hosted by InUs. Thousands of popular and obscure titles are available on the \
 	console. Besides being the perfect present, it's also capable of video streaming and sharing files over authorized \
 	connections. A quick and easy way to upload your latest montage to the extranet."
-	desc_info = "You can ALT-click the game-helm to open it up and turn it on. Click on the open device to play."
 	icon = 'icons/obj/gamehelm.dmi'
 	w_class = WEIGHT_CLASS_SMALL
 	update_icon_on_init = TRUE
@@ -47,6 +46,10 @@
 
 	var/muted = FALSE
 
+/obj/item/gamehelm/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "You can ALT-click the game-helm to open it up and turn it on. Click on the open device to play."
+
 /obj/item/gamehelm/update_icon()
 	ClearOverlays()
 	if(open)
@@ -65,7 +68,7 @@
 
 	if(playing_game)
 		if(!muted)
-			playsound(loc, /singleton/sound_category/quick_arcade, 20)
+			playsound(loc, SFX_ARCADE, 20)
 		if(ismob(loc))
 			var/picked_action = pick(game_actions)
 			var/self_action = game_actions[picked_action]
@@ -74,7 +77,7 @@
 			loc.visible_message("<b>[loc]</b> [picked_action]!", SPAN_NOTICE("You [self_action]!"), range = 3)
 	else
 		if(!muted)
-			playsound(loc, /singleton/sound_category/computerbeep_sound, 20)
+			playsound(loc, SFX_COMPUTER_BEEP, 20)
 
 /obj/item/gamehelm/AltClick(mob/user)
 	if(use_check(user))
@@ -120,7 +123,7 @@
 		else
 			user.visible_message("<b>[user]</b> taps on a few buttons and \the [src] springs to life!", SPAN_NOTICE("You tap on a few buttons and \the [src] springs to life!"), range = 3)
 		if(!muted)
-			playsound(loc, /singleton/sound_category/boops, 25)
+			playsound(loc, SFX_COMPUTER_BOOP, 25)
 		set_game(game_type_to_state[choice])
 	return ..()
 
@@ -154,7 +157,7 @@
 	case_color = "yellow"
 
 /obj/item/gamehelm/turquoise
-	case_color = "turqoise"
+	case_color = "turquoise"
 
 /obj/item/gamehelm/weathered
 	case_color = "weathered"

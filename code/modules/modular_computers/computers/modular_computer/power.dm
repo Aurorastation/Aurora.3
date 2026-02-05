@@ -32,7 +32,7 @@
 		return FALSE
 
 	var/area/A = get_area(src)
-	if(!istype(A) || !A.powered(EQUIP))
+	if(!istype(A) || !A.powered(AREA_USAGE_EQUIP))
 		return FALSE
 
 	// At this point, we know that APC can power us for this tick. Check if we also need to charge our battery, and then actually use the power.
@@ -44,7 +44,7 @@
 		power_usage += power_to_get
 		battery_module.battery.give(power_to_get * CELLRATE)
 
-	A.use_power_oneoff(power_usage, EQUIP)
+	A.use_power_oneoff(power_usage, AREA_USAGE_EQUIP)
 	return TRUE
 
 

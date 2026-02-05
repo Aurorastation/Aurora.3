@@ -158,3 +158,28 @@
 		BIOME_SEMIARID = 0.5,
 		BIOME_SUBHUMID = 1.0
 	)
+
+/datum/exoplanet_theme/grass/xanu_nayakhyber
+	name = "Naya Khyber"
+	surface_turfs = list(
+		/turf/simulated/floor/exoplanet/grass/stalk,
+		/turf/simulated/mineral/planet
+	)
+
+	possible_biomes = list(
+		BIOME_COOL = list(
+			BIOME_ARID = /singleton/biome/grass/xanu,
+			BIOME_SEMIARID = /singleton/biome/grass/chaparral/xanu,
+			BIOME_SUBHUMID = /singleton/biome/grass/forest/xanu
+		),
+		BIOME_WARM = list(
+			BIOME_ARID = /singleton/biome/grass/chaparral/xanu,
+			BIOME_SEMIARID = /singleton/biome/grass/chaparral/xanu,
+			BIOME_SUBHUMID = /singleton/biome/grass/riverside/xanu
+		),
+		BIOME_EQUATOR = list(
+			BIOME_ARID = /singleton/biome/grass/forest/xanu,
+			BIOME_SEMIARID = /singleton/biome/grass/forest/xanu,
+			BIOME_SUBHUMID = /singleton/biome/grass/chaparral/xanu
+		)
+	)

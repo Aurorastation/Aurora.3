@@ -1,3 +1,8 @@
+// CAMERA CHUNK
+//
+// A 16x16 grid of the map with a list of turfs that can be seen, are visible and are dimmed.
+// Allows the Eye to stream these chunks and know what it can and cannot see.
+
 #define UPDATE_BUFFER 25 // 2.5 seconds
 
 // CHUNK
@@ -24,7 +29,7 @@
 	if(!obfuscation)
 		obfuscation = image(icon, T, icon_state)
 		obfuscation.layer = OBFUSCATION_LAYER
-		obfuscation.plane = DEFAULT_PLANE
+		obfuscation.plane = GAME_PLANE
 		if(!obfuscation_underlay)
 			// Creating a new icon of a fairly common icon state, adding some random color to prevent address searching, and hoping being static kills memory locality
 			var/turf/floor = /turf/simulated/floor/tiled
@@ -109,13 +114,13 @@
 
 // Visualnet adds and removes eyes.
 
-/datum/chunk/proc/add_eye(mob/abstract/eye/eye)
+/datum/chunk/proc/add_eye(mob/abstract/eye/freelook/eye)
 	seenby += eye
 	eye.visibleChunks += src
 	if(eye.owner && eye.owner.client)
 		eye.owner.client.images += obscured
 
-/datum/chunk/proc/remove_eye(mob/abstract/eye/eye)
+/datum/chunk/proc/remove_eye(mob/abstract/eye/freelook/eye)
 	seenby -= eye
 	eye.visibleChunks -= src
 	if(eye.owner && eye.owner.client)

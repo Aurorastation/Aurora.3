@@ -140,7 +140,10 @@
 	if(src.ear_damage < 25)
 		src.ear_damage = FALSE
 
-	src.density = !src.lying
+	if(lying)
+		ADD_TRAIT(src, TRAIT_UNDENSE, TRAIT_SOURCE_LYING_DOWN)
+	else
+		REMOVE_TRAIT(src, TRAIT_UNDENSE, TRAIT_SOURCE_LYING_DOWN)
 
 	if(src.sdisabilities & BLIND)
 		src.blinded = TRUE

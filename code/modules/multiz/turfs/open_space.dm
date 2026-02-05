@@ -175,8 +175,9 @@
 /turf/simulated/open/Initialize(mapload)
 	. = ..()
 	icon_state = ""	// Clear out the debug icon.
-
+	ADD_TRAIT(src, TURF_Z_TRANSPARENT_TRAIT, TRAIT_SOURCE_INHERENT)
 	update(mapload)
+
 
 /**
  * Updates the turf with open turf's variables and basically resets it properly.
@@ -208,6 +209,13 @@
 /turf/simulated/open/levelupdate()
 	for(var/obj/O in src)
 		O.hide(0)
+
+/turf/simulated/open/examine(mob/user, distance, is_adjacent, infix, suffix, show_extended)
+	. = ..()
+	if(isliving(user))
+		var/mob/living/looker = user
+		if(looker.Adjacent(src) && !looker.incapacitated())
+			looker.look_down_open_space(src)
 
 /turf/simulated/open/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
@@ -252,14 +260,13 @@
 			to_chat(user, SPAN_WARNING("The plating is going to need some support."))
 
 	//To lay cable.
-	if(attacking_item.iscoil())
+	if(attacking_item.tool_behaviour == TOOL_CABLECOIL)
 		var/obj/item/stack/cable_coil/coil = attacking_item
 		coil.turf_place(src, user)
 		return
 	return
 
 /turf/simulated/open/attack_hand(var/mob/user)
-
 	if(ishuman(user) && user.a_intent == I_GRAB)
 		var/mob/living/carbon/human/H = user
 		var/turf/T = get_turf(H)

@@ -1,6 +1,8 @@
 /singleton/origin_item/culture/diona_sol
 	name = "Sol Alliance"
-	desc = "Despite the loss of much of its territory during the Solarian Collapse of 2463, most of those that fall under the general umbrella of Solarian culture are citizens or belong to statelets affiliated with the Alliance of Sovereign Solarian Nations (ASSN). By and large, Solarians are generally perceived as xenophobic, nationalistic, and militarist. Non-humans, aside from Skrell, are generally rare on Solarian worlds, and many that do reside on them are treated as second-class citizens at best."
+	desc = "Despite the loss of much of its territory during the Solarian Collapse of 2463, most of those that fall under the general umbrella of Solarian culture are citizens or belong to statelets \
+			affiliated with the Alliance of Sovereign Solarian Nations (ASSN). By and large, Solarians are generally perceived as xenophobic, nationalistic, and militarist. Non-humans, aside \
+			from Skrell, are generally rare on Solarian worlds, and many that do reside on them are treated as second-class citizens at best."
 	possible_origins = list(
 		/singleton/origin_item/origin/diona_sol,
 		/singleton/origin_item/origin/sol_wildborn,

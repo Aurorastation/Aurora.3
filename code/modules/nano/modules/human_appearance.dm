@@ -76,9 +76,9 @@
 				. = TRUE
 		if("skin_tone")
 			if(can_change_skin_tone())
-				var/new_s_tone = input(usr, "Choose your character's skin-tone:\n(Light 30 - 220 Dark)", "Skin Tone", -owner.s_tone + 35) as num|null
+				var/new_s_tone = input(usr, "Choose your character's skin-tone:\n(Light [owner.species.lower_skin_tone_bound] - [owner.species.upper_skin_tone_bound] Dark)", "Skin Tone", -owner.s_tone + 35) as num|null
 				if(isnum(new_s_tone))
-					new_s_tone = 35 - max(min( round(new_s_tone), 220),30)
+					new_s_tone = 35 - clamp(round(new_s_tone), owner.species.lower_skin_tone_bound, owner.species.upper_skin_tone_bound)
 					. = owner.change_skin_tone(new_s_tone)
 		if("skin_color")
 			if(can_change_skin_color())
@@ -219,6 +219,18 @@
 				var/obj/item/organ/internal/O = owner.internal_organs_by_name[organ]
 				var/modification = tgui_input_list(owner, "Select a Modification", "Organ Modification", O.possible_modifications)
 				owner.change_organ(organ, modification)
+
+		if("organ_preset")
+			if(can_change(APPEARANCE_PROSTHETICS))
+				var/organ = tgui_input_list(owner, "Select an Organ", "Organ Presets", valid_organs)
+				var/obj/item/organ/internal/machine/O = owner.internal_organs_by_name[organ]
+				var/list/possible_presets = list()
+				for(var/P in O.organ_presets)
+					var/singleton/synthetic_organ_preset/preset = GET_SINGLETON(P)
+					possible_presets[preset.name] = preset
+				var/singleton/synthetic_organ_preset/chosen_preset = tgui_input_list(owner, "Select a Preset", "Organ Presets", possible_presets)
+				if(chosen_preset)
+					O.apply_preset_data(chosen_preset)
 
 /datum/tgui_module/appearance_changer/ui_interact(var/mob/user, var/datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)

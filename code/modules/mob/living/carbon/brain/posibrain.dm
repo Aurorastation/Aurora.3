@@ -1,4 +1,4 @@
-/obj/item/device/mmi/digital/posibrain
+/obj/item/mmi/digital/posibrain
 	name = "positronic brain"
 	desc = "A cube of shining metal, four inches to a side and covered in shallow grooves."
 	icon = 'icons/obj/assemblies.dmi'
@@ -9,13 +9,13 @@
 	can_be_ipc = TRUE
 	var/searching = FALSE
 
-/obj/item/device/mmi/digital/posibrain/Initialize()
+/obj/item/mmi/digital/posibrain/Initialize()
 	. = ..()
 	var/datum/language/L = GLOB.all_languages[LANGUAGE_EAL]
 	brainmob.name = L.get_random_name()
 	brainmob.real_name = brainmob.name
 
-/obj/item/device/mmi/digital/posibrain/update_icon()
+/obj/item/mmi/digital/posibrain/update_icon()
 	if(brainmob.ckey)
 		icon_state = "[initial(icon_state)]-occupied"
 	else if(searching)
@@ -23,10 +23,10 @@
 	else
 		icon_state = initial(icon_state)
 
-/obj/item/device/mmi/digital/posibrain/attackby(obj/item/attacking_item, mob/user)
+/obj/item/mmi/digital/posibrain/attackby(obj/item/attacking_item, mob/user)
 	return
 
-/obj/item/device/mmi/digital/posibrain/attack_self(mob/user)
+/obj/item/mmi/digital/posibrain/attack_self(mob/user)
 	if(brainmob.ckey)
 		to_chat(user, SPAN_WARNING("\The [src] already has an active occupant!"))
 		return
@@ -41,7 +41,7 @@
 			SSghostroles.remove_spawn_atom("posibrain", src)
 		update_icon()
 
-/obj/item/device/mmi/digital/posibrain/assign_player(var/mob/user)
+/obj/item/mmi/digital/posibrain/assign_player(var/mob/user)
 	if(brainmob.ckey)
 		return
 
@@ -53,17 +53,13 @@
 
 	to_chat(brainmob, "<b>You are a positronic brain, brought into existence on [station_name()].</b>")
 	to_chat(brainmob, "<b>As a synthetic intelligence, you answer to all crewmembers, as well as the AI.</b>")
-	to_chat(brainmob, "<b>Remember, the purpose of your existence is to serve the crew and the station. Above all else, do no harm.</b>")
-
-	var/area/A = get_area(src)
-	if(istype(A, /area/assembly/robotics))
-		GLOB.global_announcer.autosay("A positronic brain has completed its boot process in: [A.name].", "Robotics Oversight", "Science")
+	to_chat(brainmob, "<b>Remember, the purpose of your existence is to serve the crew and the [station_name(TRUE)]. Above all else, do no harm.</b>")
 
 	brainmob.client.init_verbs()
 
 	return src
 
-/obj/item/device/mmi/digital/posibrain/update_name()
+/obj/item/mmi/digital/posibrain/update_name()
 	var/new_name = tgui_input_text(brainmob, "Choose your name.", "Name Selection", brainmob.real_name, MAX_NAME_LEN)
 	if(new_name)
 		brainmob.real_name = new_name
@@ -72,7 +68,7 @@
 	visible_message(SPAN_NOTICE("\The [src] chimes quietly."))
 	return ..()
 
-/obj/item/device/mmi/digital/posibrain/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
+/obj/item/mmi/digital/posibrain/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 
 	. += "This is [icon2html(src, user)] \a <EM>[src]</EM>!\n[desc]\n"
@@ -89,7 +85,7 @@
 	else
 		. += "<span class='deadsay'>It appears to be completely inactive.</span>\n"
 
-/obj/item/device/mmi/digital/posibrain/ready_for_use(var/mob/user)
+/obj/item/mmi/digital/posibrain/ready_for_use(var/mob/user)
 	if(!brainmob)
 		to_chat(user, SPAN_WARNING("\The [src] doesn't have a personality loaded on it yet!"))
 		return
@@ -98,10 +94,10 @@
 		return FALSE
 	return TRUE
 
-/obj/item/device/mmi/digital/posibrain/set_cradle_state(var/new_state)
+/obj/item/mmi/digital/posibrain/set_cradle_state(var/new_state)
 	return
 
-/obj/item/device/mmi/digital/posibrain/emp_act(severity)
+/obj/item/mmi/digital/posibrain/emp_act(severity)
 	. = ..()
 
 	if(!brainmob)

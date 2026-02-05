@@ -23,7 +23,7 @@
 
 /obj/structure/diona/attackby(obj/item/attacking_item, mob/user)
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
-	if(attacking_item.iswelder())
+	if(attacking_item.tool_behaviour == TOOL_WELDER)
 		var/obj/item/weldingtool/WT = attacking_item
 		if (!WT.welding)
 			to_chat(user, SPAN_WARNING("\The [WT] must be turned on!"))
@@ -44,7 +44,7 @@
 			user.visible_message(SPAN_DANGER("\The [user] [pick(attacking_item.attack_verb)] \the [src] with \the [attacking_item]!"),
 									SPAN_NOTICE("You [pick(attacking_item.attack_verb)] \the [src] with \the [attacking_item]!"))
 			playsound(loc, attacking_item.hitsound, attacking_item.get_clamped_volume(), TRUE)
-			playsound(loc, /singleton/sound_category/wood_break_sound, 50, TRUE)
+			playsound(loc, SFX_BREAK_WOOD, 50, TRUE)
 			health -= attacking_item.force
 			if(health <= 0)
 				qdel(src)
@@ -99,9 +99,12 @@
 /obj/structure/diona/bulb/unpowered
 	name = "unpowered glow bulb"
 	desc = "A bulb of some sort. Seems like it needs some power."
-	desc_info = "This bulb requires a power cell to glow. Click on it with a power cell in hand to plug it in."
 	light_power = 0
 	light_range = 0
+
+/obj/structure/diona/bulb/unpowered/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "This bulb requires a power cell to glow. Click on it with a power cell in hand to plug it in."
 
 /obj/structure/diona/bulb/unpowered/attackby(obj/item/attacking_item, mob/user)
 	if(istype(attacking_item, /obj/item/cell))

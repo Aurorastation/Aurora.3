@@ -1,4 +1,4 @@
-/obj/item/device/augment_implanter
+/obj/item/augment_implanter
 	name = "augment implanter"
 	desc = "A complex single use injector that is used to implant augments without the need for surgery."
 	w_class = WEIGHT_CLASS_NORMAL
@@ -6,23 +6,22 @@
 	icon = 'icons/obj/guns/decloner.dmi'
 	icon_state = "decloner"
 	item_state = "decloner"
-	contained_sprite = TRUE
 	var/obj/item/organ/augment_type
 	var/new_augment
 
-/obj/item/device/augment_implanter/Initialize()
+/obj/item/augment_implanter/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(augment_type)
+		. += SPAN_NOTICE("\The [augment_type] can be seen floating inside \the [src]'s biogel.")
+	else
+		. += SPAN_WARNING("It is spent.")
+
+/obj/item/augment_implanter/Initialize()
 	. = ..()
 	if(!augment_type)
 		augment_type = new new_augment(src)
 
-/obj/item/device/augment_implanter/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if(augment_type)
-		. += FONT_SMALL(SPAN_NOTICE("\The [augment_type] can be seen floating inside \the [src]'s biogel."))
-	else
-		. += FONT_SMALL(SPAN_WARNING("It is spent."))
-
-/obj/item/device/augment_implanter/afterattack(mob/living/L, mob/user, proximity)
+/obj/item/augment_implanter/afterattack(mob/living/L, mob/user, proximity)
 	if(!proximity)
 		return
 
@@ -57,23 +56,41 @@
 
 	user.visible_message(SPAN_WARNING("\The [user] thrusts \the [src] deep into \the [H], injecting something!"))
 
-/obj/item/device/augment_implanter/advanced_tesla
+/obj/item/augment_implanter/advanced_tesla
 	new_augment = /obj/item/organ/internal/augment/tesla/advanced
 
-/obj/item/device/augment_implanter/advanced_suspension
+/obj/item/augment_implanter/advanced_suspension
 	new_augment =	/obj/item/organ/internal/augment/suspension/advanced
 
-/obj/item/device/augment_implanter/combitool
+/obj/item/augment_implanter/combitool
 	new_augment =	/obj/item/organ/internal/augment/tool/combitool
 
-/obj/item/device/augment_implanter/health_scanner
+/obj/item/augment_implanter/health_scanner
 	new_augment =	/obj/item/organ/internal/augment/health_scanner
 
-/obj/item/device/augment_implanter/hivenet_shield
+/obj/item/augment_implanter/hivenet_shield
 	new_augment =	/obj/item/organ/internal/augment/hiveshield
 
-/obj/item/device/augment_implanter/hivenet_advanced_shield
+/obj/item/augment_implanter/hivenet_advanced_shield
 	new_augment =	/obj/item/organ/internal/augment/hiveshield/advanced
 
-/obj/item/device/augment_implanter/hivenet_warfare
+/obj/item/augment_implanter/hivenet_warfare
 	new_augment =	/obj/item/organ/internal/augment/hiveshield/warfare
+
+/obj/item/augment_implanter/auxiliary_heart
+	new_augment =	/obj/item/organ/internal/augment/bioaug/auxiliary_heart
+
+/obj/item/augment_implanter/gravity_adaptations
+	new_augment =	/obj/item/organ/internal/augment/bioaug/gravity_adaptations
+
+/obj/item/augment_implanter/mind_blanker
+	new_augment =	/obj/item/organ/internal/augment/bioaug/mind_blanker
+
+/obj/item/augment_implanter/mind_blanker_lethal
+	new_augment =	/obj/item/organ/internal/augment/bioaug/mind_blanker_lethal
+
+/obj/item/augment_implanter/platelet_factories
+	new_augment =	/obj/item/organ/internal/augment/bioaug/platelet_factories
+
+/obj/item/augment_implanter/subdermal_carapace
+	new_augment =	/obj/item/organ/internal/augment/bioaug/subdermal_carapace

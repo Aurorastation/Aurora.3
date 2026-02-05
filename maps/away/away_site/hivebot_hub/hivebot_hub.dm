@@ -8,6 +8,7 @@
 	suffix = "hivebot_hub.dmm"
 
 	sectors = ALL_POSSIBLE_SECTORS
+	sectors_blacklist = list(ALL_UNCHARTED_SECTORS)
 	spawn_weight = 1
 	spawn_cost = 1
 
@@ -40,7 +41,6 @@
 /area/hivebothub
 	icon_state = "red"
 	requires_power = TRUE
-	dynamic_lighting = TRUE
 	no_light_control = FALSE
 	base_turf = /turf/space
 	area_flags = AREA_FLAG_RAD_SHIELDED

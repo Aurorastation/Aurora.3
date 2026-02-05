@@ -18,6 +18,10 @@
 	var/_wifi_id
 	var/datum/wifi/receiver/button/flasher/wifi_receiver
 
+/obj/machinery/flasher/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Use a wirecutter on this to disconnect the flashbulb, disabling it. Use wirecutters again to reconnect it."
+
 /obj/machinery/flasher/portable //Portable version of the flasher. Only flashes when anchored
 	name = "portable flasher"
 	desc = "A portable flashing device. Wrench to activate and deactivate. Cannot detect slow movements."
@@ -48,7 +52,7 @@
 
 //Don't want to render prison breaks impossible
 /obj/machinery/flasher/attackby(obj/item/attacking_item, mob/user)
-	if (attacking_item.iswirecutter())
+	if (attacking_item.tool_behaviour == TOOL_WIRECUTTER)
 		add_fingerprint(user)
 		src.disable = !src.disable
 		if (src.disable)
@@ -106,7 +110,7 @@
 		src.flash()
 
 /obj/machinery/flasher/portable/attackby(obj/item/attacking_item, mob/user)
-	if (attacking_item.iswrench())
+	if (attacking_item.tool_behaviour == TOOL_WRENCH)
 		add_fingerprint(user)
 		src.anchored = !src.anchored
 

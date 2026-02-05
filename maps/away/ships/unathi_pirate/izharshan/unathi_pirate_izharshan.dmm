@@ -40,7 +40,9 @@
 /turf/simulated/floor/carpet/rubber,
 /area/shuttle/unathi_pirate_izharshan/dorms)
 "av" = (
-/obj/machinery/computer/ship/targeting,
+/obj/machinery/computer/ship/targeting{
+	req_access = list(210)
+	},
 /obj/effect/floor_decal/corner_wide/dark_green/full,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/unathi_pirate_izharshan/helm)
@@ -118,10 +120,7 @@
 /turf/simulated/floor/airless,
 /area/shuttle/unathi_pirate_izharshan/helm)
 "dv" = (
-/obj/machinery/autolathe{
-	hacked = 1;
-	name = "Modified Autolathe"
-	},
+/obj/machinery/fabricator/autolathe/hacked,
 /obj/effect/floor_decal/industrial/warning,
 /obj/machinery/atmospherics/pipe/manifold/hidden,
 /turf/simulated/floor,
@@ -214,7 +213,8 @@
 /area/shuttle/unathi_pirate_izharshan/helm)
 "eD" = (
 /obj/machinery/computer/shuttle_control/explore/unathi_pirate_izharshan{
-	dir = 1
+	dir = 1;
+	req_access = list(210)
 	},
 /obj/effect/floor_decal/corner_wide/dark_green{
 	dir = 10
@@ -322,7 +322,7 @@
 	icon_state = "2-4"
 	},
 /obj/effect/floor_decal/industrial/outline/operations,
-/obj/item/device/geiger,
+/obj/item/geiger,
 /obj/item/stack/material/tritium/full,
 /obj/item/stack/material/tritium/full,
 /obj/structure/closet/walllocker{
@@ -535,7 +535,8 @@
 /area/shuttle/unathi_pirate_izharshan/dorms)
 "ns" = (
 /obj/machinery/computer/ship/helm{
-	dir = 1
+	dir = 1;
+	req_access = list(210)
 	},
 /obj/effect/floor_decal/corner_wide/dark_green{
 	dir = 10
@@ -992,7 +993,9 @@
 /obj/effect/floor_decal/corner_wide/dark_green{
 	dir = 10
 	},
-/obj/machinery/computer/ship/targeting,
+/obj/machinery/computer/ship/targeting{
+	req_access = list(210)
+	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/unathi_pirate_izharshan/helm)
 "zZ" = (
@@ -1047,7 +1050,7 @@
 /obj/item/clothing/ears/earmuffs,
 /obj/item/clothing/ears/earmuffs,
 /obj/item/clothing/ears/earmuffs,
-/obj/item/device/binoculars/spyglass,
+/obj/item/binoculars/spyglass,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 9
 	},
@@ -1761,7 +1764,7 @@
 /area/shuttle/unathi_pirate_izharshan/dorms)
 "QF" = (
 /obj/structure/table/reinforced/steel,
-/obj/item/device/binoculars/spyglass{
+/obj/item/binoculars/spyglass{
 	pixel_x = 7
 	},
 /obj/effect/floor_decal/corner_wide/dark_green{
@@ -1772,7 +1775,7 @@
 	pixel_y = 8
 	},
 /obj/item/blueprints/shuttle,
-/obj/item/device/radio{
+/obj/item/radio{
 	name = "old radio";
 	icon_state = "radio";
 	desc = "An old, cheap radio that looks heavy enough to kill ssomeone.";
@@ -1970,10 +1973,10 @@
 /obj/item/clothing/mask/breath,
 /obj/item/clothing/mask/breath,
 /obj/item/clothing/mask/breath,
-/obj/item/device/gps,
-/obj/item/device/gps,
-/obj/item/device/gps,
-/obj/item/device/gps,
+/obj/item/gps,
+/obj/item/gps,
+/obj/item/gps,
+/obj/item/gps,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
@@ -2095,7 +2098,7 @@
 /obj/machinery/light{
 	dir = 4
 	},
-/obj/item/storage/box/shotgunshells,
+/obj/item/storage/box/shells/buckshot,
 /obj/machinery/light{
 	dir = 4
 	},

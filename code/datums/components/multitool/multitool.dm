@@ -8,7 +8,7 @@
 	callback_get_interact_window = interact_window
 	on_topic_interaction = new_on_topic
 
-/datum/component/multitool/proc/interact(var/obj/item/device/multitool/M, var/mob/user)
+/datum/component/multitool/proc/interact(var/obj/item/multitool/M, var/mob/user)
 	if(CanUseTopic(user) != STATUS_INTERACTIVE)
 		return
 
@@ -24,11 +24,11 @@
 /datum/component/multitool/proc/close_window(var/mob/user)
 	user << browse(null, "window=multitool")
 
-/datum/component/multitool/proc/buffer(var/obj/item/device/multitool/multitool)
+/datum/component/multitool/proc/buffer(var/obj/item/multitool/multitool)
 	. += "<b>Buffer Memory:</b><br>"
 	var/buffer_name = multitool.get_buffer_name()
 	if(buffer_name)
-		. += "[buffer_name] <a href='?src=[REF(src)];send=[REF(multitool.buffer_object)]'>Send</a> <a href='?src=[REF(src)];purge=1'>Purge</a><br>"
+		. += "[buffer_name] <a href='byond://?src=[REF(src)];send=[REF(multitool.buffer_object)]'>Send</a> <a href='byond://?src=[REF(src)];purge=1'>Purge</a><br>"
 	else
 		. += "No connection stored in the buffer."
 
@@ -49,7 +49,7 @@
 		return 1
 
 	var/mob/user = usr
-	var/obj/item/device/multitool/M = user.get_multitool()
+	var/obj/item/multitool/M = user.get_multitool()
 	if(href_list["send"])
 		var/atom/buffer = locate(href_list["send"])
 		. = send_buffer(M, buffer, user)
@@ -69,12 +69,12 @@
 /datum/component/multitool/proc/on_topic(href, href_list, user)
 	return MT_NOACTION
 
-/datum/component/multitool/proc/send_buffer(var/obj/item/device/multitool/M, var/atom/buffer, var/mob/user)
+/datum/component/multitool/proc/send_buffer(var/obj/item/multitool/M, var/atom/buffer, var/mob/user)
 	if(M.get_buffer() == buffer && buffer)
 		receive_buffer(M, buffer, user)
 	else if(!buffer)
 		to_chat(user, SPAN_WARNING("Unable to acquire data from the buffered object. Purging from memory."))
 	return MT_REFRESH
 
-/datum/component/multitool/proc/receive_buffer(var/obj/item/device/multitool/M, var/atom/buffer, var/mob/user)
+/datum/component/multitool/proc/receive_buffer(var/obj/item/multitool/M, var/atom/buffer, var/mob/user)
 	return

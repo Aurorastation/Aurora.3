@@ -1,7 +1,7 @@
 /obj/item/knittingneedles
 	name = "knitting needles"
 	desc = "Silver knitting needles used for stitching yarn."
-	icon = 'icons/obj/item/tools/knitting.dmi'
+	icon = 'icons/obj/item/knitting.dmi'
 	icon_state = "knittingneedles"
 	item_state = "knittingneedles"
 	w_class = WEIGHT_CLASS_SMALL
@@ -10,6 +10,12 @@
 	var/obj/item/yarn/ball
 	var/static/list/knitables = list(/obj/item/clothing/accessory/sweater, /obj/item/clothing/suit/storage/toggle/cardigan, /obj/item/clothing/suit/storage/toggle/cardigan/sweater, /obj/item/clothing/suit/storage/toggle/cardigan/argyle, /obj/item/clothing/accessory/sweater/vest, /obj/item/clothing/accessory/sweater/turtleneck, /obj/item/clothing/gloves/fingerless/colour/knitted, /obj/item/clothing/gloves/knitted, /obj/item/clothing/accessory/bandanna/colorable/knitted, /obj/item/clothing/accessory/scarf, /obj/item/clothing/accessory/shawl)
 	var/static/list/name2knit
+
+/obj/item/knittingneedles/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(is_adjacent)
+		if(ball)
+			. += "There is \the [ball] between the needles."
 
 /obj/item/knittingneedles/verb/remove_yarn()
 	set name = "Remove Yarn"
@@ -38,12 +44,6 @@
 	if(ball)
 		QDEL_NULL(ball)
 	return ..()
-
-/obj/item/knittingneedles/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if(is_adjacent)
-		if(ball)
-			. += "There is \the [ball] between the needles."
 
 /obj/item/knittingneedles/update_icon()
 	if(working)
@@ -119,7 +119,7 @@
 /obj/item/yarn
 	name = "ball of yarn"
 	desc = "A ball of yarn, this one is white."
-	icon = 'icons/obj/item/tools/knitting.dmi'
+	icon = 'icons/obj/item/knitting.dmi'
 	icon_state = "white_ball"
 	w_class = WEIGHT_CLASS_TINY
 

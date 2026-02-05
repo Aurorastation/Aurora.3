@@ -7,8 +7,8 @@
 	anchored = 0
 	var/open = FALSE
 
-/obj/structure/sarcophagus/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
+/obj/structure/sarcophagus/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
 	if(!open)
 		. += "\The [src]'s lid is closed shut."
 	else

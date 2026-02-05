@@ -54,10 +54,10 @@
 		candidate = new()
 
 	. += "<b>pAI:</b><br>"
-	. += "Name: <a href='?src=[REF(src)];option=name'>[candidate.name ? candidate.name : "None Set"]</a><br>"
-	. += "Description: <a href='?src=[REF(src)];option=desc'>[candidate.description ? TextPreview(candidate.description, 40) : "None Set"]</a><br>"
-	. += "Role: <a href='?src=[REF(src)];option=role'>[candidate.role ? TextPreview(candidate.role, 40) : "None Set"]</a><br>"
-	. += "OOC Comments: <a href='?src=[REF(src)];option=ooc'>[candidate.comments ? TextPreview(candidate.comments, 40) : "None Set"]</a><br>"
+	. += "Name: <a href='byond://?src=[REF(src)];option=name'>[candidate.name ? candidate.name : "None Set"]</a><br>"
+	. += "Description: <a href='byond://?src=[REF(src)];option=desc'>[candidate.description ? TextPreview(candidate.description, 40) : "None Set"]</a><br>"
+	. += "Role: <a href='byond://?src=[REF(src)];option=role'>[candidate.role ? TextPreview(candidate.role, 40) : "None Set"]</a><br>"
+	. += "OOC Comments: <a href='byond://?src=[REF(src)];option=ooc'>[candidate.comments ? TextPreview(candidate.comments, 40) : "None Set"]</a><br>"
 
 /datum/category_item/player_setup_item/player_global/pai/OnTopic(var/href,var/list/href_list, var/mob/user)
 	if(href_list["option"])

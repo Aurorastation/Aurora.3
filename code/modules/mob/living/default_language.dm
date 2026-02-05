@@ -3,7 +3,7 @@
 
 /mob/living/verb/set_default_language_verb()
 	set name = "Set Default Language"
-	set category = "IC"
+	set category = "IC.Language"
 
 	var/datum/language/language = input(src, "Choose a language.", "Set Default Language") as null|anything in languages
 	if(!language)
@@ -19,7 +19,7 @@
 
 /mob/living/verb/check_default_language()
 	set name = "Check Default Language"
-	set category = "IC"
+	set category = "IC.Language"
 
 	if(default_language)
 		to_chat(src, SPAN_NOTICE("You are currently speaking [default_language] by default."))

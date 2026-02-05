@@ -9,9 +9,9 @@
 	pickup_sound = 'sound/items/pickup/component.ogg'
 
 /obj/item/clothing/ears/antenna/verb/lock_antennas()
-	set name = "Lock Antenna(s)"
-	set desc = "Lock your antenna(s) in place."
-	set category = "Object"
+	set name = "Lock Antenna(e)"
+	set desc = "Lock your antenna(e) in place."
+	set category = "Object.Equipped"
 	set src in usr
 
 	if(!ishuman(usr))

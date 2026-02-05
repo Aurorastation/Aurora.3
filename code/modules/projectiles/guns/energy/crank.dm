@@ -6,7 +6,7 @@
 	item_state = "icelance"
 	has_item_ratio = FALSE
 	fire_sound = 'sound/weapons/laser1.ogg'
-	max_shots = 5
+	max_shots = 7
 	accuracy = -1
 	accuracy_wielded = 2
 	fire_delay = 10

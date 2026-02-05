@@ -40,7 +40,7 @@
 	desc = "An advanced ion propulsion device, using energy and a minute amount of gas to generate thrust."
 	icon = 'icons/obj/ship_engine.dmi'
 	icon_state = "nozzle"
-	power_channel = ENVIRON
+	power_channel = AREA_USAGE_ENVIRON
 	idle_power_usage = 19600
 	anchored = TRUE
 	component_types = list(

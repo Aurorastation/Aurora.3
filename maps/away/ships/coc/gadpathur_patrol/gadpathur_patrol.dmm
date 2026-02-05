@@ -99,7 +99,9 @@
 /turf/simulated/wall/shuttle/dark/cardinal/gadpathur,
 /area/ship/gadpathur_patrol/fuel)
 "bd" = (
-/obj/machinery/computer/ship/helm/terminal,
+/obj/machinery/computer/ship/helm/terminal{
+	req_one_access = list(224,223,222)
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/gadpathur_patrol/cic)
 "bf" = (
@@ -661,7 +663,7 @@
 /obj/item/clothing/suit/storage/gadpathur,
 /obj/item/clothing/suit/storage/toggle/trench/gadpathur,
 /obj/item/clothing/accessory/dogtags/gadpathur,
-/obj/item/device/versebook/gadpathur,
+/obj/item/versebook/gadpathur,
 /obj/item/clothing/glasses/regular,
 /obj/machinery/alarm/east{
 	req_one_access = list(223,224)
@@ -1009,7 +1011,7 @@
 /obj/item/clothing/suit/storage/gadpathur,
 /obj/item/clothing/suit/storage/toggle/trench/gadpathur,
 /obj/item/clothing/accessory/dogtags/gadpathur,
-/obj/item/device/versebook/gadpathur,
+/obj/item/versebook/gadpathur,
 /obj/item/clothing/glasses/regular,
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
@@ -1513,7 +1515,7 @@
 /obj/item/clothing/suit/storage/toggle/trench/gadpathur,
 /obj/item/clothing/suit/storage/toggle/trench/gadpathur/leather,
 /obj/item/clothing/accessory/dogtags/gadpathur,
-/obj/item/device/versebook/gadpathur,
+/obj/item/versebook/gadpathur,
 /obj/item/clothing/glasses/regular,
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /obj/item/clothing/accessory/holster/hip,
@@ -2017,7 +2019,8 @@
 /area/ship/gadpathur_patrol/atmos)
 "qb" = (
 /obj/machinery/computer/ship/helm/terminal{
-	dir = 1
+	dir = 1;
+	req_access = list(224,223,222)
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/shuttle/gadpathur_shuttle)
@@ -2088,10 +2091,10 @@
 /obj/item/reagent_containers/food/condiment/flour,
 /obj/item/reagent_containers/food/condiment/sugar,
 /obj/item/reagent_containers/food/condiment/sugar,
-/obj/item/storage/box/produce{
+/obj/item/storage/box/large/produce{
 	pixel_y = 6
 	},
-/obj/item/storage/box/produce{
+/obj/item/storage/box/large/produce{
 	pixel_y = 6
 	},
 /obj/item/reagent_containers/food/snacks/meat/biogenerated,
@@ -3394,8 +3397,8 @@
 /obj/item/storage/belt/security,
 /obj/item/melee/classic_baton,
 /obj/item/melee/classic_baton,
-/obj/item/device/flash,
-/obj/item/device/flash,
+/obj/item/flash,
+/obj/item/flash,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/light,
 /obj/item/clothing/accessory/holster/waist,
@@ -3480,7 +3483,9 @@
 /turf/simulated/floor/carpet/rubber,
 /area/shuttle/gadpathur_shuttle)
 "BN" = (
-/obj/machinery/door/window/southright,
+/obj/machinery/door/window/southright{
+	req_one_access = list(224,223,222)
+	},
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 5
 	},
@@ -3679,7 +3684,7 @@
 /obj/item/clothing/suit/storage/toggle/trench/gadpathur,
 /obj/item/clothing/suit/storage/toggle/trench/gadpathur/leather,
 /obj/item/clothing/accessory/dogtags/gadpathur,
-/obj/item/device/versebook/gadpathur,
+/obj/item/versebook/gadpathur,
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
@@ -3871,7 +3876,7 @@
 /obj/item/clothing/suit/storage/gadpathur,
 /obj/item/clothing/suit/storage/toggle/trench/gadpathur,
 /obj/item/clothing/accessory/dogtags/gadpathur,
-/obj/item/device/versebook/gadpathur,
+/obj/item/versebook/gadpathur,
 /obj/item/clothing/glasses/regular,
 /turf/simulated/floor/tiled,
 /area/ship/gadpathur_patrol/quarters)
@@ -4086,7 +4091,9 @@
 /turf/simulated/floor,
 /area/ship/gadpathur_patrol/hangar)
 "FG" = (
-/obj/machinery/computer/ship/targeting/terminal,
+/obj/machinery/computer/ship/targeting/terminal{
+	req_one_access = list(224,223,222)
+	},
 /obj/structure/railing/mapped{
 	dir = 8
 	},
@@ -4905,7 +4912,7 @@
 	req_access = null;
 	req_one_access = list(223,224)
 	},
-/obj/machinery/autolathe,
+/obj/machinery/fabricator/autolathe,
 /obj/structure/cable{
 	icon_state = "0-4"
 	},
@@ -5633,7 +5640,8 @@
 "Su" = (
 /obj/structure/bed/stool/chair/cockpit,
 /obj/machinery/computer/shuttle_control/explore/gadpathur_shuttle{
-	pixel_x = 31
+	pixel_x = 31;
+	req_one_access = list(224,223,222)
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/shuttle/gadpathur_shuttle)
@@ -5882,7 +5890,8 @@
 /area/ship/gadpathur_patrol/galley)
 "TY" = (
 /obj/machinery/computer/ship/targeting/terminal{
-	dir = 1
+	dir = 1;
+	req_one_access = list(224,223,222)
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/shuttle/gadpathur_shuttle)
@@ -6211,7 +6220,7 @@
 /obj/item/clothing/suit/storage/gadpathur,
 /obj/item/clothing/suit/storage/toggle/trench/gadpathur,
 /obj/item/clothing/accessory/dogtags/gadpathur,
-/obj/item/device/versebook/gadpathur,
+/obj/item/versebook/gadpathur,
 /obj/machinery/light{
 	dir = 4
 	},
@@ -6226,11 +6235,11 @@
 /area/ship/gadpathur_patrol/quarters)
 "WU" = (
 /obj/structure/table/steel,
-/obj/item/device/flashlight/lamp{
+/obj/item/flashlight/lamp{
 	pixel_x = -6;
 	pixel_y = 11
 	},
-/obj/item/device/taperecorder{
+/obj/item/taperecorder{
 	pixel_x = 8
 	},
 /turf/simulated/floor/tiled/dark,

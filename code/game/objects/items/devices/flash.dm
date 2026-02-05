@@ -1,7 +1,7 @@
-/obj/item/device/flash
+/obj/item/flash
 	name = "flash"
 	desc = "A security device capable of producing a blinding, incapacitating flash at close ranges. Repeated use may result in a burnt-out bulb and/or excessive force investigations."
-	desc_info = "Click on someone adjacent to you to attempt to blind them. Use it in your hand with HARM intent, or on yourself, to blind everyone in a small radius (including yourself!)"
+	icon = 'icons/obj/item/flash.dmi'
 	icon_state = "flash"
 	item_state = "flash"
 	throwforce = 5
@@ -17,28 +17,33 @@
 
 	var/last_use = 0
 
-/obj/item/device/flash/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
+/obj/item/flash/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Click on someone adjacent to you to attempt to blind them."
+	. += "Use it in your hand with HARM intent, or on yourself, to blind everyone in a small radius (including yourself!)"
+
+/obj/item/flash/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
 	if(!broken)
 		var/num_charges = max(0, max_charges - times_used)
-		. += SPAN_NOTICE("The charge indicator shows [num_charges] charge[num_charges == 1 ? "" : "s"] remain[num_charges == 1 ? "s" : ""].")
+		. += "The charge indicator shows [num_charges] charge[num_charges == 1 ? "" : "s"] remain[num_charges == 1 ? "s" : ""]."
 	else
-		. += SPAN_WARNING("\The [src]'s bulb is burnt out!")
+		. += SPAN_ALERT("\The [src]'s bulb is burnt out!")
 
-/obj/item/device/flash/proc/clumsy_check(mob/user)
+/obj/item/flash/proc/clumsy_check(mob/user)
 	if(user && (user.is_clumsy()) && prob(50))
 		to_chat(user, SPAN_WARNING("\The [src] slips out of your hand."))
 		user.drop_from_inventory(src)
 		return FALSE
 	return TRUE
 
-/obj/item/device/flash/proc/cooldown()
+/obj/item/flash/proc/cooldown()
 	if(broken || times_used >= max_charges)
 		return TRUE
 
 	return world.time > (last_use + 1 SECOND)
 
-/obj/item/device/flash/proc/burnout_check(mob/user, intensity = 1)
+/obj/item/flash/proc/burnout_check(mob/user, intensity = 1)
 	if(times_used >= max_charges)
 		to_chat(user, SPAN_WARNING("*click* *click*"))
 		return TRUE
@@ -47,16 +52,16 @@
 		burnout(user)
 	else
 		times_used++
-		addtimer(CALLBACK(src, /obj/item/device/flash/proc/flash_recharge), 30 SECONDS, TIMER_STOPPABLE|TIMER_UNIQUE)
+		addtimer(CALLBACK(src, /obj/item/flash/proc/flash_recharge), 30 SECONDS, TIMER_STOPPABLE|TIMER_UNIQUE)
 
-/obj/item/device/flash/proc/burnout(mob/user)
+/obj/item/flash/proc/burnout(mob/user)
 	broken = TRUE
 	icon_state = "flashburnt"
 	name = "burnt-out [initial(name)]"
 	to_chat(user, SPAN_WARNING("The bulb has burnt out!"))
 	spark(get_turf(src))
 
-/obj/item/device/flash/proc/flash(mob/living/L, _intensity = FLASH_PROTECTION_MAJOR)
+/obj/item/flash/proc/flash(mob/living/L, _intensity = FLASH_PROTECTION_MAJOR)
 	last_use = world.time
 
 	if(L.flash_act(intensity = _intensity, affect_silicon = TRUE, ignore_inherent = TRUE))
@@ -67,14 +72,14 @@
 
 		return TRUE
 
-/obj/item/device/flash/proc/flash_recharge()
+/obj/item/flash/proc/flash_recharge()
 	if(broken)
 		return
 	times_used = max(0, times_used - 1)
 	if(times_used > 0)
-		addtimer(CALLBACK(src, /obj/item/device/flash/proc/flash_recharge), 30 SECONDS, TIMER_STOPPABLE|TIMER_UNIQUE)
+		addtimer(CALLBACK(src, /obj/item/flash/proc/flash_recharge), 30 SECONDS, TIMER_STOPPABLE|TIMER_UNIQUE)
 
-/obj/item/device/flash/proc/robot_flash(mob/user)
+/obj/item/flash/proc/robot_flash(mob/user)
 	if(!isrobot(user))
 		return
 
@@ -87,7 +92,7 @@
 	QDEL_IN(animation, 5)
 
 //attack_as_weapon
-/obj/item/device/flash/attack(mob/living/target_mob, mob/living/user, target_zone)
+/obj/item/flash/attack(mob/living/target_mob, mob/living/user, target_zone)
 	// Single-target flash
 	if(!target_mob || !user || !clumsy_check(user) || !cooldown())
 		return
@@ -99,7 +104,7 @@
 
 	target_mob.attack_log += "\[[time_stamp()]\] <font color='orange'>Has been flashed (attempt) with [src.name]  by [user.name] ([user.ckey])</font>"
 	user.attack_log += "\[[time_stamp()]\] <span class='warning'>Used the [src.name] to flash [target_mob.name] ([target_mob.ckey])</span>"
-	msg_admin_attack("[user.name] ([user.ckey]) Used the [src.name] to flash [target_mob.name] ([target_mob.ckey]) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(target_mob))
+	msg_admin_attack("[user.name] ([user.ckey]) Used the [src.name] to flash [target_mob.name] ([target_mob.ckey]) (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(target_mob))
 
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 	user.do_attack_animation(target_mob)
@@ -123,7 +128,7 @@
 	else
 		user.visible_message(SPAN_NOTICE("[user] fails to blind [target_mob] with \the [src]."))
 
-/obj/item/device/flash/attack_self(mob/living/carbon/user as mob, flag = 0, emp = 0)
+/obj/item/flash/attack_self(mob/living/carbon/user as mob, flag = 0, emp = 0)
 	// AOE flash
 	if(!user || !clumsy_check(user)|| !cooldown())
 		return
@@ -151,7 +156,7 @@
 		if(flash(L, _intensity = dist_intensity) && prob(50))
 			L.disable_cloaking_device()
 
-/obj/item/device/flash/emp_act(severity)
+/obj/item/flash/emp_act(severity)
 	. = ..()
 
 	var/mob/living/L = loc
@@ -160,7 +165,7 @@
 	to_chat(L, SPAN_WARNING("Your [src] goes off!"))
 	flash(L)
 
-/obj/item/device/flash/synthetic
+/obj/item/flash/synthetic
 	name = "synthetic flash"
 	desc = "A cheap, mass-produced copy of the handheld flash. The bulb inside is probably only good for one use."
 	icon_state = "sflash"
@@ -168,7 +173,7 @@
 
 	max_charges = 1
 
-/obj/item/device/flash/synthetic/burnout_check(mob/user, intensity = 1)
+/obj/item/flash/synthetic/burnout_check(mob/user, intensity = 1)
 	. = broken // Single-use
 	if(!broken)
 		burnout(user)

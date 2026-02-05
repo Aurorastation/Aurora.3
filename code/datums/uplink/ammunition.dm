@@ -8,7 +8,12 @@
 /datum/uplink_item/item/ammo/mc9mm
 	name = "9mm Magazine"
 	path = /obj/item/ammo_magazine/mc9mm
-	desc = "Contains ten rounds of 9mm bullets."
+	desc = "Contains twelve rounds of 9mm bullets."
+
+/datum/uplink_item/item/ammo/mc9mm/polymer
+	name = "AP 9mm Magazine"
+	path = /obj/item/ammo_magazine/mc9mm/polymer
+	desc = "Contains twelve rounds of armor-piercing 9mm bullets."
 
 /datum/uplink_item/item/ammo/darts
 	name = "Chemical Darts"
@@ -18,7 +23,7 @@
 /datum/uplink_item/item/ammo/fourty_five
 	name = ".45 Pistol Magazine"
 	path = /obj/item/ammo_magazine/c45m
-	desc = "Contains seven rounds of .45 bullets."
+	desc = "Contains nine rounds of .45 bullets."
 
 /datum/uplink_item/item/ammo/submachinegundrum
 	name = "Submachine Gun Drum Magazine (.45)"
@@ -54,13 +59,13 @@
 
 /datum/uplink_item/item/ammo/shotgun_shells
 	name = "Box of Shells"
-	path = /obj/item/storage/box/shotgunshells
+	path = /obj/item/storage/box/shells/buckshot
 	desc = "Contains eight shotgun buckshot shells."
 
 /datum/uplink_item/item/ammo/government
 	name = "Box of .45-70 Govt. ammo"
 	telecrystal_cost = 2
-	path = /obj/item/storage/box/governmentammo
+	path = /obj/item/storage/box/ammo/governmentammo
 	desc = "Contains eight .45-70 Govt. bullets."
 
 /datum/uplink_item/item/ammo/plasma_mag

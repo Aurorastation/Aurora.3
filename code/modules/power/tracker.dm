@@ -59,7 +59,7 @@
 
 /obj/machinery/power/tracker/attackby(obj/item/attacking_item, mob/user)
 
-	if(attacking_item.iscrowbar())
+	if(attacking_item.tool_behaviour == TOOL_CROWBAR)
 		playsound(src.loc, 'sound/machines/click.ogg', 50, 1)
 		user.visible_message(SPAN_NOTICE("[user] begins to take the glass off the solar tracker."))
 		if(attacking_item.use_tool(src, user, 50, volume = 50))
@@ -77,6 +77,6 @@
 
 /obj/item/tracker_electronics
 	name = "tracker electronics"
-	icon = 'icons/obj/device.dmi'
+	icon = 'icons/obj/module.dmi'
 	icon_state = "door_electronics"
 	w_class = WEIGHT_CLASS_SMALL

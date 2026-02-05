@@ -21,6 +21,7 @@ $status-colors: (
   'deceased': colors.$red,
   'physically-unfit': colors.$yellow,
   'disabled': colors.$yellow,
+  'away-mission': colors.$blue,
 );
 
 @each $dept, $color in $departmental-colors {

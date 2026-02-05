@@ -47,10 +47,10 @@
 	uniform = /obj/item/clothing/under/xanu
 	head = /obj/item/clothing/head/xanu
 	shoes = /obj/item/clothing/shoes/jackboots
-	l_ear = /obj/item/device/radio/headset/ship/coalition_navy
+	l_ear = /obj/item/radio/headset/ship/coalition_navy
 	back = /obj/item/storage/backpack/satchel
 	id = /obj/item/card/id/coalition
-	l_pocket = /obj/item/device/radio/off
+	l_pocket = /obj/item/radio/off
 	backpack_contents = list(
 		/obj/item/storage/box/survival/engineer = 1,
 		/obj/item/clothing/mask/gas/half = 1,

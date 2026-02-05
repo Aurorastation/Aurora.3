@@ -29,8 +29,8 @@
 	LAZYINITLIST(wireless_firing_pins_data)
 	LAZYCLEARLIST(wireless_firing_pins_data)
 
-	for(var/i in wireless_firing_pins)
-		var/obj/item/device/firing_pin/wireless/P = i
+	for(var/i in GLOB.wireless_firing_pins)
+		var/obj/item/firing_pin/wireless/P = i
 		if(!istype(P) || !P.gun)
 			continue
 		var/turf/Ts = get_turf(P)
@@ -53,9 +53,9 @@
 		return
 
 	//Try and get the pin if a pin is passed
-	var/obj/item/device/firing_pin/wireless/P
+	var/obj/item/firing_pin/wireless/P
 	if(params["pin"])
-		P = locate(params["pin"]) in wireless_firing_pins
+		P = locate(params["pin"]) in GLOB.wireless_firing_pins
 
 	if(!istype(P))
 		return

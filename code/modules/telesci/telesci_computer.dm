@@ -70,7 +70,7 @@
 	var/list/obj/item/bluespace_crystal/crystals = list()
 
 	///A GPS that this console contains
-	var/obj/item/device/gps/inserted_gps
+	var/obj/item/gps/inserted_gps
 
 	///A list of Zlevels that belong to the visitable (generally a ship) we are in
 	var/list/our_zlevels = list()
@@ -99,6 +99,10 @@
 	 * Do *not* set this directly, use `set_destination_portal()`
 	 */
 	var/obj/effect/portal/destination_portal
+
+/obj/machinery/computer/telescience/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "There are [length(crystals) ? length(crystals) : "no"] bluespace crystal\s in the crystal slots."
 
 /obj/machinery/computer/telescience/Initialize()
 	. = ..()
@@ -143,11 +147,6 @@
 
 	return ..()
 
-/obj/machinery/computer/telescience/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	. += "There are [length(crystals) ? length(crystals) : "no"] bluespace crystal\s in the crystal slots."
-
-
 /obj/machinery/computer/telescience/attackby(obj/item/attacking_item, mob/user, params)
 
 	if(istype(attacking_item, /obj/item/bluespace_crystal))
@@ -162,7 +161,7 @@
 								SPAN_NOTICE("You insert [attacking_item] into \the [src]'s crystal slot."))
 		updateDialog()
 
-	else if(istype(attacking_item, /obj/item/device/gps))
+	else if(istype(attacking_item, /obj/item/gps))
 
 		if(!inserted_gps)
 			inserted_gps = attacking_item
@@ -171,9 +170,9 @@
 			user.visible_message("[user] inserts [attacking_item] into \the [src]'s GPS device slot.",
 									SPAN_NOTICE("You insert [attacking_item] into \the [src]'s GPS device slot."))
 
-	else if(attacking_item.ismultitool())
+	else if(attacking_item.tool_behaviour == TOOL_MULTITOOL)
 
-		var/obj/item/device/multitool/M = attacking_item
+		var/obj/item/multitool/M = attacking_item
 		if(M.buffer && istype(M.buffer, /obj/machinery/telepad))
 			telepad = M.buffer
 			M.buffer = null
@@ -199,15 +198,15 @@
 		t += "<div class='statusDisplay'>No telepad located. <BR>Please add telepad data via use of Multitool.</div><BR>"
 	else
 		if(inserted_gps)
-			t += "<A href='?src=[REF(src)];ejectGPS=1'>Eject GPS</A>"
-			t += "<A href='?src=[REF(src)];setMemory=1'>Set GPS memory</A>"
+			t += "<A href='byond://?src=[REF(src)];ejectGPS=1'>Eject GPS</A>"
+			t += "<A href='byond://?src=[REF(src)];setMemory=1'>Set GPS memory</A>"
 		else
 			t += "<span class='linkOff'>Eject GPS</span>"
 			t += "<span class='linkOff'>Set GPS memory</span>"
 		t += "<div class='statusDisplay'>[temp_msg]</div><BR>"
-		t += "<A href='?src=[REF(src)];setrotation=1'>Set Bearing</A>"
+		t += "<A href='byond://?src=[REF(src)];setrotation=1'>Set Bearing</A>"
 		t += "<div class='statusDisplay'>[rotation]&deg;</div>"
-		t += "<A href='?src=[REF(src)];setangle=1'>Set Elevation</A>"
+		t += "<A href='byond://?src=[REF(src)];setangle=1'>Set Elevation</A>"
 		t += "<div class='statusDisplay'>[angle]&deg;</div>"
 		t += "<span class='linkOn'>Set Power</span>"
 		t += "<div class='statusDisplay'>"
@@ -219,14 +218,14 @@
 			if(power == power_options[i])
 				t += "<span class='linkOn'>[power_options[i]]</span>"
 				continue
-			t += "<A href='?src=[REF(src)];setpower=[i]'>[power_options[i]]</A>"
+			t += "<A href='byond://?src=[REF(src)];setpower=[i]'>[power_options[i]]</A>"
 		t += "</div>"
 
-		t += "<A href='?src=[REF(src)];setz=1'>Set Vertical Offset</A>"
+		t += "<A href='byond://?src=[REF(src)];setz=1'>Set Vertical Offset</A>"
 		t += "<div class='statusDisplay'>[!isnull(zlevel_offset) ? zlevel_offset : "No Data"]</div>"
 
-		t += "<BR><A href='?src=[REF(src)];send=1'>Open Portal</A>"
-		t += "<BR><A href='?src=[REF(src)];recal=1'>Recalibrate Crystals</A> <A href='?src=[REF(src)];eject=1'>Eject Crystals</A>"
+		t += "<BR><A href='byond://?src=[REF(src)];send=1'>Open Portal</A>"
+		t += "<BR><A href='byond://?src=[REF(src)];recal=1'>Recalibrate Crystals</A> <A href='byond://?src=[REF(src)];eject=1'>Eject Crystals</A>"
 
 		// Information about the last teleport
 		t += "<BR><div class='statusDisplay'>"
@@ -361,7 +360,11 @@
 	updateDialog()
 
 /obj/machinery/computer/telescience/proc/teleport(mob/user)
-	if(rotation == null || angle == null || target_zlevel == null)
+	//If the offset was never changed, use the current zlevel
+	if(isnull(target_zlevel))
+		target_zlevel = GET_Z(src)
+
+	if(rotation == null || angle == null)
 		temp_msg = "ERROR!<BR>Set a angle, rotation and sector."
 		return
 	if(power <= 0)

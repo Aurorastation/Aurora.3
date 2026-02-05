@@ -103,7 +103,7 @@ GLOBAL_PROTECT(config)
 #ifdef UNIT_TEST
 	#if defined(MANUAL_UNIT_TEST)
 
-	world.log << "[ascii_green] *** NOTICE *** [ascii_reset] Unit Tests Enabled.  This will destroy the world when testing is complete."
+	world.log << TEST_OUTPUT_GREEN("*** NOTICE *** Unit Tests Enabled.  This will destroy the world when testing is complete.")
 
 	#else
 
@@ -120,7 +120,7 @@ GLOBAL_PROTECT(config)
 
 	return
 
-var/list/world_api_rate_limit = list()
+GLOBAL_LIST_INIT(world_api_rate_limit, list())
 
 /world/Topic(T, addr, master, key)
 	var/list/response[] = list()

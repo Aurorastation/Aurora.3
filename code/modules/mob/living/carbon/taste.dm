@@ -1,6 +1,6 @@
 /mob/living/carbon/proc/ingest(var/datum/reagents/from, var/datum/reagents/target, var/amount = 1, var/multiplier = 1, var/copy = 0) //we kind of 'sneak' a proc in here for ingesting stuff so we can play with it.
 	if(last_taste_time + 50 < world.time)
-		var/datum/reagents/temp = new(amount) //temporary holder used to analyse what gets transfered.
+		var/datum/reagents/temp = new(amount) //temporary holder used to analyse what gets transferred.
 		from.trans_to_holder(temp, amount, multiplier, 1)
 
 		var/text_output = temp.generate_taste_message(src)

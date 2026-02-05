@@ -96,8 +96,8 @@
 		"<b>Psionics:</b><br>"
 	)
 	for(var/singleton/psionic_power/P in bought_psionic_powers)
-		dat += "- [P.name] <a href='?src=[REF(src)];remove_psi_power=[P.type]'>-</a><br>"
-	dat += "<a href='?src=[REF(src)];add_psi_power=1'>Add Psionic Power</a><br>"
+		dat += "- [P.name] <a href='byond://?src=[REF(src)];remove_psi_power=[P.type]'>-</a><br>"
+	dat += "<a href='byond://?src=[REF(src)];add_psi_power=1'>Add Psionic Power</a><br>"
 	. = dat.Join()
 
 /datum/category_item/player_setup_item/general/psionics/OnTopic(var/href,var/list/href_list, var/mob/user)

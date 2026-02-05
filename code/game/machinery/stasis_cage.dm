@@ -10,32 +10,38 @@
 	active_power_usage = 5000
 	use_power = POWER_USE_IDLE
 
-	/**
-	 * The wires of the cage
-	 */
+	/// The wires of the cage
 	var/datum/wires/stasis_cage/wires
-	/**
-	 * The mob in the cage
-	 */
+
+	/// The mob in the cage
 	var/mob/living/contained
-	/**
-	 * Internal atmosphere of the cage
-	 */
+
+	/// Internal atmosphere of the cage
 	var/datum/gas_mixture/airtank
-	/**
-	 * If the cage works
-	 */
+
+	/// If the cage works
 	var/broken = FALSE
-	/**
-	 * If the cage will prevent human mobs from being stored
-	 */
+
+	/// If the cage will prevent human mobs from being stored
 	var/safety = TRUE
 
-	/**
-	 * The cell used to power this
-	 */
+	/// The cell used to power this
 	var/obj/item/cell/cell = null
 
+	parts_power_mgmt = FALSE
+
+/obj/machinery/stasis_cage/upgrade_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Upgraded <b>capacitors</b> will reduce power usage."
+
+/obj/machinery/stasis_cage/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if (contained)
+		. += SPAN_NOTICE("\The [contained] is kept inside.")
+	if (broken)
+		. += SPAN_WARNING("\The [src]'s lid is broken. It probably can not be used.")
+	if (cell)
+		. += SPAN_NOTICE("\The [src]'s power gauge shows [cell.percent()]% remaining.")
 
 /obj/machinery/stasis_cage/Initialize()
 	. = ..()
@@ -93,7 +99,6 @@
 		user.visible_message(SPAN_NOTICE("[user] releases \the [contained] from \the [src]!"))
 		release()
 
-
 /obj/machinery/stasis_cage/proc/release()
 	if (contained)
 		contained.dropInto(src)
@@ -101,7 +106,6 @@
 		playsound(get_turf(src), 'sound/machines/airlock.ogg', 40)
 		update_icon()
 		update_use_power(POWER_USE_IDLE)
-
 
 /obj/machinery/stasis_cage/proc/contain(mob/user, mob/thing)
 	if(contained || broken)
@@ -112,7 +116,6 @@
 	user.visible_message(SPAN_NOTICE("[user] has stuffed \the [thing] into \the [src]."), SPAN_NOTICE("You have stuffed \the [thing] into \the [src]."))
 	set_contained(thing)
 	update_use_power(POWER_USE_ACTIVE)
-
 
 /obj/machinery/stasis_cage/proc/set_contained(mob/contained)
 	src.contained = contained
@@ -127,7 +130,6 @@
 	else
 		wires.interact(user)
 
-
 /obj/machinery/stasis_cage/attack_robot(mob/user)
 	if (Adjacent(user))
 		if(!panel_open)
@@ -135,22 +137,10 @@
 		else
 			wires.interact(user)
 
-
-
-/obj/machinery/stasis_cage/examine(mob/user, distance, is_adjacent, infix, suffix, show_extended)
-	. = ..()
-	if (contained)
-		to_chat(user, SPAN_NOTICE("\The [contained] is kept inside."))
-	if (broken)
-		to_chat(user, SPAN_WARNING("\The [src]'s lid is broken. It probably can not be used."))
-	if (cell)
-		to_chat(user, SPAN_NOTICE("\The [src]'s power gauge shows [cell.percent()]% remaining."))
-
-
 /obj/machinery/stasis_cage/attackby(obj/item/attacking_item, mob/user)
 	. = ..()
 	// Crowbar - Pry thing out of cage
-	if (attacking_item.iscrowbar())
+	if (attacking_item.tool_behaviour == TOOL_CROWBAR)
 		if (panel_open)
 			to_chat(user, SPAN_NOTICE("\The [src]'s panel is open!"))
 			return TRUE
@@ -173,7 +163,7 @@
 			return TRUE
 
 	// Wrench - Repair lid
-	if (attacking_item.iswrench())
+	if (attacking_item.tool_behaviour == TOOL_WRENCH)
 		if (broken)
 			user.visible_message(SPAN_NOTICE("\The [user] begins to clamp \the [src]'s lid back into position."), SPAN_NOTICE("You begin to clamp \the [src]'s lid back into position."))
 			playsound(src, 'sound/items/Ratchet.ogg', 50, 1)
@@ -185,10 +175,9 @@
 			return TRUE
 
 	// Screwdriver - Open panel
-	if(attacking_item.isscrewdriver())
+	if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 		panel_open = !panel_open
 		to_chat(user, SPAN_NOTICE("You [panel_open ? "unscrew" : "screw shut"] the maintainance panel of \the [src]"))
-
 
 /obj/machinery/stasis_cage/return_air() //Used to make stasis cage protect from vacuum.
 	if (!use_power)
@@ -196,7 +185,6 @@
 	if(airtank)
 		return airtank
 	..()
-
 
 /obj/machinery/stasis_cage/RefreshParts()
 	..()
@@ -244,10 +232,13 @@
 		else
 			icon_state = initial(icon_state)
 
-/obj/machinery/stasis_cage/MouseDrop_T(mob/target, mob/user)
-	if (!isanimal(target) && safety)
-		to_chat(user, SPAN_WARNING("\The [src] smartly refuses \the [target]."))
+/obj/machinery/stasis_cage/mouse_drop_receive(atom/dropped, mob/user, params)
+	if (!isanimal(dropped) && safety)
+		to_chat(user, SPAN_WARNING("\The [src] smartly refuses \the [dropped]."))
 		return
+
+	var/mob/living/simple_animal/target = dropped
+
 	if (!allowed(user))
 		to_chat(user, SPAN_NOTICE("\The [src] blinks, refusing access."))
 		return

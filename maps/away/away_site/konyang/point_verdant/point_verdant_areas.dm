@@ -6,7 +6,7 @@
 	base_turf = /turf/simulated/floor/exoplanet/dirt_konyang
 	ambience = AMBIENCE_KONYANG_TRAFFIC
 	sound_environment = SOUND_ENVIRONMENT_CITY
-	is_outside = TRUE
+	is_outside = OUTSIDE_YES
 	var/lighting = FALSE //Is this area automatically lit?
 
 /area/point_verdant/Initialize()
@@ -24,7 +24,6 @@
 	name = "Point Verdant - Waterside"
 	ambience = AMBIENCE_KONYANG_WATER
 	area_blurb = "The crashing sounds of waves on the shore punctuates the air. The vast ocean spreads out as far as the eye can see, looking almost flat."
-	area_blurb_category = "verdant_shore"
 	lighting = TRUE
 
 /area/point_verdant/reservoir
@@ -37,13 +36,12 @@
 	name = "Point Verdant - Sewers"
 	sound_environment = SOUND_ENVIRONMENT_SEWER_PIPE
 	area_blurb = "Tainted water flows through these dark and grimy sewers, it smells utterly horrible down here. It's best not to think what you are breathing in, or touching."
-	area_blurb_category = "verdant_sewers"
 //All walls and interior stuff uses this area, otherwise rain will appear over walls. suboptimal!
 /area/point_verdant/interior
 	name = "Point Verdant - Indoors"
 	sound_environment = SOUND_AREA_LARGE_SOFTFLOOR
 	ambience = AMBIENCE_KONYANG_RAIN_MUFFLED
-	is_outside = FALSE
+	is_outside = OUTSIDE_NO
 
 //Main city buildings
 /area/point_verdant/interior/laundromat
@@ -66,7 +64,6 @@
 /area/point_verdant/interior/arcade
 	name = "Point Verdant - Arcade"
 	area_blurb = "The deafening avalanche of arcade machines begging for your attention fill the air, all promising fantastic gaming experiences for fun and prizes."
-	area_blurb_category = "verdant_arcade"
 
 /area/point_verdant/interior/minimart
 	name = "Point Verdant - Convenience Store"
@@ -93,7 +90,6 @@
 /area/point_verdant/interior/decrepit
 	name = "Point Verdant - Decrepit Apartments"
 	area_blurb = "A damp smell lingers in the air inside these dusty apartments, it might be wise to keep an eye out for mold."
-	area_blurb_category = "verdant_decrepit_apartment"
 
 /area/point_verdant/interior/pharmacy
 	name = "Point Verdant - Pharmacy"
@@ -126,7 +122,6 @@
 /area/point_verdant/interior/tunnels
 	name = "Point Verdant - Tunnels"
 	area_blurb = "Sounds echo impressively through these tunnels."
-	area_blurb_category = "verdant_tunnels"
 
 /area/point_verdant/interior/shallow//For open-walled areas, like awnings and balconies
 	sound_environment = SOUND_ENVIRONMENT_CITY
@@ -134,7 +129,6 @@
 /area/point_verdant/outdoors
 	name = "Point Verdant - Outdoors"
 	area_blurb = "The sounds and smells of Point Verdant bombard you from all directions. Skyscrapers tower up further into the city."
-	area_blurb_category = "verdant_outdoors"
 	lighting = TRUE
 
 /area/point_verdant/water

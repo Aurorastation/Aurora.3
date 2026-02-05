@@ -29,9 +29,9 @@
 		return 0
 	return ..(M)
 
-/obj/vehicle/unicycle/MouseDrop_T(atom/dropping, mob/user)
-	if(!load(dropping))
-		to_chat(user, SPAN_WARNING("You were unable to load \the [dropping] onto \the [src]."))
+/obj/vehicle/unicycle/mouse_drop_receive(atom/dropped, mob/user, params)
+	if(!load(dropped))
+		to_chat(user, SPAN_WARNING("You were unable to load \the [dropped] onto \the [src]."))
 		return
 
 /obj/vehicle/unicycle/attack_hand(var/mob/user as mob)

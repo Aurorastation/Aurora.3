@@ -11,8 +11,9 @@
 	icon_state = "window"
 	alpha = 196
 	density = TRUE
+	pass_flags_self = PASSWINDOW
 	w_class = WEIGHT_CLASS_NORMAL
-	layer = SIDE_WINDOW_LAYER
+	layer = OBJ_LAYER
 	anchored = TRUE
 	atom_flags = ATOM_FLAG_CHECKS_BORDER
 	obj_flags = OBJ_FLAG_ROTATABLE|OBJ_FLAG_MOVES_UNSUPPORTED
@@ -33,9 +34,8 @@
 
 	atmos_canpass = CANPASS_PROC
 
-/obj/structure/window/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-
+/obj/structure/window/condition_hints(mob/user, distance, is_adjacent)
+	. += ..()
 	if(health == maxhealth)
 		. += SPAN_NOTICE("It looks fully intact.")
 	else
@@ -63,8 +63,6 @@
 	if(!full)
 		if(dir == SOUTH)
 			layer = ABOVE_HUMAN_LAYER
-		else
-			layer = SIDE_WINDOW_LAYER
 	QUEUE_SMOOTH(src)
 
 /obj/structure/window/proc/take_damage(var/damage = 0,  var/sound_effect = 1, message = TRUE)
@@ -83,15 +81,15 @@
 		if(health < maxhealth / 4 && initialhealth >= maxhealth / 4)
 			if(message)
 				visible_message(SPAN_DANGER("[src] looks like it's about to shatter!"))
-			playsound(loc, /singleton/sound_category/glasscrack_sound, 100, 1)
+			playsound(loc, SFX_GLASS_CRACK, 100, 1)
 		else if(health < maxhealth / 2 && initialhealth >= maxhealth / 2)
 			if(message)
 				visible_message(SPAN_WARNING("[src] looks seriously damaged!"))
-			playsound(loc, /singleton/sound_category/glasscrack_sound, 100, 1)
+			playsound(loc, SFX_GLASS_CRACK, 100, 1)
 		else if(health < maxhealth * 3/4 && initialhealth >= maxhealth * 3/4)
 			if(message)
 				visible_message(SPAN_WARNING("Cracks begin to appear in [src]!"))
-			playsound(loc, /singleton/sound_category/glasscrack_sound, 100, 1)
+			playsound(loc, SFX_GLASS_CRACK, 100, 1)
 	return
 
 /obj/structure/window/proc/apply_silicate(var/amount)
@@ -112,7 +110,7 @@
 	AddOverlays(img)
 
 /obj/structure/window/proc/shatter(var/display_message = 1)
-	playsound(src, /singleton/sound_category/glass_break_sound, 70, 1)
+	playsound(src, SFX_BREAK_GLASS, 70, 1)
 	if(display_message)
 		visible_message(SPAN_WARNING("\The [src] shatters!"))
 	if(dir == SOUTHWEST)
@@ -173,13 +171,16 @@
 	if(mover?.movement_type & PHASING)
 		return TRUE
 	if(istype(mover) && mover.pass_flags & PASSGLASS)
-		return 1
+		return TRUE
 	if(is_full_window())
 		return !density	//full tile window, you can't move into it if it's solid!
-	if(get_dir(loc, target) & dir)
+	var/movingdir = get_dir(loc,target)
+	if(movingdir == 0)
+		movingdir = get_dir(loc,mover)
+	if(movingdir & dir)
 		return !density
 	else
-		return 1
+		return TRUE
 
 /obj/structure/window/CheckExit(atom/movable/O, turf/target)
 	if(istype(O) && O.pass_flags & PASSGLASS)
@@ -194,7 +195,7 @@
 	if(ismob(hitting_atom))
 		if(isliving(hitting_atom))
 			var/mob/living/M = hitting_atom
-			M.turf_collision(src, throwingdatum.speed, /singleton/sound_category/glasscrack_sound)
+			M.turf_collision(src, throwingdatum.speed, SFX_GLASS_CRACK)
 			return
 		else
 			visible_message(SPAN_DANGER("\The [src] was hit by \the [hitting_atom]."))
@@ -238,7 +239,7 @@
 							"You hear a knocking sound.")
 	return
 
-/obj/structure/window/attack_generic(var/mob/user, var/damage)
+/obj/structure/window/attack_generic(mob/user, damage, attack_message, environment_smash, armor_penetration, attack_flags, damage_type)
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 	if(damage >= 10)
 		visible_message(SPAN_DANGER("[user] smashes into [src]!"))
@@ -266,7 +267,7 @@
 	if(attacking_item.item_flags & ITEM_FLAG_NO_BLUDGEON)
 		return
 
-	if(attacking_item.isscrewdriver() && user.a_intent != I_HURT)
+	if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER && user.a_intent != I_HURT)
 		if(reinf && state >= 1)
 			state = 3 - state
 			update_nearby_icons()
@@ -285,11 +286,11 @@
 			to_chat(user, (anchored ? SPAN_NOTICE("You have fastened the window to the floor.") : SPAN_NOTICE("You have unfastened the window.")))
 			update_icon()
 			update_nearby_icons()
-	else if(attacking_item.iscrowbar() && reinf && state <= 1 && user.a_intent != I_HURT)
+	else if(attacking_item.tool_behaviour == TOOL_CROWBAR && reinf && state <= 1 && user.a_intent != I_HURT)
 		state = 1 - state
 		attacking_item.play_tool_sound(get_turf(src), 75)
 		to_chat(user, (state ? SPAN_NOTICE("You have pried the window into the frame.") : SPAN_NOTICE("You have pried the window out of the frame.")))
-	else if(attacking_item.iswrench() && !anchored && (!state || !reinf) && user.a_intent != I_HURT)
+	else if(attacking_item.tool_behaviour == TOOL_WRENCH && !anchored && (!state || !reinf) && user.a_intent != I_HURT)
 		if(!glasstype)
 			to_chat(user, SPAN_NOTICE("You're not sure how to dismantle \the [src] properly."))
 		else
@@ -399,7 +400,7 @@
 
 	update_nearby_tiles(need_rebuild=1)
 
-	..()
+	. = ..()
 
 	set_dir(ini_dir)
 	update_nearby_tiles(need_rebuild=1)
@@ -536,6 +537,8 @@
 	maximal_heat = T0C + 2000
 	damage_per_fire_tick = 1 // This should last for 80 fire ticks if the window is not damaged at all. The idea is that borosilicate windows have something like ablative layer that protects them for a while.
 	maxhealth = 40
+	/// Phoron-infused silicate
+	rad_resistance_modifier = 4
 
 /obj/structure/window/borosilicate/reinforced
 	name = "reinforced borosilicate glass pane"
@@ -567,6 +570,11 @@
 	smoothing_flags = SMOOTH_TRUE
 	can_be_unanchored = TRUE
 	layer = FULL_WINDOW_LAYER
+	rad_resistance_modifier = 4
+
+/obj/structure/window/shuttle/mouse_drop_receive(atom/dropping, mob/user, params)
+	//Adds the component only once. We do it here & not in Initialize() because there are tons of walls & we don't want to add to their init times
+	LoadComponent(/datum/component/leanable, dropping)
 
 /obj/structure/window/shuttle/legion
 	name = "reinforced cockpit window"
@@ -600,12 +608,14 @@
 	smoothing_flags = SMOOTH_MORE
 	canSmoothWith = list(
 		/obj/structure/window/shuttle/scc_space_ship,
-		/turf/simulated/wall/shuttle/scc_space_ship
+		/turf/simulated/wall/shuttle/scc_space_ship,
+		/turf/unsimulated/wall/shuttle/scc_space_ship
 	)
 	blend_overlay = "-wall"
 	attach_overlay = "attach"
 	can_blend_with = list(
 		/turf/simulated/wall/shuttle/scc_space_ship,
+		/turf/unsimulated/wall/shuttle/scc_space_ship,
 		/obj/structure/window/shuttle/scc_space_ship
 	)
 
@@ -688,7 +698,7 @@
 	if(attacking_item.item_flags & ITEM_FLAG_NO_BLUDGEON)
 		return
 
-	if(attacking_item.isscrewdriver() && user.a_intent != I_HURT)
+	if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER && user.a_intent != I_HURT)
 		if(state == 2)
 			if(attacking_item.use_tool(src, user, 2 SECONDS, volume = 50))
 				to_chat(user, SPAN_NOTICE("You have unfastened the glass from the window frame."))
@@ -699,7 +709,7 @@
 				to_chat(user, SPAN_NOTICE("You have fastened the glass to the window frame."))
 				state++
 				update_nearby_icons()
-	else if(attacking_item.iscrowbar() && user.a_intent != I_HURT)
+	else if(attacking_item.tool_behaviour == TOOL_CROWBAR && user.a_intent != I_HURT)
 		if(state == 1)
 			if(attacking_item.use_tool(src, user, 2 SECONDS, volume = 50))
 				to_chat(user, SPAN_NOTICE("You pry the glass out of the window frame."))
@@ -710,7 +720,7 @@
 				to_chat(user, SPAN_NOTICE("You pry the glass into the window frame."))
 				state++
 				update_nearby_icons()
-	else if(attacking_item.iswrench() && user.a_intent != I_HURT)
+	else if(attacking_item.tool_behaviour == TOOL_WRENCH && user.a_intent != I_HURT)
 		if(state == 0)
 			user.visible_message(SPAN_DANGER("\The [user] is dismantling \the [src]!"))
 			if(attacking_item.use_tool(src, user, 2 SECONDS, volume = 50))
@@ -736,7 +746,7 @@
 	return
 
 /obj/structure/window/full/shatter(var/display_message = 1)
-	playsound(src, /singleton/sound_category/glass_break_sound, 70, 1)
+	playsound(src, SFX_BREAK_GLASS, 70, 1)
 	if(display_message)
 		visible_message(SPAN_WARNING("\The [src] shatters!"))
 	if(reinf)
@@ -762,13 +772,13 @@
 			playsound(loc, 'sound/effects/glass_hit.ogg', 100, 1)
 		if(health < maxhealth / 4 && initialhealth >= maxhealth / 4)
 			visible_message(SPAN_DANGER("[src] looks like it's about to shatter!"))
-			playsound(loc, /singleton/sound_category/glasscrack_sound, 100, 1)
+			playsound(loc, SFX_GLASS_CRACK, 100, 1)
 		else if(health < maxhealth / 2 && initialhealth >= maxhealth / 2)
 			visible_message(SPAN_WARNING("[src] looks seriously damaged!"))
-			playsound(loc, /singleton/sound_category/glasscrack_sound, 100, 1)
+			playsound(loc, SFX_GLASS_CRACK, 100, 1)
 		else if(health < maxhealth * 3/4 && initialhealth >= maxhealth * 3/4)
 			visible_message(SPAN_WARNING("Cracks begin to appear in [src]!"))
-			playsound(loc, /singleton/sound_category/glasscrack_sound, 100, 1)
+			playsound(loc, SFX_GLASS_CRACK, 100, 1)
 	return
 
 /obj/structure/window/full/dismantle_window()
@@ -780,6 +790,10 @@
 		WF.desc = "An empty steel window frame."
 	qdel(src)
 	update_nearby_icons()
+
+/obj/structure/window/full/mouse_drop_receive(atom/dropping, mob/user, params)
+	//Adds the component only once. We do it here & not in Initialize() because there are tons of walls & we don't want to add to their init times
+	LoadComponent(/datum/component/leanable, dropping)
 
 /********** Full Windows **********/
 // Reinforced Window
@@ -896,6 +910,7 @@
 	maxhealth = 160 // Two reinforced borosilicate glass panes worth of health, since that's the minimum you need to break through to get to the other side.
 	reinf = TRUE
 	maximal_heat = T0C + 4000
+	rad_resistance_modifier = 4
 
 #undef FULL_REINFORCED_WINDOW_DAMAGE_FORCE
 #undef REINFORCED_WINDOW_DAMAGE_FORCE

@@ -69,17 +69,9 @@
 	min_brig_time = 90
 	max_brig_time = 90
 
-/datum/law/high_severity/sexual_assault
-	name = "i309 - Sexual Assault"
-	desc = "To assault, or attempt to assault, someone else sexually, including rape."
-	id = "i309"
-
-	min_brig_time = 30
-	max_brig_time = 90
-
 /datum/law/high_severity/automacide
 	name = "i310 - Automacide"
-	desc = "To willfully, unlawfully and permanently terminate a free positronic intelligence."
+	desc = "To willfully, unlawfully and permanently terminate or wipe a free positronic intelligence."
 	id = "i310"
 
 	min_brig_time = 20

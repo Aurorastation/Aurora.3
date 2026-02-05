@@ -98,24 +98,24 @@
 	item_state = "ridingboots"
 
 /obj/item/clothing/shoes/workboots/tajara
-	name = "workboots"
+	name = "tajaran workboots"
 	desc = "A pair of steel-toed work boots designed for use in industrial settings. Safety first. Fitted for Tajara."
 	species_restricted = list(BODYTYPE_TAJARA)
 
 /obj/item/clothing/shoes/workboots/tajara/brown
-	name = "brown workboots"
+	name = "brown tajaran workboots"
 	desc = "A pair of brown steel-toed work boots designed for use in industrial settings. Safety first. Fitted for Tajara."
 	icon_state = "workboots_brown"
 	item_state = "workboots_brown"
 
 /obj/item/clothing/shoes/workboots/tajara/grey
-	name = "grey workboots"
+	name = "grey tajaran workboots"
 	desc = "A pair of grey steel-toed work boots designed for use in industrial settings. Safety first. Fitted for Tajara."
 	icon_state = "workboots_grey"
 	item_state = "workboots_grey"
 
 /obj/item/clothing/shoes/workboots/tajara/dark
-	name = "dark workboots"
+	name = "dark tajaran workboots"
 	desc = "A pair of dark steel-toed work boots designed for use in industrial settings. Safety first. Fitted for Tajara."
 	icon_state = "workboots_dark"
 	item_state = "workboots_dark"
@@ -157,11 +157,11 @@
 	body_parts_covered = FEET|LEGS
 	species_restricted = list(BODYTYPE_TAJARA)
 	armor = list(
-		melee = ARMOR_MELEE_MAJOR,
-		bullet = ARMOR_BALLISTIC_PISTOL,
-		laser = ARMOR_LASER_SMALL,
-		energy = ARMOR_ENERGY_MINOR,
-		bomb = ARMOR_BOMB_MINOR
+		MELEE = ARMOR_MELEE_MAJOR,
+		BULLET = ARMOR_BALLISTIC_PISTOL,
+		LASER = ARMOR_LASER_SMALL,
+		ENERGY = ARMOR_ENERGY_MINOR,
+		BOMB = ARMOR_BOMB_MINOR
 	)
 
 // High-heeled Adhomian Shoes

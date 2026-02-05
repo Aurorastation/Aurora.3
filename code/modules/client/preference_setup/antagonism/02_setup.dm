@@ -1,4 +1,4 @@
-var/global/list/uplink_locations = list("PDA", "Headset", "None")
+GLOBAL_LIST_INIT(uplink_locations, list("PDA", "Headset", "None"))
 
 /datum/category_item/player_setup_item/antagonism/basic
 	name = "Setup"
@@ -51,24 +51,24 @@ var/global/list/uplink_locations = list("PDA", "Headset", "None")
 	return list("records_exploit" = pref.exploit_record, "char_id" = pref.current_character, "uplink_location" = pref.uplinklocation, "id" = pref.current_character, "ckey" = PREF_CLIENT_CKEY)
 
 /datum/category_item/player_setup_item/antagonism/basic/sanitize_character()
-	pref.uplinklocation	= sanitize_inlist(pref.uplinklocation, uplink_locations, initial(pref.uplinklocation))
+	pref.uplinklocation	= sanitize_inlist(pref.uplinklocation, GLOB.uplink_locations, initial(pref.uplinklocation))
 
 /datum/category_item/player_setup_item/antagonism/basic/content(var/mob/user)
 	var/list/dat = list(
 		"<b>Antag Setup:</b><br>",
-		"Uplink Type: <a href='?src=[REF(src)];antagtask=1'>[pref.uplinklocation]</a><br>",
+		"Uplink Type: <a href='byond://?src=[REF(src)];antagtask=1'>[pref.uplinklocation]</a><br>",
 		"Exploitable information:<br>"
 	)
 	if(jobban_isbanned(user, "Records"))
 		dat += "<b>You are banned from using character records.</b><br>"
 	else
-		dat +="<a href='?src=[REF(src)];exploitable_record=1'>[TextPreview(pref.exploit_record,40)]</a><br>"
+		dat +="<a href='byond://?src=[REF(src)];exploitable_record=1'>[TextPreview(pref.exploit_record,40)]</a><br>"
 
 	. = dat.Join()
 
 /datum/category_item/player_setup_item/antagonism/basic/OnTopic(var/href,var/list/href_list, var/mob/user)
 	if (href_list["antagtask"])
-		pref.uplinklocation = next_in_list(pref.uplinklocation, uplink_locations)
+		pref.uplinklocation = next_in_list(pref.uplinklocation, GLOB.uplink_locations)
 		return TOPIC_REFRESH
 
 	if(href_list["exploitable_record"])

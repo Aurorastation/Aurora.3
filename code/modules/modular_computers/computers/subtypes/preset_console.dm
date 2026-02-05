@@ -15,6 +15,7 @@
 	hard_drive = new /obj/item/computer_hardware/hard_drive/super(src)
 	network_card = new /obj/item/computer_hardware/network_card/wired(src)
 	nano_printer = new /obj/item/computer_hardware/nano_printer(src)
+	universal_port = new /obj/item/computer_hardware/universal_port(src)
 
 /obj/item/modular_computer/console/preset/install_default_programs()
 	..()
@@ -140,6 +141,7 @@
 /obj/item/modular_computer/console/preset/supply/machinist/install_default_hardware()
 	..()
 	ai_slot = new /obj/item/computer_hardware/ai_slot(src)
+	access_cable_dongle = new /obj/item/computer_hardware/access_cable_dongle(src)
 
 // ERT
 /obj/item/modular_computer/console/preset/ert/install_default_hardware()
@@ -175,15 +177,6 @@
 	..()
 	ai_slot = new/obj/item/computer_hardware/ai_slot(src)
 	card_slot = new/obj/item/computer_hardware/card_slot(src)
-
-/obj/item/modular_computer/console/preset/merchant/nka
-	_app_preset_type = /datum/modular_computer_app_presets/merchant/nka
-
-/obj/item/modular_computer/console/preset/merchant/guild
-	_app_preset_type = /datum/modular_computer_app_presets/merchant/guild
-
-/obj/item/modular_computer/console/preset/merchant/golden_deep
-	_app_preset_type = /datum/modular_computer_app_presets/merchant/golden_deep
 
 // AI
 /obj/item/modular_computer/console/preset/ai

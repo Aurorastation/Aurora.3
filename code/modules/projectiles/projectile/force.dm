@@ -3,7 +3,7 @@
 	icon = 'icons/obj/projectiles.dmi'
 	icon_state = "bluespace"
 	damage = 40
-	check_armor = "energy"
+	check_armor = ENERGY
 	embed = 1
 
 /obj/projectile/forcebolt/strong

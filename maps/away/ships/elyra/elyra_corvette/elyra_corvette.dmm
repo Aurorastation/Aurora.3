@@ -57,7 +57,7 @@
 	pixel_y = 6;
 	pixel_x = 8
 	},
-/obj/item/device/binoculars{
+/obj/item/binoculars{
 	pixel_y = 8;
 	pixel_x = -6
 	},
@@ -455,7 +455,7 @@
 /obj/structure/table/rack,
 /obj/item/hoist_kit,
 /obj/item/storage/toolbox/mechanical,
-/obj/item/device/multitool,
+/obj/item/multitool,
 /obj/effect/floor_decal/corner/yellow{
 	dir = 9
 	},
@@ -701,12 +701,12 @@
 /obj/item/tank/emergency_oxygen/double,
 /obj/item/tank/emergency_oxygen/double,
 /obj/item/tank/emergency_oxygen/double,
-/obj/item/device/suit_cooling_unit,
-/obj/item/device/suit_cooling_unit,
-/obj/item/device/suit_cooling_unit,
-/obj/item/device/suit_cooling_unit,
-/obj/item/device/suit_cooling_unit,
-/obj/item/device/suit_cooling_unit,
+/obj/item/suit_cooling_unit,
+/obj/item/suit_cooling_unit,
+/obj/item/suit_cooling_unit,
+/obj/item/suit_cooling_unit,
+/obj/item/suit_cooling_unit,
+/obj/item/suit_cooling_unit,
 /turf/simulated/floor/tiled/dark,
 /area/ship/elyran_corvette/briefing)
 "dE" = (
@@ -1003,8 +1003,8 @@
 /obj/item/handcuffs/ziptie,
 /obj/item/handcuffs/ziptie,
 /obj/item/handcuffs/ziptie,
-/obj/item/device/flash,
-/obj/item/device/flash,
+/obj/item/flash,
+/obj/item/flash,
 /obj/machinery/alarm/west{
 	req_one_access = null;
 	req_access = list(207)
@@ -1199,7 +1199,8 @@
 /area/ship/elyran_corvette/prayerhall)
 "fX" = (
 /obj/machinery/computer/ship/helm/terminal{
-	dir = 1
+	dir = 1;
+	req_access = list(207)
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/shuttle/elyran_shuttle)
@@ -1226,7 +1227,7 @@
 	dir = 10
 	},
 /obj/item/stack/nanopaste,
-/obj/item/device/robotanalyzer,
+/obj/item/robotanalyzer,
 /turf/simulated/floor/tiled/white,
 /area/ship/elyran_corvette/medbay)
 "gc" = (
@@ -1490,7 +1491,7 @@
 	dir = 1
 	},
 /obj/structure/table/steel,
-/obj/item/device/hand_labeler{
+/obj/item/hand_labeler{
 	pixel_x = -6;
 	pixel_y = 10
 	},
@@ -1958,7 +1959,7 @@
 /obj/item/clothing/head/hardhat,
 /obj/item/clothing/ears/earmuffs,
 /obj/item/clothing/glasses/safety/goggles,
-/obj/item/device/binoculars,
+/obj/item/binoculars,
 /obj/effect/floor_decal/spline/plain/orange,
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
@@ -2097,7 +2098,7 @@
 /obj/item/reagent_containers/food/snacks/meat,
 /obj/item/reagent_containers/food/snacks/meat,
 /obj/item/reagent_containers/food/snacks/meat,
-/obj/item/storage/box/produce,
+/obj/item/storage/box/large/produce,
 /obj/item/storage/box/fancy/egg_box,
 /obj/item/storage/box/fancy/egg_box,
 /obj/item/reagent_containers/food/drinks/carton/milk,
@@ -2639,7 +2640,7 @@
 /obj/item/clothing/head/radiation,
 /obj/item/clothing/suit/radiation,
 /obj/item/clothing/glasses/safety/goggles,
-/obj/item/device/geiger,
+/obj/item/geiger,
 /obj/machinery/light/colored/decayed{
 	dir = 8
 	},
@@ -3003,7 +3004,8 @@
 	dir = 1
 	},
 /obj/machinery/computer/ship/targeting/terminal{
-	dir = 1
+	dir = 1;
+	req_access = list(207)
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/ship/elyran_corvette/starboardwep)
@@ -3024,7 +3026,7 @@
 	pixel_x = 8;
 	pixel_y = 9
 	},
-/obj/item/device/electronic_assembly/simple{
+/obj/item/electronic_assembly/simple{
 	desc = "The remote for a PanaVision 2400. This one feels a bit hollow.";
 	name = "television remote";
 	pixel_x = -8;
@@ -3595,7 +3597,6 @@
 /obj/item/book{
 	name = "Quran";
 	icon_state = "holybook";
-	desc_antag = null;
 	desc = "This is the Quran. This is the holy text of Islam, believed by Muslims to be a revelation from God.";
 	pixel_y = 3
 	},
@@ -4414,7 +4415,7 @@
 /obj/structure/table/rack,
 /obj/item/hoist_kit,
 /obj/item/storage/toolbox/mechanical,
-/obj/item/device/multitool,
+/obj/item/multitool,
 /obj/effect/floor_decal/corner/yellow{
 	dir = 9
 	},
@@ -4583,7 +4584,8 @@
 	dir = 10
 	},
 /obj/machinery/computer/ship/helm/terminal{
-	dir = 1
+	dir = 1;
+	req_access = list(207)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/elyran_corvette/cic)
@@ -5029,7 +5031,9 @@
 /obj/effect/floor_decal/corner/brown{
 	dir = 5
 	},
-/obj/machinery/computer/ship/targeting/terminal,
+/obj/machinery/computer/ship/targeting/terminal{
+	req_access = list(207)
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/elyran_corvette/cic)
 "Cm" = (
@@ -5499,7 +5503,7 @@
 /obj/item/clothing/head/hardhat,
 /obj/item/clothing/ears/earmuffs,
 /obj/item/clothing/glasses/safety/goggles,
-/obj/item/device/binoculars,
+/obj/item/binoculars,
 /obj/effect/floor_decal/spline/plain/orange,
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
@@ -6544,8 +6548,8 @@
 	dir = 1
 	},
 /obj/machinery/light/colored/decayed,
-/obj/item/device/binoculars,
-/obj/item/device/binoculars{
+/obj/item/binoculars,
+/obj/item/binoculars{
 	pixel_y = 5
 	},
 /obj/structure/sign/flag/persepolis{
@@ -7244,13 +7248,13 @@
 /obj/structure/table/rack,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/light/colored/decayed,
-/obj/item/device/gps,
-/obj/item/device/gps,
-/obj/item/device/gps,
-/obj/item/device/gps,
-/obj/item/device/gps,
-/obj/item/device/gps,
-/obj/item/device/gps,
+/obj/item/gps,
+/obj/item/gps,
+/obj/item/gps,
+/obj/item/gps,
+/obj/item/gps,
+/obj/item/gps,
+/obj/item/gps,
 /obj/item/clothing/accessory/flagpatch/elyra,
 /obj/item/clothing/accessory/flagpatch/elyra,
 /obj/item/clothing/accessory/flagpatch/elyra,
@@ -8788,7 +8792,7 @@
 /obj/structure/sign/poster{
 	pixel_y = 32
 	},
-/obj/machinery/autolathe,
+/obj/machinery/fabricator/autolathe,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
@@ -8973,7 +8977,7 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
-/obj/item/storage/box/sharps{
+/obj/item/storage/box/unique/sharps{
 	pixel_x = 8
 	},
 /obj/item/reagent_containers/spray/cleaner{
@@ -9247,7 +9251,8 @@
 	dir = 1
 	},
 /obj/machinery/computer/ship/targeting/terminal{
-	dir = 1
+	dir = 1;
+	req_access = list(207)
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/ship/elyran_corvette/portwep)

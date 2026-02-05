@@ -8,12 +8,18 @@
 /obj/item/disposable_teleporter
 	name = "disposable teleporter"
 	desc = "A very compact personal teleportation device.  It's very precise and safe, however it can only be used a few times."
-	icon = 'icons/obj/device.dmi'
+	icon = 'icons/obj/item/hand_tele.dmi'
 	icon_state = "hand_tele"
+	item_state = "electronic"
+	contained_sprite = TRUE
 	var/uses = 3.0
 	w_class = WEIGHT_CLASS_TINY
 	item_state = "paper"
 	origin_tech = list(TECH_BLUESPACE = 4, TECH_POWER = 3)
+
+/obj/item/disposable_teleporter/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "[uses] uses remaining."
 
 //This one is what the wizard starts with.  The above is a better version that can be purchased.
 /obj/item/disposable_teleporter/free
@@ -21,10 +27,6 @@
 	desc = "A very compact personal teleportation device.  It's very precise and safe, however it can only be used once.  This \
 	one has been provided to allow you to leave your hideout."
 	uses = 1
-
-/obj/item/disposable_teleporter/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	. += "[uses] uses remaining."
 
 /obj/item/disposable_teleporter/attack_self(mob/user as mob)
 	if(!uses)

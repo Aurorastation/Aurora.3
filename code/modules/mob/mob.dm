@@ -10,7 +10,6 @@
 	GLOB.living_mob_list -= src
 	unset_machine()
 	QDEL_NULL(hud_used)
-	lose_hearing_sensitivity()
 
 	QDEL_LIST(spell_masters)
 	remove_screen_obj_references()
@@ -41,7 +40,8 @@
 
 	//None of these mobs can 'die' in any sense, and none of them should be able to become ghosts.
 	//Ghosts are the only ones that even technically 'exist' and aren't just an abstraction using mob code for convenience
-	if (istype(src, /mob/living))
+	//Well, those and storytellers. This code is seriously shit and needs a rework, but who gives a fuck right now. Sue me.
+	if (istype(src, /mob/living) && !isstoryteller(src))
 		ghostize()
 
 	if (istype(src.loc, /atom/movable))
@@ -51,8 +51,7 @@
 	QDEL_NULL(ability_master)
 
 	if(click_handlers)
-		click_handlers.QdelClear()
-		QDEL_NULL(click_handlers)
+		QDEL_LIST(click_handlers)
 
 	return ..()
 
@@ -104,6 +103,10 @@
 
 	become_hearing_sensitive()
 
+	// This impacts area/entered(), gravity drifting, and probably plenty more. This will likely
+	// need to be removed/moved if and when any 'moodlet' system is implemented (ref. TG component).
+	become_area_sensitive(INNATE_TRAIT)
+
 /**
  * Generate the tag for this mob
  *
@@ -125,7 +128,7 @@
 
 /client/verb/typing_indicator()
 	set name = "Show/Hide Typing Indicator"
-	set category = "Preferences"
+	set category = "Preferences.Game"
 	set desc = "Toggles showing an indicator when you are typing emote or say message."
 	prefs.toggles ^= HIDE_TYPING_INDICATOR
 	prefs.save_preferences()
@@ -180,7 +183,7 @@
 			continue
 		if (!M.client || istype(M, /mob/abstract/new_player))
 			continue
-		if((get_turf(M) in messageturfs) || (show_observers && isobserver(M) && (M.client.prefs.toggles & CHAT_GHOSTSIGHT)))
+		if((get_turf(M) in messageturfs) || (show_observers && isghost(M) && (M.client.prefs.toggles & CHAT_GHOSTSIGHT)))
 			messagemobs += M
 
 	for(var/o in GLOB.listening_objects)
@@ -191,7 +194,7 @@
 
 	for(var/A in messagemobs)
 		var/mob/M = A
-		if(isobserver(M))
+		if(isghost(M))
 			M.show_message("[ghost_follow_link(src, M)] [message]", 1)
 			continue
 		if(self_message && M == src)
@@ -206,8 +209,14 @@
 		var/obj/O = o
 		O.see_emote(src, message)
 
+	var/list/hear_clients = list()
+	for(var/mob/M in messagemobs)
+		if(M.client)
+			hear_clients += M.client
+
+
 	if(intent_message)
-		intent_message(intent_message, intent_range, messagemobs)
+		intent_message(intent_message, intent_range, messagemobs + src)
 
 	//Multiz, have shadow do same
 	if(bound_overlay)
@@ -363,14 +372,14 @@
 /mob/proc/show_inv(mob/user)
 	user.set_machine(src)
 	var/dat = {"
-	<BR><B>Head(Mask):</B> <A href='?src=[REF(src)];item=mask'>[(wear_mask ? wear_mask : "Nothing")]</A>
-	<BR><B>Left Hand:</B> <A href='?src=[REF(src)];item=l_hand'>[(l_hand ? l_hand  : "Nothing")]</A>
-	<BR><B>Right Hand:</B> <A href='?src=[REF(src)];item=r_hand'>[(r_hand ? r_hand : "Nothing")]</A>
-	<BR><B>Back:</B> <A href='?src=[REF(src)];item=back'>[(back ? back : "Nothing")]</A> [((istype(wear_mask, /obj/item/clothing/mask) && istype(back, /obj/item/tank) && !( internal )) ? " <A href='?src=[REF(src)];item=internal'>Set Internal</A>" : "")]
-	<BR>[(internal ? "<A href='?src=[REF(src)];item=internal'>Remove Internal</A>" : "")]
-	<BR><A href='?src=[REF(src)];item=pockets'>Empty Pockets</A>
-	<BR><A href='?src=[REF(user)];refresh=1'>Refresh</A>
-	<BR><A href='?src=[REF(user)];mach_close=mob[name]'>Close</A>
+	<BR><B>Head(Mask):</B> <A href='byond://?src=[REF(src)];item=mask'>[(wear_mask ? wear_mask : "Nothing")]</A>
+	<BR><B>Left Hand:</B> <A href='byond://?src=[REF(src)];item=l_hand'>[(l_hand ? l_hand  : "Nothing")]</A>
+	<BR><B>Right Hand:</B> <A href='byond://?src=[REF(src)];item=r_hand'>[(r_hand ? r_hand : "Nothing")]</A>
+	<BR><B>Back:</B> <A href='byond://?src=[REF(src)];item=back'>[(back ? back : "Nothing")]</A> [((istype(wear_mask, /obj/item/clothing/mask) && istype(back, /obj/item/tank) && !( internal )) ? " <A href='byond://?src=[REF(src)];item=internal'>Set Internal</A>" : "")]
+	<BR>[(internal ? "<A href='byond://?src=[REF(src)];item=internal'>Remove Internal</A>" : "")]
+	<BR><A href='byond://?src=[REF(src)];item=pockets'>Empty Pockets</A>
+	<BR><A href='byond://?src=[REF(user)];refresh=1'>Refresh</A>
+	<BR><A href='byond://?src=[REF(user)];mach_close=mob[name]'>Close</A>
 	<BR>"}
 
 	var/datum/browser/mob_win = new(user, "mob[name]", capitalize_first_letters(name))
@@ -382,7 +391,8 @@
 	set name = "Examine"
 	set category = "IC"
 
-	examinate(usr, A)
+	//examinate(usr, A)
+	DEFAULT_QUEUE_OR_CALL_VERB(VERB_CALLBACK(src, GLOBAL_PROC_REF(examinate), src, A))
 
 /mob/proc/can_examine()
 	if(client?.eye == src)
@@ -407,25 +417,31 @@
 	set name = "Point To"
 	set category = "Object"
 
-	if(!isturf(src.loc) || !(A in range(world.view, get_turf(src))))
-		return FALSE
-	if(next_point_time >= world.time)
-		return FALSE
+	DEFAULT_QUEUE_OR_CALL_VERB(VERB_CALLBACK(src, PROC_REF(_pointed), A))
 
-	next_point_time = world.time + 25
-	face_atom(A)
-	if(isturf(A))
+/// possibly delayed verb that finishes the pointing process starting in [/mob/verb/pointed()].
+/// either called immediately or in the tick after pointed() was called, as per the [DEFAULT_QUEUE_OR_CALL_VERB()] macro
+/mob/proc/_pointed(atom/pointing_at)
+
+	if(!isturf(src.loc) || !(pointing_at in range(world.view, get_turf(src))))
+		return FALSE
+	if(TIMER_COOLDOWN_RUNNING(src, "point_verb_emote_cooldown"))
+		return FALSE
+	else
+		TIMER_COOLDOWN_START(src, "point_verb_emote_cooldown", 2.5 SECONDS)
+
+	face_atom(pointing_at)
+	if(isturf(pointing_at))
 		if(pointing_effect)
 			end_pointing_effect()
-		pointing_effect = new /obj/effect/decal/point(A)
+		pointing_effect = new /obj/effect/decal/point(pointing_at)
 		pointing_effect.set_invisibility(invisibility)
 		addtimer(CALLBACK(src, PROC_REF(end_pointing_effect), pointing_effect), 2 SECONDS)
 	else if(!invisibility)
-		var/atom/movable/M = A
-		M.add_filter("pointglow", 1, list(type = "drop_shadow", x = 0, y = -1, offset = 1, size = 1, color = "#F00"))
-		addtimer(CALLBACK(M, TYPE_PROC_REF(/atom/movable, remove_filter), "pointglow"), 2 SECONDS)
-	A.handle_pointed_at(src)
-	SEND_SIGNAL(src, COMSIG_MOB_POINT, A)
+		var/atom/movable/M = pointing_at
+		M.add_point_filter()
+		M.handle_pointed_at(src)
+	SEND_SIGNAL(src, COMSIG_MOB_POINT, pointing_at)
 	return TRUE
 
 /mob/proc/end_pointing_effect()
@@ -433,9 +449,13 @@
 
 /mob/verb/mode()
 	set name = "Activate Held Object"
-	set category = "Object"
+	set category = "Object.Held"
 	set src = usr
 
+	DEFAULT_QUEUE_OR_CALL_VERB(VERB_CALLBACK(src, PROC_REF(execute_mode)))
+
+///proc version to finish /mob/verb/mode() execution. used in case the proc needs to be queued for the tick after its first called
+/mob/proc/execute_mode()
 	if(hand)
 		var/obj/item/W = l_hand
 		if (W)
@@ -697,13 +717,20 @@
 			return 1
 	return 0
 
-/mob/MouseDrop(mob/M as mob)
+/mob/mouse_drop_dragged(atom/over, mob/user, src_location, over_location, params)
 	..()
-	if(M != usr) return
-	if(usr == src) return
-	if(!Adjacent(usr)) return
-	if(istype(M,/mob/living/silicon/ai)) return
-	show_inv(usr)
+	var/mob/M = over
+	if(M != user)
+		return
+	if(user == src)
+		return
+	if(!Adjacent(user))
+		return
+
+	if(istype(M,/mob/living/silicon/ai))
+		return
+
+	show_inv(user)
 
 
 /mob/verb/stop_pulling()
@@ -783,7 +810,7 @@
 			visible_message(SPAN_WARNING("\The [src] leans down and grips \the [H]'s arms."), SPAN_NOTICE("You lean down and grip \the [H]'s arms."))
 		else //Otherwise we're probably just holding their arm to lead them somewhere
 			visible_message(SPAN_WARNING("\The [src] grips \the [H]'s arm."), SPAN_NOTICE("You grip \the [H]'s arm."))
-		playsound(loc, /singleton/sound_category/grab_sound, 25, FALSE, -1) //Quieter than hugging/grabbing but we still want some audio feedback
+		playsound(loc, SFX_GRAB, 25, FALSE, -1) //Quieter than hugging/grabbing but we still want some audio feedback
 		if(H.pull_damage())
 			to_chat(src, SPAN_DANGER("Pulling \the [H] in their current condition would probably be a bad idea."))
 
@@ -831,11 +858,11 @@
 	if(transforming)						return 0
 	return 1
 
-// Not sure what to call this. Used to check if humans are wearing an AI-controlled exosuit and hence don't need to fall over yet.
+/// Not sure what to call this. Used to check if humans are wearing an AI-controlled exosuit and hence don't need to fall over yet.
 /mob/proc/can_stand_overridden()
 	return 0
 
-//Updates canmove, lying and icons. Could perhaps do with a rename but I can't think of anything to describe it.
+/// Updates canmove, lying and icons. Could perhaps do with a rename but I can't think of anything to describe it.
 /mob/proc/update_canmove()
 	if(in_neck_grab())
 		lying = FALSE
@@ -888,12 +915,12 @@
 			canmove = !MOB_IS_INCAPACITATED(INCAPACITATION_KNOCKOUT) && !weakened
 
 	if(lying)
-		density = 0
+		ADD_TRAIT(src, TRAIT_UNDENSE, TRAIT_SOURCE_LYING_DOWN)
 		if(!lying_is_intentional)
 			if(l_hand) unEquip(l_hand)
 			if(r_hand) unEquip(r_hand)
 	else
-		density = initial(density)
+		REMOVE_TRAIT(src, TRAIT_UNDENSE, TRAIT_SOURCE_LYING_DOWN)
 
 	for(var/obj/item/grab/G in grabbed_by)
 		if(G.wielded)
@@ -953,7 +980,7 @@
 	return facedir(client.client_dir(SOUTH))
 
 
-//This might need a rename but it should replace the can this mob use things check
+/// This might need a rename but it should replace the can this mob use things check
 /mob/proc/IsAdvancedToolUser()
 	return 0
 
@@ -1066,13 +1093,13 @@
 /mob/proc/embedded_needs_process()
 	return (embedded.len > 0)
 
-/mob/proc/remove_implant(var/obj/item/implant, var/surgical_removal = FALSE)
+/mob/proc/remove_implant(obj/item/implant, surgical_removal = FALSE)
 	if(!LAZYLEN(get_visible_implants(0))) //Yanking out last object - removing verb.
 		remove_verb(src, /mob/proc/yank_out_object)
 	for(var/obj/item/O in pinned)
 		if(O == implant)
 			pinned -= O
-		if(!pinned.len)
+		if(!length(pinned))
 			anchored = 0
 	implant.dropInto(loc)
 	implant.add_blood(src)
@@ -1091,6 +1118,8 @@
 					break
 	if(affected)
 		affected.implants -= implant
+		for(var/datum/wound/wound in affected.wounds)
+			LAZYREMOVE(wound.embedded_objects, implant)
 		if(!surgical_removal)
 			shock_stage += 20
 			apply_damage((implant.w_class * 7), DAMAGE_BRUTE, affected)
@@ -1139,7 +1168,7 @@
 	else
 		to_chat(U, SPAN_WARNING("You attempt to get a good grip on [selection] in [S]'s body."))
 
-	if(!do_after(U, 30))
+	if(!do_after(U, 3 SECONDS, S, DO_DEFAULT | DO_USER_UNIQUE_ACT, INCAPACITATION_DEFAULT & ~INCAPACITATION_FORCELYING)) //let people pinned to stuff yank it out, otherwise they're stuck... forever!!!
 		return
 	if(!selection || !S || !U)
 		return
@@ -1222,7 +1251,7 @@
 
 /mob/verb/face_direction()
 	set name = "Face Direction"
-	set category = "IC"
+	set category = "IC.Maneuver"
 	set src = usr
 
 	set_face_dir(dir)
@@ -1253,12 +1282,12 @@
 	else
 		return ..(ndir)
 
-/mob/forceMove(atom/dest)
+/mob/forceMove(atom/destination)
 	var/old_z = GET_Z(src)
 
 	var/atom/movable/AM
-	if (dest != loc && istype(dest, /atom/movable))
-		AM = dest
+	if (destination != loc && istype(destination, /atom/movable))
+		AM = destination
 		LAZYADD(AM.contained_mobs, src)
 		if(ismob(pulledby))
 			var/mob/M = pulledby
@@ -1551,15 +1580,15 @@
 		// if(thing.item_flags & SLOWS_WHILE_IN_HAND)
 		. += thing
 
-/mob/proc/check_emissive_equipment()
-	var/old_zflags = z_flags
-	z_flags &= ~ZMM_MANGLE_PLANES
-	for(var/atom/movable/AM in get_equipped_items(INCLUDE_POCKETS|INCLUDE_HELD))
-		if(AM.z_flags & ZMM_MANGLE_PLANES)
-			z_flags |= ZMM_MANGLE_PLANES
-			break
-	if(old_zflags != z_flags)
-		UPDATE_OO_IF_PRESENT
+///Set the lighting plane hud alpha to the mobs lighting_alpha var
+/mob/proc/sync_lighting_plane_alpha()
+	if(hud_used)
+		var/atom/movable/screen/plane_master/lighting/lighting = hud_used.plane_masters["[LIGHTING_PLANE]"]
+		if (lighting)
+			lighting.alpha = lighting_alpha
+		var/atom/movable/screen/plane_master/lighting/exterior_lighting = hud_used.plane_masters["[EXTERIOR_LIGHTING_PLANE]"]
+		if (exterior_lighting)
+			exterior_lighting.alpha = min(GLOB.minimum_exterior_lighting_alpha, lighting_alpha)
 
 #undef UNBUCKLED
 #undef PARTIALLY_BUCKLED

@@ -8,16 +8,15 @@ SUBSYSTEM_DEF(misc_early)
 
 /datum/controller/subsystem/misc_early/Initialize(timeofday)
 	// Setup the global HUD.
-	global_hud = new
-	global_huds = list(
-		global_hud.druggy,
-		global_hud.blurry,
-		global_hud.vimpaired,
-		global_hud.darkMask,
-		global_hud.nvg,
-		global_hud.thermal,
-		global_hud.meson,
-		global_hud.science,
+	GLOB.global_huds = list(
+		GLOB.global_hud.druggy,
+		GLOB.global_hud.blurry,
+		GLOB.global_hud.vimpaired,
+		GLOB.global_hud.darkMask,
+		GLOB.global_hud.nvg,
+		GLOB.global_hud.thermal,
+		GLOB.global_hud.meson,
+		GLOB.global_hud.science,
 	)
 
 	// Populate global list of tips by category
@@ -43,6 +42,6 @@ SUBSYSTEM_DEF(misc_early)
 	// Setup cargo spawn lists.
 	setup_cargo_spawn_lists()
 
-	click_catchers = create_click_catcher()
+	GLOB.click_catchers = create_click_catcher()
 
 	return SS_INIT_SUCCESS

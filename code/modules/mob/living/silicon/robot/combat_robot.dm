@@ -21,12 +21,12 @@
 	icon_state = "syndie_bloodhound"
 	spawn_sound = 'sound/mecha/nominalsyndi.ogg'
 	pitch_toggle = FALSE
-	braintype = "Android" // Posibrain.
+	braintype = "Robot"
 
 	// ID and Access
 	req_access = list(ACCESS_SYNDICATE)
 	id_card_type = /obj/item/card/id/syndicate
-	key_type = /obj/item/device/encryptionkey/syndicate
+	key_type = /obj/item/encryptionkey/syndicate
 	var/datum/antagonist/assigned_antagonist
 
 /mob/living/silicon/robot/combat/Initialize()
@@ -45,7 +45,7 @@
 		assigned_antagonist.add_antagonist_mind(src.mind, TRUE)
 		if(assigned_antagonist.get_antag_radio())
 			module.channels[assigned_antagonist.get_antag_radio()] = TRUE
-			INVOKE_ASYNC(radio, TYPE_PROC_REF(/obj/item/device/radio/borg, recalculateChannels))
+			INVOKE_ASYNC(radio, TYPE_PROC_REF(/obj/item/radio/borg, recalculateChannels))
 	client.init_verbs()
 	say("Boot sequence complete!")
 	return src
@@ -65,8 +65,8 @@
 	max_shots = 20
 	charge_cost = 100
 	projectile_type = /obj/projectile/bullet/pistol/medium/ap
-	self_recharge = 1
-	use_external_power = 1
+	self_recharge = TRUE
+	use_external_power = TRUE
 	recharge_time = 5
 	sel_mode = 1
 	needspin = FALSE
@@ -82,7 +82,7 @@
 	desc = "A weapon favored by mercenary infiltration teams, this one is suited to be used by robots."
 	max_shots = 4
 	charge_cost = 200
-	use_external_power = 1
+	use_external_power = TRUE
 
 /obj/item/gun/launcher/grenade/cyborg
 	name = "mounted grenade launcher"
@@ -103,9 +103,12 @@
 /obj/item/robot_emag
 	name = "cryptographic sequencer"
 	desc = "It's a card with a magnetic strip attached to some circuitry. This one is modified to be used by a robot."
-	desc_antag = "This emag has an unlimited number of uses, however, each use will drain a little bit of your power cell."
 	icon = 'icons/obj/card.dmi'
 	icon_state = "emag"
+
+/obj/item/robot_emag/antagonist_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "This emag has an unlimited number of uses, however, each use will drain a little bit of your power cell."
 
 /obj/item/robot_emag/afterattack(var/atom/target, var/mob/living/user, proximity) //possible spaghetti code, but should work
 	if(!target)

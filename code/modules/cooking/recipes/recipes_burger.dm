@@ -150,3 +150,31 @@
 	reagent_mix = RECIPE_REAGENT_REPLACE
 	result = /obj/item/reagent_containers/food/snacks/burger/nakarka_hamburger
 
+/singleton/recipe/mossburger
+	appliance = SKILLET
+	fruit = list("moss" = 1)
+	items = list(
+		/obj/item/reagent_containers/food/snacks/bun,
+		/obj/item/reagent_containers/food/snacks/cutlet,
+	)
+	result = /obj/item/reagent_containers/food/snacks/burger/moss
+
+/singleton/recipe/mossburger_sad
+	fruit = list("moss" = 1)
+	items = list(
+		/obj/item/reagent_containers/food/snacks/burger
+	)
+	result = /obj/item/reagent_containers/food/snacks/burger/moss/sad
+
+/singleton/recipe/bigbite_mossburger
+	appliance = SKILLET
+	fruit = list("moss" = 1)
+	items = list(
+		/obj/item/reagent_containers/food/snacks/burger/moss,
+		/obj/item/reagent_containers/food/snacks/cutlet,
+		/obj/item/reagent_containers/food/snacks/cutlet,
+		/obj/item/reagent_containers/food/snacks/cheesewedge,
+	)
+	reagents = list(/singleton/reagent/nutriment/protein/egg = 3)
+	reagent_mix = RECIPE_REAGENT_REPLACE
+	result = /obj/item/reagent_containers/food/snacks/burger/bigbite/moss

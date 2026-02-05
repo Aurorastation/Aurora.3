@@ -60,20 +60,20 @@
 		dat += "<b>Charge:</b> [inserted_battery.stored_charge] / [inserted_battery.capacity]<BR>"
 		dat += "<b>Time left activated:</b> [round(max((time_end - last_process) / 10, 0))]<BR>"
 		if(activated)
-			dat += "<a href='?src=[REF(src)];shutdown=1'>Shutdown</a><br>"
+			dat += "<a href='byond://?src=[REF(src)];shutdown=1'>Shutdown</a><br>"
 		else
-			dat += "<A href='?src=[REF(src)];startup=1'>Start</a><BR>"
+			dat += "<A href='byond://?src=[REF(src)];startup=1'>Start</a><BR>"
 		dat += "<BR>"
 
-		dat += "<b>Activate duration (sec):</b> <A href='?src=[REF(src)];changetime=-100;duration=1'>--</a> <A href='?src=[REF(src)];changetime=-10;duration=1'>-</a> [duration/10] <A href='?src=[REF(src)];changetime=10;duration=1'>+</a> <A href='?src=[REF(src)];changetime=100;duration=1'>++</a><BR>"
-		dat += "<b>Activate interval (sec):</b> <A href='?src=[REF(src)];changetime=-100;interval=1'>--</a> <A href='?src=[REF(src)];changetime=-10;interval=1'>-</a> [interval/10] <A href='?src=[REF(src)];changetime=10;interval=1'>+</a> <A href='?src=[REF(src)];changetime=100;interval=1'>++</a><BR>"
+		dat += "<b>Activate duration (sec):</b> <A href='byond://?src=[REF(src)];changetime=-100;duration=1'>--</a> <A href='byond://?src=[REF(src)];changetime=-10;duration=1'>-</a> [duration/10] <A href='byond://?src=[REF(src)];changetime=10;duration=1'>+</a> <A href='byond://?src=[REF(src)];changetime=100;duration=1'>++</a><BR>"
+		dat += "<b>Activate interval (sec):</b> <A href='byond://?src=[REF(src)];changetime=-100;interval=1'>--</a> <A href='byond://?src=[REF(src)];changetime=-10;interval=1'>-</a> [interval/10] <A href='byond://?src=[REF(src)];changetime=10;interval=1'>+</a> <A href='byond://?src=[REF(src)];changetime=100;interval=1'>++</a><BR>"
 		dat += "<br>"
-		dat += "<A href='?src=[REF(src)];ejectbattery=1'>Eject battery</a><BR>"
+		dat += "<A href='byond://?src=[REF(src)];ejectbattery=1'>Eject battery</a><BR>"
 	else
 		dat += "Please insert battery<br>"
 
 	dat += "<hr>"
-	dat += "<a href='?src=[REF(src)];refresh=1'>Refresh</a> <a href='?src=[REF(src)];close=1'>Close</a>"
+	dat += "<a href='byond://?src=[REF(src)];refresh=1'>Refresh</a> <a href='byond://?src=[REF(src)];close=1'>Close</a>"
 
 	var/datum/browser/battery_win = new(user, "anodevice", capitalize_first_letters(name), 400, 500)
 	battery_win.set_content(dat)
@@ -220,4 +220,4 @@
 	if(inserted_battery.battery_effect)
 		user.attack_log += "\[[time_stamp()]\]<span class='warning'> Tapped [target_mob.name] ([target_mob.ckey]) with [name] (EFFECT: [inserted_battery.battery_effect.effecttype])</span>"
 		target_mob.attack_log += "\[[time_stamp()]\]<font color='orange'> Tapped by [user.name] ([user.ckey]) with [name] (EFFECT: [inserted_battery.battery_effect.effecttype])</font>"
-		msg_admin_attack("[key_name_admin(user)] tapped [key_name_admin(target_mob)] with [name] (EFFECT: [inserted_battery.battery_effect.effecttype]) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(target_mob) )
+		msg_admin_attack("[key_name_admin(user)] tapped [key_name_admin(target_mob)] with [name] (EFFECT: [inserted_battery.battery_effect.effecttype]) (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(target_mob) )

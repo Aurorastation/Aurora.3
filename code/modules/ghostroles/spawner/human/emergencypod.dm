@@ -92,7 +92,7 @@
 	id = /obj/item/card/id
 	suit = /obj/item/clothing/suit/space/emergency
 	suit_store = /obj/item/tank/emergency_oxygen/double
-	l_ear = /obj/item/device/radio/headset
+	l_ear = /obj/item/radio/headset
 	back = /obj/item/storage/backpack
 
 /obj/outfit/admin/pod/post_equip(mob/living/carbon/human/H, visualsOnly)
@@ -103,8 +103,8 @@
 		H.internals.icon_state = "internal1"
 	//Spawn a drill
 	new /obj/item/pickaxe/drill(H.loc)
-	new /obj/item/device/gps(H.loc)
-	new /obj/item/device/flashlight/flare/mech(H.loc) // spawns an active flare
+	new /obj/item/gps(H.loc)
+	new /obj/item/flashlight/flare/mech(H.loc) // spawns an active flare
 	new /obj/item/clothing/suit/space/emergency(H.loc)        // weak softsuit, so if for whatever reason
 	new /obj/item/clothing/head/helmet/space/emergency(H.loc) // the survivor spawns with no EVA gear,
 	new /obj/item/tank/emergency_oxygen/double(H.loc)         // they can use this, and not just die in space
@@ -119,7 +119,7 @@
 		/obj/item/lipstick/random = 2,
 		/obj/item/haircomb/random = 1,
 		/obj/item/spacecash/c1000 = 2,
-		/obj/item/device/oxycandle = 1,
+		/obj/item/oxycandle = 1,
 		/obj/item/airbubble = 1
 	)
 
@@ -138,7 +138,7 @@
 	pda = /obj/item/modular_computer/handheld/pda/civilian/chaplain
 
 	backpack_contents = list(
-		/obj/item/device/oxycandle = 1,
+		/obj/item/oxycandle = 1,
 		/obj/item/airbubble = 1
 	)
 
@@ -163,9 +163,9 @@
 	accessory = /obj/item/clothing/accessory/tie/corporate/idris
 	suit_accessory = /obj/item/clothing/accessory/pin/corporate/idris
 	backpack_contents = list(
-		/obj/item/device/camera = 1,
+		/obj/item/camera = 1,
 		/obj/item/gun/energy/pistol = 1,
-		/obj/item/device/oxycandle = 1,
+		/obj/item/oxycandle = 1,
 		/obj/item/airbubble = 1,
 		/obj/item/stamp/idris = 1
 	)
@@ -188,7 +188,7 @@
 		/obj/item/reagent_containers/inhaler/hyperzine = 2,
 		/obj/item/reagent_containers/inhaler/soporific = 1,
 		/obj/item/gun/projectile/leyon = 1,
-		/obj/item/device/oxycandle = 1,
+		/obj/item/oxycandle = 1,
 		/obj/item/airbubble = 1
 	)
 
@@ -226,7 +226,7 @@
 		/obj/item/clothing/head/fake_culthood = 1,
 		/obj/item/clothing/suit/fake_cultrobes = 1,
 		/obj/item/deck/tarot = 1,
-		/obj/item/device/oxycandle = 1,
+		/obj/item/oxycandle = 1,
 		/obj/item/airbubble = 1
 	)
 
@@ -257,7 +257,7 @@
 /obj/outfit/admin/pod/tcfl
 	name = "RescuePod - TCFL Member"
 	head = /obj/item/clothing/head/beret/legion/field
-	l_ear = /obj/item/device/radio/headset/legion
+	l_ear = /obj/item/radio/headset/legion
 	glasses = /obj/item/clothing/glasses/sunglasses/aviator
 	suit = /obj/item/clothing/suit/storage/vest/legion
 	suit_store = /obj/item/gun/energy/blaster/carbine
@@ -276,8 +276,8 @@
 		/obj/item/melee/energy/sword/knife = 1,
 		/obj/item/shield/riot/tact/legion = 1,
 		/obj/item/grenade/flashbang = 1,
-		/obj/item/device/flashlight/flare = 1,
-		/obj/item/device/radio = 1
+		/obj/item/flashlight/flare = 1,
+		/obj/item/radio = 1
 	)
 
 /obj/outfit/admin/pod/tcfl/get_id_assignment()
@@ -303,8 +303,8 @@
 	belt_contents = list(
 		/obj/item/melee/energy/sword/knife/sol = 1,
 		/obj/item/ammo_magazine/mc9mm = 1,
-		/obj/item/device/flashlight/flare = 1,
-		/obj/item/device/radio = 1
+		/obj/item/flashlight/flare = 1,
+		/obj/item/radio = 1
 	)
 
 	backpack_contents = list(
@@ -327,9 +327,9 @@
 	l_hand =  /obj/item/storage/briefcase
 	accessory = /obj/item/clothing/accessory/holster/hip/
 	backpack_contents = list(
-		/obj/item/device/camera = 1,
+		/obj/item/camera = 1,
 		/obj/item/gun/energy/repeater = 1,
-		/obj/item/device/oxycandle = 1,
+		/obj/item/oxycandle = 1,
 		/obj/item/airbubble = 1
 	)
 
@@ -353,10 +353,10 @@
 	accessory_contents = list(/obj/item/gun/projectile/sec/lethal = 1)
 	back = /obj/item/storage/backpack/satchel/leather
 	backpack_contents = list(
-		/obj/item/device/camera = 1,
+		/obj/item/camera = 1,
 		/obj/item/clothing/suit/storage/toggle/bssb = 1,
 		/obj/item/handcuffs = 1,
-		/obj/item/device/oxycandle = 1,
+		/obj/item/oxycandle = 1,
 		/obj/item/airbubble = 1,
 		/obj/item/ammo_magazine/c45m = 1
 	)
@@ -411,7 +411,7 @@
 	)
 
 	l_pocket = /obj/item/syndie/teleporter
-	r_pocket = /obj/item/device/special_uplink/burglar
+	r_pocket = /obj/item/special_uplink/burglar
 	id = /obj/item/storage/wallet
 
 	r_hand = /obj/item/storage/briefcase/black
@@ -471,4 +471,4 @@
 	if(W)
 		W.handle_item_insertion(passport)
 
-	burglars.add_antagonist(H.mind, TRUE, TRUE, FALSE, TRUE, TRUE)
+	GLOB.burglars.add_antagonist(H.mind, TRUE, TRUE, FALSE, TRUE, TRUE)

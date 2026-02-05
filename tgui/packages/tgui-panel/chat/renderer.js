@@ -7,7 +7,16 @@
 import { EventEmitter } from 'common/events';
 import { classes } from 'common/react';
 import { createLogger } from 'tgui/logging';
-import { COMBINE_MAX_MESSAGES, COMBINE_MAX_TIME_WINDOW, IMAGE_RETRY_DELAY, IMAGE_RETRY_LIMIT, IMAGE_RETRY_MESSAGE_AGE, MESSAGE_TYPES, MESSAGE_TYPE_INTERNAL, MESSAGE_TYPE_UNKNOWN } from './constants';
+import {
+  COMBINE_MAX_MESSAGES,
+  COMBINE_MAX_TIME_WINDOW,
+  IMAGE_RETRY_DELAY,
+  IMAGE_RETRY_LIMIT,
+  IMAGE_RETRY_MESSAGE_AGE,
+  MESSAGE_TYPES,
+  MESSAGE_TYPE_INTERNAL,
+  MESSAGE_TYPE_UNKNOWN,
+} from './constants';
 import { render } from 'inferno';
 import { canPageAcceptType, createMessage, isSameMessage } from './model';
 import { highlightNode, linkifyNode } from './replaceInTextNode';
@@ -27,8 +36,8 @@ export const TGUI_CHAT_COMPONENTS = {
 // List of injectable attibute names mapped to their proper prop
 // We need this because attibutes don't support lowercase names
 export const TGUI_CHAT_ATTRIBUTES_TO_PROPS = {
-  'position': 'position',
-  'content': 'content',
+  position: 'position',
+  content: 'content',
 };
 
 const findNearestScrollableParent = (startingNode) => {
@@ -110,6 +119,7 @@ class ChatRenderer {
     /** @type {HTMLElement} */
     this.rootNode = null;
     this.queue = [];
+    this.storeQueue = [];
     this.messages = [];
     this.visibleMessages = [];
     this.page = null;
@@ -188,6 +198,8 @@ class ChatRenderer {
       const text = setting.highlightText;
       const highlightColor = setting.highlightColor;
       const highlightWholeMessage = setting.highlightWholeMessage;
+      const backgroundHighlightColor = setting.backgroundHighlightColor;
+      const backgroundHighlightOpacity = setting.backgroundHighlightOpacity;
       const matchWord = setting.matchWord;
       const matchCase = setting.matchCase;
       const allowedRegex = /^[a-z0-9_\-$/^[\s\]\\]+$/gi;
@@ -202,7 +214,7 @@ class ChatRenderer {
             // Must be alphanumeric (with some punctuation)
             allowedRegex.test(str) &&
             // Reset lastIndex so it does not mess up the next word
-            ((allowedRegex.lastIndex = 0) || true)
+            ((allowedRegex.lastIndex = 0) || true),
         );
       let highlightWords;
       let highlightRegex;
@@ -249,6 +261,8 @@ class ChatRenderer {
         highlightRegex,
         highlightColor,
         highlightWholeMessage,
+        backgroundHighlightColor,
+        backgroundHighlightOpacity,
       });
     });
   }
@@ -326,6 +340,8 @@ class ChatRenderer {
     let node;
     for (let payload of batch) {
       const message = createMessage(payload);
+      let historical = message.stored;
+
       // Combine messages
       const combinable = this.getCombinableMessage(message);
       if (combinable) {
@@ -393,7 +409,7 @@ class ChatRenderer {
             <Element {...outputProps}>
               <span dangerouslySetInnerHTML={oldHtml} />
             </Element>,
-            childNode
+            childNode,
           );
           /* eslint-enable react/no-danger */
         }
@@ -405,9 +421,17 @@ class ChatRenderer {
               node,
               parser.highlightRegex,
               parser.highlightWords,
-              (text) => createHighlightNode(text, parser.highlightColor)
+              (text) => createHighlightNode(text, parser.highlightColor),
             );
             if (highlighted && parser.highlightWholeMessage) {
+              node.style.setProperty(
+                '--highlight-color',
+                parser.backgroundHighlightColor || 'rgba(255, 221, 68)',
+              );
+              node.style.setProperty(
+                '--highlight-color-opacity',
+                (parser.backgroundHighlightOpacity ?? 10) / 100,
+              );
               node.className += ' ChatMessage--highlighted';
             }
           });
@@ -425,6 +449,10 @@ class ChatRenderer {
             imgNode.addEventListener('error', handleImageError);
           }
         }
+      }
+
+      if (!historical) {
+        this.storeQueue.push({ ...message, stored: true });
       }
       // Store the node in the message
       message.node = node;
@@ -502,7 +530,7 @@ class ChatRenderer {
     {
       const fromIndex = Math.max(
         0,
-        this.messages.length - max_visible_messages
+        this.messages.length - max_visible_messages,
       );
       if (fromIndex > 0) {
         this.messages = this.messages.slice(fromIndex);
@@ -572,13 +600,13 @@ class ChatRenderer {
       + '</body>\n'
       + '</html>\n';
     // Create and send a nice blob
-    const blob = new Blob([pageHtml]);
+    const blob = new Blob([pageHtml], { type: 'text/plain' });
     const timestamp = new Date()
       .toISOString()
       .substring(0, 19)
       .replace(/[-:]/g, '')
       .replace('T', '-');
-    window.navigator.msSaveBlob(blob, `ss13-chatlog-${timestamp}.html`);
+    Byond.saveBlob(blob, `ss13-chatlog-${timestamp}.html`, '.html');
   }
 
   clear() {

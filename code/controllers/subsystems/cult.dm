@@ -45,7 +45,7 @@ SUBSYSTEM_DEF(cult)
 		else
 			return TRUE
 	else
-		return ((length(rune_list) + rune_boost + length(cult.current_antagonists)) >= rune_limit)
+		return ((length(rune_list) + rune_boost + length(GLOB.cult.current_antagonists)) >= rune_limit)
 
 /datum/controller/subsystem/cult/proc/remove_rune(var/datum/rune/R)
 	if(R in rune_list)

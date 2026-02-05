@@ -9,7 +9,7 @@
 	item_state = "research_director"
 	contained_sprite = TRUE
 	armor = list(
-		bio = ARMOR_BIO_MINOR
+		BIO = ARMOR_BIO_MINOR
 	)
 
 // Scientist
@@ -21,7 +21,7 @@
 	item_state = "nt_scientist"
 	permeability_coefficient = 0.50
 	armor = list(
-		bio = ARMOR_BIO_MINOR
+		BIO = ARMOR_BIO_MINOR
 	)
 	contained_sprite = TRUE
 
@@ -37,7 +37,7 @@
 	name = "einstein scientist's jumpsuit"
 	desc_extended = "Doing away with the hideous purple of the SCC's science uniforms in favor of yet more dull greens, \
 	Einstein Engines' science uniforms push new frontiers of style just as their wearers push everything else."
-	icon = 'icons/clothing/under/uniforms/einstein.dmi'
+	icon = 'icons/obj/item/clothing/under/human/corporation/einstein.dmi'
 	icon_state = "ee_scientist"
 	item_state = "ee_scientist"
 
@@ -71,10 +71,10 @@
 	icon_state = "zav_xenob"
 	item_state = "zav_xenob"
 
-// Lab Assistant.
+// Research Intern.
 /obj/item/clothing/under/rank/scientist/intern
-	desc = "It's made of a special fiber that provides minor protection against biohazards. It has markings that denote the wearer as a laboratory assistant."
-	name = "laboratory assistant's jumpsuit"
+	desc = "It's made of a special fiber that provides minor protection against biohazards. It has markings that denote the wearer as a research intern."
+	name = "research intern's jumpsuit"
 	icon_state = "nt_assistant"
 	item_state = "nt_assistant"
 
@@ -94,7 +94,7 @@
 	item_state = "nt_xenoarch"
 	permeability_coefficient = 0.50
 	armor = list(
-		bomb = ARMOR_BOMB_MINOR
+		BOMB = ARMOR_BOMB_MINOR
 	)
 
 /obj/item/clothing/under/rank/scientist/xenoarchaeologist/zeng
@@ -112,7 +112,7 @@
 	item_state = "nt_xenoarch"
 	permeability_coefficient = 0.50
 	armor = list(
-		bomb = ARMOR_BOMB_MINOR
+		BOMB = ARMOR_BOMB_MINOR
 	)
 
 /obj/item/clothing/under/rank/scientist/anomalist/zeng
@@ -137,19 +137,19 @@
 	contained_sprite = TRUE
 	permeability_coefficient = 0.50
 	armor = list(
-		bio = ARMOR_BIO_MINOR
+		BIO = ARMOR_BIO_MINOR
 	)
 
 /obj/item/clothing/under/rank/iacjumpsuit
 	desc = "It's a blue and white jumpsuit, the IAC logo plastered across the back."
 	name = "IAC uniform"
-	icon = 'icons/clothing/under/uniforms/iac_uniform.dmi'
+	icon = 'icons/obj/item/clothing/under/human/corporation/iac_uniform.dmi'
 	icon_state = "iac"
 	item_state = "iac"
 	contained_sprite = TRUE
 	permeability_coefficient = 0.50
 	armor = list(
-		bio = ARMOR_BIO_MINOR
+		BIO = ARMOR_BIO_MINOR
 	)
 
 // Physician
@@ -163,13 +163,13 @@
 	contained_sprite = TRUE
 	permeability_coefficient = 0.50
 	armor = list(
-		bio = ARMOR_BIO_MINOR
+		BIO = ARMOR_BIO_MINOR
 	)
 
 /obj/item/clothing/under/rank/medical/generic
 	icon_state = "generic_scrubs"
 	item_state = "generic_scrubs"
-	icon = 'icons/clothing/under/uniforms/generic_scrubs.dmi'
+	icon = 'icons/obj/item/clothing/department_uniforms/medical.dmi'
 	has_accents = TRUE
 
 /obj/item/clothing/under/rank/medical/zeng
@@ -183,6 +183,11 @@
 /obj/item/clothing/under/rank/medical/pmc/alt
 	icon_state = "pmc_alt_phys"
 	item_state = "pmc_alt_phys"
+
+// Hephaestus doesn't have medical jobs, but off-ships use them
+/obj/item/clothing/under/rank/medical/heph
+	icon_state = "heph_phys"
+	item_state = "heph_phys"
 
 // Intern
 

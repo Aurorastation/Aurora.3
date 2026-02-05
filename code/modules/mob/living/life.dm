@@ -10,10 +10,10 @@
 	if(!loc)
 		return FALSE
 
-	var/datum/gas_mixture/gas_environment = loc.return_air()
+	var/datum/gas_mixture/environment = loc.return_air()
 	//Handle temperature/pressure differences between body and environment
-	if(gas_environment)
-		handle_environment(gas_environment)
+	if(environment)
+		handle_environment(environment)
 
 	blinded = 0 // Placing this here just show how out of place it is.
 
@@ -28,7 +28,7 @@
 			handle_mutations_and_radiation()
 
 	//Check if we're on fire
-	handle_fire()
+	handle_fire(seconds_per_tick, environment)
 
 	update_pulling()
 
@@ -173,6 +173,7 @@
 	var/list/vision = get_accumulated_vision_handlers()
 	set_sight(sight | vision[1])
 	set_see_invisible(max(vision[2], see_invisible))
+	sync_lighting_plane_alpha()
 
 /mob/living/proc/update_living_sight()
 	var/set_sight_flags = is_ventcrawling ? (SEE_TURFS) : sight & ~(SEE_TURFS|SEE_MOBS|SEE_OBJS)
@@ -182,7 +183,7 @@
 		set_sight_flags &= ~BLIND
 
 	set_sight(set_sight_flags)
-	set_see_invisible(initial(see_invisible))
+	set_see_invisible(see_invisible)
 
 /mob/living/proc/update_dead_sight()
 	set_sight(sight|SEE_TURFS|SEE_MOBS|SEE_OBJS)
@@ -244,7 +245,7 @@
 			return
 
 		// Push sound to client. Pipe dream TODO: crossfade between the new and old weather ambience.
-		sound_to(src, sound(null, repeat = 0, wait = 0, volume = 0, channel = sound_channels.weather_channel))
+		sound_to(src, sound(null, repeat = 0, wait = 0, volume = 0, channel = GLOB.sound_channels.weather_channel))
 		if(send_sound)
-			sound_to(src, sound(send_sound, repeat = TRUE, wait = 0, volume = 30, channel = sound_channels.weather_channel))
+			sound_to(src, sound(send_sound, repeat = TRUE, wait = 0, volume = 30, channel = GLOB.sound_channels.weather_channel))
 

@@ -1,7 +1,7 @@
-/obj/item/device/cosmetic_surgery_kit
+/obj/item/cosmetic_surgery_kit
 	name = "cosmetic surgery auto-kit"
-	icon = 'icons/obj/device.dmi'
-	icon_state = "depthscanner"
+	icon = 'icons/obj/item/autoimplanter.dmi'
+	icon_state = "autoimplanter"
 	item_state = "electronic"
 	slot_flags = SLOT_BELT
 	throwforce = 5
@@ -17,7 +17,7 @@
 	var/used = FALSE
 
 
-/obj/item/device/cosmetic_surgery_kit/attack_self(mob/living/carbon/human/user)
+/obj/item/cosmetic_surgery_kit/attack_self(mob/living/carbon/human/user)
 	if(used)
 		to_chat(user, SPAN_WARNING("\The [src] remains lifeless, as its armatures dangle uselessly, now."))
 		return

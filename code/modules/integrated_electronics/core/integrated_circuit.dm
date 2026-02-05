@@ -49,8 +49,8 @@ a creative player the means to solve many problems.  Circuits are held inside an
 	. = ..()
 
 /obj/item/integrated_circuit/ui_host()
-	if(istype(src.loc, /obj/item/device/electronic_assembly))
-		var/obj/item/device/electronic_assembly/assembly = loc
+	if(istype(src.loc, /obj/item/electronic_assembly))
+		var/obj/item/electronic_assembly/assembly = loc
 		return assembly.resolve_ui_host()
 	return ..()
 
@@ -93,13 +93,13 @@ a creative player the means to solve many problems.  Circuits are held inside an
 	var/list/HTML = list(
 		"<div align='center'>",
 		"<table border='1' style='undefined;table-layout: fixed; width: 80%'>",
-		"<br><a href='?src=[REF(src)];return=1'>Return to Assembly</a>",
-		"<br><a href='?src=[REF(src)];'>Refresh</a>  |  ",
-		"<a href='?src=[REF(src)];rename=1'>Rename</a>  |  ",
-		"<a href='?src=[REF(src)];scan=1'>Scan with Device</a>  |  "
+		"<br><a href='byond://?src=[REF(src)];return=1'>Return to Assembly</a>",
+		"<br><a href='byond://?src=[REF(src)];'>Refresh</a>  |  ",
+		"<a href='byond://?src=[REF(src)];rename=1'>Rename</a>  |  ",
+		"<a href='byond://?src=[REF(src)];scan=1'>Scan with Device</a>  |  "
 	)
 	if(src.removable)
-		HTML += "<a href='?src=[REF(src)];remove=1'>Remove</a><br>"
+		HTML += "<a href='byond://?src=[REF(src)];remove=1'>Remove</a><br>"
 
 	HTML += "<colgroup>"
 	HTML += "<col style='width: [table_edge_width]'>"
@@ -120,11 +120,11 @@ a creative player the means to solve many problems.  Circuits are held inside an
 				if(1)
 					io = get_pin_ref(IC_INPUT, i)
 					if(io)
-						words += "<b><a href=?src=[REF(src)];pin_name=1;pin=[REF(io)]>[io.display_pin_type()] [io.name]</a> <a href=?src=[REF(src)];pin_data=1;pin=[REF(io)]>[io.display_data(io.data)]</a></b><br>"
+						words += "<b><a href='byond://?src=[REF(src)];pin_name=1;pin=[REF(io)]'>[io.display_pin_type()] [io.name]</a> <a href='byond://?src=[REF(src)];pin_data=1;pin=[REF(io)]'>[io.display_data(io.data)]</a></b><br>"
 						if(io.linked.len)
 							for(var/datum/integrated_io/linked in io.linked)
-								words += "<a href=?src=[REF(src)];pin_unwire=1;pin=[REF(io)];link=[REF(linked)]>[linked.name]</a> \
-								@ <a href=?src=[REF(linked.holder)];examine=1;>[linked.holder.displayed_name]</a><br>"
+								words += "<a href='byond://?src=[REF(src)];pin_unwire=1;pin=[REF(io)];link=[REF(linked)]'>[linked.name]</a> \
+								@ <a href='byond://?src=[REF(linked.holder)];examine=1'>[linked.holder.displayed_name]</a><br>"
 
 						if(outputs.len > inputs.len)
 							height = 1
@@ -137,11 +137,11 @@ a creative player the means to solve many problems.  Circuits are held inside an
 				if(3)
 					io = get_pin_ref(IC_OUTPUT, i)
 					if(io)
-						words += "<b><a href=?src=[REF(src)];pin_name=1;pin=[REF(io)]>[io.display_pin_type()] [io.name]</a> <a href=?src=[REF(src)];pin_data=1;pin=[REF(io)]>[io.display_data(io.data)]</a></b><br>"
+						words += "<b><a href='byond://?src=[REF(src)];pin_name=1;pin=[REF(io)]'>[io.display_pin_type()] [io.name]</a> <a href='byond://?src=[REF(src)];pin_data=1;pin=[REF(io)]'>[io.display_data(io.data)]</a></b><br>"
 						if(io.linked.len)
 							for(var/datum/integrated_io/linked in io.linked)
-								words += "<a href=?src=[REF(src)];pin_unwire=1;pin=[REF(io)];link=[REF(linked)]>[linked.name]</a> \
-								@ <a href=?src=[REF(linked.holder)];examine=1;>[linked.holder.displayed_name]</a><br>"
+								words += "<a href='byond://?src=[REF(src)];pin_unwire=1;pin=[REF(io)];link=[REF(linked)]'>[linked.name]</a> \
+								@ <a href='byond://?src=[REF(linked.holder)];examine=1'>[linked.holder.displayed_name]</a><br>"
 
 						if(inputs.len > outputs.len)
 							height = 1
@@ -151,13 +151,13 @@ a creative player the means to solve many problems.  Circuits are held inside an
 	for(var/activator in activators)
 		var/datum/integrated_io/io = activator
 		var/words = list(
-			"<b><a href=?src=[REF(src)];pin_name=1;pin=[REF(io)]><span class='bad'>[io.name]</span></a> <a href=?src=[REF(src)];pin_data=1;pin=[REF(io)]><span class='bad'>[io.data?"\<PULSE OUT\>":"\<PULSE IN\>"]</span></a></b><br>"
+			"<b><a href='byond://?src=[REF(src)];pin_name=1;pin=[REF(io)]'><span class='bad'>[io.name]</span></a> <a href='byond://?src=[REF(src)];pin_data=1;pin=[REF(io)]'><span class='bad'>[io.data?"\<PULSE OUT\>":"\<PULSE IN\>"]</span></a></b><br>"
 		)
 
 		if(io.linked.len)
 			for(var/datum/integrated_io/linked in io.linked)
-				words += "<a href=?src=[REF(src)];pin_unwire=1;pin=[REF(io)];link=[REF(linked)]><span class='bad'>[linked.name]</span></a> \
-				@ <a href=?src=[REF(linked.holder)];examine=1;><span class='bad'>[linked.holder.displayed_name]</span></a><br>"
+				words += "<a href='byond://?src=[REF(src)];pin_unwire=1;pin=[REF(io)];link=[REF(linked)]'><span class='bad'>[linked.name]</span></a> \
+				@ <a href='byond://?src=[REF(linked.holder)];examine=1'><span class='bad'>[linked.holder.displayed_name]</span></a><br>"
 
 		HTML += "<tr>"
 		HTML += "<td colspan='3' align='center'>[jointext(words, null)]</td>"
@@ -169,6 +169,7 @@ a creative player the means to solve many problems.  Circuits are held inside an
 //	HTML += "<br><font color='33CC33'>Meta Variables;</font>" // If more meta vars get introduced, uncomment this.
 //	HTML += "<br>"
 
+	HTML += "<br><span class='highlight'>Size: [size]</span>"
 	HTML += "<br><span class='highlight'>Complexity: [complexity]</span>"
 	if(power_draw_idle)
 		HTML += "<br><span class='highlight'>Power Draw: [power_draw_idle] W (Idle)</span>"
@@ -190,19 +191,19 @@ a creative player the means to solve many problems.  Circuits are held inside an
 		return 1
 
 	var/update = 1
-	var/obj/item/device/electronic_assembly/A = src.assembly
+	var/obj/item/electronic_assembly/A = src.assembly
 	var/update_to_assembly = 0
 	var/datum/integrated_io/pin = locate(href_list["pin"]) in inputs + outputs + activators
 	var/datum/integrated_io/linked = null
 	if(href_list["link"])
 		linked = locate(href_list["link"]) in pin.linked
 
-	var/obj/held_item = usr.get_active_hand()
-	var/obj/off_hand = usr.get_inactive_hand()
-	var/obj/item/device/multitool/M
-	if(held_item?.ismultitool())
+	var/obj/item/held_item = usr.get_active_hand()
+	var/obj/item/off_hand = usr.get_inactive_hand()
+	var/obj/item/multitool/M
+	if(held_item?.tool_behaviour == TOOL_MULTITOOL)
 		M = held_item
-	if(!M && off_hand?.ismultitool())
+	if(!M && off_hand?.tool_behaviour == TOOL_MULTITOOL)
 		M = off_hand
 	if(M?.tracking_apc)
 		to_chat(usr, SPAN_WARNING("\The [M]'s smart tracking is enabled! Disable it to regain I/O functionality."))
@@ -212,7 +213,7 @@ a creative player the means to solve many problems.  Circuits are held inside an
 		rename_component(usr)
 		if(href_list["from_assembly"])
 			update = 0
-			var/obj/item/device/electronic_assembly/ea = loc
+			var/obj/item/electronic_assembly/ea = loc
 			if(istype(ea))
 				ea.interact(usr)
 
@@ -236,15 +237,15 @@ a creative player the means to solve many problems.  Circuits are held inside an
 			M.unwire(pin, linked, usr)
 
 	if(href_list["wire"])
-		if(istype(held_item, /obj/item/device/integrated_electronics/wirer))
-			var/obj/item/device/integrated_electronics/wirer/wirer = held_item
+		if(istype(held_item, /obj/item/integrated_electronics/wirer))
+			var/obj/item/integrated_electronics/wirer/wirer = held_item
 			if(linked)
 				wirer.wire(linked, usr)
 			else if(pin)
 				wirer.wire(pin, usr)
 
-		else if(istype(held_item, /obj/item/device/integrated_electronics/debugger))
-			var/obj/item/device/integrated_electronics/debugger/debugger = held_item
+		else if(istype(held_item, /obj/item/integrated_electronics/debugger))
+			var/obj/item/integrated_electronics/debugger/debugger = held_item
 			if(pin)
 				debugger.write_data(pin, usr)
 		else
@@ -270,8 +271,8 @@ a creative player the means to solve many problems.  Circuits are held inside an
 		update_to_assembly = 1
 
 	if(href_list["scan"])
-		if(istype(held_item, /obj/item/device/integrated_electronics/debugger))
-			var/obj/item/device/integrated_electronics/debugger/D = held_item
+		if(istype(held_item, /obj/item/integrated_electronics/debugger))
+			var/obj/item/integrated_electronics/debugger/D = held_item
 			if(D.accepting_refs)
 				D.afterattack(src, usr, TRUE)
 			else
@@ -293,7 +294,7 @@ a creative player the means to solve many problems.  Circuits are held inside an
 		if(!removable)
 			to_chat(usr, SPAN_WARNING("\The [src] seems to be permanently attached to the case."))
 			return
-		var/obj/item/device/electronic_assembly/ea = loc
+		var/obj/item/electronic_assembly/ea = loc
 		disconnect_all()
 		var/turf/T = get_turf(src)
 		forceMove(T)

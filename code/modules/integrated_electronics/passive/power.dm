@@ -59,8 +59,8 @@
 		return
 	var/area/A = get_area(src)
 	if(A)
-		if(A.powered(EQUIP) && assembly.give_power(power_amount))
-			A.use_power_oneoff(power_amount, EQUIP)
+		if(A.powered(AREA_USAGE_EQUIP) && assembly.give_power(power_amount))
+			A.use_power_oneoff(power_amount, AREA_USAGE_EQUIP)
 			// give_power() handles CELLRATE on its own.
 
 // For implants.
@@ -86,8 +86,8 @@
 
 /obj/item/integrated_circuit/passive/power/metabolic_siphon/make_energy()
 	var/mob/living/carbon/human/host
-	if(assembly && istype(assembly, /obj/item/device/electronic_assembly/implant))
-		var/obj/item/device/electronic_assembly/implant/implant_assembly = assembly
+	if(assembly && istype(assembly, /obj/item/electronic_assembly/implant))
+		var/obj/item/electronic_assembly/implant/implant_assembly = assembly
 		if(implant_assembly.implant.imp_in)
 			host = implant_assembly.implant.imp_in
 			if(!get_pin_data(IC_INPUT, 1))

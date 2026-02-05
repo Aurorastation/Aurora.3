@@ -6,7 +6,7 @@
 	icon = 'icons/turf/space.dmi'
 	icon_state = "bluespace-n"
 
-	plane = EFFECTS_ABOVE_LIGHTING_PLANE
+	plane = ABOVE_LIGHTING_PLANE
 	layer = SUPERMATTER_WALL_LAYER
 	light_color = COLOR_CYAN_BLUE
 	light_power = 6
@@ -49,7 +49,6 @@
 		STOP_PROCESSING(SScalamity, src)
 
 /turf/unsimulated/wall/supermatter/proc/after_tick(turf/T)
-	T.lighting_clear_overlay()
 	for(var/atom/movable/A in T)
 		if (A && A.simulated)	// No eating lighting overlays.
 			if(istype(A, /mob/living))
@@ -62,7 +61,7 @@
 		CHECK_TICK
 	T.ChangeTurf(type)
 
-/turf/unsimulated/wall/supermatter/attack_generic(mob/user as mob)
+/turf/unsimulated/wall/supermatter/attack_generic(mob/user, damage, attack_message, environment_smash, armor_penetration, attack_flags, damage_type)
 	return attack_hand(user)
 
 /turf/unsimulated/wall/supermatter/attack_robot(mob/user as mob)
@@ -73,7 +72,7 @@
 	return
 
 // /vg/: Don't let ghosts fuck with this.
-/turf/unsimulated/wall/supermatter/attack_ghost(mob/user as mob)
+/turf/unsimulated/wall/supermatter/attack_ghost(mob/user)
 	examinate(user, src)
 
 /turf/unsimulated/wall/supermatter/attack_ai(mob/user as mob)
@@ -118,7 +117,7 @@
 
 
 /turf/unsimulated/wall/supermatter/proc/Consume(var/mob/living/user)
-	if(istype(user,/mob/abstract/observer))
+	if(isobserver(user))
 		return
 
 	qdel(user)

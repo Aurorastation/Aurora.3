@@ -1,4 +1,3 @@
-@use 'sass:color';
 @use 'sass:map';
 
 $background: #131313;
@@ -6,52 +5,30 @@ $button: #1f1f1f;
 $lightMode: #ffffff;
 $lightBorder: #bbbbbb;
 $lightHover: #eaeaea;
-
-////////////////////////////////////////////////
-// Normal chat colors
-$say: #a4bad6;
-$radio: #1ecc43;
-$me: #5975da;
-$ooc: #cca300;
-
-////////////////////////////////////////////////
-// Subchannel chat colors
-$ai: #d65d95;
-$admin: #ffbbff;
-$binary: #1e90ff;
-$centcom: #2681a5;
-$command: #5b8deb;
-$engi: #cc7b01;
-$hive: #855d85;
-$medical: #57b8f0;
-$science: #c68cfa;
-$security: #e21111;
-$syndicate: #ac6667;
-$service: #7fc732;
-$supply: #c09141;
-$hail: #8b4cd8;
-$ent: #cfcfcf;
+$scrollbar-color-multiplier: 1 !default;
 
 $_channel_map: (
-  'say': $say,
-  'radio': $radio,
-  'me': $me,
-  'ooc': $ooc,
-  'ai': $ai,
-  'admin': $admin,
-  'binary': $binary,
-  'centcom': $centcom,
-  'command': $command,
-  'engi': $engi,
-  'hive': $hive,
-  'medical': $medical,
-  'science': $science,
-  'security': $security,
-  'syndicate': $syndicate,
-  'service': $service,
-  'supply': $supply,
-  'hail': $hail,
-  'ent': $ent,
+  'Say': #a4bad6,
+  'Radio': #1ecc43,
+  'Me': #5975da,
+  'OOC': #cca300,
+  'LOOC': #e362b4,
+  'AI': #d65d95,
+  'Cling': #376340,
+  'Cmd': #5b8deb,
+  'Engi': #cc7b01,
+  'Ent': #cfcfcf,
+  'Exped': #d6bc67,
+  'Hail': #8b4cd8,
+  'io': #1e90ff,
+  'Med': #57b8f0,
+  'Merc': #ac6667,
+  'Pen': #ac6667,
+  'Sci': #c68cfa,
+  'Sec': #e21111,
+  'Supp': #c09141,
+  'Svc': #7fc732,
+  'Synd': #ac6667,
 );
 
 $channel_keys: map.keys($_channel_map) !default;

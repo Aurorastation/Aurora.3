@@ -1,9 +1,8 @@
 //CCIAA's tape recorder
-/obj/item/device/taperecorder/cciaa
+/obj/item/taperecorder/cciaa
 	name = "Human Resources Recorder"
 	desc = "A modified recorder used for interviews by human resources personnel around the galaxy."
 	desc_extended = "This recorder is a modified version of a standard universal recorder. It features additional audit-proof records keeping, access controls and is tied to a central management system."
-	desc_info = "This recorder records the fingerprints of the interviewee, to do so, interact with this recorder when asked."
 	w_class = WEIGHT_CLASS_TINY
 	timestamp = list()	//This actually turns timestamp into a string later on
 
@@ -31,19 +30,23 @@
 	var/interviewee_name = null
 	var/date_string = null
 
-/obj/item/device/taperecorder/cciaa/hear_talk(mob/living/M as mob, msg, var/verb="says")
+/obj/item/taperecorder/cciaa/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "This recorder records the fingerprints of the interviewee, to do so, interact with this recorder when asked."
+
+/obj/item/taperecorder/cciaa/hear_talk(mob/living/M as mob, msg, var/verb="says")
 	if(recording && !paused)
 		timestamp = "[get_time()]"
 		var/fmsg = "\[[timestamp]\] [M.name] [verb], \"[msg]\""
 		sLogFile << fmsg
 	return
 
-/obj/item/device/taperecorder/cciaa/proc/get_time()
+/obj/item/taperecorder/cciaa/proc/get_time()
 	return "[round(world.time / 36000)+12]:[(world.time / 600 % 60) < 10 ? add_zero(world.time / 600 % 60, 1) : world.time / 600 % 60]:[(world.time / 60 % 60) < 10 ? add_zero(world.time / 60 % 60, 1) : world.time / 60 % 60]"
 
-/obj/item/device/taperecorder/cciaa/record()
+/obj/item/taperecorder/cciaa/record()
 	set name = "Start Recording"
-	set category = "Recorder"
+	set category = "Object.Tape Recorder"
 
 	if(!check_rights(R_CCIAA,FALSE))
 		to_chat(usr, SPAN_NOTICE("The device beeps and flashes \"Unauthorised user.\"."))
@@ -121,14 +124,14 @@
 		sLogFile << "--------------------------------"
 
 		recording = 1
-		icon_state = "taperecorderrecording"
+		icon_state = "taperecorder_recording"
 		to_chat(usr, SPAN_NOTICE("The device beeps and flashes \"Writing to [fileName]\"."))
 
 		return
 
-/obj/item/device/taperecorder/cciaa/stop()
+/obj/item/taperecorder/cciaa/stop()
 	set name = "Stop Recording"
-	set category = "Recorder"
+	set category = "Object.Tape Recorder"
 
 	if(use_check_and_message(usr))
 		return
@@ -183,13 +186,13 @@
 	date_string = null
 	antag_involvement = null
 	to_chat(usr, SPAN_NOTICE("The device beeps and flashes \"Recording stopped log saved.\"."))
-	icon_state = "taperecorderidle"
+	icon_state = "taperecorder_idle"
 
 	return
 
-/obj/item/device/taperecorder/cciaa/verb/reset_recorder()
+/obj/item/taperecorder/cciaa/verb/reset_recorder()
 	set name = "Reset Recorder"
-	set category = "Recorder"
+	set category = "Object.Tape Recorder"
 
 	if(!check_rights(R_CCIAA,FALSE))
 		to_chat(usr, SPAN_NOTICE("The device beeps and flashes \"Unauthorised user.\"."))
@@ -206,9 +209,9 @@
 	date_string = null
 	antag_involvement = null
 	to_chat(usr, SPAN_NOTICE("The device beeps and flashes \"Recorder Reset.\"."))
-	icon_state = "taperecorderidle"
+	icon_state = "taperecorder_idle"
 
-/obj/item/device/taperecorder/cciaa/proc/get_last_transcript()
+/obj/item/taperecorder/cciaa/proc/get_last_transcript()
 	var/list/lFile = file2list(last_file_loc)
 	var/dat = ""
 	var/firstLine = null
@@ -227,9 +230,9 @@
 	P.set_content_unsafe(pname, info)
 	return P
 
-/obj/item/device/taperecorder/cciaa/print_transcript()
+/obj/item/taperecorder/cciaa/print_transcript()
 	set name = "Print Transcript"
-	set category = "Recorder"
+	set category = "Object.Tape Recorder"
 
 	if(use_check_and_message(usr))
 		return
@@ -245,9 +248,9 @@
 	P.forceMove(get_turf(src.loc))
 	return
 
-/obj/item/device/taperecorder/cciaa/verb/pause_recording()
+/obj/item/taperecorder/cciaa/verb/pause_recording()
 	set name = "Pause Recording"
-	set category = "Recorder"
+	set category = "Object.Tape Recorder"
 
 	if(use_check_and_message(usr))
 		return
@@ -263,16 +266,16 @@
 		sLogFile << "Recorder paused at: [get_time()]"
 		to_chat(usr, SPAN_NOTICE("The device beeps and flashes \"Recording paused\"."))
 		paused = TRUE
-		icon_state = "taperecorderpause"
+		icon_state = "taperecorder_idle"
 	else
 		sLogFile << "Recorder resumed at: [get_time()]"
 		sLogFile << "--------------------------------"
 		to_chat(usr, SPAN_NOTICE("The device beeps and flashes \"Recording resumed\"."))
 		paused = FALSE
-		icon_state = "taperecorderrecording"
+		icon_state = "taperecorder_recording"
 	return
 
-/obj/item/device/taperecorder/cciaa/attack_self(mob/user)
+/obj/item/taperecorder/cciaa/attack_self(mob/user)
 	//If we are a ccia agent, then always go to the record function (to prompt for the report or start the recording)
 	if(check_rights(R_CCIAA,FALSE) && !selected_report)
 		record()
@@ -320,33 +323,34 @@
 		return
 
 //redundent for now
-/obj/item/device/taperecorder/cciaa/clear_memory()
+/obj/item/taperecorder/cciaa/clear_memory()
 	set name = "Clear Memory"
 	set category = null
 
 	return
 
-/obj/item/device/taperecorder/cciaa/playback_memory()
+/obj/item/taperecorder/cciaa/playback_memory()
 	set name = "Playback Memory"
 	set category = null
 
 	return
 
-/obj/item/device/taperecorder/cciaa/explode()
+/obj/item/taperecorder/cciaa/explode()
 	return
 
 //ccia headset, only command and ert channel are on by default
 
-/obj/item/device/radio/headset/ert/ccia
+/obj/item/radio/headset/ert/ccia
 	name = "central command internal affairs radio headset"
-	ks2type = /obj/item/device/encryptionkey/ccia
+	ks2type = /obj/item/encryptionkey/ccia
 
-/obj/item/device/radio/headset/ert/ccia/alt
+/obj/item/radio/headset/ert/ccia/alt
 	name = "central command internal affairs bowman headset"
+	icon = 'icons/obj/item/radio/headset_alt.dmi'
 	icon_state = "com_headset_alt"
 	item_state = "headset_alt"
 
-/obj/item/device/encryptionkey/ccia
+/obj/item/encryptionkey/ccia
 	name = "\improper CCIA radio encryption key"
 	channels = list("Response Team" = 1, "Science" = 0, "Command" = 1, "Medical" = 0, "Engineering" = 0, "Security" = 0, "Operations" = 0, "Service" = 0)
 
@@ -358,7 +362,7 @@
 	name = "CCIA agent briefcase"
 	desc = "A smart looking briefcase with an SCC logo on the side."
 	storage_slots = 8
-	max_storage_space = 16
+	max_storage_space = DEFAULT_LARGEBOX_STORAGE
 
 /obj/item/storage/lockbox/cciaa/bssb
 	name = "BSSB agent briefcase"

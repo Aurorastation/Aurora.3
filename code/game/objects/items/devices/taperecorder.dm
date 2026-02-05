@@ -1,7 +1,8 @@
-/obj/item/device/taperecorder
+/obj/item/taperecorder
 	name = "universal recorder"
 	desc = "A device that can record up to an hour of dialogue and play it back. It automatically translates the content in playback."
-	icon_state = "taperecorderidle"
+	icon = 'icons/obj/item/taperecorder.dmi'
+	icon_state = "taperecorder_idle"
 	item_state = "analyzer"
 	w_class = WEIGHT_CLASS_SMALL
 
@@ -21,18 +22,18 @@
 	throw_speed = 4
 	throw_range = 20
 
-/obj/item/device/taperecorder/Initialize()
+/obj/item/taperecorder/Initialize()
 	. = ..()
 	become_hearing_sensitive(ROUNDSTART_TRAIT)
 	portable_drive = new /obj/item/computer_hardware/hard_drive/portable(src)
 
-/obj/item/device/taperecorder/Destroy()
+/obj/item/taperecorder/Destroy()
 	GLOB.listening_objects -= src
 	if(portable_drive)
 		QDEL_NULL(portable_drive)
 	return ..()
 
-/obj/item/device/taperecorder/hear_talk(mob/living/M, msg, var/verb = "says", datum/language/speaking = null)
+/obj/item/taperecorder/hear_talk(mob/living/M, msg, var/verb = "says", datum/language/speaking = null)
 	if(isanimal(M))
 		if(!M.universal_speak)
 			return
@@ -47,14 +48,14 @@
 		else
 			stored_info += "\[[time2text(time_recorded*10,"mm:ss")]\] [M.name] [verb], \"[msg]\""
 
-/obj/item/device/taperecorder/see_emote(mob/M, text, var/emote_type)
+/obj/item/taperecorder/see_emote(mob/M, text, var/emote_type)
 	if(emote_type != 2) //only hearable emotes
 		return
 	if(recording)
 		timestamp += time_recorded
 		stored_info += "\[[time2text(time_recorded*10,"mm:ss")]\] [strip_html_properly(text)]"
 
-/obj/item/device/taperecorder/show_message(msg, type, alt, alt_type)
+/obj/item/taperecorder/show_message(msg, type, alt, alt_type)
 	var/recordedtext
 	if(msg && type == 2) //must be hearable
 		recordedtext = msg
@@ -66,17 +67,17 @@
 		timestamp += time_recorded
 		stored_info += "*\[[time2text(time_recorded*10,"mm:ss")]\] *[strip_html_properly(recordedtext)]*" //"*" at front as a marker
 
-/obj/item/device/taperecorder/emag_act(var/remaining_charges, mob/user)
+/obj/item/taperecorder/emag_act(var/remaining_charges, mob/user)
 	if(emagged)
 		to_chat(user, SPAN_WARNING("It is already emagged!"))
 		return FALSE
 	emagged = TRUE
 	recording = FALSE
 	to_chat(user, SPAN_NOTICE("PZZTTPFFFT"))
-	icon_state = "taperecorderidle"
+	icon_state = "taperecorder_idle"
 	return TRUE
 
-/obj/item/device/taperecorder/proc/explode()
+/obj/item/taperecorder/proc/explode()
 	var/turf/T = get_turf(loc)
 	visible_message(SPAN_DANGER("\The [src] explodes!"))
 	if(T)
@@ -85,9 +86,9 @@
 	qdel(src)
 	return
 
-/obj/item/device/taperecorder/verb/record()
+/obj/item/taperecorder/verb/record()
 	set name = "Start Recording"
-	set category = "Object"
+	set category = "Object.Tape Recorder"
 	set src in usr
 
 	if(use_check_and_message(usr))
@@ -96,7 +97,7 @@
 	if(emagged)
 		src.audible_message(SPAN_WARNING("\The [src] makes a scratchy noise."), hearing_distance = 3)
 		return
-	icon_state = "taperecorderrecording"
+	icon_state = "taperecorder_recording"
 	if(time_recorded < 3600 && !playing)
 		to_chat(usr, SPAN_NOTICE("Recording started."))
 		recording = TRUE
@@ -108,14 +109,14 @@
 			time_recorded++
 			sleep(10)
 		recording = FALSE
-		icon_state = "taperecorderidle"
+		icon_state = "taperecorder_idle"
 		return
 	else
 		to_chat(usr, SPAN_NOTICE("Either your tape recorder's memory is full, or it is currently playing back its memory."))
 
-/obj/item/device/taperecorder/verb/stop()
+/obj/item/taperecorder/verb/stop()
 	set name = "Stop Recording"
-	set category = "Object"
+	set category = "Object.Tape Recorder"
 	set src in usr
 
 	if(use_check_and_message(usr))
@@ -129,17 +130,17 @@
 		timestamp += time_recorded
 		stored_info += "\[[time2text(time_recorded*10,"mm:ss")]\] Recording stopped."
 		to_chat(usr, SPAN_NOTICE("Recording stopped."))
-		icon_state = "taperecorderidle"
+		icon_state = "taperecorder_idle"
 		return
 	else if(playing)
 		playing = FALSE
 		audible_message("<font color=Maroon><B>Tape Recorder</B>: Playback stopped.</font>", hearing_distance = 3)
-		icon_state = "taperecorderidle"
+		icon_state = "taperecorder_idle"
 		return
 
-/obj/item/device/taperecorder/verb/clear_memory()
+/obj/item/taperecorder/verb/clear_memory()
 	set name = "Clear Memory"
-	set category = "Object"
+	set category = "Object.Tape Recorder"
 	set src in usr
 
 	if(use_check_and_message(usr))
@@ -160,9 +161,9 @@
 		to_chat(usr, SPAN_NOTICE("Memory cleared."))
 		return
 
-/obj/item/device/taperecorder/verb/playback_memory()
+/obj/item/taperecorder/verb/playback_memory()
 	set name = "Playback Memory"
-	set category = "Object"
+	set category = "Object.Tape Recorder"
 	set src in usr
 
 	if(use_check_and_message(usr))
@@ -174,7 +175,7 @@
 		to_chat(usr, SPAN_WARNING("You're already playing!"))
 		return
 	playing = TRUE
-	icon_state = "taperecorderplaying"
+	icon_state = "taperecorder_playing"
 	to_chat(usr, SPAN_NOTICE("Playing started."))
 	for(var/i = 1, time_recorded < 3600, sleep(10 * play_sleep_seconds))
 		if(!playing)
@@ -196,7 +197,7 @@
 			audible_message("<font color=Maroon><B>Tape Recorder</B>: Skipping [play_sleep_seconds] seconds of silence.</font>", hearing_distance = 3)
 			play_sleep_seconds = 1
 		i++
-	icon_state = "taperecorderidle"
+	icon_state = "taperecorder_idle"
 	playing = FALSE
 	if(emagged)
 		audible_message("<font color=Maroon><B>Tape Recorder</B>: This tape recorder will self-destruct in... Five.</font>", hearing_distance = 3)
@@ -211,9 +212,9 @@
 		sleep(15)
 		explode()
 
-/obj/item/device/taperecorder/verb/print_transcript()
+/obj/item/taperecorder/verb/print_transcript()
 	set name = "Print Transcript"
-	set category = "Object"
+	set category = "Object.Tape Recorder"
 	set src in usr
 
 	if(use_check_and_message(usr))
@@ -242,12 +243,12 @@
 	can_print = FALSE
 	addtimer(CALLBACK(src, PROC_REF(set_can_print), 1), 150)
 
-/obj/item/device/taperecorder/proc/set_can_print(var/set_state = TRUE)
+/obj/item/taperecorder/proc/set_can_print(var/set_state = TRUE)
 	can_print = set_state
 
-/obj/item/device/taperecorder/verb/eject_usb()
+/obj/item/taperecorder/verb/eject_usb()
 	set name = "Eject Portable Storage"
-	set category = "Object"
+	set category = "Object.Tape Recorder"
 	set src in usr
 
 	if(use_check_and_message(usr))
@@ -275,7 +276,7 @@
 	usr.put_in_hands(portable_drive)
 	portable_drive = null
 
-/obj/item/device/taperecorder/attack_self(mob/user)
+/obj/item/taperecorder/attack_self(mob/user)
 	if(!recording && !playing)
 		if(use_check_and_message(usr))
 			return
@@ -283,7 +284,7 @@
 		if(emagged)
 			src.audible_message(SPAN_WARNING("\The [src] makes a scratchy noise."), hearing_distance = 3)
 			return
-		icon_state = "taperecorderrecording"
+		icon_state = "taperecorder_recording"
 		if(time_recorded < 3600 && !playing)
 			to_chat(usr, SPAN_NOTICE("Recording started."))
 			recording = TRUE
@@ -295,7 +296,7 @@
 				time_recorded++
 				sleep(10)
 			recording = FALSE
-			icon_state = "taperecorderidle"
+			icon_state = "taperecorder_idle"
 			return
 		else
 			to_chat(usr, SPAN_WARNING("Either \the [src]'s memory is full, or it is currently playing back its memory."))
@@ -308,7 +309,7 @@
 			timestamp += time_recorded
 			stored_info += "\[[time2text(time_recorded*10,"mm:ss")]\] Recording stopped."
 			to_chat(usr, SPAN_NOTICE("Recording stopped."))
-			icon_state = "taperecorderidle"
+			icon_state = "taperecorder_idle"
 			return
 		else if(emagged)
 			to_chat(usr, SPAN_WARNING("\The [src]'s buttons doesn't react!"))
@@ -316,10 +317,10 @@
 		else if(playing)
 			playing = FALSE
 			audible_message("<font color=Maroon><B>Tape Recorder</B>: Playback stopped.</font>", hearing_distance = 3)
-			icon_state = "taperecorderidle"
+			icon_state = "taperecorder_idle"
 			return
 
-/obj/item/device/taperecorder/attackby(obj/item/attacking_item, mob/user)
+/obj/item/taperecorder/attackby(obj/item/attacking_item, mob/user)
 	if(istype(attacking_item, /obj/item/computer_hardware/hard_drive/portable))
 		if(portable_drive)
 			to_chat(user, SPAN_WARNING("\The [src] already has a portable drive!"))

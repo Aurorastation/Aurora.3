@@ -106,9 +106,9 @@
 
 	if(!current_species || current_species.name_language == null)
 		if(gender==FEMALE)
-			return capitalize(pick(first_names_female)) + " " + capitalize(pick(last_names))
+			return capitalize(pick(GLOB.first_names_female)) + " " + capitalize(pick(GLOB.last_names))
 		else
-			return capitalize(pick(first_names_male)) + " " + capitalize(pick(last_names))
+			return capitalize(pick(GLOB.first_names_male)) + " " + capitalize(pick(GLOB.last_names))
 	else
 		return current_species.get_random_name(gender)
 
@@ -264,27 +264,33 @@ Proc for attack log creation, because really why not
 
 		//update our pda and id if we have them on our person
 		var/list/searching = GetAllContents()
-		var/search_id = 1
-		var/search_pda = 1
+		var/search_id = TRUE
+		var/search_pda = TRUE
 
 		for(var/A in searching)
-			if( search_id && istype(A,/obj/item/card/id) )
+			if(search_id && istype(A, /obj/item/card/id) )
 				var/obj/item/card/id/ID = A
 				if(ID.registered_name == oldname)
 					ID.registered_name = newname
 					ID.name = "[newname]'s ID Card ([ID.assignment])"
-					if(!search_pda)	break
-					search_id = 0
+					search_id = FALSE
 
-			else if(search_pda && istype(A,/obj/item/modular_computer))
+					if(!search_pda)
+						break
+
+			else if(search_pda && istype(A, /obj/item/modular_computer))
 				var/obj/item/modular_computer/PDA = A
 				if(!PDA.registered_id)
 					continue
-				if(PDA.registered_id.name == oldname)
+
+				if(PDA.registered_id.registered_name == oldname)
 					PDA.name = "PDA-[newname] ([PDA.registered_id.assignment])"
-					if(!search_id)	break
-					search_pda = 0
-	return 1
+					search_pda = FALSE
+
+					if(!search_id)
+						break
+
+	return TRUE
 
 // Generalised helper proc for letting mobs rename themselves
 /mob/proc/rename_self(var/role, var/allow_numbers=0)

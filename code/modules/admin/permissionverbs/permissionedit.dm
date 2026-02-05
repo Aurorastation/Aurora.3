@@ -37,7 +37,7 @@
 		admins += list(d)
 
 	data["admins"] = admins
-	data["forumuserui_enabled"] = GLOB.config.use_forumuser_api
+	data["forumuserui_enabled"] = GLOB.config.use_authentik_api
 
 	return data
 
@@ -83,12 +83,13 @@
 	PRIVATE_PROC(TRUE)
 
 	var/new_rank
-	if(admin_ranks.len)
-		new_rank = input("Please select a rank", "New rank", null, null) as null|anything in (admin_ranks|"*New Rank*")
+	if(SSauth.admin_ranks.len)
+		new_rank = input("Please select a rank", "New rank", null, null) as null|anything in (SSauth.admin_ranks|"*New Rank*")
 	else
 		new_rank = input("Please select a rank", "New rank", null, null) as null|anything in list("Game Master","Game Admin", "Trial Admin", "Admin Observer","*New Rank*")
 
 	var/rights = D?.rights || 0
+	var/datum/admin_rank/new_admin_rank_datum
 
 	switch(new_rank)
 		if(null, "")
@@ -103,18 +104,19 @@
 				to_chat(usr, SPAN_ALERT("Error editing rank: invalid rank."))
 				return
 
-			if(admin_ranks.len)
-				if(new_rank in admin_ranks)
-					rights = admin_ranks[new_rank]		//we typed a rank which already exists, use its rights
+
+			if(SSauth.admin_ranks.len)
+				if(new_rank in SSauth.admin_ranks)
+					new_admin_rank_datum = SSauth.admin_ranks[new_rank]		//we typed a rank which already exists, use its rights
 				else
-					admin_ranks[new_rank] = 0			//add the new rank to admin_ranks
+					SSauth.admin_ranks[new_rank] = 0			//add the new rank to SSauth.admin_ranks
 		else
-			rights = admin_ranks[new_rank]				//we input an existing rank, use its rights
+			new_admin_rank_datum = SSauth.admin_ranks[new_rank]				//we input an existing rank, use its rights
 
 	if(D)
 		D.disassociate()								//remove adminverbs and unlink from client
 		D.rank = new_rank								//update the rank
-		D.rights = rights								//update the rights based on admin_ranks (default: 0)
+		D.rights = new_admin_rank_datum.rights								//update the rights based on SSauth.admin_ranks (default: 0)
 	else
 		D = new /datum/admins(new_rank, rights, admin_ckey)
 

@@ -20,11 +20,11 @@
 		/obj/item/cell,
 		/obj/item/modular_computer,
 		/obj/item/computer_hardware/battery_module,
-		/obj/item/device/flashlight,
+		/obj/item/flashlight,
 		/obj/item/clothing/mask/smokable/ecig,
 		/obj/item/inductive_charger/handheld,
 		/obj/item/auto_cpr,
-		/obj/item/device/personal_shield
+		/obj/item/personal_shield
 	)
 	var/icon_state_charged = "recharger100"
 	var/icon_state_charging = "recharger"
@@ -32,8 +32,18 @@
 	var/portable = 1
 	var/list/chargebars
 
-/obj/machinery/recharger/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
+/obj/machinery/recharger/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "This device can recharge power cells, various handheld computers, energy weapons and stun batons, flashlights, ecigarettes, handheld inductive chargers, and more."
+
+/obj/machinery/recharger/assembly_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "It [anchored ? "is" : "could be"] anchored to the floor with some <b>bolts</b>."
+
+/obj/machinery/recharger/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	var/charging_power_kw = round(active_power_usage / 1000, 0.1)
+	. += "Uses a dedicated power supply to deliver <b>[charging_power_kw] kW</b> when in use."
 	. += "There is [charging ? "\a [charging]" : "nothing"] in [src]."
 	if (charging && distance <= 3)
 		var/obj/item/cell/C = charging.get_cell()
@@ -49,7 +59,7 @@
 		qdel(bar)
 
 /obj/machinery/recharger/attackby(obj/item/attacking_item, mob/user)
-	if(portable && attacking_item.iswrench())
+	if(portable && attacking_item.tool_behaviour == TOOL_WRENCH)
 		if(charging)
 			to_chat(user, SPAN_WARNING("You can't modify \the [src] while it has something charging inside."))
 			return TRUE
@@ -180,10 +190,14 @@
 	allowed_devices = list(
 		/obj/item/gun/energy,
 		/obj/item/melee/baton,
-		/obj/item/device/flashlight
+		/obj/item/flashlight
 	)
 	icon_state_charged = "wrecharger100"
 	icon_state_charging = "wrecharger"
 	icon_state_idle = "wrecharger_off"
 	appearance_flags = TILE_BOUND // prevents people from viewing us through a wall
 	portable = FALSE
+
+/obj/machinery/recharger/wallcharger/mechanics_hints(mob/user, distance, is_adjacent)
+	. = list()
+	. += "This device can recharge energy weapons, stun batons, and flashlights."

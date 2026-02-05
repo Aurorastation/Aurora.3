@@ -24,7 +24,7 @@
 				/obj/item/clothing/under/tajaran,
 				/obj/item/clothing/under/tajaran/nt,
 				/obj/item/clothing/under/tajaran/summer,
-				/obj/item/clothing/under/pants/tajaran
+				/obj/item/clothing/pants/tajaran
 	)
 
 	shoes = list(
@@ -71,7 +71,7 @@
 	uniform = list(
 				/obj/item/clothing/under/syndicate,
 				/obj/item/clothing/under/tajaran/summer,
-				/obj/item/clothing/under/pants/tajaran
+				/obj/item/clothing/pants/tajaran
 	)
 
 	shoes = list(
@@ -83,6 +83,6 @@
 
 	id = null
 
-	l_ear = /obj/item/device/radio/headset/ship
+	l_ear = /obj/item/radio/headset/ship
 
 	backpack_contents = list(/obj/item/storage/box/survival = 1, /obj/item/storage/wallet/random = 1, /obj/item/gun/projectile/silenced = 1, /obj/item/ammo_magazine/c45m = 2)

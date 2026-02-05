@@ -6,6 +6,7 @@
 	gender = NEUTER
 
 	var/vision_flags = 0
+	var/lighting_alpha = LIGHTING_PLANE_ALPHA_VISIBLE
 	var/see_invisible = 0
 	var/obj/item/robot_parts/robot_component/radio/radio
 	var/obj/item/robot_parts/robot_component/camera/camera
@@ -24,11 +25,11 @@
 	. = ..()
 
 	if(!radio)
-		. += SPAN_WARNING("It is missing a <a href='?src=[REF(src)];info=radio'>radio</a>.")
+		. += SPAN_WARNING("It is missing a <a href='byond://?src=[REF(src)];info=radio'>radio</a>.")
 	if(!camera)
-		. += SPAN_WARNING("It is missing a <a href='?src=[REF(src)];info=camera'>camera</a>.")
+		. += SPAN_WARNING("It is missing a <a href='byond://?src=[REF(src)];info=camera'>camera</a>.")
 	if(!software)
-		. += SPAN_WARNING("It is missing an <a href='?src=[REF(src)];info=module'>exosuit control module</a>.")
+		. += SPAN_WARNING("It is missing an <a href='byond://?src=[REF(src)];info=module'>exosuit control module</a>.")
 
 /obj/item/mech_component/sensors/Topic(href, href_list)
 	. = ..()
@@ -36,11 +37,11 @@
 		return
 	switch(href_list["info"])
 		if("radio")
-			to_chat(usr, SPAN_NOTICE("A radio can be created at a mechatronic fabricator."))
+			to_chat(usr, SPAN_NOTICE("A radio can be created at a synthetic fabricator."))
 		if("camera")
-			to_chat(usr, SPAN_NOTICE("A camera can be created at a mechatronic fabricator."))
+			to_chat(usr, SPAN_NOTICE("A camera can be created at a synthetic fabricator."))
 		if("module")
-			to_chat(usr, SPAN_NOTICE("An exosuit control module can be created at a mechatronic fabricator, while the software chips it uses can be printed at the circuit imprinter."))
+			to_chat(usr, SPAN_NOTICE("An exosuit control module can be created at a synthetic fabricator, while the software chips it uses can be printed at the circuit imprinter."))
 
 /obj/item/mech_component/sensors/return_diagnostics(mob/user)
 	..()
@@ -79,6 +80,12 @@
 		invisible = see_invisible
 	return invisible
 
+/obj/item/mech_component/sensors/proc/get_lighting_alpha(powered)
+	var/l_alpha = 0
+	if((total_damage <= 0.8 * max_damage) && active_sensors && powered)
+		l_alpha = lighting_alpha
+	return l_alpha
+
 /obj/item/mech_component/sensors/ready_to_install()
 	return (radio && camera)
 
@@ -112,7 +119,7 @@
 
 /obj/item/mech_component/control_module/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
-	. += SPAN_NOTICE("<a href='?src=[REF(src)];info=software'>It has [max_installed_software - LAZYLEN(installed_software)] empty slot\s remaining out of [max_installed_software].</a>")
+	. += SPAN_NOTICE("<a href='byond://?src=[REF(src)];info=software'>It has [max_installed_software - LAZYLEN(installed_software)] empty slot\s remaining out of [max_installed_software].</a>")
 
 /obj/item/mech_component/control_module/Topic(href, href_list)
 	. = ..()
@@ -126,7 +133,7 @@
 	if(istype(attacking_item, /obj/item/circuitboard/exosystem))
 		install_software(attacking_item, user)
 		return
-	else if(attacking_item.isscrewdriver())
+	else if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 		var/result = ..()
 		update_software()
 		return result

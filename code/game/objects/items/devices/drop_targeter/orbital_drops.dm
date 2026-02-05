@@ -1,4 +1,4 @@
-/obj/item/device/orbital_dropper/drill
+/obj/item/orbital_dropper/drill
 	name = "drill dropper"
 	desc = "A device used to paint a target, which will then promptly orbitally drop the requested items. This drill literally pierces the heavens."
 
@@ -7,7 +7,7 @@
 
 	map = new /datum/map_template/drill
 
-/obj/item/device/orbital_dropper/minecart
+/obj/item/orbital_dropper/minecart
 	name = "minecart train dropper"
 	desc = "A device used to paint a target, which will then promptly orbitally drop the requested items. This one is configured to deliver an exoplanet-ready minecart train. Rails not included."
 
@@ -17,7 +17,7 @@
 	drop_amount = 1
 	map = new /datum/map_template/minecart
 
-/obj/item/device/orbital_dropper/mecha
+/obj/item/orbital_dropper/mecha
 	name = "mecha dropper"
 	desc = "A device used to paint a target, which will then promptly orbitally drop the requested items. This one feels vaguely familiar..."
 
@@ -30,19 +30,19 @@
 
 	map = new /datum/map_template/mecha
 
-/obj/item/device/orbital_dropper/mecha/heavy
+/obj/item/orbital_dropper/mecha/heavy
 	map = new /datum/map_template/mecha/heavy
 
-/obj/item/device/orbital_dropper/mecha/combat
+/obj/item/orbital_dropper/mecha/combat
 	map = new /datum/map_template/mecha/combat
 
-/obj/item/device/orbital_dropper/mecha/powerloader
+/obj/item/orbital_dropper/mecha/powerloader
 	map = new /datum/map_template/mecha/powerloader
 
-/obj/item/device/orbital_dropper/mecha/miner
+/obj/item/orbital_dropper/mecha/miner
 	map = new /datum/map_template/mecha/miner
 
-/obj/item/device/orbital_dropper/armory
+/obj/item/orbital_dropper/armory
 	name = "armory dropper"
 	desc = "A device used to paint a target, which will then promptly orbitally drop the requested items. Who's ready to raise hell?"
 
@@ -55,12 +55,15 @@
 
 	map = new /datum/map_template/armory
 
-/obj/item/device/orbital_dropper/armory/syndicate
-	desc_antag = "This is a stealthy variant of the standard armory orbital drop. It will not report itself dropping on common, unless emagged."
+/obj/item/orbital_dropper/armory/syndicate
 	announcer_name = "Tactical Autodrone"
 	announcer_frequency = SYND_FREQ
 
-/obj/item/device/orbital_dropper/icarus_drones
+/obj/item/orbital_dropper/armory/syndicate/antagonist_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "This is a stealthy variant of the standard armory orbital drop. It will not report itself dropping on Common, unless emagged."
+
+/obj/item/orbital_dropper/icarus_drones
 	name = "icarus painter"
 	desc = "A device used to paint a target, which will then promptly orbitally drop the requested items. This one has been modified to call in Icarus Drones."
 
@@ -75,7 +78,7 @@
 
 	map = null
 
-/obj/item/device/orbital_dropper/icarus_drones/orbital_drop(var/turf/target, var/user)
-	log_and_message_admins("[key_name_admin(user)] has used a [src] at <A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[target.x];Y=[target.y];Z=[target.z]'>JMP</a>.")
+/obj/item/orbital_dropper/icarus_drones/orbital_drop(var/turf/target, var/user)
+	log_and_message_admins("[key_name_admin(user)] has used a [src] at <A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[target.x];Y=[target.y];Z=[target.z]'>JMP</a>.")
 	for(var/i = 1, i <= num_of_drones, i++)
 		new /mob/living/simple_animal/hostile/icarus_drone(get_random_turf_in_range(target, 4, 2, TRUE))

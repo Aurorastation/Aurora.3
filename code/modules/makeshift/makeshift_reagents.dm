@@ -3,12 +3,11 @@
 	icon = 'icons/obj/makeshift_workstation.dmi'
 	icon_state = "workstation"
 	desc = "It's a makeshift workstation for grinding, chopping, and heating."
-	density = 1
+	density = TRUE
+	anchored = TRUE
+	pass_flags_self = PASSSTRUCTURE | LETPASSTHROW
 
-	anchored = 1
-	throwpass = 1
-
-	var/obj/item/device/analyzer/analyzer
+	var/obj/item/analyzer/analyzer
 	var/transfer_out = 0
 	var/phase_filter
 
@@ -65,9 +64,9 @@
 	var/joules = 0
 	if(istype(W, /obj/item/flame))
 		joules = 1000 // 1 kJ per match, and we're assuming lighters give as much per use
-	else if(W.iswelder())
+	else if(W.tool_behaviour == TOOL_WELDER)
 		joules = 10000 // we'll just have it be ten times stronger
-	else if(istype(W, /obj/item/device/assembly/igniter))
+	else if(istype(W, /obj/item/assembly/igniter))
 		joules = 5000 // half as strong as a welder; this thing has to set off bombs and such
 	else
 		joules = 500 // we're assuming it's some kind of novelty toy like lunea's gloves, etc; not exactly a match but it still works
@@ -132,7 +131,7 @@
 	qdel(src)
 
 /obj/structure/chemkit/attackby(obj/item/attacking_item, mob/user)
-	if(attacking_item.iscrowbar())
+	if(attacking_item.tool_behaviour == TOOL_CROWBAR)
 		dismantle()
 		return
 	if(!istype(attacking_item, /obj/item/reagent_containers/food/snacks) && attacking_item.is_open_container())
@@ -158,7 +157,7 @@
 			return
 		chop(chopped, user)
 		return
-	if(!analyzer && istype(attacking_item, /obj/item/device/analyzer))
+	if(!analyzer && istype(attacking_item, /obj/item/analyzer))
 		user.drop_from_inventory(attacking_item)
 		analyzer = attacking_item
 		attacking_item.forceMove(src)
@@ -230,7 +229,7 @@
 	icon_state = "distillery-off"
 
 /obj/structure/distillery/attackby(obj/item/attacking_item, mob/user)
-	if(attacking_item.iscrowbar())
+	if(attacking_item.tool_behaviour == TOOL_CROWBAR)
 		dismantle()
 		return
 	if(!welder && istype(attacking_item, /obj/item/weldingtool))
@@ -242,7 +241,7 @@
 	if(!istype(attacking_item, /obj/item/reagent_containers/food/snacks) && attacking_item.is_open_container())
 		trans_item(attacking_item, user)
 		return
-	if(attacking_item.isscrewdriver())
+	if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 		transfer_out = !transfer_out
 		to_chat(user, SPAN_NOTICE("You [transfer_out ? "open" : "close"] the spigot on the keg, ready to [transfer_out ? "remove" : "add"] reagents."))
 		return

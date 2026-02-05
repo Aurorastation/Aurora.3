@@ -1,11 +1,10 @@
 /datum/faction/admin
 	name = "Admin Jobs"
-	description = {"<p>
-	This faction is for IC administrative jobs used by staff.
-	</p>"}
-
-	departments = {"Command"}
+	description = "This faction is for IC administrative jobs used by staff."
+	departments = list(DEPARTMENT_COMMAND)
 	title_suffix = "SCC"
+
+	ui_priority = -INFINITY // top of the list
 
 	allowed_role_types = ADMIN_ROLES
 

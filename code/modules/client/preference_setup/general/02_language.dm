@@ -91,17 +91,17 @@
 		if(pref.alternate_languages.len)
 			for(var/i = 1 to pref.alternate_languages.len)
 				var/lang = pref.alternate_languages[i]
-				dat += "- [lang] - <a href='?src=[REF(src)];remove_language=[i]'>remove</a><br>"
+				dat += "- [lang] - <a href='byond://?src=[REF(src)];remove_language=[i]'>remove</a><br>"
 
 		if(pref.alternate_languages.len < S.num_alternate_languages)
-			dat += "- <a href='?src=[REF(src)];add_language=1'>add</a> ([S.num_alternate_languages - pref.alternate_languages.len] remaining)<br>"
+			dat += "- <a href='byond://?src=[REF(src)];add_language=1'>add</a> ([S.num_alternate_languages - pref.alternate_languages.len] remaining)<br>"
 	else
 		dat += "- [pref.species] cannot choose secondary languages.<br>"
 
 	if(S.has_autohiss)
 		pref.autohiss_setting = clamp(pref.autohiss_setting, AUTOHISS_OFF, AUTOHISS_NUM - 1)
 		var/list/autohiss_to_word = list("Disabled", "Basic", "Full")
-		dat += "<br><a href='?src=[REF(src)];autohiss=1'>Autohiss: [autohiss_to_word[pref.autohiss_setting + 1]]</a><br>"
+		dat += "<br><a href='byond://?src=[REF(src)];autohiss=1'>Autohiss: [autohiss_to_word[pref.autohiss_setting + 1]]</a><br>"
 
 	. = dat.Join()
 

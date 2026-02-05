@@ -18,7 +18,7 @@
 /obj/item/mech_component/propulsion/get_missing_parts_text()
 	. = ..()
 	if(!motivator)
-		. += SPAN_WARNING("It is missing an <a href='?src=[REF(src)];info=actuator'>actuator</a>.")
+		. += SPAN_WARNING("It is missing an <a href='byond://?src=[REF(src)];info=actuator'>actuator</a>.")
 
 /obj/item/mech_component/propulsion/Topic(href, href_list)
 	. = ..()
@@ -26,7 +26,7 @@
 		return
 	switch(href_list["info"])
 		if("actuator")
-			to_chat(usr, SPAN_NOTICE("An actuator can be created at a mechatronic fabricator."))
+			to_chat(usr, SPAN_NOTICE("An actuator can be created at a synthetic fabricator."))
 
 /obj/item/mech_component/propulsion/return_diagnostics(mob/user)
 	..()

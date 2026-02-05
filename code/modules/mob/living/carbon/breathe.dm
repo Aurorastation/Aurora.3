@@ -1,25 +1,10 @@
 //Common breathing procs
-
-//Start of a breath chain, calls breathe()
+/// START OF THE STANDARD BREATHING CHAIN. Just handles the timing to call breathe().
 /mob/living/carbon/handle_breathing()
 	if(SSair.times_fired%4==2 || failed_last_breath || is_asystole()) 	//First, resolve location and get a breath
 		breathe()
 
-/mob/living/carbon/proc/inhale(var/datum/reagents/from, var/datum/reagents/target, var/amount = 1, var/multiplier = 1, var/copy = 0, var/bypass_checks = FALSE)
-
-	if(species && (species.flags & NO_BREATHE)) //Check for species
-		return 0
-
-	if(!bypass_checks)
-
-		if(wear_mask && wear_mask.item_flags & ITEM_FLAG_BLOCK_GAS_SMOKE_EFFECT) //Check if the gasmask blocks an effect
-			return 0
-
-		if (internals && internals.icon_state == "internal1") //Check for internals
-			return 0
-
-	return from.trans_to_holder(target,amount,multiplier,copy) //complete transfer
-
+/// If we're a species that needs to breathe, it checks current health effects and, if we CAN breathe, checks for air from internals -> envvironment -> then runs handle_breath() and handle_post_breath().
 /mob/living/carbon/proc/breathe(var/volume_needed = BREATH_VOLUME)
 	if(species && (species.flags & NO_BREATHE))
 		return
@@ -44,7 +29,9 @@
 		if(!breath)
 			breath = get_breath_from_environment(volume_needed) //No breath from internals so let's try to get air from our location
 
+	// Passing the gas mixture to the lungs, if they exist.
 	handle_breath(breath)
+	// Handling exhalation.
 	handle_post_breath(breath)
 
 /mob/living/carbon/proc/get_breath_from_internal(var/volume_needed=BREATH_VOLUME) //hopefully this will allow overrides to specify a different default volume without breaking any cases where volume is passed in.
@@ -82,22 +69,6 @@
 		return breath
 	return null
 
-//Handle possble chem smoke effect
-/mob/living/carbon/proc/handle_chemical_smoke(var/datum/gas_mixture/environment)
-	if(species && environment.return_pressure() < species.breath_pressure/5)
-		return //pressure is too low to even breathe in.
-	if(wear_mask && (wear_mask.item_flags & ITEM_FLAG_BLOCK_GAS_SMOKE_EFFECT))
-		return
-
-	for(var/obj/effect/effect/smoke/chem/smoke in view(1, src))
-		if(smoke.reagents.total_volume)
-			smoke.reagents.trans_to_mob(src, 5, CHEM_INGEST, copy = 1)
-			smoke.reagents.trans_to_mob(src, 5, CHEM_TOUCH, copy = 1)
-			smoke.reagents.trans_to_mob(src, 5, CHEM_BREATHE, copy = 1)
-			// I dunno, maybe the reagents enter the blood stream through the lungs?
-			// ^ HA HA HA HA
-			break
-
 /mob/living/carbon/proc/handle_breath(datum/gas_mixture/breath)
 	return
 
@@ -105,3 +76,36 @@
 	if(!breath)
 		return
 	loc.assume_air(breath) //exhale into the environment
+// END OF THE STANDARD BREATHING CHAIN
+
+/// Handles chemical inhalation effects (trans_to_mob(), also search CHEM_BREATHE).
+/mob/living/carbon/proc/inhale(var/datum/reagents/from, var/datum/reagents/target, var/amount = 1, var/multiplier = 1, var/copy = 0, var/bypass_checks = FALSE)
+
+	if(species && (species.flags & NO_BREATHE)) //Check for species
+		return 0
+
+	if(!bypass_checks)
+
+		if(wear_mask && wear_mask.item_flags & ITEM_FLAG_BLOCK_GAS_SMOKE_EFFECT) //Check if the gasmask blocks an effect
+			return 0
+
+		if (internals && internals.icon_state == "internal1") //Check for internals
+			return 0
+
+	return from.trans_to_holder(target,amount,multiplier,copy) //complete transfer
+
+//Handle possble chem smoke effect
+/mob/living/carbon/proc/handle_chemical_smoke(var/datum/gas_mixture/environment)
+	if(species && environment.return_pressure() < species.breath_pressure/5)
+		return //pressure is too low to even breathe in.
+	if(wear_mask && (wear_mask.item_flags & ITEM_FLAG_BLOCK_GAS_SMOKE_EFFECT))
+		return
+
+	for(var/obj/effect/smoke/chem/smoke in view(1, src))
+		if(smoke.reagents.total_volume)
+			smoke.reagents.trans_to_mob(src, 5, CHEM_INGEST, copy = 1)
+			smoke.reagents.trans_to_mob(src, 5, CHEM_TOUCH, copy = 1)
+			smoke.reagents.trans_to_mob(src, 5, CHEM_BREATHE, copy = 1)
+			// I dunno, maybe the reagents enter the blood stream through the lungs?
+			// ^ HA HA HA HA
+			break

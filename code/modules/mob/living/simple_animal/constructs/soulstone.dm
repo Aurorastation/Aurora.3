@@ -1,7 +1,7 @@
-/obj/item/device/soulstone/cultify()
+/obj/item/soulstone/cultify()
 	return
 
-/obj/item/device/soulstone
+/obj/item/soulstone
 	name = "soul stone shard"
 	desc = "A fragment of the legendary treasure known simply as the 'Soul Stone'. The shard still flickers with a fraction of the full artefacts power."
 	icon = 'icons/obj/wizard.dmi'
@@ -15,7 +15,7 @@
 
 //////////////////////////////Capturing////////////////////////////////////////////////////////
 
-/obj/item/device/soulstone/attack(mob/living/target_mob, mob/living/user, target_zone)
+/obj/item/soulstone/attack(mob/living/target_mob, mob/living/user, target_zone)
 	user.setClickCooldown(20)
 
 	var/mob/living/carbon/human/M = target_mob
@@ -31,7 +31,7 @@
 
 	M.attack_log += "\[[time_stamp()]\] <font color='orange'>Has had their soul captured with [src.name] by [user.name] ([user.ckey])</font>"
 	user.attack_log += "\[[time_stamp()]\] <span class='warning'>Used the [src.name] to capture the soul of [M.name] ([M.ckey])</span>"
-	msg_admin_attack("[user.name] ([user.ckey]) used the [src.name] to capture the soul of [M.name] ([M.ckey]) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(src),ckey_target=key_name(M))
+	msg_admin_attack("[user.name] ([user.ckey]) used the [src.name] to capture the soul of [M.name] ([M.ckey]) (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(src),ckey_target=key_name(M))
 
 	transfer_soul("VICTIM", M, user)
 	return
@@ -39,7 +39,7 @@
 
 ///////////////////Options for using captured souls///////////////////////////////////////
 
-/obj/item/device/soulstone/attack_self(mob/user)
+/obj/item/soulstone/attack_self(mob/user)
 	if(!in_range(src, user))
 		return
 	user.set_machine(src)
@@ -56,7 +56,7 @@
 	soulstone_win.add_stylesheet("cult", 'html/browser/cult.css')
 	soulstone_win.open()
 
-/obj/item/device/soulstone/Topic(href, href_list)
+/obj/item/soulstone/Topic(href, href_list)
 	var/mob/U = usr
 	if (!in_range(src, U)||U.machine!=src)
 		U << browse(null, "window=soulstone")
@@ -98,13 +98,13 @@
 	desc = "This eerie contraption looks like it would come alive if supplied with a missing ingredient."
 
 /obj/structure/constructshell/attackby(obj/item/attacking_item, mob/user)
-	if(istype(attacking_item, /obj/item/device/soulstone))
-		var/obj/item/device/soulstone/S = attacking_item
+	if(istype(attacking_item, /obj/item/soulstone))
+		var/obj/item/soulstone/S = attacking_item
 		S.transfer_soul("CONSTRUCT",src,user)
 
 
 ////////////////////////////Proc for moving soul in and out off stone//////////////////////////////////////
-/obj/item/device/soulstone/proc/transfer_human(var/mob/living/carbon/human/T,var/mob/U)
+/obj/item/soulstone/proc/transfer_human(var/mob/living/carbon/human/T,var/mob/U)
 	if(!istype(T))
 		return
 	if(src.imprinted != "empty")
@@ -154,7 +154,7 @@
 	src.imprinted = "[S.name]"
 	qdel(T)
 
-/obj/item/device/soulstone/proc/transfer_shade(var/mob/living/simple_animal/shade/T,var/mob/U)
+/obj/item/soulstone/proc/transfer_shade(var/mob/living/simple_animal/shade/T,var/mob/U)
 	if(!istype(T))
 		return;
 	if (T.stat == DEAD)
@@ -176,7 +176,7 @@
 	to_chat(T, "Your soul has been recaptured by the soul stone, its arcane energies are reknitting your ethereal form")
 	to_chat(U, "<span class='notice'>Capture successful!</span> : [T.name]'s has been recaptured and stored within the soul stone.")
 
-/obj/item/device/soulstone/proc/transfer_construct(var/obj/structure/constructshell/T,var/mob/U)
+/obj/item/soulstone/proc/transfer_construct(var/obj/structure/constructshell/T,var/mob/U)
 	var/mob/living/simple_animal/shade/A = locate() in src
 	if(!A)
 		to_chat(U, "<span class='danger'>Capture failed!</span>: The soul stone is empty! Go kill someone!")
@@ -220,7 +220,7 @@
 			Z.cancel_camera()
 			qdel(src)
 
-/obj/item/device/soulstone/proc/transfer_soul(var/choice as text, var/target, var/mob/U as mob)
+/obj/item/soulstone/proc/transfer_soul(var/choice as text, var/target, var/mob/U as mob)
 	switch(choice)
 		if("VICTIM")
 			transfer_human(target,U)

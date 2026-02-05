@@ -16,12 +16,6 @@
 	icon_state = "geta"
 	item_state = "geta"
 
-/obj/item/clothing/shoes/sandals/flipflop
-	name = "flip flops"
-	desc = "A pair of foam flip flops. For those not afraid to show a little ankle."
-	icon_state = "thongsandal"
-	item_state = "thongsandal"
-
 /obj/item/clothing/shoes/sandals/clogs
 	name = "rubber clogs"
 	desc = "A favorite of barbecue loving fathers, beachgoers, and people with no fashion sense. Don't wear these with socks."
@@ -44,7 +38,7 @@
 	item_state = "caligae"
 	force = 11
 	armor = list(
-			melee = ARMOR_MELEE_KNIVES
+			MELEE = ARMOR_MELEE_KNIVES
 			)
 	siemens_coefficient = 0.75
 	body_parts_covered = FEET|LEGS

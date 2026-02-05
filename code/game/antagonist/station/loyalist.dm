@@ -1,4 +1,4 @@
-var/datum/antagonist/loyalists/loyalists
+GLOBAL_DATUM(loyalists, /datum/antagonist/loyalists)
 
 /datum/antagonist/loyalists
 	id = MODE_LOYALIST
@@ -22,18 +22,18 @@ var/datum/antagonist/loyalists/loyalists
 	// Inround loyalists.
 	faction_role_text = "Loyalist"
 	faction_descriptor = "Loyalists"
-	faction_verb = /mob/living/proc/convert_to_loyalist
+	faction_verbs = list(/mob/living/proc/convert_to_loyalist)
 	faction_welcome = "You have decided to defend the establishment, no matter what it takes.. Follow your leaders' instructions and try to achieve the Loyalists' goals."
 	faction_indicator = "fellowship"
 	faction_invisible = FALSE
 
 	restricted_jobs = list("AI", "Cyborg", "Merchant")
-	protected_jobs = list("Lab Assistant", "Medical Intern", "Engineering Apprentice", "Assistant", "Security Cadet")
+	protected_jobs = list("Research Intern", "Medical Intern", "Engineering Apprentice", "Assistant", "Security Cadet")
 	required_age = 31
 
 /datum/antagonist/loyalists/New()
 	..()
-	loyalists = src
+	GLOB.loyalists = src
 
 /datum/antagonist/loyalists/create_global_objectives()
 	if(!..())
@@ -54,8 +54,8 @@ var/datum/antagonist/loyalists/loyalists
 
 	if(!player.back)
 		player.equip_to_slot_or_del(new /obj/item/storage/backpack(player), slot_back) // if they have no backpack, spawn one
-	player.equip_to_slot_or_del(new /obj/item/device/announcer(player), slot_in_backpack)
-	player.equip_to_slot_or_del(new /obj/item/device/special_uplink/rev(player, player.mind), slot_in_backpack)
+	player.equip_to_slot_or_del(new /obj/item/announcer(player), slot_in_backpack)
+	player.equip_to_slot_or_del(new /obj/item/special_uplink/rev(player, player.mind), slot_in_backpack)
 
 	give_codewords(player)
 	INVOKE_ASYNC(src, PROC_REF(alert_loyalist_status), player)

@@ -17,15 +17,19 @@
 		SPECIES_SKRELL_AXIORI = 80
 	)
 
-	access = list(ACCESS_ENGINE, ACCESS_ENGINE_EQUIP, ACCESS_TECH_STORAGE, ACCESS_MAINT_TUNNELS,
-					ACCESS_TELEPORTER, ACCESS_EXTERNAL_AIRLOCKS, ACCESS_ATMOSPHERICS, ACCESS_EMERGENCY_STORAGE, ACCESS_EVA, ACCESS_LEVIATHAN, ACCESS_SHIP_WEAPONS,
-					ACCESS_HEADS, ACCESS_CONSTRUCTION, ACCESS_SEC_DOORS, ACCESS_RESEARCH, ACCESS_MEDICAL, ACCESS_MINING, ACCESS_MAILSORTING,
-					ACCESS_CE, ACCESS_RC_ANNOUNCE, ACCESS_KEYCARD_AUTH, ACCESS_TCOMSAT, ACCESS_AI_UPLOAD, ACCESS_IT, ACCESS_INTREPID, ACCESS_NETWORK)
+	access = list(
+		ACCESS_ENGINE, ACCESS_ENGINE_EQUIP, ACCESS_TECH_STORAGE, ACCESS_MAINT_TUNNELS, ACCESS_TELEPORTER, ACCESS_EXTERNAL_AIRLOCKS, ACCESS_ATMOSPHERICS,
+		ACCESS_EMERGENCY_STORAGE, ACCESS_EVA, ACCESS_LEVIATHAN, ACCESS_SHIP_WEAPONS, ACCESS_HEADS, ACCESS_CONSTRUCTION, ACCESS_SEC_DOORS, ACCESS_RESEARCH,
+		ACCESS_MEDICAL, ACCESS_MINING, ACCESS_MAILSORTING, ACCESS_CE, ACCESS_RC_ANNOUNCE, ACCESS_KEYCARD_AUTH, ACCESS_TCOMSAT, ACCESS_AI_UPLOAD, ACCESS_IT,
+		ACCESS_INTREPID, ACCESS_SPARK, ACCESS_QUARK, ACCESS_CANARY, ACCESS_NETWORK
+	)
 
-	minimal_access = list(ACCESS_ENGINE, ACCESS_ENGINE_EQUIP, ACCESS_TECH_STORAGE, ACCESS_MAINT_TUNNELS,
-							ACCESS_TELEPORTER, ACCESS_EXTERNAL_AIRLOCKS, ACCESS_ATMOSPHERICS, ACCESS_EMERGENCY_STORAGE, ACCESS_EVA, ACCESS_LEVIATHAN, ACCESS_SHIP_WEAPONS,
-							ACCESS_HEADS, ACCESS_CONSTRUCTION, ACCESS_SEC_DOORS, ACCESS_RESEARCH, ACCESS_MEDICAL, ACCESS_MINING, ACCESS_MAILSORTING,
-							ACCESS_CE, ACCESS_RC_ANNOUNCE, ACCESS_KEYCARD_AUTH, ACCESS_TCOMSAT, ACCESS_AI_UPLOAD, ACCESS_IT, ACCESS_BRIDGE_CREW, ACCESS_INTREPID, ACCESS_NETWORK)
+	minimal_access = list(
+		ACCESS_ENGINE, ACCESS_ENGINE_EQUIP, ACCESS_TECH_STORAGE, ACCESS_MAINT_TUNNELS, ACCESS_TELEPORTER, ACCESS_EXTERNAL_AIRLOCKS, ACCESS_ATMOSPHERICS,
+		ACCESS_EMERGENCY_STORAGE, ACCESS_EVA, ACCESS_LEVIATHAN, ACCESS_SHIP_WEAPONS, ACCESS_HEADS, ACCESS_CONSTRUCTION, ACCESS_SEC_DOORS, ACCESS_RESEARCH,
+		ACCESS_MEDICAL, ACCESS_MINING, ACCESS_MAILSORTING, ACCESS_CE, ACCESS_RC_ANNOUNCE, ACCESS_KEYCARD_AUTH, ACCESS_TCOMSAT, ACCESS_AI_UPLOAD, ACCESS_IT,
+		ACCESS_BRIDGE_CREW, ACCESS_INTREPID, ACCESS_SPARK, ACCESS_QUARK, ACCESS_CANARY, ACCESS_NETWORK
+	)
 
 	minimal_player_age = 7
 	outfit = /obj/outfit/job/chief_engineer
@@ -42,13 +46,13 @@
 	belt = /obj/item/storage/belt/utility/ce
 	id = /obj/item/card/id/scc/silver
 	shoes = null
-	r_pocket = /obj/item/device/t_scanner
+	r_pocket = /obj/item/t_scanner
 
-	headset = /obj/item/device/radio/headset/heads/ce
-	bowman = /obj/item/device/radio/headset/heads/ce/alt
-	double_headset = /obj/item/device/radio/headset/alt/double/ce
-	wrist_radio = /obj/item/device/radio/headset/wrist/ce
-	clipon_radio = /obj/item/device/radio/headset/wrist/clip/ce
+	headset = /obj/item/radio/headset/heads/ce
+	bowman = /obj/item/radio/headset/heads/ce/alt
+	double_headset = /obj/item/radio/headset/alt/double/ce
+	wrist_radio = /obj/item/radio/headset/wrist/ce
+	clipon_radio = /obj/item/radio/headset/wrist/clip/ce
 
 	tab_pda = /obj/item/modular_computer/handheld/pda/engineering/ce
 	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/engineering/ce
@@ -89,8 +93,12 @@
 		SPECIES_SKRELL_AXIORI = 60
 	)
 
-	access = list(ACCESS_EVA, ACCESS_ENGINE, ACCESS_ENGINE_EQUIP, ACCESS_TECH_STORAGE, ACCESS_MAINT_TUNNELS, ACCESS_SHIP_WEAPONS, ACCESS_EXTERNAL_AIRLOCKS, ACCESS_CONSTRUCTION, ACCESS_ATMOSPHERICS, ACCESS_LEVIATHAN)
-	minimal_access = list(ACCESS_EVA, ACCESS_ENGINE, ACCESS_ENGINE_EQUIP, ACCESS_TECH_STORAGE, ACCESS_MAINT_TUNNELS, ACCESS_SHIP_WEAPONS, ACCESS_EXTERNAL_AIRLOCKS, ACCESS_CONSTRUCTION, ACCESS_LEVIATHAN)
+	access = list(
+		ACCESS_EVA, ACCESS_ENGINE, ACCESS_ENGINE_EQUIP, ACCESS_TECH_STORAGE, ACCESS_MAINT_TUNNELS, ACCESS_SHIP_WEAPONS, ACCESS_EXTERNAL_AIRLOCKS, ACCESS_CONSTRUCTION, ACCESS_ATMOSPHERICS, ACCESS_LEVIATHAN
+	)
+	minimal_access = list(
+		ACCESS_EVA, ACCESS_ENGINE, ACCESS_ENGINE_EQUIP, ACCESS_TECH_STORAGE, ACCESS_MAINT_TUNNELS, ACCESS_SHIP_WEAPONS, ACCESS_EXTERNAL_AIRLOCKS, ACCESS_CONSTRUCTION, ACCESS_LEVIATHAN
+	)
 	outfit = /obj/outfit/job/engineer
 
 	blacklisted_species = list(SPECIES_VAURCA_BREEDER)
@@ -105,13 +113,13 @@
 	belt = /obj/item/storage/belt/utility
 	id = /obj/item/card/id/silver
 	shoes = null
-	r_pocket = /obj/item/device/t_scanner
+	r_pocket = /obj/item/t_scanner
 
-	headset = /obj/item/device/radio/headset/headset_eng
-	bowman = /obj/item/device/radio/headset/headset_eng/alt
-	double_headset = /obj/item/device/radio/headset/alt/double/eng
-	wrist_radio = /obj/item/device/radio/headset/wrist/eng
-	clipon_radio = /obj/item/device/radio/headset/wrist/clip/eng
+	headset = /obj/item/radio/headset/headset_eng
+	bowman = /obj/item/radio/headset/headset_eng/alt
+	double_headset = /obj/item/radio/headset/alt/double/eng
+	wrist_radio = /obj/item/radio/headset/wrist/eng
+	clipon_radio = /obj/item/radio/headset/wrist/clip/eng
 
 	tab_pda = /obj/item/modular_computer/handheld/pda/engineering
 	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/engineering
@@ -123,11 +131,12 @@
 	messengerbag = /obj/item/storage/backpack/messenger/engi
 
 	belt_contents = list(
+		/obj/item/screwdriver = 1,
+		/obj/item/wrench = 1,
 		/obj/item/weldingtool = 1,
 		/obj/item/crowbar = 1,
 		/obj/item/wirecutters = 1,
-		/obj/item/stack/cable_coil/random = 1,
-		/obj/item/powerdrill = 1
+		/obj/item/stack/cable_coil/random = 1
 	)
 
 /obj/outfit/job/engineer/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
@@ -158,8 +167,12 @@
 		SPECIES_SKRELL_AXIORI = 60
 	)
 
-	access = list(ACCESS_EVA, ACCESS_ENGINE, ACCESS_ENGINE_EQUIP, ACCESS_TECH_STORAGE, ACCESS_MAINT_TUNNELS, ACCESS_EXTERNAL_AIRLOCKS, ACCESS_CONSTRUCTION, ACCESS_ATMOSPHERICS, ACCESS_LEVIATHAN)
-	minimal_access = list(ACCESS_EVA, ACCESS_ENGINE, ACCESS_MAINT_TUNNELS, ACCESS_EXTERNAL_AIRLOCKS, ACCESS_CONSTRUCTION, ACCESS_ATMOSPHERICS, ACCESS_LEVIATHAN)
+	access = list(
+		ACCESS_EVA, ACCESS_ENGINE, ACCESS_ENGINE_EQUIP, ACCESS_TECH_STORAGE, ACCESS_MAINT_TUNNELS, ACCESS_EXTERNAL_AIRLOCKS, ACCESS_CONSTRUCTION, ACCESS_ATMOSPHERICS, ACCESS_LEVIATHAN
+	)
+	minimal_access = list(
+		ACCESS_EVA, ACCESS_ENGINE, ACCESS_MAINT_TUNNELS, ACCESS_EXTERNAL_AIRLOCKS, ACCESS_CONSTRUCTION, ACCESS_ATMOSPHERICS, ACCESS_LEVIATHAN
+	)
 	outfit = /obj/outfit/job/atmos
 	blacklisted_species = list(SPECIES_VAURCA_BREEDER)
 
@@ -173,11 +186,11 @@
 	id = /obj/item/card/id/silver
 	shoes = null
 
-	headset = /obj/item/device/radio/headset/headset_eng
-	bowman = /obj/item/device/radio/headset/headset_eng/alt
-	double_headset = /obj/item/device/radio/headset/alt/double/eng
-	wrist_radio = /obj/item/device/radio/headset/wrist/eng
-	clipon_radio = /obj/item/device/radio/headset/wrist/clip/eng
+	headset = /obj/item/radio/headset/headset_eng
+	bowman = /obj/item/radio/headset/headset_eng/alt
+	double_headset = /obj/item/radio/headset/alt/double/eng
+	wrist_radio = /obj/item/radio/headset/wrist/eng
+	clipon_radio = /obj/item/radio/headset/wrist/clip/eng
 
 	backpack = /obj/item/storage/backpack/industrial
 	satchel = /obj/item/storage/backpack/satchel/eng
@@ -189,13 +202,14 @@
 	tablet = /obj/item/modular_computer/handheld/preset/engineering/atmos
 
 	belt_contents = list(
+		/obj/item/screwdriver = 1,
+		/obj/item/wrench = 1,
 		/obj/item/weldingtool = 1,
 		/obj/item/crowbar = 1,
 		/obj/item/wirecutters = 1,
-		/obj/item/device/t_scanner = 1,
-		/obj/item/device/analyzer = 1,
-		/obj/item/pipewrench = 1,
-		/obj/item/powerdrill = 1
+		/obj/item/t_scanner = 1,
+		/obj/item/analyzer = 1,
+		/obj/item/pipewrench = 1
 	)
 
 /obj/outfit/job/atmos/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
@@ -220,8 +234,12 @@
 	intro_prefix = "an"
 	supervisors = "the Chief Engineer"
 	selection_color = "#c67519"
-	access = list(ACCESS_MAINT_TUNNELS, ACCESS_CONSTRUCTION, ACCESS_ENGINE_EQUIP, ACCESS_ENGINE)
-	minimal_access = list(ACCESS_MAINT_TUNNELS, ACCESS_CONSTRUCTION, ACCESS_ENGINE_EQUIP, ACCESS_ENGINE)
+	access = list(
+		ACCESS_MAINT_TUNNELS, ACCESS_CONSTRUCTION, ACCESS_ENGINE_EQUIP, ACCESS_ENGINE
+	)
+	minimal_access = list(
+		ACCESS_MAINT_TUNNELS, ACCESS_CONSTRUCTION, ACCESS_ENGINE_EQUIP, ACCESS_ENGINE
+	)
 	outfit = /obj/outfit/job/intern_eng
 	blacklisted_species = list(SPECIES_VAURCA_BREEDER)
 
@@ -242,18 +260,19 @@
 	belt = /obj/item/storage/belt/utility
 
 	belt_contents = list(
+		/obj/item/screwdriver = 1,
+		/obj/item/wrench = 1,
 		/obj/item/weldingtool = 1,
 		/obj/item/crowbar = 1,
 		/obj/item/wirecutters = 1,
-		/obj/item/stack/cable_coil/random = 1,
-		/obj/item/powerdrill = 1
+		/obj/item/stack/cable_coil/random = 1
 	)
 
-	headset = /obj/item/device/radio/headset/headset_eng
-	bowman = /obj/item/device/radio/headset/headset_eng/alt
-	double_headset = /obj/item/device/radio/headset/alt/double/eng
-	wrist_radio = /obj/item/device/radio/headset/wrist/eng
-	clipon_radio = /obj/item/device/radio/headset/wrist/clip/eng
+	headset = /obj/item/radio/headset/headset_eng
+	bowman = /obj/item/radio/headset/headset_eng/alt
+	double_headset = /obj/item/radio/headset/alt/double/eng
+	wrist_radio = /obj/item/radio/headset/wrist/eng
+	clipon_radio = /obj/item/radio/headset/wrist/clip/eng
 
 	backpack = /obj/item/storage/backpack/industrial
 	satchel = /obj/item/storage/backpack/satchel/eng
@@ -275,20 +294,21 @@
 	belt = /obj/item/storage/belt/utility
 
 	belt_contents = list(
+		/obj/item/screwdriver = 1,
+		/obj/item/wrench = 1,
 		/obj/item/weldingtool = 1,
 		/obj/item/crowbar = 1,
 		/obj/item/wirecutters = 1,
-		/obj/item/device/t_scanner = 1,
-		/obj/item/device/analyzer = 1,
-		/obj/item/pipewrench = 1,
-		/obj/item/powerdrill = 1
+		/obj/item/t_scanner = 1,
+		/obj/item/analyzer = 1,
+		/obj/item/pipewrench = 1
 	)
 
-	headset = /obj/item/device/radio/headset/headset_eng
-	bowman = /obj/item/device/radio/headset/headset_eng/alt
-	double_headset = /obj/item/device/radio/headset/alt/double/eng
-	wrist_radio = /obj/item/device/radio/headset/wrist/eng
-	clipon_radio = /obj/item/device/radio/headset/wrist/clip/eng
+	headset = /obj/item/radio/headset/headset_eng
+	bowman = /obj/item/radio/headset/headset_eng/alt
+	double_headset = /obj/item/radio/headset/alt/double/eng
+	wrist_radio = /obj/item/radio/headset/wrist/eng
+	clipon_radio = /obj/item/radio/headset/wrist/clip/eng
 
 	backpack = /obj/item/storage/backpack/industrial
 	satchel = /obj/item/storage/backpack/satchel/eng

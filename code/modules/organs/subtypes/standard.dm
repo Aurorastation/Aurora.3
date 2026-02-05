@@ -16,7 +16,7 @@
 	artery_name = "internal thoracic artery"
 	dislocated = -1
 	gendered_icon = 1
-	limb_flags = ORGAN_CAN_BREAK
+	limb_flags = ORGAN_CAN_BREAK | ORGAN_HEALS_OVERKILL
 	parent_organ = null
 	encased = "ribcage"
 	augment_limit = 3
@@ -80,7 +80,7 @@
 	limb_flags = ORGAN_CAN_AMPUTATE | ORGAN_CAN_BREAK | ORGAN_CAN_MAIM | ORGAN_HAS_TENDON | ORGAN_CAN_GRASP
 	tendon_name = "palmaris longus tendon"
 	artery_name = "basilic vein"
-	arterial_bleed_severity = 0.75
+	arterial_bleed_severity = 0.5
 	amputation_point = "left shoulder"
 	augment_limit = 2
 
@@ -113,7 +113,7 @@
 	joint = "left knee"
 	tendon_name = "quadriceps tendon"
 	artery_name = "femoral artery"
-	arterial_bleed_severity = 0.75
+	arterial_bleed_severity = 0.5
 	amputation_point = "left hip"
 	limb_flags = ORGAN_CAN_AMPUTATE | ORGAN_CAN_BREAK | ORGAN_CAN_MAIM | ORGAN_HAS_TENDON
 	augment_limit = 2
@@ -192,6 +192,15 @@
 /obj/item/organ/external/hand/covered_bleed_report(var/blood_type)
 	return "[owner.get_pronoun("has")] [blood_type] running down [owner.get_pronoun("his")] sleeves!"
 
+/obj/item/organ/external/hand/is_malfunctioning()
+	. = ..()
+	if(!.)
+		if(owner.is_mechanical())
+			var/actuator_type = limb_name == BP_L_HAND ? BP_ACTUATORS_LEFT : BP_ACTUATORS_RIGHT
+			var/obj/item/organ/internal/machine/actuators/actuator = owner.internal_organs_by_name[actuator_type]
+			if(!actuator || (actuator.status & ORGAN_DEAD))
+				return TRUE
+
 /obj/item/organ/external/hand/take_damage(brute, burn, damage_flags, used_weapon, list/forbidden_limbs, silent)
 	. = ..()
 	if(owner)
@@ -231,6 +240,7 @@
 	gendered_icon = 1
 	encased = "skull"
 	augment_limit = 3
+	limb_flags = ORGAN_CAN_AMPUTATE | ORGAN_CAN_BREAK | ORGAN_CAN_MAIM | ORGAN_HEALS_OVERKILL
 	var/can_intake_reagents = 1
 
 /obj/item/organ/external/head/body_part_class()

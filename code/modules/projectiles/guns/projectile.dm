@@ -37,10 +37,24 @@
 	//var/list/icon_keys = list()		//keys
 	//var/list/ammo_states = list()	//values
 
+/obj/item/gun/projectile/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "This is a ballistic weapon. It fires [caliber] ammunition. To reload most guns, click the gun with an empty hand to remove any spent casings or magazines, and then insert new ones."
+
+/obj/item/gun/projectile/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(distance > 1)
+		return
+	if(jam_num)
+		. += SPAN_WARNING("It looks jammed.")
+	if(ammo_magazine)
+		. += "It has \a [ammo_magazine] loaded."
+	if(suppressed)
+		. += "It has a suppressor attached."
+	. += "Has [get_ammo()] round\s remaining."
+
 /obj/item/gun/projectile/Initialize()
 	. = ..()
-	desc_info = "This is a ballistic weapon. It fires [caliber] ammunition. To fire the weapon, toggle the safety with ctrl-click (or enable HARM intent), \
-	then click where you want to fire.  To reload, click the gun with an empty hand to remove any spent casings or magazines, and then insert new ones."
 	if(ispath(ammo_type) && (load_method & (SINGLE_CASING|SPEEDLOADER)))
 		for(var/i in 1 to max_shells)
 			loaded += new ammo_type(src)
@@ -127,7 +141,7 @@
 		if(EJECT_CASINGS) //eject casing onto ground.
 			chambered.forceMove(get_turf(src))
 			chambered.throw_at(get_ranged_target_turf(get_turf(src),turn(loc.dir,270),1), rand(0,1), 5)
-			playsound(chambered, /singleton/sound_category/casing_drop_sound, 50, FALSE)
+			playsound(chambered, SFX_CASING_DROP, 50, FALSE)
 		if(CYCLE_CASINGS) //cycle the casing back to the end.
 			if(ammo_magazine)
 				ammo_magazine.stored_ammo += chambered
@@ -194,7 +208,7 @@
 	update_icon()
 
 //attempts to unload src. If allow_dump is set to 0, the speedloader unloading method will be disabled
-/obj/item/gun/projectile/proc/unload_ammo(mob/user, var/allow_dump = 1, var/drop_mag = FALSE)
+/obj/item/gun/projectile/proc/unload_ammo(mob/user, allow_dump = TRUE, drop_mag = FALSE)
 	if(ammo_magazine)
 		if(drop_mag)
 			ammo_magazine.forceMove(user.loc)
@@ -212,7 +226,7 @@
 			if(T)
 				for(var/obj/item/ammo_casing/C in loaded)
 					C.forceMove(T)
-					playsound(C, /singleton/sound_category/casing_drop_sound, 50, extrarange = SILENCED_SOUND_EXTRARANGE, falloff_exponent = (SOUND_FALLOFF_EXPONENT+2))
+					playsound(C, SFX_CASING_DROP, 50, extrarange = SILENCED_SOUND_EXTRARANGE, falloff_exponent = (SOUND_FALLOFF_EXPONENT+2))
 					count++
 				loaded.Cut()
 			if(count)
@@ -235,15 +249,15 @@
 	if(istype(attacking_item, /obj/item/suppressor))
 		var/obj/item/suppressor/S = attacking_item
 		if(!can_suppress)
-			balloon_alert(user, "\the [S.name] doesn't fit")
+			balloon_alert(user, "doesn't fit!")
 			return
 
 		if(suppressed)
-			balloon_alert(user, "already has a suppressor")
+			balloon_alert(user, "already has a suppressor!")
 			return
 
 		if(user.l_hand != S && user.r_hand != S)
-			balloon_alert(user, "not in hand")
+			balloon_alert(user, "not in hand!")
 			return
 
 		user.drop_from_inventory(suppressor, src)
@@ -287,19 +301,6 @@
 		ammo_magazine.update_icon()
 		ammo_magazine = null
 		update_icon() //make sure to do this after unsetting ammo_magazine
-
-/obj/item/gun/projectile/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if(distance > 1)
-		return
-	if(jam_num)
-		. += SPAN_WARNING("It looks jammed.")
-	if(ammo_magazine)
-		. += "It has \a [ammo_magazine] loaded."
-	if(suppressed)
-		. += "It has a suppressor attached."
-	. += "Has [get_ammo()] round\s remaining."
-	return
 
 /obj/item/gun/projectile/get_ammo()
 	var/bullets = 0

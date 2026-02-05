@@ -9,3 +9,12 @@
 #define ACCESSORY_SLOT_ARMOR_PIN		"armor pin"
 #define ACCESSORY_SLOT_ARMOR_POCKETS 	"armor pockets"
 #define ACCESSORY_SLOT_HEAD             "head"
+#define ACCESSORY_SLOT_PANTS			"pants"
+
+// Accessory Layering
+
+#define ACCESSORY_LOWEST_LAYER 0
+#define ACCESSORY_LAYER_LOWER 0
+#define ACCESSORY_LAYER_MIDDLE 1
+#define ACCESSORY_LAYER_UPPER 2
+#define ACCESSORY_HIGHEST_LAYER 2

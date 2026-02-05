@@ -18,8 +18,8 @@
 	name = "abandoned prison"
 	icon_state = "unknown"
 	requires_power = TRUE
-	dynamic_lighting = TRUE
 	no_light_control = TRUE
+	is_outside = OUTSIDE_NO
 
 /area/abandoned_prison/eva_prep
 	name = "EVA Preparation Room"
@@ -60,3 +60,4 @@
 /area/abandoned_prison/exterior
 	name = "Exterior"
 	icon_state = "space"
+	is_outside = OUTSIDE_YES

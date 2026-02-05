@@ -131,7 +131,7 @@
 	icon_state = "airlock_sensor_off"
 
 	anchored = 1
-	power_channel = ENVIRON
+	power_channel = AREA_USAGE_ENVIRON
 	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
 
 	var/id_tag
@@ -154,7 +154,19 @@
 	else
 		icon_state = "airlock_sensor_off"
 
+/obj/machinery/airlock_sensor/attackby(obj/item/attacking_item, mob/user)
+	//Swiping ID on the access button
+	if (attacking_item.GetID())
+		attack_hand(user)
+		return TRUE
+	return ..()
+
 /obj/machinery/airlock_sensor/attack_hand(mob/user)
+	add_fingerprint(usr)
+	if(!allowed(user))
+		to_chat(user, SPAN_WARNING("Access denied."))
+		return FALSE
+
 	var/datum/signal/signal = new
 	signal.transmission_method = TRANSMISSION_RADIO
 	signal.data["tag"] = master_tag
@@ -212,7 +224,7 @@
 	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
 
 	anchored = 1
-	power_channel = ENVIRON
+	power_channel = AREA_USAGE_ENVIRON
 
 	var/master_tag
 	var/frequency = 1449
@@ -239,7 +251,7 @@
 /obj/machinery/access_button/attack_hand(mob/user)
 	add_fingerprint(usr)
 	if(!allowed(user))
-		to_chat(user, SPAN_WARNING("Access Denied"))
+		to_chat(user, SPAN_WARNING("Access denied"))
 
 	else if(radio_connection)
 		var/datum/signal/signal = new

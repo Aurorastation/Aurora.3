@@ -15,7 +15,7 @@
 	buckle_lying = FALSE
 	buckle_require_restraints = TRUE
 
-	var/power_gen = 1000 // Enough to power a single APC. 4000 output with T4 capacitor.
+	var/power_gen = 4000 // Enough to power a single APC. 16000 output with T4 capacitor.
 
 	var/irradiate = TRUE // RTGs irradiate surroundings, but only when panel is open.
 
@@ -25,6 +25,12 @@
 		/obj/item/stack/material/uranium{amount = 10},
 		/obj/item/circuitboard/rtg
 	)
+
+	parts_power_mgmt = FALSE
+
+/obj/machinery/power/rtg/upgrade_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Upgraded <b>capacitors</b> will increase maximum power output."
 
 /obj/machinery/power/rtg/Initialize()
 	. = ..()
@@ -41,6 +47,7 @@
 	icon_state = panel_open ? "[initial(icon_state)]-open" : initial(icon_state)
 
 /obj/machinery/power/rtg/RefreshParts()
+	..()
 	var/part_level = 0
 	for(var/obj/item/stock_parts/SP in component_parts)
 		part_level += SP.rating
@@ -61,10 +68,9 @@
 		return
 	..()
 
-
 /obj/machinery/power/rtg/advanced
 	desc = "An advanced RTG capable of moderating isotope decay, increasing power output but reducing lifetime. It uses phoron-fueled radiation collectors to increase output even further."
-	power_gen = 1250 // 2500 on T1, 10000 on T4.
+	power_gen = 5000 // 10000 on T1, 20000 on T4.
 
 	component_types = list(
 		/obj/item/stack/cable_coil{amount = 5},
@@ -74,7 +80,6 @@
 		/obj/item/stack/material/phoron{amount = 5},
 		/obj/item/circuitboard/rtg/advanced
 	)
-
 
 /obj/item/circuitboard/rtg
 	name = T_BOARD("radioisotope thermoelectric generator")

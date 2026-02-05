@@ -51,6 +51,7 @@
 /singleton/recipe/aesirsalad
 	fruit = list("goldapple" = 1, "ambrosiadeus" = 1)
 	result = /obj/item/reagent_containers/food/snacks/salad/aesirsalad
+
 /singleton/recipe/validsalad
 	fruit = list("potato" = 1, "ambrosia" = 3)
 	items = list(/obj/item/reagent_containers/food/snacks/meatball)
@@ -124,3 +125,8 @@
 	result = /obj/item/reagent_containers/food/snacks/salad/jungle_salad
 	reagent_mix = RECIPE_REAGENT_REPLACE //Simplify end product
 
+/singleton/recipe/tossed_salad
+	fruit = list("cabbage" = 1, "tomato" = 1, "cucumber" = 1)
+	reagents = list(/singleton/reagent/sodiumchloride = 1)
+	result = /obj/item/reagent_containers/food/snacks/salad/tossed_salad
+	reagent_mix = RECIPE_REAGENT_REPLACE //Simplify end product

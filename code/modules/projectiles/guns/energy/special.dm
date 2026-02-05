@@ -23,7 +23,7 @@
 	projectile_type = /obj/projectile/energy/floramut
 	origin_tech = list(TECH_MATERIAL = 2, TECH_BIO = 3, TECH_POWER = 3)
 	modifystate = "floramut"
-	self_recharge = 1
+	self_recharge = TRUE
 	var/singleton/plantgene/gene = null
 
 	firemodes = list(
@@ -71,10 +71,10 @@
 	w_class = WEIGHT_CLASS_BULKY
 	max_shots = 10
 	projectile_type = /obj/projectile/meteor
-	self_recharge = 1
+	self_recharge = TRUE
 	recharge_time = 5 //Time it takes for shots to recharge (in ticks)
 	charge_meter = 0
-	can_turret = 1
+	can_turret = TRUE
 	turret_sprite_set = "meteor"
 
 /obj/item/gun/energy/meteorgun/pen
@@ -86,7 +86,7 @@
 	item_state = "pen"
 	w_class = WEIGHT_CLASS_TINY
 	slot_flags = SLOT_BELT
-	can_turret = 0
+	can_turret = FALSE
 
 
 /obj/item/gun/energy/mindflayer
@@ -98,7 +98,7 @@
 	has_item_ratio = FALSE
 	projectile_type = /obj/projectile/beam/mindflayer
 	fire_sound = 'sound/weapons/laser1.ogg'
-	can_turret = 1
+	can_turret = TRUE
 	turret_sprite_set = "xray"
 
 /obj/item/gun/energy/toxgun
@@ -112,14 +112,13 @@
 	w_class = WEIGHT_CLASS_NORMAL
 	origin_tech = list(TECH_COMBAT = 5, TECH_PHORON = 4)
 	projectile_type = /obj/projectile/energy/phoron
-	can_turret = 1
-	turret_is_lethal = 0
+	can_turret = TRUE
+	turret_is_lethal = FALSE
 	turret_sprite_set = "net"
 
 /obj/item/gun/energy/mousegun
 	name = "pest gun"
 	desc = "The NT \"Arodentia\" Pesti-Shock is a highly sophisticated and probably safe beamgun designed for rapid pest-control."
-	desc_antag = "This gun can be emagged to make it fire damaging beams and get more max shots. It doesn't do a lot of damage, but it is concealable."
 	icon = 'icons/obj/guns/pestishock.dmi'
 	icon_state = "pestishock"
 	item_state = "pestishock"
@@ -133,6 +132,10 @@
 	sel_mode = 1
 	var/emagged = FALSE
 	needspin = FALSE
+
+/obj/item/gun/energy/mousegun/antagonist_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "This gun can be emagged to make it fire damaging beams and get more max shots. It doesn't do a lot of damage, but it is concealable."
 
 /obj/item/gun/energy/mousegun/handle_post_fire(mob/user, atom/target, var/pointblank=0, var/reflex=0, var/playemote = 1)
 	var/T = get_turf(user)
@@ -171,8 +174,8 @@
 	w_class = WEIGHT_CLASS_NORMAL
 	max_shots = 4
 	fire_delay = 25
-	can_turret = 1
-	turret_is_lethal = 0
+	can_turret = TRUE
+	turret_is_lethal = FALSE
 	turret_sprite_set = "net"
 
 /obj/item/gun/energy/net/mounted
@@ -263,7 +266,7 @@
 	is_charging = 0
 	if(!istype(user.get_active_hand(), src))
 		return
-	msg_admin_attack("[key_name_admin(user)] shot with \a [src.type] [key_name_admin(src)]'s target (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[src.x];Y=[src.y];Z=[src.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(src))
+	msg_admin_attack("[key_name_admin(user)] shot with \a [src.type] [key_name_admin(src)]'s target (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[src.x];Y=[src.y];Z=[src.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(src))
 
 	return ..()
 
@@ -278,7 +281,7 @@
 	origin_tech = list(TECH_COMBAT = 6, TECH_PHORON = 4, TECH_POWER = 4)
 	fire_sound = 'sound/weapons/laser1.ogg'
 	slot_flags = SLOT_BACK | SLOT_HOLSTER | SLOT_BELT
-	self_recharge = 1
+	self_recharge = TRUE
 	recharge_time = 7
 	accuracy = 1
 	recoil = 1
@@ -288,20 +291,17 @@
 	burst = 1
 	burst_delay = 1
 	fire_delay = 5
-	can_turret = 1
+	can_turret = TRUE
 	turret_sprite_set = "laser"
 
 
 /obj/item/gun/energy/vaurca/typec
 	name = "thermal lance"
 	desc = "A powerful piece of Zo'rane energy artillery, converted to be portable...if you weigh a metric tonne, that is."
-	icon = 'icons/mob/species/breeder/inventory.dmi'
+	icon = 'icons/obj/guns/megaglaive.dmi'
+	sprite_sheets = list(BODYTYPE_VAURCA_BREEDER = 'icons/obj/guns/megaglaive.dmi')
 	icon_state = "megaglaive0"
 	item_state = "megaglaive"
-	item_icons = list(//DEPRECATED. USE CONTAINED SPRITES IN FUTURE
-		slot_l_hand_str = 'icons/mob/species/breeder/held_l.dmi',
-		slot_r_hand_str = 'icons/mob/species/breeder/held_r.dmi'
-		)
 	origin_tech = list(TECH_COMBAT = 6, TECH_PHORON = 8)
 	fire_sound = 'sound/magic/lightningbolt.ogg'
 	attack_verb = list("sundered", "annihilated", "sliced", "cleaved", "slashed", "pulverized")
@@ -321,10 +321,9 @@
 	armor_penetration = 40
 	atom_flags = ATOM_FLAG_NO_BLOOD
 	can_embed = 0
-	self_recharge = 1
+	self_recharge = TRUE
 	recharge_time = 2
 	needspin = FALSE
-
 	is_wieldable = TRUE
 
 /obj/item/gun/energy/vaurca/typec/attack(mob/living/target_mob, mob/living/user, target_zone)
@@ -355,7 +354,7 @@
 	is_charging = 0
 	if(!istype(user.get_active_hand(), src))
 		return
-	msg_admin_attack("[key_name_admin(user)] shot with \a [src.type] [key_name_admin(src)]'s target (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[src.x];Y=[src.y];Z=[src.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(src))
+	msg_admin_attack("[key_name_admin(user)] shot with \a [src.type] [key_name_admin(src)]'s target (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[src.x];Y=[src.y];Z=[src.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(src))
 
 	return ..()
 
@@ -440,7 +439,7 @@
 	is_charging = FALSE
 	if(needs_wielding && user.get_active_hand() != src)
 		return
-	msg_admin_attack("[key_name_admin(user)] shot with \a [src.type] [key_name_admin(src)]'s target (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[src.x];Y=[src.y];Z=[src.z]'>JMP</a>)")
+	msg_admin_attack("[key_name_admin(user)] shot with \a [src.type] [key_name_admin(src)]'s target (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[src.x];Y=[src.y];Z=[src.z]'>JMP</a>)")
 	return ..()
 
 /obj/item/gun/energy/vaurca/thermaldrill/mounted
@@ -462,7 +461,7 @@
 	max_shots = 10
 	accuracy = 1
 	fire_delay = 1
-	can_turret = 0
+	can_turret = FALSE
 
 /obj/item/gun/energy/tesla
 	name = "tesla gun"
@@ -485,10 +484,10 @@
 
 /obj/item/gun/energy/tesla/mounted
 	name = "mounted tesla carbine"
-	self_recharge = 1
-	use_external_power = 1
+	self_recharge = TRUE
+	use_external_power = TRUE
 	recharge_time = 10
-	can_turret = 0
+	can_turret = FALSE
 
 /obj/item/gun/energy/gravity_gun
 	name = "gravity gun"
@@ -633,10 +632,10 @@
 	projectile_type = /obj/projectile/beam/xray // can't wear a hardsuit, and it's only 15 damage with a lot of AP
 	charge_cost = 100
 	max_shots = 20
-	self_recharge = 1 // bioreactor in the backpack; not entirely defenseless against EMPs
+	self_recharge = TRUE // bioreactor in the backpack; not entirely defenseless against EMPs
 	fire_delay = 35
 	burst_delay = 2
-	can_turret = 0
+	can_turret = FALSE
 
 	is_wieldable = TRUE
 
@@ -655,7 +654,7 @@
 		user.update_inv_back()
 
 /obj/item/gun/energy/galatea/Move()
-	..()
+	. = ..()
 	if(loc != source.loc)
 		INVOKE_ASYNC(source, TYPE_PROC_REF(/obj/item/laserpack, remove_gun)) // prevent even weirder shit
 

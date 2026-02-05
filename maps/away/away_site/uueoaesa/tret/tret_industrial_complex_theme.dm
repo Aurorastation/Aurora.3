@@ -74,5 +74,3 @@
 
 /turf/simulated/floor/exoplanet/plating/tret
 	initial_gas = list("sulfur dioxide" = MOLES_O2STANDARD)
-
-// ----------------- fin

@@ -3,15 +3,13 @@
  *
  */
 
-/obj/item/device/multitool
+/obj/item/multitool
 	name = "multitool"
 	desc = "This small, handheld device is made of durable, insulated plastic. It has a electrode jack, perfect for interfacing with numerous machines, as well as an in-built NT-SmartTrack! system."
-	desc_info = "You can use this on airlocks or APCs to try to hack them without cutting wires. You can also use it to wire circuits, and track APCs by using it in-hand."
-	icon = 'icons/obj/item/tools/multitool.dmi'
+	icon = 'icons/obj/item/multitool.dmi'
 	icon_state = "multitool"
 	item_state = "multitool"
 	item_icons = null
-	contained_sprite = TRUE
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	force = 11
 	w_class = WEIGHT_CLASS_SMALL
@@ -36,29 +34,36 @@
 	var/datum/integrated_io/selected_io = null
 	var/mode = 0
 
-/obj/item/device/multitool/Destroy()
+	tool_behaviour = TOOL_MULTITOOL
+
+/obj/item/multitool/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "You can use this on a variety of objects (including APCs, airlocks and more) to try to hack them without cutting wires."
+	. += "Using it in-hand will toggle tracking of nearby APCs."
+	. += "Using it on a length of laid cable will return how much current it is carrying."
+	. += "It is used for interacting with a variety of machines."
+	. += "It is a necessary tool for integrated electronics wiring."
+
+/obj/item/multitool/Destroy()
 	unregister_buffer(buffer_object)
 	QDEL_NULL(apc_indicator)
 	return ..()
 
-/obj/item/device/multitool/ismultitool()
-	return TRUE
-
-/obj/item/device/multitool/proc/get_buffer(var/typepath)
+/obj/item/multitool/proc/get_buffer(var/typepath)
 	// Only allow clearing the buffer name when someone fetches the buffer.
 	// Means you cannot be sure the source hasn't been destroyed until the very moment it's needed.
 	get_buffer_name(TRUE)
 	if(buffer_object && (!typepath || istype(buffer_object, typepath)))
 		return buffer_object
 
-/obj/item/device/multitool/proc/get_buffer_name(var/null_name_if_missing = FALSE)
+/obj/item/multitool/proc/get_buffer_name(var/null_name_if_missing = FALSE)
 	if(buffer_object)
 		buffer_name = buffer_object.name
 	else if(null_name_if_missing)
 		buffer_name = null
 	return buffer_name
 
-/obj/item/device/multitool/proc/set_buffer(var/atom/buffer)
+/obj/item/multitool/proc/set_buffer(var/atom/buffer)
 	if(!buffer || istype(buffer))
 		buffer_name = buffer ? buffer.name : null
 		if(buffer != buffer_object)
@@ -68,11 +73,11 @@
 				RegisterSignal(buffer_object, COMSIG_QDELETING, PROC_REF(on_buffer_object_deletion))
 		update_icon()
 
-/obj/item/device/multitool/proc/on_buffer_object_deletion(datum/source)
+/obj/item/multitool/proc/on_buffer_object_deletion(datum/source)
 	SIGNAL_HANDLER
 	unregister_buffer(source)
 
-/obj/item/device/multitool/proc/unregister_buffer(atom/buffer_to_unregister)
+/obj/item/multitool/proc/unregister_buffer(atom/buffer_to_unregister)
 	// Only remove the buffered object, don't reset the name
 	// This means one cannot know if the buffer has been destroyed until one attempts to use it.
 	if(buffer_to_unregister == buffer_object && buffer_object)
@@ -80,7 +85,7 @@
 		buffer_object = null
 		update_icon()
 
-/obj/item/device/multitool/resolve_attackby(atom/A, mob/user, var/click_parameters)
+/obj/item/multitool/resolve_attackby(atom/A, mob/user, var/click_parameters)
 	if(!isobj(A))
 		return ..(A, user, click_parameters)
 
@@ -93,19 +98,19 @@
 	MT.interact(src, user)
 	return 1
 
-/obj/item/device/multitool/attack_self(mob/user)
+/obj/item/multitool/attack_self(mob/user)
 	interact(user)
 
-/obj/item/device/multitool/interact(mob/user)
+/obj/item/multitool/interact(mob/user)
 	ui_interact(user)
 
-/obj/item/device/multitool/ui_interact(mob/user, datum/tgui/ui)
+/obj/item/multitool/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
 		ui = new(user, src, "Multitool", "Multitool", 300, 250)
 		ui.open()
 
-/obj/item/device/multitool/ui_data(mob/user)
+/obj/item/multitool/ui_data(mob/user)
 	var/list/data = list()
 
 	data["tracking_apc"] = tracking_apc
@@ -114,7 +119,7 @@
 		data["selected_io"] = list("name" = selected_io.name, "type" = selected_io.io_type)
 	return data
 
-/obj/item/device/multitool/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
+/obj/item/multitool/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	. = ..()
 	if(.)
 		return TRUE
@@ -137,7 +142,7 @@
 
 	update_icon()
 
-/obj/item/device/multitool/update_icon()
+/obj/item/multitool/update_icon()
 	if(tracking_apc)
 		icon_state = "multitool_clear"
 	else if(selected_io)
@@ -151,7 +156,7 @@
 		else
 			icon_state = "multitool"
 
-/obj/item/device/multitool/process()
+/obj/item/multitool/process()
 	if(!apc_indicator)
 		return PROCESS_KILL
 
@@ -175,7 +180,7 @@
 				apc_indicator.icon_state = "far"
 	SetOverlays(apc_indicator)
 
-/obj/item/device/multitool/proc/wire(datum/integrated_io/io, mob/user)
+/obj/item/multitool/proc/wire(datum/integrated_io/io, mob/user)
 	if(!io.holder.assembly)
 		to_chat(user, SPAN_WARNING("\The [io.holder] needs to be secured inside an assembly first."))
 		return
@@ -205,7 +210,7 @@
 
 	update_icon()
 
-/obj/item/device/multitool/proc/unwire(datum/integrated_io/io1, datum/integrated_io/io2, mob/user)
+/obj/item/multitool/proc/unwire(datum/integrated_io/io1, datum/integrated_io/io2, mob/user)
 	if(!io1.linked.len || !io2.linked.len)
 		to_chat(user, SPAN_WARNING("There is nothing connected to the data channel."))
 		return

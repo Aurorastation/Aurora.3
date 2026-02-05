@@ -1,8 +1,8 @@
 /* Closets for specific jobs
  * Contains:
- *		Bartender
- *		Chef
- *		Lawyer
+ * * Bartender
+ * * Chef
+ * * Lawyer
  */
 
 /*
@@ -16,8 +16,8 @@
 /obj/structure/closet/gmcloset/fill()
 	new /obj/item/clothing/head/that(src)
 	new /obj/item/clothing/head/that(src)
-	new /obj/item/device/radio/headset/headset_service(src)
-	new /obj/item/device/radio/headset/headset_service(src)
+	new /obj/item/radio/headset/headset_service(src)
+	new /obj/item/radio/headset/headset_service(src)
 	new /obj/item/clothing/head/pin/flower(src)
 	new /obj/item/clothing/head/pin/flower/pink(src)
 	new /obj/item/clothing/head/pin/flower/yellow(src)
@@ -45,8 +45,8 @@
 	new /obj/item/clothing/under/waiter(src)
 	if(prob(1))
 		new /obj/item/gun/energy/mousegun(src)
-	new /obj/item/device/radio/headset/headset_service(src)
-	new /obj/item/device/radio/headset/headset_service(src)
+	new /obj/item/radio/headset/headset_service(src)
+	new /obj/item/radio/headset/headset_service(src)
 	new /obj/item/storage/box/gloves(src)
 	new /obj/item/storage/box/mousetraps(src)
 	new /obj/item/clothing/under/rank/chef(src)

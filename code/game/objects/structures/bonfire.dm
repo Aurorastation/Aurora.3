@@ -23,6 +23,23 @@ GLOBAL_LIST_EMPTY(total_active_bonfires)
 	var/last_ambient_message
 	var/burn_out = TRUE //Whether or not it deletes itself when fuel is depleted
 
+/obj/structure/bonfire/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(distance > 2)
+		return
+	if(on_fire)
+		switch(fuel)
+			if(0 to 200)
+				. += "\The [src] is burning weakly."
+			if(200 to 600)
+				. += "\The [src] is gently burning."
+			if(600 to 900)
+				. += "\The [src] is burning steadily."
+			if(900 to 1300)
+				. += "The flames are dancing wildly!"
+			if(1300 to 2000)
+				. += "The fire is roaring!"
+
 /obj/structure/bonfire/Initialize()
 	. = ..()
 	fuel = rand(1000, 2000)
@@ -38,23 +55,6 @@ GLOBAL_LIST_EMPTY(total_active_bonfires)
 	STOP_PROCESSING(SSprocessing, src)
 	GLOB.total_active_bonfires -= src
 	. = ..()
-
-/obj/structure/bonfire/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if(distance > 2)
-		return
-	if(on_fire)
-		switch(fuel)
-			if(0 to 200)
-				. += "\The [src] is burning weakly."
-			if(200 to 600)
-				. += "\The [src] is gently burning."
-			if(600 to 900)
-				. += "\The [src] is burning steadily."
-			if(900 to 1300)
-				. += "The flames are dancing wildly!"
-			if(1300 to 2000)
-				. += "The fire is roaring!"
 
 /obj/structure/bonfire/update_icon()
 	if(on_fire)
@@ -75,14 +75,14 @@ GLOBAL_LIST_EMPTY(total_active_bonfires)
 	if(fuel >= max(max_fuel * 0.1, 50) && on_fire)
 		to_chat(H, SPAN_NOTICE("You grab a burning stick from the fire."))
 		fuel -= 40
-		var/obj/item/device/flashlight/flare/torch/stick/torch = new(get_turf(user))
+		var/obj/item/flashlight/flare/torch/stick/torch = new(get_turf(user))
 		H.put_in_active_hand(torch)
 
 /obj/structure/bonfire/attackby(obj/item/attacking_item, mob/user)
 	if(attacking_item.isFlameSource() && !on_fire) // needs to go last or else nothing else will work
 		light(user)
 		return
-	if(on_fire && (istype(attacking_item, /obj/item/flame) || istype(attacking_item, /obj/item/device/flashlight/flare/torch) || istype(attacking_item, /obj/item/clothing/mask/smokable))) //light unlit stuff
+	if(on_fire && (istype(attacking_item, /obj/item/flame) || istype(attacking_item, /obj/item/flashlight/flare/torch) || istype(attacking_item, /obj/item/clothing/mask/smokable))) //light unlit stuff
 		attacking_item.attackby(src, user)
 		return
 	if(fuel < max_fuel)

@@ -98,7 +98,8 @@
 								colour2 = rgb(255,128,0)
 
 						if(istype(AM, /mob))
-							if(AM:client)
+							var/mob/a_mob = AM
+							if(a_mob.client)
 								colour = rgb(255,0,0)
 							else
 								colour = rgb(255,128,128)

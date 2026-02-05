@@ -178,7 +178,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon_state = "rex_watch"
 
 
-/obj/item/device/camera/fluff/hadley_camera //Hadley's Camera - Hadley Dawson - fekkor
+/obj/item/camera/fluff/hadley_camera //Hadley's Camera - Hadley Dawson - fekkor
 	name = "customized camera"
 	desc = "A early 2450's Sunny camera with an adjustable lens, this one has a sticker with the name \"Hadley\" on the back."
 	icon = 'icons/obj/custom_items/hadley_camera.dmi'
@@ -351,7 +351,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	contained_sprite = TRUE
 
 
-/obj/item/device/radio/headset/fluff/resolve_headset //Antennae - Decisive Resolve - itanimulli
+/obj/item/radio/headset/fluff/resolve_headset //Antennae - Decisive Resolve - itanimulli
 	name = "antennae"
 	desc = "Collapsible spherical antennae designed to interface with an IPC."
 	icon = 'icons/obj/custom_items/resolve_items.dmi'
@@ -425,21 +425,21 @@ All custom items with worn sprites must follow the contained sprite system: http
 	else
 		..()
 
-/obj/item/fluff/tokash_spear/MouseDrop(mob/user)
-	if((user == usr && (!(usr.restrained()) && (!(usr.stat) && (usr.contents.Find(src) || in_range(src, usr))))))
-		if(!istype(usr, /mob/living/carbon/slime) && !istype(usr, /mob/living/simple_animal))
-			if(!usr.get_active_hand()) // If active hand is empty.
-				var/mob/living/carbon/human/H = user
+/obj/item/fluff/tokash_spear/mouse_drop_dragged(atom/over, mob/user, src_location, over_location, params)
+	if((over == user && (!(user.restrained()) && (!(user.stat) && (user.contents.Find(src) || in_range(src, user))))))
+		if(!istype(user, /mob/living/carbon/slime) && !istype(user, /mob/living/simple_animal))
+			if(!user.get_active_hand()) // If active hand is empty.
+				var/mob/living/carbon/human/H = over
 				var/obj/item/organ/external/temp = H.organs_by_name[BP_R_HAND]
 
 				if(H.hand)
 					temp = H.organs_by_name[BP_L_HAND]
 				if(temp && !temp.is_usable())
-					to_chat(user, SPAN_NOTICE("You try to move your [temp.name], but cannot!"))
+					to_chat(H, SPAN_NOTICE("You try to move your [temp.name], but cannot!"))
 					return
 
-				to_chat(user, SPAN_NOTICE("You pick up \the [src]."))
-				user.put_in_hands(src)
+				to_chat(H, SPAN_NOTICE("You pick up \the [src]."))
+				H.put_in_hands(src)
 	return
 
 /obj/item/fluff/tokash_spearhead
@@ -481,7 +481,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	contained_sprite = TRUE
 
 
-/obj/item/device/synthesized_instrument/guitar/multi/fluff/akinyi_symphette //Holo-symphette - Akinyi Idowu - kyres1
+/obj/item/synthesized_instrument/guitar/multi/fluff/akinyi_symphette //Holo-symphette - Akinyi Idowu - kyres1
 	name = "holo-symphette"
 	desc = "A cheap, collapsible musical instrument which utilizes holographic projections to generate a rough noise. It's shaped like a small harp, and seems to be  \
 	able to be tuned to mimic several old stringed Solarian instruments with some distorted audio. It's still got its price tag sticker on it."
@@ -494,7 +494,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	contained_sprite = TRUE
 	var/deployed = FALSE
 
-/obj/item/device/synthesized_instrument/guitar/multi/fluff/akinyi_symphette/update_icon()
+/obj/item/synthesized_instrument/guitar/multi/fluff/akinyi_symphette/update_icon()
 	if(deployed)
 		icon_state = "akinyi_symphette_on"
 		item_state = "akinyi_symphette_on"
@@ -502,7 +502,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 		icon_state = "akinyi_symphette"
 		item_state = "akinyi_symphette"
 
-/obj/item/device/synthesized_instrument/guitar/multi/fluff/akinyi_symphette/AltClick(var/mob/user)
+/obj/item/synthesized_instrument/guitar/multi/fluff/akinyi_symphette/AltClick(var/mob/user)
 	deployed = !deployed
 	to_chat(user, SPAN_NOTICE("You [deployed ? "expand" : "collapse"] \the [src]."))
 	update_icon()
@@ -533,12 +533,12 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon_state = "thea_teabox"
 	foldable = null
 	can_hold = list(/obj/item/reagent_containers/glass/beaker/teapot/fluff/thea_teapot, /obj/item/reagent_containers/food/drinks/fluff/thea_teacup)
+	make_exact_fit = TRUE
 
 /obj/item/storage/box/fluff/thea_teabox/fill()
 	new /obj/item/reagent_containers/glass/beaker/teapot/fluff/thea_teapot(src)
 	for(var/i in 1 to 4)
 		new /obj/item/reagent_containers/food/drinks/fluff/thea_teacup(src)
-	make_exact_fit()
 
 /obj/item/fluff/fraseq_journal //Fraseq's Journal of Mysteries - Quorrdash Fraseq - kingoftheping
 	name = "leather journal"
@@ -797,7 +797,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	contained_sprite = TRUE
 
 
-/obj/item/device/megaphone/fluff/akinyi_mic //Resonance Microphone - Akinyi Idowu - kyres1
+/obj/item/megaphone/fluff/akinyi_mic //Resonance Microphone - Akinyi Idowu - kyres1
 	name = "resonance microphone"
 	desc = "A rather costly voice amplifier disguised as a microphone. A button on the side permits the user to dial their vocal volume with ease."
 	icon = 'icons/obj/custom_items/akinyi_symphette.dmi'
@@ -818,11 +818,11 @@ All custom items with worn sprites must follow the contained sprite system: http
 	item_state = "akinyi_stand-collapsed"
 	w_class = WEIGHT_CLASS_SMALL
 	contained_sprite = TRUE
-	var/obj/item/device/megaphone/fluff/akinyi_mic/mic
+	var/obj/item/megaphone/fluff/akinyi_mic/mic
 	var/collapsed = TRUE
 
 /obj/item/fluff/akinyi_stand/attackby(obj/item/attacking_item, mob/user, params)
-	if(istype(attacking_item, /obj/item/device/megaphone/fluff/akinyi_mic))
+	if(istype(attacking_item, /obj/item/megaphone/fluff/akinyi_mic))
 		if(!mic && !collapsed)
 			user.unEquip(attacking_item)
 			attacking_item.forceMove(src)
@@ -830,11 +830,12 @@ All custom items with worn sprites must follow the contained sprite system: http
 			to_chat(user, SPAN_NOTICE("You place \the [attacking_item] on \the [src]."))
 			update_icon()
 
-/obj/item/fluff/akinyi_stand/MouseDrop(mob/user as mob)
-	if((user == usr && (!use_check(user))) && (user.contents.Find(src) || in_range(src, user)))
-		if(ishuman(user))
-			forceMove(get_turf(user))
-			user.put_in_hands(src)
+/obj/item/fluff/akinyi_stand/mouse_drop_dragged(atom/over, mob/user, src_location, over_location, params)
+	if((over == user && (!use_check(over))) && (over.contents.Find(src) || in_range(src, over)))
+		if(ishuman(over))
+			var/mob/living/carbon/human/H = over
+			forceMove(get_turf(H))
+			H.put_in_hands(src)
 			update_icon()
 
 /obj/item/fluff/akinyi_stand/attack_hand(mob/user)
@@ -887,14 +888,14 @@ All custom items with worn sprites must follow the contained sprite system: http
 	storage_slots = 3
 	max_w_class = WEIGHT_CLASS_NORMAL
 	can_hold = list(
-		/obj/item/device/megaphone/fluff/akinyi_mic,
+		/obj/item/megaphone/fluff/akinyi_mic,
 		/obj/item/fluff/akinyi_stand,
-		/obj/item/device/synthesized_instrument/guitar/multi/fluff/akinyi_symphette
+		/obj/item/synthesized_instrument/guitar/multi/fluff/akinyi_symphette
 		)
 	starts_with = list(
-		/obj/item/device/megaphone/fluff/akinyi_mic = 1,
+		/obj/item/megaphone/fluff/akinyi_mic = 1,
 		/obj/item/fluff/akinyi_stand = 1,
-		/obj/item/device/synthesized_instrument/guitar/multi/fluff/akinyi_symphette = 1
+		/obj/item/synthesized_instrument/guitar/multi/fluff/akinyi_symphette = 1
 	)
 
 
@@ -989,7 +990,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 
 /obj/item/fluff/holoconsole/attack_self(mob/user)
 	if(on && !(world.time < last_sound + sound_delay))
-		playsound(loc, /singleton/sound_category/quick_arcade, 60)
+		playsound(loc, SFX_ARCADE, 60)
 		last_sound = world.time
 		return
 	return ..()
@@ -1076,7 +1077,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 
 	var/obj/item/fluff/holoconsole/H = parent_console.resolve()
 	if(H?.on)
-		playsound(H.loc, /singleton/sound_category/quick_arcade, 60)
+		playsound(H.loc, SFX_ARCADE, 60)
 		last_sound = world.time
 
 /obj/item/fluff/holoconsole_controller/r // Holoconsole - Qoi Liuiq - shestrying
@@ -1300,15 +1301,15 @@ All custom items with worn sprites must follow the contained sprite system: http
 	item_state = "sezcoat"
 	contained_sprite = TRUE
 
-/obj/item/clothing/accessory/poncho/fluff/sezrak_cape //Red Han'san Cape - Sezrak Han'san - captaingecko
-	name = "red Han'san cape"
-	desc = "This is a cape loosely based on the style of Dominian nobility, the latest fashion across Dominian space, although it doesn't feature any of the colors belonging to the Great Houses, \
-	and doesn't bear the symbolism of the ones worn by Tribunalist priests. The left shoulder-side bears the standards of the Han'san clan-house with a small, discreet symbol of gilded colors, \
-	instead of the usual Green used for this house."
-	icon = 'icons/obj/custom_items/sezrak_coat.dmi'
-	icon_override = 'icons/obj/custom_items/sezrak_coat.dmi'
-	icon_state = "sez_cape"
-	item_state = "sez_cape"
+/obj/item/clothing/accessory/poncho/fluff/sezrak_scaleshield //Red Han'san Scaleshield - Sezrak Han'san - captaingecko
+	name = "red Han'san scaleshield"
+	desc = "A thick, warm piece of reinforced canvas and fabric made by Dominian Unathi to keep themselves warm in Moroz's frigid climate. This one bears a pattern commonly \
+	seen in Hunter’s District, also known as Widowtown, although not with the typical colors. It bears pieces reinforced canvas here and there, more to protect against the elements than actual bumps, \
+	and embroided on a white stripe is the standard of the Han'san clan."
+	icon = 'icons/obj/custom_items/sezrak_scaleshield.dmi'
+	icon_override = 'icons/obj/custom_items/sezrak_scaleshield.dmi'
+	icon_state = "sez_scaleshield"
+	item_state = "sez_scaleshield"
 	contained_sprite = TRUE
 
 /obj/item/journal/fluff/mrakiizar_book //Worn Journal - Azradov Mrakiizar - kingoftheping
@@ -1490,7 +1491,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 
 /obj/item/clothing/accessory/poncho/tajarancloak/fluff/dekel_smock/verb/change_hood()
 	set name = "Toggle Hood"
-	set category = "Object"
+	set category = "Object.Equipped"
 	set src in usr
 
 	if(use_check_and_message(usr))
@@ -1557,9 +1558,9 @@ All custom items with worn sprites must follow the contained sprite system: http
 			text = zippomsg
 		else if(istype(attacking_item, /obj/item/flame/lighter))
 			text = lightermsg
-		else if(attacking_item.iswelder())
+		else if(attacking_item.tool_behaviour == TOOL_WELDER)
 			text = weldermsg
-		else if(istype(attacking_item, /obj/item/device/assembly/igniter))
+		else if(istype(attacking_item, /obj/item/assembly/igniter))
 			text = ignitermsg
 		else
 			text = genericmsg
@@ -1907,14 +1908,14 @@ All custom items with worn sprites must follow the contained sprite system: http
 	item_state = "ashkii_cloak"
 	contained_sprite = TRUE
 
-/obj/item/device/versebook/fluff/guilty_men
+/obj/item/versebook/fluff/guilty_men
 	name = "Guilty Men"
 	desc = "A leather bound book bearing a burning Coalition of Colonies flag. \"Guilty Men\" and \"How the Coalition of Colonies and its leaders failed the Frontier\" are engraved on golden plaques on either side of the flag. A controversial book published several years ago, \"Guilty Men\" is acclaimed by some as a scathing rebuke of failed Coalition policies, and their intolerable results, and condemned by others as a radical break from traditional Coalition attitudes and values. This example is worn, with its pages dog-eared and torn in numerous places, while the leather binding has begun to crack and discolor under frequent handling."
 	icon = 'icons/obj/custom_items/imogen_items.dmi'
 	icon_state = "Guilty_Men"
 	item_state = "book"
 
-/obj/item/device/versebook/fluff/guilty_men/Initialize()
+/obj/item/versebook/fluff/guilty_men/Initialize()
 	. = ..()
 	randomquip = file2list("code/modules/customitems/imogen_guiltymen.txt")
 
@@ -1984,6 +1985,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	// adding the hand to the child here means only the arm has to be added to the DB
 	// since the hand will be attached automatically
 	LAZYADD(children, new /obj/item/organ/external/hand/fluff/gracia_autakh(src))
+	internal_organs += new /obj/item/organ/internal/machine/actuators/left(src)
 
 /obj/item/organ/external/hand/fluff/gracia_autakh // gracia's aut'akh left hand - Gracia Hiza - cometblaze
 	robotize_type = PROSTHETIC_AUTAKH
@@ -2011,3 +2013,343 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon_state = "kira_carrier"
 	item_state = "kira_carrier"
 	contained_sprite = TRUE
+
+/obj/item/organ/external/leg/right/fluff/nines_autakh // Prosthetic Aut'akh Left Leg - Hazel #S-H9.09 - hazelmouse
+	robotize_type = PROSTHETIC_AUTAKH
+	skin_color = FALSE
+	override_robotize_force_icon = 'icons/mob/human_races/fluff/nines_leg.dmi'
+	override_robotize_painted = FALSE
+	robotize_children = FALSE
+
+/obj/item/organ/external/leg/right/fluff/nines_autakh/Initialize(mapload)
+	. = ..()
+	LAZYADD(children, new /obj/item/organ/external/foot/right/fluff/nines_autakh(src))
+
+/obj/item/organ/external/foot/right/fluff/nines_autakh // Prosthetic Aut'akh Left Foot - Hazel #S-H9.09 - hazelmouse
+	robotize_type = PROSTHETIC_AUTAKH
+	skin_color = FALSE
+	override_robotize_force_icon = 'icons/mob/human_races/fluff/nines_leg.dmi'
+	override_robotize_painted = FALSE
+	robotize_children = FALSE
+
+/obj/item/clothing/suit/storage/toggle/leather_jacket/fluff/darvan_jacket //Painted Leather Jacket - Darvan Omega - JoeTheBro
+	name = "painted leather jacket"
+	desc = "This leather jacket has been roughly painted cyan on the left arm and purple on the right arm. There appears to be an uppercase omega symbol on the \
+	back, drawn in the same paint from the respective halves of the jacket.  You can see a faint NT logo beneath the omega symbol if you look hard enough."
+	icon = 'icons/obj/custom_items/omega_jacket.dmi'
+	icon_override = 'icons/obj/custom_items/omega_jacket.dmi'
+	icon_state = "omega_jacket"
+	item_state = "omega_jacket"
+	contained_sprite = TRUE
+
+/obj/item/journal/fluff/kathira // Blue Leather-Bound Journal - Kathira El-Hashem - TheGreyWolf
+	name = "blue leather-bound journal"
+	desc = "A blue journal emblazoned with the New Kingdom of Adhomai's flag across the cover."
+	closed_desc = " The pages within are a mix of clearly indexed case files, and study notes alongside less clearly indexed pages that appears to be fragmented thoughts, not unlike a diary. The very first page of the journal reads 'dedicated to Qirandri Mrorirhaldarr' and is signed 'Mrradar Sanufar' underneath."
+	icon = 'icons/obj/custom_items/kathira_journal.dmi'
+	icon_override = 'icons/obj/custom_items/kathira_journal.dmi'
+	icon_state = "kath_journal"
+	item_state = "kath_journal"
+	color = null
+
+/obj/item/journal/fluff/kathira/Initialize()
+	. = ..()
+	var/obj/item/folder/embedded/E = generate_index("Journal")
+	for(var/i = 1 to 5)
+		new /obj/item/paper(E)
+	update_icon()
+
+/obj/item/organ/internal/augment/fluff/kath_legbrace // Leg Support Augment - Kathira El-Hashem - thegreywolf
+	name = "leg support augment"
+	desc = "A leg augment to aid in the mobility of an otherwise disabled leg."
+	icon = 'icons/obj/custom_items/kathira_legbrace.dmi'
+	icon_override = 'icons/obj/custom_items/kathira_legbrace.dmi'
+	on_mob_icon = 'icons/obj/custom_items/kathira_legbrace.dmi'
+	icon_state = "kathira_legbrace"
+	item_state = "kathira_legbrace_onmob"
+	parent_organ = BP_R_LEG
+	supports_limb = TRUE
+	min_broken_damage = 15
+	min_bruised_damage = 5
+	var/last_drop = 0
+
+/obj/item/organ/internal/augment/fluff/kath_legbrace/process()
+	if(QDELETED(src) || !owner)
+		return
+	if(last_drop + 6 SECONDS > world.time)
+		return
+	if(owner.lying || owner.buckled_to || length(owner.grabbed_by))
+		return
+
+	if(is_bruised())
+		if(is_broken())
+			collapse(40, 3, 110)
+		else
+			collapse()
+
+/obj/item/organ/internal/augment/fluff/kath_legbrace/proc/collapse(var/prob_chance = 20, var/weaken_strength = 2, var/pain_strength = 40)
+	if(prob(prob_chance))
+		var/obj/item/organ/external/E = owner.organs_by_name[parent_organ]
+		owner.Weaken(weaken_strength)
+		last_drop = world.time
+		owner.custom_pain("Something inside your [E.name] hurts too much to stand!", pain_strength, TRUE, E, TRUE)
+		owner.visible_message("<b>[owner]</b> collapses!")
+
+/obj/item/clothing/accessory/poncho/tajarancloak/fluff/kathira_cloak // Handsewn Idris Cloak - Kathira El-Hashem - TheGreyWolf
+	name = "handsewn Idris cloak"
+	desc = "A carefully handsewn cloak proudly emblazoned with the symbol of Idris Banking in silver treading and the words ‘Astronomical Figures. Unlimited Power.’ Embroidered beneath it.\nOn close examination, the inside of the cloak appears to be colored differently."
+	icon = 'icons/obj/custom_items/kathira_cloak.dmi'
+	icon_override = 'icons/obj/custom_items/kathira_cloak.dmi'
+	icon_state = "idris_cloak"
+	item_state = "idris_cloak"
+	var/style = "nka_cloak"
+	var/name2 = "handmade royalist cloak"
+	var/desc2 = "A blue cloak with the symbol of the New Kingdom of Adhomai proudly displayed on the back.\nUpon closer examination it appears to be a patchwork of older textile and newer fabrics, with the inside of the cloak appearing to be colored differently."
+	var/changed = FALSE
+
+	var/hoodtype = /obj/item/clothing/head/winterhood/fluff/kathira_hood
+
+/obj/item/clothing/accessory/poncho/tajarancloak/fluff/kathira_cloak/Initialize()
+	. = ..()
+	new hoodtype(src)
+
+/obj/item/clothing/head/winterhood/fluff/kathira_hood
+	name = "handsewn hood"
+	desc = "A hood attached to a cloak."
+	icon = 'icons/obj/custom_items/kathira_cloak.dmi'
+	icon_override = 'icons/obj/custom_items/kathira_cloak.dmi'
+	icon_state = "idris_cloak_hood"
+	contained_sprite = TRUE
+	flags_inv = HIDEEARS | BLOCKHAIR | HIDEEARS
+
+/obj/item/clothing/accessory/poncho/tajarancloak/fluff/kathira_cloak/update_icon(var/hooded = FALSE)
+	var/obj/item/clothing/accessory/poncho/tajarancloak/fluff/kathira_cloak/K = get_accessory(/obj/item/clothing/accessory/poncho/tajarancloak/fluff/kathira_cloak)
+	K.icon_state = "[K.changed ? K.style : initial(K.icon_state)]"
+	SEND_SIGNAL(K, COMSIG_ITEM_STATE_CHECK, args)
+	K.item_state = "[K.icon_state][hooded ? "_up" : ""]"
+	K.name = "[K.changed ? K.name2 : initial(K.name)]"
+	K.desc = "[K.changed ? K.desc2 : initial(K.desc)]"
+	K.accessory_mob_overlay = null
+	. = ..()
+	SEND_SIGNAL(K, COMSIG_ITEM_ICON_UPDATE)
+	if(usr)
+		usr.update_inv_w_uniform()
+		usr.update_inv_wear_suit()
+
+/obj/item/clothing/accessory/poncho/tajarancloak/fluff/kathira_cloak/verb/change_cloak()
+	set name = "Change Cloak"
+	set category = "Object"
+	set src in usr
+
+	if(use_check_and_message(usr))
+		return
+
+	var/obj/item/clothing/accessory/poncho/tajarancloak/fluff/kathira_cloak/K = get_accessory(/obj/item/clothing/accessory/poncho/tajarancloak/fluff/kathira_cloak)
+	if(!K)
+		return
+
+	usr.visible_message(SPAN_NOTICE("[usr] swiftly pulls \the [K] inside out, changing its appearance."))
+	K.changed = !K.changed
+	K.update_icon()
+	SEND_SIGNAL(K, COMSIG_ITEM_REMOVE, K)
+
+/obj/item/clothing/accessory/poncho/tajarancloak/fluff/kathira_cloak/on_attached(obj/item/clothing/S, mob/user as mob)
+	..()
+	has_suit.verbs += /obj/item/clothing/accessory/poncho/tajarancloak/fluff/kathira_cloak/verb/change_cloak
+	has_suit.verbs += /obj/item/clothing/accessory/poncho/tajarancloak/fluff/kathira_cloak/verb/change_hood
+
+/obj/item/clothing/accessory/poncho/tajarancloak/fluff/kathira_cloak/on_removed(mob/user as mob)
+	if(has_suit)
+		has_suit.verbs -= /obj/item/clothing/accessory/poncho/tajarancloak/fluff/kathira_cloak/verb/change_cloak
+		has_suit.verbs -= /obj/item/clothing/accessory/poncho/tajarancloak/fluff/kathira_cloak/verb/change_hood
+	..()
+
+/obj/item/clothing/accessory/poncho/tajarancloak/fluff/kathira_cloak/verb/change_hood()
+	set name = "Toggle Hood"
+	set category = "Object"
+	set src in usr
+
+	if(use_check_and_message(usr))
+		return
+
+	var/obj/item/clothing/accessory/poncho/tajarancloak/fluff/kathira_cloak/K = get_accessory(/obj/item/clothing/accessory/poncho/tajarancloak/fluff/kathira_cloak)
+	if(!K)
+		return
+
+	SEND_SIGNAL(K, COMSIG_ITEM_UPDATE_STATE, K)
+	K.update_icon()
+
+/obj/item/clothing/suit/storage/toggle/leather_jacket/fluff/sheperd_coat //Shepherd's embroidered jacket - Shepherd - NekoMarbles
+	name = "embroidered leather jacket"
+	desc = "A deep brown leather jacket that’s already partially faded in colour. You can tell from the stitching the jacket itself appears to be handmade. A pair of \
+	sharp-tipped angel wings sits embroidered on the back nice and center, the needlework a mix of machine-like precision and human-like irregularity."
+	icon = 'icons/obj/custom_items/shepherd_coat.dmi'
+	icon_override = 'icons/obj/custom_items/shepherd_coat.dmi'
+	icon_state = "shepherd_coat"
+	item_state = "shepherd_coat"
+	contained_sprite = TRUE
+
+/obj/item/material/knife/raskariim/fluff/tulkir_knife // amohdan ritual dagger - Tulkir Zarkiirran - TheGreyWolf
+	name = "amohdan ritual dagger"
+	desc = "An old amohdan heirloom dagger. The handle appears to have been repaired with parts from a mrrazhak pistol grip and the edge of the dagger has been dulled to comply with regulations, though the broken tip remains sharp, if useless for fighting."
+	desc_extended = "As hunters, priests of Mata'ke often carry daggers with them to skin their kills. These daggers are typically made of silver to emulate Mata'ke's spear and his strength. Older and more valuable daggers have been known to be shipped off-planet during the wars by opportunistic smugglers, with Zephyr Shipping Company having been accused of selling them since its establishment, despite the company vehemently opposing such accusations."
+	icon = 'icons/obj/custom_items/tulkir_knife.dmi'
+	icon_override = 'icons/obj/custom_items/tulkir_knife.dmi'
+	icon_state = "tulkir_knife"
+	item_state = "tulkir_knife"
+	slot_flags = SLOT_BELT|SLOT_HOLSTER
+	thrown_force_divisor = 0.02
+	force_divisor = 0.02 // 1.2 when wielded with hardness 60 (steel)
+	contained_sprite = TRUE
+	applies_material_colour = FALSE
+	use_material_name = FALSE
+	unbreakable = TRUE
+
+/obj/item/material/knife/raskariim/fluff/tulkir_knife/attack(mob/living/target_mob, mob/living/user, target_zone)
+	. = ..()
+	if(target_mob != user || !(target_zone == BP_L_HAND || target_zone == BP_R_HAND))
+		return
+
+	ritualslice(user, target_mob, target_zone)
+
+/obj/item/material/knife/raskariim/fluff/tulkir_knife/get_examine_text(mob/user, distance, is_adjacent, infix, suffix, get_extended)
+	. = ..()
+	if(!ishuman(user))
+		return
+
+	var/mob/living/carbon/human/U = user
+	if(!(U.religion == RELIGION_RASKARA || U.religion == RELIGION_RASKARA_ALT))
+		return
+
+	var/raskara_text = SPAN_CULT("\The [src] is drawn from the depths of the Maggot's hoard.")
+	if(blood_overlay)
+		raskara_text += SPAN_DANGER(" The debts are being drawn.")
+	. += raskara_text
+
+/obj/item/material/knife/raskariim/fluff/tulkir_knife/proc/ritualslice(mob/living/user, mob/living/carbon/human/target, target_zone)
+	var/obj/item/organ/external/affected = target.get_organ(target_zone)
+
+	if(affected.is_stump())
+		to_chat(user, SPAN_WARNING("You can't cut open the palm of a hand that is gone."))
+		return
+	if(target.gloves)
+		to_chat(user, SPAN_WARNING("You can't cut through the gloves."))
+		return
+
+	if(istype(target) && (target.species.flags & NO_BLOOD))
+		to_chat(user, SPAN_WARNING("You are unable to sacrifice blood."))
+		return
+
+	user.visible_message(SPAN_WARNING("[user] begins slicing open their palm with \the [src]!"))
+	if(!do_after(user, 4 SECOND, src))
+		user.visible_message(SPAN_WARNING("[user] stops slicing open their palm."))
+		return
+	user.visible_message(SPAN_WARNING("[user] slices open their palm with \the [src]!"))
+
+	affected.status |= ORGAN_BLEEDING
+
+	target.apply_damage(6, DAMAGE_BRUTE, target_zone, src, DAMAGE_FLAG_SHARP|DAMAGE_FLAG_EDGE)
+	add_blood(target)
+	playsound(target.loc, 'sound/weapons/bloodyslice.ogg', 15, 1)
+
+/obj/item/material/knife/raskariim/fluff/tulkir_knife/attack_self(mob/user, modifiers)
+	. = ..()
+	if(!ishuman(user))
+		return
+
+	var/mob/living/carbon/human/U = user
+	if(!(U.religion == RELIGION_RASKARA || U.religion == RELIGION_RASKARA_ALT))
+		return
+
+	if(blood_overlay)
+		var/alist/l = alist("invite" = "2", "claim" = "3", "bind" = "4", "transform" = "5", "witness" = "6")
+		var/runetype = tgui_input_list(user, "What kind of ritual is to be done?", "Ritual", l)
+		if(runetype)
+			runetype = l[runetype]
+			create_raskariim_rune(user, runetype, get_turf(user))
+	else
+		to_chat(user, SPAN_INFO("The knife is not blooded enough to draw with."))
+
+/obj/effect/decal/cleanable/fluff/rune
+	name = "rune"
+	desc = "A strange collection of symbols drawn in blood."
+	icon = 'icons/obj/rune.dmi'
+	icon_state = "1"
+	color = COLOR_HUMAN_BLOOD
+	anchored = TRUE
+	unacidable = TRUE
+	layer = RUNE_LAYER
+	mouse_opacity = MOUSE_OPACITY_OPAQUE
+
+/obj/effect/decal/cleanable/fluff/rune/feedback_hints(mob/user, distance, is_adjacent)
+	. = ..()
+	if(iscultist(user) || isobserver(user))
+		. += "This rune belongs to The Stranger."
+	else
+		. += SPAN_WARNING("A heavy smell of blood permeates the area around the arcane drawings.")
+	if(!ishuman(user))
+		return
+
+	var/mob/living/carbon/human/U = user
+	if(!(U.religion == RELIGION_RASKARA || U.religion == RELIGION_RASKARA_ALT))\
+		return
+
+	. += SPAN_CULT("\The [src] pays a debt to the King of Maggots.")
+
+/obj/item/material/knife/raskariim/fluff/tulkir_knife/proc/create_raskariim_rune(var/mob/living/carbon/human/user, var/chosen_rune, var/turf/target_turf)
+	if(user.stat || user.incapacitated())
+		to_chat(user, SPAN_WARNING("You are in no shape to do this."))
+		return
+
+	if(locate(/obj/effect/decal/cleanable/fluff/rune) in get_turf(user))
+		to_chat(user, SPAN_WARNING("There is already a rune in this location."))
+		return
+
+	if(!target_turf)
+		target_turf = get_turf(user)
+
+	user.visible_message(SPAN_WARNING("[user] begins drawing on the floor with the blood from \the [src]!"))
+	if(!do_after(user, 4 SECOND, src))
+		user.visible_message(SPAN_WARNING("[user] stops drawing on the floor."))
+		return
+
+	// Crates a cleanable rune that looks like a cult rune to people who are neither cultists or raskariim
+	var/obj/effect/decal/cleanable/fluff/rune/R = new(target_turf)
+	user.visible_message(SPAN_CULT("[user] finishes drawing \the [R] on the floor!"),
+		SPAN_CULT("You finish drawing the markings of the King of Maggots."))
+
+	R.blood_DNA = list()
+	R.blood_DNA = src.blood_DNA
+	R.color = src.blood_color
+	R.filters = filter(type="drop_shadow", x = 1, y = 1, size = 4, color = src.blood_color)
+
+	R.icon_state = chosen_rune
+
+/obj/item/clothing/accessory/holster/utility/fluff/tulkir_sheath // amohdan dagger sheath - Tulkir Zarkiirran - TheGreyWolf
+	name = "amohdan dagger sheath"
+	desc = "A leather sheath for an amohdan dagger."
+	desc_extended = "As hunters, priests of Mata'ke often carry daggers with them to skin their kills. These daggers are typically made of silver to emulate Mata'ke's spear and his strength. Older and more valuable daggers have been known to be shipped off-planet during the wars by opportunistic smugglers, with Zephyr Shipping Company having been accused of selling them since its establishment, despite the company vehemently opposing such accusations."
+	icon = 'icons/obj/custom_items/tulkir_sheath.dmi'
+	icon_override = 'icons/obj/custom_items/tulkir_sheath.dmi'
+	icon_state = "tulkir_holster_alt"
+	item_state = "tulkir_holster_alt"
+	holster_message = "sheath"
+	draw_peace = "holding it low."
+	draw_hostile = "ready to draw blood!"
+	filled_sprite = TRUE
+	allowed_items = list(
+		/obj/item/material/knife/raskariim,
+		/obj/item/material/knife/raskariim/fluff/tulkir_knife
+	)
+
+/obj/item/clothing/accessory/holster/utility/fluff/tulkir_sheath/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
+	. = ..()
+	if(!ishuman(user))
+		return
+
+	var/mob/living/carbon/human/U = user
+	if(!(U.religion == RELIGION_RASKARA || U.religion == RELIGION_RASKARA_ALT) || !holstered)
+		return
+
+	var/raskara_text = SPAN_CULT("\The [src] holds a treasure from the depths of the Maggot's hoard.")
+	. += raskara_text

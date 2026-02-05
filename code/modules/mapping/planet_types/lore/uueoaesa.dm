@@ -136,6 +136,7 @@
 	flora_diversity = 0
 	has_trees = FALSE
 	initial_weather_state = /singleton/state/weather/calm/jungle_planet
+	has_water_weather = TRUE
 	small_flora_types = list(/datum/seed/xuizi, /datum/seed/gukhe, /datum/seed/sarezhi, /datum/seed/flower/serkiflower, /datum/seed/sthberry)
 	surface_color = "#e8faff"
 	generated_name = FALSE
@@ -280,6 +281,7 @@
 	generated_name = FALSE
 	ruin_planet_type = PLANET_LORE
 	initial_weather_state = /singleton/state/weather/calm/jungle_planet
+	has_water_weather = TRUE
 	ruin_type_whitelist = list(
 		/datum/map_template/ruin/exoplanet/ouerea_heph_mining,
 		/datum/map_template/ruin/exoplanet/ouerea_village,

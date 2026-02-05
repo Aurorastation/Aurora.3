@@ -16,6 +16,13 @@
 	matter = list(DEFAULT_WALL_MATERIAL = 15000, MATERIAL_PLASTIC = 1000, MATERIAL_OSMIUM = 500)
 	dir = SOUTH
 
+/obj/item/mech_component/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(ready_to_install())
+		. += SPAN_NOTICE("It is ready for installation.")
+	else
+		. += get_missing_parts_text(user)
+
 /obj/item/mech_component/pickup(mob/user)
 	pixel_x = initial(pixel_x)
 	pixel_y = initial(pixel_y)
@@ -32,13 +39,6 @@
 	take_burn_damage(rand((10 - (severity*3)),15-(severity*4)))
 	for(var/obj/item/thing in contents)
 		thing.emp_act(severity)
-
-/obj/item/mech_component/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if(ready_to_install())
-		. += SPAN_NOTICE("It is ready for installation.")
-	else
-		. += get_missing_parts_text(user)
 
 /obj/item/mech_component/set_dir()
 	..(SOUTH)
@@ -109,7 +109,7 @@
 		update_components()
 
 /obj/item/mech_component/attackby(obj/item/attacking_item, mob/user)
-	if(attacking_item.isscrewdriver())
+	if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 		if(contents.len)
 			var/obj/item/removed = pick(contents)
 			user.visible_message(SPAN_NOTICE("\The [user] removes \the [removed] from \the [src]."))
@@ -119,10 +119,10 @@
 		else
 			to_chat(user, SPAN_WARNING("There is nothing to remove."))
 		return
-	if(attacking_item.iswelder())
+	if(attacking_item.tool_behaviour == TOOL_WELDER)
 		repair_brute_generic(attacking_item, user)
 		return
-	if(attacking_item.iscoil())
+	if(attacking_item.tool_behaviour == TOOL_CABLECOIL)
 		repair_burn_generic(attacking_item, user)
 		return
 	return ..()

@@ -1,7 +1,6 @@
 /obj/item/storage/slide_projector
 	name = "slide projector"
 	desc = "A handy device capable of showing an enlarged projection of whatever you can fit inside."
-	desc_info = "You can use this in hand to open the interface, click-dragging it to you also works. Click anywhere with it in your hand to project at that location. Click dragging it to that location also works."
 	icon = 'icons/obj/projector.dmi'
 	icon_state = "projector0"
 	max_w_class = WEIGHT_CLASS_SMALL
@@ -14,6 +13,11 @@
 	)
 	var/obj/item/current_slide
 	var/obj/effect/projection/projection
+
+/obj/item/storage/slide_projector/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "You can use this in-hand or click-drag it to yourself to to open its interface."
+	. += "Click anywhere with it in your hand, or click-drag it, to project at that location."
 
 /obj/item/storage/slide_projector/Destroy()
 	QDEL_NULL(current_slide)
@@ -41,17 +45,17 @@
 		return
 	project_at(get_turf(target))
 
-/obj/item/storage/slide_projector/MouseDrop(atom/over)
-	if(use_check_and_message(usr))
+/obj/item/storage/slide_projector/mouse_drop_dragged(atom/over, mob/user, src_location, over_location, params)
+	if(use_check_and_message(user))
 		return
 
-	if(over == usr)
-		interact(usr)
+	if(over == user)
+		interact(user)
 		return
 
 	var/turf/T = get_turf(over)
 	if(istype(T))
-		afterattack(over, usr)
+		afterattack(over, user)
 
 /obj/item/storage/slide_projector/proc/set_slide(obj/item/new_slide)
 	current_slide = new_slide
@@ -93,7 +97,7 @@
 /obj/item/storage/slide_projector/interact(mob/user)
 	var/data = list()
 	if(projection)
-		data += "<a href='?src=[REF(src)];stop_projector=1'>Disable Projector</a>"
+		data += "<a href='byond://?src=[REF(src)];stop_projector=1'>Disable Projector</a>"
 	else
 		data += "Projector Inactive"
 
@@ -104,7 +108,7 @@
 		if(I == current_slide)
 			table += "<td><b>[I.name]</b></td><td>SHOWING</td>"
 		else
-			table += "<td>[I.name]</td><td><a href='?src=[REF(src)];set_active=[i]'>SHOW</a></td>"
+			table += "<td>[I.name]</td><td><a href='byond://?src=[REF(src)];set_active=[i]'>SHOW</a></td>"
 		table += "</tr>"
 		i++
 	table += "</table>"
@@ -140,7 +144,8 @@
 	icon_state = "white"
 	anchored = TRUE
 	simulated = FALSE
-	plane = EFFECTS_ABOVE_LIGHTING_PLANE
+	plane = ABOVE_LIGHTING_PLANE
+	mouse_opacity = MOUSE_OPACITY_ICON
 	alpha = 100
 	var/datum/weakref/source
 
@@ -159,7 +164,7 @@
 		return
 	ClearOverlays()
 	var/mutable_appearance/MA = new(I)
-	MA.plane = EFFECTS_ABOVE_LIGHTING_PLANE
+	MA.plane = ABOVE_LIGHTING_PLANE
 	MA.appearance_flags = RESET_ALPHA
 	MA.alpha = 170
 	MA.pixel_x = 0

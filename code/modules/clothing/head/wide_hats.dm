@@ -53,13 +53,10 @@
 	build_from_parts = TRUE
 	worn_overlay = "over"
 
-/obj/item/clothing/head/bucket/boonie/green
-	icon_state = "green_boonie"
-	item_state = "green_boonie"
-
-/obj/item/clothing/head/bucket/boonie/blue
-	icon_state = "blue_boonie"
-	item_state = "blue_boonie"
+/obj/item/clothing/head/bucket/boonie/camo
+	icon_state = "camo_boonie"
+	item_state = "camo_boonie"
+	has_accents = TRUE
 
 /obj/item/clothing/head/fedora
 	name = "fedora"

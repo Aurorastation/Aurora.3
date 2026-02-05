@@ -30,7 +30,7 @@
 	// Faction data.
 	var/faction_role_text                   // Role for sub-antags. Mandatory for faction role.
 	var/faction_descriptor                  // Description of the cause. Mandatory for faction role.
-	var/faction_verb                        // Verb added when becoming a member of the faction, if any.
+	var/list/faction_verbs                  // Verbs added when becoming a member of the faction, if any.
 	var/faction_welcome                     // Message shown to faction members.
 	var/faction = "neutral"			// Faction name, mostly used for simple animals.
 
@@ -53,6 +53,7 @@
 	var/suspicion_chance = 50               // Prob of being on the initial Command report
 	var/flags = 0                           // Various runtime options.
 	var/db_log_id = null                    // ID of the db entry used to track that antagonist
+	var/allow_no_mob = FALSE                // This antagonist allows ghosts as antag, or other mobs that don't fill out the current var.
 
 	// Used for setting appearance.
 	var/list/valid_species =       list(SPECIES_UNATHI,SPECIES_TAJARA,SPECIES_SKRELL,SPECIES_SKRELL_AXIORI,SPECIES_HUMAN)

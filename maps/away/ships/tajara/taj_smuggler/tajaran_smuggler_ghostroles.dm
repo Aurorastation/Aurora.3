@@ -26,7 +26,7 @@
 	uniform = list(
 				/obj/item/clothing/under/tajaran,
 				/obj/item/clothing/under/tajaran/summer,
-				/obj/item/clothing/under/pants/tajaran,
+				/obj/item/clothing/pants/tajaran,
 				/obj/item/clothing/under/syndicate/tracksuit,
 				/obj/item/clothing/under/tajaran/mechanic
 
@@ -56,7 +56,7 @@
 
 	id = /obj/item/card/id
 
-	l_ear = /obj/item/device/radio/headset/ship
+	l_ear = /obj/item/radio/headset/ship
 
 	backpack_contents = list(/obj/item/storage/box/survival = 1, /obj/item/storage/wallet/random = 1)
 	species_shoes = list(
@@ -90,4 +90,4 @@
 	name = "Tajaran Smuggler Captain"
 
 	uniform = /obj/item/clothing/under/syndicate
-	head = /obj/item/clothing/head/padded
+	head = /obj/item/clothing/head/tanker

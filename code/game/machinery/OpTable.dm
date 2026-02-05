@@ -1,7 +1,6 @@
 /obj/machinery/optable
 	name = "operating table"
 	desc = "Used for advanced medical procedures."
-	desc_info = "Click your target with Grab intent, then click on the table with an empty hand, to place them on it."
 	icon = 'icons/obj/surgery.dmi'
 	icon_state = "table2-idle"
 	pass_flags_self = PASSTABLE
@@ -27,6 +26,16 @@
 	///The connected surgery computer
 	var/obj/machinery/computer/operating/computer = null
 
+	/// If the patient must be lying on this surgery table for it to set the patient as occupant.
+	var/occupant_must_be_lying = TRUE
+
+/obj/machinery/optable/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Click your target with Grab intent, then click on the table with an empty hand, to place them on it."
+
+/obj/machinery/optable/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "The neural suppressors are switched [suppressing ? "on" : "off"]."
 
 /obj/machinery/optable/Initialize()
 	..()
@@ -119,10 +128,6 @@
 
 	patient.reset_view(null)
 
-/obj/machinery/optable/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	. += SPAN_NOTICE("The neural suppressors are switched [suppressing ? "on" : "off"].")
-
 /obj/machinery/optable/ex_act(severity)
 	switch(severity)
 		if(1.0)
@@ -152,6 +157,7 @@
 	if((user.a_intent != I_HELP) && buckled)
 		user_unbuckle(user)
 		return
+
 	if(user != occupant_resolved && !use_check_and_message(user)) // Skip checks if you're doing it to yourself or turning it off, this is an anti-griefing mechanic more than anything.
 		user.visible_message(SPAN_WARNING("\The [user] begins switching [suppressing ? "off" : "on"] \the [src]'s neural suppressor."))
 		if(!do_after(user, 3 SECONDS, src, DO_UNIQUE))
@@ -161,7 +167,7 @@
 
 		suppressing = !suppressing
 		user.visible_message(SPAN_NOTICE("\The [user] switches [suppressing ? "on" : "off"] \the [src]'s neural suppressor."), intent_message = BUTTON_FLICK)
-		playsound(loc, /singleton/sound_category/switch_sound, 50, 1)
+		playsound(loc, SFX_SWITCH, 50, 1)
 
 /**
  * Refreshes the icon state based on the table status
@@ -199,10 +205,11 @@
 		//does not mean it's suppressed, just that it's occupying the table
 		var/mob/living/carbon/human/new_occupant = locate() in loc
 		if(istype(new_occupant))
-			if(new_occupant.lying)
-				//Set the occupant weakref and get his view
-				occupant = WEAKREF(new_occupant)
-				acquire_view(new_occupant)
+			if(occupant_must_be_lying && !new_occupant.lying)
+				return FALSE
+			//Set the occupant weakref and get his view
+			occupant = WEAKREF(new_occupant)
+			acquire_view(new_occupant)
 
 	//We have a patient, and it's not synthetic
 	else if(!occupant_resolved.isSynthetic())
@@ -255,16 +262,26 @@
 	add_fingerprint(patient)
 	add_fibers(patient)
 
-	patient.resting = TRUE
-	patient.forceMove(loc)
+	move_patient_to_table(patient, giver)
 
 	return TRUE
 
-/obj/machinery/optable/MouseDrop_T(atom/dropping, mob/user)
-	if(istype(dropping, /obj/item))
-		user.drop_from_inventory(dropping, get_turf(src))
+/**
+ * Actually moves a patient to the table.
+ */
+/obj/machinery/optable/proc/move_patient_to_table(mob/living/carbon/patient, mob/living/carbon/giver)
+	patient.resting = TRUE
+	patient.forceMove(loc)
 
-	var/mob/living/carbon/patient = dropping
+/obj/machinery/optable/mouse_drop_receive(atom/dropped, mob/user, params)
+	//If the user is a ghost, stop.
+	if(isghost(user))
+		return
+
+	if(istype(dropped, /obj/item))
+		user.drop_from_inventory(dropped, get_turf(src))
+
+	var/mob/living/carbon/patient = dropped
 	//No point if it's not a possible patient
 	if(!istype(patient))
 		return
@@ -327,3 +344,28 @@
 		return TRUE
 	if(default_part_replacement(user, attacking_item))
 		return TRUE
+
+/obj/machinery/optable/robotics
+	name = "machinery chair"
+	desc = "Some sort of hybrid between an operating table and a chair, typically used by machinists and roboticists to strap synthetics to while they work on them. \
+			It comes with an access cable for easy access to a synthetic's diagnostics unit."
+	icon_state = "machinist_or_table"
+	density = FALSE
+	occupant_must_be_lying = FALSE
+	can_buckle = list(/mob/living/carbon/human)
+
+/obj/machinery/optable/robotics/mechanics_hints(mob/user, distance, is_adjacent)
+	. = ..()
+	. += list("Use a <b>non-help</b> intent to unbuckle.")
+
+/obj/machinery/optable/robotics/refresh_icon_state()
+	return
+
+/obj/machinery/optable/robotics/move_patient_to_table(mob/living/carbon/patient, mob/living/carbon/giver)
+	buckle(patient, giver)
+	visible_message(SPAN_NOTICE("[giver] buckles [patient] to \the [src]."))
+
+/obj/machinery/optable/robotics/buckle(atom/movable/buckling_atom, mob/user)
+	. = ..()
+	if(.)
+		playsound(src, 'sound/effects/metal_close.ogg', 20)

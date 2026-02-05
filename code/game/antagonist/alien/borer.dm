@@ -1,4 +1,4 @@
-var/datum/antagonist/xenos/borer/borers
+GLOBAL_DATUM(borers, /datum/antagonist/xenos/borer)
 
 /datum/antagonist/xenos/borer
 	id = MODE_BORER
@@ -22,8 +22,8 @@ var/datum/antagonist/xenos/borer/borers
 	initial_spawn_target = 3
 
 /datum/antagonist/xenos/borer/New()
-	..(TRUE)
-	borers = src
+	..()
+	GLOB.borers = src
 
 /datum/antagonist/xenos/borer/create_objectives(var/datum/mind/player)
 	if(!..())
@@ -60,7 +60,7 @@ var/datum/antagonist/xenos/borer/borers
 			borer.forceMove(chosen_host)
 
 			if(borer.host.mind)
-				borers.add_antagonist_mind(borer.host.mind, 1, borers.faction_role_text, borers.faction_welcome)
+				GLOB.borers.add_antagonist_mind(borer.host.mind, 1, GLOB.borers.faction_role_text, GLOB.borers.faction_welcome)
 
 			var/obj/item/organ/external/head = borer.host.get_organ(BP_HEAD)
 			head.implants += borer

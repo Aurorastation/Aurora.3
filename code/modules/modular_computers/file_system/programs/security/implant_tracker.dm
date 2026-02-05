@@ -101,4 +101,4 @@
 			if(istype(I) && I.imp_in)
 				var/mob/living/carbon/R = I.imp_in
 				to_chat(R, SPAN_NOTICE("You hear a voice in your head saying: '[warning]'."))
-				message_admins("[key_name_admin(usr)] messaged [key_name_admin(I.imp_in)]: '[warning]' via \the [computer]. (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[usr.x];Y=[usr.y];Z=[usr.z]'>JMP</a>)")
+				message_admins("[key_name_admin(usr)] messaged [key_name_admin(I.imp_in)]: '[warning]' via \the [computer]. (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[usr.x];Y=[usr.y];Z=[usr.z]'>JMP</a>)")

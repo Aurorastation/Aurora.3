@@ -19,8 +19,8 @@
 		to_chat(src, SPAN_NOTICE("\The [D] acknowledges your signal."))
 		D.flush_count = D.flush_every_ticks
 
-/mob/living/silicon/robot/drone/MouseDrop(atom/over_object)
-	var/mob/living/carbon/H = over_object
+/mob/living/silicon/robot/drone/mouse_drop_dragged(atom/over, mob/user, src_location, over_location, params)
+	var/mob/living/carbon/H = over
 	if(!istype(H) || !Adjacent(H))
 		return ..()
 	if(H.a_intent == "help")

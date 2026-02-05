@@ -1,5 +1,3 @@
-datum
-
 var/global/enable_power_update_profiling = 0
 
 var/global/power_profiled_time = 0

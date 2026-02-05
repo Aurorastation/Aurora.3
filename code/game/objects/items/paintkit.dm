@@ -1,17 +1,18 @@
-/obj/item/device/kit
+/obj/item/kit
+	icon = 'icons/obj/item/modkit.dmi'
 	icon_state = "modkit"
-	icon = 'icons/obj/device.dmi'
+	item_state = "restock_unit"
 	var/new_name = "exosuit"    //What is the variant called?
 	var/new_desc = "An exosuit." //How is the new exosuit described?
 	var/new_icon = "ripley"  //What base icon will the new exosuit use?
 	var/new_icon_file
 	var/uses = 1        // Uses before the kit deletes itself.
 
-/obj/item/device/kit/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	. += "It has [uses] use\s left."
+/obj/item/kit/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "It has <b>[uses] use\s</b> left."
 
-/obj/item/device/kit/use(var/amt, var/mob/user)
+/obj/item/kit/use(var/amt, var/mob/user)
 	uses -= amt
 	playsound(get_turf(user), 'sound/items/Screwdriver.ogg', 50, 1)
 	if(uses<1)
@@ -20,7 +21,7 @@
 
 // Root voidsuit kit defines.
 // Icons for modified voidsuits need to be in the proper .dmis because suit cyclers may cock them up.
-/obj/item/device/kit/suit
+/obj/item/kit/suit
 	name = "voidsuit modification kit"
 	desc = "A kit for modifying a voidsuit."
 	uses = 2
@@ -28,8 +29,8 @@
 	var/new_mob_icon_file
 
 /obj/item/clothing/head/helmet/space/void/attackby(obj/item/attacking_item, mob/user)
-	if(istype(attacking_item,/obj/item/device/kit/suit))
-		var/obj/item/device/kit/suit/kit = attacking_item
+	if(istype(attacking_item,/obj/item/kit/suit))
+		var/obj/item/kit/suit/kit = attacking_item
 		name = "[kit.new_name] suit helmet"
 		desc = kit.new_desc
 		icon_state = "[kit.new_icon]_helmet"

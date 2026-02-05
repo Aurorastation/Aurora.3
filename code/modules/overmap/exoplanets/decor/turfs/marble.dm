@@ -5,7 +5,6 @@
 	initial_flooring = /singleton/flooring/marble
 	color = COLOR_GRAY80
 	has_resources = FALSE
-	does_footprint = FALSE
 
 /turf/simulated/floor/exoplanet/marble/dark
 	initial_flooring = /singleton/flooring/marble/dark

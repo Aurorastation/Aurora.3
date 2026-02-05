@@ -1,7 +1,7 @@
 /* Beds... get your mind out of the gutter, they're for sleeping!
  * Contains:
- * 		Beds
- *		Roller beds
+ * * Beds
+ * * Roller beds
  */
 
 /*
@@ -18,9 +18,6 @@
 /obj/structure/bed
 	name = "bed"
 	desc = "This is used to lie in, sleep in or strap on."
-	desc_info = "Click and drag yourself (or anyone) to this to buckle in. Click on this with an empty hand to undo the buckles.<br>\
-	Anyone with restraints, such as handcuffs, will not be able to unbuckle themselves. They must use the Resist button, or verb, to break free of \
-	the buckles, instead. \ To unbuckle people as a stationbound, click the bed with an empty gripper."
 	icon = 'icons/obj/structure/beds.dmi'
 	icon_state = "bed"
 	anchored = TRUE
@@ -47,18 +44,38 @@
 	var/mob/living/pulling = null
 	var/propelled = 0 // Check for fire-extinguisher-driven chairs
 
+/obj/structure/bed/mechanics_hints()
+	. = list()
+	. += ..()
+	. += "Click-drag yourself (or anyone) to this to buckle in."
+	. += "Click on this with an empty hand to undo the buckles."
+	. += "Anyone with restraints, such as handcuffs, will not be able to unbuckle themselves. They must use the Resist button, or verb, to break free of \
+	the buckles instead."
+	. += "To unbuckle people as a stationbound, click the bed with an empty gripper."
+	if(held_item)
+		. += "Click-drag this onto yourself to pick it up, remove an attached item, or to change the IV flow rate."
+		. += "Vitals monitors, blood bags, beakers, bottles, and medical scans can be attached by clicking this with the object in your active hand."
+		. += "ALT+click this to lock or unlock it in place."
+
+/obj/structure/bed/assembly_hints()
+	. = list()
+	. += ..()
+	if(!padding_material)
+		. += "It could be padded with <b>cloth or leather</b>."
+
+/obj/structure/bed/disassembly_hints()
+	. = list()
+	. += ..()
+	if(padding_material)
+		. += "Its padding has visible seams that could be <b>cut</b>."
+	. += "It is held together by a couple of <b>bolts</b>."
+
 /obj/structure/bed/Initialize()
 	. = ..()
 	LAZYADD(can_buckle, /mob/living)
 
 /obj/structure/bed/New(newloc, new_material = MATERIAL_STEEL, new_padding_material, new_painted_colour)
 	..(newloc)
-	if(can_buckle)
-		desc_info = "Click and drag yourself (or anyone) to this to buckle in. Click on this with an empty hand to undo the buckles.<br>\
-	Anyone with restraints, such as handcuffs, will not be able to unbuckle themselves. They must use the Resist button, or verb, to break free of \
-	the buckles instead. "
-	if(held_item)
-		desc_info += "Click and drag this onto yourself to pick it up. "
 	material = SSmaterials.get_material_by_name(new_material)
 	if(!istype(material))
 		qdel(src)
@@ -122,10 +139,10 @@
 		painted_colour = new_colour
 		return painted_colour != last_colour
 
-/obj/structure/bed/forceMove(atom/dest)
+/obj/structure/bed/forceMove(atom/destination)
 	. = ..()
 	if(buckled)
-		buckled.forceMove(dest)
+		buckled.forceMove(destination)
 
 /obj/structure/bed/ex_act(severity)
 	switch(severity)
@@ -142,7 +159,7 @@
 				return
 
 /obj/structure/bed/attackby(obj/item/attacking_item, mob/user)
-	if(attacking_item.iswrench())
+	if(attacking_item.tool_behaviour == TOOL_WRENCH)
 		if(can_dismantle)
 			dismantle(attacking_item, user)
 	else if(istype(attacking_item,/obj/item/stack))
@@ -174,7 +191,7 @@
 		add_padding(padding_type)
 		return
 
-	else if (attacking_item.iswirecutter())
+	else if (attacking_item.tool_behaviour == TOOL_WIRECUTTER)
 		if(!can_pad)
 			return
 		if(!padding_material)
@@ -185,7 +202,7 @@
 		painted_colour = null
 		remove_padding()
 
-	else if (attacking_item.isscrewdriver())
+	else if (attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 		if(anchored)
 			anchored = FALSE
 			to_chat(user, "You unfasten \the [src] from floor.")
@@ -218,7 +235,7 @@
 		attacking_item.pixel_x = 10 //make sure they reach the pillow
 		attacking_item.pixel_y = -6
 
-	else if(istype(attacking_item, /obj/item/device/paint_sprayer))
+	else if(istype(attacking_item, /obj/item/paint_sprayer))
 		return
 
 	else if(!istype(attacking_item, /obj/item/bedsheet))
@@ -299,7 +316,7 @@
 			occupant.visible_message(SPAN_DANGER("[pulling] has thrusted \the [name] into \the [A], throwing \the [occupant] out of it!"))
 			pulling.attack_log += "\[[time_stamp()]\]<span class='warning'> Crashed [occupant.name]'s ([occupant.ckey]) [name] into \a [A]</span>"
 			occupant.attack_log += "\[[time_stamp()]\]<font color='orange'> Thrusted into \a [A] by [pulling.name] ([pulling.ckey]) with \the [name]</font>"
-			msg_admin_attack("[pulling.name] ([pulling.ckey]) has thrusted [occupant.name]'s ([occupant.ckey]) [name] into \a [A] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[pulling.x];Y=[pulling.y];Z=[pulling.z]'>JMP</a>)",ckey=key_name(pulling),ckey_target=key_name(occupant))
+			msg_admin_attack("[pulling.name] ([pulling.ckey]) has thrusted [occupant.name]'s ([occupant.ckey]) [name] into \a [A] (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[pulling.x];Y=[pulling.y];Z=[pulling.z]'>JMP</a>)",ckey=key_name(pulling),ckey_target=key_name(occupant))
 		else
 			occupant.visible_message(SPAN_DANGER("[occupant] crashed into \the [A]!"))
 
@@ -363,10 +380,18 @@
 	held_item = /obj/item/roller
 	var/obj/item/reagent_containers/beaker
 	var/obj/item/vitals_monitor/vitals
+	var/obj/item/paper/medscan
 	var/iv_attached = 0
 	var/iv_stand = TRUE
 	var/iv_transfer_rate = 4 //Same as max for regular IV drips
+	var/iv_transfer_rate_lowerlimit = 0.001
+	var/iv_transfer_rate_upperlimit = 4
 	var/has_iv_light = TRUE
+	var/medscan_view_distance = 2
+	var/scan_pixel_offset_y = -7
+	var/scan_pixel_offset_x = 0
+	var/iv_pixel_offset_y = 7
+	var/iv_pixel_offset_x = 0
 	//Items that can be attached to an IV
 	var/list/accepted_containers = list(
 		/obj/item/reagent_containers/blood,
@@ -382,6 +407,7 @@
 /obj/structure/bed/roller/Destroy()
 	QDEL_NULL(beaker)
 	QDEL_NULL(vitals)
+	QDEL_NULL(medscan)
 	return ..()
 
 /obj/structure/bed/roller/update_icon()
@@ -403,7 +429,7 @@
 		if(percentage < 25)
 			iv.AddOverlays(image(icon, "light_low"))
 		if(density)
-			iv.pixel_y = 7
+			iv.pixel_y = iv_pixel_offset_y
 		AddOverlays(iv)
 		if(has_iv_light)
 			var/image/light = image(icon, "iv[iv_attached]_l")
@@ -411,9 +437,20 @@
 	if(vitals)
 		vitals.update_monitor()
 		add_vis_contents(vitals)
+	if(medscan)
+		var/image/scan = image(icon, "holder_medscan")
+		if(!density)
+			scan.pixel_y = scan_pixel_offset_y
+		AddOverlays(scan)
+
+/obj/structure/bed/roller/feedback_hints(mob/user, distance, show_extended)
+	if(medscan && distance<=medscan_view_distance)
+		var/obj/item/paper/H = medscan
+		H.show_content(usr)
+	.=..()
 
 /obj/structure/bed/roller/attackby(obj/item/attacking_item, mob/user)
-	if(iswrench(attacking_item) || istype(attacking_item, /obj/item/stack) || iswirecutter(attacking_item))
+	if(attacking_item.tool_behaviour == TOOL_WRENCH || istype(attacking_item, /obj/item/stack) || attacking_item.tool_behaviour == TOOL_WIRECUTTER)
 		return 1
 	if(istype(attacking_item, /obj/item/vitals_monitor))
 		if(vitals)
@@ -432,6 +469,15 @@
 		beaker = attacking_item
 		update_icon()
 		return 1
+	if(istype(attacking_item, /obj/item/paper/medscan))
+		if(medscan)
+			to_chat(user, SPAN_WARNING("\The [src] already has a medical scan attached!"))
+			return
+		to_chat(user, SPAN_NOTICE("You attach \the [attacking_item] to \the [src]."))
+		user.drop_from_inventory(attacking_item, src)
+		medscan = attacking_item
+		update_icon()
+		return 1
 	..()
 
 /obj/structure/bed/roller/attack_hand(mob/living/user)
@@ -447,6 +493,9 @@
 		update_icon()
 
 /obj/structure/bed/roller/proc/collapse()
+	if(buckled)
+		to_chat(usr, SPAN_WARNING("\The [buckled] is on \the [src]. Remove them first."))
+		return
 	usr.visible_message(SPAN_NOTICE("<b>[usr]</b> collapses \the [src]."), SPAN_NOTICE("You collapse \the [src]"))
 	new held_item(get_turf(src))
 	qdel(src)
@@ -477,6 +526,12 @@
 	vitals = null
 	update_icon()
 
+/obj/structure/bed/roller/proc/remove_paper(mob/user)
+	to_chat(user, SPAN_NOTICE("You detach \the [medscan] from \the [src]."))
+	user.put_in_hands(medscan)
+	medscan = null
+	update_icon()
+
 /obj/structure/bed/roller/proc/attach_iv(mob/living/carbon/human/target, mob/user)
 	if(!beaker)
 		return
@@ -492,38 +547,84 @@
 	update_icon()
 	STOP_PROCESSING(SSprocessing, src)
 
-/obj/structure/bed/roller/MouseDrop(over_object, src_location, over_location)
+/obj/structure/bed/roller/mouse_drop_dragged(atom/over, mob/user, src_location, over_location, params)
 	..()
-	if(use_check(usr) || !Adjacent(usr))
+	if(use_check(user) || !Adjacent(user))
 		return
-	if(!ishuman(usr) && (!isrobot(usr) || isDrone(usr))) //Humans and borgs can collapse, but not drones
+	if(!ishuman(user) && (!isrobot(user) || isDrone(user))) //Humans and borgs can collapse, but not drones
 		return
-	if(over_object == buckled && beaker)
+	if(over == buckled && beaker)
 		if(iv_attached)
-			detach_iv(buckled, usr)
+			detach_iv(buckled, user)
 		else
-			attach_iv(buckled, usr)
+			attach_iv(buckled, user)
 		return
-	if(usr != over_object && ishuman(over_object))
-		if(user_buckle(over_object, usr))
-			attach_iv(buckled, usr)
+	if(user != over && ishuman(over))
+		if(user_buckle(over, user))
+			attach_iv(buckled, user)
 			return
-	if(beaker)
-		remove_beaker(usr)
-		return
-	if(vitals)
-		remove_vitals(usr)
-		return
 	if(buckled)
+		var/list/options = list(
+			"Transfer Rate" = image('icons/mob/screen/radial.dmi', "radial_transrate"),
+			"Remove Container" = image('icons/mob/screen/radial.dmi', "iv_beaker"),
+			"Remove Vitals Monitor" = image('icons/mob/screen/radial.dmi', "vitals_monitor"),
+			"Remove Scan" = image('icons/mob/screen/radial.dmi', "med_scan"))
+		var/chosen_action = show_radial_menu(user, src, options, require_near = TRUE, radius = 42, tooltips = TRUE)
+		if(!chosen_action)
+			return
+		switch(chosen_action)
+			if("Transfer Rate")
+				transfer_rate()
+			if("Remove Container")
+				if(!beaker)
+					to_chat(user, SPAN_NOTICE("There is no reagent container to remove."))
+					return
+				remove_beaker(user)
+				return
+			if("Remove Vitals Monitor")
+				if(!vitals)
+					to_chat(user, SPAN_NOTICE("There is no vitals monitor to remove."))
+					return
+				remove_vitals(user)
+				return
+			if("Remove Scan")
+				if(!medscan)
+					to_chat(user, SPAN_NOTICE("There is no medical scan to remove."))
+					return
+				remove_paper(user)
+				return
+	if(!buckled)
+		if(medscan)
+			remove_paper(user)
+		if(vitals)
+			remove_vitals(user)
+		if(beaker)
+			remove_beaker(user)
+		collapse()
+
+/obj/structure/bed/roller/verb/transfer_rate()
+	set category = "Object.IV Drip"
+	set name = "Set Transfer Rate"
+	set src in view(1)
+
+	if(use_check_and_message(usr))
 		return
-	collapse()
+
+	iv_transfer_rate = tgui_input_number( \
+		usr, \
+		"Set the IV drip's transfer rate between [iv_transfer_rate_lowerlimit] and [iv_transfer_rate_upperlimit].", \
+		"IV Drip", \
+		iv_transfer_rate, \
+		iv_transfer_rate_upperlimit, \
+		iv_transfer_rate_lowerlimit, \
+		round_value = FALSE)
+	to_chat(usr, SPAN_NOTICE("Transfer rate set to [src.iv_transfer_rate] u/sec."))
 
 /obj/structure/bed/roller/Move()
-	..()
+	. = ..()
 	if(buckled)
 		if(buckled.buckled_to == src)
 			buckled.forceMove(src.loc)
-			buckled.layer = src.layer + 1
 		else
 			buckled = null
 
@@ -654,6 +755,14 @@
 	 */
 	var/initial_beds = 4
 
+/obj/structure/roller_rack/feedback_hints(mob/user, distance, is_adjacent)
+	. = list()
+	. += "[initial(desc)] \nIt is holding [LAZYLEN(held)] beds."
+
+/obj/structure/roller_rack/assembly_hints(mob/user, distance, is_adjacent)
+	. = list()
+	. += "It [anchored ? "is" : "could be"] anchored to the floor with a couple of <b>screws</b>."
+
 /obj/structure/roller_rack/Initialize()
 	. = ..()
 	for(var/_ in 1 to initial_beds)
@@ -675,10 +784,6 @@
 		beds++
 		AddOverlays(I)
 
-/obj/structure/roller_rack/examine(mob/user, distance, is_adjacent, infix, suffix, show_extended)
-	desc = "[initial(desc)] \nIt is holding [LAZYLEN(held)] beds."
-	. = ..()
-
 /obj/structure/roller_rack/attack_hand(mob/user)
 	if(!LAZYLEN(held))
 		to_chat(user, SPAN_NOTICE("The rack is empty."))
@@ -691,7 +796,7 @@
 	update_icon()
 
 /obj/structure/roller_rack/attackby(obj/item/attacking_item, mob/user)
-	if(iswrench(attacking_item))
+	if(attacking_item.tool_behaviour == TOOL_WRENCH)
 		anchored = !anchored
 		to_chat(user, SPAN_NOTICE("You [anchored ? "bolt" : "unbolt"] \the [src] [anchored ? "to" : "from"] the ground."))
 

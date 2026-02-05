@@ -37,7 +37,7 @@
  */
 /mob/living/proc/write_ambition()
 	set name = "Set Ambition"
-	set category = "IC"
+	set category = "IC.Antag"
 
 	if(!(usr?.mind))
 		return

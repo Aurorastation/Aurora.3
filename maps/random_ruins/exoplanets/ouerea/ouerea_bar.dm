@@ -14,7 +14,6 @@
 	name = "Ouerea Bar"
 	icon_state = "bar"
 	requires_power = FALSE
-	dynamic_lighting = TRUE
 	no_light_control = FALSE
 	base_turf = /turf/simulated/floor/exoplanet/barren
 	area_flags = AREA_FLAG_RAD_SHIELDED|AREA_FLAG_INDESTRUCTIBLE_TURFS
@@ -85,9 +84,8 @@
 
 /obj/outfit/admin/ouerea_human
 	name = "Ouerean Human"
-	uniform = list(/obj/item/clothing/under/pants/tan, /obj/item/clothing/under/pants/jeans, /obj/item/clothing/under/shorts/black, /obj/item/clothing/under/shorts/jeans, /obj/item/clothing/under/tactical,
-	/obj/item/clothing/under/unathi)
-	accessory = list(/obj/item/clothing/accessory/silversun/random, /obj/item/clothing/accessory/dressshirt, /obj/item/clothing/accessory/tshirt, /obj/item/clothing/accessory/longsleeve)
+	uniform = list(/obj/item/clothing/under/dressshirt/silversun/random, /obj/item/clothing/under/dressshirt, /obj/item/clothing/under/dressshirt/tshirt, /obj/item/clothing/under/dressshirt/longsleeve)
+	pants = list(/obj/item/clothing/pants/tan, /obj/item/clothing/pants/jeans, /obj/item/clothing/pants/shorts/black, /obj/item/clothing/pants/shorts/jeans)
 	suit = list(/obj/item/clothing/suit/storage/toggle/track, /obj/item/clothing/suit/storage/toggle/asymmetriccoat/izharshan, /obj/item/clothing/accessory/poncho/unathimantle, /obj/item/clothing/suit/storage/toggle/corp/heph)
 	shoes = list(/obj/item/clothing/shoes/sandals/caligae, /obj/item/clothing/shoes/sandals, /obj/item/clothing/shoes/workboots, /obj/item/clothing/shoes/jackboots)
 	head = list(/obj/item/clothing/head/unathi, /obj/item/clothing/head/cowboy, /obj/item/clothing/head/cowboy/wide, /obj/item/clothing/head/bandana/colorable/random)
@@ -98,9 +96,8 @@
 
 /obj/outfit/admin/ouerea_skrell
 	name = "Ouerean Skrell"
-	uniform = list(/obj/item/clothing/under/skrell/wetsuit, /obj/item/clothing/under/unathi, /obj/item/clothing/under/unathi/himation)
-	accessory = list(/obj/item/clothing/accessory/tshirt/skrell/maelstrom, /obj/item/clothing/accessory/tshirt/skrell/nebula, /obj/item/clothing/accessory/tshirt/skrell/reef)
-	suit = list(/obj/item/clothing/accessory/poncho/skrell/tan, /obj/item/clothing/suit/storage/toggle/skrell/starcoat)
+	uniform = list(/obj/item/clothing/under/dressshirt/tshirt/skrell/maelstrom, /obj/item/clothing/under/dressshirt/tshirt/skrell/nebula, /obj/item/clothing/under/dressshirt/tshirt/skrell/reef)
+	pants = list(/obj/item/clothing/pants/tan, /obj/item/clothing/pants/jeans, /obj/item/clothing/pants/shorts/black, /obj/item/clothing/pants/shorts/jeans)
 	shoes = list(/obj/item/clothing/shoes/sandals/caligae, /obj/item/clothing/shoes/sandals, /obj/item/clothing/shoes/workboots, /obj/item/clothing/shoes/jackboots)
 	back = /obj/item/storage/backpack/satchel/leather
 	l_pocket = /obj/item/storage/wallet/random

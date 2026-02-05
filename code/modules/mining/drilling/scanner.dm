@@ -1,9 +1,10 @@
 /obj/item/mining_scanner
 	name = "deep ore scanner"
 	desc = "A complex device used to locate ore deep underground."
-	icon = 'icons/obj/device.dmi'
-	icon_state = "forensic0-old" //GET A BETTER SPRITE.
-	item_state = "electronic"
+	icon = 'icons/obj/item/mining_scanner.dmi'
+	icon_state = "manual_mining"
+	item_state = "manual_mining"
+	contained_sprite = TRUE
 	origin_tech = list(TECH_MAGNET = 1, TECH_ENGINEERING = 1)
 	matter = list(DEFAULT_WALL_MATERIAL = 150)
 

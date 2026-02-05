@@ -1,12 +1,12 @@
 //Global list for housing active radiojammers:
-var/list/active_radio_jammers = list()
+GLOBAL_LIST_INIT_TYPED(active_radio_jammers, /obj/item/radiojammer, list())
 
 // tests if an object is near a radio jammer
 // if need_all_blocked is false, the jammer only needs to be on JAMMER_SYNTHETIC to work
 /proc/within_jamming_range(var/atom/test, var/need_all_blocked = TRUE)
-	if(length(active_radio_jammers))
+	if(length(GLOB.active_radio_jammers))
 		var/turf/our_turf = get_turf(test)
-		for(var/obj/item/device/radiojammer/J in active_radio_jammers)
+		for(var/obj/item/radiojammer/J in GLOB.active_radio_jammers)
 			var/turf/jammer_turf = get_turf(J)
 			if(our_turf.z != jammer_turf.z)
 				continue
@@ -16,44 +16,49 @@ var/list/active_radio_jammers = list()
 				return TRUE
 	return FALSE
 
-/obj/item/device/radiojammer
+/obj/item/radiojammer
 	name = "radio jammer"
 	desc = "A small, inconspicious looking item with an 'ON/OFF' toggle."
-	desc_info = "Use in-hand to activate or deactivate, alt-click while adjacent or in-hand to toggle whether it blocks all wireless signals, or just stationbound wireless interfacing."
-	icon = 'icons/obj/device.dmi'
+	icon = 'icons/obj/item/chameleon.dmi'
 	icon_state = "shield0"
+	item_state = "electronic"
 	w_class = WEIGHT_CLASS_SMALL
 	var/active = JAMMER_OFF
 	var/radius = 7
 	var/icon_state_active = "shield1"
 	var/icon_state_inactive = "shield0"
 
-/obj/item/device/radiojammer/active
+/obj/item/radiojammer/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Use in-hand to activate or deactivate."
+	. += "Alt-click while adjacent or in-hand to toggle whether it blocks all signals or just stationbound wireless interfacing."
+
+/obj/item/radiojammer/active
 	active = JAMMER_ALL
 
-/obj/item/device/radiojammer/New()
+/obj/item/radiojammer/New()
 	..()
 	update_icon()
 
-/obj/item/device/radiojammer/Destroy()
-	active_radio_jammers -= src
+/obj/item/radiojammer/Destroy()
+	GLOB.active_radio_jammers -= src
 	return ..()
 
-/obj/item/device/radiojammer/attack_self(mob/user)
+/obj/item/radiojammer/attack_self(mob/user)
 	ui_interact(user)
 
-/obj/item/device/radiojammer/ui_interact(mob/user, datum/tgui/ui)
+/obj/item/radiojammer/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
 		ui = new(user, src, "Jammer", "Radio Jammer", 200, 200)
 		ui.open()
 
-/obj/item/device/radiojammer/ui_data(mob/user)
+/obj/item/radiojammer/ui_data(mob/user)
 	var/list/data = list()
 	data["active"] = active
 	return data
 
-/obj/item/device/radiojammer/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
+/obj/item/radiojammer/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	. = ..()
 	if(.)
 		return TRUE
@@ -64,12 +69,12 @@ var/list/active_radio_jammers = list()
 			update_icon()
 			. = TRUE
 
-/obj/item/device/radiojammer/emp_act(severity)
+/obj/item/radiojammer/emp_act(severity)
 	. = ..()
 
 	toggle()
 
-/obj/item/device/radiojammer/proc/toggle(var/mob/user)
+/obj/item/radiojammer/proc/toggle(var/mob/user)
 	if(active)
 		if(user)
 			to_chat(user, SPAN_NOTICE("You deactivate \the [src]."))
@@ -80,21 +85,20 @@ var/list/active_radio_jammers = list()
 		active = JAMMER_ALL
 	update_icon()
 
-/obj/item/device/radiojammer/update_icon()
+/obj/item/radiojammer/update_icon()
 	if(active > 0)
-		active_radio_jammers += src
+		GLOB.active_radio_jammers += src
 		icon_state = icon_state_active
 	else
-		active_radio_jammers -= src
+		GLOB.active_radio_jammers -= src
 		icon_state = icon_state_inactive
 
 
-/obj/item/device/radiojammer/improvised
+/obj/item/radiojammer/improvised
 	name = "improvised radio jammer"
 	desc = "An awkward bundle of wires, batteries, and radio transmitters."
-	desc_info = "Use in-hand to activate or deactivate."
 	var/obj/item/cell/cell
-	var/obj/item/device/assembly_holder/assembly_holder
+	var/obj/item/assembly_holder/assembly_holder
 	// 10 seconds of operation on a standard cell. 200 (roughly 3 minutes) on a super cap.
 	var/power_drain_per_second = 100
 	var/last_updated = null
@@ -103,8 +107,11 @@ var/list/active_radio_jammers = list()
 	icon_state = "improvised_jammer_inactive"
 	icon_state_active = "improvised_jammer_active"
 
+/obj/item/radiojammer/improvised/mechanics_hints(mob/user, distance, is_adjacent)
+	. = list()
+	. += "Use in-hand to activate or deactivate."
 
-/obj/item/device/radiojammer/improvised/New(var/obj/item/device/assembly_holder/incoming_holder, var/obj/item/cell/incoming_cell, var/mob/user)
+/obj/item/radiojammer/improvised/New(var/obj/item/assembly_holder/incoming_holder, var/obj/item/cell/incoming_cell, var/mob/user)
 	..()
 	cell = incoming_cell
 	assembly_holder = incoming_holder
@@ -117,12 +124,12 @@ var/list/active_radio_jammers = list()
 
 	user.put_in_active_hand(src)
 
-/obj/item/device/radiojammer/improvised/Destroy()
+/obj/item/radiojammer/improvised/Destroy()
 	STOP_PROCESSING(SSprocessing, src)
 	return ..()
 
 
-/obj/item/device/radiojammer/improvised/process()
+/obj/item/radiojammer/improvised/process()
 	var/current = world.time // current tick
 	var/delta = (current - last_updated) / 10.0 // delta in seconds
 	last_updated = current
@@ -132,8 +139,8 @@ var/list/active_radio_jammers = list()
 		update_icon()
 
 
-/obj/item/device/radiojammer/improvised/attackby(obj/item/attacking_item, mob/user)
-	if (attacking_item.isscrewdriver())
+/obj/item/radiojammer/improvised/attackby(obj/item/attacking_item, mob/user)
+	if (attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 		to_chat(user, SPAN_NOTICE("You disassemble the improvised signal jammer."))
 		user.put_in_hands(assembly_holder)
 		assembly_holder.detached()
@@ -141,7 +148,7 @@ var/list/active_radio_jammers = list()
 		qdel(src)
 		return TRUE
 
-/obj/item/device/radiojammer/improvised/toggle(mob/user)
+/obj/item/radiojammer/improvised/toggle(mob/user)
 	if(!active)
 		if(!cell)
 			if(user)
@@ -153,13 +160,13 @@ var/list/active_radio_jammers = list()
 			return
 	return ..()
 
-/obj/item/device/radiojammer/improvised/update_icon()
+/obj/item/radiojammer/improvised/update_icon()
 	if(active > 0)
-		active_radio_jammers += src
+		GLOB.active_radio_jammers += src
 		icon_state = icon_state_active
 		START_PROCESSING(SSprocessing, src)
 		last_updated = world.time
 	else
-		active_radio_jammers -= src
+		GLOB.active_radio_jammers -= src
 		icon_state = initial(icon_state)
 		STOP_PROCESSING(SSprocessing, src)

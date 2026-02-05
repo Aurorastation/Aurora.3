@@ -1,4 +1,4 @@
-var/datum/antagonist/revenant/revenants = null
+GLOBAL_DATUM(revenants, /datum/antagonist/revenant)
 
 /datum/antagonist/revenant
 	id = MODE_REVENANT
@@ -21,12 +21,12 @@ var/datum/antagonist/revenant/revenants = null
 /datum/antagonist/revenant/New()
 	..()
 
-	revenants = src
+	GLOB.revenants = src
 
 /datum/antagonist/revenant/proc/destroyed_rift()
-	revenants.revenant_rift = null
-	revenants.rifts_left--
-	if(revenants.rifts_left <= 0)
+	GLOB.revenants.revenant_rift = null
+	GLOB.revenants.rifts_left--
+	if(GLOB.revenants.rifts_left <= 0)
 		command_announcement.Announce("[SSatlas.current_map.station_name], we aren't detecting any more rift energy signatures. Mop up the rest of the invaders. Good work.", "Bluespace Breach Alert")
 
 /datum/antagonist/revenant/is_obvious_antag(datum/mind/player)

@@ -16,8 +16,8 @@
 			var/obj/item/organ/internal/brain/B = I
 			victims += B.brainmob
 
-		else if(istype(I,/obj/item/device/mmi))
-			var/obj/item/device/mmi/B = I
+		else if(istype(I,/obj/item/mmi))
+			var/obj/item/mmi/B = I
 			victims += B.brainmob
 
 		else if(istype(I,/obj/item/aicard))
@@ -38,9 +38,9 @@
 
 		var/output
 		if(SSticker.mode.name == "Cult")
-			if(H.mind == cult.sacrifice_target)
+			if(H.mind == GLOB.cult.sacrifice_target)
 				if(cultists_in_range.len >= 3)
-					cult.sacrificed += H.mind
+					GLOB.cult.sacrificed += H.mind
 					if(isrobot(H))
 						H.dust() // To prevent the MMI from remaining
 					else

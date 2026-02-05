@@ -295,15 +295,15 @@
 
 /obj/effect/golemrune/random_type/Initialize()
 	. = ..()
-	golem_type = pick(golem_types)
+	golem_type = pick(GLOB.golem_types)
 
 /obj/effect/golemrune/Destroy()
 	SSghostroles.remove_spawn_atom("golem", src)
 	return ..()
 
 /obj/effect/golemrune/process()
-	var/mob/abstract/observer/ghost
-	for(var/mob/abstract/observer/O in src.loc)
+	var/mob/abstract/ghost/observer/ghost
+	for(var/mob/abstract/ghost/observer/O in src.loc)
 		if(!O.client)
 			continue
 		if(O.mind && O.mind.current && O.mind.current.stat != DEAD)

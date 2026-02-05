@@ -25,17 +25,9 @@
  */
 
 
-var/all_unit_tests_passed = 1
-var/unit_tests_failures = 0
-var/total_unit_tests = 0
-
-// For console out put in Linux/Bash makes the output green or red.
-// Should probably only be used for unit tests/Travis since some special folks use winders to host servers.
-var/ascii_esc = ascii2text(27)
-var/ascii_red = "[ascii_esc]\[31m"
-var/ascii_green = "[ascii_esc]\[32m"
-var/ascii_yellow = "[ascii_esc]\[33m"
-var/ascii_reset = "[ascii_esc]\[0m"
+GLOBAL_VAR_INIT(all_unit_tests_passed, TRUE)
+GLOBAL_VAR_INIT(unit_tests_failures, 0)
+GLOBAL_VAR_INIT(total_unit_tests, 0)
 
 
 // We list these here so we can remove them from the for loop running this.
@@ -75,11 +67,11 @@ ABSTRACT_TYPE(/datum/unit_test)
 		if(LOG_UNIT_TEST_DEBUG)
 			severity = "\[\[ DEBUG \]\] "
 		if(LOG_UNIT_TEST_INFORMATION)
-			severity = "[ascii_green] *** NOTICE *** [ascii_reset] "
+			severity = TEST_OUTPUT_GREEN(" *** NOTICE *** ")
 		if(LOG_UNIT_TEST_WARNING)
-			severity = "[ascii_yellow] === WARNING === [ascii_reset] "
+			severity = TEST_OUTPUT_YELLOW(" === WARNING === ")
 		if(LOG_UNIT_TEST_ERROR)
-			severity = "[ascii_red] !!! FAILURE !!! [ascii_reset] "
+			severity = TEST_OUTPUT_RED(" !!! FAILURE !!! ")
 	#else
 
 	// We are running off Travis, which means github (or someone fucked up very badly)
@@ -122,8 +114,8 @@ ABSTRACT_TYPE(/datum/unit_test)
 	SHOULD_CALL_PARENT(TRUE)
 	SHOULD_NOT_SLEEP(TRUE)
 
-	all_unit_tests_passed = FALSE
-	unit_tests_failures++
+	GLOB.all_unit_tests_passed = FALSE
+	GLOB.unit_tests_failures++
 	reported = TRUE
 
 	//If we're running in manual mode, raise an exception so we can see it in VSC directly
@@ -136,7 +128,7 @@ ABSTRACT_TYPE(/datum/unit_test)
 
 /datum/unit_test/proc/pass(var/message, var/file, var/line)
 	reported = 1
-	log_unit_test(LOG_UNIT_TEST_INFORMATION, "[ascii_green][message][ascii_reset]", file, line, title = "SUCCESS: [name]")
+	log_unit_test(LOG_UNIT_TEST_INFORMATION, TEST_OUTPUT_GREEN("[message]"), file, line, title = "SUCCESS: [name]")
 	return UNIT_TEST_PASSED
 
 

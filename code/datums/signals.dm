@@ -4,7 +4,7 @@
  * This sets up a listening relationship such that when the target object emits a signal
  * the source datum this proc is called upon, will receive a callback to the given proctype
  * Use PROC_REF(procname), TYPE_PROC_REF(type,procname) or GLOBAL_PROC_REF(procname) macros to validate the passed in proc at compile time.
- * PROC_REF for procs defined on current type or it's ancestors, TYPE_PROC_REF for procs defined on unrelated type and GLOBAL_PROC_REF for global procs.
+ * PROC_REF for procs defined on current type or its ancestors, TYPE_PROC_REF for procs defined on unrelated type and GLOBAL_PROC_REF for global procs.
  * Return values from procs registered must be a bitfield
  *
  * Arguments:
@@ -70,38 +70,55 @@
  */
 /datum/proc/UnregisterSignal(datum/target, sig_type_or_types)
 	var/list/lookup = target._listen_lookup
-	if(!_signal_procs || !_signal_procs[target] || !lookup)
+	var/list/procs = _signal_procs
+
+	// If neither side has anything, bail.
+	if(!lookup && (!procs || !procs[target]))
 		return
+
 	if(!islist(sig_type_or_types))
 		sig_type_or_types = list(sig_type_or_types)
-	for(var/sig in sig_type_or_types)
-		if(!_signal_procs[target][sig])
-			if(!istext(sig))
-				stack_trace("We're unregistering with something that isn't a valid signal \[[sig]\], you fucked up")
-			continue
-		switch(length(lookup[sig]))
-			if(2)
-				lookup[sig] = (lookup[sig]-src)[1]
-			if(1)
-				stack_trace("[target] ([target.type]) somehow has single length list inside _listen_lookup")
-				if(src in lookup[sig])
-					lookup -= sig
-					if(!length(lookup))
-						target._listen_lookup = null
-						break
-			if(0)
-				if(lookup[sig] != src)
-					continue
-				lookup -= sig
-				if(!length(lookup))
-					target._listen_lookup = null
-					break
-			else
-				lookup[sig] -= src
 
-	_signal_procs[target] -= sig_type_or_types
-	if(!_signal_procs[target].len)
-		_signal_procs -= target
+	var/list/target_procs = procs ? procs[target] : null
+
+	for(var/sig in sig_type_or_types)
+		var/has_proc = target_procs && target_procs[sig]
+
+		// Always try to clean the emitter side if lookup exists
+		if(lookup && (sig in lookup))
+			var/current = lookup[sig]
+
+			switch(length(current))
+				if(2)
+					// 2-element list: remove src, collapse to single datum
+					var/list/new_list = current - src
+					if(new_list.len)
+						lookup[sig] = new_list.len == 1 ? new_list[1] : new_list
+					else
+						// if somehow both gone, just drop the key
+						lookup -= sig
+				if(1)
+					// Single-length list (weird state, but handle it)
+					if(islist(current) && (src in current))
+						lookup -= sig
+				if(0)
+					// Non-list: either src or somebody else
+					if(current == src)
+						lookup -= sig
+				else
+					// >2 listeners
+					current -= src
+
+			if(lookup && !lookup.len)
+				target._listen_lookup = null
+
+		// Listener side cleanup, only if we actually had a proc
+		if(has_proc)
+			target_procs -= sig
+
+	// Final tidy: if target_procs is empty, remove that target from _signal_procs
+	if(target_procs && !target_procs.len)
+		procs -= target
 
 /**
  * Internal proc to handle most all of the signaling procedure
@@ -111,18 +128,68 @@
  * Use the [SEND_SIGNAL] define instead
  */
 /datum/proc/_SendSignal(sigtype, list/arguments)
-	var/target = _listen_lookup[sigtype]
-	if(!length(target))
-		var/datum/listening_datum = target
-		return NONE | call(listening_datum, listening_datum._signal_procs[src][sigtype])(arglist(arguments))
+	var/target = _listen_lookup?[sigtype]
+
+	// No listeners at all for this signal
+	if(!target)
+		return NONE
+
 	. = NONE
-	// This exists so that even if one of the signal receivers unregisters the signal,
-	// all the objects that are receiving the signal get the signal this final time.
-	// AKA: No you can't cancel the signal reception of another object by doing an unregister in the same signal.
+
+	// SINGLE LISTENER
+	if(!islist(target))
+		var/datum/listening_datum = target
+		if(!listening_datum)
+			return NONE
+
+		var/list/proc_map = listening_datum?._signal_procs?[src]
+
+		if(!proc_map)
+			// Listener has completely forgotten this source;
+			// clean the emitter side and log.
+			stack_trace("Signal mismatch (single): [src] has [sigtype] for [listening_datum], but listener has no _signal_procs entry")
+			if(_listen_lookup[sigtype] == listening_datum)
+				_listen_lookup -= sigtype
+			return NONE
+
+		var/proc_name = proc_map[sigtype]
+		if(!proc_name)
+			// Listener still has a table for this source, but not this signal.
+			stack_trace("Signal mismatch (single): [src] has [sigtype] for [listening_datum], but listener has no matching proc entry")
+			if(_listen_lookup[sigtype] == listening_datum)
+				_listen_lookup -= sigtype
+			return NONE
+
+		// Happy path
+		return NONE | call(listening_datum, proc_name)(arglist(arguments))
+
+	// MULTIPLE LISTENERS
+	var/list/listeners = target
 	var/list/queued_calls = list()
-	// This should be faster than doing `var/datum/listening_datum as anything in target` as it does not implicitly copy the list
-	for(var/i in 1 to length(target))
-		var/datum/listening_datum = target[i]
-		queued_calls.Add(listening_datum, listening_datum._signal_procs[src][sigtype])
-	for(var/i in 1 to length(queued_calls) step 2)
+
+	for(var/i in 1 to listeners.len)
+		var/datum/listening_datum = listeners[i]
+		if(!listening_datum)
+			continue
+
+		var/list/proc_map = listening_datum?._signal_procs?[src]
+		if(!proc_map)
+			// Listener forgot this source, but the source still remembers the listener.
+			stack_trace("Signal mismatch: [src] has [sigtype] in _listen_lookup but [listening_datum] has no _signal_procs entry for it")
+			// Self-heal: remove stale listener from src's listener list.
+			listeners.Cut(i, i + 1)
+			i--
+			continue
+
+		var/proc_name = proc_map[sigtype]
+		if(!proc_name)
+			// Listener still has a table for this source, but not this signal.
+			stack_trace("Signal mismatch: [src] has [sigtype] in _listen_lookup but [listening_datum] has no proc entry for it")
+			listeners.Cut(i, i + 1)
+			i--
+			continue
+
+		queued_calls += list(listening_datum, proc_name)
+
+	for(var/i in 1 to queued_calls.len step 2)
 		. |= call(queued_calls[i], queued_calls[i + 1])(arglist(arguments))

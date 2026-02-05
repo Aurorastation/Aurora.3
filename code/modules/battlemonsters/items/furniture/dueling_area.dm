@@ -1,10 +1,10 @@
 /obj/structure/dueling_table
 	name = "dueling table"
 	icon = 'icons/obj/battle_monsters/furniture.dmi'
-	anchored = 1
-	density = 1
+	anchored = TRUE
+	density = TRUE
 	climbable = TRUE
-	throwpass = 1
+	pass_flags_self = PASSSTRUCTURE | LETPASSTHROW
 
 /obj/structure/dueling_table/no_collide
 	density = 0

@@ -1,5 +1,4 @@
 /obj/machinery/atmospherics/pipe/simple/heat_exchanging
-	desc_info = "This radiates heat from the pipe's gas to space, cooling it down."
 	icon = 'icons/atmos/heat.dmi'
 	icon_state = "intact"
 	pipe_icon = "hepipe"
@@ -19,6 +18,11 @@
 	volume = ATMOS_DEFAULT_VOLUME_HE_PIPE
 
 	// BubbleWrap
+
+/obj/machinery/atmospherics/pipe/simple/heat_exchanging/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "This radiates heat from the pipe's gas to space, cooling it down."
+
 /obj/machinery/atmospherics/pipe/simple/heat_exchanging/Initialize()
 	. = ..()
 	initialize_directions_he = initialize_directions	// The auto-detection from /pipe is good enough for a simple HE pipe
@@ -74,10 +78,11 @@
 			var/energy_to_temp = parent.air.get_thermal_energy_change(lava_temperature)
 			parent.air.add_thermal_energy(max(min(energy_to_temp, max_energy_change), 0))
 
-		else if(istype(loc, /turf/simulated/))
+		else if(istype(loc, /turf/simulated))
+			var/turf/simulated/simulated_turf = loc
 			var/environment_temperature = 0
-			if(loc:blocks_air)
-				environment_temperature = loc:temperature
+			if(simulated_turf.blocks_air)
+				environment_temperature = simulated_turf.temperature
 			else
 				var/datum/gas_mixture/environment = loc.return_air()
 				environment_temperature = environment.temperature

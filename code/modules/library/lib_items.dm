@@ -1,9 +1,9 @@
 /* Library Items
  *
  * Contains:
- *		Bookcase
- *		Book
- *		Barcode Scanner
+ * * Bookcase
+ * * Book
+ * * Barcode Scanner
  */
 
 
@@ -17,7 +17,6 @@
 	icon_state = "book-0"
 	anchored = 1
 	density = 1
-	opacity = 1
 	build_amt = 5
 
 /obj/structure/bookcase/Initialize()
@@ -31,17 +30,17 @@
 	if(istype(attacking_item, /obj/item/book))
 		user.drop_from_inventory(attacking_item,src)
 		update_icon()
-	else if(attacking_item.ispen())
+	else if(attacking_item.tool_behaviour == TOOL_PEN)
 		var/newname = sanitizeSafe(input("What would you like to title this bookshelf?"), MAX_NAME_LEN)
 		if(!newname)
 			return
 		else
 			name = ("bookcase ([newname])")
-	else if(attacking_item.iswrench())
+	else if(attacking_item.tool_behaviour == TOOL_WRENCH)
 		attacking_item.play_tool_sound(get_turf(src), 100)
 		to_chat(user, (anchored ? SPAN_NOTICE("You unfasten \the [src] from the floor.") : SPAN_NOTICE("You secure \the [src] to the floor.")))
 		anchored = !anchored
-	else if(attacking_item.isscrewdriver())
+	else if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 		to_chat(user, SPAN_NOTICE("You begin dismantling \the [src]."))
 		if(attacking_item.use_tool(src, user, 25, volume = 50))
 			to_chat(user, SPAN_NOTICE("You dismantle \the [src]."))
@@ -190,12 +189,8 @@
 /obj/item/book
 	name = "book"
 	icon = 'icons/obj/library.dmi'
-	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items/lefthand_books.dmi',
-		slot_r_hand_str = 'icons/mob/items/righthand_books.dmi'
-		)
+	contained_sprite = TRUE
 	icon_state = "book"
-	desc_antag = "As a Cultist, this item can be reforged to become a cult tome."
 	throw_speed = 1
 	throw_range = 5
 	w_class = WEIGHT_CLASS_NORMAL		 //upped to three because books are, y'know, pretty big. (and you could hide them inside eachother recursively forever)
@@ -210,6 +205,10 @@
 	drop_sound = 'sound/items/drop/book.ogg'
 	pickup_sound = 'sound/items/pickup/book.ogg'
 
+/obj/item/book/antagonist_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "As a Cultist, this item can be reforged to become a cult tome."
+
 /obj/item/book/attack_self(var/mob/user as mob)
 	if(carved)
 		if(store)
@@ -221,9 +220,9 @@
 			to_chat(user, SPAN_NOTICE("The pages of [title] have been cut out!"))
 			return
 	if(src.dat)
-		user << browse("<TT><I>Penned by [author].</I></TT> <BR>" + "[dat]", "window=book")
+		user << browse(HTML_SKELETON("<TT><I>Penned by [author].</I></TT> <BR>" + "[dat]"), "window=book")
 		user.visible_message("[user] opens a book titled \"[src.title]\" and begins reading intently.")
-		playsound(loc, 'sound/bureaucracy/bookopen.ogg', 50, TRUE)
+		playsound(loc, 'sound/items/bureaucracy/bookopen.ogg', 50, TRUE)
 		onclose(user, "book")
 	else
 		to_chat(user, "This book is completely blank!")
@@ -242,7 +241,7 @@
 		else
 			to_chat(user, SPAN_NOTICE("There's already something in [title]!"))
 			return
-	if(attacking_item.ispen())
+	if(attacking_item.tool_behaviour == TOOL_PEN)
 		if(unique)
 			to_chat(user, "These pages don't seem to take the ink well. Looks like you can't modify it.")
 			return
@@ -301,12 +300,12 @@
 							return
 					scanner.computer.inventory.Add(src)
 					to_chat(user, "[attacking_item]'s screen flashes: 'Book stored in buffer. Title added to general inventory.'")
-	else if(istype(attacking_item, /obj/item/material/knife) || attacking_item.iswirecutter())
+	else if(istype(attacking_item, /obj/item/material/knife) || attacking_item.tool_behaviour == TOOL_WIRECUTTER)
 		if(carved)	return
 		to_chat(user, SPAN_NOTICE("You begin to carve out [title]."))
 		if(attacking_item.use_tool(src, user, 30, volume = 50))
 			to_chat(user, SPAN_NOTICE("You carve out the pages from [title]! You didn't want to read it anyway."))
-			playsound(loc, 'sound/bureaucracy/papercrumple.ogg', 50, 1)
+			playsound(loc, 'sound/items/bureaucracy/papercrumple.ogg', 50, 1)
 			new /obj/item/shreddedp(get_turf(src))
 			carved = 1
 			return
@@ -317,7 +316,7 @@
 	if(target_zone == BP_EYES)
 		user.visible_message(SPAN_NOTICE("You open up the book and show it to [target_mob]. "), \
 			SPAN_NOTICE(" [user] opens up a book and shows it to [target_mob]. "))
-		target_mob << browse("<TT><I>Penned by [author].</I></TT> <BR>" + "[dat]", "window=book")
+		target_mob << browse(HTML_SKELETON("<TT><I>Penned by [author].</I></TT> <BR>" + "[dat]"), "window=book")
 		user.setClickCooldown(DEFAULT_QUICK_COOLDOWN) //to prevent spam
 
 

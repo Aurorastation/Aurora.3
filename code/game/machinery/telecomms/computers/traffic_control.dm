@@ -69,7 +69,7 @@
 	if(stat & (BROKEN|NOPOWER))
 		return
 	user.set_machine(src)
-	var/dat = "<TITLE>Telecommunication Traffic Control</TITLE><center><b>Telecommunications Traffic Control</b></center>"
+	var/dat = "<center><b>Telecommunications Traffic Control</b></center>"
 
 	switch(screen)
 
@@ -78,34 +78,34 @@
 
 		if(0)
 			dat += "<br>[temp]<br>"
-			dat += "<br>Current Network: <a href='?src=[REF(src)];network=1'>[network]</a><br>"
+			dat += "<br>Current Network: <a href='byond://?src=[REF(src)];network=1'>[network]</a><br>"
 			if(servers.len)
 				dat += "<br>Detected Telecommunication Servers:<ul>"
 				for(var/obj/machinery/telecomms/T in servers)
-					dat += "<li><a href='?src=[REF(src)];viewserver=[T.id]'>[REF(T)] [T.name]</a> ([T.id])</li>"
+					dat += "<li><a href='byond://?src=[REF(src)];viewserver=[T.id]'>[REF(T)] [T.name]</a> ([T.id])</li>"
 				dat += "</ul>"
-				dat += "<br><a href='?src=[REF(src)];operation=release'>\[Flush Buffer\]</a>"
+				dat += "<br><a href='byond://?src=[REF(src)];operation=release'>\[Flush Buffer\]</a>"
 
 			else
-				dat += "<br>No servers detected. Scan for servers: <a href='?src=[REF(src)];operation=scan'>\[Scan\]</a>"
+				dat += "<br>No servers detected. Scan for servers: <a href='byond://?src=[REF(src)];operation=scan'>\[Scan\]</a>"
 
 
 		// --- Viewing Server ---
 
 		if(1)
 			dat += "<br>[temp]<br>"
-			dat += "<center><a href='?src=[REF(src)];operation=mainmenu'>\[Main Menu\]</a>     <a href='?src=[REF(src)];operation=refresh'>\[Refresh\]</a></center>"
+			dat += "<center><a href='byond://?src=[REF(src)];operation=mainmenu'>\[Main Menu\]</a>     <a href='byond://?src=[REF(src)];operation=refresh'>\[Refresh\]</a></center>"
 			dat += "<br>Current Network: [network]"
 			dat += "<br>Selected Server: [SelectedServer.id]<br><br>"
-			dat += "<br><a href='?src=[REF(src)];operation=editcode'>\[Edit Code\]</a>"
+			dat += "<br><a href='byond://?src=[REF(src)];operation=editcode'>\[Edit Code\]</a>"
 			dat += "<br>Signal Execution: "
 			if(SelectedServer.autoruncode)
-				dat += "<a href='?src=[REF(src)];operation=togglerun'>ALWAYS</a>"
+				dat += "<a href='byond://?src=[REF(src)];operation=togglerun'>ALWAYS</a>"
 			else
-				dat += "<a href='?src=[REF(src)];operation=togglerun'>NEVER</a>"
+				dat += "<a href='byond://?src=[REF(src)];operation=togglerun'>NEVER</a>"
 
 
-	user << browse(dat, "window=traffic_control;size=575x400")
+	user << browse(HTML_SKELETON_TITLE("Telecommunication Traffic Control", dat), "window=traffic_control;size=575x400")
 	onclose(user, "server_control")
 
 	temp = ""
@@ -202,7 +202,7 @@
 	return
 
 /obj/machinery/computer/telecomms/traffic/attackby(obj/item/attacking_item, mob/user)
-	if(attacking_item.isscrewdriver())
+	if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 		if(attacking_item.use_tool(src, user, 20, volume = 50))
 			if (src.stat & BROKEN)
 				to_chat(user, SPAN_NOTICE("The broken glass falls out."))
@@ -234,6 +234,6 @@
 	if(!emagged)
 		playsound(src.loc, 'sound/effects/sparks4.ogg', 75, 1)
 		emagged = 1
-		to_chat(user, SPAN_NOTICE("You you disable the security protocols"))
+		to_chat(user, SPAN_NOTICE("You disable the security protocols."))
 		src.updateUsrDialog()
 		return 1

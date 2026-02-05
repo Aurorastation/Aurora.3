@@ -50,7 +50,7 @@
 /obj/outfit/admin/golden_deep
 	name = "Golden Deep Collective, Indentured Citizen"
 	id = /obj/item/card/id/gold
-	l_ear = /obj/item/device/radio/headset/ship
+	l_ear = /obj/item/radio/headset/ship
 	back = /obj/item/storage/backpack/satchel/eng
 	r_pocket = /obj/item/storage/wallet/random
 	uniform = /obj/item/clothing/under/goldendeep/porter
@@ -70,9 +70,9 @@
 	name = "Golden Deep Collective, Accredited Merchant"
 	back = /obj/item/storage/backpack/satchel/leather
 	r_pocket = /obj/item/storage/wallet/random
-	uniform = /obj/item/clothing/under/pants/dress/belt
+	pants = /obj/item/clothing/pants/dress/belt
 	head = /obj/item/clothing/head/goldendeep
-	accessory = /obj/item/clothing/accessory/goldendeep/black
+	uniform = /obj/item/clothing/under/dressshirt/goldendeep/black
 	suit = /obj/item/clothing/accessory/poncho/goldendeep/flowingcloak
 	belt = /obj/item/gun/energy/pistol/goldendeep
 	shoes = /obj/item/clothing/shoes/laceup
@@ -82,7 +82,7 @@
 /obj/outfit/admin/golden_deep/post_equip(mob/living/carbon/human/H, visualsOnly)
 	if(!istype(H))
 		return
-	var/obj/item/organ/internal/ipc_tag/tag = H.internal_organs_by_name[BP_IPCTAG]
+	var/obj/item/organ/internal/machine/ipc_tag/tag = H.internal_organs_by_name[BP_IPCTAG]
 	if(istype(tag))
 		tag.serial_number = uppertext(dd_limittext(md5(H.real_name), 12))
 		tag.ownership_info = IPC_OWNERSHIP_PRIVATE // These are owned by the merchant.
@@ -93,7 +93,7 @@
 	if(!istype(H))
 		return
 	new /obj/item/organ/internal/augment/gustatorial/hand(H)
-	var/obj/item/organ/internal/ipc_tag/tag = H.internal_organs_by_name[BP_IPCTAG]
+	var/obj/item/organ/internal/machine/ipc_tag/tag = H.internal_organs_by_name[BP_IPCTAG]
 	if(istype(tag))
 		tag.serial_number = uppertext(dd_limittext(md5(H.real_name), 12))
 		tag.ownership_info = IPC_OWNERSHIP_PRIVATE // Hoplan are government owned.
@@ -103,7 +103,7 @@
 	if(!istype(H))
 		return
 	new /obj/item/organ/internal/augment/gustatorial/hand(H)
-	var/obj/item/organ/internal/ipc_tag/tag = H.internal_organs_by_name[BP_IPCTAG]
+	var/obj/item/organ/internal/machine/ipc_tag/tag = H.internal_organs_by_name[BP_IPCTAG]
 	if(istype(tag))
 		tag.serial_number = uppertext(dd_limittext(md5(H.real_name), 12))
 		tag.ownership_info = IPC_OWNERSHIP_SELF

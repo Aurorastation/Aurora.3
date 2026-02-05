@@ -15,6 +15,11 @@
 	var/health = 100
 	var/maxhealth = 100
 
+/obj/structure/simple_door/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(lock)
+		. += SPAN_NOTICE("It appears to have a lock.")
+
 /obj/structure/simple_door/fire_act(exposed_temperature, exposed_volume)
 	. = ..()
 
@@ -60,11 +65,6 @@
 	lock = null
 	return ..()
 
-/obj/structure/simple_door/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if(lock)
-		. += SPAN_NOTICE("It appears to have a lock.")
-
 /obj/structure/simple_door/CollidedWith(atom/bumped_atom)
 	..()
 	if(!state)
@@ -80,7 +80,7 @@
 /obj/structure/simple_door/attack_hand(mob/user as mob)
 	return TryToSwitchState(user)
 
-/obj/structure/simple_door/attack_generic(mob/user)
+/obj/structure/simple_door/attack_generic(mob/user, damage, attack_message, environment_smash, armor_penetration, attack_flags, damage_type)
 	if(istype(user, /mob/living/simple_animal/construct)) // don't know of any other attack_generic smart enough to open doors
 		TryToSwitchState(user)
 	return

@@ -208,11 +208,13 @@
 			user.put_in_hands(waste)
 		qdel(src)
 
-/obj/item/reagent_containers/food/snacks/chipplate/MouseDrop(mob/user) //Dropping the chip onto the user
-	if(istype(user) && user == usr)
-		user.put_in_active_hand(src)
-		src.pickup(user)
+/obj/item/reagent_containers/food/snacks/chipplate/mouse_drop_dragged(atom/over, mob/user, src_location, over_location, params) //Dropping the chip onto the user
+	var/mob/mob_dropped_over = over
+	if(istype(mob_dropped_over) && user == user)
+		mob_dropped_over.put_in_active_hand(src)
+		src.pickup(mob_dropped_over)
 		return
+
 	. = ..()
 
 /obj/item/reagent_containers/food/snacks/chipplate/nachos
@@ -362,7 +364,7 @@
 
 /obj/item/reagent_containers/food/snacks/burrito_spicy
 	name = "spicy meat burrito"
-	desc = "Meat and chilis wrapped in a flour tortilla. Washrooms are north of the kitchen."
+	desc = "Meat and chilis wrapped in a flour tortilla. The D2 head is aft of the galley."
 	icon = 'icons/obj/item/reagent_containers/food/mexican.dmi'
 	icon_state = "burrito_spicy"
 	bitesize = 4
@@ -384,7 +386,7 @@
 
 /obj/item/reagent_containers/food/snacks/burrito_cheese_spicy
 	name = "spicy cheese meat burrito"
-	desc = "Meat, melted cheese, and chilis wrapped in a flour tortilla. Medical is north of the washrooms."
+	desc = "Meat, melted cheese, and chilis wrapped in a flour tortilla. Medical is aft of the D2 head."
 	icon = 'icons/obj/item/reagent_containers/food/mexican.dmi'
 	icon_state = "burrito_cheese_spicy"
 	bitesize = 4
@@ -395,7 +397,7 @@
 
 /obj/item/reagent_containers/food/snacks/burrito_hell
 	name = "el diablo"
-	desc = "Meat and an insane amount of chilis packed in a flour tortilla. The chaplain's office is west of the kitchen."
+	desc = "Meat and an insane amount of chilis packed in a flour tortilla. The chaplain's office is starboard of the galley."
 	icon = 'icons/obj/item/reagent_containers/food/mexican.dmi'
 	icon_state = "burrito_hell"
 	bitesize = 4

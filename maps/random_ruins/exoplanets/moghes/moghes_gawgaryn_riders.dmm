@@ -72,7 +72,7 @@
 /obj/item/gun/projectile/automatic/tempestsmg,
 /obj/item/ammo_magazine/tempestsmg,
 /obj/item/gun/projectile/shotgun/wallgun,
-/obj/item/storage/box/wallgunammo,
+/obj/item/storage/box/shells/wallgunammo,
 /turf/simulated/floor/exoplanet/tiled{
 	temperature = 315.15
 	},

@@ -9,16 +9,16 @@
 	slot_flags = SLOT_BACK
 	w_class = WEIGHT_CLASS_BULKY
 	force = 15
-	max_shots = 20
+	max_shots = 25
 	fire_delay = 6
 	burst_delay = 3
 	accuracy = -1
-	can_turret = 1
+	can_turret = TRUE
 	secondary_projectile_type = /obj/projectile/beam
 	secondary_fire_sound = 'sound/weapons/laser1.ogg'
-	can_switch_modes = 1
+	can_switch_modes = TRUE
 	turret_sprite_set = "carbine"
-	turret_is_lethal = 0
+	turret_is_lethal = FALSE
 	has_item_ratio = FALSE
 
 	fire_delay_wielded = 5
@@ -46,15 +46,15 @@
 	item_state = "laserrifle"
 	has_item_ratio = FALSE // the back and suit slots have ratio sprites but the in-hands dont
 	fire_sound = 'sound/weapons/laser1.ogg'
-	max_shots = 15
+	max_shots = 20
 	fire_delay = 6
 	origin_tech = list(TECH_COMBAT = 3, TECH_MAGNET = 2)
 	projectile_type = /obj/projectile/beam/midlaser
 	secondary_projectile_type = null
 	secondary_fire_sound = null
-	can_switch_modes = 0
+	can_switch_modes = FALSE
 	turret_sprite_set = "laser"
-	turret_is_lethal = 1
+	turret_is_lethal = TRUE
 
 	firemodes = list()
 	modifystate = null
@@ -68,14 +68,10 @@
 	name = "combat laser rifle"
 	desc = "The Noctiluca XM/24 is a brand new model of laser rifle, developed entirely by Kumar Arms, a Zavodskoi Interstellar subsidiary. Easy to handle for users with minimal training, reliable and with a reasonable form factor, it is poised to become the new standard for laser weaponry."
 	desc_extended = "The Noctiluca XM/24 was unveiled at the tail end of 2463 in the SCC Future Firearms contest and was released by Zavodskoi in June 2464 after achieving a stunning victory over the other competitors. Zavodskoi installations are prioritized for acquisition of this new rifle, with along the SCCV Horizon. The Noctiluca's specialty lies in its revolutionary dual-function laser diffuser, which is able to modulate the laser into either a standard beam or an armor-piercing super-concentrated beam."
-	desc_info = "This is an energy weapon.  To fire the weapon, ensure your intent is *not* set to 'help', have your gun mode set to 'fire', \
-	then click where you want to fire.  Most energy weapons can fire through windows harmlessly.  To recharge this weapon, use a weapon recharger. \
-	The Noctiluca comes with a standard firing mode that is slightly worse in damage than the normal laser rifle, but has more armor penetration. Additionally, \
-	it has a secondary armor-piercing mode, which does less damage but has extremely high armor piercing."
 	icon = 'icons/obj/guns/crew_laser.dmi'
 	icon_state = "trilaser"
 	item_state = "trilaser"
-	max_shots = 12
+	max_shots = 15
 	fire_delay = 5
 	burst_delay = 5
 	origin_tech = list(TECH_COMBAT = 8, TECH_MAGNET = 4)
@@ -87,6 +83,11 @@
 		list(mode_name = "fire normal diffusion lasers", projectile_type = /obj/projectile/beam/noctiluca, fire_sound = 'sound/weapons/laser1.ogg'),
 		list(mode_name = "fire specialized armor piercing lasers", projectile_type = /obj/projectile/beam/noctiluca/armor_piercing, fire_sound = 'sound/weapons/laserstrong.ogg')
 	)
+
+/obj/item/gun/energy/rifle/laser/noctiluca/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "The Noctiluca comes with a standard firing mode that is slightly worse in damage than the normal laser rifle, but has more armor penetration. Additionally, \
+	it has a secondary armor-piercing mode, which does less damage but has extremely high armor piercing."
 
 /obj/item/gun/energy/rifle/laser/heavy
 	name = "laser cannon"
@@ -105,9 +106,9 @@
 	accuracy = -2
 	secondary_projectile_type = null
 	secondary_fire_sound = null
-	can_switch_modes = 0
+	can_switch_modes = FALSE
 	turret_sprite_set = "cannon"
-	turret_is_lethal = 1
+	turret_is_lethal = TRUE
 
 	modifystate = "lasercannon"
 
@@ -129,9 +130,9 @@
 	burst_delay = 6
 	secondary_projectile_type = null
 	secondary_fire_sound = null
-	can_switch_modes = 0
+	can_switch_modes = FALSE
 	turret_sprite_set = "xray"
-	turret_is_lethal = 1
+	turret_is_lethal = TRUE
 
 /obj/item/gun/energy/rifle/pulse
 	name = "pulse rifle"
@@ -145,9 +146,9 @@
 	origin_tech = list(TECH_COMBAT = 7, TECH_MATERIAL = 6, TECH_MAGNET = 4)
 	secondary_projectile_type = /obj/projectile/beam/pulse
 	secondary_fire_sound = 'sound/weapons/pulse.ogg'
-	can_switch_modes = 0
+	can_switch_modes = FALSE
 	turret_sprite_set = "pulse"
-	turret_is_lethal = 1
+	turret_is_lethal = TRUE
 
 	modifystate = null
 
@@ -183,13 +184,13 @@
 	origin_tech = list(TECH_COMBAT = 5, TECH_MATERIAL = 3, TECH_MAGNET = 2, TECH_ILLEGAL = 2)
 	secondary_projectile_type = null
 	secondary_fire_sound = null
-	can_switch_modes = 0
-	can_turret = 0
+	can_switch_modes = FALSE
+	can_turret = FALSE
 	zoomdevicename = "rifle scope"
 	var/atom/movable/screen/overlay = null
 
 /obj/item/gun/energy/rifle/laser/tachyon/verb/scope()
-	set category = "Object"
+	set category = "Object.Held"
 	set name = "Use Scope"
 	set src in usr
 
@@ -216,7 +217,7 @@
 	slot_flags = SLOT_BACK
 	charge_cost = 300
 	max_shots = 4
-	can_turret = 1
+	can_turret = TRUE
 	turret_sprite_set = "ion"
 	firemodes = list()
 
@@ -225,10 +226,10 @@
 
 /obj/item/gun/energy/rifle/ionrifle/mounted
 	name = "mounted ion rifle"
-	self_recharge = 1
-	use_external_power = 1
+	self_recharge = TRUE
+	use_external_power = TRUE
 	recharge_time = 10
-	can_turret = 0
+	can_turret = FALSE
 
 /obj/item/gun/energy/rifle/laser/qukala
 	name = "geop cannon"
@@ -250,7 +251,7 @@
 	has_item_ratio = FALSE
 	fire_sound = 'sound/weapons/laser1.ogg'
 	slot_flags = SLOT_BELT|SLOT_BACK
-	max_shots = 15
+	max_shots = 18
 	can_turret = TRUE
 	turret_is_lethal = TRUE
 	projectile_type = /obj/projectile/beam/midlaser/hegemony

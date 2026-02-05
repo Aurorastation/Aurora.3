@@ -44,3 +44,6 @@
 	if(mover?.movement_type & PHASING)
 		return TRUE
 	return ismob(mover)
+
+/obj/effect/fusion_particle_catcher/add_point_filter()
+	return

@@ -60,7 +60,7 @@
 /datum/martial_art/sol_combat/proc/neck_chop(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)
 	A.do_attack_animation(D)
 	A.visible_message(SPAN_WARNING("[A] karate chops [D]'s neck!"))
-	playsound(get_turf(A), /singleton/sound_category/punch_sound, 50, 1, -1)
+	playsound(get_turf(A), SFX_PUNCH, 50, 1, -1)
 	D.apply_damage(5, DAMAGE_BRUTE)
 	D.silent += 30
 	return 1
@@ -83,14 +83,14 @@
 		picked_hit_type = "stomped on"
 	D.apply_damage(bonus_damage, DAMAGE_BRUTE)
 	if(picked_hit_type == "kicked" || picked_hit_type == "stomped")
-		playsound(get_turf(D), /singleton/sound_category/swing_hit_sound, 50, 1, -1)
+		playsound(get_turf(D), SFX_SWING_HIT, 50, 1, -1)
 	else
-		playsound(get_turf(D), /singleton/sound_category/punch_sound, 50, 1, -1)
+		playsound(get_turf(D), SFX_PUNCH, 50, 1, -1)
 
 	A.visible_message(SPAN_DANGER("[A] [picked_hit_type] [D]!"))
 	A.attack_log += "\[[time_stamp()]\] <span class='warning'>["[picked_hit_type]"] [D.name] ([D.ckey])</span>"
 	D.attack_log += "\[[time_stamp()]\] <font color='orange'>["Has Been [picked_hit_type]"] by [A.name] ([A.ckey])</font>"
-	msg_admin_attack("[key_name(A)] ["has [picked_hit_type]"] [key_name(D)] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[A.x];Y=[A.y];Z=[A.z]'>JMP</a>)",ckey=key_name(A),ckey_target=key_name(D))
+	msg_admin_attack("[key_name(A)] ["has [picked_hit_type]"] [key_name(D)] (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[A.x];Y=[A.y];Z=[A.z]'>JMP</a>)",ckey=key_name(A),ckey_target=key_name(D))
 
 	return 1
 
@@ -102,7 +102,7 @@
 
 	A.attack_log += "\[[time_stamp()]\] <span class='warning'>Disarmed [D.name] ([D.ckey])</span>"
 	D.attack_log += "\[[time_stamp()]\] <font color='orange'>Has been disarmed by [A.name] ([A.ckey])</font>"
-	msg_admin_attack("[key_name(A)] disarmed [D.name] ([D.ckey]) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[D.x];Y=[D.y];Z=[D.z]'>JMP</a>)",ckey=key_name(D),ckey_target=key_name(A))
+	msg_admin_attack("[key_name(A)] disarmed [D.name] ([D.ckey]) (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[D.x];Y=[D.y];Z=[D.z]'>JMP</a>)",ckey=key_name(D),ckey_target=key_name(A))
 
 	if(prob(60))
 		var/obj/item/I = D.get_active_hand()
@@ -113,7 +113,7 @@
 			A.put_in_hands(I)
 	else
 		A.visible_message(SPAN_DANGER("[A] attempted to disarm [D]!"))
-		playsound(D, /singleton/sound_category/punchmiss_sound, 25, 1, -1)
+		playsound(D, SFX_PUNCH_MISS, 25, 1, -1)
 	return 1
 
 /datum/martial_art/sol_combat/proc/sol_combat_help()

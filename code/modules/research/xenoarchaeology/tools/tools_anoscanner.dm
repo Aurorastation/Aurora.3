@@ -1,11 +1,10 @@
 
-/obj/item/device/ano_scanner
+/obj/item/ano_scanner
 	name = "Alden-Saraspova counter"
 	desc = "Aids in triangulation of exotic particles."
 	icon = 'icons/obj/xenoarchaeology.dmi'
 	icon_state = "xenoarch_scanner"
 	item_state = "xenoarch_scanner"
-	contained_sprite = TRUE
 	w_class = WEIGHT_CLASS_SMALL
 	slot_flags = SLOT_BELT
 	var/nearest_artifact_id = "unknown"
@@ -13,14 +12,14 @@
 	var/last_scan_time = 0
 	var/scan_delay = 25
 
-/obj/item/device/ano_scanner/Initialize()
+/obj/item/ano_scanner/Initialize()
 	. = ..()
 	scan()
 
-/obj/item/device/ano_scanner/attack_self(var/mob/user as mob)
+/obj/item/ano_scanner/attack_self(var/mob/user as mob)
 	return src.interact(user)
 
-/obj/item/device/ano_scanner/interact(var/mob/user as mob)
+/obj/item/ano_scanner/interact(var/mob/user as mob)
 	if(world.time - last_scan_time >= scan_delay)
 		spawn(0)
 			scan()
@@ -35,7 +34,7 @@
 	else
 		to_chat(user, "Scanning array is recharging.")
 
-/obj/item/device/ano_scanner/proc/scan()
+/obj/item/ano_scanner/proc/scan()
 	last_scan_time = world.time
 	nearest_artifact_distance = -1
 	var/turf/cur_turf = get_turf(src)

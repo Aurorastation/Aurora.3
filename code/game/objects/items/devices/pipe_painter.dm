@@ -1,20 +1,23 @@
-/obj/item/device/pipe_painter
+/obj/item/pipe_painter
 	name = "pipe painter"
-	icon = 'icons/obj/item/tools/pipe_painter.dmi'
+	icon = 'icons/obj/item/pipe_painter.dmi'
 	icon_state = "pipe_painter"
 	item_state = "pipe_painter"
-	contained_sprite = TRUE
 	var/list/modes
 	var/mode
 
-/obj/item/device/pipe_painter/New()
+/obj/item/pipe_painter/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. +=  "It is in [mode] mode."
+
+/obj/item/pipe_painter/New()
 	..()
 	modes = new()
 	for(var/C in GLOB.pipe_colors)
 		modes += "[C]"
 	mode = pick(modes)
 
-/obj/item/device/pipe_painter/afterattack(var/atom/A, var/mob/user, proximity)
+/obj/item/pipe_painter/afterattack(var/atom/A, var/mob/user, proximity)
 	if(!proximity)
 		return
 	if(!in_range(user, A))
@@ -28,9 +31,5 @@
 		var/obj/item/pipe/P = A
 		P.color = GLOB.pipe_colors[mode]
 
-/obj/item/device/pipe_painter/attack_self(var/mob/user)
+/obj/item/pipe_painter/attack_self(var/mob/user)
 	mode = tgui_input_list(user, "Which colour do you want to use?", "Pipe Painter", modes, mode)
-
-/obj/item/device/pipe_painter/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	. +=  "It is in [mode] mode."

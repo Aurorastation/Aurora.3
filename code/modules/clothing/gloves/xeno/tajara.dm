@@ -4,7 +4,8 @@
 	species_restricted = list(BODYTYPE_TAJARA)
 
 /obj/item/clothing/gloves/black/tajara
-	desc = "Black gloves made for Tajara use."
+	name = "tajaran work gloves"
+	desc = "These work gloves are thick and fire-resistant. These are made for Tajaran use."
 	species_restricted = list(BODYTYPE_TAJARA)
 
 /obj/item/clothing/gloves/red/tajara
@@ -48,7 +49,8 @@
 	species_restricted = list(BODYTYPE_TAJARA)
 
 /obj/item/clothing/gloves/black_leather/tajara
-	desc = "Black leather gloves made for Tajaran use."
+	name = "black tajaran leather gloves"
+	desc = "A pair of tight-fitting leather gloves made for Tajaran use."
 	species_restricted = list(BODYTYPE_TAJARA)
 
 /obj/item/clothing/gloves/black/tajara/smithgloves
@@ -73,11 +75,11 @@
 	body_parts_covered = ARMS|HANDS
 
 	armor = list(
-		melee = ARMOR_MELEE_MAJOR,
-		bullet = ARMOR_BALLISTIC_PISTOL,
-		laser = ARMOR_LASER_SMALL,
-		energy = ARMOR_ENERGY_MINOR,
-		bomb = ARMOR_BOMB_MINOR
+		MELEE = ARMOR_MELEE_MAJOR,
+		BULLET = ARMOR_BALLISTIC_PISTOL,
+		LASER = ARMOR_LASER_SMALL,
+		ENERGY = ARMOR_ENERGY_MINOR,
+		BOMB = ARMOR_BOMB_MINOR
 	)
 
 	punch_force = 5

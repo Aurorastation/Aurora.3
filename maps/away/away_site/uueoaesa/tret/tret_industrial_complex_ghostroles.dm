@@ -143,9 +143,9 @@
 	l_pocket = list(/obj/item/reagent_containers/food/snacks/koisbar)
 	id = /obj/item/card/id/hephaestus
 	backpack_contents = list(
-		/obj/item/device/gps/mining = 1,
-		/obj/item/device/flashlight/lantern = 1,
-		/obj/item/device/radio/hailing = 1,
+		/obj/item/gps/mining = 1,
+		/obj/item/flashlight/lantern = 1,
+		/obj/item/radio/hailing = 1,
 	)
 
 /obj/outfit/admin/tret_industrial/get_id_access()
@@ -248,4 +248,3 @@
 		<br>\
 		"
 
-// ---------------------- fin

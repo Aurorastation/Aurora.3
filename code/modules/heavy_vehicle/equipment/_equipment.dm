@@ -16,6 +16,7 @@
 	var/active_power_use = 1 KILO WATTS
 	var/require_adjacent = TRUE
 	var/active = FALSE //For gear that has an active state (ie, floodlights)
+	var/list/module_hints = list()
 
 /obj/item/mecha_equipment/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
@@ -25,6 +26,17 @@
 	if(length(restricted_software))
 		var/software = english_list(restricted_software, and_text = ", ")
 		. += SPAN_NOTICE("<b>Exosuit Software Requirement:</b> [software]")
+
+/obj/item/mecha_equipment/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if (!length(module_hints))
+		return
+	. += "When mounted on a mech, it gains the following mechanics:"
+	. += module_hints
+
+/// Called from the parent mech when a player requests the mech's mechanics hints.
+/obj/item/mecha_equipment/proc/relayed_mechanics_hints(mob/user, distance, is_adjacent)
+	. += module_hints
 
 /obj/item/mecha_equipment/attack(mob/living/target_mob, mob/living/user, target_zone) //Generally it's not desired to be able to attack with items
 	return 0

@@ -9,7 +9,7 @@
 	priority = 3
 	allowed_tools = list(
 	/obj/item/surgery/fix_o_vein = 100, \
-	/obj/item/stack/cable_coil = 75
+	TOOL_CABLECOIL = 75
 	)
 	can_infect = TRUE
 	blood_level = 1
@@ -42,7 +42,8 @@
 	affected.status &= ~ORGAN_ARTERY_CUT
 	affected.update_damages()
 	if(ishuman(user) && prob(40))
-		user:bloody_hands(target, 0)
+		var/mob/living/carbon/human/H = user
+		H.bloody_hands(target, 0)
 
 /singleton/surgery_step/fix_vein/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
@@ -54,7 +55,7 @@
 	name = "Debride Damaged Tissue"
 	priority = 4
 	allowed_tools = list(
-		/obj/item/surgery/scalpel = 100,
+		TOOL_SCALPEL = 100,
 		/obj/item/material/knife = 75,
 		/obj/item/material/shard = 50
 	)
@@ -188,7 +189,7 @@
 	priority = 2
 	allowed_tools = list(
 		/obj/item/surgery/fix_o_vein = 100, \
-		/obj/item/stack/cable_coil = 75
+		TOOL_CABLECOIL = 75
 	)
 	can_infect = TRUE
 	blood_level = 1
@@ -226,8 +227,8 @@
 /singleton/surgery_step/hardsuit
 	name = "Remove Hardsuit"
 	allowed_tools = list(
-		/obj/item/weldingtool = 80,
-		/obj/item/surgery/circular_saw = 60,
+		TOOL_WELDER = 80,
+		TOOL_SAW = 60,
 		/obj/item/gun/energy/plasmacutter = 100
 	)
 
@@ -243,7 +244,7 @@
 
 	if(!istype(target))
 		return FALSE
-	if(tool.iswelder())
+	if(tool.tool_behaviour == TOOL_WELDER)
 		var/obj/item/weldingtool/welder = tool
 		if(!welder.isOn() || !welder.use(1,user))
 			return FALSE
@@ -265,7 +266,7 @@
 /singleton/surgery_step/amputate
 	name = "Amputate Limb"
 	allowed_tools = list(
-	/obj/item/surgery/circular_saw = 100,
+	TOOL_SAW = 100,
 	/obj/item/melee/energy = 100,
 	/obj/item/melee/chainsword = 100,
 	/obj/item/material/hatchet = 55

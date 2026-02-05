@@ -140,7 +140,7 @@
 		small_countdown()
 		return
 
-	message_admins("Explosive implant triggered in [imp_in] ([imp_in.key]). (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[imp_in.x];Y=[imp_in.y];Z=[imp_in.z]'>JMP</a>) ")
+	message_admins("Explosive implant triggered in [imp_in] ([imp_in.key]). (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[imp_in.x];Y=[imp_in.y];Z=[imp_in.z]'>JMP</a>) ")
 	log_game("Explosive implant triggered in [imp_in] ([imp_in.key]).")
 	if(!elevel)
 		elevel = "Localized Limb"
@@ -180,7 +180,7 @@
 	if(ishuman(imp_in) && part)
 		//No tearing off these parts since it's pretty much killing. Mangle them.
 		if(part.vital && !istype(part, /obj/item/organ/external/head)) //Head explodes
-			part.createwound(BRUISE, 70)
+			part.createwound(INJURY_TYPE_BRUISE, 70)
 			part.add_pain(50)
 			imp_in.visible_message(SPAN_WARNING("\The [imp_in]'s [part.name] bursts open with a horrible ripping noise!"),
 									SPAN_DANGER("Your [part.name] bursts open with a horrible ripping noise!"),

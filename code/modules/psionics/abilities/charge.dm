@@ -9,6 +9,7 @@
 /obj/item/spell/charge
 	name = "charge"
 	icon_state = "audible_deception"
+	item_icons = null
 	cast_methods = CAST_USE
 	aspect = ASPECT_PSIONIC
 	cooldown = 5

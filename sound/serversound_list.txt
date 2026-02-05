@@ -9,5 +9,6 @@ sound/music/space.ogg
 sound/music/thunderdome.ogg
 sound/music/title1.ogg
 sound/music/title2.ogg
+sound/music/title3.ogg
+sound/music/title3mk2.ogg
 sound/music/lobby/traitor.ogg
-sound/music/velvet_rose.ogg

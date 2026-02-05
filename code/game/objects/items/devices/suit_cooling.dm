@@ -1,12 +1,11 @@
-/obj/item/device/suit_cooling_unit
+/obj/item/suit_cooling_unit
 	name = "portable suit cooling unit"
 	desc = "A portable heat sink and liquid cooled radiator that can be hooked up to a space suit's existing temperature controls to provide industrial levels of cooling."
 	w_class = WEIGHT_CLASS_BULKY
-	icon = 'icons/obj/item/tools/suitcooler.dmi'
+	icon = 'icons/obj/item/suitcooler.dmi'
 	icon_state = "suitcooler0"
 	item_state = "coolingpack"
 	action_button_name = "Toggle Cooling Unit"
-	contained_sprite = TRUE
 	slot_flags = SLOT_BACK	//you can carry it on your back if you want, but it won't do anything unless attached to suit storage
 
 	//copied from tank.dm
@@ -24,32 +23,61 @@
 	var/on = 0				//is it turned on?
 	var/cover_open = 0		//is the cover open?
 	var/obj/item/cell/cell
-	var/max_cooling = 12				//in degrees per second - probably don't need to mess with heat capacity here
+	var/max_cooling = 24				//in degrees per second - probably don't need to mess with heat capacity here
 	var/charge_consumption = 8.3		//charge per second at max_cooling
 	var/thermostat = T20C
 
 	//TODO: make it heat up the surroundings when not in space
 
-/obj/item/device/suit_cooling_unit/Initialize()
+/obj/item/suit_cooling_unit/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+
+	if(!distance <= 1)
+		return
+
+	if(on)
+		if(attached_to_suit(src.loc))
+			. += SPAN_NOTICE("It's switched on and running.")
+		else if(ishuman(loc))
+			var/mob/living/carbon/human/H = loc
+			if(H.species.flags & ACCEPTS_COOLER)
+				. += SPAN_NOTICE("It's switched on and running, connected to the cooling systems of [H].")
+		else
+			. += SPAN_NOTICE("It's switched on, but not attached to anything.")
+	else
+		. += SPAN_NOTICE("It is switched off.")
+
+	if(cover_open)
+		if(cell)
+			. += SPAN_NOTICE("The panel is open, exposing \the [cell].")
+		else
+			. += SPAN_NOTICE("The panel is open.")
+
+	if(cell)
+		. += SPAN_NOTICE("The charge meter reads [round(cell.percent())]%.")
+	else
+		. += SPAN_NOTICE("It doesn't have a power cell installed.")
+
+/obj/item/suit_cooling_unit/Initialize()
 	. = ..()
 	if(celltype)
 		cell = new celltype(src)
 
-/obj/item/device/suit_cooling_unit/Destroy()
+/obj/item/suit_cooling_unit/Destroy()
 	STOP_PROCESSING(SSmobs, src)
 	QDEL_NULL(cell)
 	return ..()
 
 // Checks whether the cooling unit is being worn on the back/suit slot.
 // That way you can't carry it in your hands while it's running to cool yourself down.
-/obj/item/device/suit_cooling_unit/proc/is_in_slot()
+/obj/item/suit_cooling_unit/proc/is_in_slot()
 	var/mob/living/carbon/human/H = loc
 	if(!istype(H))
 		return FALSE
 
 	return (H.back == src) || (H.s_store == src)
 
-/obj/item/device/suit_cooling_unit/process()
+/obj/item/suit_cooling_unit/process()
 	if(!on || !cell)
 		return
 
@@ -67,7 +95,7 @@
 
 	var/charge_usage = (temp_adj/max_cooling)*charge_consumption
 
-	H.bodytemperature -= temp_adj*efficiency
+	H.bodytemperature = max(T0C, H.bodytemperature - temp_adj*efficiency)
 
 	cell.use(charge_usage)
 
@@ -76,7 +104,7 @@
 
 	update_icon()
 
-/obj/item/device/suit_cooling_unit/proc/get_environment_temperature()
+/obj/item/suit_cooling_unit/proc/get_environment_temperature()
 	if(ishuman(loc))
 		var/mob/living/carbon/human/H = loc
 		if(istype(H.loc, /obj/machinery/atmospherics/unary/cryo_cell))
@@ -93,7 +121,7 @@
 
 	return environment.temperature
 
-/obj/item/device/suit_cooling_unit/proc/attached_to_suit(mob/M)
+/obj/item/suit_cooling_unit/proc/attached_to_suit(mob/M)
 	if(!ishuman(M))
 		return FALSE
 
@@ -104,7 +132,7 @@
 
 	return TRUE
 
-/obj/item/device/suit_cooling_unit/proc/turn_on()
+/obj/item/suit_cooling_unit/proc/turn_on()
 	if(!cell)
 		return
 	if(cell.charge <= 0)
@@ -114,7 +142,7 @@
 	START_PROCESSING(SSmobs, src)
 	update_icon()
 
-/obj/item/device/suit_cooling_unit/proc/turn_off()
+/obj/item/suit_cooling_unit/proc/turn_off()
 	if(ismob(src.loc))
 		var/mob/M = src.loc
 		to_chat(M, SPAN_WARNING("\The [src] clicks and whines as it powers down."))
@@ -122,7 +150,7 @@
 	STOP_PROCESSING(SSmobs, src)
 	update_icon()
 
-/obj/item/device/suit_cooling_unit/attack_self(mob/user)
+/obj/item/suit_cooling_unit/attack_self(mob/user)
 	if(cover_open && cell)
 		if(ishuman(user))
 			user.put_in_hands(cell)
@@ -138,11 +166,11 @@
 		return
 	toggle_power(user)
 
-/obj/item/device/suit_cooling_unit/AltClick(mob/user)
+/obj/item/suit_cooling_unit/AltClick(mob/user)
 	if(Adjacent(user))
 		toggle_power(user)
 
-/obj/item/device/suit_cooling_unit/proc/toggle_power(var/mob/user)
+/obj/item/suit_cooling_unit/proc/toggle_power(var/mob/user)
 	if(on)
 		turn_off()
 	else
@@ -150,8 +178,8 @@
 		if(on)
 			to_chat(user, SPAN_NOTICE("You switch on \the [src]."))
 
-/obj/item/device/suit_cooling_unit/attackby(obj/item/attacking_item, mob/user)
-	if(attacking_item.isscrewdriver())
+/obj/item/suit_cooling_unit/attackby(obj/item/attacking_item, mob/user)
+	if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 		if(cover_open)
 			cover_open = FALSE
 			to_chat(user, SPAN_NOTICE("You screw the panel into place."))
@@ -177,7 +205,7 @@
 
 	return ..()
 
-/obj/item/device/suit_cooling_unit/update_icon()
+/obj/item/suit_cooling_unit/update_icon()
 	ClearOverlays()
 	if(cover_open)
 		if(cell)
@@ -213,34 +241,5 @@
 		M.update_inv_back()
 		M.update_inv_s_store()
 
-/obj/item/device/suit_cooling_unit/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-
-	if(!distance <= 1)
-		return
-
-	if(on)
-		if(attached_to_suit(src.loc))
-			. += SPAN_NOTICE("It's switched on and running.")
-		else if(ishuman(loc))
-			var/mob/living/carbon/human/H = loc
-			if(H.species.flags & ACCEPTS_COOLER)
-				. += SPAN_NOTICE("It's switched on and running, connected to the cooling systems of [H].")
-		else
-			. += SPAN_NOTICE("It's switched on, but not attached to anything.")
-	else
-		. += SPAN_NOTICE("It is switched off.")
-
-	if(cover_open)
-		if(cell)
-			. += SPAN_NOTICE("The panel is open, exposing \the [cell].")
-		else
-			. += SPAN_NOTICE("The panel is open.")
-
-	if(cell)
-		. += SPAN_NOTICE("The charge meter reads [round(cell.percent())]%.")
-	else
-		. += SPAN_NOTICE("It doesn't have a power cell installed.")
-
-/obj/item/device/suit_cooling_unit/no_cell
+/obj/item/suit_cooling_unit/no_cell
 	celltype = null

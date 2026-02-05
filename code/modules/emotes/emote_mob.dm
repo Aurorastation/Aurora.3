@@ -5,14 +5,14 @@
 	return (..() && !(silent && emote_type == AUDIBLE_MESSAGE))
 
 /mob/verb/custom_audible_emote()
-	set name = "Audible Emote"
+	set name = "Emote (Audible)"
 	set category = "IC"
 	set desc = "Type in an emote message that will be received by mobs that can hear you."
 
 	custom_emote(m_type = AUDIBLE_MESSAGE, message = sanitize(input(src,"Choose an emote to display.") as text|null))
 
 /mob/verb/custom_visible_emote()
-	set name = "Visible Emote"
+	set name = "Emote (Visible)"
 	set category = "IC"
 	set desc = "Type in an emote message that will be received by mobs that can see you."
 
@@ -149,7 +149,6 @@
 	return pretext + nametext + subtext
 
 /mob/proc/custom_emote(var/m_type = VISIBLE_MESSAGE, var/message = null, var/do_show_observers = TRUE)
-
 	if((usr && stat) || (!use_me && usr == src))
 		to_chat(src, "You are unable to emote.")
 		return
@@ -157,16 +156,21 @@
 	if(!message)
 		return
 
-	message = format_emote(src, message)
-
 	if (message)
 		log_emote("[name]/[key] : [message]")
 
 	message = process_chat_markup(message, list("~", "_"))
+	var/langchat_message = message
+	message = format_emote(src, message)
+	var/list/emote_viewers = list()
 	if(m_type == VISIBLE_MESSAGE)
 		visible_message(message, show_observers = do_show_observers)
+		emote_viewers = viewers(world.view, src)
 	else
 		audible_message(message, ghost_hearing = do_show_observers)
+		emote_viewers = get_hearers_in_LOS(world.view, src)
+
+	langchat_speech(langchat_message, emote_viewers, GLOB.all_languages, skip_language_check = TRUE, additional_styles = list("emote", "langchat_small"))
 
 // Specific mob type exceptions below.
 /mob/living/silicon/ai/emote(var/act, var/type, var/message)
@@ -179,7 +183,7 @@
 /mob/living/captive_brain/emote(var/message)
 	return
 
-/mob/abstract/observer/emote(var/act, var/type, var/message)
+/mob/abstract/ghost/observer/emote(var/act, var/type, var/message)
 	if(!message)
 		return
 

@@ -7,22 +7,22 @@
 	anchored = 0
 	build_amt = 4
 	var/state = 0
-	var/datum/ai_laws/laws = new /datum/ai_laws/nanotrasen
+	var/datum/ai_laws/laws = new /datum/ai_laws/conglomerate
 	var/obj/item/circuitboard/circuit = null
-	var/obj/item/device/mmi/brain = null
+	var/obj/item/mmi/brain = null
 
 
 /obj/structure/AIcore/attackby(obj/item/attacking_item, mob/user)
 
 	switch(state)
 		if(0)
-			if(attacking_item.iswrench())
+			if(attacking_item.tool_behaviour == TOOL_WRENCH)
 				if(attacking_item.use_tool(src, user, 20, volume = 50))
 					to_chat(user, SPAN_NOTICE("You wrench the frame into place."))
 					anchored = 1
 					state = 1
 				return TRUE
-			if(attacking_item.iswelder())
+			if(attacking_item.tool_behaviour == TOOL_WELDER)
 				var/obj/item/weldingtool/WT = attacking_item
 				if(!WT.isOn())
 					to_chat(user, "The welder must be on for this task.")
@@ -34,7 +34,7 @@
 					qdel(src)
 				return TRUE
 		if(1)
-			if(attacking_item.iswrench())
+			if(attacking_item.tool_behaviour == TOOL_WRENCH)
 				if(attacking_item.use_tool(src, user, 20, volume = 50))
 					to_chat(user, SPAN_NOTICE("You unfasten the frame."))
 					anchored = 0
@@ -47,13 +47,13 @@
 				circuit = attacking_item
 				user.drop_from_inventory(attacking_item,src)
 				return TRUE
-			if(attacking_item.isscrewdriver() && circuit)
+			if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER && circuit)
 				attacking_item.play_tool_sound(get_turf(src), 50)
 				to_chat(user, SPAN_NOTICE("You screw the circuit board into place."))
 				state = 2
 				icon_state = "2"
 				return TRUE
-			if(attacking_item.iscrowbar() && circuit)
+			if(attacking_item.tool_behaviour == TOOL_CROWBAR && circuit)
 				attacking_item.play_tool_sound(get_turf(src), 50)
 				to_chat(user, SPAN_NOTICE("You remove the circuit board."))
 				state = 1
@@ -62,13 +62,13 @@
 				circuit = null
 				return TRUE
 		if(2)
-			if(attacking_item.isscrewdriver() && circuit)
+			if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER && circuit)
 				attacking_item.play_tool_sound(get_turf(src), 50)
 				to_chat(user, SPAN_NOTICE("You unfasten the circuit board."))
 				state = 1
 				icon_state = "1"
 				return TRUE
-			if(attacking_item.iscoil())
+			if(attacking_item.tool_behaviour == TOOL_CABLECOIL)
 				var/obj/item/stack/cable_coil/C = attacking_item
 				if (C.get_amount() < 5)
 					to_chat(user, SPAN_WARNING("You need five coils of wire to add them to the frame."))
@@ -82,7 +82,7 @@
 						to_chat(user, SPAN_NOTICE("You add cables to the frame."))
 				return TRUE
 		if(3)
-			if(attacking_item.iswirecutter())
+			if(attacking_item.tool_behaviour == TOOL_WIRECUTTER)
 				if (brain)
 					to_chat(user, "Get that brain out of there first")
 				else
@@ -115,7 +115,7 @@
 				to_chat(usr, "Law module applied.")
 				return TRUE
 
-			if(istype(attacking_item, /obj/item/aiModule/nanotrasen))
+			if(istype(attacking_item, /obj/item/aiModule/conglomerate))
 				laws.add_inherent_law("Safeguard: Protect your assigned space station to the best of your ability. It is not something we can easily afford to replace.")
 				laws.add_inherent_law("Serve: Serve the crew of your assigned space station to the best of your abilities, with priority as according to their rank and role.")
 				laws.add_inherent_law("Protect: Protect the crew of your assigned space station to the best of your abilities, with priority as according to their rank and role.")
@@ -134,8 +134,8 @@
 				to_chat(usr, "Added a freeform law.")
 				return TRUE
 
-			if(istype(attacking_item, /obj/item/device/mmi))
-				var/obj/item/device/mmi/M = attacking_item
+			if(istype(attacking_item, /obj/item/mmi))
+				var/obj/item/mmi/M = attacking_item
 				if(!M.ready_for_use(user))
 					return TRUE
 				if(jobban_isbanned(M.brainmob, "AI"))
@@ -151,7 +151,7 @@
 				icon_state = "3b"
 				return TRUE
 
-			if(attacking_item.iscrowbar() && brain)
+			if(attacking_item.tool_behaviour == TOOL_CROWBAR && brain)
 				attacking_item.play_tool_sound(get_turf(src), 50)
 				to_chat(user, SPAN_NOTICE("You remove the brain."))
 				brain.forceMove(loc)
@@ -160,7 +160,7 @@
 				return TRUE
 
 		if(4)
-			if(attacking_item.iscrowbar())
+			if(attacking_item.tool_behaviour == TOOL_CROWBAR)
 				attacking_item.play_tool_sound(get_turf(src), 50)
 				to_chat(user, SPAN_NOTICE("You remove the glass panel."))
 				state = 3
@@ -171,7 +171,7 @@
 				new /obj/item/stack/material/glass/reinforced( loc, 2 )
 				return TRUE
 
-			if(attacking_item.isscrewdriver())
+			if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 				attacking_item.play_tool_sound(get_turf(src), 50)
 				to_chat(user, SPAN_NOTICE("You connect the monitor."))
 				if(!brain)
@@ -221,7 +221,7 @@
 
 /obj/structure/AIcore/deactivated/proc/check_malf(var/mob/living/silicon/ai/ai)
 	if(!ai) return
-	for (var/datum/mind/malfai in malf.current_antagonists)
+	for (var/datum/mind/malfai in GLOB.malf.current_antagonists)
 		if (ai.mind == malfai)
 			return 1
 
@@ -235,7 +235,7 @@
 		else
 			to_chat(user, "<span class='danger'>ERROR:</span> Unable to locate artificial intelligence.")
 		return TRUE
-	else if(attacking_item.iswrench())
+	else if(attacking_item.tool_behaviour == TOOL_WRENCH)
 		if(anchored)
 			user.visible_message(SPAN_NOTICE("\The [user] starts to unbolt \the [src] from the plating..."))
 			if(!attacking_item.use_tool(src, user, 40, volume = 50))

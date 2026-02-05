@@ -12,8 +12,23 @@
 	var/list/possible_exoplanets = list(/obj/effect/overmap/visitable/sector/exoplanet/snow, /obj/effect/overmap/visitable/sector/exoplanet/desert)
 	///Guaranteed planets to spawn. This ignores the map exoplanet limit, so don't put too many planets in here.
 	var/list/guaranteed_exoplanets = list()
-	var/list/cargo_price_coef = list("nt" = 1, "hpi" = 1, "zhu" = 1, "een" = 1, "get" = 1, "arz" = 1, "blm" = 1,
-								"iac" = 1, "zsc" = 1, "vfc" = 1, "bis" = 1, "xmg" = 1, "npi" = 1) //how much the space sector afffects how expensive is ordering from that cargo supplier
+	var/list/cargo_price_coef = list( //how much the space sector afffects how expensive is ordering from that cargo supplier
+		"nanotrasen" = 1,
+		"orion" = 1,
+		"hephaestus" = 1,
+		"zeng_hu" = 1,
+		"eckharts" = 1,
+		"getmore" = 1,
+		"arizi" = 1,
+		"blam" = 1,
+		"iac" = 1,
+		"zharkov" = 1,
+		"virgo" = 1,
+		"bishop" = 1,
+		"xion" = 1,
+		"zavodskoi" = 1,
+		)
+
 	var/skybox_icon = "ceti"
 
 	/// An associated list of lore radio stations formatted like so: list("station name" = "path_to_broadcast.txt")
@@ -22,8 +37,10 @@
 
 	var/list/sector_lobby_art = null //if this is set, it will override the map lobby icons
 	var/sector_lobby_transitions = null //if this is set, it will override the map lobby transition
-	var/sector_welcome_message = null ///if this is set, it will override welcome audio message
 	var/sector_hud_menu = null //if this is set, it will override the hud menu icons
+
+	var/sector_welcome_message = null ///if this is set, it will override welcome audio message
+
 	var/sector_hud_menu_sound = null //if this is set, it will override the hud menu click sound
 	var/sector_hud_arrow = null //if this is set, it will use an overlay instead of the animation that makes the button bigger
 
@@ -40,6 +57,9 @@
 	var/next_port_visit
 	/// This variable holds the string of time until port visit. Will be "in 1 day", "in 2 days", "today", etc. Do not edit manually.
 	var/next_port_visit_string
+
+	/// Does this sector permit communication with Central Command? Reserved for remote/uncharted sectors. The EBS system is unaffected as it is necessary for certain CCIA functions (eg. scuttling).
+	var/ccia_link = TRUE
 
 	//vars used by the meteor random event
 

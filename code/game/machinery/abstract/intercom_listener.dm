@@ -1,11 +1,11 @@
 /obj/machinery/abstract/intercom_listener
 	name = "intercom power interface"
 	desc = DESC_PARENT
-	power_channel = EQUIP
+	power_channel = AREA_USAGE_EQUIP
 
-	var/obj/item/device/radio/intercom/master
+	var/obj/item/radio/intercom/master
 
-/obj/machinery/abstract/intercom_listener/New(atom/loc, obj/item/device/radio/intercom/owner)
+/obj/machinery/abstract/intercom_listener/New(atom/loc, obj/item/radio/intercom/owner)
 	if (QDELETED(owner))
 		warning("intercom_listener created with QDELETED intercom!")
 		qdel(src)

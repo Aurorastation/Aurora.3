@@ -22,7 +22,7 @@ export const Holopad = (props, context) => {
   const [searchTerm, setSearchTerm] = useLocalState<string>(
     context,
     `searchTerm`,
-    ``
+    ``,
   );
 
   return (
@@ -43,7 +43,7 @@ export const Holopad = (props, context) => {
                   tooltip="This is only available due to your command authorisation."
                   selected={data.forcing_call}
                   icon="microphone"
-                  onClick={() => act('microphone')}
+                  onClick={() => act('toggle_command')}
                 />
               ) : (
                 ''
@@ -60,7 +60,8 @@ export const Holopad = (props, context) => {
                 value={searchTerm}
               />
             </>
-          }>
+          }
+        >
           {data.holopad_list.length ? (
             <HolopadList />
           ) : (
@@ -78,14 +79,14 @@ export const HolopadList = (props, context) => {
   const [searchTerm, setSearchTerm] = useLocalState<string>(
     context,
     `searchTerm`,
-    ``
+    ``,
   );
 
   return (
     <Section>
       {data.holopad_list
         .filter(
-          (pad) => pad.id?.toLowerCase().indexOf(searchTerm.toLowerCase()) > -1
+          (pad) => pad.id?.toLowerCase().indexOf(searchTerm.toLowerCase()) > -1,
         )
         .map((holopad) => (
           <Button

@@ -4,12 +4,14 @@
 
 	uniform = list(
 		/obj/item/clothing/under/color/black,
+		/obj/item/clothing/under/color/grey,
+		/obj/item/clothing/under/color/purple,
 		/obj/item/clothing/under/color/brown,
+		/obj/item/clothing/under/color/darkblue,
+		/obj/item/clothing/under/color/darkred,
 		/obj/item/clothing/under/service_overalls,
 		/obj/item/clothing/under/overalls,
 		/obj/item/clothing/under/suit_jacket/charcoal,
-		/obj/random/colored_jumpsuit,
-		/obj/random/suit,
 	)
 	suit = list(
 		/obj/item/clothing/suit/storage/hooded/wintercoat,
@@ -23,7 +25,7 @@
 		/obj/item/clothing/suit/storage/toggle/leather_jacket/flight/white,
 		/obj/item/clothing/suit/storage/toggle/leather_jacket/military/tan,
 		/obj/item/clothing/suit/storage/toggle/highvis,
-		/obj/item/clothing/suit/storage/toggle/highvis_alt,
+		/obj/item/clothing/suit/storage/toggle/highvis/alt,
 		/obj/item/clothing/suit/storage/toggle/track,
 		/obj/item/clothing/suit/storage/toggle/track/blue,
 		/obj/item/clothing/suit/storage/toggle/trench/colorable/random,

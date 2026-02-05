@@ -31,7 +31,7 @@
 	mob_swap_flags = HUMAN|SIMPLE_ANIMAL|SLIME|MONKEY
 	mob_push_flags = ALLMOBS
 
-	see_invisible = SEE_INVISIBLE_NOLIGHTING
+	lighting_alpha = LIGHTING_PLANE_ALPHA_SOMEWHAT_INVISIBLE
 
 	minbodytemp = 0
 	maxbodytemp = 350
@@ -119,7 +119,7 @@
 	update_icon()
 	pass_flags = PASSTABLE | PASSMOB
 	layer = TURF_DETAIL_LAYER
-	density = FALSE
+	ADD_TRAIT(src, TRAIT_UNDENSE, TRAIT_SOURCE_WORM_BURROW)
 	visible_message(SPAN_DANGER("\The [src] burrows into the ground!"))
 
 /mob/living/simple_animal/hostile/phoron_worm/proc/unburrow()
@@ -131,13 +131,13 @@
 	update_icon()
 	pass_flags = initial(pass_flags)
 	layer = initial(layer)
-	density = TRUE
+	REMOVE_TRAIT(src, TRAIT_UNDENSE, TRAIT_SOURCE_WORM_BURROW)
 	visible_message(SPAN_DANGER("\The [src] emerges from the ground!"))
 	if(mob_size > 15)
 		for(var/mob/living/M in orange(1,src))
 			if(M != src)
 				M.apply_damage(50, DAMAGE_BRUTE)
-				M.apply_effect(6, STUN, blocked)
+				M.apply_effect(6, STUN, GLOB.blocked)
 				M.throw_at(get_random_turf_in_range(get_turf(src), 1), 2)
 
 /mob/living/simple_animal/hostile/phoron_worm/small

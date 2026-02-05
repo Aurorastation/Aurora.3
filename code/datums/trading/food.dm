@@ -251,7 +251,7 @@
 		/obj/item/reagent_containers/food/drinks/bottle/treebark_firewater   = TRADER_THIS_TYPE,
 		/obj/item/reagent_containers/food/drinks/bottle/veterans_choice      = TRADER_THIS_TYPE,
 		/obj/item/reagent_containers/food/drinks/bottle/small/midynhr_water  = TRADER_THIS_TYPE,
-		/obj/item/reagent_containers/food/drinks/bottle/nmshaan_liquor       = TRADER_THIS_TYPE,
+		/obj/item/reagent_containers/food/drinks/bottle/sugartree_liquor       = TRADER_THIS_TYPE,
 		/obj/item/reagent_containers/food/drinks/bottle/shyyrkirrtyr_wine    = TRADER_THIS_TYPE,
 		/obj/item/reagent_containers/food/drinks/bottle/small/khlibnyz       = TRADER_THIS_TYPE,
 		/obj/item/reagent_containers/food/drinks/bottle/hrozamal_soda        = TRADER_THIS_TYPE

@@ -65,8 +65,8 @@
 	dir = 1
 	},
 /obj/structure/table/reinforced/steel,
-/obj/item/device/robotanalyzer,
-/obj/item/device/robotanalyzer{
+/obj/item/robotanalyzer,
+/obj/item/robotanalyzer{
 	pixel_y = 9
 	},
 /turf/simulated/floor/tiled/dark/full,
@@ -103,12 +103,12 @@
 	},
 /obj/item/storage/belt/security/full/alt,
 /obj/item/storage/belt/security/full/alt,
-/obj/item/device/flashlight/maglight,
-/obj/item/device/flashlight/maglight,
-/obj/item/storage/box/smokebombs,
-/obj/item/storage/box/flashbangs,
+/obj/item/flashlight/maglight,
+/obj/item/flashlight/maglight,
+/obj/item/storage/box/tactical/smokebombs,
+/obj/item/storage/box/tactical/flashbangs,
 /obj/item/storage/box/handcuffs,
-/obj/item/storage/box/teargas,
+/obj/item/storage/box/tactical/teargas,
 /obj/machinery/light/small,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/item/storage/box/landmines/claymore,
@@ -268,7 +268,7 @@
 	pixel_y = 4
 	},
 /obj/random/dirt_75,
-/obj/item/device/flashlight{
+/obj/item/flashlight{
 	pixel_x = 4;
 	pixel_y = 4
 	},
@@ -324,7 +324,8 @@
 /area/golden_deep/private_lounge)
 "bA" = (
 /obj/machinery/computer/ship/helm/terminal{
-	dir = 8
+	dir = 8;
+	req_one_access = list(217,229)
 	},
 /turf/simulated/floor/marble/dark,
 /area/shuttle/golden_deep/cockpit)
@@ -507,7 +508,8 @@
 	dir = 5
 	},
 /obj/machinery/computer/ship/targeting/terminal{
-	dir = 4
+	dir = 4;
+	req_one_access = list(229, 217)
 	},
 /turf/simulated/floor/marble/dark,
 /area/golden_deep/bridge)
@@ -806,7 +808,8 @@
 /area/golden_deep/aft_central_hallway)
 "dr" = (
 /obj/machinery/computer/ship/targeting/terminal{
-	dir = 8
+	dir = 8;
+	req_one_access = list(229, 217)
 	},
 /turf/simulated/floor/marble/dark,
 /area/golden_deep/bridge)
@@ -882,7 +885,8 @@
 /area/golden_deep/bridge)
 "dG" = (
 /obj/machinery/computer/ship/helm/terminal{
-	dir = 1
+	dir = 1;
+	req_one_access = list(229, 217)
 	},
 /turf/simulated/floor/marble/dark,
 /area/golden_deep/bridge)
@@ -1079,7 +1083,7 @@
 	pixel_x = -7;
 	pixel_y = 8
 	},
-/obj/item/device/flashlight/lamp/green{
+/obj/item/flashlight/lamp/green{
 	pixel_x = 3;
 	pixel_y = 6
 	},
@@ -1294,7 +1298,7 @@
 	pixel_x = 6;
 	pixel_y = -3
 	},
-/obj/item/device/pin_extractor{
+/obj/item/pin_extractor{
 	pixel_x = 3;
 	pixel_y = 10
 	},
@@ -1322,13 +1326,10 @@
 "fv" = (
 /obj/effect/floor_decal/spline/fancy/wood,
 /obj/structure/table/reinforced/steel,
-/obj/machinery/recharger/wallcharger{
-	pixel_y = 32;
-	pixel_x = 3
-	},
-/obj/machinery/recharger/wallcharger{
-	pixel_y = 21;
-	pixel_x = 3
+/obj/item/radio/intercom/hailing/north,
+/obj/item/radio/hailing{
+	pixel_x = 5;
+	pixel_y = 6
 	},
 /turf/simulated/floor/marble/dark,
 /area/shuttle/golden_deep/cockpit)
@@ -1874,7 +1875,7 @@
 "hN" = (
 /obj/structure/table/reinforced/steel,
 /obj/machinery/photocopier/faxmachine{
-	department = "Republican Fleet Corvette";
+	department = "Golden Deep Merchantile Vessel - Accounting";
 	pixel_y = 6;
 	req_one_access = list(229, 217)
 	},
@@ -1894,11 +1895,6 @@
 	dir = 6
 	},
 /obj/structure/table/steel,
-/obj/structure/sign/poster{
-	icon_state = "bsposter56";
-	poster_type = "/datum/poster/bay_56";
-	pixel_x = 32
-	},
 /obj/item/wrench{
 	pixel_y = 19;
 	pixel_x = 3
@@ -1911,6 +1907,9 @@
 	},
 /obj/item/storage/bag/circuits/all{
 	pixel_y = -6
+	},
+/obj/structure/sign/poster/civilian{
+	pixel_x = 32
 	},
 /turf/simulated/floor/tiled/dark,
 /area/golden_deep/owned_lounge)
@@ -2153,6 +2152,14 @@
 	dir = 8;
 	must_start_working = 1
 	},
+/obj/machinery/recharger/wallcharger{
+	pixel_y = -26;
+	pixel_x = 3
+	},
+/obj/machinery/recharger/wallcharger{
+	pixel_y = -36;
+	pixel_x = 3
+	},
 /turf/simulated/floor/marble/dark,
 /area/shuttle/golden_deep/cockpit)
 "jk" = (
@@ -2385,6 +2392,11 @@
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/random/dirt_75,
+/obj/machinery/button/ignition{
+	dir = 8;
+	pixel_x = 23;
+	id = "gd_igniter_port"
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/golden_deep/portprop)
 "kd" = (
@@ -2476,10 +2488,10 @@
 	pixel_y = 10;
 	pixel_x = 7
 	},
-/obj/item/device/assembly/prox_sensor{
+/obj/item/assembly/prox_sensor{
 	pixel_x = -4
 	},
-/obj/item/device/assembly/prox_sensor{
+/obj/item/assembly/prox_sensor{
 	pixel_x = 5
 	},
 /turf/simulated/floor/tiled/dark/full,
@@ -2654,6 +2666,12 @@
 /obj/machinery/atm{
 	dir = 1;
 	pixel_y = 28
+	},
+/turf/simulated/floor/wood,
+/area/golden_deep/lounge)
+"li" = (
+/obj/structure/bed/stool/bar/padded/brown{
+	dir = 8
 	},
 /turf/simulated/floor/wood,
 /area/golden_deep/lounge)
@@ -3052,8 +3070,8 @@
 /area/golden_deep/engineering)
 "nh" = (
 /obj/structure/table/reinforced/steel,
-/obj/item/device/binoculars,
-/obj/item/device/binoculars/high_power{
+/obj/item/binoculars,
+/obj/item/binoculars/high_power{
 	pixel_y = 6
 	},
 /turf/simulated/floor/marble/dark,
@@ -3392,6 +3410,9 @@
 /turf/simulated/floor/plating,
 /area/golden_deep/starboardprop)
 "ow" = (
+/obj/structure/bed/stool/bar/padded/brown{
+	dir = 4
+	},
 /turf/simulated/floor/wood,
 /area/golden_deep/lounge)
 "ox" = (
@@ -3592,7 +3613,8 @@
 "pm" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/computer/ship/targeting/terminal{
-	dir = 8
+	dir = 8;
+	req_one_access = list(229, 217)
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/golden_deep/starboard_dock)
@@ -4049,7 +4071,7 @@
 	color = "#333333";
 	name = "leather gloves"
 	},
-/obj/item/device/clothes_dyer,
+/obj/item/clothes_dyer,
 /turf/simulated/floor/wood,
 /area/golden_deep/merchant)
 "qI" = (
@@ -4105,7 +4127,7 @@
 /turf/simulated/floor/wood,
 /area/golden_deep/bridge_foyer)
 "qU" = (
-/obj/item/modular_computer/console/preset/merchant/golden_deep{
+/obj/item/modular_computer/console/preset/merchant{
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -4484,7 +4506,7 @@
 	pixel_y = 6
 	},
 /obj/random/dirt_75,
-/obj/item/clothing/ears/earmuffs/earphones/headphones{
+/obj/item/clothing/ears/earphones/headphones{
 	pixel_y = 4;
 	pixel_x = 9
 	},
@@ -4555,7 +4577,7 @@
 	must_start_working = 1
 	},
 /obj/item/storage/toolbox/mechanical,
-/obj/item/device/hand_labeler,
+/obj/item/hand_labeler,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
 /area/golden_deep/eva)
@@ -4947,6 +4969,15 @@
 	},
 /turf/simulated/floor/lino/diamond,
 /area/golden_deep/hoplan)
+"uy" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 5
+	},
+/obj/machinery/media/jukebox{
+	anchored = 1
+	},
+/turf/simulated/floor/wood,
+/area/golden_deep/lounge)
 "uz" = (
 /obj/machinery/door/airlock/external,
 /obj/effect/map_effect/marker_helper/airlock/interior,
@@ -5124,7 +5155,7 @@
 	dir = 6
 	},
 /obj/structure/table/reinforced/steel,
-/obj/item/device/taperecorder{
+/obj/item/taperecorder{
 	pixel_x = -2;
 	pixel_y = 4
 	},
@@ -5146,11 +5177,11 @@
 /area/golden_deep/owned_lounge)
 "vo" = (
 /obj/structure/table/rack,
-/obj/item/device/geiger{
+/obj/item/geiger{
 	pixel_x = -6;
 	pixel_y = 2
 	},
-/obj/item/device/geiger{
+/obj/item/geiger{
 	pixel_x = 5;
 	pixel_y = 2
 	},
@@ -5517,6 +5548,17 @@
 /obj/structure/table/wood/gamblingtable,
 /turf/simulated/floor/wood,
 /area/golden_deep/lounge)
+"xf" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 1
+	},
+/obj/structure/table/wood/gamblingtable,
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/shot{
+	pixel_y = 4;
+	pixel_x = 7
+	},
+/turf/simulated/floor/wood,
+/area/golden_deep/lounge)
 "xg" = (
 /obj/machinery/alarm/south{
 	req_one_access = list(229, 217)
@@ -5528,7 +5570,7 @@
 /area/shuttle/golden_deep/passenger)
 "xi" = (
 /obj/structure/table/reinforced/steel,
-/obj/item/device/flashlight{
+/obj/item/flashlight{
 	pixel_y = 10;
 	pixel_x = 8
 	},
@@ -6186,7 +6228,7 @@
 	pixel_y = 18;
 	pixel_x = -5
 	},
-/obj/item/device/taperecorder{
+/obj/item/taperecorder{
 	pixel_x = -8;
 	pixel_y = -3
 	},
@@ -6742,20 +6784,6 @@
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/golden_deep/workshop)
-"Cr" = (
-/obj/machinery/light/small{
-	dir = 4
-	},
-/obj/structure/janitorialcart{
-	dir = 4
-	},
-/obj/item/reagent_containers/glass/bucket,
-/obj/structure/reagent_dispensers/peppertank/spacecleaner{
-	pixel_y = 29
-	},
-/obj/effect/floor_decal/industrial/outline/custodial,
-/turf/simulated/floor/tiled/dark/full,
-/area/golden_deep/custodial)
 "Cs" = (
 /obj/effect/floor_decal/corner_wide/dark_blue{
 	dir = 6
@@ -6805,6 +6833,10 @@
 	},
 /obj/machinery/atmospherics/unary/vent_pump/siphon/atmos{
 	dir = 8
+	},
+/obj/machinery/sparker{
+	id = "gd_igniter_port";
+	pixel_x = -10
 	},
 /turf/simulated/floor/reinforced/carbon_dioxide,
 /area/golden_deep/portprop)
@@ -6943,12 +6975,12 @@
 "Dc" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/table/rack,
-/obj/item/device/gps,
-/obj/item/device/gps,
-/obj/item/device/gps,
-/obj/item/device/gps,
-/obj/item/device/gps,
-/obj/item/device/gps,
+/obj/item/gps,
+/obj/item/gps,
+/obj/item/gps,
+/obj/item/gps,
+/obj/item/gps,
+/obj/item/gps,
 /obj/item/tank/jetpack/carbondioxide,
 /obj/item/tank/jetpack/carbondioxide,
 /obj/item/tank/jetpack/carbondioxide,
@@ -7338,7 +7370,7 @@
 /turf/simulated/floor/plating,
 /area/golden_deep/atmos)
 "EF" = (
-/obj/item/device/flashlight/lamp/green{
+/obj/item/flashlight/lamp/green{
 	pixel_y = 5;
 	pixel_x = 5
 	},
@@ -8116,13 +8148,6 @@
 	},
 /turf/simulated/floor/wood,
 /area/golden_deep/private_lounge)
-"HD" = (
-/obj/effect/floor_decal/spline/fancy/wood{
-	dir = 5
-	},
-/obj/machinery/computer/slot_machine,
-/turf/simulated/floor/wood,
-/area/golden_deep/lounge)
 "HE" = (
 /obj/structure/cable{
 	d1 = 4;
@@ -8307,6 +8332,11 @@
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/random/dirt_75,
+/obj/machinery/button/ignition{
+	dir = 4;
+	pixel_x = -23;
+	id = "gd_igniter_starboard"
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/golden_deep/starboardprop)
 "Io" = (
@@ -8444,7 +8474,7 @@
 	dir = 6
 	},
 /obj/structure/table/reinforced/steel,
-/obj/item/device/flashlight{
+/obj/item/flashlight{
 	pixel_x = 1;
 	pixel_y = -8
 	},
@@ -8484,9 +8514,7 @@
 /area/shuttle/golden_deep/cockpit)
 "Jf" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/autolathe{
-	hacked = 1
-	},
+/obj/machinery/fabricator/autolathe/hacked,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
 /area/golden_deep/engineering)
@@ -8683,12 +8711,12 @@
 "Kd" = (
 /obj/structure/table/rack,
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/item/device/suit_cooling_unit,
-/obj/item/device/suit_cooling_unit,
-/obj/item/device/suit_cooling_unit,
-/obj/item/device/suit_cooling_unit,
-/obj/item/device/suit_cooling_unit,
-/obj/item/device/suit_cooling_unit,
+/obj/item/suit_cooling_unit,
+/obj/item/suit_cooling_unit,
+/obj/item/suit_cooling_unit,
+/obj/item/suit_cooling_unit,
+/obj/item/suit_cooling_unit,
+/obj/item/suit_cooling_unit,
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1;
 	level = 2
@@ -9061,7 +9089,7 @@
 	dir = 10
 	},
 /obj/structure/table/reinforced/steel,
-/obj/item/device/paint_sprayer{
+/obj/item/paint_sprayer{
 	pixel_y = 5;
 	pixel_x = 2
 	},
@@ -9684,18 +9712,6 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/golden_deep/eva)
-"Ob" = (
-/obj/machinery/media/jukebox{
-	anchored = 1
-	},
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/structure/sign/poster{
-	icon_state = "bsposter65";
-	poster_type = "/datum/poster/bay_65";
-	pixel_y = -32
-	},
-/turf/simulated/floor/tiled/dark/full,
-/area/golden_deep/owned_lounge)
 "Od" = (
 /obj/machinery/atmospherics/unary/engine{
 	dir = 4
@@ -9793,11 +9809,11 @@
 	},
 /obj/item/gun/energy/rifle/laser,
 /obj/item/gun/projectile/shotgun/pump/combat,
-/obj/item/storage/box/shotgunshells,
-/obj/item/storage/box/shotgunshells,
-/obj/item/storage/box/beanbags,
-/obj/item/storage/box/beanbags,
-/obj/item/storage/box/haywireshells,
+/obj/item/storage/box/shells/buckshot,
+/obj/item/storage/box/shells/buckshot,
+/obj/item/storage/box/shells/beanbags,
+/obj/item/storage/box/shells/beanbags,
+/obj/item/storage/box/shells/haywireshells,
 /obj/item/melee/energy/glaive,
 /obj/item/melee/energy/glaive,
 /obj/machinery/button/remote/blast_door{
@@ -9968,7 +9984,7 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/obj/item/device/flashlight/lantern{
+/obj/item/flashlight/lantern{
 	pixel_y = 17;
 	pixel_x = 5
 	},
@@ -10021,7 +10037,7 @@
 "Pb" = (
 /obj/structure/table/stone/marble,
 /obj/machinery/photocopier/faxmachine{
-	department = "Republican Fleet Corvette";
+	department = "Golden Deep Merchantile Vessel - Merchant";
 	req_one_access = list(229, 217);
 	pixel_y = 6
 	},
@@ -10217,7 +10233,7 @@
 /obj/machinery/computer/ship/engines/terminal{
 	dir = 4
 	},
-/obj/item/device/radio/intercom/expedition/north,
+/obj/item/radio/intercom/expedition/north,
 /turf/simulated/floor/lino/diamond,
 /area/golden_deep/bridge)
 "Qd" = (
@@ -10345,7 +10361,7 @@
 	pixel_y = 4;
 	pixel_x = 3
 	},
-/obj/item/device/paicard{
+/obj/item/paicard{
 	pixel_y = 5;
 	pixel_x = -11
 	},
@@ -10704,6 +10720,20 @@
 /obj/effect/floor_decal/industrial/hatch_tiny/yellow,
 /turf/simulated/floor/tiled/dark,
 /area/golden_deep/portprop)
+"RP" = (
+/obj/machinery/light/small{
+	dir = 4
+	},
+/obj/structure/cart/storage/janitorialcart/full{
+	dir = 4
+	},
+/obj/item/reagent_containers/glass/bucket,
+/obj/structure/reagent_dispensers/peppertank/spacecleaner{
+	pixel_y = 29
+	},
+/obj/effect/floor_decal/industrial/outline/custodial,
+/turf/simulated/floor/tiled/dark/full,
+/area/golden_deep/custodial)
 "RR" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
@@ -10867,6 +10897,13 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/golden_deep/bridge_foyer)
+"SA" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 4
+	},
+/obj/machinery/computer/slot_machine,
+/turf/simulated/floor/wood,
+/area/golden_deep/lounge)
 "SC" = (
 /turf/simulated/wall/shuttle/dark/cardinal/closet_gold,
 /area/golden_deep/central_hallway)
@@ -11058,6 +11095,13 @@
 	},
 /turf/simulated/floor/carpet/magenta,
 /area/golden_deep/merchant)
+"Tp" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 8
+	},
+/obj/machinery/computer/slot_machine,
+/turf/simulated/floor/wood,
+/area/golden_deep/lounge)
 "Tq" = (
 /obj/effect/floor_decal/corner_wide/dark_blue{
 	dir = 10
@@ -11066,11 +11110,11 @@
 /obj/structure/noticeboard{
 	pixel_y = -30
 	},
-/obj/item/device/flashlight/lamp/off{
+/obj/item/flashlight/lamp/off{
 	pixel_x = -6;
 	pixel_y = 10
 	},
-/obj/item/device/debugger{
+/obj/item/debugger{
 	pixel_x = 7
 	},
 /turf/simulated/floor/tiled/dark,
@@ -11592,7 +11636,7 @@
 /obj/structure/filingcabinet/chestdrawer{
 	pixel_x = -7
 	},
-/obj/item/device/radio/intercom/expedition/north,
+/obj/item/radio/intercom/expedition/north,
 /turf/simulated/floor/wood,
 /area/golden_deep/accounting)
 "VU" = (
@@ -11854,11 +11898,11 @@
 	dir = 6
 	},
 /obj/structure/table/reinforced,
-/obj/item/device/price_scanner{
+/obj/item/price_scanner{
 	pixel_y = 17;
 	pixel_x = -2
 	},
-/obj/item/device/hand_labeler{
+/obj/item/hand_labeler{
 	pixel_y = 2
 	},
 /obj/random/dirt_75,
@@ -12112,10 +12156,10 @@
 /obj/item/storage/toolbox/electrical{
 	pixel_y = 11
 	},
-/obj/item/storage/toolbox/electrical{
-	pixel_y = 2
-	},
 /obj/random/dirt_75,
+/obj/item/storage/toolbox/mechanical{
+	pixel_y = 1
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/golden_deep/workshop)
 "XM" = (
@@ -12221,6 +12265,16 @@
 	},
 /turf/simulated/floor/marble/dark,
 /area/golden_deep/hoplan)
+"Ym" = (
+/obj/machinery/media/jukebox{
+	anchored = 1
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/sign/poster/engineering/bay_65{
+	pixel_y = -32
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/golden_deep/owned_lounge)
 "Yn" = (
 /obj/machinery/atmospherics/portables_connector/aux{
 	dir = 4
@@ -12322,8 +12376,8 @@
 	req_one_access = list(229, 217)
 	},
 /obj/effect/floor_decal/industrial/outline/custodial,
-/obj/item/device/hand_labeler,
-/obj/item/device/price_scanner,
+/obj/item/hand_labeler,
+/obj/item/price_scanner,
 /turf/simulated/floor/marble/dark,
 /area/shuttle/golden_deep/cockpit)
 "YE" = (
@@ -12435,6 +12489,10 @@
 /area/golden_deep/starboardprop)
 "Zc" = (
 /obj/effect/map_effect/perma_light,
+/obj/machinery/sparker{
+	id = "gd_igniter_starboard";
+	pixel_x = -10
+	},
 /turf/simulated/floor/reinforced/carbon_dioxide,
 /area/golden_deep/starboardprop)
 "Zd" = (
@@ -12650,7 +12708,9 @@
 /area/golden_deep/portmaints)
 "ZV" = (
 /obj/machinery/light/small/floor,
-/obj/machinery/media/jukebox/gramophone,
+/obj/machinery/media/jukebox/gramophone{
+	anchored = 1
+	},
 /turf/simulated/floor/carpet/magenta,
 /area/golden_deep/merchant)
 "ZX" = (
@@ -45215,7 +45275,7 @@ pL
 tM
 jK
 jK
-Ob
+Ym
 Uw
 Rt
 Rt
@@ -109708,8 +109768,8 @@ iG
 iG
 iG
 yD
-tw
-tw
+SA
+SA
 jn
 AP
 vd
@@ -109943,7 +110003,7 @@ Bu
 SG
 pG
 mk
-Cr
+RP
 Yf
 WF
 Hj
@@ -112021,8 +112081,8 @@ lI
 lI
 lI
 lh
-Zj
-Zj
+Tp
+Tp
 Uc
 vM
 WD
@@ -112278,8 +112338,8 @@ uw
 ft
 lI
 Rc
-ow
-ow
+li
+li
 cK
 zB
 mS
@@ -112540,7 +112600,7 @@ Iz
 yK
 GO
 mS
-xa
+xf
 rL
 EP
 Bc
@@ -113568,7 +113628,7 @@ oC
 Re
 IR
 mS
-HD
+uy
 SS
 eO
 Rt

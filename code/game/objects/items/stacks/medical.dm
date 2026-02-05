@@ -9,10 +9,6 @@ Contains:
 	name = "medical pack"
 	singular_name = "medical pack"
 	icon = 'icons/obj/item/stacks/medical.dmi'
-	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items/stacks/lefthand_medical.dmi',
-		slot_r_hand_str = 'icons/mob/items/stacks/righthand_medical.dmi',
-		)
 	drop_sound = 'sound/items/drop/cardboardbox.ogg'
 	pickup_sound = 'sound/items/pickup/cardboardbox.ogg'
 	amount = 5
@@ -43,6 +39,10 @@ Contains:
 		var/mob/living/carbon/human/H = target_mob
 		var/obj/item/organ/external/affecting = H.get_organ(user.zone_sel.selecting)
 
+		if((affecting.status & ORGAN_ASSISTED) || (affecting.status & ORGAN_ROBOT))
+			to_chat(user, SPAN_WARNING("This isn't useful at all on a robotic limb."))
+			return 1
+
 		if(affecting.name == BP_HEAD)
 			if(H.head && istype(H.head,/obj/item/clothing/head/helmet/space))
 				to_chat(user, SPAN_WARNING("You can't apply [src] through [H.head]!"))
@@ -67,10 +67,6 @@ Contains:
 					SPAN_NOTICE("You apply \the [src] to [target_mob].")\
 				)
 				use(1)
-			return 1
-
-		if(affecting.status & ORGAN_ASSISTED)
-			to_chat(user, SPAN_WARNING("This isn't useful at all on a robotic limb."))
 			return 1
 
 		H.UpdateDamageIcon()
@@ -125,7 +121,7 @@ Contains:
 	origin_tech = list(TECH_BIO = 1)
 	heal_brute = 4
 	icon_has_variants = TRUE
-	apply_sounds = /singleton/sound_category/rip_sound
+	apply_sounds = SFX_RIP
 	drop_sound = 'sound/items/drop/gloves.ogg'
 	pickup_sound = 'sound/items/pickup/gloves.ogg'
 
@@ -166,7 +162,7 @@ Contains:
 						user.visible_message(SPAN_NOTICE("\The [user] bandages \a [W.desc] on [target_mob]'s [affecting.name]."), \
 															SPAN_NOTICE("You bandage \a [W.desc] on [target_mob]'s [affecting.name]."))
 						//H.add_side_effect("Itch")
-					else if (W.damage_type == BRUISE)
+					else if (W.damage_type == INJURY_TYPE_BRUISE)
 						user.visible_message(SPAN_NOTICE("\The [user] places a bruise patch over \a [W.desc] on [target_mob]'s [affecting.name]."), \
 															SPAN_NOTICE("You place a bruise patch over \a [W.desc] on [target_mob]'s [affecting.name]."))
 					else
@@ -182,6 +178,7 @@ Contains:
 					else
 						to_chat(user, SPAN_WARNING("\The [src] is used up, but there are more wounds to treat on \the [affecting.name]."))
 				use(used)
+				affecting.bandage_level = affecting.possible_bandage_level()
 				H.update_bandages(TRUE)
 		else
 			if (can_operate(H))        //Checks if mob is lying down on table for surgery
@@ -200,7 +197,7 @@ Contains:
 	heal_burn = 4
 	origin_tech = list(TECH_BIO = 1)
 	icon_has_variants = TRUE
-	apply_sounds = /singleton/sound_category/ointment_sound
+	apply_sounds = SFX_OINTMENT
 	drop_sound = 'sound/items/drop/herb.ogg'
 	pickup_sound = 'sound/items/pickup/herb.ogg'
 
@@ -251,7 +248,7 @@ Contains:
 	icon_state = "traumakit"
 	heal_brute = 8
 	origin_tech = list(TECH_BIO = 1)
-	apply_sounds = /singleton/sound_category/rip_sound
+	apply_sounds = SFX_RIP
 	applied_sounds = 'sound/items/advkit.ogg'
 	automatic_charge_overlays = TRUE
 
@@ -292,7 +289,7 @@ Contains:
 						user.visible_message(SPAN_NOTICE("\The [user] cleans \a [W.desc] on [target_mob]'s [affecting.name] and seals the edges with bioglue."), \
 												SPAN_NOTICE("You clean and seal \a [W.desc] on [target_mob]'s [affecting.name]."))
 						//H.add_side_effect("Itch")
-					else if (W.damage_type == BRUISE)
+					else if (W.damage_type == INJURY_TYPE_BRUISE)
 						user.visible_message(SPAN_NOTICE("\The [user] places a medical patch over \a [W.desc] on [target_mob]'s [affecting.name]."), \
 												SPAN_NOTICE("You place a medical patch over \a [W.desc] on [target_mob]'s [affecting.name]."))
 					else
@@ -310,6 +307,7 @@ Contains:
 					else
 						to_chat(user, SPAN_WARNING("\The [src] is used up, but there are more wounds to treat on \the [affecting.name]."))
 				use(used)
+				affecting.bandage_level = affecting.possible_bandage_level()
 				H.update_bandages(TRUE)
 		else
 			if (can_operate(H))        //Checks if mob is lying down on table for surgery
@@ -326,7 +324,7 @@ Contains:
 	icon_state = "burnkit"
 	heal_burn = 8
 	origin_tech = list(TECH_BIO = 1)
-	apply_sounds = /singleton/sound_category/ointment_sound
+	apply_sounds = SFX_OINTMENT
 	applied_sounds = 'sound/items/advkit.ogg'
 	automatic_charge_overlays = TRUE
 

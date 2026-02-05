@@ -12,7 +12,8 @@
 
 	default_choices = list()
 
-	//Put secret as the first option
+	//Put Odyssey and Secret as the first options
+	default_choices.Add("Odyssey")
 	default_choices.Add("Secret")
 
 	//Sort the gamemodes
@@ -77,8 +78,7 @@
 
 			for(var/votable_mode_name in GLOB.config.votable_modes)
 				var/datum/game_mode/M = GLOB.gamemode_cache[votable_mode_name]
-
-				if(M.name == winning_option)
+				if(M?.name == winning_option)
 					GLOB.master_mode = M.config_tag
 					break
 

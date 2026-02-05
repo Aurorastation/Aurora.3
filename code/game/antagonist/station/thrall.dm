@@ -1,4 +1,4 @@
-var/datum/antagonist/thrall/thralls = null
+GLOBAL_DATUM(thralls, /datum/antagonist/thrall)
 
 /datum/antagonist/thrall
 	id = MODE_THRALL
@@ -24,7 +24,7 @@ var/datum/antagonist/thrall/thralls = null
 /datum/antagonist/thrall/New()
 	..()
 
-	thralls = src
+	GLOB.thralls = src
 
 /datum/antagonist/thrall/handle_latelogin(var/mob/user)
 	var/datum/mind/M = user.mind

@@ -173,9 +173,11 @@
 /obj/machinery/artifact/attack_hand(mob/user)
 	if(use_check_and_message(user, USE_ALLOW_NON_ADV_TOOL_USR))
 		return
-	if(ishuman(user) && user:gloves)
-		to_chat(user, "<b>You touch \the [src]</b> with your gloved hands, [pick("but nothing of note happens","but nothing happens","but nothing interesting happens","but you notice nothing different","but nothing seems to have happened")].")
-		return
+	if(ishuman(user))
+		var/mob/living/carbon/human/H = user
+		if(H.gloves)
+			to_chat(user, "<b>You touch \the [src]</b> with your gloved hands, [pick("but nothing of note happens","but nothing happens","but nothing interesting happens","but you notice nothing different","but nothing seems to have happened")].")
+			return
 
 	src.add_fingerprint(user)
 
@@ -225,14 +227,14 @@
 			istype(attacking_item,/obj/item/melee/energy) ||\
 			istype(attacking_item,/obj/item/melee/cultblade) ||\
 			istype(attacking_item,/obj/item/card/emag) ||\
-			attacking_item.ismultitool())
+			attacking_item.tool_behaviour == TOOL_MULTITOOL)
 		if (my_effect.trigger == TRIGGER_ENERGY)
 			my_effect.ToggleActivate()
 		if(secondary_effect?.trigger == TRIGGER_ENERGY)
 			secondary_effect.ToggleActivate()
 
 	else if (istype(attacking_item,/obj/item/flame) && attacking_item:lit ||\
-			attacking_item.iswelder() && attacking_item:welding)
+			attacking_item.tool_behaviour == TOOL_WELDER && attacking_item:welding)
 		if(my_effect.trigger == TRIGGER_HEAT)
 			my_effect.ToggleActivate()
 		if(secondary_effect?.trigger == TRIGGER_HEAT)
@@ -315,7 +317,7 @@
 	return
 
 /obj/machinery/artifact/Move()
-	..()
+	. = ..()
 	if(my_effect)
 		my_effect.UpdateMove()
 	if(secondary_effect)

@@ -369,7 +369,7 @@ SUBSYSTEM_DEF(vote)
 
 /// Mob level verb that allows players to vote on the current vote.
 /mob/verb/vote()
-	set category = "OOC"
+	set category = "OOC.Round"
 	set name = "Vote"
 
 	SSvote.ui_interact(usr)

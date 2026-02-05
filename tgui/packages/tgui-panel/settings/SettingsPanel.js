@@ -7,13 +7,44 @@
 import { toFixed } from 'common/math';
 import { useLocalState } from 'tgui/backend';
 import { useDispatch, useSelector } from 'common/redux';
-import { Box, Button, ColorBox, Divider, Dropdown, Flex, Input, LabeledList, NumberInput, Section, Stack, Tabs, TextArea } from 'tgui/components';
+import {
+  Box,
+  Button,
+  ColorBox,
+  Divider,
+  Dropdown,
+  Flex,
+  Input,
+  LabeledList,
+  NumberInput,
+  Section,
+  Stack,
+  Tabs,
+  TextArea,
+} from 'tgui/components';
 import { ChatPageSettings } from '../chat';
-import { rebuildChat, saveChatToDisk, clearChatMessages } from '../chat/actions';
+import {
+  rebuildChat,
+  saveChatToDisk,
+  clearChatMessages,
+} from '../chat/actions';
 import { THEMES } from '../themes';
-import { changeSettingsTab, updateSettings, addHighlightSetting, removeHighlightSetting, updateHighlightSetting } from './actions';
+import {
+  changeSettingsTab,
+  updateSettings,
+  addHighlightSetting,
+  removeHighlightSetting,
+  updateHighlightSetting,
+} from './actions';
 import { SETTINGS_TABS, FONTS, MAX_HIGHLIGHT_SETTINGS } from './constants';
-import { selectActiveTab, selectSettings, selectHighlightSettings, selectHighlightSettingById } from './selectors';
+import { resetPaneSplitters, setEditPaneSplitters } from './scaling';
+import {
+  selectActiveTab,
+  selectSettings,
+  selectHighlightSettings,
+  selectHighlightSettingById,
+} from './selectors';
+import { IMPL_IFRAME_INDEXED_DB, storage } from 'common/storage';
 
 export const SettingsPanel = (props, context) => {
   const activeTab = useSelector(context, selectActiveTab);
@@ -31,9 +62,10 @@ export const SettingsPanel = (props, context) => {
                   dispatch(
                     changeSettingsTab({
                       tabId: tab.id,
-                    })
+                    }),
                   )
-                }>
+                }
+              >
                 {tab.name}
               </Tabs.Tab>
             ))}
@@ -52,10 +84,15 @@ export const SettingsPanel = (props, context) => {
 export const SettingsGeneral = (props, context) => {
   const { theme, fontFamily, fontSize, lineHeight, maxMessages } = useSelector(
     context,
-    selectSettings
+    selectSettings,
   );
   const dispatch = useDispatch(context);
   const [freeFont, setFreeFont] = useLocalState(context, 'freeFont', false);
+  const [editingPanes, setEditingPanes] = useLocalState(
+    context,
+    'uiScaling',
+    false,
+  );
   return (
     <Section>
       <LabeledList>
@@ -67,10 +104,33 @@ export const SettingsGeneral = (props, context) => {
               dispatch(
                 updateSettings({
                   theme: value,
-                })
+                }),
               )
             }
           />
+        </LabeledList.Item>
+        <LabeledList.Item label="UI sizes">
+          <Stack>
+            <Stack.Item>
+              <Button
+                onClick={() =>
+                  setEditingPanes((val) => {
+                    setEditPaneSplitters(!val);
+                    return !val;
+                  })
+                }
+                color={editingPanes ? 'red' : undefined}
+                icon={editingPanes ? 'save' : undefined}
+              >
+                {editingPanes ? 'Save' : 'Adjust UI Sizes'}
+              </Button>
+            </Stack.Item>
+            <Stack.Item>
+              <Button onClick={resetPaneSplitters} icon="refresh" color="red">
+                Reset
+              </Button>
+            </Stack.Item>
+          </Stack>
         </LabeledList.Item>
         <LabeledList.Item label="Font style">
           <Stack inline align="baseline">
@@ -83,7 +143,7 @@ export const SettingsGeneral = (props, context) => {
                     dispatch(
                       updateSettings({
                         fontFamily: value,
-                      })
+                      }),
                     )
                   }
                 />
@@ -94,7 +154,7 @@ export const SettingsGeneral = (props, context) => {
                     dispatch(
                       updateSettings({
                         fontFamily: value,
-                      })
+                      }),
                     )
                   }
                 />
@@ -127,7 +187,7 @@ export const SettingsGeneral = (props, context) => {
               dispatch(
                 updateSettings({
                   fontSize: value,
-                })
+                }),
               )
             }
           />
@@ -145,7 +205,7 @@ export const SettingsGeneral = (props, context) => {
               dispatch(
                 updateSettings({
                   lineHeight: value,
-                })
+                }),
               )
             }
           />
@@ -159,13 +219,19 @@ export const SettingsGeneral = (props, context) => {
             maxValue={32000}
             value={maxMessages}
             format={(value) => toFixed(value)}
-            onChange={(e, value) =>
+            onChange={(e, value) => {
+              storage.backendPromise.then((promise) => {
+                if (promise.impl === IMPL_IFRAME_INDEXED_DB) {
+                  promise.setNumberStored(value);
+                }
+              });
+
               dispatch(
                 updateSettings({
                   maxMessages: value,
-                })
-              )
-            }
+                }),
+              );
+            }}
           />
         </LabeledList.Item>
       </LabeledList>
@@ -213,7 +279,8 @@ const TextHighlightSettings = (props, context) => {
       <Box>
         <Button
           icon="check"
-          onClick={() => dispatch(rebuildChat(settings.maxMessages))}>
+          onClick={() => dispatch(rebuildChat(settings.maxMessages))}
+        >
           Apply now
         </Button>
         <Box inline fontSize="0.9em" ml={1} color="label">
@@ -232,6 +299,8 @@ const TextHighlightSetting = (props, context) => {
     highlightColor,
     highlightText,
     highlightWholeMessage,
+    backgroundHighlightColor,
+    backgroundHighlightOpacity,
     matchWord,
     matchCase,
   } = highlightSettingById[id];
@@ -247,23 +316,70 @@ const TextHighlightSetting = (props, context) => {
               dispatch(
                 removeHighlightSetting({
                   id: id,
-                })
+                }),
               )
             }
           />
         </Flex.Item>
         <Flex.Item>
+          {highlightWholeMessage && (
+            <>
+              <label>Opacity: </label>
+              <NumberInput
+                width="4em"
+                step={1}
+                stepPixelSize={5}
+                minValue={1}
+                maxValue={100}
+                unit="%"
+                value={backgroundHighlightOpacity}
+                format={(value) => toFixed(value)}
+                onDrag={(e, value) =>
+                  dispatch(
+                    updateHighlightSetting({
+                      id: id,
+                      backgroundHighlightOpacity: value,
+                    }),
+                  )
+                }
+              />
+            </>
+          )}
+        </Flex.Item>
+        <Flex.Item shrink={0}>
+          {highlightWholeMessage && (
+            <>
+              <ColorBox mr={1} color={backgroundHighlightColor} />
+              <Input
+                mr={1}
+                width="5em"
+                monospace
+                placeholder="#ffdd44"
+                value={backgroundHighlightColor}
+                onInput={(e, value) =>
+                  dispatch(
+                    updateHighlightSetting({
+                      id: id,
+                      backgroundHighlightColor: value,
+                    }),
+                  )
+                }
+              />
+            </>
+          )}
+        </Flex.Item>
+        <Flex.Item>
           <Button.Checkbox
             checked={highlightWholeMessage}
             content="Whole Message"
-            tooltip="If this option is selected, the entire message will be highlighted in yellow."
+            tooltip="If this option is selected, the entire message will be highlighted in the color defined to the left."
             mr="5px"
             onClick={() =>
               dispatch(
                 updateHighlightSetting({
                   id: id,
                   highlightWholeMessage: !highlightWholeMessage,
-                })
+                }),
               )
             }
           />
@@ -279,7 +395,7 @@ const TextHighlightSetting = (props, context) => {
                 updateHighlightSetting({
                   id: id,
                   matchWord: !matchWord,
-                })
+                }),
               )
             }
           />
@@ -294,7 +410,7 @@ const TextHighlightSetting = (props, context) => {
                 updateHighlightSetting({
                   id: id,
                   matchCase: !matchCase,
-                })
+                }),
               )
             }
           />
@@ -311,7 +427,7 @@ const TextHighlightSetting = (props, context) => {
                 updateHighlightSetting({
                   id: id,
                   highlightColor: value,
-                })
+                }),
               )
             }
           />
@@ -326,7 +442,7 @@ const TextHighlightSetting = (props, context) => {
             updateHighlightSetting({
               id: id,
               highlightText: value,
-            })
+            }),
           )
         }
       />

@@ -4,8 +4,7 @@
 /obj/item/clothing/suit/armor/riot/laser_tag
 	name = "laser tag armor"
 	desc = "A set of laser tag armor. Very swanky."
-	desc_info = "You can alt-click this while holding or wearing it to set how many laser tag shots you want to be able to take before going down."
-	icon = 'icons/clothing/kit/laser_tag.dmi'
+	icon = 'icons/obj/item/clothing/suit/armor/laser_tag.dmi'
 	icon_state = "vest"
 	item_state = "vest"
 	contained_sprite = TRUE
@@ -13,15 +12,19 @@
 	body_parts_covered = UPPER_TORSO
 	slowdown = 0
 	armor = list( // still somewhat sturdy, but ultimately not very
-		melee = ARMOR_MELEE_MINOR,
-		laser = ARMOR_LASER_MINOR,
-		energy = ARMOR_ENERGY_MINOR
+		MELEE = ARMOR_MELEE_MINOR,
+		LASER = ARMOR_LASER_MINOR,
+		ENERGY = ARMOR_ENERGY_MINOR
 	)
 	siemens_coefficient = 1.0
 	var/laser_tag_color = "red"
 
 	var/set_health = 3
 	var/current_health
+
+/obj/item/clothing/suit/armor/riot/laser_tag/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "You can alt-click this while holding or wearing it to set how many laser tag shots you want to be able to take before going down."
 
 /obj/item/clothing/suit/armor/riot/laser_tag/Initialize(mapload, material_key)
 	. = ..()
@@ -46,7 +49,7 @@
 	return ..()
 
 /obj/item/clothing/suit/armor/riot/laser_tag/attackby(obj/item/attacking_item, mob/user)
-	if(attacking_item.ismultitool())
+	if(attacking_item.tool_behaviour == TOOL_MULTITOOL)
 		var/chosen_color = tgui_input_list(user, "Which color do you wish your vest to be?", "Color Selection", list("blue", "red"))
 		if(!chosen_color)
 			return
@@ -69,14 +72,14 @@
 /obj/item/clothing/head/helmet/riot/laser_tag
 	name = "laser tag helmet"
 	desc = "A helmet in the form of a riot helm, made for high-impact laser tag gameplay."
-	icon = 'icons/clothing/kit/laser_tag.dmi'
+	icon = 'icons/obj/item/clothing/head/laser_tag.dmi'
 	icon_state = "helmet"
 	item_state = "helmet"
 	contained_sprite = TRUE
 	armor = list( // still somewhat sturdy, but ultimately not very
-		melee = ARMOR_MELEE_MINOR,
-		laser = ARMOR_LASER_MINOR,
-		energy = ARMOR_ENERGY_MINOR
+		MELEE = ARMOR_MELEE_MINOR,
+		LASER = ARMOR_LASER_MINOR,
+		ENERGY = ARMOR_ENERGY_MINOR
 	)
 	siemens_coefficient = 1.0
 	var/laser_tag_color = "red"
@@ -86,7 +89,7 @@
 	get_tag_color(laser_tag_color)
 
 /obj/item/clothing/head/helmet/riot/laser_tag/attackby(obj/item/attacking_item, mob/user)
-	if(attacking_item.ismultitool())
+	if(attacking_item.tool_behaviour == TOOL_MULTITOOL)
 		var/chosen_color = tgui_input_list(user, "Which color do you wish your helmet to be?", "Color Selection", list("blue", "red"))
 		if(!chosen_color)
 			return
@@ -127,7 +130,7 @@
 	var/gun_path = /obj/item/gun/energy/lasertag/red
 
 /obj/structure/closet/lasertag/fill()
-	new /obj/item/device/multitool(src)
+	new /obj/item/multitool(src)
 	for(var/i = 1 to 3)
 		new helmet_path(src)
 		new armor_path(src)

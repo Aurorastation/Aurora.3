@@ -52,6 +52,5 @@
 
 /datum/sound_token/instrument/Destroy()
 	. = ..()
-	UnregisterSignal(source, COMSIG_QDELETING)
 	player.unsubscribe(src)
 	player = null

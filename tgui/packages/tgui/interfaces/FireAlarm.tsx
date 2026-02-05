@@ -43,7 +43,8 @@ export const FireAlarm = (props, context) => {
           <br />
           <Button
             onClick={() => act('start_timer')}
-            disabled={data.timing || !data.time}>
+            disabled={data.timing || !data.time}
+          >
             Start Timer
           </Button>
           <Button onClick={() => act('stop_timer')} disabled={!data.timing}>

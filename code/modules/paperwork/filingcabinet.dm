@@ -1,8 +1,8 @@
 /* Filing cabinets!
  * Contains:
- *		Filing Cabinets
- *		Security Record Cabinets
- *		Medical Record Cabinets
+ * * Filing Cabinets
+ * * Security Record Cabinets
+ * * Medical Record Cabinets
  */
 
 
@@ -59,11 +59,11 @@
 		to_chat(user, SPAN_NOTICE("You put [attacking_item] in [src]."))
 		user.drop_from_inventory(attacking_item, src)
 		flick("[initial(icon_state)]-open", src)
-		playsound(loc, 'sound/bureaucracy/filingcabinet.ogg', 50, 1)
+		playsound(loc, 'sound/items/bureaucracy/filingcabinet.ogg', 50, 1)
 		sleep(40)
 		icon_state = initial(icon_state)
 		updateUsrDialog()
-	else if(attacking_item.iswrench())
+	else if(attacking_item.tool_behaviour == TOOL_WRENCH)
 		attacking_item.play_tool_sound(get_turf(src), 50)
 		anchored = !anchored
 		to_chat(user, SPAN_NOTICE("You [anchored ? "wrench" : "unwrench"] \the [src]."))
@@ -79,7 +79,7 @@
 	user.set_machine(src)
 	var/dat = "<center><table>"
 	for(var/obj/item/P in src)
-		dat += "<tr><td><a href='?src=[REF(src)];retrieve=[REF(P)]'>[P.name]</a></td></tr>"
+		dat += "<tr><td><a href='byond://?src=[REF(src)];retrieve=[REF(P)]'>[P.name]</a></td></tr>"
 	dat += "</table></center>"
 	user << browse("<html><head><title>[name]</title></head><body>[dat]</body></html>", "window=filingcabinet;size=350x300")
 
@@ -95,7 +95,7 @@
 			usr.put_in_hands(P)
 			updateUsrDialog()
 			flick("[initial(icon_state)]-open",src)
-			playsound(loc, 'sound/bureaucracy/filingcabinet.ogg', 50, 1)
+			playsound(loc, 'sound/items/bureaucracy/filingcabinet.ogg', 50, 1)
 			spawn(0)
 				sleep(20)
 				icon_state = initial(icon_state)

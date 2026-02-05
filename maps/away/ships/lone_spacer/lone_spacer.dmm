@@ -117,12 +117,12 @@
 	pixel_x = 23
 	},
 /obj/item/clothing/head/welding,
-/obj/item/device/multitool,
+/obj/item/multitool,
 /obj/item/stack/cable_coil,
 /obj/item/stack/cable_coil,
 /obj/effect/decal/cleanable/dirt,
-/obj/item/device/suit_cooling_unit,
-/obj/item/device/suit_cooling_unit,
+/obj/item/suit_cooling_unit,
+/obj/item/suit_cooling_unit,
 /obj/item/clothing/suit/space,
 /obj/item/clothing/head/helmet/space,
 /obj/item/clothing/shoes/magboots,
@@ -456,7 +456,7 @@
 /area/shuttle/lone_spacer/port_nacelle)
 "eT" = (
 /obj/structure/table/rack,
-/obj/item/device/geiger{
+/obj/item/geiger{
 	pixel_x = -5;
 	pixel_y = 6
 	},
@@ -575,14 +575,14 @@
 /area/shuttle/lone_spacer/storage)
 "go" = (
 /obj/structure/table/standard,
-/obj/item/clothing/ears/earmuffs/earphones/headphones{
+/obj/item/clothing/ears/earphones/headphones{
 	pixel_y = 9;
 	pixel_x = 7
 	},
 /obj/structure/sign/poster{
 	pixel_y = -32
 	},
-/obj/item/device/spaceflare{
+/obj/item/spaceflare{
 	pixel_y = 4;
 	pixel_x = -8
 	},
@@ -591,11 +591,11 @@
 	pixel_x = -6;
 	pixel_y = 9
 	},
-/obj/item/device/binoculars{
+/obj/item/binoculars{
 	pixel_x = 11;
 	pixel_y = -4
 	},
-/obj/item/device/binoculars/high_power{
+/obj/item/binoculars/high_power{
 	pixel_x = 11;
 	pixel_y = 2
 	},
@@ -687,7 +687,7 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/lone_spacer/storage)
 "hH" = (
-/obj/item/device/paicard,
+/obj/item/paicard,
 /obj/structure/closet/cabinet,
 /obj/item/clothing/accessory/storage/pouches/brown,
 /obj/machinery/power/apc/north{
@@ -701,7 +701,7 @@
 /obj/item/clothing/mask/offworlder{
 	color = "#7d3e6a"
 	},
-/obj/item/clothing/under/skirt/offworlder{
+/obj/item/clothing/under/dress/offworlder/skirt{
 	color = "#604343"
 	},
 /obj/item/clothing/under/offworlder{
@@ -724,12 +724,12 @@
 /obj/item/clothing/head/kippah,
 /obj/item/clothing/head/softcap/himeo,
 /obj/item/clothing/suit/storage/toggle/himeo,
-/obj/item/device/versebook/tribunal,
+/obj/item/versebook/tribunal,
 /obj/item/clothing/accessory/dominia,
 /obj/item/clothing/under/dominia/imperial_suit/black,
 /obj/item/clothing/mask/trinary_mask,
 /obj/item/clothing/accessory/badge/trinary,
-/obj/item/device/versebook/trinary,
+/obj/item/versebook/trinary,
 /obj/item/clothing/accessory/poncho/trinary/shouldercape,
 /obj/item/clothing/shoes/sandals/caligae,
 /obj/item/clothing/under/unathi,
@@ -756,10 +756,10 @@
 	color = "#7B5143"
 	},
 /obj/item/clothing/gloves/fingerless,
-/obj/item/clothing/accessory/tshirt/skrell/nebula/black,
+/obj/item/clothing/under/dressshirt/tshirt/skrell/nebula/black,
 /obj/item/clothing/ears/skrell/scrunchy,
-/obj/item/clothing/under/shorts/athletic/black,
-/obj/item/clothing/under/pants/track,
+/obj/item/clothing/pants/shorts/athletic/black,
+/obj/item/clothing/pants/track,
 /obj/item/clothing/gloves/offworlder{
 	color = "#604343"
 	},
@@ -771,10 +771,10 @@
 	color = "#494949"
 	},
 /obj/item/clothing/under/syndicate/tacticool,
-/obj/item/clothing/accessory/dressshirt{
+/obj/item/clothing/under/dressshirt{
 	color = "#bbbbbb"
 	},
-/obj/item/clothing/under/pants/jeansblack,
+/obj/item/clothing/pants/jeansblack,
 /obj/item/clothing/head/helmet/pilot,
 /obj/item/clothing/head/sidecap{
 	color = "#2E2E2E";
@@ -836,7 +836,7 @@
 /area/shuttle/lone_spacer/starboard_nacelle)
 "iW" = (
 /obj/item/stack/packageWrap,
-/obj/item/device/hand_labeler{
+/obj/item/hand_labeler{
 	pixel_x = -5;
 	pixel_y = 8
 	},
@@ -1101,9 +1101,9 @@
 	req_access = list(243)
 	},
 /obj/random/civgun/rifle,
-/obj/item/storage/box/shotgunshells,
-/obj/item/storage/box/shotgunshells,
-/obj/item/storage/box/stunshells,
+/obj/item/storage/box/shells/buckshot,
+/obj/item/storage/box/shells/buckshot,
+/obj/item/storage/box/shells/stunshells,
 /obj/item/gun/energy/pistol,
 /obj/item/material/hatchet/machete/steel,
 /obj/item/clothing/accessory/holster/utility/machete,
@@ -1539,10 +1539,10 @@
 	pixel_y = 11;
 	pixel_x = -7
 	},
-/obj/item/device/gps{
+/obj/item/gps{
 	pixel_x = -4
 	},
-/obj/item/device/gps{
+/obj/item/gps{
 	pixel_x = 6
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -1749,9 +1749,10 @@
 /area/shuttle/lone_spacer/starboard_nacelle)
 "zJ" = (
 /obj/machinery/computer/shuttle_control/explore/terminal/lone_spacer{
-	dir = 4
+	dir = 4;
+	req_access = list(243)
 	},
-/obj/item/device/radio/intercom/expedition/hailing/north{
+/obj/item/radio/intercom/expedition/hailing/north{
 	pixel_y = 19
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -1839,7 +1840,7 @@
 	pixel_x = 4
 	},
 /obj/effect/decal/cleanable/dirt,
-/obj/item/device/multitool{
+/obj/item/multitool{
 	pixel_y = -5;
 	pixel_x = 5
 	},
@@ -2147,7 +2148,8 @@
 /area/shuttle/lone_spacer/bridge)
 "Ha" = (
 /obj/machinery/computer/ship/helm/terminal{
-	dir = 1
+	dir = 1;
+	req_access = list(243)
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/techfloor,
@@ -2181,7 +2183,8 @@
 /area/space)
 "HF" = (
 /obj/machinery/computer/ship/targeting/terminal{
-	dir = 8
+	dir = 8;
+	req_access = list(243)
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/noticeboard{
@@ -2516,7 +2519,7 @@
 /obj/item/stack/medical/splint/full,
 /obj/item/reagent_containers/blood/OMinus,
 /obj/item/reagent_containers/blood/OMinus,
-/obj/item/storage/box/monkeycubes,
+/obj/item/storage/box/unique/monkeycubes,
 /obj/item/reagent_containers/glass/bottle/toxin,
 /obj/item/reagent_containers/glass/bottle/cryosilicate,
 /obj/item/reagent_containers/glass/bottle/bicaridine,
@@ -2690,12 +2693,12 @@
 	sensors = list("lone_spacer_containment_1_sensor")
 	},
 /obj/item/storage/belt/archaeology,
-/obj/item/device/ano_scanner,
+/obj/item/ano_scanner,
 /obj/item/storage/bag/fossils,
-/obj/item/device/measuring_tape,
-/obj/item/device/core_sampler,
-/obj/item/device/depth_scanner,
-/obj/item/storage/box/excavation,
+/obj/item/measuring_tape,
+/obj/item/core_sampler,
+/obj/item/depth_scanner,
+/obj/item/storage/box/unique/excavation,
 /obj/item/book/manual/excavation,
 /obj/item/pickaxe/hand,
 /obj/effect/decal/cleanable/dirt,
@@ -2889,7 +2892,7 @@
 	pixel_y = 2;
 	pixel_x = -5
 	},
-/obj/item/device/flashlight/lantern{
+/obj/item/flashlight/lantern{
 	pixel_y = 11;
 	pixel_x = -16
 	},
@@ -2900,7 +2903,7 @@
 	pixel_x = 7;
 	pixel_y = 11
 	},
-/obj/item/device/flashlight{
+/obj/item/flashlight{
 	pixel_x = 5;
 	pixel_y = -3
 	},
@@ -3026,7 +3029,7 @@
 /area/shuttle/lone_spacer/storage)
 "VO" = (
 /obj/structure/table/standard,
-/obj/item/device/radio/hailing{
+/obj/item/radio/hailing{
 	pixel_y = 13;
 	pixel_x = 6
 	},
@@ -3131,7 +3134,7 @@
 	pixel_y = -2
 	},
 /obj/effect/decal/cleanable/dirt,
-/obj/item/device/flashlight/lamp/green{
+/obj/item/flashlight/lamp/green{
 	pixel_y = 15;
 	pixel_x = 8
 	},

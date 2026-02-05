@@ -10,7 +10,7 @@
 	var/inactive_groups = SSair.zones.len - active_groups
 
 	var/hotspots = 0
-	for(var/obj/fire/hotspot in world)
+	for(var/obj/hotspot/hotspot in world)
 		hotspots++
 
 	var/active_on_main_station = 0
@@ -39,7 +39,7 @@
 	Tile Update: [SSair.tiles_to_update.len]<BR>
 "}
 
-	usr << browse(output,"window=airreport")
+	usr << browse(HTML_SKELETON(output), "window=airreport")
 
 /client/proc/fix_next_move()
 	set category = "Debug"
@@ -89,13 +89,13 @@
 				output += "&nbsp;&nbsp;[filter]: ERROR<br>"
 				continue
 			output += "&nbsp;&nbsp;[filter]: [f.len]<br>"
-			for (var/device in f)
+			for (var/obj/device as anything in f)
 				if (isobj(device))
-					output += "&nbsp;&nbsp;&nbsp;&nbsp;[device] ([device:x],[device:y],[device:z] in area [get_area(device:loc)])<br>"
+					output += "&nbsp;&nbsp;&nbsp;&nbsp;[device] ([device.x],[device.y],[device.z] in area [get_area(device.loc)])<br>"
 				else
 					output += "&nbsp;&nbsp;&nbsp;&nbsp;[device]<br>"
 
-	usr << browse(output,"window=radioreport")
+	usr << browse(HTML_SKELETON(output), "window=radioreport")
 	feedback_add_details("admin_verb","RR") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 /client/proc/reload_admins()
@@ -105,11 +105,11 @@
 	if(!check_rights(R_SERVER|R_DEV))
 		return
 
-	if (GLOB.config.use_forumuser_api)
-		update_admins_from_api(FALSE)
+	if (GLOB.config.use_authentik_api)
+		SSauth.update_admins_from_authentik(FALSE)
 
 	log_and_message_admins("manually reloaded admins.")
-	load_admins()
+	SSauth.load_admins()
 	feedback_add_details("admin_verb","RLDA") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 //todo:
@@ -163,7 +163,7 @@
 	set category = "Debug"
 
 	to_chat(usr, "<b>Jobbans active in this round.</b>")
-	for(var/t in jobban_keylist)
+	for(var/t in GLOB.jobban_keylist)
 		to_chat(usr, "[t]")
 
 /client/proc/print_jobban_old_filter()
@@ -176,6 +176,6 @@
 		return
 
 	to_chat(usr, "<b>Jobbans active in this round.</b>")
-	for(var/t in jobban_keylist)
+	for(var/t in GLOB.jobban_keylist)
 		if(findtext(t, filter))
 			to_chat(usr, "[t]")

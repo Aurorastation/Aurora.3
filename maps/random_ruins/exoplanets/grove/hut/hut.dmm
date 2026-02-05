@@ -37,7 +37,7 @@
 /turf/simulated/floor/wood,
 /area/template_noop)
 "l" = (
-/obj/item/device/flashlight/lamp,
+/obj/item/flashlight/lamp,
 /obj/structure/table/stone/marble,
 /turf/simulated/floor/wood,
 /area/template_noop)
@@ -84,7 +84,7 @@
 /turf/simulated/floor/wood,
 /area/template_noop)
 "K" = (
-/obj/effect/map_effect/window_spawner/reinforced,
+/obj/effect/map_effect/window_spawner/full/wood,
 /turf/simulated/floor/plating,
 /area/template_noop)
 

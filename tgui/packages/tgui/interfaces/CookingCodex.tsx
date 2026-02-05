@@ -18,7 +18,7 @@ export const CookingCodex = (props, context) => {
   const [searchTerm, setSearchTerm] = useLocalState<string>(
     context,
     `searchTerm`,
-    ``
+    ``,
   );
 
   return (
@@ -39,7 +39,8 @@ export const CookingCodex = (props, context) => {
               }}
               value={searchTerm}
             />
-          }>
+          }
+        >
           <Table collapsing pl="20px" pr="20px">
             <Table.Row header className="candystripe">
               <Table.Cell textAlign="right">Result</Table.Cell>

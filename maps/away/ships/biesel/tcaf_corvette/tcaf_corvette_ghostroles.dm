@@ -26,7 +26,7 @@
 	head = /obj/item/clothing/head/tcaf_technician
 	id = /obj/item/card/id/tcaf
 	accessory = /obj/item/clothing/accessory/holster/hip
-	l_ear = /obj/item/device/radio/headset/ship
+	l_ear = /obj/item/radio/headset/ship
 	backpack_contents = list(/obj/item/storage/box/survival = 1, /obj/item/melee/energy/sword/knife = 1)
 
 	species_shoes = list(
@@ -51,7 +51,7 @@
 	if(isoffworlder(H))
 		H.equip_or_collect(new /obj/item/storage/pill_bottle/rmt, slot_in_backpack)
 	if(isipc(H))
-		var/obj/item/organ/internal/ipc_tag/tag = H.internal_organs_by_name[BP_IPCTAG]
+		var/obj/item/organ/internal/machine/ipc_tag/tag = H.internal_organs_by_name[BP_IPCTAG]
 		if(istype(tag))
 			tag.modify_tag_data()
 
@@ -104,7 +104,7 @@
 	// More limited species selection than the non-officer roles - humans, skrell, IPCs, and vaurca warriors.
 	possible_species = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD, SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_IPC, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU, SPECIES_IPC_BISHOP, SPECIES_IPC_SHELL, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_ATTENDANT)
 	mob_name_prefix = "Dcn. "
-	desc = "You are a Decurion, an enlisted officer, serving with the Tau Ceti Armed Forces in command of a corvette. The Republican Fleets are stretched thin across too much territory, with too few ships and too few men, too divided and too disparate to ensure the safety of its own citizens. You may command only one small vessel, but the fate of the Republic may lie in you and officers like you. You are the eyes and ears of the Republic of Biesel - police your assigned sector for piracy and smuggling, monitor neighbouring powers, and above all else, keep your crew alive. They're counting on you."
+	desc = "You are a Decurion, a commissioned officer, serving with the Tau Ceti Armed Forces in command of a corvette. The Republican Fleets are stretched thin across too much territory, with too few ships and too few men, too divided and too disparate to ensure the safety of its own citizens. You may command only one small vessel, but the fate of the Republic may lie in you and officers like you. You are the eyes and ears of the Republic of Biesel - police your assigned sector for piracy and smuggling, monitor neighbouring powers, and above all else, keep your crew alive. They're counting on you."
 	assigned_role = "Republican Fleet Decurion"
 	special_role = "Republican Fleet Decurion"
 

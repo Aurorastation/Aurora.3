@@ -7,6 +7,7 @@
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BELT | SLOT_EARS
 	throwforce = 1
+	layer = BELOW_TABLE_LAYER
 	w_class = WEIGHT_CLASS_TINY
 
 	var/leaves_residue = 1
@@ -16,9 +17,14 @@
 	var/obj/projectile/BB = null	//The loaded bullet - make it so that the projectiles are created only when needed?
 	var/spent_icon = "s-casing-spent"
 
-	drop_sound = /singleton/sound_category/casing_drop_sound
+	drop_sound = SFX_CASING_DROP
 	pickup_sound = 'sound/items/pickup/ring.ogg'
 	var/reload_sound = 'sound/weapons/reload_bullet.ogg' //sound that plays when inserted into gun.
+
+/obj/item/ammo_casing/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if (!BB)
+		. += "This one is spent."
 
 /obj/item/ammo_casing/Initialize()
 	. = ..()
@@ -41,7 +47,7 @@
 	update_icon()
 
 /obj/item/ammo_casing/attackby(obj/item/attacking_item, mob/user)
-	if(attacking_item.isscrewdriver())
+	if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 		if(!BB)
 			to_chat(user, SPAN_NOTICE("There is no bullet in the casing to inscribe anything into."))
 			return
@@ -78,11 +84,6 @@
 	if(spent_icon && !BB)
 		icon_state = spent_icon
 
-/obj/item/ammo_casing/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if (!BB)
-		. += "This one is spent."
-
 //Gun loading types
 #define SINGLE_CASING 	1	//The gun only accepts ammo_casings. ammo_magazines should never have this as their mag_type.
 #define SPEEDLOADER 	2	//Transfers casings from the mag to the gun when used.
@@ -118,9 +119,13 @@
 	var/list/ammo_states = list()	//values
 
 	/// sound item plays when it is inserted into a gun.
-	var/insert_sound = /singleton/sound_category/metal_slide_reload
+	var/insert_sound = SFX_RELOAD_METAL_SLIDE
 	/// sound item plays when it is ejected from a gun.
 	var/eject_sound = 'sound/weapons/magazine_eject.ogg'
+
+/obj/item/ammo_magazine/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "There [(stored_ammo.len == 1)? "is" : "are"] <b>[stored_ammo.len] round\s</b> left!"
 
 /obj/item/ammo_magazine/Initialize()
 	. = ..()
@@ -164,7 +169,7 @@
 	to_chat(user, SPAN_NOTICE("You empty [src]."))
 	for(var/obj/item/ammo_casing/C in stored_ammo)
 		C.forceMove(user.loc)
-		playsound(C, /singleton/sound_category/casing_drop_sound, 50, FALSE)
+		playsound(C, SFX_CASING_DROP, 50, FALSE)
 		C.set_dir(pick(GLOB.alldirs))
 	stored_ammo.Cut()
 	update_icon()
@@ -183,10 +188,6 @@
 		recyclable = TRUE
 	else
 		recyclable = FALSE
-
-/obj/item/ammo_magazine/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	. += "There [(stored_ammo.len == 1)? "is" : "are"] [stored_ammo.len] round\s left!"
 
 //magazine icon state caching (caching lists are in SSicon_cache)
 

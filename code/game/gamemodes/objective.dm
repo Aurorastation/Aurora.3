@@ -235,7 +235,7 @@ GLOBAL_LIST_EMPTY(process_objectives)
 /datum/objective/hijack/check_completion()
 	if(!owner.current || owner.current.stat)
 		return 0
-	if(!evacuation_controller.round_over())
+	if(!GLOB.evacuation_controller.round_over())
 		return 0
 	if(issilicon(owner.current))
 		return 0
@@ -257,7 +257,7 @@ GLOBAL_LIST_EMPTY(process_objectives)
 /datum/objective/block/check_completion()
 	if(!istype(owner.current, /mob/living/silicon))
 		return 0
-	if(!evacuation_controller.round_over())
+	if(!GLOB.evacuation_controller.round_over())
 		return 0
 	if(!owner.current)
 		return 0
@@ -271,11 +271,11 @@ GLOBAL_LIST_EMPTY(process_objectives)
 					return 0
 	return 1
 
-/datum/objective/silence
-	explanation_text = "Do not allow anyone to escape the station.  Only allow the shuttle to be called when everyone is dead and your story is the only one left."
+/datum/objective/silence/New()
+	explanation_text = "Do not allow anyone to escape the [station_name()].  Only allow the shuttle to be called when everyone is dead and your story is the only one left."
 
 /datum/objective/silence/check_completion()
-	if(!evacuation_controller.round_over())
+	if(!GLOB.evacuation_controller.round_over())
 		return 0
 
 	for(var/mob/living/player in GLOB.player_list)
@@ -286,7 +286,7 @@ GLOBAL_LIST_EMPTY(process_objectives)
 				var/turf/T = get_turf(player)
 				if(!T)
 					continue
-				if(istype(T.loc.type, /area/shuttle/escape) || istype(T.loc.type, /area/shuttle/escape_pod))
+				if(istype(T.loc.type, /area/shuttle/escape) || istype(T.loc.type, /area/horizon/shuttle/escape_pod))
 					return 0
 	return 1
 
@@ -300,7 +300,7 @@ GLOBAL_LIST_EMPTY(process_objectives)
 		return 0
 	if(isbrain(owner.current))
 		return 0
-	if(!evacuation_controller.round_over())
+	if(!GLOB.evacuation_controller.round_over())
 		return 0
 	if(!owner.current || owner.current.stat ==2)
 		return 0
@@ -311,7 +311,7 @@ GLOBAL_LIST_EMPTY(process_objectives)
 	var/area/check_area = location.loc
 	if(istype(check_area, /area/shuttle/escape))
 		return 1
-	if(istype(check_area, /area/shuttle/escape_pod))
+	if(istype(check_area, /area/horizon/shuttle/escape_pod))
 		return 1
 	else
 		return 0
@@ -411,14 +411,19 @@ GLOBAL_LIST_EMPTY(process_objectives)
 	return 0
 
 
-/datum/objective/nuclear
-	explanation_text = "Destroy the station with a nuclear device."
+/datum/objective/nuclear/New()
+	explanation_text = "Destroy the [station_name()] with a nuclear device."
 
 /datum/objective/steal
 	var/obj/item/steal_target
 	var/target_name
 
-	var/global/possible_items[] = list(
+	var/global/possible_items[] = list()
+
+	var/global/possible_items_special[] = list()
+
+/datum/objective/steal/New()
+	possible_items = list(
 		"the captain's antique laser gun" = /obj/item/gun/energy/captain,
 		"a hand teleporter" = /obj/item/hand_tele,
 		"a RFD C-Class" = /obj/item/rfd/construction,
@@ -426,7 +431,7 @@ GLOBAL_LIST_EMPTY(process_objectives)
 		"a captain's jumpsuit" = /obj/item/clothing/under/rank/captain,
 		"a functional AI" = /obj/item/aicard,
 		"a pair of magboots" = /obj/item/clothing/shoes/magboots,
-		"the station blueprints" = /obj/item/blueprints,
+		"the [station_name()] blueprints" = /obj/item/blueprints,
 		"a nasa voidsuit" = /obj/item/clothing/suit/space/void,
 		"28 moles of phoron (full tank)" = /obj/item/tank,
 		"a sample of slime extract" = /obj/item/slime_extract,
@@ -440,8 +445,7 @@ GLOBAL_LIST_EMPTY(process_objectives)
 		"the captain's pinpointer" = /obj/item/pinpointer,
 		"an ablative armor vest" = /obj/item/clothing/suit/armor/carrier/ablative
 	)
-
-	var/global/possible_items_special[] = list(
+	possible_items_special = list(
 		/*"nuclear authentication disk" = /obj/item/disk/nuclear,*///Broken with the change to nuke disk making it respawn on z level change.
 		"nuclear gun" = /obj/item/gun/energy/gun/nuclear,
 		"diamond drill" = /obj/item/pickaxe/diamonddrill,
@@ -473,8 +477,8 @@ GLOBAL_LIST_EMPTY(process_objectives)
 	if (new_target == "custom")
 		var/obj/item/custom_target = input("Select type:","Type") as null|anything in typesof(/obj/item)
 		if (!custom_target) return
-		var/tmp_obj = new custom_target
-		var/custom_name = tmp_obj:name
+		var/obj/item/tmp_obj = new custom_target
+		var/custom_name = tmp_obj.name
 		qdel(tmp_obj)
 		custom_name = sanitize(input("Enter target name:", "Objective target", custom_name) as text|null)
 		if (!custom_name) return
@@ -522,7 +526,7 @@ GLOBAL_LIST_EMPTY(process_objectives)
 					var/area/check_area = get_area(ai)
 					if(istype(check_area, /area/shuttle/escape))
 						return 1
-					if(istype(check_area, /area/shuttle/escape_pod))
+					if(istype(check_area, /area/horizon/shuttle/escape_pod))
 						return 1
 		else
 
@@ -709,7 +713,7 @@ GLOBAL_LIST_EMPTY(process_objectives)
 			if(istype(I,target)) total_amount++
 		if(total_amount >= target_amount) return 1
 
-	for(var/datum/mind/raider in raiders.current_antagonists)
+	for(var/datum/mind/raider in GLOB.raiders.current_antagonists)
 		if(raider.current)
 			for(var/obj/O in raider.current.get_contents())
 				if(istype(O,target)) total_amount++
@@ -746,7 +750,7 @@ GLOBAL_LIST_EMPTY(process_objectives)
 			target = "diamond"
 			target_amount = 20
 
-	explanation_text = "Ransack the station and escape with [target_amount] [target]."
+	explanation_text = "Ransack the [SSatlas.current_map.station_name] and escape with [target_amount] [target]."
 
 /datum/objective/heist/salvage/check_completion()
 	var/total_amount = 0
@@ -764,7 +768,7 @@ GLOBAL_LIST_EMPTY(process_objectives)
 					S = I
 					total_amount += S.get_amount()
 
-	for(var/datum/mind/raider in raiders.current_antagonists)
+	for(var/datum/mind/raider in GLOB.raiders.current_antagonists)
 		if(raider.current)
 			for(var/obj/item/O in raider.current.get_contents())
 				if(istype(O,/obj/item/stack/material))
@@ -780,7 +784,7 @@ GLOBAL_LIST_EMPTY(process_objectives)
 	explanation_text = "Do not leave anyone behind, alive or dead."
 
 /datum/objective/heist/preserve_crew/check_completion()
-	if(raiders && raiders.is_raider_crew_safe()) return 1
+	if(GLOB.raiders?.is_raider_crew_safe()) return 1
 	return 0
 
 //Borer objective(s).
@@ -819,13 +823,13 @@ GLOBAL_LIST_EMPTY(process_objectives)
 
 /datum/objective/cult/survive/New()
 	..()
-	explanation_text = "Our knowledge must live on. Make sure at least [target_amount] acolytes escape on the shuttle to spread their work on an another station."
+	explanation_text = "Our knowledge must live on. Make sure at least [target_amount] acolytes escape to spread their work elsewhere."
 
 /datum/objective/cult/survive/check_completion()
 	var/acolytes_survived = 0
-	if(!cult)
+	if(!GLOB.cult)
 		return 0
-	for(var/datum/mind/cult_mind in cult.current_antagonists)
+	for(var/datum/mind/cult_mind in GLOB.cult.current_antagonists)
 		if (cult_mind.current && cult_mind.current.stat!=2)
 			var/area/A = get_area(cult_mind.current )
 			if ( is_type_in_list(A, GLOB.centcom_areas))
@@ -848,14 +852,14 @@ GLOBAL_LIST_EMPTY(process_objectives)
 	var/list/possible_targets = list()
 	if(!possible_targets.len)
 		for(var/mob/living/carbon/human/player in GLOB.player_list)
-			if(player.mind && !(player.mind in cult))
+			if(player.mind && !(player.mind in GLOB.cult))
 				possible_targets += player.mind
 	if(possible_targets.len > 0)
 		target = pick(possible_targets)
 	if(target) explanation_text = "Sacrifice [target.name], the [target.assigned_role]. You will need the sacrifice rune and three acolytes to do so."
 
 /datum/objective/cult/sacrifice/check_completion()
-	return (target && cult && !cult.sacrificed.Find(target))
+	return (target && GLOB.cult && !GLOB.cult.sacrificed.Find(target))
 
 /datum/objective/rev/find_target()
 	..()
@@ -883,7 +887,7 @@ GLOBAL_LIST_EMPTY(process_objectives)
 		if(H.stat == DEAD || H.restrained())
 			return 1
 		// Check if they're converted
-		if(target in revs.current_antagonists)
+		if(target in GLOB.revs.current_antagonists)
 			return 1
 		var/turf/T = get_turf(H)
 		if(T && !is_station_level(T.z))			//If they leave the station they count as dead for this

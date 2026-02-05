@@ -1,7 +1,7 @@
 
 
 /singleton/recipe/boiledspaghetti
-	appliance = SAUCEPAN | POT
+	appliance = SAUCEPAN | POT | MICROWAVE
 	reagents = list(/singleton/reagent/water = 5)
 	items = list(
 		/obj/item/reagent_containers/food/snacks/spaghetti
@@ -15,11 +15,26 @@
 	items = list(/obj/item/reagent_containers/food/snacks/spaghetti)
 	result = /obj/item/reagent_containers/food/snacks/pastatomato
 
+/singleton/recipe/pastatomatoboiled
+	appliance = SAUCEPAN | POT | MICROWAVE
+	fruit = list("tomato" = 2)
+	items = list(/obj/item/reagent_containers/food/snacks/boiledspaghetti)
+	result = /obj/item/reagent_containers/food/snacks/pastatomato
+
 /singleton/recipe/meatballspaghetti
 	appliance = SAUCEPAN | POT
 	reagents = list(/singleton/reagent/water = 5)
 	items = list(
 		/obj/item/reagent_containers/food/snacks/spaghetti,
+		/obj/item/reagent_containers/food/snacks/meatball,
+		/obj/item/reagent_containers/food/snacks/meatball
+	)
+	result = /obj/item/reagent_containers/food/snacks/meatballspaghetti
+
+/singleton/recipe/meatballspaghettiboiled
+	appliance = SAUCEPAN | POT | MICROWAVE
+	items = list(
+		/obj/item/reagent_containers/food/snacks/boiledspaghetti,
 		/obj/item/reagent_containers/food/snacks/meatball,
 		/obj/item/reagent_containers/food/snacks/meatball
 	)
@@ -37,8 +52,19 @@
 	)
 	result = /obj/item/reagent_containers/food/snacks/spesslaw
 
+/singleton/recipe/spesslawboiled
+	appliance = SAUCEPAN | POT | MICROWAVE
+	items = list(
+		/obj/item/reagent_containers/food/snacks/boiledspaghetti,
+		/obj/item/reagent_containers/food/snacks/meatball,
+		/obj/item/reagent_containers/food/snacks/meatball,
+		/obj/item/reagent_containers/food/snacks/meatball,
+		/obj/item/reagent_containers/food/snacks/meatball
+	)
+	result = /obj/item/reagent_containers/food/snacks/spesslaw
+
 /singleton/recipe/lomein
-	appliance = SAUCEPAN | POT
+	appliance = SAUCEPAN | POT | MICROWAVE
 	reagents = list(/singleton/reagent/water = 5, /singleton/reagent/nutriment/soysauce = 5)
 	fruit = list("carrot" = 1, "cabbage" = 1)
 	items = list(
@@ -69,13 +95,37 @@
 	reagent_mix = RECIPE_REAGENT_REPLACE
 	result = /obj/item/reagent_containers/food/snacks/macandcheese
 
-/singleton/recipe/macandcheese/bacon
+/singleton/recipe/macandcheeseboiled
+	appliance = SAUCEPAN | POT | MICROWAVE
+	items = list(
+		/obj/item/reagent_containers/food/snacks/boiledspaghetti,
+		/obj/item/reagent_containers/food/snacks/cheesewedge,
+		/obj/item/reagent_containers/food/snacks/cheesewedge
+	)
+	reagent_mix = RECIPE_REAGENT_REPLACE
+	result = /obj/item/reagent_containers/food/snacks/macandcheese
+
+/singleton/recipe/macandcheesebacon
+	appliance = SAUCEPAN | POT
+	reagents = list (/singleton/reagent/water = 5)
 	items = list(
 		/obj/item/reagent_containers/food/snacks/spaghetti,
 		/obj/item/reagent_containers/food/snacks/cheesewedge,
 		/obj/item/reagent_containers/food/snacks/cheesewedge,
 		/obj/item/reagent_containers/food/snacks/bacon
 	)
+	result = /obj/item/reagent_containers/food/snacks/macandcheese/bacon
+
+
+/singleton/recipe/macandcheesebaconboiled
+	appliance = SAUCEPAN | POT | MICROWAVE
+	items = list(
+		/obj/item/reagent_containers/food/snacks/boiledspaghetti,
+		/obj/item/reagent_containers/food/snacks/cheesewedge,
+		/obj/item/reagent_containers/food/snacks/cheesewedge,
+		/obj/item/reagent_containers/food/snacks/bacon
+	)
+	reagent_mix = RECIPE_REAGENT_REPLACE
 	result = /obj/item/reagent_containers/food/snacks/macandcheese/bacon
 
 /singleton/recipe/ramenbowl
@@ -161,6 +211,17 @@
 	reagents = list(/singleton/reagent/water = 5)
 	items = list(
 		/obj/item/reagent_containers/food/snacks/spaghetti,
+		/obj/item/reagent_containers/food/snacks/spreads/butter,
+		/obj/item/reagent_containers/food/snacks/cheesewedge
+		)
+	result = /obj/item/reagent_containers/food/snacks/fettuccine_alfredo
+	reagent_mix = RECIPE_REAGENT_REPLACE
+
+/singleton/recipe/fettuccine_alfredoboiled
+	appliance = SAUCEPAN | POT | MICROWAVE
+	fruit = list("garlic" = 1)
+	items = list(
+		/obj/item/reagent_containers/food/snacks/boiledspaghetti,
 		/obj/item/reagent_containers/food/snacks/spreads/butter,
 		/obj/item/reagent_containers/food/snacks/cheesewedge
 		)

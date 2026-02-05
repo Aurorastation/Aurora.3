@@ -92,12 +92,15 @@
 
 	return null
 
-/obj/machinery/atmospherics/unary/vent_pump/proc/is_welded() // TODO: refactor welding into unary
-	if (welded > 0)
-		return 1
-	return 0
+/obj/machinery/atmospherics/unary/proc/is_welded()
+	return FALSE
 
-/obj/machinery/atmospherics/unary/vent_scrubber/proc/is_welded()
+/obj/machinery/atmospherics/unary/vent_pump/is_welded()
 	if (welded > 0)
-		return 1
-	return 0
+		return TRUE
+	return FALSE
+
+/obj/machinery/atmospherics/unary/vent_scrubber/is_welded()
+	if (welded > 0)
+		return TRUE
+	return FALSE

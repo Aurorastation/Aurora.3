@@ -5,6 +5,10 @@
 	name = "deck of tarot cards"
 	desc = "For all your occult needs!"
 	icon_state = "deck_tarot"
+	hand_type = /obj/item/hand/tarot
+
+/obj/item/hand/tarot
+	deck_type = /obj/item/deck/tarot
 
 /obj/item/deck/tarot/generate_deck()
 	var/datum/playingcard/P
@@ -15,8 +19,6 @@
 		P.back_icon = "card_back_tarot"
 		cards += P
 	for(var/suit in list("wands","pentacles","cups","swords"))
-
-
 		for(var/number in list("ace","two","three","four","five","six","seven","eight","nine","ten","page","knight","queen","king"))
 			P = new()
 			P.name = "[number] of [suit]"
@@ -24,7 +26,7 @@
 			P.back_icon = "card_back_tarot"
 			cards += P
 
-/obj/item/deck/tarot/attack_self(var/mob/user as mob)
+/obj/item/deck/tarot/AltClick(mob/user)
 	var/list/newcards = list()
 	while(cards.len)
 		var/datum/playingcard/P = pick(cards)
@@ -34,14 +36,18 @@
 		newcards += P
 		cards -= P
 	cards = newcards
-	playsound(src.loc, 'sound/items/cardshuffle.ogg', 100, 1, -4)
-	user.visible_message("\The [user] shuffles [src].")
+	playsound(src.loc, 'sound/items/cards/cardshuffle.ogg', 100, 1, -4)
+	balloon_alert_to_viewers("shuffling")
 
-
+/// Tajaran tarot deck.
 /obj/item/deck/tarot/adhomai
 	name = "adhomian divination cards deck"
 	desc = "An adhomian deck of divination cards, used to read the one's fortune or play games."
 	icon_state = "deck_adhomai"
+	hand_type = /obj/item/hand/tarot/adhomai
+
+/obj/item/hand/tarot/adhomai
+	deck_type = /obj/item/deck/tarot/adhomai
 
 /obj/item/deck/tarot/adhomai/generate_deck()
 	var/datum/playingcard/P
@@ -62,6 +68,7 @@
 			P.back_icon = "card_back_adhomai"
 			cards += P
 
+/// Skrellian tarot decks.
 /obj/item/deck/tarot/nralakk
 	name = "qwei'paqui homeworld deck"
 	desc = "A Skrellian deck of tarot cards depicting the main constellations of Nralakk."
@@ -119,6 +126,10 @@
 	name = "qwei'paqui colonist deck"
 	desc = "A Skrellian deck of tarot cards depicting the local constellations of planets outside Nralakk."
 	icon_state = "deck_nonnralakk"
+	hand_type = /obj/item/hand/tarot/nonnralakk
+
+/obj/item/hand/tarot/nonnralakk
+	deck_type = /obj/item/deck/tarot/nonnralakk
 
 /obj/item/deck/tarot/nonnralakk/generate_deck()
 	var/datum/playingcard/P
@@ -157,4 +168,3 @@
 		P.card_icon = "[suit]_[lowertext(name)]"
 		P.back_icon = "card_off_[suit]"
 		cards += P
-

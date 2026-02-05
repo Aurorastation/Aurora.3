@@ -10,7 +10,6 @@
 	age_min = 50
 	age_max = 500
 	default_genders = list(PLURAL)
-	selectable_pronouns = null
 	economic_modifier = 12
 	icobase = 'icons/mob/human_races/skrell/r_skrell.dmi'
 	deform = 'icons/mob/human_races/skrell/r_def_skrell.dmi'
@@ -105,8 +104,8 @@
 	)
 
 	zombie_type = SPECIES_ZOMBIE_SKRELL
-	bodyfall_sound = /singleton/sound_category/bodyfall_skrell_sound
-	footsound = /singleton/sound_category/footstep_skrell_sound
+	bodyfall_sound = SFX_BODYFALL_SKRELL
+	footsound = SFX_FOOTSTEP_SKRELL
 
 	alterable_internal_organs = list(BP_HEART, BP_EYES, BP_LUNGS, BP_LIVER, BP_KIDNEYS, BP_STOMACH)
 
@@ -140,7 +139,7 @@
 				return
 
 /datum/species/skrell/get_strip_info(var/reference)
-	return "<BR><A href='?src=[reference];species=headtail'>Empty Headtail Storage</A>"
+	return "<BR><A href='byond://?src=[reference];species=headtail'>Empty Headtail Storage</A>"
 
 /datum/species/skrell/can_breathe_water()
 	return TRUE

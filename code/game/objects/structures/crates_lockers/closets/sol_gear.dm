@@ -34,9 +34,15 @@
 	new /obj/item/clothing/head/sol/marine(src)
 	new /obj/item/clothing/head/sol/marine(src)
 	new /obj/item/clothing/head/sol/marine(src)
+	new /obj/item/clothing/head/beret/sol(src)
+	new /obj/item/clothing/head/beret/sol(src)
+	new /obj/item/clothing/head/beret/sol(src)
 	new /obj/item/clothing/head/sol/marine/grey(src)
 	new /obj/item/clothing/head/sol/marine/grey(src)
 	new /obj/item/clothing/head/sol/marine/grey(src)
+	new /obj/item/clothing/head/beret/sol/grey(src)
+	new /obj/item/clothing/head/beret/sol/grey(src)
+	new /obj/item/clothing/head/beret/sol/grey(src)
 	new /obj/item/clothing/shoes/jackboots(src)
 	new /obj/item/clothing/shoes/jackboots(src)
 	new /obj/item/clothing/shoes/jackboots(src)
@@ -125,12 +131,12 @@
 	new /obj/item/clothing/shoes/laceup(src)
 	new /obj/item/clothing/shoes/laceup(src)
 
-/obj/structure/closet/secure_closet/soll_officer
+/obj/structure/closet/secure_closet/sol_officer
 	name = "sol alliance officer locker"
 	req_access = list(ACCESS_CAPTAIN)
 	icon_state = "cap"
 
-/obj/structure/closet/secure_closet/soll_officer/fill()
+/obj/structure/closet/secure_closet/sol_officer/fill()
 	..()
 	if(prob(50))
 		new /obj/item/storage/backpack/captain(src)
@@ -141,10 +147,10 @@
 	new /obj/item/clothing/suit/storage/vest(src)
 	new /obj/item/clothing/head/helmet(src)
 	new /obj/item/clothing/shoes/laceup(src)
-	new /obj/item/device/radio/headset/heads/captain(src)
+	new /obj/item/radio/headset/heads/captain(src)
 	new /obj/item/clothing/gloves/white(src)
 	new /obj/item/gun/energy/pistol(src)
-	new /obj/item/device/flash(src)
+	new /obj/item/flash(src)
 	new /obj/item/melee/telebaton(src)
 	new /obj/item/melee/ceremonial_sword(src)
 	new /obj/item/clothing/under/rank/sol(src)

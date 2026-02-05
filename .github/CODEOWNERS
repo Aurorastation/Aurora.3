@@ -22,8 +22,8 @@
 /code/modules/http/ @Arrow768 @NonQueueingMatt
 /code/datums/api.dm @Arrow768 @NonQueueingMatt
 
-# Custom items, alb
-/code/modules/customitems/item_defines.dm @Alberyk
+# Custom items, Matt
+/code/modules/customitems/item_defines.dm @NonQueueingMatt
 
 # Mapping, inform dreamy
 /maps/ @DreamySkrell
@@ -43,7 +43,7 @@ code/__defines/tgui.dm @JohnWildkins
 code/modules/tgui @JohnWildkins
 
 # Tools, often binary in nature, let arrow and alb know
-/tools/ @Arrow768 @Alberyk
+/tools/ @Arrow768 @NonQueueingMatt
 
 # Pipeline/CI stuffs, arrow
 /scripts/ @Arrow768

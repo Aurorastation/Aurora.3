@@ -13,7 +13,7 @@
 	throw_range = 7
 	w_class = WEIGHT_CLASS_BULKY
 	max_w_class = WEIGHT_CLASS_NORMAL
-	max_storage_space = 14 //enough to hold all starting contents
+	max_storage_space = DEFAULT_BOX_STORAGE //enough to hold all starting contents
 	origin_tech = list(TECH_COMBAT = 1)
 	attack_verb = list("robusted")
 	use_sound = 'sound/items/storage/toolbox.ogg'
@@ -31,15 +31,15 @@
 	starts_with = list(
 		/obj/item/crowbar/red = 1,
 		/obj/item/extinguisher/mini = 1,
-		/obj/item/device/radio = 1
+		/obj/item/radio = 1
 	)
 
 /obj/item/storage/toolbox/emergency/fill()
 	. = ..()
 	if(prob(50))
-		new /obj/item/device/flashlight(src)
+		new /obj/item/flashlight(src)
 	else
-		new /obj/item/device/flashlight/flare/glowstick/red(src)
+		new /obj/item/flashlight/flare/glowstick/red(src)
 	if(prob(30))
 		new /obj/item/weldingtool/emergency(src)
 		new /obj/item/clothing/glasses/welding/emergency(src)
@@ -53,7 +53,7 @@
 		/obj/item/wrench = 1,\
 		/obj/item/weldingtool = 1,
 		/obj/item/crowbar = 1,\
-		/obj/item/device/analyzer = 1,\
+		/obj/item/analyzer = 1,\
 		/obj/item/wirecutters = 1\
 	)
 
@@ -64,7 +64,7 @@
 	starts_with = list(\
 		/obj/item/screwdriver = 1,\
 		/obj/item/wirecutters = 1,\
-		/obj/item/device/t_scanner = 1,\
+		/obj/item/t_scanner = 1,\
 		/obj/item/crowbar = 1\
 	)
 
@@ -86,10 +86,11 @@
 	contained_sprite = TRUE
 	starts_with = list(
 		/obj/item/crowbar = 1,
-		/obj/item/powerdrill = 1,
+		/obj/item/screwdriver = 1,
+		/obj/item/wrench = 1,
 		/obj/item/mining_scanner = 1,
 		/obj/item/cell/high = 1,
-		/obj/item/device/orbital_dropper/drill = 1
+		/obj/item/orbital_dropper/drill = 1
 	)
 
 /obj/item/storage/toolbox/ka
@@ -112,12 +113,14 @@
 	force = 16
 	starts_with = list(\
 		/obj/item/clothing/gloves/yellow = 1,\
+		/obj/item/clothing/gloves/yellow/specialt = 1,\
+		/obj/item/clothing/gloves/yellow/specialu = 1,\
 		/obj/item/screwdriver = 1,\
 		/obj/item/wrench = 1,\
 		/obj/item/weldingtool = 1,
 		/obj/item/crowbar = 1,\
 		/obj/item/wirecutters = 1,\
-		/obj/item/device/multitool = 1,\
+		/obj/item/multitool = 1,\
 	)
 
 
@@ -136,7 +139,7 @@
 	if (..())
 		if (contents.len)
 			spill(3, get_turf(target_mob))
-			playsound(target_mob, /singleton/sound_category/tray_hit_sound, 100, 1)  //sound playin' again
+			playsound(target_mob, SFX_TRAY_HIT, 100, 1)  //sound playin' again
 			update_force()
 			user.visible_message(SPAN_DANGER("[user] smashes the [src] into [target_mob], causing it to break open and strew its contents across the area"))
 
