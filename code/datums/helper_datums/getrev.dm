@@ -39,6 +39,7 @@ GLOBAL_DATUM_INIT(revdata, /datum/getrev, new())
 	world.log << branch
 	world.log << date
 	world.log << revision
+	world.log << "Running rust-g version [rustg_get_version()]"
 
 /client/verb/showrevinfo()
 	set category = "OOC"
@@ -55,6 +56,15 @@ GLOBAL_DATUM_INIT(revdata, /datum/getrev, new())
 		to_chat(src, "Revision unknown")
 
 	to_chat(src, "<b>Current Map:</b> [SSatlas.current_map.full_name]")
+
+	if(world.TgsAvailable())
+		var/datum/tgs_version/version = world.TgsVersion()
+		to_chat(src, "<b>TGS version</b>: [version.raw_parameter]")
+		to_chat(src, "<b>DMAPI version</b>: [TGS_DMAPI_VERSION]")
+	else
+		to_chat(src, SPAN_ALERT("<b>TGS not available!</b>"))
+
+	to_chat(src, "<b>rust_g Version:</b> [rustg_get_version()]")
 
 /datum/getrev/proc/testmerge_overview()
 	if (!test_merges.len)

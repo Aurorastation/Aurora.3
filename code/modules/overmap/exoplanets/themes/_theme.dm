@@ -133,7 +133,7 @@
 	var/singleton/biome/SB = selected_biome; \
 	if(SB.generators[ftype][1] & ALWAYS_GEN) { LAZYSET(biome_seeds[SB], ftype, TRUE); } \
 	else if(SB.generators[ftype][1] & (PURE_RANDOM|HEIGHT_MOD)) { LAZYSET(biome_seeds[SB], ftype, SB.generators[ftype][2]); } \
-	else if(SB.generators[ftype][1] & POISSON_SAMPLE) { LAZYSET(biome_seeds[SB], ftype, rustg_noise_poisson_sample("[rand(1, 50000)]", "[world.maxx]", "[world.maxy]", "[SB.generators[ftype][2]]")); } \
+	else if(SB.generators[ftype][1] & POISSON_SAMPLE) { LAZYSET(biome_seeds[SB], ftype, rustg_noise_poisson_map("[rand(1, 50000)]", "[world.maxx]", "[world.maxy]", "[SB.generators[ftype][2]]")); } \
 	else if(SB.generators[ftype][1] & BATCHED_NOISE) { LAZYSET(biome_seeds[SB], ftype, rustg_dbp_generate("[rand(1, 50000)]", "[SB.generators[ftype][3]]", "[SB.generators[ftype][4]]", "[world.maxx]", "-0.5", "[selected_biome.generators[ftype][2]]")); }
 
 // Constructs a dijkstra map of distances from origin using breadth-first search
