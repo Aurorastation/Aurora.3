@@ -444,6 +444,8 @@ Total Unsimulated Turfs: [world.maxx*world.maxy*world.maxz - simulated_turf_coun
 	edges -= E
 	if(!E.sleeping)
 		active_edges -= E
+	if(processing_edges)
+		processing_edges -= E
 
 /datum/controller/subsystem/air/ExplosionStart()
 	can_fire = FALSE
