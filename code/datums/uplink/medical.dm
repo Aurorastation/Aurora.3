@@ -91,7 +91,7 @@
 
 /datum/uplink_item/item/medical/nanopaste
 	name = "Nanopaste"
-	bluecrystal_cost = 1
+	bluecrystal_cost = 4
 	path = /obj/item/stack/nanopaste
 	desc = "A tube of paste containing swarms of repair nanites. Very effective in repairing robotic machinery."
 
