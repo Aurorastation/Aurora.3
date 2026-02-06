@@ -106,3 +106,26 @@
       clear who can wear it.
   - rscadd: Made hangar techs spawn with workboots by default, instead of with sneakers.
       Safety first.
+2026-02-05:
+  Batrachophrenoboocosmomachia:
+  - qol: Moves area blurbs entirely from chat window to status tab.
+  - code_imp: Updates comments in affected files to use dmdocs.
+  Hellfirejag:
+  - bugfix: Observers (such as Storytellers) are now always included in Narrates with
+      a filter.
+  - bugfix: Fixed admin bombs being dropped at the wrong location.
+2026-02-06:
+  AlaunusLux:
+  - balance: Greimorian servants can now see in the dark.
+  - balance: Things pulled by greimorians will always pass through webs.
+  - qol: Greimorians attempting to lay eggs or a servant now get feedback if it fails.
+  - experiment: Gives Greimorian Queens a melee attack reach of two tiles.
+  - bugfix: Greimorian servants can no longer speak Tau Ceti Basic.
+  - bugfix: Fixes Greimorian Queen icon state being set to resting if the controlling
+      player ghosts.
+  - bugfix: Fixed a runtime error that occurred when a vampire tried to suck blood
+      from a target whose mind was null.
+  Hellfirejag:
+  - refactor: Killed the last few ancient Goto statements.
+  TheGreyWolf:
+  - rscadd: The antag toolbox now also have insulated gloves fitting taj and unathi.

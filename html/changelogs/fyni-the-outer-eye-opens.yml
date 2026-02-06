@@ -1,0 +1,5 @@
+author: fyni
+delete-after: True
+changes:
+  - rscadd: "Adds the Outer Eyes small and large flag, only available to mappers, ST and modmins."
+  - rscadd: "Adds the Outer Eyes paperwork icon, [logo_toe], available for anyone to use. Don't go marking your paperwork with wierd icons though."

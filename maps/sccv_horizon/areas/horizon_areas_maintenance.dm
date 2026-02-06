@@ -6,7 +6,6 @@
 	sound_environment = SOUND_AREA_TUNNEL_ENCLOSED
 	turf_initializer = new /datum/turf_initializer/maintenance()
 	area_blurb = "Scarcely lit, cramped, and filled with stale, dusty air. Around you hisses compressed air through the pipes, a buzz of electrical charge through the wires, and muffled rumbles of the hull settling. This place may feel alien compared to the interior of the ship and is a place where one could get lost or badly hurt, but some may find the isolation comforting."
-	area_blurb_category = "maint"
 	ambience = AMBIENCE_MAINTENANCE
 	department = LOC_MAINTENANCE
 
@@ -246,7 +245,6 @@
 	sound_environment = SOUND_AREA_SMALL_ENCLOSED
 	ambience = AMBIENCE_SUBSTATION
 	area_blurb = "The hum of the substation's machinery fills the room, holding equipment made to transform voltage and manage power supply to various rooms, and to act as an emergency battery. In comparison to the maintenance tunnels, these stations are far less dusty."
-	area_blurb_category = "substation"
 
 /// Engineering (Main)
 /area/horizon/maintenance/substation/engineering

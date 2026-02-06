@@ -19,5 +19,5 @@
 	var/list/data = list()
 	data["manifest"] = SSrecords.get_manifest_list()
 	data["allow_follow"] = isobserver(user)
-	data["show_ooc_roles"] = isabstractmob(user)
+	data["show_ooc_roles"] = isabstractmob(user) && !isEye(user)
 	return data
