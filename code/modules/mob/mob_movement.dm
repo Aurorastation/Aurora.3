@@ -260,13 +260,14 @@
 
 		if(mob.buckled_to)
 			if(istype(mob.buckled_to, /obj/vehicle))
-				//manually set move_delay for vehicles so we don't inherit any mob movement penalties
-				//specific vehicle move delays are set in code\modules\vehicles\vehicle.dm
-				move_delay = (old_move_delay + world.tick_lag > world.time) ? old_move_delay : world.time
 				//drunk driving
 				if(mob.confused && prob(25))
 					direct = pick(GLOB.cardinals)
-				mob.buckled_to.recalculate_glide_size(old_move_delay, move_delay, direct)
+
+				var/obj/vehicle/vehicle = mob.buckled_to
+				move_delay += vehicle.move_delay
+				var/vehicle_glide_size = vehicle.recalculate_glide_size(old_move_delay, move_delay, direct)
+				mob.set_glide_size(vehicle_glide_size)
 				return mob.buckled_to.relaymove(mob,direct)
 
 			//TODO: Fuck wheelchairs.
@@ -284,7 +285,8 @@
 				if(mob.confused && prob(25))
 					direct = pick(GLOB.cardinals)
 				move_delay += max((mob.movement_delay() + GLOB.config.walk_speed) * GLOB.config.walk_delay_multiplier, min_move_delay)
-				mob.buckled_to.recalculate_glide_size(old_move_delay, move_delay, direct)
+				var/wheelchair_glide_size = mob.buckled_to.recalculate_glide_size(old_move_delay, move_delay, direct)
+				mob.set_glide_size(wheelchair_glide_size)
 				return mob.buckled_to.relaymove(mob,direct)
 
 		var/tally = mob.movement_delay() + GLOB.config.walk_speed
@@ -323,7 +325,8 @@
 		if(istype(mob.pulledby, /obj/structure/bed/stool/chair/office/wheelchair) || istype(mob.pulledby, /obj/structure/cart))
 			var/obj/structure/S = mob.pulledby
 			move_delay += S.slowdown
-			mob.pulledby.recalculate_glide_size(old_move_delay, move_delay, direct)
+			var/cart_glide_size = mob.pulledby.recalculate_glide_size(old_move_delay, move_delay, direct)
+			mob.set_glide_size(cart_glide_size)
 			return mob.pulledby.relaymove(mob, direct)
 
 		var/old_loc = mob.loc
@@ -331,6 +334,9 @@
 		//We are now going to move
 		moving = 1
 		var/new_glide_size = mob.recalculate_glide_size(old_move_delay, move_delay, direct)
+
+		if (mob.pulling)
+			mob.pulling.set_glide_size(new_glide_size)
 
 		if(mob_is_human)
 			for(var/obj/item/grab/G in list(mob.l_hand, mob.r_hand))
