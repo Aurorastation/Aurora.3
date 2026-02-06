@@ -3482,6 +3482,10 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_one)
+"QI" = (
+/obj/item/communicator,
+/turf/simulated/floor/plating,
+/area/construction)
 "QS" = (
 /obj/structure/cable/cyan{
 	d1 = 4;
@@ -9594,9 +9598,9 @@ de
 yk
 dq
 dq
+QI
 de
-de
-de
+QI
 de
 dz
 cK
