@@ -14,11 +14,6 @@ GLOBAL_LIST_EMPTY_TYPED(all_communicators, /obj/item/communicator)
 
 	// Video vars
 
-	var/list/outgoing_call_invites // lazylist
-	var/list/incoming_call_invites // lazylist
-
-	var/list/obj/item/communicator/connected_callers // lazylist
-
 	// Instant messaging vars
 
 	// Notepad vars
@@ -26,8 +21,13 @@ GLOBAL_LIST_EMPTY_TYPED(all_communicators, /obj/item/communicator)
 	/// TODO: Autodoc everything (copy proc comments from Polaris)
 	var/can_hear_range = 3
 
+	var/list/outgoing_call_invites = list()
+	var/list/incoming_call_invites = list()
+
+	var/list/obj/item/communicator/connected_callers = list()
 	var/owner_name = ""
 	var/owner_occupation = ""
+	var/ringer = TRUE
 	var/new_alert = FALSE
 
 	var/datum/exonet_protocol/exonet = null
@@ -42,10 +42,7 @@ GLOBAL_LIST_EMPTY_TYPED(all_communicators, /obj/item/communicator)
 /obj/item/communicator/Destroy()
 	GLOB.all_communicators -= src
 	QDEL_NULL(exonet)
-
-	for(var/obj/item/communicator/comm in connected_callers)
-		comm.remove_from_call(src)
-	LAZYNULL(connected_callers)
+	hang_up(SPAN_DANGER("Connection timed out with remote host."))
 	return ..()
 
 /obj/item/communicator/attack_self(mob/user, modifiers)
@@ -62,12 +59,29 @@ GLOBAL_LIST_EMPTY_TYPED(all_communicators, /obj/item/communicator)
 	var/target_address = input(user, "Target Address:", "Debugging UI") as null|anything in GLOB.all_exonet_connections - exonet.address
 	if(!target_address)
 		return
-	var/target_is_calling = LAZYISIN(incoming_call_invites, target_address)
-	switch(input(user, "Action:", "Debugging UI") as null|anything in list("[target_is_calling ? "Accept " : ""]Voice call", "Ping"))
-		if("Voice call")
+
+	var/actions = list()
+	if(target_address in outgoing_call_invites)
+		actions += "Cancel Voice Call"
+	else if(target_address in incoming_call_invites)
+		actions |= list("Accept Voice Call", "Decline Voice Call")
+	else if(exonet.get_atom_from_address(target_address) in connected_callers)
+		actions += "Stop Voice Call"
+	else
+		actions += "Voice Call"
+	actions += "Ping"
+
+	switch(input(user, "Action:", "Debugging UI") as null|anything in actions)
+		if("Voice Call")
 			exonet.send_message(target_address, EXONET_MSG_CALL_INVITE)
-		if("Accept Voice call")
-			accept_call(user, target_address)
+		if("Cancel Voice Call")
+			exonet.send_message(target_address, EXONET_MSG_CALL_CANCEL)
+		if("Accept Voice Call")
+			accept_call(target_address)
+		if("Decline Voice Call")
+			remove_call_invite(target_address, SPAN_WARNING("Your communicator call request was declined."), SPAN_NOTICE("Declined request."))
+		if("Stop Voice Call")
+			hang_up(SPAN_DANGER("[user] hung up."))
 		if("Ping")
 			if(!exonet.send_message(target_address, EXONET_MSG_PING))
 				sleep(4 SECONDS)
@@ -112,7 +126,7 @@ GLOBAL_LIST_EMPTY_TYPED(all_communicators, /obj/item/communicator)
 /obj/item/communicator/update_icon()
 	. = ..()
 	var/suffix
-	if(LAZYLEN(connected_callers))
+	if(length(connected_callers))
 		suffix = "-active"
 
 	if(new_alert)
@@ -144,72 +158,120 @@ GLOBAL_LIST_EMPTY_TYPED(all_communicators, /obj/item/communicator)
 	//	node = get_exonet_node()
 	//populate_known_devices()
 
-/obj/item/communicator/proc/register_device(new_name)
-	if(!new_name)
+/obj/item/communicator/proc/register_device(new_owner)
+	if(!new_owner)
 		return
-	owner_name = new_name
+	owner_name = new_owner
+	name = "[new_owner]'s [initial(name)]"
 
-	name = "[new_name]'s [initial(name)]"
+/obj/item/communicator/proc/message_holding_mob(message)
+	if(ismob(loc))
+		to_chat(loc, "[icon2html(src, loc)] [message]")
 
-/obj/item/communicator/proc/receive_exonet_message(datum/exonet_protocol/origin_datum, data_type, content)
+/obj/item/communicator/proc/receive_exonet_message(origin_address, data_type, content)
 	switch(data_type)
 		if(EXONET_MSG_CALL_INVITE)
-			add_call_invite(origin_datum.address)
+			add_call_invite(origin_address)
+		if(EXONET_MSG_CALL_CANCEL)
+			// Caller changes their mind and cancels.
+			var/obj/item/communicator/caller_comm = exonet.get_atom_from_address(origin_address)
+			remove_call_invite(origin_address, SPAN_NOTICE("Communications request cancelled."), SPAN_NOTICE("Communications request from [caller_comm || "ERROR"] cancelled."))
 		if(EXONET_MSG_TEXT)
 			return //todo
 		if(EXONET_MSG_PING) // Recieved a ping.
 			// Send a reply.
-			exonet.send_message(origin_datum.address, EXONET_MSG_PING_REPLY, "64 bytes received from [exonet.address] ecmp_seq=1 ttl=51 time=[rand(20, 35)] ms")
+			exonet.send_message(origin_address, EXONET_MSG_PING_REPLY, "64 bytes received from [exonet.address] ecmp_seq=1 ttl=51 time=[rand(20, 35)] ms")
 		if(EXONET_MSG_PING_REPLY) // Recieved a ping reply.
-			if(ismob(loc))
-				to_chat(loc, "[icon2html(src, loc)] [content]")
+			message_holding_mob(content)
 	return TRUE
 
 /obj/item/communicator/proc/add_call_invite(caller_address)
-	if(LAZYISIN(incoming_call_invites, caller_address) || LAZYISIN(outgoing_call_invites, caller_address))
+	if((caller_address in incoming_call_invites) || (caller_address in outgoing_call_invites))
 		return
 
-	LAZYADD(incoming_call_invites, caller_address)
-
 	var/obj/item/communicator/caller_comm = exonet.get_atom_from_address(caller_address)
-	LAZYADD(caller_comm.outgoing_call_invites, exonet.address)
+	if(caller_comm in connected_callers)
+		return
 
-	//if(ringer)
-	playsound(src, 'sound/machines/twobeep.ogg', 50, TRUE)
-	for(var/mob/M as anything in hearers(2, loc))
-		M.show_message("[icon2html(src, M)] *beep* *beep*", 2)
+	incoming_call_invites += caller_address
+	caller_comm.outgoing_call_invites += exonet.address
+
+	if(ringer)
+		playsound(src, 'sound/machines/twobeep.ogg', 50, TRUE)
+		for(var/mob/M as anything in hearers(2, loc))
+			if(M == loc)
+				M.show_message(SPAN_NOTICE("[icon2html(src, M)] Communications request from [caller_comm.owner_name]."))
+			else
+				M.show_message("[icon2html(src, M)] *beep* *beep*", 2)
 
 	new_alert = TRUE
 	update_icon()
 
-	if(ismob(loc))
-		to_chat(loc, SPAN_NOTICE("[icon2html(src, loc)] Communications request from [caller_comm.owner_name]."))
+/obj/item/communicator/proc/remove_call_invite(caller_address, caller_reason, callee_reason)
+	if(!(caller_address in incoming_call_invites))
+		return
 
+	incoming_call_invites -= caller_address
+	message_holding_mob(callee_reason)
+
+	var/obj/item/communicator/caller_comm = exonet.get_atom_from_address(caller_address)
+	if(!caller_comm)
+		return
+	caller_comm.outgoing_call_invites -= exonet.address
+	caller_comm.message_holding_mob(caller_reason)
 
 /obj/item/communicator/proc/add_to_call(obj/item/communicator/other)
-	// Manual LAZYADD so that hearing sensitivity is tied to it.
-	if(!connected_callers)
-		connected_callers = list()
+	if(!length(connected_callers))
 		become_hearing_sensitive()
 	connected_callers += other
 
 	update_icon()
 
 /obj/item/communicator/proc/remove_from_call(obj/item/communicator/other)
-	// Manual LAZYREMOVE so that hearing sensitivity is tied to it.
 	connected_callers -= other
 	if(!length(connected_callers))
-		connected_callers = null
 		lose_hearing_sensitivity()
 
 	update_icon()
 
-/obj/item/communicator/proc/accept_call(mob/user, caller_address)
-	//voice_invites.Remove(candidate)
-	//comm.voice_requests.Remove(src)
-
-	// "connecting" text goes here
+/obj/item/communicator/proc/accept_call(caller_address)
+	incoming_call_invites -= caller_address
 
 	var/obj/item/communicator/caller_comm = exonet.get_atom_from_address(caller_address)
+	if(!caller_comm)
+		return // todo: some kind of error message
+	caller_comm.outgoing_call_invites -= exonet.address
+
+	caller_comm.message_holding_mob(SPAN_NOTICE("Connecting to [src]."))
+	message_holding_mob(SPAN_NOTICE("Attempting to call [caller_comm]."))
+	sleep(1 SECOND)
+
+	if(!accept_call_checks(caller_comm))
+		return
+	message_holding_mob(SPAN_NOTICE("Dialing internally from [station_name()]."))
+	sleep(2 SECONDS)
+
+	if(!accept_call_checks(caller_comm))
+		return
+	message_holding_mob(SPAN_NOTICE("Connection re-routed to [caller_comm] at [caller_address]."))
+	sleep(4 SECONDS)
+
+	if(!accept_call_checks(caller_comm))
+		return
+	message_holding_mob(SPAN_NOTICE("Connection to [caller_comm] at [caller_address] established!"))
+	caller_comm.message_holding_mob(SPAN_NOTICE("Connection to [src] at [exonet.address] established!"))
+
 	src.add_to_call(caller_comm)
 	caller_comm.add_to_call(src)
+
+// includes checks and stuff to handle the sleeps
+/obj/item/communicator/proc/accept_call_checks(obj/item/communicator/caller_comm)
+	if(QDELETED(src) || QDELETED(caller_comm))
+		return FALSE
+	return TRUE
+
+/obj/item/communicator/proc/hang_up(reason)
+	for(var/obj/item/communicator/comm in connected_callers)
+		src.remove_from_call(comm)
+		comm.remove_from_call(src)
+		comm.message_holding_mob("[reason]")

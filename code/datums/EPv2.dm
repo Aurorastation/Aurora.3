@@ -65,13 +65,13 @@ GLOBAL_LIST_EMPTY(all_exonet_connections)
 	var/datum/exonet_protocol/target = find_exonet_datum(target_address)
 	if(target)
 		//node.write_log(src.address, target_address, data_type, content)
-		return target.receive_message(src, data_type, content)
+		return target.receive_message(address, data_type, content)
 	return FALSE
 
-/datum/exonet_protocol/proc/receive_message(datum/exonet_protocol/origin_datum, data_type, content)
-	return on_message_recieved?.Invoke(origin_datum, data_type, content)
+/datum/exonet_protocol/proc/receive_message(origin_address, data_type, content)
+	return on_message_recieved?.Invoke(origin_address, data_type, content)
 
-/proc/hexadecimal_to_EPv2(hex)
+/datum/exonet_protocol/proc/hexadecimal_to_EPv2(hex)
 	if(!hex)
 		return null
 	var/addr_1 = copytext(hex, 1, 5)

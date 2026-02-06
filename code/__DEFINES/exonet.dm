@@ -1,5 +1,6 @@
 // Data types for messages
-#define EXONET_MSG_CALL_INVITE 1
-#define EXONET_MSG_TEXT 2
-#define EXONET_MSG_PING 3
-#define EXONET_MSG_PING_REPLY 4
+#define EXONET_MSG_CALL_INVITE "Call Invite"
+#define EXONET_MSG_CALL_CANCEL "Call Cancel"
+#define EXONET_MSG_TEXT "Text"
+#define EXONET_MSG_PING "Ping"
+#define EXONET_MSG_PING_REPLY "Ping Reply"
