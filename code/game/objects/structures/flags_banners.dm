@@ -4112,3 +4112,46 @@
 
 /obj/structure/sign/flag/sfk/large/west/Initialize(mapload)
 	. = ..(mapload, WEST)
+
+// Outer Eyes
+
+/obj/item/flag/outer_eyes
+	name = "\improper outer_eyes flag"
+	desc = "The staring eyes icon of that mysterious group, the Outer Eyes."
+	desc_extended = "This representation of the Eyes only hints at the provost's inner circle, allowing the larger eye to dominate."
+	flag_path = "outer_eyes"
+	flag_structure = /obj/structure/sign/flag/outer_eyes
+
+/obj/structure/sign/flag/outer_eyes
+	name = "\improper outer_eyes flag"
+	desc = "The staring eyes icon of that mysterious group, the Outer Eyes."
+	desc_extended = "This representation of the Eyes only hints at the provost's inner circle, allowing the larger eye to dominate."
+	flag_path = "outer_eyes"
+	icon_state = "outer_eyes"
+	flag_item = /obj/item/flag/outer_eyes
+
+/obj/structure/sign/flag/outer_eyes/unmovable
+	unmovable = TRUE
+
+/obj/item/flag/outer_eyes/l
+	name = "large outer_eyes flag"
+	flag_size = TRUE
+	flag_structure = /obj/structure/sign/flag/outer_eyes/large
+
+/obj/structure/sign/flag/outer_eyes/large
+	icon_state = "outer_eyes_l"
+	flag_path = "outer_eyes"
+	flag_size = TRUE
+	flag_item = /obj/item/flag/outer_eyes/l
+
+/obj/structure/sign/flag/outer_eyes/large/north/Initialize(mapload)
+	. = ..(mapload, NORTH)
+
+/obj/structure/sign/flag/outer_eyes/large/south/Initialize(mapload)
+	. = ..(mapload, SOUTH)
+
+/obj/structure/sign/flag/outer_eyes/large/east/Initialize(mapload)
+	. = ..(mapload, EAST)
+
+/obj/structure/sign/flag/outer_eyes/large/west/Initialize(mapload)
+	. = ..(mapload, WEST)
