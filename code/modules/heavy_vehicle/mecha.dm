@@ -9,7 +9,7 @@
 	mob_push_flags = ALLMOBS
 	can_be_buckled = FALSE
 	accent = ACCENT_TTS
-	appearance_flags = KEEP_TOGETHER
+	appearance_flags = KEEP_TOGETHER | DEFAULT_APPEARANCE_FLAGS | TILE_BOUND | LONG_GLIDE
 	pass_flags_self = PASSVEHICLE
 	var/decal
 
