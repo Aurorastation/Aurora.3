@@ -1251,6 +1251,7 @@
 #include "code\game\objects\items\devices\versebook.dm"
 #include "code\game\objects\items\devices\whistle.dm"
 #include "code\game\objects\items\devices\communicator\communicator.dm"
+#include "code\game\objects\items\devices\communicator\phone.dm"
 #include "code\game\objects\items\devices\drop_targeter\_droptargeter.dm"
 #include "code\game\objects\items\devices\drop_targeter\orbital_drops.dm"
 #include "code\game\objects\items\devices\lighting\flare.dm"
