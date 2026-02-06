@@ -315,14 +315,10 @@
 			if(crawl_tally >= 120)
 				return FALSE
 
-		if(istype(mob.machine, /obj/machinery))
-			mob.machine.recalculate_glide_size(old_move_delay, move_delay, direct)
-			if(mob.machine.relaymove(mob,direct))
-				return
 
 		//Wheelchair pushing goes here for now.
 		//TODO: Fuck wheelchairs.
-		if(istype(mob.pulledby, /obj/structure/bed/stool/chair/office/wheelchair) || istype(mob.pulledby, /obj/structure/cart))
+		if(istype(mob.pulledby, /obj/structure))
 			var/obj/structure/S = mob.pulledby
 			move_delay += S.slowdown
 			var/cart_glide_size = mob.pulledby.recalculate_glide_size(old_move_delay, move_delay, direct)
@@ -337,6 +333,7 @@
 
 		if (mob.pulling)
 			mob.pulling.set_glide_size(new_glide_size)
+			mob.pulling.relaymove(mob, direct)
 
 		if(mob_is_human)
 			for(var/obj/item/grab/G in list(mob.l_hand, mob.r_hand))

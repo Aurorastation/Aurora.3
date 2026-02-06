@@ -624,6 +624,7 @@
 	. = ..()
 	if(buckled)
 		if(buckled.buckled_to == src)
+			buckled.set_glide_size(glide_size)
 			buckled.forceMove(src.loc)
 		else
 			buckled = null
