@@ -1,0 +1,8 @@
+author: TheGreyWolf
+
+delete-after: True
+
+changes:
+  - bugfix: "Fixed the consular and RD psi receiver boxes decaying. They get organ coolers now."
+  - bugfix: "Fixed minor spelling stuff for the psi receiver."
+  - bugfix: "Fixes the psi receiver using the wrong sprite."
