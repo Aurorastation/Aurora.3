@@ -841,6 +841,7 @@
 	w_class = WEIGHT_CLASS_TINY
 	color = COLOR_PALE_YELLOW
 	free_space = MAX_MESSAGE_LEN //Smaller piece of paper means less space to write.
+	var/turf/target_turf //Placed here for persistence
 	slot_flags = 0
 	var/obj/item/paper/stickynotes/stuck = null
 
@@ -850,11 +851,30 @@
 
 	icon_state = info ? "stickynote_words" : "stickynote"
 
+/obj/item/paper/stickynotes/persistence_get_content()
+	var/list/content = list()
+	content["title"] = name
+	content["text"] = info
+	content["color"] = color
+	content["pixel_x"] = pixel_x
+	content["pixel_y"] = pixel_y
+	return content
+
+/obj/item/paper/stickynotes/persistence_apply_content(content, x, y, z)
+	set_content(content["title"], content["text"], content["color"], content["pixel_x"], content["pixel_y"])
+	src.x = x
+	src.y = y
+	src.z = z
+
+/obj/item/paper/stickynotes/pickup()
+	SSpersistence.deregister_track(src)
+	..()
+
 /obj/item/paper/stickynotes/afterattack(var/A, mob/user, var/prox, var/params)
 	if(!in_range(user, A) || istype(A, /obj/machinery/door) || stuck || istype(A, /obj/item/paper))
 		return
 
-	var/turf/target_turf = get_turf(A)
+	target_turf = get_turf(A)
 
 	if(!params || !prox)
 		return
