@@ -240,7 +240,7 @@
 				text += "<table border=1 cellspacing=0 cellpadding=3 style='border: 1px solid black;'>"
 				text += "</td><tr><td>Powered by Orion Express logistics software.<BR><center><I>Faster than light.</I></center><td><img src = orionlogo_small.png>"
 				text += "</td></tr></table>"
-				text += "<BR><I>This document has been automatically generated based of current inventory statistics. Under no circumstance can the requisition count or the resulting payment be adjusted by personell. Payment is automatically directed at the operations department and not at any individual. Requisitions above the requested count receive no additional payment above the listed values. This manifest is a public read-only version, can be shared and does not need to be returned.</I>"
+				text += "<BR><I>This document has been automatically generated based off of current inventory statistics. Under no circumstance should the requisition count or the resulting payment be adjusted by personel. Payment is automatically credited to the operations department and not towards any individual. Requisitions above the requested count receive no additional payment above the listed values. This manifest is a public read-only version, and can be shared. It does not need to be returned.</I>"
 				text += "</font>"
 				text += "</center><BR>"
 				text += "<font size = \"1\">"
