@@ -576,7 +576,7 @@ If nothing is chosen, reload sounds revert to the default, which is metal_slide_
 	ammo_type = /obj/item/ammo_casing/a68/
 	max_ammo = 25
 	multiple_sprites = 1
-	insert_sound = /singleton/sound_category/rifle_slide_reload
+	insert_sound = SFX_RELOAD_RIFLE_SLIDE
 
 /obj/item/ammo_magazine/a68/empty
 	initial_ammo = 0
