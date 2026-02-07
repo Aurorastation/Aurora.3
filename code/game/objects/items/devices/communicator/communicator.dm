@@ -19,10 +19,15 @@ GLOBAL_LIST_EMPTY_TYPED(all_communicators, /obj/item/communicator)
 	// Notepad vars
 
 	/// TODO: Autodoc everything (copy proc comments from Polaris)
+	var/flashlight_on = FALSE
+	var/flashlight_range = 2
+
 	var/can_hear_range = 3
 
-	var/list/outgoing_call_invites = list()
-	var/list/incoming_call_invites = list()
+	// Alist of {address: caller name}
+	var/alist/incoming_call_invites = alist()
+	// Alist of {address: target name}
+	var/alist/outgoing_call_invites = alist()
 	var/list/obj/item/communicator/connected_callers = list()
 
 	var/owner_name = ""
@@ -53,7 +58,6 @@ GLOBAL_LIST_EMPTY_TYPED(all_communicators, /obj/item/communicator)
 
 	if(!owner_name)
 		register_to_user(user)
-		return
 
 	if((input(user) as anything in list("TGUI", "Debug UI")) == "TGUI")
 		ui_interact(user)

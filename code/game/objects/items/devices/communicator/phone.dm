@@ -27,11 +27,11 @@
 		return
 
 	var/obj/item/communicator/caller_comm = exonet.get_atom_from_address(caller_address)
-	if(caller_comm in connected_callers)
+	if(!caller_comm || (caller_comm in connected_callers))
 		return
 
-	incoming_call_invites += caller_address
-	caller_comm.outgoing_call_invites += exonet.address
+	incoming_call_invites[caller_address] = caller_comm.owner_name
+	caller_comm.outgoing_call_invites[exonet.address] = src.owner_name
 
 	if(ringer)
 		playsound(src, 'sound/machines/twobeep.ogg', 50, TRUE)
