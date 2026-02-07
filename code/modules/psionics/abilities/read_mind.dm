@@ -45,7 +45,7 @@
 	user.visible_message(SPAN_WARNING("[user] lays a palm on [hit_atom]'s forehead..."))
 	var/question
 	if(!safe_mode)
-		question = tgui_input_text(user, "Ask your question.", "Read Mind", timeout = 25 SECONDS)
+		question = tgui_input_text(user, "Ask your question.", "Read Mind", timeout = 1 MINUTE)
 	if((!safe_mode && !question) || user.incapacitated())
 		return TRUE
 
@@ -68,9 +68,9 @@
 			+ safe_mode \
 				? "You must answer with what you are currently thinking about.\n" \
 				: "You must answer truthfully.\n"\
-			+ "You have 25 seconds to type a response.", \
+			+ "You have one minute to type a response.", \
 		"Read Mind", \
-		timeout = 25 SECONDS)
+		timeout = 1 MINUTE)
 
 	// Exit early if the target failed to answer.
 	if(!answer || user.stat != CONSCIOUS)
