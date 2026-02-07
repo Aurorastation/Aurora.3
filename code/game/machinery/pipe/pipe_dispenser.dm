@@ -70,6 +70,7 @@
 		<A href='byond://?src=[REF(src)];make=63;dir=1'>Auxiliary Connector</A><BR>
 		<A href='byond://?src=[REF(src)];make=7;dir=1'>Unary Vent</A><BR>
 		<A href='byond://?src=[REF(src)];make=64;dir=1'>Auxiliary Unary Vent</A><BR>
+		<A href='byond://?src=[REF(src)];make=65;dir=1'>Passive Vent</A><BR>
 		<A href='byond://?src=[REF(src)];make=9;dir=1'>Gas Pump</A><BR>
 		<A href='byond://?src=[REF(src)];make=60;dir=1'>Fuel Gas Pump</A><BR>
 		<A href='byond://?src=[REF(src)];make=61;dir=1'>Auxiliary Gas Pump</A><BR>
