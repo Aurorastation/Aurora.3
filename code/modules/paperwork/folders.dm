@@ -76,9 +76,7 @@
 		if(href_list["remove"])
 			var/obj/item/P = locate(href_list["remove"])
 			if(P && (P.loc == src) && istype(P))
-				P.forceMove(usr.loc)
-				usr.put_in_hands(P)
-				handle_post_remove()
+				handle_remove(P)
 		else if(href_list["write"])
 			var/obj/item/paper/paper = locate(href_list["write"])
 			if(!istype(paper) || paper.loc != src)
@@ -127,6 +125,11 @@
 		return TRUE
 	return FALSE
 
+/obj/item/folder/proc/handle_remove(var/obj/item/P)
+	P.forceMove(usr.loc)
+	usr.put_in_hands(P)
+	handle_post_remove()
+
 /obj/item/folder/proc/handle_post_remove()
 	return
 
@@ -148,6 +151,13 @@
 	if(loc.loc.Adjacent(A))
 		return TRUE
 	return FALSE
+
+/obj/item/folder/embedded/handle_remove(var/obj/item/paper/P)
+	. = ..()
+	if(istype(P, /obj/item/paper/notepad))
+		P.ripped = TRUE
+		playsound(src.loc, 'sound/items/poster_ripped.ogg', 25, 1)
+		P.update_icon()
 
 /obj/item/folder/embedded/handle_post_remove()
 	if(!length(contents))
