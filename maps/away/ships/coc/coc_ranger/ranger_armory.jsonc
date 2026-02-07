@@ -1,0 +1,12 @@
+[
+	{
+		"type": "SubmapExtractInsert",
+		"submap_size_x": 4,
+		"submap_size_y": 1,
+		"submap_size_z": 1,
+		"submaps_dmm": "coc_rangerarmory_submaps.dmm",
+		"marker_extract": "/obj/effect/map_effect/marker/mapmanip/submap/extract/rangerarmory_lockers",
+		"marker_insert": "/obj/effect/map_effect/marker/mapmanip/submap/insert/rangerarmory/lockers",
+		"submaps_can_repeat": false
+	}
+]
