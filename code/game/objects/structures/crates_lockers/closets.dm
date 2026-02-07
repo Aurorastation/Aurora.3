@@ -567,6 +567,14 @@
 	if(istype(user, /mob/living/silicon/robot) && Adjacent(user)) // Robots can open/close it, but not the AI.
 		attack_hand(user)
 
+/obj/structure/closet/relaymove(mob/living/user, direction)
+	. = ..()
+
+	if(user.stat || !isturf(loc) || user.loc != src || open())
+		return
+
+	to_chat(user, SPAN_NOTICE("It won't budge!"))
+
 /obj/structure/closet/attack_hand(mob/user as mob)
 	add_fingerprint(user)
 	if(locked)
