@@ -52,6 +52,9 @@
 	diagonal_action(SOUTHWEST)
 
 /client/proc/diagonal_action(direction)
+	if (!mob)
+		return
+
 	switch(client_dir(direction, 1))
 		if(NORTHEAST)
 			swap_hand()
@@ -67,6 +70,11 @@
 				to_chat(usr, SPAN_WARNING("This mob type cannot throw items."))
 			return
 		if(NORTHWEST)
+			var/cancelled = FALSE
+			SEND_SIGNAL(mob, COMSIG_INPUT_KEY_DROP, &cancelled)
+			if (cancelled)
+				return
+
 			if(iscarbon(usr))
 				var/mob/living/carbon/C = usr
 				if(!C.get_active_hand())
