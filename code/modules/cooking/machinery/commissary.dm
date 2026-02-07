@@ -145,6 +145,7 @@
 	var/receipt = ""
 	var/destinationact = "Operations"
 	var/credit = 100
+	var/shop_name = "Commissary"
 	storage_type = null
 
 /obj/structure/cash_register/commissary/mechanics_hints(mob/user, distance, is_adjacent)
@@ -363,14 +364,21 @@
 			. = TRUE
 
 		if("confirm")
+			// Ensuring it is clear, in case the button is clicked multiple times
+			receipt = ""
+			sum = 0
+			var/obj/item/card/id/id_card = usr.GetIdCard()
+			var/cashier = id_card? id_card.registered_name : "Unknown"
+			receipt = "<center><H2>[shop_name] receipt</H2>Today's date: [worlddate2text()]<BR>Cashier: [cashier]</center><HR>Purchased items:<ul>"
 			for(var/list/bought_item in buying)
 				var/item_name = bought_item["name"]
 				var/item_amount = bought_item["amount"]
 				var/item_price = items_to_price[item_name]
 
-				receipt += "<b>[item_name]</b>: x[item_amount] at [item_price]cr each<br>"
+				receipt += "<li><b>[item_name]</b>: [item_amount] x [item_price]cr: [item_amount * item_price]cr<br>"
 				sum += item_price * item_amount
-			receipt += "<b>Total:</b> [sum]cr<br>"
+
+			receipt += "</ul><HR>Total:</b> [sum]cr<br>"
 			playsound(src, 'sound/machines/ping.ogg', 25, 1)
 			audible_message(SPAN_NOTICE("[icon2html(src, viewers(get_turf(src)))] \The [src] pings."))
 			. = TRUE
