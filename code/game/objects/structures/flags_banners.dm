@@ -4116,14 +4116,14 @@
 // Outer Eyes
 
 /obj/item/flag/outer_eyes
-	name = "\improper outer_eyes flag"
+	name = "\improper Outer Eyes flag"
 	desc = "The staring eyes icon of that mysterious group, the Outer Eyes."
 	desc_extended = "This representation of the Eyes only hints at the provost's inner circle, allowing the larger eye to dominate."
 	flag_path = "outer_eyes"
 	flag_structure = /obj/structure/sign/flag/outer_eyes
 
 /obj/structure/sign/flag/outer_eyes
-	name = "\improper outer_eyes flag"
+	name = "\improper Outer Eyes flag"
 	desc = "The staring eyes icon of that mysterious group, the Outer Eyes."
 	desc_extended = "This representation of the Eyes only hints at the provost's inner circle, allowing the larger eye to dominate."
 	flag_path = "outer_eyes"
@@ -4134,7 +4134,7 @@
 	unmovable = TRUE
 
 /obj/item/flag/outer_eyes/l
-	name = "large outer_eyes flag"
+	name = "large Outer Eyes flag"
 	flag_size = TRUE
 	flag_structure = /obj/structure/sign/flag/outer_eyes/large
 
