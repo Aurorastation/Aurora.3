@@ -358,13 +358,14 @@
 //Rechecks the gas_mixture and adjusts the graphic list if needed.
 //Two lists can be passed by reference if you need know specifically which graphics were added and removed.
 /datum/gas_mixture/proc/check_tile_graphic(list/graphic_add = null, list/graphic_remove = null)
-	for(var/obj/gas_overlay/O in graphic)
-		if(istype(O, /obj/gas_overlay/heat))
-			continue
-		if(istype(O, /obj/gas_overlay/cold))
-			continue
-		if(gas[O.gas_id] <= gas_data.overlay_limit[O.gas_id])
-			LAZYADD(graphic_remove, O)
+	if(LAZYLEN(graphic))
+		for(var/obj/gas_overlay/O in graphic)
+			if(istype(O, /obj/gas_overlay/heat))
+				continue
+			if(istype(O, /obj/gas_overlay/cold))
+				continue
+			if(gas[O.gas_id] <= gas_data.overlay_limit[O.gas_id])
+				LAZYADD(graphic_remove, O)
 	for(var/g in gas_data.overlay_limit)
 		//Overlay isn't applied for this gas, check if it's valid and needs to be added.
 		if(gas[g] > gas_data.overlay_limit[g])
@@ -389,13 +390,13 @@
 		LAZYADD(graphic_remove, cold_overlay)
 
 	//Apply changes
-	if(graphic_add && length(graphic_add))
-		graphic |= graphic_add
-		. = 1
-	if(graphic_remove && length(graphic_remove))
-		graphic -= graphic_remove
-		. = 1
-	if(length(graphic))
+	if(LAZYLEN(graphic_add))
+		LAZYADD(graphic, graphic_add)
+		. = TRUE
+	if(LAZYLEN(graphic_remove))
+		LAZYREMOVE(graphic, graphic_remove)
+		. = TRUE
+	if(LAZYLEN(graphic))
 		var/pressure_mod = clamp(return_pressure() / ONE_ATMOSPHERE, 0, 2)
 		for(var/obj/gas_overlay/O in graphic)
 			if(istype(O, /obj/gas_overlay/heat)) //Heat based

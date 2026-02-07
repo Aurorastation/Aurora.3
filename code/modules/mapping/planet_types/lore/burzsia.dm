@@ -23,27 +23,27 @@
 	ruin_type_whitelist = list (/datum/map_template/ruin/exoplanet/burzsia_mining, /datum/map_template/ruin/exoplanet/burzsia_dead_ipc)
 	place_near_main = list(2, 2)
 	var/bright_side = TRUE
+	habitability_weight = HABITABILITY_BAD
 
 /obj/effect/overmap/visitable/sector/exoplanet/burzsia/pre_ruin_preparation()
 	if(prob(50))
 		bright_side = FALSE
-
-/obj/effect/overmap/visitable/sector/exoplanet/burzsia/generate_habitability()
-	return HABITABILITY_BAD
 
 /obj/effect/overmap/visitable/sector/exoplanet/burzsia/get_surface_color()
 	return "#b7410e"
 
 /obj/effect/overmap/visitable/sector/exoplanet/burzsia/generate_atmosphere()
 	..()
-	atmosphere.remove_ratio(1)
-	atmosphere.adjust_gas(GAS_CO2, MOLES_N2STANDARD)
-	atmosphere.adjust_gas(GAS_NO2, MOLES_O2STANDARD)
+	exterior_atmosphere.remove_ratio(1)
+	exterior_atmosphere.adjust_gas(GAS_CO2, MOLES_N2STANDARD)
+	exterior_atmosphere.adjust_gas(GAS_NO2, MOLES_O2STANDARD)
 	if(bright_side)
-		atmosphere.temperature = T0C + 546
+		exterior_atmosphere.temperature = T0C + 546
 	else
-		atmosphere.temperature = T0C - 113
+		exterior_atmosphere.temperature = T0C - 113
 	atmosphere.update_values()
+	exterior_atmosphere.update_values()
+	exterior_atmosphere.check_tile_graphic()
 
 /obj/effect/overmap/visitable/sector/exoplanet/burzsia/generate_map()
 	if(bright_side)

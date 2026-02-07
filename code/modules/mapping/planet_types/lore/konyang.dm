@@ -50,6 +50,7 @@
 	possible_themes = list(/datum/exoplanet_theme/konyang)
 	place_near_main = list(1,0)
 	var/landing_area
+	habitability_weight = HABITABILITY_LOCKED
 
 /obj/effect/overmap/visitable/sector/exoplanet/konyang/Initialize()
 	. = ..()
@@ -57,9 +58,6 @@
 	for(var/obj/effect/overmap/visitable/sector/point_verdant/P in map)
 		P.x = x
 		P.y = y
-
-/obj/effect/overmap/visitable/sector/exoplanet/konyang/generate_habitability()
-	return HABITABILITY_IDEAL
 
 /obj/effect/overmap/visitable/sector/exoplanet/konyang/generate_map()
 	lightlevel = 50
@@ -75,12 +73,11 @@
 
 /obj/effect/overmap/visitable/sector/exoplanet/konyang/generate_atmosphere()
 	..()
-	if(atmosphere)
-		atmosphere.remove_ratio(1)
-		atmosphere.adjust_gas(GAS_OXYGEN, MOLES_O2STANDARD, 1)
-		atmosphere.adjust_gas(GAS_NITROGEN, MOLES_N2STANDARD, 1)
-		atmosphere.temperature = T20C
-		atmosphere.update_values()
+	exterior_atmosphere.remove_ratio(1)
+	exterior_atmosphere.adjust_gas(GAS_OXYGEN, MOLES_O2STANDARD, 1)
+	exterior_atmosphere.adjust_gas(GAS_NITROGEN, MOLES_N2STANDARD, 1)
+	exterior_atmosphere.temperature = T20C
+	exterior_atmosphere.update_values()
 
 /obj/effect/overmap/visitable/sector/exoplanet/konyang/generate_ground_survey_result()
 	ground_survey_result = "" // so it does not get randomly generated survey results
@@ -117,6 +114,7 @@
 	ruin_planet_type = PLANET_LORE
 	place_near_main = list(1, 1)
 	ruin_type_whitelist = list(/datum/map_template/ruin/exoplanet/haneunim_mystery, /datum/map_template/ruin/exoplanet/haneunim_flag, /datum/map_template/ruin/exoplanet/haneunim_mining, /datum/map_template/ruin/exoplanet/haneunim_crash)
+	habitability_weight = HABITABILITY_BAD
 
 /obj/effect/overmap/visitable/sector/exoplanet/barren/qixi/get_surface_color()
 	return "#807f7f"
@@ -137,6 +135,7 @@
 	features_budget = 1
 	ring_chance = 0
 	ruin_type_whitelist = list(/datum/map_template/ruin/exoplanet/haneunim_crash, /datum/map_template/ruin/exoplanet/haneunim_refugees, /datum/map_template/ruin/exoplanet/haneunim_mystery, /datum/map_template/ruin/exoplanet/haneunim_mining)
+	habitability_weight = HABITABILITY_BAD
 
 /obj/effect/overmap/visitable/sector/exoplanet/barren/asteroid/ice/haneunim/generate_ground_survey_result()
 	ground_survey_result = "" // so it does not get randomly generated survey results
@@ -155,13 +154,15 @@
 	features_budget = 1
 	ring_chance = 0
 	ruin_type_whitelist = list(/datum/map_template/ruin/exoplanet/haneunim_crash, /datum/map_template/ruin/exoplanet/haneunim_mystery)
+	habitability_weight = HABITABILITY_EXTREME
 
 /obj/effect/overmap/visitable/sector/exoplanet/lava/huozhu/generate_atmosphere()
 	..()
-	atmosphere.remove_ratio(1)
-	atmosphere.adjust_gas(GAS_SULFUR, MOLES_N2STANDARD)
-	atmosphere.temperature = T20C + rand(600, 1000)
-	atmosphere.update_values()
+	exterior_atmosphere.remove_ratio(1)
+	exterior_atmosphere.adjust_gas(GAS_SULFUR, MOLES_N2STANDARD)
+	exterior_atmosphere.temperature = T20C + rand(600, 1000)
+	exterior_atmosphere.update_values()
+	exterior_atmosphere.check_tile_graphic()
 
 /obj/effect/overmap/visitable/sector/exoplanet/lava/huozhu/generate_ground_survey_result()
 	ground_survey_result = "" // so it does not get randomly generated survey results
@@ -181,6 +182,7 @@
 	ruin_planet_type = PLANET_LORE
 	rock_colors = list(COLOR_GRAY80)
 	ruin_type_whitelist = list(/datum/map_template/ruin/exoplanet/haneunim_crash, /datum/map_template/ruin/exoplanet/haneunim_refugees, /datum/map_template/ruin/exoplanet/haneunim_mystery, /datum/map_template/ruin/exoplanet/haneunim_flag, /datum/map_template/ruin/exoplanet/haneunim_mining)
+	habitability_weight = HABITABILITY_BAD
 
 /obj/effect/overmap/visitable/sector/exoplanet/barren/hwanung/generate_ground_survey_result()
 	ground_survey_result = "" // so it does not get randomly generated survey results

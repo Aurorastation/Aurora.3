@@ -387,3 +387,5 @@
 /datum/exoplanet_theme/proc/get_planet_image_extra()
 
 /datum/exoplanet_theme/proc/after_map_generation(obj/effect/overmap/visitable/sector/exoplanet/E) //after the map is generated and ruins exist
+
+/datum/exoplanet_theme/proc/adjust_atmosphere(obj/effect/overmap/visitable/sector/exoplanet/E)

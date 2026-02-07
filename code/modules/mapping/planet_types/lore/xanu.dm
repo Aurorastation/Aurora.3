@@ -32,9 +32,7 @@
 	possible_themes = list(/datum/exoplanet_theme/grass/xanu_nayakhyber)
 	surface_color = "#7c945c"
 	var/landing_region = "grasslands and mountains of Naya Khyber"
-
-/obj/effect/overmap/visitable/sector/exoplanet/xanu/generate_habitability()
-	return HABITABILITY_IDEAL
+	habitability_weight = HABITABILITY_LOCKED
 
 /obj/effect/overmap/visitable/sector/exoplanet/xanu/generate_map()
 	lightlevel = rand(1,10)
@@ -45,19 +43,19 @@
 
 /obj/effect/overmap/visitable/sector/exoplanet/xanu/generate_atmosphere()
 	..()
-	if(atmosphere)
-		atmosphere.remove_ratio(1)
-		atmosphere.adjust_gas(GAS_OXYGEN, MOLES_O2STANDARD, 1)
-		atmosphere.adjust_gas(GAS_NITROGEN, MOLES_N2STANDARD, 1)
+	exterior_atmosphere.remove_ratio(1)
+	exterior_atmosphere.adjust_gas(GAS_OXYGEN, MOLES_O2STANDARD, 1)
+	exterior_atmosphere.adjust_gas(GAS_NITROGEN, MOLES_N2STANDARD, 1)
 
-		if(landing_region)
-			switch(landing_region)
-				if("grasslands and mountains of Naya Khyber")
-					atmosphere.temperature = T0C + rand(25,30)
-				if("valleys and cliffs of Himavatia")
-					atmosphere.temperature = T0C - rand(1,5)
+	if(landing_region)
+		switch(landing_region)
+			if("grasslands and mountains of Naya Khyber")
+				exterior_atmosphere.temperature = T0C + rand(25,30)
+			if("valleys and cliffs of Himavatia")
+				exterior_atmosphere.temperature = T0C - rand(1,5)
 
-		atmosphere.update_values()
+	exterior_atmosphere.update_values()
+	exterior_atmosphere.check_tile_graphic()
 
 /obj/effect/overmap/visitable/sector/exoplanet/xanu/generate_ground_survey_result()
 	ground_survey_result = "<br><b>Notable Features:</b>"
