@@ -11,8 +11,8 @@ BREATH ANALYZER
 	name = "health analyzer"
 	desc = "A hand-held body scanner able to distinguish vital signs of the subject."
 	icon = 'icons/obj/item/healthanalyzer.dmi'
-	icon_state = "health"
-	item_state = "analyzer"
+	icon_state = "healthanalyzer"
+	contained_sprite = TRUE
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BELT
 	throwforce = 3
@@ -378,6 +378,7 @@ BREATH ANALYZER
 	icon = 'icons/obj/item/air_analyzer.dmi'
 	icon_state = "analyzer"
 	item_state = "analyzer"
+	contained_sprite = TRUE
 	w_class = WEIGHT_CLASS_SMALL
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BELT
@@ -488,7 +489,7 @@ BREATH ANALYZER
 	desc = "A hand-held reagent scanner which identifies chemical agents."
 	icon = 'icons/obj/item/reagent_scanner.dmi'
 	icon_state = "reagent_scanner"
-	item_state = "analyzer"
+	contained_sprite = TRUE
 	w_class = WEIGHT_CLASS_SMALL
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BELT
@@ -522,7 +523,6 @@ BREATH ANALYZER
 /obj/item/reagent_scanner/adv
 	name = "advanced reagent scanner"
 	icon_state = "adv_reagent_scanner"
-	item_state = "analyzer"
 	details = 1
 	origin_tech = list(TECH_MAGNET = 4, TECH_BIO = 2)
 
@@ -530,7 +530,7 @@ BREATH ANALYZER
 	name = "slime scanner"
 	icon = 'icons/obj/item/slime_scanner.dmi'
 	icon_state = "slime_scanner"
-	item_state = "analyzer"
+	contained_sprite = TRUE
 	origin_tech = list(TECH_BIO = 1)
 	w_class = WEIGHT_CLASS_SMALL
 	obj_flags = OBJ_FLAG_CONDUCTABLE
@@ -597,7 +597,7 @@ BREATH ANALYZER
 	desc = "A hand-held breath analyzer that provides a robust amount of information about the subject's respiratory system."
 	icon = 'icons/obj/item/breath_analyzer.dmi'
 	icon_state = "breath_analyzer"
-	item_state = "analyzer"
+	contained_sprite = TRUE
 	w_class = WEIGHT_CLASS_SMALL
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BELT
@@ -705,9 +705,9 @@ BREATH ANALYZER
 /obj/item/advanced_healthanalyzer
 	name = "advanced health analyzer"
 	desc = "An expensive and varied-use health analyzer that prints full-body scans after a short scanning delay."
-	icon = 'icons/obj/item/advanced_healthanalyzer.dmi'
-	icon_state = "health_adv"
-	item_state = "analyzer"
+	icon = 'icons/obj/item/healthanalyzer_adv.dmi'
+	icon_state = "healthanalyzer_adv"
+	contained_sprite = TRUE
 	slot_flags = SLOT_BELT
 	w_class = WEIGHT_CLASS_NORMAL
 	origin_tech = list(TECH_MAGNET = 2, TECH_BIO = 3)

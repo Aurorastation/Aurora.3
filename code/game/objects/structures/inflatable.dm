@@ -5,6 +5,7 @@
 	name = "inflatable"
 	w_class = WEIGHT_CLASS_SMALL
 	icon = 'icons/obj/item/inflatables.dmi'
+	contained_sprite = TRUE
 	var/deploy_path = null
 
 /obj/item/inflatable/mechanics_hints(mob/user, distance, is_adjacent)
@@ -333,6 +334,8 @@
 	use_sound = 'sound/items/storage/briefcase.ogg'
 	drop_sound = 'sound/items/drop/backpack.ogg'
 	pickup_sound = 'sound/items/pickup/backpack.ogg'
+
+	contained_sprite = TRUE
 
 /obj/item/storage/bag/inflatable/emergency
 	name = "emergency inflatable barrier box"
