@@ -62,7 +62,7 @@ GLOBAL_VAR_INIT(byond_tracy_path, FALSE)
 			else if(world.system_type == UNIX)
 				lib = "libprof.so"
 			else
-				to_chat(src,"unsupported platform")
+				to_chat(usr,"unsupported platform")
 				CRASH("unsupported platform")
 
 		if(DISK_VERSION)
@@ -71,16 +71,16 @@ GLOBAL_VAR_INIT(byond_tracy_path, FALSE)
 			else if(world.system_type == UNIX)
 				lib = "libprof-disk.so"
 			else
-				to_chat(src,"unsupported platform")
+				to_chat(usr,"unsupported platform")
 				CRASH("unsupported platform")
 		else
-			to_chat
+			to_chat(usr,"unsupported byond-tracy version [version]")
 			CRASH("unsupported byond-tracy version [version]")
 
 	GLOB.byond_tracy_path = lib
 	var/init = call_ext(lib, "init")()
 	if("0" != init)
-		to_chat(src,"[lib] init error: [init]")
+		to_chat(usr,"[lib] init error: [init]")
 		CRASH("[lib] init error: [init]")
 
 	GLOB.byond_tracy_running = TRUE
@@ -100,6 +100,7 @@ GLOBAL_VAR_INIT(byond_tracy_path, FALSE)
 			else if(world.system_type == UNIX)
 				lib = "libprof.so"
 			else
+				to_chat(usr,"unsupported platform")
 				CRASH("unsupported platform")
 
 		if(DISK_VERSION)
@@ -108,6 +109,7 @@ GLOBAL_VAR_INIT(byond_tracy_path, FALSE)
 			else if(world.system_type == UNIX)
 				lib = "libprof-disk.so"
 			else
+				to_chat(usr,"unsupported platform")
 				CRASH("unsupported platform")
 
 	call_ext(lib, "destroy")()
