@@ -1,0 +1,7 @@
+author: FabianK3
+
+delete-after: True
+
+changes:
+  - rscadd: "Added the alt title Foreign Service Officer to the consular job. This alt title can only be selected if the citizenship is set to Sol Alliance."
+  - code_imp: "Added citizenship check to job titles, allowing alt titles to be locked to specific backgrounds."
