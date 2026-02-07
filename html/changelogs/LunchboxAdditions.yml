@@ -1,0 +1,8 @@
+author: TheGreyWolf
+
+delete-after: True
+
+changes:
+  - rscadd: "Added the following options as food in the lunchbox: Hard bread, nomad skewer, mashed earthen-root, earthen-root fries, scout ration and ras'val pasta."
+  - rscadd: "Added the following options as snacks in the lunchbox: A singular mini-avah, zkahnkowa slice, roasted dirtberries."
+  - rscadd: "Canned earthen-root juice was added to the commissary drink restock pack and as an option to the lunchbox."

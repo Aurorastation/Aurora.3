@@ -474,6 +474,16 @@
 
 	reagents_to_add = list(/singleton/reagent/drink/milk/adhomai/fermented = 30)
 
+/obj/item/reagent_containers/food/drinks/cans/earthen_juice
+	name = "earthen-root juice"
+	desc = "A can of earthen-root juice, imported from Adhomai."
+	icon_state = "earthen_can"
+	item_state = "earthen_can"
+	center_of_mass = list("x"=16, "y"=10)
+	desc_extended = "The Earthen-Root, or Binajr-nab'at, is a herbaceous plant native to the region of the Northern Harr'masir, and is popular in the New Kingdom of Adhomai due to it's resilience in harsh environments. Common uses for the Earth-Root, besides being used in dishes, include distillation to brew alcoholic beverages, extraction of the blue pigment for the fabrication of dyes, and the production of sugar."
+
+	reagents_to_add = list(/singleton/reagent/drink/earthenrootjuice = 30)
+
 /obj/item/reagent_containers/food/drinks/cans/beetle_milk
 	name = "\improper Hakhma Milk"
 	desc = "A can of Hakhma beetle milk, sourced from Scarab and Drifter communities."
