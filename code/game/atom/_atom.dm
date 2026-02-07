@@ -149,6 +149,9 @@
 	if(length(overlays))
 		overlays.Cut()
 
+	if(static_light)
+		QDEL_NULL(static_light)
+
 	if(light)
 		QDEL_NULL(light)
 
