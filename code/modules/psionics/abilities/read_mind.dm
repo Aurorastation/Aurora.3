@@ -103,11 +103,14 @@
 	// Maximums occur at +/- infinity. While normal values roughly around 0.5x occur very close to +/- 1.
 	// "More sensitivity" reduces negative effects of the power.
 	// "Less sensitivity" increases said negative effects.
-	var/psi_sensitivity_ratio = ftanh(target_sensitivity)
+	var/psi_sensitivity_ratio = ftanh(0.5 * target_sensitivity)
 
 	// Minimum of confusion time 0 seconds, maximum of 40 seconds. 20 seconds for an unaugmented human.
+	// See: https://www.desmos.com/calculator/dl8zapsnsn
 	target.confused += 20 SECONDS - (psi_sensitivity_ratio * 20) SECONDS
+
 	// Minimum brain damage of 0, maximum of 20%. 10% for a unaugmented human.
+	// See: https://www.desmos.com/calculator/hqm4w7bgr4
 	target.adjustBrainLoss(20 - (psi_sensitivity_ratio * 20))
 
 	to_chat(target, \
