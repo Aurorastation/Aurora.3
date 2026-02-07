@@ -220,7 +220,7 @@
 /area/wrecked_nt_ship)
 "dK" = (
 /obj/structure/table/reinforced/steel,
-/obj/item/device/multitool,
+/obj/item/multitool,
 /turf/simulated/floor/tiled/steel/airless,
 /area/wrecked_nt_ship)
 "dP" = (
@@ -791,7 +791,7 @@
 /obj/structure/table/reinforced/steel,
 /obj/item/mecha_equipment/shield,
 /obj/item/stack/cable_coil/random,
-/obj/item/device/integrated_circuit_printer/upgraded,
+/obj/item/integrated_circuit_printer/upgraded,
 /turf/simulated/floor/tiled/steel/airless,
 /area/wrecked_nt_ship)
 "qY" = (
@@ -1120,7 +1120,7 @@
 /area/wrecked_nt_ship/exterior)
 "yw" = (
 /obj/structure/table/reinforced/steel,
-/obj/item/device/vending_refill/seeds,
+/obj/item/vending_refill/seeds,
 /turf/simulated/floor/tiled/steel/airless,
 /area/wrecked_nt_ship)
 "yK" = (
@@ -1574,7 +1574,7 @@
 /area/space)
 "Kt" = (
 /obj/structure/table/reinforced/steel,
-/obj/item/device/integrated_circuit_printer/upgraded,
+/obj/item/integrated_circuit_printer/upgraded,
 /turf/simulated/floor/airless,
 /area/wrecked_nt_ship)
 "Lb" = (
@@ -1893,7 +1893,7 @@
 /area/wrecked_nt_ship)
 "Sw" = (
 /obj/structure/table/reinforced/steel,
-/obj/item/device/integrated_circuit_printer/upgraded,
+/obj/item/integrated_circuit_printer/upgraded,
 /turf/simulated/floor/tiled/steel/airless,
 /area/wrecked_nt_ship)
 "SE" = (

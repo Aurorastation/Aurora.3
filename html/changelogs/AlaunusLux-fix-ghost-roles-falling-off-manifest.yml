@@ -44,7 +44,7 @@
 #################################
 
 # Your name.
-author: Batrachophrenoboocosmomachia
+author: AlaunusLux
 
 # Optional: Remove this file after generating master changelog.  Useful for PR changelogs that won't get used again.
 delete-after: True
@@ -55,5 +55,4 @@ delete-after: True
 # Also, this gets changed to [] after reading.  Just remove the brackets when you add new shit.
 # Please surround your changes in  double quotes ("). It works without them, but if you use certain characters it screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - bugfix: "Fixes door permissions in bar maints, secure technical storage, hangar air station, ops substation, and medical substation."
-  - bugfix: "Replaces tool crate in D1 central maints with non-prefilled variant."
+  - bugfix: "Fixed ghost roles falling off manifest when a player leaves the round."

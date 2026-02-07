@@ -806,3 +806,6 @@
 		if(istype(O,/obj/effect/rune) || istype(O,/obj/effect/decal/cleanable))
 			qdel(O)
 	clean_blood()
+
+/turf/proc/IgniteTurf(power, fire_color)
+	return

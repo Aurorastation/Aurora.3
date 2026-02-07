@@ -61,7 +61,7 @@
 	description = "A device to automatically replace lights. Refill with working lightbulbs or sheets of glass."
 	price = 30
 	items = list(
-		/obj/item/device/lightreplacer
+		/obj/item/lightreplacer
 	)
 	access = 0
 	container_type = "crate"

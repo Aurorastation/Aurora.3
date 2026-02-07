@@ -8,15 +8,15 @@ ABSTRACT_TYPE(/singleton/fabricator_recipe/tools)
 
 /singleton/fabricator_recipe/tools/multitool
 	name = "multitool"
-	path = /obj/item/device/multitool
+	path = /obj/item/multitool
 
 /singleton/fabricator_recipe/tools/geiger
 	name = "geiger counter"
-	path = /obj/item/device/geiger
+	path = /obj/item/geiger
 
 /singleton/fabricator_recipe/tools/t_scanner
 	name = "T-ray scanner"
-	path = /obj/item/device/t_scanner
+	path = /obj/item/t_scanner
 
 /singleton/fabricator_recipe/tools/weldertool
 	name = "welding tool"
@@ -45,3 +45,7 @@ ABSTRACT_TYPE(/singleton/fabricator_recipe/tools)
 /singleton/fabricator_recipe/tools/minihoe
 	name = "mini hoe"
 	path = /obj/item/material/minihoe
+
+/singleton/fabricator_recipe/tools/hammer
+	name = "hammer"
+	path = /obj/item/hammer

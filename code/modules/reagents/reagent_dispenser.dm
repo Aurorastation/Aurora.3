@@ -129,7 +129,7 @@
 	amount_per_transfer_from_this = 30
 	var/defuse = 0
 	var/armed = 0
-	var/obj/item/device/assembly_holder/rig = null
+	var/obj/item/assembly_holder/rig = null
 	reagents_to_add = list(/singleton/reagent/fuel = 1000)
 
 /obj/structure/reagent_dispensers/fueltank/feedback_hints(mob/user, distance, is_adjacent)
@@ -162,7 +162,7 @@
 		user.put_in_hands(rig)
 		rig = null
 		overlays = new/list()
-	if (istype(attacking_item,/obj/item/device/assembly_holder))
+	if (istype(attacking_item,/obj/item/assembly_holder))
 		if (rig)
 			to_chat(user, SPAN_WARNING("There is another device in the way."))
 			return ..()
@@ -171,8 +171,8 @@
 			user.visible_message(SPAN_NOTICE("[user] rigs [attacking_item] to \the [src]."),
 									SPAN_NOTICE("You rig [attacking_item] to \the [src]"))
 
-			var/obj/item/device/assembly_holder/H = attacking_item
-			if (istype(H.a_left,/obj/item/device/assembly/igniter) || istype(H.a_right,/obj/item/device/assembly/igniter))
+			var/obj/item/assembly_holder/H = attacking_item
+			if (istype(H.a_left,/obj/item/assembly/igniter) || istype(H.a_right,/obj/item/assembly/igniter))
 				message_admins("[key_name_admin(user)] rigged fueltank at [loc.loc.name] ([loc.x],[loc.y],[loc.z]) for explosion. (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[loc.x];Y=[loc.y];Z=[loc.z]'>JMP</a>)")
 				log_game("[key_name(user)] rigged fueltank at [loc.loc.name] ([loc.x],[loc.y],[loc.z]) for explosion.")
 

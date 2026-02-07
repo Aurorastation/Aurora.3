@@ -31,7 +31,7 @@ ABSTRACT_TYPE(/singleton/fabricator_recipe/armaments)
 
 /singleton/fabricator_recipe/armaments/electropack
 	name = "electropack"
-	path = /obj/item/device/radio/electropack
+	path = /obj/item/radio/electropack
 	hack_only = TRUE
 
 /singleton/fabricator_recipe/armaments/trap

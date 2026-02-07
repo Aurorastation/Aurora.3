@@ -80,9 +80,9 @@
 
 	// Internal components (non-datum)
 	var/obj/item/cell/cell
-	var/obj/item/device/radio/borg/radio
+	var/obj/item/radio/borg/radio
 	var/obj/machinery/camera/camera
-	var/obj/item/device/mmi/mmi
+	var/obj/item/mmi/mmi
 	var/obj/item/stock_parts/matter_bin/storage
 	var/obj/item/tank/jetpack/carbondioxide/synthetic/jetpack
 
@@ -158,7 +158,7 @@
 		mmi.brainmob.real_name = src.name
 		mmi.name = "[initial(mmi.name)]: [src.name]"
 
-	radio = new /obj/item/device/radio/borg(src)
+	radio = new /obj/item/radio/borg(src)
 	common_radio = radio
 
 	if(!camera)
@@ -235,13 +235,13 @@
 	update_access()
 
 /mob/living/silicon/robot/proc/init()
-	ai_camera = new /obj/item/device/camera/siliconcam/robot_camera(src)
+	ai_camera = new /obj/item/camera/siliconcam/robot_camera(src)
 	laws = new law_preset()
 	if(spawn_module)
 		new spawn_module(src, src)
 	if(key_type)
 		radio.keyslot = new key_type(radio)
-		INVOKE_ASYNC(radio, TYPE_PROC_REF(/obj/item/device/radio/borg, recalculateChannels))
+		INVOKE_ASYNC(radio, TYPE_PROC_REF(/obj/item/radio/borg, recalculateChannels))
 	if(law_update)
 		var/new_ai = select_active_ai_with_fewest_borgs()
 		if(new_ai)
@@ -368,7 +368,7 @@
 	if(prefix)
 		mod_type = prefix
 
-	if(istype(mmi, /obj/item/device/mmi/digital/robot))
+	if(istype(mmi, /obj/item/mmi/digital/robot))
 		braintype = "Robot"
 	else
 		braintype = "Cyborg"
@@ -754,7 +754,7 @@
 			else
 				to_chat(user, SPAN_WARNING("\The [src] does not have a radio installed!"))
 				return
-		else if(istype(attacking_item, /obj/item/device/encryptionkey) && opened)
+		else if(istype(attacking_item, /obj/item/encryptionkey) && opened)
 			if(radio) //sanityyyyyy
 				radio.attackby(attacking_item, user) //GTFO, you have your own procs
 			else
@@ -789,7 +789,7 @@
 					user.drop_from_inventory(U, src)
 				return
 		else
-			if(attacking_item.force && !(istype(attacking_item, /obj/item/device/robotanalyzer) || istype(attacking_item, /obj/item/device/healthanalyzer)) )
+			if(attacking_item.force && !(istype(attacking_item, /obj/item/robotanalyzer) || istype(attacking_item, /obj/item/healthanalyzer)) )
 				spark_system.queue()
 			return ..()
 	else

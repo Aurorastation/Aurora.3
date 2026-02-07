@@ -38,11 +38,11 @@
 	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/civilian/librarian
 	tablet = /obj/item/modular_computer/handheld/preset/civilian/librarian
 
-	headset = /obj/item/device/radio/headset/headset_service
-	bowman = /obj/item/device/radio/headset/headset_service/alt
-	double_headset = /obj/item/device/radio/headset/alt/double/service
-	wrist_radio = /obj/item/device/radio/headset/wrist/service
-	clipon_radio = /obj/item/device/radio/headset/wrist/clip/service
+	headset = /obj/item/radio/headset/headset_service
+	bowman = /obj/item/radio/headset/headset_service/alt
+	double_headset = /obj/item/radio/headset/alt/double/service
+	wrist_radio = /obj/item/radio/headset/wrist/service
+	clipon_radio = /obj/item/radio/headset/wrist/clip/service
 
 	backpack_faction = /obj/item/storage/backpack/nt
 	satchel_faction = /obj/item/storage/backpack/satchel/nt
@@ -51,7 +51,7 @@
 
 	backpack_contents = list(
 		/obj/item/clothing/accessory/badge/press = 1,
-		/obj/item/device/tvcamera = 1
+		/obj/item/tvcamera = 1
 	)
 
 /obj/outfit/job/journalistf
@@ -67,7 +67,7 @@
 
 	backpack_contents = list(
 		/obj/item/clothing/accessory/badge/press/independent = 1,
-		/obj/item/device/tvcamera = 1
+		/obj/item/tvcamera = 1
 	)
 
 /datum/job/representative
@@ -143,16 +143,16 @@
 	tablet = /obj/item/modular_computer/handheld/preset/civilian/lawyer
 	shoes = /obj/item/clothing/shoes/laceup
 	glasses = /obj/item/clothing/glasses/sunglasses/big
-	headset = /obj/item/device/radio/headset/representative
-	bowman = /obj/item/device/radio/headset/representative/alt
-	double_headset = /obj/item/device/radio/headset/alt/double/command/representative
-	wrist_radio = /obj/item/device/radio/headset/wrist/command/representative
-	clipon_radio = /obj/item/device/radio/headset/wrist/clip/command/representative
+	headset = /obj/item/radio/headset/representative
+	bowman = /obj/item/radio/headset/representative/alt
+	double_headset = /obj/item/radio/headset/alt/double/command/representative
+	wrist_radio = /obj/item/radio/headset/wrist/command/representative
+	clipon_radio = /obj/item/radio/headset/wrist/clip/command/representative
 	accessory = /obj/item/clothing/accessory/tie/corporate
 	suit_accessory = /obj/item/clothing/accessory/pin/corporate
 
 	backpack_contents = list(
-		/obj/item/device/camera = 1,
+		/obj/item/camera = 1,
 		/obj/item/gun/energy/pistol = 1
 	)
 
@@ -234,7 +234,7 @@
 	head = null
 	suit = null
 	backpack_contents = list(
-		/obj/item/device/camera = 1,
+		/obj/item/camera = 1,
 		/obj/item/gun/energy/pistol = 1
 	)
 	implants = null
@@ -338,11 +338,11 @@
 	tablet = /obj/item/modular_computer/handheld/preset/civilian/lawyer
 	shoes = /obj/item/clothing/shoes/laceup
 	glasses = /obj/item/clothing/glasses/sunglasses/big
-	headset = /obj/item/device/radio/headset/representative
-	bowman = /obj/item/device/radio/headset/representative/alt
-	double_headset = /obj/item/device/radio/headset/alt/double/command/representative
-	wrist_radio = /obj/item/device/radio/headset/wrist/command/representative
-	clipon_radio = /obj/item/device/radio/headset/wrist/clip/command/representative
+	headset = /obj/item/radio/headset/representative
+	bowman = /obj/item/radio/headset/representative/alt
+	double_headset = /obj/item/radio/headset/alt/double/command/representative
+	wrist_radio = /obj/item/radio/headset/wrist/command/representative
+	clipon_radio = /obj/item/radio/headset/wrist/clip/command/representative
 
 /datum/job/diplomatic_aide/after_spawn(mob/living/carbon/human/H)
 	LAZYDISTINCTADD(blacklisted_citizenship, H.citizenship)
@@ -385,11 +385,11 @@
 	tablet = /obj/item/modular_computer/handheld/preset/civilian/lawyer
 	shoes = /obj/item/clothing/shoes/laceup
 	glasses = /obj/item/clothing/glasses/sunglasses/big
-	headset = /obj/item/device/radio/headset/representative
-	bowman = /obj/item/device/radio/headset/representative/alt
-	double_headset = /obj/item/device/radio/headset/alt/double/command/representative
-	wrist_radio = /obj/item/device/radio/headset/wrist/command/representative
-	clipon_radio = /obj/item/device/radio/headset/wrist/clip/command/representative
+	headset = /obj/item/radio/headset/representative
+	bowman = /obj/item/radio/headset/representative/alt
+	double_headset = /obj/item/radio/headset/alt/double/command/representative
+	wrist_radio = /obj/item/radio/headset/wrist/command/representative
+	clipon_radio = /obj/item/radio/headset/wrist/clip/command/representative
 
 /datum/job/diplomatic_bodyguard/after_spawn(mob/living/carbon/human/H)
 	LAZYDISTINCTADD(blacklisted_citizenship, H.citizenship)
@@ -429,8 +429,8 @@
 	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/civilian/lawyer
 	tablet = /obj/item/modular_computer/handheld/preset/civilian/lawyer
 	shoes = /obj/item/clothing/shoes/laceup
-	headset = /obj/item/device/radio/headset/representative
-	bowman = /obj/item/device/radio/headset/representative/alt
-	double_headset = /obj/item/device/radio/headset/alt/double/command/representative
-	wrist_radio = /obj/item/device/radio/headset/wrist/command/representative
-	clipon_radio = /obj/item/device/radio/headset/wrist/clip/command/representative
+	headset = /obj/item/radio/headset/representative
+	bowman = /obj/item/radio/headset/representative/alt
+	double_headset = /obj/item/radio/headset/alt/double/command/representative
+	wrist_radio = /obj/item/radio/headset/wrist/command/representative
+	clipon_radio = /obj/item/radio/headset/wrist/clip/command/representative

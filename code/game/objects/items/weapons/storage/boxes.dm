@@ -180,14 +180,14 @@
 	can_hold = list(
 				/obj/item/clothing/mask,
 				/obj/item/tank/emergency_oxygen,
-				/obj/item/device/flashlight/flare,
+				/obj/item/flashlight/flare,
 				/obj/item/stack/medical,
 				/obj/item/reagent_containers/hypospray/autoinjector,
 				/obj/item/reagent_containers/inhaler,
-				/obj/item/device/oxycandle,
+				/obj/item/oxycandle,
 				/obj/item/extinguisher/mini,
-				/obj/item/device/radio,
-				/obj/item/device/flashlight,
+				/obj/item/radio,
+				/obj/item/flashlight,
 				/obj/item/reagent_containers/food/drinks/flask,
 				/obj/item/storage/box/fancy/cigarettes,
 				/obj/item/flame/lighter,
@@ -198,8 +198,8 @@
 	starts_with = list(
 				/obj/item/clothing/mask/breath = 1,
 				/obj/item/tank/emergency_oxygen = 1,
-				/obj/item/device/oxycandle = 1,
-				/obj/item/device/flashlight/flare/glowstick/red = 1,
+				/obj/item/oxycandle = 1,
+				/obj/item/flashlight/flare/glowstick/red = 1,
 				/obj/item/stack/medical/bruise_pack = 1,
 				/obj/item/reagent_containers/hypospray/autoinjector/inaprovaline = 1
 				)
@@ -209,8 +209,8 @@
 	starts_with = list(
 				/obj/item/clothing/mask/breath = 1,
 				/obj/item/tank/emergency_oxygen/engi = 1,
-				/obj/item/device/oxycandle = 1,
-				/obj/item/device/flashlight/flare = 1,
+				/obj/item/oxycandle = 1,
+				/obj/item/flashlight/flare = 1,
 				/obj/item/stack/medical/bruise_pack = 1,
 				/obj/item/reagent_containers/hypospray/autoinjector/inaprovaline = 1
 				)
@@ -467,45 +467,49 @@
 	name = "box of firing pins"
 	desc = "A box of NT brand Firearm authentication pins; Needed to operate most weapons."
 	illustration = "firingpin"
-	starts_with = list(/obj/item/device/firing_pin = 7)
+	starts_with = list(/obj/item/firing_pin = 7)
 
 /obj/item/storage/box/securitypins
 	name = "box of wireless-control firing pins"
 	desc = "A box of NT brand Firearm authentication pins; Needed to operate most weapons.  These firing pins are wireless-control enabled."
 	illustration = "firingpin"
-	starts_with = list(/obj/item/device/firing_pin/wireless = 7)
+	starts_with = list(/obj/item/firing_pin/wireless = 7)
 
 /obj/item/storage/box/testpins
 	name = "box of firing pins"
 	desc = "A box of NT brand Testing Authentication pins; allows guns to fire in designated firing ranges."
 	illustration = "firingpin"
-	starts_with = list(/obj/item/device/firing_pin/test_range = 7)
+	starts_with = list(/obj/item/firing_pin/test_range = 7)
 
 /obj/item/storage/box/loyaltypins
 	name = "box of firing pins"
 	desc = "A box of specialised \"loyalty\" authentication pins produced by NanoTrasen; these check to see if the user of the gun it's installed in has been implanted with a mind shield implant. Often used in ERTs."
 	illustration = "firingpin"
-	starts_with = list(/obj/item/device/firing_pin/implant/loyalty = 7)
+	starts_with = list(/obj/item/firing_pin/implant/loyalty = 7)
 
 /obj/item/storage/box/loyaltypins/fill()
 	..()
-	new /obj/item/device/firing_pin/implant/loyalty(src)
-	new /obj/item/device/firing_pin/implant/loyalty(src)
-	new /obj/item/device/firing_pin/implant/loyalty(src)
-	new /obj/item/device/firing_pin/implant/loyalty(src)
+	new /obj/item/firing_pin/implant/loyalty(src)
+	new /obj/item/firing_pin/implant/loyalty(src)
+	new /obj/item/firing_pin/implant/loyalty(src)
+	new /obj/item/firing_pin/implant/loyalty(src)
 
 /obj/item/storage/box/firingpinsRD
 	name = "box of assorted firing pins"
 	desc = "A box of varied assortment of firing pins. Appears to have R&D stickers on all sides of the box. Also seems to have a smiley face sticker on the top of it."
 	illustration = "firingpin"
-	starts_with = list(/obj/item/device/firing_pin = 2, /obj/item/device/firing_pin/access = 2, /obj/item/device/firing_pin/implant/loyalty = 2, /obj/item/device/firing_pin/psionic = 1, /obj/item/device/firing_pin/dna = 1)
+	starts_with = list(/obj/item/firing_pin = 2, /obj/item/firing_pin/access = 2, /obj/item/firing_pin/implant/loyalty = 2, /obj/item/firing_pin/psionic = 1, /obj/item/firing_pin/dna = 1)
 
-/obj/item/storage/box/psireceiver
-	name = "box of psionic receivers"
-	desc = "A box of psionic receivers, which can be surgically implanted to act as a replacement for an underdeveloped or non-existent zona bovinae. This one has a large sticker on the side reading FOR RESEARCH USE ONLY."
+/obj/item/storage/box/unique/freezer/organcooler/psireceiver
+	name = "psionic receivers cooler"
+	desc = "A cooling box for psionic receivers, which can be surgically implanted to act as a replacement for an underdeveloped or non-existent zona bovinae. This one has a large sticker on the side reading FOR RESEARCH USE ONLY."
 	color = COLOR_PURPLE_GRAY
 	illustration = "implant"
-	starts_with = list(/obj/item/organ/internal/augment/psi = 4)
+	starts_with = list(/obj/item/organ/internal/augment/bioaug/psi = 4)
+	can_hold = list(
+		/obj/item/organ/internal/augment/bioaug/psi
+	)
+	storage_slots = 4
 
 /obj/item/storage/box/tethers
 	name = "box of tethering devices"
@@ -698,7 +702,7 @@
 	name = "box of Pest-B-Gon mousetraps"
 	desc = "<B><span class='warning'>WARNING:</span></B> <I>Keep out of reach of children</I>."
 	illustration = "mousetraps"
-	starts_with = list(/obj/item/device/assembly/mousetrap = 6)
+	starts_with = list(/obj/item/assembly/mousetrap = 6)
 
 /obj/item/storage/box/pillbottles
 	name = "box of pill bottles"
@@ -1029,19 +1033,19 @@
 	name = "hadiist manifesto box"
 	desc = "A box filled with copies of the Hadiist Manifesto"
 	illustration = "paper"
-	starts_with = list(/obj/item/device/versebook/pra = 6)
+	starts_with = list(/obj/item/versebook/pra = 6)
 
 /obj/item/storage/box/dpra_manifesto
 	name = "al'mariist manifesto box"
 	desc = "A box filled with copies of 'In Defense of Al'mari's Legacy'."
 	illustration = "paper"
-	starts_with = list(/obj/item/device/versebook/dpra = 6)
+	starts_with = list(/obj/item/versebook/dpra = 6)
 
 /obj/item/storage/box/nka_manifesto
 	name = "royalist manifesto card box"
 	desc = "A box filled with copies of 'The New Kingdom'."
 	illustration = "paper"
-	starts_with = list(/obj/item/device/versebook/nka = 6)
+	starts_with = list(/obj/item/versebook/nka = 6)
 
 /obj/item/storage/box/suns_flags
 	name = "s'rand'marr Worship flag box"
@@ -1358,7 +1362,7 @@
 /obj/item/storage/box/encryption_key
 	name = "box"
 	illustration = "circuit"
-	starts_with = list(/obj/item/device/encryptionkey/rev = 8)
+	starts_with = list(/obj/item/encryptionkey/rev = 8)
 
 /obj/item/storage/box/encryption_key/antagonist_hints(mob/user, distance, is_adjacent)
 	. += ..()
@@ -1483,10 +1487,10 @@
 	foldable = FALSE
 	max_storage_space = DEFAULT_BOX_STORAGE
 	can_hold = list(
-		/obj/item/device/flashlight/flare
+		/obj/item/flashlight/flare
 	)
 	starts_with = list(
-		/obj/item/device/flashlight/flare = 12
+		/obj/item/flashlight/flare = 12
 	)
 
 // Magnetic Locks
@@ -1498,10 +1502,10 @@
 	foldable = FALSE
 	max_storage_space = DEFAULT_BOX_STORAGE
 	can_hold = list(
-		/obj/item/device/magnetic_lock
+		/obj/item/magnetic_lock
 	)
 	starts_with = list(
-		/obj/item/device/magnetic_lock = 4
+		/obj/item/magnetic_lock = 4
 	)
 
 // Power Cells
@@ -1583,7 +1587,7 @@
 	desc = "A box containing 5 claymore landmines, relative detonators, and a spare one to trigger them all."
 	starts_with = list(
 		/obj/item/landmine/claymore = 5,
-		/obj/item/device/assembly/signaler = 6
+		/obj/item/assembly/signaler = 6
 		)
 
 /obj/item/storage/box/unique/tea

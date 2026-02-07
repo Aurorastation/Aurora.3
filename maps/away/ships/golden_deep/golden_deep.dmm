@@ -65,8 +65,8 @@
 	dir = 1
 	},
 /obj/structure/table/reinforced/steel,
-/obj/item/device/robotanalyzer,
-/obj/item/device/robotanalyzer{
+/obj/item/robotanalyzer,
+/obj/item/robotanalyzer{
 	pixel_y = 9
 	},
 /turf/simulated/floor/tiled/dark/full,
@@ -103,8 +103,8 @@
 	},
 /obj/item/storage/belt/security/full/alt,
 /obj/item/storage/belt/security/full/alt,
-/obj/item/device/flashlight/maglight,
-/obj/item/device/flashlight/maglight,
+/obj/item/flashlight/maglight,
+/obj/item/flashlight/maglight,
 /obj/item/storage/box/tactical/smokebombs,
 /obj/item/storage/box/tactical/flashbangs,
 /obj/item/storage/box/handcuffs,
@@ -268,7 +268,7 @@
 	pixel_y = 4
 	},
 /obj/random/dirt_75,
-/obj/item/device/flashlight{
+/obj/item/flashlight{
 	pixel_x = 4;
 	pixel_y = 4
 	},
@@ -1083,7 +1083,7 @@
 	pixel_x = -7;
 	pixel_y = 8
 	},
-/obj/item/device/flashlight/lamp/green{
+/obj/item/flashlight/lamp/green{
 	pixel_x = 3;
 	pixel_y = 6
 	},
@@ -1298,7 +1298,7 @@
 	pixel_x = 6;
 	pixel_y = -3
 	},
-/obj/item/device/pin_extractor{
+/obj/item/pin_extractor{
 	pixel_x = 3;
 	pixel_y = 10
 	},
@@ -1326,8 +1326,8 @@
 "fv" = (
 /obj/effect/floor_decal/spline/fancy/wood,
 /obj/structure/table/reinforced/steel,
-/obj/item/device/radio/intercom/hailing/north,
-/obj/item/device/radio/hailing{
+/obj/item/radio/intercom/hailing/north,
+/obj/item/radio/hailing{
 	pixel_x = 5;
 	pixel_y = 6
 	},
@@ -2488,10 +2488,10 @@
 	pixel_y = 10;
 	pixel_x = 7
 	},
-/obj/item/device/assembly/prox_sensor{
+/obj/item/assembly/prox_sensor{
 	pixel_x = -4
 	},
-/obj/item/device/assembly/prox_sensor{
+/obj/item/assembly/prox_sensor{
 	pixel_x = 5
 	},
 /turf/simulated/floor/tiled/dark/full,
@@ -3070,8 +3070,8 @@
 /area/golden_deep/engineering)
 "nh" = (
 /obj/structure/table/reinforced/steel,
-/obj/item/device/binoculars,
-/obj/item/device/binoculars/high_power{
+/obj/item/binoculars,
+/obj/item/binoculars/high_power{
 	pixel_y = 6
 	},
 /turf/simulated/floor/marble/dark,
@@ -4071,7 +4071,7 @@
 	color = "#333333";
 	name = "leather gloves"
 	},
-/obj/item/device/clothes_dyer,
+/obj/item/clothes_dyer,
 /turf/simulated/floor/wood,
 /area/golden_deep/merchant)
 "qI" = (
@@ -4577,7 +4577,7 @@
 	must_start_working = 1
 	},
 /obj/item/storage/toolbox/mechanical,
-/obj/item/device/hand_labeler,
+/obj/item/hand_labeler,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
 /area/golden_deep/eva)
@@ -5155,7 +5155,7 @@
 	dir = 6
 	},
 /obj/structure/table/reinforced/steel,
-/obj/item/device/taperecorder{
+/obj/item/taperecorder{
 	pixel_x = -2;
 	pixel_y = 4
 	},
@@ -5177,11 +5177,11 @@
 /area/golden_deep/owned_lounge)
 "vo" = (
 /obj/structure/table/rack,
-/obj/item/device/geiger{
+/obj/item/geiger{
 	pixel_x = -6;
 	pixel_y = 2
 	},
-/obj/item/device/geiger{
+/obj/item/geiger{
 	pixel_x = 5;
 	pixel_y = 2
 	},
@@ -5570,7 +5570,7 @@
 /area/shuttle/golden_deep/passenger)
 "xi" = (
 /obj/structure/table/reinforced/steel,
-/obj/item/device/flashlight{
+/obj/item/flashlight{
 	pixel_y = 10;
 	pixel_x = 8
 	},
@@ -6228,7 +6228,7 @@
 	pixel_y = 18;
 	pixel_x = -5
 	},
-/obj/item/device/taperecorder{
+/obj/item/taperecorder{
 	pixel_x = -8;
 	pixel_y = -3
 	},
@@ -6975,12 +6975,12 @@
 "Dc" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/table/rack,
-/obj/item/device/gps,
-/obj/item/device/gps,
-/obj/item/device/gps,
-/obj/item/device/gps,
-/obj/item/device/gps,
-/obj/item/device/gps,
+/obj/item/gps,
+/obj/item/gps,
+/obj/item/gps,
+/obj/item/gps,
+/obj/item/gps,
+/obj/item/gps,
 /obj/item/tank/jetpack/carbondioxide,
 /obj/item/tank/jetpack/carbondioxide,
 /obj/item/tank/jetpack/carbondioxide,
@@ -7370,7 +7370,7 @@
 /turf/simulated/floor/plating,
 /area/golden_deep/atmos)
 "EF" = (
-/obj/item/device/flashlight/lamp/green{
+/obj/item/flashlight/lamp/green{
 	pixel_y = 5;
 	pixel_x = 5
 	},
@@ -8474,7 +8474,7 @@
 	dir = 6
 	},
 /obj/structure/table/reinforced/steel,
-/obj/item/device/flashlight{
+/obj/item/flashlight{
 	pixel_x = 1;
 	pixel_y = -8
 	},
@@ -8711,12 +8711,12 @@
 "Kd" = (
 /obj/structure/table/rack,
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/item/device/suit_cooling_unit,
-/obj/item/device/suit_cooling_unit,
-/obj/item/device/suit_cooling_unit,
-/obj/item/device/suit_cooling_unit,
-/obj/item/device/suit_cooling_unit,
-/obj/item/device/suit_cooling_unit,
+/obj/item/suit_cooling_unit,
+/obj/item/suit_cooling_unit,
+/obj/item/suit_cooling_unit,
+/obj/item/suit_cooling_unit,
+/obj/item/suit_cooling_unit,
+/obj/item/suit_cooling_unit,
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1;
 	level = 2
@@ -9089,7 +9089,7 @@
 	dir = 10
 	},
 /obj/structure/table/reinforced/steel,
-/obj/item/device/paint_sprayer{
+/obj/item/paint_sprayer{
 	pixel_y = 5;
 	pixel_x = 2
 	},
@@ -9984,7 +9984,7 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/obj/item/device/flashlight/lantern{
+/obj/item/flashlight/lantern{
 	pixel_y = 17;
 	pixel_x = 5
 	},
@@ -10233,7 +10233,7 @@
 /obj/machinery/computer/ship/engines/terminal{
 	dir = 4
 	},
-/obj/item/device/radio/intercom/expedition/north,
+/obj/item/radio/intercom/expedition/north,
 /turf/simulated/floor/lino/diamond,
 /area/golden_deep/bridge)
 "Qd" = (
@@ -10361,7 +10361,7 @@
 	pixel_y = 4;
 	pixel_x = 3
 	},
-/obj/item/device/paicard{
+/obj/item/paicard{
 	pixel_y = 5;
 	pixel_x = -11
 	},
@@ -11110,11 +11110,11 @@
 /obj/structure/noticeboard{
 	pixel_y = -30
 	},
-/obj/item/device/flashlight/lamp/off{
+/obj/item/flashlight/lamp/off{
 	pixel_x = -6;
 	pixel_y = 10
 	},
-/obj/item/device/debugger{
+/obj/item/debugger{
 	pixel_x = 7
 	},
 /turf/simulated/floor/tiled/dark,
@@ -11636,7 +11636,7 @@
 /obj/structure/filingcabinet/chestdrawer{
 	pixel_x = -7
 	},
-/obj/item/device/radio/intercom/expedition/north,
+/obj/item/radio/intercom/expedition/north,
 /turf/simulated/floor/wood,
 /area/golden_deep/accounting)
 "VU" = (
@@ -11898,11 +11898,11 @@
 	dir = 6
 	},
 /obj/structure/table/reinforced,
-/obj/item/device/price_scanner{
+/obj/item/price_scanner{
 	pixel_y = 17;
 	pixel_x = -2
 	},
-/obj/item/device/hand_labeler{
+/obj/item/hand_labeler{
 	pixel_y = 2
 	},
 /obj/random/dirt_75,
@@ -12376,8 +12376,8 @@
 	req_one_access = list(229, 217)
 	},
 /obj/effect/floor_decal/industrial/outline/custodial,
-/obj/item/device/hand_labeler,
-/obj/item/device/price_scanner,
+/obj/item/hand_labeler,
+/obj/item/price_scanner,
 /turf/simulated/floor/marble/dark,
 /area/shuttle/golden_deep/cockpit)
 "YE" = (

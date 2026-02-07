@@ -805,7 +805,7 @@ There are several things that need to be remembered:
 
 			var/layer = L_EAR_LAYER
 			var/layer_alt = L_EAR_LAYER_ALT
-			var/obj/item/device/radio/headset/wrist/W = l_ear
+			var/obj/item/radio/headset/wrist/W = l_ear
 			if(istype(W) && W.mob_wear_layer == ABOVE_SUIT_LAYER_WR)
 				layer = L_EAR_LAYER_ALT
 				layer_alt = L_EAR_LAYER
@@ -846,7 +846,7 @@ There are several things that need to be remembered:
 
 			var/layer = R_EAR_LAYER
 			var/layer_alt = R_EAR_LAYER_ALT
-			var/obj/item/device/radio/headset/wrist/W = r_ear
+			var/obj/item/radio/headset/wrist/W = r_ear
 			if(istype(W) && W.mob_wear_layer == ABOVE_SUIT_LAYER_WR)
 				layer = R_EAR_LAYER_ALT
 				layer_alt = R_EAR_LAYER
@@ -1322,7 +1322,7 @@ There are several things that need to be remembered:
 		var/image/wrists_overlay = wrists.get_mob_overlay(src, mob_icon, mob_state, slot_wrists_str)
 
 		var/wrist_layer = ABOVE_SUIT_LAYER_WR
-		if(istype(wrists, /obj/item/clothing/wrists) || istype(wrists, /obj/item/device/radio/headset/wrist))
+		if(istype(wrists, /obj/item/clothing/wrists) || istype(wrists, /obj/item/radio/headset/wrist))
 			var/obj/item/clothing/wrists/W = wrists
 			wrist_layer = W.mob_wear_layer
 

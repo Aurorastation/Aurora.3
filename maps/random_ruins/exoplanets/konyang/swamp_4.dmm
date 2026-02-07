@@ -239,7 +239,7 @@
 /obj/structure/flora/stump/log{
 	pixel_y = -5
 	},
-/obj/item/device/flashlight/lamp/box{
+/obj/item/flashlight/lamp/box{
 	pixel_x = 2;
 	pixel_y = 6
 	},
@@ -655,7 +655,7 @@
 /area/exoplanet/grass/konyang)
 "YE" = (
 /obj/structure/lattice/catwalk/indoor/planks,
-/obj/item/device/flashlight/lamp/box{
+/obj/item/flashlight/lamp/box{
 	pixel_x = 6;
 	pixel_y = 16
 	},

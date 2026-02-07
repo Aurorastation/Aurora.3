@@ -169,7 +169,7 @@
 /obj/effect/floor_decal/spline/plain{
 	dir = 6
 	},
-/obj/item/device/radio/phone,
+/obj/item/radio/phone,
 /turf/simulated/floor/exoplanet/lino{
 	temperature = 298.15
 	},
@@ -745,7 +745,7 @@
 /obj/effect/floor_decal/spline/plain{
 	dir = 4
 	},
-/obj/item/device/hand_labeler,
+/obj/item/hand_labeler,
 /turf/simulated/floor/exoplanet/lino{
 	temperature = 298.15
 	},

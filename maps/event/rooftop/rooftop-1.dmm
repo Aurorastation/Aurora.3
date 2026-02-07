@@ -176,10 +176,10 @@
 /obj/item/storage/toolbox/lunchbox/scc/filled,
 /obj/item/clothing/accessory/armband/scc,
 /obj/item/clothing/glasses/sunglasses/big,
-/obj/item/device/megaphone/command,
+/obj/item/megaphone/command,
 /obj/item/clothing/accessory/holster/hip,
 /obj/structure/closet,
-/obj/item/device/radio/headset/ert/ccia,
+/obj/item/radio/headset/ert/ccia,
 /turf/simulated/floor/tiled/dark,
 /area/city/mendell)
 "aL" = (
@@ -738,7 +738,7 @@
 	},
 /area/city/mendell/interior)
 "dV" = (
-/obj/item/device/versebook/dpra,
+/obj/item/versebook/dpra,
 /turf/simulated/floor/carpet,
 /area/city/mendell/interior)
 "dZ" = (
@@ -967,8 +967,8 @@
 "fd" = (
 /obj/machinery/light/small,
 /obj/structure/table/rack,
-/obj/item/device/lightreplacer/advanced,
-/obj/item/device/lightreplacer/advanced,
+/obj/item/lightreplacer/advanced,
+/obj/item/lightreplacer/advanced,
 /turf/unsimulated/floor{
 	icon_state = "dark_preview"
 	},
@@ -2090,7 +2090,7 @@
 /turf/simulated/floor/shuttle/dark_blue,
 /area/shuttle/city)
 "lv" = (
-/obj/item/device/flashlight/lamp/stage,
+/obj/item/flashlight/lamp/stage,
 /turf/unsimulated/floor,
 /area/city/mendell/interior)
 "lw" = (
@@ -2536,7 +2536,7 @@
 	},
 /area/city/mendell/interior)
 "oB" = (
-/obj/item/device/flashlight/lamp/lava/orange,
+/obj/item/flashlight/lamp/lava/orange,
 /obj/structure/table/stone/marble,
 /turf/unsimulated/floor{
 	icon_state = "asphalt";
@@ -2627,7 +2627,7 @@
 /area/city/mendell/interior)
 "pb" = (
 /obj/structure/table/wood,
-/obj/item/device/flashlight/lamp,
+/obj/item/flashlight/lamp,
 /turf/simulated/floor/carpet,
 /area/city/mendell/interior)
 "pc" = (
@@ -3092,7 +3092,7 @@
 /obj/item/storage/backpack/rucksack/navy,
 /obj/item/material/knife/tacknife,
 /obj/structure/closet,
-/obj/item/device/radio/headset/ert,
+/obj/item/radio/headset/ert,
 /turf/simulated/floor/tiled/dark,
 /area/city/mendell)
 "rH" = (
@@ -4502,7 +4502,7 @@
 	pixel_y = 35
 	},
 /obj/structure/table/wood,
-/obj/item/device/flashlight/lamp,
+/obj/item/flashlight/lamp,
 /turf/simulated/floor/carpet,
 /area/city/mendell/interior)
 "At" = (
@@ -4644,7 +4644,7 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
 	},
-/obj/item/device/megaphone/stagemicrophone,
+/obj/item/megaphone/stagemicrophone,
 /obj/structure/table/stone/marble,
 /turf/unsimulated/floor{
 	icon_state = "wood_cherry"
@@ -4917,7 +4917,7 @@
 /area/city/mendell/interior)
 "CK" = (
 /obj/structure/table/wood,
-/obj/item/device/flashlight/lamp,
+/obj/item/flashlight/lamp,
 /turf/unsimulated/floor{
 	icon_state = "wood_preview"
 	},
@@ -5210,9 +5210,9 @@
 	pixel_x = 1;
 	pixel_y = 2
 	},
-/obj/item/device/camera,
-/obj/item/device/megaphone/sec,
-/obj/item/device/megaphone/sec,
+/obj/item/camera,
+/obj/item/megaphone/sec,
+/obj/item/megaphone/sec,
 /turf/unsimulated/floor{
 	icon_state = "dark_preview"
 	},
@@ -5269,7 +5269,7 @@
 /obj/structure/railing/mapped{
 	dir = 8
 	},
-/obj/item/device/flashlight/lamp/stage,
+/obj/item/flashlight/lamp/stage,
 /turf/simulated/floor/lino,
 /area/city/mendell/interior)
 "Eq" = (
@@ -5312,7 +5312,7 @@
 /obj/structure/railing/mapped{
 	dir = 4
 	},
-/obj/item/device/flashlight/lamp/stage,
+/obj/item/flashlight/lamp/stage,
 /turf/simulated/floor/lino,
 /area/city/mendell/interior)
 "EF" = (
@@ -5406,11 +5406,11 @@
 	pixel_y = 33
 	},
 /obj/structure/table/wood,
-/obj/item/device/camera,
-/obj/item/device/camera,
-/obj/item/device/camera,
-/obj/item/device/camera,
-/obj/item/device/camera,
+/obj/item/camera,
+/obj/item/camera,
+/obj/item/camera,
+/obj/item/camera,
+/obj/item/camera,
 /turf/unsimulated/floor{
 	icon_state = "wood_cherry"
 	},
@@ -5652,7 +5652,7 @@
 	},
 /area/city/mendell/interior)
 "Hs" = (
-/obj/item/device/flashlight/lamp/stage,
+/obj/item/flashlight/lamp/stage,
 /turf/simulated/floor/lino,
 /area/city/mendell/interior)
 "Hw" = (
@@ -6006,7 +6006,7 @@
 	dir = 8
 	},
 /obj/structure/table/wood,
-/obj/item/device/flashlight/lamp,
+/obj/item/flashlight/lamp,
 /turf/simulated/floor/tiled/dark,
 /area/city/mendell/interior)
 "JG" = (
@@ -6708,10 +6708,10 @@
 /turf/simulated/floor/wood,
 /area/city/mendell)
 "Ne" = (
-/obj/item/device/suit_cooling_unit,
+/obj/item/suit_cooling_unit,
 /obj/effect/floor_decal/industrial/hatch,
 /obj/structure/table/rack,
-/obj/item/device/suit_cooling_unit,
+/obj/item/suit_cooling_unit,
 /turf/simulated/floor/tiled/dark,
 /area/city/mendell)
 "Nh" = (
@@ -7703,15 +7703,15 @@
 	dir = 4
 	},
 /obj/structure/table/wood,
-/obj/item/device/radio/headset/raider,
-/obj/item/device/radio/headset/raider,
-/obj/item/device/radio/headset/raider,
-/obj/item/device/radio/headset/raider,
-/obj/item/device/radio/headset/raider,
-/obj/item/device/radio/headset/raider,
-/obj/item/device/radio/headset/raider,
-/obj/item/device/radio/headset/raider,
-/obj/item/device/radio/headset/raider,
+/obj/item/radio/headset/raider,
+/obj/item/radio/headset/raider,
+/obj/item/radio/headset/raider,
+/obj/item/radio/headset/raider,
+/obj/item/radio/headset/raider,
+/obj/item/radio/headset/raider,
+/obj/item/radio/headset/raider,
+/obj/item/radio/headset/raider,
+/obj/item/radio/headset/raider,
 /turf/simulated/floor/tiled/dark,
 /area/city/mendell)
 "SG" = (
@@ -7754,7 +7754,7 @@
 	pixel_x = 13;
 	pixel_y = 5
 	},
-/obj/item/device/megaphone/command,
+/obj/item/megaphone/command,
 /turf/simulated/floor/lino,
 /area/city/mendell)
 "SX" = (
@@ -8156,7 +8156,7 @@
 /area/city/mendell)
 "Vo" = (
 /obj/structure/table/stone/marble,
-/obj/item/device/camera,
+/obj/item/camera,
 /turf/simulated/floor/wood,
 /area/city/mendell/interior)
 "Vv" = (

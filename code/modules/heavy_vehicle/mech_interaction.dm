@@ -524,7 +524,7 @@
 					playsound(user.loc, 'sound/items/Screwdriver.ogg', 50, 1)
 					user.visible_message(SPAN_NOTICE("\The [user] installs \the [body.cell] into \the [src]."), SPAN_NOTICE("You install \the [body.cell] into \the [src]."))
 				return
-			else if(istype(attacking_item, /obj/item/device/robotanalyzer))
+			else if(istype(attacking_item, /obj/item/robotanalyzer))
 				to_chat(user, SPAN_NOTICE("Diagnostic Report for \the [src]:"))
 				for(var/obj/item/mech_component/limb in list (head, body, arms, legs))
 					if(limb)

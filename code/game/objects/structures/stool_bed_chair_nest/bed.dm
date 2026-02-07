@@ -235,7 +235,7 @@
 		attacking_item.pixel_x = 10 //make sure they reach the pillow
 		attacking_item.pixel_y = -6
 
-	else if(istype(attacking_item, /obj/item/device/paint_sprayer))
+	else if(istype(attacking_item, /obj/item/paint_sprayer))
 		return
 
 	else if(!istype(attacking_item, /obj/item/bedsheet))
@@ -609,23 +609,22 @@
 
 	if(use_check_and_message(usr))
 		return
-	set_rate:
-		var/amount = tgui_input_number(usr, "Set the IV drip's transfer rate.", "IV Drip", iv_transfer_rate, iv_transfer_rate_upperlimit, iv_transfer_rate_lowerlimit, round_value = FALSE)
-		if(!amount)
-			return
-		if ((0.001 > amount || amount > 4) && amount != 0)
-			to_chat(usr, SPAN_WARNING("Entered value must be between 0.001 and 4."))
-			goto set_rate
-		if (iv_transfer_rate == 0)
-			iv_transfer_rate = REM
-			return
-		iv_transfer_rate = amount
-		to_chat(usr, SPAN_NOTICE("Transfer rate set to [src.iv_transfer_rate] u/sec."))
+
+	iv_transfer_rate = tgui_input_number( \
+		usr, \
+		"Set the IV drip's transfer rate between [iv_transfer_rate_lowerlimit] and [iv_transfer_rate_upperlimit].", \
+		"IV Drip", \
+		iv_transfer_rate, \
+		iv_transfer_rate_upperlimit, \
+		iv_transfer_rate_lowerlimit, \
+		round_value = FALSE)
+	to_chat(usr, SPAN_NOTICE("Transfer rate set to [src.iv_transfer_rate] u/sec."))
 
 /obj/structure/bed/roller/Move()
 	. = ..()
 	if(buckled)
 		if(buckled.buckled_to == src)
+			buckled.set_glide_size(glide_size)
 			buckled.forceMove(src.loc)
 		else
 			buckled = null

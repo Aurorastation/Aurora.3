@@ -9,7 +9,7 @@
 	var/state = 0
 	var/datum/ai_laws/laws = new /datum/ai_laws/conglomerate
 	var/obj/item/circuitboard/circuit = null
-	var/obj/item/device/mmi/brain = null
+	var/obj/item/mmi/brain = null
 
 
 /obj/structure/AIcore/attackby(obj/item/attacking_item, mob/user)
@@ -134,8 +134,8 @@
 				to_chat(usr, "Added a freeform law.")
 				return TRUE
 
-			if(istype(attacking_item, /obj/item/device/mmi))
-				var/obj/item/device/mmi/M = attacking_item
+			if(istype(attacking_item, /obj/item/mmi))
+				var/obj/item/mmi/M = attacking_item
 				if(!M.ready_for_use(user))
 					return TRUE
 				if(jobban_isbanned(M.brainmob, "AI"))

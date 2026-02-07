@@ -61,7 +61,7 @@
 			return
 		found = TRUE
 		tesla_link = H
-	else if(istype(H, /obj/item/device/paicard))
+	else if(istype(H, /obj/item/paicard))
 		if(personal_ai)
 			to_chat(user, SPAN_WARNING("\The [src]'s personal AI slot is already occupied by \the [personal_ai]."))
 			return

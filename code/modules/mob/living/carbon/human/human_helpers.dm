@@ -228,7 +228,7 @@
 	return src
 
 /mob/living/carbon/human/proc/has_hearing_aid()
-	if(istype(l_ear, /obj/item/device/hearing_aid) || istype(r_ear, /obj/item/device/hearing_aid))
+	if(istype(l_ear, /obj/item/hearing_aid) || istype(r_ear, /obj/item/hearing_aid))
 		return TRUE
 	if(has_functioning_augment(BP_AUG_COCHLEAR))
 		return TRUE

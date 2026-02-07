@@ -359,8 +359,8 @@
 						dismantle_wall()
 					return
 
-	if(istype(attacking_item, /obj/item/device/electronic_assembly/wallmount))
-		var/obj/item/device/electronic_assembly/wallmount/IC = attacking_item
+	if(istype(attacking_item, /obj/item/electronic_assembly/wallmount))
+		var/obj/item/electronic_assembly/wallmount/IC = attacking_item
 		IC.mount_assembly(src, user)
 		return
 

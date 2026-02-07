@@ -28,7 +28,7 @@
 
 	id = /obj/item/card/id/iac_rescue_ship
 
-	l_ear = /obj/item/device/radio/headset/ship
+	l_ear = /obj/item/radio/headset/ship
 
 	backpack_contents = list(/obj/item/storage/box/survival = 1)
 	species_shoes = list(

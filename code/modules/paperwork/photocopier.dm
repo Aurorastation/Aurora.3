@@ -83,7 +83,7 @@
 
 			if(toner >= 5)
 				var/mob/living/silicon/tempAI = usr
-				var/obj/item/device/camera/siliconcam/camera = tempAI.ai_camera
+				var/obj/item/camera/siliconcam/camera = tempAI.ai_camera
 
 				if(!camera)
 					return
@@ -114,12 +114,12 @@
 			SStgui.update_uis(src)
 		else
 			to_chat(user, SPAN_NOTICE("There is already something in \the [src]."))
-	else if(istype(attacking_item, /obj/item/device/toner))
+	else if(istype(attacking_item, /obj/item/toner))
 		if(toner <= 10) //allow replacing when low toner is affecting the print darkness
 			to_chat(user, SPAN_NOTICE("You insert \the [attacking_item] into \the [src]."))
 			flick("photocopier_toner", src)
 			playsound(loc, SFX_SWITCH, 50, 1)
-			var/obj/item/device/toner/T = attacking_item
+			var/obj/item/toner/T = attacking_item
 			toner = min(toner + T.toner_amount, max_toner)
 			user.drop_from_inventory(attacking_item, get_turf(src))
 			qdel(attacking_item)
@@ -278,9 +278,9 @@
 	p.pixel_x = rand(-9, 9)
 	return p
 
-/obj/item/device/toner
+/obj/item/toner
 	name = "toner cartridge"
 	desc = "A high-definition toner for colour photocopying and printer machines. Good thing it's a business expense."
-	icon = 'icons/obj/item/device/toner.dmi'
+	icon = 'icons/obj/item/toner.dmi'
 	icon_state = "tonercartridge"
 	var/toner_amount = 30

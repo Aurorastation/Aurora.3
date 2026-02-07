@@ -19,7 +19,7 @@ ABSTRACT_TYPE(/datum/uplink_random_selection)
 	..()
 	items = list()
 
-/datum/uplink_random_selection/proc/get_random_item(var/telecrystals, obj/item/device/uplink/U, var/list/bought_items)
+/datum/uplink_random_selection/proc/get_random_item(var/telecrystals, obj/item/uplink/U, var/list/bought_items)
 	var/const/attempts = 50
 
 	for(var/i = 0; i < attempts; i++)

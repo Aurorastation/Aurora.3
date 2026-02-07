@@ -90,14 +90,14 @@
 	contents_path = "-toy"
 	accepted_items = list(/obj/item/toy,
 	/obj/item/lipstick,
-	/obj/item/device/paicard,
-	/obj/item/device/camera,
-	/obj/item/device/synthesized_instrument,
+	/obj/item/paicard,
+	/obj/item/camera,
+	/obj/item/synthesized_instrument,
 	/obj/item/storage/box/unique/snappops,
 	/obj/item/haircomb,
 	/obj/item/storage/box/fancy/crayons,
 	/obj/item/melee/dinograbber,
-	/obj/item/device/laser_pointer,
+	/obj/item/laser_pointer,
 	/obj/item/deck,
 	/obj/item/storage/pill_bottle/dice,
 	/obj/item/pen,
@@ -291,7 +291,7 @@
 /obj/structure/cash_register/commissary/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
-		ui = new(user, src, "QuikPay", "Idris Quik-Pay Register", 400, 400)
+		ui = new(user, src, "QuikPay", "Idris Quik-Pay Register", 550, 550)
 		ui.open()
 
 /obj/structure/cash_register/commissary/ui_data(var/mob/user)
@@ -349,7 +349,7 @@
 				if(L["name"] == params["buying"])
 					L["amount"]++
 					return TRUE
-			buying += list(list("name" = params["buying"], "amount" = params["amount"]))
+			buying += list(list("name" = params["buying"], "amount" = params["amount"], "price" = items_to_price[params["buying"]]))
 
 		if("removal")
 			var/index = 0

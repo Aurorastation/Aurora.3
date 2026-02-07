@@ -28,7 +28,7 @@ ABSTRACT_TYPE(/singleton/fabricator_recipe/engineering)
 
 /singleton/fabricator_recipe/engineering/suit_cooling
 	name = "portable suit cooling unit"
-	path = /obj/item/device/suit_cooling_unit/no_cell
+	path = /obj/item/suit_cooling_unit/no_cell
 
 /singleton/fabricator_recipe/engineering/emergency_cell
 	name = "miniature cell"
@@ -36,7 +36,7 @@ ABSTRACT_TYPE(/singleton/fabricator_recipe/engineering)
 
 /singleton/fabricator_recipe/engineering/debugger
 	name = "debugger"
-	path = /obj/item/device/debugger
+	path = /obj/item/debugger
 
 /singleton/fabricator_recipe/engineering/floor_light
 	name = "floor light"

@@ -1,14 +1,15 @@
-/obj/item/device/flashlight/marshallingwand
+/obj/item/flashlight/marshallingwand
 	name = "marshalling wand"
 	desc = "A marshalling wand, used to direct air or space faring vessels during takeoff and landing."
 	icon_state = "marshallingwand"
 	item_state = "marshallingwand"
 	w_class = WEIGHT_CLASS_SMALL
+	light_system = MOVABLE_LIGHT
 	light_color = LIGHT_COLOR_RED
 	light_range = 2
 	action_button_name = "Toggle Marshalling Wands"
 
-/obj/item/device/flashlight/marshallingwand/AltClick(mob/user)
+/obj/item/flashlight/marshallingwand/AltClick(mob/user)
 	if(!use_check_and_message(user))
 		if(!isturf(user.loc))
 			to_chat(user, SPAN_WARNING("You cannot turn the light on while in this [user.loc].")) //To prevent some lighting anomalities.)
@@ -17,10 +18,10 @@
 		user.update_action_buttons()
 		return TRUE
 
-/obj/item/device/flashlight/marshallingwand/ui_action_click()
+/obj/item/flashlight/marshallingwand/ui_action_click()
 	AltClick(usr)
 
-/obj/item/device/flashlight/marshallingwand/attack_self(mob/user)
+/obj/item/flashlight/marshallingwand/attack_self(mob/user)
 	if(!on)
 		to_chat(user, SPAN_WARNING("The wands need to be on before you can direct craft with them!"))
 		return

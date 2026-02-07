@@ -64,7 +64,7 @@
 	item_state = "space_suit_syndicate"
 	desc = "A crimson red plastic replica of a space suit. This is a toy, it is not made for use in space!"
 	w_class = WEIGHT_CLASS_NORMAL
-	allowed = list(/obj/item/device/flashlight,/obj/item/tank/emergency_oxygen,/obj/item/toy)
+	allowed = list(/obj/item/flashlight,/obj/item/tank/emergency_oxygen,/obj/item/toy)
 	flags_inv = HIDEWRISTS|HIDEGLOVES|HIDESHOES|HIDEJUMPSUIT
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS|HANDS|LEGS|FEET
 
@@ -258,7 +258,7 @@
 	desc = "A military-styled jacket made from thick, distressed canvas. Popular among Martian punks. Patches not included."
 	icon_state = "mgreen"
 	item_state = "mgreen"
-	allowed = list (/obj/item/pen, /obj/item/paper, /obj/item/device/flashlight, /obj/item/tank/emergency_oxygen, /obj/item/storage/box/fancy/matches, /obj/item/reagent_containers/food/drinks/flask)
+	allowed = list (/obj/item/pen, /obj/item/paper, /obj/item/flashlight, /obj/item/tank/emergency_oxygen, /obj/item/storage/box/fancy/matches, /obj/item/reagent_containers/food/drinks/flask)
 
 /obj/item/clothing/suit/storage/toggle/leather_jacket/military/tan
 	icon_state = "mtan"
@@ -405,7 +405,7 @@
 	icon = 'icons/obj/tracksuit.dmi'
 	icon_state = "trackjacket"
 	item_state = "trackjacket"
-	allowed = list (/obj/item/pen, /obj/item/paper, /obj/item/device/flashlight, /obj/item/tank/emergency_oxygen, /obj/item/storage/box/fancy/cigarettes, /obj/item/storage/box/fancy/matches, /obj/item/reagent_containers/food/drinks/flask)
+	allowed = list (/obj/item/pen, /obj/item/paper, /obj/item/flashlight, /obj/item/tank/emergency_oxygen, /obj/item/storage/box/fancy/cigarettes, /obj/item/storage/box/fancy/matches, /obj/item/reagent_containers/food/drinks/flask)
 	contained_sprite = TRUE
 
 /obj/item/clothing/suit/storage/toggle/track/blue
@@ -437,7 +437,7 @@
 	desc = "A favorite of jocks everywhere from Sol to the Coalition."
 	icon_state = "varsity"
 	item_state = "varsity"
-	allowed = list (/obj/item/pen, /obj/item/paper, /obj/item/device/flashlight, /obj/item/tank/emergency_oxygen, /obj/item/storage/box/fancy/matches, /obj/item/reagent_containers/food/drinks/flask)
+	allowed = list (/obj/item/pen, /obj/item/paper, /obj/item/flashlight, /obj/item/tank/emergency_oxygen, /obj/item/storage/box/fancy/matches, /obj/item/reagent_containers/food/drinks/flask)
 
 /obj/item/clothing/suit/storage/toggle/varsity/red
 	name = "red varsity jacket"

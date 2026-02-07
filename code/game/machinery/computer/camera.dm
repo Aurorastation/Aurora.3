@@ -22,7 +22,16 @@
 	if(console_networks.len)
 		current_network = console_networks[1]
 
+	// Create a new camera_monitor program that can run independently of a modular computer.
 	camera_monitor_program = new("Compless")
+	// Make sure that camera_monitor knows its been generated from a dedicated console; this will define its network access.
+	camera_monitor_program.monitored_networks = console_networks
+
+/obj/machinery/computer/security/Destroy()
+	if(camera_monitor_program)
+		camera_monitor_program = null
+
+	. = ..()
 
 /obj/machinery/computer/security/attack_ai(var/mob/user as mob)
 	if(!ai_can_interact(user))
@@ -177,11 +186,6 @@
 		return
 	if(can_access_camera(jump_to))
 		switch_to_camera(user,jump_to)
-
-/obj/machinery/computer/security/process()
-	if(cache_id != GLOB.camera_repository.camera_cache_id)
-		cache_id = GLOB.camera_repository.camera_cache_id
-		SSnanoui.update_uis(src)
 
 /obj/machinery/computer/security/proc/can_access_camera(var/obj/machinery/camera/C)
 	var/list/shared_networks = src.console_networks & C.network

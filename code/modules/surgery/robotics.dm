@@ -376,7 +376,7 @@
 /singleton/surgery_step/robotics/install_mmi
 	name = "Install MMI"
 	allowed_tools = list(
-	/obj/item/device/mmi = 100
+	/obj/item/mmi = 100
 	)
 
 	min_duration = 40
@@ -389,7 +389,7 @@
 	if(target_zone != BP_HEAD)
 		return FALSE
 
-	var/obj/item/device/mmi/M = tool
+	var/obj/item/mmi/M = tool
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	if(!(affected && affected.open == ORGAN_ENCASED_RETRACTED))
 		return FALSE
@@ -434,7 +434,7 @@
 	user.visible_message("<b>[user]</b> has installed \the [tool] into [target]'s [affected.name].", \
 		SPAN_NOTICE("You have installed \the [tool] into [target]'s [affected.name]."))
 
-	var/obj/item/device/mmi/M = tool
+	var/obj/item/mmi/M = tool
 	var/obj/item/organ/internal/machine/posibrain/holder = new(target, 1)
 	target.internal_organs_by_name[BP_BRAIN] = holder
 	user.drop_from_inventory(tool,holder)

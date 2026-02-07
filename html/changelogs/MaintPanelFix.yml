@@ -1,0 +1,6 @@
+author: TheGreyWolf
+
+delete-after: True
+
+changes:
+  - bugfix: "Fixed the name of the fluff maintenance panels around the ship."

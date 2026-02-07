@@ -32,7 +32,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/generic,
 /obj/structure/table/wood,
-/obj/item/device/flashlight/lamp/green,
+/obj/item/flashlight/lamp/green,
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
 	},
@@ -1458,7 +1458,7 @@
 /area/coalition_base/barracks)
 "EC" = (
 /obj/structure/table/steel,
-/obj/item/device/flashlight/lamp{
+/obj/item/flashlight/lamp{
 	pixel_y = 11;
 	pixel_x = -7
 	},

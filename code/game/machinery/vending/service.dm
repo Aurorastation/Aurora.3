@@ -118,7 +118,7 @@
 		/obj/item/tray/tea = 2,
 	)
 
-/obj/item/device/vending_refill/cutlery
+/obj/item/vending_refill/cutlery
 	name = "cutlery resupply canister"
 	vend_id = "cutlery"
 	charges = 50

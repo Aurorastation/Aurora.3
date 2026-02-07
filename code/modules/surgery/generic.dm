@@ -200,7 +200,7 @@
 	allowed_tools = list(
 	TOOL_HEMOSTAT = 100,	\
 	TOOL_CABLECOIL = 75, 	\
-	/obj/item/device/assembly/mousetrap = 20
+	/obj/item/assembly/mousetrap = 20
 	)
 
 	min_duration = 20

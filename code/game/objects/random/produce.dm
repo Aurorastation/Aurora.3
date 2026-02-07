@@ -124,5 +124,6 @@
 		/obj/item/seeds/peanutseed,
 		/obj/item/seeds/soyaseed,
 		/obj/item/seeds/cabbageseed,
+		/obj/item/seeds/cucumberseed,
 		/obj/item/seeds/bellpepperseed
 	)

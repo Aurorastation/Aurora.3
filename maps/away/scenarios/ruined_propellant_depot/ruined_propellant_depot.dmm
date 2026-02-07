@@ -454,7 +454,7 @@
 /area/ruined_propellant_depot/docks_north_east)
 "bo" = (
 /obj/structure/table/steel,
-/obj/item/device/flashlight/lamp/off{
+/obj/item/flashlight/lamp/off{
 	pixel_y = 4;
 	pixel_x = -5
 	},
@@ -567,7 +567,7 @@
 /area/ruined_propellant_depot/atmos_propellant)
 "bH" = (
 /obj/structure/table/steel,
-/obj/item/device/flashlight/flare/glowstick/random{
+/obj/item/flashlight/flare/glowstick/random{
 	pixel_y = -10;
 	pixel_x = -2
 	},
@@ -1414,7 +1414,7 @@
 /obj/random/tool,
 /obj/random/tool,
 /obj/random/tool,
-/obj/item/device/flashlight/flare/glowstick/random,
+/obj/item/flashlight/flare/glowstick/random,
 /obj/random/dirt_75,
 /obj/item/stack/cable_coil/random,
 /turf/simulated/floor/plating,
@@ -1826,7 +1826,7 @@
 /turf/simulated/floor/plating,
 /area/ruined_propellant_depot/docks_north_east)
 "fs" = (
-/obj/item/device/analyzer{
+/obj/item/analyzer{
 	pixel_y = 7;
 	pixel_x = 11
 	},
@@ -2195,7 +2195,7 @@
 /obj/item/storage/box/lights/mixed,
 /obj/item/reagent_containers/glass/bucket,
 /obj/item/clothing/gloves/janitor,
-/obj/item/device/flashlight/maglight,
+/obj/item/flashlight/maglight,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
@@ -2257,7 +2257,7 @@
 	pixel_x = 3;
 	pixel_y = 5
 	},
-/obj/item/device/flashlight/heavy{
+/obj/item/flashlight/heavy{
 	pixel_x = -3;
 	pixel_y = 7
 	},
@@ -3805,7 +3805,7 @@
 /obj/structure/table/glass{
 	table_reinf = "glass"
 	},
-/obj/item/device/flashlight/lamp/off{
+/obj/item/flashlight/lamp/off{
 	pixel_x = -3;
 	pixel_y = 4
 	},
@@ -4143,7 +4143,7 @@
 /area/ruined_propellant_depot/atmos_air)
 "nn" = (
 /obj/structure/table/wood,
-/obj/item/device/flashlight/lamp/green{
+/obj/item/flashlight/lamp/green{
 	pixel_x = -5;
 	pixel_y = 3;
 	on = 0
@@ -4548,7 +4548,7 @@
 /area/ruined_propellant_depot/crew_quarters)
 "oE" = (
 /obj/structure/table/steel,
-/obj/item/device/analyzer{
+/obj/item/analyzer{
 	pixel_y = 7
 	},
 /obj/random/dirt_75,
@@ -4619,7 +4619,7 @@
 /obj/structure/closet,
 /obj/random/tool,
 /obj/random/tool,
-/obj/item/device/flashlight/flare/glowstick/random,
+/obj/item/flashlight/flare/glowstick/random,
 /obj/random/tool,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
@@ -4743,7 +4743,7 @@
 /area/ruined_propellant_depot/eva)
 "pl" = (
 /obj/structure/table/steel,
-/obj/item/device/flashlight/lamp/off{
+/obj/item/flashlight/lamp/off{
 	pixel_x = -5;
 	pixel_y = 4
 	},
@@ -4995,7 +4995,7 @@
 	pixel_x = -4;
 	pixel_y = -8
 	},
-/obj/item/device/flashlight/lamp/off{
+/obj/item/flashlight/lamp/off{
 	pixel_x = -5;
 	pixel_y = 4
 	},
@@ -5171,7 +5171,7 @@
 /area/ruined_propellant_depot/maint)
 "qJ" = (
 /obj/structure/table/steel,
-/obj/item/device/flashlight/heavy{
+/obj/item/flashlight/heavy{
 	pixel_x = -2;
 	pixel_y = 4
 	},
@@ -5458,7 +5458,7 @@
 /turf/simulated/floor/tiled,
 /area/ruined_propellant_depot/atmos_air)
 "rN" = (
-/obj/item/device/analyzer{
+/obj/item/analyzer{
 	pixel_y = 7;
 	pixel_x = 11
 	},
@@ -6781,8 +6781,8 @@
 /area/ruined_propellant_depot/engineering)
 "vQ" = (
 /obj/structure/closet/crate,
-/obj/item/device/flashlight,
-/obj/item/device/flashlight/flare/glowstick,
+/obj/item/flashlight,
+/obj/item/flashlight/flare/glowstick,
 /obj/random/dirt_75,
 /obj/machinery/light/colored/dying{
 	dir = 8
@@ -7864,7 +7864,7 @@
 /obj/structure/closet/crate,
 /obj/random/tool,
 /obj/random/tool,
-/obj/item/device/flashlight/flare,
+/obj/item/flashlight/flare,
 /obj/random/tech_supply,
 /obj/random/tech_supply,
 /obj/random/tool,
@@ -8001,7 +8001,7 @@
 /obj/machinery/atmospherics/pipe/simple/visible{
 	dir = 9
 	},
-/obj/item/device/flashlight/flare{
+/obj/item/flashlight/flare{
 	pixel_x = 8
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -8186,7 +8186,7 @@
 /area/ruined_propellant_depot/hallways_west)
 "Ai" = (
 /obj/structure/table/steel,
-/obj/item/device/radio/phone{
+/obj/item/radio/phone{
 	frequency = 1280;
 	pixel_y = 11
 	},
@@ -8495,7 +8495,7 @@
 /obj/effect/floor_decal/corner/mauve/diagonal,
 /obj/structure/table/wood,
 /obj/random/dirt_75,
-/obj/item/device/flashlight/heavy{
+/obj/item/flashlight/heavy{
 	pixel_x = 2;
 	pixel_y = 5
 	},
@@ -8575,7 +8575,7 @@
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
-/obj/item/device/flashlight/lantern/on{
+/obj/item/flashlight/lantern/on{
 	pixel_y = -3;
 	pixel_x = -7
 	},
@@ -9146,7 +9146,7 @@
 /area/ruined_propellant_depot/hallways_south)
 "Di" = (
 /obj/structure/table/steel,
-/obj/item/device/flashlight/lamp/off{
+/obj/item/flashlight/lamp/off{
 	pixel_y = 4
 	},
 /obj/machinery/alarm/east{
@@ -10367,7 +10367,7 @@
 	dir = 4
 	},
 /obj/random/dirt_75,
-/obj/item/device/flashlight{
+/obj/item/flashlight{
 	pixel_x = -13;
 	pixel_y = 3
 	},
@@ -11133,7 +11133,7 @@
 /turf/simulated/floor/plating,
 /area/ruined_propellant_depot/docks_south_west)
 "Jq" = (
-/obj/item/device/flashlight/flare{
+/obj/item/flashlight/flare{
 	pixel_x = 8
 	},
 /obj/machinery/portable_atmospherics/powered/pump,
@@ -11178,7 +11178,7 @@
 /turf/simulated/floor/tiled,
 /area/ruined_propellant_depot/engineering)
 "Jw" = (
-/obj/item/device/flashlight/flare{
+/obj/item/flashlight/flare{
 	pixel_x = 8
 	},
 /turf/simulated/floor/tiled/full,
@@ -11717,11 +11717,11 @@
 /area/ruined_propellant_depot/docks_north_east)
 "Lg" = (
 /obj/structure/closet,
-/obj/item/device/flashlight/maglight{
+/obj/item/flashlight/maglight{
 	pixel_y = -8
 	},
-/obj/item/device/flashlight/maglight,
-/obj/item/device/flashlight/maglight{
+/obj/item/flashlight/maglight,
+/obj/item/flashlight/maglight{
 	pixel_y = 8
 	},
 /obj/random/dirt_75,
@@ -12658,14 +12658,14 @@
 /obj/item/clothing/gloves/latex,
 /obj/item/clothing/head/nursehat,
 /obj/item/clothing/suit/storage/toggle/labcoat,
-/obj/item/device/healthanalyzer,
-/obj/item/device/breath_analyzer,
+/obj/item/healthanalyzer,
+/obj/item/breath_analyzer,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/white,
 /area/ruined_propellant_depot/medbay)
 "Oh" = (
 /obj/structure/table/steel,
-/obj/item/device/flashlight/maglight{
+/obj/item/flashlight/maglight{
 	pixel_x = -8;
 	pixel_y = 1
 	},
@@ -13791,7 +13791,7 @@
 /turf/simulated/floor/tiled/white,
 /area/ruined_propellant_depot/kitchen)
 "RH" = (
-/obj/item/device/flashlight/flare{
+/obj/item/flashlight/flare{
 	pixel_x = 8
 	},
 /obj/random/dirt_75,
@@ -13995,7 +13995,7 @@
 /turf/simulated/floor/plating,
 /area/ruined_propellant_depot/atmos_air_aux_fill)
 "SE" = (
-/obj/item/device/flashlight/flare{
+/obj/item/flashlight/flare{
 	pixel_x = 8
 	},
 /obj/random/dirt_75,
@@ -14329,7 +14329,7 @@
 /turf/simulated/floor/tiled,
 /area/ruined_propellant_depot/security)
 "Tz" = (
-/obj/item/device/flashlight/survival{
+/obj/item/flashlight/survival{
 	pixel_x = 10;
 	pixel_y = 6
 	},
@@ -14924,7 +14924,7 @@
 /area/ruined_propellant_depot/hallways_west)
 "Vo" = (
 /obj/structure/lattice/catwalk,
-/obj/item/device/analyzer{
+/obj/item/analyzer{
 	pixel_y = 7;
 	pixel_x = -4
 	},
@@ -16180,7 +16180,7 @@
 /obj/machinery/atmospherics/pipe/manifold/visible{
 	dir = 4
 	},
-/obj/item/device/flashlight/flare{
+/obj/item/flashlight/flare{
 	pixel_x = 8
 	},
 /obj/effect/floor_decal/industrial/warning,

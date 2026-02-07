@@ -371,7 +371,7 @@
 					if(prob(50))
 						new /obj/item/stack/material/steel(loc, rand(1,4))
 					if(prob(50))
-						new /obj/item/device/assembly/prox_sensor(loc)
+						new /obj/item/assembly/prox_sensor(loc)
 				else
 					to_chat(user, SPAN_NOTICE("You remove the turret but did not manage to salvage anything."))
 				qdel(src) // qdel
@@ -1105,7 +1105,7 @@
 
 		if(5)
 			to_chat(user, SPAN_NOTICE("You remove the prox sensor from the turret frame."))
-			new /obj/item/device/assembly/prox_sensor(loc)
+			new /obj/item/assembly/prox_sensor(loc)
 			build_step = 4
 
 /obj/machinery/porta_turret_construct/attack_ai()

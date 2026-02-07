@@ -567,14 +567,14 @@
 	origin_tech = list(TECH_POWER = 4,TECH_MAGNET = 4, TECH_DATA = 4)
 
 
-/obj/item/device/kinetic_analyzer
+/obj/item/kinetic_analyzer
 	name = "kinetic analyzer"
 	desc = "Analyzes the kinetic accelerator and prints useful information on it's statistics."
-	icon = 'icons/obj/item/device/kinetic_analyzer.dmi'
+	icon = 'icons/obj/item/kinetic_analyzer.dmi'
 	icon_state = "kinetic_analyzer"
 
 
-/obj/item/device/kinetic_analyzer/afterattack(var/atom/target, var/mob/living/user, proximity, params)
+/obj/item/kinetic_analyzer/afterattack(var/atom/target, var/mob/living/user, proximity, params)
 
 	user.visible_message(
 		SPAN_WARNING("\The [user] scans \the [target] with \the [src]."),

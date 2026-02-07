@@ -16,8 +16,8 @@
 	var/ram = 100	// Used as currency to purchase different abilities
 	var/list/software = list()
 	var/userDNA		// The DNA string of our assigned user
-	var/obj/item/device/paicard/card	// The card we inhabit
-	var/obj/item/device/radio/pai/radio		// Our primary radio
+	var/obj/item/paicard/card	// The card we inhabit
+	var/obj/item/radio/pai/radio		// Our primary radio
 
 
 	var/chassis = "repairbot"   // A record of your chosen chassis.
@@ -96,7 +96,7 @@
 	var/hackprogress = 0				// Possible values: 0 - 1000, >= 1000 means the hack is complete and will be reset upon next check
 	var/hack_aborted = 0
 
-	var/obj/item/radio/integrated/signal/sradio // AI's signaller
+	var/obj/item/integrated_signaler/signal/sradio // AI's signaller
 
 	var/translator_on = 0 // keeps track of the translator module
 
@@ -156,11 +156,11 @@
 		P.set_light(light_range, light_power, light_color)
 
 /mob/living/silicon/pai/Initialize(mapload)
-	var/obj/item/device/paicard/paicard = loc
+	var/obj/item/paicard/paicard = loc
 	if (!istype(paicard))
 		//If we get here, then we must have been created by adminspawning.
 		//so lets assist with debugging by creating our own card and adding ourself to it
-		paicard = new /obj/item/device/paicard(loc)
+		paicard = new /obj/item/paicard(loc)
 		paicard.pai = src
 
 	canmove = 0
@@ -169,9 +169,9 @@
 	sradio = new(src)
 	if(card)
 		if(!card.radio)
-			card.radio = new /obj/item/device/radio/pai(src.card)
+			card.radio = new /obj/item/radio/pai(src.card)
 		radio = card.radio
-		INVOKE_ASYNC(card, TYPE_PROC_REF(/obj/item/device/paicard, recalculateChannels))
+		INVOKE_ASYNC(card, TYPE_PROC_REF(/obj/item/paicard, recalculateChannels))
 
 	//Default languages without universal translator software
 
@@ -230,7 +230,7 @@
 	return 0
 
 /mob/living/silicon/pai/restrained()
-	return !istype(loc, /obj/item/device/paicard) && ..()
+	return !istype(loc, /obj/item/paicard) && ..()
 
 /mob/living/silicon/pai/emp_act(severity)
 	. = ..()
@@ -289,7 +289,7 @@
 /*
 // Debug command - Maybe should be added to admin verbs later
 /mob/verb/makePAI(var/turf/t in view())
-	var/obj/item/device/paicard/card = new(t)
+	var/obj/item/paicard/card = new(t)
 	var/mob/living/silicon/pai/pai = new(card)
 	pai.key = src.key
 	card.setPersonality(pai)
@@ -418,7 +418,7 @@
 	set category = "IC.Maneuver"
 
 	// Pass lying down or getting up to our pet human, if we're in a rig.
-	if(istype(src.loc,/obj/item/device/paicard))
+	if(istype(src.loc,/obj/item/paicard))
 		resting = 0
 		var/obj/item/rig/rig = src.get_rig()
 		if(istype(rig))
@@ -548,5 +548,5 @@
 /mob/living/silicon/pai/set_respawn_time()
 	set_death_time(MINISYNTH, world.time)
 
-/obj/item/device/radio/pai
+/obj/item/radio/pai
 	canhear_range = 0 // only people on their tile

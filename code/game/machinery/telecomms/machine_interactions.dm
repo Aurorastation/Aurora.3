@@ -116,7 +116,7 @@
 		return
 	interact(user, user.get_multitool())
 
-/obj/machinery/telecomms/interact(mob/user, var/obj/item/device/multitool/M)
+/obj/machinery/telecomms/interact(mob/user, var/obj/item/multitool/M)
 	if(!M)
 		M = user.get_multitool()
 	var/dat
@@ -229,7 +229,7 @@
 	if(stat & (BROKEN|NOPOWER))
 		return
 
-	var/obj/item/device/multitool/P = usr.get_multitool()
+	var/obj/item/multitool/P = usr.get_multitool()
 
 	if(href_list["input"])
 		switch(href_list["input"])

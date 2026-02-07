@@ -7,38 +7,38 @@
 	desc = "A hand-held body scanner able to distinguish vital signs of the subject."
 	req_tech = list(TECH_MAGNET = 2, TECH_BIO = 3)
 	materials = list(DEFAULT_WALL_MATERIAL = 200)
-	build_path = /obj/item/device/healthanalyzer
+	build_path = /obj/item/healthanalyzer
 
 /datum/design/item/medical/robot_scanner
 	name = "Robot Analyzer"
 	desc = "A hand-held scanner able to diagnose robotic injuries."
 	req_tech = list(TECH_MAGNET = 3, TECH_BIO = 2, TECH_ENGINEERING = 3)
 	materials = list(DEFAULT_WALL_MATERIAL = 500, MATERIAL_GLASS = 200)
-	build_path = /obj/item/device/robotanalyzer
+	build_path = /obj/item/robotanalyzer
 
 /datum/design/item/medical/mass_spectrometer
 	name = "Mass Spectrometer"
 	desc = "A device for analyzing chemicals in blood."
 	req_tech = list(TECH_BIO = 2, TECH_MAGNET = 2)
-	build_path = /obj/item/device/mass_spectrometer
+	build_path = /obj/item/mass_spectrometer
 
 /datum/design/item/medical/adv_mass_spectrometer
 	name = "Advanced Mass Spectrometer"
 	desc = "A device for analyzing chemicals in blood and their quantities."
 	req_tech = list(TECH_BIO = 2, TECH_MAGNET = 4)
-	build_path = /obj/item/device/mass_spectrometer/adv
+	build_path = /obj/item/mass_spectrometer/adv
 
 /datum/design/item/medical/reagent_scanner
 	name = "Reagent Scanner"
 	desc = "A device for identifying chemicals."
 	req_tech = list(TECH_BIO = 2, TECH_MAGNET = 2)
-	build_path = /obj/item/device/reagent_scanner
+	build_path = /obj/item/reagent_scanner
 
 /datum/design/item/medical/adv_reagent_scanner
 	name = "Advanced Reagent Scanner"
 	desc = "A device for identifying chemicals and their proportions."
 	req_tech = list(TECH_BIO = 2, TECH_MAGNET = 4)
-	build_path = /obj/item/device/reagent_scanner/adv
+	build_path = /obj/item/reagent_scanner/adv
 
 /datum/design/item/medical/nanopaste
 	name = "Nanopaste"

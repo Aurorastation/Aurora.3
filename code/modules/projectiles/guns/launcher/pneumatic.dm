@@ -188,7 +188,7 @@
 			else
 				to_chat(user, SPAN_NOTICE("You need at least five metal sheets to complete this task."))
 			return
-	else if(istype(attacking_item,/obj/item/device/transfer_valve))
+	else if(istype(attacking_item,/obj/item/transfer_valve))
 		if(buildstate == 4)
 			qdel(attacking_item)
 			to_chat(user, SPAN_NOTICE("You install the transfer valve and connect it to the piping."))
