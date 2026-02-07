@@ -1,8 +1,0 @@
-author: Hellfirejag
-delete-after: True
-changes:
-  - bugfix: "Fixed mobs other than humans not moving smoothly."
-  - bugfix: "Fixed mobs cheating their movement speed on diagonals."
-  - bugfix: "Fixed smooth movement not working on mechs."
-  - bugfix: "Fixed smooth movement not working on wheelchairs/rollerbeds/vehicles in general."
-  - bugfix: "Fixed mobs moving at lightspeed."

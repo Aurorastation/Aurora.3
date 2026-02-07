@@ -129,3 +129,37 @@
   - refactor: Killed the last few ancient Goto statements.
   TheGreyWolf:
   - rscadd: The antag toolbox now also have insulated gloves fitting taj and unathi.
+2026-02-07:
+  AlaunusLux:
+  - bugfix: Fixed ghost roles falling off manifest when a player leaves the round.
+  Hellfirejag:
+  - bugfix: Fixed some situations where a character in-game could view the ooc-manifest
+      that includes off-ship roles.
+  - bugfix: Fixed mobs other than humans not moving smoothly.
+  - bugfix: Fixed mobs cheating their movement speed on diagonals.
+  - bugfix: Fixed smooth movement not working on mechs.
+  - bugfix: Fixed smooth movement not working on wheelchairs/rollerbeds/vehicles in
+      general.
+  - bugfix: Fixed mobs moving at lightspeed.
+  SimpleMaroon:
+  - bugfix: Fixed accented softcaps missing the accent on the worn and held icons.
+  TheGreyWolf:
+  - bugfix: Fixed the name of the fluff maintenance panels around the ship.
+  - rscadd: The towel now keeps its name and description when unfolded on the floor
+      and picked up again.
+  - bugfix: Fixes several light in-hand sprites.
+  - bugfix: Fixes the directional glow to be a radius instead for the torch, flare
+      and marshal wand.
+  - bugfix: Added hammers to the autolathe.
+  - bugfix: Fixed the consular and RD psi receiver boxes decaying. They get organ
+      coolers now.
+  - bugfix: Fixed minor spelling stuff for the psi receiver.
+  - bugfix: Fixes the psi receiver using the wrong sprite.
+  - bugfix: Fixes the francisca being incorrect.
+  UltraBigRat:
+  - rscadd: Added nanopaste to the uplink.
+  fyni:
+  - rscadd: Adds the Outer Eyes small and large flag, only available to mappers, ST
+      and modmins.
+  - rscadd: Adds the Outer Eyes paperwork icon, [logo_toe], available for anyone to
+      use. Don't go marking your paperwork with wierd icons though.
