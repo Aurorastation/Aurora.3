@@ -168,7 +168,7 @@
 	name = "Perconol"
 	id = "perconol"
 	result = /singleton/reagent/perconol
-	required_reagents = list(/singleton/reagent/mortaphenyl = 1, /singleton/reagent/sugar = 1, /singleton/reagent/water = 1)
+	required_reagents = list(/singleton/reagent/mortaphenyl = 1, /singleton/reagent/sugar = 1, /singleton/reagent/hydrazine = 1)
 	result_amount = 3
 
 /datum/chemical_reaction/oxycomorphine
