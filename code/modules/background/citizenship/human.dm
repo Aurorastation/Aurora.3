@@ -73,6 +73,8 @@
 
 /obj/outfit/job/diplomatic_bodyguard/ceti
 	name = "Tau Ceti Diplomatic Bodyguard"
+	uniform = /obj/item/clothing/under/rank/bssb
+	suit = /obj/item/clothing/suit/storage/toggle/bssb
 	backpack_contents = list(
 		/obj/item/gun/energy/blaster/revolver
 	)
@@ -206,6 +208,9 @@
 
 /obj/outfit/job/diplomatic_bodyguard/sol
 	name = "Sol Diplomatic Bodyguard"
+	uniform = /obj/item/clothing/under/rank/sol/army/service
+	shoes = /obj/item/clothing/shoes/jackboots
+	head = /obj/item/clothing/head/sol/army/service/garrison
 	backpack_contents = list(
 		/obj/item/gun/projectile/pistol/sol = 1
 	)
@@ -292,6 +297,8 @@
 
 /obj/outfit/job/diplomatic_bodyguard/elyra
 	name = "Elyra Diplomatic Bodyguard"
+	uniform = /obj/item/clothing/under/rank/elyran_fatigues
+	shoes = /obj/item/clothing/shoes/jackboots
 	backpack_contents = list(
 		/obj/item/gun/projectile/plasma/bolter/pistol = 1
 	)
