@@ -60,4 +60,5 @@ changes:
   - rscadd: "Ports inhand sprites for Hydraulic Rescue Tool from /tg/station."
   - bugfix: "Fixes minor issues with several inhand sprites (pixel shifting, mismatched colors, etc)."
   - code_imp: "Standardizes icon_state naming conventions for several items."
+  - code_imp: "Updates code docs to use DMDocs."
   - qol: "Renames 'analyzer' to 'gas analyzer' for consistency with other 'analyzer' devices."

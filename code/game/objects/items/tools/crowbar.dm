@@ -63,6 +63,8 @@
 	desc = "A hydraulic rescue tool that functions like a crowbar by applying strong amounts of hydraulic pressure to force open different things. Also known as jaws of life."
 	icon = 'icons/obj/item/hydraulic_rescue_tool.dmi'
 	icon_state = "jawspry"
+	item_state = "jawspry"
+	contained_sprite = TRUE
 	force = 15
 	throwforce = 1
 	w_class = WEIGHT_CLASS_NORMAL
