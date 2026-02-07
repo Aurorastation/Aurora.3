@@ -1,5 +1,4 @@
 /mob/living/heavy_vehicle/proc/can_move(var/mob/user)
-	. = 0
 	if(world.time < next_mecha_move)
 		return
 
@@ -18,9 +17,6 @@
 		next_mecha_move = world.time + 15
 		return
 
-
-	next_mecha_move = world.time + (incorporeal_move ? legs.move_delay / 2 : legs.move_delay) + (legs.damaged_delay * (legs.total_damage / legs.max_damage))
-
 	if(maintenance_protocols)
 		if(user)
 			to_chat(user, SPAN_WARNING("Maintenance protocols are in effect."))
@@ -32,10 +28,10 @@
 			to_chat(user, SPAN_WARNING("The power indicator flashes briefly."))
 		return
 
+	next_mecha_move = world.time + (incorporeal_move ? legs.move_delay / 2 : legs.move_delay) + (legs.damaged_delay * (legs.total_damage / legs.max_damage))
 	return TRUE
 
 /mob/living/heavy_vehicle/proc/can_turn(var/mob/user)
-	. = 0
 	if(world.time < next_mecha_turn)
 		return
 
@@ -54,8 +50,44 @@
 		next_mecha_turn = world.time + 15
 		return
 
+	if(maintenance_protocols)
+		if(user)
+			to_chat(user, SPAN_WARNING("Maintenance protocols are in effect."))
+		return
+
+	var/obj/item/cell/C = get_cell()
+	if(!C || !C.check_charge(legs.power_use * CELLRATE))
+		if(user)
+			to_chat(user, SPAN_WARNING("The power indicator flashes briefly."))
+		return
 
 	next_mecha_turn = world.time + legs.turn_delay + (legs.damaged_delay * (legs.total_damage / legs.max_damage))
+	return TRUE
+
+/mob/living/heavy_vehicle/proc/can_strafe(var/mob/user)
+	if (world.time < next_mecha_move)
+		return
+
+	if(incapacitated() || (user && user.incapacitated()) || lockdown)
+		return
+
+	if(!legs)
+		if(user)
+			to_chat(user, SPAN_WARNING("\The [src] has no means of propulsion!"))
+		next_mecha_move = world.time + 3 // Just to stop them from getting spammed with messages.
+		return
+
+	if(!legs.can_strafe)
+		if(user)
+			to_chat(user, SPAN_WARNING("Your motivators are not capable of strafing!"))
+		next_mecha_move = world.time + 15
+		return
+
+	if(!legs.motivator || legs.total_damage != 0 && legs.total_damage >= legs.max_damage)
+		if(user)
+			to_chat(user, SPAN_WARNING("Your motivators are destroyed! You can't strafe!"))
+		next_mecha_move = world.time + 15
+		return
 
 	if(maintenance_protocols)
 		if(user)
@@ -68,6 +100,7 @@
 			to_chat(user, SPAN_WARNING("The power indicator flashes briefly."))
 		return
 
+	next_mecha_move = (world.time + legs.move_delay + (legs.damaged_delay * (legs.total_damage / legs.max_damage))) * legs.strafe_delay_modifier
 	return TRUE
 
 /mob/living/heavy_vehicle/get_standard_pixel_x()

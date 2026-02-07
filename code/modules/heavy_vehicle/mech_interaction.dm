@@ -228,6 +228,8 @@
 	user.forceMove(src)
 	LAZYDISTINCTADD(pilots, user)
 	RegisterSignal(user, COMSIG_MOB_FACEDIR, PROC_REF(handle_user_turn))
+	RegisterSignal(user, COMSIG_INPUT_KEY_QUICK_EQUIP, PROC_REF(strafe_left))
+	RegisterSignal(user, COMSIG_INPUT_KEY_DROP, PROC_REF(strafe_right))
 	playsound(src, 'sound/machines/windowdoor.ogg', 50, 1)
 	if(user.client) user.client.screen |= hud_elements
 	LAZYDISTINCTADD(user.additional_vision_handlers, src)
@@ -260,11 +262,25 @@
 		set_intent(I_HURT)
 		LAZYREMOVE(pilots, user)
 		UnregisterSignal(user, COMSIG_MOB_FACEDIR)
+		UnregisterSignal(user, COMSIG_INPUT_KEY_QUICK_EQUIP)
+		UnregisterSignal(user, COMSIG_INPUT_KEY_DROP)
 		UNSETEMPTY(pilots)
 
 /mob/living/heavy_vehicle/proc/handle_user_turn(var/mob/living/user, var/direction)
 	SIGNAL_HANDLER
 	INVOKE_ASYNC(src, TYPE_PROC_REF(/atom, relaymove), user, direction, TRUE)
+
+/mob/living/heavy_vehicle/proc/strafe_left(var/mob/user, var/cancelled)
+	SIGNAL_HANDLER
+	// Stop the pilot from attempting to drop the item in their hands, we're replacing it with a strafe input.
+	*cancelled = TRUE
+	strafe_move(user, angle2dir(dir2angle(dir) + 90))
+
+/mob/living/heavy_vehicle/proc/strafe_right(var/mob/user, var/cancelled)
+	SIGNAL_HANDLER
+	// Stop the pilot from attempting to drop the item in their hands, we're replacing it with a strafe input.
+	*cancelled = TRUE
+	strafe_move(user, angle2dir(dir2angle(dir) + 270))
 
 /mob/living/heavy_vehicle/relaymove(mob/living/user, direction, var/turn_only = FALSE)
 	. = ..()
@@ -284,10 +300,7 @@
 			rotate_by_angle(user, angle2dir(dir2angle(dir) + 270))
 
 /mob/living/heavy_vehicle/proc/throttle_move(mob/living/user, direction, reverse)
-	if (!legs)
-		return // LIEUTENANT DAN!!!
-
-	if(!can_move(user))
+	if (!legs || !can_move(user))
 		return
 
 	// Get the tile in the direction.
@@ -307,11 +320,26 @@
 	else
 		Move(target_loc, direction, 0, FALSE)
 
-/mob/living/heavy_vehicle/proc/rotate_by_angle(mob/living/user, direction)
-	if (!legs)
-		return // LIEUTENANT DAN!!!
+/mob/living/heavy_vehicle/proc/strafe_move(mob/user, direction)
+	if (!legs || !can_strafe(user))
+		return
 
-	if(!can_turn(user))
+	// Get the tile in the direction.
+	var/turf/target_loc = get_step(src, direction)
+	if(!legs.can_move_on(loc, target_loc))
+		return
+
+	// Then send a move command
+	if(incorporeal_move)
+		if(legs.mech_step_sound)
+			playsound(src.loc,legs.mech_step_sound,40,1)
+		use_cell_power(legs.power_use * CELLRATE)
+		user.client.Process_Incorpmove(direction, src)
+	else
+		Move(target_loc, direction, 0, FALSE)
+
+/mob/living/heavy_vehicle/proc/rotate_by_angle(mob/living/user, direction)
+	if (!legs || !can_turn(user))
 		return
 
 	use_cell_power(legs.power_use * CELLRATE)

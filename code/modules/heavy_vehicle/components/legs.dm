@@ -12,6 +12,12 @@
 	/// Extra movement delay added when using reverse throttle.
 	var/reverse_delay = 10
 
+	/// Extra movement delay added when strafing.
+	var/strafe_delay_modifier = 1.5
+
+	/// Whether or not the legs allow strafing at all.
+	var/can_strafe = TRUE
+
 	/**
 	 * Extra movement delay added based on the ratio of the legs current damage to its maximum damage.
 	 * IE: If your max is 100, and you've taken 50 damage to the legs, this delay should come out to +5.
