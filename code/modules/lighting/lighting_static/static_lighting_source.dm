@@ -219,79 +219,309 @@
 	else if (needs_update == LIGHTING_CHECK_UPDATE)
 		return //nothing's changed
 
-	var/list/datum/static_lighting_corner/corners = list()
-	var/list/turf/turfs = list()
+	// OPTIMIZATION: Use list to track visited corners.
+	// Note: Not using static list to avoid re-entrancy issues if luminosity updates trigger other code.
+	var/list/visited_corners = list()
+
+	// Swap lists to handle tracking "gone" corners efficiently.
+	var/list/datum/static_lighting_corner/old_effect_str = effect_str
+	effect_str = list()
+
+	var/current_lum_r = lum_r
+	var/current_lum_g = lum_g
+	var/current_lum_b = lum_b
+
+	var/old_lum_r = applied_lum_r
+	var/old_lum_g = applied_lum_g
+	var/old_lum_b = applied_lum_b
+
 	if (source_turf)
 		var/oldlum = source_turf.luminosity
 		source_turf.luminosity = ceil(light_range)
-		for(var/turf/T in view(ceil(light_range), source_turf))
-			if(!IS_OPAQUE_TURF(T))
-				if (!T.lighting_corners_initialised)
-					T.static_generate_missing_corners()
-				corners[T.lighting_corner_NE] = 0
-				corners[T.lighting_corner_SE] = 0
-				corners[T.lighting_corner_SW] = 0
-				corners[T.lighting_corner_NW] = 0
-			turfs += T
 
+		// Inline loop for efficiency
+		var/range = ceil(light_range)
+
+		for(var/turf/T in view(range, source_turf))
+			if(IS_OPAQUE_TURF(T))
+				continue
+
+			if (!T.lighting_corners_initialised)
+				T.static_generate_missing_corners()
+
+			// Process 4 corners
+			var/datum/static_lighting_corner/C
+
+			C = T.lighting_corner_NE
+			if(C && !visited_corners[C])
+				visited_corners[C] = TRUE
+
+				var/strength = LUM_FALLOFF(C, pixel_turf) * light_power
+				if(strength > 0)
+					effect_str[C] = strength
+					LAZYADD(C.affecting, src)
+
+				var/old_strength = 0
+				if(old_effect_str && !isnull(old_effect_str[C]))
+					old_strength = old_effect_str[C]
+					old_effect_str -= C
+				else if(strength <= 0) // Optimization: If new strength is 0, and no old strength, we did nothing.
+					goto skip_NE
+
+				C.update_lumcount(
+					(strength * current_lum_r) - (old_strength * old_lum_r),
+					(strength * current_lum_g) - (old_strength * old_lum_g),
+					(strength * current_lum_b) - (old_strength * old_lum_b)
+				)
+
+				if(strength <= 0 && old_strength > 0)
+					LAZYREMOVE(C.affecting, src)
+			skip_NE:
+
+			C = T.lighting_corner_SE
+			if(C && !visited_corners[C])
+				visited_corners[C] = TRUE
+				var/strength = LUM_FALLOFF(C, pixel_turf) * light_power
+				if(strength > 0)
+					effect_str[C] = strength
+					LAZYADD(C.affecting, src)
+				var/old_strength = 0
+				if(old_effect_str && !isnull(old_effect_str[C]))
+					old_strength = old_effect_str[C]
+					old_effect_str -= C
+				else if(strength <= 0)
+					goto skip_SE
+				C.update_lumcount(
+					(strength * current_lum_r) - (old_strength * old_lum_r),
+					(strength * current_lum_g) - (old_strength * old_lum_g),
+					(strength * current_lum_b) - (old_strength * old_lum_b)
+				)
+				if(strength <= 0 && old_strength > 0)
+					LAZYREMOVE(C.affecting, src)
+			skip_SE:
+
+			C = T.lighting_corner_SW
+			if(C && !visited_corners[C])
+				visited_corners[C] = TRUE
+				var/strength = LUM_FALLOFF(C, pixel_turf) * light_power
+				if(strength > 0)
+					effect_str[C] = strength
+					LAZYADD(C.affecting, src)
+				var/old_strength = 0
+				if(old_effect_str && !isnull(old_effect_str[C]))
+					old_strength = old_effect_str[C]
+					old_effect_str -= C
+				else if(strength <= 0)
+					goto skip_SW
+				C.update_lumcount(
+					(strength * current_lum_r) - (old_strength * old_lum_r),
+					(strength * current_lum_g) - (old_strength * old_lum_g),
+					(strength * current_lum_b) - (old_strength * old_lum_b)
+				)
+				if(strength <= 0 && old_strength > 0)
+					LAZYREMOVE(C.affecting, src)
+			skip_SW:
+
+			C = T.lighting_corner_NW
+			if(C && !visited_corners[C])
+				visited_corners[C] = TRUE
+				var/strength = LUM_FALLOFF(C, pixel_turf) * light_power
+				if(strength > 0)
+					effect_str[C] = strength
+					LAZYADD(C.affecting, src)
+				var/old_strength = 0
+				if(old_effect_str && !isnull(old_effect_str[C]))
+					old_strength = old_effect_str[C]
+					old_effect_str -= C
+				else if(strength <= 0)
+					goto skip_NW
+				C.update_lumcount(
+					(strength * current_lum_r) - (old_strength * old_lum_r),
+					(strength * current_lum_g) - (old_strength * old_lum_g),
+					(strength * current_lum_b) - (old_strength * old_lum_b)
+				)
+				if(strength <= 0 && old_strength > 0)
+					LAZYREMOVE(C.affecting, src)
+			skip_NW:
+
+			// Vertical Propagation (Above)
 			var/turf/above = GET_TURF_ABOVE(T)
-
 			while(above && istransparentturf(above))
 				if (!above.lighting_corners_initialised)
 					above.static_generate_missing_corners()
-				corners[above.lighting_corner_NE] = 0
-				corners[above.lighting_corner_SE] = 0
-				corners[above.lighting_corner_SW] = 0
-				corners[above.lighting_corner_NW] = 0
+
+				var/datum/static_lighting_corner/AC
+
+				AC = above.lighting_corner_NE
+				if(AC && !visited_corners[AC])
+					visited_corners[AC] = TRUE
+					var/strength = LUM_FALLOFF(AC, pixel_turf) * light_power
+					if(strength > 0)
+						effect_str[AC] = strength
+						LAZYADD(AC.affecting, src)
+					var/old_strength = 0
+					if(old_effect_str && !isnull(old_effect_str[AC]))
+						old_strength = old_effect_str[AC]
+						old_effect_str -= AC
+					else if(strength <= 0)
+						goto skip_above_NE
+					AC.update_lumcount((strength * current_lum_r) - (old_strength * old_lum_r), (strength * current_lum_g) - (old_strength * old_lum_g), (strength * current_lum_b) - (old_strength * old_lum_b))
+					if(strength <= 0 && old_strength > 0)
+						LAZYREMOVE(AC.affecting, src)
+				skip_above_NE:
+
+				AC = above.lighting_corner_SE
+				if(AC && !visited_corners[AC])
+					visited_corners[AC] = TRUE
+					var/strength = LUM_FALLOFF(AC, pixel_turf) * light_power
+					if(strength > 0)
+						effect_str[AC] = strength
+						LAZYADD(AC.affecting, src)
+					var/old_strength = 0
+					if(old_effect_str && !isnull(old_effect_str[AC]))
+						old_strength = old_effect_str[AC]
+						old_effect_str -= AC
+					else if(strength <= 0)
+						goto skip_above_SE
+					AC.update_lumcount((strength * current_lum_r) - (old_strength * old_lum_r), (strength * current_lum_g) - (old_strength * old_lum_g), (strength * current_lum_b) - (old_strength * old_lum_b))
+					if(strength <= 0 && old_strength > 0)
+						LAZYREMOVE(AC.affecting, src)
+				skip_above_SE:
+
+				AC = above.lighting_corner_SW
+				if(AC && !visited_corners[AC])
+					visited_corners[AC] = TRUE
+					var/strength = LUM_FALLOFF(AC, pixel_turf) * light_power
+					if(strength > 0)
+						effect_str[AC] = strength
+						LAZYADD(AC.affecting, src)
+					var/old_strength = 0
+					if(old_effect_str && !isnull(old_effect_str[AC]))
+						old_strength = old_effect_str[AC]
+						old_effect_str -= AC
+					else if(strength <= 0)
+						goto skip_above_SW
+					AC.update_lumcount((strength * current_lum_r) - (old_strength * old_lum_r), (strength * current_lum_g) - (old_strength * old_lum_g), (strength * current_lum_b) - (old_strength * old_lum_b))
+					if(strength <= 0 && old_strength > 0)
+						LAZYREMOVE(AC.affecting, src)
+				skip_above_SW:
+
+				AC = above.lighting_corner_NW
+				if(AC && !visited_corners[AC])
+					visited_corners[AC] = TRUE
+					var/strength = LUM_FALLOFF(AC, pixel_turf) * light_power
+					if(strength > 0)
+						effect_str[AC] = strength
+						LAZYADD(AC.affecting, src)
+					var/old_strength = 0
+					if(old_effect_str && !isnull(old_effect_str[AC]))
+						old_strength = old_effect_str[AC]
+						old_effect_str -= AC
+					else if(strength <= 0)
+						goto skip_above_NW
+					AC.update_lumcount((strength * current_lum_r) - (old_strength * old_lum_r), (strength * current_lum_g) - (old_strength * old_lum_g), (strength * current_lum_b) - (old_strength * old_lum_b))
+					if(strength <= 0 && old_strength > 0)
+						LAZYREMOVE(AC.affecting, src)
+				skip_above_NW:
 
 				above = GET_TURF_ABOVE(above)
 
-			turfs += above
-
+			// Vertical Propagation (Below)
 			var/turf/below = GET_TURF_BELOW(T)
 			var/turf/previous = T
-
 			while(below && istransparentturf(previous))
 				if (!below.lighting_corners_initialised)
 					below.static_generate_missing_corners()
-				corners[below.lighting_corner_NE] = 0
-				corners[below.lighting_corner_SE] = 0
-				corners[below.lighting_corner_SW] = 0
-				corners[below.lighting_corner_NW] = 0
+
+				var/datum/static_lighting_corner/AC
+
+				AC = below.lighting_corner_NE
+				if(AC && !visited_corners[AC])
+					visited_corners[AC] = TRUE
+					var/strength = LUM_FALLOFF(AC, pixel_turf) * light_power
+					if(strength > 0)
+						effect_str[AC] = strength
+						LAZYADD(AC.affecting, src)
+					var/old_strength = 0
+					if(old_effect_str && !isnull(old_effect_str[AC]))
+						old_strength = old_effect_str[AC]
+						old_effect_str -= AC
+					else if(strength <= 0)
+						goto skip_below_NE
+					AC.update_lumcount((strength * current_lum_r) - (old_strength * old_lum_r), (strength * current_lum_g) - (old_strength * old_lum_g), (strength * current_lum_b) - (old_strength * old_lum_b))
+					if(strength <= 0 && old_strength > 0)
+						LAZYREMOVE(AC.affecting, src)
+				skip_below_NE:
+
+				AC = below.lighting_corner_SE
+				if(AC && !visited_corners[AC])
+					visited_corners[AC] = TRUE
+					var/strength = LUM_FALLOFF(AC, pixel_turf) * light_power
+					if(strength > 0)
+						effect_str[AC] = strength
+						LAZYADD(AC.affecting, src)
+					var/old_strength = 0
+					if(old_effect_str && !isnull(old_effect_str[AC]))
+						old_strength = old_effect_str[AC]
+						old_effect_str -= AC
+					else if(strength <= 0)
+						goto skip_below_SE
+					AC.update_lumcount((strength * current_lum_r) - (old_strength * old_lum_r), (strength * current_lum_g) - (old_strength * old_lum_g), (strength * current_lum_b) - (old_strength * old_lum_b))
+					if(strength <= 0 && old_strength > 0)
+						LAZYREMOVE(AC.affecting, src)
+				skip_below_SE:
+
+				AC = below.lighting_corner_SW
+				if(AC && !visited_corners[AC])
+					visited_corners[AC] = TRUE
+					var/strength = LUM_FALLOFF(AC, pixel_turf) * light_power
+					if(strength > 0)
+						effect_str[AC] = strength
+						LAZYADD(AC.affecting, src)
+					var/old_strength = 0
+					if(old_effect_str && !isnull(old_effect_str[AC]))
+						old_strength = old_effect_str[AC]
+						old_effect_str -= AC
+					else if(strength <= 0)
+						goto skip_below_SW
+					AC.update_lumcount((strength * current_lum_r) - (old_strength * old_lum_r), (strength * current_lum_g) - (old_strength * old_lum_g), (strength * current_lum_b) - (old_strength * old_lum_b))
+					if(strength <= 0 && old_strength > 0)
+						LAZYREMOVE(AC.affecting, src)
+				skip_below_SW:
+
+				AC = below.lighting_corner_NW
+				if(AC && !visited_corners[AC])
+					visited_corners[AC] = TRUE
+					var/strength = LUM_FALLOFF(AC, pixel_turf) * light_power
+					if(strength > 0)
+						effect_str[AC] = strength
+						LAZYADD(AC.affecting, src)
+					var/old_strength = 0
+					if(old_effect_str && !isnull(old_effect_str[AC]))
+						old_strength = old_effect_str[AC]
+						old_effect_str -= AC
+					else if(strength <= 0)
+						goto skip_below_NW
+					AC.update_lumcount((strength * current_lum_r) - (old_strength * old_lum_r), (strength * current_lum_g) - (old_strength * old_lum_g), (strength * current_lum_b) - (old_strength * old_lum_b))
+					if(strength <= 0 && old_strength > 0)
+						LAZYREMOVE(AC.affecting, src)
+				skip_below_NW:
 
 				previous = below
 				below = GET_TURF_BELOW(below)
 
 		source_turf.luminosity = oldlum
 
-	var/list/datum/static_lighting_corner/new_corners = (corners - effect_str)
-	LAZYINITLIST(effect_str)
-	if (needs_update == LIGHTING_VIS_UPDATE)
-		for (var/datum/static_lighting_corner/corner as anything in new_corners)
-			APPLY_CORNER(corner)
-			if (. != 0)
-				LAZYADD(corner.affecting, src)
-				effect_str[corner] = .
-	else
-		for (var/datum/static_lighting_corner/corner as anything in new_corners)
-			APPLY_CORNER(corner)
-			if (. != 0)
-				LAZYADD(corner.affecting, src)
-				effect_str[corner] = .
-
-		for (var/datum/static_lighting_corner/corner as anything in corners - new_corners) // Existing corners
-			APPLY_CORNER(corner)
-			if (. != 0)
-				effect_str[corner] = .
-			else
-				LAZYREMOVE(corner.affecting, src)
-				effect_str -= corner
-
-	var/list/datum/static_lighting_corner/gone_corners = effect_str - corners
-	for (var/datum/static_lighting_corner/corner as anything in gone_corners)
-		REMOVE_CORNER(corner)
-		LAZYREMOVE(corner.affecting, src)
-	effect_str -= gone_corners
+	// Clean up "gone" corners
+	if (old_effect_str)
+		for (var/datum/static_lighting_corner/corner as anything in old_effect_str)
+			var/old_val = old_effect_str[corner]
+			corner.update_lumcount(
+				-(old_val * old_lum_r),
+				-(old_val * old_lum_g),
+				-(old_val * old_lum_b)
+			)
+			LAZYREMOVE(corner.affecting, src)
 
 	applied_lum_r = lum_r
 	applied_lum_g = lum_g

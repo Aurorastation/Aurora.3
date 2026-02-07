@@ -162,7 +162,9 @@ SUBSYSTEM_DEF(overlays)
 		return
 	if (length(atom_protected_overlay_cache))
 		if (length(atom_overlay_cache))
-			overlays = atom_protected_overlay_cache + atom_overlay_cache
+			overlays.Cut()
+			overlays += atom_protected_overlay_cache
+			overlays += atom_overlay_cache
 		else
 			overlays = atom_protected_overlay_cache
 	else if (length(atom_overlay_cache))
