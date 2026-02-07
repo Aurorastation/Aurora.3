@@ -8,6 +8,7 @@
 	desc = "This small, handheld device is made of durable, insulated plastic. It has a electrode jack, perfect for interfacing with numerous machines, as well as an in-built NT-SmartTrack! system."
 	icon = 'icons/obj/item/multitool.dmi'
 	icon_state = "multitool"
+	item_state = "multitool"
 	contained_sprite = TRUE
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	force = 11

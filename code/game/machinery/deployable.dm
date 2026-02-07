@@ -272,6 +272,7 @@ Deployable Kits
 	icon = 'icons/obj/storage/briefcase.dmi'
 	icon_state = "inf_box"
 	item_state = "inf_box"
+	contained_sprite = TRUE
 	drop_sound = 'sound/items/drop/backpack.ogg'
 	pickup_sound = 'sound/items/pickup/backpack.ogg'
 
@@ -296,6 +297,7 @@ Deployable Kits
 	icon = 'icons/obj/storage/briefcase.dmi'
 	icon_state = "barrier_kit"
 	item_state = "barrier_kit"
+	contained_sprite = TRUE
 	w_class = WEIGHT_CLASS_SMALL
 	kit_product = /obj/machinery/deployable/barrier/legion
 
@@ -340,6 +342,7 @@ Deployable Kits
 	icon = 'icons/obj/storage/briefcase.dmi'
 	icon_state = "inf_box"
 	item_state = "inf_box"
+	contained_sprite = TRUE
 	w_class = WEIGHT_CLASS_NORMAL
 	kit_product = /obj/machinery/iv_drip
 	assembly_time = 4 SECONDS
@@ -350,6 +353,7 @@ Deployable Kits
 	icon = 'icons/obj/storage/briefcase.dmi'
 	icon_state = "barrier_kit"
 	item_state = "barrier_kit"
+	contained_sprite = TRUE
 	w_class = WEIGHT_CLASS_BULKY
 	kit_product = /obj/structure/bed/stool/chair/remote/mech/portable
 	assembly_time = 20 SECONDS

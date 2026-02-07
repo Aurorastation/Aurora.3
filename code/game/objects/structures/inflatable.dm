@@ -5,6 +5,7 @@
 	name = "inflatable"
 	w_class = WEIGHT_CLASS_SMALL
 	icon = 'icons/obj/item/inflatables.dmi'
+	item_state = "folded"
 	contained_sprite = TRUE
 	var/deploy_path = null
 

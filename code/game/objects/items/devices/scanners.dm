@@ -12,6 +12,7 @@ BREATH ANALYZER
 	desc = "A hand-held body scanner able to distinguish vital signs of the subject."
 	icon = 'icons/obj/item/healthanalyzer.dmi'
 	icon_state = "healthanalyzer"
+	item_state = "healthanalyzer"
 	contained_sprite = TRUE
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BELT
@@ -373,11 +374,11 @@ BREATH ANALYZER
 		to_chat(usr, "The scanner no longer shows limb damage.")
 
 /obj/item/analyzer
-	name = "analyzer"
+	name = "gas analyzer"
 	desc = "A hand-held environmental scanner which reports current gas levels."
 	icon = 'icons/obj/item/air_analyzer.dmi'
-	icon_state = "analyzer"
-	item_state = "analyzer"
+	icon_state = "airanalyzer"
+	item_state = "airanalyzer"
 	contained_sprite = TRUE
 	w_class = WEIGHT_CLASS_SMALL
 	obj_flags = OBJ_FLAG_CONDUCTABLE
@@ -414,6 +415,7 @@ BREATH ANALYZER
 	icon = 'icons/obj/item/mass_spectrometer.dmi'
 	icon_state = "spectrometer"
 	item_state = "spectrometer"
+	contained_sprite = TRUE
 	w_class = WEIGHT_CLASS_SMALL
 	atom_flags = ATOM_FLAG_OPEN_CONTAINER
 	obj_flags = OBJ_FLAG_CONDUCTABLE
@@ -473,8 +475,8 @@ BREATH ANALYZER
 
 /obj/item/mass_spectrometer/adv
 	name = "advanced mass spectrometer"
-	icon_state = "adv_spectrometer"
-	item_state = "adv_spectrometer"
+	icon_state = "spectrometer_adv"
+	item_state = "spectrometer_adv"
 	details = TRUE
 	origin_tech = list(TECH_MAGNET = 4, TECH_BIO = 2)
 
@@ -489,6 +491,7 @@ BREATH ANALYZER
 	desc = "A hand-held reagent scanner which identifies chemical agents."
 	icon = 'icons/obj/item/reagent_scanner.dmi'
 	icon_state = "reagent_scanner"
+	item_state = "reagent_scanner"
 	contained_sprite = TRUE
 	w_class = WEIGHT_CLASS_SMALL
 	obj_flags = OBJ_FLAG_CONDUCTABLE
@@ -522,7 +525,8 @@ BREATH ANALYZER
 
 /obj/item/reagent_scanner/adv
 	name = "advanced reagent scanner"
-	icon_state = "adv_reagent_scanner"
+	icon_state = "reagent_scanner_adv"
+	item_state = "reagent_scanner_adv"
 	details = 1
 	origin_tech = list(TECH_MAGNET = 4, TECH_BIO = 2)
 
@@ -530,6 +534,7 @@ BREATH ANALYZER
 	name = "slime scanner"
 	icon = 'icons/obj/item/slime_scanner.dmi'
 	icon_state = "slime_scanner"
+	item_state = "slime_scanner"
 	contained_sprite = TRUE
 	origin_tech = list(TECH_BIO = 1)
 	w_class = WEIGHT_CLASS_SMALL
@@ -576,6 +581,8 @@ BREATH ANALYZER
 	desc = "Using an up-to-date database of various costs and prices, this device estimates the market price of an item up to 0.001% accuracy."
 	icon = 'icons/obj/item/price_scanner.dmi'
 	icon_state = "price_scanner"
+	item_state = "price_scanner"
+	contained_sprite = TRUE
 	item_flags = ITEM_FLAG_NO_BLUDGEON
 	slot_flags = SLOT_BELT
 	w_class = WEIGHT_CLASS_SMALL
@@ -597,6 +604,7 @@ BREATH ANALYZER
 	desc = "A hand-held breath analyzer that provides a robust amount of information about the subject's respiratory system."
 	icon = 'icons/obj/item/breath_analyzer.dmi'
 	icon_state = "breath_analyzer"
+	item_state = "breath_analyzer"
 	contained_sprite = TRUE
 	w_class = WEIGHT_CLASS_SMALL
 	obj_flags = OBJ_FLAG_CONDUCTABLE
@@ -707,6 +715,7 @@ BREATH ANALYZER
 	desc = "An expensive and varied-use health analyzer that prints full-body scans after a short scanning delay."
 	icon = 'icons/obj/item/healthanalyzer_adv.dmi'
 	icon_state = "healthanalyzer_adv"
+	item_state = "healthanalyzer_adv"
 	contained_sprite = TRUE
 	slot_flags = SLOT_BELT
 	w_class = WEIGHT_CLASS_NORMAL
