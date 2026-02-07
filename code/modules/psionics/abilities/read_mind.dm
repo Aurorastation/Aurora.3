@@ -104,13 +104,13 @@
 	// "More sensitivity" reduces negative effects of the power.
 	// "Less sensitivity" increases said negative effects.
 	// See this graph for a visual explanation of what this is doing: https://www.desmos.com/calculator/dl8zapsnsn
-	var/psi_sensitivity_ratio = ftanh(0.5 * target_sensitivity) * 20
+	var/psi_sensitivity_ratio = 20 - (ftanh(0.5 * target_sensitivity) * 20)
 
 	// Minimum of confusion time 0 seconds, maximum of 40 seconds. 20 seconds for an unaugmented human.
-	target.confused += 20 SECONDS - (psi_sensitivity_ratio) SECONDS
+	target.confused += psi_sensitivity_ratio SECONDS
 
 	// Minimum brain damage of 0, maximum of 20%. 10% for a unaugmented human.
-	target.adjustBrainLoss(20 - (psi_sensitivity_ratio))
+	target.adjustBrainLoss(psi_sensitivity_ratio)
 
 	to_chat(target, \
 		target_sensitivity >= PSI_RANK_SENSITIVE \
