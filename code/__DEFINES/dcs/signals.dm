@@ -82,9 +82,9 @@
 // directional input signals.
 // !Please rework these if you are porting actual keybindings.
 /// Raised on a mob when receiving a "Northeast" input key, typically the 'e' key.
-#define COMSIG_INPUT_KEY_QUICK_EQUIP "quick-equip key pressed"
+#define COMSIG_INPUT_KEY_QUICK_EQUIP "quick-equip_key_pressed"
 
 /// Raised on a mob when receiving a "Northwest" input key, typically the 'q' key.
-#define COMSIG_INPUT_KEY_DROP "drop key pressed"
+#define COMSIG_INPUT_KEY_DROP "drop_key_pressed"
 
 /*******Component Specific Signals*******/
