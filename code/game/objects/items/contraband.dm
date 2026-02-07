@@ -3,7 +3,7 @@
 //Illicit drugs~
 /obj/item/storage/pill_bottle/happy
 	name = "bottle of Happy pills"
-	desc = "Highly illegal drug. When you want to see the rainbow."
+	desc = "Highly legal drug. When you want to see the rainbow."
 	starts_with = list(/obj/item/reagent_containers/pill/happy = 7)
 
 /obj/item/storage/pill_bottle/zoom
