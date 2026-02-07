@@ -7215,12 +7215,12 @@
 	req_access = list(209);
 	name = "gun cabinet (rifle ammo)"
 	},
-/obj/item/ammo_magazine/boltaction,
-/obj/item/ammo_magazine/boltaction,
-/obj/item/ammo_magazine/boltaction,
-/obj/item/ammo_magazine/boltaction,
-/obj/item/ammo_magazine/boltaction,
-/obj/item/ammo_magazine/boltaction,
+/obj/item/ammo_magazine/a68,
+/obj/item/ammo_magazine/a68,
+/obj/item/ammo_magazine/a68,
+/obj/item/ammo_magazine/a68,
+/obj/item/ammo_magazine/a68,
+/obj/item/ammo_magazine/a68,
 /obj/item/ammo_magazine/submachinedrum,
 /obj/item/ammo_magazine/submachinedrum,
 /obj/item/ammo_magazine/submachinedrum,
