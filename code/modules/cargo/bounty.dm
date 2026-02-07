@@ -209,7 +209,7 @@
 
 	if(prob(60))
 		//phoron bounties
-		var/datum/bounty/item/phoron_bounty = pick(/datum/bounty/item/phoron_sheet, /datum/bounty/item/solar_array)
+		var/datum/bounty/item/phoron_bounty = pick(/datum/bounty/item/phoron_sheet, /datum/bounty/item/engineer/solar)
 		try_add_bounty(new phoron_bounty)
 	else
 		var/datum/bounty/B = pick(bounties_list)
