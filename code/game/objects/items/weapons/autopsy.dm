@@ -5,7 +5,7 @@
 /obj/item/autopsy_scanner
 	name = "autopsy scanner"
 	desc = "Extracts information on wounds."
-	icon = 'icons/obj/item/autopsy_scanner.dmi'
+	icon = 'icons/obj/item/scanner.dmi'
 	icon_state = "autopsy"
 	item_state = "autopsy"
 	contained_sprite = TRUE

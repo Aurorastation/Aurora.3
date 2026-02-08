@@ -1,7 +1,7 @@
 /obj/item/mining_scanner
 	name = "deep ore scanner"
 	desc = "A complex device used to locate ore deep underground."
-	icon = 'icons/obj/item/mining_scanner.dmi'
+	icon = 'icons/obj/item/scanner.dmi'
 	icon_state = "manual_mining"
 	item_state = "manual_mining"
 	contained_sprite = TRUE
