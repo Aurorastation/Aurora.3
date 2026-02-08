@@ -5459,7 +5459,7 @@
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 8
 	},
-/obj/effect/map_effect/marker/mapmanip/submap/extract/coc_ranger,
+/obj/effect/map_effect/marker/mapmanip/submap/insert/coc_rangerlockers,
 /turf/space,
 /area/space)
 "ueq" = (

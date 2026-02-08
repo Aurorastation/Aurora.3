@@ -245,7 +245,7 @@
 	},
 /obj/item/gun/projectile/automatic/rifle/dpra,
 /obj/item/gun/projectile/automatic/rifle/adhomian,
-/obj/effect/map_effect/marker/mapmanip/submap/extract/coc_ranger,
+/obj/effect/map_effect/marker/mapmanip/submap/extract/coc_rangerlockers,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ranger_corvette/gunnery)
 "y" = (
@@ -279,7 +279,7 @@
 	},
 /obj/item/gun/projectile/automatic/rifle/dnac,
 /obj/item/gun/projectile/automatic/rifle/dnac,
-/obj/effect/map_effect/marker/mapmanip/submap/extract/coc_ranger,
+/obj/effect/map_effect/marker/mapmanip/submap/extract/coc_rangerlockers,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ranger_corvette/gunnery)
 "A" = (
@@ -314,7 +314,7 @@
 	name = "Armory notice no. 1";
 	info = "Our old shorties and most of our PDWs and sidearms are bused. So we're using some old Solarian stuff and some kit that was donated from the KAF as a holdover. The mags for our new rifles can't be printed by a 'lathe. So hold on to what you got."
 	},
-/obj/effect/map_effect/marker/mapmanip/submap/extract/coc_ranger,
+/obj/effect/map_effect/marker/mapmanip/submap/extract/coc_rangerlockers,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ranger_corvette/gunnery)
 "J" = (
@@ -328,7 +328,7 @@
 /obj/item/gun/projectile/automatic/rifle/shorty,
 /obj/item/gun/projectile/automatic/rifle/shorty,
 /obj/item/gun/projectile/shotgun/pump,
-/obj/effect/map_effect/marker/mapmanip/submap/extract/coc_ranger,
+/obj/effect/map_effect/marker/mapmanip/submap/extract/coc_rangerlockers,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ranger_corvette/gunnery)
 "K" = (
@@ -391,7 +391,7 @@
 	name = "Armory notice no. 1";
 	info = "Our old shorties and most of our PDWs and sidearms are busted. I don't even know how we got half of the stuff we got as a replacement, and I'm too afraid to ask."
 	},
-/obj/effect/map_effect/marker/mapmanip/submap/extract/coc_ranger,
+/obj/effect/map_effect/marker/mapmanip/submap/extract/coc_rangerlockers,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ranger_corvette/gunnery)
 "W" = (
@@ -440,7 +440,7 @@
 	name = "Armory notice no. 1";
 	info = "Our old shorties and most of our PDWs and sidearms are busted. We had to use a few rifles and shit we captured off the 'imps as a backstop. They aren't too bad, once you get used to the wood furniture and the blood stains."
 	},
-/obj/effect/map_effect/marker/mapmanip/submap/extract/coc_ranger,
+/obj/effect/map_effect/marker/mapmanip/submap/extract/coc_rangerlockers,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ranger_corvette/gunnery)
 
