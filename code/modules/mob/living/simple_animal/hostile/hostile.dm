@@ -59,6 +59,7 @@ ABSTRACT_TYPE(/mob/living/simple_animal/hostile)
 	unset_last_found_target()
 	targets = null
 	target_type_validator_map = null
+	return ..()
 
 /mob/living/simple_animal/hostile/proc/setup_target_type_validators()
 	target_type_validator_map[/mob/living] = CALLBACK(src, PROC_REF(validator_living))

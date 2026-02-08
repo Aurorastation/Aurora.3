@@ -129,6 +129,7 @@ GLOBAL_LIST_INIT_TYPED(active_radio_jammers, /obj/item/radiojammer, list())
 	STOP_PROCESSING(SSprocessing, src)
 	QDEL_NULL(cell)
 	QDEL_NULL(assembly_holder)
+	return ..()
 
 /obj/item/radiojammer/improvised/process()
 	var/current = world.time // current tick

@@ -193,10 +193,10 @@
 	set_light(MINIMUM_USEFUL_LIGHT_RANGE, 2, LIGHT_COLOR_TUNGSTEN)
 
 /mob/living/simple_animal/hostile/carp/shark/reaver/eel/Destroy()
-	. = ..()
 	ClearOverlays()
 	QDEL_NULL(eye_overlay)
 	set_light(0)
+	return ..()
 
 /mob/living/simple_animal/hostile/carp/shark/reaver/eel/death()
 	. = ..()

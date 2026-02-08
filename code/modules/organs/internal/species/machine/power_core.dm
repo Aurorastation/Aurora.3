@@ -25,8 +25,8 @@
 	. = ..()
 
 /obj/item/organ/internal/machine/power_core/Destroy()
-	. = ..()
 	QDEL_NULL(cell)
+	return ..()
 
 /**
  * Returns current charge in %.

@@ -120,6 +120,7 @@
 	QDEL_NULL(spark_system)
 	QDEL_NULL(cell)
 	QDEL_NULL_LIST(stored_ores)
+	return ..()
 
 /obj/machinery/mining/drill/proc/update_ore_count()
 	stored_ores = list()
