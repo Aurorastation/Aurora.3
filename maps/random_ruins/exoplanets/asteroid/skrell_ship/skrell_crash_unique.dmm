@@ -3,32 +3,14 @@
 /obj/effect/landmark/clear,
 /turf/template_noop,
 /area/template_noop)
-"ab" = (
-/obj/effect/map_effect/window_spawner/full/shuttle/mercenary{
-	spawn_firedoor = 1;
-	spawn_grille = 1;
-	frame_color = "#6e2c6e";
-	color = "#6e2c6e"
-	},
-/obj/structure/grille/diagonal{
-	dir = 8
-	},
-/turf/simulated/floor/plating,
-/area/crashed_skrell_shuttle_01/cockpit)
 "ad" = (
-/obj/effect/map_effect/window_spawner/full/shuttle/mercenary{
-	spawn_firedoor = 1;
-	spawn_grille = 1;
-	frame_color = "#6e2c6e";
-	color = "#6e2c6e"
-	},
-/obj/structure/grille,
-/turf/simulated/floor/plating,
-/area/crashed_skrell_shuttle_01/cockpit)
+/obj/effect/landmark/scorcher,
+/turf/template_noop,
+/area/template_noop)
 "ae" = (
 /obj/structure/computerframe,
 /obj/abstract/exterior_marker/inside,
-/turf/simulated/floor/shuttle/skrell,
+/turf/simulated/floor/shuttle/skrell/airless,
 /area/crashed_skrell_shuttle_01/cockpit)
 "af" = (
 /obj/structure/grille/broken,
@@ -43,30 +25,20 @@
 /obj/abstract/exterior_marker/outside,
 /turf/simulated/floor/airless,
 /area/crashed_skrell_shuttle_01/cockpit)
-"ag" = (
-/obj/effect/map_effect/window_spawner/full/shuttle/mercenary{
-	spawn_firedoor = 1;
-	spawn_grille = 1;
-	frame_color = "#6e2c6e";
-	color = "#6e2c6e"
-	},
-/obj/structure/grille/diagonal,
-/turf/simulated/floor/shuttle/skrell/blue/airless,
-/area/crashed_skrell_shuttle_01/cockpit)
 "ah" = (
 /obj/structure/bed/stool/chair/office/hover{
 	dir = 1
 	},
 /obj/abstract/exterior_marker/inside,
-/turf/simulated/floor/shuttle/skrell,
+/turf/simulated/floor/shuttle/skrell/airless,
 /area/crashed_skrell_shuttle_01/cockpit)
 "ai" = (
-/obj/structure/grille,
 /obj/item/material/shard/phoron{
 	pixel_x = 1;
 	pixel_y = -6
 	},
 /obj/abstract/exterior_marker/outside,
+/obj/structure/grille/over,
 /turf/simulated/floor/airless,
 /area/crashed_skrell_shuttle_01/cockpit)
 "aj" = (
@@ -97,21 +69,7 @@
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /obj/abstract/exterior_marker/inside,
-/turf/simulated/floor/shuttle/skrell/ramp{
-	initial_gas = list()
-	},
-/area/crashed_skrell_shuttle_01/cockpit)
-"an" = (
-/obj/effect/map_effect/window_spawner/full/shuttle/mercenary{
-	spawn_firedoor = 1;
-	spawn_grille = 1;
-	frame_color = "#6e2c6e";
-	color = "#6e2c6e"
-	},
-/obj/structure/grille/diagonal{
-	dir = 4
-	},
-/turf/simulated/floor/shuttle/skrell/blue/airless,
+/turf/simulated/floor/shuttle/skrell/ramp/airless,
 /area/crashed_skrell_shuttle_01/cockpit)
 "ao" = (
 /obj/structure/window/reinforced{
@@ -145,7 +103,7 @@
 	pixel_y = -5
 	},
 /obj/abstract/exterior_marker/inside,
-/turf/simulated/floor/shuttle/skrell,
+/turf/simulated/floor/shuttle/skrell/airless,
 /area/crashed_skrell_shuttle_01/cockpit)
 "as" = (
 /obj/structure/bed/roller/hover,
@@ -300,7 +258,7 @@
 	},
 /obj/random/dirt_75,
 /obj/abstract/exterior_marker/inside,
-/turf/simulated/floor/shuttle/skrell,
+/turf/simulated/floor/shuttle/skrell/airless,
 /area/crashed_skrell_shuttle_01/cockpit)
 "aK" = (
 /obj/structure/barricade/metal{
@@ -447,6 +405,7 @@
 	pixel_x = 2;
 	pixel_y = -7
 	},
+/obj/abstract/exterior_marker/inside,
 /turf/simulated/floor/shuttle/skrell/airless,
 /area/crashed_skrell_shuttle_01/cockpit)
 "bb" = (
@@ -612,7 +571,7 @@
 /obj/item/clothing/under/skrell,
 /obj/random/dirt_75,
 /obj/abstract/exterior_marker/inside,
-/turf/simulated/floor/shuttle/skrell,
+/turf/simulated/floor/shuttle/skrell/airless,
 /area/crashed_skrell_shuttle_01/cockpit)
 "bu" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden,
@@ -661,7 +620,7 @@
 /obj/item/clothing/suit/space/void/skrell/black,
 /obj/item/clothing/under/skrell,
 /obj/abstract/exterior_marker/inside,
-/turf/simulated/floor/shuttle/skrell,
+/turf/simulated/floor/shuttle/skrell/airless,
 /area/crashed_skrell_shuttle_01/cockpit)
 "bA" = (
 /obj/effect/floor_decal/spline/plain/black,
@@ -731,7 +690,7 @@
 	},
 /obj/random/dirt_75,
 /obj/abstract/exterior_marker/inside,
-/turf/simulated/floor/shuttle/skrell,
+/turf/simulated/floor/shuttle/skrell/airless,
 /area/crashed_skrell_shuttle_01/cockpit)
 "bK" = (
 /obj/machinery/cryopod{
@@ -751,16 +710,6 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/shuttle/skrell/blue,
 /area/crashed_skrell_shuttle_01/lounge)
-"bR" = (
-/obj/structure/grille,
-/obj/effect/map_effect/window_spawner/full/shuttle/mercenary{
-	spawn_firedoor = 1;
-	spawn_grille = 1;
-	frame_color = "#6e2c6e";
-	color = "#6e2c6e"
-	},
-/turf/simulated/floor/plating,
-/area/crashed_skrell_shuttle_01/cockpit)
 "bS" = (
 /obj/machinery/iv_drip,
 /obj/effect/floor_decal/corner/mauve,
@@ -806,7 +755,7 @@
 	},
 /obj/random/dirt_75,
 /obj/abstract/exterior_marker/inside,
-/turf/simulated/floor/shuttle/skrell,
+/turf/simulated/floor/shuttle/skrell/airless,
 /area/crashed_skrell_shuttle_01/cockpit)
 "bY" = (
 /obj/structure/table/skrell,
@@ -1034,21 +983,10 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
 /area/crashed_skrell_shuttle_01/engineering)
-"cy" = (
-/obj/effect/map_effect/window_spawner/full/shuttle/mercenary{
-	spawn_firedoor = 1;
-	spawn_grille = 1;
-	frame_color = "#6e2c6e";
-	color = "#6e2c6e"
-	},
-/obj/structure/grille/diagonal{
-	dir = 1
-	},
-/turf/simulated/floor/plating,
-/area/crashed_skrell_shuttle_01/cockpit)
 "cA" = (
 /obj/effect/landmark/clear,
 /obj/effect/landmark/clear,
+/obj/effect/landmark/scorcher,
 /turf/template_noop,
 /area/template_noop)
 "cB" = (
@@ -1196,7 +1134,7 @@
 "fs" = (
 /obj/random/dirt_75,
 /obj/abstract/exterior_marker/inside,
-/turf/simulated/floor/shuttle/skrell,
+/turf/simulated/floor/shuttle/skrell/airless,
 /area/crashed_skrell_shuttle_01/cockpit)
 "fS" = (
 /obj/machinery/light/skrell,
@@ -1281,7 +1219,7 @@
 	dir = 8
 	},
 /obj/abstract/exterior_marker/inside,
-/turf/simulated/floor/shuttle/skrell,
+/turf/simulated/floor/shuttle/skrell/airless,
 /area/crashed_skrell_shuttle_01/cockpit)
 "lc" = (
 /turf/simulated/wall/shuttle/space_ship{
@@ -1365,7 +1303,7 @@
 	},
 /obj/random/dirt_75,
 /obj/abstract/exterior_marker/inside,
-/turf/simulated/floor/shuttle/skrell,
+/turf/simulated/floor/shuttle/skrell/airless,
 /area/crashed_skrell_shuttle_01/cockpit)
 "rl" = (
 /obj/structure/computerframe,
@@ -1458,7 +1396,7 @@
 /area/crashed_skrell_shuttle_01/hallway/stern)
 "yE" = (
 /obj/abstract/exterior_marker/inside,
-/turf/simulated/floor/shuttle/skrell,
+/turf/simulated/floor/shuttle/skrell/airless,
 /area/crashed_skrell_shuttle_01/cockpit)
 "yM" = (
 /obj/machinery/light/skrell{
@@ -1507,7 +1445,7 @@
 	},
 /obj/random/dirt_75,
 /obj/abstract/exterior_marker/inside,
-/turf/simulated/floor/shuttle/skrell,
+/turf/simulated/floor/shuttle/skrell/airless,
 /area/crashed_skrell_shuttle_01/cockpit)
 "Bi" = (
 /obj/effect/decal/cleanable/blood/drip{
@@ -1533,8 +1471,13 @@
 /obj/structure/table/skrell,
 /obj/machinery/light/skrell,
 /obj/abstract/exterior_marker/inside,
-/turf/simulated/floor/shuttle/skrell,
+/turf/simulated/floor/shuttle/skrell/airless,
 /area/crashed_skrell_shuttle_01/cockpit)
+"Ew" = (
+/obj/effect/landmark/clear,
+/obj/effect/landmark/scorcher,
+/turf/template_noop,
+/area/template_noop)
 "FP" = (
 /obj/machinery/light/skrell{
 	dir = 1
@@ -1787,7 +1730,6 @@
 	frame_color = "#6e2c6e";
 	color = "#6e2c6e"
 	},
-/obj/structure/grille,
 /turf/simulated/floor/airless,
 /area/crashed_skrell_shuttle_01/cockpit)
 "Vl" = (
@@ -1864,15 +1806,15 @@ aq
 aq
 aq
 aq
+Ew
 aa
 aa
-aa
-aa
+Ew
 aq
 aq
 aq
 aq
-aq
+ad
 aq
 aq
 aq
@@ -1892,7 +1834,7 @@ aq
 aq
 aq
 aq
-aq
+ad
 aq
 aq
 ap
@@ -1908,7 +1850,7 @@ aq
 aq
 aq
 aq
-aq
+ad
 aq
 aq
 aq
@@ -1923,8 +1865,8 @@ aq
 aq
 aq
 aq
-aq
-aq
+ad
+ad
 aq
 aq
 aq
@@ -1934,17 +1876,17 @@ pK
 cr
 FU
 ap
-aq
+ad
 aa
-aa
-aa
+Ew
+Ew
 kq
 kq
 kq
 JU
 aa
 aa
-aa
+Ew
 aa
 aq
 aq
@@ -1978,8 +1920,8 @@ kq
 JU
 JU
 JU
-aa
-aa
+Ew
+Ew
 aa
 aq
 "}
@@ -1992,7 +1934,7 @@ aq
 aq
 aq
 aq
-aq
+ad
 Yx
 mv
 IS
@@ -2013,7 +1955,7 @@ JU
 bg
 JU
 JU
-aa
+Ew
 aq
 aq
 "}
@@ -2052,15 +1994,15 @@ aq
 aq
 "}
 (7,1,1) = {"
-aq
-aq
-aq
+ad
+ad
+ad
 aq
 aq
 aq
 vk
-ad
-ad
+Vf
+Vf
 Yx
 gS
 RX
@@ -2081,16 +2023,16 @@ JU
 aR
 Sr
 Ik
-aa
-aa
+Ew
+Ew
 aq
 "}
 (8,1,1) = {"
-aq
-aq
-ab
 ad
 ad
+Vf
+Vf
+Vf
 vk
 vk
 bt
@@ -2120,9 +2062,9 @@ aa
 aa
 "}
 (9,1,1) = {"
-aq
-aq
 ad
+ad
+Vf
 ae
 ah
 kY
@@ -2150,13 +2092,13 @@ aR
 bn
 zk
 JU
-aa
+Ew
 aa
 "}
 (10,1,1) = {"
 aq
-ab
-ag
+Vf
+Vf
 hx
 JJ
 RM
@@ -2184,7 +2126,7 @@ aR
 bo
 bl
 cH
-aa
+Ew
 aa
 "}
 (11,1,1) = {"
@@ -2222,7 +2164,7 @@ aa
 aa
 "}
 (12,1,1) = {"
-aa
+Ew
 ai
 aj
 av
@@ -2256,7 +2198,7 @@ aa
 aa
 "}
 (13,1,1) = {"
-aa
+Ew
 Vf
 ba
 au
@@ -2290,9 +2232,9 @@ aa
 aq
 "}
 (14,1,1) = {"
-aa
-cy
-an
+Ew
+Vf
+Vf
 rl
 hm
 FS
@@ -2320,13 +2262,13 @@ YG
 bq
 bl
 cH
-aa
+Ew
 aq
 "}
 (15,1,1) = {"
 aa
-aq
-bR
+ad
+Vf
 ae
 AR
 qX
@@ -2354,15 +2296,15 @@ YG
 br
 zk
 JU
-aa
+Ew
 aq
 "}
 (16,1,1) = {"
 aq
-aq
-cy
 ad
-ad
+Vf
+Vf
+Vf
 vk
 vk
 ar
@@ -2392,15 +2334,15 @@ cA
 aq
 "}
 (17,1,1) = {"
-aq
-aq
+ad
+ad
 aq
 aq
 aq
 aq
 vk
-ad
-ad
+Vf
+Vf
 ki
 ul
 aK
@@ -2421,7 +2363,7 @@ JU
 bG
 Du
 MJ
-aa
+Ew
 aa
 aq
 "}
@@ -2455,7 +2397,7 @@ cN
 aR
 Sr
 cH
-aa
+Ew
 aq
 aq
 "}
@@ -2502,7 +2444,7 @@ aq
 aq
 aq
 aq
-aq
+ad
 ki
 ki
 ki
@@ -2522,8 +2464,8 @@ kq
 JU
 JU
 JU
-aa
-aa
+Ew
+Ew
 aa
 aa
 "}
@@ -2536,7 +2478,7 @@ aq
 aq
 aq
 aq
-aq
+ad
 aq
 aq
 aq
@@ -2546,8 +2488,8 @@ ca
 bI
 dc
 IT
-aa
-aa
+Ew
+Ew
 aa
 aa
 kq
@@ -2556,8 +2498,8 @@ kq
 JU
 aa
 aa
-aa
-aa
+Ew
+Ew
 aq
 aq
 "}
@@ -2573,7 +2515,7 @@ aq
 aq
 aq
 aq
-aq
+ad
 aq
 IT
 IT
@@ -2581,17 +2523,17 @@ nU
 IT
 IT
 aa
+ad
 aq
 aq
 aq
+ad
 aq
-aq
-aq
-aq
+ad
 aq
 aa
-aa
-aa
+Ew
+Ew
 aq
 aq
 "}
@@ -2609,12 +2551,12 @@ aq
 aq
 aq
 aq
+Ew
 aa
 aa
 aa
 aa
-aa
-aa
+Ew
 aq
 aq
 aq
@@ -2643,8 +2585,8 @@ aq
 aq
 aq
 aq
-aq
-aa
+ad
+Ew
 aa
 aa
 aq
