@@ -1,4 +1,0 @@
-author: fyni
-delete-after: True
-changes:
-  - bugfix: "Fixes an upside down sprite on the right large flag, properly capatalizes flag name."

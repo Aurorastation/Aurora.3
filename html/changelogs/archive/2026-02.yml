@@ -163,3 +163,11 @@
       and modmins.
   - rscadd: Adds the Outer Eyes paperwork icon, [logo_toe], available for anyone to
       use. Don't go marking your paperwork with wierd icons though.
+2026-02-08:
+  Greenjoe:
+  - rscadd: Adds Tajara versions of several human hairstyles.
+  Hellfirejag:
+  - bugfix: Fixed closets opening themselves when pulled.
+  fyni:
+  - bugfix: Fixes an upside down sprite on the right large flag, properly capatalizes
+      flag name.
