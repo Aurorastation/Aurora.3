@@ -5,8 +5,6 @@
  */
 #define TURF_HAND_COMPONENT /datum/component/turf_hand
 /datum/component/turf_hand
-	/// Set to true to make the component fully cancel the original attack from the mob.
-	var/cancels_attack = FALSE
 
 /datum/component/turf_hand/Initialize()
 	. = ..()
@@ -28,8 +26,5 @@
 		qdel(src) // Invalid parent. Make the component kill itself.
 		return
 
-	if (cancels_attack)
-		*cancelled = TRUE
-
 	var/atom/owner = parent
-	return owner.attack_hand(attacker)
+	INVOKE_ASYNC(src, PROC_REF(attack_hand), attacker)
