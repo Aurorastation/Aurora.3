@@ -1,9 +1,10 @@
 /obj/item/geiger
 	name = "geiger counter"
 	desc = "A handheld device used for detecting and measuring radiation in an area."
-	icon = 'icons/obj/geiger_counter.dmi'
+	icon = 'icons/obj/item/scanner.dmi'
 	icon_state = "geiger_off"
 	item_state = "multitool"
+	containeed_sprite = TRUE
 	w_class = WEIGHT_CLASS_SMALL
 	action_button_name = "Toggle geiger counter"
 	matter = list(MATERIAL_PLASTIC = 100, DEFAULT_WALL_MATERIAL = 100, MATERIAL_GLASS = 50)
