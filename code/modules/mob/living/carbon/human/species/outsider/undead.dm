@@ -257,7 +257,7 @@
 	tail = "tajtail"
 	tail_animation = 'icons/mob/species/tajaran/tail.dmi'
 
-	slowdown = -1
+	slowdown = -0.4
 	brute_mod = 1.2
 	fall_mod = 0.5
 
@@ -383,7 +383,7 @@
 
 	stamina = 80
 	sprint_speed_factor = 1.2
-	slowdown = -2
+	slowdown = -0.6
 	standing_jump_range = 5
 	natural_climbing = TRUE
 

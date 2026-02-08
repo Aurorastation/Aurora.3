@@ -116,7 +116,7 @@
 /datum/gear/gloves/unathi/New()
 	..()
 	var/list/un_gloves = list()
-	un_gloves["black gloves"] = /obj/item/clothing/gloves/black/unathi
+	un_gloves["work gloves"] = /obj/item/clothing/gloves/black/unathi
 	un_gloves["red gloves"] = /obj/item/clothing/gloves/red/unathi
 	un_gloves["blue gloves"] = /obj/item/clothing/gloves/blue/unathi
 	un_gloves["orange gloves"] = /obj/item/clothing/gloves/orange/unathi

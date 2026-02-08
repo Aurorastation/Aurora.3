@@ -19,25 +19,21 @@
 /area/cult_base/hallways_north
 	name = "Hallways North"
 	icon_state = "hallC"
-	area_blurb_category = "cult_base_hallway"
 	area_blurb = "A faint scent of copper or metal is present here."
 
 /area/cult_base/hallways_south
 	name = "Hallways South"
 	icon_state = "hallC"
-	area_blurb_category = "cult_base_hallway"
 	area_blurb = "A faint scent of copper or metal is present here."
 
 /area/cult_base/hallways_east
 	name = "Hallways East"
 	icon_state = "hallC"
-	area_blurb_category = "cult_base_hallway"
 	area_blurb = "A faint scent of copper or metal is present here."
 
 /area/cult_base/hallways_west
 	name = "Hallways West"
 	icon_state = "hallC"
-	area_blurb_category = "cult_base_hallway"
 	area_blurb = "A faint scent of copper or metal is present here."
 
 // ---- living

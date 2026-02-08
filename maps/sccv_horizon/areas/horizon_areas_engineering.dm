@@ -35,7 +35,6 @@
 	icon_state = "engineering_break"
 	sound_environment = SOUND_AREA_MEDIUM_SOFTFLOOR
 	area_blurb = "The intermixed odors of coffee and oil lingers in the air."
-	area_blurb_category = "engi_breakroom"
 	horizon_deck = 3
 
 /area/horizon/engineering/locker_room
@@ -49,7 +48,6 @@
 	horizon_deck = 1
 	area_flags = AREA_FLAG_RAD_SHIELDED
 	area_blurb = "The air in here tastes like copper, sour sugar, and smoke; none of the angles seem right. That probably means everything is working."
-	area_blurb_category = "engi_breakroom"
 
 /area/horizon/engineering/lobby
 	name = "Lobby"
@@ -117,7 +115,6 @@
 	ambience = list(AMBIENCE_ENGINEERING, AMBIENCE_ATMOS)
 	area_blurb = "Many volume tanks filled with gas reside here, some providing vital gases for the vessel's life support systems. \
 	Through the aft windows, exterior stowage tanks filled mostly with hazardous or volatile gases loom patiently."
-	area_blurb_category = "atmos"
 	horizon_deck = 1
 	subdepartment = SUBLOC_ATMOS
 

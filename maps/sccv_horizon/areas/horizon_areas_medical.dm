@@ -3,7 +3,6 @@
 	station_area = TRUE
 	holomap_color = HOLOMAP_AREACOLOR_MEDICAL
 	area_blurb = "Various smells waft through the sick bay: disinfectants, various medicines, sterile gloves, and gauze. It's not a pleasant smell, but one you could grow to ignore."
-	area_blurb_category = "mecical"
 	department = LOC_MEDICAL
 
 /area/horizon/medical/paramedic
@@ -24,7 +23,6 @@
 	icon_state = "medbay3"
 	area_flags = AREA_FLAG_RAD_SHIELDED
 	area_blurb = "Featuring wood floors and soft carpets, this room has a warmer feeling compared to the sterility of the rest of the medical department."
-	area_blurb_category = "psych"
 	horizon_deck = 2
 	lightswitch = FALSE
 
@@ -83,7 +81,6 @@
 /area/horizon/medical/ward/isolation
 	name = "Isolation Ward"
 	area_blurb = "This seldom-used ward somehow smells sterile and musty at the same time."
-	area_blurb_category = "medical_isolation"
 	horizon_deck = 3
 
 /area/horizon/medical/morgue
@@ -91,7 +88,6 @@
 	icon_state = "morgue"
 	ambience = AMBIENCE_GHOSTLY
 	area_blurb = "Morgue trays sit within this room, ready to hold the deceased until their postmortem wishes can be attended to."
-	area_blurb_category = "morgue"
 	horizon_deck = 1
 
 /area/horizon/medical/equipment
@@ -102,7 +98,6 @@
 /area/horizon/medical/smoking
 	name = "Smoking Lounge"
 	area_blurb = "The smell of cigarette smoke lingers within this room."
-	area_blurb_category = "medical_smoking"
 	horizon_deck = 3
 
 /area/horizon/medical/washroom
