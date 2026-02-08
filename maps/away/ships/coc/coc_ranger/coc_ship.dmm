@@ -603,10 +603,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
 /area/ship/ranger_corvette/engine1)
-"bKs" = (
-/obj/effect/map_effect/marker_helper/mapmanip/submap/edge,
-/turf/simulated/wall/shuttle/space_ship/mercenary,
-/area/ship/ranger_corvette/gunnery)
 "bLh" = (
 /obj/effect/map_effect/window_spawner/full/shuttle{
 	color = "#5b5b5b";
@@ -5615,9 +5611,6 @@
 	pixel_x = 4;
 	pixel_y = 32
 	},
-/obj/effect/map_effect/marker_helper/mapmanip/submap/edge{
-	dir = 4
-	},
 /turf/space,
 /area/ship/ranger_corvette/gunnery)
 "uvJ" = (
@@ -5847,17 +5840,11 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
-/obj/effect/map_effect/marker_helper/mapmanip/submap/edge{
-	dir = 1
-	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ranger_corvette/gunnery)
 "vyy" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
-	},
-/obj/effect/map_effect/marker_helper/mapmanip/submap/edge{
-	dir = 1
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ranger_corvette/gunnery)
@@ -36820,7 +36807,7 @@ tWh
 rBK
 wlN
 rBK
-bKs
+tLA
 smG
 vwc
 wZf
@@ -37077,7 +37064,7 @@ rBK
 jwy
 lNh
 rzM
-bKs
+tLA
 smG
 vyi
 cxr
@@ -37334,7 +37321,7 @@ rBK
 wYR
 pVf
 rQB
-bKs
+tLA
 uty
 vyy
 fmY
