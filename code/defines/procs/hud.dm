@@ -16,9 +16,9 @@ the HUD updates properly! */
 		owner = loc
 
 /image/hud_overlay/Destroy()
-	for(var/mob/M in GLOB.player_list)
-		M.client?.images -= src
-	owner = null
+	if(owner)
+		owner?.client?.images -= src
+		owner = null
 
 	. = ..()
 

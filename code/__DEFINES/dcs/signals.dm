@@ -80,3 +80,11 @@
 #define COMSIG_PSI_CHECK_SENSITIVITY "psi_check_sensitivity"
 
 /*******Component Specific Signals*******/
+
+/**
+ * Raised against objects in a turf when that turf is attacked by a mob.
+ * Arg 1 is the object being checked.
+ * Arg 2 is the mob attacking the turf.
+ * Arg 3 is the turf.
+ */
+#define COMSIG_HANDLE_HAND_INTERCEPTION "handle_hand_interception"

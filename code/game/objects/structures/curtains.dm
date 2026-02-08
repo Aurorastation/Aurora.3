@@ -15,10 +15,6 @@
 	material = SSmaterials.get_material_by_name(curtain_material)
 	AddComponent(/datum/component/turf_hand)
 
-/obj/structure/curtain/Destroy()
-	material = null
-	return ..()
-
 /obj/structure/curtain/open
 	icon_state = "open"
 	layer = ABOVE_HUMAN_LAYER

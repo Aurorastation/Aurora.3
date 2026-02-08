@@ -285,10 +285,10 @@ GLOBAL_LIST_EMPTY(radial_menus)
 	close_button.parent = null
 	menu_holder.vis_contents = null
 
-	for(var/atom/movable/screen/radial/slice/E in elements)
-		if(E.parent == src)
-			E.parent = null
-		qdel(E)
+	for(var/atom/movable/screen/radial/slice/possibly_our_child in elements)
+		if(possibly_our_child.parent == src)
+			possibly_our_child.parent = null
+
 	elements.Cut()
 
 	QDEL_NULL(menu_holder)
