@@ -7,10 +7,7 @@
 /obj/item/gun/projectile/recoilless_rifle,
 /obj/item/gun/projectile/recoilless_rifle,
 /turf/simulated/floor/tiled/dark/full,
-/area/template_noop)
-"b" = (
-/turf/simulated/wall/shuttle/space_ship/mercenary,
-/area/template_noop)
+/area/ship/ranger_corvette/gunnery)
 "c" = (
 /obj/structure/closet/crate{
 	name = "Ammo Crate"
@@ -41,7 +38,7 @@
 /obj/item/ammo_magazine/submachinemag,
 /obj/item/ammo_magazine/submachinemag,
 /turf/simulated/floor/tiled/dark/full,
-/area/template_noop)
+/area/ship/ranger_corvette/gunnery)
 "e" = (
 /obj/structure/closet/crate{
 	name = "Ammo Crate"
@@ -70,7 +67,7 @@
 /obj/item/ammo_magazine/a556/carbine,
 /obj/item/ammo_magazine/a556/carbine,
 /turf/simulated/floor/tiled/dark/full,
-/area/template_noop)
+/area/ship/ranger_corvette/gunnery)
 "f" = (
 /obj/structure/weapons_rack{
 	req_access = list(13,221,222)
@@ -83,7 +80,10 @@
 /obj/item/gun/projectile/automatic/tommygun,
 /obj/item/gun/projectile/automatic/tommygun,
 /turf/simulated/floor/tiled/dark/full,
-/area/template_noop)
+/area/ship/ranger_corvette/gunnery)
+"h" = (
+/turf/simulated/wall/shuttle/space_ship/mercenary,
+/area/ship/ranger_corvette/gunnery)
 "i" = (
 /obj/structure/weapons_rack{
 	req_access = list(13,221,222)
@@ -93,6 +93,9 @@
 /obj/item/grenade,
 /obj/item/grenade,
 /turf/simulated/floor/tiled/dark/full,
+/area/ship/ranger_corvette/gunnery)
+"k" = (
+/turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/template_noop)
 "l" = (
 /obj/structure/weapons_rack{
@@ -179,7 +182,7 @@
 /obj/item/ammo_magazine/submachinemag,
 /obj/item/ammo_magazine/submachinemag,
 /turf/simulated/floor/tiled/dark/full,
-/area/template_noop)
+/area/ship/ranger_corvette/gunnery)
 "t" = (
 /obj/structure/weapons_rack{
 	req_access = list(13,221,222)
@@ -197,7 +200,7 @@
 /obj/item/gun/projectile/pistol,
 /obj/item/gun/projectile/pistol,
 /turf/simulated/floor/tiled/dark/full,
-/area/template_noop)
+/area/ship/ranger_corvette/gunnery)
 "u" = (
 /obj/structure/closet/crate{
 	name = "Ammo Crate"
@@ -247,7 +250,7 @@
 /obj/item/gun/projectile/automatic/rifle/adhomian,
 /obj/effect/map_effect/marker/mapmanip/submap/extract/coc_ranger,
 /turf/simulated/floor/tiled/dark/full,
-/area/template_noop)
+/area/ship/ranger_corvette/gunnery)
 "y" = (
 /obj/structure/weapons_rack{
 	req_access = list(13,221,222)
@@ -261,7 +264,7 @@
 /obj/item/gun/projectile/pistol/sol/konyang,
 /obj/item/gun/projectile/pistol/sol/konyang,
 /turf/simulated/floor/tiled/dark/full,
-/area/template_noop)
+/area/ship/ranger_corvette/gunnery)
 "z" = (
 /obj/structure/weapons_rack{
 	req_access = list(13,221,222)
@@ -288,7 +291,7 @@
 	},
 /obj/item/gun/projectile/shotgun/pump/rifle/dominia,
 /turf/simulated/floor/tiled/dark/full,
-/area/template_noop)
+/area/ship/ranger_corvette/gunnery)
 "B" = (
 /obj/structure/weapons_rack{
 	req_access = list(13,221,222)
@@ -316,7 +319,7 @@
 	},
 /obj/effect/map_effect/marker/mapmanip/submap/extract/coc_ranger,
 /turf/simulated/floor/tiled/dark/full,
-/area/template_noop)
+/area/ship/ranger_corvette/gunnery)
 "J" = (
 /obj/structure/weapons_rack{
 	req_access = list(13,221,222)
@@ -330,14 +333,14 @@
 /obj/item/gun/projectile/shotgun/pump,
 /obj/effect/map_effect/marker/mapmanip/submap/extract/coc_ranger,
 /turf/simulated/floor/tiled/dark/full,
-/area/template_noop)
+/area/ship/ranger_corvette/gunnery)
 "K" = (
 /obj/structure/weapons_rack{
 	req_access = list(13,221,222)
 	},
 /obj/item/gun/projectile/shotgun/pump/combat/sol,
 /turf/simulated/floor/tiled/dark/full,
-/area/template_noop)
+/area/ship/ranger_corvette/gunnery)
 "L" = (
 /obj/structure/weapons_rack{
 	req_access = list(13,221,222)
@@ -372,7 +375,7 @@
 /obj/item/gun/projectile/pistol/adhomai,
 /obj/item/gun/projectile/pistol/adhomai,
 /turf/simulated/floor/tiled/dark/full,
-/area/template_noop)
+/area/ship/ranger_corvette/gunnery)
 "P" = (
 /obj/structure/weapons_rack{
 	req_access = list(13,221,222)
@@ -416,7 +419,7 @@
 /obj/item/ammo_magazine/c45m/dominia,
 /obj/item/ammo_magazine/c45m/dominia,
 /turf/simulated/floor/tiled/dark/full,
-/area/template_noop)
+/area/ship/ranger_corvette/gunnery)
 "X" = (
 /obj/structure/weapons_rack{
 	req_access = list(13,221,222)
@@ -442,7 +445,7 @@
 	},
 /obj/effect/map_effect/marker/mapmanip/submap/extract/coc_ranger,
 /turf/simulated/floor/tiled/dark/full,
-/area/template_noop)
+/area/ship/ranger_corvette/gunnery)
 
 (1,1,1) = {"
 q
@@ -495,11 +498,11 @@ q
 q
 q
 q
-b
+h
 B
 q
 q
-b
+h
 J
 q
 q
@@ -517,11 +520,11 @@ q
 q
 q
 q
-b
+h
 t
 q
 q
-b
+h
 f
 q
 q
@@ -539,11 +542,11 @@ q
 q
 q
 q
-b
+h
 A
 q
 q
-b
+h
 i
 q
 q
@@ -561,11 +564,11 @@ q
 q
 q
 q
-b
+h
 W
 q
 q
-b
+h
 c
 q
 q
@@ -605,11 +608,11 @@ q
 q
 q
 q
-b
+h
 Y
 q
 q
-b
+h
 v
 q
 q
@@ -627,11 +630,11 @@ q
 q
 q
 q
-b
+h
 y
 q
 q
-b
+h
 O
 q
 q
@@ -649,11 +652,11 @@ q
 q
 q
 q
-b
+h
 K
 q
 q
-b
+h
 a
 q
 q
@@ -671,11 +674,11 @@ q
 q
 q
 q
-b
+h
 e
 q
 q
-b
+h
 r
 q
 q
@@ -715,11 +718,11 @@ q
 q
 q
 q
-b
+k
 P
 q
 q
-b
+k
 z
 q
 q
@@ -737,11 +740,11 @@ q
 q
 q
 q
-b
+k
 L
 q
 q
-b
+k
 l
 q
 q
@@ -759,11 +762,11 @@ q
 q
 q
 q
-b
+k
 N
 q
 q
-b
+k
 X
 q
 q
@@ -781,11 +784,11 @@ q
 q
 q
 q
-b
+k
 p
 q
 q
-b
+k
 u
 q
 q
