@@ -805,6 +805,14 @@
 	icon_state = "0-4"
 	},
 /obj/structure/table/rack/folding_table,
+/obj/item/plastique{
+	pixel_y = 8;
+	pixel_x = -2
+	},
+/obj/item/plastique{
+	pixel_y = 1;
+	pixel_x = 8
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/gunnery)
 "cHm" = (
@@ -1461,6 +1469,7 @@
 	icon_state = "4-8"
 	},
 /obj/structure/table/rack/folding_table,
+/obj/item/grenade/flashbang/clusterbang,
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/gunnery)
 "fnq" = (
@@ -6594,9 +6603,29 @@
 	dir = 8;
 	icon_state = "tube_empty"
 	},
-/obj/structure/closet/secure_closet/cabinet/bar{
-	req_access = null
-	},
+/obj/structure/closet/cabinet,
+/obj/item/reagent_containers/food/drinks/cans/beer/rice,
+/obj/item/reagent_containers/food/drinks/cans/beer/rice,
+/obj/item/reagent_containers/food/drinks/cans/beer/rice,
+/obj/item/reagent_containers/food/drinks/cans/beer/rice,
+/obj/item/reagent_containers/food/drinks/cans/beer/rice,
+/obj/item/reagent_containers/food/drinks/cans/beer/rice,
+/obj/item/reagent_containers/food/drinks/cans/beer/whistlingforest,
+/obj/item/reagent_containers/food/drinks/cans/beer/whistlingforest,
+/obj/item/reagent_containers/food/drinks/cans/beer/whistlingforest,
+/obj/item/reagent_containers/food/drinks/cans/beer/whistlingforest,
+/obj/item/reagent_containers/food/drinks/cans/beer/whistlingforest,
+/obj/item/reagent_containers/food/drinks/cans/beer/whistlingforest,
+/obj/item/reagent_containers/food/drinks/cans/beer/whistlingforest,
+/obj/item/reagent_containers/food/drinks/cans/beer/rice/shimauma,
+/obj/item/reagent_containers/food/drinks/cans/beer/rice/shimauma,
+/obj/item/reagent_containers/food/drinks/cans/beer/rice/shimauma,
+/obj/item/reagent_containers/food/drinks/cans/beer/rice/shimauma,
+/obj/item/reagent_containers/food/drinks/cans/beer/rice/shimauma,
+/obj/item/reagent_containers/food/drinks/cans/beer/rice/shimauma,
+/obj/item/reagent_containers/food/drinks/cans/beer/rice/shimauma,
+/obj/item/reagent_containers/food/drinks/cans/beer/rice/shimauma,
+/obj/item/reagent_containers/food/drinks/bottle/saintjacques,
 /turf/simulated/floor/wood,
 /area/ship/ranger_corvette/foyer)
 "yks" = (
