@@ -34,6 +34,11 @@
 	env = loc.return_air()
 	update_icon()
 
+/obj/machinery/space_heater/Destroy()
+	. = ..()
+	env = null
+	QDEL_NULL(cell)
+
 /obj/machinery/space_heater/update_icon()
 	ClearOverlays()
 	if(!on)

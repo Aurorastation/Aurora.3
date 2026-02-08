@@ -29,6 +29,10 @@
 	. = ..()
 	cell = new /obj/item/cell(src)
 
+/obj/machinery/floodlight/Destroy()
+	. = ..()
+	QDEL_NULL(cell)
+
 /obj/machinery/floodlight/update_icon()
 	ClearOverlays()
 	icon_state = "flood[open ? "o" : ""][open && cell ? "b" : ""]0[on]"

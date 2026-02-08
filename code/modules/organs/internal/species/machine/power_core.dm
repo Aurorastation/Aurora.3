@@ -24,6 +24,10 @@
 	replace_cell(new cell(src))
 	. = ..()
 
+/obj/item/organ/internal/machine/power_core/Destroy()
+	. = ..()
+	QDEL_NULL(cell)
+
 /**
  * Returns current charge in %.
  */
