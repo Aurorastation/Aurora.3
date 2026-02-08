@@ -30,8 +30,8 @@
 	cell = new /obj/item/cell(src)
 
 /obj/machinery/floodlight/Destroy()
-	. = ..()
 	QDEL_NULL(cell)
+	return ..()
 
 /obj/machinery/floodlight/update_icon()
 	ClearOverlays()

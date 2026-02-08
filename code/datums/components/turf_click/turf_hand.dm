@@ -14,11 +14,9 @@
 	RegisterSignal(parent, COMSIG_HANDLE_HAND_INTERCEPTION, PROC_REF(OnHandInterception), override = TRUE)
 
 /datum/component/turf_hand/Destroy()
-	. = ..()
-	if (!parent)
-		return
-
-	UnregisterSignal(parent, COMSIG_HANDLE_HAND_INTERCEPTION)
+	if (parent)
+		UnregisterSignal(parent, COMSIG_HANDLE_HAND_INTERCEPTION)
+    return ..()
 
 /datum/component/turf_hand/proc/OnHandInterception(var/atom/origin, var/mob/attacker, var/turf/turf)
 	// SIGNAL_HANDLER
