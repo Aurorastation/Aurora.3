@@ -53,8 +53,7 @@
 	icon_state = "clusterbang"
 
 /obj/item/grenade/flashbang/clusterbang/Destroy()
-	. = ..()
-	GC_TEMPORARY_HARDDEL
+	return ..()
 
 /obj/item/grenade/flashbang/clusterbang/prime()
 	var/numspawned = rand(4,8)
@@ -118,5 +117,4 @@
 	..()
 
 /obj/item/grenade/flashbang/cluster/Destroy()
-	. = ..()
-	GC_TEMPORARY_HARDDEL
+	return ..()
