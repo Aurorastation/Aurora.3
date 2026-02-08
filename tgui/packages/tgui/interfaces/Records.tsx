@@ -79,7 +79,6 @@ type Incident = {
 
 type Medical = {
   notes: string;
-  disabilities: string[];
   blood_type: string;
   blood_dna: string;
 };
@@ -545,13 +544,6 @@ export const ListActive = (props, context) => {
               ) : (
                 data.active.medical.blood_dna
               )}
-            </LabeledList.Item>
-            <LabeledList.Item label="Disabilities">
-              {data.active.medical.disabilities.length
-                ? data.active.medical.disabilities.map((line) => (
-                    <Box key={line}>{line}</Box>
-                  ))
-                : 'No disabilities on record.'}
             </LabeledList.Item>
           </>
         ) : (
