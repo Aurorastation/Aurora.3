@@ -295,8 +295,13 @@
 				var/obj/machinery/M = AM
 				M.shuttle_move(src)
 
+	var/turf/simulated/simT = src
+	if(istype(simT))
+		if(simT.is_outside == OUTSIDE_AREA)
+			simT.update_external_atmos_participation() // Refreshes outside status and adds exterior air to turf air if necessary.
+
 	last_outside_check = OUTSIDE_UNCERTAIN
-	if(is_outside == OUTSIDE_AREA && (is_outside() != old_outside))
+	if(is_outside() != old_outside)
 		update_weather()
 	/* END AURORA SNOWFLAKE */
 
