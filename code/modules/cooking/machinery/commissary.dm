@@ -590,6 +590,7 @@
 		// Tajara
 		/obj/item/reagent_containers/food/drinks/cans/hrozamal_soda = 5,
 		/obj/item/reagent_containers/food/drinks/cans/adhomai_milk = 3,
+		/obj/item/reagent_containers/food/drinks/cans/earthen_juice = 3,
 		// Milk
 		/obj/item/reagent_containers/food/drinks/cans/beetle_milk = 5,
 		/obj/item/reagent_containers/food/drinks/carton/small/milk = 5,
