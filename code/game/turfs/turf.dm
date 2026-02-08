@@ -734,7 +734,13 @@
 		return OUTSIDE_NO
 
 	for(var/obj/structure/S in src) // Dense structures like full windows should probably also block weather.
-		if(S.density || istype(S, /obj/structure/component/tent_canvas))
+		if(istype(S, /obj/structure/component/tent_canvas)) // TODO: Tents should block weather but not air.
+			return OUTSIDE_NO
+		// If it can pass air, continue
+		if(!S.c_airblock())
+			continue
+		// Finally, check the density
+		if(S.density)
 			return OUTSIDE_NO
 
 	if(last_outside_check != OUTSIDE_UNCERTAIN)

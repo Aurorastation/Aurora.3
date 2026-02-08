@@ -25,6 +25,12 @@
 /obj/abstract/exterior_marker/outside,
 /turf/simulated/floor/airless,
 /area/crashed_skrell_shuttle_01/cockpit)
+"ag" = (
+/obj/effect/map_effect/window_spawner/full/borosilicate/reinforced{
+	color = "#6e2c6e"
+	},
+/turf/simulated/floor/airless,
+/area/crashed_skrell_shuttle_01/cockpit)
 "ah" = (
 /obj/structure/bed/stool/chair/office/hover{
 	dir = 1
@@ -39,6 +45,9 @@
 	},
 /obj/abstract/exterior_marker/outside,
 /obj/structure/grille/over,
+/obj/structure/window_frame{
+	color = "#6e2c6e"
+	},
 /turf/simulated/floor/airless,
 /area/crashed_skrell_shuttle_01/cockpit)
 "aj" = (
@@ -1723,15 +1732,6 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/white,
 /area/crashed_skrell_shuttle_01/medical)
-"Vf" = (
-/obj/effect/map_effect/window_spawner/full/shuttle/mercenary{
-	spawn_firedoor = 1;
-	spawn_grille = 1;
-	frame_color = "#6e2c6e";
-	color = "#6e2c6e"
-	},
-/turf/simulated/floor/airless,
-/area/crashed_skrell_shuttle_01/cockpit)
 "Vl" = (
 /obj/effect/decal/cleanable/blood/drip{
 	basecolor = "#0081CD"
@@ -2001,8 +2001,8 @@ aq
 aq
 aq
 vk
-Vf
-Vf
+ag
+ag
 Yx
 gS
 RX
@@ -2030,9 +2030,9 @@ aq
 (8,1,1) = {"
 ad
 ad
-Vf
-Vf
-Vf
+ag
+ag
+ag
 vk
 vk
 bt
@@ -2064,7 +2064,7 @@ aa
 (9,1,1) = {"
 ad
 ad
-Vf
+ag
 ae
 ah
 kY
@@ -2097,8 +2097,8 @@ aa
 "}
 (10,1,1) = {"
 aq
-Vf
-Vf
+ag
+ag
 hx
 JJ
 RM
@@ -2199,7 +2199,7 @@ aa
 "}
 (13,1,1) = {"
 Ew
-Vf
+ag
 ba
 au
 az
@@ -2233,8 +2233,8 @@ aq
 "}
 (14,1,1) = {"
 Ew
-Vf
-Vf
+ag
+ag
 rl
 hm
 FS
@@ -2268,7 +2268,7 @@ aq
 (15,1,1) = {"
 aa
 ad
-Vf
+ag
 ae
 AR
 qX
@@ -2302,9 +2302,9 @@ aq
 (16,1,1) = {"
 aq
 ad
-Vf
-Vf
-Vf
+ag
+ag
+ag
 vk
 vk
 ar
@@ -2341,8 +2341,8 @@ aq
 aq
 aq
 vk
-Vf
-Vf
+ag
+ag
 ki
 ul
 aK
