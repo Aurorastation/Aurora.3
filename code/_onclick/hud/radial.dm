@@ -243,7 +243,8 @@ GLOBAL_LIST_EMPTY(radial_menus)
 	if(MA)
 		MA.layer = RADIAL_CONTENT_LAYER
 		MA.appearance_flags |= RESET_TRANSFORM
-	return MA
+		return MA.appearance
+	return null
 
 
 /datum/radial_menu/proc/next_page()
@@ -283,11 +284,12 @@ GLOBAL_LIST_EMPTY(radial_menus)
 	hide()
 	close_button.parent = null
 	menu_holder.vis_contents = null
-	elements -= src
 
-	for(var/atom/movable/screen/radial/slice/possibly_our_child in elements)
-		if(possibly_our_child.parent == src)
-			possibly_our_child.parent = null
+	for(var/atom/movable/screen/radial/slice/E in elements)
+		if(E.parent == src)
+			E.parent = null
+		qdel(E)
+	elements.Cut()
 
 	QDEL_NULL(menu_holder)
 	QDEL_NULL(close_button)
