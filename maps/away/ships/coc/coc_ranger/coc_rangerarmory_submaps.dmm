@@ -7,7 +7,10 @@
 /obj/item/gun/projectile/recoilless_rifle,
 /obj/item/gun/projectile/recoilless_rifle,
 /turf/simulated/floor/tiled/dark/full,
-/area/space)
+/area/template_noop)
+"b" = (
+/turf/simulated/wall/shuttle/space_ship/mercenary,
+/area/template_noop)
 "c" = (
 /obj/structure/closet/crate{
 	name = "Ammo Crate"
@@ -38,7 +41,7 @@
 /obj/item/ammo_magazine/submachinemag,
 /obj/item/ammo_magazine/submachinemag,
 /turf/simulated/floor/tiled/dark/full,
-/area/space)
+/area/template_noop)
 "e" = (
 /obj/structure/closet/crate{
 	name = "Ammo Crate"
@@ -67,7 +70,7 @@
 /obj/item/ammo_magazine/a556/carbine,
 /obj/item/ammo_magazine/a556/carbine,
 /turf/simulated/floor/tiled/dark/full,
-/area/space)
+/area/template_noop)
 "f" = (
 /obj/structure/weapons_rack{
 	req_access = list(13,221,222)
@@ -80,7 +83,7 @@
 /obj/item/gun/projectile/automatic/tommygun,
 /obj/item/gun/projectile/automatic/tommygun,
 /turf/simulated/floor/tiled/dark/full,
-/area/space)
+/area/template_noop)
 "i" = (
 /obj/structure/weapons_rack{
 	req_access = list(13,221,222)
@@ -90,7 +93,7 @@
 /obj/item/grenade,
 /obj/item/grenade,
 /turf/simulated/floor/tiled/dark/full,
-/area/space)
+/area/template_noop)
 "l" = (
 /obj/structure/weapons_rack{
 	req_access = list(13,221,222)
@@ -104,7 +107,7 @@
 /obj/item/gun/projectile/pistol,
 /obj/item/gun/projectile/pistol,
 /turf/simulated/floor/tiled/dark/full,
-/area/space)
+/area/template_noop)
 "p" = (
 /obj/structure/closet/crate{
 	name = "Ammo Crate"
@@ -135,7 +138,7 @@
 /obj/item/ammo_magazine/c45m,
 /obj/item/ammo_magazine/c45m,
 /obj/item/ammo_magazine/c45m,
-/turf/simulated/floor/tiled/dark/full,
+/turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/space)
 "q" = (
 /turf/space,
@@ -176,7 +179,7 @@
 /obj/item/ammo_magazine/submachinemag,
 /obj/item/ammo_magazine/submachinemag,
 /turf/simulated/floor/tiled/dark/full,
-/area/space)
+/area/template_noop)
 "t" = (
 /obj/structure/weapons_rack{
 	req_access = list(13,221,222)
@@ -194,7 +197,7 @@
 /obj/item/gun/projectile/pistol,
 /obj/item/gun/projectile/pistol,
 /turf/simulated/floor/tiled/dark/full,
-/area/space)
+/area/template_noop)
 "u" = (
 /obj/structure/closet/crate{
 	name = "Ammo Crate"
@@ -224,7 +227,7 @@
 /obj/item/ammo_magazine/mc9mm,
 /obj/item/ammo_magazine/mc9mm,
 /turf/simulated/floor/tiled/dark/full,
-/area/space)
+/area/template_noop)
 "v" = (
 /obj/structure/weapons_rack{
 	req_access = list(13,221,222)
@@ -242,9 +245,9 @@
 	},
 /obj/item/gun/projectile/automatic/rifle/dpra,
 /obj/item/gun/projectile/automatic/rifle/adhomian,
-/obj/effect/map_effect/marker/mapmanip/submap/extract/coc_ranger/lockers,
+/obj/effect/map_effect/marker/mapmanip/submap/extract/coc_ranger,
 /turf/simulated/floor/tiled/dark/full,
-/area/space)
+/area/template_noop)
 "y" = (
 /obj/structure/weapons_rack{
 	req_access = list(13,221,222)
@@ -258,7 +261,7 @@
 /obj/item/gun/projectile/pistol/sol/konyang,
 /obj/item/gun/projectile/pistol/sol/konyang,
 /turf/simulated/floor/tiled/dark/full,
-/area/space)
+/area/template_noop)
 "z" = (
 /obj/structure/weapons_rack{
 	req_access = list(13,221,222)
@@ -276,16 +279,16 @@
 	},
 /obj/item/gun/projectile/automatic/rifle/dnac,
 /obj/item/gun/projectile/automatic/rifle/dnac,
-/obj/effect/map_effect/marker/mapmanip/submap/extract/coc_ranger/lockers,
+/obj/effect/map_effect/marker/mapmanip/submap/extract/coc_ranger,
 /turf/simulated/floor/tiled/dark/full,
-/area/space)
+/area/template_noop)
 "A" = (
 /obj/structure/weapons_rack{
 	req_access = list(13,221,222)
 	},
 /obj/item/gun/projectile/shotgun/pump/rifle/dominia,
 /turf/simulated/floor/tiled/dark/full,
-/area/space)
+/area/template_noop)
 "B" = (
 /obj/structure/weapons_rack{
 	req_access = list(13,221,222)
@@ -311,9 +314,9 @@
 	name = "Armory notice no. 1";
 	info = "Our old shorties and most of our PDWs and sidearms are bused. So we're using some old Solarian stuff and some kit that was donated from the KAF as a holdover. The mags for our new rifles can't be printed by a 'lathe. So hold on to what you got."
 	},
-/obj/effect/map_effect/marker/mapmanip/submap/extract/coc_ranger/lockers,
+/obj/effect/map_effect/marker/mapmanip/submap/extract/coc_ranger,
 /turf/simulated/floor/tiled/dark/full,
-/area/space)
+/area/template_noop)
 "J" = (
 /obj/structure/weapons_rack{
 	req_access = list(13,221,222)
@@ -325,16 +328,16 @@
 /obj/item/gun/projectile/automatic/rifle/shorty,
 /obj/item/gun/projectile/automatic/rifle/shorty,
 /obj/item/gun/projectile/shotgun/pump,
-/obj/effect/map_effect/marker/mapmanip/submap/extract/coc_ranger/lockers,
+/obj/effect/map_effect/marker/mapmanip/submap/extract/coc_ranger,
 /turf/simulated/floor/tiled/dark/full,
-/area/space)
+/area/template_noop)
 "K" = (
 /obj/structure/weapons_rack{
 	req_access = list(13,221,222)
 	},
 /obj/item/gun/projectile/shotgun/pump/combat/sol,
 /turf/simulated/floor/tiled/dark/full,
-/area/space)
+/area/template_noop)
 "L" = (
 /obj/structure/weapons_rack{
 	req_access = list(13,221,222)
@@ -369,7 +372,7 @@
 /obj/item/gun/projectile/pistol/adhomai,
 /obj/item/gun/projectile/pistol/adhomai,
 /turf/simulated/floor/tiled/dark/full,
-/area/space)
+/area/template_noop)
 "P" = (
 /obj/structure/weapons_rack{
 	req_access = list(13,221,222)
@@ -388,7 +391,7 @@
 	name = "Armory notice no. 1";
 	info = "Our old shorties and most of our PDWs and sidearms are busted. I don't even know how we got half of the stuff we got as a replacement, and I'm too afraid to ask."
 	},
-/obj/effect/map_effect/marker/mapmanip/submap/extract/coc_ranger/lockers,
+/obj/effect/map_effect/marker/mapmanip/submap/extract/coc_ranger,
 /turf/simulated/floor/tiled/dark/full,
 /area/space)
 "W" = (
@@ -413,13 +416,13 @@
 /obj/item/ammo_magazine/c45m/dominia,
 /obj/item/ammo_magazine/c45m/dominia,
 /turf/simulated/floor/tiled/dark/full,
-/area/space)
+/area/template_noop)
 "X" = (
 /obj/structure/weapons_rack{
 	req_access = list(13,221,222)
 	},
 /turf/simulated/floor/tiled/dark/full,
-/area/space)
+/area/template_noop)
 "Y" = (
 /obj/structure/weapons_rack{
 	req_access = list(13,221,222)
@@ -437,9 +440,9 @@
 	name = "Armory notice no. 1";
 	info = "Our old shorties and most of our PDWs and sidearms are busted. We had to use a few rifles and shit we captured off the 'imps as a backstop. They aren't too bad, once you get used to the wood furniture and the blood stains."
 	},
-/obj/effect/map_effect/marker/mapmanip/submap/extract/coc_ranger/lockers,
+/obj/effect/map_effect/marker/mapmanip/submap/extract/coc_ranger,
 /turf/simulated/floor/tiled/dark/full,
-/area/space)
+/area/template_noop)
 
 (1,1,1) = {"
 q
@@ -492,11 +495,11 @@ q
 q
 q
 q
-q
+b
 B
 q
 q
-q
+b
 J
 q
 q
@@ -514,11 +517,11 @@ q
 q
 q
 q
-q
+b
 t
 q
 q
-q
+b
 f
 q
 q
@@ -536,11 +539,11 @@ q
 q
 q
 q
-q
+b
 A
 q
 q
-q
+b
 i
 q
 q
@@ -558,11 +561,11 @@ q
 q
 q
 q
-q
+b
 W
 q
 q
-q
+b
 c
 q
 q
@@ -602,11 +605,11 @@ q
 q
 q
 q
-q
+b
 Y
 q
 q
-q
+b
 v
 q
 q
@@ -624,11 +627,11 @@ q
 q
 q
 q
-q
+b
 y
 q
 q
-q
+b
 O
 q
 q
@@ -646,11 +649,11 @@ q
 q
 q
 q
-q
+b
 K
 q
 q
-q
+b
 a
 q
 q
@@ -668,11 +671,11 @@ q
 q
 q
 q
-q
+b
 e
 q
 q
-q
+b
 r
 q
 q
@@ -712,11 +715,11 @@ q
 q
 q
 q
-q
+b
 P
 q
 q
-q
+b
 z
 q
 q
@@ -734,11 +737,11 @@ q
 q
 q
 q
-q
+b
 L
 q
 q
-q
+b
 l
 q
 q
@@ -756,11 +759,11 @@ q
 q
 q
 q
-q
+b
 N
 q
 q
-q
+b
 X
 q
 q
@@ -778,11 +781,11 @@ q
 q
 q
 q
-q
+b
 p
 q
 q
-q
+b
 u
 q
 q
