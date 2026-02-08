@@ -5459,6 +5459,7 @@
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 8
 	},
+/obj/effect/map_effect/marker/mapmanip/submap/extract/coc_ranger,
 /turf/space,
 /area/ship/ranger_corvette/gunnery)
 "ueq" = (
@@ -5606,10 +5607,6 @@
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ranger_corvette/foyer)
-"uty" = (
-/obj/effect/map_effect/marker/mapmanip/submap/extract/coc_ranger,
-/turf/template_noop,
-/area/space)
 "uvJ" = (
 /obj/machinery/light{
 	dir = 8;
@@ -25774,7 +25771,7 @@ xRX
 xRX
 xRX
 xRX
-uty
+xRX
 xRX
 xRX
 xRX
