@@ -15,7 +15,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
-/area/desert_comms)
+/area/desert_comms/command)
 "bd" = (
 /obj/structure/cable/yellow{
 	icon_state = "1-2"
@@ -31,7 +31,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
-/area/desert_comms)
+/area/desert_comms/main_room)
 "bj" = (
 /obj/machinery/door/blast/shutters{
 	id = "comms_site_armory";
@@ -39,13 +39,13 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/techmaint,
-/area/desert_comms)
+/area/desert_comms/main_room)
 "bm" = (
 /obj/structure/dispenser/oxygen,
 /obj/effect/floor_decal/industrial/outline/emergency_closet,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
-/area/desert_comms)
+/area/desert_comms/main_room)
 "bp" = (
 /obj/structure/table/reinforced/steel,
 /obj/machinery/light/colored/decayed/dimmed{
@@ -58,7 +58,7 @@
 /obj/random/junk,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
-/area/desert_comms)
+/area/desert_comms/lounge)
 "bx" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
@@ -68,7 +68,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/full,
-/area/desert_comms)
+/area/desert_comms/entrance)
 "bV" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 6
@@ -78,7 +78,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
-/area/desert_comms)
+/area/desert_comms/main_room)
 "cJ" = (
 /obj/structure/table/reinforced/steel,
 /obj/effect/floor_decal/corner/paleblue{
@@ -93,7 +93,7 @@
 	req_access = list(203)
 	},
 /turf/simulated/floor/tiled/dark,
-/area/desert_comms)
+/area/desert_comms/command)
 "cP" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -101,7 +101,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/exoplanet/wood,
-/area/desert_comms)
+/area/desert_comms/quarters/command)
 "cT" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -110,12 +110,12 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
-/area/desert_comms)
+/area/desert_comms/lounge)
 "dn" = (
 /obj/structure/bed/stool/chair/office/bridge/generic,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
-/area/desert_comms)
+/area/desert_comms/command)
 "dp" = (
 /obj/effect/decal/cleanable/blood,
 /obj/effect/decal/cleanable/dirt,
@@ -126,7 +126,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
-/area/desert_comms)
+/area/desert_comms/lounge)
 "dG" = (
 /obj/effect/floor_decal/industrial/outline_straight/grey{
 	dir = 4
@@ -134,7 +134,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
-/area/desert_comms)
+/area/desert_comms/main_room)
 "dT" = (
 /obj/machinery/light/colored/decayed/dimmed{
 	dir = 8
@@ -145,7 +145,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
-/area/desert_comms)
+/area/desert_comms/main_room)
 "dX" = (
 /obj/structure/cable/yellow{
 	icon_state = "0-2"
@@ -153,12 +153,12 @@
 /obj/machinery/photocopier,
 /obj/effect/floor_decal/industrial/outline_straight/grey,
 /turf/simulated/floor/tiled,
-/area/desert_comms)
+/area/desert_comms/main_room)
 "ed" = (
 /obj/machinery/suit_cycler,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
-/area/desert_comms)
+/area/desert_comms/main_room)
 "ei" = (
 /obj/structure/cable/yellow{
 	icon_state = "1-4"
@@ -170,6 +170,7 @@
 /turf/simulated/floor/exoplanet/plating,
 /area/desert_comms)
 "fa" = (
+/obj/abstract/exterior_marker/outside,
 /turf/simulated/floor/tiled/techmaint,
 /area/desert_comms)
 "fb" = (
@@ -185,7 +186,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
-/area/desert_comms)
+/area/desert_comms/command)
 "gn" = (
 /obj/machinery/computer/terminal{
 	dir = 8
@@ -195,7 +196,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
-/area/desert_comms)
+/area/desert_comms/command)
 "gO" = (
 /obj/structure/cable/yellow{
 	icon_state = "1-2";
@@ -212,14 +213,14 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
-/area/desert_comms)
+/area/desert_comms/main_room)
 "hc" = (
 /obj/structure/table/reinforced/steel,
 /obj/item/paper_bin,
 /obj/item/pen,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
-/area/desert_comms)
+/area/desert_comms/command)
 "hF" = (
 /obj/structure/cable/yellow{
 	icon_state = "1-2";
@@ -233,7 +234,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
-/area/desert_comms)
+/area/desert_comms/main_room)
 "hM" = (
 /obj/effect/decal/fake_object{
 	icon_state = "comm_server";
@@ -245,7 +246,7 @@
 	dir = 5
 	},
 /turf/simulated/floor/tiled/dark,
-/area/desert_comms)
+/area/desert_comms/command)
 "hO" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/cable/yellow{
@@ -256,7 +257,7 @@
 /obj/machinery/door/firedoor/noid,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/exoplanet/plating,
-/area/desert_comms)
+/area/desert_comms/main_room)
 "hP" = (
 /obj/structure/ledge{
 	dir = 8;
@@ -276,7 +277,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/generic,
 /turf/simulated/floor/tiled/freezer,
-/area/desert_comms)
+/area/desert_comms/freezer)
 "iX" = (
 /obj/structure/cable/yellow{
 	icon_state = "1-2";
@@ -293,7 +294,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
-/area/desert_comms)
+/area/desert_comms/substation)
 "jk" = (
 /obj/structure/closet/secure_closet/guncabinet{
 	locked = 0;
@@ -309,14 +310,14 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/techmaint,
-/area/desert_comms)
+/area/desert_comms/main_room)
 "jE" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
-/area/desert_comms)
+/area/desert_comms/main_room)
 "kh" = (
 /obj/structure/closet/secure_closet/guncabinet{
 	locked = 0;
@@ -345,7 +346,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/techmaint,
-/area/desert_comms)
+/area/desert_comms/main_room)
 "kT" = (
 /obj/effect/decal/cleanable/blood/gibs,
 /obj/effect/decal/cleanable/blood,
@@ -373,7 +374,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
-/area/desert_comms)
+/area/desert_comms/lounge)
 "lr" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -382,7 +383,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
-/area/desert_comms)
+/area/desert_comms/main_room)
 "lt" = (
 /obj/machinery/light/small{
 	dir = 1
@@ -396,18 +397,18 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/generic,
 /turf/simulated/floor/tiled,
-/area/desert_comms)
+/area/desert_comms/main_room)
 "lH" = (
 /obj/machinery/power/rtg,
 /obj/structure/cable/yellow,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/exoplanet/plating,
-/area/desert_comms)
+/area/desert_comms/power)
 "lI" = (
 /obj/machinery/suit_cycler/engineering/prepared,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
-/area/desert_comms)
+/area/desert_comms/main_room)
 "lX" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1;
@@ -418,9 +419,10 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
-/area/desert_comms)
+/area/desert_comms/main_room)
 "mD" = (
 /obj/effect/decal/cleanable/dirt,
+/obj/abstract/exterior_marker/outside,
 /turf/simulated/floor/tiled/techmaint,
 /area/desert_comms)
 "mN" = (
@@ -434,7 +436,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
-/area/desert_comms)
+/area/desert_comms/lounge)
 "no" = (
 /obj/structure/sign/flag/sol/old{
 	pixel_y = 32
@@ -445,12 +447,12 @@
 /obj/item/pen,
 /obj/item/paper_bin,
 /turf/simulated/floor/tiled,
-/area/desert_comms)
+/area/desert_comms/main_room)
 "nO" = (
 /obj/machinery/firealarm/east,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
-/area/desert_comms)
+/area/desert_comms/main_room)
 "nQ" = (
 /obj/random/junk,
 /obj/structure/closet/crate/bin,
@@ -461,7 +463,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
-/area/desert_comms)
+/area/desert_comms/main_room)
 "nY" = (
 /obj/structure/cable/yellow{
 	icon_state = "1-2";
@@ -476,7 +478,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
-/area/desert_comms)
+/area/desert_comms/main_room)
 "of" = (
 /obj/structure/cable/yellow{
 	icon_state = "0-8"
@@ -494,12 +496,12 @@
 /obj/structure/bed/stool,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
-/area/desert_comms)
+/area/desert_comms/lounge)
 "on" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
-/area/desert_comms)
+/area/desert_comms/main_room)
 "oy" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 6
@@ -509,7 +511,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
-/area/desert_comms)
+/area/desert_comms/main_room)
 "oZ" = (
 /obj/structure/cable/yellow{
 	icon_state = "1-4";
@@ -530,7 +532,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
-/area/desert_comms)
+/area/desert_comms/power)
 "pc" = (
 /obj/effect/floor_decal/industrial/outline_straight/grey{
 	dir = 8
@@ -538,7 +540,28 @@
 /obj/effect/floor_decal/industrial/warning,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
-/area/desert_comms)
+/area/desert_comms/main_room)
+"pg" = (
+/obj/structure/cable/yellow{
+	icon_state = "1-2";
+	dir = 4
+	},
+/obj/machinery/door/airlock/engineering{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/door/firedoor/noid{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/hatch_door/red,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled,
+/area/desert_comms/main_room)
 "pi" = (
 /obj/structure/window_frame/empty,
 /obj/effect/decal/cleanable/dirt,
@@ -573,7 +596,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
-/area/desert_comms)
+/area/desert_comms/power)
 "qf" = (
 /obj/structure/cable/yellow{
 	icon_state = "1-2";
@@ -587,7 +610,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
-/area/desert_comms)
+/area/desert_comms/lounge)
 "qi" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/exoplanet/desert,
@@ -599,7 +622,7 @@
 	req_access = list(203)
 	},
 /turf/simulated/floor/tiled,
-/area/desert_comms)
+/area/desert_comms/main_room)
 "qs" = (
 /turf/simulated/floor/exoplanet/desert,
 /area/desert_comms)
@@ -623,7 +646,7 @@
 /obj/effect/floor_decal/industrial/hatch_door/red,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
-/area/desert_comms)
+/area/desert_comms/power)
 "qE" = (
 /obj/machinery/vending/cigarette,
 /obj/effect/floor_decal/corner/dark_green/full,
@@ -631,7 +654,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
-/area/desert_comms)
+/area/desert_comms/lounge)
 "rz" = (
 /obj/structure/closet/secure_closet/guncabinet{
 	locked = 0;
@@ -646,7 +669,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/techmaint,
-/area/desert_comms)
+/area/desert_comms/main_room)
 "rI" = (
 /obj/machinery/light/colored/decayed/dimmed,
 /obj/effect/floor_decal/industrial/outline_straight/grey{
@@ -654,7 +677,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
-/area/desert_comms)
+/area/desert_comms/main_room)
 "rX" = (
 /obj/structure/closet{
 	pixel_x = 7
@@ -671,7 +694,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
-/area/desert_comms)
+/area/desert_comms/quarters)
 "su" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
@@ -692,7 +715,10 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/generic,
 /turf/simulated/floor/exoplanet/wood,
-/area/desert_comms)
+/area/desert_comms/quarters/command)
+"ti" = (
+/turf/simulated/wall/r_wall,
+/area/desert_comms/command)
 "tv" = (
 /obj/machinery/firealarm/south,
 /obj/effect/floor_decal/industrial/outline_straight/grey{
@@ -700,12 +726,12 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
-/area/desert_comms)
+/area/desert_comms/main_room)
 "tx" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/generic,
 /turf/simulated/floor/tiled/dark,
-/area/desert_comms)
+/area/desert_comms/command)
 "tA" = (
 /obj/structure/sign/nosmoking_1{
 	pixel_x = 32
@@ -715,7 +741,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
-/area/desert_comms)
+/area/desert_comms/main_room)
 "tX" = (
 /obj/machinery/door/blast/shutters{
 	id = "comms_site_entrance"
@@ -731,7 +757,7 @@
 /obj/item/storage/field_ration,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/freezer,
-/area/desert_comms)
+/area/desert_comms/freezer)
 "va" = (
 /obj/structure/sign/flag/sol/old{
 	pixel_y = 32
@@ -744,7 +770,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
-/area/desert_comms)
+/area/desert_comms/command)
 "ve" = (
 /obj/structure/ledge,
 /obj/structure/blocker/steel/fence,
@@ -757,11 +783,11 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/alarm/north,
 /turf/simulated/floor/tiled/dark,
-/area/desert_comms)
+/area/desert_comms/command)
 "vu" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/freezer,
-/area/desert_comms)
+/area/desert_comms/freezer)
 "vI" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/cable/yellow{
@@ -771,7 +797,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/exoplanet/plating,
-/area/desert_comms)
+/area/desert_comms/main_room)
 "vO" = (
 /obj/effect/decal/cleanable/blood,
 /turf/simulated/floor/exoplanet/desert,
@@ -789,15 +815,15 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
-/area/desert_comms)
+/area/desert_comms/command)
 "ww" = (
 /obj/machinery/suit_cycler/offship/sol,
 /turf/simulated/floor/tiled,
-/area/desert_comms)
+/area/desert_comms/main_room)
 "wx" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/wall/r_wall,
-/area/desert_comms)
+/area/desert_comms/lounge)
 "xk" = (
 /obj/structure/bed/stool{
 	dir = 4
@@ -806,7 +832,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
-/area/desert_comms)
+/area/desert_comms/lounge)
 "xQ" = (
 /obj/machinery/button/remote/blast_door{
 	dir = 4;
@@ -815,6 +841,7 @@
 	id = "comms_site_armory"
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/abstract/exterior_marker/outside,
 /turf/simulated/floor/tiled/techmaint,
 /area/desert_comms)
 "yq" = (
@@ -832,7 +859,7 @@
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/full,
-/area/desert_comms)
+/area/desert_comms/main_room)
 "yr" = (
 /obj/structure/ledge{
 	dir = 8;
@@ -845,7 +872,7 @@
 	dir = 4
 	},
 /turf/simulated/wall/r_wall,
-/area/desert_comms)
+/area/desert_comms/main_room)
 "yX" = (
 /obj/item/storage/toolbox/mechanical,
 /obj/structure/closet/crate/tool,
@@ -862,7 +889,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
-/area/desert_comms)
+/area/desert_comms/substation)
 "yZ" = (
 /obj/machinery/light/colored/decayed/dimmed{
 	dir = 8
@@ -873,7 +900,7 @@
 /obj/machinery/door/firedoor/noid,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
-/area/desert_comms)
+/area/desert_comms/main_room)
 "zc" = (
 /obj/structure/closet/secure_closet/guncabinet{
 	locked = 0;
@@ -884,7 +911,7 @@
 /obj/item/ammo_magazine/mc9mm,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
-/area/desert_comms)
+/area/desert_comms/command)
 "zj" = (
 /obj/structure/sign/securearea,
 /turf/simulated/wall/r_wall,
@@ -897,7 +924,7 @@
 /obj/effect/map_effect/marker/airlock,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/full,
-/area/desert_comms)
+/area/desert_comms/entrance)
 "zD" = (
 /obj/structure/bed/padded{
 	name = "bottom bunk"
@@ -912,7 +939,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
-/area/desert_comms)
+/area/desert_comms/quarters)
 "Aa" = (
 /obj/effect/floor_decal/industrial/hatch_door/red{
 	dir = 1
@@ -920,14 +947,14 @@
 /obj/machinery/door/firedoor/noid,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
-/area/desert_comms)
+/area/desert_comms/main_room)
 "Ay" = (
 /obj/effect/floor_decal/industrial/outline_straight/grey{
 	dir = 1
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
-/area/desert_comms)
+/area/desert_comms/main_room)
 "AN" = (
 /obj/structure/cable/yellow{
 	icon_state = "1-2";
@@ -941,7 +968,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
-/area/desert_comms)
+/area/desert_comms/main_room)
 "Bj" = (
 /obj/machinery/portable_atmospherics/canister/air/airlock,
 /obj/machinery/atmospherics/portables_connector{
@@ -950,7 +977,7 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
-/area/desert_comms)
+/area/desert_comms/main_room)
 "Bk" = (
 /obj/machinery/door/blast/shutters{
 	id = "comms_site_entrance"
@@ -970,11 +997,14 @@
 /obj/structure/lattice/catwalk/indoor/grate/old,
 /turf/simulated/floor/exoplanet/plating,
 /area/desert_comms)
+"Bw" = (
+/turf/simulated/wall/r_wall,
+/area/desert_comms/quarters)
 "BA" = (
 /obj/effect/floor_decal/industrial/outline_straight/grey,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
-/area/desert_comms)
+/area/desert_comms/main_room)
 "BN" = (
 /turf/simulated/floor/exoplanet/barren,
 /area/desert_comms)
@@ -984,7 +1014,7 @@
 	level = 2
 	},
 /turf/simulated/floor/tiled/dark,
-/area/desert_comms)
+/area/desert_comms/command)
 "BS" = (
 /obj/structure/cable/yellow{
 	icon_state = "1-2"
@@ -996,18 +1026,18 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
-/area/desert_comms)
+/area/desert_comms/main_room)
 "Co" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
-/area/desert_comms)
+/area/desert_comms/main_room)
 "Cy" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/universal{
 	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
-/area/desert_comms)
+/area/desert_comms/main_room)
 "Cz" = (
 /obj/structure/closet{
 	pixel_x = -8
@@ -1021,7 +1051,7 @@
 /obj/item/clothing/under/rank/sol/army,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
-/area/desert_comms)
+/area/desert_comms/quarters)
 "Dm" = (
 /obj/machinery/computer/terminal{
 	dir = 1
@@ -1030,7 +1060,7 @@
 	dir = 10
 	},
 /turf/simulated/floor/tiled/dark,
-/area/desert_comms)
+/area/desert_comms/command)
 "Dn" = (
 /obj/effect/floor_decal/industrial/outline_door/security{
 	dir = 8
@@ -1040,13 +1070,17 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
-/area/desert_comms)
+/area/desert_comms/main_room)
 "Dp" = (
 /obj/item/landmine/frag{
 	deployed = 1
 	},
 /turf/simulated/floor/exoplanet/desert,
 /area/template_noop)
+"DK" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled,
+/area/desert_comms/lounge)
 "Ea" = (
 /obj/structure/ledge/corner{
 	dir = 4
@@ -1073,7 +1107,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/generic,
 /turf/simulated/floor/tiled,
-/area/desert_comms)
+/area/desert_comms/lounge)
 "Eu" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
@@ -1081,7 +1115,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
-/area/desert_comms)
+/area/desert_comms/main_room)
 "EV" = (
 /obj/effect/floor_decal/industrial/outline_straight/grey{
 	dir = 4
@@ -1092,7 +1126,7 @@
 /obj/effect/floor_decal/industrial/warning,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
-/area/desert_comms)
+/area/desert_comms/main_room)
 "EX" = (
 /obj/structure/ledge{
 	dir = 1
@@ -1118,7 +1152,10 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
-/area/desert_comms)
+/area/desert_comms/quarters)
+"Fl" = (
+/turf/simulated/wall/r_wall,
+/area/desert_comms/lounge)
 "Fp" = (
 /obj/effect/decal/exterior_stairs/half/left{
 	dir = 1
@@ -1139,7 +1176,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
-/area/desert_comms)
+/area/desert_comms/substation)
 "FM" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1;
@@ -1147,7 +1184,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
-/area/desert_comms)
+/area/desert_comms/lounge)
 "Ga" = (
 /turf/simulated/floor/exoplanet/desert,
 /area/template_noop)
@@ -1162,7 +1199,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
-/area/desert_comms)
+/area/desert_comms/main_room)
 "Gw" = (
 /obj/structure/cable/yellow{
 	icon_state = "1-4"
@@ -1175,7 +1212,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
-/area/desert_comms)
+/area/desert_comms/main_room)
 "GB" = (
 /obj/effect/floor_decal/corner/blue/diagonal,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -1184,7 +1221,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/white,
-/area/desert_comms)
+/area/desert_comms/restroom)
 "GE" = (
 /obj/structure/cable/yellow{
 	icon_state = "0-8"
@@ -1213,14 +1250,17 @@
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/full,
-/area/desert_comms)
+/area/desert_comms/entrance)
 "HG" = (
 /obj/effect/floor_decal/industrial/outline_straight/grey{
 	dir = 8
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
-/area/desert_comms)
+/area/desert_comms/main_room)
+"HP" = (
+/turf/simulated/wall/r_wall,
+/area/desert_comms/restroom)
 "Ia" = (
 /obj/machinery/vending/wallmed2{
 	pixel_x = -7;
@@ -1231,19 +1271,19 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
-/area/desert_comms)
+/area/desert_comms/main_room)
 "In" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/closet/walllocker/emerglocker/east,
 /turf/simulated/floor/tiled,
-/area/desert_comms)
+/area/desert_comms/main_room)
 "IC" = (
 /obj/effect/floor_decal/industrial/outline_straight/grey{
 	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
-/area/desert_comms)
+/area/desert_comms/main_room)
 "IG" = (
 /obj/effect/decal/exterior_stairs/half/center{
 	dir = 1
@@ -1267,7 +1307,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/exoplanet/wood,
-/area/desert_comms)
+/area/desert_comms/lounge)
 "Ji" = (
 /obj/machinery/light/colored/decayed/dimmed,
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
@@ -1275,18 +1315,18 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/freezer,
-/area/desert_comms)
+/area/desert_comms/freezer)
 "Jr" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
-/area/desert_comms)
+/area/desert_comms/command)
 "JD" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/polarized/grille/firedoor,
 /obj/machinery/door/blast/shutters{
 	id = "comms_site_windows"
 	},
 /turf/simulated/floor/exoplanet/plating,
-/area/desert_comms)
+/area/desert_comms/command)
 "JJ" = (
 /obj/structure/bed/padded{
 	name = "bottom bunk"
@@ -1301,7 +1341,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
-/area/desert_comms)
+/area/desert_comms/quarters)
 "JX" = (
 /obj/machinery/atmospherics/pipe/manifold/visible,
 /obj/effect/map_effect/marker/airlock,
@@ -1314,14 +1354,14 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/full,
-/area/desert_comms)
+/area/desert_comms/entrance)
 "JY" = (
 /obj/structure/table/rack,
 /obj/effect/decal/cleanable/dirt,
 /obj/item/newspaper,
 /obj/item/gps,
 /turf/simulated/floor/tiled,
-/area/desert_comms)
+/area/desert_comms/main_room)
 "Ky" = (
 /obj/effect/floor_decal/industrial/warning/full,
 /obj/machinery/porta_turret/ballistic{
@@ -1330,7 +1370,7 @@
 /obj/effect/floor_decal/industrial/outline/red,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
-/area/desert_comms)
+/area/desert_comms/main_room)
 "KK" = (
 /obj/structure/filingcabinet{
 	pixel_x = 7
@@ -1341,7 +1381,7 @@
 /obj/effect/floor_decal/industrial/outline_straight/grey,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
-/area/desert_comms)
+/area/desert_comms/main_room)
 "KR" = (
 /obj/machinery/shower{
 	dir = 8
@@ -1357,7 +1397,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/white,
-/area/desert_comms)
+/area/desert_comms/restroom)
 "KT" = (
 /obj/effect/floor_decal/industrial/outline_straight/grey{
 	dir = 1
@@ -1367,7 +1407,7 @@
 /obj/effect/floor_decal/industrial/warning,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
-/area/desert_comms)
+/area/desert_comms/main_room)
 "Lq" = (
 /obj/structure/ledge/corner{
 	dir = 8
@@ -1382,7 +1422,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
-/area/desert_comms)
+/area/desert_comms/main_room)
 "LV" = (
 /obj/machinery/suit_cycler,
 /obj/effect/decal/cleanable/dirt,
@@ -1391,7 +1431,7 @@
 	pixel_x = -32
 	},
 /turf/simulated/floor/tiled,
-/area/desert_comms)
+/area/desert_comms/main_room)
 "Ma" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/cable/yellow{
@@ -1410,7 +1450,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/exoplanet/plating,
-/area/desert_comms)
+/area/desert_comms/main_room)
 "MB" = (
 /obj/structure/bed/stool{
 	dir = 1
@@ -1421,7 +1461,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/alarm/east,
 /turf/simulated/floor/tiled,
-/area/desert_comms)
+/area/desert_comms/lounge)
 "ME" = (
 /obj/structure/table/reinforced/steel,
 /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/sol{
@@ -1433,7 +1473,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
-/area/desert_comms)
+/area/desert_comms/command)
 "MU" = (
 /obj/structure/cable/yellow{
 	icon_state = "1-2";
@@ -1459,7 +1499,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/generic,
 /turf/simulated/floor/tiled,
-/area/desert_comms)
+/area/desert_comms/power)
 "Na" = (
 /obj/random/junk,
 /obj/effect/floor_decal/industrial/outline_straight/grey{
@@ -1470,7 +1510,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
-/area/desert_comms)
+/area/desert_comms/main_room)
 "Nd" = (
 /obj/structure/closet/cabinet,
 /obj/item/clothing/head/sol/army/service,
@@ -1486,7 +1526,7 @@
 /obj/item/clothing/shoes/jackboots,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/exoplanet/wood,
-/area/desert_comms)
+/area/desert_comms/quarters/command)
 "Ne" = (
 /obj/structure/sign/flag/sol/old{
 	pixel_y = 32
@@ -1500,7 +1540,7 @@
 /obj/effect/floor_decal/corner/blue/diagonal,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/white,
-/area/desert_comms)
+/area/desert_comms/restroom)
 "ND" = (
 /obj/structure/window_frame/empty,
 /turf/simulated/floor/tiled/techmaint,
@@ -1515,13 +1555,13 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
-/area/desert_comms)
+/area/desert_comms/main_room)
 "NP" = (
 /obj/machinery/portable_atmospherics/canister/oxygen,
 /obj/effect/floor_decal/industrial/outline/emergency_closet,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
-/area/desert_comms)
+/area/desert_comms/main_room)
 "NY" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/door/blast/shutters{
@@ -1529,7 +1569,13 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/techmaint,
-/area/desert_comms)
+/area/desert_comms/main_room)
+"Ol" = (
+/turf/simulated/wall/r_wall,
+/area/desert_comms/freezer)
+"Ot" = (
+/turf/simulated/wall/r_wall,
+/area/desert_comms/main_room)
 "Ov" = (
 /obj/machinery/light/colored/decayed/dimmed{
 	dir = 4
@@ -1537,14 +1583,14 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
-/area/desert_comms)
+/area/desert_comms/main_room)
 "OR" = (
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 10
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
-/area/desert_comms)
+/area/desert_comms/lounge)
 "OS" = (
 /obj/structure/blocker/steel/fence{
 	dir = 8
@@ -1556,13 +1602,16 @@
 /obj/effect/floor_decal/industrial/outline_straight/grey,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
-/area/desert_comms)
+/area/desert_comms/main_room)
 "Pd" = (
 /obj/structure/ledge{
 	dir = 1
 	},
 /turf/simulated/floor/exoplanet/desert,
 /area/desert_comms)
+"Pf" = (
+/turf/simulated/wall/r_wall,
+/area/desert_comms/power)
 "Pn" = (
 /obj/structure/cable/yellow{
 	icon_state = "1-2"
@@ -1574,7 +1623,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
-/area/desert_comms)
+/area/desert_comms/main_room)
 "Po" = (
 /obj/machinery/door/airlock/service,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -1585,13 +1634,19 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
-/area/desert_comms)
+/area/desert_comms/lounge)
+"Pp" = (
+/turf/simulated/wall/r_wall,
+/area/desert_comms/entrance)
 "Pr" = (
 /obj/machinery/light/small/broken{
 	dir = 1
 	},
 /turf/simulated/floor/exoplanet/barren,
 /area/desert_comms)
+"Pv" = (
+/turf/simulated/wall/r_wall,
+/area/desert_comms/quarters/command)
 "PJ" = (
 /obj/structure/ledge/corner,
 /obj/structure/ledge/corner{
@@ -1609,7 +1664,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
-/area/desert_comms)
+/area/desert_comms/quarters)
 "Qf" = (
 /obj/structure/closet/crate/freezer,
 /obj/item/storage/field_ration,
@@ -1618,7 +1673,7 @@
 /obj/item/storage/field_ration,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/freezer,
-/area/desert_comms)
+/area/desert_comms/freezer)
 "Qs" = (
 /obj/machinery/computer/terminal{
 	dir = 1
@@ -1628,7 +1683,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
-/area/desert_comms)
+/area/desert_comms/command)
 "Qv" = (
 /obj/machinery/light/colored/decayed/dimmed{
 	dir = 4
@@ -1639,10 +1694,11 @@
 /obj/machinery/door/firedoor/noid,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
-/area/desert_comms)
+/area/desert_comms/main_room)
 "Qw" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
+/obj/abstract/exterior_marker/outside,
 /turf/simulated/floor/tiled/techmaint,
 /area/desert_comms)
 "QA" = (
@@ -1663,7 +1719,7 @@
 /obj/effect/map_effect/marker/airlock,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/full,
-/area/desert_comms)
+/area/desert_comms/entrance)
 "QL" = (
 /obj/structure/cable/yellow{
 	icon_state = "0-4"
@@ -1701,7 +1757,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/white,
-/area/desert_comms)
+/area/desert_comms/restroom)
 "Rw" = (
 /obj/structure/cable/yellow{
 	icon_state = "1-2";
@@ -1719,7 +1775,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/generic,
 /turf/simulated/floor/tiled,
-/area/desert_comms)
+/area/desert_comms/main_room)
 "RP" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/exoplanet/desert,
@@ -1740,7 +1796,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
-/area/desert_comms)
+/area/desert_comms/lounge)
 "SB" = (
 /obj/machinery/light/colored/decayed/dimmed{
 	dir = 1
@@ -1754,7 +1810,7 @@
 /obj/effect/floor_decal/industrial/outline_straight/grey,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
-/area/desert_comms)
+/area/desert_comms/main_room)
 "SD" = (
 /obj/structure/sign/flag/sol/old{
 	pixel_x = -32;
@@ -1766,7 +1822,7 @@
 /obj/effect/floor_decal/corner/orange/full,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
-/area/desert_comms)
+/area/desert_comms/substation)
 "SK" = (
 /obj/structure/table/reinforced/steel,
 /obj/machinery/chemical_dispenser/coffeemaster/full{
@@ -1788,7 +1844,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
-/area/desert_comms)
+/area/desert_comms/lounge)
 "SM" = (
 /obj/machinery/light/colored/decayed/dimmed{
 	dir = 8
@@ -1812,7 +1868,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
-/area/desert_comms)
+/area/desert_comms/main_room)
 "TC" = (
 /obj/machinery/light/colored/decayed/dimmed{
 	dir = 1
@@ -1842,7 +1898,7 @@
 	id = "comms_site_entrance"
 	},
 /turf/simulated/floor/tiled/dark,
-/area/desert_comms)
+/area/desert_comms/command)
 "Uu" = (
 /obj/structure/ledge{
 	dir = 8;
@@ -1863,7 +1919,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/exoplanet/plating,
-/area/desert_comms)
+/area/desert_comms/main_room)
 "UQ" = (
 /obj/machinery/door/airlock/service,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -1874,7 +1930,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled/freezer,
-/area/desert_comms)
+/area/desert_comms/lounge)
 "UT" = (
 /obj/machinery/power/terminal{
 	dir = 8
@@ -1894,14 +1950,14 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
-/area/desert_comms)
+/area/desert_comms/substation)
 "UW" = (
 /obj/structure/sign/electricshock{
 	pixel_x = 32
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
-/area/desert_comms)
+/area/desert_comms/main_room)
 "UZ" = (
 /obj/machinery/light/colored/decayed/dimmed,
 /turf/simulated/floor/exoplanet/desert,
@@ -1920,7 +1976,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/exoplanet/plating,
-/area/desert_comms)
+/area/desert_comms/main_room)
 "Vk" = (
 /obj/structure/blocker/steel/fence,
 /turf/simulated/floor/exoplanet/desert,
@@ -1930,6 +1986,7 @@
 	dir = 8
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/abstract/exterior_marker/outside,
 /turf/simulated/floor/tiled/techmaint,
 /area/desert_comms)
 "VO" = (
@@ -1937,12 +1994,12 @@
 /obj/item/bedsheet/black,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/exoplanet/wood,
-/area/desert_comms)
+/area/desert_comms/quarters/command)
 "Wg" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
-/area/desert_comms)
+/area/desert_comms/command)
 "Wh" = (
 /obj/effect/floor_decal/industrial/hatch_door/red{
 	dir = 1
@@ -1953,7 +2010,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
-/area/desert_comms)
+/area/desert_comms/main_room)
 "Wy" = (
 /obj/structure/ledge/corner{
 	dir = 1
@@ -1973,7 +2030,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
-/area/desert_comms)
+/area/desert_comms/main_room)
 "WH" = (
 /obj/machinery/light/colored/decayed/dimmed{
 	dir = 4
@@ -1989,7 +2046,7 @@
 	dir = 5
 	},
 /turf/simulated/floor/tiled/dark,
-/area/desert_comms)
+/area/desert_comms/command)
 "WO" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -2003,7 +2060,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
-/area/desert_comms)
+/area/desert_comms/main_room)
 "WS" = (
 /obj/structure/cable/yellow{
 	icon_state = "1-2";
@@ -2023,7 +2080,7 @@
 	},
 /obj/effect/floor_decal/industrial/hatch_door/red,
 /turf/simulated/floor/tiled,
-/area/desert_comms)
+/area/desert_comms/main_room)
 "XR" = (
 /obj/machinery/atmospherics/pipe/manifold4w/visible,
 /obj/effect/map_effect/marker/airlock,
@@ -2035,7 +2092,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/full,
-/area/desert_comms)
+/area/desert_comms/entrance)
 "Ya" = (
 /obj/machinery/door/airlock/command,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -2046,7 +2103,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
-/area/desert_comms)
+/area/desert_comms/main_room)
 "Yc" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
@@ -2055,7 +2112,7 @@
 /obj/effect/map_effect/marker/airlock,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/full,
-/area/desert_comms)
+/area/desert_comms/entrance)
 "Yj" = (
 /obj/effect/decal/exterior_stairs/half/right{
 	dir = 1
@@ -2075,7 +2132,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/exoplanet/plating,
-/area/desert_comms)
+/area/desert_comms/main_room)
 "YB" = (
 /obj/structure/table/reinforced/steel,
 /obj/machinery/light/colored/decayed/dimmed{
@@ -2084,7 +2141,7 @@
 /obj/random/junk,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
-/area/desert_comms)
+/area/desert_comms/command)
 "YC" = (
 /obj/machinery/power/rtg,
 /obj/structure/cable/yellow{
@@ -2093,7 +2150,10 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/exoplanet/plating,
-/area/desert_comms)
+/area/desert_comms/power)
+"YF" = (
+/turf/simulated/wall/r_wall,
+/area/desert_comms/substation)
 "YL" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -2102,12 +2162,12 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/freezer,
-/area/desert_comms)
+/area/desert_comms/freezer)
 "YP" = (
 /obj/effect/floor_decal/industrial/warning,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
-/area/desert_comms)
+/area/desert_comms/main_room)
 "Zb" = (
 /obj/machinery/power/smes/buildable,
 /obj/machinery/light/colored/decayed/dimmed{
@@ -2122,7 +2182,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
-/area/desert_comms)
+/area/desert_comms/substation)
 "Zm" = (
 /turf/simulated/wall/r_wall,
 /area/desert_comms)
@@ -2133,7 +2193,7 @@
 	id = "comms_site_windows"
 	},
 /turf/simulated/floor/exoplanet/plating,
-/area/desert_comms)
+/area/desert_comms/command)
 "ZF" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/cable/yellow{
@@ -2144,14 +2204,14 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/exoplanet/plating,
-/area/desert_comms)
+/area/desert_comms/main_room)
 "ZG" = (
 /obj/structure/table/reinforced/steel,
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 10
 	},
 /turf/simulated/floor/tiled/dark,
-/area/desert_comms)
+/area/desert_comms/command)
 "ZY" = (
 /obj/structure/cable/yellow{
 	icon_state = "1-2";
@@ -2164,7 +2224,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/exoplanet/plating,
-/area/desert_comms)
+/area/desert_comms/main_room)
 
 (1,1,1) = {"
 zj
@@ -2342,16 +2402,16 @@ Ga
 OS
 qs
 qs
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
+Ot
+Ot
+Ot
+Ot
+Ot
+ti
+ti
+ti
+ti
+ti
 TC
 qs
 qs
@@ -2376,11 +2436,11 @@ Dp
 OS
 qs
 qs
-Zm
+Ot
 kh
 jk
 rz
-Zm
+Ot
 hM
 YB
 hc
@@ -2410,11 +2470,11 @@ Ga
 OS
 qs
 UZ
-Zm
+Ot
 NY
 NY
 bj
-Zm
+Ot
 vq
 Jr
 Jr
@@ -2444,11 +2504,11 @@ Dp
 OS
 qs
 qs
-Zm
+Ot
 lG
 Dn
 nQ
-Zm
+Ot
 va
 fZ
 dn
@@ -2478,11 +2538,11 @@ Ga
 OS
 qs
 qs
-Zm
+Ot
 no
 Eu
 rI
-Zm
+Ot
 aP
 tx
 Wg
@@ -2512,7 +2572,7 @@ Dp
 OS
 qs
 qs
-Zm
+Ot
 dX
 Gw
 lr
@@ -2546,16 +2606,16 @@ Ga
 OS
 qs
 qs
-Zm
+Ot
 SB
 Ym
 Ay
-Zm
+Ot
 Uk
 zc
 gn
 cJ
-Zm
+ti
 TC
 qs
 qs
@@ -2580,16 +2640,16 @@ Dp
 OS
 qs
 qs
-Zm
+Ot
 KK
 Vg
 lX
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
+Ot
+Ot
+Ot
+Ot
+Ot
+Ot
 qs
 aG
 qs
@@ -2614,22 +2674,22 @@ Ga
 OS
 qs
 qs
-Zm
+Ot
 Pc
 ZY
 tv
-Zm
+Ot
 ww
 ed
 LV
 lI
-Zm
-Zm
+Ot
+Ot
 yT
-Zm
-Zm
-Zm
-Zm
+Ot
+Ot
+Pp
+Pp
 SR
 qs
 qs
@@ -2648,7 +2708,7 @@ Dp
 OS
 qs
 qs
-Zm
+Ot
 Ia
 hF
 KT
@@ -2661,10 +2721,10 @@ JY
 dT
 Cy
 NP
-Zm
-Zm
-Zm
-Zm
+Ot
+Pp
+Pp
+Pp
 Ne
 qs
 qs
@@ -2682,7 +2742,7 @@ Ga
 OS
 qs
 qs
-Zm
+Ot
 BA
 hF
 EV
@@ -2695,10 +2755,10 @@ dG
 Gm
 WO
 bm
-Zm
+Ot
 QA
 Yc
-Zm
+Pp
 lt
 BN
 BN
@@ -2716,7 +2776,7 @@ Dp
 OS
 qs
 SR
-Zm
+Ot
 Ky
 Ma
 vI
@@ -2750,7 +2810,7 @@ Ga
 OS
 qs
 qs
-Zm
+Ot
 qm
 gO
 pc
@@ -2763,10 +2823,10 @@ HG
 HG
 oy
 on
-Zm
+Ot
 bx
 zy
-Zm
+Pp
 Pr
 qs
 BN
@@ -2784,7 +2844,7 @@ Dp
 OS
 qs
 qs
-Zm
+Ot
 UW
 nY
 YP
@@ -2797,10 +2857,10 @@ Co
 Ov
 Bj
 Bj
-Zm
-Zm
-Zm
-Zm
+Ot
+Pp
+Pp
+Pp
 Ne
 qs
 qs
@@ -2818,22 +2878,22 @@ Ga
 OS
 qs
 qs
-Zm
-Zm
-qv
-Zm
-Zm
-Zm
-Zm
-Zm
+Ot
+Ot
+pg
+Ot
+Ot
+Ot
+Ot
+Ot
 WS
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
+Ot
+Ot
+Ot
+Ot
+Ot
+Pp
+Pp
 SR
 qs
 qs
@@ -2852,21 +2912,21 @@ Dp
 OS
 qs
 qs
-Zm
+YF
 Zb
 FB
 SD
-Zm
+YF
 Cz
 rX
-Zm
+Fl
 lo
 SK
 qE
-Zm
+Fl
 Rn
 Nn
-Zm
+HP
 qs
 qs
 qs
@@ -2886,11 +2946,11 @@ Ga
 OS
 qs
 qs
-Zm
+YF
 UT
 iX
 yX
-Zm
+YF
 Fi
 PN
 Po
@@ -2900,7 +2960,7 @@ cT
 Po
 GB
 KR
-Zm
+HP
 qs
 qs
 qs
@@ -2920,21 +2980,21 @@ Dp
 OS
 qs
 qs
-Zm
-Zm
+Pf
+Pf
 qv
-Zm
-Zm
+Pf
+Pf
 JJ
 zD
-Zm
+Fl
 Sq
-Co
+DK
 OR
-Zm
-Zm
-Zm
-Zm
+Fl
+HP
+HP
+HP
 qs
 qs
 qs
@@ -2954,21 +3014,21 @@ Ga
 OS
 qs
 qs
-Zm
+Pf
 YC
 qb
 lH
-Zm
-Zm
-Zm
-Zm
+Pf
+Bw
+Bw
+Fl
 qf
 FM
 OR
-Zm
+Fl
 Qf
 uf
-Zm
+Ol
 TC
 qs
 qs
@@ -2988,11 +3048,11 @@ Dp
 OS
 qs
 UZ
-Zm
+Pf
 YC
 MU
 lH
-Zm
+Pf
 tc
 cP
 Je
@@ -3002,7 +3062,7 @@ cT
 UQ
 YL
 Ji
-Zm
+Ol
 qs
 qs
 qs
@@ -3022,21 +3082,21 @@ Ga
 OS
 qs
 qs
-Zm
+Pf
 YC
 oZ
 lH
-Zm
+Pf
 VO
 Nd
-Zm
+Fl
 of
 bp
 MB
 wx
 iM
 vu
-Zm
+Ol
 qs
 qs
 qs
@@ -3056,21 +3116,21 @@ Dp
 OS
 qs
 qs
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
-Zm
+Pf
+Pf
+Pf
+Pf
+Pf
+Pv
+Pv
+Fl
+Fl
+Fl
+Fl
+Fl
+Ol
+Ol
+Ol
 qs
 qs
 qs
