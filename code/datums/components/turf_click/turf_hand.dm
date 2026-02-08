@@ -32,4 +32,4 @@
 		return
 
 	var/atom/owner = parent
-	INVOKE_ASYNC(owner, PROC_REF(attack_hand), attacker)
+	INVOKE_ASYNC(owner, TYPE_PROC_REF(/atom, attack_hand), attacker)
