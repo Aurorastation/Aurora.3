@@ -514,16 +514,8 @@
 /turf/simulated/floor/tiled,
 /area/shuttle/ranger_shuttle)
 "bsV" = (
-/obj/machinery/door/blast/regular/open{
-	dir = 4;
-	id = "coc_bridge"
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/door/blast/regular/open{
-	dir = 4;
-	id = "coc_bridge"
-	},
 /obj/machinery/door/airlock/glass_command{
 	name = "Bridge";
 	dir = 1;
@@ -843,6 +835,9 @@
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /obj/machinery/atmospherics/pipe/simple/hidden/aux,
 /obj/effect/map_effect/marker/airlock/docking/ranger_corvette/aft,
+/obj/machinery/door/blast/shutters/open{
+	id = "coc_aft"
+	},
 /turf/simulated/floor/plating,
 /area/ship/ranger_corvette/atmospherics)
 "cZR" = (
@@ -856,6 +851,9 @@
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/effect/map_effect/marker/airlock/docking/ranger_corvette/aft,
 /obj/effect/shuttle_landmark/ranger_corvette/dock_aft,
+/obj/machinery/door/blast/shutters/open{
+	id = "coc_aft"
+	},
 /turf/simulated/floor/plating,
 /area/ship/ranger_corvette/atmospherics)
 "cZV" = (
@@ -1693,6 +1691,7 @@
 /obj/item/clothing/under/konyang/male/shortsleeve,
 /obj/item/clothing/suit/storage/toggle/leather_jacket/military/old/alt,
 /obj/item/clothing/suit/storage/toggle/leather_jacket/military,
+/obj/item/spacecash/c1000,
 /turf/simulated/floor/plating,
 /area/ship/ranger_corvette/leader)
 "gkq" = (
@@ -2747,6 +2746,9 @@
 /obj/machinery/door/airlock/external,
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/effect/map_effect/marker/airlock/docking/ranger_corvette/aft,
+/obj/machinery/door/blast/shutters/open{
+	id = "coc_aft"
+	},
 /turf/simulated/floor/plating,
 /area/ship/ranger_corvette/atmospherics)
 "kxo" = (
@@ -3041,6 +3043,10 @@
 "lWH" = (
 /obj/structure/table/steel,
 /obj/item/modular_computer/laptop/preset/civilian,
+/obj/machinery/photocopier/faxmachine{
+	req_one_access = null;
+	pixel_y = 11
+	},
 /turf/simulated/floor/carpet/brown,
 /area/ship/ranger_corvette/leader)
 "lXU" = (
@@ -3786,6 +3792,22 @@
 /obj/machinery/light{
 	dir = 4;
 	icon_state = "tube_empty"
+	},
+/obj/item/storage/box/large/produce{
+	pixel_x = 3;
+	pixel_y = -11
+	},
+/obj/item/storage/box/large/produce{
+	pixel_x = 3;
+	pixel_y = -11
+	},
+/obj/item/storage/box/large/produce{
+	pixel_x = 3;
+	pixel_y = -11
+	},
+/obj/item/storage/box/large/produce{
+	pixel_x = 3;
+	pixel_y = -11
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/ranger_corvette/canteen)
@@ -4677,6 +4699,7 @@
 /obj/item/ship_ammunition/grauwolf_bundle/ap,
 /obj/item/ship_ammunition/grauwolf_bundle/ap,
 /obj/item/ship_ammunition/grauwolf_bundle/ap,
+/obj/item/ship_ammunition/grauwolf_bundle/ap,
 /turf/simulated/floor/reinforced,
 /area/ship/ranger_corvette/munitions)
 "scg" = (
@@ -4794,6 +4817,7 @@
 /obj/machinery/door/window/eastleft{
 	dir = 2
 	},
+/obj/item/ship_ammunition/grauwolf_bundle,
 /obj/item/ship_ammunition/grauwolf_bundle,
 /obj/item/ship_ammunition/grauwolf_bundle,
 /obj/item/ship_ammunition/grauwolf_bundle,
@@ -5353,6 +5377,7 @@
 /obj/machinery/door/window/eastright{
 	dir = 2
 	},
+/obj/item/ship_ammunition/grauwolf_bundle,
 /obj/item/ship_ammunition/grauwolf_bundle,
 /obj/item/ship_ammunition/grauwolf_bundle,
 /obj/item/ship_ammunition/grauwolf_bundle,
@@ -6225,6 +6250,9 @@
 	frequency = 2137
 	},
 /obj/effect/map_effect/marker/airlock/docking/ranger_corvette/aft,
+/obj/machinery/door/blast/shutters/open{
+	id = "coc_aft"
+	},
 /turf/simulated/floor/plating,
 /area/ship/ranger_corvette/atmospherics)
 "wPe" = (
