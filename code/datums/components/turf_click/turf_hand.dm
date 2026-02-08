@@ -16,7 +16,8 @@
 /datum/component/turf_hand/Destroy()
 	if (parent)
 		UnregisterSignal(parent, COMSIG_HANDLE_HAND_INTERCEPTION)
-    return ..()
+
+	return ..()
 
 /datum/component/turf_hand/proc/OnHandInterception(var/atom/origin, var/mob/attacker, var/turf/turf)
 	// SIGNAL_HANDLER
