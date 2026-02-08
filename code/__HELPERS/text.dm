@@ -671,7 +671,7 @@
 	t = replacetext(t, "\[date\]", "[worlddate2text()]")
 	t = replacetext(t, "\[tajtime\]", "[tajaran_time()]")
 	t = replacetext(t, "\[tajdate\]", "[tajaran_full_date()]")
-	t = replacetext(t, "\[cr\]", "电")
+	t = replacetext(t, "\[cr\]", "\u7535")
 	t = replacetext(t, "\[editorbr\]", "<BR>")
 	t = replacetext(t, @"[image id=([\w]*?\.[\w]*?)]", "<img style=\"display:block;width:90%;\" src = [GLOB.config.docs_image_host]$1></img>")
 	return t
