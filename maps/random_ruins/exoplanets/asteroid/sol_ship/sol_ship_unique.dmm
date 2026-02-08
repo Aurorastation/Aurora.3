@@ -6,53 +6,53 @@
 /obj/structure/window/reinforced,
 /obj/structure/computerframe,
 /turf/simulated/floor/shuttle/dark_blue/airless,
-/area/template_noop)
+/area/crashed_sol_shuttle_01/main)
 "aK" = (
 /obj/structure/closet/secure_closet/engineering_electrical{
 	req_access = null
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/shuttle/dark_blue/airless,
-/area/template_noop)
+/area/crashed_sol_shuttle_01/main)
 "bj" = (
 /obj/structure/bed/stool/chair/office/bridge/generic{
 	dir = 4
 	},
 /turf/simulated/floor/shuttle/dark_blue/airless,
-/area/template_noop)
+/area/crashed_sol_shuttle_01/main)
 "dB" = (
 /turf/simulated/wall/shuttle/dark/cardinal,
-/area/template_noop)
+/area/crashed_sol_shuttle_01/main)
 "dO" = (
 /obj/structure/window/reinforced,
 /obj/structure/bed/stool/chair/office/bridge{
 	dir = 4
 	},
 /turf/simulated/floor/shuttle/dark_blue/airless,
-/area/template_noop)
+/area/crashed_sol_shuttle_01/main)
 "dX" = (
 /obj/machinery/fabricator/autolathe,
 /obj/machinery/light/colored/red{
 	dir = 8
 	},
 /turf/simulated/floor/shuttle/dark_blue/airless,
-/area/template_noop)
+/area/crashed_sol_shuttle_01/main)
 "fo" = (
 /obj/structure/closet/walllocker/emerglocker,
 /turf/simulated/wall/shuttle/dark/cardinal,
-/area/template_noop)
+/area/crashed_sol_shuttle_01/armory)
 "fT" = (
 /obj/machinery/light/colored/red,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/shuttle/dark_blue/airless,
-/area/template_noop)
+/area/crashed_sol_shuttle_01/main)
 "fW" = (
 /obj/structure/window/reinforced{
 	dir = 1
 	},
 /obj/random/junk,
 /turf/simulated/floor/shuttle/dark_blue/airless,
-/area/template_noop)
+/area/crashed_sol_shuttle_01/main)
 "ga" = (
 /obj/structure/window/reinforced{
 	dir = 8
@@ -62,7 +62,7 @@
 	},
 /obj/structure/computerframe,
 /turf/simulated/floor/shuttle/dark_blue/airless,
-/area/template_noop)
+/area/crashed_sol_shuttle_01/main)
 "hk" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced{
@@ -73,11 +73,11 @@
 	},
 /obj/structure/window/reinforced,
 /turf/simulated/floor/airless,
-/area/template_noop)
+/area/crashed_sol_shuttle_01/main)
 "hT" = (
 /obj/effect/decal/cleanable/blood,
 /turf/simulated/floor/shuttle/dark_blue/airless,
-/area/template_noop)
+/area/crashed_sol_shuttle_01/main)
 "il" = (
 /obj/structure/window/reinforced{
 	dir = 1
@@ -87,7 +87,7 @@
 	},
 /obj/structure/computerframe,
 /turf/simulated/floor/shuttle/dark_blue/airless,
-/area/template_noop)
+/area/crashed_sol_shuttle_01/main)
 "iB" = (
 /obj/structure/sign/directions/medical{
 	dir = 8;
@@ -98,17 +98,17 @@
 	pixel_y = -4
 	},
 /turf/simulated/wall/shuttle/dark/cardinal,
-/area/template_noop)
+/area/crashed_sol_shuttle_01/main)
 "jj" = (
 /obj/structure/window/reinforced,
 /obj/structure/bed/stool/chair/office/bridge,
 /turf/simulated/floor/shuttle/dark_blue/airless,
-/area/template_noop)
+/area/crashed_sol_shuttle_01/main)
 "jt" = (
 /obj/structure/closet/crate/secure/loot,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/shuttle/dark_blue/airless,
-/area/template_noop)
+/area/crashed_sol_shuttle_01/main)
 "kr" = (
 /obj/structure/sign/directions/security{
 	dir = 4;
@@ -119,7 +119,11 @@
 	pixel_y = -4
 	},
 /turf/simulated/wall/shuttle/dark/cardinal,
-/area/template_noop)
+/area/crashed_sol_shuttle_01/main)
+"lc" = (
+/obj/structure/closet/walllocker/emerglocker,
+/turf/simulated/wall/shuttle/dark/cardinal,
+/area/crashed_sol_shuttle_01/main)
 "lG" = (
 /obj/structure/window/reinforced{
 	dir = 1
@@ -129,29 +133,29 @@
 	},
 /obj/structure/computerframe,
 /turf/simulated/floor/shuttle/dark_blue/airless,
-/area/template_noop)
+/area/crashed_sol_shuttle_01/main)
 "mi" = (
 /obj/structure/sign/securearea,
 /turf/simulated/wall/shuttle/dark/cardinal,
-/area/template_noop)
+/area/crashed_sol_shuttle_01/main)
 "mD" = (
 /obj/structure/bed/stool/chair/office/bridge/pilot{
 	dir = 8
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/shuttle/dark_blue/airless,
-/area/template_noop)
+/area/crashed_sol_shuttle_01/main)
 "oz" = (
 /obj/machinery/door/airlock/highsecurity{
 	req_access = list(150);
 	dir = 1
 	},
 /turf/simulated/floor/shuttle/black,
-/area/template_noop)
+/area/crashed_sol_shuttle_01/armory)
 "qD" = (
 /obj/structure/extinguisher_cabinet,
 /turf/simulated/wall/shuttle/dark/cardinal,
-/area/template_noop)
+/area/crashed_sol_shuttle_01/main)
 "qH" = (
 /obj/structure/window/reinforced{
 	dir = 8
@@ -159,7 +163,7 @@
 /obj/structure/window/reinforced,
 /obj/structure/computerframe,
 /turf/simulated/floor/shuttle/dark_blue/airless,
-/area/template_noop)
+/area/crashed_sol_shuttle_01/main)
 "qQ" = (
 /obj/machinery/door/window{
 	dir = 1
@@ -167,52 +171,52 @@
 /obj/effect/decal/cleanable/blood,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/shuttle/dark_blue/airless,
-/area/template_noop)
+/area/crashed_sol_shuttle_01/main)
 "qV" = (
 /obj/machinery/door/airlock/hatch{
 	dir = 1
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/shuttle/dark_blue/airless,
-/area/template_noop)
+/area/crashed_sol_shuttle_01/main)
 "rf" = (
 /obj/random/powercell,
 /obj/effect/decal/cleanable/blood/oil,
 /turf/simulated/floor/shuttle/dark_blue/airless,
-/area/template_noop)
+/area/crashed_sol_shuttle_01/main)
 "rA" = (
 /obj/effect/decal/cleanable/cobweb,
 /obj/structure/computerframe,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/shuttle/dark_blue/airless,
-/area/template_noop)
+/area/crashed_sol_shuttle_01/main)
 "rK" = (
 /obj/structure/closet/sol/navy,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/shuttle/black,
-/area/template_noop)
+/area/crashed_sol_shuttle_01/armory)
 "sa" = (
 /obj/random/toolbox,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/shuttle/dark_blue/airless,
-/area/template_noop)
+/area/crashed_sol_shuttle_01/main)
 "su" = (
 /obj/structure/computerframe,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/shuttle/dark_blue/airless,
-/area/template_noop)
+/area/crashed_sol_shuttle_01/main)
 "sK" = (
 /obj/structure/grille/broken,
 /obj/structure/window/reinforced,
 /obj/item/material/shard,
 /turf/simulated/floor/airless,
-/area/template_noop)
+/area/crashed_sol_shuttle_01/main)
 "tC" = (
 /obj/structure/mech_wreckage,
 /obj/machinery/mech_recharger,
 /obj/effect/floor_decal/industrial/warning/full,
 /turf/simulated/floor/shuttle/dark_blue/airless,
-/area/template_noop)
+/area/crashed_sol_shuttle_01/main)
 "tD" = (
 /obj/structure/bed/stool/chair/office/bridge/pilot{
 	dir = 4
@@ -220,58 +224,58 @@
 /obj/item/clothing/accessory/sol_pin,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/shuttle/dark_blue/airless,
-/area/template_noop)
+/area/crashed_sol_shuttle_01/main)
 "uf" = (
 /obj/structure/extinguisher_cabinet{
 	dir = 8
 	},
 /turf/simulated/wall/shuttle/dark/cardinal,
-/area/template_noop)
+/area/crashed_sol_shuttle_01/main)
 "vf" = (
 /obj/effect/floor_decal/industrial/warning,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/shuttle/dark_blue/airless,
-/area/template_noop)
+/area/crashed_sol_shuttle_01/main)
 "vQ" = (
 /turf/simulated/floor/airless,
-/area/template_noop)
+/area/crashed_sol_shuttle_01/main)
 "wb" = (
 /obj/machinery/light/colored/red{
 	dir = 1
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/shuttle/dark_blue/airless,
-/area/template_noop)
+/area/crashed_sol_shuttle_01/main)
 "wR" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
 /turf/simulated/floor/shuttle/dark_blue/airless,
-/area/template_noop)
+/area/crashed_sol_shuttle_01/main)
 "wV" = (
 /obj/structure/table/rack,
 /obj/random/tool,
 /obj/random/voidsuit/no_nanotrasen,
 /turf/simulated/floor/shuttle/dark_blue/airless,
-/area/template_noop)
+/area/crashed_sol_shuttle_01/main)
 "xv" = (
 /obj/structure/window/reinforced{
 	dir = 1
 	},
 /turf/simulated/floor/shuttle/dark_blue/airless,
-/area/template_noop)
+/area/crashed_sol_shuttle_01/main)
 "yk" = (
 /obj/structure/sign/directions/com{
 	dir = 1
 	},
 /turf/simulated/wall/shuttle/dark/cardinal,
-/area/template_noop)
+/area/crashed_sol_shuttle_01/main)
 "yr" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/floor_decal/asteroid,
 /turf/simulated/floor/shuttle/dark_blue/airless,
-/area/template_noop)
+/area/crashed_sol_shuttle_01/main)
 "yX" = (
 /obj/structure/window/reinforced,
 /obj/structure/window/reinforced{
@@ -279,21 +283,23 @@
 	},
 /obj/structure/computerframe,
 /turf/simulated/floor/shuttle/dark_blue/airless,
-/area/template_noop)
+/area/crashed_sol_shuttle_01/main)
 "zm" = (
 /obj/structure/railing/mapped{
 	dir = 8
 	},
-/turf/simulated/floor/tiled/ramp{
-	initial_gas = null
-	},
-/area/template_noop)
+/turf/simulated/floor/tiled/ramp/airless,
+/area/crashed_sol_shuttle_01/main)
+"zJ" = (
+/obj/effect/landmark/clear,
+/turf/template_noop,
+/area/crashed_sol_shuttle_01/main)
 "Ah" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/floor_decal/industrial/warning/full,
 /obj/machinery/porta_turret/net,
 /turf/simulated/floor/shuttle/black,
-/area/dungeon/crashed_ship)
+/area/crashed_sol_shuttle_01/armory)
 "Ak" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/table/rack,
@@ -304,12 +310,12 @@
 /obj/item/stack/material/glass/full,
 /obj/item/material/shard,
 /turf/simulated/floor/shuttle/dark_blue/airless,
-/area/template_noop)
+/area/crashed_sol_shuttle_01/main)
 "BJ" = (
 /obj/effect/decal/cleanable/blood,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/shuttle/dark_blue/airless,
-/area/template_noop)
+/area/crashed_sol_shuttle_01/main)
 "Ck" = (
 /obj/effect/floor_decal/asteroid,
 /turf/template_noop,
@@ -319,11 +325,11 @@
 	dir = 1
 	},
 /turf/simulated/floor/shuttle/dark_blue/airless,
-/area/template_noop)
+/area/crashed_sol_shuttle_01/main)
 "Ex" = (
 /obj/structure/sign/flag/sol,
 /turf/simulated/wall/shuttle/dark/cardinal,
-/area/template_noop)
+/area/crashed_sol_shuttle_01/main)
 "GJ" = (
 /obj/structure/window/reinforced{
 	dir = 1
@@ -331,14 +337,17 @@
 /obj/structure/table/reinforced/steel,
 /obj/item/gun/projectile/pistol/sol,
 /turf/simulated/floor/shuttle/dark_blue/airless,
-/area/template_noop)
+/area/crashed_sol_shuttle_01/main)
 "Hv" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/template_noop,
 /area/template_noop)
+"HL" = (
+/turf/simulated/wall/shuttle/dark/cardinal,
+/area/crashed_sol_shuttle_01/armory)
 "Iw" = (
 /turf/simulated/floor/shuttle/dark_blue/airless,
-/area/template_noop)
+/area/crashed_sol_shuttle_01/main)
 "II" = (
 /obj/structure/window/reinforced{
 	dir = 1
@@ -346,21 +355,19 @@
 /obj/structure/table/reinforced/steel,
 /obj/item/paper/crumpled/bloody,
 /turf/simulated/floor/shuttle/dark_blue/airless,
-/area/template_noop)
+/area/crashed_sol_shuttle_01/main)
 "JP" = (
 /obj/structure/railing/mapped{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/ramp{
-	initial_gas = null
-	},
-/area/template_noop)
+/turf/simulated/floor/tiled/ramp/airless,
+/area/crashed_sol_shuttle_01/main)
 "Lc" = (
 /obj/structure/computerframe,
 /obj/effect/decal/cleanable/dirt,
 /obj/item/material/shard,
 /turf/simulated/floor/shuttle/dark_blue/airless,
-/area/template_noop)
+/area/crashed_sol_shuttle_01/main)
 "Mx" = (
 /obj/structure/window/reinforced{
 	dir = 1
@@ -371,7 +378,7 @@
 	pixel_y = 2
 	},
 /turf/simulated/floor/shuttle/dark_blue/airless,
-/area/template_noop)
+/area/crashed_sol_shuttle_01/main)
 "Oi" = (
 /obj/structure/window/reinforced{
 	dir = 4
@@ -381,7 +388,7 @@
 	},
 /obj/structure/computerframe,
 /turf/simulated/floor/shuttle/dark_blue/airless,
-/area/template_noop)
+/area/crashed_sol_shuttle_01/main)
 "Oz" = (
 /obj/effect/landmark/clear,
 /turf/template_noop,
@@ -393,26 +400,26 @@
 /obj/structure/table/reinforced/steel,
 /obj/item/clothing/head/sol/dress/officer,
 /turf/simulated/floor/shuttle/dark_blue/airless,
-/area/template_noop)
+/area/crashed_sol_shuttle_01/main)
 "Rg" = (
 /obj/structure/computerframe,
 /turf/simulated/floor/shuttle/dark_blue/airless,
-/area/template_noop)
+/area/crashed_sol_shuttle_01/main)
 "Sc" = (
 /obj/structure/closet/secure_closet/engineering_welding{
 	req_access = null
 	},
 /turf/simulated/floor/shuttle/dark_blue/airless,
-/area/template_noop)
+/area/crashed_sol_shuttle_01/main)
 "Tj" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/shuttle/black,
-/area/template_noop)
+/area/crashed_sol_shuttle_01/armory)
 "Tp" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/shuttle/dark_blue/airless,
-/area/template_noop)
+/area/crashed_sol_shuttle_01/main)
 "TT" = (
 /obj/structure/window/reinforced,
 /obj/structure/window/reinforced{
@@ -420,7 +427,7 @@
 	},
 /obj/structure/computerframe,
 /turf/simulated/floor/shuttle/dark_blue/airless,
-/area/template_noop)
+/area/crashed_sol_shuttle_01/main)
 "Ut" = (
 /obj/structure/table/reinforced/steel,
 /obj/structure/window/reinforced{
@@ -436,15 +443,15 @@
 /obj/item/clothing/suit/space/void/sol,
 /obj/item/clothing/head/helmet/space/void/sol,
 /turf/simulated/floor/shuttle/black,
-/area/template_noop)
+/area/crashed_sol_shuttle_01/armory)
 "Uz" = (
 /obj/item/material/shard,
 /turf/simulated/floor/shuttle/dark_blue/airless,
-/area/template_noop)
+/area/crashed_sol_shuttle_01/main)
 "UF" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/shuttle/dark_blue/airless,
-/area/template_noop)
+/area/crashed_sol_shuttle_01/main)
 "VP" = (
 /turf/template_noop,
 /area/template_noop)
@@ -460,23 +467,23 @@
 	},
 /obj/item/clothing/accessory/storage/bayonet,
 /turf/simulated/floor/shuttle/black,
-/area/template_noop)
+/area/crashed_sol_shuttle_01/armory)
 "XI" = (
 /obj/structure/bed/stool/chair/office/bridge/generic,
 /obj/effect/decal/cleanable/dirt,
 /obj/item/clothing/under/rank/sol,
 /turf/simulated/floor/shuttle/dark_blue/airless,
-/area/template_noop)
+/area/crashed_sol_shuttle_01/main)
 "Yb" = (
 /obj/effect/floor_decal/industrial/warning/full,
 /obj/structure/railing/mapped,
 /obj/machinery/porta_turret_construct/dark,
 /turf/simulated/floor/shuttle/dark_blue/airless,
-/area/template_noop)
+/area/crashed_sol_shuttle_01/main)
 "Zd" = (
 /obj/machinery/light/colored/red,
 /turf/simulated/floor/shuttle/dark_blue/airless,
-/area/template_noop)
+/area/crashed_sol_shuttle_01/main)
 
 (1,1,1) = {"
 VP
@@ -544,12 +551,12 @@ Oz
 dB
 dB
 dB
-Oz
-Oz
-Oz
-Oz
-Oz
-Oz
+zJ
+zJ
+zJ
+zJ
+zJ
+zJ
 dB
 dB
 dB
@@ -573,9 +580,9 @@ dB
 dB
 yr
 Yb
-Oz
-Oz
-Oz
+zJ
+zJ
+zJ
 UF
 Tp
 yr
@@ -602,9 +609,9 @@ Ex
 vf
 zm
 wR
-Oz
-Oz
-Oz
+zJ
+zJ
+zJ
 UF
 UF
 sa
@@ -630,9 +637,9 @@ mi
 UF
 dB
 dB
-Oz
-Oz
-Oz
+zJ
+zJ
+zJ
 dB
 Iw
 BJ
@@ -658,11 +665,11 @@ qV
 UF
 iB
 Iw
-Oz
-Oz
+zJ
+zJ
 jt
 dB
-Oz
+zJ
 UF
 DB
 Iw
@@ -684,19 +691,19 @@ qQ
 Zd
 yk
 wb
-fo
+lc
 yr
 UF
-Oz
-Oz
+zJ
+zJ
 qD
 UF
 fT
-dB
-dB
+HL
+HL
 fo
-dB
-dB
+HL
+HL
 Oz
 Oz
 Oz
@@ -713,18 +720,18 @@ UF
 qV
 UF
 kr
-Oz
+zJ
 hT
-Oz
-Oz
+zJ
+zJ
 dB
 UF
 UF
-dB
+HL
 rK
 Ut
 Xs
-dB
+HL
 Oz
 Oz
 Oz
@@ -741,18 +748,18 @@ jj
 mi
 UF
 dB
-Oz
-Oz
+zJ
+zJ
 UF
 dB
-Oz
-Oz
+zJ
+zJ
 yr
-dB
+HL
 Tj
 Tj
 Tj
-dB
+HL
 Oz
 Oz
 Oz
@@ -770,17 +777,17 @@ Ex
 vf
 JP
 wR
-Oz
-Oz
-Oz
-Oz
-Oz
+zJ
+zJ
+zJ
+zJ
+zJ
 UF
 oz
 Tj
 Tj
 Ah
-dB
+HL
 Oz
 Oz
 Oz
@@ -797,18 +804,18 @@ dB
 dB
 UF
 Yb
-Oz
-Oz
-Oz
-Oz
-Oz
-Oz
-Oz
-dB
+zJ
+zJ
+zJ
+zJ
+zJ
+zJ
+zJ
+HL
 Tj
 Tj
 Tj
-dB
+HL
 dB
 Oz
 Oz
@@ -824,19 +831,19 @@ dB
 dB
 dB
 uf
-Oz
-Oz
-Oz
-Oz
-Oz
-Oz
-Oz
+zJ
+zJ
+zJ
+zJ
+zJ
+zJ
+zJ
 dB
-dB
-dB
-dB
-dB
-dB
+HL
+HL
+HL
+HL
+HL
 Oz
 Oz
 Oz

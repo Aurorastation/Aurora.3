@@ -80,6 +80,18 @@
 
 	unit_test_groups = list(2)
 
+ABSTRACT_TYPE(/area/crashed_sol_shuttle_01)
+	ambience = AMBIENCE_RUINS
+	icon_state = "away"
+	is_outside = OUTSIDE_YES
+
+/area/crashed_sol_shuttle_01/main
+	name = "Crashed Solarian Alliance Shuttle"
+
+/area/crashed_sol_shuttle_01/armory
+	name = "Crashed Solarian Alliance Shuttle Armory"
+	is_outside = OUTSIDE_NO
+
 /datum/map_template/ruin/exoplanet/crashed_skrell_shuttle_01
 	name = "Crashed Skrellian Shuttle"
 	id = "crashed_skrell_shuttle_1"
