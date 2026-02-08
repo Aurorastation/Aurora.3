@@ -525,6 +525,8 @@ GLOBAL_LIST_EMPTY_TYPED(preferences_datums, /datum/preferences)
 		character.update_underwear(0)
 		character.update_icon()
 
+	character.traits = disabilities
+
 /datum/preferences/proc/open_load_dialog_sql(mob/user)
 	var/dat = "<tt><center>"
 

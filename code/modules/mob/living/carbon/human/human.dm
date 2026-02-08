@@ -20,6 +20,9 @@
 	/// Pref holder for the speech bubble style.
 	var/speech_bubble_type
 
+	/// The list of Traits/Disabilities this character has selected in character gen.
+	var/list/traits = list()
+
 /mob/living/carbon/human/Initialize(mapload, var/new_species = null)
 	if(!dna)
 		dna = new /datum/dna(null)

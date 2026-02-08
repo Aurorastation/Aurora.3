@@ -22,7 +22,7 @@
 	var/datum/record/virus/active_virus
 	var/listener/record/rconsole/listener
 	var/authenticated = FALSE
-	var/default_screen = "general"
+	var/default_screen = "General"
 	var/record_prefix = ""
 	var/typechoices = list(
 		"physical_status" = list("Active", "*Deceased*", "*SSD*", "*Missing*", "Physically Unfit", "Disabled"),
@@ -53,7 +53,7 @@
 
 	records_type = RECORD_MEDICAL | RECORD_VIRUS
 	edit_type = RECORD_MEDICAL
-	default_screen = "medical"
+	default_screen = "Medical"
 	program_icon_state = "medical_record"
 	program_key_icon_state = "teal_key"
 	color = LIGHT_COLOR_CYAN
@@ -70,7 +70,7 @@
 
 	records_type = RECORD_SECURITY
 	edit_type = RECORD_SECURITY
-	default_screen = "security"
+	default_screen = "Security"
 	program_icon_state = "security_record"
 	program_key_icon_state = "yellow_key"
 	color = LIGHT_COLOR_YELLOW
@@ -88,6 +88,7 @@
 
 	records_type = RECORD_GENERAL | RECORD_SECURITY
 	edit_type = RECORD_GENERAL
+	default_screen = "General"
 	program_icon_state = "employment_record"
 	program_key_icon_state = "lightblue_key"
 	color = LIGHT_COLOR_BLUE
@@ -265,12 +266,6 @@
 			if(!((edit_type & RECORD_MEDICAL) || (edit_type & RECORD_GENERAL)))
 				return FALSE
 		if("medical")
-			if(!(edit_type & RECORD_MEDICAL))
-				return FALSE
-		if("diseases")
-			if(!(edit_type & RECORD_MEDICAL))
-				return FALSE
-		if("allergies")
 			if(!(edit_type & RECORD_MEDICAL))
 				return FALSE
 		if("blood_type")
