@@ -21,8 +21,6 @@
 	. = ..()
 	UnregisterSignal(target, list(COMSIG_MOVABLE_MOVED))
 	var/atom/movable/movable_target = target
-	if(!isturf(movable_target.loc))
-		return
 	for(var/turf/turf_loc as anything in movable_target.locs)
 		turf_loc.remove_opacity_source(target)
 

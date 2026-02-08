@@ -15,5 +15,9 @@
 		our_owner = parent
 	src.priority = priority
 
+/datum/component/turf_hand/Destroy()
+	our_owner = null
+	return ..()
+
 /datum/component/turf_hand/proc/OnHandInterception(var/mob/user)
 	return our_owner.attack_hand(user)
