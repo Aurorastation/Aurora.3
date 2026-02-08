@@ -52,8 +52,6 @@
 	icon = 'icons/obj/grenade.dmi'
 	icon_state = "clusterbang"
 
-/obj/item/grenade/flashbang/clusterbang/Destroy()
-	return ..()
 
 /obj/item/grenade/flashbang/clusterbang/prime()
 	var/numspawned = rand(4,8)
@@ -116,5 +114,3 @@
 	addtimer(CALLBACK(src, PROC_REF(prime)), dettime)
 	..()
 
-/obj/item/grenade/flashbang/cluster/Destroy()
-	return ..()

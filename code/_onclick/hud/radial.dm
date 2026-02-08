@@ -243,8 +243,7 @@ GLOBAL_LIST_EMPTY(radial_menus)
 	if(MA)
 		MA.layer = RADIAL_CONTENT_LAYER
 		MA.appearance_flags |= RESET_TRANSFORM
-		return MA.appearance
-	return null
+	return MA
 
 
 /datum/radial_menu/proc/next_page()

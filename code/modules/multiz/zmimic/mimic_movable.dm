@@ -10,6 +10,9 @@
 		bound_overlay.set_dir(ndir)
 
 /atom/movable/update_above()
+	if (!bound_overlay)
+		return
+
 	if (QDELETED(bound_overlay))
 		bound_overlay = null
 		return
