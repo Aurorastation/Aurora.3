@@ -65,6 +65,8 @@
 	icon_state = "jawspry"
 	item_state = "jawspry"
 	contained_sprite = TRUE
+	// Really do not want to deal with reconciling sprite implementations between parent and child for now.
+	item_icons = null
 	force = 15
 	throwforce = 1
 	w_class = WEIGHT_CLASS_NORMAL
