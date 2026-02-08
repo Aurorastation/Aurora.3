@@ -3,8 +3,8 @@
 	desc = "A handheld device used for detecting and measuring radiation in an area."
 	icon = 'icons/obj/item/scanner.dmi'
 	icon_state = "geiger_off"
-	item_state = "multitool"
-	containeed_sprite = TRUE
+	item_state = "geiger"
+	contained_sprite = TRUE
 	w_class = WEIGHT_CLASS_SMALL
 	action_button_name = "Toggle geiger counter"
 	matter = list(MATERIAL_PLASTIC = 100, DEFAULT_WALL_MATERIAL = 100, MATERIAL_GLASS = 50)
@@ -29,7 +29,7 @@
 
 /obj/item/geiger/proc/update_sound(playing)
 	if(playing && !sound_token)
-		sound_token = GLOB.sound_player.PlayLoopingSound(src, sound_id, 'sound/items/geiger.ogg', volume = geiger_volume, range = 4, falloff = 3, prefer_mute = TRUE)
+		sound_token = GLOB.sound_player.PlayLoopingSound(src, sound_id, 'sound/items/geiger.ogg', volume = geiger_volume, range = 7, falloff = 3, prefer_mute = TRUE)
 	else if(!playing && sound_token)
 		QDEL_NULL(sound_token)
 
@@ -58,6 +58,7 @@
 		icon_state = "geiger_off"
 		update_sound(0)
 		return 1
+
 
 	if(!sound_token) update_sound(1)
 
