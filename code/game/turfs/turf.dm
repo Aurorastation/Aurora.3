@@ -249,8 +249,11 @@
 			step(user.pulling, get_dir(user.pulling.loc, src))
 
 	// Check if objects in the turf want to slap the attacker back.
+	var/cancelled_by_signal = FALSE
 	for (var/atom/target_atom in src)
-		SEND_SIGNAL(target_atom, COMSIG_HANDLE_HAND_INTERCEPTION, user, src)
+		SEND_SIGNAL(target_atom, COMSIG_HANDLE_HAND_INTERCEPTION, &cancelled_by_signal, user, src)
+		if (cancelled_by_signal)
+			return FALSE // immediately exit and fully block the original attack.
 
 	return TRUE
 

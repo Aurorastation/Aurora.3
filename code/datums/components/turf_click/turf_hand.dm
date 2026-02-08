@@ -5,6 +5,7 @@
  */
 #define TURF_HAND_COMPONENT /datum/component/turf_hand
 /datum/component/turf_hand
+	var/cancels_attack = FALSE
 
 /datum/component/turf_hand/Initialize()
 	. = ..()
@@ -20,10 +21,14 @@
 
 	UnregisterSignal(parent, COMSIG_HANDLE_HAND_INTERCEPTION)
 
-/datum/component/turf_hand/proc/OnHandInterception(var/atom/origin, var/mob/attacker, var/turf/turf)
+/datum/component/turf_hand/proc/OnHandInterception(var/atom/origin, var/cancelled, var/mob/attacker, var/turf/turf)
+	SIGNAL_HANDLER
 	if (!isatom(parent))
 		qdel(src) // Invalid parent. Make the component kill itself.
 		return
+
+	if (cancels_attack)
+		*cancelled = TRUE
 
 	var/atom/owner = parent
 	return owner.attack_hand(attacker)
