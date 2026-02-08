@@ -5458,7 +5458,6 @@
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 8
 	},
-/obj/effect/map_effect/marker/mapmanip/submap/insert/coc_ranger/lockers,
 /turf/space,
 /area/ship/ranger_corvette/gunnery)
 "ueq" = (
@@ -5866,6 +5865,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
+/obj/effect/map_effect/marker/mapmanip/submap/insert/coc_ranger/lockers,
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/gunnery)
 "vzU" = (
