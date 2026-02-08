@@ -1731,6 +1731,7 @@
 #include "code\modules\atmospherics\datum_pipeline.dm"
 #include "code\modules\atmospherics\he_pipes.dm"
 #include "code\modules\atmospherics\pipes.dm"
+#include "code\modules\atmospherics\vent_passive.dm"
 #include "code\modules\atmospherics\components\portables_connector.dm"
 #include "code\modules\atmospherics\components\tvalve.dm"
 #include "code\modules\atmospherics\components\valve.dm"
