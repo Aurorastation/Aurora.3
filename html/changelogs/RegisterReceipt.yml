@@ -1,0 +1,7 @@
+author: TheGreyWolf
+
+delete-after: True
+
+changes:
+  - rscadd: "Updated the receipt from the commissary register and the quikpay."
+  - bugfix: "Fixed the quikpay not working as intended for multi-item payments."
