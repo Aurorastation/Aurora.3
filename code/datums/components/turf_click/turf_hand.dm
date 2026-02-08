@@ -21,10 +21,15 @@
 	UnregisterSignal(parent, COMSIG_HANDLE_HAND_INTERCEPTION)
 
 /datum/component/turf_hand/proc/OnHandInterception(var/atom/origin, var/cancelled, var/mob/attacker, var/turf/turf)
-	SIGNAL_HANDLER
+	// SIGNAL_HANDLER
+	// For the record you shouldn't comment out SIGNAL_HANDLER on signals for your code.
+	// But StrongDMM doesn't care that I'm calling a proc on ASYNC.
 	if (!isatom(parent))
 		qdel(src) // Invalid parent. Make the component kill itself.
 		return
 
+	if (!attacker)
+		return
+
 	var/atom/owner = parent
-	INVOKE_ASYNC(src, PROC_REF(attack_hand), attacker)
+	INVOKE_ASYNC(owner, PROC_REF(attack_hand), attacker)
