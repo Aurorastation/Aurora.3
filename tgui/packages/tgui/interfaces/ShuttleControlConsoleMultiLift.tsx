@@ -14,6 +14,7 @@ export type ShuttleControlConsoleMultiLiftData = {
   can_pick: boolean;
   destination_name: string;
   destinations: string[];
+  current_location: string;
 };
 
 export const ShuttleControlConsoleMultiLift = (props, context) => {
@@ -30,7 +31,9 @@ export const ShuttleControlConsoleMultiLift = (props, context) => {
                 <Button
                   content="Go To"
                   icon="arrow-right-to-bracket"
-                  disabled={!data.can_pick}
+                  disabled={
+                    !data.can_pick || data.current_location === destination
+                  }
                   onClick={() => act('pick', { destination: destination })}
                 />
               </LabeledList.Item>
