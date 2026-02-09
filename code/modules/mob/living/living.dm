@@ -545,8 +545,6 @@ default behaviour is:
 				else
 					AM.dropInto(get_turf(src))
 
-	var/new_glide_size = mob.recalculate_glide_size(old_move_delay, move_delay, direct)
-
 	for(var/obj/item/grab/G as anything in my_grabs)
 		if(HAS_GRAB_FLAGS(G, GRAB_REVERSE_FACING))
 			set_dir(REVERSE_DIR(direction))
