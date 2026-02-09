@@ -285,7 +285,7 @@
 		//TODO: Fuck wheelchairs.
 		for(var/obj/item/grab/G as anything in mob.get_active_grabs())
 			var/obj/structure/S = G.grabbed
-			if(!istype(S, /obj/structure/janitorialcart) && !istype(S, /obj/structure/bed/stool/chair/office/wheelchair))
+			if(!istype(S, /obj/structure/cart) && !istype(S, /obj/structure/bed/stool/chair/office/wheelchair))
 				continue
 			move_delay += S.slowdown
 			var/cart_glide_size = S.recalculate_glide_size(old_move_delay, move_delay, direct)
