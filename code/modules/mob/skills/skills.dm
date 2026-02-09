@@ -27,7 +27,12 @@
 	for(var/S in pref.skills)
 		var/singleton/skill/skill = GET_SINGLETON(S)
 		var/skill_level = pref.skills[skill.type]
+
+		// Set the standard method skill levels.
 		skills[skill.type] = skill_level
+
+		// Set the skill by ECS method, does nothing by default.
+		skill.on_spawn(owner, skill_level)
 
 /**
  * Returns the mob's proficiency with a certain skill.

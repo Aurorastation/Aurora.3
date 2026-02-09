@@ -1087,6 +1087,7 @@
 /datum/species/proc/handle_temperature_regulation(mob/living/carbon/human/human)
 	human.bodytemperature += passive_temp_gain
 
+/**
  * Gets a modifier for a skill category based on the character age or other species things.
  * Must return a list with all three skill categories to a modifier (example: list(SKILL_CATEGORY_EVERYDAY = 1.5) )
  */

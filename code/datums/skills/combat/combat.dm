@@ -1,7 +1,7 @@
 /singleton/skill/unarmed_combat
 	name = "Unarmed Combat"
 	description = "Unarmed combat represents your training in hand-to-hand combat, or without a weapon."
-	skill_level_descriptions = list(
+	skill_level_descriptions = alist(
 		SKILL_LEVEL_UNFAMILIAR = "You have rarely, if ever, fought someone in your life. You are likely to crack under pressure, not land punches, and are physically \
 								a pushover in a real fight. Being shoved, grabbed, or moved is likely to be very dangerous for you.",
 		SKILL_LEVEL_FAMILIAR = "You have some experience throwing punches. You are no stranger to a close-quarters fight, though anyone with real training is likely to \

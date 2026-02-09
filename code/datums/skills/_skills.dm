@@ -4,7 +4,7 @@
 	/// A description of what this skill entails.
 	var/description
 	/// A detailed description of what a character should expect with their current level in this skill. Assoc list of skill level to string.
-	var/list/skill_level_descriptions = list(
+	var/alist/skill_level_descriptions = alist(
 		SKILL_LEVEL_UNFAMILIAR = "You are clueless.",
 		SKILL_LEVEL_FAMILIAR = "You have read up on the subject or have prior real experience.",
 		SKILL_LEVEL_TRAINED = "You have received some degree of official training on the subject, whether through certifications or courses.",
@@ -47,3 +47,22 @@
 	if(level == SKILL_LEVEL_UNFAMILIAR) //thanks byond for not supporting index 0
 		return 0
 	return skill_difficulty_modifier * level
+
+/**
+ * ECS hook for Skills, based on a one-shot-on-spawn pattern common to traits/disabilities/loadouts, etc.
+ * Skills may optionally include this, but are not required to.
+ * This is primarily useful for making skills that offload all of their functional logic to a Component.
+ *
+ * It will be called during the process of spawning a player character in.
+ */
+/singleton/skill/proc/on_spawn(var/mob/owner, var/skill_level)
+	// Gentle reminder that if you use this proc for a skill, you don't need any variety of ..() in it.
+	SHOULD_CALL_PARENT(FALSE)
+
+	// Code comments below this line are provided as an example ECS hook.
+	//if (!owner)
+	//	return
+
+	// Change YourSkillComponent to the pretty #define used by whatever component you make.
+	//var YourSkillComponent/skill = character._LoadComponent(YourSkillComponent)
+	//skill.level = skill_level
