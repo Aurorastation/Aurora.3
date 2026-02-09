@@ -84,7 +84,7 @@
 			if(!istype(paper) || paper.loc != src)
 				return
 			var/obj/item/pen = usr.get_inactive_hand()
-			if(!pen || !pen.tool_behaviour == TOOL_PEN)
+			if(!pen || pen.tool_behaviour != TOOL_PEN)
 				pen = usr.get_active_hand()
 			if(pen?.tool_behaviour == TOOL_PEN)
 				paper.attackby(pen, usr)

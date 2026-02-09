@@ -143,7 +143,7 @@ export const MainPage = (props, context) => {
                 {data.order_item_count}
               </LabeledList.Item>
               <LabeledList.Item label="Price">
-                {data.order_value.toFixed(2)} 电
+                {data.order_value.toFixed(2)}电
               </LabeledList.Item>
               {data.status_message && (
                 <LabeledList.Item label="Status">
@@ -272,16 +272,16 @@ export const ShowDetails = (props, context) => {
         </Table.Row>
         <Table.Row>
           <Table.Cell>Handling Fee</Table.Cell>
-          <Table.Cell>{data.handling_fee.toFixed(2)} 电</Table.Cell>
+          <Table.Cell>{data.handling_fee.toFixed(2)}电</Table.Cell>
         </Table.Row>
         <Table.Row>
           <Table.Cell>Crate Fee</Table.Cell>
-          <Table.Cell>{data.crate_fee.toFixed(2)} 电</Table.Cell>
+          <Table.Cell>{data.crate_fee.toFixed(2)}电</Table.Cell>
         </Table.Row>
         {data.order_items.map((item) => (
           <Table.Row key={item.name}>
             <Table.Cell>{item.name}</Table.Cell>
-            <Table.Cell>{item.price.toFixed(2)} 电</Table.Cell>
+            <Table.Cell>{item.price.toFixed(2)}电</Table.Cell>
           </Table.Row>
         ))}
       </Table>
