@@ -465,6 +465,9 @@
 	condiment_icon_state = "wuluextract"
 
 /singleton/reagent/wulumunusha/affect_blood(mob/living/carbon/M, alien, removed, datum/reagents/holder)
+	var/mob/living/carbon/human/H = M
+	if(istype(H) && (H.species.flags & NO_BLOOD))
+		return
 	M.druggy = max(M.druggy, 100)
 	M.silent = max(M.silent, 5)
 	if(!prob(3))
