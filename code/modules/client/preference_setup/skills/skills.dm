@@ -56,16 +56,16 @@
 	var/before = pref.skills
 	var/loaded_skills
 	try
-		loaded_skills = json_decode(pref.skills)
+		loaded_skills = pref.skills
 	catch (var/exception/e)
 		log_debug("SKILLS: Caught [e]. Initial value: [before]")
 		pref.skills = list()
 
 	pref.skills = list()
-	for(var/new_skill in loaded_skills)
-		var/singleton/skill/skill = GET_SINGLETON(text2path(new_skill))
+	for(var/key,value in loaded_skills)
+		var/singleton/skill/skill = GET_SINGLETON(key)
 		if(istype(skill))
-			pref.skills[skill.type] = loaded_skills[new_skill]
+			pref.skills[skill.type] = value
 
 /datum/category_item/player_setup_item/skills/sanitize_character(var/sql_load = 0)
 	//todomatt
