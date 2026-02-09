@@ -1,4 +1,0 @@
-author: Helfirejag
-delete-after: True
-changes:
-  - bugfix: "Fixed the credit symbol not being correctly applied when using [cr] on a paper."

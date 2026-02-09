@@ -171,3 +171,45 @@
   fyni:
   - bugfix: Fixes an upside down sprite on the right large flag, properly capatalizes
       flag name.
+2026-02-09:
+  Acetrea:
+  - balance: Changes the perconol recipe from water to hydrazine.
+  - balance: Slightly edits the description of mortaphenyl to reflect changes made
+      to the cargo order menu.
+  - spellcheck: Corrects 'opiod' to 'opioid'.
+  Batrachophrenoboocosmomachia:
+  - bugfix: Removes TC spawn from the Horizon's Secure Technical Storage compartment
+      (accidental inclusion).
+  GeneralCamo:
+  - rscadd: Added passive vents, that passively interact with the air outside of them.
+  - bugfix: Vent and scrubber items will now use the correct icons.
+  Helfirejag:
+  - bugfix: Fixed the credit symbol not being correctly applied when using [cr] on
+      a paper.
+  MynameAsJeff:
+  - bugfix: Fixes several airlock and wiring errors on the SSRM Corvette.
+  - bugfix: Gives the SSRM Corvette's Chief Petty Officer a proper ID.
+  - rscadd: Reworks the Sol Frigate's Officer Quarters into a single office and living
+      space.
+  - rscadd: Gives the Sol Frigate extra kit for it's armory and 'exosuit. This is
+      intended to bring the Frigate up to par with the Xanu Frigate and TCAF Corvette
+      in terms of boarding capability.
+  TheGreyWolf:
+  - rscadd: 'Added a new music cartridge with the adhomai lobby music: Adhomai vibes.'
+  - bugfix: Fixes the misplaced grating outside the commissary.
+  - rscadd: Added a request console to the commissary.
+  - rscadd: Added tape to the commissary.
+  - rscadd: Modified the disposal leading to the commissary to always output packages
+      in the customer section.
+  - bugfix: Added the missing request console to the machinist workshop.
+  - bugfix: Fixed one of the signs on the security elevator moving with the elevator.
+  - rscadd: Updated the receipt from the commissary register and the quikpay.
+  - bugfix: Fixed the quikpay not working as intended for multi-item payments.
+  - rscadd: 'Added the following options as food in the lunchbox: Hard bread, nomad
+      skewer, mashed earthen-root, earthen-root fries, scout ration and ras''val pasta.'
+  - rscadd: 'Added the following options as snacks in the lunchbox: A singular mini-avah,
+      zkahnkowa slice, roasted dirtberries.'
+  - rscadd: Canned earthen-root juice was added to the commissary drink restock pack
+      and as an option to the lunchbox.
+  Wildkins:
+  - bugfix: Fix tool interactions using the target as the tool rather than the tool.
