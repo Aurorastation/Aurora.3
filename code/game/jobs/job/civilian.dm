@@ -427,9 +427,9 @@
 /obj/outfit/job/hangar_tech/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()
 	if(istajara(H))
-		H.equip_to_slot_or_del(new /obj/item/clothing/shoes/workboots/tajara(H), slot_shoes)
+		H.equip_to_slot_or_del(new /obj/item/clothing/shoes/workboots/tajara(H), slot_shoes_str)
 	else if(isunathi(H))
-		H.equip_to_slot_or_del(new /obj/item/clothing/shoes/workboots/toeless(H), slot_shoes)
+		H.equip_to_slot_or_del(new /obj/item/clothing/shoes/workboots/toeless(H), slot_shoes_str)
 
 /datum/job/mining
 	title = "Shaft Miner"

@@ -74,8 +74,12 @@
 		return TRUE
 	if(mover?.movement_type & PHASING)
 		return TRUE
-	if(istype(mover, /mob/living/simple_animal/hostile/giant_spider) || (mover.pulledby && istype(mover.pulledby, /mob/living/simple_animal/hostile/giant_spider)))
+	if(istype(mover, /mob/living/simple_animal/hostile/giant_spider))
 		return TRUE
+	else if(mover.grabbed_by)
+		for(var/obj/item/grab/G as anything in mover.grabbed_by)
+			if(istype(G.grabber, /mob/living/simple_animal/hostile/giant_spider))
+				return TRUE
 	else if(istype(mover, /mob/living))
 		if(prob(50))
 			to_chat(mover, SPAN_WARNING("You get stuck in \the [src] for a moment."))

@@ -120,20 +120,13 @@ default behaviour is:
 					now_pushing = FALSE
 					return
 
-			step(AM, t)
-			if(ishuman(AM))
-				var/mob/living/carbon/human/H = AM
-				for(var/obj/item/grab/G as anything in H.grabbed_by)
-					step(G.grabber, get_dir(G.grabber, H))
-					G.adjust_position()
-
 			step(target_movable_atom, target_direction)
 			if(ishuman(target_movable_atom))
 				var/mob/living/carbon/human/target_human = target_movable_atom
-				if(target_human.grabbed_by)
-					for(var/obj/item/grab/grab_item in target_human.grabbed_by)
-						step(grab_item.assailant, get_dir(grab_item.assailant, target_human))
-						grab_item.adjust_position()
+				for(var/obj/item/grab/G as anything in target_human.grabbed_by)
+					step(G.grabber, get_dir(G.grabber, target_human))
+					G.adjust_position()
+
 		now_pushing = FALSE
 
 /**
@@ -533,7 +526,7 @@ default behaviour is:
 /mob/living/proc/UpdateDamageIcon()
 	return
 
-/mob/living/handle_grabs_after_move(turf/old_loc, direction)
+/mob/living/handle_grabs_after_move(turf/old_loc, direction, new_glide_size)
 	..()
 
 	var/list/my_grabs = get_active_grabs()
@@ -551,6 +544,8 @@ default behaviour is:
 					step(AM, get_dir(get_turf(AM), old_loc))
 				else
 					AM.dropInto(get_turf(src))
+
+	var/new_glide_size = mob.recalculate_glide_size(old_move_delay, move_delay, direct)
 
 	for(var/obj/item/grab/G as anything in my_grabs)
 		if(HAS_GRAB_FLAGS(G, GRAB_REVERSE_FACING))
@@ -607,8 +602,6 @@ default behaviour is:
 	var/turf/old_loc = loc
 	. = ..()
 	if(.)
-		handle_grabs_after_move(old_loc, direct)
-
 		if (s_active && !s_active.Adjacent(src))	//check !( s_active in contents ) first so we hopefully don't have to call get_turf() so much.
 			s_active.close(src)
 

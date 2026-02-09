@@ -67,6 +67,7 @@
 	return ..()
 
 /obj/machinery/media/jukebox/attack_hand(mob/user as mob)
+	. = ..()
 	if(!anchored)
 		to_chat(usr, SPAN_WARNING("You must secure \the [src] first."))
 		return

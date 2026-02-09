@@ -469,9 +469,6 @@
 	if(SEND_SIGNAL(src, COMSIG_MOVABLE_PRE_THROW, args) & COMPONENT_CANCEL_THROW)
 		return
 
-	// if (pulledby)
-	// 	pulledby.stop_pulling()
-
 	//They are moving! Wouldn't it be cool if we calculated their momentum and added it to the throw?
 	if (thrower && thrower.last_move && thrower.client && thrower.client.move_delay >= world.time + world.tick_lag*2)
 		var/user_momentum = thrower.cached_multiplicative_slowdown
@@ -528,8 +525,6 @@
 	thrown_thing.diagonal_error = dist_x/2 - dist_y
 	thrown_thing.start_time = world.time
 
-	// if(pulledby)
-	// 	pulledby.stop_pulling()
 	if (quickstart && (throwing || SSthrowing.state == SS_RUNNING)) //Avoid stack overflow edgecases.
 		quickstart = FALSE
 	throwing = thrown_thing

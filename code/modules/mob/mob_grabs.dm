@@ -41,7 +41,7 @@
 /mob/proc/handle_grab_damage()
 	set waitfor = FALSE
 
-/mob/proc/handle_grabs_after_move(turf/old_loc, direction)
+/mob/proc/handle_grabs_after_move(turf/old_loc, direction, new_glide_size)
 	set waitfor = FALSE
 
 /mob/proc/add_grab(obj/item/grab/G, defer_hand = FALSE)
