@@ -299,15 +299,15 @@ GLOBAL_LIST_INIT(slot_equipment_priority, list(
 /mob/proc/drop_item(var/atom/Target)
 	var/obj/item/I = get_active_hand()
 	if(!istype(I))
-		if(length(get_active_grabs()))
-			for(var/obj/item/grab/G as anything in get_active_grabs())
-				qdel(G)
-				. = TRUE
-			return
-		return FALSE
+		. = FALSE
+		for(var/obj/item/grab/G as anything in get_active_grabs())
+			qdel(G)
+			. = TRUE
+		return
 	else if(!I.mob_can_unequip(src, get_active_held_item_slot(), dropping = TRUE))
 		return FALSE
-	. = drop_from_inventory(I, Target)
+	else
+		return drop_from_inventory(I, Target)
 
 	if (!QDELETED(I))
 		addtimer(CALLBACK(src, PROC_REF(make_item_drop_sound), I), 1)

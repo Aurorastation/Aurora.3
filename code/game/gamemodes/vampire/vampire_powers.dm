@@ -284,7 +284,7 @@
 
 	vampire_phase_in(T)
 
-	for(var/obj/item/grab/G in get_active_grabs())
+	for(var/obj/item/grab/G as anything in get_active_grabs())
 		var/mob/living/victim = G.get_grabbed_mob()
 		if (istype(victim) && (vampire.status & VAMP_FULLPOWER))
 			victim.vampire_phase_out(get_turf(victim.loc))

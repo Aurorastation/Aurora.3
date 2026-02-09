@@ -4,6 +4,8 @@
 	point_blank_mult = 1
 	break_chance_table = list(15, 60, 100)
 
+	action_cooldown = 0
+
 /singleton/grab/simple/upgrade(obj/item/grab/G)
 	return
 

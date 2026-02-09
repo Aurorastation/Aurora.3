@@ -22,7 +22,7 @@
 
 
 /obj/item/storage/laundry_basket/attack_hand(mob/user as mob)
-	if(user.get_empty_hand_slots() < 2)
+	if(length(user.get_empty_hand_slots()) < 2)
 		to_chat(user, SPAN_WARNING("You need two free hands to pick this up!"))
 		return
 	return ..()

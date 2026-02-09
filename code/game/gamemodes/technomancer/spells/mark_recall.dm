@@ -92,7 +92,7 @@ GLOBAL_DATUM(mark_spell_ref, /obj/effect/mark_spell)
 			var/turf/target_turf = get_turf(GLOB.mark_spell_ref)
 			var/turf/old_turf = get_turf(user)
 
-			for(var/obj/item/grab/G in user.get_active_grabs()) // People the Technomancer is grabbing come along for the ride.
+			for(var/obj/item/grab/G as anything in user.get_active_grabs()) // People the Technomancer is grabbing come along for the ride.
 				if(G.grabbed)
 					G.grabbed.forceMove(locate( target_turf.x+rand(-1,1), target_turf.y+rand(-1,1), target_turf.z))
 					to_chat(G.grabbed, SPAN_WARNING("You are teleported along with [user]!"))

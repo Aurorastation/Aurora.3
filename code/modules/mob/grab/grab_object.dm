@@ -10,8 +10,8 @@
 	var/atom/movable/grabbed = null
 	var/mob/grabber = null
 	var/singleton/grab/current_grab
-	var/last_action
-	var/last_upgrade
+	var/last_action = 0
+	var/last_upgrade = 0
 	var/special_target_functional
 	var/resolving_hit
 	var/target_zone
@@ -59,14 +59,15 @@
 		name = "[name] (\the [grabbed_mob]'s [O.name])"
 		RegisterSignal(grabbed_mob, COMSIG_ORGAN_DISMEMBERED, PROC_REF(on_organ_loss))
 		if(grabbed_mob != grabber)
-			visible_message(SPAN_DANGER("\The [grabber] has grabbed [grabbed_mob]'s [O.name]!"))
+			visible_message(SPAN_DANGER("\The [grabber] grabs [grabbed_mob]'s [O.name]!"))
 		else
-			visible_message(SPAN_NOTICE("\The [grabber] has grabbed [grabber.get_pronoun("his")] [O.name]!"))
+			visible_message(SPAN_NOTICE("\The [grabber] grabs [grabber.get_pronoun("his")] [O.name]."))
 	else
+		name = "[name] (\the [grabbed])"
 		if(grabbed != grabber)
-			visible_message(SPAN_DANGER("\The [grabber] has grabbed \the [grabbed]!"))
+			visible_message(SPAN_NOTICE("\The [grabber] grabs \the [grabbed]."))
 		else
-			visible_message(SPAN_NOTICE("\The [grabber] has grabbed [grabber.get_pronoun("himself")]!"))
+			visible_message(SPAN_NOTICE("\The [grabber] grabs [grabber.get_pronoun("himself")]."))
 
 	if(grabbed_mob && grabber?.a_intent == I_HURT)
 		upgrade(TRUE)

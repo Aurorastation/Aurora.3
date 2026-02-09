@@ -33,7 +33,7 @@
 	return
 
 /datum/martial_art/wrestling/disarm_act(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)
-	for(var/obj/item/grab/G in A.get_active_grabs())
+	for(var/obj/item/grab/G as anything in A.get_active_grabs())
 		if(A.is_holding_offhand(G) && G.grabbed == D)
 			Suplex(A, D)
 			return TRUE

@@ -114,7 +114,7 @@
 			playsound(target.loc, 'sound/weapons/push.ogg', 50, 1, -1)
 		return TRUE
 
-	for(var/obj/item/grab/G in target.get_active_grabs())
+	for(var/obj/item/grab/G as anything in target.get_active_grabs())
 		G.force_drop()
 		. = TRUE
 

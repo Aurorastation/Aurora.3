@@ -71,7 +71,7 @@
 	if(!ishuman(user))
 		return FALSE
 
-	if(user.species.mob_size < 12 && user.get_empty_hand_slots() <= 1)
+	if(user.species.mob_size < 12 && length(user.get_empty_hand_slots()) <= 1)
 		to_chat(user, SPAN_WARNING("You need a free hand!"))
 		return
 
@@ -91,7 +91,7 @@
 	return FALSE
 
 /obj/item/cargo_package/proc/wield(var/mob/living/carbon/human/user)
-	if(user.get_empty_hand_slots() <= 1)
+	if(length(user.get_empty_hand_slots()) <= 1)
 		to_chat(user, SPAN_WARNING("You need a free hand!"))
 		return
 	item_state += "_wielded"

@@ -1017,10 +1017,11 @@
 		if(wearer.machine.relaymove(wearer, direction))
 			return
 
-	if(wearer.get_active_grabs() || wearer.buckled_to) // Wheelchair driving!
+	var/list/active_grabs = wearer.get_active_grabs()
+	if(length(active_grabs) || wearer.buckled_to) // Wheelchair driving!
 		if(istype(wearer.loc, /turf/space))
 			return // No wheelchair driving in space
-		for(var/obj/item/grab/G in wearer.get_active_grabs())
+		for(var/obj/item/grab/G as anything in active_grabs)
 			if(istype(G.grabbed, /obj/structure/bed/stool/chair/office/wheelchair))
 				return G.grabbed.relaymove(wearer, direction)
 		if(istype(wearer.buckled_to, /obj/structure/bed/stool/chair/office/wheelchair))

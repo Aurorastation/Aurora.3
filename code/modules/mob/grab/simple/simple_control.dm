@@ -4,6 +4,8 @@
 	adjust_plane = FALSE
 	adjust_layer = FALSE
 
+	action_cooldown = 4 SECONDS
+
 /singleton/grab/simple/control/on_hit_help(obj/item/grab/G, atom/A, proximity)
 	if(A == G.grabber)
 		A = G.grabbed

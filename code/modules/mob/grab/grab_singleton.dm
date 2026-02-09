@@ -89,11 +89,11 @@
 			qdel(inactive_grab)
 
 /singleton/grab/proc/hit_with_grab(obj/item/grab/G, atom/A, P = TRUE)
-	if(QDELETED(G) || !istype(G))
+	if(QDELETED(G) || !istype(G) || G.resolving_hit)
 		return FALSE
 
-	if(!G.check_action_cooldown() || G.resolving_hit)
-		to_chat(G.grabber, SPAN_WARNING("You must wait before you can do that."))
+	if(!G.check_action_cooldown())
+		to_chat(G.grabber, SPAN_WARNING("You have to wait before manipulating \the [G.grabbed] again!"))
 		return FALSE
 
 	G.resolving_hit = TRUE
