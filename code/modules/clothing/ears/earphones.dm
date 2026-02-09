@@ -135,7 +135,7 @@
 	if(!soundplayer_token)
 		if(current_playlist && (current_playlist.len > 0))
 			var/sound/sound_to_play = current_playlist[playlist_index].song_path
-			soundplayer_token = GLOB.sound_player.PlayNonloopingSound(src, src, sound_to_play, volume, range, 20, prefer_mute = FALSE, sound_type = ASFX_MUSIC)
+			soundplayer_token = GLOB.sound_player.PlayLoopingSound(src, src, sound_to_play, volume, range, 20, prefer_mute = FALSE, sound_type = ASFX_MUSIC)
 
 			// Queue the next_song() proc when the current song ends. Clean up handled under next_song() which also calls stopplaying() to end this token
 			autoplay_timeleft = current_playlist[playlist_index].song_length
