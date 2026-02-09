@@ -23,15 +23,15 @@
 // Todo: Audible emotes over calls
 
 /obj/item/communicator/proc/add_call_invite(caller_address)
-	if((caller_address in incoming_call_invites) || (caller_address in outgoing_call_invites))
+	if((caller_address in incoming_requests[CALL_REQUESTS]) || (caller_address in outgoing_requests[CALL_REQUESTS]))
 		return
 
 	var/obj/item/communicator/caller_comm = exonet.get_atom_from_address(caller_address)
 	if(!caller_comm || (caller_comm in connected_callers))
 		return
 
-	incoming_call_invites[caller_address] = caller_comm.owner_name
-	caller_comm.outgoing_call_invites[exonet.address] = src.owner_name
+	incoming_requests[CALL_REQUESTS] += caller_address
+	caller_comm.outgoing_requests[CALL_REQUESTS] += exonet.address
 
 	if(ringer)
 		playsound(src, 'sound/machines/twobeep.ogg', 50, TRUE)
@@ -45,16 +45,16 @@
 	update_icon()
 
 /obj/item/communicator/proc/remove_call_invite(caller_address, caller_reason, callee_reason)
-	if(!(caller_address in incoming_call_invites))
+	if(!(caller_address in incoming_requests[CALL_REQUESTS]))
 		return
 
-	incoming_call_invites -= caller_address
+	incoming_requests[CALL_REQUESTS] -= caller_address
 	message_holding_mob(callee_reason)
 
 	var/obj/item/communicator/caller_comm = exonet.get_atom_from_address(caller_address)
 	if(!caller_comm)
 		return
-	caller_comm.outgoing_call_invites -= exonet.address
+	caller_comm.outgoing_requests[CALL_REQUESTS] -= exonet.address
 	caller_comm.message_holding_mob(caller_reason)
 
 /obj/item/communicator/proc/add_to_call(obj/item/communicator/other)
@@ -72,12 +72,12 @@
 	update_icon()
 
 /obj/item/communicator/proc/accept_call(caller_address)
-	incoming_call_invites -= caller_address
+	incoming_requests[CALL_REQUESTS] -= caller_address
 
 	var/obj/item/communicator/caller_comm = exonet.get_atom_from_address(caller_address)
 	if(!caller_comm)
-		return // todo: some kind of error message
-	caller_comm.outgoing_call_invites -= exonet.address
+		return // todo: some kind of error message?
+	caller_comm.outgoing_requests[CALL_REQUESTS] -= exonet.address
 
 	caller_comm.message_holding_mob(SPAN_NOTICE("Connecting to [src]."))
 	message_holding_mob(SPAN_NOTICE("Attempting to call [caller_comm]."))

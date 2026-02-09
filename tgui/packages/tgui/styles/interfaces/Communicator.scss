@@ -1,19 +1,5 @@
-@use '../colors.scss';
 @use '../components/Section.scss';
 
 .Stack__item.comm-contacts:nth-child(odd):not(:only-child) {
-  background-color: lighten(Section.$background-color, 25%)
-}
-
-@keyframes pulse {
-  0%, 100% {
-    background-color: colors.$average;
-  }
-  50% {
-    background-color: lighten(colors.$average, 10%);
-  }
-}
-
-.Button.friend-request {
-  animation: pulse 2s infinite;
+  background-color: lighten(Section.$background-color, 25%);
 }

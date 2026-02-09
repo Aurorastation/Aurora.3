@@ -1,17 +1,33 @@
 import { useBackend } from '../../backend';
-import { Box, Button, Divider, Flex, Section, Stack } from '../../components';
-import { CommContact, ContactsTabData } from './types';
+import {
+  Box,
+  Button,
+  Divider,
+  Flex,
+  Section,
+  Stack,
+  Tooltip,
+} from '../../components';
+import { CommunicatorData, Contact } from './types';
 
 export const CommunicatorContactTab = (props, context) => {
-  const { act, data } = useBackend<ContactsTabData>(context);
-  const { friendsList, publicDevices } = data;
+  const { act, data } = useBackend<CommunicatorData>(context);
+  const { friendsList, allCommunicators } = data;
+
+  const publicComms: Contact[] = allCommunicators
+    .filter((comm) => comm.visible)
+    .map((comm) => {
+      return { address: comm.address, name: comm.ownerName };
+    });
 
   return (
     <Flex direction="column" justify="space-between" height="100%" mx={1}>
       <Flex.Item basis="50%">
-        <Section title="Contacts" fill>
+        <Section title="Friends" fill>
           {(friendsList.length && <ContactsList commList={friendsList} />) || (
-            <Box>no friends :(</Box> // placeholder
+            <Tooltip position="right" content=":(">
+              <Box inline>Your friends list is empty.</Box>
+            </Tooltip>
           )}
         </Section>
       </Flex.Item>
@@ -32,8 +48,8 @@ export const CommunicatorContactTab = (props, context) => {
             </Button>
           }
         >
-          {(publicDevices.length && (
-            <ContactsList commList={publicDevices} showFriendReq />
+          {(publicComms.length && (
+            <ContactsList commList={publicComms} showFriendReqBtn />
           )) || <Box>No devices detected on your local network.</Box>}
         </Section>
       </Flex.Item>
@@ -42,18 +58,21 @@ export const CommunicatorContactTab = (props, context) => {
 };
 
 type ContactListProps = {
-  commList: CommContact[];
-  showFriendReq?: boolean;
+  commList: Contact[];
+  showFriendReqBtn?: boolean;
 };
 
 const ContactsList = (props: ContactListProps) => {
-  const { commList, showFriendReq } = props;
+  const { commList, showFriendReqBtn } = props;
   return (
     <Stack vertical>
       {commList.map((contact) => (
         // Todo: 'Add to contacts' button
         <Stack.Item key={contact.address} className="comm-contacts">
-          <ContactListing contact={contact} showFriendReq={showFriendReq} />
+          <ContactListing
+            contact={contact}
+            showFriendReqBtn={showFriendReqBtn}
+          />
         </Stack.Item>
       ))}
     </Stack>
@@ -61,22 +80,22 @@ const ContactsList = (props: ContactListProps) => {
 };
 
 type ContactListingProps = {
-  contact: CommContact;
-  showFriendReq?: boolean;
+  contact: Contact;
+  showFriendReqBtn?: boolean;
 };
 
 const ContactListing = (props: ContactListingProps, context) => {
-  const { act, data } = useBackend<ContactsTabData>(context);
+  const { act, data } = useBackend<CommunicatorData>(context);
   const {
     contact: { address, name },
-    showFriendReq,
+    showFriendReqBtn,
   } = props;
 
   const alreadyFriends = data.friendsList.find(
     (friend) => friend.address === address,
   );
-  const contactSentRequest = data.incomingFriendRequests.includes(address);
-  const requestSentToContact = data.outgoingFriendRequests.includes(address);
+  const contactSentRequest = data.friendRequests.incoming.includes(address);
+  const requestSentToContact = data.friendRequests.outgoing.includes(address);
 
   return (
     <Flex justify="space-between" m={0.25}>
@@ -93,7 +112,7 @@ const ContactListing = (props: ContactListingProps, context) => {
         <Flex direction="column">
           <Flex.Item textAlign="right">{address}</Flex.Item>
           <Flex.Item align="end">
-            {showFriendReq && (
+            {showFriendReqBtn && (
               <Button
                 icon="user-group"
                 disabled={alreadyFriends || requestSentToContact}
@@ -103,7 +122,7 @@ const ContactListing = (props: ContactListingProps, context) => {
                     : 'Send Friend Request'
                 }
                 tooltipPosition="bottom"
-                className={contactSentRequest && 'friend-request'}
+                color={contactSentRequest && 'average'}
                 onClick={() => {
                   act(
                     `friend_request_${contactSentRequest ? 'respond' : 'send'}`,
@@ -113,7 +132,7 @@ const ContactListing = (props: ContactListingProps, context) => {
               />
             )}
             {/* Currently disabled because copying arbitrary strings to
-                 the user's clipboard seems like a bad idea.
+                the user's clipboard seems like a bad idea.
             <Button
               icon="clipboard"
               tooltip="Copy address to clipboard"

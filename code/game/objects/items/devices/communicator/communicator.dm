@@ -1,3 +1,6 @@
+#define CALL_REQUESTS "Call Requests"
+#define FRIEND_REQUESTS "Friend Requests"
+
 GLOBAL_LIST_EMPTY_TYPED(all_communicators, /obj/item/communicator)
 
 /obj/item/communicator
@@ -22,19 +25,12 @@ GLOBAL_LIST_EMPTY_TYPED(all_communicators, /obj/item/communicator)
 	var/flashlight_range = 2
 	var/can_hear_range = 3
 
-	// todo: Lots of identical alists here. Alternative?
-	// Alist of {address: owner name}
+	// Alist of {address: friend name}
 	var/alist/friends_list = alist()
 
-	// Todo: Merge these incoming/outgoing lists into big
-	// var/alist/incoming and var/alist/outgoing lists with keys for each type
-	var/list/incoming_friend_requests = list()
-	var/list/outgoing_friend_requests = list()
+	var/alist/incoming_requests = alist(CALL_REQUESTS = list(), FRIEND_REQUESTS = list())
+	var/alist/outgoing_requests = alist(CALL_REQUESTS = list(), FRIEND_REQUESTS = list())
 
-	// Alist of {address: caller name}
-	var/alist/incoming_call_invites = alist()
-	// Alist of {address: target name}
-	var/alist/outgoing_call_invites = alist()
 	var/list/obj/item/communicator/connected_callers = list()
 
 	var/owner_name = ""
@@ -78,9 +74,9 @@ GLOBAL_LIST_EMPTY_TYPED(all_communicators, /obj/item/communicator)
 		return
 
 	var/actions = list()
-	if(target_address in outgoing_call_invites)
+	if(target_address in outgoing_requests[CALL_REQUESTS])
 		actions += "Cancel Voice Call"
-	else if(target_address in incoming_call_invites)
+	else if(target_address in incoming_requests[CALL_REQUESTS])
 		actions |= list("Accept Voice Call", "Decline Voice Call")
 	else if(exonet.get_atom_from_address(target_address) in connected_callers)
 		actions += "Stop Voice Call"
@@ -180,11 +176,12 @@ GLOBAL_LIST_EMPTY_TYPED(all_communicators, /obj/item/communicator)
 		if(EXONET_CATG_FRIEND_REQ)
 			// Recieved a friend request from `origin_address`.
 			if(data_type == EXONET_TYPE_REQUEST)
-				if(origin_address in incoming_friend_requests)
+				if(origin_address in incoming_requests[FRIEND_REQUESTS])
 					return TRUE
-				incoming_friend_requests += origin_address
 				var/obj/item/communicator/origin_comm = exonet.get_atom_from_address(origin_address)
-				origin_comm.outgoing_friend_requests += exonet.address
+
+				incoming_requests[FRIEND_REQUESTS] += origin_address
+				origin_comm.outgoing_requests[FRIEND_REQUESTS] += exonet.address
 				message_holding_mob(SPAN_NOTICE("Friend request recieved from [origin_comm.owner_name]!"))
 
 		if(EXONET_CATG_PING)
@@ -202,8 +199,8 @@ GLOBAL_LIST_EMPTY_TYPED(all_communicators, /obj/item/communicator)
 	if(new_friend_address in friends_list)
 		return
 
-	incoming_friend_requests -= new_friend_address
-	new_friend.outgoing_friend_requests -= exonet.address
+	incoming_requests[FRIEND_REQUESTS] -= new_friend_address
+	new_friend.outgoing_requests[FRIEND_REQUESTS] -= exonet.address
 
 	friends_list[new_friend_address] = new_friend.owner_name
 	new_friend.friends_list[exonet.address] = owner_name

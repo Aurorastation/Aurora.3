@@ -1,34 +1,39 @@
 import { BooleanLike } from 'common/react';
 
 // Type alias for exonet addresses, to make things a little easier to understand
-type Address = string;
+export type Address = string;
 
 export type CommunicatorData = {
   ownerName: string;
   ownerOccupation: string;
+  flashlightOn: BooleanLike;
+  time: string;
+  connectionStatus: BooleanLike;
 
-  incomingCalls: CommContact[];
-  outgoingCalls: CommContact[];
+  callRequests: RequestsList;
+  friendRequests: RequestsList;
+  friendsList: Contact[];
   connectedCallers: {
     ownerName: string;
     ref: string;
-  };
-  flashlightOn: BooleanLike;
-
-  time: string;
-  connectionStatus: BooleanLike;
+  }[];
+  allCommunicators: Communicator[];
 };
 
-export type ContactsTabData = {
-  friendsList: CommContact[];
-  incomingFriendRequests: Address[];
-  outgoingFriendRequests: Address[];
-  publicDevices: CommContact[];
-};
-
-export type CommContact = {
+export type Contact = {
   address: Address;
   name: string;
+};
+
+type RequestsList = {
+  incoming: Address[];
+  outgoing: Address[];
+};
+
+type Communicator = {
+  address: Address;
+  ownerName: string;
+  visible: boolean;
 };
 
 export enum CommunicatorTab {
