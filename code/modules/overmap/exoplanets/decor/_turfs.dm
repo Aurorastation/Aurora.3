@@ -1,5 +1,5 @@
 
-/// Exoplanet turfs try to take the atmos and area of the exoplanet they were spawned on,
+/// Exoplanet turfs try to take the area of the exoplanet they were spawned on,
 /// so that exoplanets have consistent atmosphere everywhere on the surface.
 /// If not located on an exoplanet, default or mapped in atmos is kept.
 /turf/simulated/floor/exoplanet
@@ -49,27 +49,11 @@
 	update_icon(1)
 
 	if(SSatlas.current_map.use_overmap)
-		// if exoplanet
 		var/datum/site = GLOB.map_sectors["[z]"]
-		var/datum/template = GLOB.map_templates["[z]"]
 		if(istype(site, /obj/effect/overmap/visitable/sector/exoplanet))
 			var/obj/effect/overmap/visitable/sector/exoplanet/exoplanet = site
-			if(exoplanet.atmosphere)
-				initial_gas = exoplanet.atmosphere.gas.Copy()
-				temperature = exoplanet.atmosphere.temperature
-			else
-				initial_gas = list()
-				temperature = T0C
-
 			if(exoplanet.planetary_area && istype(loc, world.area))
 				change_area(loc, exoplanet.planetary_area)
-
-		// if away site
-		else if(istype(template, /datum/map_template/ruin/away_site))
-			var/datum/map_template/ruin/away_site/away_site = template
-			if(away_site.exoplanet_atmosphere)
-				initial_gas = away_site.exoplanet_atmosphere.gas.Copy()
-				temperature = away_site.exoplanet_atmosphere.temperature
 
 	..()
 
