@@ -56,7 +56,7 @@ delete-after: True
 # Please surround your changes in  double quotes ("). It works without them, but if you use certain characters it screws up compiling. The quotes will not show up in the changelog.
 changes:
   - rscadd: "Restores or migrates to contained_sprite already-existing inhands sprites for MANY items."
-  - rscadd: "Adds new inhand (coder)sprites for the following items: circuit boards, crate contents scanner, destination tagger, price scanner, tape recorder, welding kit."
+  - rscadd: "Adds new inhand (coder)sprites for many additional items."
   - rscadd: "Ports inhand sprites for Hydraulic Rescue Tool from /tg/station."
   - rscadd: "Adds flick animation to gas analyzer."
   - bugfix: "Fixes minor issues with several inhand sprites (pixel shifting, mismatched colors, etc)."
