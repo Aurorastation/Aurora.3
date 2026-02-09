@@ -199,6 +199,11 @@
 	init_atoms(atoms_to_initialise)
 	init_shuttles(shuttle_state)
 
+	#if defined(UNIT_TEST)
+	var/list/turf/affected_turfs = src.get_affected_turfs(choice, TRUE)
+	GLOB.turfs_to_map_type["[src.type]"] = affected_turfs
+	#endif
+
 	SSicon_smooth.can_fire = TRUE
 	message_admins("[name] loaded at [T.x], [T.y], [T.z]")
 	log_game("[name] loaded at [T.x], [T.y], [T.z]")
