@@ -306,8 +306,7 @@ GLOBAL_LIST_INIT(slot_equipment_priority, list(
 		return
 	else if(!I.mob_can_unequip(src, get_active_held_item_slot(), dropping = TRUE))
 		return FALSE
-	else
-		return drop_from_inventory(I, Target)
+	. = drop_from_inventory(I, Target)
 
 	if (!QDELETED(I))
 		addtimer(CALLBACK(src, PROC_REF(make_item_drop_sound), I), 1)
