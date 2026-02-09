@@ -1,6 +1,12 @@
-// Data types for messages
-#define EXONET_MSG_CALL_INVITE "Call Invite"
-#define EXONET_MSG_CALL_CANCEL "Call Cancel"
-#define EXONET_MSG_TEXT "Text"
-#define EXONET_MSG_PING "Ping"
-#define EXONET_MSG_PING_REPLY "Ping Reply"
+// Message categories
+#define EXONET_CATG_CALL "Call"
+#define EXONET_CATG_FRIEND_REQ "Friend Request"
+#define EXONET_CATG_TEXT "Text"
+#define EXONET_CATG_PING "Ping"
+
+// Message types
+#define EXONET_TYPE_ACCEPT "Accept"
+#define EXONET_TYPE_DECLINE "Decline"
+#define EXONET_TYPE_REQUEST "Request"
+#define EXONET_TYPE_CANCEL "Cancel"
+#define EXONET_TYPE_MESSAGE "Message"

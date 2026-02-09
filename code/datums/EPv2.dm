@@ -58,18 +58,18 @@ GLOBAL_LIST_EMPTY(all_exonet_connections)
 		return target.holder
 
 // returns true if the target recieved the message successfully
-/datum/exonet_protocol/proc/send_message(target_address, data_type, content)
+/datum/exonet_protocol/proc/send_message(target_address, category, data_type, content)
 	//var/obj/machinery/exonet_node/node = get_exonet_node()
 	//if(!node) // Telecomms went boom, ion storm, etc.
 	//	return
 	var/datum/exonet_protocol/target = find_exonet_datum(target_address)
 	if(target)
 		//node.write_log(src.address, target_address, data_type, content)
-		return target.receive_message(address, data_type, content)
+		return target.receive_message(address, category, data_type, content)
 	return FALSE
 
-/datum/exonet_protocol/proc/receive_message(origin_address, data_type, content)
-	return on_message_recieved?.Invoke(origin_address, data_type, content)
+/datum/exonet_protocol/proc/receive_message(origin_address, category, data_type, content)
+	return on_message_recieved?.Invoke(origin_address, category, data_type, content)
 
 /datum/exonet_protocol/proc/hexadecimal_to_EPv2(hex)
 	if(!hex)

@@ -19,10 +19,17 @@ GLOBAL_LIST_EMPTY_TYPED(all_communicators, /obj/item/communicator)
 	// Notepad vars
 
 	/// TODO: Autodoc everything (copy proc comments from Polaris)
-	var/flashlight_on = FALSE
 	var/flashlight_range = 2
-
 	var/can_hear_range = 3
+
+	// todo: Lots of identical alists here. Alternative?
+	// Alist of {address: owner name}
+	var/alist/friends_list = alist()
+
+	// Todo: Merge these incoming/outgoing lists into big
+	// var/alist/incoming and var/alist/outgoing lists with keys for each type
+	var/list/incoming_friend_requests = list()
+	var/list/outgoing_friend_requests = list()
 
 	// Alist of {address: caller name}
 	var/alist/incoming_call_invites = alist()
@@ -33,6 +40,7 @@ GLOBAL_LIST_EMPTY_TYPED(all_communicators, /obj/item/communicator)
 	var/owner_name = ""
 	var/owner_occupation = ""
 	var/ringer = TRUE
+	var/flashlight_on = FALSE
 	var/new_alert = FALSE
 
 	var/datum/exonet_protocol/exonet = null
@@ -82,9 +90,9 @@ GLOBAL_LIST_EMPTY_TYPED(all_communicators, /obj/item/communicator)
 
 	switch(input(user, "Action:", "Debugging UI") as null|anything in actions)
 		if("Voice Call")
-			exonet.send_message(target_address, EXONET_MSG_CALL_INVITE)
+			exonet.send_message(target_address, EXONET_CATG_CALL, EXONET_TYPE_REQUEST)
 		if("Cancel Voice Call")
-			exonet.send_message(target_address, EXONET_MSG_CALL_CANCEL)
+			exonet.send_message(target_address, EXONET_CATG_CALL, EXONET_TYPE_CANCEL)
 		if("Accept Voice Call")
 			accept_call(target_address)
 		if("Decline Voice Call")
@@ -92,7 +100,7 @@ GLOBAL_LIST_EMPTY_TYPED(all_communicators, /obj/item/communicator)
 		if("Stop Voice Call")
 			hang_up(SPAN_DANGER("[user] hung up."))
 		if("Ping")
-			if(!exonet.send_message(target_address, EXONET_MSG_PING))
+			if(!exonet.send_message(target_address, EXONET_CATG_PING, EXONET_TYPE_REQUEST))
 				sleep(4 SECONDS)
 				to_chat(user, SPAN_WARNING("[icon2html(src, user)] Request timed out: Destination unreachable."))
 
@@ -155,19 +163,57 @@ GLOBAL_LIST_EMPTY_TYPED(all_communicators, /obj/item/communicator)
 	if(ismob(loc))
 		to_chat(loc, "[icon2html(src, loc)] [message]")
 
-/obj/item/communicator/proc/receive_exonet_message(origin_address, data_type, content)
-	switch(data_type)
-		if(EXONET_MSG_CALL_INVITE)
-			add_call_invite(origin_address)
-		if(EXONET_MSG_CALL_CANCEL)
-			// Caller changes their mind and cancels.
-			var/obj/item/communicator/caller_comm = exonet.get_atom_from_address(origin_address)
-			remove_call_invite(origin_address, SPAN_NOTICE("Communications request cancelled."), SPAN_NOTICE("Communications request from [caller_comm || "ERROR"] cancelled."))
-		if(EXONET_MSG_TEXT)
+/obj/item/communicator/proc/receive_exonet_message(origin_address, category, data_type, content)
+	switch(category)
+		if(EXONET_CATG_CALL)
+			// Call request recived from `origin_address`.
+			if(data_type == EXONET_TYPE_REQUEST)
+				add_call_invite(origin_address)
+			// Call request cancelled by `origin_address`.
+			else if(data_type == EXONET_TYPE_CANCEL)
+				var/obj/item/communicator/caller_comm = exonet.get_atom_from_address(origin_address)
+				remove_call_invite(origin_address, SPAN_NOTICE("Communications request cancelled."), SPAN_NOTICE("Communications request from [caller_comm || "ERROR"] cancelled."))
+
+		if(EXONET_CATG_TEXT)
 			return //todo
-		if(EXONET_MSG_PING) // Recieved a ping.
-			// Send a reply.
-			exonet.send_message(origin_address, EXONET_MSG_PING_REPLY, "64 bytes received from [exonet.address] ecmp_seq=1 ttl=51 time=[rand(20, 35)] ms")
-		if(EXONET_MSG_PING_REPLY) // Recieved a ping reply.
-			message_holding_mob(content)
+
+		if(EXONET_CATG_FRIEND_REQ)
+			// Recieved a friend request from `origin_address`.
+			if(data_type == EXONET_TYPE_REQUEST)
+				if(origin_address in incoming_friend_requests)
+					return TRUE
+				incoming_friend_requests += origin_address
+				var/obj/item/communicator/origin_comm = exonet.get_atom_from_address(origin_address)
+				origin_comm.outgoing_friend_requests += exonet.address
+				message_holding_mob(SPAN_NOTICE("Friend request recieved from [origin_comm.owner_name]!"))
+
+		if(EXONET_CATG_PING)
+			// Recieved a ping from `origin_address`.
+			if(data_type == EXONET_TYPE_REQUEST)
+				// Send a reply
+				exonet.send_message(origin_address, EXONET_CATG_PING, EXONET_TYPE_MESSAGE, "64 bytes received from [exonet.address] ecmp_seq=1 ttl=51 time=[rand(20, 35)] ms")
+			// Recieved a ping reply from `origin_address`.
+			else if(data_type == EXONET_TYPE_MESSAGE)
+				message_holding_mob(content)
 	return TRUE
+
+/obj/item/communicator/proc/add_friend(obj/item/communicator/new_friend)
+	var/new_friend_address = new_friend.exonet.address
+	if(new_friend_address in friends_list)
+		return
+
+	incoming_friend_requests -= new_friend_address
+	new_friend.outgoing_friend_requests -= exonet.address
+
+	friends_list[new_friend_address] = new_friend.owner_name
+	new_friend.friends_list[exonet.address] = owner_name
+
+	new_friend.message_holding_mob(SPAN_NOTICE("[owner_name] has accepted your friend request!"))
+
+/obj/item/communicator/proc/remove_friend(obj/item/communicator/old_friend)
+	var/old_friend_address = old_friend.exonet.address
+	if(!(old_friend_address in friends_list))
+		return
+
+	friends_list -= old_friend_address
+	old_friend.friends_list -= exonet.address

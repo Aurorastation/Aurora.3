@@ -48,6 +48,7 @@
 
 // Interfaces
 @include meta.load-css('./interfaces/AlertModal.scss');
+@include meta.load-css('./interfaces/Communicator.scss');
 @include meta.load-css('./interfaces/CrewManifest.scss');
 @include meta.load-css('./interfaces/FactionSelect.scss');
 @include meta.load-css('./interfaces/ListInput.scss');
