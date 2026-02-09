@@ -1,20 +1,13 @@
-/*
-	Earphones that use our sound_player system to play sounds from a music cartridge to their wearer.
-
-	Current Features:
-	- All earphones have a cartridge slot. Cartridges can be inserted by clicking an earphone, and removed via an eject_music_cartridge() verb.
-	- Inserting a cartridge will load a playlist containing /datum/tracks, where track names and sound files are loaded.
-	- Alt+Clicking will Start/Stop a playlist, creating or deleting an active sound_player token.
-	- attack_self will eject the music cartridge. Ejecting a music cartridge also terminates the sound_player token.
-	- Volume controllable via verb.
-
-	Missing features i am too weak to figure out:
-	- There is no auto—next song, and a user must manually use next_song() or previous_song() verbs to iterate through a playlist.
-	- Part and parcel with no auto-next: Tracks automatically loop due to using the PlayLoopingSound() proc. Ideally, tracks should not loop.
-	- There is no accomodation for user-uploaded sound files.
-	- There are no UI implementations of earphone controls, which could be more user friendly.
-*/
-
+/**
+ * Earphones that use our sound_player system to play sounds from a music cartridge to their wearer.
+ *
+ * Current Features:
+ * - All earphones have a cartridge slot. Cartridges can be inserted by clicking an earphone, and removed via an eject_music_cartridge() verb.
+ * - Inserting a cartridge will load a playlist containing /datum/tracks, where track names and sound files are loaded.
+ * - Alt+Clicking will Start/Stop a playlist, creating or deleting an active sound_player token.
+ * - attack_self will eject the music cartridge. Ejecting a music cartridge also terminates the sound_player token.
+ * - Volume controllable via verb.
+ */
 /obj/item/clothing/ears/earphones
 	name = "earphones"
 	desc = "A pair of wireless earphones. Includes a little slot for a music cartridge."
