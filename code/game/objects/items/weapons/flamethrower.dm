@@ -1,6 +1,6 @@
 /obj/item/flamethrower
 	name = "flamethrower"
-	desc = "A flamethrower created by modifying a welding tool to fit an external gas tank."
+	desc = "A flamethrower created by modifying a welding tool to fit an external tank."
 	icon = 'icons/obj/item/flamethrower.dmi'
 	icon_state = "flamethrower1"
 	item_state = "flamethrower_0"
@@ -28,6 +28,7 @@
 	/// How much range the flamethrower has. Upgraded welding tools increase this.
 	var/range = 4
 	var/max_container = WEIGHT_CLASS_SMALL
+	var/is_military = FALSE // Can we use military-grade fuels like napalm?
 
 /obj/item/flamethrower/feedback_hints(mob/user, distance, is_adjacent)
 	. += ..()
@@ -47,7 +48,8 @@
 
 /obj/item/flamethrower/upgrade_hints(mob/user, distance, is_adjacent)
 	. = ..()
-	. += SPAN_INFO("Upgrading the welding tool increases the flamethrower's range.")
+	if(!is_military)
+		. += SPAN_INFO("Upgrading the welding tool increases the flamethrower's range.")
 
 /obj/item/flamethrower/Initialize(mapload, var/welder)
 	. = ..()
@@ -142,13 +144,13 @@
 		qdel(src)
 		return TRUE
 
-	else if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER && igniter && !lit)
+	else if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER && igniter && !lit && !is_military)
 		secured = !secured
 		to_chat(user, SPAN_NOTICE("[igniter] is now [secured ? "secured" : "unsecured"]!"))
 		update_icon()
 		return TRUE
 
-	else if(isigniter(attacking_item))
+	else if(isigniter(attacking_item) && !is_military)
 		var/obj/item/assembly/igniter/I = attacking_item
 		if(I.secured)
 			to_chat(user, SPAN_WARNING("\The [I] is not ready to attach yet! Use a screwdriver on it first."))
@@ -260,10 +262,18 @@
 	var/datum/reagents/my_fraction = new(fuel_reagents.maximum_volume, src)
 	fuel_reagents.trans_to_holder(my_fraction, FLAMETHROWER_RELEASE_AMOUNT * length(turflist))
 	var/fire_color = null
+	var/obj/effect/decal/cleanable/napalm/fire_effect = null
 	var/highest_amount = 0
 	for(var/reagent in my_fraction.reagent_volumes)
 		var/singleton/reagent/fuel = GET_SINGLETON(reagent)
+		fire_effect = fuel.flamethrower_effect
 		power += fuel.accelerant_quality * FLAMETHROWER_POWER_MULTIPLIER * (my_fraction.reagent_volumes[reagent] / length(turflist)) //Flamethrowers inflate flammability compared to a pool of fuel
+		if(fire_effect)
+			if(!is_military)		// Are we attempting to use a powerful fuel with a shoddy flamer?
+				explode_in_hand(power)
+				return
+		else if(is_military)//Military-grade flamethrowers have a 150% power increase if they do not already have a flame effect
+			power *= 1.5
 		if(my_fraction.reagent_volumes[reagent] > highest_amount && fuel.accelerant_quality > 0)
 			highest_amount = my_fraction.reagent_volumes[reagent]
 			fire_color = fuel.fire_color
@@ -287,9 +297,13 @@
 		if(LinkBlocked(operator_turf, T))
 			continue
 
-		//Consume part of our fuel to create a fire spot
-		T.IgniteTurf(power, fire_color)
-		T.hotspot_expose(power * 3 + 380)
+		//If we have a flamethrower effect, use it instead of directly using a turf fire
+		if(fire_effect)
+			new fire_effect(T, power, TRUE, TRUE)
+		else
+			//Consume part of our fuel to create a fire spot
+			T.IgniteTurf(power, fire_color)
+			T.hotspot_expose(power * 3 + 380)
 		my_fraction.remove_any(FLAMETHROWER_RELEASE_AMOUNT)
 		sleep(0.1 SECONDS)
 
@@ -300,6 +314,27 @@
 #undef REQUIRED_POWER_TO_FIRE_FLAMETHROWER
 #undef FLAMETHROWER_POWER_MULTIPLIER
 #undef FLAMETHROWER_RELEASE_AMOUNT
+
+/obj/item/flamethrower/proc/explode_in_hand(power)
+	audible_message(SPAN_WARNING("\The [src] sputters a bit, throwing out some liquid."))
+	balloon_alert_to_viewers("*pshhhhhhhhhhhhhh*")
+	playsound(src, 'sound/weapons/flamethrower/flamethrower_empty.ogg', 50, TRUE, -3, frequency = 22000)
+	visible_message(SPAN_DANGER("\The [src] shakes uncontrollably!"))
+	sleep(0.5 SECONDS)
+	// Explode in a 3x3 area
+	var/list/turflist = circle_view_turfs(src.loc, 1)
+	var/turf_amount = length(turflist)
+	var/power_div = power/turf_amount
+	visible_message(SPAN_DANGER("\The [src] explodes!"))
+	playsound(src, SFX_EXPLOSION, 20, TRUE, -1, frequency = 48000)
+	for(var/turf/T as anything in turflist)
+		if(T.density || istype(T, /turf/space))
+			continue
+		T.IgniteTurf(power_div)
+		T.hotspot_expose(power_div * 3 + 380)
+	qdel(src)
+
+
 
 /obj/item/flamethrower/proc/return_fuel(datum/reagents/_return, datum/reagents/_fraction)
 	if(fuel_container) //In the event we earlied out that means some fuel goes back into tank
@@ -316,4 +351,37 @@
 	fuel_container = new /obj/item/reagent_containers/glass/beaker/large(src)
 	fuel_container.reagents.add_reagent(/singleton/reagent/fuel, 120)
 	processUpgrade()
+	return ..()
+
+/obj/item/flamethrower/military
+	name = "\improper IK-163 flamethrower"
+	desc = "A military-grade flamethrower by Ingkom. Capable of using a wide variety of chemicals."
+	desc_extended = "The IK-163 was a flamethrower developed by Ingkom well before the Interstellar War. While flamethwrowers are generally considered \
+	obsolete, Zavodskoi Interstellar still markets the IK-163 for niche uses, and the occasional military leader with more ego then sense."
+	is_military = TRUE
+	igniter = /obj/item/assembly/igniter
+	secured = TRUE
+	range = 6
+	icon = 'icons/obj/item/military_flamethrower.dmi'
+	icon_state = "mil_flamethrower"
+	item_state = "flamethrower_0"
+	worn_x_dimension = 48
+
+/obj/item/flamethrower/military/update_icon()
+	ClearOverlays()
+
+	if(fuel_container)
+		AddOverlays("ptank")
+
+	if(lit)
+		AddOverlays("lit")
+		set_light(1.4, 2)
+		item_state = "flamethrower_1"
+	else
+		set_light(0)
+		item_state = "flamethrower_0"
+
+/obj/item/flamethrower/military/full/Initialize()
+	fuel_container = new /obj/item/reagent_containers/glass/beaker/large(src)
+	fuel_container.reagents.add_reagent(/singleton/reagent/fuel/napalm, 120)
 	return ..()

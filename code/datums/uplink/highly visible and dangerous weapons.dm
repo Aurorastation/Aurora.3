@@ -277,9 +277,15 @@
 
 /datum/uplink_item/item/visible_weapons/flamethrower
 	name = "Flamethrower"
-	desc = "A flamethrower, with a full canister of Phoron installed to fuel it. Handle with caution."
+	desc = "A flamethrower, with a full canister of fuel installed. Handle with caution."
 	telecrystal_cost = 10
 	path = /obj/item/flamethrower/full
+
+/datum/uplink_item/item/visible_weapons/military_flamethrower
+	name = "Military-Grade Flamethrower"
+	desc = "A military-grade flamethrower, with a full canister of napalm installed. Burn it all to the ground!"
+	telecrystal_cost = 15
+	path = /obj/item/flamethrower/military/full
 
 /datum/uplink_item/item/visible_weapons/psionic_awakener
 	name = "Psionic Jumpstarter (Minor)"
