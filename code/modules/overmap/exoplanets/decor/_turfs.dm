@@ -51,6 +51,8 @@
 	if(SSatlas.current_map.use_overmap)
 		var/datum/site = GLOB.map_sectors["[z]"]
 		if(istype(site, /obj/effect/overmap/visitable/sector/exoplanet))
+			// Remove initial gasses for exoplanets
+			src.initial_gas = list()
 			var/obj/effect/overmap/visitable/sector/exoplanet/exoplanet = site
 			if(exoplanet.planetary_area && istype(loc, world.area))
 				change_area(loc, exoplanet.planetary_area)
