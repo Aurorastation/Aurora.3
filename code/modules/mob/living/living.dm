@@ -597,7 +597,6 @@ default behaviour is:
 	if(buckled_to)
 		return
 
-	var/turf/old_loc = loc
 	. = ..()
 	if(.)
 		if (s_active && !s_active.Adjacent(src))	//check !( s_active in contents ) first so we hopefully don't have to call get_turf() so much.
