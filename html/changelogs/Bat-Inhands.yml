@@ -63,4 +63,5 @@ changes:
   - code_imp: "Moves sprites for 'scanner' type items to all reside in icons/obj/item/scanner.dmi."
   - code_imp: "Standardizes icon_state naming conventions for several items."
   - code_imp: "Updates code docs to use DMDocs."
+  - code_imp: "Consolidates scattered modular_computer sprite files to single subfolder."
   - qol: "Renames 'analyzer' to 'gas analyzer' for consistency with other 'analyzer' devices."
