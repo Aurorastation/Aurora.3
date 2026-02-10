@@ -1,17 +1,3 @@
-//checks if a file exists and contains text
-//returns text as a string if these conditions are met
-/proc/return_file_text(filename)
-	if(fexists(filename) == 0)
-		log_asset("File not found ([filename])")
-		return
-
-	var/text = file2text(filename)
-	if(!text)
-		log_asset("File empty ([filename])")
-		return
-
-	return text
-
 /proc/get_subfolders(var/root)
 	var/list/folders = list()
 	var/list/contents = flist(root)
