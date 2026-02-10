@@ -9,7 +9,7 @@
 	suffix = "freebooter_ship_.dmm"
 
 	sectors = list(ALL_POSSIBLE_SECTORS)
-	spawn_weight = 0.5 // halved from 1 as this is a variation
+	spawn_weight = 900 // halved from 1 as this is a variation
 	ship_cost = 1
 	id = "freebooter_ship"
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/freebooter_shuttle)
