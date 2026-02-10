@@ -1,5 +1,0 @@
-author: Hellfirejag
-delete-after: True
-changes:
-  - rscadd: "Off-ship player characters can now be viewed from the crew manifest, so long as you are either an observer, or are in the lobby."
-  - bugfix: "Fixed player characters with apostrophes in their name showing up weirdly on the manifest."

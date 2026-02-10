@@ -45,3 +45,7 @@ ABSTRACT_TYPE(/singleton/fabricator_recipe/tools)
 /singleton/fabricator_recipe/tools/minihoe
 	name = "mini hoe"
 	path = /obj/item/material/minihoe
+
+/singleton/fabricator_recipe/tools/hammer
+	name = "hammer"
+	path = /obj/item/hammer

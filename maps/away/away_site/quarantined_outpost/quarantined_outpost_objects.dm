@@ -291,7 +291,7 @@ GLOBAL_LIST_EMPTY(trackables_pool)
 	maxHealth = 50
 	health = 50
 
-	speed = 2
+	speed = 1
 
 	melee_damage_lower = 5
 	melee_damage_upper = 10
