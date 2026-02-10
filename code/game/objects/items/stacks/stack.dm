@@ -101,12 +101,10 @@
 		t1 += "<h2>Recipes[sublist_title]</h2>"
 	for(var/datum/stack_recipe/R in recipes_sublist)
 		var/lacks_skill = FALSE
-		if(length(R.required_skills))
-			for(var/skill_type in R.required_skills)
-				var/skill_level = R.required_skills[skill_type]
-				if(!user.skill_check(skill_type, skill_level))
-					lacks_skill = TRUE
-					break
+		for(var/skill_type,skill_level in R.required_skills)
+			if(!user.skill_check(skill_type, skill_level))
+				lacks_skill = TRUE
+				break
 
 		var/max_multiplier = round(src.get_amount() / R.req_amount)
 		var/title = ""
@@ -380,7 +378,7 @@
 	var/on_floor = 0
 	var/use_material
 	/// Assoc list of required skills to required skill levels. This is the MINIMUM to craft the item. You must have ALL these skills at that level to see the item as craftable.
-	var/list/required_skills
+	var/alist/required_skills
 
 /datum/stack_recipe/New(title, result_type, req_amount = 1, res_amount = 1, max_res_amount = 1, time = 0, one_per_turf = 0, on_floor = 0, supplied_material = null, list/required_skills)
 	src.title = title
