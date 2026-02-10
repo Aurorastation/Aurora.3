@@ -77,6 +77,10 @@
 		switch(narrate_filter)
 			if ("Skrell-like Psi-sensitives")
 				for(var/mob/filteree in filtered_list)
+					// Keep observers in the list, which includes ghosts, aghosts, and storytellers.
+					if (isghost(filteree))
+						continue
+
 					// This will check for anyone who is capable of receiving and interpreting telepathic messages.
 					// It will include Skrell who don't have a mindshield or the Low Psi-sensitivity trait.
 					// It will also include characters who have Psi-receivers, the High Psi-sensitivity trait, or are under the effects of Psycho-nootropic drugs.
@@ -85,12 +89,20 @@
 						continue
 			if ("Human-like Psi-sensitives")
 				for(var/mob/filteree in filtered_list)
+					// Keep observers in the list, which includes ghosts, aghosts, and storytellers.
+					if (isghost(filteree))
+						continue
+
 					// This will check for anyone who has a Zona Bovina capable of hearing psionics at all.
 					if (IS_TELEPATHY_BLOCKED(filteree, 0))
 						mobs_to_message.Remove(filteree)
 						continue
 			if ("Silicons")
 				for(var/mob/filteree in filtered_list)
+					// Keep observers in the list, which includes ghosts, aghosts, and storytellers.
+					if (isghost(filteree))
+						continue
+
 					// List will include Borgs, Robots, Shipbounds, pAIs, and IPCs.
 					if(issilicon(filteree) || isipc(filteree) || ispAI(filteree))
 						continue
@@ -99,10 +111,13 @@
 					mobs_to_message.Remove(filteree)
 			if ("Silicons + Implants")
 				for(var/mob/filteree in filtered_list)
+					// Keep observers in the list, which includes ghosts, aghosts, and storytellers.
+					if (isghost(filteree))
+						continue
+
 					// List will include Borgs, Robots, Shipbounds, pAIs, and IPCs.
 					if(issilicon(filteree) || isipc(filteree) || ispAI(filteree))
 						continue
-
 
 					if (!ishuman(filteree))
 						// The mob in question can't have a brain at all, filter it early.
@@ -119,6 +134,10 @@
 					mobs_to_message.Remove(filteree)
 			if ("Hivenet")
 				for(var/mob/filteree in filtered_list)
+					// Keep observers in the list, which includes ghosts, aghosts, and storytellers.
+					if (isghost(filteree))
+						continue
+
 					// Filter anyone who doesn't have the Vaurca language at all.
 					if (!(GLOB.all_languages[LANGUAGE_VAURCA] in filteree.languages))
 						mobs_to_message.Remove(filteree)

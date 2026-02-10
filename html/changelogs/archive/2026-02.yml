@@ -76,3 +76,167 @@
   TheGreyWolf:
   - bugfix: Fixes janitorial carts not showing their contents after spawning.
   - bugfix: The tug will no longer run over people who are leaning on walls.
+2026-02-04:
+  Batrachophrenoboocosmomachia:
+  - bugfix: Restores area_sensitive trait for mobs, fixing zero-gravity drifting,
+      ambience and ship hum, and area blurbs.
+  - rscdel: Removes area blurb text from status window (band-aid fix prior to discovering
+      root cause of them not appearing consistently).
+  Greenjoe:
+  - rscadd: Adds the Adhomian p'rrama to the game.
+  - rscadd: Adds Adhomian dogtags and a walking stick (maikahar) to the Tajaran loadout.
+  - rscadd: Adds the Adhomian hunting coat to the Tajaran coat selection.
+  - rscadd: The shillelagh is renamed to maikahar.
+  Hellfirejag:
+  - rscadd: Off-ship player characters can now be viewed from the crew manifest, so
+      long as you are either an observer, or are in the lobby.
+  - bugfix: Fixed player characters with apostrophes in their name showing up weirdly
+      on the manifest.
+  MattAtlas, FluffyGhost:
+  - experiment: Atom gliding is now in, which gives us smoother movement. Remember
+      that this is affected by your FPS setting.
+  - experiment: The baseline speed is now twice as fast for everything. Fast species
+      were nerfed slightly to compensate.
+  TheGreyWolf:
+  - rscadd: Black gloves have been renamed to work gloves, to better indicate that
+      they are unique from other colored gloves.
+  - rscadd: Added taj and unathi variants of work gloves to the drobes having them,
+      and taj workboots to the ones having normal workboots.
+  - rscadd: Renamed taj and unathi work gloves, leather gloves and workboots to be
+      clear who can wear it.
+  - rscadd: Made hangar techs spawn with workboots by default, instead of with sneakers.
+      Safety first.
+2026-02-05:
+  Batrachophrenoboocosmomachia:
+  - qol: Moves area blurbs entirely from chat window to status tab.
+  - code_imp: Updates comments in affected files to use dmdocs.
+  Hellfirejag:
+  - bugfix: Observers (such as Storytellers) are now always included in Narrates with
+      a filter.
+  - bugfix: Fixed admin bombs being dropped at the wrong location.
+2026-02-06:
+  AlaunusLux:
+  - balance: Greimorian servants can now see in the dark.
+  - balance: Things pulled by greimorians will always pass through webs.
+  - qol: Greimorians attempting to lay eggs or a servant now get feedback if it fails.
+  - experiment: Gives Greimorian Queens a melee attack reach of two tiles.
+  - bugfix: Greimorian servants can no longer speak Tau Ceti Basic.
+  - bugfix: Fixes Greimorian Queen icon state being set to resting if the controlling
+      player ghosts.
+  - bugfix: Fixed a runtime error that occurred when a vampire tried to suck blood
+      from a target whose mind was null.
+  Hellfirejag:
+  - refactor: Killed the last few ancient Goto statements.
+  TheGreyWolf:
+  - rscadd: The antag toolbox now also have insulated gloves fitting taj and unathi.
+2026-02-07:
+  AlaunusLux:
+  - bugfix: Fixed ghost roles falling off manifest when a player leaves the round.
+  Hellfirejag:
+  - bugfix: Fixed some situations where a character in-game could view the ooc-manifest
+      that includes off-ship roles.
+  - bugfix: Fixed mobs other than humans not moving smoothly.
+  - bugfix: Fixed mobs cheating their movement speed on diagonals.
+  - bugfix: Fixed smooth movement not working on mechs.
+  - bugfix: Fixed smooth movement not working on wheelchairs/rollerbeds/vehicles in
+      general.
+  - bugfix: Fixed mobs moving at lightspeed.
+  SimpleMaroon:
+  - bugfix: Fixed accented softcaps missing the accent on the worn and held icons.
+  TheGreyWolf:
+  - bugfix: Fixed the name of the fluff maintenance panels around the ship.
+  - rscadd: The towel now keeps its name and description when unfolded on the floor
+      and picked up again.
+  - bugfix: Fixes several light in-hand sprites.
+  - bugfix: Fixes the directional glow to be a radius instead for the torch, flare
+      and marshal wand.
+  - bugfix: Added hammers to the autolathe.
+  - bugfix: Fixed the consular and RD psi receiver boxes decaying. They get organ
+      coolers now.
+  - bugfix: Fixed minor spelling stuff for the psi receiver.
+  - bugfix: Fixes the psi receiver using the wrong sprite.
+  - bugfix: Fixes the francisca being incorrect.
+  UltraBigRat:
+  - rscadd: Added nanopaste to the uplink.
+  fyni:
+  - rscadd: Adds the Outer Eyes small and large flag, only available to mappers, ST
+      and modmins.
+  - rscadd: Adds the Outer Eyes paperwork icon, [logo_toe], available for anyone to
+      use. Don't go marking your paperwork with wierd icons though.
+2026-02-08:
+  Greenjoe:
+  - rscadd: Adds Tajara versions of several human hairstyles.
+  Hellfirejag:
+  - bugfix: Fixed closets opening themselves when pulled.
+  fyni:
+  - bugfix: Fixes an upside down sprite on the right large flag, properly capatalizes
+      flag name.
+2026-02-09:
+  Acetrea:
+  - balance: Changes the perconol recipe from water to hydrazine.
+  - balance: Slightly edits the description of mortaphenyl to reflect changes made
+      to the cargo order menu.
+  - spellcheck: Corrects 'opiod' to 'opioid'.
+  Batrachophrenoboocosmomachia:
+  - bugfix: Removes TC spawn from the Horizon's Secure Technical Storage compartment
+      (accidental inclusion).
+  GeneralCamo:
+  - rscadd: Added passive vents, that passively interact with the air outside of them.
+  - bugfix: Vent and scrubber items will now use the correct icons.
+  Helfirejag:
+  - bugfix: Fixed the credit symbol not being correctly applied when using [cr] on
+      a paper.
+  MynameAsJeff:
+  - bugfix: Fixes several airlock and wiring errors on the SSRM Corvette.
+  - bugfix: Gives the SSRM Corvette's Chief Petty Officer a proper ID.
+  - rscadd: Reworks the Sol Frigate's Officer Quarters into a single office and living
+      space.
+  - rscadd: Gives the Sol Frigate extra kit for it's armory and 'exosuit. This is
+      intended to bring the Frigate up to par with the Xanu Frigate and TCAF Corvette
+      in terms of boarding capability.
+  TheGreyWolf:
+  - rscadd: 'Added a new music cartridge with the adhomai lobby music: Adhomai vibes.'
+  - bugfix: Fixes the misplaced grating outside the commissary.
+  - rscadd: Added a request console to the commissary.
+  - rscadd: Added tape to the commissary.
+  - rscadd: Modified the disposal leading to the commissary to always output packages
+      in the customer section.
+  - bugfix: Added the missing request console to the machinist workshop.
+  - bugfix: Fixed one of the signs on the security elevator moving with the elevator.
+  - rscadd: Updated the receipt from the commissary register and the quikpay.
+  - bugfix: Fixed the quikpay not working as intended for multi-item payments.
+  - rscadd: 'Added the following options as food in the lunchbox: Hard bread, nomad
+      skewer, mashed earthen-root, earthen-root fries, scout ration and ras''val pasta.'
+  - rscadd: 'Added the following options as snacks in the lunchbox: A singular mini-avah,
+      zkahnkowa slice, roasted dirtberries.'
+  - rscadd: Canned earthen-root juice was added to the commissary drink restock pack
+      and as an option to the lunchbox.
+  Wildkins:
+  - bugfix: Fix tool interactions using the target as the tool rather than the tool.
+2026-02-10:
+  ChangeMe:
+  - rscadd: Added a changelog editing system that should cause fewer conflicts and
+      more accurate timestamps.
+  - rscdel: Killed innocent kittens.
+  FabianK3:
+  - rscadd: Updated the bounties paper design.
+  Hellfirejag:
+  - bugfix: Added a check to prevent division by 0 in ship math.
+  Wildkins:
+  - refactor: Every single datum no longer does REF(src) on /Destroy to see if it
+      has an open nanoui
+  - bugfix: Showing held items no longer causes every recording device to runtime.
+  - refactor: Every obj/item/Destroy no longer updates the held mob's icon three times.
+  - refactor: Follow menu is now a global UI and should no longer DDOS the server
+      when 50 people have it open
+  - refactor: Follow menu no longer auto-updates the list of mobs while open, use
+      the refresh button.
+  - bugfix: Fix runtime when a /human without hair or facial hair would be skeletonized
+  - refactor: Cleaned up human icon update code. Lying / direction changes no longer
+      cause four update_icon calls. Tailed species turning no longer causes six.
+  - bugfix: Fix runtime caused by detached / ownerless mechanical hands.
+  - bugfix: Fix colorspace runtime.
+  - bugfix: Fix lighting harddel caused by using improper handlers for static lights.
+  - bugfix: Lifts now grey out the current location, instead of throwing a runtime
+      when you click it.
+  - bugfix: Fix runtime when a bloodless/fakedeath mob has their pulse taken.

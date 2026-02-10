@@ -209,5 +209,6 @@
 	music_cartridges["Spacer Classics Vol. 1"] = /obj/item/music_cartridge/ss13
 	music_cartridges["Indulgence EP (X-Rock)"] = /obj/item/music_cartridge/xanu_rock
 	music_cartridges["Electro-Swing of Adhomai"] = /obj/item/music_cartridge/adhomai_swing
+	music_cartridges["Adhomai Vibes"] = /obj/item/music_cartridge/adhomai_vibes
 	music_cartridges["Europa: Best of the 50s"] = /obj/item/music_cartridge/europa_various
 	gear_tweaks += new /datum/gear_tweak/path(music_cartridges)

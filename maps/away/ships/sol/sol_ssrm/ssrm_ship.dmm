@@ -2061,10 +2061,6 @@
 /obj/item/reagent_containers/pill/nicotine{
 	pixel_y = -1
 	},
-/obj/item/reagent_containers/inhaler/space_drugs{
-	pixel_y = 6;
-	pixel_x = -4
-	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/ssrm_corvette/port_thrusters)
 "emc" = (
@@ -2135,6 +2131,12 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/ssrm_corvette/synthroom)
+"eqW" = (
+/obj/structure/filingcabinet/chestdrawer{
+	pixel_x = -7
+	},
+/turf/template_noop,
+/area/space)
 "esV" = (
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /obj/structure/table/wood,
@@ -3678,6 +3680,10 @@
 	pixel_x = -7;
 	pixel_y = 20
 	},
+/obj/item/storage/chewables/tobacco/bad{
+	pixel_y = 20;
+	pixel_x = -5
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/ssrm_corvette/eva_preperation)
 "hFY" = (
@@ -4713,6 +4719,11 @@
 	req_access = list(203);
 	dir = 1
 	},
+/obj/structure/cable{
+	icon_state = "1-2";
+	d1 = 1;
+	d2 = 2
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ssrm_corvette/port_gunnery)
 "kaR" = (
@@ -5162,6 +5173,10 @@
 /obj/item/hand_labeler{
 	pixel_y = 5;
 	pixel_x = 3
+	},
+/obj/item/storage/box/fancy/cigarettes/nicotine{
+	pixel_y = 14;
+	pixel_x = -9
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/ssrm_corvette/eva_preperation)
@@ -7374,6 +7389,7 @@
 	pixel_x = 27
 	},
 /obj/effect/map_effect/marker/airlock/shuttle/ssrm_shuttle,
+/obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/reinforced/airless,
 /area/shuttle/ssrm_shuttle)
 "que" = (
@@ -8224,6 +8240,8 @@
 	},
 /obj/structure/table/wood,
 /obj/item/modular_computer/laptop/preset/civilian,
+/obj/item/clothing/head/sol,
+/obj/item/device/radio/headset/ship,
 /turf/simulated/floor/tiled/dark,
 /area/ship/ssrm_corvette/cpo_cabin)
 "sIJ" = (
@@ -49023,7 +49041,7 @@ xRX
 xRX
 xRX
 xRX
-xRX
+eqW
 xRX
 xRX
 xRX
