@@ -70,7 +70,7 @@ PROCESSING_SUBSYSTEM_DEF(tgui)
 		current_run.len--
 		// TODO: Move user/src_object check to process()
 		if(ui?.user && ui.src_object)
-			ui.process(wait * 0.1)
+			INVOKE_ASYNC(ui, TYPE_PROC_REF(/datum/tgui, process), wait * 0.1, TRUE)
 		else
 			ui.close(0)
 		if(MC_TICK_CHECK)
