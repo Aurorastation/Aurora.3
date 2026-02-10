@@ -4768,7 +4768,7 @@
 /area/ship/ranger_corvette/foyer)
 "smG" = (
 /turf/space,
-/area/space)
+/area/template_noop)
 "smZ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/dark/full,
@@ -5461,7 +5461,7 @@
 	},
 /obj/effect/map_effect/marker/mapmanip/submap/insert/coc_rangerlockers,
 /turf/space,
-/area/space)
+/area/template_noop)
 "ueq" = (
 /obj/machinery/atmospherics/unary/engine,
 /turf/simulated/floor/plating,
