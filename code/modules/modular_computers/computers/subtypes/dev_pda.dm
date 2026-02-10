@@ -2,7 +2,7 @@
 	name = "\improper PDA"
 	lexical_name = "tablet"
 	desc = "A personal data assistant. The latest in portable microcomputer solutions from Thinktronic Systems LTD."
-	icon = 'icons/obj/pda.dmi'
+	icon = 'icons/obj/modular_computers/pda.dmi'
 	icon_state = "pda"
 	item_state = "electronic"
 	contained_sprite = TRUE
@@ -18,13 +18,13 @@
 	icon_state_broken = icon_state
 
 /obj/item/modular_computer/handheld/pda/old
-	icon = 'icons/obj/pda_old.dmi'
+	icon = 'icons/obj/modular_computers/pda_old.dmi'
 
 /obj/item/modular_computer/handheld/pda/rugged
-	icon = 'icons/obj/pda_rugged.dmi'
+	icon = 'icons/obj/modular_computers/pda_rugged.dmi'
 
 /obj/item/modular_computer/handheld/pda/slate
-	icon = 'icons/obj/pda_slate.dmi'
+	icon = 'icons/obj/modular_computers/pda_slate.dmi'
 
 /obj/item/modular_computer/handheld/pda/smart
-	icon = 'icons/obj/pda_smart.dmi'
+	icon = 'icons/obj/modular_computers/pda_smart.dmi'

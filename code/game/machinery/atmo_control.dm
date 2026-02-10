@@ -213,7 +213,7 @@
 	circuit = /obj/item/circuitboard/air_management/tank_control
 
 /obj/machinery/computer/general_air_control/large_tank_control/terminal
-	icon = 'icons/obj/machinery/modular_terminal.dmi'
+	icon = 'icons/obj/modular_computers/modular_terminal.dmi'
 	icon_screen = "tank"
 	icon_keyboard = "atmos_key"
 	icon_keyboard_emis = "atmos_key_mask"
@@ -229,7 +229,7 @@
 	density = FALSE
 
 /obj/machinery/computer/general_air_control/large_tank_control/terminal
-	icon = 'icons/obj/machinery/modular_terminal.dmi'
+	icon = 'icons/obj/modular_computers/modular_terminal.dmi'
 	icon_screen = "tank"
 	icon_keyboard = "atmos_key"
 	icon_keyboard_emis = "atmos_key_mask"
@@ -317,7 +317,7 @@
 	INVOKE_ASYNC(radio_connection, TYPE_PROC_REF(/datum/radio_frequency, post_signal), src, signal, filter = RADIO_ATMOSIA)
 
 /obj/machinery/computer/general_air_control/supermatter_core
-	icon = 'icons/obj/machinery/modular_terminal.dmi'
+	icon = 'icons/obj/modular_computers/modular_terminal.dmi'
 	icon_screen = "tank"
 	icon_keyboard = "atmos_key"
 	icon_keyboard_emis = "atmos_key_mask"
