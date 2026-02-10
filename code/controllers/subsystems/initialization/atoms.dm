@@ -67,7 +67,7 @@ SUBSYSTEM_DEF(atoms)
 	queued_deletions.Cut()
 
 	#ifdef PROFILE_MAPLOAD_INIT_ATOM
-	rustg_file_write(json_encode(mapload_init_times), "[GLOB.log_directory]/init_times.json")
+	rustg_file_write(json_encode(mapload_init_times), "data/logs/[GLOB.round_id]/init_times.json")
 	#endif
 
 /// Actually creates the list of atoms. Exists soley so a runtime in the creation logic doesn't cause initalized to totally break
@@ -174,8 +174,7 @@ SUBSYSTEM_DEF(atoms)
 /datum/controller/subsystem/atoms/Shutdown()
 	var/initlog = InitLog()
 	if(initlog)
-		world.log << initlog
-		//text2file(initlog, "[log_directory]/initialize.log")
+		text2file(initlog, "data/logs/[GLOB.round_id]/initialize.log")
 
 
 #undef SUBSYSTEM_INIT_SOURCE

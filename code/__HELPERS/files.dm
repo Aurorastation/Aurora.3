@@ -29,51 +29,73 @@
 	for(var/file in args)
 		send_rsc(src, file, null)
 
-/client/proc/browse_files(root="data/logs/", max_iterations=10, list/valid_extensions=list(".txt",".log",".htm", ".json"))
+/client/proc/browse_files(root_type=BROWSE_ROOT_ALL_LOGS, max_iterations=10, list/valid_extensions=list("txt", "log", "htm", "html", "json", "gz"))
+	var/root = "data/logs/"
+	switch(root_type)
+		if(BROWSE_ROOT_ALL_LOGS)
+			root = "data/logs/"
+		if(BROWSE_ROOT_CURRENT_LOGS)
+			root = "data/logs/[GLOB.round_id]/"
 	var/path = root
 
-	for(var/i=0, i<max_iterations, i++)
-		var/list/choices = sortList(flist(path))
+	for(var/i in 1 to max_iterations)
+		var/list/choices = flist(path)
 		if(path != root)
 			choices.Insert(1,"/")
+		choices = sort_list(choices) + "Download Folder"
 
-		var/choice = input(src,"Choose a file to access:","Download",null) as null|anything in choices
+		var/choice = tgui_input_list(src,"Choose a file to access:","Download",choices,null)
 		switch(choice)
 			if(null)
 				return
 			if("/")
 				path = root
 				continue
+			if("Download Folder")
+				var/list/comp_flist = flist(path)
+				var/confirmation = tgui_alert(src, "Are you SURE you want to download all the files in this folder? (This will open [length(comp_flist)] prompt[length(comp_flist) == 1 ? "" : "s"])", "Confirmation", list("Yes", "No"), autofocus = TRUE)
+				if(confirmation != "Yes")
+					continue
+				for(var/file as anything in comp_flist)
+					DIRECT_OUTPUT(src, ftp(path + file))
+				return
 		path += choice
 
-		if(copytext(path,-1,0) != "/")		//didn't choose a directory, no need to iterate again
+		if(copytext_char(path, -1) != "/") //didn't choose a directory, no need to iterate again
 			break
 
-	var/valid_extension = FALSE
-	for(var/e in valid_extensions)
-		if(findtext(path, e, -(length(e))))
-			valid_extension = TRUE
+	var/extensions
+	for(var/i in valid_extensions)
+		if(extensions)
+			extensions += "|"
+		extensions += "[i]"
 
-	if( !fexists(path) || !valid_extension )
+	var/regex/valid_ext = new("\\.([extensions])$", "i")
+	if(!fexists(path) || !(valid_ext.Find(path)))
 		to_chat(src, SPAN_WARNING("Error: browse_files(): File not found/Invalid file([path])."))
 		return
 
 	return path
 
 #define FTPDELAY 200	//200 tick delay to discourage spam
-/*	This proc is a failsafe to prevent spamming of file requests.
+#define ADMIN_FTPDELAY_MODIFIER 0.5 //Admins get to spam files faster since we ~trust~ them!
+/** This proc is a failsafe to prevent spamming of file requests.
 	It is just a timer that only permits a download every [FTPDELAY] ticks.
 	This can be changed by modifying FTPDELAY's value above.
 
-	PLEASE USE RESPONSIBLY, Some log files canr each sizes of 4MB!	*/
+	PLEASE USE RESPONSIBLY, Some log files can reach sizes of 4MB! */
 /client/proc/file_spam_check()
 	var/time_to_wait = GLOB.fileaccess_timer - world.time
 	if(time_to_wait > 0)
-		to_chat(src, SPAN_WARNING("Error: file_spam_check(): Spam. Please wait [round(time_to_wait/10)] seconds."))
-		return 1
-	GLOB.fileaccess_timer = world.time + FTPDELAY
-	return 0
+		to_chat(src, SPAN_WARNING("Error: file_spam_check(): Spam. Please wait [DisplayTimeText(time_to_wait)]."))
+		return TRUE
+	var/delay = FTPDELAY
+	if(holder)
+		delay *= ADMIN_FTPDELAY_MODIFIER
+	GLOB.fileaccess_timer = world.time + delay
+	return FALSE
 #undef FTPDELAY
+#undef ADMIN_FTPDELAY_MODIFIER
 
 /// Returns the md5 of a file at a given path.
 /proc/md5filepath(path)
