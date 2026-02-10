@@ -177,7 +177,7 @@
 		return
 	I = user.GetIdCard()
 	if(istype(I) && (ACCESS_CARGO in I.access))
-		var/price_guess = text2num(sanitizeSafe( tgui_input_text(user, "How much do you wish to withdraw? Remaining credits: [credit]", "QuikPay", 0, 10), 10))
+		var/price_guess = text2num(sanitizeSafe( tgui_input_text(user, "How much do you wish to withdraw? Remaining credits: [credit]电", "QuikPay", 0, 10), 10))
 		if(isnull(price_guess) || price_guess == 0)
 			return
 		price_guess = max(0, round(price_guess, 0.01))
