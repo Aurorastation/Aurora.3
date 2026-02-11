@@ -1,0 +1,8 @@
+author: TheGreyWolf
+
+delete-after: True
+
+changes:
+  - bugfix: "Fixed that journals and notepads could not be written in when held in hand."
+  - bugfix: "Fixed the quik-pay not getting prices correct when clicking an item with it to input it quickly."
+  - spellcheck: "Standardised how the credit symbol is shown in several places, and replaces several instances of credits with the symbol."

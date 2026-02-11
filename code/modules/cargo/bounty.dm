@@ -31,7 +31,7 @@
 
 // Displayed on bounty UI screen.
 /datum/bounty/proc/reward_string()
-	return "[reward] Credits"
+	return "[reward]电"
 
 /datum/bounty/proc/can_claim()
 	return !claimed
