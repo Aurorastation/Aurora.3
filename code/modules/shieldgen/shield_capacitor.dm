@@ -137,6 +137,6 @@
 	else
 		..()
 
+/// Horizon-specific non-variant, for now.
 /obj/machinery/shield_capacitor/multiz
-	max_charge = 2e8			//200 MJ
-	max_charge_rate = 9000000	//9 MW
+
