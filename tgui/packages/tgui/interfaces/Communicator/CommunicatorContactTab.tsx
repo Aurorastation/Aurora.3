@@ -1,4 +1,4 @@
-import { useBackend } from '../../backend';
+import { useBackend, useLocalState } from '../../backend';
 import {
   Box,
   Button,
@@ -8,7 +8,7 @@ import {
   Stack,
   Tooltip,
 } from '../../components';
-import { CommunicatorData, Contact } from './types';
+import { CommunicatorData, CommunicatorTab, Contact } from './types';
 
 export const CommunicatorContactTab = (props, context) => {
   const { act, data } = useBackend<CommunicatorData>(context);
@@ -21,15 +21,9 @@ export const CommunicatorContactTab = (props, context) => {
     });
 
   return (
-    <Flex direction="column" justify="space-between" height="100%" mx={1}>
+    <Flex direction="column" justify="space-between" height="100%">
       <Flex.Item basis="50%">
-        <Section title="Friends" fill>
-          {(friendsList.length && <ContactsList commList={friendsList} />) || (
-            <Tooltip position="right" content=":(">
-              <Box inline>Your friends list is empty.</Box>
-            </Tooltip>
-          )}
-        </Section>
+        <FriendsList contacts={friendsList} />
       </Flex.Item>
       <Divider />
       <Flex.Item basis="50%">
@@ -54,6 +48,19 @@ export const CommunicatorContactTab = (props, context) => {
         </Section>
       </Flex.Item>
     </Flex>
+  );
+};
+
+// Exported separately for use in the phone tab.
+export const FriendsList = ({ contacts }: { contacts: Contact[] }) => {
+  return (
+    <Section title="Friends" fill>
+      {(contacts.length && <ContactsList commList={contacts} />) || (
+        <Tooltip position="right" content=":(">
+          <Box inline>Your friends list is empty.</Box>
+        </Tooltip>
+      )}
+    </Section>
   );
 };
 
@@ -90,6 +97,17 @@ const ContactListing = (props: ContactListingProps, context) => {
     contact: { address, name },
     showFriendReqBtn,
   } = props;
+
+  const [currentTab, setCurrentTab] = useLocalState(
+    context,
+    'tab',
+    CommunicatorTab.Home,
+  );
+  const [targetAddress, setTargetAddress] = useLocalState(
+    context,
+    'tgtAddr',
+    '',
+  );
 
   const alreadyFriends = data.friendsList.find(
     (friend) => friend.address === address,
@@ -145,6 +163,10 @@ const ContactListing = (props: ContactListingProps, context) => {
               icon="phone"
               tooltip="Send call invitation"
               tooltipPosition="bottom"
+              onClick={() => {
+                setTargetAddress(address);
+                setCurrentTab(CommunicatorTab.Phone);
+              }}
             >
               Call
             </Button>

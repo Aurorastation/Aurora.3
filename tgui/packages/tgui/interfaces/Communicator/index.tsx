@@ -4,6 +4,7 @@ import { Window } from '../../layouts';
 import { CommunicatorContactTab } from './CommunicatorContactTab';
 import { CommunicatorFooter, CommunicatorHeader } from './CommunicatorGeneral';
 import { CommunicatorHomeTab } from './CommunicatorHomeTab';
+import { CommunicatorPhoneTab } from './CommunicatorPhoneTab';
 import { CommunicatorData, CommunicatorTab } from './types';
 
 export const Communicator = (props, context) => {
@@ -17,7 +18,7 @@ export const Communicator = (props, context) => {
 
   const tabs: { [tab in CommunicatorTab]: JSX.Element } = {
     [CommunicatorTab.Home]: <CommunicatorHomeTab />,
-    [CommunicatorTab.Phone]: <CommunicatorHomeTab />,
+    [CommunicatorTab.Phone]: <CommunicatorPhoneTab />,
     [CommunicatorTab.Contacts]: <CommunicatorContactTab />,
     [CommunicatorTab.Messaging]: <CommunicatorHomeTab />,
     [CommunicatorTab.Settings]: <CommunicatorHomeTab />,

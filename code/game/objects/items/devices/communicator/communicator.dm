@@ -62,6 +62,7 @@ GLOBAL_LIST_EMPTY_TYPED(all_communicators, /obj/item/communicator)
 
 	if(!owner_name)
 		register_to_user(user)
+		return // todo: remove this later
 
 	if((input(user) as anything in list("TGUI", "Debug UI")) == "TGUI")
 		ui_interact(user)
@@ -182,7 +183,7 @@ GLOBAL_LIST_EMPTY_TYPED(all_communicators, /obj/item/communicator)
 
 				incoming_requests[FRIEND_REQUESTS] += origin_address
 				origin_comm.outgoing_requests[FRIEND_REQUESTS] += exonet.address
-				message_holding_mob(SPAN_NOTICE("Friend request recieved from [origin_comm.owner_name]!"))
+				new_notification(SPAN_NOTICE("Friend request recieved from [origin_comm.owner_name]!"))
 
 		if(EXONET_CATG_PING)
 			// Recieved a ping from `origin_address`.
@@ -193,6 +194,19 @@ GLOBAL_LIST_EMPTY_TYPED(all_communicators, /obj/item/communicator)
 			else if(data_type == EXONET_TYPE_MESSAGE)
 				message_holding_mob(content)
 	return TRUE
+
+/obj/item/communicator/proc/new_notification(message)
+	// If someone has the UI open already, there's no need to flash the sprite at them.
+	if(!ismob(loc) || !SStgui.get_open_ui(loc, src))
+		new_alert = TRUE
+		update_icon()
+	if(ringer)
+		playsound(src, 'sound/machines/twobeep.ogg', 50, TRUE)
+		for(var/mob/M as anything in hearers(2, loc))
+			if(message && M == loc)
+				M.show_message("[icon2html(src, M)] [message]")
+			else
+				M.show_message("[icon2html(src, M)] *beep* *beep*", 2)
 
 /obj/item/communicator/proc/add_friend(obj/item/communicator/new_friend)
 	var/new_friend_address = new_friend.exonet.address

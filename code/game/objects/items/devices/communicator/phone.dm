@@ -32,17 +32,7 @@
 
 	incoming_requests[CALL_REQUESTS] += caller_address
 	caller_comm.outgoing_requests[CALL_REQUESTS] += exonet.address
-
-	if(ringer)
-		playsound(src, 'sound/machines/twobeep.ogg', 50, TRUE)
-		for(var/mob/M as anything in hearers(2, loc))
-			if(M == loc)
-				M.show_message(SPAN_NOTICE("[icon2html(src, M)] Communications request from [caller_comm.owner_name]."))
-			else
-				M.show_message("[icon2html(src, M)] *beep* *beep*", 2)
-
-	new_alert = TRUE
-	update_icon()
+	new_notification(SPAN_NOTICE("Communications request from [caller_comm.owner_name]."))
 
 /obj/item/communicator/proc/remove_call_invite(caller_address, caller_reason, callee_reason)
 	if(!(caller_address in incoming_requests[CALL_REQUESTS]))

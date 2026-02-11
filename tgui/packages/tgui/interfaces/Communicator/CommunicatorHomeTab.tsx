@@ -14,7 +14,7 @@ export const CommunicatorHomeTab = (props, context) => {
   return (
     <Stack mt={2} wrap="wrap" align="center" justify="center">
       {Apps.map((app) => (
-        <Stack.Item basis="25%" textAlign="center" m={0} mb={2} key={app.name}>
+        <Stack.Item basis="25%" textAlign="center" m={0} key={app.name}>
           <Button
             style={{
               borderRadius: '10%',
@@ -22,15 +22,16 @@ export const CommunicatorHomeTab = (props, context) => {
             }}
             width="64px"
             height="64px"
+            lineHeight="64px"
             onClick={() => setCurrentTab(app.tab)}
           >
             <Icon
               // todo: spin + colour
               name={app.icon}
               size={3}
-              position="absolute"
-              top="25%"
-              left="25%"
+              mx="auto"
+              mb="3px"
+              style={{ 'vertical-align': 'middle' }}
             />
           </Button>
           <Box>{app.name}</Box>

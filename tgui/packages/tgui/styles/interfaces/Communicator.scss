@@ -1,5 +1,44 @@
 @use '../components/Section.scss';
 
+$phone-button-width: 90px;
+$phone-button-height: 45px;
+
 .Stack__item.comm-contacts:nth-child(odd):not(:only-child) {
   background-color: lighten(Section.$background-color, 25%);
+}
+
+.address-input {
+  padding: 0 0.5rem;
+
+  .Button {
+    width: $phone-button-width;
+    height: $phone-button-height;
+    line-height: $phone-button-height;
+    font-size: 3rem;
+    font-family: 'Trebuchet MS';
+  }
+}
+
+.keypad {
+  height: 100%;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  text-align: center;
+
+  .Button {
+    border-radius: 32px;
+  }
+}
+
+.call-buttons {
+  margin-top: 0.5rem;
+  justify-content: space-around;
+  align-content: center;
+  text-align: center;
+
+  .Button {
+    height: $phone-button-height;
+    line-height: $phone-button-height;
+    width: calc(#{$phone-button-width} * 2.3);
+  }
 }
