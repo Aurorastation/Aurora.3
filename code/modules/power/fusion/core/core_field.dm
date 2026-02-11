@@ -436,6 +436,11 @@
 	change_size(calc_size)
 
 /obj/effect/fusion_em_field/proc/AddEnergy(a_energy, a_plasma_temperature)
+	// If there are no reactants, there's nothing to heat. Ignore.
+	var/list/react_pool = reactants.Copy()
+	if(!length(react_pool))
+		return
+
 	// Boost gyro effects at low temperatures for faster startup
 	if(plasma_temperature <= 5000)
 		a_energy = a_energy * 32
