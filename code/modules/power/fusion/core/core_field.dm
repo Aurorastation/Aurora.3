@@ -104,8 +104,8 @@
 	var/pause_rupture = FALSE
 
 	var/power_log_base = 1.35
-	var/power_multiplier = 3.5
-	var/power_power = 2.9
+	var/power_multiplier = 3.7
+	var/power_power = 3.05
 
 /obj/effect/fusion_em_field/proc/UpdateVisuals()
 	//Take the particle system and edit it
