@@ -201,12 +201,32 @@
           }
         };
 
+        let MAX_PACKET_SIZE = 1024;
+
         Byond.sendMessage = function (type, payload) {
           var message =
             typeof type === 'string' ? { type: type, payload: payload } : type;
           // JSON-encode the payload
+
           if (message.payload !== null && message.payload !== undefined) {
             message.payload = JSON.stringify(message.payload);
+
+            if(!Byond.TRIDENT && message.payload.length > MAX_PACKET_SIZE) {
+              var chunks = [];
+
+              for(var i = 0, charsLength = message.payload.length; i < charsLength; i += MAX_PACKET_SIZE) {
+                chunks.push(message.payload.substring(i, i + MAX_PACKET_SIZE))
+              }
+
+              for(var i = 0; i < chunks.length; i++) {
+                var to_send = chunks[i]
+
+                message = { type: type, packet: to_send, packetId: i + 1, totalPackets: chunks.length, tgui: 1, window_id: Byond.windowId };
+                Byond.topic(message);
+              }
+
+              return;
+            }
           }
           // Append an identifying header
           assign(message, {
@@ -699,22 +719,22 @@
     <div id="FatalError" class="FatalError">
       <!-- prettier-ignore -->
       <div class="FatalError__logo">
-NNNNNNNN        NNNNNNNNTTTTTTTTTTTTTTTTTTTTTTT     OOOOOOOOO        SSSSSSSSSSSSSSS 
+NNNNNNNN        NNNNNNNNTTTTTTTTTTTTTTTTTTTTTTT     OOOOOOOOO        SSSSSSSSSSSSSSS
 N:::::::N       N::::::NT:::::::::::::::::::::T   OO:::::::::OO    SS:::::::::::::::S
 N::::::::N      N::::::NT:::::::::::::::::::::T OO:::::::::::::OO S:::::SSSSSS::::::S
 N:::::::::N     N::::::NT:::::TT:::::::TT:::::TO:::::::OOO:::::::OS:::::S     SSSSSSS
-N::::::::::N    N::::::NTTTTTT  T:::::T  TTTTTTO::::::O   O::::::OS:::::S            
-N:::::::::::N   N::::::N        T:::::T        O:::::O     O:::::OS:::::S            
-N:::::::N::::N  N::::::N        T:::::T        O:::::O     O:::::O S::::SSSS         
-N::::::N N::::N N::::::N        T:::::T        O:::::O     O:::::O  SS::::::SSSSS    
-N::::::N  N::::N:::::::N        T:::::T        O:::::O     O:::::O    SSS::::::::SS  
-N::::::N   N:::::::::::N        T:::::T        O:::::O     O:::::O       SSSSSS::::S 
+N::::::::::N    N::::::NTTTTTT  T:::::T  TTTTTTO::::::O   O::::::OS:::::S
+N:::::::::::N   N::::::N        T:::::T        O:::::O     O:::::OS:::::S
+N:::::::N::::N  N::::::N        T:::::T        O:::::O     O:::::O S::::SSSS
+N::::::N N::::N N::::::N        T:::::T        O:::::O     O:::::O  SS::::::SSSSS
+N::::::N  N::::N:::::::N        T:::::T        O:::::O     O:::::O    SSS::::::::SS
+N::::::N   N:::::::::::N        T:::::T        O:::::O     O:::::O       SSSSSS::::S
 N::::::N    N::::::::::N        T:::::T        O:::::O     O:::::O            S:::::S
 N::::::N     N:::::::::N        T:::::T        O::::::O   O::::::O            S:::::S
 N::::::N      N::::::::N      TT:::::::TT      O:::::::OOO:::::::OSSSSSSS     S:::::S
 N::::::N       N:::::::N      T:::::::::T       OO:::::::::::::OO S::::::SSSSSS:::::S
-N::::::N        N::::::N      T:::::::::T         OO:::::::::OO   S:::::::::::::::SS 
-NNNNNNNN         NNNNNNN      TTTTTTTTTTT           OOOOOOOOO      SSSSSSSSSSSSSSS   
+N::::::N        N::::::N      T:::::::::T         OO:::::::::OO   S:::::::::::::::SS
+NNNNNNNN         NNNNNNN      TTTTTTTTTTT           OOOOOOOOO      SSSSSSSSSSSSSSS
 </div>
       <marquee class="FatalError__header">
         A fatal exception has occurred at 002B:C562F1B7 in TGUI. The current
