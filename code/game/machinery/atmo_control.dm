@@ -223,7 +223,7 @@
 	light_power_on = 1
 
 /obj/machinery/computer/general_air_control/large_tank_control/wall
-	icon = 'icons/obj/modular_telescreen.dmi'
+	icon = 'icons/obj/modular_computers/modular_telescreen.dmi'
 	icon_state = "telescreen"
 	icon_screen = "engi"
 	density = FALSE
