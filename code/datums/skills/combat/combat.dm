@@ -23,3 +23,9 @@
 	description = "using guns. split this into close arms/longarms/special arms?"
 	category = /singleton/skill_category/combat
 	subcategory = SKILL_SUBCATEGORY_RANGED
+
+/singleton/skill/firearms/on_spawn(var/mob/owner, var/level)
+	if (!owner)
+		return
+
+	owner.AddComponent(FIREARMS_SKILL_COMPONENT, level)

@@ -80,3 +80,10 @@
 #define COMSIG_PSI_CHECK_SENSITIVITY "psi_check_sensitivity"
 
 /*******Component Specific Signals*******/
+
+// /obj/item/gun signals
+#define COMSIG_GUN_TOGGLE_FIRING_MODE "gun_toggle_firing_mode"
+
+#define COMSIG_GUN_SPECIAL_CHECK "gun_special_check"
+
+#define COMSIG_BEFORE_GUN_FIRE "before_gun_fire"
