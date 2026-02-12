@@ -854,9 +854,7 @@
 	icon_state = info ? "stickynote_words" : "stickynote"
 
 /obj/item/paper/stickynotes/persistence_get_content()
-	var/list/content = list()
-	content["title"] = name
-	content["text"] = info
+	var/list/content = ..()
 	content["color"] = color
 	content["pixel_x"] = pixel_x
 	content["pixel_y"] = pixel_y
