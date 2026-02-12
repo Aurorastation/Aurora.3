@@ -861,7 +861,11 @@
 	return content
 
 /obj/item/paper/stickynotes/persistence_apply_content(content, x, y, z)
-	set_content(content["title"], content["text"], content["color"], content["pixel_x"], content["pixel_y"])
+	src.name = content["title"]
+	src.info = content["text"]
+	src.color = content["color"]
+	src.pixel_x = content["pixel_x"]
+	src.pixel_y = content["pixel_y"]
 	src.x = x
 	src.y = y
 	src.z = z
@@ -916,7 +920,7 @@
 	if(user.a_intent == I_GRAB)
 		return ..()
 
-	var/obj/item/paper/paper = new paper_type(get_turf(src))
+	var/obj/item/paper/stickynotes = new paper_type(get_turf(src))
 	paper.set_content("sticky note", info)
 	paper.color = color
 	info = null
