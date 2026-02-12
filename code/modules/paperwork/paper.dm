@@ -920,7 +920,7 @@
 	if(user.a_intent == I_GRAB)
 		return ..()
 
-	var/obj/item/paper/stickynotes = new paper_type(get_turf(src))
+	var/obj/item/paper/stickynotes/paper = new paper_type(get_turf(src))
 	paper.set_content("sticky note", info)
 	paper.color = color
 	info = null
