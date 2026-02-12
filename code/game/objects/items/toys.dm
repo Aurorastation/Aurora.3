@@ -255,7 +255,7 @@
 
 /obj/item/toy/balloon/heart/pink
 	name = "pink heart balloon"
-	desc = "A big pink balloon in a traditional heart shaped. Represents love, not medical work!"
+	desc = "A big pink balloon in a traditional heart shape. Represents love, not medical work!"
 	icon_state = "heartballoonpink"
 
 /obj/item/toy/balloon/color /// To color it, VV the 'color' var with a hex color code with the # included.
