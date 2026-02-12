@@ -250,7 +250,7 @@
 
 /obj/item/toy/balloon/heart/red
 	name = "red heart balloon"
-	desc = "A big red balloon in a traditional heart shaped. Represents love, not medical work!"
+	desc = "A big red balloon in a traditional heart shape. Represents love, not medical work!"
 	icon_state = "heartballoonred"
 
 /obj/item/toy/balloon/heart/pink
