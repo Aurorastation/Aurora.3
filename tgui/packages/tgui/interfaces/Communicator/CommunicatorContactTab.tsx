@@ -12,12 +12,12 @@ import { CommunicatorData, CommunicatorTab, Contact } from './types';
 
 export const CommunicatorContactTab = (props, context) => {
   const { act, data } = useBackend<CommunicatorData>(context);
-  const { friendsList, allCommunicators } = data;
+  const { friendsList, allUsers } = data;
 
-  const publicComms: Contact[] = allCommunicators
+  const publicComms: Contact[] = allUsers
     .filter((comm) => comm.visible)
     .map((comm) => {
-      return { address: comm.address, name: comm.ownerName };
+      return { address: comm.address, name: comm.username };
     });
 
   return (
@@ -34,9 +34,7 @@ export const CommunicatorContactTab = (props, context) => {
             <Button
               icon="arrows-rotate"
               iconPosition="right"
-              onClick={() => {
-                act('refresh_devices');
-              }}
+              onClick={() => act('refresh_data')}
             >
               Refresh
             </Button>

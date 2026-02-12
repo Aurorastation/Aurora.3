@@ -92,6 +92,3 @@
 		if("toggle_flashlight")
 			flashlight_on = !flashlight_on
 			set_light(flashlight_range * flashlight_on)
-
-#undef CALL_REQUESTS
-#undef FRIEND_REQUESTS

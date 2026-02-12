@@ -1,6 +1,3 @@
-#define CALL_REQUESTS "Call Requests"
-#define FRIEND_REQUESTS "Friend Requests"
-
 GLOBAL_LIST_EMPTY_TYPED(all_communicators, /obj/item/communicator)
 
 /obj/item/communicator

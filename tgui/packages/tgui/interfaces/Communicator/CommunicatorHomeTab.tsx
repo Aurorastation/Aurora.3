@@ -12,13 +12,19 @@ export const CommunicatorHomeTab = (props, context) => {
   );
 
   return (
-    <Stack mt={2} wrap="wrap" align="center" justify="center">
+    <Stack
+      mt={2}
+      wrap="wrap"
+      align="center"
+      justify="center"
+      textAlign="center"
+    >
       {Apps.map((app) => (
-        <Stack.Item basis="25%" textAlign="center" m={0} key={app.name}>
+        <Stack.Item basis="25%" m={0} key={app.name}>
           <Button
             style={{
               borderRadius: '10%',
-              border: '1px solid #000',
+              border: '1px solid black',
             }}
             width="64px"
             height="64px"
@@ -28,9 +34,9 @@ export const CommunicatorHomeTab = (props, context) => {
             <Icon
               // todo: spin + colour
               name={app.icon}
-              size={3}
+              size={2.5}
               mx="auto"
-              mb="3px"
+              mb="4px"
               style={{ 'vertical-align': 'middle' }}
             />
           </Button>

@@ -1,28 +1,14 @@
-import { BooleanLike } from 'common/react';
-
 // Type alias for exonet addresses, to make things a little easier to understand
 export type Address = string;
 
 export type CommunicatorData = {
-  ownerName: string;
-  ownerOccupation: string;
-  flashlightOn: BooleanLike;
-  time: string;
-  connectionStatus: BooleanLike;
-
   callRequests: RequestsList;
+  videoRequests: RequestsList;
   friendRequests: RequestsList;
-  friendsList: Contact[];
-  connectedCallers: {
-    ownerName: string;
-    ref: string;
-  }[];
-  allCommunicators: Communicator[];
-};
 
-export type Contact = {
-  address: Address;
-  name: string;
+  friendsList: Contact[];
+  user: User;
+  allUsers: User[];
 };
 
 type RequestsList = {
@@ -30,10 +16,16 @@ type RequestsList = {
   outgoing: Address[];
 };
 
-type Communicator = {
+type User = {
+  username: string;
   address: Address;
-  ownerName: string;
   visible: boolean;
+  ref: string;
+};
+
+export type Contact = {
+  address: Address;
+  name: string;
 };
 
 export enum CommunicatorTab {
