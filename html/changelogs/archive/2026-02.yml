@@ -240,3 +240,20 @@
   - bugfix: Lifts now grey out the current location, instead of throwing a runtime
       when you click it.
   - bugfix: Fix runtime when a bloodless/fakedeath mob has their pulse taken.
+2026-02-12:
+  Batrachophrenoboocosmomachia:
+  - bugfix: Fixes headphones/earbuds from causing early cutoffs in other nearby sounds
+      in several configurations.
+  JohnWildkins:
+  - bugfix: Augments given by culture (i.e. Vaurca language processors) no longer
+      get applied twice when spawning in.
+  TheGreyWolf:
+  - bugfix: Fixed that journals and notepads could not be written in when held in
+      hand.
+  - bugfix: Fixed the quik-pay not getting prices correct when clicking an item with
+      it to input it quickly.
+  - spellcheck: Standardised how the credit symbol is shown in several places, and
+      replaces several instances of credits with the symbol.
+  arrow768:
+  - server: Removes verbs to get log files from the server, use the WI, TGS or logging
+      infrastructure.
