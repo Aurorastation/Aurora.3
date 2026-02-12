@@ -1459,6 +1459,7 @@
 /obj/effect/landmark/start{
 	name = "Chef"
 	},
+/obj/item/modular_computer/handheld/communicator,
 /turf/simulated/floor/plating,
 /area/construction)
 "es" = (
@@ -1852,6 +1853,7 @@
 /obj/effect/landmark/start{
 	name = "Hangar Technician"
 	},
+/obj/item/modular_computer/handheld/communicator,
 /turf/simulated/floor/plating,
 /area/construction)
 "kW" = (
@@ -9598,10 +9600,10 @@ de
 yk
 dq
 dq
-QI
 de
 QI
 de
+QI
 dz
 cK
 ae

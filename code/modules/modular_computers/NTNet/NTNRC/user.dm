@@ -1,8 +1,13 @@
 /datum/ntnet_user
 	var/username
+	var/address  //Resembles IPv6, but with only four 'groups', e.g. XXXX:XXXX:XXXX:XXXX
+	// temp notes: Keep addresses from exonet but have them ONLY used for manual dialing (to bypass `visible_on_network`)
+	// Store user datum by ref where needed, or cleanup if deleted (signals?)
+	// (address length changed to four groups from five for ease of typing)
 	var/list/channels = list()
 	var/list/dm_channels = list()
 	var/list/clients = list()
+	var/visible_on_network = TRUE
 
 /datum/ntnet_user/New()
 	. = ..()
@@ -27,3 +32,6 @@
 
 /datum/ntnet_user/proc/generateUsernameSilicon(var/mob/living/silicon/silicon)
 	return silicon.name
+
+/datum/ntnet_user/proc/generate_address(seed)
+	var/new_address = null

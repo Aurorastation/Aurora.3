@@ -4,7 +4,7 @@
 GLOBAL_LIST_EMPTY_TYPED(all_communicators, /obj/item/communicator)
 
 /obj/item/communicator
-	name = "communicator"
+	name = "communicator (old)"
 	desc = "A T-14.2 communicator, popular across the galaxy for it's simplicity to use." // todo: "galaxy"?
 	icon = 'icons/obj/devices/communicator.dmi'
 	icon_state = "communicator"
