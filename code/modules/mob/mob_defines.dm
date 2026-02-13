@@ -287,5 +287,8 @@
 
 	/// A assoc lazylist of to_chat notifications, key = string message, value = world time integer
 	var/list/message_notifications
-	/// The holder for mob skills.
+	/**
+	 * TODO: Remove this and fully componentize skills. Not every mob in the game needs skills.
+	 * The holder for mob skills.
+	 */
 	var/datum/skills/skills = /datum/skills

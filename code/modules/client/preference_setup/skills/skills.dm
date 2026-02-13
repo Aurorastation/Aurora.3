@@ -129,7 +129,8 @@
 	dat += "<tr style='text-align:left;'>"
 	dat += "<th><a href='?src=[REF(src)];skillinfo=[skill.type]'>[skill.name]</a></th>"
 
-	var/current_level = pref.skills[skill.type]
+	var/level_from_pref = pref.skills[skill.type]
+	var/current_level = level_from_pref ? level_from_pref : SKILL_LEVEL_UNFAMILIAR
 	var/maximum_skill_level = get_maximum_skill_level(skill, education)
 
 	for(var/i = SKILL_LEVEL_UNFAMILIAR, i <= skill.maximum_level, i++)
