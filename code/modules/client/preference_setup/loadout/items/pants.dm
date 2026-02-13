@@ -16,11 +16,7 @@ ABSTRACT_TYPE(/datum/gear/pants)
 	pants["classic jeans"] = /obj/item/clothing/pants/classic
 	pants["mustang jeans"] = /obj/item/clothing/pants/mustang
 	pants["black jeans"] = /obj/item/clothing/pants/jeansblack
-	pants["white pants"] = /obj/item/clothing/pants/white
 	pants["black pants"] = /obj/item/clothing/pants/black
-	pants["red pants"] = /obj/item/clothing/pants/red
-	pants["tan pants"] = /obj/item/clothing/pants/tan
-	pants["khaki pants"] = /obj/item/clothing/pants/khaki
 	pants["track pants"] = /obj/item/clothing/pants/track
 	pants["blue track pants"] = /obj/item/clothing/pants/track/blue
 	pants["green track pants"] = /obj/item/clothing/pants/track/green
