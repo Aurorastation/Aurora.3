@@ -104,8 +104,8 @@
 	var/pause_rupture = FALSE
 
 	var/power_log_base = 1.35
-	var/power_multiplier = 3.5
-	var/power_power = 2.9
+	var/power_multiplier = 3.7
+	var/power_power = 3.05
 
 /obj/effect/fusion_em_field/proc/UpdateVisuals()
 	//Take the particle system and edit it
@@ -436,6 +436,11 @@
 	change_size(calc_size)
 
 /obj/effect/fusion_em_field/proc/AddEnergy(a_energy, a_plasma_temperature)
+	// If there are no reactants, there's nothing to heat. Ignore.
+	var/list/react_pool = reactants.Copy()
+	if(!length(react_pool))
+		return
+
 	// Boost gyro effects at low temperatures for faster startup
 	if(plasma_temperature <= 5000)
 		a_energy = a_energy * 32
