@@ -31,8 +31,6 @@ ABSTRACT_TYPE(/datum/gear/pants)
 	// Shorts
 	pants["black shorts"] = /obj/item/clothing/pants/shorts/black
 	pants["black short shorts"] = /obj/item/clothing/pants/shorts/black/short
-	pants["khaki shorts"] = /obj/item/clothing/pants/shorts/khaki
-	pants["khaki short shorts"] = /obj/item/clothing/pants/shorts/khaki/short
 
 	// Jeans Shorts
 	pants["jeans shorts"] = /obj/item/clothing/pants/shorts/jeans
