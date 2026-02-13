@@ -843,7 +843,6 @@
 	w_class = WEIGHT_CLASS_TINY
 	color = COLOR_PALE_YELLOW
 	free_space = MAX_MESSAGE_LEN //Smaller piece of paper means less space to write.
-	var/turf/target_turf //Placed here for persistence
 	slot_flags = 0
 	var/obj/item/paper/stickynotes/stuck = null
 
@@ -878,7 +877,7 @@
 	if(!in_range(user, A) || istype(A, /obj/machinery/door) || stuck || istype(A, /obj/item/paper))
 		return
 
-	target_turf = get_turf(A)
+	var/turf/target_turf = get_turf(A)
 
 	if(!params || !prox)
 		return
