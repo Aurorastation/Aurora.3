@@ -176,16 +176,30 @@
 	filling_color = "#FC5647"
 
 /obj/item/reagent_containers/food/snacks/omelette
+	name = "omelette"
+	desc = "An eggy omelette, neatly folded and entirely fromageless."
+	icon = 'icons/obj/item/reagent_containers/food/egg.dmi'
+	icon_state = "omelette_plain"
+	filling_color = "#ffce47"
+	reagents_to_add = list(/singleton/reagent/nutriment/protein/egg = 6)
+	bitesize = 1
+
+/obj/item/reagent_containers/food/snacks/omelette/veggie
+	name = "veggie omelette"
+	desc = "An omelette full of herbs, green onions, and other stuff that's probably good for you. Start your day off right!"
+	icon_state = "omelette_veggie"
+	reagents_to_add = list(/singleton/reagent/nutriment/protein/egg = 3, /singleton/reagent/nutriment = 3)
+	reagent_data = list(/singleton/reagent/nutriment = list("veggies" = 3))
+
+/obj/item/reagent_containers/food/snacks/omelette/fromage
 	name = "omelette du fromage"
 	desc = "That's all you can say!"
-	icon = 'icons/obj/item/reagent_containers/food/egg.dmi'
 	icon_state = "omelette"
 	trash = /obj/item/trash/plate
 	filling_color = "#FFF9A8"
 	center_of_mass = list("x"=16, "y"=13)
-	bitesize = 1
-
 	reagents_to_add = list(/singleton/reagent/nutriment/protein/egg = 8)
+	reagent_data = list(/singleton/reagent/nutriment/protein/egg = list("cheesy egg" = 3))
 
 /obj/item/reagent_containers/food/snacks/poachedegg
 	name = "poached egg"

@@ -629,7 +629,7 @@
 
 /obj/item/reagent_containers/food/snacks/cucumber_sandwich
 	name = "cucumber sandwich"
-	desc = "Slices of cucumber between two buttered pieces of white bread witht he crust cut off. A light and delightful little finger food to have alongside your tea."
+	desc = "Slices of cucumber between two buttered pieces of white bread with the crust cut off. A light and delightful little finger food to have alongside your tea."
 	icon = 'icons/obj/item/reagent_containers/food/bread.dmi'
 	icon_state = "cucumbersandwich"
 	filling_color = "#97df68"

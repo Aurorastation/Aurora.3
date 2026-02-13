@@ -460,7 +460,7 @@
 		/obj/item/reagent_containers/food/snacks/breadslice,
 		/obj/item/reagent_containers/food/snacks/bacon
 	)
-	result = /obj/item/reagent_containers/food/snacks/clams_casino
+	result = /obj/item/reagent_containers/food/snacks/bowl/clams_casino
 	reagent_mix = RECIPE_REAGENT_REPLACE //Simplify and replace
 
 /singleton/recipe/lady_lulaine
@@ -544,7 +544,7 @@
 	reagents = list(/singleton/reagent/blackpepper = 2, /singleton/reagent/spacespice = 2, /singleton/reagent/alcohol/beer = 5)
 	items = list(
 		/obj/item/reagent_containers/food/snacks/fish/fishfillet,
-		/obj/item/reagent_containers/food/snacks/clam,
+			/obj/item/reagent_containers/food/snacks/fish/mollusc,
 		/obj/item/reagent_containers/food/snacks/crabmeat
 
 	)

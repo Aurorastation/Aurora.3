@@ -848,16 +848,33 @@ ABSTRACT_TYPE(/obj/item/reagent_containers/food/snacks/bowl)
 
 //Silversun
 
-/obj/item/reagent_containers/food/snacks/clams_casino
+/obj/item/reagent_containers/food/snacks/bowl/clams_casino
 	name = "silversun clams casino"
 	desc = "A true silversun classic, clams on the halfshell with breadcrumbs, bacon, and bell peppers. Somehow landing right in the middle ring between average joe finger food and upper class fanciness."
 	icon = 'icons/obj/item/reagent_containers/food/cultural/human.dmi'
 	icon_state = "clamscasino"
+	gender = PLURAL
+	unitname = "clam casino"
+	vendingobject = /obj/item/reagent_containers/food/snacks/clam_casino
 	trash = /obj/item/trash/plate
 	bitesize = 2
 	filling_color = "#a5683f"
 	reagents_to_add = list(/singleton/reagent/nutriment/protein/seafood/mollusc = 6, /singleton/reagent/nutriment/protein = 2, /singleton/reagent/nutriment = 2)
 	reagent_data = list(/singleton/reagent/nutriment/protein/seafood/mollusc = list("buttery clams" = 15), /singleton/reagent/nutriment/protein = list ("bacon" = 15), /singleton/reagent/nutriment = list("breadcrumbs" = 10, "bell peppers" = 10))
+
+/obj/item/reagent_containers/food/snacks/bowl/clams_casino/update_icon()
+	switch(reagents.total_volume)
+		if(1 to 3)
+			icon_state = "clamscasino_half"
+		if(4 to INFINITY)
+			icon_state = "clamscasino"
+
+/obj/item/reagent_containers/food/snacks/clam_casino
+	name = "clam casino"
+	desc = "Buttery, crunchy, fancy without being hoity toity, nothing says nouveau riche like clams casino"
+	icon = 'icons/obj/item/reagent_containers/food/cultural/human.dmi'
+	icon_state = "clam_casino"
+	filling_color = "#c98151"
 
 /obj/item/reagent_containers/food/snacks/sliceable/lady_lulaine
 	name = "lady lulaine"

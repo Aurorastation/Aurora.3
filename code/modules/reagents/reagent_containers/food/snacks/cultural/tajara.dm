@@ -193,7 +193,7 @@
 /obj/item/reagent_containers/food/snacks/soup/zharkir
 	name = "zharkir"
 	item_state = "zharkir"
-	desc = "A thick, hot, creamy dish, not unlike a chowder (and known as 'adhomian chowder' in some cultures). It is made with sarmikhir, earthenroot and various adhomian herbs, balancing sweet and savory, and served in a traditional dish - a tall bowl with grooves on the side just big enough for tajaran hands to hold it up to their mouths and warm themselves on a cold Adhomian evening."
+	desc = "A thick, hot, creamy dish, not unlike a chowder (and known as 'adhomian chowder' in some cultures). It is made with sarmikhir, earthenroot and various Adhomian herbs, balancing sweet and savory, and served in a traditional dish - a tall bowl with grooves on the side just big enough for tajaran hands to hold it up to their mouths and warm themselves on a cold Adhomian evening."
 	icon = 'icons/obj/item/reagent_containers/food/cultural/tajara.dmi'
 	icon_state = "zharkir"
 	is_liquid = TRUE
