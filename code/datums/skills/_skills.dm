@@ -21,6 +21,11 @@
 	var/subcategory
 	/// The modifier for how difficult the skill is. Each level costs this much * the level.
 	var/skill_difficulty_modifier = SKILL_DIFFICULTY_MODIFIER_MEDIUM
+	/**
+	 * Required skills are always included in the user's saved skills preference, even if it's at the lowest rank.
+	 * This is needed for skills that rely on components.
+	 */
+	var/required = FALSE
 
 /**
  * Returns the maximum level a character can have in this skill depending on education.

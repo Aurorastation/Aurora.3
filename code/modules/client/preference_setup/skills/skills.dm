@@ -62,6 +62,11 @@
 		pref.skills = list()
 
 	pref.skills = list()
+	for(var/key in SSskills.required_skills)
+		var/singleton/skill/skill = GET_SINGLETON(key)
+		if (istype(skill))
+			pref.skills[skill.type] = SKILL_LEVEL_UNFAMILIAR
+
 	for(var/key,value in loaded_skills)
 		var/singleton/skill/skill = GET_SINGLETON(key)
 		if(istype(skill))
@@ -240,10 +245,7 @@
 			return
 
 		var/new_skill_value = text2num(href_list["newvalue"])
-		if(new_skill_value == SKILL_LEVEL_UNFAMILIAR)
-			pref.skills -= new_skill.type
-		else
-			pref.skills[new_skill.type] = text2num(new_skill_value)
+		pref.skills[new_skill.type] = text2num(new_skill_value)
 		return TOPIC_REFRESH
 
 	else if(href_list["open_education_menu"])
