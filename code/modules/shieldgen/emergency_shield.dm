@@ -173,6 +173,9 @@
 
 /obj/machinery/shieldgen/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()
+	. += "This machine's primary function is to project energy shields calibrated for atmospheric containment; these shields keep the air in and the vacuum out."
+	. += "If activated while within <b>[range]</b> tiles of a 'space' turf, an 'open space' turf, or an otherwise 'airless' turf, it will automatically project shields there, making it extremely useful for containing hull breaches."
+	. += "It will also project energy shields onto any engineering tape within range that has been toggled as a 'shield marker' using a multitool."
 	. += "ALT-click the [src] to lock or unlock it (if you have the appropriate ID access)."
 
 /obj/machinery/shieldgen/Destroy()
