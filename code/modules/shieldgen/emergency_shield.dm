@@ -8,9 +8,12 @@
 	anchored = TRUE
 	unacidable = TRUE
 	atmos_canpass = CANPASS_NEVER
-	var/health = 75 //The shield can only take so much beating (prevents perma-prisons)
-	var/shield_generate_power = 2500	//how much power we use when regenerating
-	var/shield_idle_power = 500		//how much power we use when just being sustained.
+	/// The shield can only take so much beating (prevents perma-prisons)
+	var/health = 75
+	/// How much power we use when regenerating
+	var/shield_generate_power = 2500
+	/// How much power we use when just being sustained.
+	var/shield_idle_power = 500
 
 /obj/machinery/shield/malfai
 	name = "emergency forcefield"
@@ -155,13 +158,14 @@
 	req_access = list(ACCESS_ENGINE)
 	var/health = 100
 	var/active = FALSE
-	// Malfunction causes parts of the shield to slowly dissapate
+	/// Malfunction causes parts of the shield to slowly dissapate
 	var/malfunction = FALSE
 	var/list/deployed_shields = list()
 	var/list/regenerating = list()
 	panel_open = FALSE
 	var/locked = FALSE
-	var/check_delay = 60	//periodically recheck if we need to rebuild a shield
+	/// Periodically recheck if we need to rebuild a shield.
+	var/check_delay = 60
 	use_power = POWER_USE_OFF
 	idle_power_usage = 0
 
@@ -176,7 +180,7 @@
 /obj/machinery/shieldgen/proc/shields_up()
 	if(active) return FALSE //If it's already turned on, how did this get called?
 
-	src.active = 1
+	src.active = TRUE
 	update_icon()
 
 	create_shields()
@@ -253,7 +257,7 @@
 
 /obj/machinery/shieldgen/proc/checkhp()
 	if(health <= 30)
-		src.malfunction = 1
+		src.malfunction = TRUE
 	if(health <= 0)
 		spawn(0)
 			explosion(get_turf(src.loc), 0, 0, 1, 0, 0, 0)
@@ -317,7 +321,7 @@
 	if(!malfunction)
 		malfunction = TRUE
 		update_icon()
-		return 1
+		return TRUE
 
 /obj/machinery/shieldgen/attackby(obj/item/attacking_item, mob/user)
 	if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)

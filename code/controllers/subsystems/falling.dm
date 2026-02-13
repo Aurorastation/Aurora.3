@@ -4,6 +4,19 @@
 	if (MC_TICK_CHECK) return;		\
 	continue;
 
+/**
+ * Notes for potential future development.
+ *
+ * Falling subsystem currently treats 'falling' as a event that happens instantly in the presence of gravity, which (presently) is a binary true/false condition.
+ * To handle more strengths of gravity beyond 0g and 1g, falling logic will need to be able to handle things falling 'slowly'. The easiest way to implement this
+ * will probably be to provide handling for an component/element (if pending fall in low-g, give an AM an additional highlight or examine-able info), and also
+ * provide in-game feedback in some way to the player- ideally through a UI grav condition button like /tg/'s, that indicates how long it'll take before you drift
+ * down a Z-level.
+ *
+ * This would also give us more granular control over levels of sub-1 gravity. Instead of 'no grav, low grav, standard grav', we could have 0.0 -> 1.0 grav just be
+ * the the delay factor on the falling subsystem's fire() logic, and the thresholds over which that a z-level fall happens gently (or not gently).
+ */
+
 SUBSYSTEM_DEF(falling)
 	name = "Falling"
 	flags = SS_NO_INIT
