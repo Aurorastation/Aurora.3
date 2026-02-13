@@ -158,10 +158,12 @@
 	req_access = list(ACCESS_ENGINE)
 	var/health = 100
 	var/active = FALSE
-	/// Malfunction causes parts of the shield to slowly dissapate
+	/// Malfunction causes parts of the shield to slowly dissipate
 	var/malfunction = FALSE
 	var/list/deployed_shields = list()
 	var/list/regenerating = list()
+	/// Range at which it can project shields.
+	var/range = 3
 	panel_open = FALSE
 	var/locked = FALSE
 	/// Periodically recheck if we need to rebuild a shield.
@@ -203,7 +205,7 @@
 	update_use_power(POWER_USE_OFF)
 
 /obj/machinery/shieldgen/proc/create_shields()
-	for(var/T in RANGE_TURFS(2, src))
+	for(var/T in RANGE_TURFS(range, src))
 		var/turf/target_tile = T
 		if(locate(/obj/machinery/shield) in target_tile)
 			continue
