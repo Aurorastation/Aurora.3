@@ -181,8 +181,8 @@
 				var/item_price = items_to_price[item_name]
 				sum += item_price
 
-				receipt += "<b>[name]</b>: [item_name] x[item_amount] at [item_price]cr each<br>"
-				ticket += "<b>[name]</b>: [item_name] x[item_amount] at [item_price]cr each<br>"
+				receipt += "<b>[name]</b>: [item_name] x[item_amount] at [item_price]电 each<br>"
+				ticket += "<b>[name]</b>: [item_name] x[item_amount] at [item_price]电 each<br>"
 			receipt += "<hr><b>Total:</b> [sum]电"
 			ticket += "<hr><b>Total:</b> [sum]电"
 			sum = sum

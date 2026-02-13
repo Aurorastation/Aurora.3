@@ -1475,7 +1475,7 @@
 		self = 1
 
 	if ((src.species.flags & NO_BLOOD) || (status_flags & FAKEDEATH))
-		to_chat(usr, SPAN_WARNING(self ? "You have no pulse." : "[src] has no pulse!"))
+		to_chat(usr, SPAN_WARNING("[self ? "You have" : "[src] has"] no pulse!"))
 		return
 
 	if(!self)

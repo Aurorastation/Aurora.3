@@ -1680,7 +1680,6 @@
 #include "code\modules\admin\verbs\diagnostics.dm"
 #include "code\modules\admin\verbs\dice.dm"
 #include "code\modules\admin\verbs\fps.dm"
-#include "code\modules\admin\verbs\getlogs.dm"
 #include "code\modules\admin\verbs\map_template_loadverb.dm"
 #include "code\modules\admin\verbs\mapping.dm"
 #include "code\modules\admin\verbs\massmodvar.dm"

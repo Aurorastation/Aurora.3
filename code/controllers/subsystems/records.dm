@@ -279,6 +279,9 @@ SUBSYSTEM_DEF(records)
 	/* ----- START OF CASE FOR CREW ----- */
 	// Start with the "Crew", which are all of the IC manifest members.
 	for(var/datum/record/general/general_record in records)
+		if (!general_record.name || !general_record.rank)
+			continue
+
 		var/datum/job/job = SSjobs.GetJob(make_list_rank(general_record.real_rank))
 		var/list/departments = /* Jobs can be in more than one department. So we fact check that the departments are real. */\
 			(istype(job) && job.departments.len > 0 && all_in_list(job.departments, manifest))\
