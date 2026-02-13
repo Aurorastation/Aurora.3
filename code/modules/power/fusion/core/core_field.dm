@@ -63,7 +63,9 @@
 		/obj/structure/cable,
 		/obj/machinery/atmospherics,
 		/obj/machinery/air_sensor,
-		/obj/machinery/camera
+		/obj/machinery/camera,
+		/obj/item/tape,
+		/obj/machinery/shield
 		)
 
 	var/light_min_range = 2

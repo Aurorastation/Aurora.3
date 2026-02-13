@@ -20,7 +20,7 @@
 	/// Periodically recheck if we need to rebuild a shield.
 	var/check_delay = 60
 	use_power = POWER_USE_OFF
-	idle_power_usage = 0
+	idle_power_usage = 250
 
 /obj/machinery/shieldgen/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()
@@ -78,7 +78,8 @@
 /obj/machinery/shieldgen/proc/collapse_shields()
 	for(var/obj/machinery/shield/shield_tile in deployed_shields)
 		qdel(shield_tile)
-	QDEL_LIST(deployed_shields)
+	change_power_consumption(250, POWER_USE_IDLE)
+	update_use_power(POWER_USE_IDLE)
 
 /obj/machinery/shieldgen/power_change()
 	..()
