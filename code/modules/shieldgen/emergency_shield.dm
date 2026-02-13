@@ -90,7 +90,11 @@
 	update_icon()
 
 /obj/machinery/shieldgen/process()
-	if (!active || (stat & NOPOWER))
+	if(stat & NOPOWER)
+		if(active)
+			visible_message(SPAN_WARNING("\The [src] shuts down due to a lack of power."), SPAN_NOTICE("You hear a heavy droning fade out."))
+			active = FALSE
+			collapse_shields()
 		return
 
 	if(malfunction)
@@ -204,21 +208,17 @@
 
 	else if(attacking_item.tool_behaviour == TOOL_WRENCH)
 		if(locked)
-			to_chat(user, "The bolts are covered, unlocking this would retract the covers.")
+			playsound(src, 'sound/machines/terminal/terminal_error.ogg', 25, FALSE)
+			balloon_alert(user, "locked!")
 			return
-		if(anchored)
-			attacking_item.play_tool_sound(get_turf(src), 100)
-			to_chat(user, SPAN_NOTICE("You unsecure the [src] from the floor!"))
-			if(active)
-				to_chat(user, SPAN_NOTICE("The [src] shuts off!"))
-				src.shields_down()
-			anchored = FALSE
-		else
-			if(istype(get_turf(src), /turf/space)) return //No wrenching these in space!
-			attacking_item.play_tool_sound(get_turf(src), 100)
-			to_chat(user, SPAN_NOTICE("You secure the [src] to the floor!"))
-			anchored = TRUE
-		update_icon()
+		if(attacking_item.use_tool(src, user, 1 SECONDS, volume = 50))
+			anchored = !anchored
+			add_fingerprint(user)
+			var/others_msg = anchored ? "<b>[user]</b> secures the external reinforcing bolts to the floor." : "<b>[user]</b> unsecures the external reinforcing bolts."
+			var/self_msg = anchored ? "You secure the external reinforcing bolts to the floor." : "You unsecure the external reinforcing bolts."
+			user.visible_message(others_msg, SPAN_NOTICE(self_msg), SPAN_NOTICE("You hear a ratcheting noise."))
+			update_icon()
+			return
 
 	else
 		..()

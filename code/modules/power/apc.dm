@@ -729,20 +729,21 @@ ABSTRACT_TYPE(/obj/machinery/power/apc)
 	else if (istype(attacking_item, /obj/item/debugger))
 		if(emagged || hacker || infected)
 			to_chat(user, SPAN_WARNING("There is a software error with the device. Attempting to fix..."))
-			if(attacking_item.use_tool(src, user, 50, volume = 50))
+			if(attacking_item.use_tool(src, user, 1 SECONDS, volume = 50))
 				to_chat(user, SPAN_NOTICE("Problem diagnosed, searching for solution..."))
-				if(attacking_item.use_tool(src, user, 150, volume = 50))
+				if(attacking_item.use_tool(src, user, 3 SECONDS, volume = 50))
 					to_chat(user, SPAN_NOTICE("Solution found. Applying fixes..."))
-					if(attacking_item.use_tool(src, user, 300, volume = 50))
+					if(attacking_item.use_tool(src, user, 8 SECONDS, volume = 50))
 						if(prob(15))
 							to_chat(user, SPAN_WARNING("Error while applying fixes. Please try again."))
 							return
 					to_chat(user, SPAN_NOTICE("Applied default software. Restarting APC..."))
-					if(attacking_item.use_tool(src, user, 50, volume = 50))
+					if(attacking_item.use_tool(src, user, 3 SECONDS, volume = 50))
 						to_chat(user, SPAN_NOTICE("APC Reset. Fixes applied."))
 						if(hacker)
 							hacker.hacked_apcs -= src
 							hacker = null
+							ClearOverlays() // Manually clear overlays first.
 							update_icon()
 						if(emagged)
 							emagged = FALSE

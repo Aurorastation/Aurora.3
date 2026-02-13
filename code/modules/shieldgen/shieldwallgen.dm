@@ -53,7 +53,8 @@
 		to_chat(user, SPAN_WARNING("The shield generator needs to be firmly secured to the floor first."))
 		return TRUE
 	if(locked && !issilicon(user))
-		to_chat(user, SPAN_WARNING("The controls are locked!"))
+		playsound(src, 'sound/machines/terminal/terminal_error.ogg', 25, FALSE)
+		balloon_alert(user, "locked!")
 		return TRUE
 	if(!is_powered)
 		to_chat(user, SPAN_WARNING("The shield generator needs to be powered by wire underneath."))
@@ -164,14 +165,14 @@
 		if(power_state)
 			to_chat(user, SPAN_WARNING("You cannot unsecure \the [src] while it's active."))
 			return
-		anchored = !anchored
-		attacking_item.play_tool_sound(get_turf(src), 75)
-		add_fingerprint(user)
-		var/others_msg = anchored ? "<b>[user]</b> secures the external reinforcing bolts to the floor." : "<b>[user]</b> unsecures the external reinforcing bolts."
-		var/self_msg = anchored ? "You secure the external reinforcing bolts to the floor." : "You unsecure the external reinforcing bolts."
-		user.visible_message(others_msg, SPAN_NOTICE(self_msg), SPAN_NOTICE("You hear a ratcheting noise."))
-		update_icon()
-		return
+		if(attacking_item.use_tool(src, user, 1 SECONDS, volume = 50))
+			anchored = !anchored
+			add_fingerprint(user)
+			var/others_msg = anchored ? "<b>[user]</b> secures the external reinforcing bolts to the floor." : "<b>[user]</b> unsecures the external reinforcing bolts."
+			var/self_msg = anchored ? "You secure the external reinforcing bolts to the floor." : "You unsecure the external reinforcing bolts."
+			user.visible_message(others_msg, SPAN_NOTICE(self_msg), SPAN_NOTICE("You hear a ratcheting noise."))
+			update_icon()
+			return
 	return ..()
 
 /obj/machinery/shieldwallgen/AltClick(mob/user)
@@ -185,7 +186,6 @@
 				playsound(src, 'sound/machines/terminal/terminal_button01.ogg', 35, FALSE)
 			balloon_alert(user, locked ? "locked" : "unlocked")
 		else
-			to_chat(user, SPAN_WARNING("Access denied."))
 			playsound(src, 'sound/machines/terminal/terminal_error.ogg', 25, FALSE)
 			balloon_alert(user, "access denied!")
 		return
