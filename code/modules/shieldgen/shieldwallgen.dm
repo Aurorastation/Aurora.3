@@ -5,8 +5,8 @@
 /obj/machinery/shieldwallgen
 	name = "shield generator"
 	desc = "A portable shield generator, capable of casting a shield to another powered generator in range."
-	icon = 'icons/obj/stationobjs.dmi'
-	icon_state = "Shield_Gen"
+	icon = 'icons/obj/machinery/shielding.dmi'
+	icon_state = "shieldwalloff"
 	anchored = FALSE
 	density = TRUE
 	req_access = list(ACCESS_ENGINE_EQUIP)
@@ -36,14 +36,14 @@
 	wrenched = TRUE
 	anchored = TRUE
 	locked = FALSE
-	icon_state = "Shield_Gen +a"
+	icon_state = "shieldwallon"
 	storedpower = 9000000
 
 /obj/machinery/shieldwallgen/update_icon()
 	if(power_state >= POWER_STARTING)
-		icon_state = "Shield_Gen +a"
+		icon_state = "shieldwallon"
 	else
-		icon_state = "Shield_Gen"
+		icon_state = "shieldwalloff"
 
 /obj/machinery/shieldwallgen/attack_hand(mob/user)
 	if(!wrenched)

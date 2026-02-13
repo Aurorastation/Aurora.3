@@ -93,8 +93,15 @@
 /obj/machinery/power/emitter/update_icon()
 	ClearOverlays()
 	if(active && powernet && avail(active_power_usage))
-		AddOverlays(emissive_appearance(icon, "[icon_state]_lights"))
-		AddOverlays("[icon_state]_lights")
+		AddOverlays(emissive_appearance(icon, "emitter_lights"))
+		AddOverlays("emitter_lights")
+	if(anchored)
+		AddOverlays("+bolts")
+		if(state == 2)
+			AddOverlays("+welding")
+			var/image/lights_image = image(icon, null, "+lights")
+			lights_image.plane = ABOVE_LIGHTING_PLANE
+			AddOverlays(lights_image)
 
 /obj/machinery/power/emitter/attack_hand(mob/user)
 	add_fingerprint(user)
