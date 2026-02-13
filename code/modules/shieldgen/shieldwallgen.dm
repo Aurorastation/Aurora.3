@@ -3,17 +3,17 @@
 #define POWER_ACTIVE 2
 
 /obj/machinery/shieldwallgen
-	name = "shield generator"
+	name = "shield wall generator"
 	desc = "A portable shield generator, capable of casting a shield to another powered generator in range."
 	icon = 'icons/obj/machinery/shielding.dmi'
 	icon_state = "shieldwalloff"
 	anchored = FALSE
 	density = TRUE
 	req_access = list(ACCESS_ENGINE_EQUIP)
-
+	/// Range at which it can pair with another shield wall generator (must be this many spaces BETWEEN THEM at maximum)
+	var/range = 9
 	var/power_state = FALSE
 	var/is_powered = FALSE
-	var/wrenched = FALSE
 	var/locked = TRUE
 	var/storedpower = 0
 	obj_flags = OBJ_FLAG_CONDUCTABLE
@@ -21,32 +21,35 @@
 	//There have to be at least two posts, so these are effectively doubled
 
 	///How much power is drawn from powernet. Increase this to allow the generator to sustain longer shields, at the cost of more power draw.
-	var/power_draw = 30 KILO WATTS
-	var/max_stored_power = 50 KILO WATTS
+	var/power_draw = 200 KILO WATTS
+	var/max_stored_power = 1000 KILO WATTS
 	/// Draws directly from power net. Does not use APC power.
 	use_power = POWER_USE_OFF
 
 /obj/machinery/shieldwallgen/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()
+	. += "A shield wall generator can pair with another from up to <b>[range]</b> tiles away (maximum wall length of <b>[range - 1]</b>)."
 	. += "ALT-click the [src] to lock or unlock it (if you have the appropriate ID access)."
 
 /obj/machinery/shieldwallgen/active
 	power_state = POWER_STARTING
 	is_powered = TRUE
-	wrenched = TRUE
 	anchored = TRUE
 	locked = FALSE
 	icon_state = "shieldwallon"
 	storedpower = 9000000
 
 /obj/machinery/shieldwallgen/update_icon()
+	ClearOverlays()
 	if(power_state >= POWER_STARTING)
 		icon_state = "shieldwallon"
 	else
 		icon_state = "shieldwalloff"
+	if(anchored)
+		AddOverlays("+bolts")
 
 /obj/machinery/shieldwallgen/attack_hand(mob/user)
-	if(!wrenched)
+	if(!anchored)
 		to_chat(user, SPAN_WARNING("The shield generator needs to be firmly secured to the floor first."))
 		return TRUE
 	if(locked && !issilicon(user))
@@ -104,7 +107,7 @@
 	storedpower = clamp(storedpower, 0, max_stored_power)
 
 	if(power_state == POWER_STARTING)
-		if(!wrenched)
+		if(!anchored)
 			power_state = POWER_INACTIVE
 			return
 		addtimer(CALLBACK(src, PROC_REF(setup_field), 1), 1)
@@ -132,7 +135,7 @@
 
 	oNSEW = REVERSE_DIR(NSEW)
 
-	for(var/dist = 0, dist <= 9, dist++) // checks out to 8 tiles away for another generator
+	for(var/dist = 0, dist <= range, dist++) // checks out to 8 tiles away for another generator
 		T = get_step(T2, NSEW)
 		T2 = T
 		steps += 1
@@ -161,14 +164,13 @@
 		if(power_state)
 			to_chat(user, SPAN_WARNING("You cannot unsecure \the [src] while it's active."))
 			return
-
-		wrenched = !wrenched
-		anchored = wrenched
+		anchored = !anchored
 		attacking_item.play_tool_sound(get_turf(src), 75)
 		add_fingerprint(user)
-		var/others_msg = wrenched ? "<b>[user]</b> secures the external reinforcing bolts to the floor." : "<b>[user]</b> unsecures the external reinforcing bolts."
-		var/self_msg = wrenched ? "You secure the external reinforcing bolts to the floor." : "You unsecure the external reinforcing bolts."
+		var/others_msg = anchored ? "<b>[user]</b> secures the external reinforcing bolts to the floor." : "<b>[user]</b> unsecures the external reinforcing bolts."
+		var/self_msg = anchored ? "You secure the external reinforcing bolts to the floor." : "You unsecure the external reinforcing bolts."
 		user.visible_message(others_msg, SPAN_NOTICE(self_msg), SPAN_NOTICE("You hear a ratcheting noise."))
+		update_icon()
 		return
 	return ..()
 
