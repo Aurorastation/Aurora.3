@@ -10,7 +10,7 @@
 
 	sectors = list(ALL_CRESCENT_EXPANSE_SECTORS, ALL_VOID_SECTORS, SECTOR_WEEPING_STARS, SECTOR_BADLANDS, SECTOR_VALLEY_HALE)
 	spawn_weight = 1
-	spawn_cost = 2 // chonky ruin
+	spawn_cost = 1
 	id = "quarantined_outpost"
 
 	unit_test_groups = list(1)

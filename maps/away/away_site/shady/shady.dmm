@@ -1512,7 +1512,7 @@
 /area/hideout)
 "vA" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/item/device/healthanalyzer,
+/obj/item/healthanalyzer,
 /turf/simulated/floor/tiled,
 /area/hideout)
 "vF" = (
@@ -1792,7 +1792,7 @@
 /area/hideout)
 "AM" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/autolathe,
+/obj/machinery/fabricator/autolathe,
 /turf/simulated/floor/tiled,
 /area/hideout)
 "AQ" = (
@@ -2099,7 +2099,7 @@
 "Gg" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/table/steel,
-/obj/item/device/camera,
+/obj/item/camera,
 /turf/simulated/floor/tiled,
 /area/hideout)
 "Gi" = (

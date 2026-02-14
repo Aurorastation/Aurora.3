@@ -14,7 +14,7 @@
 	req_access = list(ACCESS_ENGINE_EQUIP)
 	obj_flags = OBJ_FLAG_ROTATABLE | OBJ_FLAG_SIGNALER
 	var/id
-	/// uses powernet power, not APC power
+	/// Uses powernet power, not APC power.
 	use_power = POWER_USE_OFF
 	/// 30 kW laser. I guess that means 30 kJ per shot.
 	active_power_usage = 30000
@@ -30,7 +30,7 @@
 	var/shot_counter = 0
 	var/state = EMITTER_LOOSE
 	var/locked = FALSE
-	/// special emitters notify admins if something happens to them, to prevent grief
+	/// Special emitters notify admins if something happens to them, to prevent grief.
 	var/special_emitter = FALSE
 
 	var/_wifi_id
@@ -189,7 +189,7 @@
 		shot_counter++
 
 /obj/machinery/power/emitter/attackby(obj/item/attacking_item, mob/user)
-	if(attacking_item.iswrench())
+	if(attacking_item.tool_behaviour == TOOL_WRENCH)
 		if(active)
 			to_chat(user, SPAN_WARNING("You cannot unbolt \the [src] while it's active."))
 			return
@@ -212,7 +212,7 @@
 				to_chat(user, SPAN_WARNING("\The [src] needs to be unwelded from the floor."))
 		return
 
-	if(attacking_item.iswelder())
+	if(attacking_item.tool_behaviour == TOOL_WELDER)
 		var/obj/item/weldingtool/WT = attacking_item
 		if(active)
 			to_chat(user, SPAN_NOTICE("You cannot unweld \the [src] while it's active."))

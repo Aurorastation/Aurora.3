@@ -68,7 +68,7 @@
 
 /obj/effect/projectile/impact/emitter
 	icon_state = "impact_emitter"
-	light_color = LIGHT_COLOR_GREEN
+	light_color = COLOR_SPRING_GREEN
 
 /obj/effect/projectile/impact/tachyon
 	name = "xray impact"

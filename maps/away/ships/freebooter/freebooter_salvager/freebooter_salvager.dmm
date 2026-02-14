@@ -180,27 +180,27 @@
 /area/ship/freebooter_salvager/toilets)
 "aP" = (
 /obj/structure/table/rack,
-/obj/item/device/suit_cooling_unit,
-/obj/item/device/suit_cooling_unit,
-/obj/item/device/suit_cooling_unit,
-/obj/item/device/suit_cooling_unit,
-/obj/item/device/suit_cooling_unit,
-/obj/item/device/flashlight/flare{
+/obj/item/suit_cooling_unit,
+/obj/item/suit_cooling_unit,
+/obj/item/suit_cooling_unit,
+/obj/item/suit_cooling_unit,
+/obj/item/suit_cooling_unit,
+/obj/item/flashlight/flare{
 	pixel_x = -9
 	},
-/obj/item/device/flashlight/flare{
+/obj/item/flashlight/flare{
 	pixel_x = -9
 	},
-/obj/item/device/flashlight/flare{
+/obj/item/flashlight/flare{
 	pixel_x = -9
 	},
-/obj/item/device/flashlight/flare{
+/obj/item/flashlight/flare{
 	pixel_x = -9
 	},
-/obj/item/device/flashlight/flare{
+/obj/item/flashlight/flare{
 	pixel_x = -9
 	},
-/obj/item/device/flashlight/flare{
+/obj/item/flashlight/flare{
 	pixel_x = -9
 	},
 /obj/effect/floor_decal/industrial/outline_door/operations{
@@ -617,7 +617,7 @@
 	dir = 4
 	},
 /obj/item/hullbeacon/red,
-/turf/space,
+/turf/space/dynamic,
 /area/ship/freebooter_salvager/exterior)
 "cB" = (
 /obj/structure/lattice,
@@ -738,7 +738,7 @@
 	dir = 8
 	},
 /obj/effect/shuttle_landmark/freebooter_salvager/eva_aft_starboard,
-/turf/space,
+/turf/space/dynamic,
 /area/ship/freebooter_salvager/exterior)
 "df" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
@@ -1048,7 +1048,7 @@
 "eI" = (
 /obj/structure/railing/mapped,
 /obj/structure/lattice/catwalk,
-/turf/space,
+/turf/space/dynamic,
 /area/ship/freebooter_salvager/exterior)
 "eL" = (
 /obj/structure/inflatable/wall,
@@ -1249,7 +1249,7 @@
 /area/ship/freebooter_salvager/kitchen)
 "fM" = (
 /obj/structure/lattice/catwalk,
-/turf/space,
+/turf/space/dynamic,
 /area/ship/freebooter_salvager/exterior)
 "fO" = (
 /obj/structure/table/reinforced/steel,
@@ -1949,7 +1949,7 @@
 /obj/structure/railing/mapped{
 	dir = 4
 	},
-/turf/space,
+/turf/space/dynamic,
 /area/ship/freebooter_salvager/exterior)
 "js" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
@@ -2100,21 +2100,21 @@
 /area/ship/freebooter_salvager/atmospherics)
 "jT" = (
 /obj/structure/table/reinforced/steel,
-/obj/item/device/gps{
+/obj/item/gps{
 	pixel_y = 12
 	},
-/obj/item/device/gps{
+/obj/item/gps{
 	pixel_x = 9;
 	pixel_y = 12
 	},
-/obj/item/device/gps{
+/obj/item/gps{
 	pixel_y = 6;
 	pixel_x = 9
 	},
-/obj/item/device/gps{
+/obj/item/gps{
 	pixel_y = 6
 	},
-/obj/item/device/gps{
+/obj/item/gps{
 	pixel_x = 9
 	},
 /obj/item/clothing/head/helmet/riot{
@@ -2516,7 +2516,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/table/steel,
-/obj/item/device/flashlight/heavy{
+/obj/item/flashlight/heavy{
 	pixel_y = 5
 	},
 /turf/simulated/floor/tiled/dark,
@@ -2876,8 +2876,8 @@
 	req_access = null
 	},
 /obj/structure/table/reinforced/steel,
-/obj/item/device/binoculars,
-/obj/item/device/binoculars/high_power{
+/obj/item/binoculars,
+/obj/item/binoculars/high_power{
 	pixel_y = 6
 	},
 /obj/structure/cable{
@@ -2930,7 +2930,7 @@
 /obj/item/ammo_magazine/boltaction,
 /obj/item/ammo_magazine/boltaction,
 /obj/item/gun/projectile/shotgun/pump/rifle,
-/obj/item/device/flashlight/maglight,
+/obj/item/flashlight/maglight,
 /obj/item/grenade/frag,
 /obj/random/civgun/rifle,
 /turf/simulated/floor/tiled/gridded,
@@ -3249,7 +3249,7 @@
 "pa" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/railing/mapped,
-/turf/space,
+/turf/space/dynamic,
 /area/ship/freebooter_salvager/exterior)
 "pb" = (
 /obj/structure/lattice/catwalk,
@@ -3257,7 +3257,7 @@
 	dir = 4
 	},
 /obj/structure/railing/mapped,
-/turf/space,
+/turf/space/dynamic,
 /area/ship/freebooter_salvager/exterior)
 "pd" = (
 /obj/structure/sign/drop{
@@ -3280,7 +3280,7 @@
 /area/ship/freebooter_salvager/mining)
 "pk" = (
 /obj/structure/lattice,
-/turf/space,
+/turf/space/dynamic,
 /area/ship/freebooter_salvager/exterior)
 "pm" = (
 /obj/effect/decal/cleanable/blood/oil,
@@ -3292,7 +3292,7 @@
 	dir = 8
 	},
 /obj/effect/shuttle_landmark/freebooter_salvager/eva_aft_port,
-/turf/space,
+/turf/space/dynamic,
 /area/ship/freebooter_salvager/exterior)
 "po" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/green{
@@ -3364,7 +3364,7 @@
 /obj/structure/railing/mapped{
 	dir = 8
 	},
-/turf/space,
+/turf/space/dynamic,
 /area/ship/freebooter_salvager/exterior)
 "pA" = (
 /obj/machinery/atmospherics/portables_connector{
@@ -4134,7 +4134,7 @@
 /turf/simulated/floor/airless,
 /area/ship/freebooter_salvager/crew_quarters)
 "sK" = (
-/turf/space,
+/turf/space/dynamic,
 /area/space)
 "sM" = (
 /obj/structure/table/rack,
@@ -4206,7 +4206,7 @@
 "sZ" = (
 /obj/structure/lattice/catwalk,
 /obj/item/hullbeacon/red,
-/turf/space,
+/turf/space/dynamic,
 /area/ship/freebooter_salvager/exterior)
 "tc" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -4500,7 +4500,7 @@
 /obj/structure/railing/mapped{
 	dir = 4
 	},
-/turf/space,
+/turf/space/dynamic,
 /area/ship/freebooter_salvager/exterior)
 "uw" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -4977,7 +4977,7 @@
 "wN" = (
 /obj/effect/step_trigger/teleporter,
 /obj/effect/step_trigger/teleporter,
-/turf/space,
+/turf/space/dynamic,
 /area/space)
 "wP" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
@@ -5851,7 +5851,7 @@
 /obj/structure/railing/mapped{
 	dir = 1
 	},
-/turf/space,
+/turf/space/dynamic,
 /area/ship/freebooter_salvager/exterior)
 "Aw" = (
 /obj/effect/floor_decal/spline/plain/corner/yellow{
@@ -5969,7 +5969,7 @@
 	dir = 8
 	},
 /obj/structure/railing/mapped,
-/turf/space,
+/turf/space/dynamic,
 /area/ship/freebooter_salvager/exterior)
 "Bg" = (
 /obj/effect/decal/cleanable/dirt,
@@ -6700,7 +6700,7 @@
 /obj/effect/shuttle_landmark/freebooter_salvager/eva_port{
 	dir = 8
 	},
-/turf/space,
+/turf/space/dynamic,
 /area/ship/freebooter_salvager/exterior)
 "Fs" = (
 /obj/effect/floor_decal/corner/dark_blue{
@@ -6865,9 +6865,9 @@
 /obj/item/grenade/chem_grenade/metalfoam,
 /obj/item/stack/material/glass/full,
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/item/device/flashlight/maglight,
-/obj/item/device/flashlight/maglight,
-/obj/item/device/flashlight/maglight,
+/obj/item/flashlight/maglight,
+/obj/item/flashlight/maglight,
+/obj/item/flashlight/maglight,
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/railing/mapped{
 	dir = 1
@@ -7153,7 +7153,7 @@
 /obj/item/reagent_containers/food/snacks/grown/ambrosiavulgaris,
 /obj/item/reagent_containers/food/snacks/grown/ambrosiavulgaris,
 /obj/item/reagent_containers/food/snacks/grown/ambrosiavulgaris,
-/obj/item/device/analyzer/plant_analyzer,
+/obj/item/analyzer/plant_analyzer,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/freebooter_salvager/hydroponics)
 "Hd" = (
@@ -9380,7 +9380,7 @@
 /area/space)
 "Ra" = (
 /obj/effect/step_trigger/teleporter,
-/turf/space,
+/turf/space/dynamic,
 /area/space)
 "Re" = (
 /obj/structure/curtain/open/shower,
@@ -9841,7 +9841,7 @@
 /obj/structure/railing/mapped{
 	dir = 8
 	},
-/turf/space,
+/turf/space/dynamic,
 /area/ship/freebooter_salvager/exterior)
 "Tm" = (
 /obj/effect/decal/cleanable/dirt,
@@ -9863,7 +9863,7 @@
 /obj/effect/floor_decal/corner/brown{
 	dir = 10
 	},
-/obj/machinery/autolathe,
+/obj/machinery/fabricator/autolathe,
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_salvager/engineering)
 "Ts" = (
@@ -9897,7 +9897,7 @@
 /obj/effect/shuttle_landmark/freebooter_salvager/eva_starboard{
 	dir = 4
 	},
-/turf/space,
+/turf/space/dynamic,
 /area/ship/freebooter_salvager/exterior)
 "TA" = (
 /obj/effect/decal/cleanable/dirt,
@@ -10567,7 +10567,7 @@
 	dir = 1
 	},
 /obj/structure/lattice/catwalk,
-/turf/space,
+/turf/space/dynamic,
 /area/ship/freebooter_salvager/exterior)
 "WP" = (
 /obj/effect/decal/cleanable/dirt,
@@ -10827,13 +10827,13 @@
 	pixel_y = 4
 	},
 /obj/item/storage/bag/ore,
-/obj/item/device/flashlight/heavy{
+/obj/item/flashlight/heavy{
 	pixel_x = -4
 	},
-/obj/item/device/flashlight/heavy{
+/obj/item/flashlight/heavy{
 	pixel_x = -4
 	},
-/obj/item/device/flashlight/heavy{
+/obj/item/flashlight/heavy{
 	pixel_x = -4
 	},
 /turf/simulated/floor/plating,

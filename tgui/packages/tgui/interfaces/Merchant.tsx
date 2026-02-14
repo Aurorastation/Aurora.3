@@ -1,7 +1,14 @@
 import { BooleanLike } from '../../common/react';
 import { capitalizeAll } from '../../common/string';
 import { useBackend } from '../backend';
-import { Box, Button, LabeledControls, LabeledList, NoticeBox, Section } from '../components';
+import {
+  Box,
+  Button,
+  LabeledControls,
+  LabeledList,
+  NoticeBox,
+  Section,
+} from '../components';
 import { NtosWindow } from '../layouts';
 
 export type MerchantData = {
@@ -47,7 +54,8 @@ export const ModeWindow = (props, context) => {
             onClick={() => act('PRG_scroll', { PRG_scroll: 'right' })}
           />
         </>
-      }>
+      }
+    >
       <Box fontSize={1.5} bold>
         {data.traderName}
       </Box>
@@ -68,7 +76,8 @@ export const Hailed = (props, context) => {
           title="Communications"
           buttons={
             <Button icon="arrow-left" onClick={() => act('PRG_show_trades')} />
-          }>
+          }
+        >
           {data.trades.map((trade) => (
             <Section key={trade}>
               <Box fontSize={1.5} textAlign="centre" bold>
@@ -194,7 +203,8 @@ export const MainMenu = (props, context) => {
     <Section
       title={
         'Orion Express Trade Interface' + ' (Balance: ' + data.bank + '电)'
-      }>
+      }
+    >
       <LabeledControls>
         <LabeledControls.Item>
           <Button
@@ -249,7 +259,8 @@ export const TempWindow = (props, context) => {
           icon="play"
           onClick={() => act('PRG_continue')}
         />
-      }>
+      }
+    >
       <NoticeBox>{data.temp}</NoticeBox>
     </Section>
   );

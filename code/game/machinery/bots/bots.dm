@@ -64,12 +64,12 @@
 		return 1
 
 /obj/machinery/bot/attackby(obj/item/attacking_item, mob/user)
-	if(attacking_item.isscrewdriver())
+	if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 		if(!locked)
 			open = !open
 			to_chat(user, SPAN_NOTICE("Maintenance panel is now [src.open ? "opened" : "closed"]."))
 		return TRUE
-	else if(attacking_item.iswelder())
+	else if(attacking_item.tool_behaviour == TOOL_WELDER)
 		if(health < maxhealth)
 			if(open)
 				health = min(maxhealth, health+10)

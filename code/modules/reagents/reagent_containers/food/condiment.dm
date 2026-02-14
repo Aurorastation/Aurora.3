@@ -297,6 +297,12 @@
 	name = "synthetic blood"
 	reagents_to_add = list(/singleton/reagent/blood = 50)
 
+/obj/item/reagent_containers/food/condiment/cream_cheese
+	icon_state = "cream_cheese"
+	fixed_state = TRUE
+	name = "cream cheese"
+	reagents_to_add = list(/singleton/reagent/nutriment/protein/cream_cheese = 50)
+
 //MRE condiments and drinks.
 
 /obj/item/reagent_containers/food/condiment/small/packet
@@ -373,6 +379,12 @@
 	name = "instant tea powder packet"
 	desc = "Contains 5u of instant black tea powder. Mix with 25u of water."
 	reagents_to_add = list(/singleton/reagent/nutriment/teagrounds = 5)
+
+/obj/item/reagent_containers/food/condiment/small/packet/tea/rasnif
+	name = "ras'nif tea powder packet"
+	desc = "A small sachet with the People's Republic of Adhomai's flag on it. Contains 5u of Ras'nif tea powder. Mix with 25u of water."
+	icon_state = "packet_small_red"
+	reagents_to_add = list(/singleton/reagent/nutriment/teagrounds/rasnif = 5)
 
 /obj/item/reagent_containers/food/condiment/small/packet/cocoa
 	name = "cocoa powder packet"

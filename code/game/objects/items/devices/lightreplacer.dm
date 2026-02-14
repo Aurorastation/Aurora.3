@@ -33,7 +33,7 @@
 // The explosion cannot insta-kill anyone with 30% or more health.
 
 
-/obj/item/device/lightreplacer
+/obj/item/lightreplacer
 	name = "light replacer"
 	desc = "A device to automatically replace lights. Refill with working lightbulbs or sheets of glass."
 	icon = 'icons/obj/janitor.dmi'
@@ -57,14 +57,14 @@
 	var/store_broken = 0//If set, this lightreplacer will suck up and store broken bulbs
 	var/max_stored = 10
 
-/obj/item/device/lightreplacer/feedback_hints(mob/user, distance, is_adjacent)
+/obj/item/lightreplacer/feedback_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	if(distance <= 2)
 		. += "It has <b>[uses] lights</b> remaining."
 		if (store_broken)
 			. += "It is storing <b>[stored()]/[max_stored]</b> broken lights."
 
-/obj/item/device/lightreplacer/advanced
+/obj/item/lightreplacer/advanced
 	name = "advanced light replacer"
 	desc = "A specialised light replacer which stores more lights, refills faster from boxes, and sucks up broken bulbs. Empty into a disposal or trashbag when full!"
 	icon_state = "adv_lightreplacer"
@@ -75,11 +75,11 @@
 	max_uses = 30
 	uses = 0 //Starts empty
 
-/obj/item/device/lightreplacer/New()
+/obj/item/lightreplacer/New()
 	failmsg = "The [name]'s refill light blinks red."
 	..()
 
-/obj/item/device/lightreplacer/attackby(obj/item/attacking_item, mob/user)
+/obj/item/lightreplacer/attackby(obj/item/attacking_item, mob/user)
 	if(istype(attacking_item, /obj/item/stack/material) && attacking_item.get_material_name() == "glass")
 		var/obj/item/stack/G = attacking_item
 		if(uses >= max_uses)
@@ -105,8 +105,8 @@
 			to_chat(user, SPAN_WARNING("You need a working light."))
 		return TRUE
 
-	if(istype(attacking_item, /obj/item/device/lightreplacer))
-		var/obj/item/device/lightreplacer/LR = attacking_item
+	if(istype(attacking_item, /obj/item/lightreplacer))
+		var/obj/item/lightreplacer/LR = attacking_item
 		if(LR.uses == LR.max_uses)
 			to_chat(user, SPAN_WARNING("\The [LR] is already full!"))
 			return TRUE
@@ -116,20 +116,20 @@
 		to_chat(user, SPAN_NOTICE("You transfer the lights from \the [src] to \the [LR]."))
 		return TRUE
 
-/obj/item/device/lightreplacer/afterattack(var/atom/target, var/mob/living/user, proximity, params)
+/obj/item/lightreplacer/afterattack(var/atom/target, var/mob/living/user, proximity, params)
 	if (istype(target, /obj/item/storage/box))
 		if (box_contains_lights(target))
 			load_lights_from_box(target, user)
 		else
 			to_chat(user, "This box has no bulbs in it!")
 
-/obj/item/device/lightreplacer/proc/box_contains_lights(var/obj/item/storage/box/box)
+/obj/item/lightreplacer/proc/box_contains_lights(var/obj/item/storage/box/box)
 	for (var/obj/item/light/L in box.contents)
 		if (L.status == 0)
 			return 1
 	return 0
 
-/obj/item/device/lightreplacer/proc/load_lights_from_box(var/obj/item/storage/box/box, var/mob/user)
+/obj/item/lightreplacer/proc/load_lights_from_box(var/obj/item/storage/box/box, var/mob/user)
 	var/boxstartloc = box.loc
 	var/ourstartloc = src.loc
 	user.visible_message(SPAN_NOTICE("[user] starts loading lights from the [box] into their [src]"), SPAN_NOTICE("You start loading lights from the [box] into the [src]"))
@@ -158,38 +158,38 @@
 
 	to_chat(user, SPAN_NOTICE("The [src]'s refill light shines a solid green, indicating it's full and ready to go!"))
 
-/obj/item/device/lightreplacer/proc/stored()
+/obj/item/lightreplacer/proc/stored()
 	var/count = 0
 	for (var/obj/item/light/L in src)
 		count++
 
 	return count
 
-/obj/item/device/lightreplacer/attack_self(mob/user)
+/obj/item/lightreplacer/attack_self(mob/user)
 	to_chat(usr, "It has [uses] lights remaining.")
 
-/obj/item/device/lightreplacer/update_icon()
+/obj/item/lightreplacer/update_icon()
 	if(emagged)
 		AddOverlays("emagged")
 
 
-/obj/item/device/lightreplacer/proc/Use(var/mob/user)
+/obj/item/lightreplacer/proc/Use(var/mob/user)
 
 	playsound(src.loc, 'sound/machines/click.ogg', 50, 1)
 	AddUses(-1)
 	return 1
 
 // Negative numbers will subtract
-/obj/item/device/lightreplacer/proc/AddUses(var/amount = 1)
+/obj/item/lightreplacer/proc/AddUses(var/amount = 1)
 	uses = min(max(uses + amount, 0), max_uses)
 
-/obj/item/device/lightreplacer/proc/Charge(var/mob/user, var/amount = 1)
+/obj/item/lightreplacer/proc/Charge(var/mob/user, var/amount = 1)
 	charge += amount
 	if(charge > 3)
 		AddUses(1)
 		charge = 0
 
-/obj/item/device/lightreplacer/proc/ReplaceLight(var/obj/machinery/light/target, var/mob/living/U)
+/obj/item/lightreplacer/proc/ReplaceLight(var/obj/machinery/light/target, var/mob/living/U)
 
 	if(target.status != LIGHT_OK)
 		if(CanUse(U))
@@ -242,15 +242,15 @@
 		to_chat(U, "There is a working [target.fitting] already inserted.")
 		return
 
-/obj/item/device/lightreplacer/emag_act(var/remaining_charges, var/mob/user)
+/obj/item/lightreplacer/emag_act(var/remaining_charges, var/mob/user)
 	emagged = !emagged
-	playsound(src.loc, /singleton/sound_category/spark_sound, 100, 1)
+	playsound(src.loc, SFX_SPARKS, 100, 1)
 	update_icon()
 	return 1
 
 //Can you use it?
 
-/obj/item/device/lightreplacer/proc/CanUse(var/mob/living/user)
+/obj/item/lightreplacer/proc/CanUse(var/mob/living/user)
 	src.add_fingerprint(user)
 	//Not sure what else to check for. Maybe if clumsy?
 	if(uses > 0)

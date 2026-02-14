@@ -180,14 +180,14 @@
 	can_hold = list(
 				/obj/item/clothing/mask,
 				/obj/item/tank/emergency_oxygen,
-				/obj/item/device/flashlight/flare,
+				/obj/item/flashlight/flare,
 				/obj/item/stack/medical,
 				/obj/item/reagent_containers/hypospray/autoinjector,
 				/obj/item/reagent_containers/inhaler,
-				/obj/item/device/oxycandle,
+				/obj/item/oxycandle,
 				/obj/item/extinguisher/mini,
-				/obj/item/device/radio,
-				/obj/item/device/flashlight,
+				/obj/item/radio,
+				/obj/item/flashlight,
 				/obj/item/reagent_containers/food/drinks/flask,
 				/obj/item/storage/box/fancy/cigarettes,
 				/obj/item/flame/lighter,
@@ -198,8 +198,8 @@
 	starts_with = list(
 				/obj/item/clothing/mask/breath = 1,
 				/obj/item/tank/emergency_oxygen = 1,
-				/obj/item/device/oxycandle = 1,
-				/obj/item/device/flashlight/flare/glowstick/red = 1,
+				/obj/item/oxycandle = 1,
+				/obj/item/flashlight/flare/glowstick/red = 1,
 				/obj/item/stack/medical/bruise_pack = 1,
 				/obj/item/reagent_containers/hypospray/autoinjector/inaprovaline = 1
 				)
@@ -209,8 +209,8 @@
 	starts_with = list(
 				/obj/item/clothing/mask/breath = 1,
 				/obj/item/tank/emergency_oxygen/engi = 1,
-				/obj/item/device/oxycandle = 1,
-				/obj/item/device/flashlight/flare = 1,
+				/obj/item/oxycandle = 1,
+				/obj/item/flashlight/flare = 1,
 				/obj/item/stack/medical/bruise_pack = 1,
 				/obj/item/reagent_containers/hypospray/autoinjector/inaprovaline = 1
 				)
@@ -271,6 +271,7 @@
 	desc = "A box with several compact tungsten slugs, aimed for use in gauss carbines."
 	icon_state = "ammobox"
 	item_state = "ammobox"
+	label = null
 	illustration = null
 	drop_sound = 'sound/items/drop/ammobox.ogg'
 	pickup_sound = 'sound/items/pickup/ammobox.ogg'
@@ -466,45 +467,49 @@
 	name = "box of firing pins"
 	desc = "A box of NT brand Firearm authentication pins; Needed to operate most weapons."
 	illustration = "firingpin"
-	starts_with = list(/obj/item/device/firing_pin = 7)
+	starts_with = list(/obj/item/firing_pin = 7)
 
 /obj/item/storage/box/securitypins
 	name = "box of wireless-control firing pins"
 	desc = "A box of NT brand Firearm authentication pins; Needed to operate most weapons.  These firing pins are wireless-control enabled."
 	illustration = "firingpin"
-	starts_with = list(/obj/item/device/firing_pin/wireless = 7)
+	starts_with = list(/obj/item/firing_pin/wireless = 7)
 
 /obj/item/storage/box/testpins
 	name = "box of firing pins"
 	desc = "A box of NT brand Testing Authentication pins; allows guns to fire in designated firing ranges."
 	illustration = "firingpin"
-	starts_with = list(/obj/item/device/firing_pin/test_range = 7)
+	starts_with = list(/obj/item/firing_pin/test_range = 7)
 
 /obj/item/storage/box/loyaltypins
 	name = "box of firing pins"
 	desc = "A box of specialised \"loyalty\" authentication pins produced by NanoTrasen; these check to see if the user of the gun it's installed in has been implanted with a mind shield implant. Often used in ERTs."
 	illustration = "firingpin"
-	starts_with = list(/obj/item/device/firing_pin/implant/loyalty = 7)
+	starts_with = list(/obj/item/firing_pin/implant/loyalty = 7)
 
 /obj/item/storage/box/loyaltypins/fill()
 	..()
-	new /obj/item/device/firing_pin/implant/loyalty(src)
-	new /obj/item/device/firing_pin/implant/loyalty(src)
-	new /obj/item/device/firing_pin/implant/loyalty(src)
-	new /obj/item/device/firing_pin/implant/loyalty(src)
+	new /obj/item/firing_pin/implant/loyalty(src)
+	new /obj/item/firing_pin/implant/loyalty(src)
+	new /obj/item/firing_pin/implant/loyalty(src)
+	new /obj/item/firing_pin/implant/loyalty(src)
 
 /obj/item/storage/box/firingpinsRD
 	name = "box of assorted firing pins"
 	desc = "A box of varied assortment of firing pins. Appears to have R&D stickers on all sides of the box. Also seems to have a smiley face sticker on the top of it."
 	illustration = "firingpin"
-	starts_with = list(/obj/item/device/firing_pin = 2, /obj/item/device/firing_pin/access = 2, /obj/item/device/firing_pin/implant/loyalty = 2, /obj/item/device/firing_pin/psionic = 1, /obj/item/device/firing_pin/dna = 1)
+	starts_with = list(/obj/item/firing_pin = 2, /obj/item/firing_pin/access = 2, /obj/item/firing_pin/implant/loyalty = 2, /obj/item/firing_pin/psionic = 1, /obj/item/firing_pin/dna = 1)
 
-/obj/item/storage/box/psireceiver
-	name = "box of psionic receivers"
-	desc = "A box of psionic receivers, which can be surgically implanted to act as a replacement for an underdeveloped or non-existent zona bovinae. This one has a large sticker on the side reading FOR RESEARCH USE ONLY."
+/obj/item/storage/box/unique/freezer/organcooler/psireceiver
+	name = "psionic receivers cooler"
+	desc = "A cooling box for psionic receivers, which can be surgically implanted to act as a replacement for an underdeveloped or non-existent zona bovinae. This one has a large sticker on the side reading FOR RESEARCH USE ONLY."
 	color = COLOR_PURPLE_GRAY
 	illustration = "implant"
-	starts_with = list(/obj/item/organ/internal/augment/psi = 4)
+	starts_with = list(/obj/item/organ/internal/augment/bioaug/psi = 4)
+	can_hold = list(
+		/obj/item/organ/internal/augment/bioaug/psi
+	)
+	storage_slots = 4
 
 /obj/item/storage/box/tethers
 	name = "box of tethering devices"
@@ -582,6 +587,7 @@
 	name = "unique box"
 	desc = "A unique box. How is it unique? You have no idea."
 	color = COLOR_WHITE
+	label = null
 	illustration = null
 	chewable = FALSE
 
@@ -696,7 +702,7 @@
 	name = "box of Pest-B-Gon mousetraps"
 	desc = "<B><span class='warning'>WARNING:</span></B> <I>Keep out of reach of children</I>."
 	illustration = "mousetraps"
-	starts_with = list(/obj/item/device/assembly/mousetrap = 6)
+	starts_with = list(/obj/item/assembly/mousetrap = 6)
 
 /obj/item/storage/box/pillbottles
 	name = "box of pill bottles"
@@ -1027,19 +1033,19 @@
 	name = "hadiist manifesto box"
 	desc = "A box filled with copies of the Hadiist Manifesto"
 	illustration = "paper"
-	starts_with = list(/obj/item/device/versebook/pra = 6)
+	starts_with = list(/obj/item/versebook/pra = 6)
 
 /obj/item/storage/box/dpra_manifesto
 	name = "al'mariist manifesto box"
 	desc = "A box filled with copies of 'In Defense of Al'mari's Legacy'."
 	illustration = "paper"
-	starts_with = list(/obj/item/device/versebook/dpra = 6)
+	starts_with = list(/obj/item/versebook/dpra = 6)
 
 /obj/item/storage/box/nka_manifesto
 	name = "royalist manifesto card box"
 	desc = "A box filled with copies of 'The New Kingdom'."
 	illustration = "paper"
-	starts_with = list(/obj/item/device/versebook/nka = 6)
+	starts_with = list(/obj/item/versebook/nka = 6)
 
 /obj/item/storage/box/suns_flags
 	name = "s'rand'marr Worship flag box"
@@ -1356,7 +1362,7 @@
 /obj/item/storage/box/encryption_key
 	name = "box"
 	illustration = "circuit"
-	starts_with = list(/obj/item/device/encryptionkey/rev = 8)
+	starts_with = list(/obj/item/encryptionkey/rev = 8)
 
 /obj/item/storage/box/encryption_key/antagonist_hints(mob/user, distance, is_adjacent)
 	. += ..()
@@ -1406,7 +1412,7 @@
 		)
 	item_state = "papersack"
 	icon_state = "paperbag_None"
-	use_sound = 'sound/bureaucracy/papercrumple.ogg'
+	use_sound = 'sound/items/bureaucracy/papercrumple.ogg'
 	drop_sound = 'sound/items/drop/paper.ogg'
 	pickup_sound = 'sound/items/storage/wrapper.ogg'
 	foldable = null
@@ -1426,7 +1432,7 @@
 		icon_state = "paperbag_[choice]-food"
 
 /obj/item/storage/box/unique/papersack/attackby(obj/item/attacking_item, mob/user)
-	if(attacking_item.ispen())
+	if(attacking_item.tool_behaviour == TOOL_PEN)
 		if(!papersack_designs)
 			papersack_designs = sortList(list(
 			"None" = image(icon = src.icon, icon_state = "paperbag_None"),
@@ -1457,7 +1463,7 @@
 		update_icon()
 		return
 
-	else if(attacking_item.isscrewdriver())
+	else if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 		if(length(contents) == 0)
 			to_chat(user, SPAN_NOTICE("You begin poking holes in \the [src]."))
 			if(attacking_item.use_tool(src, user, 30))
@@ -1481,10 +1487,10 @@
 	foldable = FALSE
 	max_storage_space = DEFAULT_BOX_STORAGE
 	can_hold = list(
-		/obj/item/device/flashlight/flare
+		/obj/item/flashlight/flare
 	)
 	starts_with = list(
-		/obj/item/device/flashlight/flare = 12
+		/obj/item/flashlight/flare = 12
 	)
 
 // Magnetic Locks
@@ -1496,10 +1502,10 @@
 	foldable = FALSE
 	max_storage_space = DEFAULT_BOX_STORAGE
 	can_hold = list(
-		/obj/item/device/magnetic_lock
+		/obj/item/magnetic_lock
 	)
 	starts_with = list(
-		/obj/item/device/magnetic_lock = 4
+		/obj/item/magnetic_lock = 4
 	)
 
 // Power Cells
@@ -1581,12 +1587,12 @@
 	desc = "A box containing 5 claymore landmines, relative detonators, and a spare one to trigger them all."
 	starts_with = list(
 		/obj/item/landmine/claymore = 5,
-		/obj/item/device/assembly/signaler = 6
+		/obj/item/assembly/signaler = 6
 		)
 
 /obj/item/storage/box/unique/tea
 	name = "sencha cha-tin"
-	desc = "A tin bearing the logo of the Konyang-cha tea company. This one contains a bag of sencha, a type of green tea."
+	desc = "A tin bearing the logo of the Konyang-cha tea company. This one contains a bag of sencha, a type of green tea. Instructions are printed on the back: Steep one leaf with 25 units of hot water per cup in a teapot."
 	desc_extended = "A subsidiary of Gwok Group, the Konyang-cha tea company is the spur's foremost vendor of artisanal loose leaf tea, \
 				selling blends sourced from independent Konyanger farmers. Popular both on Konyang and off-world, it is considered a symbol of Konyang's culture."
 	icon = 'icons/obj/item/reagent_containers/teaware.dmi'
@@ -1600,25 +1606,54 @@
 		/obj/item/reagent_containers/food/snacks/grown/konyang_tea
 	)
 	starts_with = list(
-		/obj/item/reagent_containers/food/snacks/grown/konyang_tea = 7
+		/obj/item/reagent_containers/food/snacks/grown/konyang_tea = 12
 	)
 	foldable = null
 
 /obj/item/storage/box/unique/tea/tieguanyin
 	name = "tieguanyin cha-tin"
-	desc = "A tin bearing the logo of the Konyang-cha tea company. This one contains a bag of tieguanyin, a type of oolong tea."
+	desc = "A tin bearing the logo of the Konyang-cha tea company. This one contains a bag of tieguanyin, a type of oolong tea. Instructions are printed on the back: Steep one leaf with 25 units of hot water per cup in a teapot."
 	icon_state = "can_tie"
 	starts_with = list(
-		/obj/item/reagent_containers/food/snacks/grown/konyang_tea/tieguanyin = 7
+		/obj/item/reagent_containers/food/snacks/grown/konyang_tea/tieguanyin = 12
 	)
 
 /obj/item/storage/box/unique/tea/jaekseol
 	name = "jaekseol cha-tin"
-	desc = "A tin bearing the logo of the Konyang-cha tea company. This one contains a bag of jaekseol, a type of black tea."
+	desc = "A tin bearing the logo of the Konyang-cha tea company. This one contains a bag of jaekseol, a type of black tea. Instructions are printed on the back: Steep one leaf with 25 units of hot water per cup in a teapot."
 	icon_state = "can_jaek"
 	starts_with = list(
-		/obj/item/reagent_containers/food/snacks/grown/konyang_tea/jaekseol = 7
+		/obj/item/reagent_containers/food/snacks/grown/konyang_tea/jaekseol = 12
 	)
+
+
+/obj/item/storage/box/unique/tea/messa
+	name = "adhomian tin"
+	desc = "A tin labeled in Siik'maas. It is adorned by a blue sun, the symbol of the goddess Messa."
+	icon_state = "can_messa"
+	starts_with = list(
+		/obj/item/reagent_containers/food/snacks/grown/messas_tear_tea = 12
+	)
+	desc_extended = "Messa's tears are a medicinal herb found across Adhomai and its many Twin Suns churches. \
+					Its leaves, while traditionally used for treating burns, are a common choice for making traditional teas."
+
+/obj/item/storage/box/unique/tea/messa/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
+	. = ..()
+	if(GLOB.all_languages[LANGUAGE_SIIK_MAAS] in user.languages)
+		. += SPAN_NOTICE("The label says: \"Dried Messa's Tear leaves\" and then provides instructions: Steep one leaf with 25 units of hot water per cup in a teapot.")
+
+/obj/item/storage/box/unique/tea/rasnif
+	name = "ras'nif tea tin"
+	desc = "A tin with the flag of the People's Republic of Adhomai printed on it, labeled in both Siik'maas and Ceti Basic. It instructs the user to mix one packet with 25 units of hot water."
+	icon_state = "can_pra"
+	can_hold = list(
+		/obj/item/reagent_containers/food/condiment/small/packet
+	)
+	starts_with = list(
+		/obj/item/reagent_containers/food/condiment/small/packet/tea/rasnif = 12
+	)
+	desc_extended = "A herbal tea made with Hro'zamal Ras'nifs powder. \
+					Despite the popularity of its carbonated counterpart, Ras'nif tea remains a popular drink among Hro'zamal settlers."
 
 /obj/item/storage/box/telefreedom_kit
 	name = "telefreedom kit"

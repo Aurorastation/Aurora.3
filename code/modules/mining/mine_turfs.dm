@@ -263,18 +263,18 @@ GLOBAL_LIST_INIT(mineral_can_smooth_with, list(
 		to_chat(user, SPAN_WARNING("You don't have the dexterity to do this!"))
 		return
 
-	if(istype(attacking_item, /obj/item/device/core_sampler))
-		var/obj/item/device/core_sampler/C = attacking_item
+	if(istype(attacking_item, /obj/item/core_sampler))
+		var/obj/item/core_sampler/C = attacking_item
 		C.sample_item(src, user)
 		return
 
-	if(istype(attacking_item, /obj/item/device/depth_scanner))
-		var/obj/item/device/depth_scanner/C = attacking_item
+	if(istype(attacking_item, /obj/item/depth_scanner))
+		var/obj/item/depth_scanner/C = attacking_item
 		C.scan_atom(user, src)
 		return
 
-	if(istype(attacking_item, /obj/item/device/measuring_tape))
-		var/obj/item/device/measuring_tape/P = attacking_item
+	if(istype(attacking_item, /obj/item/measuring_tape))
+		var/obj/item/measuring_tape/P = attacking_item
 		user.visible_message(SPAN_NOTICE("\The [user] extends \the [P] towards \the [src].") , SPAN_NOTICE("You extend \the [P] towards \the [src]."))
 		if(do_after(user,25))
 			if(!istype(src, /turf/simulated/mineral))
@@ -732,7 +732,7 @@ GLOBAL_LIST_INIT(mineral_can_smooth_with, list(
 	var/dug = 0 //Increments by 1 everytime it's dug. 11 is the last integer that should ever be here.
 	var/digging
 	has_resources = 1
-	footstep_sound = /singleton/sound_category/asteroid_footstep
+	footstep_sound = SFX_FOOTSTEP_ASTEROID
 	does_footprint = TRUE
 
 	roof_type = null
@@ -763,8 +763,9 @@ GLOBAL_LIST_INIT(asteroid_floor_smooth, list(
 
 	if(smoothing_flags)
 		canSmoothWith = GLOB.asteroid_floor_smooth
-		pixel_x = -4
-		pixel_y = -4
+		var/matrix/M = new
+		M.Translate(-4, -4)
+		transform = M
 
 	if(light_range && light_power)
 		update_light()

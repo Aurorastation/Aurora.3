@@ -232,9 +232,9 @@
 	desc = "An ear-tag that shows the wearer is loyal to the Nralakk Federation. A small cable travels into the ear canal..."
 	w_class = WEIGHT_CLASS_SMALL
 	slot_flags = SLOT_EARS
-	icon = 'icons/obj/item/skrell/jargtag.dmi'
-	icon_state = "jargtag"
-	item_state = "jargtag"
+	icon = 'icons/obj/item/skrell/nraltag.dmi'
+	icon_state = "nraltag"
+	item_state = "nraltag"
 	contained_sprite = TRUE
 	var/fried = FALSE // Doesn't work anymore
 

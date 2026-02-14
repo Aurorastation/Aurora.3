@@ -6,7 +6,7 @@
 	icon_state = "flood00"
 	density = TRUE
 	obj_flags = OBJ_FLAG_ROTATABLE
-	light_system = MOVABLE_LIGHT
+	light_system = DIRECTIONAL_LIGHT
 	light_range = 6
 	light_color = LIGHT_COLOR_TUNGSTEN
 
@@ -105,7 +105,7 @@
 	update_icon()
 
 /obj/machinery/floodlight/attackby(obj/item/attacking_item, mob/user)
-	if(attacking_item.isscrewdriver())
+	if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 		if(!open)
 			unlocked = !unlocked
 			var/msg = unlocked ? "You unscrew the battery panel." : "You screw the battery panel into place."
@@ -113,7 +113,7 @@
 		else
 			to_chat(user, SPAN_WARNING("\The [src]'s battery panel is open and cannot be screwed down!"))
 		return TRUE
-	if(attacking_item.iscrowbar())
+	if(attacking_item.tool_behaviour == TOOL_CROWBAR)
 		if(unlocked)
 			open = !open
 			var/msg = open ? "You remove the battery panel." : "You crowbar the battery panel into place."

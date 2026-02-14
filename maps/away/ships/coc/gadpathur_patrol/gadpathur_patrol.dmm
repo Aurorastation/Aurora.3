@@ -663,7 +663,7 @@
 /obj/item/clothing/suit/storage/gadpathur,
 /obj/item/clothing/suit/storage/toggle/trench/gadpathur,
 /obj/item/clothing/accessory/dogtags/gadpathur,
-/obj/item/device/versebook/gadpathur,
+/obj/item/versebook/gadpathur,
 /obj/item/clothing/glasses/regular,
 /obj/machinery/alarm/east{
 	req_one_access = list(223,224)
@@ -1011,7 +1011,7 @@
 /obj/item/clothing/suit/storage/gadpathur,
 /obj/item/clothing/suit/storage/toggle/trench/gadpathur,
 /obj/item/clothing/accessory/dogtags/gadpathur,
-/obj/item/device/versebook/gadpathur,
+/obj/item/versebook/gadpathur,
 /obj/item/clothing/glasses/regular,
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
@@ -1515,7 +1515,7 @@
 /obj/item/clothing/suit/storage/toggle/trench/gadpathur,
 /obj/item/clothing/suit/storage/toggle/trench/gadpathur/leather,
 /obj/item/clothing/accessory/dogtags/gadpathur,
-/obj/item/device/versebook/gadpathur,
+/obj/item/versebook/gadpathur,
 /obj/item/clothing/glasses/regular,
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /obj/item/clothing/accessory/holster/hip,
@@ -3397,8 +3397,8 @@
 /obj/item/storage/belt/security,
 /obj/item/melee/classic_baton,
 /obj/item/melee/classic_baton,
-/obj/item/device/flash,
-/obj/item/device/flash,
+/obj/item/flash,
+/obj/item/flash,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/light,
 /obj/item/clothing/accessory/holster/waist,
@@ -3684,7 +3684,7 @@
 /obj/item/clothing/suit/storage/toggle/trench/gadpathur,
 /obj/item/clothing/suit/storage/toggle/trench/gadpathur/leather,
 /obj/item/clothing/accessory/dogtags/gadpathur,
-/obj/item/device/versebook/gadpathur,
+/obj/item/versebook/gadpathur,
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
@@ -3876,7 +3876,7 @@
 /obj/item/clothing/suit/storage/gadpathur,
 /obj/item/clothing/suit/storage/toggle/trench/gadpathur,
 /obj/item/clothing/accessory/dogtags/gadpathur,
-/obj/item/device/versebook/gadpathur,
+/obj/item/versebook/gadpathur,
 /obj/item/clothing/glasses/regular,
 /turf/simulated/floor/tiled,
 /area/ship/gadpathur_patrol/quarters)
@@ -4912,7 +4912,7 @@
 	req_access = null;
 	req_one_access = list(223,224)
 	},
-/obj/machinery/autolathe,
+/obj/machinery/fabricator/autolathe,
 /obj/structure/cable{
 	icon_state = "0-4"
 	},
@@ -6220,7 +6220,7 @@
 /obj/item/clothing/suit/storage/gadpathur,
 /obj/item/clothing/suit/storage/toggle/trench/gadpathur,
 /obj/item/clothing/accessory/dogtags/gadpathur,
-/obj/item/device/versebook/gadpathur,
+/obj/item/versebook/gadpathur,
 /obj/machinery/light{
 	dir = 4
 	},
@@ -6235,11 +6235,11 @@
 /area/ship/gadpathur_patrol/quarters)
 "WU" = (
 /obj/structure/table/steel,
-/obj/item/device/flashlight/lamp{
+/obj/item/flashlight/lamp{
 	pixel_x = -6;
 	pixel_y = 11
 	},
-/obj/item/device/taperecorder{
+/obj/item/taperecorder{
 	pixel_x = 8
 	},
 /turf/simulated/floor/tiled/dark,

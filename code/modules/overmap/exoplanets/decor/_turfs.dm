@@ -7,41 +7,11 @@
 	icon = 'icons/turf/desert.dmi'
 	icon_state = "desert"
 	has_resources = TRUE
-	footstep_sound = /singleton/sound_category/asteroid_footstep
+	footstep_sound = SFX_FOOTSTEP_ASTEROID
 	turf_flags = TURF_FLAG_BACKGROUND
 
 	var/diggable = 1
 	var/dirt_color = "#7c5e42"
-
-/turf/simulated/floor/exoplanet/New()
-	// try to get the the atmos and area of the planet
-	if(SSatlas.current_map.use_overmap)
-		// if exoplanet
-		var/datum/site = GLOB.map_sectors["[z]"]
-		var/datum/template = GLOB.map_templates["[z]"]
-		if(istype(site, /obj/effect/overmap/visitable/sector/exoplanet))
-			var/obj/effect/overmap/visitable/sector/exoplanet/exoplanet = site
-			if(exoplanet.atmosphere)
-				initial_gas = exoplanet.atmosphere.gas.Copy()
-				temperature = exoplanet.atmosphere.temperature
-			else
-				initial_gas = list()
-				temperature = T0C
-			//Must be done here, as light data is not fully carried over by ChangeTurf (but overlays are).
-			set_light(MINIMUM_USEFUL_LIGHT_RANGE, exoplanet.lightlevel, exoplanet.lightcolor)
-			if(exoplanet.planetary_area && istype(loc, world.area))
-				change_area(loc, exoplanet.planetary_area)
-		// if away site
-		else if(istype(template, /datum/map_template/ruin/away_site))
-			var/datum/map_template/ruin/away_site/away_site = template
-			if(away_site.exoplanet_atmosphere)
-				initial_gas = away_site.exoplanet_atmosphere.gas.Copy()
-				temperature = away_site.exoplanet_atmosphere.temperature
-			if(away_site.exoplanet_lightlevel && is_outside())
-				set_light(MINIMUM_USEFUL_LIGHT_RANGE, away_site.exoplanet_lightlevel, away_site.exoplanet_lightcolor)
-
-	// if not on an exoplanet, instead just keep the default or mapped in atmos
-	..()
 
 /turf/simulated/floor/exoplanet/attackby(obj/item/attacking_item, mob/user)
 	if(diggable && istype(attacking_item, /obj/item/shovel))
@@ -74,10 +44,51 @@
 			if(prob(40))
 				ChangeTurf(get_base_turf_by_area(src))
 
-/turf/simulated/floor/exoplanet/Initialize()
-	. = ..()
+/turf/simulated/floor/exoplanet/New()
 	footprint_color = dirt_color
 	update_icon(1)
+
+	if(SSatlas.current_map.use_overmap)
+		// if exoplanet
+		var/datum/site = GLOB.map_sectors["[z]"]
+		var/datum/template = GLOB.map_templates["[z]"]
+		if(istype(site, /obj/effect/overmap/visitable/sector/exoplanet))
+			var/obj/effect/overmap/visitable/sector/exoplanet/exoplanet = site
+			if(exoplanet.atmosphere)
+				initial_gas = exoplanet.atmosphere.gas.Copy()
+				temperature = exoplanet.atmosphere.temperature
+			else
+				initial_gas = list()
+				temperature = T0C
+
+			if(exoplanet.planetary_area && istype(loc, world.area))
+				change_area(loc, exoplanet.planetary_area)
+
+		// if away site
+		else if(istype(template, /datum/map_template/ruin/away_site))
+			var/datum/map_template/ruin/away_site/away_site = template
+			if(away_site.exoplanet_atmosphere)
+				initial_gas = away_site.exoplanet_atmosphere.gas.Copy()
+				temperature = away_site.exoplanet_atmosphere.temperature
+
+	..()
+
+/turf/simulated/floor/exoplanet/Initialize()
+	. = ..()
+	if(SSatlas.current_map.use_overmap)
+		// if exoplanet
+		var/datum/site = GLOB.map_sectors["[z]"]
+		var/datum/template = GLOB.map_templates["[z]"]
+		if(istype(site, /obj/effect/overmap/visitable/sector/exoplanet))
+			var/obj/effect/overmap/visitable/sector/exoplanet/exoplanet = site
+			// Must be done here, as light data is not fully carried over by ChangeTurf (but overlays are).
+			set_light(MINIMUM_USEFUL_LIGHT_RANGE, exoplanet.lightlevel, exoplanet.lightcolor)
+
+		// if away site
+		else if(istype(template, /datum/map_template/ruin/away_site))
+			var/datum/map_template/ruin/away_site/away_site = template
+			if(away_site.exoplanet_lightlevel && is_outside())
+				set_light(MINIMUM_USEFUL_LIGHT_RANGE, away_site.exoplanet_lightlevel, away_site.exoplanet_lightcolor)
 
 /turf/simulated/floor/exoplanet/update_icon(var/update_neighbors)
 	if(initial_flooring)
@@ -111,20 +122,20 @@
 	desc = "Some water shallow enough to wade through."
 	icon = 'icons/misc/beach.dmi'
 	icon_state = "seashallow"
-	footstep_sound = /singleton/sound_category/water_footstep
+	footstep_sound = SFX_FOOTSTEP_WATER
 
 /turf/simulated/floor/exoplanet/permafrost
 	name = "permafrost"
 	desc = "The ground here is frozen solid by the cold."
 	icon = 'icons/turf/flooring/snow.dmi'
 	icon_state = "permafrost"
-	footstep_sound = /singleton/sound_category/asteroid_footstep
+	footstep_sound = SFX_FOOTSTEP_ASTEROID
 
 /turf/simulated/floor/exoplanet/mineral
 	name = "sand"
 	desc = "It's coarse and gets everywhere."
 	dirt_color = "#544c31"
-	footstep_sound = /singleton/sound_category/sand_footstep
+	footstep_sound = SFX_FOOTSTEP_SAND
 
 //Concrete
 /turf/simulated/floor/exoplanet/concrete

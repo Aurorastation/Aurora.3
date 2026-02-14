@@ -11,6 +11,7 @@
 	active_power_usage = 0
 	produces_heat = FALSE
 	overmap_range = 3
+	produces_sound = TRUE
 
 	var/away_aio = FALSE
 	var/list/recent_broadcasts

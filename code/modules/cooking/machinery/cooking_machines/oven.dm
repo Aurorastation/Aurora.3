@@ -111,7 +111,7 @@
 /obj/machinery/appliance/cooker/oven/proc/manip(var/obj/item/I)
 	// check if someone's trying to manipulate the machine
 
-	return I.iscrowbar() || I.isscrewdriver() || istype(I, /obj/item/storage/part_replacer) || istype(I, /obj/item/stock_parts)
+	return I.tool_behaviour == TOOL_CROWBAR || I.tool_behaviour == TOOL_SCREWDRIVER || istype(I, /obj/item/storage/part_replacer) || istype(I, /obj/item/stock_parts)
 
 /obj/machinery/appliance/cooker/oven/can_insert(var/obj/item/I, var/mob/user)
 	if (!open && !manip(I, user))

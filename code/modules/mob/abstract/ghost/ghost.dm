@@ -8,7 +8,7 @@
 	/// If the ghost has antagHUD.
 	var/antagHUD = 0
 	/// Necessary for seeing wires.
-	var/obj/item/device/multitool/ghost_multitool
+	var/obj/item/multitool/ghost_multitool
 	/// The POI we're orbiting.
 	var/orbiting_ref
 
@@ -132,13 +132,12 @@
 	set category = "Ghost"
 	set desc = "Follow and haunt a mob."
 
-	var/datum/tgui_module/follow_menu/GM = new /datum/tgui_module/follow_menu(usr)
-	GM.ui_interact(usr)
+	GLOB.follow_menu.ui_interact(src)
 
 // This is the ghost's follow verb with an argument
 /mob/abstract/ghost/proc/ManualFollow(var/atom/movable/target)
 	if(!target)
-		return
+		return FALSE
 
 	//Stops orbit if there's any; TG doesn't do this, but if you don't it breaks the orbiting reference
 	//if you are jumping from one mob to another, hence why we're doing it here
@@ -154,6 +153,7 @@
 
 	to_chat(src, SPAN_NOTICE("Now following \the <b>[target]</b>."))
 	update_sight()
+	return TRUE
 
 /mob/abstract/ghost/proc/update_sight()
 	//if they are on a restricted level, then set the ghost vision for them.

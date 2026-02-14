@@ -34,6 +34,11 @@
 		/obj/item/reagent_containers/food/drinks/bottle/vermouth = 5,
 		/obj/item/reagent_containers/food/drinks/bottle/chartreusegreen = 5,
 		/obj/item/reagent_containers/food/drinks/bottle/guinness = 4,
+		/obj/item/reagent_containers/food/drinks/bottle/small/beer = 5,
+		/obj/item/reagent_containers/food/drinks/bottle/small/beer/light = 3,
+		/obj/item/reagent_containers/food/drinks/bottle/small/marienthal = 5,
+		/obj/item/reagent_containers/food/drinks/bottle/small/prince_pallav = 5,
+		/obj/item/reagent_containers/food/drinks/bottle/small/skrellbeerdyn = 3,
 		/obj/item/reagent_containers/food/drinks/bottle/absinthe = 2,
 		/obj/item/reagent_containers/food/drinks/bottle/bluecuracao = 2,
 		/obj/item/reagent_containers/food/drinks/bottle/kahlua = 5,
@@ -98,7 +103,7 @@
 	light_color = COLOR_PALE_BLUE_GRAY
 	ui_size = 60
 
-/obj/item/device/vending_refill/booze
+/obj/item/vending_refill/booze
 	name = "booze resupply canister"
 	vend_id = "booze"
 	charges = 100 //holy shit that's a lot of booze

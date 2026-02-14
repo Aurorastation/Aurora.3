@@ -934,7 +934,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/autolathe,
+/obj/machinery/fabricator/autolathe,
 /turf/simulated/floor/carpet/rubber,
 /area/coc_survey_ship/engineering)
 "iR" = (
@@ -1098,7 +1098,7 @@
 /obj/item/storage/toolbox/mechanical{
 	pixel_y = -6
 	},
-/obj/item/device/multitool,
+/obj/item/multitool,
 /obj/item/clothing/gloves/yellow,
 /turf/simulated/floor/tiled,
 /area/coc_survey_ship/atmos)
@@ -1884,9 +1884,9 @@
 /obj/item/clothing/head/helmet/space/void/mining/himeo,
 /obj/item/pickaxe/diamonddrill,
 /obj/item/gun/energy/blaster/carbine,
-/obj/item/device/gps,
+/obj/item/gps,
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/item/device/suit_cooling_unit,
+/obj/item/suit_cooling_unit,
 /turf/simulated/floor/tiled,
 /area/coc_survey_ship/miningeva)
 "qp" = (
@@ -3389,12 +3389,12 @@
 /obj/item/gun/projectile/shotgun/doublebarrel,
 /obj/item/storage/box/shells/buckshot,
 /obj/item/storage/box/shells/buckshot,
-/obj/item/device/gps,
+/obj/item/gps,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/light{
 	dir = 1
 	},
-/obj/item/device/suit_cooling_unit,
+/obj/item/suit_cooling_unit,
 /turf/simulated/floor/tiled,
 /area/coc_survey_ship/miningeva)
 "Cm" = (
@@ -4010,9 +4010,9 @@
 /obj/item/gun/projectile/shotgun/doublebarrel,
 /obj/item/storage/box/shells/buckshot,
 /obj/item/storage/box/shells/buckshot,
-/obj/item/device/gps,
+/obj/item/gps,
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/item/device/suit_cooling_unit,
+/obj/item/suit_cooling_unit,
 /turf/simulated/floor/tiled,
 /area/coc_survey_ship/miningeva)
 "GS" = (
@@ -4847,7 +4847,7 @@
 /obj/item/rig_module/cooling_unit,
 /obj/item/rig_module/actuators,
 /obj/item/rig_module/maneuvering_jets,
-/obj/item/device/gps,
+/obj/item/gps,
 /turf/simulated/floor/carpet/lightblue,
 /area/coc_survey_ship/captain)
 "Nq" = (
@@ -5536,7 +5536,7 @@
 /area/coc_survey_ship/cargo)
 "TF" = (
 /obj/structure/table/steel,
-/obj/item/device/hand_labeler,
+/obj/item/hand_labeler,
 /turf/simulated/floor/tiled,
 /area/coc_survey_ship/miningeva)
 "TI" = (
@@ -5669,7 +5669,7 @@
 /area/coc_survey_ship/anomaly)
 "UH" = (
 /obj/structure/table/steel,
-/obj/item/device/hand_labeler,
+/obj/item/hand_labeler,
 /obj/item/blueprints/outpost,
 /turf/simulated/floor/tiled,
 /area/coc_survey_ship/miningeva)
@@ -5923,12 +5923,12 @@
 /obj/item/clothing/head/helmet/space/void/mining/himeo,
 /obj/item/pickaxe/diamonddrill,
 /obj/item/gun/energy/blaster/carbine,
-/obj/item/device/gps,
+/obj/item/gps,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/light{
 	dir = 1
 	},
-/obj/item/device/suit_cooling_unit,
+/obj/item/suit_cooling_unit,
 /turf/simulated/floor/tiled,
 /area/coc_survey_ship/miningeva)
 "WO" = (

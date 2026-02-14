@@ -1,7 +1,3 @@
-#ifndef T_BOARD
-#error T_BOARD macro is not defined but we need it!
-#endif
-
 /obj/item/circuitboard/portgen
 	name = T_BOARD("portable generator")
 	build_path = /obj/machinery/power/portgen/basic

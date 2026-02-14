@@ -72,7 +72,7 @@
 
 /datum/gear/utility/paicard
 	display_name = "personal AI device"
-	path = /obj/item/device/paicard
+	path = /obj/item/paicard
 
 /datum/gear/utility/classicwallet
 	display_name = "wallet"
@@ -98,11 +98,11 @@
 
 /datum/gear/utility/recorder
 	display_name = "universal recorder"
-	path = /obj/item/device/taperecorder
+	path = /obj/item/taperecorder
 
 /datum/gear/utility/camera
 	display_name = "camera"
-	path = /obj/item/device/camera
+	path = /obj/item/camera
 
 /datum/gear/utility/himeo_kit
 	display_name = "himean voidsuit kit"
@@ -209,5 +209,6 @@
 	music_cartridges["Spacer Classics Vol. 1"] = /obj/item/music_cartridge/ss13
 	music_cartridges["Indulgence EP (X-Rock)"] = /obj/item/music_cartridge/xanu_rock
 	music_cartridges["Electro-Swing of Adhomai"] = /obj/item/music_cartridge/adhomai_swing
+	music_cartridges["Adhomai Vibes"] = /obj/item/music_cartridge/adhomai_vibes
 	music_cartridges["Europa: Best of the 50s"] = /obj/item/music_cartridge/europa_various
 	gear_tweaks += new /datum/gear_tweak/path(music_cartridges)

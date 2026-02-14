@@ -402,10 +402,9 @@
 
 /singleton/recipe/deepdive
 	fruit = list ("seaweed" = 1)
-	reagents = list(/singleton/reagent/drink/milk/cream = 5)
+	reagents = list(/singleton/reagent/nutriment/protein/cream_cheese = 10)
 	items = list(
-		/obj/item/reagent_containers/food/snacks/fish,
-		/obj/item/reagent_containers/food/snacks/cheesewedge
+		/obj/item/reagent_containers/food/snacks/fish
 	)
 	reagent_mix = RECIPE_REAGENT_REPLACE
 	result = /obj/item/reagent_containers/food/snacks/deepdive
@@ -631,3 +630,27 @@
 	)
 	reagent_mix = RECIPE_REAGENT_REPLACE
 	result = /obj/item/reagent_containers/food/snacks/fire_loaf
+
+//Sankt Frederick
+
+/singleton/recipe/bierock
+	appliance = OVEN
+	fruit = list ("cabbage" = 1, "onion" = 1)
+	reagents = list(/singleton/reagent/sodiumchloride = 1)
+	items = list(
+		/obj/item/reagent_containers/food/snacks/meat,
+		/obj/item/reagent_containers/food/snacks/dough
+	)
+	reagent_mix = RECIPE_REAGENT_REPLACE
+	result = /obj/item/reagent_containers/food/snacks/bierock
+
+/singleton/recipe/belinas
+	appliance = MIX
+	reagents = list(/singleton/reagent/nutriment/protein/cream_cheese = 15)
+	items = list(
+		/obj/item/reagent_containers/food/snacks/fish,
+		/obj/item/reagent_containers/food/snacks/fish,
+		/obj/item/reagent_containers/food/snacks/pancakes
+	)
+	reagent_mix = RECIPE_REAGENT_REPLACE
+	result = /obj/item/reagent_containers/food/snacks/bowl/belinas

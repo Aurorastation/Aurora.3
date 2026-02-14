@@ -716,10 +716,10 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/iac_rescue_ship/portdocking)
 "bfF" = (
-/obj/item/device/binoculars{
+/obj/item/binoculars{
 	pixel_y = 3
 	},
-/obj/item/device/binoculars,
+/obj/item/binoculars,
 /obj/structure/table/reinforced/steel,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/iac_rescue_ship/bridge)
@@ -1102,7 +1102,7 @@
 /obj/item/stack/material/phoron{
 	amount = 6
 	},
-/obj/item/device/hand_labeler,
+/obj/item/hand_labeler,
 /obj/item/storage/box/autoinjectors,
 /obj/item/storage/box/inhalers_auto,
 /obj/item/storage/box/inhalers_large,
@@ -3016,11 +3016,11 @@
 /obj/structure/table/rack{
 	dir = 8
 	},
-/obj/item/device/suit_cooling_unit,
-/obj/item/device/suit_cooling_unit,
-/obj/item/device/suit_cooling_unit,
-/obj/item/device/suit_cooling_unit,
-/obj/item/device/suit_cooling_unit,
+/obj/item/suit_cooling_unit,
+/obj/item/suit_cooling_unit,
+/obj/item/suit_cooling_unit,
+/obj/item/suit_cooling_unit,
+/obj/item/suit_cooling_unit,
 /obj/item/tank/jetpack/oxygen,
 /obj/item/tank/jetpack/oxygen,
 /obj/item/tank/jetpack/oxygen,
@@ -3508,7 +3508,7 @@
 /obj/effect/floor_decal/spline/plain{
 	dir = 1
 	},
-/obj/item/device/robotanalyzer,
+/obj/item/robotanalyzer,
 /obj/structure/table/reinforced/steel,
 /obj/item/storage/toolbox/electrical{
 	pixel_y = 10
@@ -3816,7 +3816,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/iac_rescue_ship/custodial)
 "hNm" = (
-/obj/item/device/flashlight/lamp,
+/obj/item/flashlight/lamp,
 /obj/item/storage/slide_projector,
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 8
@@ -6337,7 +6337,7 @@
 /obj/item/spacecash/c50,
 /obj/item/spacecash/c50,
 /obj/item/spacecash/c50,
-/obj/item/device/advanced_healthanalyzer,
+/obj/item/advanced_healthanalyzer,
 /obj/item/clothing/glasses/hud/health,
 /obj/item/reagent_containers/hypospray/cmo,
 /obj/item/clothing/under/rank/medical/surgeon,
@@ -6857,7 +6857,7 @@
 /turf/simulated/floor,
 /area/ship/iac_rescue_ship/centralhallway)
 "pEN" = (
-/obj/machinery/autolathe,
+/obj/machinery/fabricator/autolathe,
 /obj/effect/floor_decal/industrial/outline/engineering,
 /turf/simulated/floor,
 /area/ship/iac_rescue_ship/machinist)
@@ -7179,7 +7179,7 @@
 /area/ship/iac_rescue_ship/machinist)
 "qsF" = (
 /obj/structure/table/rack,
-/obj/item/device/suit_cooling_unit,
+/obj/item/suit_cooling_unit,
 /obj/item/tank/jetpack/oxygen,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/full,
@@ -8027,7 +8027,7 @@
 	},
 /obj/item/storage/toolbox/mechanical,
 /obj/item/reagent_containers/glass/bucket,
-/obj/item/device/lightreplacer,
+/obj/item/lightreplacer,
 /turf/simulated/floor/tiled/dark,
 /area/ship/iac_rescue_ship/custodial)
 "sok" = (
@@ -8644,7 +8644,7 @@
 /area/ship/iac_rescue_ship/bridge)
 "udB" = (
 /obj/structure/table/wood,
-/obj/item/device/electronic_assembly/simple{
+/obj/item/electronic_assembly/simple{
 	desc = "The remote for a PanaVision 2400. This one feels a bit hollow.";
 	name = "television remote";
 	pixel_x = 6;
@@ -9089,7 +9089,7 @@
 	pixel_x = -10;
 	pixel_y = 7
 	},
-/obj/item/device/mass_spectrometer{
+/obj/item/mass_spectrometer{
 	pixel_x = -7;
 	pixel_y = 1
 	},

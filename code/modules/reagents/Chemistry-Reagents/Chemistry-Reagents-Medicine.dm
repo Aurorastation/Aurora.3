@@ -328,7 +328,7 @@
 
 /singleton/reagent/mortaphenyl
 	name = "Mortaphenyl"
-	description = "Mortaphenyl is an advanced, powerful analgesic medication which is highly effective at treating mild-severe pain as a result of severe, physical injury. Mortaphenyl is not effective when inhaled."
+	description = "Mortaphenyl is a weak, synthetic, analgesic opioid which is highly effective at treating mild-severe pain as a result of severe, physical injury. Mortaphenyl is not effective when inhaled."
 	reagent_state = LIQUID
 	color = "#CB68FC"
 	overdose = 15
@@ -443,7 +443,7 @@
 
 /singleton/reagent/tramarine
 	name = "Tramarine"
-	description = "Tramarine is a synthetic form of morphine developed by NanoTrasen early in its history, that can be used in its place for most medical purposes. It is known to be more dangerous however with alcohol, other opiods, or an overdose."
+	description = "Tramarine is a synthetic form of morphine developed by NanoTrasen early in its history, that can be used in its place for most medical purposes. It is known to be more dangerous however with alcohol, other opioids, or an overdose."
 	reagent_state = LIQUID
 	color = "#c4a05d"
 	overdose = 15
@@ -815,7 +815,7 @@
 	description = "Ethylredoxrazine is a powerful medication which oxidises ethanol in the bloodstream, reducing the burden on the liver to complete this task. Ethylredoxrazine also blocks the reuptake of neurotransmitters responsible for symptoms of alcohol intoxication."
 	reagent_state = SOLID
 	color = "#605048"
-	metabolism = REM * 0.3
+	metabolism = REM
 	overdose = REAGENTS_OVERDOSE
 	scannable = TRUE
 	taste_description = "bitterness"
@@ -2015,13 +2015,12 @@
 		M.add_chemical_effect(CE_EMETIC, M.chem_doses[type]/2)
 
 /singleton/reagent/antiparasitic/overdose(mob/living/carbon/M, alien, removed, scale, datum/reagents/holder)
-	if(istype(M,/mob/living/carbon/human))
-		var/mob/living/carbon/human/H = M
-
-		for(var/obj/item/organ/internal/parasite/P in H.internal_organs)
-			if(P)
-				if(P.drug_resistance == 0)
-					P.drug_resistance = 1
+	M.dizziness = max(50, M.dizziness)
+	M.make_dizzy(5)
+	M.adjustHydrationLoss(2*removed)
+	M.adjustNutritionLoss(8*removed)
+	M.adjustHalLoss(5)
+	to_chat(M, SPAN_WARNING(pick("You feel flushed and woozy.", "Your guts feel like they're crawling.")))
 
 /singleton/reagent/antibodies
 	name = "Hylemnomil-Zeta Antibodies"
@@ -2031,6 +2030,7 @@
 	metabolism = REM*0.0001
 	scannable = TRUE
 	taste_description = "pure death"
+	fallback_specific_heat = 1
 
 /singleton/reagent/antibodies/affect_blood(mob/living/carbon/M, alien, removed, datum/reagents/holder)
 	. = ..()
@@ -2042,7 +2042,8 @@
 			Z.curing = TRUE
 			to_chat(M, SPAN_WARNING("Your [E.name] tightens, pulses, and squirms as \the [Z] fights back against the antibodies!"))
 
-/singleton/reagent/caffeine // Copied from Hyperzine
+/// Copied from Hyperzine
+/singleton/reagent/caffeine
 	name = "Caffeine"
 	description = "Caffeine is a central nervous system stimulant found naturally in many plants. It's used as a mild cognitive enhancer to increase alertness, attentional performance, and improve cardiovascular health."
 	reagent_state = SOLID
@@ -2053,6 +2054,7 @@
 	taste_description = "bitter"
 	metabolism_min = REM * 0.025
 	breathe_met = REM * 0.15 * 0.5
+	fallback_specific_heat = 1
 
 /singleton/reagent/caffeine/initial_effect(mob/living/carbon/M, alien, datum/reagents/holder)
 	. = ..()

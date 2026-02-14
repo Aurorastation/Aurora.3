@@ -168,19 +168,22 @@
 	if(istype(spawned_cup) && spawned_cup.reagents)
 		spawned_cup.reagents.set_temperature(T0C + 45)
 
-/datum/gear/chatins
-	display_name = "konyang-cha tins"
-	description = "Tins of tea leaves made by Konyang-cha."
+/datum/gear/teatins
+	display_name = "tea tin selection"
+	description = "A selction of various tins of tea."
 	cost = 1
 	path = /obj/item/storage/box/unique/tea
 
-/datum/gear/chatins/New()
+/datum/gear/teatins/New()
 	..()
-	var/list/chatins = list()
-	chatins["sencha cha-tin"] = /obj/item/storage/box/unique/tea
-	chatins["tieguanyin cha-tin"] = /obj/item/storage/box/unique/tea/tieguanyin
-	chatins["jaekseol cha-tin"] = /obj/item/storage/box/unique/tea/jaekseol
-	gear_tweaks += new /datum/gear_tweak/path(chatins)
+	var/list/teatins = list()
+	teatins["sencha cha-tin"] = /obj/item/storage/box/unique/tea
+	teatins["tieguanyin cha-tin"] = /obj/item/storage/box/unique/tea/tieguanyin
+	teatins["jaekseol cha-tin"] = /obj/item/storage/box/unique/tea/jaekseol
+	teatins["messa's tear tea"] = /obj/item/storage/box/unique/tea/messa
+	teatins["ras'nif tea"] = /obj/item/storage/box/unique/tea/rasnif
+
+	gear_tweaks += new /datum/gear_tweak/path(teatins)
 
 /datum/gear/teapots
 	display_name = "teapots"
@@ -241,6 +244,7 @@
 	banners["banner, Union of Port Antillia"] = /obj/item/flag/portantillia
 	banners["banner, Sovereign Solarian Republic of San Colette"] = /obj/item/flag/sancolette
 	banners["banner, Old Sovereign Solarian Republic of San Colette"] = /obj/item/flag/sancolette/old
+	banners["banner, Sankt Frederick"] = /obj/item/flag/sfk
 	banners["banner, Mictlan"] = /obj/item/flag/mictlan
 	banners["banner, New Hai Phong"] = /obj/item/flag/nhp
 	banners["banner, Silversun"] = /obj/item/flag/silversun
@@ -341,6 +345,7 @@
 	flags["flag, Union of Port Antillia"] = /obj/item/flag/portantillia/l
 	flags["flag, Sovereign Solarian Republic of San Colette"] = /obj/item/flag/sancolette/l
 	flags["flag, Old Sovereign Solarian Republic of San Colette"] = /obj/item/flag/sancolette/old/l
+	flags["flag, Sankt Frederick"] = /obj/item/flag/sfk/l
 	flags["flag, Mictlan"] = /obj/item/flag/mictlan/l
 	flags["flag, New Hai Phong"] = /obj/item/flag/nhp/l
 	flags["flag, Silversun"] = /obj/item/flag/silversun/l
@@ -450,7 +455,7 @@
 
 /datum/gear/gadbook
 	display_name = "gadpathurian morale manual"
-	path = /obj/item/device/versebook/gadpathur
+	path = /obj/item/versebook/gadpathur
 	origin_restriction = list(/singleton/origin_item/origin/gadpathur)
 
 /datum/gear/aurora_miniature
@@ -461,16 +466,16 @@
 /datum/gear/instruments
 	display_name = "instrument selection"
 	description = "A selection of instruments for the musically inclined."
-	path = /obj/item/device/synthesized_instrument
+	path = /obj/item/synthesized_instrument
 	allowed_roles = list("Off-Duty Crew Member", "Passenger")
 
 /datum/gear/instruments/New()
 	..()
 	var/list/instruments = list()
-	instruments["guitar"] = /obj/item/device/synthesized_instrument/guitar
-	instruments["polyguitar"] = /obj/item/device/synthesized_instrument/guitar/multi
-	instruments["violin"] = /obj/item/device/synthesized_instrument/violin
-	instruments["Omnitrumpet"] = /obj/item/device/synthesized_instrument/trumpet
+	instruments["guitar"] = /obj/item/synthesized_instrument/guitar
+	instruments["polyguitar"] = /obj/item/synthesized_instrument/guitar/multi
+	instruments["violin"] = /obj/item/synthesized_instrument/violin
+	instruments["Omnitrumpet"] = /obj/item/synthesized_instrument/trumpet
 	gear_tweaks += new /datum/gear_tweak/path(instruments)
 
 /datum/gear/lore_radio

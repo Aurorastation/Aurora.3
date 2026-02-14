@@ -21,7 +21,7 @@
 	description = "Used for blinding and being an asshole."
 	price = 235
 	items = list(
-		/obj/item/device/flash
+		/obj/item/flash
 	)
 	access = ACCESS_SECURITY
 	container_type = "crate"
@@ -35,7 +35,7 @@
 	description = "A small handheld black light."
 	price = 115
 	items = list(
-		/obj/item/device/uv_light
+		/obj/item/uv_light
 	)
 	access = 0
 	container_type = "crate"
@@ -63,7 +63,7 @@
 	description = "A heavy flashlight designed for security personnel."
 	price = 75
 	items = list(
-		/obj/item/device/flashlight/maglight
+		/obj/item/flashlight/maglight
 	)
 	access = ACCESS_SECURITY
 	container_type = "crate"
@@ -77,7 +77,7 @@
 	description = "A large, ID locked device used for completely locking down airlocks. It is painted with Security colors."
 	price = 50
 	items = list(
-		/obj/item/device/magnetic_lock/security
+		/obj/item/magnetic_lock/security
 	)
 	access = ACCESS_SECURITY
 	container_type = "crate"
@@ -367,9 +367,9 @@
 	spawn_amount = 1
 /singleton/cargo_item/blackgloves
 	category = "security"
-	name = "black gloves"
+	name = "work gloves"
 	supplier = "nanotrasen"
-	description = "Black gloves that are somewhat fire resistant."
+	description = "Work gloves that are somewhat fire resistant."
 	price = 70
 	items = list(
 		/obj/item/clothing/gloves/black
@@ -456,7 +456,7 @@
 	description = "A small authentication device, to be inserted into a firearm receiver to allow operation."
 	price = 2000
 	items = list(
-		/obj/item/device/firing_pin
+		/obj/item/firing_pin
 	)
 	access = ACCESS_SECURITY
 	container_type = "crate"

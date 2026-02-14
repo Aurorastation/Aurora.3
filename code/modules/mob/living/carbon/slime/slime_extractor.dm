@@ -106,10 +106,6 @@
 	qdel(extracted_slime)
 	update_icon()
 
-#ifndef T_BOARD
-#error T_BOARD macro is not defined but we need it!
-#endif
-
 /obj/item/circuitboard/slime_extractor
 	name = T_BOARD("slime extractor")
 	build_path = "/obj/machinery/slime_extractor"

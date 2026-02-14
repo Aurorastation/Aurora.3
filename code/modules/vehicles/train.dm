@@ -50,6 +50,26 @@
 			unattach()
 		return 0
 
+/// Trains need to recursively recalculate their glide size for all their towed objects.
+/obj/vehicle/train/recalculate_glide_size(old_move_delay, move_delay, direction)
+	var/new_glide_size = glide_size
+
+	if(old_move_delay + world.tick_lag > world.time)
+		new_glide_size = DELAY_TO_GLIDE_SIZE((move_delay - old_move_delay) * ( (NSCOMPONENT(direction) && EWCOMPONENT(direction)) ? sqrt(2) : 1 ) )
+	else
+		new_glide_size = DELAY_TO_GLIDE_SIZE((move_delay - world.time) * ( (NSCOMPONENT(direction) && EWCOMPONENT(direction)) ? sqrt(2) : 1 ) )
+
+	recurse_glide_size(new_glide_size) // set it now in case of pulled objects
+	return new_glide_size
+
+/// Sets the glide size of the entire train.
+/obj/vehicle/train/proc/recurse_glide_size(var/glide_size)
+	set_glide_size(glide_size)
+	if (!tow)
+		return
+
+	tow.recurse_glide_size(glide_size)
+
 /obj/vehicle/train/Collide(atom/Obstacle)
 	. = ..()
 	if(!istype(Obstacle, /atom/movable))
@@ -107,7 +127,7 @@
 		unload(user)			//unload if loaded
 
 /obj/vehicle/train/attackby(obj/item/attacking_item, mob/user)
-	if(attacking_item.iswrench())
+	if(attacking_item.tool_behaviour == TOOL_WRENCH)
 		attacking_item.play_tool_sound(get_turf(src), 70)
 		unattach(user)
 		return

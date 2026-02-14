@@ -29,7 +29,7 @@
 			to_chat(living_user, SPAN_NOTICE("\The [src] does not seem to be doing anything, but you can feel it. A signal, beyond anything you can consciously understand, weaving and scratching a shield around the back of your mind."))
 
 /obj/structure/ecd/attackby(obj/item/attacking_item, mob/user, params)
-	if(attacking_item.iswrench())
+	if(attacking_item.tool_behaviour == TOOL_WRENCH)
 		switch(state)
 			if(ECD_LOOSE)
 				state = ECD_BOLTED
@@ -49,7 +49,7 @@
 				to_chat(user, SPAN_WARNING("\The [src] needs to be unwelded from the floor."))
 		return
 
-	if(attacking_item.iswelder())
+	if(attacking_item.tool_behaviour == TOOL_WELDER)
 		var/obj/item/weldingtool/WT = attacking_item
 		switch(state)
 			if(ECD_LOOSE)

@@ -149,7 +149,7 @@
 /area/template_noop)
 "jO" = (
 /obj/structure/table/wood,
-/obj/item/device/flashlight/lamp/green,
+/obj/item/flashlight/lamp/green,
 /turf/simulated/floor/exoplanet/carpet/red,
 /area/template_noop)
 "ms" = (
@@ -250,11 +250,11 @@
 	dir = 6
 	},
 /obj/structure/table/rack,
-/obj/item/device/radio,
-/obj/item/device/radio,
-/obj/item/device/radio,
-/obj/item/device/radio,
-/obj/item/device/radio,
+/obj/item/radio,
+/obj/item/radio,
+/obj/item/radio,
+/obj/item/radio,
+/obj/item/radio,
 /turf/simulated/floor/exoplanet/concrete/square{
 	temperature = 303.15
 	},
@@ -677,8 +677,8 @@
 /obj/machinery/light,
 /obj/effect/floor_decal/corner/lime/diagonal,
 /obj/structure/table/steel,
-/obj/item/device/healthanalyzer,
-/obj/item/device/healthanalyzer,
+/obj/item/healthanalyzer,
+/obj/item/healthanalyzer,
 /obj/item/reagent_containers/hypospray{
 	pixel_y = 4;
 	pixel_x = -5

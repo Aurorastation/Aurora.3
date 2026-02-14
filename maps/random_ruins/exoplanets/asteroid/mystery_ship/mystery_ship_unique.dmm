@@ -612,7 +612,7 @@
 	pixel_y = 2
 	},
 /obj/structure/table/reinforced,
-/obj/item/device/binoculars,
+/obj/item/binoculars,
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},

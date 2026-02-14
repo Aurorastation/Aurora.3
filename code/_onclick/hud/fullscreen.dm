@@ -114,6 +114,10 @@
 	icon_state = "brutedamageoverlay6"
 	alpha = 0
 
+/atom/movable/screen/fullscreen/robot_pain
+	icon = 'icons/mob/screen/robot_pain.dmi'
+	alpha = 255
+
 /atom/movable/screen/fullscreen/flash
 	icon = 'icons/mob/screen/effects.dmi'
 	screen_loc = "WEST,SOUTH to EAST,NORTH"
@@ -158,6 +162,9 @@
 	icon_state = "base"
 	screen_loc = ui_entire_screen
 	alpha = 100
+
+/atom/movable/screen/fullscreen/blueprints/less_alpha
+	alpha = 35
 
 /atom/movable/screen/fullscreen/lighting_backdrop
 	icon = 'icons/mob/screen/white.dmi'

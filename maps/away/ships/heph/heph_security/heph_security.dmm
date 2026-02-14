@@ -2288,7 +2288,7 @@
 /area/heph_security_ship/engineering)
 "pn" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/autolathe,
+/obj/machinery/fabricator/autolathe,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor,
 /area/heph_security_ship/engineering)
@@ -2520,7 +2520,7 @@
 /obj/structure/window/reinforced{
 	dir = 1
 	},
-/obj/item/device/flashlight/lamp,
+/obj/item/flashlight/lamp,
 /obj/structure/cable/green{
 	icon_state = "0-2"
 	},
@@ -2635,8 +2635,8 @@
 	dir = 1
 	},
 /obj/structure/table/reinforced/steel,
-/obj/item/device/binoculars,
-/obj/item/device/binoculars{
+/obj/item/binoculars,
+/obj/item/binoculars{
 	pixel_y = 5
 	},
 /obj/effect/floor_decal/spline/plain/corner/black{
@@ -3068,7 +3068,7 @@
 /obj/item/pen{
 	pixel_x = 6
 	},
-/obj/item/device/flashlight/lamp{
+/obj/item/flashlight/lamp{
 	pixel_x = -7;
 	pixel_y = 9
 	},
@@ -3655,7 +3655,7 @@
 	dir = 6
 	},
 /obj/structure/table/reinforced/steel,
-/obj/item/device/binoculars,
+/obj/item/binoculars,
 /obj/item/clothing/glasses/safety/goggles,
 /obj/machinery/light{
 	dir = 4
@@ -4102,10 +4102,10 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/window/reinforced,
 /obj/structure/table/rack,
-/obj/item/device/suit_cooling_unit,
-/obj/item/device/suit_cooling_unit,
-/obj/item/device/suit_cooling_unit,
-/obj/item/device/suit_cooling_unit,
+/obj/item/suit_cooling_unit,
+/obj/item/suit_cooling_unit,
+/obj/item/suit_cooling_unit,
+/obj/item/suit_cooling_unit,
 /obj/item/tank/emergency_oxygen/double,
 /obj/item/tank/emergency_oxygen/double,
 /obj/item/tank/emergency_oxygen/double,
@@ -4206,11 +4206,11 @@
 /obj/item/melee/baton/loaded,
 /obj/item/melee/baton/loaded,
 /obj/item/melee/baton/loaded,
-/obj/item/device/flash,
-/obj/item/device/flash,
-/obj/item/device/flash,
-/obj/item/device/flash,
-/obj/item/device/flash,
+/obj/item/flash,
+/obj/item/flash,
+/obj/item/flash,
+/obj/item/flash,
+/obj/item/flash,
 /obj/item/shield/energy,
 /obj/item/shield/energy,
 /obj/item/shield/energy,
@@ -5612,7 +5612,7 @@
 	dir = 6
 	},
 /obj/structure/table/reinforced/steel,
-/obj/item/device/binoculars,
+/obj/item/binoculars,
 /obj/item/clothing/glasses/safety/goggles,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,

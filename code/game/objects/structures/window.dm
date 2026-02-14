@@ -81,15 +81,15 @@
 		if(health < maxhealth / 4 && initialhealth >= maxhealth / 4)
 			if(message)
 				visible_message(SPAN_DANGER("[src] looks like it's about to shatter!"))
-			playsound(loc, /singleton/sound_category/glasscrack_sound, 100, 1)
+			playsound(loc, SFX_GLASS_CRACK, 100, 1)
 		else if(health < maxhealth / 2 && initialhealth >= maxhealth / 2)
 			if(message)
 				visible_message(SPAN_WARNING("[src] looks seriously damaged!"))
-			playsound(loc, /singleton/sound_category/glasscrack_sound, 100, 1)
+			playsound(loc, SFX_GLASS_CRACK, 100, 1)
 		else if(health < maxhealth * 3/4 && initialhealth >= maxhealth * 3/4)
 			if(message)
 				visible_message(SPAN_WARNING("Cracks begin to appear in [src]!"))
-			playsound(loc, /singleton/sound_category/glasscrack_sound, 100, 1)
+			playsound(loc, SFX_GLASS_CRACK, 100, 1)
 	return
 
 /obj/structure/window/proc/apply_silicate(var/amount)
@@ -110,7 +110,7 @@
 	AddOverlays(img)
 
 /obj/structure/window/proc/shatter(var/display_message = 1)
-	playsound(src, /singleton/sound_category/glass_break_sound, 70, 1)
+	playsound(src, SFX_BREAK_GLASS, 70, 1)
 	if(display_message)
 		visible_message(SPAN_WARNING("\The [src] shatters!"))
 	if(dir == SOUTHWEST)
@@ -171,13 +171,16 @@
 	if(mover?.movement_type & PHASING)
 		return TRUE
 	if(istype(mover) && mover.pass_flags & PASSGLASS)
-		return 1
+		return TRUE
 	if(is_full_window())
 		return !density	//full tile window, you can't move into it if it's solid!
-	if(get_dir(loc, target) & dir)
+	var/movingdir = get_dir(loc,target)
+	if(movingdir == 0)
+		movingdir = get_dir(loc,mover)
+	if(movingdir & dir)
 		return !density
 	else
-		return 1
+		return TRUE
 
 /obj/structure/window/CheckExit(atom/movable/O, turf/target)
 	if(istype(O) && O.pass_flags & PASSGLASS)
@@ -192,7 +195,7 @@
 	if(ismob(hitting_atom))
 		if(isliving(hitting_atom))
 			var/mob/living/M = hitting_atom
-			M.turf_collision(src, throwingdatum.speed, /singleton/sound_category/glasscrack_sound)
+			M.turf_collision(src, throwingdatum.speed, SFX_GLASS_CRACK)
 			return
 		else
 			visible_message(SPAN_DANGER("\The [src] was hit by \the [hitting_atom]."))
@@ -264,7 +267,7 @@
 	if(attacking_item.item_flags & ITEM_FLAG_NO_BLUDGEON)
 		return
 
-	if(attacking_item.isscrewdriver() && user.a_intent != I_HURT)
+	if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER && user.a_intent != I_HURT)
 		if(reinf && state >= 1)
 			state = 3 - state
 			update_nearby_icons()
@@ -283,11 +286,11 @@
 			to_chat(user, (anchored ? SPAN_NOTICE("You have fastened the window to the floor.") : SPAN_NOTICE("You have unfastened the window.")))
 			update_icon()
 			update_nearby_icons()
-	else if(attacking_item.iscrowbar() && reinf && state <= 1 && user.a_intent != I_HURT)
+	else if(attacking_item.tool_behaviour == TOOL_CROWBAR && reinf && state <= 1 && user.a_intent != I_HURT)
 		state = 1 - state
 		attacking_item.play_tool_sound(get_turf(src), 75)
 		to_chat(user, (state ? SPAN_NOTICE("You have pried the window into the frame.") : SPAN_NOTICE("You have pried the window out of the frame.")))
-	else if(attacking_item.iswrench() && !anchored && (!state || !reinf) && user.a_intent != I_HURT)
+	else if(attacking_item.tool_behaviour == TOOL_WRENCH && !anchored && (!state || !reinf) && user.a_intent != I_HURT)
 		if(!glasstype)
 			to_chat(user, SPAN_NOTICE("You're not sure how to dismantle \the [src] properly."))
 		else
@@ -695,7 +698,7 @@
 	if(attacking_item.item_flags & ITEM_FLAG_NO_BLUDGEON)
 		return
 
-	if(attacking_item.isscrewdriver() && user.a_intent != I_HURT)
+	if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER && user.a_intent != I_HURT)
 		if(state == 2)
 			if(attacking_item.use_tool(src, user, 2 SECONDS, volume = 50))
 				to_chat(user, SPAN_NOTICE("You have unfastened the glass from the window frame."))
@@ -706,7 +709,7 @@
 				to_chat(user, SPAN_NOTICE("You have fastened the glass to the window frame."))
 				state++
 				update_nearby_icons()
-	else if(attacking_item.iscrowbar() && user.a_intent != I_HURT)
+	else if(attacking_item.tool_behaviour == TOOL_CROWBAR && user.a_intent != I_HURT)
 		if(state == 1)
 			if(attacking_item.use_tool(src, user, 2 SECONDS, volume = 50))
 				to_chat(user, SPAN_NOTICE("You pry the glass out of the window frame."))
@@ -717,7 +720,7 @@
 				to_chat(user, SPAN_NOTICE("You pry the glass into the window frame."))
 				state++
 				update_nearby_icons()
-	else if(attacking_item.iswrench() && user.a_intent != I_HURT)
+	else if(attacking_item.tool_behaviour == TOOL_WRENCH && user.a_intent != I_HURT)
 		if(state == 0)
 			user.visible_message(SPAN_DANGER("\The [user] is dismantling \the [src]!"))
 			if(attacking_item.use_tool(src, user, 2 SECONDS, volume = 50))
@@ -743,7 +746,7 @@
 	return
 
 /obj/structure/window/full/shatter(var/display_message = 1)
-	playsound(src, /singleton/sound_category/glass_break_sound, 70, 1)
+	playsound(src, SFX_BREAK_GLASS, 70, 1)
 	if(display_message)
 		visible_message(SPAN_WARNING("\The [src] shatters!"))
 	if(reinf)
@@ -769,13 +772,13 @@
 			playsound(loc, 'sound/effects/glass_hit.ogg', 100, 1)
 		if(health < maxhealth / 4 && initialhealth >= maxhealth / 4)
 			visible_message(SPAN_DANGER("[src] looks like it's about to shatter!"))
-			playsound(loc, /singleton/sound_category/glasscrack_sound, 100, 1)
+			playsound(loc, SFX_GLASS_CRACK, 100, 1)
 		else if(health < maxhealth / 2 && initialhealth >= maxhealth / 2)
 			visible_message(SPAN_WARNING("[src] looks seriously damaged!"))
-			playsound(loc, /singleton/sound_category/glasscrack_sound, 100, 1)
+			playsound(loc, SFX_GLASS_CRACK, 100, 1)
 		else if(health < maxhealth * 3/4 && initialhealth >= maxhealth * 3/4)
 			visible_message(SPAN_WARNING("Cracks begin to appear in [src]!"))
-			playsound(loc, /singleton/sound_category/glasscrack_sound, 100, 1)
+			playsound(loc, SFX_GLASS_CRACK, 100, 1)
 	return
 
 /obj/structure/window/full/dismantle_window()

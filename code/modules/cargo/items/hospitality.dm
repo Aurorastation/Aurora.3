@@ -586,6 +586,20 @@
 	groupable = TRUE
 	spawn_amount = 1
 
+/singleton/cargo_item/cream_cheese
+	category = "hospitality"
+	name = "cream cheese container"
+	supplier = "getmore"
+	description = "A single container of cheese, it seems to be of the creamed variety."
+	price = 4.50
+	items = list(
+		/obj/item/reagent_containers/food/condiment/cream_cheese
+	)
+	access = 0
+	container_type = "freezer"
+	groupable = TRUE
+	spawn_amount = 1
+
 /singleton/cargo_item/fatshouters
 	category = "hospitality"
 	name = "fatshouters milk carton"

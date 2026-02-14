@@ -168,7 +168,7 @@
 /turf/simulated/floor/shuttle/skrell/blue,
 /area/dungeon/skrell_ship)
 "aE" = (
-/obj/item/device/breath_analyzer,
+/obj/item/breath_analyzer,
 /obj/item/surgery/scalpel,
 /turf/simulated/floor/tiled/white,
 /area/dungeon/skrell_ship)
@@ -234,7 +234,7 @@
 /turf/simulated/floor/tiled/white,
 /area/dungeon/skrell_ship)
 "aQ" = (
-/obj/item/device/flashlight/pen,
+/obj/item/flashlight/pen,
 /turf/simulated/floor/tiled/white,
 /area/dungeon/skrell_ship)
 "aR" = (
@@ -325,7 +325,7 @@
 /area/dungeon/skrell_ship)
 "bg" = (
 /obj/structure/table/skrell,
-/obj/item/device/flashlight/heavy,
+/obj/item/flashlight/heavy,
 /obj/machinery/cell_charger,
 /turf/simulated/floor/shuttle/advanced,
 /area/dungeon/skrell_ship)
@@ -376,7 +376,7 @@
 /turf/simulated/floor/tiled/white,
 /area/dungeon/skrell_ship)
 "bq" = (
-/obj/machinery/autolathe,
+/obj/machinery/fabricator/autolathe,
 /turf/simulated/floor/shuttle/advanced,
 /area/dungeon/skrell_ship)
 "br" = (
@@ -473,7 +473,7 @@
 /turf/simulated/floor/shuttle/skrell,
 /area/dungeon/skrell_ship)
 "bG" = (
-/obj/item/device/t_scanner,
+/obj/item/t_scanner,
 /turf/simulated/floor/shuttle/advanced,
 /area/dungeon/skrell_ship)
 "bH" = (
@@ -595,7 +595,7 @@
 /area/dungeon/skrell_ship)
 "bY" = (
 /obj/structure/table/skrell,
-/obj/item/device/healthanalyzer,
+/obj/item/healthanalyzer,
 /obj/machinery/light/skrell{
 	dir = 1
 	},
@@ -603,7 +603,7 @@
 /area/dungeon/skrell_ship)
 "bZ" = (
 /obj/structure/table/skrell,
-/obj/item/device/mass_spectrometer/adv,
+/obj/item/mass_spectrometer/adv,
 /obj/machinery/light/skrell{
 	dir = 1
 	},

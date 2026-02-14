@@ -1403,10 +1403,6 @@ var/global/enabled_spooking = 0
 	if(!check_rights(R_ADMIN))
 		return
 
-	if(!SSticker.mode || !istype(SSticker.mode, /datum/game_mode/odyssey))
-		to_chat(usr, SPAN_WARNING("The gamemode either does not exist, or is not Odyssey."))
-		return
-
 	if(SSticker.current_state != GAME_STATE_SETTING_UP)
 		to_chat(usr, SPAN_WARNING("You need to use this verb while the game is still setting up!"))
 		return
@@ -1429,5 +1425,24 @@ var/global/enabled_spooking = 0
 
 	SSodyssey.scenario = chosen_scenario
 	log_and_message_admins("has manually set the Odyssey to [chosen_scenario.name]", usr)
-	feedback_add_details("admin_verb","SEST") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
+	feedback_add_details("admin_verb","SEOT") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
+/datum/admins/proc/set_odyssey_canonicity()
+	set name = "Set Odyssey Canonicity"
+	set category = "Special Verbs"
+
+	if(!check_rights(R_ADMIN))
+		return
+
+	if(!SSodyssey.scenario)
+		to_chat(usr, SPAN_WARNING("There needs to be an Odyssey selected first! Use the Set Odyssey Type verb."))
+		return
+
+	var/canonicity = tgui_input_list(usr, "Set the Odyssey canonicity.", "Set Odyssey Canonicity", list(SCENARIO_TYPE_CANON, SCENARIO_TYPE_NONCANON))
+	if(!canonicity)
+		return
+
+	SSodyssey.scenario.scenario_type = canonicity
+	to_world(FONT_LARGE(EXAMINE_BLOCK_ODYSSEY(SPAN_NOTICE("The scenario canonicity has been changed to [SPAN_BOLD(canonicity)] by an administrator."))))
+	log_and_message_admins("has set the Odyssey canonicity to [canonicity]", usr)
+	feedback_add_details("admin_verb","SEOC") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!

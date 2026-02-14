@@ -16,7 +16,7 @@
 	var/burning
 
 	/// Generic hit sound
-	var/hitsound = /singleton/sound_category/swing_hit_sound
+	var/hitsound = SFX_SWING_HIT
 
 	var/storage_cost
 
@@ -132,7 +132,7 @@
 	var/list/allowed = null
 
 	/// All items can have an uplink hidden inside, just remember to add the triggers.
-	var/obj/item/device/uplink/hidden/hidden_uplink
+	var/obj/item/uplink/hidden/hidden_uplink
 
 	/// Name used for message when binoculars/scope is used
 	var/zoomdevicename
@@ -147,9 +147,9 @@
 	/// Sound used when equipping the item into a valid slot
 	var/equip_sound = null
 	/// Sound uses when picking the item up (into your hands)
-	var/pickup_sound = /singleton/sound_category/generic_pickup_sound
+	var/pickup_sound = SFX_PICKUP
 	/// Sound uses when dropping the item, or when its thrown.
-	var/drop_sound = /singleton/sound_category/generic_drop_sound
+	var/drop_sound = SFX_DROP
 
 	var/list/armor
 	/// How fast armor will degrade, multiplier to blocked damage to get armor damage value.
@@ -235,10 +235,13 @@
 	/// Holder var for the item outline filter, null when no outline filter on the item.
 	var/outline_filter
 
-	// Persistency
-	// Set this to true if you want the item to become persistent trash
-	// Requires the usual implementation requirements for new persistent types but provides a single implementation for trash logic
+	/// Persistency
+	/// Set this to true if you want the item to become persistent trash
+	/// Requires the usual implementation requirements for new persistent types but provides a single implementation for trash logic
 	var/persistency_considered_trash = FALSE
+
+	/// How a tool acts when you use it on something, such as wirecutters cutting wires while multitools measure power
+	var/tool_behaviour = null
 
 /obj/item/Initialize(mapload, ...)
 	. = ..()
@@ -254,10 +257,7 @@
 /obj/item/Destroy()
 	if(ismob(loc))
 		var/mob/m = loc
-		m.drop_from_inventory(src)
-		m.update_inv_r_hand()
-		m.update_inv_l_hand()
-		src.loc = null
+		m.drop_from_inventory(src, null)
 
 	if(!QDELETED(action))
 		QDEL_NULL(action) // /mob/living/proc/handle_actions() creates it, for ungodly reasons
@@ -732,7 +732,7 @@ GLOBAL_LIST_INIT(slot_flags_enumeration, list(
 				if(!disable_warning)
 					to_chat(usr, SPAN_WARNING("You somehow have a suit with no defined allowed items for suit storage, stop that."))
 				return 0
-			if(!istype(src, /obj/item/modular_computer) && !ispen() && !is_type_in_list(src, H.wear_suit.allowed))
+			if(!istype(src, /obj/item/modular_computer) && tool_behaviour == TOOL_PEN && !is_type_in_list(src, H.wear_suit.allowed))
 				return 0
 		if(slot_handcuffed)
 			if(!istype(src, /obj/item/handcuffs))
@@ -927,7 +927,7 @@ GLOBAL_LIST_INIT(slot_flags_enumeration, list(
 	user.langchat_speech("holds up [src].", viewers, GLOB.all_languages, skip_language_check = TRUE, animation_style = LANGCHAT_FAST_POP, additional_styles = list("langchat_small", "emote"))
 	for (var/mob/M in viewers)
 		if(!user.is_invisible_to(M))
-			M.show_message("<b>[user]</b> holds up [icon2html(src, viewers)] [src]. <a href='byond://?src=[REF(M)];lookitem=[REF(src)]'>Take a closer look.</a>",1)
+			M.show_message("<b>[user]</b> holds up [icon2html(src, M)] [src]. <a href='byond://?src=[REF(M)];lookitem=[REF(src)]'>Take a closer look.</a>",1)
 
 /mob/living/carbon/verb/showoff()
 	set name = "Show Held Item"

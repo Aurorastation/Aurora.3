@@ -213,7 +213,7 @@
 /turf/simulated/floor/plating,
 /area/heph_survey_post)
 "jx" = (
-/obj/machinery/autolathe,
+/obj/machinery/fabricator/autolathe,
 /turf/simulated/floor/tiled/dark,
 /area/heph_survey_post)
 "jF" = (
@@ -296,10 +296,10 @@
 	icon_state = "heph_crate";
 	name = "equipment crate"
 	},
-/obj/item/device/spaceflare,
-/obj/item/device/spaceflare,
-/obj/item/device/spaceflare,
-/obj/item/device/spaceflare,
+/obj/item/spaceflare,
+/obj/item/spaceflare,
+/obj/item/spaceflare,
+/obj/item/spaceflare,
 /turf/simulated/floor/plating,
 /area/heph_survey_post)
 "nN" = (
@@ -474,7 +474,7 @@
 	icon_state = "heph_crate";
 	name = "equipment crate"
 	},
-/obj/item/device/analyzer,
+/obj/item/analyzer,
 /turf/simulated/floor/plating,
 /area/heph_survey_post)
 "uv" = (
@@ -923,8 +923,8 @@
 	icon_state = "heph_crate";
 	name = "equipment crate"
 	},
-/obj/item/device/suit_cooling_unit,
-/obj/item/device/suit_cooling_unit,
+/obj/item/suit_cooling_unit,
+/obj/item/suit_cooling_unit,
 /turf/simulated/floor/plating,
 /area/heph_survey_post)
 "Te" = (

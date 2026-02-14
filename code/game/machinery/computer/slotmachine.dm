@@ -99,7 +99,7 @@
 	else if(istype(attacking_item, /obj/item/spacecash))
 		if(paymode == CREDITCHIP)
 			var/obj/item/spacecash/H = attacking_item
-			to_chat(user, SPAN_NOTICE("You insert [H.worth] credits into [src]'s slot!"))
+			to_chat(user, SPAN_NOTICE("You insert [H.worth]电 into [src]'s slot!"))
 			playsound(loc, 'sound/arcade/sloto_token.ogg', 10, 1, extrarange = -3, falloff_distance = 10, required_asfx_toggles = ASFX_ARCADE)
 			balance += H.worth
 			updateUsrDialog()
@@ -107,7 +107,7 @@
 		else
 			to_chat(user, SPAN_WARNING("This machine is only accepting coins!"))
 		return TRUE
-	else if(attacking_item.ismultitool())
+	else if(attacking_item.tool_behaviour == TOOL_MULTITOOL)
 		if(balance > 0)
 			visible_message("<b>[src]</b> says, 'ERROR! Please empty the machine balance before altering paymode'") //Prevents converting coins into credits and vice versa
 		else
@@ -125,7 +125,7 @@
 	if(!emagged)
 		emmaged = TRUE
 		spark(src, 3)
-		playsound(src, /singleton/sound_category/spark_sound, 50, 1)
+		playsound(src, SFX_SPARKS, 50, 1)
 		return TRUE
 
 /obj/machinery/computer/slot_machine/ui_interact(mob/living/user)
@@ -168,7 +168,7 @@
 		spin(usr)
 
 	else if(href_list["refund"])
-		playsound(src, /singleton/sound_category/button_sound, clickvol)
+		playsound(src, SFX_BUTTON, clickvol)
 		if(balance > 0)
 			give_payout(balance, usr)
 			balance = 0

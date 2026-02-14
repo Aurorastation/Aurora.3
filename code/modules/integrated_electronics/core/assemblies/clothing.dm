@@ -3,7 +3,7 @@
 // E.g. Glasses have less room than something worn over the chest.
 // Note that the electronic assembly is INSIDE the object that actually gets worn, in a similar way to implants.
 
-/obj/item/device/electronic_assembly/clothing
+/obj/item/electronic_assembly/clothing
 	name = "electronic clothing"
 	var/clothing_icon_state = "circuitry" // Needs to match the clothing's base icon_state.
 	desc = "It's a case, for building machines attached to clothing."
@@ -12,16 +12,16 @@
 	max_complexity = IC_COMPLEXITY_BASE
 	var/obj/item/clothing/clothing = null
 
-/obj/item/device/electronic_assembly/clothing/ui_host()
+/obj/item/electronic_assembly/clothing/ui_host()
 	return clothing
 
-/obj/item/device/electronic_assembly/clothing/resolve_ui_host()
+/obj/item/electronic_assembly/clothing/resolve_ui_host()
 	return clothing
 
-/obj/item/device/electronic_assembly/clothing/get_assembly_holder()
+/obj/item/electronic_assembly/clothing/get_assembly_holder()
 	return clothing
 
-/obj/item/device/electronic_assembly/clothing/update_icon()
+/obj/item/electronic_assembly/clothing/update_icon()
 	clothing.icon_state = "[initial(clothing.icon_state)][opened ? "-open" : ""]"
 	clothing.ClearOverlays()
 	var/image/detail_overlay = image('icons/obj/assemblies/wearable_electronic_setups.dmi', "[initial(clothing.icon_state)][opened ? "-open" : ""]-color")
@@ -30,25 +30,25 @@
 	clothing.update_clothing_icon()
 
 // This is 'small' relative to the size of regular clothing assemblies.
-/obj/item/device/electronic_assembly/clothing/small
+/obj/item/electronic_assembly/clothing/small
 	max_components = IC_COMPONENTS_BASE / 2
 	max_complexity = IC_COMPLEXITY_BASE / 2
 	w_class = WEIGHT_CLASS_TINY
 
 // Ditto.
-/obj/item/device/electronic_assembly/clothing/large
+/obj/item/electronic_assembly/clothing/large
 	max_components = IC_COMPONENTS_BASE * 2
 	max_complexity = IC_COMPLEXITY_BASE * 2
 	w_class = WEIGHT_CLASS_NORMAL
 
-/obj/item/device/electronic_assembly/clothing/rename()
+/obj/item/electronic_assembly/clothing/rename()
 	var/input_name = ..()
 	if(input_name)
 		clothing.name = input_name
 
 // This is defined higher up, in /clothing to avoid lots of copypasta.
 /obj/item/clothing
-	var/obj/item/device/electronic_assembly/clothing/IC = null
+	var/obj/item/electronic_assembly/clothing/IC = null
 	var/obj/item/integrated_circuit/built_in/action_button/action_circuit = null // This gets pulsed when someone clicks the button on the hud, OR when certain interactions are performed (such as clicking on something with gloves worn)
 
 /obj/item/clothing/examine(mob/user, distance, is_adjacent, infix, suffix, show_extended)
@@ -91,7 +91,7 @@
 	worn_state = "jumpsuit"
 
 /obj/item/clothing/under/circuitry/Initialize()
-	setup_integrated_circuit(/obj/item/device/electronic_assembly/clothing)
+	setup_integrated_circuit(/obj/item/electronic_assembly/clothing)
 	return ..()
 
 /obj/item/clothing/under/circuitry/build_additional_parts(mob/living/carbon/human/H, mob_icon, slot)
@@ -114,7 +114,7 @@
 	item_state = "gloves"
 
 /obj/item/clothing/gloves/circuitry/Initialize()
-	setup_integrated_circuit(/obj/item/device/electronic_assembly/clothing/small)
+	setup_integrated_circuit(/obj/item/electronic_assembly/clothing/small)
 	return ..()
 
 /obj/item/clothing/gloves/circuitry/build_additional_parts(mob/living/carbon/human/H, mob_icon, slot)
@@ -147,7 +147,7 @@
 	item_state = "goggles"
 
 /obj/item/clothing/glasses/circuitry/Initialize()
-	setup_integrated_circuit(/obj/item/device/electronic_assembly/clothing/small)
+	setup_integrated_circuit(/obj/item/electronic_assembly/clothing/small)
 	return ..()
 
 /obj/item/clothing/glasses/circuitry/build_additional_parts(mob/living/carbon/human/H, mob_icon, slot)
@@ -185,7 +185,7 @@
 	item_state = "shoes"
 
 /obj/item/clothing/shoes/circuitry/Initialize()
-	setup_integrated_circuit(/obj/item/device/electronic_assembly/clothing/small)
+	setup_integrated_circuit(/obj/item/electronic_assembly/clothing/small)
 	return ..()
 
 /obj/item/clothing/shoes/circuitry/build_additional_parts(mob/living/carbon/human/H, mob_icon, slot)
@@ -208,7 +208,7 @@
 	item_state = "head"
 
 /obj/item/clothing/head/circuitry/Initialize()
-	setup_integrated_circuit(/obj/item/device/electronic_assembly/clothing/small)
+	setup_integrated_circuit(/obj/item/electronic_assembly/clothing/small)
 	return ..()
 
 /obj/item/clothing/head/circuitry/build_additional_parts(mob/living/carbon/human/H, mob_icon, slot)
@@ -230,7 +230,7 @@
 	item_state = "headset"
 
 /obj/item/clothing/ears/circuitry/Initialize()
-	setup_integrated_circuit(/obj/item/device/electronic_assembly/clothing/small)
+	setup_integrated_circuit(/obj/item/electronic_assembly/clothing/small)
 	return ..()
 
 /obj/item/clothing/ears/circuitry/build_additional_parts(mob/living/carbon/human/H, mob_icon, slot)
@@ -253,7 +253,7 @@
 	item_state = "chest"
 
 /obj/item/clothing/suit/circuitry/Initialize()
-	setup_integrated_circuit(/obj/item/device/electronic_assembly/clothing/large)
+	setup_integrated_circuit(/obj/item/electronic_assembly/clothing/large)
 	return ..()
 
 /obj/item/clothing/suit/circuitry/build_additional_parts(mob/living/carbon/human/H, mob_icon, slot)

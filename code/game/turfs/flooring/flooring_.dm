@@ -33,7 +33,7 @@
 	var/descriptor = "tiles"
 	var/flags
 	var/can_paint = FALSE
-	var/footstep_sound = /singleton/sound_category/tiles_footstep
+	var/footstep_sound = SFX_FOOTSTEP_TILES
 
 	//How we smooth with other flooring
 	var/decal_layer = DECAL_LAYER
@@ -63,7 +63,7 @@
 	damage_temperature = T0C+80
 	flags = TURF_HAS_EDGES | TURF_OFFSET_EDGES | TURF_HAS_CORNERS | TURF_REMOVE_SHOVEL | TURF_CAN_BREAK | TURF_CAN_BURN
 	build_type = /obj/item/stack/tile/grass
-	footstep_sound = /singleton/sound_category/grass_footstep
+	footstep_sound = SFX_FOOTSTEP_GRASS
 	floor_smooth = SMOOTH_NONE
 	wall_smooth = SMOOTH_ALL
 	space_smooth = SMOOTH_NONE
@@ -75,7 +75,7 @@
 	icon_base = "asteroid"
 	flags = TURF_HAS_EDGES | TURF_OFFSET_EDGES | TURF_REMOVE_SHOVEL
 	build_type = null
-	footstep_sound = /singleton/sound_category/asteroid_footstep
+	footstep_sound = SFX_FOOTSTEP_ASTEROID
 
 /singleton/flooring/snow
 	name = "snow"
@@ -84,7 +84,7 @@
 	icon_base = "snow"
 	has_base_range = 2
 	flags = TURF_HAS_EDGES | TURF_OFFSET_EDGES | TURF_REMOVE_SHOVEL
-	footstep_sound = /singleton/sound_category/snow_footstep
+	footstep_sound = SFX_FOOTSTEP_SNOW
 
 //Carpet
 /singleton/flooring/carpet
@@ -95,7 +95,7 @@
 	build_type = /obj/item/stack/tile/carpet
 	damage_temperature = T0C+200
 	flags = TURF_HAS_CORNERS | TURF_HAS_INNER_CORNERS | TURF_REMOVE_CROWBAR | TURF_CAN_BREAK | TURF_CAN_BURN | TURF_HAS_EDGES
-	footstep_sound = /singleton/sound_category/carpet_footstep
+	footstep_sound = SFX_FOOTSTEP_CARPET
 	floor_smooth = SMOOTH_NONE
 	wall_smooth = SMOOTH_NONE
 	space_smooth = SMOOTH_NONE
@@ -166,7 +166,7 @@
 	flags = TURF_REMOVE_CROWBAR | TURF_CAN_BREAK | TURF_CAN_BURN
 	build_type = /obj/item/stack/tile/floor
 	can_paint = TRUE
-	footstep_sound = /singleton/sound_category/tiles_footstep
+	footstep_sound = SFX_FOOTSTEP_TILES
 	has_damage_range = 4
 	has_burn_range = 1
 
@@ -192,7 +192,7 @@
 	flags = TURF_REMOVE_CROWBAR | TURF_CAN_BREAK
 	build_type = /obj/item/stack/tile/lino
 	can_paint = TRUE
-	footstep_sound = /singleton/sound_category/carpet_footstep
+	footstep_sound = SFX_FOOTSTEP_CARPET
 
 /singleton/flooring/linoleum/diamond
 	icon_base = "lino_diamond"
@@ -323,7 +323,7 @@
 	descriptor = "planks"
 	build_type = /obj/item/stack/tile/wood
 	flags = TURF_CAN_BREAK | TURF_IS_FRAGILE | TURF_REMOVE_SCREWDRIVER | TURF_CAN_BURN
-	footstep_sound = /singleton/sound_category/wood_footstep
+	footstep_sound = SFX_FOOTSTEP_WOOD
 	can_paint = TRUE
 
 /singleton/flooring/wood/birch
@@ -366,7 +366,7 @@
 	apply_thermal_conductivity = 0.025
 	apply_heat_capacity = 325000
 	can_paint = TRUE
-	footstep_sound = /singleton/sound_category/plating_footstep
+	footstep_sound = SFX_FOOTSTEP_PLATING
 
 /singleton/flooring/reinforced/large
 	icon = 'icons/turf/flooring/tiles.dmi'
@@ -424,7 +424,7 @@
 	icon_base = "diona"
 	has_base_range = 4
 	flags = TURF_ACID_IMMUNE | TURF_REMOVE_SHOVEL | TURF_REMOVE_WELDER
-	footstep_sound = /singleton/sound_category/grass_footstep
+	footstep_sound = SFX_FOOTSTEP_GRASS
 
 //material turfs
 

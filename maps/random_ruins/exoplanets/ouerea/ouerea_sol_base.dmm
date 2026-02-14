@@ -61,7 +61,7 @@
 /area/ouerea_sol)
 "ed" = (
 /obj/structure/table/rack,
-/obj/item/device/multitool,
+/obj/item/multitool,
 /obj/effect/floor_decal/corner/orange{
 	dir = 6
 	},

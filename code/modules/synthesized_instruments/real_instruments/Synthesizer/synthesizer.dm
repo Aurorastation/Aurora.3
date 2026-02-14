@@ -42,7 +42,7 @@
 
 
 //in-hand version
-/obj/item/device/synthesized_instrument/synthesizer
+/obj/item/synthesized_instrument/synthesizer
 	name = "Synthesizer Mini"
 	desc = "The power of an entire orchestra in a handy midi keyboard format."
 	icon_state = "h_synthesizer"
