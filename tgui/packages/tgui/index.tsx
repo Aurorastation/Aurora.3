@@ -75,6 +75,9 @@ const setupApp = () => {
   // Dispatch incoming messages as store actions
   Byond.subscribe((type, payload) => store.dispatch({ type, payload }));
 
+  // Inform BYOND (tgui) we are ready to receive updates
+  Byond.sendMessage('ready');
+
   // Enable hot module reloading
   if (module.hot) {
     setupHotReloading();

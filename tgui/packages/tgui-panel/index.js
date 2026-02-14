@@ -86,6 +86,9 @@ const setupApp = () => {
     });
   });
 
+  // Inform BYOND (tgui) we are ready to receive updates
+  Byond.sendMessage('ready');
+
   // Enable hot module reloading
   if (module.hot) {
     setupHotReloading();

@@ -735,14 +735,5 @@ NNNNNNNN         NNNNNNN      TTTTTTTTTTT           OOOOOOOOO      SSSSSSSSSSSSS
         <div>Please enable Javascript and restart the game.</div>
       </div>
     </noscript>
-
-    <script>
-      // Signal tgui that we're ready to receive updates once our UI is setup
-      if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', () => { Byond.sendMessage('ready'); });
-      } else {
-        Byond.sendMessage('ready');
-      }
-    </script>
   </body>
 </html>
