@@ -16,7 +16,7 @@
 	spawn_weight = 1
 	ship_cost = 1
 	id = "coc_scarab"
-	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/scarab_shuttle, /datum/shuttle/autodock/multi/lift/scarab)
+	shuttles_to_initialise = list(/datum/shuttle/overmap/scarab_shuttle, /datum/shuttle/multi/lift/scarab)
 	unit_test_groups = list(1)
 
 /singleton/submap_archetype/coc_scarab
@@ -62,13 +62,13 @@
 		"Scarab Shuttle" = list("nav_scarab_start"),
 	)
 
+	ship_area_type = /area/ship/coc_scarab
+
 /obj/effect/overmap/visitable/ship/coc_scarab/New()
 	designation = "[pick("Umphangi", "Umfuni", "Zibal", "Albahith", "Sikeo", "Chaj-a Hemaeda", "Khog Tseverlegch", "Khaigch")]"
 	..()
 
 /obj/effect/shuttle_landmark/coc_scarab
-	base_turf = /turf/space/dynamic
-	base_area = /area/space
 
 /obj/effect/shuttle_landmark/coc_scarab/nav1
 	name = "Scarab Salvage Vessel - Deck Two Fore"
@@ -146,17 +146,18 @@
 	sizeclass = "Mattock-class Mining Shuttle"
 	shiptype = "Mineral exploitation and salvage operations"
 
+	ship_area_type = /area/shuttle/coc_scarab
+
 /obj/machinery/computer/shuttle_control/explore/terminal/scarab_shuttle
 	name = "shuttle control terminal"
 	shuttle_tag = "Scarab Shuttle"
 
-/datum/shuttle/autodock/overmap/scarab_shuttle
+/datum/shuttle/overmap/scarab_shuttle
 	name = "Scarab Shuttle"
 	move_time = 20
 	shuttle_area = list(/area/shuttle/coc_scarab/central, /area/shuttle/coc_scarab/port, /area/shuttle/coc_scarab/starboard)
 	dock_target = "airlock_scarab_shuttle"
 	current_location = "nav_scarab_start"
-	landmark_transition = "nav_scarab_transit"
 	range = 1
 	fuel_consumption = 2
 	logging_home_tag = "nav_scarab_start"
@@ -170,10 +171,9 @@
 /obj/effect/shuttle_landmark/coc_scarab/shuttle_transit
 	name = "In transit"
 	landmark_tag = "nav_scarab_transit"
-	base_turf = /turf/space/transit/north
 
 // Lift
-/datum/shuttle/autodock/multi/lift/scarab
+/datum/shuttle/multi/lift/scarab
 	name = "Scarab Lift"
 	current_location = "nav_scarab_lift_first_deck"
 	shuttle_area = /area/turbolift/coc_scarab/scarab_lift
@@ -185,14 +185,10 @@
 /obj/effect/shuttle_landmark/lift/scarab_first_deck
 	name = "Scarab Salvager Lift - First Deck"
 	landmark_tag = "nav_scarab_lift_first_deck"
-	base_area = /area/ship/coc_scarab/hangar
-	base_turf = /turf/simulated/floor/plating
 
 /obj/effect/shuttle_landmark/lift/scarab_second_deck
 	name = "Scarab Salvager Lift - Second Deck"
 	landmark_tag = "nav_scarab_lift_second_deck"
-	base_area = /area/ship/coc_scarab/cargobay
-	base_turf = /turf/simulated/open
 
 /obj/machinery/computer/shuttle_control/multi/lift/scarab
 	shuttle_tag = "Scarab Lift"

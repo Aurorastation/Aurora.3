@@ -3,7 +3,6 @@
 	icon_state = "bluenew"
 	requires_power = TRUE
 	no_light_control = FALSE
-	base_turf = /turf/space
 	area_flags = AREA_FLAG_RAD_SHIELDED
 	ambience = AMBIENCE_ENGINEERING
 
@@ -121,7 +120,7 @@
 	name = "Republican Fleet Corvette - Exterior"
 	requires_power = FALSE
 	icon_state = "exterior"
-	has_gravity = FALSE
+	area_flags = AREA_FLAG_NO_GRAVITY | AREA_FLAG_SHIP_EXTERIOR
 
 // Shuttle area.
 /area/shuttle/tcaf

@@ -91,7 +91,7 @@
 
 /obj/machinery/telecomms/allinone/ship/station_relay/LateInitialize()
 	. = ..()
-	desc = replacetext(desc, "%STATIONNAME", SSatlas.current_map.station_name)
+	desc = replacetext(desc, "%STATIONNAME", SSmapping.current_map.station_name)
 	for(var/ch in AWAY_FREQS_ASSIGNED)
 		freq_listening |= AWAY_FREQS_ASSIGNED[ch]
 	freq_listening |= AWAY_FREQS_UNASSIGNED

@@ -13,7 +13,6 @@
 	icon_state = "bluenew"
 	requires_power = FALSE
 	no_light_control = FALSE
-	base_turf = /turf/simulated/floor/exoplanet/barren
 	area_flags = AREA_FLAG_RAD_SHIELDED|AREA_FLAG_INDESTRUCTIBLE_TURFS
 	area_blurb = "This facility seems to be long-since abandoned - signs of rust and neglect cover everything. Banners displaying NanoTrasen logos hang limp and tattered."
 

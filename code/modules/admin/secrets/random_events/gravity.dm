@@ -16,14 +16,17 @@
 	if(!.)
 		return
 
-	GLOB.gravity_is_on = !GLOB.gravity_is_on
-	for(var/A in SSmachinery.gravity_generators)
-		var/obj/machinery/gravity_generator/main/B = A
-		B.eventshutofftoggle()
+	var/station_levels = SSmapping.levels_by_trait(ZTRAIT_STATION)
+	var/enabled = FALSE
+	for(var/grav_z in GLOB.gravity_generators)
+		if(grav_z in station_levels)
+			for(var/obj/machinery/gravity_generator/main/B as anything in GLOB.gravity_generators[grav_z])
+				B.eventshutofftoggle()
+				enabled = !B.eventon
 
 	feedback_inc("admin_secrets_fun_used",1)
 	feedback_add_details("admin_secrets_fun_used","Grav")
-	if(GLOB.gravity_is_on)
+	if(enabled)
 		log_admin("[key_name(user)] toggled gravity on.")
 		message_admins(SPAN_NOTICE("[key_name_admin(user)] toggled gravity on."), 1)
 		command_announcement.Announce("Gravity generators are again functioning within normal parameters. Sorry for any inconvenience.")

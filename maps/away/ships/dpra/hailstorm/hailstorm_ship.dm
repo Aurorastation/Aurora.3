@@ -8,7 +8,7 @@
 
 	ship_cost = 1
 	spawn_weight = 1
-	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/hailstorm_shuttle)
+	shuttles_to_initialise = list(/datum/shuttle/overmap/hailstorm_shuttle)
 	spawn_weight_sector_dependent = list(SECTOR_SRANDMARR = 2, SECTOR_GAKAL = 2, SECTOR_BADLANDS = 0.5)
 	sectors = list(SECTOR_BADLANDS, SECTOR_SRANDMARR, SECTOR_GAKAL)
 	unit_test_groups = list(1)
@@ -50,6 +50,8 @@
 	)
 
 	invisible_until_ghostrole_spawn = TRUE
+
+	ship_area_type = /area/hailstorm_ship
 
 /obj/effect/overmap/visitable/ship/hailstorm_ship/New()
 	designation = "[pick("Al'mari", "Champion of the Tajara", "Nated's Revenge", "Mata'ke's Blade", "Star Guerilla", "Dreams of Freedom", "Al'mariist Comet", "Adhomai's Liberator")]"

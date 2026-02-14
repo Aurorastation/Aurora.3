@@ -9,7 +9,7 @@
 	spawn_weight = 1
 	ship_cost = 1
 	id = "elyran_corvette"
-	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/elyran_shuttle)
+	shuttles_to_initialise = list(/datum/shuttle/overmap/elyran_shuttle)
 
 	unit_test_groups = list(3)
 
@@ -51,6 +51,8 @@
 
 	invisible_until_ghostrole_spawn = TRUE
 
+	ship_area_type = /area/ship/elyran_corvette
+
 /obj/effect/overmap/visitable/ship/elyran_corvette/New()
 	designation = "[pick("Republican", "Falcon", "Gelin", "Sphinx", "Takam", "Dandan", "Anqa", "Falak", "Uthra", "Djinn", "Roc", "Shadhavar", "Karkadann", "Sari", "Rushdie", "Al-Laylat", "Ataturk", "Republican Glory", "Pilgrimage")]"
 	..()
@@ -65,40 +67,28 @@
 /obj/effect/shuttle_landmark/elyran_corvette/nav1
 	name = "Port Navpoint"
 	landmark_tag = "nav_elyran_corvette_1"
-	base_turf = /turf/space/dynamic
-	base_area = /area/space
 
 /obj/effect/shuttle_landmark/elyran_corvette/nav2
 	name = "Fore Navpoint"
 	landmark_tag = "nav_elyran_corvette_2"
-	base_turf = /turf/space/dynamic
-	base_area = /area/space
 
 /obj/effect/shuttle_landmark/elyran_corvette/nav3
 	name = "Starboard Navpoint"
 	landmark_tag = "nav_elyran_corvette_3"
-	base_turf = /turf/space/dynamic
-	base_area = /area/space
 
 /obj/effect/shuttle_landmark/elyran_corvette/nav4
 	name = "Aft Navpoint"
 	landmark_tag = "nav_elyran_corvette_4"
-	base_turf = /turf/space/dynamic
-	base_area = /area/space
 
 /obj/effect/shuttle_landmark/elyran_corvette/dock/port
 	name = "Port Dock"
 	landmark_tag = "nav_elyran_corvette_dock_port"
 	docking_controller = "airlock_elyran_corvette_dock_port"
-	base_turf = /turf/space
-	base_area = /area/space
 
 /obj/effect/shuttle_landmark/elyran_corvette/dock/starboard
 	name = "Starboard Dock"
 	landmark_tag = "nav_elyran_corvette_dock_starboard"
 	docking_controller = "airlock_elyran_corvette_dock_starboard"
-	base_turf = /turf/space
-	base_area = /area/space
 
 //shuttle stuff
 /obj/effect/overmap/visitable/ship/landable/elyran_shuttle
@@ -120,6 +110,8 @@
 	sizeclass = "Huriya-class Transport Craft"
 	shiptype = "All-environment troop transport"
 
+	ship_area_type = /area/shuttle/elyran_shuttle
+
 /obj/machinery/computer/shuttle_control/explore/elyran_shuttle
 	name = "shuttle control console"
 	shuttle_tag = "Elyran Naval Shuttle"
@@ -133,13 +125,12 @@
 	can_pass_under = FALSE
 	light_power_on = 1
 
-/datum/shuttle/autodock/overmap/elyran_shuttle
+/datum/shuttle/overmap/elyran_shuttle
 	name = "Elyran Naval Shuttle"
 	move_time = 20
 	shuttle_area = list(/area/shuttle/elyran_shuttle)
 	current_location = "nav_hangar_elyra"
 	dock_target = "airlock_elyran_shuttle"
-	landmark_transition = "nav_transit_elyran_shuttle"
 	range = 1
 	fuel_consumption = 2
 	logging_home_tag = "nav_hangar_elyra"
@@ -149,14 +140,11 @@
 	name = "Elyran Naval Shuttle Hangar"
 	landmark_tag = "nav_hangar_elyra"
 	docking_controller = "elyran_shuttle_dock"
-	base_area = /area/ship/elyran_corvette/hangar
-	base_turf = /turf/simulated/floor
 	movable_flags = MOVABLE_FLAG_EFFECTMOVE
 
 /obj/effect/shuttle_landmark/elyran_shuttle/transit
 	name = "In transit"
 	landmark_tag = "nav_transit_elyran_shuttle"
-	base_turf = /turf/space/transit/north
 
 // custom stuff
 // beret

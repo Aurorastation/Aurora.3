@@ -1263,7 +1263,7 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 	else
 		maptext = ""
 
-/obj/item/throw_at()
+/obj/item/throw_at(atom/target, range, speed, mob/thrower, spin = TRUE, diagonals_first = FALSE, datum/callback/callback, force = MOVE_FORCE_STRONG, gentle = FALSE, quickstart = TRUE)
 	..()
 	in_inventory = FALSE
 	if(item_flags & ITEM_FLAG_HELD_MAP_TEXT)

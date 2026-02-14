@@ -1,6 +1,4 @@
 /obj/effect/shuttle_landmark/himeo_patrol
-	base_turf = /turf/space/dynamic
-	base_area = /area/space
 
 //Deck 1 navpoints.
 /obj/effect/shuttle_landmark/himeo_patrol/nav1
@@ -23,22 +21,18 @@
 /obj/effect/shuttle_landmark/himeo_patrol/dock1
 	name = "Himeo Planetary Guard Vessel - Deck Two Starboard"
 	landmark_tag = "himeo_patrol_dock1"
-	base_turf = /turf/simulated/floor/reinforced/airless
 
 /obj/effect/shuttle_landmark/himeo_patrol/dock2
 	name = "Himeo Planetary Guard Vessel - Deck Two Fore"
 	landmark_tag = "himeo_patrol_dock2"
-	base_turf = /turf/simulated/floor/reinforced/airless
 
 /obj/effect/shuttle_landmark/himeo_patrol/dock3
 	name = "Himeo Planetary Guard Vessel - Deck Two Aft"
 	landmark_tag = "himeo_patrol_dock3"
-	base_turf = /turf/simulated/floor/reinforced/airless
 
 /obj/effect/shuttle_landmark/himeo_patrol/dock4
 	name = "Himeo Planetary Guard Vessel - Deck Two Port"
 	landmark_tag = "himeo_patrol_dock4"
-	base_turf = /turf/simulated/floor/reinforced/airless
 
 // Airlock markers, Deck 1
 /obj/effect/map_effect/marker/airlock/himeo_patrol/fore

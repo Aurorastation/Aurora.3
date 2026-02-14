@@ -17,7 +17,7 @@
 
 /obj/machinery/computer/security/Initialize()
 	if(!console_networks)
-		console_networks = SSatlas.current_map.station_networks.Copy()
+		console_networks = SSmapping.current_map.station_networks.Copy()
 	. = ..()
 	if(console_networks.len)
 		current_network = console_networks[1]

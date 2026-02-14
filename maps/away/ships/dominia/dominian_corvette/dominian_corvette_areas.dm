@@ -3,13 +3,13 @@
 	icon_state = "red"
 	requires_power = TRUE
 	no_light_control = FALSE
-	base_turf = /turf/space
 	area_flags = AREA_FLAG_RAD_SHIELDED
 	ambience = AMBIENCE_ENGINEERING
 
 /area/dominian_corvette/exterior
 	name = "Dominian Corvette - Exterior"
 	requires_power = FALSE
+	area_flags = AREA_FLAG_NO_GRAVITY | AREA_FLAG_SHIP_EXTERIOR
 
 /area/dominian_corvette/docking_arm
 	name = "Dominian Corvette - Docking Arm"

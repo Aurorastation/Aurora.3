@@ -35,10 +35,8 @@ Generally you don't want to put your areas in here; if the area is only used in 
 	power_environ = 0
 	ambience = AMBIENCE_SPACE
 	no_light_control = 1
-	base_turf = /turf/space
 	is_outside = OUTSIDE_YES
-	area_flags = AREA_FLAG_IS_BACKGROUND | AREA_FLAG_HIDE_FROM_HOLOMAP
-	nevergravity = TRUE //There's no gravity in space
+	area_flags = AREA_FLAG_IS_BACKGROUND | AREA_FLAG_HIDE_FROM_HOLOMAP | AREA_FLAG_NO_GRAVITY
 
 /area/space/atmosalert()
 	return

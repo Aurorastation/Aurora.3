@@ -5,6 +5,7 @@
 	name = "CentComm Solitary Confinement"
 	icon_state = "brig"
 	centcomm_area = 1
+	default_gravity = STANDARD_GRAVITY
 	area_flags = AREA_FLAG_PRISON
 
 /area/centcom
@@ -12,8 +13,8 @@
 	icon_state = "centcom"
 	requires_power = 0
 	no_light_control = 1
-	base_turf = /turf/unsimulated/floor/plating
 	centcomm_area = 1
+	default_gravity = STANDARD_GRAVITY
 	ambience = AMBIENCE_ARRIVALS
 
 /area/centcom/control
@@ -98,6 +99,7 @@
 	requires_power = 0
 	no_light_control = 1
 	centcomm_area = 1
+	default_gravity = STANDARD_GRAVITY
 	area_flags = AREA_FLAG_NO_CREW_EXPECTED
 	ambience = AMBIENCE_HIGHSEC
 
@@ -114,6 +116,7 @@
 	requires_power = FALSE
 	no_light_control = TRUE
 	centcomm_area = TRUE
+	default_gravity = STANDARD_GRAVITY
 	area_flags = AREA_FLAG_NO_CREW_EXPECTED
 
 /area/antag/mercenary
@@ -157,6 +160,7 @@
 	sound_environment = SOUND_ENVIRONMENT_ARENA
 	no_light_control = 1
 	centcomm_area = 1
+	default_gravity = STANDARD_GRAVITY
 	area_flags = AREA_FLAG_NO_CREW_EXPECTED
 
 /area/tdome/tdome1

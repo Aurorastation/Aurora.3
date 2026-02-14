@@ -5,6 +5,7 @@
 /area/abandoned_industrial_station/exterior
 	name = "Abandoned Industrial Station Exterior"
 	icon_state = "exterior"
+	area_flags = AREA_FLAG_NO_GRAVITY | AREA_FLAG_SHIP_EXTERIOR
 
 /area/abandoned_industrial_station/hallways
 	name = "Abandoned Industrial Station Central Hallways"

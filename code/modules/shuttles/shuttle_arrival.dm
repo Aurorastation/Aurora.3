@@ -1,11 +1,11 @@
-/datum/shuttle/autodock/ferry/arrival
-	category = /datum/shuttle/autodock/ferry/arrival
+/datum/shuttle/ferry/arrival
+	category = /datum/shuttle/ferry/arrival
 
-/datum/shuttle/autodock/ferry/arrival/New(var/_name, var/obj/effect/shuttle_landmark/start_waypoint)
+/datum/shuttle/ferry/arrival/New(var/_name, var/obj/effect/shuttle_landmark/start_waypoint)
 	..(_name, start_waypoint)
 	SSarrivals.shuttle = src
 
-/datum/shuttle/autodock/ferry/arrival/proc/try_jump()
+/datum/shuttle/ferry/arrival/proc/try_jump()
 	if(moving_status != SHUTTLE_IDLE) //The shuttle's already been launched.
 		return FALSE
 
@@ -53,13 +53,13 @@
 	SSarrivals.failreturnnumber = 0
 	launch(SSarrivals)
 
-/datum/shuttle/autodock/ferry/arrival/arrived()
+/datum/shuttle/ferry/arrival/arrived()
 	SSarrivals.shuttle_arrived()
 
-/datum/shuttle/autodock/ferry/arrival/proc/forbidden_atoms_check()
+/datum/shuttle/ferry/arrival/proc/forbidden_atoms_check()
 	for(var/area/subarea in shuttle_area)
 		if(SSarrivals.forbidden_atoms_check(subarea))
 			return TRUE
 
-/datum/shuttle/autodock/ferry/arrival/proc/at_station()
+/datum/shuttle/ferry/arrival/proc/at_station()
 	return (!location)

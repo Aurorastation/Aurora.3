@@ -254,8 +254,8 @@ GLOBAL_LIST_EMPTY(narsie_list)
 				consume(AM2)
 				continue
 
-		if (dist <= consume_range && !istype(T2, T2.baseturf))
-			T2.ChangeTurf(T2.baseturf)
+		if (dist <= consume_range)
+			T2.scrape_away()
 
 /obj/singularity/narsie/consume(const/atom/A) //This one is for the small ones.
 	if(!(A.singuloCanEat()))
@@ -298,8 +298,8 @@ GLOBAL_LIST_EMPTY(narsie_list)
 				spawn (0)
 					AM2.singularity_pull(src, src.current_size)
 
-		if (dist <= consume_range && !istype(T2, T2.baseturf))
-			T2.ChangeTurf(T2.baseturf)
+		if (dist <= consume_range)
+			T2.scrape_away()
 
 /obj/singularity/narsie/ex_act(severity) //No throwing bombs at it either. --NEO
 	return

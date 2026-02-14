@@ -32,6 +32,8 @@
 		"nav_yacht_antag"
 	)
 
+	ship_area_type = /area/shuttle/yacht
+
 /obj/effect/overmap/visitable/ship/yacht/New()
 	designation = "[pick("Razorshark", "Torch", "Lighting", "Pequod", "Anansi")]"
 	..()

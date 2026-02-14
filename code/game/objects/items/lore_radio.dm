@@ -39,8 +39,8 @@
 
 /obj/item/lore_radio/proc/get_possible_stations()
 	var/list/possible_stations = list(WEATHER_RADIO_CHANNEL)
-	if(SSatlas.current_sector?.lore_radio_stations)
-		possible_stations += SSatlas.current_sector.lore_radio_stations
+	if(SSmapping.current_sector?.lore_radio_stations)
+		possible_stations += SSmapping.current_sector.lore_radio_stations
 	return possible_stations
 
 /obj/item/lore_radio/proc/toggle_receiving(var/mob/user)

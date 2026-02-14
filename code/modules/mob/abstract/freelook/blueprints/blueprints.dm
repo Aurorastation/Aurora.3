@@ -98,8 +98,9 @@
 		background_area = exoplanet.planetary_area
 	if(SSodyssey.scenario && (GET_Z(owner) in SSodyssey.scenario_zlevels))
 		background_area = SSodyssey.scenario.base_area
-	for(var/turf/T in A.contents)
-		T.change_area(T.loc, background_area)
+	for(var/list/zlevel_turfs as anything in A.get_zlevel_turf_lists())
+		for(var/turf/T as anything in zlevel_turfs)
+			T.change_area(T.loc, background_area)
 	if(!locate(/turf) in A)
 		qdel(A)
 
@@ -189,7 +190,7 @@
 	if(!(A.area_flags & AREA_FLAG_IS_BACKGROUND)) // Cannot create new areas over old ones.
 		errors |= "selection overlaps other area"
 		. = FALSE
-	if(istype(T, (A.base_turf ? A.base_turf : /turf/space)))
+	if(IS_BASETURF(T))
 		errors |= "selection is exposed to the outside"
 		. = FALSE
 
@@ -318,8 +319,9 @@
 		background_area = exoplanet.planetary_area
 	if(SSodyssey.scenario && (GET_Z(owner) in SSodyssey.scenario_zlevels))
 		background_area = SSodyssey.scenario.base_area
-	for(var/turf/T in A.contents)
-		T.change_area(T.loc, background_area)
+	for(var/list/zlevel_turfs as anything in A.get_zlevel_turf_lists())
+		for(var/turf/T as anything in A.contents)
+			T.change_area(T.loc, background_area)
 	if(!(locate(/turf) in A))
 		qdel(A) // uh oh, is this safe?
 
@@ -328,6 +330,7 @@
 	var/datum/shuttle/our_shuttle = SSshuttle.shuttles[shuttle_name]
 	our_shuttle.shuttle_area += A
 	SSshuttle.shuttle_areas += A
+	SSshuttle.areas_to_shuttles[A.type] = our_shuttle
 	RegisterSignal(A, COMSIG_QDELETING, TYPE_PROC_REF(/datum/shuttle, remove_shuttle_area))
 	return A
 

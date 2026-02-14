@@ -39,6 +39,8 @@
 
 #define SPAN_LANGCHAT(X) "<span class='langchat'>[X]</span>"
 
+#define SPAN_BOLDANNOUNCE(str) ("<span class='boldannounce'>" + str + "</span>")
+
 /*
 #####################
 	Font sizes

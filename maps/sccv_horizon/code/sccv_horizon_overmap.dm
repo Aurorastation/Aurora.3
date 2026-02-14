@@ -15,6 +15,8 @@
 	burn_delay = 2 SECONDS
 	base = TRUE
 
+	ship_area_type = /area/horizon
+
 	scanimage = "horizon.png"
 	designer = "Stellar Corporate Conglomerate, Vickers Shipwright Dock - Valkyrie"
 	volume = "97 meters length, 161 meters beam/width, 48 meters vertical height"
@@ -83,6 +85,8 @@
 	sizeclass = "Pathfinder Exploration Shuttle"
 	shiptype = "Field expeditions and private research uses"
 
+	ship_area_type = /area/horizon/shuttle/intrepid
+
 /obj/effect/overmap/visitable/ship/landable/intrepid/get_skybox_representation()
 	var/image/skybox_image = image('icons/skybox/subcapital_ships.dmi', "intrepid")
 	skybox_image.pixel_x = rand(0,64)
@@ -121,6 +125,8 @@
 	vessel_mass = 3000 //very inefficient pod
 	fore_dir = SOUTH
 	vessel_size = SHIP_SIZE_TINY
+
+	ship_area_type = /area/horizon/shuttle/mining
 
 /obj/effect/overmap/visitable/ship/landable/mining_shuttle/get_skybox_representation()
 	var/image/skybox_image = image('icons/skybox/subcapital_ships.dmi', "spark")
@@ -163,6 +169,8 @@
 	vessel_mass = 2500
 	fore_dir = SOUTH
 	vessel_size = SHIP_SIZE_TINY
+
+	ship_area_type = /area/horizon/shuttle/canary
 
 /obj/effect/overmap/visitable/ship/landable/canary/get_skybox_representation()
 	var/image/skybox_image = image('icons/skybox/subcapital_ships.dmi', "canary")
@@ -219,6 +227,8 @@
 	vessel_mass = 3000
 	fore_dir = SOUTH
 	vessel_size = SHIP_SIZE_TINY
+
+	ship_area_type = /area/horizon/shuttle/quark
 
 // /obj/effect/overmap/visitable/ship/landable/quark/get_skybox_representation()
 // 	var/image/skybox_image = image('icons/skybox/subcapital_ships.dmi', "quark")

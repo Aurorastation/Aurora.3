@@ -53,6 +53,10 @@
 	build_from_parts = TRUE
 	worn_overlay = "over"
 
+/obj/item/clothing/head/bucket/boonie/blue/Initialize(mapload, material_key)
+	. = ..()
+	color = COLOR_BLUE_LIGHT
+
 /obj/item/clothing/head/bucket/boonie/camo
 	icon_state = "camo_boonie"
 	item_state = "camo_boonie"

@@ -1,4 +1,4 @@
-#define WORLD_MIN_SIZE 32
+#define WORLD_MIN_SIZE 255
 //This file is just for the necessary /world definition
 //Try looking in /code/game/world.dm, where initialization order is defined
 
@@ -21,7 +21,7 @@
 	view = "15x15"
 	hub = "Exadv1.spacestation13"
 	hub_password = "kMZy3U5jJHSiBQjr"
-	name = "Space Station 13"
+	name = "Aurorastation"
 	fps = 20
 	cache_lifespan = 0	//stops player uploaded stuff from being kept in the rsc past the current session
 	// map_format = SIDE_MAP //Possibly makes the sprites flicker and thus the clients lag

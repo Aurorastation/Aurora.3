@@ -433,7 +433,7 @@
 	return
 
 /atom/movable/proc/touch_map_edge()
-	if(z in SSatlas.current_map.sealed_levels)
+	if(z in SSmapping.current_map.sealed_levels)
 		return
 
 	if(anchored)
@@ -442,7 +442,7 @@
 	if(!GLOB.universe.OnTouchMapEdge(src))
 		return
 
-	if(SSatlas.current_map.use_overmap)
+	if(SSmapping.current_map.use_overmap)
 		INVOKE_ASYNC(GLOBAL_PROC, GLOBAL_PROC_REF(overmap_spacetravel), get_turf(src), src)
 		return
 
@@ -478,7 +478,7 @@
 
 //by default, transition randomly to another zlevel
 /atom/movable/proc/get_transit_zlevel()
-	return SSatlas.current_map.get_transit_zlevel()
+	return SSmapping.current_map.get_transit_zlevel()
 
 // Returns the current scaling of the sprite.
 // Note this DOES NOT measure the height or width of the icon, but returns what number is being multiplied with to scale the icons, if any.
@@ -541,6 +541,24 @@
 	RESOLVE_ACTIVE_MOVEMENT
 
 	return TRUE
+
+/**
+ * Called when a movable changes z-levels.
+ *
+ * Arguments:
+ * * old_turf - The previous turf they were on before.
+ * * new_turf - The turf they have now entered.
+ * * notify_contents - Whether or not to notify the movable's contents that their z-level has changed. NOTE, IF YOU SET THIS, YOU NEED TO MANUALLY SET PLANE OF THE CONTENTS LATER
+ */
+/atom/movable/proc/on_changed_z_level(turf/old_turf, turf/new_turf, notify_contents = TRUE)
+	SHOULD_CALL_PARENT(TRUE)
+	SEND_SIGNAL(src, COMSIG_MOVABLE_Z_CHANGED, old_turf, new_turf)
+
+	if(!notify_contents)
+		return
+
+	for (var/atom/movable/content as anything in src) // Notify contents of Z-transition.
+		content.on_changed_z_level(old_turf, new_turf)
 
 /**
  * Called after a successful Move(). By this point, we've already moved.
@@ -1063,13 +1081,6 @@
 	set_light_range(range)
 	set_light_power(power)
 	set_light_color(color)
-
-/**
- * Called when a movable is moved by a shuttle. Eventually, God willing, replace this with the TG shuttle version.
- */
-/atom/movable/proc/afterShuttleMove(obj/effect/shuttle_landmark/destination)
-	if(light)
-		update_light()
 
 /atom/movable/proc/set_glide_size(target = 8)
 	if (HAS_TRAIT(src, TRAIT_NO_GLIDE))

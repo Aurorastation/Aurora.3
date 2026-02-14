@@ -2,19 +2,22 @@
 // if it goes from first stop to the last one
 // it goes one by one sequentially through the ones in the middle
 // order of stops is same as defined in destination_tags
-/datum/shuttle/autodock/multi/lift
-	warmup_time = 3
+/datum/shuttle/multi/lift
+	warmup_time = 3 SECONDS
 	move_time = 2
-	knockdown = FALSE
-	squishes = FALSE
-	ceiling_type = null
+	movement_force = list(
+		"KNOCKDOWN" = 0,
+		"THROW" = 0,
+	)
+	landing_type = LAND_NOTHING
+	ceiling_baseturf = null
 	sound_takeoff = 'sound/effects/lift_heavy_start.ogg'
 	sound_landing = 'sound/effects/lift_heavy_stop.ogg'
 	var/obj/effect/shuttle_landmark/final_location = null
 
 // final_location must be set and valid
 // if current and final location are the same, returns current location
-/datum/shuttle/autodock/multi/lift/proc/get_next_destination_tag()
+/datum/shuttle/multi/lift/proc/get_next_destination_tag()
 	var/current_tag = current_location.landmark_tag
 	var/final_tag = final_location.landmark_tag
 	ASSERT(current_tag in destination_tags)
@@ -29,14 +32,14 @@
 	else
 		return destination_tags[current_i]
 
-/datum/shuttle/autodock/multi/lift/set_destination(var/destination_key, mob/user)
+/datum/shuttle/multi/lift/set_destination(var/destination_key, mob/user)
 	final_location = destinations_cache[destination_key]
 	var/next_tag = get_next_destination_tag()
 	next_location = SSshuttle.get_landmark(next_tag)
 	..(next_location.name, user)
 	launch(user)
 
-/datum/shuttle/autodock/multi/lift/arrived()
+/datum/shuttle/multi/lift/arrived()
 	if(final_location == current_location)
 		final_location = null
 	else

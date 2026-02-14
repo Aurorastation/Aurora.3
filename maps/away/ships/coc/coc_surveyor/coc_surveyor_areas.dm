@@ -3,7 +3,6 @@
 	icon_state = "blue"
 	requires_power = 1
 	no_light_control = 1
-	base_turf = /turf/space
 	area_flags = AREA_FLAG_RAD_SHIELDED
 
 /area/coc_survey_ship/bridge

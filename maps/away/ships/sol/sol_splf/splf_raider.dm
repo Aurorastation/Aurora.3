@@ -9,7 +9,7 @@
 	spawn_weight = 1
 	ship_cost = 1
 	id = "splf_raider"
-	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/splf_shuttle)
+	shuttles_to_initialise = list(/datum/shuttle/overmap/splf_shuttle)
 
 	unit_test_groups = list(3)
 
@@ -35,6 +35,8 @@
 	weapons = "Heavily modified ballistic gunnery pod starboard, shuttle bay portside"
 	sizeclass = "Laksamana-class hauler"
 	shiptype = "Remote hauling operations, long-term crew habitation"
+
+	ship_area_type = /area/splf_raider
 
 	initial_restricted_waypoints = list(
 		"SPLF Shuttle" = list("nav_hangar_splf")

@@ -5,11 +5,6 @@
 // global signals
 // These are signals which can be listened to by any component on any parent
 
-// when we expand maxz
-#define COMSIG_GLOB_NEW_Z "!new_z"
-// when we expand maxx and maxy (do we ever do this)
-#define COMSIG_GLOB_EXPANDED_WORLD_BOUNDS "!expanded_world_bounds"
-
 //////////////////////////////////////////////////////////////////
 
 

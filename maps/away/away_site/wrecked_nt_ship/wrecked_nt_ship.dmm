@@ -1251,7 +1251,7 @@
 /turf/simulated/floor/tiled/steel/airless,
 /area/wrecked_nt_ship)
 "Cd" = (
-/obj/machinery/seed_storage/xenobotany,
+/obj/machinery/seed_storage/garden/xenobotany,
 /turf/simulated/floor/tiled/steel/airless,
 /area/wrecked_nt_ship)
 "Cf" = (

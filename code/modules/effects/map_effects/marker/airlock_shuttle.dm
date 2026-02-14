@@ -54,7 +54,7 @@
 			controller.docking_program = new /datum/computer/file/embedded_program/docking/airlock(controller, controller.airlock_program)
 			controller.program = controller.docking_program
 			if(SSshuttle.shuttles[shuttle_tag])
-				var/datum/shuttle/autodock/shuttle = SSshuttle.shuttles[shuttle_tag]
+				var/datum/shuttle/shuttle = SSshuttle.shuttles[shuttle_tag]
 				shuttle.dock_target = MARKER_AIRLOCK_TAG_MASTER
 			continue
 

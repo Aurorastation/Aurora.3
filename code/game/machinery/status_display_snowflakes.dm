@@ -8,12 +8,12 @@
 		var/message1 = "CARGO"
 		var/message2 = ""
 
-		var/datum/shuttle/autodock/ferry/supply/shuttle = SScargo.shuttle
+		var/datum/shuttle/ferry/supply/shuttle = SScargo.shuttle
 		if (!shuttle)
 			message2 = "Error"
 		else if(shuttle.has_arrive_time())
 			message2 = get_supply_shuttle_timer()
-		else if (shuttle.is_launching())
+		else if (shuttle.moving_status == SHUTTLE_WARMUP)
 			if (shuttle.at_station())
 				message2 = "Launch"
 			else
@@ -45,12 +45,12 @@
 		var/message1 = "ARVLS"
 		var/message2 = ""
 
-		var/datum/shuttle/autodock/ferry/arrival/shuttle = SSarrivals.shuttle
+		var/datum/shuttle/ferry/arrival/shuttle = SSarrivals.shuttle
 		if (!shuttle)
 			message2 = "Error"
 		else if(shuttle.has_arrive_time())
 			message2 = get_arrivals_shuttle_timer()
-		else if (shuttle.is_launching())
+		else if (shuttle.moving_status == SHUTTLE_WARMUP)
 			if (shuttle.at_station())
 				message2 = "Retrn"
 			else

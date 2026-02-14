@@ -24,7 +24,7 @@ SUBSYSTEM_DEF(records)
 	for(var/type in localized_fields)
 		localized_fields[type] = compute_localized_field(type)
 
-	for(var/shuttle in SSatlas.current_map.shuttle_manifests)
+	for(var/shuttle in SSmapping.current_map.shuttle_manifests)
 		var/datum/record/shuttle_assignment/A = new /datum/record/shuttle_assignment(shuttle)
 		shuttle_assignments += A
 

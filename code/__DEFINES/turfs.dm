@@ -32,9 +32,47 @@
 #define CLIMBER_DEFAULT 1
 #define CLIMBER_NO_EXIT 2
 
+// turf_flags values
+/// Marks a turf as organic. Used for alien wall and membranes.
+#define TURF_ORGANIC BITFLAG(0)
+/// If a turf is an usused reservation turf awaiting assignment
+#define UNUSED_RESERVATION_TURF BITFLAG(1)
+/// If a turf is a reserved turf
+#define RESERVATION_TURF BITFLAG(2)
+
+// ChangeTurf flags
+/// Do not call post_change during ChangeTurf
+#define CHANGETURF_DEFER_CHANGE BITFLAG(0)
+/// Do not add the new turf to ZAS
+#define CHANGETURF_IGNORE_AIR BITFLAG(1)
+/// Forces the ChangeTurf to go through, even if new turf is the same type as old turf
+#define CHANGETURF_FORCEOP BITFLAG(2)
+/// Flag for PlaceOnTop to merely instance the new turf rather than calling ChangeTurf. Do NOT use in systems that are not handling initialization themselves
+#define CHANGETURF_SKIP BITFLAG(3)
+/// Don't call universe.OnTurfChange
+#define CHANGETURF_IGNORE_UNIVERSE BITFLAG(4)
+/// Don't let turf autoadjust its area
+#define CHANGETURF_NO_AREA_CHANGE BITFLAG(5)
+/// Forces a lighting update
+#define CHANGETURF_FORCE_LIGHTING BITFLAG(6)
+/// Don't queue neighbors for smoothing updates, used during mapload
+#define CHANGETURF_IGNORE_NEIGHBORS BITFLAG(7)
+/// Generate ceiling above based on shuttle
+#define CHANGETURF_GENERATE_SHUTTLE_CEILING BITFLAG(8)
+
 /*##############################
 		MACROS/FUNCTIONS
 ################################*/
+
+#define IS_BASETURF(_T) (_T.baseturf_at_depth(1) == /turf/baseturf_bottom)
+
+/**
+ * Checks if a turf is opaque,
+ * NOT the same inner-working as the TG version, but should be equivalent
+ *
+ * * turf - The `/turf` to check
+ */
+#define IS_OPAQUE_TURF(turf)	(turf.opacity || turf.has_opaque_atom)
 
 //supposedly the fastest way to do this according to https://gist.github.com/Giacom/be635398926bb463b42a
 ///Returns a list of turf in a square

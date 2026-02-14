@@ -40,7 +40,8 @@ GLOBAL_LIST_INIT(mineral_can_smooth_with, list(
 	temperature = T0C
 	explosion_resistance = 2
 
-	var/mined_turf = /turf/simulated/floor/exoplanet/asteroid/ash/rocky
+	baseturfs = /turf/simulated/floor/exoplanet/asteroid/ash/rocky
+
 	var/ore/mineral
 	var/mined_ore = 0
 	var/last_act = 0
@@ -92,13 +93,8 @@ GLOBAL_LIST_INIT(mineral_can_smooth_with, list(
 
 	rock_health = rand(10,20)
 
-	var/area/A = loc
-
-	if(A.base_turf)
-		baseturf = A.base_turf
-	else if(!baseturf)
-		// Hard-coding this for performance reasons.
-		baseturf = SSatlas.current_map.base_turf_by_z["[z]"] || /turf/space
+	if(mineral)
+		UpdateMineral()
 
 	return INITIALIZE_HINT_NORMAL
 
@@ -429,13 +425,13 @@ GLOBAL_LIST_INIT(mineral_can_smooth_with, list(
 		S.start()
 		qdel(R)
 
-	ChangeTurf(mined_turf)
+	scrape_away()
 
 	if(rand(1,500) == 1)
 		visible_message(SPAN_NOTICE("An old dusty crate was buried within!"))
 		new /obj/structure/closet/crate/secure/loot(src)
 
-/turf/simulated/mineral/ChangeTurf(path, tell_universe, force_lighting_update, ignore_override, mapload)
+/turf/simulated/mineral/ChangeTurf(path, list/new_baseturfs, flags, parent_datum)
 	var/old_has_resources = has_resources
 	var/list/old_resources = resources
 	var/image/old_resource_indicator = resource_indicator
@@ -555,11 +551,11 @@ GLOBAL_LIST_INIT(mineral_can_smooth_with, list(
 	. = ..()
 
 /turf/simulated/mineral/random/exoplanet
-	mined_turf = /turf/simulated/floor/exoplanet/mineral
+	baseturfs = /turf/simulated/floor/exoplanet/mineral
 
 /turf/simulated/mineral/random/adhomai
 	color = "#97A7AA"
-	mined_turf = /turf/simulated/floor/exoplanet/mineral/adhomai
+	baseturfs = /turf/simulated/floor/exoplanet/mineral/adhomai
 
 /turf/simulated/mineral/random/high_chance
 	mineralSpawnChanceList = list(
@@ -589,10 +585,10 @@ GLOBAL_LIST_INIT(mineral_can_smooth_with, list(
 	)
 
 /turf/simulated/mineral/random/high_chance/exoplanet
-	mined_turf = /turf/simulated/floor/exoplanet/mineral
+	baseturfs = /turf/simulated/floor/exoplanet/mineral
 
 /turf/simulated/mineral/random/high_chance/adhomai
-	mined_turf = /turf/simulated/floor/exoplanet/mineral/adhomai
+	baseturfs = /turf/simulated/floor/exoplanet/mineral/adhomai
 
 /turf/simulated/mineral/random/higher_chance
 	mineralSpawnChanceList = list(
@@ -648,7 +644,6 @@ GLOBAL_LIST_INIT(mineral_can_smooth_with, list(
 	return INITIALIZE_HINT_LATELOAD
 
 /turf/simulated/mineral/preset/LateInitialize()
-	. = ..()
 	change_mineral(preset_mineral_name, TRUE)
 
 /turf/simulated/mineral/preset/phoron
@@ -693,25 +688,25 @@ GLOBAL_LIST_INIT(mineral_can_smooth_with, list(
 
 // Some extra types for the surface to keep things pretty.
 /turf/simulated/mineral/surface
-	mined_turf = /turf/simulated/floor/exoplanet/asteroid/ash
+	baseturfs = /turf/simulated/floor/exoplanet/asteroid/ash
 
 /turf/simulated/mineral/planet
-	mined_turf = /turf/simulated/floor/exoplanet/mineral
+	baseturfs = /turf/simulated/floor/exoplanet/mineral
 
 /turf/simulated/mineral/adhomai
-	mined_turf = /turf/simulated/floor/exoplanet/mineral/adhomai
+	baseturfs = /turf/simulated/floor/exoplanet/mineral/adhomai
 
 /turf/simulated/mineral/crystal
 	color = "#6fb1b5"
-	mined_turf = /turf/simulated/floor/exoplanet/basalt/crystal
+	baseturfs = /turf/simulated/floor/exoplanet/basalt/crystal
 
 /turf/simulated/mineral/lava
 	color = "#444444"
-	mined_turf = /turf/simulated/floor/exoplanet/basalt
+	baseturfs = /turf/simulated/floor/exoplanet/basalt
 
 /turf/simulated/mineral/lava/tret
 	color = "#444455"
-	mined_turf = /turf/simulated/floor/exoplanet/basalt/tret
+	baseturfs = /turf/simulated/floor/exoplanet/basalt/tret
 
 /**********************Asteroid**************************/
 

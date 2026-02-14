@@ -22,7 +22,7 @@
 	use_overmap = FALSE
 
 	map_shuttles = list(
-		/datum/shuttle/autodock/ferry/city
+		/datum/shuttle/ferry/city
 	)
 
 /obj/item/paper/fluff/rooftop/vr_prep

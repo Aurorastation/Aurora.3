@@ -6,7 +6,7 @@ SUBSYSTEM_DEF(finalize)
 	init_order = INIT_ORDER_MAPFINALIZE
 
 /datum/controller/subsystem/finalize/Initialize(timeofday)
-	// Setup the global antag uplink. This needs to be done after SSatlas as it requires current_map.
+	// Setup the global antag uplink. This needs to be done after SSmapping as it requires current_map.
 	GLOB.uplink = new
 
 	// This is dependant on markers.

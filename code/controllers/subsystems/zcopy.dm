@@ -171,7 +171,7 @@ SUBSYSTEM_DEF(zcopy)
 		if (!T.below)	// Z-turf on the bottom-most level, just fake-copy space.
 			flush_z_state(T)
 			if(T.z_flags & ZM_MIMIC_BASETURF)
-				simple_appearance_copy(T, get_base_turf_by_area(T), OPEN_SPACE_PLANE_END)
+				simple_appearance_copy(T, SSmapping.level_trait(T.z, ZTRAIT_BASETURF) || /turf/space, OPEN_SPACE_PLANE_END)
 			else
 				simple_appearance_copy(T, SSskybox.space_appearance_cache[(((T.x + T.y) ^ ~(T.x * T.y) + T.z) % 25) + 1])
 
@@ -205,7 +205,7 @@ SUBSYSTEM_DEF(zcopy)
 		// Turf is set to mimic baseturf, handle that and bail.
 		if (T.z_flags & ZM_MIMIC_BASETURF)
 			flush_z_state(T)
-			simple_appearance_copy(T, get_base_turf_by_area(T), t_target)
+			simple_appearance_copy(T, SSmapping.level_trait(T.z, ZTRAIT_BASETURF) || /turf/space, t_target)
 
 			if (T.above)
 				T.above.update_mimic()

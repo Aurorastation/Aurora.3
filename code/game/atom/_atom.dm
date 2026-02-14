@@ -270,7 +270,14 @@
  *
  * micro-optimized to hell because this proc is very hot, being called several times per movement every movement.
  *
- * This is slightly different from TG's version due to Aurora reasons.
+ * Gravity situations:
+ * * No gravity if you're not in a turf
+ * * No gravity if this atom is in is a space turf
+ * * No gravity if the area has NO_GRAVITY flag (space, ordnance bomb site, nearstation, solars)
+ * * Gravity if the area it's in always has gravity
+ * * Gravity if there's a gravity generator on the z level
+ * * Gravity if the Z level has an SSMappingTrait for ZTRAIT_GRAVITY
+ * * otherwise no gravity
  */
 /atom/proc/has_gravity(turf/gravity_turf)
 	if(!isturf(gravity_turf))
@@ -294,7 +301,7 @@
 
 	var/area/turf_area = gravity_turf.loc
 
-	return turf_area.has_gravity()
+	return (!(gravity_turf.turf_flags & TURF_FLAG_NO_GRAVITY) && !(turf_area.area_flags & AREA_FLAG_NO_GRAVITY)) && (SSmapping.gravity_by_z_level[gravity_turf.z] || turf_area.default_gravity)
 
 /**
  * This proc is used for telling whether something can pass by this atom in a given direction, for use by the pathfinding system.

@@ -74,7 +74,7 @@
 	if(!T)
 		if(length(GLOB.latejoin))
 			T = pick(GLOB.latejoin)			//Safety in case we cannot find the body's position
-		else if(SSatlas.current_map.force_spawnpoint && length(GLOB.force_spawnpoints["Anyone"]))
+		else if(SSmapping.current_map.force_spawnpoint && length(GLOB.force_spawnpoints["Anyone"]))
 			T = pick(GLOB.force_spawnpoints["Anyone"])
 		else
 			T = locate(1, 1, 1)

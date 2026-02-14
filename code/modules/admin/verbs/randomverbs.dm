@@ -660,7 +660,7 @@ Traitors and the like can also be revived with the previous role mostly intact.
 		if("Yes")
 			command_announcement.Announce("[reportbody]", reporttitle, new_sound = 'sound/AI/commandreport.ogg', msg_sanitized = 1);
 		if("No")
-			to_world(SPAN_WARNING("New [SSatlas.current_map.company_name] Update available at all communication consoles."))
+			to_world(SPAN_WARNING("New [SSmapping.current_map.company_name] Update available at all communication consoles."))
 			sound_to_playing_players('sound/AI/commandreport.ogg')
 
 	log_admin("[key_name(src)] has created a command report: [reportbody]")
@@ -950,15 +950,15 @@ Traitors and the like can also be revived with the previous role mostly intact.
 	if(alert(src, "Are you sure?", "Confirm", "Yes", "No") != "Yes")
 		return
 
-	if(SSatlas.current_map.shuttle_call_restarts)
-		if(SSatlas.current_map.shuttle_call_restart_timer)
+	if(SSmapping.current_map.shuttle_call_restarts)
+		if(SSmapping.current_map.shuttle_call_restart_timer)
 			to_chat(usr, SPAN_WARNING("The shuttle round restart timer is already active!"))
 			return
 		feedback_add_details("admin_verb","CSHUT")
-		SSatlas.current_map.shuttle_call_restart_timer = addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(reboot_world)), 10 MINUTES, TIMER_UNIQUE|TIMER_STOPPABLE)
+		SSmapping.current_map.shuttle_call_restart_timer = addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(reboot_world)), 10 MINUTES, TIMER_UNIQUE|TIMER_STOPPABLE)
 		log_game("[key_name(usr)] has admin-called the 'shuttle' round restart.")
 		message_admins("[key_name_admin(usr)] has admin-called the 'shuttle' round restart.", 1)
-		to_world(FONT_LARGE(SPAN_VOTE(SSatlas.current_map.shuttle_called_message)))
+		to_world(FONT_LARGE(SPAN_VOTE(SSmapping.current_map.shuttle_called_message)))
 		return
 
 	if(SSticker.mode.auto_recall_shuttle)
@@ -985,16 +985,16 @@ Traitors and the like can also be revived with the previous role mostly intact.
 	if(!ROUND_IS_STARTED || !GLOB.evacuation_controller)
 		return
 
-	if(SSatlas.current_map.shuttle_call_restarts)
-		if(!SSatlas.current_map.shuttle_call_restart_timer)
+	if(SSmapping.current_map.shuttle_call_restarts)
+		if(!SSmapping.current_map.shuttle_call_restart_timer)
 			to_chat(usr, SPAN_WARNING("The restart timer for this map isn't active!"))
 			return
 		feedback_add_details("admin_verb","CCSHUT")
-		deltimer(SSatlas.current_map.shuttle_call_restart_timer)
-		SSatlas.current_map.shuttle_call_restart_timer = null
+		deltimer(SSmapping.current_map.shuttle_call_restart_timer)
+		SSmapping.current_map.shuttle_call_restart_timer = null
 		log_game("[key_name(usr)] has admin-stopped the 'shuttle' round restart.", key_name(usr))
 		message_admins("[key_name_admin(usr)] has admin-stopped the 'shuttle' round restart.", 1)
-		to_world(FONT_LARGE(SPAN_VOTE(SSatlas.current_map.shuttle_recall_message)))
+		to_world(FONT_LARGE(SPAN_VOTE(SSmapping.current_map.shuttle_recall_message)))
 		return
 
 

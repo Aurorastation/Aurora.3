@@ -11,7 +11,7 @@
 	spawn_weight = 1
 	ship_cost = 1
 	id = "coc_surveyor"
-	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/coc_survey_shuttle)
+	shuttles_to_initialise = list(/datum/shuttle/overmap/coc_survey_shuttle)
 
 	unit_test_groups = list(1)
 
@@ -48,13 +48,13 @@
 		"COC Survey Shuttle" = list("nav_hangar_survey")
 	)
 
+	ship_area_type = /area/coc_survey_ship
+
 /obj/effect/overmap/visitable/ship/coc_surveyor/New()
 	designation = "[pick("Truffle Pig", "Sapphire", "Unto The Unknown", "Unto The Somewhat Known", "Carbon Hound", "Minerals For Days", "The Not-So-Final Frontier", "Phoron Hunter")]"
 	..()
 
 /obj/effect/shuttle_landmark/coc_survey_ship
-	base_turf = /turf/space/dynamic
-	base_area = /area/space
 
 /obj/effect/shuttle_landmark/coc_survey_ship/nav1
 	name = "Port"
@@ -97,16 +97,17 @@
 	fore_dir = WEST
 	vessel_size = SHIP_SIZE_TINY
 
+	ship_area_type = /area/shuttle/coc_survey_shuttle
+
 /obj/machinery/computer/shuttle_control/explore/coc_survey_shuttle
 	name = "shuttle control console"
 	shuttle_tag = "COC Survey Shuttle"
 
-/datum/shuttle/autodock/overmap/coc_survey_shuttle
+/datum/shuttle/overmap/coc_survey_shuttle
 	name = "COC Survey Shuttle"
 	move_time = 20
 	shuttle_area = list(/area/shuttle/coc_survey_shuttle)
 	current_location = "nav_hangar_survey"
-	landmark_transition = "nav_transit_survey_shuttle"
 	range = 1
 	fuel_consumption = 2
 	logging_home_tag = "nav_hangar_survey"
@@ -116,12 +117,9 @@
 /obj/effect/shuttle_landmark/coc_survey_shuttle/hangar
 	name = "COC Survey Ship - Hangar"
 	landmark_tag = "nav_hangar_survey"
-	base_area = /area/coc_survey_ship/hangar
-	base_turf = /turf/simulated/floor/plating
 	docking_controller = "surveyor_shuttle_dock"
 	movable_flags = MOVABLE_FLAG_EFFECTMOVE
 
 /obj/effect/shuttle_landmark/coc_survey_shuttle/transit
 	name = "In transit"
 	landmark_tag = "nav_transit_survey_shuttle"
-	base_turf = /turf/space/transit/north

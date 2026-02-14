@@ -270,7 +270,7 @@
 	..()
 
 /datum/event/proc/location_name()
-	if(!SSatlas.current_map.use_overmap)
+	if(!SSmapping.current_map.use_overmap)
 		return station_name()
 
 	var/obj/effect/overmap/O = GLOB.map_sectors["[pick(affecting_z)]"]

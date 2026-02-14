@@ -12,7 +12,7 @@
 	spawn_weight = 0.5 // halved from 1 as this is a variation
 	ship_cost = 1
 	id = "freebooter_ship"
-	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/freebooter_shuttle)
+	shuttles_to_initialise = list(/datum/shuttle/overmap/freebooter_shuttle)
 	ban_ruins = list(/datum/map_template/ruin/away_site/freebooter_salvager)
 
 	unit_test_groups = list(2)
@@ -67,6 +67,8 @@
 
 	invisible_until_ghostrole_spawn = TRUE
 
+	ship_area_type = /area/ship/freebooter_ship
+
 	/// List of possible designations, used by both freebooter variations.
 	var/list/designations = list("Peaceful", "Charming", "Jackal", "Friendly", "Boar", "One and Done", "Nothing Suspicious", "Death Valley", "Scan Again", "Pickpocket", "Dashing Rogue", "Port Authority", "Customs Patrol Ship", "Pay Transit Tolls Here", "Immigration Inspector", "For Hire", "Ex-Military", "Eat Shit", "Fuck Off", "Big Brother", "Wrong Turn", "Claim Jumper", "Davy Jones", "Thenardier", "Killer Queen", "Gunpowder", "Dynamite", "Phoron Collection Service", "We Never Liked Working Anyway", "The Orphanage", "Undertaker", "Flip and Burn", "Emphasis on Independent", "Widowmaker", "Irregular", "Ned Kelly", "Pay Your Union Dues Here", "We Support You!", "Jean Valjean", "Not Pirates", "Let's Be Friends!", "Alms For The Poor", "REAL KILLERS", "A Single Grain Of Sand", "What's It Matter To You?", "IFF Broken", "Or Something", "Nitroglycerin", "The Ghost of Christmas Present", "God's With Us So You Better Back Off Pal", "Faster Than You", "our shift key is broken", "It Is What It Is", "Bases Loaded", "We Support Law Enforcement", "Cash-Rich, Credit-Poor", "Cunning", "We Never Liked Beauchamp Anyway", "Civilian Ship", "We Didn't Start The Fire, Honest!", "Arson", "Jaywalking", "Bail Bondsmen", "Bail Jumper", "On Parole", "Don't Tell My Probation Officer", "Quit Your Bitching", "And The Then Or Thank You", "Sensor Glitch", "Not My Problem", "Mind Your Business", "Private Vessel Of The Dread Pirate King With His Entire Fleet And Crew In Tow So Back Off", "Daisy", "Sally", "Jane", "Pretty Little Thing", "We Like To Party", "No Squares Here")
 
@@ -97,16 +99,17 @@
 	fore_dir = NORTH
 	vessel_size = SHIP_SIZE_TINY
 
+	ship_area_type = /area/shuttle/freebooter_shuttle
+
 /obj/machinery/computer/shuttle_control/explore/freebooter_shuttle
 	name = "shuttle control console"
 	shuttle_tag = "Freebooter Shuttle"
 
-/datum/shuttle/autodock/overmap/freebooter_shuttle
+/datum/shuttle/overmap/freebooter_shuttle
 	name = "Freebooter Shuttle"
 	move_time = 90
 	shuttle_area = list(/area/shuttle/freebooter_shuttle)
 	current_location = "nav_hangar_freebooter"
-	landmark_transition = "nav_transit_freebooter_shuttle"
 	range = 1
 	fuel_consumption = 2
 	logging_home_tag = "nav_hangar_freebooter"

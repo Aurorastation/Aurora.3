@@ -22,7 +22,7 @@
 			"message" = message
 			)
 
-	if(SSatlas.current_map.use_overmap && istype(source))
+	if(SSmapping.current_map.use_overmap && istype(source))
 		sector = GLOB.map_sectors["[source.z]"]
 
 /datum/signal/subspace/proc/copy()
@@ -108,7 +108,7 @@
 	if(isturf(T))
 		origin_level = T.z
 		levels = list(T.z)
-		if(SSatlas.current_map.use_overmap)
+		if(SSmapping.current_map.use_overmap)
 			sector = GLOB.map_sectors["[T.z]"]
 	else // if the source is in nullspace, it's probably an autosay
 		levels = SSmapping.levels_by_trait(ZTRAIT_STATION)

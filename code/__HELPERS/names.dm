@@ -1,5 +1,5 @@
 /proc/world_name(var/name)
-	SSatlas.current_map.station_name = name
+	SSmapping.current_map.station_name = name
 
 	if (GLOB.config && GLOB.config.server_name)
 		world.name = "[GLOB.config.server_name]: [name]"

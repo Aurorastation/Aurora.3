@@ -24,15 +24,15 @@
 
 /datum/announcement/priority/command/New(var/do_log = TRUE, var/new_sound = 'sound/ai/announcements/notice.ogg', var/do_newscast = FALSE, var/do_print = FALSE)
 	..(do_log, new_sound, do_newscast, do_print)
-	title = "[SSatlas.current_map.boss_name] Update"
-	announcement_type = "[SSatlas.current_map.boss_name] Update"
+	title = "[SSmapping.current_map.boss_name] Update"
+	announcement_type = "[SSmapping.current_map.boss_name] Update"
 
 /datum/announcement/priority/security/New(var/do_log = TRUE, var/new_sound = 'sound/ai/announcements/notice.ogg', var/do_newscast = TRUE, var/do_print = FALSE)
 	..(do_log, new_sound, do_newscast, do_print)
 	title = "Security Announcement"
 	announcement_type = "Security Announcement"
 
-/datum/announcement/proc/Announce(var/message, var/new_title = "", var/new_sound = null, var/do_newscast = newscast, var/msg_sanitized = 0, var/do_print = FALSE, var/zlevels = SSatlas.current_map.contact_levels)
+/datum/announcement/proc/Announce(var/message, var/new_title = "", var/new_sound = null, var/do_newscast = newscast, var/msg_sanitized = 0, var/do_print = 0, var/zlevels = SSmapping.current_map.contact_levels)
 	if(!message)
 		return
 	var/message_title = length(new_title) ? new_title : title
@@ -48,16 +48,16 @@
 			continue
 
 		// Due to spam, only print announcements if the ghost is in the matching z-level, OR if it's a Horizon message.
-		if((isghost(M) && ((zlevels == SSatlas.current_map.contact_levels) || (GET_Z(M) in zlevels))) || (!isdeaf(M) && (GET_Z(M) in zlevels)))
+		if((isghost(M) && ((zlevels == SSmapping.current_map.contact_levels) || (GET_Z(M) in zlevels))) || (!isdeaf(M) && (GET_Z(M) in zlevels)))
 			var/turf/T = get_turf(M)
 			if(T)
 				to_chat(M, msg)
 				if(message_sound && !isdeaf(M) && (M.client?.prefs.sfx_toggles & ASFX_VOX))
 					sound_to(M, message_sound)
 
-	if(do_newscast && zlevels == SSatlas.current_map.contact_levels)
+	if(do_newscast && zlevels == SSmapping.current_map.contact_levels)
 		NewsCast(message, message_title)
-	if(do_print && zlevels == SSatlas.current_map.contact_levels)
+	if(do_print && zlevels == SSmapping.current_map.contact_levels)
 		post_comm_message(message_title, message)
 	Log(message, message_title)
 
@@ -71,7 +71,7 @@
 	. = "<b>[message]</b>"
 
 /datum/announcement/priority/command/FormMessage(var/message, var/message_title)
-	. = "<h2 class='alert'>[SSatlas.current_map.boss_name] Update</h2>"
+	. = "<h2 class='alert'>[SSmapping.current_map.boss_name] Update</h2>"
 	if (message_title)
 		. += "<h3 class='alert'>[message_title]</h3>"
 
@@ -123,5 +123,5 @@
 			rank = character.mind.role_alt_title
 		AnnounceArrivalSimple(character.real_name, rank, join_message)
 
-/proc/AnnounceArrivalSimple(var/name, var/rank = "visitor", var/join_message = "has arrived on the [SSatlas.current_map.station_type]", var/new_sound = 'sound/ai/announcements/notice.ogg')
+/proc/AnnounceArrivalSimple(var/name, var/rank = "visitor", var/join_message = "has arrived on the [SSmapping.current_map.station_type]", var/new_sound = 'sound/ai/announcements/notice.ogg')
 	GLOB.global_announcer.autosay("[name], [rank], [join_message].", "Arrivals Announcer")

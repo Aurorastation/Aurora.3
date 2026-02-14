@@ -136,7 +136,7 @@
 /area/exoplanet/grass/konyang)
 "R" = (
 /turf/template_noop,
-/area/space)
+/area/template_noop)
 "T" = (
 /obj/structure/flora/ausbushes/sparsegrass,
 /obj/structure/flora/ausbushes/reedbush,

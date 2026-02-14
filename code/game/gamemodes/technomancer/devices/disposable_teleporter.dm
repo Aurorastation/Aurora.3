@@ -58,13 +58,14 @@
 
 		//Copypasta
 		valid_turfs:
-			for(var/turf/simulated/T in A.contents)
-				if(T.density || istype(T, /turf/simulated/mineral)) //Don't blink to vacuum or a wall
-					continue
-				for(var/atom/movable/stuff in T.contents)
-					if(stuff.density)
-						continue valid_turfs
-				targets.Add(T)
+			for(var/list/zlevel_turfs as anything in A.get_zlevel_turf_lists())
+				for(var/turf/simulated/T in zlevel_turfs)
+					if(T.density || istype(T, /turf/simulated/mineral)) //Don't blink to vacuum or a wall
+						continue
+					for(var/atom/movable/stuff in T.contents)
+						if(stuff.density)
+							continue valid_turfs
+					targets.Add(T)
 
 		if(!targets.len)
 			to_chat(user, "\The [src] was unable to locate a suitable teleport destination, as all the possibilities \

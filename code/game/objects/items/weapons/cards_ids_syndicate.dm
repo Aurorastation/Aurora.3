@@ -102,7 +102,7 @@
 	UnregisterSignal(registered_user, COMSIG_QDELETING)
 	registered_user = null
 
-/obj/item/card/id/syndicate/throw_at()
+/obj/item/card/id/syndicate/throw_at(atom/target, range, speed, mob/thrower, spin = TRUE, diagonals_first = FALSE, datum/callback/callback, force = MOVE_FORCE_STRONG, gentle = FALSE, quickstart = TRUE)
 	..()
 	electronic_warfare = FALSE
 	check_obfuscation()

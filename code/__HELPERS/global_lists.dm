@@ -36,6 +36,9 @@ GLOBAL_LIST_EMPTY(joblist)
 /// List of all brig secure_closets. Used by brig timers.
 GLOBAL_LIST_EMPTY(brig_closets)
 
+/// List of all the maps that have been cached for /proc/load_map
+GLOBAL_LIST_EMPTY(cached_maps)
+
 /// A list of areas where ghosts can teleport to, not turfs.
 GLOBAL_LIST_EMPTY(ghostteleportlocs)
 /// Central command areas.
@@ -49,7 +52,7 @@ GLOBAL_LIST_EMPTY(implants)
 /// Turf is added to this list if is_station_level() passes when it's initialized.
 GLOBAL_LIST_EMPTY(station_turfs)
 /// List of all instanced areas by type. THIS IS DIFFERENT FROM TG AS IT DOES NOT ONLY CONTAIN UNIQUE AREAS.
-GLOBAL_LIST_EMPTY(areas_by_type)
+GLOBAL_LIST_EMPTY_TYPED(areas_by_type, /area)
 
 /// Languages/species/whitelist.
 GLOBAL_LIST_EMPTY_TYPED(all_species, /datum/species)

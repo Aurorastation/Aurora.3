@@ -315,7 +315,7 @@
 /obj/effect/landmark/clear,
 /obj/effect/landmark/clear,
 /turf/template_noop,
-/area/space)
+/area/template_noop)
 "dV" = (
 /obj/structure/table/steel,
 /obj/effect/floor_decal/corner_wide/black/diagonal,
@@ -378,7 +378,7 @@
 /area/abandoned_prison/cells)
 "eN" = (
 /turf/template_noop,
-/area/space)
+/area/template_noop)
 "fa" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 1
@@ -566,7 +566,7 @@
 /area/abandoned_prison/exterior)
 "hz" = (
 /turf/simulated/wall/r_wall,
-/area/space)
+/area/template_noop)
 "hH" = (
 /obj/structure/lattice/catwalk,
 /turf/simulated/floor/airless,
@@ -648,7 +648,7 @@
 	dir = 4
 	},
 /turf/template_noop,
-/area/space)
+/area/template_noop)
 "jk" = (
 /obj/machinery/door/window{
 	dir = 4
@@ -786,7 +786,7 @@
 /area/abandoned_prison/exterior)
 "kL" = (
 /turf/simulated/mineral,
-/area/space)
+/area/template_noop)
 "kV" = (
 /obj/structure/closet,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -1217,12 +1217,12 @@
 /obj/structure/inflatable/door,
 /obj/effect/landmark/clear,
 /turf/template_noop,
-/area/space)
+/area/template_noop)
 "pX" = (
 /obj/structure/inflatable/wall,
 /obj/effect/landmark/clear,
 /turf/template_noop,
-/area/space)
+/area/template_noop)
 "qc" = (
 /obj/machinery/appliance/cooker/stove,
 /obj/effect/floor_decal/corner_wide/black/diagonal,
@@ -1497,7 +1497,7 @@
 "sx" = (
 /obj/effect/landmark/clear,
 /turf/template_noop,
-/area/space)
+/area/template_noop)
 "sU" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
@@ -1556,7 +1556,7 @@
 	dir = 8
 	},
 /turf/template_noop,
-/area/space)
+/area/template_noop)
 "te" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -1933,7 +1933,7 @@
 /obj/effect/landmark/clear,
 /obj/effect/landmark/clear,
 /turf/template_noop,
-/area/space)
+/area/template_noop)
 "xR" = (
 /obj/machinery/floodlight/randomcharge{
 	dir = 4
@@ -2014,7 +2014,7 @@
 /obj/item/storage/box/unique/dynamite,
 /obj/effect/landmark/clear,
 /turf/template_noop,
-/area/space)
+/area/template_noop)
 "zq" = (
 /obj/structure/largecrate,
 /obj/effect/floor_decal/industrial/hatch/grey,
@@ -2311,7 +2311,7 @@
 /obj/item/ammo_magazine/mc9mm,
 /obj/effect/landmark/clear,
 /turf/template_noop,
-/area/space)
+/area/template_noop)
 "Es" = (
 /obj/effect/floor_decal/corner/green{
 	dir = 10
@@ -2656,7 +2656,7 @@
 /obj/structure/table/standard,
 /obj/effect/landmark/clear,
 /turf/template_noop,
-/area/space)
+/area/template_noop)
 "Jb" = (
 /obj/structure/toilet,
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
@@ -2807,7 +2807,7 @@
 	icon_state = "pipe-c"
 	},
 /turf/template_noop,
-/area/space)
+/area/template_noop)
 "Ll" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 9
@@ -3036,7 +3036,7 @@
 "OW" = (
 /obj/structure/railing/mapped,
 /turf/simulated/mineral,
-/area/space)
+/area/template_noop)
 "Pg" = (
 /obj/effect/floor_decal/industrial/warning/dust{
 	dir = 10
@@ -3084,7 +3084,7 @@
 	dir = 4
 	},
 /turf/template_noop,
-/area/space)
+/area/template_noop)
 "PZ" = (
 /obj/effect/floor_decal/industrial/warning/dust,
 /turf/simulated/floor/airless{
@@ -3201,7 +3201,7 @@
 /area/abandoned_prison/exterior)
 "RH" = (
 /turf/simulated/wall,
-/area/space)
+/area/template_noop)
 "RM" = (
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /obj/machinery/door/airlock/external,
@@ -3272,7 +3272,7 @@
 	},
 /obj/effect/landmark/clear,
 /turf/template_noop,
-/area/space)
+/area/template_noop)
 "SV" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
@@ -3481,7 +3481,7 @@
 /turf/simulated/floor/airless{
 	icon_state = "asteroidplating"
 	},
-/area/space)
+/area/template_noop)
 "Xz" = (
 /obj/effect/floor_decal/industrial/warning/dust{
 	dir = 10

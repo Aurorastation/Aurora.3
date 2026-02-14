@@ -1,22 +1,22 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "a" = (
 /turf/simulated/floor/exoplanet/grass/moghes/dirt,
-/area/space)
+/area/template_noop)
 "c" = (
 /obj/effect/decal/cleanable/blood,
 /turf/simulated/floor/exoplanet/grass/moghes/dirt,
-/area/space)
+/area/template_noop)
 "f" = (
 /obj/effect/decal/remains/xeno,
 /turf/simulated/floor/exoplanet/grass/moghes/dirt,
-/area/space)
+/area/template_noop)
 "r" = (
 /obj/effect/ghostspawpoint{
 	identifier = "moghes_plains_tyrant";
 	name = "igs - moghes_plains_tyrant"
 	},
 /turf/simulated/floor/exoplanet/grass/moghes/dirt,
-/area/space)
+/area/template_noop)
 "v" = (
 /obj/structure/flora/tree/jungle/small{
 	desc = "A pile of unassuming rocks.";
@@ -27,24 +27,24 @@
 	pixel_y = -16
 	},
 /turf/simulated/floor/exoplanet/grass/moghes/dirt,
-/area/space)
+/area/template_noop)
 "z" = (
 /obj/structure/flora/tree/jungle/random,
 /turf/simulated/floor/exoplanet/grass/moghes,
-/area/space)
+/area/template_noop)
 "B" = (
 /obj/effect/decal/remains/xeno,
 /turf/simulated/floor/exoplanet/grass/moghes,
-/area/space)
+/area/template_noop)
 "D" = (
 /turf/simulated/mineral/planet,
-/area/space)
+/area/template_noop)
 "U" = (
 /turf/simulated/floor/exoplanet/grass/moghes,
-/area/space)
+/area/template_noop)
 "V" = (
 /turf/template_noop,
-/area/space)
+/area/template_noop)
 
 (1,1,1) = {"
 V

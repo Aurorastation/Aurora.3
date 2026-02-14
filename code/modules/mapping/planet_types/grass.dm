@@ -18,18 +18,17 @@
 	soil_data = list("Low density organic matter layer", "Rich microbiome layer", "Moderate water layer", "Large rock particle layer", "Iron oxide layer")
 	water_data = list("Sodium ions present", "Calcium ions present", "Sulfate ions present", "Magnesium ions present", "Copper ions present", "Nitrate ions present", "Potassium ions present", "Phorsporous ions present")
 
+	possible_atmospheres = list(
+		/singleton/atmosphere/breathable/jungle = 0.75,
+		/singleton/atmosphere/breathable/earthlike/jungle = 0.25
+	)
 	unit_test_groups = list(2)
+	turftype = /turf/simulated/floor/exoplanet/grass
 
 /obj/effect/overmap/visitable/sector/exoplanet/grass/generate_map()
 	if(prob(40))
 		lightlevel = rand(1,7)/10	//give a chance of twilight jungle
 	..()
-
-/obj/effect/overmap/visitable/sector/exoplanet/grass/generate_atmosphere()
-	..()
-	if(atmosphere)
-		atmosphere.temperature = T20C + rand(10, 30)
-		atmosphere.update_values()
 
 /obj/effect/overmap/visitable/sector/exoplanet/grass/get_surface_color()
 	return grass_color

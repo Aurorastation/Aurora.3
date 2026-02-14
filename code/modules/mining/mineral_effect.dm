@@ -8,17 +8,17 @@
 	var/ore_key
 	var/image/scanner_image
 
-/obj/effect/mineral/Initialize(mapload, var/ore/M)
+/obj/effect/mineral/Initialize(mapload)
 	. = ..()
+	var/turf/simulated/mineral/T = get_turf(src)
+	if(!istype(T))
+		crash_with("Invalid loc for mineral overlay: [T ? T.type : "NULL"].")
+		return INITIALIZE_HINT_QDEL
+	var/ore/M = T.mineral
 	name = "[M.display_name] deposit"
 	ore_key = M.name
 	icon_state = "rock_[ore_key]"
-	var/turf/simulated/mineral/T = get_turf(src)
 	layer = T.layer + 0.1
-	if(!istype(T))
-		crash_with("Invalid loc for mineral overlay: [T ? T.type : "NULL"].")
-		qdel(src)
-		return
 
 	if(T.my_mineral)
 		crash_with("Mineral overlay created on turf that already had one.")

@@ -9,7 +9,7 @@
 	spawn_weight = 1
 	ship_cost = 1
 	id = "dominian_unathi"
-	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/dominian_unathi_shuttle)
+	shuttles_to_initialise = list(/datum/shuttle/overmap/dominian_unathi_shuttle)
 	unit_test_groups = list(2)
 
 /singleton/submap_archetype/dominian_unathi
@@ -45,13 +45,13 @@
 		"nav_dominian_unathi_4"
 	)
 
+	ship_area_type = /area/ship/dominian_unathi
+
 /obj/effect/overmap/visitable/ship/dominian_unathi/New()
 	designation = "[pick("Old Grudges", "Redhorn", "Seryo's Revenge", "Spiritbound", "Hammer of the Goddess", "Come Try Me", "Beating Wardrum", "Grudgetaker", "Our Lady's Talon", "Hunter", "Bloodied Claws", "Steelscale")]"
 	..()
 
 /obj/effect/shuttle_landmark/dominian_unathi
-	base_turf = /turf/space/dynamic
-	base_area = /area/space
 
 /obj/effect/shuttle_landmark/dominian_unathi/nav1
 	name = "Fore"
@@ -90,17 +90,18 @@
 	fore_dir = SOUTH
 	vessel_size = SHIP_SIZE_TINY
 
+	ship_area_type = /area/shuttle/dominian_unathi
+
 /obj/machinery/computer/shuttle_control/explore/dominian_unathi_shuttle
 	name = "shuttle control console"
 	shuttle_tag = "Kazhkz Fighter"
 	req_access = list(ACCESS_IMPERIAL_FLEET_VOIDSMAN_SHIP)
 
-/datum/shuttle/autodock/overmap/dominian_unathi_shuttle
+/datum/shuttle/overmap/dominian_unathi_shuttle
 	name = "Kazhkz Fighter"
 	move_time = 20
 	shuttle_area = list(/area/shuttle/dominian_unathi)
 	current_location = "nav_hangar_kazhkz"
-	landmark_transition = "nav_transit_kazhkz_shuttle"
 	dock_target = "airlock_kazhkz_shuttle"
 	range = 1
 	fuel_consumption = 2
@@ -111,11 +112,8 @@
 	name = "Kazhkz Privateer Ship - Fighter Bay"
 	landmark_tag = "nav_hangar_kazhkz"
 	docking_controller = "kazhkz_shuttle_dock"
-	base_area = /area/ship/dominian_unathi/hangar
-	base_turf = /turf/simulated/floor/plating
 	movable_flags = MOVABLE_FLAG_EFFECTMOVE
 
 /obj/effect/shuttle_landmark/dominian_unathi_shuttle/transit
 	name = "In transit"
 	landmark_tag = "nav_transit_kazhkz_shuttle"
-	base_turf = /turf/space/transit/north

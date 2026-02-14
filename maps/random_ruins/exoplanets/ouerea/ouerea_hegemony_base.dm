@@ -16,7 +16,6 @@
 	requires_power = FALSE
 	no_light_control = FALSE
 	is_outside = OUTSIDE_NO
-	base_turf = /turf/simulated/floor/exoplanet/barren
 	area_flags = AREA_FLAG_RAD_SHIELDED|AREA_FLAG_INDESTRUCTIBLE_TURFS
 
 

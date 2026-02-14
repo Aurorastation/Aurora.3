@@ -25,5 +25,4 @@
 	name = "Overgrown Mining Station"
 	icon_state = "overgrown_mining_station"
 	requires_power = FALSE
-	base_turf = /turf/space
 	no_light_control = TRUE

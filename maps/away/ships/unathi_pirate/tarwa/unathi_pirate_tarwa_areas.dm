@@ -3,7 +3,6 @@
 	icon_state = "green"
 	requires_power = 1
 	no_light_control = 0
-	base_turf = /turf/space
 	area_flags = AREA_FLAG_RAD_SHIELDED
 
 /area/tarwa_ship/hangar

@@ -15,7 +15,7 @@
 	spawn_weight_sector_dependent = list(ALL_CRESCENT_EXPANSE_SECTORS = 0.3)
 	spawn_weight = 1
 
-	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/golden_deep, /datum/shuttle/autodock/multi/lift/gd)
+	shuttles_to_initialise = list(/datum/shuttle/overmap/golden_deep, /datum/shuttle/multi/lift/gd)
 	sectors = list(ALL_TAU_CETI_SECTORS, ALL_COALITION_SECTORS, SECTOR_VALLEY_HALE, ALL_CRESCENT_EXPANSE_SECTORS)
 
 	unit_test_groups = list(1)
@@ -58,6 +58,8 @@
 		"gd_dock5"
 	)
 
+	ship_area_type = /area/golden_deep
+
 /obj/effect/overmap/visitable/ship/golden_deep/New()
 	designation = "[pick("Pessinus", "Phyrgia", "Gordia", "Bermion", "Ancyra", "Silenus", "Alyattes", "Orpheus")]"
 	..()
@@ -78,17 +80,18 @@
 	fore_dir = EAST
 	vessel_size = SHIP_SIZE_TINY
 
+	ship_area_type = /area/shuttle/golden_deep
+
 /obj/machinery/computer/shuttle_control/explore/terminal/golden_deep
 	name = "shuttle control console"
 	shuttle_tag = "Golden Deep Shuttle"
 	req_one_access = list(ACCESS_GOLDEN_DEEP, ACCESS_GOLDEN_DEEP_OWNED)
 
-/datum/shuttle/autodock/overmap/golden_deep
+/datum/shuttle/overmap/golden_deep
 	name = "Golden Deep Shuttle"
 	move_time = 20
 	shuttle_area = list(/area/shuttle/golden_deep/cargo, /area/shuttle/golden_deep/cockpit, /area/shuttle/golden_deep/passenger)
 	current_location = "gd_nav_hangar"
-	landmark_transition = "gd_nav_transit"
 	dock_target = "airlock_golden_shuttle"
 	range = 1
 	fuel_consumption = 2
@@ -110,14 +113,11 @@
 	name = "Golden Deep Mercantile Vessel - Hangar"
 	landmark_tag = "gd_nav_hangar"
 	docking_controller = "golden_deep_hangar"
-	base_turf = /turf/space
-	base_area = /area/space
 	movable_flags = MOVABLE_FLAG_EFFECTMOVE
 
 /obj/effect/shuttle_landmark/golden_deep_shuttle/transit
 	name = "In transit"
 	landmark_tag = "gd_nav_transit"
-	base_turf = /turf/space/transit/east
 
 //Fluff items
 /obj/item/storage/secure/safe/golden_deep // Placed in merchant's quarters.

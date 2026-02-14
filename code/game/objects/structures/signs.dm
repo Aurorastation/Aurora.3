@@ -755,3 +755,14 @@
 	name = "SSF Nemora plaque"
 	desc = "On the plaque's bronze surface, the old emblem of the Alliance of Sovereign Solarian Nations is engraved. Just below it, the text reads: <i>'SSF Nemora: Research Rooted in Discovery'</i>."
 	desc_extended = "At the bottom, there is an engraved text stained in dried blood that reads: <i>'Department of Colonization. Taking necessary steps today, charting the future.'</i>."
+
+/obj/structure/sign/floor_plaque/ship
+	name = "Ship Commemorative Plaque"
+	desc = "A plaque commemorating the details of the ship, including shipyard, date of construction and commissioning, and technical specifications."
+
+/obj/structure/sign/floor_plaque/ship/LateInitialize()
+	. = ..()
+	var/obj/effect/overmap/visitable/ship/OV = GLOB.map_sectors["[z]"]
+	if(istype(OV))
+		name = "[OV.designation] Commemorative Plaque"
+		desc = "An adorned and polished bronze plaque commemorating the design and construction of the [OV.class] [OV.designation] by [OV.designer]."

@@ -13,6 +13,36 @@
 	var/diggable = 1
 	var/dirt_color = "#7c5e42"
 
+/turf/simulated/floor/exoplanet/New()
+	// try to get the the atmos and area of the planet
+	if(SSmapping.current_map.use_overmap)
+		// if exoplanet
+		var/datum/site = GLOB.map_sectors["[z]"]
+		var/datum/template = GLOB.map_templates["[z]"]
+		if(istype(site, /obj/effect/overmap/visitable/sector/exoplanet))
+			var/obj/effect/overmap/visitable/sector/exoplanet/exoplanet = site
+			if(exoplanet.atmosphere)
+				initial_gas = exoplanet.atmosphere.gas.Copy()
+				temperature = exoplanet.atmosphere.temperature
+			else
+				initial_gas = list()
+				temperature = T0C
+			//Must be done here, as light data is not fully carried over by ChangeTurf (but overlays are).
+			set_light(MINIMUM_USEFUL_LIGHT_RANGE, exoplanet.lightlevel, exoplanet.lightcolor)
+			if(exoplanet.planetary_area && istype(loc, world.area))
+				change_area(loc, exoplanet.planetary_area)
+		// if away site
+		else if(istype(template, /datum/map_template/ruin/away_site))
+			var/datum/map_template/ruin/away_site/away_site = template
+			if(away_site.exoplanet_atmosphere)
+				initial_gas = away_site.exoplanet_atmosphere.gas.Copy()
+				temperature = away_site.exoplanet_atmosphere.temperature
+			if(away_site.exoplanet_lightlevel && is_outside())
+				set_light(MINIMUM_USEFUL_LIGHT_RANGE, away_site.exoplanet_lightlevel, away_site.exoplanet_lightcolor)
+
+	// if not on an exoplanet, instead just keep the default or mapped in atmos
+	..()
+
 /turf/simulated/floor/exoplanet/attackby(obj/item/attacking_item, mob/user)
 	if(diggable && istype(attacking_item, /obj/item/shovel))
 		visible_message(SPAN_NOTICE("\The [user] starts digging \the [src]"))
@@ -39,16 +69,16 @@
 /turf/simulated/floor/exoplanet/ex_act(severity)
 	switch(severity)
 		if(1)
-			ChangeTurf(get_base_turf_by_area(src))
+			scrape_away(2)
 		if(2)
 			if(prob(40))
-				ChangeTurf(get_base_turf_by_area(src))
+				scrape_away(2)
 
 /turf/simulated/floor/exoplanet/New()
 	footprint_color = dirt_color
 	update_icon(1)
 
-	if(SSatlas.current_map.use_overmap)
+	if(SSmapping.current_map.use_overmap)
 		// if exoplanet
 		var/datum/site = GLOB.map_sectors["[z]"]
 		var/datum/template = GLOB.map_templates["[z]"]
@@ -75,7 +105,7 @@
 
 /turf/simulated/floor/exoplanet/Initialize()
 	. = ..()
-	if(SSatlas.current_map.use_overmap)
+	if(SSmapping.current_map.use_overmap)
 		// if exoplanet
 		var/datum/site = GLOB.map_sectors["[z]"]
 		var/datum/template = GLOB.map_templates["[z]"]
@@ -152,6 +182,14 @@
 	blocks_air = TRUE
 	icon = null
 	icon_state = null
+	var/turf/linked_turf
+
+/turf/unsimulated/planet_edge/Destroy()
+	linked_turf = null
+	return ..()
+
+/turf/unsimulated/planet_edge/proc/unlink()
+	linked_turf = null
 
 /turf/unsimulated/planet_edge/Initialize()
 	. = ..()
@@ -174,37 +212,33 @@
 	if(NT)
 		vis_contents = list(NT)
 
+	linked_turf = NT
+	RegisterSignal(linked_turf, COMSIG_QDELETING, PROC_REF(unlink))
+
 	//Need to put a mouse-opaque overlay there to prevent people turning/shooting towards ACTUAL location of vis_content things
 	var/obj/effect/overlay/O = new(src)
 	O.mouse_opacity = MOUSE_OPACITY_OPAQUE
 	O.name = "distant terrain"
 	O.desc = "You need to come over there to take a better look."
 
-/turf/unsimulated/planet_edge/CollidedWith(atom/bumped_atom)
+/turf/unsimulated/planet_edge/LateInitialize()
 	. = ..()
 	var/obj/effect/overmap/visitable/sector/exoplanet/E = GLOB.map_sectors["[z]"]
 	if(!istype(E))
 		return
 	if(E.planetary_area && istype(loc, world.area))
 		change_area(loc, E.planetary_area)
-	var/new_x = bumped_atom.x
-	var/new_y = bumped_atom.y
-	if(x <= TRANSITIONEDGE)
-		new_x = E.maxx - TRANSITIONEDGE - 1
-	else if (x >= (E.maxx - TRANSITIONEDGE))
-		new_x = TRANSITIONEDGE + 1
-	else if (y <= TRANSITIONEDGE)
-		new_y = E.maxy - TRANSITIONEDGE - 1
-	else if (y >= (E.maxy - TRANSITIONEDGE))
-		new_y = TRANSITIONEDGE + 1
 
-	var/turf/T = locate(new_x, new_y, bumped_atom.z)
-	if(T && !T.density)
+/turf/unsimulated/planet_edge/CollidedWith(atom/bumped_atom)
+	. = ..()
+	if(!linked_turf)
+		return
+	if(linked_turf && !linked_turf.density)
 		if(ismovable(bumped_atom))
 			var/atom/movable/AM = bumped_atom
-			AM.forceMove(T)
+			AM.forceMove(linked_turf)
 			if(isliving(AM))
 				var/mob/living/L = bumped_atom
 				if(L.pulling)
 					var/atom/movable/pulling = L.pulling
-					pulling.forceMove(T)
+					pulling.forceMove(linked_turf)

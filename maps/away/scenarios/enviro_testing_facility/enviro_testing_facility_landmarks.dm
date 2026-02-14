@@ -2,8 +2,6 @@
 // --------------------- base type
 
 /obj/effect/shuttle_landmark/enviro_testing_facility
-	base_area = /area/enviro_testing_facility/outside/landing
-	base_turf = /turf/simulated/floor/exoplanet/barren
 
 // --------------------- surface
 

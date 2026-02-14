@@ -3,7 +3,7 @@ SUBSYSTEM_DEF(arrivals)
 	flags = SS_NO_INIT | SS_BACKGROUND
 	priority = SS_PRIORITY_ARRIVALS
 
-	var/datum/shuttle/autodock/ferry/arrival/shuttle
+	var/datum/shuttle/ferry/arrival/shuttle
 
 	var/launch_time			//the time at which the shuttle will be launched
 	var/wait_for_launch = 0	//if the shuttle is waiting to launch
@@ -63,10 +63,17 @@ SUBSYSTEM_DEF(arrivals)
 	if(istype(A,/obj/item/phylactery))
 		return 1
 
-	for(var/i=1, i<=A.contents.len, i++)
-		var/atom/B = A.contents[i]
-		if(.(B))
-			return 1
+	if(isarea(A))
+		var/area/area = A
+		for(var/turf/T as anything in area.get_turfs_from_all_zlevels())
+			for(var/atom/B as anything in T)
+				if(.(B))
+					return TRUE
+	else
+		for(var/i=1, i<=A.contents.len, i++)
+			var/atom/B = A.contents[i]
+			if(.(B))
+				return 1
 
 //begins the launch countdown and sets the amount of time left until launch
 /datum/controller/subsystem/arrivals/proc/set_launch_countdown()

@@ -217,7 +217,7 @@
 		return FALSE
 
 	if(!self_destructing)
-		to_chat(src, SPAN_DANGER("WARNING: Removal from [SSatlas.current_map.company_name] property detected. Anti-Theft mode activated."))
+		to_chat(src, SPAN_DANGER("WARNING: Removal from [SSmapping.current_map.company_name] property detected. Anti-Theft mode activated."))
 		start_self_destruct(TRUE)
 	return TRUE
 
@@ -235,7 +235,7 @@
 /mob/living/silicon/robot/drone/construction/matriarch/Initialize()
 	. = ..()
 	check_add_to_late_firers()
-	matrix_tag = SSatlas.current_map.station_short
+	matrix_tag = SSmapping.current_map.station_short
 
 /mob/living/silicon/robot/drone/construction/matriarch/shut_down()
 	return
@@ -279,7 +279,7 @@
 		module = new module_type(src, src)
 		recalculate_synth_capacities()
 
-	flavor_text = replacetext(desc_flavor, "%MAPNAME%", SSatlas.current_map.company_name)
+	flavor_text = replacetext(desc_flavor, "%MAPNAME%", SSmapping.current_map.company_name)
 	playsound(get_turf(src), 'sound/machines/twobeep.ogg', 50, 0)
 
 //Redefining some robot procs...
@@ -447,7 +447,7 @@
 	var/area/A = get_area(T)
 	if((!T || !(A in GLOB.the_station_areas)) && src.stat != DEAD)
 		if(!self_destructing)
-			to_chat(src, SPAN_WARNING("WARNING: Removal from [SSatlas.current_map.company_name] property detected. Anti-Theft mode activated."))
+			to_chat(src, SPAN_WARNING("WARNING: Removal from [SSmapping.current_map.company_name] property detected. Anti-Theft mode activated."))
 			start_self_destruct(TRUE)
 		return TRUE
 

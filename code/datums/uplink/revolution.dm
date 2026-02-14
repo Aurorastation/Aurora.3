@@ -3,7 +3,7 @@
 
 /datum/uplink_item/item/revolution/armory/New()
 	name = "Armory Dropper"
-	desc = "A device that can be used to drop in an armory-worth of guns. Can only be used outside [SSatlas.current_map.station_short] areas, unless emagged, which is hazardous."
+	desc = "A device that can be used to drop in an armory-worth of guns. Can only be used outside [SSmapping.current_map.station_short] areas, unless emagged, which is hazardous."
 	telecrystal_cost = 25
 	path = /obj/item/orbital_dropper/armory/syndicate
 

@@ -54,7 +54,7 @@ GLOBAL_DATUM_INIT(revdata, /datum/getrev, new())
 	else
 		to_chat(src, "Revision unknown")
 
-	to_chat(src, "<b>Current Map:</b> [SSatlas.current_map.full_name]")
+	to_chat(src, "<b>Current Map:</b> [SSmapping.current_map.full_name]")
 
 /datum/getrev/proc/testmerge_overview()
 	if (!test_merges.len)

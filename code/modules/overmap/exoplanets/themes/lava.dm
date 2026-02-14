@@ -5,6 +5,7 @@
 	)
 
 	perlin_zoom = 21
+	mountain_biome = /singleton/biome/mountain/basalt
 	mountain_threshold = 0.6
 
 	heat_levels = list(

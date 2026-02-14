@@ -12,15 +12,10 @@
 	ruin_planet_type = PLANET_BARREN
 	ruin_allowed_tags = RUIN_AIRLESS|RUIN_LOWPOP|RUIN_MINING|RUIN_SCIENCE|RUIN_HOSTILE|RUIN_WRECK|RUIN_NATURAL
 	unit_test_groups = list(1)
+	possible_atmospheres = null
+	turftype = /turf/simulated/floor/exoplanet/barren
 
 	soil_data = list("Rich iron oxide layer", "Low density silicon dioxide layer", "Large rock particle layer", "Trace organic particle layer", "Trace ice crytal layer")
-
-/obj/effect/overmap/visitable/sector/exoplanet/barren/generate_habitability()
-	return HABITABILITY_BAD
-
-/obj/effect/overmap/visitable/sector/exoplanet/barren/generate_atmosphere()
-	..()
-	atmosphere = null
 
 /obj/effect/overmap/visitable/sector/exoplanet/barren/get_surface_color()
 	return "#6C6251"

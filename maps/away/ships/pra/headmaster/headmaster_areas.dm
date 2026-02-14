@@ -3,7 +3,6 @@
 	icon_state = "red"
 	requires_power = TRUE
 	no_light_control = FALSE
-	base_turf = /turf/space
 	area_flags = AREA_FLAG_RAD_SHIELDED
 	ambience = AMBIENCE_ENGINEERING
 
@@ -11,7 +10,7 @@
 	name = "Headmaster Ship - Exterior"
 	icon_state = "space"
 	requires_power = FALSE
-	has_gravity = FALSE
+	area_flags = AREA_FLAG_NO_GRAVITY | AREA_FLAG_SHIP_EXTERIOR
 
 /area/headmaster_ship/helm
 	name = "Headmaster Ship - Helm"

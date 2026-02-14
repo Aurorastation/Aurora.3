@@ -16,7 +16,7 @@
 	spawn_weight = 1
 	ship_cost = 1
 	id = "dominian_corvette"
-	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/dominian_shuttle, /datum/shuttle/autodock/multi/lift/dominia)
+	shuttles_to_initialise = list(/datum/shuttle/overmap/dominian_shuttle, /datum/shuttle/multi/lift/dominia)
 
 	unit_test_groups = list(2)
 
@@ -60,6 +60,8 @@
 	)
 
 	invisible_until_ghostrole_spawn = TRUE
+
+	ship_area_type = /area/dominian_corvette
 
 /obj/effect/overmap/visitable/ship/dominian_corvette/New()
 	designation = "[pick("Lammergeier", "Eagle", "Hawk", "Owl", "Vulture", "Sparrowhawk", "Falcon", "Peregrine", "Condor", "Harrier", "Kestrel", "Osprey", "Yastr", "Merlin", "Kite", "Seriema", "Caracaras")]"

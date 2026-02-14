@@ -46,6 +46,7 @@
 /area/ship/dominian_science_vessel/exterior
 	name = "Dominian Science Vessel Exterior"
 	icon_state = "exterior"
+	area_flags = AREA_FLAG_NO_GRAVITY | AREA_FLAG_SHIP_EXTERIOR
 
 /area/ship/dominian_science_vessel/eva
 	name = "Dominian Science Vessel EVA"

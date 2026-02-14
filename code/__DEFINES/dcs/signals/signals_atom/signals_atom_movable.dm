@@ -44,3 +44,5 @@
 
 ///called when the movable's glide size is updated: (new_glide_size)
 #define COMSIG_MOVABLE_UPDATE_GLIDE_SIZE "movable_glide_size"
+///from base of atom/movable/on_changed_z_level(): (turf/old_turf, turf/new_turf, same_z_layer)
+#define COMSIG_MOVABLE_Z_CHANGED "movable_ztransit"

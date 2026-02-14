@@ -2112,9 +2112,7 @@
 	frequency = 1394
 	},
 /obj/effect/shuttle_landmark/ranger_shuttle/hangar{
-	dir = 8;
-	base_area = null;
-	base_turf = null
+	dir = 8
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/effect/map_effect/marker/airlock/docking{

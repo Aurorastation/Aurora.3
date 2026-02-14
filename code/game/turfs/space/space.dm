@@ -54,7 +54,7 @@
 
 	// Otherwise, if a space turf borders a simulated turf, it should be producing starlight.
 	if(locate(/turf/simulated) in RANGE_TURFS(1, src))
-		set_light(SSatlas.current_sector.starlight_range, SSatlas.current_sector.starlight_power, l_color = SSskybox.background_color)
+		set_light(SSmapping.current_sector.starlight_range, SSmapping.current_sector.starlight_power, l_color = SSskybox.background_color)
 
 // We don't want this doing anything on space, otherwise update_starlight() would run set_light on space turfs twice.
 /turf/space/set_default_lighting()

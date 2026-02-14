@@ -31,8 +31,8 @@
 	plane = BLACKNESS_PLANE
 
 	var/obj/machinery/power/apc/apc = null
-	/// The base turf type of the area, which can be used to override the z-level's base turf.
-	var/turf/base_turf
+
+	var/default_gravity = ZERO_GRAVITY
 
 	/// If this area has a light switch (or multiple), do the lights start on or off? FALSE = off, TRUE = on.
 	var/lightswitch = TRUE
@@ -55,15 +55,6 @@
 	var/oneoff_equip 	= 0
 	var/oneoff_light 	= 0
 	var/oneoff_environ 	= 0
-
-	/// Boolean, if this area has gravity
-	var/has_gravity = TRUE
-
-	/// Boolean, if this area always has gravity
-	var/alwaysgravity = FALSE
-
-	/// Boolean, if this area never has gravity
-	var/nevergravity = FALSE
 
 	/// Contains a list of doors adjacent to this area.
 	var/list/all_doors = list()
@@ -101,6 +92,9 @@
 	/// A text-based description of the area, can be used for sounds, notable things in the room, etc.
 	var/area_blurb
 
+	/// Size of the area in open turfs, only calculated for indoors areas.
+	var/areasize = 0
+
 	var/tmp/is_outside = OUTSIDE_NO
 
 	/// Should the turfs in this area render starlight accurate to the starlight of the local sector?
@@ -110,6 +104,16 @@
 
 	/// defaults to TRUE, false disables hostile events (like drone uprising).
 	var/hostile_events = TRUE
+	/// List of all turfs currently inside this area as nested lists indexed by zlevel.
+	/// Acts as a filtered version of area.contents For faster lookup
+	/// (area.contents is actually a filtered loop over world)
+	/// Semi fragile, but it prevents stupid so I think it's worth it
+	var/list/list/turf/turfs_by_zlevel = list()
+	/// turfs_by_z_level can hold MASSIVE lists, so rather then adding/removing from it each time we have a problem turf
+	/// We should instead store a list of turfs to REMOVE from it, then hook into a getter for it
+	/// There is a risk of this and contained_turfs leaking, so a subsystem will run it down to 0 incrementally if it gets too large
+	/// This uses the same nested list format as turfs_by_zlevel
+	var/list/list/turf/turfs_to_uncontain_by_zlevel = list()
 
 /**
  * Don't move this to Initialize(). Things in here need to run before SSatoms does.
@@ -136,7 +140,6 @@
 
 	if(centcomm_area)
 		GLOB.centcom_areas[src] = TRUE
-		alwaysgravity = 1
 
 	if(station_area)
 		GLOB.the_station_areas[src] = TRUE
@@ -169,6 +172,9 @@
 
 	GLOB.centcom_areas -= src
 	GLOB.the_station_areas -= src
+	//turf cleanup
+	turfs_by_zlevel = null
+	turfs_to_uncontain_by_zlevel = null
 
 	//parent cleanup
 	return ..()
@@ -178,6 +184,125 @@
 
 /area/proc/is_no_crew_expected()
 	return area_flags & AREA_FLAG_NO_CREW_EXPECTED
+
+/**
+ * Set the area size of the area
+ *
+ * This is the number of open turfs in the area contents, or FALSE if the outdoors var is set
+ *
+ */
+/area/proc/update_areasize()
+	if(is_outside != OUTSIDE_NO)
+		return FALSE
+	areasize = 0
+	for(var/list/zlevel_turfs as anything in get_zlevel_turf_lists())
+		for(var/turf/T in zlevel_turfs)
+			if(T.is_open())
+				areasize++
+
+/// Returns the highest zlevel that this area contains turfs for
+/area/proc/get_highest_zlevel()
+	for (var/area_zlevel in length(turfs_by_zlevel) to 1 step -1)
+		if (length(turfs_to_uncontain_by_zlevel) >= area_zlevel)
+			if (length(turfs_by_zlevel[area_zlevel]) - length(turfs_to_uncontain_by_zlevel[area_zlevel]) > 0)
+				return area_zlevel
+		else
+			if (length(turfs_by_zlevel[area_zlevel]))
+				return area_zlevel
+	return 0
+
+/// Returns a nested list of lists with all turfs split by zlevel.
+/// only zlevels with turfs are returned. The order of the list is not guaranteed.
+/area/proc/get_zlevel_turf_lists()
+	if(length(turfs_to_uncontain_by_zlevel))
+		canonize_contained_turfs()
+
+	var/list/zlevel_turf_lists = list()
+
+	for (var/list/zlevel_turfs as anything in turfs_by_zlevel)
+		if (length(zlevel_turfs))
+			zlevel_turf_lists += list(zlevel_turfs)
+
+	return zlevel_turf_lists
+
+/// Returns a list with all turfs in this zlevel.
+/area/proc/get_turfs_by_zlevel(zlevel)
+	if (length(turfs_to_uncontain_by_zlevel) >= zlevel && length(turfs_to_uncontain_by_zlevel[zlevel]))
+		canonize_contained_turfs_by_zlevel(zlevel)
+
+	if (length(turfs_by_zlevel) < zlevel)
+		return list()
+
+	return turfs_by_zlevel[zlevel]
+
+/// Merges a list containing all of the turfs zlevel lists from get_zlevel_turf_lists inside one list. Use get_zlevel_turf_lists() or get_turfs_by_zlevel() unless you need all the turfs in one list to avoid generating large lists
+/area/proc/get_turfs_from_all_zlevels()
+	. = list()
+	for (var/list/zlevel_turfs as anything in get_zlevel_turf_lists())
+		. += zlevel_turfs
+
+/// Ensures that the contained_turfs list properly represents the turfs actually inside us
+/area/proc/canonize_contained_turfs_by_zlevel(zlevel_to_clean, _autoclean = TRUE)
+	// This is massively suboptimal for LARGE removal lists
+	// Try and keep the mass removal as low as you can. We'll do this by ensuring
+	// We only actually add to contained turfs after large changes (Also the management subsystem)
+	// Do your damndest to keep turfs out of /area/space as a stepping stone
+	// That sucker gets HUGE and will make this take actual seconds
+	if (zlevel_to_clean <= length(turfs_by_zlevel) && zlevel_to_clean <= length(turfs_to_uncontain_by_zlevel))
+		turfs_by_zlevel[zlevel_to_clean] -= turfs_to_uncontain_by_zlevel[zlevel_to_clean]
+
+	if (!_autoclean) // Removes empty lists from the end of this list
+		turfs_to_uncontain_by_zlevel[zlevel_to_clean] = list()
+		return
+
+	var/new_length = length(turfs_to_uncontain_by_zlevel)
+	// Walk backwards thru the list
+	for (var/i in length(turfs_to_uncontain_by_zlevel) to 0 step -1)
+		if (i && length(turfs_to_uncontain_by_zlevel[i]))
+			break // Stop the moment we find a useful list
+		new_length = i
+
+	if (new_length < length(turfs_to_uncontain_by_zlevel))
+		turfs_to_uncontain_by_zlevel.len = new_length
+
+	if (new_length >= zlevel_to_clean)
+		turfs_to_uncontain_by_zlevel[zlevel_to_clean] = list()
+
+
+/// Ensures that the contained_turfs list properly represents the turfs actually inside us
+/area/proc/canonize_contained_turfs()
+	for (var/area_zlevel in 1 to length(turfs_to_uncontain_by_zlevel))
+		canonize_contained_turfs_by_zlevel(area_zlevel, _autoclean = FALSE)
+
+	turfs_to_uncontain_by_zlevel = list()
+
+/// Returns TRUE if we have contained turfs, FALSE otherwise
+/area/proc/has_contained_turfs()
+	for (var/area_zlevel in 1 to length(turfs_by_zlevel))
+		if (length(turfs_to_uncontain_by_zlevel) >= area_zlevel)
+			if (length(turfs_by_zlevel[area_zlevel]) - length(turfs_to_uncontain_by_zlevel[area_zlevel]) > 0)
+				return TRUE
+		else
+			if (length(turfs_by_zlevel[area_zlevel]))
+				return TRUE
+	return FALSE
+
+/**
+ * Register this area as belonging to a z level
+ *
+ * Ensures the item is added to the SSmapping.areas_in_z list for this z
+ */
+/area/proc/reg_in_areas_in_z()
+	if(!has_contained_turfs())
+		return
+	var/list/areas_in_z = SSmapping.areas_in_z
+	update_areasize()
+	if(!z)
+		WARNING("No z found for [src]")
+		return
+	if(!areas_in_z["[z]"])
+		areas_in_z["[z]"] = list()
+	areas_in_z["[z]"] += src
 
 /**
  * Set lights in area.
@@ -455,16 +580,6 @@
 /area/proc/stop_music(var/mob/living/L)
 	L << sound(null, channel = 4)
 
-/area/proc/gravitychange(var/gravitystate = 0)
-	has_gravity = gravitystate
-
-	for(var/mob/M in src)
-		if(has_gravity())
-			thunk(M)
-		else
-			to_chat(M, SPAN_NOTICE("The sudden lack of gravity makes you feel weightless and float cluelessly."))
-		M.update_floating()
-
 /area/proc/thunk(mob)
 	if(istype(get_turf(mob), /turf/space)) // Can't fall onto nothing.
 		return
@@ -489,13 +604,6 @@
 		temp_airlock.prison_open()
 	for(var/obj/machinery/door/window/temp_windoor in src)
 		temp_windoor.open()
-
-/area/has_gravity(turf/gravity_turf)
-	if(alwaysgravity)
-		return TRUE
-	if(nevergravity)
-		return FALSE
-	return has_gravity
 
 /**
  * Useful proc for events.
@@ -562,6 +670,47 @@
 	if (turfs.len)
 		return pick(turfs)
 	else return null
+
+/**
+* Displays an area blurb on a mob's screen.
+*
+* Areas with blurbs set [/area/var/area_blurb] will display their blurb. Otherwise no blurb will be shown. Contains checks to avoid duplicate blurbs, pass the `override` variable to bypass this. If passed when an area has no blurb, will show a generic "no blurb" message.
+*
+* * `target_mob` - The mob to show an area blurb.
+* * `override` - Pass `TRUE` to override duplicate checks, for usage with verbs, etc.
+*/
+/area/proc/do_area_blurb(mob/living/target_mob, override)
+	if(isnull(area_blurb))
+		if(override)
+			to_chat(target_mob, EXAMINE_BLOCK_GREY("There's nothing particularly noteworthy about this area."))
+		return
+
+	if(!(target_mob.ckey in GLOB.area_blurb_stated_to[area_blurb_category]) || override)
+		LAZYADD(GLOB.area_blurb_stated_to[area_blurb_category], target_mob.ckey)
+		to_chat(target_mob, EXAMINE_BLOCK_GREY(area_blurb))
+
+/// A verb to view an area's blurb on demand. Overrides the check for if you have seen the blurb before so you can always see it when used.
+/mob/living/verb/show_area_blurb()
+	set name = "Show Area Blurb"
+	set category = "IC"
+
+	if(!incapacitated(INCAPACITATION_KNOCKOUT))
+		var/area/blurb_verb = get_area(src)
+		if(blurb_verb)
+			blurb_verb.do_area_blurb(src, TRUE)
+
+/// A ghost version of the view area blurb verb so you can view it while observing.
+/mob/abstract/ghost/observer/verb/ghost_show_area_blurb()
+	set name = "Show Area Blurb"
+	set category = "IC"
+
+	var/area/blurb_verb = get_area(src)
+	if(blurb_verb)
+		blurb_verb.do_area_blurb(src, TRUE)
+
+/// A hook so areas can modify the incoming args of ChangeTurf
+/area/proc/place_on_top_react(list/new_baseturfs, turf/added_layer, flags)
+	return flags
 
 #undef VOLUME_AMBIENCE
 #undef VOLUME_AMBIENT_HUM

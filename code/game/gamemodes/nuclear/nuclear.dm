@@ -15,9 +15,9 @@ GLOBAL_LIST_INIT_TYPED(nuke_disks, /obj/item/disk/nuclear, list())
 	antag_scaling_coeff = 6
 
 /datum/game_mode/nuclear/pre_setup()
-	round_description = "A mercenary strike force is approaching the [SSatlas.current_map.station_type]!"
-	extended_round_description = "[SSatlas.current_map.company_short]'s wealth and success caught the attention of several enemies old and new,  \
-		and many seek to undermine them using illegal ways. The SCC and their crown jewel research [SSatlas.current_map.station_type] is not safe from those \
+	round_description = "A mercenary strike force is approaching the [SSmapping.current_map.station_type]!"
+	extended_round_description = "[SSmapping.current_map.company_short]'s wealth and success caught the attention of several enemies old and new,  \
+		and many seek to undermine them using illegal ways. The SCC and their crown jewel research [SSmapping.current_map.station_type] is not safe from those \
 		malicious activities."
 	. = ..()
 

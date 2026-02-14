@@ -252,7 +252,7 @@
 /area/pid_kois_farm)
 "oc" = (
 /turf/template_noop,
-/area/space)
+/area/template_noop)
 "pb" = (
 /obj/effect/floor_decal/corner/green{
 	dir = 6
@@ -273,7 +273,7 @@
 /obj/effect/landmark/clear,
 /obj/effect/landmark/clear,
 /turf/template_noop,
-/area/space)
+/area/template_noop)
 "qq" = (
 /obj/effect/floor_decal/corner/green{
 	dir = 9
@@ -712,7 +712,7 @@
 "Es" = (
 /obj/effect/landmark/clear,
 /turf/template_noop,
-/area/space)
+/area/template_noop)
 "EK" = (
 /obj/effect/floor_decal/corner/blue{
 	dir = 10
@@ -1033,7 +1033,7 @@
 	pixel_y = 32
 	},
 /turf/template_noop,
-/area/space)
+/area/template_noop)
 "Zv" = (
 /obj/machinery/atmospherics/pipe/simple/visible{
 	dir = 10

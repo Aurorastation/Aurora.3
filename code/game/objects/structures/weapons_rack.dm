@@ -43,8 +43,6 @@
 	return INITIALIZE_HINT_LATELOAD
 
 /obj/structure/weapons_rack/LateInitialize()
-	. = ..()
-
 	for(var/obj/item/gun in get_turf(src))
 		gun.forceMove(src)
 

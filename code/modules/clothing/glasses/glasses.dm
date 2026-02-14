@@ -796,8 +796,8 @@ BLIND     // can't see anything
 	tint = TINT_HEAVY
 	canremove = FALSE
 
-/obj/item/clothing/glasses/aug/throw_at()
-	usr.drop_from_inventory(src)
+/obj/item/clothing/glasses/aug/throw_at(atom/target, range, speed, mob/thrower, spin = TRUE, diagonals_first = FALSE, datum/callback/callback, force = MOVE_FORCE_STRONG, gentle = FALSE, quickstart = TRUE)
+	thrower.drop_from_inventory(src)
 
 /obj/item/clothing/glasses/aug/dropped()
 	. = ..()

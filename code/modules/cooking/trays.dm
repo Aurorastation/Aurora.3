@@ -190,7 +190,7 @@
 /obj/item/tray/throw_impact(atom/hit_atom)
 	spill(null, loc)
 
-/obj/item/tray/throw_at(atom/target, throw_range, throw_speed, mob/user)
+/obj/item/tray/throw_at(atom/target, range, speed, mob/thrower, spin = TRUE, diagonals_first = FALSE, datum/callback/callback, force = MOVE_FORCE_STRONG, gentle = FALSE, quickstart = TRUE)
 	safedrop = 1//we dont want the tray to spill when thrown, it will spill on impact instead
 	..()
 

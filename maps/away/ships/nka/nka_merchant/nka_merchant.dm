@@ -8,7 +8,7 @@
 
 	ship_cost = 1
 	spawn_weight = 1
-	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/nka_merchant_shuttle)
+	shuttles_to_initialise = list(/datum/shuttle/overmap/nka_merchant_shuttle)
 	spawn_weight_sector_dependent = list(SECTOR_SRANDMARR = 2, SECTOR_BADLANDS = 0.5)
 	sectors = list(SECTOR_BADLANDS, SECTOR_SRANDMARR, SECTOR_VALLEY_HALE, SECTOR_CORP_ZONE, SECTOR_TAU_CETI)
 
@@ -48,6 +48,8 @@
 
 	invisible_until_ghostrole_spawn = TRUE
 
+	ship_area_type = /area/nka_merchant
+
 /obj/effect/overmap/visitable/ship/nka_merchant/New()
 	designation = "[pick("Minharrzka's Daughter", "Her Majesty's Merchant", "Vahzirthaamro", "Azunja's Favorite", "Wealth-Beyond-Measure", "Miran'mir", "Crown Traveller", "Space Monarch")]"
 	..()
@@ -59,8 +61,6 @@
 	return skybox_image
 
 /obj/effect/shuttle_landmark/nka_merchant
-	base_turf = /turf/space
-	base_area = /area/space
 
 /obj/effect/shuttle_landmark/nka_merchant/nav1
 	name = "Her Majesty's Mercantile Flotilla Ship Starboard Navpoint #1"
@@ -94,16 +94,17 @@
 	fore_dir = SOUTH
 	vessel_size = SHIP_SIZE_TINY
 
+	ship_area_type = /area/shuttle/nka_merchant_shuttle
+
 /obj/machinery/computer/shuttle_control/explore/terminal/nka_merchant_shuttle
 	name = "shuttle control console"
 	shuttle_tag = "Her Majesty's Mercantile Flotilla Shuttle"
 
-/datum/shuttle/autodock/overmap/nka_merchant_shuttle
+/datum/shuttle/overmap/nka_merchant_shuttle
 	name = "Her Majesty's Mercantile Flotilla Shuttle"
 	move_time = 20
 	shuttle_area = list(/area/shuttle/nka_merchant_shuttle)
 	current_location = "nav_nka_merchant_shuttle"
-	landmark_transition = "nav_transit_nka_merchant_shuttle"
 	dock_target = "nka_merchant_shuttle"
 	range = 1
 	fuel_consumption = 2

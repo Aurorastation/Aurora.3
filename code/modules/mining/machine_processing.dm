@@ -251,15 +251,15 @@
 	var/form_title = "Form 0600 - Mining Yield Declaration"
 	var/dat
 	var/facility_name
-	if(SSatlas.current_map.use_overmap)
+	if(SSmapping.current_map.use_overmap)
 		var/obj/effect/overmap/visitable/sector/S = GLOB.map_sectors["[GET_Z(src)]"]
 		if(!S) //Blueprints are useless now, but keep them around for fluff
 			facility_name = "If you're seeing this, report it on the GitHub issues tracker; include your current location in-game."
 		facility_name = "<b>[S.name]</b><br<br>"
 	else
-		facility_name = "[SSatlas.current_map.station_name]"
+		facility_name = "[SSmapping.current_map.station_name]"
 
-	if(facility_name == SSatlas.current_map.station_name)
+	if(facility_name == SSmapping.current_map.station_name)
 		dat = "<small><center><b>Stellar Corporate Conglomerate<br>"
 		dat += "Operations Department</b><br><br>"
 	else

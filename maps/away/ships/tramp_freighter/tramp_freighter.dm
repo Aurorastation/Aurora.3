@@ -9,7 +9,7 @@
 	spawn_weight = 1
 	ship_cost = 1
 	id = "tramp_freighter"
-	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/freighter_shuttle)
+	shuttles_to_initialise = list(/datum/shuttle/overmap/freighter_shuttle)
 
 	unit_test_groups = list(3)
 
@@ -38,6 +38,8 @@
 	weapons = "Fore low-end ballistic weapon mount, aft flight craft dock"
 	sizeclass = "Farthing Class Freighter"
 	shiptype = "Long-term shipping utilities"
+
+	ship_area_type = /area/tramp_freighter
 
 	initial_restricted_waypoints = list(
 		"Freight Shuttle" = list("nav_tramp_start")
@@ -84,17 +86,18 @@
 	fore_dir = EAST
 	vessel_size = SHIP_SIZE_TINY
 
+	ship_area_type = /area/shuttle/freighter_shuttle
+
 /obj/machinery/computer/shuttle_control/explore/terminal/freighter_shuttle
 	name = "shuttle control console"
 	shuttle_tag = "Freight Shuttle"
 
-/datum/shuttle/autodock/overmap/freighter_shuttle
+/datum/shuttle/overmap/freighter_shuttle
 	name = "Freight Shuttle"
 	move_time = 20
 	shuttle_area = list(/area/shuttle/freighter_shuttle)
 	dock_target = "airlock_tramp_shuttle"
 	current_location = "nav_tramp_start"
-	landmark_transition = "nav_transit_freighter_shuttle"
 	range = 1
 	fuel_consumption = 2
 	logging_home_tag = "nav_tramp_start"

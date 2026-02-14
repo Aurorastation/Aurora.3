@@ -43,7 +43,6 @@
 	return INITIALIZE_HINT_LATELOAD
 
 /obj/effect/temporary_effect/destabilize/LateInitialize()
-	. = ..()
 	timer_id = addtimer(CALLBACK(src, PROC_REF(radiate_loop)), 5 SECONDS, TIMER_UNIQUE|TIMER_STOPPABLE)
 
 /obj/effect/temporary_effect/destabilize/Destroy()

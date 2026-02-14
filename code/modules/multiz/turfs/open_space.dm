@@ -144,6 +144,16 @@
 	temperature = TCMB
 	icon_state = "opendebug_airless"
 
+/turf/simulated/open/void
+	name = "void"
+	icon = 'icons/turf/space.dmi'
+	icon_state = "black"
+	mouse_opacity = FALSE
+
+/turf/simulated/open/void/vehicle
+	density = TRUE
+	opacity = TRUE
+
 /turf/simulated/open/chasm
 	icon = 'icons/turf/smooth/chasms_seethrough.dmi'
 	icon_state = "debug"

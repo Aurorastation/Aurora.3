@@ -9,7 +9,7 @@
 	spawn_weight = 1
 	ship_cost = 1
 	id = "tirakqi_smuggler"
-	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/tirakqi_smuggler_shuttle)
+	shuttles_to_initialise = list(/datum/shuttle/overmap/tirakqi_smuggler_shuttle)
 
 	unit_test_groups = list(3)
 
@@ -53,6 +53,8 @@
 
 	invisible_until_ghostrole_spawn = TRUE
 
+	ship_area_type = /area/ship/tirakqi_smuggler
+
 /obj/effect/overmap/visitable/ship/tirakqi_smuggler/New()
 	designation = "[pick("Bigger Squib", "Frightful Whaler", "Star Spanner", "Lu'Kaax", "Star Scamp", "Ocean Ink", "Yippi")]"
 	..()
@@ -66,40 +68,28 @@
 /obj/effect/shuttle_landmark/tirakqi_smuggler/nav1
 	name = "Starboard Navpoint"
 	landmark_tag = "nav_tirakqi_smuggler_1"
-	base_turf = /turf/space/dynamic
-	base_area = /area/space
 
 /obj/effect/shuttle_landmark/tirakqi_smuggler/nav2
 	name = "Port Navpoint"
 	landmark_tag = "nav_tirakqi_smuggler_2"
-	base_turf = /turf/space/dynamic
-	base_area = /area/space
 
 /obj/effect/shuttle_landmark/tirakqi_smuggler/nav3
 	name = "Fore Navpoint"
 	landmark_tag = "nav_tirakqi_smuggler_3"
-	base_turf = /turf/space/dynamic
-	base_area = /area/space
 
 /obj/effect/shuttle_landmark/tirakqi_smuggler/nav4
 	name = "Aft Navpoint"
 	landmark_tag = "nav_tirakqi_smuggler_4"
-	base_turf = /turf/space/dynamic
-	base_area = /area/space
 
 /obj/effect/shuttle_landmark/tirakqi_smuggler/dock/starboard
 	name = "Starboard Docking Port"
 	landmark_tag = "nav_tirakqi_smuggler_dock_starboard"
 	docking_controller = "airlock_tirakqi_smuggler_dock_starboard"
-	base_turf = /turf/space
-	base_area = /area/space
 
 /obj/effect/shuttle_landmark/tirakqi_smuggler/dock/port
 	name = "Port Docking Port"
 	landmark_tag = "nav_tirakqi_smuggler_dock_port"
 	docking_controller = "airlock_tirakqi_smuggler_dock_port"
-	base_turf = /turf/space
-	base_area = /area/space
 
 //shuttle stuff
 /obj/effect/overmap/visitable/ship/landable/tirakqi_smuggler_shuttle
@@ -121,18 +111,19 @@
 	sizeclass = "Jloqup-class Cargo Transport"
 	shiptype = "All-environment cargo transport"
 
+	ship_area_type = /area/shuttle/tirakqi_smuggler_shuttle
+
 /obj/machinery/computer/shuttle_control/explore/tirakqi_smuggler_shuttle
 	name = "shuttle control console"
 	shuttle_tag = "Ti'Rakqi Shuttle"
 	req_access = list(ACCESS_SKRELL)
 
-/datum/shuttle/autodock/overmap/tirakqi_smuggler_shuttle
+/datum/shuttle/overmap/tirakqi_smuggler_shuttle
 	name = "Ti'Rakqi Shuttle"
 	move_time = 20
 	shuttle_area = list(/area/shuttle/tirakqi_smuggler_shuttle)
 	current_location = "nav_hangar_tirakqi_shuttle"
 	dock_target = "airlock_tirakqi_shuttle"
-	landmark_transition = "nav_transit_tirakqi_smuggler_shuttle"
 	range = 1
 	fuel_consumption = 2
 	logging_home_tag = "nav_hangar_tirakqi_shuttle"
@@ -142,14 +133,11 @@
 	name = "Ti'Rakqi Shuttle Hangar"
 	landmark_tag = "nav_hangar_tirakqi_shuttle"
 	docking_controller = "airlock_tirakqi_smuggler_shuttle_dock"
-	base_area = /area/space
-	base_turf = /turf/space
 	movable_flags = MOVABLE_FLAG_EFFECTMOVE
 
 /obj/effect/shuttle_landmark/tirakqi_smuggler_shuttle/transit
 	name = "In transit"
 	landmark_tag = "nav_transit_tirakqi_smuggler_shuttle"
-	base_turf = /turf/space/transit/north
 
 
 

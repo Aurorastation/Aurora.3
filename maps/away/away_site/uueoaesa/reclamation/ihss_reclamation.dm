@@ -7,7 +7,7 @@
 	spawn_weight = 1
 	spawn_cost = 1
 	id = "ihss_reclamation"
-	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/ihss_reclamation_shuttle)
+	shuttles_to_initialise = list(/datum/shuttle/overmap/ihss_reclamation_shuttle)
 	unit_test_groups = list(1)
 
 /singleton/submap_archetype/ihss_reclamation
@@ -42,9 +42,9 @@
 	comms_support = TRUE
 	comms_name = "IHSS Reclamation"
 
+	ship_area_type = /area/ihss_reclamation
+
 /obj/effect/shuttle_landmark/nav_ihss_reclamation
-	base_area = /area/space
-	base_turf = /turf/space
 
 /obj/effect/shuttle_landmark/nav_ihss_reclamation/nav1
 	name = "Fore"
@@ -101,16 +101,17 @@
 	fore_dir = SOUTH
 	vessel_size = SHIP_SIZE_TINY
 
+	ship_area_type = /area/shuttle/ihss_reclamation
+
 /obj/machinery/computer/shuttle_control/explore/ihss_reclamation
 	name = "shuttle control console"
 	shuttle_tag = "IHSS Reclamation Shuttle"
 
-/datum/shuttle/autodock/overmap/ihss_reclamation_shuttle
+/datum/shuttle/overmap/ihss_reclamation_shuttle
 	name = "IHSS Reclamation Shuttle"
 	move_time = 20
 	shuttle_area = list(/area/shuttle/ihss_reclamation)
 	current_location = "nav_ihss_reclamation_shuttle"
-	landmark_transition = "nav_transit_ihss_reclamation"
 	dock_target = "airlock_reclamation_shuttle"
 	range = 1
 	fuel_consumption = 2
@@ -120,15 +121,12 @@
 /obj/effect/shuttle_landmark/ihss_reclamation_shuttle
 	name = "IHSS Reclamation - Shuttle Hangar"
 	landmark_tag = "nav_ihss_reclamation_shuttle"
-	base_area = /area/ihss_reclamation/hangar1
-	base_turf = /turf/simulated/floor/plating
 	movable_flags = MOVABLE_FLAG_EFFECTMOVE
 	docking_controller = "reclamation_hangar"
 
 /obj/effect/shuttle_landmark/ihss_reclamation_transit
 	name = "In transit"
 	landmark_tag = "nav_transit_ihss_reclamation"
-	base_turf = /turf/space/transit/north
 
 /obj/item/paper/fluff/ihss_reclamation_cell
 	name = "Rules of Observation"
