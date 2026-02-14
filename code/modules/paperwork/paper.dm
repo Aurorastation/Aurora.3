@@ -843,7 +843,6 @@
 	color = COLOR_PALE_YELLOW
 	free_space = MAX_MESSAGE_LEN //Smaller piece of paper means less space to write.
 	slot_flags = 0
-	var/obj/item/paper/stickynotes/stuck = null
 
 /obj/item/paper/stickynotes/update_icon()
 	if(icon_state == "stickynote_scrap")
@@ -873,7 +872,7 @@
 	..()
 
 /obj/item/paper/stickynotes/afterattack(var/A, mob/user, var/prox, var/params)
-	if(!in_range(user, A) || istype(A, /obj/machinery/door) || stuck || istype(A, /obj/item/paper))
+	if(!in_range(user, A) || istype(A, /obj/machinery/door) || istype(A, /obj/item/paper))
 		return
 
 	var/turf/target_turf = get_turf(A)

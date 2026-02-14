@@ -77,12 +77,9 @@
 	return
 
 /obj/item/paper_bundle/proc/insert_sheet_at(mob/user, var/index, obj/item/sheet)
-	if(istype(sheet, /obj/item/paper))
-		to_chat(user, SPAN_NOTICE("You add [(sheet.name == "paper") ? "the paper" : sheet.name] to [(src.name == "paper bundle") ? "the paper bundle" : src.name]."))
-	else if(istype(sheet, /obj/item/photo))
-		to_chat(user, SPAN_NOTICE("You add [(sheet.name == "photo") ? "the photo" : sheet.name] to [(src.name == "paper bundle") ? "the paper bundle" : src.name]."))
-	else if(istype(sheet, /obj/item/paper/stickynotes))
-		to_chat(user, SPAN_NOTICE("You stick \the [sheet] to \the [src]."))
+	if(!is_type_in_list(sheet, list(/obj/item/paper, /obj/item/photo)))
+		return
+	to_chat(user, SPAN_NOTICE("You stick \the [sheet] to \the [src]."))
 
 	user.drop_from_inventory(sheet,src)
 
@@ -90,6 +87,13 @@
 
 	if(index <= page)
 		page++
+
+/*if(istype(sheet, /obj/item/paper))
+
+	else if(istype(sheet, /obj/item/photo))
+		to_chat(user, SPAN_NOTICE("You stick \the [sheet] to \the [src]."))
+	else if(istype(sheet, /obj/item/paper/stickynotes))
+		to_chat(user, SPAN_NOTICE("You stick \the [sheet] to \the [src]."))*/
 
 /obj/item/paper_bundle/proc/burnpaper(obj/item/flame/P, mob/user)
 	var/class = "warning"
