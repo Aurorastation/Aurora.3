@@ -71,12 +71,13 @@
 				deploy_shield(target_tile)
 
 /obj/machinery/shieldgen/proc/deploy_shield(var/turf/T)
-	var/obj/machinery/shield/S = new /obj/machinery/shield(T)
-	deployed_shields += S
-	use_power_oneoff(S.shield_generate_power)
+	var/obj/machinery/shield/shield_tile = new /obj/machinery/shield(T)
+	deployed_shields += shield_tile
+	use_power_oneoff(shield_tile.shield_generate_power)
 
 /obj/machinery/shieldgen/proc/collapse_shields()
 	for(var/obj/machinery/shield/shield_tile in deployed_shields)
+		shield_tile -= deployed_shields
 		qdel(shield_tile)
 	change_power_consumption(250, POWER_USE_IDLE)
 	update_use_power(POWER_USE_IDLE)

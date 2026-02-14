@@ -67,6 +67,6 @@ changes:
   - qol: "Extends list of object types which INDRA core field will interact peacefully with."
   - code_imp: "Updates many code comments to use DMdocs."
   - code_imp: "Consolidates various shield generation machine sprites in scattered across multiple files into a single shield generator machines sprite file."
-  - bugfix: "Fixes Emergency Shield Projector holding onto references to created shield objects for too long."
+  - bugfix: "Fixes Emergency Shield Projector hard del issue."
   - bugfix: "Emergency Shield Projector now shuts down as intended if the area's APC gets completely drained."
   - bugfix: "Firing the gyrotron into the INDRA while no reactants are present will no longer generaate heat."
