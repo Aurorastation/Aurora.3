@@ -2104,10 +2104,10 @@ All custom items with worn sprites must follow the contained sprite system: http
 	parent.fracture(TRUE)
 
 /obj/item/organ/internal/augment/fluff/kath_legbrace/removed()
-	. = ..()
 	if(!owner)
-		return
+		return ..()
 	UnregisterSignal(owner, COMSIG_BONE_FIX)
+	return ..()
 
 /obj/item/organ/internal/augment/fluff/kath_legbrace/proc/negate_healing(var/owner, var/canceled, var/obj/item/organ/external/affected, var/mob/living/user)
 	SIGNAL_HANDLER
