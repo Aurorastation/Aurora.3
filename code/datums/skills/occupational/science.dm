@@ -5,14 +5,6 @@
 	category =  /singleton/skill_category/occupational
 	subcategory = SKILL_SUBCATEGORY_SCIENCE
 
-/singleton/skill/robotics
-	name = "Robotics"
-	description = "Robotics is well you know what the fuck it is man"
-	maximum_level = SKILL_LEVEL_PROFESSIONAL
-	uneducated_skill_cap = SKILL_LEVEL_FAMILIAR
-	category =  /singleton/skill_category/occupational
-	subcategory = SKILL_SUBCATEGORY_SCIENCE
-
 /singleton/skill/xenobotany
 	name = "Xenobotany"
 	description = "Xenobotany is the creation and study of new or alien genomes of plants. It is necessary to be able to properly splice and process them."

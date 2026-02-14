@@ -160,7 +160,7 @@
 	if(effective_level <= 0)
 		return "<th></th>"
 
-	var/level_name = SSskills.skill_level_map[effective_level]
+	var/level_name = skill.skill_level_map[effective_level]
 	var/cost = skill.get_cost(effective_level)
 	var/button_label = "[level_name] ([cost])"
 	var/given_skill = FALSE
@@ -230,10 +230,10 @@
 		var/dat = "<html><center><b>[skill_to_show.name]</center></b>"
 		dat += "<hr>[skill_to_show.description]<br>"
 		if(skill_to_show.uneducated_skill_cap)
-			dat += "Without the relevant education, you may only reach the <b>[SSskills.skill_level_map[skill_to_show.uneducated_skill_cap]]</b> level.<br>"
+			dat += "Without the relevant education, you may only reach the <b>[skill_to_show.skill_level_map[skill_to_show.uneducated_skill_cap]]</b> level.<br>"
 		dat += "<hr>"
 		var/skill_level = (skill_to_show.type in pref.skills) ? pref.skills[skill_to_show.type] : SKILL_LEVEL_UNFAMILIAR
-		dat += "Your current level in this skill is [SPAN_BOLD(SSskills.skill_level_map[skill_level])].<br>"
+		dat += "Your current level in this skill is [SPAN_BOLD(skill_to_show.skill_level_map[skill_level])].<br>"
 		dat += SPAN_NOTICE("[skill_to_show.skill_level_descriptions[skill_level]]")
 		dat += "</html>"
 		skill_window.set_content(dat)
@@ -279,7 +279,7 @@
 			for(var/skill in education.skills)
 				var/singleton/skill/new_skill = GET_SINGLETON(skill)
 				pref.skills[new_skill.type] = education.skills[new_skill.type]
-				to_chat(user, SPAN_NOTICE("Added the [new_skill.name] skill at level [SSskills.skill_level_map[education.skills[new_skill.type]]]."))
+				to_chat(user, SPAN_NOTICE("Added the [new_skill.name] skill at level [new_skill.skill_level_map[education.skills[new_skill.type]]]."))
 
 		sanitize_character()
 		return TOPIC_REFRESH
@@ -297,7 +297,7 @@
 	var/list/skills_to_show = list()
 	for(var/skill in ED.skills)
 		var/singleton/skill/S = GET_SINGLETON(skill)
-		skills_to_show += "[S.name] ([SPAN_DANGER(SSskills.skill_level_map[ED.skills[S.type]])])"
+		skills_to_show += "[S.name] ([SPAN_DANGER(S.skill_level_map[ED.skills[S.type]])])"
 	dat +=  "<b>[english_list(skills_to_show)]</b>.<br>"
 	dat += "<br><center>\[<a href='?src=[REF(src)];[topic_data]=[html_encode(ED.type)]'>Select</a>\]</center>"
 	dat += "</html>"

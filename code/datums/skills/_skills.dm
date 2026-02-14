@@ -10,6 +10,13 @@
 		SKILL_LEVEL_TRAINED = "You have received some degree of official training on the subject, whether through certifications or courses.",
 		SKILL_LEVEL_PROFESSIONAL = "You are an expert in this field, devoting many years of study or practice to it."
 	)
+	/// Map of skill names and descriptions by their index.
+	var/list/skill_level_map = list(
+		"Unfamiliar" = "You don't know anything about this subject.",
+		"Familiar" = "You're familiar with this subject, either by reading into it or by doing some courses.",
+		"Trained" = "You've been formally trained in this subject. Typically, this is the minimum level for a job.",
+		"Professional" = "You have a lot of training and a good amount of experience in this subject."
+	)
 	/// The maximum level someone with no education can reach in this skill. Typically, this should be FAMILIAR on occupational skills.
 	/// If null, then there is no cap.
 	var/uneducated_skill_cap

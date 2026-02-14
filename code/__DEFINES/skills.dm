@@ -17,6 +17,7 @@
 	#define SKILL_SUBCATEGORY_MEDICAL		"Medical"
 	#define SKILL_SUBCATEGORY_ENGINEERING	"Engineering"
 	#define SKILL_SUBCATEGORY_SCIENCE		"Science"
+	#define SKILL_SUBCATEGORY_OPERATIONS    "Operations"
 
 ///A combat skill is a skill that has a direct effect in combat. These have an increased cost.
 #define SKILL_CATEGORY_COMBAT			"Combat"
