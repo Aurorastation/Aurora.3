@@ -1,0 +1,4 @@
+author: Hellfirejag
+delete-after: True
+changes:
+  - bugfix: "Fixed IPCs instantly starting to die if they put on a space suit. It just makes cooling half as effective now."
