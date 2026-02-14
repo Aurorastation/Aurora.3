@@ -257,3 +257,24 @@
   arrow768:
   - server: Removes verbs to get log files from the server, use the WI, TGS or logging
       infrastructure.
+2026-02-14:
+  Batrachophrenoboocosmomachia:
+  - rscdel: Removes 'Assembled Solar Panels' bounty from bounty pool and updates the
+      'Solar Assemblies or Trackers' with its old description referencing the phoron
+      scarcity.
+  Greenjoe:
+  - rscadd: Adds bodyguard outfits for Tau Ceti, Sol, Elyra, Nralakk and the Golden
+      Deep.
+  - bugfix: Fixes the Elyran navy uniform lacking an item icon.
+  JohnWildkins:
+  - refactor: Updates TGUI backend to hopefully reduce instability / failures to load.
+  - bugfix: Fixes TGchat scrolling issues.
+  - refactor: Change traitor uplink to use static data to improve server performance.
+  - refactor: Open UIs are now tracked by their owner datum rather than by the tgui
+      subsystem, to improve server performance when closing UIs.
+  TheGreyWolf:
+  - bugfix: Fixes Kathira's custom item cloak.
+  - bugfix: Fixed the inverted roll up/down message.
+  fyni:
+  - rscadd: Adds a red and pink heart balloon for valentines! Also adds them to the
+      random balloon pool. <3 <3
