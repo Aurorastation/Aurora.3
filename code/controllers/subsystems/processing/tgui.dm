@@ -213,7 +213,7 @@ PROCESSING_SUBSYSTEM_DEF(tgui)
 	if(!LAZYLEN(src_object?.open_uis))
 		return 0
 	var/count = 0
-  var/delta_time = wait * 0.1
+	var/delta_time = wait * 0.1
 	for(var/datum/tgui/ui in src_object.open_uis)
 		// Check if UI is valid.
 		if(ui?.src_object && ui.user && ui.src_object.ui_host(ui.user))
