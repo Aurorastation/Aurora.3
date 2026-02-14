@@ -106,12 +106,13 @@ SUBSYSTEM_DEF(plants)
 		processing = old
 
 	var/list/queue = current
+	var/delta_time = !resumed ? (REALTIMEOFDAY - last_realtime) * 0.1 : wait * 0.1 // Our time delta is in deciseconds, so convert to real seconds.
 	while (queue.len)
 		var/obj/effect/plant/P = queue[queue.len]
 		queue.len--
 
 		if (!QDELETED(P))
-			P.process()
+			P.process(delta_time)
 
 		if (MC_TICK_CHECK)
 			return

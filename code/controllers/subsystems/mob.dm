@@ -80,14 +80,14 @@ SUBSYSTEM_DEF(mobs)
 	//of course, if we haven't resumed, this comparison would be useless, hence we skip it
 	var/list/currentrun = resumed ? (src.currentrun &= (GLOB.mob_list + processing)) : src.currentrun
 
-	var/seconds_per_tick = (1 SECONDS) / wait
+	var/delta_time = !resumed ? (REALTIMEOFDAY - last_realtime) * 0.1 : wait * 0.1 // Our time delta is in deciseconds, so convert to real seconds.
 
 	while(length(currentrun))
 		var/datum/thing = currentrun[length(currentrun)]
 		currentrun.len--
 		if(!ismob(thing))
 			if(!QDELETED(thing))
-				if(thing.process(wait, times_fired) == PROCESS_KILL)
+				if(thing.process(delta_time, times_fired) == PROCESS_KILL)
 					stop_processing(thing)
 			else
 				processing -= thing
@@ -109,7 +109,7 @@ SUBSYSTEM_DEF(mobs)
 			continue
 
 		if (!M.frozen)
-			M.Life(seconds_per_tick, times_fired)
+			M.Life(delta_time, times_fired)
 
 		if (MC_TICK_CHECK)
 			return

@@ -29,7 +29,7 @@
 	var/pressure_alert = 0
 	var/temperature_alert = 0
 
-/mob/living/carbon/human/Life(seconds_per_tick, times_fired)
+/mob/living/carbon/human/Life(delta_time, times_fired)
 	if (transforming)
 		return
 
@@ -58,8 +58,8 @@
 		handle_changeling()
 
 		//Organs
-		handle_organs(seconds_per_tick)
-		stabilize_body_temperature() //Body temperature adjusts itself (self-regulation)
+		handle_organs(delta_time)
+		stabilize_body_temperature(delta_time) //Body temperature adjusts itself (self-regulation)
 
 		//Random events (vomiting etc)
 		handle_random_events()
@@ -437,9 +437,9 @@
 		baseline += clothing.body_temperature_change
 	return baseline
 
-/mob/living/carbon/human/proc/stabilize_body_temperature()
+/mob/living/carbon/human/proc/stabilize_body_temperature(delta_time)
 	if (species.passive_temp_gain) // We produce heat naturally.
-		species.handle_temperature_regulation(src)
+		species.handle_temperature_regulation(src, delta_time)
 
 	if (species.body_temperature == null)
 		return //this species doesn't have metabolic thermoregulation
@@ -453,19 +453,16 @@
 
 	if(bodytemperature < species.cold_level_1) //260.15 is 310.15 - 50, the temperature where you start to feel effects.
 		if(nutrition >= 2) //If we are very, very cold we'll use up quite a bit of nutriment to heat us up.
-			adjustNutritionLoss(2)
-		var/recovery_amt = max((body_temperature_difference / BODYTEMP_AUTORECOVERY_DIVISOR), BODYTEMP_AUTORECOVERY_MINIMUM)
-		bodytemperature += recovery_amt
+			adjustNutritionLoss(delta_time)
+		bodytemperature += max((body_temperature_difference / BODYTEMP_AUTORECOVERY_DIVISOR * delta_time), BODYTEMP_AUTORECOVERY_MINIMUM * delta_time)
 	else if(species.cold_level_1 <= bodytemperature && bodytemperature <= species.heat_level_1)
-		var/recovery_amt = body_temperature_difference / BODYTEMP_AUTORECOVERY_DIVISOR
-		bodytemperature += recovery_amt
+		bodytemperature += body_temperature_difference / BODYTEMP_AUTORECOVERY_DIVISOR * delta_time
 	else if(bodytemperature > species.heat_level_1) //360.15 is 310.15 + 50, the temperature where you start to feel effects.
 		if(hydration >= 2)
-			adjustHydrationLoss(2)
+			adjustHydrationLoss(delta_time)
 			if((species.flags & CAN_SWEAT) && fire_stacks == 0)
 				fire_stacks = -1
-		var/recovery_amt = min((body_temperature_difference / BODYTEMP_AUTORECOVERY_DIVISOR), -BODYTEMP_AUTORECOVERY_MINIMUM)	//We're dealing with negative numbers
-		bodytemperature += recovery_amt
+		bodytemperature += min((body_temperature_difference * delta_time / BODYTEMP_AUTORECOVERY_DIVISOR), -BODYTEMP_AUTORECOVERY_MINIMUM * delta_time)	//We're dealing with negative numbers
 
 /**
  * Returns a bitflag for the body parts currently heat-protected. Called and used by get_heat_protection()

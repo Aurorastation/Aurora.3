@@ -24,8 +24,6 @@
 	/// The electronics datum of this organ.
 	var/datum/synthetic_internal/electronics/electronics
 
-	/// The world.time of the last integrity damage event.
-	var/last_integrity_event_time = 0
 	/// The amount of time that has to pass between each integrity damage event.
 	var/integrity_event_cooldown = 60 SECONDS
 
@@ -62,7 +60,7 @@
 	electronics.heal_damage(electronics.max_integrity)
 	integrity_event_cooldown = initial(integrity_event_cooldown)
 
-/obj/item/organ/internal/machine/process(seconds_per_tick)
+/obj/item/organ/internal/machine/process(delta_time)
 	..()
 	if(!owner)
 		return
@@ -70,7 +68,7 @@
 	var/integrity = get_integrity()
 	if(integrity < IPC_INTEGRITY_THRESHOLD_LOW)
 		// This is when things start going Fucking Wrong.
-		do_integrity_damage_effects(integrity)
+		do_integrity_damage_effects(integrity, delta_time)
 
 	if(damage >= max_damage)
 		die()
@@ -166,7 +164,7 @@
  * This proc is used to determine which integrity damage threshold we are at, and execute the proper proc..
  * Only called below 75%.
  */
-/obj/item/organ/internal/machine/proc/do_integrity_damage_effects(integrity)
+/obj/item/organ/internal/machine/proc/do_integrity_damage_effects(integrity, delta_time)
 	if(!owner)
 		return
 
@@ -174,15 +172,14 @@
 	if(!istype(brain)) //??? should be dead anyway so who cares
 		return
 
-	// The cooldowns are handled in the other procs because feasibly we might want to add different cooldowns for different organs and different thresholds.
-	if(can_do_integrity_damage())
-		switch(integrity)
-			if(IPC_INTEGRITY_THRESHOLD_MEDIUM to IPC_INTEGRITY_THRESHOLD_LOW)
-				low_integrity_damage(integrity)
-			if(IPC_INTEGRITY_THRESHOLD_HIGH to IPC_INTEGRITY_THRESHOLD_MEDIUM)
-				medium_integrity_damage(integrity)
-			if(IPC_INTEGRITY_THRESHOLD_VERY_HIGH to IPC_INTEGRITY_THRESHOLD_HIGH)
-				high_integrity_damage(integrity)
+	// No cooldowns needed to cheat time differentials if we're passing in a delta_time
+	switch(integrity)
+		if(IPC_INTEGRITY_THRESHOLD_MEDIUM to IPC_INTEGRITY_THRESHOLD_LOW)
+			low_integrity_damage(integrity, delta_time)
+		if(IPC_INTEGRITY_THRESHOLD_HIGH to IPC_INTEGRITY_THRESHOLD_MEDIUM)
+			medium_integrity_damage(integrity, delta_time)
+		if(IPC_INTEGRITY_THRESHOLD_VERY_HIGH to IPC_INTEGRITY_THRESHOLD_HIGH)
+			high_integrity_damage(integrity, delta_time)
 
 /**
  * Returns the damage percentage of total integrity.
@@ -195,38 +192,27 @@
 	return damage_probability
 
 /**
- * Returns TRUE if the cooldown for integrity damage has expired.
- */
-/obj/item/organ/internal/machine/proc/can_do_integrity_damage()
-	if(last_integrity_event_time + integrity_event_cooldown > world.time)
-		return FALSE
-	return TRUE
-
-/**
  * The proc called to do low-intensity integrity damage (50 to 75% damage).
  */
-/obj/item/organ/internal/machine/proc/low_integrity_damage(integrity)
-	last_integrity_event_time = world.time
+/obj/item/organ/internal/machine/proc/low_integrity_damage(integrity, delta_time)
 	return TRUE
 
 /**
  * The proc called to do mediumlow-intensity integrity damage (25 to 50% damage).
  */
-/obj/item/organ/internal/machine/proc/medium_integrity_damage(integrity)
-	last_integrity_event_time = world.time
+/obj/item/organ/internal/machine/proc/medium_integrity_damage(integrity, delta_time)
 	var/obj/item/organ/internal/machine/posibrain/brain = owner.internal_organs_by_name[BP_BRAIN]
 	if(istype(brain))
-		brain.damage_integrity(1)
+		brain.damage_integrity(delta_time)
 	return TRUE
 
 /**
  * The proc called to do high-intensity integrity damage (0 to 25% damage).
  */
-/obj/item/organ/internal/machine/proc/high_integrity_damage(integrity)
-	last_integrity_event_time = world.time
+/obj/item/organ/internal/machine/proc/high_integrity_damage(integrity, delta_time)
 	var/obj/item/organ/internal/machine/posibrain/brain = owner.internal_organs_by_name[BP_BRAIN]
 	if(istype(brain))
-		brain.damage_integrity(2)
+		brain.damage_integrity(2 * delta_time)
 	return TRUE
 
 /**

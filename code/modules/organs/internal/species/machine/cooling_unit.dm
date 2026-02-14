@@ -22,8 +22,11 @@
 
 	/// The power consumed when we are cooling down.
 	var/base_power_consumption = 8
-	/// The passive temperature change. Basically, cooling units counteract an IPC's passive temperature gain. But the IPC's temperature goes to get itself fucked if the cooling unit dies.
-	/// Remember, can be negative or positive. Depends on what we're trying to stabilize towards.
+	/**
+	 * The passive temperature change in "Degrees Kelvin Per Second". This is reduced by a variety of conditions.
+	 * Basically, cooling units counteract an IPC's passive temperature gain. But the IPC's temperature goes to get itself fucked if the cooling unit dies.
+	 * Remember, can be negative or positive. Depends on what we're trying to stabilize towards.
+	 */
 	var/passive_temp_change = 2
 	/// The temperature that this cooling unit tries to regulate towards.
 	var/thermostat = T20C
@@ -41,6 +44,8 @@
 	var/safety_burnt = FALSE
 	/// If the thermostat is locked and thus cannot be changed. Used for spooky effects, like the high integrity damage in the positronic brain.
 	var/locked_thermostat = FALSE
+	/// The amount of degrees kelvin (per second) of heat the cooling unit will generate if it is blocked by a space suit.
+	var/spacesuited_heat_per_second = 5
 
 /obj/item/organ/internal/machine/cooling_unit/Initialize()
 	. = ..()
@@ -121,7 +126,7 @@
 		to_chat(usr, temperature_safety ? SPAN_NOTICE("You re-enable your temperature safety.") : SPAN_WARNING("You disable your temperature safety!"))
 		. = TRUE
 
-/obj/item/organ/internal/machine/cooling_unit/process(seconds_per_tick)
+/obj/item/organ/internal/machine/cooling_unit/process(delta_time)
 	. = ..()
 	if(!owner)
 		return
@@ -142,9 +147,7 @@
 	if(owner.wear_suit)
 		if(!spaceproof && istype(owner.wear_suit, /obj/item/clothing/suit/space))
 			//cooling is going to SUCK if you have heat-regulating clothes
-			if(owner.bodytemperature < species.heat_level_3)
-				owner.bodytemperature = min(owner.bodytemperature + 5, owner.species.heat_level_2)
-				temperature_change *= 0.5
+			temperature_change *= 0.5
 
 	// Check if there is somehow no air, or if we are in an ambient without enough air to properly cool us.
 	if((!ambient || (ambient && owner.calculate_affecting_pressure(ambient.return_pressure()) < owner.species.warning_low_pressure)))
@@ -177,28 +180,28 @@
 		extra_power_consumption = -(thermostat_max / thermostat) - 0.5
 
 	if(thermostat < owner.bodytemperature)
-		owner.bodytemperature = max(owner.bodytemperature - temperature_change * extra_efficiency_multiplier, thermostat)
-		cell.use(max(0, base_power_consumption + extra_power_consumption))
+		owner.bodytemperature -= temperature_change * extra_efficiency_multiplier * delta_time
+		cell.use(max(0, (base_power_consumption + extra_power_consumption) * delta_time))
 
-/obj/item/organ/internal/machine/cooling_unit/low_integrity_damage(integrity)
-	if(get_integrity_damage_probability())
+/obj/item/organ/internal/machine/cooling_unit/low_integrity_damage(integrity, delta_time)
+	if(SPT_PROB(get_integrity_damage_probability(), delta_time))
 		to_chat(owner, SPAN_WARNING("Your temperature sensors pick up a spike in temperature."))
-		owner.bodytemperature = min(owner.bodytemperature + 10, owner.species.heat_level_2)
+		owner.bodytemperature += 10
 	. = ..()
 
-/obj/item/organ/internal/machine/cooling_unit/medium_integrity_damage(integrity)
-	if(get_integrity_damage_probability() / 2)
+/obj/item/organ/internal/machine/cooling_unit/medium_integrity_damage(integrity, delta_time)
+	if(SPT_PROB(get_integrity_damage_probability() / 2, delta_time))
 		to_chat(owner, SPAN_WARNING("Your thermostat's temperature setting goes haywire!"))
 		thermostat = rand(thermostat_min, thermostat_max)
-		owner.bodytemperature = min(owner.bodytemperature + 20, owner.species.heat_level_2)
+		owner.bodytemperature += 20
 
 		if(prob(25) && !safety_burnt)
 			to_chat(owner, SPAN_WARNING("Your temperature safeties burn out! They won't work anymore!"))
 			safety_burnt = TRUE
 	. = ..()
 
-/obj/item/organ/internal/machine/cooling_unit/high_integrity_damage(integrity)
-	if(get_integrity_damage_probability() / 3)
+/obj/item/organ/internal/machine/cooling_unit/high_integrity_damage(integrity, delta_time)
+	if(SPT_PROB(get_integrity_damage_probability() / 3, delta_time))
 		if(spaceproof)
 			playsound(owner, pick(SOUNDS_LASER_METAL), 50)
 			to_chat(owner, SPAN_DANGER(FONT_LARGE("Your laminar cooling stratum has melted. Your cooling unit will not work in space anymore!")))
@@ -207,7 +210,7 @@
 			playsound(owner, pick(SOUNDS_LASER_METAL), 50)
 			to_chat(owner, SPAN_DANGER(FONT_LARGE("Parts of your cooling unit melt away...!")))
 			update_thermostat(thermostat_min + round(rand(10, 50)))
-			owner.bodytemperature = min(owner.bodytemperature + 30, owner.species.heat_level_2)
+			owner.bodytemperature += 30
 	. = ..()
 
 /obj/item/organ/internal/machine/cooling_unit/proc/update_thermostat(new_thermostat_min, new_thermostat_max)
