@@ -76,7 +76,7 @@
 		if(href_list["remove"])
 			var/obj/item/P = locate(href_list["remove"])
 			if(P && (P.loc == src) && istype(P))
-				handle_remove(P)
+				handle_remove(P, astype(usr, /mob))
 		else if(href_list["write"])
 			var/obj/item/paper/paper = locate(href_list["write"])
 			if(!istype(paper) || paper.loc != src)
@@ -125,9 +125,8 @@
 		return TRUE
 	return FALSE
 
-/obj/item/folder/proc/handle_remove(var/obj/item/P)
-	P.forceMove(usr.loc)
-	usr.put_in_hands(P)
+/obj/item/folder/proc/handle_remove(obj/item/P, mob/user)
+	user?.put_in_hands(P)
 	handle_post_remove()
 
 /obj/item/folder/proc/handle_post_remove()
@@ -152,7 +151,7 @@
 		return TRUE
 	return FALSE
 
-/obj/item/folder/embedded/handle_remove(var/obj/item/paper/P)
+/obj/item/folder/embedded/handle_remove(obj/item/paper/P, mob/user)
 	. = ..()
 	if(istype(P, /obj/item/paper/notepad))
 		P.ripped = TRUE

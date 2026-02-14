@@ -662,10 +662,9 @@
 				src.forceMove(get_turf(h_user))
 				if(h_user.client)	h_user.client.screen -= src
 				h_user.put_in_hands(B)
-		if(istype(attacking_item, /obj/item/paper/stickynotes))
-			to_chat(user, SPAN_NOTICE("You stick [attacking_item.name] to [(src.name == "paper") ? "the paper" : src.name]."))
-		else if(istype(attacking_item, /obj/item/paper))
-			to_chat(user, SPAN_NOTICE("You clip the [attacking_item.name] to [(src.name == "paper") ? "the paper" : src.name]."))
+		var/obj/item/paper/stickynotes/sticky = astype(attacking_item)
+		if(istype(attacking_item, /obj/item/paper))
+			to_chat(user, SPAN_NOTICE("You [sticky ? "stick" : "clip"] \the [attacking_item] to \the [src]."))
 
 		src.forceMove(B)
 
