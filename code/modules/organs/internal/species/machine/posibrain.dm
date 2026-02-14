@@ -367,7 +367,7 @@
 
 /obj/item/organ/internal/machine/posibrain/low_integrity_damage(integrity, delta_time)
 	var/damage_probability = get_integrity_damage_probability(integrity)
-	if(SPT_PROB_RATE(damage_probability, delta_time))
+	if(SPT_PROB(damage_probability, delta_time))
 		to_chat(owner, SPAN_MACHINE_WARNING("Neural pathway error located at block 0x[generate_hex()]."))
 		take_internal_damage(2)
 	. = ..()
@@ -381,14 +381,14 @@
 		"Your software warns you of dangerously low neural coherence.",
 		"Your self-preservation subroutines threaten to kick in. [SPAN_DANGER("WARNING. WARNING.")]"
 	)
-	if(SPT_PROB_RATE(damage_probability, delta_time))
+	if(SPT_PROB(damage_probability, delta_time))
 		to_chat(owner, SPAN_MACHINE_WARNING(pick(medium_integrity_damage_messages)))
 		take_internal_damage(2)
 	. = ..()
 
 /obj/item/organ/internal/machine/posibrain/high_integrity_damage(integrity, delta_time)
 	var/damage_probability = get_integrity_damage_probability(integrity)
-	if(SPT_PROB_RATE(damage_probability, delta_time))
+	if(SPT_PROB(damage_probability, delta_time))
 		var/damage_roll = rand(1, 50)
 		switch(damage_roll)
 			if(1 to 10)
