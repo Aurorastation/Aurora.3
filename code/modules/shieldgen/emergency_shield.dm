@@ -78,7 +78,8 @@
 /obj/machinery/shieldgen/proc/collapse_shields()
 	for(var/obj/machinery/shield/shield_tile in deployed_shields)
 		shield_tile -= deployed_shields
-		qdel(shield_tile)
+		if(!QDELETED(shield_tile))
+			qdel(shield_tile)
 	change_power_consumption(250, POWER_USE_IDLE)
 	update_use_power(POWER_USE_IDLE)
 
