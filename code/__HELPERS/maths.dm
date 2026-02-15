@@ -313,17 +313,17 @@
  * You now have an imaginary number in Byond. Do whatever you want with that cursed knowledge.
  */
 /proc/complex_pow(x, y, imaginary_pointer)
-    if (x >= 0)
+	if (x >= 0)
 		*imaginary_pointer = 0
-        return x ** y
+		return x ** y
 
-    var/magnitude = NUM_E ** (y * log(abs(x)))
-    var/pi_y = M_PI * y
-    var/modulus = M_PI / 2
-    var/confined_angle = pi_y - (trunc(pi_y / modulus) * modulus)
-    var/sin_confined_angle = (sign(pi_y) * confined_angle)
-    var/cos_confined_angle = confined_angle - modulus
-    var/ccaSQ = cos_confined_angle ** 2
-    var/scaSQ = sin_confined_angle ** 2
-    *imaginary_pointer = magnitude * sin_confined_angle * (1 - scaSQ * (1/6 - (scaSQ/120)))
-    return magnitude * cos_confined_angle * (1 - ccaSQ * (1/6 - (ccaSQ/120)))
+	var/magnitude = NUM_E ** (y * log(abs(x)))
+	var/pi_y = M_PI * y
+	var/modulus = M_PI / 2
+	var/confined_angle = pi_y - (trunc(pi_y / modulus) * modulus)
+	var/sin_confined_angle = (sign(pi_y) * confined_angle)
+	var/cos_confined_angle = confined_angle - modulus
+	var/ccaSQ = cos_confined_angle ** 2
+	var/scaSQ = sin_confined_angle ** 2
+	*imaginary_pointer = magnitude * sin_confined_angle * (1 - scaSQ * (1/6 - (scaSQ/120)))
+	return magnitude * cos_confined_angle * (1 - ccaSQ * (1/6 - (ccaSQ/120)))
