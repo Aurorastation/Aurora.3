@@ -309,10 +309,10 @@
 /**
  * Returns the Real component of any real number raised to the power of any floating point value.
  * INCLUDING NEGATIVE NUMBERS.
- * Arg 3 MUST be passed in as a Pointer, which will be set to the Complex component of said operation.
+ * Arg 3 MUST be passed in as a Pointer, which will be set to the Imaginary component of said operation.
  * You now have an imaginary number in Byond. Do whatever you want with that cursed knowledge.
  */
-/proc/complex_pow(x, y, complex_pointer)
+/proc/complex_pow(x, y, imaginary_pointer)
     if (x >= 0)
         return x ** y
 
@@ -324,5 +324,5 @@
     var/cos_confined_angle = confined_angle - modulus
     var/ccaSQ = cos_confined_angle ** 2
     var/scaSQ = sin_confined_angle ** 2
-    *complex_pointer = magnitude * sin_confined_angle * (1 - scaSQ * (1/6 - (scaSQ/120)))
+    *imaginary_pointer = magnitude * sin_confined_angle * (1 - scaSQ * (1/6 - (scaSQ/120)))
     return magnitude * cos_confined_angle * (1 - ccaSQ * (1/6 - (ccaSQ/120)))
