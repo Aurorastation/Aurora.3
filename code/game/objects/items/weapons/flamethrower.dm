@@ -28,7 +28,8 @@
 	/// How much range the flamethrower has. Upgraded welding tools increase this.
 	var/range = 4
 	var/max_container = WEIGHT_CLASS_SMALL
-	var/is_military = FALSE // Can we use military-grade fuels like napalm?
+	/// Are we a military-grade flamethrower? If so, accept combat-grade fuels (like napalm) and don't check for a welding tool
+	var/is_military = FALSE
 
 /obj/item/flamethrower/feedback_hints(mob/user, distance, is_adjacent)
 	. += ..()
@@ -39,12 +40,26 @@
 			else
 				. += SPAN_NOTICE("The loaded [fuel_container.name] is empty.")
 		if(igniter)
-			. += SPAN_NOTICE("It has \an [igniter] installed.")
+			. += SPAN_NOTICE("It has \a [igniter] installed.")
 		else
 			. += SPAN_WARNING("It has no igniter installed.")
+	if(distance <= 3)
+		if(welding_tool)
+			. += SPAN_NOTICE("It has \a [welding_tool] installed.")
+		else if(!is_military)
+			. += SPAN_WARNING("It has no welding tool installed.")
 
 	if(lit)
 		. += SPAN_WARNING("\The [src] is currently lit!")
+
+/obj/item/flamethrower/mechanics_hints(mob/user, distance, is_adjacent)
+	. = ..()
+	if(!is_military)
+		. += SPAN_INFO("Use a wrench on the flamethrower to dismantle it.")
+		. += SPAN_INFO("You may choose to dismantle it piece-wise, or the whole thing.")
+		. += SPAN_WARNING("It is not recommended to use military-grade fuels with this improvised flamethrower.")
+	else
+		. += SPAN_INFO("This military-grade flamethrower can accept combat-grade fuels.")
 
 /obj/item/flamethrower/upgrade_hints(mob/user, distance, is_adjacent)
 	. = ..()
@@ -71,7 +86,7 @@
 		STOP_PROCESSING(SSprocessing, src)
 		update_icon()
 		return null
-	else if (!fuel_container || !fuel_container.reagents || fuel_container.reagents.total_volume <= 0)
+	else if ((!welding_tool && !is_military) || !fuel_container || !fuel_container.reagents || fuel_container.reagents.total_volume <= 0)
 		lit = FALSE
 		balloon_alert_to_viewers("*fffft*")
 		playsound(loc, 'sound/items/welder_deactivate.ogg', 50, TRUE)
@@ -104,6 +119,8 @@
 		set_light(0)
 		item_state = "flamethrower_0"
 
+	update_held_icon()
+
 /obj/item/flamethrower/isFlameSource()
 	return lit
 
@@ -120,6 +137,9 @@
 		range = 4
 
 /obj/item/flamethrower/afterattack(atom/target, mob/user, proximity)
+	if(!welding_tool && !is_military)
+		balloon_alert(user, "no welding tool!")
+		return
 	var/turf/target_turf = get_turf(target)
 	if(target_turf)
 		var/turflist = get_line(user, target_turf)
@@ -131,22 +151,54 @@
 
 	if(attacking_item.tool_behaviour == TOOL_WRENCH && !secured)//Taking this apart
 		var/turf/T = get_turf(src)
+		var/list/options = list(
+			"Dismantle All" = image(icon = attacking_item.icon, icon_state = attacking_item.icon_state)
+		)
 		if(welding_tool)
-			welding_tool.forceMove(T)
-			welding_tool = null
+			options["Remove Welding Tool"] = image(icon = welding_tool.icon, icon_state = welding_tool.icon_state)
 		if(igniter)
-			igniter.forceMove(T)
-			igniter = null
-		if(fuel_container)
-			fuel_container.forceMove(T)
-			fuel_container = null
-		new /obj/item/stack/rods(T)
-		qdel(src)
+			options["Remove Igniter"] = image(icon = igniter.icon, icon_state = igniter.icon_state)
+
+		var/choice = show_radial_menu(user, src, options, require_near = TRUE, tooltips = TRUE)
+		var/duration = 1 SECOND
+		if(choice == "Dismantle All")
+			duration *= 2 // Twice as long to dismantle the whole thing.
+		if(!attacking_item.use_tool(src, user, duration))
+			return TRUE
+		switch(choice)
+			if("Dismantle All")
+				TakeApart(T)
+				return TRUE
+			if("Remove Welding Tool")
+				welding_tool.forceMove(T)
+				welding_tool = null
+				update_icon()
+			if("Remove Igniter")
+				igniter.forceMove(T)
+				igniter = null
+				update_icon()
+
 		return TRUE
 
 	else if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER && igniter && !lit && !is_military)
+		if(!attacking_item.use_tool(src, user, 1 SECOND))
+			return TRUE
 		secured = !secured
 		to_chat(user, SPAN_NOTICE("[igniter] is now [secured ? "secured" : "unsecured"]!"))
+		update_icon()
+		return TRUE
+
+	else if(attacking_item.tool_behaviour == TOOL_WELDER && !is_military)
+		var/obj/item/weldingtool/tool = attacking_item
+		if(welding_tool)
+			balloon_alert(user, "welding tool already installed!")
+			return TRUE
+		if(!do_after(user, 1 SECOND, src))
+			return FALSE
+		user.drop_from_inventory(tool, src)
+		playsound(src, 'sound/items/Deconstruct.ogg', 50, TRUE)
+		welding_tool = tool
+		processUpgrade()
 		update_icon()
 		return TRUE
 
@@ -159,6 +211,7 @@
 			to_chat(user, SPAN_WARNING("\The [src] already has an igniter installed."))
 			return TRUE
 		user.drop_from_inventory(I, src)
+		playsound(src, 'sound/machines/click.ogg', 50, TRUE)
 		igniter = I
 		update_icon()
 		return TRUE
@@ -180,6 +233,19 @@
 		return TRUE
 	return ..()
 
+/obj/item/flamethrower/proc/TakeApart(turf/T)
+	if(welding_tool)
+		welding_tool.forceMove(T)
+		welding_tool = null
+	if(igniter)
+		igniter.forceMove(T)
+		igniter = null
+	if(fuel_container)
+		fuel_container.forceMove(T)
+		fuel_container = null
+	new /obj/item/stack/rods(T)
+	qdel(src)
+	return
 
 /obj/item/flamethrower/attack_self(mob/user)
 	if(use_check_and_message(user))
@@ -357,15 +423,20 @@
 	name = "\improper IK-163 flamethrower"
 	desc = "A military-grade flamethrower by Ingkom. Capable of using a wide variety of chemicals."
 	desc_extended = "The IK-163 was a flamethrower developed by Ingkom well before the Interstellar War. While flamethwrowers are generally considered \
-	obsolete, Zavodskoi Interstellar still markets the IK-163 for niche uses, and the occasional military leader with more ego then sense."
+	obsolete, Zavodskoi Interstellar still markets the IK-163 for niche uses, and the occasional military leader with more ego than sense."
 	is_military = TRUE
-	igniter = /obj/item/assembly/igniter
 	secured = TRUE
 	range = 6
 	icon = 'icons/obj/item/military_flamethrower.dmi'
 	icon_state = "mil_flamethrower"
 	item_state = "flamethrower_0"
 	worn_x_dimension = 48
+	// Military-grade flamethrowers don't use welders
+
+/obj/item/flamethrower/military/Initialize(mapload, welder)
+	. = ..()
+	igniter = new /obj/item/assembly/igniter(src)
+	igniter.secured = FALSE
 
 /obj/item/flamethrower/military/update_icon()
 	ClearOverlays()
@@ -381,7 +452,9 @@
 		set_light(0)
 		item_state = "flamethrower_0"
 
-/obj/item/flamethrower/military/full/Initialize()
+	update_held_icon()
+
+/obj/item/flamethrower/military/full/Initialize(mapload, welder)
 	fuel_container = new /obj/item/reagent_containers/glass/beaker/large(src)
 	fuel_container.reagents.add_reagent(/singleton/reagent/fuel/napalm, 120)
 	return ..()
