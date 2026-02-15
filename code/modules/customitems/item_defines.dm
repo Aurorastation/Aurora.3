@@ -1433,13 +1433,13 @@ All custom items with worn sprites must follow the contained sprite system: http
 
 /obj/item/clothing/accessory/poncho/tajarancloak/fluff/kathira_cloak/update_icon(var/hooded = FALSE)
 	var/obj/item/clothing/accessory/poncho/tajarancloak/fluff/kathira_cloak/K = get_accessory(/obj/item/clothing/accessory/poncho/tajarancloak/fluff/kathira_cloak)
-	K.icon_state = "[K.changed ? K.style : initial(K.icon_state)]"
 	SEND_SIGNAL(K, COMSIG_ITEM_STATE_CHECK, args)
+	. = ..()
+	K.icon_state = "[K.changed ? K.style : initial(K.icon_state)]"
 	K.item_state = "[K.icon_state][hooded ? "_up" : ""]"
 	K.name = "[K.changed ? K.name2 : initial(K.name)]"
 	K.desc = "[K.changed ? K.desc2 : initial(K.desc)]"
 	K.accessory_mob_overlay = null
-	. = ..()
 	SEND_SIGNAL(K, COMSIG_ITEM_ICON_UPDATE)
 	if(usr)
 		usr.update_inv_w_uniform()

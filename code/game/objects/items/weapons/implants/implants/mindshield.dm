@@ -53,12 +53,13 @@
 	SIGNAL_HANDLER
 	*effective_sensitivity += sensitivity_modifier
 
-/obj/item/implant/mindshield/proc/cancel_power(var/implantee, var/caster, var/cancelled)
+/obj/item/implant/mindshield/proc/cancel_power(var/implantee, var/caster, var/cancelled, var/cancel_return, var/wide_field)
 	SIGNAL_HANDLER
 	*cancelled = TRUE
-	if(implantee == caster)
+	if(wide_field || implantee == caster)
 		return
 
+	*cancel_return = SPAN_DANGER("ACCESS DENIED: CONNECTION DROPPED.")
 	to_chat(implantee, SPAN_DANGER("Your [name] buzzes angrily."))
 
 /obj/item/implant/mindshield/emp_act(severity)

@@ -248,6 +248,16 @@
 	desc_extended = "There's a tag that reads: \"Apparition Halloween LLC.\""
 	icon_state = "ghostballoon"
 
+/obj/item/toy/balloon/heart/red
+	name = "red heart balloon"
+	desc = "A big red balloon in a traditional heart shape. Represents love, not medical work!"
+	icon_state = "heartballoonred"
+
+/obj/item/toy/balloon/heart/pink
+	name = "pink heart balloon"
+	desc = "A big pink balloon in a traditional heart shape. Represents love, not medical work!"
+	icon_state = "heartballoonpink"
+
 /obj/item/toy/balloon/color /// To color it, VV the 'color' var with a hex color code with the # included.
 	desc = "It's a plain little balloon. Comes in many colors!"
 	icon_state = "colorballoon"

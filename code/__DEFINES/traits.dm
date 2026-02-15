@@ -156,9 +156,6 @@
 /// Zona bovinae absorbed, used by Loner to track a mob that has had its ZB consumed. Doesn't make them psi-deaf.
 #define TRAIT_ZONA_BOVINAE_ABSORBED "bovinae_absorbed"
 
-/// Hidden from Psi-Search.
-#define TRAIT_PSIONIC_SUPPRESSION "psionic_suppression"
-
 /// lets mobs that traditionally don't hallucinate, hallucinate
 #define TRAIT_BYPASS_HALLUCINATION_RESTRICTION "bypassing_hallucination_restriction"
 
@@ -224,3 +221,6 @@
 
 /// traits transparent turf
 #define TURF_Z_TRANSPARENT_TRAIT "turf_z_transparent"
+
+/// Unlinks gliding from movement speed, meaning that there will be a delay between movements rather than a single move movement between tiles
+#define TRAIT_NO_GLIDE "no_glide"

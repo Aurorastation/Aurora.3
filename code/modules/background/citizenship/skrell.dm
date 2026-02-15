@@ -111,7 +111,7 @@
 	uniform = /obj/item/clothing/under/skrell
 	backpack_contents = list(
 		/obj/item/camera = 1,
-		/obj/item/storage/box/psireceiver = 1
+		/obj/item/storage/box/unique/freezer/organcooler/psireceiver = 1
 	)
 
 /obj/outfit/job/representative/consular/nralakk/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
@@ -133,7 +133,9 @@
 
 /obj/outfit/job/diplomatic_bodyguard/nralakk
 	name = "Nralakk Federation Diplomatic Bodyguard"
-	uniform = /obj/item/clothing/under/skrell
+	uniform = /obj/item/clothing/under/skrell/qukala
+	shoes = /obj/item/clothing/shoes/jackboots/kala
+	gloves = /obj/item/clothing/gloves/kala
 
 /obj/outfit/job/diplomatic_bodyguard/nralakk/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	if(H)
