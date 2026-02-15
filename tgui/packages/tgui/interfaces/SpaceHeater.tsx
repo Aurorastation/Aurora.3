@@ -17,7 +17,6 @@ export type SpaceHeaterData = {
   power_cell_inserted: BooleanLike;
   power_cell_charge: number;
   panel_open: BooleanLike;
-  heating_power: number;
   current_temperature: number;
   set_temperature: number;
   set_temperature_max: number;
@@ -28,13 +27,14 @@ export const SpaceHeater = (props, context) => {
   const { act, data } = useBackend<SpaceHeaterData>(context);
 
   return (
-    <Window width="382" height="277">
+    <Window width="415" height="280">
       <Window.Content>
         <Section
           title="Device Configuration"
           buttons={
             <Button
               content={data.is_on ? 'On' : 'Off'}
+              disabled={!data.power_cell_inserted}
               icon={data.is_on ? 'power-off' : 'times'}
               color={!data.is_on ? 'red' : 'green'}
               onClick={() => act('powerToggle')}
