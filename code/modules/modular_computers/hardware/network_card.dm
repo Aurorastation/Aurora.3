@@ -1,5 +1,3 @@
-GLOBAL_VAR_INIT(ntnet_card_uid, 1)
-
 /obj/item/computer_hardware/network_card
 	name = "basic NTNet network card"
 	desc = "A basic network card for usage with standard NTNet frequencies."
@@ -8,16 +6,21 @@ GLOBAL_VAR_INIT(ntnet_card_uid, 1)
 	critical = FALSE
 	icon_state = "netcard_basic"
 	hardware_size = 1
-	var/identification_id			// Identification ID. Technically MAC address of this device. Can't be changed by user.
+	var/identification_addr			// Identification ID. Resembles IPv6, but with only four 'groups', e.g. XXXX:XXXX:XXXX:XXXX. Can't be changed by user.
+	// temp notes: Keep addresses from exonet but have them ONLY used for manual dialing (to bypass `visible_on_network`), plus on the UI
+	// Store user datum by ref where needed, or cleanup if deleted (signals?)
+	// (address length changed to four groups from five for ease of typing)
 	var/identification_string = ""	// Identification string, technically nickname seen in the network. Can be set by user.
 	var/long_range = FALSE
 	var/ethernet = FALSE // Hard-wired, therefore always on, ignores NTNet wireless checks.
 	var/obj/item/integrated_signaler/signal/sradio = FALSE // integrated signaler - not present on basic model.
 	malfunction_probability = 1
 
+	var/static/list/all_card_addresses = list()
+
 /obj/item/computer_hardware/network_card/diagnostics(mob/user)
 	..()
-	to_chat(user, SPAN_NOTICE("NIX Unique ID: [identification_id]"))
+	to_chat(user, SPAN_NOTICE("NIX Unique ID: [identification_addr]"))
 	to_chat(user, SPAN_NOTICE("NIX User Tag: [identification_string]"))
 	to_chat(user, SPAN_NOTICE("Supported protocols:"))
 	to_chat(user, SPAN_NOTICE("511.m SFS (Subspace) - Standard Frequency Spread"))
@@ -30,8 +33,30 @@ GLOBAL_VAR_INIT(ntnet_card_uid, 1)
 
 /obj/item/computer_hardware/network_card/Initialize()
 	. = ..()
-	identification_id = GLOB.ntnet_card_uid
-	GLOB.ntnet_card_uid++
+	identification_addr = make_address(REF(src))
+	all_card_addresses += identification_addr
+
+/obj/item/computer_hardware/network_card/proc/make_address(seed)
+	var/new_address = null
+	do
+		var/hash = md5(seed)
+		var/raw_address = copytext(hash, 1, 13)
+		var/prefix = "fc00" //Used for unique local address in real-life IPv6.
+		var/addr = hex_to_address(raw_address)
+
+		new_address = "[prefix]:[addr]"
+		seed = "[seed]0" //If we did get a collision, this should make the next attempt not have one.
+	while(new_address in all_card_addresses) //Collision test.
+
+	return new_address
+
+/obj/item/computer_hardware/network_card/proc/hex_to_address(hex)
+	var/regex/group_re = regex(@"\w{1,4}", "g")
+	var/list/groups = list()
+	while(group_re.Find(hex))
+		groups += group_re.match
+
+	return groups.Join(":")
 
 /obj/item/computer_hardware/network_card/signaler
 	name = "NTNet signaler network card"
@@ -71,7 +96,7 @@ GLOBAL_VAR_INIT(ntnet_card_uid, 1)
 
 // Returns a string identifier of this network card
 /obj/item/computer_hardware/network_card/proc/get_network_tag()
-	return "[identification_string] (NID [identification_id])"
+	return "[identification_string] (NID [identification_addr])"
 
 // 0 - No signal, 1 - Low signal, 2 - High signal. 3 - Wired Connection
 /obj/item/computer_hardware/network_card/proc/get_signal(var/specific_action = 0)
@@ -109,4 +134,5 @@ GLOBAL_VAR_INIT(ntnet_card_uid, 1)
 	if(parent_computer?.network_card == src)
 		parent_computer.network_card = null
 	parent_computer = null
+	all_card_addresses -= identification_addr
 	return ..()

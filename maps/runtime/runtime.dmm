@@ -1901,6 +1901,10 @@
 	temperature = 278
 	},
 /area/tcommsat/computer)
+"lx" = (
+/obj/item/card/id/captains_spare,
+/turf/simulated/floor/plating,
+/area/construction)
 "lF" = (
 /obj/structure/lattice/catwalk,
 /turf/simulated/open,
@@ -10117,7 +10121,7 @@ de
 de
 TW
 pD
-de
+lx
 dk
 cK
 ae

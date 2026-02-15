@@ -1,16 +1,25 @@
 /datum/ntnet_user
 	var/username
-	var/address  //Resembles IPv6, but with only four 'groups', e.g. XXXX:XXXX:XXXX:XXXX
-	// TODO: Remove this and use the network card address (or replace that with this address system)
-	// temp notes: Keep addresses from exonet but have them ONLY used for manual dialing (to bypass `visible_on_network`)
-	// Store user datum by ref where needed, or cleanup if deleted (signals?)
-	// (address length changed to four groups from five for ease of typing)
 	var/list/channels = list()
 	var/list/dm_channels = list()
 	var/list/clients = list()
 
-	// {friend_address: friend_name}
-	var/alist/friends = list()
+	// list of friend names (string)
+	var/list/friends = list()
+
+	// request values are all `/datum/ntnet_user` refs (todo: actual documentation)
+	var/alist/comm_requests = alist(
+		INCOMING_REQUESTS = alist(
+			CALL_REQUESTS = list(),
+			VIDEO_REQUESTS = list(),
+			FRIEND_REQUESTS = list(),
+		),
+		OUTGOING_REQUESTS = alist(
+			CALL_REQUESTS = list(),
+			VIDEO_REQUESTS = list(),
+			FRIEND_REQUESTS = list(),
+		)
+	)
 
 	var/visible_on_network = TRUE
 
@@ -30,6 +39,18 @@
 	dm_channels = null
 	clients = null
 
+	// todo: make sure that these are actually the right way around
+	for(var/category in comm_requests[INCOMING_REQUESTS])
+		for(var/requester_ref in category)
+			var/datum/ntnet_user/requester = locate(requester_ref)
+			if(requester)
+				remove_comm_request(requester, category)
+	for(var/category in comm_requests[OUTGOING_REQUESTS])
+		for(var/target_ref in category)
+			var/datum/ntnet_user/target = locate(target_ref)
+			if(target)
+				target.remove_comm_request(REF(src), category)
+
 /datum/ntnet_user/proc/generateUsernameIdCard(var/obj/item/card/id/card)
 	if(!card)
 		return "Unknown"
@@ -38,5 +59,33 @@
 /datum/ntnet_user/proc/generateUsernameSilicon(var/mob/living/silicon/silicon)
 	return silicon.name
 
-/datum/ntnet_user/proc/generate_address(seed)
-	var/new_address = null
+/**
+ * Adds a communicator request from [requester] to our [/datum/ntnet_user/var/comm_requests] list.
+ *
+ * Arguments:
+ * * datum/ntnet_user/requester - The user sending the communicator request.
+ * * category - The category of the request. Must be one of [CALL_REQUESTS], [VIDEO_REQUESTS], or [FRIEND_REQUESTS].
+ */
+/datum/ntnet_user/proc/add_comm_request(datum/ntnet_user/requester, category)
+	comm_requests[INCOMING_REQUESTS][category] |= REF(requester)
+	requester.comm_requests[OUTGOING_REQUESTS][category] |= REF(src)
+
+/**
+ * Removes a communicator request from [requester] from our [/datum/ntnet_user/var/comm_requests] list.
+ *
+ * Arguments:
+ * * datum/ntnet_user/requester - The user whose request is being removed.
+ * * category - The category of the request. Must be one of [CALL_REQUESTS], [VIDEO_REQUESTS], or [FRIEND_REQUESTS].
+ */
+/datum/ntnet_user/proc/remove_comm_request(datum/ntnet_user/requester, category)
+	comm_requests[INCOMING_REQUESTS][category] -= REF(requester)
+	requester.comm_requests[OUTGOING_REQUESTS][category] -= REF(src)
+
+/datum/ntnet_user/proc/add_friend(datum/ntnet_user/new_friend)
+	remove_comm_request(new_friend, FRIEND_REQUESTS)
+
+	src.friends |= new_friend.username
+	new_friend.friends |= src.username
+
+/datum/ntnet_user/proc/remove_friend(friend_name)
+	friends -= friend_name

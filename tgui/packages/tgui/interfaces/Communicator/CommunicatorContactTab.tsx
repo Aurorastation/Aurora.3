@@ -8,22 +8,28 @@ import {
   Stack,
   Tooltip,
 } from '../../components';
-import { CommunicatorData, CommunicatorTab, Contact } from './types';
+import { CommunicatorData, CommunicatorTab, User } from './types';
+
+type ContactListProps = {
+  contacts: User[];
+  showFriendReqBtn?: boolean;
+};
+
+type ContactListingProps = {
+  contact: User;
+  showFriendReqBtn?: boolean;
+};
 
 export const CommunicatorContactTab = (props, context) => {
   const { act, data } = useBackend<CommunicatorData>(context);
   const { friendsList, allUsers } = data;
 
-  const publicComms: Contact[] = allUsers
-    .filter((comm) => comm.visible)
-    .map((comm) => {
-      return { address: comm.address, name: comm.username };
-    });
+  const publicUsers = allUsers.filter((user) => user.visible);
 
   return (
     <Flex direction="column" justify="space-between" height="100%">
       <Flex.Item basis="50%">
-        <FriendsList contacts={friendsList} />
+        <FriendsList friends={friendsList} />
       </Flex.Item>
       <Divider />
       <Flex.Item basis="50%">
@@ -40,8 +46,8 @@ export const CommunicatorContactTab = (props, context) => {
             </Button>
           }
         >
-          {(publicComms.length && (
-            <ContactsList commList={publicComms} showFriendReqBtn />
+          {(publicUsers.length && (
+            <ContactsList contacts={publicUsers} showFriendReqBtn />
           )) || <Box>No devices detected on your local network.</Box>}
         </Section>
       </Flex.Item>
@@ -50,10 +56,10 @@ export const CommunicatorContactTab = (props, context) => {
 };
 
 // Exported separately for use in the phone tab.
-export const FriendsList = ({ contacts }: { contacts: Contact[] }) => {
+export const FriendsList = ({ friends }: { friends: User[] }) => {
   return (
     <Section title="Friends" fill>
-      {(contacts.length && <ContactsList commList={contacts} />) || (
+      {(friends.length && <ContactsList contacts={friends} />) || (
         <Tooltip position="right" content=":(">
           <Box inline>Your friends list is empty.</Box>
         </Tooltip>
@@ -62,16 +68,11 @@ export const FriendsList = ({ contacts }: { contacts: Contact[] }) => {
   );
 };
 
-type ContactListProps = {
-  commList: Contact[];
-  showFriendReqBtn?: boolean;
-};
-
 const ContactsList = (props: ContactListProps) => {
-  const { commList, showFriendReqBtn } = props;
+  const { contacts, showFriendReqBtn } = props;
   return (
     <Stack vertical>
-      {commList.map((contact) => (
+      {contacts.map((contact) => (
         // Todo: 'Add to contacts' button
         <Stack.Item key={contact.address} className="comm-contacts">
           <ContactListing
@@ -84,15 +85,10 @@ const ContactsList = (props: ContactListProps) => {
   );
 };
 
-type ContactListingProps = {
-  contact: Contact;
-  showFriendReqBtn?: boolean;
-};
-
 const ContactListing = (props: ContactListingProps, context) => {
   const { act, data } = useBackend<CommunicatorData>(context);
   const {
-    contact: { address, name },
+    contact,
     showFriendReqBtn,
   } = props;
 
@@ -107,11 +103,9 @@ const ContactListing = (props: ContactListingProps, context) => {
     '',
   );
 
-  const alreadyFriends = data.friendsList.find(
-    (friend) => friend.address === address,
-  );
-  const contactSentRequest = data.friendRequests.incoming.includes(address);
-  const requestSentToContact = data.friendRequests.outgoing.includes(address);
+  const alreadyFriends = data.friendsList.find((friend) => friend.ref === contact.ref);
+  const contactSentRequest = data.friendRequests.incoming.includes(contact.ref);
+  const requestSentToContact = data.friendRequests.outgoing.includes(contact.ref);
 
   return (
     <Flex justify="space-between" m={0.25}>
@@ -122,11 +116,11 @@ const ContactListing = (props: ContactListingProps, context) => {
           wordBreak: 'break-all',
         }}
       >
-        <u>{name}:</u>
+        <u>{contact.username}:</u>
       </Flex.Item>
       <Flex.Item>
         <Flex direction="column">
-          <Flex.Item textAlign="right">{address}</Flex.Item>
+          <Flex.Item textAlign="right">{contact.address}</Flex.Item>
           <Flex.Item align="end">
             {showFriendReqBtn && (
               <Button
@@ -141,8 +135,8 @@ const ContactListing = (props: ContactListingProps, context) => {
                 color={contactSentRequest && 'average'}
                 onClick={() => {
                   act(
-                    `friend_request_${contactSentRequest ? 'respond' : 'send'}`,
-                    { selected_address: address },
+                    'friend_request',
+                    { action: contactSentRequest ? 'respond' : 'send', selected_address: contact.address },
                   );
                 }}
               />
@@ -162,7 +156,7 @@ const ContactListing = (props: ContactListingProps, context) => {
               tooltip="Send call invitation"
               tooltipPosition="bottom"
               onClick={() => {
-                setTargetAddress(address);
+                setTargetAddress(contact.address);
                 setCurrentTab(CommunicatorTab.Phone);
               }}
             >

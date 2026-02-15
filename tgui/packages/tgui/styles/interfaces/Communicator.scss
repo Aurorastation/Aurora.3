@@ -2,6 +2,7 @@
 
 $phone-button-width: 90px;
 $phone-button-height: 45px;
+$phone-button-spacing: 0.5rem;
 
 .Stack__item.comm-contacts:nth-child(odd):not(:only-child) {
   background-color: lighten(Section.$background-color, 25%);
@@ -17,28 +18,26 @@ $phone-button-height: 45px;
     font-size: 3rem;
     font-family: 'Trebuchet MS';
   }
-}
 
-.keypad {
-  height: 100%;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
-  text-align: center;
+  .keypad {
+    height: 100%;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    text-align: center;
 
-  .Button {
-    border-radius: 32px;
+    .Button {
+      border-radius: 32px;
+      margin-bottom: $phone-button-spacing;
+    }
   }
-}
 
-.call-buttons {
-  margin-top: 0.5rem;
-  justify-content: space-around;
-  align-content: center;
-  text-align: center;
+  .action-buttons {
+    justify-content: space-evenly;
+    text-align: center;
 
-  .Button {
-    height: $phone-button-height;
-    line-height: $phone-button-height;
-    width: calc(#{$phone-button-width} * 2.3);
+    .Button {
+      font-size: 2.5rem;
+      width: calc(#{$phone-button-width} * 2);
+    }
   }
 }

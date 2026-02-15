@@ -6,26 +6,21 @@ export type CommunicatorData = {
   videoRequests: RequestsList;
   friendRequests: RequestsList;
 
-  friendsList: Contact[];
-  user: User;
+  friendsList: User[];
+  user?: User;
   allUsers: User[];
 };
 
 type RequestsList = {
-  incoming: Address[];
-  outgoing: Address[];
+  incoming: string[];
+  outgoing: string[];
 };
 
-type User = {
-  username: string;
+export type User = {
   address: Address;
+  username: string;
   visible: boolean;
   ref: string;
-};
-
-export type Contact = {
-  address: Address;
-  name: string;
 };
 
 export enum CommunicatorTab {
