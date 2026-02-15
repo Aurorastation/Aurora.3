@@ -80,7 +80,7 @@
 #define COMSIG_PSI_CHECK_SENSITIVITY "psi_check_sensitivity"
 
 // directional input signals.
-// !Please rework these if you are porting actual keybindings.
+// TODO: Please rework these if you are porting actual keybindings.
 /// Raised on a mob when receiving a "Northeast" input key, typically the 'e' key.
 #define COMSIG_INPUT_KEY_QUICK_EQUIP "quick-equip_key_pressed"
 
