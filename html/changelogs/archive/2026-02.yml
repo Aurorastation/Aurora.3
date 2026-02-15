@@ -278,3 +278,7 @@
   fyni:
   - rscadd: Adds a red and pink heart balloon for valentines! Also adds them to the
       random balloon pool. <3 <3
+2026-02-15:
+  JohnWildkins:
+  - bugfix: Fix lobby screen system failing to switch to the last lobby screen in
+      a set.
