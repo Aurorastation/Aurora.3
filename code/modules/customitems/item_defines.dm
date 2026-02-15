@@ -733,28 +733,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	contained_sprite = TRUE
 
 
-/obj/item/clothing/accessory/poncho/shouldercape/qeblak/zeng/fluff/eden_cloak // Zeng-Hu Nralakk division cloak - Eden Li - huntime
-	name = "\improper Zeng-Hu cloak: Nralakk division"
-	desc = "A cloak worn by Zeng-Hu personnel who worked with or in the Nralakk Federation."
-	icon = 'icons/obj/custom_items/eden_cloak.dmi'
-	icon_override = 'icons/obj/custom_items/eden_cloak.dmi'
-	icon_state = "ZH_cape_custom"
-	item_state = "ZH_cape_custom"
-
-
-/obj/item/clothing/head/welding/fluff/akara_mask //Steel Face Mask - Akara Seuseisak - aticius
-	name = "steel face mask"
-	desc = "A slab of steel that has been hammered into the shape of a full-face mask with crude tools. It seems quite old and an appreciable layer of rust has built up."
-	icon = 'icons/obj/custom_items/akara_mask.dmi'
-	icon_override = 'icons/obj/custom_items/akara_mask.dmi'
-	icon_state = "akara_mask"
-	item_state = "akara_mask"
-	contained_sprite = TRUE
-	action_button_name = "Adjust mask"
-	flash_protection = FLASH_PROTECTION_NONE
-	tint = TINT_NONE
-
-/obj/item/clothing/suit/storage/toggle/leather_jacket/flight/fluff/iliasz_jacket //Naval Pilot's Jacket - Iliasz Jajszczyk - dansemacabre
+/obj/item/clothing/suit/storage/toggle/leather_jacket/flight/fluff/iliasz_jacket //Naval Pilot's Jacket - Iliasz Jajszczyk - kintsugi
 	name = "naval pilot's jacket"
 	desc = "A sturdy grey-green neonomex-lined jacket, flame-resistant and sleek. A garment of choice for anyone who might be in the cockpit of something with a risk of catching fire. \
 	There's a name patch sewn onto the breast of this one, reading \"JAJSZCZYK\". It seems to be more rugged than a typical flight jacket, and also appears to have some waterproofing. \
@@ -764,189 +743,6 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon_state = "iliasz_jacket"
 	item_state = "iliasz_jacket"
 	contained_sprite = TRUE
-
-/obj/item/clothing/accessory/poncho/tajarancloak/fluff/dekel_smock // Corporate Smock - Dekel Mrrhazrughan - veterangary
-	name = "corporate smock"
-	desc = "A dark coloured surplus winter smock repurposed for interstellar use that has a hood shaded with corporate colors. A traditional Stellar Corporate Conglomerate star is embroidered on the back."
-	icon = 'icons/obj/custom_items/dekel_smock.dmi'
-	icon_override = 'icons/obj/custom_items/dekel_smock.dmi'
-	icon_state = "seccloak"
-	item_state = "seccloak"
-	contained_sprite = TRUE
-	var/hoodtype = /obj/item/clothing/head/winterhood/fluff/dekel_hood
-
-/obj/item/clothing/accessory/poncho/tajarancloak/fluff/dekel_smock/Initialize()
-	. = ..()
-	new hoodtype(src)
-
-/obj/item/clothing/head/winterhood/fluff/dekel_hood
-	name = "corporate hood"
-	desc = "A hood attached to a corporate smock."
-	icon = 'icons/obj/custom_items/dekel_smock.dmi'
-	icon_override = 'icons/obj/custom_items/dekel_smock.dmi'
-	icon_state = "seccloak_hood"
-	item_state = "seccloak_hood"
-	contained_sprite = TRUE
-	flags_inv = HIDEEARS | BLOCKHAIR
-
-/obj/item/clothing/accessory/poncho/tajarancloak/fluff/dekel_smock/on_attached(obj/item/clothing/S, mob/user as mob)
-	..()
-	has_suit.verbs += /obj/item/clothing/accessory/poncho/tajarancloak/fluff/dekel_smock/verb/change_hood
-
-/obj/item/clothing/accessory/poncho/tajarancloak/fluff/dekel_smock/on_removed(mob/user as mob)
-	if(has_suit)
-		has_suit.verbs -= /obj/item/clothing/accessory/poncho/tajarancloak/fluff/dekel_smock/verb/change_hood
-	..()
-
-/obj/item/clothing/accessory/poncho/tajarancloak/fluff/dekel_smock/verb/change_hood()
-	set name = "Toggle Hood"
-	set category = "Object.Equipped"
-	set src in usr
-
-	if(use_check_and_message(usr))
-		return
-
-	var/obj/item/clothing/accessory/poncho/tajarancloak/fluff/dekel_smock/D = get_accessory(/obj/item/clothing/accessory/poncho/tajarancloak/fluff/dekel_smock)
-	if(!D)
-		return
-
-	SEND_SIGNAL(D, COMSIG_ITEM_UPDATE_STATE, D)
-
-
-/obj/item/fluff/nasira_burner //Adhomian Incense Burner - Nasira Nahnikh - ramke
-	name = "adhomian incense burner"
-	desc = "A traditional Adhomian incense burner with blue and yellow suns depicted on the front. The metal cover is blackened from use, and there appear to be unclear etchings on the inside."
-	icon = 'icons/obj/custom_items/nasira_burner.dmi'
-	icon_state = "burner"
-	drop_sound = 'sound/items/drop/glass.ogg'
-	pickup_sound = 'sound/items/pickup/glass.ogg'
-	var/matchmsg = "USER lights NAME with their FLAME."
-	var/lightermsg = "USER manages to awkwardly light NAME with FLAME."
-	var/zippomsg = "With a flick of their wrist, USER lights NAME with their FLAME."
-	var/weldermsg = "USER lights NAME with FLAME. That looked rather unsafe!"
-	var/ignitermsg = "USER fiddles with FLAME, and eventually manages to light NAME."
-	var/genericmsg = "USER lights NAME with their FLAME."
-	var/lit = FALSE
-
-/obj/item/fluff/nasira_burner/Destroy()
-	STOP_PROCESSING(SSprocessing, src)
-	return ..()
-
-/obj/item/fluff/nasira_burner/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if(lit)
-		. += "\The [src] is currently lit."
-
-/obj/item/fluff/nasira_burner/proc/light(var/lighting_text)
-	if(!lit)
-		lit = TRUE
-		playsound(src, 'sound/items/cigs_lighters/cig_light.ogg', 75, 1, -1)
-		if(lighting_text)
-			var/turf/T = get_turf(src)
-			T.visible_message(SPAN_NOTICE(lighting_text))
-		set_light(2, 0.25, "#E38F46")
-		icon_state = "burner_lit"
-		START_PROCESSING(SSprocessing, src)
-
-/obj/item/fluff/nasira_burner/attack_self(mob/user as mob)
-	if(lit)
-		lit = FALSE
-		var/turf/T = get_turf(src)
-		T.visible_message(SPAN_NOTICE("[user] extinguishes \the [src]."))
-		set_light(0)
-		icon_state = initial(icon_state)
-		STOP_PROCESSING(SSprocessing, src)
-
-/obj/item/fluff/nasira_burner/attackby(obj/item/attacking_item, mob/user, params)
-	..()
-	if(attacking_item.isFlameSource())
-		var/text = matchmsg
-		if(istype(attacking_item, /obj/item/flame/match))
-			text = matchmsg
-		else if(istype(attacking_item, /obj/item/flame/lighter/zippo))
-			text = zippomsg
-		else if(istype(attacking_item, /obj/item/flame/lighter))
-			text = lightermsg
-		else if(attacking_item.tool_behaviour == TOOL_WELDER)
-			text = weldermsg
-		else if(istype(attacking_item, /obj/item/assembly/igniter))
-			text = ignitermsg
-		else
-			text = genericmsg
-		text = replacetext(text, "USER", "\the [user]")
-		text = replacetext(text, "NAME", "\the [name]")
-		text = replacetext(text, "FLAME", "\the [attacking_item.name]")
-		light(text)
-
-/obj/item/fluff/nasira_burner/process()
-	if(prob(10))
-		var/lit_message
-
-		lit_message = pick( "The smell of ceremonial incense reaches your nose.",
-								"Adhomian incense permeates the air around you.",
-								"The soft glow of the incense burner illuminates the vicinity.")
-
-		if(lit_message)
-			visible_message(SPAN_NOTICE(lit_message), range = 3)
-
-/obj/item/clothing/suit/vaurca/fluff/bells_zora_cloak //Tailored Hive Cloak - Ka'Akaix'Bells Zo'ra - shestrying
-	name = "tailored hive cloak"
-	desc = "A typical-looking Vaurca hive cloak design, tailored from what looks to be labcoat material."
-	icon = 'icons/obj/custom_items/bells_zora_items.dmi'
-	icon_override = 'icons/obj/custom_items/bells_zora_items.dmi'
-	icon_state = "bells_zora_cloak"
-	item_state = "bells_zora_cloak"
-	contained_sprite = TRUE
-
-/obj/item/storage/box/fancy/fluff/bells_zora_box //Taffy Basket - Ka'Akaix'Bells Zo'ra - shestrying
-	name = "taffy basket"
-	desc = "A round, wicker basket full to the brim with taffy! "
-	icon = 'icons/obj/custom_items/bells_zora_items.dmi'
-	icon_override = 'icons/obj/custom_items/bells_zora_items.dmi'
-	icon_state = "bells_zora_box_full"
-	item_state = "bells_zora_box_full"
-	can_hold = list(/obj/item/reagent_containers/food/snacks/fluff/taffy)
-	starts_with = list(/obj/item/reagent_containers/food/snacks/fluff/taffy = 6, /obj/item/reagent_containers/food/snacks/fluff/taffy/pink = 6, /obj/item/reagent_containers/food/snacks/fluff/taffy/blue = 6)
-	storage_slots = 18
-	contained_sprite = TRUE
-	drop_sound = 'sound/items/drop/gloves.ogg'
-	pickup_sound = 'sound/items/pickup/gloves.ogg'
-	use_sound = 'sound/items/storage/wrapper.ogg'
-
-/obj/item/storage/box/fancy/fluff/bells_zora_box/fill()
-	. = ..()
-	update_icon()
-
-/obj/item/storage/box/fancy/fluff/bells_zora_box/update_icon()
-	if(contents.len == 0)
-		icon_state = "bells_zora_box_empty"
-		desc = " A round, wicker basket. There's some colorful crumbs on the bottom of the linen lining. "
-	else if(contents.len <= 11)
-		icon_state = "bells_zora_box_half"
-		desc = "A round, wicker basket with some taffy inside!"
-	else if(contents.len >= 12)
-		icon_state = "bells_zora_box_full"
-		desc = "A round, wicker basket full to the brim with taffy!"
-
-
-/obj/item/reagent_containers/food/snacks/fluff/taffy
-	name = "orange taffy"
-	desc = "A piece of handmade taffy, rolled up in a cute spiral!"
-	icon = 'icons/obj/custom_items/bells_zora_items.dmi'
-	icon_state = "orange_taffy"
-	reagents_to_add = list(/singleton/reagent/nutriment = 3)
-	reagent_data = list(/singleton/reagent/nutriment = list("bittersweetness, insect meat and regret" = 1))
-	bitesize = 1
-
-/obj/item/reagent_containers/food/snacks/fluff/taffy/pink
-	name = "pink taffy"
-	icon_state = "pink_taffy"
-	reagent_data = list(/singleton/reagent/nutriment = list("sweetness and a hint of strawberry" = 1))
-
-/obj/item/reagent_containers/food/snacks/fluff/taffy/blue
-	name = "blue taffy"
-	icon_state = "blue_taffy"
-	reagent_data = list(/singleton/reagent/nutriment = list("salty-sweet, tangy taffy" = 1))
 
 
 /obj/item/clothing/suit/storage/fluff/aheke_coat //Hengsha Thermal Coat - Aheke Han'san - hawkington
@@ -997,107 +793,6 @@ All custom items with worn sprites must follow the contained sprite system: http
 	contained_sprite = TRUE
 
 
-/obj/item/fluff/ielia_tarot //Starfinder - Ielia Aliori-Quis'Naala - shestrying
-	name = "starfinder"
-	desc = "A small, bronze ball. It is heavy in the hand and seems to have no switches or buttons on it. "
-	icon = 'icons/obj/custom_items/ielia_tarot.dmi'
-	icon_override = 'icons/obj/custom_items/ielia_tarot.dmi'
-	icon_state = "ielia_tarot"
-	contained_sprite = TRUE
-	w_class = WEIGHT_CLASS_SMALL
-	var/list/possible_cards = list("Island","Hatching Egg","Star Chanter","Jiu'x'klua","Stormcloud","Gnarled Tree","Poet","Bloated Toad","Void","Qu'Poxii","Fisher","Mountain","Sraso","Nioh")
-	var/activated = FALSE
-	var/first_card
-	var/second_card
-	var/third_card
-
-/obj/item/fluff/ielia_tarot/attack_self(var/mob/user)
-	if(activated)
-		reset_starfinder()
-	else
-		start_starfinder()
-
-/obj/item/fluff/ielia_tarot/AltClick(mob/user)
-	attack_self(user)
-
-/obj/item/fluff/ielia_tarot/verb/start_starfinder()
-	set name = "Start the Starfinder"
-	set category = "Object"
-	set src in view(1)
-
-	if(activated)
-		return
-
-	if(use_check_and_message(usr, USE_DISALLOW_SILICONS))
-		return
-
-	first_card = null
-	second_card = null
-	third_card = null
-
-	icon_state = "ielia_tarot_on"
-	ClearOverlays()
-
-	usr.visible_message("\The [usr] activates the [src].")
-	flick ("card_spawn",src)
-	activated = TRUE
-
-	icon_state = "card_spin"
-	AddOverlays("card_spin_fx")
-	addtimer(CALLBACK(src, PROC_REF(finish_selection), usr), 3 SECONDS)
-
-/obj/item/fluff/ielia_tarot/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if(distance <= 1)
-		if(first_card && second_card && third_card)
-			. += "The following constellations are displayed on the starfinder: [first_card], [second_card], and [third_card]."
-
-/obj/item/fluff/ielia_tarot/proc/finish_selection(var/mob/user)
-	ClearOverlays()
-	flick("card_spin_stop",src)
-	icon_state = "ielia_tarot_on"
-	for(var/i = 1 to 3)
-		var/P = pick(possible_cards)
-		if(!first_card)
-			first_card = P
-		else if(first_card && !second_card)
-			second_card = P
-		else if(first_card && second_card)
-			third_card = P
-
-	ClearOverlays()
-	AddOverlays("card_display_fx")
-	AddOverlays("card_display")
-
-	var/image/first_card_overlay = image(icon, src, first_card)
-	first_card_overlay.pixel_x = -8
-	AddOverlays(first_card_overlay)
-
-	var/image/second_card_overlay = image(icon, src, second_card)
-	AddOverlays(second_card_overlay)
-
-	var/image/third_card_overlay = image(icon, src, third_card)
-	third_card_overlay.pixel_x = 8
-	AddOverlays(third_card_overlay)
-
-/obj/item/fluff/ielia_tarot/proc/reset_starfinder()
-	if(!activated)
-		return
-	ClearOverlays()
-	icon_state = "ielia_tarot"
-	activated = FALSE
-
-
-/obj/item/clothing/suit/storage/fluff/osborne_suit //Dominian Officers Trench Coat - Osborne Strelitz - sirtoast
-	name = "dominian officer's trench coat"
-	desc = "An Imperial Army trench coat that is used by Dominian officers in colder environments. This one is missing the unit insignia and has the symbol of a military count on its rank collar."
-	icon = 'icons/obj/custom_items/osborne_suit.dmi'
-	icon_override = 'icons/obj/custom_items/osborne_suit.dmi'
-	icon_state = "osborne_suit"
-	item_state = "osborne_suit"
-	contained_sprite = TRUE
-
-
 /obj/item/storage/box/fancy/cigarettes/cigar/brianne_cigarettes //Martian Cigarette Case - Sean Brianne - zelmana
 	name = "martian cigarette case"
 	desc = "A small, personal cigarette tin. It holds cigarettes similar to a cigarette packet but has some nice flair."
@@ -1108,26 +803,6 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon_type = "cigarette"
 	can_hold = list(/obj/item/clothing/mask/smokable/cigarette/dromedaryco)
 	cigarette_to_spawn = /obj/item/clothing/mask/smokable/cigarette/dromedaryco
-	contained_sprite = TRUE
-
-
-/obj/item/clothing/glasses/sunglasses/fluff/lyod_snowglasses //Lyod snowglasses - Ravna Surtaeva - sycmos
-	name = "\improper Lyod snowglasses"
-	desc = "A pair of protective glasses hand-sculpted of reindeer antler, intended for use in arctic climates to protect from snow blindness."
-	icon = 'icons/obj/custom_items/ravna_items.dmi'
-	icon_override = 'icons/obj/custom_items/ravna_items.dmi'
-	icon_state = "ravna_sunglasses"
-	item_state = "ravna_sunglasses"
-	contained_sprite = TRUE
-	flash_protection = FLASH_PROTECTION_NONE
-
-/obj/item/clothing/suit/storage/toggle/fluff/prejoroub_fur_longcoat //Prejoroub Fur Longcoat - Ravna Surtaeva - sycmos
-	name = "prejoroub fur longcoat"
-	desc = "A dense and heavy longcoat of dyed tenelote leather, with a liner and collar of prejoroub fur and decorative trimming throughout."
-	icon = 'icons/obj/custom_items/ravna_items.dmi'
-	icon_override = 'icons/obj/custom_items/ravna_items.dmi'
-	icon_state = "ravna_coat"
-	item_state = "ravna_coat"
 	contained_sprite = TRUE
 
 
@@ -1155,24 +830,6 @@ All custom items with worn sprites must follow the contained sprite system: http
 	item_state = "freedom_coat"
 	contained_sprite = TRUE
 
-/obj/item/clothing/head/fluff/schlosser_hat // National Defense Force Schiffchen - Schlosser - NewOriginalSchwann
-	name = "national defense force schiffchen"
-	desc = "A side cap known as a Schiffchen on Visegrad, a term roughly translating to \"little boat\" in Basic, which is commonly worn by members of the Visegradi National Defense Force. The NDF’s symbol – a silver fortress standing upon a crimson background – is prominently featured on the Schiffchen’s badge. “Totschlager” has been written on the inside of the band by somebody with a marker."
-	desc_extended = "The Schiffchen has a long, storied, and somewhat controversial history upon Visegrad, which dates back to its initial colonization. The planet’s first security service, the Visegradi People’s Security Service, used the Schiffchen as its standard headwear for security personnel in an effort to invoke \
-	the Warsaw Pact’s security services. Following its dissolution the National Defense Force continued to use the Schiffchen as headwear, and it remains a common sight on Visegrad today even if the NDF, which was dissolved by the Navy shortly after the Solarian Collapse, no longer exists."
-	icon = 'icons/obj/custom_items/schlosser_hat.dmi'
-	icon_override = 'icons/obj/custom_items/schlosser_hat.dmi'
-	icon_state = "schlosser_hat"
-	item_state = "schlosser_hat"
-	contained_sprite = TRUE
-
-/obj/item/clothing/suit/storage/toggle/konyang/dbjacket/provenance_jacket // Double-Breasted Cropped Jacket - Z.I Provenance - niennab
-	name = "double-breasted cropped jacket"
-	desc = "Styled after the latest fashion trends on Konyang, this hybrid leather and polyester mesh jacket was built with the planet’s humid climate in mind. This particular jacket appears to be emblematic of Konyang's stylings but hand-made, sporting a distinctive fur collar."
-	icon = 'icons/obj/custom_items/provenance_jacket.dmi'
-	icon_override = 'icons/obj/custom_items/provenance_jacket.dmi'
-	icon_state = "provenance_coat"
-	item_state = "provenance_coat"
 
 /obj/item/voidsuit_modkit/fluff/ashkii_suit
 	name = "Squall voidsuit kit"
@@ -1217,16 +874,6 @@ All custom items with worn sprites must follow the contained sprite system: http
 	item_state = "ashkii_cloak"
 	contained_sprite = TRUE
 
-/obj/item/versebook/fluff/guilty_men
-	name = "Guilty Men"
-	desc = "A leather bound book bearing a burning Coalition of Colonies flag. \"Guilty Men\" and \"How the Coalition of Colonies and its leaders failed the Frontier\" are engraved on golden plaques on either side of the flag. A controversial book published several years ago, \"Guilty Men\" is acclaimed by some as a scathing rebuke of failed Coalition policies, and their intolerable results, and condemned by others as a radical break from traditional Coalition attitudes and values. This example is worn, with its pages dog-eared and torn in numerous places, while the leather binding has begun to crack and discolor under frequent handling."
-	icon = 'icons/obj/custom_items/imogen_items.dmi'
-	icon_state = "Guilty_Men"
-	item_state = "book"
-
-/obj/item/versebook/fluff/guilty_men/Initialize()
-	. = ..()
-	randomquip = file2list("code/modules/customitems/imogen_guiltymen.txt")
 
 /obj/item/rig/light/offworlder/fluff/aayun
 	name = "command exo-stellar skeleton module"
