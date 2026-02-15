@@ -46,21 +46,21 @@
 		AddOverlays("sheater-open")
 	if(!on)
 		icon_state = "sheater-off"
-		set_light_on(0)
+		set_light_on(FALSE)
 	else if(active > 0)
 		icon_state = "sheater-heat"
 		AddOverlays(emissive_appearance(icon, "sheater-heat-emissive", src, alpha = src.alpha))
 		set_light_range_power_color(0.7, 1, COLOR_SEDONA)
-		set_light_on(on)
+		set_light_on(TRUE)
 	else if(active < 0)
 		icon_state = "sheater-cool"
 		AddOverlays(emissive_appearance(icon, "sheater-cool-emissive", src, alpha = src.alpha))
 		set_light_range_power_color(0.7, 1, COLOR_DEEP_SKY_BLUE)
-		set_light_on(on)
+		set_light_on(TRUE)
 	else
 		icon_state = "sheater-standby"
 		AddOverlays(emissive_appearance(icon, "sheater-standby-emissive", src, alpha = src.alpha))
-		set_light_on(0)
+		set_light_on(FALSE)
 
 /obj/machinery/space_heater/powered()
 	if(cell && cell.charge)
