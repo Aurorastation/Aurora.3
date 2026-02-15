@@ -1,0 +1,4 @@
+author: Hellfirejag
+delete-after: True
+changes:
+  - rscadd: "Added a proc for raising negative numbers to any arbitrary power, something byond can't normally do because doing so gives Complex number returns. I have no idea why I did this."

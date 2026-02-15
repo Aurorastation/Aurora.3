@@ -305,3 +305,24 @@
 #define BEARING_RELATIVE(observer_x, observer_y, target_x, target_y) (90 - Atan2(target_x - observer_x, target_y - observer_y))
 
 #define ISINTEGER(x) (round(x) == x)
+
+/**
+ * Returns the Real component of any real number raised to the power of any floating point value.
+ * INCLUDING NEGATIVE NUMBERS.
+ * Arg 3 MUST be passed in as a Pointer, which will be set to the Complex component of said operation.
+ * You now have an imaginary number in Byond. Do whatever you want with that cursed knowledge.
+ */
+/proc/complex_pow(x, y, complex_pointer)
+    if (x >= 0)
+        return x ** y
+
+    var/magnitude = NUM_E ** (y * log(abs(x)))
+    var/pi_y = M_PI * y
+    var/modulus = M_PI / 2
+    var/confined_angle = pi_y - (trunc(pi_y / modulus) * modulus)
+    var/sin_confined_angle = (sign(pi_y) * confined_angle)
+    var/cos_confined_angle = confined_angle - modulus
+    var/ccaSQ = cos_confined_angle ** 2
+    var/scaSQ = sin_confined_angle ** 2
+    *complex_pointer = magnitude * sin_confined_angle * (1 - scaSQ * (1/6 - (scaSQ/120)))
+    return magnitude * cos_confined_angle * (1 - ccaSQ * (1/6 - (ccaSQ/120)))
