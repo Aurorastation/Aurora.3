@@ -21,7 +21,7 @@
 
 /mob/living/drop_from_inventory(var/obj/item/item, var/atom/target, update_icons = TRUE)
 	. = ..()
-	if(!QDELETED(item) && item.GetID())
+	if(item?.GetID())
 		BITSET(hud_updateflag, ID_HUD) //If we drop our ID, update ID HUD
 
 /*one proc, four uses
