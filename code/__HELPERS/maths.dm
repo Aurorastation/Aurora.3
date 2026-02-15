@@ -312,9 +312,8 @@
  * Arg 3 MUST be passed in as a Pointer, which will be set to the Imaginary component of said operation.
  * You now have an imaginary number in Byond. Do whatever you want with that cursed knowledge.
  */
-/proc/complex_pow(x, y, imaginary_pointer)
+/proc/complex_pow(x, y, var/imaginary_pointer)
 	if (x >= 0)
-		*imaginary_pointer = 0
 		return x ** y
 
 	var/magnitude = NUM_E ** (y * log(abs(x)))
