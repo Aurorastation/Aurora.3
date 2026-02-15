@@ -314,6 +314,7 @@
  */
 /proc/complex_pow(x, y, imaginary_pointer)
     if (x >= 0)
+		*imaginary_pointer = 0
         return x ** y
 
     var/magnitude = NUM_E ** (y * log(abs(x)))
