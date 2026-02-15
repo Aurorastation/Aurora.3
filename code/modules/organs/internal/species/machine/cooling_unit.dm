@@ -186,14 +186,14 @@
 /obj/item/organ/internal/machine/cooling_unit/low_integrity_damage(integrity, delta_time)
 	if(SPT_PROB(get_integrity_damage_probability(), delta_time))
 		to_chat(owner, SPAN_WARNING("Your temperature sensors pick up a spike in temperature."))
-		owner.bodytemperature += 10
+		owner.bodytemperature = min(owner.bodytemperature + 10, owner.species.heat_level_2)
 	. = ..()
 
 /obj/item/organ/internal/machine/cooling_unit/medium_integrity_damage(integrity, delta_time)
 	if(SPT_PROB(get_integrity_damage_probability() / 2, delta_time))
 		to_chat(owner, SPAN_WARNING("Your thermostat's temperature setting goes haywire!"))
 		thermostat = rand(thermostat_min, thermostat_max)
-		owner.bodytemperature += 20
+		owner.bodytemperature = min(owner.bodytemperature + 20, owner.species.heat_level_2)
 
 		if(prob(25) && !safety_burnt)
 			to_chat(owner, SPAN_WARNING("Your temperature safeties burn out! They won't work anymore!"))
@@ -210,7 +210,7 @@
 			playsound(owner, pick(SOUNDS_LASER_METAL), 50)
 			to_chat(owner, SPAN_DANGER(FONT_LARGE("Parts of your cooling unit melt away...!")))
 			update_thermostat(thermostat_min + round(rand(10, 50)))
-			owner.bodytemperature += 30
+			owner.bodytemperature = min(owner.bodytemperature + 30, owner.species.heat_level_2)
 	. = ..()
 
 /obj/item/organ/internal/machine/cooling_unit/proc/update_thermostat(new_thermostat_min, new_thermostat_max)
