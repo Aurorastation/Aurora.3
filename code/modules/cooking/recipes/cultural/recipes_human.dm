@@ -221,6 +221,12 @@
 	result = /obj/item/reagent_containers/food/snacks/jambalaya
 	reagent_mix = RECIPE_REAGENT_REPLACE //Simplify end product
 
+/singleton/recipe/churros
+	appliance = FRYER
+	reagents = list(/singleton/reagent/nutriment/coating/batter = 5, /singleton/reagent/sugar = 5)
+	reagent_mix = RECIPE_REAGENT_REPLACE
+	result = /obj/item/reagent_containers/food/snacks/chipplate/churros
+
 // Konyang
 
 /singleton/recipe/mossbowl

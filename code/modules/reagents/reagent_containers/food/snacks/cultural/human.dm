@@ -343,6 +343,46 @@
 	bitesize = 10
 	filling_color = "#be7017"
 
+/obj/item/reagent_containers/food/snacks/chipplate/churros
+	name = "churros"
+	gender = PLURAL
+	desc = "Sweet, deep fried batter coated in powdered sugar. While this beloved dish originated in Europe, it became popular in cultures all around Earth long before Humanity took to the stars, and as such - today it can be found in many different cultures all across the spur. Despite this, it is sometimes attributed to Mictlani cuisine for whatever reason."
+	icon = 'icons/obj/item/reagent_containers/food/cultural/human.dmi'
+	icon_state = "churros"
+	unitname = "churro"
+	filling_color = "#a77339"
+	trash = /obj/item/trash/chipbasket
+	vendingobject = /obj/item/reagent_containers/food/snacks/churro
+	bitesize = 3
+	reagents_to_add = list(/singleton/reagent/nutriment = 6)
+	reagent_data = list(/singleton/reagent/nutriment = list("fried pastry dough" = 5, "cinnamon sugar" = 4))
+
+/obj/item/reagent_containers/food/snacks/chipplate/churros/update_icon()
+	switch(reagents.total_volume)
+		if(1 to 3)
+			icon_state = "churros_half"
+		if(4 to INFINITY)
+			icon_state = "churros"
+
+/obj/item/reagent_containers/food/snacks/churro
+	name = "churro"
+	desc = "A classic sweet fried batter stick found anywhere from carnival booths to higher end restaurants."
+	icon = 'icons/obj/item/reagent_containers/food/cultural/human.dmi'
+	icon_state = "churro"
+	filling_color = "#a77339"
+	center_of_mass = list("x"=15, "y"=9)
+	bitesize = 1
+
+/obj/item/reagent_containers/food/snacks/churro/update_icon()
+	if(bitecount>=1)
+		icon_state = "churro_bitten"
+	else
+		icon_state = "churro"
+
+/obj/item/reagent_containers/food/snacks/churro/filled
+	reagents_to_add = list(/singleton/reagent/nutriment = 3)
+	reagent_data = list(/singleton/reagent/nutriment = list("fried pastry dough" = 5, "cinnamon sugar" = 4))
+
 // Konyang
 
 /obj/item/reagent_containers/food/snacks/mossbowl

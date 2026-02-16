@@ -415,3 +415,14 @@
 	reagents = list(/singleton/reagent/nutriment/gelatin = 5, /singleton/reagent/water = 5,  /singleton/reagent/spacespice = 1)
 	reagent_mix = RECIPE_REAGENT_REPLACE
 	result = /obj/item/reagent_containers/food/snacks/chipplate/crownfurter
+
+/singleton/recipe/cheesebake
+	appliance = OVEN
+	fruit = list("dirtberries" = 1, "earthenroot" = 1)
+	items = list(
+		/obj/item/reagent_containers/food/snacks/tajaran_bread,
+		/obj/item/reagent_containers/food/snacks/adhomian_cheese_wedge,
+		/obj/item/reagent_containers/food/snacks/adhomian_cheese_wedge
+	)
+	reagent_mix = RECIPE_REAGENT_REPLACE
+	result = /obj/item/reagent_containers/food/snacks/sliceable/cheesebake
