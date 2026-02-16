@@ -5396,33 +5396,45 @@ Follow by example and make good judgement based on length which list to include 
 	name = "Mecha Chest"
 	icon = 'icons/mob/human_races/markings_vaurca.dmi'
 	icon_state = "mecha_chest"
-	do_colouration = FALSE
+	do_colouration = TRUE
 	body_parts = list(BP_CHEST)
 	species_allowed = list(/datum/species/bug, /datum/species/bug/type_b, /datum/species/bug/type_b/type_bb)
+	icon_blend_mode = ICON_MULTIPLY
+
+/datum/sprite_accessory/marking/vaurca_augs/chest_lights
+	name = "Mecha Chest Lights"
+	icon_state = "mecha_chest_lights"
+	do_colouration = TRUE
+	icon_blend_mode = ICON_MULTIPLY
 
 /datum/sprite_accessory/marking/vaurca_augs/mecha_abdomen
 	name = "Mecha Abdomen"
 	icon_state = "mecha_abdomen"
+	do_colouration = FALSE
 
 /datum/sprite_accessory/marking/vaurca_augs/mecha_spine
 	name = "Mecha Spine"
 	icon_state = "mecha_spine"
 	do_colouration = TRUE
 	body_parts = list(BP_HEAD, BP_CHEST)
+	icon_blend_mode = ICON_MULTIPLY
 
 /datum/sprite_accessory/marking/vaurca_augs/chest_tubes
 	name = "Chest Tubes"
 	icon_state = "chest_tubes"
+	do_colouration = FALSE
 
 /datum/sprite_accessory/marking/vaurca_augs/chest_wires
 	name = "Chest Wires"
 	icon_state = "chest_wires"
+	do_colouration = FALSE
 
 /datum/sprite_accessory/marking/vaurca_augs/mecha_eye
 	name = "Mecha Eye (Faceplate, Right)"
 	icon_state = "mecha_eye_r"
 	body_parts = list(BP_HEAD)
 	species_allowed = list(/datum/species/bug, /datum/species/bug/type_b/type_bb)
+	icon_blend_mode = ICON_MULTIPLY
 
 /datum/sprite_accessory/marking/vaurca_augs/mecha_eye/warrior
 	name = "Mecha Eye (Faceplate, Right, Warrior)"
@@ -5443,6 +5455,7 @@ Follow by example and make good judgement based on length which list to include 
 	name = "Mecha Eye (Overlay, Right)"
 	icon_state = "mecha_eyeoverlay_r"
 	body_parts = list(BP_HEAD)
+	icon_blend_mode = ICON_MULTIPLY
 
 /datum/sprite_accessory/marking/vaurca_augs/mecha_eye/mecha_eyeoverlay_l
 	name = "Mecha Eye (Overlay, Left)"
@@ -5470,6 +5483,7 @@ Follow by example and make good judgement based on length which list to include 
 	icon_state = "mecha_mandibles"
 	body_parts = list(BP_HEAD)
 	do_colouration = FALSE
+	icon_blend_mode = ICON_MULTIPLY
 
 /datum/sprite_accessory/marking/vaurca_augs/hand_panel_r
 	name = "Hand Panel (Right)"
@@ -5482,6 +5496,7 @@ Follow by example and make good judgement based on length which list to include 
 	icon_state = "hand_panel_light_r"
 	body_parts = list(BP_R_HAND)
 	do_colouration = TRUE
+	icon_blend_mode = ICON_MULTIPLY
 
 /datum/sprite_accessory/marking/vaurca_augs/hand_panel_l
 	name = "Hand Panel (Left)"
@@ -5494,6 +5509,7 @@ Follow by example and make good judgement based on length which list to include 
 	icon_state = "hand_panel_light_l"
 	body_parts = list(BP_L_HAND)
 	do_colouration = TRUE
+	icon_blend_mode = ICON_MULTIPLY
 
 /datum/sprite_accessory/marking/bulwark_augs
 	icon = 'icons/mob/human_races/markings_vaurcae.dmi'
