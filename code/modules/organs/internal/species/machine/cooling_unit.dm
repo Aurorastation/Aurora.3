@@ -143,7 +143,7 @@
 		if(prob(owner.bodytemperature * 0.1))
 			take_internal_damage(owner.bodytemperature * 0.01)
 
-	var/temperature_change = passive_temp_change
+	var/temperature_change = passive_temp_change * delta_time
 	if(owner.wear_suit)
 		if(!spaceproof && istype(owner.wear_suit, /obj/item/clothing/suit/space))
 			//cooling is going to SUCK if you have heat-regulating clothes
@@ -180,8 +180,8 @@
 		extra_power_consumption = -(thermostat_max / thermostat) - 0.5
 
 	if(thermostat < owner.bodytemperature)
-		owner.bodytemperature -= temperature_change * extra_efficiency_multiplier * delta_time
-		cell.use(max(0, (base_power_consumption + extra_power_consumption) * delta_time))
+		owner.bodytemperature -= temperature_change * extra_efficiency_multiplier
+		cell.use(max(0, (base_power_consumption + extra_power_consumption)))
 
 /obj/item/organ/internal/machine/cooling_unit/low_integrity_damage(integrity, delta_time)
 	if(SPT_PROB(get_integrity_damage_probability(), delta_time))
