@@ -2,5 +2,4 @@ author: Hellfirejag
 delete-after: True
 changes:
   - rscadd: "Records consoles now show their appropriate records types by default, EG: Medical showing full medical records, instead of only basic info."
-  - rscadd: "Records consoles now show character disabilities."
-  - rscdel: "Medical records no longer displays Allergies and Diseases. These were vestigial remnants of something removed from the game 10 years ago."
+  - rscdel: "Medical records no longer displays Allergies, Disabilities and Diseases. These were vestigial remnants of something removed from the game 10 years ago."
