@@ -106,7 +106,7 @@ SUBSYSTEM_DEF(plants)
 		processing = old
 
 	var/list/queue = current
-	var/delta_time = !resumed ? (REALTIMEOFDAY - last_realtime) * 0.1 : wait * 0.1 // Our time delta is in deciseconds, so convert to real seconds.
+	var/delta_time = wait * 0.1
 	while (queue.len)
 		var/obj/effect/plant/P = queue[queue.len]
 		queue.len--

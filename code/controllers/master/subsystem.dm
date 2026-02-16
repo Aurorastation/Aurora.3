@@ -38,9 +38,6 @@
 	/// Last world.time the subsystem completed a run (as in wasn't paused by [MC_TICK_CHECK])
 	var/last_fire = 0
 
-	/// Last world.timeofday the subsystem completed a run (Used for precise delta_time calculations).
-	var/last_realtime = 0
-
 	/// Scheduled world.time for next fire()
 	var/next_fire = 0
 

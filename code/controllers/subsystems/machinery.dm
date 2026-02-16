@@ -151,7 +151,7 @@ SUBSYSTEM_DEF(machinery)
 	if (!resumed)
 		queue = pipenets.Copy()
 	var/datum/pipe_network/network
-	var/delta_time = !resumed ? (REALTIMEOFDAY - last_realtime) * 0.1 : wait * 0.1 // Our time delta is in deciseconds, so convert to real seconds.
+	var/delta_time = wait * 0.1
 	for (var/i = queue.len to 1 step -1)
 		network = queue[i]
 		if (QDELETED(network))
@@ -170,7 +170,7 @@ SUBSYSTEM_DEF(machinery)
 	if (!resumed)
 		queue = processing.Copy()
 	var/obj/machinery/machine
-	var/delta_time = !resumed ? (REALTIMEOFDAY - last_realtime) * 0.1 : wait * 0.1 // Our time delta is in deciseconds, so convert to real seconds.
+	var/delta_time = wait * 0.1
 	for (var/i = queue.len to 1 step -1)
 		machine = queue[i]
 

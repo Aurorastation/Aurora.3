@@ -19,7 +19,7 @@ SUBSYSTEM_DEF(processing)
 		currentrun = processing.Copy()
 	//cache for sanic speed (lists are references anyways)
 	var/list/current_run = currentrun
-	var/delta_time = !resumed ? (REALTIMEOFDAY - last_realtime) * 0.1 : wait * 0.1 // Our time delta is in deciseconds, so convert to real seconds.
+	var/delta_time = wait * 0.1
 	while(current_run.len)
 		var/datum/thing = current_run[current_run.len]
 		current_run.len--

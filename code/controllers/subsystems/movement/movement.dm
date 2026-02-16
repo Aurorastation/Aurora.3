@@ -39,7 +39,7 @@ SUBSYSTEM_DEF(movement)
 /datum/controller/subsystem/movement/fire(resumed)
 	if(!resumed)
 		canonical_time = world.time
-	var/delta_time = !resumed ? (REALTIMEOFDAY - last_realtime) * 0.1 : wait * 0.1 // Our time delta is in deciseconds, so convert to real seconds.
+	var/delta_time = wait * 0.1
 	for(var/list/bucket_info as anything in sorted_buckets)
 		var/time = bucket_info[MOVEMENT_BUCKET_TIME]
 		if(time > canonical_time || MC_TICK_CHECK)

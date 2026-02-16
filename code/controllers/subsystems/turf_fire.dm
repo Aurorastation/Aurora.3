@@ -6,7 +6,7 @@ SUBSYSTEM_DEF(turf_fire)
 	var/list/fires = list()
 
 /datum/controller/subsystem/turf_fire/fire(resumed)
-	var/delta_time = !resumed ? (REALTIMEOFDAY - last_realtime) * 0.1 : wait * 0.1 // Our time delta is in deciseconds, so convert to real seconds.
+	var/delta_time = wait * 0.1
 	for(var/obj/turf_fire/fire as anything in fires)
 		fire.process(delta_time)
 		if(MC_TICK_CHECK)

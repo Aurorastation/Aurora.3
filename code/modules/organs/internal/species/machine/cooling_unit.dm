@@ -181,7 +181,7 @@
 
 	if(thermostat < owner.bodytemperature)
 		owner.bodytemperature -= temperature_change * extra_efficiency_multiplier
-		cell.use(max(0, (base_power_consumption + extra_power_consumption)))
+		cell.use(max(0, base_power_consumption + extra_power_consumption))
 
 /obj/item/organ/internal/machine/cooling_unit/low_integrity_damage(integrity, delta_time)
 	if(SPT_PROB(get_integrity_damage_probability(), delta_time))

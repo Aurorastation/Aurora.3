@@ -80,7 +80,7 @@ SUBSYSTEM_DEF(mobs)
 	//of course, if we haven't resumed, this comparison would be useless, hence we skip it
 	var/list/currentrun = resumed ? (src.currentrun &= (GLOB.mob_list + processing)) : src.currentrun
 
-	var/delta_time = !resumed ? (REALTIMEOFDAY - last_realtime) * 0.1 : wait * 0.1 // Our time delta is in deciseconds, so convert to real seconds.
+	var/delta_time = wait * 0.1
 
 	while(length(currentrun))
 		var/datum/thing = currentrun[length(currentrun)]

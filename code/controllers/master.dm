@@ -717,7 +717,6 @@ GLOBAL_REAL(Master, /datum/controller/master)
 				queue_priority_count -= queue_node_priority
 
 			queue_node.last_fire = world.time
-			queue_node.last_realtime = REALTIMEOFDAY
 			queue_node.times_fired++
 
 			queue_node.update_nextfire()
