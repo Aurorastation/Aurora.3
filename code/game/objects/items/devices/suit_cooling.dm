@@ -77,7 +77,7 @@
 
 	return (H.back == src) || (H.s_store == src)
 
-/obj/item/suit_cooling_unit/process(delta_time)
+/obj/item/suit_cooling_unit/process(seconds_per_tick)
 	if(!on || !cell)
 		return
 
@@ -93,9 +93,9 @@
 	if(temp_adj < 0.5)	//only cools, doesn't heat, also we don't need extreme precision
 		return
 
-	H.bodytemperature = max(T0C, H.bodytemperature - temp_adj * efficiency * delta_time)
+	H.bodytemperature = max(T0C, H.bodytemperature - temp_adj * efficiency * seconds_per_tick)
 
-	cell.use((temp_adj/max_cooling) * charge_consumption * delta_time)
+	cell.use((temp_adj/max_cooling) * charge_consumption * seconds_per_tick)
 
 	if(cell.charge <= 0)
 		turn_off()

@@ -65,13 +65,13 @@ PROCESSING_SUBSYSTEM_DEF(tgui)
 		src.current_run = all_uis.Copy()
 	// Cache for sanic speed (lists are references anyways)
 	var/list/current_run = src.current_run
-	var/delta_time = wait * 0.1
+	var/seconds_per_tick = wait * 0.1
 	while(current_run.len)
 		var/datum/tgui/ui = current_run[current_run.len]
 		current_run.len--
 		// TODO: Move user/src_object check to process()
 		if(ui?.user && ui.src_object)
-			ui.process(delta_time)
+			ui.process(seconds_per_tick)
 		else
 			ui.close(0)
 		if(MC_TICK_CHECK)
@@ -213,11 +213,11 @@ PROCESSING_SUBSYSTEM_DEF(tgui)
 	if(!LAZYLEN(src_object?.open_uis))
 		return 0
 	var/count = 0
-	var/delta_time = wait * 0.1
+	var/seconds_per_tick = wait * 0.1
 	for(var/datum/tgui/ui in src_object.open_uis)
 		// Check if UI is valid.
 		if(ui?.src_object && ui.user && ui.src_object.ui_host(ui.user))
-			INVOKE_ASYNC(ui, TYPE_PROC_REF(/datum/tgui, process), delta_time, TRUE)
+			INVOKE_ASYNC(ui, TYPE_PROC_REF(/datum/tgui, process), seconds_per_tick, TRUE)
 			count++
 	return count
 
@@ -272,10 +272,10 @@ PROCESSING_SUBSYSTEM_DEF(tgui)
 	var/count = 0
 	if(length(user?.tgui_open_uis) == 0)
 		return count
-	var/delta_time = wait * 0.1
+	var/seconds_per_tick = wait * 0.1
 	for(var/datum/tgui/ui in user.tgui_open_uis)
 		if(isnull(src_object) || ui.src_object == src_object)
-			ui.process(delta_time, force = 1)
+			ui.process(seconds_per_tick, force = 1)
 			count++
 	return count
 

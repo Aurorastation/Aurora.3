@@ -6,9 +6,9 @@ SUBSYSTEM_DEF(turf_fire)
 	var/list/fires = list()
 
 /datum/controller/subsystem/turf_fire/fire(resumed)
-	var/delta_time = wait * 0.1
+	var/seconds_per_tick = wait * 0.1
 	for(var/obj/turf_fire/fire as anything in fires)
-		fire.process(delta_time)
+		fire.process(seconds_per_tick)
 		if(MC_TICK_CHECK)
 			return
 

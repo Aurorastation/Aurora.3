@@ -19,13 +19,13 @@ SUBSYSTEM_DEF(processing)
 		currentrun = processing.Copy()
 	//cache for sanic speed (lists are references anyways)
 	var/list/current_run = currentrun
-	var/delta_time = wait * 0.1
+	var/seconds_per_tick = wait * 0.1
 	while(current_run.len)
 		var/datum/thing = current_run[current_run.len]
 		current_run.len--
 		if(QDELETED(thing))
 			processing -= thing
-		else if(thing.process(delta_time) == PROCESS_KILL)
+		else if(thing.process(seconds_per_tick) == PROCESS_KILL)
 			// fully stop so that a future START_PROCESSING will work
 			STOP_PROCESSING(src, thing)
 		if (MC_TICK_CHECK)

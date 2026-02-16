@@ -126,7 +126,7 @@
 		to_chat(usr, temperature_safety ? SPAN_NOTICE("You re-enable your temperature safety.") : SPAN_WARNING("You disable your temperature safety!"))
 		. = TRUE
 
-/obj/item/organ/internal/machine/cooling_unit/process(delta_time)
+/obj/item/organ/internal/machine/cooling_unit/process(seconds_per_tick)
 	. = ..()
 	if(!owner)
 		return
@@ -143,7 +143,7 @@
 		if(prob(owner.bodytemperature * 0.1))
 			take_internal_damage(owner.bodytemperature * 0.01)
 
-	var/temperature_change = passive_temp_change * delta_time
+	var/temperature_change = passive_temp_change * seconds_per_tick
 	if(owner.wear_suit)
 		if(!spaceproof && istype(owner.wear_suit, /obj/item/clothing/suit/space))
 			//cooling is going to SUCK if you have heat-regulating clothes
@@ -183,14 +183,14 @@
 		owner.bodytemperature -= temperature_change * extra_efficiency_multiplier
 		cell.use(max(0, base_power_consumption + extra_power_consumption))
 
-/obj/item/organ/internal/machine/cooling_unit/low_integrity_damage(integrity, delta_time)
-	if(SPT_PROB(get_integrity_damage_probability(), delta_time))
+/obj/item/organ/internal/machine/cooling_unit/low_integrity_damage(integrity, seconds_per_tick)
+	if(SPT_PROB(get_integrity_damage_probability(), seconds_per_tick))
 		to_chat(owner, SPAN_WARNING("Your temperature sensors pick up a spike in temperature."))
 		owner.bodytemperature = min(owner.bodytemperature + 10, owner.species.heat_level_2)
 	. = ..()
 
-/obj/item/organ/internal/machine/cooling_unit/medium_integrity_damage(integrity, delta_time)
-	if(SPT_PROB(get_integrity_damage_probability() / 2, delta_time))
+/obj/item/organ/internal/machine/cooling_unit/medium_integrity_damage(integrity, seconds_per_tick)
+	if(SPT_PROB(get_integrity_damage_probability() / 2, seconds_per_tick))
 		to_chat(owner, SPAN_WARNING("Your thermostat's temperature setting goes haywire!"))
 		thermostat = rand(thermostat_min, thermostat_max)
 		owner.bodytemperature = min(owner.bodytemperature + 20, owner.species.heat_level_2)
@@ -200,8 +200,8 @@
 			safety_burnt = TRUE
 	. = ..()
 
-/obj/item/organ/internal/machine/cooling_unit/high_integrity_damage(integrity, delta_time)
-	if(SPT_PROB(get_integrity_damage_probability() / 3, delta_time))
+/obj/item/organ/internal/machine/cooling_unit/high_integrity_damage(integrity, seconds_per_tick)
+	if(SPT_PROB(get_integrity_damage_probability() / 3, seconds_per_tick))
 		if(spaceproof)
 			playsound(owner, pick(SOUNDS_LASER_METAL), 50)
 			to_chat(owner, SPAN_DANGER(FONT_LARGE("Your laminar cooling stratum has melted. Your cooling unit will not work in space anymore!")))

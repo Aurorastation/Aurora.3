@@ -1079,5 +1079,5 @@
  * This proc handles the species temperature regulation. By default, it just adds `passive_temp_gain` to the human's bodytemperature.
  * Can be overridden for more complex calculations.
  */
-/datum/species/proc/handle_temperature_regulation(mob/living/carbon/human/human, delta_time)
-	human.bodytemperature += passive_temp_gain * delta_time
+/datum/species/proc/handle_temperature_regulation(mob/living/carbon/human/human, seconds_per_tick)
+	human.bodytemperature += passive_temp_gain * seconds_per_tick
