@@ -15,6 +15,7 @@
 /datum/skills/Destroy()
 	owner = null
 	QDEL_NULL_LIST(skills)
+	return ..()
 
 /**
  * Returns the proficiency with a certain skill.
