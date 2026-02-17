@@ -3,10 +3,10 @@
 /obj/item/t_scanner
 	name = "\improper T-ray scanner"
 	desc = "A terahertz-ray emitter and scanner used to detect underfloor objects such as cables and pipes."
-	icon = 'icons/obj/item/t_scanner.dmi'
+	icon = 'icons/obj/item/scanner.dmi'
 	icon_state = "t-ray0"
 	item_state = "t-ray"
-
+	contained_sprite = TRUE
 	slot_flags = SLOT_BELT
 	w_class = WEIGHT_CLASS_SMALL
 	matter = list(MATERIAL_PLASTIC = 100, MATERIAL_ALUMINIUM = 50)
@@ -16,10 +16,12 @@
 	var/scan_range = 3
 
 	var/on = 0
-	var/list/active_scanned = list() //assoc list of objects being scanned, mapped to their overlay
-	var/client/user_client //since making sure overlays are properly added and removed is pretty important, so we track the current user explicitly
-
-	var/global/list/overlay_cache = list() //cache recent overlays
+	/// Assoc list of objects being scanned, mapped to their overlay.
+	var/list/active_scanned = list()
+	/// Since making sure overlays are properly added and removed is pretty important, so we track the current user explicitly.
+	var/client/user_client
+	/// Cache recent overlays.
+	var/global/list/overlay_cache = list()
 
 /obj/item/t_scanner/Destroy()
 	. = ..()
@@ -53,7 +55,7 @@
 		set_user_client(null)
 	update_icon()
 
-//If reset is set, then assume the client has none of our overlays, otherwise we only send new overlays.
+/// If reset is set, then assume the client has none of our overlays, otherwise we only send new overlays.
 /obj/item/t_scanner/process()
 	if(!on)
 		return
@@ -87,7 +89,7 @@
 		user_client.images -= active_scanned[O]
 		active_scanned -= O
 
-//creates a new overlay for a scanned object
+/// Creates a new overlay for a scanned object
 /obj/item/t_scanner/proc/get_overlay(obj/scanned)
 	//Use a cache so we don't create a whole bunch of new images just because someone's walking back and forth in a room.
 	//Also means that images are reused if multiple people are using t-rays to look at the same objects.

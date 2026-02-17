@@ -240,3 +240,51 @@
   - bugfix: Lifts now grey out the current location, instead of throwing a runtime
       when you click it.
   - bugfix: Fix runtime when a bloodless/fakedeath mob has their pulse taken.
+2026-02-12:
+  Batrachophrenoboocosmomachia:
+  - bugfix: Fixes headphones/earbuds from causing early cutoffs in other nearby sounds
+      in several configurations.
+  JohnWildkins:
+  - bugfix: Augments given by culture (i.e. Vaurca language processors) no longer
+      get applied twice when spawning in.
+  TheGreyWolf:
+  - bugfix: Fixed that journals and notepads could not be written in when held in
+      hand.
+  - bugfix: Fixed the quik-pay not getting prices correct when clicking an item with
+      it to input it quickly.
+  - spellcheck: Standardised how the credit symbol is shown in several places, and
+      replaces several instances of credits with the symbol.
+  arrow768:
+  - server: Removes verbs to get log files from the server, use the WI, TGS or logging
+      infrastructure.
+2026-02-14:
+  Batrachophrenoboocosmomachia:
+  - rscdel: Removes 'Assembled Solar Panels' bounty from bounty pool and updates the
+      'Solar Assemblies or Trackers' with its old description referencing the phoron
+      scarcity.
+  Greenjoe:
+  - rscadd: Adds bodyguard outfits for Tau Ceti, Sol, Elyra, Nralakk and the Golden
+      Deep.
+  - bugfix: Fixes the Elyran navy uniform lacking an item icon.
+  JohnWildkins:
+  - refactor: Updates TGUI backend to hopefully reduce instability / failures to load.
+  - bugfix: Fixes TGchat scrolling issues.
+  - refactor: Change traitor uplink to use static data to improve server performance.
+  - refactor: Open UIs are now tracked by their owner datum rather than by the tgui
+      subsystem, to improve server performance when closing UIs.
+  TheGreyWolf:
+  - bugfix: Fixes Kathira's custom item cloak.
+  - bugfix: Fixed the inverted roll up/down message.
+  fyni:
+  - rscadd: Adds a red and pink heart balloon for valentines! Also adds them to the
+      random balloon pool. <3 <3
+2026-02-15:
+  JohnWildkins:
+  - bugfix: Fix lobby screen system failing to switch to the last lobby screen in
+      a set.
+2026-02-17:
+  FabianK3:
+  - rscadd: Added the alt title Foreign Service Officer to the consular job. This
+      alt title can only be selected if the citizenship is set to Sol Alliance.
+  - code_imp: Added citizenship check to job titles, allowing alt titles to be locked
+      to specific backgrounds.

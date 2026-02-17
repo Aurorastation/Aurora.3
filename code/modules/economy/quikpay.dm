@@ -58,18 +58,19 @@
 		SStgui.update_uis(src)
 
 /obj/item/quikpay/proc/print_receipt()
-	var/obj/item/paper/R = new(usr.loc)
+	var/obj/item/paper/notepad/receipt/R = new(usr.loc)
 	var/receiptname = "Receipt: [machine_id]"
 	R.set_content_unsafe(receiptname, receipt, sum)
 
 	//stamp the paper
 	var/image/stampoverlay = image('icons/obj/bureaucracy.dmi')
-	stampoverlay.icon_state = "paper_stamp-cent"
+	stampoverlay.icon_state = "paper_stamp-hop"
 	if(!R.stamped)
 		R.stamped = new
 	R.stamped += /obj/item/stamp
 	R.AddOverlays(stampoverlay)
 	R.stamps += "<HR><i>This paper has been stamped by the Quik-Pay device.</i>"
+	R.ripped = TRUE
 	usr.put_in_any_hand_if_possible(R)
 
 /obj/item/quikpay/attackby(obj/item/attacking_item, mob/user)
@@ -203,10 +204,10 @@
 				var/item_amount = bought_item["amount"]
 				var/item_price = items_to_price[item_name]
 
-				receipt += "<li><b>[item_name]</b>: [item_amount] x [item_price]cr: [item_amount * item_price]cr<br>"
+				receipt += "<li><b>[item_name]</b>: [item_amount] x [item_price]电: [item_amount * item_price]电<br>"
 				sum += item_price * item_amount
 
-			receipt += "</ul><HR>Total:</b> [sum]cr<br>"
+			receipt += "</ul><HR>Total:</b> [sum]电<br>"
 			playsound(src, 'sound/machines/ping.ogg', 25, 1)
 			audible_message(SPAN_NOTICE("[icon2html(src, viewers(get_turf(src)))] \The [src] pings."))
 			. = TRUE
@@ -259,5 +260,6 @@
 	price_guess = max(0, round(price_guess, 0.01))
 
 	items += list(list("name" = "[name_guess]", "price" = price_guess))
+	items_to_price[name_guess] = price_guess
 
 	to_chat(user, SPAN_NOTICE("[src]: added '[name_guess]' for [price_guess]."))

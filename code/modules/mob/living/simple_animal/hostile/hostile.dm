@@ -55,11 +55,10 @@ ABSTRACT_TYPE(/mob/living/simple_animal/hostile)
 
 /mob/living/simple_animal/hostile/Destroy()
 	friends = null
-	last_found_target = null
+	unset_last_found_target()
 	targets = null
 	target_type_validator_map = null
 	return ..()
-
 
 /mob/living/simple_animal/hostile/proc/setup_target_type_validators()
 	target_type_validator_map[/mob/living] = CALLBACK(src, PROC_REF(validator_living))
@@ -279,7 +278,7 @@ ABSTRACT_TYPE(/mob/living/simple_animal/hostile)
 	if(target)
 		face_atom(target)
 		if(!ranged && smart_melee)
-			addtimer(CALLBACK(src, PROC_REF(PostAttack), target), 1.2 SECONDS)
+			addtimer(CALLBACK(src, PROC_REF(PostAttack), target), 1.2 SECONDS, TIMER_STOPPABLE|TIMER_DELETE_ME)
 		return target
 
 /mob/living/simple_animal/hostile/proc/PostAttack(var/atom/target)
@@ -390,9 +389,9 @@ ABSTRACT_TYPE(/mob/living/simple_animal/hostile)
 
 	if(rapid)
 		var/datum/callback/shoot_cb = CALLBACK(src, PROC_REF(shoot_wrapper), target, loc, src)
-		addtimer(shoot_cb, 1)
-		addtimer(shoot_cb, 4)
-		addtimer(shoot_cb, 6)
+		addtimer(shoot_cb, 1, TIMER_STOPPABLE|TIMER_DELETE_ME)
+		addtimer(shoot_cb, 4, TIMER_STOPPABLE|TIMER_DELETE_ME)
+		addtimer(shoot_cb, 6, TIMER_STOPPABLE|TIMER_DELETE_ME)
 	else
 		shoot_wrapper(target, loc, src)
 

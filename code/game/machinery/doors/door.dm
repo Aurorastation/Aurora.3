@@ -99,7 +99,7 @@
 
 	update_nearby_tiles(need_rebuild=1)
 	if(turf_hand_priority)
-		AddComponent(/datum/component/turf_hand, turf_hand_priority)
+		AddComponent(TURF_HAND_COMPONENT)
 
 /obj/machinery/door/Move(new_loc, new_dir)
 	. = ..()

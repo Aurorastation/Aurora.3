@@ -31,7 +31,7 @@ paiicon is the pai icon sprite name
 		return
 
 	try
-		customsynthsprites = json_decode(return_file_text("config/customsynths.json"))
+		customsynthsprites = json_decode(file2text("config/customsynths.json"))
 	catch(var/exception/ej)
 		LOG_DEBUG("Error: Warning: Could not load custom synth config, as customsynths.json is missing - [ej]")
 		return
