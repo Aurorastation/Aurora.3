@@ -1,0 +1,6 @@
+author: Hellfirejag
+delete-after: True
+changes:
+  - code_imp: "Added a library of Floating Point Hyperbolic functions. I just wanted Hyperbolic Tangent but figured I might as well add the whole set."
+  - rscadd: "Reworked the Read Mind power to be more interactive with psi-sensitivity. It also now gives feedback to the victim on what message was sent."
+  - bugfix: "Fixed improper sanitization for Read Mind messages."
