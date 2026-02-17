@@ -8,8 +8,9 @@ ABSTRACT_TYPE(/moodlet)
 	 * How much this moodlet modifies its owner's morale by.
 	 * This is simple summed exactly once when the moodlet is created.
 	 * If anything needs to change the value of a moodlet, they have to do so by calling set_moodlet().
+	 * You may only Get this value by calling get_morale_modifier().
 	 */
-	var/morale_modifier = 0.0 // Positive and negative floating points are allowed.
+	VAR_PRIVATE/morale_modifier = 0.0 // Positive and negative floating points are allowed.
 
 	/**
 	 *
@@ -56,6 +57,9 @@ ABSTRACT_TYPE(/moodlet)
 	parent.add_morale_points(-morale_modifier)
 	return ..()
 
+/moodlet/proc/get_morale_modifier()
+	return morale_modifier
+
 /moodlet/proc/set_moodlet(new_modifier)
 	// We can skip the istype() in this case since the held weakref is asserted by VAR_PRIVATE to always be a morale component.
 	var/datum/component/morale/possible_morale = morale_component.resolve()
@@ -75,7 +79,7 @@ ABSTRACT_TYPE(/moodlet)
 	time_to_die = REALTIMEOFDAY + duration
 
 /**
- * Having a Morale Component allows a character to receive and benefit from Moodlets, providing a variety of buffs(or debuffs) depending on the total modifier.
+ * Having a Morale Component allows a character to receive and benefit from Moodlets, providing a variety of buffs(or debuffs) depending on the total morale points.
  * This component acts as both proof a mob can be affected by morale, as well as a method of tracking the effects of morale on each system.
  */
 #define MORALE_COMPONENT /datum/component/morale
@@ -136,7 +140,7 @@ ABSTRACT_TYPE(/moodlet)
 		if (moodlet.time_to_die < current_time)
 			continue
 
-		morale_points -= moodlet.morale_modifier
+		morale_points -= moodlet.get_morale_modifier()
 		qdel(moodlet, TRUE)
 		moodlets.Remove(moodlet)
 		list_trimmed = TRUE
