@@ -88,13 +88,6 @@
 	if(index <= page)
 		page++
 
-/*if(istype(sheet, /obj/item/paper))
-
-	else if(istype(sheet, /obj/item/photo))
-		to_chat(user, SPAN_NOTICE("You stick \the [sheet] to \the [src]."))
-	else if(istype(sheet, /obj/item/paper/stickynotes))
-		to_chat(user, SPAN_NOTICE("You stick \the [sheet] to \the [src]."))*/
-
 /obj/item/paper_bundle/proc/burnpaper(obj/item/flame/P, mob/user)
 	var/class = "warning"
 
