@@ -5,7 +5,7 @@
 /obj/item/autopsy_scanner
 	name = "autopsy scanner"
 	desc = "Extracts information on wounds."
-	icon = 'icons/obj/item/autopsy_scanner.dmi'
+	icon = 'icons/obj/item/scanner.dmi'
 	icon_state = "autopsy"
 	item_state = "autopsy"
 	contained_sprite = TRUE
@@ -145,7 +145,7 @@
 
 	for(var/mob/O in viewers(usr))
 		O.show_message(SPAN_NOTICE("\The [src] rattles and prints out a sheet of paper."), 1)
-		playsound(loc, 'sound/bureaucracy/print_short.ogg', 50, 1)
+		playsound(loc, 'sound/items/bureaucracy/print_short.ogg', 50, 1)
 
 	sleep(10)
 

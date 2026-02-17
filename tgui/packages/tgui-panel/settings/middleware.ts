@@ -6,7 +6,13 @@
 
 import { storage } from 'common/storage';
 import { setClientTheme } from '../themes';
-import { addHighlightSetting, loadSettings, removeHighlightSetting, updateHighlightSetting, updateSettings } from './actions';
+import {
+  addHighlightSetting,
+  loadSettings,
+  removeHighlightSetting,
+  updateHighlightSetting,
+  updateSettings,
+} from './actions';
 import { selectSettings } from './selectors';
 import { FONTS_DISABLED } from './constants';
 import { setDisplayScaling } from './scaling';
@@ -43,7 +49,7 @@ function updateGlobalOverrideRule() {
 function setGlobalFontSize(
   fontSize: string,
   statFontSize: string,
-  statLinked: boolean
+  statLinked: boolean,
 ) {
   overrideFontSize = `${fontSize}px`;
 
@@ -52,13 +58,13 @@ function setGlobalFontSize(
   Byond.command(
     `.output statbrowser:set_font_size ${
       statLinked ? fontSize : statFontSize
-    }px`
+    }px`,
   );
   statFontTimer = setTimeout(() => {
     Byond.command(
       `.output statbrowser:set_font_size ${
         statLinked ? fontSize : statFontSize
-      }px`
+      }px`,
     );
   }, 1500);
 }
@@ -111,7 +117,7 @@ export const settingsMiddleware = (store) => {
       setGlobalFontSize(
         settings.fontSize,
         settings.statFontSize,
-        settings.statLinked
+        settings.statLinked,
       );
       setGlobalFontFamily(settings.fontFamily);
       updateGlobalOverrideRule();

@@ -138,7 +138,7 @@
 
 /singleton/cargo_item/circuitboard_bubbleshield
 	category = "engineering"
-	name = "circuit board (bubble shield generator)"
+	name = T_BOARD("bubble shield generator")
 	supplier = "hephaestus"
 	description = "Looks like a circuit. Probably is."
 	price = 250
@@ -152,7 +152,7 @@
 
 /singleton/cargo_item/circuitboard_hullshield
 	category = "engineering"
-	name = "circuit board (hull shield generator)"
+	name = T_BOARD("hull shield generator")
 	supplier = "hephaestus"
 	description = "Looks like a circuit. Probably is."
 	price = 250
@@ -166,7 +166,7 @@
 
 /singleton/cargo_item/circuitboard_shieldcapacitor
 	category = "engineering"
-	name = "circuit board (shield capacitor)"
+	name = T_BOARD("shield capacitor")
 	supplier = "hephaestus"
 	description = "Looks like a circuit. Probably is."
 	price = 250
@@ -180,7 +180,7 @@
 
 /singleton/cargo_item/circuitboard_solarcontrol
 	category = "engineering"
-	name = "circuit board (solar control console)"
+	name = T_BOARD("solar control console")
 	supplier = "hephaestus"
 	description = "Looks like a circuit. Probably is."
 	price = 250
@@ -353,7 +353,7 @@
 	description = "A large, ID locked device used for completely locking down airlocks. It is painted with Engineering colors."
 	price = 48
 	items = list(
-		/obj/item/device/magnetic_lock/engineering
+		/obj/item/magnetic_lock/engineering
 	)
 	access = ACCESS_ENGINE
 	container_type = "crate"
@@ -593,7 +593,7 @@
 	description = "A section of antimatter reactor shielding. Do not eat."
 	price = 220
 	items = list(
-		/obj/item/device/am_shielding_container
+		/obj/item/am_shielding_container
 	)
 	access = ACCESS_CE
 	container_type = "crate"
@@ -607,7 +607,7 @@
 	description = "Used to debug electronic equipment."
 	price = 12
 	items = list(
-		/obj/item/device/debugger
+		/obj/item/debugger
 	)
 	access = ACCESS_ENGINE
 	container_type = "crate"
@@ -635,7 +635,7 @@
 	description = "Useful for designating areas and pissing off coworkers."
 	price = 25
 	items = list(
-		/obj/item/device/paint_sprayer
+		/obj/item/paint_sprayer
 	)
 	access = ACCESS_ENGINE
 	container_type = "crate"
@@ -903,7 +903,7 @@
 	description = "A cart for your engineering-related storage needs."
 	price = 100
 	items = list(
-		/obj/structure/engineeringcart
+		/obj/structure/cart/storage/engineeringcart
 	)
 	access = ACCESS_ENGINE
 	container_type = "crate"

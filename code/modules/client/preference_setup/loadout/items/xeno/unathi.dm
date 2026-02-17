@@ -116,7 +116,7 @@
 /datum/gear/gloves/unathi/New()
 	..()
 	var/list/un_gloves = list()
-	un_gloves["black gloves"] = /obj/item/clothing/gloves/black/unathi
+	un_gloves["work gloves"] = /obj/item/clothing/gloves/black/unathi
 	un_gloves["red gloves"] = /obj/item/clothing/gloves/red/unathi
 	un_gloves["blue gloves"] = /obj/item/clothing/gloves/blue/unathi
 	un_gloves["orange gloves"] = /obj/item/clothing/gloves/orange/unathi
@@ -156,7 +156,7 @@
 
 /datum/gear/religion/unathi_book
 	display_name = "unathi religious texts"
-	path = /obj/item/device/versebook/skakh
+	path = /obj/item/versebook/skakh
 	cost = 1
 	whitelisted = list(SPECIES_UNATHI, SPECIES_DIONA, SPECIES_DIONA_COEUS)
 	sort_category = "Xenowear - Unathi"
@@ -165,10 +165,10 @@
 /datum/gear/religion/unathi_book/New()
 	..()
 	var/list/unathi_book = list()
-	unathi_book["Sk'akh Legends"] = /obj/item/device/versebook/skakh
-	unathi_book["assorted Th'akh fables"] = /obj/item/device/versebook/thakh
-	unathi_book["Reflections on the Aut'akh Faith"] = /obj/item/device/versebook/autakh
-	unathi_book["Writings of Judizah Si'akh"] = /obj/item/device/versebook/siakh
+	unathi_book["Sk'akh Legends"] = /obj/item/versebook/skakh
+	unathi_book["assorted Th'akh fables"] = /obj/item/versebook/thakh
+	unathi_book["Reflections on the Aut'akh Faith"] = /obj/item/versebook/autakh
+	unathi_book["Writings of Judizah Si'akh"] = /obj/item/versebook/siakh
 	gear_tweaks += new /datum/gear_tweak/path(unathi_book)
 
 /datum/gear/uniform/unathi
@@ -269,6 +269,7 @@
 	path = /obj/item/clothing/under/unathi/jizixi
 	whitelisted = list(SPECIES_UNATHI)
 	sort_category = "Xenowear - Unathi"
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
 
 /datum/gear/uniform/unathi/jizixi/New()
 	..()
@@ -278,7 +279,26 @@
 	jizixi["jizixi dress, blue"] = /obj/item/clothing/under/unathi/jizixi/blue
 	jizixi["jizixi dress, white"] = /obj/item/clothing/under/unathi/jizixi/white
 	jizixi["jizixi dress, orange"] = /obj/item/clothing/under/unathi/jizixi/orange
+	jizixi["jizixi dress, black"] = /obj/item/clothing/under/unathi/jizixi/black
 	gear_tweaks += new /datum/gear_tweak/path(jizixi)
+
+/datum/gear/uniform/unathi/jizixi_colorable
+	display_name = "jizixi dress (colorable)"
+	path = /obj/item/clothing/under/unathi/jizixi/colorable
+	whitelisted = list(SPECIES_UNATHI)
+	sort_category = "Xenowear - Unathi"
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION | GEAR_HAS_ACCENT_COLOR_SELECTION
+
+/datum/gear/uniform/unathi/jizixi_colorable/New()
+	..()
+	var/list/jizixi_colorable = list()
+	jizixi_colorable["jizixi dress, colorable"] = /obj/item/clothing/under/unathi/jizixi/colorable
+	jizixi_colorable["jizixi dress, pattern 1"] = /obj/item/clothing/under/unathi/jizixi/colorable/accent1
+	jizixi_colorable["jizixi dress, pattern 2"] = /obj/item/clothing/under/unathi/jizixi/colorable/accent2
+	jizixi_colorable["jizixi dress, pattern 3"] = /obj/item/clothing/under/unathi/jizixi/colorable/accent3
+	jizixi_colorable["jizixi dress, pattern 4"] = /obj/item/clothing/under/unathi/jizixi/colorable/accent4
+	jizixi_colorable["jizixi dress, pattern 5"] = /obj/item/clothing/under/unathi/jizixi/colorable/accent5
+	gear_tweaks += new /datum/gear_tweak/path(jizixi_colorable)
 
 /datum/gear/uniform/unathi/sashes
 	display_name = "gyzao sashes"

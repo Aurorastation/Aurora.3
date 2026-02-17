@@ -15,10 +15,16 @@
 
 // /atom signals
 
+/// Called from atom/Initialize() of target: (atom/target)
+#define COMSIG_ATOM_INITIALIZED_ON "atom_initialized_on"
+
 // /area signals
 #define COMSIG_AREA_FIRE_ALARM "fire_alarm"
 
 // /turf signals
+
+/// From base of turf/ChangeTurf(): (path)
+#define COMSIG_TURF_CHANGE "turf_change"
 
 // /atom/movable signals
 
@@ -60,6 +66,8 @@
 #define COMSIG_ITEM_UPDATE_STATE "update_state"
 /// updates sprites
 #define COMSIG_ITEM_ICON_UPDATE "icon_update"
+/// when a gun mag is emptied
+#define COMSIG_EMPTIED_MAGAZINE "emptied_magazine"
 
 // tgui signals
 #define COMSIG_TGUI_CLOSE "tgui_close"
@@ -68,4 +76,23 @@
 /// Raised on the target of a "mind-affecting" psionic power.
 #define COMSIG_PSI_MIND_POWER "psi_block_check"
 
+/// Raised on a mob to check it's psi-sensitivity rating. This is not the same thing as checking if someone is psionic, but psionic people have an innate bonus to the check.
+#define COMSIG_PSI_CHECK_SENSITIVITY "psi_check_sensitivity"
+
+// directional input signals.
+// TODO: Please rework these if you are porting actual keybindings.
+/// Raised on a mob when receiving a "Northeast" input key, typically the 'e' key.
+#define COMSIG_INPUT_KEY_QUICK_EQUIP "quick-equip_key_pressed"
+
+/// Raised on a mob when receiving a "Northwest" input key, typically the 'q' key.
+#define COMSIG_INPUT_KEY_DROP "drop_key_pressed"
+
 /*******Component Specific Signals*******/
+
+/**
+ * Raised against objects in a turf when that turf is attacked by a mob.
+ * Arg 1 is the object being checked.
+ * Arg 2 is the mob attacking the turf.
+ * Arg 3 is the turf.
+ */
+#define COMSIG_HANDLE_HAND_INTERCEPTION "handle_hand_interception"

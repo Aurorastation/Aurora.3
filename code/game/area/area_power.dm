@@ -26,12 +26,6 @@
 /area/proc/power_change()
 	SEND_SIGNAL(src, COMSIG_AREA_POWER_CHANGE)
 
-	//One day, this will only use the signal, but that day is not today
-	for(var/obj/machinery/M in src)	// for each machine in the area
-		M.power_change()			// reverify power status (to update icons etc.)
-	if (fire || eject || party)
-		update_icon()
-
 /area/proc/usage(var/chan)
 	switch(chan)
 		if(AREA_USAGE_LIGHT)

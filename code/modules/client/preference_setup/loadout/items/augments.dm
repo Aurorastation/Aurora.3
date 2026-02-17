@@ -163,8 +163,8 @@
 /datum/gear/augment/psiaug
 	display_name = "psionic receiver"
 	description = "An augment installed into the head that functions as a surrogate for a missing zona bovinae, also functioning as a filter for the psionically-challenged."
-	path = /obj/item/organ/internal/augment/psi
-	whitelisted = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD, SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI, SPECIES_UNATHI, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_ATTENDANT, SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_BREEDER, SPECIES_IPC, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU, SPECIES_IPC_BISHOP, SPECIES_IPC_SHELL)
+	path = /obj/item/organ/internal/augment/bioaug/psi
+	whitelisted = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD, SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI, SPECIES_UNATHI, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_ATTENDANT, SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_BREEDER)
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
 
 /datum/gear/augment/memory_inhibitor
@@ -322,6 +322,14 @@
 	origin_restriction = list(/singleton/origin_item/origin/galatea)
 	whitelisted = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD)
 	cost = 2
+
+/datum/gear/augment/gravity_adaptations
+	display_name = "Gravity Adaptations"
+	description = "A suite of chemical glands, tailored genetic therapies, and skeletal reinforcements that are aimed towards Galatean Off-worlders. These bioaugmentations serve to eliminate the weakness experienced by Off-worlders in standard terrestrial gravity."
+	path = /obj/item/organ/internal/augment/bioaug/gravity_adaptations
+	origin_restriction = list(/singleton/origin_item/origin/galatea)
+	whitelisted = list(SPECIES_HUMAN_OFFWORLD)
+	cost = 1
 
 /datum/gear/augment/mind_blanker
 	display_name = "Galatean Mind Blanker"

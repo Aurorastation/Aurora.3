@@ -44,9 +44,8 @@
 	// Handle issue of delay 0 being passed for simplemobs.
 	if(istype(moving, /mob/living/simple_animal))
 		var/mob/living/simple_animal/moving_sa = moving
-		if(!delay && moving_sa.seek_speed)
-			delay = moving_sa.seek_speed
-		else
+		if(!moving_sa.speed)
+			moving_sa.speed = 5
 			delay = 5
 	src.delay = max(delay, world.tick_lag) //Please...
 	src.lifetime = timeout

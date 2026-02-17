@@ -5,8 +5,8 @@
 	prefix = "away_site/shady/"
 	suffix = "shady.dmm"
 
-	sectors = list(SECTOR_ROMANOVICH, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_BADLANDS, ALL_COALITION_SECTORS)
-	sectors_blacklist = list(SECTOR_BURZSIA, SECTOR_HANEUNIM)
+	sectors = list(ALL_TAU_CETI_SECTORS, ALL_BADLAND_SECTORS, ALL_COALITION_SECTORS, ALL_CRESCENT_EXPANSE_SECTORS)
+	sectors_blacklist = list(ALL_SPECIFIC_SECTORS)
 	spawn_weight = 1
 	spawn_cost = 1
 	id = "shady"

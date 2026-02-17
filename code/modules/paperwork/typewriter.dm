@@ -82,7 +82,7 @@
 		return FALSE
 
 	to_chat(user, SPAN_ALERT("\The [src] ejects \the [stored_paper]."))
-	playsound(loc, 'sound/bureaucracy/paperfold.ogg', 60, 0)
+	playsound(loc, 'sound/items/bureaucracy/paperfold.ogg', 60, 0)
 	stored_paper.forceMove(target)
 	stored_paper = null
 	update_icon()
@@ -93,6 +93,9 @@
 		if(!stored_paper)
 			if(attacking_item.icon_state == "scrap")
 				to_chat(user, SPAN_ALERT("\The [attacking_item] is too crumpled to feed correctly!"))
+				return
+			if(istype(attacking_item, /obj/item/paper/stickynotes))
+				to_chat(user, SPAN_ALERT("\The [attacking_item] is too small to feed correctly!"))
 				return
 			else
 				user.drop_item(attacking_item)

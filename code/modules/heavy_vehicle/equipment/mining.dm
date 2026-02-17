@@ -103,10 +103,22 @@ ABSTRACT_TYPE(/obj/item/mecha_equipment/mounted_system/mining)
 	restricted_software = list(MECH_SOFTWARE_UTILITY)
 
 /obj/item/mecha_equipment/mounted_system/mining/kinetic_accelerator
+	name = "mounted kinetic accelerator"
+	desc = "A kinetic accelerator designed to be mounted on an exosuit."
+	icon_state = "mecha_taser" // would be too difficult to get a proper sprite for this, would rather just get it in
+	holding_type = /obj/item/gun/custom_ka/exosuit
+	module_hints = list(
+		"<b>Left Click:</b> Fire a kinetic blast in the target direction.",
+		"<b>WARNING: This weapon produces a mining blast one tile in radius.</b>",
+		"A mech can only fire within a 90 degree arc in the direction it is currently facing.",
+		"This weapon passively regenerates its ammunition using the mech's power supply.",
+	)
+
+/obj/item/mecha_equipment/mounted_system/mining/kinetic_accelerator/heavy
 	name = "mounted heavy kinetic accelerator"
 	desc = "A heavy-duty kinetic accelerator designed to be mounted on an exosuit."
 	icon_state = "mecha_taser" // would be too difficult to get a proper sprite for this, would rather just get it in
-	holding_type = /obj/item/gun/custom_ka/exosuit
+	holding_type = /obj/item/gun/custom_ka/exosuit/heavy
 	module_hints = list(
 		"<b>Left Click:</b> Fire a kinetic blast in the target direction.",
 		"<b>WARNING: This weapon produces a mining blast eight tiles in radius.</b>",

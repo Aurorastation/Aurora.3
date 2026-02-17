@@ -50,15 +50,17 @@ ABSTRACT_TYPE(/obj/structure/engineer_maintenance)
 
 /obj/structure/engineer_maintenance/Initialize(mapload)
 	. = ..()
-	name = panel_location == PANEL_LOCATION_FLOOR ? "maintenance panel" : "large maintenance panel" // floor panels are smaller than the wall mounted ones
+	// Floor panels are smaller and should be layered beneath dropped objects other structures.
+	if(panel_location == PANEL_LOCATION_FLOOR)
+		name = "maintenance panel"
+		layer = EXPOSED_WIRE_TERMINAL_LAYER
+	else
+		name = "large maintenance panel"
 	icon_number = pick(icon_numbers_and_descriptions)
 	detailed_desc = icon_numbers_and_descriptions[icon_number]
 	for(var/tool_type in panel_tools)
 		var/atom/tool = tool_type
 		panel_tool_names += initial(tool.name)
-
-	var/turf/target_turf = panel_location == PANEL_LOCATION_FLOOR ? get_turf(src) : get_step(src, NORTH)
-	RegisterSignal(target_turf, COMSIG_ATOM_DECONSTRUCTED, PROC_REF(remove_self))
 
 /obj/structure/engineer_maintenance/proc/remove_self()
 	SIGNAL_HANDLER
@@ -71,8 +73,8 @@ ABSTRACT_TYPE(/obj/structure/engineer_maintenance)
 	icon_state = "[panel_location]_[panel_type]_[icon_number]"
 
 /obj/structure/engineer_maintenance/attackby(obj/item/attacking_item, mob/user, params)
-	if(attacking_item.iswrench()) // Any wrench is good, but we explicltly include the impact drill to send a helpful msg if they just have the screwdriver bit attached.
-		if(!attacking_item.iswrench())
+	if(attacking_item.tool_behaviour == TOOL_WRENCH) // Any wrench is good, but we explicitly include the impact drill to send a helpful msg if they just have the screwdriver bit attached.
+		if(attacking_item.tool_behaviour != TOOL_WRENCH)
 			to_chat(user, SPAN_WARNING("\The [attacking_item] must have its wrenchbit inserted to remove \the [src]'s bolts!"))
 			return
 		if (istype(attacking_item, /obj/item/powerdrill))
@@ -90,7 +92,7 @@ ABSTRACT_TYPE(/obj/structure/engineer_maintenance)
 		user.visible_message("[SPAN_BOLD("[user]")] [panel_open ? "closes" : "opens"] \the [src]!", SPAN_NOTICE("You [panel_open ? "close" : "open"] \the [src]!"))
 		panel_open = !panel_open
 		update_icon()
-		playsound(get_turf(src), panel_open ? /singleton/sound_category/hatch_open : /singleton/sound_category/hatch_close, 30, TRUE)
+		playsound(get_turf(src), panel_open ? SFX_HATCH_OPEN : SFX_HATCH_CLOSE, 30, TRUE)
 		return
 	if(panel_open)
 		for(var/tool_type in panel_tools)
@@ -114,7 +116,7 @@ ABSTRACT_TYPE(/obj/structure/engineer_maintenance)
 	panel_tools = list(
 		/obj/item/pipewrench = /singleton/engineer_maintenance_tool/steam_pipe,
 		/obj/item/hammer = /singleton/engineer_maintenance_tool/steam_pipe,
-		/obj/item/device/multitool = /singleton/engineer_maintenance_tool/steam_pipe
+		/obj/item/multitool = /singleton/engineer_maintenance_tool/steam_pipe
 	)
 
 /obj/structure/engineer_maintenance/pipe/wall
@@ -143,7 +145,7 @@ ABSTRACT_TYPE(/obj/structure/engineer_maintenance)
 	panel_tools = list(
 		/obj/item/wirecutters = /singleton/engineer_maintenance_tool/electrical_spark,
 		/obj/item/stack/cable_coil = /singleton/engineer_maintenance_tool/electrical_spark,
-		/obj/item/device/multitool = /singleton/engineer_maintenance_tool/electrical_hum
+		/obj/item/multitool = /singleton/engineer_maintenance_tool/electrical_hum
 	)
 
 /obj/structure/engineer_maintenance/electric/wall
@@ -219,13 +221,13 @@ ABSTRACT_TYPE(/obj/structure/engineer_maintenance)
 		playsound(get_turf(target), finish_sound, 30, TRUE)
 
 /singleton/engineer_maintenance_tool/steam_pipe
-	finish_sound = /singleton/sound_category/steam_pipe
+	finish_sound = SFX_STEAM_PIPE
 
 /singleton/engineer_maintenance_tool/electrical_hum
-	finish_sound = /singleton/sound_category/electrical_hum
+	finish_sound = SFX_ELECTRICAL_HUM
 
 /singleton/engineer_maintenance_tool/electrical_spark
-	finish_sound = /singleton/sound_category/electrical_spark
+	finish_sound = SFX_ELECTRICAL_SPARK
 
 /singleton/engineer_maintenance_tool/electrical_spark/perform_action(mob/user, obj/item/tool, obj/structure/engineer_maintenance/target)
 	. = ..()

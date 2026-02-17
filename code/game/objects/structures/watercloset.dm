@@ -45,7 +45,7 @@
 	icon_state = "toilet[open][cistern]"
 
 /obj/structure/toilet/attackby(obj/item/attacking_item, mob/user)
-	if(attacking_item.iscrowbar())
+	if(attacking_item.tool_behaviour == TOOL_CROWBAR)
 		to_chat(user, SPAN_NOTICE("You start to [cistern ? "replace the lid on the cistern" : "lift the lid off the cistern"]."))
 		playsound(loc, 'sound/effects/stonedoor_openclose.ogg', 50, 1)
 		if(attacking_item.use_tool(src, user, 30, volume = 0))
@@ -186,9 +186,9 @@
 			G.clean_blood()
 
 /obj/machinery/shower/attackby(obj/item/attacking_item, mob/user)
-	if(attacking_item.type == /obj/item/device/analyzer)
+	if(attacking_item.type == /obj/item/analyzer)
 		to_chat(user, SPAN_NOTICE("The water temperature seems to be [watertemp]."))
-	if(attacking_item.iswrench())
+	if(attacking_item.tool_behaviour == TOOL_WRENCH)
 		var/newtemp = input(user, "What setting would you like to set the temperature valve to?", "Water Temperature Valve") in temperature_settings
 		to_chat(user, SPAN_NOTICE("You begin to adjust the temperature valve with \the [attacking_item]."))
 		if(attacking_item.use_tool(src, user, 50, volume = 50))
@@ -418,7 +418,7 @@
 			var/empty_amount = RG.reagents.trans_to(src, RG.amount_per_transfer_from_this)
 			var/max_reagents = RG.reagents.maximum_volume
 			user.visible_message("<b>[user]</b> empties [empty_amount == max_reagents ? "all of \the [RG]" : "some of \the [RG]"] into \a [src].")
-			playsound(src.loc, /singleton/sound_category/generic_pour_sound, 10, 1)
+			playsound(src.loc, SFX_POUR, 10, 1)
 		return
 
 	// Filling/empying Syringes

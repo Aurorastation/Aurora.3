@@ -21,7 +21,7 @@
 	attack_verb = list("hit", "pierced", "sliced", "attacked")
 	hitsound = 'sound/weapons/rapidslice.ogg'
 	surgerysound = 'sound/weapons/rapidslice.ogg'
-	var/drill_sound = /singleton/sound_category/pickaxe_sound
+	var/drill_sound = SFX_PICKAXE
 	var/drill_verb = "excavating"
 	var/autodrill = 0 //pickaxes must be manually swung to mine, drills can mine rocks via bump
 	sharp = TRUE
@@ -30,7 +30,7 @@
 
 	var/excavation_amount = 40
 	var/wielded = FALSE
-	var/wield_sound = /singleton/sound_category/generic_wield_sound
+	var/wield_sound = SFX_WIELD
 	var/unwield_sound = null
 	var/force_unwielded = 5.0
 	var/force_wielded = 15.0
@@ -337,7 +337,7 @@
 	edge = TRUE
 	drop_sound = 'sound/items/drop/shovel.ogg'
 	pickup_sound = 'sound/items/pickup/shovel.ogg'
-	usesound = /singleton/sound_category/shovel_sound
+	usesound = SFX_SHOVEL
 
 /obj/item/shovel/is_shovel()
 	return TRUE
@@ -365,9 +365,7 @@
 	origin_tech = list(TECH_MATERIAL = 1, TECH_ENGINEERING = 1, TECH_COMBAT = 2)
 	attack_verb = list("bashed", "bludgeoned", "thrashed", "whacked", "slashed", "cut")
 	sharp = TRUE
-
-/obj/item/shovel/gadpathur/iscrowbar()
-	return TRUE
+	tool_behaviour = TOOL_CROWBAR
 
 // Flags.
 
@@ -513,7 +511,7 @@
 		var/turf/T = get_turf(src)
 		T.attackby(attacking_item, user)
 		return
-	if(attacking_item.iswelder())
+	if(attacking_item.tool_behaviour == TOOL_WELDER)
 		var/obj/item/weldingtool/WT = attacking_item
 		if(WT.use(0, user))
 			to_chat(user, SPAN_NOTICE("You slice apart the track."))
@@ -549,7 +547,6 @@
 
 	light_power = 1
 	light_range = 6
-	light_wedge = LIGHT_WIDE
 	light_color = LIGHT_COLOR_FIRE
 
 /obj/vehicle/train/cargo/engine/mining/Initialize()
@@ -601,7 +598,6 @@
 
 	light_power = 1
 	light_range = 3
-	light_wedge = LIGHT_OMNI
 	light_color = LIGHT_COLOR_FIRE
 
 /obj/item/key/minecarts
@@ -679,7 +675,7 @@
 
 /**********************Jaunter**********************/
 
-/obj/item/device/wormhole_jaunter
+/obj/item/wormhole_jaunter
 	name = "wormhole jaunter"
 	desc = "A single use device harnessing outdated warp technology. The wormholes it creates are unpleasant to travel through, to say the least."
 	contained_sprite = TRUE
@@ -693,29 +689,29 @@
 	slot_flags = SLOT_BELT
 	origin_tech = list(TECH_BLUESPACE = 2, TECH_PHORON = 4, TECH_ENGINEERING = 4)
 
-/obj/item/device/wormhole_jaunter/attack_self(mob/user)
+/obj/item/wormhole_jaunter/attack_self(mob/user)
 	user.visible_message(SPAN_NOTICE("\The [user] activates \the [src]!"))
 	feedback_add_details("jaunter", "U") // user activated
 	activate(user)
 
-/obj/item/device/wormhole_jaunter/proc/turf_check(mob/user)
+/obj/item/wormhole_jaunter/proc/turf_check(mob/user)
 	var/turf/device_turf = get_turf(user)
 	if(!device_turf || device_turf.z == 0)
 		to_chat(user, SPAN_NOTICE("You're having difficulties getting \the [src] to work."))
 		return FALSE
 	return TRUE
 
-/obj/item/device/wormhole_jaunter/proc/get_destinations(mob/user)
+/obj/item/wormhole_jaunter/proc/get_destinations(mob/user)
 	var/list/destinations = list()
 
-	for(var/obj/item/device/radio/beacon/B in GLOB.teleportbeacons)
+	for(var/obj/item/radio/beacon/B in GLOB.teleportbeacons)
 		var/turf/T = get_turf(B)
 		if(is_station_level(T.z))
 			destinations += B
 
 	return destinations
 
-/obj/item/device/wormhole_jaunter/proc/activate(mob/user)
+/obj/item/wormhole_jaunter/proc/activate(mob/user)
 	if(!turf_check(user))
 		return
 
@@ -729,7 +725,7 @@
 	playsound(src,'sound/effects/sparks4.ogg', 50, 1)
 	qdel(src)
 
-/obj/item/device/wormhole_jaunter/emp_act(severity)
+/obj/item/wormhole_jaunter/emp_act(severity)
 	. = ..()
 
 	var/triggered = FALSE
@@ -1191,7 +1187,7 @@ GLOBAL_LIST_INIT_TYPED(total_extraction_beacons, /obj/structure/extraction_point
 	var/busy_sculpting = FALSE
 
 /obj/structure/sculpting_block/attackby(obj/item/attacking_item, mob/user)
-	if(attacking_item.iswrench())
+	if(attacking_item.tool_behaviour == TOOL_WRENCH)
 		visible_message("<b>[user]</b> starts to [anchored ? "un" : ""]anchor \the [src].", SPAN_NOTICE("You start to [anchored ? "un" : ""]anchor \the [src]."))
 		if(attacking_item.use_tool(src, user, 50, volume = 50))
 			anchored = !anchored
@@ -1221,13 +1217,13 @@ GLOBAL_LIST_INIT_TYPED(total_extraction_beacons, /obj/structure/extraction_point
 		if(prob(25))
 			playsound(loc, 'sound/items/Screwdriver.ogg', 20, TRUE)
 		else
-			playsound(loc, /singleton/sound_category/pickaxe_sound, 20, TRUE)
+			playsound(loc, SFX_PICKAXE, 20, TRUE)
 
 		var/successfully_sculpted = FALSE
 		while(do_after(user, 2 SECONDS) && sculpture_process_check(choice, user))
 			if(times_carved <= 9)
 				times_carved++
-				playsound(loc, /singleton/sound_category/pickaxe_sound, 20, TRUE)
+				playsound(loc, SFX_PICKAXE, 20, TRUE)
 				continue
 			successfully_sculpted = TRUE
 			break
@@ -1362,7 +1358,7 @@ GLOBAL_LIST_INIT_TYPED(total_extraction_beacons, /obj/structure/extraction_point
 /obj/structure/punching_bag/attack_hand(mob/user as mob)
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 	flick("[icon_state]2", src)
-	playsound(get_turf(src), /singleton/sound_category/swing_hit_sound, 25, 1, -1)
+	playsound(get_turf(src), SFX_SWING_HIT, 25, 1, -1)
 
 /obj/structure/punching_bag/attackby(obj/item/attacking_item, mob/user)
 	if(istype(attacking_item, /obj/item/holo/practicesword))

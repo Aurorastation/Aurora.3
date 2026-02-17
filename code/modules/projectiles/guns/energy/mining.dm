@@ -30,7 +30,7 @@
 			. += FONT_SMALL(SPAN_WARNING("It has no power supply installed."))
 
 /obj/item/gun/energy/plasmacutter/attackby(obj/item/attacking_item, mob/user)
-	if(attacking_item.isscrewdriver())
+	if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 		if(power_supply)
 			to_chat(user, SPAN_NOTICE("You uninstall \the [power_supply]."))
 			power_supply.forceMove(get_turf(src))

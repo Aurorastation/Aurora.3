@@ -256,6 +256,7 @@
 	hats["hat, beaver"] = /obj/item/clothing/head/beaverhat
 	hats["hat, sombrero"] = /obj/item/clothing/head/sombrero
 	hats["hat, bear pelt"] = /obj/item/clothing/head/bearpelt
+	hats["hat, woolen"] = /obj/item/clothing/head/wool
 	gear_tweaks += new /datum/gear_tweak/path(hats)
 
 /datum/gear/head/hats_colourable
@@ -269,7 +270,7 @@
 	var/list/hats_colourable = list()
 	hats_colourable["hat, flatcap"] = /obj/item/clothing/head/flatcap/colourable
 	hats_colourable["hat, feather trilby"] = /obj/item/clothing/head/feathertrilby
-	hats_colourable["hat, woolen"] = /obj/item/clothing/head/wool
+	hats_colourable["hat, woolen"] = /obj/item/clothing/head/wool/colorable
 	hats_colourable["hat, fedora"] = /obj/item/clothing/head/fedora
 	hats_colourable["hat, top hat"] = /obj/item/clothing/head/top_hat
 	hats_colourable["hat, cowboy"] = /obj/item/clothing/head/cowboy

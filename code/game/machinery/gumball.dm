@@ -96,7 +96,7 @@
 
 /obj/machinery/gumballmachine/proc/smashgumball()
 	icon_state = "[initialicon]_broken"
-	playsound(get_turf(src), /singleton/sound_category/glass_break_sound, 75, 1)
+	playsound(get_turf(src), SFX_BREAK_GLASS, 75, 1)
 	if(amountleft)
 		var/amountleftinside = amountleft
 		for(var/i = 1; i<=amountleftinside; i++)

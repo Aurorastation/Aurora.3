@@ -170,13 +170,22 @@ GENERAL_PROTECT_DATUM(/datum/controller/subsystem/statistics)
 		return
 
 	round_end_data_gathering() //round_end time logging and some other data processing
-	if(!establish_db_connection(GLOB.dbcon))
+	if(!SSdbcore.Connect())
 		return
 
 	for(var/datum/feedback_variable/FV in feedback)
-		var/sql = "INSERT INTO ss13_feedback VALUES (null, Now(), \"[GLOB.round_id]\", \"[FV.get_variable()]\", [FV.get_value()], \"[FV.get_details()]\")"
-		var/DBQuery/query_insert = GLOB.dbcon.NewQuery(sql)
+		var/datum/db_query/query_insert = SSdbcore.NewQuery(
+			"INSERT INTO ss13_feedback (`time`, `game_id`, `var_name`, `var_value`, `details`) VALUES (Now(), :round_id, :name, :value, :details)",
+			list(
+				"round_id"=GLOB.round_id,
+				"name"=FV.get_variable(),
+				"value"=FV.get_value(),
+				"details"=FV.get_details()
+			),
+			TRUE
+		)
 		query_insert.Execute()
+		qdel(query_insert)
 
 /datum/controller/subsystem/statistics/proc/something_died(datum/source, mob/dead_mob, gibbed)
 	if(dead_mob.ckey)

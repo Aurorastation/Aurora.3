@@ -4,6 +4,6 @@
 
 /datum/rune/summon_soulstone/do_rune_action(mob/living/user, atom/movable/A)
 	user.say("N'ath reth sh'yro eth d'raggathnor!")
-	new /obj/item/device/soulstone(get_turf(A))
+	new /obj/item/soulstone(get_turf(A))
 	qdel(A)
 	return TRUE

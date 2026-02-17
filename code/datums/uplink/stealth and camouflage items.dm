@@ -27,13 +27,20 @@
 	desc = "A small self-contained auto-surgery device that has the ability to conduct larynxial, facial and even melanin re-structuring surgery, in a (mostly) blood-less manner."
 	telecrystal_cost = 1
 	bluecrystal_cost = 1
-	path = /obj/item/device/cosmetic_surgery_kit
+	path = /obj/item/cosmetic_surgery_kit
 
 /datum/uplink_item/item/stealth_items/chameleon_kit
 	name = "Chameleon Kit"
 	telecrystal_cost = 1
 	bluecrystal_cost = 1
 	path = /obj/item/storage/box/syndie_kit/chameleon
+
+/datum/uplink_item/item/stealth_items/chameleonarmor_kit
+	name = "Chameleon Armor Kit"
+	desc = "Comes with a full chameleon armor-kit, offers slightly worse protection than heavy armor."
+	telecrystal_cost = 2
+	bluecrystal_cost = 2
+	path = /obj/item/storage/box/syndie_kit/chameleonarmor
 
 /datum/uplink_item/item/stealth_items/voice
 	name = "Voice Changer"
@@ -45,7 +52,7 @@
 	name = "Chameleon-Projector"
 	desc = "A device that can be used to mimic common items by scanning, then transforming into them."
 	telecrystal_cost = 2
-	path = /obj/item/device/chameleon
+	path = /obj/item/chameleon
 
 /datum/uplink_item/item/stealth_items/venenum
 	name = "Vial of Venenum"
@@ -66,7 +73,7 @@
 	desc = "Snap pops with a compound added which deploys a small smokescreen upon exploding."
 	telecrystal_cost = 1
 	bluecrystal_cost = 1
-	path = /obj/item/storage/box/snappops/syndi
+	path = /obj/item/storage/box/unique/snappops/syndi
 
 /datum/uplink_item/item/stealth_items/closet_teleporter
 	name = "Closet Teleportation Set-up"

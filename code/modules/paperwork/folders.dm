@@ -44,7 +44,7 @@
 		user.drop_from_inventory(attacking_item, src)
 		to_chat(user, SPAN_NOTICE("You put the [attacking_item] into \the [src]."))
 		update_icon()
-	else if(attacking_item.ispen())
+	else if(attacking_item.tool_behaviour == TOOL_PEN)
 		var/n_name = sanitizeSafe( tgui_input_text(user, "What would you like to label the folder?", "Folder Labelling", max_length = MAX_NAME_LEN), MAX_NAME_LEN )
 		if(Adjacent(user) && user.stat == 0)
 			name = "folder[(n_name ? "- '[n_name]'" : null)]"
@@ -76,17 +76,15 @@
 		if(href_list["remove"])
 			var/obj/item/P = locate(href_list["remove"])
 			if(P && (P.loc == src) && istype(P))
-				P.forceMove(usr.loc)
-				usr.put_in_hands(P)
-				handle_post_remove()
+				handle_remove(P, astype(usr, /mob))
 		else if(href_list["write"])
 			var/obj/item/paper/paper = locate(href_list["write"])
 			if(!istype(paper) || paper.loc != src)
 				return
 			var/obj/item/pen = usr.get_inactive_hand()
-			if(!pen || !pen.ispen())
+			if(!pen || pen.tool_behaviour != TOOL_PEN)
 				pen = usr.get_active_hand()
-			if(pen?.ispen())
+			if(pen?.tool_behaviour == TOOL_PEN)
 				paper.attackby(pen, usr)
 		else if(href_list["read"])
 			var/obj/item/paper/P = locate(href_list["read"])
@@ -127,6 +125,10 @@
 		return TRUE
 	return FALSE
 
+/obj/item/folder/proc/handle_remove(obj/item/P, mob/user)
+	user?.put_in_hands(P)
+	handle_post_remove()
+
 /obj/item/folder/proc/handle_post_remove()
 	return
 
@@ -149,9 +151,21 @@
 		return TRUE
 	return FALSE
 
+/obj/item/folder/embedded/handle_remove(obj/item/paper/P, mob/user)
+	. = ..()
+	if(istype(P, /obj/item/paper/notepad))
+		P.ripped = TRUE
+		playsound(src.loc, 'sound/items/poster_ripped.ogg', 25, 1)
+		P.update_icon()
+
 /obj/item/folder/embedded/handle_post_remove()
 	if(!length(contents))
 		qdel(src)
+
+/obj/item/folder/embedded/Destroy()
+	for(var/x in src)
+		qdel(x)
+	. = ..()
 
 /obj/item/folder/envelope
 	name = "envelope"

@@ -45,7 +45,7 @@
 	name = "drink cartridge - champagne"
 	supplier = "getmore"
 	description = "A metal canister containing 500 units of a substance. Mostly for use in liquid dispensers, though you can also pour it straight out of the can."
-	price = 55
+	price = 72
 	items = list(
 		/obj/item/reagent_containers/chem_disp_cartridge/champagne
 	)
@@ -59,7 +59,7 @@
 	name = "drink cartridge - coffee"
 	supplier = "getmore"
 	description = "A metal canister containing 500 units of a substance. Mostly for use in liquid dispensers, though you can also pour it straight out of the can."
-	price = 24
+	price = 20
 	items = list(
 		/obj/item/reagent_containers/chem_disp_cartridge/coffee
 	)
@@ -73,7 +73,7 @@
 	name = "drink cartridge - cognac"
 	supplier = "getmore"
 	description = "A metal canister containing 500 units of a substance. Mostly for use in liquid dispensers, though you can also pour it straight out of the can."
-	price = 55
+	price = 65
 	items = list(
 		/obj/item/reagent_containers/chem_disp_cartridge/cognac
 	)
@@ -101,7 +101,7 @@
 	name = "drink cartridge - cream"
 	supplier = "getmore"
 	description = "A metal canister containing 500 units of a substance. Mostly for use in liquid dispensers, though you can also pour it straight out of the can."
-	price = 18
+	price = 24
 	items = list(
 		/obj/item/reagent_containers/chem_disp_cartridge/cream
 	)
@@ -129,7 +129,7 @@
 	name = "drink cartridge - gin"
 	supplier = "getmore"
 	description = "A metal canister containing 500 units of a substance. Mostly for use in liquid dispensers, though you can also pour it straight out of the can."
-	price = 45
+	price = 55
 	items = list(
 		/obj/item/reagent_containers/chem_disp_cartridge/gin
 	)
@@ -143,7 +143,7 @@
 	name = "drink cartridge - ice"
 	supplier = "getmore"
 	description = "A metal canister containing 500 units of a substance. Mostly for use in liquid dispensers, though you can also pour it straight out of the can."
-	price = 18
+	price = 8
 	items = list(
 		/obj/item/reagent_containers/chem_disp_cartridge/ice
 	)
@@ -227,7 +227,7 @@
 	name = "drink cartridge - orange juice"
 	supplier = "getmore"
 	description = "A metal canister containing 500 units of a substance. Mostly for use in liquid dispensers, though you can also pour it straight out of the can."
-	price = 18
+	price = 22
 	items = list(
 		/obj/item/reagent_containers/chem_disp_cartridge/orange
 	)
@@ -241,7 +241,7 @@
 	name = "drink cartridge - rum"
 	supplier = "getmore"
 	description = "A metal canister containing 500 units of a substance. Mostly for use in liquid dispensers, though you can also pour it straight out of the can."
-	price = 45
+	price = 50
 	items = list(
 		/obj/item/reagent_containers/chem_disp_cartridge/rum
 	)
@@ -269,7 +269,7 @@
 	name = "drink cartridge - soda water"
 	supplier = "getmore"
 	description = "A metal canister containing 500 units of a substance. Mostly for use in liquid dispensers, though you can also pour it straight out of the can."
-	price = 18
+	price = 12
 	items = list(
 		/obj/item/reagent_containers/chem_disp_cartridge/sodawater
 	)
@@ -283,7 +283,7 @@
 	name = "drink cartridge - Vacuum Fizz"
 	supplier = "getmore"
 	description = "A metal canister containing 500 units of a substance. Mostly for use in liquid dispensers, though you can also pour it straight out of the can."
-	price = 18
+	price = 15
 	items = list(
 		/obj/item/reagent_containers/chem_disp_cartridge/spaceup
 	)
@@ -311,7 +311,7 @@
 	name = "drink cartridge - tequila"
 	supplier = "getmore"
 	description = "A metal canister containing 500 units of a substance. Mostly for use in liquid dispensers, though you can also pour it straight out of the can."
-	price = 45
+	price = 55
 	items = list(
 		/obj/item/reagent_containers/chem_disp_cartridge/tequila
 	)
@@ -325,7 +325,7 @@
 	name = "drink cartridge - tonic"
 	supplier = "getmore"
 	description = "A metal canister containing 500 units of a substance. Mostly for use in liquid dispensers, though you can also pour it straight out of the can."
-	price = 45
+	price = 18
 	items = list(
 		/obj/item/reagent_containers/chem_disp_cartridge/tonic
 	)
@@ -339,7 +339,7 @@
 	name = "drink cartridge - vermouth"
 	supplier = "getmore"
 	description = "A metal canister containing 500 units of a substance. Mostly for use in liquid dispensers, though you can also pour it straight out of the can."
-	price = 45
+	price = 28
 	items = list(
 		/obj/item/reagent_containers/chem_disp_cartridge/vermouth
 	)
@@ -353,7 +353,7 @@
 	name = "drink cartridge - vodka"
 	supplier = "getmore"
 	description = "A metal canister containing 500 units of a substance. Mostly for use in liquid dispensers, though you can also pour it straight out of the can."
-	price = 45
+	price = 50
 	items = list(
 		/obj/item/reagent_containers/chem_disp_cartridge/vodka
 	)
@@ -367,7 +367,7 @@
 	name = "drink cartridge - watermelon"
 	supplier = "getmore"
 	description = "A metal canister containing 500 units of a substance. Mostly for use in liquid dispensers, though you can also pour it straight out of the can."
-	price = 18
+	price = 20
 	items = list(
 		/obj/item/reagent_containers/chem_disp_cartridge/watermelon
 	)
@@ -381,7 +381,7 @@
 	name = "drink cartridge - whiskey"
 	supplier = "getmore"
 	description = "A metal canister containing 500 units of a substance. Mostly for use in liquid dispensers, though you can also pour it straight out of the can."
-	price = 45
+	price = 55
 	items = list(
 		/obj/item/reagent_containers/chem_disp_cartridge/whiskey
 	)
@@ -395,7 +395,7 @@
 	name = "drink cartridge - wine"
 	supplier = "getmore"
 	description = "A metal canister containing 500 units of a substance. Mostly for use in liquid dispensers, though you can also pour it straight out of the can."
-	price = 55
+	price = 42
 	items = list(
 		/obj/item/reagent_containers/chem_disp_cartridge/wine
 	)
@@ -691,7 +691,7 @@
 	name = "chemical cartridge - water"
 	supplier = "zeng_hu"
 	description = "A metal canister containing 500 units of a substance. Mostly for use in liquid dispensers, though you can also pour it straight out of the can."
-	price = 1.50
+	price = 10
 	items = list(
 		/obj/item/reagent_containers/chem_disp_cartridge/water
 	)

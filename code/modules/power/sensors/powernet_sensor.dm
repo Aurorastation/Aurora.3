@@ -47,27 +47,6 @@
 			return 1
 	return 0
 
-// Proc: reading_to_text()
-// Parameters: 1 (amount - Power in Watts to be converted to W, kW or MW)
-// Description: Helper proc that converts reading in Watts to kW or MW (returns string version of amount parameter)
-/obj/machinery/power/sensor/proc/reading_to_text(var/amount = 0)
-	var/units = ""
-	// 10kW and less - Watts
-	if(amount < 10000)
-		units = "W"
-	// 10MW and less - KiloWatts
-	else if(amount < 10000000)
-		units = "kW"
-		amount = (round(amount/100) / 10)
-	// More than 10MW - MegaWatts
-	else
-		units = "MW"
-		amount = (round(amount/10000) / 100)
-	if (units == "W")
-		return "[amount] W"
-	else
-		return "~[amount] [units]" //kW and MW are only approximate readings, therefore add "~"
-
 // Proc: find_apcs()
 // Parameters: None
 // Description: Searches powernet for APCs and returns them in a list.
@@ -119,13 +98,13 @@
 				out += "<td>NO CELL"
 			var/load = A.lastused_total // Load.
 			total_apc_load += load
-			load = reading_to_text(load)
+			load = power_wattage_readable(load)
 			out += "<td>[load]"
 
-	out += "<br><b>AREA_USAGE_TOTAL AVAILABLE: [reading_to_text(powernet.avail)]</b>"
-	out += "<br><b>APC LOAD: [reading_to_text(total_apc_load)]</b>"
-	out += "<br><b>OTHER LOAD: [reading_to_text(max(powernet.load - total_apc_load, 0))]</b>"
-	out += "<br><b>AREA_USAGE_TOTAL GRID LOAD: [reading_to_text(powernet.viewload)] ([round((powernet.load / powernet.avail) * 100)]%)</b>"
+	out += "<br><b>AREA_USAGE_TOTAL AVAILABLE: [power_wattage_readable(powernet.avail)]</b>"
+	out += "<br><b>APC LOAD: [power_wattage_readable(total_apc_load)]</b>"
+	out += "<br><b>OTHER LOAD: [power_wattage_readable(max(powernet.load - total_apc_load, 0))]</b>"
+	out += "<br><b>AREA_USAGE_TOTAL GRID LOAD: [power_wattage_readable(powernet.viewload)] ([round((powernet.load / powernet.avail) * 100)]%)</b>"
 
 	if(powernet.problem)
 		out += "<br><b>WARNING: Abnormal grid activity detected!</b>"
@@ -163,7 +142,7 @@
 			APC_entry["cell_charge"] = A.cell ? round(A.cell.percent()) : 0
 			APC_entry["cell_status"] = A.cell ? chg[A.charging+1] : 0
 			// Other info
-			APC_entry["total_load"] = reading_to_text(A.lastused_total)
+			APC_entry["total_load"] = power_wattage_readable(A.lastused_total)
 			var/area_display_name = get_area_display_name(A.area)
 			APC_entry["name"] = area_display_name
 			// Add data into main list of APC data.
@@ -171,10 +150,10 @@
 			// Add load of this APC to total APC load calculation
 			total_apc_load += A.lastused_total
 	data["apc_data"] = APC_data
-	data["total_avail"] = reading_to_text(max(powernet.avail, 0))
-	data["total_used_apc"] = reading_to_text(max(total_apc_load, 0))
-	data["total_used_other"] = reading_to_text(max(powernet.viewload - total_apc_load, 0))
-	data["total_used_all"] = reading_to_text(max(powernet.viewload, 0))
+	data["total_avail"] = power_wattage_readable(max(powernet.avail, 0))
+	data["total_used_apc"] = power_wattage_readable(max(total_apc_load, 0))
+	data["total_used_other"] = power_wattage_readable(max(powernet.viewload - total_apc_load, 0))
+	data["total_used_all"] = power_wattage_readable(max(powernet.viewload, 0))
 	// Prevents runtimes when avail is 0 (division by zero)
 	if(powernet.avail)
 		data["load_percentage"] = round((powernet.viewload / powernet.avail) * 100)

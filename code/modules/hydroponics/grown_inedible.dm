@@ -27,7 +27,7 @@
 		if(!S || !S.chems)
 			return
 
-		potency = S.get_trait(TRAIT_POTENCY)
+		potency = GET_SEED_TRAIT(S, TRAIT_POTENCY)
 
 		for(var/rid in S.chems)
 			var/list/chem_data = S.chems[rid]

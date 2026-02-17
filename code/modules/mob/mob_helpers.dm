@@ -28,7 +28,7 @@
 /proc/isMMI(A)
 	if(isbrain(A))
 		var/mob/living/carbon/brain/B = A
-		return istype(B.container, /obj/item/device/mmi)
+		return istype(B.container, /obj/item/mmi)
 
 /mob/living/bot/isSynthetic()
 	return 1
@@ -479,23 +479,48 @@ GLOBAL_LIST_INIT(organ_rel_size, list(
 		p=p+n_mod
 	return sanitize(t)
 
-#define TICKS_PER_RECOIL_ANIM 2
-#define PIXELS_PER_STRENGTH_VAL 16
+#define TILES_PER_SECOND 0.7
+/// Shake the camera of the person viewing the mob SO REAL!
+/// Takes the mob to shake, the time span to shake for, and the amount of tiles we're allowed to shake by in tiles
+/// Duration isn't taken as a strict limit, since we don't trust our coders to not make things feel shitty. So it's more like a soft cap.
+/proc/shake_camera(mob/M, duration, strength=1)
+	if(!M || !M.client || duration < 1)
+		return
+	var/client/C = M.client
+	var/oldx = C.pixel_x
+	var/oldy = C.pixel_y
+	var/max_x = strength*ICON_SIZE_X
+	var/max_y = strength*ICON_SIZE_Y
+	var/min_x = -(strength*ICON_SIZE_X)
+	var/min_y = -(strength*ICON_SIZE_Y)
 
-/proc/shake_camera(mob/M, duration, strength = 1)
-	var/current_time = world.time
-	if(!M || !M.client || (M.shakecamera > current_time)|| M.stat || isEye(M) || isAI(M))
-		return
-	if(((M.client.view != world.view) || (M.client.pixel_x != 0) || (M.client.pixel_y != 0))) //to prevent it while zooming, because zoom does not play well with this code
-		return
-	M.shakecamera = current_time + max(TICKS_PER_RECOIL_ANIM, duration)
-	strength = abs(strength)*PIXELS_PER_STRENGTH_VAL
-	var/steps = min(1, FLOOR(duration/TICKS_PER_RECOIL_ANIM, 1))-1
-	animate(M.client, pixel_x = rand(-(strength), strength), pixel_y = rand(-(strength), strength), time = TICKS_PER_RECOIL_ANIM, easing = JUMP_EASING|EASE_IN)
-	if(steps)
-		for(var/i = 1 to steps)
-			animate(pixel_x =  0 + rand(-(strength), strength), pixel_y = 0 + rand(-(strength), strength), time = TICKS_PER_RECOIL_ANIM, easing = JUMP_EASING|EASE_IN)
-	animate(pixel_x = 0, pixel_y = 0, time = TICKS_PER_RECOIL_ANIM)
+	//How much time to allot for each pixel moved
+	var/time_scalar = (1 / ICON_SIZE_ALL) * TILES_PER_SECOND
+	var/last_x = oldx
+	var/last_y = oldy
+
+	var/time_spent = 0
+	while(time_spent < duration)
+		//Get a random pos in our box
+		var/x_pos = rand(min_x, max_x) + oldx
+		var/y_pos = rand(min_y, max_y) + oldy
+
+		//We take the smaller of our two distances so things still have the propencity to feel somewhat jerky
+		var/time = round(max(min(abs(last_x - x_pos), abs(last_y - y_pos)) * time_scalar, 1))
+
+		if (time_spent == 0)
+			animate(C, pixel_x=x_pos, pixel_y=y_pos, time=time)
+		else
+			animate(pixel_x=x_pos, pixel_y=y_pos, time=time)
+
+		last_x = x_pos
+		last_y = y_pos
+		//We go based on time spent, so there is a chance we'll overshoot our duration. Don't care
+		time_spent += time
+
+	animate(pixel_x=oldx, pixel_y=oldy, time=3)
+
+#undef TILES_PER_SECOND
 
 /proc/findname(msg)
 	for(var/mob/M in GLOB.mob_list)
@@ -1116,8 +1141,8 @@ GLOBAL_LIST_INIT(organ_rel_size, list(
 
 #undef SAFE_PERP
 
-/mob/proc/get_multitool(var/obj/P)
-	if(P?.ismultitool())
+/mob/proc/get_multitool(var/obj/item/P)
+	if(P?.tool_behaviour == TOOL_MULTITOOL)
 		return P
 
 /mob/abstract/ghost/observer/get_multitool()
@@ -1357,3 +1382,7 @@ GLOBAL_LIST_INIT(organ_rel_size, list(
 		message_notifications.Cut(1, 2)
 
 	message_notifications[key_check] = world.time + next_message_time
+
+/// Gets a mob's strength.
+/mob/proc/get_mob_strength()
+	return mob_weight + mob_strength

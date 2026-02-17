@@ -11,7 +11,7 @@
 	sharp = TRUE
 	edge = FALSE
 	drop_sound = 'sound/items/drop/sword.ogg'
-	pickup_sound = /singleton/sound_category/sword_pickup_sound
+	pickup_sound = SFX_PICKUP_SWORD
 
 /obj/item/arrow/proc/removed() //Helper for metal rods falling apart.
 	return
@@ -27,7 +27,7 @@
 	icon_state = "metal-rod"
 	item_state = "bolt"
 	drop_sound = 'sound/items/drop/sword.ogg'
-	pickup_sound = /singleton/sound_category/sword_pickup_sound
+	pickup_sound = SFX_PICKUP_SWORD
 
 /obj/item/arrow/quill
 	name = "alien quill"
@@ -45,7 +45,7 @@
 	icon_state = "metal-rod"
 
 /obj/item/arrow/rod/removed(mob/user)
-	if(throwforce == 20) // The rod has been superheated - we don't want it to be useable when removed from the bow.
+	if(throwforce == 15) // The rod has been superheated - we don't want it to be useable when removed from the bow.
 		to_chat(user, SPAN_WARNING("\The [src] shatters into a scattering of unusable overstressed metal shards as it leaves the crossbow."))
 		qdel(src)
 
@@ -64,8 +64,8 @@
 
 	var/obj/item/bolt
 	var/tension = 0                         // Current draw on the bow.
-	var/max_tension = 3                     // Highest possible tension.
-	var/release_speed = 3                   // Speed per unit of tension.
+	var/max_tension = 5                     // Highest possible tension.
+	var/release_speed = 5                   // Speed per unit of tension.
 	var/obj/item/cell/cell = null    // Used for firing superheated rods.
 	var/current_user                        // Used to check if the crossbow has changed hands since being drawn.
 	var/draw_time = 20						// How long it takes to increase the draw on the bow by one "tension"
@@ -169,7 +169,7 @@
 		else
 			to_chat(user, SPAN_NOTICE("\The [src] already has a cell installed."))
 
-	else if(attacking_item.isscrewdriver())
+	else if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 		if(cell)
 			var/obj/item/C = cell
 			C.forceMove(get_turf(user))
@@ -189,7 +189,7 @@
 		return
 	if(cell.charge < 500)
 		return
-	if(bolt.throwforce >= 20)
+	if(bolt.throwforce >= 15)
 		return
 	if(!istype(bolt,/obj/item/arrow/rod))
 		return
@@ -244,7 +244,7 @@
 			else
 				to_chat(user, SPAN_NOTICE("You need at least three rods to complete this task."))
 			return
-	else if(attacking_item.iswelder())
+	else if(attacking_item.tool_behaviour == TOOL_WELDER)
 		if(buildstate == 1)
 			var/obj/item/weldingtool/T = attacking_item
 			if(T.use(0,user))
@@ -254,7 +254,7 @@
 			buildstate++
 			update_icon()
 		return
-	else if(attacking_item.iscoil())
+	else if(attacking_item.tool_behaviour == TOOL_CABLECOIL)
 		var/obj/item/stack/cable_coil/C = attacking_item
 		if(buildstate == 2)
 			if(C.use(5))
@@ -282,7 +282,7 @@
 			else
 				to_chat(user, SPAN_NOTICE("You need at least three plastic sheets to complete this task."))
 			return
-	else if(attacking_item.isscrewdriver())
+	else if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 		if(buildstate == 5)
 			to_chat(user, SPAN_NOTICE("You secure the crossbow's various parts."))
 			new /obj/item/gun/launcher/crossbow(get_turf(src))

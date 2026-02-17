@@ -1,15 +1,16 @@
 /datum/faction/orion_express
 	name = "Orion Express"
-	description = {"<p>
+	description = {"
 	Founded in 2464, the Orion Express is a corporation designed to handle logistics for the
 	Stellar Corporate Conglomerate in the wake of the Phoron Scarcity and the sudden issues
-	the Conglomeration of the megacorporations presented. It consists of its main branch, dedicated
+	the Conglomeration of the megacorporations presented.<br> It consists of its main branch, dedicated
 	to cargo services and transport, but also features a fledgling robotics division, mainly focused
-	on industrial synthetics to aid in its logistics missions. The Orion Express is expected to become an
+	on industrial synthetics to aid in its logistics missions.<br> The Orion Express is expected to become an
 	integral part of the Stellar Corporate Conglomerate's future through delivering supplies and merchandise throughout the Orion Spur.
-	</p>"}
-	departments = {"Operations<br>Service"}
+	"}
+	departments = list(DEPARTMENT_CARGO, DEPARTMENT_SERVICE)
 	title_suffix = "Orion"
+	wiki_page = "Orion_Express"
 
 	allowed_role_types = ORION_ROLES
 
@@ -51,6 +52,7 @@
 		"Corporate Reporter" = /obj/outfit/job/journalist/orion,
 		"Chaplain" = /obj/outfit/job/chaplain/orion,
 		"Corporate Liaison" = /obj/outfit/job/representative/orion,
+		"Corporate Aide" = /obj/outfit/job/corporate_aide/orion,
 		"Assistant" = /obj/outfit/job/assistant/orion,
 		"Wait Staff" = /obj/outfit/job/assistant/waiter/orion,
 		"Off-Duty Crew Member" = /obj/outfit/job/visitor/orion,
@@ -100,6 +102,18 @@
 	id = /obj/item/card/id/orion
 	accessory = /obj/item/clothing/accessory/tie/corporate/orion
 	suit_accessory = /obj/item/clothing/accessory/pin/corporate/orion
+
+	backpack_faction = /obj/item/storage/backpack/orion
+	satchel_faction = /obj/item/storage/backpack/satchel/orion
+	dufflebag_faction = /obj/item/storage/backpack/duffel/orion
+	messengerbag_faction = /obj/item/storage/backpack/messenger/orion
+
+/obj/outfit/job/corporate_aide/orion
+	name = "Orion Express Corporate Aide"
+
+	id = /obj/item/card/id/orion
+	head = /obj/item/clothing/head/beret/corporate/orion
+	suit = /obj/item/clothing/suit/storage/toggle/corp/orion
 
 	backpack_faction = /obj/item/storage/backpack/orion
 	satchel_faction = /obj/item/storage/backpack/satchel/orion
@@ -171,7 +185,7 @@
 	name = "Curator - Orion Express"
 	jobtype = /datum/job/librarian
 
-	r_pocket = /obj/item/device/price_scanner
+	r_pocket = /obj/item/price_scanner
 	l_hand = null
 
 /obj/outfit/job/librarian/orion/tech_support
@@ -181,7 +195,7 @@
 	l_pocket = /obj/item/modular_computer/handheld/preset/generic
 	r_pocket = /obj/item/card/tech_support
 	r_hand = /obj/item/storage/bag/circuits/basic
-	l_hand = /obj/item/device/debugger
+	l_hand = /obj/item/debugger
 	wrist = /obj/item/modular_computer/handheld/wristbound/preset/advanced/civilian
 
 /obj/outfit/job/journalist/orion

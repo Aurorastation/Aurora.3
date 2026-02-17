@@ -1,6 +1,6 @@
 /obj/item/spacecash
 	name = "0 credit chip"
-	desc = "It's worth 0 credits."
+	desc = "It's worth 0电."
 	gender = PLURAL
 	icon = 'icons/obj/cash.dmi'
 	icon_state = "spacecash1"
@@ -38,7 +38,7 @@
 			h_user.drop_from_inventory(src)
 			h_user.drop_from_inventory(bundle)
 			h_user.put_in_hands(bundle)
-		to_chat(user, SPAN_NOTICE("You add [src.worth] credits worth of money to the bundles.<br>It holds [bundle.worth] credits now."))
+		to_chat(user, SPAN_NOTICE("You add [src.worth]电 to the bundles.<br>It holds [bundle.worth]电 now."))
 		qdel(src)
 
 /proc/coin_typepath_suffix(var/amount)
@@ -55,7 +55,7 @@
 	name = "credit chips"
 	icon_state = ""
 	gender = PLURAL
-	desc = "They are worth 0 credits."
+	desc = "They are worth 0电."
 	worth = 0
 
 /obj/item/spacecash/bundle/update_icon()
@@ -97,7 +97,7 @@
 
 	AddOverlays(ovr)
 	UpdateOverlays()	// The delay looks weird, so we force an update immediately.
-	src.desc = "A bundle of Biesel Standard Credits. Combined, this is worth [worth] credits."
+	src.desc = "A bundle of Biesel Standard Credits. Combined, this is worth [worth]电."
 
 /obj/item/spacecash/bundle/attack_self(mob/user as mob)
 	var/amount = tgui_input_number(user, "How many credits do you want to take out? (0 to [src.worth])", "Take Money", 5, worth, 0, 0, round_value = FALSE)
@@ -171,49 +171,49 @@
 /obj/item/spacecash/c5
 	name = "5 credit chip"
 	icon_state = "spacecash5"
-	desc = "A Biesel Standard Credit chip, used for transactions large and small. This one is worth 5 credits."
+	desc = "A Biesel Standard Credit chip, used for transactions large and small. This one is worth 5电."
 	worth = 5
 
 /obj/item/spacecash/c10
 	name = "10 credit chip"
 	icon_state = "spacecash10"
-	desc = "A Biesel Standard Credit chip, used for transactions large and small. This one is worth 10 credits."
+	desc = "A Biesel Standard Credit chip, used for transactions large and small. This one is worth 10电."
 	worth = 10
 
 /obj/item/spacecash/c20
 	name = "20 credit chip"
 	icon_state = "spacecash20"
-	desc = "A Biesel Standard Credit chip, used for transactions large and small. This one is worth 20 credits."
+	desc = "A Biesel Standard Credit chip, used for transactions large and small. This one is worth 20电."
 	worth = 20
 
 /obj/item/spacecash/c50
 	name = "50 credit chip"
 	icon_state = "spacecash50"
-	desc = "A Biesel Standard Credit chip, used for transactions large and small. This one is worth 50 credits."
+	desc = "A Biesel Standard Credit chip, used for transactions large and small. This one is worth 50电."
 	worth = 50
 
 /obj/item/spacecash/c100
 	name = "100 credit chip"
 	icon_state = "spacecash100"
-	desc = "A Biesel Standard Credit chip, used for transactions large and small. This one is worth 100 credits."
+	desc = "A Biesel Standard Credit chip, used for transactions large and small. This one is worth 100电."
 	worth = 100
 
 /obj/item/spacecash/c200
 	name = "200 credit chip"
 	icon_state = "spacecash200"
-	desc = "A Biesel Standard Credit chip, used for transactions large and small. This one is worth 200 credits."
+	desc = "A Biesel Standard Credit chip, used for transactions large and small. This one is worth 200电."
 	worth = 200
 
 /obj/item/spacecash/c500
 	name = "500 credit chip"
 	icon_state = "spacecash500"
-	desc = "A Biesel Standard Credit chip, used for transactions large and small. This one is worth 500 credits."
+	desc = "A Biesel Standard Credit chip, used for transactions large and small. This one is worth 500电."
 	worth = 500
 
 /obj/item/spacecash/c1000
 	name = "1000 credit chip"
 	icon_state = "spacecash1000"
-	desc = "A Biesel Standard Credit chip, used for transactions large and small. This one is worth 1000 credits."
+	desc = "A Biesel Standard Credit chip, used for transactions large and small. This one is worth 1000电."
 	worth = 1000
 
 /obj/item/spacecash/coin
@@ -238,25 +238,25 @@
 /obj/item/spacecash/coin/c001
 	name = "1 cent unie coin"
 	icon_state = "spacecash0.01"
-	desc = "A Biesel Standard Credit coin, called a 'unie'. This is worth 0.01 credits."
+	desc = "A Biesel Standard Credit coin, called a 'unie'. This is worth 0.01电."
 	worth = 0.01
 
 /obj/item/spacecash/coin/c005
 	name = "5 cent quin coin"
 	icon_state = "spacecash0.05"
-	desc = "A Biesel Standard Credit coin, called a 'quin'. This is worth 0.05 credits."
+	desc = "A Biesel Standard Credit coin, called a 'quin'. This is worth 0.05电."
 	worth = 0.05
 
 /obj/item/spacecash/coin/c010
 	name = "10 cent dece coin"
 	icon_state = "spacecash0.10"
-	desc = "A Biesel Standard Credit coin, called a 'dece'. This is worth 0.10 credits."
+	desc = "A Biesel Standard Credit coin, called a 'dece'. This is worth 0.10电."
 	worth = 0.10
 
 /obj/item/spacecash/coin/c025
 	name = "25 cent quarter coin"
 	icon_state = "spacecash0.25"
-	desc = "A Biesel Standard Credit coin, called a 'quarter'. This is worth 0.25 credits."
+	desc = "A Biesel Standard Credit coin, called a 'quarter'. This is worth 0.25电."
 	worth = 0.25
 
 /proc/spawn_money(var/sum, spawnloc, mob/living/carbon/human/human_user as mob)
@@ -316,79 +316,3 @@
 
 /obj/item/spacecash/ewallet/c10000
 	worth = 10000
-
-/obj/item/spacecash/ewallet/lotto
-	name = "space lottery card"
-	icon_state = "lottocard_3"
-	desc = "A virtual scratch-action charge card that contains a variable amount of money."
-	worth = 0
-	var/scratches_remaining = 3
-	var/next_scratch = 0
-
-/obj/item/spacecash/ewallet/lotto/attack_self(mob/user)
-
-	if(scratches_remaining <= 0)
-		to_chat(user, SPAN_WARNING("The card flashes: \"No scratches remaining!\""))
-		return
-
-	if(next_scratch > world.time)
-		to_chat(user, SPAN_WARNING("The card flashes: \"Please wait!\""))
-		return
-
-	next_scratch = world.time + 6 SECONDS
-
-	to_chat(user, SPAN_NOTICE("You initiate the simulated scratch action process on the [src]..."))
-	playsound(src.loc, 'sound/items/drumroll.ogg', 20, 0, -4)
-	if(do_after(user,4.5 SECONDS))
-		var/won = 0
-		var/result = rand(1,10000)
-		if(result <= 4000) // 40% chance to not earn anything at all.
-			won = 0
-			speak("You've won: [won] credits. Better luck next time!")
-		else if (result <= 8000) // 40% chance
-			won = 10
-			speak("You've won: [won] credits. Better than nothing!")
-		else if (result <= 9000) // 10% chance
-			won = 50
-			speak("You've won: [won] credits. Try again!")
-		else if (result <= 9500) // 5% chance
-			won = 100
-			speak("You've won: [won] credits. Halfway there!")
-		else if (result <= 9750) // 2.5% chance
-			won = 200
-			speak("You've won: [won] credits. You're even!")
-		else if (result <= 9900) // 1.5% chance
-			won = 500
-			speak("You've won: [won] CREDITS. WINNER! You're lucky!")
-		else if (result <= 9950) // 0.5% chance
-			won = 1000
-			speak("You've won: [won] CREDITS. SUPER WINNER! You're super lucky!")
-		else if (result <= 9975) // 0.25% chance
-			won = 1500
-			speak("You've won: [won] CREDITS. MEGA WINNER! You're mega lucky!")
-		else if (result <= 9999) // 0.24% chance
-			won = 2500
-			speak("You've won: [won] CREDITS. ULTIMATE WINNER! You're ultra lucky!")
-		else // 0.01% chance
-			won = 5000
-			speak("You've won: [won] CREDITS. JACKPOT WINNER! You're JACKPOT lucky!")
-
-		scratches_remaining -= 1
-		update_icon()
-		worth += won
-		sleep(1 SECONDS)
-		if(scratches_remaining > 0)
-			to_chat(user, SPAN_NOTICE("The card flashes: You have: [scratches_remaining] SCRATCHES remaining! Scratch again!"))
-		else
-			to_chat(user, SPAN_NOTICE("The card flashes: You have: [scratches_remaining] SCRATCHES remaining! You won a total of: [worth] CREDITS. Thanks for playing the space lottery!"))
-
-		owner_name = user.name
-
-/obj/item/spacecash/ewallet/lotto/proc/speak(var/message = "Hello!")
-	for(var/mob/O in hearers(src.loc, null))
-		O.show_message("<span class='game say'><span class='name'>\The [src]</span> pings, \"[message]\"</span>",2)
-	playsound(src.loc, 'sound/machines/ping.ogg', 20, 0, -4)
-
-
-/obj/item/spacecash/ewallet/lotto/update_icon()
-	icon_state = "lottocard_[scratches_remaining]"

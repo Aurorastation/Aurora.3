@@ -9,7 +9,7 @@
 	mob_push_flags = ALLMOBS
 	can_be_buckled = FALSE
 	accent = ACCENT_TTS
-	appearance_flags = KEEP_TOGETHER
+	appearance_flags = KEEP_TOGETHER | DEFAULT_APPEARANCE_FLAGS | TILE_BOUND | LONG_GLIDE
 	pass_flags_self = PASSVEHICLE
 	var/decal
 
@@ -19,7 +19,7 @@
 	var/offset_x = -8
 	var/offset_y = 0
 
-	var/obj/item/device/radio/exosuit/radio
+	var/obj/item/radio/exosuit/radio
 	var/obj/machinery/camera/camera
 
 	var/wreckage_path = /obj/structure/mech_wreckage
@@ -76,7 +76,16 @@
 	var/use_air      = FALSE
 
 	// Interface stuff.
+
+	/// The next world tick that the mech has to wait for before it can change its Throttle (forward and backward movement).
 	var/next_mecha_move = 0
+
+	/// The next world tick that the mech has to wait for before it can turn.
+	var/next_mecha_turn = 0
+
+	/// The next world tick that the mech has to wait for before it can strafe.
+	var/next_mecha_strafe = 0
+
 	var/list/hud_elements = list()
 	var/list/hardpoint_hud_elements = list()
 	var/atom/movable/screen/mecha/health/hud_health
@@ -156,7 +165,7 @@
 		. += SPAN_NOTICE("It has the following hardpoints:")
 		for(var/hardpoint in hardpoints)
 			var/obj/item/I = hardpoints[hardpoint]
-			. += "- <b>[hardpoint]</b>: [istype(I) ? SPAN_NOTICE("<i>[I]</i>") : "nothing"]."
+			. += "- <b>[hardpoint]</b>: [istype(I) ? "<a href='byond://?src=[REF(src)];examine=[REF(I)]'>[I.name]</a>" : "nothing"]."
 	else
 		. += "It has <b>no visible hardpoints</b>."
 
@@ -174,23 +183,6 @@
 			if(4)
 				damage_string = SPAN_DANGER("destroyed")
 		. += "Its <b>[thing.name]</b> [thing.gender == PLURAL ? "are" : "is"] [damage_string]."
-
-/mob/living/heavy_vehicle/mechanics_hints(mob/user, distance, is_adjacent)
-	. += ..()
-	var/list/hardpoint_hints = list()
-	for(var/hardpoint in hardpoints)
-		var/obj/item/mecha_equipment/I = hardpoints[hardpoint]
-		if(!istype(I) || !length(I.module_hints))
-			continue
-		hardpoint_hints += "- <b>[hardpoint]</b>: [SPAN_NOTICE("<i>[I]</i>")]"
-		hardpoint_hints += I.relayed_mechanics_hints(user, distance, is_adjacent)
-
-	if(length(hardpoint_hints))
-		. += "Its hardpoints have the following mechanics:"
-		. += hardpoint_hints
-		return
-	// Mech has no hardpoints, let's teach them how to fix that instead.
-	. += "modules can be attached to a mech by clicking on the mech with a module in hand."
 
 /mob/living/heavy_vehicle/Topic(href,href_list[])
 	if (href_list["examine"])
@@ -294,24 +286,24 @@
 	else
 		to_chat(reciever, SPAN_WARNING("Error: No power cell was detected."))
 
-/obj/item/device/radio/exosuit
+/obj/item/radio/exosuit
 	name = "exosuit radio"
 	cell = null
 
-/obj/item/device/radio/exosuit/get_cell()
+/obj/item/radio/exosuit/get_cell()
 	. = ..()
 	if(!.)
 		var/mob/living/heavy_vehicle/E = loc
 		if(istype(E))
 			return E.get_cell()
 
-/obj/item/device/radio/exosuit/ui_host()
+/obj/item/radio/exosuit/ui_host()
 	var/mob/living/heavy_vehicle/E = loc
 	if(istype(E))
 		return E
 	return null
 
-/obj/item/device/radio/exosuit/attack_self(var/mob/user)
+/obj/item/radio/exosuit/attack_self(var/mob/user)
 	var/mob/living/heavy_vehicle/exosuit = loc
 	if(istype(exosuit) && exosuit.head && exosuit.head.radio && exosuit.head.radio.is_functional())
 		user.set_machine(src)
@@ -319,14 +311,14 @@
 	else
 		to_chat(user, SPAN_WARNING("The radio is too damaged to function."))
 
-/obj/item/device/radio/exosuit/CanUseTopic()
+/obj/item/radio/exosuit/CanUseTopic()
 	. = ..()
 	if(.)
 		var/mob/living/heavy_vehicle/exosuit = loc
 		if(istype(exosuit) && exosuit.head && exosuit.head.radio && exosuit.head.radio.is_functional())
 			return ..()
 
-/obj/item/device/radio/exosuit/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/datum/ui_state/state = GLOB.mech_state)
+/obj/item/radio/exosuit/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/datum/ui_state/state = GLOB.mech_state)
 	. = ..()
 
 /mob/living/heavy_vehicle/proc/become_remote()
@@ -347,7 +339,7 @@
 	dummy.name = dummy.real_name
 	// Give dummy a blank encryption key for later editing if spiderbot
 	if(istype(dummy, /mob/living/simple_animal/spiderbot) && !istype(dummy, /mob/living/simple_animal/spiderbot/ai))
-		dummy.radio.keyslot = new /obj/item/device/encryptionkey
+		dummy.radio.keyslot = new /obj/item/encryptionkey
 	remove_verb(dummy, /mob/living/proc/ventcrawl)
 	remove_verb(dummy, /mob/living/proc/hide)
 	if(dummy_colour)

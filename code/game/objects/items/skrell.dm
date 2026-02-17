@@ -50,11 +50,10 @@
 	icon_state = "starprojection"
 	mouse_opacity = TRUE
 	duration = 30 SECONDS
-	plane = EFFECTS_ABOVE_LIGHTING_PLANE
+	plane = ABOVE_LIGHTING_PLANE
 	light_power = 1
 	light_range = 1
 	light_color = LIGHT_COLOR_HALOGEN
-	z_flags = ZMM_MANGLE_PLANES
 	var/global/image/glow_state
 
 /obj/effect/temp_visual/constellation/Initialize()
@@ -233,9 +232,9 @@
 	desc = "An ear-tag that shows the wearer is loyal to the Nralakk Federation. A small cable travels into the ear canal..."
 	w_class = WEIGHT_CLASS_SMALL
 	slot_flags = SLOT_EARS
-	icon = 'icons/obj/item/skrell/jargtag.dmi'
-	icon_state = "jargtag"
-	item_state = "jargtag"
+	icon = 'icons/obj/item/skrell/nraltag.dmi'
+	icon_state = "nraltag"
+	item_state = "nraltag"
 	contained_sprite = TRUE
 	var/fried = FALSE // Doesn't work anymore
 

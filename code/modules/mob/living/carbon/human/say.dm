@@ -65,6 +65,12 @@
 
 	return ..()
 
+/mob/living/carbon/human/say(message, datum/language/speaking, verb, alt_name, ghost_hearing, whisper, skip_edit)
+	// Messaging the user is handled by the species proc.
+	if(!species.can_speak(src, speaking, message))
+		return FALSE
+	. = ..()
+
 /mob/living/carbon/human/GetVoice()
 	var/voice_sub
 	if(istype(back,/obj/item/rig))
@@ -173,11 +179,11 @@
 
 /mob/living/carbon/human/get_radio()
 	var/list/headsets = list()
-	if(istype(l_ear, /obj/item/device/radio))
+	if(istype(l_ear, /obj/item/radio))
 		headsets["Left Ear"] = l_ear
-	if(istype(r_ear, /obj/item/device/radio))
+	if(istype(r_ear, /obj/item/radio))
 		headsets["Right Ear"] = r_ear
-	if(istype(wrists, /obj/item/device/radio))
+	if(istype(wrists, /obj/item/radio))
 		headsets["Wrist"] = wrists
 
 	if(length(headsets))
@@ -192,46 +198,46 @@
 		return TRUE
 	switch(message_mode)
 		if("intercom")
-			for(var/obj/item/device/radio/intercom/I in view(1))
+			for(var/obj/item/radio/intercom/I in view(1))
 				I.add_fingerprint(src)
 				used_radios += I
 				I.talk_into(src, message, null, verb, speaking)
 		if("headset")
-			var/obj/item/device/radio/R = get_radio()
+			var/obj/item/radio/R = get_radio()
 			if(R)
 				used_radios += R
 				R.talk_into(src, message, null, verb, speaking)
 		if("right ear")
-			var/obj/item/device/radio/R
+			var/obj/item/radio/R
 			var/has_radio = FALSE
-			if(istype(r_ear,/obj/item/device/radio))
+			if(istype(r_ear,/obj/item/radio))
 				R = r_ear
 				has_radio = TRUE
-			if(istype(r_hand, /obj/item/device/radio))
+			if(istype(r_hand, /obj/item/radio))
 				R = r_hand
 				has_radio = TRUE
 			if(has_radio)
 				used_radios += R
 				R.talk_into(src,message,null,verb,speaking)
 		if("left ear")
-			var/obj/item/device/radio/R
+			var/obj/item/radio/R
 			var/has_radio = FALSE
-			if(istype(l_ear, /obj/item/device/radio))
+			if(istype(l_ear, /obj/item/radio))
 				R = l_ear
 				has_radio = TRUE
-			if(istype(l_hand, /obj/item/device/radio))
+			if(istype(l_hand, /obj/item/radio))
 				R = l_hand
 				has_radio = TRUE
 			if(has_radio)
 				used_radios += R
 				R.talk_into(src,message,null,verb,speaking)
 		if("wrist")
-			var/obj/item/device/radio/R
+			var/obj/item/radio/R
 			var/has_radio = FALSE
-			if(istype(wrists,/obj/item/device/radio))
+			if(istype(wrists,/obj/item/radio))
 				R = wrists
 				has_radio = TRUE
-			if(istype(r_hand, /obj/item/device/radio))
+			if(istype(r_hand, /obj/item/radio))
 				R = wrists
 				has_radio = TRUE
 			if(has_radio)
@@ -242,7 +248,7 @@
 			return TRUE
 		else
 			if(message_mode)
-				var/obj/item/device/radio/R = get_radio()
+				var/obj/item/radio/R = get_radio()
 				if(R)
 					used_radios += R
 					R.talk_into(src, message, message_mode, verb, speaking)
@@ -253,7 +259,7 @@
 	return returns
 
 /mob/living/carbon/human/binarycheck()
-	for(var/obj/item/device/radio/headset/dongle in list(l_ear, r_ear))
+	for(var/obj/item/radio/headset/dongle in list(l_ear, r_ear))
 		if(dongle.translate_binary)
 			return TRUE
 	return FALSE

@@ -44,15 +44,15 @@
 	uniform = /obj/item/clothing/under/rank/chief_engineer
 	head = /obj/item/clothing/head/hardhat/white
 	belt = /obj/item/storage/belt/utility/ce
-	id = /obj/item/card/id/silver
+	id = /obj/item/card/id/scc/silver
 	shoes = null
-	r_pocket = /obj/item/device/t_scanner
+	r_pocket = /obj/item/t_scanner
 
-	headset = /obj/item/device/radio/headset/heads/ce
-	bowman = /obj/item/device/radio/headset/heads/ce/alt
-	double_headset = /obj/item/device/radio/headset/alt/double/ce
-	wrist_radio = /obj/item/device/radio/headset/wrist/ce
-	clipon_radio = /obj/item/device/radio/headset/wrist/clip/ce
+	headset = /obj/item/radio/headset/heads/ce
+	bowman = /obj/item/radio/headset/heads/ce/alt
+	double_headset = /obj/item/radio/headset/alt/double/ce
+	wrist_radio = /obj/item/radio/headset/wrist/ce
+	clipon_radio = /obj/item/radio/headset/wrist/clip/ce
 
 	tab_pda = /obj/item/modular_computer/handheld/pda/engineering/ce
 	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/engineering/ce
@@ -114,13 +114,13 @@
 	belt = /obj/item/storage/belt/utility
 	id = /obj/item/card/id/silver
 	shoes = null
-	r_pocket = /obj/item/device/t_scanner
+	r_pocket = /obj/item/t_scanner
 
-	headset = /obj/item/device/radio/headset/headset_eng
-	bowman = /obj/item/device/radio/headset/headset_eng/alt
-	double_headset = /obj/item/device/radio/headset/alt/double/eng
-	wrist_radio = /obj/item/device/radio/headset/wrist/eng
-	clipon_radio = /obj/item/device/radio/headset/wrist/clip/eng
+	headset = /obj/item/radio/headset/headset_eng
+	bowman = /obj/item/radio/headset/headset_eng/alt
+	double_headset = /obj/item/radio/headset/alt/double/eng
+	wrist_radio = /obj/item/radio/headset/wrist/eng
+	clipon_radio = /obj/item/radio/headset/wrist/clip/eng
 
 	tab_pda = /obj/item/modular_computer/handheld/pda/engineering
 	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/engineering
@@ -188,11 +188,11 @@
 	id = /obj/item/card/id/silver
 	shoes = null
 
-	headset = /obj/item/device/radio/headset/headset_eng
-	bowman = /obj/item/device/radio/headset/headset_eng/alt
-	double_headset = /obj/item/device/radio/headset/alt/double/eng
-	wrist_radio = /obj/item/device/radio/headset/wrist/eng
-	clipon_radio = /obj/item/device/radio/headset/wrist/clip/eng
+	headset = /obj/item/radio/headset/headset_eng
+	bowman = /obj/item/radio/headset/headset_eng/alt
+	double_headset = /obj/item/radio/headset/alt/double/eng
+	wrist_radio = /obj/item/radio/headset/wrist/eng
+	clipon_radio = /obj/item/radio/headset/wrist/clip/eng
 
 	backpack = /obj/item/storage/backpack/industrial
 	satchel = /obj/item/storage/backpack/satchel/eng
@@ -209,8 +209,8 @@
 		/obj/item/weldingtool = 1,
 		/obj/item/crowbar = 1,
 		/obj/item/wirecutters = 1,
-		/obj/item/device/t_scanner = 1,
-		/obj/item/device/analyzer = 1,
+		/obj/item/t_scanner = 1,
+		/obj/item/analyzer = 1,
 		/obj/item/pipewrench = 1
 	)
 
@@ -270,11 +270,11 @@
 		/obj/item/stack/cable_coil/random = 1
 	)
 
-	headset = /obj/item/device/radio/headset/headset_eng
-	bowman = /obj/item/device/radio/headset/headset_eng/alt
-	double_headset = /obj/item/device/radio/headset/alt/double/eng
-	wrist_radio = /obj/item/device/radio/headset/wrist/eng
-	clipon_radio = /obj/item/device/radio/headset/wrist/clip/eng
+	headset = /obj/item/radio/headset/headset_eng
+	bowman = /obj/item/radio/headset/headset_eng/alt
+	double_headset = /obj/item/radio/headset/alt/double/eng
+	wrist_radio = /obj/item/radio/headset/wrist/eng
+	clipon_radio = /obj/item/radio/headset/wrist/clip/eng
 
 	backpack = /obj/item/storage/backpack/industrial
 	satchel = /obj/item/storage/backpack/satchel/eng
@@ -301,16 +301,16 @@
 		/obj/item/weldingtool = 1,
 		/obj/item/crowbar = 1,
 		/obj/item/wirecutters = 1,
-		/obj/item/device/t_scanner = 1,
-		/obj/item/device/analyzer = 1,
+		/obj/item/t_scanner = 1,
+		/obj/item/analyzer = 1,
 		/obj/item/pipewrench = 1
 	)
 
-	headset = /obj/item/device/radio/headset/headset_eng
-	bowman = /obj/item/device/radio/headset/headset_eng/alt
-	double_headset = /obj/item/device/radio/headset/alt/double/eng
-	wrist_radio = /obj/item/device/radio/headset/wrist/eng
-	clipon_radio = /obj/item/device/radio/headset/wrist/clip/eng
+	headset = /obj/item/radio/headset/headset_eng
+	bowman = /obj/item/radio/headset/headset_eng/alt
+	double_headset = /obj/item/radio/headset/alt/double/eng
+	wrist_radio = /obj/item/radio/headset/wrist/eng
+	clipon_radio = /obj/item/radio/headset/wrist/clip/eng
 
 	backpack = /obj/item/storage/backpack/industrial
 	satchel = /obj/item/storage/backpack/satchel/eng

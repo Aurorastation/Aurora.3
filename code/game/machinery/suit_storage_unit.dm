@@ -234,7 +234,7 @@
 				protected = 1
 
 	if(!protected)
-		playsound(src.loc, /singleton/sound_category/spark_sound, 75, 1, -1)
+		playsound(src.loc, SFX_SPARKS, 75, 1, -1)
 		to_chat(user, SPAN_WARNING("You try to touch the controls but you get zapped. There must be a short circuit somewhere."))
 		return*/
 	else  //welp, the guy is protected, we can continue
@@ -260,7 +260,7 @@
 				protected = 1
 
 	if(!protected)
-		playsound(src.loc, /singleton/sound_category/spark_sound, 75, 1, -1)
+		playsound(src.loc, SFX_SPARKS, 75, 1, -1)
 		to_chat(user, SPAN_WARNING("You try to touch the controls but you get zapped. There must be a short circuit somewhere."))
 		return*/
 	else
@@ -471,7 +471,7 @@
 /obj/machinery/suit_storage_unit/attackby(obj/item/attacking_item, mob/user)
 	if(!src.ispowered)
 		return TRUE
-	if(attacking_item.isscrewdriver())
+	if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 		src.panelopen = !src.panelopen
 		attacking_item.play_tool_sound(get_turf(src), 100)
 		to_chat(user, SPAN_NOTICE("You [src.panelopen ? "open up" : "close"] the unit's maintenance panel."))

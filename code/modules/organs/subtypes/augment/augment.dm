@@ -3,7 +3,7 @@
 	icon = 'icons/obj/organs/augments.dmi'
 	icon_state = "augment"
 	parent_organ = BP_CHEST
-	organ_tag = "augment"
+	organ_tag = "augment" // All augments are required to have a UNIQUE organ_tag. This is used to check organ stacking.
 	robotic = ROBOTIC_MECHANICAL
 	emp_coeff = 2
 	is_augment = TRUE

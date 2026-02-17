@@ -16,9 +16,6 @@ SUBSYSTEM_DEF(mobs)
 	var/list/greatworms = list()
 	var/list/greatasses = list()
 
-	var/list/ghost_darkness_images = list()	//this is a list of images for things ghosts should still be able to see when they toggle darkness
-	var/list/ghost_sightless_images = list()	//this is a list of images for things ghosts should still be able to see even without ghost sight
-
 	// Devour types (these are typecaches). Only simple_animals check these, other types are handled specially.
 	var/list/mtl_synthetic = list(
 		/mob/living/simple_animal/hostile/hivebot
@@ -83,7 +80,7 @@ SUBSYSTEM_DEF(mobs)
 	//of course, if we haven't resumed, this comparison would be useless, hence we skip it
 	var/list/currentrun = resumed ? (src.currentrun &= (GLOB.mob_list + processing)) : src.currentrun
 
-	var/seconds_per_tick = wait / (1 SECONDS)
+	var/seconds_per_tick = (1 SECONDS) / wait
 
 	while(length(currentrun))
 		var/datum/thing = currentrun[length(currentrun)]

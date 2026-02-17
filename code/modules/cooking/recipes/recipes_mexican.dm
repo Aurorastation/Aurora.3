@@ -78,7 +78,7 @@
 	reagent_mix = RECIPE_REAGENT_REPLACE //Ingredients are mixed together.
 
 /singleton/recipe/hummus
-	appliance = MIX | MICROWAVE
+	appliance = MIX
 	reagents = list(/singleton/reagent/nutriment/garlicsauce = 10, /singleton/reagent/spacespice = 2)
 	fruit = list("chickpeas" = 2)
 	result = /obj/item/reagent_containers/food/snacks/dip/hummus

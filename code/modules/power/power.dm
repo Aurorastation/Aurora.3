@@ -57,6 +57,27 @@
 	else
 		return 0
 
+// Proc: power_wattage_readable()
+// Parameters: 1 (amount - Power in Watts to be converted to W, kW or MW)
+// Description: Helper proc that converts reading in Watts to kW or MW (returns string version of amount parameter)
+/obj/machinery/proc/power_wattage_readable(var/amount = 0)
+	var/units = ""
+	// 10kW and less - Watts
+	if(amount < 10000)
+		units = "W"
+	// 10MW and less - KiloWatts
+	else if(amount < 10000000)
+		units = "kW"
+		amount = (round(amount/100) / 10)
+	// More than 10MW - MegaWatts
+	else
+		units = "MW"
+		amount = (round(amount/10000) / 100)
+	if (units == "W")
+		return "[amount] W"
+	else
+		return "[amount] [units]"
+
 /obj/machinery/power/proc/disconnect_terminal() // machines without a terminal will just return, no harm no fowl.
 	return
 
@@ -84,7 +105,7 @@
 //almost never called, overwritten by all power machines but terminal and generator
 /obj/machinery/power/attackby(obj/item/attacking_item, mob/user)
 
-	if(attacking_item.iscoil())
+	if(attacking_item.tool_behaviour == TOOL_CABLECOIL)
 
 		var/obj/item/stack/cable_coil/coil = attacking_item
 

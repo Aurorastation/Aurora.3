@@ -168,19 +168,22 @@
 	if(istype(spawned_cup) && spawned_cup.reagents)
 		spawned_cup.reagents.set_temperature(T0C + 45)
 
-/datum/gear/chatins
-	display_name = "konyang-cha tins"
-	description = "Tins of tea leaves made by Konyang-cha."
+/datum/gear/teatins
+	display_name = "tea tin selection"
+	description = "A selction of various tins of tea."
 	cost = 1
-	path = /obj/item/storage/box/tea
+	path = /obj/item/storage/box/unique/tea
 
-/datum/gear/chatins/New()
+/datum/gear/teatins/New()
 	..()
-	var/list/chatins = list()
-	chatins["sencha cha-tin"] = /obj/item/storage/box/tea
-	chatins["tieguanyin cha-tin"] = /obj/item/storage/box/tea/tieguanyin
-	chatins["jaekseol cha-tin"] = /obj/item/storage/box/tea/jaekseol
-	gear_tweaks += new /datum/gear_tweak/path(chatins)
+	var/list/teatins = list()
+	teatins["sencha cha-tin"] = /obj/item/storage/box/unique/tea
+	teatins["tieguanyin cha-tin"] = /obj/item/storage/box/unique/tea/tieguanyin
+	teatins["jaekseol cha-tin"] = /obj/item/storage/box/unique/tea/jaekseol
+	teatins["messa's tear tea"] = /obj/item/storage/box/unique/tea/messa
+	teatins["ras'nif tea"] = /obj/item/storage/box/unique/tea/rasnif
+
+	gear_tweaks += new /datum/gear_tweak/path(teatins)
 
 /datum/gear/teapots
 	display_name = "teapots"
@@ -241,6 +244,7 @@
 	banners["banner, Union of Port Antillia"] = /obj/item/flag/portantillia
 	banners["banner, Sovereign Solarian Republic of San Colette"] = /obj/item/flag/sancolette
 	banners["banner, Old Sovereign Solarian Republic of San Colette"] = /obj/item/flag/sancolette/old
+	banners["banner, Sankt Frederick"] = /obj/item/flag/sfk
 	banners["banner, Mictlan"] = /obj/item/flag/mictlan
 	banners["banner, New Hai Phong"] = /obj/item/flag/nhp
 	banners["banner, Silversun"] = /obj/item/flag/silversun
@@ -278,6 +282,7 @@
 	banners["banner, Visegrad"] = /obj/item/flag/visegrad
 	banners["banner, Burzsia"] = /obj/item/flag/burzsia
 	banners["banner, HPS Narrows"] = /obj/item/flag/narrows
+	banners["banner, Zhurong"] = /obj/item/flag/zhurong
 	gear_tweaks += new /datum/gear_tweak/path(banners)
 
 /datum/gear/standard
@@ -290,8 +295,6 @@
 	var/list/standards = list()
 	standards["standard, Strelitz"] = /obj/item/flag/strelitz
 	standards["standard, Volvalaad"] = /obj/item/flag/volvalaad
-	standards["standard, Kazhkz"] = /obj/item/flag/kazhkz
-	standards["standard, Han'san"] = /obj/item/flag/hansan
 	standards["standard, Caladius"] = /obj/item/flag/caladius
 	standards["standard, Zhao"] = /obj/item/flag/zhao
 	gear_tweaks += new /datum/gear_tweak/path(standards)
@@ -342,6 +345,7 @@
 	flags["flag, Union of Port Antillia"] = /obj/item/flag/portantillia/l
 	flags["flag, Sovereign Solarian Republic of San Colette"] = /obj/item/flag/sancolette/l
 	flags["flag, Old Sovereign Solarian Republic of San Colette"] = /obj/item/flag/sancolette/old/l
+	flags["flag, Sankt Frederick"] = /obj/item/flag/sfk/l
 	flags["flag, Mictlan"] = /obj/item/flag/mictlan/l
 	flags["flag, New Hai Phong"] = /obj/item/flag/nhp/l
 	flags["flag, Silversun"] = /obj/item/flag/silversun/l
@@ -379,6 +383,7 @@
 	flags["flag, Visegrad"] = /obj/item/flag/visegrad/l
 	flags["flag, Burzsia"] = /obj/item/flag/burzsia/l
 	flags["flag, HPS Narrows"] = /obj/item/flag/narrows/l
+	flags["flag, Zhurong"] = /obj/item/flag/zhurong/l
 	gear_tweaks += new /datum/gear_tweak/path(flags)
 
 /datum/gear/towel
@@ -450,7 +455,7 @@
 
 /datum/gear/gadbook
 	display_name = "gadpathurian morale manual"
-	path = /obj/item/device/versebook/gadpathur
+	path = /obj/item/versebook/gadpathur
 	origin_restriction = list(/singleton/origin_item/origin/gadpathur)
 
 /datum/gear/aurora_miniature
@@ -461,16 +466,16 @@
 /datum/gear/instruments
 	display_name = "instrument selection"
 	description = "A selection of instruments for the musically inclined."
-	path = /obj/item/device/synthesized_instrument
+	path = /obj/item/synthesized_instrument
 	allowed_roles = list("Off-Duty Crew Member", "Passenger")
 
 /datum/gear/instruments/New()
 	..()
 	var/list/instruments = list()
-	instruments["guitar"] = /obj/item/device/synthesized_instrument/guitar
-	instruments["polyguitar"] = /obj/item/device/synthesized_instrument/guitar/multi
-	instruments["violin"] = /obj/item/device/synthesized_instrument/violin
-	instruments["Omnitrumpet"] = /obj/item/device/synthesized_instrument/trumpet
+	instruments["guitar"] = /obj/item/synthesized_instrument/guitar
+	instruments["polyguitar"] = /obj/item/synthesized_instrument/guitar/multi
+	instruments["violin"] = /obj/item/synthesized_instrument/violin
+	instruments["Omnitrumpet"] = /obj/item/synthesized_instrument/trumpet
 	gear_tweaks += new /datum/gear_tweak/path(instruments)
 
 /datum/gear/lore_radio
@@ -491,3 +496,30 @@
 		plants[initial(plant.name)] = plant_type
 	sortTim(plants, GLOBAL_PROC_REF(cmp_text_asc))
 	gear_tweaks += new /datum/gear_tweak/path(plants)
+
+/datum/gear/candles
+	display_name = "candle pack"
+	description = "A pack of red candles."
+	cost = 1
+	path = /obj/item/storage/box/fancy/candle_box
+
+/datum/gear/mre
+	display_name = "mre selection"
+	description = "A selection of different MREs."
+	cost = 2
+	path = /obj/item/storage/box/fancy/mre
+
+/datum/gear/mre/New()
+	..()
+	var/list/mres = list()
+	mres["meat pizza"] = /obj/item/storage/box/fancy/mre
+	mres["margherita pizza"] = /obj/item/storage/box/fancy/mre/menu2
+	mres["vegetable pizza"] = /obj/item/storage/box/fancy/mre/menu3
+	mres["hamburger"] = /obj/item/storage/box/fancy/mre/menu4
+	mres["taco"] = /obj/item/storage/box/fancy/mre/menu5
+	mres["meatbread"] = /obj/item/storage/box/fancy/mre/menu6
+	mres["salad"] = /obj/item/storage/box/fancy/mre/menu7
+	mres["hot chili"] = /obj/item/storage/box/fancy/mre/menu8
+	mres["boiled rice"] = /obj/item/storage/box/fancy/mre/menu9
+	mres["protein"] = /obj/item/storage/box/fancy/mre/menu10
+	gear_tweaks += new /datum/gear_tweak/path(mres)

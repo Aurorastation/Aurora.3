@@ -7,18 +7,21 @@
 	matter = list(DEFAULT_WALL_MATERIAL = 50, MATERIAL_GLASS = 50)
 
 	req_access = list(ACCESS_ENGINE)
-
-	var/secure = FALSE //if set, then wires will be randomized and bolts will drop if the door is broken
+	/// If set, then wires will be randomized and bolts will drop if the door is broken
+	var/secure = FALSE
 	var/list/conf_access
-	var/one_access = FALSE //if set to TRUE, door would receive req_one_access instead of req_access
+	/// If set to TRUE, door would receive req_one_access instead of req_access
+	var/one_access = FALSE
 	var/last_configurator
 	var/locked = TRUE
-	var/is_installed = FALSE // no double-spending
+	/// No double-spending
+	var/is_installed = FALSE
 	var/unres_dir = null
 
 /obj/item/airlock_electronics/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()
-	. += "Access control can be configured by using your ID on the circuitboard to unlock it, then using the circuitboard on yourself."
+	. += "ALT-click the [src] to lock or unlock it (if you have the appropriate ID access)."
+	. += "Once unlocked, use the airlock electronics on yourself to program different access rights."
 	. += "You can copy the settings from one circuitboard to another by clicking the source board with the target board. Be mindful of directional access settings!"
 
 /obj/item/airlock_electronics/attack_self(mob/user)
@@ -131,17 +134,24 @@
 		src.last_configurator = A.last_configurator
 		to_chat(user, SPAN_NOTICE("Configuration settings copied successfully."))
 		return TRUE
-	else if(attacking_item.GetID())
-		var/obj/item/card/id/I = attacking_item.GetID()
-		if(check_access(I))
-			locked = !locked
-			last_configurator = I.registered_name
-			to_chat(user, SPAN_NOTICE("You swipe your ID over \the [src], [locked ? "locking" : "unlocking"] it."))
-		else
-			to_chat(user, SPAN_WARNING("Access denied."))
-		return TRUE
 	else
 		return ..()
+
+/obj/item/airlock_electronics/AltClick(mob/user)
+	if(Adjacent(user))
+		add_fingerprint(user)
+		if(allowed(user))
+			locked = !locked
+			if(locked)
+				playsound(src, 'sound/machines/terminal/terminal_button03.ogg', 35, FALSE)
+			else
+				playsound(src, 'sound/machines/terminal/terminal_button01.ogg', 35, FALSE)
+			balloon_alert(user, locked ? "locked" : "unlocked")
+		else
+			to_chat(user, SPAN_WARNING("Access denied."))
+			playsound(src, 'sound/machines/terminal/terminal_error.ogg', 25, FALSE)
+			balloon_alert(user, "access denied!")
+		return
 
 /obj/item/airlock_electronics/secure
 	name = "secure airlock electronics"

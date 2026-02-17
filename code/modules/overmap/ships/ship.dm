@@ -74,6 +74,16 @@
 	if(LAZYLEN(colors))
 		color = pick(colors)
 
+/// Parent object for stationary objects that still need to access ship systems (such as the Sensor Relays)
+/obj/effect/overmap/visitable/ship/stationary
+	name = "generic station"
+	desc = "A generic space station, see if you can find the other twelve."
+	obfuscated_name = "unidentified stationary object"
+	unknown_id = "Unknown artificial structure"
+	static_vessel = TRUE
+	propulsion = "None equipped, flight incapable"
+	halted = TRUE // Cannot fly under any circumstances
+
 /obj/effect/overmap/visitable/ship/find_z_levels(var/fore_direction)
 	. = ..(fore_dir)
 
@@ -98,6 +108,8 @@
 
 /obj/effect/overmap/visitable/ship/get_scan_data(mob/user)
 	. = ..()
+	if (static_vessel) // full data already acquired from parent proc
+		return
 	if(!is_still())
 		. += "<br>Heading: [dir2angle(get_heading())], speed [get_speed() * 1000]"
 	if(instant_contact)
@@ -176,36 +188,50 @@
 /obj/effect/overmap/visitable/ship/proc/get_brake_path()
 	if(!get_acceleration())
 		return INFINITY
-	if(is_still())
+
+	if(is_still() || !burn_delay || !get_speed())
 		return 0
-	if(!burn_delay)
-		return 0
-	if(!get_speed())
-		return 0
-	var/num_burns = get_speed()/get_acceleration() + 2 //some padding in case acceleration drops form fuel usage
-	var/burns_per_grid = 1/ (burn_delay * get_speed())
-	return round(num_burns/burns_per_grid)
+	var/num_burns = get_speed() / get_acceleration() + 2 // some padding in case acceleration drops form fuel usage
+	var/burns_per_grid = 1 / (burn_delay * get_speed())
+	return round(num_burns / burns_per_grid)
 
 /obj/effect/overmap/visitable/ship/proc/decelerate()
-	if(((speed[1]) || (speed[2])) && can_burn())
-		if (speed[1])
-			adjust_speed(-SIGN(speed[1]) * min(get_burn_acceleration(),abs(speed[1])), 0)
-		if (speed[2])
-			adjust_speed(0, -SIGN(speed[2]) * min(get_burn_acceleration(),abs(speed[2])))
-		last_burn = world.time
+	if((!speed[1] && !speed[2]) || !can_burn())
+		return
+
+	// Pythagorean theorem gives us the magnitude of the ship's velocity, which is always an absolute value.
+	// This is also the mathematical definition for Vector.size
+	var/magnitude_velocity = ((speed[1] ** 2) + (speed[2] **2)) ** (1/2)
+
+	// Get the magnitude of our desired change in velocity
+	var/alpha = min(get_burn_acceleration(), magnitude_velocity)
+
+	// First we "Normalize" the current velocity to get the direction without a distance
+	// Then we take the exact negative of this direction to get its true opposite
+	// And finally multiply by the magnitude of our desired delta_v to get the true delta_v
+	var/delta_x = -(speed[1] / magnitude_velocity) * alpha
+	var/delta_y = -(speed[2] / magnitude_velocity) * alpha
+
+	adjust_speed(delta_x, delta_y)
+	last_burn = world.time
 
 /obj/effect/overmap/visitable/ship/proc/accelerate(direction, accel_limit)
-	if(can_burn())
-		last_burn = world.time
-		var/acceleration = min(get_burn_acceleration(), accel_limit)
-		if(direction & EAST)
-			adjust_speed(acceleration, 0)
-		if(direction & WEST)
-			adjust_speed(-acceleration, 0)
-		if(direction & NORTH)
-			adjust_speed(0, acceleration)
-		if(direction & SOUTH)
-			adjust_speed(0, -acceleration)
+	if(!can_burn())
+		return
+
+	last_burn = world.time
+
+	// Get our "Alpha" value as the ship's desired acceleration (change in Velocity)
+	var/acceleration = min(get_burn_acceleration(), accel_limit)
+
+	// Convert from cardinal directions to an angle (in degrees)
+	// !This is absolutely terrible and should at some point be swapped to Radians
+	// !But for now it's "Okay" until overmap ships are updated to work on time differentials properly.
+	var/theta = dir2degree(direction)
+
+	// This comes from the actual definition of a Vector2d, <Acos(theta), Asin(theta)>, where theta is an Angle, and A is a constant multiplier that traditionally represents distance.
+	// In this case A is our DeltaVelocity, or Acceleration.
+	adjust_speed(acceleration * cos(theta), acceleration * sin(theta))
 
 /obj/effect/overmap/visitable/ship/process()
 	..()

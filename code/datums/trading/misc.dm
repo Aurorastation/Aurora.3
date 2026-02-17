@@ -64,7 +64,7 @@
 		/mob/living/simple_animal/corgi/fox              = TRADER_THIS_TYPE,
 		/mob/living/simple_animal/hostile/retaliate/goat = TRADER_THIS_TYPE,
 		/mob/living/simple_animal/hostile/commanded/dog  = TRADER_ALL,
-		/obj/item/device/dociler                         = TRADER_THIS_TYPE
+		/obj/item/dociler                         = TRADER_THIS_TYPE
 	)
 
 /datum/trader/prank_shop
@@ -285,7 +285,7 @@
 		/obj/item/clothing/shoes/tajara/fancy	= TRADER_THIS_TYPE,
 		/obj/item/clothing/head/beret/tajaran/nka/officer	= TRADER_THIS_TYPE,
 		/obj/item/clothing/shoes/tajara/fancy	= TRADER_THIS_TYPE,
-		/obj/item/device/versebook/nka			= TRADER_THIS_TYPE,
+		/obj/item/versebook/nka			= TRADER_THIS_TYPE,
 		/obj/item/clothing/wrists/watch/pocketwatch/adhomai			= TRADER_THIS_TYPE,
 		/obj/item/clothing/head/helmet/amohda			= TRADER_THIS_TYPE,
 		/obj/item/clothing/suit/armor/amohda			= TRADER_THIS_TYPE,

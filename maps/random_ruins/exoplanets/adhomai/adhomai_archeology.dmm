@@ -3,7 +3,7 @@
 /obj/structure/table/standard,
 /obj/item/paper_bin,
 /obj/item/pen/black,
-/obj/item/device/flashlight/lamp{
+/obj/item/flashlight/lamp{
 	pixel_y = 15
 	},
 /turf/simulated/floor/exoplanet/carpet/rubber,
@@ -130,9 +130,9 @@
 /area/adhomai_archeology)
 "z" = (
 /obj/structure/closet/crate,
-/obj/item/device/flashlight/lantern,
-/obj/item/device/flashlight/lantern,
-/obj/item/device/flashlight/lantern,
+/obj/item/flashlight/lantern,
+/obj/item/flashlight/lantern,
+/obj/item/flashlight/lantern,
 /obj/machinery/light/small{
 	dir = 8
 	},
@@ -157,9 +157,9 @@
 /area/adhomai_archeology)
 "F" = (
 /obj/structure/closet/crate/secure/large,
-/obj/item/storage/box/dynamite,
-/obj/item/storage/box/dynamite,
-/obj/item/storage/box/dynamite,
+/obj/item/storage/box/unique/dynamite,
+/obj/item/storage/box/unique/dynamite,
+/obj/item/storage/box/unique/dynamite,
 /turf/simulated/floor/exoplanet/carpet/rubber,
 /area/adhomai_archeology)
 "H" = (

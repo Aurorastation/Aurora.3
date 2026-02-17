@@ -77,10 +77,9 @@
 	return
 
 /obj/item/paper_bundle/proc/insert_sheet_at(mob/user, var/index, obj/item/sheet)
-	if(istype(sheet, /obj/item/paper))
-		to_chat(user, SPAN_NOTICE("You add [(sheet.name == "paper") ? "the paper" : sheet.name] to [(src.name == "paper bundle") ? "the paper bundle" : src.name]."))
-	else if(istype(sheet, /obj/item/photo))
-		to_chat(user, SPAN_NOTICE("You add [(sheet.name == "photo") ? "the photo" : sheet.name] to [(src.name == "paper bundle") ? "the paper bundle" : src.name]."))
+	if(!is_type_in_list(sheet, list(/obj/item/paper, /obj/item/photo)))
+		return
+	to_chat(user, SPAN_NOTICE("You stick \the [sheet] to \the [src]."))
 
 	user.drop_from_inventory(sheet,src)
 
@@ -194,7 +193,7 @@
 			var/obj/P = pages[page]
 			page++
 			var/obj/A = pages[page]
-			playsound(src.loc, /singleton/sound_category/page_sound, 50, 1)
+			playsound(src.loc, SFX_PAGE_TURN, 50, 1)
 			if(A.type != P.type)
 				show_browser(usr, null, "window=[name]")
 	if(href_list["prev_page"])
@@ -202,7 +201,7 @@
 			var/obj/P = pages[page]
 			page--
 			var/obj/A = pages[page]
-			playsound(src.loc, /singleton/sound_category/page_sound, 50, 1)
+			playsound(src.loc, SFX_PAGE_TURN, 50, 1)
 			if(A.type != P.type)
 				show_browser(usr, null, "window=[name]")
 	if(href_list["remove"])

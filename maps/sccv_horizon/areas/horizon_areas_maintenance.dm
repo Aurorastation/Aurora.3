@@ -2,16 +2,19 @@
 /area/horizon/maintenance
 	name = "Horizon - Maintenance (PARENT AREA - DON'T USE)"
 	icon_state = "maintenance"
-	area_flags = AREA_FLAG_RAD_SHIELDED | AREA_FLAG_HIDE_FROM_HOLOMAP
+	area_flags = AREA_FLAG_RAD_SHIELDED | AREA_FLAG_HIDE_FROM_HOLOMAP | AREA_FLAG_PREVENT_PERSISTENT_TRASH
 	sound_environment = SOUND_AREA_TUNNEL_ENCLOSED
 	turf_initializer = new /datum/turf_initializer/maintenance()
 	area_blurb = "Scarcely lit, cramped, and filled with stale, dusty air. Around you hisses compressed air through the pipes, a buzz of electrical charge through the wires, and muffled rumbles of the hull settling. This place may feel alien compared to the interior of the ship and is a place where one could get lost or badly hurt, but some may find the isolation comforting."
-	area_blurb_category = "maint"
 	ambience = AMBIENCE_MAINTENANCE
 	department = LOC_MAINTENANCE
 
 /area/horizon/maintenance/deck_1
 	horizon_deck = 1
+
+/area/horizon/maintenance/deck_1/atmos_crosser
+	name = "Atmospherics Cross Corridor"
+	location_ns = LOC_AFT
 
 /area/horizon/maintenance/deck_1/main/starboard
 	name = "Primary Maintenance Conduit"
@@ -20,6 +23,9 @@
 /area/horizon/maintenance/deck_1/main/port
 	name = "Primary Maintenance Conduit"
 	location_ew = LOC_PORT
+
+/area/horizon/maintenance/deck_1/main/port/shortcut
+	name = "Maintenance Conduit Access"
 
 /area/horizon/maintenance/deck_1/main/interstitial
 	name = "Primary Maintenance Conduit"
@@ -44,6 +50,10 @@
 /area/horizon/maintenance/deck_1/operations/starboard/far
 	name = "Operations Maintenance"
 	location_ew = LOC_STARBOARD_FAR
+
+/area/horizon/maintenance/deck_1/medical/cryo
+	name = "Cryogenics Control"
+	location_ew = LOC_AMIDSHIPS
 
 /area/horizon/maintenance/deck_1/workshop
 	name = "Auxiliary Engineering Maintenance"
@@ -75,10 +85,19 @@
 /area/horizon/maintenance/deck_2
 	horizon_deck = 2
 
+/area/horizon/maintenance/deck_2/main/starboard
+	name = "Primary Maintenance Conduit"
+	location_ew = LOC_STARBOARD
+
+/area/horizon/maintenance/deck_2/cryo
+	name = "Cryogenics Control Overlook"
+	location_ew = LOC_STARBOARD
+
 /area/horizon/maintenance/deck_2/service/starboard
 	name = "Service Maintenance"
 	location_ew = LOC_STARBOARD
 	location_ns = LOC_FORE
+	hostile_events = FALSE
 
 /area/horizon/maintenance/deck_2/service/port
 	name = "Service Maintenance"
@@ -107,6 +126,24 @@
 
 /area/horizon/maintenance/deck_2/cargo_compartment
 	name = "Auxiliary Cargo Maintenance"
+
+/area/horizon/maintenance/deck_2/elevator
+	name = "Elevator Maintenance"
+
+/area/horizon/maintenance/deck_2/central_ring
+	name = "Central Ring Maintenance"
+
+/area/horizon/maintenance/deck_2/main
+	name = "Primary Maintenance Conduit"
+	location_ew = LOC_STARBOARD_FAR
+
+/area/horizon/maintenance/deck_2/main/starboard
+	name = "Primary Maintenance Conduit Overlook"
+	location_ew = LOC_STARBOARD
+
+/area/horizon/maintenance/deck_2/operations
+	name = "Operations Maintenance"
+	location_ew = LOC_STARBOARD
 
 /area/horizon/maintenance/deck_2/wing/starboard
 	name = "Wing Frame Interior"
@@ -148,6 +185,10 @@
 /area/horizon/maintenance/deck_3
 	horizon_deck = 3
 
+/area/horizon/maintenance/deck_3/cafe
+	name = "Cafe Maintenance"
+	hostile_events = FALSE
+
 /area/horizon/maintenance/deck_3/aft/holodeck
 	name = "Holodeck Maintenance"
 	location_ew = LOC_STARBOARD
@@ -186,6 +227,17 @@
 	location_ew = LOC_STARBOARD
 	location_ns = LOC_FORE
 
+/area/horizon/maintenance/deck_3/auxatmos
+	name = "Auxiliary Atmospherics"
+	subdepartment = SUBLOC_ATMOS
+	location_ew = LOC_PORT
+
+/area/horizon/maintenance/deck_3/crewlounge
+	name = "Crew Lounge Maintenance"
+	location_ew = LOC_STARBOARD
+	location_ns = LOC_FORE
+	hostile_events = FALSE
+
 /// SUBSTATIONS (Subtype of maint)
 /area/horizon/maintenance/substation
 	name = "Substation"
@@ -193,7 +245,6 @@
 	sound_environment = SOUND_AREA_SMALL_ENCLOSED
 	ambience = AMBIENCE_SUBSTATION
 	area_blurb = "The hum of the substation's machinery fills the room, holding equipment made to transform voltage and manage power supply to various rooms, and to act as an emergency battery. In comparison to the maintenance tunnels, these stations are far less dusty."
-	area_blurb_category = "substation"
 
 /// Engineering (Main)
 /area/horizon/maintenance/substation/engineering

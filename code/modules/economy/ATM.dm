@@ -41,12 +41,12 @@
 		set_light(FALSE)
 		return
 
-	var/mutable_appearance/screen_overlay = mutable_appearance(icon, "atm-active", plane = EFFECTS_ABOVE_LIGHTING_PLANE)
+	var/mutable_appearance/screen_overlay = mutable_appearance(icon, "atm-active", plane = ABOVE_LIGHTING_PLANE)
 	AddOverlays(screen_overlay)
 	set_light(1.4, 1, COLOR_CYAN)
 
 	if(held_card)
-		var/mutable_appearance/card_overlay = mutable_appearance(icon, "atm-cardin", plane = EFFECTS_ABOVE_LIGHTING_PLANE)
+		var/mutable_appearance/card_overlay = mutable_appearance(icon, "atm-cardin", plane = ABOVE_LIGHTING_PLANE)
 		AddOverlays(card_overlay)
 
 /obj/machinery/atm/process()
@@ -66,7 +66,7 @@
 
 	for(var/obj/item/spacecash/S in src)
 		S.forceMove(src.loc)
-		playsound(loc, /singleton/sound_category/print_sound, 50, 1)
+		playsound(loc, SFX_PRINT, 50, 1)
 
 /obj/machinery/atm/emag_act(var/remaining_charges, var/mob/user)
 	if(emagged)
@@ -107,7 +107,7 @@
 			var/obj/item/spacecash/cash = attacking_item
 			//consume the money
 			authenticated_account.money += cash.worth
-			playsound(loc, /singleton/sound_category/print_sound, 50, 1)
+			playsound(loc, SFX_PRINT, 50, 1)
 
 			//create a transaction log entry
 			var/datum/transaction/T = new()
@@ -306,7 +306,7 @@
 
 		if("balance_statement")
 			if(authenticated_account)
-				var/obj/item/paper/R = new()
+				var/obj/item/paper/notepad/receipt/R = new()
 				var/pname = "Account balance: [authenticated_account.owner_name]"
 				var/info = "<b>Idris Automated Teller Account Statement</b><br><br>"
 				info += "<i>Account holder:</i> [authenticated_account.owner_name]<br>"
@@ -318,21 +318,22 @@
 
 				//stamp the paper
 				var/image/stampoverlay = image('icons/obj/bureaucracy.dmi')
-				stampoverlay.icon_state = "paper_stamp-cent"
+				stampoverlay.icon_state = "paper_stamp-hop"
 				if(!R.stamped)
 					R.stamped = new
 				R.stamped += /obj/item/stamp
 				R.AddOverlays(stampoverlay)
 				R.stamps += "<HR><i>This paper has been stamped by the Automatic Teller Machine.</i>"
+				R.ripped = TRUE
 				print(R, user = usr)
 
 				release_held_id(usr) // printing ends the ATM session similar to real life + prevents spam
 				. = TRUE
 
-			playsound(loc, /singleton/sound_category/print_sound, 50, 1)
+			playsound(loc, SFX_PRINT, 50, 1)
 		if ("print_transaction")
 			if(authenticated_account)
-				var/obj/item/paper/R = new()
+				var/obj/item/paper/notepad/receipt/R = new()
 				var/pname = "Transaction logs: [authenticated_account.owner_name]"
 				var/info = "<b>Transaction logs</b><br>"
 				info += "<i>Account holder:</i> [authenticated_account.owner_name]<br>"
@@ -369,9 +370,10 @@
 				R.stamped += /obj/item/stamp
 				R.AddOverlays(stampoverlay)
 				R.stamps += "<HR><i>This paper has been stamped by the Automatic Teller Machine.</i>"
+				R.ripped = TRUE
 				print(R, user = usr)
 
-			playsound(loc, /singleton/sound_category/print_sound, 50, 1)
+			playsound(loc, SFX_PRINT, 50, 1)
 			release_held_id(usr) // printing ends the ATM session similar to real life + prevents spam
 			. = TRUE
 

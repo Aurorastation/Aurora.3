@@ -5,30 +5,40 @@
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	pass_flags = PASSTABLE | PASSGRILLE
 
-/obj/effect/effect/water/New(loc)
-	..()
+/obj/effect/effect/water/Initialize()
+	. = ..()
 	QDEL_IN(src, 15 SECONDS)	// In case whatever made it forgets to delete it
 
+/obj/effect/effect/water/Destroy()
+	reagents = null
+	return ..()
+
 /obj/effect/effect/water/proc/set_color() // Call it after you move reagents to it
-	icon += reagents.get_color()
+	if(!reagents)
+		return
+	var/reagent_color = reagents.get_color()
+	if(reagent_color)
+		icon += reagent_color
 
 /obj/effect/effect/water/proc/set_up(var/turf/target, var/step_count = 5, var/delay = 5, var/lifespan = 10)
-	if(!target)
+	if(!target || QDELETED(src))
 		return
 	for(var/i = 1 to step_count)
-		if(!loc)
+		if(QDELETED(src) || !loc)
 			return
 		step_towards(src, target)
 		var/turf/T = get_turf(src)
 		if(T && reagents)
-
 			if(!wet_things(T))
 				break
-
 			if(T == get_turf(target))
 				break
 		sleep(delay)
-	if(length(reagents))
+
+	if(QDELETED(src))
+		return
+
+	if(reagents && reagents.total_volume)
 		var/mob/M = locate() in get_turf(src)
 		if(M)
 			reagents.trans_to(M, reagents.total_volume * 0.75)
@@ -45,9 +55,8 @@
 /obj/effect/effect/water/proc/wet_things(var/turf/T)
 	SHOULD_NOT_SLEEP(TRUE)
 
-	if (!reagents || reagents.total_volume <= 0)
+	if (QDELETED(src) || !reagents || reagents.total_volume <= 0)
 		return FALSE
-
 
 	reagents.touch_turf(T)
 	var/list/mobshere = list()
