@@ -7,8 +7,11 @@ ABSTRACT_TYPE(/moodlet)
 	/**
 	 * How much this moodlet modifies its owner's morale by.
 	 * This is simple summed exactly once when the moodlet is created.
-	 * If anything needs to change the value of a moodlet, they have to do so by calling set_moodlet().
+	 * If anything needs to Set the value of a moodlet, they have to do so by calling set_moodlet().
 	 * You may only Get this value by calling get_morale_modifier().
+	 *
+	 * This is similar to { get; private set; }. Under no circumstances are outside functions ever allowed to directly change this var because other vars depend on it.
+	 * But there are public procs available to interact with it which obey its own internal rules.
 	 */
 	VAR_PRIVATE/morale_modifier = 0.0 // Positive and negative floating points are allowed.
 
