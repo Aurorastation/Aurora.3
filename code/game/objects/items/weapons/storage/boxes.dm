@@ -500,12 +500,16 @@
 	illustration = "firingpin"
 	starts_with = list(/obj/item/firing_pin = 2, /obj/item/firing_pin/access = 2, /obj/item/firing_pin/implant/loyalty = 2, /obj/item/firing_pin/psionic = 1, /obj/item/firing_pin/dna = 1)
 
-/obj/item/storage/box/psireceiver
-	name = "box of psionic receivers"
-	desc = "A box of psionic receivers, which can be surgically implanted to act as a replacement for an underdeveloped or non-existent zona bovinae. This one has a large sticker on the side reading FOR RESEARCH USE ONLY."
+/obj/item/storage/box/unique/freezer/organcooler/psireceiver
+	name = "psionic receivers cooler"
+	desc = "A cooling box for psionic receivers, which can be surgically implanted to act as a replacement for an underdeveloped or non-existent zona bovinae. This one has a large sticker on the side reading FOR RESEARCH USE ONLY."
 	color = COLOR_PURPLE_GRAY
 	illustration = "implant"
 	starts_with = list(/obj/item/organ/internal/augment/bioaug/psi = 4)
+	can_hold = list(
+		/obj/item/organ/internal/augment/bioaug/psi
+	)
+	storage_slots = 4
 
 /obj/item/storage/box/tethers
 	name = "box of tethering devices"

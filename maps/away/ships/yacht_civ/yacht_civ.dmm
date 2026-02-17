@@ -4865,7 +4865,7 @@
 /obj/item/clothing/pants/jeans{
 	pixel_y = 4
 	},
-/obj/item/clothing/pants/white,
+/obj/item/clothing/pants/black,
 /obj/item/clothing/pants/skirt/high{
 	color = "#4B381D"
 	},
@@ -4898,7 +4898,7 @@
 /obj/machinery/alarm/west{
 	req_one_access = null
 	},
-/obj/item/clothing/pants/tan,
+/obj/item/clothing/pants/black,
 /obj/item/clothing/pants/tailoredjeans{
 	color = "#2C3A7F";
 	pixel_y = 3

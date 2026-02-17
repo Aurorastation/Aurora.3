@@ -995,7 +995,9 @@
 /datum/species/proc/handle_stance_damage(var/mob/living/carbon/human/H, var/damage_only = FALSE)
 	var/static/support_limbs = list(
 		BP_L_LEG = BP_R_LEG,
-		BP_L_FOOT = BP_R_FOOT
+		BP_L_FOOT = BP_R_FOOT,
+		BP_R_LEG = BP_L_LEG,
+		BP_R_FOOT = BP_L_FOOT
 	)
 
 	var/has_opposite_limb = FALSE

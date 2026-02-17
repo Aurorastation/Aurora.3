@@ -140,7 +140,9 @@
 		/obj/item/toy/balloon/bat = 1,
 		/obj/item/toy/balloon/ghost = 1,
 		/obj/item/toy/balloon/xmastree = 1,
-		/obj/item/toy/balloon/candycane = 1
+		/obj/item/toy/balloon/candycane = 1,
+		/obj/item/toy/balloon/heart/red = 2,
+		/obj/item/toy/balloon/heart/pink = 2
 	)
 
 /obj/random/desktoy

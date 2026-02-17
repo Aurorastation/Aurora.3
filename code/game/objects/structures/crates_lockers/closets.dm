@@ -570,11 +570,10 @@
 /obj/structure/closet/relaymove(mob/living/user, direction)
 	. = ..()
 
-	if(user.stat || !isturf(loc))
+	if(user.stat || !isturf(loc) || user.loc != src || open())
 		return
 
-	if(!open())
-		to_chat(user, SPAN_NOTICE("It won't budge!"))
+	to_chat(user, SPAN_NOTICE("It won't budge!"))
 
 /obj/structure/closet/attack_hand(mob/user as mob)
 	add_fingerprint(user)

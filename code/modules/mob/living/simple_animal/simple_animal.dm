@@ -26,7 +26,7 @@
 	/// We only try to show a gibbing animation if this exists
 	var/icon_gib = null
 
-	appearance_flags = KEEP_TOGETHER
+	appearance_flags = KEEP_TOGETHER | DEFAULT_APPEARANCE_FLAGS | TILE_BOUND | LONG_GLIDE
 
 	/// Blood colour for impact visuals
 	var/blood_type = COLOR_HUMAN_BLOOD

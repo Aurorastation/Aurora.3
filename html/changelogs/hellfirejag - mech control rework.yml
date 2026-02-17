@@ -1,0 +1,6 @@
+author: Hellfirejag
+delete-after: True
+changes:
+  - rscadd: "Reworked mech controls to be Battletech-style. W and S are Forward and Reverse throttle, while A and D rotate the mech left and right. Mechs have different forward and reverse speeds based on their chassis. When reversing, your faced direction doesn't change."
+  - rscadd: "Reworked leg damage for mechs. A mech's movement speeds are reduced by up to a certain amount based on their percentage of damage taken. Larger legs can generally take more of a beating before they slow down too much."
+  - rscadd: "Mechs can now strafe left and right with the Q and E keys respectively."

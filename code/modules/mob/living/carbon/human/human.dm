@@ -758,7 +758,6 @@
 					var/message = "<b>Medical Records: [R.name]</b>\n\n" \
 						+ "<b>Name:</b> [R.name] <b>Blood Type:</b> [R.medical.blood_type]\n" \
 						+ "<b>DNA:</b> [R.medical.blood_dna]\n" \
-						+ "<b>Disabilities:</b> [R.medical.disabilities]\n" \
 						+ "<b>Notes:</b> [R.medical.notes]\n" \
 						+ "<a href='byond://?src=[REF(src)];medrecordComment=`'>\[View Comment Log\]</a>"
 					to_chat(usr, EXAMINE_BLOCK_DEEP_CYAN(message))
@@ -1466,7 +1465,7 @@
 		self = 1
 
 	if ((src.species.flags & NO_BLOOD) || (status_flags & FAKEDEATH))
-		to_chat(usr, SPAN_WARNING(self ? "You have no pulse." : "[src] has no pulse!"))
+		to_chat(usr, SPAN_WARNING("[self ? "You have" : "[src] has"] no pulse!"))
 		return
 
 	if(!self)

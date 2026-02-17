@@ -233,7 +233,7 @@
 
 /obj/structure/closet/crate/secure/gear_loadout/frontier_cowboys/fill()
 	for(var/i in 1 to 6)
-		var/obj/item/clothing/pants/shorts/khaki/pants = new(src)
+		var/obj/item/clothing/pants/shorts/black/pants = new(src)
 		var/obj/item/clothing/under/dressshirt/rolled/shirt = new(src)
 		var/obj/item/clothing/accessory/chaps/chaps = new(src)
 		var/obj/item/clothing/accessory/suspenders/suspenders = new(src)
@@ -255,7 +255,7 @@
 		new /obj/item/gun/projectile/shotgun/pump/lever_action(src)
 
 /obj/structure/closet/crate/secure/gear_loadout/frontier_cowboys/single/fill()
-	var/obj/item/clothing/pants/shorts/khaki/pants = new(src)
+	var/obj/item/clothing/pants/shorts/black/pants = new(src)
 	var/obj/item/clothing/under/dressshirt/rolled/shirt = new(src)
 	var/obj/item/clothing/accessory/chaps/chaps = new(src)
 	var/obj/item/clothing/accessory/suspenders/suspenders = new(src)
