@@ -4,7 +4,7 @@ $phone-button-width: 90px;
 $phone-button-height: 45px;
 $phone-button-spacing: 0.5rem;
 
-.Stack__item.comm-contacts:nth-child(odd):not(:only-child) {
+.LabeledList__row.comm-contact:nth-child(odd):not(:only-child) {
   background-color: lighten(Section.$background-color, 25%);
 }
 

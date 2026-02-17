@@ -59,7 +59,7 @@ export const CommunicatorPhoneTab = (props, context) => {
     // TODO: Real styling to make this look better
     <Flex direction="column" justify="space-around" height="100%">
       <Flex.Item grow>
-        <FriendsList friends={data.friendsList} />
+        <FriendsList />
       </Flex.Item>
       <Flex.Item>
         <Divider />
@@ -104,18 +104,17 @@ export const CommunicatorPhoneTab = (props, context) => {
               </Button>
             </Stack.Item>
             <Stack.Item>
-              <Button
-                icon="comment-alt"
-                fluid
-              >
+              <Button icon="comment-alt" fluid>
                 Message
               </Button>
             </Stack.Item>
             <Stack.Item>
               <Button
-                style={{ "width": "auto" }}
+                style={{ width: 'auto' }}
                 icon="delete-left"
-                onClick={() => setTargetAddress(FormatAddress(targetAddress.slice(0, -1)))}
+                onClick={() =>
+                  setTargetAddress(FormatAddress(targetAddress.slice(0, -1)))
+                }
               />
             </Stack.Item>
           </Stack>

@@ -1389,6 +1389,7 @@
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 1
 	},
+/obj/item/card/id/captains_spare,
 /turf/simulated/floor/tiled,
 /area/construction)
 "dz" = (
@@ -1459,7 +1460,6 @@
 /obj/effect/landmark/start{
 	name = "Chef"
 	},
-/obj/item/modular_computer/handheld/communicator,
 /turf/simulated/floor/plating,
 /area/construction)
 "es" = (
@@ -1747,6 +1747,7 @@
 /obj/effect/landmark/start{
 	name = "Bartender"
 	},
+/obj/item/modular_computer/handheld/communicator,
 /turf/simulated/floor/tiled,
 /area/construction)
 "iD" = (
@@ -1853,7 +1854,6 @@
 /obj/effect/landmark/start{
 	name = "Hangar Technician"
 	},
-/obj/item/modular_computer/handheld/communicator,
 /turf/simulated/floor/plating,
 /area/construction)
 "kW" = (
@@ -1902,8 +1902,16 @@
 	},
 /area/tcommsat/computer)
 "lx" = (
-/obj/item/card/id/captains_spare,
-/turf/simulated/floor/plating,
+/obj/machinery/light{
+	brightness_range = 16;
+	dir = 4;
+	must_start_working = 1
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/obj/item/modular_computer/handheld/communicator,
+/turf/simulated/floor/tiled,
 /area/construction)
 "lF" = (
 /obj/structure/lattice/catwalk,
@@ -2091,6 +2099,13 @@
 /obj/item/stack/material/glass/full,
 /turf/simulated/floor/plating,
 /area/construction)
+"ox" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/obj/item/card/id/centcom,
+/turf/simulated/floor/tiled,
+/area/construction)
 "oD" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -2233,6 +2248,13 @@
 	temperature = 278
 	},
 /area/tcommsat/chamber)
+"qu" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/obj/item/modular_computer/handheld/communicator,
+/turf/simulated/floor/tiled,
+/area/construction)
 "qx" = (
 /obj/effect/landmark/entry_point/aft,
 /turf/simulated/wall/r_wall,
@@ -10121,7 +10143,7 @@ de
 de
 TW
 pD
-lx
+de
 dk
 cK
 ae
@@ -10375,10 +10397,10 @@ dj
 em
 jD
 dj
-dj
+ox
 iA
-dj
-df
+qu
+lx
 dy
 cK
 ae

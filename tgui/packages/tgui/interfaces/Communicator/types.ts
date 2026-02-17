@@ -6,7 +6,7 @@ export type CommunicatorData = {
   videoRequests: RequestsList;
   friendRequests: RequestsList;
 
-  friendsList: User[];
+  friendsList: string[]; // Friend names
   user?: User;
   allUsers: User[];
 };

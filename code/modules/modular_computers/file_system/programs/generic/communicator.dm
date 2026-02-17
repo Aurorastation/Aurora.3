@@ -28,13 +28,14 @@
 	//color = todo
 	tgui_id = "Communicator"
 
-	var/datum/ntnet_user/program_user
-
 	var/ringtone = "beep"
 	var/ringer_on = TRUE
 
 /datum/computer_file/program/communicator/proc/get_computer_address()
 	return computer.network_card?.identification_addr
+
+/datum/computer_file/program/communicator/proc/get_program_user()
+	return computer.registered_id?.chat_user
 
 /datum/computer_file/program/communicator/run_program(mob/user)
 	if(!get_computer_address())
@@ -44,33 +45,26 @@
 
 /datum/computer_file/program/communicator/event_registered()
 	computer.registered_id.InitializeChatUser()
-	program_user = computer.registered_id.chat_user
 	update_static_data_for_all_viewers()
 
 /datum/computer_file/program/communicator/event_unregistered()
-	program_user = null
 	update_static_data_for_all_viewers() // todo: double check that unregistering while in an "app" resets properly
 
 /datum/computer_file/program/communicator/ui_data(mob/user)
+	var/datum/ntnet_user/program_user = get_program_user()
 	if(!program_user)
 		// No user means the UI will show the 'Please register' screen, so no data is needed for the moment.
 		return
 
 	var/alist/data = alist()
-
-	var/list/friends = list()
-	for(var/address in GLOB.active_communicators)
-		var/obj/item/modular_computer/handheld/communicator/comm = GLOB.active_communicators[address]
-		if(comm.registered_id?.chat_user.username in program_user.friends)
-			friends = USER_DATA(comm.registered_id.chat_user, address)
-
-	data["friendsList"] = friends
+	data["friendsList"] = program_user.friends
 	data["callRequests"] = REQUESTS_DATA(program_user.comm_requests, CALL_REQUESTS)
 	data["videoRequests"] = REQUESTS_DATA(program_user.comm_requests, VIDEO_REQUESTS)
 	data["friendRequests"] = REQUESTS_DATA(program_user.comm_requests, FRIEND_REQUESTS)
 	return data
 
 /datum/computer_file/program/communicator/ui_static_data(mob/user)
+	var/datum/ntnet_user/program_user = get_program_user()
 	if(!program_user)
 		return
 
@@ -93,8 +87,12 @@
 	return data
 
 /datum/computer_file/program/communicator/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
-	if(..() || !program_user)
+	if(..())
 		return TRUE
+
+	var/datum/ntnet_user/program_user = get_program_user()
+	if(!program_user)
+		return FALSE
 
 	switch(action)
 		if("refresh_data")
@@ -105,7 +103,7 @@
 			var/datum/ntnet_user/target_user = target_comm?.registered_id?.chat_user
 			if(!target_user)
 				computer.output_error("ERROR: Unable to locate user at address {[target_address]}.")
-				return
+				return FALSE
 
 			if(params["action"] == "send")
 				target_user.add_comm_request(program_user, FRIEND_REQUESTS)
@@ -118,6 +116,11 @@
 					return TRUE
 				else if(choice == "Decline")
 					program_user.remove_comm_request(target_user, FRIEND_REQUESTS)
+		if("remove_friend")
+			for(var/datum/ntnet_user/U as anything in GLOB.ntnet_global.users)
+				if(U.username == params["selected_name"])
+					program_user.remove_friend(U.username)
+					U.remove_friend(program_user.username)
 
 #undef REQUESTS_DATA
 #undef USER_DATA

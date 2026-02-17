@@ -5,6 +5,7 @@
 	var/list/clients = list()
 
 	// list of friend names (string)
+	// This is names so that if a friend's device goes offline they can still stay on the UI as 'unreachable'.
 	var/list/friends = list()
 
 	// request values are all `/datum/ntnet_user` refs (todo: actual documentation)
@@ -84,6 +85,7 @@
 /datum/ntnet_user/proc/add_friend(datum/ntnet_user/new_friend)
 	remove_comm_request(new_friend, FRIEND_REQUESTS)
 
+	// Todo: `username` includes job title and stuff, so this will break if someone changes their job
 	src.friends |= new_friend.username
 	new_friend.friends |= src.username
 
