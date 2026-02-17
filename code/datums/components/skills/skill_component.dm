@@ -2,7 +2,6 @@
  * The base type for Componentized skills, containing only the information extracted from Skill preferences that would be required to function.
  * Children of this component can be added to a character from skill singletons by overriding that singleton's on_spawn() proc.
  */
-#define SKILL_COMPONENT /datum/component/skill
 ABSTRACT_TYPE(/datum/component/skill)
 	/**
 	 * How many ranks a player has purchased in a given skill.

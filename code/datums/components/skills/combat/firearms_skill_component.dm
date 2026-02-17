@@ -2,7 +2,6 @@
  * Component used for the Firearms skill. Mobs with this component will have their weapon handling characteristics modified by their skill rank
  * but only if this component is present.
  */
-#define FIREARMS_SKILL_COMPONENT /datum/component/skill/firearms
 /datum/component/skill/firearms
 	/**
 	 * Reference value used for checking "Skill Diff"
