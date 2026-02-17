@@ -2,7 +2,6 @@
  * Having a Morale Component allows a character to receive and benefit from Moodlets, providing a variety of buffs(or debuffs) depending on the total morale points.
  * This component acts as both proof a mob can be affected by morale, as well as a method of tracking the effects of morale on each system.
  */
-#define MORALE_COMPONENT /datum/component/morale
 /datum/component/morale
 
 	/**
