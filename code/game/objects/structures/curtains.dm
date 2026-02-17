@@ -13,7 +13,7 @@
 /obj/structure/curtain/Initialize()
 	. = ..()
 	material = SSmaterials.get_material_by_name(curtain_material)
-	AddComponent(/datum/component/turf_hand)
+	AddComponent(TURF_HAND_COMPONENT)
 
 /obj/structure/curtain/open
 	icon_state = "open"

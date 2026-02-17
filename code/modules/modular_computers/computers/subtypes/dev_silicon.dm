@@ -29,7 +29,6 @@
 /obj/item/modular_computer/silicon/Destroy()
 	computer_host = null
 	. = ..()
-	GC_TEMPORARY_HARDDEL
 
 /obj/item/modular_computer/silicon/computer_use_power(power_usage)
 	// If we have host like AI, borg or pAI we handle their power

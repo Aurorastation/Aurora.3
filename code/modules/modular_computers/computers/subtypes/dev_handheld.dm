@@ -24,7 +24,6 @@
 
 /obj/item/modular_computer/handheld/Destroy()
 	. = ..()
-	GC_TEMPORARY_HARDDEL
 
 /obj/item/modular_computer/handheld/proc/set_icon()
 	icon_state_unpowered = icon_state
