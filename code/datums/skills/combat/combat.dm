@@ -30,3 +30,10 @@
 		return
 
 	owner.AddComponent(FIREARMS_SKILL_COMPONENT, level)
+
+/singleton/skill/leadership
+	name = "Leadership"
+	description = "Leadership skill grants access to a unique 'Inspire' action, which lets you say something inspiring and give the target a positive moodlet."
+	category = /singleton/skill_category/combat
+	subcategory = SKILL_SUBCATEGORY_SUPPORT
+	required = TRUE

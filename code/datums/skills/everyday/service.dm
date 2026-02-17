@@ -1,5 +1,5 @@
-/singleton/skill/mixing
-	name = "Mixing"
+/singleton/skill/bartending
+	name = "Bartending"
 	description = "valhalla skill"
 	maximum_level = SKILL_LEVEL_PROFESSIONAL
 	category =  /singleton/skill_category/everyday
@@ -15,6 +15,13 @@
 /singleton/skill/gardening
 	name = "Gardening"
 	description = "this is boring as shit"
+	maximum_level = SKILL_LEVEL_PROFESSIONAL
+	category =  /singleton/skill_category/everyday
+	subcategory = SKILL_SUBCATEGORY_SERVICE
+
+/singleton/skill/entertaining
+	name = "Entertaining"
+	description = "Entertainers are able to generate positive moodlets by playing instruments."
 	maximum_level = SKILL_LEVEL_PROFESSIONAL
 	category =  /singleton/skill_category/everyday
 	subcategory = SKILL_SUBCATEGORY_SERVICE

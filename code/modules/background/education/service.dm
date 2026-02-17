@@ -9,7 +9,7 @@
 		SPECIES_SKRELL_AXIORI = 50
 	)
 	skills = list(
-		/singleton/skill/mixing = SKILL_LEVEL_PROFESSIONAL,
+		/singleton/skill/bartending = SKILL_LEVEL_PROFESSIONAL,
 	)
 
 /singleton/education/cooking_degree
