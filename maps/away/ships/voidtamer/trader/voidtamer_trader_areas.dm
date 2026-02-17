@@ -26,6 +26,10 @@
 	name = "Voidtamer Crew Room"
 	icon_state = "crew_quarters"
 
+/area/voidtamer/trader/armory
+	name = "Voidtamer Armory"
+	icon_state = "armory"
+
 /area/voidtamer/trader/temple
 	name = "Voidtamer Temple"
 	icon_state = "chapel"
@@ -48,6 +52,14 @@
 
 /area/voidtamer/trader/engineering
 	name = "Voidtamer Engineering"
+	icon_state = "engineering"
+
+/area/voidtamer/trader/engineering/starboard
+	name = "Voidtamer Starboard Engineering"
+	icon_state = "engineering"
+
+/area/voidtamer/trader/engineering/port
+	name = "Voidtamer Port Engineering"
 	icon_state = "engineering"
 
 /area/voidtamer/trader/exterior
