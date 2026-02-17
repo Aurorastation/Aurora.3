@@ -429,7 +429,7 @@
 	head = /obj/item/clothing/head/beret/corporate
 	uniform = /obj/item/clothing/under/dressshirt
 	suit = /obj/item/clothing/suit/storage/toggle/corp/nt
-	pants = /obj/item/clothing/pants/khaki
+	pants = /obj/item/clothing/pants/black
 
 	tab_pda = /obj/item/modular_computer/handheld/pda/civilian/lawyer
 	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/civilian/lawyer
