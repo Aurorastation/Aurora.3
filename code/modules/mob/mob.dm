@@ -53,7 +53,7 @@
 	if(click_handlers)
 		QDEL_LIST(click_handlers)
 
-	QDEL_NULL(skills)
+	QDEL_NULL_LIST(skills)
 
 	return ..()
 
