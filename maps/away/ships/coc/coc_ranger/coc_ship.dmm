@@ -1816,6 +1816,7 @@
 "gEg" = (
 /obj/structure/bookcase/libraryspawn/fiction,
 /obj/effect/decal/cleanable/cobweb2,
+/obj/item/toy/comic/magazine,
 /turf/simulated/floor/carpet,
 /area/ship/ranger_corvette/foyer)
 "gJZ" = (
