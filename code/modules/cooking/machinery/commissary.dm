@@ -48,7 +48,8 @@
 	contents_path = "-clothing"
 	accepted_items = list(/obj/item/storage/backpack,
 	/obj/item/storage/belt,
-	/obj/item/clothing
+	/obj/item/clothing,
+	/obj/item/storage/briefcase
 	)
 	display_tiers = 3
 	display_tier_amt = 5
@@ -105,7 +106,8 @@
 	/obj/item/gun/projectile/revolver/capgun,
 	/obj/item/gun/bang,
 	/obj/item/eightball,
-	/obj/item/bikehorn
+	/obj/item/bikehorn,
+	/obj/item/camera_film
 	)
 	display_tiers = 4
 	display_tier_amt = 5

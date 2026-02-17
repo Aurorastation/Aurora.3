@@ -1,0 +1,9 @@
+author: TheGreyWolf
+
+delete-after: True
+
+changes:
+  - bugfix: "Assunzioni Sera Stellata di Dalyan Wine can be ordered again."
+  - bugfix: "Sandals now default to being wood colored if not otherwise given color."
+  - bugfix: "Added camera film to the toy shelf storage and briefcases to the clothing shelf storage."
+  - bugfix: "Fixed that the operations lobby was powered by the wrong grid."
