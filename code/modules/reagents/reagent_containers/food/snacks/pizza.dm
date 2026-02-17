@@ -203,7 +203,7 @@
 	slices_num = 6
 	center_of_mass = list("x"=16, "y"=11)
 	filling_color = "#5f2e12"
-	reagents_to_add = list(/singleton/reagent/nutriment = 35, /singleton/reagent/sugar = 10)
+	reagents_to_add = list(/singleton/reagent/nutriment = 30, /singleton/reagent/sugar = 12)
 	reagent_data = list(/singleton/reagent/nutriment = list("sugarpocalypse" = 10))
 	bitesize = 2
 

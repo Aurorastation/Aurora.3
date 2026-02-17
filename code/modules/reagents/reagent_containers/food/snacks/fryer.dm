@@ -141,7 +141,6 @@
 	icon_state = "onionrings"
 	trash = /obj/item/trash/plate
 	filling_color = "#eddd00"
-	center_of_mass = "x=16;y=11"
 	reagents_to_add = list(/singleton/reagent/nutriment = 5)
 	reagent_data = list(/singleton/reagent/nutriment = list("fried onions" = 5))
 	bitesize = 2
