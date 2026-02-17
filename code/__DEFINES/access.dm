@@ -193,10 +193,10 @@
 	desc = "Crematorium"
 	region = ACCESS_REGION_GENERAL
 
-#define ACCESS_KITCHEN 28
-/datum/access/kitchen
-	id = ACCESS_KITCHEN
-	desc = "Kitchen"
+#define ACCESS_GALLEY 28
+/datum/access/galley
+	id = ACCESS_GALLEY
+	desc = "Galley"
 	region = ACCESS_REGION_GENERAL
 
 #define ACCESS_ROBOTICS 29
@@ -887,7 +887,18 @@
 	id = ACCESS_HIMEO_PATROL_SHIP
 	desc = "Himean Military Patrol Vessel"
 
-#define ACCESS_VOIDTAMER_SHIP 254
+#define ACCESS_QUARANTINED_OUTPOST_ENGINEER 254
+/datum/access/quarantined_outpost_engineer
+	id = ACCESS_QUARANTINED_OUTPOST_ENGINEER
+	desc = "Outpost Nemora, Engineering Clearance"
+
+#define ACCESS_DECREPIT_SHIPYARD_STAFF 255
+/datum/access/decrepit_shipyard_staff
+	id = ACCESS_DECREPIT_SHIPYARD_STAFF
+	desc = "Decrepit Shipyard, Staff Access"
+
+#define ACCESS_VOIDTAMER_SHIP 256
 /datum/access/voidtamer_ship
 	id = ACCESS_VOIDTAMER_SHIP
 	access_type = ACCESS_TYPE_CENTCOM
+
