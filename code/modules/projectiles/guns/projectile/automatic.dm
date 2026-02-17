@@ -569,7 +569,7 @@
 	icon_state = (ammo_magazine)? "tsarrayut" : "tsarrayut_nomag"
 
 /obj/item/gun/projectile/automatic/rifle/adhomian/attackby(obj/item/attacking_item, mob/user)
-	if(istype(attacking_item, /obj/item/ammo_magazine/boltaction/) && !ammo_magazine)
+	if(istype(attacking_item, /obj/item/ammo_magazine/boltaction) && !ammo_magazine)
 		to_chat(user, SPAN_WARNING("\The [src] cannot be reloaded without a magazine!"))
 		return
 	..()
