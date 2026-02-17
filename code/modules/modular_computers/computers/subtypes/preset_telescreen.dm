@@ -1,6 +1,5 @@
 /obj/item/modular_computer/telescreen/preset/Destroy()
 	. = ..()
-	GC_TEMPORARY_HARDDEL
 
 /obj/item/modular_computer/telescreen/preset/install_default_hardware()
 	..()

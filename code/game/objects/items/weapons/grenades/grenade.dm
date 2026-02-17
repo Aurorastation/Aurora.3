@@ -19,6 +19,12 @@
 	var/fake = FALSE
 	var/activation_sound = 'sound/weapons/armbomb.ogg'
 
+/obj/item/grenade/Destroy()
+	// Stop all animations to prevent a hard delete.
+	animate(src)
+	walk(src, 0)
+	return ..()
+
 /obj/item/grenade/feedback_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	if(distance <= 0)

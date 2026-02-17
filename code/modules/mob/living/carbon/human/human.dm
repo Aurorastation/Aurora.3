@@ -138,6 +138,9 @@
 	QDEL_NULL(s_store)
 	QDEL_NULL(wear_suit)
 	QDEL_NULL(wear_mask)
+	QDEL_NULL(back)
+	QDEL_NULL(l_hand)
+	QDEL_NULL(r_hand)
 	// Do this last so the mob's stuff doesn't drop on del.
 	QDEL_NULL(w_uniform)
 
