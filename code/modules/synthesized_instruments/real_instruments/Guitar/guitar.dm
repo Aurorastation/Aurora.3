@@ -4,6 +4,7 @@
 	icon = 'icons/obj/musician.dmi'
 	icon_state = "guitar"
 	item_state = "guitar"
+	contained_sprite = TRUE
 	slot_flags = SLOT_BACK
 	sound_player = /datum/sound_player/synthesizer
 	path = /datum/instrument/guitar/clean_crisis
@@ -15,6 +16,7 @@
 	icon = 'icons/obj/musician.dmi'
 	icon_state = "eguitar"
 	item_state = "eguitar"
+	contained_sprite = TRUE
 	slot_flags = SLOT_BACK
 	sound_player = /datum/sound_player/synthesizer
 	path = /datum/instrument/guitar
@@ -25,6 +27,7 @@
 	icon = 'icons/obj/tajara_items.dmi'
 	icon_state = "prrama"
 	item_state = "prrama"
+	contained_sprite = TRUE
 
 /obj/item/synthesized_instrument/guitar/prrama/interact(mob/user)
 	if(!istajara(user))

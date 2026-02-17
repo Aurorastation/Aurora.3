@@ -25,7 +25,7 @@
 /// Like a health analyzer, but for plants! Tells you everything you need to know.
 /obj/item/analyzer/plant_analyzer
 	name = "plant analyzer"
-	icon = 'icons/obj/item/plant_analyzer.dmi'
+	icon = 'icons/obj/item/scanner.dmi'
 	icon_state = "hydro"
 	item_state = "hydro"
 	var/form_title

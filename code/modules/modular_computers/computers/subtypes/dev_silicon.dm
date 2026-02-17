@@ -3,7 +3,7 @@
 	desc = "A synthetic computer."
 	hardware_flag = PROGRAM_SILICON
 	icon_state_unpowered = "laptop-open"
-	icon = 'icons/obj/modular_laptop.dmi'
+	icon = 'icons/obj/modular_computers/modular_laptop.dmi'
 	icon_state = "laptop-open"
 	icon_state_broken = "laptop-broken"
 	base_idle_power_usage = 5

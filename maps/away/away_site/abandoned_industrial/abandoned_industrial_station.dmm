@@ -10261,7 +10261,7 @@
 "Gp" = (
 /obj/machinery/constructable_frame/temp_deco{
 	dir = 4;
-	icon = 'icons/obj/machinery/modular_console.dmi';
+	icon = 'icons/obj/modular_computers/modular_console.dmi';
 	icon_state = "1"
 	},
 /turf/simulated/floor/tiled/dark,
@@ -13101,7 +13101,7 @@
 "Py" = (
 /obj/machinery/constructable_frame/temp_deco{
 	dir = 4;
-	icon = 'icons/obj/machinery/modular_console.dmi';
+	icon = 'icons/obj/modular_computers/modular_console.dmi';
 	icon_state = "computer-broken"
 	},
 /turf/simulated/floor/tiled/dark,
