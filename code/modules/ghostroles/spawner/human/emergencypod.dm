@@ -159,7 +159,7 @@
 	pda = /obj/item/modular_computer/handheld/pda/civilian/lawyer
 	shoes = /obj/item/clothing/shoes/laceup
 	glasses = /obj/item/clothing/glasses/sunglasses/big
-	l_hand =  /obj/item/storage/briefcase
+	hands = list(/obj/item/storage/briefcase)
 	accessory = /obj/item/clothing/accessory/tie/corporate/idris
 	suit_accessory = /obj/item/clothing/accessory/pin/corporate/idris
 	backpack_contents = list(
@@ -204,7 +204,7 @@
 	head = null
 	suit = null
 	suit_store = null // the rig has an inbuilt tank
-	l_hand = /obj/item/material/twohanded/spear/plasteel
+	hands = list(/obj/item/material/twohanded/spear/plasteel)
 	shoes = /obj/item/clothing/shoes/jackboots
 	id = /obj/item/card/id
 	uniform = "pants selection"
@@ -269,8 +269,7 @@
 	uniform = /obj/item/clothing/under/legion
 	accessory = /obj/item/clothing/accessory/holster/thigh
 	accessory_contents = list(/obj/item/gun/energy/blaster/revolver = 1)
-	l_hand =  /obj/item/material/twohanded/pike/flag
-	r_hand = /obj/item/storage/backpack/legion
+	hands = list(/obj/item/material/twohanded/pike/flag, /obj/item/storage/backpack/legion)
 
 	belt_contents = list(
 		/obj/item/melee/energy/sword/knife = 1,
@@ -324,7 +323,7 @@
 	back = /obj/item/storage/backpack/satchel/leather
 	shoes = /obj/item/clothing/shoes/laceup
 	glasses = /obj/item/clothing/glasses/sunglasses
-	l_hand =  /obj/item/storage/briefcase
+	hands = list(/obj/item/storage/briefcase)
 	accessory = /obj/item/clothing/accessory/holster/hip/
 	backpack_contents = list(
 		/obj/item/camera = 1,
@@ -414,7 +413,7 @@
 	r_pocket = /obj/item/special_uplink/burglar
 	id = /obj/item/storage/wallet
 
-	r_hand = /obj/item/storage/briefcase/black
+	hands = list(/obj/item/storage/briefcase/black)
 
 	backpack_contents = list()
 
@@ -440,11 +439,11 @@
 		holster.holstered = primary
 		primary.forceMove(holster)
 	else if(!H.belt && (primary.slot_flags & SLOT_BELT))
-		H.equip_to_slot_or_del(primary, slot_belt)
+		H.equip_to_slot_or_del(primary, slot_belt_str)
 	else if(!H.back && (primary.slot_flags & SLOT_BACK))
-		H.equip_to_slot_or_del(primary, slot_back)
+		H.equip_to_slot_or_del(primary, slot_back_str)
 	else
-		H.put_in_any_hand_if_possible(primary)
+		H.put_in_hands_or_del(primary)
 
 	if(istype(primary, /obj/item/gun/projectile))
 		var/obj/item/gun/projectile/bullet_thrower = primary
@@ -463,7 +462,7 @@
 		if(istype(uniform) && uniform.can_attach_accessory(holster))
 			uniform.attackby(holster, H)
 		else
-			H.put_in_any_hand_if_possible(holster)
+			H.put_in_hands_or_del(holster)
 
 	var/obj/item/storage/wallet/W = H.wear_id
 	var/obj/item/card/id/syndicate/raider/passport = new(H.loc)

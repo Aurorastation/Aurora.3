@@ -63,11 +63,6 @@
 		return
 	return ..()
 
-/obj/machinery/power/rtg/attack_hand(mob/user)
-	if(user.a_intent == I_GRAB && user_buckle(user.pulling, user))
-		return
-	..()
-
 /obj/machinery/power/rtg/advanced
 	desc = "An advanced RTG capable of moderating isotope decay, increasing power output but reducing lifetime. It uses phoron-fueled radiation collectors to increase output even further."
 	power_gen = 5000 // 10000 on T1, 20000 on T4.

@@ -216,7 +216,7 @@ ABSTRACT_TYPE(/datum/gear/augment/machine)
 	whitelisted = list(SPECIES_IPC, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU, SPECIES_IPC_BISHOP, SPECIES_IPC_SHELL)
 	sort_category = "Xenowear - IPC"
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION | GEAR_HAS_ACCENT_COLOR_SELECTION
-	slot = slot_tie
+	slot = slot_tie_str
 
 /datum/gear/accessory/goldendeepouter/New()
 	..()

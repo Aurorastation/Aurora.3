@@ -139,9 +139,6 @@
 		user.visible_message("\The [user] puts down \the [src]'s kickstand.", "You put down \the [src]'s kickstand.", "You hear a thunk.")
 
 		playsound(src, 'sound/machines/vehicles/bike_stand_down.ogg', 50, 1)
-		if(ismob(pulledby))
-			var/mob/M = pulledby
-			M.stop_pulling()
 
 	kickstand = !kickstand
 	anchored = (kickstand || on)
@@ -164,6 +161,7 @@
 		return
 
 /obj/vehicle/bike/attack_hand(var/mob/user as mob)
+	. = ..()
 	if(key)
 		to_chat(user, "You take \the [key] out of \the [src]")
 		user.put_in_hands(key)
@@ -200,7 +198,7 @@
 
 /obj/vehicle/bike/proc/check_destination(var/turf/destination)
 	var/static/list/types = typecacheof(list(/turf/space))
-	if((is_type_in_typecache(destination,types) && !locate(/obj/structure/lattice))  || pulledby)
+	if((is_type_in_typecache(destination,types) && !locate(/obj/structure/lattice)) || LAZYLEN(grabbed_by))
 		return TRUE
 	else
 		return FALSE
@@ -236,10 +234,6 @@
 		flying = TRUE
 
 	update_icon()
-
-	if(ismob(pulledby))
-		var/mob/M = pulledby
-		M.stop_pulling()
 	..()
 
 /obj/vehicle/bike/turn_off()
@@ -389,7 +383,7 @@
 
 /obj/vehicle/bike/monowheel/check_destination(var/turf/destination)
 	var/static/list/types = typecacheof(list(/turf/space))
-	if((is_type_in_typecache(destination,types) && !locate(/obj/structure/lattice)) || pulledby)
+	if((is_type_in_typecache(destination,types) && !locate(/obj/structure/lattice)) || LAZYLEN(grabbed_by))
 		return TRUE
 	else
 		return FALSE
@@ -438,7 +432,7 @@
 
 /obj/vehicle/bike/casino/check_destination(var/turf/destination)
 	var/static/list/types = typecacheof(list(/turf/space))
-	if((is_type_in_typecache(destination,types) && !locate(/obj/structure/lattice))  || pulledby)
+	if((is_type_in_typecache(destination,types) && !locate(/obj/structure/lattice))  || LAZYLEN(grabbed_by))
 		return TRUE
 	else
 		return FALSE
@@ -468,7 +462,7 @@
 
 /obj/vehicle/bike/motor/check_destination(turf/destination)
 	var/static/list/types = typecacheof(list(/turf/space, /turf/simulated/floor/exoplanet/water))
-	if((is_type_in_typecache(destination,types) && !locate(/obj/structure/lattice)) || pulledby)
+	if((is_type_in_typecache(destination,types) && !locate(/obj/structure/lattice)) || LAZYLEN(grabbed_by))
 		return TRUE
 	else
 		return FALSE

@@ -131,6 +131,7 @@
 	ui_interact(user)
 
 /obj/machinery/dnaforensics/attack_hand(mob/user as mob)
+	. = ..()
 	ui_interact(user)
 
 /obj/machinery/dnaforensics/verb/toggle_lid()

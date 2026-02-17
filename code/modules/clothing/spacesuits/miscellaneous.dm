@@ -6,8 +6,8 @@
 	icon = 'icons/obj/clothing/hats.dmi'
 	icon_state = "deathsquad"
 	item_state_slots = list(
-		slot_l_hand_str = "syndicate-helm-black-red",
-		slot_r_hand_str = "syndicate-helm-black-red"
+		BP_L_HAND = "syndicate-helm-black-red",
+		BP_R_HAND = "syndicate-helm-black-red"
 		)
 	armor = list(
 		MELEE = ARMOR_MELEE_VERY_HIGH,

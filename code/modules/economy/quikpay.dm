@@ -70,7 +70,7 @@
 	R.stamped += /obj/item/stamp
 	R.AddOverlays(stampoverlay)
 	R.stamps += "<HR><i>This paper has been stamped by the Quik-Pay device.</i>"
-	usr.put_in_any_hand_if_possible(R)
+	usr.put_in_hands(R)
 
 /obj/item/quikpay/attackby(obj/item/attacking_item, mob/user)
 	if (istype(attacking_item, /obj/item/spacecash/ewallet))

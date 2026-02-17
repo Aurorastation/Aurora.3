@@ -180,26 +180,14 @@
 
 	T.Weaken(3)
 
-	var/use_hand = "left"
-	if(l_hand)
-		if(r_hand)
-			to_chat(src, SPAN_DANGER("You need to have one hand free to grab someone."))
-			return TRUE
-		else
-			use_hand = "right"
+	if(!get_empty_hand_slot())
+		to_chat(src, SPAN_WARNING("You need to have one hand free to grab someone."))
+		return TRUE
 
 	visible_message(SPAN_WARNING("<b>[src]</b> seizes [T] aggressively!"),
 					SPAN_WARNING("You aggressively seize [T]!"))
 
-	var/obj/item/grab/G = new(src,T)
-	if(use_hand == "left")
-		l_hand = G
-	else
-		r_hand = G
-
-	G.state = GRAB_PASSIVE
-	G.icon_state = "grabbed1"
-	G.synch()
+	make_grab(T, defer_hand = TRUE)
 
 	return TRUE
 
@@ -215,30 +203,23 @@
 		to_chat(src, SPAN_WARNING("You cannot do that in your current state."))
 		return
 
-	var/obj/item/grab/G = locate() in src
-	if(!G || !istype(G))
-		to_chat(src, SPAN_WARNING("You are not grabbing anyone."))
+	var/obj/item/grab/G = get_active_hand()
+	var/mob/living/grabbed = G.grabbed
+	if(!G || !istype(G) || !istype(grabbed))
+		to_chat(src, SPAN_WARNING("You are not grabbing anyone in that hand!"))
 		return
 
-	if(G.state < GRAB_AGGRESSIVE)
-		to_chat(src, SPAN_WARNING("You must have an aggressive grab to gut your prey!"))
+	if(!G.has_grab_flags(GRAB_FORCE_HARM))
+		to_chat(src, SPAN_WARNING("You must have a stronger grab to gut your prey!"))
 		return
 
-	last_special = world.time + 50
+	last_special = world.time + (5 SECONDS)
 
-	visible_message(SPAN_WARNING("<b>[src]</b> rips viciously at \the [G.affecting]'s body with its claws!"))
+	visible_message(SPAN_WARNING("<b>[src]</b> rips viciously at \the [grabbed]'s body with its claws!"))
 
-	if(istype(G.affecting,/mob/living/carbon/human))
-		var/mob/living/carbon/human/H = G.affecting
-		H.apply_damage(50,DAMAGE_BRUTE)
-		if(H.stat == 2)
-			H.gib()
-	else
-		var/mob/living/M = G.affecting
-		if(!istype(M)) return //wut
-		M.apply_damage(50,DAMAGE_BRUTE)
-		if(M.stat == 2)
-			M.gib()
+	grabbed.apply_damage(50, DAMAGE_BRUTE)
+	if(grabbed.stat == 2)
+		grabbed.gib()
 
 /**
  * A binary yes or no check as to whether or not a target has a Psi Complexus.
@@ -380,17 +361,17 @@
 		to_chat(src, SPAN_WARNING("You have something on your head covering your mandibles!"))
 		return
 
-	var/obj/item/grab/G = locate() in src
+	var/obj/item/grab/G = get_active_hand()
 	if(!G || !istype(G))
 		to_chat(src, SPAN_WARNING("You are not grabbing anyone."))
 		return
 
-	if(!ignore_grab && G.state < GRAB_KILL)
+	if(!ignore_grab && !G.has_grab_flags(GRAB_CAN_KILL))
 		to_chat(src, SPAN_WARNING("You must have a strangling grip to bite someone!"))
 		return
 
-	if(ishuman(G.affecting))
-		var/mob/living/carbon/human/H = G.affecting
+	if(ishuman(G.grabbed))
+		var/mob/living/carbon/human/H = G.grabbed
 		var/hit_zone = zone_sel.selecting
 		var/obj/item/organ/external/affected = H.get_organ(hit_zone)
 
@@ -399,14 +380,14 @@
 			return
 
 		H.apply_damage(25, DAMAGE_BRUTE, hit_zone, damage_flags = DAMAGE_FLAG_SHARP|DAMAGE_FLAG_EDGE)
-		visible_message(SPAN_WARNING("<b>[src]</b> rips viciously at \the [G.affecting]'s [affected] with its mandibles!"))
+		visible_message(SPAN_WARNING("<b>[src]</b> rips viciously at \the [G.grabbed]'s [affected] with its mandibles!"))
 		msg_admin_attack("[key_name_admin(src)] mandible'd [key_name_admin(H)] (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[src.x];Y=[src.y];Z=[src.z]'>JMP</a>)",ckey=key_name(src),ckey_target=key_name(H))
 	else
-		var/mob/living/M = G.affecting
+		var/mob/living/M = G.grabbed
 		if(!istype(M))
 			return
 		M.apply_damage(25, DAMAGE_BRUTE, damage_flags = DAMAGE_FLAG_SHARP|DAMAGE_FLAG_EDGE)
-		visible_message(SPAN_WARNING("<b>[src]</b> rips viciously at \the [G.affecting]'s flesh with its mandibles!"))
+		visible_message(SPAN_WARNING("<b>[src]</b> rips viciously at \the [G.grabbed]'s flesh with its mandibles!"))
 		msg_admin_attack("[key_name_admin(src)] mandible'd [key_name_admin(M)] (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[src.x];Y=[src.y];Z=[src.z]'>JMP</a>)",ckey=key_name(src),ckey_target=key_name(M))
 	playsound(get_turf(src), 'sound/weapons/slash.ogg', 50, TRUE)
 	last_special = world.time + 100
@@ -458,19 +439,6 @@
 	sleep(10)
 	say("Law 3: [src.real_name] will allow no tampering of its systems or modifications of its laws.")
 
-/mob/living/carbon/human/proc/get_aggressive_grab()
-
-	var/obj/item/grab/G = locate() in src
-	if(!G || !istype(G))
-		to_chat(src, SPAN_WARNING("You are not grabbing anyone."))
-		return
-
-	if(G.state < GRAB_AGGRESSIVE)
-		to_chat(src, SPAN_WARNING("You must have an aggressive grab to do this!"))
-		return
-
-	return G
-
 /mob/living/carbon/human/proc/devour_head()
 	set category = "Abilities"
 	set name = "Devour Head"
@@ -490,12 +458,12 @@
 		to_chat(src, SPAN_WARNING("We must be grabbing a creature in our active hand to devour their head."))
 		return
 
-	if(G.state != GRAB_KILL)
+	if(!G.has_grab_flags(GRAB_CAN_KILL))
 		to_chat(src, SPAN_WARNING("We must have a tighter grip to devour their head."))
 		return
 
-	if(istype(G.affecting,/mob/living/carbon/human))
-		var/mob/living/carbon/human/H = G.affecting
+	if(istype(G.grabbed,/mob/living/carbon/human))
+		var/mob/living/carbon/human/H = G.get_grabbed_mob()
 
 		if(!H.species.has_limbs[BP_HEAD])
 			to_chat(src, SPAN_WARNING("\The [H] does not have a head!"))
@@ -508,14 +476,14 @@
 
 		visible_message(SPAN_DANGER("\The [src] pulls \the [H] close, sticking \the [H]'s head into its maw!"))
 		sleep(10)
-		if(!src.Adjacent(G.affecting))
+		if(!src.Adjacent(H))
 			return
 		visible_message(SPAN_DANGER("\The [src] closes their jaws around \the [H]'s head!"))
 		playsound(H.loc, 'sound/effects/blobattack.ogg', 50, 1)
 		affecting.droplimb(0, DROPLIMB_BLUNT)
 
 	else
-		var/mob/living/M = G.affecting
+		var/mob/living/M = G.grabbed
 		if(istype(M))
 			visible_message(SPAN_DANGER("\The [src] rips viciously at \the [M]'s body with its claws!"))
 			playsound(M.loc, 'sound/effects/blobattack.ogg', 50, 1)
@@ -712,11 +680,8 @@
 
 	forceMove(T)
 
-	for (var/obj/item/grab/G in contents)
-		if (G.affecting)
-			G.affecting.forceMove(locate(T.x + rand(-1,1), T.y + rand(-1,1), T.z))
-		else
-			qdel(G)
+	for (var/obj/item/grab/G as anything in get_active_grabs())
+		G.grabbed.forceMove(locate(T.x + rand(-1,1), T.y + rand(-1,1), T.z))
 
 /mob/living/carbon/human/proc/trample()
 	set category = "Abilities"
@@ -2116,17 +2081,17 @@
 		to_chat(src, SPAN_WARNING("You have something on your head covering your mouth!"))
 		return
 
-	var/obj/item/grab/G = locate() in src
+	var/obj/item/grab/G = get_active_hand()
 	if(!G || !istype(G))
 		to_chat(src, SPAN_WARNING("You are not grabbing anyone."))
 		return
 
-	if(G.state < GRAB_KILL)
+	if(!G.has_grab_flags(GRAB_CAN_KILL))
 		to_chat(src, SPAN_WARNING("You must have a strangling grip to infect!"))
 		return
 
-	if(ishuman(G.affecting))
-		var/mob/living/carbon/human/H = G.affecting
+	if(ishuman(G.grabbed))
+		var/mob/living/carbon/human/H = G.grabbed
 		if(H.isSynthetic())
 			to_chat(src, SPAN_WARNING("\The [H] is not an organic being, and cannot be infected!"))
 			return

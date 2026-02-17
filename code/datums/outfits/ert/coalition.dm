@@ -81,7 +81,7 @@
 	mask = /obj/item/clothing/mask/gas/tactical
 	back = /obj/item/rig/gunslinger/equipped/ert
 	suit_store = /obj/item/tank/oxygen
-	l_hand = /obj/item/gun/projectile/automatic/rifle/shorty
+	hands = list(/obj/item/gun/projectile/automatic/rifle/shorty)
 	belt_contents = list(
 			/obj/item/ammo_magazine/plasma = 3,
 			/obj/item/ammo_magazine/c45m = 2,
@@ -122,7 +122,7 @@
 /obj/outfit/admin/ert/konyang/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()
 	if(H.isSynthetic())
-		H.equip_to_slot_or_del(new /obj/item/suit_cooling_unit(H), slot_back)
+		H.equip_to_slot_or_del(new /obj/item/suit_cooling_unit(H), slot_back_str)
 
 /obj/outfit/admin/ert/konyang/medic
 	name = "KASF Medic"

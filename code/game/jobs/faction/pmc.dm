@@ -146,7 +146,7 @@
 
 /obj/outfit/job/doctor/surgeon/pmc/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	if(!isskrell(H))
-		H.equip_to_slot_or_del(new /obj/item/clothing/head/surgery/pmc(H), slot_head)
+		H.equip_to_slot_or_del(new /obj/item/clothing/head/surgery/pmc(H), slot_head_str)
 
 /obj/outfit/job/pharmacist/pmc
 	name = "Pharmacist - PMC"

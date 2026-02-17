@@ -89,6 +89,7 @@
 	return ..()
 
 /obj/machinery/computer/shuttle_control/attack_hand(mob/user)
+	. = ..()
 	if(use_check_and_message(user))
 		return
 	if(!emagged && !allowed(user))

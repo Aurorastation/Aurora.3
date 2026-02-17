@@ -5,8 +5,9 @@
 	density = TRUE
 
 /obj/structure/largecrate/attack_hand(mob/user as mob)
-	to_chat(user, SPAN_NOTICE("You need a crowbar to pry this open!"))
-	return
+	. = ..()
+	if(!.)
+		to_chat(user, SPAN_NOTICE("You need a crowbar to pry this open!"))
 
 /obj/structure/largecrate/attackby(obj/item/attacking_item, mob/user)
 	if(attacking_item.tool_behaviour == TOOL_CROWBAR)

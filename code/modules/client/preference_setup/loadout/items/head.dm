@@ -2,7 +2,7 @@
 	display_name = "headwear, circuitry (empty)"
 	path = /obj/item/clothing/head/circuitry
 	sort_category = "Hats and Headwear"
-	slot = slot_head
+	slot = slot_head_str
 
 /datum/gear/head/New()
 	..()

@@ -4,6 +4,9 @@
 #define SOCKET_SHIELDED 1
 #define SOCKET_FULLSHIELDED 2
 
+#define GET_EXTERNAL_ORGAN(M, OTAG) M.get_organ(OTAG, /obj/item/organ/external)
+#define GET_INTERNAL_ORGAN(M, OTAG) M.get_organ(OTAG, /obj/item/organ/internal)
+
 // Heart signals
 /**
  * Raised on an entity whose heart is attempting to pump blood.

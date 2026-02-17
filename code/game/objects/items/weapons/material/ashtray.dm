@@ -87,8 +87,7 @@
 		else
 			user.visible_message("<b>[user]</b> places [attacking_item] in [src].", SPAN_NOTICE("You place [attacking_item] in [src]."))
 
-		user.update_inv_l_hand()
-		user.update_inv_r_hand()
+		user.update_inv_hands()
 		add_fingerprint(user)
 		update_icon()
 	else

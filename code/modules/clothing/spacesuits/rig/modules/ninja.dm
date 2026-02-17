@@ -142,11 +142,11 @@
 	if(T != get_turf(H))
 		to_chat(user, SPAN_WARNING("Something interferes with your [src]!"))
 
-	for(var/obj/item/grab/G in H.contents)
-		if(G.affecting)
-			phase_out(G.affecting,get_turf(G.affecting))
-			do_teleport(G.affecting,locate(T.x+rand(-1,1),T.y+rand(-1,1),T.z))
-			phase_in(G.affecting,get_turf(G.affecting))
+	for(var/obj/item/grab/G as anything in H.get_active_grabs())
+		if(G.grabbed)
+			phase_out(G.grabbed, get_turf(G.grabbed))
+			do_teleport(G.grabbed, locate(T.x+rand(-1,1),T.y+rand(-1,1),T.z))
+			phase_in(G.grabbed, get_turf(G.grabbed))
 
 	lastteleport = world.time
 	return TRUE

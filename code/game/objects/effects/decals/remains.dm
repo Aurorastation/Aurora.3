@@ -64,7 +64,7 @@
 	qdel(src)
 
 /obj/effect/decal/remains/Move()
-	if(pulledby)
+	if(LAZYLEN(grabbed_by))
 		crumble()
 
 /obj/effect/decal/remains/can_fall()

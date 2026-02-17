@@ -90,12 +90,6 @@
 		mech.zMove(direction)
 		return
 	. = ..()
-	if(.)
-		for(var/obj/item/grab/G in list(l_hand, r_hand))
-			if(G.state >= GRAB_NECK) //strong grip
-				if(G.affecting && !(G.affecting.buckled_to))
-					G.affecting.Move(get_turf(src))
-					visible_message(SPAN_WARNING("[src] pulls [G.affecting] [direction & UP ? "upwards" : "downwards"]!"))
 
 /mob/living/zMove(direction)
 	if (is_ventcrawling)
@@ -387,9 +381,8 @@
 			!lying && thrust.allow_thrust(0.01, src))
 			return FALSE
 
-	for(var/grab in grabbed_by)
-		var/obj/item/grab/G = grab
-		if(G.state >= GRAB_AGGRESSIVE)
+	for(var/obj/item/grab/G as anything in grabbed_by)
+		if(G.has_grab_flags(GRAB_STOP_MOVE))
 			return FALSE
 	return ..()
 

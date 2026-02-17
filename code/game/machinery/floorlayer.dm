@@ -44,6 +44,7 @@
 	old_turf = new_turf
 
 /obj/machinery/floorlayer/attack_hand(mob/user)
+	. = ..()
 	on = !on
 	user.visible_message("<b>[user]</b> has [!on ? "de" : ""]activated \the [src].", SPAN_NOTICE("You [!on ? "de" : ""]activate \the [src]."))
 

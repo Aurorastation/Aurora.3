@@ -47,6 +47,7 @@
 	..()
 
 /obj/structure/dispenser/attack_hand(mob/user)
+	. = ..()
 	add_fingerprint(user)
 	ui_interact(user)
 

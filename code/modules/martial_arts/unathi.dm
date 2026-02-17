@@ -27,11 +27,7 @@
 	add_to_streak("G",D)
 	if(check_streak(A,D))
 		return 1
-	D.grabbedby(A,1)
-	var/obj/item/grab/G = A.get_active_hand()
-	if(G && prob(50))
-		G.state = GRAB_AGGRESSIVE
-		D.visible_message(SPAN_DANGER("[A] gets a strong grip on [D]!"))
+	A.make_grab(D, /singleton/grab/normal/aggressive, FALSE, prob(50))
 	return 1
 
 /datum/martial_art/kis_khan/harm_act(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)

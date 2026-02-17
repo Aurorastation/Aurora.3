@@ -138,8 +138,8 @@
 	icon_state = "butterfly"
 	item_state = null
 	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items/weapons/lefthand_knives.dmi',
-		slot_r_hand_str = 'icons/mob/items/weapons/righthand_knives.dmi',
+		BP_L_HAND = 'icons/mob/items/weapons/lefthand_knives.dmi',
+		BP_R_HAND = 'icons/mob/items/weapons/righthand_knives.dmi',
 		)
 	hitsound = null
 	active = 0

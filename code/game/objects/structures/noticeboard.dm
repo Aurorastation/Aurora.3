@@ -41,6 +41,7 @@
 			to_chat(user, SPAN_NOTICE("You reach to pin your paper to the board but hesitate. You are certain your paper will not be seen among the many others already attached."))
 
 /obj/structure/noticeboard/attack_hand(var/mob/user)
+	. = ..()
 	examine(user)
 
 // Since Topic() never seems to interact with usr on more than a superficial
@@ -121,6 +122,7 @@
 		AddOverlays("glass")
 
 /obj/structure/noticeboard/command/attack_hand(var/mob/user)
+	. = ..()
 	if(!unlocked)
 		to_chat(user, SPAN_NOTICE("\The [src] is locked."))
 		return

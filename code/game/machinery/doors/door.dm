@@ -169,6 +169,25 @@
 			bumpopen(M)
 		return
 
+	if(density && istype(bumped_atom, /obj/structure/bed/stool/chair/office/wheelchair))
+		var/obj/structure/bed/stool/chair/office/wheelchair/wheel = bumped_atom
+		for(var/obj/item/grab/G as anything in wheel.grabbed_by)
+			bumped_atom = G.grabber
+			break
+		if(wheel == bumped_atom)
+			do_animate("deny")
+			return
+
+	if(density && ismovable(bumped_atom))
+		var/atom/movable/AM = bumped_atom
+		for(var/obj/item/grab/G as anything in AM.grabbed_by)
+			var/mob/living/grabber = G.grabber
+			if(istype(grabber) && allowed(grabber))
+				open()
+				return
+		do_animate("deny")
+		return
+
 	if(istype(bumped_atom, /obj/machinery/bot))
 		var/obj/machinery/bot/bot = bumped_atom
 		if(src.check_access(bot.botcard))
@@ -188,23 +207,6 @@
 		if(src.check_access(bot.internal_id))
 			if(density)
 				open()
-		return
-
-	if(istype(bumped_atom, /obj/structure/bed/stool/chair/office/wheelchair))
-		var/obj/structure/bed/stool/chair/office/wheelchair/wheel = bumped_atom
-		if(density)
-			if(wheel.pulling && (src.allowed(wheel.pulling)))
-				open()
-			else
-				do_animate("deny")
-		return
-	if(istype(bumped_atom, /obj/structure/cart))
-		var/obj/structure/cart/cart = bumped_atom
-		if(density)
-			if(cart.pulling && (src.allowed(cart.pulling)))
-				open()
-			else
-				do_animate("deny")
 		return
 
 	if(istype(bumped_atom, /obj/vehicle))
@@ -302,6 +304,7 @@
 	return attack_hand(user)
 
 /obj/machinery/door/attack_hand(mob/user as mob)
+	. = ..()
 	if(src.operating > 0 || isrobot(user))	return //borgs can't attack doors open because it conflicts with their AI-like interaction with them.
 
 	if(src.operating) return
@@ -322,37 +325,37 @@
 		src.add_fingerprint(user)
 
 	if(attacking_item.tool_behaviour == TOOL_HAMMER && user.a_intent != I_HURT)
-		var/obj/item/stack/stack = usr.get_inactive_hand()
-		if(istype(stack) && stack.get_material_name() == get_material_name())
-			if(stat & BROKEN)
-				to_chat(user, SPAN_NOTICE("It looks like \the [src] is pretty busted. It's going to need more than just patching up now."))
-				return TRUE
-			if(health >= maxhealth)
-				to_chat(user, SPAN_NOTICE("Nothing to fix!"))
-				return TRUE
-			if(!density)
-				to_chat(user, SPAN_WARNING("\The [src] must be closed before you can repair it."))
-				return TRUE
+		for(var/obj/item/stack/stack in user.get_inactive_held_items())
+			if(istype(stack) && stack.get_material_name() == get_material_name())
+				if(stat & BROKEN)
+					to_chat(user, SPAN_NOTICE("It looks like \the [src] is pretty busted. It's going to need more than just patching up now."))
+					return TRUE
+				if(health >= maxhealth)
+					to_chat(user, SPAN_NOTICE("Nothing to fix!"))
+					return TRUE
+				if(!density)
+					to_chat(user, SPAN_WARNING("\The [src] must be closed before you can repair it."))
+					return TRUE
 
-			//figure out how much metal we need
-			var/amount_needed = (maxhealth - health) / DOOR_REPAIR_AMOUNT
-			amount_needed = (round(amount_needed) == amount_needed)? amount_needed : round(amount_needed) + 1 //Why does BYOND not have a ceiling proc?
+				//figure out how much metal we need
+				var/amount_needed = (maxhealth - health) / DOOR_REPAIR_AMOUNT
+				amount_needed = (round(amount_needed) == amount_needed)? amount_needed : round(amount_needed) + 1 //Why does BYOND not have a ceiling proc?
 
-			var/transfer
-			if (repairing)
-				transfer = stack.transfer_to(repairing, amount_needed - repairing.amount)
-				if (!transfer)
-					to_chat(user, SPAN_WARNING("You must weld or remove \the [repairing] from \the [src] before you can add anything else."))
-			else
-				repairing = stack.split(amount_needed)
+				var/transfer
 				if (repairing)
-					repairing.forceMove(src)
-					transfer = repairing.amount
+					transfer = stack.transfer_to(repairing, amount_needed - repairing.amount)
+					if (!transfer)
+						to_chat(user, SPAN_WARNING("You must weld or remove \the [repairing] from \the [src] before you can add anything else."))
+				else
+					repairing = stack.split(amount_needed)
+					if (repairing)
+						repairing.forceMove(src)
+						transfer = repairing.amount
 
-			if (transfer)
-				to_chat(user, SPAN_NOTICE("You fit [transfer] [stack.singular_name]\s to damaged and broken parts on \the [src]."))
+				if (transfer)
+					to_chat(user, SPAN_NOTICE("You fit [transfer] [stack.singular_name]\s to damaged and broken parts on \the [src]."))
 
-			return TRUE
+				return TRUE
 
 	if(repairing && attacking_item.tool_behaviour == TOOL_WELDER)
 		if(!density)

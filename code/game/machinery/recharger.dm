@@ -100,6 +100,7 @@
 		return TRUE
 
 /obj/machinery/recharger/attack_hand(mob/user as mob)
+	. = ..()
 	if(istype(user,/mob/living/silicon))
 		return
 

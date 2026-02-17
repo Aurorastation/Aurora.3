@@ -12,7 +12,7 @@
 	id = /obj/item/card/id/asset_protection
 	l_pocket = /obj/item/plastique
 	r_pocket = /obj/item/melee/energy/sword
-	l_hand = /obj/item/gun/energy/rifle/pulse
+	hands = list(/obj/item/gun/energy/rifle/pulse)
 
 	belt_contents = list(
 		/obj/item/ammo_magazine/a454 = 2,
@@ -31,7 +31,7 @@
 	name = "Asset Protection Lead"
 
 	l_pocket = /obj/item/pinpointer
-	r_hand = /obj/item/orbital_dropper/icarus_drones
+	hands = list(/obj/item/gun/energy/rifle/pulse, /obj/item/orbital_dropper/icarus_drones)
 
 /obj/outfit/admin/deathsquad/get_id_access()
 	return get_all_accesses()
@@ -54,7 +54,7 @@
 		hold.contents += weapon
 		hold.holstered = weapon
 
-	var/obj/item/clothing/under/U = H.get_equipped_item(slot_w_uniform)
+	var/obj/item/clothing/under/U = H.get_equipped_item(slot_w_uniform_str)
 	U.attackby(hold, H)
 
 	var/obj/item/rig/mercrig
@@ -66,7 +66,7 @@
 
 	if(mercrig)
 		H.put_in_hands(mercrig)
-		H.equip_to_slot_or_del(mercrig, slot_back)
+		H.equip_to_slot_or_del(mercrig, slot_back_str)
 		addtimer(CALLBACK(mercrig, TYPE_PROC_REF(/obj/item/rig, toggle_seals), H, TRUE), 2 SECONDS)
 	belt_contents = list(
 		/obj/item/ammo_magazine/a454 = 2,
@@ -109,5 +109,5 @@
 		hold.contents += weapon
 		hold.holstered = weapon
 
-	var/obj/item/clothing/under/U = H.get_equipped_item(slot_w_uniform)
+	var/obj/item/clothing/under/U = H.get_equipped_item(slot_w_uniform_str)
 	U.attackby(hold, H)

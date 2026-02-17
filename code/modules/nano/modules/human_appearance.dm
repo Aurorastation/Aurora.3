@@ -206,7 +206,10 @@
 		if("prosthetics")
 			if(can_change(APPEARANCE_PROSTHETICS))
 				var/limb = tgui_input_list(owner, "Select a Limb", "Limb Modifications", valid_limbs)
-				limb = reverse_parse_zone(limb) //turn it back into a proper organ tag
+				for (var/obj/item/organ/external/_O in owner.organs)
+					if(_O.name == limb)
+						limb = _O
+						break
 				if(limb)
 					var/company = tgui_input_list(owner, "Select a Limb Type", "Limb Modifications", owner.species.possible_external_organs_modifications) //For amputated or nymph we just pass it straight into change_limb
 					if(company == "Prosthesis")

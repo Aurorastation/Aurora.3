@@ -62,7 +62,7 @@
 	if(!holstered)
 		return
 
-	if(istype(user.get_active_hand(), /obj) && istype(user.get_inactive_hand(), /obj))
+	if(!user.get_empty_hand_slot())
 		to_chat(user, SPAN_WARNING("You need an empty hand to draw \the [holstered]!"))
 	else if (use_check(user))
 		to_chat(user, SPAN_WARNING("You can't draw \the [holstered] in your current state!"))

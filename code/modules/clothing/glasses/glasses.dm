@@ -13,8 +13,8 @@ BLIND     // can't see anything
 	name = "glasses"
 	icon = 'icons/obj/clothing/glasses.dmi'
 	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items/clothing/lefthand_glasses.dmi',
-		slot_r_hand_str = 'icons/mob/items/clothing/righthand_glasses.dmi'
+		BP_L_HAND = 'icons/mob/items/clothing/lefthand_glasses.dmi',
+		BP_R_HAND = 'icons/mob/items/clothing/righthand_glasses.dmi'
 		)
 	w_class = WEIGHT_CLASS_SMALL
 	slot_flags = SLOT_EYES
@@ -105,8 +105,7 @@ BLIND     // can't see anything
 				set_light_range_power_color(2, 0.4, activated_color)
 				set_light_on(active)
 	user.update_action_buttons()
-	user.update_inv_l_hand(0)
-	user.update_inv_r_hand(1)
+	user.update_inv_hands()
 
 /obj/item/clothing/glasses/proc/is_sec_hud()
 	return FALSE
@@ -311,7 +310,7 @@ BLIND     // can't see anything
 		if(change_item_state_on_flip) item_state = icon_state
 		to_chat(usr, SPAN_NOTICE("You push \the [src] [flip_up]"))
 	handle_additional_changes()
-	update_worn_icon()
+	usr.update_inv_glasses()
 	update_icon()
 	usr.update_action_buttons()
 
@@ -379,8 +378,8 @@ BLIND     // can't see anything
 	var/sprite_state = "military_goggles"
 	// Implementing this temporarily to use the generic goggle inhands until unique sprites are made.
 	item_state_slots = list(
-		slot_l_hand_str = "plaingoggles",
-		slot_r_hand_str = "plaingoggles"
+		BP_L_HAND = "plaingoggles",
+		BP_R_HAND = "plaingoggles"
 	)
 	flash_protection = FLASH_PROTECTION_MODERATE //This needs to be set even if the state changes later, otherwise it spawns with no flash protection while appearing to be down
 	change_item_state_on_flip = TRUE
@@ -406,8 +405,8 @@ BLIND     // can't see anything
 	var/sprite_state = "security_goggles"
 	// Implementing this temporarily to use the generic goggle inhands until unique sprites are made.
 	item_state_slots = list(
-		slot_l_hand_str = "plaingoggles",
-		slot_r_hand_str = "plaingoggles"
+		BP_L_HAND = "plaingoggles",
+		BP_R_HAND = "plaingoggles"
 	)
 	flash_protection = FLASH_PROTECTION_MODERATE
 	change_item_state_on_flip = TRUE
@@ -451,8 +450,8 @@ BLIND     // can't see anything
 	var/sprite_state = "security_goggles"
 	// Implementing this temporarily to use the generic goggle inhands until unique sprites are made.
 	item_state_slots = list(
-		slot_l_hand_str = "plaingoggles",
-		slot_r_hand_str = "plaingoggles"
+		BP_L_HAND = "plaingoggles",
+		BP_R_HAND = "plaingoggles"
 	)
 	change_item_state_on_flip = TRUE
 
@@ -1112,7 +1111,7 @@ BLIND     // can't see anything
 	desc = "A pair of designer sunglasses. They should put HUDs in these."
 	icon_state = "aviator_thr"
 	off_state = "aviator_off"
-	item_state_slots = list(slot_r_hand_str = "sunglasses", slot_l_hand_str = "sunglasses")
+	item_state_slots = list(BP_R_HAND = "sunglasses", BP_L_HAND = "sunglasses")
 	action_button_name = "Toggle HUD"
 	activation_sound = 'sound/effects/pop.ogg'
 	prescription = 7
@@ -1166,7 +1165,7 @@ BLIND     // can't see anything
 	handle_mob_overlay()
 
 /obj/item/clothing/glasses/eyepatch/hud/equipped(mob/user, slot)
-	if(active && slot == slot_glasses)
+	if(active && slot == slot_glasses_str)
 		user.AddOverlays(mob_overlay, ATOM_ICON_CACHE_PROTECTED)
 		user.AddOverlays(mob_overlay_emis, TRUE)
 	else

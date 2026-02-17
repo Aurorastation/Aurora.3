@@ -623,6 +623,7 @@ GLOBAL_LIST_INIT(mineral_can_smooth_with, list(
 	)
 
 /turf/simulated/mineral/attack_hand(var/mob/user)
+	. = ..()
 	add_fingerprint(user)
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 

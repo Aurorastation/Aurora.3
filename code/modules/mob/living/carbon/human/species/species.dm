@@ -182,6 +182,9 @@
 	/// The coefficient to the climbing speed of the individual = 60 SECONDS * climb_coeff
 	var/climb_coeff = 1.25
 
+	/// The species' default grab type.
+	var/grab_type = /singleton/grab/normal/passive
+
 	// Death vars.
 	var/respawn_type = CREW
 	var/meat_type = /obj/item/reagent_containers/food/snacks/meat/human
@@ -379,6 +382,7 @@
 	/// If set, this organ is required to breathe. Defaults to BP_LUNGS if the species has them.
 	var/breathing_organ
 
+	/// Mapping of limbs/external organs to their actual path.
 	var/list/has_limbs = list(
 		BP_CHEST =  list("path" = /obj/item/organ/external/chest),
 		BP_GROIN =  list("path" = /obj/item/organ/external/groin),
@@ -394,6 +398,9 @@
 		)
 
 	var/natural_armor_type = /datum/component/armor/natural
+	/// An associative list of target zones (ex. BP_CHEST, BP_MOUTH) mapped to all possible keys associated. Used for non-standard organs like extra arms.
+	var/list/limb_mapping
+
 	var/list/natural_armor
 
 	// Bump vars
@@ -1081,3 +1088,6 @@
  */
 /datum/species/proc/handle_temperature_regulation(mob/living/carbon/human/human)
 	human.bodytemperature += passive_temp_gain
+
+/datum/species/proc/get_limb_from_zone(var/limb)
+	. = length(LAZYACCESS(limb_mapping, limb)) ? pick(limb_mapping[limb]) : limb

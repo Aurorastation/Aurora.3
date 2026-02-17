@@ -24,7 +24,7 @@
 	var/mob/living/carbon/human/H = user
 
 	var/obj/item/psychic_power/psiblade/PT = new(user)
-	if(H.put_in_any_hand_if_possible(PT))
+	if(H.put_in_hands(PT))
 		qdel(src)
 		return TRUE
 	else

@@ -80,7 +80,7 @@ INITIALIZE_IMMEDIATE(/mob/living/carbon/human/dummy/mannequin)
 /mob/living/carbon/human/type_a/cargo/Initialize(mapload)
 	. = ..()
 	// Equip mask to allow the drone to breathe
-	equip_to_slot_or_del(new /obj/item/clothing/mask/gas/vaurca/filter(src), slot_wear_mask)
+	equip_to_slot_or_del(new /obj/item/clothing/mask/gas/vaurca/filter(src), slot_wear_mask_str)
 	// Set internals
 	var/obj/item/organ/internal/vaurca/preserve/P = internal_organs_by_name[BP_PHORON_RESERVE]
 	internal = P
@@ -183,9 +183,9 @@ INITIALIZE_IMMEDIATE(/mob/living/carbon/human/dummy/mannequin)
 		mind.name = real_name
 	status_flags |= NO_ANTAG
 
-	equip_to_slot_or_del(new /obj/item/clothing/suit/armor/vest(src), slot_wear_suit)
-	equip_to_slot_or_del(new /obj/item/clothing/shoes/jackboots(src), slot_shoes)
-	equip_to_slot_or_del(new /obj/item/radio/headset/headset_com(src), slot_l_ear)
+	equip_to_slot_or_del(new /obj/item/clothing/suit/armor/vest(src), slot_wear_suit_str)
+	equip_to_slot_or_del(new /obj/item/clothing/shoes/jackboots(src), slot_shoes_str)
+	equip_to_slot_or_del(new /obj/item/radio/headset/headset_com(src), slot_l_ear_str)
 
 	remote_network = REMOTE_BUNKER_ROBOT
 	SSvirtualreality.add_robot(src, remote_network)
@@ -200,7 +200,7 @@ INITIALIZE_IMMEDIATE(/mob/living/carbon/human/dummy/mannequin)
 		mind.name = real_name
 	status_flags |= NO_ANTAG
 
-	equip_to_slot_or_del(new /obj/item/radio/headset/headset_penal(src), slot_l_ear)
+	equip_to_slot_or_del(new /obj/item/radio/headset/headset_penal(src), slot_l_ear_str)
 
 	remote_network = REMOTE_PRISON_ROBOT
 	SSvirtualreality.add_robot(src, remote_network)
@@ -219,10 +219,10 @@ INITIALIZE_IMMEDIATE(/mob/living/carbon/human/dummy/mannequin)
 	ID.assignment = "Overseer"
 	src.set_id_info(ID)
 	ID.access = list(ACCESS_ARMORY)
-	equip_to_slot_or_del(ID, slot_wear_id)
-	equip_to_slot_or_del(new /obj/item/clothing/under/rank/warden/remote(src), slot_w_uniform)
-	equip_to_slot_or_del(new /obj/item/clothing/shoes/jackboots(src), slot_shoes)
-	equip_to_slot_or_del(new /obj/item/radio/headset/headset_warden(src), slot_l_ear)
+	equip_to_slot_or_del(ID, slot_wear_id_str)
+	equip_to_slot_or_del(new /obj/item/clothing/under/rank/warden/remote(src), slot_w_uniform_str)
+	equip_to_slot_or_del(new /obj/item/clothing/shoes/jackboots(src), slot_shoes_str)
+	equip_to_slot_or_del(new /obj/item/radio/headset/headset_warden(src), slot_l_ear_str)
 
 	remote_network = REMOTE_WARDEN_ROBOT
 	SSvirtualreality.add_robot(src, remote_network)
@@ -259,9 +259,9 @@ INITIALIZE_IMMEDIATE(/mob/living/carbon/human/dummy/mannequin)
 		mind.name = real_name
 	status_flags |= NO_ANTAG
 
-	equip_to_slot_or_del(new /obj/item/clothing/suit/armor/vest(src), slot_wear_suit)
-	equip_to_slot_or_del(new /obj/item/clothing/shoes/jackboots(src), slot_shoes)
-	equip_to_slot_or_del(new /obj/item/radio/headset/headset_com(src), slot_l_ear)
+	equip_to_slot_or_del(new /obj/item/clothing/suit/armor/vest(src), slot_wear_suit_str)
+	equip_to_slot_or_del(new /obj/item/clothing/shoes/jackboots(src), slot_shoes_str)
+	equip_to_slot_or_del(new /obj/item/radio/headset/headset_com(src), slot_l_ear_str)
 
 	remote_network = REMOTE_BUNKER_ROBOT
 	SSvirtualreality.add_robot(src, remote_network)
@@ -277,10 +277,10 @@ INITIALIZE_IMMEDIATE(/mob/living/carbon/human/dummy/mannequin)
 	add_language(LANGUAGE_GUTTER, 1)
 	add_language(LANGUAGE_EAL, 1)
 	accent = ACCENT_TTS
-	src.equip_to_slot_or_del(new /obj/item/gun/energy/scythe(src),slot_l_hand)
-	src.equip_to_slot_or_del(new /obj/item/clothing/under/gearharness, slot_w_uniform)
-	src.equip_to_slot_or_del(new /obj/item/grenade/frag(src), slot_l_store)
-	src.equip_to_slot_or_del(new /obj/item/melee/energy/sword(src), slot_r_store)
+	src.equip_to_slot_or_del(new /obj/item/gun/energy/scythe(src), BP_L_HAND)
+	src.equip_to_slot_or_del(new /obj/item/clothing/under/gearharness, slot_w_uniform_str)
+	src.equip_to_slot_or_del(new /obj/item/grenade/frag(src), slot_l_store_str)
+	src.equip_to_slot_or_del(new /obj/item/melee/energy/sword(src), slot_r_store_str)
 
 	var/obj/item/storage/belt/security/tactical/commando_belt = new(src)
 	commando_belt.contents += new /obj/item/melee/baton/loaded
@@ -288,7 +288,7 @@ INITIALIZE_IMMEDIATE(/mob/living/carbon/human/dummy/mannequin)
 	commando_belt.contents += new /obj/item/handcuffs
 	commando_belt.contents += new /obj/item/handcuffs
 	commando_belt.contents += new /obj/item/plastique
-	src.equip_to_slot_or_del(commando_belt, slot_belt)
+	src.equip_to_slot_or_del(commando_belt, slot_belt_str)
 	src.gender = NEUTER
 
 /mob/living/carbon/human/hunter_killer

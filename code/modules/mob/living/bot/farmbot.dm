@@ -426,7 +426,7 @@
 		created_name = t
 
 /obj/item/farmbot_arm_assembly/attack_hand(mob/user)
-	return //it's a converted watertank, no you cannot pick it up and put it in your backpack
+	SHOULD_CALL_PARENT(FALSE) //it's a converted watertank, no you cannot pick it up and put it in your backpack
 
 
 #undef FARMBOT_COLLECT

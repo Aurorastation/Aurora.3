@@ -64,6 +64,7 @@
 	update_icon()
 
 /obj/structure/extinguisher_cabinet/attack_hand(mob/user)
+	. = ..()
 	if(isrobot(user))
 		return
 	if(use_check_and_message(usr))

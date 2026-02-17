@@ -104,75 +104,54 @@
 			Weaken(6) //No legs or feet means you should be really fucked.
 
 /mob/living/carbon/human/proc/handle_grasp()
-	if(!l_hand && !r_hand)
+	for(var/bp in held_item_slots)
+		var/datum/inventory_slot/inv_slot = held_item_slots[bp]
+		var/holding = inv_slot?.holding
+		if(holding)
+			var/obj/item/organ/external/E = organs_by_name[bp]
+			if((!E || !E.is_usable() || ORGAN_IS_DISLOCATED(E)) && unEquip(holding))
+				grasp_damage_disarm(inv_slot)
+
+/mob/living/carbon/human/proc/grasp_damage_disarm(var/obj/item/organ/external/affected)
+	var/list/drop_held_item_slots
+	if(istype(affected))
+		for(var/bp in (list(affected.limb_name) | affected.children))
+			var/datum/inventory_slot/inv_slot = LAZYACCESS(held_item_slots, bp)
+			if(inv_slot?.holding)
+				LAZYDISTINCTADD(drop_held_item_slots, inv_slot)
+	else if(istype(affected, /datum/inventory_slot))
+		drop_held_item_slots = list(affected)
+
+	if(!LAZYLEN(drop_held_item_slots))
 		return
 
-	// You should not be able to pick anything up, but stranger things have happened.
-	if(l_hand)
-		for(var/limb_tag in list(BP_L_HAND,BP_L_ARM))
-			var/obj/item/organ/external/E = get_organ(limb_tag)
-			if(!E)
-				visible_message(SPAN_DANGER("Lacking a functioning left hand, \the [src] drops \the [l_hand]."))
-				drop_from_inventory(l_hand)
-				break
-
-	if(r_hand)
-		for(var/limb_tag in list(BP_R_HAND,BP_R_ARM))
-			var/obj/item/organ/external/E = get_organ(limb_tag)
-			if(!E)
-				visible_message(SPAN_DANGER("Lacking a functioning right hand, \the [src] drops \the [r_hand]."))
-				drop_from_inventory(r_hand)
-				break
-
-	// Check again...
-	if(!l_hand && !r_hand)
-		return
-
-	for (var/obj/item/organ/external/E in organs)
-		if(!E || !(E.limb_flags & ORGAN_CAN_GRASP) || (E.status & ORGAN_SPLINTED))
+	for(var/datum/inventory_slot/inv_slot in drop_held_item_slots)
+		if(!unEquip(inv_slot.holding))
+			continue
+		var/obj/item/organ/external/E = organs_by_name[inv_slot.slot_id]
+		if(!E)
+			continue
+		if(BP_IS_ROBOTIC(E))
+			visible_message("<B>\The [src]</B> drops what they were holding, [get_pronoun("his")] [affected.name] malfunctioning!")
+			spark(5)
 			continue
 
-		if(E.is_broken() || ORGAN_IS_DISLOCATED(E))
-			switch(E.body_part)
-				if(HAND_LEFT, ARM_LEFT)
-					if(!l_hand)
-						continue
-					drop_from_inventory(l_hand)
-				if(HAND_RIGHT, ARM_RIGHT)
-					if(!r_hand)
-						continue
-					drop_from_inventory(r_hand)
+		var/grasp_name = E.name
+		if((E.body_part in list(ARM_LEFT, ARM_RIGHT)) && length(E.children))
+			var/obj/item/organ/external/hand = pick(E.children)
+			grasp_name = hand.name
 
-			var/emote_scream = pick(species.pain_item_drop_cry)
-			visible_message("<b>[src]</b> [(species.flags & NO_PAIN) ? "" : emote_scream ]drops what they were holding in their [E.name]!")
-
-		else if(!(E.status & ORGAN_ROBOT) && (CE_DROPITEM in chem_effects) && prob(chem_effects[CE_DROPITEM]))
-			to_chat(src, SPAN_WARNING("Your [E.name] goes limp and unresponsive for a moment, dropping what it was holding!"))
-			visible_message("<b>[src]</b> drops what they were holding in their [E.name]!")
-			switch(E.body_part)
-				if(HAND_LEFT, ARM_LEFT)
-					if(!l_hand)
-						continue
-					drop_from_inventory(l_hand)
-				if(HAND_RIGHT, ARM_RIGHT)
-					if(!r_hand)
-						continue
-					drop_from_inventory(r_hand)
-
-		else if(E.is_malfunctioning())
-			switch(E.body_part)
-				if(HAND_LEFT, ARM_LEFT)
-					if(!l_hand)
-						continue
-					drop_from_inventory(l_hand)
-				if(HAND_RIGHT, ARM_RIGHT)
-					if(!r_hand)
-						continue
-					drop_from_inventory(r_hand)
-
-			visible_message("<b>[src]</b> drops what they were holding, their [E.name] malfunctioning!")
-
-			spark(src, 5)
+		if(ORGAN_CAN_FEEL_PAIN(E))
+			var/emote_scream = pick("screams in pain", "lets out a sharp cry", "cries out")
+			var/emote_scream_alt = pick("scream in pain", "let out a sharp cry", "cry out")
+			visible_message(
+				"<B>\The [src]</B> [emote_scream] and drops what they were holding in their [grasp_name]!",
+				null,
+				"You hear someone [emote_scream_alt]!"
+			)
+			custom_pain("The sharp pain in your [E.name] forces you to drop what you were holding in your [grasp_name]!", 30)
+		else
+			visible_message("<B>\The [src]</B> drops what they were holding in their [grasp_name]!")
 
 /// Handles chem traces
 /mob/living/carbon/human/proc/handle_trace_chems()

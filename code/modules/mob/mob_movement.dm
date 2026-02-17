@@ -5,19 +5,7 @@
 	if(mover?.movement_type & PHASING)
 		return TRUE
 
-	if(ismob(mover))
-		var/mob/moving_mob = mover
-		if(moving_mob.pulledby == src)
-			return TRUE
-		if(length(moving_mob.grabbed_by))
-			for(var/obj/item/grab/G in moving_mob.grabbed_by)
-				if(G.assailant == src)
-					return TRUE
-		if(HAS_TRAIT(src, TRAIT_UNDENSE))
-			return TRUE
-		return (!mover.density || !density || lying)
-	else
-		return (!mover.density || !density || lying)
+	return (!mover.density || !density || lying)
 
 /mob/proc/setMoveCooldown(var/timeout)
 	if(client)
@@ -95,10 +83,8 @@
 /client/verb/delete_key_pressed()
 	set hidden = 1
 
-	if(!usr.pulling)
-		to_chat(usr, SPAN_NOTICE("You are not pulling anything."))
-		return
-	usr.stop_pulling()
+	for(var/obj/item/grab/G as anything in mob.get_active_grabs())
+		G.current_grab.let_go(G)
 
 /client/verb/swap_hand()
 	set hidden = 1
@@ -219,17 +205,6 @@
 				console.jump_on_click(mob,T)
 				return
 
-		if(length(mob.grabbed_by))
-			var/turf/target_turf = get_step(mob, direct)
-			for(var/obj/item/grab/G in mob.grabbed_by)
-				// can't move, try resisting and stop movement
-				if(G.state > GRAB_PASSIVE || get_dist(G.assailant, target_turf) > 1)
-					L.resist()
-					return
-
-		for(var/obj/item/grab/G in list(mob.l_hand, mob.r_hand))
-			G.reset_kill_state() //no wandering across the station/asteroid while choking someone
-
 	if(!mob.canmove || mob.paralysis)
 		return
 
@@ -251,15 +226,6 @@
 				return 0
 			else
 				mob.inertia_dir = 0 //If not then we can reset inertia and move
-
-		if(mob.restrained())		//Why being pulled while cuffed prevents you from moving
-			var/mob/puller = mob.pulledby
-			if(puller)
-				if(!puller.restrained() && puller.stat == 0 && puller.canmove && mob.Adjacent(puller))
-					to_chat(src, SPAN_NOTICE("You're restrained! You can't move!"))
-					return FALSE
-				else
-					puller.stop_pulling()
 
 		if(length(mob.pinned))
 			to_chat(src, SPAN_WARNING("You're pinned to a wall by [mob.pinned[1]]!"))
@@ -323,51 +289,29 @@
 			if(crawl_tally >= 120)
 				return FALSE
 
-
 		//Wheelchair pushing goes here for now.
 		//TODO: Fuck wheelchairs.
-		if(istype(mob.pulledby, /obj/structure))
-			var/obj/structure/S = mob.pulledby
+		for(var/obj/item/grab/G as anything in mob.get_active_grabs())
+			var/obj/structure/S = G.grabbed
+			if(!istype(S, /obj/structure/cart) && !istype(S, /obj/structure/bed/stool/chair/office/wheelchair))
+				continue
 			move_delay += S.slowdown
-			var/cart_glide_size = mob.pulledby.recalculate_glide_size(old_move_delay, move_delay, direct)
+			var/cart_glide_size = S.recalculate_glide_size(old_move_delay, move_delay, direct)
 			mob.set_glide_size(cart_glide_size)
-			return mob.pulledby.relaymove(mob, direct)
+			return S.relaymove(mob, direct)
 
 		var/old_loc = mob.loc
 
-		//We are now going to move
-		moving = 1
-		var/new_glide_size = mob.recalculate_glide_size(old_move_delay, move_delay, direct)
+		var/grab_glide_size = mob.recalculate_glide_size(old_move_delay, move_delay, direct)
+		mob.handle_grabs_after_move(old_loc, direct, grab_glide_size)
 
-		if (mob.pulling)
-			mob.pulling.set_glide_size(new_glide_size)
-			mob.pulling.relaymove(mob, direct)
-
-		if(mob_is_human)
-			for(var/obj/item/grab/G in list(mob.l_hand, mob.r_hand))
-				switch(G.get_grab_type())
-					if(MOB_GRAB_FIREMAN)
-						move_delay++
-					if(MOB_GRAB_NORMAL)
-						move_delay = max(move_delay, world.time + 7)
-						step(G.affecting, get_dir(G.affecting.loc, mob.loc))
-
+		moving = TRUE
 		if(mob.confused && prob(25) && mob.m_intent == M_RUN)
 			step(mob, pick(GLOB.cardinals))
 		else
 			. = mob.SelfMove(new_loc, direct)
 
-		for (var/obj/item/grab/G in list(mob.l_hand, mob.r_hand))
-			if (G.state == GRAB_NECK)
-				mob.set_dir(REVERSE_DIR(direct))
-			G.affecting.set_glide_size(new_glide_size)
-			G.adjust_position()
-
-		for (var/obj/item/grab/G in mob.grabbed_by)
-			G.affecting.set_glide_size(new_glide_size)
-			G.adjust_position()
-
-		moving = 0
+		moving = FALSE
 
 		if(sprint_tally && mob.loc != old_loc)
 			var/mob/living/carbon/human/H = mob

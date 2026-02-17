@@ -18,7 +18,7 @@
 	INVOKE_ASYNC(src, PROC_REF(EquipPunpunUniform))
 
 /mob/living/carbon/human/monkey/punpun/proc/EquipPunpunUniform()
-	equip_to_slot(new /obj/item/clothing/under/punpun(src), slot_w_uniform)
+	equip_to_slot(new /obj/item/clothing/under/punpun(src), slot_w_uniform_str)
 
 /obj/item/clothing/under/nupnup
 	name = "christmas uniform"

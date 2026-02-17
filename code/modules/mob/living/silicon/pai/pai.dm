@@ -471,7 +471,6 @@
 		T.visible_message("<b>[src]</b> neatly folds inwards, compacting down to a rectangular card.")
 		playsound(src, 'sound/items/rped.ogg', 40, TRUE)
 
-	src.stop_pulling()
 	if (client)
 		client.perspective = EYE_PERSPECTIVE
 		client.eye = src
@@ -508,8 +507,7 @@
 	if(!istype(H))
 		return
 	H.icon_state = "pai-[icon_state]"
-	grabber.update_inv_l_hand()
-	grabber.update_inv_r_hand()
+	grabber.update_inv_hands()
 	post_scoop()
 	return H
 
@@ -519,18 +517,6 @@
 		return ..()
 
 	get_scooped(H, user)
-
-/mob/living/silicon/pai/start_pulling(var/atom/movable/AM)
-	if(istype(AM,/obj/item))
-		var/obj/item/O = AM
-		if(O.w_class > can_pull_size)
-			to_chat(src, SPAN_WARNING("You are too small to pull that."))
-			return
-		else
-			..()
-	else
-		to_chat(src, SPAN_WARNING("You are too small to pull that."))
-		return
 
 /mob/living/silicon/pai/UnarmedAttack(atom/A, proximity)
 	A.attack_pai(src)

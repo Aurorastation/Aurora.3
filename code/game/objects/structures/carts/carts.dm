@@ -9,9 +9,8 @@ ABSTRACT_TYPE(/obj/structure/cart)
 	material = DEFAULT_WALL_MATERIAL
 	slowdown = 0
 	atom_flags = CRITICAL_ATOM
+	movable_flags = MOVABLE_FLAG_WHEELED
 	var/movesound = 'sound/effects/roll.ogg'
-	var/driving
-	var/mob/living/pulling
 
 /obj/structure/cart/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()
@@ -43,68 +42,17 @@ ABSTRACT_TYPE(/obj/structure/cart)
 /obj/structure/cart/relaymove(mob/living/user, direction)
 	. = ..()
 
-	if(user.stat || user.stunned || user.weakened || user.paralysis || user.lying || user.restrained())
-		if(user==pulling)
-			pulling = null
-			user.pulledby = null
-			to_chat(user, SPAN_WARNING("You lost your grip!"))
+	if(user.incapacitated())
 		return
-	if(user.pulling && (user == pulling))
-		pulling = null
-		user.pulledby = null
-		return
-	if(pulling && (get_dist(src, pulling) > 1))
-		pulling = null
-		user.pulledby = null
-		if(user==pulling)
-			return
-	if(pulling && (get_dir(src.loc, pulling.loc) == direction))
-		to_chat(user, SPAN_WARNING("You cannot go there."))
-		// return
 
-	driving = 1
-	var/turf/turf = null
-	if(pulling)
-		turf = pulling.loc
-		if(get_dist(src, pulling) >= 1)
-			step(pulling, get_dir(pulling.loc, src.loc))
+	user.glide_size = glide_size
 	step(src, direction)
 	set_dir(direction)
-	if(pulling)
-		if(pulling.loc == src.loc)
-			pulling.forceMove(turf)
-		else
-			spawn(0)
-			if(get_dist(src, pulling) > 1)
-				pulling = null
-				user.pulledby = null
-			pulling.set_dir(get_dir(pulling, src))
-	driving = 0
 
 /obj/structure/cart/Move()
 	. = ..()
-	if (pulling && (get_dist(src, pulling) > 1))
-		pulling.pulledby = null
-		to_chat(pulling, SPAN_WARNING("You lost your grip!"))
-		pulling = null
 	if(has_gravity())
 		playsound(src, movesound, 50, 1)
-
-/obj/structure/cart/CtrlClick(var/mob/user)
-	if(in_range(src, user))
-		if(!ishuman(user))	return
-		if(!pulling)
-			pulling = user
-			user.pulledby = src
-			if(user.pulling)
-				user.stop_pulling()
-			user.set_dir(get_dir(user, src))
-			to_chat(user, SPAN_NOTICE("You grip \the [name]'s handles."))
-		else
-			to_chat(user, SPAN_NOTICE("You let go of \the [name]'s handles."))
-			pulling.pulledby = null
-			pulling = null
-		return
 
 /obj/structure/cart/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
 	if(air_group || (height==0))
@@ -113,8 +61,10 @@ ABSTRACT_TYPE(/obj/structure/cart)
 		return TRUE
 	if(istype(mover) && mover.pass_flags & PASSTABLE)
 		return TRUE
-	if(istype(mover, /mob/living) && mover == pulling)
-		return TRUE
+	if(istype(mover, /mob/living))
+		for(var/obj/item/grab/G as anything in grabbed_by)
+			if(G.grabber == mover)
+				return TRUE
 	else
 		if(istype(mover, /obj/projectile))
 			return prob(20)

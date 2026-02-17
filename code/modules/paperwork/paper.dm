@@ -430,7 +430,7 @@
 		user.visible_message("<span class='[class]'>[user] burns right through \the [src], turning it to ash. It flutters through the air before settling on the floor in a heap.</span>", \
 		"<span class='[class]'>You burn right through \the [src], turning it to ash. It flutters through the air before settling on the floor in a heap.</span>")
 
-		if(user.get_inactive_hand() == src)
+		if(user.is_holding_offhand(src))
 			user.drop_from_inventory(src)
 
 		new /obj/effect/decal/cleanable/ash(src.loc)
@@ -516,8 +516,9 @@
 			if(T.pen)
 				i = T.pen
 
-		if(!i || !i.tool_behaviour == TOOL_PEN)
-			i = usr.get_inactive_hand()
+		if(!i || i.tool_behaviour != TOOL_PEN)
+			i = usr.get_held_tool(TOOL_PEN)
+
 		var/obj/item/clipboard/c
 		var/iscrayon = FALSE
 		var/isfountain = FALSE
@@ -626,12 +627,13 @@
 		//TODO: Look into this stuff
 		if (istype(user, /mob/living/carbon/human))
 			var/mob/living/carbon/human/h_user = user
-			if (h_user.r_hand == src)
-				h_user.drop_from_inventory(src)
-				h_user.equip_to_slot_if_possible(B, slot_r_hand)
-			else if (h_user.l_hand == src)
-				h_user.drop_from_inventory(src)
-				h_user.equip_to_slot_if_possible(B, slot_l_hand)
+			if (src in h_user.get_held_items())
+				for(var/slot in h_user.held_item_slots)
+					var/datum/inventory_slot/inv_slot = h_user.held_item_slots[slot]
+					if((src == inv_slot?.holding))
+						h_user.drop_from_inventory(src)
+						h_user.equip_to_slot_if_possible(B, slot)
+						break
 			else if (h_user.l_store == src)
 				h_user.drop_from_inventory(src)
 				B.forceMove(h_user)

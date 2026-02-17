@@ -117,7 +117,6 @@
 	if (occupant)
 		to_chat(usr, SPAN_WARNING("The scanner is already occupied!"))
 		return
-	usr.pulling = null
 	usr.client.perspective = EYE_PERSPECTIVE
 	usr.client.eye = src
 	usr.forceMove(src)
@@ -144,32 +143,27 @@
 	update_icon()
 	return
 
-/obj/machinery/bodyscanner/attackby(obj/item/attacking_item, mob/user)
-	var/obj/item/grab/G = attacking_item
-	if (!istype(G, /obj/item/grab) || !isliving(G.affecting) )
-		return
-	if (occupant)
-		to_chat(user, SPAN_WARNING("The scanner is already occupied!"))
+/obj/machinery/bodyscanner/grab_attack(obj/item/grab/G, mob/user)
+	var/mob/living/victim = G.get_grabbed_mob()
+	if(istype(victim))
+		if(occupant)
+			to_chat(user, SPAN_WARNING("The scanner is already occupied!"))
+			return ..()
+		if(!victim.bucklecheck(user))
+			return ..()
+		user.visible_message(SPAN_NOTICE("\The [user] begins putting \the [victim] into \the [src]."), SPAN_NOTICE("You start putting \the [victim] into \the [src]."), range = 3)
+		if (do_mob(user, victim, 3 SECONDS, needhand = FALSE))
+			if (victim.client)
+				victim.client.perspective = EYE_PERSPECTIVE
+				victim.client.eye = src
+			victim.forceMove(src)
+			occupant = victim
+			update_use_power(POWER_USE_ACTIVE)
+			update_icon()
+		add_fingerprint(user)
+		qdel(G)
 		return TRUE
-
-	var/mob/living/M = G.affecting
-	var/bucklestatus = M.bucklecheck(user)
-	if (!bucklestatus)
-		return TRUE
-
-	user.visible_message(SPAN_NOTICE("\The [user] starts putting \the [M] into \the [src]."), SPAN_NOTICE("You start putting \the [M] into \the [src]."), range = 3)
-	if (do_mob(user, G.affecting, 30, needhand = 0))
-		if (M.client)
-			M.client.perspective = EYE_PERSPECTIVE
-			M.client.eye = src
-
-		M.forceMove(src)
-		occupant = M
-		update_use_power(POWER_USE_ACTIVE)
-		update_icon()
-	add_fingerprint(user)
-	qdel(G)
-	return TRUE
+	return ..()
 
 /obj/machinery/bodyscanner/mouse_drop_receive(atom/dropped, mob/user, params)
 	if(!istype(user))
@@ -622,7 +616,8 @@
 	for (var/obj/item/organ/internal/O in H.internal_organs)
 		var/list/data = list()
 		data["name"] = capitalize_first_letters(O.name)
-		data["location"] = capitalize_first_letters(parse_zone(O.parent_organ))
+		var/obj/item/organ/external/E = GET_EXTERNAL_ORGAN(H, O.parent_organ)
+		data["location"] = capitalize_first_letters(E?.name)
 		var/list/wounds = list()
 		var/internal_damage = get_internal_damage(O)
 		if(istype(O, /obj/item/organ/internal/brain))

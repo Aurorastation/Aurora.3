@@ -267,6 +267,7 @@
 	return
 
 /turf/simulated/open/attack_hand(var/mob/user)
+	. = ..()
 	if(ishuman(user) && user.a_intent == I_GRAB)
 		var/mob/living/carbon/human/H = user
 		var/turf/T = get_turf(H)

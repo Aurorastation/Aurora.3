@@ -41,10 +41,8 @@
 			var/obj/item/storage/U = I.loc
 			human_user.client.screen -= I
 			U.contents.Remove(I)
-		else if(human_user.l_hand == I)					//in a hand
-			human_user.drop_l_hand()
-		else if(human_user.r_hand == I)					//in a hand
-			human_user.drop_r_hand()
+		else if(I in human_user.get_held_items())
+			human_user.drop_from_hand(I)
 		else
 			return
 

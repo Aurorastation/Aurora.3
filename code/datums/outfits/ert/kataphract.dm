@@ -14,7 +14,7 @@
 	back = /obj/item/storage/backpack/satchel/hegemony
 
 	l_ear = /obj/item/radio/headset/distress
-	l_hand = /obj/item/martial_manual/swordsmanship
+	hands = list(/obj/item/martial_manual/swordsmanship)
 
 	r_pocket = /obj/item/radio
 
@@ -35,7 +35,7 @@
 		H.w_uniform.accent_color = H.w_uniform.color
 	if(H?.shoes)
 		var/obj/item/clothing/shoes/magboots/hegemony/boots = new(H)
-		H.equip_to_slot_if_possible(boots, slot_shoes)
+		H.equip_to_slot_if_possible(boots, slot_shoes_str)
 
 /obj/outfit/admin/ert/kataphract/get_id_access()
 	return get_distress_access_lesser()
@@ -51,7 +51,7 @@
 	shoes = /obj/item/clothing/shoes/vaurca
 	gloves = null
 
-	l_hand = /obj/item/martial_manual/vaurca
+	hands = list(/obj/item/martial_manual/vaurca)
 	l_pocket = /obj/item/melee/energy/sword/hegemony
 
 	backpack_contents = list(
@@ -76,7 +76,7 @@
 	if(H?.shoes)
 		H.shoes.color = uniform_colour
 		var/obj/item/clothing/shoes/magboots/hegemony/boots = new(H)
-		H.equip_to_slot_if_possible(boots, slot_shoes)
+		H.equip_to_slot_if_possible(boots, slot_shoes_str)
 
 /obj/outfit/admin/ert/kataphract/specialist
 	name = "Kataphract-Hopeful Spec."
@@ -84,7 +84,7 @@
 	head = /obj/item/clothing/head/helmet/space/void/kataphract/spec
 	suit = /obj/item/clothing/suit/space/void/kataphract/spec
 	belt = /obj/item/storage/belt/medical/paramedic/combat
-	l_hand = /obj/item/melee/hammer/powered/hegemony
+	hands = list(/obj/item/melee/hammer/powered/hegemony)
 
 	belt_contents = list(
 		/obj/item/reagent_containers/hypospray/cmo = 1,
@@ -112,7 +112,7 @@
 		H.w_uniform.color = pick("#42b360", "#b68029", "#5574c2")
 	if(H?.shoes)
 		var/obj/item/clothing/shoes/magboots/hegemony/boots = new(H)
-		H.equip_to_slot_if_possible(boots, slot_shoes)
+		H.equip_to_slot_if_possible(boots, slot_shoes_str)
 
 /obj/outfit/admin/ert/kataphract/leader
 	name = "Kataphract Knight"
@@ -126,4 +126,4 @@
 		H.w_uniform.color = pick("#42b360", "#b68029", "#5574c2")
 	if(H?.shoes)
 		var/obj/item/clothing/shoes/magboots/hegemony/boots = new(H)
-		H.equip_to_slot_if_possible(boots, slot_shoes)
+		H.equip_to_slot_if_possible(boots, slot_shoes_str)

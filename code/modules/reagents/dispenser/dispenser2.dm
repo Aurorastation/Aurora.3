@@ -212,4 +212,5 @@
 	ui_interact(user)
 
 /obj/machinery/chemical_dispenser/attack_hand(mob/user as mob)
+	. = ..()
 	ui_interact(user)

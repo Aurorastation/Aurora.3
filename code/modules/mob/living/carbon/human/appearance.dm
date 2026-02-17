@@ -228,9 +228,8 @@
 
 /mob/living/carbon/human/proc/generate_valid_limbs()
 	var/list/valid_limbs = list()
-	for(var/L in BP_ALL_LIMBS)
-		if(L != BP_CHEST && L != BP_HEAD && L != BP_GROIN)
-			valid_limbs += parse_zone(L) //turn it into actual text for the selection
+	for(var/obj/item/organ/external/L in organs)
+		valid_limbs += L::name
 	return valid_limbs
 
 /mob/living/carbon/human/proc/generate_valid_species(var/check_whitelist = 1, var/list/whitelist = list(), var/list/blacklist = list())

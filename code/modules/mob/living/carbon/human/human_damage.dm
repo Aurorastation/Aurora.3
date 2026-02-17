@@ -424,10 +424,10 @@ This function restores all organs.
  *
  * Returns an `/obj/item/organ` corresponding to the `zone`, or null if the organ doesn't exist
  */
-/mob/living/carbon/human/proc/get_organ(zone)
+/mob/living/carbon/human/proc/get_organ(zone, var/expected_type = /obj/item/organ)
 	SHOULD_NOT_SLEEP(TRUE)
 	SHOULD_BE_PURE(TRUE)
-	RETURN_TYPE(/obj/item/organ)
+	RETURN_TYPE(expected_type)
 
 	//This allows us to maintain the proc purity, though it kinda looks stupid
 	var/zone_to_get
@@ -443,7 +443,9 @@ This function restores all organs.
 		zone_to_get = zone
 
 	if(zone_to_get in organs_by_name)
-		return organs_by_name[zone_to_get]
+		var/obj/item/organ = organs_by_name[zone_to_get]
+		if (!expected_type || istype(organ, expected_type))
+			return organ
 
 /mob/living/carbon/human/apply_damage(damage = 0, damagetype = DAMAGE_BRUTE, def_zone, used_weapon, damage_flags = 0, armor_pen, silent = FALSE)
 	if (invisibility == INVISIBILITY_LEVEL_TWO && back && (istype(back, /obj/item/rig)))
@@ -465,8 +467,8 @@ This function restores all organs.
 					def_zone = zone
 					. = .() || .
 				return
-			def_zone = ran_zone(def_zone)
-		organ = get_organ(check_zone(def_zone))
+			def_zone = ran_zone(src, def_zone)
+		organ = get_organ(check_zone(def_zone, src))
 
 	//Handle other types of damage
 	if(!(damagetype in list(DAMAGE_BRUTE, DAMAGE_BURN, DAMAGE_PAIN, DAMAGE_CLONE)))

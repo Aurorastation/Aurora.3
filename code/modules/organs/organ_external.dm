@@ -298,7 +298,11 @@
 				user.put_in_hands(I)
 		user.visible_message(SPAN_DANGER("\The [user] rips \the [I] out of \the [src]!"))
 		return //no eating the limb until everything's been removed
-	return ..()
+	. = ..()
+	if(. && can_activate())
+		for(var/obj/item/grab/G as anything in owner.get_active_grabs())
+			if(activate(G.grabbed))
+				return TRUE
 
 /obj/item/organ/external/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
@@ -355,6 +359,17 @@
 		all_items.Add(child.get_contents_recursive())
 
 	return all_items
+
+/obj/item/organ/external/proc/jointlock(mob/attacker, lockdamage = 30)
+	if(!ORGAN_CAN_FEEL_PAIN(src))
+		return
+
+	var/armor = 100 * owner.get_blocked_ratio(owner, DAMAGE_BRUTE, lockdamage)
+	if(armor < (100 - lockdamage))
+		to_chat(owner, SPAN_DANGER("You feel extreme pain!"))
+
+		var/max_halloss = round(owner.species.total_health * 0.8 * ((100 - armor) / 100)) //up to 80% of passing out, further reduced by armour
+		add_pain(clamp(0, max_halloss - owner.getHalLoss(), lockdamage))
 
 /obj/item/organ/external/proc/dislocate(var/primary)
 	if(dislocated == -1)
@@ -1509,6 +1524,8 @@ Note that amputating the affected organ does in fact remove the infection from t
 	victim.organs -= src
 	victim.organs_by_name[limb_name] = null // Remove from owner's vars.
 	victim.organs_by_name -= organ_tag
+
+	SEND_SIGNAL(owner, COMSIG_ORGAN_DISMEMBERED, src)
 
 	//Robotic limbs explode if sabotaged.
 	if(is_robotic && sabotaged)

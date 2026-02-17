@@ -6,8 +6,8 @@
 	icon_state = "plantclippers"
 	item_state = "plantclippers"
 	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items/lefthand_hydro.dmi',
-		slot_r_hand_str = 'icons/mob/items/righthand_hydro.dmi',
+		BP_L_HAND = 'icons/mob/items/lefthand_hydro.dmi',
+		BP_R_HAND = 'icons/mob/items/righthand_hydro.dmi',
 		)
 	toolspeed = 0.7
 	/// Plant clippers have a 40% chance to successfully defuse a bomb, higher than standard because plant clippers are smaller.

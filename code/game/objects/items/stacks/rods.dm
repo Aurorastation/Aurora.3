@@ -88,7 +88,7 @@ GLOBAL_LIST_INIT_TYPED(rod_recipes, /datum/stack_recipe, list(
 
 			var/obj/item/stack/rods/R = src
 			src = null
-			var/replace = (user.get_inactive_hand()==R)
+			var/replace = user.is_holding_offhand(R)
 			R.use(2)
 			if (!R && replace)
 				user.put_in_hands(new_item)

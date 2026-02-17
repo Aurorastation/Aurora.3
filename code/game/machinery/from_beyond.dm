@@ -34,7 +34,7 @@
 			)
 
 /obj/machinery/from_beyond/attack_hand(var/mob/living/carbon/human/user as mob)
-
+	. = ..()
 	if(!active)
 		src.visible_message(SPAN_WARNING("[user] switches \the [src] on."))
 		to_chat(user, SPAN_WARNING("The world beyond opens to your eyes."))

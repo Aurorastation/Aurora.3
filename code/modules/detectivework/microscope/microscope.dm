@@ -52,6 +52,7 @@
 		return
 
 /obj/machinery/microscope/attack_hand(mob/user)
+	. = ..()
 
 	if(!sample)
 		to_chat(user, SPAN_WARNING("The microscope has no sample to examine."))

@@ -534,6 +534,7 @@
 	return ..()
 
 /mob/living/heavy_vehicle/attack_hand(var/mob/user)
+	. = ..()
 	// Drag the pilot out if possible.
 	if(user.a_intent == I_GRAB)
 		if(!LAZYLEN(pilots))

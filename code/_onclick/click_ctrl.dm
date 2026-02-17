@@ -15,8 +15,8 @@
 	return
 
 /atom/movable/CtrlClick(var/mob/user)
-	if(Adjacent(user))
-		user.start_pulling(src)
+	if(!(. = ..()) && loc != user)
+		return try_make_grab(user, defer_hand = TRUE) || ..()
 
 /**
  * Ctrl mouse wheel click

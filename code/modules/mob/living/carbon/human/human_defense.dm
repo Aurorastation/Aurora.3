@@ -20,7 +20,7 @@ emp_act
 			playsound(src, SFX_BULLET_MISS, 75, TRUE)
 			return BULLET_ACT_FORCE_PIERCE
 
-	def_zone = check_zone(def_zone)
+	def_zone = check_zone(def_zone, src)
 	if(!has_organ(def_zone))
 		return BULLET_ACT_FORCE_PIERCE //if they don't have the organ in question then the projectile just passes by.
 
@@ -42,7 +42,7 @@ emp_act
 			hitting_projectile.do_embed(organ)
 
 /mob/living/carbon/human/stun_effect_act(var/stun_amount, var/agony_amount, var/def_zone, var/used_weapon, var/damage_flags)
-	var/obj/item/organ/external/affected = get_organ(check_zone(def_zone))
+	var/obj/item/organ/external/affected = get_organ(check_zone(def_zone, src))
 	var/siemens_coeff = get_siemens_coefficient_organ(affected)
 	stun_amount *= siemens_coeff
 	agony_amount *= siemens_coeff
@@ -84,9 +84,9 @@ emp_act
 /mob/living/carbon/human/get_armors_by_zone(obj/item/organ/external/def_zone, damage_type, damage_flags)
 	. = ..()
 	if(!def_zone)
-		def_zone = ran_zone()
+		def_zone = ran_zone(src)
 	if(!istype(def_zone))
-		def_zone = get_organ(check_zone(def_zone))
+		def_zone = get_organ(check_zone(def_zone, src))
 	if(!def_zone)
 		return
 	var/list/protective_gear = list(head, wear_mask, wear_suit, w_uniform, gloves, shoes)
@@ -186,24 +186,23 @@ emp_act
 
 /mob/living/carbon/human/get_attack_victim(obj/item/I, mob/living/user, var/target_zone)
 	if(a_intent != I_HELP)
-		var/list/holding = list(get_active_hand() = 60, get_inactive_hand() = 40)
-		for(var/obj/item/grab/G in holding)
-			if(G.affecting && prob(holding[G]) && G.affecting != user)
-				visible_message(SPAN_WARNING("[src] repositions \the [G.affecting] to block \the [I]'s attack!"), SPAN_NOTICE("You reposition \the [G.affecting] to block \the [I]'s attack!"))
-				return G.affecting
+		var/active_hand = get_active_hand()
+		for(var/obj/item/grab/G as anything in get_active_grabs())
+			var/successful_block = active_hand == G ? 60 : 40
+			if(G.grabbed && prob(successful_block) && G.grabbed != user && G.has_grab_flags(GRAB_SHIELDS_YOU))
+				visible_message(SPAN_WARNING("[src] repositions \the [G.grabbed] to block \the [I]'s attack!"), SPAN_NOTICE("You reposition \the [G.grabbed] to block \the [I]'s attack!"))
+				return G.grabbed
 	return src
 
 /mob/living/carbon/human/resolve_item_attack(obj/item/I, mob/living/user, var/target_zone)
-	if(check_attack_throat(I, user))
-		return null
+	for (var/obj/item/grab/grab as anything in grabbed_by)
+		if(grab.resolve_item_attack(user, I, target_zone))
+			return null
 
 	if(user == src) // Attacking yourself can't miss
 		return target_zone
 
 	var/hit_zone = get_zone_with_miss_chance(target_zone, src)
-
-	if(user == src) // Attacking yourself can't miss
-		target_zone = user.zone_sel.selecting
 
 	if(!hit_zone)
 		visible_message(SPAN_DANGER("[user] misses [src] with \the [I]!"))
@@ -350,9 +349,9 @@ emp_act
 		var/zone
 		if (istype(O.throwing?.thrower?.resolve(), /mob/living))
 			var/mob/living/L = O.throwing?.thrower?.resolve()
-			zone = check_zone(L.zone_sel.selecting)
+			zone = check_zone(L.zone_sel.selecting, src)
 		else
-			zone = ran_zone(BP_CHEST,75)	//Hits a random part of the body, geared towards the chest
+			zone = ran_zone(src,BP_CHEST,75)	//Hits a random part of the body, geared towards the chest
 
 		//check if we hit
 		var/miss_chance = 15
@@ -521,45 +520,6 @@ emp_act
 		perm += perm_by_part[part]
 
 	return perm
-
-/mob/living/carbon/human/proc/grabbedby(mob/living/carbon/human/user,var/supress_message = 0)
-	if(user == src || anchored)
-		return 0
-	if(user.is_pacified())
-		to_chat(user, SPAN_NOTICE("You don't want to risk hurting [src]!"))
-		return 0
-
-	for(var/obj/item/grab/G in user.grabbed_by)
-		if(G.assailant == user)
-			to_chat(user, SPAN_NOTICE("You already grabbed [src]."))
-			return
-
-	if (!attempt_grab(user))
-		return
-
-	if(src.w_uniform)
-		src.w_uniform.add_fingerprint(src)
-
-	var/obj/item/grab/G = new /obj/item/grab(user, user, src)
-	if(buckled_to)
-		to_chat(user, SPAN_NOTICE("You cannot grab [src], [get_pronoun("he")] [get_pronoun("is")] buckled in!"))
-	if(!G)	//the grab will delete itself in New if affecting is anchored
-		return
-	user.put_in_active_hand(G)
-	G.synch()
-	LAssailant = WEAKREF(user)
-
-	user.do_attack_animation(src)
-	playsound(loc, 'sound/weapons/thudswoosh.ogg', 50, 1, -1)
-	if(user.gloves && istype(user.gloves,/obj/item/clothing/gloves/force/syndicate)) //only antag gloves can do this for now
-		G.state = GRAB_AGGRESSIVE
-		G.icon_state = "grabbed1"
-		G.hud.icon_state = "reinforce1"
-		G.last_action = world.time
-		visible_message(SPAN_WARNING("[user] gets a strong grip on [src]!"))
-		return 1
-	visible_message(SPAN_WARNING("[user] has grabbed [src] passively!"))
-	return 1
 
 /mob/living/carbon/human/set_on_fire()
 	..()

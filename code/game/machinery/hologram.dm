@@ -104,6 +104,7 @@ Possible to do for anyone motivated enough:
 		set_light(0)
 
 /obj/machinery/hologram/holopad/attack_hand(var/mob/user)
+	. = ..()
 	if(user.Adjacent(src))
 		user.visible_message("<b>[user]</b> presses their foot down on \the [src]'s easy-select multi-function button.", SPAN_NOTICE("You press your foot down on \the [src]'s easy-select multi-function button."))
 	if(incoming_connection)

@@ -43,24 +43,24 @@
 /obj/outfit/admin/ert/qukala/post_equip(mob/living/carbon/human/H, visualsOnly)
 	. = ..()
 	if(isvaurca(H))
-		H.equip_to_slot_or_del(new /obj/item/clothing/mask/gas/vaurca/tactical(H), slot_wear_mask)
+		H.equip_to_slot_or_del(new /obj/item/clothing/mask/gas/vaurca/tactical(H), slot_wear_mask_str)
 		var/obj/item/organ/internal/vaurca/preserve/preserve = H.internal_organs_by_name[BP_PHORON_RESERVE]
 		H.internal = preserve
 		H.internals.icon_state = "internal1"
-		H.equip_or_collect(new /obj/item/reagent_containers/food/snacks/koisbar, slot_in_backpack)
+		H.equip_or_collect(new /obj/item/reagent_containers/food/snacks/koisbar, slot_in_backpack_str)
 		var/obj/item/organ/B = new /obj/item/organ/internal/augment/hiveshield/warfare(H)
 		var/obj/item/organ/external/affectedB = H.get_organ(B.parent_organ)
 		B.replaced(H, affectedB)
 		H.update_body()
 	if(H.is_diona())
-		H.equip_or_collect(new /obj/item/uv_light(src), slot_in_backpack)
+		H.equip_or_collect(new /obj/item/uv_light(src), slot_in_backpack_str)
 	if(H?.shoes)
 		var/obj/item/clothing/shoes/magboots/advance/boots = new(H)
-		H.equip_to_slot_if_possible(boots, slot_shoes)
+		H.equip_to_slot_if_possible(boots, slot_shoes_str)
 	if(isskrell(H))
-		H.equip_or_collect(new /obj/item/gun/energy/fedpistol(src), slot_in_backpack)
+		H.equip_or_collect(new /obj/item/gun/energy/fedpistol(src), slot_in_backpack_str)
 	else
-		H.equip_or_collect(new /obj/item/gun/energy/fedpistol/nopsi(src), slot_in_backpack)
+		H.equip_or_collect(new /obj/item/gun/energy/fedpistol/nopsi(src), slot_in_backpack_str)
 
 /obj/outfit/admin/ert/qukala/get_id_access()
 	return list(ACCESS_DISTRESS, ACCESS_EXTERNAL_AIRLOCKS, ACCESS_SKRELL)
@@ -138,7 +138,7 @@
 	back = /obj/item/rig/skrell/equipped
 	backpack_contents = list()
 	mask = /obj/item/clothing/mask/gas/tactical
-	r_hand = /obj/item/gun/energy/rifle/laser/qukala
+	hands = list(/obj/item/gun/energy/rifle/laser/qukala)
 	accessory = /obj/item/clothing/accessory/holster/hip
 	accessory_contents = list(
 		/obj/item/gun/energy/fedpistol = 1
@@ -157,4 +157,4 @@
 /obj/outfit/admin/ert/qukala/officer/post_equip(mob/living/carbon/human/H, visualsOnly)
 	if(H?.shoes)
 		var/obj/item/clothing/shoes/magboots/advance/boots = new(H)
-		H.equip_to_slot_if_possible(boots, slot_shoes)
+		H.equip_to_slot_if_possible(boots, slot_shoes_str)

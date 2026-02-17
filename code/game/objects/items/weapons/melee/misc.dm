@@ -1,8 +1,8 @@
 /obj/item/melee
 	icon = 'icons/obj/weapons.dmi'
 	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items/weapons/lefthand_melee.dmi',
-		slot_r_hand_str = 'icons/mob/items/weapons/righthand_melee.dmi'
+		BP_L_HAND = 'icons/mob/items/weapons/lefthand_melee.dmi',
+		BP_R_HAND = 'icons/mob/items/weapons/righthand_melee.dmi'
 		)
 
 /obj/item/melee/should_equip()
@@ -158,12 +158,8 @@
 	..()
 	if(ishuman(target_mob))
 		if(prob(25))
-			if(target_zone == BP_L_HAND || target_zone == BP_L_ARM)
-				if (target_mob.l_hand && target_mob.l_hand != src)
-					target_mob.drop_l_hand()
-			else if(target_zone == BP_R_HAND || target_zone == BP_R_ARM)
-				if (target_mob.r_hand && target_mob.r_hand != src)
-					target_mob.drop_r_hand()
+			if(target_zone in list(BP_L_HAND, BP_R_HAND, BP_L_ARM, BP_R_ARM))
+				target_mob.drop_held_items()
 			user.visible_message(SPAN_DANGER("\The [user] disarms \the [target_mob] with \the [src]!"))
 		return
 
@@ -217,18 +213,13 @@
 	drop_result = FALSE
 
 	// 20% chance to disarm someone per hit, not including the chance to miss with the weapon
-	if(prob(20))
+	if(prob(20) && (target_zone in list(BP_L_HAND, BP_L_ARM, BP_R_HAND, BP_R_ARM)))
 		// If hit in a valid zone, check and drop the item held in the respective hand, only working for items that are weight class small or below
-		switch(target_zone)
-			if(BP_L_HAND, BP_L_ARM)
-				if(target_mob.l_hand && (target_mob.l_hand != src) && target_mob.l_hand.w_class <= WEIGHT_CLASS_SMALL)
-					target_mob.drop_l_hand()
-					drop_result = TRUE
-
-			if(BP_R_HAND, BP_R_ARM)
-				if(target_mob.r_hand && (target_mob.r_hand != src) && target_mob.r_hand.w_class <= WEIGHT_CLASS_SMALL)
-					target_mob.drop_r_hand()
-					drop_result = TRUE
+		var/obj/item/organ/external/E = check_zone(target_zone, target_mob)
+		if(istype(E))
+			var/obj/item/held = target_mob.get_equipped_item(E.limb_name)
+			if(istype(held) && held.w_class <= WEIGHT_CLASS_SMALL)
+				drop_result = target_mob.drop_from_inventory(held)
 
 	// Visible messages for either result.
 	if(drop_result)

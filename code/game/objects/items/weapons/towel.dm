@@ -59,6 +59,7 @@
 	icon_state = "towel_flat"
 
 /obj/item/towel_flat/attack_hand(mob/user as mob)
+	. = ..()
 	to_chat(user, SPAN_NOTICE("You pick up and fold \the [src]."))
 	var/obj/item/towel/T = new /obj/item/towel(user)
 	T.color = src.color

@@ -248,21 +248,17 @@
 /mob/living/simple_animal/bee/adjustFireLoss(damage)
 	..(damage * 2)
 
-
-//No more grabbing bee swarms
-/mob/living/simple_animal/bee/attempt_grab(var/mob/living/grabber)
-	if (prob(strength*5))//if the swarm is big you might grab a few bees, you won't make a serious dent
-		to_chat(grabber, "<span class = 'warning'>You attempt to grab the swarm, but only manage to snatch a scant handful of crushed bees.</span>")
-		apply_damage(strength*0.5, DAMAGE_BRUTE, used_weapon = "Crushing by [grabber.name]")
+/mob/living/simple_animal/bee/handle_grab_interaction(mob/user)
+	..()
+	if (prob(strength * 5))
+		to_chat(user, SPAN_WARNING("You attempt to grab the swarm, but only manage to snatch a scant handful of crushed bees."))
+		apply_damage(strength * 0.5, DAMAGE_BRUTE, used_weapon = "Crushing by [user]")
 	else
-		to_chat(grabber, "<span class = 'warning'>For some bizarre reason known only to yourself, you attempt to grab ahold of the swarm of bees. You come away with nothing but empty, slightly stung hands.</span>")
-		if(verify_stingable(grabber))
-			grabber.apply_damage(strength*0.5, DAMAGE_BURN)
+		to_chat(user, SPAN_WARNING("For some bizarre reason known only to yourself, you attempt to grab ahold of the swarm of bees. You come away with nothing but empty, slightly stung hands."))
+		if(verify_stingable(user))
+			user.apply_damage(strength * 0.5, DAMAGE_BURN)
 
-	return 0
-
-/mob/living/simple_animal/bee/attempt_pull(var/mob/living/grabber)
-	return attempt_grab(grabber)
+	return FALSE
 
 /mob/living/simple_animal/bee/can_fall()
 	return FALSE

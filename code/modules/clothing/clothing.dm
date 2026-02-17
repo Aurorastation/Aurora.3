@@ -110,10 +110,13 @@
 	if (!..())
 		return 0
 
-	if(species_restricted && ishuman(M) && !(slot in list(slot_l_hand, slot_r_hand)))
+	if(species_restricted && ishuman(M))
 		var/exclusive = null
 		var/wearable = null
 		var/mob/living/carbon/human/H = M
+
+		if(slot in H.held_item_slots)
+			return TRUE
 
 		if("exclude" in species_restricted)
 			exclusive = 1
@@ -126,7 +129,7 @@
 				if(H.species.get_bodytype() in species_restricted)
 					wearable = 1
 
-			if(!wearable && !(slot in list(slot_l_store, slot_r_store, slot_s_store)))
+			if(!wearable && !(slot in list(slot_l_store_str, slot_r_store_str, slot_s_store_str)))
 				if(!disable_warning)
 					to_chat(H, SPAN_DANGER("Your species cannot wear [src]."))
 				return 0
@@ -234,8 +237,8 @@
 	var/list/all_icon_states = icon_states(icon)
 	if(!("[UNDERSCORE_OR_NULL(species_short)][icon_state][WORN_LHAND]" in all_icon_states)) //if no left hand, probably no right hand
 		item_state_slots = list( //done in order to prevent inhands from being overridden here
-			slot_r_hand_str = item_state,
-			slot_l_hand_str = item_state
+			BP_R_HAND = item_state,
+			BP_L_HAND = item_state
 		)
 
 	if("[UNDERSCORE_OR_NULL(species_short)][icon_state]" in all_icon_states)
@@ -259,8 +262,8 @@
 	var/list/all_icon_states = icon_states(icon)
 	if(!("[UNDERSCORE_OR_NULL(species_short)][icon_state][WORN_LHAND]" in all_icon_states)) //if no left hand, probably no right hand
 		item_state_slots = list( //done in order to prevent inhands from being overridden here
-			slot_r_hand_str = item_state,
-			slot_l_hand_str = item_state
+			BP_R_HAND = item_state,
+			BP_L_HAND = item_state
 		)
 
 	if("[UNDERSCORE_OR_NULL(species_short)][icon_state]" in all_icon_states)
@@ -474,6 +477,7 @@
 	set_dir(O.dir)
 
 /obj/item/clothing/ears/offear/attack_hand(mob/living/carbon/human/H)
+	. = ..()
 	var/obj/item/clothing/ears/OE = (H.l_ear == src ? H.r_ear : H.l_ear)
 	OE.attack_hand(H)
 	qdel(src)
@@ -491,8 +495,8 @@
 	w_class = WEIGHT_CLASS_SMALL
 	icon = 'icons/obj/clothing/gloves.dmi'
 	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items/clothing/lefthand_gloves.dmi',
-		slot_r_hand_str = 'icons/mob/items/clothing/righthand_gloves.dmi'
+		BP_L_HAND = 'icons/mob/items/clothing/lefthand_gloves.dmi',
+		BP_R_HAND = 'icons/mob/items/clothing/righthand_gloves.dmi'
 		)
 	species_sprite_adaption_type = WORN_GLOVES
 	siemens_coefficient = 0.75
@@ -518,7 +522,7 @@
 
 /obj/item/clothing/gloves/get_mob_overlay(mob/living/carbon/human/H, mob_icon, mob_state, slot)
 	var/image/I = ..()
-	if(blood_DNA && slot != slot_l_hand_str && slot != slot_r_hand_str)
+	if(blood_DNA && !(slot in H.held_item_slots))
 		var/image/bloodsies = image(H.species.blood_mask, "bloodyhands")
 		bloodsies.color = blood_color
 		I.AddOverlays(bloodsies)
@@ -537,11 +541,34 @@
 
 // Called just before an attack_hand(), in mob/UnarmedAttack()
 /obj/item/clothing/gloves/proc/Touch(var/atom/A, mob/user, var/proximity)
-	return 0 // return 1 to cancel attack_hand()
+	var/mob/living/target = A
+	if(!istype(target))
+		return FALSE
+	if(cell && user.a_intent == I_HURT)
+		. = TRUE
+		visible_message(SPAN_DANGER("[user] touches [src] with \the [src]!"))
+		if(!cell.checked_use(2500))
+			to_chat(user, SPAN_WARNING("Not enough charge!"))
+		else
+			user.attack_log += "\[[time_stamp()]\] <span class='warning'>Stungloved [target.name] ([target.ckey])</span>"
+			target.attack_log += "\[[time_stamp()]\] <font color='orange'>Has been stungloved by [user.name] ([user.ckey])</font>"
+
+			msg_admin_attack("[key_name_admin(user)] stungloved [target.name] ([target.ckey]) (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(target))
+
+			target.apply_effects(5,5,0,0,5,0,0,0,0)
+			target.apply_damage(rand(5,25), DAMAGE_BURN, user.zone_sel.selecting)
+
+			if(prob(15))
+				playsound(user.loc, 'sound/weapons/flash.ogg', 100, 1)
+				user.visible_message(SPAN_WARNING("The power source on [user]'s [src] overloads in a terrific fashion!"), SPAN_WARNING("Your jury rigged [src] malfunction!"), SPAN_WARNING("You hear a loud sparking."))
+				if(prob(50))
+					user.apply_damage(rand(1, 5), DAMAGE_BURN)
+				for(var/mob/M in viewers(3, user))
+					M.flash_act(ignore_inherent = TRUE)
 
 /obj/item/clothing/gloves/mob_can_equip(mob/user, slot, disable_warning = FALSE)
 	var/mob/living/carbon/human/H = user
-	if(slot && slot == slot_gloves)
+	if(slot && slot == slot_gloves_str)
 		if(istype(H.gloves, /obj/item/clothing/ring))
 			ring = H.gloves
 			if(!ring.undergloves)
@@ -552,7 +579,7 @@
 
 	if(!..())
 		if(ring) //Put the ring back on if the check fails.
-			if(H.equip_to_slot_if_possible(ring, slot_gloves))
+			if(H.equip_to_slot_if_possible(ring, slot_gloves_str))
 				src.ring = null
 		return 0
 
@@ -567,7 +594,7 @@
 
 	var/mob/living/carbon/human/H = wearer
 	if(ring && istype(H))
-		H.equip_to_slot(ring, slot_gloves)
+		H.equip_to_slot(ring, slot_gloves_str)
 		ring = null
 	wearer = null
 
@@ -575,7 +602,7 @@
 	..()
 	INVOKE_ASYNC(src, PROC_REF(update_wearer))
 
-/obj/item/clothing/gloves/mob_can_unequip()
+/obj/item/clothing/gloves/mob_can_unequip(mob/M, slot, disable_warning = FALSE, dropping = FALSE)
 	. = ..()
 	if (.)
 		INVOKE_ASYNC(src, PROC_REF(update_wearer))
@@ -589,8 +616,8 @@
 	name = "head"
 	icon = 'icons/obj/clothing/hats.dmi'
 	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items/clothing/lefthand_hats.dmi',
-		slot_r_hand_str = 'icons/mob/items/clothing/righthand_hats.dmi'
+		BP_L_HAND = 'icons/mob/items/clothing/lefthand_hats.dmi',
+		BP_R_HAND = 'icons/mob/items/clothing/righthand_hats.dmi'
 		)
 	species_sprite_adaption_type = WORN_HEAD
 	body_parts_covered = HEAD
@@ -737,7 +764,7 @@
 
 /obj/item/clothing/head/get_mob_overlay(mob/living/carbon/human/H, mob_icon, mob_state, slot)
 	var/image/I = ..()
-	if(slot == slot_l_hand_str || slot == slot_r_hand_str)
+	if(slot in H.held_item_slots)
 		for(var/obj/item/clothing/accessory/A in accessories)
 			A.accessory_mob_overlay.ClearOverlays()
 	else
@@ -745,7 +772,7 @@
 			var/image/accessory_image = A.get_accessory_mob_overlay(H, FALSE)
 			I.AddOverlays(accessory_image)
 
-	if(blood_DNA && slot != slot_l_hand_str && slot != slot_r_hand_str)
+	if(blood_DNA && !(slot in H.held_item_slots))
 		var/image/bloodsies = image(H.species.blood_mask, icon_state = "helmetblood")
 		bloodsies.color = blood_color
 		bloodsies.appearance_flags = RESET_ALPHA
@@ -782,8 +809,8 @@
 	name = "mask"
 	icon = 'icons/obj/clothing/masks.dmi'
 	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items/clothing/lefthand_masks.dmi',
-		slot_r_hand_str = 'icons/mob/items/clothing/righthand_masks.dmi'
+		BP_L_HAND = 'icons/mob/items/clothing/lefthand_masks.dmi',
+		BP_R_HAND = 'icons/mob/items/clothing/righthand_masks.dmi'
 		)
 	species_sprite_adaption_type = WORN_MASK
 	slot_flags = SLOT_MASK
@@ -822,7 +849,7 @@
 
 /obj/item/clothing/mask/get_mob_overlay(mob/living/carbon/human/H, mob_icon, mob_state, slot)
 	var/image/I = ..()
-	if(blood_DNA && has_blood_overlay && slot != slot_l_hand_str && slot != slot_r_hand_str)
+	if(blood_DNA && has_blood_overlay && !(slot in H.held_item_slots))
 		var/image/bloodsies = image(H.species.blood_mask, "maskblood")
 		bloodsies.color = blood_color
 		bloodsies.appearance_flags = RESET_ALPHA
@@ -982,7 +1009,7 @@
 
 /obj/item/clothing/shoes/get_mob_overlay(mob/living/carbon/human/H, mob_icon, mob_state, slot)
 	var/image/I = ..()
-	if(blood_DNA && slot != slot_l_hand_str && slot != slot_r_hand_str)
+	if(blood_DNA && !(slot in H.held_item_slots))
 		for(var/limb_tag in list(BP_L_FOOT, BP_R_FOOT))
 			var/obj/item/organ/external/E = H.get_organ(limb_tag)
 			if(E && !E.is_stump())
@@ -1040,8 +1067,8 @@
 /obj/item/clothing/suit
 	icon = 'icons/obj/clothing/suits.dmi'
 	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items/clothing/lefthand_suit.dmi',
-		slot_r_hand_str = 'icons/mob/items/clothing/righthand_suit.dmi'
+		BP_L_HAND = 'icons/mob/items/clothing/lefthand_suit.dmi',
+		BP_R_HAND = 'icons/mob/items/clothing/righthand_suit.dmi'
 		)
 	sprite_sheets = list(
 		BODYTYPE_VAURCA_BULWARK = 'icons/mob/species/bulwark/suit.dmi'
@@ -1078,7 +1105,7 @@
 
 /obj/item/clothing/suit/get_mob_overlay(mob/living/carbon/human/H, mob_icon, mob_state, slot)
 	var/image/I = ..()
-	if(slot == slot_l_hand_str || slot == slot_r_hand_str)
+	if(slot in H.held_item_slots)
 		for(var/obj/item/clothing/accessory/A in accessories)
 			A.accessory_mob_overlay.ClearOverlays()
 	else
@@ -1086,10 +1113,10 @@
 			var/image/accessory_image = A.get_accessory_mob_overlay(H, FALSE)
 			I.AddOverlays(accessory_image)
 
-	if(blood_DNA && slot != slot_l_hand_str && slot != slot_r_hand_str)
-		var/image/bloodsies = image(icon = H.species.blood_mask, icon_state = "[blood_overlay_type]blood")
-		bloodsies.color = blood_color
-		I.AddOverlays(bloodsies)
+		if(blood_DNA)
+			var/image/bloodsies = image(icon = H.species.blood_mask, icon_state = "[blood_overlay_type]blood")
+			bloodsies.color = blood_color
+			I.AddOverlays(bloodsies)
 	return I
 
 /obj/item/clothing/suit/update_clothing_icon()
@@ -1105,8 +1132,8 @@
 /obj/item/clothing/under
 	icon = 'icons/obj/clothing/uniforms.dmi'
 	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items/clothing/lefthand_uniforms.dmi',
-		slot_r_hand_str = 'icons/mob/items/clothing/righthand_uniforms.dmi'
+		BP_L_HAND = 'icons/mob/items/clothing/lefthand_uniforms.dmi',
+		BP_R_HAND = 'icons/mob/items/clothing/righthand_uniforms.dmi'
 		)
 	sprite_sheets = list(
 		BODYTYPE_VAURCA_BULWARK = 'icons/mob/species/bulwark/uniform.dmi'
@@ -1195,7 +1222,7 @@
 
 /obj/item/clothing/under/get_mob_overlay(mob/living/carbon/human/H, mob_icon, mob_state, slot)
 	var/image/I = ..()
-	if(slot == slot_l_hand_str || slot == slot_r_hand_str)
+	if(slot in H.held_item_slots)
 		for(var/obj/item/clothing/accessory/A in accessories)
 			A.accessory_mob_overlay.ClearOverlays()
 	else
@@ -1203,10 +1230,10 @@
 			var/image/accessory_image = A.get_accessory_mob_overlay(H, FALSE)
 			I.AddOverlays(accessory_image)
 
-	if(blood_DNA && slot != slot_l_hand_str && slot != slot_r_hand_str)
-		var/image/bloodsies = image(icon = H.species.blood_mask, icon_state = "uniformblood")
-		bloodsies.color = blood_color
-		I.AddOverlays(bloodsies)
+		if(blood_DNA)
+			var/image/bloodsies = image(icon = H.species.blood_mask, icon_state = "uniformblood")
+			bloodsies.color = blood_color
+			I.AddOverlays(bloodsies)
 	return I
 
 /obj/item/clothing/under/proc/update_rolldown_status()

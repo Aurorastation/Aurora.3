@@ -52,9 +52,14 @@
 	var/list/species_gloves
 	var/list/species_shoes
 
+	/**
+	 * Items that are expected to appear held in the hands.
+	 * Either a list or a list of list of items is expected.
+	 * A one-level list of items will spawn all items in hands, if possible. A two-level list of items will spawn one item from each list randomly in each available hand.
+	 */
+	var/list/hands
+
 	/// The following vars must be paths.
-	var/l_hand = null
-	var/r_hand = null
 	var/id = null
 	var/pda = null
 	var/radio = null
@@ -139,8 +144,6 @@
 		accessory,
 		suit_accessory,
 
-		l_hand,
-		r_hand,
 		pda,
 		radio,
 
@@ -154,6 +157,9 @@
 		items += c
 	for(var/c in belt_contents)
 		items += c
+
+	for(var/h in hands)
+		items += h
 
 	// shuffle
 	if(spill_shuffle)
@@ -296,9 +302,9 @@
 			if(OUTFIT_THICK)
 				B.alpha_mask = null
 		if(isvaurca(H, TRUE))
-			H.equip_or_collect(B, slot_r_hand)
+			H.equip_or_collect(B, H.get_active_held_item_slot())
 		else
-			H.equip_or_collect(B, slot_back)
+			H.equip_or_collect(B, slot_back_str)
 
 	var/datum/callback/radio_callback
 	if(allow_headset_choice)
@@ -321,9 +327,9 @@
 				// Department headset
 				l_ear = headset
 	if(l_ear)
-		equip_item(H, l_ear, slot_l_ear, callback = radio_callback)
+		equip_item(H, l_ear, slot_l_ear_str, callback = radio_callback)
 	else if (wrist)
-		equip_item(H, wrist, slot_wrists, callback = radio_callback)
+		equip_item(H, wrist, slot_wrists_str, callback = radio_callback)
 
 /obj/outfit/proc/turn_into_thinset(var/obj/item/radio/headset/wrist/radio)
 	if(istype(radio))
@@ -367,7 +373,7 @@
 	if(islist(accessory))
 		accessory = pick(accessory)
 
-	var/obj/item/clothing/under/U = H.get_equipped_item(slot_w_uniform)
+	var/obj/item/clothing/under/U = H.get_equipped_item(slot_w_uniform_str)
 	if(U)
 		var/obj/item/clothing/accessory/A = new accessory
 		U.attach_accessory(H, A)
@@ -392,10 +398,30 @@
 	if(!H)
 		return
 
-	var/obj/item/clothing/suit/S = H.get_equipped_item(slot_wear_suit)
+	var/obj/item/clothing/suit/S = H.get_equipped_item(slot_wear_suit_str)
 	if(S)
 		var/obj/item/clothing/accessory/A = new suit_accessory
 		S.attach_accessory(H, A)
+
+/obj/outfit/proc/equip_to_hands(mob/living/carbon/human/H, list/path, var/override_collect = FALSE)
+	if(!LAZYLEN(path))
+		CRASH("Outfit [name] - Parameter path: [path] is not a list.")
+
+	if (!LAZYLEN(H.held_item_slots))
+		CRASH("Outfit [name] - Mob: [H] has no held_item_slots.")
+
+	var/datum/inventory_slot/free_hand = H.get_empty_hand_slot()
+
+	while(!isnull(free_hand) && LAZYLEN(path) >= 1)
+		var/itempath_or_list = pick(path)
+		var/itempath = islist(itempath_or_list) ? pick(itempath_or_list) : itempath_or_list
+		path -= itempath_or_list
+		var/obj/item/I = new itempath(H)
+
+		if(collect_not_del || override_collect)
+			H.put_in_hands_or_collect(I)
+		else
+			H.put_in_hands_or_del(I)
 
 /**
  * This proc handles actions done after the outfit was equipped,
@@ -410,9 +436,9 @@
 	SHOULD_NOT_SLEEP(TRUE)
 	//Start with uniform,suit,backpack for additional slots
 	if(back)
-		equip_item(H, back, slot_back)
+		equip_item(H, back, slot_back_str)
 	if(uniform)
-		equip_item(H, uniform, slot_w_uniform)
+		equip_item(H, uniform, slot_w_uniform_str)
 		if(accessory)
 			equip_uniform_accessory(H)
 	var/got_suit = FALSE
@@ -420,71 +446,60 @@
 		var/path = species_suit[H.species.name]
 		if(path)
 			got_suit = TRUE
-			equip_item(H, path, slot_wear_suit)
+			equip_item(H, path, slot_wear_suit_str)
 			if(suit_accessory)
 				equip_suit_accessory(H)
 	if(suit && !got_suit)
-		equip_item(H, suit, slot_wear_suit)
+		equip_item(H, suit, slot_wear_suit_str)
 		if(suit_accessory)
 			equip_suit_accessory(H)
 	if(belt)
-		equip_item(H, belt, slot_belt)
+		equip_item(H, belt, slot_belt_str)
 	var/got_gloves = FALSE
 	if(length(species_gloves))
 		var/path = species_gloves[H.species.name]
 		if(path)
 			got_gloves = TRUE
-			equip_item(H, path, slot_gloves)
+			equip_item(H, path, slot_gloves_str)
 	if(gloves && !got_gloves)
-		equip_item(H, gloves, slot_gloves)
+		equip_item(H, gloves, slot_gloves_str)
 	if(wrist)
-		equip_item(H, wrist, slot_wrists)
+		equip_item(H, wrist, slot_wrists_str)
 	var/got_shoes = FALSE
 	if(pants)
-		equip_item(H, pants, slot_pants)
+		equip_item(H, pants, slot_pants_str)
 	if(length(species_shoes))
 		var/path = species_shoes[H.species.name]
 		if(path)
 			got_shoes = TRUE
-			equip_item(H, path, slot_shoes)
+			equip_item(H, path, slot_shoes_str)
 	if(shoes && !got_shoes)
-		equip_item(H, shoes, slot_shoes)
+		equip_item(H, shoes, slot_shoes_str)
 	var/got_head = FALSE
 	if(length(species_head))
 		var/path = species_head[H.species.name]
 		if(path)
 			got_head = TRUE
-			equip_item(H, path, slot_head)
+			equip_item(H, path, slot_head_str)
 	if(head && !got_head)
-		equip_item(H, head, slot_head)
+		equip_item(H, head, slot_head_str)
 	if(mask)
-		equip_item(H, mask, slot_wear_mask)
+		equip_item(H, mask, slot_wear_mask_str)
 	if(l_ear)
-		equip_item(H, l_ear, slot_l_ear)
+		equip_item(H, l_ear, slot_l_ear_str)
 	if(r_ear)
-		equip_item(H, r_ear, slot_r_ear)
+		equip_item(H, r_ear, slot_r_ear_str)
 	if(glasses)
-		equip_item(H, glasses, slot_glasses)
+		equip_item(H, glasses, slot_glasses_str)
 
 	if(suit_store)
-		equip_item(H, suit_store, slot_s_store)
+		equip_item(H, suit_store, slot_s_store_str)
 
 	//Hand equips. If person is missing an arm or hand it attempts to put it in the other hand.
 	//Override_collect should attempt to collect any items that can't be equipped regardless of collect_not_del settings for the outfit.
-	if(l_hand)
-		var/obj/item/organ/external/O
-		O = H.organs_by_name[BP_L_HAND]
-		if(!O || !O.is_usable())
-			equip_item(H, l_hand, slot_r_hand, override_collect = TRUE)
-		else
-			equip_item(H, l_hand, slot_l_hand, override_collect = TRUE)
-	if(r_hand)
-		var/obj/item/organ/external/O
-		O = H.organs_by_name[BP_R_HAND]
-		if(!O || !O.is_usable())
-			equip_item(H, r_hand, slot_l_hand, override_collect = TRUE)
-		else
-			equip_item(H, r_hand, slot_r_hand, override_collect = TRUE)
+
+	if(hands)
+		equip_to_hands(H, hands, override_collect = TRUE)
 
 	if(allow_pda_choice)
 		switch(H.pda_choice)
@@ -516,30 +531,24 @@
 				I.desc_extended += "NanoTrasen originally designed this as a portable media player. Unfortunately, Royalty-free and corporate-approved ukulele isn't particularly popular."
 		I.update_icon()
 		if(!H.wrists && H.pda_choice == OUTFIT_WRISTBOUND)
-			H.equip_or_collect(I, slot_wrists)
+			H.equip_or_collect(I, slot_wrists_str)
 		else
-			H.equip_or_collect(I, slot_wear_id)
+			H.equip_or_collect(I, slot_wear_id_str)
 
 	if(!visualsOnly) // Items in pockets or backpack don't show up on mob's icon.
 		if(l_pocket)
-			equip_item(H, l_pocket, slot_l_store)
+			equip_item(H, l_pocket, slot_l_store_str)
 		if(r_pocket)
-			equip_item(H, r_pocket, slot_r_store)
+			equip_item(H, r_pocket, slot_r_store_str)
 
 		if(H.back) // you would think, right
 			for(var/path in backpack_contents)
 				var/number = backpack_contents[path]
 				for(var/i in 1 to number)
-					H.equip_or_collect(new path(H), slot_in_backpack)
+					H.equip_or_collect(new path(H), slot_in_backpack_str)
 		else
-			var/obj/item/storage/storage_item
-			if(!H.l_hand)
-				storage_item = new /obj/item/storage/bag/plasticbag(H)
-				H.equip_to_slot_or_del(storage_item, slot_l_hand)
-			if(!storage_item && !H.r_hand)
-				storage_item = new /obj/item/storage/bag/plasticbag(H)
-				H.equip_to_slot_or_del(storage_item, slot_r_hand)
-			if(storage_item)
+			var/obj/item/storage/storage_item = new /obj/item/storage/bag/plasticbag(H)
+			if(H.put_in_hands_or_del(storage_item))
 				for(var/path in backpack_contents)
 					var/number = backpack_contents[path]
 					for(var/i in 1 to number)
@@ -547,7 +556,7 @@
 		for(var/path in belt_contents)
 			var/number = belt_contents[path]
 			for(var/i in 1 to number)
-				H.equip_or_collect(new path(H), slot_in_belt)
+				H.equip_or_collect(new path(H), slot_in_belt_str)
 
 		if(id)
 			var/obj/item/modular_computer/personal_computer
@@ -560,7 +569,7 @@
 			if(personal_computer?.card_slot)
 				addtimer(CALLBACK(src, PROC_REF(register_pda), personal_computer, ID), 2 SECOND)
 			else
-				H.equip_or_collect(ID, slot_wear_id)
+				H.equip_or_collect(ID, slot_wear_id_str)
 
 	INVOKE_ASYNC(src, PROC_REF(post_equip), H, visualsOnly)
 
@@ -608,7 +617,7 @@
 		var/obj/item/clothing/shoes/magboots/M = new /obj/item/clothing/shoes/magboots(VH)
 		VS.boots = M
 
-	H.equip_to_slot_if_possible(VS, slot_wear_suit)
+	H.equip_to_slot_if_possible(VS, slot_wear_suit_str)
 
 /obj/outfit/proc/apply_fingerprints(mob/living/carbon/human/H)
 	if(!istype(H))

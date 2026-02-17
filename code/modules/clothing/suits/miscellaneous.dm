@@ -124,11 +124,10 @@
 	flags_inv = HIDEWRISTS|HIDEGLOVES|HIDEJUMPSUIT
 
 /obj/item/clothing/suit/straight_jacket/equipped(var/mob/user, var/slot)
-	if (slot == slot_wear_suit)
+	if (slot == slot_wear_suit_str)
 		if(ishuman(loc))
 			var/mob/living/carbon/human/H = loc
-			H.drop_r_hand()
-			H.drop_l_hand()
+			H.drop_held_items()
 			H.drop_from_inventory(H.handcuffed)
 	..()
 
@@ -624,8 +623,8 @@
 	desc_extended = "Used by the janitor to passive-aggressively point at when you eventually slip on one of their mopped floors."
 	icon = 'icons/obj/janitor.dmi'
 	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items/lefthand_janitor.dmi',
-		slot_r_hand_str = 'icons/mob/items/righthand_janitor.dmi',
+		BP_L_HAND = 'icons/mob/items/lefthand_janitor.dmi',
+		BP_R_HAND = 'icons/mob/items/righthand_janitor.dmi',
 		)
 	icon_state = "caution"
 	drop_sound = 'sound/items/drop/shoes.ogg'

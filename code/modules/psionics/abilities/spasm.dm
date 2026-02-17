@@ -25,7 +25,6 @@
 	if(!.)
 		return
 	var/mob/living/carbon/human/H = hit_atom
-	H.drop_l_hand()
-	H.drop_r_hand()
+	H.drop_held_items()
 	to_chat(H, SPAN_DANGER("Your mind is filled by an acute pain making you drop what you're holding!"))
 	H.flash_pain(50)

@@ -211,6 +211,7 @@
 		to_chat(user, SPAN_WARNING("You can't store this here!"))
 
 /obj/structure/cart/storage/engineeringcart/attack_hand(mob/user)
+	. = ..()
 	if(!isliving(user))
 		return
 

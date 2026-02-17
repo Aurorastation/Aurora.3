@@ -197,54 +197,47 @@
 		return
 	return src.attack_hand(user)
 
+/obj/machinery/suit_cycler/proc/try_move_inside(mob/living/target, mob/living/user)
+	if(!istype(target) || !istype(user) || !target.Adjacent(user) || !user.Adjacent(src) || user.incapacitated())
+		return FALSE
+
+	if(active || locked)
+		to_chat(user, SPAN_WARNING("\The [src] is locked."))
+		return FALSE
+
+	if(contents.len > 0)
+		to_chat(user, SPAN_WARNING("There is no room inside \the [src] for \the [target]."))
+		return FALSE
+
+	visible_message(SPAN_WARNING("\The [user] starts putting \the [target] into \the [src]."))
+	if(do_after(user, 2 SECONDS, src, DO_UNIQUE))
+		if(!istype(target) || locked || (contents.len > 0) || !target.Adjacent(user) || !user.Adjacent(src) || user.incapacitated())
+			return FALSE
+		if(target.client)
+			target.client.perspective = EYE_PERSPECTIVE
+			target.client.eye = src
+		target.forceMove(src)
+		occupant = target
+		add_fingerprint(user)
+		update_icon()
+		return TRUE
+	return FALSE
+
+/obj/machinery/suit_cycler/grab_attack(obj/item/grab/G, mob/user)
+	var/mob/living/victim = G.get_grabbed_mob()
+	if(istype(victim) && try_move_inside(victim, user))
+		qdel(G)
+		updateUsrDialog()
+		return TRUE
+	return ..()
+
 /obj/machinery/suit_cycler/attackby(obj/item/attacking_item, mob/user)
 	if(electrified != 0)
 		if(src.shock(user, 100))
 			return
 
 	//Other interface stuff.
-	if(istype(attacking_item, /obj/item/grab))
-		var/obj/item/grab/G = attacking_item
-		if(G.state < GRAB_NECK)
-			to_chat(user, SPAN_WARNING("You need a stronger grip to do this!"))
-			return
-
-		if(!ismob(G.affecting))
-			to_chat(user, SPAN_WARNING("\The [G.affecting] doesn't fit into \the [src]!"))
-			return
-
-		if(active || locked)
-			to_chat(user, SPAN_DANGER("The suit cycler is locked."))
-			return
-
-		if(contents.len > 0)
-			to_chat(user, SPAN_WARNING("There is no room inside \the [src] for \the [G.affecting]."))
-			return
-
-		if(occupant)
-			to_chat(user, SPAN_WARNING("\The [src] is already occupied."))
-			return
-
-		user.visible_message("<b>\The [user]</b> starts putting \the [G.affecting] into \the [src]...", SPAN_NOTICE("You start putting \the [G.affecting] into \the [src]..."), range = 3)
-		if(do_after(user, 2 SECONDS, src, DO_UNIQUE))
-			if(!G || !G.affecting)
-				return
-			var/mob/M = G.affecting
-			if(M.client)
-				M.client.perspective = EYE_PERSPECTIVE
-				M.client.eye = src
-			user.visible_message("<b>\The [user]</b> puts \the [G.affecting] into \the [src].", SPAN_NOTICE("You put \the [G.affecting] into \the [src]."), range = 3)
-			M.forceMove(src)
-			occupant = M
-
-			add_fingerprint(user)
-			qdel(G)
-
-			updateUsrDialog()
-			update_icon()
-		return
-
-	else if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
+	if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 		panel_open = !panel_open
 		to_chat(user, SPAN_NOTICE("You [panel_open ? "open" : "close"] the maintenance panel."))
 		updateUsrDialog()

@@ -173,7 +173,7 @@
 		/obj/item/clothing/accessory/storage/pouches/black,
 		/obj/item/clothing/accessory/poncho/vaurca,
 	)
-	l_hand = list(/obj/item/martial_manual/vaurca)
+	hands = list(/obj/item/martial_manual/vaurca)
 
 /obj/outfit/admin/tret_industrial/vaurca/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	if(H?.wear_mask && H.species.has_organ[BP_PHORON_RESERVE])
@@ -204,18 +204,18 @@
 
 	// add some items
 	if(prob(75))
-		human.equip_or_collect(new /obj/item/spacecash/c500, slot_in_backpack)
+		human.equip_or_collect(new /obj/item/spacecash/c500, slot_in_backpack_str)
 	if(prob(75))
-		human.equip_or_collect(new /obj/item/spacecash/ewallet/c2000, slot_in_backpack)
+		human.equip_or_collect(new /obj/item/spacecash/ewallet/c2000, slot_in_backpack_str)
 	if(prob(75))
-		human.equip_or_collect(new /obj/item/spacecash/c200, slot_in_backpack)
-	human.equip_or_collect(new /obj/item/folder/white, slot_in_backpack)
-	human.equip_or_collect(new /obj/item/paper/fluff/tret_industrial/inspection_report, slot_in_backpack)
-	human.equip_or_collect(new /obj/item/pen/fountain/silver, slot_in_backpack)
+		human.equip_or_collect(new /obj/item/spacecash/c200, slot_in_backpack_str)
+	human.equip_or_collect(new /obj/item/folder/white, slot_in_backpack_str)
+	human.equip_or_collect(new /obj/item/paper/fluff/tret_industrial/inspection_report, slot_in_backpack_str)
+	human.equip_or_collect(new /obj/item/pen/fountain/silver, slot_in_backpack_str)
 	if(prob(75))
-		human.equip_or_collect(new /obj/item/spacecash/c100, slot_in_backpack)
+		human.equip_or_collect(new /obj/item/spacecash/c100, slot_in_backpack_str)
 	if(prob(75))
-		human.equip_or_collect(new /obj/random/highvalue/cash, slot_in_backpack)
+		human.equip_or_collect(new /obj/random/highvalue/cash, slot_in_backpack_str)
 
 	// add blood
 	human.w_uniform?.add_blood(human)

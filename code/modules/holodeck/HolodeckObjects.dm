@@ -157,18 +157,39 @@
 	icon_state = "boxing"
 	item_state = "boxing"
 
+/obj/item/clothing/gloves/boxing/hologlove/Touch(atom/A, mob/user, proximity)
+	var/mob/living/carbon/human/target = A
+	if(!istype(target))
+		return FALSE
+
+	var/damage = rand(0, 9)
+	if(!damage)
+		playsound(user.loc, SFX_PUNCH_MISS, 25, 1, -1)
+		visible_message(SPAN_DANGER("[user] has attempted to punch [target]!"))
+		return FALSE
+
+	var/obj/item/organ/external/limb = target.get_organ(ran_zone(target, user.zone_sel?.selecting))
+
+	if((user.mutations & HULK) || user.is_berserk())
+		damage += 5
+
+	playsound(user.loc, SFX_PUNCH, 25, 1, -1)
+
+	visible_message(SPAN_DANGER("[user] has punched [target]!"))
+
+	target.apply_damage(damage, DAMAGE_PAIN, limb)
+	if(damage >= 9)
+		visible_message(SPAN_DANGER("[user] has weakened [target]!"))
+		target.apply_effect(4, WEAKEN)
+
+	return TRUE
+
 /obj/structure/window/reinforced/holowindow/Destroy()
 	return ..()
 
 /obj/structure/window/reinforced/holowindow/attackby(obj/item/attacking_item, mob/user)
 	if(!istype(attacking_item))
 		return//I really wish I did not need this
-
-	if (istype(attacking_item, /obj/item/grab) && get_dist(src,user)<2)
-		var/obj/item/grab/G = attacking_item
-		if(istype(G.affecting,/mob/living))
-			grab_smash_attack(G, DAMAGE_PAIN)
-			return
 
 	if(attacking_item.item_flags & ITEM_FLAG_NO_BLUDGEON) return
 
@@ -265,8 +286,8 @@
 	w_class = WEIGHT_CLASS_SMALL
 	atom_flags = ATOM_FLAG_NO_BLOOD
 	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items/weapons/lefthand_energy.dmi',
-		slot_r_hand_str = 'icons/mob/items/weapons/righthand_energy.dmi'
+		BP_L_HAND = 'icons/mob/items/weapons/lefthand_energy.dmi',
+		BP_R_HAND = 'icons/mob/items/weapons/righthand_energy.dmi'
 		)
 	var/active = 0
 	var/item_color
@@ -307,8 +328,7 @@
 
 	if(istype(user,/mob/living/carbon/human))
 		var/mob/living/carbon/human/H = user
-		H.update_inv_l_hand()
-		H.update_inv_r_hand()
+		H.update_inv_hands()
 
 	add_fingerprint(user)
 	return
@@ -372,18 +392,23 @@
 	density = TRUE
 	pass_flags_self = PASSSTRUCTURE | LETPASSTHROW
 
+/obj/structure/holohoop/grab_attack(obj/item/grab/G, mob/user)
+	var/mob/living/L = G.get_grabbed_mob()
+	if(!istype(L))
+		return FALSE
+
+	if(!G.has_grab_flags(GRAB_FORCE_HARM))
+		to_chat(user, SPAN_WARNING("You need a better grip to do that!"))
+		return FALSE
+
+	L.forceMove(src.loc)
+	L.Weaken(5)
+	visible_message(SPAN_WARNING("[G.grabber] dunks [L] into \the [src]!"), range = 3)
+	qdel(G)
+	return TRUE
+
 /obj/structure/holohoop/attackby(obj/item/attacking_item, mob/user)
-	if (istype(attacking_item, /obj/item/grab) && get_dist(src,user)<2)
-		var/obj/item/grab/G = attacking_item
-		if(G.state<2)
-			to_chat(user, SPAN_WARNING("You need a better grip to do that!"))
-			return
-		G.affecting.forceMove(src.loc)
-		G.affecting.Weaken(5)
-		visible_message(SPAN_WARNING("[G.assailant] dunks [G.affecting] into the [src]!"), range = 3)
-		qdel(attacking_item)
-		return
-	else if (istype(attacking_item, /obj/item) && get_dist(src,user)<2)
+	if (istype(attacking_item, /obj/item) && get_dist(src,user)<2)
 		user.drop_from_inventory(attacking_item, get_turf(src))
 		visible_message(SPAN_NOTICE("[user] dunks [attacking_item] into the [src]!"), range = 3)
 		return
@@ -423,6 +448,7 @@
 	to_chat(user, "The device is a solid button, there's nothing you can do with it!")
 
 /obj/machinery/readybutton/attack_hand(mob/user as mob)
+	. = ..()
 
 	if(user.stat || stat & (NOPOWER|BROKEN))
 		to_chat(user, "This device is not powered.")

@@ -6,8 +6,7 @@
 	gloves = /obj/item/clothing/gloves/swat/ert
 	belt = /obj/item/storage/belt/military
 	back = /obj/item/storage/backpack/satchel
-	l_hand = /obj/item/clothing/suit/space/void/freelancer
-	r_hand = /obj/item/clothing/head/helmet/space/void/freelancer
+	hands = list(/obj/item/clothing/suit/space/void/freelancer, /obj/item/clothing/head/helmet/space/void/freelancer)
 	accessory = /obj/item/clothing/accessory/holster/thigh
 	accessory_contents = list(/obj/item/gun/projectile/colt)
 	id = /obj/item/card/id/syndicate
@@ -99,8 +98,7 @@
 
 /obj/outfit/admin/ert/mercenary/leader
 	name = "Mercenary Freelancer Leader"
-	l_hand = /obj/item/gun/projectile/automatic/rifle/shorty
-	r_hand = null
+	hands = list(/obj/item/gun/projectile/automatic/rifle/shorty)
 	back = /obj/item/rig/merc/distress
 	suit_store = null
 	suit = null

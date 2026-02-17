@@ -274,12 +274,14 @@
 	desc = "A heavy, metal trashcart with wheels."
 	icon_state = "trashcart"
 	door_hinge_x = 2.5
+	movable_flags = MOVABLE_FLAG_WHEELED
 
 /obj/structure/closet/crate/miningcart
 	desc = "A mining cart. This one doesn't work on rails, but has to be dragged."
 	name = "mining cart"
 	icon_state = "miningcart"
 	door_hinge_x = 2.5
+	movable_flags = MOVABLE_FLAG_WHEELED
 
 /obj/structure/closet/crate/miningcart/ore/fill()
 	var/i_max = rand(3, 6)

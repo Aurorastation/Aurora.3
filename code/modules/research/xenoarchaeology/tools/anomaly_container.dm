@@ -15,6 +15,7 @@
 		contain(A)
 
 /obj/structure/anomaly_container/attack_hand(var/mob/user)
+	. = ..()
 	//Incapacitation guard
 	if(use_check_and_message(user))
 		return

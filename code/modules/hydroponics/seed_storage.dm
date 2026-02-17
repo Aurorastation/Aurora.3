@@ -58,6 +58,7 @@
 	. = ..()
 
 /obj/machinery/seed_storage/attack_hand(mob/user)
+	. = ..()
 	ui_interact(user)
 
 /obj/machinery/seed_storage/ui_interact(mob/user, datum/tgui/ui)

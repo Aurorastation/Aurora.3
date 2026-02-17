@@ -8,10 +8,9 @@
 	help_verb = /datum/martial_art/wrestling/proc/wrestling_help
 
 /datum/martial_art/wrestling/harm_act(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)
-	D.grabbedby(A,1)
-	var/obj/item/grab/G = A.get_active_hand()
-	if(G && prob(50))
-		G.state = GRAB_AGGRESSIVE
+	var/clinch = prob(50)
+	var/obj/item/grab/G = A.make_grab(D, /singleton/grab/normal/aggressive, FALSE, clinch)
+	if(G && clinch)
 		D.visible_message(SPAN_DANGER("[A] has [D] in a clinch!"))
 	else
 		D.visible_message(SPAN_DANGER("[A] fails to get [D] in a clinch!"))
@@ -34,19 +33,18 @@
 	return
 
 /datum/martial_art/wrestling/disarm_act(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)
-	if(istype(A.get_inactive_hand(),/obj/item/grab))
-		var/obj/item/grab/G = A.get_inactive_hand()
-		if(G.affecting == D)
-			Suplex(A,D)
-			return 1
-	harm_act(A,D)
-	return 1
+	for(var/obj/item/grab/G as anything in A.get_active_grabs())
+		if(A.is_holding_offhand(G) && G.grabbed == D)
+			Suplex(A, D)
+			return TRUE
+	harm_act(A, D)
+	return TRUE
 
 /datum/martial_art/wrestling/grab_act(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)
-	D.grabbedby(A,1)
+	A.make_grab(D, /singleton/grab/normal/aggressive, FALSE, TRUE)
 	D.visible_message(SPAN_DANGER("[A] holds [D] down!"))
-	var/obj/item/organ/external/affecting = D.get_organ(ran_zone(A.zone_sel.selecting))
-	D.apply_damage(40, DAMAGE_PAIN, affecting)
+	var/obj/item/organ/external/affecting = D.get_organ(ran_zone(D, A.zone_sel.selecting))
+	affecting.jointlock(A, 40)
 	return 1
 
 /datum/martial_art/wrestling/proc/wrestling_help()

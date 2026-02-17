@@ -30,8 +30,6 @@
 	//Check if we're on fire
 	handle_fire(seconds_per_tick, environment)
 
-	update_pulling()
-
 	for(var/obj/item/grab/G in src)
 		INVOKE_ASYNC(G, TYPE_PROC_REF(/datum, process))
 
@@ -60,11 +58,6 @@
 
 /mob/living/proc/handle_random_events()
 	return
-
-/mob/living/proc/update_pulling()
-	if(pulling)
-		if(incapacitated())
-			stop_pulling()
 
 //This updates the health and status of the mob (conscious, unconscious, dead)
 /mob/living/proc/handle_regular_status_updates()

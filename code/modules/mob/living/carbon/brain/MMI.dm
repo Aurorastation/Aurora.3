@@ -154,7 +154,7 @@
 		set_cradle_state(STATE_BRAIN)
 
 /obj/item/mmi/attack_hand(mob/user)
-	if(brainobj && cradle_state == STATE_BRAIN && user.get_inactive_hand() == src)
+	if(brainobj && cradle_state == STATE_BRAIN && user.is_holding_offhand(src))
 		to_chat(user, SPAN_NOTICE("You remove \the [brainobj] from \the [src]."))
 		user.put_in_hands(brainobj)
 		transfer_mob_to_brain()

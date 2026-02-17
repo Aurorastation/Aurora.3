@@ -134,7 +134,7 @@
 
 	if(user.a_intent == I_GRAB && ishuman(user) && ishuman(target)) // we could add other things here eventually. trepanation maybe
 		var/mob/living/carbon/human/H = target
-		if (check_zone(user.zone_sel.selecting) == BP_CHEST) // impromptu needle thoracostomy, re-inflate a collapsed lung
+		if (check_zone(user.zone_sel.selecting, H) == BP_CHEST) // impromptu needle thoracostomy, re-inflate a collapsed lung
 			var/obj/item/organ/internal/lungs/L = H.internal_organs_by_name[BP_LUNGS]
 			var/P = (user == target) ? "their" : (target.name + "\'s")
 			var/SM = (user == target) ? "your" : (target.name + "\'s")
@@ -314,7 +314,7 @@
 
 		var/mob/living/carbon/human/H = target
 
-		var/target_zone = ran_zone(check_zone(user.zone_sel.selecting), 70)
+		var/target_zone = ran_zone(target, check_zone(user.zone_sel.selecting, H), 70)
 		var/obj/item/organ/external/affecting = H.get_organ(target_zone)
 
 		if (!affecting || affecting.is_stump())

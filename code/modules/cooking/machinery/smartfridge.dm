@@ -397,6 +397,7 @@
 	attack_hand(user)
 
 /obj/machinery/smartfridge/attack_hand(mob/user)
+	. = ..()
 	if(stat & (NOPOWER|BROKEN))
 		return
 	if(panel_open)

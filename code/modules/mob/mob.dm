@@ -64,7 +64,6 @@
 	flash = null
 	blind = null
 	hands = null
-	pullin = null
 	purged = null
 	internals = null
 	oxygen = null
@@ -285,14 +284,8 @@
 
 	if(lying) //Crawling, it's slower
 		. += (8 + ((weakened * 3) + (confused * 2)))
-	. = get_pulling_movement_delay()
-
-/mob/proc/get_pulling_movement_delay()
-	. = 0
-	if(istype(pulling, /obj/structure))
-		var/obj/structure/P = pulling
-		if(P.buckled || locate(/mob) in P.contents)
-			. += P.slowdown
+	for(var/obj/item/grab/G as anything in get_active_grabs())
+		. *= (1 + G.grab_slowdown())
 
 /**
  * Handles the biological and general over-time processes of the mob.
@@ -372,10 +365,16 @@
 /mob/proc/show_inv(mob/user)
 	user.set_machine(src)
 	var/dat = {"
-	<BR><B>Head(Mask):</B> <A href='byond://?src=[REF(src)];item=mask'>[(wear_mask ? wear_mask : "Nothing")]</A>
-	<BR><B>Left Hand:</B> <A href='byond://?src=[REF(src)];item=l_hand'>[(l_hand ? l_hand  : "Nothing")]</A>
-	<BR><B>Right Hand:</B> <A href='byond://?src=[REF(src)];item=r_hand'>[(r_hand ? r_hand : "Nothing")]</A>
-	<BR><B>Back:</B> <A href='byond://?src=[REF(src)];item=back'>[(back ? back : "Nothing")]</A> [((istype(wear_mask, /obj/item/clothing/mask) && istype(back, /obj/item/tank) && !( internal )) ? " <A href='byond://?src=[REF(src)];item=internal'>Set Internal</A>" : "")]
+	<BR><B>Head(Mask):</B> <A href='byond://?src=[REF(src)];item=mask'>[(wear_mask ? wear_mask : "Nothing")]</A>"}
+
+	var/mob/living/carbon/human/H = src
+	if(istype(H))
+		for(var/bp in H.held_item_slots)
+			var/datum/inventory_slot/inv_slot = H.held_item_slots[bp]
+			var/obj/item/organ/external/E = H.get_organ(bp)
+			dat += "<BR><b>[capitalize(E.name)]:</b> <A href='byond://?src=[REF(src)];item=[bp]'>[inv_slot.holding?.name || "Nothing"]</A>"
+
+	dat += {"<BR><B>Back:</B> <A href='byond://?src=[REF(src)];item=back'>[(back ? back : "Nothing")]</A> [((istype(wear_mask, /obj/item/clothing/mask) && istype(back, /obj/item/tank) && !( internal )) ? " <A href='byond://?src=[REF(src)];item=internal'>Set Internal</A>" : "")]
 	<BR>[(internal ? "<A href='byond://?src=[REF(src)];item=internal'>Remove Internal</A>" : "")]
 	<BR><A href='byond://?src=[REF(src)];item=pockets'>Empty Pockets</A>
 	<BR><A href='byond://?src=[REF(user)];refresh=1'>Refresh</A>
@@ -456,20 +455,12 @@
 
 ///proc version to finish /mob/verb/mode() execution. used in case the proc needs to be queued for the tick after its first called
 /mob/proc/execute_mode()
-	if(hand)
-		var/obj/item/W = l_hand
-		if (W)
-			W.attack_self(src)
-			update_inv_l_hand()
-		else
-			attack_empty_hand(BP_L_HAND)
+	var/obj/item/I = get_active_hand()
+	if(istype(I))
+		I.attack_self(src)
 	else
-		var/obj/item/W = r_hand
-		if (W)
-			W.attack_self(src)
-			update_inv_r_hand()
-		else
-			attack_empty_hand(BP_R_HAND)
+		attack_empty_hand(get_active_held_item_slot())
+	update_inv_hands()
 
 /mob/verb/memory()
 	set name = "Notes"
@@ -732,92 +723,11 @@
 
 	show_inv(user)
 
+/mob/proc/check_has_eyes()
+	return TRUE
 
-/mob/verb/stop_pulling()
-
-	set name = "Stop Pulling"
-	set category = "IC"
-
-	if(pulling)
-		pulling.pulledby = null
-		pulling = null
-		if(pullin)
-			pullin.icon_state = "pull0"
-
-/mob/proc/start_pulling(var/atom/movable/AM)
-
-	if ( !AM || !usr || src==AM || !isturf(src.loc) )	//if there's no person pulling OR the person is pulling themself OR the object being pulled is inside something: abort!
-		return
-
-	if (AM.anchored)
-		if(!AM.buckled_to)
-			to_chat(src, SPAN_WARNING("It won't budge!"))
-		else
-			start_pulling(AM.buckled_to) //Pull the thing they're buckled to instead.
-		return
-
-	var/mob/M = null
-	if(ismob(AM))
-		M = AM
-		if(!can_pull_mobs || !can_pull_size)
-			to_chat(src, SPAN_WARNING("It won't budge!"))
-			return
-
-		if((mob_size < M.mob_size) && (can_pull_mobs != MOB_PULL_LARGER))
-			to_chat(src, SPAN_WARNING("It won't budge!"))
-			return
-
-		if((mob_size == M.mob_size) && (can_pull_mobs == MOB_PULL_SMALLER))
-			to_chat(src, SPAN_WARNING("It won't budge!"))
-			return
-
-		if(length(M.grabbed_by))
-			to_chat(src, SPAN_WARNING("You can't pull someone being held in a grab!"))
-			return
-
-		// If your size is larger than theirs and you have some
-		// kind of mob pull value AT ALL, you will be able to pull
-		// them, so don't bother checking that explicitly.
-
-		if(!iscarbon(src))
-			M.LAssailant = null
-		else
-			M.LAssailant = WEAKREF(usr)
-
-	else if(isobj(AM))
-		var/obj/I = AM
-		if(!can_pull_size || can_pull_size < I.w_class)
-			to_chat(src, SPAN_WARNING("It won't budge!"))
-			return
-
-	if(pulling)
-		var/pulling_old = pulling
-		stop_pulling()
-		// Are we pulling the same thing twice? Just stop pulling.
-		if(pulling_old == AM)
-			return
-
-	src.pulling = AM
-	AM.pulledby = src
-	GLOB.move_manager.stop_looping(AM)
-
-	if(pullin)
-		pullin.icon_state = "pull1"
-
-	if(ishuman(AM))
-		var/mob/living/carbon/human/H = AM
-		if(H.lying) // If they're on the ground we're probably dragging their arms to move them
-			visible_message(SPAN_WARNING("\The [src] leans down and grips \the [H]'s arms."), SPAN_NOTICE("You lean down and grip \the [H]'s arms."))
-		else //Otherwise we're probably just holding their arm to lead them somewhere
-			visible_message(SPAN_WARNING("\The [src] grips \the [H]'s arm."), SPAN_NOTICE("You grip \the [H]'s arm."))
-		playsound(loc, SFX_GRAB, 25, FALSE, -1) //Quieter than hugging/grabbing but we still want some audio feedback
-		if(H.pull_damage())
-			to_chat(src, SPAN_DANGER("Pulling \the [H] in their current condition would probably be a bad idea."))
-
-	//Attempted fix for people flying away through space when cuffed and dragged.
-	if(M)
-		var/mob/pulled = AM
-		pulled.inertia_dir = 0
+/mob/proc/check_has_mouth()
+	return FALSE
 
 /mob/proc/can_use_hands()
 	return
@@ -864,13 +774,7 @@
 
 /// Updates canmove, lying and icons. Could perhaps do with a rename but I can't think of anything to describe it.
 /mob/proc/update_canmove()
-	if(in_neck_grab())
-		lying = FALSE
-		for(var/obj/item/grab/G in grabbed_by)
-			if(G.force_down)
-				lying = TRUE
-				break
-	else if(!resting && cannot_stand() && can_stand_overridden())
+	if(!resting && cannot_stand() && can_stand_overridden())
 		lying = FALSE
 		lying_is_intentional = FALSE
 		canmove = TRUE
@@ -922,14 +826,10 @@
 	else
 		REMOVE_TRAIT(src, TRAIT_UNDENSE, TRAIT_SOURCE_LYING_DOWN)
 
-	for(var/obj/item/grab/G in grabbed_by)
-		if(G.wielded)
+	for(var/obj/item/grab/G as anything in grabbed_by)
+		if(G.grabber != src && (MOB_IS_INCAPACITATED(INCAPACITATION_RESTRAINED) || HAS_GRAB_FLAGS(G, GRAB_STOP_MOVE)))
+			ProcessGrabs()
 			canmove = FALSE
-			lying = TRUE
-			break
-		if(G.state >= GRAB_AGGRESSIVE)
-			canmove = 0
-			break
 
 	//Temporarily moved here from the various life() procs
 	//I'm fixing stuff incrementally so this will likely find a better home.
@@ -1289,9 +1189,6 @@
 	if (destination != loc && istype(destination, /atom/movable))
 		AM = destination
 		LAZYADD(AM.contained_mobs, src)
-		if(ismob(pulledby))
-			var/mob/M = pulledby
-			M.stop_pulling()
 
 	if (istype(loc, /atom/movable))
 		AM = loc
@@ -1408,6 +1305,9 @@
 
 /mob/proc/is_clumsy()
 	return (mutations & CLUMSY)
+
+/mob/proc/get_target_zone()
+	return zone_sel?.selecting || BP_CHEST
 
 //Helper proc for figuring out if the active hand (or given hand) is usable.
 /mob/proc/can_use_hand()
@@ -1589,6 +1489,39 @@
 		var/atom/movable/screen/plane_master/lighting/exterior_lighting = hud_used.plane_masters["[EXTERIOR_LIGHTING_PLANE]"]
 		if (exterior_lighting)
 			exterior_lighting.alpha = min(GLOB.minimum_exterior_lighting_alpha, lighting_alpha)
+
+/mob/proc/IsMultiZAdjacent(var/atom/neighbor)
+
+	var/turf/T = get_turf(src)
+	var/turf/N = get_turf(neighbor)
+
+	// Not on valid turfs.
+	if(QDELETED(src) || QDELETED(neighbor) || !istype(T) || !istype(N))
+		return FALSE
+
+	// On the same z-level, we don't need to care about multiz.
+	if(N.z == T.z)
+		return Adjacent(neighbor)
+
+	// More than one z-level away from each other.
+	if(abs(N.x - T.x) > 1 || abs(N.y - T.y) > 1 || abs(N.z - T.z) > 1)
+		return FALSE
+
+	// Not in a connected z-volume.
+	if(!(N.z in GetConnectedZlevels(T.z)))
+		return FALSE
+
+	// Are they below us?
+	var/turf/B = GET_TURF_BELOW(T)
+	if(N.z < T.z && istype(B))
+		return T.is_open() && neighbor.Adjacent(B)
+
+	// Are they above us?
+	var/turf/A = GET_TURF_ABOVE(T)
+	if(istype(A))
+		return A.is_open() && neighbor.Adjacent(A)
+
+	return FALSE
 
 #undef UNBUCKLED
 #undef PARTIALLY_BUCKLED
