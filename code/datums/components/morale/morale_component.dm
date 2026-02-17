@@ -23,7 +23,8 @@ ABSTRACT_TYPE(/moodlet)
 	var/duration = 2.0 HOURS
 
 	/**
-	 * The target time that the moodlet will self-terminate on.
+	 * The target time (in real life seconds) that the moodlet will self-terminate on.
+	 * This is set automatically during the New() creation of moodlets.
 	 * This can be updated by calling refresh_moodlet() to reset the time to die.
 	 */
 	var/time_to_die = 0.0
@@ -35,8 +36,8 @@ ABSTRACT_TYPE(/moodlet)
 	 */
 	VAR_PRIVATE/datum/weakref/morale_component
 
-/moodlet/New(var/datum/component/morale/_morale_component)
-	time_to_die += duration + REALTIMEOFDAY
+/moodlet/New(datum/component/morale/_morale_component)
+	time_to_die = duration + REALTIMEOFDAY
 	morale_component = WEAKREF(_morale_component)
 	_morale_component.add_morale_points(morale_modifier)
 
@@ -46,13 +47,13 @@ ABSTRACT_TYPE(/moodlet)
 		return ..()
 
 	// Else if the moodlet is deleted directly rather than its parent.
-	var/parent = morale_component.resolve()
-	if (!parent || !parent:moodlets[src])
+	var/datum/component/morale/parent = morale_component.resolve()
+	if (!parent || !parent.moodlets[src])
 		return ..()
 
 	// Clean the effects of this moodlet from the parent.
-	parent:moodlets -= src
-	parent:add_morale_points(-morale_modifier)
+	parent.moodlets -= src
+	parent.add_morale_points(-morale_modifier)
 	return ..()
 
 /moodlet/proc/set_moodlet(new_modifier)
@@ -71,11 +72,6 @@ ABSTRACT_TYPE(/moodlet)
 	morale_modifier = new_modifier
 
 /moodlet/proc/refresh_moodlet()
-	if (!morale_component.resolve())
-		// Owner didn't exist, the moodlet has no need to exist either.
-		qdel(src)
-		return
-
 	time_to_die = REALTIMEOFDAY + duration
 
 /**
@@ -92,38 +88,44 @@ ABSTRACT_TYPE(/moodlet)
 
 	/**
 	 * The current sum total of morale_points. This var is intentionally private because it is self-managed by the component, and should never be set directly.
-	 * If you need this var outside of the component, you MUST get it from get_morale_points().
+	 * If you need the contents of this var outside of the component, you MUST use get_morale_points().
 	 */
 	VAR_PRIVATE/morale_points = 0.0 // Positive and negative floating points are allowed.
 
 	/**
 	 * The current "Morale Ratio" calculated in advance as the Hyperbolic Tangent of morale_points. This var is self-managed by the component and should never be set directly.
 	 * This gets updated whenever morale_points are changed, and is used by the Morale Component to handle fast calculations of its various effects.
+	 * If you need the contents of this var outside of the component, you MUST use get_morale_ratio().
+	 *
+	 * morale_ratio is NEVER to be set by anything outside of the component.
 	 */
 	VAR_PRIVATE/morale_ratio = 0.0 // Positive and negative floating points are allowed.
 
+/datum/component/morale/proc/get_morale_ratio()
+	return morale_ratio
+
 /datum/component/morale/proc/get_morale_points()
 	return morale_points
-
-/datum/component/morale/proc/set_morale_points(input)
-	morale_points = input
-	morale_ratio = ftanh(morale_points)
 
 /datum/component/morale/proc/add_morale_points(input)
 	morale_points += input
 	morale_ratio = ftanh(morale_points)
 
-/datum/component/morale/proc/load_moodlet(var/moodlet/new_moodlet)
-	if (!istype(new_moodlet))
-		return
+/datum/component/morale/proc/load_moodlet(moodlet/moodlet_type)
+	RETURN_TYPE(moodlet_type)
+	if (moodlets[moodlet_type])
+		return moodlets[moodlet_type]
 
-	var/checked_moodlet = moodlets[new_moodlet]
-	return checked_moodlet ? checked_moodlet : (moodlets[new_moodlet] = new new_moodlet(src))
+	var/new_moodlet = new moodlet_type(src)
+	moodlets.Add(new_moodlet)
+	return new_moodlet
 
 /datum/component/morale/Initialize()
 	. = ..()
+	//Wall of RegisterSignal() goes here.
 
 /datum/component/morale/Destroy()
+	// Wall of UnregisterSignal() goes here.
 	QDEL_NULL_LIST_FORCE(moodlets)
 	return ..()
 
