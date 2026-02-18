@@ -14,11 +14,11 @@
 	var/stored_charge = 0
 	var/last_stored_charge = 0
 	var/time_since_fail = 100
-	var/max_charge = 8e6	//8 MJ
-	var/max_charge_rate = 400000	//400 kW
+	var/max_charge = 2e8			//200 MJ
+	var/max_charge_rate = 9000000	//9 MW
 	var/locked = FALSE
 
-	var/charge_rate = 100000	//100 kW
+	var/charge_rate = 100000		//100 kW
 	var/obj/machinery/shield_gen/owned_gen
 
 /obj/machinery/shield_capacitor/Initialize()
@@ -137,5 +137,6 @@
 	else
 		..()
 
+/// Horizon-specific non-variant, for now.
 /obj/machinery/shield_capacitor/multiz
-	max_charge_rate = 1250000
+
