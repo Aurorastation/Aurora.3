@@ -10,7 +10,7 @@ GLOBAL_LIST_INIT(lunchables_lunches_, list(
 	/obj/item/reagent_containers/food/snacks/tastybread,
 	/obj/item/reagent_containers/food/snacks/liquidfood,
 	/obj/item/reagent_containers/food/snacks/jellysandwich/cherry,
-	/obj/item/reagent_containers/food/snacks/salad/tossedsalad,
+	/obj/item/reagent_containers/food/snacks/salad/applesalad,
 	/obj/item/reagent_containers/food/snacks/funnelcake,
 	/obj/item/reagent_containers/food/snacks/hotdog,
 	/obj/item/reagent_containers/food/snacks/tajaran_bread,

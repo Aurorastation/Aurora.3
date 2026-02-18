@@ -44,9 +44,9 @@
 
 // Salads
 
-/singleton/recipe/tossedsalad
+/singleton/recipe/applesalad
 	fruit = list("cabbage" = 2, "tomato" = 1, "carrot" = 1, "apple" = 1)
-	result = /obj/item/reagent_containers/food/snacks/salad/tossedsalad
+	result = /obj/item/reagent_containers/food/snacks/salad/applesalad
 
 /singleton/recipe/aesirsalad
 	fruit = list("goldapple" = 1, "ambrosiadeus" = 1)
