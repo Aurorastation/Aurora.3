@@ -812,7 +812,10 @@
 	bitesize = 2
 	center_of_mass = list("x"=16, "y"=10)
 
-/obj/item/reagent_containers/food/snacks/adhomian_cheese_wedge/filled/reagents_to_add = list(/singleton/reagent/nutriment/protein/cheese = 3, /singleton/reagent/drink/milk/adhomai/fermented = 1)
+/obj/item/reagent_containers/food/snacks/adhomian_cheese_wedge/filled/reagents_to_add = list(
+	/singleton/reagent/nutriment/protein/cheese = 3,
+	/singleton/reagent/drink/milk/adhomai/fermented = 1
+	)
 
 /obj/item/reagent_containers/food/snacks/sliceable/cheesebake
 	name = "adhomian cheesebake"
