@@ -4550,6 +4550,9 @@
 "rli" = (
 /obj/item/deck/cards,
 /obj/structure/table/wood/gamblingtable,
+/obj/item/lore_radio{
+	pixel_y = 9
+	},
 /turf/simulated/floor/wood,
 /area/ship/ranger_corvette/foyer)
 "roN" = (
