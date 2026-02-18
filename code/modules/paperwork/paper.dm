@@ -51,6 +51,8 @@
 	var/can_fold = TRUE
 	/// Is it made of paper and/or burnable material?
 	var/paper_like = TRUE
+	// Is the paper crumpled up?
+	var/crumpled = FALSE
 
 	var/const/deffont = "Verdana"
 	var/const/signfont = "Times New Roman"
@@ -119,7 +121,10 @@
 /obj/item/paper/update_icon()
 	if(!can_change_icon_state)
 		return
-	else if (info && length(trim(info)))
+	if (crumpled)
+		icon_state = "scrap"
+		return
+	if (info && length(trim(info)))
 		icon_state = "[base_state]_words"
 	else
 		icon_state = "[base_state]"
@@ -179,7 +184,7 @@
 
 /obj/item/paper/attack_self(mob/living/user as mob)
 	if(user.a_intent == I_HURT && paper_like)
-		if(icon_state == "scrap")
+		if(crumpled)
 			user.show_message(SPAN_WARNING("\The [src] is already crumpled."))
 			return
 		//crumple dat paper
@@ -191,6 +196,7 @@
 		else
 			icon_state = "scrap"
 		throw_range = 4 //you can now make epic paper ball hoops into the disposals (kinda dumb that you could only throw crumpled paper 1 tile) -wezzy
+		crumpled = TRUE
 		return
 
 	if (user.a_intent == I_GRAB && icon_state != "scrap" && can_fold)
@@ -674,7 +680,7 @@
 		B.update_icon()
 
 	else if(attacking_item.tool_behaviour == TOOL_PEN)
-		if(icon_state == "scrap")
+		if(crumpled)
 			to_chat(user, SPAN_WARNING("The [src] is too crumpled to write on."))
 			return
 
@@ -843,9 +849,13 @@
 	color = COLOR_PALE_YELLOW
 	free_space = MAX_MESSAGE_LEN //Smaller piece of paper means less space to write.
 	slot_flags = 0
+	item_flags = ITEM_FLAG_NO_BLUDGEON
 
 /obj/item/paper/stickynotes/update_icon()
 	if(icon_state == "stickynote_scrap")
+		return
+	if(crumpled)
+		icon_state = "stickynote_scrap"
 		return
 
 	icon_state = info ? "stickynote_words" : "stickynote"
@@ -872,19 +882,35 @@
 	..()
 
 /obj/item/paper/stickynotes/afterattack(var/A, mob/user, var/prox, var/params)
-	if(!in_range(user, A) || istype(A, /obj/machinery/door) || istype(A, /obj/item/paper))
+	if(!in_range(user, A) || istype(A, /obj/machinery) || istype(A, /obj/item/paper) || crumpled)
 		return
 
 	var/turf/target_turf = get_turf(A)
+	var/turf/source_turf = get_turf(user)
+
+	var/dir_offset = 0
+	if(target_turf != source_turf)
+		dir_offset = get_dir(source_turf, target_turf)
 
 	if(!params || !prox)
 		return
 
 	SSpersistence.register_track(src, ckey(user.key))
-	user.drop_from_inventory(src,target_turf)
-	var/list/mouse_control = mouse_safe_xy(params)
-	pixel_x = mouse_control["icon-x"] - 16
-	pixel_y = mouse_control["icon-y"] - 16
+	user.drop_from_inventory(src,source_turf)
+	if(params) //Parallels taped paper placement method, and avoids seeing stickynotes through walls
+		var/list/mouse_control = mouse_safe_xy(params)
+		if(mouse_control["icon-x"])
+			pixel_x = mouse_control["icon-x"] - 16
+			if(dir_offset & EAST)
+				pixel_x += 32
+			else if(dir_offset & WEST)
+				pixel_x -= 32
+		if(mouse_control["icon-y"])
+			pixel_y = mouse_control["icon-y"] - 16
+			if(dir_offset & NORTH)
+				pixel_y += 32
+			else if(dir_offset & SOUTH)
+				pixel_y -= 32
 
 /obj/item/paper/stickynotes/pad
 	name = "sticky note pad"

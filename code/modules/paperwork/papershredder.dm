@@ -45,7 +45,7 @@
 				return
 			if (paper_result > 0)
 				paperamount += paper_result
-			if(attacking_item.icon_state == "scrap")
+			if(attacking_item.icon_state == "scrap" || attacking_item.icon_state == "stickynote_scrap")
 				flick("papershredder_s_on", src)
 			else if(attacking_item.icon_state == "paper_words")
 				flick("papershredder_w_on", src)
