@@ -2,7 +2,7 @@
 	name = "tablet computer"
 	lexical_name = "tablet"
 	desc = "A portable device for your needs on the go."
-	icon = 'icons/obj/modular_tablet.dmi'
+	icon = 'icons/obj/modular_computers/modular_tablet.dmi'
 	icon_state = "tablet"
 	icon_state_unpowered = "tablet"
 	icon_state_menu = "menu"

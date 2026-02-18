@@ -44,7 +44,7 @@
 #################################
 
 # Your name.
-author: Batrachophrenoboocosmomachia
+author: SimpleMaroon
 
 # Optional: Remove this file after generating master changelog.  Useful for PR changelogs that won't get used again.
 delete-after: True
@@ -55,4 +55,5 @@ delete-after: True
 # Also, this gets changed to [] after reading.  Just remove the brackets when you add new shit.
 # Please surround your changes in  double quotes ("). It works without them, but if you use certain characters it screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - refactor: "Ports smooth shake_camera proc from /tg/station."
+  - qol: "Made various adjustments to Vaurca body markings, including standardizing the mecha eye palette, standardizing the mecha spine palette, removing the forced green eyes from the mecha mandibles, and separating the hand panels into chassis and lights."
+  - imagedel: "Removed the 'large' version of the Vaurca mecha eye body markings."

@@ -159,7 +159,7 @@
 /obj/machinery/computer/shuttle_control/explore/sadar_shuttle
 	name = "shuttle control console"
 	shuttle_tag = "Modified Salvage Skiff"
-	icon = 'icons/obj/machinery/modular_terminal.dmi'
+	icon = 'icons/obj/modular_computers/modular_terminal.dmi'
 	icon_state = "computer"
 	icon_screen = "helm"
 	icon_keyboard = "security_key"
