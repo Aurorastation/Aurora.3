@@ -365,19 +365,19 @@
 			icon_state = "churros"
 
 /obj/item/reagent_containers/food/snacks/chipplate/churros/attack_hand(mob/user)
-        SHOULD_CALL_PARENT(FALSE)
-        var/obj/item/reagent_containers/food/snacks/returningitem = new vendingobject(loc)
-        returningitem.reagents.clear_reagents()
-        reagents.trans_to(returningitem, bitesize)
-        user.put_in_hands(returningitem)
-        if (reagents && reagents.total_volume)
-                to_chat(user, "You take a [unitname] from the plate.")
-        else
-                to_chat(user, "You take the last [unitname] from the plate.")
-                var/obj/waste = new trash(loc)
-                if (loc == user)
-                        user.put_in_hands(waste)
-                qdel(src)
+	SHOULD_CALL_PARENT(FALSE)
+	var/obj/item/reagent_containers/food/snacks/returningitem = new vendingobject(loc)
+	returningitem.reagents.clear_reagents()
+	reagents.trans_to(returningitem, bitesize)
+	user.put_in_hands(returningitem)
+	if (reagents && reagents.total_volume)
+		to_chat(user, "You take a [unitname] from the plate.")
+	else
+		to_chat(user, "You take the last [unitname] from the plate.")
+		var/obj/waste = new trash(loc)
+		if (loc == user)
+			user.put_in_hands(waste)
+		qdel(src)
 
 /obj/item/reagent_containers/food/snacks/churro
 	name = "churro"
