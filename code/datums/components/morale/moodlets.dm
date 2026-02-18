@@ -40,9 +40,10 @@ ABSTRACT_TYPE(/moodlet)
 	 */
 	VAR_PRIVATE/datum/weakref/morale_component
 
-/moodlet/New(datum/component/morale/_morale_component)
+/moodlet/New(datum/component/morale/_morale_component, set_points)
 	time_to_die = duration + REALTIMEOFDAY
 	morale_component = WEAKREF(_morale_component)
+	if (set_points) morale_modifier = set_points
 	_morale_component.add_morale_points(morale_modifier)
 
 /moodlet/Destroy(force)
@@ -66,7 +67,7 @@ ABSTRACT_TYPE(/moodlet)
 /moodlet/proc/set_moodlet(new_modifier)
 	// We can skip the istype() in this case since the held weakref is asserted by VAR_PRIVATE to always be a morale component.
 	var/datum/component/morale/possible_morale = morale_component.resolve()
-	if (!possible_morale)
+	if (!possible_morale && !QDELING(src))
 		// Owner didn't exist, the moodlet has no need to exist either.
 		qdel(src)
 		return

@@ -5,9 +5,10 @@
 /datum/component/morale
 
 	/**
-	 * The set of all moodlets associated with this Morale Component.
+	 * The set of all moodlets associated with this Morale Component. These are also tightly controlled in their initialization, and thus are private.
+	 * load_moodlet() is your best bet for "Add or Get" a moodlet, and is 100% of the time what you want to use if you're trying to make sure someone has a moodlet.
 	 */
-	var/list/moodlet/moodlets = list()
+	VAR_PRIVATE/list/moodlet/moodlets = list()
 
 	/**
 	 * The current sum total of morale_points. This var is intentionally private because it is self-managed by the component, and should never be set directly.
@@ -34,14 +35,20 @@
 	morale_points += input
 	morale_ratio = ftanh(morale_points)
 
-/datum/component/morale/proc/load_moodlet(moodlet/moodlet_type)
+/**
+ * Your one-stop-shop for making moodlets. This proc returns the pre-existing moodlet of a given type.
+ * If it doesn't already exist, then one will be created.
+ */
+/datum/component/morale/proc/load_moodlet(moodlet/moodlet_type, set_points)
 	RETURN_TYPE(moodlet_type)
-	if (moodlets[moodlet_type])
-		return moodlets[moodlet_type]
+	var/loaded_moodlet = moodlets[moodlet_type]
+	if (!loaded_moodlet)
+		loaded_moodlet = new moodlet_type(src, set_points)
+		moodlets.Add(loaded_moodlet)
+		return loaded_moodlet
 
-	var/new_moodlet = new moodlet_type(src)
-	moodlets.Add(new_moodlet)
-	return new_moodlet
+	if (set_points) loaded_moodlet.set_moodlet(set_points)
+	return loaded_moodlet
 
 /datum/component/morale/Initialize()
 	. = ..()
@@ -56,7 +63,7 @@
 	var/current_time = REALTIMEOFDAY
 	var/list_trimmed = FALSE
 	for (var/moodlet/moodlet as anything in moodlets)
-		if (moodlet.time_to_die < current_time)
+		if (moodlet.time_to_die < current_time || QDELING(moodlet))
 			continue
 
 		morale_points -= moodlet.get_morale_modifier()
