@@ -1,0 +1,28 @@
+name: "'Do Not Merge' Blockers"
+
+on:
+  pull_request:
+    types: [synchronize, opened, labeled]
+
+jobs:
+  donotmerge-blocker:
+    name: Enforce Do Not Merge Labels
+    runs-on: ubuntu-latest
+    steps:
+      - name: Enforce Maintainer Discussion Label
+        if: contains(github.event.pull_request.labels.*.name, '⛔ Maintainer Discussion')
+        run: |
+          echo "Pull request is labelled Maintainer Discussion, and must be approved by the maintainers before this PR can be merged."
+          exit 1
+
+      - name: Enforce Lore Discussion Label
+        if: contains(github.event.pull_request.labels.*.name, '⛔ Lore Discussion')
+        run: |
+          echo "Pull request is labelled Lore Discussion, and must be approved by the relevant lore team before this PR can be merged."
+          exit 1
+
+      - name: Enforce Do Not Merge Label
+        if: contains(github.event.pull_request.labels.*.name, '🚫 Do Not Merge')
+        run: |
+          echo "Pull request is labelled Do Not Merge and cannot be merged in this state. Refer to the developer who set this label for information."
+          exit 1
