@@ -1433,7 +1433,8 @@
 "fmB" = (
 /obj/effect/floor_decal/corner/red/diagonal,
 /obj/structure/sign/flag/gadpathur{
-	pixel_y = 32
+	pixel_y = 33;
+	pixel_x = -10
 	},
 /obj/structure/closet/crate/bin{
 	name = "trashbin"
@@ -1442,8 +1443,12 @@
 	dir = 4;
 	icon_state = "tube_empty"
 	},
-/obj/structure/sign/flag/heph{
-	pixel_x = 32
+/obj/structure/sign/flag/burzsia{
+	pixel_x = 33
+	},
+/obj/structure/sign/flag/galatea{
+	pixel_y = 32;
+	pixel_x = 11
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/ranger_corvette/canteen)
