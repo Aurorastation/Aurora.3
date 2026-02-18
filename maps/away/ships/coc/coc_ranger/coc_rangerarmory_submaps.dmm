@@ -6,7 +6,7 @@
 /obj/item/gun/projectile/recoilless_rifle,
 /obj/item/gun/projectile/recoilless_rifle,
 /obj/item/gun/projectile/recoilless_rifle,
-/turf/simulated/floor/tiled/dark/full,
+/turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/gunnery)
 "c" = (
 /obj/structure/closet/crate{
@@ -37,7 +37,7 @@
 /obj/item/ammo_magazine/submachinemag,
 /obj/item/ammo_magazine/submachinemag,
 /obj/item/ammo_magazine/submachinemag,
-/turf/simulated/floor/tiled/dark/full,
+/turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/gunnery)
 "d" = (
 /turf/simulated/wall/shuttle/space_ship/mercenary,
@@ -69,7 +69,7 @@
 /obj/item/ammo_magazine/mc9mm,
 /obj/item/ammo_magazine/a556/carbine,
 /obj/item/ammo_magazine/a556/carbine,
-/turf/simulated/floor/tiled/dark/full,
+/turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/gunnery)
 "f" = (
 /obj/structure/weapons_rack{
@@ -82,7 +82,7 @@
 /obj/item/gun/projectile/revolver/knife,
 /obj/item/gun/projectile/automatic/tommygun,
 /obj/item/gun/projectile/automatic/tommygun,
-/turf/simulated/floor/tiled/dark/full,
+/turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/gunnery)
 "i" = (
 /obj/structure/weapons_rack{
@@ -92,7 +92,7 @@
 /obj/item/grenade,
 /obj/item/grenade,
 /obj/item/grenade,
-/turf/simulated/floor/tiled/dark/full,
+/turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/gunnery)
 "l" = (
 /obj/structure/weapons_rack{
@@ -106,7 +106,7 @@
 /obj/item/gun/projectile/pistol,
 /obj/item/gun/projectile/pistol,
 /obj/item/gun/projectile/pistol,
-/turf/simulated/floor/tiled/dark/full,
+/turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/gunnery)
 "p" = (
 /obj/structure/closet/crate{
@@ -178,7 +178,7 @@
 /obj/item/ammo_magazine/a556/carbine,
 /obj/item/ammo_magazine/submachinemag,
 /obj/item/ammo_magazine/submachinemag,
-/turf/simulated/floor/tiled/dark/full,
+/turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/gunnery)
 "t" = (
 /obj/structure/weapons_rack{
@@ -196,7 +196,7 @@
 /obj/item/gun/projectile/pistol/dominia,
 /obj/item/gun/projectile/pistol,
 /obj/item/gun/projectile/pistol,
-/turf/simulated/floor/tiled/dark/full,
+/turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/gunnery)
 "u" = (
 /obj/structure/closet/crate{
@@ -226,7 +226,7 @@
 /obj/item/ammo_magazine/mc9mm,
 /obj/item/ammo_magazine/mc9mm,
 /obj/item/ammo_magazine/mc9mm,
-/turf/simulated/floor/tiled/dark/full,
+/turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/gunnery)
 "v" = (
 /obj/structure/weapons_rack{
@@ -245,7 +245,7 @@
 	},
 /obj/item/gun/projectile/automatic/rifle/dpra,
 /obj/item/gun/projectile/automatic/rifle/adhomian,
-/turf/simulated/floor/tiled/dark/full,
+/turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/gunnery)
 "y" = (
 /obj/structure/weapons_rack{
@@ -259,7 +259,7 @@
 /obj/item/gun/projectile/pistol/sol,
 /obj/item/gun/projectile/pistol/sol/konyang,
 /obj/item/gun/projectile/pistol/sol/konyang,
-/turf/simulated/floor/tiled/dark/full,
+/turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/gunnery)
 "z" = (
 /obj/structure/weapons_rack{
@@ -278,14 +278,14 @@
 	},
 /obj/item/gun/projectile/automatic/rifle/dnac,
 /obj/item/gun/projectile/automatic/rifle/dnac,
-/turf/simulated/floor/tiled/dark/full,
+/turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/gunnery)
 "A" = (
 /obj/structure/weapons_rack{
 	req_access = list(13,221,222)
 	},
 /obj/item/gun/projectile/shotgun/pump/rifle/dominia,
-/turf/simulated/floor/tiled/dark/full,
+/turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/gunnery)
 "B" = (
 /obj/structure/weapons_rack{
@@ -313,7 +313,7 @@
 	info = "Our old shorties and most of our PDWs and sidearms are bused. So we're using some old Solarian stuff and some kit that was donated from the KAF as a holdover. The mags for our new rifles can't be printed by a 'lathe. So hold on to what you got."
 	},
 /obj/effect/map_effect/marker/mapmanip/submap/extract/coc_rangerlockers,
-/turf/simulated/floor/tiled/dark/full,
+/turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/gunnery)
 "J" = (
 /obj/structure/weapons_rack{
@@ -326,14 +326,14 @@
 /obj/item/gun/projectile/automatic/rifle/shorty,
 /obj/item/gun/projectile/automatic/rifle/shorty,
 /obj/item/gun/projectile/shotgun/pump,
-/turf/simulated/floor/tiled/dark/full,
+/turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/gunnery)
 "K" = (
 /obj/structure/weapons_rack{
 	req_access = list(13,221,222)
 	},
 /obj/item/gun/projectile/shotgun/pump/combat/sol,
-/turf/simulated/floor/tiled/dark/full,
+/turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/gunnery)
 "L" = (
 /obj/structure/weapons_rack{
@@ -347,14 +347,14 @@
 /obj/item/gun/projectile/silenced,
 /obj/item/gun/projectile/silenced,
 /obj/item/gun/projectile/automatic/tommygun,
-/turf/simulated/floor/tiled/dark/full,
+/turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/gunnery)
 "N" = (
 /obj/structure/weapons_rack{
 	req_access = list(13,221,222)
 	},
 /obj/item/gun/projectile/dragunov,
-/turf/simulated/floor/tiled/dark/full,
+/turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/gunnery)
 "O" = (
 /obj/structure/weapons_rack{
@@ -368,7 +368,7 @@
 /obj/item/gun/projectile/pistol/adhomai,
 /obj/item/gun/projectile/pistol/adhomai,
 /obj/item/gun/projectile/pistol/adhomai,
-/turf/simulated/floor/tiled/dark/full,
+/turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/gunnery)
 "P" = (
 /obj/structure/weapons_rack{
@@ -388,7 +388,7 @@
 	name = "Armory notice no. 1";
 	info = "Our old shorties and most of our PDWs and sidearms are busted. I don't even know how we got half of the stuff we got as a replacement, and I'm too afraid to ask."
 	},
-/turf/simulated/floor/tiled/dark/full,
+/turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/gunnery)
 "W" = (
 /obj/structure/closet/crate{
@@ -411,13 +411,13 @@
 /obj/item/ammo_magazine/c45m/dominia,
 /obj/item/ammo_magazine/c45m/dominia,
 /obj/item/ammo_magazine/c45m/dominia,
-/turf/simulated/floor/tiled/dark/full,
+/turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/gunnery)
 "X" = (
 /obj/structure/weapons_rack{
 	req_access = list(13,221,222)
 	},
-/turf/simulated/floor/tiled/dark/full,
+/turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/gunnery)
 "Y" = (
 /obj/structure/weapons_rack{
@@ -436,7 +436,7 @@
 	name = "Armory notice no. 1";
 	info = "Our old shorties and most of our PDWs and sidearms are busted. We had to use a few rifles and shit we captured off the 'imps as a backstop. They aren't too bad, once you get used to the wood furniture and the blood stains."
 	},
-/turf/simulated/floor/tiled/dark/full,
+/turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/gunnery)
 
 (1,1,1) = {"
