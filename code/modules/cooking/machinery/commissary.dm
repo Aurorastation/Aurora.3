@@ -49,7 +49,8 @@
 	accepted_items = list(/obj/item/storage/backpack,
 	/obj/item/storage/belt,
 	/obj/item/clothing,
-	/obj/item/storage/briefcase
+	/obj/item/storage/briefcase,
+	/obj/item/cane
 	)
 	display_tiers = 3
 	display_tier_amt = 5
