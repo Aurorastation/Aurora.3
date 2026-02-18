@@ -7,3 +7,4 @@ changes:
   - bugfix: "Sandals now default to being wood colored if not otherwise given color."
   - bugfix: "Added camera film to the toy shelf storage and briefcases to the clothing shelf storage."
   - bugfix: "Fixed that the operations lobby was powered by the wrong grid."
+  - bugfix: "Added some custom items to the merchant blacklist."
