@@ -660,3 +660,45 @@
 	)
 	reagent_mix = RECIPE_REAGENT_REPLACE
 	result = /obj/item/reagent_containers/food/snacks/bowl/belinas
+
+//Venus
+
+/singleton/recipe/elata
+	appliance = MIX
+	reagents = list(/singleton/reagent/drink/berryjuice = 5, /singleton/reagent/drink/ice = 5, /singleton/reagent/drink/milk/cream = 5, /singleton/reagent/nutriment/vanilla = 5, /singleton/reagent/sugar = 10)
+	items = list(
+		/obj/item/reagent_containers/food/snacks/whitechocolate
+	)
+	reagent_mix = RECIPE_REAGENT_REPLACE
+	result = /obj/item/reagent_containers/food/snacks/elata
+
+/singleton/recipe/filet_cabaret
+	appliance = SKILLET
+	fruit = list ("garlic" = 1)
+	reagents = list(/singleton/reagent/alcohol/wine/assunzione = 5, /singleton/reagent/drink/milk/cream = 5, /singleton/reagent/blackpepper = 1, /singleton/reagent/sodiumchloride = 1)
+	items = list(
+		/obj/item/reagent_containers/food/snacks/rawcutlet,
+		/obj/item/reagent_containers/food/snacks/spreads/butter
+	)
+	reagent_mix = RECIPE_REAGENT_REPLACE
+	result = /obj/item/reagent_containers/food/snacks/filet_cabaret
+
+/singleton/recipe/embassy_strips
+	appliance = SKILLET
+	fruit = list ("lemon" = 1, "soybeans" = 1, "dyn leaf" = 1)
+	reagents = list(/singleton/reagent/enzyme = 5, /singleton/reagent/nutriment/mayonnaise = 5)
+	items = list(
+		/obj/item/reagent_containers/food/snacks/fish
+	)
+	reagent_mix = RECIPE_REAGENT_REPLACE
+	result = /obj/item/reagent_containers/food/snacks/embassy_strips
+
+/singleton/recipe/blitz_shake
+	appliance = MIX
+	reagents = list(/singleton/reagent/drink/shake_strawberry = 30, /singleton/reagent/nutriment/sprinkles = 3, /singleton/reagent/drink/milk/cream = 5)
+	items = list(
+		/obj/item/reagent_containers/food/snacks/candy,
+		/obj/item/reagent_containers/food/snacks/donut
+	)
+	reagent_mix = RECIPE_REAGENT_REPLACE
+	result = /obj/item/reagent_containers/food/snacks/blitz_shake

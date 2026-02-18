@@ -845,3 +845,13 @@
 	filling_color = "#d0e6ff"
 
 /obj/item/reagent_containers/food/snacks/cheesebake_slice/filled/reagents_to_add = list(/singleton/reagent/nutriment = 3, /singleton/reagent/drink/milk/adhomai/fermented = 1.5, /singleton/reagent/nutriment/protein/cheese = 1.5)
+
+/obj/item/reagent_containers/food/snacks/cheese_twig
+	name = "cheese twig"
+	desc = "Twisted dough with a chewy cheese center. Despite being a salty snack beloved by many, cheese twigs are often associated with dairy farmers, and the stereotype of an Adhomian farmer typically has them gnawing idly on a cheese twig. As a result, 'cheesetwig' has become a slang name for farmers in Adhomian society."
+	icon = 'icons/obj/item/reagent_containers/food/cultural/tajara.dmi'
+	icon_state = "cheesetwig"
+	filling_color = "#865a26"
+	reagents_to_add = list(/singleton/reagent/nutriment = 3, /singleton/reagent/drink/milk/adhomai/fermented = 1, /singleton/reagent/nutriment/protein/cheese = 1)
+	reagent_data = list(/singleton/reagent/nutriment = list("pretzel" = 3), /singleton/reagent/nutriment/protein/cheese = list("chewy cheese" = 3))
+	bitesize = 2

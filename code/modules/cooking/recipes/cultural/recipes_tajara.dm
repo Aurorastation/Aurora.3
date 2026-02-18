@@ -171,7 +171,7 @@
 	reagents = list(/singleton/reagent/drink/milk/adhomai = 5, /singleton/reagent/sugar = 5)
 	items = list(
 		/obj/item/reagent_containers/food/snacks/dough,
-		/obj/item/reagent_containers/food/snacks/cheesewedge
+		/obj/item/reagent_containers/food/snacks/adhomian_cheese_wedge
 	)
 	result = /obj/item/reagent_containers/food/snacks/avah
 
@@ -426,3 +426,14 @@
 	)
 	reagent_mix = RECIPE_REAGENT_REPLACE
 	result = /obj/item/reagent_containers/food/snacks/sliceable/cheesebake
+
+/singleton/recipe/cheese_twig
+	appliance = OVEN
+	reagents = list(/singleton/reagent/sodiumchloride = 2)
+	items = list(
+		/obj/item/reagent_containers/food/snacks/tajaran_bread,
+		/obj/item/reagent_containers/food/snacks/adhomian_cheese_wedge
+	)
+	result_quantity = 2
+	reagent_mix = RECIPE_REAGENT_REPLACE
+	result = /obj/item/reagent_containers/food/snacks/cheese_twig

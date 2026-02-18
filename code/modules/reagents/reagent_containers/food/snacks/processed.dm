@@ -302,6 +302,27 @@
 		unpopped = max(0, unpopped-1)
 	..()
 
+/obj/item/reagent_containers/food/snacks/popcorn/caramel
+	name = "caramel popcorn"
+	desc = "Salty and sweet, gets stuck in your teeth while also ruining them! Yum!"
+	icon_state = "popcorn_caramel"
+	bitesize = 0.4
+	reagent_data = list(/singleton/reagent/nutriment = list("caramel" = 3, "popcorn" = 3))
+
+/obj/item/reagent_containers/food/snacks/popcorn/cheese
+	name = "cheese popcorn"
+	desc = "For the absolutely cheesiest movies."
+	icon_state = "popcorn_cheese"
+	bitesize = 0.4
+	reagent_data = list(/singleton/reagent/nutriment = list("cheese" = 3, "popcorn" = 3))
+
+/obj/item/reagent_containers/food/snacks/popcorn/chocolate
+	name = "chocolate popcorn"
+	desc = "Cocoacorn, if you will."
+	icon_state = "popcorn_chocolate"
+	bitesize = 0.4
+	reagent_data = list(/singleton/reagent/nutriment = list("chocolate" = 3, "popcorn" = 3))
+
 /obj/item/reagent_containers/food/snacks/sosjerky
 	name = "Scaredy's Private Reserve beef jerky"
 	icon = 'icons/obj/item/reagent_containers/food/processed.dmi'
