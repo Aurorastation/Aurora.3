@@ -71,6 +71,7 @@ export const FriendsList = (props, context) => {
         <LabeledList>
           {friendsWithData.map((friend) =>
             typeof friend === 'string' ? (
+              // Couldn't find a matching user
               <EmptyContactListing name={friend} />
             ) : (
               <ContactListing
@@ -90,6 +91,9 @@ export const FriendsList = (props, context) => {
 };
 
 const EmptyContactListing = ({ name }: { name: string }) => {
+  // TODO: Currently unfinished
+  // This should show the contact's name, and some sort of "Unable to locate"
+  // error message instead of the usualy address and buttons.
   return (
     <LabeledList.Item
       className="comm-contact"
@@ -99,20 +103,17 @@ const EmptyContactListing = ({ name }: { name: string }) => {
   );
 };
 
+type ContactListingProps = {
+  contact: User;
+  ExtraButton?: (props: { contact: User }, context) => JSX.Element;
+};
+
 const ContactListing = (
-  props: {
-    contact: User;
-    ExtraButton?: (props: { contact: User }, context) => JSX.Element;
-  },
+  { contact, ExtraButton }: ContactListingProps,
   context,
 ) => {
-  const { contact, ExtraButton } = props;
+  const { act, data } = useBackend<CommunicatorData>(context);
 
-  const [currentTab, setCurrentTab] = useLocalState(
-    context,
-    'tab',
-    CommunicatorTab.Home,
-  );
   const [targetAddress, setTargetAddress] = useLocalState(
     context,
     'tgtAddr',
@@ -131,11 +132,11 @@ const ContactListing = (
           {!!ExtraButton && <ExtraButton contact={contact} />}
           <Button
             icon="phone"
-            tooltip="Send call invitation"
+            tooltip="Send call request"
             tooltipPosition="bottom"
             onClick={() => {
               setTargetAddress(contact.address);
-              setCurrentTab(CommunicatorTab.Phone);
+              act('switch_tab', { new_tab: CommunicatorTab.Phone });
             }}
           >
             Call
@@ -159,26 +160,28 @@ const FriendReqButton = ({ contact }: { contact: User }, context) => {
   const alreadyFriends = data.friendsList.find(
     (friendName) => friendName === contact.username,
   );
-  const contactSentRequest = data.friendRequests.incoming.includes(contact.ref);
+  const contactSentRequest = data.friendRequests.incoming.includes(
+    contact.address,
+  );
   const requestSentToContact = data.friendRequests.outgoing.includes(
-    contact.ref,
+    contact.address,
   );
 
   return (
     <Button
-      icon="user-group"
+      icon="user-plus"
       disabled={alreadyFriends || requestSentToContact}
       tooltip={
         !alreadyFriends && contactSentRequest
-          ? 'Respond to Friend Request'
-          : 'Send Friend Request'
+          ? 'Respond to friend request'
+          : 'Send friend request'
       }
       tooltipPosition="bottom"
       color={contactSentRequest && 'average'}
       onClick={() => {
         act('friend_request', {
           action: contactSentRequest ? 'respond' : 'send',
-          selected_address: contact.address,
+          target_address: contact.address,
         });
       }}
     />
@@ -190,11 +193,11 @@ const RemoveFriendButton = ({ contact }: { contact: User }, context) => {
 
   return (
     <Button.Confirm
-      icon="xmark"
+      icon="user-minus"
       color="bad"
-      tooltip="Remove Friend"
+      tooltip="Remove friend"
       onClick={() => {
-        act('remove_friend', { selected_name: contact.username });
+        act('remove_friend', { target_name: contact.username });
       }}
     />
   );

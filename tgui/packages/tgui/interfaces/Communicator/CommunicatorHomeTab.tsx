@@ -1,15 +1,9 @@
-import { useBackend, useLocalState } from '../../backend';
+import { useBackend } from '../../backend';
 import { Box, Button, Icon, Stack } from '../../components';
-import { Apps, CommunicatorData, CommunicatorTab } from './types';
+import { Apps, CommunicatorData } from './types';
 
 export const CommunicatorHomeTab = (props, context) => {
   const { act, data } = useBackend<CommunicatorData>(context);
-
-  const [currentTab, setCurrentTab] = useLocalState(
-    context,
-    'tab',
-    CommunicatorTab.Home,
-  );
 
   return (
     <Stack
@@ -29,7 +23,7 @@ export const CommunicatorHomeTab = (props, context) => {
             width="64px"
             height="64px"
             lineHeight="64px"
-            onClick={() => setCurrentTab(app.tab)}
+            onClick={() => act('switch_tab', { new_tab: app.tab })}
           >
             <Icon
               // todo: spin + colour

@@ -2,13 +2,23 @@
 export type Address = string;
 
 export type CommunicatorData = {
+  currentTab: CommunicatorTab;
+  callDuration: string;
+  callSettings: CallSettings;
+
+  friendsList: string[]; // List of friend names
+  connectedCallers: string[];
   callRequests: RequestsList;
   videoRequests: RequestsList;
   friendRequests: RequestsList;
 
-  friendsList: string[]; // Friend names
   user?: User;
   allUsers: User[];
+};
+
+type CallSettings = {
+  speakerphoneOn: boolean;
+  microphoneOn: boolean;
 };
 
 type RequestsList = {
@@ -23,12 +33,14 @@ export type User = {
   ref: string;
 };
 
+// Mirror of the defines in 'code/modules/modular_computers/file_system/programs/generic/communicator.dm'.
 export enum CommunicatorTab {
   Home,
   Phone,
   Contacts,
   Messaging,
   Settings,
+  ActiveCall,
 }
 
 export type App = {

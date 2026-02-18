@@ -1,6 +1,7 @@
-import { useBackend, useLocalState } from '../../backend';
-import { Box, Button, Flex, Icon, Section } from '../../components';
+import { useBackend } from '../../backend';
+import { Box, Button, Flex, Icon, Section, Stack } from '../../components';
 import { NtosWindow } from '../../layouts';
+import { CommunicatorCallTab } from './CommunicatorCallTab';
 import { CommunicatorContactTab } from './CommunicatorContactTab';
 import { CommunicatorHomeTab } from './CommunicatorHomeTab';
 import { CommunicatorPhoneTab } from './CommunicatorPhoneTab';
@@ -19,11 +20,7 @@ export const Communicator = (props, context) => {
 };
 
 const NormalScreen = (props, context) => {
-  const [currentTab, setCurrentTab] = useLocalState(
-    context,
-    'tab',
-    CommunicatorTab.Home,
-  );
+  const { act, data } = useBackend<CommunicatorData>(context);
 
   const tabs: { [tab in CommunicatorTab]: JSX.Element } = {
     [CommunicatorTab.Home]: <CommunicatorHomeTab />,
@@ -31,26 +28,57 @@ const NormalScreen = (props, context) => {
     [CommunicatorTab.Contacts]: <CommunicatorContactTab />,
     [CommunicatorTab.Messaging]: <CommunicatorHomeTab />, // todo
     [CommunicatorTab.Settings]: <CommunicatorHomeTab />, // todo
+    [CommunicatorTab.ActiveCall]: <CommunicatorCallTab />,
   };
 
   return (
     <Flex height="100%" mt={2} direction="column" justify="space-between">
-      <Flex.Item grow>{tabs[currentTab]}</Flex.Item>
+      <Flex.Item grow>{tabs[data.currentTab]}</Flex.Item>
       <Flex.Item mb={2}>
         <Section>
-          <Button
-            fluid
-            p={1}
-            mx={5}
-            textAlign="center"
-            style={{ 'border-radius': '10px' }}
-            onClick={() => setCurrentTab(CommunicatorTab.Home)}
-          >
-            <Icon name="home" size={2} m="auto" />
-          </Button>
+          <FooterButtons />
         </Section>
       </Flex.Item>
     </Flex>
+  );
+};
+
+const FooterButtons = (props, context) => {
+  const { act, data } = useBackend<CommunicatorData>(context);
+
+  const activeCall = !!data.connectedCallers.length;
+  const incomingCall = !!data.callRequests.incoming.length;
+  const outgoingCall = !!data.callRequests.outgoing.length;
+  const showPhoneButton =
+    data.currentTab !== CommunicatorTab.ActiveCall &&
+    (activeCall || incomingCall || outgoingCall);
+
+  return (
+    <Stack className="comm-footer-buttons" fill px={4}>
+      <Stack.Item grow>
+        <Button
+          fluid
+          onClick={() => act('switch_tab', { new_tab: CommunicatorTab.Home })}
+        >
+          <Icon name="home" />
+        </Button>
+      </Stack.Item>
+      {showPhoneButton && (
+        <Stack.Item basis="20%">
+          <Button
+            fluid
+            onClick={() =>
+              act('switch_tab', { new_tab: CommunicatorTab.ActiveCall })
+            }
+          >
+            <Icon
+              name="phone"
+              color={activeCall ? 'green' : 'gold'} // Todo: make this flash/glow if there's an incoming call
+            />
+          </Button>
+        </Stack.Item>
+      )}
+    </Stack>
   );
 };
 

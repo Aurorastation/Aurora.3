@@ -1,5 +1,3 @@
-GLOBAL_LIST_EMPTY(active_communicators)
-
 /obj/item/modular_computer/handheld/communicator
 	name = "communicator"
 	desc = "A T-14.2 communicator, popular across the galaxy for it's simplicity to use." // todo: "galaxy"?
@@ -11,13 +9,12 @@ GLOBAL_LIST_EMPTY(active_communicators)
 	drop_sound = 'sound/items/drop/device.ogg'
 	hardware_flag = PROGRAM_COMMUNICATOR
 
+	/// How many tiles away can the communicator pick up speech while on a voice call.
+	var/mic_range = 3
+
 /obj/item/modular_computer/handheld/communicator/Initialize()
 	. = ..()
 	usr = null // temp fix for admin spawning a communicator causing a runtime
-
-	if(network_card?.identification_addr)
-		add_to_active(network_card)
-		RegisterSignal(network_card, COMSIG_QDELETING, PROC_REF(remove_from_active))
 
 	set_autorun("ntnrc_comm")
 
@@ -35,31 +32,6 @@ GLOBAL_LIST_EMPTY(active_communicators)
 	// This waits a couple of seconds for everything to settle then tries to register itself to the holding mob, if there is one.
 	addtimer(CALLBACK(src, PROC_REF(register_to_holder)), 2 SECONDS)
 	// todo: check that this actually works?
-
-/obj/item/modular_computer/handheld/communicator/Destroy()
-	remove_from_active(network_card)
-	return ..()
-
-/obj/item/modular_computer/handheld/communicator/proc/add_to_active(obj/item/computer_hardware/network_card/net_card)
-	if(net_card?.identification_addr)
-		GLOB.active_communicators[net_card.identification_addr] = src
-
-/obj/item/modular_computer/handheld/communicator/proc/remove_from_active(obj/item/computer_hardware/network_card/net_card)
-	SIGNAL_HANDLER
-	if(net_card?.identification_addr)
-		GLOB.active_communicators -= net_card.identification_addr
-
-/obj/item/modular_computer/handheld/communicator/try_install_component(mob/living/user, obj/item/computer_hardware/H, found)
-	var/obj/item/computer_hardware/network_card/prev_network_card = network_card
-	. = ..()
-	if(network_card != prev_network_card)
-		add_to_active(network_card)
-
-/obj/item/modular_computer/handheld/communicator/uninstall_component(mob/living/user, obj/item/computer_hardware/H, found, critical, put_in_hands)
-	var/obj/item/computer_hardware/network_card/prev_network_card = network_card
-	. = ..()
-	if(network_card != prev_network_card)
-		remove_from_active(prev_network_card)
 
 /obj/item/modular_computer/handheld/communicator/register_account(datum/computer_file/program/PRG, obj/item/card/id/id, quiet)
 	. = ..()

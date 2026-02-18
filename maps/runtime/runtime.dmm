@@ -1389,7 +1389,6 @@
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 1
 	},
-/obj/item/card/id/captains_spare,
 /turf/simulated/floor/tiled,
 /area/construction)
 "dz" = (
@@ -2100,11 +2099,8 @@
 /turf/simulated/floor/plating,
 /area/construction)
 "ox" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 8
-	},
-/obj/item/card/id/centcom,
-/turf/simulated/floor/tiled,
+/obj/item/card/id/captains_spare,
+/turf/simulated/floor/plating,
 /area/construction)
 "oD" = (
 /obj/structure/disposalpipe/segment{
@@ -3742,6 +3738,7 @@
 /obj/effect/landmark/start{
 	name = "Gardener"
 	},
+/obj/item/card/id/centcom,
 /turf/simulated/floor/plating,
 /area/construction)
 "Uf" = (
@@ -10143,7 +10140,7 @@ de
 de
 TW
 pD
-de
+ox
 dk
 cK
 ae
@@ -10397,7 +10394,7 @@ dj
 em
 jD
 dj
-ox
+dj
 iA
 qu
 lx

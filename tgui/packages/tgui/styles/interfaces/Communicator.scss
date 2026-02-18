@@ -8,8 +8,57 @@ $phone-button-spacing: 0.5rem;
   background-color: lighten(Section.$background-color, 25%);
 }
 
-.address-input {
-  padding: 0 0.5rem;
+.comm-footer-buttons {
+  text-align: center;
+
+  .Button {
+    padding: 0.6rem 1rem;
+    border-radius: 10px;
+
+    .Icon {
+      font-size: 200%;
+      margin: auto;
+      vertical-align: middle;
+    }
+  }
+}
+
+.comm-call-screen {
+  text-align: center;
+  padding: 3em 2em;
+
+  .caller-name {
+    font-size: 2.5rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    // todo: Train screen style scrolling ("ticker" apparently)
+  }
+
+  .option-buttons {
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+
+    .Button {
+      width: 6.5rem;
+      height: 6.5rem;
+      line-height: 6.5rem;
+      border-radius: 50%;
+      margin: 1.5rem 1.5rem 0.5rem;
+
+      .Icon {
+        font-size: 3rem;
+        margin: auto;
+        margin-bottom: 4px;
+        vertical-align: middle;
+      }
+    }
+  }
+}
+
+.comm-address-input {
+  padding: 0 0.6rem;
+  text-align: center;
 
   .Button {
     width: $phone-button-width;
@@ -17,27 +66,22 @@ $phone-button-spacing: 0.5rem;
     line-height: $phone-button-height;
     font-size: 3rem;
     font-family: 'Trebuchet MS';
-  }
 
-  .keypad {
-    height: 100%;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-    text-align: center;
-
-    .Button {
+    &--rounded {
       border-radius: 32px;
       margin-bottom: $phone-button-spacing;
+    }
+
+    &--wide {
+      width: calc(#{$phone-button-width} * 2);
     }
   }
 
   .action-buttons {
     justify-content: space-evenly;
-    text-align: center;
 
     .Button {
       font-size: 2.5rem;
-      width: calc(#{$phone-button-width} * 2);
     }
   }
 }

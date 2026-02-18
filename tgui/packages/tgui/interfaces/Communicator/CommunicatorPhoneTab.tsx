@@ -2,7 +2,7 @@ import { InfernoKeyboardEvent } from 'inferno';
 import { useBackend, useLocalState } from '../../backend';
 import { Button, Divider, Flex, Input, Section, Stack } from '../../components';
 import { FriendsList } from './CommunicatorContactTab';
-import { CommunicatorData } from './types';
+import { CommunicatorData, CommunicatorTab } from './types';
 
 const MAX_ADDR_DIGITS = 16; // Four groups of four characters
 const MAX_ADDR_COLONS = 3; // Three separators
@@ -24,7 +24,7 @@ const PHONE_KEYS = [
   'd',
   'e',
   'f',
-];
+] as const;
 
 function FormatAddress(newValue: string) {
   // Remove any characters not in `PHONE_KEYS`. (Including any colons)
@@ -37,7 +37,7 @@ function FormatAddress(newValue: string) {
   // Split the string into groups of 1 to 4 alphanumeric characters.
   const groups = formatted.match(/\w{1,4}/g);
   if (!groups) {
-    // Can't do anything further, so just return it here.
+    // This shouldn't happen, but if it does just return what we have so far.
     return formatted;
   }
 
@@ -55,9 +55,14 @@ export const CommunicatorPhoneTab = (props, context) => {
     '',
   );
 
+  const targetAddrIsValid = !!data.allUsers.find(
+    (user) => user.address === targetAddress,
+  );
+
   return (
     // TODO: Real styling to make this look better
-    <Flex direction="column" justify="space-around" height="100%">
+    // TODO: Something somewhere showing outgoing call requests
+    <Flex direction="column" justify="space-between" height="100%">
       <Flex.Item grow>
         <FriendsList />
       </Flex.Item>
@@ -65,8 +70,10 @@ export const CommunicatorPhoneTab = (props, context) => {
         <Divider />
       </Flex.Item>
       <Flex.Item>
-        <Section className="address-input">
+        <Section className="comm-address-input">
           <Input
+            // TODO: Autocomplete suggestions if there's an address that starts with the current input
+            // (including tab to complete)
             fluid
             mb="0.5em"
             value={targetAddress}
@@ -80,10 +87,11 @@ export const CommunicatorPhoneTab = (props, context) => {
               event.currentTarget.value = formattedValue;
             }}
           />
-          <Flex className="keypad">
+          <Flex height="100%" justify="space-evenly" wrap="wrap">
             {PHONE_KEYS.map((keyChar) => (
               <Flex.Item key={keyChar}>
                 <Button
+                  className="Button--rounded"
                   onClick={() => {
                     setTargetAddress(FormatAddress(targetAddress + keyChar));
                   }}
@@ -96,15 +104,30 @@ export const CommunicatorPhoneTab = (props, context) => {
           <Stack className="action-buttons">
             <Stack.Item>
               <Button
+                className="Button--wide"
                 icon="phone"
                 fluid
-                // color={} If address is valid, green. Else disabled
+                disabled={!targetAddress}
+                color={targetAddrIsValid && 'green'}
+                onClick={() => {
+                  act('call_request', {
+                    action: 'send',
+                    target_address: targetAddress,
+                  });
+                  act('switch_tab', { new_tab: CommunicatorTab.ActiveCall });
+                }}
               >
                 Call
               </Button>
             </Stack.Item>
             <Stack.Item>
-              <Button icon="comment-alt" fluid>
+              <Button
+                className="Button--wide"
+                icon="comment-alt"
+                fluid
+                disabled={!targetAddress}
+                color={targetAddrIsValid && 'green'}
+              >
                 Message
               </Button>
             </Stack.Item>
@@ -112,6 +135,7 @@ export const CommunicatorPhoneTab = (props, context) => {
               <Button
                 style={{ width: 'auto' }}
                 icon="delete-left"
+                disabled={!targetAddress}
                 onClick={() =>
                   setTargetAddress(FormatAddress(targetAddress.slice(0, -1)))
                 }

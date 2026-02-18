@@ -95,6 +95,7 @@
 		H.parent_computer = src
 		user.drop_from_inventory(H, src)
 		update_icon()
+		SEND_SIGNAL(src, COMSIG_MOD_COMPUTER_HW_INSTALLED, user, H)
 
 // Uninstalls component. Found and Critical vars may be passed by parent types, if they have additional hardware.
 /obj/item/modular_computer/proc/uninstall_component(var/mob/living/user, var/obj/item/computer_hardware/H, var/found = FALSE, var/critical = FALSE, var/put_in_hands = FALSE)
@@ -148,6 +149,7 @@
 		found = TRUE
 
 	if(found)
+		SEND_SIGNAL(src, COMSIG_MOD_COMPUTER_HW_UNINSTALLED, user, H)
 		if(user)
 			to_chat(user, SPAN_NOTICE("You remove \the [H] from \the [src]."))
 		H.forceMove(get_turf(src))
