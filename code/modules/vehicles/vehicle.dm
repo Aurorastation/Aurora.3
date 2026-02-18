@@ -202,15 +202,13 @@
 	if(powered && cell?.charge < charge_use && !organic)
 		return FALSE
 	on = TRUE
-	set_light_range_power_color(initial(light_range))
-	set_light_on(on)
+	set_light(initial(light_range))
 	update_icon()
 	return TRUE
 
 /obj/vehicle/proc/turn_off()
 	on = FALSE
-	set_light_range_power_color(0)
-	set_light_on(on)
+	set_light(0)
 	update_icon()
 
 /obj/vehicle/emag_act(var/remaining_charges, mob/user as mob)

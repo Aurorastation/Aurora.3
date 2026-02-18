@@ -171,3 +171,120 @@
   fyni:
   - bugfix: Fixes an upside down sprite on the right large flag, properly capatalizes
       flag name.
+2026-02-09:
+  Acetrea:
+  - balance: Changes the perconol recipe from water to hydrazine.
+  - balance: Slightly edits the description of mortaphenyl to reflect changes made
+      to the cargo order menu.
+  - spellcheck: Corrects 'opiod' to 'opioid'.
+  Batrachophrenoboocosmomachia:
+  - bugfix: Removes TC spawn from the Horizon's Secure Technical Storage compartment
+      (accidental inclusion).
+  GeneralCamo:
+  - rscadd: Added passive vents, that passively interact with the air outside of them.
+  - bugfix: Vent and scrubber items will now use the correct icons.
+  Helfirejag:
+  - bugfix: Fixed the credit symbol not being correctly applied when using [cr] on
+      a paper.
+  MynameAsJeff:
+  - bugfix: Fixes several airlock and wiring errors on the SSRM Corvette.
+  - bugfix: Gives the SSRM Corvette's Chief Petty Officer a proper ID.
+  - rscadd: Reworks the Sol Frigate's Officer Quarters into a single office and living
+      space.
+  - rscadd: Gives the Sol Frigate extra kit for it's armory and 'exosuit. This is
+      intended to bring the Frigate up to par with the Xanu Frigate and TCAF Corvette
+      in terms of boarding capability.
+  TheGreyWolf:
+  - rscadd: 'Added a new music cartridge with the adhomai lobby music: Adhomai vibes.'
+  - bugfix: Fixes the misplaced grating outside the commissary.
+  - rscadd: Added a request console to the commissary.
+  - rscadd: Added tape to the commissary.
+  - rscadd: Modified the disposal leading to the commissary to always output packages
+      in the customer section.
+  - bugfix: Added the missing request console to the machinist workshop.
+  - bugfix: Fixed one of the signs on the security elevator moving with the elevator.
+  - rscadd: Updated the receipt from the commissary register and the quikpay.
+  - bugfix: Fixed the quikpay not working as intended for multi-item payments.
+  - rscadd: 'Added the following options as food in the lunchbox: Hard bread, nomad
+      skewer, mashed earthen-root, earthen-root fries, scout ration and ras''val pasta.'
+  - rscadd: 'Added the following options as snacks in the lunchbox: A singular mini-avah,
+      zkahnkowa slice, roasted dirtberries.'
+  - rscadd: Canned earthen-root juice was added to the commissary drink restock pack
+      and as an option to the lunchbox.
+  Wildkins:
+  - bugfix: Fix tool interactions using the target as the tool rather than the tool.
+2026-02-10:
+  ChangeMe:
+  - rscadd: Added a changelog editing system that should cause fewer conflicts and
+      more accurate timestamps.
+  - rscdel: Killed innocent kittens.
+  FabianK3:
+  - rscadd: Updated the bounties paper design.
+  Hellfirejag:
+  - bugfix: Added a check to prevent division by 0 in ship math.
+  Wildkins:
+  - refactor: Every single datum no longer does REF(src) on /Destroy to see if it
+      has an open nanoui
+  - bugfix: Showing held items no longer causes every recording device to runtime.
+  - refactor: Every obj/item/Destroy no longer updates the held mob's icon three times.
+  - refactor: Follow menu is now a global UI and should no longer DDOS the server
+      when 50 people have it open
+  - refactor: Follow menu no longer auto-updates the list of mobs while open, use
+      the refresh button.
+  - bugfix: Fix runtime when a /human without hair or facial hair would be skeletonized
+  - refactor: Cleaned up human icon update code. Lying / direction changes no longer
+      cause four update_icon calls. Tailed species turning no longer causes six.
+  - bugfix: Fix runtime caused by detached / ownerless mechanical hands.
+  - bugfix: Fix colorspace runtime.
+  - bugfix: Fix lighting harddel caused by using improper handlers for static lights.
+  - bugfix: Lifts now grey out the current location, instead of throwing a runtime
+      when you click it.
+  - bugfix: Fix runtime when a bloodless/fakedeath mob has their pulse taken.
+2026-02-12:
+  Batrachophrenoboocosmomachia:
+  - bugfix: Fixes headphones/earbuds from causing early cutoffs in other nearby sounds
+      in several configurations.
+  JohnWildkins:
+  - bugfix: Augments given by culture (i.e. Vaurca language processors) no longer
+      get applied twice when spawning in.
+  TheGreyWolf:
+  - bugfix: Fixed that journals and notepads could not be written in when held in
+      hand.
+  - bugfix: Fixed the quik-pay not getting prices correct when clicking an item with
+      it to input it quickly.
+  - spellcheck: Standardised how the credit symbol is shown in several places, and
+      replaces several instances of credits with the symbol.
+  arrow768:
+  - server: Removes verbs to get log files from the server, use the WI, TGS or logging
+      infrastructure.
+2026-02-14:
+  Batrachophrenoboocosmomachia:
+  - rscdel: Removes 'Assembled Solar Panels' bounty from bounty pool and updates the
+      'Solar Assemblies or Trackers' with its old description referencing the phoron
+      scarcity.
+  Greenjoe:
+  - rscadd: Adds bodyguard outfits for Tau Ceti, Sol, Elyra, Nralakk and the Golden
+      Deep.
+  - bugfix: Fixes the Elyran navy uniform lacking an item icon.
+  JohnWildkins:
+  - refactor: Updates TGUI backend to hopefully reduce instability / failures to load.
+  - bugfix: Fixes TGchat scrolling issues.
+  - refactor: Change traitor uplink to use static data to improve server performance.
+  - refactor: Open UIs are now tracked by their owner datum rather than by the tgui
+      subsystem, to improve server performance when closing UIs.
+  TheGreyWolf:
+  - bugfix: Fixes Kathira's custom item cloak.
+  - bugfix: Fixed the inverted roll up/down message.
+  fyni:
+  - rscadd: Adds a red and pink heart balloon for valentines! Also adds them to the
+      random balloon pool. <3 <3
+2026-02-15:
+  JohnWildkins:
+  - bugfix: Fix lobby screen system failing to switch to the last lobby screen in
+      a set.
+2026-02-17:
+  FabianK3:
+  - rscadd: Added the alt title Foreign Service Officer to the consular job. This
+      alt title can only be selected if the citizenship is set to Sol Alliance.
+  - code_imp: Added citizenship check to job titles, allowing alt titles to be locked
+      to specific backgrounds.
