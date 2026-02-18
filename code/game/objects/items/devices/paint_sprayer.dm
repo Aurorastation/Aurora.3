@@ -6,9 +6,10 @@
 /obj/item/paint_sprayer
 	name = "paint gun"
 	desc = "A Hephaestus-made paint gun that uses microbes to replenish its paint storage. Very high-tech and fancy too!"
-	icon = 'icons/obj/item/paint_sprayer.dmi'
-	icon_state = "paint_sprayer"
-	item_state = "mister"
+	icon = 'icons/obj/item/paint_gun.dmi'
+	icon_state = "paint_gun"
+	item_state = "paint_gun"
+	contained_sprite = TRUE
 	var/decal =        "remove all decals"
 	var/paint_dir =    "precise"
 	var/paint_colour = COLOR_WHITE
