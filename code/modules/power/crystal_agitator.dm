@@ -73,7 +73,7 @@
 		toggle_active()
 		return
 
-	var/actual_load = draw_power(active_power_usage)
+	var/actual_load = DRAW_POWER(src, active_power_usage)
 	if(actual_load < active_power_usage)
 		toggle_active()
 		return

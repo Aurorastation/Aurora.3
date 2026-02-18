@@ -328,8 +328,8 @@
 /obj/effect/overmap/visitable/sector/exoplanet/proc/adapt_seed(var/datum/seed/S)
 	SET_SEED_TRAIT_BOUNDED(S, TRAIT_IDEAL_HEAT, atmosphere.temperature + rand(-5,5), 800, 70, null)
 	SET_SEED_TRAIT_BOUNDED(S, TRAIT_HEAT_TOLERANCE, GET_SEED_TRAIT(S, TRAIT_HEAT_TOLERANCE) + rand(-5,5), 800, 70, null)
-	SET_SEED_TRAIT_BOUNDED(S, TRAIT_LOWKPA_TOLERANCE, atmosphere.return_pressure() + rand(-5,-50), 80, 0, null)
-	SET_SEED_TRAIT_BOUNDED(S, TRAIT_HIGHKPA_TOLERANCE, atmosphere.return_pressure() + rand(5,50), 500, 110, null)
+	SET_SEED_TRAIT_BOUNDED(S, TRAIT_LOWKPA_TOLERANCE, XGM_PRESSURE(atmosphere) + rand(-5,-50), 80, 0, null)
+	SET_SEED_TRAIT_BOUNDED(S, TRAIT_HIGHKPA_TOLERANCE, XGM_PRESSURE(atmosphere) + rand(5,50), 500, 110, null)
 	SET_SEED_TRAIT(S, TRAIT_SPREAD, 0)
 	if(S.exude_gasses)
 		S.exude_gasses -= badgas
@@ -508,7 +508,7 @@
 				gases += gas_data.name[g]
 		extra_data += "<b>Atmosphere composition:</b> [english_list(gases)]"
 		var/inaccuracy = rand(8,12)/10
-		extra_data += "<b>Atmosphere pressure:</b> [atmosphere.return_pressure()*inaccuracy] kPa, <b>temperature:</b> [atmosphere.temperature*inaccuracy] K"
+		extra_data += "<b>Atmosphere pressure:</b> [XGM_PRESSURE(atmosphere)*inaccuracy] kPa, <b>temperature:</b> [atmosphere.temperature*inaccuracy] K"
 
 	if(seeds.len)
 		extra_data += "<br>Unrecognized xenoflora detected."

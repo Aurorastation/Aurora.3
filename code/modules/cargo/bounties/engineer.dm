@@ -116,7 +116,7 @@
 		return FALSE
 	if(!istype(O))
 		return FALSE
-	if(O.air_contents.return_pressure() >= 500)
+	if(XGM_PRESSURE(O.air_contents) >= 500)
 		return TRUE
 	return FALSE
 

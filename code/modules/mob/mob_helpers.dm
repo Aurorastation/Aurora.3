@@ -1295,6 +1295,8 @@ GLOBAL_LIST_INIT(organ_rel_size, list(
 				M.client.eye = M.client.mob
 				M.client.perspective = MOB_PERSPECTIVE
 
+
+
 /mob/proc/in_neck_grab()
 	for(var/thing in grabbed_by)
 		var/obj/item/grab/G = thing

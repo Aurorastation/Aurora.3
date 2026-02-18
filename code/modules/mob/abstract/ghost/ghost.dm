@@ -192,7 +192,7 @@
 
 	var/datum/gas_mixture/environment = loc.return_air()
 
-	var/pressure = environment.return_pressure()
+	var/pressure = XGM_PRESSURE(environment)
 	var/total_moles = environment.total_moles
 
 	to_chat(src, SPAN_NOTICE("<B>Results:</B>"))

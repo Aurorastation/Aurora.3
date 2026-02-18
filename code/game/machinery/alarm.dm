@@ -60,7 +60,7 @@
 		for(var/g in trace_gas){\
 			other_moles += environment.gas[g];\
 		}\
-		ALARM_GET_DANGER_LEVEL(pressure_dangerlevel, environment.return_pressure(), TLV["pressure"]);\
+		ALARM_GET_DANGER_LEVEL(pressure_dangerlevel, XGM_PRESSURE(environment), TLV["pressure"]);\
 		ALARM_GET_DANGER_LEVEL(oxygen_dangerlevel, environment.gas[GAS_OXYGEN]*partial_pressure, TLV[GAS_OXYGEN]);\
 		ALARM_GET_DANGER_LEVEL(co2_dangerlevel, environment.gas[GAS_CO2]*partial_pressure, TLV[GAS_CO2]);\
 		ALARM_GET_DANGER_LEVEL(phoron_dangerlevel, environment.gas[GAS_PHORON]*partial_pressure, TLV[GAS_PHORON]);\
@@ -474,7 +474,7 @@ pixel_x = 10;
 			mode = AALARM_MODE_OFF
 			apply_mode()
 
-	if (mode==AALARM_MODE_CYCLE && environment.return_pressure()<ONE_ATMOSPHERE*0.05)
+	if (mode==AALARM_MODE_CYCLE && XGM_PRESSURE(environment)<ONE_ATMOSPHERE*0.05)
 		mode=AALARM_MODE_FILL
 		apply_mode()
 
@@ -554,7 +554,7 @@ pixel_x = 10;
 		return 0
 
 	var/datum/gas_mixture/environment = location.return_air()
-	var/environment_pressure = environment.return_pressure()
+	var/environment_pressure = XGM_PRESSURE(environment)
 	var/pressure_levels = TLV["pressure"]
 
 	if (environment_pressure <= pressure_levels[1])		//low pressures
@@ -755,7 +755,7 @@ pixel_x = 10;
 	var/list/environment_data = new
 	data["has_environment"] = total
 	if(total)
-		var/pressure = environment.return_pressure()
+		var/pressure = XGM_PRESSURE(environment)
 		environment_data[++environment_data.len] = list("name" = "Pressure", "value" = pressure, "unit" = "kPa", "danger_level" = pressure_dangerlevel)
 		environment_data[++environment_data.len] = list("name" = "Oxygen", "value" = environment.gas[GAS_OXYGEN] / total * 100, "unit" = "%", "danger_level" = oxygen_dangerlevel)
 		environment_data[++environment_data.len] = list("name" = "Carbon Dioxide", "value" = environment.gas[GAS_CO2] / total * 100, "unit" = "%", "danger_level" = co2_dangerlevel)

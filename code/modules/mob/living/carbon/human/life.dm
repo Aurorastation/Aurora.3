@@ -296,7 +296,7 @@
 
 	if(breath)
 		//exposure to extreme pressures can rupture lungs
-		var/check_pressure = breath.return_pressure()
+		var/check_pressure = XGM_PRESSURE(breath)
 		if(check_pressure < ONE_ATMOSPHERE / 5 || check_pressure > ONE_ATMOSPHERE * 5)
 			if(!is_lung_ruptured() && prob(5))
 				rupture_lung()
@@ -313,7 +313,7 @@
 	species.handle_environment_special(src)
 
 	//Moved pressure calculations here for use in skip-processing check.
-	var/pressure = environment.return_pressure()
+	var/pressure = XGM_PRESSURE(environment)
 	var/adjusted_pressure = calculate_affecting_pressure(pressure)
 
 	if (consume_nutrition_from_air)

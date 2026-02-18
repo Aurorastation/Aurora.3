@@ -147,7 +147,7 @@
 		power_environ = 0
 
 	if (!mapload)
-		power_change()		// All machines set to current power level.
+		SEND_SIGNAL(src, COMSIG_AREA_POWER_CHANGE)	// All machines set to current power level.
 
 	. = ..()
 

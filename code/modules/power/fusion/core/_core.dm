@@ -141,6 +141,6 @@
 		connect_to_network()
 	if(stat & BROKEN)
 		return FALSE
-	if(idle_power_usage > avail())
+	if(idle_power_usage > POWER_AVAIL(src))
 		return FALSE
 	. = TRUE

@@ -156,7 +156,7 @@
 	if(terminal)
 		if(input_attempt)
 			var/target_load = min((capacity-charge)/SMESRATE, input_level)		// charge at set rate, limited to spare capacity
-			var/actual_load = draw_power(target_load)		// add the load to the terminal side network
+			var/actual_load = DRAW_POWER(src, target_load)		// add the load to the terminal side network
 			charge += actual_load * SMESRATE	// increase the charge
 
 			if (actual_load >= target_load) // did the powernet have enough power available for us?
@@ -167,7 +167,7 @@
 	if(output_attempt)		// if outputting
 		output_used = min( charge/SMESRATE, output_level)		//limit output to that stored
 		charge -= output_used*SMESRATE		// reduce the storage (may be recovered in /restore() if excessive)
-		add_avail(output_used)				// add output to powernet (smes side)
+		ADD_TO_POWERNET(src, output_used)				// add output to powernet (smes side)
 		if(charge < 0.0001)
 			outputting(0)					// stop output if charge falls to zero
 

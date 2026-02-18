@@ -26,4 +26,4 @@
 			powernet_connection_failed = 1
 			spawn(150) // Error! Check again in 15 seconds.
 				powernet_connection_failed = 0
-	add_avail(power_generation_rate)
+	ADD_TO_POWERNET(src, power_generation_rate)

@@ -451,7 +451,7 @@
 	var/source_volume = source.volume * source.group_multiplier
 	var/sink_volume = sink.volume * sink.group_multiplier
 
-	var/source_pressure = source.return_pressure()
-	var/sink_pressure = sink.return_pressure()
+	var/source_pressure = XGM_PRESSURE(source)
+	var/sink_pressure = XGM_PRESSURE(sink)
 
 	return (source_pressure - sink_pressure)/(R_IDEAL_GAS_EQUATION * (source.temperature/source_volume + sink.temperature/sink_volume))

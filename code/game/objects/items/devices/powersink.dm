@@ -123,7 +123,7 @@
 
 	PN.trigger_warning()
 	// found a powernet, so drain up to max power from it
-	drained = PN.draw_power(drain_rate * seconds_per_tick)
+	drained = DRAW_FROM_POWERNET(PN, drain_rate * seconds_per_tick)
 	// if tried to drain more than available on powernet
 	// now look for APCs and drain their cells
 	if(drained < drain_rate * seconds_per_tick)

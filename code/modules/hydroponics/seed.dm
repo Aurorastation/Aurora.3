@@ -322,7 +322,7 @@
 			health_change += missing_gas * HYDRO_SPEED_MULTIPLIER
 
 	// Process it.
-	var/pressure = environment.return_pressure()
+	var/pressure = XGM_PRESSURE(environment)
 	if(pressure < GET_SEED_TRAIT(src, TRAIT_LOWKPA_TOLERANCE)|| pressure > GET_SEED_TRAIT(src, TRAIT_HIGHKPA_TOLERANCE))
 		health_change += rand(1,3) * HYDRO_SPEED_MULTIPLIER
 

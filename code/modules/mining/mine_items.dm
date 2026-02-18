@@ -1069,7 +1069,7 @@ GLOBAL_LIST_INIT_TYPED(total_extraction_beacons, /obj/structure/extraction_point
 	if(!istype(proj_turf))
 		return
 	var/datum/gas_mixture/environment = proj_turf.return_air()
-	var/pressure = environment.return_pressure()
+	var/pressure = XGM_PRESSURE(environment)
 	if(pressure < 50)
 		name = "strong resonance field"
 		resonance_damage = 60

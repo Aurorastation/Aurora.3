@@ -23,7 +23,7 @@
 		return
 	else
 		. += SPAN_WARNING("\The [src] has no cell installed!")
-	. += SPAN_NOTICE("The installed [cell.name] has [Percent(cell.charge, cell.maxcharge)]% charge remaining.")
+	. += SPAN_NOTICE("The installed [cell.name] has [AS_PCT(cell.charge, cell.maxcharge)]% charge remaining.")
 
 /obj/machinery/floodlight/Initialize()
 	. = ..()

@@ -74,7 +74,7 @@
 /obj/machinery/power/supply_beacon/proc/activate(var/mob/user)
 	if(expended)
 		return
-	if(surplus() < 500)
+	if(POWER_SURPLUS(src) < 500)
 		if(user) to_chat(user, SPAN_NOTICE("The connected wire doesn't have enough current."))
 		return
 	set_light(3, 3, "#00CCAA")
@@ -102,7 +102,7 @@
 		return PROCESS_KILL
 	if(!use_power)
 		return
-	if(draw_power(500) < 500)
+	if(DRAW_POWER(src, 500) < 500)
 		deactivate()
 		return
 	if(!target_drop_time)

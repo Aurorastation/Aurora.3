@@ -888,24 +888,21 @@ Note that amputating the affected organ does in fact remove the infection from t
 	var/antibiotics = 0
 	if(CE_ANTIBIOTIC in owner.chem_effects)
 		antibiotics = owner.chem_effects[CE_ANTIBIOTIC]
-	for(var/datum/wound/W in wounds)
+	var/increased_own_germs = FALSE
+	for(var/datum/wound/W as anything in wounds)
 		//Open wounds can become infected
 		if (owner.germ_level > W.germ_level && W.infection_check())
 			W.germ_level++
-
-	if(antibiotics < 5)
-		for(var/datum/wound/W in wounds)
-			//Infected wounds raise the organ's germ level
-			if (W.germ_level > germ_level && W.infection_check())
+			if(!increased_own_germs && antibiotics < 5 && W.germ_level > germ_level)
 				germ_level++
-				break	//limit increase to a maximum of one per second
+				increased_own_germs = TRUE // limit increase to 1/tick
 
 /obj/item/organ/external/proc/get_infect_target(var/list/infect_candidates = list())
 	var/obj/item/organ/temp_target
 	shuffle(infect_candidates) //Slightly randomizes since if all germ levels are zero, it'll always be the first pick of the list
 
 	//figure out which organs we can spread germs to
-	for (var/obj/item/organ/I in infect_candidates)
+	for (var/obj/item/organ/I as anything in infect_candidates)
 		if(I.germ_level < min(germ_level, INFECTION_LEVEL_TWO)) //Only choose organs that have less germs than us AND are below level two
 			//The below will always be the organ with the highest germ level. It picks a temp_target first then cycles through to find which, if any, has more germs.
 			if(!temp_target || I.germ_level > temp_target.germ_level)
@@ -977,11 +974,11 @@ Note that amputating the affected organ does in fact remove the infection from t
 
 //Updating wounds. Handles wound natural I had some free spachealing, internal bleedings and infections
 /obj/item/organ/external/proc/update_wounds()
+	if(status & (ORGAN_ROBOT|ORGAN_ADV_ROBOT|ORGAN_PLANT))
+		return //Robotic limbs don't heal or get worse. Diona limbs heal using their own mechanic
 
-	if((status & ORGAN_ROBOT) || (status & ORGAN_ADV_ROBOT) || (status & ORGAN_PLANT)) //Robotic limbs don't heal or get worse. Diona limbs heal using their own mechanic
-		return
 	var/updatehud
-	for(var/datum/wound/W in wounds)
+	for(var/datum/wound/W as anything in wounds)
 		// wounds can disappear after 10 minutes at the earliest
 		if(W.damage <= 0 && W.created + (10 MINUTES) <= world.time)
 			qdel(W)
@@ -995,22 +992,20 @@ Note that amputating the affected organ does in fact remove the infection from t
 		var/heal_amt = 0
 
 		// if damage >= 50 AFTER treatment then it's probably too severe to heal within the timeframe of a round.
-		if (W.can_autoheal() && W.wound_damage() && brute_ratio < 50 && burn_ratio < 50)
+		if (updatehud && brute_ratio < 50 && burn_ratio < 50 && W.can_autoheal())
 			heal_amt += 0.5
 
 		//we only update wounds once in [wound_update_accuracy] ticks so have to emulate realtime
-		heal_amt = heal_amt * wound_update_accuracy
+		heal_amt *= wound_update_accuracy
 		//configurable regen speed woo, no-regen hardcore or instaheal hugbox, choose your destiny
-		heal_amt = heal_amt * GLOB.config.organ_regeneration_multiplier
+		heal_amt *= GLOB.config.organ_regeneration_multiplier
 		// amount of healing is spread over all the wounds
-		heal_amt = heal_amt / (LAZYLEN(wounds) + 1)
+		heal_amt /= (LAZYLEN(wounds) + 1)
 		// making it look prettier on scanners
-		heal_amt = round(heal_amt,0.1)
-		var/dam_type = DAMAGE_BRUTE
-		if (W.damage_type == INJURY_TYPE_BURN)
-			dam_type = DAMAGE_BURN
+		heal_amt = round(heal_amt, 0.1)
+		var/dam_type = W.damage_type == INJURY_TYPE_BURN ? DAMAGE_BURN : DAMAGE_BRUTE
 
-		if(owner.can_autoheal(dam_type) && (heal_amt > 0))
+		if((heal_amt > 0) && owner.can_autoheal(dam_type))
 			W.heal_damage(heal_amt)
 
 		// Salving also helps against infection
@@ -1037,12 +1032,11 @@ Note that amputating the affected organ does in fact remove the infection from t
 	status &= ~ORGAN_BLEEDING
 	var/clamped = 0
 
-	var/mob/living/carbon/human/H
-	if(istype(owner,/mob/living/carbon/human))
-		H = owner
+	var/mob/living/carbon/human/H = astype(owner)
+	var/can_bleed = !BP_IS_ROBOTIC(src) && (H && !(H.species.flags & NO_BLOOD))
 
 	//update damage counts
-	for(var/datum/wound/W in wounds)
+	for(var/datum/wound/W as anything in wounds)
 
 		if(W.damage <= 0)
 			qdel(W)
@@ -1055,7 +1049,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 			if(W.damage_type == INJURY_TYPE_CUT)
 				cut_dam += W.damage
 
-		if(!(status & ORGAN_ROBOT) && W.bleeding() && (H && !(H.species.flags & NO_BLOOD)))
+		if(can_bleed && W.bleeding())
 			W.handle_bleeding(H, src)
 
 		clamped |= W.clamped
@@ -1063,18 +1057,18 @@ Note that amputating the affected organ does in fact remove the infection from t
 		number_wounds += W.amount
 
 	//things tend to bleed if they are CUT OPEN
-	if (open && !clamped && (H && !(H.species.flags & NO_BLOOD) && !(status & ORGAN_ROBOT)))
+	if (open && !clamped && can_bleed)
 		status |= ORGAN_BLEEDING
 
-	if (istype(tendon))
+	if (tendon)
 		tendon.update_damage(cut_dam - min_broken_damage)
 
 	update_damage_ratios()
 
 /obj/item/organ/external/proc/update_damage_ratios()
 	var/limb_loss_threshold = max_damage * 2
-	brute_ratio = Percent(brute_dam, limb_loss_threshold)
-	burn_ratio = Percent(burn_dam, limb_loss_threshold)
+	brute_ratio = AS_PCT(brute_dam, limb_loss_threshold)
+	burn_ratio = AS_PCT(burn_dam, limb_loss_threshold)
 
 // new damage icon system
 // returns just the brute/burn damage code
