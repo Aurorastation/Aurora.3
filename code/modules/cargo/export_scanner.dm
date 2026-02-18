@@ -15,7 +15,7 @@
 
 	var/price = SScargo.export_item_and_contents(O, FALSE, FALSE, dry_run=TRUE)
 	if(price)
-		to_chat(user, SPAN_NOTICE("Scanned [O], value: <b>[price]</b> credits[O.contents.len ? " (contents included)" : ""]."))
+		to_chat(user, SPAN_NOTICE("Scanned [O], value: <b>[price]</b>电[O.contents.len ? " (contents included)" : ""]."))
 	else
 		to_chat(user, SPAN_WARNING("Scanned [O], no export value."))
 	if(SScargo.bounty_ship_item_and_contents(O, dry_run=TRUE))

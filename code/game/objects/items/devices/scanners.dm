@@ -590,7 +590,7 @@ BREATH ANALYZER
 
 	var/value = get_value(target)
 	user.visible_message(SPAN_NOTICE("\The [user] scans \the [target] with \the [src]."))
-	to_chat(user, SPAN_NOTICE("\The [src] estimates the price of \the [target] at <b>[value ? value : "N/A"]</b>."))
+	to_chat(user, SPAN_NOTICE("\The [src] estimates the price of \the [target] at <b>[value ? value : "N/A"]电</b>."))
 
 /obj/item/breath_analyzer
 	name = "breath analyzer"
