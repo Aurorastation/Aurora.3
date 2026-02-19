@@ -4764,9 +4764,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/telecomms)
-"smG" = (
-/turf/template_noop,
-/area/template_noop)
 "smZ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/dark,
@@ -5459,7 +5456,7 @@
 	},
 /obj/effect/map_effect/marker/mapmanip/submap/insert/coc_rangerlockers,
 /turf/template_noop,
-/area/template_noop)
+/area/space)
 "ueq" = (
 /obj/machinery/atmospherics/unary/engine,
 /turf/simulated/floor/plating,
@@ -36527,7 +36524,7 @@ tWh
 xRX
 xRX
 xRX
-smG
+xRX
 udj
 vzk
 wzK
@@ -36784,8 +36781,8 @@ tWh
 rBK
 wlN
 rBK
-smG
-smG
+xRX
+xRX
 mhA
 wZf
 tLA
@@ -37041,8 +37038,8 @@ rBK
 jwy
 lNh
 rzM
-smG
-smG
+xRX
+xRX
 vyi
 cxr
 tLA
@@ -37298,8 +37295,8 @@ rBK
 wYR
 pVf
 rQB
-smG
-smG
+xRX
+xRX
 vyy
 fmY
 tLA
