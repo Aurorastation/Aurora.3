@@ -249,7 +249,7 @@
 	mob_icon = null
 
 	if(wounds)
-		QDEL_LIST(wounds)
+		QDEL_NULL_LIST(wounds)
 	QDEL_LIST(children)
 	QDEL_LIST(internal_organs)
 	QDEL_LIST(implants)
