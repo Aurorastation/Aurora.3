@@ -48,7 +48,9 @@
 	contents_path = "-clothing"
 	accepted_items = list(/obj/item/storage/backpack,
 	/obj/item/storage/belt,
-	/obj/item/clothing
+	/obj/item/clothing,
+	/obj/item/storage/briefcase,
+	/obj/item/cane
 	)
 	display_tiers = 3
 	display_tier_amt = 5
@@ -105,7 +107,8 @@
 	/obj/item/gun/projectile/revolver/capgun,
 	/obj/item/gun/bang,
 	/obj/item/eightball,
-	/obj/item/bikehorn
+	/obj/item/bikehorn,
+	/obj/item/camera_film
 	)
 	display_tiers = 4
 	display_tier_amt = 5
@@ -188,19 +191,20 @@
 		return
 
 /obj/structure/cash_register/commissary/proc/print_receipt()
-	var/obj/item/paper/R = new(loc)
+	var/obj/item/paper/notepad/receipt/R = new(loc)
 	var/receiptname = "Receipt: [machine_id]"
 	R.set_content_unsafe(receiptname, receipt, sum)
 
 	//stamp the paper
 	var/image/stampoverlay = image('icons/obj/bureaucracy.dmi')
-	stampoverlay.icon_state = "paper_stamp-cent"
+	stampoverlay.icon_state = "paper_stamp-hop"
 	if(!R.stamped)
 		R.stamped = new
 	R.stamped += /obj/item/stamp
 	R.AddOverlays(stampoverlay)
 	R.stamps += "<HR><i>This paper has been stamped by the Idris Quik-Pay Register.</i>"
 	usr.put_in_any_hand_if_possible(R)
+	R.ripped = TRUE
 
 /obj/structure/cash_register/commissary/attackby(obj/item/attacking_item, mob/user)
 	if(sum == 0)

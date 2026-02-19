@@ -19,7 +19,7 @@
 
 /obj/machinery/computer/ship/engines/terminal
 	name = "engine control terminal"
-	icon = 'icons/obj/machinery/modular_terminal.dmi'
+	icon = 'icons/obj/modular_computers/modular_terminal.dmi'
 	icon_screen = "engines"
 	icon_keyboard = "tech_key"
 	icon_keyboard_emis = "tech_key_mask"
