@@ -560,7 +560,7 @@ By design, d1 is the smallest direction and d2 is the highest
 						to_chat(user, SPAN_NOTICE("You don't have enough coils for this!"))
 						return
 					user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
-					for(var/datum/wound/W in affecting.wounds)
+					for(var/datum/wound/W as anything in affecting.wounds)
 						if(W.bandaged)
 							continue
 						if(W.current_stage <= W.max_bleeding_stage)

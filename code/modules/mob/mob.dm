@@ -1085,7 +1085,7 @@
 					break
 	if(affected)
 		affected.implants -= implant
-		for(var/datum/wound/wound in affected.wounds)
+		for(var/datum/wound/wound as anything in affected.wounds)
 			LAZYREMOVE(wound.embedded_objects, implant)
 		if(!surgical_removal)
 			shock_stage += 20

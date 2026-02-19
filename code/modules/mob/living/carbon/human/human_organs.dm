@@ -66,7 +66,7 @@
 					I.take_damage(rand(3,5))
 
 				//Moving makes open wounds get infected much faster
-				for(var/datum/wound/W in E.wounds)
+				for(var/datum/wound/W as anything in E.wounds)
 					if (W.infection_check())
 						W.germ_level += 1
 
