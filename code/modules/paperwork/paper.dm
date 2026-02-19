@@ -199,7 +199,7 @@
 		crumpled = TRUE
 		return
 
-	if (user.a_intent == I_GRAB && icon_state != "scrap" && can_fold)
+	if (user.a_intent == I_GRAB && !crumpled && can_fold)
 		if (icon_state == "paper_plane")
 			user.show_message(SPAN_ALERT("The paper is already folded into a plane."))
 			return
@@ -213,7 +213,7 @@
 		ClearOverlays() //Removes stamp icons
 		return
 
-	if (user.a_intent == I_DISARM && icon_state != "scrap" && can_fold)
+	if (user.a_intent == I_DISARM && !crumpled && can_fold)
 		if (icon_state == "paper_swan")
 			user.show_message(SPAN_ALERT("The paper is already folded into a swan."))
 			return
@@ -744,6 +744,7 @@
 /obj/item/paper/crumpled
 	name = "paper scrap"
 	icon_state = "scrap"
+	crumpled = TRUE
 
 /obj/item/paper/crumpled/update_icon()
 	return
