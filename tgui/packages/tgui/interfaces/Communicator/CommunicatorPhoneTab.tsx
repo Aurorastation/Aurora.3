@@ -1,6 +1,16 @@
+import { classes } from 'common/react';
 import { InfernoKeyboardEvent } from 'inferno';
+import { KEY } from '../../../common/keys';
 import { useBackend, useLocalState } from '../../backend';
-import { Button, Divider, Flex, Input, Section, Stack } from '../../components';
+import {
+  Box,
+  Button,
+  Divider,
+  Flex,
+  Input,
+  Section,
+  Stack,
+} from '../../components';
 import { FriendsList } from './CommunicatorContactTab';
 import { GetUserByAddress } from './helpers';
 import { CommunicatorData } from './types';
@@ -56,6 +66,13 @@ export const CommunicatorPhoneTab = (props, context) => {
     '',
   );
 
+  // A user whose address starts with `targetAddress`. (if one exists)
+  const possibleTargetUser = data.allUsers.find(
+    (user) => user.visible && user.address.startsWith(targetAddress),
+  );
+  const possibleTargetAddress = possibleTargetUser?.address;
+
+  // Whether or not the `targetAddress` fully matches a user in `data.allUsers`.
   const targetAddrIsValid = !!GetUserByAddress(data, targetAddress);
 
   return (
@@ -70,22 +87,64 @@ export const CommunicatorPhoneTab = (props, context) => {
       </Flex.Item>
       <Flex.Item>
         <Section className="comm-address-input">
-          <Input
-            // TODO: Autocomplete suggestions if there's an address that starts with the current input
-            // (including tab to complete)
-            fluid
-            mb="0.5em"
-            value={targetAddress}
-            maxLength={MAX_ADDRESS_LEN}
-            onInput={(
-              event: InfernoKeyboardEvent<HTMLInputElement>,
-              value: string,
-            ) => {
-              const formattedValue = FormatAddress(value);
-              setTargetAddress(formattedValue);
-              event.currentTarget.value = formattedValue;
-            }}
-          />
+          <Box className="input-box">
+            {targetAddress && possibleTargetAddress && (
+              <>
+                <Box className="autocomplete address" preserveWhitespace>
+                  {/* `possibleTargetAddress` with `targetAddress` removed from
+                      the start of it. (fake autocomplete effect) */}
+                  {possibleTargetAddress
+                    ?.replace(targetAddress, '')
+                    .padStart(MAX_ADDRESS_LEN, ' ')}
+                </Box>
+                <Box
+                  class={classes([
+                    'autocomplete',
+                    'name',
+                    targetAddrIsValid && 'valid',
+                  ])}
+                  // Set `targetAddress` to the autocomplete value when clicked.
+                  onClick={() => {
+                    // (Only clickable if the address hasn't already been fully entered)
+                    !targetAddrIsValid &&
+                      setTargetAddress(possibleTargetAddress);
+                  }}
+                >
+                  {possibleTargetUser.username}
+                </Box>
+              </>
+            )}
+            <Input
+              fluid
+              monospace
+              value={targetAddress}
+              maxLength={MAX_ADDRESS_LEN}
+              // If there's an "autocomplete" address visible and the user pressed
+              // tab, fill in the input box with the address.
+              onKeyDown={(event: InfernoKeyboardEvent<HTMLInputElement>) => {
+                if (possibleTargetAddress && event.key === KEY.Tab) {
+                  // The `setTimeout` here is to bypass a bug where setting
+                  // the value state in `onKeyDown` doesn't update the input visually.
+                  // Apparently this is fixed in later React versions,
+                  // so test this in the future!
+                  setTimeout(() => setTargetAddress(possibleTargetAddress), 0);
+                }
+              }}
+              // Every time this input has its value changed, format everything to
+              // make sure that it stays address-ey.
+              onInput={(
+                event: InfernoKeyboardEvent<HTMLInputElement>,
+                value: string,
+              ) => {
+                const formattedValue = FormatAddress(value);
+                setTargetAddress(formattedValue);
+                event.currentTarget.value = formattedValue;
+              }}
+              // This is just here to prevent the default Esc behaviour since
+              // that breaks things.
+              onEscape={() => {}}
+            />
+          </Box>
           <Flex height="100%" justify="space-evenly" wrap="wrap">
             {PHONE_KEYS.map((keyChar) => (
               <Flex.Item key={keyChar}>
