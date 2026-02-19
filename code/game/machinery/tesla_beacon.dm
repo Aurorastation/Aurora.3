@@ -80,6 +80,7 @@
 /obj/machinery/power/tesla_beacon/process()
 	if(!active)
 		return PROCESS_KILL
-	else
-		if(DRAW_POWER(src, 1500) < 1500)
-			deactivate()
+	var/can_draw = POWER_DRAW(src, 1500) >= 1500
+	DRAW_POWER(src, can_draw)
+	if(!can_draw)
+		deactivate()

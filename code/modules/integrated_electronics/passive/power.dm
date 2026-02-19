@@ -201,7 +201,8 @@
 		if(should_act) // We're gonna give or take from the net.
 			if(drawing)
 				var/to_transfer = min(throughput, (assembly.battery.maxcharge - assembly.battery.charge) / CELLRATE) // So we don't need to draw 10kW if the cell needs much less.
-				var/amount = DRAW_POWER(IO, to_transfer)
+				var/amount = POWER_DRAW(IO, to_transfer)
+				DRAW_POWER(IO, amount)
 				assembly.give_power(amount)
 			else
 				var/amount = assembly.draw_power(throughput)

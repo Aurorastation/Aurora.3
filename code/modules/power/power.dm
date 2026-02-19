@@ -337,7 +337,8 @@
 		source_area.use_power_oneoff(drained_energy/CELLRATE)
 	else if (istype(power_source,/datum/powernet))
 		var/drained_power = drained_energy/CELLRATE
-		drained_power = DRAW_FROM_POWERNET(PN, drained_power)
+		drained_power = POWERNET_POWER_DRAW(PN, drained_power)
+		DRAW_FROM_POWERNET(PN, drained_power)
 	else if (istype(power_source, /obj/item/cell))
 		cell.use(drained_energy)
 	return drained_energy

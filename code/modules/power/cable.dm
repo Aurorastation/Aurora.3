@@ -62,7 +62,9 @@ By design, d1 is the smallest direction and d2 is the highest
 	if(drain_check)
 		return TRUE
 
-	return DRAW_FROM_POWERNET(powernet, amount)
+	. = POWERNET_POWER_DRAW(powernet, amount)
+
+	DRAW_FROM_POWERNET(powernet, .)
 
 /obj/structure/cable/yellow
 	color = COLOR_YELLOW

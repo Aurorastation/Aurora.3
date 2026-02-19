@@ -229,7 +229,8 @@
 	var/inputted_power = target_load * (percentage/100)
 	inputted_power = between(0, inputted_power, target_load)
 	if(terminal && terminal.powernet)
-		inputted_power = TERMINAL_DRAW_POWER(inputted_power)
+		inputted_power = TERMINAL_POWER_DRAW(inputted_power)
+		TERMINAL_DRAW_POWER(inputted_power)
 		charge += inputted_power * SMESRATE
 		input_taken = inputted_power
 		if(percentage == 100)

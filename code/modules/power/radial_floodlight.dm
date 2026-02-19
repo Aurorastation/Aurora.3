@@ -28,7 +28,8 @@
 	update_icon()
 
 /obj/machinery/power/radial_floodlight/process()
-	var/actual_load = DRAW_POWER(src, active_power_usage)
+	var/actual_load = POWER_DRAW(src, active_power_usage)
+	DRAW_POWER(src, active_power_usage)
 	if(!on || !anchored || (stat & BROKEN) || !powernet || actual_load < active_power_usage)
 		STOP_PROCESSING_MACHINE(src, MACHINERY_PROCESS_SELF)
 		update_use_power(POWER_USE_OFF)

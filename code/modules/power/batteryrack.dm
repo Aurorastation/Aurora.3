@@ -156,7 +156,8 @@
 	if(terminal)
 		if(input_attempt)
 			var/target_load = min((capacity-charge)/SMESRATE, input_level)		// charge at set rate, limited to spare capacity
-			var/actual_load = DRAW_POWER(src, target_load)		// add the load to the terminal side network
+			var/actual_load = POWER_DRAW(src, target_load)		// add the load to the terminal side network
+			DRAW_POWER(src, actual_load)
 			charge += actual_load * SMESRATE	// increase the charge
 
 			if (actual_load >= target_load) // did the powernet have enough power available for us?

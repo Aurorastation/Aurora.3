@@ -102,7 +102,9 @@
 		return PROCESS_KILL
 	if(!use_power)
 		return
-	if(DRAW_POWER(src, 500) < 500)
+	var/can_draw = (POWER_DRAW(src, 500) >= 500)
+	DRAW_POWER(src, can_draw)
+	if(!can_draw)
 		deactivate()
 		return
 	if(!target_drop_time)

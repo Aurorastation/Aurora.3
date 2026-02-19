@@ -28,8 +28,8 @@
 #define POWERNET_SURPLUS(powernet) powernet.avail - powernet.load
 /// Clamps the passed-in amount between 0 and the powernet's available load capacity.
 #define POWERNET_POWER_DRAW(powernet, amt) clamp(amt, 0, powernet.avail - powernet.load)
-/// Draws power from the powernet directly, if it exists. Returns the amount drawn.
-#define DRAW_FROM_POWERNET(powernet, amt) ((powernet) ? (powernet.load += POWERNET_POWER_DRAW(powernet, amt)) : 0)
+/// Draws power from the powernet directly, if it exists.
+#define DRAW_FROM_POWERNET(powernet, amt) ((powernet) ? (powernet.load += amt) : 0)
 
 /// Adds an amount from SMES to the powernet (powernet.smes_newavail)
 #define SMES_ADD_TO_POWERNET(smes, amt) ((smes.powernet) ? (smes.powernet.smes_newavail += amt) : 0)
@@ -41,9 +41,13 @@
 #define POWER_LOAD(machine) (machine.powernet?.load || 0)
 /// Returns the surplus power available to the machine via the powernet (avail - load)
 #define POWER_SURPLUS(machine) ((machine.powernet) ? (POWERNET_SURPLUS(machine.powernet)) : 0)
-/// Draws power from the machine's powernet, if it exists. Returns the amount drawn.
-#define DRAW_POWER(machine, amt) ((machine.powernet) ? (machine.powernet.load += POWERNET_POWER_DRAW(machine.powernet, amt)) : 0)
-/// Draws power from src's terminal, if it exists. Returns the amount drawn.
+/// Clamps the passed-in amount between 0 and the powernet's available load capacity.
+#define POWER_DRAW(machine, amt) (POWERNET_POWER_DRAW(machine.powernet, amt))
+/// Draws power from the machine's powernet, if it exists.
+#define DRAW_POWER(machine, amt) (DRAW_FROM_POWERNET(machine.powernet, amt))
+/// Clamps the passed-in amount between 0 and the terminal's powernet's available load capacity.
+#define TERMINAL_POWER_DRAW(amt) (src.terminal ? POWER_DRAW(src.terminal, amt) : 0)
+/// Draws power from src's terminal, if it exists.
 #define TERMINAL_DRAW_POWER(amt) (src.terminal ? (DRAW_POWER(src.terminal, amt)) : 0)
 
 #define POWER_USE_OFF       0

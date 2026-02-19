@@ -1228,11 +1228,13 @@ ABSTRACT_TYPE(/obj/machinery/power/apc)
 		var/draw = 0
 		if(excess > lastused_total)		// if power excess recharge the cell
 										// by the same amount just used
-			draw = TERMINAL_DRAW_POWER(cellused/CELLRATE) // draw the power needed to charge this cell
+			draw = TERMINAL_POWER_DRAW(cellused/CELLRATE) // draw the power needed to charge this cell
+			TERMINAL_DRAW_POWER(draw)
 			cell.give(draw * CELLRATE)
 		else		// no excess, and not enough per-apc
 			if((cell.charge/CELLRATE + excess) >= lastused_total)		// can we draw enough from cell+grid to cover last usage?
-				draw = TERMINAL_DRAW_POWER(excess)
+				draw = TERMINAL_POWER_DRAW(excess)
+				TERMINAL_DRAW_POWER(draw)
 				cell.charge = min(cell.maxcharge, cell.charge + CELLRATE * draw)	//recharge with what we can
 				charging = CHARGING_OFF
 			else	// not enough power available to run the last tick!
@@ -1254,7 +1256,8 @@ ABSTRACT_TYPE(/obj/machinery/power/apc)
 				// Max charge is capped to % per second constant
 				var/ch = min(excess*CELLRATE, cell.maxcharge*chargelevel)
 
-				ch = TERMINAL_DRAW_POWER(ch/CELLRATE) // Removes the power we're taking from the grid
+				ch = TERMINAL_POWER_DRAW(ch/CELLRATE) // Removes the power we're taking from the grid
+				TERMINAL_DRAW_POWER(ch)
 				cell.give(ch*CELLRATE) // actually recharge the cell
 				lastused_charging = ch + draw
 				lastused_total += ch + draw // Sensors need this to stop reporting APC charging as "Other" load
