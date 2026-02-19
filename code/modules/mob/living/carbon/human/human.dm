@@ -1890,7 +1890,7 @@
 	current_limb.undislocate()
 
 /mob/living/carbon/human/drop_from_inventory(obj/item/W, atom/target, update_icons = TRUE, force = FALSE)
-	if(!force && W in organs)
+	if(!force && (W in organs))
 		return
 	return ..()
 

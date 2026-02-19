@@ -25,7 +25,7 @@
 		BITSET(hud_updateflag, ID_HUD) //If we drop our ID, update ID HUD
 
 /mob/living/carbon/drop_from_inventory(obj/item/W, atom/target, update_icons = TRUE, force = FALSE)
-	if(!force && W in internal_organs)
+	if(!force && (W in internal_organs))
 		return
 	return ..()
 
