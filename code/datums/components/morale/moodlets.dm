@@ -3,7 +3,7 @@
  * Only one of each type of moodlet is allowed to exist in a mood component at a time.
  * If you're making a new source of moodlets, add a new child of this type.
  */
-ABSTRACT_TYPE(/moodlet)
+ABSTRACT_TYPE(/datum/moodlet)
 	/**
 	 * How much this moodlet modifies its owner's morale by.
 	 * This is simple summed exactly once when the moodlet is created.
@@ -40,13 +40,13 @@ ABSTRACT_TYPE(/moodlet)
 	 */
 	VAR_PRIVATE/datum/weakref/morale_component
 
-/moodlet/New(datum/component/morale/_morale_component, set_points)
+/datum/moodlet/New(datum/component/morale/_morale_component, set_points)
 	time_to_die = duration + REALTIMEOFDAY
 	morale_component = WEAKREF(_morale_component)
 	if (set_points) morale_modifier = set_points
 	_morale_component.add_morale_points(morale_modifier)
 
-/moodlet/Destroy(force)
+/datum/moodlet/Destroy(force)
 	if (force)
 		// This will be forced when a Morale Component is deleted directly, as it QDEL_NULL_LIST's its own moodlets.
 		return ..()
@@ -61,10 +61,10 @@ ABSTRACT_TYPE(/moodlet)
 	parent.add_morale_points(-morale_modifier)
 	return ..()
 
-/moodlet/proc/get_morale_modifier()
+/datum/moodlet/proc/get_morale_modifier()
 	return morale_modifier
 
-/moodlet/proc/set_moodlet(new_modifier)
+/datum/moodlet/proc/set_moodlet(new_modifier)
 	// We can skip the istype() in this case since the held weakref is asserted by VAR_PRIVATE to always be a morale component.
 	var/datum/component/morale/possible_morale = morale_component.resolve()
 	if (!possible_morale && !QDELING(src))
@@ -79,5 +79,5 @@ ABSTRACT_TYPE(/moodlet)
 	// Then set the current morale points to the new ones.
 	morale_modifier = new_modifier
 
-/moodlet/proc/refresh_moodlet()
+/datum/moodlet/proc/refresh_moodlet()
 	time_to_die = REALTIMEOFDAY + duration

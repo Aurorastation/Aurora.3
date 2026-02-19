@@ -5,10 +5,11 @@
 /datum/component/morale
 
 	/**
-	 * The set of all moodlets associated with this Morale Component. These are also tightly controlled in their initialization, and thus are private.
+	 * The set of all moodlets associated with this Morale Component. These are also tightly controlled in their initialization, but are not private.
+	 * That doesn't mean you need to be setting them anywhere other than in moodlets.dm.
 	 * load_moodlet() is your best bet for "Add or Get" a moodlet, and is 100% of the time what you want to use if you're trying to make sure someone has a moodlet.
 	 */
-	VAR_PRIVATE/list/moodlet/moodlets = list()
+	var/list/datum/moodlet/moodlets = list()
 
 	/**
 	 * The current sum total of morale_points. This var is intentionally private because it is self-managed by the component, and should never be set directly.
@@ -25,6 +26,17 @@
 	 */
 	VAR_PRIVATE/morale_ratio = 0.0 // Positive and negative floating points are allowed.
 
+	/**
+	 * The "B" constant in the equation for y = Atanh(Bx + C).
+	 * This constant is not arbitrary, it was carefully selected such that the equation will give "75% of its effect" at 50 morale points, and "96% of its effect" at 100 morale.
+	 * This allows for there to be an effect of diminishing returns for chasing ever increasingly more morale points, while front-loading the bulk of the effects at a specific amount of moodlets.
+	 * Since the effects of morale are a "Logistic Curve", "100% of the morale effect" is only ever obtained at +INFINITY.
+	 * This also goes for the opposite direction, morale penalties max out only at -INFINITY points, but get to "75% of the penalty effect" at -50 points.
+	 *
+	 * The actual "Effects" of morale are to be per-signal, and are defined by the A value in y = Atanh(Bx + C)
+	 */
+	var/beta_value = 0.0195
+
 /datum/component/morale/proc/get_morale_ratio()
 	return morale_ratio
 
@@ -33,15 +45,15 @@
 
 /datum/component/morale/proc/add_morale_points(input)
 	morale_points += input
-	morale_ratio = ftanh(morale_points)
+	morale_ratio = ftanh(beta_value * morale_points)
 
 /**
  * Your one-stop-shop for making moodlets. This proc returns the pre-existing moodlet of a given type.
  * If it doesn't already exist, then one will be created.
  */
-/datum/component/morale/proc/load_moodlet(moodlet/moodlet_type, set_points)
+/datum/component/morale/proc/load_moodlet(datum/moodlet/moodlet_type, set_points)
 	RETURN_TYPE(moodlet_type)
-	var/loaded_moodlet = moodlets[moodlet_type]
+	var/datum/moodlet/loaded_moodlet = moodlets[moodlet_type]
 	if (!loaded_moodlet)
 		loaded_moodlet = new moodlet_type(src, set_points)
 		moodlets.Add(loaded_moodlet)
@@ -62,7 +74,7 @@
 /datum/component/morale/process(seconds_per_tick)
 	var/current_time = REALTIMEOFDAY
 	var/list_trimmed = FALSE
-	for (var/moodlet/moodlet as anything in moodlets)
+	for (var/datum/moodlet/moodlet as anything in moodlets)
 		if (moodlet.time_to_die < current_time || QDELING(moodlet))
 			continue
 
