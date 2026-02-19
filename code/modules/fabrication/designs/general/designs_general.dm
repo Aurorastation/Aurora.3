@@ -31,7 +31,7 @@ ABSTRACT_TYPE(/singleton/fabricator_recipe/general)
 	path = /obj/item/taperecorder
 
 /singleton/fabricator_recipe/general/spotlight
-	name = "spotlight"
+	name = "spotlight light tube"
 	path = /obj/item/light/tube/large
 
 /singleton/fabricator_recipe/general/tube
