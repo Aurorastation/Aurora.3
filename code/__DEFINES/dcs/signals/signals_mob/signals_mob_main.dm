@@ -47,4 +47,4 @@
 #define COMSIG_UPDATE_LIMB_IMAGE "update_limb_image"
 
 /// For when bone is fixed with surgery
-#define COMSIG_BONE_FIX "fix_bone"
+#define COMSIG_BEGIN_SURGERY "begin_surgery"

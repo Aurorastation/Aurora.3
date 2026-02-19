@@ -2091,7 +2091,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	. = ..()
 	if(!owner)
 		return
-	RegisterSignal(owner, COMSIG_BONE_FIX, PROC_REF(negate_healing), override = TRUE)
+	RegisterSignal(owner, COMSIG_BEGIN_SURGERY, PROC_REF(negate_healing), override = TRUE)
 	var/obj/item/organ/external/parent = owner.get_organ(parent_organ)
 	parent.fracture(TRUE)
 
@@ -2099,22 +2099,25 @@ All custom items with worn sprites must follow the contained sprite system: http
 	. = ..()
 	if(!owner)
 		return
-	RegisterSignal(owner, COMSIG_BONE_FIX, PROC_REF(negate_healing), override = TRUE)
+	RegisterSignal(owner, COMSIG_BEGIN_SURGERY, PROC_REF(negate_healing), override = TRUE)
 	var/obj/item/organ/external/parent = owner.get_organ(parent_organ)
 	parent.fracture(TRUE)
 
 /obj/item/organ/internal/augment/fluff/kath_legbrace/removed()
 	if(!owner)
 		return ..()
-	UnregisterSignal(owner, COMSIG_BONE_FIX)
+	UnregisterSignal(owner, COMSIG_BEGIN_SURGERY)
 	return ..()
 
-/obj/item/organ/internal/augment/fluff/kath_legbrace/proc/negate_healing(var/owner, var/canceled, var/obj/item/organ/external/affected, var/mob/living/user)
+/obj/item/organ/internal/augment/fluff/kath_legbrace/proc/negate_healing(var/owner, var/canceled, var/obj/item/organ/external/affected, var/mob/living/user, var/singleton/surgery_step/surgery)
 	SIGNAL_HANDLER
-	if(affected.limb_name == parent_organ)
-		*canceled = TRUE
-		user.visible_message(SPAN_WARNING("[user] seems to be unable to set the bone in [owner]'s [affected.name]."), \
-			SPAN_WARNING("The bone in [owner]'s [affected.name] appears to be impossible to set correctly!"))
+	if(!istype(surgery, /singleton/surgery_step/glue_bone) && !istype(surgery, /singleton/surgery_step/set_bone))
+		return
+	if(affected.limb_name != parent_organ)
+		return
+	*canceled = TRUE
+	user.visible_message(SPAN_WARNING("[user] seems to be unable to set the bone in [owner]'s [affected.name]."), \
+		SPAN_WARNING("The bone in [owner]'s [affected.name] appears to be impossible to set correctly!"))
 
 /obj/item/organ/internal/augment/fluff/kath_legbrace/proc/collapse(var/prob_chance = 20, var/weaken_strength = 2, var/pain_strength = 40)
 	if(prob(prob_chance))
