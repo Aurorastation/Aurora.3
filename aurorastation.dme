@@ -4124,6 +4124,7 @@
 #include "maps\away\ships\casino\casino_areas.dm"
 #include "maps\away\ships\coc\coc_ranger\coc_ship.dm"
 #include "maps\away\ships\coc\coc_ranger\coc_ship_ghostroles.dm"
+#include "maps\away\ships\coc\coc_ranger\coc_ship_submaps.dmm"
 #include "maps\away\ships\coc\coc_scarab\coc_scarab.dm"
 #include "maps\away\ships\coc\coc_scarab\coc_scarab_areas.dm"
 #include "maps\away\ships\coc\coc_scarab\coc_scarab_ghostroles.dm"
