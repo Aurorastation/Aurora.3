@@ -30,7 +30,6 @@ export type User = {
   address: Address;
   username: string;
   visible: boolean;
-  ref: string;
 };
 
 // Mirror of the defines in 'code/modules/modular_computers/file_system/programs/generic/communicator.dm'.

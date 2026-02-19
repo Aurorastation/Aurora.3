@@ -17,14 +17,14 @@
 /datum/comm_call/proc/add_device(datum/computer_file/program/communicator/comm_app)
 	connected_comms |= comm_app
 	comm_app.computer.become_hearing_sensitive()
-	comm_app.get_program_user()?.active_call = src
+	comm_app.active_call = src
 
 	RegisterSignal(comm_app.computer, COMSIG_OBJ_HEAR_TALK, PROC_REF(on_hear_talk))
 
 /datum/comm_call/proc/remove_device(datum/computer_file/program/communicator/comm_app)
 	connected_comms -= comm_app
 	comm_app.computer.lose_hearing_sensitivity()
-	comm_app.get_program_user()?.active_call = null
+	comm_app.active_call = null
 
 	UnregisterSignal(comm_app.computer, COMSIG_OBJ_HEAR_TALK)
 

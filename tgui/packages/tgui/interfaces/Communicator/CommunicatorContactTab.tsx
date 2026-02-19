@@ -8,6 +8,7 @@ import {
   Section,
   Tooltip,
 } from '../../components';
+import { GetUserByName } from './helpers';
 import { CommunicatorData, CommunicatorTab, User } from './types';
 
 export const CommunicatorContactTab = (props, context) => {
@@ -62,7 +63,7 @@ export const FriendsList = (props, context) => {
   // and returns either the person's corresponding `User` from `allUsers`,
   // or just their name again if they're not in that list.
   const friendsWithData = friendsList.map((friendName) => {
-    return allUsers.find((user) => user.username === friendName) || friendName;
+    return GetUserByName(data, friendName) ?? friendName;
   });
 
   return (
@@ -172,9 +173,11 @@ const FriendReqButton = ({ contact }: { contact: User }, context) => {
       icon="user-plus"
       disabled={alreadyFriends || requestSentToContact}
       tooltip={
-        !alreadyFriends && contactSentRequest
-          ? 'Respond to friend request'
-          : 'Send friend request'
+        alreadyFriends
+          ? 'Already friends!'
+          : contactSentRequest
+            ? 'Respond to friend request'
+            : 'Send friend request'
       }
       tooltipPosition="bottom"
       color={contactSentRequest && 'average'}

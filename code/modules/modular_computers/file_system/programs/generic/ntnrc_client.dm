@@ -184,7 +184,7 @@
 				data["channels"] += list(our_channel)
 
 		data["users"] = list()
-		for(var/datum/ntnet_user/ntnet_user as anything in GLOB.ntnet_global.users)
+		for(var/datum/ntnet_user/ntnet_user as anything in GLOB.ntnet_global.chat_users)
 			if(ntnet_user != my_user)
 				data["users"] += list(list("ref" = text_ref(ntnet_user), "username" = ntnet_user.username))
 	return data

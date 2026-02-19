@@ -2,7 +2,8 @@ import { InfernoKeyboardEvent } from 'inferno';
 import { useBackend, useLocalState } from '../../backend';
 import { Button, Divider, Flex, Input, Section, Stack } from '../../components';
 import { FriendsList } from './CommunicatorContactTab';
-import { CommunicatorData, CommunicatorTab } from './types';
+import { GetUserByAddress } from './helpers';
+import { CommunicatorData } from './types';
 
 const MAX_ADDR_DIGITS = 16; // Four groups of four characters
 const MAX_ADDR_COLONS = 3; // Three separators
@@ -55,9 +56,7 @@ export const CommunicatorPhoneTab = (props, context) => {
     '',
   );
 
-  const targetAddrIsValid = !!data.allUsers.find(
-    (user) => user.address === targetAddress,
-  );
+  const targetAddrIsValid = !!GetUserByAddress(data, targetAddress);
 
   return (
     // TODO: Real styling to make this look better
@@ -114,7 +113,7 @@ export const CommunicatorPhoneTab = (props, context) => {
                     action: 'send',
                     target_address: targetAddress,
                   });
-                  act('switch_tab', { new_tab: CommunicatorTab.ActiveCall });
+                  setTargetAddress('');
                 }}
               >
                 Call

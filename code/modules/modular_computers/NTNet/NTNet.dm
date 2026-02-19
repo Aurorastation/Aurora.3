@@ -12,7 +12,7 @@ GLOBAL_DATUM_INIT(ntnet_global, /datum/ntnet, new)
 	var/list/available_software_presets = list()
 	var/list/available_news = list()
 	var/list/fileservers = list()
-	var/list/datum/ntnet_user/users = list()
+	var/list/datum/ntnet_user/chat_users = list()
 	// Amount of logs the system tries to keep in memory. Keep below 999 to prevent byond from acting weirdly.
 	// High values make displaying logs much laggier.
 	var/setting_maxlogcount = 100

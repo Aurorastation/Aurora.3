@@ -1,6 +1,7 @@
 import { InfernoNode } from 'inferno';
 import { useBackend } from '../../backend';
 import { Box, Button, Flex, Icon, Stack } from '../../components';
+import { GetUserByAddress } from './helpers';
 import { CommunicatorData, CommunicatorTab } from './types';
 
 export const CommunicatorCallTab = (props, context) => {
@@ -37,11 +38,7 @@ export const CommunicatorCallTab = (props, context) => {
   if (outgoingCall) {
     return (
       <CallScreen
-        name={
-          data.allUsers.find(
-            (user) => user.address === callRequests.outgoing[0],
-          )?.username
-        }
+        name={GetUserByAddress(data, callRequests.outgoing[0])?.username}
         subtitle="Calling..."
         buttons={
           <Button
@@ -66,12 +63,8 @@ export const CommunicatorCallTab = (props, context) => {
   if (incomingCall) {
     return (
       <CallScreen
-        name={
-          data.allUsers.find(
-            (user) => user.address === callRequests.incoming[0],
-          )?.username
-        }
-        subtitle="<--Incoming call-->"
+        name={GetUserByAddress(data, callRequests.incoming[0])?.username}
+        subtitle="Incoming call"
         buttons={
           <Stack justify="space-evenly">
             <Stack.Item grow>
