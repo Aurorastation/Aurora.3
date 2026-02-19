@@ -114,9 +114,10 @@
 
 	GLOB.human_mob_list -= src
 	GLOB.intent_listener -= src
+	// This is apparently a different list entirely from the list of organs on /mob/living/carbon.
+	// It's actually the set of all Limbs (left arm, head, leg leg, etc) we have. We Qdel and null the set of all limbs, which is unique to /human.
 	QDEL_LIST(organs)
-	internal_organs_by_name = null
-	internal_organs = null
+	// Then also null the associative list of those same limbs, which contains the same references.
 	organs_by_name = null
 	bad_internal_organs = null
 	bad_external_organs = null
