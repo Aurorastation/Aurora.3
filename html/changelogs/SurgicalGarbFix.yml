@@ -1,0 +1,7 @@
+author: TheGreyWolf
+
+delete-after: True
+
+changes:
+  - bugfix: "The adhomian surgeon garb now offers protection equal to a surgical gown and surgery mask."
+  - bugfix: "The adhomian surgeon garb can now be selected by machinists again."
