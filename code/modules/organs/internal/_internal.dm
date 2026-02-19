@@ -27,7 +27,7 @@
 	min_broken_damage = 10
 
 /obj/item/organ/internal/Destroy()
-	if(owner)
+	if(owner && owner.internal_organs)
 		owner.internal_organs.Remove(src)
 		owner.internal_organs_by_name[organ_tag] = null
 		owner.internal_organs_by_name -= organ_tag

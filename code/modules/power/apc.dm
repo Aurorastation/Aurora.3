@@ -72,10 +72,6 @@
 #define AUTOFLAG_ENVIRON_ON	1
 #define AUTOFLAG_ENVIRON_LIGHTS_ON	2
 #define AUTOFLAG_ALL_ON	3
-
-#define HI(a) (((a) >> 1) & 1)
-#define LO(a) ((a) & 1)
-
 /**
  * Returns the new status value for an APC channel.
  *
@@ -90,7 +86,7 @@
  *   - [AUTOSET_ON]: The APC allows automatic channels to turn back on.
  *   - [AUTOSET_OFF]: The APC turns automatic channels off.
  */
-#define autoset(val, on) (((val) & ~CHANNEL_ON) | ((LO(on) * HI(on))))
+#define autoset(val, on) ((on == AUTOSET_FORCE_OFF) ? CHANNEL_OFF : ((val & CHANNEL_AUTO) ? ((val & ~CHANNEL_ON) | (on == AUTOSET_ON)) : val))
 
 #define APC_DELTA_POWER (((src.lastused_charging * 2) - src.lastused_total) * CELLRATE)
 #define APC_GOAL(dp) (dp < 0) ? (cell.charge) : (cell.maxcharge - cell.charge)
@@ -1132,11 +1128,12 @@ ABSTRACT_TYPE(/obj/machinery/power/apc)
 			var/val = text2num(params["set"])
 			switch(params["chan"])
 				if("Equipment")
-					equipment = setsubsystem(val)
+					equipment = val
 				if("Lighting")
-					lighting = setsubsystem(val)
+					lighting = val
 				if("Environment")
-					environ = setsubsystem(val)
+					environ = val
+			autoflag = AUTOFLAG_OFF
 			intent_message(BUTTON_FLICK, 5)
 			playsound(src, 'sound/machines/terminal/terminal_select.ogg', 18, TRUE)
 			update_icon()
@@ -1190,7 +1187,8 @@ ABSTRACT_TYPE(/obj/machinery/power/apc)
 		return
 	if(!area.requires_power)
 		return
-	if(failure_timer--)
+	if(failure_timer > 0)
+		failure_timer--
 		if(!(update_state & UPDATE_BLUESCREEN))
 			update()
 			SSicon_update.add_to_queue(src)
@@ -1311,25 +1309,31 @@ ABSTRACT_TYPE(/obj/machinery/power/apc)
 
 	var/cell_charge = cell.maxcharge && ((cell.charge / cell.maxcharge) * 100.0)
 
-	if((cell_charge > 30 || longtermpower > 0) && autoflag != AUTOFLAG_ALL_ON)
+	if((cell_charge > 30 || longtermpower > 0))
+		if(autoflag == AUTOFLAG_ALL_ON)
+			return
 		equipment = autoset(equipment, AUTOSET_ON)
 		lighting = autoset(lighting, AUTOSET_ON)
 		environ = autoset(environ, AUTOSET_ON)
 		autoflag = AUTOFLAG_ALL_ON
 		GLOB.power_alarm.clearAlarm(loc, src)
-	else if(cell_charge > 15 && autoflag != AUTOFLAG_ENVIRON_LIGHTS_ON) // <30%, turn off equipment
+	else if(cell_charge > 15) // <30%, turn off equipment
+		if(autoflag == AUTOFLAG_ENVIRON_LIGHTS_ON)
+			return
 		equipment = autoset(equipment, AUTOSET_OFF)
 		lighting = autoset(lighting, AUTOSET_ON)
 		environ = autoset(environ, AUTOSET_ON)
 		GLOB.power_alarm.triggerAlarm(loc, src)
 		autoflag = AUTOFLAG_ENVIRON_LIGHTS_ON
-	else if(cell_charge <= 15 && autoflag != AUTOFLAG_ENVIRON_ON) // <15%, turn off lighting & equipment
+	else if(cell_charge <= 15) // <15%, turn off lighting & equipment
+		if(autoflag == AUTOFLAG_ENVIRON_ON)
+			return
 		equipment = autoset(equipment, AUTOSET_OFF)
 		lighting = autoset(lighting, AUTOSET_OFF)
 		environ = autoset(environ, AUTOSET_ON)
 		GLOB.power_alarm.triggerAlarm(loc, src)
 		autoflag = AUTOFLAG_ENVIRON_ON
-	else if (autoflag != AUTOFLAG_OFF)                                   // zero charge, turn all off
+	else                                   // zero charge, turn all off
 		equipment = autoset(equipment, AUTOSET_FORCE_OFF)
 		lighting = autoset(lighting, AUTOSET_FORCE_OFF)
 		environ = autoset(environ, AUTOSET_FORCE_OFF)
@@ -1439,14 +1443,6 @@ ABSTRACT_TYPE(/obj/machinery/power/apc)
 		else
 			night_mode = !night_mode
 	intent_message(BUTTON_FLICK, 5)
-
-/obj/machinery/power/apc/proc/setsubsystem(val)
-	if(cell && cell.charge > 0)
-		return (val == CHANNEL_AUTO) ? CHANNEL_OFF : val
-	else if(val & CHANNEL_AUTO_ON)
-		return CHANNEL_AUTO
-	else
-		return CHANNEL_OFF
 
 // Malfunction: Transfers APC under AI's control
 /obj/machinery/power/apc/proc/ai_hack(var/mob/living/silicon/ai/A = null)
@@ -1747,8 +1743,6 @@ ABSTRACT_TYPE(/obj/machinery/power/apc)
 #undef AUTOFLAG_ENVIRON_LIGHTS_ON
 #undef AUTOFLAG_ALL_ON
 #undef autoset
-#undef LO
-#undef HI
 #undef APC_DELTA_POWER
 #undef APC_GOAL
 #undef APC_UPDATE_TIME

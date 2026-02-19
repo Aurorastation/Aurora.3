@@ -248,7 +248,8 @@
 	cached_markings = null
 	mob_icon = null
 
-	QDEL_LIST(wounds)
+	if(wounds)
+		QDEL_LIST(wounds)
 	QDEL_LIST(children)
 	QDEL_LIST(internal_organs)
 	QDEL_LIST(implants)
@@ -728,13 +729,17 @@ This function completely restores a damaged organ to perfect condition.
 		for(var/datum/wound/other in wounds)
 			if(other.can_merge(W))
 				other.merge_wound(W)
+				W = other
 				break
-		LAZYADD(wounds, W)
 
-		if(bandage_level)
-			owner.visible_message(SPAN_WARNING("The bandages on [owner.name]'s [name] gets [is_burn_type_damage ? "burnt" : "ripped"] off!"), SPAN_WARNING("The bandages on your [name] gets [is_burn_type_damage ? "burnt" : "ripped"] off!"))
-			bandage_level = BANDAGE_LEVEL_NONE
-			owner.update_bandages()
+		if(!QDELETED(W))
+			if(!LAZYISIN(wounds, W))
+				LAZYADD(wounds, W)
+
+			if(bandage_level)
+				owner.visible_message(SPAN_WARNING("The bandages on [owner.name]'s [name] gets [is_burn_type_damage ? "burnt" : "ripped"] off!"), SPAN_WARNING("The bandages on your [name] gets [is_burn_type_damage ? "burnt" : "ripped"] off!"))
+				bandage_level = BANDAGE_LEVEL_NONE
+				owner.update_bandages()
 		return W
 
 /****************************************************
