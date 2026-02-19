@@ -251,11 +251,15 @@
 
 /mob/living/simple_animal/Destroy()
 	CutOverlays(blood_overlay)
-	movement_target = null
+	lostMovementTarget()
 	QDEL_NULL(udder)
 
 	. = ..()
-	GC_TEMPORARY_HARDDEL
+
+/mob/living/simple_animal/proc/lostMovementTarget()
+	if(movement_target)
+		UnregisterSignal(movement_target, COMSIG_QDELETING)
+		movement_target = null
 
 /mob/living/simple_animal/Move(NewLoc, direct)
 	// this is a janky way to prevent mobs wandering into chasms, but allows them to be thrown into it by someone else if the mob is dead
@@ -754,11 +758,11 @@
 /mob/living/simple_animal/cat/proc/handle_movement_target()
 	//if our target is neither inside a turf or inside a human(???), stop
 	if((movement_target) && !(isturf(movement_target.loc) || ishuman(movement_target.loc) ))
-		movement_target = null
+		lostMovementTarget()
 		stop_automated_movement = 0
 	//if we have no target or our current one is out of sight/too far away
 	if( !movement_target || !(movement_target.loc in oview(src, 4)) )
-		movement_target = null
+		lostMovementTarget()
 		stop_automated_movement = 0
 
 	if(movement_target)
@@ -779,7 +783,7 @@
 
 /mob/living/simple_animal/death(gibbed, deathmessage = "dies!")
 	GLOB.move_manager.stop_looping(src)
-	movement_target = null
+	lostMovementTarget()
 	ADD_TRAIT(src, TRAIT_UNDENSE, TRAIT_SOURCE_MOB_DEATH)
 	if (isopenturf(loc))
 		ADD_FALLING_ATOM(src)
@@ -945,7 +949,7 @@
 		canmove = 0
 		wander = 0
 		GLOB.move_manager.stop_looping(src)
-		movement_target = null
+		lostMovementTarget()
 		update_icon()
 
 /// Wakes the mob up from sleeping

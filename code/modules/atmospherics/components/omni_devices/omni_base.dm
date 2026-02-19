@@ -220,7 +220,6 @@
 			P.node = null
 
 	. = ..()
-	GC_TEMPORARY_HARDDEL
 
 /obj/machinery/atmospherics/omni/atmos_init()
 	for(var/datum/omni_port/P in ports)

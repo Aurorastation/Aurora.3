@@ -33,10 +33,6 @@
 		tag_chamber_sensor = given_tag_chamber_sensor
 	program = new /datum/computer/file/embedded_program/airlock(src)
 
-/obj/machinery/embedded_controller/radio/airlock/Destroy()
-	. = ..()
-	GC_TEMPORARY_HARDDEL
-
 /obj/machinery/embedded_controller/radio/airlock/attackby(obj/item/attacking_item, mob/user)
 	//Swiping ID on the access button
 	if (attacking_item.GetID())

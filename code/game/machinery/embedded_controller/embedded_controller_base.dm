@@ -13,7 +13,6 @@
 	if(SSradio)
 		SSradio.remove_object(src,frequency)
 	. = ..()
-	GC_TEMPORARY_HARDDEL
 
 /obj/machinery/embedded_controller/proc/post_signal(datum/signal/signal, comm_line)
 	return 0
