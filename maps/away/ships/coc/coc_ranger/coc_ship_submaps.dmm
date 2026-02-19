@@ -1,0 +1,851 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"a" = (
+/obj/structure/weapons_rack{
+	req_access = list(13,221,222)
+	},
+/obj/item/gun/projectile/recoilless_rifle,
+/obj/item/gun/projectile/recoilless_rifle,
+/obj/item/gun/projectile/recoilless_rifle,
+/turf/simulated/floor/tiled/dark,
+/area/ship/ranger_corvette/gunnery)
+"c" = (
+/obj/structure/closet/crate{
+	name = "Ammo Crate"
+	},
+/obj/item/ammo_magazine/a556/carbine,
+/obj/item/ammo_magazine/a556/carbine,
+/obj/item/ammo_magazine/a556/carbine,
+/obj/item/ammo_magazine/c762,
+/obj/item/ammo_magazine/c762,
+/obj/item/ammo_magazine/c762,
+/obj/item/ammo_magazine/c762,
+/obj/item/ammo_magazine/c762,
+/obj/item/ammo_magazine/c762,
+/obj/item/ammo_magazine/c38,
+/obj/item/ammo_magazine/c38,
+/obj/item/ammo_magazine/c38,
+/obj/item/ammo_magazine/c38,
+/obj/item/ammo_magazine/c38,
+/obj/item/ammo_magazine/c38,
+/obj/item/ammo_magazine/c38,
+/obj/item/ammo_magazine/c38,
+/obj/item/ammo_magazine/c38,
+/obj/item/ammo_magazine/c38,
+/obj/item/ammo_magazine/c38,
+/obj/item/ammo_magazine/c38,
+/obj/item/ammo_magazine/submachinemag,
+/obj/item/ammo_magazine/submachinemag,
+/obj/item/ammo_magazine/submachinemag,
+/obj/item/ammo_magazine/submachinemag,
+/turf/simulated/floor/tiled/dark,
+/area/ship/ranger_corvette/gunnery)
+"d" = (
+/turf/simulated/wall/shuttle/space_ship/mercenary,
+/area/ship/ranger_corvette/gunnery)
+"e" = (
+/obj/structure/closet/crate{
+	name = "Ammo Crate"
+	},
+/obj/item/ammo_magazine/c762/sol,
+/obj/item/ammo_magazine/c762/sol,
+/obj/item/ammo_magazine/c762/sol,
+/obj/item/ammo_magazine/c762/sol,
+/obj/item/ammo_magazine/a556/k556,
+/obj/item/ammo_magazine/a556/k556,
+/obj/item/ammo_magazine/a556/k556,
+/obj/item/ammo_magazine/a556/k556,
+/obj/item/ammo_magazine/a10mm,
+/obj/item/ammo_magazine/a10mm,
+/obj/item/ammo_magazine/a10mm,
+/obj/item/ammo_magazine/a10mm,
+/obj/item/ammo_magazine/a10mm,
+/obj/item/ammo_magazine/a10mm,
+/obj/item/ammo_magazine/mc9mm,
+/obj/item/ammo_magazine/mc9mm,
+/obj/item/ammo_magazine/mc9mm,
+/obj/item/ammo_magazine/mc9mm,
+/obj/item/ammo_magazine/mc9mm,
+/obj/item/ammo_magazine/mc9mm,
+/obj/item/ammo_magazine/mc9mm,
+/obj/item/ammo_magazine/a556/carbine,
+/obj/item/ammo_magazine/a556/carbine,
+/obj/item/paper{
+	name = "Armory notice no. 1";
+	info = "Our old shorties and most of our PDWs and sidearms are busted. We had to use a few rifles and shit we captured off the 'imps as a backstop. They aren't too bad, once you get used to the wood furniture and the blood stains."
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ship/ranger_corvette/gunnery)
+"f" = (
+/obj/structure/weapons_rack{
+	req_access = list(13,221,222)
+	},
+/obj/item/gun/projectile/revolver/lemat,
+/obj/item/gun/projectile/revolver/lemat,
+/obj/item/gun/projectile/revolver/lemat,
+/obj/item/gun/projectile/revolver/lemat,
+/obj/item/gun/projectile/revolver/knife,
+/obj/item/gun/projectile/automatic/tommygun,
+/obj/item/gun/projectile/automatic/tommygun,
+/turf/simulated/floor/tiled/dark,
+/area/ship/ranger_corvette/gunnery)
+"i" = (
+/obj/structure/weapons_rack{
+	req_access = list(13,221,222)
+	},
+/obj/item/gun/projectile/recoilless_rifle,
+/obj/item/grenade,
+/obj/item/grenade,
+/obj/item/grenade,
+/turf/simulated/floor/tiled/dark,
+/area/ship/ranger_corvette/gunnery)
+"l" = (
+/obj/structure/weapons_rack{
+	req_access = list(13,221,222)
+	},
+/obj/item/gun/projectile/automatic/xanusmg,
+/obj/item/gun/projectile/xanupistol,
+/obj/item/gun/projectile/pistol,
+/obj/item/gun/projectile/pistol,
+/turf/simulated/floor/tiled/dark,
+/area/ship/ranger_corvette/gunnery)
+"p" = (
+/obj/structure/closet/crate{
+	name = "Ammo Crate"
+	},
+/obj/item/ammo_magazine/mc9mm,
+/obj/item/ammo_magazine/mc9mm,
+/obj/item/ammo_magazine/mc9mm,
+/obj/item/ammo_magazine/mc9mm,
+/obj/item/ammo_magazine/a556,
+/obj/item/ammo_magazine/a556,
+/obj/item/ammo_magazine/a556,
+/obj/item/ammo_magazine/a65,
+/obj/item/ammo_magazine/a65,
+/obj/item/ammo_magazine/a65,
+/obj/item/ammo_magazine/a65,
+/obj/item/ammo_magazine/d762,
+/obj/item/ammo_magazine/d762,
+/obj/item/ammo_magazine/d762,
+/obj/item/ammo_magazine/d762,
+/obj/item/ammo_magazine/submachinemag,
+/obj/item/ammo_magazine/submachinemag,
+/obj/item/ammo_magazine/a10mm,
+/obj/item/ammo_magazine/a10mm,
+/obj/item/ammo_casing/c45,
+/obj/item/ammo_casing/c45,
+/obj/item/ammo_casing/c45,
+/obj/item/ammo_casing/c45,
+/obj/item/ammo_magazine/c45m,
+/obj/item/ammo_magazine/c45m,
+/obj/item/ammo_magazine/c45m,
+/obj/item/paper{
+	name = "Armory notice no. 1";
+	info = "Our old shorties and most of our PDWs and sidearms are busted. I don't even know how we got half of the stuff we got as a replacement, and I'm too afraid to ask."
+	},
+/turf/simulated/wall/shuttle/space_ship/mercenary,
+/area/ship/ranger_corvette/gunnery)
+"q" = (
+/turf/template_noop,
+/area/space)
+"r" = (
+/obj/structure/closet/crate{
+	name = "Ammo Crate"
+	},
+/obj/item/ammo_magazine/c762/dpra,
+/obj/item/ammo_magazine/c762/dpra,
+/obj/item/ammo_magazine/c762/dpra,
+/obj/item/ammo_magazine/boltaction,
+/obj/item/ammo_magazine/boltaction,
+/obj/item/ammo_magazine/boltaction,
+/obj/item/ammo_magazine/boltaction,
+/obj/item/ammo_magazine/boltaction,
+/obj/item/ammo_magazine/boltaction,
+/obj/item/ammo_magazine/boltaction,
+/obj/item/ammo_magazine/boltaction,
+/obj/item/ammo_magazine/boltaction,
+/obj/item/ammo_magazine/boltaction,
+/obj/item/ammo_magazine/c45m,
+/obj/item/ammo_magazine/c45m,
+/obj/item/ammo_magazine/c45m,
+/obj/item/ammo_magazine/c45m,
+/obj/item/ammo_magazine/c45m,
+/obj/item/ammo_magazine/c45m,
+/obj/item/ammo_magazine/c45m,
+/obj/item/ammo_magazine/c45m,
+/obj/item/ammo_magazine/mc9mm,
+/obj/item/ammo_magazine/mc9mm,
+/obj/item/ammo_magazine/mc9mm,
+/obj/item/ammo_magazine/mc9mm,
+/obj/item/ammo_magazine/mc9mm,
+/obj/item/ammo_magazine/mc9mm,
+/obj/item/ammo_magazine/a556/carbine,
+/obj/item/ammo_magazine/a556/carbine,
+/obj/item/ammo_magazine/submachinemag,
+/obj/item/ammo_magazine/submachinemag,
+/obj/item/paper{
+	name = "Armory notice no. 1";
+	info = "Our old shorties and most of our PDWs and sidearms are busted. So we lifted some stuff from some local 'taj smuggler who calls himself Sergei or something. The rifle with the curved mag (I can't pronounce the name for shit) can't take any lathed mags, so hold on to what we have. You'll have to handload the other rifle (again, can't pronounce the name for shit) with 7.62 clips or by hand."
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ship/ranger_corvette/gunnery)
+"t" = (
+/obj/structure/weapons_rack{
+	req_access = list(13,221,222)
+	},
+/obj/item/gun/projectile/pistol,
+/obj/item/gun/projectile/pistol/dominia,
+/obj/item/gun/projectile/automatic/tommygun,
+/obj/item/gun/projectile/automatic/tommygun/dom{
+	name = "Captured dominian submachine gun";
+	desc = "A submachine gun featuring a novel top loading configuration, though intended to used by the Empire of Dominia's armed forces. This gun appears to have been pressed into the service of it's enemies instead.";
+	desc_extended = "The Moroz Pattern Machine Carbine, Model of 2430 is a lightweight, handy weapon intended for use by vehicle crews, airborne troops, and other units that do not require a full-length rifle. Simplistic in design and function, the MPMC-30 is highly reliable in nearly all environments, lending itself well to use by colonial forces. In particular, the Imperial Fisanduhian Gendarmerie are known to make heavy use of the weapon. This particular gun, however, seems to have been vandalized with maroon-colored stains along it's wooden furniture. And the magazine well has been defaced with a hastily knife-scrawn flag of the Coalition of Colonies."
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ship/ranger_corvette/gunnery)
+"u" = (
+/obj/structure/closet/crate{
+	name = "Ammo Crate"
+	},
+/obj/item/ammo_magazine/a65,
+/obj/item/ammo_magazine/a65,
+/obj/item/ammo_magazine/a65,
+/obj/item/ammo_magazine/a65,
+/obj/item/ammo_magazine/a65,
+/obj/item/ammo_magazine/a65,
+/obj/item/ammo_magazine/c46m,
+/obj/item/ammo_magazine/c46m,
+/obj/item/ammo_magazine/c46m,
+/obj/item/ammo_magazine/c46m,
+/obj/item/ammo_magazine/c46m,
+/obj/item/ammo_magazine/c46m,
+/obj/item/ammo_magazine/c46m,
+/obj/item/ammo_magazine/c46m/extended,
+/obj/item/ammo_magazine/c46m/extended,
+/obj/item/ammo_magazine/c46m/extended,
+/obj/item/ammo_magazine/c46m/extended,
+/obj/item/ammo_magazine/c46m/extended,
+/obj/item/ammo_magazine/mc9mm,
+/obj/item/ammo_magazine/mc9mm,
+/obj/item/ammo_magazine/mc9mm,
+/obj/item/ammo_magazine/mc9mm,
+/obj/item/ammo_magazine/mc9mm,
+/obj/item/ammo_magazine/mc9mm,
+/obj/item/paper{
+	name = "Armory notice no. 1";
+	info = "Our old shorties and most of our PDWs and sidearms are busted. I don't know how we did we even manage to get our hands on half of the shit that's stored in these lockers, and I'm too afraid to ask."
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ship/ranger_corvette/gunnery)
+"v" = (
+/obj/structure/weapons_rack{
+	req_access = list(13,221,222)
+	},
+/obj/item/gun/projectile/automatic/rifle/carbine{
+	name = "ballistic police carbine";
+	desc_extended = "The ST24-T is often considered the cousin of the little brother of its larger and fully automatic counterpart, the STS-35. Built and manufactured for the swathes of law enforcement in the Human Frontier who simply could not afford any better. When compared with it's baseline model, It offers several distinct, but rather unimporant niceities for long-range patrolling and extended use. This particular rifle's proof marks have simply been replaced with a flag of the Coalition of Colonies, as well as stentch of cordite and cheap beer. "
+	},
+/obj/item/gun/projectile/automatic/rifle/dpra,
+/obj/item/gun/projectile/automatic/rifle/adhomian,
+/obj/effect/map_effect/marker/mapmanip/submap/extract/coc_ranger_lockers,
+/turf/simulated/floor/tiled/dark,
+/area/ship/ranger_corvette/gunnery)
+"y" = (
+/obj/structure/weapons_rack{
+	req_access = list(13,221,222)
+	},
+/obj/item/gun/projectile/automatic/c20r/sol,
+/obj/item/gun/projectile/pistol/sol/konyang,
+/obj/item/gun/projectile/pistol/sol,
+/obj/item/gun/projectile/automatic/c20r,
+/turf/simulated/floor/tiled/dark,
+/area/ship/ranger_corvette/gunnery)
+"z" = (
+/obj/structure/weapons_rack{
+	req_access = list(13,221,222)
+	},
+/obj/item/gun/projectile/automatic/rifle/carbine{
+	name = "ballistic police carbine";
+	desc_extended = "The ST24-T is often considered the cousin of the little brother of its larger and fully automatic counterpart, the STS-35. Built and manufactured for the swathes of law enforcement in the Human Frontier who simply could not afford any better. When compared with it's baseline model, It offers several distinct, but rather unimporant niceities for long-range patrolling and extended use. This particular rifle's proof marks have simply been replaced with a flag of the Coalition of Colonies, as well as stentch of cordite and cheap beer. "
+	},
+/obj/item/gun/projectile/automatic/rifle/dnac,
+/obj/item/gun/projectile/automatic/rifle/dnac,
+/obj/effect/map_effect/marker/mapmanip/submap/extract/coc_ranger_lockers,
+/turf/simulated/floor/tiled/dark,
+/area/ship/ranger_corvette/gunnery)
+"A" = (
+/obj/structure/weapons_rack{
+	req_access = list(13,221,222)
+	},
+/obj/item/gun/projectile/shotgun/pump/rifle/dominia,
+/turf/simulated/floor/tiled/dark,
+/area/ship/ranger_corvette/gunnery)
+"B" = (
+/obj/structure/weapons_rack{
+	req_access = list(13,221,222)
+	},
+/obj/item/gun/projectile/automatic/rifle/carbine{
+	name = "ballistic police carbine";
+	desc_extended = "The ST24-T is often considered the cousin of the little brother of its larger and fully automatic counterpart, the STS-35. Built and manufactured for the swathes of law enforcement in the Human Frontier who simply could not afford any better. When compared with it's baseline model, It offers several distinct, but rather unimporant niceities for long-range patrolling and extended use. This particular rifle's proof marks have simply been replaced with a flag of the Coalition of Colonies, as well as stentch of cordite and cheap beer. "
+	},
+/obj/item/gun/projectile/automatic/rifle/dominia{
+	desc_extended = "The Moroz Pattern Rifle, Year of 2424 has been the standard-issue rifle of the Imperial Army for decades thanks to its durable construction and ease of use. The Imperial Army has repeatedly modernized and updated the MPR-24 over the past 40 years, and the rifle is now in its fifth modernization: one that they hope will keep it competitive well into the 2470s. This particular rifle, however, is marked with several dark-red stains along it's wooden furniture. And the usual proofing marks of Dominian manufacture has been filed off and replaced with the flag of the Coalition of Colonies. ";
+	name = "Captured dominian rifle";
+	desc = "The standard-issue rifle of the Empire of Dominia's Imperial Army that was obviously siezed from the cold, dead hands of it's origional user. Loads from 30 round 5.56 magazines."
+	},
+/obj/item/gun/projectile/automatic/rifle/dominia{
+	desc_extended = "The Moroz Pattern Rifle, Year of 2424 has been the standard-issue rifle of the Imperial Army for decades thanks to its durable construction and ease of use. The Imperial Army has repeatedly modernized and updated the MPR-24 over the past 40 years, and the rifle is now in its fifth modernization: one that they hope will keep it competitive well into the 2470s. This particular rifle, however, is marked with several dark-red stains along it's wooden furniture. And the usual proofing marks of Dominian manufacture has been filed off and replaced with the flag of the Coalition of Colonies. ";
+	name = "Captured dominian rifle";
+	desc = "The standard-issue rifle of the Empire of Dominia's Imperial Army that was obviously siezed from the cold, dead hands of it's origional user. Loads from 30 round 5.56 magazines."
+	},
+/obj/effect/map_effect/marker/mapmanip/submap/extract/coc_ranger_lockers,
+/turf/simulated/floor/tiled/dark,
+/area/ship/ranger_corvette/gunnery)
+"J" = (
+/obj/structure/weapons_rack{
+	req_access = list(13,221,222)
+	},
+/obj/item/gun/projectile/automatic/rifle/carbine{
+	name = "ballistic police carbine";
+	desc_extended = "The ST24-T is often considered the cousin of the little brother of its larger and fully automatic counterpart, the STS-35. Built and manufactured for the swathes of law enforcement in the Human Frontier who simply could not afford any better. When compared with it's baseline model, It offers several distinct, but rather unimporant niceities for long-range patrolling and extended use. This particular rifle's proof marks have simply been replaced with a flag of the Coalition of Colonies, as well as stentch of cordite and cheap beer. "
+	},
+/obj/item/gun/projectile/automatic/rifle/shorty,
+/obj/item/gun/projectile/automatic/rifle/shorty,
+/obj/item/gun/projectile/shotgun/pump,
+/obj/effect/map_effect/marker/mapmanip/submap/extract/coc_ranger_lockers,
+/turf/simulated/floor/tiled/dark,
+/area/ship/ranger_corvette/gunnery)
+"K" = (
+/obj/structure/weapons_rack{
+	req_access = list(13,221,222)
+	},
+/obj/item/gun/projectile/shotgun/pump/combat/sol,
+/turf/simulated/floor/tiled/dark,
+/area/ship/ranger_corvette/gunnery)
+"L" = (
+/obj/structure/weapons_rack{
+	req_access = list(13,221,222)
+	},
+/obj/item/gun/projectile/silenced,
+/obj/item/gun/projectile/automatic/tommygun,
+/obj/item/gun/projectile/pistol,
+/obj/item/gun/projectile/automatic/c20r/sol,
+/turf/simulated/floor/tiled/dark,
+/area/ship/ranger_corvette/gunnery)
+"N" = (
+/obj/structure/weapons_rack{
+	req_access = list(13,221,222)
+	},
+/obj/item/gun/projectile/dragunov,
+/turf/simulated/floor/tiled/dark,
+/area/ship/ranger_corvette/gunnery)
+"O" = (
+/obj/structure/weapons_rack{
+	req_access = list(13,221,222)
+	},
+/obj/item/gun/projectile/automatic/tommygun,
+/obj/item/gun/projectile/silenced,
+/obj/item/gun/projectile/pistol/adhomai,
+/obj/item/gun/projectile/pistol/adhomai,
+/turf/simulated/floor/tiled/dark,
+/area/ship/ranger_corvette/gunnery)
+"P" = (
+/obj/structure/weapons_rack{
+	req_access = list(13,221,222)
+	},
+/obj/item/gun/projectile/automatic/rifle/adhomian,
+/obj/item/gun/projectile/automatic/rifle/dnac,
+/obj/item/gun/projectile/automatic/rifle/dominia{
+	desc_extended = "The Moroz Pattern Rifle, Year of 2424 has been the standard-issue rifle of the Imperial Army for decades thanks to its durable construction and ease of use. The Imperial Army has repeatedly modernized and updated the MPR-24 over the past 40 years, and the rifle is now in its fifth modernization: one that they hope will keep it competitive well into the 2470s. This particular rifle, however, is marked with several dark-red stains along it's wooden furniture. And the usual proofing marks of Dominian manufacture has been filed off and replaced with the flag of the Coalition of Colonies. ";
+	name = "Captured dominian rifle";
+	desc = "The standard-issue rifle of the Empire of Dominia's Imperial Army that was obviously siezed from the cold, dead hands of it's origional user. Loads from 30 round 5.56 magazines."
+	},
+/obj/effect/map_effect/marker/mapmanip/submap/extract/coc_ranger_lockers,
+/turf/simulated/floor/tiled/dark,
+/area/ship/ranger_corvette/gunnery)
+"W" = (
+/obj/structure/closet/crate{
+	name = "Ammo Crate"
+	},
+/obj/item/ammo_magazine/a556,
+/obj/item/ammo_magazine/a556,
+/obj/item/ammo_magazine/a556,
+/obj/item/ammo_magazine/a556,
+/obj/item/ammo_magazine/a556,
+/obj/item/ammo_magazine/a556,
+/obj/item/ammo_magazine/a556/carbine,
+/obj/item/ammo_magazine/a556/carbine,
+/obj/item/ammo_magazine/boltaction,
+/obj/item/ammo_magazine/boltaction,
+/obj/item/ammo_magazine/boltaction,
+/obj/item/ammo_magazine/boltaction,
+/obj/item/ammo_magazine/c45m/dominia,
+/obj/item/ammo_magazine/c45m/dominia,
+/obj/item/ammo_magazine/c45m/dominia,
+/obj/item/ammo_magazine/c45m/dominia,
+/obj/item/ammo_magazine/c45m/dominia,
+/obj/item/paper{
+	name = "Armory notice no. 1";
+	info = "Our old shorties and most of our PDWs and sidearms are bused. So we're using some old Solarian stuff and some kit that was donated from the KAF as a holdover. The mags for our new rifles can't be printed by a 'lathe. So hold on to what you got."
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ship/ranger_corvette/gunnery)
+"X" = (
+/obj/structure/weapons_rack{
+	req_access = list(13,221,222)
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ship/ranger_corvette/gunnery)
+"Y" = (
+/obj/structure/weapons_rack{
+	req_access = list(13,221,222)
+	},
+/obj/item/gun/projectile/automatic/rifle/carbine{
+	name = "ballistic police carbine";
+	desc_extended = "The ST24-T is often considered the cousin of the little brother of its larger and fully automatic counterpart, the STS-35. Built and manufactured for the swathes of law enforcement in the Human Frontier who simply could not afford any better. When compared with it's baseline model, It offers several distinct, but rather unimporant niceities for long-range patrolling and extended use. This particular rifle's proof marks have simply been replaced with a flag of the Coalition of Colonies, as well as stentch of cordite and cheap beer. "
+	},
+/obj/item/gun/projectile/automatic/rifle/sol,
+/obj/item/gun/projectile/automatic/rifle/konyang/k556,
+/obj/effect/map_effect/marker/mapmanip/submap/extract/coc_ranger_lockers,
+/turf/simulated/floor/tiled/dark,
+/area/ship/ranger_corvette/gunnery)
+
+(1,1,1) = {"
+q
+q
+q
+q
+q
+q
+q
+q
+q
+q
+q
+q
+q
+q
+q
+q
+q
+q
+q
+q
+"}
+(2,1,1) = {"
+q
+q
+q
+q
+q
+q
+q
+q
+q
+q
+q
+q
+q
+q
+q
+q
+q
+q
+q
+q
+"}
+(3,1,1) = {"
+q
+q
+q
+q
+q
+q
+d
+B
+q
+q
+d
+J
+q
+q
+q
+q
+q
+q
+q
+q
+"}
+(4,1,1) = {"
+q
+q
+q
+q
+q
+q
+d
+t
+q
+q
+d
+f
+q
+q
+q
+q
+q
+q
+q
+q
+"}
+(5,1,1) = {"
+q
+q
+q
+q
+q
+q
+d
+A
+q
+q
+d
+i
+q
+q
+q
+q
+q
+q
+q
+q
+"}
+(6,1,1) = {"
+q
+q
+q
+q
+q
+q
+d
+W
+q
+q
+d
+c
+q
+q
+q
+q
+q
+q
+q
+q
+"}
+(7,1,1) = {"
+q
+q
+q
+q
+q
+q
+q
+q
+q
+q
+q
+q
+q
+q
+q
+q
+q
+q
+q
+q
+"}
+(8,1,1) = {"
+q
+q
+q
+q
+q
+q
+d
+Y
+q
+q
+d
+v
+q
+q
+q
+q
+q
+q
+q
+q
+"}
+(9,1,1) = {"
+q
+q
+q
+q
+q
+q
+d
+y
+q
+q
+d
+O
+q
+q
+q
+q
+q
+q
+q
+q
+"}
+(10,1,1) = {"
+q
+q
+q
+q
+q
+q
+d
+K
+q
+q
+d
+a
+q
+q
+q
+q
+q
+q
+q
+q
+"}
+(11,1,1) = {"
+q
+q
+q
+q
+q
+q
+d
+e
+q
+q
+d
+r
+q
+q
+q
+q
+q
+q
+q
+q
+"}
+(12,1,1) = {"
+q
+q
+q
+q
+q
+q
+q
+q
+q
+q
+q
+q
+q
+q
+q
+q
+q
+q
+q
+q
+"}
+(13,1,1) = {"
+q
+q
+q
+q
+q
+q
+d
+P
+q
+q
+d
+z
+q
+q
+q
+q
+q
+q
+q
+q
+"}
+(14,1,1) = {"
+q
+q
+q
+q
+q
+q
+d
+L
+q
+q
+d
+l
+q
+q
+q
+q
+q
+q
+q
+q
+"}
+(15,1,1) = {"
+q
+q
+q
+q
+q
+q
+d
+N
+q
+q
+d
+X
+q
+q
+q
+q
+q
+q
+q
+q
+"}
+(16,1,1) = {"
+q
+q
+q
+q
+q
+q
+d
+p
+q
+q
+d
+u
+q
+q
+q
+q
+q
+q
+q
+q
+"}
+(17,1,1) = {"
+q
+q
+q
+q
+q
+q
+q
+q
+q
+q
+q
+q
+q
+q
+q
+q
+q
+q
+q
+q
+"}
+(18,1,1) = {"
+q
+q
+q
+q
+q
+q
+q
+q
+q
+q
+q
+q
+q
+q
+q
+q
+q
+q
+q
+q
+"}
+(19,1,1) = {"
+q
+q
+q
+q
+q
+q
+q
+q
+q
+q
+q
+q
+q
+q
+q
+q
+q
+q
+q
+q
+"}
+(20,1,1) = {"
+q
+q
+q
+q
+q
+q
+q
+q
+q
+q
+q
+q
+q
+q
+q
+q
+q
+q
+q
+q
+"}
