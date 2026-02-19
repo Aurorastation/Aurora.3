@@ -22,14 +22,15 @@
 /code/modules/http/ @Arrow768 @NonQueueingMatt
 /code/datums/api.dm @Arrow768 @NonQueueingMatt
 
-# Custom items, Matt
-/code/modules/customitems/item_defines.dm @NonQueueingMatt
+# Custom items, cybs
+/code/modules/customitems/item_defines.dm @CyberSpyXD
 
 # Mapping, inform matt (for now)
 /maps/ @NonQueueingMatt
 
-# Away sites, let wildkins know
+# Away sites and exoplanets, let wildkins know
 /maps/away/ @JohnWildkins @NonQueueingMatt
+/maps/random_ruins/exoplanets/ @JohnWildkins @NonQueueingMatt
 
 # Overmap, matt's expertise
 /code/__defines/overmap.dm @NonQueueingMatt
@@ -40,10 +41,11 @@
 /code/__defines/organs.dm @NonQueueingMatt
 /code/modules/organs/ @NonQueueingMatt
 
-# UIs. Wildkins or Matt.
-/tgui/ @JohnWildkins
-/code/__defines/tgui.dm @JohnWildkins
-/code/modules/tgui @JohnWildkins
+# UIs. Wildkins and 
+/tgui/ @JohnWildkins @Batrachophreno
+/code/__defines/tgui.dm @JohnWildkins @Batrachophreno
+/code/modules/tgui @JohnWildkins @Batrachophreno
+/nano/templates/ @JohnWildkins @Batrachophreno
 
 # Tools, often binary in nature, let heads know
 /tools/ @Arrow768 @NonQueueingMatt
@@ -81,6 +83,9 @@
 /code/modules/lighting/ @NonQueueingMatt @GeneralCamo
 /code/modules/rendering/ @NonQueueingMatt @GeneralCamo
 
+# Modular computers, wildkins
+/code/modules/modular_computers/ @JohnWildkins
+
 # Sprites, sammy
 /icons/ @nauticall
 
@@ -89,9 +94,7 @@
 /code/datums/cargo.dm @Arrow768
 /code/modules/client/preference_setup/ @Arrow768
 /code/modules/item_worth/ @Arrow768
-/code/modules/modular_computers/ @Arrow768
 /code/modules/telesci/ @Arrow768
 /code/modules/cargo/ @Arrow768
-/nano/templates/ @Arrow768
 
 
