@@ -313,6 +313,16 @@
 	},
 /turf/template_noop,
 /area/template_noop)
+"aO" = (
+/obj/item/flashlight{
+	pixel_y = 5
+	},
+/obj/structure/table/standard,
+/obj/item/radio/intercom/west{
+	name = "Common Channel"
+	},
+/turf/simulated/floor/plating,
+/area/engineering)
 "aP" = (
 /obj/structure/cable{
 	d1 = 1;
@@ -444,6 +454,22 @@
 /obj/machinery/gravity_generator/main/station,
 /turf/simulated/floor/tiled/dark,
 /area/engineering/gravity_gen)
+"bg" = (
+/obj/machinery/power/apc/west,
+/obj/structure/cable{
+	d2 = 2;
+	icon_state = "0-2";
+	pixel_y = 1
+	},
+/obj/machinery/light{
+	brightness_range = 16;
+	must_start_working = 1
+	},
+/obj/item/analyzer,
+/obj/item/wrench,
+/obj/structure/table/standard,
+/turf/simulated/floor/plating,
+/area/engineering/atmos)
 "bh" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 8
@@ -480,6 +506,16 @@
 /obj/item/wirecutters,
 /obj/structure/table/standard,
 /obj/machinery/firealarm/south,
+/turf/simulated/floor/plating,
+/area/engineering)
+"bm" = (
+/obj/machinery/light{
+	brightness_range = 16;
+	must_start_working = 1
+	},
+/obj/item/storage/box/lights/mixed,
+/obj/item/lightreplacer,
+/obj/structure/table/standard,
 /turf/simulated/floor/plating,
 /area/engineering)
 "bn" = (
@@ -1095,6 +1131,15 @@
 /obj/structure/table/standard,
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_two)
+"cJ" = (
+/obj/item/healthanalyzer,
+/obj/effect/floor_decal/corner/dark_blue,
+/obj/effect/floor_decal/corner/white{
+	dir = 8
+	},
+/obj/structure/table/standard,
+/turf/simulated/floor/tiled,
+/area/hallway/primary/central_two)
 "cK" = (
 /turf/simulated/wall/r_wall,
 /area/construction)
@@ -1261,6 +1306,13 @@
 	},
 /turf/simulated/floor/tiled,
 /area/construction)
+"dk" = (
+/obj/item/flashlight{
+	pixel_y = 5
+	},
+/obj/structure/table/standard,
+/turf/simulated/floor/tiled,
+/area/construction)
 "dl" = (
 /obj/structure/cable{
 	d1 = 4;
@@ -1339,6 +1391,11 @@
 	},
 /turf/simulated/floor/tiled,
 /area/construction)
+"dz" = (
+/obj/item/lightreplacer,
+/obj/structure/table/standard,
+/turf/simulated/floor/tiled,
+/area/construction)
 "dB" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 4
@@ -1363,6 +1420,10 @@
 /obj/structure/table/standard,
 /turf/simulated/floor/tiled,
 /area/construction)
+"dI" = (
+/obj/machinery/fabricator/autolathe,
+/turf/simulated/floor/tiled,
+/area/construction/storage)
 "dK" = (
 /obj/machinery/mineral/stacking_unit_console{
 	id = "runtime_stacking_1";
@@ -1400,16 +1461,16 @@
 	},
 /turf/simulated/floor/plating,
 /area/construction)
-"eC" = (
-/obj/machinery/light{
-	brightness_range = 16;
-	must_start_working = 1
+"es" = (
+/obj/item/radio/intercom/locked/west{
+	frequency = 1343;
+	locked_frequency = 1343;
+	name = "Private AI Channel";
+	pixel_y = 22
 	},
-/obj/item/storage/box/lights/mixed,
-/obj/item/lightreplacer,
-/obj/structure/table/standard,
-/turf/simulated/floor/plating,
-/area/engineering)
+/obj/machinery/r_n_d/weapons_analyzer,
+/turf/simulated/floor/tiled,
+/area/construction/storage)
 "eE" = (
 /obj/machinery/light{
 	brightness_range = 16;
@@ -1429,6 +1490,19 @@
 	temperature = 278
 	},
 /area/turret_protected/ai_upload_foyer)
+"eH" = (
+/obj/machinery/vending/medical,
+/obj/item/advanced_healthanalyzer,
+/turf/simulated/floor/tiled,
+/area/construction/storage)
+"eI" = (
+/obj/machinery/camera/network/civilian_main{
+	c_tag = "Central Corridor 1";
+	dir = 1
+	},
+/obj/item/radio/intercom/south,
+/turf/simulated/floor/tiled,
+/area/hallway/primary/central_one)
 "eY" = (
 /obj/machinery/computer/ship/engines/terminal,
 /turf/simulated/floor/tiled,
@@ -1629,10 +1703,6 @@
 	temperature = 278
 	},
 /area/turret_protected/ai_upload_foyer)
-"id" = (
-/obj/machinery/fabricator/autolathe,
-/turf/simulated/floor/tiled,
-/area/construction/storage)
 "ie" = (
 /obj/effect/map_effect/window_spawner/full/reinforced,
 /obj/structure/cable{
@@ -1663,12 +1733,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/construction)
-"it" = (
-/obj/effect/landmark/minimap_poi{
-	desc = "Minimap description ayup"
-	},
-/turf/simulated/floor/plating,
-/area/construction)
 "iw" = (
 /turf/simulated/floor/tiled{
 	name = "cooled floor";
@@ -1689,6 +1753,13 @@
 /obj/item/storage/belt/utility/very_full,
 /turf/simulated/floor/tiled,
 /area/construction)
+"iG" = (
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/obj/item/storage/box/unique/monkeycubes,
+/turf/simulated/floor/tiled,
+/area/construction/storage)
 "iN" = (
 /obj/structure/disposalpipe/trunk,
 /obj/structure/disposaloutlet{
@@ -1842,15 +1913,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/construction/storage)
-"ma" = (
-/obj/effect/landmark/start{
-	name = "Ship Engineer"
-	},
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/turf/simulated/floor/plating,
-/area/construction)
 "md" = (
 /obj/machinery/ion_engine{
 	dir = 1
@@ -1992,16 +2054,12 @@
 	temperature = 278
 	},
 /area/turret_protected/ai)
-"nZ" = (
-/obj/item/flashlight{
-	pixel_y = 5
-	},
-/obj/structure/table/standard,
-/obj/item/radio/intercom/west{
-	name = "Common Channel"
+"nQ" = (
+/obj/effect/landmark/minimap_poi{
+	desc = "Minimap description ayup"
 	},
 /turf/simulated/floor/plating,
-/area/engineering)
+/area/construction)
 "ob" = (
 /obj/machinery/light{
 	brightness_range = 16;
@@ -2106,6 +2164,15 @@
 "pM" = (
 /turf/simulated/floor/tiled,
 /area/construction)
+"pT" = (
+/obj/effect/landmark/start{
+	name = "Engineer"
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/construction)
 "pX" = (
 /obj/structure/cable{
 	d1 = 16;
@@ -2190,11 +2257,6 @@
 	},
 /turf/simulated/wall/r_wall,
 /area/construction/storage)
-"rC" = (
-/obj/machinery/vending/medical,
-/obj/item/advanced_healthanalyzer,
-/turf/simulated/floor/tiled,
-/area/construction/storage)
 "rE" = (
 /obj/effect/landmark/start{
 	name = "Xenoarchaeologist"
@@ -2221,15 +2283,44 @@
 	temperature = 278
 	},
 /area/turret_protected/ai_upload_foyer)
-"si" = (
-/obj/item/healthanalyzer,
-/obj/effect/floor_decal/corner/dark_blue,
-/obj/effect/floor_decal/corner/white{
-	dir = 8
+"sv" = (
+/obj/effect/landmark/start{
+	name = "AI"
 	},
-/obj/structure/table/standard,
-/turf/simulated/floor/tiled,
-/area/hallway/primary/central_two)
+/obj/structure/cable/cyan{
+	d2 = 8;
+	icon_state = "0-8"
+	},
+/obj/effect/decal/warning_stripes,
+/obj/item/radio/intercom/east{
+	name = "Common Channel";
+	pixel_y = -3
+	},
+/obj/item/radio/intercom/south{
+	frequency = 1343;
+	name = "Private Channel"
+	},
+/obj/machinery/button/remote/blast_door{
+	desc = "A remote control-switch for the AI core maintenance door.";
+	id = "AICore";
+	name = "AI Maintenance Hatch";
+	pixel_x = 17;
+	pixel_y = 25;
+	req_access = list(20)
+	},
+/obj/machinery/newscaster/security_unit/east{
+	pixel_y = 32
+	},
+/obj/machinery/requests_console/east{
+	department = "AI";
+	departmentType = 5;
+	pixel_y = -32
+	},
+/turf/simulated/floor/bluegrid{
+	name = "cooled mainframe floor";
+	temperature = 278
+	},
+/area/turret_protected/ai)
 "sx" = (
 /obj/effect/shuttle_landmark/runtime/hangar{
 	dir = 4
@@ -2267,13 +2358,6 @@
 /obj/structure/disposalpipe/down,
 /turf/simulated/open,
 /area/construction/storage)
-"sT" = (
-/obj/item/flashlight{
-	pixel_y = 5
-	},
-/obj/structure/table/standard,
-/turf/simulated/floor/tiled,
-/area/construction)
 "sU" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 9
@@ -2362,11 +2446,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/storage/primary)
-"uB" = (
-/obj/item/destTagger,
-/obj/item/stack/packageWrap,
-/turf/simulated/floor/tiled,
-/area/construction/storage)
 "uC" = (
 /obj/effect/landmark/start{
 	name = "Research Director"
@@ -2447,11 +2526,6 @@
 /obj/item/modular_computer/console/preset/command,
 /turf/simulated/floor/tiled,
 /area/bridge)
-"ws" = (
-/obj/item/lightreplacer,
-/obj/structure/table/standard,
-/turf/simulated/floor/tiled,
-/area/construction)
 "wI" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
@@ -2462,14 +2536,6 @@
 /obj/machinery/computer/ship/engines,
 /turf/simulated/floor/shuttle,
 /area/shuttle/runtime)
-"xa" = (
-/obj/machinery/camera/network/civilian_main{
-	c_tag = "Central Corridor 2";
-	dir = 1
-	},
-/obj/item/radio/intercom/south,
-/turf/simulated/floor/tiled,
-/area/hallway/primary/central_one)
 "xb" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
@@ -2487,6 +2553,11 @@
 /obj/machinery/atmospherics/pipe/manifold4w/hidden,
 /turf/simulated/floor/plating,
 /area/storage/primary)
+"xz" = (
+/obj/item/destTagger,
+/obj/item/stack/packageWrap,
+/turf/simulated/floor/tiled,
+/area/construction/storage)
 "xE" = (
 /obj/machinery/atmospherics/pipe/manifold/visible/black{
 	dir = 1
@@ -2636,6 +2707,14 @@
 	temperature = 278
 	},
 /area/tcommsat/computer)
+"zP" = (
+/obj/machinery/camera/network/civilian_main{
+	c_tag = "Central Corridor 2";
+	dir = 1
+	},
+/obj/item/radio/intercom/south,
+/turf/simulated/floor/tiled,
+/area/hallway/primary/central_one)
 "zQ" = (
 /obj/machinery/firealarm/south,
 /turf/simulated/floor/tiled,
@@ -2676,22 +2755,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/maintcentral)
-"AW" = (
-/obj/machinery/power/apc/west,
-/obj/structure/cable{
-	d2 = 2;
-	icon_state = "0-2";
-	pixel_y = 1
-	},
-/obj/machinery/light{
-	brightness_range = 16;
-	must_start_working = 1
-	},
-/obj/item/analyzer,
-/obj/item/wrench,
-/obj/structure/table/standard,
-/turf/simulated/floor/plating,
-/area/engineering/atmos)
 "Bc" = (
 /obj/machinery/power/sensor{
 	long_range = 1;
@@ -2744,13 +2807,6 @@
 /obj/effect/landmark/latejoinlift,
 /turf/simulated/floor/plating,
 /area/construction)
-"Cx" = (
-/obj/structure/railing/mapped{
-	dir = 4
-	},
-/obj/item/storage/box/unique/monkeycubes,
-/turf/simulated/floor/tiled,
-/area/construction/storage)
 "CB" = (
 /obj/machinery/computer/telecomms/server{
 	network = "tcommsat"
@@ -2803,14 +2859,6 @@
 	temperature = 278
 	},
 /area/tcommsat/chamber)
-"Dc" = (
-/obj/machinery/camera/network/civilian_main{
-	c_tag = "Central Corridor 1";
-	dir = 1
-	},
-/obj/item/radio/intercom/south,
-/turf/simulated/floor/tiled,
-/area/hallway/primary/central_one)
 "Dq" = (
 /obj/machinery/atmospherics/pipe/simple/visible/black{
 	dir = 5
@@ -3107,59 +3155,11 @@
 	temperature = 278
 	},
 /area/tcommsat/chamber)
-"IT" = (
-/obj/item/radio/intercom/locked/west{
-	frequency = 1343;
-	locked_frequency = 1343;
-	name = "Private AI Channel";
-	pixel_y = 22
-	},
-/obj/machinery/r_n_d/weapons_analyzer,
-/turf/simulated/floor/tiled,
-/area/construction/storage)
 "IY" = (
 /obj/machinery/computer/ship/engines,
 /obj/item/paper/fluff/runtime/dontforgetuseovermap,
 /turf/simulated/floor/plating,
 /area/storage/primary)
-"Ja" = (
-/obj/effect/landmark/start{
-	name = "AI"
-	},
-/obj/structure/cable/cyan{
-	d2 = 8;
-	icon_state = "0-8"
-	},
-/obj/effect/decal/warning_stripes,
-/obj/item/radio/intercom/east{
-	name = "Common Channel";
-	pixel_y = -3
-	},
-/obj/item/radio/intercom/south{
-	frequency = 1343;
-	name = "Private Channel"
-	},
-/obj/machinery/button/remote/blast_door{
-	desc = "A remote control-switch for the AI core maintenance door.";
-	id = "AICore";
-	name = "AI Maintenance Hatch";
-	pixel_x = 17;
-	pixel_y = 25;
-	req_access = list(20)
-	},
-/obj/machinery/newscaster/security_unit/east{
-	pixel_y = 32
-	},
-/obj/machinery/requests_console/east{
-	department = "AI";
-	departmentType = 5;
-	pixel_y = -32
-	},
-/turf/simulated/floor/bluegrid{
-	name = "cooled mainframe floor";
-	temperature = 278
-	},
-/area/turret_protected/ai)
 "Jd" = (
 /obj/effect/landmark{
 	name = "Observer-Start"
@@ -3436,6 +3436,25 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/maintcentral)
+"OX" = (
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/camera/network/command{
+	c_tag = "AI Access";
+	dir = 1
+	},
+/obj/item/radio/intercom/south{
+	frequency = 1343;
+	name = "Private Channel"
+	},
+/turf/simulated/floor/tiled{
+	name = "cooled floor";
+	temperature = 278
+	},
+/area/turret_protected/ai_upload_foyer)
 "Pc" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -3511,6 +3530,17 @@
 	},
 /turf/simulated/floor/plating,
 /area/storage/primary)
+"RL" = (
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 10
+	},
+/obj/machinery/camera/network/command{
+	c_tag = "Bridge";
+	dir = 1
+	},
+/obj/item/radio/intercom/south,
+/turf/simulated/floor/tiled,
+/area/bridge)
 "RN" = (
 /obj/machinery/telecomms/message_server,
 /turf/simulated/floor/tiled{
@@ -3685,17 +3715,6 @@
 "Uf" = (
 /turf/simulated/floor/plating,
 /area/turbolift/main_station)
-"Ug" = (
-/obj/effect/floor_decal/corner/dark_blue{
-	dir = 10
-	},
-/obj/machinery/camera/network/command{
-	c_tag = "Bridge";
-	dir = 1
-	},
-/obj/item/radio/intercom/south,
-/turf/simulated/floor/tiled,
-/area/bridge)
 "Us" = (
 /obj/machinery/atmospherics/pipe/simple/visible/black{
 	dir = 4
@@ -3841,25 +3860,6 @@
 /obj/machinery/firealarm/west,
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_two)
-"Ya" = (
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/machinery/camera/network/command{
-	c_tag = "AI Access";
-	dir = 1
-	},
-/obj/item/radio/intercom/south{
-	frequency = 1343;
-	name = "Private Channel"
-	},
-/turf/simulated/floor/tiled{
-	name = "cooled floor";
-	temperature = 278
-	},
-/area/turret_protected/ai_upload_foyer)
 "Yc" = (
 /obj/effect/landmark{
 	name = "carpspawn"
@@ -7521,7 +7521,7 @@ aj
 au
 aI
 aV
-AW
+bg
 bp
 by
 bW
@@ -8049,7 +8049,7 @@ cV
 de
 de
 de
-ma
+pT
 de
 de
 de
@@ -8557,7 +8557,7 @@ ck
 bB
 cx
 bB
-Dc
+eI
 cK
 cV
 de
@@ -9337,7 +9337,7 @@ de
 yk
 dq
 dq
-it
+nQ
 de
 rE
 WV
@@ -9598,7 +9598,7 @@ de
 de
 de
 de
-ws
+dz
 cK
 ae
 ac
@@ -10095,7 +10095,7 @@ ab
 bs
 bG
 cb
-Ug
+RL
 br
 JC
 bB
@@ -10112,7 +10112,7 @@ de
 TW
 pD
 de
-sT
+dk
 cK
 ae
 ac
@@ -10613,7 +10613,7 @@ cn
 br
 UF
 bB
-xa
+zP
 cP
 cP
 cP
@@ -11117,7 +11117,7 @@ ME
 ah
 an
 aC
-nZ
+aO
 ba
 bl
 bt
@@ -11633,7 +11633,7 @@ ap
 kc
 aC
 bc
-eC
+bm
 ah
 bL
 bY
@@ -13954,7 +13954,7 @@ ci
 cu
 ci
 ci
-si
+cJ
 bv
 da
 dh
@@ -73071,7 +73071,7 @@ Js
 hR
 Gs
 hW
-uB
+xz
 gk
 gk
 gk
@@ -73838,7 +73838,7 @@ qb
 xV
 TL
 TR
-IT
+es
 gk
 jj
 gk
@@ -74093,7 +74093,7 @@ gU
 uF
 yr
 uF
-Ya
+OX
 TR
 pe
 GF
@@ -74352,10 +74352,10 @@ yr
 GD
 WM
 TR
-id
+dI
 uC
 pA
-rC
+eH
 fr
 Ng
 gk
@@ -74871,7 +74871,7 @@ Es
 Es
 Es
 Es
-Cx
+iG
 Es
 Es
 gk
@@ -75633,7 +75633,7 @@ uh
 vV
 tI
 vV
-Ja
+sv
 vV
 tI
 vV
