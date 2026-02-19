@@ -408,7 +408,7 @@
 
 /obj/item/grab/Destroy()
 	if(!QDELETED(linked_grab))
-		qdel(linked_grab)
+		QDEL_NULL(linked_grab)
 
 	UnregisterSignal(assailant, COMSIG_MOB_ZONE_SEL_CHANGE)
 
@@ -512,6 +512,12 @@
 	linked_grab = linked
 	linked.linked_grab = src
 	linked_grab.set_wielding()
+
+/obj/item/grab/offhand/Destroy()
+	if(linked_grab)
+		linked_grab.linked_grab = null
+		linked_grab.wielded = FALSE
+	. = ..()
 
 /obj/item/grab/offhand/process()
 	return
