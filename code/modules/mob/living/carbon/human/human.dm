@@ -1892,10 +1892,10 @@
 		playsound(src.loc, SFX_FRACTURE, 50, 1, -2)
 	current_limb.undislocate()
 
-/mob/living/carbon/human/drop_from_inventory(var/obj/item/W, var/atom/target = null)
-	if(W in organs)
+/mob/living/carbon/human/drop_from_inventory(obj/item/W, atom/target, update_icons = TRUE, force = FALSE)
+	if(!force && (W in organs))
 		return
-	..()
+	return ..()
 
 /mob/living/carbon/human/reset_view(atom/A, update_hud = 1)
 	..()
