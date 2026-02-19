@@ -12,7 +12,7 @@
 	and leathers that wrap the legs and feet. The style of footwear has existed on Adhomai for longer than recorded history \
 	and continues to survive well into the modern eras of Tajaran history. The combination of tough leathers on the feet, and \
 	insulating fabrics and furs along the legs combine the warmth and protection needed to cross Adhomai's rugged terrain. \
-	Modern Kah'Romra utilize treated fabrics and leathers for icnrease durability."
+	Modern Kah'Romra utilize treated fabrics and leathers for increase durability."
 
 // Flats.
 // since everything except the onmob is a carbon copy, we just add another onmob sprite with the proper suffix and the species restriction to avoid bloat
