@@ -25,7 +25,6 @@
 	. = ..()
 	var/obj/effect/landmark/mob_waypoint/W = locate(/obj/effect/landmark/mob_waypoint) in world
 	RegisterSignal(SSdcs, COMSIG_GLOB_MOB_DEATH, PROC_REF(mob_died))
-	RegisterSignal(new_mob, COMSIG_QDELETING, PROC_REF(mob_died))
 	if (W && W.z == src.z)
 		waypoint = W
 	if(!islist(GLOB.fauna_spawners))
@@ -40,7 +39,9 @@
 
 /obj/effect/fauna_spawner/Destroy()
 	UnregisterSignal(GLOB, COMSIG_GLOB_MOB_DEATH, PROC_REF(mob_died))
-	UnregisterSignal(new_mob, COMSIG_QDELETING, PROC_REF(mob_died))
+	for(var/mob/m in active_mobs)
+		UnregisterSignal(m, COMSIG_QDELETING)
+	active_mobs.Cut()
 	if(islist(GLOB.fauna_spawners))
 		GLOB.fauna_spawners -= src
 	return ..()
@@ -79,7 +80,6 @@
 	if (!new_mob)
 		return
 	active_mobs += new_mob
-	RegisterSignal(SSdcs, COMSIG_GLOB_MOB_DEATH, PROC_REF(mob_died))
 	RegisterSignal(new_mob, COMSIG_QDELETING, PROC_REF(mob_died))
 	if (src.waypoint && istype(new_mob, /mob/living/simple_animal/hostile))
 		var/mob/living/simple_animal/hostile/H = new_mob
@@ -89,6 +89,8 @@
 				GLOB.move_manager.move_towards(H, src.waypoint.loc, move_speed, TRUE)
 
 /obj/effect/fauna_spawner/proc/mob_died(var/mob/living/mob_ref, gibbed)
+	SIGNAL_HANDLER
+	UnregisterSignal(mob_ref, COMSIG_QDELETING)
 	for (var/i = length(active_mobs); i >= 1; i--)
 		var/mob/living/M = active_mobs[i]
 		if (!M || QDELETED(M) || M.stat == DEAD)
@@ -180,7 +182,6 @@
 		var/mob/living/new_mob = new mob_type(T)
 		active_mobs += new_mob
 
-		RegisterSignal(SSdcs, COMSIG_GLOB_MOB_DEATH, PROC_REF(mob_died))
 		RegisterSignal(new_mob, COMSIG_QDELETING, PROC_REF(mob_died))
 		if(src.waypoint && istype(new_mob, /mob/living/simple_animal/hostile))
 			var/mob/living/simple_animal/hostile/H = new_mob
