@@ -1446,9 +1446,13 @@
 /obj/structure/sign/flag/burzsia{
 	pixel_x = 33
 	},
-/obj/structure/sign/flag/galatea{
+/obj/item/clothing/head/dominia/fleet/officer{
 	pixel_y = 32;
-	pixel_x = 11
+	pixel_x = 5
+	},
+/obj/item/material/knife/bayonet{
+	pixel_y = 29;
+	pixel_x = -1
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/ranger_corvette/canteen)
@@ -4761,7 +4765,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/telecomms)
 "smG" = (
-/turf/simulated/floor/tiled/dark,
+/turf/template_noop,
 /area/template_noop)
 "smZ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -5454,7 +5458,7 @@
 	dir = 8
 	},
 /obj/effect/map_effect/marker/mapmanip/submap/insert/coc_rangerlockers,
-/turf/simulated/floor/tiled/dark,
+/turf/template_noop,
 /area/template_noop)
 "ueq" = (
 /obj/machinery/atmospherics/unary/engine,
