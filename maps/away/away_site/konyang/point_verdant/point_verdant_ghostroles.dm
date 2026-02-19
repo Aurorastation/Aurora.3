@@ -128,7 +128,7 @@
 
 /obj/outfit/admin/konyang/goon
 	name = "5-Cheung Thug"
-	uniform = /obj/item/clothing/pants/tan
+	uniform = /obj/item/clothing/pants/jeans
 	shoes = /obj/item/clothing/shoes/sneakers/black
 	id = null
 	l_pocket = /obj/item/storage/wallet/random

@@ -43,7 +43,7 @@
 				L.update_icon()
 				break
 
-	AddComponent(/datum/component/turf_hand)
+	AddComponent(TURF_HAND_COMPONENT)
 
 	update_icon()
 

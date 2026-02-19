@@ -321,13 +321,13 @@
 	req_access = list(214);
 	name = "ammunition cabinet (rifle)"
 	},
-/obj/item/ammo_magazine/boltaction,
-/obj/item/ammo_magazine/boltaction,
-/obj/item/ammo_magazine/boltaction,
-/obj/item/ammo_magazine/boltaction,
-/obj/item/ammo_magazine/boltaction,
-/obj/item/ammo_magazine/boltaction,
-/obj/item/ammo_magazine/boltaction,
+/obj/item/ammo_magazine/a68,
+/obj/item/ammo_magazine/a68,
+/obj/item/ammo_magazine/a68,
+/obj/item/ammo_magazine/a68,
+/obj/item/ammo_magazine/a68,
+/obj/item/ammo_magazine/a68,
+/obj/item/ammo_magazine/a68,
 /obj/machinery/light/small{
 	dir = 1
 	},
@@ -465,12 +465,12 @@
 	req_access = list(214);
 	name = "ammunition cabinet (automatic rifle)"
 	},
-/obj/item/ammo_magazine/c762/dpra,
-/obj/item/ammo_magazine/c762/dpra,
-/obj/item/ammo_magazine/c762/dpra,
-/obj/item/ammo_magazine/c762/dpra,
-/obj/item/ammo_magazine/c762/dpra,
-/obj/item/ammo_magazine/c762/dpra,
+/obj/item/ammo_magazine/a68,
+/obj/item/ammo_magazine/a68,
+/obj/item/ammo_magazine/a68,
+/obj/item/ammo_magazine/a68,
+/obj/item/ammo_magazine/a68,
+/obj/item/ammo_magazine/a68,
 /turf/simulated/floor/exoplanet/tiled/dark,
 /area/ala_base)
 "vJ" = (

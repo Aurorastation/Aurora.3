@@ -239,7 +239,7 @@ GLOBAL_LIST_INIT(slot_equipment_priority, list(
 
 // Removes an item from inventory and places it in the target atom.
 // If canremove or other conditions need to be checked then use unEquip instead.
-/mob/proc/drop_from_inventory(var/obj/item/W, var/atom/target)
+/mob/proc/drop_from_inventory(var/obj/item/W, var/atom/target, update_icons = TRUE, force = FALSE)
 	if(W)
 		remove_from_mob(W)
 		if(!(W && W.loc))
@@ -247,7 +247,8 @@ GLOBAL_LIST_INIT(slot_equipment_priority, list(
 		if(target)
 			W.forceMove(target)
 		W.do_drop_animation(src)
-		update_icon()
+		if(update_icons)
+			update_icon()
 		return TRUE
 	return FALSE
 
@@ -527,7 +528,7 @@ GLOBAL_LIST_INIT(slot_equipment_priority, list(
 
 /mob/proc/delete_inventory(var/include_carried = FALSE)
 	for(var/obj/item/I as anything in get_equipped_items(include_carried ? INCLUDE_POCKETS|INCLUDE_HELD : 0))
-		drop_from_inventory(I)
+		drop_from_inventory(I, null, FALSE)
 		qdel(I)
 
 /mob/proc/get_covering_equipped_items(var/body_parts)

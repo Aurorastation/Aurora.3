@@ -106,3 +106,260 @@
       clear who can wear it.
   - rscadd: Made hangar techs spawn with workboots by default, instead of with sneakers.
       Safety first.
+2026-02-05:
+  Batrachophrenoboocosmomachia:
+  - qol: Moves area blurbs entirely from chat window to status tab.
+  - code_imp: Updates comments in affected files to use dmdocs.
+  Hellfirejag:
+  - bugfix: Observers (such as Storytellers) are now always included in Narrates with
+      a filter.
+  - bugfix: Fixed admin bombs being dropped at the wrong location.
+2026-02-06:
+  AlaunusLux:
+  - balance: Greimorian servants can now see in the dark.
+  - balance: Things pulled by greimorians will always pass through webs.
+  - qol: Greimorians attempting to lay eggs or a servant now get feedback if it fails.
+  - experiment: Gives Greimorian Queens a melee attack reach of two tiles.
+  - bugfix: Greimorian servants can no longer speak Tau Ceti Basic.
+  - bugfix: Fixes Greimorian Queen icon state being set to resting if the controlling
+      player ghosts.
+  - bugfix: Fixed a runtime error that occurred when a vampire tried to suck blood
+      from a target whose mind was null.
+  Hellfirejag:
+  - refactor: Killed the last few ancient Goto statements.
+  TheGreyWolf:
+  - rscadd: The antag toolbox now also have insulated gloves fitting taj and unathi.
+2026-02-07:
+  AlaunusLux:
+  - bugfix: Fixed ghost roles falling off manifest when a player leaves the round.
+  Hellfirejag:
+  - bugfix: Fixed some situations where a character in-game could view the ooc-manifest
+      that includes off-ship roles.
+  - bugfix: Fixed mobs other than humans not moving smoothly.
+  - bugfix: Fixed mobs cheating their movement speed on diagonals.
+  - bugfix: Fixed smooth movement not working on mechs.
+  - bugfix: Fixed smooth movement not working on wheelchairs/rollerbeds/vehicles in
+      general.
+  - bugfix: Fixed mobs moving at lightspeed.
+  SimpleMaroon:
+  - bugfix: Fixed accented softcaps missing the accent on the worn and held icons.
+  TheGreyWolf:
+  - bugfix: Fixed the name of the fluff maintenance panels around the ship.
+  - rscadd: The towel now keeps its name and description when unfolded on the floor
+      and picked up again.
+  - bugfix: Fixes several light in-hand sprites.
+  - bugfix: Fixes the directional glow to be a radius instead for the torch, flare
+      and marshal wand.
+  - bugfix: Added hammers to the autolathe.
+  - bugfix: Fixed the consular and RD psi receiver boxes decaying. They get organ
+      coolers now.
+  - bugfix: Fixed minor spelling stuff for the psi receiver.
+  - bugfix: Fixes the psi receiver using the wrong sprite.
+  - bugfix: Fixes the francisca being incorrect.
+  UltraBigRat:
+  - rscadd: Added nanopaste to the uplink.
+  fyni:
+  - rscadd: Adds the Outer Eyes small and large flag, only available to mappers, ST
+      and modmins.
+  - rscadd: Adds the Outer Eyes paperwork icon, [logo_toe], available for anyone to
+      use. Don't go marking your paperwork with wierd icons though.
+2026-02-08:
+  Greenjoe:
+  - rscadd: Adds Tajara versions of several human hairstyles.
+  Hellfirejag:
+  - bugfix: Fixed closets opening themselves when pulled.
+  fyni:
+  - bugfix: Fixes an upside down sprite on the right large flag, properly capatalizes
+      flag name.
+2026-02-09:
+  Acetrea:
+  - balance: Changes the perconol recipe from water to hydrazine.
+  - balance: Slightly edits the description of mortaphenyl to reflect changes made
+      to the cargo order menu.
+  - spellcheck: Corrects 'opiod' to 'opioid'.
+  Batrachophrenoboocosmomachia:
+  - bugfix: Removes TC spawn from the Horizon's Secure Technical Storage compartment
+      (accidental inclusion).
+  GeneralCamo:
+  - rscadd: Added passive vents, that passively interact with the air outside of them.
+  - bugfix: Vent and scrubber items will now use the correct icons.
+  Helfirejag:
+  - bugfix: Fixed the credit symbol not being correctly applied when using [cr] on
+      a paper.
+  MynameAsJeff:
+  - bugfix: Fixes several airlock and wiring errors on the SSRM Corvette.
+  - bugfix: Gives the SSRM Corvette's Chief Petty Officer a proper ID.
+  - rscadd: Reworks the Sol Frigate's Officer Quarters into a single office and living
+      space.
+  - rscadd: Gives the Sol Frigate extra kit for it's armory and 'exosuit. This is
+      intended to bring the Frigate up to par with the Xanu Frigate and TCAF Corvette
+      in terms of boarding capability.
+  TheGreyWolf:
+  - rscadd: 'Added a new music cartridge with the adhomai lobby music: Adhomai vibes.'
+  - bugfix: Fixes the misplaced grating outside the commissary.
+  - rscadd: Added a request console to the commissary.
+  - rscadd: Added tape to the commissary.
+  - rscadd: Modified the disposal leading to the commissary to always output packages
+      in the customer section.
+  - bugfix: Added the missing request console to the machinist workshop.
+  - bugfix: Fixed one of the signs on the security elevator moving with the elevator.
+  - rscadd: Updated the receipt from the commissary register and the quikpay.
+  - bugfix: Fixed the quikpay not working as intended for multi-item payments.
+  - rscadd: 'Added the following options as food in the lunchbox: Hard bread, nomad
+      skewer, mashed earthen-root, earthen-root fries, scout ration and ras''val pasta.'
+  - rscadd: 'Added the following options as snacks in the lunchbox: A singular mini-avah,
+      zkahnkowa slice, roasted dirtberries.'
+  - rscadd: Canned earthen-root juice was added to the commissary drink restock pack
+      and as an option to the lunchbox.
+  Wildkins:
+  - bugfix: Fix tool interactions using the target as the tool rather than the tool.
+2026-02-10:
+  ChangeMe:
+  - rscadd: Added a changelog editing system that should cause fewer conflicts and
+      more accurate timestamps.
+  - rscdel: Killed innocent kittens.
+  FabianK3:
+  - rscadd: Updated the bounties paper design.
+  Hellfirejag:
+  - bugfix: Added a check to prevent division by 0 in ship math.
+  Wildkins:
+  - refactor: Every single datum no longer does REF(src) on /Destroy to see if it
+      has an open nanoui
+  - bugfix: Showing held items no longer causes every recording device to runtime.
+  - refactor: Every obj/item/Destroy no longer updates the held mob's icon three times.
+  - refactor: Follow menu is now a global UI and should no longer DDOS the server
+      when 50 people have it open
+  - refactor: Follow menu no longer auto-updates the list of mobs while open, use
+      the refresh button.
+  - bugfix: Fix runtime when a /human without hair or facial hair would be skeletonized
+  - refactor: Cleaned up human icon update code. Lying / direction changes no longer
+      cause four update_icon calls. Tailed species turning no longer causes six.
+  - bugfix: Fix runtime caused by detached / ownerless mechanical hands.
+  - bugfix: Fix colorspace runtime.
+  - bugfix: Fix lighting harddel caused by using improper handlers for static lights.
+  - bugfix: Lifts now grey out the current location, instead of throwing a runtime
+      when you click it.
+  - bugfix: Fix runtime when a bloodless/fakedeath mob has their pulse taken.
+2026-02-12:
+  Batrachophrenoboocosmomachia:
+  - bugfix: Fixes headphones/earbuds from causing early cutoffs in other nearby sounds
+      in several configurations.
+  JohnWildkins:
+  - bugfix: Augments given by culture (i.e. Vaurca language processors) no longer
+      get applied twice when spawning in.
+  TheGreyWolf:
+  - bugfix: Fixed that journals and notepads could not be written in when held in
+      hand.
+  - bugfix: Fixed the quik-pay not getting prices correct when clicking an item with
+      it to input it quickly.
+  - spellcheck: Standardised how the credit symbol is shown in several places, and
+      replaces several instances of credits with the symbol.
+  arrow768:
+  - server: Removes verbs to get log files from the server, use the WI, TGS or logging
+      infrastructure.
+2026-02-14:
+  Batrachophrenoboocosmomachia:
+  - rscdel: Removes 'Assembled Solar Panels' bounty from bounty pool and updates the
+      'Solar Assemblies or Trackers' with its old description referencing the phoron
+      scarcity.
+  Greenjoe:
+  - rscadd: Adds bodyguard outfits for Tau Ceti, Sol, Elyra, Nralakk and the Golden
+      Deep.
+  - bugfix: Fixes the Elyran navy uniform lacking an item icon.
+  JohnWildkins:
+  - refactor: Updates TGUI backend to hopefully reduce instability / failures to load.
+  - bugfix: Fixes TGchat scrolling issues.
+  - refactor: Change traitor uplink to use static data to improve server performance.
+  - refactor: Open UIs are now tracked by their owner datum rather than by the tgui
+      subsystem, to improve server performance when closing UIs.
+  TheGreyWolf:
+  - bugfix: Fixes Kathira's custom item cloak.
+  - bugfix: Fixed the inverted roll up/down message.
+  fyni:
+  - rscadd: Adds a red and pink heart balloon for valentines! Also adds them to the
+      random balloon pool. <3 <3
+2026-02-15:
+  JohnWildkins:
+  - bugfix: Fix lobby screen system failing to switch to the last lobby screen in
+      a set.
+2026-02-17:
+  FabianK3:
+  - rscadd: Added the alt title Foreign Service Officer to the consular job. This
+      alt title can only be selected if the citizenship is set to Sol Alliance.
+  - code_imp: Added citizenship check to job titles, allowing alt titles to be locked
+      to specific backgrounds.
+2026-02-18:
+  Batrachophrenoboocosmomachia:
+  - rscadd: Restores or migrates to contained_sprite already-existing inhands sprites
+      for MANY items.
+  - rscadd: Adds new inhand (coder)sprites for many additional items.
+  - rscadd: Ports inhand sprites for Hydraulic Rescue Tool from /tg/station.
+  - rscadd: Adds flick animation to gas analyzer.
+  - bugfix: Fixes minor issues with several inhand sprites (pixel shifting, mismatched
+      colors, etc).
+  - code_imp: Moves sprites for 'scanner' type items to all reside in icons/obj/item/scanner.dmi.
+  - code_imp: Standardizes icon_state naming conventions for several items.
+  - code_imp: Updates code docs to use DMDocs.
+  - code_imp: Consolidates scattered modular_computer sprite files to single subfolder.
+  - qol: Renames 'analyzer' to 'gas analyzer' for consistency with other 'analyzer'
+      devices.
+  - bugfix: Allows knives to be stored in cowboy boots.
+  - refactor: Ports smooth shake_camera proc from /tg/station.
+  Batrachophrenoboocosmomachia, Tomixcomics:
+  - rscadd: Adds new Inflatables and Inflatables Box inhand sprites (Tomixcomics spriting).
+  CatsinHD:
+  - imageadd: Resprites the Mrrazhak, Tsarayut, and Hotaki rifles.
+  - rscadd: Adds the Z33 Tamparii bullet.
+  - rscadd: Adds stickynotes, as well as a stickynotes pad.
+  - rscadd: Adds notepad paper and receipts. Receipts are printed for cash transactions.
+      Notepad papers are utilized by the notepad.
+  ElorgRHG:
+  - imageadd: Resprited engineering, medical and security webbings (which are now
+      thinner to not poke out from under suit clothing) and drop pouches.
+  - imageadd: Added a proper colorable sprite for the colorable drop pouches.
+  - imageadd: Resprited all jeans, black pants and colorable dress pants.
+  - rscdel: Removed tan, khaki, red, white pants due to the existance of colorable
+      dress pants. All maps and outfits where these were used now use black pants
+      (I did not want to put in the effort).
+  Hellfirejag:
+  - rscadd: Reworked mech controls to be Battletech-style. W and S are Forward and
+      Reverse throttle, while A and D rotate the mech left and right. Mechs have different
+      forward and reverse speeds based on their chassis. When reversing, your faced
+      direction doesn't change.
+  - rscadd: Reworked leg damage for mechs. A mech's movement speeds are reduced by
+      up to a certain amount based on their percentage of damage taken. Larger legs
+      can generally take more of a beating before they slow down too much.
+  - rscadd: Mechs can now strafe left and right with the Q and E keys respectively.
+  - code_imp: Added a library of Floating Point Hyperbolic functions. I just wanted
+      Hyperbolic Tangent but figured I might as well add the whole set.
+  - rscadd: Reworked the Read Mind power to be more interactive with psi-sensitivity.
+      It also now gives feedback to the victim on what message was sent.
+  - bugfix: Fixed improper sanitization for Read Mind messages.
+  - bugfix: Removed a very large variety of hard deletes.
+  - rscadd: 'Records consoles now show their appropriate records types by default,
+      EG: Medical showing full medical records, instead of only basic info.'
+  - rscdel: Medical records no longer displays Allergies, Disabilities and Diseases.
+      These were vestigial remnants of something removed from the game 10 years ago.
+2026-02-19:
+  GeneralCamo:
+  - rscadd: Changed how napalm works. Instead of directly causing turf fires, napalm
+      now creates a long-term burning turf fire.
+  - rscadd: Split Zo'rane fire and napalm. Zo'rane fire is now a much more powerful
+      version of napalm.
+  - rscadd: Added a military-grade flamethrower, capable of using napalm. Other fuels
+      instead give a 150% power bonus.
+  - balance: Standard (improvised) flamethrowers are no longer capable of using napalm.
+      They will explode if you try.
+  - rscadd: Using a wrench on a flamethrower will now prompt you to dismantle either
+      the igniter, welding tool, or whole thing.
+  - rscadd: Flamethrowers can now be upgraded in the field.
+  - balance: Reduced the cost of the standard flamethrower in the uplink from 10 to
+      6.
+  Hellfirejag:
+  - bugfix: Fixed a hard delete related to human mobs.
+  SimpleMaroon:
+  - qol: Made various adjustments to Vaurca body markings, including standardizing
+      the mecha eye palette, standardizing the mecha spine palette, removing the forced
+      green eyes from the mecha mandibles, and separating the hand panels into chassis
+      and lights.
+  - imagedel: Removed the 'large' version of the Vaurca mecha eye body markings.

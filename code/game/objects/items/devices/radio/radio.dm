@@ -556,7 +556,6 @@ var/global/list/default_interrogation_channels = list(
 		else
 			user.show_message(SPAN_NOTICE("\The [src] can no longer be modified or attached!"))
 		updateDialog()
-			//Foreach goto(83)
 		add_fingerprint(user)
 		return
 	else return

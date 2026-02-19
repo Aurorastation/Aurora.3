@@ -1,0 +1,5 @@
+author: TheGreyWolf
+delete-after: True
+
+changes:
+  - bugfix: "Fixed stickynote pad path in the map file."

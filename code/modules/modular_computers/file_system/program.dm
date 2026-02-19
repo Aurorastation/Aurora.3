@@ -110,7 +110,6 @@ ABSTRACT_TYPE(/datum/computer_file/program)
 	computer = null
 
 	. = ..()
-	GC_TEMPORARY_HARDDEL
 
 /datum/computer_file/program/ui_host()
 	if(computer)

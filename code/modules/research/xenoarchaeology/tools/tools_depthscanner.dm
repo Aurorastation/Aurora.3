@@ -6,9 +6,10 @@
 /obj/item/depth_scanner
 	name = "depth analysis scanner"
 	desc = "Used to check spatial depth and density of rock outcroppings."
-	icon = 'icons/obj/xenoarchaeology.dmi'
+	icon = 'icons/obj/item/scanner.dmi'
 	icon_state = "depth_scanner"
 	item_state = "depth_scanner"
+	contained_sprite = TRUE
 	w_class = WEIGHT_CLASS_SMALL
 	slot_flags = SLOT_BELT
 	var/list/positive_locations = list()

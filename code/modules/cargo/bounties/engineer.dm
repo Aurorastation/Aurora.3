@@ -25,7 +25,7 @@
 
 /datum/bounty/item/engineer/solar
 	name = "Solar Assemblies or Trackers"
-	description = "A meteor shower ruined some backup solar arrays on the %DOCKNAME; ship us some assemblies or tracker electronics so we can expedite repairs."
+	description = "Owing to the ongoing phoron scarcity, additional hardware has been requested by several facilities within our region of influence for the expansion of their solar arrays."
 	reward_low = 650
 	reward_high = 870
 	required_count = 6
