@@ -482,7 +482,7 @@
 /turf/simulated/floor/plating,
 /area/ship/ranger_corvette/foyer)
 "boM" = (
-/obj/machinery/ammunition_loader/francisca{
+/obj/machinery/ammunition_loader/autocannon{
 	weapon_id = "Ranger Francisca Rotary Gun"
 	},
 /turf/simulated/floor/tiled/dark,
