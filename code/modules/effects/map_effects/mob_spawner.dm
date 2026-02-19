@@ -24,15 +24,23 @@
 /obj/effect/fauna_spawner/Initialize()
 	. = ..()
 	var/obj/effect/landmark/mob_waypoint/W = locate(/obj/effect/landmark/mob_waypoint) in world
-	RegisterSignal(GLOB, COMSIG_GLOB_MOB_DEATH, PROC_REF(mob_died))
+	RegisterSignal(SSdcs, COMSIG_GLOB_MOB_DEATH, PROC_REF(mob_died))
+	RegisterSignal(new_mob, COMSIG_QDELETING, PROC_REF(mob_died))
 	if (W && W.z == src.z)
 		waypoint = W
 	if(!islist(GLOB.fauna_spawners))
 		GLOB.fauna_spawners = list()
 	GLOB.fauna_spawners |= src
+	return INITIALIZE_HINT_LATELOAD
+
+/obj/effect/fauna_spawner/LateInitialize()
+	waypoint = LAZYACCESS(GLOB.mob_waypoints, z)
+	if(!istype(waypoint))
+		qdel(src)
 
 /obj/effect/fauna_spawner/Destroy()
 	UnregisterSignal(GLOB, COMSIG_GLOB_MOB_DEATH, PROC_REF(mob_died))
+	UnregisterSignal(new_mob, COMSIG_QDELETING, PROC_REF(mob_died))
 	if(islist(GLOB.fauna_spawners))
 		GLOB.fauna_spawners -= src
 	return ..()
@@ -71,7 +79,8 @@
 	if (!new_mob)
 		return
 	active_mobs += new_mob
-	RegisterSignal(new_mob, COMSIG_GLOB_MOB_DEATH, PROC_REF(mob_died))
+	RegisterSignal(SSdcs, COMSIG_GLOB_MOB_DEATH, PROC_REF(mob_died))
+	RegisterSignal(new_mob, COMSIG_QDELETING, PROC_REF(mob_died))
 	if (src.waypoint && istype(new_mob, /mob/living/simple_animal/hostile))
 		var/mob/living/simple_animal/hostile/H = new_mob
 		H.target_waypoint = src.waypoint
@@ -171,7 +180,8 @@
 		var/mob/living/new_mob = new mob_type(T)
 		active_mobs += new_mob
 
-		RegisterSignal(new_mob, COMSIG_GLOB_MOB_DEATH, PROC_REF(mob_died))
+		RegisterSignal(SSdcs, COMSIG_GLOB_MOB_DEATH, PROC_REF(mob_died))
+		RegisterSignal(new_mob, COMSIG_QDELETING, PROC_REF(mob_died))
 		if(src.waypoint && istype(new_mob, /mob/living/simple_animal/hostile))
 			var/mob/living/simple_animal/hostile/H = new_mob
 			H.target_waypoint = src.waypoint
@@ -206,3 +216,15 @@
 
 /obj/effect/landmark/mob_waypoint
 	name = "mob waypoint"
+
+/obj/effect/landmark/mob_waypoint/Initialize(mapload)
+	. = ..()
+	var/list/z_levels = GetConnectedZlevels(z)
+	for(var/i in z_levels)
+		LAZYADDASSOCLIST(GLOB.mob_waypoints, "[i]", src)
+
+/obj/effect/landmark/mob_waypoint/Destroy()
+	var/list/z_levels = GetConnectedZlevels(z)
+	for(var/i in z_levels)
+		LAZYREMOVEASSOC(GLOB.mob_waypoints, "[i]", src)
+	return ..()

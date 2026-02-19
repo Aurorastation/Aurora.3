@@ -24,11 +24,8 @@
 	idle_power_usage = 10
 	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
 	var/hears_arrivals = FALSE
-	var/mode = 1	// 0 = Blank
-					// 1 = Shuttle timer
-					// 2 = Arbitrary message(s)
-					// 3 = alert picture
-					// 4 = Supply shuttle timer
+	var/mode = STATUS_DISPLAY_TRANSFER_SHUTTLE_TIME
+	var/last_mode = STATUS_DISPLAY_TRANSFER_SHUTTLE_TIME
 
 	var/picture_state	// icon_state of alert picture
 
@@ -41,13 +38,6 @@
 
 	var/friendc = 0      // track if Friend Computer mode
 	var/ignore_friendc = 0
-
-	var/const/STATUS_DISPLAY_BLANK = 0
-	var/const/STATUS_DISPLAY_TRANSFER_SHUTTLE_TIME = 1
-	var/const/STATUS_DISPLAY_MESSAGE = 2
-	var/const/STATUS_DISPLAY_ALERT = 3
-	var/const/STATUS_DISPLAY_TIME = 4
-	var/const/STATUS_DISPLAY_CUSTOM = 99
 
 	/// Normal text color
 	var/text_color = COLOR_DISPLAY_BLUE
@@ -80,7 +70,19 @@
 		remove_display()
 		update_lighting()
 		return
-	update()
+	if((mode == STATUS_DISPLAY_TIME) && (message2 != worldtime2text()))
+		update()
+
+/obj/machinery/status_display/update_use_power(new_use_power)
+	var/should_update = (use_power != new_use_power && (use_power == POWER_USE_OFF || new_use_power == POWER_USE_OFF))
+	. = ..()
+	if(should_update)
+		update()
+
+/obj/machinery/status_display/power_change()
+	. = ..()
+	if(.)
+		update()
 
 /obj/machinery/status_display/emp_act(severity)
 	. = ..()
@@ -362,5 +364,3 @@
 #undef LINE2_X
 #undef LINE2_Y
 #undef STATUS_DISPLAY_FONT_DATUM
-
-#undef SCROLL_PADDING
