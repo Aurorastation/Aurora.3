@@ -1,0 +1,6 @@
+author: FabianK3
+
+delete-after: True
+
+changes:
+  - bugfix: "Fixed airlocks closing immediataly after the manual override was used during APC reboots, commonly during eletrical storms."
