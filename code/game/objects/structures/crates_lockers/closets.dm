@@ -1,7 +1,7 @@
 /obj/structure/closet
 	name = "closet"
 	desc = "It's a basic storage unit."
-	icon = 'icons/obj/closet.dmi'
+	icon = 'icons/obj/containers/closet.dmi'
 	icon_state = "generic"
 	density = TRUE
 	build_amt = 2
@@ -168,8 +168,10 @@
 
 /obj/structure/closet/proc/can_open()
 	if(welded || locked)
-		return 0
-	return 1
+		return FALSE
+	if(istype(loc, /obj/structure/crate_shelf))
+		return FALSE
+	return TRUE
 
 /obj/structure/closet/proc/can_close()
 	for(var/obj/structure/closet/closet in get_turf(src))
@@ -362,7 +364,7 @@
 			var/obj/item/grab/G = attacking_item
 			mouse_drop_receive(G.affecting, user) //act like they were dragged onto the closet
 			return 0
-		if(attacking_item.isscrewdriver()) // Moved here so you can only detach linked teleporters when the door is open. So you can like unscrew and bolt the locker normally in most circumstances.
+		if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER) // Moved here so you can only detach linked teleporters when the door is open. So you can like unscrew and bolt the locker normally in most circumstances.
 			if(linked_teleporter)
 				user.visible_message(SPAN_NOTICE("\The [user] starts detaching \the [linked_teleporter] from \the [src]..."), SPAN_NOTICE("You begin detaching \the [linked_teleporter] from \the [src]..."), range = 3)
 				if(do_after(user, 30, src, DO_REPAIR_CONSTRUCT))
@@ -371,7 +373,7 @@
 					user.put_in_hands(linked_teleporter)
 					linked_teleporter = null
 				return
-		if(attacking_item.iswelder())
+		if(attacking_item.tool_behaviour == TOOL_WELDER)
 			var/obj/item/weldingtool/WT = attacking_item
 			if(WT.isOn())
 				user.visible_message(
@@ -412,20 +414,23 @@
 			user.drop_from_inventory(attacking_item,loc)
 		else
 			user.drop_item()
-	else if(istype(attacking_item, /obj/item/device/cratescanner))
-		var/obj/item/device/cratescanner/Cscanner = attacking_item
+	else if(istype(attacking_item, /obj/item/cratescanner))
+		var/obj/item/cratescanner/Cscanner = attacking_item
 		if(locked)
-			to_chat(user, SPAN_WARNING("[attacking_item] refuses to scan [src]. Unlock it first!"))
+			to_chat(user, SPAN_WARNING("[attacking_item] refuses to scan \the [src]. Unlock it first!"))
 			return
 		if(welded)
-			to_chat(user, SPAN_WARNING("[attacking_item] detects that [src] is welded shut, and refuses to scan."))
+			to_chat(user, SPAN_WARNING("[attacking_item] detects that \the [src] is welded shut, and refuses to scan."))
+			return
+		if(istype(loc, /obj/structure/crate_shelf))
+			to_chat(user, SPAN_WARNING("[attacking_item] can't scan \the [src] while it is on \the [loc]."))
 			return
 		Cscanner.print_contents(name, contents, src.loc)
 	else if(istype(attacking_item, /obj/item/stack/packageWrap))
 		return
 	else if(istype(attacking_item, /obj/item/ducttape))
 		return
-	else if(attacking_item.iswelder())
+	else if(attacking_item.tool_behaviour == TOOL_WELDER)
 		var/obj/item/weldingtool/WT = attacking_item
 		if(WT.isOn())
 			user.visible_message(
@@ -447,7 +452,7 @@
 			)
 		else
 			attack_hand(user)
-	else if(attacking_item.isscrewdriver() && canbemoved)
+	else if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER && canbemoved)
 		if(screwed)
 			to_chat(user,  SPAN_NOTICE("You start to unscrew \the [src] from the floor..."))
 			attacking_item.play_tool_sound(get_turf(src), 50)
@@ -462,7 +467,7 @@
 				to_chat(user,  SPAN_NOTICE("You screw \the [src]!"))
 				attacking_item.play_tool_sound(get_turf(src), 50)
 				screwed = TRUE
-	else if(attacking_item.iswrench() && canbemoved)
+	else if(attacking_item.tool_behaviour == TOOL_WRENCH && canbemoved)
 		if(wrenched && !screwed)
 			to_chat(user,  SPAN_NOTICE("You start to unfasten the bolts holding \the [src] in place..."))
 			attacking_item.play_tool_sound(get_turf(src), 50)
@@ -479,8 +484,8 @@
 				attacking_item.play_tool_sound(get_turf(src), 50)
 				wrenched = TRUE
 				anchored = TRUE
-	else if(istype(attacking_item, /obj/item/device/hand_labeler))
-		var/obj/item/device/hand_labeler/HL = attacking_item
+	else if(istype(attacking_item, /obj/item/hand_labeler))
+		var/obj/item/hand_labeler/HL = attacking_item
 		if(HL.mode == 1)
 			return
 		else
@@ -565,11 +570,10 @@
 /obj/structure/closet/relaymove(mob/living/user, direction)
 	. = ..()
 
-	if(user.stat || !isturf(loc))
+	if(user.stat || !isturf(loc) || user.loc != src || open())
 		return
 
-	if(!open())
-		to_chat(user, SPAN_NOTICE("It won't budge!"))
+	to_chat(user, SPAN_NOTICE("It won't budge!"))
 
 /obj/structure/closet/attack_hand(mob/user as mob)
 	add_fingerprint(user)
@@ -621,6 +625,7 @@
 			update_secure_overlays()
 
 /obj/structure/closet/proc/update_secure_overlays()
+	AddOverlays("[icon_door_overlay]securitypanel")
 	if(broken)
 		AddOverlays("[icon_door_overlay]emag")
 	else
@@ -743,6 +748,10 @@
 		return 0
 
 /obj/structure/closet/proc/mob_breakout(var/mob/living/escapee)
+	if(istype(loc, /obj/structure/crate_shelf))
+		var/obj/structure/crate_shelf/shelf = loc
+		shelf.relay_container_resist_act(escapee, src)
+		return
 
 	//Improved by nanako
 	//Now it actually works, also locker breakout time stacks with locking and welding
@@ -830,17 +839,18 @@
 	Contents Scanner
 ==========================
 */
-/obj/item/device/cratescanner
+/obj/item/cratescanner
 	name = "crate contents scanner"
 	desc = "A  handheld device used to scan and print a manifest of a container's contents. Does not work on locked crates, for privacy reasons."
-	icon = 'icons/obj/item/device/cratescanner.dmi'
-	icon_state = "cratescanner"
+	icon = 'icons/obj/item/scanner.dmi'
+	icon_state = "crate_scanner"
+	item_state = "crate_scanner"
 	matter = list(DEFAULT_WALL_MATERIAL = 250, MATERIAL_GLASS = 140)
 	w_class = WEIGHT_CLASS_SMALL
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BELT
 
-/obj/item/device/cratescanner/proc/print_contents(targetname, targetcontents, targetloc)
+/obj/item/cratescanner/proc/print_contents(targetname, targetcontents, targetloc)
 	var/output = list()
 	var/list/outputstring
 	for(var/atom/item in targetcontents)

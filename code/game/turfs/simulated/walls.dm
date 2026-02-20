@@ -1,6 +1,6 @@
 /turf/simulated/wall
 	name = "wall"
-	desc = "A huge chunk of metal used to seperate rooms."
+	desc = "A huge chunk of metal used to seperate compartments."
 	icon = 'icons/turf/smooth/wall_preview.dmi'
 	icon_state = "wall"
 	opacity = TRUE
@@ -43,9 +43,6 @@
 	var/tmp/image/damage_image
 	var/tmp/image/fake_wall_image
 	var/tmp/cached_adjacency
-
-	/// A lazylist of humans leaning on this wall.
-	var/list/hiding_humans
 
 	smoothing_flags = SMOOTH_MORE | SMOOTH_NO_CLEAR_ICON | SMOOTH_UNDERLAYS
 
@@ -94,6 +91,10 @@
 	if(locate(/obj/effect/overlay/wallrot) in src)
 		. += SPAN_WARNING("There is fungus growing on [src].")
 
+/turf/simulated/wall/mouse_drop_receive(atom/dropping, mob/user, params)
+	//Adds the component only once. We do it here & not in Initialize() because there are tons of walls & we don't want to add to their init times
+	LoadComponent(/datum/component/leanable, dropping)
+
 // Walls always hide the stuff below them.
 /turf/simulated/wall/levelupdate(mapload)
 	if (mapload)
@@ -119,7 +120,6 @@
 /turf/simulated/wall/Destroy()
 	STOP_PROCESSING(SSprocessing, src)
 	dismantle_wall(null, null, TRUE, TRUE)
-	LAZYNULL(hiding_humans)
 	return ..()
 
 /turf/simulated/wall/process()
@@ -149,7 +149,7 @@
 	var/damage = proj_damage
 
 	//cap the amount of damage, so that things like emitters can't destroy walls in one hit.
-	if(hitting_projectile.anti_materiel_potential > 1)
+	if(hitting_projectile.anti_materiel_potential <= 1)
 		damage = min(proj_damage, 100)
 
 	take_damage(damage)
@@ -313,81 +313,3 @@
 
 /turf/simulated/wall/is_wall()
 	return TRUE
-
-/turf/simulated/wall/mouse_drop_receive(atom/dropped, mob/user, params)
-	if(!ismob(dropped))
-		return
-
-	var/mob/living/carbon/human/current_mob = dropped
-
-	// wall leaning by androbetel
-	if(!ishuman(current_mob))
-		return
-
-	if(current_mob != user)
-		return
-
-	var/mob/living/carbon/hiding_human = current_mob
-	var/can_lean = TRUE
-
-	if(istype(user.l_hand, /obj/item/grab) || istype(user.r_hand, /obj/item/grab))
-		to_chat(user, SPAN_WARNING("You can't lean while grabbing someone!"))
-		can_lean = FALSE
-	if(current_mob.incapacitated())
-		to_chat(user, SPAN_WARNING("You can't lean while incapacitated!"))
-		can_lean = FALSE
-	if(current_mob.resting)
-		to_chat(user, SPAN_WARNING("You can't lean while resting!"))
-		can_lean = FALSE
-	if(current_mob.buckled_to)
-		to_chat(user, SPAN_WARNING("You can't lean while buckled!"))
-		can_lean = FALSE
-
-	var/direction = get_dir(src, current_mob)
-	var/shift_pixel_x = 0
-	var/shift_pixel_y = 0
-
-	if(!can_lean)
-		return
-	switch(direction)
-		if(NORTH)
-			shift_pixel_y = -10
-		if(SOUTH)
-			shift_pixel_y = 16
-		if(WEST)
-			shift_pixel_x = 10
-		if(EAST)
-			shift_pixel_x = -10
-		else
-			return
-
-	for(var/mob/living/carbon/human/hiding in hiding_humans)
-		if(hiding_humans[hiding] == direction)
-			return
-
-	LAZYADD(hiding_humans, current_mob)
-	hiding_humans[current_mob] = direction
-	hiding_human.Moved() //just to be safe
-	hiding_human.set_dir(direction)
-	animate(hiding_human, pixel_x = shift_pixel_x, pixel_y = shift_pixel_y, time = 1)
-	if(direction == NORTH)
-		hiding_human.add_filter("cutout", 1, alpha_mask_filter(icon = icon('icons/effects/effects.dmi', "cutout")))
-	hiding_human.density = FALSE
-	ADD_TRAIT(hiding_human, TRAIT_UNDENSE, TRAIT_SOURCE_WALL_LEANING)
-	RegisterSignals(hiding_human, list(COMSIG_MOVABLE_MOVED, COMSIG_MOB_RESISTED), PROC_REF(unhide_human), hiding_human)
-	..()
-
-/turf/simulated/wall/proc/unhide_human(mob/living/carbon/human/to_unhide)
-	SIGNAL_HANDLER
-	if(!to_unhide)
-		return
-
-	to_unhide.density = FALSE
-	to_unhide.pixel_x = initial(to_unhide.pixel_x)
-	to_unhide.pixel_y = initial(to_unhide.pixel_y)
-	to_unhide.layer = initial(to_unhide.layer)
-	LAZYREMOVE(hiding_humans, to_unhide)
-	UnregisterSignal(to_unhide, list(COMSIG_MOVABLE_MOVED, COMSIG_MOB_RESISTED))
-	to_chat(to_unhide, SPAN_NOTICE("You stop leaning on the wall."))
-	REMOVE_TRAIT(to_unhide, TRAIT_UNDENSE, TRAIT_SOURCE_WALL_LEANING)
-	to_unhide.remove_filter("cutout")

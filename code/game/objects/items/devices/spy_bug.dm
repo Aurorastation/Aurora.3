@@ -1,4 +1,4 @@
-/obj/item/device/spy_bug
+/obj/item/spy_bug
 	name = "bug"
 	desc = ""	// Nothing to see here
 	icon = 'icons/obj/weapons.dmi'
@@ -16,40 +16,40 @@
 
 	origin_tech = list(TECH_DATA = 1, TECH_ENGINEERING = 1, TECH_ILLEGAL = 3)
 
-	var/obj/item/device/radio/spy/radio
+	var/obj/item/radio/spy/radio
 	var/obj/machinery/camera/spy/camera
 
-/obj/item/device/spy_bug/mechanics_hints(mob/user, distance, is_adjacent)
+/obj/item/spy_bug/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	if(distance <= 0)
 		. += "Needs to be both configured and brought in contact with monitor device to be fully functional."
 		. += "A pen can be used to label the device on a given network."
 
-/obj/item/device/spy_bug/feedback_hints(mob/user, distance, is_adjacent)
+/obj/item/spy_bug/feedback_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	if(distance <= 0)
 		. += "It's a tiny camera, microphone, and transmission device in a happy union."
 
-/obj/item/device/spy_bug/New()
+/obj/item/spy_bug/New()
 	..()
 	radio = new(src)
 	camera = new(src)
 	become_hearing_sensitive(ROUNDSTART_TRAIT)
 
-/obj/item/device/spy_bug/attack_self(mob/user)
+/obj/item/spy_bug/attack_self(mob/user)
 	radio.set_broadcasting(!radio.get_broadcasting())
 	to_chat(user, "\The [src]'s radio is [radio.get_broadcasting() ? "broadcasting" : "not broadcasting"] now. The current frequency is [radio.get_frequency()].")
 	radio.attack_self(user)
 
-/obj/item/device/spy_bug/attackby(obj/item/attacking_item, mob/user)
+/obj/item/spy_bug/attackby(obj/item/attacking_item, mob/user)
 	if(!istype(user))
 		return
 
-	if(istype(attacking_item, /obj/item/device/spy_monitor))
-		var/obj/item/device/spy_monitor/SM = attacking_item
+	if(istype(attacking_item, /obj/item/spy_monitor))
+		var/obj/item/spy_monitor/SM = attacking_item
 		SM.pair(src, user)
 		return TRUE
-	if(attacking_item.ispen())
+	if(attacking_item.tool_behaviour == TOOL_PEN)
 		var/n_tag = sanitizeSafe( tgui_input_text(user, "What would you like to label the camera?", "Bug Labelling", default = camera.c_tag, max_length = MAX_NAME_LEN), MAX_NAME_LEN )
 		if(Adjacent(user) && user.stat == CONSCIOUS && n_tag)
 			camera.c_tag = n_tag
@@ -58,14 +58,14 @@
 	else
 		return ..()
 
-/obj/item/device/spy_bug/hear_talk(mob/M, var/msg, verb, datum/language/speaking)
+/obj/item/spy_bug/hear_talk(mob/M, var/msg, verb, datum/language/speaking)
 	radio.hear_talk(M, msg, verb, speaking)
 
 
-/obj/item/device/spy_monitor
+/obj/item/spy_monitor
 	name = "\improper PDA"
 	desc = "A portable microcomputer by Thinktronic Systems, LTD. Functionality determined by a preprogrammed ROM cartridge."
-	icon = 'icons/obj/pda.dmi'
+	icon = 'icons/obj/modular_computers/pda.dmi'
 	icon_state = "pda"
 	item_state = "electronic"
 
@@ -74,37 +74,37 @@
 	origin_tech = list(TECH_DATA = 1, TECH_ENGINEERING = 1, TECH_ILLEGAL = 3)
 
 	var/operating = 0
-	var/obj/item/device/radio/spy/radio
+	var/obj/item/radio/spy/radio
 	var/obj/machinery/camera/spy/selected_camera
 	var/list/obj/machinery/camera/spy/cameras = new()
 
-/obj/item/device/spy_monitor/feedback_hints(mob/user, distance, is_adjacent)
+/obj/item/spy_monitor/feedback_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	if(distance <= 1)
 		. += "The time '12:00' is blinking in the corner of the screen and \the [src] looks very cheaply made."
 
-/obj/item/device/spy_monitor/New()
+/obj/item/spy_monitor/New()
 	radio = new(src)
 	become_hearing_sensitive(ROUNDSTART_TRAIT)
 
-/obj/item/device/spy_monitor/attack_self(mob/user)
+/obj/item/spy_monitor/attack_self(mob/user)
 	if(operating)
 		return
 
 	radio.attack_self(user)
 	view_cameras(user)
 
-/obj/item/device/spy_monitor/attackby(obj/item/attacking_item, mob/user)
+/obj/item/spy_monitor/attackby(obj/item/attacking_item, mob/user)
 	if(!istype(user))
 		return
 
-	if(istype(attacking_item, /obj/item/device/spy_bug))
+	if(istype(attacking_item, /obj/item/spy_bug))
 		pair(attacking_item, user)
 		return TRUE
 	else
 		return ..()
 
-/obj/item/device/spy_monitor/proc/pair(var/obj/item/device/spy_bug/SB, var/mob/living/user)
+/obj/item/spy_monitor/proc/pair(var/obj/item/spy_bug/SB, var/mob/living/user)
 	if(SB.camera in cameras)
 		to_chat(user, SPAN_NOTICE("\The [SB] has been unpaired from \the [src]."))
 		cameras -= SB.camera
@@ -112,7 +112,7 @@
 		to_chat(user, SPAN_NOTICE("\The [SB] has been paired with \the [src]."))
 		cameras += SB.camera
 
-/obj/item/device/spy_monitor/proc/view_cameras(mob/user)
+/obj/item/spy_monitor/proc/view_cameras(mob/user)
 	if(!can_use_cam(user))
 		return
 
@@ -125,7 +125,7 @@
 	selected_camera = null
 	operating = FALSE
 
-/obj/item/device/spy_monitor/proc/view_camera(mob/user)
+/obj/item/spy_monitor/proc/view_camera(mob/user)
 	spawn(0)
 		while(selected_camera && Adjacent(user))
 			var/turf/T = get_turf(selected_camera)
@@ -141,7 +141,7 @@
 		user.unset_machine()
 		user.reset_view(null)
 
-/obj/item/device/spy_monitor/proc/can_use_cam(mob/user)
+/obj/item/spy_monitor/proc/can_use_cam(mob/user)
 	if(operating)
 		return
 
@@ -152,7 +152,7 @@
 
 	return 1
 
-/obj/item/device/spy_monitor/hear_talk(mob/M, var/msg, verb, datum/language/speaking)
+/obj/item/spy_monitor/hear_talk(mob/M, var/msg, verb, datum/language/speaking)
 	return radio.hear_talk(M, msg, speaking)
 
 
@@ -172,12 +172,12 @@
 /obj/machinery/camera/spy/check_eye(var/mob/user as mob)
 	return FALSE
 
-/obj/item/device/radio/spy
+/obj/item/radio/spy
 	canhear_range = 7
 	name = "spy device"
 	icon_state = "syn_cypherkey"
 
-/obj/item/device/radio/spy/Initialize()
+/obj/item/radio/spy/Initialize()
 	. = ..()
 	set_broadcasting(FALSE)
 	set_listening(FALSE)

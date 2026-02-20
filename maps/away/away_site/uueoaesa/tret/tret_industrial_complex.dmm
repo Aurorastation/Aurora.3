@@ -1003,7 +1003,7 @@
 /obj/effect/floor_decal/industrial/outline_straight/grey{
 	dir = 8
 	},
-/obj/item/device/flashlight/lantern{
+/obj/item/flashlight/lantern{
 	pixel_x = -9;
 	pixel_y = 4
 	},
@@ -3169,7 +3169,7 @@
 /area/tret_industrial/outside/surface)
 "asG" = (
 /obj/random/dirt_75,
-/obj/item/device/flashlight/lantern{
+/obj/item/flashlight/lantern{
 	pixel_x = -9;
 	pixel_y = 6
 	},
@@ -4649,8 +4649,8 @@
 /obj/item/reagent_containers/glass/bucket,
 /obj/item/clothing/gloves/botanic_leather/vaurca,
 /obj/item/clothing/gloves/botanic_leather/vaurca,
-/obj/item/device/analyzer/plant_analyzer,
-/obj/item/device/analyzer/plant_analyzer,
+/obj/item/analyzer/plant_analyzer,
+/obj/item/analyzer/plant_analyzer,
 /turf/simulated/floor/tiled/slate,
 /area/tret_industrial/inside/botany)
 "aFu" = (
@@ -5127,11 +5127,11 @@
 "aJi" = (
 /obj/structure/table/reinforced/steel,
 /obj/machinery/light/colored/decayed/dimmed,
-/obj/item/device/radio/hailing{
+/obj/item/radio/hailing{
 	pixel_x = -3;
 	pixel_y = 6
 	},
-/obj/item/device/radio/hailing{
+/obj/item/radio/hailing{
 	pixel_x = 4;
 	pixel_y = 5
 	},
@@ -5358,7 +5358,7 @@
 /obj/item/folder/yellow{
 	pixel_y = 2
 	},
-/obj/item/device/radio/intercom/hailing/north,
+/obj/item/radio/intercom/hailing/north,
 /turf/simulated/floor/tiled/slate,
 /area/tret_industrial/inside/comms)
 "aLb" = (
@@ -8005,8 +8005,8 @@
 /obj/effect/floor_decal/industrial/outline_straight/red{
 	dir = 4
 	},
-/obj/item/device/flashlight,
-/obj/item/device/flashlight,
+/obj/item/flashlight,
+/obj/item/flashlight,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/tret_industrial/main)
 "flS" = (
@@ -8401,7 +8401,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/tret_industrial/inside/crew)
 "gxE" = (
-/obj/item/device/analyzer{
+/obj/item/analyzer{
 	pixel_x = -14;
 	pixel_y = -12
 	},
@@ -8448,7 +8448,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/tret_industrial/inside/hallway_docks)
 "gLk" = (
-/obj/item/device/radio/intercom/hailing/north,
+/obj/item/radio/intercom/hailing/north,
 /obj/machinery/computer/ship/helm/terminal{
 	dir = 8
 	},
@@ -8706,11 +8706,11 @@
 "hCb" = (
 /obj/machinery/light/small/emergency,
 /obj/structure/table/steel,
-/obj/item/device/radio/hailing{
+/obj/item/radio/hailing{
 	pixel_x = -3;
 	pixel_y = 6
 	},
-/obj/item/device/radio/hailing{
+/obj/item/radio/hailing{
 	pixel_x = 4;
 	pixel_y = 5
 	},
@@ -9505,7 +9505,7 @@
 /area/shuttle/tret_industrial/main)
 "kqB" = (
 /obj/structure/table/reinforced/steel,
-/obj/item/device/multitool{
+/obj/item/multitool{
 	pixel_x = 3;
 	pixel_y = 3
 	},
@@ -10192,7 +10192,7 @@
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/engineering)
 "nvo" = (
-/obj/item/storage/box/dynamite{
+/obj/item/storage/box/unique/dynamite{
 	pixel_x = 4;
 	pixel_y = 5
 	},
@@ -10493,7 +10493,7 @@
 /obj/machinery/light/small/emergency{
 	dir = 8
 	},
-/obj/item/device/flashlight/lantern{
+/obj/item/flashlight/lantern{
 	pixel_x = -5;
 	pixel_y = 10
 	},
@@ -12522,7 +12522,7 @@
 	pixel_x = -7;
 	pixel_y = 5
 	},
-/obj/item/device/flashlight/lantern{
+/obj/item/flashlight/lantern{
 	pixel_x = 5;
 	pixel_y = 6
 	},
@@ -12820,7 +12820,7 @@
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/hallway_comms)
 "wLH" = (
-/obj/item/device/flashlight/lantern{
+/obj/item/flashlight/lantern{
 	pixel_x = -9;
 	pixel_y = 4
 	},
@@ -13015,7 +13015,7 @@
 "xES" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/random/dirt_75,
-/obj/item/device/flashlight/lantern{
+/obj/item/flashlight/lantern{
 	pixel_x = -5;
 	pixel_y = 10
 	},

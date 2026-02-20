@@ -30,17 +30,17 @@
 	if(istype(attacking_item, /obj/item/book))
 		user.drop_from_inventory(attacking_item,src)
 		update_icon()
-	else if(attacking_item.ispen())
+	else if(attacking_item.tool_behaviour == TOOL_PEN)
 		var/newname = sanitizeSafe(input("What would you like to title this bookshelf?"), MAX_NAME_LEN)
 		if(!newname)
 			return
 		else
 			name = ("bookcase ([newname])")
-	else if(attacking_item.iswrench())
+	else if(attacking_item.tool_behaviour == TOOL_WRENCH)
 		attacking_item.play_tool_sound(get_turf(src), 100)
 		to_chat(user, (anchored ? SPAN_NOTICE("You unfasten \the [src] from the floor.") : SPAN_NOTICE("You secure \the [src] to the floor.")))
 		anchored = !anchored
-	else if(attacking_item.isscrewdriver())
+	else if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 		to_chat(user, SPAN_NOTICE("You begin dismantling \the [src]."))
 		if(attacking_item.use_tool(src, user, 25, volume = 50))
 			to_chat(user, SPAN_NOTICE("You dismantle \the [src]."))
@@ -222,7 +222,7 @@
 	if(src.dat)
 		user << browse(HTML_SKELETON("<TT><I>Penned by [author].</I></TT> <BR>" + "[dat]"), "window=book")
 		user.visible_message("[user] opens a book titled \"[src.title]\" and begins reading intently.")
-		playsound(loc, 'sound/bureaucracy/bookopen.ogg', 50, TRUE)
+		playsound(loc, 'sound/items/bureaucracy/bookopen.ogg', 50, TRUE)
 		onclose(user, "book")
 	else
 		to_chat(user, "This book is completely blank!")
@@ -241,7 +241,7 @@
 		else
 			to_chat(user, SPAN_NOTICE("There's already something in [title]!"))
 			return
-	if(attacking_item.ispen())
+	if(attacking_item.tool_behaviour == TOOL_PEN)
 		if(unique)
 			to_chat(user, "These pages don't seem to take the ink well. Looks like you can't modify it.")
 			return
@@ -300,12 +300,12 @@
 							return
 					scanner.computer.inventory.Add(src)
 					to_chat(user, "[attacking_item]'s screen flashes: 'Book stored in buffer. Title added to general inventory.'")
-	else if(istype(attacking_item, /obj/item/material/knife) || attacking_item.iswirecutter())
+	else if(istype(attacking_item, /obj/item/material/knife) || attacking_item.tool_behaviour == TOOL_WIRECUTTER)
 		if(carved)	return
 		to_chat(user, SPAN_NOTICE("You begin to carve out [title]."))
 		if(attacking_item.use_tool(src, user, 30, volume = 50))
 			to_chat(user, SPAN_NOTICE("You carve out the pages from [title]! You didn't want to read it anyway."))
-			playsound(loc, 'sound/bureaucracy/papercrumple.ogg', 50, 1)
+			playsound(loc, 'sound/items/bureaucracy/papercrumple.ogg', 50, 1)
 			new /obj/item/shreddedp(get_turf(src))
 			carved = 1
 			return

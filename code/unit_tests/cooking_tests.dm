@@ -33,7 +33,7 @@
 
 		// Fuck you asfaghewqWAFAWE
 		// See /singleton/recipe/proc/check_fruit(...) in recipe.dm for why
-		if(S.get_trait(TRAIT_FLESH_COLOUR))
+		if(GET_SEED_TRAIT(S, TRAIT_FLESH_COLOUR))
 			tags += "[ktag] slice"
 			tags += "dried [ktag] slice"
 		tags += "dried [ktag]"

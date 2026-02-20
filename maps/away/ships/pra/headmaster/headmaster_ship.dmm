@@ -252,7 +252,7 @@
 	dir = 8
 	},
 /obj/structure/lattice/catwalk/indoor/grate/dark,
-/obj/item/device/gps/stationary{
+/obj/item/gps/stationary{
 	pixel_y = -28;
 	gps_prefix = "KOSMO";
 	gpstag = "HEADMASTER";
@@ -1366,7 +1366,7 @@
 /obj/item/clothing/head/hardhat,
 /obj/item/clothing/ears/earmuffs,
 /obj/item/clothing/glasses/safety/goggles,
-/obj/item/device/binoculars,
+/obj/item/binoculars,
 /obj/item/storage/toolbox/mechanical,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full{
@@ -3377,7 +3377,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 8
 	},
-/obj/item/device/gps/stationary{
+/obj/item/gps/stationary{
 	pixel_y = 32;
 	gps_prefix = "KOSMO";
 	gpstag = "KOSMOSHUTTLE";
@@ -3602,11 +3602,11 @@
 	pixel_x = -5;
 	pixel_y = 4
 	},
-/obj/item/device/camera_film/taj_film{
+/obj/item/camera_film/taj_film{
 	pixel_x = 12;
 	pixel_y = 6
 	},
-/obj/item/device/camera_film/taj_film{
+/obj/item/camera_film/taj_film{
 	pixel_x = 19;
 	pixel_y = 4
 	},
@@ -5997,7 +5997,7 @@
 /area/headmaster_ship/mess_hall)
 "xd" = (
 /obj/structure/table/wood,
-/obj/item/device/flashlight/lamp/green{
+/obj/item/flashlight/lamp/green{
 	pixel_y = 14;
 	pixel_x = -7
 	},
@@ -6069,7 +6069,7 @@
 	dir = 10
 	},
 /obj/structure/table/wood,
-/obj/item/device/flashlight/lamp/green{
+/obj/item/flashlight/lamp/green{
 	pixel_y = 12;
 	pixel_x = -4
 	},
@@ -6101,11 +6101,11 @@
 "xD" = (
 /obj/structure/table/reinforced/steel,
 /obj/effect/floor_decal/industrial/hatch/grey,
-/obj/item/device/binoculars/high_power{
+/obj/item/binoculars/high_power{
 	pixel_x = 1;
 	pixel_y = 7
 	},
-/obj/item/device/binoculars{
+/obj/item/binoculars{
 	pixel_x = 1;
 	pixel_y = -2
 	},
@@ -6170,12 +6170,12 @@
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/item/clothing/head/helmet/pilot,
 /obj/item/clothing/head/helmet/pilot,
-/obj/item/device/radio/hailing,
-/obj/item/device/radio/hailing,
-/obj/item/device/binoculars{
+/obj/item/radio/hailing,
+/obj/item/radio/hailing,
+/obj/item/binoculars{
 	pixel_y = -3
 	},
-/obj/item/device/binoculars/high_power{
+/obj/item/binoculars/high_power{
 	pixel_y = 3
 	},
 /obj/item/storage/toolbox/mechanical,
@@ -6312,7 +6312,7 @@
 /obj/effect/floor_decal/corner/red{
 	dir = 9
 	},
-/obj/item/device/camera/adhomai{
+/obj/item/camera/adhomai{
 	pixel_y = 11;
 	pixel_x = 2
 	},
@@ -6368,7 +6368,7 @@
 	dir = 4;
 	pixel_x = 32
 	},
-/obj/item/device/flashlight/lamp/green{
+/obj/item/flashlight/lamp/green{
 	pixel_y = 14;
 	pixel_x = 7
 	},
@@ -6994,11 +6994,11 @@
 /obj/effect/floor_decal/corner/red{
 	dir = 9
 	},
-/obj/item/device/camera_film/taj_film{
+/obj/item/camera_film/taj_film{
 	pixel_x = -4;
 	pixel_y = 2
 	},
-/obj/item/device/camera_film/taj_film{
+/obj/item/camera_film/taj_film{
 	pixel_x = 3
 	},
 /turf/simulated/floor/tiled/dark{
@@ -7118,7 +7118,7 @@
 /obj/item/clothing/suit/radiation,
 /obj/item/clothing/head/radiation,
 /obj/item/storage/box/fancy/med_pouch/radiation,
-/obj/item/device/geiger,
+/obj/item/geiger,
 /turf/simulated/floor{
 	temperature = 278.15
 	},
@@ -7215,12 +7215,12 @@
 	req_access = list(209);
 	name = "gun cabinet (rifle ammo)"
 	},
-/obj/item/ammo_magazine/boltaction,
-/obj/item/ammo_magazine/boltaction,
-/obj/item/ammo_magazine/boltaction,
-/obj/item/ammo_magazine/boltaction,
-/obj/item/ammo_magazine/boltaction,
-/obj/item/ammo_magazine/boltaction,
+/obj/item/ammo_magazine/a68,
+/obj/item/ammo_magazine/a68,
+/obj/item/ammo_magazine/a68,
+/obj/item/ammo_magazine/a68,
+/obj/item/ammo_magazine/a68,
+/obj/item/ammo_magazine/a68,
 /obj/item/ammo_magazine/submachinedrum,
 /obj/item/ammo_magazine/submachinedrum,
 /obj/item/ammo_magazine/submachinedrum,
@@ -7471,7 +7471,7 @@
 /area/headmaster_ship/infirmary)
 "DV" = (
 /obj/structure/table/glass,
-/obj/item/device/versebook/pra{
+/obj/item/versebook/pra{
 	pixel_x = -6;
 	pixel_y = 2
 	},
@@ -7640,11 +7640,11 @@
 	pixel_x = 3;
 	pixel_y = 8
 	},
-/obj/item/device/spaceflare{
+/obj/item/spaceflare{
 	pixel_y = 1;
 	pixel_x = -5
 	},
-/obj/item/device/spaceflare{
+/obj/item/spaceflare{
 	pixel_y = 3;
 	pixel_x = 6
 	},
@@ -7710,7 +7710,7 @@
 	},
 /obj/structure/table/reinforced/steel,
 /obj/effect/floor_decal/industrial/hatch/grey,
-/obj/item/device/taperecorder{
+/obj/item/taperecorder{
 	pixel_x = -4;
 	pixel_y = 4
 	},
@@ -7912,11 +7912,11 @@
 "FZ" = (
 /obj/structure/table/reinforced/steel,
 /obj/effect/floor_decal/industrial/hatch/grey,
-/obj/item/device/radio/hailing{
+/obj/item/radio/hailing{
 	pixel_x = -6;
 	pixel_y = 6
 	},
-/obj/item/device/radio{
+/obj/item/radio{
 	pixel_x = 7;
 	pixel_y = 6
 	},
@@ -8387,7 +8387,7 @@
 /area/shuttle/headmaster_shuttle)
 "HW" = (
 /obj/structure/table/glass,
-/obj/item/device/versebook/pra{
+/obj/item/versebook/pra{
 	pixel_x = 6;
 	pixel_y = 2
 	},
@@ -8770,7 +8770,7 @@
 	dir = 5
 	},
 /obj/structure/table/wood,
-/obj/item/device/versebook/pra{
+/obj/item/versebook/pra{
 	pixel_y = 2
 	},
 /turf/simulated/floor/wood{
@@ -8873,7 +8873,7 @@
 /obj/item/storage/box/syringes{
 	pixel_x = -7
 	},
-/obj/item/storage/box/sharps{
+/obj/item/storage/box/unique/sharps{
 	pixel_x = 8
 	},
 /obj/item/reagent_containers/spray/cleaner{
@@ -8944,12 +8944,7 @@
 	},
 /area/headmaster_ship/dock/starboard)
 "KP" = (
-/obj/machinery/autolathe{
-	desc = "Your typical Autolathe. It appears to have much more options than your regular one, however...";
-	hacked = 1;
-	name = "Modified Autolathe";
-	req_access = list(209)
-	},
+/obj/machinery/fabricator/autolathe/hacked,
 /obj/effect/floor_decal/industrial/hatch/engineering,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full{
@@ -8990,7 +8985,7 @@
 	pixel_x = 3;
 	pixel_y = 9
 	},
-/obj/item/device/robotanalyzer,
+/obj/item/robotanalyzer,
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full{
@@ -9272,7 +9267,7 @@
 /obj/item/storage/belt/medical,
 /obj/item/reagent_containers/hypospray,
 /obj/item/clothing/accessory/stethoscope,
-/obj/item/device/mass_spectrometer,
+/obj/item/mass_spectrometer,
 /obj/item/cane/crutch,
 /obj/item/cane/crutch,
 /obj/item/material/stool/chair/wheelchair,
@@ -9495,18 +9490,18 @@
 /obj/item/reagent_containers/food/drinks/carton/fatshouters,
 /obj/item/reagent_containers/food/condiment/sugar,
 /obj/item/reagent_containers/food/condiment/sugar,
-/obj/item/storage/box/produce,
-/obj/item/storage/box/produce,
+/obj/item/storage/box/large/produce,
+/obj/item/storage/box/large/produce,
 /obj/item/storage/box/fancy/egg_box,
 /obj/item/storage/box/fancy/egg_box,
 /obj/item/reagent_containers/food/condiment/flour,
 /obj/item/reagent_containers/food/condiment/flour,
 /obj/structure/closet/secure_closet/refrigerator,
 /obj/item/reagent_containers/food/condiment/enzyme,
-/obj/item/storage/box/condiment{
+/obj/item/storage/box/large/condiment{
 	pixel_y = 2
 	},
-/obj/item/storage/box/condimentbottles{
+/obj/item/storage/box/large/condimentbottles{
 	pixel_y = 5
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
@@ -9971,7 +9966,7 @@
 	dir = 4
 	},
 /obj/structure/table/standard,
-/obj/item/device/hand_labeler{
+/obj/item/hand_labeler{
 	pixel_y = 5
 	},
 /obj/machinery/atmospherics/unary/vent_pump/on{
@@ -10126,7 +10121,7 @@
 	pixel_y = -32
 	},
 /obj/effect/floor_decal/industrial/hatch/grey,
-/obj/item/device/camera/adhomai{
+/obj/item/camera/adhomai{
 	pixel_y = 9;
 	pixel_x = -2
 	},
@@ -10629,27 +10624,27 @@
 /obj/item/tank/jetpack/oxygen,
 /obj/item/tank/jetpack/oxygen,
 /obj/item/tank/jetpack/oxygen,
-/obj/item/device/gps{
+/obj/item/gps{
 	gps_prefix = "KOSMO";
 	gpstag = "KOSMO0"
 	},
-/obj/item/device/gps{
+/obj/item/gps{
 	gps_prefix = "KOSMO";
 	gpstag = "KOSMO0"
 	},
-/obj/item/device/gps{
+/obj/item/gps{
 	gps_prefix = "KOSMO";
 	gpstag = "KOSMO0"
 	},
-/obj/item/device/gps{
+/obj/item/gps{
 	gps_prefix = "KOSMO";
 	gpstag = "KOSMO0"
 	},
-/obj/item/device/gps{
+/obj/item/gps{
 	gps_prefix = "KOSMO";
 	gpstag = "KOSMO0"
 	},
-/obj/item/device/gps{
+/obj/item/gps{
 	gps_prefix = "KOSMO";
 	gpstag = "KOSMO0"
 	},
@@ -11522,11 +11517,11 @@
 "Wd" = (
 /obj/structure/table/reinforced/steel,
 /obj/effect/floor_decal/industrial/hatch/grey,
-/obj/item/device/radio/hailing{
+/obj/item/radio/hailing{
 	pixel_x = -6;
 	pixel_y = 6
 	},
-/obj/item/device/radio{
+/obj/item/radio{
 	pixel_x = 7;
 	pixel_y = 6
 	},
@@ -12249,7 +12244,7 @@
 /obj/item/clothing/under/tajaran/cosmonaut/commissar,
 /obj/item/clothing/head/tajaran/cosmonaut_commissar,
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
-/obj/item/device/megaphone,
+/obj/item/megaphone,
 /obj/item/clothing/accessory/flagpatch/pra,
 /obj/machinery/light/floor{
 	dir = 1

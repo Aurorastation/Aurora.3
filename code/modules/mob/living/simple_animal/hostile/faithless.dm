@@ -64,10 +64,6 @@
 /mob/living/simple_animal/hostile/faithless/cult/cultify()
 	return
 
-/mob/living/simple_animal/hostile/faithless/cult/Life(seconds_per_tick, times_fired)
-	..()
-	check_horde()
-
 /mob/living/simple_animal/hostile/faithless/can_fall()
 	return FALSE
 

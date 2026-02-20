@@ -319,7 +319,7 @@
 			var/obj/item/material/shard/S = material.place_shard(T)
 			M.embed(S)
 
-	playsound(src.loc, /singleton/sound_category/glass_break_sound, 70, 1)
+	playsound(src.loc, SFX_BREAK_GLASS, 70, 1)
 	qdel(src)
 
 /obj/item/clothing/suit/armor/handle_shield(mob/user, var/on_back, var/damage, atom/damage_source = null, mob/attacker = null, var/def_zone = null, var/attack_text = "the attack")
@@ -423,10 +423,6 @@
 	w_class = WEIGHT_CLASS_TINY
 	throwforce = 2
 	slot_flags = SLOT_EARS
-
-	sprite_sheets = list(
-		BODYTYPE_TAJARA = 'icons/mob/species/tajaran/l_ear.dmi',
-		)
 
 /obj/item/clothing/ears/attack_hand(mob/user as mob)
 	if (!user) return
@@ -600,7 +596,6 @@
 	body_parts_covered = HEAD
 	slot_flags = SLOT_HEAD
 	w_class = WEIGHT_CLASS_SMALL
-	uv_intensity = 50 //Light emitted by this object or creature has limited interaction with diona
 	species_restricted = list("exclude",BODYTYPE_VAURCA_BREEDER,BODYTYPE_VAURCA_WARFORM,BODYTYPE_TESLA_BODY)
 
 	drop_sound = 'sound/items/drop/hat.ogg'
@@ -608,13 +603,14 @@
 
 	valid_accessory_slots = list(ACCESSORY_SLOT_HEAD)
 
+	light_system = DIRECTIONAL_LIGHT
+
 	/// In case if you want to allow someone to switch the BLOCKHEADHAIR var from the helmet or not
 	var/allow_hair_covering = TRUE
 
 	var/light_overlay = "helmet_light"
 	var/light_applied
-	var/brightness_on
-	var/on = 0
+	var/on = FALSE
 	var/protects_against_weather = FALSE
 
 /obj/item/clothing/head/Initialize(mapload, material_key)
@@ -638,22 +634,22 @@
 	return on
 
 /obj/item/clothing/head/attack_self(mob/user)
-	if(brightness_on)
+	if(light_range)
 		if(!isturf(user.loc))
 			to_chat(user, "You cannot turn the light on while in this [user.loc]")
 			return
 		on = !on
-		to_chat(user, "You [on ? "enable" : "disable"] the helmet light.")
+		to_chat(user, SPAN_NOTICE("You [on ? "enable" : "disable"] the helmet light."))
 		update_flashlight(user)
 	else
 		return ..(user)
 
 /obj/item/clothing/head/proc/update_flashlight(var/mob/user = null)
 	if(on && !light_applied)
-		set_light(brightness_on)
+		set_light_on(on)
 		light_applied = 1
 	else if(!on && light_applied)
-		set_light(0)
+		set_light_on(on)
 		light_applied = 0
 	update_icon(user)
 	user.update_action_buttons()
@@ -1145,7 +1141,7 @@
 	///Convenience var for defining the icon state for the overlay used when the clothing is worn. Also used by rolling/unrolling.
 	var/worn_state = null
 
-	valid_accessory_slots = list(ACCESSORY_SLOT_UTILITY, ACCESSORY_SLOT_UTILITY_MINOR, ACCESSORY_SLOT_ARMBAND, ACCESSORY_SLOT_GENERIC, ACCESSORY_SLOT_CAPE)
+	valid_accessory_slots = list(ACCESSORY_SLOT_UTILITY, ACCESSORY_SLOT_UTILITY_MINOR, ACCESSORY_SLOT_ARMBAND, ACCESSORY_SLOT_GENERIC, ACCESSORY_SLOT_CAPE, ACCESSORY_SLOT_PANTS)
 	restricted_accessory_slots = list(ACCESSORY_SLOT_UTILITY)
 
 /obj/item/clothing/under/feedback_hints(mob/user, distance, is_adjacent)
@@ -1282,7 +1278,7 @@
 	if(ismob(src.loc))
 		var/mob/M = src.loc
 		M.update_inv_w_uniform()
-		playsound(M, /singleton/sound_category/rustle_sound, 15, TRUE, SILENCED_SOUND_EXTRARANGE, ignore_walls = FALSE)
+		playsound(M, SFX_RUSTLE, 15, TRUE, SILENCED_SOUND_EXTRARANGE, ignore_walls = FALSE)
 
 /obj/item/clothing/under/proc/set_sensors(mob/user as mob)
 	var/mob/M = user
@@ -1363,7 +1359,7 @@
 		else
 			item_state_slots[slot_w_uniform_str] = "[worn_state]_d"
 		if(user)
-			to_chat(user, SPAN_NOTICE("You roll up \the [src]."))
+			to_chat(user, SPAN_NOTICE("You roll down \the [src]."))
 	else
 		body_parts_covered = initial(body_parts_covered)
 		if(contained_sprite || !LAZYLEN(item_state_slots))
@@ -1374,7 +1370,7 @@
 		else
 			item_state_slots[slot_w_uniform_str] = "[worn_state]"
 		if(user)
-			to_chat(user, SPAN_NOTICE("You roll down \the [src]."))
+			to_chat(user, SPAN_NOTICE("You roll up \the [src]."))
 	update_clothing_icon()
 
 /obj/item/clothing/under/proc/rollsleeves()

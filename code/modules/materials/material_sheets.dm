@@ -95,7 +95,7 @@
 		..()
 
 /obj/item/stack/material/attackby(obj/item/attacking_item, mob/user)
-	if(iscoil(attacking_item))
+	if(attacking_item.tool_behaviour == TOOL_CABLECOIL)
 		material.build_wired_product(user, attacking_item, src)
 		return
 	else if(istype(attacking_item, /obj/item/stack/rods))
@@ -613,6 +613,17 @@
 	icon_has_variants = TRUE
 
 /obj/item/stack/material/supermatter/full/Initialize()
+	. = ..()
+	amount = max_amount
+	update_icon()
+
+// Fusion fuel.
+/obj/item/stack/material/boron
+	name = "boron"
+	icon_state = "puck"
+	default_type = MATERIAL_BORON
+
+/obj/item/stack/material/boron/full/Initialize()
 	. = ..()
 	amount = max_amount
 	update_icon()

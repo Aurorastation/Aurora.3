@@ -70,6 +70,7 @@
 		<A href='byond://?src=[REF(src)];make=63;dir=1'>Auxiliary Connector</A><BR>
 		<A href='byond://?src=[REF(src)];make=7;dir=1'>Unary Vent</A><BR>
 		<A href='byond://?src=[REF(src)];make=64;dir=1'>Auxiliary Unary Vent</A><BR>
+		<A href='byond://?src=[REF(src)];make=65;dir=1'>Passive Vent</A><BR>
 		<A href='byond://?src=[REF(src)];make=9;dir=1'>Gas Pump</A><BR>
 		<A href='byond://?src=[REF(src)];make=60;dir=1'>Fuel Gas Pump</A><BR>
 		<A href='byond://?src=[REF(src)];make=61;dir=1'>Auxiliary Gas Pump</A><BR>
@@ -80,7 +81,7 @@
 		<A href='byond://?src=[REF(src)];make=59;dir=1'>Auxiliary Pressure Regulator</A><BR>
 		<A href='byond://?src=[REF(src)];make=14;dir=1'>High Power Gas Pump</A><BR>
 		<A href='byond://?src=[REF(src)];make=10;dir=1'>Scrubber</A><BR>
-		<A href='byond://?src=[REF(src)];makemeter=1'>Meter</A><BR>
+		<A href='byond://?src=[REF(src)];makemeter=1'>Gas Meter</A><BR>
 		<A href='byond://?src=[REF(src)];make=24;dir=1'>Omni Gas Mixer</A><BR>
 		<A href='byond://?src=[REF(src)];make=25;dir=1'>Omni Gas Filter</A><BR>
 		<b>Heat exchange:</b><BR>
@@ -127,7 +128,7 @@
 		user.remove_from_mob(attacking_item) //Catches robot gripper duplication
 		qdel(attacking_item)
 		return TRUE
-	else if(attacking_item.iswrench())
+	else if(attacking_item.tool_behaviour == TOOL_WRENCH)
 		if(anchored)
 			to_chat(user, SPAN_NOTICE("You begin to unfasten \the [src] from the floor..."))
 			if(attacking_item.use_tool(src, user, 40, volume = 50))

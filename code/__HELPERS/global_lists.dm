@@ -67,7 +67,7 @@ GLOBAL_LIST_INIT(whitelisted_species, list(SPECIES_HUMAN))
 GLOBAL_LIST_EMPTY(playable_species)
 
 /// All uplinks.
-GLOBAL_LIST_EMPTY_TYPED(world_uplinks, /obj/item/device/uplink)
+GLOBAL_LIST_EMPTY_TYPED(world_uplinks, /obj/item/uplink)
 
 /// Preferences stuff below.
 /// Stores /datum/sprite_accessory/hair indexed by name.
@@ -113,6 +113,9 @@ GLOBAL_LIST_INIT(primary_radio_slot_choice, list("Left Ear", "Right Ear", "Wrist
 
 // Used to track fauna spawners on the phoron deposit away site.
 GLOBAL_LIST_INIT(fauna_spawners, list())
+
+/// List of spawn points associated with '/obj/effect/organized_fauna_spawner'. It will automatically assign the spawn points in the same Z level as spawner.
+GLOBAL_LIST_EMPTY(organized_spawn_points)
 
 /// Visual nets.
 GLOBAL_LIST_EMPTY_TYPED(visual_nets, /datum/visualnet)

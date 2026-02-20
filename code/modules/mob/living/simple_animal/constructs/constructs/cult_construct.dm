@@ -123,7 +123,7 @@
 
 /mob/living/simple_animal/construct/proc/add_glow()
 	ClearOverlays()
-	var/overlay_plane = EFFECTS_ABOVE_LIGHTING_PLANE
+	var/overlay_plane = ABOVE_LIGHTING_PLANE
 
 	var/image/glow = image(icon, "glow-[icon_state]")
 	glow.plane = overlay_plane

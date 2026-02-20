@@ -406,7 +406,7 @@ GLOBAL_LIST_INIT(localhost_addresses, list(
 	send_resources()
 
 	if(!winexists(src, "asset_cache_browser")) // The client is using a custom skin, tell them.
-		to_chat(src, SPAN_WARNING("Unable to access asset cache browser, if you are using a custom skin file, please allow DS to download the updated version, if you are not, then make a bug report. This is not a critical issue but can cause issues with resource downloading, as it is impossible to know when extra resources arrived to you."))
+		to_chat_immediate(src, SPAN_WARNING("Unable to access asset cache browser, if you are using a custom skin file, please allow DS to download the updated version, if you are not, then make a bug report. This is not a critical issue but can cause issues with resource downloading, as it is impossible to know when extra resources arrived to you."))
 
 	Master.UpdateTickRate()
 	fully_created = TRUE
@@ -453,7 +453,7 @@ GLOBAL_LIST_INIT(localhost_addresses, list(
 
 	to_chat_immediate(src, SPAN_ALERT("If the title screen is black, resources are still downloading. Please be patient until the title screen appears."))
 
-	var/local_connection = (GLOB.config.auto_local_admin && !GLOB.config.use_forumuser_api && (isnull(address) || GLOB.localhost_addresses[address]))
+	var/local_connection = (GLOB.config.auto_local_admin && !GLOB.config.use_authentik_api && (isnull(address) || GLOB.localhost_addresses[address]))
 	// Automatic admin rights for people connecting locally.
 	// Concept stolen from /tg/ with deepest gratitude.
 	// And ported from Nebula with love.
@@ -530,6 +530,9 @@ GLOBAL_LIST_INIT(localhost_addresses, list(
 	if(holder)
 		holder.owner = null
 		GLOB.staff -= src
+
+	if(mob)
+		mob.clear_important_client_contents()
 
 	SSping.currentrun -= src
 

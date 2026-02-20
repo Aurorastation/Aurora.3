@@ -407,12 +407,20 @@ ABSTRACT_TYPE(/datum/gear/accessory)
 	var/list/passcard = list()
 	passcard["passcard, tau ceti"] = /obj/item/clothing/accessory/badge/passcard
 	passcard["passcard, sol"] = /obj/item/clothing/accessory/badge/passcard/sol
-	passcard["passcard, pluto"] = /obj/item/clothing/accessory/badge/passcard/sol/pluto
-	passcard["passcard, jovian"] = /obj/item/clothing/accessory/badge/passcard/sol/jupiter
-	passcard["passcard, luna"] = /obj/item/clothing/accessory/badge/passcard/sol/luna
+	passcard["passcard, callisto"] = /obj/item/clothing/accessory/badge/passcard/sol/callisto
 	passcard["passcard, europa"] = /obj/item/clothing/accessory/badge/passcard/sol/europa
-	passcard["passcard, cytherean"] = /obj/item/clothing/accessory/badge/passcard/sol/cytherean
-	passcard["passcard, jintarian"] = /obj/item/clothing/accessory/badge/passcard/sol/jintarian
+	passcard["passcard, solarian konyang"] = /obj/item/clothing/accessory/badge/passcard/sol/konyang
+	passcard["passcard, luna"] = /obj/item/clothing/accessory/badge/passcard/sol/luna
+	passcard["passcard, solarian mictlan"] = /obj/item/clothing/accessory/badge/passcard/sol/mictlan
+	passcard["passcard, new hai phong"] = /obj/item/clothing/accessory/badge/passcard/sol/new_hai_phong
+	passcard["passcard, pluto"] = /obj/item/clothing/accessory/badge/passcard/sol/pluto
+	passcard["passcard, reconstruction mandate"] = /obj/item/clothing/accessory/badge/passcard/sol/restricted_mandate
+	passcard["passcard, mars"] = /obj/item/clothing/accessory/badge/passcard/sol/restricted_mars
+	passcard["passcard, san colette"] = /obj/item/clothing/accessory/badge/passcard/sol/san_colette
+	passcard["passcard, sankt frederick"] = /obj/item/clothing/accessory/badge/passcard/sol/sankt_frederick
+	passcard["passcard, silversun"] = /obj/item/clothing/accessory/badge/passcard/sol/silversun
+	passcard["passcard, venus"] = /obj/item/clothing/accessory/badge/passcard/sol/venus
+	passcard["passcard, visegrad"] = /obj/item/clothing/accessory/badge/passcard/sol/visegrad
 	passcard["passcard, eridani"] = /obj/item/clothing/accessory/badge/passcard/eridani
 	passcard["passcard, elyra"] = /obj/item/clothing/accessory/badge/passcard/elyra
 	passcard["passcard, dominia"] = /obj/item/clothing/accessory/badge/passcard/dominia
@@ -422,7 +430,6 @@ ABSTRACT_TYPE(/datum/gear/accessory)
 	passcard["passcard, gadpathur"] = /obj/item/clothing/accessory/badge/passcard/gad
 	passcard["passcard, assunzione"] = /obj/item/clothing/accessory/badge/passcard/assu
 	passcard["passcard, konyang"] = /obj/item/clothing/accessory/badge/passcard/konyang
-	passcard["passcard, visegrad"] = /obj/item/clothing/accessory/badge/passcard/sol/visegrad
 	gear_tweaks += new /datum/gear_tweak/path(passcard)
 
 /datum/gear/accessory/workvisa

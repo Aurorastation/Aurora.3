@@ -12,7 +12,7 @@
 	volume = 100
 	item_state = "broken_beer" //Generic held-item sprite until unique ones are made.
 	force = 11
-	hitsound = /singleton/sound_category/bottle_hit_intact_sound
+	hitsound = SFX_BOTTLE_HIT_INTACT
 	var/smash_duration = 5 //Directly relates to the 'weaken' duration. Lowered by armor (i.e. helmets)
 	matter = list(MATERIAL_GLASS = 800)
 
@@ -80,7 +80,7 @@
 		var/mob/living/L = against
 		L.IgniteMob()
 
-	playsound(src, /singleton/sound_category/glass_break_sound, 70, 1)
+	playsound(src, SFX_BREAK_GLASS, 70, 1)
 	src.transfer_fingerprints_to(B)
 
 	qdel(src)
@@ -241,12 +241,18 @@
 	attack_verb = list("stabbed", "slashed", "attacked")
 	sharp = TRUE
 	edge = FALSE
-	hitsound = /singleton/sound_category/bottle_hit_broken
+	hitsound = SFX_BOTTLE_HIT_BROKEN
 	///The mask image for mimicking a broken-off bottom of the bottle
 	var/static/icon/broken_outline = icon('icons/obj/item/reagent_containers/food/drinks/drink_effects.dmi', "broken")
 	///The mask image for mimicking a broken-off neck of the bottle
 	var/static/icon/flipped_broken_outline = icon('icons/obj/item/reagent_containers/food/drinks/drink_effects.dmi', "broken-flipped")
 	w_class = WEIGHT_CLASS_SMALL
+	persistency_considered_trash = TRUE
+
+/obj/item/broken_bottle/persistence_apply_content(content, x, y, z)
+	src.x = x
+	src.y = y
+	src.z = z
 
 #define DRINK_FLUFF_GETMORE  "This drink is made by Getmore Corporation, a subsidiary of NanoTrasen. It mostly specializes in fast food and consumer food products, \
 								but also makes average quality alcohol. Many can find Getmore products in grocery stores, vending machines, \
@@ -1037,6 +1043,31 @@
 	icon_state = "burukutu"
 	reagents_to_add = list(/singleton/reagent/alcohol/burukutu = 30)
 
+/obj/item/reagent_containers/food/drinks/bottle/small/marienthal
+	name = "Marienthal Stout"
+	desc = "A full-bodied stout brewed in the river valleys of Marienthal County, Sankt Frederick. Strong and dark as tilled soil, Marienthal Stout has become one of the Free State’s most recognizable exports, carving out a respectable presence within the rest of Alliance due to its rich, earthy flavor, and affordable price tag."
+	icon_state = "marienthal"
+	item_state = "beer"
+	reagents_to_add = list(/singleton/reagent/alcohol/beer/marienthal_stout = 30)
+
+/obj/item/reagent_containers/food/drinks/bottle/small/marienthal/update_icon()
+	. = ..()
+	if(is_open_container())
+		icon_state = "[initial(icon_state)]_open"
+	else
+		icon_state = initial(icon_state)
+
+/obj/item/reagent_containers/food/drinks/bottle/small/marienthal/open(mob/user)
+	. = ..()
+	update_icon()
+
+/obj/item/reagent_containers/food/drinks/bottle/small/prince_pallav
+	name = "\improper Prince Pallav Blonde Ale"
+	desc = "A golden ale brewed in Foy-Niljen, Prince Pallav has defined Xanan brewing for over two decades. Smooth, lightly sweet, and impeccably balanced, it remains the undisputed favorite of the Republic, edging out Whistling Forest by a wide margin."
+	icon_state = "prince_pallav"
+	item_state = "beer"
+	reagents_to_add = list(/singleton/reagent/alcohol/beer/prince_pallav_blonde_ale = 30)
+
 // Butanol-based alcoholic drinks
 //=====================================
 //These are mainly for unathi, and have very little (but still some) effect on other species
@@ -1054,6 +1085,13 @@
 	icon_state = "sarezhibottle"
 	center_of_mass = list("x" = 16,"y" = 6)
 	reagents_to_add = list(/singleton/reagent/alcohol/butanol/sarezhiwine = 100)
+
+/obj/item/reagent_containers/food/drinks/bottle/redstaff
+	name = "Redstaff"
+	desc = "Less of a unique spirit and instead a mixture of butanol, spices, and algae; either Gukhe bloom, Koko, or whatever is at hand when making it. The end result is a fairly strong drink with a spicy kick. \
+	Though it’s more used as a cocktail ingredient rather than drank by itself."
+	icon_state = "redstaff"
+	reagents_to_add = list(/singleton/reagent/alcohol/butanol/redstaff = 100)
 
 // Synnono Meme (Bottled) Drinks
 //======================================

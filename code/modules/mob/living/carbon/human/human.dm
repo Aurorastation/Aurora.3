@@ -9,11 +9,14 @@
 
 	var/pronouns = NEUTER
 
-	var/species_items_equipped // used so species that need special items (autoinhalers for vaurca/RMT for offworlders) don't get them twice when they shouldn't.
+	/// Used so species that need special items (autoinhalers for vaurca/RMT for offworlders) don't get them twice when they shouldn't.
+	var/species_items_equipped
 
 	var/list/hud_list[11]
-	var/embedded_flag	  //To check if we've need to roll for damage on movement while an item is imbedded in us.
-	var/obj/item/rig/wearing_rig // This is very not good, but it's much much better than calling get_rig() every update_canmove() call.
+	/// To check if we've need to roll for damage on movement while an item is imbedded in us.
+	var/embedded_flag
+	/// This is very not good, but it's much much better than calling get_rig() every update_canmove() call.
+	var/obj/item/rig/wearing_rig
 	/// Pref holder for the speech bubble style.
 	var/speech_bubble_type
 
@@ -111,9 +114,10 @@
 
 	GLOB.human_mob_list -= src
 	GLOB.intent_listener -= src
+	// This is apparently a different list entirely from the list of organs on /mob/living/carbon.
+	// It's actually the set of all Limbs (left arm, head, leg leg, etc) we have. We Qdel and null the set of all limbs, which is unique to /human.
 	QDEL_LIST(organs)
-	internal_organs_by_name = null
-	internal_organs = null
+	// Then also null the associative list of those same limbs, which contains the same references.
 	organs_by_name = null
 	bad_internal_organs = null
 	bad_external_organs = null
@@ -135,6 +139,9 @@
 	QDEL_NULL(s_store)
 	QDEL_NULL(wear_suit)
 	QDEL_NULL(wear_mask)
+	QDEL_NULL(back)
+	QDEL_NULL(l_hand)
+	QDEL_NULL(r_hand)
 	// Do this last so the mob's stuff doesn't drop on del.
 	QDEL_NULL(w_uniform)
 
@@ -188,6 +195,15 @@
 		var/obj/item/organ/internal/stomach/stomach = internal_organs_by_name[BP_STOMACH]
 		if(stomach)
 			return stomach.ingested
+
+	if(should_have_organ(BP_REACTOR))
+		var/obj/item/organ/internal/machine/reactor/reactor = internal_organs_by_name[BP_REACTOR]
+		if(!reactor)
+			return
+		if(reactor.is_broken())
+			return FALSE
+		if(reactor.power_supply_type & POWER_SUPPLY_BIOLOGICAL)
+			return reactor.bio_reagents
 	return touching
 
 /mob/living/carbon/human/proc/metabolize_ingested_reagents()
@@ -209,7 +225,7 @@
 
 	/// This needs to be updated to use signals.
 	var/holding_gps = FALSE
-	if(istype(src.get_active_hand(), /obj/item/device/gps) || istype(src.get_inactive_hand(), /obj/item/device/gps))
+	if(istype(src.get_active_hand(), /obj/item/gps) || istype(src.get_inactive_hand(), /obj/item/gps))
 		holding_gps = TRUE
 
 	var/area/A = get_area(src)
@@ -221,6 +237,7 @@
 	if(A.area_blurb)
 		. += "[A.area_blurb]"
 		. += ""
+
 	. += "Intent: [a_intent]"
 	. += "Move Mode: [m_intent]"
 	if(is_diona() && DS)
@@ -228,6 +245,9 @@
 		. += "Energy: [round(DS.stored_energy)] / [round(DS.max_energy)]"
 		if(DS.regen_limb)
 			. += "Regeneration Progress: [round(DS.regen_limb_progress)] / [LIMB_REGROW_REQUIREMENT]"
+	var/custom_time = culture.get_custom_time()
+	if(custom_time)
+		. += custom_time
 	if(internal)
 		if(!internal.air_contents)
 			qdel(internal)
@@ -236,9 +256,16 @@
 			. += "Tank Pressure: [internal.air_contents.return_pressure()]"
 			. += "Distribution Pressure: [internal.distribute_pressure]"
 
-	var/obj/item/organ/internal/cell/IC = internal_organs_by_name[BP_CELL]
+	var/obj/item/organ/internal/machine/power_core/IC = internal_organs_by_name[BP_CELL]
 	if(IC && IC.cell)
-		. += "Battery charge: [IC.get_charge()]/[IC.cell.maxcharge]"
+		. += "Battery Charge: [IC.get_charge()]/[IC.cell.maxcharge]"
+
+	var/obj/item/organ/internal/machine/internal_diagnostics/diagnostics = internal_organs_by_name[BP_DIAGNOSTICS_SUITE]
+	if(diagnostics)
+		if((diagnostics.get_integrity() < IPC_INTEGRITY_THRESHOLD_HIGH) || !diagnostics.is_broken())
+			. += "Temperature: [round(bodytemperature - T0C, 1)]°C"
+		else
+			. += "Temperature: E#RR"
 
 	if(mind)
 		var/datum/vampire/vampire = mind.antag_datums[MODE_VAMPIRE]
@@ -416,8 +443,7 @@
 	mob_win.set_content(dat)
 	mob_win.open()
 
-// called when something steps onto a human
-// this handles vehicles
+/// Called when something steps onto a human. This handles vehicles
 /mob/living/carbon/human/on_entered(datum/source, atom/movable/arrived, atom/old_loc, list/atom/old_locs)
 	..()
 
@@ -425,7 +451,7 @@
 		var/obj/vehicle/V = arrived
 		V.RunOver(src)
 
-// Get rank from ID, ID inside PDA, PDA, ID in wallet, etc.
+/// Get rank from ID, ID inside PDA, PDA, ID in wallet, etc.
 /mob/living/carbon/human/proc/get_authentification_rank(var/if_no_id = "No id", var/if_no_job = "No job")
 	var/obj/item/card/id/id = GetIdCard()
 	if(!istype(id))
@@ -433,8 +459,7 @@
 	else
 		return id.rank ? id.rank : if_no_job
 
-//gets assignment from ID or ID inside PDA or PDA itself
-//Useful when player do something with computers
+/// Gets assignment from ID or ID inside PDA or PDA itself. Useful when player does something with computers.
 /mob/living/carbon/human/proc/get_assignment(var/if_no_id = "No ID", var/if_no_job = "No Job")
 	var/obj/item/card/id/I = GetIdCard()
 	if(istype(I))
@@ -442,8 +467,7 @@
 	else
 		return if_no_id
 
-//gets name from ID or ID inside PDA or PDA itself
-//Useful when player do something with computers
+/// Gets name from ID or ID inside PDA or PDA itself. Useful when player does something with computers.
 /mob/living/carbon/human/proc/get_authentification_name(var/if_no_id = "Unknown")
 	var/obj/item/card/id/I = GetIdCard()
 	if(istype(I))
@@ -451,7 +475,7 @@
 	else
 		return if_no_id
 
-//repurposed proc. Now it combines get_id_name() and get_face_name() to determine a mob's name variable. Made into a seperate proc as it'll be useful elsewhere
+/// Repurposed proc. Now it combines get_id_name() and get_face_name() to determine a mob's name variable.
 /mob/living/carbon/human/proc/get_visible_name()
 	if( wear_mask && (wear_mask.flags_inv&HIDEFACE) )	//Wearing a mask which hides our face, use id-name if possible
 		return get_id_name("Unknown")
@@ -463,15 +487,14 @@
 		return "[face_name] (as [id_name])"
 	return face_name
 
-//Returns "Unknown" if facially disfigured and real_name if not. Useful for setting name when polyacided or when updating a human's name variable
+/// Returns "Unknown" if facially disfigured and real_name if not. Useful for setting name when polyacided or when updating a human's name variable
 /mob/living/carbon/human/proc/get_face_name()
 	var/obj/item/organ/external/head = get_organ(BP_HEAD)
 	if(!head || head.disfigured || head.is_stump() || !real_name || (mutations & HUSK))	//disfigured. use id-name if possible
 		return "Unknown"
 	return real_name
 
-//gets name from ID or PDA itself, ID inside PDA doesn't matter
-//Useful when player is being seen by other mobs
+/// Gets name from ID or PDA itself, ID inside PDA doesn't matter. Useful when player is being seen by other mobs
 /mob/living/carbon/human/proc/get_id_name(var/if_no_id = "Unknown")
 	. = if_no_id
 	var/obj/item/card/id/I = GetIdCard()
@@ -479,7 +502,7 @@
 		return I.registered_name
 	return
 
-//gets ID card object from special clothes slot or null.
+/// Gets ID card object from special clothes slot or null.
 /mob/living/carbon/human/proc/get_idcard()
 	if(wear_id)
 		return wear_id.GetID()
@@ -552,7 +575,7 @@
 
 		apply_damage(shock_damage, DAMAGE_BURN, area, used_weapon="Electrocution")
 		shock_damage *= 0.4
-		playsound(loc, /singleton/sound_category/spark_sound, 50, 1, -1)
+		playsound(loc, SFX_SPARKS, 50, 1, -1)
 
 	if (shock_damage > 15)
 		visible_message(
@@ -739,7 +762,6 @@
 					var/message = "<b>Medical Records: [R.name]</b>\n\n" \
 						+ "<b>Name:</b> [R.name] <b>Blood Type:</b> [R.medical.blood_type]\n" \
 						+ "<b>DNA:</b> [R.medical.blood_dna]\n" \
-						+ "<b>Disabilities:</b> [R.medical.disabilities]\n" \
 						+ "<b>Notes:</b> [R.medical.notes]\n" \
 						+ "<a href='byond://?src=[REF(src)];medrecordComment=`'>\[View Comment Log\]</a>"
 					to_chat(usr, EXAMINE_BLOCK_DEEP_CYAN(message))
@@ -863,8 +885,8 @@
 	..()
 	return
 
-///eyecheck()
-///Returns a number between -1 to 2
+
+/// Returns a number between -1 to 2
 /mob/living/carbon/human/get_flash_protection(ignore_inherent = FALSE)
 
 	//Ling
@@ -896,8 +918,10 @@
 		if(prob(20))
 			to_chat(src, SPAN_NOTICE("Something bright flashes in the corner of your vision!"))
 
-//Used by various things that knock people out by applying blunt trauma to the head.
-//Checks that the species has a BP_HEAD (brain containing organ) and that hit_zone refers to it.
+/**
+ * Used by various things that knock people out by applying blunt trauma to the head.
+ * Checks that the species has a BP_HEAD (brain containing organ) and that hit_zone refers to it.
+ */
 /mob/living/carbon/human/proc/headcheck(var/target_zone, var/brain_tag = BP_BRAIN)
 	if(!species.has_organ[brain_tag])
 		return 0
@@ -967,6 +991,13 @@
 	return
 
 /mob/living/carbon/human/proc/check_has_mouth()
+	// Look, it's not really a mouth, but you gotta do what you gotta do.
+	// Imagine the Bender shit from Futurama where he opens his stomach hatch and drops shit in there.
+	if(should_have_organ(BP_REACTOR))
+		var/obj/item/organ/internal/machine/reactor/reactor = internal_organs_by_name[BP_REACTOR]
+		if(reactor && (reactor.power_supply_type & POWER_SUPPLY_BIOLOGICAL))
+			return TRUE
+
 	// Todo, check stomach organ when implemented.
 	var/obj/item/organ/external/E = get_organ(BP_HEAD)
 	if(E && !E.is_stump())
@@ -1078,7 +1109,7 @@
 	sleep(350)	//wait 35 seconds before next volley
 	lastpuke = FALSE
 
-// A damaged stomach can put blood in your vomit.
+/// A damaged stomach can put blood in your vomit.
 /mob/living/carbon/human/handle_additional_vomit_reagents(obj/effect/decal/cleanable/vomit/vomit)
 	..()
 	if(should_have_organ(BP_STOMACH))
@@ -1309,6 +1340,7 @@
 
 	..()
 
+/// Passes the gas_mixture to the lungs for them to deal with. If lungs exist.
 /mob/living/carbon/human/handle_breath(datum/gas_mixture/breath)
 	if(status_flags & GODMODE)
 		return
@@ -1346,7 +1378,7 @@
 	var/obj/item/organ/internal/lungs/L = internal_organs_by_name[species_organ]
 	return L && L.rescued
 
-//returns 1 if made bloody, returns 0 otherwise
+/// Returns 1 if made bloody, returns 0 otherwise
 /mob/living/carbon/human/add_blood(mob/living/carbon/C as mob)
 	if (!..())
 		return FALSE
@@ -1437,7 +1469,7 @@
 		self = 1
 
 	if ((src.species.flags & NO_BLOOD) || (status_flags & FAKEDEATH))
-		to_chat(usr, SPAN_WARNING(self ? "You have no pulse." : "[src] has no pulse!"))
+		to_chat(usr, SPAN_WARNING("[self ? "You have" : "[src] has"] no pulse!"))
 		return
 
 	if(!self)
@@ -1551,6 +1583,8 @@
 
 	nutrition_loss = HUNGER_FACTOR * species.nutrition_loss_factor
 	hydration_loss = THIRST_FACTOR * species.hydration_loss_factor
+
+	default_lighting_alpha = species.default_lighting_alpha
 
 	speech_bubble_type = species.possible_speech_bubble_types[1]
 	if(typing_indicator)
@@ -1851,17 +1885,17 @@
 	if(self)
 		U.visible_message(SPAN_DANGER("[U] pops their [current_limb.joint] back in!"), \
 		SPAN_DANGER("You pop your [current_limb.joint] back in!"))
-		playsound(src.loc, /singleton/sound_category/fracture_sound, 50, 1, -2)
+		playsound(src.loc, SFX_FRACTURE, 50, 1, -2)
 	else
 		U.visible_message(SPAN_DANGER("[U] pops [S]'s [current_limb.joint] back in!"), \
 		SPAN_DANGER("You pop [S]'s [current_limb.joint] back in!"))
-		playsound(src.loc, /singleton/sound_category/fracture_sound, 50, 1, -2)
+		playsound(src.loc, SFX_FRACTURE, 50, 1, -2)
 	current_limb.undislocate()
 
-/mob/living/carbon/human/drop_from_inventory(var/obj/item/W, var/atom/target = null)
-	if(W in organs)
+/mob/living/carbon/human/drop_from_inventory(obj/item/W, atom/target, update_icons = TRUE, force = FALSE)
+	if(!force && (W in organs))
 		return
-	..()
+	return ..()
 
 /mob/living/carbon/human/reset_view(atom/A, update_hud = 1)
 	..()
@@ -1882,6 +1916,10 @@
 	return 0
 
 /mob/living/carbon/human/proc/can_drink(var/obj/item/I)
+	if(should_have_organ(BP_REACTOR))
+		var/obj/item/organ/internal/machine/reactor/reactor = internal_organs_by_name[BP_REACTOR]
+		if(reactor && (reactor.power_supply_type & POWER_SUPPLY_BIOLOGICAL))
+			return TRUE
 	if(!check_has_mouth())
 		to_chat(src, SPAN_NOTICE("Where do you intend to put \the [I]? You don't have a mouth!"))
 		return FALSE
@@ -2064,8 +2102,8 @@
 
 // Check if we should die.
 /mob/living/carbon/human/proc/handle_death_check()
-	if(should_have_organ(BP_BRAIN) && !is_mechanical()) //robots don't die via brain damage
-		var/obj/item/organ/internal/brain/brain = internal_organs_by_name[BP_BRAIN]
+	if(should_have_organ(BP_BRAIN))
+		var/obj/item/organ/internal/brain = internal_organs_by_name[BP_BRAIN]
 		if(!brain || (brain.status & ORGAN_DEAD))
 			return TRUE
 	return species.handle_death_check(src)

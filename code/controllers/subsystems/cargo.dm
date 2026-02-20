@@ -24,10 +24,10 @@ SUBSYSTEM_DEF(cargo)
 	var/list/all_orders = list() // All orders.
 
 	// Fee Variables
-	var/credits_per_crate = 100 // "Cost / Payment" per crate shipped from or to centcomm.
+	var/credits_per_crate = 30 // "Cost / Payment" per crate shipped from or to centcomm.
 	var/credits_per_platinum = 140 // Per sheet.
 	var/credits_per_phoron = 100 // Per sheet.
-	var/cargo_handlingfee = 50 // The handling fee cargo takes per crate.
+	var/cargo_handlingfee = 20 // The handling fee cargo takes per crate.
 	var/cargo_handlingfee_min = 0 // The minimum handling fee.
 	var/cargo_handlingfee_max = 500 // The maximum handling fee.
 	var/cargo_handlingfee_change = 1 // If the handling fee can be changed -> for a random event.
@@ -102,6 +102,7 @@ SUBSYSTEM_DEF(cargo)
 /datum/controller/subsystem/cargo/proc/load_cargo_suppliers()
 	for(var/singleton/cargo_supplier/S as anything in (GET_SINGLETON_SUBTYPE_LIST(/singleton/cargo_supplier)))
 		log_subsystem_cargo("Loading supplier '[S.name]', with short name '[S.short_name]'.")
+		S.price_modifier = S.get_total_price_coefficient()
 		SScargo.cargo_suppliers[S.short_name] = S
 
 /datum/controller/subsystem/cargo/proc/load_cargo_items()
@@ -472,7 +473,7 @@ SUBSYSTEM_DEF(cargo)
 		return 1
 	if(istype(A, /obj/machinery/nuclearbomb))
 		return 1
-	if(istype(A, /obj/item/device/radio/beacon))
+	if(istype(A, /obj/item/radio/beacon))
 		return 1
 
 	for(var/i=1, i<=A.contents.len, i++)
@@ -617,25 +618,17 @@ SUBSYSTEM_DEF(cargo)
 	return 1
 
 /// Dumps the cargo orders to the database when the round ends.
-/datum/controller/subsystem/cargo/proc/dump_orders()
+/datum/controller/subsystem/cargo/Shutdown()
 	if(dumped_orders)
 		log_subsystem_cargo("SQL: Orders already dumped. Cargo data dump has been aborted.")
 		return
-	if(!establish_db_connection(GLOB.dbcon))
+	if(!SSdbcore.Connect())
 		log_subsystem_cargo("SQL: Unable to connect to SQL database. Cargo data dump has been aborted.")
 		return
 
 	dumped_orders = TRUE
 
 	// Loop through all the orders and dump them all.
-	var/DBQuery/dump_query = GLOB.dbcon.NewQuery("INSERT INTO `ss13_cargo_orderlog` (`game_id`, `order_id`, `status`, `price`, `ordered_by_id`, `ordered_by`, `authorized_by_id`, `authorized_by`, `received_by_id`, `received_by`, `paid_by_id`, `paid_by`, `time_submitted`, `time_approved`, `time_shipped`, `time_delivered`, `time_paid`, `reason`) \
-	VALUES (:game_id:, :order_id:, :status:, :price:, :ordered_by_id:, :ordered_by:, :authorized_by_id:, :authorized_by:, :received_by_id:, :received_by:, :paid_by_id:, :paid_by:, :time_submitted:, :time_approved:, :time_shipped:, :time_delivered:, :time_paid:, :reason:)")
-
-	var/DBQuery/dump_item_query = GLOB.dbcon.NewQuery("INSERT INTO `ss13_cargo_item_orderlog` (`cargo_orderlog_id`, `item_name`, `amount`) \
-	VALUES (:cargo_orderlog_id:, :item_name:, :amount:)")
-
-	var/DBQuery/log_id = GLOB.dbcon.NewQuery("SELECT LAST_INSERT_ID() AS log_id")
-
 	for(var/datum/cargo_order/co in all_orders)
 		// Iterate over the items in the order and build the a list with the item count.
 		var/list/itemcount = list()
@@ -648,7 +641,9 @@ SUBSYSTEM_DEF(cargo)
 
 			itemnames["[coi.ci.id]"] = coi.ci.name
 
-		if(!dump_query.Execute(list(
+		var/datum/db_query/dump_query = SSdbcore.NewQuery("INSERT INTO `ss13_cargo_orderlog` (`game_id`, `order_id`, `status`, `price`, `ordered_by_id`, `ordered_by`, `authorized_by_id`, `authorized_by`, `received_by_id`, `received_by`, `paid_by_id`, `paid_by`, `time_submitted`, `time_approved`, `time_shipped`, `time_delivered`, `time_paid`, `reason`) \
+			VALUES (:game_id, :order_id, :status, :price, :ordered_by_id, :ordered_by, :authorized_by_id, :authorized_by, :received_by_id, :received_by, :paid_by_id, :paid_by, :time_submitted, :time_approved, :time_shipped, :time_delivered, :time_paid, :reason)",
+			list(
 			"game_id"=GLOB.round_id,
 			"order_id"=co.order_id,
 			"status"=co.status,
@@ -667,30 +662,25 @@ SUBSYSTEM_DEF(cargo)
 			"time_delivered"=co.time_delivered,
 			"time_paid"=co.time_paid,
 			"reason"=co.reason
-			)))
+			), TRUE)
+
+		if(!dump_query.Execute())
 			log_subsystem_cargo("SQL: Could not write order to database. Cargo data dump has been aborted.")
 			continue
 
-		// Run the query to get the inserted ID.
-		log_id.Execute()
-
-		var/db_log_id = null
-		if(log_id.NextRow())
-			db_log_id = text2num(log_id.item[1])
-
-		if(db_log_id)
+		if(dump_query.last_insert_id)
 			for(var/item_id in itemcount)
-				if(!dump_item_query.Execute(list(
-					"cargo_orderlog_id" = db_log_id,
+				var/datum/db_query/dump_item_query = SSdbcore.NewQuery("INSERT INTO `ss13_cargo_item_orderlog` (`cargo_orderlog_id`, `item_name`, `amount`) \
+					VALUES (:cargo_orderlog_id, :item_name, :amount)",
+					list(
+					"cargo_orderlog_id" = dump_query.last_insert_id,
 					"item_name"= itemnames[item_id],
 					"amount" = itemcount[item_id]
-					)))
+					),
+					TRUE)
+				if(!dump_item_query.Execute())
 					log_subsystem_cargo("SQL: Cound not write details of a cargo order.")
+					qdel(dump_item_query)
 					continue
-		CHECK_TICK
-
-		log_subsystem_cargo("SQL: Saved cargo order log to database.")
-
-
-/hook/roundend/proc/dump_cargoorders()
-	SScargo.dump_orders()
+		qdel(dump_query)
+	log_subsystem_cargo("SQL: Saved cargo order log to database.")

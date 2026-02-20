@@ -15,10 +15,10 @@ while simultaneously growing faster from being within its preferences.
 	for(var/seed_name in SSplants.seeds)
 		var/datum/seed/S = SSplants.seeds[seed_name]
 
-		if(S.get_trait(TRAIT_LIGHT_TOLERANCE) < S.get_trait(TRAIT_LIGHT_PREFERENCE))
+		if(GET_SEED_TRAIT(S, TRAIT_LIGHT_TOLERANCE) < GET_SEED_TRAIT(S, TRAIT_LIGHT_PREFERENCE))
 			TEST_FAIL("Seed [S] has a light preference value set higher than its light tolerance.")
 
-		if(S.get_trait(TRAIT_HEAT_TOLERANCE) < S.get_trait(TRAIT_HEAT_PREFERENCE))
+		if(GET_SEED_TRAIT(S, TRAIT_HEAT_TOLERANCE) < GET_SEED_TRAIT(S, TRAIT_HEAT_PREFERENCE))
 			TEST_FAIL("Seed [S] has a heat preference value set higher than its heat tolerance.")
 
 	if(!reported)

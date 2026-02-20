@@ -8,12 +8,12 @@
 	layer = 2.5
 	anchored = TRUE
 	idle_power_usage = 0
-	var/obj/item/device/radio/beacon/beacon
+	var/obj/item/radio/beacon/beacon
 
 /obj/machinery/bluespace_beacon/Initialize(mapload, d, populate_components, is_internal)
 	. = ..()
 	var/turf/T = loc
-	beacon = new /obj/item/device/radio/beacon/fixed(T)
+	beacon = new /obj/item/radio/beacon/fixed(T)
 	hide(!T.is_plating())
 
 /obj/machinery/bluespace_beacon/Destroy()

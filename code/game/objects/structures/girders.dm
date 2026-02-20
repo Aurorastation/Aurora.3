@@ -9,7 +9,8 @@
 	pass_flags_self = PASSTABLE
 	var/state = 0
 	var/health = 200
-	var/cover = 50 //how much cover the girder provides against projectiles.
+	/// How much cover the girder provides against projectiles.
+	var/cover = 50
 	build_amt = 2
 	var/material/reinf_material
 	var/reinforcing = 0
@@ -30,15 +31,13 @@
 			state = SPAN_NOTICE("The support struts look completely intact.")
 	. += state
 
-/obj/structure/girder/mechanics_hints()
-	. = list()
+/obj/structure/girder/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	if (state == 0 && anchored)
 		. += SPAN_NOTICE("It could be <b>pried</b> to subtly displace it to build a fake wall.")
 	return .
 
-/obj/structure/girder/assembly_hints()
-	. = list()
+/obj/structure/girder/assembly_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	if (health < initial(health))
 		. += "It could be repaired with a few choice <b>welds</b>."
@@ -55,8 +54,7 @@
 	. += "It [anchored ? "is" : "could be"] anchored to the floor with some <b>bolts</b>."
 	return .
 
-/obj/structure/girder/disassembly_hints()
-	. = list()
+/obj/structure/girder/disassembly_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	// Reinf wall deconstruction.
 	if (state == 2)
@@ -65,7 +63,6 @@
 		. += "Its unsecured support struts could be <b>cut</b> out."
 	if (!anchored)
 		. += "It is held together by a couple of <b>bolts</b>; a heavy <b>cutting</b> tool might also take it apart."
-
 
 /obj/structure/girder/displaced
 	name = "displaced girder"
@@ -107,7 +104,7 @@
 		reinforce_girder()
 
 /obj/structure/girder/attackby(obj/item/attacking_item, mob/user)
-	if(attacking_item.iswrench() && state == 0)
+	if(attacking_item.tool_behaviour == TOOL_WRENCH && state == 0)
 		if(anchored && !reinf_material)
 			to_chat(user, SPAN_NOTICE("Now disassembling the girder..."))
 			if(attacking_item.use_tool(src, user, 40, volume = 50))
@@ -174,7 +171,7 @@
 			to_chat(user, SPAN_NOTICE("You slice apart the girder!"))
 			dismantle()
 
-	else if(attacking_item.isscrewdriver())
+	else if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 		if(state == 2)
 			to_chat(user, SPAN_NOTICE("Now unsecuring support struts..."))
 			if(attacking_item.use_tool(src, user, 40, volume = 50))
@@ -188,7 +185,7 @@
 			to_chat(user, SPAN_NOTICE("\The [src] can now be [reinforcing? "reinforced" : "constructed"]!"))
 			return
 
-	else if(attacking_item.iswirecutter() && state == 1)
+	else if(attacking_item.tool_behaviour == TOOL_WIRECUTTER && state == 1)
 		to_chat(user, SPAN_NOTICE("Now removing support struts..."))
 		if(attacking_item.use_tool(src, user, 40, volume = 50))
 			if(!src) return
@@ -196,7 +193,7 @@
 			reinf_material = null
 			reset_girder()
 
-	else if(attacking_item.iscrowbar() && state == 0 && anchored)
+	else if(attacking_item.tool_behaviour == TOOL_CROWBAR && state == 0 && anchored)
 		to_chat(user, SPAN_NOTICE("Now dislodging the girder..."))
 		if(attacking_item.use_tool(src, user, 40, volume = 50))
 			if(!src) return
@@ -360,7 +357,7 @@
 	qdel(src)
 
 /obj/structure/girder/cult/attackby(obj/item/attacking_item, mob/user)
-	if(attacking_item.iswrench())
+	if(attacking_item.tool_behaviour == TOOL_WRENCH)
 		to_chat(user, SPAN_NOTICE("Now disassembling the girder..."))
 		if(attacking_item.use_tool(src, user, 40, volume = 50))
 			to_chat(user, SPAN_NOTICE("You dissasembled the girder!"))

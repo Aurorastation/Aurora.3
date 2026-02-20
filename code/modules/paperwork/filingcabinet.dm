@@ -59,11 +59,11 @@
 		to_chat(user, SPAN_NOTICE("You put [attacking_item] in [src]."))
 		user.drop_from_inventory(attacking_item, src)
 		flick("[initial(icon_state)]-open", src)
-		playsound(loc, 'sound/bureaucracy/filingcabinet.ogg', 50, 1)
+		playsound(loc, 'sound/items/bureaucracy/filingcabinet.ogg', 50, 1)
 		sleep(40)
 		icon_state = initial(icon_state)
 		updateUsrDialog()
-	else if(attacking_item.iswrench())
+	else if(attacking_item.tool_behaviour == TOOL_WRENCH)
 		attacking_item.play_tool_sound(get_turf(src), 50)
 		anchored = !anchored
 		to_chat(user, SPAN_NOTICE("You [anchored ? "wrench" : "unwrench"] \the [src]."))
@@ -95,7 +95,7 @@
 			usr.put_in_hands(P)
 			updateUsrDialog()
 			flick("[initial(icon_state)]-open",src)
-			playsound(loc, 'sound/bureaucracy/filingcabinet.ogg', 50, 1)
+			playsound(loc, 'sound/items/bureaucracy/filingcabinet.ogg', 50, 1)
 			spawn(0)
 				sleep(20)
 				icon_state = initial(icon_state)
@@ -167,9 +167,6 @@ Mental Status: [R.mental_status]<BR>
 <CENTER><B>Medical Data</B></CENTER><BR>
 Blood Type: [R.medical.blood_type]<BR>
 DNA: [R.medical.blood_dna]<BR><BR>
-Disabilities: [R.medical.disabilities]<BR><BR>
-Allergies: [R.medical.allergies]<BR>
-Current Diseases: [R.medical.diseases] (per disease info placed in log/comment section)<BR><BR>
 Important Notes:<BR>
 [replacetext(R.medical.notes, "\n", "<BR>")]<BR><BR>
 <CENTER><B>Comments/Log</B></CENTER><BR>

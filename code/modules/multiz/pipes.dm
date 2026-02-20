@@ -4,7 +4,8 @@
 /obj/machinery/atmospherics/pipe/zpipe
 	icon = 'icons/atmos/pipes.dmi'
 	icon_state = "up"
-	var/ptype	// What direction of pipe this is. Used for icons.
+	/// What direction of pipe this is. Used for icons.
+	var/ptype
 
 	name = "upwards pipe"
 	desc = "A pipe segment to connect upwards."
@@ -15,7 +16,8 @@
 	initialize_directions = SOUTH
 
 	var/minimum_temperature_difference = 300
-	var/thermal_conductivity = 0 //WALL_HEAT_TRANSFER_COEFFICIENT No
+	// WALL_HEAT_TRANSFER_COEFFICIENT
+	var/thermal_conductivity = 0
 
 	var/maximum_pressure = ATMOS_DEFAULT_MAX_PRESSURE
 	var/fatigue_pressure = ATMOS_DEFAULT_FATIGUE_PRESSURE

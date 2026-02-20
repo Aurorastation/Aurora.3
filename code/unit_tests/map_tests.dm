@@ -236,7 +236,7 @@
 	next_turf:
 		for(var/turf/T in world)
 			for(var/dir in GLOB.cardinals)
-				var/list/connect_types = list(1 = 0, 2 = 0, 3 = 0)
+				var/alist/connect_types = alist(1 = 0, 2 = 0, 3 = 0)
 				for(var/obj/machinery/atmospherics/pipe in T)
 					checks++
 					if(dir & pipe.initialize_directions)
@@ -441,6 +441,46 @@
 		TEST_PASS("All away sites are free of offending debug flags.")
 	else
 		TEST_FAIL("Some away sites have the offending debug flag TEMPLATE_FLAG_SPAWN_GUARANTEED set.")
+
+	return test_status
+
+// At present, only fire alarms have NSEW as immediate children, whereas APCs and Air Alarms also have them as sub-children.
+// In the future, areas should have additional vars to populate APC data automatically, allowing them to have directional
+// immediate children too for mapping testing.
+/datum/unit_test/map_test/no_panel_dir_var_edits
+	name = "MAP: Check for Fire Alarm dir var edits"
+
+/datum/unit_test/map_test/no_panel_dir_var_edits/start_test()
+	var/test_status = UNIT_TEST_PASSED
+	var/checks = 0
+	var/failed_checks = 0
+	var/firealarm_increment
+	var/turf/T
+
+	for(var/obj/machinery/firealarm/F in world)
+		T = get_turf(F)
+		firealarm_increment = 0
+		if(istype(F, /obj/machinery/firealarm/north))
+			if(F.dir != NORTH)
+				firealarm_increment++
+		if(istype(F, /obj/machinery/firealarm/south))
+			if(F.dir != SOUTH)
+				firealarm_increment++
+		if(istype(F, /obj/machinery/firealarm/east))
+			if(F.dir != EAST)
+				firealarm_increment++
+		if(istype(F, /obj/machinery/firealarm/west))
+			if(F.dir != WEST)
+				firealarm_increment++
+		checks++
+		if(firealarm_increment > 1)
+			failed_checks++
+			TEST_FAIL("Manually var edited [F] at ([F.x],[F.y],[F.z]) in [T.loc].")
+
+	if(failed_checks)
+		TEST_FAIL("\[[failed_checks] / [checks]\] Some fire alarms had their dir var manually edited instead of using a preset variant. Please also check new APCs and air alarms in the area.")
+	else
+		TEST_PASS("All \[[checks]\] fire alarms mapped properly.")
 
 	return test_status
 

@@ -1,17 +1,17 @@
 /obj/effect/plant/HasProximity(var/atom/movable/AM)
 
-	if(!is_mature() || (seed.get_trait(TRAIT_SPREAD) != 2 && seed.get_trait(TRAIT_CARNIVOROUS) == 0))
+	if(!is_mature() || (GET_SEED_TRAIT(seed, TRAIT_SPREAD) != 2 && GET_SEED_TRAIT(seed, TRAIT_CARNIVOROUS) == 0))
 		return
 
 	var/mob/living/M = AM
 	if(!istype(M))
 		return
 
-	if(!issmall(M) && seed.get_trait(TRAIT_SPREAD) != 2 && seed.get_trait(TRAIT_CARNIVOROUS) != 2)
+	if(!issmall(M) && GET_SEED_TRAIT(seed, TRAIT_SPREAD) != 2 && GET_SEED_TRAIT(seed, TRAIT_CARNIVOROUS) != 2)
 		// let TRAIT_CARNIVOROUS = 1 plants eat small creatures without murdering every hydroponicist
 		return
 
-	if(!buckled && !M.buckled_to && !M.anchored && (issmall(M) || prob(round(seed.get_trait(TRAIT_POTENCY)/6))))
+	if(!buckled && !M.buckled_to && !M.anchored && (issmall(M) || prob(round(GET_SEED_TRAIT(seed, TRAIT_POTENCY)/6))))
 		//wait a tick for the Entered() proc that called HasProximity() to finish (and thus the moving animation),
 		//so we don't appear to teleport from two tiles away when moving into a turf adjacent to vines.
 		addtimer(CALLBACK(src, PROC_REF(entangle), M), 1)
@@ -40,7 +40,7 @@
 
 /obj/effect/plant/proc/manual_unbuckle(mob/user as mob)
 	if(buckled)
-		if(prob(seed ? min(max(0,100 - seed.get_trait(TRAIT_POTENCY)/2),100) : 50))
+		if(prob(seed ? min(max(0,100 - GET_SEED_TRAIT(seed, TRAIT_POTENCY)/2),100) : 50))
 			if(buckled.buckled_to == src)
 				if(buckled != user)
 					buckled.visible_message(\

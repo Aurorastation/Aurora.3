@@ -38,10 +38,11 @@
 	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/civilian/librarian
 	tablet = /obj/item/modular_computer/handheld/preset/civilian/librarian
 
-	headset = /obj/item/device/radio/headset/headset_service
-	bowman = /obj/item/device/radio/headset/headset_service/alt
-	double_headset = /obj/item/device/radio/headset/alt/double/service
-	wrist_radio = /obj/item/device/radio/headset/wrist/service
+	headset = /obj/item/radio/headset/headset_service
+	bowman = /obj/item/radio/headset/headset_service/alt
+	double_headset = /obj/item/radio/headset/alt/double/service
+	wrist_radio = /obj/item/radio/headset/wrist/service
+	clipon_radio = /obj/item/radio/headset/wrist/clip/service
 
 	backpack_faction = /obj/item/storage/backpack/nt
 	satchel_faction = /obj/item/storage/backpack/satchel/nt
@@ -50,7 +51,7 @@
 
 	backpack_contents = list(
 		/obj/item/clothing/accessory/badge/press = 1,
-		/obj/item/device/tvcamera = 1
+		/obj/item/tvcamera = 1
 	)
 
 /obj/outfit/job/journalistf
@@ -66,7 +67,7 @@
 
 	backpack_contents = list(
 		/obj/item/clothing/accessory/badge/press/independent = 1,
-		/obj/item/device/tvcamera = 1
+		/obj/item/tvcamera = 1
 	)
 
 /datum/job/representative
@@ -142,15 +143,16 @@
 	tablet = /obj/item/modular_computer/handheld/preset/civilian/lawyer
 	shoes = /obj/item/clothing/shoes/laceup
 	glasses = /obj/item/clothing/glasses/sunglasses/big
-	headset = /obj/item/device/radio/headset/representative
-	bowman = /obj/item/device/radio/headset/representative/alt
-	double_headset = /obj/item/device/radio/headset/alt/double/command/representative
-	wrist_radio = /obj/item/device/radio/headset/wrist/command/representative
+	headset = /obj/item/radio/headset/representative
+	bowman = /obj/item/radio/headset/representative/alt
+	double_headset = /obj/item/radio/headset/alt/double/command/representative
+	wrist_radio = /obj/item/radio/headset/wrist/command/representative
+	clipon_radio = /obj/item/radio/headset/wrist/clip/command/representative
 	accessory = /obj/item/clothing/accessory/tie/corporate
 	suit_accessory = /obj/item/clothing/accessory/pin/corporate
 
 	backpack_contents = list(
-		/obj/item/device/camera = 1,
+		/obj/item/camera = 1,
 		/obj/item/gun/energy/pistol = 1
 	)
 
@@ -203,6 +205,12 @@
 	selection_color = "#6186cf"
 	economic_modifier = 15
 
+	alt_titles = list("Foreign Service Officer")
+	alt_citizenships = list(
+		"Consular Officer" = list("Republic of Biesel", "Sol Alliance", "Coalition of Colonies", "Republic of Elyra", "Elyran Non-Citizen Person", "Eridani Federation", "Empire of Dominia", "Izweski Hegemony", "Nralakk Federation", "The Consortium of Hieroaetheria", "The Union of Gla'orr", "The Eternal Republic of The Ekane", "People's Republic of Adhomai", "Democratic People's Republic of Adhomai", "New Kingdom of Adhomai", "Free Tajaran Council", "Zo'ra Hive", "K'lax Hive", "C'thur Hive", "Undercover Lii'kenka", "None", "Golden Deep", "Ecclesiarchy of Orepit"),
+		"Foreign Service Officer" = list("Sol Alliance")
+	)
+
 	minimum_character_age = list(
 		SPECIES_HUMAN = 30,
 		SPECIES_SKRELL = 150,
@@ -232,7 +240,7 @@
 	head = null
 	suit = null
 	backpack_contents = list(
-		/obj/item/device/camera = 1,
+		/obj/item/camera = 1,
 		/obj/item/gun/energy/pistol = 1
 	)
 	implants = null
@@ -336,10 +344,11 @@
 	tablet = /obj/item/modular_computer/handheld/preset/civilian/lawyer
 	shoes = /obj/item/clothing/shoes/laceup
 	glasses = /obj/item/clothing/glasses/sunglasses/big
-	headset = /obj/item/device/radio/headset/representative
-	bowman = /obj/item/device/radio/headset/representative/alt
-	double_headset = /obj/item/device/radio/headset/alt/double/command/representative
-	wrist_radio = /obj/item/device/radio/headset/wrist/command/representative
+	headset = /obj/item/radio/headset/representative
+	bowman = /obj/item/radio/headset/representative/alt
+	double_headset = /obj/item/radio/headset/alt/double/command/representative
+	wrist_radio = /obj/item/radio/headset/wrist/command/representative
+	clipon_radio = /obj/item/radio/headset/wrist/clip/command/representative
 
 /datum/job/diplomatic_aide/after_spawn(mob/living/carbon/human/H)
 	LAZYDISTINCTADD(blacklisted_citizenship, H.citizenship)
@@ -364,7 +373,7 @@
 
 	access = list(ACCESS_CONSULAR, ACCESS_MAINT_TUNNELS)
 	minimal_access = list(ACCESS_CONSULAR)
-	outfit = /obj/outfit/job/diplomatic_aide
+	outfit = /obj/outfit/job/diplomatic_bodyguard
 	blacklisted_citizenship = ALL_CITIZENSHIPS //removed based on consular citizensihp
 
 /datum/job/diplomatic_bodyguard/get_outfit(mob/living/carbon/human/H, alt_title = null)
@@ -382,10 +391,11 @@
 	tablet = /obj/item/modular_computer/handheld/preset/civilian/lawyer
 	shoes = /obj/item/clothing/shoes/laceup
 	glasses = /obj/item/clothing/glasses/sunglasses/big
-	headset = /obj/item/device/radio/headset/representative
-	bowman = /obj/item/device/radio/headset/representative/alt
-	double_headset = /obj/item/device/radio/headset/alt/double/command/representative
-	wrist_radio = /obj/item/device/radio/headset/wrist/command/representative
+	headset = /obj/item/radio/headset/representative
+	bowman = /obj/item/radio/headset/representative/alt
+	double_headset = /obj/item/radio/headset/alt/double/command/representative
+	wrist_radio = /obj/item/radio/headset/wrist/command/representative
+	clipon_radio = /obj/item/radio/headset/wrist/clip/command/representative
 
 /datum/job/diplomatic_bodyguard/after_spawn(mob/living/carbon/human/H)
 	LAZYDISTINCTADD(blacklisted_citizenship, H.citizenship)
@@ -410,24 +420,23 @@
 
 	access = list(ACCESS_LAWYER, ACCESS_MAINT_TUNNELS)
 	minimal_access = list(ACCESS_LAWYER)
-	outfit = /obj/outfit/job/diplomatic_aide
-
-/datum/job/corporate_aide/get_outfit(mob/living/carbon/human/H, alt_title = null)
-	var/datum/faction/aide_faction = SSjobs.name_factions[H.employer_faction]
-	if(aide_faction)
-		return aide_faction.titles_to_loadout["Off-Duty Crew Member"]
+	outfit = /obj/outfit/job/corporate_aide
 
 /obj/outfit/job/corporate_aide
-	name = "Corporate Aide"
+	name = "NanoTrasen Corporate Aide"
 	jobtype = /datum/job/corporate_aide
 
-	uniform = /obj/item/clothing/under/suit_jacket/navy
+	head = /obj/item/clothing/head/beret/corporate
+	uniform = /obj/item/clothing/under/dressshirt
+	suit = /obj/item/clothing/suit/storage/toggle/corp/nt
+	pants = /obj/item/clothing/pants/black
+
 	tab_pda = /obj/item/modular_computer/handheld/pda/civilian/lawyer
 	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/civilian/lawyer
 	tablet = /obj/item/modular_computer/handheld/preset/civilian/lawyer
 	shoes = /obj/item/clothing/shoes/laceup
-	glasses = /obj/item/clothing/glasses/sunglasses/big
-	headset = /obj/item/device/radio/headset/representative
-	bowman = /obj/item/device/radio/headset/representative/alt
-	double_headset = /obj/item/device/radio/headset/alt/double/command/representative
-	wrist_radio = /obj/item/device/radio/headset/wrist/command/representative
+	headset = /obj/item/radio/headset/representative
+	bowman = /obj/item/radio/headset/representative/alt
+	double_headset = /obj/item/radio/headset/alt/double/command/representative
+	wrist_radio = /obj/item/radio/headset/wrist/command/representative
+	clipon_radio = /obj/item/radio/headset/wrist/clip/command/representative

@@ -84,7 +84,7 @@
 	dir = 4;
 	pixel_y = 6
 	},
-/obj/item/device/flashlight/lamp/box{
+/obj/item/flashlight/lamp/box{
 	pixel_y = 12;
 	pixel_x = 2
 	},
@@ -157,7 +157,7 @@
 /obj/structure/railing/fence{
 	name = "railing"
 	},
-/obj/item/device/flashlight/lamp/box{
+/obj/item/flashlight/lamp/box{
 	pixel_y = 12;
 	pixel_x = 2
 	},
@@ -848,9 +848,9 @@
 /obj/item/extinguisher/mini,
 /obj/item/reagent_containers/extinguisher_refill/filled,
 /obj/item/reagent_containers/extinguisher_refill/filled,
-/obj/item/device/suit_cooling_unit,
+/obj/item/suit_cooling_unit,
 /obj/item/clothing/suit/storage/toggle/konyang/pants,
-/obj/item/device/flashlight/heavy,
+/obj/item/flashlight/heavy,
 /obj/item/cell/device/high,
 /obj/item/storage/belt/utility/atmostech,
 /obj/item/clothing/accessory/storage/webbing,
@@ -858,7 +858,7 @@
 	name = "\improper fire-proof gloves";
 	desc = "These fire-proof gloves are somewhat fire and impact-resistant."
 	},
-/obj/item/device/radio/eng,
+/obj/item/radio/eng,
 /obj/item/clothing/suit/storage/toggle/highvis,
 /turf/simulated/floor/wood,
 /area/konyang_fireoutpost)
@@ -909,7 +909,7 @@
 	dir = 8;
 	pixel_y = 3
 	},
-/obj/item/device/flashlight/lamp/box{
+/obj/item/flashlight/lamp/box{
 	pixel_y = 12;
 	pixel_x = 2
 	},
@@ -917,7 +917,7 @@
 	pixel_x = 6;
 	pixel_y = 2
 	},
-/obj/item/device/binoculars/high_power{
+/obj/item/binoculars/high_power{
 	pixel_x = -2;
 	pixel_y = -2
 	},
@@ -934,7 +934,7 @@
 	dir = 1;
 	pixel_y = 13
 	},
-/obj/item/device/flashlight/lamp/box{
+/obj/item/flashlight/lamp/box{
 	pixel_y = 12;
 	pixel_x = 2
 	},

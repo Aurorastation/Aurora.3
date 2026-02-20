@@ -513,8 +513,8 @@
 /obj/item/ammo_magazine/a556/carbine,
 /obj/item/ammo_magazine/a556/carbine,
 /obj/item/gun/projectile/shotgun/pump,
-/obj/item/storage/box/shotgunshells,
-/obj/item/storage/box/shotgunshells,
+/obj/item/storage/box/shells/buckshot,
+/obj/item/storage/box/shells/buckshot,
 /obj/item/gun/projectile/automatic/c20r/sol,
 /obj/item/gun/projectile/automatic/c20r/sol,
 /obj/item/ammo_magazine/a10mm,
@@ -1989,7 +1989,7 @@
 /area/splf_raider/closet)
 "lz" = (
 /obj/structure/table/reinforced/steel,
-/obj/item/device/taperecorder{
+/obj/item/taperecorder{
 	pixel_y = 3
 	},
 /turf/simulated/floor/tiled/dark/full,
@@ -2282,7 +2282,7 @@
 /obj/item/clothing/accessory/armband/medgreen,
 /obj/item/storage/belt/medical/paramedic,
 /obj/item/reagent_containers/hypospray,
-/obj/item/device/mass_spectrometer,
+/obj/item/mass_spectrometer,
 /obj/item/reagent_containers/glass/bottle/polysomnine,
 /obj/item/storage/box/syringes,
 /obj/item/material/stool/chair/wheelchair,
@@ -2535,7 +2535,7 @@
 /obj/random/tech_supply,
 /obj/random/tech_supply,
 /obj/random/dirt_75,
-/obj/item/device/lightreplacer,
+/obj/item/lightreplacer,
 /obj/item/storage/box/lights/mixed,
 /turf/simulated/floor/tiled/dark/full,
 /area/splf_raider/closet)
@@ -3372,7 +3372,7 @@
 	pixel_y = -2;
 	pixel_x = 4
 	},
-/obj/item/device/binoculars{
+/obj/item/binoculars{
 	pixel_y = 8;
 	pixel_x = 7
 	},
@@ -3738,7 +3738,7 @@
 /obj/item/spacecash/c1000,
 /obj/item/reagent_containers/food/drinks/flask,
 /obj/item/storage/secure/briefcase,
-/obj/item/device/megaphone,
+/obj/item/megaphone,
 /obj/item/flame/lighter/zippo/sol,
 /turf/simulated/floor/tiled/dark/full,
 /area/splf_raider/office)
@@ -4139,7 +4139,7 @@
 /area/shuttle/splf)
 "yg" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/autolathe,
+/obj/machinery/fabricator/autolathe,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
 /area/splf_raider/cargo_1)
@@ -4204,7 +4204,7 @@
 /obj/item/storage/toolbox/mechanical{
 	pixel_y = 14
 	},
-/obj/item/device/hand_labeler{
+/obj/item/hand_labeler{
 	pixel_y = 4
 	},
 /obj/random/dirt_75,
@@ -4254,11 +4254,11 @@
 "yO" = (
 /obj/structure/table/reinforced/steel,
 /obj/random/dirt_75,
-/obj/item/device/radio/hailing{
+/obj/item/radio/hailing{
 	pixel_x = -4;
 	pixel_y = 4
 	},
-/obj/item/device/radio/hailing{
+/obj/item/radio/hailing{
 	pixel_x = 8;
 	pixel_y = 7
 	},
@@ -4314,7 +4314,7 @@
 /obj/machinery/computer/shuttle_control/explore/terminal/splf_shuttle{
 	dir = 4
 	},
-/obj/item/device/radio/intercom/expedition/hailing/west,
+/obj/item/radio/intercom/expedition/hailing/west,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/splf)
@@ -5184,11 +5184,11 @@
 /obj/machinery/light/colored/decayed{
 	dir = 8
 	},
-/obj/item/device/binoculars{
+/obj/item/binoculars{
 	pixel_x = 1;
 	pixel_y = -2
 	},
-/obj/item/device/binoculars/high_power{
+/obj/item/binoculars/high_power{
 	pixel_x = 1;
 	pixel_y = 7
 	},
@@ -5608,7 +5608,7 @@
 	icon_state = "0-8"
 	},
 /obj/effect/floor_decal/industrial/outline/operations,
-/obj/item/device/suit_cooling_unit,
+/obj/item/suit_cooling_unit,
 /obj/structure/table/rack,
 /obj/item/gun/energy/plasmacutter,
 /obj/random/dirt_75,
@@ -6128,10 +6128,10 @@
 /obj/item/grenade/chem_grenade,
 /obj/item/grenade/chem_grenade,
 /obj/item/grenade/chem_grenade,
-/obj/item/device/assembly/igniter,
-/obj/item/device/assembly/igniter,
-/obj/item/device/assembly/igniter,
-/obj/item/device/assembly/igniter,
+/obj/item/assembly/igniter,
+/obj/item/assembly/igniter,
+/obj/item/assembly/igniter,
+/obj/item/assembly/igniter,
 /obj/item/stack/material/phoron{
 	amount = 6
 	},
@@ -6623,12 +6623,12 @@
 /obj/item/tank/jetpack/carbondioxide,
 /obj/item/tank/jetpack/carbondioxide,
 /obj/item/tank/jetpack/carbondioxide,
-/obj/item/device/gps,
-/obj/item/device/gps,
-/obj/item/device/gps,
-/obj/item/device/gps,
-/obj/item/device/gps,
-/obj/item/device/gps,
+/obj/item/gps,
+/obj/item/gps,
+/obj/item/gps,
+/obj/item/gps,
+/obj/item/gps,
+/obj/item/gps,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
 /area/splf_raider/ready)
@@ -6767,7 +6767,7 @@
 	dir = 4
 	},
 /obj/item/storage/toolbox/mechanical,
-/obj/item/device/multitool{
+/obj/item/multitool{
 	pixel_x = 3;
 	pixel_y = 15
 	},
@@ -7390,7 +7390,7 @@
 "QK" = (
 /obj/machinery/alarm/south,
 /obj/structure/table/wood,
-/obj/item/device/synthesized_instrument/guitar{
+/obj/item/synthesized_instrument/guitar{
 	pixel_y = 6;
 	pixel_x = -2
 	},
@@ -7567,8 +7567,8 @@
 "RO" = (
 /obj/effect/floor_decal/industrial/outline/service,
 /obj/structure/closet/secure_closet/refrigerator,
-/obj/item/storage/box/produce,
-/obj/item/storage/box/produce,
+/obj/item/storage/box/large/produce,
+/obj/item/storage/box/large/produce,
 /obj/item/storage/box/fancy/egg_box,
 /obj/item/storage/box/fancy/egg_box,
 /obj/item/reagent_containers/food/condiment/enzyme,
@@ -8297,7 +8297,7 @@
 	req_access = list(246)
 	},
 /obj/structure/table/steel,
-/obj/item/storage/box/condiment{
+/obj/item/storage/box/large/condiment{
 	pixel_y = 14
 	},
 /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/metal{

@@ -30,7 +30,6 @@ GLOBAL_LIST_INIT(admin_verbs_admin, list(
 	/client/proc/cmd_admin_delete,		/*delete an instance/object/mob/etc*/
 	/client/proc/cmd_admin_check_contents,	/*displays the contents of an instance*/
 	/datum/admins/proc/access_news_network,	/*allows access of newscasters*/
-	/client/proc/getserverlog,			/*allows us to fetch server logs (diary) for other days*/
 	/client/proc/jumptocoord,			/*we ghost and jump to a coordinate*/
 	/client/proc/jumptozlevel,
 	/client/proc/jumptoshuttle,
@@ -49,6 +48,7 @@ GLOBAL_LIST_INIT(admin_verbs_admin, list(
 	/client/proc/cmd_admin_local_narrate,	//sends text to all mobs within 7 tiles of src.mob
 	/client/proc/cmd_admin_local_screen_text,
 	/client/proc/cmd_admin_global_screen_text,
+	/client/proc/cmd_admin_open_narrate_panel, // Admin logged variant of the narrator panel.
 	/client/proc/cmd_admin_world_narrate,	//sends text to all players with no padding,
 	/client/proc/cmd_admin_create_centcom_report,
 	/client/proc/check_ai_laws,			//shows AI and borg laws,
@@ -145,7 +145,8 @@ GLOBAL_LIST_INIT(admin_verbs_fun, list(
 	/client/proc/fab_tip,
 	/client/proc/apply_sunstate,
 	/datum/admins/proc/ccannoucment,
-	/datum/admins/proc/set_odyssey
+	/datum/admins/proc/set_odyssey,
+	/datum/admins/proc/set_odyssey_canonicity
 	))
 
 GLOBAL_LIST_INIT(admin_verbs_spawn, list(
@@ -186,7 +187,6 @@ GLOBAL_LIST_INIT(admin_verbs_server, list(
 	))
 
 GLOBAL_LIST_INIT(admin_verbs_debug, list(
-	/client/proc/getruntimelog,                     // allows us to access runtime logs to somebody,
 	/client/proc/cmd_admin_list_open_jobs,
 	/client/proc/Debug2,
 	/client/proc/DebugToggle,
@@ -224,7 +224,6 @@ GLOBAL_LIST_INIT(admin_verbs_debug, list(
 	/client/proc/toggle_recursive_explosions,
 	/client/proc/restart_sql,
 	/client/proc/fix_player_list,
-	/client/proc/lighting_show_verbs,
 	/client/proc/restart_controller,
 	/client/proc/cmd_display_del_log,
 	/client/proc/cmd_display_harddel_log,
@@ -236,7 +235,6 @@ GLOBAL_LIST_INIT(admin_verbs_debug, list(
 	/datum/admins/proc/map_template_load,
 	/datum/admins/proc/map_template_load_new_z,
 	/datum/admins/proc/map_template_upload,
-	/client/proc/global_ao_regenerate,
 	/client/proc/add_client_color,
 	/client/proc/connect_ntsl,
 	/client/proc/disconnect_ntsl,
@@ -310,6 +308,7 @@ GLOBAL_LIST_INIT(admin_verbs_hideable, list(
 	/client/proc/cmd_admin_local_narrate,
 	/client/proc/cmd_admin_local_screen_text,
 	/client/proc/cmd_admin_global_screen_text,
+	/client/proc/cmd_admin_open_narrate_panel, // Admin logged variant of the narrator panel.
 	/client/proc/cmd_admin_world_narrate,
 	/client/proc/cmd_admin_grab_observers,
 	/client/proc/cmd_admin_create_centcom_report,
@@ -342,7 +341,6 @@ GLOBAL_LIST_INIT(admin_verbs_hideable, list(
 	/client/proc/end_round,
 	/datum/admins/proc/immreboot,
 	/client/proc/cmd_dev_bst,
-	/client/proc/global_ao_regenerate,
 	/client/proc/everyone_random,
 	/datum/admins/proc/toggleAI,
 	/client/proc/cmd_admin_delete,
@@ -411,16 +409,14 @@ GLOBAL_LIST_INIT(admin_verbs_hideable, list(
 	/client/proc/cmd_display_harddel_log,
 	/datum/admins/proc/ccannoucment,
 	/datum/admins/proc/set_odyssey,
+	/datum/admins/proc/set_odyssey_canonicity,
 	/client/proc/cmd_display_init_log,
 	/client/proc/cmd_generate_lag,
-	/client/proc/getruntimelog,
 	/client/proc/toggledebuglogs,
-	/client/proc/getserverlog,
 	/client/proc/view_chemical_reaction_logs,
 	/datum/admins/proc/capture_map,
 	/turf/proc/view_chunk,
 	/turf/proc/update_chunk,
-	/client/proc/lighting_show_verbs,
 	/client/proc/callproc,
 	/client/proc/callproc_target,
 	/client/proc/debug_controller,
@@ -489,7 +485,6 @@ GLOBAL_LIST_INIT(admin_verbs_dev, list( //will need to be altered - Ryan784
 	/client/proc/debug_controller,
 	/client/proc/debug_variables,
 	/client/proc/dsay,
-	/client/proc/getruntimelog,
 	/client/proc/hide_most_verbs,
 	/client/proc/kill_air,
 	/client/proc/kill_airgroup,
@@ -498,7 +493,6 @@ GLOBAL_LIST_INIT(admin_verbs_dev, list( //will need to be altered - Ryan784
 	/client/proc/toggledebuglogs,
 	/client/proc/ZASSettings,
 	/client/proc/cmd_dev_bst,
-	/client/proc/lighting_show_verbs,
 	/client/proc/cmd_display_del_log,
 	/client/proc/cmd_display_harddel_log,
 	/client/proc/cmd_display_init_log,
@@ -770,8 +764,8 @@ GLOBAL_LIST_INIT(admin_verbs_storyteller, list(
 	set name = "Drop Bomb"
 	set desc = "Cause an explosion of varying strength at your location."
 
-	var/turf/epicenter = get_turf(mob)
 	var/choice = tgui_input_list(usr, "What size explosion would you like to produce?", "Drop Bomb", list("Small Bomb", "Medium Bomb", "Big Bomb", "Custom Bomb"))
+	var/turf/epicenter = get_turf(mob)
 	switch(choice)
 		if(null)
 			return 0
@@ -786,6 +780,7 @@ GLOBAL_LIST_INIT(admin_verbs_storyteller, list(
 			var/heavy_impact_range = tgui_input_number(usr, "Set the heavy impact range (in tiles).", "Heavy")
 			var/light_impact_range = tgui_input_number(usr, "Set the light impact range (in tiles).", "Light")
 			var/flash_range = tgui_input_number(usr, "Set the flash range (in tiles).", "Flash")
+			epicenter = get_turf(mob)
 			explosion(epicenter, devastation_range, heavy_impact_range, light_impact_range, flash_range)
 	message_admins(SPAN_NOTICE("[ckey] creating an admin explosion at [epicenter.loc]."))
 	feedback_add_details("admin_verb","DB") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!

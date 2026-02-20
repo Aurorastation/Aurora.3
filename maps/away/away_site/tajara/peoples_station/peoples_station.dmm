@@ -919,11 +919,11 @@
 /area/peoples_station/hangar)
 "dA" = (
 /obj/structure/closet/cabinet,
-/obj/item/device/versebook/pra,
-/obj/item/device/versebook/pra,
-/obj/item/device/versebook/pra,
-/obj/item/device/versebook/pra,
-/obj/item/device/versebook/pra,
+/obj/item/versebook/pra,
+/obj/item/versebook/pra,
+/obj/item/versebook/pra,
+/obj/item/versebook/pra,
+/obj/item/versebook/pra,
 /obj/item/ammo_magazine/a50,
 /obj/item/ammo_magazine/a50,
 /turf/simulated/floor/wood,
@@ -1477,7 +1477,7 @@
 /area/peoples_station/hangar)
 "fq" = (
 /obj/structure/table/steel,
-/obj/item/device/multitool,
+/obj/item/multitool,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -1748,7 +1748,7 @@
 /obj/machinery/atmospherics/portables_connector/aux{
 	dir = 8
 	},
-/obj/item/device/gps/stationary{
+/obj/item/gps/stationary{
 	gps_prefix = "PEOPLE";
 	gpstag = "PEOPLEFANG";
 	pixel_y = 28;
@@ -2012,7 +2012,7 @@
 /area/peoples_station/barracks)
 "hc" = (
 /obj/structure/closet/secure_closet/kitchen_cabinet/standard,
-/obj/item/storage/box/produce{
+/obj/item/storage/box/large/produce{
 	pixel_x = 3;
 	pixel_y = -11
 	},
@@ -2383,7 +2383,7 @@
 /obj/effect/floor_decal/corner_wide/red{
 	dir = 1
 	},
-/obj/item/device/gps/stationary{
+/obj/item/gps/stationary{
 	gps_prefix = "PEOPLE";
 	gpstag = "PEOPLESTATION";
 	pixel_y = 28;
@@ -3724,7 +3724,7 @@
 /area/peoples_station/armory)
 "no" = (
 /obj/structure/table/wood,
-/obj/item/device/flashlight/lamp,
+/obj/item/flashlight/lamp,
 /turf/simulated/floor/carpet/art,
 /area/peoples_station/captain_quarters)
 "nq" = (
@@ -4277,9 +4277,9 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
-/obj/item/device/flashlight/heavy,
-/obj/item/device/flashlight/heavy,
-/obj/item/device/flashlight/heavy,
+/obj/item/flashlight/heavy,
+/obj/item/flashlight/heavy,
+/obj/item/flashlight/heavy,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -4346,7 +4346,7 @@
 	pixel_y = 6;
 	pixel_x = 8
 	},
-/obj/item/device/binoculars{
+/obj/item/binoculars{
 	pixel_y = 8;
 	pixel_x = -6
 	},
@@ -4405,7 +4405,7 @@
 /obj/item/clothing/head/tajaran/cosmonaut_commissar,
 /obj/item/clothing/accessory/holster/hip,
 /obj/item/storage/backpack/satchel/leather,
-/obj/item/device/radio/headset/ship,
+/obj/item/radio/headset/ship,
 /obj/item/clothing/accessory/badge/pra_passport,
 /turf/simulated/floor/carpet/art,
 /area/peoples_station/commissar_quarters)
@@ -5535,7 +5535,7 @@
 /obj/item/clothing/shoes/combat,
 /obj/item/clothing/under/tajaran/cosmonaut,
 /obj/item/storage/backpack/satchel/leather,
-/obj/item/device/radio/headset/ship,
+/obj/item/radio/headset/ship,
 /obj/structure/sign/flag/pra{
 	pixel_y = -32
 	},
@@ -5577,7 +5577,7 @@
 /obj/item/reagent_containers/food/drinks/bottle/victorygin,
 /obj/item/reagent_containers/food/drinks/drinkingglass,
 /obj/item/reagent_containers/food/drinks/drinkingglass,
-/obj/item/device/versebook/pra,
+/obj/item/versebook/pra,
 /turf/simulated/floor/carpet/art,
 /area/peoples_station/captain_quarters)
 "uq" = (
@@ -5737,15 +5737,15 @@
 	name = "gun cabinet (rifle ammo)"
 	},
 /obj/effect/floor_decal/industrial/outline/security,
-/obj/item/ammo_magazine/boltaction,
-/obj/item/ammo_magazine/boltaction,
-/obj/item/ammo_magazine/boltaction,
-/obj/item/ammo_magazine/boltaction,
-/obj/item/ammo_magazine/boltaction,
-/obj/item/ammo_magazine/boltaction,
-/obj/item/ammo_magazine/boltaction,
-/obj/item/ammo_magazine/boltaction,
-/obj/item/ammo_magazine/boltaction,
+/obj/item/ammo_magazine/a68,
+/obj/item/ammo_magazine/a68,
+/obj/item/ammo_magazine/a68,
+/obj/item/ammo_magazine/a68,
+/obj/item/ammo_magazine/a68,
+/obj/item/ammo_magazine/a68,
+/obj/item/ammo_magazine/a68,
+/obj/item/ammo_magazine/a68,
+/obj/item/ammo_magazine/a68,
 /turf/simulated/floor/tiled/dark,
 /area/peoples_station/armory)
 "uP" = (
@@ -6008,7 +6008,7 @@
 /area/peoples_station)
 "vX" = (
 /obj/structure/table/wood,
-/obj/item/device/flashlight/lamp,
+/obj/item/flashlight/lamp,
 /turf/simulated/floor/wood{
 	temperature = 278.15
 	},
@@ -6766,7 +6766,7 @@
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/effect/decal/cleanable/dirt,
-/obj/item/device/gps/stationary{
+/obj/item/gps/stationary{
 	gps_prefix = "PEOPLE";
 	gpstag = "PEOPLETRANSPORT";
 	pixel_x = 22;
@@ -6780,7 +6780,7 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/obj/item/device/flashlight/lamp,
+/obj/item/flashlight/lamp,
 /obj/effect/floor_decal/corner/red/full,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -7039,7 +7039,7 @@
 /area/peoples_station)
 "zZ" = (
 /obj/structure/table/steel,
-/obj/item/device/camera,
+/obj/item/camera,
 /obj/item/handcuffs,
 /obj/machinery/light{
 	dir = 1
@@ -8307,7 +8307,7 @@
 	pixel_y = 6;
 	pixel_x = 8
 	},
-/obj/item/device/binoculars,
+/obj/item/binoculars,
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
@@ -8556,19 +8556,19 @@
 /obj/item/tank/jetpack/oxygen,
 /obj/item/tank/jetpack/oxygen,
 /obj/item/tank/jetpack/oxygen,
-/obj/item/device/gps{
+/obj/item/gps{
 	gps_prefix = "PEOPLE";
 	gpstag = "PEOPLE0"
 	},
-/obj/item/device/gps{
+/obj/item/gps{
 	gps_prefix = "PEOPLE";
 	gpstag = "PEOPLE0"
 	},
-/obj/item/device/gps{
+/obj/item/gps{
 	gps_prefix = "PEOPLE";
 	gpstag = "PEOPLE0"
 	},
-/obj/item/device/gps{
+/obj/item/gps{
 	gps_prefix = "PEOPLE";
 	gpstag = "PEOPLE0"
 	},
@@ -9401,7 +9401,7 @@
 "Jz" = (
 /obj/structure/table/standard,
 /obj/structure/window/reinforced,
-/obj/item/device/hand_labeler,
+/obj/item/hand_labeler,
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
@@ -9411,7 +9411,7 @@
 /area/peoples_station/bridge)
 "JB" = (
 /obj/structure/table/steel,
-/obj/item/device/binoculars,
+/obj/item/binoculars,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -9912,19 +9912,19 @@
 /obj/item/tank/jetpack/oxygen,
 /obj/item/tank/jetpack/oxygen,
 /obj/machinery/light,
-/obj/item/device/gps{
+/obj/item/gps{
 	gps_prefix = "PEOPLE";
 	gpstag = "PEOPLE0"
 	},
-/obj/item/device/gps{
+/obj/item/gps{
 	gps_prefix = "PEOPLE";
 	gpstag = "PEOPLE0"
 	},
-/obj/item/device/gps{
+/obj/item/gps{
 	gps_prefix = "PEOPLE";
 	gpstag = "PEOPLE0"
 	},
-/obj/item/device/gps{
+/obj/item/gps{
 	gps_prefix = "PEOPLE";
 	gpstag = "PEOPLE0"
 	},
@@ -10615,15 +10615,6 @@
 	temperature = 278.15
 	},
 /area/peoples_station/hangar)
-"Ou" = (
-/obj/effect/floor_decal/plaque{
-	name = "people's station plaque";
-	desc = "A plaque commemorating the founding of the People's Space Station."
-	},
-/turf/simulated/floor/tiled/dark{
-	temperature = 278.15
-	},
-/area/peoples_station/visitor)
 "Ow" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -11850,6 +11841,12 @@
 	temperature = 278.15
 	},
 /area/peoples_station/bridge)
+"Te" = (
+/obj/structure/sign/floor_plaque/peoples_station,
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/peoples_station/visitor)
 "Tf" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/black{
 	dir = 8
@@ -12920,7 +12917,7 @@
 /area/peoples_station/transport_hangar)
 "Xp" = (
 /obj/structure/table/wood,
-/obj/item/device/flashlight/lamp,
+/obj/item/flashlight/lamp,
 /turf/simulated/floor/carpet/art,
 /area/peoples_station/commissar_quarters)
 "Xq" = (
@@ -12983,7 +12980,7 @@
 /obj/item/clothing/head/tajaran/orbital_captain,
 /obj/item/clothing/accessory/holster/hip,
 /obj/item/storage/backpack/satchel/leather,
-/obj/item/device/radio/headset/ship,
+/obj/item/radio/headset/ship,
 /obj/item/clothing/accessory/badge/pra_passport,
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
@@ -50064,7 +50061,7 @@ wY
 TN
 wY
 qw
-Ou
+Te
 tK
 uL
 sf

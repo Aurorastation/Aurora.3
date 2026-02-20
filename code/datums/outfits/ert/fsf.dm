@@ -12,7 +12,7 @@
 	id = /obj/item/card/id/distress/fsf
 	l_pocket = /obj/item/tank/emergency_oxygen/double
 
-	l_ear = /obj/item/device/radio/headset/distress
+	l_ear = /obj/item/radio/headset/distress
 
 	backpack_contents = list(
 		/obj/item/melee/energy/sword/knife/sol = 1
@@ -45,10 +45,10 @@
 	backpack_contents = list(
 		/obj/item/storage/firstaid/combat = 1,
 		/obj/item/ammo_magazine/mc9mm = 2,
-		/obj/item/storage/box/shotgunshells = 1,
+		/obj/item/storage/box/shells/buckshot = 1,
 		/obj/item/storage/firstaid/adv = 1,
 		/obj/item/handcuffs/ziptie = 1,
-		/obj/item/device/healthanalyzer = 1,
+		/obj/item/healthanalyzer = 1,
 		/obj/item/stack/medical/advanced/bruise_pack = 1,
 		/obj/item/stack/medical/advanced/ointment = 1,
 		/obj/item/melee/energy/sword/knife/sol = 1
@@ -81,7 +81,7 @@
 		/obj/item/melee/energy/sword/knife/sol = 1,
 		/obj/item/handcuffs/ziptie = 1,
 		/obj/item/clothing/glasses/welding/superior = 1,
-		/obj/item/storage/box/shotgunshells = 1,
+		/obj/item/storage/box/shells/buckshot = 1,
 		/obj/item/gun/projectile/pistol/sol = 1,
 		/obj/item/ammo_magazine/mc9mm = 2,
 		/obj/item/grenade/frag = 2
@@ -121,10 +121,10 @@
 	l_pocket = null
 	belt_contents = null
 
-	l_ear = /obj/item/device/radio/headset/distress
+	l_ear = /obj/item/radio/headset/distress
 
 	backpack_contents = list(
 		/obj/item/melee/energy/sword/knife/sol = 1,
 		/obj/item/grenade/smokebomb = 2,
-		/obj/item/device/binoculars = 1
+		/obj/item/binoculars = 1
 	)

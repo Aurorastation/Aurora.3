@@ -35,17 +35,18 @@
 		/obj/item/ammo_magazine/mc10mm                       = TRADER_ALL,
 		/obj/item/ammo_magazine/mc10mm/leyon                 = TRADER_BLACKLIST,
 		/obj/item/ammo_magazine/mc10mm/empty                 = TRADER_BLACKLIST,
-		/obj/item/storage/box/ammo10mm                = TRADER_THIS_TYPE,
+		/obj/item/storage/box/ammo/ammo10mm                = TRADER_THIS_TYPE,
 		/obj/item/ammo_magazine/c38                          = TRADER_ALL,
 		/obj/item/ammo_magazine/c45m/auto                         = TRADER_THIS_TYPE,
-		/obj/item/storage/box/beanbags                = TRADER_THIS_TYPE,
-		/obj/item/storage/box/shotgunammo             = TRADER_THIS_TYPE,
-		/obj/item/storage/box/shotgunshells           = TRADER_THIS_TYPE,
-		/obj/item/storage/box/haywireshells           = TRADER_THIS_TYPE,
-		/obj/item/storage/box/incendiaryshells        = TRADER_THIS_TYPE,
-		/obj/item/storage/box/governmentammo          = TRADER_THIS_TYPE,
+		/obj/item/storage/box/shells/beanbags                = TRADER_THIS_TYPE,
+		/obj/item/storage/box/shells/slugs             = TRADER_THIS_TYPE,
+		/obj/item/storage/box/shells/buckshot           = TRADER_THIS_TYPE,
+		/obj/item/storage/box/shells/haywireshells           = TRADER_THIS_TYPE,
+		/obj/item/storage/box/shells/incendiaryshells        = TRADER_THIS_TYPE,
+		/obj/item/storage/box/ammo/governmentammo          = TRADER_THIS_TYPE,
 		/obj/item/clothing/accessory/holster                 = TRADER_SUBTYPES_ONLY,
-		/obj/item/clothing/accessory/holster/thigh/fluff     = TRADER_BLACKLIST_ALL
+		/obj/item/clothing/accessory/holster/thigh/fluff     = TRADER_BLACKLIST_ALL,
+		/obj/item/clothing/accessory/holster/utility/fluff   = TRADER_BLACKLIST_ALL
 	)
 
 /datum/trader/ship/egunshop
@@ -80,7 +81,8 @@
 		/obj/item/gun/energy/laser/shotgun         = TRADER_THIS_TYPE,
 		/obj/item/gun/energy/freeze                = TRADER_THIS_TYPE,
 		/obj/item/clothing/accessory/holster              = TRADER_ALL,
-		/obj/item/clothing/accessory/holster/thigh/fluff  = TRADER_BLACKLIST_ALL
+		/obj/item/clothing/accessory/holster/thigh/fluff  = TRADER_BLACKLIST_ALL,
+		/obj/item/clothing/accessory/holster/utility/fluff = TRADER_BLACKLIST_ALL
 	)
 
 /datum/trader/ship/illegalgun

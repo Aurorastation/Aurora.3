@@ -69,7 +69,7 @@
 		log_and_message_admins("[user] has caused the cookoff of [src] by attacking it with [attacking_item]!", user)
 		cookoff(FALSE)
 
-	else if(attacking_item.ispen())
+	else if(attacking_item.tool_behaviour == TOOL_PEN)
 		var/obj/item/pen/P = attacking_item
 		if(!use_check_and_message(user))
 			var/friendly_message = sanitizeSafe( tgui_input_text(user, "What do you want to write on \the [src]?", "Personal Message", "", 32), 32 )

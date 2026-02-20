@@ -18,6 +18,7 @@
 	var/seclevel
 	///looping sound datum for our fire alarm siren.
 	var/datum/looping_sound/firealarm/soundloop
+	always_area_sensitive = TRUE
 
 /obj/machinery/firealarm/Initialize(mapload, var/dir, var/building = 0)
 	. = ..(mapload)
@@ -78,7 +79,7 @@
 		var/area/A = get_area(src)
 		if(A.fire)
 			AddOverlays("fire1")
-			set_light(l_range = L_WALLMOUNT_HI_RANGE, l_power = L_WALLMOUNT_HI_POWER, l_color = COLOR_RED)
+			set_light(L_WALLMOUNT_HI_RANGE, L_WALLMOUNT_HI_POWER, COLOR_RED)
 		else
 			AddOverlays("fire0")
 			set_light(0)
@@ -109,7 +110,7 @@
 	else
 		return TRUE
 
-	if (attacking_item.isscrewdriver() && buildstage == 2)
+	if (attacking_item.tool_behaviour == TOOL_SCREWDRIVER && buildstage == 2)
 		if(!panel_open)
 			set_light(0)
 		panel_open = !panel_open
@@ -120,7 +121,7 @@
 		set_light(0)
 		switch(buildstage)
 			if(2)
-				if (attacking_item.ismultitool())
+				if (attacking_item.tool_behaviour == TOOL_MULTITOOL)
 					src.detecting = !( src.detecting )
 					if (src.detecting)
 						user.visible_message(SPAN_NOTICE("\The [user] has reconnected [src]'s detecting unit!"),
@@ -131,7 +132,7 @@
 												SPAN_NOTICE("You have disconnected [src]'s detecting unit."))
 
 					return TRUE
-				else if (attacking_item.iswirecutter())
+				else if (attacking_item.tool_behaviour == TOOL_WIRECUTTER)
 					user.visible_message(SPAN_NOTICE("\The [user] has cut the wires inside \the [src]!"),
 											SPAN_NOTICE("You have cut the wires inside \the [src]."))
 
@@ -141,7 +142,7 @@
 					update_icon()
 					return TRUE
 			if(1)
-				if(attacking_item.iscoil())
+				if(attacking_item.tool_behaviour == TOOL_CABLECOIL)
 					var/obj/item/stack/cable_coil/C = attacking_item
 					if (C.use(5))
 						to_chat(user, SPAN_NOTICE("You wire \the [src]."))
@@ -149,7 +150,7 @@
 					else
 						to_chat(user, SPAN_WARNING("You need 5 pieces of cable to wire \the [src]."))
 					return TRUE
-				else if(attacking_item.iscrowbar())
+				else if(attacking_item.tool_behaviour == TOOL_CROWBAR)
 					to_chat(user, "You pry out the circuit!")
 					attacking_item.play_tool_sound(get_turf(src), 50)
 					var/obj/item/firealarm_electronics/circuit = new /obj/item/firealarm_electronics()
@@ -164,7 +165,7 @@
 					buildstage = 1
 					update_icon()
 					return TRUE
-				else if(attacking_item.iswrench())
+				else if(attacking_item.tool_behaviour == TOOL_WRENCH)
 					to_chat(user, "You remove the fire alarm assembly from the wall!")
 					new /obj/item/frame/fire_alarm(get_turf(user))
 					attacking_item.play_tool_sound(get_turf(src), 50)
@@ -275,7 +276,7 @@
 /obj/machinery/firealarm/set_pixel_offsets()
 	// Overwrite the mapped in values.
 	pixel_x = ((dir & (NORTH|SOUTH)) ? 0 : (dir == EAST ? 22 : -22))
-	pixel_y = ((dir & (NORTH|SOUTH)) ? (dir == NORTH ? 32 : -17) : 0)
+	pixel_y = ((dir & (NORTH|SOUTH)) ? (dir == NORTH ? 32 : -19) : 0)
 
 // Convenience subtypes for mappers.
 /obj/machinery/firealarm/north
@@ -292,7 +293,7 @@
 
 /obj/machinery/firealarm/south
 	dir = SOUTH
-	pixel_y = -17
+	pixel_y = -19
 
 /*
 FIRE ALARM CIRCUIT

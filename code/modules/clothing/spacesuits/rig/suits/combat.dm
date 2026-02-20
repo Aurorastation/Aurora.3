@@ -3,7 +3,7 @@
 	desc = "A sleek and dangerous hardsuit for active combat. This one is a Stellar Corporate Conglomerate design in color scheme and make."
 	icon = 'icons/obj/item/clothing/rig/combat.dmi'
 	icon_state = "combat_rig"
-	icon_supported_species_tags = list("skr")
+	icon_supported_species_tags = list("skr", "taj", "una", "ipc")
 	suit_type = "combat hardsuit"
 	armor = list(
 		MELEE = ARMOR_MELEE_MAJOR,
@@ -21,11 +21,11 @@
 	helm_type = /obj/item/clothing/head/helmet/space/rig/combat
 	boot_type =  /obj/item/clothing/shoes/magboots/rig/chonk
 
-	allowed = list(/obj/item/gun,/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/melee/baton)
+	allowed = list(/obj/item/gun,/obj/item/flashlight,/obj/item/tank,/obj/item/suit_cooling_unit,/obj/item/melee/baton)
 
 	allowed_module_types = MODULE_GENERAL | MODULE_LIGHT_COMBAT | MODULE_HEAVY_COMBAT
 
-	species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_SKRELL)
+	species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_SKRELL, BODYTYPE_TAJARA, BODYTYPE_UNATHI, BODYTYPE_IPC, BODYTYPE_IPC_BISHOP, BODYTYPE_IPC_ZENGHU)
 
 /obj/item/clothing/head/helmet/space/rig/combat
 	light_overlay = "helmet_light_dual_cyan"
@@ -61,7 +61,7 @@
 	siemens_coefficient = 0.1
 	offline_slowdown = 3
 	offline_vision_restriction = TINT_HEAVY
-	allowed = list(/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/melee/energy/sword,/obj/item/handcuffs)
+	allowed = list(/obj/item/flashlight,/obj/item/tank,/obj/item/suit_cooling_unit,/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/melee/energy/sword,/obj/item/handcuffs)
 
 	species_restricted = list(BODYTYPE_HUMAN)
 
@@ -185,9 +185,9 @@
 	boot_type =  /obj/item/clothing/shoes/magboots/rig/heavy
 
 	allowed = list(
-		/obj/item/device/flashlight,
+		/obj/item/flashlight,
 		/obj/item/tank,
-		/obj/item/device/suit_cooling_unit,
+		/obj/item/suit_cooling_unit,
 		/obj/item/gun,
 		/obj/item/ammo_magazine,
 		/obj/item/ammo_casing,
@@ -238,7 +238,7 @@
 
 	boot_type =  /obj/item/clothing/shoes/magboots/rig/heavy
 
-	allowed = list(/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/melee/energy/sword,/obj/item/handcuffs)
+	allowed = list(/obj/item/flashlight,/obj/item/tank,/obj/item/suit_cooling_unit,/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/melee/energy/sword,/obj/item/handcuffs)
 
 	allowed_module_types = MODULE_GENERAL | MODULE_LIGHT_COMBAT | MODULE_HEAVY_COMBAT | MODULE_SPECIAL | MODULE_MEDICAL | MODULE_UTILITY | MODULE_VAURCA
 
@@ -291,7 +291,7 @@
 	offline_vision_restriction = TINT_HEAVY
 
 	boot_type =  /obj/item/clothing/shoes/magboots/rig/heavy
-	allowed = list(/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/melee/energy/sword,/obj/item/handcuffs)
+	allowed = list(/obj/item/flashlight,/obj/item/tank,/obj/item/suit_cooling_unit,/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/melee/energy/sword,/obj/item/handcuffs)
 
 	allowed_module_types = MODULE_GENERAL | MODULE_LIGHT_COMBAT | MODULE_HEAVY_COMBAT | MODULE_SPECIAL | MODULE_MEDICAL | MODULE_UTILITY | MODULE_VAURCA
 
@@ -361,7 +361,7 @@
 
 	boot_type =  /obj/item/clothing/shoes/magboots/rig/heavy
 
-	allowed = list(/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/melee/energy/sword,/obj/item/handcuffs)
+	allowed = list(/obj/item/flashlight,/obj/item/tank,/obj/item/suit_cooling_unit,/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/melee/energy/sword,/obj/item/handcuffs)
 
 	allowed_module_types = MODULE_GENERAL | MODULE_LIGHT_COMBAT | MODULE_HEAVY_COMBAT | MODULE_SPECIAL | MODULE_MEDICAL | MODULE_UTILITY | MODULE_VAURCA
 
@@ -413,7 +413,7 @@
 	slowdown = 8
 	offline_slowdown = 10
 
-	allowed = list(/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/melee/energy/sword,/obj/item/handcuffs)
+	allowed = list(/obj/item/flashlight,/obj/item/tank,/obj/item/suit_cooling_unit,/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/melee/energy/sword,/obj/item/handcuffs)
 
 	allowed_module_types = MODULE_GENERAL | MODULE_LIGHT_COMBAT | MODULE_UTILITY
 
@@ -457,7 +457,7 @@
 	offline_vision_restriction = TINT_HEAVY
 	slowdown = 1
 
-	allowed = list(/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/melee/energy/sword,/obj/item/handcuffs)
+	allowed = list(/obj/item/flashlight,/obj/item/tank,/obj/item/suit_cooling_unit,/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/melee/energy/sword,/obj/item/handcuffs)
 
 	allowed_module_types = MODULE_GENERAL | MODULE_LIGHT_COMBAT | MODULE_HEAVY_COMBAT | MODULE_SPECIAL | MODULE_MEDICAL | MODULE_UTILITY | MODULE_VAURCA
 
@@ -489,7 +489,7 @@
 	offline_vision_restriction = TINT_HEAVY
 	offline_slowdown = 10
 
-	allowed = list(/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/melee/energy/sword,/obj/item/handcuffs)
+	allowed = list(/obj/item/flashlight,/obj/item/tank,/obj/item/suit_cooling_unit,/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/melee/energy/sword,/obj/item/handcuffs)
 
 	allowed_module_types = MODULE_GENERAL | MODULE_LIGHT_COMBAT | MODULE_HEAVY_COMBAT | MODULE_SPECIAL | MODULE_MEDICAL | MODULE_UTILITY | MODULE_VAURCA
 
@@ -600,9 +600,9 @@
 	helm_type = /obj/item/clothing/head/helmet/space/rig/legionnaire
 
 	allowed = list(
-		/obj/item/device/flashlight,
+		/obj/item/flashlight,
 		/obj/item/tank,
-		/obj/item/device/suit_cooling_unit,
+		/obj/item/suit_cooling_unit,
 		/obj/item/gun,
 		/obj/item/ammo_magazine,
 		/obj/item/ammo_casing,

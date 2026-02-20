@@ -8,45 +8,115 @@
 	name = "Thermal Scanner"
 	telecrystal_cost = 2
 	path = /obj/item/rig_module/vision/thermal
+	desc = "A module granting the hardsuit thermal sensors, showing heat signatures through obstacles."
 
 /datum/uplink_item/item/hardsuit_modules/energy_net
 	name = "Net Projector"
 	telecrystal_cost = 3
 	path = /obj/item/rig_module/fabricator/energy_net
+	desc = "Allows the hardsuit to synthesize and fire energy nets, immobilizing a target until the net is torn by physical force."
 
 /datum/uplink_item/item/hardsuit_modules/ewar_voice
 	name = "Electrowarfare Suite and Voice Synthesiser"
 	telecrystal_cost = 1
 	bluecrystal_cost = 1 // Voice changer and partial agent id as a module
 	path = /obj/item/storage/box/syndie_kit/ewar_voice
+	desc = "A module that blocks AI tracking. Comes with an inbuilt voice changer aswell."
 
 /datum/uplink_item/item/hardsuit_modules/maneuvering_jets
 	name = "Maneuvering Jets"
 	telecrystal_cost = 1
 	bluecrystal_cost = 1
 	path = /obj/item/rig_module/maneuvering_jets
+	desc = "A set of jets powered by a hardsuit, allowing it to move through space."
+
+/datum/uplink_item/item/hardsuit_modules/flash
+	name = "Mounted Flash" // Its just a flash but clunkier and in a hardsuit.
+	telecrystal_cost = 1
+	path = /obj/item/rig_module/device/flash
+	desc = "A standard flash, often used by security. This one is mounted on a hardsuit."
+
+/datum/uplink_item/item/hardsuit_modules/frag
+	name = "Mounted Frag Grenade Launcher" // Uplink sells 5 of these grenades for 6 tc, this has three.
+	telecrystal_cost = 5
+	path = /obj/item/rig_module/grenade_launcher/frag
+	desc = "A hardsuit mounted grenade launcher, containing three fragmentation grenades."
+
+/datum/uplink_item/item/hardsuit_modules/plasma
+	name = "Mounted Plasma Cannon"
+	telecrystal_cost = 8
+	path = /obj/item/rig_module/mounted/plasma
+	desc = "A marvel of Elyran weapons technology which utilizes superheated plasma to pierce thick armor with gruesome results. This one seems fitted for RIG usage."
 
 /datum/uplink_item/item/hardsuit_modules/egun
 	name = "Mounted Energy Gun"
 	telecrystal_cost = 6
 	path = /obj/item/rig_module/mounted/egun
+	desc = "A hardsuit mounted energy gun, with non-lethal and lethal firing modes."
+
+/datum/uplink_item/item/hardsuit_modules/tqiqop
+	name = "Mounted Tqi-Qop Carbine"
+	telecrystal_cost = 6
+	path = /obj/item/rig_module/mounted/skrell_gun
+	desc = "A hardsuit mounted Tqi-Qop carbine, a skrellian weapon rarely seen outside of the federation."
+
+/datum/uplink_item/item/hardsuit_modules/smg
+	name = "Mounted Submachine Gun"
+	telecrystal_cost = 6
+	path = /obj/item/rig_module/mounted/smg
+	desc = "A hardsuit mounted submachine gun, synthesizing projectiles from the suits power supply."
 
 /datum/uplink_item/item/hardsuit_modules/power_sink
 	name = "Power Sink"
 	telecrystal_cost = 2
 	path = /obj/item/rig_module/power_sink
+	desc = "A module allowing the hardsuit to directly charge power from APC units."
 
 /datum/uplink_item/item/hardsuit_modules/laser_canon
 	name = "Mounted Laser Cannon"
 	telecrystal_cost = 8
 	path = /obj/item/rig_module/mounted
+	desc = "A large hardsuit mounted laser cannon, designed to be powered by its battery."
+
+/datum/uplink_item/item/hardsuit_modules/ion
+	name = "Mounted Ion Rifle"
+	telecrystal_cost = 8 // Can up or remove this if need be, ions are pretty strong and usually balanced by being bulky or unwieldy.
+	path = /obj/item/rig_module/mounted/ion
+	desc = "A hardsuit mounted ion rifle, be careful not to hit yourself with it."
+
+/datum/uplink_item/item/hardsuit_modules/plasmacutter
+	name = "Mounted Plasma Cutter"
+	telecrystal_cost = 3
+	path = /obj/item/rig_module/mounted/plasmacutter
+	desc = "A hardsuit mounted plasma cutter, for cutting through walls and rocks."
 
 /datum/uplink_item/item/tools/rig_cooling_unit
-	name = "mounted suit cooling unit"
+	name = "Mounted Suit Cooling Unit"
 	telecrystal_cost = 1
 	bluecrystal_cost = 1 // Just EVA stuff for IPCs
 	path = /obj/item/rig_module/cooling_unit
 	desc = "A mounted suit cooling unit for use with hardsuits."
+
+/datum/uplink_item/item/hardsuit_modules/storage_unit
+	name = "Mounted Storage Unit"
+	telecrystal_cost = 1
+	bluecrystal_cost = 1 // This thing has less space than a box does, although it can hold bulkier items like crowbars.
+	path = /obj/item/rig_module/storage
+	desc = "A small hardsuit mounted storage unit, capable of holding a few items."
+
+/datum/uplink_item/item/hardsuit_modules/vitalscanner
+	name = "Vitals Tracker Module"
+	telecrystal_cost = 1
+	bluecrystal_cost = 1
+	path = /obj/item/rig_module/device/healthscanner/vitalscanner
+	desc = "A module that allows a hardsuit to scan the users vitals, and give readouts of them."
+
+/datum/uplink_item/item/hardsuit_modules/basicinjector
+	name = "Emergency Chemical Injector"
+	telecrystal_cost = 2
+	bluecrystal_cost = 2 // This is the nerfed paramedic version, rather than the ninja version with synaptizine and hyperzine.
+	path = /obj/item/rig_module/chem_dispenser/injector/paramedic
+	desc = "A hardsuit mounted chemical injector containing 40u each of tricordzine, perconol, dexalin and inaprovaline."
 
 /datum/uplink_item/item/hardsuit_modules/recharger
 	name = "Mounted Weapon Recharge Module"
@@ -72,7 +142,7 @@
 	telecrystal_cost = 8
 	bluecrystal_cost = 8
 	path = /obj/item/rig/combat
-	desc = "A sleek and dangerous hardsuit for active combat. This one is a Stellar Corporate Conglomerate design in color scheme and make. Only wearable by humans and skrell."
+	desc = "A sleek and dangerous hardsuit for active combat. This one is a Stellar Corporate Conglomerate design in color scheme and make. Wearable by humans, skrell, tajara, unathi and IPC."
 
 /datum/uplink_item/item/hardsuit_modules/suit/sol
 	name = "Solarian Vampire Hardsuit"

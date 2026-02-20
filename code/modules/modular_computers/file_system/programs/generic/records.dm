@@ -22,13 +22,13 @@
 	var/datum/record/virus/active_virus
 	var/listener/record/rconsole/listener
 	var/authenticated = FALSE
-	var/default_screen = "general"
+	var/default_screen = "General"
 	var/record_prefix = ""
 	var/typechoices = list(
 		"physical_status" = list("Active", "*Deceased*", "*SSD*", "*Missing*", "Physically Unfit", "Disabled"),
 		"criminal_status" = list("None", "*Arrest*", "Search", "Incarcerated", "Parolled", "Released"),
 		"mental_status" = list("Stable", "*Insane*", "*Unstable*", "*Watch*"),
-		"medical" = list("A-", "B-", "AB-", "O-", "A+", "B+", "AB+", "O+", "SBS")
+		"blood_type" = list("A-", "B-", "AB-", "O-", "A+", "B+", "AB+", "O+", "SBS")
 	)
 
 /datum/computer_file/program/records/New()
@@ -53,7 +53,7 @@
 
 	records_type = RECORD_MEDICAL | RECORD_VIRUS
 	edit_type = RECORD_MEDICAL
-	default_screen = "medical"
+	default_screen = "Medical"
 	program_icon_state = "medical_record"
 	program_key_icon_state = "teal_key"
 	color = LIGHT_COLOR_CYAN
@@ -70,7 +70,7 @@
 
 	records_type = RECORD_SECURITY
 	edit_type = RECORD_SECURITY
-	default_screen = "security"
+	default_screen = "Security"
 	program_icon_state = "security_record"
 	program_key_icon_state = "yellow_key"
 	color = LIGHT_COLOR_YELLOW
@@ -88,6 +88,7 @@
 
 	records_type = RECORD_GENERAL | RECORD_SECURITY
 	edit_type = RECORD_GENERAL
+	default_screen = "General"
 	program_icon_state = "employment_record"
 	program_key_icon_state = "lightblue_key"
 	color = LIGHT_COLOR_BLUE
@@ -118,6 +119,7 @@
 	data["physical_status_options"] = typechoices["physical_status"]
 	data["criminal_status_options"] = typechoices["criminal_status"]
 	data["mental_status_options"] = typechoices["mental_status"]
+	data["blood_type_options"] = typechoices["blood_type"]
 	data["medical_options"] = typechoices["medical"]
 	data["allrecords"] = list()
 	data["allrecords_locked"] = list()
@@ -141,7 +143,7 @@
 				"religion" = R.religion,
 				"employer" = R.employer,
 				"notes" = html_decode(R.notes),
-				"blood" = R.medical ? R.medical.blood_type : null,
+				"blood_type" = R.medical ? R.medical.blood_type : null,
 				"dna" = R.medical ? R.medical.blood_dna : null,
 				"ccia_notes" = R.ccia_record,
 				"ccia_actions" = R.ccia_actions,
@@ -266,11 +268,8 @@
 		if("medical")
 			if(!(edit_type & RECORD_MEDICAL))
 				return FALSE
-		if("diseases")
-			if(!(edit_type & RECORD_MEDICAL))
-				return FALSE
-		if("allergies")
-			if(!(edit_type & RECORD_MEDICAL))
+		if("blood_type")
+			if(!(edit_type & RECORD_MEDICAL) || (edit_type & RECORD_SECURITY))
 				return FALSE
 		if("blood_dna")
 			if(!(edit_type & RECORD_MEDICAL) || (edit_type & RECORD_SECURITY))

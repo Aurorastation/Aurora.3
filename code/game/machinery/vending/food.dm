@@ -97,7 +97,7 @@
 		/obj/item/storage/box/fancy/toptarts_strawberry = 3,
 		/obj/item/storage/box/fancy/toptarts_chocolate_peanutbutter = 3,
 		/obj/item/storage/box/fancy/toptarts_blueberry = 3,
-		/obj/item/storage/box/donkpockets = 3
+		/obj/item/storage/box/unique/donkpockets = 3
 	)
 	premium = list(
 		/obj/item/storage/box/fancy/packaged_mossburger = 2
@@ -115,5 +115,5 @@
 		/obj/item/storage/box/fancy/toptarts_strawberry = 5.00,
 		/obj/item/storage/box/fancy/toptarts_chocolate_peanutbutter = 5.00,
 		/obj/item/storage/box/fancy/toptarts_blueberry = 5.00,
-		/obj/item/storage/box/donkpockets = 11.00
+		/obj/item/storage/box/unique/donkpockets = 11.00
 	)

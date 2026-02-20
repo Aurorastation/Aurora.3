@@ -23,6 +23,7 @@
 	return INITIALIZE_HINT_LATELOAD
 
 /obj/machinery/iff_beacon/LateInitialize()
+	. = ..()
 	if(SSatlas.current_map.use_overmap && !linked)
 		var/my_sector = GLOB.map_sectors["[z]"]
 		if (istype(my_sector, /obj/effect/overmap/visitable))

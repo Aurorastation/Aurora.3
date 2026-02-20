@@ -4,8 +4,8 @@
 	icon = 'icons/obj/machinery/washing_machine.dmi'
 	icon_state = "wm_10"
 	density = 1
-	anchored = 1.0
-	clicksound = /singleton/sound_category/button_sound
+	anchored = TRUE
+	clicksound = SFX_BUTTON
 	clickvol = 40
 
 	var/state = 1
@@ -31,6 +31,10 @@
 	. += "Click a washing machine to open and close the door."
 	. += "ALT-click a washing machine to start and stop it."
 	. += "Washing machines can be used as part of the leather tanning process by putting scraped bare hides in them."
+
+/obj/machinery/washing_machine/assembly_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "It [anchored ? "is" : "could be"] anchored to the floor with some <b>bolts</b>."
 
 /obj/machinery/washing_machine/antagonist_hints(mob/user, distance, is_adjacent)
 	. += ..()
@@ -109,6 +113,14 @@
 				state = 3
 		else
 			return ..()
+	else if(attacking_item.tool_behaviour == TOOL_WRENCH)
+		if(anchored)
+			to_chat(user, SPAN_NOTICE("You lean down and unwrench \the [src]."))
+			anchored = FALSE
+		else
+			to_chat(user, SPAN_NOTICE("You wrench \the [src] into place."))
+			anchored = TRUE
+		return
 	else
 		if(contents.len < 5)
 			if (state in list(1, 3))

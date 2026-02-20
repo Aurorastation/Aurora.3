@@ -1,7 +1,7 @@
-/obj/item/device/oxycandle
+/obj/item/oxycandle
 	name = "oxygen candle"
 	desc = "A steel tube with the words 'OXYGEN - PULL CORD TO IGNITE' stamped on the side. A small label warns against using the device underwater."
-	icon = 'icons/obj/item/device/oxycandle.dmi'
+	icon = 'icons/obj/item/oxycandle.dmi'
 	icon_state = "oxycandle"
 	item_state = "oxycandle"
 	w_class = WEIGHT_CLASS_SMALL // Should fit into internal's box or maybe pocket
@@ -11,15 +11,14 @@
 	var/on = FALSE
 	var/activation_sound = 'sound/items/flare.ogg'
 	light_color = LIGHT_COLOR_FLARE
-	uv_intensity = 50
-	var/brightness_on = 2 // Moderate bright.
+	light_range = 2 // Moderate bright.
 	light_power = 2
 	action_button_name = null
 
-/obj/item/device/oxycandle/attack_self(mob/user)
+/obj/item/oxycandle/attack_self(mob/user)
 	if(!on)
 		to_chat(user, SPAN_NOTICE("You pull the cord and [src] ignites."))
-		light_range = brightness_on
+		light_range = light_range
 		on = TRUE
 		update_icon()
 		playsound(src.loc, activation_sound, 75, 1)
@@ -32,7 +31,7 @@
 		START_PROCESSING(SSprocessing, src)
 
 // Process of Oxygen candles releasing air. Makes 200 volume of oxygen and nitrogen mix
-/obj/item/device/oxycandle/process()
+/obj/item/oxycandle/process()
 	if(!loc)
 		return
 	var/turf/pos = get_turf(src)
@@ -61,18 +60,18 @@
 							GAS_NITROGEN = N2STANDARD *  (target_pressure * air_contents.volume) / (R_IDEAL_GAS_EQUATION * air_contents.temperature))
 	air_contents.adjust_multi(GAS_OXYGEN, air_mix[GAS_OXYGEN], GAS_NITROGEN, air_mix[GAS_NITROGEN])
 
-/obj/item/device/oxycandle/update_icon()
+/obj/item/oxycandle/update_icon()
 	if(on)
 		icon_state = "oxycandle_on"
 		item_state = icon_state
-		set_light(brightness_on)
+		set_light(light_range)
 	else
 		icon_state = "oxycandle"
 		item_state = icon_state
 		set_light(0)
 	update_held_icon()
 
-/obj/item/device/oxycandle/Destroy()
+/obj/item/oxycandle/Destroy()
 	QDEL_NULL(air_contents)
 	STOP_PROCESSING(SSprocessing, src)
 	. = ..()

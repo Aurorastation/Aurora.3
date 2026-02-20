@@ -1,5 +1,5 @@
 /turf/simulated/floor/plating
-	footstep_sound = /singleton/sound_category/plating_footstep
+	footstep_sound = SFX_FOOTSTEP_PLATING
 
 // ------------------------------- grids
 
@@ -123,6 +123,10 @@
 /turf/simulated/floor/plating/asteroid
 	icon_state = "asteroidplating"
 
+/turf/simulated/floor/plating/asteroid/airless
+	initial_gas = null
+	temperature = TCMB
+
 /turf/simulated/floor/tiled/white
 	name = "white floor"
 	icon_state = "white"
@@ -177,7 +181,7 @@
 	name = "airless plating"
 	initial_gas = null
 	temperature = TCMB
-	footstep_sound = /singleton/sound_category/plating_footstep
+	footstep_sound = SFX_FOOTSTEP_PLATING
 	roof_type = null
 
 /turf/simulated/floor/tiled/airless
@@ -319,6 +323,20 @@
 	initial_flooring = /singleton/flooring/tiling/bitile
 	tile_decal_state = "bitile_light"
 	color = COLOR_TILED
+
+/turf/simulated/floor/tiled/bitile/middle
+	icon_state = "bitile_middle"
+	initial_flooring = /singleton/flooring/tiling/bitile/middle
+	tile_decal_state = "bitile_light_middle"
+
+/turf/simulated/floor/tiled/bitile/light
+	initial_flooring = /singleton/flooring/tiling/bitile/light
+	color = COLOR_GRAY70
+
+/turf/simulated/floor/tiled/bitile/light/middle
+	icon_state = "bitile_middle"
+	initial_flooring = /singleton/flooring/tiling/bitile/light/middle
+	tile_decal_state = "bitile_light_middle"
 
 // ------------------------------- gridded/ridged
 

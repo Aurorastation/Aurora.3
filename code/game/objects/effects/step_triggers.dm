@@ -4,6 +4,8 @@
 	var/affect_ghosts = 0
 	var/stopper = 1 // stops throwers
 	var/mobs_only = FALSE
+	/// If true, excludes clientless mobs.
+	var/players_only = FALSE
 	invisibility = INVISIBILITY_ABSTRACT // nope cant see this shit
 	anchored = TRUE
 
@@ -25,6 +27,10 @@
 		return
 	if(!ismob(H) && mobs_only)
 		return
+	if(ismob(H))
+		var/mob/living/L = H
+		if(!L.client && players_only)
+			return
 	INVOKE_ASYNC(src, PROC_REF(Trigger), H)
 
 
@@ -109,6 +115,8 @@
 
 /* Tosses things in a certain direction */
 /obj/effect/step_trigger/thrower
+	icon = 'icons/mob/screen/generic.dmi'
+	icon_state = "dir_arrow"
 	var/direction = SOUTH // the direction of throw
 	var/tiles = 3 // if 0: forever until atom hits a stopper
 	var/immobilize = 1 // if nonzero: prevents mobs from moving while they're being flung

@@ -13,10 +13,17 @@
 	sound_environment = SOUND_AREA_SMALL_ENCLOSED
 	horizon_deck = 2
 
-/area/horizon/engineering/storage_hard
+/area/horizon/engineering/storage_hard/upper
 	name = "Hard Storage"
 	icon_state = "engineering_storage"
 	horizon_deck = 2
+	lightswitch = FALSE
+
+/area/horizon/engineering/storage_hard/lower
+	name = "Hard Storage"
+	icon_state = "engineering_storage"
+	horizon_deck = 1
+	lightswitch = FALSE
 
 /area/horizon/engineering/storage_eva
 	name = "EVA Storage"
@@ -28,14 +35,12 @@
 	icon_state = "engineering_break"
 	sound_environment = SOUND_AREA_MEDIUM_SOFTFLOOR
 	area_blurb = "The intermixed odors of coffee and oil lingers in the air."
-	area_blurb_category = "engi_breakroom"
 	horizon_deck = 3
 
 /area/horizon/engineering/locker_room
 	name = "Locker Room"
 	icon_state = "engineering_locker"
 	horizon_deck = 2
-	area_blurb = "It's not the most pleasantly fragrant locker room on the ship, but is probably the most orderly."
 
 /area/horizon/engineering/gravity_gen
 	name = "Gravity Generator"
@@ -43,7 +48,6 @@
 	horizon_deck = 1
 	area_flags = AREA_FLAG_RAD_SHIELDED
 	area_blurb = "The air in here tastes like copper, sour sugar, and smoke; none of the angles seem right. That probably means everything is working."
-	area_blurb_category = "engi_breakroom"
 
 /area/horizon/engineering/lobby
 	name = "Lobby"
@@ -53,10 +57,12 @@
 	name = "Technical Storage"
 	icon_state = "auxstorage"
 	horizon_deck = 1
+	lightswitch = FALSE
 
 /area/horizon/engineering/storage/lower
 	name = "Lower Deck Storage"
 	horizon_deck = 1
+	lightswitch = FALSE
 
 /area/horizon/engineering/aft_airlock
 	name = "Aft Stowage Airlock"
@@ -87,17 +93,18 @@
 /area/horizon/engineering/hallway/fore
 	// Location is defined here relative to the department center itself. Whatever.
 	name = "Fore Hallway"
-	area_blurb = "The sound of the ship's machinery grows louder the further aft you move. Machine oil, ozone, welding fumes, and combustion products begin to scent the air."
+	area_blurb = "Filled with the sounds of machinery and an atmosphere of meaningful, directed purpose. Machine oil, ozone, welding fumes, and combustion products scent the air."
 
 /area/horizon/engineering/hallway/aft
 	// Location is defined here relative to the department center itself. Whatever.
 	name = "Aft Hallway"
-	area_blurb = "Filled with the sounds of machinery and an atmosphere of meaningful, directed purpose. The tops of the exterior stowage tanks are visible from the aft windows, hunched like patient stones."
+	area_blurb = "Filled with the sounds of machinery and an atmosphere of meaningful, directed purpose. Machine oil, ozone, welding fumes, and combustion products scent the air. \
+	<br><br>The tops of the exterior stowage tanks are visible from the aft windows, hunched like patient stones."
 
 /area/horizon/engineering/hallway/interior
 	// Location is defined here relative to the department center itself. Whatever.
 	name = "Amidships Hallway"
-	area_blurb = "Filled with the sounds of machinery and an atmosphere of meaningful, directed purpose."
+	area_blurb = "Filled with the sounds of machinery and an atmosphere of meaningful, directed purpose. Machine oil, ozone, welding fumes, and combustion products scent the air."
 
 /// ENGINEERING_AREAS - ATMOSIA_AREAS
 /area/horizon/engineering/atmos
@@ -108,7 +115,6 @@
 	ambience = list(AMBIENCE_ENGINEERING, AMBIENCE_ATMOS)
 	area_blurb = "Many volume tanks filled with gas reside here, some providing vital gases for the vessel's life support systems. \
 	Through the aft windows, exterior stowage tanks filled mostly with hazardous or volatile gases loom patiently."
-	area_blurb_category = "atmos"
 	horizon_deck = 1
 	subdepartment = SUBLOC_ATMOS
 
@@ -117,6 +123,14 @@
 	icon_state = "atmos_storage"
 	sound_environment = SOUND_AREA_SMALL_ENCLOSED
 	area_blurb = "The softly reassuring sounds of churning humming whirring resound gently from the distribution control compartment below."
+	horizon_deck = 2
+
+/area/horizon/engineering/atmos/storage_maintenance
+	name = "Atmos Storage maintenance"
+	icon_state = "atmos_storage"
+	sound_environment = SOUND_AREA_SMALL_ENCLOSED
+	area_blurb = "The metal clanking of pipes being jostled; gas canister telltales blinking out from corners. \
+	It's as organized as you would expect a hidden away storage to be."
 	horizon_deck = 2
 
 /area/horizon/engineering/atmos/air
@@ -138,7 +152,7 @@
 
 /area/horizon/engineering/atmos/turbine
 	name = "Combustion Turbine"
-	area_blurb = "It feels like this compartment gets smaller every time you enter it! What's with that?!"
+	area_blurb = "Where temperature records are set."
 
 /// ENGINEERING_AREAS - REACTOR_AREAS
 /area/horizon/engineering/reactor
@@ -187,12 +201,12 @@
 /area/horizon/engineering/reactor/indra/mainchamber
 	name = "INDRA Reactor Chamber"
 	ambience = AMBIENCE_SINGULARITY
-	area_blurb = "The product of over four-hundred years' iteration and refinement: the INDRA Mk.II Tokamak Fusion bottle and its vast supporting machineries dominate the entire compartment"
+	area_blurb = "The product of over four-hundred years' iteration and refinement: the INDRA Mk.II Tokamak fusion bottle and its vast supporting machineries dominate the entire compartment"
 
 /area/horizon/engineering/reactor/indra/smes
 	name = "INDRA Reactor SMES"
 	icon_state = "engine_smes"
-	area_blurb = "A quiet hum suffuses this compartment from grid balancing hardware and power banks fitted beneath the floor."
+	area_blurb = "A quiet hum suffuses this compartment from grid-balancing hardware and power banks fitted beneath the floor."
 
 /area/horizon/engineering/reactor/indra/monitoring
 	name = "INDRA Reactor Monitoring"
@@ -202,7 +216,7 @@
 
 /area/horizon/engineering/reactor/indra/office
 	name = "INDRA Reactor Office"
-	area_blurb = "A dingy, forgotten compartment a year or three away from looking about as well-kept as the Maints'."
+	area_blurb = "A dingy, forgotten compartment a year or three away from looking about as well-kept as the maints."
 
 // The engineering stairwell /area/horizon/stairwell/engineering/* are defined in './horizon_areas_crew.dm'. Bat put them there originally because they felt that made sense. If you don't, migrate them here I guess, everything's cool.
 

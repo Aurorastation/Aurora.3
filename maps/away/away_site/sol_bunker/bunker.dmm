@@ -331,7 +331,7 @@
 "kL" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/item/gun/projectile/shotgun/pump/combat/sol,
-/obj/item/storage/box/shotgunshells,
+/obj/item/storage/box/shells/buckshot,
 /obj/effect/floor_decal/corner_wide/dark_blue{
 	dir = 9
 	},

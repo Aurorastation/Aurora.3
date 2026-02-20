@@ -6,6 +6,7 @@
 	unrest and gridlock undermine the government, and the aggressive attitude of the Sol Alliance against its former system has made many worried for the future of the Republic."
 	consular_outfit = /obj/outfit/job/representative/consular/ceti
 	assistant_outfit = /obj/outfit/job/diplomatic_aide/ceti
+	bodyguard_outfit = /obj/outfit/job/diplomatic_bodyguard/ceti
 
 	job_species_blacklist = list(
 		"Consular Officer" = list(
@@ -63,7 +64,7 @@
 	backpack_contents = list(
 		/obj/item/storage/box/ceti_visa = 1,
 		/obj/item/storage/box/tcaf_pamphlet = 1,
-		/obj/item/device/versebook/biesel = 1, //constitution
+		/obj/item/versebook/biesel = 1, //constitution
 		/obj/item/stamp/biesel = 1,
 	)
 
@@ -73,6 +74,8 @@
 
 /obj/outfit/job/diplomatic_bodyguard/ceti
 	name = "Tau Ceti Diplomatic Bodyguard"
+	uniform = /obj/item/clothing/under/rank/bssb
+	suit = /obj/item/clothing/suit/storage/toggle/bssb
 	backpack_contents = list(
 		/obj/item/gun/energy/blaster/revolver
 	)
@@ -196,7 +199,7 @@
 	backpack_contents = list(
 		/obj/item/storage/box/sol_visa = 1,
 		/obj/item/stamp/sol = 1,
-		/obj/item/device/camera = 1
+		/obj/item/camera = 1
 	)
 
 /obj/outfit/job/diplomatic_aide/sol
@@ -206,6 +209,9 @@
 
 /obj/outfit/job/diplomatic_bodyguard/sol
 	name = "Sol Diplomatic Bodyguard"
+	uniform = /obj/item/clothing/under/rank/sol/army/service
+	shoes = /obj/item/clothing/shoes/jackboots
+	head = /obj/item/clothing/head/sol/army/service/garrison
 	backpack_contents = list(
 		/obj/item/gun/projectile/pistol/sol = 1
 	)
@@ -271,7 +277,7 @@
 	name = "Coalition Consular Officer"
 
 	backpack_contents = list(
-		/obj/item/device/camera = 1
+		/obj/item/camera = 1
 	)
 
 /obj/outfit/job/diplomatic_bodyguard/coalition
@@ -292,6 +298,8 @@
 
 /obj/outfit/job/diplomatic_bodyguard/elyra
 	name = "Elyra Diplomatic Bodyguard"
+	uniform = /obj/item/clothing/under/rank/elyran_fatigues
+	shoes = /obj/item/clothing/shoes/jackboots
 	backpack_contents = list(
 		/obj/item/gun/projectile/plasma/bolter/pistol = 1
 	)

@@ -64,7 +64,7 @@ GLOBAL_LIST_INIT(custom_items, list())
 			var/list/loaded_items = list()
 			var/item_id = 0
 			try
-				loaded_items = json_decode(return_file_text("config/custom_items.json"))
+				loaded_items = json_decode(file2text("config/custom_items.json"))
 			catch(var/exception/e)
 				log_module_customitems("Failed to load custom_items.json: [e]")
 
@@ -341,6 +341,9 @@ GLOBAL_LIST_EMPTY(character_id_to_custom_items_mapping)
 		if(target_mob.equip_to_storage(newitem))
 			return TRUE
 
+		if(target_mob.put_in_any_hand_if_possible(newitem))
+			return TRUE
+
 		newitem.forceMove(get_turf(target_mob.loc))
-		to_chat(target_mob, "A custom item has been placed on the floor as there was no space for it on your mob.")
+		to_chat(target_mob, SPAN_ALERT("A custom item has been placed on the floor as there was no space for it on your mob."))
 		return TRUE

@@ -1,7 +1,7 @@
-/obj/item/device/hailer
+/obj/item/hailer
 	name = "hailer"
 	desc = "Used by obese officers to save their breath for running."
-	icon = 'icons/obj/item/device/hailer.dmi'
+	icon = 'icons/obj/item/hailer.dmi'
 	icon_state = "voice0"
 	item_state = "flashbang"	//looks exactly like a flash (and nothing like a flashbang)
 	w_class = WEIGHT_CLASS_TINY
@@ -11,7 +11,7 @@
 	var/spamcheck = 0
 	var/insults
 
-/obj/item/device/hailer/verb/set_message()
+/obj/item/hailer/verb/set_message()
 	set name = "Set Hailer Message"
 	set category = "Object.Held"
 	set desc = "Alter the message shouted by your hailer."
@@ -29,7 +29,7 @@
 
 	to_chat(usr, "You configure the hailer to shout \"[use_message]\".")
 
-/obj/item/device/hailer/attack_self(mob/living/carbon/user as mob)
+/obj/item/hailer/attack_self(mob/living/carbon/user as mob)
 	if (spamcheck)
 		return
 
@@ -38,7 +38,6 @@
 		user.audible_message(SPAN_WARNING("[user]'s [name] rasps, \"[use_message]\""), SPAN_WARNING("\The [user] holds up \the [name]."))
 	else
 		if(insults > 0)
-			playsound(get_turf(src), 'sound/voice/binsult.ogg', 100, 1, vary = 0)
 			// Yes, it used to show the transcription of the sound clip. That was a) inaccurate b) immature as shit.
 			user.audible_message(SPAN_WARNING("[user]'s [name] gurgles something indecipherable and deeply offensive."), SPAN_WARNING("\The [user] holds up \the [name]."))
 			insults--
@@ -49,7 +48,7 @@
 	spawn(20)
 		spamcheck = 0
 
-/obj/item/device/hailer/emag_act(var/remaining_charges, var/mob/user)
+/obj/item/hailer/emag_act(var/remaining_charges, var/mob/user)
 	if(isnull(insults))
 		to_chat(user, SPAN_DANGER("You overload \the [src]'s voice synthesizer."))
 		insults = rand(1, 3)//to prevent dickflooding

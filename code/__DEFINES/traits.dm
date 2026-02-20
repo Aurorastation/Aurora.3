@@ -121,6 +121,7 @@
 #define GENERIC_ITEM_TRAIT "generic_item"
 #define DISABILITY_TRAIT "disability"
 
+#define TRAIT_SOURCE_INHERENT "t_s_inherent"
 /// cannot be removed without admin intervention
 #define ROUNDSTART_TRAIT "roundstart"
 #define CULTURE_TRAIT "culture"
@@ -154,9 +155,6 @@
 
 /// Zona bovinae absorbed, used by Loner to track a mob that has had its ZB consumed. Doesn't make them psi-deaf.
 #define TRAIT_ZONA_BOVINAE_ABSORBED "bovinae_absorbed"
-
-/// Hidden from Psi-Search.
-#define TRAIT_PSIONIC_SUPPRESSION "psionic_suppression"
 
 /// lets mobs that traditionally don't hallucinate, hallucinate
 #define TRAIT_BYPASS_HALLUCINATION_RESTRICTION "bypassing_hallucination_restriction"
@@ -202,6 +200,7 @@
 
 /// This trait is used for double shuttle seats in a single tile, used in handling occupant density.
 #define TRAIT_DOUBLE_SEATS "double_seats"
+
 /// Apply this to make a mob passable by other mobs.
 #define TRAIT_UNDENSE "undense"
 
@@ -216,3 +215,12 @@
 
 /// Trait given when the mob lies down.
 #define TRAIT_SOURCE_LYING_DOWN "lying_down"
+
+/// A trait gained by leaning against something
+#define TRAIT_LEANING "leaning"
+
+/// traits transparent turf
+#define TURF_Z_TRANSPARENT_TRAIT "turf_z_transparent"
+
+/// Unlinks gliding from movement speed, meaning that there will be a delay between movements rather than a single move movement between tiles
+#define TRAIT_NO_GLIDE "no_glide"

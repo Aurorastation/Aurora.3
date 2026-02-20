@@ -81,19 +81,19 @@
 	..()
 	var/carnivore_prob = rand(100)
 	if(carnivore_prob < 30)
-		S.set_trait(TRAIT_CARNIVOROUS,2)
+		SET_SEED_TRAIT(S, TRAIT_CARNIVOROUS, 2)
 		if(prob(75))
-			S.get_trait(TRAIT_STINGS, 1)
+			SET_SEED_TRAIT(S, TRAIT_STINGS, 1)
 	else if(carnivore_prob < 60)
-		S.set_trait(TRAIT_CARNIVOROUS,1)
+		SET_SEED_TRAIT(S, TRAIT_CARNIVOROUS, 1)
 		if(prob(50))
-			S.get_trait(TRAIT_STINGS)
-	if(prob(15) || (S.get_trait(TRAIT_CARNIVOROUS) && prob(40)))
-		S.set_trait(TRAIT_BIOLUM,1)
-		S.set_trait(TRAIT_BIOLUM_COLOUR,get_random_colour(0,75,190))
+			SET_SEED_TRAIT(S, TRAIT_STINGS, 1)
+	if(prob(15) || (GET_SEED_TRAIT(S, TRAIT_CARNIVOROUS) && prob(40)))
+		SET_SEED_TRAIT(S, TRAIT_BIOLUM, 1)
+		SET_SEED_TRAIT(S, TRAIT_BIOLUM_COLOUR, get_random_colour(0,75,190))
 
 	if(prob(30))
-		S.set_trait(TRAIT_PARASITE,1)
+		SET_SEED_TRAIT(S, TRAIT_PARASITE, 1)
 
 /obj/effect/overmap/visitable/sector/exoplanet/grass/marsh
 	name = "marsh exoplanet"

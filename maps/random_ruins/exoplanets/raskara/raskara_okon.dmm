@@ -858,11 +858,11 @@
 	},
 /area/raskara_okon/observatory)
 "kL" = (
-/obj/item/device/radio,
-/obj/item/device/radio,
-/obj/item/device/radio,
-/obj/item/device/radio,
-/obj/item/device/radio,
+/obj/item/radio,
+/obj/item/radio,
+/obj/item/radio,
+/obj/item/radio,
+/obj/item/radio,
 /obj/structure/table/standard,
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
@@ -961,9 +961,9 @@
 /area/raskara_okon/eva)
 "lq" = (
 /obj/structure/table/standard,
-/obj/item/device/flashlight/heavy,
-/obj/item/device/flashlight/heavy,
-/obj/item/device/flashlight/heavy,
+/obj/item/flashlight/heavy,
+/obj/item/flashlight/heavy,
+/obj/item/flashlight/heavy,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -1347,7 +1347,7 @@
 	pixel_y = -28
 	},
 /obj/structure/closet/crate/freezer,
-/obj/item/storage/box/freezer/organcooler,
+/obj/item/storage/box/unique/freezer/organcooler,
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
@@ -1928,9 +1928,9 @@
 /obj/item/crowbar/red,
 /obj/item/crowbar/red,
 /obj/item/crowbar/red,
-/obj/item/device/analyzer,
-/obj/item/device/analyzer,
-/obj/item/device/analyzer,
+/obj/item/analyzer,
+/obj/item/analyzer,
+/obj/item/analyzer,
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
@@ -2710,7 +2710,7 @@
 /area/exoplanet/barren/raskara)
 "Ic" = (
 /obj/structure/closet/secure_closet/kitchen_cabinet/standard,
-/obj/item/storage/box/produce{
+/obj/item/storage/box/large/produce{
 	pixel_x = 3;
 	pixel_y = -11
 	},
@@ -2742,7 +2742,7 @@
 /area/raskara_okon/mining)
 "IO" = (
 /obj/structure/table/standard,
-/obj/item/device/flashlight/lamp,
+/obj/item/flashlight/lamp,
 /obj/effect/floor_decal/corner/red/full{
 	dir = 1
 	},
@@ -2806,9 +2806,9 @@
 	},
 /area/raskara_okon/observatory)
 "JO" = (
-/obj/item/device/flashlight/lantern,
-/obj/item/device/flashlight/lantern,
-/obj/item/device/flashlight/lantern,
+/obj/item/flashlight/lantern,
+/obj/item/flashlight/lantern,
+/obj/item/flashlight/lantern,
 /obj/structure/closet/toolcloset/empty,
 /obj/item/ore_detector,
 /obj/item/ore_detector,
@@ -2865,13 +2865,13 @@
 /area/raskara_okon/mess_hall)
 "KV" = (
 /obj/structure/table/rack,
-/obj/item/storage/box/monkeycubes/farwacubes{
+/obj/item/storage/box/unique/monkeycubes/farwacubes{
 	pixel_x = -5
 	},
-/obj/item/storage/box/monkeycubes/farwacubes{
+/obj/item/storage/box/unique/monkeycubes/farwacubes{
 	pixel_x = 5
 	},
-/obj/item/storage/box/monkeycubes/farwacubes,
+/obj/item/storage/box/unique/monkeycubes/farwacubes,
 /obj/item/reagent_containers/spray/cleaner{
 	pixel_x = -4;
 	pixel_y = -3
@@ -3002,7 +3002,7 @@
 /area/raskara_okon/entry)
 "Mf" = (
 /obj/structure/table/standard,
-/obj/item/device/flashlight/lamp,
+/obj/item/flashlight/lamp,
 /obj/effect/floor_decal/corner/red/full{
 	dir = 4
 	},
@@ -3573,7 +3573,7 @@
 /area/raskara_okon/laboratory)
 "TS" = (
 /obj/structure/table/standard,
-/obj/item/device/flashlight/lamp,
+/obj/item/flashlight/lamp,
 /obj/effect/floor_decal/corner/red/full,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15

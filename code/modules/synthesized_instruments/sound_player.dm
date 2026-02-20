@@ -73,7 +73,7 @@
 
 /datum/sound_player/proc/shouldStopPlaying(mob/user)
 	var/obj/structure/synthesized_instrument/S = actual_instrument
-	var/obj/item/device/synthesized_instrument/D = actual_instrument
+	var/obj/item/synthesized_instrument/D = actual_instrument
 	if(istype(S))
 		return S.shouldStopPlaying(user)
 	if(istype(D))

@@ -26,7 +26,7 @@
 
 	id = /obj/item/card/id
 
-	l_ear = /obj/item/device/radio/headset/ship
+	l_ear = /obj/item/radio/headset/ship
 
 	backpack_contents = list(/obj/item/storage/box/survival = 1)
 	species_shoes = list(
@@ -41,7 +41,7 @@
 	if(istajara(H))
 		H.equip_to_slot_or_del(new /obj/item/voidsuit_modkit/himeo/tajara, slot_r_hand)
 	if(isipc(H))
-		var/obj/item/organ/internal/ipc_tag/tag = H.internal_organs_by_name[BP_IPCTAG]
+		var/obj/item/organ/internal/machine/ipc_tag/tag = H.internal_organs_by_name[BP_IPCTAG]
 		if(istype(tag))
 			tag.modify_tag_data()
 

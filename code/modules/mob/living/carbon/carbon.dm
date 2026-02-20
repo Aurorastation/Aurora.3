@@ -43,8 +43,10 @@
 	QDEL_NULL(bloodstr)
 	QDEL_NULL(dna)
 	QDEL_NULL(breathing)
-	for(var/guts in internal_organs)
-		qdel(guts)
+	// Delete and null a direct list of references to our internal organs (such as brain, lungs, heart, etc).
+	QDEL_LIST(internal_organs)
+	// Null an Associative list of String = Reference to the same organs.
+	internal_organs_by_name = null
 	return ..()
 
 /mob/living/carbon/rejuvenate()
@@ -145,7 +147,7 @@
 		return 0
 
 	src.apply_damage(shock_damage, DAMAGE_BURN, def_zone, used_weapon="Electrocution")
-	playsound(loc, /singleton/sound_category/spark_sound, 50, 1, -1)
+	playsound(loc, SFX_SPARKS, 50, 1, -1)
 	if(shock_damage > 15 || tesla_shock)
 		src.visible_message(
 			SPAN_WARNING("[src] was shocked by the [source]!"), \
@@ -398,7 +400,16 @@
 	set category = "IC"
 
 	if(usr.sleeping)
-		to_chat(usr, SPAN_WARNING("You are already asleep."))
+		if(species && species.indefinite_sleep) // Species can wake up at will when sleeping.
+			to_chat(usr, SPAN_NOTICE("You start to wake up."))
+			if(usr.sleeping_indefinitely)
+				to_chat(usr, SPAN_NOTICE("You will no longer sleep indefinitely."))
+				usr.sleeping_indefinitely = FALSE // Stop any glitches from happening with overriding indefinite sleep.
+
+			usr.sleeping = 1 // Wake up soon.
+			usr.eye_blurry = 1
+		else
+			to_chat(usr, SPAN_WARNING("You are already asleep."))
 		return
 	if(alert(src,"Are you sure you want to sleep for a while?", "Sleep", "Yes", "No") == "Yes")
 		willfully_sleeping = TRUE
