@@ -27,7 +27,7 @@
 /// Returns the surplus power available to the powernet (avail - load)
 #define POWERNET_SURPLUS(powernet) powernet.avail - powernet.load
 /// Clamps the passed-in amount between 0 and the powernet's available load capacity.
-#define POWERNET_POWER_DRAW(powernet, amt) clamp(amt, 0, powernet.avail - powernet.load)
+#define POWERNET_POWER_DRAW(powernet, amt) ((powernet) ? clamp(amt, 0, powernet.avail - powernet.load) : 0)
 /// Draws power from the powernet directly, if it exists.
 #define DRAW_FROM_POWERNET(powernet, amt) ((powernet) ? (powernet.load += amt) : 0)
 
