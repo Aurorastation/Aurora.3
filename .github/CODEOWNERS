@@ -18,9 +18,11 @@
 /code/datums/discord/ @Arrow768 @NonQueueingMatt
 /code/modules/udp/ @Arrow768 @NonQueueingMatt
 /code/defines/procs/dbcore.dm @Arrow768 @NonQueueingMatt
-/SQL/ @Arrow768 @NonQueueingMatt
 /code/modules/http/ @Arrow768 @NonQueueingMatt
 /code/datums/api.dm @Arrow768 @NonQueueingMatt
+
+# SQL, heads + fabian
+/SQL/ @Arrow768 @NonQueueingMatt @FabianK3
 
 # Custom items, cybs
 /code/modules/customitems/item_defines.dm @CyberSpyXD
@@ -41,7 +43,7 @@
 /code/__defines/organs.dm @NonQueueingMatt
 /code/modules/organs/ @NonQueueingMatt
 
-# UIs. Wildkins and 
+# UIs. Wildkins and Bat's area
 /tgui/ @JohnWildkins @Batrachophreno
 /code/__defines/tgui.dm @JohnWildkins @Batrachophreno
 /code/modules/tgui @JohnWildkins @Batrachophreno
@@ -86,6 +88,12 @@
 # Modular computers, wildkins
 /code/modules/modular_computers/ @JohnWildkins
 
+# Persistence, Fabian's area
+**/persistence @NonQueueingMatt @FabianK3
+/code/__DEFINES/persistence.dm @NonQueueingMatt @FabianK3
+/code/__HELPERS/logging/subsystems/persistence.dm @Arrow768 @NonQueueingMatt @FabianK3
+/code/controllers/subsystems/persistence.dm @NonQueueingMatt @FabianK3
+
 # Sprites, sammy
 /icons/ @nauticall
 
@@ -94,7 +102,4 @@
 /code/datums/cargo.dm @Arrow768
 /code/modules/client/preference_setup/ @Arrow768
 /code/modules/item_worth/ @Arrow768
-/code/modules/telesci/ @Arrow768
-/code/modules/cargo/ @Arrow768
-
-
+/code/modules/telesci/@Arrow768
