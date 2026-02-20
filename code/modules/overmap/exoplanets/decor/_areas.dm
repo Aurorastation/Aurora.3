@@ -67,7 +67,7 @@
 /area/exoplanet/grass/konyang
 	name = "Konyang Wilderness"
 	base_turf = /turf/simulated/floor/exoplanet/konyang
-	is_outside = OUTSUDE_YES
+	is_outside = OUTSIDE_YES
 
 /area/exoplanet/grass/xanu
 	name = "Xanu Prime Wilderness"
