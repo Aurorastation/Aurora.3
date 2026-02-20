@@ -50,6 +50,20 @@
 	initial_flooring = /singleton/flooring/tiling/freezer
 	color = null
 
+/turf/simulated/floor/exoplanet/tiled/techmaint
+	name = "techmaint tiles"
+	icon_state = "techmaint"
+	initial_flooring = /singleton/flooring/tiling/techmaint
+	tile_decal_state = "techmaint_light"
+	color = COLOR_GRAY30
+
+/turf/simulated/floor/exoplanet/tiled/techfloor
+	name = "techfloor tiles"
+	icon_state = "techfloor"
+	initial_flooring = /singleton/flooring/tiling/techfloor
+	tile_decal_state = "techfloor_light"
+	color = COLOR_GRAY40
+
 /turf/simulated/floor/exoplanet/silver
 	name = "silver floor"
 	icon = 'icons/turf/flooring/material.dmi'
