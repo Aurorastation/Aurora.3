@@ -86,7 +86,8 @@
  *   - [AUTOSET_ON]: The APC allows automatic channels to turn back on.
  *   - [AUTOSET_OFF]: The APC turns automatic channels off.
  */
-#define autoset(val, on) ((on == AUTOSET_FORCE_OFF) ? (val & ~CHANNEL_ON) : ((val & CHANNEL_AUTO) ? ((val & ~CHANNEL_ON) | (on == AUTOSET_ON)) : val))
+
+#define autoset(val, on) (((val & CHANNEL_AUTO) || on == AUTOSET_FORCE_OFF) ? ((val & ~CHANNEL_ON) | on == AUTOSET_ON) : val)
 
 #define APC_DELTA_POWER (((src.lastused_charging * 2) - src.lastused_total) * CELLRATE)
 #define APC_GOAL(dp) (dp < 0) ? (cell.charge) : (cell.maxcharge - cell.charge)
