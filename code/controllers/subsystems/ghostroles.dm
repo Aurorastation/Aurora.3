@@ -265,6 +265,7 @@ SUBSYSTEM_DEF(ghostroles)
 		var/datum/ghostspawner/G = spawners[ghost_role_name]
 		if(G && !(spawn_atom in G.spawn_atoms))
 			G.spawn_atoms += spawn_atom
+			RegisterSignal(G, COMSIG_QDELETING, TYPE_PROC_REF(/datum/ghostspawner, spawn_atom_deleted))
 			if(G.atom_add_message)
 				say_dead_direct("[G.atom_add_message]<br>Spawn in as it by using the ghost spawner menu in the ghost tab, and try to be good!")
 

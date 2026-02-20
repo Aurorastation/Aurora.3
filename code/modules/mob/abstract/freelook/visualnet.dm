@@ -75,8 +75,8 @@
 		c.add_eye(eye)
 
 /datum/visualnet/proc/remove_eye(mob/abstract/eye/freelook/eye)
-	for(var/chunk in eye.visibleChunks)
-		var/datum/chunk/c = chunk
+	for(var/chunk in chunks)
+		var/datum/chunk/c = chunks[chunk]
 		c.remove_eye(eye)
 
 // Updates the chunks that the turf is located in. Use this when obstacles are destroyed or	when doors open.

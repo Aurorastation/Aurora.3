@@ -27,7 +27,7 @@
 	master = null
 	screen_loc = null
 	if(hud?.mymob?.client)
-		client.screen -= src
+		hud.mymob.client.screen -= src
 	hud = null
 	. = ..()
 
