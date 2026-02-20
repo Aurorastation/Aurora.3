@@ -41,6 +41,11 @@
 	name = "SCC Expedition Command Center Landing Pads"
 	is_outside = OUTSIDE_YES
 
+/area/konyang_landing_zone/exterior_gas_supply
+	name = "Gas Supply Tank"
+	icon_state = "exterior"
+	is_outside = OUTSIDE_NO
+
 /obj/effect/shuttle_landmark/konyang_landing_zone_intrepid
 	name = "SCC Expedition Command Center - Intrepid"
 	landmark_tag = "nav_konyang_landing_zone_intrepid"
