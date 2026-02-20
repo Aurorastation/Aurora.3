@@ -333,7 +333,7 @@
 			// Temperature loss in Watts (kgm^2/s^3)
 			var/temperature_loss = heat_loss/HUMAN_HEAT_CAPACITY
 			// Since body temperature is in Joules (kgm^2/s^2), we multiply temperature loss by DT (in seconds) to convert from Watts to Joules before subtracting.
-			bodytemperature -= temperature_loss * seconds_per_tick * 0.5
+			bodytemperature -= temperature_loss * seconds_per_tick
 	else
 		var/loc_temp = T0C
 		if(istype(loc, /obj/machinery/atmospherics/unary/cryo_cell))
