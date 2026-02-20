@@ -168,6 +168,10 @@
 /obj/item/ammo_magazine/mc9mm,
 /obj/item/ammo_magazine/mc9mm,
 /obj/item/ammo_magazine/mc9mm,
+/obj/item/paper{
+	name = "Armory notice no. 1";
+	info = "Our old shorties and most of our PDWs and sidearms are busted. So we lifted some stuff from some local 'taj smuggler who calls himself Sergei or something. The rifle with the curved mag (I can't pronounce the name for shit) can't take any lathed mags, so hold on to what we have. You'll have to handload the other rifle (again, can't pronounce the name for shit) with 7.62 clips or by hand."
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/gunnery)
 "t" = (
@@ -343,13 +347,6 @@
 /obj/effect/map_effect/marker/mapmanip/submap/extract/coc_ranger_lockers,
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/gunnery)
-"Q" = (
-/obj/item/paper{
-	name = "Armory notice no. 1";
-	info = "Our old shorties and most of our PDWs and sidearms are busted. So we lifted some stuff from some local 'taj smuggler who calls himself Sergei or something. The rifle with the curved mag (I can't pronounce the name for shit) can't take any lathed mags, so hold on to what we have. You'll have to handload the other rifle (again, can't pronounce the name for shit) with 7.62 clips or by hand."
-	},
-/turf/template_noop,
-/area/space)
 "W" = (
 /obj/structure/closet/crate{
 	name = "Ammo Crate"
@@ -630,7 +627,7 @@ q
 q
 d
 r
-Q
+q
 q
 q
 q
