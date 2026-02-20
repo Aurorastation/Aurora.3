@@ -140,30 +140,30 @@
 	update_uis()
 
 /obj/item/modular_computer/AltClick(mob/user)
-    if(use_check_and_message(user, USE_FORCE_SRC_IN_USER))
-        return
+	if(use_check_and_message(user, USE_FORCE_SRC_IN_USER))
+		return
 
-    if(!card_slot)
-        to_chat(user, SPAN_WARNING("[src] does not have an ID card slot."))
-        return
+	if(!card_slot)
+		to_chat(user, SPAN_WARNING("[src] does not have an ID card slot."))
+		return
 
-    if(!card_slot.stored_card)
-        to_chat(user, SPAN_WARNING("[src] does not have a card stored in the card slot."))
-        return
-    eject_id()
+	if(!card_slot.stored_card)
+		to_chat(user, SPAN_WARNING("[src] does not have a card stored in the card slot."))
+		return
+	eject_id()
 
 /obj/item/modular_computer/CtrlClick(mob/user)
-    if(use_check_and_message(user, USE_FORCE_SRC_IN_USER))
-        return
+	if(use_check_and_message(user, USE_FORCE_SRC_IN_USER))
+		return
 
-    if(!card_slot)
-        to_chat(user, SPAN_WARNING("[src] does not have an ID card slot."))
-        return
+	if(!card_slot)
+		to_chat(user, SPAN_WARNING("[src] does not have an ID card slot."))
+		return
 
-    if(!card_slot.stored_item)
-        to_chat(user, SPAN_WARNING("[src] does not have an item stored in the card slot."))
-        return
-    eject_item()
+	if(!card_slot.stored_item)
+		to_chat(user, SPAN_WARNING("[src] does not have an item stored in the card slot."))
+		return
+	eject_item()
 
 /obj/item/modular_computer/attack(mob/living/target_mob, mob/living/user, target_zone)
 	var/sound_scan = FALSE
