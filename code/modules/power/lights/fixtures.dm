@@ -685,6 +685,12 @@
 	brightness_power = 0.45
 	brightness_color = LIGHT_COLOR_PURPLE
 
+/obj/machinery/light/voidtamer
+	name = "voidtamer light fixture"
+	base_state = "voidtamer"
+	icon_state = "voidtamer_empty"
+	desc = "A lighting fixture, decorated in gold and carp hide"
+
 /obj/machinery/light/spot
 	name = "spotlight fixture"
 	icon_state = "tube_empty"
@@ -822,9 +828,3 @@
 	brightness_power = 0.45
 	brightness_color = LIGHT_COLOR_DECAYED
 	randomize_color = FALSE
-	
-/obj/machinery/light/voidtamer
-	name = "voidtamer light fixture"
-	base_state = "voidtamer"
-	icon_state = "voidtamer_empty"
-	desc = "A lighting fixture, decorated in gold and carp hide"
