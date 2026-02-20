@@ -341,6 +341,11 @@
   - rscdel: Medical records no longer displays Allergies, Disabilities and Diseases.
       These were vestigial remnants of something removed from the game 10 years ago.
 2026-02-19:
+  CatsinHD:
+  - bugfix: Stickynotes can now interact with machinery normally, such as disposals.
+  - bugfix: Crumpled stickynotes can no longer be written on or attached to a surface.
+  - bugfix: Paper shredders now show the correct(ish) sprite when shredding a crumbled
+      stickynote.
   GeneralCamo:
   - rscadd: Changed how napalm works. Instead of directly causing turf fires, napalm
       now creates a long-term burning turf fire.
@@ -357,9 +362,24 @@
       6.
   Hellfirejag:
   - bugfix: Fixed a hard delete related to human mobs.
+  JohnWildkins:
+  - refactor: Fix TGUI chat / stat panel failing to load properly when connecting.
+  - refactor: Reduce lag by ensuring refreshing char select preview doesn't cause
+      50 trillion icon update operations (estimated).
   SimpleMaroon:
   - qol: Made various adjustments to Vaurca body markings, including standardizing
       the mecha eye palette, standardizing the mecha spine palette, removing the forced
       green eyes from the mecha mandibles, and separating the hand panels into chassis
       and lights.
   - imagedel: Removed the 'large' version of the Vaurca mecha eye body markings.
+  TheGreyWolf:
+  - bugfix: The adhomian surgeon garb now offers protection equal to a surgical gown
+      and surgery mask.
+  - bugfix: The adhomian surgeon garb can now be selected by machinists again.
+  - bugfix: Assunzioni Sera Stellata di Dalyan Wine can be ordered again.
+  - bugfix: Sandals now default to being wood colored if not otherwise given color.
+  - bugfix: Added camera film to the toy shelf storage and briefcases and canes to
+      the clothing shelf storage.
+  - bugfix: Fixed that the operations lobby was powered by the wrong grid.
+  - bugfix: Added some custom items to the merchant blacklist.
+  - bugfix: Fixed stickynote pad path in the map file.
