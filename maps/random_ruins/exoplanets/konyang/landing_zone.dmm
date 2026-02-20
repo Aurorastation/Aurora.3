@@ -7,7 +7,7 @@
 /obj/machinery/light/small{
 	dir = 4
 	},
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/konyang_landing_zone/command_center/garage)
 "af" = (
 /obj/effect/floor_decal/corner/lime/diagonal,
@@ -17,7 +17,7 @@
 /obj/effect/decal/road_marking{
 	dir = 4
 	},
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/konyang_landing_zone)
 "am" = (
 /obj/structure/ledge/quarter{
@@ -48,7 +48,7 @@
 "ax" = (
 /obj/effect/decal/road_marking/no_park,
 /obj/structure/dispenser/oxygen,
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/konyang_landing_zone)
 "aA" = (
 /obj/structure/ledge/quarter{
@@ -60,7 +60,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/visible/black,
 /obj/structure/lattice/catwalk/indoor/urban,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/plating,
 /area/konyang_landing_zone/command_center/landing_pads)
 "aB" = (
 /obj/structure/table/wood,
@@ -70,7 +70,7 @@
 /area/konyang_landing_zone/command_center/living)
 "aG" = (
 /obj/structure/crane,
-/turf/simulated/floor/concrete,
+/turf/simulated/floor/exoplanet/concrete,
 /area/konyang_landing_zone)
 "aW" = (
 /obj/structure/cable{
@@ -86,7 +86,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 8
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/plating,
 /area/konyang_landing_zone/command_center/landing_pads)
 "bb" = (
 /obj/structure/cable{
@@ -133,11 +133,11 @@
 	dir = 1
 	},
 /obj/structure/tank_wall/carbon_dioxide,
-/turf/simulated/floor/airless,
+/turf/simulated/floor/exoplanet/plating,
 /area/konyang_landing_zone/command_center/landing_pads)
 "bJ" = (
 /obj/machinery/portable_atmospherics/canister,
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/konyang_landing_zone)
 "bK" = (
 /obj/structure/chainlink_fence{
@@ -161,7 +161,7 @@
 /obj/item/pickaxe,
 /obj/item/pickaxe/drill,
 /obj/item/pickaxe/drill,
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/konyang_landing_zone)
 "bX" = (
 /obj/structure/ledge/quarter{
@@ -181,7 +181,7 @@
 	pixel_x = 6
 	},
 /obj/structure/table/rack,
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/konyang_landing_zone)
 "cw" = (
 /obj/structure/ledge{
@@ -190,13 +190,13 @@
 /obj/structure/utility_pole/street/on{
 	dir = 8
 	},
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/konyang_landing_zone)
 "cA" = (
 /obj/effect/decal/exterior_stairs/right{
 	dir = 4
 	},
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/konyang_landing_zone)
 "cC" = (
 /obj/structure/table/wood,
@@ -224,21 +224,21 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/visible/black,
 /obj/structure/lattice/catwalk/indoor/urban,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/plating,
 /area/konyang_landing_zone/command_center/landing_pads)
 "cY" = (
 /obj/structure/lattice/catwalk/indoor/urban,
 /obj/structure/railing/mapped{
 	dir = 4
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/plating,
 /area/konyang_landing_zone/command_center/landing_pads)
 "di" = (
 /obj/machinery/atmospherics/binary/pump{
 	dir = 4;
 	name = "Carbon dioxide to Connector"
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/plating,
 /area/konyang_landing_zone/command_center/landing_pads)
 "do" = (
 /obj/structure/ledge/quarter{
@@ -258,7 +258,7 @@
 	icon_state = "4-8"
 	},
 /obj/structure/lattice/catwalk/indoor/urban,
-/turf/simulated/floor/sidewalk/flat,
+/turf/simulated/floor/exoplanet/sidewalk/flat,
 /area/konyang_landing_zone/command_center)
 "dI" = (
 /obj/machinery/portable_atmospherics/hydroponics,
@@ -273,7 +273,7 @@
 /turf/simulated/floor/exoplanet/konyang,
 /area/konyang_landing_zone)
 "dK" = (
-/turf/simulated/floor/concrete,
+/turf/simulated/floor/exoplanet/concrete,
 /area/konyang_landing_zone)
 "dO" = (
 /obj/structure/ledge/quarter/corner{
@@ -299,7 +299,7 @@
 	dir = 4
 	},
 /obj/structure/lattice/catwalk/indoor/urban,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/plating,
 /area/konyang_landing_zone/command_center/landing_pads)
 "ea" = (
 /obj/structure/ledge/quarter{
@@ -314,7 +314,7 @@
 	dir = 10
 	},
 /obj/structure/lattice/catwalk/indoor/urban,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/plating,
 /area/konyang_landing_zone/command_center/landing_pads)
 "ef" = (
 /obj/structure/ledge/quarter{
@@ -346,7 +346,7 @@
 	dir = 4
 	},
 /obj/structure/ore_box,
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/konyang_landing_zone)
 "ew" = (
 /obj/structure/ledge/quarter,
@@ -358,21 +358,21 @@
 /obj/structure/tank_wall/air{
 	icon_state = "air16"
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/plating,
 /area/konyang_landing_zone/command_center/landing_pads)
 "eS" = (
 /obj/item/hullbeacon/red,
 /obj/effect/decal/road_marking/no_pass{
 	dir = 1
 	},
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/konyang_landing_zone)
 "eU" = (
 /obj/effect/decal/curb{
 	dir = 1
 	},
 /obj/structure/railing/mapped,
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/konyang_landing_zone)
 "fe" = (
 /obj/machinery/cryopod{
@@ -388,7 +388,7 @@
 "fg" = (
 /obj/effect/floor_decal/industrial/outline/operations,
 /obj/structure/closet/crate/plastic,
-/turf/simulated/floor/sidewalk/flat,
+/turf/simulated/floor/exoplanet/sidewalk/flat,
 /area/konyang_landing_zone/command_center)
 "fh" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -397,23 +397,23 @@
 /obj/structure/tank_wall/air{
 	icon_state = "air10"
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/plating,
 /area/konyang_landing_zone/command_center/landing_pads)
 "fi" = (
 /obj/structure/cable/yellow{
 	icon_state = "1-2"
 	},
 /obj/structure/lattice/catwalk/indoor/urban,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/plating,
 /area/konyang_landing_zone/command_center/landing_pads)
 "fl" = (
 /obj/effect/decal/curb,
 /obj/item/hullbeacon/red,
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/konyang_landing_zone)
 "fq" = (
 /obj/effect/decal/road_marking/no_pass,
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/konyang_landing_zone)
 "fD" = (
 /turf/simulated/floor/wood,
@@ -430,7 +430,7 @@
 /obj/effect/decal/road_marking/no_pass{
 	dir = 4
 	},
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/konyang_landing_zone)
 "fZ" = (
 /obj/machinery/atmospherics/pipe/simple/visible/universal{
@@ -438,7 +438,7 @@
 	},
 /obj/structure/railing/mapped,
 /obj/structure/lattice/catwalk/indoor/urban,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/plating,
 /area/konyang_landing_zone/command_center/landing_pads)
 "ge" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -448,7 +448,7 @@
 	icon_state = "air2"
 	},
 /obj/machinery/atmospherics/pipe/simple/visible/cyan,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/plating,
 /area/konyang_landing_zone/command_center/landing_pads)
 "gg" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
@@ -463,7 +463,7 @@
 /area/konyang_landing_zone/command_center/greenhouse)
 "gk" = (
 /obj/structure/chainlink_fence,
-/turf/simulated/floor/concrete,
+/turf/simulated/floor/exoplanet/concrete,
 /area/konyang_landing_zone)
 "gm" = (
 /obj/structure/ledge/quarter/corner{
@@ -502,20 +502,20 @@
 	dir = 8
 	},
 /obj/effect/decal/road_marking/reflector,
-/turf/simulated/floor/concrete,
+/turf/simulated/floor/exoplanet/concrete,
 /area/konyang_landing_zone)
 "gL" = (
 /obj/structure/railing/mapped{
 	dir = 4
 	},
-/turf/simulated/floor/concrete,
+/turf/simulated/floor/exoplanet/concrete,
 /area/konyang_landing_zone)
 "gM" = (
 /obj/machinery/atmospherics/pipe/simple/visible/black,
 /obj/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 6
 	},
-/turf/simulated/floor/concrete,
+/turf/simulated/floor/exoplanet/concrete,
 /area/konyang_landing_zone/command_center/landing_pads)
 "gR" = (
 /obj/structure/cable/yellow{
@@ -531,7 +531,7 @@
 	dir = 4;
 	name = "Air to Connector"
 	},
-/turf/simulated/floor/concrete,
+/turf/simulated/floor/exoplanet/concrete,
 /area/konyang_landing_zone/command_center/landing_pads)
 "gS" = (
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -553,14 +553,14 @@
 /obj/effect/decal/exterior_stairs/half/right{
 	dir = 8
 	},
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/konyang_landing_zone)
 "hg" = (
 /obj/effect/floor_decal/industrial/warning,
 /obj/structure/tank_wall/air{
 	icon_state = "air14"
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/plating,
 /area/konyang_landing_zone/command_center/landing_pads)
 "hp" = (
 /obj/effect/decal/exterior_stairs/center,
@@ -568,7 +568,7 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/atmospherics/pipe/simple/visible/black,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/plating,
 /area/konyang_landing_zone/command_center/landing_pads)
 "hz" = (
 /obj/structure/ledge/quarter{
@@ -582,7 +582,7 @@
 	dir = 4
 	},
 /obj/effect/decal/curb,
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/konyang_landing_zone)
 "hP" = (
 /obj/structure/ledge/quarter{
@@ -591,7 +591,7 @@
 /obj/effect/decal/curb{
 	dir = 8
 	},
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/konyang_landing_zone)
 "hR" = (
 /obj/structure/railing/mapped,
@@ -622,12 +622,12 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 8
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/plating,
 /area/konyang_landing_zone/command_center/landing_pads)
 "hZ" = (
 /obj/structure/lattice/catwalk/indoor/urban,
 /obj/structure/railing/mapped,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/plating,
 /area/konyang_landing_zone/command_center/landing_pads)
 "ib" = (
 /obj/machinery/light/small,
@@ -649,12 +649,12 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 8
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/plating,
 /area/konyang_landing_zone/command_center/landing_pads)
 "iG" = (
 /obj/effect/decal/road_marking,
 /obj/item/hullbeacon/red,
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/konyang_landing_zone)
 "iJ" = (
 /obj/structure/cable{
@@ -680,7 +680,7 @@
 /obj/structure/cable/yellow{
 	icon_state = "4-8"
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/plating,
 /area/konyang_landing_zone/command_center/landing_pads)
 "jg" = (
 /turf/simulated/floor/exoplanet/water/shallow/konyang,
@@ -698,7 +698,7 @@
 /area/konyang_landing_zone/command_center/living)
 "jn" = (
 /obj/effect/decal/curb,
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/konyang_landing_zone)
 "jo" = (
 /obj/structure/window/reinforced,
@@ -721,7 +721,7 @@
 /obj/effect/decal/road_marking{
 	dir = 4
 	},
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/konyang_landing_zone)
 "jB" = (
 /obj/structure/table/stone/marble,
@@ -748,7 +748,7 @@
 "jG" = (
 /obj/structure/lattice/catwalk/indoor/urban,
 /obj/structure/railing/mapped,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/plating,
 /area/konyang_landing_zone)
 "jI" = (
 /obj/structure/flora/rock/konyang/small,
@@ -758,7 +758,7 @@
 /obj/machinery/atmospherics/pipe/simple/visible/black,
 /obj/structure/lattice/catwalk/indoor/urban,
 /obj/machinery/atmospherics/pipe/simple/hidden/aux,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/plating,
 /area/konyang_landing_zone/command_center/landing_pads)
 "jM" = (
 /obj/machinery/washing_machine,
@@ -769,7 +769,7 @@
 	icon_state = "1-8"
 	},
 /obj/structure/lattice/catwalk/indoor/urban,
-/turf/simulated/floor/sidewalk/flat,
+/turf/simulated/floor/exoplanet/sidewalk/flat,
 /area/konyang_landing_zone/command_center)
 "jS" = (
 /obj/effect/floor_decal/spline/fancy/wood/corner{
@@ -783,7 +783,7 @@
 	dir = 1
 	},
 /obj/structure/utility_pole/street/on,
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/konyang_landing_zone)
 "jZ" = (
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -800,7 +800,7 @@
 /area/konyang_landing_zone/command_center)
 "kd" = (
 /obj/effect/floor_decal/big/scc_full,
-/turf/simulated/floor/concrete,
+/turf/simulated/floor/exoplanet/concrete,
 /area/konyang_landing_zone)
 "ke" = (
 /obj/structure/utility_pole/street/on{
@@ -827,7 +827,7 @@
 /obj/structure/tank_wall/carbon_dioxide{
 	icon_state = "co2-15"
 	},
-/turf/simulated/floor/airless,
+/turf/simulated/floor/exoplanet/plating,
 /area/konyang_landing_zone/command_center/landing_pads)
 "kD" = (
 /obj/structure/railing/mapped,
@@ -871,14 +871,14 @@
 	dir = 1
 	},
 /obj/structure/lattice/catwalk/indoor/urban,
-/turf/simulated/floor/sidewalk/flat,
+/turf/simulated/floor/exoplanet/sidewalk/flat,
 /area/konyang_landing_zone/command_center)
 "ld" = (
 /obj/machinery/light/small{
 	brightness_color = "#FA8282";
 	dir = 1
 	},
-/turf/simulated/floor/concrete,
+/turf/simulated/floor/exoplanet/concrete,
 /area/konyang_landing_zone/command_center)
 "li" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -887,7 +887,7 @@
 /obj/structure/tank_wall/carbon_dioxide{
 	icon_state = "co2-10"
 	},
-/turf/simulated/floor/airless,
+/turf/simulated/floor/exoplanet/plating,
 /area/konyang_landing_zone/command_center/landing_pads)
 "lp" = (
 /obj/structure/chainlink_fence{
@@ -903,7 +903,7 @@
 /obj/effect/decal/exterior_stairs/right{
 	dir = 4
 	},
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/konyang_landing_zone)
 "lt" = (
 /obj/effect/decal/exterior_stairs/half/right,
@@ -915,7 +915,7 @@
 	icon_state = "air15"
 	},
 /obj/machinery/atmospherics/pipe/simple/visible/blue,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/plating,
 /area/konyang_landing_zone/command_center/landing_pads)
 "lH" = (
 /obj/structure/cable/yellow{
@@ -924,7 +924,7 @@
 	icon_state = "1-2"
 	},
 /obj/structure/lattice/catwalk/indoor/urban,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/plating,
 /area/konyang_landing_zone/command_center/landing_pads)
 "lI" = (
 /obj/structure/ledge/quarter{
@@ -945,7 +945,7 @@
 /obj/structure/utility_pole/street/on{
 	dir = 4
 	},
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/konyang_landing_zone)
 "lP" = (
 /obj/structure/table/wood,
@@ -966,7 +966,7 @@
 /obj/structure/cable/yellow{
 	icon_state = "4-8"
 	},
-/turf/simulated/floor/concrete,
+/turf/simulated/floor/exoplanet/concrete,
 /area/konyang_landing_zone/command_center/landing_pads)
 "mf" = (
 /obj/machinery/light/small{
@@ -990,7 +990,7 @@
 /obj/machinery/atmospherics/pipe/simple/visible/black{
 	dir = 4
 	},
-/turf/simulated/floor/concrete,
+/turf/simulated/floor/exoplanet/concrete,
 /area/konyang_landing_zone/command_center/landing_pads)
 "mr" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
@@ -1006,7 +1006,7 @@
 /obj/structure/chainlink_fence{
 	dir = 8
 	},
-/turf/simulated/floor/concrete,
+/turf/simulated/floor/exoplanet/concrete,
 /area/konyang_landing_zone)
 "mH" = (
 /obj/machinery/light,
@@ -1030,7 +1030,7 @@
 	dir = 4
 	},
 /obj/structure/lattice/catwalk/indoor/urban,
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/plating,
 /area/konyang_landing_zone/command_center/landing_pads)
 "mM" = (
 /obj/structure/ledge/quarter{
@@ -1043,7 +1043,7 @@
 /area/konyang_landing_zone)
 "mR" = (
 /obj/effect/decal/road_marking/turn_left,
-/turf/simulated/floor/concrete,
+/turf/simulated/floor/exoplanet/concrete,
 /area/konyang_landing_zone)
 "mS" = (
 /obj/structure/ledge/quarter/corner{
@@ -1064,7 +1064,7 @@
 	dir = 4
 	},
 /obj/structure/railing/mapped,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/plating,
 /area/konyang_landing_zone/command_center/landing_pads)
 "ng" = (
 /obj/structure/ledge/corner{
@@ -1084,7 +1084,7 @@
 /obj/effect/decal/road_marking/no_pass{
 	dir = 4
 	},
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/konyang_landing_zone)
 "nu" = (
 /obj/machinery/recharge_station,
@@ -1093,6 +1093,15 @@
 	},
 /turf/simulated/floor/wood,
 /area/konyang_landing_zone/command_center/living)
+"nA" = (
+/obj/machinery/atmospherics/pipe/simple/visible/black{
+	dir = 4
+	},
+/obj/structure/cable/yellow{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/exoplanet/plating,
+/area/konyang_landing_zone/command_center/landing_pads)
 "nJ" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -1126,7 +1135,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 9
 	},
-/turf/simulated/floor/concrete,
+/turf/simulated/floor/exoplanet/concrete,
 /area/konyang_landing_zone/command_center/landing_pads)
 "oq" = (
 /turf/simulated/wall,
@@ -1142,7 +1151,7 @@
 	icon_state = "2-4"
 	},
 /obj/structure/lattice/catwalk/indoor/urban,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/plating,
 /area/konyang_landing_zone/command_center/landing_pads)
 "oJ" = (
 /obj/machinery/atmospherics/pipe/simple/visible/black{
@@ -1152,7 +1161,7 @@
 	name = "Fuel Reserve"
 	},
 /obj/structure/lattice/catwalk/indoor/urban,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/plating,
 /area/konyang_landing_zone/command_center/landing_pads)
 "oU" = (
 /obj/effect/map_effect/window_spawner/full/reinforced,
@@ -1165,7 +1174,7 @@
 	pixel_y = -20;
 	dir = 1
 	},
-/turf/simulated/floor/concrete,
+/turf/simulated/floor/exoplanet/concrete,
 /area/konyang_landing_zone)
 "pk" = (
 /obj/effect/decal/exterior_stairs/half/right{
@@ -1190,13 +1199,13 @@
 	icon_state = "4-8"
 	},
 /obj/structure/lattice/catwalk/indoor/urban,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/plating,
 /area/konyang_landing_zone/command_center/landing_pads)
 "pz" = (
 /obj/effect/decal/curb{
 	dir = 1
 	},
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/konyang_landing_zone)
 "pD" = (
 /obj/machinery/light,
@@ -1217,7 +1226,7 @@
 	dir = 8
 	},
 /obj/structure/chainlink_fence,
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/konyang_landing_zone)
 "pU" = (
 /obj/structure/table/wood,
@@ -1234,7 +1243,7 @@
 /area/konyang_landing_zone)
 "qc" = (
 /obj/item/hullbeacon/red,
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/konyang_landing_zone)
 "qm" = (
 /obj/structure/ledge/quarter{
@@ -1249,7 +1258,7 @@
 /obj/structure/tank_wall/air{
 	icon_state = "air9"
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/plating,
 /area/konyang_landing_zone/command_center/landing_pads)
 "qq" = (
 /obj/structure/bed/padded,
@@ -1304,7 +1313,7 @@
 /obj/structure/tank_wall/carbon_dioxide{
 	icon_state = "co2-8"
 	},
-/turf/simulated/floor/airless,
+/turf/simulated/floor/exoplanet/plating,
 /area/konyang_landing_zone/command_center/landing_pads)
 "rf" = (
 /turf/simulated/floor/exoplanet/dirt_konyang,
@@ -1317,7 +1326,7 @@
 /area/konyang_landing_zone/command_center/garage)
 "rp" = (
 /obj/effect/shuttle_landmark/automatic/canary,
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/konyang_landing_zone)
 "rs" = (
 /obj/machinery/power/portgen/basic,
@@ -1354,7 +1363,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 4
 	},
-/turf/simulated/floor/concrete,
+/turf/simulated/floor/exoplanet/concrete,
 /area/konyang_landing_zone/command_center/landing_pads)
 "rM" = (
 /obj/structure/chainlink_fence{
@@ -1362,7 +1371,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/visible/black,
 /obj/machinery/atmospherics/pipe/simple/hidden/aux,
-/turf/simulated/floor/concrete,
+/turf/simulated/floor/exoplanet/concrete,
 /area/konyang_landing_zone/command_center/landing_pads)
 "rP" = (
 /obj/structure/toilet{
@@ -1452,15 +1461,15 @@
 /area/konyang_landing_zone/command_center)
 "sF" = (
 /obj/effect/decal/road_marking/turn_right,
-/turf/simulated/floor/concrete,
+/turf/simulated/floor/exoplanet/concrete,
 /area/konyang_landing_zone)
 "sH" = (
 /obj/item/hullbeacon/red,
-/turf/simulated/floor/concrete,
+/turf/simulated/floor/exoplanet/concrete,
 /area/konyang_landing_zone)
 "sK" = (
 /obj/structure/reagent_dispensers/fueltank,
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/konyang_landing_zone)
 "sM" = (
 /obj/machinery/smartfridge/secure,
@@ -1487,7 +1496,7 @@
 	dir = 6
 	},
 /obj/structure/chainlink_fence,
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/konyang_landing_zone)
 "tj" = (
 /obj/structure/chainlink_fence{
@@ -1506,7 +1515,7 @@
 /obj/effect/decal/road_marking{
 	dir = 8
 	},
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/konyang_landing_zone)
 "tm" = (
 /obj/effect/decal/curb{
@@ -1515,14 +1524,14 @@
 /obj/effect/decal/road_marking/reflector{
 	dir = 8
 	},
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/konyang_landing_zone)
 "tp" = (
 /obj/structure/chainlink_fence,
 /obj/structure/chainlink_fence{
 	dir = 4
 	},
-/turf/simulated/floor/concrete,
+/turf/simulated/floor/exoplanet/concrete,
 /area/konyang_landing_zone)
 "tt" = (
 /obj/effect/decal/exterior_stairs/left{
@@ -1547,7 +1556,7 @@
 	icon_state = "4-8"
 	},
 /obj/structure/lattice/catwalk/indoor/urban,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/plating,
 /area/konyang_landing_zone/command_center/landing_pads)
 "uc" = (
 /obj/structure/cable/yellow{
@@ -1557,7 +1566,7 @@
 	dir = 4
 	},
 /obj/structure/lattice/catwalk/indoor/urban,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/plating,
 /area/konyang_landing_zone/command_center/landing_pads)
 "ug" = (
 /obj/effect/decal/curb{
@@ -1572,7 +1581,7 @@
 /obj/structure/utility_pole/street/on{
 	dir = 8
 	},
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/konyang_landing_zone)
 "uy" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -1581,7 +1590,7 @@
 /obj/structure/tank_wall/carbon_dioxide{
 	icon_state = "co2-7"
 	},
-/turf/simulated/floor/airless,
+/turf/simulated/floor/exoplanet/plating,
 /area/konyang_landing_zone/command_center/landing_pads)
 "uD" = (
 /obj/machinery/atmospherics/pipe/simple/visible/black{
@@ -1593,7 +1602,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 6
 	},
-/turf/simulated/floor/concrete,
+/turf/simulated/floor/exoplanet/concrete,
 /area/konyang_landing_zone/command_center/landing_pads)
 "vt" = (
 /obj/structure/weightlifter,
@@ -1626,7 +1635,7 @@
 /obj/effect/decal/curb{
 	dir = 5
 	},
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/konyang_landing_zone)
 "we" = (
 /obj/machinery/button/remote/blast_door{
@@ -1663,7 +1672,7 @@
 /obj/structure/utility_pole/street/on{
 	dir = 1
 	},
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/konyang_landing_zone)
 "wl" = (
 /obj/machinery/atmospherics/pipe/manifold/visible/black{
@@ -1673,7 +1682,7 @@
 	icon_state = "4-8"
 	},
 /obj/structure/lattice/catwalk/indoor/urban,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/plating,
 /area/konyang_landing_zone/command_center/landing_pads)
 "wr" = (
 /obj/structure/chainlink_fence{
@@ -1711,7 +1720,7 @@
 /obj/structure/chainlink_fence{
 	dir = 4
 	},
-/turf/simulated/floor/concrete,
+/turf/simulated/floor/exoplanet/concrete,
 /area/konyang_landing_zone)
 "wB" = (
 /obj/structure/bookcase/libraryspawn/fiction,
@@ -1730,7 +1739,7 @@
 	dir = 4
 	},
 /obj/structure/reagent_dispensers/extinguisher,
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/konyang_landing_zone)
 "wS" = (
 /obj/structure/sign/emergency/evacuation,
@@ -1756,20 +1765,20 @@
 /obj/effect/overlay/container_logo{
 	icon_state = "heph2"
 	},
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/konyang_landing_zone)
 "xn" = (
 /obj/structure/ledge/quarter{
 	dir = 8
 	},
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/konyang_landing_zone)
 "xo" = (
 /obj/structure/shipping_container_old{
 	icon_state = "red2"
 	},
 /obj/effect/overlay/container_logo,
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/konyang_landing_zone)
 "xD" = (
 /obj/structure/table/wood,
@@ -1786,7 +1795,7 @@
 /obj/effect/decal/exterior_stairs/half/center{
 	dir = 8
 	},
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/konyang_landing_zone)
 "xQ" = (
 /obj/item/storage/toolbox/mechanical,
@@ -1809,7 +1818,7 @@
 	icon_state = "1-8"
 	},
 /obj/structure/lattice/catwalk/indoor/urban,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/plating,
 /area/konyang_landing_zone/command_center/landing_pads)
 "yb" = (
 /obj/structure/ledge/quarter{
@@ -1818,7 +1827,7 @@
 /obj/effect/decal/road_marking{
 	dir = 4
 	},
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/konyang_landing_zone)
 "yc" = (
 /obj/structure/cable/green{
@@ -1858,7 +1867,7 @@
 /obj/structure/utility_pole/street/on{
 	dir = 8
 	},
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/konyang_landing_zone)
 "yz" = (
 /obj/structure/tank_wall/carbon_dioxide{
@@ -1909,7 +1918,7 @@
 	dir = 4
 	},
 /obj/structure/closet/crate/miningcart/ore,
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/konyang_landing_zone)
 "zc" = (
 /obj/effect/floor_decal/corner/pink/diagonal,
@@ -1930,7 +1939,7 @@
 	dir = 8
 	},
 /obj/structure/lattice/catwalk/indoor/urban,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/plating,
 /area/konyang_landing_zone/command_center/landing_pads)
 "zg" = (
 /obj/machinery/door/urban{
@@ -1946,7 +1955,7 @@
 /turf/simulated/floor/wood,
 /area/konyang_landing_zone/command_center)
 "zh" = (
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/konyang_landing_zone)
 "zo" = (
 /obj/machinery/meter{
@@ -1956,7 +1965,7 @@
 	dir = 4
 	},
 /obj/structure/lattice/catwalk/indoor/urban,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/plating,
 /area/konyang_landing_zone/command_center/landing_pads)
 "zp" = (
 /obj/structure/window/reinforced,
@@ -1977,7 +1986,7 @@
 /obj/structure/railing/mapped{
 	dir = 4
 	},
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/konyang_landing_zone)
 "zA" = (
 /obj/structure/railing/mapped,
@@ -2001,7 +2010,7 @@
 	dir = 1
 	},
 /obj/effect/decal/road_marking,
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/konyang_landing_zone)
 "Ab" = (
 /obj/structure/bed/stool/chair/sofa/left/red,
@@ -2027,7 +2036,7 @@
 /obj/effect/decal/road_marking{
 	dir = 8
 	},
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/konyang_landing_zone)
 "At" = (
 /turf/simulated/wall/r_wall,
@@ -2043,7 +2052,7 @@
 /obj/structure/tank_wall/air{
 	icon_state = "air13"
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/plating,
 /area/konyang_landing_zone/command_center/landing_pads)
 "AD" = (
 /obj/structure/ledge{
@@ -2052,7 +2061,7 @@
 /obj/structure/utility_pole/street/on{
 	dir = 8
 	},
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/konyang_landing_zone)
 "AK" = (
 /obj/structure/flora/rock/konyang/water,
@@ -2086,7 +2095,7 @@
 	name = "Carbon dioxide to Connector"
 	},
 /obj/effect/decal/curb,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/plating,
 /area/konyang_landing_zone/command_center/landing_pads)
 "Br" = (
 /obj/structure/cable/yellow{
@@ -2096,7 +2105,7 @@
 	dir = 10
 	},
 /obj/structure/lattice/catwalk/indoor/urban,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/plating,
 /area/konyang_landing_zone/command_center/landing_pads)
 "Bw" = (
 /obj/structure/cable{
@@ -2134,7 +2143,7 @@
 /obj/structure/tank_wall/carbon_dioxide{
 	icon_state = "co2-14"
 	},
-/turf/simulated/floor/airless,
+/turf/simulated/floor/exoplanet/plating,
 /area/konyang_landing_zone/command_center/landing_pads)
 "BL" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
@@ -2184,7 +2193,7 @@
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/aux,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/plating,
 /area/konyang_landing_zone/command_center/landing_pads)
 "Ca" = (
 /obj/effect/map_effect/window_spawner/full/reinforced,
@@ -2217,14 +2226,14 @@
 	dir = 5
 	},
 /obj/structure/lattice/catwalk/indoor/urban,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/plating,
 /area/konyang_landing_zone/command_center/landing_pads)
 "Ci" = (
 /obj/structure/ledge{
 	dir = 4
 	},
 /obj/item/hullbeacon/red,
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/konyang_landing_zone)
 "Cj" = (
 /obj/structure/closet/crate/bin,
@@ -2239,7 +2248,7 @@
 	id = "lz_gate";
 	name = "Main Gate"
 	},
-/turf/simulated/floor/concrete,
+/turf/simulated/floor/exoplanet/concrete,
 /area/konyang_landing_zone)
 "Cw" = (
 /obj/structure/ledge/quarter/corner{
@@ -2247,25 +2256,30 @@
 	},
 /turf/simulated/floor/exoplanet/konyang,
 /area/konyang_landing_zone)
+"CB" = (
+/obj/machinery/atmospherics/pipe/simple/visible/black,
+/obj/machinery/atmospherics/pipe/simple/hidden/aux,
+/turf/simulated/floor/exoplanet/concrete,
+/area/konyang_landing_zone/command_center/landing_pads)
 "CT" = (
 /obj/effect/decal/road_marking/no_pass{
 	dir = 4
 	},
 /obj/machinery/portable_atmospherics/canister/air,
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/konyang_landing_zone)
 "CU" = (
 /obj/effect/decal/curb{
 	dir = 4
 	},
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/konyang_landing_zone)
 "CY" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
 /obj/structure/tank_wall/air,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/plating,
 /area/konyang_landing_zone/command_center/landing_pads)
 "Da" = (
 /turf/simulated/floor/reinforced,
@@ -2276,7 +2290,7 @@
 	},
 /obj/structure/railing/mapped,
 /obj/effect/decal/road_marking,
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/konyang_landing_zone)
 "Dv" = (
 /obj/machinery/atmospherics/pipe/simple/visible/black,
@@ -2284,13 +2298,13 @@
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/aux,
-/turf/simulated/floor/concrete,
+/turf/simulated/floor/exoplanet/concrete,
 /area/konyang_landing_zone/command_center/landing_pads)
 "DP" = (
 /obj/effect/decal/curb{
 	dir = 8
 	},
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/konyang_landing_zone)
 "DQ" = (
 /obj/structure/chainlink_fence{
@@ -2301,7 +2315,7 @@
 /area/konyang_landing_zone)
 "DS" = (
 /obj/effect/shuttle_landmark/automatic/spark,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/konyang_landing_zone)
 "DT" = (
 /obj/machinery/atmospherics/pipe/simple/visible/black,
@@ -2311,7 +2325,7 @@
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/aux,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/plating,
 /area/konyang_landing_zone/command_center/landing_pads)
 "DY" = (
 /obj/structure/cable{
@@ -2332,12 +2346,12 @@
 /obj/machinery/atmospherics/pipe/simple/visible/black,
 /obj/structure/lattice/catwalk/indoor/urban,
 /obj/machinery/atmospherics/pipe/simple/hidden/aux,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/plating,
 /area/konyang_landing_zone/command_center/landing_pads)
 "Eg" = (
 /obj/effect/decal/road_marking/no_park,
 /obj/structure/closet/crate/secure/large,
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/konyang_landing_zone)
 "Ek" = (
 /obj/effect/decal/curb{
@@ -2349,7 +2363,7 @@
 /obj/structure/utility_pole/street/on{
 	dir = 8
 	},
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/konyang_landing_zone)
 "El" = (
 /obj/machinery/light/small{
@@ -2366,7 +2380,7 @@
 	dir = 10
 	},
 /obj/structure/chainlink_fence,
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/konyang_landing_zone)
 "Ep" = (
 /obj/structure/railing/mapped,
@@ -2377,12 +2391,12 @@
 	dir = 4
 	},
 /obj/structure/lattice/catwalk/indoor/urban,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/plating,
 /area/konyang_landing_zone/command_center/landing_pads)
 "Er" = (
 /obj/effect/decal/road_marking/no_park,
 /obj/machinery/floodlight,
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/konyang_landing_zone)
 "ED" = (
 /obj/structure/cable{
@@ -2407,14 +2421,14 @@
 	icon_state = "co2-2"
 	},
 /obj/machinery/atmospherics/pipe/simple/visible/black,
-/turf/simulated/floor/airless,
+/turf/simulated/floor/exoplanet/plating,
 /area/konyang_landing_zone/command_center/landing_pads)
 "EO" = (
-/obj/machinery/atmospherics/pipe/simple/visible/black,
-/obj/structure/lattice/catwalk/indoor/urban,
-/obj/machinery/atmospherics/pipe/simple/hidden/aux,
-/turf/simulated/floor/concrete,
-/area/konyang_landing_zone/command_center/landing_pads)
+/obj/structure/chainlink_fence{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/concrete,
+/area/konyang_landing_zone)
 "EV" = (
 /obj/effect/decal/curb{
 	dir = 5
@@ -2422,7 +2436,7 @@
 /obj/effect/decal/road_marking/reflector{
 	dir = 8
 	},
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/konyang_landing_zone)
 "Fi" = (
 /obj/effect/floor_decal/konyang_flowers,
@@ -2435,7 +2449,7 @@
 /obj/structure/tank_wall/air{
 	icon_state = "air3"
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/plating,
 /area/konyang_landing_zone/command_center/landing_pads)
 "Fz" = (
 /obj/structure/chainlink_fence{
@@ -2448,7 +2462,7 @@
 	dir = 8
 	},
 /obj/effect/decal/curb,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/plating,
 /area/konyang_landing_zone/command_center/landing_pads)
 "FF" = (
 /turf/simulated/floor/reinforced/carbon_dioxide,
@@ -2458,21 +2472,21 @@
 	dir = 8;
 	name = "Carbon dioxide to Connector"
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/plating,
 /area/konyang_landing_zone/command_center/landing_pads)
 "FY" = (
 /obj/effect/decal/exterior_stairs/center,
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/konyang_landing_zone)
 "Gb" = (
 /obj/machinery/atmospherics/portables_connector{
 	dir = 4
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/plating,
 /area/konyang_landing_zone/command_center/landing_pads)
 "Gc" = (
 /obj/effect/decal/exterior_stairs/half/center,
-/turf/simulated/floor/concrete,
+/turf/simulated/floor/exoplanet/concrete,
 /area/konyang_landing_zone)
 "Gg" = (
 /obj/structure/ledge/quarter{
@@ -2499,13 +2513,13 @@
 /obj/effect/decal/exterior_stairs/left{
 	dir = 4
 	},
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/konyang_landing_zone)
 "Gu" = (
 /obj/structure/ledge{
 	dir = 8
 	},
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/konyang_landing_zone)
 "GA" = (
 /obj/machinery/portable_atmospherics/hydroponics,
@@ -2523,7 +2537,7 @@
 	dir = 5
 	},
 /obj/structure/lattice/catwalk/indoor/urban,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/plating,
 /area/konyang_landing_zone/command_center/landing_pads)
 "GH" = (
 /obj/structure/ledge/quarter{
@@ -2555,7 +2569,7 @@
 /obj/structure/utility_pole/street/on{
 	dir = 4
 	},
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/konyang_landing_zone)
 "GT" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
@@ -2582,7 +2596,7 @@
 /area/konyang_landing_zone/command_center)
 "Hd" = (
 /obj/effect/decal/exterior_stairs/left,
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/konyang_landing_zone)
 "Hf" = (
 /obj/structure/closet/crate/secure/large,
@@ -2607,7 +2621,7 @@
 /obj/effect/decal/road_marking/no_pass{
 	dir = 8
 	},
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/konyang_landing_zone)
 "Hk" = (
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -2645,14 +2659,14 @@
 "HR" = (
 /obj/structure/lattice/catwalk/indoor/urban,
 /obj/machinery/power/breakerbox/activated,
-/turf/simulated/floor/sidewalk/flat,
+/turf/simulated/floor/exoplanet/sidewalk/flat,
 /area/konyang_landing_zone/command_center/landing_pads)
 "HV" = (
 /obj/structure/chainlink_fence,
 /obj/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 4
 	},
-/turf/simulated/floor/concrete,
+/turf/simulated/floor/exoplanet/concrete,
 /area/konyang_landing_zone/command_center/landing_pads)
 "HX" = (
 /obj/effect/decal/curb{
@@ -2662,28 +2676,28 @@
 	dir = 8
 	},
 /obj/structure/railing/mapped,
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/konyang_landing_zone)
 "HY" = (
 /obj/effect/decal/road_marking/no_pass,
 /obj/effect/shuttle_landmark/automatic/intrepid{
 	dir = 1
 	},
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/konyang_landing_zone)
 "Ic" = (
 /obj/effect/decal/exterior_stairs/half/right,
 /obj/structure/railing/mapped{
 	dir = 4
 	},
-/turf/simulated/floor/concrete,
+/turf/simulated/floor/exoplanet/concrete,
 /area/konyang_landing_zone)
 "Ih" = (
 /obj/structure/railing/mapped,
 /obj/effect/decal/curb{
 	dir = 1
 	},
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/konyang_landing_zone)
 "Ii" = (
 /obj/structure/ledge/quarter/corner{
@@ -2695,7 +2709,7 @@
 /obj/structure/railing/mapped{
 	dir = 4
 	},
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/konyang_landing_zone)
 "Ik" = (
 /obj/structure/cable{
@@ -2722,7 +2736,7 @@
 /obj/machinery/atmospherics/portables_connector{
 	dir = 8
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/plating,
 /area/konyang_landing_zone/command_center/landing_pads)
 "Is" = (
 /obj/structure/lattice/catwalk/indoor/urban,
@@ -2732,7 +2746,7 @@
 /obj/structure/railing/mapped{
 	dir = 8
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/plating,
 /area/konyang_landing_zone/command_center/landing_pads)
 "Iy" = (
 /obj/effect/decal/curb{
@@ -2744,7 +2758,7 @@
 /obj/structure/utility_pole/street/on{
 	dir = 4
 	},
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/konyang_landing_zone)
 "IB" = (
 /obj/structure/table/wood,
@@ -2810,7 +2824,7 @@
 /obj/effect/decal/road_marking{
 	dir = 4
 	},
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/konyang_landing_zone)
 "Jd" = (
 /obj/effect/decal/exterior_stairs/half/center,
@@ -2823,11 +2837,11 @@
 /obj/structure/tank_wall/air{
 	icon_state = "air4"
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/plating,
 /area/konyang_landing_zone/command_center/landing_pads)
 "Ji" = (
 /obj/effect/decal/road_marking/no_park,
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/konyang_landing_zone)
 "Jm" = (
 /obj/structure/bed/stool/chair/folding{
@@ -2849,11 +2863,11 @@
 	icon_state = "2-4"
 	},
 /obj/structure/lattice/catwalk/indoor/urban,
-/turf/simulated/floor/sidewalk/flat,
+/turf/simulated/floor/exoplanet/sidewalk/flat,
 /area/konyang_landing_zone/command_center/landing_pads)
 "JA" = (
 /obj/structure/chainlink_fence,
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/konyang_landing_zone)
 "JK" = (
 /obj/effect/decal/curb{
@@ -2862,7 +2876,7 @@
 /obj/effect/decal/road_marking/reflector{
 	dir = 8
 	},
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/konyang_landing_zone)
 "JO" = (
 /obj/structure/tank_wall/air{
@@ -2882,7 +2896,7 @@
 /obj/structure/utility_pole/street/on{
 	dir = 4
 	},
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/konyang_landing_zone)
 "Ks" = (
 /obj/structure/closet/crate/hydroponics,
@@ -2912,7 +2926,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 8
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/plating,
 /area/konyang_landing_zone/command_center/landing_pads)
 "KD" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
@@ -2923,7 +2937,7 @@
 /area/konyang_landing_zone/command_center/greenhouse)
 "KG" = (
 /obj/structure/sign/emergency/evacuation/stairs,
-/turf/simulated/floor/concrete,
+/turf/simulated/floor/exoplanet/concrete,
 /area/konyang_landing_zone)
 "KQ" = (
 /obj/structure/table/rack,
@@ -2962,7 +2976,7 @@
 	dir = 5
 	},
 /obj/structure/lattice/catwalk/indoor/urban,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/plating,
 /area/konyang_landing_zone/command_center/landing_pads)
 "KV" = (
 /turf/simulated/floor/exoplanet/water/shallow/konyang/no_smooth,
@@ -3017,7 +3031,7 @@
 /obj/structure/ledge{
 	dir = 4
 	},
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/konyang_landing_zone)
 "LE" = (
 /obj/effect/decal/curb{
@@ -3029,7 +3043,7 @@
 /obj/effect/decal/road_marking{
 	dir = 8
 	},
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/konyang_landing_zone)
 "LN" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
@@ -3045,7 +3059,7 @@
 /obj/structure/railing/mapped{
 	dir = 8
 	},
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/konyang_landing_zone)
 "LW" = (
 /obj/effect/decal/exterior_stairs/right{
@@ -3063,14 +3077,14 @@
 	dir = 4
 	},
 /obj/item/hullbeacon/red,
-/turf/simulated/floor/concrete,
+/turf/simulated/floor/exoplanet/concrete,
 /area/konyang_landing_zone)
 "Ms" = (
 /obj/effect/floor_decal/industrial/warning,
 /obj/structure/tank_wall/carbon_dioxide{
 	icon_state = "co2-16"
 	},
-/turf/simulated/floor/airless,
+/turf/simulated/floor/exoplanet/plating,
 /area/konyang_landing_zone/command_center/landing_pads)
 "Mv" = (
 /obj/machinery/portable_atmospherics/hydroponics/soil,
@@ -3113,7 +3127,7 @@
 	dir = 10
 	},
 /obj/structure/lattice/catwalk/indoor/urban,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/plating,
 /area/konyang_landing_zone/command_center/landing_pads)
 "MN" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -3122,7 +3136,7 @@
 /obj/structure/tank_wall/carbon_dioxide{
 	icon_state = "co2-3"
 	},
-/turf/simulated/floor/airless,
+/turf/simulated/floor/exoplanet/plating,
 /area/konyang_landing_zone/command_center/landing_pads)
 "MO" = (
 /turf/simulated/floor/reinforced/airmix,
@@ -3133,7 +3147,7 @@
 	dir = 4
 	},
 /obj/structure/railing/mapped,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/plating,
 /area/konyang_landing_zone/command_center/landing_pads)
 "Nc" = (
 /obj/structure/bed/stool/chair/sofa/right/red{
@@ -3169,7 +3183,7 @@
 /turf/simulated/floor/reinforced,
 /area/konyang_landing_zone/command_center/garage)
 "Ny" = (
-/turf/simulated/floor/sidewalk/flat,
+/turf/simulated/floor/exoplanet/sidewalk/flat,
 /area/konyang_landing_zone/command_center)
 "NB" = (
 /obj/structure/cable/yellow{
@@ -3178,7 +3192,7 @@
 	icon_state = "4-8"
 	},
 /obj/structure/lattice/catwalk/indoor/urban,
-/turf/simulated/floor/sidewalk/flat,
+/turf/simulated/floor/exoplanet/sidewalk/flat,
 /area/konyang_landing_zone/command_center/landing_pads)
 "ND" = (
 /obj/structure/flora/bush/konyang_reeds/water,
@@ -3189,7 +3203,7 @@
 	dir = 10
 	},
 /obj/structure/railing/mapped,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/plating,
 /area/konyang_landing_zone/command_center/landing_pads)
 "NW" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -3198,14 +3212,14 @@
 /obj/structure/tank_wall/air{
 	icon_state = "air8"
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/plating,
 /area/konyang_landing_zone/command_center/landing_pads)
 "Oa" = (
 /obj/structure/chainlink_fence{
 	dir = 4
 	},
 /obj/structure/chainlink_fence,
-/turf/simulated/floor/concrete,
+/turf/simulated/floor/exoplanet/concrete,
 /area/konyang_landing_zone)
 "Ob" = (
 /obj/structure/table/stone/marble,
@@ -3233,7 +3247,7 @@
 	},
 /obj/machinery/atmospherics/portables_connector/aux,
 /obj/structure/lattice/catwalk/indoor/urban,
-/turf/simulated/floor/sidewalk/flat,
+/turf/simulated/floor/exoplanet/sidewalk/flat,
 /area/konyang_landing_zone/command_center/landing_pads)
 "Os" = (
 /obj/structure/chainlink_fence{
@@ -3248,14 +3262,14 @@
 	dir = 4
 	},
 /obj/effect/decal/road_marking/reflector,
-/turf/simulated/floor/concrete,
+/turf/simulated/floor/exoplanet/concrete,
 /area/konyang_landing_zone)
 "OA" = (
 /obj/structure/cable/yellow{
 	icon_state = "1-2"
 	},
 /obj/machinery/atmospherics/pipe/simple/visible/black,
-/turf/simulated/floor/concrete,
+/turf/simulated/floor/exoplanet/concrete,
 /area/konyang_landing_zone/command_center/landing_pads)
 "OE" = (
 /obj/structure/ledge/quarter{
@@ -3266,14 +3280,14 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/visible/black,
 /obj/structure/lattice/catwalk/indoor/urban,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/plating,
 /area/konyang_landing_zone/command_center/landing_pads)
 "OJ" = (
 /obj/effect/decal/road_marking{
 	dir = 1
 	},
 /obj/effect/decal/curb/corner,
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/konyang_landing_zone)
 "OR" = (
 /obj/machinery/meter{
@@ -3284,7 +3298,7 @@
 	},
 /obj/structure/railing/mapped,
 /obj/structure/lattice/catwalk/indoor/urban,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/plating,
 /area/konyang_landing_zone/command_center/landing_pads)
 "OV" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -3293,7 +3307,7 @@
 /obj/structure/tank_wall/air{
 	icon_state = "air7"
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/plating,
 /area/konyang_landing_zone/command_center/landing_pads)
 "OW" = (
 /obj/structure/chainlink_fence{
@@ -3318,7 +3332,7 @@
 	dir = 5
 	},
 /obj/structure/lattice/catwalk/indoor/urban,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/plating,
 /area/konyang_landing_zone/command_center/landing_pads)
 "Pa" = (
 /obj/structure/flora/tree/konyang/spring,
@@ -3333,7 +3347,7 @@
 /obj/structure/ledge{
 	dir = 1
 	},
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/konyang_landing_zone)
 "Pt" = (
 /obj/structure/ledge/quarter/corner{
@@ -3350,7 +3364,7 @@
 	dir = 5
 	},
 /obj/structure/lattice/catwalk/indoor/urban,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/plating,
 /area/konyang_landing_zone/command_center/landing_pads)
 "PD" = (
 /obj/structure/railing/mapped,
@@ -3370,7 +3384,7 @@
 /obj/structure/closet/crate/miningcart/ore,
 /obj/item/storage/bag/ore,
 /obj/item/storage/bag/ore,
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/konyang_landing_zone)
 "PJ" = (
 /obj/structure/railing/mapped,
@@ -3381,7 +3395,7 @@
 	dir = 10
 	},
 /obj/structure/lattice/catwalk/indoor/urban,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/plating,
 /area/konyang_landing_zone/command_center/landing_pads)
 "PL" = (
 /obj/structure/railing/mapped,
@@ -3391,7 +3405,7 @@
 /obj/structure/railing/mapped{
 	dir = 4
 	},
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/konyang_landing_zone)
 "PZ" = (
 /obj/machinery/atmospherics/unary/vent_pump/siphon/on/atmos{
@@ -3434,7 +3448,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/plating,
 /area/konyang_landing_zone/command_center/landing_pads)
 "Qr" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -3443,7 +3457,7 @@
 /obj/structure/tank_wall/carbon_dioxide{
 	icon_state = "co2-9"
 	},
-/turf/simulated/floor/airless,
+/turf/simulated/floor/exoplanet/plating,
 /area/konyang_landing_zone/command_center/landing_pads)
 "QG" = (
 /obj/machinery/light_switch{
@@ -3471,7 +3485,7 @@
 /obj/structure/chainlink_fence{
 	dir = 8
 	},
-/turf/simulated/floor/concrete,
+/turf/simulated/floor/exoplanet/concrete,
 /area/konyang_landing_zone)
 "QS" = (
 /obj/structure/table/stone/marble,
@@ -3493,7 +3507,7 @@
 /obj/effect/decal/road_marking/reflector{
 	dir = 8
 	},
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/konyang_landing_zone)
 "QZ" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -3502,21 +3516,21 @@
 /obj/structure/tank_wall/carbon_dioxide{
 	icon_state = "co2-4"
 	},
-/turf/simulated/floor/airless,
+/turf/simulated/floor/exoplanet/plating,
 /area/konyang_landing_zone/command_center/landing_pads)
 "Rg" = (
 /obj/structure/railing/mapped,
-/turf/simulated/floor/concrete,
+/turf/simulated/floor/exoplanet/concrete,
 /area/konyang_landing_zone)
 "Rh" = (
 /obj/structure/ledge,
 /obj/structure/chainlink_fence,
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/konyang_landing_zone)
 "Rj" = (
 /obj/structure/table/rack,
 /obj/item/pickaxe/jackhammer,
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/konyang_landing_zone)
 "Rk" = (
 /obj/structure/railing/mapped,
@@ -3556,7 +3570,7 @@
 /obj/effect/decal/road_marking/no_pass{
 	dir = 1
 	},
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/konyang_landing_zone)
 "RW" = (
 /obj/structure/ledge/quarter{
@@ -3566,7 +3580,7 @@
 /area/konyang_landing_zone)
 "Sb" = (
 /obj/effect/decal/road_marking,
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/konyang_landing_zone)
 "Se" = (
 /obj/structure/lattice/catwalk/indoor/urban,
@@ -3574,7 +3588,7 @@
 /obj/structure/railing/mapped{
 	dir = 4
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/plating,
 /area/konyang_landing_zone)
 "Sg" = (
 /obj/effect/floor_decal/spline/fancy/wood,
@@ -3594,7 +3608,7 @@
 /obj/machinery/power/apc/north{
 	req_access = null
 	},
-/turf/simulated/floor/sidewalk/flat,
+/turf/simulated/floor/exoplanet/sidewalk/flat,
 /area/konyang_landing_zone/command_center/landing_pads)
 "Sl" = (
 /obj/machinery/door/urban,
@@ -3624,7 +3638,7 @@
 /obj/structure/railing/mapped{
 	dir = 8
 	},
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/konyang_landing_zone)
 "SE" = (
 /obj/structure/cable{
@@ -3654,7 +3668,7 @@
 /obj/effect/decal/exterior_stairs/left{
 	dir = 4
 	},
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/konyang_landing_zone)
 "SU" = (
 /obj/structure/ledge/quarter{
@@ -3710,7 +3724,7 @@
 /obj/machinery/atmospherics/pipe/simple/visible/black{
 	dir = 4
 	},
-/turf/simulated/floor/concrete,
+/turf/simulated/floor/exoplanet/concrete,
 /area/konyang_landing_zone/command_center/landing_pads)
 "TD" = (
 /turf/simulated/wall,
@@ -3723,7 +3737,7 @@
 	dir = 8
 	},
 /obj/structure/lattice/catwalk/indoor/urban,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/plating,
 /area/konyang_landing_zone/command_center/landing_pads)
 "TO" = (
 /obj/effect/floor_decal/spline/fancy/wood,
@@ -3738,7 +3752,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 8
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/plating,
 /area/konyang_landing_zone/command_center/landing_pads)
 "TZ" = (
 /obj/structure/cable{
@@ -3773,7 +3787,7 @@
 /obj/structure/railing/mapped{
 	dir = 4
 	},
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/konyang_landing_zone)
 "UB" = (
 /obj/structure/ledge,
@@ -3781,11 +3795,11 @@
 	dir = 1
 	},
 /obj/structure/chainlink_fence,
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/konyang_landing_zone)
 "UH" = (
 /obj/effect/decal/exterior_stairs/right,
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/konyang_landing_zone)
 "UI" = (
 /obj/structure/tank_wall/carbon_dioxide{
@@ -3817,7 +3831,7 @@
 /obj/structure/tank_wall/carbon_dioxide{
 	icon_state = "co2-13"
 	},
-/turf/simulated/floor/airless,
+/turf/simulated/floor/exoplanet/plating,
 /area/konyang_landing_zone/command_center/landing_pads)
 "UY" = (
 /obj/structure/ledge/quarter{
@@ -3827,7 +3841,7 @@
 	dir = 9
 	},
 /obj/structure/railing/mapped,
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/konyang_landing_zone)
 "Va" = (
 /obj/structure/window/reinforced{
@@ -3865,7 +3879,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 9
 	},
-/turf/simulated/floor/concrete,
+/turf/simulated/floor/exoplanet/concrete,
 /area/konyang_landing_zone/command_center/landing_pads)
 "Vt" = (
 /obj/structure/ledge/quarter{
@@ -3874,7 +3888,7 @@
 /obj/effect/decal/exterior_stairs/half/left{
 	dir = 8
 	},
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/konyang_landing_zone)
 "VK" = (
 /obj/structure/tank_wall/air{
@@ -3910,7 +3924,7 @@
 /obj/structure/railing/mapped{
 	dir = 8
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/plating,
 /area/konyang_landing_zone)
 "WF" = (
 /obj/structure/utility_pole/street/on{
@@ -3925,7 +3939,7 @@
 /obj/effect/decal/road_marking{
 	dir = 1
 	},
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/konyang_landing_zone)
 "WK" = (
 /obj/effect/floor_decal/konyang_flowers,
@@ -3940,7 +3954,7 @@
 /obj/structure/railing/mapped{
 	dir = 4
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/plating,
 /area/konyang_landing_zone/command_center/landing_pads)
 "Xk" = (
 /obj/effect/decal/curb{
@@ -3950,7 +3964,7 @@
 	dir = 1
 	},
 /obj/structure/railing/mapped,
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/konyang_landing_zone)
 "Xo" = (
 /obj/machinery/light/small,
@@ -4013,6 +4027,14 @@
 	},
 /turf/simulated/floor/wood,
 /area/konyang_landing_zone/command_center)
+"Ys" = (
+/obj/structure/lattice/catwalk/indoor/urban,
+/obj/structure/railing/mapped,
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/plating,
+/area/konyang_landing_zone/command_center/landing_pads)
 "YH" = (
 /obj/machinery/mech_recharger/hephaestus,
 /turf/simulated/floor/reinforced,
@@ -4029,7 +4051,7 @@
 "YY" = (
 /obj/effect/floor_decal/industrial/outline/operations,
 /obj/structure/closet/crate/trashcart,
-/turf/simulated/floor/sidewalk/flat,
+/turf/simulated/floor/exoplanet/sidewalk/flat,
 /area/konyang_landing_zone/command_center)
 "Zd" = (
 /obj/structure/cable{
@@ -4052,7 +4074,7 @@
 /turf/simulated/floor/tiled/white,
 /area/konyang_landing_zone/command_center/living)
 "Zi" = (
-/turf/simulated/floor/concrete,
+/turf/simulated/floor/exoplanet/concrete,
 /area/konyang_landing_zone/command_center)
 "ZI" = (
 /obj/structure/closet/cabinet,
@@ -4077,7 +4099,7 @@
 	dir = 1
 	},
 /obj/structure/lattice/catwalk/indoor/urban,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/plating,
 /area/konyang_landing_zone/command_center/landing_pads)
 "ZR" = (
 /obj/structure/ledge/quarter/corner{
@@ -4729,7 +4751,7 @@ YV
 Jp
 Lb
 Ll
-lX
+nA
 dK
 dK
 mF
@@ -5130,24 +5152,24 @@ YV
 ew
 wl
 gM
+CB
+jL
+jL
+jL
+CB
+CB
+jL
+CB
 Pl
 jL
 jL
 jL
-Pl
-Pl
-jL
-Pl
-Pl
+CB
+CB
 jL
 jL
 jL
-Pl
-Pl
-EO
-jL
-jL
-Pl
+CB
 Dv
 rM
 rM
@@ -5190,31 +5212,31 @@ rJ
 Oz
 Oz
 Oz
+EO
+EO
+EO
+EO
+EO
 Xv
-Xv
-Xv
-Xv
-Xv
-Xv
-Xv
-Xv
-Xv
-Xv
-Xv
-Xv
-Xv
-Xv
-Xv
-Xv
-Xv
-Xv
-Xv
-Xv
-Xv
-Xv
-Xv
-Xv
-Xv
+EO
+EO
+EO
+EO
+EO
+EO
+EO
+EO
+EO
+EO
+EO
+EO
+EO
+EO
+EO
+EO
+EO
+EO
+EO
 Oz
 Oz
 Oz
@@ -5508,7 +5530,7 @@ gk
 jr
 zA
 dK
-Qe
+Ys
 MN
 Vd
 FF
@@ -5565,7 +5587,7 @@ gk
 jr
 MK
 dK
-Qe
+Ys
 nR
 uy
 Qr
@@ -5622,7 +5644,7 @@ gk
 jr
 zA
 dK
-Qe
+Ys
 Rg
 jG
 WF
@@ -5793,7 +5815,7 @@ gk
 jr
 Ql
 dK
-Qe
+Ys
 BF
 YV
 sS
@@ -5850,7 +5872,7 @@ gk
 jr
 zA
 dK
-Qe
+Ys
 BF
 YV
 YV
@@ -5907,7 +5929,7 @@ gk
 Oe
 zA
 dK
-Qe
+Ys
 BF
 YV
 yd
@@ -5964,7 +5986,7 @@ gk
 Oe
 zA
 dK
-Qe
+Ys
 am
 xc
 cN
@@ -6633,17 +6655,17 @@ dK
 dK
 dK
 dK
-Xv
-Xv
-Xv
-Xv
-Xv
-Xv
-Xv
-Xv
-Xv
-Xv
-Xv
+EO
+EO
+EO
+EO
+EO
+EO
+EO
+EO
+EO
+EO
+EO
 tp
 RW
 xY
@@ -6685,7 +6707,7 @@ mF
 TB
 wz
 wz
-Xv
+EO
 Oa
 Vt
 xI

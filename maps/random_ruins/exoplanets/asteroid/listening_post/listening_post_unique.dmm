@@ -71,13 +71,13 @@
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
-/area/listening_post/entrance)
+/area/listening_post/lobby)
 "aj" = (
 /obj/structure/dispenser/oxygen,
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
-/area/listening_post/entrance)
+/area/listening_post/lobby)
 "al" = (
 /obj/effect/map_effect/marker/airlock/listening_post,
 /obj/machinery/atmospherics/pipe/manifold/hidden{
@@ -109,7 +109,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/exoplanet/plating,
-/area/listening_post/entrance)
+/area/template_noop)
 "ao" = (
 /obj/machinery/computer/ship/sensors/terminal,
 /obj/machinery/alarm/north{
@@ -225,14 +225,14 @@
 	},
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor,
-/area/listening_post/entrance)
+/area/listening_post/lobby)
 "aF" = (
 /obj/machinery/suit_cycler/freelancer/prepared{
 	req_access = null
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
-/area/listening_post/entrance)
+/area/listening_post/lobby)
 "aK" = (
 /obj/structure/bed/padded,
 /obj/structure/bed/padded/bunk,
@@ -285,7 +285,7 @@
 	dir = 5
 	},
 /turf/simulated/floor,
-/area/listening_post/quarters)
+/area/listening_post/common)
 "aU" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/grille,
 /obj/machinery/door/firedoor/noid,
@@ -386,7 +386,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/exoplanet/plating,
-/area/listening_post/entrance)
+/area/template_noop)
 "bl" = (
 /obj/effect/landmark/clear,
 /obj/effect/landmark/clear,
@@ -425,7 +425,7 @@
 /obj/effect/spider/spiderling,
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
 /turf/simulated/floor/tiled/dark/full,
-/area/listening_post/quarters)
+/area/listening_post/common)
 "bx" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 9
@@ -450,7 +450,7 @@
 /obj/random/dirt_75,
 /obj/effect/spider/spiderling,
 /turf/simulated/floor/tiled/dark/full,
-/area/listening_post/quarters)
+/area/listening_post/common)
 "bB" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -491,7 +491,7 @@
 /obj/random/dirt_75,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/dark,
-/area/listening_post/quarters)
+/area/listening_post/common)
 "dc" = (
 /obj/structure/cable/green{
 	d1 = 1;
@@ -506,7 +506,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/effect/decal/cleanable/blood/splatter,
 /turf/simulated/floor/tiled/dark,
-/area/listening_post/entrance)
+/area/listening_post/lobby)
 "de" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -521,7 +521,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/dark/full,
-/area/listening_post/quarters)
+/area/listening_post/common)
 "dx" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -574,7 +574,7 @@
 	pixel_x = -4
 	},
 /turf/simulated/floor/tiled/dark/full,
-/area/listening_post/entrance)
+/area/listening_post/lobby)
 "eJ" = (
 /obj/effect/floor_decal/corner/brown/full{
 	dir = 8
@@ -592,7 +592,7 @@
 	pixel_x = -9
 	},
 /turf/simulated/floor/tiled/dark,
-/area/listening_post/quarters)
+/area/listening_post/common)
 "eY" = (
 /obj/structure/cable/green{
 	d1 = 1;
@@ -611,7 +611,7 @@
 	pixel_x = 32
 	},
 /turf/simulated/floor,
-/area/listening_post/quarters)
+/area/listening_post/common)
 "fe" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -667,7 +667,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
-/area/listening_post/quarters)
+/area/listening_post/common)
 "hc" = (
 /obj/machinery/power/rtg/advanced,
 /obj/effect/floor_decal/industrial/warning{
@@ -721,7 +721,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
-/area/listening_post/quarters)
+/area/listening_post/common)
 "jD" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 4
@@ -736,7 +736,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
-/area/listening_post/entrance)
+/area/listening_post/lobby)
 "jN" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -756,7 +756,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/full,
-/area/listening_post/quarters)
+/area/listening_post/common)
 "kl" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/structure/cable/green{
@@ -809,7 +809,7 @@
 	pixel_x = 10
 	},
 /turf/simulated/floor/tiled/dark,
-/area/listening_post/entrance)
+/area/listening_post/lobby)
 "lj" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/machinery/atmospherics/pipe/simple/hidden{
@@ -826,7 +826,7 @@
 /obj/random/dirt_75,
 /obj/effect/spider/spiderling,
 /turf/simulated/floor/tiled/dark/full,
-/area/listening_post/quarters)
+/area/listening_post/common)
 "nx" = (
 /obj/effect/floor_decal/corner/black/full{
 	dir = 4
@@ -853,7 +853,7 @@
 /obj/item/stack/material/glass/reinforced/full,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
-/area/listening_post/entrance)
+/area/listening_post/lobby)
 "or" = (
 /obj/structure/cable/green{
 	d1 = 2;
@@ -869,7 +869,7 @@
 /obj/random/dirt_75,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/dark,
-/area/listening_post/quarters)
+/area/listening_post/common)
 "pD" = (
 /obj/structure/cable/green{
 	d1 = 1;
@@ -880,7 +880,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor,
-/area/listening_post/quarters)
+/area/listening_post/common)
 "rr" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -938,7 +938,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/full,
-/area/listening_post/quarters)
+/area/listening_post/common)
 "sN" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/structure/cable/green{
@@ -953,7 +953,7 @@
 	dir = 4
 	},
 /turf/simulated/floor,
-/area/listening_post/entrance)
+/area/listening_post/lobby)
 "sW" = (
 /obj/structure/cable/green{
 	d1 = 1;
@@ -971,13 +971,13 @@
 /obj/random/dirt_75,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/dark/full,
-/area/listening_post/entrance)
+/area/listening_post/lobby)
 "ta" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/survey_probe/ground,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
-/area/listening_post/entrance)
+/area/listening_post/lobby)
 "th" = (
 /obj/machinery/atmospherics/portables_connector{
 	dir = 8
@@ -994,7 +994,7 @@
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
-/area/listening_post/entrance)
+/area/listening_post/lobby)
 "uf" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 9
@@ -1009,7 +1009,7 @@
 /obj/machinery/portable_atmospherics/powered/pump/filled,
 /obj/effect/decal/cleanable/blood/drip,
 /turf/simulated/floor/tiled/dark,
-/area/listening_post/entrance)
+/area/listening_post/lobby)
 "vA" = (
 /obj/machinery/door/airlock/maintenance_hatch{
 	dir = 4;
@@ -1081,7 +1081,7 @@
 	pixel_x = -4
 	},
 /turf/simulated/floor/tiled/dark/full,
-/area/listening_post/quarters)
+/area/listening_post/common)
 "yY" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -1093,7 +1093,7 @@
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
-/area/listening_post/quarters)
+/area/listening_post/common)
 "zP" = (
 /obj/structure/cable/green{
 	d1 = 1;
@@ -1109,7 +1109,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor,
-/area/listening_post/quarters)
+/area/listening_post/common)
 "Ag" = (
 /obj/random/dirt_75,
 /obj/structure/bed/stool/chair/office/dark{
@@ -1133,7 +1133,10 @@
 	pixel_x = -7
 	},
 /turf/simulated/floor/tiled/dark,
-/area/listening_post/quarters)
+/area/listening_post/common)
+"Cg" = (
+/turf/simulated/wall/r_wall,
+/area/listening_post/common)
 "Ck" = (
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 10
@@ -1144,7 +1147,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
-/area/listening_post/entrance)
+/area/listening_post/lobby)
 "CD" = (
 /obj/effect/floor_decal/corner_wide/brown{
 	dir = 9
@@ -1163,7 +1166,7 @@
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
-/area/listening_post/entrance)
+/area/listening_post/lobby)
 "Dg" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/machinery/atmospherics/pipe/manifold/hidden/blue{
@@ -1217,7 +1220,7 @@
 	},
 /obj/effect/decal/cleanable/blood/drip,
 /turf/simulated/floor/tiled/dark,
-/area/listening_post/entrance)
+/area/listening_post/lobby)
 "Ep" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 8
@@ -1232,7 +1235,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/full,
-/area/listening_post/entrance)
+/area/listening_post/lobby)
 "Fp" = (
 /obj/structure/cable/green{
 	d1 = 1;
@@ -1246,7 +1249,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor,
-/area/listening_post/quarters)
+/area/listening_post/common)
 "FE" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -1256,12 +1259,12 @@
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
-/area/listening_post/quarters)
+/area/listening_post/common)
 "HQ" = (
 /obj/random/dirt_75,
 /obj/effect/spider/spiderling,
 /turf/simulated/floor/tiled/dark/full,
-/area/listening_post/quarters)
+/area/listening_post/common)
 "HX" = (
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 5
@@ -1270,7 +1273,7 @@
 /obj/random/dirt_75,
 /obj/effect/decal/cleanable/blood/drip,
 /turf/simulated/floor/tiled/dark,
-/area/listening_post/entrance)
+/area/listening_post/lobby)
 "Ie" = (
 /obj/machinery/atmospherics/pipe/tank/air{
 	dir = 4;
@@ -1301,7 +1304,7 @@
 /obj/effect/decal/cleanable/blood/drip,
 /obj/random/contraband,
 /turf/simulated/floor/tiled/dark,
-/area/listening_post/entrance)
+/area/listening_post/lobby)
 "Je" = (
 /obj/effect/floor_decal/corner/brown{
 	dir = 9
@@ -1315,7 +1318,7 @@
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
-/area/listening_post/quarters)
+/area/listening_post/common)
 "JA" = (
 /turf/simulated/wall/r_wall,
 /area/listening_post/washroom)
@@ -1342,7 +1345,7 @@
 /obj/random/dirt_75,
 /obj/structure/reagent_dispensers/watertank,
 /turf/simulated/floor/tiled/dark/full,
-/area/listening_post/quarters)
+/area/listening_post/common)
 "Kz" = (
 /obj/effect/floor_decal/corner/black{
 	dir = 6
@@ -1375,7 +1378,7 @@
 /obj/random/dirt_75,
 /obj/effect/spider/stickyweb,
 /turf/simulated/floor/tiled/dark,
-/area/listening_post/quarters)
+/area/listening_post/common)
 "LR" = (
 /obj/structure/table/wood,
 /obj/item/flora/pottedplant_small/dead{
@@ -1404,7 +1407,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor,
-/area/listening_post/entrance)
+/area/listening_post/lobby)
 "MR" = (
 /obj/machinery/power/apc/north{
 	req_access = null
@@ -1418,7 +1421,7 @@
 /obj/random/dirt_75,
 /obj/effect/spider/stickyweb,
 /turf/simulated/floor/tiled/dark,
-/area/listening_post/quarters)
+/area/listening_post/common)
 "MS" = (
 /obj/effect/floor_decal/industrial/warning,
 /obj/machinery/atmospherics/unary/outlet_injector{
@@ -1428,7 +1431,7 @@
 	volume_rate = 700
 	},
 /turf/simulated/floor/exoplanet/plating,
-/area/listening_post/entrance)
+/area/template_noop)
 "MY" = (
 /obj/effect/map_effect/marker/airlock/listening_post,
 /obj/random/dirt_75,
@@ -1461,7 +1464,7 @@
 /obj/structure/barricade/wooden,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor,
-/area/listening_post/entrance)
+/area/listening_post/lobby)
 "Oi" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -1475,13 +1478,13 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/dark/full,
-/area/listening_post/quarters)
+/area/listening_post/common)
 "Pw" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/closet/crate/freezer/rations,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
-/area/listening_post/quarters)
+/area/listening_post/common)
 "PZ" = (
 /obj/effect/floor_decal/corner/brown{
 	dir = 5
@@ -1494,7 +1497,7 @@
 /obj/random/dirt_75,
 /obj/random/contraband,
 /turf/simulated/floor/tiled/dark,
-/area/listening_post/quarters)
+/area/listening_post/common)
 "Rp" = (
 /obj/effect/floor_decal/corner/black{
 	dir = 9
@@ -1564,7 +1567,7 @@
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
-/area/listening_post/quarters)
+/area/listening_post/common)
 "TJ" = (
 /obj/effect/floor_decal/corner/black/full{
 	dir = 8
@@ -1592,7 +1595,7 @@
 	dir = 4
 	},
 /turf/simulated/floor,
-/area/listening_post/entrance)
+/area/listening_post/lobby)
 "UP" = (
 /obj/structure/cable/green{
 	d1 = 1;
@@ -1603,7 +1606,7 @@
 /obj/machinery/recharge_station,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
-/area/listening_post/quarters)
+/area/listening_post/common)
 "VQ" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/structure/cable/green{
@@ -1616,7 +1619,10 @@
 	dir = 4
 	},
 /turf/simulated/floor,
-/area/listening_post/entrance)
+/area/listening_post/lobby)
+"VU" = (
+/turf/simulated/wall/r_wall,
+/area/listening_post/lobby)
 "Wc" = (
 /obj/effect/floor_decal/industrial/warning,
 /obj/effect/floor_decal/industrial/warning{
@@ -1630,13 +1636,13 @@
 /obj/effect/decal/cleanable/cobweb2,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
-/area/listening_post/entrance)
+/area/listening_post/lobby)
 "Ws" = (
 /obj/machinery/mech_recharger,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
-/area/listening_post/entrance)
+/area/listening_post/lobby)
 "Wu" = (
 /obj/structure/cable{
 	icon_state = "1-4"
@@ -1660,7 +1666,7 @@
 /obj/random/dirt_75,
 /obj/effect/spider/spiderling,
 /turf/simulated/floor/tiled/dark/full,
-/area/listening_post/quarters)
+/area/listening_post/common)
 "Xa" = (
 /obj/structure/cable/green{
 	d1 = 4;
@@ -1676,7 +1682,7 @@
 /obj/structure/flora/pottedplant/empty,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
-/area/listening_post/quarters)
+/area/listening_post/common)
 "Zc" = (
 /turf/simulated/wall/r_wall,
 /area/listening_post/servers)
@@ -1693,7 +1699,7 @@
 /obj/effect/spider/cocoon,
 /obj/effect/spider/stickyweb,
 /turf/simulated/floor/tiled/dark,
-/area/listening_post/quarters)
+/area/listening_post/common)
 "ZM" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 6
@@ -1711,7 +1717,7 @@
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
-/area/listening_post/entrance)
+/area/listening_post/lobby)
 
 (1,1,1) = {"
 am
@@ -1930,12 +1936,12 @@ bR
 MS
 am
 am
-by
-by
-by
+Cg
+Cg
+Cg
 jN
-by
-by
+Cg
+Cg
 am
 JA
 Ei
@@ -1946,19 +1952,19 @@ am
 (11,1,1) = {"
 am
 am
-aq
-aq
+VU
+VU
 Ep
-aq
-aq
+VU
+VU
 am
 am
-by
+Cg
 eJ
 Je
 gU
 UP
-by
+Cg
 JA
 JA
 sh
@@ -1969,7 +1975,7 @@ am
 (12,1,1) = {"
 am
 am
-aq
+VU
 ai
 jD
 ai
@@ -1981,7 +1987,7 @@ PZ
 WB
 sx
 LH
-by
+Cg
 Lj
 gE
 Nr
@@ -1990,9 +1996,9 @@ am
 am
 "}
 (13,1,1) = {"
-aq
-aq
-aq
+VU
+VU
+VU
 om
 TK
 Ws
@@ -2013,7 +2019,7 @@ am
 am
 "}
 (14,1,1) = {"
-aq
+VU
 aF
 tH
 kK
@@ -2027,7 +2033,7 @@ iv
 bA
 sx
 yY
-by
+Cg
 bm
 bm
 bm
@@ -2036,7 +2042,7 @@ bm
 bm
 "}
 (15,1,1) = {"
-aq
+VU
 De
 eo
 HX
@@ -2050,7 +2056,7 @@ Zm
 my
 bu
 FE
-by
+Cg
 kH
 aw
 hc
@@ -2059,9 +2065,9 @@ bo
 bm
 "}
 (16,1,1) = {"
-aq
-aq
-aq
+VU
+VU
+VU
 ZN
 sN
 ul
@@ -2084,7 +2090,7 @@ bm
 (17,1,1) = {"
 am
 am
-aq
+VU
 aj
 Em
 dc
@@ -2096,7 +2102,7 @@ zP
 Fp
 eY
 aP
-by
+Cg
 sf
 aW
 bf
@@ -2107,20 +2113,20 @@ bm
 (18,1,1) = {"
 am
 am
-aq
-aq
-aq
-aq
+VU
+VU
+VU
+VU
 Wf
 ta
-aq
+VU
 JM
 Pw
 by
 by
 vA
 by
-by
+bm
 bm
 bm
 bm
@@ -2133,12 +2139,12 @@ am
 am
 am
 am
-aq
-aq
-aq
-aq
-by
-by
+VU
+VU
+VU
+VU
+Cg
+Cg
 by
 ax
 CD

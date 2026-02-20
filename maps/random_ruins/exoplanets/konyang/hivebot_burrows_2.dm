@@ -22,6 +22,7 @@
 
 	sound_environment = SOUND_AREA_TUNNEL_ENCLOSED
 	ambience = AMBIENCE_FOREBODING
+	is_outside = OUTSIDE_YES
 
 /obj/machinery/door/airlock/hatch/broken
 	name = "Broken Hatch"

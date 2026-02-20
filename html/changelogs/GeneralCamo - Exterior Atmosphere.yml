@@ -62,3 +62,5 @@ changes:
   - balance: "Open-air mech cockpits (such as powerloaders) no longer protect their occupants from the exterior atmosphere."
   - bugfix: "Exoplanet flora now only will ever consume and exude gasses already present in the planet's atmosphere."
   - code_imp: "Added more tick checks to SSair, to improve its performance during peak loads in the server."
+  - bugfix: "Crashed skrellian shuttle ruin no longer has aired tiles next to airless tiles."
+  - qol: "Lockers and other structures that can pass air will no longer be treated as outside for the purposes of weather (and exterior atmosphere) checks."
