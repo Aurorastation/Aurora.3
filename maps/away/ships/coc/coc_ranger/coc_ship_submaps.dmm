@@ -135,7 +135,7 @@
 	name = "Armory notice no. 1";
 	info = "Our old shorties and most of our PDWs and sidearms are busted. I don't even know how we got half of the stuff we got as a replacement, and I'm too afraid to ask."
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/ship/ranger_corvette/gunnery)
 "q" = (
 /turf/template_noop,
