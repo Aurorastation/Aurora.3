@@ -4,7 +4,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/exoplanet/tiled/full,
-/area/desert_comms)
+/area/desert_comms/exterior)
 "aP" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
@@ -168,14 +168,14 @@
 	},
 /obj/structure/lattice/catwalk/indoor/grate/old,
 /turf/simulated/floor/exoplanet/plating,
-/area/desert_comms)
+/area/desert_comms/exterior)
 "eO" = (
 /turf/template_noop,
 /area/template_noop)
 "fa" = (
 /obj/abstract/exterior_marker/outside,
 /turf/simulated/floor/exoplanet/tiled/techmaint,
-/area/desert_comms)
+/area/desert_comms/exterior)
 "fb" = (
 /obj/item/flashlight/flare/glowstick/red{
 	on = 1
@@ -392,7 +392,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/exoplanet/desert,
-/area/desert_comms)
+/area/desert_comms/exterior)
 "lG" = (
 /obj/effect/floor_decal/industrial/outline_door/security{
 	dir = 8
@@ -427,7 +427,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/abstract/exterior_marker/outside,
 /turf/simulated/floor/exoplanet/tiled/techmaint,
-/area/desert_comms)
+/area/desert_comms/exterior)
 "mN" = (
 /obj/structure/cable/yellow{
 	icon_state = "1-2";
@@ -569,7 +569,7 @@
 /obj/structure/window_frame/empty,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/exoplanet/plating,
-/area/desert_comms)
+/area/desert_comms/exterior)
 "pU" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
@@ -628,7 +628,7 @@
 /area/desert_comms/main_room)
 "qs" = (
 /turf/simulated/floor/exoplanet/desert,
-/area/desert_comms)
+/area/desert_comms/exterior)
 "qv" = (
 /obj/structure/cable/yellow{
 	icon_state = "1-2";
@@ -709,7 +709,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/exoplanet/desert,
-/area/desert_comms)
+/area/desert_comms/exterior)
 "tc" = (
 /obj/machinery/light/colored/decayed/dimmed{
 	dir = 1
@@ -750,7 +750,7 @@
 	id = "comms_site_entrance"
 	},
 /turf/simulated/floor/exoplanet/desert,
-/area/desert_comms)
+/area/desert_comms/exterior)
 "uf" = (
 /obj/structure/closet/crate/freezer,
 /obj/item/storage/field_ration,
@@ -778,7 +778,7 @@
 /obj/structure/ledge,
 /obj/structure/blocker/steel/fence,
 /turf/simulated/floor/exoplanet/desert,
-/area/desert_comms)
+/area/desert_comms/exterior)
 "vq" = (
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 5
@@ -811,7 +811,7 @@
 	pixel_y = -1
 	},
 /turf/simulated/floor/exoplanet/barren,
-/area/desert_comms)
+/area/desert_comms/exterior)
 "wi" = (
 /obj/structure/bed/stool/chair/office/bridge/generic{
 	dir = 4
@@ -846,7 +846,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/abstract/exterior_marker/outside,
 /turf/simulated/floor/exoplanet/tiled/techmaint,
-/area/desert_comms)
+/area/desert_comms/exterior)
 "yq" = (
 /obj/machinery/door/airlock/external{
 	dir = 1
@@ -869,7 +869,7 @@
 	pixel_y = -1
 	},
 /turf/simulated/floor/exoplanet/desert,
-/area/desert_comms)
+/area/desert_comms/exterior)
 "yT" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/red{
 	dir = 4
@@ -986,7 +986,7 @@
 	id = "comms_site_entrance"
 	},
 /turf/simulated/floor/exoplanet/barren,
-/area/desert_comms)
+/area/desert_comms/exterior)
 "Bu" = (
 /obj/structure/cable/yellow{
 	icon_state = "1-8"
@@ -999,7 +999,7 @@
 	},
 /obj/structure/lattice/catwalk/indoor/grate/old,
 /turf/simulated/floor/exoplanet/plating,
-/area/desert_comms)
+/area/desert_comms/exterior)
 "Bw" = (
 /turf/simulated/wall/r_wall,
 /area/desert_comms/quarters)
@@ -1010,7 +1010,7 @@
 /area/desert_comms/main_room)
 "BN" = (
 /turf/simulated/floor/exoplanet/barren,
-/area/desert_comms)
+/area/desert_comms/exterior)
 "BO" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1;
@@ -1089,7 +1089,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/exoplanet/desert,
-/area/desert_comms)
+/area/desert_comms/exterior)
 "Em" = (
 /obj/structure/ledge{
 	dir = 4;
@@ -1099,7 +1099,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/exoplanet/desert,
-/area/desert_comms)
+/area/desert_comms/exterior)
 "Ep" = (
 /obj/structure/cable/yellow{
 	icon_state = "1-2";
@@ -1138,7 +1138,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/exoplanet/desert,
-/area/desert_comms)
+/area/desert_comms/exterior)
 "Fb" = (
 /obj/structure/cable/yellow{
 	icon_state = "1-2";
@@ -1146,7 +1146,7 @@
 	},
 /obj/structure/lattice/catwalk/indoor/grate/old,
 /turf/simulated/floor/exoplanet/plating,
-/area/desert_comms)
+/area/desert_comms/exterior)
 "Fi" = (
 /obj/machinery/light/colored/decayed/dimmed{
 	dir = 1
@@ -1164,7 +1164,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/exoplanet/desert,
-/area/desert_comms)
+/area/desert_comms/exterior)
 "FB" = (
 /obj/structure/cable/yellow{
 	icon_state = "1-2";
@@ -1238,7 +1238,7 @@
 	desc = "A vintage sensor array found on Solarian sensor relays throughout the galaxy. While it lacks deep scanning capabilities, it does have a high heat capacity. This one is emblazoned with the fading flag of the pre-war Solarian Alliance, and seems to be broken... it's core component parts fizzled out years ago."
 	},
 /turf/simulated/floor/exoplanet/plating,
-/area/desert_comms)
+/area/desert_comms/exterior)
 "Hm" = (
 /obj/machinery/door/airlock/external{
 	dir = 1
@@ -1292,14 +1292,14 @@
 	dir = 1
 	},
 /turf/simulated/floor/exoplanet/desert,
-/area/desert_comms)
+/area/desert_comms/exterior)
 "IV" = (
 /obj/structure/cable/yellow{
 	icon_state = "1-2"
 	},
 /obj/structure/lattice/catwalk/indoor/grate/old,
 /turf/simulated/floor/exoplanet/plating,
-/area/desert_comms)
+/area/desert_comms/exterior)
 "Je" = (
 /obj/machinery/door/airlock/service,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -1416,7 +1416,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/exoplanet/desert,
-/area/desert_comms)
+/area/desert_comms/exterior)
 "LJ" = (
 /obj/structure/cable/yellow{
 	icon_state = "1-2"
@@ -1539,7 +1539,7 @@
 	pixel_y = 32
 	},
 /turf/simulated/floor/exoplanet/desert,
-/area/desert_comms)
+/area/desert_comms/exterior)
 "Nn" = (
 /obj/structure/toilet{
 	dir = 4
@@ -1551,7 +1551,7 @@
 "ND" = (
 /obj/structure/window_frame/empty,
 /turf/simulated/floor/exoplanet/plating,
-/area/desert_comms)
+/area/desert_comms/exterior)
 "NO" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8;
@@ -1615,7 +1615,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/exoplanet/desert,
-/area/desert_comms)
+/area/desert_comms/exterior)
 "Pf" = (
 /turf/simulated/wall/r_wall,
 /area/desert_comms/power)
@@ -1650,7 +1650,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/exoplanet/barren,
-/area/desert_comms)
+/area/desert_comms/exterior)
 "Pv" = (
 /turf/simulated/wall/r_wall,
 /area/desert_comms/quarters/command)
@@ -1707,7 +1707,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/abstract/exterior_marker/outside,
 /turf/simulated/floor/exoplanet/tiled/techmaint,
-/area/desert_comms)
+/area/desert_comms/exterior)
 "QA" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
@@ -1740,7 +1740,7 @@
 	desc = "A vintage sensor array found on Solarian sensor relays throughout the galaxy. While it lacks deep scanning capabilities, it does have a high heat capacity. This one is emblazoned with the fading flag of the pre-war Solarian Alliance, and seems to be broken... it's core component parts fizzled out years ago."
 	},
 /turf/simulated/floor/exoplanet/plating,
-/area/desert_comms)
+/area/desert_comms/exterior)
 "Rl" = (
 /obj/structure/ledge,
 /obj/structure/blocker/steel/fence,
@@ -1786,7 +1786,7 @@
 "RP" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/exoplanet/desert,
-/area/desert_comms)
+/area/desert_comms/exterior)
 "Sq" = (
 /obj/structure/cable/yellow{
 	icon_state = "1-2";
@@ -1857,7 +1857,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/exoplanet/desert,
-/area/desert_comms)
+/area/desert_comms/exterior)
 "SR" = (
 /obj/effect/floor_decal/industrial/warning/full,
 /obj/machinery/porta_turret/ballistic{
@@ -1865,7 +1865,7 @@
 	},
 /obj/effect/floor_decal/industrial/outline/red,
 /turf/simulated/floor/exoplanet/tiled/full,
-/area/desert_comms)
+/area/desert_comms/exterior)
 "Ts" = (
 /obj/effect/floor_decal/industrial/outline_straight/grey{
 	dir = 4
@@ -1881,7 +1881,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/exoplanet/desert,
-/area/desert_comms)
+/area/desert_comms/exterior)
 "TJ" = (
 /obj/effect/decal/fake_object{
 	icon = 'icons/obj/machinery/sensors_relay_sol.dmi';
@@ -1892,7 +1892,7 @@
 	desc = "A vintage sensor array found on Solarian sensor relays throughout the galaxy. While it lacks deep scanning capabilities, it does have a high heat capacity. This one is emblazoned with the fading flag of the pre-war Solarian Alliance, and seems to be broken... it's core component parts fizzled out years ago."
 	},
 /turf/simulated/floor/exoplanet/plating,
-/area/desert_comms)
+/area/desert_comms/exterior)
 "Uk" = (
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 5
@@ -1915,7 +1915,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/exoplanet/desert,
-/area/desert_comms)
+/area/desert_comms/exterior)
 "UJ" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/cable/yellow{
@@ -1968,7 +1968,7 @@
 "UZ" = (
 /obj/machinery/light/colored/decayed/dimmed,
 /turf/simulated/floor/exoplanet/desert,
-/area/desert_comms)
+/area/desert_comms/exterior)
 "Vg" = (
 /obj/structure/cable/yellow{
 	icon_state = "1-2";
@@ -1995,7 +1995,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/abstract/exterior_marker/outside,
 /turf/simulated/floor/exoplanet/tiled/techmaint,
-/area/desert_comms)
+/area/desert_comms/exterior)
 "VO" = (
 /obj/structure/bed/padded,
 /obj/item/bedsheet/black,
@@ -2027,7 +2027,7 @@
 	pixel_y = -1
 	},
 /turf/simulated/floor/exoplanet/barren,
-/area/desert_comms)
+/area/desert_comms/exterior)
 "WE" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
@@ -2043,7 +2043,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/exoplanet/desert,
-/area/desert_comms)
+/area/desert_comms/exterior)
 "WM" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
@@ -2125,7 +2125,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/exoplanet/desert,
-/area/desert_comms)
+/area/desert_comms/exterior)
 "Ym" = (
 /obj/structure/cable/yellow{
 	icon_state = "1-2";
@@ -2192,7 +2192,7 @@
 /area/desert_comms/substation)
 "Zm" = (
 /turf/simulated/wall/r_wall,
-/area/desert_comms)
+/area/desert_comms/exterior)
 "ZD" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/polarized/grille/firedoor,
 /obj/effect/decal/cleanable/dirt,
