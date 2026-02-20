@@ -1261,6 +1261,7 @@
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 8
 	},
+/obj/effect/map_effect/marker/mapmanip/submap/insert/coc_ranger_lockers,
 /turf/template_noop,
 /area/space)
 "fkm" = (

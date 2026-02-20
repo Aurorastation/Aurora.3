@@ -12,6 +12,7 @@
 	},
 /obj/item/gun/projectile/automatic/rifle/dnac,
 /obj/item/gun/projectile/automatic/rifle/dnac,
+/obj/effect/map_effect/marker/mapmanip/submap/extract/coc_ranger_lockers,
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/gunnery)
 "e" = (
@@ -24,16 +25,13 @@
 	},
 /obj/item/gun/projectile/automatic/rifle/dpra,
 /obj/item/gun/projectile/automatic/rifle/adhomian,
+/obj/effect/map_effect/marker/mapmanip/submap/extract/coc_ranger_lockers,
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/gunnery)
 "f" = (
 /obj/structure/weapons_rack{
 	req_access = list(13,221,222)
 	},
-/obj/item/gun/projectile/revolver/lemat,
-/obj/item/gun/projectile/revolver/lemat,
-/obj/item/gun/projectile/revolver/lemat,
-/obj/item/gun/projectile/revolver/lemat,
 /obj/item/gun/projectile/revolver/knife,
 /obj/item/gun/projectile/automatic/tommygun,
 /obj/item/gun/projectile/automatic/tommygun,
@@ -50,6 +48,7 @@
 	name = "Captured dominian rifle";
 	desc = "The standard-issue rifle of the Empire of Dominia's Imperial Army that was obviously siezed from the cold, dead hands of it's origional user. Loads from 30 round 5.56 magazines."
 	},
+/obj/effect/map_effect/marker/mapmanip/submap/extract/coc_ranger_lockers,
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/gunnery)
 "i" = (
@@ -96,6 +95,7 @@
 	},
 /obj/item/gun/projectile/automatic/rifle/sol,
 /obj/item/gun/projectile/automatic/rifle/konyang/k556,
+/obj/effect/map_effect/marker/mapmanip/submap/extract/coc_ranger_lockers,
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/gunnery)
 "k" = (
@@ -111,45 +111,35 @@
 /obj/item/gun/projectile/dragunov,
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/gunnery)
-"r" = (
-/obj/structure/closet/crate{
-	name = "Ammo Crate"
-	},
-/obj/item/ammo_magazine/c762/dpra,
-/obj/item/ammo_magazine/c762/dpra,
-/obj/item/ammo_magazine/c762/dpra,
-/obj/item/ammo_magazine/boltaction,
-/obj/item/ammo_magazine/boltaction,
-/obj/item/ammo_magazine/boltaction,
-/obj/item/ammo_magazine/boltaction,
-/obj/item/ammo_magazine/boltaction,
-/obj/item/ammo_magazine/boltaction,
-/obj/item/ammo_magazine/boltaction,
-/obj/item/ammo_magazine/boltaction,
-/obj/item/ammo_magazine/boltaction,
-/obj/item/ammo_magazine/boltaction,
-/obj/item/ammo_magazine/c45m,
-/obj/item/ammo_magazine/c45m,
-/obj/item/ammo_magazine/c45m,
-/obj/item/ammo_magazine/c45m,
-/obj/item/ammo_magazine/c45m,
-/obj/item/ammo_magazine/c45m,
-/obj/item/ammo_magazine/c45m,
-/obj/item/ammo_magazine/c45m,
-/obj/item/ammo_magazine/mc9mm,
-/obj/item/ammo_magazine/mc9mm,
-/obj/item/ammo_magazine/mc9mm,
-/obj/item/ammo_magazine/mc9mm,
-/obj/item/ammo_magazine/mc9mm,
-/obj/item/ammo_magazine/mc9mm,
-/obj/item/ammo_magazine/a556/carbine,
-/obj/item/ammo_magazine/a556/carbine,
-/obj/item/ammo_magazine/submachinemag,
-/obj/item/ammo_magazine/submachinemag,
+"q" = (
 /obj/item/paper{
 	name = "Armory notice no. 1";
 	info = "Our old shorties and most of our PDWs and sidearms are busted. So we lifted some stuff from some local 'taj smuggler who calls himself Sergei or something. The rifle with the curved mag (I can't pronounce the name for shit) can't take any lathed mags, so hold on to what we have. You'll have to handload the other rifle (again, can't pronounce the name for shit) with 7.62 clips or by hand."
 	},
+/turf/template_noop,
+/area/space)
+"r" = (
+/obj/item/ammo_magazine/a68,
+/obj/item/ammo_magazine/a68,
+/obj/item/ammo_magazine/a68,
+/obj/item/ammo_magazine/a68,
+/obj/item/ammo_magazine/a68,
+/obj/item/ammo_magazine/a68,
+/obj/item/ammo_magazine/a68,
+/obj/structure/closet/crate{
+	name = "Ammo Crate"
+	},
+/obj/item/ammo_magazine/submachinemag,
+/obj/item/ammo_magazine/submachinemag,
+/obj/item/ammo_magazine/submachinemag,
+/obj/item/ammo_magazine/submachinedrum,
+/obj/item/ammo_magazine/submachinedrum,
+/obj/item/ammo_magazine/mc9mm,
+/obj/item/ammo_magazine/mc9mm,
+/obj/item/ammo_magazine/mc9mm,
+/obj/item/ammo_magazine/mc9mm,
+/obj/item/ammo_magazine/mc9mm,
+/obj/item/ammo_magazine/mc9mm,
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/gunnery)
 "s" = (
@@ -193,6 +183,7 @@
 	name = "Captured dominian rifle";
 	desc = "The standard-issue rifle of the Empire of Dominia's Imperial Army that was obviously siezed from the cold, dead hands of it's origional user. Loads from 30 round 5.56 magazines."
 	},
+/obj/effect/map_effect/marker/mapmanip/submap/extract/coc_ranger_lockers,
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/gunnery)
 "w" = (
@@ -242,7 +233,7 @@
 	name = "Armory notice no. 1";
 	info = "Our old shorties and most of our PDWs and sidearms are busted. I don't even know how we got half of the stuff we got as a replacement, and I'm too afraid to ask."
 	},
-/turf/simulated/wall/shuttle/space_ship/mercenary,
+/turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/gunnery)
 "B" = (
 /obj/structure/closet/crate{
@@ -298,6 +289,7 @@
 /obj/item/gun/projectile/automatic/rifle/shorty,
 /obj/item/gun/projectile/automatic/rifle/shorty,
 /obj/item/gun/projectile/shotgun/pump,
+/obj/effect/map_effect/marker/mapmanip/submap/extract/coc_ranger_lockers,
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/gunnery)
 "I" = (
@@ -361,7 +353,7 @@
 /obj/item/gun/projectile/automatic/tommygun,
 /obj/item/gun/projectile/silenced,
 /obj/item/gun/projectile/pistol/adhomai,
-/obj/item/gun/projectile/pistol/adhomai,
+/obj/item/gun/projectile/automatic/tommygun,
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/gunnery)
 "V" = (
@@ -661,7 +653,7 @@ a
 a
 x
 r
-a
+q
 a
 a
 a
