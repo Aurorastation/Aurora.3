@@ -207,6 +207,9 @@
 	R.ripped = TRUE
 
 /obj/structure/cash_register/commissary/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/paper))
+		paper_price_list(attacking_item)
+		return
 	if(sum == 0)
 		return
 	if (istype(attacking_item, /obj/item/spacecash/ewallet))
@@ -288,6 +291,39 @@
 	else if (transaction_amount > E.worth)
 		to_chat(user, SPAN_WARNING("[icon2html(src, user)]\The [E] doesn't have that much money!"))
 	return
+
+///
+// Fill the paper out using a paperwork form.
+// Example: [list][*]Candy: 2.50电[br][*]Snack: 3.10电[br][*]Meal: 10.00电[br][*]Soft drinks: 1.30电[br][/list]
+///
+/obj/structure/cash_register/commissary/proc/paper_price_list(var/obj/item/paper/R)
+	if(!editmode)
+		to_chat(usr, SPAN_WARNING("Device locked."))
+		return FALSE
+	var/text = R.info
+
+	// Find each item. Example: "Cigarette pack: 10.00"
+	var/regex/find_source  = regex("<li>(.+?)(<BR>|</font>)", "gi")
+	// Find the item itself. Example: "Cigarette pack"
+	var/regex/find_item  = regex("^\[ \\t\\r\\n]*(.+?)\[ \\t\\r\\n]*:", "i")
+	// Find the price. Example: "10.00"
+	var/regex/find_price = regex(":\[ \\t\\r\\n]*(\[0-9]+(\\.\[0-9]+)?)", "i")
+
+	while(find_source.Find(text))
+		var/line = find_source.group[1]
+
+		var/item = null
+		var/price = null
+
+		if(find_item.Find(line))
+			item = find_item.group[1]
+
+		if(find_price.Find(line))
+			price = text2num(find_price.group[1])
+
+		if(item && !isnull(price))
+			items += list(list("name" = item, "price" = price))
+			items_to_price[item] = price
 
 /obj/structure/cash_register/commissary/attack_hand(mob/living/user)
 	. = ..()
