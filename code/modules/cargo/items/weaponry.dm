@@ -425,9 +425,9 @@
 	name = "rifle clip (6.8mm)"
 	supplier = "zharkov"
 	description = "A clip of 6.8mm for Adhomian rifles."
-	price = 60
+	price = 30
 	items = list(
-		/obj/item/ammo_magazine/a68
+		/obj/item/ammo_magazine/boltaction/adhomai
 	)
 	access = ACCESS_SECURITY
 	container_type = "crate"
