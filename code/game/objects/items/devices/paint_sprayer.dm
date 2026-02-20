@@ -129,7 +129,7 @@
 /obj/item/paint_sprayer/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	. += "Use a paint sprayer on yourself to configure it."
-	. += "Paint sprayers can be used on the following targets: floors, airlocks, exosuits, beds, pipes, and (plain grey) lockers/crates."
+	. += "Paint sprayers can be used on the following targets: floors, airlocks, exosuit frames and components, beds, atmos pipes, and (plain grey) lockers/crates."
 	. += "CTRL-click a turf or airlock with the paint sprayer to copy the color(s) used on it."
 	. += "SHIFT-click a turf with the paint sprayer to clear all decals from it."
 
@@ -184,10 +184,12 @@
 	else if(istype(A,/obj/machinery/atmospherics/pipe))
 		var/obj/machinery/atmospherics/pipe/P = A
 		P.change_color(GLOB.pipe_colors[mode])
+		playsound(get_turf(src), 'sound/effects/spray3.ogg', 30, 1, -6)
 
 	else if(istype(A, /obj/item/pipe) && pipe_color_check(GLOB.pipe_colors[mode]))
 		var/obj/item/pipe/P = A
 		P.color = GLOB.pipe_colors[mode]
+		playsound(get_turf(src), 'sound/effects/spray3.ogg', 30, 1, -6)
 
 /obj/item/paint_sprayer/proc/paint_floor(turf/simulated/floor/F, mob/user, params)
 	if(!F.flooring.can_paint)

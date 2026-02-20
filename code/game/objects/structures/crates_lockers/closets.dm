@@ -499,6 +499,8 @@
 			attack_hand(user)
 	else if(istype(attacking_item,/obj/item/card/id) && secure)
 		togglelock(user)
+	else if(istype(attacking_item, /obj/item/paint_sprayer))
+		return
 
 	// Secure locker cutting open stuff.
 	else if(!opened && secure)
