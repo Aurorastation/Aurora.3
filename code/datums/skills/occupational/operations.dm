@@ -22,7 +22,7 @@
 
 /singleton/skill/pilot_mechs
 	name = "Pilot: Exosuits"
-	description = "Skill for piloting shuttles."
+	description = "Skill for piloting exosuits."
 	maximum_level = SKILL_LEVEL_PROFESSIONAL
 	uneducated_skill_cap = SKILL_LEVEL_TRAINED
 	category =  /singleton/skill_category/occupational
@@ -33,3 +33,4 @@
 		"Experienced Pilot" = "You have a decent amount of experience piloting mechs.",
 		"Mechwarrior" = "Look on the bright side kid, you get to keep all the money."
 	)
+	required = TRUE

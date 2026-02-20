@@ -98,8 +98,15 @@
 #define COMSIG_HANDLE_HAND_INTERCEPTION "handle_hand_interception"
 
 // /obj/item/gun signals
+
 #define COMSIG_GUN_TOGGLE_FIRING_MODE "gun_toggle_firing_mode"
 
 #define COMSIG_GUN_SPECIAL_CHECK "gun_special_check"
 
 #define COMSIG_BEFORE_GUN_FIRE "before_gun_fire"
+
+// Mech signals
+
+#define COMSIG_MECH_MOVE_WASD "mech_move_wasd"
+
+#define COMSIG_MECH_MOVE_STRAFE "mech_move_strafe"

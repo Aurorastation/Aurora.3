@@ -1,4 +1,4 @@
-/mob/living/heavy_vehicle/proc/can_move(var/mob/user)
+/mob/living/heavy_vehicle/proc/can_move(var/mob/user, delay_modifier)
 	if(world.time < next_mecha_move)
 		return
 
@@ -28,10 +28,10 @@
 			to_chat(user, SPAN_WARNING("The power indicator flashes briefly."))
 		return
 
-	next_mecha_move = world.time + (incorporeal_move ? legs.move_delay / 2 : legs.move_delay) + (legs.damaged_delay * (legs.total_damage / legs.max_damage))
+	next_mecha_move = delay_modifier + world.time + (incorporeal_move ? legs.move_delay / 2 : legs.move_delay) + (legs.damaged_delay * (legs.total_damage / legs.max_damage))
 	return TRUE
 
-/mob/living/heavy_vehicle/proc/can_turn(var/mob/user)
+/mob/living/heavy_vehicle/proc/can_turn(var/mob/user, delay_modifier)
 	if(world.time < next_mecha_turn)
 		return
 
@@ -61,10 +61,10 @@
 			to_chat(user, SPAN_WARNING("The power indicator flashes briefly."))
 		return
 
-	next_mecha_turn = world.time + legs.turn_delay + (legs.damaged_delay * (legs.total_damage / legs.max_damage))
+	next_mecha_turn = delay_modifier + world.time + legs.turn_delay + (legs.damaged_delay * (legs.total_damage / legs.max_damage))
 	return TRUE
 
-/mob/living/heavy_vehicle/proc/can_strafe(var/mob/user)
+/mob/living/heavy_vehicle/proc/can_strafe(var/mob/user, delay_modifier)
 	if (world.time < next_mecha_move)
 		return
 
