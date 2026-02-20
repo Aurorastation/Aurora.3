@@ -80,7 +80,7 @@
 /datum/ghostspawner/proc/spawn_atom_deleted(atom/spawn_atom)
 	SIGNAL_HANDLER
 	spawn_atoms -= spawn_atom
-	SSghostroles.UnregisterSignal(spawn_atom, COMSIG_QDELETING)
+	UnregisterSignal(spawn_atom, COMSIG_QDELETING)
 
 //Return a error message if the user CANT see the ghost spawner. Otherwise FALSE
 /datum/ghostspawner/proc/cant_see(mob/user) //If the user can see the spawner in the menu
