@@ -23,8 +23,8 @@
 	head = /obj/item/clothing/head/diona/voidtamer
 	back = /obj/item/storage/backpack/satchel/leather
 	id = /obj/item/card/id/voidtamer
-	l_ear = /obj/item/device/radio/headset/ship
-	backpack_contents = list(/obj/item/device/flashlight/survival = 1)
+	l_ear = /obj/item/radio/headset/ship
+	backpack_contents = list(/obj/item/flashlight/survival = 1)
 
 /obj/outfit/admin/voidtamer_crew/get_id_access()
 	return list(ACCESS_VOIDTAMER_SHIP, ACCESS_EXTERNAL_AIRLOCKS)
@@ -48,8 +48,8 @@
 	head = /obj/item/clothing/head/diona/voidtamer
 	back = /obj/item/storage/backpack/satchel/leather
 	id = /obj/item/card/id/voidtamer
-	l_ear = /obj/item/device/radio/headset/ship
-	backpack_contents = list(/obj/item/device/flashlight/survival = 1)
+	l_ear = /obj/item/radio/headset/ship
+	backpack_contents = list(/obj/item/flashlight/survival = 1)
 
 //items
 /obj/item/card/id/voidtamer
