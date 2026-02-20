@@ -1,13 +1,22 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "aj" = (
 /obj/structure/reagent_dispensers/watertank,
-/turf/simulated/floor/foundation,
+/obj/abstract/exterior_marker/inside,
+/turf/simulated/floor/exoplanet/foundation,
 /area/konyang/arms_factory)
 "bi" = (
 /obj/effect/decal/road_marking{
 	dir = 8
 	},
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/asphalt,
+/area/exoplanet/grass/konyang)
+"bn" = (
+/obj/abstract/exterior_marker/inside,
+/turf/simulated/floor/exoplanet/sidewalk/dark/detail,
+/area/konyang/arms_factory)
+"br" = (
+/obj/structure/flora/rock/konyang,
+/turf/template_noop,
 /area/exoplanet/grass/konyang)
 "bs" = (
 /obj/structure/ledge/corner{
@@ -21,13 +30,13 @@
 	},
 /obj/structure/ledge,
 /obj/structure/rod_railing,
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/exoplanet/grass/konyang)
 "bY" = (
 /obj/effect/decal/road_marking{
 	dir = 4
 	},
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/exoplanet/grass/konyang)
 "cq" = (
 /obj/random/dirt_75,
@@ -41,7 +50,7 @@
 /obj/effect/decal/curb{
 	dir = 8
 	},
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/exoplanet/grass/konyang)
 "cF" = (
 /obj/structure/table/steel,
@@ -50,23 +59,28 @@
 	pixel_x = -15;
 	pixel_y = 4
 	},
-/turf/simulated/floor/foundation,
+/obj/abstract/exterior_marker/inside,
+/turf/simulated/floor/exoplanet/foundation,
 /area/konyang/arms_factory)
 "cG" = (
 /obj/machinery/fabricator/autolathe,
-/turf/simulated/floor/sidewalk/dark,
+/obj/abstract/exterior_marker/inside,
+/turf/simulated/floor/exoplanet/sidewalk/dark,
 /area/konyang/arms_factory)
 "cL" = (
 /obj/item/material/shard,
-/turf/simulated/floor/sidewalk/dark,
+/obj/abstract/exterior_marker/inside,
+/turf/simulated/floor/exoplanet/sidewalk/dark,
 /area/konyang/arms_factory)
 "cP" = (
 /obj/machinery/fabricator/autolathe,
 /obj/random/dirt_75,
-/turf/simulated/floor/sidewalk/dark,
+/obj/abstract/exterior_marker/inside,
+/turf/simulated/floor/exoplanet/sidewalk/dark,
 /area/konyang/arms_factory)
 "cU" = (
 /obj/structure/table/rack,
+/obj/abstract/exterior_marker/inside,
 /turf/simulated/floor/sidewalk/dark,
 /area/konyang/arms_factory)
 "dj" = (
@@ -80,19 +94,21 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
-/turf/simulated/floor/foundation,
+/turf/simulated/floor/exoplanet/foundation,
 /area/exoplanet/grass/konyang)
 "dw" = (
 /obj/machinery/light_switch{
 	dir = 1;
 	pixel_y = 26
 	},
-/turf/simulated/floor/sidewalk/dark,
+/obj/abstract/exterior_marker/inside,
+/turf/simulated/floor/exoplanet/sidewalk/dark,
 /area/konyang/arms_factory)
 "dD" = (
 /obj/structure/table/standard,
 /obj/random/junk,
-/turf/simulated/floor/foundation,
+/obj/abstract/exterior_marker/inside,
+/turf/simulated/floor/exoplanet/foundation,
 /area/konyang/arms_factory)
 "dM" = (
 /obj/structure/table/steel,
@@ -100,24 +116,32 @@
 /obj/random/dirt_75,
 /obj/random/ammo,
 /obj/random/ammo,
-/turf/simulated/floor/foundation,
+/turf/simulated/floor/exoplanet/foundation,
 /area/konyang/arms_factory)
+"dO" = (
+/turf/template_noop,
+/area/exoplanet/grass/konyang)
 "dX" = (
 /obj/structure/girder,
-/turf/simulated/floor/sidewalk/dark,
+/obj/abstract/exterior_marker/inside,
+/turf/simulated/floor/exoplanet/sidewalk/dark,
+/area/konyang/arms_factory)
+"ej" = (
+/obj/abstract/exterior_marker/inside,
+/turf/simulated/floor/exoplanet/sidewalk/dark,
 /area/konyang/arms_factory)
 "ek" = (
-/turf/simulated/floor/sidewalk,
+/turf/simulated/floor/exoplanet/sidewalk,
 /area/exoplanet/grass/konyang)
 "ep" = (
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 1
 	},
-/turf/simulated/floor/sidewalk/flat,
+/turf/simulated/floor/exoplanet/sidewalk/flat,
 /area/exoplanet/grass/konyang)
 "eI" = (
 /obj/random/dirt_75,
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/exoplanet/grass/konyang)
 "eP" = (
 /obj/structure/filingcabinet/chestdrawer{
@@ -128,22 +152,24 @@
 	pixel_x = 10;
 	pixel_y = 1
 	},
-/turf/simulated/floor/sidewalk/dark,
+/obj/abstract/exterior_marker/inside,
+/turf/simulated/floor/exoplanet/sidewalk/dark,
 /area/konyang/arms_factory)
 "fb" = (
 /obj/effect/decal/road_marking/no_park,
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/exoplanet/grass/konyang)
 "fi" = (
 /obj/effect/decal/curb{
 	dir = 10
 	},
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/exoplanet/grass/konyang)
 "fr" = (
 /obj/structure/table/standard,
 /obj/random/ammo,
-/turf/simulated/floor/foundation,
+/obj/abstract/exterior_marker/inside,
+/turf/simulated/floor/exoplanet/foundation,
 /area/konyang/arms_factory)
 "fu" = (
 /obj/effect/floor_decal/konyang_flowers,
@@ -154,7 +180,8 @@
 /obj/structure/table/rack,
 /obj/random/ammo,
 /obj/random/ammo,
-/turf/simulated/floor/sidewalk/dark,
+/obj/abstract/exterior_marker/inside,
+/turf/simulated/floor/exoplanet/sidewalk/dark,
 /area/konyang/arms_factory)
 "fZ" = (
 /obj/structure/ledge{
@@ -164,32 +191,40 @@
 /area/exoplanet/grass/konyang)
 "gH" = (
 /obj/structure/plasticflaps,
-/turf/simulated/floor/foundation,
+/turf/simulated/floor/exoplanet/foundation,
 /area/konyang/arms_factory)
+"gU" = (
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/concrete,
+/area/exoplanet/grass/konyang)
 "gZ" = (
 /obj/random/dirt_75,
-/turf/simulated/floor/foundation,
+/obj/abstract/exterior_marker/inside,
+/turf/simulated/floor/exoplanet/foundation,
 /area/konyang/arms_factory)
 "hm" = (
 /obj/effect/decal/road_marking{
 	dir = 4
 	},
 /obj/random/dirt_75,
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/exoplanet/grass/konyang)
 "hD" = (
 /obj/structure/shipping_container_old{
 	icon_state = "grey3"
 	},
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/exoplanet/grass/konyang)
 "hJ" = (
-/turf/simulated/floor/concrete,
+/turf/simulated/floor/exoplanet/concrete,
 /area/exoplanet/grass/konyang)
 "hY" = (
 /obj/random/dirt_75,
 /obj/structure/ore_box,
-/turf/simulated/floor/sidewalk/dark,
+/obj/abstract/exterior_marker/inside,
+/turf/simulated/floor/exoplanet/sidewalk/dark,
 /area/konyang/arms_factory)
 "if" = (
 /obj/structure/ledge{
@@ -201,14 +236,14 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 9
 	},
-/turf/simulated/floor/foundation,
+/turf/simulated/floor/exoplanet/foundation,
 /area/exoplanet/grass/konyang)
 "is" = (
 /obj/structure/rod_railing{
 	name = "imposing rod railing"
 	},
 /obj/random/dirt_75,
-/turf/simulated/floor/sidewalk/flat,
+/turf/simulated/floor/exoplanet/sidewalk/flat,
 /area/exoplanet/grass/konyang)
 "iv" = (
 /obj/structure/flora/bush/konyang_reeds,
@@ -216,16 +251,18 @@
 	name = "imposing rod railing";
 	dir = 8
 	},
-/turf/simulated/floor/sidewalk/flat,
+/turf/simulated/floor/exoplanet/sidewalk/flat,
 /area/exoplanet/grass/konyang)
 "iB" = (
 /obj/random/dirt_75,
 /obj/random/junk,
-/turf/simulated/floor/sidewalk/dark,
+/obj/abstract/exterior_marker/inside,
+/turf/simulated/floor/exoplanet/sidewalk/dark,
 /area/konyang/arms_factory)
 "iF" = (
 /obj/random/junk,
-/turf/simulated/floor/sidewalk/dark/detail,
+/obj/abstract/exterior_marker/inside,
+/turf/simulated/floor/exoplanet/sidewalk/dark/detail,
 /area/konyang/arms_factory)
 "iX" = (
 /obj/effect/decal/exterior_stairs/right,
@@ -234,15 +271,18 @@
 "jA" = (
 /obj/random/dirt_75,
 /obj/effect/floor_decal/industrial/warning,
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/exoplanet/grass/konyang)
 "jB" = (
 /obj/item/material/shard,
-/turf/simulated/floor/foundation,
+/turf/simulated/floor/exoplanet/foundation,
+/area/konyang/arms_factory)
+"jG" = (
+/turf/simulated/floor/exoplanet/sidewalk/dark,
 /area/konyang/arms_factory)
 "jH" = (
 /obj/random/junk,
-/turf/simulated/floor/concrete,
+/turf/simulated/floor/exoplanet/concrete,
 /area/exoplanet/grass/konyang)
 "jL" = (
 /obj/structure/flora/rock/konyang/small,
@@ -250,17 +290,19 @@
 	name = "imposing rod railing";
 	dir = 8
 	},
-/turf/simulated/floor/sidewalk/flat,
+/turf/simulated/floor/exoplanet/sidewalk/flat,
 /area/exoplanet/grass/konyang)
 "jW" = (
 /obj/structure/table/steel,
 /obj/item/assembly/timer,
 /obj/random/dirt_75,
-/turf/simulated/floor/sidewalk/dark,
+/obj/abstract/exterior_marker/inside,
+/turf/simulated/floor/exoplanet/sidewalk/dark,
 /area/konyang/arms_factory)
 "jZ" = (
 /obj/structure/bed/stool/chair/office/light,
-/turf/simulated/floor/sidewalk/dark,
+/obj/abstract/exterior_marker/inside,
+/turf/simulated/floor/exoplanet/sidewalk/dark,
 /area/konyang/arms_factory)
 "kf" = (
 /turf/simulated/wall,
@@ -270,23 +312,25 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
-/turf/simulated/floor/concrete,
+/turf/simulated/floor/exoplanet/concrete,
 /area/exoplanet/grass/konyang)
 "kh" = (
 /obj/structure/table/steel,
 /obj/item/binoculars,
 /obj/random/dirt_75,
-/turf/simulated/floor/sidewalk/dark,
+/obj/abstract/exterior_marker/inside,
+/turf/simulated/floor/exoplanet/sidewalk/dark,
 /area/konyang/arms_factory)
 "ki" = (
 /obj/structure/girder,
 /obj/random/dirt_75,
-/turf/simulated/floor/foundation,
+/obj/abstract/exterior_marker/inside,
+/turf/simulated/floor/exoplanet/foundation,
 /area/konyang/arms_factory)
 "km" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
-/turf/simulated/floor/sidewalk,
+/turf/simulated/floor/exoplanet/sidewalk,
 /area/exoplanet/grass/konyang)
 "kr" = (
 /obj/effect/floor_decal/konyang_flowers,
@@ -295,7 +339,12 @@
 "kZ" = (
 /obj/structure/table/steel,
 /obj/item/assembly/timer,
-/turf/simulated/floor/foundation,
+/obj/abstract/exterior_marker/inside,
+/turf/simulated/floor/exoplanet/foundation,
+/area/konyang/arms_factory)
+"lm" = (
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/sidewalk/dark,
 /area/konyang/arms_factory)
 "lo" = (
 /obj/random/dirt_75,
@@ -303,24 +352,26 @@
 /area/exoplanet/grass/konyang)
 "lI" = (
 /obj/item/stack/material/glass/full,
-/turf/simulated/floor/sidewalk/dark,
+/obj/abstract/exterior_marker/inside,
+/turf/simulated/floor/exoplanet/sidewalk/dark,
 /area/konyang/arms_factory)
 "lL" = (
 /obj/structure/table/steel,
 /obj/random/technology_scanner,
-/turf/simulated/floor/foundation,
+/obj/abstract/exterior_marker/inside,
+/turf/simulated/floor/exoplanet/foundation,
 /area/konyang/arms_factory)
 "lN" = (
 /obj/effect/decal/exterior_stairs/center{
 	dir = 8
 	},
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/exoplanet/grass/konyang)
 "lQ" = (
 /obj/structure/firedoor_assembly{
 	dir = 4
 	},
-/turf/simulated/floor/foundation,
+/turf/simulated/floor/exoplanet/foundation,
 /area/konyang/arms_factory)
 "lR" = (
 /obj/structure/table/steel,
@@ -329,12 +380,17 @@
 	pixel_x = 14;
 	pixel_y = 9
 	},
-/turf/simulated/floor/sidewalk/dark,
+/obj/abstract/exterior_marker/inside,
+/turf/simulated/floor/exoplanet/sidewalk/dark,
 /area/konyang/arms_factory)
 "lT" = (
 /obj/effect/decal/curb,
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/exoplanet/grass/konyang)
+"lU" = (
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/foundation,
+/area/konyang/arms_factory)
 "lZ" = (
 /obj/effect/decal/curb{
 	dir = 8
@@ -342,50 +398,60 @@
 /obj/effect/decal/exterior_stairs/center{
 	dir = 4
 	},
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/exoplanet/grass/konyang)
+"mm" = (
+/obj/random/dirt_75,
+/obj/abstract/exterior_marker/inside,
+/turf/simulated/floor/exoplanet/sidewalk/dark,
+/area/konyang/arms_factory)
 "mu" = (
 /obj/random/dirt_75,
 /obj/effect/floor_decal/industrial/warning/full,
-/turf/simulated/floor/foundation,
+/turf/simulated/floor/exoplanet/foundation,
 /area/konyang/arms_factory)
 "mH" = (
 /obj/random/junk,
-/turf/simulated/floor/foundation,
+/obj/abstract/exterior_marker/inside,
+/turf/simulated/floor/exoplanet/foundation,
 /area/konyang/arms_factory)
 "mP" = (
 /obj/structure/table/steel,
 /obj/item/assembly/prox_sensor,
 /obj/random/dirt_75,
 /obj/random/energy,
-/turf/simulated/floor/foundation,
+/obj/abstract/exterior_marker/inside,
+/turf/simulated/floor/exoplanet/foundation,
 /area/konyang/arms_factory)
 "mV" = (
 /obj/structure/table/rack,
 /obj/random/ammo,
-/turf/simulated/floor/foundation,
+/turf/simulated/floor/exoplanet/foundation,
 /area/konyang/arms_factory)
 "nh" = (
 /obj/random/tech_supply,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
-/turf/simulated/floor/sidewalk/dark,
+/obj/abstract/exterior_marker/inside,
+/turf/simulated/floor/exoplanet/sidewalk/dark,
 /area/konyang/arms_factory)
 "nm" = (
 /obj/structure/firedoor_assembly,
-/turf/simulated/floor/foundation,
+/turf/simulated/floor/exoplanet/foundation,
 /area/konyang/arms_factory)
 "nt" = (
 /obj/structure/fireaxecabinet/north,
 /obj/random/dirt_75,
-/turf/simulated/floor/foundation,
+/obj/abstract/exterior_marker/inside,
+/turf/simulated/floor/exoplanet/foundation,
 /area/konyang/arms_factory)
 "nL" = (
 /obj/structure/table/steel,
-/turf/simulated/floor/tiled/white,
+/obj/abstract/exterior_marker/inside,
+/turf/simulated/floor/exoplanet/tiled/white,
 /area/konyang/arms_factory)
 "nP" = (
-/turf/simulated/floor/foundation,
+/turf/simulated/floor/exoplanet/foundation,
 /area/exoplanet/grass/konyang)
 "oh" = (
 /obj/random/dirt_75,
@@ -394,24 +460,27 @@
 	pixel_x = 22;
 	pixel_y = 4
 	},
-/turf/simulated/floor/foundation,
+/obj/abstract/exterior_marker/inside,
+/turf/simulated/floor/exoplanet/foundation,
 /area/konyang/arms_factory)
 "oF" = (
 /obj/structure/table/steel,
 /obj/random/dirt_75,
 /obj/item/storage/box/lights,
-/turf/simulated/floor/foundation,
+/obj/abstract/exterior_marker/inside,
+/turf/simulated/floor/exoplanet/foundation,
 /area/konyang/arms_factory)
 "oH" = (
 /obj/random/dirt_75,
-/turf/simulated/floor/sidewalk,
+/turf/simulated/floor/exoplanet/sidewalk,
 /area/exoplanet/grass/konyang)
 "oX" = (
 /obj/machinery/light_switch{
 	dir = 1;
 	pixel_y = 26
 	},
-/turf/simulated/floor/sidewalk/dark/detail,
+/obj/abstract/exterior_marker/inside,
+/turf/simulated/floor/exoplanet/sidewalk/dark/detail,
 /area/konyang/arms_factory)
 "pj" = (
 /obj/structure/shipping_container_old{
@@ -421,55 +490,58 @@
 	icon_state = "zeng3"
 	},
 /obj/random/dirt_75,
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/exoplanet/grass/konyang)
 "pG" = (
 /obj/structure/table/standard,
-/turf/simulated/floor/sidewalk/dark,
+/turf/simulated/floor/exoplanet/sidewalk/dark,
 /area/konyang/arms_factory)
 "pH" = (
 /obj/structure/flora/rock/konyang/small,
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/exoplanet/grass/konyang)
 "pK" = (
 /obj/structure/flora/rock/konyang/small,
-/turf/simulated/floor/sidewalk/flat,
+/turf/simulated/floor/exoplanet/sidewalk/flat,
 /area/exoplanet/grass/konyang)
 "qg" = (
 /obj/structure/filingcabinet/chestdrawer,
 /obj/random/dirt_75,
-/turf/simulated/floor/foundation,
+/obj/abstract/exterior_marker/inside,
+/turf/simulated/floor/exoplanet/foundation,
 /area/konyang/arms_factory)
 "qs" = (
 /obj/structure/flora/rock/konyang/small,
 /obj/structure/rod_railing{
 	dir = 4
 	},
-/turf/simulated/floor/sidewalk/flat,
+/turf/simulated/floor/exoplanet/sidewalk/flat,
 /area/exoplanet/grass/konyang)
 "qw" = (
 /obj/structure/flora/bush/konyang_reeds,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/exoplanet/grass/konyang)
 "qB" = (
 /obj/structure/table/rack,
 /obj/random/junk,
-/turf/simulated/floor/sidewalk/dark,
+/obj/abstract/exterior_marker/inside,
+/turf/simulated/floor/exoplanet/sidewalk/dark,
 /area/konyang/arms_factory)
 "ra" = (
 /obj/effect/decal/road_marking/no_park,
 /obj/random/dirt_75,
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/exoplanet/grass/konyang)
 "rd" = (
 /obj/machinery/space_heater,
+/obj/abstract/exterior_marker/inside,
 /turf/simulated/floor/sidewalk/dark,
 /area/konyang/arms_factory)
 "re" = (
 /obj/structure/firedoor_assembly,
-/turf/simulated/floor/sidewalk/dark,
+/turf/simulated/floor/exoplanet/sidewalk/dark,
 /area/konyang/arms_factory)
 "rh" = (
 /obj/structure/rod_railing{
@@ -478,30 +550,47 @@
 /obj/structure/rod_railing{
 	name = "imposing rod railing"
 	},
-/turf/simulated/floor/sidewalk/flat,
+/turf/simulated/floor/exoplanet/sidewalk/flat,
 /area/exoplanet/grass/konyang)
+"rk" = (
+/obj/structure/sign/urban{
+	dir = 4;
+	pixel_x = 6;
+	pixel_y = 7
+	},
+/obj/abstract/exterior_marker/inside,
+/turf/simulated/floor/exoplanet/sidewalk/dark,
+/area/konyang/arms_factory)
 "rl" = (
 /obj/structure/extinguisher_cabinet/west,
-/turf/simulated/floor/sidewalk/dark,
+/obj/abstract/exterior_marker/inside,
+/turf/simulated/floor/exoplanet/sidewalk/dark,
 /area/konyang/arms_factory)
 "rq" = (
 /obj/structure/table/steel,
 /obj/item/geiger,
-/turf/simulated/floor/foundation,
+/obj/abstract/exterior_marker/inside,
+/turf/simulated/floor/exoplanet/foundation,
 /area/konyang/arms_factory)
 "rT" = (
 /obj/random/junk,
 /obj/effect/floor_decal/industrial/warning,
-/turf/simulated/floor/concrete,
+/turf/simulated/floor/exoplanet/concrete,
 /area/exoplanet/grass/konyang)
+"rU" = (
+/obj/random/junk,
+/obj/abstract/exterior_marker/inside,
+/turf/simulated/floor/exoplanet/sidewalk/dark,
+/area/konyang/arms_factory)
 "se" = (
-/turf/simulated/floor/sidewalk/flat,
+/turf/simulated/floor/exoplanet/sidewalk/flat,
 /area/exoplanet/grass/konyang)
 "sg" = (
 /obj/structure/extinguisher_cabinet/north,
 /obj/random/tech_supply,
 /obj/random/dirt_75,
-/turf/simulated/floor/foundation,
+/obj/abstract/exterior_marker/inside,
+/turf/simulated/floor/exoplanet/foundation,
 /area/konyang/arms_factory)
 "sC" = (
 /obj/effect/floor_decal/industrial/warning/corner{
@@ -512,31 +601,35 @@
 "sY" = (
 /obj/random/junk,
 /obj/random/dirt_75,
-/turf/simulated/floor/sidewalk/dark,
+/obj/abstract/exterior_marker/inside,
+/turf/simulated/floor/exoplanet/sidewalk/dark,
 /area/konyang/arms_factory)
 "tf" = (
 /obj/structure/filingcabinet,
 /obj/random/dirt_75,
-/turf/simulated/floor/foundation,
+/obj/abstract/exterior_marker/inside,
+/turf/simulated/floor/exoplanet/foundation,
 /area/konyang/arms_factory)
 "tn" = (
 /obj/structure/table/steel,
 /obj/item/assembly/igniter,
 /obj/random/dirt_75,
-/turf/simulated/floor/foundation,
+/obj/abstract/exterior_marker/inside,
+/turf/simulated/floor/exoplanet/foundation,
 /area/konyang/arms_factory)
 "tF" = (
 /obj/effect/decal/exterior_stairs/left{
 	dir = 8
 	},
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/exoplanet/grass/konyang)
 "tS" = (
 /obj/random/dirt_75,
-/turf/simulated/floor/sidewalk/dark/grid,
+/obj/abstract/exterior_marker/inside,
+/turf/simulated/floor/exoplanet/sidewalk/dark/grid,
 /area/konyang/arms_factory)
 "tU" = (
-/turf/simulated/floor/sidewalk/detail,
+/turf/simulated/floor/exoplanet/sidewalk/detail,
 /area/exoplanet/grass/konyang)
 "tW" = (
 /obj/structure/table/steel,
@@ -544,13 +637,15 @@
 	pixel_y = 5
 	},
 /obj/random/dirt_75,
-/turf/simulated/floor/sidewalk/dark,
+/obj/abstract/exterior_marker/inside,
+/turf/simulated/floor/exoplanet/sidewalk/dark,
 /area/konyang/arms_factory)
 "um" = (
 /obj/random/firstaid,
 /obj/random/dirt_75,
 /obj/structure/table/rack,
-/turf/simulated/floor/sidewalk/dark,
+/obj/abstract/exterior_marker/inside,
+/turf/simulated/floor/exoplanet/sidewalk/dark,
 /area/konyang/arms_factory)
 "uq" = (
 /obj/effect/floor_decal/industrial/warning,
@@ -565,20 +660,20 @@
 "uN" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/grille,
 /obj/random/dirt_75,
-/turf/simulated/floor/sidewalk/dark,
+/turf/simulated/floor/exoplanet/sidewalk/dark,
 /area/konyang/arms_factory)
 "vc" = (
 /obj/structure/road_barrier/bot_end{
 	dir = 1
 	},
-/turf/simulated/floor/sidewalk/flat,
+/turf/simulated/floor/exoplanet/sidewalk/flat,
 /area/exoplanet/grass/konyang)
 "vd" = (
 /obj/structure/flora/bush/konyang_reeds,
-/turf/simulated/floor/sidewalk/dark,
+/turf/simulated/floor/exoplanet/sidewalk/dark,
 /area/konyang/arms_factory)
 "vo" = (
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/exoplanet/grass/konyang)
 "vQ" = (
 /turf/simulated/floor/exoplanet/dirt_konyang,
@@ -586,11 +681,12 @@
 "vT" = (
 /obj/structure/table/steel,
 /obj/item/assembly/prox_sensor,
-/turf/simulated/floor/sidewalk/dark,
+/obj/abstract/exterior_marker/inside,
+/turf/simulated/floor/exoplanet/sidewalk/dark,
 /area/konyang/arms_factory)
 "wj" = (
 /obj/machinery/photocopier,
-/turf/simulated/floor/foundation,
+/turf/simulated/floor/exoplanet/foundation,
 /area/konyang/arms_factory)
 "wF" = (
 /obj/random/dirt_75,
@@ -598,21 +694,23 @@
 	dir = 1;
 	pixel_y = 26
 	},
-/turf/simulated/floor/foundation,
+/obj/abstract/exterior_marker/inside,
+/turf/simulated/floor/exoplanet/foundation,
 /area/konyang/arms_factory)
 "wM" = (
 /obj/structure/table/rack,
-/turf/simulated/floor/foundation,
+/obj/abstract/exterior_marker/inside,
+/turf/simulated/floor/exoplanet/foundation,
 /area/konyang/arms_factory)
 "wQ" = (
 /obj/random/junk,
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/exoplanet/grass/konyang)
 "wU" = (
 /obj/structure/table/standard,
 /obj/item/hand_labeler,
 /obj/item/pen,
-/turf/simulated/floor/sidewalk/dark,
+/turf/simulated/floor/exoplanet/sidewalk/dark,
 /area/konyang/arms_factory)
 "xg" = (
 /obj/structure/ledge{
@@ -632,7 +730,7 @@
 /obj/structure/shipping_container_old{
 	icon_state = "grey2"
 	},
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/exoplanet/grass/konyang)
 "xB" = (
 /obj/structure/flora/rock/konyang/small,
@@ -641,7 +739,8 @@
 "xH" = (
 /obj/structure/table/steel,
 /obj/random/smokable,
-/turf/simulated/floor/foundation,
+/obj/abstract/exterior_marker/inside,
+/turf/simulated/floor/exoplanet/foundation,
 /area/konyang/arms_factory)
 "xM" = (
 /obj/effect/floor_decal/konyang_flowers,
@@ -656,7 +755,7 @@
 /area/exoplanet/grass/konyang)
 "yf" = (
 /obj/structure/road_barrier,
-/turf/simulated/floor/sidewalk/flat,
+/turf/simulated/floor/exoplanet/sidewalk/flat,
 /area/exoplanet/grass/konyang)
 "yh" = (
 /obj/effect/decal/exterior_stairs/left{
@@ -667,26 +766,33 @@
 /area/exoplanet/grass/konyang)
 "yk" = (
 /obj/structure/reagent_dispensers/extinguisher,
-/turf/simulated/floor/foundation,
+/obj/abstract/exterior_marker/inside,
+/turf/simulated/floor/exoplanet/foundation,
 /area/konyang/arms_factory)
 "yn" = (
 /obj/effect/decal/road_marking/reflector,
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/exoplanet/grass/konyang)
+"yF" = (
+/obj/structure/flora/bush/konyang_reeds,
+/obj/abstract/exterior_marker/inside,
+/turf/simulated/floor/exoplanet/sidewalk/dark,
+/area/konyang/arms_factory)
 "yJ" = (
 /obj/structure/dispenser/oxygen,
-/turf/simulated/floor/foundation,
+/turf/simulated/floor/exoplanet/foundation,
 /area/konyang/arms_factory)
 "zb" = (
 /obj/structure/road_sign/yield{
 	pixel_x = -16
 	},
-/turf/simulated/floor/sidewalk/flat,
+/turf/simulated/floor/exoplanet/sidewalk/flat,
 /area/exoplanet/grass/konyang)
 "zC" = (
 /obj/structure/table/steel,
 /obj/item/assembly/prox_sensor,
-/turf/simulated/floor/foundation,
+/obj/abstract/exterior_marker/inside,
+/turf/simulated/floor/exoplanet/foundation,
 /area/konyang/arms_factory)
 "Ay" = (
 /obj/structure/flora/rock/konyang/small,
@@ -698,7 +804,8 @@
 /obj/structure/table/steel,
 /obj/item/assembly/prox_sensor,
 /obj/random/energy,
-/turf/simulated/floor/foundation,
+/obj/abstract/exterior_marker/inside,
+/turf/simulated/floor/exoplanet/foundation,
 /area/konyang/arms_factory)
 "BH" = (
 /obj/structure/toilet{
@@ -711,7 +818,8 @@
 	},
 /obj/random/dirt_75,
 /obj/effect/decal/cleanable/blood,
-/turf/simulated/floor/tiled/white,
+/obj/abstract/exterior_marker/inside,
+/turf/simulated/floor/exoplanet/tiled/white,
 /area/konyang/arms_factory)
 "BP" = (
 /obj/structure/flora/bush/konyang_reeds,
@@ -730,13 +838,19 @@
 "CF" = (
 /obj/machinery/fabricator/autolathe,
 /obj/random/dirt_75,
-/turf/simulated/floor/foundation,
+/obj/abstract/exterior_marker/inside,
+/turf/simulated/floor/exoplanet/foundation,
 /area/konyang/arms_factory)
 "De" = (
 /obj/structure/flora/rock/konyang/small,
 /obj/random/dirt_75,
-/turf/simulated/floor/sidewalk/flat,
+/turf/simulated/floor/exoplanet/sidewalk/flat,
 /area/exoplanet/grass/konyang)
+"Di" = (
+/obj/random/dirt_75,
+/obj/abstract/exterior_marker/inside,
+/turf/simulated/floor/sidewalk/dark,
+/area/konyang/arms_factory)
 "Dq" = (
 /obj/structure/table/steel,
 /obj/item/assembly/signaler,
@@ -744,11 +858,17 @@
 	pixel_x = 9;
 	pixel_y = 12
 	},
-/turf/simulated/floor/sidewalk/dark,
+/obj/abstract/exterior_marker/inside,
+/turf/simulated/floor/exoplanet/sidewalk/dark,
 /area/konyang/arms_factory)
 "DX" = (
-/turf/simulated/floor/foundation,
+/obj/abstract/exterior_marker/inside,
+/turf/simulated/floor/exoplanet/foundation,
 /area/konyang/arms_factory)
+"Ea" = (
+/obj/structure/flora/bush/konyang_reeds,
+/turf/template_noop,
+/area/exoplanet/grass/konyang)
 "EF" = (
 /obj/effect/decal/exterior_stairs/center{
 	dir = 4
@@ -765,12 +885,23 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/konyang,
 /area/exoplanet/grass/konyang)
+"Ff" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/concrete,
+/area/exoplanet/grass/konyang)
+"Fy" = (
+/obj/random/dirt_75,
+/obj/abstract/exterior_marker/inside,
+/turf/simulated/floor/exoplanet/sidewalk/dark/detail,
+/area/konyang/arms_factory)
 "Gf" = (
 /obj/structure/table/rack,
 /obj/random/ammo,
 /obj/random/ammo,
 /obj/random/ammo,
-/turf/simulated/floor/foundation,
+/turf/simulated/floor/exoplanet/foundation,
 /area/konyang/arms_factory)
 "Go" = (
 /obj/effect/decal/exterior_stairs/center,
@@ -779,7 +910,7 @@
 "Gz" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
-/turf/simulated/floor/foundation,
+/turf/simulated/floor/exoplanet/foundation,
 /area/exoplanet/grass/konyang)
 "GU" = (
 /obj/effect/floor_decal/industrial/warning/corner{
@@ -800,28 +931,34 @@
 "He" = (
 /turf/simulated/floor/sidewalk/dark,
 /area/konyang/arms_factory)
+"Hq" = (
+/obj/structure/table/steel,
+/obj/random/tech_supply,
+/obj/abstract/exterior_marker/inside,
+/turf/simulated/floor/exoplanet/sidewalk/dark,
+/area/konyang/arms_factory)
 "HA" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
-/turf/simulated/floor/foundation,
+/turf/simulated/floor/exoplanet/foundation,
 /area/exoplanet/grass/konyang)
 "HB" = (
 /turf/simulated/floor/exoplanet/konyang,
 /area/exoplanet/grass/konyang)
 "HE" = (
 /obj/effect/decal/exterior_stairs,
-/turf/simulated/floor/sidewalk/flat,
+/turf/simulated/floor/exoplanet/sidewalk/flat,
 /area/exoplanet/grass/konyang)
 "HQ" = (
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 4
 	},
-/turf/simulated/floor/concrete,
+/turf/simulated/floor/exoplanet/concrete,
 /area/exoplanet/grass/konyang)
 "HY" = (
 /obj/structure/flora/bush/konyang_reeds,
-/turf/simulated/floor/sidewalk/flat,
+/turf/simulated/floor/exoplanet/sidewalk/flat,
 /area/exoplanet/grass/konyang)
 "HZ" = (
 /obj/effect/decal/curb/corner{
@@ -830,7 +967,7 @@
 /obj/structure/ledge/corner{
 	dir = 1
 	},
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/exoplanet/grass/konyang)
 "Im" = (
 /obj/random/dirt_75,
@@ -847,7 +984,8 @@
 "Iv" = (
 /obj/structure/table/steel,
 /obj/item/assembly/timer,
-/turf/simulated/floor/sidewalk/dark,
+/obj/abstract/exterior_marker/inside,
+/turf/simulated/floor/exoplanet/sidewalk/dark,
 /area/konyang/arms_factory)
 "ID" = (
 /obj/structure/flora/bush/konyang_reeds,
@@ -861,39 +999,51 @@
 /turf/simulated/floor/exoplanet/dirt_konyang,
 /area/exoplanet/grass/konyang)
 "IM" = (
-/turf/simulated/floor/sidewalk/dark/grid,
+/obj/abstract/exterior_marker/inside,
+/turf/simulated/floor/exoplanet/sidewalk/dark/grid,
 /area/konyang/arms_factory)
 "IR" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
-/turf/simulated/floor/sidewalk/dark,
+/obj/abstract/exterior_marker/inside,
+/turf/simulated/floor/exoplanet/sidewalk/dark,
 /area/konyang/arms_factory)
 "IS" = (
 /obj/random/dirt_75,
 /obj/structure/flora/bush/konyang_reeds,
+/obj/abstract/exterior_marker/inside,
 /turf/simulated/floor/sidewalk/dark,
 /area/konyang/arms_factory)
 "IX" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /obj/random/junk,
-/turf/simulated/floor/sidewalk/dark/detail,
+/obj/abstract/exterior_marker/inside,
+/turf/simulated/floor/exoplanet/sidewalk/dark/detail,
 /area/konyang/arms_factory)
+"IY" = (
+/obj/structure/table/rack,
+/turf/simulated/floor/exoplanet/foundation,
+/area/konyang/arms_factory)
+"Ji" = (
+/obj/effect/landmark/clear,
+/turf/template_noop,
+/area/exoplanet/grass/konyang)
 "JR" = (
 /obj/effect/decal/road_marking{
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/warning,
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/exoplanet/grass/konyang)
 "JS" = (
 /obj/random/dirt_75,
 /obj/random/junk,
-/turf/simulated/floor/concrete,
+/turf/simulated/floor/exoplanet/concrete,
 /area/exoplanet/grass/konyang)
 "JX" = (
 /obj/structure/ledge/corner,
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/exoplanet/grass/konyang)
 "Kc" = (
 /obj/random/dirt_75,
@@ -902,7 +1052,7 @@
 /area/exoplanet/grass/konyang)
 "Kk" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/grille,
-/turf/simulated/floor/sidewalk/dark,
+/turf/simulated/floor/exoplanet/sidewalk/dark,
 /area/konyang/arms_factory)
 "Ku" = (
 /obj/structure/table/standard,
@@ -911,11 +1061,12 @@
 	pixel_x = -4
 	},
 /obj/item/pen,
-/turf/simulated/floor/foundation,
+/obj/abstract/exterior_marker/inside,
+/turf/simulated/floor/exoplanet/foundation,
 /area/konyang/arms_factory)
 "KC" = (
 /obj/random/toolbox,
-/turf/simulated/floor/foundation,
+/turf/simulated/floor/exoplanet/foundation,
 /area/konyang/arms_factory)
 "KP" = (
 /obj/structure/flora/bush/konyang_reeds,
@@ -926,18 +1077,29 @@
 /area/exoplanet/grass/konyang)
 "La" = (
 /obj/structure/flora/bush/konyang_reeds,
-/turf/simulated/floor/foundation,
+/obj/abstract/exterior_marker/inside,
+/turf/simulated/floor/exoplanet/foundation,
 /area/konyang/arms_factory)
 "Lb" = (
 /obj/structure/girder,
-/turf/simulated/floor/foundation,
+/turf/simulated/floor/exoplanet/foundation,
+/area/konyang/arms_factory)
+"Lo" = (
+/obj/structure/dispenser/oxygen,
+/obj/abstract/exterior_marker/inside,
+/turf/simulated/floor/exoplanet/foundation,
 /area/konyang/arms_factory)
 "Lv" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
-/turf/simulated/floor/foundation,
+/turf/simulated/floor/exoplanet/foundation,
 /area/exoplanet/grass/konyang)
+"LF" = (
+/obj/random/toolbox,
+/obj/abstract/exterior_marker/inside,
+/turf/simulated/floor/exoplanet/foundation,
+/area/konyang/arms_factory)
 "LU" = (
 /obj/effect/decal/exterior_stairs/left{
 	dir = 4
@@ -949,15 +1111,15 @@
 	name = "imposing rod railing";
 	dir = 8
 	},
-/turf/simulated/floor/sidewalk/flat,
+/turf/simulated/floor/exoplanet/sidewalk/flat,
 /area/exoplanet/grass/konyang)
 "Nd" = (
 /obj/structure/flora/bush/konyang_reeds,
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/exoplanet/grass/konyang)
 "NB" = (
 /obj/effect/floor_decal/industrial/warning/corner,
-/turf/simulated/floor/concrete,
+/turf/simulated/floor/exoplanet/concrete,
 /area/exoplanet/grass/konyang)
 "NP" = (
 /obj/structure/flora/bush/konyang_reeds,
@@ -971,7 +1133,7 @@
 	icon_state = "ee2"
 	},
 /obj/random/dirt_75,
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/exoplanet/grass/konyang)
 "Oi" = (
 /obj/random/dirt_75,
@@ -982,16 +1144,14 @@
 /turf/simulated/floor/exoplanet/dirt_konyang,
 /area/exoplanet/grass/konyang)
 "Om" = (
-/obj/structure/sign/urban{
-	dir = 4;
-	pixel_x = 6;
-	pixel_y = 7
-	},
-/turf/simulated/floor/sidewalk/dark,
+/obj/random/dirt_75,
+/obj/structure/flora/bush/konyang_reeds,
+/obj/abstract/exterior_marker/inside,
+/turf/simulated/floor/exoplanet/sidewalk/dark,
 /area/konyang/arms_factory)
 "Oy" = (
 /obj/machinery/fabricator/autolathe,
-/turf/simulated/floor/foundation,
+/turf/simulated/floor/exoplanet/foundation,
 /area/konyang/arms_factory)
 "OO" = (
 /obj/effect/floor_decal/konyang_flowers,
@@ -1001,7 +1161,12 @@
 /turf/simulated/floor/exoplanet/dirt_konyang,
 /area/exoplanet/grass/konyang)
 "OT" = (
-/turf/simulated/floor/sidewalk/dark/detail,
+/turf/simulated/floor/exoplanet/sidewalk/dark/detail,
+/area/konyang/arms_factory)
+"OV" = (
+/obj/structure/table/rack,
+/obj/abstract/exterior_marker/inside,
+/turf/simulated/floor/exoplanet/sidewalk/dark,
 /area/konyang/arms_factory)
 "Po" = (
 /obj/structure/flora/bush/konyang_reeds,
@@ -1012,17 +1177,18 @@
 	name = "imposing rod railing";
 	dir = 8
 	},
-/turf/simulated/floor/sidewalk/flat,
+/turf/simulated/floor/exoplanet/sidewalk/flat,
 /area/exoplanet/grass/konyang)
 "PC" = (
 /obj/structure/table/steel,
 /obj/random/tech_supply,
 /obj/random/dirt_75,
-/turf/simulated/floor/foundation,
+/obj/abstract/exterior_marker/inside,
+/turf/simulated/floor/exoplanet/foundation,
 /area/konyang/arms_factory)
 "PL" = (
 /obj/effect/floor_decal/industrial/warning,
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/exoplanet/grass/konyang)
 "PV" = (
 /obj/structure/flora/bush/konyang_reeds,
@@ -1032,21 +1198,25 @@
 "PZ" = (
 /obj/structure/table/steel,
 /obj/item/assembly/signaler,
+/turf/simulated/floor/exoplanet/sidewalk/dark,
+/area/konyang/arms_factory)
+"Qd" = (
+/obj/abstract/exterior_marker/inside,
 /turf/simulated/floor/sidewalk/dark,
 /area/konyang/arms_factory)
 "Qk" = (
 /obj/structure/girder,
 /obj/structure/firedoor_assembly,
-/turf/simulated/floor/foundation,
+/turf/simulated/floor/exoplanet/foundation,
 /area/konyang/arms_factory)
 "QF" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/exoplanet/grass/konyang)
 "RH" = (
 /obj/random/dirt_75,
-/turf/simulated/floor/sidewalk/flat,
+/turf/simulated/floor/exoplanet/sidewalk/flat,
 /area/exoplanet/grass/konyang)
 "RJ" = (
 /obj/structure/ledge/corner{
@@ -1058,43 +1228,55 @@
 /obj/structure/mopbucket,
 /obj/random/dirt_75,
 /obj/item/mop,
-/turf/simulated/floor/foundation,
+/turf/simulated/floor/exoplanet/foundation,
 /area/konyang/arms_factory)
 "RU" = (
 /obj/structure/girder,
 /obj/structure/flora/bush/konyang_reeds,
-/turf/simulated/floor/foundation,
+/obj/abstract/exterior_marker/inside,
+/turf/simulated/floor/exoplanet/foundation,
 /area/konyang/arms_factory)
+"RZ" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/concrete,
+/area/exoplanet/grass/konyang)
 "Se" = (
 /obj/structure/rod_railing{
 	name = "imposing rod railing";
 	dir = 8
 	},
 /obj/random/dirt_75,
-/turf/simulated/floor/sidewalk/flat,
+/turf/simulated/floor/exoplanet/sidewalk/flat,
 /area/exoplanet/grass/konyang)
 "SA" = (
 /obj/effect/decal/road_marking{
 	dir = 8
 	},
 /obj/structure/flora/rock/konyang/small,
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/exoplanet/grass/konyang)
 "SC" = (
 /obj/effect/decal/road_marking{
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/warning,
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/exoplanet/grass/konyang)
 "SD" = (
 /obj/effect/decal/road_marking/no_park,
 /obj/random/junk,
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/exoplanet/grass/konyang)
+"SL" = (
+/obj/structure/girder,
+/obj/abstract/exterior_marker/inside,
+/turf/simulated/floor/exoplanet/foundation,
+/area/konyang/arms_factory)
 "SM" = (
 /obj/item/material/shard,
-/turf/simulated/floor/sidewalk/dark/detail,
+/turf/simulated/floor/exoplanet/sidewalk/dark/detail,
 /area/konyang/arms_factory)
 "Td" = (
 /obj/structure/flora/rock/konyang,
@@ -1105,21 +1287,24 @@
 /obj/random/tech_supply,
 /obj/random/dirt_75,
 /obj/item/pen,
-/turf/simulated/floor/foundation,
+/obj/abstract/exterior_marker/inside,
+/turf/simulated/floor/exoplanet/foundation,
 /area/konyang/arms_factory)
 "TC" = (
 /obj/random/tech_supply,
 /obj/random/dirt_75,
-/turf/simulated/floor/sidewalk/dark/grid,
+/obj/abstract/exterior_marker/inside,
+/turf/simulated/floor/exoplanet/sidewalk/dark/grid,
 /area/konyang/arms_factory)
 "Ui" = (
 /obj/structure/flora/bush/konyang_reeds,
-/turf/simulated/floor/sidewalk/dark/detail,
+/turf/simulated/floor/exoplanet/sidewalk/dark/detail,
 /area/konyang/arms_factory)
 "Un" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
-/turf/simulated/floor/sidewalk/dark/detail,
+/obj/abstract/exterior_marker/inside,
+/turf/simulated/floor/exoplanet/sidewalk/dark/detail,
 /area/konyang/arms_factory)
 "Uv" = (
 /obj/structure/ledge,
@@ -1128,35 +1313,46 @@
 	},
 /turf/simulated/floor/exoplanet/dirt_konyang,
 /area/exoplanet/grass/konyang)
+"Uz" = (
+/obj/effect/floor_decal/industrial/warning,
+/turf/simulated/floor/exoplanet/concrete,
+/area/exoplanet/grass/konyang)
 "UL" = (
-/obj/random/junk,
-/turf/simulated/floor/sidewalk/dark,
-/area/konyang/arms_factory)
+/obj/structure/flora/rock/konyang/small,
+/obj/effect/landmark/clear,
+/turf/template_noop,
+/area/exoplanet/grass/konyang)
 "UY" = (
 /obj/random/dirt_75,
 /obj/random/junk,
 /obj/structure/flora/bush/konyang_reeds,
-/turf/simulated/floor/sidewalk/dark,
+/obj/abstract/exterior_marker/inside,
+/turf/simulated/floor/exoplanet/sidewalk/dark,
 /area/konyang/arms_factory)
 "Vd" = (
 /obj/structure/table/steel,
 /obj/random/tech_supply,
-/turf/simulated/floor/sidewalk/dark,
+/turf/simulated/floor/exoplanet/sidewalk/dark,
 /area/konyang/arms_factory)
 "Vq" = (
 /obj/structure/table/rack,
 /obj/random/junk,
-/turf/simulated/floor/foundation,
+/obj/abstract/exterior_marker/inside,
+/turf/simulated/floor/exoplanet/foundation,
 /area/konyang/arms_factory)
 "Vx" = (
 /obj/structure/rod_railing{
 	dir = 4
 	},
-/turf/simulated/floor/sidewalk/flat,
+/turf/simulated/floor/exoplanet/sidewalk/flat,
 /area/exoplanet/grass/konyang)
+"Wg" = (
+/turf/simulated/floor/exoplanet/foundation,
+/area/konyang/arms_factory)
 "WG" = (
 /obj/random/dirt_75,
-/turf/simulated/floor/tiled/white,
+/obj/abstract/exterior_marker/inside,
+/turf/simulated/floor/exoplanet/tiled/white,
 /area/konyang/arms_factory)
 "WP" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -1166,7 +1362,7 @@
 /area/exoplanet/grass/konyang)
 "WT" = (
 /obj/random/dirt_75,
-/turf/simulated/floor/sidewalk/dark/detail,
+/turf/simulated/floor/exoplanet/sidewalk/dark/detail,
 /area/konyang/arms_factory)
 "Xb" = (
 /obj/effect/decal/curb{
@@ -1176,12 +1372,12 @@
 	dir = 4;
 	icon_state = "stairs-right"
 	},
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/exoplanet/grass/konyang)
 "Xo" = (
 /obj/structure/table/rack,
 /obj/random/firstaid,
-/turf/simulated/floor/foundation,
+/turf/simulated/floor/exoplanet/foundation,
 /area/konyang/arms_factory)
 "XD" = (
 /turf/simulated/wall/r_wall,
@@ -1193,23 +1389,27 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
-/turf/simulated/floor/sidewalk/flat,
+/turf/simulated/floor/exoplanet/sidewalk/flat,
+/area/exoplanet/grass/konyang)
+"XX" = (
+/obj/structure/flora/rock/konyang/small,
+/turf/template_noop,
 /area/exoplanet/grass/konyang)
 "Yb" = (
 /obj/structure/road_barrier/bot_end,
-/turf/simulated/floor/sidewalk/flat,
+/turf/simulated/floor/exoplanet/sidewalk/flat,
 /area/exoplanet/grass/konyang)
 "Yd" = (
 /obj/structure/rod_railing{
 	name = "imposing rod railing"
 	},
-/turf/simulated/floor/sidewalk/flat,
+/turf/simulated/floor/exoplanet/sidewalk/flat,
 /area/exoplanet/grass/konyang)
 "Yq" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /obj/random/junk,
-/turf/simulated/floor/sidewalk/flat,
+/turf/simulated/floor/exoplanet/sidewalk/flat,
 /area/exoplanet/grass/konyang)
 "Yt" = (
 /obj/structure/ledge{
@@ -1221,43 +1421,42 @@
 /obj/random/toolbox,
 /obj/random/dirt_75,
 /obj/structure/table/rack,
-/turf/simulated/floor/sidewalk/dark/detail,
+/obj/abstract/exterior_marker/inside,
+/turf/simulated/floor/exoplanet/sidewalk/dark/detail,
 /area/konyang/arms_factory)
 "YJ" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
-/turf/simulated/floor/concrete,
+/turf/simulated/floor/exoplanet/concrete,
 /area/exoplanet/grass/konyang)
 "Zb" = (
 /obj/random/dirt_75,
-/turf/simulated/floor/concrete,
+/turf/simulated/floor/exoplanet/concrete,
 /area/exoplanet/grass/konyang)
 "Zl" = (
 /obj/structure/table/steel,
 /obj/item/assembly/signaler,
-/turf/simulated/floor/foundation,
+/obj/abstract/exterior_marker/inside,
+/turf/simulated/floor/exoplanet/foundation,
 /area/konyang/arms_factory)
 "Zz" = (
 /obj/random/dirt_75,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
-/turf/simulated/floor/concrete,
+/turf/simulated/floor/exoplanet/concrete,
 /area/exoplanet/grass/konyang)
 "ZB" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 9
 	},
-/turf/simulated/floor/concrete,
+/turf/simulated/floor/exoplanet/concrete,
 /area/exoplanet/grass/konyang)
-"ZG" = (
-/obj/random/dirt_75,
-/turf/simulated/floor/sidewalk/dark,
-/area/konyang/arms_factory)
 "ZJ" = (
 /obj/structure/reagent_dispensers/fueltank,
-/turf/simulated/floor/foundation,
+/obj/abstract/exterior_marker/inside,
+/turf/simulated/floor/exoplanet/foundation,
 /area/konyang/arms_factory)
 "ZL" = (
 /obj/structure/flora/rock/konyang/small,
@@ -1271,59 +1470,59 @@
 	icon_state = "grey2"
 	},
 /obj/random/dirt_75,
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/exoplanet/grass/konyang)
 
 (1,1,1) = {"
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
+dO
+Ji
+Ji
+Ji
+Ji
+Ji
+Ji
+dO
+dO
+dO
+dO
+dO
+dO
+dO
+dO
+dO
+dO
+dO
+Ji
+Ji
+Ji
+dO
+dO
+dO
+dO
+dO
+dO
+dO
+dO
+dO
+dO
+dO
+dO
+dO
+dO
+dO
+dO
+dO
+dO
+dO
 "}
 (2,1,1) = {"
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
+dO
+Ji
+Ji
+Ji
+Ji
+Ji
+Ji
 vQ
 vQ
 HB
@@ -1345,27 +1544,27 @@ vQ
 vQ
 vQ
 vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
+dO
+dO
+dO
+dO
+dO
+dO
+dO
+dO
+dO
+dO
+dO
+dO
 "}
 (3,1,1) = {"
-vQ
-vQ
-vQ
-IL
-vQ
-vQ
-vQ
+dO
+Ji
+Ji
+UL
+Ji
+Ji
+Ji
 vQ
 ZL
 HB
@@ -1398,7 +1597,7 @@ vQ
 vQ
 vQ
 vQ
-vQ
+dO
 "}
 (4,1,1) = {"
 vQ
@@ -1440,7 +1639,7 @@ vQ
 vQ
 vQ
 vQ
-vQ
+dO
 "}
 (5,1,1) = {"
 vQ
@@ -1482,7 +1681,7 @@ dj
 dj
 dj
 RJ
-vQ
+dO
 "}
 (6,1,1) = {"
 vQ
@@ -1524,7 +1723,7 @@ Nc
 Nc
 Po
 if
-vQ
+dO
 "}
 (7,1,1) = {"
 vQ
@@ -1566,7 +1765,7 @@ hJ
 hJ
 Yd
 if
-vQ
+dO
 "}
 (8,1,1) = {"
 vQ
@@ -1608,7 +1807,7 @@ HQ
 hJ
 Yd
 if
-vQ
+dO
 "}
 (9,1,1) = {"
 vQ
@@ -1620,7 +1819,7 @@ eI
 vo
 Uv
 se
-uq
+Uz
 XD
 XD
 XD
@@ -1646,11 +1845,11 @@ XD
 XD
 XD
 XD
-uv
+Ff
 hJ
 Yd
 if
-vQ
+dO
 "}
 (10,1,1) = {"
 vQ
@@ -1662,37 +1861,37 @@ eI
 vo
 Uv
 se
-uq
+Uz
 Lb
 RS
-ZG
-ZG
-He
-He
-He
-He
-ZG
+lm
+mm
+ej
+ej
+ej
+ej
+mm
 mu
-He
+ej
 IM
 IM
 rl
-He
-OT
+ej
+bn
 fL
 dX
-He
+ej
 qB
-He
+ej
 kf
 um
 Yx
 XD
-uv
+Ff
 hJ
 Yd
 if
-vQ
+dO
 "}
 (11,1,1) = {"
 vQ
@@ -1704,37 +1903,37 @@ vo
 vQ
 Uv
 se
-uq
+Uz
 Lb
-gZ
-ZG
+lU
+mm
 gZ
 DX
 tS
 IM
-KC
+LF
 fr
 kf
 DX
 IM
 IM
-IS
+Om
 ki
 gZ
 fL
-Lb
+SL
 DX
 Vq
 DX
 kf
-WT
+Fy
 sY
 XD
-uv
+Ff
 hJ
 Yd
 if
-vQ
+dO
 "}
 (12,1,1) = {"
 vQ
@@ -1746,14 +1945,14 @@ vo
 vo
 Uv
 se
-uq
+Uz
 nm
-ZG
-ZG
-ZG
-He
-He
-He
+mm
+mm
+mm
+ej
+ej
+ej
 dD
 Ku
 kf
@@ -1764,19 +1963,19 @@ gZ
 gZ
 gZ
 DX
-He
+ej
 mH
 DX
 DX
 re
 WT
-ZG
+lm
 Lb
-uv
+Ff
 hJ
 Yd
 if
-vQ
+dO
 "}
 (13,1,1) = {"
 vQ
@@ -1788,37 +1987,37 @@ vo
 vo
 Uv
 pK
-uq
+Uz
 XD
-Om
+rk
 tS
-He
+ej
 kf
 kf
 kf
 kf
 kf
 kf
-ZG
+mm
 ki
-KC
+LF
 gZ
 oh
 gZ
 DX
-He
-He
-UL
-He
+ej
+ej
+rU
+jG
 Lb
 Ui
-He
+jG
 nm
-uv
+Ff
 hJ
 Yd
 if
-vQ
+dO
 "}
 (14,1,1) = {"
 vQ
@@ -1830,17 +2029,17 @@ vo
 vQ
 Uv
 se
-uq
+Uz
 XD
 XD
-He
+Qd
 DX
 nm
-DX
-He
-ZG
+Wg
+jG
+lm
 iB
-ZG
+mm
 vd
 kf
 kf
@@ -1848,19 +2047,19 @@ kf
 kf
 mV
 DX
-ZG
-WT
-He
-DX
+mm
+Fy
+jG
+Wg
 Lb
 WT
-He
+jG
 Lb
-uv
+Ff
 hJ
 Yd
 if
-vQ
+dO
 "}
 (15,1,1) = {"
 vQ
@@ -1876,17 +2075,17 @@ rT
 XD
 rd
 IS
-DX
+Wg
 kf
 wU
 pG
-ZG
-ZG
-gZ
-He
+mm
+mm
+lU
+jG
 kr
-He
-He
+jG
+ej
 kf
 Xo
 Gf
@@ -1896,13 +2095,13 @@ kf
 kf
 kf
 oX
-Om
+rk
 XD
-uv
+Ff
 hJ
 Yd
 if
-vQ
+dO
 "}
 (16,1,1) = {"
 vQ
@@ -1914,10 +2113,10 @@ vo
 vo
 Uv
 se
-uq
+Uz
 XD
 cU
-ZG
+Di
 jB
 kf
 Lb
@@ -1928,23 +2127,23 @@ Lb
 XD
 XD
 NP
-He
+jG
 kf
 kf
 kf
 kf
 kf
-DX
-DX
-He
-OT
+Wg
+Wg
+jG
+bn
 XD
 XD
-uv
+Ff
 hJ
 Yd
 if
-vQ
+dO
 "}
 (17,1,1) = {"
 vQ
@@ -1956,10 +2155,10 @@ vo
 vo
 Uv
 se
-uq
+Uz
 XD
 cU
-ZG
+Di
 He
 XD
 gZ
@@ -1972,21 +2171,21 @@ XD
 NP
 fu
 OT
-OT
-OT
-He
+bn
+bn
+ej
 kf
-He
-He
+ej
+ej
 Lb
-vd
-He
+yF
+jG
 Lb
-uv
+Ff
 hJ
 Yd
 if
-vQ
+dO
 "}
 (18,1,1) = {"
 vQ
@@ -1998,15 +2197,15 @@ vo
 vo
 Uv
 se
-uq
+Uz
 XD
 DX
-He
+Qd
 DX
 XD
 wF
 TC
-IS
+Om
 gZ
 gZ
 oF
@@ -2016,19 +2215,19 @@ NP
 SM
 WT
 iF
-He
-He
-DX
-He
+ej
+jG
+Wg
+ej
 kf
+bn
 OT
-OT
-DX
+Wg
 kg
 Zb
 is
 if
-vQ
+dO
 "}
 (19,1,1) = {"
 vQ
@@ -2040,14 +2239,14 @@ vo
 vQ
 Uv
 se
-uq
+Uz
 XD
 DX
-He
+Qd
 La
 DX
-ZG
-ZG
+mm
+mm
 gZ
 kh
 jW
@@ -2058,19 +2257,19 @@ xB
 XF
 XF
 XF
-He
+jG
 kf
-He
-He
+ej
+ej
 kf
-OT
+bn
 OT
 XD
 kg
 Zb
 is
 if
-vQ
+dO
 "}
 (20,1,1) = {"
 vQ
@@ -2082,14 +2281,14 @@ vo
 vQ
 Uv
 se
-uq
+Uz
 XD
 wM
 DX
-He
+ej
 XD
 sg
-ZG
+mm
 IR
 nh
 IR
@@ -2112,7 +2311,7 @@ kg
 Zb
 is
 if
-vQ
+dO
 "}
 (21,1,1) = {"
 vQ
@@ -2124,37 +2323,37 @@ vo
 vo
 Uv
 se
-uq
+Uz
 XD
 XD
 lQ
 XD
 XD
 nt
-ZG
+mm
 nh
 Un
 IX
 hY
 XD
 ZB
-WP
+RZ
 lo
 HB
-WP
-WP
-WP
-WP
-WP
-WP
-WP
-WP
-WP
-GU
+RZ
+RZ
+RZ
+RZ
+RZ
+RZ
+RZ
+RZ
+RZ
+gU
 hJ
 Yd
 if
-vQ
+dO
 "}
 (22,1,1) = {"
 vQ
@@ -2166,19 +2365,19 @@ vo
 vo
 Uv
 se
-uq
+Uz
 XD
 aj
-DX
-gZ
+Wg
+lU
 XD
 tn
 CF
-ZG
+mm
 cP
-ZG
+mm
 gZ
-DX
+Wg
 kg
 hJ
 HB
@@ -2196,7 +2395,7 @@ Zb
 hJ
 Yd
 if
-vQ
+dO
 "}
 (23,1,1) = {"
 vQ
@@ -2211,8 +2410,8 @@ tF
 lN
 XD
 aj
-DX
-gZ
+Wg
+lU
 XD
 zC
 rq
@@ -2221,7 +2420,7 @@ Dq
 Zl
 DX
 XD
-uv
+Ff
 HB
 ZL
 Fd
@@ -2238,7 +2437,7 @@ RH
 se
 Yd
 BU
-vQ
+dO
 "}
 (24,1,1) = {"
 vQ
@@ -2261,9 +2460,9 @@ XD
 XD
 XD
 XD
-DX
+Wg
 XD
-uv
+Ff
 se
 qs
 Vx
@@ -2280,7 +2479,7 @@ Vx
 Vx
 rh
 if
-vQ
+dO
 "}
 (25,1,1) = {"
 vQ
@@ -2296,7 +2495,7 @@ bi
 bi
 JR
 gH
-He
+ej
 Kk
 wj
 KC
@@ -2305,7 +2504,7 @@ XD
 nL
 WG
 XD
-uv
+Ff
 Yd
 Yt
 fZ
@@ -2322,7 +2521,7 @@ fZ
 fZ
 fZ
 bs
-vQ
+dO
 "}
 (26,1,1) = {"
 vQ
@@ -2338,7 +2537,7 @@ fb
 vo
 PL
 gH
-He
+ej
 Kk
 eP
 jZ
@@ -2364,7 +2563,7 @@ vQ
 vQ
 vQ
 vQ
-vQ
+dO
 "}
 (27,1,1) = {"
 vQ
@@ -2380,11 +2579,11 @@ vo
 vo
 jA
 XD
-He
+Qd
 XD
-He
-He
-He
+ej
+ej
+ej
 XD
 XD
 XD
@@ -2406,7 +2605,7 @@ vQ
 vQ
 vQ
 vQ
-vQ
+dO
 "}
 (28,1,1) = {"
 vQ
@@ -2423,10 +2622,10 @@ eI
 PL
 XD
 dw
-He
-ZG
-WT
-OT
+ej
+mm
+Fy
+bn
 XD
 ir
 HA
@@ -2448,7 +2647,7 @@ vQ
 vQ
 vQ
 vQ
-vQ
+Ji
 "}
 (29,1,1) = {"
 vQ
@@ -2464,11 +2663,11 @@ hm
 hm
 SC
 XD
-He
+ej
 Vd
 UY
 mP
-DX
+Wg
 Qk
 Lv
 nP
@@ -2490,7 +2689,7 @@ vQ
 vQ
 vQ
 vQ
-vQ
+Ji
 "}
 (30,1,1) = {"
 vQ
@@ -2506,11 +2705,11 @@ eI
 uN
 Kk
 Kk
-He
+ej
 PZ
-ZG
+mm
 dM
-DX
+Wg
 jB
 uv
 tU
@@ -2532,7 +2731,7 @@ vQ
 vQ
 vQ
 vQ
-vQ
+Ji
 "}
 (31,1,1) = {"
 vQ
@@ -2547,12 +2746,12 @@ Xb
 lZ
 Kk
 ZJ
-He
-He
+ej
+ej
 cG
 DX
 Oy
-DX
+Wg
 XD
 uv
 tU
@@ -2574,7 +2773,7 @@ vQ
 vQ
 vQ
 vQ
-vQ
+Ji
 "}
 (32,1,1) = {"
 vQ
@@ -2589,12 +2788,12 @@ se
 uq
 XD
 yk
-He
-ZG
-He
-He
-DX
-DX
+ej
+mm
+ej
+ej
+Wg
+Wg
 nm
 uv
 Gz
@@ -2616,7 +2815,7 @@ vQ
 xP
 vQ
 vQ
-vQ
+Ji
 "}
 (33,1,1) = {"
 vQ
@@ -2631,12 +2830,12 @@ se
 Im
 XD
 lI
-He
-IS
-He
-He
-He
-UL
+ej
+Om
+ej
+ej
+ej
+rU
 XD
 uv
 km
@@ -2658,7 +2857,7 @@ vQ
 vQ
 vQ
 vQ
-vQ
+dO
 "}
 (34,1,1) = {"
 vQ
@@ -2674,11 +2873,11 @@ Im
 XD
 DX
 cG
-He
+ej
 cG
-He
+ej
 cG
-vd
+yF
 XD
 uv
 oH
@@ -2687,40 +2886,40 @@ se
 Yd
 if
 vQ
-vQ
-vQ
-IL
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
+dO
+dO
+XX
+dO
+dO
+dO
+dO
+dO
+dO
+dO
+dO
+dO
+dO
+dO
 "}
 (35,1,1) = {"
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
+dO
+dO
+dO
+dO
+dO
+dO
+dO
 xo
 RH
 Im
 XD
 DX
 vT
-UL
+rU
 lR
-He
+ej
 Iv
-DX
+Wg
 XD
 uv
 km
@@ -2729,40 +2928,40 @@ se
 Yd
 if
 vQ
-vQ
-vQ
-IL
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-Td
-vQ
-vQ
+dO
+dO
+XX
+dO
+dO
+dO
+dO
+dO
+dO
+dO
+dO
+br
+dO
+dO
 "}
 (36,1,1) = {"
-vQ
-vQ
-vQ
-vQ
-Td
-vQ
-vQ
+dO
+dO
+dO
+dO
+br
+dO
+dO
 Ay
 oH
 Im
 XD
 yJ
 lL
-yJ
+Lo
 BD
-cU
-Vd
-wM
+OV
+Hq
+IY
 XD
 uv
 oH
@@ -2771,29 +2970,29 @@ HY
 Yd
 if
 vQ
-vQ
-vQ
-vQ
-xP
-vQ
-vQ
-IL
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
+dO
+dO
+dO
+Ea
+dO
+dO
+XX
+dO
+dO
+dO
+dO
+dO
+dO
+dO
 "}
 (37,1,1) = {"
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-xP
+dO
+dO
+dO
+dO
+dO
+dO
+Ea
 xo
 oH
 Im
@@ -2813,29 +3012,29 @@ HY
 Yd
 if
 IL
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
+dO
+dO
+dO
+dO
+dO
+dO
+dO
+dO
+dO
+dO
+dO
+dO
+dO
+dO
 "}
 (38,1,1) = {"
-vQ
-vQ
-vQ
-xP
-xP
-IL
-vQ
+dO
+dO
+dO
+Ea
+Ea
+XX
+dO
 xo
 ek
 sC
@@ -2855,29 +3054,29 @@ se
 Yd
 if
 IL
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
+dO
+dO
+dO
+dO
+dO
+dO
+dO
+dO
+dO
+dO
+dO
+dO
+dO
+dO
 "}
 (39,1,1) = {"
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
+dO
+dO
+dO
+dO
+dO
+dO
+dO
 xo
 ek
 ek
@@ -2897,29 +3096,29 @@ se
 Yd
 if
 vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
+dO
+dO
+dO
+dO
+dO
+dO
+dO
+dO
+dO
+dO
+dO
+dO
+dO
+dO
 "}
 (40,1,1) = {"
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
+dO
+dO
+dO
+dO
+dO
+dO
+dO
 Oj
 GW
 xg
@@ -2939,18 +3138,18 @@ xg
 xg
 bs
 vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
+dO
+dO
+dO
+dO
+dO
+dO
+dO
+dO
+dO
+dO
+dO
+dO
+dO
+dO
 "}

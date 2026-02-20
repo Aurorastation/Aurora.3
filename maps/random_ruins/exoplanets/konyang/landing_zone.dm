@@ -18,6 +18,7 @@
 	no_light_control = FALSE
 	base_turf = /turf/simulated/mineral
 	area_flags = AREA_FLAG_HIDE_FROM_HOLOMAP | AREA_FLAG_INDESTRUCTIBLE_TURFS
+	is_outside = OUTSIDE_YES
 
 /area/konyang_landing_zone/command_center
 	name = "SCC Expedition Command Center"
