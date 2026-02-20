@@ -617,6 +617,7 @@
 /obj/item/clothing/under/rank/elyran_fatigues
 	name = "elyran navy uniform"
 	desc = "An utility uniform worn by Elyran navy staff serving aboard ships and in the field."
+	icon = ""
 	icon_state = "elyran_fatigues"
 	item_state = "elyran_fatigues"
 	armor = list(

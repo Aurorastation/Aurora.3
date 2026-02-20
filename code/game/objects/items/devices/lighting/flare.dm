@@ -16,7 +16,6 @@
 	toggle_sound = null
 	drop_sound = 'sound/items/drop/gloves.ogg'
 	pickup_sound = 'sound/items/pickup/gloves.ogg'
-	light_system = MOVABLE_LIGHT
 
 /obj/item/flashlight/flare/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()

@@ -273,7 +273,7 @@ Frequency:
 /obj/item/closet_teleporter
 	name = "closet teleporter"
 	desc = "A device that allows a user to connect two closets into a bluespace network."
-	icon = 'icons/obj/modular_computers/modular_components.dmi'
+	icon = 'icons/obj/modular_components.dmi'
 	icon_state = "cpu_normal_photonic"
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	w_class = WEIGHT_CLASS_SMALL

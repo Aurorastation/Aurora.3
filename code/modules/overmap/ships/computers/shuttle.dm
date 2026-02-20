@@ -65,7 +65,7 @@
 
 /obj/machinery/computer/shuttle_control/explore/terminal
 	name = "shuttle control terminal"
-	icon = 'icons/obj/modular_computers/modular_terminal.dmi'
+	icon = 'icons/obj/machinery/modular_terminal.dmi'
 	icon_screen = "helm"
 	icon_keyboard = "tech_key"
 	icon_keyboard_emis = "tech_key_mask"

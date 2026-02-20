@@ -132,12 +132,13 @@
 	set category = "Ghost"
 	set desc = "Follow and haunt a mob."
 
-	GLOB.follow_menu.ui_interact(src)
+	var/datum/tgui_module/follow_menu/GM = new /datum/tgui_module/follow_menu(usr)
+	GM.ui_interact(usr)
 
 // This is the ghost's follow verb with an argument
 /mob/abstract/ghost/proc/ManualFollow(var/atom/movable/target)
 	if(!target)
-		return FALSE
+		return
 
 	//Stops orbit if there's any; TG doesn't do this, but if you don't it breaks the orbiting reference
 	//if you are jumping from one mob to another, hence why we're doing it here
@@ -153,7 +154,6 @@
 
 	to_chat(src, SPAN_NOTICE("Now following \the <b>[target]</b>."))
 	update_sight()
-	return TRUE
 
 /mob/abstract/ghost/proc/update_sight()
 	//if they are on a restricted level, then set the ghost vision for them.

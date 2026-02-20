@@ -86,7 +86,6 @@
 	speed = -2
 	venom_type = /singleton/reagent/toxin/greimorian_eggs
 	fed = 1
-	lighting_alpha = LIGHTING_PLANE_ALPHA_SOMEWHAT_INVISIBLE
 	var/playable = TRUE
 	sample_data = list("Genetic markers identified as being linked with stem cell differentiaton", "Cellular structures indicative of high offspring production", "Tissue sample contains high neural cell content")
 
@@ -166,8 +165,6 @@
 	get_light_and_color(parent)
 	add_language(LANGUAGE_GREIMORIAN)
 	add_language(LANGUAGE_GREIMORIAN_HIVEMIND)
-	remove_language(LANGUAGE_TCB)
-	default_language = GLOB.all_languages[LANGUAGE_GREIMORIAN]
 
 /mob/living/simple_animal/hostile/giant_spider/nurse/servant/Initialize()
 	. = ..()
@@ -421,10 +418,6 @@
 	set desc = "Lay a clutch of eggs to make new spiderlings. This will cost one food point."
 	set category = "Greimorian"
 
-	if(fed <= 0)
-		to_chat(src, SPAN_WARNING("You do not have the nutrients to do this. Try cocooning a corpse!"))
-		return
-
 	var/obj/effect/spider/eggcluster/E = locate() in get_turf(src)
 	if(!E && fed > 0)
 		src.visible_message("\The [src] begins to lay a cluster of eggs.")
@@ -440,9 +433,6 @@
 	set desc = "Lay a greimorian servant, which can be player-controlled. This will cost one food point."
 	set category = "Greimorian"
 
-	if(fed <= 0)
-		to_chat(src, SPAN_WARNING("You do not have the nutrients to do this. Try cocooning a corpse!"))
-		return
 
 	var/obj/effect/spider/eggcluster/E = locate() in get_turf(src)
 	if(!E && fed > 0)

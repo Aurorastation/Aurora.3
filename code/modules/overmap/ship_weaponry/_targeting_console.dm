@@ -16,7 +16,7 @@
 /obj/machinery/computer/ship/targeting/terminal
 	name = "targeting systems terminal"
 	desc = "A targeting systems terminal using Zavodskoi software."
-	icon = 'icons/obj/modular_computers/modular_terminal.dmi'
+	icon = 'icons/obj/machinery/modular_terminal.dmi'
 	icon_screen = "hostile"
 	icon_keyboard = "red_key"
 	icon_keyboard_emis = "red_key_mask"

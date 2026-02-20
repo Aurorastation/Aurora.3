@@ -9,7 +9,6 @@
 	contained_sprite = TRUE
 	icon_auto_adapt = TRUE
 	icon_supported_species_tags = list("taj")
-	color = WOOD_COLOR_GENERIC
 
 /obj/item/clothing/shoes/sandals/geta
 	name = "geta"

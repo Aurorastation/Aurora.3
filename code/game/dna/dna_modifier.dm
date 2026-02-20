@@ -207,6 +207,8 @@
 			for(var/atom/movable/A as mob|obj in src)
 				A.forceMove(src.loc)
 				ex_act(severity)
+				//Foreach goto(35)
+			//SN src = null
 			qdel(src)
 			return
 		if(2.0)
@@ -214,6 +216,8 @@
 				for(var/atom/movable/A as mob|obj in src)
 					A.forceMove(src.loc)
 					ex_act(severity)
+					//Foreach goto(108)
+				//SN src = null
 				qdel(src)
 				return
 		if(3.0)
@@ -221,6 +225,8 @@
 				for(var/atom/movable/A as mob|obj in src)
 					A.forceMove(src.loc)
 					ex_act(severity)
+					//Foreach goto(181)
+				//SN src = null
 				qdel(src)
 				return
 	return

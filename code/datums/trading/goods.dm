@@ -172,7 +172,6 @@
 		/obj/item/clothing/accessory/storage            = TRADER_BLACKLIST_ALL,
 		/obj/item/clothing/accessory/fluff              = TRADER_BLACKLIST_ALL,
 		/obj/item/clothing/accessory/armband/fluff      = TRADER_BLACKLIST_ALL,
-		/obj/item/clothing/accessory/poncho/tajarancloak/fluff = TRADER_BLACKLIST_ALL,
 		/obj/item/clothing/gloves                       = TRADER_SUBTYPES_ONLY,
 		/obj/item/clothing/gloves/lightrig              = TRADER_BLACKLIST_ALL,
 		/obj/item/clothing/gloves/rig                   = TRADER_BLACKLIST_ALL,

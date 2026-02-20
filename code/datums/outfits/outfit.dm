@@ -503,16 +503,16 @@
 			if(OUTFIT_TAB_PDA)
 				I.desc_extended += "For its many years of service, this model has held a virtual monopoly for PDA models for NanoTrasen. The secret? A lapel pin affixed to the back."
 			if(OUTFIT_PDA_OLD)
-				I.icon = 'icons/obj/modular_computers/pda_old.dmi'
+				I.icon = 'icons/obj/pda_old.dmi'
 				I.desc_extended += "Nicknamed affectionately as the 'Brick', PDA enthusiasts rejoice with the return of an old favorite, retrofitted to new modular computing standards."
 			if(OUTFIT_PDA_RUGGED)
-				I.icon = 'icons/obj/modular_computers/pda_rugged.dmi'
+				I.icon = 'icons/obj/pda_rugged.dmi'
 				I.desc_extended += "EVA enthusiasts and owners of fat fingers just LOVE the huge tactile buttons provided by this model. Prone to butt-dialing, but don't let that hold you back."
 			if(OUTFIT_PDA_SLATE)
-				I.icon = 'icons/obj/modular_computers/pda_slate.dmi'
+				I.icon = 'icons/obj/pda_slate.dmi'
 				I.desc_extended += "A bet between an engineer and a disgruntled scientist, it turns out you CAN make a PDA out of an atmospherics scanner. Also, probably don't tell management, just enjoy."
 			if(OUTFIT_PDA_SMART)
-				I.icon = 'icons/obj/modular_computers/pda_smart.dmi'
+				I.icon = 'icons/obj/pda_smart.dmi'
 				I.desc_extended += "NanoTrasen originally designed this as a portable media player. Unfortunately, Royalty-free and corporate-approved ukulele isn't particularly popular."
 		I.update_icon()
 		if(!H.wrists && H.pda_choice == OUTFIT_WRISTBOUND)

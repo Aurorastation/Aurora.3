@@ -7,10 +7,6 @@
 	 */
 	var/gc_destroyed
 
-	/// Open uis owned by this datum
-	/// Lazy, since this case is semi rare
-	var/list/open_uis
-
 	var/tmp/list/active_timers
 
 	/// Active timers with this datum as the target
@@ -118,6 +114,10 @@
 
 	if (!isturf(src))
 		cleanup_events(src)
+
+	var/ui_key = REF(src)
+	if(LAZYISIN(SSnanoui.open_uis, ui_key))
+		SSnanoui.close_uis(src)
 
 	//BEGIN: ECS SHIT
 	var/list/dc = _datum_components

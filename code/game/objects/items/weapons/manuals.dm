@@ -1524,8 +1524,7 @@
 	name = "tau ceti armed forces pamphlet"
 	desc = "A simple pamphlet containing information about the Tau Ceti Armed Forces."
 	icon_state = "tcfl_pamphlet"
-	item_state = "tcfl_pamphlet"
-	contained_sprite = TRUE
+	item_state = "paper"
 	title = "Tau Ceti Armed Forces pamphlet"
 	author = "Tau Ceti Armed Forces recruitment center"
 	pickup_sound = 'sound/items/drop/paper.ogg'

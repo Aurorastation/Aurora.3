@@ -462,14 +462,9 @@
 	if (!job)
 		return
 	var/choices = list(job.title) + job.alt_titles
-	if(!isnull(job.alt_factions))
-		for(var/t in choices)
+	for(var/t in choices)
+		if(!isnull(job.alt_factions))
 			if (src.faction in job.alt_factions[t])
-				continue
-			choices -= t
-	if(!isnull(job.alt_citizenships))
-		for(var/t in choices)
-			if (src.citizenship in job.alt_citizenships[t])
 				continue
 			choices -= t
 	if((GLOB.all_species[src.species].spawn_flags & NO_AGE_MINIMUM))

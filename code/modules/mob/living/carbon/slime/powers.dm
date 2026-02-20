@@ -130,7 +130,7 @@
 			name = "[colour] [is_adult ? "adult" : "baby"] slime ([number])"
 			real_name = name
 			set_content(TRUE)
-			addtimer(CALLBACK(src, PROC_REF(set_content), FALSE), 1200, TIMER_DELETE_ME) // You get two minutes of safety
+			addtimer(CALLBACK(src, PROC_REF(set_content), FALSE), 1200) // You get two minutes of safety
 		else
 			to_chat(src, SPAN_NOTICE("I am not ready to evolve yet..."))
 	else

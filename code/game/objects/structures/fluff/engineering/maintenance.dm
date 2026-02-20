@@ -52,7 +52,7 @@ ABSTRACT_TYPE(/obj/structure/engineer_maintenance)
 	. = ..()
 	// Floor panels are smaller and should be layered beneath dropped objects other structures.
 	if(panel_location == PANEL_LOCATION_FLOOR)
-		name = "maintenance panel"
+		name = "maintenance_panel"
 		layer = EXPOSED_WIRE_TERMINAL_LAYER
 	else
 		name = "large maintenance panel"

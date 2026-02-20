@@ -3,11 +3,9 @@
 //
 /obj/item/robotanalyzer
 	name = "cyborg analyzer"
-	icon = 'icons/obj/item/scanner.dmi'
+	icon = 'icons/obj/item/robotanalyzer.dmi'
 	icon_state = "robotanalyzer"
-	// Reuses the basic health analyzer inhands.
-	item_state = "healthanalyzer"
-	contained_sprite = TRUE
+	item_state = "analyzer"
 	desc = "A hand-held scanner able to diagnose robotic injuries."
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BELT
@@ -137,6 +135,9 @@
 /obj/item/robotanalyzer/augment
 	name = "retractable cyborg analyzer"
 	desc = "An scanner implanted directly into the hand, popping through the finger. This scanner can diagnose robotic injuries."
+	icon = 'icons/obj/item/robotanalyzer.dmi'
+	icon_state = "robotanalyzer"
+	item_state = "analyzer"
 	slot_flags = null
 	w_class = WEIGHT_CLASS_HUGE
 

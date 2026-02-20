@@ -171,7 +171,7 @@
 		else
 			. += "\t<b>BRIG</b>: <i>[brig_sentence] minutes</i><br>"
 	else if ( fine != 0 )
-		. += "As decided by the arbiter(s), they have been fined [fine]电.<br>"
+		. += "As decided by the arbiter(s), they have been fined [fine] credits.<br>"
 	else
 		. += "As decided by the arbiter(s), they will serve no time for their crimes.<br>"
 	. += "<br><table>"

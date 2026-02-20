@@ -1,7 +1,7 @@
 /obj/item/remote_mecha
 	name = "standard exosuit remote upgrade"
 	desc = "A device that, when inserted into an exosuit, allows it to be remotely piloted."
-	icon = 'icons/obj/modular_computers/modular_components.dmi'
+	icon = 'icons/obj/modular_components.dmi'
 	icon_state = "aislot"
 	origin_tech = list(TECH_BLUESPACE = 3, TECH_MATERIAL = 4, TECH_DATA = 4)
 	w_class = WEIGHT_CLASS_SMALL

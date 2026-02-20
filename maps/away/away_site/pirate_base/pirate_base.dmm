@@ -8117,7 +8117,7 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/obj/item/gun/projectile/automatic/rifle/dpra,
+/obj/item/gun/projectile/automatic/rifle/dpra/gold,
 /turf/simulated/floor/tiled,
 /area/piratebase/hallway_north)
 "OI" = (

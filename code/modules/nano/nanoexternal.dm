@@ -37,4 +37,4 @@
 	return
 
 // Used by the Nano UI Manager (/datum/SSnanoui) to track UIs opened by this mob
-/mob/var/list/open_nanouis = list()
+/mob/var/list/open_uis = list()

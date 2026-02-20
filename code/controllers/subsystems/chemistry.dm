@@ -128,7 +128,7 @@ SUBSYSTEM_DEF(chemistry)
 		return
 
 	try
-		chemconfig = json_decode(file2text("config/secretchem.json"))
+		chemconfig = json_decode(return_file_text("config/secretchem.json"))
 	catch(var/exception/e)
 		log_subsystem_chemistry("Warning: Could not load config, as secretchem.json is missing - [e]")
 		return

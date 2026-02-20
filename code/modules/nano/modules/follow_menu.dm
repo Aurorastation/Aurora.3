@@ -1,5 +1,3 @@
-GLOBAL_DATUM_INIT(follow_menu, /datum/tgui_module/follow_menu, new)
-
 /datum/tgui_module/follow_menu/ui_interact(var/mob/user, var/datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
@@ -16,15 +14,9 @@ GLOBAL_DATUM_INIT(follow_menu, /datum/tgui_module/follow_menu, new)
 		return
 
 	if(action == "follow_target")
-		if(!ghost.ManualFollow(locate(params["follow_target"]) in GLOB.mob_list))
-			to_chat(ghost, SPAN_WARNING("Failed to follow selected target. Refreshing mob list..."))
-			return TRUE
+		ghost.ManualFollow(locate(params["follow_target"]) in GLOB.mob_list)
 
-	if(action == "refresh")
-		ui.send_full_update()
-		return TRUE
-
-/datum/tgui_module/follow_menu/ui_static_data(mob/user)
+/datum/tgui_module/follow_menu/ui_data(mob/user)
 	var/list/data = list()
 	// Don't worry about this is_mod check being for storytellers as well - all it does is highlight antags in red.
 	var/is_mod = check_rights(R_MOD|R_ADMIN, 0, user) || isstoryteller(user)

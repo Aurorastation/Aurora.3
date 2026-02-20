@@ -9,7 +9,7 @@
 	icon = 'icons/obj/item/multitool.dmi'
 	icon_state = "multitool"
 	item_state = "multitool"
-	contained_sprite = TRUE
+	item_icons = null
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	force = 11
 	w_class = WEIGHT_CLASS_SMALL

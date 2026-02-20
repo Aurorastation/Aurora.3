@@ -11,9 +11,6 @@
 	src.host = host
 	src.song = song
 
-/datum/nano_module/song_editor/Destroy()
-	song = null
-	return ..()
 
 /datum/nano_module/song_editor/proc/pages()
 	return Ceil(src.song.lines.len / GLOB.musical_config.song_editor_lines_per_page)

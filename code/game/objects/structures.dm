@@ -37,7 +37,7 @@
 		QUEUE_SMOOTH_NEIGHBORS(src)
 
 	climbers = null
-	material = null
+
 	return ..()
 
 /obj/structure/attack_hand(mob/living/user)

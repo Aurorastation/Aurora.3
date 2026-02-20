@@ -570,10 +570,11 @@
 /obj/structure/closet/relaymove(mob/living/user, direction)
 	. = ..()
 
-	if(user.stat || !isturf(loc) || user.loc != src || open())
+	if(user.stat || !isturf(loc))
 		return
 
-	to_chat(user, SPAN_NOTICE("It won't budge!"))
+	if(!open())
+		to_chat(user, SPAN_NOTICE("It won't budge!"))
 
 /obj/structure/closet/attack_hand(mob/user as mob)
 	add_fingerprint(user)
@@ -842,9 +843,8 @@
 /obj/item/cratescanner
 	name = "crate contents scanner"
 	desc = "A  handheld device used to scan and print a manifest of a container's contents. Does not work on locked crates, for privacy reasons."
-	icon = 'icons/obj/item/scanner.dmi'
-	icon_state = "crate_scanner"
-	item_state = "crate_scanner"
+	icon = 'icons/obj/item/cratescanner.dmi'
+	icon_state = "cratescanner"
 	matter = list(DEFAULT_WALL_MATERIAL = 250, MATERIAL_GLASS = 140)
 	w_class = WEIGHT_CLASS_SMALL
 	obj_flags = OBJ_FLAG_CONDUCTABLE

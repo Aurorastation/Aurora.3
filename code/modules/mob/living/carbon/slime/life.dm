@@ -314,14 +314,14 @@
 					set_intent(I_HURT)
 					UnarmedAttack(target)
 					Atkcool = TRUE
-					addtimer(CALLBACK(src, PROC_REF(disable_attack_cooldown)), 4.5 SECONDS, TIMER_DELETE_ME)
+					addtimer(CALLBACK(src, PROC_REF(disable_attack_cooldown)), 4.5 SECONDS)
 				AIproc = FALSE
 				return
 
 			if(target.client && !target.lying && prob(60 + powerlevel * 4)) // Try to take down the target first
 				if(!Atkcool)
 					Atkcool = TRUE
-					addtimer(CALLBACK(src, PROC_REF(disable_attack_cooldown)), 4.5 SECONDS, TIMER_DELETE_ME)
+					addtimer(CALLBACK(src, PROC_REF(disable_attack_cooldown)), 4.5 SECONDS)
 
 					set_intent(I_DISARM)
 					UnarmedAttack(target)

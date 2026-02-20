@@ -197,7 +197,7 @@ GLOBAL_DATUM(uplink, /datum/uplink)
 
 /datum/uplink_item/abstract/log_icon()
 	if(!default_abstract_uplink_icon)
-		default_abstract_uplink_icon = image('icons/obj/modular_computers/pda.dmi', "pda-syn")
+		default_abstract_uplink_icon = image('icons/obj/pda.dmi', "pda-syn")
 
 	return "[icon2html(default_abstract_uplink_icon, usr)]"
 

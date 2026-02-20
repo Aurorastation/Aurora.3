@@ -41,3 +41,13 @@
 	if(!applies_to(O))
 		return
 	shipped_count += O.amount
+
+/datum/bounty/item/solar_array
+	name = "Assembled Solar Panels"
+	description = "Owing to the phoron shortage continuing for over a year, longer than projected, we have decided to use solar arrays to power various facilities across our region of influence."
+	reward_low = 280
+	reward_high = 400
+	required_count = 6
+	random_count = 2 // 4 to 8
+	wanted_types = list(/obj/machinery/power/solar)
+	high_priority = TRUE

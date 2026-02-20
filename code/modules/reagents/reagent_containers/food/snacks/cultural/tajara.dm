@@ -320,10 +320,6 @@
 	bitten_state = "avah_half"
 	bitesize = 3
 
-/obj/item/reagent_containers/food/snacks/chip/miniavah/full
-	reagents_to_add = list(/singleton/reagent/nutriment = 3, /singleton/reagent/nutriment/protein = 3)
-	reagent_data = list(/singleton/reagent/nutriment = list("baked dough" = 3), /singleton/reagent/nutriment/protein = list("savoury meat" = 3))
-
 /obj/item/reagent_containers/food/snacks/chip/miniavah/cheese
 	name = "cheese mini-avah"
 	desc = "A miniature avah filled with meat. This one has cheese on it."

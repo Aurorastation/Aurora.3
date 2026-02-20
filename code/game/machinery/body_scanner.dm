@@ -167,7 +167,9 @@
 		occupant = M
 		update_use_power(POWER_USE_ACTIVE)
 		update_icon()
+		//Foreach goto(154)
 	add_fingerprint(user)
+	//G = null
 	qdel(G)
 	return TRUE
 

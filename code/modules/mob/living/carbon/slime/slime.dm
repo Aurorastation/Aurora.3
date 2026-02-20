@@ -94,7 +94,6 @@
 	for(var/mob/friend in friends)
 		friends -= friend
 	friends.Cut()
-	speech_buffer.Cut()
 	QDEL_NULL(ingested)
 	return ..()
 
@@ -215,7 +214,7 @@
 					if(is_adult || prob(5))
 						INVOKE_ASYNC(src, PROC_REF(UnarmedAttack), AM)
 						Atkcool = TRUE
-						addtimer(CALLBACK(src, PROC_REF(reset_atkcooldown)), 45, TIMER_DELETE_ME)
+						addtimer(CALLBACK(src, PROC_REF(reset_atkcooldown)), 45)
 
 	if(ismob(AM))
 		var/mob/tmob = AM

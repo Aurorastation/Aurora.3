@@ -31,7 +31,6 @@
 	icon = 'icons/obj/bureaucracy.dmi'
 	icon_state = "labeler0"
 	item_state = "labeler0"
-	contained_sprite = TRUE
 	w_class = WEIGHT_CLASS_SMALL
 	var/label = null
 	var/labels_left = 30

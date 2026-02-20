@@ -9,7 +9,7 @@
 	mob_push_flags = ALLMOBS
 	can_be_buckled = FALSE
 	accent = ACCENT_TTS
-	appearance_flags = KEEP_TOGETHER | DEFAULT_APPEARANCE_FLAGS | TILE_BOUND | LONG_GLIDE
+	appearance_flags = KEEP_TOGETHER
 	pass_flags_self = PASSVEHICLE
 	var/decal
 
@@ -76,16 +76,7 @@
 	var/use_air      = FALSE
 
 	// Interface stuff.
-
-	/// The next world tick that the mech has to wait for before it can change its Throttle (forward and backward movement).
 	var/next_mecha_move = 0
-
-	/// The next world tick that the mech has to wait for before it can turn.
-	var/next_mecha_turn = 0
-
-	/// The next world tick that the mech has to wait for before it can strafe.
-	var/next_mecha_strafe = 0
-
 	var/list/hud_elements = list()
 	var/list/hardpoint_hud_elements = list()
 	var/atom/movable/screen/mecha/health/hud_health

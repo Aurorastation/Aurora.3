@@ -45,18 +45,11 @@ RUN_DELAY_MULTIPLIER 1
 VEHICLE_DELAY_MULTIPLIER 1
 
 ## The variables below affect the movement of specific mob types.
-## These are summed with all other delay modifiers to form the "Base" movement delay.
-
-# All Mob/living/carbon/human
 HUMAN_DELAY 0
-# Unused
-ROBOT_DELAY 1
-# Unused
-MONKEY_DELAY 1
-# Unused
-ALIEN_DELAY 1
-# All Simple Mobs
-ANIMAL_DELAY 1
+ROBOT_DELAY 0
+MONKEY_DELAY 0
+ALIEN_DELAY 0
+ANIMAL_DELAY 0
 
 
 ### Miscellaneous ###

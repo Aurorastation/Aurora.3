@@ -1,6 +1,6 @@
 /obj/item/spacecash
 	name = "0 credit chip"
-	desc = "It's worth 0电."
+	desc = "It's worth 0 credits."
 	gender = PLURAL
 	icon = 'icons/obj/cash.dmi'
 	icon_state = "spacecash1"
@@ -38,7 +38,7 @@
 			h_user.drop_from_inventory(src)
 			h_user.drop_from_inventory(bundle)
 			h_user.put_in_hands(bundle)
-		to_chat(user, SPAN_NOTICE("You add [src.worth]电 to the bundles.<br>It holds [bundle.worth]电 now."))
+		to_chat(user, SPAN_NOTICE("You add [src.worth] credits worth of money to the bundles.<br>It holds [bundle.worth] credits now."))
 		qdel(src)
 
 /proc/coin_typepath_suffix(var/amount)
@@ -55,7 +55,7 @@
 	name = "credit chips"
 	icon_state = ""
 	gender = PLURAL
-	desc = "They are worth 0电."
+	desc = "They are worth 0 credits."
 	worth = 0
 
 /obj/item/spacecash/bundle/update_icon()
@@ -97,7 +97,7 @@
 
 	AddOverlays(ovr)
 	UpdateOverlays()	// The delay looks weird, so we force an update immediately.
-	src.desc = "A bundle of Biesel Standard Credits. Combined, this is worth [worth]电."
+	src.desc = "A bundle of Biesel Standard Credits. Combined, this is worth [worth] credits."
 
 /obj/item/spacecash/bundle/attack_self(mob/user as mob)
 	var/amount = tgui_input_number(user, "How many credits do you want to take out? (0 to [src.worth])", "Take Money", 5, worth, 0, 0, round_value = FALSE)
@@ -171,49 +171,49 @@
 /obj/item/spacecash/c5
 	name = "5 credit chip"
 	icon_state = "spacecash5"
-	desc = "A Biesel Standard Credit chip, used for transactions large and small. This one is worth 5电."
+	desc = "A Biesel Standard Credit chip, used for transactions large and small. This one is worth 5 credits."
 	worth = 5
 
 /obj/item/spacecash/c10
 	name = "10 credit chip"
 	icon_state = "spacecash10"
-	desc = "A Biesel Standard Credit chip, used for transactions large and small. This one is worth 10电."
+	desc = "A Biesel Standard Credit chip, used for transactions large and small. This one is worth 10 credits."
 	worth = 10
 
 /obj/item/spacecash/c20
 	name = "20 credit chip"
 	icon_state = "spacecash20"
-	desc = "A Biesel Standard Credit chip, used for transactions large and small. This one is worth 20电."
+	desc = "A Biesel Standard Credit chip, used for transactions large and small. This one is worth 20 credits."
 	worth = 20
 
 /obj/item/spacecash/c50
 	name = "50 credit chip"
 	icon_state = "spacecash50"
-	desc = "A Biesel Standard Credit chip, used for transactions large and small. This one is worth 50电."
+	desc = "A Biesel Standard Credit chip, used for transactions large and small. This one is worth 50 credits."
 	worth = 50
 
 /obj/item/spacecash/c100
 	name = "100 credit chip"
 	icon_state = "spacecash100"
-	desc = "A Biesel Standard Credit chip, used for transactions large and small. This one is worth 100电."
+	desc = "A Biesel Standard Credit chip, used for transactions large and small. This one is worth 100 credits."
 	worth = 100
 
 /obj/item/spacecash/c200
 	name = "200 credit chip"
 	icon_state = "spacecash200"
-	desc = "A Biesel Standard Credit chip, used for transactions large and small. This one is worth 200电."
+	desc = "A Biesel Standard Credit chip, used for transactions large and small. This one is worth 200 credits."
 	worth = 200
 
 /obj/item/spacecash/c500
 	name = "500 credit chip"
 	icon_state = "spacecash500"
-	desc = "A Biesel Standard Credit chip, used for transactions large and small. This one is worth 500电."
+	desc = "A Biesel Standard Credit chip, used for transactions large and small. This one is worth 500 credits."
 	worth = 500
 
 /obj/item/spacecash/c1000
 	name = "1000 credit chip"
 	icon_state = "spacecash1000"
-	desc = "A Biesel Standard Credit chip, used for transactions large and small. This one is worth 1000电."
+	desc = "A Biesel Standard Credit chip, used for transactions large and small. This one is worth 1000 credits."
 	worth = 1000
 
 /obj/item/spacecash/coin
@@ -238,25 +238,25 @@
 /obj/item/spacecash/coin/c001
 	name = "1 cent unie coin"
 	icon_state = "spacecash0.01"
-	desc = "A Biesel Standard Credit coin, called a 'unie'. This is worth 0.01电."
+	desc = "A Biesel Standard Credit coin, called a 'unie'. This is worth 0.01 credits."
 	worth = 0.01
 
 /obj/item/spacecash/coin/c005
 	name = "5 cent quin coin"
 	icon_state = "spacecash0.05"
-	desc = "A Biesel Standard Credit coin, called a 'quin'. This is worth 0.05电."
+	desc = "A Biesel Standard Credit coin, called a 'quin'. This is worth 0.05 credits."
 	worth = 0.05
 
 /obj/item/spacecash/coin/c010
 	name = "10 cent dece coin"
 	icon_state = "spacecash0.10"
-	desc = "A Biesel Standard Credit coin, called a 'dece'. This is worth 0.10电."
+	desc = "A Biesel Standard Credit coin, called a 'dece'. This is worth 0.10 credits."
 	worth = 0.10
 
 /obj/item/spacecash/coin/c025
 	name = "25 cent quarter coin"
 	icon_state = "spacecash0.25"
-	desc = "A Biesel Standard Credit coin, called a 'quarter'. This is worth 0.25电."
+	desc = "A Biesel Standard Credit coin, called a 'quarter'. This is worth 0.25 credits."
 	worth = 0.25
 
 /proc/spawn_money(var/sum, spawnloc, mob/living/carbon/human/human_user as mob)

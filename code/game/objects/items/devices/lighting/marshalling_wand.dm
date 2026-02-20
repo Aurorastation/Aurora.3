@@ -4,7 +4,6 @@
 	icon_state = "marshallingwand"
 	item_state = "marshallingwand"
 	w_class = WEIGHT_CLASS_SMALL
-	light_system = MOVABLE_LIGHT
 	light_color = LIGHT_COLOR_RED
 	light_range = 2
 	action_button_name = "Toggle Marshalling Wands"

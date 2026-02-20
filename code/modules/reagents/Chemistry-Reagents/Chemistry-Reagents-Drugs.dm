@@ -312,7 +312,7 @@
 	M.hallucination = max(M.hallucination, drug_strength)
 
 	if(prob(15))
-		to_chat(M, SPAN_GOOD(pick("The floor is melting...", "Everything is so much brighter! Wow!", "Everything is shifting around you.")))
+		to_chat(SPAN_GOOD(pick("The floor is melting...", "Everything is so much brighter! Wow!", "Everything is shifting around you.")))
 
 
 /singleton/reagent/drugs/night_juice

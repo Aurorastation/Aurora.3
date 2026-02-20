@@ -180,20 +180,6 @@
 	groupable = TRUE
 	spawn_amount = 1
 
-/singleton/cargo_item/stickypad
-	category = "supply"
-	name = "stickynote pad"
-	supplier = "nanotrasen"
-	description = "A wad of stickynotes."
-	price = 10
-	items = list(
-		/obj/item/paper/stickynotes/pad
-	)
-	access = 0
-	container_type = "crate"
-	groupable = TRUE
-	spawn_amount = 1
-
 /singleton/cargo_item/pen
 	category = "supply"
 	name = "pen"

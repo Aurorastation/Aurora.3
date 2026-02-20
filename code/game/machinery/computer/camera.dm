@@ -266,7 +266,7 @@
 
 /obj/machinery/computer/security/engineering/terminal
 	name = "engineering camera monitor"
-	icon = 'icons/obj/modular_computers/modular_terminal.dmi'
+	icon = 'icons/obj/machinery/modular_terminal.dmi'
 	icon_screen = "engines"
 	icon_keyboard = "power_key"
 	icon_keyboard_emis = "power_key_mask"
@@ -296,7 +296,7 @@
 
 /obj/machinery/computer/security/terminal
 	name = "camera monitor terminal"
-	icon = 'icons/obj/modular_computers/modular_terminal.dmi'
+	icon = 'icons/obj/machinery/modular_terminal.dmi'
 	icon_screen = "cameras"
 	icon_keyboard = "security_key"
 	icon_keyboard_emis = "security_key_mask"

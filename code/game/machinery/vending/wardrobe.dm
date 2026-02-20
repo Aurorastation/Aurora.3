@@ -768,7 +768,7 @@
 		/obj/item/clothing/suit/storage/toggle/highvis/alt = 3,
 		/obj/item/clothing/suit/storage/toggle/highvis/orange = 3,
 		/obj/item/clothing/suit/storage/toggle/highvis/red = 3,
-		/obj/item/clothing/pants/shorts/black = 24,
+		/obj/item/clothing/pants/shorts/khaki = 24,
 		/obj/item/clothing/pants/highvis = 3,
 		/obj/item/clothing/pants/highvis/alt = 3,
 		/obj/item/clothing/pants/highvis/orange = 3,

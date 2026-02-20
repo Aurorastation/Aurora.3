@@ -1359,7 +1359,7 @@
 		else
 			item_state_slots[slot_w_uniform_str] = "[worn_state]_d"
 		if(user)
-			to_chat(user, SPAN_NOTICE("You roll down \the [src]."))
+			to_chat(user, SPAN_NOTICE("You roll up \the [src]."))
 	else
 		body_parts_covered = initial(body_parts_covered)
 		if(contained_sprite || !LAZYLEN(item_state_slots))
@@ -1370,7 +1370,7 @@
 		else
 			item_state_slots[slot_w_uniform_str] = "[worn_state]"
 		if(user)
-			to_chat(user, SPAN_NOTICE("You roll up \the [src]."))
+			to_chat(user, SPAN_NOTICE("You roll down \the [src]."))
 	update_clothing_icon()
 
 /obj/item/clothing/under/proc/rollsleeves()

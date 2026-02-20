@@ -154,10 +154,6 @@
 	var/last_power_draw = 0
 	var/obj/item/cell/cell
 
-/obj/machinery/portable_atmospherics/powered/Destroy()
-	QDEL_NULL(cell)
-	return ..()
-
 /obj/machinery/portable_atmospherics/powered/powered()
 	if(use_power) //using area power
 		return ..()

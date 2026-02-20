@@ -132,7 +132,7 @@ then the player gets the profit from selling his own wasted time.
 /datum/export/proc/total_printout(contr = 0, emag = 0)
 	if(!total_cost && !total_amount)
 		return ""
-	var/msg = "[total_cost]电: Received [total_amount]电 "
+	var/msg = "[total_cost] credits: Received [total_amount] "
 	if(total_cost > 0)
 		msg = "+" + msg
 

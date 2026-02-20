@@ -511,7 +511,7 @@
 	description = "A box of 40mm AP ammo for the francisca rotary cannon."
 	price = 850
 	items = list(
-		/obj/item/ship_ammunition/francisca/ap
+		/obj/item/ship_ammunition/grauwolf_bundle/ap
 	)
 	access = ACCESS_CARGO
 	container_type = "crate"
@@ -525,21 +525,7 @@
 	description = "A box of 40mm FMJ ammo for a Francisca-type rotary cannon."
 	price = 800
 	items = list(
-		/obj/item/ship_ammunition/francisca
-	)
-	access = ACCESS_CARGO
-	container_type = "crate"
-	groupable = TRUE
-	spawn_amount = 1
-
-/singleton/cargo_item/franciscafmjammo
-	category = "weaponry"
-	name = "francisca rotary cannon fragmentation ammunition box"
-	supplier = "zavodskoi"
-	description = "A box of 40mm fragmentation ammo for a Francisca-type rotary cannon."
-	price = 800
-	items = list(
-		/obj/item/ship_ammunition/francisca/frag
+		/obj/item/ship_ammunition/grauwolf_bundle
 	)
 	access = ACCESS_CARGO
 	container_type = "crate"

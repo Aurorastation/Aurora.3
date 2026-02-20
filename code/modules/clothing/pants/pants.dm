@@ -54,11 +54,35 @@ ABSTRACT_TYPE(/obj/item/clothing/pants)
 
 /********** Pants Start **********/
 // Pants
+/obj/item/clothing/pants/white
+	name = "white pants"
+	desc = "Plain boring white pants."
+	icon_state = "whitepants"
+	item_state = "whitepants"
+
 /obj/item/clothing/pants/black
 	name = "black pants"
 	desc = "A pair of plain black pants."
 	icon_state = "blackpants"
 	item_state = "blackpants"
+
+/obj/item/clothing/pants/red
+	name = "red pants"
+	desc = "Bright red pants."
+	icon_state = "redpants"
+	item_state = "redpants"
+
+/obj/item/clothing/pants/tan
+	name = "tan pants"
+	desc = "Some tan pants. You look like a white collar worker with these on."
+	icon_state = "tanpants"
+	item_state = "tanpants"
+
+/obj/item/clothing/pants/khaki
+	name = "tan pants"
+	desc = "A pair of dust beige khaki pants."
+	icon_state = "khaki"
+	item_state = "khaki"
 
 /obj/item/clothing/pants/camo
 	name = "camouflage pants"
@@ -75,8 +99,8 @@ ABSTRACT_TYPE(/obj/item/clothing/pants)
 /obj/item/clothing/pants/dress/belt
 	name = "dress pants"
 	desc = "A pair of suit trousers. Comes with a belt, to secure your burdens."
-	build_from_parts = TRUE
-	worn_overlay = "belt"
+	icon_state = "dresspants_belt"
+	item_state = "dresspants_belt"
 
 /obj/item/clothing/pants/striped
 	name = "striped pants"

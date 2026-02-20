@@ -159,7 +159,7 @@
 
 // wall nav console
 /obj/machinery/computer/ship/navigation/wall
-	icon = 'icons/obj/modular_computers/modular_telescreen.dmi'
+	icon = 'icons/obj/modular_telescreen.dmi'
 	icon_state = "telescreen"
 	icon_screen = "command"
 	density = FALSE

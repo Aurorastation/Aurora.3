@@ -1,0 +1,4 @@
+author: Hellfirejag
+delete-after: True
+changes:
+  - bugfix: "Observers (such as Storytellers) are now always included in Narrates with a filter."

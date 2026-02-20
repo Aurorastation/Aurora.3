@@ -9,11 +9,6 @@
 	src.host = host
 	src.topic_manager = topic_manager
 
-/datum/nano_module/Destroy()
-	host = null
-	topic_manager = null
-	return ..()
-
 /datum/nano_module/ui_host()
 	return host ? host.ui_host() : src
 

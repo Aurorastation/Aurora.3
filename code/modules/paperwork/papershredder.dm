@@ -45,7 +45,7 @@
 				return
 			if (paper_result > 0)
 				paperamount += paper_result
-			if(astype(attacking_item, /obj/item/paper)?.crumpled)
+			if(attacking_item.icon_state == "scrap")
 				flick("papershredder_s_on", src)
 			else if(attacking_item.icon_state == "paper_words")
 				flick("papershredder_w_on", src)

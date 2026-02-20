@@ -248,10 +248,9 @@
 		else
 			step(user.pulling, get_dir(user.pulling.loc, src))
 
-	// Check if objects in the turf want to slap the attacker back.
-	for (var/atom/target_atom in src)
-		SEND_SIGNAL(target_atom, COMSIG_HANDLE_HAND_INTERCEPTION, user, src)
-
+	. = handle_hand_interception(user)
+	if (!.)
+		return TRUE
 	return TRUE
 
 /// Call to move a turf from its current area to a new one
@@ -291,6 +290,16 @@
 /// Allows for reactions to an area change without inherently requiring change_area() be called (I hate maploading)
 /turf/proc/on_change_area(area/old_area, area/new_area)
 	transfer_area_lighting(old_area, new_area)
+
+/turf/proc/handle_hand_interception(var/mob/user)
+	var/datum/component/turf_hand/THE
+	for (var/atom/A in src)
+		var/datum/component/turf_hand/TH = A.GetComponent(/datum/component/turf_hand)
+		if (istype(TH) && TH.priority > THE?.priority) //Only overwrite if the new one is higher. For matching values, its first come first served
+			THE = TH
+
+	if (THE)
+		return THE.OnHandInterception(user)
 
 // /turf/Enter(atom/movable/mover as mob|obj, atom/forget as mob|obj|turf|area)
 // 	if(movement_disabled && usr.ckey != movement_disabled_exception)

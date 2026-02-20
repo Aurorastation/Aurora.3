@@ -38,7 +38,7 @@
 
 /obj/machinery/computer/ship/sensors/terminal
 	name = "sensors terminal"
-	icon = 'icons/obj/modular_computers/modular_terminal.dmi'
+	icon = 'icons/obj/machinery/modular_terminal.dmi'
 	icon_screen = "teleport"
 	icon_keyboard = "teleport_key"
 	icon_keyboard_emis = "teleport_key_mask"

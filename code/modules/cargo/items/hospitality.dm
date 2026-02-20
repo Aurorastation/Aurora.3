@@ -1519,7 +1519,7 @@
 
 /singleton/cargo_item/assunzione_wine
 	category = "hospitality"
-	name = "Assunzioni Sera Stellata di Dalyan Wine"
+	name = "\improper Assunzioni Sera Stellata di Dalyan Wine"
 	supplier = "getmore"
 	description = "A bottle of velvety smooth red wine from the underground vineyards of Dalyan, Assunzione."
 	price = 50

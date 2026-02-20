@@ -30,20 +30,17 @@ export const FollowMenu = (props, context) => {
         <Section
           title="Follow Menu"
           buttons={
-            <>
-              <Input
-                autoFocus
-                autoSelect
-                placeholder="Search by name"
-                width="40vw"
-                maxLength={512}
-                onInput={(e, value) => {
-                  setSearchTerm(value);
-                }}
-                value={searchTerm}
-              />
-              <Button content="Refresh" onClick={() => act('refresh')} />
-            </>
+            <Input
+              autoFocus
+              autoSelect
+              placeholder="Search by name"
+              width="40vw"
+              maxLength={512}
+              onInput={(e, value) => {
+                setSearchTerm(value);
+              }}
+              value={searchTerm}
+            />
           }
         >
           {data.categories.sort().map((category) => (

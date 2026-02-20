@@ -4,7 +4,7 @@
 
 /obj/machinery/computer/fusion/core_control/terminal
 	name = "\improper INDRA fusion core control"
-	icon = 'icons/obj/modular_computers/modular_terminal.dmi'
+	icon = 'icons/obj/machinery/modular_terminal.dmi'
 	icon_screen = "solar_screen"
 	icon_keyboard = "id_key"
 	icon_keyboard_emis = "id_key_mask"

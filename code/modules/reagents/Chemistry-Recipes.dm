@@ -168,7 +168,7 @@
 	name = "Perconol"
 	id = "perconol"
 	result = /singleton/reagent/perconol
-	required_reagents = list(/singleton/reagent/mortaphenyl = 1, /singleton/reagent/sugar = 1, /singleton/reagent/hydrazine = 1)
+	required_reagents = list(/singleton/reagent/mortaphenyl = 1, /singleton/reagent/sugar = 1, /singleton/reagent/water = 1)
 	result_amount = 3
 
 /datum/chemical_reaction/oxycomorphine
@@ -1017,9 +1017,16 @@
 	name = "Napalm"
 	id = "napalm"
 	result = null
-	required_reagents = list(/singleton/reagent/aluminum = 1, /singleton/reagent/fuel = 1, /singleton/reagent/acid = 1 )
+	required_reagents = list(/singleton/reagent/aluminum = 1, /singleton/reagent/toxin/phoron = 1, /singleton/reagent/acid = 1 )
 	result_amount = 1
-	log_is_important = TRUE
+
+/datum/chemical_reaction/napalm/on_reaction(var/datum/reagents/holder, var/created_volume)
+	var/turf/location = get_turf(holder.my_atom.loc)
+	for(var/turf/simulated/floor/target_tile in range(0,location))
+		target_tile.assume_gas(GAS_PHORON, created_volume, 400+T0C)
+		spawn (0) target_tile.hotspot_expose(700, 400)
+	holder.del_reagent(/singleton/reagent/fuel/napalm)
+	return
 
 /datum/chemical_reaction/zoragel
 	name = "Inert Gel"
@@ -1031,10 +1038,10 @@
 /datum/chemical_reaction/zorafire
 	name = "Zo'rane Fire"
 	id = "greekfire"
-	result = /singleton/reagent/fuel/zorane_fire
+	result = /singleton/reagent/fuel/napalm
 	required_reagents = list(/singleton/reagent/nitroglycerin = 2, /singleton/reagent/pyrosilicate = 2, /singleton/reagent/toxin/phoron = 3, /singleton/reagent/fuel/zoragel = 3)
 	result_amount = 1
-	log_is_important = TRUE
+	log_is_important = 1
 
 /datum/chemical_reaction/chemsmoke
 	name = "Chemsmoke"

@@ -2,7 +2,7 @@ ABSTRACT_TYPE(/obj/machinery/controlhub)
 /obj/machinery/controlhub
 	name = "control hub"
 	desc = "A control interface that can manage multiple systems from a single point."
-	icon = 'icons/obj/modular_computers/modular_telescreen.dmi'
+	icon = 'icons/obj/modular_telescreen.dmi'
 	anchored = TRUE
 	density = FALSE
 	opacity = FALSE

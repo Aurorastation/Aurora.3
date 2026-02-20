@@ -74,5 +74,3 @@
 #define PIPE_CONNECTOR_AUX			63
 
 #define PIPE_AUX_UVENT				64
-
-#define PIPE_PVENT					65

@@ -155,7 +155,7 @@
 		take_damage(25)
 		return
 	else
-		return attackby(null, user)
+		return attackby(user, user)
 
 /obj/machinery/door/window/emag_act(var/remaining_charges, var/mob/user)
 	if (density && operable())

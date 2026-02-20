@@ -8,7 +8,6 @@
 	permeability_coefficient = 0.05 //these are quite tall
 	drop_sound = 'sound/items/drop/leather.ogg'
 	pickup_sound = 'sound/items/pickup/leather.ogg'
-	can_hold_knife = TRUE
 
 /obj/item/clothing/shoes/cowboy/classic
 	name = "classic cowboy boots"

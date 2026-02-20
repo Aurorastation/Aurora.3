@@ -138,11 +138,9 @@ ABSTRACT_TYPE(/atom/movable/screen/new_player)
 			icon_state = pick(SSatlas.current_map.lobby_screens)
 		return
 
-	var/num_lobby_screens = length(SSatlas.current_map.lobby_screens)
-
-	if(num_lobby_screens >= 2)
+	if(length(SSatlas.current_map.lobby_screens) >= 2)
 		//Advance to the next icon
-		lobby_screen_index = (lobby_screen_index % num_lobby_screens) + 1
+		lobby_screen_index = max(++lobby_screen_index % length(SSatlas.current_map.lobby_screens), 1)
 
 		animate(src, alpha = 0, time = 1 SECOND)
 

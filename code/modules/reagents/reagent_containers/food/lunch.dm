@@ -32,13 +32,7 @@ GLOBAL_LIST_INIT(lunchables_lunches_, list(
 	/obj/item/reagent_containers/food/snacks/stokkebab,
 	/obj/item/reagent_containers/food/snacks/batwings,
 	/obj/item/reagent_containers/food/snacks/salad/earthenroot,
-	/obj/item/reagent_containers/food/snacks/pepperoniroll,
-	/obj/item/reagent_containers/food/snacks/hardbread,
-	/obj/item/reagent_containers/food/snacks/nomadskewer,
-	/obj/item/reagent_containers/food/snacks/earthenroot_mash,
-	/obj/item/reagent_containers/food/snacks/earthenroot_fries,
-	/obj/item/reagent_containers/food/snacks/explorer_ration,
-	/obj/item/reagent_containers/food/snacks/clam_pasta
+	/obj/item/reagent_containers/food/snacks/pepperoniroll
 ))
 
 GLOBAL_LIST_INIT(lunchables_snacks_, list(
@@ -87,10 +81,7 @@ GLOBAL_LIST_INIT(lunchables_snacks_, list(
 	/obj/item/reagent_containers/food/snacks/honeybun,
 	/obj/item/reagent_containers/food/snacks/stuffed_meatball,
 	/obj/item/reagent_containers/food/snacks/grilled_peppers,
-	/obj/item/reagent_containers/food/snacks/salmiak,
-	/obj/item/reagent_containers/food/snacks/chip/miniavah/full,
-	/obj/item/reagent_containers/food/snacks/zkahnkowaslice/filled,
-	/obj/item/reagent_containers/food/snacks/dirt_roast
+	/obj/item/reagent_containers/food/snacks/salmiak
 ))
 
 GLOBAL_LIST_INIT(lunchables_drinks_, list(
@@ -127,8 +118,7 @@ GLOBAL_LIST_INIT(lunchables_drinks_, list(
 	/obj/item/reagent_containers/food/drinks/cans/zorasoda/lemonlime,
 	/obj/item/reagent_containers/food/drinks/cans/zorasoda/xuizi,
 	/obj/item/reagent_containers/food/drinks/cans/zorasoda/dyn,
-	/obj/item/reagent_containers/food/drinks/cans/zorasoda/buzz,
-	/obj/item/reagent_containers/food/drinks/cans/earthen_juice
+	/obj/item/reagent_containers/food/drinks/cans/zorasoda/buzz
 ))
 
 GLOBAL_LIST_INIT(lunchables_vaurca_, list(

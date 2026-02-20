@@ -114,10 +114,9 @@
 
 	GLOB.human_mob_list -= src
 	GLOB.intent_listener -= src
-	// This is apparently a different list entirely from the list of organs on /mob/living/carbon.
-	// It's actually the set of all Limbs (left arm, head, leg leg, etc) we have. We Qdel and null the set of all limbs, which is unique to /human.
 	QDEL_LIST(organs)
-	// Then also null the associative list of those same limbs, which contains the same references.
+	internal_organs_by_name = null
+	internal_organs = null
 	organs_by_name = null
 	bad_internal_organs = null
 	bad_external_organs = null
@@ -139,9 +138,6 @@
 	QDEL_NULL(s_store)
 	QDEL_NULL(wear_suit)
 	QDEL_NULL(wear_mask)
-	QDEL_NULL(back)
-	QDEL_NULL(l_hand)
-	QDEL_NULL(r_hand)
 	// Do this last so the mob's stuff doesn't drop on del.
 	QDEL_NULL(w_uniform)
 
@@ -762,6 +758,7 @@
 					var/message = "<b>Medical Records: [R.name]</b>\n\n" \
 						+ "<b>Name:</b> [R.name] <b>Blood Type:</b> [R.medical.blood_type]\n" \
 						+ "<b>DNA:</b> [R.medical.blood_dna]\n" \
+						+ "<b>Disabilities:</b> [R.medical.disabilities]\n" \
 						+ "<b>Notes:</b> [R.medical.notes]\n" \
 						+ "<a href='byond://?src=[REF(src)];medrecordComment=`'>\[View Comment Log\]</a>"
 					to_chat(usr, EXAMINE_BLOCK_DEEP_CYAN(message))
@@ -1469,7 +1466,7 @@
 		self = 1
 
 	if ((src.species.flags & NO_BLOOD) || (status_flags & FAKEDEATH))
-		to_chat(usr, SPAN_WARNING("[self ? "You have" : "[src] has"] no pulse!"))
+		to_chat(usr, SPAN_WARNING(self ? "You have no pulse." : "[src] has no pulse!"))
 		return
 
 	if(!self)
@@ -1892,10 +1889,10 @@
 		playsound(src.loc, SFX_FRACTURE, 50, 1, -2)
 	current_limb.undislocate()
 
-/mob/living/carbon/human/drop_from_inventory(obj/item/W, atom/target, update_icons = TRUE, force = FALSE)
-	if(!force && (W in organs))
+/mob/living/carbon/human/drop_from_inventory(var/obj/item/W, var/atom/target = null)
+	if(W in organs)
 		return
-	return ..()
+	..()
 
 /mob/living/carbon/human/reset_view(atom/A, update_hud = 1)
 	..()

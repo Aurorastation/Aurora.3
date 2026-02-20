@@ -195,6 +195,9 @@
 /datum/record/medical
 	var/blood_type = "AB+"
 	var/blood_dna = "63920c3ec24b5d57d459b33a2f4d6446"
+	var/disabilities = "No disabilities have been declared."
+	var/allergies = "No allergies have been detected in this patient."
+	var/diseases = "No diseases have been diagnosed at the moment."
 	var/list/comments = list()
 
 /datum/record/medical/New(var/mob/living/carbon/human/H, var/nid)
@@ -207,7 +210,6 @@
 		blood_dna = H.dna.unique_enzymes
 		if(H.med_record && !jobban_isbanned(H, "Records"))
 			notes = H.med_record
-		else notes = "No history has been reported yet."
 
 // Record for storing security data
 /datum/record/security

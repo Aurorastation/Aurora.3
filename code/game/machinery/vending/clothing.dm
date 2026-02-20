@@ -29,6 +29,7 @@
 		/obj/item/clothing/under/dressshirt/silversun = 8,
 		// Pants
 		/obj/item/clothing/pants/black = 8,
+		/obj/item/clothing/pants/tan = 4,
 		/obj/item/clothing/pants/jeans = 4,
 		/obj/item/clothing/pants/jeansblack = 4,
 		/obj/item/clothing/pants/striped = 4,

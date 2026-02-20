@@ -4,7 +4,6 @@
 	icon = 'icons/obj/module.dmi'
 	icon_state = "id_mod"
 	item_state = "electronic"
-	contained_sprite = TRUE
 	origin_tech = list(TECH_DATA = 2)
 	w_class = WEIGHT_CLASS_SMALL
 	obj_flags = OBJ_FLAG_CONDUCTABLE

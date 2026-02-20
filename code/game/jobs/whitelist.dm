@@ -21,7 +21,7 @@ var/list/whitelist_jobconfig = list()
 	if(fexists("config/whitelist_jobconfig.json"))
 		LOG_DEBUG("Whitelist JobConfig: Loading from json")
 		try
-			whitelist_jobconfig = json_decode(file2text("config/whitelist_jobconfig.json"))
+			whitelist_jobconfig = json_decode(return_file_text("config/whitelist_jobconfig.json"))
 		catch(var/exception/e)
 			LOG_DEBUG("Whitelist JobConfig: Failed to load whitelist_jobconfig.json: [e]")
 

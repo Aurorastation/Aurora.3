@@ -117,8 +117,6 @@
 /obj/machinery/mining/drill/Destroy()
 	QDEL_NULL(attached_satchel)
 	QDEL_NULL(spark_system)
-	QDEL_NULL(cell)
-	QDEL_NULL_LIST(stored_ores)
 	return ..()
 
 /obj/machinery/mining/drill/proc/update_ore_count()

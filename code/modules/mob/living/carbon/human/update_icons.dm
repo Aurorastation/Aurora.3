@@ -104,29 +104,26 @@ There are several things that need to be remembered:
 	var/list/overlays_raw[TOTAL_LAYERS] // Our set of "raw" overlays that can be modified, but cannot be directly applied to the mob without preprocessing.
 	var/previous_damage_appearance // store what the body last looked like, so we only have to update it if something changed
 
+#define UPDATE_ICON_IGNORE_DIRECTION_UPDATE -1
+
 // Updates overlays from overlays_raw.
 /mob/living/carbon/human/update_icon(var/forceDirUpdate = FALSE)
 	if (QDELETED(src))
 		return	// No point.
 
-	var/update_lying = (lying_prev != lying) || forceDirUpdate || size_multiplier != 1
-	var/draw_specific_icon = (!lying || species.prone_icon)
-
-	if(update_lying && draw_specific_icon)
-		update_inv_l_hand(FALSE)
-		update_inv_r_hand(FALSE)
-
 	update_hud()		//TODO: remove the need for this
+	ClearOverlays()
 
 	if(cloaked)
 		icon = 'icons/mob/human.dmi'
 		icon_state = "body_cloaked"
-		SetOverlays(list(overlays_raw[L_HAND_LAYER], overlays_raw[R_HAND_LAYER]))
-	else
-		var/list/ovr = list()
+		AddOverlays(list(overlays_raw[L_HAND_LAYER], overlays_raw[R_HAND_LAYER]))
+
+	else if (icon_update)
 		if (icon != stand_icon)
 			icon = stand_icon
 
+		var/list/ovr = list()
 		// We manually add each element instead of just using Copy() so that lists are appended instead of inserted.
 		for (var/item in overlays_raw)
 			if (item)
@@ -140,20 +137,18 @@ There are several things that need to be remembered:
 			var/icon/aura_overlay = icon(A.icon, icon_state = A.icon_state)
 			ovr += aura_overlay
 
-		SetOverlays(ovr)
+		AddOverlays(ovr)
 
-	if(update_lying) //Only rotate them if we're not drawing a specific icon for being prone.
-		var/matrix/M = matrix()
-		M.Scale(size_multiplier)
-		if(draw_specific_icon)
-			M.Translate(0, 16*(size_multiplier-1))
-			animate(src, transform = M, time = ANIM_LYING_TIME)
-		else
+	if (((lying_prev != lying) || forceDirUpdate || size_multiplier != 1) && forceDirUpdate != UPDATE_ICON_IGNORE_DIRECTION_UPDATE)
+		if(lying && !species.prone_icon) //Only rotate them if we're not drawing a specific icon for being prone.
+			var/matrix/M = matrix()
+
 			switch(src.dir)
 				if(SOUTH,EAST)
 					M.Turn(90)
 				else
 					M.Turn(-90)
+			M.Scale(size_multiplier)
 			M.Translate(1,-6)
 			animate(src, transform = M, time = (forceDirUpdate ? 0 : ANIM_LYING_TIME))
 
@@ -161,6 +156,15 @@ There are several things that need to be remembered:
 				HeldObjectDirTransform(slot_l_hand, src.dir)
 			if(istype(src.r_hand, /obj/item/gun) && lying)
 				HeldObjectDirTransform(slot_r_hand, src.dir)
+
+		else
+			update_inv_l_hand(FALSE)
+			update_inv_r_hand(FALSE)
+			update_icon(UPDATE_ICON_IGNORE_DIRECTION_UPDATE)
+			var/matrix/M = matrix()
+			M.Scale(size_multiplier)
+			M.Translate(0, 16*(size_multiplier-1))
+			animate(src, transform = M, time = ANIM_LYING_TIME)
 
 	UpdateOverlays()
 	lying_prev = lying
@@ -192,7 +196,9 @@ There are several things that need to be remembered:
 
 	animate(item_image, transform = item_transform)
 	overlays_raw[layer] = item_image
-	update_icon()
+	update_icon(UPDATE_ICON_IGNORE_DIRECTION_UPDATE)
+
+#undef UPDATE_ICON_IGNORE_DIRECTION_UPDATE
 
 //DAMAGE OVERLAYS
 //constructs damage icon for each organ from mask * damage field and saves it in our overlays_raw list (as a list of icons).
@@ -271,11 +277,9 @@ There are several things that need to be remembered:
 	if(update_icons)
 		update_icon()
 
-/**
- * Overlays for the worn overlay so you can overlay while you overlay
- * eg: ammo counters, primed grenade flashing, etc.
- * "icon_file" is used automatically for inhands etc. to make sure it gets the correct inhand file
- */
+//Overlays for the worn overlay so you can overlay while you overlay
+//eg: ammo counters, primed grenade flashing, etc.
+//"icon_file" is used automatically for inhands etc. to make sure it gets the correct inhand file
 /obj/item/proc/worn_overlays(icon_file)
 	. = list()
 	var/mutable_appearance/M = null
@@ -322,7 +326,7 @@ There are several things that need to be remembered:
 			return WORN_GLOVES
 	return ""
 
-/// BASE MOB SPRITE
+//BASE MOB SPRITE
 /mob/living/carbon/human/proc/update_body(var/update_icons=1, var/force_base_icon = FALSE)
 	if (QDELETED(src))
 		return
@@ -438,10 +442,8 @@ There are several things that need to be remembered:
 	if(update_icons)
 		update_icon()
 
-/**
- * This proc generates & returns an icon representing a human's hair, using a cached icon from SSicon_cache if possible.
- * If `hair_is_visible` is FALSE, only facial hair will be drawn.
- */
+// This proc generates & returns an icon representing a human's hair, using a cached icon from SSicon_cache if possible.
+// If `hair_is_visible` is FALSE, only facial hair will be drawn.
 /mob/living/carbon/human/proc/generate_hair_icon(hair_is_visible = TRUE)
 	var/cache_key = "[f_style ? "[f_style][r_facial][g_facial][b_facial]" : "nofacial"]_[(h_style && hair_is_visible) ? "[h_style][r_hair][g_hair][b_hair]" : "nohair"]_[(g_style && g_style != "None" && hair_is_visible) ? "[g_style][r_grad][g_grad][b_grad]" : "nograd"]"
 
@@ -485,7 +487,7 @@ There are several things that need to be remembered:
 
 	return face_standing
 
-/// HAIR OVERLAY
+//HAIR OVERLAY
 /mob/living/carbon/human/proc/update_hair(var/update_icons=1)
 	if (QDELETED(src))
 		return
@@ -564,7 +566,7 @@ There are several things that need to be remembered:
 		update_icon()
 
 /* --------------------------------------- */
-/// For legacy support.
+//For legacy support.
 /mob/living/carbon/human/regenerate_icons()
 	..()
 
@@ -1243,7 +1245,7 @@ There are several things that need to be remembered:
 		overlays_raw[L_HAND_LAYER] = null
 
 	if(update_icons)
-		update_icon(TRUE)
+		update_icon(forceDirUpdate = TRUE)
 
 /mob/living/carbon/human/update_inv_r_hand(update_icons = TRUE)
 	if (QDELETED(src))
@@ -1282,7 +1284,7 @@ There are several things that need to be remembered:
 		overlays_raw[R_HAND_LAYER] = null
 
 	if(update_icons)
-		update_icon(TRUE)
+		update_icon(forceDirUpdate = TRUE)
 
 /mob/living/carbon/human/update_inv_wrists(var/update_icons=1)
 	if (QDELETED(src))
@@ -1387,7 +1389,7 @@ There are several things that need to be remembered:
 	if(species.tail && !(mutations & HUSK) && !(mutations & SKELETON) && !(wear_suit && wear_suit.flags_inv & HIDETAIL))
 		var/icon/tail_s = get_tail_icon()
 		overlays_raw[tail_layer] = image(tail_s, icon_state = "[tail_style]_s")
-		animate_tail_reset(FALSE)
+		animate_tail_reset()
 		update_tail_accessory(FALSE)
 
 	if(update_icons)
@@ -1412,7 +1414,7 @@ There are several things that need to be remembered:
 
 	return tail_icon
 
-/mob/living/carbon/human/proc/set_tail_state(var/mob_state, var/update = TRUE)
+/mob/living/carbon/human/proc/set_tail_state(var/mob_state)
 	if(!tail_style)
 		return
 
@@ -1426,7 +1428,8 @@ There are several things that need to be remembered:
 	if(tail_overlay && species.tail_animation)
 		if(tail_overlay.icon_state != mob_state)
 			tail_overlay.icon_state = mob_state
-			update_tail_accessory(update)
+			update_tail_accessory()
+			update_icon()
 		return tail_overlay
 	return null
 
@@ -1458,11 +1461,11 @@ There are several things that need to be remembered:
 /mob/living/carbon/human/proc/animate_tail_fast()
 	set_tail_state("[tail_style]_loop")
 
-/mob/living/carbon/human/proc/animate_tail_reset(var/update = TRUE)
+/mob/living/carbon/human/proc/animate_tail_reset()
 	if(stat != DEAD && !lying)
-		set_tail_state("[tail_style]_idle", update)
+		set_tail_state("[tail_style]_idle")
 	else
-		set_tail_state("[tail_style]_static", update)
+		set_tail_state("[tail_style]_static")
 
 /mob/living/carbon/human/proc/animate_tail_stop(var/update_icons=1)
 	set_tail_state("[tail_style]_static")

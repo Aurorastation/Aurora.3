@@ -1,7 +1,7 @@
 /obj/item/paper_scanner
 	name = "paper scanner"
 	desc = "A simple device that can be used to scan paper or paper bundles in order to digitize them."
-	icon = 'icons/obj/item/scanner.dmi'
+	icon = 'icons/obj/devices/paperscanner.dmi'
 	icon_state = "paperscanner"
 	item_state = "paperscanner"
 	contained_sprite = TRUE
