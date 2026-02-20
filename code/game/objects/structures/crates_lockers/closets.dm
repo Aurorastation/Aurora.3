@@ -79,6 +79,9 @@
 	/// Used by body bags and air bubbles.
 	var/contains_body = FALSE
 
+	/// If its a plain grey closet or crate, you can use the paint sprayer on it ONCE to change its appearance.
+	var/can_label = FALSE
+
 /obj/structure/closet/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	. += "When closed, a <b>welder</b> could be used to weld the closet shut."
@@ -124,6 +127,10 @@
 		fill()
 	if(secure)
 		verbs += /obj/structure/closet/proc/verb_togglelock
+
+	// Only plain grey crates and closets can be repainted. Handle label-ability here so we don't have to deal with a ton of bespoke definition adjustments.
+	if(icon_state == "crate" || icon_state == "generic")
+		can_label = TRUE
 	return mapload ? INITIALIZE_HINT_LATELOAD : INITIALIZE_HINT_NORMAL
 
 /obj/structure/closet/LateInitialize()
@@ -493,7 +500,7 @@
 	else if(istype(attacking_item,/obj/item/card/id) && secure)
 		togglelock(user)
 
-// Secure locker cutting open stuff.
+	// Secure locker cutting open stuff.
 	else if(!opened && secure)
 		if(!broken && istype(attacking_item,/obj/item/material/twohanded/chainsaw))
 			var/obj/item/material/twohanded/chainsaw/ChainSawVar = attacking_item
@@ -834,6 +841,10 @@
 	new /obj/item/stack/material/steel(get_turf(src))
 	qdel(src)
 
+/obj/structure/closet/proc/paint_container(paint_color)
+	icon_state = paint_color
+	can_label = FALSE
+	update_icon()
 /*
 ==========================
 	Contents Scanner

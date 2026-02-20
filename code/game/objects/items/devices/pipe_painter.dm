@@ -1,6 +1,6 @@
 /obj/item/pipe_painter
 	name = "pipe painter"
-	icon = 'icons/obj/item/pipe_painter.dmi'
+	icon = 'icons/obj/item/paint_sprayer.dmi'
 	icon_state = "pipe_painter"
 	item_state = "pipe_painter"
 	var/list/modes
