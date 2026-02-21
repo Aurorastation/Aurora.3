@@ -1,3 +1,5 @@
+GLOBAL_DATUM(changelings, /datum/antagonist/changeling)
+
 /datum/antagonist/changeling
 	id = MODE_CHANGELING
 	role_text = "Changeling"
@@ -24,6 +26,10 @@
 	antaghud_indicator = "hudchangeling"
 
 	faction = "Changeling"
+
+/datum/antagonist/changeling/New()
+	..()
+	GLOB.changelings = src
 
 /datum/antagonist/changeling/get_special_objective_text(var/datum/mind/player)
 	var/datum/changeling/changeling = player.antag_datums[MODE_CHANGELING]
