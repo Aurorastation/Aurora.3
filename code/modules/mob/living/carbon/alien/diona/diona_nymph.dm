@@ -91,7 +91,6 @@
 	ClearOverlays()
 
 	. = ..()
-	GC_TEMPORARY_HARDDEL
 
 /mob/living/carbon/alien/diona/get_ingested_reagents()
 	return ingested

@@ -47,14 +47,27 @@
 	. = ..()
 	src.filters += filter(type="drop_shadow", size = 2, offset = 2, color = rgb(0,208,0,0))
 
+/mob/living/simple_animal/cat/Destroy()
+	lost_rattarget()
+	return ..()
+
+/mob/living/simple_animal/cat/proc/lost_rattarget()
+	if(rattarget)
+		UnregisterSignal(rattarget, COMSIG_QDELETING)
+		rattarget = null
+
 /mob/living/simple_animal/cat/think()
 	//MICE!
 	..()
 	if (!stat)
 		for(var/mob/living/simple_animal/rat/snack in oview(src,7))
 			if(snack.stat != DEAD && prob(65))//The probability allows her to not get stuck target the first rat, reducing exploits
+				if(rattarget) // fr?
+					UnregisterSignal(rattarget, COMSIG_QDELETING)
 				rattarget = snack
 				movement_target = snack
+				RegisterSignal(rattarget, COMSIG_QDELETING, PROC_REF(lost_rattarget))
+				RegisterSignal(movement_target, COMSIG_QDELETING, PROC_REF(lostMovementTarget))
 				if(prob(15))
 					audible_emote(pick("hisses and spits!","mrowls fiercely!","eyes [snack] hungrily."))
 
@@ -94,7 +107,7 @@
 				if(M.stat != DEAD)
 					M.splat()
 					visible_emote(pick("bites \the [M]!","toys with \the [M].","chomps on \the [M]!"),0)
-					movement_target = null
+					lostMovementTarget()
 					stop_automated_movement = 0
 					if (prob(75))
 						break//usually only kill one rat per proc
@@ -229,7 +242,7 @@
 		//already following and close enough, stop
 		else if (current_dist <= near_dist)
 			GLOB.move_manager.stop_looping(src)
-			movement_target = null
+			lostMovementTarget()
 			stop_automated_movement = 0
 			if (prob(10))
 				say("Meow!")

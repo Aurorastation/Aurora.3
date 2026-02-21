@@ -1,0 +1,6 @@
+author: TheGreyWolf
+
+delete-after: True
+
+changes:
+  - rscadd: "A signal was added to bone fixing surgery, for potential future uses where a bone repair surgery might not work."

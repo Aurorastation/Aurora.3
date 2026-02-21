@@ -500,6 +500,7 @@
 		b.dat = paper.info
 		b.name = "blank book"
 		b.icon_state = "book[rand(1,7)]"
+		b.item_state = icon_state
 		qdel(paper)
 		return
 

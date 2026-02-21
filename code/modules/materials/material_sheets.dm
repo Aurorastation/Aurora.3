@@ -317,7 +317,6 @@
 
 /obj/item/stack/material/plasteel/Destroy()
 	. = ..()
-	GC_TEMPORARY_HARDDEL
 
 /obj/item/stack/material/plasteel/full/Initialize()
 	. = ..()

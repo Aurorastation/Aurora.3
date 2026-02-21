@@ -45,7 +45,9 @@
 
 /obj/item/card/id/syndicate/Destroy()
 	STOP_PROCESSING(SSprocessing, src)
-	unset_registered_user(registered_user)
+	if(registered_user)
+		UnregisterSignal(registered_user, COMSIG_QDELETING)
+		registered_user = null
 	return ..()
 
 /obj/item/card/id/syndicate/process()

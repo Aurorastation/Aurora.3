@@ -167,9 +167,6 @@ Mental Status: [R.mental_status]<BR>
 <CENTER><B>Medical Data</B></CENTER><BR>
 Blood Type: [R.medical.blood_type]<BR>
 DNA: [R.medical.blood_dna]<BR><BR>
-Disabilities: [R.medical.disabilities]<BR><BR>
-Allergies: [R.medical.allergies]<BR>
-Current Diseases: [R.medical.diseases] (per disease info placed in log/comment section)<BR><BR>
 Important Notes:<BR>
 [replacetext(R.medical.notes, "\n", "<BR>")]<BR><BR>
 <CENTER><B>Comments/Log</B></CENTER><BR>

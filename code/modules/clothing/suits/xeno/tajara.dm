@@ -182,6 +182,9 @@
 	/obj/item/healthanalyzer, /obj/item/flashlight, /obj/item/radio, /obj/item/tank/emergency_oxygen, /obj/item/breath_analyzer, /obj/item/reagent_containers/blood)
 	species_restricted = list(BODYTYPE_TAJARA)
 	desc_extended = null
+	armor = list(
+			bio = ARMOR_BIO_STRONG,
+		)
 
 /obj/item/clothing/head/winterhood/hoodie/taj_scrubs
 	name = "adhomian surgeon mask"
@@ -191,6 +194,12 @@
 	item_state = "tajscrubs_hood"
 	contained_sprite = TRUE
 	species_restricted = list(BODYTYPE_TAJARA)
+	body_parts_covered = FACE|HEAD
+	gas_transfer_coefficient = 0.90
+	permeability_coefficient = 0.01
+	armor = list(
+		BIO = ARMOR_BIO_RESISTANT
+	)
 
 /obj/item/clothing/suit/storage/hooded/tajaran/amohda
 	name = "amohdan cloak"
@@ -332,7 +341,7 @@
 		BOMB = ARMOR_BOMB_MINOR
 	)
 	siemens_coefficient = 0.50
-	allowed = list(/obj/item/gun/projectile/shotgun/pump/rifle, /obj/item/ammo_magazine/boltaction, /obj/item/gun/projectile/automatic/rifle/adhomian, /obj/item/flashlight)
+	allowed = list(/obj/item/gun/projectile/shotgun/pump/rifle, /obj/item/ammo_magazine/boltaction/adhomai, /obj/item/ammo_magazine/a68, /obj/item/gun/projectile/automatic/rifle/adhomian, /obj/item/flashlight)
 
 /obj/item/clothing/suit/storage/tajaran/dpra_jacket
 	name = "al'mariist jacket"

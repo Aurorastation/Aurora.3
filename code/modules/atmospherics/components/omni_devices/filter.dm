@@ -30,6 +30,7 @@
 		P.air.volume = ATMOS_DEFAULT_VOLUME_FILTER
 
 /obj/machinery/atmospherics/omni/filter/Destroy()
+	// these get qdel'd in omni/Destroy()
 	input = null
 	output = null
 	active_filters.Cut()

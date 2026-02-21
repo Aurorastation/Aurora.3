@@ -27,7 +27,7 @@
 
 /obj/machinery/computer/ship/helm/terminal
 	name = "helm control terminal"
-	icon = 'icons/obj/machinery/modular_terminal.dmi'
+	icon = 'icons/obj/modular_computers/modular_terminal.dmi'
 	icon_screen = "helm"
 	icon_keyboard = "security_key"
 	icon_keyboard_emis = "security_key_mask"
@@ -329,7 +329,7 @@
 
 /obj/machinery/computer/ship/navigation/terminal
 	name = "navigation terminal"
-	icon = 'icons/obj/machinery/modular_terminal.dmi'
+	icon = 'icons/obj/modular_computers/modular_terminal.dmi'
 	icon_screen = "nav"
 	icon_keyboard = "generic_key"
 	icon_keyboard_emis = "generic_key_mask"

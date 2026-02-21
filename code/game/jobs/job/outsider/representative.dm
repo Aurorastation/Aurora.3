@@ -205,6 +205,12 @@
 	selection_color = "#6186cf"
 	economic_modifier = 15
 
+	alt_titles = list("Foreign Service Officer")
+	alt_citizenships = list(
+		"Consular Officer" = list("Republic of Biesel", "Sol Alliance", "Coalition of Colonies", "Republic of Elyra", "Elyran Non-Citizen Person", "Eridani Federation", "Empire of Dominia", "Izweski Hegemony", "Nralakk Federation", "The Consortium of Hieroaetheria", "The Union of Gla'orr", "The Eternal Republic of The Ekane", "People's Republic of Adhomai", "Democratic People's Republic of Adhomai", "New Kingdom of Adhomai", "Free Tajaran Council", "Zo'ra Hive", "K'lax Hive", "C'thur Hive", "Undercover Lii'kenka", "None", "Golden Deep", "Ecclesiarchy of Orepit"),
+		"Foreign Service Officer" = list("Sol Alliance")
+	)
+
 	minimum_character_age = list(
 		SPECIES_HUMAN = 30,
 		SPECIES_SKRELL = 150,
@@ -423,7 +429,7 @@
 	head = /obj/item/clothing/head/beret/corporate
 	uniform = /obj/item/clothing/under/dressshirt
 	suit = /obj/item/clothing/suit/storage/toggle/corp/nt
-	pants = /obj/item/clothing/pants/khaki
+	pants = /obj/item/clothing/pants/black
 
 	tab_pda = /obj/item/modular_computer/handheld/pda/civilian/lawyer
 	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/civilian/lawyer

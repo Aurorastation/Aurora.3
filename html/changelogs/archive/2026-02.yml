@@ -282,3 +282,104 @@
   JohnWildkins:
   - bugfix: Fix lobby screen system failing to switch to the last lobby screen in
       a set.
+2026-02-17:
+  FabianK3:
+  - rscadd: Added the alt title Foreign Service Officer to the consular job. This
+      alt title can only be selected if the citizenship is set to Sol Alliance.
+  - code_imp: Added citizenship check to job titles, allowing alt titles to be locked
+      to specific backgrounds.
+2026-02-18:
+  Batrachophrenoboocosmomachia:
+  - rscadd: Restores or migrates to contained_sprite already-existing inhands sprites
+      for MANY items.
+  - rscadd: Adds new inhand (coder)sprites for many additional items.
+  - rscadd: Ports inhand sprites for Hydraulic Rescue Tool from /tg/station.
+  - rscadd: Adds flick animation to gas analyzer.
+  - bugfix: Fixes minor issues with several inhand sprites (pixel shifting, mismatched
+      colors, etc).
+  - code_imp: Moves sprites for 'scanner' type items to all reside in icons/obj/item/scanner.dmi.
+  - code_imp: Standardizes icon_state naming conventions for several items.
+  - code_imp: Updates code docs to use DMDocs.
+  - code_imp: Consolidates scattered modular_computer sprite files to single subfolder.
+  - qol: Renames 'analyzer' to 'gas analyzer' for consistency with other 'analyzer'
+      devices.
+  - bugfix: Allows knives to be stored in cowboy boots.
+  - refactor: Ports smooth shake_camera proc from /tg/station.
+  Batrachophrenoboocosmomachia, Tomixcomics:
+  - rscadd: Adds new Inflatables and Inflatables Box inhand sprites (Tomixcomics spriting).
+  CatsinHD:
+  - imageadd: Resprites the Mrrazhak, Tsarayut, and Hotaki rifles.
+  - rscadd: Adds the Z33 Tamparii bullet.
+  - rscadd: Adds stickynotes, as well as a stickynotes pad.
+  - rscadd: Adds notepad paper and receipts. Receipts are printed for cash transactions.
+      Notepad papers are utilized by the notepad.
+  ElorgRHG:
+  - imageadd: Resprited engineering, medical and security webbings (which are now
+      thinner to not poke out from under suit clothing) and drop pouches.
+  - imageadd: Added a proper colorable sprite for the colorable drop pouches.
+  - imageadd: Resprited all jeans, black pants and colorable dress pants.
+  - rscdel: Removed tan, khaki, red, white pants due to the existance of colorable
+      dress pants. All maps and outfits where these were used now use black pants
+      (I did not want to put in the effort).
+  Hellfirejag:
+  - rscadd: Reworked mech controls to be Battletech-style. W and S are Forward and
+      Reverse throttle, while A and D rotate the mech left and right. Mechs have different
+      forward and reverse speeds based on their chassis. When reversing, your faced
+      direction doesn't change.
+  - rscadd: Reworked leg damage for mechs. A mech's movement speeds are reduced by
+      up to a certain amount based on their percentage of damage taken. Larger legs
+      can generally take more of a beating before they slow down too much.
+  - rscadd: Mechs can now strafe left and right with the Q and E keys respectively.
+  - code_imp: Added a library of Floating Point Hyperbolic functions. I just wanted
+      Hyperbolic Tangent but figured I might as well add the whole set.
+  - rscadd: Reworked the Read Mind power to be more interactive with psi-sensitivity.
+      It also now gives feedback to the victim on what message was sent.
+  - bugfix: Fixed improper sanitization for Read Mind messages.
+  - bugfix: Removed a very large variety of hard deletes.
+  - rscadd: 'Records consoles now show their appropriate records types by default,
+      EG: Medical showing full medical records, instead of only basic info.'
+  - rscdel: Medical records no longer displays Allergies, Disabilities and Diseases.
+      These were vestigial remnants of something removed from the game 10 years ago.
+2026-02-19:
+  CatsinHD:
+  - bugfix: Stickynotes can now interact with machinery normally, such as disposals.
+  - bugfix: Crumpled stickynotes can no longer be written on or attached to a surface.
+  - bugfix: Paper shredders now show the correct(ish) sprite when shredding a crumbled
+      stickynote.
+  GeneralCamo:
+  - rscadd: Changed how napalm works. Instead of directly causing turf fires, napalm
+      now creates a long-term burning turf fire.
+  - rscadd: Split Zo'rane fire and napalm. Zo'rane fire is now a much more powerful
+      version of napalm.
+  - rscadd: Added a military-grade flamethrower, capable of using napalm. Other fuels
+      instead give a 150% power bonus.
+  - balance: Standard (improvised) flamethrowers are no longer capable of using napalm.
+      They will explode if you try.
+  - rscadd: Using a wrench on a flamethrower will now prompt you to dismantle either
+      the igniter, welding tool, or whole thing.
+  - rscadd: Flamethrowers can now be upgraded in the field.
+  - balance: Reduced the cost of the standard flamethrower in the uplink from 10 to
+      6.
+  Hellfirejag:
+  - bugfix: Fixed a hard delete related to human mobs.
+  JohnWildkins:
+  - refactor: Fix TGUI chat / stat panel failing to load properly when connecting.
+  - refactor: Reduce lag by ensuring refreshing char select preview doesn't cause
+      50 trillion icon update operations (estimated).
+  SimpleMaroon:
+  - qol: Made various adjustments to Vaurca body markings, including standardizing
+      the mecha eye palette, standardizing the mecha spine palette, removing the forced
+      green eyes from the mecha mandibles, and separating the hand panels into chassis
+      and lights.
+  - imagedel: Removed the 'large' version of the Vaurca mecha eye body markings.
+  TheGreyWolf:
+  - bugfix: The adhomian surgeon garb now offers protection equal to a surgical gown
+      and surgery mask.
+  - bugfix: The adhomian surgeon garb can now be selected by machinists again.
+  - bugfix: Assunzioni Sera Stellata di Dalyan Wine can be ordered again.
+  - bugfix: Sandals now default to being wood colored if not otherwise given color.
+  - bugfix: Added camera film to the toy shelf storage and briefcases and canes to
+      the clothing shelf storage.
+  - bugfix: Fixed that the operations lobby was powered by the wrong grid.
+  - bugfix: Added some custom items to the merchant blacklist.
+  - bugfix: Fixed stickynote pad path in the map file.

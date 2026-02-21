@@ -90,7 +90,6 @@
 		GLOB.cameranet.remove_source(src)
 
 	. = ..()
-	GC_TEMPORARY_HARDDEL
 
 /obj/machinery/camera/set_pixel_offsets()
 	pixel_x = dir & (NORTH|SOUTH) ? 0 : (dir == EAST ? -13 : 13)
