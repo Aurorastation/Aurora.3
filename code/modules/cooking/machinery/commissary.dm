@@ -292,38 +292,44 @@
 		to_chat(user, SPAN_WARNING("[icon2html(src, user)]\The [E] doesn't have that much money!"))
 	return
 
-///
-// Fill the paper out using a paperwork form.
-// Example: [list][*]Candy: 2.50电[br][*]Snack: 3.10电[br][*]Meal: 10.00电[br][*]Soft drinks: 1.30电[br][/list]
-///
 /obj/structure/cash_register/commissary/proc/paper_price_list(var/obj/item/paper/R)
 	if(!editmode)
 		to_chat(usr, SPAN_WARNING("Device locked."))
 		return FALSE
+
 	var/text = R.info
 
-	// Find each item. Example: "Cigarette pack: 10.00"
-	var/regex/find_source  = regex("<li>(.+?)(<BR>|</font>)", "gi")
-	// Find the item itself. Example: "Cigarette pack"
-	var/regex/find_item  = regex("^\[ \\t\\r\\n]*(.+?)\[ \\t\\r\\n]*:", "i")
-	// Find the price. Example: "10.00"
-	var/regex/find_price = regex(":\[ \\t\\r\\n]*(\[0-9]+(\\.\[0-9]+)?)", "i")
+	// Split on new line
+	var/list/lines = splittext(text, "<BR>")
 
-	while(find_source.Find(text))
-		var/line = find_source.group[1]
+	// Skip a header line
+	for(var/i = 2; i <= lines.len; i++)
+		var/line = lines[i]
+		if(!length(line))
+			continue
 
-		var/item = null
-		var/price = null
+		// Split the name, price and category
+		var/list/split_input = splittext(line, ";")
 
-		if(find_item.Find(line))
-			item = find_item.group[1]
+		if(split_input.len < 3)
+			continue
 
-		if(find_price.Find(line))
-			price = text2num(find_price.group[1])
+		var/name = split_input[1]
+		var/price_text = split_input[2]
+		var/category = split_input[3]
 
-		if(item && !isnull(price))
-			items += list(list("name" = item, "price" = price))
-			items_to_price[item] = price
+		var/price = text2num(price_text)
+
+		// In case of invalid prices for some reason
+		if(price == 0 && price_text != "0" && price_text != "0.0")
+			to_world("Skipping invalid price for [name]: [price_text]")
+			continue
+
+		to_world("Item: [name] | Price: [price] | Category: [category]")
+
+		// items += list(list("name" = name, "price" = price, "category" = category))
+		items += list(list("name" = name, "price" = price))
+		items_to_price[name] = price
 
 /obj/structure/cash_register/commissary/attack_hand(mob/living/user)
 	. = ..()
