@@ -13,6 +13,7 @@
 
 	RegisterSignal(parent, COMSIG_MECH_MOVE_WASD, PROC_REF(handle_user_move), override = TRUE)
 	RegisterSignal(parent, COMSIG_MECH_MOVE_STRAFE, PROC_REF(handle_user_strafe), override = TRUE)
+	RegisterSignal(parent, COMSIG_MECH_TOGGLE_POWER, PROC_REF(handle_toggle_power), override = TRUE)
 
 /datum/component/skill/pilot_mechs/Destroy(force)
 	if (!parent)
@@ -20,9 +21,11 @@
 
 	UnregisterSignal(parent, COMSIG_MECH_MOVE_WASD)
 	UnregisterSignal(parent, COMSIG_MECH_MOVE_STRAFE)
+	UnregisterSignal(parent, COMSIG_MECH_TOGGLE_POWER)
 	return ..()
 
 /datum/component/skill/pilot_mechs/proc/handle_user_move(mob/living/user, direction, delay_modifier)
+	SIGNAL_HANDLER
 	if (parent != user)
 		return
 
@@ -38,6 +41,7 @@
 	*delay_modifier += (SKILL_LEVEL_TRAINED - skill_level) * move_delay_per_skill_diff
 
 /datum/component/skill/pilot_mechs/proc/handle_user_strafe(mob/living/user, direction, delay_modifier)
+	SIGNAL_HANDLER
 	if (parent != user)
 		return
 
@@ -47,3 +51,12 @@
 		*direction = angle2dir(dir2angle(direction) + 180)
 
 	*delay_modifier += (SKILL_LEVEL_TRAINED - skill_level) * move_delay_per_skill_diff
+
+/datum/component/skill/pilot_mechs/proc/handle_toggle_power(mob/user, cancelled, delay)
+	SIGNAL_HANDLER
+	if (parent != user || skill_level != SKILL_LEVEL_UNFAMILIAR)
+		return
+
+	*delay += 5 SECONDS
+	to_chat(user, SPAN_NOTICE("You struggle with searching all these buttons for the power switch."))
+	playsound(user.loc, SFX_KEYBOARD, 30, TRUE)

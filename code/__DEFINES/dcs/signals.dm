@@ -110,3 +110,5 @@
 #define COMSIG_MECH_MOVE_WASD "mech_move_wasd"
 
 #define COMSIG_MECH_MOVE_STRAFE "mech_move_strafe"
+
+#define COMSIG_MECH_TOGGLE_POWER "mech_toggle_power"

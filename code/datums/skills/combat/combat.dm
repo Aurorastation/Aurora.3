@@ -25,11 +25,11 @@
 	subcategory = SKILL_SUBCATEGORY_RANGED
 	required = TRUE
 
-/singleton/skill/firearms/on_spawn(var/mob/owner, var/level)
+/singleton/skill/firearms/on_spawn(mob/owner, skill_level)
 	if (!owner)
 		return
 
-	owner.AddComponent(FIREARMS_SKILL_COMPONENT, level)
+	owner.AddComponent(FIREARMS_SKILL_COMPONENT, skill_level)
 
 /singleton/skill/leadership
 	name = "Leadership"

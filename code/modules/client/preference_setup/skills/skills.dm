@@ -236,7 +236,7 @@
 		dat += "<hr>"
 		var/skill_level = (skill_to_show.type in pref.skills) ? pref.skills[skill_to_show.type] : SKILL_LEVEL_UNFAMILIAR
 		dat += "Your current level in this skill is [SPAN_BOLD(skill_to_show.skill_level_map[skill_level])].<br>"
-		dat += SPAN_NOTICE("[skill_to_show.skill_level_descriptions[skill_level]]")
+		dat += "[skill_to_show.skill_level_descriptions[skill_level]]"
 		dat += "</html>"
 		skill_window.set_content(dat)
 		skill_window.open()
