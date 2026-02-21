@@ -104,6 +104,18 @@
 	)
 	result = /obj/item/reagent_containers/food/snacks/bacon_flatbread
 
+/singleton/recipe/chocolate_pizza
+	appliance = OVEN
+	reagents = list(/singleton/reagent/nutriment/sprinkles = 2)
+	items = list(
+		/obj/item/reagent_containers/food/snacks/sliceable/flatdough,
+		/obj/item/reagent_containers/food/snacks/chocolatebar,
+		/obj/item/reagent_containers/food/snacks/chocolatebar,
+		/obj/item/reagent_containers/food/snacks/candy
+	)
+	reagent_mix = RECIPE_REAGENT_REPLACE
+	result = /obj/item/reagent_containers/food/snacks/sliceable/pizza/chocolate_pizza
+
 //Deep Dish
 
 /singleton/recipe/deepdish_margherita

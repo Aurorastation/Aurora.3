@@ -109,6 +109,15 @@
 	)
 	result = /obj/item/reagent_containers/food/snacks/fried_pickles
 
+/singleton/recipe/poutine
+	appliance = MIX
+	reagents = list(/singleton/reagent/condiment/gravy = 5)
+	items = list(
+		/obj/item/reagent_containers/food/snacks/fries,
+		/obj/item/reagent_containers/food/snacks/cheesewedge
+	)
+	result = /obj/item/reagent_containers/food/snacks/poutine
+
 //Fishy Recipes
 //==================
 /singleton/recipe/fishandchips

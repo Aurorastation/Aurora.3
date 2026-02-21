@@ -271,6 +271,8 @@
 	wanted_types = list(/obj/item/reagent_containers/food/snacks/adhomian_porridge,
 			/obj/item/reagent_containers/food/snacks/adhomian_sausage,
 			/obj/item/reagent_containers/food/snacks/avah,
+			/obj/item/reagent_containers/food/snacks/sliceable/cheesebake,
+			/obj/item/reagent_containers/food/snacks/cheese_twig,
 			/obj/item/reagent_containers/food/snacks/chipplate/crownfurter,
 			/obj/item/reagent_containers/food/snacks/chipplate/miniavah_basket,
 			/obj/item/reagent_containers/food/snacks/chocolate_rikazu,
@@ -401,4 +403,18 @@
 	/obj/item/reagent_containers/food/snacks/sliceable/chocolateroulade,
 	/obj/item/reagent_containers/food/snacks/sliceable/ylpharoulade,
 	/obj/item/reagent_containers/food/snacks/sliceable/koisroulade
+	)
+
+/datum/bounty/item/chef/colorful_desserts
+	name = "Colorful desserts"
+	description = "'Bring your offspring to work' day is upon us and we want to grab the attention of future employees! Let's make sure the office is stocked with the most trendy, gaudy, eye-catching, disgustingly sugary desserts so the little brats show it to all of their friends! Blitz shakes, Elatas, chocolate pizzas, cake pops, whatever!"
+	reward_low = 90
+	reward_high = 150
+	required_count = 4
+	random_count = 1
+	wanted_types = list(
+	/obj/item/reagent_containers/food/snacks/elata,
+	/obj/item/reagent_containers/food/snacks/blitz_shake,
+	/obj/item/reagent_containers/food/snacks/sliceable/pizza/chocolate_pizza,
+	/obj/item/storage/box/fancy/food/cakepopjar
 	)

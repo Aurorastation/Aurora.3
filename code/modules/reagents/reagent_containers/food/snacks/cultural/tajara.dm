@@ -193,7 +193,7 @@
 /obj/item/reagent_containers/food/snacks/soup/zharkir
 	name = "zharkir"
 	item_state = "zharkir"
-	desc = "A thick, hot, creamy dish, not unlike a chowder (and known as 'adhomian chowder' in some cultures). It is made with sarmikhir, earthenroot and various adhomian herbs, balancing sweet and savory, and served in a traditional dish - a tall bowl with grooves on the side just big enough for tajaran hands to hold it up to their mouths and warm themselves on a cold Adhomian evening."
+	desc = "A thick, hot, creamy dish, not unlike a chowder (and known as 'adhomian chowder' in some cultures). It is made with sarmikhir, earthenroot and various Adhomian herbs, balancing sweet and savory, and served in a traditional dish - a tall bowl with grooves on the side just big enough for tajaran hands to hold it up to their mouths and warm themselves on a cold Adhomian evening."
 	icon = 'icons/obj/item/reagent_containers/food/cultural/tajara.dmi'
 	icon_state = "zharkir"
 	is_liquid = TRUE
@@ -789,3 +789,72 @@
 	reagent_data = list(/singleton/reagent/nutriment = list("sour cream" = 2), /singleton/reagent/nutriment/protein = list("roasted sausage" = 2))
 	bitesize = 1
 	filling_color = "#94372A"
+
+/obj/item/reagent_containers/food/snacks/sliceable/adhomian_cheese
+	name = "adhomian cheese"
+	desc = "Cheese made from fermented fatshouter milk. Adhomai, much like Earth, developed many different ways to make and flavor cheese, long before either culture made contact with the other. It's interesting that these things happened unrelated to each other, but then again, someone's unattended glass of milk was bound to go bad and curdle sooner or later."
+	icon = 'icons/obj/item/reagent_containers/food/cultural/tajara.dmi'
+	icon_state = "cheese"
+	slice_path = /obj/item/reagent_containers/food/snacks/adhomian_cheese_wedge
+	slices_num = 8
+	filling_color = "#fdfdfd"
+	center_of_mass = list("x"=16, "y"=10)
+	bitesize = 2
+	reagents_to_add = list(/singleton/reagent/nutriment/protein/cheese = 15, /singleton/reagent/drink/milk/adhomai/fermented = 5)
+
+/obj/item/reagent_containers/food/snacks/adhomian_cheese_wedge
+	name = "adhomian cheese wedge"
+	desc = "A wedge of soft Adhomian cheese. It smells like fermented fatshouter milk that's gone bad... in a very delicious way!"
+	icon = 'icons/obj/item/reagent_containers/food/cultural/tajara.dmi'
+	icon_state = "cheese_wedge"
+	ingredient_name = "cheese"
+	filling_color = "#fdfdfd"
+	bitesize = 2
+	center_of_mass = list("x"=16, "y"=10)
+
+/obj/item/reagent_containers/food/snacks/adhomian_cheese_wedge/filled/reagents_to_add = list(
+	/singleton/reagent/nutriment/protein/cheese = 3,
+	/singleton/reagent/drink/milk/adhomai/fermented = 1
+	)
+
+/obj/item/reagent_containers/food/snacks/sliceable/cheesebake
+	name = "adhomian cheesebake"
+	desc = "A hearty dish fit for a celebration. Creamy Adhomian cheese with dirtberries mixed in, topped with a layer of earthenroot slices, all sitting on a crispy Adhomian bread base and baked to perfection. Can be served whole or sliced into smaller portions."
+	icon = 'icons/obj/item/reagent_containers/food/cultural/tajara.dmi'
+	icon_state = "cheesebake"
+	slice_path = /obj/item/reagent_containers/food/snacks/cheesebake_slice
+	slices_num = 2
+	filling_color = "#d0e6ff"
+	bitesize = 2
+	reagents_to_add = list(/singleton/reagent/nutriment = 6, /singleton/reagent/drink/milk/adhomai/fermented = 3, /singleton/reagent/nutriment/protein/cheese = 3)
+	reagent_data = list(/singleton/reagent/nutriment/protein/cheese = list("soft baked cheese" = 4), /singleton/reagent/nutriment = list("sweet potato" = 4, "nutty dirtberries" = 3, "crunch" = 2))
+
+/obj/item/reagent_containers/food/snacks/sliceable/cheesebake/update_icon()
+	var/expected_initial_reagent_volume
+	for(var/k in src.reagents_to_add)
+		expected_initial_reagent_volume += reagents_to_add[k]
+	var/percent_cheesebake = round((reagents.total_volume / expected_initial_reagent_volume) * 100)
+	switch(percent_cheesebake)
+		if(0 to 50)
+			icon_state = "cheesebake_half"
+		if(51 to INFINITY)
+			icon_state = "cheesebake"
+
+/obj/item/reagent_containers/food/snacks/cheesebake_slice
+	name = "adhomian cheesebake slice"
+	desc = "A slice of Adhomian cheesebake. Baked Earthenroot slices on top, dirtberry-studded cheese below it and an adhomian bread base."
+	icon = 'icons/obj/item/reagent_containers/food/cultural/tajara.dmi'
+	icon_state = "cheesebake_slice"
+	filling_color = "#d0e6ff"
+
+/obj/item/reagent_containers/food/snacks/cheesebake_slice/filled/reagents_to_add = list(/singleton/reagent/nutriment = 3, /singleton/reagent/drink/milk/adhomai/fermented = 1.5, /singleton/reagent/nutriment/protein/cheese = 1.5)
+
+/obj/item/reagent_containers/food/snacks/cheese_twig
+	name = "cheese twig"
+	desc = "Twisted dough with a chewy cheese center. Despite being a salty snack beloved by many, cheese twigs are often associated with dairy farmers, and the stereotype of an Adhomian farmer typically has them gnawing idly on a cheese twig. As a result, 'cheesetwig' has become a slang name for farmers in Adhomian society."
+	icon = 'icons/obj/item/reagent_containers/food/cultural/tajara.dmi'
+	icon_state = "cheesetwig"
+	filling_color = "#865a26"
+	reagents_to_add = list(/singleton/reagent/nutriment = 3, /singleton/reagent/drink/milk/adhomai/fermented = 1, /singleton/reagent/nutriment/protein/cheese = 1)
+	reagent_data = list(/singleton/reagent/nutriment = list("pretzel" = 3), /singleton/reagent/nutriment/protein/cheese = list("chewy cheese" = 3))
+	bitesize = 2
