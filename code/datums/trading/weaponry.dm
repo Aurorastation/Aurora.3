@@ -45,7 +45,6 @@
 		/obj/item/storage/box/shells/incendiaryshells        = TRADER_THIS_TYPE,
 		/obj/item/storage/box/ammo/governmentammo          = TRADER_THIS_TYPE,
 		/obj/item/clothing/accessory/holster                 = TRADER_SUBTYPES_ONLY,
-		/obj/item/clothing/accessory/holster/thigh/fluff     = TRADER_BLACKLIST_ALL,
 		/obj/item/clothing/accessory/holster/utility/fluff   = TRADER_BLACKLIST_ALL
 	)
 
@@ -81,7 +80,6 @@
 		/obj/item/gun/energy/laser/shotgun         = TRADER_THIS_TYPE,
 		/obj/item/gun/energy/freeze                = TRADER_THIS_TYPE,
 		/obj/item/clothing/accessory/holster              = TRADER_ALL,
-		/obj/item/clothing/accessory/holster/thigh/fluff  = TRADER_BLACKLIST_ALL,
 		/obj/item/clothing/accessory/holster/utility/fluff = TRADER_BLACKLIST_ALL
 	)
 
