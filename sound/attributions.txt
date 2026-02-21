@@ -206,3 +206,7 @@ sound/species/synthetic/sizzle_*.ogg -- https://freesound.org/s/35872/ -- Licens
 sound/species/synthetic/synthetic_bootup.ogg -- https://freesound.org/s/320664/ -- License: Creative Commons 0 mixed with VHS Startup by Sassaby -- https://freesound.org/s/264934/ -- License: Creative Commons 0
 sound/species/synthetic/synthetic_restart.ogg -- https://freesound.org/s/176796/ -- License: Attribution 4.0, remixed with Audacity
 ATTRIBUTIONS SECTION END
+
+ATTRIBUTIONS SECTION START
+sound/machines/computer/old_computer_start.ogg - computerstartup.wav by guitarguy1985, licensed under Creative Commons 0 TYPE. Obtained from https://freesound.org/people/corkob/sounds/415594/
+ATTRIBUTIONS SECTION END

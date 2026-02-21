@@ -90,6 +90,18 @@
 	extra_range = SILENCED_SOUND_EXTRARANGE
 	ignore_walls = FALSE
 
+/datum/looping_sound/old_computer
+	start_sound = 'sound/machines/computer/old_computer_start.ogg'
+	start_length = 10 SECONDS
+	start_volume = 10
+	mid_sounds = list('sound/machines/computer/computer_mid1.ogg' = 1, 'sound/machines/computer/computer_mid2.ogg' = 1)
+	mid_length = 1.8 SECONDS
+	end_sound = 'sound/machines/computer/computer_end.ogg'
+	end_volume = 10
+	volume = 1
+	extra_range = SILENCED_SOUND_EXTRARANGE
+	ignore_walls = FALSE
+
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 /datum/looping_sound/gravgen
