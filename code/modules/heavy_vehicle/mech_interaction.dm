@@ -285,22 +285,25 @@
 /mob/living/heavy_vehicle/relaymove(mob/living/user, direction, var/turn_only = FALSE)
 	. = ..()
 
+	var/delay_modifier = 0
+	SEND_SIGNAL(user, COMSIG_MECH_MOVE_WASD, &direction, &delay_modifier)
+
 	if(hallucination >= EMP_MOVE_DISRUPT && prob(30))
 		direction = pick(GLOB.cardinals)
 
 	// Convert keyboard inputs to Battletech-style controls.
 	switch (direction)
 		if (NORTH) // "Throttle Forwards"
-			throttle_move(user, dir, FALSE)
+			throttle_move(user, dir, FALSE, delay_modifier)
 		if (SOUTH) // "Throttle Reverse"
-			throttle_move(user, angle2dir(dir2angle(dir) + 180), TRUE)
+			throttle_move(user, angle2dir(dir2angle(dir) + 180), TRUE, delay_modifier)
 		if (EAST) // "Turn Right"
-			rotate_by_angle(user, angle2dir(dir2angle(dir) + 90))
+			rotate_by_angle(user, angle2dir(dir2angle(dir) + 90), delay_modifier)
 		if (WEST) // "Turn Left"
-			rotate_by_angle(user, angle2dir(dir2angle(dir) + 270))
+			rotate_by_angle(user, angle2dir(dir2angle(dir) + 270), delay_modifier)
 
-/mob/living/heavy_vehicle/proc/throttle_move(mob/living/user, direction, reverse)
-	if (!legs || !can_move(user))
+/mob/living/heavy_vehicle/proc/throttle_move(mob/living/user, direction, reverse, delay_modifier)
+	if (!legs || !can_move(user, delay_modifier))
 		return
 
 	// Get the tile in the direction.
@@ -321,7 +324,13 @@
 		Move(target_loc, direction, 0, FALSE)
 
 /mob/living/heavy_vehicle/proc/strafe_move(mob/user, direction)
-	if (!legs || !can_strafe(user))
+	if (!legs)
+		return
+
+	var/delay_modifier = 0
+	SEND_SIGNAL(user, COMSIG_MECH_MOVE_STRAFE, &direction, &delay_modifier)
+
+	if (!can_strafe(user, delay_modifier))
 		return
 
 	// Get the tile in the direction.
@@ -338,8 +347,8 @@
 	else
 		Move(target_loc, direction, 0, FALSE)
 
-/mob/living/heavy_vehicle/proc/rotate_by_angle(mob/living/user, direction)
-	if (!legs || !can_turn(user))
+/mob/living/heavy_vehicle/proc/rotate_by_angle(mob/living/user, direction, delay_modifier)
+	if (!legs || !can_turn(user, delay_modifier))
 		return
 
 	use_cell_power(legs.power_use * CELLRATE)

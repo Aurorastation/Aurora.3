@@ -449,6 +449,13 @@
 	/// Which species-unique robolimb types can this species take?
 	var/list/valid_prosthetics
 
+	/// Modifiers for the available skill points for this species. Assoc list of SKILL_CATEGORY to number.
+	var/list/skill_points_modifiers = list(
+		SKILL_CATEGORY_EVERYDAY = 1,
+		SKILL_CATEGORY_OCCUPATIONAL = 1,
+		SKILL_CATEGORY_COMBAT = 1
+	)
+
 	//Sleeping stuff
 	/// Does this species sleep standing up?
 	var/sleeps_upright = FALSE
@@ -1082,3 +1089,15 @@
  */
 /datum/species/proc/handle_temperature_regulation(mob/living/carbon/human/human)
 	human.bodytemperature += passive_temp_gain
+
+/**
+ * Gets a modifier for a skill category based on the character age or other species things.
+ * Must return a list with all three skill categories to a modifier (example: list(SKILL_CATEGORY_EVERYDAY = 1.5) )
+ */
+/datum/species/proc/modify_skill_points(singleton/skill_category/skill_category, age)
+	var/list/skill_age_modifiers = list(
+		SKILL_CATEGORY_EVERYDAY = 1,
+		SKILL_CATEGORY_OCCUPATIONAL = 1,
+		SKILL_CATEGORY_COMBAT = 1
+	)
+	return skill_age_modifiers

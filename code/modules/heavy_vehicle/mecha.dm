@@ -263,6 +263,13 @@
 /// `var/remote` can be set to TRUE to have proc adjust where messages and hud elements are presented
 /// If `remote` is TRUE, messages and other hud elements are called on the exosuit itself to prevent wierdness, and errors are handled in `handle_hear_say()`
 /mob/living/heavy_vehicle/proc/toggle_power(var/mob/user, var/remote = FALSE)
+	var/cancelled = FALSE
+	var/delay = 0
+	SEND_SIGNAL(user, COMSIG_MECH_TOGGLE_POWER, &cancelled, &delay)
+	if (cancelled || delay && !do_after(user, delay))
+		to_chat(user, SPAN_WARNING("There's just too many buttons! You fail to find the power switch!"))
+		return
+
 	// if remotely called, send these messages to the exosuit, not the person calling this proc
 	var/reciever = user
 	if(remote)
