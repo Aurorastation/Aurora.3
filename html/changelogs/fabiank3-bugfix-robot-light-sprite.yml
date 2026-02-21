@@ -1,6 +1,0 @@
-author: FabianK3
-
-delete-after: True
-
-changes:
-  - bugfix: "Decoupled robot eye sprite from the internal light state."

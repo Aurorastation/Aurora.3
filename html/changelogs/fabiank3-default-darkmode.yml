@@ -1,6 +1,0 @@
-author: FabianK3
-
-delete-after: True
-
-changes:
-  - qol: "Dark mode is now the new default for the UI. The light mode is still available and can be switched to in the settings found in the chat panel."

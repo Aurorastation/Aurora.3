@@ -383,3 +383,18 @@
   - bugfix: Fixed that the operations lobby was powered by the wrong grid.
   - bugfix: Added some custom items to the merchant blacklist.
   - bugfix: Fixed stickynote pad path in the map file.
+2026-02-21:
+  Batrachophrenoboocosmomachia:
+  - rscadd: Updates vending machine ads.
+  FabianK3:
+  - bugfix: Decoupled robot eye sprite from the internal light state.
+  - qol: Dark mode is now the new default for the UI. The light mode is still available
+      and can be switched to in the settings found in the chat panel.
+  - bugfix: Fixed airlocks closing immediataly after the manual override was used
+      during APC reboots, commonly during eletrical storms.
+  JohnWildkins:
+  - bugfix: Fix many instances of objects hard deleting, causing lag spikes.
+  TheGreyWolf:
+  - rscadd: A signal was added to bone fixing surgery, for potential future uses where
+      a bone repair surgery might not work.
+  - bugfix: Added spotlight light tubes to the autolathe.
