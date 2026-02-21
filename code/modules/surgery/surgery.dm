@@ -53,6 +53,13 @@
 /singleton/surgery_step/proc/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(!ishuman(target))
 		return FALSE
+
+	var/obj/item/organ/external/affected = target.get_organ(target_zone)
+	var/canceled = FALSE
+	SEND_SIGNAL(target, COMSIG_BEGIN_SURGERY, &canceled, affected, user, src)
+	if(canceled)
+		return FALSE
+
 	return TRUE
 
 /// Does stuff to begin the step, usually just printing messages. Moved germs transfering and bloodying here too
