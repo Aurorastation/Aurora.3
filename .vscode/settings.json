@@ -24,5 +24,11 @@
 	"workbench.editorAssociations": {
 		"*.dmi": "dmiEditor.dmiEditor"
 	},
-	"rust-analyzer.linkedProjects": ["rust/bapi/Cargo.toml"]
+	"rust-analyzer.linkedProjects": ["rust/bapi/Cargo.toml"],
+	"yaml.schemas": {
+		"https://raw.githubusercontent.com/jelmore1674/build-changelog/refs/tags/v1/schemas/changlelog.json": [
+			"file:///c%3A/Aurora.3/html/changelogs/example.yml",
+			"file:///c%3A/Aurora.3/html/changelogs/johnwildkins-HELP.yml"
+		]
+	}
 }
