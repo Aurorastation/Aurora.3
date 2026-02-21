@@ -1,0 +1,7 @@
+author: Hellfirejag
+delete-after: True
+changes:
+  - bugfix: "Fixed organs ticking 50% faster than intended."
+  - rscadd: "Reworked most of IPC heat/cooling code to no longer create uncontrollable heat spikes."
+  - bugfix: "Fixed IPCs in space suits generating impossible to manage levels of heat even with a suit cooler."
+  - bugfix: "Fixed suit coolers not even working on IPCs in a space suit in the first place."

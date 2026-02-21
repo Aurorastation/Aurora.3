@@ -72,7 +72,7 @@
 	heat_level_3 = 2400
 
 	body_temperature = null
-	passive_temp_gain = 10
+	passive_temp_gain = 5 // Degrees kelvin per second
 
 	inherent_verbs = list(
 		/mob/living/carbon/human/proc/change_monitor,
@@ -171,11 +171,11 @@
 	var/machine_ui_theme = "hackerman"
 
 
-/datum/species/machine/handle_temperature_regulation(mob/living/carbon/human/human)
+/datum/species/machine/handle_temperature_regulation(mob/living/carbon/human/human, seconds_per_tick)
 	// No cooling unit = you're cooking. Broken cooling unit effects are handled by the organ itself.
 	// Here we just want to check if it's been removed.
 	// 500K is about 226 degrees. Spicy!
-	var/base_heat_gain = passive_temp_gain
+	var/base_heat_gain = passive_temp_gain * seconds_per_tick
 	var/obj/item/organ/internal/machine/cooling_unit/cooling = human.internal_organs_by_name[BP_COOLING_UNIT]
 	if(!cooling || (cooling?.status & ORGAN_DEAD))
 		base_heat_gain *= 4 //uh oh

@@ -106,12 +106,13 @@ SUBSYSTEM_DEF(plants)
 		processing = old
 
 	var/list/queue = current
+	var/seconds_per_tick = wait * 0.1
 	while (queue.len)
 		var/obj/effect/plant/P = queue[queue.len]
 		queue.len--
 
 		if (!QDELETED(P))
-			P.process()
+			P.process(seconds_per_tick)
 
 		if (MC_TICK_CHECK)
 			return

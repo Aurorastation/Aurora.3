@@ -23,7 +23,7 @@
 	var/on = 0				//is it turned on?
 	var/cover_open = 0		//is the cover open?
 	var/obj/item/cell/cell
-	var/max_cooling = 24				//in degrees per second - probably don't need to mess with heat capacity here
+	var/max_cooling = 24				//in degrees kelvin per second - probably don't need to mess with heat capacity here
 	var/charge_consumption = 8.3		//charge per second at max_cooling
 	var/thermostat = T20C
 
@@ -77,7 +77,7 @@
 
 	return (H.back == src) || (H.s_store == src)
 
-/obj/item/suit_cooling_unit/process()
+/obj/item/suit_cooling_unit/process(seconds_per_tick)
 	if(!on || !cell)
 		return
 
@@ -86,18 +86,16 @@
 
 	var/mob/living/carbon/human/H = loc
 
-	var/efficiency = !!(H.species.flags & ACCEPTS_COOLER) || 1 - H.get_pressure_weakness()		//you need to have a good seal for effective cooling; some species can directly connect to the cooler, so get a free 100% efficiency here
+	var/efficiency = isipc(H) || 1 - H.get_pressure_weakness()		//you need to have a good seal for effective cooling; some species can directly connect to the cooler, so get a free 100% efficiency here
 	var/env_temp = get_environment_temperature()		//wont save you from a fire
 	var/temp_adj = min(H.bodytemperature - max(thermostat, env_temp), max_cooling)
 
 	if(temp_adj < 0.5)	//only cools, doesn't heat, also we don't need extreme precision
 		return
 
-	var/charge_usage = (temp_adj/max_cooling)*charge_consumption
+	H.bodytemperature = max(T0C, H.bodytemperature - temp_adj * efficiency * seconds_per_tick)
 
-	H.bodytemperature = max(T0C, H.bodytemperature - temp_adj*efficiency)
-
-	cell.use(charge_usage)
+	cell.use((temp_adj/max_cooling) * charge_consumption * seconds_per_tick)
 
 	if(cell.charge <= 0)
 		turn_off()

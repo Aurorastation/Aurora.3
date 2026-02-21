@@ -39,22 +39,22 @@ SUBSYSTEM_DEF(movement)
 /datum/controller/subsystem/movement/fire(resumed)
 	if(!resumed)
 		canonical_time = world.time
-
+	var/seconds_per_tick = wait * 0.1
 	for(var/list/bucket_info as anything in sorted_buckets)
 		var/time = bucket_info[MOVEMENT_BUCKET_TIME]
 		if(time > canonical_time || MC_TICK_CHECK)
 			return
-		pour_bucket(bucket_info)
+		pour_bucket(bucket_info, seconds_per_tick)
 
 /// Processes a bucket of movement loops (This should only ever be called by fire(), it exists to prevent runtime fuckery)
-/datum/controller/subsystem/movement/proc/pour_bucket(list/bucket_info)
+/datum/controller/subsystem/movement/proc/pour_bucket(list/bucket_info, seconds_per_tick)
 	var/list/processing = bucket_info[MOVEMENT_BUCKET_LIST] // Cache for lookup speed
 	while(processing.len)
 		var/datum/move_loop/loop = processing[processing.len]
 		processing.len--
 		// No longer queued since we just got removed from the loop
 		loop.queued_time = null
-		loop.process() //This shouldn't get nulls, if it does, runtime
+		loop.process(seconds_per_tick) //This shouldn't get nulls, if it does, runtime
 		if(!QDELETED(loop) && loop.status & MOVELOOP_STATUS_QUEUED) //Re-Insert the loop
 			loop.status &= ~MOVELOOP_STATUS_QUEUED
 			loop.timer = world.time + loop.delay
