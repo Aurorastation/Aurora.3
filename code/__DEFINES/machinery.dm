@@ -32,7 +32,10 @@
 #define DRAW_FROM_POWERNET(powernet, amt) ((powernet) ? (powernet.load += amt) : 0)
 
 /// Adds an amount from SMES to the powernet (powernet.smes_newavail)
-#define SMES_ADD_TO_POWERNET(smes, amt) ((smes.powernet) ? (smes.powernet.smes_newavail += amt) : 0)
+#define SMES_ADD_TO_POWERNET(smes, amt) if(smes.powernet) { \
+	smes.powernet.newavail += amt; \
+	smes.powernet.smes_newavail += amt; \
+}
 /// Adds an amount to the available power in the powernet (powernet.newavail)
 #define ADD_TO_POWERNET(machine, amt) ((machine.powernet) ? (machine.powernet.newavail += amt) : 0)
 /// Returns the available power to the machine via the powernet (powernet.avail)
