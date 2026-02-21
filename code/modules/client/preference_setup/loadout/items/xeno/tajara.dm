@@ -584,6 +584,12 @@ ABSTRACT_TYPE(/datum/gear/shoes/tajara)
 	description = "A selection of tajaran native headgear."
 	path = /obj/item/clothing/head/tajaran/circlet
 	whitelisted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
+	allowed_roles = list("Shaft Miner", "Operations Manager", "Ship Engineer", "Atmospheric Technician", "Chief Engineer", "Engineering Apprentice", "Engineering Personnel", "Operations Personnel")
+	origin_restriction = list(/singleton/origin_item/origin/free_council)
+
+/datum/gear/tajaran_tarot
+	display_name = "adhomian divination cards deck"
+	path = /obj/item/deck/tarot/adhomai
 	sort_category = "Xenowear - Tajara"
 
 /datum/gear/head/tajara/New()
