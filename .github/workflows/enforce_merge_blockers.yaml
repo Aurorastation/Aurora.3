@@ -26,3 +26,9 @@ jobs:
         run: |
           echo "Pull request is labelled Do Not Merge and cannot be merged in this state. Refer to the developer who set this label for information."
           exit 1
+
+      - name: Enforce Changes Required Label
+        if: contains(github.event.pull_request.labels.*.name, 'Changes Required')
+        run: |
+          echo "Pull request is labelled Changes Required and cannot be merged in this state. Refer to the developer who set this label for information."
+          exit 1
