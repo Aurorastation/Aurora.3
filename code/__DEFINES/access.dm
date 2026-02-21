@@ -896,3 +896,10 @@
 /datum/access/decrepit_shipyard_staff
 	id = ACCESS_DECREPIT_SHIPYARD_STAFF
 	desc = "Decrepit Shipyard, Staff Access"
+
+#define ACCESS_VOIDTAMER_SHIP 256
+/datum/access/voidtamer_ship
+	id = ACCESS_VOIDTAMER_SHIP
+	access_type = ACCESS_TYPE_CENTCOM
+
+
