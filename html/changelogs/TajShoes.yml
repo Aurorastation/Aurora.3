@@ -1,0 +1,7 @@
+author: TheGreyWolf
+
+delete-after: True
+
+changes:
+  - rscadd: "Native tajaran foot-wear has been renamed to kah'romra."
+  - rscadd: "Changed the default taj shoes from sandals to kah'romra."
