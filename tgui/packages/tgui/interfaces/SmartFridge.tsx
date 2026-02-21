@@ -1,13 +1,6 @@
 import { BooleanLike } from '../../common/react';
 import { useBackend, useLocalState } from '../backend';
-import {
-  BlockQuote,
-  Box,
-  Button,
-  LabeledList,
-  Section,
-  Input,
-} from '../components';
+import { BlockQuote, Box, Button, Section, Input } from '../components';
 import { Window } from '../layouts';
 
 export type FridgeData = {
@@ -23,6 +16,7 @@ type Item = {
   display_name: string;
   vend: number;
   quantity: number;
+  icon?: string | null;
 };
 
 export const SmartFridge = (props, context) => {
@@ -95,57 +89,92 @@ export const ContentsWindow = (props, context) => {
 
   return (
     <Section>
-      <LabeledList>
+      <Box>
         {itemListSorted.map((item) => (
-          <LabeledList.Item key={item.display_name} label={item.display_name}>
-            x{item.quantity}&nbsp;
-            {item.quantity > 0 ? (
-              <Button
-                content="x1"
-                icon="arrow-alt-circle-down"
-                onClick={() => {
-                  act('vendItem', { vendItem: item.vend, amount: 1 });
-                }}
+          <Box
+            key={`${item.vend}-${item.display_name}`}
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              gap: '8px',
+              padding: '4px 0',
+            }}
+          >
+            {/* Item icon */}
+            {item.icon ? (
+              <Box
+                as="img"
+                src={`data:image/png;base64,${item.icon}`}
+                style={{ width: '32px', height: '32px', flexShrink: 0 }}
               />
-            ) : (
-              ''
-            )}
-            {item.quantity > 5 ? (
-              <Button
-                content="x5"
-                icon="arrow-alt-circle-down"
-                onClick={() => {
-                  act('vendItem', { vendItem: item.vend, amount: 5 });
-                }}
-              />
-            ) : (
-              ''
-            )}
-            {item.quantity > 10 ? (
-              <Button
-                content="x10"
-                icon="arrow-alt-circle-down"
-                onClick={() => {
-                  act('vendItem', { vendItem: item.vend, amount: 10 });
-                }}
-              />
-            ) : (
-              ''
-            )}
-            {item.quantity > 25 ? (
-              <Button
-                content="x25"
-                icon="arrow-alt-circle-down"
-                onClick={() => {
-                  act('vendItem', { vendItem: item.vend, amount: 25 });
-                }}
-              />
-            ) : (
-              ''
-            )}
-          </LabeledList.Item>
+            ) : null}
+            {/* Name stuff */}
+            <Box
+              style={{
+                flex: 2,
+                minWidth: 0,
+                whiteSpace: 'normal',
+                overflowWrap: 'break-word',
+                wordBreak: 'break-word',
+              }}
+            >
+              {item.display_name}
+            </Box>
+            {/* Amount */}x{item.quantity}
+            {/* Vend buttons */}
+            <Box
+              style={{
+                flex: 1.2,
+                minWidth: 0,
+                whiteSpace: 'normal',
+                overflowWrap: 'break-word',
+                wordBreak: 'break-word',
+              }}
+            >
+              {item.quantity > 0 && (
+                <Button
+                  content="x1"
+                  icon="arrow-alt-circle-down"
+                  width="50px"
+                  onClick={() =>
+                    act('vendItem', { vendItem: item.vend, amount: 1 })
+                  }
+                />
+              )}
+              {item.quantity > 5 && (
+                <Button
+                  content="x5"
+                  icon="arrow-alt-circle-down"
+                  width="50px"
+                  onClick={() =>
+                    act('vendItem', { vendItem: item.vend, amount: 5 })
+                  }
+                />
+              )}
+              {item.quantity > 10 && (
+                <Button
+                  content="x10"
+                  icon="arrow-alt-circle-down"
+                  width="50px"
+                  onClick={() =>
+                    act('vendItem', { vendItem: item.vend, amount: 10 })
+                  }
+                />
+              )}
+              {item.quantity > 25 && (
+                <Button
+                  content="x25"
+                  icon="arrow-alt-circle-down"
+                  width="50px"
+                  onClick={() =>
+                    act('vendItem', { vendItem: item.vend, amount: 25 })
+                  }
+                />
+              )}
+            </Box>
+          </Box>
         ))}
-      </LabeledList>
+      </Box>
     </Section>
   );
 };
