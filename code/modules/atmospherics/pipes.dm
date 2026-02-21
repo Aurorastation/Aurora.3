@@ -95,7 +95,7 @@
 	if (istype(src, /obj/machinery/atmospherics/pipe/tank))
 		return ..()
 
-	if(istype(attacking_item,/obj/item/pipe_painter))
+	if(istype(attacking_item,/obj/item/paint_sprayer))
 		return FALSE
 
 	if(istype(attacking_item, /obj/item/analyzer) && Adjacent(user))
@@ -1303,7 +1303,7 @@
 	return null
 
 /obj/machinery/atmospherics/pipe/tank/attackby(obj/item/attacking_item, mob/user)
-	if(istype(attacking_item, /obj/item/pipe_painter))
+	if(istype(attacking_item, /obj/item/paint_sprayer))
 		return FALSE
 
 	if(istype(attacking_item, /obj/item/analyzer) && in_range(user, src))

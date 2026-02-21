@@ -372,7 +372,6 @@ GLOBAL_LIST_INIT(robot_modules, list(
 	modules += new /obj/item/screwdriver/robotic(src)
 	modules += new /obj/item/wrench/robotic(src)
 	modules += new /obj/item/weldingtool/experimental(src)
-	modules += new /obj/item/pipe_painter(src)
 	modules += new /obj/item/gripper/no_use/loader(src)
 	modules += new /obj/item/gripper(src)
 	modules += new /obj/item/t_scanner(src) // to check underfloor wiring
@@ -443,7 +442,6 @@ GLOBAL_LIST_INIT(robot_modules, list(
 	modules += new /obj/item/gripper(src)
 	modules += new /obj/item/gripper/no_use/loader(src)
 	modules += new /obj/item/lightreplacer(src)
-	modules += new /obj/item/pipe_painter(src)
 	modules += new /obj/item/paint_sprayer(src)
 	modules += new /obj/item/taperoll/engineering(src) // To enable 'borgs to telegraph danger visually.
 	modules += new /obj/item/inflatable_dispenser(src) // To enable 'borgs to protect Crew from danger in direct hazards.
@@ -984,7 +982,6 @@ GLOBAL_LIST_INIT(robot_modules, list(
 	modules += new /obj/item/lightreplacer(src)
 	modules += new /obj/item/soap/drone(src)
 	modules += new /obj/item/extinguisher(src)
-	modules += new /obj/item/pipe_painter(src)
 	modules += new /obj/item/paint_sprayer(src)
 	modules += new /obj/item/t_scanner(src)
 	modules += new /obj/item/gripper/multi_purpose(src)
