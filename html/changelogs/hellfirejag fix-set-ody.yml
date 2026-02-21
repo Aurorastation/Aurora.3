@@ -1,0 +1,4 @@
+author: Hellfirejag
+delete-after: True
+changes:
+  - bugfix: "Fixed the Set Odyssey verb not working. It can now be used anytime after initialization, but before the round actually starts."
