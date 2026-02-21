@@ -208,7 +208,7 @@
 	groupable = TRUE
 	spawn_amount = 1
 
-	/singleton/cargo_item/boltactionrifle
+/singleton/cargo_item/boltactionrifle
 	category = "weaponry"
 	name = "Tsarrayut'yan automatic rifle"
 	supplier = "zharkov"
