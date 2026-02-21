@@ -30,7 +30,7 @@
 		return
 	. += "The valve is dialed to <b>[pressure_setting]%</b>."
 	if(tank)
-		. += "The tank dial reads <b>[tank.air_contents.return_pressure()] kPa</b>."
+		. += "The tank dial reads <b>[XGM_PRESSURE(tank.air_contents)] kPa</b>."
 	else
 		. += "Nothing is attached to the tank valve!"
 
@@ -101,9 +101,9 @@
 	if(T)
 		var/datum/gas_mixture/environment = T.return_air()
 		if(environment)
-			environment_pressure = environment.return_pressure()
+			environment_pressure = XGM_PRESSURE(environment)
 
-	fire_pressure = (tank.air_contents.return_pressure() - environment_pressure)*pressure_setting/100
+	fire_pressure = (XGM_PRESSURE(tank.air_contents) - environment_pressure)*pressure_setting/100
 	if(fire_pressure < 10)
 		to_chat(user, "There isn't enough gas in the tank to fire [src].")
 		return null

@@ -104,16 +104,14 @@
 	if(LAZYLEN(embedded_objects))
 		return FALSE
 
-	return (wound_damage() <= autoheal_cutoff) ? TRUE : is_treated()
+	return ((src.damage / src.amount) <= autoheal_cutoff) ? TRUE : is_treated()
 
 /// Checks whether the wound has been appropriately treated
 /datum/wound/proc/is_treated()
-	if(!LAZYLEN(embedded_objects))
-		switch(damage_type)
-			if(INJURY_TYPE_BRUISE, INJURY_TYPE_CUT, INJURY_TYPE_PIERCE)
-				return bandaged
-			if(INJURY_TYPE_BURN)
-				return salved
+	if(LAZYLEN(embedded_objects))
+		return FALSE
+
+	return damage_type == INJURY_TYPE_BURN ? salved : bandaged
 
 /// Checks whether other other can be merged into src.
 /datum/wound/proc/can_merge(datum/wound/other)
@@ -144,7 +142,7 @@
 /datum/wound/proc/infection_check()
 	if (damage < 10)	//small cuts, tiny bruises, and moderate burns shouldn't be infectable.
 		return FALSE
-	if (is_treated() && damage < 25)	//anything less than a flesh wound (or equivalent) isn't infectable if treated properly
+	if (damage < 25 && is_treated())	//anything less than a flesh wound (or equivalent) isn't infectable if treated properly
 		return FALSE
 	if (disinfected)
 		germ_level = 0	//reset this, just in case
@@ -186,7 +184,7 @@
 	amount -= healed_damage
 	src.damage -= healed_damage
 
-	while(src.wound_damage() < damage_list[current_stage] && current_stage < length(src.desc_list))
+	while((src.damage / src.amount) < damage_list[current_stage] && current_stage < length(src.desc_list))
 		current_stage++
 	desc = desc_list[current_stage]
 	src.min_damage = damage_list[current_stage]
@@ -226,14 +224,14 @@
 	return TRUE
 
 /datum/wound/proc/bleeding()
-	for(var/obj/item/thing in embedded_objects)
+	for(var/obj/item/thing as anything in embedded_objects)
 		if(thing.w_class > WEIGHT_CLASS_SMALL)
 			return FALSE
 
 	if (bandaged||clamped)
 		return FALSE
 
-	return ((bleed_timer > 0 || wound_damage() > bleed_threshold) && current_stage <= max_bleeding_stage)
+	return ((bleed_timer > 0 || (src.damage / src.amount) > bleed_threshold) && current_stage <= max_bleeding_stage)
 
 /// Called in organ_external.dm update_damages, this will update the limb's status to bleeding, and lowers the bleed_timer if applicable
 /datum/wound/proc/handle_bleeding(var/mob/victim, var/obj/item/organ/external/limb)

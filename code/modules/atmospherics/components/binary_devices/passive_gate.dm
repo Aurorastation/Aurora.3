@@ -116,8 +116,8 @@
 	if(!unlocked)
 		return 0
 
-	var/output_starting_pressure = air2.return_pressure()
-	var/input_starting_pressure = air1.return_pressure()
+	var/output_starting_pressure = XGM_PRESSURE(air2)
+	var/input_starting_pressure = XGM_PRESSURE(air1)
 
 	var/pressure_delta
 	switch (regulate_mode)
@@ -203,11 +203,8 @@
 		unlocked = !unlocked
 
 	if("set_target_pressure" in signal.data)
-		target_pressure = between(
-			0,
-			text2num(signal.data["set_target_pressure"]),
-			max_pressure_setting
-		)
+		var/set_pressure = text2num(signal.data["set_target_pressure"])
+		target_pressure = between(0, set_pressure, max_pressure_setting)
 
 	if("set_regulate_mode" in signal.data)
 		regulate_mode = text2num(signal.data["set_regulate_mode"])
@@ -335,7 +332,7 @@
 	var/datum/gas_mixture/int_air = return_air()
 	if (!loc) return FALSE
 	var/datum/gas_mixture/env_air = loc.return_air()
-	if ((int_air.return_pressure()-env_air.return_pressure()) > PRESSURE_EXERTED)
+	if ((XGM_PRESSURE(int_air)-XGM_PRESSURE(env_air)) > PRESSURE_EXERTED)
 		to_chat(user, SPAN_WARNING("You cannot unwrench \the [src], it too exerted due to internal pressure."))
 		add_fingerprint(user)
 		return TRUE

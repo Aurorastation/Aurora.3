@@ -201,15 +201,16 @@
 		if(should_act) // We're gonna give or take from the net.
 			if(drawing)
 				var/to_transfer = min(throughput, (assembly.battery.maxcharge - assembly.battery.charge) / CELLRATE) // So we don't need to draw 10kW if the cell needs much less.
-				var/amount = IO.draw_power(to_transfer)
+				var/amount = POWER_DRAW(IO, to_transfer)
+				DRAW_POWER(IO, amount)
 				assembly.give_power(amount)
 			else
 				var/amount = assembly.draw_power(throughput)
-				IO.add_avail(amount)
+				ADD_TO_POWERNET(IO, amount)
 
-		set_pin_data(IC_OUTPUT, 1, IO.avail())
-		set_pin_data(IC_OUTPUT, 2, IO.surplus())
-		set_pin_data(IC_OUTPUT, 3, -IO.surplus()-IO.avail()) // we don't have a viewload() proc on machines and i'm lazy
+		set_pin_data(IC_OUTPUT, 1, POWER_AVAIL(IO))
+		set_pin_data(IC_OUTPUT, 2, POWER_SURPLUS(IO))
+		set_pin_data(IC_OUTPUT, 3, POWER_LOAD(IO))
 
 // Internal power machine for interacting with the powernet.
 // It needs a bit of special code since base /machinery/power assumes loc will be a tile.

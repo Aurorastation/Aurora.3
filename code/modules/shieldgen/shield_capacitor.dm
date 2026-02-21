@@ -123,7 +123,8 @@
 
 	if (PN)
 		var/power_draw = between(0, max_charge - stored_charge, charge_rate) //what we are trying to draw
-		power_draw = PN.draw_power(power_draw) //what we actually get
+		power_draw = POWERNET_POWER_DRAW(PN, power_draw) //what we actually get
+		DRAW_FROM_POWERNET(PN, power_draw)
 		stored_charge += power_draw
 
 	time_since_fail++

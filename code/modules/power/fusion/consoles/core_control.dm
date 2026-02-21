@@ -53,7 +53,7 @@
 		for(var/i = 1 to LAZYLEN(fusion_cores))
 			var/list/core = list()
 			var/obj/machinery/power/fusion_core/C = fusion_cores[i]
-			var/power_available = C.avail()
+			var/power_available = POWER_AVAIL(C)
 			var/power_usage = C.active_power_usage
 			var/power_generated = C.owned_field?.output_avg
 

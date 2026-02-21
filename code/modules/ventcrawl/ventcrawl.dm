@@ -174,7 +174,7 @@ GLOBAL_LIST_INIT(can_enter_vent_with, list(
 							if(BODYTEMP_HEAT_DAMAGE_LIMIT to INFINITY)
 								to_chat(src, SPAN_DANGER("You feel a searing heat coming from the vent!"))
 
-						switch(vent_found.air_contents.return_pressure())
+						switch(XGM_PRESSURE(vent_found.air_contents))
 							if(0 to HAZARD_LOW_PRESSURE)
 								to_chat(src, SPAN_DANGER("You feel a rushing draw pulling you into the vent!"))
 							if(HAZARD_LOW_PRESSURE to WARNING_LOW_PRESSURE)

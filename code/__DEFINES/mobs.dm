@@ -562,6 +562,10 @@
 #define HEIGHT_CLASS_HUGE 240
 #define HEIGHT_CLASS_GIGANTIC 300
 
+#define UNBUCKLED 0
+#define PARTIALLY_BUCKLED 1
+#define FULLY_BUCKLED 2
+
 #define MOB_IS_INCAPACITATED(incapacitation_flags)\
 (\
 	((incapacitation_flags & INCAPACITATION_STUNNED) && stunned) ||\

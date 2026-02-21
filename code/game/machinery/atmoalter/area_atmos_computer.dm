@@ -38,7 +38,7 @@
 			"id" = scrubber.id,
 			"name" = scrubber.name,
 			"status" = scrubber.on ? 1 : 0,
-			"pressure" = round(scrubber.air_contents.return_pressure(), 0.01),
+			"pressure" = round(XGM_PRESSURE(scrubber.air_contents), 0.01),
 			"flowrate" = round(scrubber.last_flow_rate, 0.1)
 		))
 

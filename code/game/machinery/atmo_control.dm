@@ -60,7 +60,7 @@
 		var/datum/gas_mixture/air_sample = return_air()
 
 		if(output_pressure)
-			signal.data["pressure"] = num2text(round(air_sample.return_pressure(),0.1),)
+			signal.data["pressure"] = num2text(round(XGM_PRESSURE(air_sample),0.1),)
 		if(output_temperature)
 			signal.data["temperature"] = round(air_sample.temperature,0.1)
 

@@ -226,7 +226,7 @@ GLOBAL_LIST_INIT_TYPED(rad_collectors, /obj/machinery/power/rad_collector, list(
 	if(loaded_tank && active)
 		var/power_produced = 0
 		power_produced = min(100*loaded_tank.air_contents.gas[GAS_PHORON]*pulse_strength*pulse_coeff,max_power)
-		add_avail(power_produced)
+		ADD_TO_POWERNET(src, power_produced)
 		last_power_new = power_produced
 		return
 	return

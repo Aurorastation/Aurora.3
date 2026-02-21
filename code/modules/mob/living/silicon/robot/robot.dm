@@ -557,7 +557,7 @@
 
 	if(jetpack)
 		. += "Internal Atmosphere Info: [jetpack.name]"
-		. += "Tank Pressure: [jetpack.air_contents.return_pressure()]"
+		. += "Tank Pressure: [XGM_PRESSURE(jetpack.air_contents)]"
 	. += "Lights: [lights_on ? "ON" : "OFF"]"
 	if(module)
 		for(var/datum/matter_synth/ms in module.synths)

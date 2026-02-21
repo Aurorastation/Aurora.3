@@ -96,7 +96,7 @@
 
 //Handle possble chem smoke effect
 /mob/living/carbon/proc/handle_chemical_smoke(var/datum/gas_mixture/environment)
-	if(species && environment.return_pressure() < species.breath_pressure/5)
+	if(species && XGM_PRESSURE(environment) < species.breath_pressure/5)
 		return //pressure is too low to even breathe in.
 	if(wear_mask && (wear_mask.item_flags & ITEM_FLAG_BLOCK_GAS_SMOKE_EFFECT))
 		return

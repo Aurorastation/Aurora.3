@@ -116,7 +116,7 @@
 /obj/machinery/portable_atmospherics/powered/scrubber/ui_data(mob/user)
 	var/list/data = list()
 	data["portConnected"] = connected_port ? 1 : 0
-	data["tankPressure"] = round(air_contents.return_pressure() > 0 ? air_contents.return_pressure() : 0)
+	data["tankPressure"] = round(XGM_PRESSURE(air_contents))
 	data["rate"] = round(volume_rate)
 	data["minrate"] = round(minrate)
 	data["maxrate"] = round(maxrate)
@@ -127,7 +127,7 @@
 	data["hasHoldingTank"] = holding ? 1 : 0
 	if(holding)
 		data["holdingTankName"] = holding?.name
-		data["holdingTankPressure"] = round(holding.air_contents.return_pressure() > 0 ? holding.air_contents.return_pressure() : 0)
+		data["holdingTankPressure"] = round(XGM_PRESSURE(holding.air_contents))
 	else
 		data["holdingTankName"] = null
 		data["holdingTankPressure"] = null

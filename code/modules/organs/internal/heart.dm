@@ -247,7 +247,7 @@
 		var/list/do_spray = list()
 		for(var/obj/item/organ/external/temp in owner.bad_external_organs)
 			if((temp.status & ORGAN_BLEEDING) && !BP_IS_ROBOTIC(temp))
-				for(var/datum/wound/W in temp.wounds)
+				for(var/datum/wound/W as anything in temp.wounds)
 					if(W.bleeding())
 						open_wound = TRUE
 						if(temp.applied_pressure)

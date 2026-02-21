@@ -184,22 +184,25 @@ export const APCWindow = (props, context) => {
                   <Button
                     content="Auto"
                     icon="sync"
-                    color={
-                      channel.status === 1 || channel.status === 3 ? 'good' : ''
+                    color={channel.status & (1 << 1) ? 'good' : ''}
+                    onClick={() =>
+                      act('set', {
+                        set: channel.status | (1 << 1),
+                        chan: channel.name,
+                      })
                     }
-                    onClick={() => act('set', { set: 3, chan: channel.name })}
                   />
                   <Button
                     content="On"
                     icon="power-off"
-                    color={channel.status === 2 ? 'good' : ''}
-                    onClick={() => act('set', { set: 2, chan: channel.name })}
+                    color={channel.status === 1 << 0 ? 'good' : ''}
+                    onClick={() => act('set', { set: 1, chan: channel.name })}
                   />
                   <Button
                     content="Off"
                     icon="times"
                     color={channel.status === 0 ? 'good' : ''}
-                    onClick={() => act('set', { set: 1, chan: channel.name })}
+                    onClick={() => act('set', { set: 0, chan: channel.name })}
                   />
                 </Section>
               ) : (
@@ -282,21 +285,21 @@ const ChargeClass = (value) => {
 };
 
 const channelStatus = (channelStat) => {
-  if (channelStat <= 1) {
-    return 'Off';
-  } else return 'On';
+  if (channelStat & (1 << 0)) {
+    return 'On';
+  } else return 'Off';
 };
 
 const channelPower = (channelStat) => {
-  if (channelStat === 1 || channelStat === 3) {
+  if (channelStat & (1 << 1)) {
     return 'Auto';
   }
   return 'Manual';
 };
 
 const channelStatClass = (channelStat) => {
-  if (channelStat <= 1) {
-    return 'bad';
+  if (channelStat & (1 << 0)) {
+    return 'good';
   }
-  return 'good';
+  return 'bad';
 };

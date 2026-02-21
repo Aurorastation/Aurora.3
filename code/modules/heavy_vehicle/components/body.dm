@@ -106,7 +106,7 @@
 		cockpit.equalize(T.return_air())
 		changed = TRUE
 	else if(air_supply)
-		var/env_pressure = cockpit.return_pressure()
+		var/env_pressure = XGM_PRESSURE(cockpit)
 		var/pressure_delta = air_supply.release_pressure - env_pressure
 		if((air_supply.air_contents.temperature > 0) && (pressure_delta > 0))
 			var/transfer_moles = calculate_transfer_moles(air_supply.air_contents, cockpit, pressure_delta)

@@ -83,11 +83,11 @@
 		var/output_volume
 		var/air_temperature
 		if(direction_out)
-			pressure_delta = target_pressure - environment.return_pressure()
+			pressure_delta = target_pressure - XGM_PRESSURE(environment)
 			output_volume = environment.volume * environment.group_multiplier
 			air_temperature = environment.temperature? environment.temperature : air_contents.temperature
 		else
-			pressure_delta = environment.return_pressure() - target_pressure
+			pressure_delta = XGM_PRESSURE(environment) - target_pressure
 			output_volume = air_contents.volume * air_contents.group_multiplier
 			air_temperature = air_contents.temperature? air_contents.temperature : environment.temperature
 
@@ -133,9 +133,10 @@
 	ui_interact(user)
 
 /obj/machinery/portable_atmospherics/powered/pump/ui_data(mob/user)
+	var/air_pressure = XGM_PRESSURE(air_contents)
 	var/list/data = list()
 	data["portConnected"] = connected_port ? 1 : 0
-	data["tankPressure"] = round(air_contents.return_pressure() > 0 ? air_contents.return_pressure() : 0)
+	data["tankPressure"] = round(air_pressure)
 	data["targetpressure"] = round(target_pressure)
 	data["pump_dir"] = direction_out
 	data["minpressure"] = round(pressuremin)
@@ -147,7 +148,7 @@
 
 	data["hasHoldingTank"] = holding ? 1 : 0
 	if (holding)
-		data["holdingTank"] = list("name" = holding.name, "tankPressure" = round(holding.air_contents.return_pressure() > 0 ? holding.air_contents.return_pressure() : 0))
+		data["holdingTank"] = list("name" = holding.name, "tankPressure" = round(XGM_PRESSURE(holding.air_contents)))
 	return data
 
 /obj/machinery/portable_atmospherics/powered/pump/ui_interact(mob/user, datum/tgui/ui)

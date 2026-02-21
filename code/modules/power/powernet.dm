@@ -39,11 +39,6 @@
 /datum/powernet/proc/last_surplus()
 	return max(avail - load, 0)
 
-/datum/powernet/proc/draw_power(var/amount)
-	var/draw = between(0, amount, avail - load)
-	load += draw
-	return draw
-
 /datum/powernet/proc/is_empty()
 	return !cables.len && !nodes.len
 

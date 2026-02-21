@@ -402,7 +402,7 @@
 	data["mode"] = mode
 	data["uses_air"] = uses_air
 	data["panel_open"] = panel_open
-	data["pressure"] = CLAMP01(air_contents.return_pressure() / (SEND_PRESSURE))
+	data["pressure"] = CLAMP01(XGM_PRESSURE(air_contents) / (SEND_PRESSURE))
 	return data
 
 /obj/machinery/disposal/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
@@ -507,13 +507,13 @@
 		update()
 
 	// Validate whether we're pressurized or not.
-	if(mode == MODE_PRESSURIZING && air_contents.return_pressure() >= SEND_PRESSURE)
+	if(mode == MODE_PRESSURIZING && XGM_PRESSURE(air_contents) >= SEND_PRESSURE)
 		mode = MODE_READY
 		update()
 		return
 
 	// If you turn this into a bare 'else' statement it just tries to pressurize infinitely and I don't know why.
-	else if(mode == MODE_PRESSURIZING && air_contents.return_pressure() < SEND_PRESSURE)
+	else if(mode == MODE_PRESSURIZING && XGM_PRESSURE(air_contents) < SEND_PRESSURE)
 		src.pressurize()
 		update()
 		return
@@ -541,7 +541,7 @@
 	if (power_draw > 0)
 		use_power_oneoff(power_draw)
 		// If we've reached the target pressure, we're ready to flush
-		if(air_contents.return_pressure() >= SEND_PRESSURE)
+		if(XGM_PRESSURE(air_contents) >= SEND_PRESSURE)
 			mode = MODE_READY
 
 /**

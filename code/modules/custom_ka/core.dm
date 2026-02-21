@@ -241,7 +241,7 @@
 
 	if(T)
 		var/datum/gas_mixture/environment = T.return_air()
-		var/pressure = (environment)? environment.return_pressure() : 0
+		var/pressure = SAFE_XGM_PRESSURE(environment)
 		if(ispath(installed_barrel.projectile_type, /obj/projectile/kinetic))
 			var/obj/projectile/kinetic/shot_projectile = new installed_barrel.projectile_type(get_turf(src))
 			shot_projectile.damage = damage_increase

@@ -75,7 +75,7 @@
 
 	check_core_stability()
 
-	add_avail(stored_power)
+	ADD_TO_POWERNET(src, stored_power)
 
 	power_cycle++
 	if(power_cycle >= power_cycle_delay)

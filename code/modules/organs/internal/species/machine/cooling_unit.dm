@@ -147,7 +147,7 @@
 				temperature_change *= 0.5
 
 	// Check if there is somehow no air, or if we are in an ambient without enough air to properly cool us.
-	if((!ambient || (ambient && owner.calculate_affecting_pressure(ambient.return_pressure()) < owner.species.warning_low_pressure)))
+	if((!ambient || (ambient && owner.calculate_affecting_pressure(XGM_PRESSURE(ambient)) < owner.species.warning_low_pressure)))
 		if(!spaceproof)
 			temperature_change *= 0
 		else

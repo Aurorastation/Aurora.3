@@ -74,7 +74,7 @@
 	if(!loc) return FALSE
 	var/datum/gas_mixture/environment = loc.return_air()
 
-	var/pressure_difference = pressure - environment.return_pressure()
+	var/pressure_difference = pressure - XGM_PRESSURE(environment)
 
 	if(pressure_difference > maximum_pressure)
 		burst()

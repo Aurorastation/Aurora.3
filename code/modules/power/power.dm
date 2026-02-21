@@ -24,39 +24,6 @@
 ///////////////////////////////
 // General procedures
 //////////////////////////////
-
-// common helper procs for all power machines
-/obj/machinery/power/drain_power(var/drain_check, var/surge, var/amount = 0)
-	if(drain_check)
-		return 1
-
-	if(powernet && powernet.avail)
-		powernet.trigger_warning()
-		return powernet.draw_power(amount)
-
-/obj/machinery/power/proc/add_avail(var/amount)
-	if(powernet)
-		powernet.newavail += amount
-		return 1
-	return 0
-
-/obj/machinery/power/proc/draw_power(var/amount)
-	if(powernet)
-		return powernet.draw_power(amount)
-	return 0
-
-/obj/machinery/power/proc/surplus()
-	if(powernet)
-		return powernet.avail-powernet.load
-	else
-		return 0
-
-/obj/machinery/power/proc/avail()
-	if(powernet)
-		return powernet.avail
-	else
-		return 0
-
 // Proc: power_wattage_readable()
 // Parameters: 1 (amount - Power in Watts to be converted to W, kW or MW)
 // Description: Helper proc that converts reading in Watts to kW or MW (returns string version of amount parameter)
@@ -370,7 +337,8 @@
 		source_area.use_power_oneoff(drained_energy/CELLRATE)
 	else if (istype(power_source,/datum/powernet))
 		var/drained_power = drained_energy/CELLRATE
-		drained_power = PN.draw_power(drained_power)
+		drained_power = POWERNET_POWER_DRAW(PN, drained_power)
+		DRAW_FROM_POWERNET(PN, drained_power)
 	else if (istype(power_source, /obj/item/cell))
 		cell.use(drained_energy)
 	return drained_energy

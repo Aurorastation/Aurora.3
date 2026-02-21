@@ -28,7 +28,8 @@
 	update_icon()
 
 /obj/machinery/power/radial_floodlight/process()
-	var/actual_load = draw_power(active_power_usage)
+	var/actual_load = POWER_DRAW(src, active_power_usage)
+	DRAW_POWER(src, active_power_usage)
 	if(!on || !anchored || (stat & BROKEN) || !powernet || actual_load < active_power_usage)
 		STOP_PROCESSING_MACHINE(src, MACHINERY_PROCESS_SELF)
 		update_use_power(POWER_USE_OFF)
@@ -56,7 +57,7 @@
 	if(!powernet)
 		to_chat(user, SPAN_WARNING("\The [src] isn't connected to a power network."))
 		return
-	if(avail() < active_power_usage)
+	if(POWER_AVAIL(src) < active_power_usage)
 		to_chat(user, SPAN_WARNING("\The [src]'s power network doesn't have enough power."))
 		return
 	toggle_active()

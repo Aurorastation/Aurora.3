@@ -53,7 +53,7 @@
 		//don't lose arc power when it's not connected to anything
 		//please place tesla coils all around the station to maximize effectiveness
 		var/power_produced = powernet ? power / power_loss : power
-		add_avail(power_produced*input_power_multiplier)
+		ADD_TO_POWERNET(src, power_produced*input_power_multiplier)
 		flick("coilhit", src)
 		playsound(src.loc, 'sound/magic/LightningShock.ogg', 100, 1, extrarange = 5)
 		tesla_zap(src, 5, power_produced)

@@ -271,7 +271,7 @@
 	if(connected_port)
 		update_flag |= 2
 
-	var/tank_pressure = air_contents.return_pressure()
+	var/tank_pressure = XGM_PRESSURE(air_contents)
 	if(tank_pressure < 10)
 		update_flag |= 4
 	else if(tank_pressure < ONE_ATMOSPHERE)
@@ -388,7 +388,7 @@ update_flag
 			environment = loc.return_air()
 		else return
 
-		var/env_pressure = environment.return_pressure()
+		var/env_pressure = XGM_PRESSURE(environment)
 		var/pressure_delta = release_pressure - env_pressure
 
 		if((air_contents.temperature > 0) && (pressure_delta > 0))
@@ -399,7 +399,7 @@ update_flag
 			if(returnval >= 0)
 				src.update_icon()
 
-	if(air_contents.return_pressure() < 1)
+	if(XGM_PRESSURE(air_contents) < 1)
 		can_label = 1
 	else
 		can_label = 0
@@ -409,18 +409,6 @@ update_flag
 
 /obj/machinery/portable_atmospherics/canister/return_air()
 	return air_contents
-
-/obj/machinery/portable_atmospherics/canister/proc/return_temperature()
-	var/datum/gas_mixture/GM = src.return_air()
-	if(GM && GM.volume>0)
-		return GM.temperature
-	return 0
-
-/obj/machinery/portable_atmospherics/canister/proc/return_pressure()
-	var/datum/gas_mixture/GM = src.return_air()
-	if(GM && GM.volume>0)
-		return GM.return_pressure()
-	return 0
 
 /obj/machinery/portable_atmospherics/canister/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
 	. = ..()
@@ -471,8 +459,8 @@ update_flag
 	if(istype(user, /mob/living/silicon/robot) && istype(attacking_item, /obj/item/tank/jetpack))
 		var/obj/item/tank/jetpack/jetpack = attacking_item
 		var/datum/gas_mixture/thejetpack = jetpack.air_contents
-		var/env_pressure = thejetpack.return_pressure()
-		var/pressure_delta = min(10*ONE_ATMOSPHERE - env_pressure, (air_contents.return_pressure() - env_pressure)/2)
+		var/env_pressure = XGM_PRESSURE(thejetpack)
+		var/pressure_delta = min(10*ONE_ATMOSPHERE - env_pressure, (XGM_PRESSURE(air_contents) - env_pressure)/2)
 		// Cannot have a pressure delta that would cause environment pressure > tank pressure
 		var/transfer_moles = 0
 		if((air_contents.temperature > 0) && (pressure_delta > 0))
@@ -507,7 +495,7 @@ update_flag
 	data["name"] = name
 	data["canLabel"] = can_label
 	data["portConnected"] = !!connected_port
-	data["tankPressure"] = round(air_contents.return_pressure() || 0)
+	data["tankPressure"] = round(XGM_PRESSURE(air_contents) || 0)
 	data["releasePressure"] = round(release_pressure || 0)
 	data["minReleasePressure"] = round(ONE_ATMOSPHERE/10)
 	data["maxReleasePressure"] = round(10*ONE_ATMOSPHERE)
@@ -515,7 +503,7 @@ update_flag
 
 	data["hasHoldingTank"] = !!holding
 	if (holding)
-		data["holdingTank"] = list("name" = holding.name, "tankPressure" = round(holding.air_contents.return_pressure()))
+		data["holdingTank"] = list("name" = holding.name, "tankPressure" = round(XGM_PRESSURE(holding.air_contents)))
 	return data
 
 /obj/machinery/portable_atmospherics/canister/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
