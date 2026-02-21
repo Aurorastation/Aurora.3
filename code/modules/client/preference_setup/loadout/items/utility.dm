@@ -57,6 +57,7 @@
 
 /datum/gear/utility/stickynote
 	display_name = "Sticky note pad"
+	description = "A pad full of sticky notes, to stick notes to places with."
 	path = /obj/item/paper/stickynotes/pad
 	flags = GEAR_HAS_COLOR_SELECTION
 
