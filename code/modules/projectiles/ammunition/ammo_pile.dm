@@ -9,7 +9,7 @@
 	var/max_ammo = 5
 
 /obj/item/ammo_pile/Destroy()
-	ammo.Cut()
+	QDEL_LIST(ammo)
 	ammo_overlays.Cut()
 	. = ..()
 
