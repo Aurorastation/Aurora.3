@@ -110,16 +110,19 @@
 	return ..()
 
 /datum/category_item/player_setup_item/player_global/settings/proc/validate_current_character()
-	if (!establish_db_connection(GLOB.dbcon))
+	if(!SSdbcore.Connect())
 		return pref.current_character
 
-	var/DBQuery/is_ours = GLOB.dbcon.NewQuery("SELECT COUNT(*) as valid_id FROM ss13_characters WHERE ckey = :ckey: AND id = :curr_char: AND deleted_at IS NULL")
-	is_ours.Execute(list("ckey" = pref.client.ckey, "curr_char" = pref.current_character))
+	var/datum/db_query/is_ours = SSdbcore.NewQuery("SELECT COUNT(*) as valid_id FROM ss13_characters WHERE ckey = :ckey AND id = :curr_char AND deleted_at IS NULL",list("ckey" = pref.client.ckey, "curr_char" = pref.current_character))
+	is_ours.Execute()
 
 	if (!is_ours.NextRow())
+		qdel(is_ours)
 		return pref.current_character
 
 	var/found = text2num(is_ours.item[1])
+
+	qdel(is_ours)
 
 	if (!found)
 		return select_default_character()
@@ -127,13 +130,14 @@
 		return pref.current_character
 
 /datum/category_item/player_setup_item/player_global/settings/proc/select_default_character()
-	if (!establish_db_connection(GLOB.dbcon))
+	if (!SSdbcore.Connect())
 		return 0
 
-	var/DBQuery/first_char = GLOB.dbcon.NewQuery("SELECT id FROM ss13_characters WHERE ckey = :ckey: AND deleted_at IS NULL LIMIT 1")
-	first_char.Execute(list("ckey" = pref.client.ckey))
+	var/datum/db_query/first_char = SSdbcore.NewQuery("SELECT id FROM ss13_characters WHERE ckey = :ckey AND deleted_at IS NULL LIMIT 1", list("ckey" = pref.client.ckey))
+	first_char.Execute()
 
 	if (!first_char.NextRow())
+		qdel(first_char)
 		return 0
-
+	qdel(first_char)
 	return text2num(first_char.item[1])

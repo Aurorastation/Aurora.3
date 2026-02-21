@@ -342,9 +342,9 @@ GLOBAL_LIST(global_huds)
 	if(!(mymob.client))
 		return FALSE
 
-	var/ui_style = ui_style2icon(mymob.client.prefs.UI_style)
-	var/ui_color = mymob.client.prefs.UI_style_color
-	var/ui_alpha = mymob.client.prefs.UI_style_alpha
+	var/ui_style = ui_style2icon(mymob.client.prefs.ui_style)
+	var/ui_color = mymob.client.prefs.ui_style_color
+	var/ui_alpha = mymob.client.prefs.ui_style_alpha
 
 	mymob.instantiate_hud(src, ui_style, ui_color, ui_alpha)
 
