@@ -37,10 +37,10 @@
 	category =  /singleton/skill_category/occupational
 	subcategory = SKILL_SUBCATEGORY_OPERATIONS
 	skill_level_map = list(
-		"Unlicensed" = "What's a mech?",
-		"Licensed Pilot" = "You have a license to pilot mechs, but are relatively inexperienced.",
-		"Experienced Pilot" = "You have a decent amount of experience piloting mechs.",
-		"Mechwarrior" = "Look on the bright side kid, you get to keep all the money."
+		"Unlicensed",
+		"Licensed Pilot",
+		"Experienced Pilot",
+		"Mechwarrior"
 	)
 	skill_level_descriptions = alist(
 		SKILL_LEVEL_UNFAMILIAR = "What's a mech?<br>" \

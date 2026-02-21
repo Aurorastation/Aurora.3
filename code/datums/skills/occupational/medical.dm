@@ -1,10 +1,17 @@
 /singleton/skill/medicine
 	name = "Medicine"
-	description ="how to use health analyzers, ATKs, syringes"
+	description = "how to use health analyzers, ATKs, syringes"
 	maximum_level = SKILL_LEVEL_PROFESSIONAL
 	uneducated_skill_cap = SKILL_LEVEL_FAMILIAR
 	category =  /singleton/skill_category/occupational
 	subcategory = SKILL_SUBCATEGORY_MEDICAL
+	required = TRUE
+
+/singleton/skill/medicine/on_spawn(mob/owner, skill_level)
+	if (!owner)
+		return
+
+	owner.AddComponent(MEDICINE_SKILL_COMPONENT, skill_level)
 
 /singleton/skill/surgery
 	name = "Surgery"

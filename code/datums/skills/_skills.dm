@@ -12,10 +12,10 @@
 	)
 	/// Map of skill names and descriptions by their index.
 	var/list/skill_level_map = list(
-		"Unfamiliar" = "You don't know anything about this subject.",
-		"Familiar" = "You're familiar with this subject, either by reading into it or by doing some courses.",
-		"Trained" = "You've been formally trained in this subject. Typically, this is the minimum level for a job.",
-		"Professional" = "You have a lot of training and a good amount of experience in this subject."
+		"Unfamiliar",
+		"Familiar",
+		"Trained",
+		"Professional"
 	)
 	/// The maximum level someone with no education can reach in this skill. Typically, this should be FAMILIAR on occupational skills.
 	/// If null, then there is no cap.

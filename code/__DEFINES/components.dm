@@ -14,5 +14,6 @@
 #define COOKING_SKILL_COMPONENT /datum/component/skill/cooking
 #define ENTERTAINING_SKILL_COMPONENT /datum/component/skill/entertaining
 #define GARDENING_SKILL_COMPONENT /datum/component/skill/gardening
+#define MEDICINE_SKILL_COMPONENT /datum/component/skill/medicine
 #define SKILL_COMPONENT /datum/component/skill
 #define MORALE_COMPONENT /datum/component/morale

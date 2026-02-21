@@ -508,6 +508,7 @@
 #include "code\datums\components\skills\combat\armed_combat_skill_component.dm"
 #include "code\datums\components\skills\combat\firearms_skill_component.dm"
 #include "code\datums\components\skills\combat\unarmed_combat_skill_component.dm"
+#include "code\datums\components\skills\medical\medicine_skill_component.dm"
 #include "code\datums\components\skills\operations\pilot_mechs_skill_component.dm"
 #include "code\datums\components\skills\operations\pilot_spacecraft_skill_component.dm"
 #include "code\datums\components\skills\operations\robotics_skill_component.dm"

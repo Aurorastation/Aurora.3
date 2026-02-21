@@ -112,3 +112,10 @@
 #define COMSIG_MECH_MOVE_STRAFE "mech_move_strafe"
 
 #define COMSIG_MECH_TOGGLE_POWER "mech_toggle_power"
+
+// Unarmed Combat Signals
+
+#define COMSIG_UNARMED_HARM_ATTACKER "unarmed_harm_attacker"
+#define COMSIG_UNARMED_HARM_DEFENDER "unarmed_harm_defender"
+#define COMSIG_UNARMED_DISARM_ATTACKER "unarmed_disarm_attacker"
+#define COMSIG_UNARMED_DISARM_DEFENDER "unarmed_disarm_defender"
