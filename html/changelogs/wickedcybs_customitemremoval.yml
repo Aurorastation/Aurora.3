@@ -1,0 +1,6 @@
+author: WickedCybs
+
+delete-after: True
+
+changes:
+  - rscdel: "Removed quite a bit of unused custom items. They can return should their characters resume activity."
