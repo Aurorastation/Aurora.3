@@ -279,11 +279,13 @@
 	name = "Vampiric Jumpstarter"
 	telecrystal_cost = 20
 	path = /obj/item/vampiric_jumpstarter
+	antag_roles = list(MODE_TRAITOR)
 
 /datum/uplink_item/item/visible_weapons/changeling_jumpstarter
 	name = "Changeling Jumpstarter"
 	telecrystal_cost = 20
 	path = /obj/item/changeling_jumpstarter
+	antag_roles = list(MODE_TRAITOR)
 
 /datum/uplink_item/item/visible_weapons/flamethrower
 	name = "Flamethrower"
