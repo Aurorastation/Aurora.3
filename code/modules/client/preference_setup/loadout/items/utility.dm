@@ -55,6 +55,11 @@
 	path = /obj/item/journal/notepad/filled
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
+/datum/gear/utility/stickynote
+	display_name = "Sticky note pad"
+	path = /obj/item/paper/stickynotes/pad
+	flags = GEAR_HAS_COLOR_SELECTION
+
 /datum/gear/utility/fountainpen
 	display_name = "fountain pen selection"
 	description = "A selection of fountain pens."
