@@ -26,6 +26,8 @@
 /atom/movable/screen/Destroy(force = FALSE)
 	master = null
 	screen_loc = null
+	if(hud?.mymob?.client)
+		hud.mymob.client.screen -= src
 	hud = null
 	. = ..()
 

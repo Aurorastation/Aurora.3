@@ -212,15 +212,9 @@
 
 /obj/machinery/atmospherics/omni/Destroy()
 	loc = null
-
-	for(var/datum/omni_port/P in ports)
-		if(P.node)
-			P.node.disconnect(src)
-			qdel(P.network)
-			P.node = null
+	QDEL_LIST(ports)
 
 	. = ..()
-	GC_TEMPORARY_HARDDEL
 
 /obj/machinery/atmospherics/omni/atmos_init()
 	for(var/datum/omni_port/P in ports)

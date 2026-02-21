@@ -567,6 +567,7 @@
 				var/to_delete = rand(1, length(AG.stored_ammo))
 				var/delete_counter = 0
 				for(var/obj/item/ammo_casing/AC in AG.stored_ammo)
+					AG.stored_ammo -= AC
 					qdel(AC)
 					delete_counter++
 					if(delete_counter > to_delete)
