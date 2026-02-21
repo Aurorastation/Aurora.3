@@ -16,8 +16,8 @@
 	/// Now, generate random seeds for normal planets.
 	for(var/i = 1 to flora_diversity)
 		var/datum/seed/S = new()
-		if(atmosphere?.gas)
-			S.randomize(atmosphere.gas.Copy())
+		if(exterior_atmosphere?.gas)
+			S.randomize(exterior_atmosphere.gas.Copy())
 		else
 			S.randomize()
 		var/plant_icon = "alien[rand(1,7)]"
@@ -49,6 +49,21 @@
 			adapt_seed(S)
 			S.update_growth_stages()
 			big_flora_seeds += S
+
+/obj/effect/overmap/visitable/sector/exoplanet/proc/adapt_seed(var/datum/seed/S)
+	SET_SEED_TRAIT_BOUNDED(S, TRAIT_IDEAL_HEAT, exterior_atmosphere.temperature + rand(-5,5), 800, 70, null)
+	SET_SEED_TRAIT_BOUNDED(S, TRAIT_HEAT_TOLERANCE, GET_SEED_TRAIT(S, TRAIT_HEAT_TOLERANCE) + rand(-5,5), 800, 70, null)
+	SET_SEED_TRAIT_BOUNDED(S, TRAIT_LOWKPA_TOLERANCE, exterior_atmosphere.return_pressure() + rand(-5,-50), 80, 0, null)
+	SET_SEED_TRAIT_BOUNDED(S, TRAIT_HIGHKPA_TOLERANCE, exterior_atmosphere.return_pressure() + rand(5,50), 500, 110, null)
+	SET_SEED_TRAIT(S, TRAIT_SPREAD, 0)
+	if(S.exude_gasses)
+		S.exude_gasses -= badgas
+	if(exterior_atmosphere)
+		if(S.consume_gasses)
+			S.consume_gasses = list(pick(exterior_atmosphere.gas)) // ensure that if the plant consumes a gas, the atmosphere will have it
+		for(var/g in exterior_atmosphere.gas)
+			if(gas_data.flags[g] & XGM_GAS_CONTAMINANT)
+				SET_SEED_TRAIT(S, TRAIT_TOXINS_TOLERANCE, rand(10,15))
 
 /obj/effect/landmark/exoplanet_spawn/plant
 	name = "spawn exoplanet plant"

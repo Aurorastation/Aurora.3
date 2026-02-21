@@ -110,6 +110,12 @@
 	var/tmp/is_outside = OUTSIDE_AREA
 	var/tmp/last_outside_check = OUTSIDE_UNCERTAIN
 
+	//In practice only used by simulated turfs but I would like to get rid of unsimmed ones some day
+	/// Will participate in ZAS, join zones, etc.
+	var/zone_membership_candidate = FALSE
+	/// Will participate in external atmosphere simulation if the turf is outside and no zone is set.
+	var/external_atmosphere_participation = TRUE
+
 // Parent code is duplicated in here instead of ..() for performance reasons.
 // There's ALSO a copy of this in mine_turfs.dm!
 /turf/Initialize(mapload, ...)
@@ -138,6 +144,9 @@
 	if (light_range && light_power)
 		update_light()
 
+	if(is_outside())
+		update_weather(force_update_below = TRUE)
+
 	//Get area light
 	var/area/current_area = loc
 	if(current_area?.lighting_effect)
@@ -155,6 +164,8 @@
 
 	if (z_flags & ZM_MIMIC_BELOW)
 		setup_zmimic(mapload)
+
+	update_vis_contents()
 
 	return INITIALIZE_HINT_NORMAL
 
@@ -180,6 +191,10 @@
 
 	if (z_flags & ZM_MIMIC_BELOW)
 		cleanup_zmimic()
+
+	if(weather)
+		remove_vis_contents(src,  weather.vis_contents_additions)
+		weather = null
 
 	resource_indicator = null
 
@@ -280,8 +295,13 @@
 				var/obj/machinery/M = AM
 				M.shuttle_move(src)
 
+	var/turf/simulated/simT = src
+	if(istype(simT))
+		if(simT.is_outside == OUTSIDE_AREA)
+			simT.update_external_atmos_participation() // Refreshes outside status and adds exterior air to turf air if necessary.
+
 	last_outside_check = OUTSIDE_UNCERTAIN
-	if(is_outside == OUTSIDE_AREA && (is_outside() != old_outside))
+	if(is_outside() != old_outside)
 		update_weather()
 	/* END AURORA SNOWFLAKE */
 
@@ -706,14 +726,21 @@
 /turf/proc/is_floor()
 	return FALSE
 
-/turf/proc/is_outside()
+///Determine if a turf is considered external for purpose of light and weather
+/turf/is_outside()
 
 	// Can't rain inside or through solid walls.
 	if(density)
 		return OUTSIDE_NO
 
 	for(var/obj/structure/S in src) // Dense structures like full windows should probably also block weather.
-		if(S.density || istype(S, /obj/structure/component/tent_canvas))
+		if(istype(S, /obj/structure/component/tent_canvas)) // TODO: Tents should block weather but not air.
+			return OUTSIDE_NO
+		// If it can pass air, continue
+		if(!S.c_airblock())
+			continue
+		// Finally, check the density
+		if(S.density)
 			return OUTSIDE_NO
 
 	if(last_outside_check != OUTSIDE_UNCERTAIN)
@@ -742,11 +769,15 @@
 		. = top_of_stack.is_outside()
 	last_outside_check = . // Cache this for later calls.
 
-/turf/proc/set_outside(var/new_outside, var/skip_weather_update = FALSE)
+/turf/proc/set_outside(new_outside, skip_weather_update = FALSE)
 	if(is_outside == new_outside)
 		return FALSE
 
 	is_outside = new_outside
+	var/turf/simulated/W = src
+	if (istype(W))
+		W.update_external_atmos_participation()
+
 	if(!skip_weather_update)
 		update_weather()
 
@@ -761,36 +792,67 @@
 		checking = GET_TURF_BELOW(checking)
 		if(!isturf(checking))
 			break
+		var/turf/simulated/checksim = checking
+		if (istype(checksim))
+			checksim.update_external_atmos_participation()
 		checking.last_outside_check = OUTSIDE_UNCERTAIN
 		if(!checking.is_open())
 			break
 	return TRUE
 
-/turf/proc/update_weather(var/obj/abstract/weather_system/new_weather, var/force_update_below = FALSE)
+/turf/proc/update_weather(obj/abstract/weather_system/new_weather, force_update_below = FALSE)
 
 	if(isnull(new_weather))
-		new_weather = SSweather.weather_by_z["[z]"]
+		new_weather = LAZYACCESS(SSweather.weather_by_z, z)
 
 	// We have a weather system and we are exposed to it; update our vis contents.
 	if(istype(new_weather) && is_outside())
 		if(weather != new_weather)
-			if(weather)
-				remove_vis_contents(weather.vis_contents_additions)
 			weather = new_weather
-			add_vis_contents(weather.vis_contents_additions)
 			. = TRUE
 
 	// We are indoors or there is no local weather system, clear our vis contents.
 	else if(weather)
-		remove_vis_contents(weather.vis_contents_additions)
 		weather = null
 		. = TRUE
+
+	if(.)
+		update_vis_contents()
 
 	// Propagate our weather downwards if we permit it.
 	if(force_update_below || (is_open() && .))
 		var/turf/below = GET_TURF_BELOW(src)
 		if(below)
 			below.update_weather(new_weather)
+
+/// Updates turf participation in ZAS according to outside status and atmosphere participation bools. Must be called whenever any of those values may change.
+/turf/simulated/proc/update_external_atmos_participation()
+	var/old_outside = last_outside_check
+	last_outside_check = OUTSIDE_UNCERTAIN
+	if(is_outside())
+		if(zone && external_atmosphere_participation)
+			if(can_safely_remove_from_zone())
+				zone.remove(src)
+			else
+				zone.rebuild()
+	else if(!zone && zone_membership_candidate && old_outside == OUTSIDE_YES)
+		// Set the turf's air to the external atmosphere to add to its new zone.
+		air = get_external_air(FALSE)
+
+	SSair.mark_for_update(src)
+
+/turf/get_affecting_weather()
+	return weather
+
+/turf/proc/get_air_graphic()
+	return
+
+/turf/get_vis_contents_to_add()
+	var/air_graphic = get_air_graphic()
+	if(length(air_graphic))
+		LAZYDISTINCTADD(., air_graphic)
+	if(length(weather?.vis_contents_additions))
+		LAZYADD(., weather.vis_contents_additions)
 
 /turf/proc/remove_cleanables()
 	for(var/obj/effect/O in src)

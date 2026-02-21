@@ -592,6 +592,9 @@
 	icon_state = "skrellramp-bottom"
 	initial_flooring = /singleton/flooring/shuttle/skrell/ramp
 
+/turf/simulated/floor/shuttle/skrell/ramp/airless
+	initial_gas = null
+
 /turf/simulated/floor/shuttle/skrell/ramp/top
 	icon_state = "skrellramp-top"
 	initial_flooring = /singleton/flooring/shuttle/skrell/ramp/top

@@ -3,32 +3,15 @@
 /obj/effect/landmark/clear,
 /turf/template_noop,
 /area/template_noop)
-"ab" = (
-/obj/effect/map_effect/window_spawner/full/shuttle/mercenary{
-	spawn_firedoor = 1;
-	spawn_grille = 1;
-	frame_color = "#6e2c6e";
-	color = "#6e2c6e"
-	},
-/obj/structure/grille/diagonal{
-	dir = 8
-	},
-/turf/simulated/floor/plating,
-/area/template_noop)
 "ad" = (
-/obj/effect/map_effect/window_spawner/full/shuttle/mercenary{
-	spawn_firedoor = 1;
-	spawn_grille = 1;
-	frame_color = "#6e2c6e";
-	color = "#6e2c6e"
-	},
-/obj/structure/grille,
-/turf/simulated/floor/plating,
+/obj/effect/landmark/scorcher,
+/turf/template_noop,
 /area/template_noop)
 "ae" = (
 /obj/structure/computerframe,
-/turf/simulated/floor/shuttle/skrell,
-/area/template_noop)
+/obj/abstract/exterior_marker/inside,
+/turf/simulated/floor/shuttle/skrell/airless,
+/area/crashed_skrell_shuttle_01/cockpit)
 "af" = (
 /obj/structure/grille/broken,
 /obj/item/stack/rods{
@@ -39,51 +22,54 @@
 	pixel_x = 1;
 	pixel_y = -3
 	},
+/obj/abstract/exterior_marker/outside,
 /turf/simulated/floor/airless,
-/area/template_noop)
+/area/crashed_skrell_shuttle_01/cockpit)
 "ag" = (
-/obj/effect/map_effect/window_spawner/full/shuttle/mercenary{
-	spawn_firedoor = 1;
-	spawn_grille = 1;
-	frame_color = "#6e2c6e";
+/obj/effect/map_effect/window_spawner/full/borosilicate/reinforced{
 	color = "#6e2c6e"
 	},
-/obj/structure/grille/diagonal,
-/turf/simulated/floor/shuttle/skrell/blue/airless,
-/area/template_noop)
+/turf/simulated/floor/airless,
+/area/crashed_skrell_shuttle_01/cockpit)
 "ah" = (
 /obj/structure/bed/stool/chair/office/hover{
 	dir = 1
 	},
-/turf/simulated/floor/shuttle/skrell,
-/area/template_noop)
+/obj/abstract/exterior_marker/inside,
+/turf/simulated/floor/shuttle/skrell/airless,
+/area/crashed_skrell_shuttle_01/cockpit)
 "ai" = (
-/obj/structure/grille,
 /obj/item/material/shard/phoron{
 	pixel_x = 1;
 	pixel_y = -6
 	},
+/obj/abstract/exterior_marker/outside,
+/obj/structure/grille/over,
+/obj/structure/window_frame{
+	color = "#6e2c6e"
+	},
 /turf/simulated/floor/airless,
-/area/template_noop)
+/area/crashed_skrell_shuttle_01/cockpit)
 "aj" = (
 /obj/structure/computerframe,
 /obj/random/dirt_75,
+/obj/abstract/exterior_marker/use_area,
 /turf/simulated/floor/shuttle/skrell/airless,
-/area/template_noop)
+/area/crashed_skrell_shuttle_01/cockpit)
 "ak" = (
 /obj/machinery/door/airlock/skrell{
 	name = "Cryogenics";
 	dir = 1
 	},
 /turf/simulated/floor/shuttle/skrell/blue,
-/area/template_noop)
+/area/crashed_skrell_shuttle_01/hallway/stern)
 "al" = (
 /obj/random/dirt_75,
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 8
 	},
 /turf/simulated/floor/shuttle/skrell,
-/area/template_noop)
+/area/crashed_skrell_shuttle_01/lounge)
 "am" = (
 /obj/structure/windoor_assembly{
 	dir = 2;
@@ -91,22 +77,9 @@
 	},
 /obj/random/dirt_75,
 /obj/random/dirt_75,
-/turf/simulated/floor/shuttle/skrell/ramp{
-	initial_gas = list()
-	},
-/area/template_noop)
-"an" = (
-/obj/effect/map_effect/window_spawner/full/shuttle/mercenary{
-	spawn_firedoor = 1;
-	spawn_grille = 1;
-	frame_color = "#6e2c6e";
-	color = "#6e2c6e"
-	},
-/obj/structure/grille/diagonal{
-	dir = 4
-	},
-/turf/simulated/floor/shuttle/skrell/blue/airless,
-/area/template_noop)
+/obj/abstract/exterior_marker/inside,
+/turf/simulated/floor/shuttle/skrell/ramp/airless,
+/area/crashed_skrell_shuttle_01/cockpit)
 "ao" = (
 /obj/structure/window/reinforced{
 	dir = 8
@@ -121,13 +94,14 @@
 	pixel_y = 1
 	},
 /obj/random/dirt_75,
+/obj/abstract/exterior_marker/inside,
 /turf/simulated/floor/shuttle/skrell/airless,
-/area/template_noop)
+/area/crashed_skrell_shuttle_01/cockpit)
 "ap" = (
 /turf/simulated/wall/shuttle/space_ship{
 	color = "#6e2c6e"
 	},
-/area/template_noop)
+/area/crashed_skrell_shuttle_01/airlock/port)
 "aq" = (
 /turf/template_noop,
 /area/template_noop)
@@ -137,15 +111,16 @@
 	pixel_x = 6;
 	pixel_y = -5
 	},
-/turf/simulated/floor/shuttle/skrell,
-/area/template_noop)
+/obj/abstract/exterior_marker/inside,
+/turf/simulated/floor/shuttle/skrell/airless,
+/area/crashed_skrell_shuttle_01/cockpit)
 "as" = (
 /obj/structure/bed/roller/hover,
 /obj/effect/floor_decal/corner/mauve{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
-/area/template_noop)
+/area/crashed_skrell_shuttle_01/medical)
 "at" = (
 /obj/structure/table/skrell,
 /obj/item/hearing_aid/skrell{
@@ -156,7 +131,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/shuttle/skrell,
-/area/template_noop)
+/area/crashed_skrell_shuttle_01/lounge)
 "au" = (
 /obj/structure/window/reinforced{
 	dir = 4
@@ -166,15 +141,17 @@
 	pixel_x = -3;
 	pixel_y = 3
 	},
+/obj/abstract/exterior_marker/inside,
 /turf/simulated/floor/shuttle/skrell/airless,
-/area/template_noop)
+/area/crashed_skrell_shuttle_01/cockpit)
 "av" = (
 /obj/structure/bed/stool/chair/office/hover/command{
 	dir = 1
 	},
 /obj/random/dirt_75,
+/obj/abstract/exterior_marker/inside,
 /turf/simulated/floor/shuttle/skrell/airless,
-/area/template_noop)
+/area/crashed_skrell_shuttle_01/cockpit)
 "aw" = (
 /obj/structure/closet/crate/freezer,
 /obj/effect/floor_decal/corner/mauve{
@@ -183,7 +160,7 @@
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/white,
-/area/template_noop)
+/area/crashed_skrell_shuttle_01/medical)
 "ax" = (
 /obj/structure/window/reinforced{
 	dir = 8
@@ -193,38 +170,41 @@
 	pixel_x = 1;
 	pixel_y = 7
 	},
+/obj/abstract/exterior_marker/use_area,
 /turf/simulated/floor/shuttle/skrell/airless,
-/area/template_noop)
+/area/crashed_skrell_shuttle_01/cockpit)
 "ay" = (
 /obj/random/dirt_75,
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 6
 	},
+/obj/abstract/exterior_marker/inside,
 /turf/simulated/floor/shuttle/skrell/blue/airless,
-/area/template_noop)
+/area/crashed_skrell_shuttle_01/cockpit)
 "az" = (
 /obj/structure/window/reinforced{
 	dir = 4
 	},
 /obj/structure/window/reinforced,
+/obj/abstract/exterior_marker/inside,
 /turf/simulated/floor/shuttle/skrell/airless,
-/area/template_noop)
+/area/crashed_skrell_shuttle_01/cockpit)
 "aA" = (
 /obj/machinery/bodyscanner,
 /obj/random/dirt_75,
 /turf/simulated/floor/carpet/rubber,
-/area/template_noop)
+/area/crashed_skrell_shuttle_01/medical)
 "aB" = (
 /obj/machinery/door/airlock/skrell{
 	name = "Bridge";
 	dir = 1
 	},
 /turf/simulated/floor/shuttle/skrell/blue,
-/area/template_noop)
+/area/crashed_skrell_shuttle_01/hallway/port)
 "aC" = (
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/white,
-/area/template_noop)
+/area/crashed_skrell_shuttle_01/medical)
 "aD" = (
 /obj/structure/blocker/steel,
 /obj/structure/door_assembly{
@@ -232,7 +212,7 @@
 	},
 /obj/structure/inflatable/door,
 /turf/simulated/floor/shuttle/skrell/blue/airless,
-/area/template_noop)
+/area/crashed_skrell_shuttle_01/hallway/starboard)
 "aE" = (
 /obj/item/breath_analyzer{
 	pixel_x = 4;
@@ -250,7 +230,7 @@
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/white,
-/area/template_noop)
+/area/crashed_skrell_shuttle_01/medical)
 "aF" = (
 /obj/machinery/body_scanconsole{
 	dir = 1
@@ -261,32 +241,34 @@
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/carpet/rubber,
-/area/template_noop)
+/area/crashed_skrell_shuttle_01/medical)
 "aG" = (
 /obj/effect/decal/cleanable/blood/drip{
 	basecolor = "#0081CD"
 	},
 /turf/simulated/floor/tiled/white,
-/area/template_noop)
+/area/crashed_skrell_shuttle_01/medical)
 "aH" = (
 /turf/simulated/floor/shuttle/skrell,
-/area/template_noop)
+/area/crashed_skrell_shuttle_01/hallway/stern)
 "aI" = (
 /obj/effect/decal/cleanable/blood/drip{
 	basecolor = "#0081CD"
 	},
 /obj/random/dirt_75,
 /obj/effect/floor_decal/spline/plain/black,
+/obj/abstract/exterior_marker/inside,
 /turf/simulated/floor/shuttle/skrell/blue/airless,
-/area/template_noop)
+/area/crashed_skrell_shuttle_01/cockpit)
 "aJ" = (
 /obj/machinery/light/skrell,
 /obj/effect/decal/cleanable/blood/drip{
 	basecolor = "#0081CD"
 	},
 /obj/random/dirt_75,
-/turf/simulated/floor/shuttle/skrell,
-/area/template_noop)
+/obj/abstract/exterior_marker/inside,
+/turf/simulated/floor/shuttle/skrell/airless,
+/area/crashed_skrell_shuttle_01/cockpit)
 "aK" = (
 /obj/structure/barricade/metal{
 	dir = 4
@@ -299,7 +281,7 @@
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/shuttle/skrell/blue,
-/area/template_noop)
+/area/crashed_skrell_shuttle_01/hallway/starboard)
 "aL" = (
 /obj/item/reagent_containers/food/snacks/skrellsnacks{
 	pixel_x = 7
@@ -308,13 +290,13 @@
 	dir = 8
 	},
 /turf/simulated/floor/shuttle/skrell/blue,
-/area/template_noop)
+/area/crashed_skrell_shuttle_01/hallway/port)
 "aM" = (
 /obj/item/stack/rods,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /turf/simulated/floor/shuttle/skrell,
-/area/template_noop)
+/area/crashed_skrell_shuttle_01/hallway/port)
 "aN" = (
 /obj/machinery/bioprinter,
 /obj/effect/decal/cleanable/cobweb,
@@ -323,11 +305,11 @@
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/white,
-/area/template_noop)
+/area/crashed_skrell_shuttle_01/medical)
 "aO" = (
 /obj/random/dirt_75,
 /turf/simulated/floor/shuttle/skrell/blue,
-/area/template_noop)
+/area/crashed_skrell_shuttle_01/lounge)
 "aP" = (
 /obj/structure/table/skrell,
 /obj/item/roller/hover{
@@ -338,7 +320,7 @@
 	dir = 5
 	},
 /turf/simulated/floor/tiled/white,
-/area/template_noop)
+/area/crashed_skrell_shuttle_01/medical)
 "aQ" = (
 /obj/item/flashlight/pen,
 /obj/effect/floor_decal/corner/mauve{
@@ -348,11 +330,11 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled/white,
-/area/template_noop)
+/area/crashed_skrell_shuttle_01/medical)
 "aR" = (
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
-/area/template_noop)
+/area/crashed_skrell_shuttle_01/engineering)
 "aS" = (
 /obj/item/stack/rods{
 	pixel_x = -4
@@ -363,7 +345,7 @@
 	pixel_y = 3
 	},
 /turf/simulated/floor/plating,
-/area/template_noop)
+/area/crashed_skrell_shuttle_01/hallway/port)
 "aT" = (
 /obj/item/material/shard/phoron{
 	pixel_x = 5;
@@ -372,7 +354,7 @@
 /obj/effect/decal/cleanable/blood,
 /obj/random/dirt_75,
 /turf/simulated/floor/shuttle/skrell,
-/area/template_noop)
+/area/crashed_skrell_shuttle_01/hallway/port)
 "aU" = (
 /obj/effect/decal/cleanable/blood{
 	basecolor = "#0081CD"
@@ -382,10 +364,10 @@
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/white,
-/area/template_noop)
+/area/crashed_skrell_shuttle_01/medical)
 "aV" = (
 /turf/simulated/floor/carpet/rubber,
-/area/template_noop)
+/area/crashed_skrell_shuttle_01/medical)
 "aW" = (
 /obj/effect/decal/cleanable/blood/drip{
 	basecolor = "#0081CD"
@@ -403,14 +385,14 @@
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/white,
-/area/template_noop)
+/area/crashed_skrell_shuttle_01/medical)
 "aY" = (
 /obj/machinery/light/skrell{
 	dir = 1
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
-/area/template_noop)
+/area/crashed_skrell_shuttle_01/engineering)
 "aZ" = (
 /obj/structure/closet/walllocker/medical{
 	desc = "It's wall-mounted storage unit for medical supplies. It has almost come off its mounts.";
@@ -422,7 +404,7 @@
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/white,
-/area/template_noop)
+/area/crashed_skrell_shuttle_01/medical)
 "ba" = (
 /obj/structure/window/reinforced{
 	dir = 4
@@ -432,21 +414,22 @@
 	pixel_x = 2;
 	pixel_y = -7
 	},
+/obj/abstract/exterior_marker/inside,
 /turf/simulated/floor/shuttle/skrell/airless,
-/area/template_noop)
+/area/crashed_skrell_shuttle_01/cockpit)
 "bb" = (
 /obj/machinery/door/airlock/skrell{
 	dir = 1
 	},
 /turf/simulated/floor/shuttle/skrell,
-/area/template_noop)
+/area/crashed_skrell_shuttle_01/hallway/starboard/lounge)
 "bc" = (
 /obj/machinery/door/airlock/skrell{
 	name = "Cryogenics";
 	dir = 4
 	},
 /turf/simulated/floor/shuttle/skrell/blue,
-/area/template_noop)
+/area/crashed_skrell_shuttle_01/lounge)
 "bd" = (
 /obj/item/landmine/frag{
 	deployed = 1
@@ -456,7 +439,7 @@
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/shuttle/skrell/blue,
-/area/template_noop)
+/area/crashed_skrell_shuttle_01/hallway/starboard)
 "be" = (
 /obj/item/stack/material/steel{
 	pixel_x = -4
@@ -464,7 +447,7 @@
 /obj/effect/floor_decal/spline/plain/black,
 /obj/random/dirt_75,
 /turf/simulated/floor/shuttle/skrell/blue,
-/area/template_noop)
+/area/crashed_skrell_shuttle_01/hallway/stern)
 "bf" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/bed/roller/hover,
@@ -482,13 +465,13 @@
 	dir = 8
 	},
 /turf/simulated/floor/carpet/rubber,
-/area/template_noop)
+/area/crashed_skrell_shuttle_01/medical)
 "bg" = (
 /obj/structure/table/skrell,
 /obj/item/flashlight/heavy,
 /obj/machinery/cell_charger,
 /turf/simulated/floor/tiled/dark/full,
-/area/template_noop)
+/area/crashed_skrell_shuttle_01/engineering)
 "bh" = (
 /obj/item/storage/box/gloves{
 	pixel_x = 12;
@@ -498,13 +481,13 @@
 /obj/effect/floor_decal/industrial/loading/yellow,
 /obj/random/dirt_75,
 /turf/simulated/floor/carpet/rubber,
-/area/template_noop)
+/area/crashed_skrell_shuttle_01/medical)
 "bi" = (
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 1
 	},
 /turf/simulated/floor/shuttle/skrell/blue,
-/area/template_noop)
+/area/crashed_skrell_shuttle_01/hallway/starboard)
 "bj" = (
 /obj/item/stack/material/plasteel{
 	pixel_x = -4
@@ -514,12 +497,12 @@
 	dir = 10
 	},
 /turf/simulated/floor/tiled/dark,
-/area/template_noop)
+/area/crashed_skrell_shuttle_01/engineering)
 "bk" = (
 /obj/structure/closet/firecloset/full,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
-/area/template_noop)
+/area/crashed_skrell_shuttle_01/engineering)
 "bl" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 1
@@ -527,14 +510,14 @@
 /turf/simulated/wall/shuttle/space_ship{
 	color = "#6e2c6e"
 	},
-/area/template_noop)
+/area/crashed_skrell_shuttle_01/engineering)
 "bm" = (
 /obj/structure/closet/radiation,
 /obj/effect/floor_decal/corner/grey{
 	dir = 10
 	},
 /turf/simulated/floor/tiled/dark,
-/area/template_noop)
+/area/crashed_skrell_shuttle_01/engineering)
 "bn" = (
 /obj/structure/closet/toolcloset,
 /obj/random/dirt_75,
@@ -542,14 +525,14 @@
 	dir = 10
 	},
 /turf/simulated/floor/tiled/dark,
-/area/template_noop)
+/area/crashed_skrell_shuttle_01/engineering)
 "bo" = (
 /obj/random/dirt_75,
 /obj/effect/floor_decal/corner/grey{
 	dir = 10
 	},
 /turf/simulated/floor/tiled/dark,
-/area/template_noop)
+/area/crashed_skrell_shuttle_01/engineering)
 "bp" = (
 /obj/item/storage/box/unique/freezer/organcooler{
 	pixel_x = -10;
@@ -563,7 +546,7 @@
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/white,
-/area/template_noop)
+/area/crashed_skrell_shuttle_01/medical)
 "bq" = (
 /obj/machinery/fabricator/autolathe,
 /obj/random/dirt_75,
@@ -571,7 +554,7 @@
 	dir = 10
 	},
 /turf/simulated/floor/tiled/dark,
-/area/template_noop)
+/area/crashed_skrell_shuttle_01/engineering)
 "br" = (
 /obj/structure/closet/secure_closet/engineering_welding,
 /obj/random/dirt_75,
@@ -579,7 +562,7 @@
 	dir = 10
 	},
 /turf/simulated/floor/tiled/dark,
-/area/template_noop)
+/area/crashed_skrell_shuttle_01/engineering)
 "bs" = (
 /obj/structure/closet/secure_closet/engineering_electrical,
 /obj/random/dirt_75,
@@ -587,7 +570,7 @@
 	dir = 10
 	},
 /turf/simulated/floor/tiled/dark,
-/area/template_noop)
+/area/crashed_skrell_shuttle_01/engineering)
 "bt" = (
 /obj/structure/closet/skrell,
 /obj/item/clothing/ears/skrell/band/bluejewels,
@@ -596,14 +579,15 @@
 /obj/item/clothing/suit/space/void/skrell/white,
 /obj/item/clothing/under/skrell,
 /obj/random/dirt_75,
-/turf/simulated/floor/shuttle/skrell,
-/area/template_noop)
+/obj/abstract/exterior_marker/inside,
+/turf/simulated/floor/shuttle/skrell/airless,
+/area/crashed_skrell_shuttle_01/cockpit)
 "bu" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden,
 /turf/simulated/wall/shuttle/space_ship{
 	color = "#6e2c6e"
 	},
-/area/template_noop)
+/area/crashed_skrell_shuttle_01/engineering)
 "bv" = (
 /obj/structure/table/skrell,
 /obj/item/storage/box/unique/sharps,
@@ -612,14 +596,14 @@
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/white,
-/area/template_noop)
+/area/crashed_skrell_shuttle_01/medical)
 "bw" = (
 /obj/machinery/door/airlock/skrell{
 	name = "Medbay";
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
-/area/template_noop)
+/area/crashed_skrell_shuttle_01/medical)
 "bx" = (
 /obj/machinery/door/airlock/external{
 	icon_state = "door_locked";
@@ -627,7 +611,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
-/area/template_noop)
+/area/crashed_skrell_shuttle_01/hallway/starboard)
 "by" = (
 /obj/structure/table/skrell,
 /obj/item/nralakktag,
@@ -635,7 +619,7 @@
 	dir = 5
 	},
 /turf/simulated/floor/tiled/white,
-/area/template_noop)
+/area/crashed_skrell_shuttle_01/medical)
 "bz" = (
 /obj/structure/closet/skrell,
 /obj/machinery/light/skrell,
@@ -644,17 +628,18 @@
 /obj/item/clothing/mask/breath/skrell,
 /obj/item/clothing/suit/space/void/skrell/black,
 /obj/item/clothing/under/skrell,
-/turf/simulated/floor/shuttle/skrell,
-/area/template_noop)
+/obj/abstract/exterior_marker/inside,
+/turf/simulated/floor/shuttle/skrell/airless,
+/area/crashed_skrell_shuttle_01/cockpit)
 "bA" = (
 /obj/effect/floor_decal/spline/plain/black,
 /obj/random/dirt_75,
 /turf/simulated/floor/shuttle/skrell/blue,
-/area/template_noop)
+/area/crashed_skrell_shuttle_01/hallway/stern)
 "bB" = (
 /obj/machinery/cryopod,
 /turf/simulated/floor/shuttle/skrell/blue,
-/area/template_noop)
+/area/crashed_skrell_shuttle_01/lounge)
 "bD" = (
 /obj/structure/barricade/metal{
 	dir = 8
@@ -663,7 +648,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/shuttle/skrell,
-/area/template_noop)
+/area/crashed_skrell_shuttle_01/lounge)
 "bE" = (
 /obj/structure/table/skrell,
 /obj/machinery/light/skrell,
@@ -676,29 +661,30 @@
 	dir = 1
 	},
 /turf/simulated/floor/shuttle/skrell,
-/area/template_noop)
+/area/crashed_skrell_shuttle_01/lounge)
 "bF" = (
 /obj/structure/window/reinforced{
 	dir = 8
 	},
 /obj/structure/window/reinforced,
 /obj/random/dirt_75,
+/obj/abstract/exterior_marker/inside,
 /turf/simulated/floor/shuttle/skrell/airless,
-/area/template_noop)
+/area/crashed_skrell_shuttle_01/cockpit)
 "bG" = (
 /obj/item/t_scanner{
 	pixel_x = -8;
 	pixel_y = -4
 	},
 /turf/simulated/floor/tiled/dark/full,
-/area/template_noop)
+/area/crashed_skrell_shuttle_01/engineering)
 "bH" = (
 /obj/effect/decal/cleanable/blood/drip{
 	basecolor = "#0081CD"
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/carpet/rubber,
-/area/template_noop)
+/area/crashed_skrell_shuttle_01/medical)
 "bI" = (
 /obj/item/landmine/frag{
 	deployed = 1
@@ -706,42 +692,33 @@
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
-/area/template_noop)
+/area/crashed_skrell_shuttle_01/airlock/starboard)
 "bJ" = (
 /obj/effect/decal/cleanable/blood{
 	basecolor = "#0081CD"
 	},
 /obj/random/dirt_75,
-/turf/simulated/floor/shuttle/skrell,
-/area/template_noop)
+/obj/abstract/exterior_marker/inside,
+/turf/simulated/floor/shuttle/skrell/airless,
+/area/crashed_skrell_shuttle_01/cockpit)
 "bK" = (
 /obj/machinery/cryopod{
 	dir = 4
 	},
 /turf/simulated/floor/shuttle/skrell/blue,
-/area/template_noop)
+/area/crashed_skrell_shuttle_01/lounge)
 "bL" = (
 /obj/effect/decal/cleanable/blood/drip{
 	basecolor = "#0081CD"
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/shuttle/skrell/blue,
-/area/template_noop)
+/area/crashed_skrell_shuttle_01/lounge)
 "bP" = (
 /obj/structure/bed/stool/chair/office/hover,
 /obj/random/dirt_75,
 /turf/simulated/floor/shuttle/skrell/blue,
-/area/template_noop)
-"bR" = (
-/obj/structure/grille,
-/obj/effect/map_effect/window_spawner/full/shuttle/mercenary{
-	spawn_firedoor = 1;
-	spawn_grille = 1;
-	frame_color = "#6e2c6e";
-	color = "#6e2c6e"
-	},
-/turf/simulated/floor/plating,
-/area/template_noop)
+/area/crashed_skrell_shuttle_01/lounge)
 "bS" = (
 /obj/machinery/iv_drip,
 /obj/effect/floor_decal/corner/mauve,
@@ -750,13 +727,13 @@
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/white,
-/area/template_noop)
+/area/crashed_skrell_shuttle_01/medical)
 "bT" = (
 /obj/machinery/sleeper{
 	dir = 4
 	},
 /turf/simulated/floor/carpet/rubber,
-/area/template_noop)
+/area/crashed_skrell_shuttle_01/medical)
 "bU" = (
 /obj/item/landmine/emp{
 	deployed = 1
@@ -766,7 +743,7 @@
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/shuttle/skrell/blue,
-/area/template_noop)
+/area/crashed_skrell_shuttle_01/hallway/port/lounge)
 "bV" = (
 /obj/machinery/light/skrell{
 	dir = 1
@@ -774,20 +751,21 @@
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /turf/simulated/floor/shuttle/skrell,
-/area/template_noop)
+/area/crashed_skrell_shuttle_01/hallway/port)
 "bW" = (
 /obj/machinery/light/skrell{
 	dir = 8
 	},
 /turf/simulated/floor/shuttle/skrell,
-/area/template_noop)
+/area/crashed_skrell_shuttle_01/hallway/port/lounge)
 "bX" = (
 /obj/effect/decal/cleanable/blood/drip{
 	basecolor = "#0081CD"
 	},
 /obj/random/dirt_75,
-/turf/simulated/floor/shuttle/skrell,
-/area/template_noop)
+/obj/abstract/exterior_marker/inside,
+/turf/simulated/floor/shuttle/skrell/airless,
+/area/crashed_skrell_shuttle_01/cockpit)
 "bY" = (
 /obj/structure/table/skrell,
 /obj/item/healthanalyzer,
@@ -799,7 +777,7 @@
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/white,
-/area/template_noop)
+/area/crashed_skrell_shuttle_01/medical)
 "bZ" = (
 /obj/structure/table/skrell,
 /obj/item/mass_spectrometer/adv,
@@ -811,7 +789,7 @@
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/white,
-/area/template_noop)
+/area/crashed_skrell_shuttle_01/medical)
 "ca" = (
 /obj/machinery/light/skrell{
 	dir = 1
@@ -819,7 +797,7 @@
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
-/area/template_noop)
+/area/crashed_skrell_shuttle_01/airlock/starboard)
 "cb" = (
 /obj/effect/decal/cleanable/blood{
 	basecolor = "#0081CD"
@@ -833,26 +811,26 @@
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /turf/simulated/floor/shuttle/skrell/blue,
-/area/template_noop)
+/area/crashed_skrell_shuttle_01/hallway/port)
 "cc" = (
 /obj/item/reagent_containers/blood/ripped,
 /obj/machinery/light/skrell,
 /obj/random/dirt_75,
 /turf/simulated/floor/carpet/rubber,
-/area/template_noop)
+/area/crashed_skrell_shuttle_01/medical)
 "cd" = (
 /obj/item/clothing/head/helmet/space/void/skrell/white,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /turf/simulated/floor/shuttle/skrell,
-/area/template_noop)
+/area/crashed_skrell_shuttle_01/hallway/port)
 "ce" = (
 /obj/structure/sign/flag/nralakk/large/north{
 	pixel_y = 32
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/shuttle/skrell,
-/area/template_noop)
+/area/crashed_skrell_shuttle_01/hallway/starboard)
 "cf" = (
 /obj/structure/table/skrell,
 /obj/item/reagent_containers/food/snacks/skrellsnacks,
@@ -865,14 +843,14 @@
 	dir = 8
 	},
 /turf/simulated/floor/shuttle/skrell,
-/area/template_noop)
+/area/crashed_skrell_shuttle_01/lounge)
 "cg" = (
 /obj/machinery/light/skrell{
 	dir = 4
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/shuttle/skrell,
-/area/template_noop)
+/area/crashed_skrell_shuttle_01/hallway/starboard)
 "ch" = (
 /obj/effect/decal/cleanable/blood{
 	basecolor = "#0081CD"
@@ -882,15 +860,16 @@
 	pixel_x = 6
 	},
 /obj/effect/floor_decal/spline/plain/black,
+/obj/abstract/exterior_marker/inside,
 /turf/simulated/floor/shuttle/skrell/blue/airless,
-/area/template_noop)
+/area/crashed_skrell_shuttle_01/cockpit)
 "ci" = (
 /obj/item/landmine/frag{
 	deployed = 1
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/shuttle/skrell,
-/area/template_noop)
+/area/crashed_skrell_shuttle_01/hallway/stern)
 "ck" = (
 /obj/item/clothing/under/offworlder{
 	color = "#4D3C3C"
@@ -906,12 +885,12 @@
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /turf/simulated/floor/shuttle/skrell/blue,
-/area/template_noop)
+/area/crashed_skrell_shuttle_01/hallway/port)
 "cm" = (
 /turf/simulated/wall/shuttle/space_ship{
 	color = "#695391"
 	},
-/area/template_noop)
+/area/crashed_skrell_shuttle_01/medical)
 "co" = (
 /obj/structure/table/skrell,
 /obj/machinery/light/skrell{
@@ -926,7 +905,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/shuttle/skrell,
-/area/template_noop)
+/area/crashed_skrell_shuttle_01/lounge)
 "cp" = (
 /obj/item/clothing/head/helmet/space/void/skrell/black{
 	pixel_y = 7;
@@ -936,7 +915,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/shuttle/skrell/blue,
-/area/template_noop)
+/area/crashed_skrell_shuttle_01/lounge)
 "cq" = (
 /obj/effect/decal/cleanable/blood{
 	basecolor = "#0081CD"
@@ -946,7 +925,7 @@
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/shuttle/skrell/blue,
-/area/template_noop)
+/area/crashed_skrell_shuttle_01/lounge)
 "cr" = (
 /obj/effect/decal/cleanable/blood{
 	basecolor = "#0081CD"
@@ -961,13 +940,13 @@
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
-/area/template_noop)
+/area/crashed_skrell_shuttle_01/airlock/port)
 "cs" = (
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 4
 	},
 /turf/simulated/floor/shuttle/skrell/blue,
-/area/template_noop)
+/area/crashed_skrell_shuttle_01/hallway/starboard)
 "ct" = (
 /obj/item/trash/plate{
 	pixel_y = -7;
@@ -975,7 +954,7 @@
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/shuttle/skrell/blue,
-/area/template_noop)
+/area/crashed_skrell_shuttle_01/lounge)
 "cu" = (
 /obj/structure/table/skrell,
 /obj/item/trash/skrellsnacks{
@@ -987,7 +966,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/shuttle/skrell,
-/area/template_noop)
+/area/crashed_skrell_shuttle_01/lounge)
 "cv" = (
 /obj/structure/table/skrell,
 /obj/item/trash/snack_bowl{
@@ -998,36 +977,25 @@
 	dir = 1
 	},
 /turf/simulated/floor/shuttle/skrell,
-/area/template_noop)
+/area/crashed_skrell_shuttle_01/lounge)
 "cw" = (
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 4
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/shuttle/skrell/blue,
-/area/template_noop)
+/area/crashed_skrell_shuttle_01/hallway/starboard/lounge)
 "cx" = (
 /obj/item/stack/rods{
 	pixel_x = -4
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
-/area/template_noop)
-"cy" = (
-/obj/effect/map_effect/window_spawner/full/shuttle/mercenary{
-	spawn_firedoor = 1;
-	spawn_grille = 1;
-	frame_color = "#6e2c6e";
-	color = "#6e2c6e"
-	},
-/obj/structure/grille/diagonal{
-	dir = 1
-	},
-/turf/simulated/floor/plating,
-/area/template_noop)
+/area/crashed_skrell_shuttle_01/engineering)
 "cA" = (
 /obj/effect/landmark/clear,
 /obj/effect/landmark/clear,
+/obj/effect/landmark/scorcher,
 /turf/template_noop,
 /area/template_noop)
 "cB" = (
@@ -1040,7 +1008,7 @@
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/white,
-/area/template_noop)
+/area/crashed_skrell_shuttle_01/medical)
 "cC" = (
 /obj/effect/decal/cleanable/blood/xeno,
 /obj/item/clothing/under/gearharness,
@@ -1049,14 +1017,14 @@
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/shuttle/skrell/blue,
-/area/template_noop)
+/area/crashed_skrell_shuttle_01/hallway/port)
 "cH" = (
 /obj/machinery/atmospherics/unary/engine{
 	thrust_limit = 0.25;
 	dir = 1
 	},
 /turf/simulated/floor/plating,
-/area/template_noop)
+/area/crashed_skrell_shuttle_01/engineering)
 "cI" = (
 /obj/item/storage/firstaid{
 	pixel_x = 2;
@@ -1064,7 +1032,7 @@
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/shuttle/skrell/blue,
-/area/template_noop)
+/area/crashed_skrell_shuttle_01/lounge)
 "cJ" = (
 /obj/machinery/atmospherics/portables_connector,
 /obj/machinery/portable_atmospherics/canister/empty/phoron,
@@ -1074,7 +1042,7 @@
 	dir = 10
 	},
 /turf/simulated/floor/tiled/dark,
-/area/template_noop)
+/area/crashed_skrell_shuttle_01/engineering)
 "cK" = (
 /obj/item/storage/firstaid/fire,
 /obj/random/dirt_75,
@@ -1082,7 +1050,7 @@
 	dir = 10
 	},
 /turf/simulated/floor/tiled/dark,
-/area/template_noop)
+/area/crashed_skrell_shuttle_01/engineering)
 "cL" = (
 /obj/item/weldingtool/largetank{
 	pixel_x = -10;
@@ -1090,7 +1058,7 @@
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/shuttle/skrell,
-/area/template_noop)
+/area/crashed_skrell_shuttle_01/hallway/stern)
 "cM" = (
 /obj/item/stack/material/steel{
 	pixel_x = 8;
@@ -1098,25 +1066,25 @@
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/shuttle/skrell,
-/area/template_noop)
+/area/crashed_skrell_shuttle_01/hallway/stern)
 "cN" = (
 /obj/machinery/door/airlock/skrell{
 	locked = 1;
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
-/area/template_noop)
+/area/crashed_skrell_shuttle_01/engineering)
 "cO" = (
 /obj/structure/girder,
 /turf/simulated/floor/plating,
-/area/template_noop)
+/area/crashed_skrell_shuttle_01/engineering)
 "cP" = (
 /obj/item/stack/material/steel{
 	pixel_x = 5;
 	pixel_y = 4
 	},
 /turf/simulated/floor/plating,
-/area/template_noop)
+/area/crashed_skrell_shuttle_01/engineering)
 "cQ" = (
 /obj/item/stack/material/plasteel{
 	pixel_x = 16;
@@ -1131,7 +1099,7 @@
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
-/area/template_noop)
+/area/crashed_skrell_shuttle_01/engineering)
 "cV" = (
 /obj/effect/floor_decal/corner/mauve/full{
 	dir = 4
@@ -1141,7 +1109,11 @@
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/white,
-/area/template_noop)
+/area/crashed_skrell_shuttle_01/medical)
+"dc" = (
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/dark,
+/area/crashed_skrell_shuttle_01/airlock/starboard)
 "dg" = (
 /obj/item/material/shard/phoron{
 	pixel_x = -1;
@@ -1150,40 +1122,52 @@
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /turf/simulated/floor/shuttle/skrell,
-/area/template_noop)
+/area/crashed_skrell_shuttle_01/hallway/port)
 "dy" = (
 /obj/effect/decal/cleanable/blood/drip{
 	basecolor = "#0081CD"
 	},
 /obj/effect/floor_decal/spline/plain/black,
+/obj/abstract/exterior_marker/inside,
 /turf/simulated/floor/shuttle/skrell/blue/airless,
-/area/template_noop)
+/area/crashed_skrell_shuttle_01/cockpit)
 "dQ" = (
 /obj/random/dirt_75,
+/obj/abstract/exterior_marker/inside,
 /turf/simulated/floor/shuttle/skrell/blue/airless,
-/area/template_noop)
+/area/crashed_skrell_shuttle_01/cockpit)
 "eR" = (
 /obj/structure/inflatable/door,
 /turf/simulated/floor/shuttle/skrell,
-/area/template_noop)
+/area/crashed_skrell_shuttle_01/hallway/starboard)
+"fs" = (
+/obj/random/dirt_75,
+/obj/abstract/exterior_marker/inside,
+/turf/simulated/floor/shuttle/skrell/airless,
+/area/crashed_skrell_shuttle_01/cockpit)
 "fS" = (
 /obj/machinery/light/skrell,
 /turf/simulated/floor/shuttle/skrell,
-/area/template_noop)
+/area/crashed_skrell_shuttle_01/hallway/stern)
+"gm" = (
+/turf/simulated/wall/shuttle/space_ship{
+	color = "#695391"
+	},
+/area/crashed_skrell_shuttle_01/hallway/starboard/lounge)
 "gp" = (
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 1
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/shuttle/skrell/blue,
-/area/template_noop)
+/area/crashed_skrell_shuttle_01/hallway/port)
 "gS" = (
 /obj/structure/barricade/metal{
 	dir = 8
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/shuttle/skrell,
-/area/template_noop)
+/area/crashed_skrell_shuttle_01/hallway/port)
 "hm" = (
 /obj/structure/bed/stool/chair/office/hover{
 	dir = 1
@@ -1191,60 +1175,112 @@
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 4
 	},
+/obj/abstract/exterior_marker/inside,
 /turf/simulated/floor/shuttle/skrell/blue/airless,
-/area/template_noop)
+/area/crashed_skrell_shuttle_01/cockpit)
 "hx" = (
 /obj/structure/computerframe,
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 8
 	},
+/obj/abstract/exterior_marker/inside,
 /turf/simulated/floor/shuttle/skrell/blue/airless,
-/area/template_noop)
+/area/crashed_skrell_shuttle_01/cockpit)
 "if" = (
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 8
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/shuttle/skrell/blue,
-/area/template_noop)
+/area/crashed_skrell_shuttle_01/hallway/stern)
 "iZ" = (
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 1
 	},
 /turf/simulated/floor/shuttle/skrell,
-/area/template_noop)
+/area/crashed_skrell_shuttle_01/lounge)
 "jU" = (
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 8
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/white,
-/area/template_noop)
+/area/crashed_skrell_shuttle_01/medical)
+"ki" = (
+/turf/simulated/wall/shuttle/space_ship{
+	color = "#6e2c6e"
+	},
+/area/crashed_skrell_shuttle_01/hallway/starboard)
+"kq" = (
+/turf/simulated/wall/shuttle/space_ship{
+	color = "#6e2c6e"
+	},
+/area/crashed_skrell_shuttle_01/hallway/stern)
 "kB" = (
 /obj/effect/floor_decal/corner/mauve{
 	dir = 9
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/white,
-/area/template_noop)
+/area/crashed_skrell_shuttle_01/medical)
+"kY" = (
+/obj/machinery/light/skrell{
+	dir = 8
+	},
+/obj/abstract/exterior_marker/inside,
+/turf/simulated/floor/shuttle/skrell/airless,
+/area/crashed_skrell_shuttle_01/cockpit)
+"lc" = (
+/turf/simulated/wall/shuttle/space_ship{
+	color = "#6e2c6e"
+	},
+/area/crashed_skrell_shuttle_01/hallway/starboard/lounge)
+"lF" = (
+/turf/simulated/wall/shuttle/space_ship{
+	color = "#695391"
+	},
+/area/crashed_skrell_shuttle_01/lounge)
+"mo" = (
+/turf/simulated/wall/shuttle/space_ship{
+	color = "#695391"
+	},
+/area/crashed_skrell_shuttle_01/hallway/port/lounge)
+"mv" = (
+/obj/structure/sign/flag/nralakk/large/north{
+	pixel_y = 32
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/shuttle/skrell,
+/area/crashed_skrell_shuttle_01/hallway/port)
 "mF" = (
 /obj/random/dirt_75,
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 1
 	},
 /turf/simulated/floor/shuttle/skrell,
-/area/template_noop)
+/area/crashed_skrell_shuttle_01/lounge)
 "mH" = (
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 4
 	},
 /turf/simulated/floor/shuttle/skrell,
-/area/template_noop)
+/area/crashed_skrell_shuttle_01/lounge)
 "mJ" = (
 /obj/effect/floor_decal/industrial/warning,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/white,
-/area/template_noop)
+/area/crashed_skrell_shuttle_01/medical)
+"nU" = (
+/obj/machinery/door/airlock/external{
+	icon_state = "door_locked";
+	locked = 1;
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/crashed_skrell_shuttle_01/airlock/starboard)
+"oy" = (
+/turf/simulated/floor/shuttle/skrell,
+/area/crashed_skrell_shuttle_01/hallway/port)
 "oX" = (
 /obj/structure/table/skrell,
 /obj/random/dirt_75,
@@ -1252,14 +1288,14 @@
 	dir = 1
 	},
 /turf/simulated/floor/shuttle/skrell,
-/area/template_noop)
+/area/crashed_skrell_shuttle_01/lounge)
 "pK" = (
 /obj/machinery/light/skrell{
 	dir = 1
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
-/area/template_noop)
+/area/crashed_skrell_shuttle_01/airlock/port)
 "qI" = (
 /obj/structure/closet/walllocker/medical{
 	desc = "It's wall-mounted storage unit for medical supplies. It has almost come off its mounts.";
@@ -1269,14 +1305,26 @@
 	},
 /obj/effect/floor_decal/corner/mauve/full,
 /turf/simulated/floor/tiled/white,
-/area/template_noop)
+/area/crashed_skrell_shuttle_01/medical)
+"qX" = (
+/obj/machinery/light/skrell{
+	dir = 4
+	},
+/obj/random/dirt_75,
+/obj/abstract/exterior_marker/inside,
+/turf/simulated/floor/shuttle/skrell/airless,
+/area/crashed_skrell_shuttle_01/cockpit)
 "rl" = (
 /obj/structure/computerframe,
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 4
 	},
+/obj/abstract/exterior_marker/inside,
 /turf/simulated/floor/shuttle/skrell/blue/airless,
-/area/template_noop)
+/area/crashed_skrell_shuttle_01/cockpit)
+"rU" = (
+/turf/simulated/floor/shuttle/skrell,
+/area/crashed_skrell_shuttle_01/hallway/starboard)
 "ud" = (
 /obj/effect/floor_decal/corner/mauve{
 	dir = 6
@@ -1286,7 +1334,7 @@
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/white,
-/area/template_noop)
+/area/crashed_skrell_shuttle_01/medical)
 "ul" = (
 /obj/structure/barricade/metal{
 	dir = 4
@@ -1295,37 +1343,84 @@
 	basecolor = "#0081CD"
 	},
 /turf/simulated/floor/shuttle/skrell,
-/area/template_noop)
+/area/crashed_skrell_shuttle_01/hallway/starboard)
 "ut" = (
 /obj/effect/decal/cleanable/blood/drip{
 	basecolor = "#0081CD"
 	},
+/obj/abstract/exterior_marker/inside,
 /turf/simulated/floor/shuttle/skrell/blue/airless,
-/area/template_noop)
+/area/crashed_skrell_shuttle_01/cockpit)
+"vk" = (
+/turf/simulated/wall/shuttle/space_ship{
+	color = "#6e2c6e"
+	},
+/area/crashed_skrell_shuttle_01/cockpit)
 "vZ" = (
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 8
 	},
 /turf/simulated/floor/shuttle/skrell/blue,
-/area/template_noop)
+/area/crashed_skrell_shuttle_01/hallway/port)
+"wq" = (
+/turf/simulated/floor/shuttle/skrell,
+/area/crashed_skrell_shuttle_01/hallway/starboard/lounge)
+"wu" = (
+/obj/random/dirt_75,
+/turf/simulated/floor/shuttle/skrell,
+/area/crashed_skrell_shuttle_01/hallway/starboard)
+"wx" = (
+/obj/machinery/door/airlock/skrell{
+	dir = 1
+	},
+/turf/simulated/floor/shuttle/skrell,
+/area/crashed_skrell_shuttle_01/hallway/port)
+"wy" = (
+/turf/simulated/wall/shuttle/space_ship{
+	color = "#695391"
+	},
+/area/crashed_skrell_shuttle_01/hallway/stern)
 "wT" = (
 /obj/machinery/cryopod{
 	dir = 4
 	},
 /obj/effect/floor_decal/spline/plain/corner/black,
 /turf/simulated/floor/shuttle/skrell,
-/area/template_noop)
+/area/crashed_skrell_shuttle_01/lounge)
+"xs" = (
+/turf/simulated/wall/shuttle/space_ship{
+	color = "#695391"
+	},
+/area/crashed_skrell_shuttle_01/hallway/starboard)
+"xZ" = (
+/obj/effect/floor_decal/spline/plain/black{
+	dir = 8
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/shuttle/skrell/blue,
+/area/crashed_skrell_shuttle_01/hallway/port/lounge)
 "yz" = (
 /obj/effect/floor_decal/spline/plain/black,
 /turf/simulated/floor/shuttle/skrell/blue,
-/area/template_noop)
+/area/crashed_skrell_shuttle_01/hallway/stern)
+"yE" = (
+/obj/abstract/exterior_marker/inside,
+/turf/simulated/floor/shuttle/skrell/airless,
+/area/crashed_skrell_shuttle_01/cockpit)
+"yM" = (
+/obj/machinery/light/skrell{
+	dir = 4
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/shuttle/skrell,
+/area/crashed_skrell_shuttle_01/hallway/starboard/lounge)
 "yX" = (
 /obj/effect/floor_decal/corner/mauve{
 	dir = 10
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/white,
-/area/template_noop)
+/area/crashed_skrell_shuttle_01/medical)
 "zk" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
@@ -1333,32 +1428,46 @@
 /turf/simulated/wall/shuttle/space_ship{
 	color = "#6e2c6e"
 	},
-/area/template_noop)
+/area/crashed_skrell_shuttle_01/engineering)
+"zQ" = (
+/obj/machinery/door/airlock/external{
+	icon_state = "door_locked";
+	locked = 1;
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/crashed_skrell_shuttle_01/airlock/port)
 "zT" = (
 /obj/effect/floor_decal/spline/plain/black,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /turf/simulated/floor/shuttle/skrell/blue,
-/area/template_noop)
+/area/crashed_skrell_shuttle_01/hallway/stern)
 "zZ" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /turf/simulated/floor/shuttle/skrell,
-/area/template_noop)
+/area/crashed_skrell_shuttle_01/hallway/port)
 "AR" = (
 /obj/structure/bed/stool/chair/office/hover{
 	dir = 1
 	},
 /obj/random/dirt_75,
-/turf/simulated/floor/shuttle/skrell,
-/area/template_noop)
+/obj/abstract/exterior_marker/inside,
+/turf/simulated/floor/shuttle/skrell/airless,
+/area/crashed_skrell_shuttle_01/cockpit)
 "Bi" = (
 /obj/effect/decal/cleanable/blood/drip{
 	basecolor = "#0081CD"
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/white,
-/area/template_noop)
+/area/crashed_skrell_shuttle_01/medical)
+"Cc" = (
+/turf/simulated/wall/shuttle/space_ship{
+	color = "#6e2c6e"
+	},
+/area/crashed_skrell_shuttle_01/hallway/port/lounge)
 "Du" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 6
@@ -1366,11 +1475,17 @@
 /turf/simulated/wall/shuttle/space_ship{
 	color = "#6e2c6e"
 	},
-/area/template_noop)
+/area/crashed_skrell_shuttle_01/engineering)
 "Dz" = (
 /obj/structure/table/skrell,
 /obj/machinery/light/skrell,
-/turf/simulated/floor/shuttle/skrell,
+/obj/abstract/exterior_marker/inside,
+/turf/simulated/floor/shuttle/skrell/airless,
+/area/crashed_skrell_shuttle_01/cockpit)
+"Ew" = (
+/obj/effect/landmark/clear,
+/obj/effect/landmark/scorcher,
+/turf/template_noop,
 /area/template_noop)
 "FP" = (
 /obj/machinery/light/skrell{
@@ -1378,24 +1493,31 @@
 	},
 /obj/effect/floor_decal/spline/plain/black,
 /turf/simulated/floor/shuttle/skrell/blue,
-/area/template_noop)
+/area/crashed_skrell_shuttle_01/hallway/stern)
 "FR" = (
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 6
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/shuttle/skrell/blue,
-/area/template_noop)
+/area/crashed_skrell_shuttle_01/hallway/stern)
 "FS" = (
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 4
 	},
+/obj/abstract/exterior_marker/inside,
 /turf/simulated/floor/shuttle/skrell/blue/airless,
-/area/template_noop)
+/area/crashed_skrell_shuttle_01/cockpit)
 "FU" = (
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
-/area/template_noop)
+/area/crashed_skrell_shuttle_01/airlock/port)
+"FW" = (
+/obj/machinery/door/airlock/skrell{
+	dir = 1
+	},
+/turf/simulated/floor/shuttle/skrell,
+/area/crashed_skrell_shuttle_01/hallway/starboard)
 "Ha" = (
 /obj/machinery/light/skrell{
 	dir = 8
@@ -1404,7 +1526,11 @@
 	dir = 4
 	},
 /turf/simulated/floor/shuttle/skrell/blue,
-/area/template_noop)
+/area/crashed_skrell_shuttle_01/hallway/starboard)
+"Ho" = (
+/obj/random/dirt_75,
+/turf/simulated/floor/shuttle/skrell,
+/area/crashed_skrell_shuttle_01/hallway/port)
 "Ik" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 5
@@ -1412,7 +1538,7 @@
 /turf/simulated/wall/shuttle/space_ship{
 	color = "#6e2c6e"
 	},
-/area/template_noop)
+/area/crashed_skrell_shuttle_01/engineering)
 "Iv" = (
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 1
@@ -1420,7 +1546,15 @@
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /turf/simulated/floor/shuttle/skrell/blue,
-/area/template_noop)
+/area/crashed_skrell_shuttle_01/hallway/port)
+"IG" = (
+/obj/machinery/door/airlock/external{
+	icon_state = "door_locked";
+	locked = 1;
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/crashed_skrell_shuttle_01/hallway/port)
 "II" = (
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 8
@@ -1428,7 +1562,7 @@
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /turf/simulated/floor/shuttle/skrell/blue,
-/area/template_noop)
+/area/crashed_skrell_shuttle_01/hallway/port)
 "IS" = (
 /obj/machinery/light/skrell{
 	dir = 8
@@ -1436,11 +1570,16 @@
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /turf/simulated/floor/shuttle/skrell,
-/area/template_noop)
+/area/crashed_skrell_shuttle_01/hallway/port)
+"IT" = (
+/turf/simulated/wall/shuttle/space_ship{
+	color = "#6e2c6e"
+	},
+/area/crashed_skrell_shuttle_01/airlock/starboard)
 "JG" = (
 /obj/effect/floor_decal/spline/plain/black,
 /turf/simulated/floor/shuttle/skrell,
-/area/template_noop)
+/area/crashed_skrell_shuttle_01/lounge)
 "JJ" = (
 /obj/structure/bed/stool/chair/office/hover{
 	dir = 1
@@ -1448,8 +1587,14 @@
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 8
 	},
+/obj/abstract/exterior_marker/inside,
 /turf/simulated/floor/shuttle/skrell/blue/airless,
-/area/template_noop)
+/area/crashed_skrell_shuttle_01/cockpit)
+"JU" = (
+/turf/simulated/wall/shuttle/space_ship{
+	color = "#6e2c6e"
+	},
+/area/crashed_skrell_shuttle_01/engineering)
 "La" = (
 /obj/machinery/cryopod,
 /obj/random/dirt_75,
@@ -1457,7 +1602,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/shuttle/skrell,
-/area/template_noop)
+/area/crashed_skrell_shuttle_01/lounge)
 "MJ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 9
@@ -1465,7 +1610,7 @@
 /turf/simulated/wall/shuttle/space_ship{
 	color = "#6e2c6e"
 	},
-/area/template_noop)
+/area/crashed_skrell_shuttle_01/engineering)
 "MR" = (
 /obj/machinery/light/skrell{
 	dir = 1
@@ -1475,14 +1620,14 @@
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/shuttle/skrell,
-/area/template_noop)
+/area/crashed_skrell_shuttle_01/hallway/starboard)
 "Nm" = (
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 10
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/shuttle/skrell/blue,
-/area/template_noop)
+/area/crashed_skrell_shuttle_01/hallway/stern)
 "OB" = (
 /obj/structure/closet/skrell{
 	opened = 1
@@ -1492,19 +1637,30 @@
 	dir = 1
 	},
 /turf/simulated/floor/shuttle/skrell,
-/area/template_noop)
+/area/crashed_skrell_shuttle_01/lounge)
 "Pn" = (
 /obj/random/dirt_75,
 /obj/effect/floor_decal/spline/plain/black,
 /turf/simulated/floor/shuttle/skrell,
-/area/template_noop)
+/area/crashed_skrell_shuttle_01/lounge)
+"Pq" = (
+/obj/effect/map_effect/window_spawner/full/shuttle/mercenary{
+	spawn_firedoor = 1;
+	spawn_grille = 1;
+	frame_color = "#6e2c6e";
+	color = "#6e2c6e"
+	},
+/obj/structure/grille,
+/turf/simulated/floor/plating,
+/area/crashed_skrell_shuttle_01/hallway/port)
 "RM" = (
 /obj/random/dirt_75,
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 8
 	},
+/obj/abstract/exterior_marker/inside,
 /turf/simulated/floor/shuttle/skrell/blue/airless,
-/area/template_noop)
+/area/crashed_skrell_shuttle_01/cockpit)
 "RX" = (
 /obj/structure/barricade/metal{
 	dir = 8
@@ -1514,14 +1670,15 @@
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/shuttle/skrell/blue,
-/area/template_noop)
+/area/crashed_skrell_shuttle_01/hallway/port)
 "Sg" = (
 /obj/random/dirt_75,
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 10
 	},
+/obj/abstract/exterior_marker/inside,
 /turf/simulated/floor/shuttle/skrell/blue/airless,
-/area/template_noop)
+/area/crashed_skrell_shuttle_01/cockpit)
 "Sr" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 10
@@ -1529,15 +1686,32 @@
 /turf/simulated/wall/shuttle/space_ship{
 	color = "#6e2c6e"
 	},
-/area/template_noop)
+/area/crashed_skrell_shuttle_01/engineering)
+"SV" = (
+/obj/random/dirt_75,
+/turf/simulated/floor/shuttle/skrell,
+/area/crashed_skrell_shuttle_01/hallway/stern)
+"SW" = (
+/turf/simulated/wall/shuttle/space_ship{
+	color = "#695391"
+	},
+/area/crashed_skrell_shuttle_01/hallway/port)
 "Th" = (
 /obj/item/material/shard/phoron{
 	pixel_x = -10;
 	pixel_y = 7
 	},
 /obj/random/dirt_75,
+/obj/abstract/exterior_marker/inside,
 /turf/simulated/floor/shuttle/skrell/airless,
-/area/template_noop)
+/area/crashed_skrell_shuttle_01/cockpit)
+"Tp" = (
+/obj/effect/floor_decal/spline/plain/black{
+	dir = 1
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/shuttle/skrell/blue,
+/area/crashed_skrell_shuttle_01/hallway/starboard)
 "TH" = (
 /obj/effect/decal/cleanable/blood/drip{
 	basecolor = "#0081CD"
@@ -1545,11 +1719,11 @@
 /obj/effect/floor_decal/industrial/warning/corner,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/white,
-/area/template_noop)
+/area/crashed_skrell_shuttle_01/medical)
 "Ug" = (
 /obj/random/dirt_75,
 /turf/simulated/floor/shuttle/skrell,
-/area/template_noop)
+/area/crashed_skrell_shuttle_01/hallway/port/lounge)
 "UI" = (
 /obj/effect/decal/cleanable/blood/drip{
 	basecolor = "#0081CD"
@@ -1557,17 +1731,7 @@
 /obj/effect/floor_decal/industrial/warning,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/white,
-/area/template_noop)
-"Vf" = (
-/obj/effect/map_effect/window_spawner/full/shuttle/mercenary{
-	spawn_firedoor = 1;
-	spawn_grille = 1;
-	frame_color = "#6e2c6e";
-	color = "#6e2c6e"
-	},
-/obj/structure/grille,
-/turf/simulated/floor/airless,
-/area/template_noop)
+/area/crashed_skrell_shuttle_01/medical)
 "Vl" = (
 /obj/effect/decal/cleanable/blood/drip{
 	basecolor = "#0081CD"
@@ -1577,32 +1741,53 @@
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/white,
-/area/template_noop)
+/area/crashed_skrell_shuttle_01/medical)
 "Vx" = (
 /obj/machinery/light/skrell{
 	dir = 1
 	},
 /turf/simulated/floor/shuttle/skrell/blue,
-/area/template_noop)
+/area/crashed_skrell_shuttle_01/lounge)
+"VL" = (
+/obj/effect/floor_decal/spline/plain/black{
+	dir = 4
+	},
+/turf/simulated/floor/shuttle/skrell/blue,
+/area/crashed_skrell_shuttle_01/hallway/stern)
 "VO" = (
 /obj/machinery/door/airlock/skrell{
 	dir = 1
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/shuttle/skrell,
-/area/template_noop)
+/area/crashed_skrell_shuttle_01/hallway/port/lounge)
 "Ye" = (
 /obj/effect/floor_decal/corner/mauve{
 	dir = 6
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/white,
-/area/template_noop)
+/area/crashed_skrell_shuttle_01/medical)
+"Yx" = (
+/turf/simulated/wall/shuttle/space_ship{
+	color = "#6e2c6e"
+	},
+/area/crashed_skrell_shuttle_01/hallway/port)
 "YG" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
-/area/template_noop)
+/area/crashed_skrell_shuttle_01/engineering)
+"Zv" = (
+/obj/effect/map_effect/window_spawner/full/shuttle/mercenary{
+	spawn_firedoor = 1;
+	spawn_grille = 1;
+	frame_color = "#6e2c6e";
+	color = "#6e2c6e"
+	},
+/obj/structure/grille,
+/turf/simulated/floor/plating,
+/area/crashed_skrell_shuttle_01/hallway/starboard)
 
 (1,1,1) = {"
 aq
@@ -1621,15 +1806,15 @@ aq
 aq
 aq
 aq
+Ew
 aa
 aa
-aa
-aa
+Ew
 aq
 aq
 aq
 aq
-aq
+ad
 aq
 aq
 aq
@@ -1649,12 +1834,12 @@ aq
 aq
 aq
 aq
-aq
+ad
 aq
 aq
 ap
 ap
-bx
+zQ
 ap
 ap
 aa
@@ -1665,7 +1850,7 @@ aq
 aq
 aq
 aq
-aq
+ad
 aq
 aq
 aq
@@ -1680,8 +1865,8 @@ aq
 aq
 aq
 aq
-aq
-aq
+ad
+ad
 aq
 aq
 aq
@@ -1691,17 +1876,17 @@ pK
 cr
 FU
 ap
-aq
+ad
+aa
+Ew
+Ew
+kq
+kq
+kq
+JU
 aa
 aa
-aa
-ap
-ap
-ap
-ap
-aa
-aa
-aa
+Ew
 aa
 aq
 aq
@@ -1716,27 +1901,27 @@ aq
 aq
 aq
 aq
-ap
-ap
-ap
-ap
-ap
+Yx
+Yx
+Yx
+Yx
+Yx
 aS
-bx
-ad
-ap
-ap
-ap
-ap
-ap
-ap
-ap
-ap
-ap
-ap
-ap
-aa
-aa
+IG
+Pq
+Yx
+Cc
+Cc
+Cc
+Cc
+kq
+kq
+kq
+JU
+JU
+JU
+Ew
+Ew
 aa
 aq
 "}
@@ -1749,28 +1934,28 @@ aq
 aq
 aq
 aq
-aq
-ap
-ce
+ad
+Yx
+mv
 IS
 cd
 aM
 aT
 dg
 zZ
-bb
+wx
 Ug
 bW
 Ug
 VO
-Ug
-Ug
+SV
+SV
 fS
-ap
+JU
 bg
-ap
-ap
-aa
+JU
+JU
+Ew
 aq
 aq
 "}
@@ -1784,19 +1969,19 @@ aq
 aq
 aq
 aq
-ap
-aH
+Yx
+oy
 cC
 aL
 ck
 II
 cb
 vZ
-cm
-if
+SW
+xZ
 bU
-if
-cm
+xZ
+mo
 if
 Nm
 aH
@@ -1809,66 +1994,66 @@ aq
 aq
 "}
 (7,1,1) = {"
-aq
-aq
-aq
-aq
-aq
-aq
-ap
 ad
 ad
-ap
+ad
+aq
+aq
+aq
+vk
+ag
+ag
+Yx
 gS
 RX
 cm
 cm
 bw
 cm
-cm
-cm
-cm
+lF
+lF
+lF
 bc
-cm
-cm
-cm
+lF
+lF
+wy
 bA
-Ug
-ap
+SV
+JU
 aR
 Sr
 Ik
-aa
-aa
+Ew
+Ew
 aq
 "}
 (8,1,1) = {"
-aq
-aq
-ab
 ad
 ad
-ap
-ap
+ag
+ag
+ag
+vk
+vk
 bt
 bz
-ap
+Yx
 bV
 Iv
 cm
 aN
 kB
 qI
-cm
+lF
 wT
 co
 bD
 mH
 oX
-cm
+wy
 FP
-Ug
-ap
+SV
+JU
 aY
 bm
 zk
@@ -1877,48 +2062,48 @@ aa
 aa
 "}
 (9,1,1) = {"
-aq
-aq
 ad
+ad
+ag
 ae
 ah
-bW
-aH
-Ug
-Ug
+kY
+yE
+fs
+fs
 aB
-Ug
+Ho
 gp
 cm
 bY
 Bi
 yX
-cm
+lF
 JG
 aO
 aO
 aO
 mF
-cm
+wy
 yz
-Ug
-ap
+SV
+JU
 aR
 bn
 zk
-ap
-aa
+JU
+Ew
 aa
 "}
 (10,1,1) = {"
 aq
-ab
+ag
 ag
 hx
 JJ
 RM
 Sg
-Ug
+fs
 cm
 cm
 cm
@@ -1927,21 +2112,21 @@ cm
 aP
 TH
 bp
-cm
-cm
+lF
+lF
 Vx
 aO
 ct
 iZ
 ak
 bA
-Ug
-ap
+SV
+JU
 aR
 bo
 bl
 cH
-aa
+Ew
 aa
 "}
 (11,1,1) = {"
@@ -1952,7 +2137,7 @@ ao
 bF
 dQ
 ch
-Ug
+fs
 cm
 aA
 aF
@@ -1962,14 +2147,14 @@ aU
 UI
 bh
 bT
-cm
+lF
 bB
 aO
 bP
 cu
-cm
+wy
 be
-Ug
+SV
 cO
 cx
 bj
@@ -1979,7 +2164,7 @@ aa
 aa
 "}
 (12,1,1) = {"
-aa
+Ew
 ai
 aj
 av
@@ -1996,31 +2181,31 @@ aC
 mJ
 bH
 cc
-cm
-cm
+lF
+lF
 cq
 bP
 bE
-cm
+wy
 bA
 cL
 cP
 cQ
 cJ
 bu
-ap
+JU
 aa
 aa
 "}
 (13,1,1) = {"
-aa
-Vf
+Ew
+ag
 ba
 au
 az
 ut
 aI
-Ug
+fs
 cm
 aE
 aW
@@ -2030,15 +2215,15 @@ as
 jU
 bS
 cV
-cm
+lF
 bK
 bL
 bP
 cv
-cm
+wy
 bA
 cM
-ap
+JU
 aR
 cK
 bl
@@ -2047,9 +2232,9 @@ aa
 aq
 "}
 (14,1,1) = {"
-aa
-cy
-an
+Ew
+ag
+ag
 rl
 hm
 FS
@@ -2063,31 +2248,31 @@ cm
 by
 aC
 cB
-cm
-cm
+lF
+lF
 cp
 aO
 bL
 mF
 ak
 bA
-Ug
-ap
+SV
+JU
 YG
 bq
 bl
 cH
-aa
+Ew
 aq
 "}
 (15,1,1) = {"
 aa
-aq
-bR
+ad
+ag
 ae
 AR
-cg
-Ug
+qX
+fs
 bX
 bJ
 aD
@@ -2097,50 +2282,50 @@ cm
 bZ
 aG
 yX
-cm
+lF
 Pn
 aO
 bL
 cI
 OB
-cm
+wy
 bA
-Ug
-ap
+SV
+JU
 YG
 br
 zk
-ap
-aa
+JU
+Ew
 aq
 "}
 (16,1,1) = {"
 aq
-aq
-cy
 ad
-ad
-ap
-ap
+ag
+ag
+ag
+vk
+vk
 ar
 Dz
-ap
+ki
 MR
-gp
+Tp
 cm
 bv
 Ye
 aZ
-cm
+lF
 La
 cf
 al
 al
 at
-cm
+wy
 FP
-Ug
-ap
+SV
+JU
 aY
 bs
 zk
@@ -2149,36 +2334,36 @@ cA
 aq
 "}
 (17,1,1) = {"
-aq
-aq
-aq
-aq
-aq
-aq
-ap
 ad
 ad
-ap
+aq
+aq
+aq
+aq
+vk
+ag
+ag
+ki
 ul
 aK
 cm
 cm
 bw
 cm
-cm
-cm
-cm
+lF
+lF
+lF
 bc
-cm
-cm
-cm
+lF
+lF
+wy
 zT
-Ug
-ap
+SV
+JU
 bG
 Du
 MJ
-aa
+Ew
 aa
 aq
 "}
@@ -2192,7 +2377,7 @@ aq
 aq
 aq
 aq
-ap
+ki
 ce
 bd
 cs
@@ -2200,19 +2385,19 @@ cs
 cs
 Ha
 cs
-cm
+xs
 cw
 cw
 cw
-cm
-cs
+gm
+VL
 FR
-Ug
+SV
 cN
 aR
 Sr
 cH
-aa
+Ew
 aq
 aq
 "}
@@ -2226,26 +2411,26 @@ aq
 aq
 aq
 aq
-ap
-Ug
+ki
+wu
 cg
-Ug
-Ug
-Ug
-aH
-aH
-bb
-aH
-cg
-aH
+wu
+wu
+wu
+rU
+rU
+FW
+wq
+yM
+wq
 bb
 aH
 ci
 fS
-ap
+JU
 bk
-ap
-ap
+JU
+JU
 aa
 aq
 aq
@@ -2259,28 +2444,28 @@ aq
 aq
 aq
 aq
-aq
-ap
-ap
-ap
-ap
-ap
 ad
+ki
+ki
+ki
+ki
+ki
+Zv
 bx
-ad
-ap
-ap
-ap
-ap
-ap
-ap
-ap
-ap
-ap
-ap
-ap
-aa
-aa
+Zv
+ki
+lc
+lc
+lc
+lc
+kq
+kq
+kq
+JU
+JU
+JU
+Ew
+Ew
 aa
 aa
 "}
@@ -2293,28 +2478,28 @@ aq
 aq
 aq
 aq
+ad
 aq
 aq
 aq
 aq
-aq
-ap
+IT
 ca
 bI
-FU
-ap
+dc
+IT
+Ew
+Ew
 aa
 aa
+kq
+kq
+kq
+JU
 aa
 aa
-ap
-ap
-ap
-ap
-aa
-aa
-aa
-aa
+Ew
+Ew
 aq
 aq
 "}
@@ -2330,25 +2515,25 @@ aq
 aq
 aq
 aq
+ad
 aq
-aq
-ap
-ap
-bx
-ap
-ap
+IT
+IT
+nU
+IT
+IT
 aa
+ad
 aq
 aq
 aq
+ad
 aq
-aq
-aq
-aq
+ad
 aq
 aa
-aa
-aa
+Ew
+Ew
 aq
 aq
 "}
@@ -2366,12 +2551,12 @@ aq
 aq
 aq
 aq
+Ew
 aa
 aa
 aa
 aa
-aa
-aa
+Ew
 aq
 aq
 aq
@@ -2400,8 +2585,8 @@ aq
 aq
 aq
 aq
-aq
-aa
+ad
+Ew
 aa
 aa
 aq

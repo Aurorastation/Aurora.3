@@ -85,7 +85,8 @@
 	var/ruin_planet_type = PLANET_BARREN
 	var/ruin_allowed_tags = RUIN_ALL_TAGS
 
-	var/habitability_class
+	//Either a type or a list of types and weights. You must include all types if it's a list
+	var/habitability_weight = HABITABILITY_TYPICAL
 
 	var/list/mobs_to_tolerate = list()
 	var/generated_name = TRUE
@@ -96,17 +97,6 @@
 	///A list of groups, as strings, that this exoplanet belongs to. When adding new map templates, try to keep this balanced on the CI execution time, or consider adding a new one
 	///ONLY IF IT'S THE LONGEST RUNNING CI POD AND THEY ARE ALREADY BALANCED
 	var/list/unit_test_groups = list()
-
-
-/obj/effect/overmap/visitable/sector/exoplanet/proc/generate_habitability()
-	var/roll = rand(1,100)
-	switch(roll)
-		if(1 to 10)
-			habitability_class = HABITABILITY_IDEAL
-		if(11 to 50)
-			habitability_class = HABITABILITY_OKAY
-		else
-			habitability_class = HABITABILITY_BAD
 
 /obj/effect/overmap/visitable/sector/exoplanet/Initialize()
 	. = ..()
@@ -213,8 +203,22 @@
 	..()
 
 /obj/effect/overmap/visitable/sector/exoplanet/proc/build_level()
-	generate_habitability()
 	generate_atmosphere()
+	if(istype(theme))
+		theme.adjust_atmosphere(src)
+	if(exterior_atmosphere)
+		//Set of gases for living things
+		if(!length(breathgas))
+			var/list/goodgases = exterior_atmosphere.gas.Copy()
+			var/gasnum = min(rand(1,3), length(goodgases))
+			for(var/i = 1 to gasnum)
+				var/gas = pick(goodgases)
+				breathgas[gas] = rand(0.4*goodgases[gas], 0.1)
+				goodgases -= gas
+		if(!badgas)
+			var/list/badgases = gas_data.gases.Copy()
+			badgases -= exterior_atmosphere.gas
+			badgas = pick(badgases)
 	if(ispath(initial_weather_state))
 		generate_weather()
 	generate_flora()
@@ -227,16 +231,16 @@
 	START_PROCESSING(SSprocessing, src)
 
 /obj/effect/overmap/visitable/sector/exoplanet/proc/pre_ruin_preparation()
-	switch(habitability_class)
-		if(HABITABILITY_IDEAL)
+	switch(habitability_weight)
+		if(HABITABILITY_TYPICAL)
 			if(prob(75))
 				ruin_allowed_tags |= RUIN_HIGHPOP
 			ruin_allowed_tags &= ~RUIN_AIRLESS
-		if(HABITABILITY_OKAY)
-			if(prob(25))
-				ruin_allowed_tags |= RUIN_HIGHPOP
-			ruin_allowed_tags &= ~RUIN_AIRLESS
 		if(HABITABILITY_BAD)
+			if(prob(25))
+				ruin_allowed_tags |= RUIN_LOWPOP
+			ruin_allowed_tags &= ~RUIN_AIRLESS
+		if(HABITABILITY_EXTREME)
 			ruin_allowed_tags |= RUIN_AIRLESS
 
 //attempt at more consistent history generation for xenoarch finds.
@@ -269,25 +273,6 @@
 					adapt_animal(S)
 			if(animals.len >= max_animal_count)
 				repopulating = 0
-
-		if(!atmosphere)
-			continue
-		var/zone/Z
-		for(var/i = 1 to maxx)
-			var/turf/simulated/T = locate(i, 2, zlevel)
-			if(istype(T) && T.zone && T.zone.contents.len > (maxx*maxy*0.25)) //if it's a zone quarter of zlevel, good enough odds it's planetary main one
-				Z = T.zone
-				break
-		if(Z && !length(Z.fire_tiles) && !atmosphere.compare(Z.air)) //let fire die out first if there is one
-			var/datum/gas_mixture/daddy = new() //make a fake 'planet' zone gas
-			daddy.copy_from(atmosphere)
-			daddy.group_multiplier = Z.air.group_multiplier
-			Z.air.equalize(daddy)
-
-/obj/effect/overmap/visitable/sector/exoplanet/proc/remove_animal(mob/M)
-	animals -= M
-	UnregisterSignal(M, COMSIG_QDELETING)
-	repopulate_types |= M.type
 
 /obj/effect/overmap/visitable/sector/exoplanet/proc/generate_map()
 	if(!istype(theme))
@@ -324,66 +309,6 @@
 
 	for(var/mob/living/simple_animal/A as anything in animals)
 		adapt_animal(A)
-
-/obj/effect/overmap/visitable/sector/exoplanet/proc/adapt_seed(var/datum/seed/S)
-	SET_SEED_TRAIT_BOUNDED(S, TRAIT_IDEAL_HEAT, atmosphere.temperature + rand(-5,5), 800, 70, null)
-	SET_SEED_TRAIT_BOUNDED(S, TRAIT_HEAT_TOLERANCE, GET_SEED_TRAIT(S, TRAIT_HEAT_TOLERANCE) + rand(-5,5), 800, 70, null)
-	SET_SEED_TRAIT_BOUNDED(S, TRAIT_LOWKPA_TOLERANCE, atmosphere.return_pressure() + rand(-5,-50), 80, 0, null)
-	SET_SEED_TRAIT_BOUNDED(S, TRAIT_HIGHKPA_TOLERANCE, atmosphere.return_pressure() + rand(5,50), 500, 110, null)
-	SET_SEED_TRAIT(S, TRAIT_SPREAD, 0)
-	if(S.exude_gasses)
-		S.exude_gasses -= badgas
-	if(atmosphere)
-		if(S.consume_gasses)
-			S.consume_gasses = list(pick(atmosphere.gas)) // ensure that if the plant consumes a gas, the atmosphere will have it
-		for(var/g in atmosphere.gas)
-			if(gas_data.flags[g] & XGM_GAS_CONTAMINANT)
-				SET_SEED_TRAIT(S, TRAIT_TOXINS_TOLERANCE, rand(10,15))
-
-/obj/effect/overmap/visitable/sector/exoplanet/proc/adapt_animal(var/mob/living/simple_animal/A)
-	if(species[A.type])
-		A.name = species[A.type]
-		A.real_name = species[A.type]
-	else
-		A.name = "alien creature"
-		A.real_name = "alien creature"
-		add_verb(A, /mob/living/simple_animal/proc/name_species)
-		if(istype(A, /mob/living/simple_animal/hostile))
-			var/mob/living/simple_animal/hostile/AH = A
-			AH.tolerated_types = mobs_to_tolerate.Copy()
-	if(atmosphere)
-		//Set up gases for living things
-		if(!LAZYLEN(breathgas))
-			var/list/goodgases = gas_data.gases.Copy()
-			var/gasnum = min(rand(1,3), goodgases.len)
-			for(var/i = 1 to gasnum)
-				var/gas = pick(goodgases)
-				breathgas[gas] = round(0.4*goodgases[gas], 0.1)
-				goodgases -= gas
-		if(!badgas)
-			var/list/badgases = gas_data.gases.Copy()
-			badgases -= atmosphere.gas
-			badgas = pick(badgases)
-
-		A.minbodytemp = atmosphere.temperature - 20
-		A.maxbodytemp = atmosphere.temperature + 30
-		A.bodytemperature = (A.maxbodytemp+A.minbodytemp)/2
-
-/obj/effect/overmap/visitable/sector/exoplanet/proc/get_random_species_name()
-	return pick("nol","shan","can","fel","xor")+pick("a","e","o","t","ar")+pick("ian","oid","ac","ese","inian","rd")
-
-/obj/effect/overmap/visitable/sector/exoplanet/proc/rename_species(var/species_type, var/newname, var/force = FALSE)
-	if(species[species_type] && !force)
-		return FALSE
-
-	species[species_type] = newname
-	log_and_message_admins("renamed [species_type] to [newname]")
-	for(var/mob/living/simple_animal/A in animals)
-		if(istype(A,species_type))
-			A.name = newname
-			A.real_name = newname
-			remove_verb(A, /mob/living/simple_animal/proc/name_species)
-	return TRUE
 
 //This tries to generate "num" landing spots on the map.
 // A landing spot is a 20x20 zone where the shuttle can land where each tile has a area of /area/exoplanet and no ruins on top of it
@@ -433,50 +358,6 @@
 		new new_type(T)
 		attempts = 20
 
-/obj/effect/overmap/visitable/sector/exoplanet/proc/generate_atmosphere()
-	atmosphere = new
-	if(habitability_class == HABITABILITY_IDEAL)
-		atmosphere.adjust_gas(GAS_OXYGEN, MOLES_O2STANDARD, 0)
-		atmosphere.adjust_gas(GAS_NITROGEN, MOLES_N2STANDARD)
-	else //let the fuckery commence
-		var/list/newgases = gas_data.gases.Copy()
-		newgases -= GAS_PHORON
-		if(prob(50)) //alium gas should be slightly less common than mundane shit
-			newgases -= GAS_ALIEN
-		newgases -= GAS_WATERVAPOR
-
-		var/total_moles = MOLES_CELLSTANDARD * rand(80,120)/100
-		var/badflag = 0
-
-		//Breathable planet
-		if(habitability_class == HABITABILITY_OKAY)
-			atmosphere.gas[GAS_OXYGEN] += MOLES_O2STANDARD
-			total_moles -= MOLES_O2STANDARD
-			badflag = XGM_GAS_FUEL|XGM_GAS_CONTAMINANT
-
-		var/gasnum = rand(1,4)
-		var/i = 1
-		var/sanity = prob(99.9)
-		while(i <= gasnum && total_moles && newgases.len)
-			if(badflag && sanity)
-				for(var/g in newgases)
-					if(gas_data.flags[g] & badflag)
-						newgases -= g
-			var/ng = pick_n_take(newgases)	//pick a gas
-			if(sanity) //make sure atmosphere is not flammable... always
-				if(gas_data.flags[ng] & XGM_GAS_OXIDIZER)
-					badflag |= XGM_GAS_FUEL
-				if(gas_data.flags[ng] & XGM_GAS_FUEL)
-					badflag |= XGM_GAS_OXIDIZER
-				sanity = 0
-
-			var/part = total_moles * rand(3,80)/100 //allocate percentage to it
-			if(i == gasnum || !newgases.len) //if it's last gas, let it have all remaining moles
-				part = total_moles
-			atmosphere.gas[ng] += part
-			total_moles = max(total_moles - part, 0)
-			i++
-
 /obj/effect/overmap/visitable/sector/exoplanet/generate_ground_survey_result()
 	..()
 	ground_survey_result = ""
@@ -501,19 +382,19 @@
 	. += "<br><small>[desc]</small>"
 
 	var/list/extra_data = list("<hr>")
-	if(atmosphere)
+	if(exterior_atmosphere)
 		var/list/gases = list()
-		for(var/g in atmosphere.gas)
-			if(atmosphere.gas[g] > atmosphere.total_moles * 0.05)
+		for(var/g in exterior_atmosphere.gas)
+			if(exterior_atmosphere.gas[g] > exterior_atmosphere.total_moles * 0.05)
 				gases += gas_data.name[g]
 		extra_data += "<b>Atmosphere composition:</b> [english_list(gases)]"
 		var/inaccuracy = rand(8,12)/10
-		extra_data += "<b>Atmosphere pressure:</b> [atmosphere.return_pressure()*inaccuracy] kPa, <b>temperature:</b> [atmosphere.temperature*inaccuracy] K"
+		extra_data += "<b>Atmosphere pressure:</b> [exterior_atmosphere.return_pressure()*inaccuracy] kPa, <b>temperature:</b> [exterior_atmosphere.temperature*inaccuracy] K"
 
-	if(seeds.len)
+	if(length(seeds))
 		extra_data += "<br>Unrecognized xenoflora detected."
 
-	if(animals.len)
+	if(length(animals))
 		extra_data += "<br>Unrecognized xenofauna detected."
 
 	else
@@ -531,26 +412,6 @@
 
 /obj/effect/overmap/visitable/sector/exoplanet/proc/get_surface_color()
 	return surface_color
-
-/obj/effect/overmap/visitable/sector/exoplanet/proc/get_atmosphere_color()
-	var/list/colors = list()
-	for(var/g in atmosphere.gas)
-		if(gas_data.tile_overlay_color[g])
-			colors += gas_data.tile_overlay_color[g]
-	if(colors.len)
-		return MixColors(colors)
-
-/obj/effect/landmark/exoplanet_spawn/Initialize()
-	..()
-	return INITIALIZE_HINT_LATELOAD
-
-/obj/effect/landmark/exoplanet_spawn/LateInitialize(mapload)
-	var/obj/effect/overmap/visitable/sector/exoplanet/E = GLOB.map_sectors["[z]"]
-	if (istype(E))
-		do_spawn(E)
-
-/obj/effect/landmark/exoplanet_spawn/proc/do_spawn(obj/effect/overmap/visitable/sector/exoplanet/planet)
-	return
 
 ///Sets the given weather state to our planet replacing the old one, and trigger updates. Can be a type path or instance.
 /obj/effect/overmap/visitable/sector/exoplanet/proc/set_weather(var/singleton/state/weather/W)

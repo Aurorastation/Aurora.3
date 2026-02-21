@@ -155,6 +155,9 @@
 	icon_state = "ramptop"
 	initial_flooring = /singleton/flooring/reinforced/ramp
 
+/turf/simulated/floor/tiled/ramp/airless
+	initial_gas = null
+
 /turf/simulated/floor/tiled/ramp/bottom
 	name = "foot ramp"
 	icon = 'icons/turf/flooring/tiles.dmi'

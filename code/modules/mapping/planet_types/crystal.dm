@@ -15,13 +15,11 @@
 
 	unit_test_groups = list(3)
 	soil_data = list("Porous crystal layer", "High density silicon carbide layer", "Layer of fused refractive crystals", "Degrading volatile layer", "Silica aerogel layer", "Crystal mush layer")
-
-/obj/effect/overmap/visitable/sector/exoplanet/crystal/generate_habitability()
-	return HABITABILITY_BAD
+	habitability_weight = HABITABILITY_BAD
 
 /obj/effect/overmap/visitable/sector/exoplanet/crystal/generate_atmosphere()
 	..()
-	atmosphere.remove_ratio(0.9)
+	exterior_atmosphere.remove_ratio(0.9)
 
 /obj/effect/overmap/visitable/sector/exoplanet/crystal/get_surface_color()
 	return "#6ba7f7"

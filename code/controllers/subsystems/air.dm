@@ -137,9 +137,17 @@ SUBSYSTEM_DEF(air)
 		var/turf/simulated/S = T
 		if(!istype(S))
 			continue
+		// Although update_air_properties can be called on non-ZAS participating turfs for convenience, it is unnecessary on roundstart/reboot.
+		if (!SHOULD_PARTICIPATE_IN_ZONES(S))
+			continue
 		simulated_turf_count++
+		// We also skip anything already queued, since it'll be settled when fire() runs anyway.
+		if(S.needs_air_update)
+			continue
 		S.update_air_properties()
-
+		// air state is necessarily globally incomplete during this
+		// so we can't do S.post_update_air_properties(), which needs
+		// connections to have been settled already.
 		CHECK_TICK
 
 	admin_notice({"<span class='info'>
@@ -175,8 +183,9 @@ Total Unsimulated Turfs: [world.maxx*world.maxy*world.maxz - simulated_turf_coun
 	var/list/curr_hotspot = processing_hotspots
 	var/list/curr_zones = zones_to_update
 
-	while (curr_tiles.len)
-		var/turf/T = curr_tiles[curr_tiles.len]
+	var/airblock // zeroed by ATMOS_CANPASS_TURF, declared early as microopt
+	while (length(curr_tiles))
+		var/turf/T = curr_tiles[length(curr_tiles)]
 		curr_tiles.len--
 
 		if (!T)
@@ -188,9 +197,8 @@ Total Unsimulated Turfs: [world.maxx*world.maxy*world.maxz - simulated_turf_coun
 			continue
 
 		//check if the turf is self-zone-blocked
-		var/c_airblock
-		ATMOS_CANPASS_TURF(c_airblock, T, T)
-		if(c_airblock & ZONE_BLOCKED)
+		ATMOS_CANPASS_TURF(airblock, T, T)
+		if(airblock & ZONE_BLOCKED)
 			deferred += T
 			if (no_mc_tick)
 				CHECK_TICK
@@ -200,7 +208,7 @@ Total Unsimulated Turfs: [world.maxx*world.maxy*world.maxz - simulated_turf_coun
 
 		T.update_air_properties()
 		T.post_update_air_properties()
-		T.needs_air_update = 0
+		T.needs_air_update = FALSE
 		#ifdef ZASDBG
 		T.CutOverlays(GLOB.mark)
 		updated++
@@ -211,13 +219,13 @@ Total Unsimulated Turfs: [world.maxx*world.maxy*world.maxz - simulated_turf_coun
 		else if (MC_TICK_CHECK)
 			return
 
-	while (curr_defer.len)
-		var/turf/T = curr_defer[curr_defer.len]
+	while (length(curr_defer))
+		var/turf/T = curr_defer[length(curr_defer)]
 		curr_defer.len--
 
 		T.update_air_properties()
 		T.post_update_air_properties()
-		T.needs_air_update = 0
+		T.needs_air_update = FALSE
 		#ifdef ZASDBG
 		T.CutOverlays(GLOB.mark)
 		updated++
@@ -228,8 +236,8 @@ Total Unsimulated Turfs: [world.maxx*world.maxy*world.maxz - simulated_turf_coun
 		else if (MC_TICK_CHECK)
 			return
 
-	while (curr_edges.len)
-		var/connection_edge/edge = curr_edges[curr_edges.len]
+	while (length(curr_edges))
+		var/connection_edge/edge = curr_edges[length(curr_edges)]
 		curr_edges.len--
 
 		if (!edge)
@@ -246,8 +254,8 @@ Total Unsimulated Turfs: [world.maxx*world.maxy*world.maxz - simulated_turf_coun
 		else if (MC_TICK_CHECK)
 			return
 
-	while (curr_fire.len)
-		var/zone/Z = curr_fire[curr_fire.len]
+	while (length(curr_fire))
+		var/zone/Z = curr_fire[length(curr_fire)]
 		curr_fire.len--
 
 		Z.process_fire()
@@ -257,8 +265,8 @@ Total Unsimulated Turfs: [world.maxx*world.maxy*world.maxz - simulated_turf_coun
 		else if (MC_TICK_CHECK)
 			return
 
-	while (curr_hotspot.len)
-		var/obj/hotspot/F = curr_hotspot[curr_hotspot.len]
+	while (length(curr_hotspot))
+		var/obj/hotspot/F = curr_hotspot[length(curr_hotspot)]
 		curr_hotspot.len--
 
 		F.process()
@@ -268,8 +276,8 @@ Total Unsimulated Turfs: [world.maxx*world.maxy*world.maxz - simulated_turf_coun
 		else if (MC_TICK_CHECK)
 			return
 
-	while (curr_zones.len)
-		var/zone/Z = curr_zones[curr_zones.len]
+	while (length(curr_zones))
+		var/zone/Z = curr_zones[length(curr_zones)]
 		curr_zones.len--
 
 		Z.tick()
@@ -328,11 +336,14 @@ Total Unsimulated Turfs: [world.maxx*world.maxy*world.maxz - simulated_turf_coun
 	ASSERT(A != B)
 	#endif
 
+	if(!SHOULD_PARTICIPATE_IN_ZONES(A))
+		return
+
 	var/block = air_blocked(A,B)
 	if(block & AIR_BLOCKED) return
 
 	var/direct = !(block & ZONE_BLOCKED)
-	var/space = !istype(B)
+	var/space = !SHOULD_PARTICIPATE_IN_ZONES(B)
 
 	if(!space)
 		if(min(A.zone.contents.len, B.zone.contents.len) < ZONE_MIN_SIZE || (direct && (equivalent_pressure(A.zone,B.zone) || times_fired == 0)))
@@ -364,13 +375,15 @@ Total Unsimulated Turfs: [world.maxx*world.maxy*world.maxz - simulated_turf_coun
 	#ifdef ZASDBG
 	ASSERT(isturf(T))
 	#endif
-	if(T.needs_air_update)
+	// don't queue us if we've already been queued
+	// and if SSair hasn't run, every turf in the world will get updated soon anyway
+	if(T.needs_air_update || !SSair.initialized)
 		return
 	tiles_to_update += T
 	#ifdef ZASDBG
 	T.AddOverlays(GLOB.mark)
 	#endif
-	T.needs_air_update = 1
+	T.needs_air_update = TRUE
 
 /datum/controller/subsystem/air/proc/mark_zone_update(zone/Z)
 	#ifdef ZASDBG
@@ -379,7 +392,7 @@ Total Unsimulated Turfs: [world.maxx*world.maxy*world.maxz - simulated_turf_coun
 	if(Z.needs_update)
 		return
 	zones_to_update += Z
-	Z.needs_update = 1
+	Z.needs_update = TRUE
 
 /datum/controller/subsystem/air/proc/mark_edge_sleeping(connection_edge/E)
 	#ifdef ZASDBG
@@ -388,7 +401,7 @@ Total Unsimulated Turfs: [world.maxx*world.maxy*world.maxz - simulated_turf_coun
 	if(E.sleeping)
 		return
 	active_edges -= E
-	E.sleeping = 1
+	E.sleeping = TRUE
 
 /datum/controller/subsystem/air/proc/mark_edge_active(connection_edge/E)
 	#ifdef ZASDBG
@@ -397,7 +410,7 @@ Total Unsimulated Turfs: [world.maxx*world.maxy*world.maxz - simulated_turf_coun
 	if(!E.sleeping)
 		return
 	active_edges += E
-	E.sleeping = 0
+	E.sleeping = FALSE
 
 /datum/controller/subsystem/air/proc/equivalent_pressure(zone/A, zone/B)
 	return A.air.compare(B.air)
@@ -438,6 +451,8 @@ Total Unsimulated Turfs: [world.maxx*world.maxy*world.maxz - simulated_turf_coun
 	edges -= E
 	if(!E.sleeping)
 		active_edges -= E
+	if(processing_edges)
+		processing_edges -= E
 
 /datum/controller/subsystem/air/ExplosionStart()
 	can_fire = FALSE

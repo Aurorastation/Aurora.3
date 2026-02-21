@@ -119,7 +119,6 @@
 	return ruins_to_test
 
 /obj/effect/overmap/visitable/sector/exoplanet/proc/build_level_for_testing(list/ruins_to_spawn)
-	generate_habitability()
 	generate_atmosphere()
 	generate_map()
 	spawned_features = seedRuins(map_z, features_budget, ruins_to_spawn, /area/exoplanet, maxx, maxy, ignore_sector = TRUE)

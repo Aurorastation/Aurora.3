@@ -10,6 +10,7 @@
 	name = "Crystal Planet Outpost Caves"
 	icon_state = "cave"
 	ambience = AMBIENCE_OTHERWORLDLY
+	is_outside = OUTSIDE_YES
 
 /area/crystal_planet_outpost/cave_entrance
 	name = "Crystal Planet Outpost Cave Entrance"
