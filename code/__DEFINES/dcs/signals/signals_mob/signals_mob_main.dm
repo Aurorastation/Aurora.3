@@ -48,3 +48,6 @@
 
 /// For when bone is fixed with surgery
 #define COMSIG_BEGIN_SURGERY "begin_surgery"
+
+/// For when the players intent changes
+#define COMSIG_INTENT_CHANGE "intent_change"
