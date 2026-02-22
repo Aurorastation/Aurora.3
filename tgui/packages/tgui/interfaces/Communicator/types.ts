@@ -1,8 +1,11 @@
-// Type alias for exonet addresses, to make things a little easier to understand
-export type Address = string;
+import { BooleanLike } from 'common/react';
 
 export type CommunicatorData = {
+  noID?: BooleanLike;
   currentTab: CommunicatorTab;
+  ringerOn: BooleanLike;
+
+  connectingToCall: BooleanLike;
   callDuration: string;
   callSettings: CallSettings;
 
@@ -12,13 +15,13 @@ export type CommunicatorData = {
   videoRequests: RequestsList;
   friendRequests: RequestsList;
 
-  user?: User;
+  userComm: User;
   allUsers: User[];
 };
 
 type CallSettings = {
-  speakerphoneOn: boolean;
-  microphoneOn: boolean;
+  speakerphoneOn: BooleanLike;
+  microphoneOn: BooleanLike;
 };
 
 type RequestsList = {
@@ -27,9 +30,9 @@ type RequestsList = {
 };
 
 export type User = {
-  address: Address;
+  address: string;
   username: string;
-  visible: boolean;
+  visible: BooleanLike;
 };
 
 // Mirror of the defines in 'code/modules/modular_computers/file_system/programs/generic/communicator.dm'.

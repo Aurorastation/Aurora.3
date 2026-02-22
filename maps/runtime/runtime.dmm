@@ -2099,7 +2099,9 @@
 /turf/simulated/floor/plating,
 /area/construction)
 "ox" = (
-/obj/item/card/id/captains_spare,
+/obj/item/card/id/captains_spare{
+	registered_name = "User 1"
+	},
 /turf/simulated/floor/plating,
 /area/construction)
 "oD" = (
@@ -3488,6 +3490,12 @@
 	},
 /turf/simulated/floor/tiled,
 /area/construction/storage)
+"PH" = (
+/obj/item/card/id/all_access{
+	registered_name = "User 3"
+	},
+/turf/simulated/floor/plating,
+/area/construction)
 "PS" = (
 /obj/effect/landmark{
 	name = "Revenant"
@@ -3738,7 +3746,9 @@
 /obj/effect/landmark/start{
 	name = "Gardener"
 	},
-/obj/item/card/id/centcom,
+/obj/item/card/id/centcom{
+	registered_name = "User 2"
+	},
 /turf/simulated/floor/plating,
 /area/construction)
 "Uf" = (
@@ -10137,7 +10147,7 @@ de
 hI
 de
 de
-de
+PH
 TW
 pD
 ox
@@ -10394,7 +10404,7 @@ dj
 em
 jD
 dj
-dj
+qu
 iA
 qu
 lx

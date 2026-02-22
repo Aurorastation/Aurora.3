@@ -6,7 +6,8 @@ import { CommunicatorData, CommunicatorTab } from './types';
 
 export const CommunicatorCallTab = (props, context) => {
   const { act, data } = useBackend<CommunicatorData>(context);
-  const { callDuration, connectedCallers, callRequests } = data;
+  const { connectingToCall, callDuration, connectedCallers, callRequests } =
+    data;
 
   const activeCall = !!data.connectedCallers.length;
   const outgoingCall = !!data.callRequests.outgoing.length;
@@ -15,20 +16,54 @@ export const CommunicatorCallTab = (props, context) => {
   if (activeCall) {
     return (
       <CallScreen
-        name={connectedCallers.join(' | ')}
+        name={connectedCallers
+          .map((addr) => GetUserByAddress(data, addr)?.username)
+          .join(' | ')}
         subtitle={callDuration}
-        showOptions
+        centerItem={<OptionButtons />}
         buttons={
           <Button
             icon="phone-slash"
             color="red"
             fontSize={2.5}
-            onClick={() => {
-              act('end_call');
-              act('switch_tab', { new_tab: CommunicatorTab.Home });
-            }}
+            onClick={() => act('end_call')}
           >
             End Call
+          </Button>
+        }
+      />
+    );
+  }
+
+  if (connectingToCall) {
+    return (
+      <CallScreen
+        name={GetUserByAddress(data, callRequests.incoming[0])?.username}
+        subtitle="Incoming call"
+        centerItem={
+          <Flex direction="column" justify="space-around">
+            <Flex.Item mb={5} fontSize={1.5}>
+              <Box>Connecting to</Box>
+              <Box>{callRequests.incoming[0]}</Box>
+            </Flex.Item>
+            <Flex.Item>
+              <Icon name="spinner" spin size={8} />
+            </Flex.Item>
+          </Flex>
+        }
+        buttons={
+          <Button
+            icon="phone-slash"
+            color="red"
+            fontSize={2.5}
+            onClick={() =>
+              act('call_request', {
+                action: 'decline',
+                target_address: callRequests.incoming[0],
+              })
+            }
+          >
+            Cancel
           </Button>
         }
       />
@@ -45,13 +80,12 @@ export const CommunicatorCallTab = (props, context) => {
             icon="phone-slash"
             color="red"
             fontSize={2.5}
-            onClick={() => {
+            onClick={() =>
               act('call_request', {
                 action: 'cancel',
                 target_address: callRequests.outgoing[0],
-              });
-              act('switch_tab', { new_tab: CommunicatorTab.Home });
-            }}
+              })
+            }
           >
             Cancel
           </Button>
@@ -89,13 +123,12 @@ export const CommunicatorCallTab = (props, context) => {
                 icon="phone-slash"
                 color="red"
                 fontSize={2}
-                onClick={() => {
+                onClick={() =>
                   act('call_request', {
                     action: 'decline',
                     target_address: callRequests.incoming[0],
-                  });
-                  act('switch_tab', { new_tab: CommunicatorTab.Home });
-                }}
+                  })
+                }
               >
                 Decline
               </Button>
@@ -118,12 +151,12 @@ const CallScreen = (
   props: {
     name?: string;
     subtitle: string;
-    showOptions?: boolean;
+    centerItem?: InfernoNode;
     buttons: InfernoNode;
   },
   context,
 ) => {
-  const { name, subtitle, showOptions, buttons } = props;
+  const { name, subtitle, centerItem, buttons } = props;
 
   return (
     <Flex
@@ -136,7 +169,7 @@ const CallScreen = (
         <Box className="caller-name">{name ?? '[UNKNOWN]'}</Box>
         <Box fontSize={1.5}>{subtitle}</Box>
       </Flex.Item>
-      <Flex.Item>{showOptions && <OptionButtons />}</Flex.Item>
+      <Flex.Item>{centerItem}</Flex.Item>
       <Flex.Item>{buttons}</Flex.Item>
     </Flex>
   );

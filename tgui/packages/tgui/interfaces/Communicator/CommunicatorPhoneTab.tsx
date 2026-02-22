@@ -66,12 +66,6 @@ export const CommunicatorPhoneTab = (props, context) => {
     '',
   );
 
-  // A user whose address starts with `targetAddress`. (if one exists)
-  const possibleTargetUser = data.allUsers.find(
-    (user) => user.visible && user.address.startsWith(targetAddress),
-  );
-  const possibleTargetAddress = possibleTargetUser?.address;
-
   // Whether or not the `targetAddress` fully matches a user in `data.allUsers`.
   const targetAddrIsValid = !!GetUserByAddress(data, targetAddress);
 
@@ -87,64 +81,7 @@ export const CommunicatorPhoneTab = (props, context) => {
       </Flex.Item>
       <Flex.Item>
         <Section className="comm-address-input">
-          <Box className="input-box">
-            {targetAddress && possibleTargetAddress && (
-              <>
-                <Box className="autocomplete address" preserveWhitespace>
-                  {/* `possibleTargetAddress` with `targetAddress` removed from
-                      the start of it. (fake autocomplete effect) */}
-                  {possibleTargetAddress
-                    ?.replace(targetAddress, '')
-                    .padStart(MAX_ADDRESS_LEN, ' ')}
-                </Box>
-                <Box
-                  class={classes([
-                    'autocomplete',
-                    'name',
-                    targetAddrIsValid && 'valid',
-                  ])}
-                  // Set `targetAddress` to the autocomplete value when clicked.
-                  onClick={() => {
-                    // (Only clickable if the address hasn't already been fully entered)
-                    !targetAddrIsValid &&
-                      setTargetAddress(possibleTargetAddress);
-                  }}
-                >
-                  {possibleTargetUser.username}
-                </Box>
-              </>
-            )}
-            <Input
-              fluid
-              monospace
-              value={targetAddress}
-              maxLength={MAX_ADDRESS_LEN}
-              // If there's an "autocomplete" address visible and the user pressed
-              // tab, fill in the input box with the address.
-              onKeyDown={(event: InfernoKeyboardEvent<HTMLInputElement>) => {
-                if (possibleTargetAddress && event.key === KEY.Tab) {
-                  // The `setTimeout` here is to bypass a bug where setting
-                  // the value state in `onKeyDown` doesn't update the input visually.
-                  // Apparently this is fixed in later React versions,
-                  // so test this in the future!
-                  setTimeout(() => setTargetAddress(possibleTargetAddress), 0);
-                }
-              }}
-              // Every time this input has its value changed, format everything to
-              // make sure that it stays address-ey.
-              onInput={(
-                event: InfernoKeyboardEvent<HTMLInputElement>,
-                value: string,
-              ) => {
-                const formattedValue = FormatAddress(value);
-                setTargetAddress(formattedValue);
-                event.currentTarget.value = formattedValue;
-              }}
-              // This is just here to prevent the default Esc behaviour since
-              // that breaks things.
-              onEscape={() => {}}
-            />
-          </Box>
+          <AutocompleteInput targetAddrIsValid={targetAddrIsValid} />
           <Flex height="100%" justify="space-evenly" wrap="wrap">
             {PHONE_KEYS.map((keyChar) => (
               <Flex.Item key={keyChar}>
@@ -203,5 +140,114 @@ export const CommunicatorPhoneTab = (props, context) => {
         </Section>
       </Flex.Item>
     </Flex>
+  );
+};
+
+const AutocompleteInput = (props: { targetAddrIsValid: boolean }, context) => {
+  const { act, data } = useBackend<CommunicatorData>(context);
+
+  const [targetAddress, setTargetAddress] = useLocalState(
+    context,
+    'tgtAddr',
+    '',
+  );
+
+  const [possibleTargetIdx, setPossibleTargetIdx] = useLocalState(
+    context,
+    'posTgtIdx',
+    0,
+  );
+
+  const getMatchingUsers = (prefix: string) =>
+    data.allUsers.filter(
+      (user) => user.visible && user.address.startsWith(prefix),
+    );
+
+  // Users whose address starts with `targetAddress`. (if any)
+  const possibleTargetUsers = getMatchingUsers(targetAddress);
+  const possibleTargetAddress = possibleTargetUsers[possibleTargetIdx]?.address;
+
+  return (
+    <Box className="input-box">
+      {targetAddress && possibleTargetAddress && (
+        <>
+          <Box className="autocomplete address" preserveWhitespace>
+            {/* `possibleTargetAddress` with `targetAddress` removed from
+                      the start of it. (fake autocomplete effect) */}
+            {possibleTargetAddress
+              ?.replace(targetAddress, '')
+              .padStart(MAX_ADDRESS_LEN, ' ')}
+          </Box>
+          <Box
+            class={classes([
+              'autocomplete',
+              'name',
+              props.targetAddrIsValid && 'valid',
+            ])}
+            // Set `targetAddress` to the autocomplete value when clicked.
+            onClick={() => {
+              // (Only clickable if the address hasn't already been completed)
+              !props.targetAddrIsValid &&
+                setTargetAddress(possibleTargetAddress);
+            }}
+          >
+            {possibleTargetUsers[possibleTargetIdx]?.username}
+          </Box>
+        </>
+      )}
+      <Input
+        fluid
+        monospace
+        value={targetAddress}
+        maxLength={MAX_ADDRESS_LEN}
+        onKeyDown={(event: InfernoKeyboardEvent<HTMLInputElement>) => {
+          if (!possibleTargetAddress) return;
+          switch (event.key) {
+            case KEY.Tab:
+              // The `setTimeout` here is to bypass a bug where setting the
+              // value state in `onKeyDown` doesn't update the input visually.
+              // Apparently this is fixed in later React versions,
+              // so test this in the future!
+              setTimeout(() => setTargetAddress(possibleTargetAddress), 0);
+              break;
+            // Up+Down arrow keys to switch between possible targets.
+            // (Wrapping around to the other side at the limits)
+            case KEY.Up:
+              setPossibleTargetIdx(
+                (possibleTargetIdx + possibleTargetUsers.length + 1) %
+                  possibleTargetUsers.length,
+              );
+              event.preventDefault();
+              break;
+            case KEY.Down:
+              setPossibleTargetIdx(
+                (possibleTargetIdx + possibleTargetUsers.length - 1) %
+                  possibleTargetUsers.length,
+              );
+              event.preventDefault();
+              break;
+          }
+        }}
+        // Every time this input has its value changed, format everything to
+        // make sure that it stays address-ey.
+        onInput={(
+          event: InfernoKeyboardEvent<HTMLInputElement>,
+          value: string,
+        ) => {
+          const formattedValue = FormatAddress(value);
+          setTargetAddress(formattedValue);
+          event.currentTarget.value = formattedValue;
+
+          // If the new value has less than 2 possible matches,
+          // reset `possibleTargetIdx` to avoid it going "out of bounds".
+          getMatchingUsers(formattedValue).length < 2 &&
+            setPossibleTargetIdx(0);
+        }}
+        onEscape={() => {
+          // This is just here to override the default Esc behaviour since
+          // that breaks things.
+        }}
+      />
+    </Box>
   );
 };

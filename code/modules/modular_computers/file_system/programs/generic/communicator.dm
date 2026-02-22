@@ -7,11 +7,11 @@
 )
 
 #define COMM_DATA(comm_app, comm_address, user_name) ( \
-	list(alist( \
+	alist( \
 		"address" = comm_address, \
 		"username" = user_name, \
 		"visible" = comm_app.visible_on_network, \
-	)) \
+	) \
 )
 
 // Mirror of the `CommunicatorTab` enum in '../Communicator/types.ts'.
@@ -20,7 +20,7 @@
 #define CONTACTS_TAB 2
 #define MESSAGING_TAB 3
 #define SETTINGS_TAB 4
-#define ACTIVE_CALL_TAB 5
+#define CALL_TAB 5
 
 // {computer address: app}
 GLOBAL_LIST_EMPTY(active_communicator_apps)
@@ -43,6 +43,7 @@ GLOBAL_LIST_EMPTY(active_communicator_apps)
 
 	// list of friend names (string)
 	// This is names so that if a friend's device goes offline they can still stay on the UI as 'unreachable'.
+	// todo: if another communicator has the same name they can replace the actual person's communicator in the friends list
 	var/list/friends = list()
 
 	// request values are all ntnet addresses (todo: actual documentation)
@@ -60,12 +61,14 @@ GLOBAL_LIST_EMPTY(active_communicator_apps)
 	)
 
 	var/current_tab = HOME_TAB
+	var/connecting_to_call = FALSE
 
+	var/custom_username = null
 	var/visible_on_network = TRUE
 	var/speakerphone_on = FALSE
 	var/microphone_on = TRUE
-	var/ringtone = "beep"
 	var/ringer_on = TRUE
+	var/ringtone = "beep"
 
 /datum/computer_file/program/communicator/New(obj/item/modular_computer/comp)
 	. = ..()
@@ -76,6 +79,27 @@ GLOBAL_LIST_EMPTY(active_communicator_apps)
 
 	RegisterSignal(computer, COMSIG_MOD_COMPUTER_HW_INSTALLED, PROC_REF(on_hw_installed))
 	RegisterSignal(computer, COMSIG_MOD_COMPUTER_HW_UNINSTALLED, PROC_REF(on_hw_uninstalled))
+
+/datum/computer_file/program/communicator/Destroy()
+	// Try to clean up any requests to and from this communicator.
+	var/comm_address = get_computer_address()
+	if(comm_address)
+		for(var/category in comm_requests[INCOMING_REQUESTS])
+			for(var/address in comm_requests[INCOMING_REQUESTS][category])
+				var/datum/computer_file/program/communicator/comm = GLOB.active_communicator_apps[address]
+				comm?.remove_comm_request(comm_address, category)
+	for(var/category in comm_requests[OUTGOING_REQUESTS])
+		for(var/address in comm_requests[OUTGOING_REQUESTS][category])
+			remove_comm_request(address, category)
+
+	for(var/address in GLOB.active_communicator_apps)
+		if(GLOB.active_communicator_apps[address] == src)
+			GLOB.active_communicator_apps -= address
+	return ..()
+
+/datum/computer_file/program/communicator/kill_program(forced)
+	. = ..()
+	current_tab = initial(current_tab)
 
 /datum/computer_file/program/communicator/proc/on_hw_installed(obj/item/modular_computer/source, mob/living/user, obj/item/computer_hardware/H)
 	SIGNAL_HANDLER
@@ -92,7 +116,7 @@ GLOBAL_LIST_EMPTY(active_communicator_apps)
 	return computer.network_card?.identification_addr
 
 /datum/computer_file/program/communicator/proc/get_user_name()
-	return computer.registered_id?.registered_name
+	return custom_username || computer.registered_id?.registered_name
 
 // both of these are sender-side only
 /datum/computer_file/program/communicator/proc/send_comm_request(target_address, category)
@@ -115,6 +139,55 @@ GLOBAL_LIST_EMPTY(active_communicator_apps)
 	target_comm.comm_requests[INCOMING_REQUESTS][category] -= source_address
 	return TRUE
 
+// TODO: Make sure this works
+/datum/computer_file/program/communicator/proc/call_checks(caller_address)
+	if(QDELETED(src))
+		return FALSE
+	if(!(caller_address in comm_requests[INCOMING_REQUESTS][CALL_REQUESTS]))
+		connecting_to_call = FALSE
+		return FALSE
+	var/datum/computer_file/program/communicator/caller_comm = GLOB.active_communicator_apps[caller_address]
+	if(QDELETED(caller_comm))
+		computer.output_error("Connection to {[caller_address]} lost!")
+		connecting_to_call = FALSE
+		return FALSE
+	return TRUE
+
+/datum/computer_file/program/communicator/proc/call_connecting(datum/computer_file/program/communicator/caller_comm, caller_address)
+	caller_comm.computer.output_notice("Connecting to {[get_computer_address()]}...")
+	computer.output_notice("Connecting to {[caller_address]}...")
+	sleep(1 SECOND)
+	if(!call_checks(caller_address))
+		return
+
+	computer.output_notice("Dialing internally from [station_name()]...")
+	sleep(2 SECONDS)
+	if(!call_checks(caller_address))
+		return
+
+	computer.output_notice("Re-routing connection to [caller_comm.computer] at {[caller_address]}.")
+	sleep(4 SECONDS)
+	if(!call_checks(caller_address))
+		return
+
+	computer.output_notice("Connection to [caller_comm.computer] established!")
+	caller_comm.computer.output_notice("Connection to [computer] established!")
+	accept_call(caller_comm)
+
+/datum/computer_file/program/communicator/proc/accept_call(datum/computer_file/program/communicator/caller_comm)
+	connecting_to_call = FALSE
+	caller_comm.remove_comm_request(get_computer_address(), CALL_REQUESTS)
+
+	var/datum/comm_call/comm_call
+	if(caller_comm.active_call) // If the caller already has a call going
+		comm_call = caller_comm.active_call
+	else
+		comm_call = new()
+		comm_call.add_device(caller_comm)
+	comm_call.add_device(src)
+
+	caller_comm.current_tab = CALL_TAB
+
 /datum/computer_file/program/communicator/run_program(mob/user)
 	if(!get_computer_address())
 		computer.output_error("ERROR: Unable to locate network card.")
@@ -124,9 +197,10 @@ GLOBAL_LIST_EMPTY(active_communicator_apps)
 /datum/computer_file/program/communicator/ui_data(mob/user)
 	var/alist/data = alist()
 
-	if(!get_user_name())
-		// No user means the UI will show the 'Please register' screen, so no data is needed until that changes.
-		return
+	if(!computer.registered_id)
+		data["noID"] = TRUE
+		// No ID means that the UI will show the 'Please register' screen, so no other data is needed until that changes.
+		return data
 
 	var/call_duration
 	var/list/connected_callers = list()
@@ -137,34 +211,36 @@ GLOBAL_LIST_EMPTY(active_communicator_apps)
 				connected_callers += comm.get_computer_address()
 
 	data["currentTab"] = current_tab
+	data["ringerOn"] = ringer_on
+
+	data["connectingToCall"] = connecting_to_call
 	data["callDuration"] = call_duration
 	data["callSettings"] = alist("speakerphoneOn" = speakerphone_on, "microphoneOn" = microphone_on)
+
 	data["friendsList"] = friends
 	data["connectedCallers"] = connected_callers
 	data["callRequests"] = REQUESTS_DATA(comm_requests, CALL_REQUESTS)
 	data["videoRequests"] = REQUESTS_DATA(comm_requests, VIDEO_REQUESTS)
 	data["friendRequests"] = REQUESTS_DATA(comm_requests, FRIEND_REQUESTS)
+	data["userComm"] = COMM_DATA(src, get_computer_address(), get_user_name())
 	return data
 
 /datum/computer_file/program/communicator/ui_static_data(mob/user)
 	var/alist/data = alist()
 
-	var/registered_username = get_user_name()
-	if(!registered_username)
-		return
+	if(!computer.registered_id)
+		return // See above
 
 	var/list/ntnet_users = list()
-	// Using `GLOB.active_communicators` rather than `GLOB.ntnet_global.users` in order to only get users linked to a communicator.
 	for(var/address in GLOB.active_communicator_apps)
 		var/datum/computer_file/program/communicator/comm = GLOB.active_communicator_apps[address]
 		var/comm_username = comm.get_user_name()
 		if(comm == src || !comm_username)
 			continue
 
-		ntnet_users += COMM_DATA(comm, address, comm_username)
+		ntnet_users += list(COMM_DATA(comm, address, comm_username))
 
-	data["user"] = COMM_DATA(src, get_computer_address(), registered_username)
-	data["allUsers"] = ntnet_users
+	data["allUsers"] = ntnet_users // Todo: Maybe just put this in regular `ui_data()`, because it being static is causing some issues. (e.g. username changes)
 	return data
 
 /datum/computer_file/program/communicator/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
@@ -183,7 +259,10 @@ GLOBAL_LIST_EMPTY(active_communicator_apps)
 			update_static_data(usr, ui)
 
 		if("end_call")
+			for(var/datum/computer_file/program/communicator/comm as anything in active_call.connected_comms - src)
+				comm.computer.output_error("[get_user_name()] hung up.")
 			active_call?.remove_device(src)
+			current_tab = initial(current_tab)
 
 		if("remove_friend")
 			// The `friends` list is a list of names, so it's a bit more complicated to find their associated communicator.
@@ -202,6 +281,24 @@ GLOBAL_LIST_EMPTY(active_communicator_apps)
 		if("toggle_mute")
 			microphone_on = !microphone_on
 			active_call?.set_mute(src, microphone_on)
+
+		if("toggle_visibility")
+			visible_on_network = !visible_on_network
+
+		if("toggle_ringer")
+			ringer_on = !ringer_on
+
+		if("set_ringtone")
+			var/new_ringtone = tgui_input_text(usr, "Set a new ringtone", "Ringtone", ringtone)
+			if(new_ringtone)
+				ringtone = new_ringtone
+
+		if("set_username")
+			var/new_name = params["new_name"]
+			if(new_name == "__reset" || new_name == computer.registered_id?.registered_name)
+				custom_username = null
+			else
+				custom_username = new_name
 	return TRUE
 
 /datum/computer_file/program/communicator/proc/handle_ui_act_target(action, list/params, datum/tgui/ui, datum/ui_state/state)
@@ -236,34 +333,27 @@ GLOBAL_LIST_EMPTY(active_communicator_apps)
 			/* -- Sending a request to someone else: -- */
 			if(params["action"] == "send")
 				if(send_comm_request(target_address, CALL_REQUESTS))
-					current_tab = ACTIVE_CALL_TAB
-					target_comm.current_tab = ACTIVE_CALL_TAB
-					// todo target notification
+					current_tab = CALL_TAB
+					target_comm.current_tab = CALL_TAB
+					target_comm.computer.output_notice("New call request from [get_user_name()]!")
 			if(params["action"] == "cancel")
 				if(remove_comm_request(target_address, CALL_REQUESTS))
-					if(target_comm.current_tab == ACTIVE_CALL_TAB)
+					current_tab = initial(current_tab)
+					target_comm.computer.output_error("Call request from [get_user_name()] cancelled.")
+					if(target_comm.current_tab == CALL_TAB)
 						target_comm.current_tab = initial(target_comm.current_tab)
-				else
-					return // todo this shouldn't really happen
 
-			/* -- Recieving a request from someone else: -- */
+			/* -- Responding to a request from someone else: -- */
 			if(params["action"] == "accept")
-				target_comm.remove_comm_request(get_computer_address(), CALL_REQUESTS)
-
-				var/datum/comm_call/comm_call
-				if(target_comm.active_call)
-					comm_call = target_comm.active_call
-				else
-					comm_call = new()
-					comm_call.add_device(target_comm)
-				comm_call.add_device(src)
-				target_comm.current_tab = ACTIVE_CALL_TAB
-				return // todo
+				connecting_to_call = TRUE
+				INVOKE_ASYNC(src, PROC_REF(call_connecting), target_comm, target_address)
 			if(params["action"] == "decline")
 				if(target_comm.remove_comm_request(get_computer_address(), CALL_REQUESTS))
-					if(target_comm.current_tab == ACTIVE_CALL_TAB)
+					target_comm.computer.output_error("Your call request to [get_user_name()] was declined.")
+					current_tab = initial(current_tab)
+					if(target_comm.current_tab == CALL_TAB)
 						target_comm.current_tab = initial(target_comm.current_tab)
-				return // todo target notification
+
 
 	return TRUE
 
@@ -274,4 +364,4 @@ GLOBAL_LIST_EMPTY(active_communicator_apps)
 #undef CONTACTS_TAB
 #undef MESSAGING_TAB
 #undef SETTINGS_TAB
-#undef ACTIVE_CALL_TAB
+#undef CALL_TAB

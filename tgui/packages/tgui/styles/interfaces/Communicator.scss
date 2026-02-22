@@ -5,8 +5,12 @@ $phone-button-width: 90px;
 $phone-button-height: 45px;
 $phone-button-spacing: 0.5rem;
 
-.LabeledList__row.comm-contact:nth-child(odd):not(:only-child) {
-  background-color: lighten(Section.$background-color, 25%);
+.comm-contact {
+  height: 3.8rem;
+
+  &:nth-child(odd):not(:only-child) {
+    background-color: lighten(Section.$background-color, 25%);
+  }
 }
 
 .comm-footer-buttons {

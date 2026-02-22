@@ -5,6 +5,7 @@ import { CommunicatorCallTab } from './CommunicatorCallTab';
 import { CommunicatorContactTab } from './CommunicatorContactTab';
 import { CommunicatorHomeTab } from './CommunicatorHomeTab';
 import { CommunicatorPhoneTab } from './CommunicatorPhoneTab';
+import { CommunicatorSettingsTab } from './CommunicatorSettingsTab';
 import { CommunicatorData, CommunicatorTab } from './types';
 
 export const Communicator = (props, context) => {
@@ -13,7 +14,7 @@ export const Communicator = (props, context) => {
   return (
     <NtosWindow width={475} height={700}>
       <NtosWindow.Content fitted>
-        {data.user ? <NormalScreen /> : <NoIDScreen />}
+        {data.noID ? <NoIDScreen /> : <NormalScreen />}
       </NtosWindow.Content>
     </NtosWindow>
   );
@@ -27,7 +28,7 @@ const NormalScreen = (props, context) => {
     [CommunicatorTab.Phone]: <CommunicatorPhoneTab />,
     [CommunicatorTab.Contacts]: <CommunicatorContactTab />,
     [CommunicatorTab.Messaging]: <CommunicatorHomeTab />, // todo
-    [CommunicatorTab.Settings]: <CommunicatorHomeTab />, // todo
+    [CommunicatorTab.Settings]: <CommunicatorSettingsTab />,
     [CommunicatorTab.ActiveCall]: <CommunicatorCallTab />,
   };
 

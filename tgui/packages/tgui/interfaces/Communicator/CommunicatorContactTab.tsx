@@ -92,15 +92,16 @@ export const FriendsList = (props, context) => {
 };
 
 const EmptyContactListing = ({ name }: { name: string }) => {
-  // TODO: Currently unfinished
-  // This should show the contact's name, and some sort of "Unable to locate"
-  // error message instead of the usualy address and buttons.
   return (
     <LabeledList.Item
       className="comm-contact"
       label={<u>{name}</u>}
       verticalAlign="middle"
-    />
+    >
+      <Box textAlign="right" bold>
+        UNABLE TO LOCATE DEVICE
+      </Box>
+    </LabeledList.Item>
   );
 };
 

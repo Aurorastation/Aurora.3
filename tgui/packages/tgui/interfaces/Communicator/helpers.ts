@@ -1,6 +1,6 @@
-import { Address, CommunicatorData } from './types';
+import { CommunicatorData } from './types';
 
-export function GetUserByAddress(data: CommunicatorData, address: Address) {
+export function GetUserByAddress(data: CommunicatorData, address: string) {
   return data.allUsers.find((user) => user.address === address);
 }
 
