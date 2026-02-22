@@ -11,6 +11,12 @@
 	light_range = 2
 	action_button_name = "Toggle Marshalling Wands"
 
+/obj/item/flashlight/marshallingwand/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "ALT-click the marshalling wand to turn it on and off. Everytime you turn it on it will be blue, signaling and idle intent."
+	. += "Using the wand will change its color based of your intent. Each intent has a different output."
+	. += "Holding two marshalling wands in your hands will mirror the state of one to the other, so that they are always in sync."
+
 // Override brights. The marshalling wands are meant to be always bright, this will toggle the on and off instead.
 /obj/item/flashlight/marshallingwand/AltClick(mob/user)
 	if(!use_check_and_message(user))
