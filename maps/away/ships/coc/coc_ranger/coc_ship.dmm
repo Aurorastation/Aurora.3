@@ -1816,6 +1816,7 @@
 /obj/structure/ship_weapon_dummy{
 	is_barrel = 1
 	},
+/obj/structure/lattice/catwalk,
 /turf/template_noop,
 /area/ship/ranger_corvette/engine1)
 "gUj" = (
@@ -2143,6 +2144,11 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/brig)
+"imS" = (
+/obj/structure/lattice/catwalk,
+/obj/item/hullbeacon/red,
+/turf/template_noop,
+/area/ship/ranger_corvette/engine1)
 "ioq" = (
 /obj/effect/floor_decal/corner/red/diagonal,
 /obj/structure/sign/flag/himeo{
@@ -2584,6 +2590,7 @@
 /obj/structure/ship_weapon_dummy{
 	is_barrel = 1
 	},
+/obj/structure/lattice/catwalk,
 /turf/simulated/floor/airless,
 /area/ship/ranger_corvette/engine1)
 "kaR" = (
@@ -3865,6 +3872,7 @@
 /area/ship/ranger_corvette/brig)
 "pmD" = (
 /obj/structure/ship_weapon_dummy/barrel,
+/obj/structure/lattice/catwalk,
 /turf/simulated/floor/airless,
 /area/ship/ranger_corvette/engine1)
 "ppM" = (
@@ -4050,6 +4058,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/telecomms)
 "pZW" = (
+/obj/structure/lattice/catwalk,
 /turf/template_noop,
 /area/ship/ranger_corvette/engine1)
 "qbp" = (
@@ -4290,8 +4299,10 @@
 /obj/machinery/ship_weapon/autocannon{
 	weapon_id = "Ranger Francisca Rotary Gun"
 	},
+/obj/structure/lattice/catwalk,
+/obj/item/hullbeacon/red,
 /turf/template_noop,
-/area/space)
+/area/ship/ranger_corvette/engine1)
 "qMt" = (
 /obj/effect/map_effect/map_helper/ruler_tiles_3{
 	dir = 4
@@ -5667,6 +5678,7 @@
 /area/ship/ranger_corvette/foyer)
 "uFD" = (
 /obj/structure/ship_weapon_dummy,
+/obj/structure/lattice/catwalk,
 /turf/simulated/floor/airless,
 /area/ship/ranger_corvette/engine1)
 "uGk" = (
@@ -37049,10 +37061,10 @@ xRX
 xRX
 xRX
 xRX
-xRX
-xRX
-xRX
-xRX
+tWh
+tWh
+tWh
+tWh
 xRX
 xRX
 xRX
@@ -37306,11 +37318,11 @@ xRX
 xRX
 xRX
 xRX
-xRX
+tWh
 pZW
 gSr
 gSr
-xRX
+pZW
 qHO
 xRX
 xRX
@@ -37563,7 +37575,7 @@ xRX
 xRX
 xRX
 xRX
-xRX
+tWh
 uFD
 uFD
 uFD
@@ -37820,12 +37832,12 @@ xRX
 xRX
 xRX
 xRX
-xRX
+tWh
 jYf
 jYf
 gSr
-xRX
-xRX
+pZW
+imS
 xRX
 rrQ
 rrQ
