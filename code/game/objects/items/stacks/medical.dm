@@ -150,12 +150,13 @@ Contains:
 				user.visible_message(SPAN_NOTICE("\The [user] starts treating [target_mob]'s [affecting.name]."), \
 										SPAN_NOTICE("You start treating [target_mob]'s [affecting.name]."))
 				var/used = 0
+				var/medicine_skill = user.GetComponent(MEDICINE_SKILL_COMPONENT)?.skill_level
 				for (var/datum/wound/W in affecting.wounds)
 					if(W.bandaged)
 						continue
 					if(used == amount)
 						break
-					if(!do_mob(user, target_mob, W.damage/5))
+					if(!do_mob(user, target_mob, W.damage/(5 + (medicine_skill ? medicine_skill - SKILL_LEVEL_TRAINED : 0))))
 						to_chat(user, SPAN_NOTICE("You must stand still to bandage wounds."))
 						break
 					if (W.current_stage <= W.max_bleeding_stage)
@@ -226,7 +227,8 @@ Contains:
 				user.visible_message(SPAN_NOTICE("\The [user] starts salving wounds on [target_mob]'s [affecting.name]."), \
 										SPAN_NOTICE("You start salving the wounds on [target_mob]'s [affecting.name]."))
 				playsound(src, pick(apply_sounds), 25)
-				if(!do_mob(user, target_mob, 10))
+				var/medicine_skill = user.GetComponent(MEDICINE_SKILL_COMPONENT)?.skill_level
+				if(!do_mob(user, target_mob, 10 + (medicine_skill ? 5 * (SKILL_LEVEL_TRAINED - medicine_skill) : 0)))
 					to_chat(user, SPAN_NOTICE("You must stand still to salve wounds."))
 					return 1
 				user.visible_message(SPAN_NOTICE("[user] salved wounds on [target_mob]'s [affecting.name]."), \
@@ -282,7 +284,8 @@ Contains:
 						continue
 					if(used == amount)
 						break
-					if(!do_mob(user, target_mob, W.damage/5))
+					var/medicine_skill = user.GetComponent(MEDICINE_SKILL_COMPONENT)?.skill_level
+					if(!do_mob(user, target_mob, W.damage/(5 + (medicine_skill ? medicine_skill - SKILL_LEVEL_TRAINED : 0))))
 						to_chat(user, SPAN_NOTICE("You must stand still to bandage wounds."))
 						break
 					if (W.current_stage <= W.max_bleeding_stage)
@@ -350,7 +353,8 @@ Contains:
 				user.visible_message(SPAN_NOTICE("\The [user] starts salving wounds on [target_mob]'s [affecting.name]."), \
 										SPAN_NOTICE("You start salving the wounds on [target_mob]'s [affecting.name]."))
 				playsound(src, pick(apply_sounds), 25)
-				if(!do_mob(user, target_mob, 10))
+				var/medicine_skill = user.GetComponent(MEDICINE_SKILL_COMPONENT)?.skill_level
+				if(!do_mob(user, target_mob, 10 + (medicine_skill ? 5 * (SKILL_LEVEL_TRAINED - medicine_skill) : 0)))
 					to_chat(user, SPAN_NOTICE("You must stand still to salve wounds."))
 					return 1
 				user.visible_message(SPAN_NOTICE("[user] covers wounds on [target_mob]'s [affecting.name] with regenerative membrane."), \
@@ -405,7 +409,8 @@ Contains:
 				to_chat(user, SPAN_DANGER("You can't apply a splint to the arm you're using!"))
 				return
 			user.visible_message(SPAN_DANGER("[user] starts to apply \the [src] to their [limb]."), SPAN_DANGER("You start to apply \the [src] to your [limb]."), SPAN_DANGER("You hear something being wrapped."))
-		if(do_after(user, 5 SECONDS, target_mob))
+		var/medicine_skill = user.GetComponent(MEDICINE_SKILL_COMPONENT)?.skill_level
+		if(do_after(user, 5 SECONDS + 25 * (medicine_skill ? SKILL_LEVEL_TRAINED - medicine_skill : 0), target_mob))
 			if (target_mob != user)
 				user.visible_message(SPAN_DANGER("[user] finishes applying \the [src] to [target_mob]'s [limb]."), SPAN_DANGER("You finish applying \the [src] to [target_mob]'s [limb]."), SPAN_DANGER("You hear something being wrapped."))
 			else
