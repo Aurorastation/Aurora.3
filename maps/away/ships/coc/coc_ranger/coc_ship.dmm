@@ -231,6 +231,11 @@
 	},
 /turf/simulated/floor/plating,
 /area/ship/ranger_corvette/foyer)
+"aXi" = (
+/obj/structure/lattice/catwalk,
+/obj/item/hullbeacon/red,
+/turf/template_noop,
+/area/ship/ranger_corvette/engine1)
 "aXC" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/universal{
 	dir = 4
@@ -2144,11 +2149,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/brig)
-"imS" = (
-/obj/structure/lattice/catwalk,
-/obj/item/hullbeacon/red,
-/turf/template_noop,
-/area/ship/ranger_corvette/engine1)
 "ioq" = (
 /obj/effect/floor_decal/corner/red/diagonal,
 /obj/structure/sign/flag/himeo{
@@ -4059,6 +4059,7 @@
 /area/ship/ranger_corvette/telecomms)
 "pZW" = (
 /obj/structure/lattice/catwalk,
+/obj/structure/ship_weapon_dummy,
 /turf/template_noop,
 /area/ship/ranger_corvette/engine1)
 "qbp" = (
@@ -5556,6 +5557,10 @@
 /obj/effect/decal/cleanable/cobweb,
 /obj/machinery/vending/sovietsoda,
 /turf/simulated/floor/tiled/dark,
+/area/ship/ranger_corvette/engine1)
+"usZ" = (
+/obj/structure/lattice/catwalk,
+/turf/template_noop,
 /area/ship/ranger_corvette/engine1)
 "uty" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
@@ -37322,7 +37327,7 @@ tWh
 pZW
 gSr
 gSr
-pZW
+usZ
 qHO
 xRX
 xRX
@@ -37836,8 +37841,8 @@ tWh
 jYf
 jYf
 gSr
-pZW
-imS
+usZ
+aXi
 xRX
 rrQ
 rrQ
