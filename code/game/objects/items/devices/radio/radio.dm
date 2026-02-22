@@ -234,16 +234,16 @@ var/global/list/default_interrogation_channels = list(
 /obj/item/radio/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
-		ui = new(user, src, "Radio", "[name]", ui_x = 400, ui_y = 430)
+		ui = new(user, src, "Radio", "[name]")
 		ui.open()
 
 /obj/item/radio/ui_data(mob/user)
 	var/list/data = list()
 	data["mic_status"] = broadcasting
 	data["speaker"] = listening
-	data["freq"] = format_frequency(frequency)
-	data["default_freq"] = format_frequency(default_frequency)
-	data["rawfreq"] = num2text(frequency)
+	data["freq"] = frequency
+	data["default_freq"] = default_frequency
+	data["rawfreq"] = frequency
 
 	data["mic_cut"] = (wires.is_cut(WIRE_TRANSMIT) || wires.is_cut(WIRE_SIGNAL))
 	data["spk_cut"] = (wires.is_cut(WIRE_RECEIVE) || wires.is_cut(WIRE_SIGNAL))
@@ -251,10 +251,17 @@ var/global/list/default_interrogation_channels = list(
 	var/list/chl = list_channels(user)
 	if(LAZYLEN(chl))
 		data["channels"] = chl
-		data["channels_length"] = LAZYLEN(chl)
 
 	if(syndie)
 		data["syndie"] = TRUE
+
+	return data
+
+/obj/item/radio/ui_static_data(mob/user)
+	var/list/data = list()
+
+	data["min_freq"] = PUBLIC_LOW_FREQ
+	data["max_freq"] = PUBLIC_HIGH_FREQ
 
 	return data
 
@@ -270,7 +277,7 @@ var/global/list/default_interrogation_channels = list(
 		. = TRUE
 
 	else if (action == "set_freq")
-		var/new_freq = frequency + text2num(params["freq"])
+		var/new_freq = text2num(params["freq"])
 		if ((new_freq < PUBLIC_LOW_FREQ || new_freq > PUBLIC_HIGH_FREQ))
 			new_freq = sanitize_frequency(new_freq)
 		set_frequency(new_freq)
@@ -282,10 +289,11 @@ var/global/list/default_interrogation_channels = list(
 		set_broadcasting(!broadcasting)
 		. = TRUE
 	else if (action == "toggle_listen")
-		var/channel_name = params["channel_name"]
-		if(!channel_name)
+		var/channel_name = num2text(params["channel_name"])
+		if(channel_name == "0")
 			set_listening(!listening)
 		else
+			channel_name = reverseradiochannels[channel_name]
 			if (channels[channel_name] & FREQ_LISTENING)
 				channels[channel_name] &= ~FREQ_LISTENING
 			else
@@ -338,7 +346,7 @@ var/global/list/default_interrogation_channels = list(
 		var/chan_stat = channels[ch_name]
 		var/listening = chan_stat & FREQ_LISTENING
 
-		dat.Add(list(list("chan" = ch_name, "display_name" = ch_name, "secure_channel" = 1, "sec_channel_listen" = listening, "chan_span" = frequency_span_class(radiochannels[ch_name]))))
+		dat.Add(list(list("chan" = radiochannels[ch_name], "display_name" = ch_name, "secure_channel" = 1, "sec_channel_listen" = listening, "chan_span" = frequency_span_class(radiochannels[ch_name]))))
 
 	return dat
 
@@ -346,7 +354,7 @@ var/global/list/default_interrogation_channels = list(
 	var/dat[0]
 	for(var/internal_chan in internal_channels)
 		if(has_channel_access(user, internal_chan))
-			dat.Add(list(list("chan" = internal_chan, "display_name" = get_frequency_name(text2num(internal_chan)), "chan_span" = frequency_span_class(text2num(internal_chan)))))
+			dat.Add(list(list("chan" = text2num(internal_chan), "display_name" = get_frequency_name(text2num(internal_chan)), "chan_span" = frequency_span_class(text2num(internal_chan)))))
 
 	return dat
 
@@ -694,7 +702,7 @@ var/global/list/default_interrogation_channels = list(
 	return data
 
 /obj/item/radio/borg/ui_static_data(mob/user)
-	var/list/data = list()
+	var/list/data = ..()
 	data["has_loudspeaker"] = TRUE
 	data["has_subspace"] = TRUE
 	return data
