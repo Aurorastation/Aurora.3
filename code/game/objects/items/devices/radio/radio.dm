@@ -309,7 +309,7 @@ var/global/list/default_interrogation_channels = list(
 			set_frequency(default_frequency)
 			. = TRUE
 
-	if (action == "nowindow")
+	if (params["nowindow"])
 		return TRUE
 
 	if(.)
