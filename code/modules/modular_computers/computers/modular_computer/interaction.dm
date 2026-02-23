@@ -144,11 +144,11 @@
 		return
 
 	if(!card_slot)
-		to_chat(user, SPAN_WARNING("[src] does not have an ID card slot."))
+		to_chat(user, SPAN_WARNING("\The [src] does not have an ID card slot."))
 		return
 
 	if(!card_slot.stored_card)
-		to_chat(user, SPAN_WARNING("[src] does not have a card stored in the card slot."))
+		to_chat(user, SPAN_WARNING("\The [src] does not have a card stored in the card slot."))
 		return
 	eject_id()
 
@@ -157,11 +157,11 @@
 		return
 
 	if(!card_slot)
-		to_chat(user, SPAN_WARNING("[src] does not have an ID card slot."))
+		to_chat(user, SPAN_WARNING("\The [src] does not have an ID card slot."))
 		return
 
 	if(!card_slot.stored_item)
-		to_chat(user, SPAN_WARNING("[src] does not have an item stored in the card slot."))
+		to_chat(user, SPAN_WARNING("\The [src] does not have an item stored in the card slot."))
 		return
 	eject_item()
 
