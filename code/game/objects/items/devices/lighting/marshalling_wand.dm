@@ -71,7 +71,7 @@
 		if(LIGHT_COLOR_YELLOW)
 			user.visible_message(SPAN_WARNING("[user] holds the marshalling [wand_invariant] out to the sides, indicating that the craft is being checked before lift off, prepare for lift off!"), SPAN_WARNING("You hold the marshalling [wand_invariant] out to your sides, indicating that the craft is being prepared for lift off."))
 		if(LIGHT_COLOR_RED)
-			user.visible_message(SPAN_WARNING("[user] steadily holds the marshalling [wand_invariant] above his head in a cross! Hold all movement!"), SPAN_WARNING("You hold the marshalling [wand_invariant] in a cross above your head, signaling full stop."))
+			user.visible_message(SPAN_WARNING("[user] steadily holds the marshalling [wand_invariant] above their head in a cross! Hold all movement!"), SPAN_WARNING("You hold the marshalling [wand_invariant] in a cross above your head, signaling full stop."))
 
 	update_icon()
 	mirror_held_wands(src)
