@@ -64,7 +64,7 @@ GLOBAL_LIST_INIT(custom_items, list())
 			var/list/loaded_items = list()
 			var/item_id = 0
 			try
-				loaded_items = json_decode(return_file_text("config/custom_items.json"))
+				loaded_items = json_decode(file2text("config/custom_items.json"))
 			catch(var/exception/e)
 				log_module_customitems("Failed to load custom_items.json: [e]")
 

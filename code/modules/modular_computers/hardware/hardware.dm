@@ -1,7 +1,7 @@
 /obj/item/computer_hardware
 	name = "Hardware"
 	desc = "Unknown Hardware."
-	icon = 'icons/obj/modular_components.dmi'
+	icon = 'icons/obj/modular_computers/modular_components.dmi'
 	var/obj/item/modular_computer/parent_computer
 	/// If the hardware uses extra power, change this.
 	var/power_usage = 0

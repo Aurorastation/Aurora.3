@@ -118,7 +118,7 @@
 
 /atom/movable/Destroy(force)
 	if(orbiting)
-		stop_orbit()
+		orbiting.end_orbit(src)
 
 	QDEL_NULL(emissive_overlay)
 

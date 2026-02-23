@@ -10,7 +10,14 @@
 		bound_overlay.set_dir(ndir)
 
 /atom/movable/update_above()
-	if (!bound_overlay || !isturf(loc))
+	if (!bound_overlay)
+		return
+
+	if (QDELETED(bound_overlay))
+		bound_overlay = null
+		return
+
+	if (!isturf(loc))
 		return
 
 	var/turf/T = loc
@@ -82,7 +89,7 @@
 	plane = OPEN_SPACE_PLANE_END
 	var/atom/movable/associated_atom
 	var/depth
-	var/queued = 0
+	var/queued = FALSE
 	var/destruction_timer
 	var/mimiced_type
 	var/original_z
@@ -99,6 +106,8 @@
 	if (associated_atom)
 		associated_atom.bound_overlay = null
 		associated_atom = null
+
+	queued = FALSE
 
 	if (destruction_timer)
 		deltimer(destruction_timer)

@@ -50,7 +50,6 @@ GLOBAL_LIST_INIT_TYPED(rod_recipes, /datum/stack_recipe, list(
 
 /obj/item/stack/rods/Destroy()
 	. = ..()
-	GC_TEMPORARY_HARDDEL
 
 /obj/item/stack/rods/full/Initialize()
 	. = ..()

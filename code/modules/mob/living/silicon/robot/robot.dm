@@ -537,7 +537,6 @@
 			set_light(integrated_light_power)
 	else
 		set_light(0)
-	setup_eye_cache() //update eyes
 
 /mob/living/silicon/robot/proc/show_access()
 	if(!module)

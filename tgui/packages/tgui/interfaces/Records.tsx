@@ -18,6 +18,7 @@ import { Dropdown } from '../components/Dropdown';
 
 export type RecordsData = {
   activeview: string;
+  defaultview: string;
   editingvalue: string;
   physical_status_options: string[];
   criminal_status_options: string[];
@@ -78,9 +79,6 @@ type Incident = {
 
 type Medical = {
   notes: string;
-  disabilities: string;
-  allergies: string;
-  diseases: string;
   blood_type: string;
   blood_dna: string;
 };
@@ -195,7 +193,11 @@ export const ListAllRecords = (props, context) => {
 // Omega shitcode ahead but this is my like 56th UI and I don't give a fuck anymore.
 export const ListActive = (props, context) => {
   const { act, data } = useBackend<RecordsData>(context);
-  const [recordTab, setRecordTab] = useLocalState(context, 'recordTab', 'All');
+  const [recordTab, setRecordTab] = useLocalState(
+    context,
+    'recordTab',
+    data.defaultview,
+  );
   const [editingPhysStatus, setEditingPhysStatus] = useLocalState<boolean>(
     context,
     'editingPhysStatus',
@@ -241,22 +243,6 @@ export const ListActive = (props, context) => {
   const [editingDNA, setEditingDNA] = useLocalState<boolean>(
     context,
     'editingDNA',
-    false,
-  );
-
-  const [editingDisabilities, setEditingDisabilities] = useLocalState<boolean>(
-    context,
-    'editingDisabilities',
-    false,
-  );
-  const [editingAllergies, setEditingAllergies] = useLocalState<boolean>(
-    context,
-    'editingAllergies',
-    false,
-  );
-  const [editingDisease, setEditingDisease] = useLocalState<boolean>(
-    context,
-    'editingDisease',
     false,
   );
 
@@ -557,93 +543,6 @@ export const ListActive = (props, context) => {
                 </Box>
               ) : (
                 data.active.medical.blood_dna
-              )}
-            </LabeledList.Item>
-            <LabeledList.Item label="Disabilities">
-              {data.editable & 2 ? (
-                <Box>
-                  {editingDisabilities ? (
-                    <Input
-                      placeholder={data.active.medical.disabilities}
-                      width="100%"
-                      onInput={(e, v) =>
-                        act('editrecord', {
-                          record_type: 'medical',
-                          key: 'fingerprint',
-                          value: v,
-                        })
-                      }
-                    />
-                  ) : (
-                    <Box>
-                      {data.active.medical.disabilities}&nbsp;
-                      <Button
-                        icon="pencil-ruler"
-                        onClick={() => setEditingDisabilities(true)}
-                      />
-                    </Box>
-                  )}
-                </Box>
-              ) : (
-                data.active.medical.disabilities
-              )}
-            </LabeledList.Item>
-            <LabeledList.Item label="Allergies">
-              {data.editable & 2 ? (
-                <Box>
-                  {editingAllergies ? (
-                    <Input
-                      placeholder={data.active.medical.allergies}
-                      width="100%"
-                      onInput={(e, v) =>
-                        act('editrecord', {
-                          record_type: 'medical',
-                          key: 'allergies',
-                          value: v,
-                        })
-                      }
-                    />
-                  ) : (
-                    <Box>
-                      {data.active.medical.allergies}&nbsp;
-                      <Button
-                        icon="pencil-ruler"
-                        onClick={() => setEditingAllergies(true)}
-                      />
-                    </Box>
-                  )}
-                </Box>
-              ) : (
-                data.active.medical.allergies
-              )}
-            </LabeledList.Item>
-            <LabeledList.Item label="Disease">
-              {data.editable & 2 ? (
-                <Box>
-                  {editingDisease ? (
-                    <Input
-                      placeholder={data.active.medical.diseases}
-                      width="100%"
-                      onInput={(e, v) =>
-                        act('editrecord', {
-                          record_type: 'medical',
-                          key: 'diseases',
-                          value: v,
-                        })
-                      }
-                    />
-                  ) : (
-                    <Box>
-                      {data.active.medical.diseases}&nbsp;
-                      <Button
-                        icon="pencil-ruler"
-                        onClick={() => setEditingDisease(true)}
-                      />
-                    </Box>
-                  )}
-                </Box>
-              ) : (
-                data.active.medical.diseases
               )}
             </LabeledList.Item>
           </>

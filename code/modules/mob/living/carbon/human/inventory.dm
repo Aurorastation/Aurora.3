@@ -7,6 +7,11 @@ This saves us from having to call add_fingerprint() any time something is put in
 	set name = "quick-equip"
 	set hidden = 1
 
+	var/cancelled = FALSE
+	SEND_SIGNAL(src, COMSIG_INPUT_KEY_QUICK_EQUIP, &cancelled)
+	if (cancelled)
+		return
+
 	if(ishuman(src))
 		var/mob/living/carbon/human/H = src
 		var/obj/item/I = H.get_active_hand()
