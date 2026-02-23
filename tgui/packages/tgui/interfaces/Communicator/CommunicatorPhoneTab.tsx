@@ -71,7 +71,6 @@ export const CommunicatorPhoneTab = (props, context) => {
 
   return (
     // TODO: Real styling to make this look better
-    // TODO: Something somewhere showing outgoing call requests
     <Flex direction="column" justify="space-between" height="100%">
       <Flex.Item grow>
         <FriendsList />

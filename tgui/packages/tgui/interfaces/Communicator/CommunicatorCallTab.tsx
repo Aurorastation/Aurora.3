@@ -6,13 +6,20 @@ import { CommunicatorData, CommunicatorTab } from './types';
 
 export const CommunicatorCallTab = (props, context) => {
   const { act, data } = useBackend<CommunicatorData>(context);
-  const { connectingToCall, callDuration, connectedCallers, callRequests } =
-    data;
+  const { callDuration, connectedCallers, callRequests, userComm } = data;
 
-  const activeCall = !!data.connectedCallers.length;
-  const outgoingCall = !!data.callRequests.outgoing.length;
-  const incomingCall = !!data.callRequests.incoming.length;
+  const activeCall = !!connectedCallers.length;
+  const incomingCall = !!callRequests.incoming.length;
+  const outgoingCall = !!callRequests.outgoing.length;
 
+  // If either `userComm` is connecting to the call target,
+  // or the call target is connecting to `userComm`.
+  const connecting =
+    userComm.connectingToAddr === callRequests.incoming[0] ||
+    GetUserByAddress(data, callRequests.outgoing[0])?.connectingToAddr ===
+      userComm.address;
+
+  // Currently in an active call.
   if (activeCall) {
     return (
       <CallScreen
@@ -35,46 +42,12 @@ export const CommunicatorCallTab = (props, context) => {
     );
   }
 
-  if (connectingToCall) {
-    return (
-      <CallScreen
-        name={GetUserByAddress(data, callRequests.incoming[0])?.username}
-        subtitle="Incoming call"
-        centerItem={
-          <Flex direction="column" justify="space-around">
-            <Flex.Item mb={5} fontSize={1.5}>
-              <Box>Connecting to</Box>
-              <Box>{callRequests.incoming[0]}</Box>
-            </Flex.Item>
-            <Flex.Item>
-              <Icon name="spinner" spin size={8} />
-            </Flex.Item>
-          </Flex>
-        }
-        buttons={
-          <Button
-            icon="phone-slash"
-            color="red"
-            fontSize={2.5}
-            onClick={() =>
-              act('call_request', {
-                action: 'decline',
-                target_address: callRequests.incoming[0],
-              })
-            }
-          >
-            Cancel
-          </Button>
-        }
-      />
-    );
-  }
-
   if (outgoingCall) {
     return (
       <CallScreen
         name={GetUserByAddress(data, callRequests.outgoing[0])?.username}
         subtitle="Calling..."
+        centerItem={connecting && <ConnectingSpinner />}
         buttons={
           <Button
             icon="phone-slash"
@@ -99,6 +72,7 @@ export const CommunicatorCallTab = (props, context) => {
       <CallScreen
         name={GetUserByAddress(data, callRequests.incoming[0])?.username}
         subtitle="Incoming call"
+        centerItem={connecting && <ConnectingSpinner />}
         buttons={
           <Stack justify="space-evenly">
             <Stack.Item grow>
@@ -209,8 +183,12 @@ const OptionButtons = (props, context) => {
         <Box>Speaker</Box>
       </Flex.Item>
       <Flex.Item>
-        <Button>
-          <Icon name="phone" />
+        <Button
+          onClick={() =>
+            act('switch_tab', { new_tab: CommunicatorTab.Contacts })
+          }
+        >
+          <Icon name="user-plus" />
         </Button>
         <Box>Add To Call</Box>
       </Flex.Item>
@@ -221,14 +199,30 @@ const OptionButtons = (props, context) => {
         <Box>Video</Box>
       </Flex.Item>
       <Flex.Item>
-        <Button
-          onClick={() =>
-            act('switch_tab', { new_tab: CommunicatorTab.Contacts })
-          }
-        >
+        <Button>
           <Icon name="address-book" />
         </Button>
-        <Box>Contacts</Box>
+        <Box>Placeholder</Box>
+      </Flex.Item>
+    </Flex>
+  );
+};
+
+const ConnectingSpinner = (props, context) => {
+  const { act, data } = useBackend<CommunicatorData>(context);
+  const { callRequests, userComm } = data;
+
+  const connectingAddress =
+    userComm.connectingToAddr || callRequests.outgoing[0];
+
+  return (
+    <Flex direction="column" justify="space-around">
+      <Flex.Item mb={5} fontSize={1.5}>
+        <Box>Connecting to</Box>
+        <Box>{connectingAddress}</Box>
+      </Flex.Item>
+      <Flex.Item>
+        <Icon name="spinner" spin size={8} />
       </Flex.Item>
     </Flex>
   );

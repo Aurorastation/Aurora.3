@@ -5,18 +5,17 @@ export type CommunicatorData = {
   currentTab: CommunicatorTab;
   ringerOn: BooleanLike;
 
-  connectingToCall: BooleanLike;
   callDuration: string;
   callSettings: CallSettings;
 
-  friendsList: string[]; // List of friend names
+  friendsList: FriendsList;
   connectedCallers: string[];
   callRequests: RequestsList;
   videoRequests: RequestsList;
   friendRequests: RequestsList;
 
-  userComm: User;
-  allUsers: User[];
+  userComm: ActiveUser;
+  allUsers: ActiveUser[];
 };
 
 type CallSettings = {
@@ -24,16 +23,25 @@ type CallSettings = {
   microphoneOn: BooleanLike;
 };
 
+type FriendsList = {
+  active: ActiveUser[];
+  missing: UserDetails[];
+};
+
 type RequestsList = {
   incoming: string[];
   outgoing: string[];
 };
 
-export type User = {
+export interface UserDetails {
   address: string;
   username: string;
+}
+
+export interface ActiveUser extends UserDetails {
   visible: BooleanLike;
-};
+  connectingToAddr: string;
+}
 
 // Mirror of the defines in 'code/modules/modular_computers/file_system/programs/generic/communicator.dm'.
 export enum CommunicatorTab {

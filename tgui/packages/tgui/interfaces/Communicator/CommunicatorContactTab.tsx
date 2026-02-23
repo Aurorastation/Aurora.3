@@ -1,3 +1,4 @@
+import { InfernoNode } from 'inferno';
 import { useBackend, useLocalState } from '../../backend';
 import {
   Box,
@@ -8,14 +9,14 @@ import {
   Section,
   Tooltip,
 } from '../../components';
-import { GetUserByName } from './helpers';
-import { CommunicatorData, CommunicatorTab, User } from './types';
+import { SortUsersByName, UserIsActive } from './helpers';
+import { CommunicatorData, CommunicatorTab, UserDetails } from './types';
 
 export const CommunicatorContactTab = (props, context) => {
   const { act, data } = useBackend<CommunicatorData>(context);
   const { allUsers } = data;
 
-  const publicUsers = allUsers.filter((user) => user.visible);
+  const publicUsers = SortUsersByName(allUsers.filter((user) => user.visible));
 
   return (
     <Flex direction="column" justify="space-between" height="100%">
@@ -43,6 +44,7 @@ export const CommunicatorContactTab = (props, context) => {
                 <ContactListing
                   key={user.address}
                   contact={user}
+                  text={user.address}
                   ExtraButton={FriendReqButton}
                 />
               ))}
@@ -57,30 +59,42 @@ export const CommunicatorContactTab = (props, context) => {
 // Exported separately for use in the phone tab.
 export const FriendsList = (props, context) => {
   const { act, data } = useBackend<CommunicatorData>(context);
-  const { friendsList, allUsers } = data;
+  const { friendsList } = data;
 
-  // `friendsList` is just a list of names. This goes through each of those
-  // and returns either the person's corresponding `User` from `allUsers`,
-  // or just their name again if they're not in that list.
-  const friendsWithData = friendsList.map((friendName) => {
-    return GetUserByName(data, friendName) ?? friendName;
-  });
+  const allFriends = SortUsersByName(
+    friendsList.missing.concat(friendsList.active),
+  );
 
   return (
     <Section title="Friends" fill>
-      {(friendsWithData.length && (
+      {(allFriends.length && (
         <LabeledList>
-          {friendsWithData.map((friend) =>
-            typeof friend === 'string' ? (
-              // Couldn't find a matching user
-              <EmptyContactListing name={friend} />
-            ) : (
-              <ContactListing
-                contact={friend}
-                ExtraButton={RemoveFriendButton}
-              />
-            ),
-          )}
+          {allFriends.map((friend) => (
+            <ContactListing
+              key={friend.address}
+              contact={friend}
+              text={
+                UserIsActive(friend) ? (
+                  friend.address
+                ) : (
+                  <Tooltip
+                    content="Unable to locate user at address"
+                    position="bottom-end"
+                  >
+                    <Box>
+                      <Box inline bold color="bad">
+                        ERROR:&nbsp;
+                      </Box>
+                      <Box inline style={{ 'text-decoration': 'line-through' }}>
+                        {friend.address}
+                      </Box>
+                    </Box>
+                  </Tooltip>
+                )
+              }
+              ExtraButton={RemoveFriendButton}
+            />
+          ))}
         </LabeledList>
       )) || (
         <Tooltip position="right" content=":(">
@@ -91,27 +105,14 @@ export const FriendsList = (props, context) => {
   );
 };
 
-const EmptyContactListing = ({ name }: { name: string }) => {
-  return (
-    <LabeledList.Item
-      className="comm-contact"
-      label={<u>{name}</u>}
-      verticalAlign="middle"
-    >
-      <Box textAlign="right" bold>
-        UNABLE TO LOCATE DEVICE
-      </Box>
-    </LabeledList.Item>
-  );
-};
-
 type ContactListingProps = {
-  contact: User;
-  ExtraButton?: (props: { contact: User }, context) => JSX.Element;
+  contact: UserDetails;
+  text: InfernoNode;
+  ExtraButton?: (props: { contact: UserDetails }, context) => JSX.Element;
 };
 
 const ContactListing = (
-  { contact, ExtraButton }: ContactListingProps,
+  { contact, text, ExtraButton }: ContactListingProps,
   context,
 ) => {
   const { act, data } = useBackend<CommunicatorData>(context);
@@ -124,18 +125,20 @@ const ContactListing = (
 
   return (
     <LabeledList.Item
+      key={contact.address}
       className="comm-contact"
       label={<u>{contact.username}:</u>}
       verticalAlign="middle"
     >
       <Flex direction="column">
-        <Flex.Item textAlign="right">{contact.address}</Flex.Item>
+        <Flex.Item textAlign="right">{text}</Flex.Item>
         <Flex.Item align="end">
           {!!ExtraButton && <ExtraButton contact={contact} />}
           <Button
             icon="phone"
             tooltip="Send call request"
             tooltipPosition="bottom"
+            disabled={!UserIsActive(contact)}
             onClick={() => {
               setTargetAddress(contact.address);
               act('switch_tab', { new_tab: CommunicatorTab.Phone });
@@ -147,6 +150,7 @@ const ContactListing = (
             icon="comment-alt"
             tooltip="Send instant message"
             tooltipPosition="bottom"
+            disabled={!UserIsActive(contact)}
           >
             Message
           </Button>
@@ -156,11 +160,11 @@ const ContactListing = (
   );
 };
 
-const FriendReqButton = ({ contact }: { contact: User }, context) => {
+const FriendReqButton = ({ contact }: { contact: UserDetails }, context) => {
   const { act, data } = useBackend<CommunicatorData>(context);
 
-  const alreadyFriends = data.friendsList.find(
-    (friendName) => friendName === contact.username,
+  const alreadyFriends = data.friendsList.active.find(
+    (friend) => friend.username === contact.username,
   );
   const contactSentRequest = data.friendRequests.incoming.includes(
     contact.address,
@@ -192,7 +196,7 @@ const FriendReqButton = ({ contact }: { contact: User }, context) => {
   );
 };
 
-const RemoveFriendButton = ({ contact }: { contact: User }, context) => {
+const RemoveFriendButton = ({ contact }: { contact: UserDetails }, context) => {
   const { act, data } = useBackend<CommunicatorData>(context);
 
   return (
@@ -201,7 +205,7 @@ const RemoveFriendButton = ({ contact }: { contact: User }, context) => {
       color="bad"
       tooltip="Remove friend"
       onClick={() => {
-        act('remove_friend', { target_name: contact.username });
+        act('remove_friend', { friend_address: contact.address });
       }}
     />
   );

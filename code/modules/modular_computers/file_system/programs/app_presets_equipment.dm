@@ -86,7 +86,7 @@
 /datum/modular_computer_app_presets/communicator
 	name = "communicator"
 	display_name = "Communicator"
-	description = "todo"
+	description = "Contains the Communicator App."
 	available = FALSE
 
 /datum/modular_computer_app_presets/communicator/New()

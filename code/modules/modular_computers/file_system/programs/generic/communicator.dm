@@ -11,6 +11,7 @@
 		"address" = comm_address, \
 		"username" = user_name, \
 		"visible" = comm_app.visible_on_network, \
+		"connectingToAddr" = comm_app.connecting_to_address, \
 	) \
 )
 
@@ -41,10 +42,8 @@ GLOBAL_LIST_EMPTY(active_communicator_apps)
 
 	var/datum/comm_call/active_call
 
-	// list of friend names (string)
-	// This is names so that if a friend's device goes offline they can still stay on the UI as 'unreachable'.
-	// todo: if another communicator has the same name they can replace the actual person's communicator in the friends list
-	var/list/friends = list()
+	// {friend address: last known username}
+	var/alist/friends = alist()
 
 	// request values are all ntnet addresses (todo: actual documentation)
 	var/alist/comm_requests = alist(
@@ -61,7 +60,7 @@ GLOBAL_LIST_EMPTY(active_communicator_apps)
 	)
 
 	var/current_tab = HOME_TAB
-	var/connecting_to_call = FALSE
+	var/connecting_to_address = null
 
 	var/custom_username = null
 	var/visible_on_network = TRUE
@@ -81,20 +80,22 @@ GLOBAL_LIST_EMPTY(active_communicator_apps)
 	RegisterSignal(computer, COMSIG_MOD_COMPUTER_HW_UNINSTALLED, PROC_REF(on_hw_uninstalled))
 
 /datum/computer_file/program/communicator/Destroy()
+	if(active_call)
+		// `active_call` gets set to null in `remove_device()`.
+		active_call.remove_device(src)
+
 	// Try to clean up any requests to and from this communicator.
 	var/comm_address = get_computer_address()
 	if(comm_address)
 		for(var/category in comm_requests[INCOMING_REQUESTS])
 			for(var/address in comm_requests[INCOMING_REQUESTS][category])
 				var/datum/computer_file/program/communicator/comm = GLOB.active_communicator_apps[address]
-				comm?.remove_comm_request(comm_address, category)
+				comm?.cancel_comm_request(comm_address, category)
 	for(var/category in comm_requests[OUTGOING_REQUESTS])
 		for(var/address in comm_requests[OUTGOING_REQUESTS][category])
-			remove_comm_request(address, category)
+			cancel_comm_request(address, category)
 
-	for(var/address in GLOB.active_communicator_apps)
-		if(GLOB.active_communicator_apps[address] == src)
-			GLOB.active_communicator_apps -= address
+	GLOB.active_communicator_apps -= comm_address
 	return ..()
 
 /datum/computer_file/program/communicator/kill_program(forced)
@@ -118,25 +119,36 @@ GLOBAL_LIST_EMPTY(active_communicator_apps)
 /datum/computer_file/program/communicator/proc/get_user_name()
 	return custom_username || computer.registered_id?.registered_name
 
-// both of these are sender-side only
 /datum/computer_file/program/communicator/proc/send_comm_request(target_address, category)
 	var/source_address = get_computer_address()
 	var/datum/computer_file/program/communicator/target_comm = GLOB.active_communicator_apps[target_address]
 	if(!source_address || !target_comm)
 		return FALSE
 
+	if(!target_comm.recieve_comm_request(source_address, category))
+		return FALSE
 	comm_requests[OUTGOING_REQUESTS][category] |= target_address
-	target_comm.comm_requests[INCOMING_REQUESTS][category] |= source_address
 	return TRUE
 
-/datum/computer_file/program/communicator/proc/remove_comm_request(target_address, category)
+/datum/computer_file/program/communicator/proc/cancel_comm_request(target_address, category)
+	comm_requests[OUTGOING_REQUESTS][category] -= target_address
+
 	var/source_address = get_computer_address()
 	var/datum/computer_file/program/communicator/target_comm = GLOB.active_communicator_apps[target_address]
-	if(!source_address || !target_comm)
+	if(source_address && target_comm)
+		target_comm.comm_requests[INCOMING_REQUESTS][category] -= source_address
+
+/datum/computer_file/program/communicator/proc/recieve_comm_request(source_address, category)
+	if(source_address in comm_requests[INCOMING_REQUESTS][category])
+		return FALSE
+	if(category == CALL_REQUESTS && active_call)
 		return FALSE
 
-	comm_requests[OUTGOING_REQUESTS][category] -= target_address
-	target_comm.comm_requests[INCOMING_REQUESTS][category] -= source_address
+	comm_requests[INCOMING_REQUESTS][category] |= source_address
+
+	var/datum/computer_file/program/communicator/caller_comm = GLOB.active_communicator_apps[source_address]
+	var/caller_name = caller_comm?.get_user_name() || "\[UNKNOWN\]"
+	computer.output_notice("New [category] request from [caller_name]!")
 	return TRUE
 
 // TODO: Make sure this works
@@ -144,12 +156,12 @@ GLOBAL_LIST_EMPTY(active_communicator_apps)
 	if(QDELETED(src))
 		return FALSE
 	if(!(caller_address in comm_requests[INCOMING_REQUESTS][CALL_REQUESTS]))
-		connecting_to_call = FALSE
+		connecting_to_address = null
 		return FALSE
 	var/datum/computer_file/program/communicator/caller_comm = GLOB.active_communicator_apps[caller_address]
 	if(QDELETED(caller_comm))
 		computer.output_error("Connection to {[caller_address]} lost!")
-		connecting_to_call = FALSE
+		connecting_to_address = null
 		return FALSE
 	return TRUE
 
@@ -175,8 +187,8 @@ GLOBAL_LIST_EMPTY(active_communicator_apps)
 	accept_call(caller_comm)
 
 /datum/computer_file/program/communicator/proc/accept_call(datum/computer_file/program/communicator/caller_comm)
-	connecting_to_call = FALSE
-	caller_comm.remove_comm_request(get_computer_address(), CALL_REQUESTS)
+	connecting_to_address = null
+	caller_comm.cancel_comm_request(get_computer_address(), CALL_REQUESTS)
 
 	var/datum/comm_call/comm_call
 	if(caller_comm.active_call) // If the caller already has a call going
@@ -202,6 +214,17 @@ GLOBAL_LIST_EMPTY(active_communicator_apps)
 		// No ID means that the UI will show the 'Please register' screen, so no other data is needed until that changes.
 		return data
 
+	var/list/active_friends = list()
+	var/list/missing_friends = list()
+	// If `friend_address` matches an active communicator, add that to the list.
+	// Otherwise, add the friend's name and address to `missing_friends` in order to display some "can't find {friend name}" text.
+	for(var/friend_address, friend_name in friends)
+		var/datum/computer_file/program/communicator/friend_comm = GLOB.active_communicator_apps[friend_address]
+		if(friend_comm)
+			active_friends += list(COMM_DATA(friend_comm, friend_address, friend_comm.get_user_name()))
+		else // Can't find the friend's communicator
+			missing_friends += list(alist("address" = friend_address, "username" = friend_name))
+
 	var/call_duration
 	var/list/connected_callers = list()
 	if(active_call)
@@ -210,37 +233,28 @@ GLOBAL_LIST_EMPTY(active_communicator_apps)
 			if(comm != src)
 				connected_callers += comm.get_computer_address()
 
-	data["currentTab"] = current_tab
-	data["ringerOn"] = ringer_on
-
-	data["connectingToCall"] = connecting_to_call
-	data["callDuration"] = call_duration
-	data["callSettings"] = alist("speakerphoneOn" = speakerphone_on, "microphoneOn" = microphone_on)
-
-	data["friendsList"] = friends
-	data["connectedCallers"] = connected_callers
-	data["callRequests"] = REQUESTS_DATA(comm_requests, CALL_REQUESTS)
-	data["videoRequests"] = REQUESTS_DATA(comm_requests, VIDEO_REQUESTS)
-	data["friendRequests"] = REQUESTS_DATA(comm_requests, FRIEND_REQUESTS)
-	data["userComm"] = COMM_DATA(src, get_computer_address(), get_user_name())
-	return data
-
-/datum/computer_file/program/communicator/ui_static_data(mob/user)
-	var/alist/data = alist()
-
-	if(!computer.registered_id)
-		return // See above
-
-	var/list/ntnet_users = list()
+	var/list/all_users = list()
 	for(var/address in GLOB.active_communicator_apps)
 		var/datum/computer_file/program/communicator/comm = GLOB.active_communicator_apps[address]
 		var/comm_username = comm.get_user_name()
 		if(comm == src || !comm_username)
 			continue
 
-		ntnet_users += list(COMM_DATA(comm, address, comm_username))
+		all_users += list(COMM_DATA(comm, address, comm_username))
 
-	data["allUsers"] = ntnet_users // Todo: Maybe just put this in regular `ui_data()`, because it being static is causing some issues. (e.g. username changes)
+	data["currentTab"] = current_tab
+	data["ringerOn"] = ringer_on
+
+	data["callDuration"] = call_duration
+	data["callSettings"] = alist("speakerphoneOn" = speakerphone_on, "microphoneOn" = microphone_on)
+
+	data["friendsList"] = alist("active" = active_friends, "missing" = missing_friends)
+	data["connectedCallers"] = connected_callers
+	data["callRequests"] = REQUESTS_DATA(comm_requests, CALL_REQUESTS)
+	data["videoRequests"] = REQUESTS_DATA(comm_requests, VIDEO_REQUESTS)
+	data["friendRequests"] = REQUESTS_DATA(comm_requests, FRIEND_REQUESTS)
+	data["userComm"] = COMM_DATA(src, get_computer_address(), get_user_name())
+	data["allUsers"] = all_users
 	return data
 
 /datum/computer_file/program/communicator/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
@@ -265,15 +279,12 @@ GLOBAL_LIST_EMPTY(active_communicator_apps)
 			current_tab = initial(current_tab)
 
 		if("remove_friend")
-			// The `friends` list is a list of names, so it's a bit more complicated to find their associated communicator.
-			var/friend_name = params["target_name"]
-			for(var/address in GLOB.active_communicator_apps)
-				var/datum/computer_file/program/communicator/potential_comm = GLOB.active_communicator_apps[address]
-				if(potential_comm.get_user_name() == friend_name)
-					potential_comm.friends -= get_user_name()
-					break
+			var/friend_address = params["friend_address"]
+			var/datum/computer_file/program/communicator/potential_comm = GLOB.active_communicator_apps[friend_address]
+			if(potential_comm)
+				potential_comm.friends -= get_computer_address()
 
-			friends -= friend_name
+			friends -= friend_address
 
 		if("toggle_speakerphone")
 			speakerphone_on = !speakerphone_on
@@ -299,6 +310,11 @@ GLOBAL_LIST_EMPTY(active_communicator_apps)
 				custom_username = null
 			else
 				custom_username = new_name
+			for(var/friend_address in friends)
+				var/datum/computer_file/program/communicator/friend_comm = GLOB.active_communicator_apps[friend_address]
+				var/source_address = get_computer_address()
+				if(friend_comm?.friends[source_address])
+					friend_comm.friends[source_address] = get_user_name()
 	return TRUE
 
 /datum/computer_file/program/communicator/proc/handle_ui_act_target(action, list/params, datum/tgui/ui, datum/ui_state/state)
@@ -314,46 +330,50 @@ GLOBAL_LIST_EMPTY(active_communicator_apps)
 		if("friend_request")
 			if(params["action"] == "send")
 				send_comm_request(target_address, FRIEND_REQUESTS)
-				target_comm.computer.output_notice("Friend request recieved from [get_user_name()]!")
 			else if(params["action"] == "respond")
 				var/target_username = target_comm.get_user_name()
-				var/source_username = get_user_name()
 
 				var/choice = tgui_alert(usr, "Friend request from [target_username]", "Friend Request", list("Accept", "Decline"))
 				if(choice == null)
 					return
+
+				var/source_username = get_user_name()
+				var/source_address = get_computer_address()
+				if(!source_address) // just in case
+					return
 				// Accept and decline both remove the request.
-				target_comm.remove_comm_request(get_computer_address(), FRIEND_REQUESTS)
+				target_comm.cancel_comm_request(source_address, FRIEND_REQUESTS)
 				if(choice == "Accept")
-					friends |= target_username
-					target_comm.friends |= source_username
+					friends[target_address] = target_username
+					target_comm.friends[source_address] = source_username
 					target_comm.computer.output_notice("[source_username] has accepted your friend request!")
 
 		if("call_request")
+			switch(params["action"])
 			/* -- Sending a request to someone else: -- */
-			if(params["action"] == "send")
-				if(send_comm_request(target_address, CALL_REQUESTS))
-					current_tab = CALL_TAB
-					target_comm.current_tab = CALL_TAB
-					target_comm.computer.output_notice("New call request from [get_user_name()]!")
-			if(params["action"] == "cancel")
-				if(remove_comm_request(target_address, CALL_REQUESTS))
+				if("send")
+					if(send_comm_request(target_address, CALL_REQUESTS))
+						current_tab = CALL_TAB
+						target_comm.current_tab = CALL_TAB
+					else
+						computer.output_error("Unable to call [target_address].")
+				if("cancel")
+					cancel_comm_request(target_address, CALL_REQUESTS)
 					current_tab = initial(current_tab)
 					target_comm.computer.output_error("Call request from [get_user_name()] cancelled.")
-					if(target_comm.current_tab == CALL_TAB)
+					if(target_comm.current_tab == CALL_TAB && !target_comm.active_call)
 						target_comm.current_tab = initial(target_comm.current_tab)
 
-			/* -- Responding to a request from someone else: -- */
-			if(params["action"] == "accept")
-				connecting_to_call = TRUE
-				INVOKE_ASYNC(src, PROC_REF(call_connecting), target_comm, target_address)
-			if(params["action"] == "decline")
-				if(target_comm.remove_comm_request(get_computer_address(), CALL_REQUESTS))
+				/* -- Responding to a request from someone else: -- */
+				if("accept")
+					connecting_to_address = target_address
+					INVOKE_ASYNC(src, PROC_REF(call_connecting), target_comm, target_address)
+				if("decline")
+					target_comm.cancel_comm_request(get_computer_address(), CALL_REQUESTS)
 					target_comm.computer.output_error("Your call request to [get_user_name()] was declined.")
 					current_tab = initial(current_tab)
-					if(target_comm.current_tab == CALL_TAB)
+					if(target_comm.current_tab == CALL_TAB && !target_comm.active_call)
 						target_comm.current_tab = initial(target_comm.current_tab)
-
 
 	return TRUE
 

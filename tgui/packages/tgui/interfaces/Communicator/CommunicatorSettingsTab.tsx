@@ -9,7 +9,7 @@ export const CommunicatorSettingsTab = (props, context) => {
   return (
     <Section title="Settings">
       <LabeledList>
-        <LabeledList.Item label="Username">
+        <LabeledList.Item label="Display Name">
           <Button.Input
             fluid
             content={userComm.username}
