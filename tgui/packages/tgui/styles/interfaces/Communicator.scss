@@ -8,6 +8,10 @@ $phone-button-spacing: 0.5rem;
 .comm-contact {
   height: 3.8rem;
 
+  .LabeledList__cell:first-child {
+    word-break: break-all;
+  }
+
   &:nth-child(odd):not(:only-child) {
     background-color: lighten(Section.$background-color, 25%);
   }
@@ -35,8 +39,8 @@ $phone-button-spacing: 0.5rem;
   .caller-name {
     font-size: 2.5rem;
     white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    overflow-x: auto;
+    text-overflow: clip;
     // todo: Train screen style scrolling ("ticker" apparently)
   }
 

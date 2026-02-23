@@ -128,9 +128,10 @@ const ContactListing = (
       key={contact.address}
       className="comm-contact"
       label={<u>{contact.username}:</u>}
+      labelWrap
       verticalAlign="middle"
     >
-      <Flex direction="column">
+      <Flex direction="column" minWidth="15em">
         <Flex.Item textAlign="right">{text}</Flex.Item>
         <Flex.Item align="end">
           {!!ExtraButton && <ExtraButton contact={contact} />}
@@ -138,7 +139,10 @@ const ContactListing = (
             icon="phone"
             tooltip="Send call request"
             tooltipPosition="bottom"
-            disabled={!UserIsActive(contact)}
+            disabled={
+              !UserIsActive(contact) ||
+              data.connectedCallers.includes(contact.address)
+            }
             onClick={() => {
               setTargetAddress(contact.address);
               act('switch_tab', { new_tab: CommunicatorTab.Phone });

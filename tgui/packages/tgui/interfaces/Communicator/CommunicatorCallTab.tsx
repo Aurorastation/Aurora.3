@@ -25,7 +25,7 @@ export const CommunicatorCallTab = (props, context) => {
       <CallScreen
         name={connectedCallers
           .map((addr) => GetUserByAddress(data, addr)?.username)
-          .join(' | ')}
+          .join(', ')}
         subtitle={callDuration}
         centerItem={<OptionButtons />}
         buttons={

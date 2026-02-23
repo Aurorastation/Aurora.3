@@ -160,28 +160,16 @@
 			switch(params["action"])
 			/* -- Sending a request to someone else: -- */
 				if("send")
-					if(send_comm_request(target_address, CALL_REQUESTS))
-						current_tab = CALL_TAB
-						target_comm.current_tab = CALL_TAB
-					else
-						computer.output_error("Unable to call [target_address].")
+					request_voice_call(target_comm, target_address)
 				if("cancel")
-					cancel_comm_request(target_address, CALL_REQUESTS)
-					current_tab = initial(current_tab)
-					target_comm.computer.output_error("Call request from [get_user_name()] cancelled.")
-					if(target_comm.current_tab == CALL_TAB && !target_comm.active_call)
-						target_comm.current_tab = initial(target_comm.current_tab)
+					cancel_voice_call(target_comm, target_address, "Call request from [get_user_name()] cancelled.")
 
 				/* -- Responding to a request from someone else: -- */
 				if("accept")
 					connecting_to_address = target_address
 					INVOKE_ASYNC(src, PROC_REF(call_connecting), target_comm, target_address)
 				if("decline")
-					target_comm.cancel_comm_request(get_computer_address(), CALL_REQUESTS)
-					target_comm.computer.output_error("Your call request to [get_user_name()] was declined.")
-					current_tab = initial(current_tab)
-					if(target_comm.current_tab == CALL_TAB && !target_comm.active_call)
-						target_comm.current_tab = initial(target_comm.current_tab)
+					target_comm.cancel_voice_call(src, get_computer_address(), "Your call request to [get_user_name()] was declined.")
 
 	return TRUE
 

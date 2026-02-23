@@ -6,6 +6,20 @@
 #define SETTINGS_TAB 4
 #define CALL_TAB 5
 
+/datum/computer_file/program/communicator/proc/request_voice_call(datum/computer_file/program/communicator/target_comm, target_address)
+	if(!send_comm_request(target_address, CALL_REQUESTS))
+		computer.output_error("Unable to call [target_address].")
+		return
+	current_tab = CALL_TAB
+	target_comm.current_tab = CALL_TAB
+
+/datum/computer_file/program/communicator/proc/cancel_voice_call(datum/computer_file/program/communicator/target_comm, target_address, message)
+	cancel_comm_request(target_address, CALL_REQUESTS)
+	target_comm.computer.output_error("Call request from [get_user_name()] cancelled.")
+	current_tab = initial(current_tab)
+	if(target_comm.current_tab == CALL_TAB && !target_comm.active_call)
+		target_comm.current_tab = initial(target_comm.current_tab)
+
 // TODO: Make sure this works
 /datum/computer_file/program/communicator/proc/call_checks(caller_address)
 	if(QDELETED(src))
@@ -24,21 +38,22 @@
 	caller_comm.computer.output_notice("Connecting to {[get_computer_address()]}...")
 	computer.output_notice("Connecting to {[caller_address]}...")
 	sleep(1 SECOND)
+
 	if(!call_checks(caller_address))
 		return
-
 	computer.output_notice("Dialing internally from [station_name()]...")
 	sleep(2 SECONDS)
+
 	if(!call_checks(caller_address))
 		return
-
 	computer.output_notice("Re-routing connection to [caller_comm.computer] at {[caller_address]}.")
 	sleep(4 SECONDS)
+
 	if(!call_checks(caller_address))
 		return
-
 	computer.output_notice("Connection to [caller_comm.computer] established!")
 	caller_comm.computer.output_notice("Connection to [computer] established!")
+
 	accept_call(caller_comm)
 
 /datum/computer_file/program/communicator/proc/accept_call(datum/computer_file/program/communicator/caller_comm)
