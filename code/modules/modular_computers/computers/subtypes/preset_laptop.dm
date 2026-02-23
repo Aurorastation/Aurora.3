@@ -33,7 +33,7 @@
 	the National Computational Technologies Manufactory produces a line of bulky 'portable' computers utilizing tesla generators."
 	icon = 'icons/obj/modular_computers/tesla_laptop.dmi'
 	w_class = WEIGHT_CLASS_BULKY //Massive computer, cannot be stored. Also to balance for the Tesla generator
-	soundloop = /datum/looping_sound/old_computer
+	//var/datum/looping_sound/computer_base/old/soundloop
 
 /obj/item/modular_computer/laptop/preset/tajara/install_default_hardware()
 	..()

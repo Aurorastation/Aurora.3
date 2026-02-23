@@ -78,7 +78,7 @@
 	falloff_distance = 3
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-/datum/looping_sound/computer
+/datum/looping_sound/computer_base/regular
 	start_sound = 'sound/machines/computer/computer_start.ogg'
 	start_length = 7.2 SECONDS
 	start_volume = 10
@@ -90,7 +90,7 @@
 	extra_range = SILENCED_SOUND_EXTRARANGE
 	ignore_walls = FALSE
 
-/datum/looping_sound/old_computer
+/datum/looping_sound/computer_base/old
 	start_sound = 'sound/machines/computer/old_computer_start.ogg'
 	start_length = 10 SECONDS
 	start_volume = 10

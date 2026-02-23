@@ -24,7 +24,7 @@
 	var/last_world_time = "00:00"
 	var/list/last_header_icons
 	/// Looping sound for when the computer is on
-	var/datum/looping_sound/computer/soundloop
+	var/datum/looping_sound/computer_base/regular/soundloop
 	/// Whether or not this modular computer uses the looping sound. Also handles ambience beeps.
 	var/looping_sound = TRUE
 	/// Whether the computer is emagged.
