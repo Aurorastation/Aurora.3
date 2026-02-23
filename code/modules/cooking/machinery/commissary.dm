@@ -157,6 +157,7 @@
 	. += "Alt click with credits in hand, to deposit them."
 	. += "Alt click while having operations access, to withdraw credits from it."
 	. += "Items can be paid for with id cards, charge cards or physical credits, and a receipt will be printed."
+	. += "If clicked on with a DSV appropriate paper while unlocked, it can automatically fill out the price list from it."
 
 /obj/structure/cash_register/commissary/Initialize()
 	. = ..()
@@ -292,6 +293,11 @@
 		to_chat(user, SPAN_WARNING("[icon2html(src, user)]\The [E] doesn't have that much money!"))
 	return
 
+// Registers name and prices for the commissary from a paper. Example below
+// name,price
+// Candy,2.50
+// Snack,3.10
+// Meal,10.00
 /obj/structure/cash_register/commissary/proc/paper_price_list(var/obj/item/paper/R)
 	if(!editmode)
 		to_chat(usr, SPAN_WARNING("Device locked."))
@@ -308,28 +314,42 @@
 		if(!length(line))
 			continue
 
-		// Split the name, price and category
+		// Split the name and price
 		var/list/split_input = splittext(line, ";")
 
-		if(split_input.len < 3)
+		if(split_input.len < 2)
 			continue
 
 		var/name = split_input[1]
 		var/price_text = split_input[2]
-		var/category = split_input[3]
 
 		var/price = text2num(price_text)
 
 		// In case of invalid prices for some reason
 		if(price == 0 && price_text != "0" && price_text != "0.0")
-			to_world("Skipping invalid price for [name]: [price_text]")
 			continue
 
-		to_world("Item: [name] | Price: [price] | Category: [category]")
-
-		// items += list(list("name" = name, "price" = price, "category" = category))
 		items += list(list("name" = name, "price" = price))
 		items_to_price[name] = price
+
+/obj/structure/cash_register/commissary/proc/print_price_list()
+	if(!items || !items.len)
+		return FALSE
+
+	var/obj/item/paper/notepad/receipt/R = new(loc)
+	var/title = "Price List: [shop_name]"
+	var/text = "name;price<BR>"
+
+	for(var/list/L in items)
+		var/item_name = L["name"]
+		var/item_price = L["price"]
+		text += "[item_name];[round(item_price, 0.01)]<BR>"
+
+	R.set_content(title, text)
+
+	usr.put_in_any_hand_if_possible(R)
+	R.ripped = TRUE
+	return TRUE
 
 /obj/structure/cash_register/commissary/attack_hand(mob/living/user)
 	. = ..()
@@ -452,7 +472,14 @@
 			if(!dest)
 				return FALSE
 			destinationact = dest
-			return TRUE
+			. = TRUE
+
+		if("print_dsv")
+			if(!editmode)
+				to_chat(usr, SPAN_WARNING("Device locked."))
+				return FALSE
+			print_price_list()
+			. = TRUE
 
 /obj/structure/cash_register/commissary/proc/clear_order()
 	buying.Cut()
