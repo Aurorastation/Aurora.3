@@ -43,7 +43,7 @@ export interface ActiveUser extends UserDetails {
   connectingToAddr: string;
 }
 
-// Mirror of the defines in 'code/modules/modular_computers/file_system/programs/generic/communicator.dm'.
+// Mirror of the defines in 'code/modules/modular_computers/file_system/programs/generic/communicator/calls.dm'.
 export enum CommunicatorTab {
   Home,
   Phone,
