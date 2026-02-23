@@ -24,18 +24,16 @@
 			to_chat(grabber, SPAN_WARNING("\The [src] is too large for you to move!"))
 			return FALSE
 
-/mob/proc/ret_grab(list/L)
-	var/grabs = get_active_grabs()
-	if(!length(grabs))
-		return L
-	if(!L)
-		L = list(src)
+/mob/proc/get_grab_targets(list/L = list(), list/grabs = null)
+	if(!LAZYLEN(grabs))
+		grabs = get_active_grabs()
+		if(!length(grabs))
+			return L
 	for(var/obj/item/grab/grab as anything in grabs)
-		if(grab.grabbed && !(grab.grabbed in L))
-			L += grab.grabbed
-			var/mob/living/grabbed_mob = grab.get_grabbed_mob()
-			if(istype(grabbed_mob))
-				grabbed_mob.ret_grab(L)
+		if(grab.grabbed)
+			L |= grab.grabbed
+			var/mob/living/grabbed_mob = astype(grab.get_grabbed_mob())
+			grabbed_mob?.get_grab_targets(L)
 	return L
 
 /mob/proc/handle_grab_damage()

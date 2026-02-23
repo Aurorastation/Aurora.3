@@ -6,6 +6,8 @@
 	grab_action = "jointlock"
 	harm_action = "dislocate"
 
+	action_verb = "grappling"
+
 	var/drop_headbutt = TRUE
 
 /singleton/grab/normal/on_hit_help(obj/item/grab/G, atom/A, proximity)

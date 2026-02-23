@@ -231,8 +231,8 @@ This saves us from having to call add_fingerprint() any time something is put in
 		W.screen_loc = inv_slot.ui_loc
 		W.hud_layerise()
 		W.on_equipped(src, slot)
-		W.update_held_icon()
-		update_inv_hands(redraw_mob)
+		if(redraw_mob)
+			W.update_held_icon()
 		if(W.action_button_name)
 			update_action_buttons()
 		if(old_item)

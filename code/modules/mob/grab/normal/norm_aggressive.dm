@@ -11,6 +11,8 @@
 	break_chance_table = list(5, 20, 40, 80, 100)
 	help_action = "wound pressure"
 
+	action_verb = "grappling"
+
 /singleton/grab/normal/aggressive/on_hit_help(obj/item/grab/G, atom/A, proximity)
 	var/mob/living/carbon/human/victim = G.get_grabbed_mob()
 	if(!istype(victim) || !proximity || (A && A != victim))

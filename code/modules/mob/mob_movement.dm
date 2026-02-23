@@ -294,14 +294,14 @@
 
 		var/old_loc = mob.loc
 
-		var/grab_glide_size = mob.recalculate_glide_size(old_move_delay, move_delay, direct)
-		mob.handle_grabs_after_move(old_loc, direct, grab_glide_size)
-
 		moving = TRUE
 		if(mob.confused && prob(25) && mob.m_intent == M_RUN)
 			step(mob, pick(GLOB.cardinals))
 		else
 			. = mob.SelfMove(new_loc, direct)
+
+		var/grab_glide_size = mob.recalculate_glide_size(old_move_delay, move_delay, direct)
+		mob.handle_grabs_after_move(old_loc, direct, grab_glide_size)
 
 		moving = FALSE
 

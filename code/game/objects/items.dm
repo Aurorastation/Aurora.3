@@ -290,8 +290,8 @@
 
 //Checks if the item is being held by a mob, and if so, updates the held icons
 /obj/item/proc/update_held_icon()
-	if(ismob(src.loc))
-		var/mob/M = src.loc
+	var/mob/M = src.loc
+	if(istype(M))
 		M.update_inv_hands()
 
 /obj/item/ex_act(severity)

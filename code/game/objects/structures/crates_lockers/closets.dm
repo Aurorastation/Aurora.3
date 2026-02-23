@@ -98,10 +98,7 @@
 		. += "It contains: [counting_english_list(contents)]"
 
 	if(distance <= 1 && !src.opened)
-		var/content_size = 0
-		for(var/obj/item/I in contents)
-			if(!I.anchored)
-				content_size += Ceiling(I.w_class/2)
+		var/content_size = stored_volume()
 		if(!content_size)
 			. += "\The [src] is empty."
 		else if(storage_capacity > content_size*4)
@@ -137,9 +134,7 @@
 			continue
 		I.forceMove(src)
 	// adjust locker size to hold all items with 5 units of free store room
-	var/content_size = 0
-	for(I in contents)
-		content_size += Ceiling(I.w_class/2)
+	var/content_size = stored_volume()
 	if(content_size > storage_capacity-5)
 		storage_capacity = content_size + 5
 
@@ -154,12 +149,22 @@
 /obj/structure/closet/proc/fill()
 	return
 
-/obj/structure/closet/proc/stored_weight()
+/obj/structure/closet/proc/stored_volume()
 	var/content_size = 0
-	for(var/obj/item/I in contents)
-		if(!I.anchored)
-			content_size += Ceiling(I.w_class/2)
+	for(var/atom/movable/AM as anything in contents)
+		if(!AM.anchored)
+			var/obj/O = astype(AM)
+			if(O)
+				content_size += ROUND_UP(O.w_class/2)
+				continue
+			var/mob/M = astype(AM)
+			if(M)
+				content_size += M.mob_size
 	return content_size
+
+/// TODO: we should be using mob_weight once objects have defined weight (material or whatever) and they make sense with each other
+/obj/structure/closet/get_object_size()
+	return w_class + stored_volume()
 
 /obj/structure/closet/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
 	if(air_group || (height==0 || wall_mounted))

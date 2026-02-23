@@ -37,8 +37,7 @@ There are several things that need to be remembered:
 		update_inv_shoes()
 		update_inv_w_uniform()
 		update_inv_glasses()
-		update_inv_l_hand()
-		update_inv_r_hand()
+		update_inv_hands()
 		update_inv_belt()
 		update_inv_wear_id()
 		update_inv_l_ear()
@@ -67,13 +66,11 @@ There are several things that need to be remembered:
 	it manually:
 		e.g.
 		update_inv_head(0)
-		update_inv_l_hand(0)
-		update_inv_r_hand()		//<---calls update_icon()
+		update_inv_hands() <--- calls update_icon
 
 	or equivalently:
 		update_inv_head(0)
-		update_inv_l_hand(0)
-		update_inv_r_hand(0)
+		update_inv_hands(0)
 		update_icon()
 
 >	If you need to update all overlays you can use regenerate_icons(). it works exactly like update_clothing used to.
@@ -113,8 +110,7 @@ There are several things that need to be remembered:
 	var/draw_specific_icon = (!lying || species.prone_icon)
 
 	if(update_lying && draw_specific_icon)
-		update_inv_l_hand(FALSE)
-		update_inv_r_hand(FALSE)
+		update_inv_hands(FALSE)
 
 	update_hud()		//TODO: remove the need for this
 

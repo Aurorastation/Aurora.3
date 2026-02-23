@@ -7,6 +7,8 @@
 	equip_sound = null
 	w_class = INFINITY
 
+	var/icon_hand = BP_L_HAND
+
 	var/atom/movable/grabbed = null
 	var/mob/grabber = null
 	var/singleton/grab/current_grab
@@ -47,7 +49,6 @@
 	action_used()
 	INVOKE_ASYNC(grabber, TYPE_PROC_REF(/atom/movable, do_attack_animation), grabbed)
 	playsound(grabbed.loc, 'sound/weapons/thudswoosh.ogg', 50, 1, -1)
-	update_icon()
 
 	RegisterSignal(grabbed, COMSIG_MOVABLE_MOVED, PROC_REF(on_grabbed_move))
 	var/atom/movable/screen/zone_sel/zone_sel = grabber.zone_sel
@@ -72,6 +73,22 @@
 	if(grabbed_mob && grabber?.a_intent == I_HURT)
 		upgrade(TRUE)
 
+	if(current_grab.grab_color)
+		color = current_grab.grab_color
+
+	var/bp = grabber.get_bp_holding(src)
+	var/mob/living/carbon/human/H = astype(grabber)
+	icon_hand = (bp == BP_L_HAND) ? BP_L_HAND : (bp == BP_R_HAND) ? BP_R_HAND : (H && H.species && (bp in H.species.limb_mapping[BP_L_HAND])) ? BP_L_HAND : BP_R_HAND
+
+	update_icon()
+
+/obj/item/grab/get_examine_text(mob/user, distance, is_adjacent, infix, suffix, get_extended)
+	SHOULD_CALL_PARENT(FALSE)
+	var/grab_descriptor = current_grab.action_verb
+	var/is_passive = !has_grab_flags(GRAB_FORCE_HARM|GRAB_RESTRAINS)
+	var/line = "[user == grabber ? "You are" : "[grabber] is"] [grab_descriptor] [user == grabbed ? "you" : "this"][is_passive ? "." : "!"]"
+	return grabbed.get_examine_text(user, distance, is_adjacent, infix, suffix, get_extended) + (is_passive ? FONT_SMALL(line) : SPAN_DANGER(line))
+
 /obj/item/grab/mob_can_unequip(mob/M, slot, disable_warning = FALSE, dropping = FALSE)
 	return dropping
 
@@ -79,7 +96,10 @@
 	current_grab.do_process(src)
 
 /obj/item/grab/attack_self()
-	upgrade()
+	if(current_grab.upgrade)
+		upgrade()
+		return TRUE
+	grabbed.attack_hand(grabber)
 
 /obj/item/grab/afterattack(atom/target, mob/user, proximity_flag, click_parameters)
 	if(QDELETED(src) || !current_grab || !grabber || proximity_flag) // Close-range is handled in resolve_attackby().
@@ -207,6 +227,15 @@
 		icon = current_grab.grab_icon
 	if(current_grab.grab_icon_state)
 		icon_state = current_grab.grab_icon_state
+	ClearOverlays()
+	var/image/item_overlay = image(grabbed.icon, loc, grabbed.icon_state)
+	item_overlay.alpha = 170
+	var/image/hand_overlay = image(icon, loc, "[icon_state]_[icon_hand]")
+	var/image/text_overlay = image(icon, loc, "[icon_state]_text")
+	var/list/overlays_to_add = list(item_overlay, hand_overlay, text_overlay)
+	for(var/image/OV as anything in overlays_to_add)
+		OV.color = current_grab.grab_color
+	AddOverlays(overlays_to_add)
 
 /obj/item/grab/proc/throw_held()
 	return current_grab.throw_held(src)

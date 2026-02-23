@@ -117,7 +117,20 @@
 #define STOP_VISUAL(visual)	SSeffects.visuals -= visual;
 
 // -- SSfalling --
-#define ADD_FALLING_ATOM(atom) if (!atom.multiz_falling) { atom.multiz_falling = 1; SSfalling.falling[atom] = 0; }
+#define ADD_FALLING_ATOM(atom) \
+	if (!atom.multiz_falling) { \
+		atom.multiz_falling = 1; \
+		SSfalling.falling[atom] = 0; \
+		var/mob/_mob = astype(atom, /mob); \
+		if(_mob) { \
+			var/turf/_turf = get_turf(_mob); \
+			for(var/obj/item/grab/_G in _mob.get_active_grabs()) { \
+				_G.grabbed.multiz_falling = 1; \
+				SSfalling.falling[_G.grabbed] = 0; \
+				_G.grabbed.forceMove(_turf); \
+			} \
+		} \
+	};
 
 // -- SSlistener --
 #define GET_LISTENERS(id) (id ? SSlistener.listeners["[id]"] : null)

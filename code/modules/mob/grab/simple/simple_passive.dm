@@ -6,6 +6,17 @@
 
 	action_cooldown = 0
 
+	action_verb = "pulling"
+
+/singleton/grab/simple/hit_with_grab(obj/item/grab/G, atom/A, P)
+	if(QDELETED(G) || !istype(G) || G.resolving_hit)
+		return FALSE
+
+	G.resolving_hit = TRUE
+	A.attack_hand(G.grabber)
+	G.resolving_hit = FALSE
+	return TRUE
+
 /singleton/grab/simple/upgrade(obj/item/grab/G)
 	return
 

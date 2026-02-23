@@ -6,6 +6,8 @@
 	grab_icon_state = "reinforce"
 	break_chance_table = list(15, 60, 100)
 
+	action_verb = "holding"
+
 /singleton/grab/normal/passive/on_hit_disarm(var/obj/item/grab/G, var/atom/A, var/proximity)
 	if(proximity)
 		to_chat(G.grabber, SPAN_WARNING("Your grip isn't strong enough to pin."))

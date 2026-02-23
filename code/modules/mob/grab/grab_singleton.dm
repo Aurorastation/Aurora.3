@@ -23,6 +23,7 @@
 
 	var/grab_icon = 'icons/mob/screen/generic.dmi'
 	var/grab_icon_state = "reinforce"
+	var/grab_color = "#FDD200"
 
 	var/upgrade_cooldown = 4 SECONDS
 	var/action_cooldown = 4 SECONDS
@@ -34,6 +35,8 @@
 	var/disarm_action = "disarm intent"
 	var/grab_action = "grab intent"
 	var/harm_action = "harm intent"
+
+	var/action_verb = "grappling"
 
 /singleton/grab/Initialize()
 	if(ispath(upgrade, /singleton/grab))
@@ -118,7 +121,7 @@
 			G.action_used()
 			if(G.grabber)
 				G.grabber.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
-				if(istext(.) && G.grabber)
+				if(istext(.) && G.grabber && ismob(G.grabbed))
 					admin_attack_log(G.grabber, G.grabbed, "[.]s their victim,", "was [.]ed", "used [.] on")
 			if(grab_flags & GRAB_DOWNGRADE_ACT)
 				G.downgrade()

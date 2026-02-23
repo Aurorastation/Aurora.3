@@ -48,6 +48,7 @@
 			user.visible_message(SPAN_NOTICE("[user] [locked ? null : "un"]locks \the [src]."),
 									SPAN_NOTICE("You [locked ? null : "un"]lock \the [src]."))
 			update_icon()
+			return TRUE
 		else if(!silent)
 			to_chat(user, SPAN_NOTICE("Access denied."))
 

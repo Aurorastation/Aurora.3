@@ -12,6 +12,7 @@
 		return FALSE
 	return TRUE
 
+/// Fires when a mob attempts to grab a target. Must return TRUE if the mob is capable of grabbing, and FALSE with a warning message otherwise.
 /mob/living/proc/can_grab(atom/movable/target, target_zone, defer_hand = FALSE)
 	if(!ismob(target) && target.anchored)
 		to_chat(src, SPAN_WARNING("\The [target] won't budge!"))
@@ -19,7 +20,7 @@
 	if(!check_grab_hand(defer_hand))
 		return FALSE
 	if(LAZYLEN(grabbed_by))
-		to_chat(src, SPAN_WARNING("You cannot start grappling while already being grappled!"))
+		to_chat(src, SPAN_WARNING("You're already being grappled!"))
 		return FALSE
 	for(var/obj/item/grab/G as anything in target.grabbed_by)
 		if(G.grabber != src)
@@ -30,7 +31,7 @@
 		if(G.target_zone == target_zone)
 			var/obj/O = G.get_targeted_organ()
 			if(O)
-				to_chat(src, SPAN_WARNING("You already have a grip on \the [target]'s [O.name]."))
+				to_chat(src, SPAN_WARNING("You already have a grip on \the [target]'s [O.name]!"))
 				return FALSE
 	return TRUE
 
@@ -46,7 +47,7 @@
 	if(!istype(target))
 		return
 
-	if(!force_grab_tag)
+	if(!force_grab_tag && ismob(target))
 		var/datum/species/my_species = get_species(TRUE)
 		if(istype(my_species) && my_species.grab_type)
 			grab_tag = my_species.grab_type
@@ -63,8 +64,7 @@
 
 	if(QDELETED(G))
 		if(original_target != src && ismob(original_target))
-			to_chat(original_target, SPAN_WARNING("\The [src] tries to grab you, but fails!"))
-		to_chat(src, SPAN_WARNING("You try to grab \the [target], but fail!"))
+			to_chat(original_target, SPAN_WARNING("\The [src] fails to grab you!"))
 	return G
 
 /mob/living/add_grab(obj/item/grab/G, defer_hand = FALSE)

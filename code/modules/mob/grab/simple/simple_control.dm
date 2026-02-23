@@ -6,6 +6,8 @@
 
 	action_cooldown = 4 SECONDS
 
+	action_verb = "controlling"
+
 /singleton/grab/simple/control/on_hit_help(obj/item/grab/G, atom/A, proximity)
 	if(A == G.grabber)
 		A = G.grabbed

@@ -530,14 +530,14 @@ default behaviour is:
 	..()
 
 	var/list/my_grabs = get_active_grabs()
+	var/list/my_grabs_tgts = get_grab_targets(null, my_grabs)
 
 	if(!isturf(loc))
-		for(var/obj/item/grab/G as anything in my_grabs)
-			qdel(G)
+		QDEL_LIST(my_grabs)
 		return
 
 	if(isturf(old_loc))
-		for(var/atom/movable/AM as anything in ret_grab())
+		for(var/atom/movable/AM as anything in my_grabs_tgts)
 			if(AM != src && AM.loc != loc && !AM.anchored && old_loc.Adjacent(AM))
 				if(GET_Z(AM) <= GET_Z(src))
 					AM.glide_size = glide_size
@@ -587,11 +587,9 @@ default behaviour is:
 			if(QDELETED(G) || QDELETED(G.grabbed))
 				my_grabs -= G
 			continue
-	if(LAZYLEN(my_grabs))
-		for(var/obj/item/grab/G as anything in my_grabs)
-			var/mob/living/grabbed_mob = G.get_grabbed_mob()
-			if(grabbed_mob)
-				grabbed_mob.handle_grab_damage()
+	for(var/mob/living/grabbed_mob in my_grabs_tgts)
+		if(src in grabbed_mob.grabbed_by)
+			grabbed_mob.handle_grab_damage()
 
 /mob/living/Move(atom/newloc, direct)
 	if(buckled_to)

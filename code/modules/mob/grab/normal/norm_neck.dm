@@ -10,6 +10,8 @@
 	grab_icon_state = "kill"
 	break_chance_table = list(3, 18, 45, 100)
 
+	action_verb = "restraining"
+
 /singleton/grab/normal/neck/process_effect(obj/item/grab/G)
 	var/mob/living/grabbed = G.get_grabbed_mob()
 	if(!istype(grabbed))

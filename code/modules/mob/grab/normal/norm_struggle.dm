@@ -11,6 +11,8 @@
 	grab_icon_state = "reinforce"
 	break_chance_table = list(5, 20, 30, 80, 100)
 
+	action_verb = "struggling with"
+
 /singleton/grab/normal/struggle/process_effect(var/obj/item/grab/G)
 	var/mob/living/grabbed = G.get_grabbed_mob()
 	var/mob/living/grabber = G.grabber
