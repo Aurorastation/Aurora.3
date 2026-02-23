@@ -4,8 +4,6 @@
 
 /mob/Destroy()//This makes sure that mobs with clients/keys are not just deleted from the game.
 	MOB_STOP_THINKING(src)
-	// Tell any mobs touching us that they're not pulling us anymore.
-	stop_pulling()
 	// Delete and null the grab objects that are touching this mob.
 	QDEL_LIST(grabbed_by)
 	GLOB.mob_list -= src
