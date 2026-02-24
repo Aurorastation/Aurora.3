@@ -6,7 +6,7 @@ GLOBAL_LIST_EMPTY(active_communicator_apps)
 /datum/computer_file/program/communicator
 	filename = "ntnrc_comm"
 	filedesc = "Communicator"
-	//program_icon_state = todo
+	program_icon_state = "comm"
 	//program_key_icon_state = todo // Stationary communicators
 	extended_desc = "todo"
 	//size = todo
@@ -36,15 +36,13 @@ GLOBAL_LIST_EMPTY(active_communicator_apps)
 		)
 	)
 
-	var/current_tab = 0
+	var/current_tab = COMM_HOME_TAB
 	var/connecting_to_address = null
 
 	var/custom_username = null
 	var/visible_on_network = TRUE
 	var/speakerphone_on = FALSE
 	var/microphone_on = TRUE
-	var/ringer_on = TRUE
-	var/ringtone = "beep"
 
 /datum/computer_file/program/communicator/New(obj/item/modular_computer/comp)
 	. = ..()
@@ -84,6 +82,9 @@ GLOBAL_LIST_EMPTY(active_communicator_apps)
 /datum/computer_file/program/communicator/kill_program(forced)
 	. = ..()
 	current_tab = initial(current_tab)
+
+/datum/computer_file/program/communicator/event_registered()
+	update_static_data_for_all_viewers()
 
 /datum/computer_file/program/communicator/proc/on_hw_installed(obj/item/modular_computer/source, mob/living/user, obj/item/computer_hardware/H)
 	SIGNAL_HANDLER
@@ -131,5 +132,5 @@ GLOBAL_LIST_EMPTY(active_communicator_apps)
 
 	var/datum/computer_file/program/communicator/caller_comm = GLOB.active_communicator_apps[source_address]
 	var/caller_name = caller_comm?.get_user_name() || "\[UNKNOWN\]"
-	computer.output_notice("New [category] request from [caller_name]!")
+	computer.get_notification("New [category] request!", 1, caller_name)
 	return TRUE

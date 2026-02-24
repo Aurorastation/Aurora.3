@@ -3,7 +3,7 @@ import { BooleanLike } from 'common/react';
 export type CommunicatorData = {
   noID?: BooleanLike;
   currentTab: CommunicatorTab;
-  ringerOn: BooleanLike;
+  silent: BooleanLike;
 
   callDuration: string;
   callSettings: CallSettings;
@@ -43,7 +43,7 @@ export interface ActiveUser extends UserDetails {
   connectingToAddr: string;
 }
 
-// Mirror of the defines in 'code/modules/modular_computers/file_system/programs/generic/communicator/calls.dm'.
+// Mirror of the defines in 'code/__DEFINES/communicator.dm'.
 export enum CommunicatorTab {
   Home,
   Phone,

@@ -1,10 +1,10 @@
 import { useBackend } from '../../backend';
-import { Button, LabeledList, Section } from '../../components';
+import { Box, Button, LabeledList, Section, Stack } from '../../components';
 import { CommunicatorData } from './types';
 
 export const CommunicatorSettingsTab = (props, context) => {
   const { act, data } = useBackend<CommunicatorData>(context);
-  const { userComm, ringerOn } = data;
+  const { userComm, silent } = data;
 
   return (
     <Section title="Settings">
@@ -33,21 +33,40 @@ export const CommunicatorSettingsTab = (props, context) => {
               : 'Invisible to other devices'}
           </Button.Checkbox>
         </LabeledList.Item>
-        <LabeledList.Item label="Camera Mode">
-          <Button fluid>placeholder</Button>
-        </LabeledList.Item>
-        <LabeledList.Item label="Ringer">
+        <LabeledList.Divider />
+        <LabeledList.Item label="Notifications">
           <Button.Checkbox
             fluid
-            checked={ringerOn}
-            selected={ringerOn}
-            onClick={() => act('toggle_ringer')}
+            checked={!silent}
+            selected={!silent}
+            onClick={() => act('toggle_silent')}
           >
-            {ringerOn ? 'Ringer on' : 'Ringer off'}
+            {silent ? 'Notifications off' : 'Notifications on'}
           </Button.Checkbox>
-          <Button fluid onClick={() => act('set_ringtone')}>
-            Set ringtone
-          </Button>
+        </LabeledList.Item>
+        <LabeledList.Divider />
+        <LabeledList.Item
+          label="Reset Device"
+          labelColor="bad"
+          verticalAlign="middle"
+        >
+          <Stack vertical>
+            <Stack.Item>
+              <Box color="label">
+                Unregister your ID and remove any communications history on this
+                device.
+              </Box>
+            </Stack.Item>
+            <Stack.Item>
+              <Button.Confirm
+                fluid
+                bold
+                content="Confirm"
+                confirmContent="Are you sure?"
+                onClick={() => act('reset_device')}
+              />
+            </Stack.Item>
+          </Stack>
         </LabeledList.Item>
       </LabeledList>
     </Section>

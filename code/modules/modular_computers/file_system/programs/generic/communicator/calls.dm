@@ -1,23 +1,16 @@
-// Mirror of the `CommunicatorTab` enum in '../Communicator/types.ts'.
-#define HOME_TAB 0
-#define PHONE_TAB 1
-#define CONTACTS_TAB 2
-#define MESSAGING_TAB 3
-#define SETTINGS_TAB 4
-#define CALL_TAB 5
-
 /datum/computer_file/program/communicator/proc/request_voice_call(datum/computer_file/program/communicator/target_comm, target_address)
 	if(!send_comm_request(target_address, CALL_REQUESTS))
 		computer.output_error("Unable to call [target_address].")
 		return
-	current_tab = CALL_TAB
-	target_comm.current_tab = CALL_TAB
+	current_tab = COMM_CALL_TAB
+	target_comm.current_tab = COMM_CALL_TAB
 
 /datum/computer_file/program/communicator/proc/cancel_voice_call(datum/computer_file/program/communicator/target_comm, target_address, message)
 	cancel_comm_request(target_address, CALL_REQUESTS)
-	target_comm.computer.output_error("Call request from [get_user_name()] cancelled.")
+	if(message)
+		target_comm.computer.output_error(message)
 	current_tab = initial(current_tab)
-	if(target_comm.current_tab == CALL_TAB && !target_comm.active_call)
+	if(target_comm.current_tab == COMM_CALL_TAB && !target_comm.active_call)
 		target_comm.current_tab = initial(target_comm.current_tab)
 
 // TODO: Make sure this works
@@ -68,4 +61,6 @@
 		comm_call.add_device(caller_comm)
 	comm_call.add_device(src)
 
-	caller_comm.current_tab = CALL_TAB
+	caller_comm.speakerphone_on = FALSE
+	caller_comm.microphone_on = TRUE
+	caller_comm.current_tab = COMM_CALL_TAB

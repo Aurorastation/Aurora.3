@@ -17,11 +17,6 @@
 /datum/computer_file/program/communicator/ui_data(mob/user)
 	var/alist/data = alist()
 
-	if(!computer.registered_id)
-		data["noID"] = TRUE
-		// No ID means that the UI will show the 'Please register' screen, so no other data is needed until that changes.
-		return data
-
 	var/list/active_friends = list()
 	var/list/missing_friends = list()
 	// If `friend_address` matches an active communicator, add that to the list.
@@ -51,7 +46,7 @@
 		all_users += list(COMM_DATA(comm, address, comm_username))
 
 	data["currentTab"] = current_tab
-	data["ringerOn"] = ringer_on
+	data["silent"] = computer.silent
 
 	data["callDuration"] = call_duration
 	data["callSettings"] = alist("speakerphoneOn" = speakerphone_on, "microphoneOn" = microphone_on)
@@ -65,6 +60,10 @@
 	data["allUsers"] = all_users
 	return data
 
+/datum/computer_file/program/communicator/ui_static_data(mob/user)
+	// If `noID` is true, the UI will show the 'Please register' screen.
+	return alist("noID" = !computer.registered_id)
+
 /datum/computer_file/program/communicator/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	if(..())
 		return TRUE
@@ -76,9 +75,6 @@
 	switch(action)
 		if("switch_tab")
 			current_tab = params["new_tab"]
-
-		if("refresh_data")
-			update_static_data(usr, ui)
 
 		if("end_call")
 			for(var/datum/computer_file/program/communicator/comm as anything in active_call.connected_comms - src)
@@ -104,13 +100,8 @@
 		if("toggle_visibility")
 			visible_on_network = !visible_on_network
 
-		if("toggle_ringer")
-			ringer_on = !ringer_on
-
-		if("set_ringtone")
-			var/new_ringtone = tgui_input_text(usr, "Set a new ringtone", "Ringtone", ringtone)
-			if(new_ringtone)
-				ringtone = new_ringtone
+		if("toggle_silent")
+			computer.silent = !computer.silent
 
 		if("set_username")
 			var/new_name = params["new_name"]
@@ -123,6 +114,14 @@
 				var/source_address = get_computer_address()
 				if(friend_comm?.friends[source_address])
 					friend_comm.friends[source_address] = get_user_name()
+
+		if("reset_device")
+			computer.unregister_account()
+			current_tab = initial(current_tab)
+			connecting_to_address = null
+			custom_username = null
+			visible_on_network = TRUE
+			update_static_data(usr, ui)
 	return TRUE
 
 /datum/computer_file/program/communicator/proc/handle_ui_act_target(action, list/params, datum/tgui/ui, datum/ui_state/state)
@@ -154,15 +153,15 @@
 				if(choice == "Accept")
 					friends[target_address] = target_username
 					target_comm.friends[source_address] = source_username
-					target_comm.computer.output_notice("[source_username] has accepted your friend request!")
+					target_comm.computer.get_notification("Friend request accepted!", 1, source_username)
 
 		if("call_request")
 			switch(params["action"])
-			/* -- Sending a request to someone else: -- */
+				/* -- Sending a request to someone else: -- */
 				if("send")
 					request_voice_call(target_comm, target_address)
 				if("cancel")
-					cancel_voice_call(target_comm, target_address, "Call request from [get_user_name()] cancelled.")
+					cancel_voice_call(target_comm, target_address)
 
 				/* -- Responding to a request from someone else: -- */
 				if("accept")
@@ -175,9 +174,3 @@
 
 #undef REQUESTS_DATA
 #undef COMM_DATA
-#undef HOME_TAB
-#undef PHONE_TAB
-#undef CONTACTS_TAB
-#undef MESSAGING_TAB
-#undef SETTINGS_TAB
-#undef CALL_TAB

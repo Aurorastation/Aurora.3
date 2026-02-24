@@ -25,19 +25,7 @@ export const CommunicatorContactTab = (props, context) => {
       </Flex.Item>
       <Divider />
       <Flex.Item basis="50%">
-        <Section
-          title="Public Devices"
-          fill
-          buttons={
-            <Button
-              icon="arrows-rotate"
-              iconPosition="right"
-              onClick={() => act('refresh_data')}
-            >
-              Refresh
-            </Button>
-          }
-        >
+        <Section title="Public Devices" fill>
           {(publicUsers.length && (
             <LabeledList>
               {publicUsers.map((user) => (

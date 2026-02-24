@@ -550,10 +550,10 @@
 	message = "[icon2html(src, viewers(message_range, get_turf(src)))] [src]: " + message
 	output_message(SPAN_WARNING(message), message_range)
 
-/obj/item/modular_computer/proc/get_notification(var/message, var/message_range = 1, var/atom/source)
+/obj/item/modular_computer/proc/get_notification(message, message_range = 1, source)
 	if(silent)
 		return
-	playsound(get_turf(src), 'sound/machines/twobeep.ogg', 20, 1)
+	playsound(get_turf(src), 'sound/machines/twobeep.ogg', 20, TRUE)
 	message = "[icon2html(src, viewers(message_range, get_turf(src)))] [src]: [SPAN_DANGER("-!-")] Notification from [source]: " + message
 	output_message(FONT_SMALL(SPAN_BOLD(message)), message_range)
 

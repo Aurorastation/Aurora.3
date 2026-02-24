@@ -1,13 +1,15 @@
 /obj/item/modular_computer/handheld/communicator
 	name = "communicator"
 	desc = "A T-14.2 communicator, popular across the galaxy for it's simplicity to use." // todo: "galaxy"?
-	icon = 'icons/obj/devices/communicator.dmi'
+	icon = 'icons/obj/modular_computers/communicator.dmi'
 	icon_state = "communicator"
-	icon_state_unpowered = "communicator-off"
+	icon_state_unpowered = "communicator"
 	// todo: icon state variants
 	pickup_sound = 'sound/items/pickup/device.ogg'
 	drop_sound = 'sound/items/drop/device.ogg'
 	hardware_flag = PROGRAM_COMMUNICATOR
+
+	var/unread_notification = FALSE
 
 	/// How many tiles away can the communicator pick up speech while on a voice call.
 	var/mic_range = 3
@@ -52,6 +54,16 @@
 
 	register_account(null, attacking_item)
 	return TRUE
+
+/obj/item/modular_computer/handheld/communicator/get_notification(message, message_range, source)
+	. = ..()
+	unread_notification = TRUE
+	update_icon()
+
+/obj/item/modular_computer/handheld/communicator/ui_interact(mob/user, datum/tgui/ui)
+	. = ..()
+	unread_notification = FALSE
+	update_icon()
 
 /obj/item/modular_computer/handheld/communicator/proc/register_to_holder()
 	var/mob/holder = get_holding_mob()
