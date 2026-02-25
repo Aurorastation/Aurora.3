@@ -9,7 +9,7 @@
 	ship_cost = 1
 	spawn_weight = 1
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/voidtamer_trade_ship_shuttle)
-	sectors = list(ALL_TAU_CETI_SECTORS, ALL_BADLAND_SECTORS, ALL_COALITION_SECTORS, ALL_VOID_SECTORS)
+	sectors = list(ALL_TAU_CETI_SECTORS, ALL_BADLAND_SECTORS, ALL_COALITION_SECTORS, SECTOR_LIGHTS_EDGE, SECTOR_LEMURIAN_SEA)
 	unit_test_groups = list(1)
 
 /singleton/submap_archetype/voidtamer_trade_ship
