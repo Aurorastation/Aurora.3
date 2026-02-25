@@ -95,7 +95,7 @@
 /obj/item/cell/high
 	name = "high-capacity power cell"
 	origin_tech = list(TECH_POWER = 2)
-	icon_state = "hdcell"
+	icon_state = "h+cell"
 	maxcharge = 30000
 	matter = list(DEFAULT_WALL_MATERIAL = 700, MATERIAL_GLASS = 60)
 
