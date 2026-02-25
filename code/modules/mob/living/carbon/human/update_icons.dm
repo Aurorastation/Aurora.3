@@ -271,9 +271,11 @@ There are several things that need to be remembered:
 	if(update_icons)
 		update_icon()
 
-//Overlays for the worn overlay so you can overlay while you overlay
-//eg: ammo counters, primed grenade flashing, etc.
-//"icon_file" is used automatically for inhands etc. to make sure it gets the correct inhand file
+/**
+ * Overlays for the worn overlay so you can overlay while you overlay
+ * eg: ammo counters, primed grenade flashing, etc.
+ * "icon_file" is used automatically for inhands etc. to make sure it gets the correct inhand file
+ */
 /obj/item/proc/worn_overlays(icon_file)
 	. = list()
 	var/mutable_appearance/M = null
@@ -320,7 +322,7 @@ There are several things that need to be remembered:
 			return WORN_GLOVES
 	return ""
 
-//BASE MOB SPRITE
+/// BASE MOB SPRITE
 /mob/living/carbon/human/proc/update_body(var/update_icons=1, var/force_base_icon = FALSE)
 	if (QDELETED(src))
 		return
@@ -436,8 +438,10 @@ There are several things that need to be remembered:
 	if(update_icons)
 		update_icon()
 
-// This proc generates & returns an icon representing a human's hair, using a cached icon from SSicon_cache if possible.
-// If `hair_is_visible` is FALSE, only facial hair will be drawn.
+/**
+ * This proc generates & returns an icon representing a human's hair, using a cached icon from SSicon_cache if possible.
+ * If `hair_is_visible` is FALSE, only facial hair will be drawn.
+ */
 /mob/living/carbon/human/proc/generate_hair_icon(hair_is_visible = TRUE)
 	var/cache_key = "[f_style ? "[f_style][r_facial][g_facial][b_facial]" : "nofacial"]_[(h_style && hair_is_visible) ? "[h_style][r_hair][g_hair][b_hair]" : "nohair"]_[(g_style && g_style != "None" && hair_is_visible) ? "[g_style][r_grad][g_grad][b_grad]" : "nograd"]"
 
@@ -481,7 +485,7 @@ There are several things that need to be remembered:
 
 	return face_standing
 
-//HAIR OVERLAY
+/// HAIR OVERLAY
 /mob/living/carbon/human/proc/update_hair(var/update_icons=1)
 	if (QDELETED(src))
 		return
@@ -560,7 +564,7 @@ There are several things that need to be remembered:
 		update_icon()
 
 /* --------------------------------------- */
-//For legacy support.
+/// For legacy support.
 /mob/living/carbon/human/regenerate_icons()
 	..()
 

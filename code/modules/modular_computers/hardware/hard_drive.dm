@@ -100,12 +100,10 @@
 /**
  * Use this proc to remove files to the drive. Returns 1 on success and 0 on failure. Contains necessary sanity checks.
  */
-/obj/item/computer_hardware/hard_drive/proc/remove_file(var/datum/computer_file/F)
-	if(!F || !istype(F))
+/obj/item/computer_hardware/hard_drive/proc/remove_file(var/datum/computer_file/F, force = FALSE)
+	if(!F || !istype(F) || !stored_files)
 		return FALSE
-	if(!stored_files || read_only)
-		return FALSE
-	if(!check_functionality())
+	if(!force && (read_only || !check_functionality()))
 		return FALSE
 	if(F in stored_files)
 		stored_files -= F

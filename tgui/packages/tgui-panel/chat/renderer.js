@@ -128,12 +128,17 @@ class ChatRenderer {
     /** @type {HTMLElement} */
     this.scrollNode = null;
     this.scrollTracking = true;
+    this.lastScrollHeight = 0;
     this.handleScroll = (type) => {
       const node = this.scrollNode;
+      if (!node) {
+        return;
+      }
       const height = node.scrollHeight;
       const bottom = node.scrollTop + node.offsetHeight;
       const scrollTracking =
-        Math.abs(height - bottom) < SCROLL_TRACKING_TOLERANCE;
+        Math.abs(height - bottom) < SCROLL_TRACKING_TOLERANCE ||
+        this.lastScrollHeight === 0;
       if (scrollTracking !== this.scrollTracking) {
         this.scrollTracking = scrollTracking;
         this.events.emit('scrollTrackingChanged', scrollTracking);
@@ -160,12 +165,6 @@ class ChatRenderer {
     else {
       this.rootNode = node;
     }
-    // Find scrollable parent
-    this.scrollNode = findNearestScrollableParent(this.rootNode);
-    this.scrollNode.addEventListener('scroll', this.handleScroll);
-    setImmediate(() => {
-      this.scrollToBottom();
-    });
     // Flush the queue
     this.tryFlushQueue();
   }
@@ -179,6 +178,7 @@ class ChatRenderer {
     if (this.isReady() && this.queue.length > 0) {
       this.processBatch(this.queue);
       this.queue = [];
+      this.scrollToBottom();
     }
   }
 
@@ -268,6 +268,7 @@ class ChatRenderer {
   }
 
   scrollToBottom() {
+    this.tryFindScrollable();
     // scrollHeight is always bigger than scrollTop and is
     // automatically clamped to the valid range.
     this.scrollNode.scrollTop = this.scrollNode.scrollHeight;
@@ -322,6 +323,17 @@ class ChatRenderer {
     return null;
   }
 
+  tryFindScrollable() {
+    // Find scrollable parent
+    if (this.rootNode) {
+      if (!this.scrollNode || this.scrollNode.scrollHeight === undefined) {
+        this.scrollNode = findNearestScrollableParent(this.rootNode);
+        this.scrollNode.addEventListener('scroll', this.handleScroll);
+        logger.debug(`reset scrollNode to ${this.scrollNode}`);
+      }
+    }
+  }
+
   processBatch(batch, options = {}) {
     const { prepend, notifyListeners = true } = options;
     const now = Date.now();
@@ -333,6 +345,10 @@ class ChatRenderer {
         this.queue = [...this.queue, ...batch];
       }
       return;
+    }
+    // Store last scroll position
+    if (this.scrollNode) {
+      this.lastScrollHeight = this.scrollNode.scrollHeight;
     }
     // Insert messages
     const fragment = document.createDocumentFragment();

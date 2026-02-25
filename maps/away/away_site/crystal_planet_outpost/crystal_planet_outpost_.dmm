@@ -1260,7 +1260,7 @@
 	pixel_x = -9;
 	pixel_y = 1
 	},
-/obj/item/reagent_containers/food/snacks/clams_casino{
+/obj/item/reagent_containers/food/snacks/bowl/clams_casino{
 	pixel_x = 7;
 	pixel_y = 5
 	},

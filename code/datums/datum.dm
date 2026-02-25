@@ -7,6 +7,10 @@
 	 */
 	var/gc_destroyed
 
+	/// Open uis owned by this datum
+	/// Lazy, since this case is semi rare
+	var/list/open_uis
+
 	var/tmp/list/active_timers
 
 	/// Active timers with this datum as the target

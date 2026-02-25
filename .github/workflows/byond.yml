@@ -15,7 +15,7 @@ on:
 env:
   MACRO_COUNT: 0
   GENDER_COUNT: 6
-  TO_WORLD_COUNT: 179
+  TO_WORLD_COUNT: 176
 
   #These variables are filled from dependencies.sh inside the steps, DO NOT SET THEM HERE
   BYOND_MAJOR: ""
@@ -420,7 +420,7 @@ jobs:
 
       - name: Upload Condensed UT Log
         uses: actions/upload-artifact@v4
-        if: failure() || ${{ runner.debug }}
+        if: failure() || runner.debug
         with:
           name: condensed-${{ matrix.map }}-${{ matrix.pod }}.log
           path: ./data/logs/**/condensed.log
@@ -543,7 +543,7 @@ jobs:
 
       - name: Upload Condensed UT Log
         uses: actions/upload-artifact@v4
-        if: failure() || ${{ runner.debug }}
+        if: failure() || runner.debug
         with:
           name: condensed-${{ matrix.map }}-${{ matrix.pod }}.log
           path: ./data/logs/**/condensed.log
@@ -668,7 +668,7 @@ jobs:
 
       - name: Upload Condensed UT Log
         uses: actions/upload-artifact@v4
-        if: failure() || ${{ runner.debug }}
+        if: failure() || runner.debug
         with:
           name: condensed-${{ matrix.map }}-${{ matrix.pod }}.log
           path: ./data/logs/**/condensed.log
@@ -793,7 +793,7 @@ jobs:
 
       - name: Upload Condensed UT Log
         uses: actions/upload-artifact@v4
-        if: failure() || ${{ runner.debug }}
+        if: failure() || runner.debug
         with:
           name: condensed-${{ matrix.map }}-${{ matrix.pod }}.log
           path: ./data/logs/**/condensed.log
@@ -917,7 +917,7 @@ jobs:
 
       - name: Upload Condensed UT Log
         uses: actions/upload-artifact@v4
-        if: failure() || ${{ runner.debug }}
+        if: failure() || runner.debug
         with:
           name: condensed-${{ matrix.map }}-${{ matrix.pod }}.log
           path: ./data/logs/**/condensed.log
@@ -1040,7 +1040,7 @@ jobs:
 
       - name: Upload Condensed UT Log
         uses: actions/upload-artifact@v4
-        if: failure() || ${{ runner.debug }}
+        if: failure() || runner.debug
         with:
           name: condensed-${{ matrix.map }}-${{ matrix.pod }}.log
           path: ./data/logs/**/condensed.log

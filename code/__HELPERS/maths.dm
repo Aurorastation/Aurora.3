@@ -148,6 +148,65 @@
 	var/a = arccos(x / sqrt(x*x + y*y))
 	return y >= 0 ? a : -a
 
+// Floating Point Hyperbolic Functions
+/**
+ * Returns the Hyperbolic Sine of a given value.
+ * See: https://en.wikipedia.org/wiki/Hyperbolic_functions
+ */
+/proc/fsinh(x)
+	if (x == 0)
+		return 0
+
+	return ((NUM_E ** x) - (NUM_E ** -x)) / 2
+
+/**
+ * Returns the Hyperbolic Cosecant of a given value.
+ * Will return +INFINITY if x = 0
+ * See: https://en.wikipedia.org/wiki/Hyperbolic_functions
+ */
+/proc/fcsch(x)
+	if (x == 0)
+		return INFINITY
+
+	return 1 / fsinh(x)
+
+/**
+ * Returns the Hyperbolic Cosine of a given value.
+ * See: https://en.wikipedia.org/wiki/Hyperbolic_functions
+ */
+/proc/fcosh(x)
+	return ((NUM_E ** x) + (NUM_E ** -x)) / 2
+
+/**
+ * Returns the Hyperbolic Secant of a given value.
+ * See: https://en.wikipedia.org/wiki/Hyperbolic_functions
+ */
+/proc/fsech(x)
+	return 1 / fcosh(x)
+
+/**
+ * Returns the Hyperbolic Tangent of a given value.
+ * See: https://en.wikipedia.org/wiki/Hyperbolic_functions
+ */
+/proc/ftanh(x)
+	if (x == 0)
+		return 0
+
+	var/exTwoP = NUM_E ** (2 * x)
+	return (exTwoP - 1) / (exTwoP + 1)
+
+/**
+ * Returns the Hyperbolic Cotangent of a given value.
+ * Will return +INFINITY if x = 0
+ * See: https://en.wikipedia.org/wiki/Hyperbolic_functions
+ */
+/proc/fcoth(x)
+	if (x == 0)
+		return INFINITY
+
+	var/exTwoP = NUM_E ** (2 * x)
+	return (exTwoP + 1) / (exTwoP - 1)
+
 /// Value or the next integer in a positive direction: Ceil(-1.5) = -1 , Ceil(1.5) = 2
 #define Ceil(value) ( -round(-(value)) )
 
