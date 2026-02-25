@@ -374,8 +374,6 @@
 		return
 
 	var/datum/computer_file/program/P = null
-	if(!istype(user))
-		user = usr
 	if(hard_drive)
 		P = hard_drive.find_file_by_name(prog)
 
@@ -581,11 +579,11 @@
 	if(!registered_id)
 		return FALSE
 
+	registered_id = null
+
 	if(hard_drive)
 		for(var/datum/computer_file/program/P in hard_drive.stored_files)
 			P.event_unregistered()
-
-	registered_id = null
 
 	if(!quiet)
 		output_message(SPAN_NOTICE("\The [src] beeps: \"Successfully unregistered ID!\""))

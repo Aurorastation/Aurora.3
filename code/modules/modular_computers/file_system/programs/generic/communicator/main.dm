@@ -1,13 +1,15 @@
 // BIG TODO: Ensure that ALL new datums and items being deleted individually and while midway through an action (e.g. calling someone) gets handled properly.
 
-// {computer address: app}
+/// Associative list of NTNet addresses and their corresponding [/datum/computer_file/program/communicator].
+///
+/// Communicator apps will only be present in this list if their parent [/obj/item/modular_computer/handheld/communicator] has both a registered user,
+/// and a vaid NTNet address through its network card.
 GLOBAL_LIST_EMPTY(active_communicator_apps)
 
 /datum/computer_file/program/communicator
-	filename = "ntnrc_comm"
+	filename = "ntnet_comm"
 	filedesc = "Communicator"
 	program_icon_state = "comm"
-	//program_key_icon_state = todo // Stationary communicators
 	extended_desc = "todo"
 	//size = todo
 	requires_ntnet = TRUE
@@ -48,13 +50,65 @@ GLOBAL_LIST_EMPTY(active_communicator_apps)
 	. = ..()
 	if(!istype(comp))
 		return
-	if(computer.network_card?.identification_addr)
-		GLOB.active_communicator_apps[computer.network_card.identification_addr] = src
 
 	RegisterSignal(computer, COMSIG_MOD_COMPUTER_HW_INSTALLED, PROC_REF(on_hw_installed))
 	RegisterSignal(computer, COMSIG_MOD_COMPUTER_HW_UNINSTALLED, PROC_REF(on_hw_uninstalled))
 
 /datum/computer_file/program/communicator/Destroy()
+	clean_variables()
+	remove_from_active()
+	return ..()
+
+/datum/computer_file/program/communicator/run_program(mob/user)
+	add_to_active()
+	if(!get_computer_address())
+		computer.output_error("ERROR: Unable to locate network card.")
+		return
+	return ..()
+
+/datum/computer_file/program/communicator/kill_program(forced)
+	. = ..()
+	current_tab = initial(current_tab)
+
+/datum/computer_file/program/communicator/service_activate()
+
+
+/datum/computer_file/program/communicator/event_registered()
+	add_to_active()
+	update_static_data_for_all_viewers()
+
+/datum/computer_file/program/communicator/event_unregistered()
+	remove_from_active()
+	update_static_data_for_all_viewers()
+
+/datum/computer_file/program/communicator/event_networkfailure(background)
+	. = ..()
+	remove_from_active()
+	//todo: make this work when the program is closed too, probably through the service?
+	//todo: stop the communicator program being downloaded by PDAs and stuff
+
+/datum/computer_file/program/communicator/proc/on_hw_installed(obj/item/modular_computer/source, mob/living/user, obj/item/computer_hardware/H)
+	SIGNAL_HANDLER
+	if(computer.registered_id && istype(H, /obj/item/computer_hardware/network_card))
+		add_to_active(computer.network_card.identification_addr)
+
+/datum/computer_file/program/communicator/proc/on_hw_uninstalled(obj/item/modular_computer/source, mob/living/user, obj/item/computer_hardware/H)
+	SIGNAL_HANDLER
+	if(istype(H, /obj/item/computer_hardware/network_card))
+		var/obj/item/computer_hardware/network_card/net_card = H
+		remove_from_active(net_card.identification_addr)
+
+/datum/computer_file/program/communicator/proc/add_to_active(address = null)
+	address ||= get_computer_address()
+	if(address)
+		GLOB.active_communicator_apps[address] = src
+
+/datum/computer_file/program/communicator/proc/remove_from_active(address = null)
+	address ||= get_computer_address()
+	if(address)
+		GLOB.active_communicator_apps -= address
+
+/datum/computer_file/program/communicator/proc/clean_variables()
 	if(active_call)
 		// `active_call` gets set to null in `remove_device()`.
 		active_call.remove_device(src)
@@ -70,38 +124,12 @@ GLOBAL_LIST_EMPTY(active_communicator_apps)
 		for(var/address in comm_requests[OUTGOING_REQUESTS][category])
 			cancel_comm_request(address, category)
 
-	GLOB.active_communicator_apps -= comm_address
-	return ..()
-
-/datum/computer_file/program/communicator/run_program(mob/user)
-	if(!get_computer_address())
-		computer.output_error("ERROR: Unable to locate network card.")
-		return
-	return ..()
-
-/datum/computer_file/program/communicator/kill_program(forced)
-	. = ..()
-	current_tab = initial(current_tab)
-
-/datum/computer_file/program/communicator/event_registered()
-	update_static_data_for_all_viewers()
-
-/datum/computer_file/program/communicator/proc/on_hw_installed(obj/item/modular_computer/source, mob/living/user, obj/item/computer_hardware/H)
-	SIGNAL_HANDLER
-	if(istype(H, /obj/item/computer_hardware/network_card))
-		GLOB.active_communicator_apps[computer.network_card.identification_addr] = src
-
-/datum/computer_file/program/communicator/proc/on_hw_uninstalled(obj/item/modular_computer/source, mob/living/user, obj/item/computer_hardware/H)
-	SIGNAL_HANDLER
-	if(istype(H, /obj/item/computer_hardware/network_card))
-		var/obj/item/computer_hardware/network_card/net_card = H
-		GLOB.active_communicator_apps -= net_card.identification_addr
-
 /datum/computer_file/program/communicator/proc/get_computer_address()
 	return computer.network_card?.identification_addr
 
 /datum/computer_file/program/communicator/proc/get_user_name()
 	return custom_username || computer.registered_id?.registered_name
+
 
 /datum/computer_file/program/communicator/proc/send_comm_request(target_address, category)
 	var/source_address = get_computer_address()

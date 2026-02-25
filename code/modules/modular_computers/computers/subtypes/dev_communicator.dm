@@ -16,9 +16,7 @@
 
 /obj/item/modular_computer/handheld/communicator/Initialize()
 	. = ..()
-	usr = null // temp fix for admin spawning a communicator causing a runtime
-
-	set_autorun("ntnrc_comm")
+	set_autorun("ntnet_comm")
 
 	/*
 	Calling `enable_computer()` directly in `Initialize()` generates a dreamchecker error because
@@ -26,7 +24,7 @@
 	potentially causing the whole `Initialize()` thread to freeze.
 
 	That will never actually get called from here, but dreamchecker doesn't know that so
-	this works for now to avoid it. (The chat client program will probably get merged into this anyway.)
+	this works for now to avoid it for now.
 	*/
 	INVOKE_ASYNC(src, PROC_REF(enable_computer), null, TRUE)
 
@@ -44,7 +42,8 @@
 	if(!istype(attacking_item, /obj/item/card/id))
 		return ..()
 	if(registered_id)
-		to_chat(user, "something something already registered todo")
+		if(attacking_item != registered_id)
+			output_error("ID card rejected! This device has already been registered.")
 		return TRUE
 
 	register_account(null, attacking_item)

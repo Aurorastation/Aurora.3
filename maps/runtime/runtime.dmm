@@ -2100,7 +2100,8 @@
 /area/construction)
 "ox" = (
 /obj/item/card/id/captains_spare{
-	registered_name = "User 1"
+	registered_name = "User 1";
+	name = "User 1 identification card"
 	},
 /turf/simulated/floor/plating,
 /area/construction)
@@ -3492,7 +3493,8 @@
 /area/construction/storage)
 "PH" = (
 /obj/item/card/id/all_access{
-	registered_name = "User 3"
+	registered_name = "User 3";
+	name = "User 3 identification card"
 	},
 /turf/simulated/floor/plating,
 /area/construction)
@@ -3514,10 +3516,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_one)
-"QI" = (
-/obj/item/communicator,
-/turf/simulated/floor/plating,
-/area/construction)
 "QS" = (
 /obj/structure/cable/cyan{
 	d1 = 4;
@@ -3747,7 +3745,8 @@
 	name = "Gardener"
 	},
 /obj/item/card/id/centcom{
-	registered_name = "User 2"
+	registered_name = "User 2";
+	name = "User 2 identification card"
 	},
 /turf/simulated/floor/plating,
 /area/construction)
@@ -9634,9 +9633,9 @@ yk
 dq
 dq
 de
-QI
 de
-QI
+de
+de
 dz
 cK
 ae

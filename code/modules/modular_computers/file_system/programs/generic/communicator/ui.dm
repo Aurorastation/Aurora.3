@@ -119,8 +119,8 @@
 			computer.silent = !computer.silent
 
 		if("set_username")
-			var/new_name = params["new_name"]
-			if(new_name == "__reset" || new_name == computer.registered_id?.registered_name)
+			var/new_name = trim(params["new_name"])
+			if(!new_name || new_name == "__reset" || new_name == computer.registered_id?.registered_name)
 				custom_username = null
 			else
 				custom_username = new_name
@@ -131,12 +131,14 @@
 					friend_comm.friends[source_address] = get_user_name()
 
 		if("reset_device")
+			clean_variables()
 			computer.unregister_account()
+			friends.Cut()
 			current_tab = initial(current_tab)
-			connecting_to_address = null
-			custom_username = null
-			visible_on_network = TRUE
-			update_static_data(usr, ui)
+			connecting_to_address = initial(connecting_to_address)
+			custom_username = initial(custom_username)
+			visible_on_network = initial(visible_on_network)
+			return FALSE
 	return TRUE
 
 /datum/computer_file/program/communicator/proc/handle_ui_act_target(action, list/params, datum/tgui/ui, datum/ui_state/state)
