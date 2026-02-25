@@ -52,7 +52,7 @@ export const QuikPay = (props, context) => {
                     onClick={() => act('accountselect')}
                   />
                   <Button
-                    content="Print DSV list"
+                    content="Print DSV price list"
                     icon="print"
                     disabled={data.items.length < 1}
                     onClick={() => act('print_dsv')}

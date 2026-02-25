@@ -75,7 +75,7 @@
 
 /obj/item/quikpay/attackby(obj/item/attacking_item, mob/user)
 	if(istype(attacking_item, /obj/item/paper))
-		paper_price_list(attacking_item)
+		read_paper_list(attacking_item)
 		return
 	if (istype(attacking_item, /obj/item/spacecash/ewallet))
 		var/obj/item/spacecash/ewallet/E = attacking_item
@@ -117,63 +117,17 @@
 		receipt = ""
 		to_chat(user, SPAN_NOTICE("Transaction completed, please return to the home screen."))
 
-// Registers name and prices for the commissary from a paper. Example below
-// name,price
-// Candy,2.50
-// Snack,3.10
-// Meal,10.00
-/obj/item/quikpay/proc/paper_price_list(var/obj/item/paper/R)
+/obj/item/quikpay/proc/read_paper_list(var/obj/item/paper/R)
 	if(!editmode)
 		to_chat(usr, SPAN_WARNING("Device locked."))
 		return FALSE
+	var/result = read_paper_price_list(R)
+	for(var/item in result)
+		items += list(list("name" = item["name"], "price" = item["price"]))
+		items_to_price[item["name"]] += item["price"]
 
-	var/text = R.info
-
-	// Split on new line
-	var/list/lines = splittext(text, "<BR>")
-
-	// Skip a header line
-	for(var/i = 2; i <= lines.len; i++)
-		var/line = lines[i]
-		if(!length(line))
-			continue
-
-		// Split the name and price
-		var/list/split_input = splittext(line, ";")
-
-		if(split_input.len < 2)
-			continue
-
-		var/name = split_input[1]
-		var/price_text = split_input[2]
-
-		var/price = text2num(price_text)
-
-		// In case of invalid prices for some reason
-		if(price == 0 && price_text != "0" && price_text != "0.0")
-			continue
-
-		items += list(list("name" = name, "price" = price))
-		items_to_price[name] = price
-
-/obj/item/quikpay/proc/print_price_list()
-	if(!items || !items.len)
-		return FALSE
-
-	var/obj/item/paper/notepad/receipt/R = new(loc)
-	var/title = "Price List: [shop_name]"
-	var/text = "name;price<BR>"
-
-	for(var/list/L in items)
-		var/item_name = L["name"]
-		var/item_price = L["price"]
-		text += "[item_name];[round(item_price, 0.01)]<BR>"
-
-	R.set_content(title, text)
-
-	usr.put_in_any_hand_if_possible(R)
-	R.ripped = TRUE
-	return TRUE
+/obj/item/quikpay/proc/print_price()
+	return print_price_to_paper(shop_name, items, loc)
 
 /obj/item/quikpay/attack_self(var/mob/user)
 	ui_interact(user)
@@ -302,7 +256,7 @@
 			if(!editmode)
 				to_chat(usr, SPAN_WARNING("Device locked."))
 				return FALSE
-			print_price_list()
+			print_price()
 			. = TRUE
 
 /obj/item/quikpay/proc/clear_order()
