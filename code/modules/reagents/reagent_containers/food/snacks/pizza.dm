@@ -194,6 +194,28 @@
 	reagent_data = list(/singleton/reagent/nutriment = list("flatbread" = 5))
 	filling_color = "#BD8939"
 
+/obj/item/reagent_containers/food/snacks/sliceable/pizza/chocolate_pizza
+	name = "chocolate pizza"
+	desc = "Chocolate, nougat, candy... Absolutely zero cheese... This isn't even pizza, it's just a very flat chocolate pie that looks like a birthday party exploded over it. This will make your inner 8 year old very very happy, and your inner 40 year old very very nauseous."
+	icon = 'icons/obj/item/reagent_containers/food/pizza.dmi'
+	icon_state = "chocolate_pizza"
+	slice_path = /obj/item/reagent_containers/food/snacks/chocolate_pizza_slice
+	slices_num = 6
+	center_of_mass = list("x"=16, "y"=11)
+	filling_color = "#5f2e12"
+	reagents_to_add = list(/singleton/reagent/nutriment = 30, /singleton/reagent/sugar = 12)
+	reagent_data = list(/singleton/reagent/nutriment = list("sugarpocalypse" = 10))
+	bitesize = 2
+
+/obj/item/reagent_containers/food/snacks/chocolate_pizza_slice
+	name = "chocolate pizza slice"
+	desc = "About 9 different sugary things that are horribly bad for you and at least 3 infractions of culinary law spread colorfully on some pizza dough. This candy-coated slice of what can only charitably be referred to as pizza is sure to give you seconds of joy and days of elevated blood pressure!"
+	icon = 'icons/obj/item/reagent_containers/food/pizza.dmi'
+	icon_state = "chocolate_pizza_slice"
+	filling_color = "#5f2e12"
+	bitesize = 2
+	center_of_mass = list("x"=18, "y"=13)
+
 //Deep Dish
 
 ABSTRACT_TYPE(/obj/item/reagent_containers/food/snacks/sliceable/pizza/deepdish/)

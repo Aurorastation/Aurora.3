@@ -341,6 +341,11 @@
   - rscdel: Medical records no longer displays Allergies, Disabilities and Diseases.
       These were vestigial remnants of something removed from the game 10 years ago.
 2026-02-19:
+  CatsinHD:
+  - bugfix: Stickynotes can now interact with machinery normally, such as disposals.
+  - bugfix: Crumpled stickynotes can no longer be written on or attached to a surface.
+  - bugfix: Paper shredders now show the correct(ish) sprite when shredding a crumbled
+      stickynote.
   GeneralCamo:
   - rscadd: Changed how napalm works. Instead of directly causing turf fires, napalm
       now creates a long-term burning turf fire.
@@ -357,9 +362,88 @@
       6.
   Hellfirejag:
   - bugfix: Fixed a hard delete related to human mobs.
+  JohnWildkins:
+  - refactor: Fix TGUI chat / stat panel failing to load properly when connecting.
+  - refactor: Reduce lag by ensuring refreshing char select preview doesn't cause
+      50 trillion icon update operations (estimated).
   SimpleMaroon:
   - qol: Made various adjustments to Vaurca body markings, including standardizing
       the mecha eye palette, standardizing the mecha spine palette, removing the forced
       green eyes from the mecha mandibles, and separating the hand panels into chassis
       and lights.
   - imagedel: Removed the 'large' version of the Vaurca mecha eye body markings.
+  TheGreyWolf:
+  - bugfix: The adhomian surgeon garb now offers protection equal to a surgical gown
+      and surgery mask.
+  - bugfix: The adhomian surgeon garb can now be selected by machinists again.
+  - bugfix: Assunzioni Sera Stellata di Dalyan Wine can be ordered again.
+  - bugfix: Sandals now default to being wood colored if not otherwise given color.
+  - bugfix: Added camera film to the toy shelf storage and briefcases and canes to
+      the clothing shelf storage.
+  - bugfix: Fixed that the operations lobby was powered by the wrong grid.
+  - bugfix: Added some custom items to the merchant blacklist.
+  - bugfix: Fixed stickynote pad path in the map file.
+2026-02-21:
+  Batrachophrenoboocosmomachia:
+  - rscadd: Updates vending machine ads.
+  FabianK3:
+  - bugfix: Decoupled robot eye sprite from the internal light state.
+  - qol: Dark mode is now the new default for the UI. The light mode is still available
+      and can be switched to in the settings found in the chat panel.
+  - bugfix: Fixed airlocks closing immediataly after the manual override was used
+      during APC reboots, commonly during eletrical storms.
+  JohnWildkins:
+  - bugfix: Fix many instances of objects hard deleting, causing lag spikes.
+  TheGreyWolf:
+  - rscadd: A signal was added to bone fixing surgery, for potential future uses where
+      a bone repair surgery might not work.
+  - bugfix: Added spotlight light tubes to the autolathe.
+2026-02-22:
+  Hellfirejag:
+  - bugfix: Fixed the Set Odyssey verb not working. It can now be used anytime after
+      initialization, but before the round actually starts.
+  JohnWildkins:
+  - bugfix: Fixed devs and other non-modmin staff getting errors attempting to submit/reply
+      to ahelps.
+  MattAtlas:
+  - bugfix: Potentially fix a hard delete to do with status icons.
+  TheGreyWolf:
+  - rscadd: Native tajaran foot-wear has been renamed to kah'romra.
+  - rscadd: Changed the default taj shoes from sandals to kah'romra.
+  Tomixcomics:
+  - rscadd: Added Cytherian cuisine to the game with 4 specifically cytherian dishes
+      as well as some popcorn flavors.
+  - rscadd: Added Adhomian cheese and two new Adhomian cuisine dishes for everyone
+      who has been asking for more Tajaran foods.
+  - rscadd: Added an alternate, vegan way to make dough that doesn't require eggs.
+  - rscadd: Added cheese-less omelettes.
+  - rscadd: Added a few other miscellaneous dishes such as Poutine, Churros, and chocolate
+      pizzas.
+  - rscadd: Trays of clams casino now dispense individual clams that can be eaten
+      seperately.
+  - rscadd: Added a new kitchen bounty for some of the new desserts and added the
+      new tajaran dishes to the adhomian cuisine bounty.
+  - qol: Changed North Sixty seafood platters to include regular clams instead of
+      R'sval clams since R'sval clams are Adhomian and I suspect regular clams were
+      the intention for this dish all along.
+  - qol: Renamed the old tossed salad to 'apple salad', now that there's a newe, less
+      fruit-based tossed salad.
+  - bugfix: Made it so onion rings can be placed freely like every other food instead
+      of being locked to one spot.
+  - bugfix: Fixed description typos.
+2026-02-23:
+  Batrachophrenoboocosmomachia:
+  - refactor: Converts xenobotany's Bioballistic Delivery System interface from NanoUI
+      to TGUI.
+  - refactor: Converts xenobotany's Lysis-Isolation Centrifuge interface from NanoUI
+      to TGUI.
+  JohnWildkins:
+  - rscdel: Removed lobby messages when a gamemode fails to be selected.
+  TheGreyWolf:
+  - rscadd: 'Added stickynote pads to the following locations: Command offices, bridge,
+      rep and liaison offices, journalist office, eng, medical and operations lobby,
+      invest office and lab, galley, vacant office on D3, all three custodial closets,
+      security meeting room, HR meeting room, machinist workshop, and tool storage.'
+  - rscadd: Added stickynotes to the loadout.
+  - qol: Plastic bags can now hold more items and slightly bigger ones.
+  - qol: Made toptart packages smaller so they fit in plastic bags.

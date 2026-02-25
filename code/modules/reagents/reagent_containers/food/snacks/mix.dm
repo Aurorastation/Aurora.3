@@ -36,8 +36,8 @@
 	reagent_data = list(/singleton/reagent/nutriment = list("apples" = 3,"salad" = 5))
 	bitesize = 3
 
-/obj/item/reagent_containers/food/snacks/salad/tossedsalad
-	name = "tossed salad"
+/obj/item/reagent_containers/food/snacks/salad/applesalad
+	name = "apple salad"
 	desc = "A proper salad, basic and simple, with little bits of carrot, tomato and apple intermingled. Vegan!"
 	icon = 'icons/obj/item/reagent_containers/food/mix.dmi'
 	icon_state = "herbsalad"

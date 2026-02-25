@@ -56,6 +56,7 @@
 
 /obj/machinery/atmospherics/omni/mixer/Destroy()
 	inputs.Cut()
+	// this gets qdel'd in omni/Destroy()
 	output = null
 	return ..()
 
