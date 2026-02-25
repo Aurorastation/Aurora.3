@@ -73,3 +73,59 @@ ABSTRACT_TYPE(/datum/gear/computer/handheld/wristbound)
 	display_name = "wristbound computer (Captain)"
 	path = /obj/item/modular_computer/handheld/wristbound/preset/advanced/command/captain
 	allowed_roles = list("Captain")
+
+/datum/gear/computer/handheld/communicator
+	display_name = "communicator"
+	path = /obj/item/modular_computer/handheld/communicator
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
+
+/datum/gear/computer/handheld/communicator/New()
+	. = ..()
+	gear_tweaks += new /datum/gear_tweak/communicator_address
+
+// After spawning the communicator, register it to the player to avoid them needing to swipe their ID to activate it.
+/datum/gear/computer/handheld/communicator/spawn_item(location, metadata, mob/living/carbon/human/H)
+	var/obj/item/modular_computer/handheld/communicator/comm = ..()
+	addtimer(CALLBACK(comm, TYPE_PROC_REF(/obj/item/modular_computer/handheld/communicator, register_to_mob), H), 3 SECONDS)
+
+// Communicator NTNet address customisation
+/datum/gear_tweak/communicator_address/get_contents(metadata)
+	return "Custom Address: [metadata ? "{[metadata]}" : null]"
+
+/datum/gear_tweak/communicator_address/get_metadata(user, metadata, title, gear_path)
+	var/attempts = 0 // Just to avoid the input breaking and it getting stuck in the infinite loop.
+	while(TRUE)
+		var/address = tgui_input_text(
+			user,
+			"NTNet addresses must be formatted as 'fc00:1a2b:45cd:6e3d'. \
+			 That is, four groups of four hexadecimal characters separated by colons, and beginning with the group 'fc00'.",
+			"Custom NTNet Address",
+			metadata || "fc00:",
+			MAX_NTNET_ADDRESS_LEN)
+
+		if(!address || ++attempts == 5)
+			// User cancelled, so break out of the loop
+			return
+		if(!validate_ntnet_address(address))
+			to_chat(user, SPAN_WARNING("Invalid address! Please try again."))
+			continue
+
+		return address
+
+/datum/gear_tweak/communicator_address/tweak_item(obj/item/modular_computer/handheld/communicator/comm, metadata, mob/living/carbon/human/H)
+	if(!metadata)
+		return
+	// Someone else is using the same custom address
+	if(GLOB.active_communicator_apps[metadata])
+		to_chat(H, SPAN_DANGER("Error applying custom communicator address: Address is already in use!"))
+		return
+
+	var/obj/item/computer_hardware/network_card/network_card = comm.network_card
+	var/datum/computer_file/program/communicator/comm_app = GLOB.active_communicator_apps[network_card?.identification_addr]
+	if(!comm_app)
+		return
+
+	// slightly hacky manual reassignment
+	GLOB.active_communicator_apps -= network_card.identification_addr
+	network_card.identification_addr = metadata
+	GLOB.active_communicator_apps[metadata] = comm_app

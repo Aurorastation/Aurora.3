@@ -91,7 +91,7 @@ const NoIDScreen = () => {
       </Flex.Item>
       <Flex.Item textAlign="center" fontSize={1.5}>
         <Box>Thank you for chosing the (corp name) Communicator®.</Box>
-        <Box>Please register your identification card to continue.</Box>
+        <Box>Please swipe your identification card to continue.</Box>
       </Flex.Item>
     </Flex>
   );

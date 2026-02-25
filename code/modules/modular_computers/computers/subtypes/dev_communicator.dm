@@ -30,14 +30,9 @@
 	*/
 	INVOKE_ASYNC(src, PROC_REF(enable_computer), null, TRUE)
 
-	// Just in case the communicator spawned on someone (for example as a loadout item).
-	// This waits a couple of seconds for everything to settle then tries to register itself to the holding mob, if there is one.
-	addtimer(CALLBACK(src, PROC_REF(register_to_holder)), 2 SECONDS)
-	// todo: check that this actually works?
-
 /obj/item/modular_computer/handheld/communicator/register_account(datum/computer_file/program/PRG, obj/item/card/id/id, quiet)
 	. = ..()
-	if(.)
+	if(. && name == initial(name)) // Only rename if there isn't already a custom name set.
 		name = "[id.registered_name]'s [initial(name)]"
 
 /obj/item/modular_computer/handheld/communicator/unregister_account(quiet)
@@ -65,7 +60,6 @@
 	unread_notification = FALSE
 	update_icon()
 
-/obj/item/modular_computer/handheld/communicator/proc/register_to_holder()
-	var/mob/holder = get_holding_mob()
-	if(holder)
-		register_account(null, holder.GetIdCard(), TRUE)
+// Called by `/datum/gear/computer/handheld/communicator/spawn_item()`.
+/obj/item/modular_computer/handheld/communicator/proc/register_to_mob(mob/M)
+	register_account(null, M.GetIdCard(), TRUE)

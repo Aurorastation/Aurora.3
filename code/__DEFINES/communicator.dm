@@ -1,3 +1,5 @@
+#define MAX_NTNET_ADDRESS_LEN 19
+
 #define INCOMING_REQUESTS "incoming"
 #define OUTGOING_REQUESTS "outgoing"
 

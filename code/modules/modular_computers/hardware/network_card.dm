@@ -16,7 +16,9 @@
 	var/obj/item/integrated_signaler/signal/sradio = FALSE // integrated signaler - not present on basic model.
 	malfunction_probability = 1
 
-	var/static/list/all_card_addresses = list()
+/obj/item/computer_hardware/network_card/Initialize()
+	. = ..()
+	identification_addr = generate_ntnet_address(REF(src))
 
 /obj/item/computer_hardware/network_card/diagnostics(mob/user)
 	..()
@@ -30,33 +32,6 @@
 		to_chat(user, SPAN_NOTICE("511.n HB (Subspace) - High Bandwidth / Long Range"))
 	if(ethernet)
 		to_chat(user, SPAN_NOTICE("OpenEth (Physical Connection) - Physical Network Connection Port"))
-
-/obj/item/computer_hardware/network_card/Initialize()
-	. = ..()
-	identification_addr = make_address(REF(src))
-	all_card_addresses += identification_addr
-
-/obj/item/computer_hardware/network_card/proc/make_address(seed)
-	var/new_address = null
-	do
-		var/hash = md5(seed)
-		var/raw_address = copytext(hash, 1, 13)
-		var/prefix = "fc00" //Used for unique local address in real-life IPv6.
-		var/addr = hex_to_address(raw_address)
-
-		new_address = "[prefix]:[addr]"
-		seed = "[seed]0" //If we did get a collision, this should make the next attempt not have one.
-	while(new_address in all_card_addresses) //Collision test.
-
-	return new_address
-
-/obj/item/computer_hardware/network_card/proc/hex_to_address(hex)
-	var/regex/group_re = regex(@"\w{1,4}", "g")
-	var/list/groups = list()
-	while(group_re.Find(hex))
-		groups += group_re.match
-
-	return groups.Join(":")
 
 /obj/item/computer_hardware/network_card/signaler
 	name = "NTNet signaler network card"
@@ -134,5 +109,4 @@
 	if(parent_computer?.network_card == src)
 		parent_computer.network_card = null
 	parent_computer = null
-	all_card_addresses -= identification_addr
 	return ..()
