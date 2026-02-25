@@ -80,7 +80,7 @@ export const CommunicatorPhoneTab = (props, context) => {
       </Flex.Item>
       <Flex.Item>
         <Section className="comm-address-input">
-          <AutocompleteInput targetAddrIsValid={targetAddrIsValid} />
+          <AutocompleteInput />
           <Flex height="100%" justify="space-evenly" wrap="wrap">
             {PHONE_KEYS.map((keyChar) => (
               <Flex.Item key={keyChar}>
@@ -142,7 +142,7 @@ export const CommunicatorPhoneTab = (props, context) => {
   );
 };
 
-const AutocompleteInput = (props: { targetAddrIsValid: boolean }, context) => {
+const AutocompleteInput = (props, context) => {
   const { act, data } = useBackend<CommunicatorData>(context);
 
   const [targetAddress, setTargetAddress] = useLocalState(
@@ -151,7 +151,7 @@ const AutocompleteInput = (props: { targetAddrIsValid: boolean }, context) => {
     '',
   );
 
-  const [possibleTargetIdx, setPossibleTargetIdx] = useLocalState(
+  const [suggestedTargetIdx, setSuggestedTargetIdx] = useLocalState(
     context,
     'posTgtIdx',
     0,
@@ -164,16 +164,17 @@ const AutocompleteInput = (props: { targetAddrIsValid: boolean }, context) => {
 
   // Users whose address starts with `targetAddress`. (if any)
   const possibleTargetUsers = getMatchingUsers(targetAddress);
-  const possibleTargetAddress = possibleTargetUsers[possibleTargetIdx]?.address;
+  const suggestedTargetAddress =
+    possibleTargetUsers[suggestedTargetIdx]?.address;
 
   return (
     <Box className="input-box">
-      {targetAddress && possibleTargetAddress && (
+      {targetAddress && suggestedTargetAddress && (
         <>
           <Box className="autocomplete address" preserveWhitespace>
-            {/* `possibleTargetAddress` with `targetAddress` removed from
-                      the start of it. (fake autocomplete effect) */}
-            {possibleTargetAddress
+            {// `suggestedTargetAddress` with `targetAddress` removed from
+            //   the start of it. (fake autocomplete effect)
+            suggestedTargetAddress
               ?.replace(targetAddress, '')
               .padStart(MAX_ADDRESS_LEN, ' ')}
           </Box>
@@ -181,16 +182,16 @@ const AutocompleteInput = (props: { targetAddrIsValid: boolean }, context) => {
             class={classes([
               'autocomplete',
               'name',
-              props.targetAddrIsValid && 'valid',
+              targetAddress === suggestedTargetAddress && 'completed',
             ])}
-            // Set `targetAddress` to the autocomplete value when clicked.
+            // Set `targetAddress` to the suggested value when clicked.
             onClick={() => {
               // (Only clickable if the address hasn't already been completed)
-              !props.targetAddrIsValid &&
-                setTargetAddress(possibleTargetAddress);
+              targetAddress !== suggestedTargetAddress &&
+                setTargetAddress(suggestedTargetAddress);
             }}
           >
-            {possibleTargetUsers[possibleTargetIdx]?.username}
+            {possibleTargetUsers[suggestedTargetIdx]?.username}
           </Box>
         </>
       )}
@@ -200,27 +201,30 @@ const AutocompleteInput = (props: { targetAddrIsValid: boolean }, context) => {
         value={targetAddress}
         maxLength={MAX_ADDRESS_LEN}
         onKeyDown={(event: InfernoKeyboardEvent<HTMLInputElement>) => {
-          if (!possibleTargetAddress) return;
+          if (!suggestedTargetAddress) return;
           switch (event.key) {
             case KEY.Tab:
               // The `setTimeout` here is to bypass a bug where setting the
               // value state in `onKeyDown` doesn't update the input visually.
               // Apparently this is fixed in later React versions,
               // so test this in the future!
-              setTimeout(() => setTargetAddress(possibleTargetAddress), 0);
+              setTimeout(() => {
+                setTargetAddress(suggestedTargetAddress);
+                setSuggestedTargetIdx(0);
+              }, 0);
               break;
             // Up+Down arrow keys to switch between possible targets.
             // (Wrapping around to the other side at the limits)
             case KEY.Up:
-              setPossibleTargetIdx(
-                (possibleTargetIdx + possibleTargetUsers.length + 1) %
+              setSuggestedTargetIdx(
+                (suggestedTargetIdx + possibleTargetUsers.length + 1) %
                   possibleTargetUsers.length,
               );
               event.preventDefault();
               break;
             case KEY.Down:
-              setPossibleTargetIdx(
-                (possibleTargetIdx + possibleTargetUsers.length - 1) %
+              setSuggestedTargetIdx(
+                (suggestedTargetIdx + possibleTargetUsers.length - 1) %
                   possibleTargetUsers.length,
               );
               event.preventDefault();
@@ -238,9 +242,9 @@ const AutocompleteInput = (props: { targetAddrIsValid: boolean }, context) => {
           event.currentTarget.value = formattedValue;
 
           // If the new value has less than 2 possible matches,
-          // reset `possibleTargetIdx` to avoid it going "out of bounds".
+          // reset `suggestedTargetIdx` to avoid it going "out of bounds".
           getMatchingUsers(formattedValue).length < 2 &&
-            setPossibleTargetIdx(0);
+            setSuggestedTargetIdx(0);
         }}
         onEscape={() => {
           // This is just here to override the default Esc behaviour since

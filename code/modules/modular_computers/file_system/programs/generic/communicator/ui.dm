@@ -54,7 +54,7 @@
 	data["friendsList"] = alist("active" = active_friends, "missing" = missing_friends)
 	data["connectedCallers"] = connected_callers
 	data["callRequests"] = REQUESTS_DATA(comm_requests, CALL_REQUESTS)
-	data["videoRequests"] = REQUESTS_DATA(comm_requests, VIDEO_REQUESTS)
+	//data["videoRequests"] = REQUESTS_DATA(comm_requests, VIDEO_REQUESTS)
 	data["friendRequests"] = REQUESTS_DATA(comm_requests, FRIEND_REQUESTS)
 	data["userComm"] = COMM_DATA(src, get_computer_address(), get_user_name())
 	data["allUsers"] = all_users
@@ -81,6 +81,21 @@
 				comm.computer.output_error("[get_user_name()] hung up.")
 			active_call?.remove_device(src)
 			current_tab = initial(current_tab)
+
+		if("friend_request_manual")
+			var/address = tgui_input_text(usr, "Enter an address to send a friend request to", "Friend Request", "fc00:", MAX_NTNET_ADDRESS_LEN)
+			var/datum/computer_file/program/communicator/comm = GLOB.active_communicator_apps[address]
+			if(!address || comm == src)
+				return FALSE
+			if(!comm)
+				computer.output_error("ERROR: Unable to locate user at address {[address]}.")
+				return FALSE
+			if(address in friends)
+				computer.output_error("ERROR: You are already friends with this user!")
+				return FALSE
+
+			send_comm_request(address, FRIEND_REQUESTS)
+			computer.output_notice("Friend request sent successfully to {[address]}!")
 
 		if("remove_friend")
 			var/friend_address = params["friend_address"]

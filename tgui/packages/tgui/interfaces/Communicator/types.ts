@@ -11,7 +11,7 @@ export type CommunicatorData = {
   friendsList: FriendsList;
   connectedCallers: string[];
   callRequests: RequestsList;
-  videoRequests: RequestsList;
+  // videoRequests: RequestsList;
   friendRequests: RequestsList;
 
   userComm: ActiveUser;
@@ -23,14 +23,14 @@ type CallSettings = {
   microphoneOn: BooleanLike;
 };
 
+export type RequestsList = {
+  incoming: string[];
+  outgoing: string[];
+};
+
 type FriendsList = {
   active: ActiveUser[];
   missing: UserDetails[];
-};
-
-type RequestsList = {
-  incoming: string[];
-  outgoing: string[];
 };
 
 export interface UserDetails {

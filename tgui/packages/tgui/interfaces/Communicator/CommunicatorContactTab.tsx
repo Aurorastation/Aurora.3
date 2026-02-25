@@ -54,7 +54,20 @@ export const FriendsList = (props, context) => {
   );
 
   return (
-    <Section title="Friends" fill>
+    <Section
+      title="Friends"
+      fill
+      buttons={
+        <Button
+          icon="address-card"
+          iconPosition="right"
+          tooltip="Send a friend request manually to a known NTNet address"
+          onClick={() => act('friend_request_manual')}
+        >
+          Add Address
+        </Button>
+      }
+    >
       {(allFriends.length && (
         <LabeledList>
           {allFriends.map((friend) => (

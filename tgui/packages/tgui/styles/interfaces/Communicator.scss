@@ -134,7 +134,7 @@ $phone-button-spacing: 0.5rem;
         white-space: nowrap;
         z-index: 80;
 
-        &:hover:not(.valid) {
+        &:hover:not(.completed) {
           text-decoration: underline;
           color: lighten(#777, 10%);
         }

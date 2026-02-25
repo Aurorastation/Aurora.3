@@ -26,12 +26,12 @@ GLOBAL_LIST_EMPTY(active_communicator_apps)
 	var/alist/comm_requests = alist(
 		INCOMING_REQUESTS = alist(
 			CALL_REQUESTS = list(),
-			VIDEO_REQUESTS = list(),
+			//VIDEO_REQUESTS = list(),
 			FRIEND_REQUESTS = list(),
 		),
 		OUTGOING_REQUESTS = alist(
 			CALL_REQUESTS = list(),
-			VIDEO_REQUESTS = list(),
+			//VIDEO_REQUESTS = list(),
 			FRIEND_REQUESTS = list(),
 		)
 	)
