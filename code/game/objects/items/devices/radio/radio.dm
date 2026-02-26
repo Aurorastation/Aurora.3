@@ -301,8 +301,8 @@ var/global/list/default_interrogation_channels = list(
 		. = TRUE
 	else if (action == "spec_freq")
 		var/freq = params["freq"]
-		if(has_channel_access(usr, freq))
-			set_frequency(text2num(freq))
+		if(has_channel_access(usr, num2text(freq)))
+			set_frequency(freq)
 		. = TRUE
 	else if (action == "reset_freq")
 		if(default_frequency)
