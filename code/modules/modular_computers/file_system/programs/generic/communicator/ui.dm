@@ -54,7 +54,6 @@
 	data["friendsList"] = alist("active" = active_friends, "missing" = missing_friends)
 	data["connectedCallers"] = connected_callers
 	data["callRequests"] = REQUESTS_DATA(comm_requests, CALL_REQUESTS)
-	//data["videoRequests"] = REQUESTS_DATA(comm_requests, VIDEO_REQUESTS)
 	data["friendRequests"] = REQUESTS_DATA(comm_requests, FRIEND_REQUESTS)
 	data["userComm"] = COMM_DATA(src, get_computer_address(), get_user_name())
 	data["allUsers"] = all_users

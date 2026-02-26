@@ -6,11 +6,10 @@
 	critical = FALSE
 	icon_state = "netcard_basic"
 	hardware_size = 1
-	var/identification_addr			// Identification ID. Resembles IPv6, but with only four 'groups', e.g. XXXX:XXXX:XXXX:XXXX. Can't be changed by user.
-	// temp notes: Keep addresses from exonet but have them ONLY used for manual dialing (to bypass `visible_on_network`), plus on the UI
-	// Store user datum by ref where needed, or cleanup if deleted (signals?)
-	// (address length changed to four groups from five for ease of typing)
-	var/identification_string = ""	// Identification string, technically nickname seen in the network. Can be set by user.
+	/// Identification ID. Resembles IPv6, but with only four 'groups', e.g. XXXX:XXXX:XXXX:XXXX. Can't be changed by user.
+	var/identification_addr
+	/// Identification string, technically nickname seen in the network. Can be set by user.
+	var/identification_string = ""
 	var/long_range = FALSE
 	var/ethernet = FALSE // Hard-wired, therefore always on, ignores NTNet wireless checks.
 	var/obj/item/integrated_signaler/signal/sradio = FALSE // integrated signaler - not present on basic model.
@@ -22,7 +21,7 @@
 
 /obj/item/computer_hardware/network_card/diagnostics(mob/user)
 	..()
-	to_chat(user, SPAN_NOTICE("NIX Unique ID: [identification_addr]"))
+	to_chat(user, SPAN_NOTICE("NIX Unique Address: {[identification_addr]}"))
 	to_chat(user, SPAN_NOTICE("NIX User Tag: [identification_string]"))
 	to_chat(user, SPAN_NOTICE("Supported protocols:"))
 	to_chat(user, SPAN_NOTICE("511.m SFS (Subspace) - Standard Frequency Spread"))
@@ -71,7 +70,7 @@
 
 // Returns a string identifier of this network card
 /obj/item/computer_hardware/network_card/proc/get_network_tag()
-	return "[identification_string] (NID [identification_addr])"
+	return "[identification_string] (NID {[identification_addr]})"
 
 // 0 - No signal, 1 - Low signal, 2 - High signal. 3 - Wired Connection
 /obj/item/computer_hardware/network_card/proc/get_signal(var/specific_action = 0)

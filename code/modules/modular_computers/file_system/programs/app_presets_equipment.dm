@@ -91,5 +91,4 @@
 
 /datum/modular_computer_app_presets/communicator/New()
 	. = ..()
-	program_list += COMPUTER_APP_PRESET_SYSTEM // does it need this? only thing should be communicator app
 	program_list += /datum/computer_file/program/communicator

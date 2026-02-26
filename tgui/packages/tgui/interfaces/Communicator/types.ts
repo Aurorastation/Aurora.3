@@ -11,7 +11,6 @@ export type CommunicatorData = {
   friendsList: FriendsList;
   connectedCallers: string[];
   callRequests: RequestsList;
-  // videoRequests: RequestsList;
   friendRequests: RequestsList;
 
   userComm: ActiveUser;
