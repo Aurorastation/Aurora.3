@@ -192,7 +192,7 @@
 		playsound(get_turf(src), 'sound/effects/spray3.ogg', 30, 1, -6)
 
 /obj/item/paint_sprayer/proc/paint_floor(turf/simulated/floor/F, mob/user, params)
-	if(!F.flooring.can_paint)
+	if(!F.flooring?.can_paint)
 		to_chat(user, SPAN_WARNING("\The [src] cannot paint this type of flooring."))
 		return
 

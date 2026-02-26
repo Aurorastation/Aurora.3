@@ -58,5 +58,7 @@ changes:
   - rscadd: "Paint sprayers can now be used on unpainted crates and lockers to give them a custom appearance."
   - rscadd: "Adds paint sprayers to Hangar Tech lockers."
   - qol: "Moves pipe painter functionality to paint sprayers; pipe painters now just flavor objects on some offsites."
+  - qol: "Adds paint sprayers to allowed items list for utility toolbelts."
   - imageadd: "Codersprites pipe painter with recolorable paint storage component indicating current color (used by paint sprayer)."
   - imagedel: "Removes old paint sprayer sprite."
+  - bugfix: "Removes old runtime caused by targeting turfs w/ paint sprayers that don't have flooring singletons assigned."

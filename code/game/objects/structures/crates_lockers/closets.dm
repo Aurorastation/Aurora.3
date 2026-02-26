@@ -844,7 +844,18 @@
 	qdel(src)
 
 /obj/structure/closet/proc/paint_container(paint_color)
-	icon_state = paint_color
+	// Fucking engineering container sprites. Closets and crates handle their main sprite/door naming differently.
+	var/eng_prefix = findtext(paint_color,"eng_")
+	if(eng_prefix)
+		if(istype(src,/obj/structure/closet/crate))
+			icon_state = paint_color
+			icon_door = "eng"
+		else
+			icon_state = "eng"
+			icon_door = paint_color
+	// And back to sanity.
+	else
+		icon_state = paint_color
 	can_label = FALSE
 	update_icon()
 /*
