@@ -152,12 +152,15 @@ const CirculatorBlock = (props: {
   } = props;
 
   return (
-    <Section title={`${title} (${dir ?? '-'})`} fill>
-      <Box
-        backgroundColor={
-          isHot ? 'rgba(255, 50, 50, 0.3)' : 'rgba(50, 50, 255, 0.3)'
-        }
-      >
+    <Section
+      title={`${title} (${dir ?? '-'})`}
+      fill
+      backgroundColor={
+        isHot ? 'rgba(255, 25, 25, 0.1)' : 'rgba(25, 25, 255, 0.1)'
+      }
+      textColor={isHot ? 'rgb(255, 225, 200)' : 'rgb(200, 225, 255)'}
+    >
+      <Box>
         <LabeledList>
           <LabeledList.Item label="Turbine Output">
             {f1(output)} kWth
