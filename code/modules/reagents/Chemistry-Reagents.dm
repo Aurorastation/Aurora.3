@@ -61,6 +61,8 @@
 	var/accelerant_quality = 0
 	///Should this reagent burn a different color?
 	var/fire_color = null
+	///Should this reagent spawn napalm from a flamethrower?
+	var/obj/effect/decal/cleanable/napalm/flamethrower_effect = null
 
 /// Called when the reagent is created.
 /singleton/reagent/proc/initialize_data(var/newdata, var/datum/reagents/holder)

@@ -12,7 +12,7 @@
 
 	belt = /obj/item/storage/belt/military
 	belt_contents = list(
-						/obj/item/ammo_magazine/boltaction = 5,
+						/obj/item/ammo_magazine/a68 = 3,
 						/obj/item/grenade/smokebomb = 1,
 						/obj/item/ammo_magazine/mc9mm = 1,
 						/obj/item/gun/projectile/pistol/adhomai = 1,
@@ -152,7 +152,7 @@
 
 	backpack_contents = list(
 		/obj/item/gun/projectile/shotgun/pump/rifle/obrez = 1,
-		/obj/item/ammo_magazine/boltaction = 4,
+		/obj/item/ammo_magazine/boltaction/adhomai = 4,
 		/obj/item/gun/projectile/pistol/adhomai = 1,
 		/obj/item/material/knife/trench = 1
 	)

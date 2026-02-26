@@ -29,10 +29,6 @@
 
 	AddElement(/datum/element/connect_loc, loc_connections)
 
-/obj/item/material/shard/Destroy()
-	. = ..()
-	GC_TEMPORARY_HARDDEL
-
 /obj/item/material/shard/set_material(var/new_material)
 	..(new_material)
 	if(!istype(material))

@@ -170,6 +170,7 @@
 		"can_force" = shuttle.can_force(),
 		"can_rename_ship" = can_rename_ship,
 		"ship_name" = shuttle.name,
+		"current_location" = shuttle.get_location_name(),
 	)
 
 /obj/machinery/computer/shuttle_control/ui_act(action, params)

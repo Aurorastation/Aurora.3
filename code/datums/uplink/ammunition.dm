@@ -79,6 +79,16 @@
 	path = /obj/item/ammo_magazine/boltaction
 	desc = "Contains five rounds of 7.62mm bullets."
 
+/datum/uplink_item/item/ammo/adhomai_mag
+	name = "R33 Tamparii magazine"
+	path = /obj/item/ammo_magazine/a68
+	desc = "Contains 25 rounds of 6.8mm bullets for Adhomian rifles."
+
+/datum/uplink_item/item/ammo/adhomai_mag/boltaction
+	name = "R33 Tamparii clip"
+	path = /obj/item/ammo_magazine/boltaction/adhomai
+	desc = "Contains 5 rounds of 6.8mm bullets for Adhomian rifles."
+
 /datum/uplink_item/item/ammo/carbine_mag
 	name = "5.56 carbine magazine"
 	telecrystal_cost = 1

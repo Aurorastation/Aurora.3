@@ -36,6 +36,8 @@
 
 /obj/item/paper_bundle/attackby(obj/item/attacking_item, mob/user)
 	..()
+	if (istype(attacking_item, /obj/item/paper/stickynotes/pad))
+		return
 
 	if (istype(attacking_item, /obj/item/paper/carbon))
 		var/obj/item/paper/carbon/C = attacking_item
@@ -77,10 +79,9 @@
 	return
 
 /obj/item/paper_bundle/proc/insert_sheet_at(mob/user, var/index, obj/item/sheet)
-	if(istype(sheet, /obj/item/paper))
-		to_chat(user, SPAN_NOTICE("You add [(sheet.name == "paper") ? "the paper" : sheet.name] to [(src.name == "paper bundle") ? "the paper bundle" : src.name]."))
-	else if(istype(sheet, /obj/item/photo))
-		to_chat(user, SPAN_NOTICE("You add [(sheet.name == "photo") ? "the photo" : sheet.name] to [(src.name == "paper bundle") ? "the paper bundle" : src.name]."))
+	if(!is_type_in_list(sheet, list(/obj/item/paper, /obj/item/photo)))
+		return
+	to_chat(user, SPAN_NOTICE("You stick \the [sheet] to \the [src]."))
 
 	user.drop_from_inventory(sheet,src)
 
