@@ -46,6 +46,14 @@
 	air = new
 	air.volume = 200
 
+/datum/omni_port/Destroy(force)
+	if(node)
+		disconnect()
+		QDEL_NULL(network)
+		node = null
+	master = null
+	. = ..()
+
 /datum/omni_port/proc/connect()
 	if(node)
 		return

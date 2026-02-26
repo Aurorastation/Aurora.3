@@ -540,6 +540,7 @@
 /datum/species/proc/create_organs(var/mob/living/carbon/human/H) //Handles creation of mob organs.
 	for(var/obj/item/organ/organ in H.contents)
 		if((organ in H.organs) || (organ in H.internal_organs))
+			H.drop_from_inventory(organ, null, FALSE, TRUE)
 			qdel(organ)
 
 	if(H.organs)                  H.organs.Cut()

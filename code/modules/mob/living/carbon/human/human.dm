@@ -114,9 +114,10 @@
 
 	GLOB.human_mob_list -= src
 	GLOB.intent_listener -= src
+	// This is apparently a different list entirely from the list of organs on /mob/living/carbon.
+	// It's actually the set of all Limbs (left arm, head, leg leg, etc) we have. We Qdel and null the set of all limbs, which is unique to /human.
 	QDEL_LIST(organs)
-	internal_organs_by_name = null
-	internal_organs = null
+	// Then also null the associative list of those same limbs, which contains the same references.
 	organs_by_name = null
 	bad_internal_organs = null
 	bad_external_organs = null
@@ -1891,10 +1892,10 @@
 		playsound(src.loc, SFX_FRACTURE, 50, 1, -2)
 	current_limb.undislocate()
 
-/mob/living/carbon/human/drop_from_inventory(var/obj/item/W, var/atom/target = null)
-	if(W in organs)
+/mob/living/carbon/human/drop_from_inventory(obj/item/W, atom/target, update_icons = TRUE, force = FALSE)
+	if(!force && (W in organs))
 		return
-	..()
+	return ..()
 
 /mob/living/carbon/human/reset_view(atom/A, update_hud = 1)
 	..()
