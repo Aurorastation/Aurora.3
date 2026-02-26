@@ -21,6 +21,8 @@
 	var/volume_capacity_used = 0
 	var/stored_energy = 0
 	var/temperature_overlay
+	/// When passing its status to the main Stirling generator, this informs labeling on the TGUI.
+	var/is_hot_loop = FALSE
 
 	density = TRUE
 

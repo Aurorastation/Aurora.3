@@ -16,6 +16,7 @@ type Data = {
   maxTotalOutput: number;
   thermalOutput: number;
   circConnected: BooleanLike;
+  isHot: BooleanLike;
 
   primaryDir?: string;
   primaryOutput?: number;
@@ -24,6 +25,7 @@ type Data = {
   primaryInletTemperature?: number;
   primaryOutletPressure?: number;
   primaryOutletTemperature?: number;
+  primaryIsHot?: BooleanLike;
 
   secondaryDir?: string;
   secondaryOutput?: number;
@@ -32,6 +34,7 @@ type Data = {
   secondaryInletTemperature?: number;
   secondaryOutletPressure?: number;
   secondaryOutletTemperature?: number;
+  secondaryIsHot?: BooleanLike;
 };
 
 // Round numbers to one decimal place
@@ -52,6 +55,7 @@ export const StirlingEngine = (props, context) => {
     primaryInletTemperature,
     primaryOutletPressure,
     primaryOutletTemperature,
+    primaryIsHot,
 
     secondaryDir,
     secondaryOutput,
@@ -60,6 +64,7 @@ export const StirlingEngine = (props, context) => {
     secondaryInletTemperature,
     secondaryOutletPressure,
     secondaryOutletTemperature,
+    secondaryIsHot,
   } = data;
 
   const bothConnected = !!circConnected;
@@ -96,6 +101,7 @@ export const StirlingEngine = (props, context) => {
                 inletTemperature={primaryInletTemperature}
                 outletPressure={primaryOutletPressure}
                 outletTemperature={primaryOutletTemperature}
+                isHot={primaryIsHot}
               />
             </Stack.Item>
             <Stack.Item grow basis={0}>
@@ -108,6 +114,7 @@ export const StirlingEngine = (props, context) => {
                 inletTemperature={secondaryInletTemperature}
                 outletPressure={secondaryOutletPressure}
                 outletTemperature={secondaryOutletTemperature}
+                isHot={secondaryIsHot}
               />
             </Stack.Item>
           </Stack>
@@ -130,6 +137,7 @@ const CirculatorBlock = (props: {
   inletTemperature?: number;
   outletPressure?: number;
   outletTemperature?: number;
+  isHot?: BooleanLike;
 }) => {
   const {
     title,
@@ -140,40 +148,37 @@ const CirculatorBlock = (props: {
     inletTemperature,
     outletPressure,
     outletTemperature,
+    isHot,
   } = props;
 
   return (
     <Section title={`${title} (${dir ?? '-'})`} fill>
-      <LabeledList>
-        <LabeledList.Item label="Turbine Output">
-          {f1(output)} kWth
-        </LabeledList.Item>
-        <LabeledList.Item label="Flow Capacity">
-          {f1(flowCapacity)} %
-        </LabeledList.Item>
-      </LabeledList>
-
-      <Box mt={1} />
-
-      <LabeledList>
-        <LabeledList.Item label="Inlet Pressure">
-          {f1(inletPressure)} kPa
-        </LabeledList.Item>
-        <LabeledList.Item label="Inlet Temperature">
-          {f1(inletTemperature)} K
-        </LabeledList.Item>
-      </LabeledList>
-
-      <Box mt={1} />
-
-      <LabeledList>
-        <LabeledList.Item label="Outlet Pressure">
-          {f1(outletPressure)} kPa
-        </LabeledList.Item>
-        <LabeledList.Item label="Outlet Temperature">
-          {f1(outletTemperature)} K
-        </LabeledList.Item>
-      </LabeledList>
+      <Box
+        backgroundColor={
+          isHot ? 'rgba(255, 50, 50, 0.3)' : 'rgba(50, 50, 255, 0.3)'
+        }
+      >
+        <LabeledList>
+          <LabeledList.Item label="Turbine Output">
+            {f1(output)} kWth
+          </LabeledList.Item>
+          <LabeledList.Item label="Flow Capacity">
+            {f1(flowCapacity)} %
+          </LabeledList.Item>
+          <LabeledList.Item label="Inlet Pressure">
+            {f1(inletPressure)} kPa
+          </LabeledList.Item>
+          <LabeledList.Item label="Inlet Temperature">
+            {f1(inletTemperature)} K
+          </LabeledList.Item>
+          <LabeledList.Item label="Outlet Pressure">
+            {f1(outletPressure)} kPa
+          </LabeledList.Item>
+          <LabeledList.Item label="Outlet Temperature">
+            {f1(outletTemperature)} K
+          </LabeledList.Item>
+        </LabeledList>
+      </Box>
     </Section>
   );
 };

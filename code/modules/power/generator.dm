@@ -93,10 +93,14 @@
 				var/extreme = (lastgenlev > 9) ? "ex" : ""
 				if (circ1.last_temperature < circ2.last_temperature)
 					circ1.temperature_overlay = "circ-[extreme]cold"
+					circ1.is_hot_loop = FALSE
 					circ2.temperature_overlay = "circ-[extreme]hot"
+					circ2.is_hot_loop = TRUE
 				else
 					circ1.temperature_overlay = "circ-[extreme]hot"
+					circ1.is_hot_loop = TRUE
 					circ2.temperature_overlay = "circ-[extreme]cold"
+					circ2.is_hot_loop = FALSE
 		return TRUE
 
 /obj/machinery/power/generator/process()
@@ -222,6 +226,7 @@
 		data["primaryInletTemperature"] = circ1.air1.temperature
 		data["primaryOutletPressure"] = circ1.air2.return_pressure()
 		data["primaryOutletTemperature"] = circ1.air2.temperature
+		data["primaryIsHot"] = circ1.is_hot_loop
 
 	if(circ2)
 		// The one on the right (or bottom)
@@ -232,6 +237,7 @@
 		data["secondaryInletTemperature"] = circ2.air1.temperature
 		data["secondaryOutletPressure"] = circ2.air2.return_pressure()
 		data["secondaryOutletTemperature"] = circ2.air2.temperature
+		data["secondaryIsHot"] = circ2.is_hot_loop
 
 	data["circConnected"] = (circ1 && circ2) ? TRUE : FALSE
 
