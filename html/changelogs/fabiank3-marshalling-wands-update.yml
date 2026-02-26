@@ -1,0 +1,8 @@
+author: FabianK3
+
+delete-after: True
+
+changes:
+  - rscadd: "Updated hangar tech marshalling wands. The marshalling wands now have color based of intent giving a clearer visual distinction on the action. In addition, holding two wands in your hands will automatically sync their settings."
+  - qol: "Add the second missing marshalling wand to the tech closets."
+  - qol: "Adjusted hangar tech round start spawn locations."

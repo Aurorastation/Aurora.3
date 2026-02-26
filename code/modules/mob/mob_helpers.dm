@@ -1252,6 +1252,7 @@ GLOBAL_LIST_INIT(organ_rel_size, list(
 
 /mob/proc/set_intent(var/set_intent)
 	a_intent = set_intent
+	SEND_SIGNAL(src, COMSIG_INTENT_CHANGE, set_intent)
 
 /mob/proc/get_accent_icon(var/datum/language/speaking, var/mob/hearer, var/force_accent)
 	SHOULD_CALL_PARENT(TRUE)
