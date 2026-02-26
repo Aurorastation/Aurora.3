@@ -1,5 +1,5 @@
 /obj/machinery/power/generator
-	name = "Stirling engine"
+	name = "\improper Stirling engine"
 	desc = "It's a high efficiency Stirling engine. This model produces electricity from the temperature and differential between two gas loops."
 	icon_state = "teg-unassembled"
 	density = TRUE
