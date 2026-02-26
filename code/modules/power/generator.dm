@@ -1,6 +1,6 @@
 /obj/machinery/power/generator
-	name = "thermoelectric generator"
-	desc = "It's a high efficiency thermoelectric generator."
+	name = "Stirling engine"
+	desc = "It's a high efficiency Stirling engine. This model produces electricity from the temperature and differential between two gas loops."
 	icon_state = "teg-unassembled"
 	density = TRUE
 	anchored = FALSE
@@ -44,11 +44,13 @@
 	circ2 = null
 	return ..()
 
-//generators connect in dir and reverse_dir(dir) directions
-//mnemonic to determine circulator/generator directions: the cirulators orbit clockwise around the generator
-//so a circulator to the NORTH of the generator connects first to the EAST, then to the WEST
-//and a circulator to the WEST of the generator connects first to the NORTH, then to the SOUTH
-//note that the circulator's outlet dir is it's always facing dir, and it's inlet is always the reverse
+/**
+ * Circulators connect in dir and reverse_dir(dir) directions
+ * A mnemonic to determine circulator/generator directions: the cirulators orbit clockwise around the generator.
+ * So a circulator to the NORTH of the generator connects first to the EAST, then to the WEST,
+ * and a circulator to the WEST of the generator connects first to the NORTH, then to the SOUTH.
+ * Note that the circulator's outlet dir is it's always facing dir, and it's inlet is always the reverse
+ */
 /obj/machinery/power/generator/proc/reconnect()
 	if(circ1)
 		circ1.temperature_overlay = null
@@ -78,11 +80,11 @@
 /obj/machinery/power/generator/update_icon()
 	icon_state = anchored ? "teg-assembled" : "teg-unassembled"
 	ClearOverlays()
-	if (circ1)
+	if(circ1)
 		circ1.temperature_overlay = null
-	if (circ2)
+	if(circ2)
 		circ2.temperature_overlay = null
-	if (stat & (NOPOWER|BROKEN))
+	if(stat & (NOPOWER|BROKEN))
 		return TRUE
 	else
 		if (lastgenlev != 0)
@@ -172,6 +174,7 @@
 	if(attacking_item.tool_behaviour == TOOL_WRENCH)
 		attacking_item.play_tool_sound(get_turf(src), 75)
 		anchored = !anchored
+		balloon_alert(user, "[anchored ? "secure" : "unsecure"]")
 		user.visible_message("[user.name] [anchored ? "secures" : "unsecures"] the bolts holding [src.name] to the floor.", \
 					"You [anchored ? "secure" : "unsecure"] the bolts holding [src] to the floor.", \
 					"You hear a ratchet")
@@ -195,7 +198,7 @@
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
 		// Interface ID should match your tgui route registration/name.
-		ui = new(user, src, "ThermoElectricGenerator", "Thermoelectric Generator")
+		ui = new(user, src, "StirlingEngine", "Stirling Engine")
 		ui.open()
 
 /obj/machinery/power/generator/ui_data(mob/user)

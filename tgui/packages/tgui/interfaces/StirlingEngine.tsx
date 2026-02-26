@@ -37,7 +37,7 @@ type Data = {
 // Round numbers to one decimal place
 const f1 = (n?: number) => round(n ?? 0, 0.1);
 
-export const ThermoElectricGenerator = (_props, context) => {
+export const StirlingEngine = (props, context) => {
   const { data } = useBackend<Data>(context);
   const {
     totalOutput,
@@ -177,5 +177,3 @@ const CirculatorBlock = (props: {
     </Section>
   );
 };
-
-export default ThermoElectricGenerator;
