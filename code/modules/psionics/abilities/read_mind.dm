@@ -23,10 +23,7 @@
 	read_mind(hit_atom, user)
 
 /obj/item/spell/read_mind/proc/read_mind(atom/hit_atom, mob/user)
-	if(!isliving(hit_atom))
-		return
-
-	if(!isliving(user))
+	if(!isliving(hit_atom) || !isliving(user))
 		return
 
 	var/mob/living/target = hit_atom
@@ -48,36 +45,79 @@
 	user.visible_message(SPAN_WARNING("[user] lays a palm on [hit_atom]'s forehead..."))
 	var/question
 	if(!safe_mode)
-		question = sanitize(input(user, "Ask your question.", "Read Mind") as null|text)
+		question = tgui_input_text(user, "Ask your question.", "Read Mind", timeout = 1 MINUTE)
 	if((!safe_mode && !question) || user.incapacitated())
 		return TRUE
 
-	var/started_mindread = world.time
-	if(target.has_psi_aug())
-		to_chat(user, SPAN_NOTICE("<b>Your psyche links with [target]'s psi-receiver, seeking [safe_mode ? "their surface thoughts." : "an answer from their mind's surface: <i>[question]</i>"]</b>"))
-		to_chat(target, SPAN_NOTICE("<b>[user]'s psyche links with your psi-receiver. [safe_mode ? "What are you thinking about, currently?" : "You cannot avoid the following question, and must answer truthfully: <i>[question]</i>"]</b>"))
-	else
-		to_chat(user, SPAN_NOTICE("<b>You dip your mentality into the surface layer of \the [target]'s mind, seeking an answer: <i>[question]</i></b>"))
-		to_chat(target, SPAN_NOTICE("<b>Your mind is compelled to answer. [safe_mode ? "What are you thinking about, currently?" : "You cannot avoid the following question, and must answer truthfully: <i>[question]</i>"]</b>"))
-	var/answer =  sanitize(input(target, "[question]\n[safe_mode ? "You must answer with what you are currently thinking about." : "You must answer truthfully."]\nYou have 25 seconds to type a response.", "Read Mind") as null|text)
-	if(!answer || world.time > started_mindread + 25 SECONDS || user.stat != CONSCIOUS)
+	to_chat(user, SPAN_NOTICE(\
+		target_sensitivity >= PSI_RANK_SENSITIVE \
+			? "<b>Your consciousness mingles with [target]'s thoughts, imploring them to share an answer: <i>[question]</i></b>"\
+			: "<b>You dip your mentality into the surface layer of \the [target]'s mind, seeking an answer: <i>[question]</i></b>"))
+	to_chat(target, SPAN_NOTICE("<b>Your mind is compelled to answer.</b>" \
+		+ safe_mode \
+			/* If the target wins the psi-sensitivity check, they're prompted to say whatever they want.*/\
+			? "<b>What are you thinking about, currently?</b>" \
+			/* And if the caster wins, the target is forced to answer a specific question.*/\
+			: "<b>You cannot avoid the following question, and must answer truthfully: </b>" \
+			+ "<b><i>[question]</i></b>"))
+
+	// Attempt to get an answer from the target.
+	var/answer =  tgui_input_text(\
+		target,\
+		"[question]\n"\
+			+ safe_mode \
+				? "You must answer with what you are currently thinking about.\n" \
+				: "You must answer truthfully.\n"\
+			+ "You have one minute to type a response.", \
+		"Read Mind", \
+		timeout = 1 MINUTE)
+
+	// Exit early if the target failed to answer.
+	if(!answer || user.stat != CONSCIOUS)
 		to_chat(user, SPAN_NOTICE("<b>You receive nothing useful from \the [target].</b>"))
 		to_chat(target, SPAN_NOTICE("Your mind blanks out momentarily."))
+		return
+
+	if (target_sensitivity < 0)
+		// Negative sensitivity (of target) case. Underdeveloped Zona Bovinae return a scrambled message.
+		var/scrambled_message = stars(answer, (abs(target_sensitivity) * 25))
+		to_chat(user, SPAN_NOTICE("<b>You tease a half-formed thought from [target]'s mind: <i>[scrambled_message]</i></b>"))
+		to_chat(target, SPAN_NOTICE("<b>Your answer to [user] arrives vaguely as: <i>[scrambled_message]<i></b>"))
+	else if(safe_mode)
+		to_chat(user, SPAN_NOTICE("<b>You skim the first thoughts in [target]'s mind: <i>[answer]</i></b>"))
+		to_chat(target, SPAN_NOTICE("<b>you answer [user] with: <i>[answer]</i></b>"))
 	else
-		if (target_sensitivity < 0)
-			// Negative sensitivity (of target) case. Underdeveloped Zona Bovinae return a scrambled message.
-			var/scrambled_message = stars(answer, (abs(target_sensitivity) * 25))
-			to_chat(user, SPAN_NOTICE("<b>You tease a half-formed thought from [target]'s mind: <i>[scrambled_message]</i></b>"))
-		else if(safe_mode)
-			to_chat(user, SPAN_NOTICE("<b>You skim the first thoughts in [target]'s mind: <i>[answer]</i></b>"))
-		else
-			to_chat(user, SPAN_NOTICE("<b>You pry the answer to your question from [target]'s mind: <i>[answer]</i></b>"))
-	msg_admin_attack("[key_name(user)] read mind of [key_name(target)] [safe_mode ? "skimming their surface thoughts" : "forcing them to answer truthfully with question \"[question]\""]  and [answer?"got answer \"[answer]\".":"got no answer."]")
-	if(safe_mode)
-		target.confused += 15
-		target.adjustBrainLoss(10)
-		to_chat(target, SPAN_WARNING("You feel somewhat nauseated, and a headache's come up too..."))
-	else
-		target.adjustBrainLoss(20)
-		target.confused += 20
-		to_chat(target, SPAN_DANGER("Your head feels like it's going to explode, and you feel nauseated..."))
+		to_chat(user, SPAN_NOTICE("<b>You pry the answer to your question from [target]'s mind: <i>[answer]</i></b>"))
+		to_chat(target, SPAN_NOTICE("<b>You are compelled to answer [user] with: <i>[answer]</i></b>"))
+
+	msg_admin_attack("[key_name(user)] read mind of [key_name(target)] " \
+		+ safe_mode \
+			? "skimming their surface thoughts " \
+			: "forcing them to answer truthfully with question: \"[question]\" " \
+		+ "and " \
+		+ answer \
+			? "got answer: \"[answer]\"." \
+			: "got no answer.")
+
+	// We take the logistic curve of the psi_sensitivity in order to create a double asymptote that confines the effects without requiring truncating to 0, or setting a maximum.
+	// Maximums occur at +/- infinity. While normal values roughly around 0.5x occur very close to +/- 1.
+	// "More sensitivity" reduces negative effects of the power.
+	// "Less sensitivity" increases said negative effects.
+	// See this graph for a visual explanation of what this is doing: https://www.desmos.com/calculator/dl8zapsnsn
+	var/psi_sensitivity_ratio = (20 - (ftanh(0.5 * target_sensitivity) * 20)) * (safe_mode ? 0.5 : 1)
+
+	// Minimum of confusion time 0 seconds, maximum of 40 seconds. 20 seconds for an unaugmented human.
+	target.confused += psi_sensitivity_ratio SECONDS
+
+	// Minimum brain damage of 0, maximum of 20%. 10% for a unaugmented human.
+	target.adjustBrainLoss(psi_sensitivity_ratio)
+
+	to_chat(target, \
+		target_sensitivity >= PSI_RANK_SENSITIVE \
+			/* Case for high-sensitivity.*/\
+			? SPAN_NOTICE("Your mind reels as it resists a blast of psychic pressure.")\
+			: target_sensitivity >= 0 \
+			/* Case for standard-human psi-sensitivity.*/\
+			? SPAN_DANGER("Your head feels like it's going to explode, and you feel nauseated...")\
+			/* Case for low-sensitivity.*/\
+			: SPAN_DANGER("You black out briefly, awakening to a world that inexplicably smells like burnt toast."))

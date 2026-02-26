@@ -32,3 +32,9 @@
 	reagents = list(/singleton/reagent/enzyme = 5)
 	result = /obj/item/reagent_containers/food/snacks/pickle
 	reagent_mix = RECIPE_REAGENT_REPLACE
+
+/singleton/recipe/dough //A vegan alternative to the eggs and flour method
+	appliance = MIX
+	reagents = list(/singleton/reagent/nutriment/flour = 10, /singleton/reagent/water = 5)
+	result = /obj/item/reagent_containers/food/snacks/dough
+	reagent_mix = RECIPE_REAGENT_REPLACE

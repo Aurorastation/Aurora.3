@@ -141,7 +141,6 @@
 	icon_state = "onionrings"
 	trash = /obj/item/trash/plate
 	filling_color = "#eddd00"
-	center_of_mass = "x=16;y=11"
 	reagents_to_add = list(/singleton/reagent/nutriment = 5)
 	reagent_data = list(/singleton/reagent/nutriment = list("fried onions" = 5))
 	bitesize = 2
@@ -457,3 +456,15 @@
 	trash = /obj/item/trash/bowl_small
 	reagents_to_add = list(/singleton/reagent/nutriment = 1)
 	reagent_data = list(/singleton/reagent/nutriment = list("crunch" = 5))
+
+/obj/item/reagent_containers/food/snacks/poutine
+	name = "poutine"
+	desc = "Fries swimming in thick gravy and melty cheese. Oh, Canada! You really know what it's all aboot."
+	icon = 'icons/obj/item/reagent_containers/food/fryer.dmi'
+	icon_state = "poutine"
+	trash = /obj/item/trash/plate
+	filling_color = "#9c5e24"
+	center_of_mass = list("x"=16, "y"=11)
+	reagents_to_add = list(/singleton/reagent/nutriment = 3, /singleton/reagent/nutriment/protein/cheese = 3, /singleton/reagent/condiment/gravy = 3)
+	reagent_data = list(/singleton/reagent/nutriment = list("fresh fries" = 3))
+	bitesize = 2

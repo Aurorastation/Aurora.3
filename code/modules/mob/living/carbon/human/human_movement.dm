@@ -122,9 +122,9 @@
 /mob/living/carbon/human/set_dir(var/new_dir, ignore_facing_dir = FALSE)
 	. = ..()
 	if(. && tail_style)
-		update_tail_showing(1)
+		update_tail_showing(!lying)
 	if(lying)
-		update_icon(forceDirUpdate = TRUE)
+		update_icon(TRUE)
 
 /mob/living/carbon/human/Move()
 	. = ..()

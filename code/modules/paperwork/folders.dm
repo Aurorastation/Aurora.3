@@ -76,15 +76,13 @@
 		if(href_list["remove"])
 			var/obj/item/P = locate(href_list["remove"])
 			if(P && (P.loc == src) && istype(P))
-				P.forceMove(usr.loc)
-				usr.put_in_hands(P)
-				handle_post_remove()
+				handle_remove(P, astype(usr, /mob))
 		else if(href_list["write"])
 			var/obj/item/paper/paper = locate(href_list["write"])
 			if(!istype(paper) || paper.loc != src)
 				return
 			var/obj/item/pen = usr.get_inactive_hand()
-			if(!pen || !pen.tool_behaviour == TOOL_PEN)
+			if(!pen || pen.tool_behaviour != TOOL_PEN)
 				pen = usr.get_active_hand()
 			if(pen?.tool_behaviour == TOOL_PEN)
 				paper.attackby(pen, usr)
@@ -127,6 +125,10 @@
 		return TRUE
 	return FALSE
 
+/obj/item/folder/proc/handle_remove(obj/item/P, mob/user)
+	user?.put_in_hands(P)
+	handle_post_remove()
+
 /obj/item/folder/proc/handle_post_remove()
 	return
 
@@ -148,6 +150,13 @@
 	if(loc.loc.Adjacent(A))
 		return TRUE
 	return FALSE
+
+/obj/item/folder/embedded/handle_remove(obj/item/paper/P, mob/user)
+	. = ..()
+	if(istype(P, /obj/item/paper/notepad))
+		P.ripped = TRUE
+		playsound(src.loc, 'sound/items/poster_ripped.ogg', 25, 1)
+		P.update_icon()
 
 /obj/item/folder/embedded/handle_post_remove()
 	if(!length(contents))

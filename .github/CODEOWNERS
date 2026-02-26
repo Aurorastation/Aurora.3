@@ -6,7 +6,7 @@
 # If you are added, then you are expected to review PRs in a timely manner.
 
 
-# This code requires the host/head dev to know of changes, therefore it's places in
+# This code requires the host/head dev to know of changes, therefore it's placed in
 # this dedicated section
 /code/__defines/master_controller.dm @Arrow768 @NonQueueingMatt
 /code/controllers/master @Arrow768 @NonQueueingMatt
@@ -18,31 +18,38 @@
 /code/datums/discord/ @Arrow768 @NonQueueingMatt
 /code/modules/udp/ @Arrow768 @NonQueueingMatt
 /code/defines/procs/dbcore.dm @Arrow768 @NonQueueingMatt
-/SQL/ @Arrow768 @NonQueueingMatt
 /code/modules/http/ @Arrow768 @NonQueueingMatt
 /code/datums/api.dm @Arrow768 @NonQueueingMatt
 
-# Custom items, Matt
-/code/modules/customitems/item_defines.dm @NonQueueingMatt
+# SQL, heads + fabian
+/SQL/ @Arrow768 @NonQueueingMatt @FabianK3
 
-# Mapping, inform dreamy
-/maps/ @DreamySkrell
+# Custom items, cybs
+/code/modules/customitems/item_defines.dm @CyberSpyXD
 
-# Overmap, away sites and organs (brainmed), matt's expertise
+# Mapping, inform matt (for now)
+/maps/ @NonQueueingMatt
+
+# Away sites and exoplanets, let wildkins know
+/maps/away/ @JohnWildkins @NonQueueingMatt
+/maps/random_ruins/exoplanets/ @JohnWildkins @NonQueueingMatt
+
+# Overmap, matt's expertise
 /code/__defines/overmap.dm @NonQueueingMatt
 /code/_helpers/overmap.dm @NonQueueingMatt
 /code/modules/overmap/ @NonQueueingMatt
-/maps/away/ @NonQueueingMatt @DreamySkrell
 
+# Brainmed, matt's area
 /code/__defines/organs.dm @NonQueueingMatt
 /code/modules/organs/ @NonQueueingMatt
 
-# UIs. Wildkins or Matt.
-/tgui/ @JohnWildkins
-code/__defines/tgui.dm @JohnWildkins
-code/modules/tgui @JohnWildkins
+# UIs. Wildkins and Bat's area
+/tgui/ @JohnWildkins @Batrachophreno
+/code/__defines/tgui.dm @JohnWildkins @Batrachophreno
+/code/modules/tgui @JohnWildkins @Batrachophreno
+/nano/templates/ @JohnWildkins @Batrachophreno
 
-# Tools, often binary in nature, let arrow and alb know
+# Tools, often binary in nature, let heads know
 /tools/ @Arrow768 @NonQueueingMatt
 
 # Pipeline/CI stuffs, arrow
@@ -52,13 +59,9 @@ code/modules/tgui @JohnWildkins
 /.drone.yml @Arrow768
 /flyway.conf @Arrow768
 
-# ZAS, the dreaded and esoteric atmos system, since Matt is the last to have touched it and
-# all others I can find are long gone...
+# ZAS, the dreaded and esoteric atmos system. Notify matt
 /code/__defines/ZAS.dm @NonQueueingMatt
 /code/ZAS/ @NonQueueingMatt
-
-# Matt is also the implementer/porter of the observable design pattern
-/code/datums/observation/ @NonQueueingMatt
 
 # Spatial gridmap, Wildkins
 /code/__defines/spatial_gridmap.dm @JohnWildkins
@@ -69,17 +72,34 @@ code/modules/tgui @JohnWildkins
 /code/game/machinery/telecomms/ @JohnWildkins
 /code/game/objects/items/devices/radio/ @JohnWildkins
 
-# Sprites, wezzy
-/icons/ @alsoandanswer
+# Components and signals, let TCJ know.
+/code/__DEFINES/dcs/ @VMSolidus
+/code/datums/components/ @VMSolidus
+/code/datums/elements/ @VMSolidus
+
+# Planes, layers, lighting, and rendering. Let Matt and Camo know
+/code/__DEFINES/layers.dm @NonQueueingMatt @GeneralCamo
+/code/__HELPERS/emissives.dm @NonQueueingMatt @GeneralCamo
+/code/datums/components/overlay_lighting.dm @NonQueueingMatt @GeneralCamo
+/code/datums/elements/light_blocking.dm @NonQueueingMatt @GeneralCamo
+/code/modules/lighting/ @NonQueueingMatt @GeneralCamo
+/code/modules/rendering/ @NonQueueingMatt @GeneralCamo
+
+# Modular computers, wildkins
+/code/modules/modular_computers/ @JohnWildkins
+
+# Persistence, Fabian's area
+**/persistence @Arrow768 @NonQueueingMatt @FabianK3
+/code/__DEFINES/persistence.dm @Arrow768 @NonQueueingMatt @FabianK3
+/code/__HELPERS/logging/subsystems/persistence.dm @Arrow768 @NonQueueingMatt @FabianK3
+/code/controllers/subsystems/persistence.dm @Arrow768 @NonQueueingMatt @FabianK3
+
+# Sprites, sammy
+/icons/ @nauticall
 
 # Whatever else
 /code/controllers/subsystems/cargo.dm @Arrow768
 /code/datums/cargo.dm @Arrow768
 /code/modules/client/preference_setup/ @Arrow768
 /code/modules/item_worth/ @Arrow768
-/code/modules/modular_computers/ @Arrow768
 /code/modules/telesci/ @Arrow768
-/code/modules/cargo/ @Arrow768
-/nano/templates/ @Arrow768
-
-

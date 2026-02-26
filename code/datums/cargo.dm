@@ -272,10 +272,10 @@
 	order_data += "<u>Order Fees:</u><br>"
 	order_data += "<ul>"
 	for(var/item in get_item_list())
-		order_data += "<li>[item["name"]]: [item["price"]]</li>"
-	order_data += "<li>Crate Fee: [SScargo.get_cratefee()]</li>"
-	order_data += "<li>Handling Fee: [SScargo.get_handlingfee()]</li>"
-	order_data += "<li>Supplier Fee: [get_shipment_cost()]</li>"
+		order_data += "<li>[item["name"]]: [item["price"]]电</li>"
+	order_data += "<li>Crate Fee: [SScargo.get_cratefee()]电</li>"
+	order_data += "<li>Handling Fee: [SScargo.get_handlingfee()]电</li>"
+	order_data += "<li>Supplier Fee: [get_shipment_cost()]电</li>"
 	order_data += "</ul>"
 
 	return order_data.Join("")

@@ -2087,6 +2087,38 @@ All custom items with worn sprites must follow the contained sprite system: http
 		else
 			collapse()
 
+/obj/item/organ/internal/augment/fluff/kath_legbrace/Initialize()
+	. = ..()
+	if(!owner)
+		return
+	RegisterSignal(owner, COMSIG_BEGIN_SURGERY, PROC_REF(negate_healing), override = TRUE)
+	var/obj/item/organ/external/parent = owner.get_organ(parent_organ)
+	parent.fracture(TRUE)
+
+/obj/item/organ/internal/augment/fluff/kath_legbrace/replaced()
+	. = ..()
+	if(!owner)
+		return
+	RegisterSignal(owner, COMSIG_BEGIN_SURGERY, PROC_REF(negate_healing), override = TRUE)
+	var/obj/item/organ/external/parent = owner.get_organ(parent_organ)
+	parent.fracture(TRUE)
+
+/obj/item/organ/internal/augment/fluff/kath_legbrace/removed()
+	if(!owner)
+		return ..()
+	UnregisterSignal(owner, COMSIG_BEGIN_SURGERY)
+	return ..()
+
+/obj/item/organ/internal/augment/fluff/kath_legbrace/proc/negate_healing(var/owner, var/canceled, var/obj/item/organ/external/affected, var/mob/living/user, var/singleton/surgery_step/surgery)
+	SIGNAL_HANDLER
+	if(!istype(surgery, /singleton/surgery_step/glue_bone) && !istype(surgery, /singleton/surgery_step/set_bone))
+		return
+	if(affected.limb_name != parent_organ)
+		return
+	*canceled = TRUE
+	user.visible_message(SPAN_WARNING("[user] seems to be unable to set the bone in [owner]'s [affected.name]."), \
+		SPAN_WARNING("The bone in [owner]'s [affected.name] appears to be impossible to set correctly!"))
+
 /obj/item/organ/internal/augment/fluff/kath_legbrace/proc/collapse(var/prob_chance = 20, var/weaken_strength = 2, var/pain_strength = 40)
 	if(prob(prob_chance))
 		var/obj/item/organ/external/E = owner.organs_by_name[parent_organ]
@@ -2124,13 +2156,13 @@ All custom items with worn sprites must follow the contained sprite system: http
 
 /obj/item/clothing/accessory/poncho/tajarancloak/fluff/kathira_cloak/update_icon(var/hooded = FALSE)
 	var/obj/item/clothing/accessory/poncho/tajarancloak/fluff/kathira_cloak/K = get_accessory(/obj/item/clothing/accessory/poncho/tajarancloak/fluff/kathira_cloak)
-	K.icon_state = "[K.changed ? K.style : initial(K.icon_state)]"
 	SEND_SIGNAL(K, COMSIG_ITEM_STATE_CHECK, args)
+	. = ..()
+	K.icon_state = "[K.changed ? K.style : initial(K.icon_state)]"
 	K.item_state = "[K.icon_state][hooded ? "_up" : ""]"
 	K.name = "[K.changed ? K.name2 : initial(K.name)]"
 	K.desc = "[K.changed ? K.desc2 : initial(K.desc)]"
 	K.accessory_mob_overlay = null
-	. = ..()
 	SEND_SIGNAL(K, COMSIG_ITEM_ICON_UPDATE)
 	if(usr)
 		usr.update_inv_w_uniform()

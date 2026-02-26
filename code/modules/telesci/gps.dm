@@ -6,6 +6,7 @@ GLOBAL_LIST_EMPTY(gps_list)
 	icon = 'icons/obj/item/gps.dmi'
 	icon_state = "gps-com"
 	item_state = "radio"
+	contained_sprite = TRUE
 	w_class = WEIGHT_CLASS_SMALL
 	slot_flags = SLOT_BELT
 	origin_tech = list(TECH_DATA = 2, TECH_ENGINEERING = 2)

@@ -18,12 +18,20 @@
 	..()
 	src.program = program
 
+/datum/nano_module/program/Destroy()
+	program = null
+	return ..()
+
 /datum/topic_manager/program
 	var/datum/program
 
 /datum/topic_manager/program/New(var/datum/program)
 	..()
 	src.program = program
+
+/datum/topic_manager/program/Destroy()
+	program = null
+	return ..()
 
 // Calls forwarded to PROGRAM itself should begin with "PRG_"
 // Calls forwarded to COMPUTER running the program should begin with "PC_"

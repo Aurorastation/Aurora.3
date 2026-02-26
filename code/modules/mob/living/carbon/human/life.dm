@@ -1134,6 +1134,7 @@
 				if(!has_drunk_status)
 					add_status_to_hud(DRUNK_STRING, SPAN_GOOD("You are drunk. Your words are slurred, and your movements are uncoordinated."))
 			else if(has_drunk_status)
+				client.screen -= status_overlays[DRUNK_STRING]
 				qdel(status_overlays[DRUNK_STRING])
 				status_overlays -= DRUNK_STRING
 
@@ -1147,6 +1148,7 @@
 				if(!has_bleeding_status)
 					add_status_to_hud(BLEEDING_STRING, SPAN_HIGHDANGER("Blood gushes from one of your bodyparts, inspect yourself and seal the wound."))
 			else if(has_bleeding_status)
+				client.screen -= status_overlays[BLEEDING_STRING]
 				qdel(status_overlays[BLEEDING_STRING])
 				status_overlays -= BLEEDING_STRING
 
@@ -1155,6 +1157,7 @@
 				if(!has_posing_status)
 					add_status_to_hud(POSING_STRING, SPAN_NOTICE("You are posing. Your current pose is \"[pose]\""))
 			else if(has_posing_status)
+				client.screen -= status_overlays[POSING_STRING]
 				qdel(status_overlays[POSING_STRING])
 				status_overlays -= POSING_STRING
 

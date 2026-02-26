@@ -540,6 +540,7 @@
 /datum/species/proc/create_organs(var/mob/living/carbon/human/H) //Handles creation of mob organs.
 	for(var/obj/item/organ/organ in H.contents)
 		if((organ in H.organs) || (organ in H.internal_organs))
+			H.drop_from_inventory(organ, null, FALSE, TRUE)
 			qdel(organ)
 
 	if(H.organs)                  H.organs.Cut()
@@ -995,7 +996,9 @@
 /datum/species/proc/handle_stance_damage(var/mob/living/carbon/human/H, var/damage_only = FALSE)
 	var/static/support_limbs = list(
 		BP_L_LEG = BP_R_LEG,
-		BP_L_FOOT = BP_R_FOOT
+		BP_L_FOOT = BP_R_FOOT,
+		BP_R_LEG = BP_L_LEG,
+		BP_R_FOOT = BP_L_FOOT
 	)
 
 	var/has_opposite_limb = FALSE

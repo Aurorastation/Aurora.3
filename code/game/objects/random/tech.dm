@@ -15,8 +15,8 @@
 /obj/random/technology_scanner
 	name = "random scanner"
 	desc = "This is a random technology scanner."
-	icon = 'icons/obj/item/air_analyzer.dmi'
-	icon_state = "analyzer"
+	icon = 'icons/obj/item/scanner.dmi'
+	icon_state = "airanalyzer"
 	problist = list(
 		/obj/item/t_scanner = 5,
 		/obj/item/radio = 2,

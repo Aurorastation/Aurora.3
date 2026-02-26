@@ -35,6 +35,8 @@ GLOBAL_DATUM_INIT(sound_player, /singleton/sound_player, new)
 
 	return PlaySoundDatum(source, sound_id, S, range, prefer_mute, sound_type)
 
+/// The 'repeat = FALSE' here seems to cause scattered sound cutoff issues due to any /sounds created reverting to the default channel zero. Refer to https://github.com/Aurorastation/Aurora.3/pull/21845.
+/// This suggests that further work needs to be done with managing channels when a sound gets assigned default channel 0.
 /singleton/sound_player/proc/PlayNonloopingSound(atom/source, sound_id, sound, volume, range, falloff = 1, echo, frequency, prefer_mute, sound_type = ASFX_AMBIENCE)
 	var/sound/S = istype(sound, /sound) ? sound : new(sound)
 	S.environment = 0 // Ensures a 3D effect even if x/y offset happens to be 0 the first time it's played

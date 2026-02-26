@@ -108,7 +108,7 @@
 	item_state = "plasticbag"
 	storage_slots = null
 	w_class = WEIGHT_CLASS_BULKY
-	max_w_class = WEIGHT_CLASS_SMALL
+	storage_slots = DEFAULT_LARGEBOX_STORAGE
 	can_hold = null // any
 	cant_hold = list(/obj/item/disk/nuclear)
 	drop_sound = 'sound/items/drop/wrapper.ogg'

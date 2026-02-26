@@ -192,6 +192,12 @@
 	AddOverlays(eye_overlay)
 	set_light(MINIMUM_USEFUL_LIGHT_RANGE, 2, LIGHT_COLOR_TUNGSTEN)
 
+/mob/living/simple_animal/hostile/carp/shark/reaver/eel/Destroy()
+	ClearOverlays()
+	QDEL_NULL(eye_overlay)
+	set_light(0)
+	return ..()
+
 /mob/living/simple_animal/hostile/carp/shark/reaver/eel/death()
 	. = ..()
 	ClearOverlays()
@@ -223,11 +229,13 @@
 	change_stance(HOSTILE_STANCE_TIRED)
 	stop_automated_movement = 1
 	wander = 0
-	if(!has_exploded)
-		icon_state = "bloater_bloating"
-		icon_living = "bloater_bloating"
-		has_exploded = TRUE
-		addtimer(CALLBACK(src, PROC_REF(explode)), 5)
+	if(has_exploded)
+		return
+
+	icon_state = "bloater_bloating"
+	icon_living = "bloater_bloating"
+	has_exploded = TRUE
+	addtimer(CALLBACK(src, PROC_REF(explode)), 5, TIMER_STOPPABLE|TIMER_DELETE_ME)
 
 /mob/living/simple_animal/hostile/carp/bloater/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
 	. = ..()

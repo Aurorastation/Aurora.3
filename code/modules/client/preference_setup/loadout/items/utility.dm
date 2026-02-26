@@ -55,6 +55,12 @@
 	path = /obj/item/journal/notepad/filled
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
+/datum/gear/utility/stickynote
+	display_name = "sticky note pad"
+	description = "A pad full of sticky notes, to stick notes to places with."
+	path = /obj/item/paper/stickynotes/pad
+	flags = GEAR_HAS_COLOR_SELECTION
+
 /datum/gear/utility/fountainpen
 	display_name = "fountain pen selection"
 	description = "A selection of fountain pens."
@@ -209,5 +215,6 @@
 	music_cartridges["Spacer Classics Vol. 1"] = /obj/item/music_cartridge/ss13
 	music_cartridges["Indulgence EP (X-Rock)"] = /obj/item/music_cartridge/xanu_rock
 	music_cartridges["Electro-Swing of Adhomai"] = /obj/item/music_cartridge/adhomai_swing
+	music_cartridges["Adhomai Vibes"] = /obj/item/music_cartridge/adhomai_vibes
 	music_cartridges["Europa: Best of the 50s"] = /obj/item/music_cartridge/europa_various
 	gear_tweaks += new /datum/gear_tweak/path(music_cartridges)
