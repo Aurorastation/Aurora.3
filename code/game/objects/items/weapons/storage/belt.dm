@@ -123,7 +123,7 @@
 		/obj/item/cratescanner,
 		/obj/item/destTagger,
 		/obj/item/quikpay,
-		/obj/item/pant_sprayer
+		/obj/item/paint_sprayer
 	)
 	content_overlays = TRUE
 
