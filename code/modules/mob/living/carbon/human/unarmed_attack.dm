@@ -78,7 +78,7 @@ GLOBAL_LIST_EMPTY(sparring_attack_cache)
 
 				target.apply_effect(attack_damage*2, EYE_BLUR, armor)
 			if(BP_L_ARM, BP_L_HAND, BP_R_ARM, BP_R_HAND)
-				var/obj/item/organ/external/limb = target.species.get_limb_from_zone()
+				var/obj/item/organ/external/limb = target.species.get_limb_from_zone(zone)
 				var/datum/inventory_slot/inv_slot = target.held_item_slots[limb.limb_name]
 				if(inv_slot?.holding)
 					// Disarm left hand
