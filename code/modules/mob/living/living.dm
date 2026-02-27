@@ -823,7 +823,9 @@ default behaviour is:
 	QDEL_NULL(aiming)
 	QDEL_LIST(aimed_at_by)
 
-	QDEL_LIST(held_item_slots)
+	for(var/slot in held_item_slots)
+		qdel(held_item_slots[slot])
+	held_item_slots = null
 
 	//Psi complexus
 	QDEL_NULL(psi)
