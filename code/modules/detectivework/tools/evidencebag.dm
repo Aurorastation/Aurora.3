@@ -25,7 +25,7 @@
 	if(!istype(human_user) || !istype(I))
 		return
 
-	if (!(human_user.l_hand == src || human_user.r_hand == src))
+	if (!human_user.is_holding(src))
 		return //bag must be in your hands to use
 
 	if (isturf(I.loc))

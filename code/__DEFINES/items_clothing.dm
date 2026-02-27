@@ -117,24 +117,40 @@ GLOBAL_LIST_INIT(all_inventory_slots, list(
 #define WORN_ACCESS	"_ac"
 
 // Bitflags for clothing parts.
-#define HEAD        0x1
-#define FACE        0x2
-#define EYES        0x4
-#define UPPER_TORSO 0x8
-#define LOWER_TORSO 0x10
-#define LEG_LEFT    0x20
-#define LEG_RIGHT   0x40
-#define LEGS        0x60   //  LEG_LEFT | LEG_RIGHT
-#define FOOT_LEFT   0x80
-#define FOOT_RIGHT  0x100
-#define FEET        0x180  // FOOT_LEFT | FOOT_RIGHT
-#define ARM_LEFT    0x200
-#define ARM_RIGHT   0x400
-#define ARMS        0x600 //  ARM_LEFT | ARM_RIGHT
-#define HAND_LEFT   0x800
-#define HAND_RIGHT  0x1000
-#define HANDS       0x1800 // HAND_LEFT | HAND_RIGHT
-#define FULL_BODY   0xFFFF
+#define HEAD        BITFLAG(0)
+#define FACE        BITFLAG(1)
+#define EYES        BITFLAG(2)
+#define UPPER_TORSO BITFLAG(3)
+#define LOWER_TORSO BITFLAG(4)
+#define LEG_LEFT    BITFLAG(5)
+#define LEG_RIGHT   BITFLAG(6)
+#define LEGS        (LEG_LEFT | LEG_RIGHT)
+#define FOOT_LEFT   BITFLAG(7)
+#define FOOT_RIGHT  BITFLAG(8)
+#define FEET        (FOOT_LEFT | FOOT_RIGHT)
+#define ARM_LEFT    BITFLAG(9)
+#define ARM_RIGHT   BITFLAG(10)
+#define ARMS        (ARM_LEFT | ARM_RIGHT)
+#define HAND_LEFT   BITFLAG(11)
+#define HAND_RIGHT  BITFLAG(12)
+#define HANDS       (HAND_LEFT | HAND_RIGHT)
+#define FULL_BODY   (HEAD | FACE | EYES | UPPER_TORSO | LOWER_TORSO | LEGS | FEET | ARMS | HANDS)
+
+GLOBAL_LIST_INIT(bp_to_coverage, list(
+	BP_HEAD = HEAD,
+	BP_EYES = EYES,
+	BP_MOUTH = FACE,
+	BP_CHEST = UPPER_TORSO,
+	BP_GROIN = LOWER_TORSO,
+	BP_L_ARM = ARM_LEFT,
+	BP_R_ARM = ARM_RIGHT,
+	BP_L_HAND = HAND_LEFT,
+	BP_R_HAND = HAND_RIGHT,
+	BP_L_LEG = LEG_LEFT,
+	BP_R_LEG = LEG_RIGHT,
+	BP_L_FOOT = FOOT_LEFT,
+	BP_R_FOOT = FOOT_RIGHT
+))
 
 // Bitflags for the percentual amount of protection a piece of clothing which covers the body part offers.
 // Used with human/proc/get_heat_protection() and human/proc/get_cold_protection().

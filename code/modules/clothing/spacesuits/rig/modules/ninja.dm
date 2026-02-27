@@ -360,7 +360,7 @@
 
 	var/mob/living/M = holder.wearer
 
-	if(M.l_hand && M.r_hand)
+	if(!M.get_empty_hand_slot())
 		if(M == user)
 			to_chat(M, SPAN_WARNING("Your hands are full."))
 		else

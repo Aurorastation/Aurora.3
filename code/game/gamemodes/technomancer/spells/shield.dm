@@ -37,12 +37,12 @@
 	if(issmall(user)) // Smaller shields are more efficient.
 		damage_to_energy_cost *= 0.75
 
-	if(ishuman(owner))
-		var/mob/living/carbon/human/H = owner
-		if(istype(H.get_other_hand(src), src.type)) // Two shields in both hands.
-			damage_to_energy_cost *= 0.75
+	for(var/obj/item/spell/shield/S in user.get_held_items())
+		if(src == S)
+			continue
+		damage_to_energy_cost *= 0.75
 
-	else if(check_for_scepter())
+	if(check_for_scepter())
 		damage_to_energy_cost *= 0.50
 
 	if(!pay_energy(damage_to_energy_cost))

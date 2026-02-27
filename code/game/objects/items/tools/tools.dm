@@ -395,13 +395,8 @@
 			setWelding(0)
 
 	// If we're running process(), we're currently running. Hotspot on the current tile.
-	var/turf/location = src.loc
-	if(istype(location, /mob/))
-		var/mob/M = location
-		if(M.l_hand == src || M.r_hand == src)
-			location = get_turf(M)
-	if (istype(location, /turf))
-		location.hotspot_expose(700, 5)
+	var/turf/location = get_turf(src)
+	location?.hotspot_expose(700, 5)
 
 /obj/item/weldingtool/attack(mob/living/target_mob, mob/living/user, target_zone)
 	if(ishuman(target_mob))

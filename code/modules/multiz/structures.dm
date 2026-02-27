@@ -78,9 +78,10 @@
 	if(!target_ladder)
 		return
 
-	var/obj/item/grab/G = M.l_hand
-	if (!istype(G))
-		G = M.r_hand
+	var/obj/item/grab/G
+	for(var/obj/item/grab/I as anything in M.get_active_grabs())
+		G = I
+		break
 
 	var/turf/T = get_turf(src)
 	if(M.loc != T && !M.Move(T))

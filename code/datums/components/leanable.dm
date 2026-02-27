@@ -56,7 +56,7 @@
 	if (HAS_TRAIT_FROM(leaner, TRAIT_UNDENSE, TRAIT_LEANING))
 		return
 
-	if(istype(leaner.l_hand, /obj/item/grab) || istype(leaner.r_hand, /obj/item/grab))
+	if(length(leaner.get_active_grabs()) > 0)
 		can_lean = FALSE
 	if(leaner.incapacitated())
 		can_lean = FALSE

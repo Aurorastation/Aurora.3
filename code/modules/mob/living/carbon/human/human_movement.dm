@@ -96,13 +96,12 @@
 	if(!..())
 		return 0
 
-	//Check hands and mod slip
-	if(!l_hand)	prob_slip -= 2
-	else if(l_hand.w_class <= 2)	prob_slip -= 1
-	if (!r_hand)	prob_slip -= 2
-	else if(r_hand.w_class <= 2)	prob_slip -= 1
+	prob_slip -= length(get_empty_hand_slots()) * 2
+	for(var/obj/held in get_held_items())
+		if(held.w_class <= WEIGHT_CLASS_SMALL)
+			prob_slip -= 1
 
-	return prob_slip
+	return max(prob_slip, 0)
 
 /mob/living/carbon/human/Check_Shoegrip(checkSpecies = TRUE)
 	if(shoes && (shoes.item_flags & ITEM_FLAG_NO_SLIP) && istype(shoes, /obj/item/clothing/shoes/magboots) && !lying && !buckled_to && !length(grabbed_by))  //magboots + dense_object = no floating. Doesn't work if lying. Grabbedby and buckled_to are for mob carrying, wheelchairs, roller beds, etc.
@@ -159,7 +158,7 @@
 	if(!can_feel_pain())
 		return
 	var/crutches = 0
-	for (var/obj/item/cane/C as anything in get_type_in_hands(/obj/item/cane))
+	for (var/obj/item/cane/C as anything in is_holding_type(/obj/item/cane))
 		if(istype(C) && (C?.can_support))
 			crutches++
 	for(var/organ_name in list(BP_L_LEG, BP_R_LEG, BP_L_FOOT, BP_R_FOOT))

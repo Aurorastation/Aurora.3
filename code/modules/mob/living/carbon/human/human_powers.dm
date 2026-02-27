@@ -250,7 +250,7 @@
 	if((lhand.is_stump()) && (rhand.is_stump()))
 		to_chat(src,SPAN_WARNING("You can't communicate without functioning hands!"))
 		return
-	if(src.r_hand != null && src.l_hand != null)
+	if(!get_empty_hand_slot())
 		to_chat(src,SPAN_WARNING("You can't communicate while your hands are full!"))
 		return
 	if(stat || paralysis || stunned || weakened ||  restrained())

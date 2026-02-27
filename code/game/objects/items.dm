@@ -9,7 +9,6 @@
 	var/image/blood_overlay
 
 	var/randpixel = 6
-	var/abstract = 0
 	var/r_speed = 1.0
 	var/health
 	var/burn_point
@@ -366,7 +365,7 @@
 		var/mob/living/carbon/human/H = user
 		if(H.get_active_hand())
 			return
-		var/obj/item/organ/external/temp = LAZYACCESS(H.organs_by_name, H.get_active_held_item_slot())
+		var/obj/item/organ/external/temp = H.get_active_hand_organ()
 		if(temp && !temp.is_usable())
 			to_chat(user, SPAN_NOTICE("You try to move your [temp.name], but cannot!"))
 			return
@@ -923,9 +922,7 @@ GLOBAL_LIST_INIT(slot_flags_enumeration, list(
 	set name = "Show Held Item"
 	set category = "Object.Held"
 
-	var/obj/item/I = get_active_hand()
-	if(I && !I.abstract)
-		I.showoff(src)
+	astype(get_active_hand(), /obj/item)?.showoff(src)
 
 /*
 For zooming with scope or binoculars. This is called from

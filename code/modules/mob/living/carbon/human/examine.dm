@@ -134,19 +134,22 @@
 		else
 			msg += "[get_pronoun("He")] [get_pronoun("has")] [icon2html(back, user)] <a href='byond://?src=[REF(src)];lookitem_desc_only=[REF(back)]'>\a [back]</a> on [get_pronoun("his")] back.\n"
 
-	//left hand
-	if(l_hand)
-		if(l_hand.blood_color)
-			msg += SPAN_WARNING("[get_pronoun("He")] [get_pronoun("is")] holding [icon2html(l_hand, user)] [l_hand.gender==PLURAL?"some":"a"] [fluid_color_type_map(l_hand.blood_color)]-stained <a href='byond://?src=[REF(src)];lookitem_desc_only=[REF(l_hand)]'>[l_hand.name]</a> in [get_pronoun("his")] left hand!\n")
-		else
-			msg += "[get_pronoun("He")] [get_pronoun("is")] holding [icon2html(l_hand, user)] <a href='byond://?src=[REF(src)];lookitem_desc_only=[REF(l_hand)]'>\a [l_hand]</a> in [get_pronoun("his")] left hand.\n"
-
-	//right hand
-	if(r_hand)
-		if(r_hand.blood_color)
-			msg += SPAN_WARNING("[get_pronoun("He")] [get_pronoun("is")] holding [icon2html(r_hand, user)] [r_hand.gender==PLURAL?"some":"a"] [fluid_color_type_map(r_hand.blood_color)]-stained <a href='byond://?src=[REF(src)];lookitem_desc_only=[REF(r_hand)]'>[r_hand.name]</a> in [get_pronoun("his")] right hand!\n")
-		else
-			msg += "[get_pronoun("He")] [get_pronoun("is")] holding [icon2html(r_hand, user)] <a href='byond://?src=[REF(src)];lookitem_desc_only=[REF(r_hand)]'>\a [r_hand]</a> in [get_pronoun("his")] right hand.\n"
+	for (var/slot_name in held_item_slots)
+		var/datum/inventory_slot/slot = held_item_slots[slot_name]
+		var/obj/item/held = slot?.holding
+		if(!held)
+			continue
+		var/obj/item/organ/external/limb = slot_to_organ(slot.slot_id)
+		if(!limb)
+			continue
+		var/blood = held.blood_color
+		var/hand_text = "[get_pronoun("He")] [get_pronoun("has")] [icon2html(held, user)]"
+		if(blood)
+			hand_text += " [fluid_color_type_map(blood)]-stained"
+		hand_text += " <a href='byond://?src=[REF(src)];lookitem_desc_only=[REF(held)]'>\a [held]</a> in [get_pronoun("his")] [limb.name].\n"
+		if(blood)
+			hand_text = SPAN_WARNING(hand_text)
+		msg += hand_text
 
 	//gloves
 	if(gloves && !skipgloves)

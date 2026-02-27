@@ -208,39 +208,18 @@
 				used_radios += R
 				R.talk_into(src, message, null, verb, speaking)
 		if("right ear")
-			var/obj/item/radio/R
-			var/has_radio = FALSE
-			if(istype(r_ear,/obj/item/radio))
-				R = r_ear
-				has_radio = TRUE
-			if(istype(r_hand, /obj/item/radio))
-				R = r_hand
-				has_radio = TRUE
-			if(has_radio)
+			var/obj/item/radio/R = astype(r_ear) || astype(get_equipped_item(BP_R_HAND))
+			if(R)
 				used_radios += R
 				R.talk_into(src,message,null,verb,speaking)
 		if("left ear")
-			var/obj/item/radio/R
-			var/has_radio = FALSE
-			if(istype(l_ear, /obj/item/radio))
-				R = l_ear
-				has_radio = TRUE
-			if(istype(l_hand, /obj/item/radio))
-				R = l_hand
-				has_radio = TRUE
-			if(has_radio)
+			var/obj/item/radio/R = astype(l_ear) || astype(get_equipped_item(BP_L_HAND))
+			if(R)
 				used_radios += R
 				R.talk_into(src,message,null,verb,speaking)
 		if("wrist")
-			var/obj/item/radio/R
-			var/has_radio = FALSE
-			if(istype(wrists,/obj/item/radio))
-				R = wrists
-				has_radio = TRUE
-			if(istype(r_hand, /obj/item/radio))
-				R = wrists
-				has_radio = TRUE
-			if(has_radio)
+			var/obj/item/radio/R = astype(wrists) || astype(is_holding_type(/obj/item/radio))
+			if(R)
 				used_radios += R
 				R.talk_into(src,message,null,verb,speaking)
 		if("whisper")

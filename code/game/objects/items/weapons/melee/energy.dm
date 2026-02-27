@@ -470,7 +470,7 @@
 	QDEL_IN(src, 1)
 
 /obj/item/melee/energy/blade/process()
-	if(!creator || loc != creator || (creator.l_hand != src && creator.r_hand != src))
+	if(!creator || loc != creator || !(creator.is_holding(src)))
 		// Tidy up a bit.
 		if(istype(loc,/mob/living))
 			var/mob/living/carbon/human/host = loc

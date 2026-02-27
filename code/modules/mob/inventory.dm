@@ -174,7 +174,7 @@ GLOBAL_LIST_INIT(slot_equipment_priority, list(
 	return
 
 /// Returns the thing if it's a subtype of the requested thing, taking priority of the active hand
-/mob/proc/get_type_in_hands(var/type)
+/mob/proc/is_holding_type(var/type)
 	. = get_active_hand()
 	if(istype(., type))
 		return .
@@ -291,8 +291,12 @@ GLOBAL_LIST_INIT(slot_equipment_priority, list(
 		return TRUE
 	return FALSE
 
-//Drops the item from a given hand
+/// Drops the item from a given slot id
 /mob/proc/drop_from_hand(var/slot, var/atom/target)
+	return FALSE
+
+/// Drops all items held in held_item_slots.
+/mob/proc/drop_all_held_items(atom/target)
 	return FALSE
 
 //Drops the item in our active hand. TODO: rename this to drop_active_hand or something

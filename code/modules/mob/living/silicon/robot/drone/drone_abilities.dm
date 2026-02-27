@@ -26,7 +26,7 @@
 	if(H.a_intent == "help")
 		get_scooped(H) // GET SCOOPED
 		return
-	else if(H.a_intent == "grab" && hat && !(H.l_hand && H.r_hand))
+	else if(H.a_intent == "grab" && hat && H.get_empty_hand_slot())
 		hat.forceMove(get_turf(src))
 		H.put_in_hands(hat)
 		H.visible_message(SPAN_WARNING("\The [H] removes \the [src]'s [hat]."))

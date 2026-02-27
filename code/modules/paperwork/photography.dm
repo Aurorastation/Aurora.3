@@ -194,14 +194,10 @@ GLOBAL_VAR_INIT(photo_count, 0)
 	var/mob_detail
 	for(var/mob/living/carbon/A in the_turf)
 		if(A.invisibility) continue
-		var/holding = null
-		if(A.l_hand || A.r_hand)
-			if(A.l_hand) holding = "They are holding \a [A.l_hand]"
-			if(A.r_hand)
-				if(holding)
-					holding += " and \a [A.r_hand]"
-				else
-					holding = "They are holding \a [A.r_hand]"
+		var/list/held_items = list()
+		for(var/obj/item/I as anything in A.get_held_items())
+			held_items += "\a [I]"
+		var/holding = "[A.get_pronoun("He")] [A.get_pronoun("is")] holding [english_list(held_items)]."
 
 		if(!mob_detail)
 			mob_detail = "You can see [A] in the photo[A.health < 75 ? " - [A] looks hurt":""].[holding ? " [holding]":"."]. "

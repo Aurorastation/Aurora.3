@@ -527,14 +527,12 @@ GLOBAL_LIST_INIT(organ_rel_size, list(
 	return 0
 
 
-/mob/proc/abiotic(var/full_body = 0)
-	if(full_body && ((src.l_hand && !( src.l_hand.abstract )) || (src.r_hand && !( src.r_hand.abstract )) || (src.back || src.wear_mask)))
-		return 1
-
-	if((src.l_hand && !( src.l_hand.abstract )) || (src.r_hand && !( src.r_hand.abstract )))
-		return 1
-
-	return 0
+/mob/proc/abiotic(full_body = FALSE)
+	if(length(get_held_items()) > 0)
+		return TRUE
+	if(full_body && (back || wear_mask))
+		return TRUE
+	return FALSE
 
 ///converts intent-strings into numbers and back
 /proc/intent_numeric(argument)
@@ -737,11 +735,8 @@ GLOBAL_LIST_INIT(organ_rel_size, list(
 		threatcount += 4
 
 	if(auth_weapons && !access_obj.allowed(src))
-		if(istype(l_hand, /obj/item/gun) || istype(l_hand, /obj/item/melee))
-			threatcount += 4
-
-		if(istype(r_hand, /obj/item/gun) || istype(r_hand, /obj/item/melee))
-			threatcount += 4
+		for(var/obj/item/I in get_held_items())
+			threatcount += 4 * (istype(I, /obj/item/gun) || istype(I, /obj/item/melee))
 
 		if(istype(belt, /obj/item/gun) || istype(belt, /obj/item/melee))
 			threatcount += 2
@@ -877,6 +872,18 @@ GLOBAL_LIST_INIT(organ_rel_size, list(
 		shoes
 
 	*/
+
+/obj/item/proc/get_bps_covered(var/reduced_coverage)
+	var/mob/M = loc
+	if(!istype(M))
+		return null
+
+	. = list()
+
+	var/static/list/coverage_to_bp = reverseList(GLOB.bp_to_coverage)
+	for(var/coverage in coverage_to_bp)
+		if(coverage & body_parts_covered)
+			. += coverage_to_bp[coverage]
 
 /obj/proc/report_onmob_location(var/justmoved, var/slot = null, var/mob/reportto)
 	if(istype(reportto.loc, /mob/living/bot))

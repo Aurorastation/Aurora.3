@@ -821,9 +821,9 @@
 
 	if(lying)
 		ADD_TRAIT(src, TRAIT_UNDENSE, TRAIT_SOURCE_LYING_DOWN)
-		if(!lying_is_intentional)
-			if(l_hand) unEquip(l_hand)
-			if(r_hand) unEquip(r_hand)
+		var/mob/living/L = astype(src)
+		if(L && !lying_is_intentional)
+			L.drop_all_held_items()
 	else
 		REMOVE_TRAIT(src, TRAIT_UNDENSE, TRAIT_SOURCE_LYING_DOWN)
 
@@ -1085,9 +1085,7 @@
 	valid_objects = get_visible_implants(0)
 
 	remove_implant(selection)
-	selection.forceMove(get_turf(src))
-	if(!(U.l_hand && U.r_hand))
-		U.put_in_hands(selection)
+	U.put_in_hands(selection)
 	if(ishuman(U))
 		var/mob/living/carbon/human/human_user = U
 		human_user.bloody_hands(src)
@@ -1469,17 +1467,9 @@
 	. = ..()
 
 
-///Get all items in our possession that should affect our movespeed
+/// Get all items in our possession that should affect our movespeed. Base proc just returns a list of held items.
 /mob/proc/get_equipped_speed_mod_items()
-	. = list()
-	//Aurora BS
-	var/list/held_items = list()
-	held_items += l_hand
-	held_items += r_hand
-	//END AURORA BS
-	for(var/obj/item/thing in held_items)
-		// if(thing.item_flags & SLOWS_WHILE_IN_HAND)
-		. += thing
+	return get_held_items()
 
 ///Set the lighting plane hud alpha to the mobs lighting_alpha var
 /mob/proc/sync_lighting_plane_alpha()

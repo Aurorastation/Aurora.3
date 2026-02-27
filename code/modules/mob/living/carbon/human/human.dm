@@ -140,8 +140,6 @@
 	QDEL_NULL(wear_suit)
 	QDEL_NULL(wear_mask)
 	QDEL_NULL(back)
-	QDEL_NULL(l_hand)
-	QDEL_NULL(r_hand)
 	// Do this last so the mob's stuff doesn't drop on del.
 	QDEL_NULL(w_uniform)
 
@@ -964,15 +962,14 @@
 
 	return TRUE
 
-/mob/living/carbon/human/abiotic(var/full_body = 0)
-	if(full_body && ((src.l_hand && !( src.l_hand.abstract )) || (src.r_hand && !( src.r_hand.abstract )) || (src.back || src.wear_mask || src.head || src.shoes || src.w_uniform || src.wear_suit || src.glasses || src.l_ear || src.r_ear || src.gloves)))
-		return 1
+/mob/living/carbon/human/abiotic(full_body = FALSE)
+	if (..())
+		return TRUE
 
-	if( (src.l_hand && !src.l_hand.abstract) || (src.r_hand && !src.r_hand.abstract) )
-		return 1
+	if(full_body && (head || shoes || w_uniform || wear_suit || glasses || l_ear || r_ear || gloves || pants || belt || s_store || wrists ))
+		return TRUE
 
-	return 0
-
+	return FALSE
 
 /mob/living/carbon/human/proc/check_dna()
 	dna.check_integrity(src)
@@ -1743,21 +1740,6 @@
 
 /mob/living/carbon/human/proc/get_bp_coverage(var/bp)
 	. = BASE_INJECTION_MOD
-	var/static/list/bp_to_coverage = list(
-		BP_HEAD = HEAD,
-		BP_EYES = EYES,
-		BP_MOUTH = FACE,
-		BP_CHEST = UPPER_TORSO,
-		BP_GROIN = LOWER_TORSO,
-		BP_L_ARM = (ARMS|ARM_LEFT),
-		BP_R_ARM = (ARMS|ARM_RIGHT),
-		BP_L_HAND = (HANDS|HAND_LEFT),
-		BP_R_HAND = (HANDS|HAND_RIGHT),
-		BP_L_LEG = (LEGS|LEG_LEFT),
-		BP_R_LEG = (LEGS|LEG_RIGHT),
-		BP_L_FOOT = (FEET|FOOT_LEFT),
-		BP_R_FOOT = (FEET|FOOT_RIGHT)
-	)
 	for(var/obj/item/C in list(wear_suit, head, wear_mask, w_uniform, gloves, shoes))
 		var/injection_modifier = BASE_INJECTION_MOD
 		if(C.item_flags & ITEM_FLAG_INJECTION_PORT)
@@ -1766,7 +1748,7 @@
 			injection_modifier = INJECTION_FAIL
 		if(. == SUIT_INJECTION_MOD && injection_modifier != INJECTION_FAIL) // don't reset it back to the base, unless it completely blocks
 			continue
-		if(C.body_parts_covered & bp_to_coverage[bp])
+		if(C.body_parts_covered & GLOB.bp_to_coverage[bp])
 			. = injection_modifier
 		if(. == INJECTION_FAIL)
 			return

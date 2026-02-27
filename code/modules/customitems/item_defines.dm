@@ -429,10 +429,8 @@ All custom items with worn sprites must follow the contained sprite system: http
 		if(!istype(user, /mob/living/carbon/slime) && !istype(user, /mob/living/simple_animal))
 			if(!user.get_active_hand()) // If active hand is empty.
 				var/mob/living/carbon/human/H = over
-				var/obj/item/organ/external/temp = H.organs_by_name[BP_R_HAND]
+				var/obj/item/organ/external/temp = H.get_active_hand_organ()
 
-				if(H.hand)
-					temp = H.organs_by_name[BP_L_HAND]
 				if(temp && !temp.is_usable())
 					to_chat(H, SPAN_NOTICE("You try to move your [temp.name], but cannot!"))
 					return

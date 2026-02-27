@@ -200,7 +200,7 @@ a creative player the means to solve many problems.  Circuits are held inside an
 		linked = locate(href_list["link"]) in pin.linked
 
 	var/obj/item/held_item = user.get_active_hand()
-	var/obj/item/multitool/M = user.get_type_in_hands(/obj/item/multitool)
+	var/obj/item/multitool/M = user.is_holding_type(/obj/item/multitool)
 	if(M?.tracking_apc)
 		to_chat(user, SPAN_WARNING("\The [M]'s smart tracking is enabled! Disable it to regain I/O functionality."))
 		return TRUE

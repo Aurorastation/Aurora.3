@@ -113,18 +113,6 @@
 
 /obj/structure/boulder/CollidedWith(atom/bumped_atom)
 	. = ..()
-	if(istype(bumped_atom,/mob/living/carbon/human))
-		var/mob/living/carbon/human/H = bumped_atom
-		if((istype(H.l_hand,/obj/item/pickaxe)) && (!H.hand))
-			var/obj/item/pickaxe/P = H.l_hand
-			if(P.autodrill)
-				INVOKE_ASYNC(src, TYPE_PROC_REF(/atom, attackby), H.l_hand, H)
-		else if((istype(H.r_hand,/obj/item/pickaxe)) && H.hand)
-			var/obj/item/pickaxe/P = H.r_hand
-			if(P.autodrill)
-				INVOKE_ASYNC(src, TYPE_PROC_REF(/atom, attackby), H.r_hand, H)
-
-	else if(istype(bumped_atom,/mob/living/silicon/robot))
-		var/mob/living/silicon/robot/R = bumped_atom
-		if(istype(R.module_active,/obj/item/pickaxe))
-			INVOKE_ASYNC(src, TYPE_PROC_REF(/atom, attackby), R.module_active, R)
+	var/obj/item/pickaxe/pick = astype(bumped_atom, /mob)?.get_active_hand()
+	if(astype(pick)?.autodrill)
+		INVOKE_ASYNC(src, TYPE_PROC_REF(/atom, attackby), pick, bumped_atom)

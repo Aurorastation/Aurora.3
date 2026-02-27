@@ -153,10 +153,12 @@ There are several things that need to be remembered:
 			M.Translate(1,-6)
 			animate(src, transform = M, time = (forceDirUpdate ? 0 : ANIM_LYING_TIME))
 
-			if(istype(src.l_hand, /obj/item/gun) && lying)
-				HeldObjectDirTransform(BP_L_HAND, src.dir)
-			if(istype(src.r_hand, /obj/item/gun) && lying)
-				HeldObjectDirTransform(BP_R_HAND, src.dir)
+			for(var/datum/inventory_slot/slot in held_item_slots)
+				var/obj/item/gun/held = astype(slot.holding)
+				if(!held)
+					continue
+				var/bp_tag = species.reverse_limb_mapping[slot.slot_id]
+				HeldObjectDirTransform(bp_tag, src.dir)
 
 	UpdateOverlays()
 	lying_prev = lying

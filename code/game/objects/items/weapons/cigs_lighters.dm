@@ -926,7 +926,7 @@ ABSTRACT_TYPE(/obj/item/clothing/mask/smokable)
 /obj/item/flame/lighter/attack_self(mob/living/user)
 	if(!base_state)
 		base_state = icon_state
-	if(user.r_hand == src || user.l_hand == src)
+	if(user.is_holding(src))
 		if(!lit)
 			handle_lighting()
 			if(istype(src, /obj/item/flame/lighter/zippo))
@@ -942,10 +942,7 @@ ABSTRACT_TYPE(/obj/item/clothing/mask/smokable)
 					to_chat(user, SPAN_DANGER("You burn yourself while lighting the lighter.")) // shouldn't be a problem - you got hurt, after all.
 					if(user.IgniteMob())
 						user.visible_message(SPAN_DANGER("<b>[user]</b> accidentally sets themselves on fire!"))
-					if(user.l_hand == src)
-						user.apply_damage(2, DAMAGE_BURN,BP_L_HAND)
-					else
-						user.apply_damage(2, DAMAGE_BURN,BP_R_HAND)
+					user.apply_damage(2, DAMAGE_BURN, user.get_bp_holding(src))
 					if(last_open <= world.time - 20) //Spam limiter.
 						last_open = world.time
 						user.visible_message(SPAN_DANGER("After a few attempts, <b>[user]</b> manages to light \the [src], they however burn their finger in the process."), range = 3)

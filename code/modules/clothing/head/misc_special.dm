@@ -98,8 +98,8 @@
 	var/turf/location = src.loc
 	if(istype(location, /mob/))
 		var/mob/living/carbon/human/M = location
-		if(M.l_hand == src || M.r_hand == src || M.head == src)
-			location = M.loc
+		if(M.is_holding(src) || M.head == src)
+			location = get_turf(M)
 
 	if (istype(location, /turf))
 		location.hotspot_expose(700, 1)

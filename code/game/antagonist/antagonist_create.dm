@@ -86,7 +86,7 @@
 			var/obj/item/paper/P = new(paper_spawn_loc)
 			P.set_content_unsafe("nuclear bomb code", "The nuclear authorization code is: <b>[code]</b>")
 			if(leader && leader.current)
-				if(get_turf(P) == get_turf(leader.current) && !(leader.current.l_hand && leader.current.r_hand))
+				if(get_turf(P) == get_turf(leader.current))
 					leader.current.put_in_hands(P)
 
 		if(!code_owner && leader)

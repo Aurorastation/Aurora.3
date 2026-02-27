@@ -89,12 +89,7 @@ default behaviour is:
 			now_pushing = FALSE
 			return
 
-		if(istype(target_mob.r_hand, /obj/item/shield/riot))
-			if(prob(99))
-				now_pushing = FALSE
-				return
-
-		if(istype(target_mob.l_hand, /obj/item/shield/riot))
+		if(target_mob.is_holding_type(/obj/item/shield/riot))
 			if(prob(99))
 				now_pushing = FALSE
 				return
@@ -827,6 +822,8 @@ default behaviour is:
 	//Aiming overlay
 	QDEL_NULL(aiming)
 	QDEL_LIST(aimed_at_by)
+
+	QDEL_LIST(held_item_slots)
 
 	//Psi complexus
 	QDEL_NULL(psi)

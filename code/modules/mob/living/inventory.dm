@@ -11,6 +11,13 @@
 	ui_label = new_label
 	overlay_slot = new_overlay_slot || new_slot
 
+/datum/inventory_slot/Destroy(force)
+	if(holding)
+		if(!isturf(holding.loc))
+			holding.forceMove(get_turf(holding))
+		holding = null
+	. = ..()
+
 /mob/living
 	var/held_item_slot_selected
 	var/list/held_item_slots
@@ -102,6 +109,30 @@
 	if(inv_slot?.holding)
 		return drop_from_inventory(inv_slot.holding, Target)
 	. = ..()
+
+/mob/living/drop_all_held_items(atom/target)
+	. = TRUE
+	for(var/bp in held_item_slots)
+		var/datum/inventory_slot/inv_slot = held_item_slots[bp]
+		if(inv_slot?.holding)
+			. &= drop_from_inventory(inv_slot.holding, target)
+	. = ..()
+
+/mob/living/carbon/human/proc/slot_to_organ(var/slot)
+	return GET_EXTERNAL_ORGAN(src, slot)
+
+/mob/living/carbon/human/proc/get_active_hand_organ()
+	return GET_EXTERNAL_ORGAN(src, get_active_held_item_slot())
+
+/mob/living/carbon/human/proc/get_inactive_hand_organs()
+	. = list()
+	for(var/bp in held_item_slots)
+		var/obj/item/organ/external/E = GET_EXTERNAL_ORGAN(src, bp)
+		if(istype(E))
+			. |= E
+
+/mob/living/carbon/human/proc/get_organ_holding(var/thing)
+	return GET_EXTERNAL_ORGAN(src, get_bp_holding(thing))
 
 /mob/living/u_equip(obj/W)
 	. = ..()

@@ -153,7 +153,7 @@
 			siemens_coeff = H.gloves.siemens_coefficient
 		if(siemens_coeff >= 0.75 && prob(10 * siemens_coeff))
 			to_chat(H, SPAN_WARNING("You probe \the [src] with \the [attacking_item] and feel a jolt of electricity shoot through you! It reads out that [100 * siemens_coeff]% of the current was let through."))
-			H.electrocute_act(5, src, siemens_coeff, H.hand ? BP_R_HAND : BP_L_HAND) // hand holding the battery gets shocked
+			H.electrocute_act(5, src, siemens_coeff, H.get_active_held_item_slot()) // hand holding the battery gets shocked
 		else
 			to_chat(H, SPAN_NOTICE("You probe \the [src] with \the [attacking_item]. It reads out that [100 * siemens_coeff]% of the current was let through."))
 		return

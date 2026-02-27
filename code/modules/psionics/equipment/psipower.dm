@@ -39,7 +39,7 @@
 /obj/item/psychic_power/process()
 	if(istype(owner))
 		owner.psi.spend_power(maintain_cost)
-	if(!owner || loc != owner || (owner.l_hand != src && owner.r_hand != src))
+	if(!owner || loc != owner || !(owner.is_holding(src)))
 		if(istype(loc,/mob/living))
 			var/mob/living/carbon/human/host = loc
 			if(istype(host))

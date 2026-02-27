@@ -52,16 +52,16 @@ emp_act
 			eye_blurry += min((rand(1,3) * (agony_amount/40)), 12)
 			confused = min(max(confused, 2 * (agony_amount/40)), 8)
 		if(BP_L_HAND, BP_R_HAND)
-			var/c_hand
-			if (def_zone == BP_L_HAND)
-				c_hand = l_hand
-			else
-				c_hand = r_hand
+			var/datum/inventory_slot/slot = held_item_slots[affected.limb_name]
+			if(!slot || !slot.holding)
+				return ..(stun_amount, agony_amount, def_zone, used_weapon, damage_flags)
 
-			if(c_hand && (stun_amount || agony_amount > 10))
+			var/obj/item/held = slot.holding
+
+			if(held && (stun_amount || agony_amount > 10))
 				msg_admin_attack("[src.name] ([src.ckey]) was disarmed by a stun effect (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[src.x];Y=[src.y];Z=[src.z]'>JMP</a>)",ckey=key_name(src))
 
-				drop_from_inventory(c_hand)
+				drop_from_inventory(held)
 				if (affected.status & ORGAN_ROBOT)
 					visible_message("<b>[src]</b> drops what they were holding, their [affected.name] malfunctioning!")
 				else
@@ -152,7 +152,7 @@ emp_act
 	return null
 
 /mob/living/carbon/human/check_shields(damage, atom/damage_source, mob/attacker, def_zone, attack_text = "the attack")
-	for(var/obj/item/shield in list(l_hand, r_hand, wear_suit, back))
+	for(var/obj/item/shield in get_held_items() + list(wear_suit, back))
 		if(!shield)
 			continue
 		var/is_on_back = FALSE

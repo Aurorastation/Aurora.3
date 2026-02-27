@@ -80,7 +80,6 @@
 	var/next_move = null
 	var/transforming = null				//Carbon
 	var/other = 0.0
-	var/hand = null
 	var/eye_blind = null				//Carbon
 	var/eye_blurry = null				//Carbon
 	var/ear_deaf = null					//Carbon
@@ -159,8 +158,6 @@
 	var/a_intent = I_HELP//Living
 	var/m_intent = M_WALK //Living
 	var/lastKnownIP = null
-	var/obj/item/l_hand = null//Living
-	var/obj/item/r_hand = null//Living
 	var/obj/item/back = null//Human/Monkey
 	var/obj/item/tank/internal = null//Human/Monkey
 	var/obj/item/storage/s_active = null//Carbon

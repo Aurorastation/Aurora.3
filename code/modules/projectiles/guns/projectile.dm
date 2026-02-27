@@ -256,7 +256,7 @@
 			balloon_alert(user, "already has a suppressor!")
 			return
 
-		if(user.l_hand != S && user.r_hand != S)
+		if(!user.is_holding(attacking_item))
 			balloon_alert(user, "not in hand!")
 			return
 

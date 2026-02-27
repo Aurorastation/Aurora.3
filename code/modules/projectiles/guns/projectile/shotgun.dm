@@ -371,10 +371,5 @@
 				H.drop_item(src)
 				src.throw_at(get_edge_target_turf(src, REVERSE_DIR(H.dir)), 4, 4)
 
-				var/obj/item/organ/external/LH = H.get_organ(BP_L_HAND)
-				var/obj/item/organ/external/RH = H.get_organ(BP_R_HAND)
-
-				if(H.hand)
-					LH.take_damage(30)
-				else
-					RH.take_damage(30)
+				var/obj/item/organ/external/hand = H.get_active_hand_organ()
+				hand.take_damage(30)

@@ -444,10 +444,9 @@
 	indicator.pixel_y = species.typing_indicator_y_offset
 
 /mob/living/carbon/human/proc/wash()
-	if(r_hand)
-		r_hand.clean_blood()
-	if(l_hand)
-		l_hand.clean_blood()
+	for(var/obj/item/held in get_held_items())
+		held.clean_blood()
+	update_inv_hands(FALSE)
 	if(back)
 		if(back.clean_blood())
 			update_inv_back(0)

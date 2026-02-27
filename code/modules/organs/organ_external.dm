@@ -292,10 +292,10 @@
 			removable_objects |= I
 	if(length(removable_objects))
 		var/obj/item/I = pick(removable_objects)
-		I.forceMove(get_turf(user)) //just in case something was embedded that is not an item
 		if(istype(I))
-			if(!(user.l_hand && user.r_hand))
-				user.put_in_hands(I)
+			user.put_in_hands(I)
+		else
+			I.forceMove(get_turf(user)) //just in case something was embedded that is not an item
 		user.visible_message(SPAN_DANGER("\The [user] rips \the [I] out of \the [src]!"))
 		return //no eating the limb until everything's been removed
 	. = ..()
@@ -336,10 +336,7 @@
 
 					status |= ORGAN_CUT_AWAY
 
-					removing.forceMove(get_turf(user))
-
-					if(!(user.l_hand && user.r_hand))
-						user.put_in_hands(removing)
+					user.put_in_hands(removing)
 					user.visible_message(SPAN_DANGER("<b>[user]</b> extracts [removing] from [src] with [attacking_item]!"))
 				else
 					user.visible_message(SPAN_DANGER("<b>[user]</b> fishes around fruitlessly in [src] with [attacking_item]."))

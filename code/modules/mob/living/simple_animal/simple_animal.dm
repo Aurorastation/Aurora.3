@@ -1087,11 +1087,7 @@
 
 /mob/living/simple_animal/proc/reflect_unarmed_damage(var/mob/living/carbon/human/attacker, var/damage_type, var/description)
 	if(attacker.a_intent == I_HURT)
-		var/hand_hurtie
-		if(attacker.hand)
-			hand_hurtie = BP_L_HAND
-		else
-			hand_hurtie = BP_R_HAND
+		var/hand_hurtie = get_active_held_item_slot()
 		attacker.apply_damage(rand(return_damage_min, return_damage_max), damage_type, hand_hurtie, used_weapon = description)
 		if(rand(25))
 			to_chat(attacker, SPAN_WARNING("Your attack has no obvious effect on \the [src]'s [description]!"))

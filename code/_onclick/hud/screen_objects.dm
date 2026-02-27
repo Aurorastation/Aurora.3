@@ -433,15 +433,11 @@
 		return TRUE
 	if(use_check_and_message(usr, USE_ALLOW_NON_ADJACENT|USE_ALLOW_NON_ADV_TOOL_USR)) //You're always adjacent to your inventory in practice.
 		return TRUE
+
+	var/mob/living/L = astype(usr)
+	if(L && (name in L.held_item_slots))
+		L.select_held_item_slot(name)
 	switch(name)
-		if("right hand")
-			if(iscarbon(usr))
-				var/mob/living/carbon/C = usr
-				C.activate_hand("r")
-		if("left hand")
-			if(iscarbon(usr))
-				var/mob/living/carbon/C = usr
-				C.activate_hand("l")
 		if("swap")
 			usr.swap_hand()
 		if("hand")
@@ -505,7 +501,7 @@
 					usr.m_intent = M_RUN
 			if(M_LAY)
 				// No funny "haha i get the bonuses then stand up"
-				var/obj/item/gun/gun_in_hand = C.get_type_in_hands(/obj/item/gun)
+				var/obj/item/gun/gun_in_hand = C.is_holding_type(/obj/item/gun)
 				if(gun_in_hand?.wielded)
 					to_chat(C, SPAN_WARNING("You cannot wield and stand up!"))
 					return
@@ -515,7 +511,7 @@
 
 		if(modifiers["button"] == "middle" && !C.lying)	// See /mob/proc/update_canmove() for more logic on the lying FSM
 			// You want this bonus weapon or not? Wield it when you are lying, not before!
-			var/obj/item/gun/gun_in_hand = C.get_type_in_hands(/obj/item/gun)
+			var/obj/item/gun/gun_in_hand = C.is_holding_type(/obj/item/gun)
 			if(gun_in_hand?.wielded)
 				to_chat(C, SPAN_WARNING("You cannot wield and lie down!"))
 				return

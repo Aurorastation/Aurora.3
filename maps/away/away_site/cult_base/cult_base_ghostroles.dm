@@ -238,9 +238,10 @@
 	if(prob(75))
 		human.w_uniform?.add_blood(human)
 		human.wear_suit?.add_blood(human)
-		human.l_hand?.add_blood(human)
 		human.gloves?.add_blood(human)
 		human.shoes?.add_blood(human)
+		var/obj/item/held = human.get_active_hand()
+		held?.add_blood(human)
 
 /obj/outfit/admin/cult_base_cultist_corpse
 	name = "Cult Base Cultist Corpse"

@@ -318,7 +318,7 @@ GLOBAL_LIST_INIT(wire_name_directory, list())
 		if("attach")
 			// Attach
 			if(!is_attached(target_wire))
-				var/obj/item/assembly/signaler/I = L.get_type_in_hands(/obj/item/assembly/signaler)
+				var/obj/item/assembly/signaler/I = L.is_holding_type(/obj/item/assembly/signaler)
 				if(!istype(I))
 					to_chat(usr, SPAN_WARNING("You do not have a signaler to attach!"))
 					return

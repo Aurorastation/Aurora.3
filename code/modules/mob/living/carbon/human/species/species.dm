@@ -399,7 +399,14 @@
 
 	var/natural_armor_type = /datum/component/armor/natural
 	/// An associative list of target zones (ex. BP_CHEST, BP_MOUTH) mapped to all possible keys associated. Used for non-standard organs like extra arms.
-	var/list/limb_mapping
+	var/list/limb_mapping = list(
+		BP_L_ARM = list(BP_L_ARM),
+		BP_R_ARM = list(BP_R_ARM),
+		BP_L_HAND = list(BP_L_HAND),
+		BP_R_HAND = list(BP_R_HAND),
+	)
+
+	var/list/reverse_limb_mapping
 
 	var/list/natural_armor
 
@@ -489,6 +496,10 @@
 	for(var/u_type in unarmed_types)
 		unarmed_attacks += new u_type()
 
+	reverse_limb_mapping = list()
+	for(var/limb_name in limb_mapping)
+		reverse_limb_mapping[limb_mapping[limb_name]] += list(limb_name)
+
 /datum/species/proc/get_station_variant()
 	return name
 
@@ -507,7 +518,7 @@
 
 	var/covered = 0 // Basic coverage can help.
 	for(var/obj/item/clothing/clothes in H)
-		if(H.l_hand == clothes|| H.r_hand == clothes)
+		if(H.is_holding(clothes))
 			continue
 		if((clothes.body_parts_covered & UPPER_TORSO) && (clothes.body_parts_covered & LOWER_TORSO) && !clothes.no_overheat)
 			covered = 1
@@ -1034,7 +1045,7 @@
 	// One cane mitigates a broken leg+foot, or a missing foot.
 	// No double caning allowed, sorry. Canes also don't work if you're missing a functioning pair of feet or legs.
 	if(has_opposite_limb)
-		var/obj/item/cane/C = H.get_type_in_hands(/obj/item/cane)
+		var/obj/item/cane/C = H.is_holding_type(/obj/item/cane)
 		if(C?.can_support)
 			stance_damage -=2
 

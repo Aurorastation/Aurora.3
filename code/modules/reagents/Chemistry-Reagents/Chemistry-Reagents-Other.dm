@@ -335,10 +335,9 @@
 		T.clean_blood()
 
 /singleton/reagent/spacecleaner/affect_touch(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
-	if(M.r_hand)
-		M.r_hand.clean_blood()
-	if(M.l_hand)
-		M.l_hand.clean_blood()
+	for(var/obj/item/I as anything in M.get_held_items())
+		I.clean_blood()
+	M.update_inv_hands(FALSE)
 	if(M.wear_mask)
 		if(M.wear_mask.clean_blood())
 			M.update_inv_wear_mask(0)

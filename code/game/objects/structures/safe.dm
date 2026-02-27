@@ -160,9 +160,7 @@ FLOOR SAFES
 	if(!ishuman(usr))	return
 	var/mob/living/carbon/human/user = usr
 
-	var/canhear = 0
-	if(istype(user.l_hand, /obj/item/clothing/accessory/stethoscope) || istype(user.r_hand, /obj/item/clothing/accessory/stethoscope))
-		canhear = 1
+	var/canhear = user.is_holding_type(/obj/item/clothing/accessory/stethoscope)
 
 	if(href_list["open"])
 		if(drill)

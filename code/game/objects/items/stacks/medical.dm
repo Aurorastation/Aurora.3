@@ -390,6 +390,7 @@ Contains:
 
 	if (istype(target_mob, /mob/living/carbon/human))
 		var/mob/living/carbon/human/H = target_mob
+		var/mob/living/carbon/human/human_user = astype(user)
 		var/obj/item/organ/external/affecting = H.get_organ(user.zone_sel.selecting)
 		var/limb = affecting.name
 		if(!(affecting.limb_name in splintable_organs))
@@ -401,7 +402,7 @@ Contains:
 		if (target_mob != user)
 			user.visible_message(SPAN_DANGER("[user] starts to apply \the [src] to [target_mob]'s [limb]."), SPAN_DANGER("You start to apply \the [src] to [target_mob]'s [limb]."), SPAN_DANGER("You hear something being wrapped."))
 		else
-			if((!user.hand && affecting.limb_name == BP_R_ARM) || (user.hand && affecting.limb_name == BP_L_ARM))
+			if(affecting == human_user?.get_active_hand_organ())
 				to_chat(user, SPAN_DANGER("You can't apply a splint to the arm you're using!"))
 				return
 			user.visible_message(SPAN_DANGER("[user] starts to apply \the [src] to their [limb]."), SPAN_DANGER("You start to apply \the [src] to your [limb]."), SPAN_DANGER("You hear something being wrapped."))

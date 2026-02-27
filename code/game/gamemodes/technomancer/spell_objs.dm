@@ -252,24 +252,7 @@
 // Parameters: 0
 // Description: Terrible code to check if a scepter is in the offhand, returns 1 if yes.
 /obj/item/spell/proc/check_for_scepter()
-	if(!src || !owner)
-		return FALSE
-	if(owner.r_hand == src)
-		if(istype(owner.l_hand, /obj/item/scepter))
-			return TRUE
-	else
-		if(istype(owner.r_hand, /obj/item/scepter))
-			return TRUE
-	return FALSE
-
-// Proc: get_other_hand()
-// Parameters: 1 (I - item being compared to determine what the offhand is)
-// Description: Helper for Aspect spells.
-/mob/living/carbon/human/proc/get_other_hand(var/obj/item/I)
-	if(r_hand == I)
-		return l_hand
-	else
-		return r_hand
+	return is_path_in_list(/obj/item/scepter, owner.get_inactive_held_items())
 
 // Proc: attack_self()
 // Parameters: 1 (user - the Technomancer that invoked this proc)
@@ -341,7 +324,7 @@
 // Description: Gives the spell to the human mob, if it is allowed to have spells, hands are not full, etc.  Otherwise it deletes itself.
 /mob/living/carbon/human/place_spell_in_hand(var/path)
 	if(!path || !ispath(path))
-		return 0
+		return FALSE
 
 	//var/obj/item/spell/S = new path(src)
 	var/obj/item/spell/S = new path(src)
@@ -351,25 +334,20 @@
 		if(S.run_checks())
 			S.on_innate_cast(src)
 
-	if(l_hand && r_hand) //Make sure our hands aren't full.
-		if(istype(r_hand, /obj/item/spell)) //If they are full, perhaps we can still be useful.
-			var/obj/item/spell/r_spell = r_hand
-			if(r_spell.aspect == ASPECT_CHROMATIC) //Check if we can combine the new spell with one in our hands.
-				r_spell.on_combine_cast(S, src)
-		else if(istype(l_hand, /obj/item/spell))
-			var/obj/item/spell/l_spell = l_hand
-			if(l_spell.aspect == ASPECT_CHROMATIC) //Check the other hand too.
-				l_spell.on_combine_cast(S, src)
+	if(!get_empty_hand_slot()) //Make sure our hands aren't full.
+		var/obj/item/spell/spell = is_holding_type(/obj/item/spell)
+		if(spell?.aspect == ASPECT_CHROMATIC)  //Check if we can combine the new spell with one in our hands.
+			spell.on_combine_cast(S, src)
 		else //Welp
 			to_chat(src, SPAN_WARNING("You require a free hand to use this function."))
-			return 0
+			return FALSE
 
 	if(S.run_checks())
 		put_in_hands(S)
-		return 1
+		return TRUE
 	else
 		qdel(S)
-		return 0
+		return FALSE
 
 // Proc: dropped()
 // Parameters: 0

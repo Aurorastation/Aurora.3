@@ -181,12 +181,13 @@
 				selfnoun = noun
 
 		if (shoulddisarm)
-			endmessage1st = "You [verbtouse] the [target_mob.l_hand.name] out of [selfnoun]"
-			endmessage3rd = "[user] [verbtouse] the [target_mob.l_hand.name] out of [noun]"
-			target_mob.drop_from_hand(target_mob.get_active_held_item_slot())
+			var/atom/held = target_mob.get_active_hand()
+			endmessage1st = "You [verbtouse] \the [held] out of [selfnoun]"
+			endmessage3rd = "[user] [verbtouse] \the [held] out of [noun]"
+			target_mob.drop_from_inventory(held, get_turf(target_mob))
 		else
-			endmessage1st = "You [verbtouse] [selfnoun] with the [name]"
-			endmessage3rd = "[user] [verbtouse] [noun] with the [name]"
+			endmessage1st = "You [verbtouse] [selfnoun] with \the [name]"
+			endmessage3rd = "[user] [verbtouse] [noun] with \the [name]"
 
 	if(damageamount > 0) // Poking will no longer do damage until there is some fix that makes it so that 0.0001 HALLOS doesn't cause bleed.
 		target_mob.standard_weapon_hit_effects(src, user, damageamount, armorpercent, target_zone)

@@ -1011,7 +1011,7 @@
 			balloon_alert(user, "already has a bayonet!")
 			return TRUE
 
-		if(user.l_hand != attacking_item && user.r_hand != attacking_item)
+		if(!user.is_holding(attacking_item))
 			balloon_alert(user, "not in hand!")
 			return
 
@@ -1034,7 +1034,7 @@
 			balloon_alert(user, "already has an ammo display!")
 			return TRUE
 
-		if(user.l_hand != attacking_item && user.r_hand != attacking_item)
+		if(!user.is_holding(attacking_item))
 			balloon_alert(user, "not in hand!")
 			return
 

@@ -1651,7 +1651,7 @@
 		var/mob/dropped_onto_mob = over
 		if(ishuman(dropped_onto_mob) && !dropped_onto_mob.get_active_hand())
 			var/mob/living/carbon/human/H = user
-			var/obj/item/organ/external/temp = H.organs_by_name[H.hand?BP_L_HAND:BP_R_HAND]
+			var/obj/item/organ/external/temp = H.get_active_hand_organ()
 
 			if(temp && !temp.is_usable())
 				to_chat(user, SPAN_NOTICE("You try to move your [temp.name], but cannot!"))

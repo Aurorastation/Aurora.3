@@ -231,7 +231,7 @@
 	message_type = VISIBLE_MESSAGE
 
 /singleton/emote/visible/signal/get_emote_message_3p(var/mob/user, var/atom/target, var/extra_params)
-	if(istype(user) && !(user.r_hand && user.l_hand))
+	if(istype(user) && user.get_empty_hand_slot())
 		var/t1 = round(text2num(extra_params))
 		if(isnum(t1) && t1 <= 5)
 			return "USER raises [t1] finger\s."
