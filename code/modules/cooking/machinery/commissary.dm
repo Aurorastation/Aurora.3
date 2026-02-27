@@ -262,9 +262,9 @@
 	if(transaction)
 		to_chat(user, SPAN_NOTICE("[icon2html(src, user)]<span class='warning'>[transaction].</span>"))
 	else
-		playsound(src, 'sound/machines/chime.ogg', 50, 1)
 		visible_message("\The [user] swipes a card on \the [src]." )
-		visible_message(SPAN_NOTICE("[icon2html(src, viewers(get_turf(src)))] \The [src] chimes."))
+		audible_message(SPAN_NOTICE("[icon2html(src, viewers(get_turf(src)))] \The [src] chimes."))
+		playsound(src, 'sound/machines/chime.ogg', 50, 1)
 		print_receipt()
 		sum = 0
 		receipt = ""
@@ -282,8 +282,8 @@
 		E.worth -= transaction_amount
 
 		visible_message("\The [user] swipes a card on \the [src]." )
+		audible_message(SPAN_NOTICE("[icon2html(src, viewers(get_turf(src)))] \The [src] chimes."))
 		playsound(src, 'sound/machines/chime.ogg', 50, 1)
-		src.audible_message(SPAN_NOTICE("[icon2html(src, viewers(get_turf(src)))] \The [src] chimes."))
 		print_receipt()
 		sum = 0
 		receipt = ""
