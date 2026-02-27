@@ -65,7 +65,12 @@
 /obj/effect/decal/cleanable/napalm/process(seconds_per_tick)
 	var/turf/simulated/src_turf = get_turf(src)
 	var/datum/gas_mixture/air_contents = src_turf?.return_air()
-	if(!(air_contents?.check_combustibility(src)))
+	var/is_cmb = CMB_LIQUID_FUEL
+	if(air_contents)
+		CHECK_COMBUSTIBLE(is_cmb, air_contents)
+	else
+		is_cmb = FALSE
+	if(!is_cmb)
 		PutOut()
 		return
 
@@ -93,7 +98,12 @@
 	var/turf/simulated/src_turf = get_turf(src)
 	var/datum/gas_mixture/air_contents = src_turf?.return_air()
 	//If we can't ignite, return
-	if(!(air_contents?.check_combustibility(src)))
+	var/is_cmb = CMB_LIQUID_FUEL
+	if(air_contents)
+		CHECK_COMBUSTIBLE(is_cmb, air_contents)
+	else
+		is_cmb = FALSE
+	if(!is_cmb)
 		return
 	//Otherwise, start a fire!
 	on_fire = TRUE

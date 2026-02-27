@@ -165,7 +165,7 @@
 			var/obj/item/organ/external/E = A
 			if(BP_IS_ROBOTIC(E))
 				continue
-			for(var/datum/wound/W in E.wounds)
+			for(var/datum/wound/W as anything in E.wounds)
 				if(W.germ_level < INFECTION_LEVEL_ONE)
 					W.germ_level = INFECTION_LEVEL_ONE
 				W.germ_level += rand(10, 50)

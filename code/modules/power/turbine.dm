@@ -200,7 +200,7 @@
 	rpm = max(0, rpm - (rpm*rpm)/(COMPFRICTION*efficiency))
 
 	if(!(stat & NOPOWER))
-		draw_power(2800)
+		DRAW_POWER(src, 2800)
 		if(rpm < 1000)
 			rpmtarget = 1000
 	else
@@ -272,7 +272,7 @@
 	else
 		lastgen = ((compressor.rpm / TURBPOWER) ** TURBCURVESHAPE) * TURBPOWER * productivity * POWER_CURVE_MOD
 
-	add_avail(lastgen)
+	ADD_TO_POWERNET(src, lastgen)
 
 	var/newrpm = (compressor.gas_contained.temperature * compressor.gas_contained.total_moles) / 4
 

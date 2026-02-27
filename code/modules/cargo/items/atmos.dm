@@ -208,14 +208,14 @@
 	groupable = FALSE
 	spawn_amount = 1
 
-/singleton/cargo_item/pipepainter
+/singleton/cargo_item/paint_sprayer
 	category = "atmos"
-	name = "pipe painter"
+	name = "paint sprayer"
 	supplier = "hephaestus"
 	description = "Its said that green pipes are safe to travel through."
 	price = 25
 	items = list(
-		/obj/item/pipe_painter
+		/obj/item/paint_sprayer
 	)
 	access = ACCESS_ENGINE
 	container_type = "crate"

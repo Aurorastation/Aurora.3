@@ -110,7 +110,7 @@
 	var/list/data = list()
 
 	data["on"] = !!use_power
-	data["gasPressure"] = round(air_contents.return_pressure())
+	data["gasPressure"] = round(XGM_PRESSURE(air_contents))
 	data["gasTemperature"] = round(air_contents.temperature)
 	data["minGasTemperature"] = 0
 	data["maxGasTemperature"] = round(T20C + 600)

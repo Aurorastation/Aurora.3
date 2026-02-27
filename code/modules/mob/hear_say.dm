@@ -23,7 +23,7 @@
 
 	if(T && !vacuum_proof) //Ghosts can hear even in vacuum.
 		var/datum/gas_mixture/environment = T.return_air()
-		var/pressure = (environment)? environment.return_pressure() : 0
+		var/pressure = SAFE_XGM_PRESSURE(environment)
 		var/distance_to_speaker = get_dist(speaker, src)
 		if(pressure < SOUND_MINIMUM_PRESSURE && distance_to_speaker > 1)
 			// Yeah, this isn't quite realistic to be able to see if someone is talking through, say, an opaque mask, but for gameplay purposes it should help indicate that you're not bugged.

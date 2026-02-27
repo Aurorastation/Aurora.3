@@ -15,7 +15,7 @@
 	return 0
 
 /proc/atmosanalyzer_scan(var/obj/target, var/datum/gas_mixture/mixture, var/mob/user)
-	var/pressure = mixture.return_pressure()
+	var/pressure = XGM_PRESSURE(mixture)
 	var/total_moles = mixture.total_moles
 
 	var/list/results = list()

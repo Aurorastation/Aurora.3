@@ -112,7 +112,7 @@
 
 	var/list/data = list()
 
-	data["tankPressure"] = round(air_contents.return_pressure() ? air_contents.return_pressure() : 0)
+	data["tankPressure"] = round(XGM_PRESSURE(air_contents))
 	data["releasePressure"] = round(distribute_pressure ? distribute_pressure : 0)
 	data["defaultReleasePressure"] = round(TANK_DEFAULT_RELEASE_PRESSURE)
 	data["maxReleasePressure"] = round(TANK_MAX_RELEASE_PRESSURE)
@@ -193,7 +193,7 @@
 	if(!air_contents)
 		return null
 
-	var/tank_pressure = air_contents.return_pressure()
+	var/tank_pressure = XGM_PRESSURE(air_contents)
 	if(tank_pressure < distribute_pressure)
 		distribute_pressure = tank_pressure
 
@@ -202,19 +202,23 @@
 	return remove_air(moles_needed)
 
 /obj/item/tank/process()
-	//Allow for reactions
-	air_contents.react() //cooking up air tanks - add phoron and oxygen, then heat above PHORON_MINIMUM_BURN_TEMPERATURE
+	var/tank_pressure = 0
+	// we pass tank_pressure around and try not to recalc it unless we have to
+	// this is a very hot proc (~2M calls/hr)
+	if(air_contents)
+		tank_pressure = XGM_PRESSURE(air_contents)
+		air_contents.react()
+		tank_pressure = check_status(tank_pressure)
 	if(gauge_icon)
-		update_gauge()
-	check_status()
+		update_gauge(tank_pressure)
 
 /obj/item/tank/proc/adjust_initial_gas()
 	return
 
-/obj/item/tank/proc/update_gauge()
-	var/gauge_pressure = 0
+/obj/item/tank/proc/update_gauge(gauge_pressure = 0)
 	if(air_contents)
-		gauge_pressure = air_contents.return_pressure()
+		if(!gauge_pressure)
+			gauge_pressure = XGM_PRESSURE(air_contents)
 		if(gauge_pressure > TANK_IDEAL_PRESSURE)
 			gauge_pressure = -1
 		else
@@ -231,16 +235,17 @@
 /obj/item/tank/proc/percent()
 	var/gauge_pressure = 0
 	if(air_contents)
-		gauge_pressure = air_contents.return_pressure()
+		gauge_pressure = XGM_PRESSURE(air_contents)
 	return 100.0*gauge_pressure/TANK_IDEAL_PRESSURE
 
-/obj/item/tank/proc/check_status()
+/obj/item/tank/proc/check_status(pressure = 0)
 	//Handle exploding, leaking, and rupturing of the tank
 
 	if(!air_contents)
 		return 0
+	if(!pressure)
+		pressure = XGM_PRESSURE(air_contents)
 
-	var/pressure = air_contents.return_pressure()
 	if(pressure > TANK_FRAGMENT_PRESSURE)
 		if(!istype(src.loc,/obj/item/transfer_valve))
 			message_admins("Explosive tank rupture! last key to touch the tank was [src.fingerprintslast].")
@@ -251,7 +256,7 @@
 		air_contents.react()
 		air_contents.react()
 
-		pressure = air_contents.return_pressure()
+		pressure = XGM_PRESSURE(air_contents)
 		var/range = (pressure-TANK_FRAGMENT_PRESSURE)/TANK_FRAGMENT_SCALE
 
 		explosion(
@@ -270,11 +275,10 @@
 
 		if(integrity <= 0)
 			var/turf/simulated/T = get_turf(src)
-			if(!T)
-				return
-			T.assume_air(air_contents)
-			playsound(src.loc, 'sound/effects/spray.ogg', 10, 1, -3)
-			qdel(src)
+			if(T)
+				T.assume_air(air_contents)
+				playsound(src.loc, 'sound/effects/spray.ogg', 10, 1, -3)
+				qdel(src)
 		else
 			integrity--
 
@@ -285,15 +289,17 @@
 
 		if(integrity <= 0)
 			var/turf/simulated/T = get_turf(src)
-			if(!T)
-				return
-			var/datum/gas_mixture/leaked_gas = air_contents.remove_ratio(0.25)
-			T.assume_air(leaked_gas)
+			if(T)
+				var/datum/gas_mixture/leaked_gas = air_contents.remove_ratio(0.25)
+				T.assume_air(leaked_gas)
+				return 0
 		else
 			integrity--
 
 	else if(integrity < 3)
 		integrity++
+
+	return QDELETED(src) ? 0 : pressure // if we qdel'd or return 0, something changed and we gotta recalc
 
 /obj/item/tank/proc/remove_air_by_flag(flag, amount)
 	. = air_contents.remove_by_flag(flag, amount)
