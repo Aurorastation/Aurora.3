@@ -118,6 +118,7 @@
 	var/list/modes
 	var/mode
 
+
 /// Initialize available pipe color modes.
 /obj/item/paint_sprayer/New()
 	..()
