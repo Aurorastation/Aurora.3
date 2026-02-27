@@ -10,6 +10,10 @@
 	. = ..()
 	visualnet = GLOB.cameranet
 
+/mob/abstract/eye/freelook/Destroy()
+	visualnet = null
+	. = ..()
+
 /datum/click_handler/eye/freelook/OnDblClick(atom/A, params)
 	var/mob/abstract/eye = user.eyeobj
 	if(!eye) //Something has broken, ensure the click handler doesn't stick around

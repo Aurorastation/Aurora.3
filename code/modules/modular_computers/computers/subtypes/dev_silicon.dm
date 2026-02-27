@@ -60,7 +60,7 @@
 	hard_drive.store_file(new /datum/computer_file/program/atmos_control(src))
 	hard_drive.store_file(new /datum/computer_file/program/rcon_console(src))
 	hard_drive.store_file(new /datum/computer_file/program/law_manager(src, computer_host))
-	hard_drive.remove_file(hard_drive.find_file_by_name("clientmanager"))
+	hard_drive.remove_file(hard_drive.find_file_by_name("clientmanager"), TRUE)
 	addtimer(CALLBACK(src, PROC_REF(register_chat)), 1 SECOND)
 
 /obj/item/modular_computer/silicon/proc/register_chat()
@@ -72,4 +72,4 @@
 	hard_drive.store_file(new /datum/computer_file/program/filemanager(src))
 	hard_drive.store_file(new /datum/computer_file/program/ntnetdownload(src))
 	hard_drive.store_file(new /datum/computer_file/program/alarm_monitor/all(src))
-	hard_drive.remove_file(hard_drive.find_file_by_name("clientmanager"))
+	hard_drive.remove_file(hard_drive.find_file_by_name("clientmanager"), TRUE)

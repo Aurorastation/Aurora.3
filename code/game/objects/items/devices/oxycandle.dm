@@ -47,7 +47,7 @@
 	if(pos)
 		pos.hotspot_expose(1500, 5)
 	var/datum/gas_mixture/environment = loc.return_air()
-	var/pressure_delta = target_pressure - environment.return_pressure()
+	var/pressure_delta = target_pressure - XGM_PRESSURE(environment)
 	var/output_volume = environment.volume * environment.group_multiplier
 	var/air_temperature = air_contents.temperature? air_contents.temperature : environment.temperature
 	var/transfer_moles = pressure_delta*output_volume/(air_temperature * R_IDEAL_GAS_EQUATION)

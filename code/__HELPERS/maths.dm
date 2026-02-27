@@ -213,9 +213,6 @@
 /proc/Ceiling(x, y=1)
 	return -round(-x / y) * y
 
-/proc/Percent(current_value, max_value, rounding = 1)
-	return round((current_value / max_value) * 100, rounding)
-
 // Greatest Common Divisor: Euclid's algorithm.
 /proc/Gcd(a, b)
 	while (1)

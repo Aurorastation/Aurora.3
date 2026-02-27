@@ -19,6 +19,10 @@
 	var/max_rockets = 1
 	var/list/rockets = new/list()
 
+/obj/item/gun/launcher/rocket/Destroy()
+	QDEL_LIST(rockets)
+	return ..()
+
 /obj/item/gun/launcher/rocket/feedback_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	if(is_adjacent)

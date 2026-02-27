@@ -21,11 +21,12 @@ GLOBAL_LIST_EMPTY(escape_pods_by_name)
 		if(own_target)
 			var/obj/machinery/embedded_controller/radio/simple_docking_controller/escape_pod/own_target_master = own_target.master
 			if(own_target_master)
-				own_target_master.pod = src
+				own_target_master.set_pod(src)
 
 /datum/shuttle/autodock/ferry/escape_pod/Destroy()
 	GLOB.escape_pods -= src
 	GLOB.escape_pods_by_name -= name
+	arming_controller = null
 	. = ..()
 
 /datum/shuttle/autodock/ferry/escape_pod/can_launch()
@@ -49,6 +50,21 @@ GLOBAL_LIST_EMPTY(escape_pods_by_name)
 /obj/machinery/embedded_controller/radio/simple_docking_controller/escape_pod
 	name = "escape pod controller"
 	var/datum/shuttle/autodock/ferry/escape_pod/pod
+
+/obj/machinery/embedded_controller/radio/simple_docking_controller/escape_pod/Destroy()
+	pod = null
+	. = ..()
+
+/obj/machinery/embedded_controller/radio/simple_docking_controller/escape_pod/proc/set_pod(datum/shuttle/autodock/ferry/escape_pod/new_pod)
+	if(istype(new_pod))
+		pod = new_pod
+		RegisterSignal(pod, COMSIG_QDELETING, PROC_REF(clear_pod))
+
+/obj/machinery/embedded_controller/radio/simple_docking_controller/escape_pod/proc/clear_pod()
+	SIGNAL_HANDLER
+	if(pod)
+		UnregisterSignal(pod, COMSIG_QDELETING)
+		pod = null
 
 /obj/machinery/embedded_controller/radio/simple_docking_controller/escape_pod/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
