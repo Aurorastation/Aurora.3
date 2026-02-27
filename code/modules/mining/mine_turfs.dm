@@ -171,7 +171,8 @@ GLOBAL_LIST_INIT(mineral_can_smooth_with, list(
 /turf/simulated/mineral/CollidedWith(atom/bumped_atom)
 	. = ..()
 	var/obj/item/pickaxe/pick = astype(bumped_atom, /mob)?.get_active_hand()
-	if(astype(pick)?.autodrill)
+	pick = astype(pick)
+	if(pick?.autodrill)
 		INVOKE_ASYNC(src, TYPE_PROC_REF(/atom, attackby), pick, bumped_atom)
 
 //For use in non-station z-levels as decoration.
