@@ -826,6 +826,7 @@ default behaviour is:
 	for(var/slot in held_item_slots)
 		qdel(held_item_slots[slot])
 	held_item_slots = null
+	held_item_slot_selected = null
 
 	//Psi complexus
 	QDEL_NULL(psi)
