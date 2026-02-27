@@ -167,7 +167,7 @@
 	if(genlev != lastgenlev)
 		lastgenlev = genlev
 		update_icon()
-	add_avail(effective_gen)
+	ADD_TO_POWERNET(src, effective_gen)
 
 /obj/machinery/power/generator/attack_ai(mob/user)
 	if(!ai_can_interact(user))
@@ -220,22 +220,22 @@
 	if(circ1)
 		// The one on the left (or top)
 		data["primaryDir"] = vertical ? "top" : "left"
-		data["primaryOutput"] = last_circ1_gen / 1000
-		data["primaryFlowCapacity"] = circ1.volume_capacity_used * 100
-		data["primaryInletPressure"] = circ1.air1.return_pressure()
+		data["primaryOutput"] = last_circ1_gen/1000
+		data["primaryFlowCapacity"] = circ1.volume_capacity_used*100
+		data["primaryInletPressure"] = XGM_PRESSURE(circ1.air1)
 		data["primaryInletTemperature"] = circ1.air1.temperature
-		data["primaryOutletPressure"] = circ1.air2.return_pressure()
+		data["primaryOutletPressure"] = XGM_PRESSURE(circ1.air2)
 		data["primaryOutletTemperature"] = circ1.air2.temperature
 		data["primaryIsHot"] = circ1.is_hot_loop
 
 	if(circ2)
 		// The one on the right (or bottom)
 		data["secondaryDir"] = vertical ? "bottom" : "right"
-		data["secondaryOutput"] = last_circ2_gen / 1000
-		data["secondaryFlowCapacity"] = circ2.volume_capacity_used * 100
-		data["secondaryInletPressure"] = circ2.air1.return_pressure()
+		data["secondaryOutput"] = last_circ2_gen/1000
+		data["secondaryFlowCapacity"] = circ2.volume_capacity_used*100
+		data["secondaryInletPressure"] = XGM_PRESSURE(circ2.air1)
 		data["secondaryInletTemperature"] = circ2.air1.temperature
-		data["secondaryOutletPressure"] = circ2.air2.return_pressure()
+		data["secondaryOutletPressure"] = XGM_PRESSURE(circ2.air2)
 		data["secondaryOutletTemperature"] = circ2.air2.temperature
 		data["secondaryIsHot"] = circ2.is_hot_loop
 

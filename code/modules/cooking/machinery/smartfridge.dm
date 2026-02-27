@@ -428,10 +428,35 @@
 		var/K = item_quants[i]
 		var/count = item_quants[K]
 		if(count > 0)
-			items.Add(list(list("display_name" = capitalize(K), "vend" = i, "quantity" = count)))
+
+			var/obj/item/item_used = null
+			for (var/obj/item/O in contents)
+				if(O.name == K)
+					item_used = O
+					break
+
+			var/icon/item_icon = null
+			if(item_used)
+				if(istype(item_used, /obj/item/seeds))
+					var/obj/item/seeds/S = item_used
+					item_icon = S.update_appearance(TRUE)
+				else
+					item_icon = new /icon(item_used.icon, item_used.icon_state)
+
+			var/final_icon = null
+			if(item_icon)
+				final_icon = icon2base64(item_icon)
+
+			items.Add(list(list(
+				"display_name" = capitalize(K),
+				"vend" = i,
+				"quantity" = count,
+				"icon" = final_icon,
+			)))
 
 	if(length(items) > 0)
 		data["contents"] = items
+
 	return data
 
 /obj/machinery/smartfridge/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)

@@ -13,7 +13,7 @@
 	var/datum/gas_mixture/environment = loc.return_air()
 	//Handle temperature/pressure differences between body and environment
 	if(environment)
-		handle_environment(environment)
+		handle_environment(environment, seconds_per_tick)
 
 	blinded = 0 // Placing this here just show how out of place it is.
 
@@ -213,7 +213,7 @@
 	if(!.) // If we're under or inside shelter, use the z-level rain (for ambience)
 		. = SSweather.weather_by_z["[my_turf.z]"]
 
-/mob/living/proc/handle_environment(var/datum/gas_mixture/environment)
+/mob/living/proc/handle_environment(var/datum/gas_mixture/environment, seconds_per_tick)
 
 	SHOULD_CALL_PARENT(TRUE)
 
