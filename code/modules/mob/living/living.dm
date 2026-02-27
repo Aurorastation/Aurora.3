@@ -89,7 +89,7 @@ default behaviour is:
 			now_pushing = FALSE
 			return
 
-		if(target_mob.is_holding_type(/obj/item/shield/riot))
+		if(target_mob.get_held_type(/obj/item/shield/riot))
 			if(prob(99))
 				now_pushing = FALSE
 				return

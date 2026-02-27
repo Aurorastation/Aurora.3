@@ -218,7 +218,7 @@
 				used_radios += R
 				R.talk_into(src,message,null,verb,speaking)
 		if("wrist")
-			var/obj/item/radio/R = astype(wrists) || astype(is_holding_type(/obj/item/radio))
+			var/obj/item/radio/R = astype(wrists) || astype(get_held_type(/obj/item/radio))
 			if(R)
 				used_radios += R
 				R.talk_into(src,message,null,verb,speaking)

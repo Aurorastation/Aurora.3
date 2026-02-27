@@ -39,14 +39,7 @@
 
 /obj/item/flashlight/marshallingwand/attack_self(mob/user)
 	// Are we holding one or two wands?
-	var/wand_invariant = ""
-	if(ismob(loc))
-		var/mob/m = loc
-		var/item = m.get_inactive_hand()
-		if(item && istype(item, /obj/item/flashlight/marshallingwand))
-			wand_invariant = "wands"
-		else
-			wand_invariant = "wand"
+	var/wand_invariant = astype(loc, /mob)?.get_all_held_type(/obj/item/flashlight/marshallingwand, TRUE) ? "wands" : "wand"
 
 	if(!on)
 		to_chat(user, SPAN_WARNING("The [wand_invariant] need to be turned on before you can direct crafts with them!"))
@@ -95,15 +88,12 @@
 	// If we are holding a wand in the other hand, make sure to mirror the state of this one to it, so that they are always in sync.
 	if(ismob(loc))
 		var/mob/m = loc
-		var/item_act = m.get_active_hand()
-		var/item_inact = m.get_inactive_hand()
-		if(!item_act || !item_inact || !istype(item_act, /obj/item/flashlight/marshallingwand) || !istype(item_inact, /obj/item/flashlight/marshallingwand))
+		var/obj/item/flashlight/marshallingwand/item_act = m.get_held_type(/obj/item/flashlight/marshallingwand)
+		var/obj/item/flashlight/marshallingwand/item_inact = m.get_held_type(/obj/item/flashlight/marshallingwand, TRUE)
+		if(!item_act || !item_inact)
 			return // Only one wand or different item, abort.
-		var/obj/item/flashlight/marshallingwand/target_wand
-		if(item_act == source_wand) // Check which one needs the update.
-			target_wand = item_inact
-		else
-			target_wand = item_act
+		// Check which one needs the update.
+		var/obj/item/flashlight/marshallingwand/target_wand = item_act == source_wand ? item_inact : item_act
 		target_wand.on = source_wand.on
 		target_wand.set_light_color(source_wand.light_color)
 		target_wand.worn_overlay_color = source_wand.worn_overlay_color

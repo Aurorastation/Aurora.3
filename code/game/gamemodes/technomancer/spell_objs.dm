@@ -335,7 +335,7 @@
 			S.on_innate_cast(src)
 
 	if(!get_empty_hand_slot()) //Make sure our hands aren't full.
-		var/obj/item/spell/spell = is_holding_type(/obj/item/spell)
+		var/obj/item/spell/spell = get_held_type(/obj/item/spell)
 		if(spell?.aspect == ASPECT_CHROMATIC)  //Check if we can combine the new spell with one in our hands.
 			spell.on_combine_cast(S, src)
 		else //Welp

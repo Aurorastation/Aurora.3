@@ -205,14 +205,14 @@
 	attack_verb = list("beaten", "smashed", "struck", "whacked")
 
 /obj/item/scepter/attack_self(mob/living/carbon/human/user)
-	var/obj/item/spell/S = user.is_holding_type(/obj/item/spell)
+	var/obj/item/spell/S = user.get_held_type(/obj/item/spell)
 	if(S)
 		S.on_scepter_use_cast(user)
 
 /obj/item/scepter/afterattack(atom/target, mob/living/carbon/human/user, proximity_flag, click_parameters)
 	if(proximity_flag)
 		return ..()
-	var/obj/item/spell/S = user.is_holding_type(/obj/item/spell)
+	var/obj/item/spell/S = user.get_held_type(/obj/item/spell)
 	if(S)
 		S.on_scepter_ranged_cast(target, user)
 

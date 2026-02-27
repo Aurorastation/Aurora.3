@@ -94,7 +94,7 @@
 		to_chat(usr, SPAN_WARNING("There are no cards in \the [src]."))
 		return
 
-	var/obj/item/hand/H = user.is_holding_type(/obj/item/hand)
+	var/obj/item/hand/H = user.get_held_type(/obj/item/hand)
 	if(!H)
 		H = new hand_type(get_turf(src))
 		H.concealed = TRUE
@@ -129,7 +129,7 @@
 		to_chat(usr, SPAN_WARNING("There are no cards in \the [src]."))
 		return
 
-	var/obj/item/hand/H = user.is_holding_type(/obj/item/hand)
+	var/obj/item/hand/H = user.get_held_type(/obj/item/hand)
 	if(!H)
 		H = new hand_type(get_turf(src))
 		user.put_in_hands(H)

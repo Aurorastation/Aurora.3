@@ -159,13 +159,14 @@ GLOBAL_LIST_INIT(slot_equipment_priority, list(
 /mob/proc/get_inactive_held_items()
 	return null
 
+/// Returns a list of all held items, active hand first (if occupied)
 /mob/proc/get_held_items()
+	var/item = get_active_hand()
+	if(item)
+		LAZYADD(., item)
 	var/list/held_obj = get_inactive_held_items()
 	if(length(held_obj))
-		. = held_obj.Copy()
-	held_obj = get_active_hand()
-	if(held_obj)
-		LAZYADD(., held_obj)
+		LAZYADD(., held_obj.Copy())
 
 /mob/proc/get_empty_hand_slot()
 	return
@@ -173,15 +174,20 @@ GLOBAL_LIST_INIT(slot_equipment_priority, list(
 /mob/proc/get_empty_hand_slots()
 	return
 
-/// Returns the thing if it's a subtype of the requested thing, taking priority of the active hand
-/mob/proc/is_holding_type(var/type)
-	. = get_active_hand()
-	if(istype(., type))
-		return .
-	for(var/item in get_inactive_held_items())
+/// Returns the first result matching type (or a subtype), preferring the active hand
+/mob/proc/get_held_type(var/type, var/offhand_only = FALSE)
+	var/items_to_check = offhand_only ? get_inactive_held_items() : get_held_items()
+	for(var/item in items_to_check)
 		if(istype(item, type))
 			return item
 	return null
+
+/// Returns all results matching type (or a subtype), active hand first
+/mob/proc/get_all_held_type(var/type, var/offhand_only = FALSE)
+	var/items_to_check = offhand_only ? get_inactive_held_items() : get_held_items()
+	for(var/item in items_to_check)
+		if(istype(item, type))
+			LAZYADD(., item)
 
 /mob/proc/get_held_tool(var/behaviour)
 	if(!behaviour)
