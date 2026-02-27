@@ -48,17 +48,6 @@
 	var/datum/wires/smartfridge/wires = null
 	atmos_canpass = CANPASS_DENSITY
 
-/obj/machinery/smartfridge/Initialize(mapload)
-	. = ..()
-
-	if(islist(initial_contents))
-		for(var/typekey in initial_contents)
-			var/amount = initial_contents[typekey]
-			if(isnull(amount))
-				amount = 1
-			for(var/i in 1 to amount)
-				item_quants[typekey]++
-
 /obj/machinery/smartfridge/secure
 	is_secure = 1
 
@@ -112,12 +101,20 @@
 		item_quants[g.name]++
 	update_overlays()
 
-/obj/machinery/smartfridge/Initialize()
+/obj/machinery/smartfridge/Initialize(mapload)
 	. = ..()
 	if(is_secure)
 		wires = new/datum/wires/smartfridge/secure(src)
 	else
 		wires = new(src)
+	if(islist(initial_contents))
+		for(var/obj/item/typekey as anything in initial_contents)
+			var/amount = initial_contents[typekey]
+			if(isnull(amount))
+				amount = 1
+			for(var/i in 1 to amount)
+				new typekey(src)
+				item_quants[typekey.name]++
 	update_icon()
 
 /obj/machinery/smartfridge/Destroy()
@@ -185,6 +182,9 @@
 
 //Variant of medical fridge, but with some starting gear
 /obj/machinery/smartfridge/secure/medbay/horizon
+	initial_contents = list(/obj/item/reagent_containers/glass/bottle/bicaridine = 1,
+						/obj/item/reagent_containers/glass/bottle/kelotane = 1,
+						/obj/item/reagent_containers/glass/bottle/dexalin = 1)
 
 /obj/machinery/smartfridge/secure/virology
 	name = "\improper Refrigerated Virus Storage"
