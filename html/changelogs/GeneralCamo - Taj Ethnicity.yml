@@ -57,4 +57,7 @@ delete-after: True
 changes:
   - rscadd: "Allowed M'sai Tajara to be Executive Officers."
   - rscadd: "Allowed Zhan-Khazan Tajara to be Operations Managers and Chief Engineers."
+  - rscadd: "Allowed Zhan-Khazan Tajara to be Diplomatic Aides and Bodyguards for the PRA, and DPRA."
+  - rscadd: "Allowed M'sai Tajara to be Consular Officers for the PRA, DPRA, and NKA."
+  - rscdel: "Disallowed M'sai Tajara to be Diplomatic Aides for the NKA."
   - qol: "Touched up the Tajara ethnicity descriptions."
