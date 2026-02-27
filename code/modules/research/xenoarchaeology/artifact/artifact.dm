@@ -114,5 +114,6 @@
 /obj/structure/boulder/CollidedWith(atom/bumped_atom)
 	. = ..()
 	var/obj/item/pickaxe/pick = astype(bumped_atom, /mob)?.get_active_hand()
-	if(astype(pick)?.autodrill)
+	pick = astype(pick)
+	if(pick?.autodrill)
 		INVOKE_ASYNC(src, TYPE_PROC_REF(/atom, attackby), pick, bumped_atom)
