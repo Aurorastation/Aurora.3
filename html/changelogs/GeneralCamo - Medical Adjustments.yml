@@ -58,3 +58,4 @@ changes:
   - rscadd: "Added bicaridine, dermaline, and tricordrazine to the cargo order interface."
   - balance: "Dermaline and butazoline are now priced as premium medicines."
   - rscadd: "The Horizon's medical bay now starts with a single bottle of bicaridine, kelotane, and dexalin."
+  - rscadd: "Smartfridges now have emissive masks."
