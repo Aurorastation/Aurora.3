@@ -134,7 +134,7 @@
 				return
 			var/datum/gas_mixture/t_air = T.return_air()
 			if(t_air)
-				pressure_delta = min(env_pressure - t_air.return_pressure(), pressure_delta)
+				pressure_delta = min(env_pressure - XGM_PRESSURE(t_air), pressure_delta)
 			if(pressure_delta > 0) //Location is at a lower pressure (so we can vent into it)
 				var/transfer_moles = calculate_transfer_moles(cockpit, t_air, pressure_delta)
 				var/datum/gas_mixture/removed = cockpit.remove(transfer_moles)
