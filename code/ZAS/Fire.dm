@@ -44,7 +44,9 @@ If it gains pressure too slowly, it may leak or just rupture instead of explodin
 
 	var/igniting = FALSE
 	var/obj/effect/decal/cleanable/liquid_fuel/liquid = locate() in src
-	if(liquid && air_contents.check_combustibility(liquid))
+	var/is_cmb = liquid ? CMB_LIQUID_FUEL : 0
+	CHECK_COMBUSTIBLE(is_cmb, air_contents)
+	if(liquid && is_cmb)
 		IgniteTurf(liquid.amount * 10)
 		QDEL_NULL(liquid)
 
@@ -52,7 +54,7 @@ If it gains pressure too slowly, it may leak or just rupture instead of explodin
 	if(napalm)
 		napalm.Ignite()
 
-	if(air_contents.check_combustibility())
+	if(is_cmb)
 		igniting = TRUE
 		create_fire(exposed_temperature)
 
@@ -61,7 +63,7 @@ If it gains pressure too slowly, it may leak or just rupture instead of explodin
 /zone/proc/process_fire()
 	var/datum/gas_mixture/burn_gas = air.remove_ratio(GLOB.vsc.fire_consuption_rate, LAZYLEN(fire_tiles))
 
-	var/firelevel = burn_gas.zburn(src, fire_tiles, force_burn = TRUE, no_check = TRUE)
+	var/firelevel = burn_gas.react(src, fire_tiles, force_burn = TRUE, no_check = TRUE)
 
 	air.merge(burn_gas)
 
@@ -147,11 +149,10 @@ If it gains pressure too slowly, it may leak or just rupture instead of explodin
 	else
 		set_light(5, FIRE_LIGHT_1)
 
-	for(var/mob/living/L in loc)
-		L.FireBurn(firelevel, air_contents.temperature, air_contents.return_pressure())  //Burn the mobs!
-
 	loc.fire_act(air_contents.temperature, air_contents.volume)
 	for(var/atom/A in loc)
+		var/mob/living/L = astype(A)
+		L?.FireBurn(firelevel, air_contents.temperature, XGM_PRESSURE(air_contents))
 		A.fire_act(air_contents.temperature, air_contents.volume)
 
 	//spread
@@ -165,7 +166,13 @@ If it gains pressure too slowly, it may leak or just rupture instead of explodin
 
 				//if(!enemy_tile.zone.fire_tiles.len) TODO - optimize
 				var/datum/gas_mixture/acs = enemy_tile.return_air()
-				if(!acs || !acs.check_combustibility())
+				if(!acs)
+					continue
+
+				var/is_cmb = 0
+				CHECK_COMBUSTIBLE(is_cmb, acs)
+
+				if(!is_cmb)
 					continue
 
 				//If extinguisher mist passed over the turf it's trying to spread to, don't spread and
@@ -230,9 +237,12 @@ If it gains pressure too slowly, it may leak or just rupture instead of explodin
 	fire_protection = world.time
 
 //Returns the firelevel
-/datum/gas_mixture/proc/zburn(zone/zone, force_burn, no_check = 0)
+/datum/gas_mixture/proc/react(zone/zone, force_burn, no_check = 0)
 	. = 0
-	if((temperature > PHORON_MINIMUM_BURN_TEMPERATURE || force_burn) && (no_check || check_combustibility()))
+	var/is_cmb = no_check ? TRUE : 0
+	if(!is_cmb)
+		CHECK_COMBUSTIBLE(is_cmb, src)
+	if((temperature > PHORON_MINIMUM_BURN_TEMPERATURE || force_burn) && is_cmb)
 
 		#ifdef ZASDBG
 		log_subsystem_zas_debug("***************** FIREDBG *****************")
@@ -303,11 +313,16 @@ If it gains pressure too slowly, it may leak or just rupture instead of explodin
 
 		//calculate the energy produced by the reaction and then set the new temperature of the mix
 		temperature = (starting_energy + GLOB.vsc.fire_fuel_energy_release * (used_gas_fuel)) / heat_capacity()
-		update_values()
+		total_moles = 0
+		for(var/g in gas)
+			if(gas[g] <= 0)
+				gas -= g
+			else
+				total_moles += gas[g]
 
 		#ifdef ZASDBG
 		log_subsystem_zas_debug("used_gas_fuel = [used_gas_fuel]; total = [used_fuel]")
-		log_subsystem_zas_debug("new temperature = [temperature]; new pressure = [return_pressure()]")
+		log_subsystem_zas_debug("new temperature = [temperature]; new pressure = [XGM_PRESSURE(src)]")
 		#endif
 
 		if (temperature < MINIMUM_HEAT_THRESHOLD)
@@ -331,25 +346,6 @@ If it gains pressure too slowly, it may leak or just rupture instead of explodin
 	. = 0
 	for(var/g in gas)
 		if(gas_data.flags[g] & XGM_GAS_FUEL && gas[g] >= 0.1)
-			. = 1
-			break
-
-/datum/gas_mixture/proc/check_combustibility(obj/effect/decal/cleanable/liquid_fuel/liquid=null)
-	. = 0
-	for(var/g in gas)
-		if(gas_data.flags[g] & XGM_GAS_OXIDIZER && QUANTIZE(gas[g] * GLOB.vsc.fire_consuption_rate) >= 0.1)
-			. = 1
-			break
-
-	if(!.)
-		return 0
-
-	if(liquid)
-		return 1
-
-	. = 0
-	for(var/g in gas)
-		if(gas_data.flags[g] & XGM_GAS_FUEL && QUANTIZE(gas[g] * GLOB.vsc.fire_consuption_rate) >= 0.005)
 			. = 1
 			break
 

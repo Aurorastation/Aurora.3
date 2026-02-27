@@ -629,7 +629,7 @@
 		return
 	var/datum/gas_mixture/environment = T.return_air()
 
-	var/pressure = environment.return_pressure()
+	var/pressure = XGM_PRESSURE(environment)
 	var/total_moles = environment.total_moles
 
 	if (total_moles)
@@ -707,7 +707,7 @@
 		return
 	var/datum/gas_mixture/environment = T.return_air()
 
-	var/pressure = environment.return_pressure()
+	var/pressure = XGM_PRESSURE(environment)
 	var/total_moles = environment.total_moles
 
 	if (total_moles)

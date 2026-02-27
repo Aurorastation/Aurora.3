@@ -122,7 +122,8 @@
 		/obj/item/price_scanner,
 		/obj/item/cratescanner,
 		/obj/item/destTagger,
-		/obj/item/quikpay
+		/obj/item/quikpay,
+		/obj/item/paint_sprayer
 	)
 	content_overlays = TRUE
 

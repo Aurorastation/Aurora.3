@@ -241,7 +241,7 @@
 	var/heat_level_2 = 400
 	/// Heat damage level 3 above this point
 	var/heat_level_3 = 1000
-	/// Species will gain this much temperature every second
+	/// Species will gain this much temperature (in degrees kelvin per second)
 	var/passive_temp_gain = 0
 	/// Dangerously high pressure
 	var/hazard_high_pressure = HAZARD_HIGH_PRESSURE
@@ -1098,8 +1098,8 @@
  * This proc handles the species temperature regulation. By default, it just adds `passive_temp_gain` to the human's bodytemperature.
  * Can be overridden for more complex calculations.
  */
-/datum/species/proc/handle_temperature_regulation(mob/living/carbon/human/human)
-	human.bodytemperature += passive_temp_gain
+/datum/species/proc/handle_temperature_regulation(mob/living/carbon/human/human, seconds_per_tick)
+	human.bodytemperature += passive_temp_gain * seconds_per_tick
 
 /datum/species/proc/get_limb_from_zone(var/limb)
 	. = length(LAZYACCESS(limb_mapping, limb)) ? pick(limb_mapping[limb]) : limb

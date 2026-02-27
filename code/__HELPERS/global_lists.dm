@@ -111,11 +111,14 @@ GLOBAL_LIST_INIT(headsetlist, list("Nothing", "Headset", "Bowman Headset", "Doub
 /// Primary Radio Slot loadout choices.
 GLOBAL_LIST_INIT(primary_radio_slot_choice, list("Left Ear", "Right Ear", "Wrist"))
 
-// Used to track fauna spawners on the phoron deposit away site.
+/// Used to track fauna spawners on the phoron deposit away site.
 GLOBAL_LIST_INIT(fauna_spawners, list())
 
 /// List of spawn points associated with '/obj/effect/organized_fauna_spawner'. It will automatically assign the spawn points in the same Z level as spawner.
 GLOBAL_LIST_EMPTY(organized_spawn_points)
+
+/// List of mob waypoints for fauna spawners.
+GLOBAL_LIST_EMPTY(mob_waypoints)
 
 /// Visual nets.
 GLOBAL_LIST_EMPTY_TYPED(visual_nets, /datum/visualnet)

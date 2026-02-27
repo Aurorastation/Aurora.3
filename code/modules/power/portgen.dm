@@ -53,8 +53,7 @@
 /obj/machinery/power/portgen/process()
 	if(active && HasFuel() && !IsBroken() && anchored)
 		set_light(2, 1, l_color = portgen_lightcolour)
-		if(powernet)
-			add_avail(power_gen * power_output)
+		ADD_TO_POWERNET(src, power_gen * power_output)
 		UseFuel()
 	else
 		set_light(0)
@@ -215,7 +214,7 @@
 	if(!loc) return
 	var/datum/gas_mixture/environment = loc.return_air()
 	if (environment)
-		var/ratio = min(environment.return_pressure()/ONE_ATMOSPHERE, 1)
+		var/ratio = min(XGM_PRESSURE(environment)/ONE_ATMOSPHERE, 1)
 		var/ambient = environment.temperature - T20C
 		lower_limit += ambient*ratio
 		upper_limit += ambient*ratio
@@ -247,7 +246,7 @@
 	if(T)
 		var/datum/gas_mixture/environment = T.return_air()
 		if (environment)
-			var/ratio = min(environment.return_pressure()/ONE_ATMOSPHERE, 1)
+			var/ratio = min(XGM_PRESSURE(environment)/ONE_ATMOSPHERE, 1)
 			var/ambient = environment.temperature - T20C
 			cooling_temperature += ambient*ratio
 

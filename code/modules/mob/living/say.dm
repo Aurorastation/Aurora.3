@@ -320,7 +320,7 @@ var/list/channel_to_radio_key = new
 		if(!speaking || !(speaking.flags & PRESSUREPROOF))
 			//make sure the air can transmit speech - speaker's side
 			var/datum/gas_mixture/environment = T.return_air()
-			var/pressure = (environment)? environment.return_pressure() : 0
+			var/pressure = SAFE_XGM_PRESSURE(environment)
 			if(pressure < SOUND_MINIMUM_PRESSURE)
 				message_range = 1
 

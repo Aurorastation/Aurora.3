@@ -447,3 +447,69 @@
   - rscadd: Added stickynotes to the loadout.
   - qol: Plastic bags can now hold more items and slightly bigger ones.
   - qol: Made toptart packages smaller so they fit in plastic bags.
+2026-02-27:
+  AlaunusLux:
+  - experiment: Adds vampiric and changeling jumpstarters to the uplink and prohibits
+      voting for those modes.
+  Batrachophrenoboocosmomachia:
+  - bugfix: Restores inhand sprites for all radio variants.
+  - rscadd: Paint sprayers can now be used on unpainted crates and lockers to give
+      them a custom appearance.
+  - rscadd: Adds paint sprayers to Hangar Tech lockers.
+  - qol: Moves pipe painter functionality to paint sprayers; pipe painters now just
+      flavor objects on some offsites.
+  - qol: Adds paint sprayers to allowed items list for utility toolbelts.
+  - imageadd: Codersprites pipe painter with recolorable paint storage component indicating
+      current color (used by paint sprayer).
+  - imagedel: Removes old paint sprayer sprite.
+  - bugfix: Removes old runtime caused by targeting turfs w/ paint sprayers that don't
+      have flooring singletons assigned.
+  CatsinHD:
+  - rscadd: Adds Party Representative as an alt-title for Consulars from the People's
+      Republic of Adhomai.
+  - rscadd: Adds the Tsarrayut'an rifle to the cargo order list.
+  - rscadd: Adds 6.8mm magazine, clip, and AP magazine to the cargo order list.
+  ElorgRHG:
+  - imageadd: Tweaked the north facing caligae sprite for Unathi.
+  - bugfix: Fixes the caligae sock variant going over the claws on the side sprites
+      for Unathi.
+  - rscadd: Alt clicking a modular computer to first get the stored card and then
+      the item has been split to Alt clicking to get the card, and Ctrl clicking to
+      get the item.
+  FabianK3:
+  - rscadd: Updated hangar tech marshalling wands. The marshalling wands now have
+      color based of intent giving a clearer visual distinction on the action. In
+      addition, holding two wands in your hands will automatically sync their settings.
+  - qol: Add the second missing marshalling wand to the tech closets.
+  - qol: Adjusted hangar tech round start spawn locations.
+  Hellfirejag:
+  - bugfix: Fixed organs ticking 50% faster than intended.
+  - rscadd: Reworked most of IPC heat/cooling code to no longer create uncontrollable
+      heat spikes.
+  - bugfix: Fixed IPCs in space suits generating impossible to manage levels of heat
+      even with a suit cooler.
+  - bugfix: Fixed suit coolers not even working on IPCs in a space suit in the first
+      place.
+  JohnWildkins:
+  - refactor: Rewrite several heavily-called functions to either inline statements
+      or otherwise optimize to reduce server load.
+  - refactor: Improved garbage collection on ammo piles, rocket launchers, and mob
+      spawners to reduce server lag spikes.
+  - refactor: Refactored status displays so they don't create 50 overlays a second.
+  - bugfix: Fix shortwave radios not being able to select channels.
+  - rscadd: Converted radio/headset interface to TGUI.
+  TheGreyWolf:
+  - rscadd: Smartfridges and variants got an UI upgrade.
+  kermit:
+  - rscadd: Removes human origin restrictions and whitelists skrell + diona + vaurca
+      + unathi for custom bioaugs due to their prevalence in lore. Does not unrestrict
+      Galatean-specific bioaugs.
+  nauticall:
+  - rscdel: 'Removes the following offship maps from rotation (1/2): Casino Ship,
+      Dominian Unathi Privateer, Freebooter Ship, Miners Guild Station, NKA Merchant
+      Ship, Database Freighter.'
+  - rscdel: 'Removes the following offship maps too (2/2): SFA Patrol Ship, Tajaran
+      Smuggler, Unathi Pirate Izharshan Ship, Unathi Pirate Tarwa Ship, COC Surveyor,
+      Dominian Science Vessel.'
+  - code_imp: The Freebooter Salvager will now take the place of the old Freebooter
+      Ship; spawn weight was adjusted to 1 (normal).

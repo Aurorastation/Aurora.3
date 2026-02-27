@@ -38,7 +38,7 @@
 
 /obj/machinery/power/rtg/process()
 	..()
-	add_avail(power_gen)
+	ADD_TO_POWERNET(src, power_gen)
 	if(panel_open && irradiate)
 		for (var/mob/living/L in range(2, src))
 			L.apply_damage(10, DAMAGE_RADIATION, damage_flags = DAMAGE_FLAG_DISPERSED)	// Weak but noticeable.

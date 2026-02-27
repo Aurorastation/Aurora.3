@@ -86,7 +86,6 @@
 
 	// Painters
 	new /obj/item/paint_sprayer(src)
-	new /obj/item/pipe_painter(src)
 
 // Atmospherics Technician
 /obj/structure/closet/secure_closet/atmos_personal
@@ -120,7 +119,6 @@
 
 	// Painters
 	new /obj/item/paint_sprayer(src)
-	new /obj/item/pipe_painter(src)
 
 // Electrical Supplies
 /obj/structure/closet/secure_closet/engineering_electrical

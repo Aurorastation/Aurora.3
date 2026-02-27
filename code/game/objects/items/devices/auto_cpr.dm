@@ -71,7 +71,7 @@
 		else
 			. += SPAN_DANGER("It currently has a battery with no charge left!")
 	if(tank)
-		. += "It has \the [tank] installed. The meter shows <b>[round(tank.air_contents.return_pressure())] kPa</b>, \
+		. += "It has \the [tank] installed. The meter shows <b>[round(XGM_PRESSURE(tank.air_contents))] kPa</b>, \
 		with the pressure set to <b>[round(tank.distribute_pressure)] kPa</b>.[epp_active ? " The [EPP] is active." : ""]"
 	if(breath_mask)
 		. += "It has \the [breath_mask] installed."
@@ -389,7 +389,7 @@
 		src.visible_message(SPAN_WARNING("Error! Patient safety check triggered! Turning the [EPP] off."))
 		epp_off()
 		return
-	if(tank.air_contents.return_pressure() <= 10)
+	if(XGM_PRESSURE(tank.air_contents) <= 10)
 		src.visible_message(SPAN_WARNING("Error! Installed [tank] is low or near empty! Turning the [EPP] off."))
 		epp_off()
 		return
