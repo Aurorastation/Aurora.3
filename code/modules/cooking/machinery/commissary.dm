@@ -209,7 +209,7 @@
 
 /obj/structure/cash_register/commissary/attackby(obj/item/attacking_item, mob/user)
 	if(istype(attacking_item, /obj/item/paper))
-		read_paper_list(attacking_item)
+		read_paper_list(attacking_item, user)
 		return
 	if(sum == 0)
 		return
@@ -295,7 +295,7 @@
 
 /obj/structure/cash_register/commissary/proc/read_paper_list(var/obj/item/paper/R)
 	if(!editmode)
-		to_chat(usr, SPAN_WARNING("Device locked."))
+		balloon_chat(user, "device locked!")
 		return FALSE
 	var/result = read_paper_price_list(R)
 	for(var/item in result)
@@ -430,7 +430,7 @@
 
 		if("print_dsv")
 			if(!editmode)
-				to_chat(usr, SPAN_WARNING("Device locked."))
+				balloon_alert(usr, "device locked!")
 				return FALSE
 			print_price()
 			. = TRUE

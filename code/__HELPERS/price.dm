@@ -1,4 +1,3 @@
-
 /// Registers name and prices for the commissary from a paper.
 /// First line is ignored, acting as header for name/pricing, mainly for readability.
 /// The second line and after are read as the name of the thing and the price of the thing.
