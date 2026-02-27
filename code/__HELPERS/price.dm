@@ -41,7 +41,7 @@
 	return result
 
 // Prints the prices from a register/quikpay into a list that can be used for read_paper_price_list()
-/proc/print_price_to_paper(var/shop_name, var/list/items, var/paper_loc)
+/proc/print_price_to_paper(var/shop_name, var/list/items, var/paper_loc, mob/user)
 	if(!items || !items.len)
 		return FALSE
 
@@ -56,6 +56,6 @@
 
 	R.set_content(title, text)
 
-	usr.put_in_any_hand_if_possible(R)
+	user.put_in_any_hand_if_possible(R)
 	R.ripped = TRUE
 	return TRUE

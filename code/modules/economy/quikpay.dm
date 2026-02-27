@@ -126,8 +126,8 @@
 		items += list(list("name" = item["name"], "price" = item["price"]))
 		items_to_price[item["name"]] += item["price"]
 
-/obj/item/quikpay/proc/print_price()
-	return print_price_to_paper(shop_name, items, loc)
+/obj/item/quikpay/proc/print_price(mob/user)
+	return print_price_to_paper(shop_name, items, loc, user)
 
 /obj/item/quikpay/attack_self(var/mob/user)
 	ui_interact(user)
@@ -159,7 +159,7 @@
 	switch(action)
 		if("add")
 			if(!editmode)
-				to_chat(usr, SPAN_WARNING("Device locked."))
+				balloon_alert(usr, "device locked!")
 				return FALSE
 
 			items += list(list("name" = new_item, "price" = new_price))
@@ -168,7 +168,7 @@
 
 		if("remove")
 			if(!editmode)
-				to_chat(usr, SPAN_NOTICE("Device locked."))
+				balloon_alert(usr, "device locked!")
 				return FALSE
 			var/index = 0
 			for(var/list/L in items)
@@ -230,7 +230,7 @@
 		if("locking")
 			if(editmode)
 				editmode = FALSE
-				to_chat(usr, SPAN_NOTICE("Device locked."))
+				balloon_alert(usr, "device locked!")
 			else
 				if(!editmode)
 					var/obj/item/card/id/I = usr.GetIdCard()
@@ -243,7 +243,7 @@
 
 		if("accountselect")
 			if(!editmode)
-				to_chat(usr, SPAN_WARNING("Device locked."))
+				balloon_alert(usr, "device locked!")
 				return FALSE
 
 			var/dest = tgui_input_list(usr, "What account would you like to select?", "Destination Account", assoc_to_keys(SSeconomy.department_accounts))
@@ -256,7 +256,7 @@
 			if(!editmode)
 				balloon_alert(usr, "device locked!")
 				return FALSE
-			print_price()
+			print_price(usr)
 			. = TRUE
 
 /obj/item/quikpay/proc/clear_order()
