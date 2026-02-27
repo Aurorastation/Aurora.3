@@ -22,6 +22,11 @@
 	var/machineselect = 0
 
 	var/list/accepted_items = list(/obj/item/reagent_containers/food/snacks/grown, /obj/item/seeds, /obj/item/mollusc)
+	/// List of items that the machine starts with upon spawn
+	var/list/initial_contents
+
+	/// Is this smartfridge going to have a glowing screen? (Drying Racks are not)
+	var/has_emissive = TRUE
 
 	var/cooling = 0 //Whether or not to vend products at the cooling temperature
 	var/heating = 0 //Whether or not to vend products at the heating temperature
@@ -42,6 +47,17 @@
 
 	var/datum/wires/smartfridge/wires = null
 	atmos_canpass = CANPASS_DENSITY
+
+/obj/machinery/smartfridge/Initialize(mapload)
+	. = ..()
+
+	if(islist(initial_contents))
+		for(var/typekey in initial_contents)
+			var/amount = initial_contents[typekey]
+			if(isnull(amount))
+				amount = 1
+			for(var/i in 1 to amount)
+				item_quants[typekey]++
 
 /obj/machinery/smartfridge/secure
 	is_secure = 1
@@ -167,6 +183,9 @@
 						/obj/item/reagent_containers/hypospray/autoinjector,
 						/obj/item/personal_inhaler)
 
+//Variant of medical fridge, but with some starting gear
+/obj/machinery/smartfridge/secure/medbay/horizon
+
 /obj/machinery/smartfridge/secure/virology
 	name = "\improper Refrigerated Virus Storage"
 	desc = "A refrigerated storage unit for storing viral material."
@@ -210,6 +229,7 @@
 	icon_state = "drying_rack"
 	accepted_items = list(/obj/item/reagent_containers/food/snacks)
 	contents_path = null
+	has_emissive = FALSE
 
 /obj/machinery/smartfridge/drying_rack/accept_check(var/obj/item/O)
 	if(!..())
@@ -285,10 +305,12 @@
 	if(panel_open)
 		AddOverlays("[initial(icon_state)]-panel")
 	var/list/shown_contents = contents - component_parts
-	if(contents_path && shown_contents.len > 0)
-		var/contents_icon_state = change_display(shown_contents.len - 1)
+	if(contents_path && length(shown_contents) > 0)
+		var/contents_icon_state = change_display(length(shown_contents) - 1)
 		AddOverlays("[initial(icon_state)][contents_path][contents_icon_state]")
 	AddOverlays("[initial(icon_state)]-glass[(stat & BROKEN) ? "-broken" : ""]")
+	if(has_emissive && powered() && !(stat & BROKEN))
+		AddOverlays(emissive_appearance(icon, "[initial(icon_state)]-light-mask", src, alpha = src.alpha))
 
 /obj/machinery/smartfridge/proc/change_display(var/length)
 	var/tier = clamp((floor(length / display_tier_amt) + 1), 1, display_tiers)
@@ -519,6 +541,7 @@
 	icon = 'icons/obj/structure/urban/restaurant.dmi'
 	icon_state = "buffet"
 	contents_path = null
+	has_emissive = FALSE
 
 /obj/machinery/smartfridge/foodheater/buffet/Initialize()
 	. = ..()
