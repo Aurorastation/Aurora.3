@@ -28,13 +28,32 @@
 		else // Can't find the friend's communicator
 			missing_friends += list(alist("address" = friend_address, "username" = friend_name))
 
-	var/call_duration
-	var/list/connected_callers = list()
+	var/alist/active_call_data
 	if(active_call)
-		call_duration = time2text(world.timeofday - active_call.call_start_time, "mm:ss")
+		var/list/connected_comms = list()
 		for(var/datum/computer_file/program/communicator/comm as anything in active_call.connected_comms)
-			if(comm != src)
-				connected_callers += comm.get_computer_address()
+			connected_comms += comm.get_computer_address()
+
+		active_call_data = alist(
+			"duration" = time2text(world.timeofday - active_call.call_start_time, "mm:ss"),
+			"connectedComms" = connected_comms,
+		)
+
+	var/list/active_chats_data = list()
+	for(var/address in active_chats)
+		var/datum/comm_chat/chat = active_chats[address]
+		var/list/chat_messages = list()
+		for(var/datum/comm_text_message/message as anything in chat.messages)
+			chat_messages += list(alist(
+				"content" = message.content,
+				"senderAddress" = message.sender_address,
+				"timeSent" = message.time_sent,
+			))
+
+		active_chats_data += list(alist(
+			"chatTarget" = address,
+			"messages" = chat_messages,
+		))
 
 	var/list/all_users = list()
 	for(var/address in GLOB.active_communicator_apps)
@@ -48,11 +67,11 @@
 	data["currentTab"] = current_tab
 	data["silent"] = computer.silent
 
-	data["callDuration"] = call_duration
+	data["activeCall"] = active_call_data
+	data["activeChats"] = active_chats_data
 	data["callSettings"] = alist("speakerphoneOn" = speakerphone_on, "microphoneOn" = microphone_on)
 
 	data["friendsList"] = alist("active" = active_friends, "missing" = missing_friends)
-	data["connectedCallers"] = connected_callers
 	data["callRequests"] = REQUESTS_DATA(comm_requests, CALL_REQUESTS)
 	data["friendRequests"] = REQUESTS_DATA(comm_requests, FRIEND_REQUESTS)
 	data["userComm"] = COMM_DATA(src, get_computer_address(), get_user_name())
@@ -76,10 +95,7 @@
 			current_tab = params["new_tab"]
 
 		if("end_call")
-			for(var/datum/computer_file/program/communicator/comm as anything in active_call.connected_comms - src)
-				comm.computer.output_error("[get_user_name()] hung up.")
-			active_call?.remove_device(src)
-			current_tab = initial(current_tab)
+			end_call("[get_user_name()] hung up.")
 
 		if("friend_request_manual")
 			var/address = tgui_input_text(usr, "Enter an address to send a friend request to", "Friend Request", "fc00:", MAX_NTNET_ADDRESS_LEN)
@@ -186,6 +202,9 @@
 				if("decline")
 					target_comm.cancel_voice_call(src, get_computer_address(), "Your call request to [get_user_name()] was declined.")
 
+		if("start_chat")
+			if(!active_chats[target_address])
+				active_chats[target_address] = new /datum/comm_chat(src, target_comm)
 	return TRUE
 
 #undef REQUESTS_DATA

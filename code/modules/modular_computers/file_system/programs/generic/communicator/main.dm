@@ -22,6 +22,9 @@ GLOBAL_LIST_EMPTY(active_communicator_apps)
 	/// The phone call datum that this communicator is connected to, along with any other communicators in the call.
 	var/datum/comm_call/active_call
 
+	// todo: make this an alist?? {other comm's address: chat datum}
+	var/alist/active_chats = alist()
+
 	/// Friend list! Associative list of each friend's NTNet address, and their last known username.
 	///
 	/// The username is stored so that in the event that their communicator goes offline, the friends list UI can still show a listing for them.

@@ -6,9 +6,8 @@ import { CommunicatorData, CommunicatorTab } from './types';
 
 export const CommunicatorCallTab = (props, context) => {
   const { act, data } = useBackend<CommunicatorData>(context);
-  const { callDuration, connectedCallers, callRequests, userComm } = data;
+  const { activeCall, callRequests, userComm } = data;
 
-  const activeCall = !!connectedCallers.length;
   const incomingCall = !!callRequests.incoming.length;
   const outgoingCall = !!callRequests.outgoing.length;
 
@@ -23,10 +22,11 @@ export const CommunicatorCallTab = (props, context) => {
   if (activeCall) {
     return (
       <CallScreen
-        name={connectedCallers
+        name={activeCall.connectedComms
+          .filter((addr) => addr !== userComm.address)
           .map((addr) => GetUserByAddress(data, addr)?.username)
           .join(', ')}
-        subtitle={callDuration}
+        subtitle={activeCall.duration}
         centerItem={<OptionButtons />}
         buttons={
           <Button

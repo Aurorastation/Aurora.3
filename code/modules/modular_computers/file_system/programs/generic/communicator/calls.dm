@@ -64,3 +64,8 @@
 	caller_comm.speakerphone_on = FALSE
 	caller_comm.microphone_on = TRUE
 	caller_comm.current_tab = COMM_CALL_TAB
+
+/datum/computer_file/program/communicator/proc/end_call(message)
+	active_call?.remove_device(src, message)
+	if(current_tab == COMM_CALL_TAB)
+		current_tab = initial(current_tab)

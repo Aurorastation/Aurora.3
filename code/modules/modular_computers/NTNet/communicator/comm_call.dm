@@ -5,13 +5,10 @@
 /datum/comm_call/New()
 	. = ..()
 	call_start_time = world.timeofday
-	GLOB.ntnet_global.comm_calls += src
 
 /datum/comm_call/Destroy(force)
-	GLOB.ntnet_global.comm_calls -= src
 	for(var/datum/computer_file/program/communicator/comm as anything in connected_comms)
 		remove_device(comm)
-		comm.current_tab = initial(comm.current_tab)
 	return ..()
 
 /datum/comm_call/proc/add_device(datum/computer_file/program/communicator/comm_app)
@@ -21,7 +18,7 @@
 
 	RegisterSignal(comm_app.computer, COMSIG_OBJ_HEAR_TALK, PROC_REF(on_hear_talk))
 
-/datum/comm_call/proc/remove_device(datum/computer_file/program/communicator/comm_app)
+/datum/comm_call/proc/remove_device(datum/computer_file/program/communicator/comm_app, message)
 	connected_comms -= comm_app
 	comm_app.computer.lose_hearing_sensitivity()
 	comm_app.active_call = null
@@ -31,6 +28,9 @@
 	// If there's only one person left, just end the call. (`Destroy()` handles removing the last person)
 	if(length(connected_comms) == 1)
 		qdel(src)
+	else if(message)
+		for(var/datum/computer_file/program/communicator/comm as anything in connected_comms)
+			comm.computer.output_error(message)
 
 /datum/comm_call/proc/set_mute(datum/computer_file/program/communicator/comm_app, should_mute)
 	if(should_mute)

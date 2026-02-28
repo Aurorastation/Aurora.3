@@ -62,7 +62,7 @@ export const CommunicatorPhoneTab = (props, context) => {
 
   const [targetAddress, setTargetAddress] = useLocalState(
     context,
-    'tgtAddr',
+    'targetAddress',
     '',
   );
 
@@ -147,13 +147,13 @@ const AutocompleteInput = (props, context) => {
 
   const [targetAddress, setTargetAddress] = useLocalState(
     context,
-    'tgtAddr',
+    'targetAddress',
     '',
   );
 
   const [suggestedTargetIdx, setSuggestedTargetIdx] = useLocalState(
     context,
-    'posTgtIdx',
+    'suggestedTargetIdx',
     0,
   );
 

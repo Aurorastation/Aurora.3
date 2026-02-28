@@ -4,6 +4,7 @@ import { NtosWindow } from '../../layouts';
 import { CommunicatorCallTab } from './CommunicatorCallTab';
 import { CommunicatorContactTab } from './CommunicatorContactTab';
 import { CommunicatorHomeTab } from './CommunicatorHomeTab';
+import { CommunicatorMessagesTab } from './CommunicatorMessagesTab';
 import { CommunicatorPhoneTab } from './CommunicatorPhoneTab';
 import { CommunicatorSettingsTab } from './CommunicatorSettingsTab';
 import { CommunicatorData, CommunicatorTab } from './types';
@@ -27,7 +28,7 @@ const NormalScreen = (props, context) => {
     [CommunicatorTab.Home]: <CommunicatorHomeTab />,
     [CommunicatorTab.Phone]: <CommunicatorPhoneTab />,
     [CommunicatorTab.Contacts]: <CommunicatorContactTab />,
-    [CommunicatorTab.Messaging]: <CommunicatorHomeTab />, // todo
+    [CommunicatorTab.Messaging]: <CommunicatorMessagesTab />,
     [CommunicatorTab.Settings]: <CommunicatorSettingsTab />,
     [CommunicatorTab.ActiveCall]: <CommunicatorCallTab />,
   };
@@ -47,7 +48,7 @@ const NormalScreen = (props, context) => {
 const FooterButtons = (props, context) => {
   const { act, data } = useBackend<CommunicatorData>(context);
 
-  const activeCall = !!data.connectedCallers.length;
+  const activeCall = !!data.activeCall;
   const incomingCall = !!data.callRequests.incoming.length;
   const outgoingCall = !!data.callRequests.outgoing.length;
   const showPhoneButton =

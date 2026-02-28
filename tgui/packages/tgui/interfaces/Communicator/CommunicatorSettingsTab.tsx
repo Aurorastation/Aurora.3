@@ -97,7 +97,7 @@ const RequestsTable = (props, context) => {
 
   const [requestsTab, setRequestsTab] = useLocalState(
     context,
-    'ReqTab',
+    'requestsTab',
     RequestsTab.Incoming,
   );
 

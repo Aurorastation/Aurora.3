@@ -2,9 +2,6 @@
 	var/list/chat_channels = list()
 	var/list/chat_clients = list()
 
-	// Todo: Replace the old chat stuff with communicators at some point? There's a lot of redundancy here.
-	var/list/comm_calls = list()
-
 /datum/ntnet/proc/begin_conversation(var/datum/computer_file/program/chat_client/Cl, var/title)
 	if(!istype(Cl) || !istype(Cl.my_user))
 		return

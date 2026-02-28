@@ -120,8 +120,13 @@ const ContactListing = (
 
   const [targetAddress, setTargetAddress] = useLocalState(
     context,
-    'tgtAddr',
+    'targetAddress',
     '',
+  );
+  const [selectedChatAddr, setSelectedChatAddr] = useLocalState<string | null>(
+    context,
+    'SelectedChatAddr',
+    null,
   );
 
   return (
@@ -142,7 +147,7 @@ const ContactListing = (
             tooltipPosition="bottom"
             disabled={
               !UserIsActive(contact) ||
-              data.connectedCallers.includes(contact.address)
+              data.activeCall?.connectedComms.includes(contact.address)
             }
             onClick={() => {
               setTargetAddress(contact.address);
@@ -156,6 +161,11 @@ const ContactListing = (
             tooltip="Send instant message"
             tooltipPosition="bottom"
             disabled={!UserIsActive(contact)}
+            onClick={() => {
+              act('start_chat', { target_address: contact.address });
+              setSelectedChatAddr(contact.address);
+              act('switch_tab', { new_tab: CommunicatorTab.Messaging });
+            }}
           >
             Message
           </Button>

@@ -1,15 +1,19 @@
 import { BooleanLike } from 'common/react';
 
+// #region Data types
+
+type Address = string;
+
 export type CommunicatorData = {
   noID?: BooleanLike;
   currentTab: CommunicatorTab;
   silent: BooleanLike;
 
-  callDuration: string;
+  activeCall?: VoiceCall;
+  activeChats: TextChat[];
   callSettings: CallSettings;
 
   friendsList: FriendsList;
-  connectedCallers: string[];
   callRequests: RequestsList;
   friendRequests: RequestsList;
 
@@ -23,13 +27,29 @@ type CallSettings = {
 };
 
 export type RequestsList = {
-  incoming: string[];
-  outgoing: string[];
+  incoming: Address[];
+  outgoing: Address[];
 };
 
 type FriendsList = {
   active: ActiveUser[];
   missing: UserDetails[];
+};
+
+type VoiceCall = {
+  connectedComms: Address[];
+  duration: string;
+};
+
+export type TextChat = {
+  chatTarget: Address;
+  messages: TextMessage[];
+};
+
+type TextMessage = {
+  content: string;
+  senderAddress: string;
+  timeSent: string;
 };
 
 export interface UserDetails {
@@ -41,6 +61,9 @@ export interface ActiveUser extends UserDetails {
   visible: BooleanLike;
   connectingToAddr: string;
 }
+
+// #endregion
+// #region Interface types
 
 // Mirror of the defines in 'code/__DEFINES/communicator.dm'.
 export enum CommunicatorTab {
@@ -71,7 +94,7 @@ const ContactsApp: App = {
 };
 
 const MessagingApp: App = {
-  name: 'Messaging',
+  name: 'Messages',
   icon: 'comment-alt',
   tab: CommunicatorTab.Messaging,
 };
@@ -83,3 +106,5 @@ const SettingsApp: App = {
 };
 
 export const Apps = [PhoneApp, ContactsApp, MessagingApp, SettingsApp];
+
+// #endregion
