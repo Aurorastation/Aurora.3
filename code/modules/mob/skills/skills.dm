@@ -14,7 +14,7 @@
 
 /datum/skills/Destroy()
 	owner = null
-	QDEL_NULL_LIST(skills)
+	QDEL_LIST(skills)
 	return ..()
 
 /**
