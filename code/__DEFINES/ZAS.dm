@@ -1,6 +1,7 @@
 
 //#define ZASDBG
 #define MULTIZAS
+//#define PIPEBURST //Used for testing pipe bursting. Currently not enabled as it would break a lot
 
 #define AIR_BLOCKED 1
 #define ZONE_BLOCKED 2

@@ -55,7 +55,7 @@
 /turf/simulated/floor/plating,
 /area/shuttle/database_freighter_shuttle)
 "al" = (
-/obj/machinery/atmospherics/pipe/tank{
+/obj/machinery/atmospherics/unary/tank{
 	dir = 4
 	},
 /turf/simulated/floor{
@@ -4295,7 +4295,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/database_freighter_shuttle)
 "Ju" = (
-/obj/machinery/atmospherics/pipe/tank/carbon_dioxide,
+/obj/machinery/atmospherics/unary/tank/carbon_dioxide,
 /turf/simulated/floor/plating,
 /area/database_freighter/engine)
 "Jv" = (
@@ -4392,7 +4392,7 @@
 /turf/simulated/floor/plating,
 /area/database_freighter/engine)
 "KQ" = (
-/obj/machinery/atmospherics/pipe/tank/air,
+/obj/machinery/atmospherics/unary/tank/air,
 /turf/simulated/floor{
 	temperature = 278.15
 	},

@@ -35,7 +35,7 @@
 	var/con_lock = 0
 	var/transfer_moles = 0
 	var/datum/gas_mixture/air
-	var/obj/machinery/atmospherics/node
+	var/list/nodes // lazy list of nodes
 	var/datum/pipe_network/network
 
 /datum/omni_port/New(var/obj/machinery/atmospherics/omni/M, var/direction = NORTH)
@@ -47,24 +47,24 @@
 	air.volume = 200
 
 /datum/omni_port/Destroy(force)
-	if(node)
-		disconnect()
-		QDEL_NULL(network)
-		node = null
+	QDEL_NULL(network)
+	QDEL_NULL(air)
+	nodes = null
 	master = null
 	. = ..()
 
 /datum/omni_port/proc/connect()
-	if(node)
+	if(LAZYLEN(nodes))
 		return
 	master.atmos_init()
-	master.build_network()
-	if(node)
+	for(var/obj/machinery/atmospherics/node as anything in nodes)
 		node.atmos_init()
+	master.build_network()
+	for(var/obj/machinery/atmospherics/node as anything in nodes)
 		node.build_network()
 
 /datum/omni_port/proc/disconnect()
-	if(node)
+	for(var/obj/machinery/atmospherics/node as anything in nodes)
 		node.disconnect(master)
 		master.disconnect(node)
 

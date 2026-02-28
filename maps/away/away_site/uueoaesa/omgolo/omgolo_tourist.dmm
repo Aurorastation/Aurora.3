@@ -976,7 +976,7 @@
 /obj/effect/floor_decal/corner/orange{
 	dir = 6
 	},
-/obj/machinery/atmospherics/pipe/tank{
+/obj/machinery/atmospherics/unary/tank{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
@@ -2220,7 +2220,7 @@
 /obj/effect/floor_decal/corner/orange{
 	dir = 10
 	},
-/obj/machinery/atmospherics/pipe/tank/air{
+/obj/machinery/atmospherics/unary/tank/air{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
@@ -2592,7 +2592,7 @@
 /obj/effect/floor_decal/corner/orange{
 	dir = 9
 	},
-/obj/machinery/atmospherics/pipe/tank/air{
+/obj/machinery/atmospherics/unary/tank/air{
 	dir = 4
 	},
 /obj/random/dirt_75,

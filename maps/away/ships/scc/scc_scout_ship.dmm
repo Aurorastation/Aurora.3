@@ -576,7 +576,7 @@
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship/maint_atmos)
 "db" = (
-/obj/machinery/atmospherics/pipe/tank/carbon_dioxide,
+/obj/machinery/atmospherics/unary/tank/carbon_dioxide,
 /obj/machinery/alarm/north{
 	req_one_access = null
 	},
@@ -2342,7 +2342,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 10
 	},
-/obj/machinery/atmospherics/pipe/tank/air,
+/obj/machinery/atmospherics/unary/tank/air,
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship/maint_atmos)
 "nk" = (
@@ -2500,7 +2500,7 @@
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship/maint_propulsion_port)
 "nY" = (
-/obj/machinery/atmospherics/pipe/tank/carbon_dioxide,
+/obj/machinery/atmospherics/unary/tank/carbon_dioxide,
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 8
 	},
@@ -6714,7 +6714,7 @@
 /turf/simulated/floor/tiled/slate,
 /area/ship/scc_scout_ship/quarters)
 "Ra" = (
-/obj/machinery/atmospherics/pipe/tank/carbon_dioxide{
+/obj/machinery/atmospherics/unary/tank/carbon_dioxide{
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/warning{

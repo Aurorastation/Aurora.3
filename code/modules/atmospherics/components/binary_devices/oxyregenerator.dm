@@ -32,7 +32,6 @@
 	. = ..()
 	anchored = TRUE
 	RefreshParts()
-	anchor_helper()
 
 /obj/machinery/atmospherics/binary/oxyregenerator/RefreshParts()
 	carbon_efficiency = initial(carbon_efficiency)
@@ -65,30 +64,7 @@
 					"You [anchored ? "secure" : "unsecure"] the bolts holding [src] to the floor.", \
 					"You hear a ratchet")
 
-		anchor_helper()
-
-/obj/machinery/atmospherics/binary/oxyregenerator/proc/anchor_helper()
-	if(anchored)
-		if(dir & (NORTH|SOUTH))
-			initialize_directions = NORTH|SOUTH
-		else if(dir & (EAST|WEST))
-			initialize_directions = EAST|WEST
-
-		atmos_init()
-		build_network()
-		if (node1)
-			node1.atmos_init()
-			node1.build_network()
-		if (node2)
-			node2.atmos_init()
-			node2.build_network()
-	else
-		if(node1)
-			node1.disconnect(src)
-			qdel(network1)
-		if(node2)
-			node2.disconnect(src)
-			qdel(network2)
+		//anchor_helper()
 
 /obj/machinery/atmospherics/binary/oxyregenerator/attack_hand(mob/user)
 	. = ..()
@@ -110,8 +86,8 @@
 			if (power_draw >= 0)
 				last_power_draw = power_draw
 				use_power_oneoff(power_draw)
-				if(network1)
-					network1.update = 1
+			if(transfer_moles > 0)
+				update_networks(turn(dir, 180))
 		if (XGM_PRESSURE(air1) < 0.1 * ONE_ATMOSPHERE || XGM_PRESSURE(inner_tank) >= target_pressure * 0.95)//if pipe is good as empty or tank is full
 			phase = "processing"
 
@@ -139,13 +115,14 @@
 		power_draw = -1
 		var/pressure_delta = target_pressure - XGM_PRESSURE(air2)
 		if (pressure_delta > 0.01 && inner_tank.temperature > 0)
-			var/transfer_moles = calculate_transfer_moles(inner_tank, air2, pressure_delta, (network2)? network2.volume : 0)
+			var/datum/pipe_network/output = network_in_dir(dir)
+			var/transfer_moles = calculate_transfer_moles(inner_tank, air2, pressure_delta, output?.total_volume)
 			power_draw = pump_gas(src, inner_tank, air2, transfer_moles, power_rating*power_setting)
 			if (power_draw >= 0)
 				last_power_draw = power_draw
 				use_power_oneoff(power_draw)
-				if(network2)
-					network2.update = 1
+			if(transfer_moles > 0)
+				update_networks(dir)
 		else//can't push outside harder than target pressure. Device is not intended to be used as a pump after all
 			phase = "filling"
 		if (XGM_PRESSURE(inner_tank) <= 0.1)

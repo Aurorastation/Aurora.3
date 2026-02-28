@@ -1198,7 +1198,7 @@
 /turf/simulated/floor/carpet/rubber,
 /area/hiskyn_ship/trophy)
 "apd" = (
-/obj/machinery/atmospherics/pipe/tank/air,
+/obj/machinery/atmospherics/unary/tank/air,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/dark,
 /area/hiskyn_ship/engineering)
@@ -3427,7 +3427,7 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/tank/air{
+/obj/machinery/atmospherics/unary/tank/air{
 	start_pressure = 1000;
 	dir = 4
 	},

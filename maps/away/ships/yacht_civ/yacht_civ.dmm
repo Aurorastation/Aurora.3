@@ -3716,7 +3716,7 @@
 /turf/simulated/floor/tiled,
 /area/ship/yacht_civ/hallway_mid)
 "HV" = (
-/obj/machinery/atmospherics/pipe/tank/air,
+/obj/machinery/atmospherics/unary/tank/air,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/plating,
 /area/ship/yacht_civ/engineering)

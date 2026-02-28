@@ -206,20 +206,6 @@
 	groupable = TRUE
 	spawn_amount = 1
 
-/singleton/cargo_item/disposalpipedispenser
-	category = "engineering"
-	name = "Disposal Pipe Dispenser"
-	supplier = "hephaestus"
-	description = "It dispenses bigger pipes for things to travel through. No, the pipes aren't green."
-	price = 30
-	items = list(
-		/obj/machinery/pipedispenser/disposal/orderable
-	)
-	access = ACCESS_ENGINE
-	container_type = "box"
-	groupable = FALSE
-	spawn_amount = 1
-
 /singleton/cargo_item/toolbox
 	category = "engineering"
 	name = "mechanical toolbox"

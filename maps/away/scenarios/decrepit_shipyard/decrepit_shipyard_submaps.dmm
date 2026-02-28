@@ -1260,7 +1260,7 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/decrepit_shipyard_shuttle)
 "yg" = (
-/obj/machinery/atmospherics/pipe/tank/air{
+/obj/machinery/atmospherics/unary/tank/air{
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -1835,7 +1835,7 @@
 /turf/simulated/floor,
 /area/shuttle/decrepit_shipyard_shuttle)
 "If" = (
-/obj/machinery/atmospherics/pipe/tank/carbon_dioxide{
+/obj/machinery/atmospherics/unary/tank/carbon_dioxide{
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -2286,7 +2286,7 @@
 /area/shuttle/decrepit_shipyard_shuttle)
 "RJ" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/atmospherics/pipe/tank/air{
+/obj/machinery/atmospherics/unary/tank/air{
 	dir = 8
 	},
 /turf/simulated/floor,
@@ -2634,7 +2634,7 @@
 /turf/simulated/floor,
 /area/shuttle/decrepit_shipyard_shuttle)
 "WU" = (
-/obj/machinery/atmospherics/pipe/tank/carbon_dioxide,
+/obj/machinery/atmospherics/unary/tank/carbon_dioxide,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor,
 /area/shuttle/decrepit_shipyard_shuttle)
@@ -2706,7 +2706,7 @@
 /area/shuttle/decrepit_shipyard_shuttle)
 "YB" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/atmospherics/pipe/tank/air{
+/obj/machinery/atmospherics/unary/tank/air{
 	dir = 4
 	},
 /obj/machinery/light/colored/decayed{
@@ -2741,7 +2741,7 @@
 /turf/simulated/floor/reinforced/airless,
 /area/shuttle/decrepit_shipyard_shuttle)
 "Zp" = (
-/obj/machinery/atmospherics/pipe/tank/carbon_dioxide,
+/obj/machinery/atmospherics/unary/tank/carbon_dioxide,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/gridded,
 /area/shuttle/decrepit_shipyard_shuttle)

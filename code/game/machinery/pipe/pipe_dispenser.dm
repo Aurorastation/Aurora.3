@@ -117,13 +117,13 @@
 		pipe_cooldown = world.time + 1 SECOND
 
 	if(href_list["makemeter"])
-		new /obj/item/pipe_meter(loc)
+		new /obj/item/machine_chassis/pipe_meter(loc)
 		pipe_cooldown = world.time + 1.5 SECONDS
 
 /obj/machinery/pipedispenser/attackby(obj/item/attacking_item, mob/user)
 	if(!istype(attacking_item, /obj/item/forensics))
 		add_fingerprint(user)
-	if(istype(attacking_item, /obj/item/pipe) || istype(attacking_item, /obj/item/pipe_meter))
+	if(istype(attacking_item, /obj/item/pipe) || istype(attacking_item, /obj/item/machine_chassis/pipe_meter))
 		to_chat(usr, SPAN_NOTICE("You put \the [attacking_item] back into \the [src]."))
 		user.remove_from_mob(attacking_item) //Catches robot gripper duplication
 		qdel(attacking_item)

@@ -434,7 +434,7 @@
 /turf/simulated/floor/tiled,
 /area/shuttle/orion_miner/cargo_bay)
 "dm" = (
-/obj/machinery/atmospherics/pipe/tank/air{
+/obj/machinery/atmospherics/unary/tank/air{
 	dir = 8
 	},
 /obj/machinery/light/colored/decayed{
@@ -1509,7 +1509,7 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/orion_miner/corridor/aft)
 "nb" = (
-/obj/machinery/atmospherics/pipe/tank/air{
+/obj/machinery/atmospherics/unary/tank/air{
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/outline,

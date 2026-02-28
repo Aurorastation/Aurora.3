@@ -25,7 +25,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/tank,
+/obj/machinery/atmospherics/unary/tank,
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
@@ -6451,7 +6451,7 @@
 	},
 /area/peoples_station/armory)
 "xQ" = (
-/obj/machinery/atmospherics/pipe/tank/air,
+/obj/machinery/atmospherics/unary/tank/air,
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
@@ -7154,7 +7154,7 @@
 /turf/simulated/floor/tiled/full,
 /area/shuttle/fang)
 "AD" = (
-/obj/machinery/atmospherics/pipe/tank/air{
+/obj/machinery/atmospherics/unary/tank/air{
 	dir = 8;
 	start_pressure = 1500
 	},
@@ -12707,7 +12707,7 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/tank/air,
+/obj/machinery/atmospherics/unary/tank/air,
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
@@ -12833,7 +12833,7 @@
 	},
 /area/peoples_station)
 "WV" = (
-/obj/machinery/pipedispenser,
+/obj/machinery/fabricator/pipe_dispenser,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15

@@ -9,21 +9,24 @@
 	icon_state = "map"
 	level = 1
 
-	use_power = POWER_USE_OFF
-	interact_offline = 1
+	use_power = POWER_USE_IDLE
+	interact_offline = TRUE
+	idle_power_usage = 10 // A few LEDs
 	var/unlocked = 0	//If 0, then the valve is locked closed, otherwise it is open(-able, it's a one-way valve so it closes if gas would flow backwards).
 	var/target_pressure = ONE_ATMOSPHERE
 	var/max_pressure_setting = ATMOS_PUMP_MAX_PRESSURE	//kPa
 	var/set_flow_rate = ATMOS_DEFAULT_VOLUME_PUMP * 2.5
 	var/regulate_mode = REGULATE_OUTPUT
 
-	var/flowing = 0	//for icons - becomes zero if the valve closes itself due to regulation mode
+	var/flowing = FALSE	//for icons - becomes false if the valve closes itself due to regulation mode
 
 	var/frequency = 0
 	var/id = null
 	var/datum/radio_frequency/radio_connection
 
 	var/broadcast_status_next_process = FALSE
+
+	build_icon_state = "passivegate"
 
 /obj/machinery/atmospherics/binary/passive_gate/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()
@@ -32,6 +35,7 @@
 
 /obj/machinery/atmospherics/binary/passive_gate/on
 	unlocked = 1
+	icon_state = "map_on"
 
 /obj/machinery/atmospherics/binary/passive_gate/on/input
 	regulate_mode = REGULATE_INPUT
@@ -90,19 +94,30 @@
 	air2.volume = ATMOS_DEFAULT_VOLUME_PUMP * 2.5
 
 /obj/machinery/atmospherics/binary/passive_gate/update_icon()
-	icon_state = (unlocked && flowing)? "on" + icon_connect_type : "off" + icon_connect_type
+	icon_state = "base" + icon_connect_type
+	ClearOverlays()
+	build_device_underlays(FALSE)
 
-/obj/machinery/atmospherics/binary/passive_gate/update_underlays()
-	if(..())
-		underlays.Cut()
-		var/turf/T = get_turf(src)
-		if(!istype(T))
-			return
-		add_underlay(T, node1, turn(dir, 180), icon_connect_type)
-		add_underlay(T, node2, dir, icon_connect_type)
+	var/list/powered_overlays = list()
+	var/mutable_appearance/color_overlay = mutable_appearance(icon, "color" + icon_connect_type)
+	color_overlay.color = pipe_color ? pipe_color : COLOR_RED
+	powered_overlays += color_overlay
+	if(!powered())
+		AddOverlays(powered_overlays)
+		return
+
+	if(flowing)
+		powered_overlays += mutable_appearance(icon, "on" + icon_connect_type)
+		powered_overlays += emissive_appearance(icon, "emissive" + icon_connect_type)
+	else
+		powered_overlays += mutable_appearance(icon, "off" + icon_connect_type)
+		powered_overlays += emissive_appearance(icon, "emissive" + icon_connect_type)
+
+	AddOverlays(powered_overlays)
+
 
 /obj/machinery/atmospherics/binary/passive_gate/hide(var/i)
-	update_underlays()
+	queue_icon_update()
 
 /obj/machinery/atmospherics/binary/passive_gate/process()
 	..()
@@ -139,17 +154,14 @@
 			if (REGULATE_INPUT)
 				transfer_moles = min(transfer_moles, air1.total_moles*(pressure_delta/input_starting_pressure))
 			if (REGULATE_OUTPUT)
-				transfer_moles = min(transfer_moles, calculate_transfer_moles(air1, air2, pressure_delta, (network2)? network2.volume : 0))
+				var/datum/pipe_network/output = network_in_dir(dir)
+				transfer_moles = min(transfer_moles, calculate_transfer_moles(air1, air2, pressure_delta, output?.total_volume))
 
 		//pump_gas() will return a negative number if no flow occurred
 		returnval = pump_gas_passive(src, air1, air2, transfer_moles)
 
 	if (returnval >= 0)
-		if(network1)
-			network1.update = 1
-
-		if(network2)
-			network2.update = 1
+		update_networks()
 
 	if (last_flow_rate)
 		flowing = 1
@@ -342,7 +354,7 @@
 			SPAN_NOTICE("\The [user] unfastens \the [src]."), \
 			SPAN_NOTICE("You have unfastened \the [src]."), \
 			"You hear ratchet.")
-		new /obj/item/pipe(loc, make_from=src)
+		new /obj/item/pipe(loc, src)
 		qdel(src)
 		return TRUE
 

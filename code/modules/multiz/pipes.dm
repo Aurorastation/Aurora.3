@@ -19,10 +19,6 @@
 	// WALL_HEAT_TRANSFER_COEFFICIENT
 	var/thermal_conductivity = 0
 
-	var/maximum_pressure = ATMOS_DEFAULT_MAX_PRESSURE
-	var/fatigue_pressure = ATMOS_DEFAULT_FATIGUE_PRESSURE
-	alert_pressure = ATMOS_DEFAULT_ALERT_PRESSURE
-
 	var/travel_verbname = "UNDEFINED"
 	var/travel_direction_verb = "UNDEFINED"
 	var/travel_direction_name = "UNDEFINED"
@@ -30,115 +26,14 @@
 
 	level = 1
 
-/obj/machinery/atmospherics/pipe/zpipe/Initialize()
-	icon = null
-
-	switch(dir)
-		if(SOUTH)
-			initialize_directions = SOUTH
-		if(NORTH)
-			initialize_directions = NORTH
-		if(WEST)
-			initialize_directions = WEST
-		if(EAST)
-			initialize_directions = EAST
-		if(NORTHEAST)
-			initialize_directions = NORTH
-		if(NORTHWEST)
-			initialize_directions = WEST
-		if(SOUTHEAST)
-			initialize_directions = EAST
-		if(SOUTHWEST)
-			initialize_directions = SOUTH
-
-	. = ..()
-
-
 /obj/machinery/atmospherics/pipe/zpipe/Entered(mob/living/M)
 	if(istype(M))
 		to_chat(M, SPAN_NOTICE("You are in a vertical pipe section. Use [travel_verbname] from the IC menu to [travel_direction_verb] a level."))
 		. = ..()
 
-/obj/machinery/atmospherics/pipe/zpipe/hide(var/i)
-	if(istype(loc, /turf/simulated))
-		set_invisibility(i ? 101 : 0)
-	queue_icon_update()
-
-/obj/machinery/atmospherics/pipe/zpipe/process()
-	if(!parent) //This should cut back on the overhead calling build_network thousands of times per cycle
-		..()
-	else
-		. = PROCESS_KILL
-
-/obj/machinery/atmospherics/pipe/zpipe/check_pressure(pressure)
-	if(!loc) return FALSE
-	var/datum/gas_mixture/environment = loc.return_air()
-
-	var/pressure_difference = pressure - XGM_PRESSURE(environment)
-
-	if(pressure_difference > maximum_pressure)
-		burst()
-
-	else if(pressure_difference > fatigue_pressure)
-		//TODO: leak to turf, doing pfshhhhh
-		if(prob(5))
-			burst()
-
-	else return 1
-
-/obj/machinery/atmospherics/pipe/zpipe/proc/burst()
-	src.visible_message(SPAN_WARNING("\The [src] bursts!"));
-	playsound(src.loc, 'sound/effects/bang.ogg', 25, 1)
-	var/datum/effect/effect/system/smoke_spread/smoke = new
-	smoke.set_up(1,0, src.loc, 0)
-	smoke.start()
-	qdel(src) // Yes QDel.
-
-/obj/machinery/atmospherics/pipe/zpipe/proc/normalize_dir()
-	if(dir==3)
-		set_dir(1)
-	else if(dir==12)
-		set_dir(4)
-
-/obj/machinery/atmospherics/pipe/zpipe/Destroy()
-	if(node1)
-		node1.disconnect(src)
-	if(node2)
-		node2.disconnect(src)
-	return ..()
-
-/obj/machinery/atmospherics/pipe/zpipe/pipeline_expansion()
-	return list(node1, node2)
-
 /obj/machinery/atmospherics/pipe/zpipe/update_icon()
-	if (!check_icon_cache())
-		return
+	color = pipe_color
 
-	ClearOverlays()
-
-	if(!node1 && !node2)
-		var/turf/T = get_turf(src)
-		new /obj/item/pipe(loc, make_from=src)
-		for (var/obj/machinery/meter/meter in T)
-			if (meter.target == src)
-				new /obj/item/pipe_meter(T)
-				qdel(meter)
-		qdel(src)
-	else
-		AddOverlays(icon_manager.get_atmos_icon("pipe", , pipe_color, "[ptype][icon_connect_type]"))
-
-/obj/machinery/atmospherics/pipe/zpipe/disconnect(obj/machinery/atmospherics/reference)
-	if(reference == node1)
-		if(istype(node1, /obj/machinery/atmospherics/pipe))
-			qdel(parent)
-		node1 = null
-
-	if(reference == node2)
-		if(istype(node2, /obj/machinery/atmospherics/pipe))
-			qdel(parent)
-		node2 = null
-
-	return null
 /////////////////////////
 // the elusive up pipe //
 /////////////////////////
@@ -149,38 +44,21 @@
 	name = "upwards pipe"
 	desc = "A pipe segment to connect upwards."
 
+	build_icon = "up"
+
 	travel_verbname = "Move Upwards"
 	travel_direction_verb = "ascend"
 	travel_direction_name = "up"
 	travel_direction = UP
 
 /obj/machinery/atmospherics/pipe/zpipe/up/atmos_init()
-	normalize_dir()
-	var/node1_dir
-
-	for(var/direction in GLOB.cardinals)
-		if(direction&initialize_directions)
-			if (!node1_dir)
-				node1_dir = direction
-
-	for(var/obj/machinery/atmospherics/target in get_step(src,node1_dir))
-		if(target.initialize_directions & get_dir(target,src))
-			if (check_connect_types(target,src))
-				node1 = target
-				break
-
+	..()
 	var/turf/current_turf = get_turf(src)
 	var/turf/above = GET_TURF_ABOVE(current_turf)
 	if(above)
 		for(var/obj/machinery/atmospherics/target in above)
-			if(target.initialize_directions && istype(target, /obj/machinery/atmospherics/pipe/zpipe/down))
-				if (check_connect_types(target,src))
-					node2 = target
-					break
-
-
-	var/turf/T = src.loc			// hide if turf is not intact
-	hide(!T.is_plating())
+			if(istype(target, /obj/machinery/atmospherics/pipe/zpipe/down) && check_connect_types(target,src))
+				LAZYDISTINCTADD(nodes_to_networks, target)
 
 ///////////////////////
 // and the down pipe //
@@ -193,37 +71,21 @@
 	name = "downwards pipe"
 	desc = "A pipe segment to connect downwards."
 
+	build_icon = "down"
+
 	travel_verbname = "Move Downwards"
 	travel_direction_verb = "descend"
 	travel_direction_name = "down"
 	travel_direction = DOWN
 
 /obj/machinery/atmospherics/pipe/zpipe/down/atmos_init()
-	normalize_dir()
-	var/node1_dir
-
-	for(var/direction in GLOB.cardinals)
-		if(direction&initialize_directions)
-			if (!node1_dir)
-				node1_dir = direction
-
-	for(var/obj/machinery/atmospherics/target in get_step(src,node1_dir))
-		if(target.initialize_directions & get_dir(target,src))
-			if (check_connect_types(target,src))
-				node1 = target
-				break
-
-	var/turf/T = get_turf(src)
-	var/turf/below = GET_TURF_BELOW(T)
+	..()
+	var/turf/current_turf = get_turf(src)
+	var/turf/below = GET_TURF_BELOW(current_turf)
 	if(below)
 		for(var/obj/machinery/atmospherics/target in below)
-			if(target.initialize_directions && istype(target, /obj/machinery/atmospherics/pipe/zpipe/up))
-				if (check_connect_types(target,src))
-					node2 = target
-					break
-
-
-	hide(!T.is_plating())
+			if(istype(target, /obj/machinery/atmospherics/pipe/zpipe/up) && check_connect_types(target,src))
+				LAZYDISTINCTADD(nodes_to_networks, target)
 
 ////////////////////////////////
 // supply/scrubbers/fuel/aux  //

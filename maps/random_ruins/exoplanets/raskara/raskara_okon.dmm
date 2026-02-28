@@ -3433,7 +3433,7 @@
 	},
 /area/raskara_okon)
 "Rw" = (
-/obj/machinery/atmospherics/pipe/tank/air,
+/obj/machinery/atmospherics/unary/tank/air,
 /turf/simulated/floor{
 	temperature = 278.15
 	},
@@ -3838,7 +3838,7 @@
 	},
 /area/raskara_okon/medbay)
 "Xd" = (
-/obj/machinery/atmospherics/pipe/tank{
+/obj/machinery/atmospherics/unary/tank{
 	dir = 4
 	},
 /turf/simulated/floor{

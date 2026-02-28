@@ -3764,7 +3764,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/pod5)
 "GP" = (
-/obj/machinery/atmospherics/pipe/tank/air{
+/obj/machinery/atmospherics/unary/tank/air{
 	start_pressure = 5066.26;
 	dir = 4
 	},
@@ -3873,7 +3873,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/engineering)
 "HH" = (
-/obj/machinery/atmospherics/pipe/tank{
+/obj/machinery/atmospherics/unary/tank{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,

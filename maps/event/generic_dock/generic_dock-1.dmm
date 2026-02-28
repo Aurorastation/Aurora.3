@@ -907,7 +907,7 @@
 /turf/unsimulated/floor/plating,
 /area/shuttle/specops)
 "aCE" = (
-/obj/machinery/pipedispenser/orderable{
+/obj/machinery/fabricator/pipe_dispenser{
 	pixel_y = 1
 	},
 /obj/machinery/light{
@@ -10471,7 +10471,7 @@
 /turf/unsimulated/floor,
 /area/centcom/spawning)
 "lRY" = (
-/obj/machinery/atmospherics/unary/freezer{
+/obj/machinery/atmospherics/unary/temperature/freezer{
 	icon_state = "freezer_1";
 	set_temperature = 73;
 	use_power = 1
@@ -17763,7 +17763,7 @@
 	},
 /area/centcom/holding)
 "xBm" = (
-/obj/machinery/pipedispenser/disposal/orderable{
+/obj/machinery/fabricator/pipe_dispenser{
 	pixel_y = 1
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,

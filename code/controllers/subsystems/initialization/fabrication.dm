@@ -55,10 +55,8 @@ SUBSYSTEM_DEF(fabrication)
 				categories[type] = list()
 			categories[type] |= recipe.category
 		var/obj/item/I = new recipe.path
-		if(I.matter && !recipe.resources) //This can be overidden in the datums.
-			recipe.resources = list()
-			for(var/material in I.matter)
-				recipe.resources[material] = I.matter[material] * FABRICATOR_EXTRA_COST_FACTOR
+		if(!recipe.resources) //This can be overidden in the datums.
+			recipe.resources = recipe.get_resources()
 		qdel(I)
 	return SS_INIT_SUCCESS
 

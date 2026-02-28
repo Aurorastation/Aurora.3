@@ -1366,7 +1366,7 @@
 	},
 /area/mining_jack_outpost/atmos)
 "vn" = (
-/obj/machinery/atmospherics/pipe/tank{
+/obj/machinery/atmospherics/unary/tank{
 	dir = 8
 	},
 /turf/simulated/floor/plating{
@@ -2462,7 +2462,7 @@
 	},
 /area/shuttle/mining_jack/engines)
 "TQ" = (
-/obj/machinery/atmospherics/pipe/tank/air{
+/obj/machinery/atmospherics/unary/tank/air{
 	dir = 4
 	},
 /turf/simulated/floor/plating{
@@ -2637,7 +2637,7 @@
 	},
 /area/mining_jack_outpost/smelter)
 "Yd" = (
-/obj/machinery/atmospherics/pipe/tank/air{
+/obj/machinery/atmospherics/unary/tank/air{
 	dir = 8
 	},
 /turf/simulated/floor/plating{

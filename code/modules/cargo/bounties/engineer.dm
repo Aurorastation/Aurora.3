@@ -129,21 +129,6 @@
 	random_count = 1
 	wanted_types = list(/obj/machinery/space_heater)
 
-/datum/bounty/item/engineer/pipe
-	name = "Atmospheric Pipe Dispenser"
-	description = "We need another pipe dispenser to help expedite an atmospherics project. The station will get a bonus if you send us a pipe dispenser."
-	reward_low = 500
-	reward_high = 570
-	wanted_types = list(/obj/machinery/pipedispenser)
-	exclude_types = list(/obj/machinery/pipedispenser/disposal)
-
-/datum/bounty/item/engineer/disposal
-	name = "Disposal Pipe Dispenser"
-	description = "The %DOCKSHORT is undergoing an overhaul of its mail delivery chutes. Lend us a dispenser to help expedite it for a bonus."
-	reward_low = 500
-	reward_high = 570
-	wanted_types = list(/obj/machinery/pipedispenser/disposal)
-
 /datum/bounty/item/engineer/bookcase
 	name = "Bookcases"
 	description = "We're showing some love to one of the libraries on the %DOCKSHORT. A bonus will be paid to any station who has some skilled engineers build some for us."

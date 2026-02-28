@@ -3,7 +3,8 @@
 	desc = "Measures the volume and temperature of the pipe under the meter."
 	icon = 'icons/obj/meter.dmi'
 	icon_state = "meter_base"
-	var/obj/machinery/atmospherics/pipe/target = null
+	/// A target to read from
+	var/atom/target = null
 	anchored = 1.0
 	power_channel = AREA_USAGE_ENVIRON
 	var/frequency = 0
@@ -37,6 +38,8 @@
 	. = ..()
 	if (!target)
 		src.target = locate(/obj/machinery/atmospherics/pipe) in loc
+	if (!target)
+		src.target = loc
 
 /obj/machinery/meter/update_icon()
 	var/list/new_overlays = get_rebuild_overlays()
@@ -150,7 +153,7 @@
 			SPAN_NOTICE("\The [user] unfastens \the [src]."), \
 			SPAN_NOTICE("You have unfastened \the [src]."), \
 			"You hear ratchet.")
-		new /obj/item/pipe_meter(src.loc)
+		new /obj/item/machine_chassis/pipe_meter(src.loc)
 		qdel(src)
 
 // TURF METER - REPORTS A TILE'S AIR CONTENTS

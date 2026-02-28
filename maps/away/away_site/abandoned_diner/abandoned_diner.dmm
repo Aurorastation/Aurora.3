@@ -4575,7 +4575,7 @@
 /turf/simulated/floor/tiled,
 /area/abandoned_diner/restroom)
 "oGv" = (
-/obj/machinery/atmospherics/pipe/tank/air,
+/obj/machinery/atmospherics/unary/tank/air,
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/abandoned_diner/maintenance)
@@ -5613,7 +5613,7 @@
 /turf/simulated/floor/plating,
 /area/abandoned_diner/docking/b)
 "vHj" = (
-/obj/machinery/atmospherics/pipe/tank/air,
+/obj/machinery/atmospherics/unary/tank/air,
 /obj/random/dirt_75,
 /obj/effect/decal/cleanable/cobweb,
 /obj/machinery/light/colored/decayed{

@@ -1394,7 +1394,7 @@
 /turf/simulated/floor/plating,
 /area/shuttle/air_konyang/atmos)
 "JH" = (
-/obj/machinery/atmospherics/pipe/tank,
+/obj/machinery/atmospherics/unary/tank,
 /turf/simulated/floor/plating,
 /area/shuttle/air_konyang/atmos)
 "JP" = (
@@ -1632,7 +1632,7 @@
 /turf/simulated/floor/plating,
 /area/shuttle/air_konyang/atmos)
 "Py" = (
-/obj/machinery/atmospherics/pipe/tank/air{
+/obj/machinery/atmospherics/unary/tank/air{
 	dir = 1
 	},
 /turf/simulated/floor/plating,

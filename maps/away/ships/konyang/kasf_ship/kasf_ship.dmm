@@ -1276,7 +1276,7 @@
 /turf/simulated/floor/tiled,
 /area/ship/kasf_corvette/porthangarfoyer)
 "hs" = (
-/obj/machinery/atmospherics/pipe/tank{
+/obj/machinery/atmospherics/unary/tank{
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/outline/red,
@@ -4061,7 +4061,7 @@
 /turf/simulated/floor/plating,
 /area/ship/kasf_corvette/cic)
 "yd" = (
-/obj/machinery/pipedispenser,
+/obj/machinery/fabricator/pipe_dispenser,
 /obj/effect/floor_decal/corner/orange/full{
 	dir = 8
 	},
@@ -4119,7 +4119,7 @@
 /area/ship/kasf_corvette/cic)
 "ym" = (
 /obj/effect/floor_decal/industrial/outline/blue,
-/obj/machinery/atmospherics/pipe/tank/air{
+/obj/machinery/atmospherics/unary/tank/air{
 	dir = 4;
 	start_pressure = 1000
 	},
@@ -8455,7 +8455,7 @@
 /turf/simulated/floor/carpet/rubber,
 /area/ship/kasf_corvette/dorm)
 "WJ" = (
-/obj/machinery/atmospherics/pipe/tank/air{
+/obj/machinery/atmospherics/unary/tank/air{
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/outline/blue,

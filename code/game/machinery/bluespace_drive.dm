@@ -152,14 +152,14 @@
 /obj/machinery/bluespacedrive/process(seconds_per_tick)
 
 	//If we have an atmos interface, and it's connected to a pipe, pump gas from it to our internal gas tank
-	if(atmos_interface?.node)
-		var/power_used = pump_gas(atmos_interface, atmos_interface.node.return_air(), internal_gas)
+	if(LAZYLEN(atmos_interface?.nodes_to_networks) >= 1)
+		var/power_used = pump_gas(atmos_interface, atmos_interface.return_network_air(), internal_gas)
 		use_power_oneoff(power_used)
 
 	//If we have a fuel interface, and it's connected to a pipe, pump gas from it to our internal gas tank
 	//passive flow only, to encourage the use of higher pressures
-	if(fuel_interface?.node)
-		var/datum/gas_mixture/node_gas_mixture = fuel_interface.node.return_air()
+	if(LAZYLEN(fuel_interface?.nodes_to_networks) >= 1)
+		var/datum/gas_mixture/node_gas_mixture = fuel_interface.return_network_air()
 		scrub_gas(src, list(GAS_PHORON), node_gas_mixture, fuel_gas)
 
 	consume_internal_gasses()

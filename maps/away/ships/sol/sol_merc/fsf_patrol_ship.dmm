@@ -1118,7 +1118,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/fsf_patrol_ship/dock)
 "drJ" = (
-/obj/machinery/atmospherics/pipe/tank/air{
+/obj/machinery/atmospherics/unary/tank/air{
 	dir = 8;
 	start_pressure = 1500
 	},

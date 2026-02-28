@@ -6,50 +6,66 @@
 	var/list/obj/machinery/atmospherics/pipe/edges //Used for building networks
 
 	var/datum/pipe_network/network
+	/// Stores a list of leaking nodes
+	var/list/leaks = list()
 
 	var/alert_pressure = 0
 
+/datum/pipeline/New()
+	START_PROCESSING(SSpipes, src)
+
 /datum/pipeline/Destroy()
-	if(network)
-		QDEL_NULL(network)
+	STOP_PROCESSING(SSpipes, src)
+	QDEL_NULL(network)
 
-	if(air && air.volume)
+	if(air?.volume)
 		temporarily_store_air()
-		QDEL_NULL(air)
 
-	for (var/obj/machinery/atmospherics/pipe/thing in members)
+	QDEL_NULL(air)
+
+	for (var/obj/machinery/atmospherics/pipe/thing as anything in members)
 		thing.parent = null
 
-	members = null
-	edges = null
+	leaks.Cut()
+	members.Cut()
+	edges.Cut()
 
-	return ..()
+	. = ..()
 
 /datum/pipeline/process()//This use to be called called from the pipe networks
+#ifdef PIPEBURST
 	//Check to see if pressure is within acceptable limits
 	var/pressure = XGM_PRESSURE(air)
 	if(pressure > alert_pressure)
-		for(var/obj/machinery/atmospherics/pipe/member in members)
+		for(var/obj/machinery/atmospherics/pipe/member as anything in members)
 			if(!member.check_pressure(pressure))
+				members.Remove(member)
+
+				// Safety check
+				if(member.parent == src)
+					member.parent = null
 				break //Only delete 1 pipe per process
+#else
+	STOP_PROCESSING(SSpipes, src)
+#endif
 
 /datum/pipeline/proc/temporarily_store_air()
 	//Update individual gas_mixtures by volume ratio
 
-	for(var/obj/machinery/atmospherics/pipe/member in members)
+	if(!air?.volume)
+		return
+
+	for(var/obj/machinery/atmospherics/pipe/member as anything in members)
 		member.air_temporary = new
 		member.air_temporary.copy_from(air)
 		member.air_temporary.volume = member.volume
 		member.air_temporary.multiply(member.volume / air.volume)
 
 /datum/pipeline/proc/build_pipeline(obj/machinery/atmospherics/pipe/base)
-	air = new
-
-	var/list/possible_expansions = list(base)
 	members = list(base)
 	edges = list()
 
-	var/volume = base.volume
+	var/temp_volume = base.volume
 	base.parent = src
 	alert_pressure = base.alert_pressure
 
@@ -59,19 +75,24 @@
 	else
 		air = new
 
-	while(possible_expansions.len>0)
-		for(var/obj/machinery/atmospherics/pipe/borderline in possible_expansions)
+	if(base.is_leaking())
+		leaks |= base
+
+	var/list/possible_expansions = list(base)
+	while(length(possible_expansions))
+		for(var/obj/machinery/atmospherics/pipe/borderline as anything in possible_expansions)
 
 			var/list/result = borderline.pipeline_expansion()
-			var/edge_check = result.len
+			var/edge_check = length(result)
 
-			if(result.len>0)
+			if(edge_check)
+				// Nodes can have more than just pipes, so we can't use as anything here
 				for(var/obj/machinery/atmospherics/pipe/item in result)
 					if(!members.Find(item))
 						members += item
 						possible_expansions += item
 
-						volume += item.volume
+						temp_volume += item.volume
 						item.parent = src
 
 						alert_pressure = min(alert_pressure, item.alert_pressure)
@@ -79,35 +100,41 @@
 						if(item.air_temporary)
 							air.merge(item.air_temporary)
 
+						if(item.is_leaking())
+							leaks |= item
+
 					edge_check--
 
-			if(edge_check>0)
+			if(edge_check)
 				edges += borderline
 
 			possible_expansions -= borderline
 
-	air.volume = volume
+	air.volume = temp_volume
 
 /datum/pipeline/proc/network_expand(datum/pipe_network/new_network, obj/machinery/atmospherics/pipe/reference)
-
 	if(new_network.line_members.Find(src))
-		return 0
+		return
+
+	if(network == new_network) // Should be caught by the above check in all reasonable cases, so we crash and try to clean up as best we can.
+		crash_with("pipeline - pipenet reference mismatch")
+	else
+		qdel(network)
 
 	new_network.line_members += src
 
 	network = new_network
+	network.leaks |= leaks
 
-	for(var/obj/machinery/atmospherics/pipe/edge in edges)
-		for(var/obj/machinery/atmospherics/result in edge.pipeline_expansion())
+	for(var/obj/machinery/atmospherics/pipe/edge as anything in edges)
+		for(var/obj/machinery/atmospherics/result as anything in edge.pipeline_expansion())
 			if(!istype(result,/obj/machinery/atmospherics/pipe) && (result!=reference))
 				result.network_expand(new_network, edge)
 
-	return 1
-
 /datum/pipeline/proc/return_network(obj/machinery/atmospherics/reference)
 	if(!network)
-		network = new /datum/pipe_network
-		network.build_network(src, null)
+		var/datum/pipe_network/new_network = new
+		new_network.build_network(src, null)
 			//technically passing these parameters should not be allowed
 			//however pipe_network.build_network(..) and pipeline.network_extend(...)
 			//		were setup to properly handle this case
@@ -115,7 +142,7 @@
 	return network
 
 /datum/pipeline/proc/mingle_with_turf(turf/simulated/target, mingle_volume)
-	if(!isturf(target))
+	if(!isturf(target) || !istype(air))
 		return
 
 	var/datum/gas_mixture/air_sample = air.remove_ratio(mingle_volume/air.volume)
@@ -144,7 +171,7 @@
 		//turf_air already modified by equalize_gases()
 
 	if(network)
-		network.update = 1
+		network.update = TRUE
 
 /datum/pipeline/proc/temperature_interact(turf/target, share_volume, thermal_conductivity)
 	var/total_heat_capacity = air.heat_capacity()
@@ -204,7 +231,7 @@
 
 			air.temperature -= heat/total_heat_capacity
 	if(network)
-		network.update = 1
+		network.update = TRUE
 
 	//surface must be the surface area in m^2
 /datum/pipeline/proc/radiate_heat_to_space(surface, thermal_conductivity)
@@ -222,4 +249,4 @@
 
 	air.add_thermal_energy(heat_gain)
 	if(network)
-		network.update = 1
+		network.update = TRUE

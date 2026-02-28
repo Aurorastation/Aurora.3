@@ -36,6 +36,8 @@ Thus, the two variables affect pump operation are set in New():
 
 	var/broadcast_status_next_process = FALSE
 
+	build_icon_state = "pump"
+
 /obj/machinery/atmospherics/binary/pump/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	. += "This moves gas from one pipe to another. A higher target pressure demands more energy."
@@ -55,6 +57,7 @@ Thus, the two variables affect pump operation are set in New():
 	base_icon = "pump-fuel"
 	icon_connect_type = "-fuel"
 	connect_types = CONNECT_TYPE_FUEL
+	pipe_color = PIPE_COLOR_YELLOW
 
 /obj/machinery/atmospherics/binary/pump/fuel/on
 	icon_state = "map_on-fuel"
@@ -65,6 +68,7 @@ Thus, the two variables affect pump operation are set in New():
 	base_icon = "pump-aux"
 	icon_connect_type = "-aux"
 	connect_types = CONNECT_TYPE_AUX
+	pipe_color = PIPE_COLOR_CYAN
 
 /obj/machinery/atmospherics/binary/pump/aux/on
 	icon_state = "map_on-aux"
@@ -75,6 +79,7 @@ Thus, the two variables affect pump operation are set in New():
 	base_icon = "pump-supply"
 	icon_connect_type = "-supply"
 	connect_types = CONNECT_TYPE_SUPPLY
+	pipe_color = PIPE_COLOR_BLUE
 
 /obj/machinery/atmospherics/binary/pump/supply/on
 	icon_state = "map_on-supply"
@@ -85,29 +90,21 @@ Thus, the two variables affect pump operation are set in New():
 	base_icon = "pump-scrubber"
 	icon_connect_type = "-scrubber"
 	connect_types = CONNECT_TYPE_SCRUBBER
+	pipe_color = PIPE_COLOR_RED
 
 /obj/machinery/atmospherics/binary/pump/scrubber/on
 	icon_state = "map_on-scrubber"
 	use_power = POWER_USE_IDLE
-
 
 /obj/machinery/atmospherics/binary/pump/update_icon()
 	if(!powered())
 		icon_state = "[base_icon]-off"
 	else
 		icon_state = "[use_power ? "[base_icon]-on" : "[base_icon]-off"]"
+	build_device_underlays(FALSE)
 
-/obj/machinery/atmospherics/binary/pump/update_underlays()
-	if(..())
-		underlays.Cut()
-		var/turf/T = get_turf(src)
-		if(!istype(T))
-			return
-		add_underlay(T, node1, turn(dir, -180), node1?.icon_connect_type)
-		add_underlay(T, node2, dir, node2?.icon_connect_type)
-
-/obj/machinery/atmospherics/binary/pump/hide(var/i)
-	update_underlays()
+/obj/machinery/atmospherics/binary/pump/hide(hide)
+	queue_icon_update()
 
 /obj/machinery/atmospherics/binary/pump/process()
 	last_power_draw = 0
@@ -125,18 +122,16 @@ Thus, the two variables affect pump operation are set in New():
 
 	if(pressure_delta > 0.01 && air1.temperature > 0)
 		//Figure out how much gas to transfer to meet the target pressure.
-		var/transfer_moles = calculate_transfer_moles(air1, air2, pressure_delta, (network2)? network2.volume : 0)
+		var/datum/pipe_network/output = network_in_dir(dir)
+		var/transfer_moles = calculate_transfer_moles(air1, air2, pressure_delta, output?.total_volume)
 		power_draw = pump_gas(src, air1, air2, transfer_moles, power_rating)
+
+		if(transfer_moles > 0)
+			update_networks()
 
 	if (power_draw >= 0)
 		last_power_draw = power_draw
 		use_power_oneoff(power_draw)
-
-		if(network1)
-			network1.update = 1
-
-		if(network2)
-			network2.update = 1
 
 	return 1
 
@@ -294,6 +289,6 @@ Thus, the two variables affect pump operation are set in New():
 			SPAN_NOTICE("\The [user] unfastens \the [src]."), \
 			SPAN_NOTICE("You have unfastened \the [src]."), \
 			"You hear a ratchet.")
-		new /obj/item/pipe(loc, make_from=src)
+		new /obj/item/pipe(loc, src)
 		qdel(src)
 		return TRUE

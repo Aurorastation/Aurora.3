@@ -1280,7 +1280,7 @@
 /turf/simulated/floor/wood/mahogany,
 /area/enviro_testing_facility/inside/control/offices)
 "bkP" = (
-/obj/machinery/atmospherics/unary/freezer{
+/obj/machinery/atmospherics/unary/temperature/freezer{
 	dir = 4
 	},
 /obj/random/dirt_75,
@@ -4204,7 +4204,7 @@
 /turf/simulated/floor/tiled,
 /area/enviro_testing_facility/inside/crew/quarters)
 "egH" = (
-/obj/machinery/pipedispenser/disposal,
+/obj/machinery/fabricator/pipe_dispenser,
 /turf/template_noop,
 /area/template_noop)
 "egU" = (
@@ -13444,7 +13444,7 @@
 /area/enviro_testing_facility/inside/maintenance/medical)
 "nAa" = (
 /obj/effect/floor_decal/industrial/outline/grey,
-/obj/machinery/pipedispenser,
+/obj/machinery/fabricator/pipe_dispenser,
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/enviro_testing_facility/inside/maintenance/engineering_north)
@@ -15182,7 +15182,7 @@
 /turf/simulated/floor/tiled/white,
 /area/enviro_testing_facility/inside/research/electronics)
 "pmA" = (
-/obj/machinery/atmospherics/unary/freezer{
+/obj/machinery/atmospherics/unary/temperature/freezer{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
@@ -17781,7 +17781,7 @@
 /area/enviro_testing_facility/inside/medical/lobby)
 "sbF" = (
 /obj/effect/map_effect/marker/mapmanip/submap/extract/enviro_testing_facility/misc/engineering_storage,
-/obj/machinery/pipedispenser,
+/obj/machinery/fabricator/pipe_dispenser,
 /turf/template_noop,
 /area/template_noop)
 "sbM" = (

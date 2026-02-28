@@ -656,7 +656,7 @@
 /turf/simulated/floor/plating,
 /area/casino/casino_security)
 "bT" = (
-/obj/machinery/atmospherics/pipe/tank/carbon_dioxide,
+/obj/machinery/atmospherics/unary/tank/carbon_dioxide,
 /turf/simulated/floor/tiled/dark,
 /area/casino/casino_hangar)
 "bU" = (
@@ -3263,7 +3263,7 @@
 /obj/machinery/light/small{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/tank/air{
+/obj/machinery/atmospherics/unary/tank/air{
 	dir = 4
 	},
 /turf/simulated/floor/plating,
@@ -3367,7 +3367,7 @@
 /turf/simulated/floor/carpet/brown,
 /area/casino/casino_mainfloor)
 "jL" = (
-/obj/machinery/atmospherics/pipe/tank/air{
+/obj/machinery/atmospherics/unary/tank/air{
 	dir = 4
 	},
 /turf/simulated/floor/plating,
@@ -4536,7 +4536,7 @@
 /area/casino/casino_bow)
 "nc" = (
 /obj/machinery/alarm/north,
-/obj/machinery/atmospherics/pipe/tank/carbon_dioxide{
+/obj/machinery/atmospherics/unary/tank/carbon_dioxide{
 	dir = 4
 	},
 /turf/simulated/floor,
@@ -4546,7 +4546,7 @@
 /turf/simulated/floor,
 /area/casino/casino_bow)
 "ne" = (
-/obj/machinery/atmospherics/unary/heater{
+/obj/machinery/atmospherics/unary/temperature/heater{
 	dir = 8
 	},
 /turf/simulated/floor,

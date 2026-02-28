@@ -13,17 +13,13 @@
 	dir = SOUTH
 	initialize_directions = SOUTH
 
-	var/obj/machinery/atmospherics/node
 	var/welded = FALSE
+
+	build_icon_state = "pvent"
 
 /obj/machinery/atmospherics/pipe/vent_passive/Initialize()
 	initialize_directions = dir
 	. = ..()
-
-/obj/machinery/atmospherics/pipe/vent_passive/hide(var/i)
-	if(istype(loc, /turf/simulated))
-		set_invisibility(i ? 101 : 0)
-	queue_icon_update()
 
 /obj/machinery/atmospherics/pipe/vent_passive/mechanics_hints(mob/user, distance, is_adjacent)
 	. = ..()
@@ -34,7 +30,7 @@
 	if(welded)
 		. += "It seems welded shut."
 
-/obj/machinery/atmospherics/pipe/vent_passive/update_icon(safety = 0)
+/obj/machinery/atmospherics/pipe/vent_passive/update_icon()
 
 	var/vent_icon = ""
 
@@ -47,57 +43,17 @@
 
 	update_underlays()
 
-/obj/machinery/atmospherics/pipe/vent_passive/update_underlays()
-	if(..())
-		underlays.Cut()
-		var/turf/T = get_turf(src)
-		if(!istype(T))
-			return
-		if(!T.is_plating() && node && node.level == 1 && istype(node, /obj/machinery/atmospherics/pipe))
-			return
-		else
-			if(node)
-				add_underlay(T, node, dir, node.icon_connect_type)
-			else
-				add_underlay(T,, dir)
-			underlays += "frame"
+/obj/machinery/atmospherics/pipe/vent_passive/proc/update_underlays()
+	build_device_underlays()
+	var/turf/T = get_turf(src)
+	if(T?.is_plating())
+		underlays += "frame"
 
 /obj/machinery/atmospherics/pipe/vent_passive/process(seconds_per_tick)
 	if(!parent)
 		..()
 	else
 		parent.mingle_with_turf(loc, volume)
-
-/obj/machinery/atmospherics/pipe/vent_passive/Destroy()
-	if(node)
-		node.disconnect(src)
-
-	node = null
-
-	return ..()
-
-/obj/machinery/atmospherics/pipe/vent_passive/pipeline_expansion()
-	return list(node)
-
-/obj/machinery/atmospherics/pipe/vent_passive/atmos_init()
-	for(var/obj/machinery/atmospherics/target in get_step(src, dir))
-		if(target.initialize_directions & get_dir(target,src))
-			if (check_connect_types(target,src))
-				node = target
-				break
-
-	atmos_initialised = TRUE
-	SSicon_update.add_to_queue(src)
-
-/obj/machinery/atmospherics/pipe/vent_passive/disconnect(obj/machinery/atmospherics/reference)
-	if(reference == node)
-		if(istype(node, /obj/machinery/atmospherics/pipe))
-			qdel(parent)
-		node = null
-
-	update_icon()
-
-	return null
 
 /obj/machinery/atmospherics/pipe/vent_passive/attackby(obj/item/attacking_item, mob/user)
 
@@ -164,7 +120,7 @@
 					user.visible_message(SPAN_NOTICE("\The [user] unfastens \the [src]."), \
 											SPAN_NOTICE("You have unfastened \the [src]."), \
 											"You hear a ratchet.")
-					new /obj/item/pipe(loc, make_from=src)
+					new /obj/item/pipe(loc, src)
 					qdel(src)
 
 	else if(istype(attacking_item, /obj/item/analyzer) && in_range(user, src))

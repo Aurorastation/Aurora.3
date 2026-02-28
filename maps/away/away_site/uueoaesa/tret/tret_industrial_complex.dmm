@@ -2885,7 +2885,7 @@
 /turf/simulated/floor/tiled/ridged,
 /area/tret_industrial/inside/storage_engineering)
 "aqK" = (
-/obj/machinery/atmospherics/pipe/tank/air{
+/obj/machinery/atmospherics/unary/tank/air{
 	dir = 8
 	},
 /obj/random/dirt_75,

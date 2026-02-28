@@ -3336,7 +3336,7 @@
 /area/splf_raider/bridge)
 "sD" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/pipedispenser,
+/obj/machinery/fabricator/pipe_dispenser,
 /obj/machinery/light/colored/decayed{
 	dir = 8
 	},
@@ -4426,7 +4426,7 @@
 /area/space)
 "zV" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/atmospherics/pipe/tank/air{
+/obj/machinery/atmospherics/unary/tank/air{
 	dir = 8;
 	start_pressure = 6000
 	},
@@ -7030,7 +7030,7 @@
 /area/splf_raider/central)
 "OI" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/atmospherics/pipe/tank/air{
+/obj/machinery/atmospherics/unary/tank/air{
 	dir = 8;
 	start_pressure = 6000
 	},

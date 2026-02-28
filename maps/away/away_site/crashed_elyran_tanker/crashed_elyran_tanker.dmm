@@ -425,7 +425,7 @@
 /area/crashed_elyran_tanker/tanks)
 "dJ" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/pipedispenser,
+/obj/machinery/fabricator/pipe_dispenser,
 /turf/simulated/floor/airless,
 /area/crashed_elyran_tanker/tanks)
 "dO" = (
@@ -1326,7 +1326,7 @@
 /turf/simulated/floor/airless,
 /area/crashed_elyran_tanker/tanks)
 "nF" = (
-/obj/machinery/pipedispenser,
+/obj/machinery/fabricator/pipe_dispenser,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/reinforced/airless,
 /area/crashed_elyran_tanker/tanks)

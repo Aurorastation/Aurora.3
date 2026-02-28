@@ -2054,7 +2054,7 @@
 /turf/simulated/floor/reinforced,
 /area/merchants_guild/portengine)
 "BF" = (
-/obj/machinery/atmospherics/pipe/tank/air{
+/obj/machinery/atmospherics/unary/tank/air{
 	dir = 8
 	},
 /turf/simulated/floor/plating,
@@ -2925,7 +2925,7 @@
 /turf/simulated/floor/tiled,
 /area/merchants_guild/armory)
 "MI" = (
-/obj/machinery/atmospherics/pipe/tank/air{
+/obj/machinery/atmospherics/unary/tank/air{
 	dir = 8
 	},
 /obj/machinery/light{
@@ -3199,7 +3199,7 @@
 /turf/simulated/floor/foamedmetal,
 /area/merchants_guild/armory)
 "Sv" = (
-/obj/machinery/atmospherics/pipe/tank{
+/obj/machinery/atmospherics/unary/tank{
 	dir = 4
 	},
 /turf/simulated/floor/plating,

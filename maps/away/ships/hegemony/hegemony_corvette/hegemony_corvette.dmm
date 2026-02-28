@@ -2679,7 +2679,7 @@
 /turf/simulated/floor/tiled/white,
 /area/hegemony_ship/canteen)
 "pW" = (
-/obj/machinery/atmospherics/pipe/tank/air{
+/obj/machinery/atmospherics/unary/tank/air{
 	dir = 4
 	},
 /turf/simulated/floor/plating,
@@ -4887,7 +4887,7 @@
 /turf/simulated/floor/tiled,
 /area/hegemony_ship)
 "Cp" = (
-/obj/machinery/pipedispenser,
+/obj/machinery/fabricator/pipe_dispenser,
 /turf/simulated/floor/plating,
 /area/hegemony_ship/engineering)
 "Cr" = (
@@ -7266,7 +7266,7 @@
 /turf/simulated/floor/wood,
 /area/hegemony_ship/canteen)
 "PV" = (
-/obj/machinery/atmospherics/pipe/tank/air{
+/obj/machinery/atmospherics/unary/tank/air{
 	dir = 4
 	},
 /obj/machinery/light/colored/red{

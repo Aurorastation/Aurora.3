@@ -1027,7 +1027,7 @@
 	},
 /area/pra_satellite)
 "sW" = (
-/obj/machinery/atmospherics/pipe/tank{
+/obj/machinery/atmospherics/unary/tank{
 	dir = 1
 	},
 /turf/simulated/floor{
@@ -1337,7 +1337,7 @@
 	},
 /area/pra_satellite)
 "AS" = (
-/obj/machinery/atmospherics/pipe/tank/air,
+/obj/machinery/atmospherics/unary/tank/air,
 /turf/simulated/floor{
 	temperature = 278.15
 	},

@@ -1535,7 +1535,7 @@
 /turf/simulated/floor/plating,
 /area/shuttle/einstein_shuttle/starbeng)
 "LU" = (
-/obj/machinery/atmospherics/pipe/tank/air{
+/obj/machinery/atmospherics/unary/tank/air{
 	dir = 8
 	},
 /turf/simulated/floor/plating,

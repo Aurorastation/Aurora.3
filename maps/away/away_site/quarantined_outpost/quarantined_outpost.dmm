@@ -8291,7 +8291,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 6
 	},
-/obj/machinery/pipedispenser/disposal,
+/obj/machinery/fabricator/pipe_dispenser,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
@@ -14803,7 +14803,7 @@
 /turf/simulated/floor/tiled/white,
 /area/quarantined_outpost/medbay)
 "kap" = (
-/obj/machinery/atmospherics/unary/freezer{
+/obj/machinery/atmospherics/unary/temperature/freezer{
 	icon_state = "freezer";
 	dir = 4
 	},
@@ -16411,7 +16411,7 @@
 /turf/simulated/floor/tiled/dark/full/airless,
 /area/quarantined_outpost/security)
 "kVN" = (
-/obj/machinery/atmospherics/unary/freezer,
+/obj/machinery/atmospherics/unary/temperature/freezer,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 10
 	},
@@ -21705,7 +21705,7 @@
 	},
 /area/quarantined_outpost/research)
 "oxi" = (
-/obj/machinery/pipedispenser,
+/obj/machinery/fabricator/pipe_dispenser,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 5
 	},
@@ -24442,7 +24442,7 @@
 /turf/simulated/floor/exoplanet/abyss,
 /area/quarantined_outpost/entrance_maintenance)
 "qno" = (
-/obj/machinery/atmospherics/unary/freezer,
+/obj/machinery/atmospherics/unary/temperature/freezer,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 6
 	},
@@ -26464,7 +26464,7 @@
 	icon_state = "air5";
 	opacity = 0
 	},
-/obj/machinery/atmospherics/pipe/tank/air{
+/obj/machinery/atmospherics/unary/tank/air{
 	dir = 4
 	},
 /turf/simulated/floor/reinforced,
@@ -30359,7 +30359,7 @@
 /turf/simulated/floor/carpet/rubber,
 /area/quarantined_outpost/gym)
 "tZx" = (
-/obj/machinery/atmospherics/pipe/tank/air{
+/obj/machinery/atmospherics/unary/tank/air{
 	dir = 8
 	},
 /turf/simulated/floor/reinforced,
@@ -30644,7 +30644,7 @@
 /turf/simulated/floor/tiled,
 /area/quarantined_outpost/dorm_hallway)
 "ugL" = (
-/obj/machinery/atmospherics/unary/freezer,
+/obj/machinery/atmospherics/unary/temperature/freezer,
 /obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/carpet/rubber,
 /area/quarantined_outpost/engineering/atmospherics)
@@ -31427,7 +31427,7 @@
 /turf/simulated/floor/tiled/ridged,
 /area/quarantined_outpost/extraction_lab)
 "uHd" = (
-/obj/machinery/atmospherics/pipe/tank/air{
+/obj/machinery/atmospherics/unary/tank/air{
 	dir = 4
 	},
 /turf/simulated/floor/reinforced,

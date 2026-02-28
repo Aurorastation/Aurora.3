@@ -43,7 +43,7 @@
 /turf/simulated/floor/plating,
 /area/engineering/atmos)
 "ak" = (
-/obj/machinery/atmospherics/pipe/tank/air,
+/obj/machinery/atmospherics/unary/tank/air,
 /turf/simulated/floor/plating,
 /area/engineering/atmos)
 "al" = (
@@ -1889,7 +1889,7 @@
 /turf/simulated/floor/tiled,
 /area/construction/storage)
 "ll" = (
-/obj/machinery/atmospherics/unary/freezer{
+/obj/machinery/atmospherics/unary/temperature/freezer{
 	icon_state = "freezer_1";
 	set_temperature = 73;
 	use_power = 1
@@ -2441,7 +2441,7 @@
 	},
 /area/tcommsat/chamber)
 "uA" = (
-/obj/machinery/atmospherics/pipe/tank/phoron{
+/obj/machinery/atmospherics/unary/tank/phoron{
 	dir = 1
 	},
 /turf/simulated/floor/plating,

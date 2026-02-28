@@ -145,7 +145,7 @@
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/shuttle/saniorios_outpost)
 "cE" = (
-/obj/machinery/atmospherics/pipe/tank/air{
+/obj/machinery/atmospherics/unary/tank/air{
 	dir = 4
 	},
 /turf/simulated/floor/plating/cooled,
@@ -1267,7 +1267,7 @@
 /turf/simulated/floor/plating/cooled,
 /area/saniorios_outpost/hangar)
 "qQ" = (
-/obj/machinery/pipedispenser/disposal,
+/obj/machinery/fabricator/pipe_dispenser,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
@@ -2923,7 +2923,7 @@
 	},
 /area/shuttle/saniorios_outpost)
 "Qo" = (
-/obj/machinery/pipedispenser,
+/obj/machinery/fabricator/pipe_dispenser,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/plating/cooled,

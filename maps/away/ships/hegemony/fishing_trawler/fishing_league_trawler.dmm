@@ -2577,7 +2577,7 @@
 /turf/simulated/floor,
 /area/shuttle/fishing_trawler)
 "tV" = (
-/obj/machinery/atmospherics/pipe/tank/air{
+/obj/machinery/atmospherics/unary/tank/air{
 	start_pressure = 3000
 	},
 /turf/simulated/floor,
@@ -3169,7 +3169,7 @@
 /turf/simulated/floor/wood/mahogany,
 /area/ship/fishing_trawler/Captain)
 "yt" = (
-/obj/machinery/atmospherics/unary/heater{
+/obj/machinery/atmospherics/unary/temperature/heater{
 	dir = 4
 	},
 /turf/simulated/floor,
@@ -3505,7 +3505,7 @@
 /turf/simulated/floor/tiled/white,
 /area/ship/fishing_trawler/kitchen)
 "AW" = (
-/obj/machinery/atmospherics/pipe/tank,
+/obj/machinery/atmospherics/unary/tank,
 /turf/simulated/floor,
 /area/ship/fishing_trawler/engineering/Starboard)
 "Ba" = (
@@ -3909,7 +3909,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/fishing_trawler)
 "Dv" = (
-/obj/machinery/pipedispenser,
+/obj/machinery/fabricator/pipe_dispenser,
 /obj/item/pipewrench,
 /obj/structure/cable/green{
 	d2 = 4;

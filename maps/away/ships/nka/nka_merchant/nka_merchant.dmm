@@ -505,7 +505,7 @@
 	},
 /area/nka_merchant/engineering)
 "bu" = (
-/obj/machinery/pipedispenser,
+/obj/machinery/fabricator/pipe_dispenser,
 /obj/effect/floor_decal/corner/yellow{
 	dir = 10
 	},
@@ -1849,7 +1849,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/tank,
+/obj/machinery/atmospherics/unary/tank,
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
@@ -4377,7 +4377,7 @@
 	},
 /area/nka_merchant/bridge)
 "yK" = (
-/obj/machinery/atmospherics/pipe/tank/air,
+/obj/machinery/atmospherics/unary/tank/air,
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
@@ -5563,7 +5563,7 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/tank/air,
+/obj/machinery/atmospherics/unary/tank/air,
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},

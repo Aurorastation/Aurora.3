@@ -783,7 +783,7 @@
 	},
 /area/miners_guild_outpost/engineering)
 "oR" = (
-/obj/machinery/atmospherics/pipe/tank/air{
+/obj/machinery/atmospherics/unary/tank/air{
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/outline/emergency_closet,
@@ -2220,7 +2220,7 @@
 	},
 /area/miners_guild_outpost/mining)
 "QM" = (
-/obj/machinery/atmospherics/pipe/tank{
+/obj/machinery/atmospherics/unary/tank{
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/outline/red,

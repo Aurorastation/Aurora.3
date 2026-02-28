@@ -2727,7 +2727,7 @@
 /turf/simulated/floor/marble/dark,
 /area/ship/elyran_corvette/prayerhall)
 "oy" = (
-/obj/machinery/atmospherics/pipe/tank/air{
+/obj/machinery/atmospherics/unary/tank/air{
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/outline/emergency_closet,
@@ -5646,7 +5646,7 @@
 /obj/structure/sign/nosmoking_1{
 	pixel_y = 32
 	},
-/obj/machinery/pipedispenser,
+/obj/machinery/fabricator/pipe_dispenser,
 /obj/item/pipewrench,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -6062,7 +6062,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/elyran_corvette/hangar)
 "IB" = (
-/obj/machinery/atmospherics/pipe/tank{
+/obj/machinery/atmospherics/unary/tank{
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/outline/red,
@@ -6163,7 +6163,7 @@
 /turf/simulated/floor/reinforced,
 /area/ship/elyran_corvette/starboardwep)
 "Jh" = (
-/obj/machinery/atmospherics/pipe/tank/air{
+/obj/machinery/atmospherics/unary/tank/air{
 	dir = 8;
 	start_pressure = 1500
 	},

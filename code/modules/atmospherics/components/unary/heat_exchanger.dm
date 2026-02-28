@@ -5,11 +5,14 @@
 	icon_state = "intact"
 	density = TRUE
 
+	connect_types = CONNECT_TYPE_REGULAR | CONNECT_TYPE_FUEL
+	build_icon_state = "heunary"
+
 	var/obj/machinery/atmospherics/unary/heat_exchanger/partner = null
 	var/update_cycle
 
 /obj/machinery/atmospherics/unary/heat_exchanger/update_icon()
-	if(node)
+	if(LAZYLEN(nodes_to_networks))
 		icon_state = "intact"
 	else
 		icon_state = "exposed"
@@ -30,7 +33,7 @@
 
 /obj/machinery/atmospherics/unary/heat_exchanger/process()
 	..()
-	if(QDELETED(partner))
+	if(!partner || QDELETED(partner))
 		return FALSE
 
 	if(!SSair || SSair.times_fired <= update_cycle)
@@ -53,13 +56,11 @@
 		air_contents.temperature = new_temperature
 		partner.air_contents.temperature = new_temperature
 
-	if(network)
-		if(abs(old_temperature-air_contents.temperature) > 1)
-			network.update = 1
+	if(abs(old_temperature-air_contents.temperature) > 1)
+		update_networks()
 
-	if(partner.network)
-		if(abs(other_old_temperature-partner.air_contents.temperature) > 1)
-			partner.network.update = 1
+	if(abs(other_old_temperature-partner.air_contents.temperature) > 1)
+		partner.update_networks()
 
 	return TRUE
 
@@ -84,5 +85,5 @@
 			SPAN_NOTICE("You have unfastened \the [src]."),
 			"You hear a ratchet."
 		)
-		new /obj/item/pipe(loc, make_from=src)
+		new /obj/item/pipe(loc, src)
 		qdel(src)

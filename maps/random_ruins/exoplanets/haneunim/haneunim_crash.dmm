@@ -323,7 +323,7 @@
 /turf/simulated/wall/shuttle/raider,
 /area/shuttle/haneunim_crash)
 "Bl" = (
-/obj/machinery/atmospherics/pipe/tank/air{
+/obj/machinery/atmospherics/unary/tank/air{
 	dir = 1
 	},
 /turf/simulated/floor/plating,
@@ -459,7 +459,7 @@
 /turf/simulated/wall/shuttle/raider,
 /area/shuttle/haneunim_crash)
 "JA" = (
-/obj/machinery/atmospherics/pipe/tank{
+/obj/machinery/atmospherics/unary/tank{
 	dir = 1
 	},
 /turf/simulated/floor/plating,

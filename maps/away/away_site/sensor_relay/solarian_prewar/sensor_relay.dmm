@@ -2295,7 +2295,7 @@
 /turf/simulated/floor/tiled,
 /area/sensor_relay)
 "aQe" = (
-/obj/machinery/atmospherics/pipe/tank/air{
+/obj/machinery/atmospherics/unary/tank/air{
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/outline,

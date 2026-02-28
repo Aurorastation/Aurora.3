@@ -2427,7 +2427,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
-/obj/machinery/pipedispenser,
+/obj/machinery/fabricator/pipe_dispenser,
 /obj/structure/cable,
 /obj/machinery/power/apc/super/critical/east,
 /turf/simulated/floor/plating,
@@ -3545,7 +3545,7 @@
 /turf/simulated/floor/tiled/white,
 /area/ship/xanu_frigate/medbay)
 "mr" = (
-/obj/machinery/atmospherics/pipe/tank/carbon_dioxide{
+/obj/machinery/atmospherics/unary/tank/carbon_dioxide{
 	dir = 8
 	},
 /obj/machinery/light{
@@ -9708,7 +9708,7 @@
 /area/shuttle/xanu_boarder/main)
 "HD" = (
 /obj/effect/floor_decal/industrial/warning,
-/obj/machinery/atmospherics/pipe/tank/air{
+/obj/machinery/atmospherics/unary/tank/air{
 	dir = 4
 	},
 /obj/machinery/light{
@@ -14567,7 +14567,7 @@
 /turf/simulated/floor/tiled/gunmetal/full,
 /area/ship/xanu_frigate/corridor/fore)
 "XN" = (
-/obj/machinery/atmospherics/pipe/tank/carbon_dioxide,
+/obj/machinery/atmospherics/unary/tank/carbon_dioxide,
 /turf/simulated/floor/plating,
 /area/shuttle/xanu_boarder/engineering)
 "XO" = (

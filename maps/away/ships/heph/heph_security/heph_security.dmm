@@ -1752,7 +1752,7 @@
 /turf/simulated/floor/tiled,
 /area/heph_security_ship)
 "lC" = (
-/obj/machinery/atmospherics/pipe/tank/air{
+/obj/machinery/atmospherics/unary/tank/air{
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
@@ -2471,7 +2471,7 @@
 /area/heph_security_ship/crew)
 "ql" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/atmospherics/pipe/tank{
+/obj/machinery/atmospherics/unary/tank{
 	dir = 8
 	},
 /turf/simulated/floor,
@@ -4143,7 +4143,7 @@
 /area/heph_security_ship/bridge)
 "Dc" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/atmospherics/pipe/tank{
+/obj/machinery/atmospherics/unary/tank{
 	dir = 8
 	},
 /obj/machinery/light{
@@ -5489,7 +5489,7 @@
 /turf/space/transit/north,
 /area/space)
 "Mv" = (
-/obj/machinery/atmospherics/pipe/tank/air{
+/obj/machinery/atmospherics/unary/tank/air{
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
@@ -6875,7 +6875,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/red{
 	dir = 10
 	},
-/obj/machinery/pipedispenser,
+/obj/machinery/fabricator/pipe_dispenser,
 /turf/simulated/floor,
 /area/heph_security_ship/atmos)
 "Xe" = (

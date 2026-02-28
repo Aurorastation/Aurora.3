@@ -104,7 +104,7 @@
 /turf/simulated/floor/tiled,
 /area/bluespaceriver/ship)
 "es" = (
-/obj/machinery/atmospherics/pipe/tank/air{
+/obj/machinery/atmospherics/unary/tank/air{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/white,

@@ -40,7 +40,7 @@
 /turf/simulated/floor,
 /area/ship/iac_rescue_ship/pharmacy)
 "aap" = (
-/obj/machinery/atmospherics/unary/freezer{
+/obj/machinery/atmospherics/unary/temperature/freezer{
 	icon_state = "freezer"
 	},
 /obj/effect/floor_decal/industrial/outline/blue,
@@ -495,7 +495,7 @@
 /turf/simulated/floor,
 /area/ship/iac_rescue_ship/hangar)
 "aIl" = (
-/obj/machinery/atmospherics/pipe/tank{
+/obj/machinery/atmospherics/unary/tank{
 	dir = 1;
 	name = "Pressure Tank (Scrubbers)"
 	},
@@ -2659,7 +2659,7 @@
 /turf/simulated/floor/carpet/lightblue,
 /area/ship/iac_rescue_ship/portdocking)
 "fpw" = (
-/obj/machinery/atmospherics/pipe/tank{
+/obj/machinery/atmospherics/unary/tank{
 	dir = 4;
 	name = "Pressure Tank (Waste)"
 	},
@@ -3285,7 +3285,7 @@
 /turf/simulated/floor/wood,
 /area/ship/iac_rescue_ship/dorms)
 "gIX" = (
-/obj/machinery/atmospherics/pipe/tank/air{
+/obj/machinery/atmospherics/unary/tank/air{
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/hatch/engineering,
@@ -4108,7 +4108,7 @@
 /turf/simulated/floor/wood,
 /area/ship/iac_rescue_ship/afthallway)
 "ixU" = (
-/obj/machinery/atmospherics/pipe/tank/carbon_dioxide{
+/obj/machinery/atmospherics/unary/tank/carbon_dioxide{
 	dir = 8
 	},
 /obj/structure/fuel_port/hydrogen{
@@ -8546,7 +8546,7 @@
 /turf/simulated/floor/reinforced/carbon_dioxide,
 /area/ship/iac_rescue_ship/starboardengine)
 "tOS" = (
-/obj/machinery/pipedispenser,
+/obj/machinery/fabricator/pipe_dispenser,
 /obj/effect/floor_decal/industrial/outline/operations,
 /turf/simulated/floor,
 /area/ship/iac_rescue_ship/atmospherics)
@@ -9931,7 +9931,7 @@
 /turf/simulated/floor,
 /area/ship/iac_rescue_ship/hangar)
 "xBq" = (
-/obj/machinery/atmospherics/pipe/tank/air{
+/obj/machinery/atmospherics/unary/tank/air{
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/outline/emergency_closet,

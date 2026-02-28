@@ -533,7 +533,7 @@
 /turf/simulated/floor/shuttle/skrell/blue,
 /area/ship/tirakqi_smuggler/starboard_hall)
 "ec" = (
-/obj/machinery/atmospherics/pipe/tank/air{
+/obj/machinery/atmospherics/unary/tank/air{
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/outline/emergency_closet,
@@ -3862,7 +3862,7 @@
 /turf/simulated/floor/reinforced/carbon_dioxide,
 /area/ship/tirakqi_smuggler/atmos)
 "xL" = (
-/obj/machinery/atmospherics/pipe/tank{
+/obj/machinery/atmospherics/unary/tank{
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/outline/red,
@@ -6810,7 +6810,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/tank/air{
+/obj/machinery/atmospherics/unary/tank/air{
 	dir = 4
 	},
 /turf/simulated/floor/shuttle/skrell/blue,
@@ -6996,7 +6996,7 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/tirakqi_smuggler/engi)
 "Qq" = (
-/obj/machinery/pipedispenser,
+/obj/machinery/fabricator/pipe_dispenser,
 /obj/item/pipewrench,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -7520,7 +7520,7 @@
 	},
 /area/ship/tirakqi_smuggler/port_hall)
 "Uu" = (
-/obj/machinery/atmospherics/pipe/tank/air{
+/obj/machinery/atmospherics/unary/tank/air{
 	start_pressure = 1500
 	},
 /obj/effect/floor_decal/industrial/outline,

@@ -656,7 +656,7 @@
 /turf/simulated/floor/sidewalk/dark,
 /area/konyang/robotics_factory)
 "Iu" = (
-/obj/machinery/pipedispenser,
+/obj/machinery/fabricator/pipe_dispenser,
 /turf/simulated/floor/foundation,
 /area/konyang/robotics_factory)
 "Iv" = (

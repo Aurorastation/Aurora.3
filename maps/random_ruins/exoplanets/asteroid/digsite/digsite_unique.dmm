@@ -268,7 +268,7 @@
 /turf/simulated/floor/tiled,
 /area/dungeon/anomaly_outpost)
 "aT" = (
-/obj/machinery/atmospherics/pipe/tank/air,
+/obj/machinery/atmospherics/unary/tank/air,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 5
 	},
