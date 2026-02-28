@@ -3976,7 +3976,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi)
 "BZ" = (
-/obj/structure/machinery/atmospherics/pipe/tank{
+/obj/structure/machinery/atmospherics/unary/tank{
 	dir = 8
 	},
 /turf/simulated/floor/plating,
@@ -7227,7 +7227,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/eva)
 "Xx" = (
-/obj/structure/machinery/atmospherics/pipe/tank/air{
+/obj/structure/machinery/atmospherics/unary/tank/air{
 	dir = 8
 	},
 /turf/simulated/floor/plating,

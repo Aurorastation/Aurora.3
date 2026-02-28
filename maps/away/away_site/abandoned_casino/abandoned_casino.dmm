@@ -6303,7 +6303,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/abandoned_casino/security_checkpoint)
 "ru" = (
-/obj/structure/machinery/atmospherics/pipe/tank{
+/obj/structure/machinery/atmospherics/unary/tank{
 	dir = 8
 	},
 /obj/structure/lattice/catwalk/indoor/grate/dark,
@@ -9497,7 +9497,7 @@
 /turf/space,
 /area/abandoned_casino/exterior)
 "Hi" = (
-/obj/structure/machinery/atmospherics/pipe/tank/air,
+/obj/structure/machinery/atmospherics/unary/tank/air,
 /obj/effect/floor_decal/industrial/outline/grey,
 /turf/simulated/floor/tiled/dark/full,
 /area/abandoned_casino/staff/breakroom)
@@ -9941,7 +9941,7 @@
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/outline/red,
-/obj/structure/machinery/atmospherics/pipe/tank,
+/obj/structure/machinery/atmospherics/unary/tank,
 /turf/simulated/floor/tiled/dark,
 /area/abandoned_casino/staff/breakroom)
 "Jt" = (
@@ -10827,7 +10827,7 @@
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 8
 	},
-/obj/structure/machinery/pipedispenser,
+/obj/structure/machinery/fabricator/pipe_dispenser,
 /obj/effect/floor_decal/industrial/outline/grey,
 /turf/simulated/floor/tiled/dark,
 /area/abandoned_casino/staff/breakroom)
@@ -12342,7 +12342,7 @@
 /area/abandoned_casino/bar/kitchen/freezer)
 "Vt" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
-/obj/structure/machinery/atmospherics/pipe/tank/air{
+/obj/structure/machinery/atmospherics/unary/tank/air{
 	dir = 8
 	},
 /turf/simulated/floor/plating,

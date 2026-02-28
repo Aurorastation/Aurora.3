@@ -2,41 +2,63 @@
 	icon = 'icons/atmos/connector.dmi'
 	icon_state = "map_connector"
 
-	name = "Connector Port"
-	desc = "For connecting portables devices related to atmospherics control."
+	name = "connector port"
+	desc = "A connector port with a flexible tube that can be attached to portable atmospherics devices using a wrench."
 
 	dir = SOUTH
 	initialize_directions = SOUTH
+	interact_offline = TRUE
+
+	build_icon_state = "connector"
 
 	var/obj/structure/machinery/portable_atmospherics/connected_device
-
-	var/obj/structure/machinery/atmospherics/node
 
 	var/datum/pipe_network/network
 
 	use_power = POWER_USE_OFF
 	level = 1
 
+	pipe_class = PIPE_CLASS_UNARY
+
+/obj/structure/machinery/atmospherics/portables_connector/update_icon()
+	icon_state = "connector"
+	build_device_underlays(FALSE)
+
 /obj/structure/machinery/atmospherics/portables_connector/fuel
 	icon_state = "map_connector-fuel"
 	icon_connect_type = "-fuel"
 	connect_types = CONNECT_TYPE_FUEL
+
+/obj/structure/machinery/atmospherics/portables_connector/fuel/update_icon()
+	icon_state = "connector-fuel"
+	build_device_underlays(FALSE)
 
 /obj/structure/machinery/atmospherics/portables_connector/aux
 	icon_state = "map_connector-aux"
 	icon_connect_type = "-aux"
 	connect_types = CONNECT_TYPE_AUX
 
+/obj/structure/machinery/atmospherics/portables_connector/aux/update_icon()
+	icon_state = "connector-aux"
+	build_device_underlays(FALSE)
+
 /obj/structure/machinery/atmospherics/portables_connector/supply
 	icon_state = "map_connector-supply"
 	icon_connect_type = "-supply"
 	connect_types = CONNECT_TYPE_SUPPLY
+
+/obj/structure/machinery/atmospherics/portables_connector/supply/update_icon()
+	icon_state = "connector-supply"
+	build_device_underlays(FALSE)
 
 /obj/structure/machinery/atmospherics/portables_connector/scrubber
 	icon_state = "map_connector-scrubber"
 	icon_connect_type = "-scrubber"
 	connect_types = CONNECT_TYPE_SCRUBBER
 
+/obj/structure/machinery/atmospherics/portables_connector/scrubber/update_icon()
+	icon_state = "connector-scrubber"
+	build_device_underlays(FALSE)
 
 /obj/structure/machinery/atmospherics/portables_connector/Initialize()
 	initialize_directions = dir
@@ -47,19 +69,8 @@
 	. = ..()
 	toggle_process()
 
-/obj/structure/machinery/atmospherics/portables_connector/update_icon()
-	icon_state = "connector" + icon_connect_type
-
-/obj/structure/machinery/atmospherics/portables_connector/update_underlays()
-	if(..())
-		underlays.Cut()
-		var/turf/T = get_turf(src)
-		if(!istype(T))
-			return
-		add_underlay(T, node, dir, node?.icon_connect_type)
-
 /obj/structure/machinery/atmospherics/portables_connector/hide(var/i)
-	update_underlays()
+	queue_icon_update()
 
 /obj/structure/machinery/atmospherics/portables_connector/proc/toggle_process()
 	if(connected_device)
@@ -68,73 +79,22 @@
 		STOP_PROCESSING_MACHINE(src, MACHINERY_PROCESS_SELF)
 
 /obj/structure/machinery/atmospherics/portables_connector/process()
-	if(!network || !connected_device)
-		return PROCESS_KILL
-	network.update = 1
-
-// Housekeeping and pipe network stuff below
-/obj/structure/machinery/atmospherics/portables_connector/network_expand(datum/pipe_network/new_network, obj/structure/machinery/atmospherics/pipe/reference)
-	if(reference == node)
-		network = new_network
-
-	if(new_network.normal_members.Find(src))
-		return 0
-
-	new_network.normal_members += src
-
-	return null
+	if(!connected_device)
+		STOP_PROCESSING_MACHINE(src, MACHINERY_PROCESS_SELF)
+	update_networks()
+	return TRUE
 
 /obj/structure/machinery/atmospherics/portables_connector/Destroy()
-	loc = null
-
 	if(connected_device)
 		connected_device.disconnect()
-
-	if(node)
-		node.disconnect(src)
-		qdel(network)
-
-	node = null
-
-	return ..()
-
-/obj/structure/machinery/atmospherics/portables_connector/atmos_init()
-	if(node) return
-
-	var/node_connect = dir
-
-	for(var/obj/structure/machinery/atmospherics/target in get_step(src,node_connect))
-		if(target.initialize_directions & get_dir(target,src))
-			if (check_connect_types(target,src))
-				node = target
-				break
-
-	update_icon()
-	update_underlays()
-
-/obj/structure/machinery/atmospherics/portables_connector/build_network()
-	if(!network && node)
-		network = new /datum/pipe_network()
-		network.normal_members += src
-		network.build_network(node, src)
-
+	. = ..()
 
 /obj/structure/machinery/atmospherics/portables_connector/return_network(obj/structure/machinery/atmospherics/reference)
-	build_network()
+	. = ..()
 
-	if(reference==node)
-		return network
-
-	if(reference==connected_device)
-		return network
-
-	return null
-
-/obj/structure/machinery/atmospherics/portables_connector/reassign_network(datum/pipe_network/old_network, datum/pipe_network/new_network)
-	if(network == old_network)
-		network = new_network
-
-	return 1
+	if(reference == connected_device)
+		if(LAZYLEN(nodes_to_networks))
+			return nodes_to_networks[nodes_to_networks[1]]
 
 /obj/structure/machinery/atmospherics/portables_connector/return_network_air(datum/pipe_network/reference)
 	var/list/results = list()
@@ -143,15 +103,6 @@
 		results += connected_device.air_contents
 
 	return results
-
-/obj/structure/machinery/atmospherics/portables_connector/disconnect(obj/structure/machinery/atmospherics/reference)
-	if(reference==node)
-		qdel(network)
-		node = null
-
-	update_underlays()
-
-	return null
 
 
 /obj/structure/machinery/atmospherics/portables_connector/attackby(obj/item/attacking_item, mob/user)
@@ -175,6 +126,6 @@
 			SPAN_NOTICE("\The [user] unfastens \the [src]."), \
 			SPAN_NOTICE("You have unfastened \the [src]."), \
 			"You hear a ratchet.")
-		new /obj/item/pipe(loc, make_from=src)
+		new /obj/item/pipe(loc, src)
 		qdel(src)
 		return TRUE

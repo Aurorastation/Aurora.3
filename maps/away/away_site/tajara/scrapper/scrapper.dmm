@@ -1315,7 +1315,7 @@
 	},
 /area/shuttle/scrapper_ship/workshop)
 "oP" = (
-/obj/structure/machinery/pipedispenser,
+/obj/structure/machinery/fabricator/pipe_dispenser,
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
@@ -2107,7 +2107,7 @@
 /turf/simulated/floor/airless,
 /area/scrapper_base/solars)
 "yS" = (
-/obj/structure/machinery/atmospherics/pipe/tank/air,
+/obj/structure/machinery/atmospherics/unary/tank/air,
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
@@ -4255,7 +4255,7 @@
 	},
 /area/scrapper_base/atmos)
 "Yw" = (
-/obj/structure/machinery/atmospherics/pipe/tank/air{
+/obj/structure/machinery/atmospherics/unary/tank/air{
 	dir = 8
 	},
 /turf/simulated/floor/plating{
@@ -4306,7 +4306,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
-/obj/structure/machinery/atmospherics/pipe/tank,
+/obj/structure/machinery/atmospherics/unary/tank,
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},

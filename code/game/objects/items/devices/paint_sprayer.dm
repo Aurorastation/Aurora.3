@@ -487,7 +487,7 @@
 		return
 	if(!in_range(user, A))
 		return
-	else if(is_type_in_list(A, list(/obj/structure/machinery/atmospherics/pipe/tank, /obj/structure/machinery/atmospherics/pipe/simple/heat_exchanging)))
+	else if(is_type_in_list(A, list(/obj/structure/machinery/atmospherics/unary/tank, /obj/structure/machinery/atmospherics/pipe/simple/heat_exchanging)))
 		return
 	else if(istype(A,/obj/structure/machinery/atmospherics/pipe))
 		var/obj/structure/machinery/atmospherics/pipe/P = A

@@ -1016,7 +1016,7 @@
 /turf/simulated/floor/tiled/white,
 /area/dominian_corvette/infirmary)
 "bSQ" = (
-/obj/structure/machinery/atmospherics/pipe/tank/air{
+/obj/structure/machinery/atmospherics/unary/tank/air{
 	start_pressure = 6000;
 	dir = 1
 	},
@@ -3581,7 +3581,7 @@
 "glf" = (
 /obj/effect/floor_decal/corner/orange/full,
 /obj/effect/floor_decal/industrial/hatch/engineering,
-/obj/structure/machinery/pipedispenser,
+/obj/structure/machinery/fabricator/pipe_dispenser,
 /turf/simulated/floor/tiled/gunmetal,
 /area/dominian_corvette/engineering)
 "glk" = (
@@ -5179,7 +5179,7 @@
 /turf/simulated/floor/marble/dark,
 /area/dominian_corvette/chapel)
 "jxK" = (
-/obj/structure/machinery/atmospherics/pipe/tank/carbon_dioxide{
+/obj/structure/machinery/atmospherics/unary/tank/carbon_dioxide{
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -9346,7 +9346,7 @@
 /turf/space/dynamic,
 /area/dominian_corvette/gunnery_starboard)
 "rGr" = (
-/obj/structure/machinery/atmospherics/pipe/tank/air{
+/obj/structure/machinery/atmospherics/unary/tank/air{
 	start_pressure = 6000;
 	dir = 1
 	},
@@ -12624,7 +12624,7 @@
 /area/dominian_corvette/docking_arm)
 "xHu" = (
 /obj/effect/floor_decal/industrial/outline/blue,
-/obj/structure/machinery/atmospherics/pipe/tank/air,
+/obj/structure/machinery/atmospherics/unary/tank/air,
 /obj/structure/machinery/light/small{
 	dir = 1
 	},

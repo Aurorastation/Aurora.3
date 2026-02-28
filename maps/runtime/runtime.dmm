@@ -1469,7 +1469,7 @@
 /area/runtime/floor_one/main)
 "fo" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/structure/machinery/atmospherics/pipe/tank/phoron{
+/obj/structure/machinery/atmospherics/unary/tank/phoron{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark/full,
@@ -2305,7 +2305,7 @@
 /obj/effect/floor_decal/spline/plain/paleblue{
 	dir = 1
 	},
-/obj/structure/machinery/atmospherics/unary/heater,
+/obj/structure/machinery/atmospherics/unary/temperature/heater,
 /turf/simulated/floor/tiled/dark/full,
 /area/runtime/floor_one/main)
 "jz" = (
@@ -4005,7 +4005,7 @@
 /area/runtime/floor_one/atmospherics)
 "tu" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/structure/machinery/pipedispenser/disposal,
+/obj/structure/machinery/fabricator/pipe_dispenser,
 /obj/structure/machinery/atmospherics/pipe/simple/visible/green{
 	dir = 1
 	},
@@ -4165,7 +4165,7 @@
 /turf/simulated/floor/tiled/full,
 /area/runtime/floor_one/main)
 "up" = (
-/obj/structure/machinery/atmospherics/pipe/tank/phoron{
+/obj/structure/machinery/atmospherics/unary/tank/phoron{
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -4540,7 +4540,7 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/runtime/floor_two/main)
 "wq" = (
-/obj/structure/machinery/atmospherics/unary/freezer{
+/obj/structure/machinery/atmospherics/unary/temperature/freezer{
 	icon_state = "freezer"
 	},
 /obj/effect/floor_decal/corner_wide/paleblue{
@@ -7357,7 +7357,7 @@
 /turf/simulated/floor/tiled,
 /area/runtime/floor_one/main)
 "MI" = (
-/obj/structure/machinery/atmospherics/pipe/tank/phoron{
+/obj/structure/machinery/atmospherics/unary/tank/phoron{
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -8314,7 +8314,7 @@
 /turf/simulated/floor/tiled/gridded,
 /area/runtime/floor_one/main)
 "Si" = (
-/obj/structure/machinery/atmospherics/pipe/tank/air{
+/obj/structure/machinery/atmospherics/unary/tank/air{
 	dir = 4
 	},
 /turf/unsimulated/floor/dark_monotile,
@@ -8348,7 +8348,7 @@
 /obj/effect/floor_decal/spline/plain/paleblue{
 	dir = 1
 	},
-/obj/structure/machinery/atmospherics/unary/freezer,
+/obj/structure/machinery/atmospherics/unary/temperature/freezer,
 /obj/random/pottedplant_small{
 	pixel_x = -9;
 	pixel_y = 4
@@ -8357,7 +8357,7 @@
 /area/runtime/floor_one/main)
 "Sy" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/structure/machinery/pipedispenser,
+/obj/structure/machinery/fabricator/pipe_dispenser,
 /obj/item/analyzer{
 	pixel_x = -6;
 	pixel_y = 11

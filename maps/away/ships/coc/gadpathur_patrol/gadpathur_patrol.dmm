@@ -952,7 +952,7 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/red{
 	dir = 9
 	},
-/obj/structure/machinery/pipedispenser,
+/obj/structure/machinery/fabricator/pipe_dispenser,
 /obj/item/pipewrench,
 /obj/item/pipewrench,
 /turf/simulated/floor,
@@ -1399,7 +1399,7 @@
 /obj/structure/machinery/door/window/southright{
 	req_one_access = list(224,223,222)
 	},
-/obj/structure/machinery/atmospherics/pipe/tank/air,
+/obj/structure/machinery/atmospherics/unary/tank/air,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/gadpathur_shuttle)
 "la" = (
@@ -3605,7 +3605,7 @@
 /area/ship/gadpathur_patrol/fuel)
 "BW" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/structure/machinery/atmospherics/pipe/tank/air{
+/obj/structure/machinery/atmospherics/unary/tank/air{
 	dir = 4
 	},
 /turf/simulated/floor/plating,
@@ -3987,7 +3987,7 @@
 /area/ship/gadpathur_patrol/atmos)
 "En" = (
 /obj/effect/floor_decal/industrial/outline/engineering,
-/obj/structure/machinery/atmospherics/pipe/tank/carbon_dioxide,
+/obj/structure/machinery/atmospherics/unary/tank/carbon_dioxide,
 /obj/structure/window/reinforced,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/gadpathur_shuttle)
@@ -4305,7 +4305,7 @@
 /turf/simulated/floor,
 /area/ship/gadpathur_patrol/crew_prep)
 "Gh" = (
-/obj/structure/machinery/atmospherics/pipe/tank{
+/obj/structure/machinery/atmospherics/unary/tank{
 	dir = 4
 	},
 /turf/simulated/floor,

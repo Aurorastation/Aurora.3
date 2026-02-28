@@ -139,7 +139,7 @@
 /obj/structure/machinery/light/colored/decayed/dimmed{
 	dir = 8
 	},
-/obj/structure/machinery/atmospherics/pipe/tank/air{
+/obj/structure/machinery/atmospherics/unary/tank/air{
 	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt,

@@ -743,7 +743,7 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/obj/structure/machinery/atmospherics/pipe/tank/air{
+/obj/structure/machinery/atmospherics/unary/tank/air{
 	start_pressure = 1000;
 	dir = 4
 	},
@@ -1488,7 +1488,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
-/obj/structure/machinery/pipedispenser,
+/obj/structure/machinery/fabricator/pipe_dispenser,
 /obj/item/pipewrench,
 /turf/simulated/floor/carpet/rubber,
 /area/ship/sadar_scout/utility)
@@ -6529,7 +6529,7 @@
 /turf/simulated/floor/tiled/white,
 /area/ship/sadar_scout/med)
 "Wt" = (
-/obj/structure/machinery/atmospherics/pipe/tank/air{
+/obj/structure/machinery/atmospherics/unary/tank/air{
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/outline/emergency_closet,
@@ -6731,7 +6731,7 @@
 /turf/simulated/floor/carpet/rubber,
 /area/ship/sadar_scout/atmos)
 "Xx" = (
-/obj/structure/machinery/atmospherics/pipe/tank{
+/obj/structure/machinery/atmospherics/unary/tank{
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/outline/red,

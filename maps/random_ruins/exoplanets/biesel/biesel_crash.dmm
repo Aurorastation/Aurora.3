@@ -230,7 +230,7 @@
 /turf/simulated/floor/exoplanet/dirt_konyang,
 /area/template_noop)
 "hI" = (
-/obj/structure/machinery/atmospherics/pipe/tank/air{
+/obj/structure/machinery/atmospherics/unary/tank/air{
 	start_pressure = 5066.26;
 	dir = 4
 	},

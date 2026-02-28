@@ -2000,7 +2000,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/modular_freelancer_ship/aft/hallway)
 "afR" = (
-/obj/structure/machinery/atmospherics/unary/freezer,
+/obj/structure/machinery/atmospherics/unary/temperature/freezer,
 /obj/structure/machinery/light/small{
 	dir = 1
 	},
@@ -2382,7 +2382,7 @@
 /turf/simulated/floor/tiled,
 /area/ship/modular_freelancer_ship/shuttles/hallway)
 "ahx" = (
-/obj/structure/machinery/pipedispenser,
+/obj/structure/machinery/fabricator/pipe_dispenser,
 /turf/template_noop,
 /area/template_noop)
 "ahB" = (
@@ -7563,7 +7563,7 @@
 /turf/simulated/floor/reinforced,
 /area/ship/modular_freelancer_ship/fore/starboard)
 "aLS" = (
-/obj/structure/machinery/pipedispenser/disposal,
+/obj/structure/machinery/fabricator/pipe_dispenser,
 /turf/template_noop,
 /area/template_noop)
 "aLT" = (
@@ -11819,7 +11819,7 @@
 /turf/simulated/floor/tiled/cargo,
 /area/ship/modular_freelancer_ship/mid/hallway)
 "dvm" = (
-/obj/structure/machinery/atmospherics/pipe/tank/carbon_dioxide{
+/obj/structure/machinery/atmospherics/unary/tank/carbon_dioxide{
 	dir = 8
 	},
 /turf/simulated/floor/plating,
@@ -15160,7 +15160,7 @@
 /obj/structure/machinery/light/small{
 	dir = 1
 	},
-/obj/structure/machinery/atmospherics/pipe/tank/carbon_dioxide,
+/obj/structure/machinery/atmospherics/unary/tank/carbon_dioxide,
 /turf/simulated/floor/plating,
 /area/shuttle/modular_freelancer_shuttle/fighter)
 "hUF" = (
@@ -24443,7 +24443,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/modular_freelancer_ship/aft/hallway)
 "tWq" = (
-/obj/structure/machinery/atmospherics/pipe/tank/carbon_dioxide{
+/obj/structure/machinery/atmospherics/unary/tank/carbon_dioxide{
 	dir = 8
 	},
 /turf/simulated/floor/plating,

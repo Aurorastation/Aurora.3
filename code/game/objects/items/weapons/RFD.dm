@@ -719,7 +719,7 @@ ABSTRACT_TYPE(/obj/item/rfd)
 	build_delay = 10
 
 	// The numbers below refer to the numberized designator for each pipe, which is used in obj/item/pipe's new
-	// Take a look at code\game\machinery\pipe\construction.dm line 69 for more information. - Geeves
+	// Take a look at code\game\objects\structures\machinery\pipe\construction.dm line 69 for more information. - Geeves
 	var/list/standard_pipes = list(
 		"Pipe" = PIPE_SIMPLE_STRAIGHT,
 		"Bent Pipe" = PIPE_SIMPLE_BENT,
@@ -830,7 +830,7 @@ ABSTRACT_TYPE(/obj/item/rfd)
 
 	// Special case for meters- technically it's not a pipe, we can't create a new /obj/item/pipe. Duh.
 	if(selected_pipe == "gasmeter")
-		new /obj/item/pipe_meter(target_turf)
+		new /obj/item/machine_chassis/pipe_meter(target_turf)
 
 	else
 		// Special case handling for bent pipes. They require a non-cardinal direction

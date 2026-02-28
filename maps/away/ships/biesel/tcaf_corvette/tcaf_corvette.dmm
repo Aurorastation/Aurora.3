@@ -3115,7 +3115,7 @@
 /turf/simulated/floor/carpet/magenta,
 /area/tcaf_corvette/captain)
 "lC" = (
-/obj/structure/machinery/atmospherics/pipe/tank/air{
+/obj/structure/machinery/atmospherics/unary/tank/air{
 	dir = 8;
 	start_pressure = 6000
 	},
@@ -4596,7 +4596,7 @@
 /obj/structure/machinery/light/small{
 	dir = 4
 	},
-/obj/structure/machinery/atmospherics/pipe/tank/air{
+/obj/structure/machinery/atmospherics/unary/tank/air{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark/full,
@@ -7513,7 +7513,7 @@
 	dir = 6
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/structure/machinery/pipedispenser,
+/obj/structure/machinery/fabricator/pipe_dispenser,
 /turf/simulated/floor/tiled/gridded,
 /area/tcaf_corvette/engineering)
 "Dh" = (
@@ -9534,7 +9534,7 @@
 /turf/simulated/floor/tiled,
 /area/tcaf_corvette/captain)
 "Lq" = (
-/obj/structure/machinery/atmospherics/pipe/tank{
+/obj/structure/machinery/atmospherics/unary/tank{
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/outline/red,
@@ -13251,7 +13251,7 @@
 /obj/structure/machinery/light/small{
 	dir = 4
 	},
-/obj/structure/machinery/atmospherics/pipe/tank/carbon_dioxide{
+/obj/structure/machinery/atmospherics/unary/tank/carbon_dioxide{
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/outline/grey,

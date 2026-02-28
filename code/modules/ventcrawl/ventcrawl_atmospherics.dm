@@ -68,48 +68,26 @@
 /obj/structure/machinery/atmospherics/proc/can_crawl_through()
 	return 1
 
-/obj/structure/machinery/atmospherics/proc/findConnecting(var/direction)
+/obj/structure/machinery/atmospherics/proc/findConnecting(direction)
 	for(var/obj/structure/machinery/atmospherics/target in get_step(src,direction))
 		if(target.initialize_directions & get_dir(target,src))
 			if(isConnectable(target) && target.isConnectable(src))
 				return target
 
-/obj/structure/machinery/atmospherics/proc/isConnectable(var/obj/structure/machinery/atmospherics/target)
-	return (target == node1 || target == node2)
+/obj/structure/machinery/atmospherics/proc/isConnectable(obj/structure/machinery/atmospherics/target)
+	return LAZYISIN(nodes_to_networks, target)
 
-/obj/structure/machinery/atmospherics/omni/isConnectable(var/obj/structure/machinery/atmospherics/target)
-	for (var/datum/omni_port/P in ports)
-		if (P.node == target)
-			return P.node
-
-/obj/structure/machinery/atmospherics/pipe/manifold/isConnectable(var/obj/structure/machinery/atmospherics/target)
-	return (target == node3 || ..())
-
-/obj/structure/machinery/atmospherics/pipe/manifold4w/isConnectable(var/obj/structure/machinery/atmospherics/target)
-	return (target == node3 || target == node4 || ..())
-
-/obj/structure/machinery/atmospherics/tvalve/isConnectable(var/obj/structure/machinery/atmospherics/target)
-	return (target == node3 || ..())
-
-/obj/structure/machinery/atmospherics/pipe/cap/isConnectable(var/obj/structure/machinery/atmospherics/target)
-	return (target == node || ..())
-
-/obj/structure/machinery/atmospherics/portables_connector/isConnectable(var/obj/structure/machinery/atmospherics/target)
-	return (target == node || ..())
-
-/obj/structure/machinery/atmospherics/unary/isConnectable(var/obj/structure/machinery/atmospherics/target)
-	return (target == node || ..())
-
-/obj/structure/machinery/atmospherics/proc/can_z_crawl(var/mob/living/L, var/direction)
+/obj/structure/machinery/atmospherics/proc/can_z_crawl(mob/living/L, direction)
 	return FALSE
 
-/obj/structure/machinery/atmospherics/pipe/zpipe/can_z_crawl(var/mob/living/L, var/direction)
+/obj/structure/machinery/atmospherics/pipe/zpipe/can_z_crawl(mob/living/L, direction)
 	if(L.is_ventcrawling && L.loc == src)
-		if(node2 && check_connect_types(node2,src))
+		var/node = nodes_to_networks[1]
+		if(node && check_connect_types(node,src))
 			if(direction == travel_direction)
 				return TRUE
 
-/obj/structure/machinery/atmospherics/proc/handle_z_crawl(var/mob/living/L, var/direction)
+/obj/structure/machinery/atmospherics/proc/handle_z_crawl(mob/living/L, direction)
 	return
 
 /obj/structure/machinery/atmospherics/pipe/zpipe/handle_z_crawl(var/mob/living/L, var/direction)
@@ -118,4 +96,5 @@
 	if(!do_after(L, 10 SECONDS, get_turf(src), do_flags = DO_DEFAULT & ~DO_USER_SAME_HAND) || !can_z_crawl(L, direction))
 		to_chat(L, SPAN_DANGER("You gave up on climbing [travel_direction_name] the pipe."))
 		return FALSE
-	return ventcrawl_to(L, node2, null)
+	var/node = nodes_to_networks[1]
+	return ventcrawl_to(L, node, null)

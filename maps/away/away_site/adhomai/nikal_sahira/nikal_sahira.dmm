@@ -8898,7 +8898,7 @@
 /area/crevus/outside)
 "fQx" = (
 /obj/effect/floor_decal/industrial/outline/operations,
-/obj/structure/machinery/atmospherics/pipe/tank/air,
+/obj/structure/machinery/atmospherics/unary/tank/air,
 /obj/structure/urban_grate,
 /turf/simulated/floor/exoplanet/plating/snow,
 /area/crevus/outside)
@@ -10178,7 +10178,7 @@
 /area/crevus/inside/firearm_store/basement)
 "gFP" = (
 /obj/random/dirt_75,
-/obj/structure/machinery/atmospherics/pipe/tank/carbon_dioxide{
+/obj/structure/machinery/atmospherics/unary/tank/carbon_dioxide{
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/outline/operations,
@@ -29640,7 +29640,7 @@
 /area/crevus/inside/restaurant/balcony_1)
 "thR" = (
 /obj/random/dirt_75,
-/obj/structure/machinery/atmospherics/pipe/tank/air,
+/obj/structure/machinery/atmospherics/unary/tank/air,
 /obj/effect/floor_decal/industrial/outline/operations,
 /turf/simulated/floor/exoplanet/plating/snow,
 /area/crevus/outside)
@@ -34053,7 +34053,7 @@
 /turf/simulated/floor/tiled/full,
 /area/crevus/inside/auto_gallery)
 "wdD" = (
-/obj/structure/machinery/atmospherics/pipe/tank/carbon_dioxide,
+/obj/structure/machinery/atmospherics/unary/tank/carbon_dioxide,
 /obj/effect/floor_decal/industrial/outline/operations,
 /turf/simulated/floor/exoplanet/plating/snow,
 /area/crevus/outside)

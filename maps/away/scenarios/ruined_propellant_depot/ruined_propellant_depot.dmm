@@ -2629,7 +2629,7 @@
 /turf/simulated/floor/reinforced/airless,
 /area/ruined_propellant_depot/propellant_tanks)
 "ig" = (
-/obj/structure/machinery/pipedispenser/disposal,
+/obj/structure/machinery/fabricator/pipe_dispenser,
 /turf/simulated/floor/plating,
 /area/ruined_propellant_depot/engineering)
 "ih" = (
@@ -5534,7 +5534,7 @@
 /turf/simulated/floor/tiled,
 /area/ruined_propellant_depot/gym)
 "rY" = (
-/obj/structure/machinery/pipedispenser,
+/obj/structure/machinery/fabricator/pipe_dispenser,
 /obj/random/dirt_75,
 /obj/structure/machinery/light/colored/dying{
 	dir = 8
@@ -7015,7 +7015,7 @@
 /turf/simulated/floor/plating,
 /area/ruined_propellant_depot/hallways_north)
 "wv" = (
-/obj/structure/machinery/atmospherics/unary/heater{
+/obj/structure/machinery/atmospherics/unary/temperature/heater{
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
@@ -7209,7 +7209,7 @@
 	icon_state = "m-6";
 	opacity = 0
 	},
-/obj/structure/machinery/atmospherics/pipe/tank/carbon_dioxide,
+/obj/structure/machinery/atmospherics/unary/tank/carbon_dioxide,
 /turf/simulated/floor/reinforced/airless,
 /area/ruined_propellant_depot/propellant_tanks)
 "wZ" = (
@@ -8289,7 +8289,7 @@
 /turf/simulated/floor/tiled,
 /area/ruined_propellant_depot/hallways_east)
 "AA" = (
-/obj/structure/machinery/pipedispenser,
+/obj/structure/machinery/fabricator/pipe_dispenser,
 /obj/structure/machinery/light/colored/dying{
 	dir = 4
 	},
@@ -9671,7 +9671,7 @@
 /turf/simulated/floor/plating,
 /area/ruined_propellant_depot/docks_north_west)
 "EK" = (
-/obj/structure/machinery/atmospherics/pipe/tank/carbon_dioxide,
+/obj/structure/machinery/atmospherics/unary/tank/carbon_dioxide,
 /turf/simulated/floor/reinforced/airless,
 /area/ruined_propellant_depot/propellant_tanks)
 "EL" = (
@@ -10877,14 +10877,14 @@
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
-/obj/item/pipe_meter{
+/obj/item/machine_chassis/pipe_meter{
 	pixel_x = -5;
 	pixel_y = 1
 	},
-/obj/item/pipe_meter{
+/obj/item/machine_chassis/pipe_meter{
 	pixel_x = 11
 	},
-/obj/item/pipe_meter{
+/obj/item/machine_chassis/pipe_meter{
 	pixel_x = 2;
 	pixel_y = 3
 	},
@@ -11005,7 +11005,7 @@
 /turf/simulated/floor/plating,
 /area/ruined_propellant_depot/maint)
 "IW" = (
-/obj/structure/machinery/pipedispenser,
+/obj/structure/machinery/fabricator/pipe_dispenser,
 /obj/effect/floor_decal/corner/brown{
 	dir = 5
 	},
@@ -12683,7 +12683,7 @@
 /turf/simulated/floor/plating,
 /area/ruined_propellant_depot/hallways_south)
 "Ol" = (
-/obj/structure/machinery/pipedispenser/disposal,
+/obj/structure/machinery/fabricator/pipe_dispenser,
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/ruined_propellant_depot/atmos_propellant)
@@ -13362,7 +13362,7 @@
 /turf/simulated/floor/plating,
 /area/ruined_propellant_depot/docks_south_east)
 "Qt" = (
-/obj/structure/machinery/pipedispenser,
+/obj/structure/machinery/fabricator/pipe_dispenser,
 /turf/simulated/floor/plating,
 /area/ruined_propellant_depot/engineering)
 "Qu" = (
@@ -13449,7 +13449,7 @@
 	icon_state = "m-5";
 	opacity = 0
 	},
-/obj/structure/machinery/atmospherics/pipe/tank/air,
+/obj/structure/machinery/atmospherics/unary/tank/air,
 /turf/simulated/floor/reinforced/airless,
 /area/ruined_propellant_depot/propellant_tanks)
 "QD" = (
@@ -15152,7 +15152,7 @@
 	icon_state = "m-6";
 	opacity = 0
 	},
-/obj/structure/machinery/atmospherics/pipe/tank/air,
+/obj/structure/machinery/atmospherics/unary/tank/air,
 /turf/simulated/floor/reinforced/airless,
 /area/ruined_propellant_depot/propellant_tanks)
 "Wd" = (
@@ -15496,7 +15496,7 @@
 /turf/simulated/floor/plating,
 /area/ruined_propellant_depot/hallways_east)
 "Xi" = (
-/obj/structure/machinery/atmospherics/unary/freezer{
+/obj/structure/machinery/atmospherics/unary/temperature/freezer{
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
@@ -15597,7 +15597,7 @@
 	icon_state = "m-5";
 	opacity = 0
 	},
-/obj/structure/machinery/atmospherics/pipe/tank/carbon_dioxide,
+/obj/structure/machinery/atmospherics/unary/tank/carbon_dioxide,
 /turf/simulated/floor/reinforced/airless,
 /area/ruined_propellant_depot/propellant_tanks)
 "XB" = (
@@ -16361,7 +16361,7 @@
 /turf/simulated/floor/plating,
 /area/ruined_propellant_depot/maint)
 "ZL" = (
-/obj/structure/machinery/pipedispenser,
+/obj/structure/machinery/fabricator/pipe_dispenser,
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/ruined_propellant_depot/hallways_south)

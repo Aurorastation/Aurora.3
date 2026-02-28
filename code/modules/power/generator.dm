@@ -142,10 +142,8 @@
 		circ2.air2.merge(air2)
 
 	//Update the gas networks
-	if(circ1.network2)
-		circ1.network2.update = 1
-	if(circ2.network2)
-		circ2.network2.update = 1
+	circ1?.update_networks()
+	circ2?.update_networks()
 
 	//Exceeding maximum power leads to some power loss
 	if(effective_gen > max_power && prob(5))

@@ -1467,7 +1467,7 @@
 /area/horizon/rnd/xenobiology/xenoflora)
 "ahq" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/structure/machinery/atmospherics/unary/freezer{
+/obj/structure/machinery/atmospherics/unary/temperature/freezer{
 	icon_state = "freezer"
 	},
 /obj/effect/floor_decal/industrial/warning,
@@ -3122,7 +3122,7 @@
 	dir = 6
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/structure/machinery/atmospherics/unary/freezer{
+/obj/structure/machinery/atmospherics/unary/temperature/freezer{
 	dir = 8;
 	icon_state = "freezer"
 	},
@@ -3927,7 +3927,7 @@
 /turf/simulated/floor/holofloor/wood,
 /area/horizon/holodeck/source_sauna)
 "azo" = (
-/obj/structure/machinery/atmospherics/unary/heater{
+/obj/structure/machinery/atmospherics/unary/temperature/heater{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/full,
@@ -7725,14 +7725,14 @@
 /area/horizon/rnd/xenoarch/hallway/elevator)
 "aZG" = (
 /obj/effect/decal/cleanable/cobweb2,
-/obj/item/pipe_meter{
+/obj/item/machine_chassis/pipe_meter{
 	pixel_x = 2;
 	pixel_y = 5
 	},
-/obj/item/pipe_meter{
+/obj/item/machine_chassis/pipe_meter{
 	pixel_x = 8
 	},
-/obj/item/pipe_meter{
+/obj/item/machine_chassis/pipe_meter{
 	pixel_x = -8
 	},
 /turf/simulated/floor/carpet/rubber,
@@ -8988,7 +8988,7 @@
 /area/horizon/hallway/primary/deck_2/central)
 "bgZ" = (
 /obj/structure/machinery/light/small,
-/obj/structure/machinery/atmospherics/pipe/tank/air/scc_shuttle{
+/obj/structure/machinery/atmospherics/unary/tank/air/scc_shuttle{
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/warning/cee{
@@ -9300,7 +9300,7 @@
 /turf/simulated/floor/reinforced,
 /area/shuttle/merchant)
 "biN" = (
-/obj/structure/machinery/pipedispenser/disposal/orderable{
+/obj/structure/machinery/fabricator/pipe_dispenser{
 	pixel_y = 1
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
@@ -10636,7 +10636,7 @@
 /area/horizon/hangar/operations)
 "brJ" = (
 /obj/effect/floor_decal/industrial/warning,
-/obj/structure/machinery/pipedispenser/disposal,
+/obj/structure/machinery/fabricator/pipe_dispenser,
 /turf/simulated/floor/plating,
 /area/horizon/maintenance/deck_1/main/starboard)
 "brK" = (
@@ -17153,7 +17153,7 @@
 /area/horizon/maintenance/deck_2/wing/port)
 "cld" = (
 /obj/effect/floor_decal/industrial/warning,
-/obj/structure/machinery/pipedispenser,
+/obj/structure/machinery/fabricator/pipe_dispenser,
 /obj/structure/machinery/light/small{
 	dir = 1
 	},
@@ -36450,7 +36450,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/horizon/engineering/atmos/propulsion/starboard)
 "eJb" = (
-/obj/structure/machinery/pipedispenser,
+/obj/structure/machinery/fabricator/pipe_dispenser,
 /turf/simulated/floor/carpet/rubber,
 /area/horizon/engineering/atmos/storage_maintenance)
 "eJe" = (
@@ -39071,7 +39071,7 @@
 /turf/simulated/floor/tiled,
 /area/horizon/security/hallway)
 "fcH" = (
-/obj/structure/machinery/atmospherics/pipe/tank/air,
+/obj/structure/machinery/atmospherics/unary/tank/air,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/maintenance/deck_2/wing/starboard/auxatmos)
@@ -43615,7 +43615,7 @@
 /obj/structure/machinery/light/small{
 	dir = 8
 	},
-/obj/structure/machinery/atmospherics/pipe/tank/air/scc_shuttle/airlock{
+/obj/structure/machinery/atmospherics/unary/tank/air/scc_shuttle/airlock{
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/warning/cee,
@@ -46044,7 +46044,7 @@
 	},
 /area/centcom/holding)
 "fYm" = (
-/obj/structure/machinery/atmospherics/unary/freezer{
+/obj/structure/machinery/atmospherics/unary/temperature/freezer{
 	icon_state = "freezer_1";
 	power_setting = 20;
 	set_temperature = 80;
@@ -50249,7 +50249,7 @@
 /obj/effect/floor_decal/industrial/warning/cee{
 	dir = 4
 	},
-/obj/structure/machinery/atmospherics/unary/heater{
+/obj/structure/machinery/atmospherics/unary/temperature/heater{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark/full,
@@ -51380,7 +51380,7 @@
 /turf/simulated/floor/carpet/rubber,
 /area/horizon/engineering/storage_hard/upper)
 "gIo" = (
-/obj/structure/machinery/atmospherics/pipe/tank/air,
+/obj/structure/machinery/atmospherics/unary/tank/air,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
@@ -52201,7 +52201,7 @@
 /area/horizon/storage/eva/expedition)
 "gOc" = (
 /obj/effect/floor_decal/industrial/outline/emergency_closet,
-/obj/structure/machinery/atmospherics/pipe/tank/air{
+/obj/structure/machinery/atmospherics/unary/tank/air{
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/warning{
@@ -53572,7 +53572,7 @@
 /turf/simulated/floor/tiled/full,
 /area/horizon/security/office)
 "gWU" = (
-/obj/structure/machinery/pipedispenser,
+/obj/structure/machinery/fabricator/pipe_dispenser,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/carpet/rubber,
 /area/horizon/engineering/atmos/turbine)
@@ -53635,7 +53635,7 @@
 /turf/unsimulated/floor/wood,
 /area/centcom/evac)
 "gXg" = (
-/obj/structure/machinery/atmospherics/pipe/tank/air/scc_shuttle/airlock,
+/obj/structure/machinery/atmospherics/unary/tank/air/scc_shuttle/airlock,
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/shuttle/intrepid/starboard_nacelle)
 "gXi" = (
@@ -54652,7 +54652,7 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/maintenance/deck_2/wing/starboard/auxatmos)
 "hee" = (
-/obj/structure/machinery/pipedispenser/orderable,
+/obj/structure/machinery/fabricator/pipe_dispenser,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/unsimulated/floor,
 /area/centcom/legion/hangar5)
@@ -55697,7 +55697,7 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/service/chapel/main)
 "hlV" = (
-/obj/structure/machinery/pipedispenser,
+/obj/structure/machinery/fabricator/pipe_dispenser,
 /obj/effect/floor_decal/industrial/outline/operations,
 /turf/simulated/floor/carpet/rubber,
 /area/horizon/engineering/atmos/storage)
@@ -58361,7 +58361,7 @@
 /turf/simulated/open,
 /area/horizon/hallway/primary/deck_2/central)
 "hCp" = (
-/obj/structure/machinery/atmospherics/pipe/tank/carbon_dioxide/scc_shuttle,
+/obj/structure/machinery/atmospherics/unary/tank/carbon_dioxide/scc_shuttle,
 /turf/simulated/wall/shuttle/unique/scc/scout{
 	icon_state = "5,10"
 	},
@@ -62542,7 +62542,7 @@
 	network = list("Command","Security","Tcomsat");
 	c_tag = "Telecommunications - Control Room"
 	},
-/obj/structure/machinery/atmospherics/unary/freezer{
+/obj/structure/machinery/atmospherics/unary/temperature/freezer{
 	dir = 8;
 	icon_state = "freezer_1";
 	use_power = 1
@@ -64067,7 +64067,7 @@
 /turf/simulated/floor/plating,
 /area/horizon/engineering/atmos/air)
 "ipl" = (
-/obj/structure/machinery/atmospherics/unary/freezer{
+/obj/structure/machinery/atmospherics/unary/temperature/freezer{
 	dir = 1;
 	icon_state = "freezer"
 	},
@@ -65885,7 +65885,7 @@
 /turf/simulated/floor/tiled/full,
 /area/horizon/hallway/primary/deck_2/central)
 "iAV" = (
-/obj/structure/machinery/atmospherics/pipe/tank/carbon_dioxide/scc_shuttle{
+/obj/structure/machinery/atmospherics/unary/tank/carbon_dioxide/scc_shuttle{
 	dir = 4
 	},
 /obj/item/gps/stationary/sccv_quark{
@@ -67299,7 +67299,7 @@
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/primary/deck_2/central)
 "iKv" = (
-/obj/structure/machinery/atmospherics/unary/freezer{
+/obj/structure/machinery/atmospherics/unary/temperature/freezer{
 	icon_state = "freezer"
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
@@ -73057,7 +73057,7 @@
 /turf/simulated/floor/tiled/gunmetal,
 /area/horizon/operations/warehouse)
 "jxw" = (
-/obj/structure/machinery/pipedispenser/orderable{
+/obj/structure/machinery/fabricator/pipe_dispenser{
 	pixel_y = 1
 	},
 /obj/structure/machinery/light{
@@ -73598,7 +73598,7 @@
 /turf/simulated/floor/plating,
 /area/horizon/maintenance/deck_1/wing/starboard/far)
 "jAM" = (
-/obj/structure/machinery/atmospherics/pipe/tank/carbon_dioxide/scc_shuttle{
+/obj/structure/machinery/atmospherics/unary/tank/carbon_dioxide/scc_shuttle{
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/warning/cee{
@@ -74601,7 +74601,7 @@
 /turf/unsimulated/floor/monotile,
 /area/antag/jockey)
 "jHI" = (
-/obj/structure/machinery/atmospherics/pipe/tank/carbon_dioxide/scc_shuttle,
+/obj/structure/machinery/atmospherics/unary/tank/carbon_dioxide/scc_shuttle,
 /obj/structure/sign/nosmoking_1{
 	pixel_y = 32
 	},
@@ -85941,7 +85941,7 @@
 /turf/simulated/floor/plating,
 /area/horizon/maintenance/deck_1/main/starboard)
 "ldx" = (
-/obj/structure/machinery/atmospherics/pipe/tank/air/scc_shuttle{
+/obj/structure/machinery/atmospherics/unary/tank/air/scc_shuttle{
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/dark_blue/full{
@@ -85953,7 +85953,7 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/shuttle/canary)
 "ldz" = (
-/obj/structure/machinery/atmospherics/unary/heater{
+/obj/structure/machinery/atmospherics/unary/temperature/heater{
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/yellow,
@@ -86369,7 +86369,7 @@
 /turf/unsimulated/floor/rubber_carpet,
 /area/centcom/specops)
 "lfR" = (
-/obj/structure/machinery/pipedispenser/disposal,
+/obj/structure/machinery/fabricator/pipe_dispenser,
 /obj/structure/machinery/camera/network/engineering{
 	c_tag = "Engineering - Atmos Locker Room 2";
 	dir = 1
@@ -91848,7 +91848,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
-/obj/structure/machinery/atmospherics/pipe/tank/air{
+/obj/structure/machinery/atmospherics/unary/tank/air{
 	dir = 1
 	},
 /turf/simulated/floor/plating,
@@ -98629,7 +98629,7 @@
 /turf/simulated/floor/wood,
 /area/horizon/repoffice/consular_two)
 "mLG" = (
-/obj/structure/machinery/atmospherics/pipe/tank/air{
+/obj/structure/machinery/atmospherics/unary/tank/air{
 	dir = 1
 	},
 /obj/structure/railing/mapped,
@@ -107259,7 +107259,7 @@
 /turf/simulated/floor/exoplanet/snow,
 /area/centcom/shared_dream)
 "nSp" = (
-/obj/structure/machinery/atmospherics/unary/freezer{
+/obj/structure/machinery/atmospherics/unary/temperature/freezer{
 	dir = 8;
 	icon_state = "freezer"
 	},
@@ -130620,7 +130620,7 @@
 /turf/unsimulated/floor,
 /area/centcom/legion)
 "qTb" = (
-/obj/structure/machinery/pipedispenser/disposal/orderable,
+/obj/structure/machinery/fabricator/pipe_dispenser,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/machinery/light{
 	dir = 1
@@ -137269,7 +137269,7 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/service/bar/backroom)
 "rMk" = (
-/obj/structure/machinery/atmospherics/unary/freezer{
+/obj/structure/machinery/atmospherics/unary/temperature/freezer{
 	dir = 4;
 	icon_state = "freezer"
 	},
@@ -137575,7 +137575,7 @@
 /turf/simulated/floor/tiled,
 /area/horizon/hangar/intrepid)
 "rOd" = (
-/obj/structure/machinery/atmospherics/unary/heater{
+/obj/structure/machinery/atmospherics/unary/temperature/heater{
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/warning{
@@ -143777,7 +143777,7 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/engineering/atmos)
 "sBi" = (
-/obj/structure/machinery/atmospherics/pipe/tank/air,
+/obj/structure/machinery/atmospherics/unary/tank/air,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/machinery/light/small{
 	dir = 1;
@@ -149659,7 +149659,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/horizon/security/checkpoint)
 "toz" = (
-/obj/structure/machinery/atmospherics/pipe/tank/air,
+/obj/structure/machinery/atmospherics/unary/tank/air,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
@@ -153149,7 +153149,7 @@
 /area/horizon/engineering/lobby)
 "tKF" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/structure/machinery/pipedispenser,
+/obj/structure/machinery/fabricator/pipe_dispenser,
 /turf/simulated/floor/plating,
 /area/horizon/maintenance/deck_1/teleporter)
 "tKH" = (
@@ -154462,7 +154462,7 @@
 /turf/simulated/floor/reinforced,
 /area/horizon/weapons/grauwolf)
 "tVG" = (
-/obj/structure/machinery/atmospherics/pipe/tank/air{
+/obj/structure/machinery/atmospherics/unary/tank/air{
 	dir = 8
 	},
 /turf/simulated/floor/plating,
@@ -154929,7 +154929,7 @@
 /turf/unsimulated/floor,
 /area/centcom/control)
 "tYP" = (
-/obj/structure/machinery/atmospherics/pipe/tank/air/scc_shuttle,
+/obj/structure/machinery/atmospherics/unary/tank/air/scc_shuttle,
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/shuttle/intrepid/starboard_nacelle)
 "tYS" = (
@@ -157965,13 +157965,13 @@
 /turf/simulated/floor/tiled/dark,
 /area/centcom/bar)
 "urU" = (
-/obj/item/pipe_meter{
+/obj/item/machine_chassis/pipe_meter{
 	pixel_x = 8
 	},
-/obj/item/pipe_meter{
+/obj/item/machine_chassis/pipe_meter{
 	pixel_x = -8
 	},
-/obj/item/pipe_meter{
+/obj/item/machine_chassis/pipe_meter{
 	pixel_x = 2;
 	pixel_y = 5
 	},
@@ -160536,7 +160536,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/horizon/engineering/atmos/storage)
 "uJa" = (
-/obj/structure/machinery/atmospherics/unary/freezer{
+/obj/structure/machinery/atmospherics/unary/temperature/freezer{
 	dir = 4;
 	icon_state = "freezer"
 	},
@@ -161427,7 +161427,7 @@
 /obj/effect/floor_decal/industrial/warning/cee{
 	dir = 1
 	},
-/obj/structure/machinery/atmospherics/unary/freezer,
+/obj/structure/machinery/atmospherics/unary/temperature/freezer,
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/service/hydroponics)
 "uOH" = (
@@ -162292,7 +162292,7 @@
 /turf/simulated/floor/carpet/rubber,
 /area/horizon/engineering/bluespace_drive/monitoring)
 "uUq" = (
-/obj/structure/machinery/atmospherics/pipe/tank/air,
+/obj/structure/machinery/atmospherics/unary/tank/air,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/random/dirt_75,
 /obj/structure/machinery/light/small{

@@ -3139,7 +3139,7 @@
 /obj/structure/machinery/alarm/south{
 	req_one_access = null
 	},
-/obj/structure/machinery/pipedispenser,
+/obj/structure/machinery/fabricator/pipe_dispenser,
 /turf/simulated/floor/tiled/gridded,
 /area/hegemony_waypoint/atmos)
 "WO" = (
@@ -3164,7 +3164,7 @@
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/universal,
 /obj/random/dirt_75,
-/obj/structure/machinery/pipedispenser,
+/obj/structure/machinery/fabricator/pipe_dispenser,
 /turf/simulated/floor/tiled/gridded,
 /area/hegemony_waypoint/atmos)
 "WV" = (
