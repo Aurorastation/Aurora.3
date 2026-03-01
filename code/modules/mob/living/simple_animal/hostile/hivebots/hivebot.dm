@@ -66,6 +66,7 @@
 		unlink()
 
 	linked_parent = beacon
+	beacon.do_link(src)
 	RegisterSignal(linked_parent, COMSIG_QDELETING, PROC_REF(unlink))
 
 /mob/living/simple_animal/hostile/hivebot/proc/unlink()
