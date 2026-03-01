@@ -75,9 +75,9 @@
 	update_icon()
 
 /obj/structure/cart/storage/engineeringcart/Destroy()
-	QDEL_NULL(my_glass)
-	QDEL_NULL(my_metal)
-	QDEL_NULL(my_plasteel)
+	QDEL_LIST(my_glass)
+	QDEL_LIST(my_metal)
+	QDEL_LIST(my_plasteel)
 	QDEL_NULL(my_lightreplacer)
 	QDEL_NULL(my_blue_toolbox)
 	QDEL_NULL(my_yellow_toolbox)
