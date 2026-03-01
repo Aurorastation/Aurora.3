@@ -5,7 +5,7 @@
 	prefix = "ships/coc/coc_ranger/"
 	suffix = "coc_ship.dmm"
 
-	sectors = list(ALL_POSSIBLE_SECTORS)
+	sectors = list(ALL_POSSIBLE_SECTORS) //maptesting
 	spawn_weight_sector_dependent = list(ALL_BADLAND_SECTORS = 0.3)
 	sectors_blacklist = list(SECTOR_HANEUNIM)
 	spawn_weight = 200
