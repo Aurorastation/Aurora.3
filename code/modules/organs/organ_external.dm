@@ -1442,11 +1442,15 @@ Note that amputating the affected organ does in fact remove the infection from t
 			owner.visible_message(SPAN_DANGER("\The [W] sticks in [owner]'s wound!"),
 									SPAN_DANGER("\The [W] sticks in your wound!"))
 
-	if(supplied_wound)
+	//Did we not get a supplied wound? Start by finding an existing wound that fits.
+	if(!supplied_wound)
 		for(var/datum/wound/wound in wounds)
 			if ((wound.damage_type == INJURY_TYPE_CUT || wound.damage_type == INJURY_TYPE_PIERCE) && wound.damage >= W.w_class * 5)
 				supplied_wound = wound
 				break
+	//Nothing still? Make a new wound for this object to embed in.
+	if(!supplied_wound)
+		supplied_wound = createwound(INJURY_TYPE_PIERCE, W.w_class * 5)
 
 	if(!supplied_wound || (W in supplied_wound.embedded_objects)) // Just in case.
 		return
