@@ -361,7 +361,7 @@
 			qdel(G)
 
 	if(accessory_contents.len)
-		accessory = pick(typesof(/obj/item/clothing/accessory/holster)) - typesof(/obj/item/clothing/accessory/holster/utility/fluff))
+		accessory = pick(typesof(/obj/item/clothing/accessory/holster) - typesof(/obj/item/clothing/accessory/holster/utility/fluff))
 
 	if(!back)
 		H.equip_to_slot_or_del(bag, slot_back)
