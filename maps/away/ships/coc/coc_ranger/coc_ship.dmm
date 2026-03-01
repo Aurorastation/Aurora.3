@@ -2464,7 +2464,7 @@
 	req_access = null;
 	req_one_access = list(221,222)
 	},
-/obj/structure/cargo_receptacle/horizon,
+/obj/structure/cargo_receptacle,
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/engine1)
 "jyA" = (
