@@ -66,20 +66,23 @@ GLOBAL_PROTECT(duplicate_forbidden_vars)
 
 		made_copy.vars[atom_vars] = var_value
 
-	if(isliving(made_copy))
-		if(iscarbon(made_copy))
-			var/mob/living/carbon/original_carbon = original
-			var/mob/living/carbon/copied_carbon = made_copy
-			var/obj/item/organ/internal/brain/original_brain = original_carbon.internal_organs_by_name[BP_BRAIN]
-			original_brain.transfer_identity(copied_carbon)
+	if(!iscarbon(made_copy))
+		return made_copy
 
-			if(ishuman(made_copy))
-				var/mob/living/carbon/human/original_human = original
-				//transfer implants, we do this so the original's implants being removed won't destroy ours.
-				for(var/obj/item/organ/external/limb in original_human.organs)
-					var/list/implants = limb.implants
-					for(var/obj/item/implant/original_implants as anything in implants)
-						var/obj/item/implant/copied_implant = new original_implants.type
-						copied_implant.implantInMob(made_copy)
+	var/mob/living/carbon/original_carbon = original
+	var/mob/living/carbon/copied_carbon = made_copy
+	var/obj/item/organ/internal/brain/original_brain = original_carbon.internal_organs_by_name[BP_BRAIN]
+	original_brain.transfer_identity(copied_carbon)
+
+	if(!ishuman(made_copy))
+		return made_copy
+
+	var/mob/living/carbon/human/original_human = original
+	//transfer implants, we do this so the original's implants being removed won't destroy ours.
+	for(var/obj/item/organ/external/limb in original_human.organs)
+		var/list/implants = limb.implants
+		for(var/obj/item/implant/original_implants as anything in implants)
+			var/obj/item/implant/copied_implant = new original_implants.type
+			copied_implant.implantInMob(made_copy)
 
 	return made_copy
