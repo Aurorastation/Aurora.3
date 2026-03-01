@@ -526,13 +526,14 @@
 
 	var/bucket_list_output = generate_timer_source_output(SStimer.bucket_list)
 	var/second_queue = generate_timer_source_output(SStimer.second_queue)
-	usr << browse({"
+	var/html_body = {"
 		<h3>bucket_list</h3>
 		[bucket_list_output]
 
 		<h3>second_queue</h3>
 		[second_queue]
-	"}, "window=check_timer_sources;size=700x700")
+	"}
+	usr << browse(HTML_SKELETON(html_body), "window=check_timer_sources;size=700x700")
 
 /proc/generate_timer_source_output(list/datum/timedevent/events)
 	var/list/per_source = list()
