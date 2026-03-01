@@ -213,9 +213,16 @@
 	in many places, selling a limited selection of basic items, usually with a markup."
 
 /singleton/sign/double/market/gm24
-	name ="GetMore24"
+	name = "GetMore24"
 	icon_state = "gm24"
-	desc = "The GetMore24, usually shortened to GM24, is the de-facto flagship of convenience stores. Whatever you need, whereever you need it, wheneever you need it. Get more, with Getmore."
+	desc = "The GetMore24, usually shortened to GM24, is the de-facto flagship of convenience stores. For the true convenience connoisseur. Get more, with Getmore."
 	desc_extended = "Getmore was always a big player in the food industry. A logical follow-up would be to get big into retail and cut out the middle-man in distribution. Thus, the king of convenience stores was born: \
 	GMG24. Usually open 24 hours, 7 days a week there aren't many places in the galaxy where you aren't in walking distance of a GM24. Selling everything you need for your daily life, the selection is surprisingly big \
 	and affordable. This strategy catapulted Getmore into the big league of convenience stores."
+
+/singleton/sign/double/market/quikstop
+	name = "Quik Stop"
+	icon_state = "quikstop"
+	desc = "The Orion operated Quik Stop is often known to provide a wide variety at a small premium, thanks to Orion's spur spanning logistics operation. What you need, when you need it: that's the Orion Promise!"
+	desc_extended = "Orion’s spur wide logistics already had warehouses and sorting offices spread on hundreds of planets from the cosmopolitan Biesel to the dinkiest frontier colony. \
+	It was only a matter of fittings and branding which turned many of these into Orion Quik Stops, able to fulfil the Spur’s need for convenient shopping and able to tap into Orion’s delivery system.”
