@@ -579,7 +579,7 @@
 			if(!tryToShootAt(targets))
 				tryToShootAt(secondarytargets)
 
-	if(!targets.len && !secondarytargets.len)
+	if(raised && !targets.len && !secondarytargets.len)
 		resetting = addtimer(CALLBACK(src, PROC_REF(reset)), 6 SECONDS, TIMER_UNIQUE | TIMER_STOPPABLE) // no valid targets, close the cover
 	else if(resetting)
 		deltimer(resetting)
