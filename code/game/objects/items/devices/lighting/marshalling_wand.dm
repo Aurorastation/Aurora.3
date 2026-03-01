@@ -11,6 +11,10 @@
 	light_range = 2
 	action_button_name = "Toggle Marshalling Wands"
 
+/obj/item/flashlight/marshallingwand/Initialize()
+	. = ..()
+	update_icon() // Initial build_from_parts assembly
+
 /obj/item/flashlight/marshallingwand/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	. += "ALT-click the marshalling wand to turn it on and off. Everytime you turn it on it will be blue, signaling and idle intent."
@@ -77,17 +81,15 @@
 	mirror_held_wands(src)
 
 /obj/item/flashlight/marshallingwand/update_icon()
-	overlays.Cut()
+	ClearOverlays()
+	var/image/bulb_overlay = overlay_image(icon, "[initial(icon_state)]_[worn_overlay]")
+	bulb_overlay.blend_mode = BLEND_OVERLAY
+	AddOverlays(bulb_overlay)
 	if(on)
-		var/image/I = overlay_image(icon, "marshallingwand-overlay", light_color)
-		I.blend_mode = BLEND_OVERLAY
-		AddOverlays(I)
-		icon_state = "[initial(icon_state)]-on"
-		item_state = "[initial(icon_state)]-on"
+		var/image/light_overlay = overlay_image(icon, "marshallingwand-overlay", light_color)
+		light_overlay.blend_mode = BLEND_OVERLAY
+		AddOverlays(light_overlay)
 		set_light_range_power_color(light_range, flashlight_power, light_color)
-	else
-		icon_state = initial(icon_state)
-		item_state = initial(item_state)
 	set_light_on(on)
 	update_held_icon()
 
