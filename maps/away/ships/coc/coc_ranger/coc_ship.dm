@@ -5,11 +5,11 @@
 	prefix = "ships/coc/coc_ranger/"
 	suffix = "coc_ship.dmm"
 
-	sectors = list(ALL_POSSIBLE_SECTORS) //maptesting
+	sectors = list(SECTOR_BADLANDS, ALL_COALITION_SECTORS)
 	spawn_weight_sector_dependent = list(ALL_BADLAND_SECTORS = 0.3)
 	sectors_blacklist = list(SECTOR_HANEUNIM)
-	spawn_weight = 200
-	ship_cost = 0
+	spawn_weight = 1
+	ship_cost = 1
 	id = "ranger_corvette"
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/ranger_shuttle)
 
