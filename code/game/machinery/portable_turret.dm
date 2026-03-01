@@ -547,14 +547,10 @@
 
 /obj/machinery/porta_turret/process()
 	//the main machinery process
-	if(stat & (NOPOWER|BROKEN))
-		//if the turret has no power or is broken, make the turret pop down if it hasn't already
-		popDown()
-		return
-
-	if(!enabled)
-		//if the turret is off, make it pop down
-		popDown()
+	if((stat & (NOPOWER|BROKEN)) || !enabled)
+		//if the turret has no power, is broken, or off, make the turret pop down if it hasn't already
+		if(raised || raising)
+			popDown()
 		return
 
 	if(auto_repair && (health < maxhealth))
