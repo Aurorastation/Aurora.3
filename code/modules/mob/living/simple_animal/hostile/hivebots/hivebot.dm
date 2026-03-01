@@ -60,6 +60,9 @@
 	. = ..()
 
 /mob/living/simple_animal/hostile/hivebot/proc/do_link(mob/living/simple_animal/hostile/hivebotbeacon/beacon)
+	if(QDELETED(beacon))
+		return
+
 	if(linked_parent)
 		if(linked_parent == beacon)
 			return
