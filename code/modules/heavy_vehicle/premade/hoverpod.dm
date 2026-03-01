@@ -8,7 +8,7 @@
 	max_damage = 150
 	move_delay = 5
 	turn_delay = 2
-	strafe_delay_modifier = 1 // No delay on strafing.
+	strafe_delay_modifier = 1.2 // minimal delay on strafing.
 	reverse_delay = 10
 	power_use = 2500
 	trample_damage = 0
@@ -22,6 +22,6 @@
 	max_damage = 75
 	move_delay = 2
 	turn_delay = 2
-	strafe_delay_modifier = 1 // minimal delay on strafing.
+	strafe_delay_modifier = 1.2 // minimal delay on strafing.
 	reverse_delay = 5
 	power_use = 2000

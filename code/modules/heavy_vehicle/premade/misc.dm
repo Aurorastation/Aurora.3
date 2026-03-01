@@ -7,7 +7,7 @@
 	move_delay = 4
 	turn_delay = 1
 	reverse_delay = 1 // Faster than usual reverse for legs
-	strafe_delay_modifier = 0 // Uniquely the only chassis without a strafe delay
+	strafe_delay_modifier = 1 // Uniquely the only chassis without a strafe delay
 	damaged_delay = 4
 	power_use = 1250
 	trample_damage = 10
