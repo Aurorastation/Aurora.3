@@ -104,3 +104,6 @@
 
 	/// If true, ignores weather effects
 	var/resists_weather = FALSE
+
+	/// Time since last weather effect
+	var/weather_cooldown_time = 0
