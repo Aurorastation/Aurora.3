@@ -47,7 +47,7 @@
 		user.visible_message(SPAN_NOTICE("\The [user] rests a hand on \the [target]'s [E.name]."))
 		to_chat(target, SPAN_NOTICE("A healing warmth suffuses you."))
 
-		for(var/datum/wound/W in E.wounds)
+		for(var/datum/wound/W as anything in E.wounds)
 			if(W.bleeding())
 				to_chat(user, SPAN_NOTICE("You knit together severed veins and broken flesh, stemming the bleeding."))
 				W.bleed_timer = 0

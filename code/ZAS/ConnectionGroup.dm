@@ -165,7 +165,7 @@ Class Procs:
 
 	var/equiv = A.air.share_ratio(B.air, coefficient)
 
-	var/differential = A.air.return_pressure() - B.air.return_pressure()
+	var/differential = XGM_PRESSURE(A.air) - XGM_PRESSURE(B.air)
 	if(abs(differential) >= GLOB.vsc.airflow_lightest_pressure)
 		var/list/attracted
 		var/list/repelled
@@ -239,7 +239,7 @@ Class Procs:
 
 	var/equiv = A.air.share_space(air)
 
-	var/differential = A.air.return_pressure() - air.return_pressure()
+	var/differential = XGM_PRESSURE(A.air) - XGM_PRESSURE(air)
 	if(abs(differential) >= GLOB.vsc.airflow_lightest_pressure)
 		var/list/attracted = A.movables(connecting_turfs)
 		// This call is async, with waitfor = FALSE

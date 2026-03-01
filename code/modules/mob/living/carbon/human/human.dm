@@ -253,7 +253,7 @@
 			qdel(internal)
 		else
 			. += "Internal Atmosphere Info: [internal.name]"
-			. += "Tank Pressure: [internal.air_contents.return_pressure()]"
+			. += "Tank Pressure: [XGM_PRESSURE(internal.air_contents)]"
 			. += "Distribution Pressure: [internal.distribute_pressure]"
 
 	var/obj/item/organ/internal/machine/power_core/IC = internal_organs_by_name[BP_CELL]
@@ -1905,15 +1905,15 @@
 		eyeobj.remove_visual(src)
 
 
-/mob/living/carbon/human/can_stand_overridden()
+/mob/living/carbon/human/proc/can_stand_overridden()
 	if(wearing_rig && wearing_rig.ai_can_move_suit(check_for_ai = 1))
 		// Actually missing a leg will screw you up. Everything else can be compensated for.
 		for(var/limbcheck in list(BP_L_LEG,BP_R_LEG))
 			var/obj/item/organ/affecting = get_organ(limbcheck)
 			if(!affecting)
-				return 0
-		return 1
-	return 0
+				return FALSE
+		return TRUE
+	return FALSE
 
 /mob/living/carbon/human/proc/can_drink(var/obj/item/I)
 	if(should_have_organ(BP_REACTOR))
@@ -2307,7 +2307,7 @@
 	look_up_open_space(get_turf(src))
 
 /mob/living/proc/look_up_open_space(var/turf/T)
-	if(client && !is_physically_disabled())
+	if(client && !MOB_IS_INCAPACITATED(INCAPACITATION_DISABLED))
 		if(z_eye)
 			reset_view(null)
 			QDEL_NULL(z_eye)
@@ -2330,7 +2330,7 @@
 	look_down_open_space(get_turf(src))
 
 /mob/living/proc/look_down_open_space(var/turf/T)
-	if(client && !is_physically_disabled())
+	if(client && !MOB_IS_INCAPACITATED(INCAPACITATION_DISABLED))
 		if(z_eye)
 			reset_view(null)
 			QDEL_NULL(z_eye)

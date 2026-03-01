@@ -462,7 +462,7 @@
 	var/turf/T=get_turf(src)
 	if(istype(T))
 		var/datum/gas_mixture/environment = T.return_air()
-		if(environment && environment.return_pressure() > MINIMUM_PRESSURE_DIFFERENCE_TO_SUSPEND)
+		if(SAFE_XGM_PRESSURE(environment) > MINIMUM_PRESSURE_DIFFERENCE_TO_SUSPEND)
 			return 0
 	return 1
 

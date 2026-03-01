@@ -3,11 +3,12 @@
 	name_plural = "Zhan-Khazan Tajara"
 	blurb = "The Zhan-Khazan are a race of Tajara known for their dark fur and large bulky figures. \
 	They were at one point a race of cave-and-mountain dwelling Tajara that traditionally were \
-	entrusted with physical work like mining, farming, ranching, and logging. Zhan-Khazan make \
-	up a significant amount of Tajara employed in resource gathering, construction, civil jobs \
-	such as law enforcement and even culinary work such as butchering. They experience a lot of racism \
-	from their fellow Tajara who cite their lackluster test scores, even among Tajara, and their higher \
-	crime rates."
+	entrusted with physical work like mining, farming, ranching, and logging. Zhan-Khazan today make \
+	up a significant amount of Tajara employed in blue-collar work like resource gathering, \
+	construction, and even culinary work such as butchering. Despite being no less intelligent \
+	than other Tajara, the pressure from the caste system to enter unskilled labor rarely afforded Zhan \
+	an easy path to education. Zhan-Khazan are in a transformative state in modern Tajaran society, \
+	but still deal with the many barriers from centuries of the caste system."
 	species_height = HEIGHT_CLASS_TALL
 
 	secondary_langs = list(LANGUAGE_SIIK_TAJR, LANGUAGE_DELVAHII)
@@ -53,8 +54,10 @@
 	blurb = "The M'sai are a race of Tajara with slender lithe bodies and \
 	lightly covered fur which blends in with the snowy environments of Adhomai. \
 	They aren't as well-insulated against Adhomai's cold as their brethren. \
-	However, this gives them the benefit of being more agile. Hitorically, they often \
-	worked as hunters, later becoming warriors and soldiers as civilization developed."
+	However, this gives them the benefit of being more agile. Historically, they often \
+	worked as hunters, later becoming ranchers, warriors and soldiers as civilization developed. \
+	When these roles were shrunken down however, the M'sai commonly found themselves taking \
+	similar work to the Zhan-Khazan. As a result, the two races share much in common with their culture."
 	species_height = HEIGHT_CLASS_AVERAGE
 
 	slowdown = -0.6

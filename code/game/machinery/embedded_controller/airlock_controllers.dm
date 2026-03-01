@@ -134,8 +134,11 @@
 /obj/machinery/embedded_controller/radio/airlock/access_controller/ui_data(mob/user)
 	var/list/data = list()
 
-	data["exterior_status"] = round(program.memory["exterior_status"])
-	data["interior_status"] = round(program.memory["interior_status"])
+	var/ext_door_status = (program.memory["exterior_status"]["state"] == "closed" && program.memory["exterior_status"]["lock"] == "locked")
+	var/int_door_status = (program.memory["interior_status"]["state"] == "closed" && program.memory["interior_status"]["lock"] == "locked")
+
+	data["exterior_secured"] = ext_door_status
+	data["interior_secured"] = int_door_status
 	data["processing"] = program.memory["processing"]
 
 	return data

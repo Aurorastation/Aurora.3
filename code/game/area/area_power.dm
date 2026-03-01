@@ -26,22 +26,6 @@
 /area/proc/power_change()
 	SEND_SIGNAL(src, COMSIG_AREA_POWER_CHANGE)
 
-/area/proc/usage(var/chan)
-	switch(chan)
-		if(AREA_USAGE_LIGHT)
-			return used_light + oneoff_light
-		if(AREA_USAGE_EQUIP)
-			return used_equip + oneoff_equip
-		if(AREA_USAGE_ENVIRON)
-			return used_environ + oneoff_environ
-		if(AREA_USAGE_TOTAL)
-			return .(AREA_USAGE_LIGHT) + .(AREA_USAGE_EQUIP) + .(AREA_USAGE_ENVIRON)
-
-/area/proc/clear_usage()
-	oneoff_equip = 0
-	oneoff_light = 0
-	oneoff_environ = 0
-
 /**
  * Don't call this unless you know what you're doing
  *

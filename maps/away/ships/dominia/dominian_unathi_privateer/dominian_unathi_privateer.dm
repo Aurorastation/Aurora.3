@@ -7,6 +7,7 @@
 
 	sectors = list(SECTOR_BADLANDS, SECTOR_WEEPING_STARS, SECTOR_VALLEY_HALE)
 	spawn_weight = 1
+	template_flags = TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED // Disabled for debloating. Feel free to enable again if reworked or relevant.
 	ship_cost = 1
 	id = "dominian_unathi"
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/dominian_unathi_shuttle)
