@@ -1,0 +1,4 @@
+author: Batrachophrenoboocosmomachia
+delete-after: True
+changes:
+  - bugfix: "Cleans up Access Controller TGUI to restore functionality of manually securing interior/exterior doors, general cleanup and jank reduction."
