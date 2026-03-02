@@ -3,7 +3,7 @@
 #define FUSION_REACTANT_CAP				10000
 #define FUSION_WARNING_DELAY 			20
 #define FUSION_BLACKBODY_MULTIPLIER		350
-#define FUSION_INTEGRITY_RATE_LIMIT		0.11
+#define FUSION_INTEGRITY_RATE_LIMIT		0.07
 #define FUSION_TICK_MAX_TEMP_CHANGE		0.3
 
 /obj/effect/fusion_em_field
@@ -216,7 +216,10 @@
 
 	field_strength_power_multiplier = max((owned_core.field_strength ** 1.2) / 100, 1)
 	// Dump power to our powernet.
-	power_output = ((log(power_log_base, plasma_temperature) * power_multiplier) ** power_power) * field_strength_power_multiplier
+	if(plasma_temperature > 0)
+		power_output = ((log(power_log_base, plasma_temperature) * power_multiplier) ** power_power) * field_strength_power_multiplier
+	else
+		power_output = 0
 	output_archive_5 = output_archive_4
 	output_archive_4 = output_archive_3
 	output_archive_3 = output_archive_2
@@ -439,8 +442,7 @@
 
 /obj/effect/fusion_em_field/proc/AddEnergy(a_energy, a_plasma_temperature)
 	// If there are no reactants, there's nothing to heat. Ignore.
-	var/list/react_pool = reactants.Copy()
-	if(!length(react_pool))
+	if(!length(reactants))
 		return
 
 	// Boost gyro effects at low temperatures for faster startup

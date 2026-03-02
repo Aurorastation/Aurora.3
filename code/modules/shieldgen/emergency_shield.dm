@@ -4,7 +4,7 @@
 	icon = 'icons/obj/machinery/shielding.dmi'
 	icon_state = "shieldoff"
 	density = TRUE
-	opacity = FALSE
+	opacity = TRUE
 	anchored = FALSE
 	req_access = list(ACCESS_ENGINE)
 	var/health = 100
@@ -77,7 +77,7 @@
 
 /obj/machinery/shieldgen/proc/collapse_shields()
 	for(var/obj/machinery/shield/shield_tile in deployed_shields)
-		shield_tile -= deployed_shields
+		deployed_shields -= shield_tile
 		if(!QDELETED(shield_tile))
 			qdel(shield_tile)
 	change_power_consumption(250, POWER_USE_IDLE)
@@ -345,8 +345,12 @@
 
 	health -= hitting_projectile.get_structure_damage()
 	check_failure()
-	opacity = 1
-	spawn(20) if(src) opacity = FALSE
+	opacity = TRUE
+	addtimer(CALLBACK(src, PROC_REF(update_opacity), FALSE), 2 SECONDS)
+
+/obj/machinery/shield/proc/update_opacity(var/new_opacity)
+	if(src)
+		opacity = new_opacity
 
 /obj/machinery/shield/ex_act(severity)
 	switch(severity)
@@ -393,7 +397,7 @@
 
 	//The shield becomes dense to absorb the blow.. purely asthetic.
 	opacity = TRUE
-	spawn(20) if(src) opacity = FALSE
+	addtimer(CALLBACK(src, PROC_REF(update_opacity), FALSE), 2 SECONDS)
 
 	..()
 	return
