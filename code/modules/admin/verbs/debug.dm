@@ -57,7 +57,7 @@
 
 	var/t = SPAN_NOTICE("Coordinates: [T.x],[T.y],[T.z]\n")
 	t += SPAN_WARNING("Temperature: [env.temperature]\n")
-	t += SPAN_WARNING("Pressure: [env.return_pressure()]kPa\n")
+	t += SPAN_WARNING("Pressure: [XGM_PRESSURE(env)]kPa\n")
 	for(var/g in env.gas)
 		t += SPAN_NOTICE("[g]: [env.gas[g]] / [env.gas[g] * R_IDEAL_GAS_EQUATION * env.temperature / env.volume]kPa\n")
 
@@ -234,7 +234,7 @@
 		if(!(A.type in areas_with_LS))
 			areas_with_LS.Add(A.type)
 
-	for(var/obj/item/device/radio/intercom/I in world)
+	for(var/obj/item/radio/intercom/I in world)
 		var/area/A = get_area(I)
 		if(!(A.type in areas_with_intercom))
 			areas_with_intercom.Add(A.type)

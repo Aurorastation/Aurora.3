@@ -4,7 +4,7 @@
 
 /obj/machinery/computer/fusion/core_control/terminal
 	name = "\improper INDRA fusion core control"
-	icon = 'icons/obj/machinery/modular_terminal.dmi'
+	icon = 'icons/obj/modular_computers/modular_terminal.dmi'
 	icon_screen = "solar_screen"
 	icon_keyboard = "id_key"
 	icon_keyboard_emis = "id_key_mask"
@@ -53,7 +53,7 @@
 		for(var/i = 1 to LAZYLEN(fusion_cores))
 			var/list/core = list()
 			var/obj/machinery/power/fusion_core/C = fusion_cores[i]
-			var/power_available = C.avail()
+			var/power_available = POWER_AVAIL(C)
 			var/power_usage = C.active_power_usage
 			var/power_generated = C.owned_field?.output_avg
 

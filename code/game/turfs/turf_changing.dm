@@ -27,11 +27,11 @@
 		// exoplanet
 		var/obj/effect/overmap/visitable/sector/exoplanet/exoplanet = GLOB.map_sectors["[z]"]
 		if (istype(exoplanet) && istype(exoplanet.theme))
-			exoplanet.theme.on_turf_generation(src, exoplanet.planetary_area)
+			exoplanet.theme.on_turf_generation(src, exoplanet.planetary_area, exoplanet)
 		// away site
 		var/datum/map_template/ruin/away_site/away_site = GLOB.map_templates["[z]"]
 		if (istype(away_site) && istype(away_site.exoplanet_theme_base))
-			away_site.exoplanet_theme_base.on_turf_generation(src, null)
+			away_site.exoplanet_theme_base.on_turf_generation(src, null, away_site)
 
 // Helper to change this turf into an appropriate openturf type, generally you should use this instead of ChangeTurf(/turf/simulated/open).
 /turf/proc/ChangeToOpenturf()
@@ -46,21 +46,34 @@
 	if(ispath(path, /turf/space) && GET_TURF_BELOW(src) && !ignore_override)
 		path = openspace_override_type || /turf/simulated/open/airless
 
-	var/obj/fire/old_fire = fire
+	var/old_hotspot = hotspot
+	var/old_turf_fire = turf_fire
 	var/old_baseturf = baseturf
 	var/old_above = above
-	var/old_opacity = opacity
-	var/old_dynamic_lighting = dynamic_lighting
-	var/list/old_affecting_lights = affecting_lights
-	var/old_lighting_overlay = lighting_overlay
-	var/list/old_corners = corners
 	var/list/old_blueprints = blueprints
 	var/list/old_decals = decals
 	var/old_outside = is_outside
 	var/old_is_open = is_open()
 	var/list/old_resources = resources ? resources.Copy() : null
 
+	SEND_SIGNAL(src, COMSIG_TURF_CHANGE, path)
+
+	//static lighting
+	var/old_lighting_object = static_lighting_object
+	var/old_lighting_corner_NE = lighting_corner_NE
+	var/old_lighting_corner_SE = lighting_corner_SE
+	var/old_lighting_corner_SW = lighting_corner_SW
+	var/old_lighting_corner_NW = lighting_corner_NW
+	//hybrid lighting
+	var/list/old_hybrid_lights_affecting = hybrid_lights_affecting?.Copy()
+	var/old_directional_opacity = directional_opacity
+
 	changing_turf = TRUE
+
+	if(isspaceturf(path) || isopenspace(path))
+		QDEL_NULL(turf_fire)
+	else
+		old_turf_fire = turf_fire
 
 	if(connections)
 		connections.erase_all()
@@ -74,6 +87,11 @@
 
 	var/turf/new_turf = new path(src)
 
+	if(!density)
+		turf_fire = old_turf_fire
+	else if (old_turf_fire)
+		QDEL_NULL(old_turf_fire)
+
 	// If the area requires starlight, we need to fill it back in with starlight after the change.
 	// Particularly necessary so shuttles don't leave dark patches after undocking with starlit turfs.
 	update_starlight()
@@ -86,44 +104,48 @@
 	if(old_signal_procs)
 		LAZYOR(new_turf._signal_procs, old_signal_procs)
 
-#ifndef AO_USE_LIGHTING_OPACITY
-	// If we're using opacity-based AO, this is done in recalc_atom_opacity().
-	if (permit_ao)
-		regenerate_ao()
-#endif
+	new_turf.hybrid_lights_affecting = old_hybrid_lights_affecting
+	new_turf.dynamic_lumcount = dynamic_lumcount
 
-	if(GLOB.lighting_overlays_initialized)
-		recalc_atom_opacity()
-		lighting_overlay = old_lighting_overlay
-		if (lighting_overlay && lighting_overlay.loc != src)
-			// This is a hack, but I can't figure out why the fuck they're not on the correct turf in the first place.
-			lighting_overlay.forceMove(src, harderforce = TRUE)
+	lighting_corner_NE = old_lighting_corner_NE
+	lighting_corner_SE = old_lighting_corner_SE
+	lighting_corner_SW = old_lighting_corner_SW
+	lighting_corner_NW = old_lighting_corner_NW
 
-		affecting_lights = old_affecting_lights
-		corners = old_corners
+	//static Update
+	if(SSlighting.initialized)
+		recalculate_directional_opacity()
 
-		if ((old_opacity != opacity) || (dynamic_lighting != old_dynamic_lighting) || force_lighting_update)
-			reconsider_lights()
+		new_turf.static_lighting_object = old_lighting_object
 
-		if (dynamic_lighting != old_dynamic_lighting)
-			if (dynamic_lighting)
-				lighting_build_overlay()
-			else
-				lighting_clear_overlay()
+		if(static_lighting_object && !static_lighting_object.needs_update)
+			static_lighting_object.update()
 
-		if (GLOB.config.starlight)
-			for (var/turf/space/S in RANGE_TURFS(1, src))
-				S.update_starlight()
+	//Since the old turf was removed from hybrid_lights_affecting, readd the new turf here
+	if(new_turf.hybrid_lights_affecting)
+		for(var/atom/movable/lighting_mask/mask as anything in new_turf.hybrid_lights_affecting)
+			LAZYADD(mask.affecting_turfs, new_turf)
+
+	if(new_turf.directional_opacity != old_directional_opacity)
+		new_turf.reconsider_lights()
+
+	var/area/thisarea = get_area(new_turf)
+	if(thisarea.lighting_effect)
+		new_turf.AddOverlays(thisarea.lighting_effect)
+
+	if(GLOB.config.starlight)
+		for(var/turf/space/S in RANGE_TURFS(1, src))
+			S.update_starlight()
 
 	new_turf.above = old_above
 
 	if(ispath(path, /turf/simulated))
-		if(old_fire)
-			fire = old_fire
+		if(old_hotspot)
+			hotspot = old_hotspot
 		if (istype(new_turf, /turf/simulated/floor))
 			new_turf.RemoveLattice()
-	else if(old_fire)
-		old_fire.RemoveFire()
+	else if(hotspot)
+		qdel(hotspot)
 
 	if(tell_universe)
 		GLOB.universe.OnTurfChange(new_turf)
@@ -166,7 +188,6 @@
 	src.icon_state = other.icon_state
 	src.icon = other.icon
 	src.overlays = other.overlays.Copy()
-	src.underlays = other.underlays.Copy()
 	if(other.decals)
 		src.decals = other.decals.Copy()
 		other.decals.Cut()
@@ -199,7 +220,6 @@
 
 	other.icon = icon
 	other.icon_state = icon_state
-	other.underlays = underlays.Copy()
 	other.name = name
 	other.layer = layer
 	other.decals = decals

@@ -64,16 +64,19 @@
 
 /obj/machinery/iv_drip/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()
-	. += "IV drips can be supplied beakers/bloodpacks for reagent transfusions, as well as one breath mask and gas tank for supplemental gas therapy."
-	. += "Use a wrench when it has a tank installed to secure it. Use it again to unsecure it before removal."
-	. += "Click-drag to attach/detach the IV or secure/remove the breath mask on your target."
-	. += "Click the stand with an empty hand to toggle between various modes."
-	. += "ALT-Click the stand to remove items contained in the stand."
+	. += "- IV drips can be supplied beakers/bloodpacks for reagent transfusions, as well as one breath mask and gas tank for supplemental gas therapy."
+	. += "- Use a wrench when it has a tank installed to secure it. Use it again to unsecure it before removal."
+	. += "- Click-drag to attach/detach the IV or secure/remove the breath mask on your target."
+	. += "- Click the stand with an empty hand to toggle between various modes."
+	. += "- ALT-Click the stand to remove items contained in the stand."
 
 /obj/machinery/iv_drip/upgrade_hints(mob/user, distance, is_adjacent)
 	. += ..()
-	. += "Upgraded <b>scanning modules</b> will provide the exact volume and composition of attached beakers."
-	. += "Upgraded <b>manipulators</b> will allow patients to be hooked to IV through armor and increase the maximum reagent transfer rate."
+	. += "- Upgraded <b>scanning modules</b> will provide the exact volume and composition of attached beakers."
+	. += adv_scan ? SPAN_GOOD("	- Advanced Scan is enabled") : SPAN_ALERT("	- Advanced Scan is not enabled")
+	. += "- Upgraded <b>manipulators</b> will allow patients to be hooked to IV through armor and increase the maximum reagent transfer rate."
+	. += SPAN_NOTICE("	- Maximum transfer rate is <b>[transfer_limit]u/s</b>")
+	. += armor_check ? SPAN_ALERT("	- Armor punch-through is not enabled") : SPAN_GOOD("	- Armor punch-through is enabled")
 
 /obj/machinery/iv_drip/feedback_hints(mob/user, distance, is_adjacent)
 	. += ..()
@@ -89,7 +92,7 @@
 	else
 		. += "No chemicals attached."
 	if(tank)
-		. += "Installed is [is_loose ? "\a [tank] sitting loose" : "\a [tank] secured"] on the stand. The meter shows <b>[round(tank.air_contents.return_pressure())] kPa</b>, \
+		. += "Installed is [is_loose ? "\a [tank] sitting loose" : "\a [tank] secured"] on the stand. The meter shows <b>[round(XGM_PRESSURE(tank.air_contents))] kPa</b>, \
 		with the pressure set to <b>[round(tank.distribute_pressure)] kPa</b>. The valve is <b>[valve_open ? "open" : "closed"]</b>."
 	else
 		. += "No gas tank installed."
@@ -249,7 +252,7 @@
 				playsound(src, 'sound/machines/twobeep.ogg', 50, extrarange = SILENCED_SOUND_EXTRARANGE)
 				breath_mask_rip()
 				return
-			if(tank.air_contents.return_pressure() <= 10)
+			if(XGM_PRESSURE(tank.air_contents) <= 10)
 				src.visible_message(SPAN_WARNING("\The [src] buzzes, automatically deactivating \the [tank] and retracting \the [breath_mask]."))
 				playsound(src, 'sound/machines/buzz-two.ogg', 50, extrarange = SILENCED_SOUND_EXTRARANGE)
 				breath_mask_rip()
@@ -482,7 +485,7 @@
 		user.visible_message(SPAN_NOTICE("[user] places \the [attacking_item] in \the [src]."), SPAN_NOTICE("You place \the [attacking_item] in \the [src]."))
 		update_icon()
 		return TRUE
-	if(attacking_item.iswrench())
+	if(attacking_item.tool_behaviour == TOOL_WRENCH)
 		if(!tank)
 			to_chat(user, "There isn't a tank installed for you to secure!")
 			return TRUE
@@ -713,18 +716,15 @@
 
 	if(use_check_and_message(usr))
 		return
-	set_rate:
-		var/amount = tgui_input_number(usr, "Set the IV drip's transfer rate.", "IV Drip", transfer_amount, transfer_limit, 0.001, round_value = FALSE)
-		if(!amount)
-			return
-		if ((0.001 > amount || amount > transfer_limit) && amount != 0)
-			to_chat(usr, SPAN_WARNING("Entered value must be between 0.001 and [transfer_limit]."))
-			goto set_rate
-		if (transfer_amount == 0)
-			transfer_amount = REM
-			return
-		transfer_amount = amount
-		to_chat(usr, SPAN_NOTICE("Transfer rate set to [src.transfer_amount] u/sec."))
+
+	transfer_amount = tgui_input_number( \
+		usr, \
+		"Set the IV drip's transfer rate between 0.001 and [transfer_limit].", \
+		"IV Drip", \
+		transfer_amount, \
+		transfer_limit, 0.001, \
+		round_value = FALSE)
+	to_chat(usr, SPAN_NOTICE("Transfer rate set to [src.transfer_amount] u/sec."))
 
 /obj/machinery/iv_drip/RefreshParts()
 	..()

@@ -64,7 +64,8 @@ export const DockingAirlockConsole = (props, context) => {
                   }}
                   value={data.chamber_pressure}
                   minValue={0}
-                  maxValue={200}>
+                  maxValue={200}
+                >
                   {data.chamber_pressure} kPa
                 </ProgressBar>
               </LabeledList.Item>

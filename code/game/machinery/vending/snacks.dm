@@ -2,6 +2,7 @@
  *	GetMore Chocolate Corp
  *		Low Supply
  *		Konyang
+ *		Horizon
  *	FrontierVend
  *		Low Supply
  *		Hacked
@@ -46,7 +47,8 @@
 		/obj/item/reagent_containers/food/drinks/jyalra = 5,
 		/obj/item/reagent_containers/food/drinks/jyalra/cheese = 5,
 		/obj/item/reagent_containers/food/drinks/jyalra/apple = 5,
-		/obj/item/reagent_containers/food/drinks/jyalra/cherry = 5
+		/obj/item/reagent_containers/food/drinks/jyalra/cherry = 5,
+		/obj/item/reagent_containers/food/snacks/algaechips = 2
 	)
 	contraband = list(
 		/obj/item/reagent_containers/food/snacks/syndicake = 6,
@@ -90,6 +92,7 @@
 		/obj/item/reagent_containers/food/drinks/jyalra/cherry = 1.75,
 		/obj/item/reagent_containers/food/snacks/syndicake = 3.50,
 		/obj/item/reagent_containers/food/snacks/koisbar = 12.00,
+		/obj/item/reagent_containers/food/snacks/algaechips = 2.50
 	)
 	light_color = COLOR_BABY_BLUE
 	manufacturer = "nanotrasen"
@@ -133,7 +136,70 @@
 		/obj/item/reagent_containers/food/snacks/seaweed = 10,
 	)
 
-/obj/item/device/vending_refill/snack
+/obj/machinery/vending/snack/horizon
+	products = list(
+		/obj/item/reagent_containers/food/drinks/dry_ramen = 6,
+		/obj/item/reagent_containers/food/snacks/sosjerky = 6,
+		/obj/item/reagent_containers/food/snacks/spacetwinkie = 6,
+		/obj/item/reagent_containers/food/snacks/cheesiehonkers = 6,
+		/obj/item/reagent_containers/food/snacks/tastybread = 6,
+		/obj/item/reagent_containers/food/snacks/maps = 2,
+		/obj/item/reagent_containers/food/snacks/koisbar_clean = 4,
+		/obj/item/reagent_containers/food/snacks/tuna = 2,
+		/obj/item/reagent_containers/food/drinks/jyalra = 5,
+		/obj/item/reagent_containers/food/drinks/jyalra/cheese = 5,
+		/obj/item/reagent_containers/food/drinks/jyalra/apple = 5,
+		/obj/item/reagent_containers/food/drinks/jyalra/cherry = 5,
+		/obj/item/reagent_containers/food/drinks/cans/cola = 10,
+		/obj/item/reagent_containers/food/drinks/cans/diet_cola = 10,
+		/obj/item/reagent_containers/food/drinks/waterbottle = 10,
+		/obj/item/reagent_containers/food/drinks/carton/small/milk = 10,
+		/obj/item/reagent_containers/food/drinks/carton/small/milk/choco = 10,
+		/obj/item/reagent_containers/food/drinks/carton/small/milk/strawberry = 10,
+		/obj/item/reagent_containers/food/drinks/zobo = 10
+	)
+	contraband = list(
+		/obj/item/reagent_containers/food/snacks/syndicake = 6,
+		/obj/item/reagent_containers/food/snacks/koisbar = 4,
+		/obj/item/reagent_containers/food/drinks/cans/thirteenloko = 5,
+		/obj/item/reagent_containers/food/drinks/cans/koispunch = 3
+	)
+	premium = list(
+		/obj/item/reagent_containers/food/snacks/cookie = 6,
+		/obj/item/storage/box/fancy/food/pralinebox = 2,
+		/obj/item/reagent_containers/food/drinks/bottle/cola = 2,
+		/obj/item/reagent_containers/food/drinks/bottle/space_mountain_wind = 2,
+		/obj/item/reagent_containers/food/drinks/bottle/space_up = 2
+	)
+	prices = list(
+		/obj/item/reagent_containers/food/drinks/dry_ramen = 2.00,
+		/obj/item/reagent_containers/food/snacks/sosjerky = 3.50,
+		/obj/item/reagent_containers/food/snacks/spacetwinkie = 2.00,
+		/obj/item/reagent_containers/food/snacks/cheesiehonkers = 2.50,
+		/obj/item/reagent_containers/food/snacks/tastybread = 3.50,
+		/obj/item/reagent_containers/food/snacks/maps = 3.25,
+		/obj/item/reagent_containers/food/snacks/koisbar_clean = 4.25,
+		/obj/item/reagent_containers/food/snacks/tuna = 2.50,
+		/obj/item/reagent_containers/food/drinks/jyalra = 1.50,
+		/obj/item/reagent_containers/food/drinks/jyalra/cheese = 1.75,
+		/obj/item/reagent_containers/food/drinks/jyalra/apple = 1.75,
+		/obj/item/reagent_containers/food/drinks/jyalra/cherry = 1.75,
+		/obj/item/reagent_containers/food/snacks/syndicake = 3.50,
+		/obj/item/reagent_containers/food/snacks/koisbar = 12.00,
+
+		/obj/item/reagent_containers/food/drinks/cans/cola = 1.50,
+		/obj/item/reagent_containers/food/drinks/cans/diet_cola = 1.50,
+		/obj/item/reagent_containers/food/drinks/cans/space_mountain_wind = 1.50,
+		/obj/item/reagent_containers/food/drinks/waterbottle = 1.25,
+		/obj/item/reagent_containers/food/drinks/cans/space_up = 1.50,
+		/obj/item/reagent_containers/food/drinks/cans/koispunch = 5.00,
+		/obj/item/reagent_containers/food/drinks/carton/small/milk = 1.80,
+		/obj/item/reagent_containers/food/drinks/carton/small/milk/choco = 1.80,
+		/obj/item/reagent_containers/food/drinks/carton/small/milk/strawberry = 1.80,
+		/obj/item/reagent_containers/food/drinks/zobo = 1.75
+	)
+
+/obj/item/vending_refill/snack
 	name = "snacks resupply canister"
 	vend_id = "snacks"
 	charges = 38
@@ -146,7 +212,7 @@
 	icon_state = "frontiervend"
 	icon_deny = "frontiervend-deny"
 	product_slogans = "At least 85 billion served!;A new frontier of flavors!;Snacking for a free frontier!;Every purchase made supports the efforts of the Frontier Protection Bureau!"
-	product_ads = "Roundhouse kick a Solarian into the concrete.;Slam-dunk Solarians into the trashcan.;Launch Solarians into the sun.;Frost got what he deserved."
+	product_ads = "The favored flavors of freedom fighters everywhere.;Tastes for the discerning independent!;Frost got what he deserved.;Every Solarian is the next Hopper until proven otherwise.;The only vending machine banned on Unity Station!;The only good Solarian is a \[moderately inconvenienced\] Solarian."
 	vend_id = "frontiervend"
 
 	products = list(
@@ -239,7 +305,7 @@
 	desc = "A complimentary FrontierVend machine. No money? No worries."
 	prices = list()
 
-/obj/item/device/vending_refill/frontiervend
+/obj/item/vending_refill/frontiervend
 	name = "frontiervend resupply canister"
 	vend_id = "frontiervend"
 	charges = 220

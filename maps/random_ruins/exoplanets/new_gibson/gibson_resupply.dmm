@@ -337,8 +337,8 @@
 "WK" = (
 /obj/structure/closet/crate,
 /obj/item/storage/box/lights/mixed,
-/obj/item/device/radio,
-/obj/item/device/radio,
+/obj/item/radio,
+/obj/item/radio,
 /obj/random/powercell,
 /obj/random/tech_supply,
 /obj/random/tech_supply,

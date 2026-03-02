@@ -164,7 +164,7 @@
 /area/mining_jack_outpost/smelter)
 "cq" = (
 /obj/structure/table/standard,
-/obj/item/device/flashlight/lamp,
+/obj/item/flashlight/lamp,
 /obj/machinery/button/distress{
 	dir = 1;
 	pixel_y = -32
@@ -821,7 +821,7 @@
 /obj/item/clothing/shoes/magboots,
 /obj/item/clothing/suit/space/void/mining,
 /obj/item/clothing/head/helmet/space/void/mining,
-/obj/item/device/gps/mining,
+/obj/item/gps/mining,
 /turf/simulated/floor/tiled/rust{
 	temperature = 278.15
 	},
@@ -1092,7 +1092,7 @@
 /obj/item/clothing/suit/space/void/mining,
 /obj/item/clothing/head/helmet/space/void/mining,
 /obj/machinery/light,
-/obj/item/device/gps/mining,
+/obj/item/gps/mining,
 /turf/simulated/floor/tiled/rust{
 	temperature = 278.15
 	},
@@ -1263,9 +1263,9 @@
 	},
 /area/mining_jack_outpost/hangar)
 "tx" = (
-/obj/item/device/flashlight/lantern,
-/obj/item/device/flashlight/lantern,
-/obj/item/device/flashlight/lantern,
+/obj/item/flashlight/lantern,
+/obj/item/flashlight/lantern,
+/obj/item/flashlight/lantern,
 /obj/structure/closet/toolcloset/empty,
 /obj/item/ore_detector,
 /obj/item/ore_detector,
@@ -1552,9 +1552,9 @@
 /obj/item/crowbar/red,
 /obj/item/crowbar/red,
 /obj/item/crowbar/red,
-/obj/item/device/analyzer,
-/obj/item/device/analyzer,
-/obj/item/device/analyzer,
+/obj/item/analyzer,
+/obj/item/analyzer,
+/obj/item/analyzer,
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},

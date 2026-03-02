@@ -7,7 +7,16 @@
 import { EventEmitter } from 'common/events';
 import { classes } from 'common/react';
 import { createLogger } from 'tgui/logging';
-import { COMBINE_MAX_MESSAGES, COMBINE_MAX_TIME_WINDOW, IMAGE_RETRY_DELAY, IMAGE_RETRY_LIMIT, IMAGE_RETRY_MESSAGE_AGE, MESSAGE_TYPES, MESSAGE_TYPE_INTERNAL, MESSAGE_TYPE_UNKNOWN } from './constants';
+import {
+  COMBINE_MAX_MESSAGES,
+  COMBINE_MAX_TIME_WINDOW,
+  IMAGE_RETRY_DELAY,
+  IMAGE_RETRY_LIMIT,
+  IMAGE_RETRY_MESSAGE_AGE,
+  MESSAGE_TYPES,
+  MESSAGE_TYPE_INTERNAL,
+  MESSAGE_TYPE_UNKNOWN,
+} from './constants';
 import { render } from 'inferno';
 import { canPageAcceptType, createMessage, isSameMessage } from './model';
 import { highlightNode, linkifyNode } from './replaceInTextNode';
@@ -27,8 +36,8 @@ export const TGUI_CHAT_COMPONENTS = {
 // List of injectable attibute names mapped to their proper prop
 // We need this because attibutes don't support lowercase names
 export const TGUI_CHAT_ATTRIBUTES_TO_PROPS = {
-  'position': 'position',
-  'content': 'content',
+  position: 'position',
+  content: 'content',
 };
 
 const findNearestScrollableParent = (startingNode) => {
@@ -119,12 +128,17 @@ class ChatRenderer {
     /** @type {HTMLElement} */
     this.scrollNode = null;
     this.scrollTracking = true;
+    this.lastScrollHeight = 0;
     this.handleScroll = (type) => {
       const node = this.scrollNode;
+      if (!node) {
+        return;
+      }
       const height = node.scrollHeight;
       const bottom = node.scrollTop + node.offsetHeight;
       const scrollTracking =
-        Math.abs(height - bottom) < SCROLL_TRACKING_TOLERANCE;
+        Math.abs(height - bottom) < SCROLL_TRACKING_TOLERANCE ||
+        this.lastScrollHeight === 0;
       if (scrollTracking !== this.scrollTracking) {
         this.scrollTracking = scrollTracking;
         this.events.emit('scrollTrackingChanged', scrollTracking);
@@ -151,12 +165,6 @@ class ChatRenderer {
     else {
       this.rootNode = node;
     }
-    // Find scrollable parent
-    this.scrollNode = findNearestScrollableParent(this.rootNode);
-    this.scrollNode.addEventListener('scroll', this.handleScroll);
-    setImmediate(() => {
-      this.scrollToBottom();
-    });
     // Flush the queue
     this.tryFlushQueue();
   }
@@ -170,6 +178,7 @@ class ChatRenderer {
     if (this.isReady() && this.queue.length > 0) {
       this.processBatch(this.queue);
       this.queue = [];
+      this.scrollToBottom();
     }
   }
 
@@ -205,7 +214,7 @@ class ChatRenderer {
             // Must be alphanumeric (with some punctuation)
             allowedRegex.test(str) &&
             // Reset lastIndex so it does not mess up the next word
-            ((allowedRegex.lastIndex = 0) || true)
+            ((allowedRegex.lastIndex = 0) || true),
         );
       let highlightWords;
       let highlightRegex;
@@ -259,6 +268,7 @@ class ChatRenderer {
   }
 
   scrollToBottom() {
+    this.tryFindScrollable();
     // scrollHeight is always bigger than scrollTop and is
     // automatically clamped to the valid range.
     this.scrollNode.scrollTop = this.scrollNode.scrollHeight;
@@ -313,6 +323,17 @@ class ChatRenderer {
     return null;
   }
 
+  tryFindScrollable() {
+    // Find scrollable parent
+    if (this.rootNode) {
+      if (!this.scrollNode || this.scrollNode.scrollHeight === undefined) {
+        this.scrollNode = findNearestScrollableParent(this.rootNode);
+        this.scrollNode.addEventListener('scroll', this.handleScroll);
+        logger.debug(`reset scrollNode to ${this.scrollNode}`);
+      }
+    }
+  }
+
   processBatch(batch, options = {}) {
     const { prepend, notifyListeners = true } = options;
     const now = Date.now();
@@ -324,6 +345,10 @@ class ChatRenderer {
         this.queue = [...this.queue, ...batch];
       }
       return;
+    }
+    // Store last scroll position
+    if (this.scrollNode) {
+      this.lastScrollHeight = this.scrollNode.scrollHeight;
     }
     // Insert messages
     const fragment = document.createDocumentFragment();
@@ -400,7 +425,7 @@ class ChatRenderer {
             <Element {...outputProps}>
               <span dangerouslySetInnerHTML={oldHtml} />
             </Element>,
-            childNode
+            childNode,
           );
           /* eslint-enable react/no-danger */
         }
@@ -412,16 +437,16 @@ class ChatRenderer {
               node,
               parser.highlightRegex,
               parser.highlightWords,
-              (text) => createHighlightNode(text, parser.highlightColor)
+              (text) => createHighlightNode(text, parser.highlightColor),
             );
             if (highlighted && parser.highlightWholeMessage) {
               node.style.setProperty(
                 '--highlight-color',
-                parser.backgroundHighlightColor || 'rgba(255, 221, 68)'
+                parser.backgroundHighlightColor || 'rgba(255, 221, 68)',
               );
               node.style.setProperty(
                 '--highlight-color-opacity',
-                (parser.backgroundHighlightOpacity ?? 10) / 100
+                (parser.backgroundHighlightOpacity ?? 10) / 100,
               );
               node.className += ' ChatMessage--highlighted';
             }
@@ -521,7 +546,7 @@ class ChatRenderer {
     {
       const fromIndex = Math.max(
         0,
-        this.messages.length - max_visible_messages
+        this.messages.length - max_visible_messages,
       );
       if (fromIndex > 0) {
         this.messages = this.messages.slice(fromIndex);

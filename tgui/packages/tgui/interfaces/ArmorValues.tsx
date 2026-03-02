@@ -36,7 +36,7 @@ export const ArmorValues = (props, context) => {
                 />
                 <Divider />
               </Box>
-            ) : null
+            ) : null,
           )}
         </Section>
       </Window.Content>

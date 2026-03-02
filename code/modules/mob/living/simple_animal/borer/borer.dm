@@ -26,6 +26,7 @@
 	holder_type = /obj/item/holder/borer
 	mob_size = 1
 	hunger_enabled = FALSE
+	mob_size = MOB_TINY
 
 	var/used_dominate
 	var/datum/progressbar/ability_bar

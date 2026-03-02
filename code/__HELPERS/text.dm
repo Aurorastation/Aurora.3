@@ -664,9 +664,14 @@
 	t = replacetext(t, "\[logo_golden_small\]", "<img src = goldenlogo_small.png>")
 	t = replacetext(t, "\[logo_pvpolice\]", "<img src = pvpolicelogo.png>")
 	t = replacetext(t, "\[logo_pvpolice_small\]", "<img src = pvpolicelogo_small.png>")
+	t = replacetext(t, "\[logo_outereyes\]", "<img src = outereyeslogo.png>")
+	t = replacetext(t, "\[logo_outereyes_small\]", "<img src = outereyeslogo_small.png>")
 	t = replacetext(t, "\[barcode\]", "<img src = barcode[rand(0, 3)].png>")
 	t = replacetext(t, "\[time\]", "[worldtime2text()]")
 	t = replacetext(t, "\[date\]", "[worlddate2text()]")
+	t = replacetext(t, "\[tajtime\]", "[tajaran_time()]")
+	t = replacetext(t, "\[tajdate\]", "[tajaran_full_date()]")
+	t = replacetext(t, "\[cr\]", "\u7535")
 	t = replacetext(t, "\[editorbr\]", "<BR>")
 	t = replacetext(t, @"[image id=([\w]*?\.[\w]*?)]", "<img style=\"display:block;width:90%;\" src = [GLOB.config.docs_image_host]$1></img>")
 	return t
@@ -734,6 +739,8 @@
 		t = replacetext(t, "<img src = goldenlogo.png>", "\[logo_golden\]")
 		t = replacetext(t, "<img src = pvpolicelogo.png>", "\[logo_pvpolice\]")
 		t = replacetext(t, "<img src = pvpolicelogo_small.png>", "\[logo_pvpolice_small\]")
+		t = replacetext(t, "<img src = outereyeslogo.png>", "\[logo_outereyes\]")
+		t = replacetext(t, "<img src = outereyeslogo_small.png>", "\[logo_outereyes_small\]")
 
 	return t
 

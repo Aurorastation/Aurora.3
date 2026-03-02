@@ -28,7 +28,9 @@
 		SSstatistics.IncrementSimpleStat("messes_made")
 
 	var/turf/T = get_turf(src)
-	if(!T?.is_space())
-		return
-	animate(src, alpha = 0, time = 5 SECONDS)
-	QDEL_IN(src, 5 SECONDS)
+	if(T)
+		if(T.above?.is_open())
+			T.above.update_mimic()
+		if(T.is_space() || T.is_open())
+			animate(src, alpha = 0, time = 5 SECONDS)
+			QDEL_IN(src, 5 SECONDS)

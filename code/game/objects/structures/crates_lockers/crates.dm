@@ -5,7 +5,7 @@
 /obj/structure/closet/crate
 	name = "crate"
 	desc = "A rectangular steel crate."
-	icon = 'icons/obj/crate.dmi'
+	icon = 'icons/obj/containers/crate.dmi'
 	icon_state = "crate"
 	climbable = TRUE
 	build_amt = 10
@@ -134,6 +134,9 @@
 	if(!opened && tablestatus == UNDER_TABLE)
 		to_chat(user, SPAN_WARNING("You can't open \the [src] while the lid is obstructed!"))
 		return FALSE
+	if(istype(loc, /obj/structure/crate_shelf))
+		to_chat(user, SPAN_WARNING("You can't open \the [src] while it is on a shelf!"))
+		return FALSE
 	else
 		return ..()
 
@@ -155,11 +158,29 @@
 
 //For putting on tables
 /obj/structure/closet/crate/mouse_drop_dragged(atom/over, mob/user, src_location, over_location, params)
-	if (istype(over, /obj/structure/table))
+	if (istype(over, /obj/structure/table) && !istype(loc, /obj/structure/crate_shelf))
 		put_on_table(over, user)
+		return TRUE
+	else if(istype(over, /obj/structure/crate_shelf) && !istype(loc, /obj/structure/crate_shelf))
+		put_on_shelf(over, user)
+		return TRUE
+	if(istype(loc, /obj/structure/crate_shelf) && isturf(over) && !is_blocked_turf(over))
+		take_off_shelf(loc, user, over)
 		return TRUE
 	else
 		return ..()
+
+/obj/structure/closet/crate/proc/put_on_shelf(var/obj/structure/crate_shelf/shelf, var/mob/user)
+	shelf.load(src, user)
+
+/obj/structure/closet/crate/proc/take_off_shelf(var/obj/structure/crate_shelf/shelf, var/mob/user, turf/unload_turf)
+	shelf.unload(src, user, unload_turf)
+
+/obj/structure/closet/crate/Adjacent(atom/neighbor, atom/target, atom/movable/mover)
+	. = ..()
+	if(istype(loc, /obj/structure/crate_shelf))
+		var/obj/structure/crate_shelf/S = loc
+		return S.Adjacent(neighbor, target, mover)
 
 /obj/structure/closet/crate/proc/put_on_table(var/obj/structure/table/table, var/mob/user)
 	if (!table || !user || (tablestatus == UNDER_TABLE))
@@ -192,9 +213,9 @@
 	else
 		//Add time based on mass of contents
 		for (var/obj/O in contents)
-			timeneeded += 3* O.w_class
+			timeneeded += 1.5* O.w_class
 		for (var/mob/M in contents)
-			timeneeded += 3* M.mob_size
+			timeneeded += 1.5* M.mob_size
 
 	if (timeneeded > 0)
 		user.visible_message("[user] starts hoisting \the [src] onto \the [table].", "You start hoisting \the [src] onto \the [table]. This will take about [timeneeded * 0.1] seconds.")
@@ -204,6 +225,10 @@
 		else
 			forceMove(get_turf(table))
 			set_tablestatus(ABOVE_TABLE)
+			var/loudness = "thunk."
+			if(timeneeded * 0.1 > 10)
+				loudness = "loud THUNK!"
+			visible_message("[user] puts \the [src] onto \the [table] with a [loudness]", "[user] puts \the [src] onto \the [table].", intent_message = THUNK_SOUND)
 			return TRUE
 
 /*
@@ -215,7 +240,6 @@
 /obj/structure/closet/crate/secure
 	name = "secure crate"
 	desc = "A secure crate."
-	icon_state = "secure_crate"
 	locked = TRUE
 	secure = TRUE
 	secure_lights = TRUE
@@ -463,12 +487,12 @@
 /obj/structure/closet/crate/secure/weapon
 	name = "weapons crate"
 	desc = "A secure weapons crate."
-	icon_state = "syndi_secure_crate"
+	icon_state = "syndi_crate"
 	icon_door_override = TRUE
 	icon_door = "syndi_crate"
 
 /obj/structure/closet/crate/secure/weapon/alt
-	icon_state = "syndi_secure_crate1"
+	icon_state = "syndi_crate1"
 	icon_door = "syndi_crate1"
 
 /obj/structure/closet/crate/secure/legion
@@ -491,8 +515,8 @@
 
 /obj/structure/closet/crate/secure/hydrosec
 	name = "secure hydroponics crate"
-	desc = "A crate with a lock on it, painted in the scheme of the station's botanists."
-	icon_state = "hydro_secure_crate"
+	desc = "A crate painted in the scheme of the station's botanists."
+	icon_state = "hydro_crate"
 	req_one_access = list(ACCESS_HYDROPONICS, ACCESS_XENOBOTANY)
 
 /obj/structure/closet/crate/secure/bin
@@ -638,7 +662,7 @@
 	new /obj/item/storage/box/kitchen(src)
 	new /obj/item/reagent_containers/spray/cleaner(src)
 	new /obj/item/storage/box/gloves(src)
-	new /obj/item/storage/box/condiment(src)
+	new /obj/item/storage/box/large/condiment(src)
 
 //A crate that populates itself with randomly selected loot from randomstock.dm
 //Can be passed in a rarity value, which is used as a multiplier on the rare/uncommon chance
@@ -763,3 +787,7 @@
 	new /obj/item/storage/box/midynhr_water(src)
 	new /obj/item/storage/box/fancy/yoke/grape_juice(src)
 	new /obj/item/storage/box/fancy/yoke/beetle_milk(src)
+	new /obj/item/storage/box/unique/tea/rasnif(src)
+	new /obj/item/storage/box/unique/tea/messa(src)
+	new /obj/item/reagent_containers/toothpaste(src)
+	new /obj/item/reagent_containers/food/drinks/flask/vacuumflask/mouthwash(src)

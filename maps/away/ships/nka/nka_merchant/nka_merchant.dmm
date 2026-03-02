@@ -73,7 +73,7 @@
 /area/nka_merchant/bridge)
 "ak" = (
 /obj/structure/table/standard,
-/obj/item/device/flashlight/lamp/lava/blue,
+/obj/item/flashlight/lamp/lava/blue,
 /obj/effect/floor_decal/corner/white{
 	dir = 5
 	},
@@ -315,9 +315,6 @@
 	},
 /area/nka_merchant/engineering)
 "aQ" = (
-/obj/machinery/power/apc/east{
-	req_access = list(213)
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
 	},
@@ -330,6 +327,7 @@
 /obj/structure/cable/green{
 	icon_state = "0-4"
 	},
+/obj/machinery/power/apc/north,
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
@@ -1038,7 +1036,7 @@
 /area/nka_merchant/warehouse)
 "dd" = (
 /obj/structure/closet/secure_closet/kitchen_cabinet/standard,
-/obj/item/storage/box/produce{
+/obj/item/storage/box/large/produce{
 	pixel_x = 3;
 	pixel_y = -11
 	},
@@ -1424,7 +1422,7 @@
 /area/nka_merchant/hangar)
 "em" = (
 /obj/structure/table/standard,
-/obj/item/device/versebook/nka,
+/obj/item/versebook/nka,
 /obj/structure/sign/flag/nka/large/south{
 	pixel_y = -32
 	},
@@ -1570,7 +1568,7 @@
 /area/nka_merchant/hangar)
 "fi" = (
 /obj/structure/table/reinforced/steel,
-/obj/item/device/price_scanner,
+/obj/item/price_scanner,
 /obj/structure/railing/mapped{
 	dir = 8
 	},
@@ -2402,10 +2400,10 @@
 /obj/structure/sign/flag/nka{
 	pixel_y = 32
 	},
-/obj/item/device/binoculars{
+/obj/item/binoculars{
 	pixel_y = 5
 	},
-/obj/item/device/binoculars,
+/obj/item/binoculars,
 /obj/structure/table/reinforced/steel,
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 5
@@ -2463,7 +2461,7 @@
 	},
 /obj/structure/table/standard,
 /obj/item/stack/packageWrap,
-/obj/item/device/hand_labeler,
+/obj/item/hand_labeler,
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
@@ -2541,7 +2539,7 @@
 "jE" = (
 /obj/structure/table/standard,
 /obj/item/toy/comic/azmarian/issue_4,
-/obj/item/device/flashlight/lamp{
+/obj/item/flashlight/lamp{
 	pixel_y = 12;
 	pixel_x = -7
 	},
@@ -2655,7 +2653,7 @@
 	name = "radiation suit locker";
 	pixel_x = -32
 	},
-/obj/item/device/geiger,
+/obj/item/geiger,
 /obj/item/clothing/glasses/safety/goggles,
 /obj/item/clothing/suit/radiation,
 /obj/item/clothing/head/radiation,
@@ -3688,11 +3686,11 @@
 /area/nka_merchant/mess)
 "rq" = (
 /obj/structure/table/rack,
-/obj/item/device/gps,
-/obj/item/device/gps,
-/obj/item/device/gps,
-/obj/item/device/gps,
-/obj/item/device/gps,
+/obj/item/gps,
+/obj/item/gps,
+/obj/item/gps,
+/obj/item/gps,
+/obj/item/gps,
 /obj/effect/floor_decal/corner/white/full{
 	dir = 1
 	},
@@ -4781,7 +4779,7 @@
 	},
 /area/nka_merchant/engine)
 "Eg" = (
-/obj/item/device/flashlight/lamp{
+/obj/item/flashlight/lamp{
 	pixel_x = -6;
 	pixel_y = 12
 	},
@@ -4789,8 +4787,8 @@
 /obj/machinery/recharger/wallcharger{
 	pixel_y = 24
 	},
-/obj/item/device/radio,
-/obj/item/device/radio,
+/obj/item/radio,
+/obj/item/radio,
 /obj/machinery/light{
 	dir = 1
 	},
@@ -5079,12 +5077,6 @@
 	temperature = 278.15
 	},
 /area/nka_merchant/warehouse)
-"He" = (
-/obj/effect/floor_decal/corner/dark_blue{
-	dir = 10
-	},
-/turf/simulated/wall/shuttle/space_ship,
-/area/nka_merchant/mess)
 "Hg" = (
 /obj/machinery/hologram/holopad/long_range,
 /obj/effect/overmap/visitable/ship/landable/nka_merchant_shuttle,
@@ -5243,7 +5235,7 @@
 	},
 /obj/structure/closet/crate/internals,
 /obj/item/storage/bag/inflatable,
-/obj/item/device/oxycandle,
+/obj/item/oxycandle,
 /obj/item/tank/emergency_oxygen{
 	pixel_x = 5
 	},
@@ -5272,12 +5264,12 @@
 	},
 /area/nka_merchant/warehouse)
 "Jv" = (
-/obj/item/device/radio,
-/obj/item/device/radio,
-/obj/item/device/radio,
-/obj/item/device/radio,
-/obj/item/device/radio,
-/obj/item/device/radio,
+/obj/item/radio,
+/obj/item/radio,
+/obj/item/radio,
+/obj/item/radio,
+/obj/item/radio,
+/obj/item/radio,
 /obj/structure/table/standard,
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
@@ -5789,7 +5781,7 @@
 	req_access = list(213)
 	},
 /obj/effect/floor_decal/corner/brown/full,
-/obj/item/device/flashlight/lamp,
+/obj/item/flashlight/lamp,
 /obj/structure/table/standard,
 /obj/structure/cable/green,
 /turf/simulated/floor/tiled{
@@ -6223,12 +6215,6 @@
 	temperature = 278.15
 	},
 /area/nka_merchant/bridge)
-"WO" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 5
-	},
-/turf/template_noop,
-/area/space)
 "WS" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/aux,
 /obj/structure/extinguisher_cabinet/east{
@@ -18477,7 +18463,7 @@ iB
 iB
 AT
 aI
-ga
+Py
 OG
 AT
 xX
@@ -19319,7 +19305,7 @@ nE
 Vj
 Vj
 Vj
-He
+Vj
 Vj
 Vj
 Vj
@@ -21269,7 +21255,7 @@ gB
 iB
 iB
 iB
-WO
+iB
 iB
 iB
 iB

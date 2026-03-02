@@ -64,7 +64,7 @@
 "ek" = (
 /obj/random/dirt_75,
 /obj/structure/table,
-/obj/item/device/t_scanner,
+/obj/item/t_scanner,
 /obj/structure/flora/bush/konyang_reeds,
 /turf/simulated/floor/sidewalk/dark,
 /area/konyang/robotics_factory)
@@ -119,7 +119,7 @@
 /area/exoplanet/grass/konyang)
 "hD" = (
 /obj/structure/table/rack/retail_shelf,
-/obj/item/device/healthanalyzer,
+/obj/item/healthanalyzer,
 /turf/simulated/floor/reinforced,
 /area/konyang/robotics_factory)
 "hJ" = (
@@ -172,7 +172,7 @@
 /area/exoplanet/grass/konyang)
 "jW" = (
 /obj/structure/table/glass,
-/obj/item/device/flashlight/lamp/off,
+/obj/item/flashlight/lamp/off,
 /turf/simulated/floor/foundation,
 /area/konyang/robotics_factory)
 "jZ" = (
@@ -476,7 +476,7 @@
 /turf/simulated/floor/foundation,
 /area/konyang/robotics_factory)
 "xg" = (
-/obj/item/device/geiger,
+/obj/item/geiger,
 /turf/simulated/floor/sidewalk/dark/grid,
 /area/konyang/robotics_factory)
 "xo" = (
@@ -648,7 +648,7 @@
 /area/exoplanet/grass/konyang)
 "HZ" = (
 /obj/structure/table/glass,
-/obj/item/device/hand_labeler,
+/obj/item/hand_labeler,
 /turf/simulated/floor/reinforced,
 /area/konyang/robotics_factory)
 "Im" = (
@@ -813,7 +813,7 @@
 /area/konyang/robotics_factory)
 "PL" = (
 /obj/structure/table/glass,
-/obj/item/device/multitool,
+/obj/item/multitool,
 /turf/simulated/floor/reinforced,
 /area/konyang/robotics_factory)
 "PZ" = (
@@ -948,7 +948,7 @@
 /area/exoplanet/grass/konyang)
 "Yb" = (
 /obj/structure/table/rack/retail_shelf,
-/obj/item/device/measuring_tape,
+/obj/item/measuring_tape,
 /turf/simulated/floor/reinforced,
 /area/konyang/robotics_factory)
 "Yc" = (

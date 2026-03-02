@@ -22,7 +22,8 @@ export const LightingControl = (props, context) => {
               icon="check"
               onClick={() => act('set')}
             />
-          }>
+          }
+        >
           <LabeledList>
             <LabeledList.Item label="Target Areas">
               <Button

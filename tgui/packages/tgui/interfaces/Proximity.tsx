@@ -25,7 +25,8 @@ export const Proximity = (props, context) => {
               icon="clock"
               onClick={() => act('time')}
             />
-          }>
+          }
+        >
           <LabeledList>
             <LabeledList.Item label="Time Left">
               <NumberInput

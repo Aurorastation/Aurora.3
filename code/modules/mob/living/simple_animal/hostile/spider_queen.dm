@@ -13,7 +13,7 @@
 	emote_hear = list("chitters")
 	speak_chance = 5
 	turns_per_move = 5
-	see_invisible = SEE_INVISIBLE_NOLIGHTING
+	lighting_alpha = LIGHTING_PLANE_ALPHA_SOMEWHAT_INVISIBLE
 	meat_type = /obj/item/reagent_containers/food/snacks/xenomeat
 	organ_names = list("thorax", "legs", "head")
 	response_help  = "pets"
@@ -26,6 +26,7 @@
 	health = 1000
 	melee_damage_lower = 35
 	melee_damage_upper = 40
+	melee_reach = 2
 	armor_penetration = 30
 	resist_mod = 15 // LOL good luck pal
 	heat_damage_per_tick = 20

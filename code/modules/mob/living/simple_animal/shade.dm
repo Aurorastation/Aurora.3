@@ -52,8 +52,8 @@
 	return FALSE
 
 /mob/living/simple_animal/shade/attackby(obj/item/attacking_item, mob/user)  //Marker -Agouri
-	if(istype(attacking_item, /obj/item/device/soulstone))
-		var/obj/item/device/soulstone/S = attacking_item
+	if(istype(attacking_item, /obj/item/soulstone))
+		var/obj/item/soulstone/S = attacking_item
 		S.transfer_soul("SHADE", src, user)
 		return
 	return ..()

@@ -117,7 +117,7 @@
 /area/pra_satellite)
 "be" = (
 /obj/structure/table/standard,
-/obj/item/device/flashlight/lamp,
+/obj/item/flashlight/lamp,
 /obj/effect/floor_decal/corner/red/full{
 	dir = 8
 	},
@@ -1624,7 +1624,7 @@
 /area/pra_satellite)
 "JL" = (
 /obj/structure/table/wood,
-/obj/item/device/versebook/pra,
+/obj/item/versebook/pra,
 /turf/simulated/floor/wood{
 	temperature = 278.15
 	},
@@ -2020,7 +2020,7 @@
 /area/pra_satellite)
 "Xt" = (
 /obj/structure/table/wood,
-/obj/item/device/flashlight/lamp,
+/obj/item/flashlight/lamp,
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8;
 	level = 2

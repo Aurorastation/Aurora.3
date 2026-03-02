@@ -95,15 +95,15 @@
 	if (istype(src, /obj/machinery/atmospherics/pipe/tank))
 		return ..()
 
-	if(istype(attacking_item,/obj/item/device/pipe_painter))
+	if(istype(attacking_item,/obj/item/paint_sprayer))
 		return FALSE
 
-	if(istype(attacking_item, /obj/item/device/analyzer) && Adjacent(user))
-		var/obj/item/device/analyzer/A = attacking_item
+	if(istype(attacking_item, /obj/item/analyzer) && Adjacent(user))
+		var/obj/item/analyzer/A = attacking_item
 		A.analyze_gases(src, user)
 		return FALSE
 
-	if (!attacking_item.iswrench() && !istype(attacking_item, /obj/item/pipewrench))
+	if (attacking_item.tool_behaviour != TOOL_WRENCH && !istype(attacking_item, /obj/item/pipewrench))
 		return ..()
 	var/turf/T = src.loc
 	if (level==1 && isturf(T) && !T.is_plating())
@@ -112,7 +112,7 @@
 	var/datum/gas_mixture/int_air = return_air()
 	if(!loc) return FALSE
 	var/datum/gas_mixture/env_air = loc.return_air()
-	if ((int_air.return_pressure()-env_air.return_pressure()) > PRESSURE_EXERTED)
+	if ((XGM_PRESSURE(int_air)-XGM_PRESSURE(env_air)) > PRESSURE_EXERTED)
 		if(!istype(attacking_item, /obj/item/pipewrench))
 			to_chat(user, SPAN_WARNING("You cannot unwrench \the [src], it is too exerted due to internal pressure."))
 			add_fingerprint(user)
@@ -196,7 +196,7 @@
 	if(mapload)
 		var/turf/T = loc
 		var/image/I = image(icon, T, icon_state, dir, pixel_x, pixel_y)
-		I.plane = EFFECTS_ABOVE_LIGHTING_PLANE
+		I.plane = ABOVE_LIGHTING_PLANE
 		I.color = color
 		I.alpha = 125
 		LAZYADD(T.blueprints, I)
@@ -236,7 +236,7 @@
 	if(!loc) return
 	var/datum/gas_mixture/environment = loc.return_air()
 
-	var/pressure_difference = pressure - environment.return_pressure()
+	var/pressure_difference = pressure - XGM_PRESSURE(environment)
 
 	if(pressure_difference > maximum_pressure)
 		burst()
@@ -493,7 +493,7 @@
 	if(mapload)
 		var/turf/T = loc
 		var/image/I = image(icon, T, icon_state, dir, pixel_x, pixel_y)
-		I.plane = EFFECTS_ABOVE_LIGHTING_PLANE
+		I.plane = ABOVE_LIGHTING_PLANE
 		I.color = color
 		I.alpha = 125
 		LAZYADD(T.blueprints, I)
@@ -796,7 +796,7 @@
 	if(mapload)
 		var/turf/T = loc
 		var/image/I = image(icon, T, icon_state, dir, pixel_x, pixel_y)
-		I.plane = EFFECTS_ABOVE_LIGHTING_PLANE
+		I.plane = ABOVE_LIGHTING_PLANE
 		I.color = color
 		I.alpha = 125
 		LAZYADD(T.blueprints, I)
@@ -1303,11 +1303,11 @@
 	return null
 
 /obj/machinery/atmospherics/pipe/tank/attackby(obj/item/attacking_item, mob/user)
-	if(istype(attacking_item, /obj/item/device/pipe_painter))
+	if(istype(attacking_item, /obj/item/paint_sprayer))
 		return FALSE
 
-	if(istype(attacking_item, /obj/item/device/analyzer) && in_range(user, src))
-		var/obj/item/device/analyzer/A = attacking_item
+	if(istype(attacking_item, /obj/item/analyzer) && in_range(user, src))
+		var/obj/item/analyzer/A = attacking_item
 		A.analyze_gases(src, user)
 		return TRUE
 
@@ -1394,7 +1394,7 @@
 
 /obj/machinery/atmospherics/pipe/tank/hydrogen
 	name = "Pressure Tank (Hydrogen)"
-	icon_state = "hydrogen_map"
+	icon_state = "h2_map"
 
 /obj/machinery/atmospherics/pipe/tank/hydrogen/Initialize()
 	air_temporary = new
@@ -1404,7 +1404,7 @@
 	air_temporary.adjust_gas(GAS_HYDROGEN, (start_pressure)*(air_temporary.volume)/(R_IDEAL_GAS_EQUATION*air_temporary.temperature))
 
 	. = ..()
-	icon_state = "hydrogen"
+	icon_state = "h2"
 
 /obj/machinery/atmospherics/pipe/tank/nitrous_oxide
 	name = "Pressure Tank (Nitrous Oxide)"

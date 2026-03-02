@@ -1,7 +1,7 @@
-/obj/item/device/pin_extractor
+/obj/item/pin_extractor
 	name = "firing pin extractor"
 	desc = "A device that is capable of removing firing pin without damaging it."
-	icon = 'icons/obj/item/device/pin_extractor.dmi'
+	icon = 'icons/obj/item/pin_extractor.dmi'
 	icon_state = "pin_extractor"
 	item_state = "analyzer"
 	w_class = WEIGHT_CLASS_SMALL
@@ -12,13 +12,13 @@
 	origin_tech = list(TECH_MATERIAL = 3, TECH_ENGINEERING = 3, TECH_MAGNET = 4)
 
 
-/obj/item/device/pin_extractor/update_icon()
+/obj/item/pin_extractor/update_icon()
 	if(on)
 		icon_state = "[initial(icon_state)]-on"
 	else
 		icon_state = "[initial(icon_state)]"
 
-/obj/item/device/pin_extractor/attack_self(mob/user)
+/obj/item/pin_extractor/attack_self(mob/user)
 	on = !on
 	if(on && activation_sound)
 		playsound(src.loc, activation_sound, 75, 1)
@@ -26,7 +26,7 @@
 	user.update_action_buttons()
 	return 1
 
-/obj/item/device/pin_extractor/afterattack(atom/target, mob/user, proximity_flag)
+/obj/item/pin_extractor/afterattack(atom/target, mob/user, proximity_flag)
 	if(proximity_flag)
 		if(istype(target, /obj/item/gun))
 			if(!on)

@@ -126,6 +126,9 @@
 	icon_state = "azubarre_torch"
 	item_state = "azubarre_torch"
 	contained_sprite = TRUE
+	light_range = 3
+	light_power = 1
+	light_color = LIGHT_COLOR_FIRE
 	var/lit = FALSE
 
 /obj/item/nullrod/azubarre/attack_self(mob/user)
@@ -142,10 +145,10 @@
 /obj/item/nullrod/azubarre/update_icon()
 	if(lit)
 		icon_state = "azubarre_torch-on"
-		set_light(3, 1, LIGHT_COLOR_FIRE)
+		set_light_on(TRUE)
 	else
 		icon_state = "azubarre_torch-empty"
-		set_light(0)
+		set_light_on(FALSE)
 	item_state = icon_state
 
 /obj/item/nullrod/azubarre/isFlameSource()

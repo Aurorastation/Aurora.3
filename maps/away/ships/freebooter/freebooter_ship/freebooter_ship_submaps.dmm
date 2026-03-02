@@ -1503,9 +1503,9 @@
 /obj/structure/railing/mapped{
 	dir = 8
 	},
-/obj/item/device/flashlight/maglight,
-/obj/item/device/flashlight/maglight,
-/obj/item/device/flashlight/maglight,
+/obj/item/flashlight/maglight,
+/obj/item/flashlight/maglight,
+/obj/item/flashlight/maglight,
 /turf/simulated/floor,
 /area/ship/freebooter_ship/pod2)
 "ivW" = (
@@ -1799,7 +1799,7 @@
 /obj/item/reagent_containers/food/snacks/meat,
 /obj/item/reagent_containers/food/snacks/meat,
 /obj/item/reagent_containers/food/snacks/meat,
-/obj/item/storage/box/produce{
+/obj/item/storage/box/large/produce{
 	pixel_x = 3;
 	pixel_y = -11
 	},
@@ -2011,7 +2011,7 @@
 /obj/structure/closet/crate/miningcart,
 /obj/item/reagent_containers/food/snacks/tastybread,
 /obj/item/reagent_containers/food/snacks/tastybread,
-/obj/item/storage/box/produce,
+/obj/item/storage/box/large/produce,
 /obj/effect/floor_decal/corner/dark_blue/full{
 	dir = 8
 	},
@@ -2152,7 +2152,7 @@
 	pixel_x = -5
 	},
 /obj/item/reagent_containers/inhaler/space_drugs,
-/obj/item/storage/box/condiment{
+/obj/item/storage/box/large/condiment{
 	pixel_y = 16
 	},
 /turf/simulated/floor/tiled/white,
@@ -2471,7 +2471,7 @@
 	},
 /obj/random/civgun/rifle,
 /obj/item/grenade/frag,
-/obj/item/device/flashlight/maglight,
+/obj/item/flashlight/maglight,
 /obj/item/gun/projectile/shotgun/pump/rifle,
 /obj/item/ammo_magazine/boltaction,
 /obj/item/ammo_magazine/boltaction,
@@ -2674,7 +2674,7 @@
 /obj/structure/closet/crate/bin{
 	name = "trashbin"
 	},
-/obj/item/device/electronic_assembly/simple{
+/obj/item/electronic_assembly/simple{
 	desc = "The remote for a PanaVision 2400. This one feels a bit hollow.";
 	name = "television remote";
 	pixel_x = 6;
@@ -2893,7 +2893,7 @@
 /obj/item/reagent_containers/food/snacks/grown/ambrosiavulgaris,
 /obj/item/reagent_containers/food/snacks/grown/ambrosiavulgaris,
 /obj/item/reagent_containers/food/snacks/grown/ambrosiavulgaris,
-/obj/item/device/analyzer/plant_analyzer,
+/obj/item/analyzer/plant_analyzer,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/freebooter_ship/pod5)
 "qpm" = (
@@ -3089,7 +3089,7 @@
 /obj/effect/floor_decal/corner{
 	dir = 4
 	},
-/obj/item/device/paicard{
+/obj/item/paicard{
 	pixel_x = 5;
 	pixel_y = 6
 	},

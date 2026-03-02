@@ -258,7 +258,7 @@ Total Unsimulated Turfs: [world.maxx*world.maxy*world.maxz - simulated_turf_coun
 			return
 
 	while (curr_hotspot.len)
-		var/obj/fire/F = curr_hotspot[curr_hotspot.len]
+		var/obj/hotspot/F = curr_hotspot[curr_hotspot.len]
 		curr_hotspot.len--
 
 		F.process()

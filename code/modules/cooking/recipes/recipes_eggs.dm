@@ -41,13 +41,26 @@
 
 /singleton/recipe/omelette
 	appliance = SKILLET
+	reagents = list(/singleton/reagent/nutriment/protein/egg = 6, /singleton/reagent/drink/milk = 5)
+	reagent_mix = RECIPE_REAGENT_REPLACE
+	result = /obj/item/reagent_containers/food/snacks/omelette
+
+/singleton/recipe/omelette_veggie
+	appliance = SKILLET
+	fruit = list("onion" = 1) //if herbs ever get added to the game please add them to this recipe
+	reagents = list(/singleton/reagent/nutriment/protein/egg = 3, /singleton/reagent/drink/milk = 5)
+	reagent_mix = RECIPE_REAGENT_REPLACE
+	result = /obj/item/reagent_containers/food/snacks/omelette/veggie
+
+/singleton/recipe/omelette_du_fromage
+	appliance = SKILLET
 	items = list(
 		/obj/item/reagent_containers/food/snacks/cheesewedge,
 		/obj/item/reagent_containers/food/snacks/cheesewedge
 	)
 	reagents = list(/singleton/reagent/nutriment/protein/egg = 6)
 	reagent_mix = RECIPE_REAGENT_REPLACE
-	result = /obj/item/reagent_containers/food/snacks/omelette
+	result = /obj/item/reagent_containers/food/snacks/omelette/fromage
 
 /singleton/recipe/poachedegg
 	appliance = SKILLET | SAUCEPAN

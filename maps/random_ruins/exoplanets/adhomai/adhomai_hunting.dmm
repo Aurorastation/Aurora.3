@@ -128,8 +128,8 @@
 /area/adhomai_hunting)
 "pI" = (
 /obj/structure/closet/crate/drop,
-/obj/item/device/binoculars,
-/obj/item/device/binoculars,
+/obj/item/binoculars,
+/obj/item/binoculars,
 /turf/simulated/floor/exoplanet/wood,
 /area/adhomai_hunting)
 "qU" = (
@@ -201,7 +201,7 @@
 /area/exoplanet/adhomai)
 "BM" = (
 /obj/structure/table/wood,
-/obj/item/device/flashlight/lamp,
+/obj/item/flashlight/lamp,
 /turf/simulated/floor/exoplanet/wood,
 /area/adhomai_hunting)
 "Cy" = (
@@ -275,7 +275,7 @@
 /obj/item/ammo_magazine/boltaction,
 /obj/item/ammo_magazine/boltaction,
 /obj/item/clothing/suit/storage/tajaran/hunting,
-/obj/item/device/flashlight/heavy,
+/obj/item/flashlight/heavy,
 /turf/simulated/floor/exoplanet/wood,
 /area/adhomai_hunting)
 "Nd" = (

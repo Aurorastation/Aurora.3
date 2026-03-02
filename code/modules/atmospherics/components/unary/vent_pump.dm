@@ -104,7 +104,7 @@
 	if(mapload)
 		var/turf/T = loc
 		var/image/I = image(icon, T, icon_state, dir, pixel_x, pixel_y)
-		I.plane = EFFECTS_ABOVE_LIGHTING_PLANE
+		I.plane = ABOVE_LIGHTING_PLANE
 		I.color = color
 		I.alpha = 125
 		LAZYADD(T.blueprints, I)
@@ -260,18 +260,18 @@
 
 /obj/machinery/atmospherics/unary/vent_pump/proc/get_pressure_delta(datum/gas_mixture/environment)
 	var/pressure_delta = DEFAULT_PRESSURE_DELTA
-	var/environment_pressure = environment.return_pressure()
+	var/environment_pressure = XGM_PRESSURE(environment)
 
 	if(pump_direction) //internal -> external
 		if(pressure_checks & PRESSURE_CHECK_EXTERNAL)
 			pressure_delta = min(pressure_delta, external_pressure_bound - environment_pressure) //increasing the pressure here
 		if(pressure_checks & PRESSURE_CHECK_INTERNAL)
-			pressure_delta = min(pressure_delta, air_contents.return_pressure() - internal_pressure_bound) //decreasing the pressure here
+			pressure_delta = min(pressure_delta, XGM_PRESSURE(air_contents) - internal_pressure_bound) //decreasing the pressure here
 	else //external -> internal
 		if(pressure_checks & PRESSURE_CHECK_EXTERNAL)
 			pressure_delta = min(pressure_delta, environment_pressure - external_pressure_bound) //decreasing the pressure here
 		if(pressure_checks & PRESSURE_CHECK_INTERNAL)
-			pressure_delta = min(pressure_delta, internal_pressure_bound - air_contents.return_pressure()) //increasing the pressure here
+			pressure_delta = min(pressure_delta, internal_pressure_bound - XGM_PRESSURE(air_contents)) //increasing the pressure here
 
 	return pressure_delta
 
@@ -349,37 +349,23 @@
 		if (signal.data["set_internal_pressure"] == "default")
 			internal_pressure_bound = internal_pressure_bound_default
 		else
-			internal_pressure_bound = between(
-				0,
-				text2num(signal.data["set_internal_pressure"]),
-				MAX_VENT_PRESSURE
-			)
+			var/set_pressure = text2num(signal.data["set_internal_pressure"])
+			internal_pressure_bound = between(0, set_pressure, MAX_VENT_PRESSURE)
 
 	if(signal.data["set_external_pressure"] != null)
 		if (signal.data["set_external_pressure"] == "default")
 			external_pressure_bound = external_pressure_bound_default
 		else
-			external_pressure_bound = between(
-				0,
-				text2num(signal.data["set_external_pressure"]),
-				MAX_VENT_PRESSURE
-			)
+			var/set_pressure = text2num(signal.data["set_external_pressure"])
+			external_pressure_bound = between(0, set_pressure, MAX_VENT_PRESSURE)
 
 	if(signal.data["adjust_internal_pressure"] != null)
-		internal_pressure_bound = between(
-			0,
-			internal_pressure_bound + text2num(signal.data["adjust_internal_pressure"]),
-			MAX_VENT_PRESSURE
-		)
+		var/set_pressure = internal_pressure_bound + text2num(signal.data["adjust_internal_pressure"])
+		internal_pressure_bound = between(0, set_pressure, MAX_VENT_PRESSURE)
 
 	if(signal.data["adjust_external_pressure"] != null)
-
-
-		external_pressure_bound = between(
-			0,
-			external_pressure_bound + text2num(signal.data["adjust_external_pressure"]),
-			MAX_VENT_PRESSURE
-		)
+		var/set_pressure = external_pressure_bound + text2num(signal.data["adjust_external_pressure"])
+		external_pressure_bound = between(0, set_pressure, MAX_VENT_PRESSURE)
 
 	if(signal.data["init"] != null)
 		name = signal.data["init"]
@@ -394,7 +380,7 @@
 
 /obj/machinery/atmospherics/unary/vent_pump/attackby(obj/item/attacking_item, mob/user)
 
-	if(attacking_item.iswelder())
+	if(attacking_item.tool_behaviour == TOOL_WELDER)
 		var/obj/item/weldingtool/WT = attacking_item
 		if (!WT.welding)
 			to_chat(user, SPAN_DANGER("\The [WT] must be turned on!"))
@@ -436,7 +422,7 @@
 				playsound(loc, 'sound/items/welder_pry.ogg', 50, TRUE)
 				update_icon()
 
-	else if(attacking_item.iswrench())
+	else if(attacking_item.tool_behaviour == TOOL_WRENCH)
 
 		if(!(stat & NOPOWER) && use_power)
 			to_chat(user, SPAN_WARNING("You cannot unwrench \the [src], turn it off first."))
@@ -452,7 +438,7 @@
 				var/datum/gas_mixture/int_air = return_air()
 				var/datum/gas_mixture/env_air = loc.return_air()
 
-				if((int_air.return_pressure()-env_air.return_pressure()) > PRESSURE_EXERTED)
+				if((XGM_PRESSURE(int_air)-XGM_PRESSURE(env_air)) > PRESSURE_EXERTED)
 					to_chat(user, SPAN_WARNING("You cannot unwrench \the [src], it is too exerted due to internal pressure."))
 					add_fingerprint(user)
 

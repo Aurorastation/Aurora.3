@@ -12,8 +12,8 @@
 
 	force_spawnpoint = TRUE
 
-	lobby_icon_image_paths = list(list('icons/misc/titlescreens/runtime/test.png'))
-	lobby_transitions = 10 SECONDS
+	lobby_icons = list('icons/misc/titlescreens/runtime/developers.dmi', 'icons/misc/titlescreens/runtime/away.dmi')
+	lobby_transitions = FALSE
 
 	admin_levels = list(9)
 	contact_levels = list(1, 2)
@@ -113,7 +113,6 @@
 	station_area = TRUE
 	holomap_color = HOLOMAP_AREACOLOR_COMMAND
 	area_blurb = "The sound here seems to carry more than others, every click of a shoe or clearing of a throat amplified. The smell of ink, written and printed, wafts notably through the air."
-	area_blurb_category = "command"
 
 /// ENGINEERING_AREAS
 /area/engineering
@@ -130,7 +129,6 @@
 	no_light_control = 1
 	ambience = list(AMBIENCE_ENGINEERING, AMBIENCE_ATMOS)
 	area_blurb = "Many volume tanks filled with gas reside here, some providing vital gases for the vessel's life support systems."
-	area_blurb_category = "atmos"
 
 /area/engineering/gravity_gen
 	name = "Engineering - Gravity Generator"
@@ -144,7 +142,6 @@
 	turf_initializer = new /datum/turf_initializer/maintenance()
 	ambience = AMBIENCE_MAINTENANCE
 	area_blurb = "Scarcely lit, cramped, and filled with stale, dusty air. Around you hisses compressed air through the pipes, a buzz of electrical charge through the wires, and muffled rumbles of the hull settling. This place may feel alien compared to the interior of the ship and is a place where one could get lost or badly hurt, but some may find the isolation comforting."
-	area_blurb_category = "maint"
 
 /area/maintenance/maintcentral
 	name = "Bridge Maintenance"

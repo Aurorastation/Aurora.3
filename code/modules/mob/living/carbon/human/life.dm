@@ -59,7 +59,7 @@
 
 		//Organs
 		handle_organs(seconds_per_tick)
-		stabilize_body_temperature() //Body temperature adjusts itself (self-regulation)
+		stabilize_body_temperature(seconds_per_tick) //Body temperature adjusts itself (self-regulation)
 
 		//Random events (vomiting etc)
 		handle_random_events()
@@ -296,14 +296,14 @@
 
 	if(breath)
 		//exposure to extreme pressures can rupture lungs
-		var/check_pressure = breath.return_pressure()
+		var/check_pressure = XGM_PRESSURE(breath)
 		if(check_pressure < ONE_ATMOSPHERE / 5 || check_pressure > ONE_ATMOSPHERE * 5)
 			if(!is_lung_ruptured() && prob(5))
 				rupture_lung()
 
 	return breath
 
-/mob/living/carbon/human/handle_environment(datum/gas_mixture/environment)
+/mob/living/carbon/human/handle_environment(datum/gas_mixture/environment, seconds_per_tick)
 	..()
 
 	if(!environment)
@@ -313,7 +313,7 @@
 	species.handle_environment_special(src)
 
 	//Moved pressure calculations here for use in skip-processing check.
-	var/pressure = environment.return_pressure()
+	var/pressure = XGM_PRESSURE(environment)
 	var/adjusted_pressure = calculate_affecting_pressure(pressure)
 
 	if (consume_nutrition_from_air)
@@ -330,8 +330,10 @@
 		if(bodytemperature > (0.1 * HUMAN_HEAT_CAPACITY/(HUMAN_EXPOSED_SURFACE_AREA*STEFAN_BOLTZMANN_CONSTANT))**(1/4) + COSMIC_RADIATION_TEMPERATURE)
 			//Thermal radiation into space
 			var/heat_loss = HUMAN_EXPOSED_SURFACE_AREA * STEFAN_BOLTZMANN_CONSTANT * ((bodytemperature - COSMIC_RADIATION_TEMPERATURE)**4)
+			// Temperature loss in Watts (kgm^2/s^3)
 			var/temperature_loss = heat_loss/HUMAN_HEAT_CAPACITY
-			bodytemperature -= temperature_loss
+			// Since body temperature is in Joules (kgm^2/s^2), we multiply temperature loss by DT (in seconds) to convert from Watts to Joules before subtracting.
+			bodytemperature -= temperature_loss * seconds_per_tick
 	else
 		var/loc_temp = T0C
 		if(istype(loc, /obj/machinery/atmospherics/unary/cryo_cell))
@@ -437,9 +439,10 @@
 		baseline += clothing.body_temperature_change
 	return baseline
 
-/mob/living/carbon/human/proc/stabilize_body_temperature()
+/mob/living/carbon/human/proc/stabilize_body_temperature(seconds_per_tick)
 	if (species.passive_temp_gain) // We produce heat naturally.
-		bodytemperature += species.passive_temp_gain
+		species.handle_temperature_regulation(src, seconds_per_tick)
+
 	if (species.body_temperature == null)
 		return //this species doesn't have metabolic thermoregulation
 
@@ -452,19 +455,16 @@
 
 	if(bodytemperature < species.cold_level_1) //260.15 is 310.15 - 50, the temperature where you start to feel effects.
 		if(nutrition >= 2) //If we are very, very cold we'll use up quite a bit of nutriment to heat us up.
-			adjustNutritionLoss(2)
-		var/recovery_amt = max((body_temperature_difference / BODYTEMP_AUTORECOVERY_DIVISOR), BODYTEMP_AUTORECOVERY_MINIMUM)
-		bodytemperature += recovery_amt
+			adjustNutritionLoss(seconds_per_tick)
+		bodytemperature += max((body_temperature_difference / BODYTEMP_AUTORECOVERY_DIVISOR * seconds_per_tick), BODYTEMP_AUTORECOVERY_MINIMUM * seconds_per_tick)
 	else if(species.cold_level_1 <= bodytemperature && bodytemperature <= species.heat_level_1)
-		var/recovery_amt = body_temperature_difference / BODYTEMP_AUTORECOVERY_DIVISOR
-		bodytemperature += recovery_amt
+		bodytemperature += body_temperature_difference / BODYTEMP_AUTORECOVERY_DIVISOR * seconds_per_tick
 	else if(bodytemperature > species.heat_level_1) //360.15 is 310.15 + 50, the temperature where you start to feel effects.
 		if(hydration >= 2)
-			adjustHydrationLoss(2)
+			adjustHydrationLoss(seconds_per_tick)
 			if((species.flags & CAN_SWEAT) && fire_stacks == 0)
 				fire_stacks = -1
-		var/recovery_amt = min((body_temperature_difference / BODYTEMP_AUTORECOVERY_DIVISOR), -BODYTEMP_AUTORECOVERY_MINIMUM)	//We're dealing with negative numbers
-		bodytemperature += recovery_amt
+		bodytemperature += min((body_temperature_difference * seconds_per_tick / BODYTEMP_AUTORECOVERY_DIVISOR), -BODYTEMP_AUTORECOVERY_MINIMUM * seconds_per_tick)	//We're dealing with negative numbers
 
 /**
  * Returns a bitflag for the body parts currently heat-protected. Called and used by get_heat_protection()
@@ -664,13 +664,20 @@
 			sprint_cost_factor -= 0.35 * chem_effects[CE_ADRENALINE]
 			stamina_recovery += max ((stamina_recovery * 0.7 * chem_effects[CE_ADRENALINE]), 5)
 
-		var/obj/item/clothing/C = wear_suit
-		if(!(C && (C.body_parts_covered & HANDS) && !(C.heat_protection & HANDS)) && !gloves)
-			for(var/obj/item/I in src)
-				if(I.contaminated && !(species.flags & PHORON_IMMUNE))
-					if(I == r_hand)
+		var/obj/item/clothing/suit = wear_suit
+		var/protected = FALSE
+		if(suit && (suit.body_parts_covered & HANDS) && (suit.heat_protection & HANDS))
+			protected = TRUE
+
+		if(gloves && (gloves.heat_protection & HANDS))
+			protected = TRUE
+
+		if(!protected)
+			for(var/obj/item/held_item in src)
+				if(held_item.contaminated && !(species.flags & PHORON_IMMUNE))
+					if(held_item == r_hand)
 						apply_damage(GLOB.vsc.plc.CONTAMINATION_LOSS, DAMAGE_BURN, BP_R_HAND)
-					else if(I == l_hand)
+					else if(held_item == l_hand)
 						apply_damage(GLOB.vsc.plc.CONTAMINATION_LOSS, DAMAGE_BURN, BP_L_HAND)
 					else
 						adjustFireLoss(GLOB.vsc.plc.CONTAMINATION_LOSS)
@@ -796,7 +803,7 @@
 					else
 						AdjustSleeping(-1)
 			if(prob(2) && health && !failed_last_breath && !InStasis())
-				if(!paralysis)
+				if(!paralysis && species.snores)
 					emote(species.snore_key)
 
 		//CONSCIOUS
@@ -1008,7 +1015,7 @@
 					nut_icon = 2
 				else if (nut_factor >= CREW_NUTRITION_HUNGRY)
 					nut_icon = 3
-				else if (nut_factor >= CREW_NUTRITION_VERYHUNGRY )
+				else if (nut_factor >= CREW_NUTRITION_VERYHUNGRY)
 					nut_icon = 4
 				var/new_val = "[isSynthetic() ? "charge" : "nutrition"][nut_icon]"
 				if (nutrition_icon.icon_state != new_val)
@@ -1032,7 +1039,7 @@
 					hydration_icon.icon_state = new_val
 
 			if(isSynthetic())
-				var/obj/item/organ/internal/cell/IC = internal_organs_by_name[BP_CELL]
+				var/obj/item/organ/internal/machine/power_core/IC = internal_organs_by_name[BP_CELL]
 				if(istype(IC) && IC.is_usable())
 					var/chargeNum = clamp(Ceiling(IC.percent()/25), 0, 4)	//0-100 maps to 0-4, but give it a paranoid clamp just in case.
 					cells.icon_state = "charge[chargeNum]"
@@ -1126,6 +1133,7 @@
 				if(!has_drunk_status)
 					add_status_to_hud(DRUNK_STRING, SPAN_GOOD("You are drunk. Your words are slurred, and your movements are uncoordinated."))
 			else if(has_drunk_status)
+				client.screen -= status_overlays[DRUNK_STRING]
 				qdel(status_overlays[DRUNK_STRING])
 				status_overlays -= DRUNK_STRING
 
@@ -1139,6 +1147,7 @@
 				if(!has_bleeding_status)
 					add_status_to_hud(BLEEDING_STRING, SPAN_HIGHDANGER("Blood gushes from one of your bodyparts, inspect yourself and seal the wound."))
 			else if(has_bleeding_status)
+				client.screen -= status_overlays[BLEEDING_STRING]
 				qdel(status_overlays[BLEEDING_STRING])
 				status_overlays -= BLEEDING_STRING
 
@@ -1147,6 +1156,7 @@
 				if(!has_posing_status)
 					add_status_to_hud(POSING_STRING, SPAN_NOTICE("You are posing. Your current pose is \"[pose]\""))
 			else if(has_posing_status)
+				client.screen -= status_overlays[POSING_STRING]
 				qdel(status_overlays[POSING_STRING])
 				status_overlays -= POSING_STRING
 
@@ -1490,6 +1500,7 @@
 		return
 	if((mutations & XRAY))
 		set_sight(sight|SEE_TURFS|SEE_MOBS|SEE_OBJS)
+	lighting_alpha = default_lighting_alpha
 
 /**
  * This proc assumes that if shock_value = null, then a shock value was NOT passed in, and thus it calculates it itself.

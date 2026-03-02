@@ -180,5 +180,5 @@
 	desc = "Use this to jumpstart your psionic rank to Psionically Sensitive, enabling you to use the Psionic Point Shop and buy basic psionic abilities. \
 			This won't work on species with no Zona Bovinae, like synthetics, vaurcae or dionae! This item is definitely not canon."
 	psi_rank_to_set = PSI_RANK_SENSITIVE
-	psi_points_override = -1 // Uses the default 2 psi points allotted to psionic sensitive.
+	psi_points_override = 3
 	awakening_message = SPAN_NOTICE("You've awakened your psionic potential.")

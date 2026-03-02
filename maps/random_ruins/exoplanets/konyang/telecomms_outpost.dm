@@ -19,7 +19,6 @@
 	name = "Konyang Telecomms Outpost"
 	icon_state = "bluenew"
 	requires_power = FALSE
-	dynamic_lighting = TRUE
 	no_light_control = FALSE
 	base_turf = /turf/simulated/mineral
 	area_flags = AREA_FLAG_HIDE_FROM_HOLOMAP | AREA_FLAG_INDESTRUCTIBLE_TURFS
@@ -53,7 +52,7 @@
 	shoes = /obj/item/clothing/shoes/jackboots
 	head = /obj/item/clothing/head/konyang/army
 	l_pocket = /obj/item/storage/wallet/random
-	r_pocket = /obj/item/device/radio
+	r_pocket = /obj/item/radio
 	back = /obj/item/storage/backpack/rucksack/green
 	id = /obj/item/card/id/konyang_army
 

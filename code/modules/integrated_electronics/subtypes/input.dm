@@ -406,7 +406,7 @@
 	name = "global positioning system"
 	desc = "This allows you to easily know the position of a machine containing this device."
 	extended_desc = "The GPS's coordinates it gives is absolute, not relative."
-	icon = 'icons/obj/item/device/gps.dmi'
+	icon = 'icons/obj/item/gps.dmi'
 	icon_state = "gps"
 	item_state = "radio"
 	contained_sprite = TRUE
@@ -629,7 +629,7 @@
 		return
 	var/datum/gas_mixture/environment = T.return_air()
 
-	var/pressure = environment.return_pressure()
+	var/pressure = XGM_PRESSURE(environment)
 	var/total_moles = environment.total_moles
 
 	if (total_moles)
@@ -707,7 +707,7 @@
 		return
 	var/datum/gas_mixture/environment = T.return_air()
 
-	var/pressure = environment.return_pressure()
+	var/pressure = XGM_PRESSURE(environment)
 	var/total_moles = environment.total_moles
 
 	if (total_moles)

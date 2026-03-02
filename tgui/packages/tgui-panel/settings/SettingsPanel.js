@@ -7,14 +7,43 @@
 import { toFixed } from 'common/math';
 import { useLocalState } from 'tgui/backend';
 import { useDispatch, useSelector } from 'common/redux';
-import { Box, Button, ColorBox, Divider, Dropdown, Flex, Input, LabeledList, NumberInput, Section, Stack, Tabs, TextArea } from 'tgui/components';
+import {
+  Box,
+  Button,
+  ColorBox,
+  Divider,
+  Dropdown,
+  Flex,
+  Input,
+  LabeledList,
+  NumberInput,
+  Section,
+  Stack,
+  Tabs,
+  TextArea,
+} from 'tgui/components';
 import { ChatPageSettings } from '../chat';
-import { rebuildChat, saveChatToDisk, clearChatMessages } from '../chat/actions';
+import {
+  rebuildChat,
+  saveChatToDisk,
+  clearChatMessages,
+} from '../chat/actions';
 import { THEMES } from '../themes';
-import { changeSettingsTab, updateSettings, addHighlightSetting, removeHighlightSetting, updateHighlightSetting } from './actions';
+import {
+  changeSettingsTab,
+  updateSettings,
+  addHighlightSetting,
+  removeHighlightSetting,
+  updateHighlightSetting,
+} from './actions';
 import { SETTINGS_TABS, FONTS, MAX_HIGHLIGHT_SETTINGS } from './constants';
 import { resetPaneSplitters, setEditPaneSplitters } from './scaling';
-import { selectActiveTab, selectSettings, selectHighlightSettings, selectHighlightSettingById } from './selectors';
+import {
+  selectActiveTab,
+  selectSettings,
+  selectHighlightSettings,
+  selectHighlightSettingById,
+} from './selectors';
 import { IMPL_IFRAME_INDEXED_DB, storage } from 'common/storage';
 
 export const SettingsPanel = (props, context) => {
@@ -33,9 +62,10 @@ export const SettingsPanel = (props, context) => {
                   dispatch(
                     changeSettingsTab({
                       tabId: tab.id,
-                    })
+                    }),
                   )
-                }>
+                }
+              >
                 {tab.name}
               </Tabs.Tab>
             ))}
@@ -54,14 +84,14 @@ export const SettingsPanel = (props, context) => {
 export const SettingsGeneral = (props, context) => {
   const { theme, fontFamily, fontSize, lineHeight, maxMessages } = useSelector(
     context,
-    selectSettings
+    selectSettings,
   );
   const dispatch = useDispatch(context);
   const [freeFont, setFreeFont] = useLocalState(context, 'freeFont', false);
   const [editingPanes, setEditingPanes] = useLocalState(
     context,
     'uiScaling',
-    false
+    false,
   );
   return (
     <Section>
@@ -74,7 +104,7 @@ export const SettingsGeneral = (props, context) => {
               dispatch(
                 updateSettings({
                   theme: value,
-                })
+                }),
               )
             }
           />
@@ -90,7 +120,8 @@ export const SettingsGeneral = (props, context) => {
                   })
                 }
                 color={editingPanes ? 'red' : undefined}
-                icon={editingPanes ? 'save' : undefined}>
+                icon={editingPanes ? 'save' : undefined}
+              >
                 {editingPanes ? 'Save' : 'Adjust UI Sizes'}
               </Button>
             </Stack.Item>
@@ -112,7 +143,7 @@ export const SettingsGeneral = (props, context) => {
                     dispatch(
                       updateSettings({
                         fontFamily: value,
-                      })
+                      }),
                     )
                   }
                 />
@@ -123,7 +154,7 @@ export const SettingsGeneral = (props, context) => {
                     dispatch(
                       updateSettings({
                         fontFamily: value,
-                      })
+                      }),
                     )
                   }
                 />
@@ -156,7 +187,7 @@ export const SettingsGeneral = (props, context) => {
               dispatch(
                 updateSettings({
                   fontSize: value,
-                })
+                }),
               )
             }
           />
@@ -174,7 +205,7 @@ export const SettingsGeneral = (props, context) => {
               dispatch(
                 updateSettings({
                   lineHeight: value,
-                })
+                }),
               )
             }
           />
@@ -198,7 +229,7 @@ export const SettingsGeneral = (props, context) => {
               dispatch(
                 updateSettings({
                   maxMessages: value,
-                })
+                }),
               );
             }}
           />
@@ -248,7 +279,8 @@ const TextHighlightSettings = (props, context) => {
       <Box>
         <Button
           icon="check"
-          onClick={() => dispatch(rebuildChat(settings.maxMessages))}>
+          onClick={() => dispatch(rebuildChat(settings.maxMessages))}
+        >
           Apply now
         </Button>
         <Box inline fontSize="0.9em" ml={1} color="label">
@@ -284,7 +316,7 @@ const TextHighlightSetting = (props, context) => {
               dispatch(
                 removeHighlightSetting({
                   id: id,
-                })
+                }),
               )
             }
           />
@@ -307,7 +339,7 @@ const TextHighlightSetting = (props, context) => {
                     updateHighlightSetting({
                       id: id,
                       backgroundHighlightOpacity: value,
-                    })
+                    }),
                   )
                 }
               />
@@ -329,7 +361,7 @@ const TextHighlightSetting = (props, context) => {
                     updateHighlightSetting({
                       id: id,
                       backgroundHighlightColor: value,
-                    })
+                    }),
                   )
                 }
               />
@@ -347,7 +379,7 @@ const TextHighlightSetting = (props, context) => {
                 updateHighlightSetting({
                   id: id,
                   highlightWholeMessage: !highlightWholeMessage,
-                })
+                }),
               )
             }
           />
@@ -363,7 +395,7 @@ const TextHighlightSetting = (props, context) => {
                 updateHighlightSetting({
                   id: id,
                   matchWord: !matchWord,
-                })
+                }),
               )
             }
           />
@@ -378,7 +410,7 @@ const TextHighlightSetting = (props, context) => {
                 updateHighlightSetting({
                   id: id,
                   matchCase: !matchCase,
-                })
+                }),
               )
             }
           />
@@ -395,7 +427,7 @@ const TextHighlightSetting = (props, context) => {
                 updateHighlightSetting({
                   id: id,
                   highlightColor: value,
-                })
+                }),
               )
             }
           />
@@ -410,7 +442,7 @@ const TextHighlightSetting = (props, context) => {
             updateHighlightSetting({
               id: id,
               highlightText: value,
-            })
+            }),
           )
         }
       />

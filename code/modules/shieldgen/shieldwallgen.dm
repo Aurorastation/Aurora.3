@@ -30,6 +30,15 @@
 	. += ..()
 	. += "ALT-click the [src] to lock or unlock it (if you have the appropriate ID access)."
 
+/obj/machinery/shieldwallgen/active
+	power_state = POWER_STARTING
+	is_powered = TRUE
+	wrenched = TRUE
+	anchored = TRUE
+	locked = FALSE
+	icon_state = "Shield_Gen +a"
+	storedpower = 9000000
+
 /obj/machinery/shieldwallgen/update_icon()
 	if(power_state >= POWER_STARTING)
 		icon_state = "Shield_Gen +a"
@@ -76,7 +85,8 @@
 		return FALSE
 
 	var/shieldload = between(500, max_stored_power - storedpower, (power_draw*seconds_per_tick))	//what we try to draw
-	shieldload = PN.draw_power(shieldload) //what we actually get
+	shieldload = POWERNET_POWER_DRAW(PN, shieldload) //what we actually get
+	DRAW_FROM_POWERNET(PN, shieldload)
 	storedpower += shieldload
 
 	//If we're still in the red, then there must not be enough available power to cover our load.
@@ -148,7 +158,7 @@
 		CF.set_dir(field_dir)
 
 /obj/machinery/shieldwallgen/attackby(obj/item/attacking_item, mob/user)
-	if(attacking_item.iswrench())
+	if(attacking_item.tool_behaviour == TOOL_WRENCH)
 		if(power_state)
 			to_chat(user, SPAN_WARNING("You cannot unsecure \the [src] while it's active."))
 			return

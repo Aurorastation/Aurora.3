@@ -1,7 +1,7 @@
 {
 	"eslint.nodePath": "./tgui/.yarn/sdks",
 	"eslint.workingDirectories": ["./tgui"],
-	"prettier.prettierPath": "./tgui/.yarn/sdks/prettier/index.js",
+	"prettier.prettierPath": "./tgui/.yarn/sdks/prettier/index.cjs",
 	"typescript.tsdk": "./tgui/.yarn/sdks/typescript/lib",
 	"typescript.enablePromptUseWorkspaceTsdk": true,
 	"search.exclude": {
@@ -11,35 +11,18 @@
 	"editor.codeActionsOnSave": {
 		"source.fixAll.eslint": "explicit"
 	},
+	"editor.insertSpaces": false,
 	"files.eol": "\n",
 	"files.insertFinalNewline": true,
+	"files.trimTrailingWhitespace": true,
 	"gitlens.advanced.blame.customArguments": ["-w"],
-	"[javascript]": {
+	"[javascript][typescript][typescriptreact][javascriptreact][html][scss][css][json][jsonc][markdown][yaml]": {
 		"editor.rulers": [80],
 		"editor.defaultFormatter": "esbenp.prettier-vscode",
 		"editor.formatOnSave": true
 	},
-	"[javascriptreact]": {
-		"editor.rulers": [80],
-		"editor.defaultFormatter": "esbenp.prettier-vscode",
-		"editor.formatOnSave": true
+	"workbench.editorAssociations": {
+		"*.dmi": "dmiEditor.dmiEditor"
 	},
-	"[typescript]": {
-		"editor.rulers": [80],
-		"editor.defaultFormatter": "esbenp.prettier-vscode",
-		"editor.formatOnSave": true
-	},
-	"[typescriptreact]": {
-		"editor.rulers": [80],
-		"editor.defaultFormatter": "esbenp.prettier-vscode",
-		"editor.formatOnSave": true
-	},
-	"[scss]": {
-		"editor.rulers": [80],
-		"editor.defaultFormatter": "esbenp.prettier-vscode",
-		"editor.formatOnSave": true
-	},
-	"rust-analyzer.linkedProjects": [
-		"rust/bapi/Cargo.toml"
-	]
+	"rust-analyzer.linkedProjects": ["rust/bapi/Cargo.toml"]
 }

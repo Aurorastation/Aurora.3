@@ -3,6 +3,7 @@
 	level = 1
 
 	layer = TURF_LAYER
+	vis_flags = VIS_INHERIT_PLANE
 
 	var/holy = 0
 
@@ -24,7 +25,7 @@
 	/// Has the turf been blessed?
 	var/blessed = 0
 
-	var/footstep_sound = /singleton/sound_category/tiles_footstep
+	var/footstep_sound = SFX_FOOTSTEP_TILES
 
 	var/list/decals
 	var/list/blueprints
@@ -61,6 +62,18 @@
 	var/base_icon = 'icons/turf/flooring/plating.dmi'
 	var/base_icon_state = "plating"
 	var/base_color = null
+
+	///Lumcount added by sources other than lighting datum objects, such as the overlay lighting component.
+	var/dynamic_lumcount = 0
+
+	///List of light sources affecting this turf.
+	///Which directions does this turf block the vision of, taking into account both the turf's opacity and the movable opacity_sources.
+	var/directional_opacity = NONE
+	///Lazylist of movable atoms providing opacity sources.
+	var/list/atom/movable/opacity_sources
+
+	///hybrid lights affecting this turf
+	var/tmp/list/atom/movable/lighting_mask/hybrid_lights_affecting
 
 	///for clean log spam.
 	var/last_clean
@@ -112,19 +125,8 @@
 	if (is_station_level(z))
 		GLOB.station_turfs += src
 
-	if(dynamic_lighting)
-		luminosity = 0
-	else
-		luminosity = 1
-
 	if (smoothing_flags)
 		QUEUE_SMOOTH(src)
-
-	if (opacity)
-		has_opaque_atom = TRUE
-
-	if (mapload && permit_ao)
-		queue_ao()
 
 	var/area/A = loc
 
@@ -135,6 +137,14 @@
 
 	if (light_range && light_power)
 		update_light()
+
+	//Get area light
+	var/area/current_area = loc
+	if(current_area?.lighting_effect)
+		overlays += current_area.lighting_effect
+
+	if(opacity)
+		directional_opacity = ALL_CARDINALS
 
 	else if(!baseturf)
 		// Hard-coding this for performance reasons.
@@ -149,6 +159,11 @@
 	return INITIALIZE_HINT_NORMAL
 
 /turf/Destroy()
+	if(hybrid_lights_affecting)
+		for(var/atom/movable/lighting_mask/mask as anything in hybrid_lights_affecting)
+			LAZYREMOVE(mask.affecting_turfs, src)
+		hybrid_lights_affecting.Cut()
+
 	if (!changing_turf)
 		crash_with("Improper turf qdeletion.")
 
@@ -159,10 +174,6 @@
 
 	remove_cleanables()
 	cleanup_roof()
-
-	if (ao_queued)
-		SSao.queue -= src
-		ao_queued = 0
 
 	if (z_flags & ZM_MIMIC_BELOW)
 		cleanup_zmimic()
@@ -198,7 +209,7 @@
 	// We do this prior to the unique space logic so this also covers space turfs within a needs_starlight area.
 	var/area/A = get_area(src)
 	if(A.needs_starlight)
-		set_light(SSatlas.current_sector.starlight_range, SSatlas.current_sector.starlight_power, l_color = SSskybox.background_color)
+		set_light(SSatlas.current_sector.starlight_range, SSatlas.current_sector.starlight_power, SSskybox.background_color)
 		return TRUE
 	else // If we aren't assigning starlight lighting, set the lighting to default so it's possible to undo starlight lighting if an area changes.
 		set_default_lighting()
@@ -237,9 +248,10 @@
 		else
 			step(user.pulling, get_dir(user.pulling.loc, src))
 
-	. = handle_hand_interception(user)
-	if (!.)
-		return TRUE
+	// Check if objects in the turf want to slap the attacker back.
+	for (var/atom/target_atom in src)
+		SEND_SIGNAL(target_atom, COMSIG_HANDLE_HAND_INTERCEPTION, user, src)
+
 	return TRUE
 
 /// Call to move a turf from its current area to a new one
@@ -279,16 +291,6 @@
 /// Allows for reactions to an area change without inherently requiring change_area() be called (I hate maploading)
 /turf/proc/on_change_area(area/old_area, area/new_area)
 	transfer_area_lighting(old_area, new_area)
-
-/turf/proc/handle_hand_interception(var/mob/user)
-	var/datum/component/turf_hand/THE
-	for (var/atom/A in src)
-		var/datum/component/turf_hand/TH = A.GetComponent(/datum/component/turf_hand)
-		if (istype(TH) && TH.priority > THE?.priority) //Only overwrite if the new one is higher. For matching values, its first come first served
-			THE = TH
-
-	if (THE)
-		return THE.OnHandInterception(user)
 
 // /turf/Enter(atom/movable/mover as mob|obj, atom/forget as mob|obj|turf|area)
 // 	if(movement_disabled && usr.ckey != movement_disabled_exception)
@@ -463,15 +465,6 @@
 			if (oAM.simulated && (oAM.movable_flags & MOVABLE_FLAG_PROXMOVE))
 				arrived.proximity_callback(oAM)
 
-	if (arrived && arrived.opacity && !has_opaque_atom)
-		has_opaque_atom = TRUE // Make sure to do this before reconsider_lights(), incase we're on instant updates. Guaranteed to be on in this case.
-		reconsider_lights()
-
-#ifdef AO_USE_LIGHTING_OPACITY
-		// Hook for AO.
-		regenerate_ao()
-#endif
-
 	if(!(arrived.bound_overlay || (arrived.z_flags & ZMM_IGNORE) || !TURF_IS_MIMICING(above)))
 		above.update_mimic()
 
@@ -522,7 +515,7 @@
 	if(istype(attacking_item, /obj/item/grab))
 		var/obj/item/grab/grab = attacking_item
 		step(grab.affecting, get_dir(grab.affecting, src))
-	if (can_lay_cable() && attacking_item.iscoil())
+	if (can_lay_cable() && attacking_item.tool_behaviour == TOOL_CABLECOIL)
 		var/obj/item/stack/cable_coil/coil = attacking_item
 		coil.turf_place(src, user)
 	else
@@ -614,6 +607,8 @@
 				// Only show message for visible runes
 				if(!R.invisibility)
 					to_chat(user, SPAN_WARNING("No matter how well you wash, the bloody symbols remain!"))
+		if(src.is_open())
+			update_mimic();
 	else
 		if(!(last_clean && world.time < last_clean + 100))
 			to_chat(user, SPAN_WARNING("\The [source] is too dry to wash that."))
@@ -802,3 +797,6 @@
 		if(istype(O,/obj/effect/rune) || istype(O,/obj/effect/decal/cleanable))
 			qdel(O)
 	clean_blood()
+
+/turf/proc/IgniteTurf(power, fire_color)
+	return

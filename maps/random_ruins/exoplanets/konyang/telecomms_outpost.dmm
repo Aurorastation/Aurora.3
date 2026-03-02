@@ -454,11 +454,11 @@
 /area/konyang_telecomms_outpost)
 "xB" = (
 /obj/structure/table/stone/marble,
-/obj/item/storage/box/produce{
+/obj/item/storage/box/large/produce{
 	pixel_x = 3;
 	pixel_y = -5
 	},
-/obj/item/storage/box/produce{
+/obj/item/storage/box/large/produce{
 	pixel_x = 3;
 	pixel_y = 4
 	},
@@ -518,7 +518,7 @@
 	pixel_x = 6;
 	pixel_y = 6
 	},
-/obj/item/device/radio/phone{
+/obj/item/radio/phone{
 	pixel_y = 10;
 	pixel_x = -10
 	},
@@ -570,12 +570,12 @@
 	icon_state = "tube_empty";
 	dir = 4
 	},
-/obj/item/storage/box/flares,
-/obj/item/storage/box/flares,
-/obj/item/device/gps,
-/obj/item/device/gps,
-/obj/item/device/flashlight/maglight,
-/obj/item/device/flashlight/maglight,
+/obj/item/storage/box/large/flares,
+/obj/item/storage/box/large/flares,
+/obj/item/gps,
+/obj/item/gps,
+/obj/item/flashlight/maglight,
+/obj/item/flashlight/maglight,
 /turf/simulated/floor/exoplanet/tiled,
 /area/konyang_telecomms_outpost)
 "DG" = (
@@ -783,7 +783,7 @@
 /obj/structure/table/steel,
 /obj/item/paper_bin,
 /obj/item/pen/black,
-/obj/item/device/radio/phone{
+/obj/item/radio/phone{
 	pixel_y = 10;
 	pixel_x = 10
 	},
@@ -803,7 +803,7 @@
 /area/konyang_telecomms_outpost)
 "Qg" = (
 /obj/structure/table/wood,
-/obj/item/device/flashlight/lamp/green{
+/obj/item/flashlight/lamp/green{
 	pixel_x = -2;
 	pixel_y = 6
 	},

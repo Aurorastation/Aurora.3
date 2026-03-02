@@ -217,10 +217,10 @@
 /obj/item/ore_detector,
 /obj/item/ore_detector,
 /obj/item/ore_detector,
-/obj/item/device/flashlight/lantern,
-/obj/item/device/flashlight/lantern,
-/obj/item/device/flashlight/lantern,
-/obj/item/device/flashlight/lantern,
+/obj/item/flashlight/lantern,
+/obj/item/flashlight/lantern,
+/obj/item/flashlight/lantern,
+/obj/item/flashlight/lantern,
 /turf/simulated/floor/exoplanet/concrete{
 	temperature = 303.15
 	},
@@ -257,9 +257,9 @@
 /area/ouerea_heph_mining)
 "ub" = (
 /obj/structure/table/steel,
-/obj/item/device/analyzer,
-/obj/item/device/analyzer,
-/obj/item/device/analyzer,
+/obj/item/analyzer,
+/obj/item/analyzer,
+/obj/item/analyzer,
 /turf/simulated/floor/exoplanet/concrete{
 	temperature = 303.15
 	},
@@ -279,14 +279,14 @@
 /area/ouerea_heph_mining)
 "uN" = (
 /obj/structure/table/steel,
-/obj/item/device/gps/mining,
-/obj/item/device/gps/mining,
-/obj/item/device/gps/mining,
-/obj/item/device/gps/mining,
-/obj/item/device/radio/off,
-/obj/item/device/radio/off,
-/obj/item/device/radio/off,
-/obj/item/device/radio/off,
+/obj/item/gps/mining,
+/obj/item/gps/mining,
+/obj/item/gps/mining,
+/obj/item/gps/mining,
+/obj/item/radio/off,
+/obj/item/radio/off,
+/obj/item/radio/off,
+/obj/item/radio/off,
 /turf/simulated/floor/exoplanet/concrete{
 	temperature = 303.15
 	},
@@ -547,7 +547,7 @@
 /area/ouerea_heph_mining)
 "Ji" = (
 /obj/structure/table/wood,
-/obj/item/device/radio/phone,
+/obj/item/radio/phone,
 /obj/item/storage/box/fancy/cigarettes/acmeco{
 	pixel_y = 16;
 	pixel_x = 7

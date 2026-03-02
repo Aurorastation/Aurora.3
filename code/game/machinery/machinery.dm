@@ -152,7 +152,7 @@ Class Procs:
 	var/clicksound //played sound on usage
 	var/clickvol = 40 //volume
 	/// Signaller attached to the machine
-	var/obj/item/device/assembly/signaler/signaler
+	var/obj/item/assembly/signaler/signaler
 	/// Overmap sector the machine is linked to
 	var/obj/effect/overmap/visitable/linked
 
@@ -316,7 +316,7 @@ Class Procs:
 
 	update_icon()
 
-/obj/machinery/CanUseTopic(var/mob/user)
+/obj/machinery/CanUseTopic(mob/user)
 	if(stat & BROKEN)
 		return STATUS_CLOSE
 
@@ -325,18 +325,18 @@ Class Procs:
 
 	return ..()
 
-/obj/machinery/CouldUseTopic(var/mob/user)
+/obj/machinery/CouldUseTopic(mob/user)
 	..()
 	if(clicksound && iscarbon(user))
 		playsound(src, clicksound, clickvol)
 	user.set_machine(src)
 
-/obj/machinery/CouldNotUseTopic(var/mob/user)
+/obj/machinery/CouldNotUseTopic(mob/user)
 	user.unset_machine()
 
 ////////////////////////////////////////////////////////////////////////////////////////////
 
-/obj/machinery/attack_ai(mob/user as mob)
+/obj/machinery/attack_ai(mob/user)
 	if(!ai_can_interact(user))
 		return
 	if(isrobot(user))
@@ -347,32 +347,26 @@ Class Procs:
 	else
 		return src.attack_hand(user)
 
-/obj/machinery/attack_hand(mob/user as mob)
+/obj/machinery/attack_hand(mob/user)
 	if(!operable(MAINT))
-		return 1
+		return TRUE
 	if(user.lying || user.stat)
-		return 1
-	if ( ! (istype(usr, /mob/living/carbon/human) || \
-			istype(usr, /mob/living/silicon)))
+		return TRUE
+	if (!istype(usr, /mob/living/carbon/human) && !istype(usr, /mob/living/silicon))
 		to_chat(usr, SPAN_WARNING("You don't have the dexterity to do this!"))
-		return 1
-/*
-	//distance checks are made by atom/proc/DblClick
-	if ((get_dist(src, user) > 1 || !istype(src.loc, /turf)) && !istype(user, /mob/living/silicon))
-		return 1
-*/
-	if (ishuman(user))
-		var/mob/living/carbon/human/H = user
-		if(H.getBrainLoss() >= 60)
-			visible_message(SPAN_WARNING("[H] stares cluelessly at [src] and drools."))
-			return 1
-		else if(prob(H.getBrainLoss()))
-			to_chat(user, SPAN_WARNING("You momentarily forget how to use [src]."))
-			return 1
+		return TRUE
 
 	src.add_fingerprint(user)
 
 	return ..()
+
+/obj/machinery/attack_ranged(mob/user, params)
+	. = ..()
+	if(isipc(user))
+		var/mob/living/carbon/human/robot = user
+		var/obj/item/organ/internal/machine/wireless_access/wireless_access_point = robot.internal_organs_by_name[BP_WIRELESS_ACCESS]
+		if(wireless_access_point?.access_terminal(src))
+			attack_hand(user)
 
 /obj/machinery/attackby(obj/item/attacking_item, mob/user)
 	if(obj_flags & OBJ_FLAG_SIGNALER)
@@ -380,14 +374,14 @@ Class Procs:
 			if(signaler)
 				to_chat(user, SPAN_WARNING("\The [src] already has a signaler attached."))
 				return TRUE
-			var/obj/item/device/assembly/signaler/S = attacking_item
+			var/obj/item/assembly/signaler/S = attacking_item
 			user.drop_from_inventory(attacking_item, src)
 			signaler = S
 			S.machine = src
 			user.visible_message("<b>[user]</b> attaches \the [S] to \the [src].", SPAN_NOTICE("You attach \the [S] to \the [src]."), range = 3)
 			log_and_message_admins("has attached a signaler to \the [src].", user, get_turf(src))
 			return TRUE
-		else if(attacking_item.iswirecutter() && signaler)
+		else if(attacking_item.tool_behaviour == TOOL_WIRECUTTER && signaler)
 			user.visible_message("<b>[user]</b> removes \the [signaler] from \the [src].", SPAN_NOTICE("You remove \the [signaler] from \the [src]."), range = 3)
 			user.put_in_hands(detach_signaler())
 			return TRUE
@@ -410,7 +404,7 @@ Class Procs:
 		LOG_DEBUG("[src] tried to drop a signaler, but it had no turf ([src.x]-[src.y]-[src.z])")
 		return
 
-	var/obj/item/device/assembly/signaler/S = signaler
+	var/obj/item/assembly/signaler/S = signaler
 
 	signaler.forceMove(detach_turf)
 	signaler.machine = null
@@ -485,14 +479,14 @@ Class Procs:
 	return 0
 
 /obj/machinery/proc/default_deconstruction_crowbar(var/mob/user, var/obj/item/C)
-	if(!istype(C) || !C.iscrowbar())
+	if(!istype(C) || C.tool_behaviour != TOOL_CROWBAR)
 		return 0
 	if(!panel_open)
 		return 0
 	. = dismantle()
 
 /obj/machinery/proc/default_deconstruction_screwdriver(var/mob/user, var/obj/item/S)
-	if(!istype(S) || !S.isscrewdriver())
+	if(!istype(S) || S.tool_behaviour != TOOL_SCREWDRIVER)
 		return FALSE
 	S.play_tool_sound(get_turf(src), 50)
 	panel_open = !panel_open
@@ -553,7 +547,7 @@ Class Procs:
 	else return FALSE
 
 /obj/machinery/proc/dismantle()
-	playsound(loc, /singleton/sound_category/crowbar_sound, 50, 1)
+	playsound(loc, SFX_CROWBAR, 50, 1)
 	var/obj/machinery/constructable_frame/machine_frame/M = new /obj/machinery/constructable_frame/machine_frame(loc)
 	M.set_dir(src.dir)
 	M.state = 3
@@ -567,7 +561,7 @@ Class Procs:
 
 	return TRUE
 
-/obj/machinery/proc/print(var/obj/paper, var/play_sound = 1, var/print_sfx = /singleton/sound_category/print_sound, var/print_delay = 10, var/message, var/mob/user)
+/obj/machinery/proc/print(var/obj/paper, var/play_sound = 1, var/print_sfx = SFX_PRINT, var/print_delay = 10, var/message, var/mob/user)
 	if( printing )
 		return FALSE
 

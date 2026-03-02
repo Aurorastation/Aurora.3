@@ -33,6 +33,8 @@
  * Engineering (Atmospherics) - Deck 1 - Combustion Turbine - Port Amidships, Aft
  */
 /proc/get_area_display_name(var/area/A, var/show_dept = TRUE, var/show_subdept = TRUE, var/show_deck = TRUE, var/show_location = TRUE, var/show_hidden_depts = FALSE)
+	if (!A) // Fallback case.
+		return "Unknown Area"
 	if(!is_station_area(A))
 		return A.name
 	var/horizon_deck = A.horizon_deck
@@ -274,7 +276,7 @@
 		var/cp=0
 		if(T && istype(T) && T.zone)
 			var/datum/gas_mixture/environment = T.return_air()
-			cp = environment.return_pressure()
+			cp = XGM_PRESSURE(environment)
 		else
 			if(istype(T,/turf/simulated))
 				continue
@@ -307,7 +309,7 @@
 			var/datum/gas_mixture/environment = T.return_air()
 			for(var/i=1;i<=stats.len;i++)
 				if(stats[i] == "pressure")
-					rstats[i] = environment.return_pressure()
+					rstats[i] = XGM_PRESSURE(environment)
 				else
 					rstats[i] = environment.vars[stats[i]]
 		else if(istype(T, /turf/simulated))
@@ -317,7 +319,7 @@
 			var/datum/gas_mixture/environment = T.return_air()
 			for(var/i=1;i<=stats.len;i++)
 				if(stats[i] == "pressure")
-					rstats[i] = environment.return_pressure()
+					rstats[i] = XGM_PRESSURE(environment)
 				else
 					rstats[i] = environment.vars[stats[i]]
 		temps[direction] = rstats

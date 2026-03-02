@@ -36,13 +36,18 @@
 	/// Area cache of Horizon elevator bay.
 	var/area/horizon_elevator_area
 
+	/// Underlays of the elevator saved before transit.
+	var/list/saved_underlays
+
 /datum/shuttle/autodock/ferry/supply/New(var/_name, var/obj/effect/shuttle_landmark/start_waypoint)
 	..(_name, start_waypoint)
 	SScargo.shuttle = src
 	addtimer(CALLBACK(src, PROC_REF(prepare_elevator)), 1 MINUTE) // pseudo initialize. We give mapload some time before initializing rest of the properties
 
 /datum/shuttle/autodock/ferry/supply/proc/prepare_elevator()
-	var/obj/dest_helper = locate(/obj/effect/landmark/destination_helper/cargo_elevator)
+	var/obj/dest_helper = SSshuttle.cargo_dest_helper
+	if(!dest_helper)
+		crash_with("No cargo destination helper found for the elevator!")
 	target_dest_x = dest_helper.x
 	target_dest_y = dest_helper.y
 	target_dest_z = dest_helper.z
@@ -163,14 +168,41 @@
 	NW.forceMove(locate(target_dest_x, target_dest_y, target_dest_z))
 	NE.forceMove(locate(target_dest_x + SHAFT_WIDTH, target_dest_y, target_dest_z))
 
+	for(var/area/A in shuttle_area) // we have to do this here or we turn the elevator into a white cube
+		for(var/obj/machinery/light/L in A) // we turn off lights to avoid having to fight the lighting plane
+			L.stat |= POWEROFF
+			L.update()
+
+	sleep(2 SECONDS)
+
+	elevator_animation.icon_state = "elevator_test"
+
 	for(var/area/A in shuttle_area) // an image copy of the elevator platform is prepared here
 		for(var/turf/T in A)
+			LAZYADDASSOC(saved_underlays, T, T.underlays)
+			T.underlays.Cut()
 			elevator_animation.vis_contents += T
+			for(var/atom/movable/AM in T.contents)
+				AM.blocks_emissive = FALSE
+				AM.update_emissive_blocker()
 
 	if(!returning_to_CC)
 		handle_arrival_sequence() // coming to Horizon
 	else
 		handle_departure_sequence() // leaving the Horizon
+
+	for(var/turf/T in elevator_animation.vis_contents)
+		T.underlays = LAZYACCESS(saved_underlays, T)
+		LAZYREMOVE(saved_underlays, T)
+		for(var/atom/movable/AM in T.contents)
+			AM.blocks_emissive = initial(AM.blocks_emissive)
+			AM.update_emissive_blocker()
+			AM.update_light()
+		for(var/obj/machinery/light/L in T.contents)
+			L.stat &= ~POWEROFF
+			L.update()
+
+	elevator_animation.icon_state = null
 
 	elevator_animation.vis_contents.Cut() // animation is done, we can get rid of the elevator platform image
 
@@ -238,6 +270,21 @@
 
 /obj/effect/landmark/destination_helper/cargo_elevator
 	name = "cargo elevator destination helper"
+
+/obj/effect/landmark/destination_helper/cargo_elevator/Initialize(mapload)
+	..()
+	return INITIALIZE_HINT_LATELOAD
+
+/obj/effect/landmark/destination_helper/cargo_elevator/LateInitialize()
+	. = ..()
+	if(SSshuttle.cargo_dest_helper)
+		log_and_message_admins("Multiple cargo destination helpers detected; overriding.")
+	SSshuttle.cargo_dest_helper = src
+
+/obj/effect/landmark/destination_helper/cargo_elevator/Destroy()
+	if(SSshuttle.cargo_dest_helper == src)
+		SSshuttle.cargo_dest_helper = null
+	return ..()
 
 /obj/effect/step_trigger/cargo_elevator
 	name = "cargo elevator shaft"

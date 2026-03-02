@@ -202,7 +202,7 @@
 	slot_flags = SLOT_BACK
 	load_method = MAGAZINE
 	fire_sound = 'sound/weapons/gunshot/gunshot_rifle.ogg'
-	empty_sound = /singleton/sound_category/out_of_ammo_rifle
+	empty_sound = SFX_OUT_OF_AMMO_RIFLE
 	magazine_type = /obj/item/ammo_magazine/c762
 	allowed_magazines = list(/obj/item/ammo_magazine/c762)
 	fire_delay = ROF_RIFLE
@@ -527,7 +527,7 @@
 		return
 	..()
 
-/obj/item/gun/projectile/automatic/rifle/l6_saw/unload_ammo(mob/user, var/allow_dump=1)
+/obj/item/gun/projectile/automatic/rifle/l6_saw/unload_ammo(mob/user, allow_dump = TRUE, drop_mag = FALSE)
 	if(!cover_open)
 		to_chat(user, SPAN_WARNING("You need to open the cover to unload [src]."))
 		return
@@ -545,12 +545,14 @@
 	automatic rifle. Laser weapons are usually used by high-ranking soldiers or special operatives. Regardless of advances in the small arms field, artillery is the Republican army’s \
 	main weapon and pride."
 
-	load_method = SINGLE_CASING|SPEEDLOADER
-
-	ammo_type = /obj/item/ammo_casing/a762
-	allowed_magazines = null
-	magazine_type = null
+	load_method = MAGAZINE|SPEEDLOADER
+	caliber = "6.8mm"
+	ammo_type = /obj/item/ammo_casing/a68
+	allowed_magazines = list(/obj/item/ammo_magazine/a68, /obj/item/ammo_magazine/boltaction/adhomai)
+	magazine_type = /obj/item/ammo_magazine/a68
 	max_shells = 25
+
+	worn_x_dimension = 48 //Uses 48x32 gun sprite
 
 	origin_tech = list(TECH_COMBAT = 3, TECH_MATERIAL = 2)
 	fire_sound = 'sound/weapons/gunshot/gunshot_rifle.ogg'
@@ -561,6 +563,17 @@
 	knife_x_offset = 23
 	knife_y_offset = 14
 
+/obj/item/gun/projectile/automatic/rifle/adhomian/update_icon()
+	item_state = (ammo_magazine)? "tsarrayut" : "tsarrayut_nomag"
+	..() //Placed here so in-hand sprite reflects no magazine properly.
+	icon_state = (ammo_magazine)? "tsarrayut" : "tsarrayut_nomag"
+
+/obj/item/gun/projectile/automatic/rifle/adhomian/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/ammo_magazine/boltaction) && !ammo_magazine)
+		to_chat(user, SPAN_WARNING("\The [src] cannot be reloaded without a magazine!"))
+		return
+	..()
+
 /obj/item/gun/projectile/automatic/rifle/dpra
 	name = "adhomian assault rifle"
 	desc = "The Mrrazhak Model-1 is the newest Al'mariist automatic rifle. The Mrrazhak is notorious for its simple and reliable design; it can be fabricated and assembled without the \
@@ -568,33 +581,32 @@
 	icon = 'icons/obj/guns/mrrazhak.dmi'
 	icon_state = "mrrazhak"
 	item_state = "mrrazhak"
-
-	can_bayonet = TRUE
-	knife_x_offset = 22
-	knife_y_offset = 13
+	contained_sprite = TRUE
 
 	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2)
+
+	load_method = MAGAZINE|SPEEDLOADER
+	caliber = "6.8mm"
+	ammo_type = /obj/item/ammo_casing/a68
+	allowed_magazines = list(/obj/item/ammo_magazine/a68)
+	magazine_type = /obj/item/ammo_magazine/a68
+	max_shells = 25
+
+	worn_x_dimension = 48 //Uses 48x32 gun sprite
+
+	origin_tech = list(TECH_COMBAT = 3, TECH_MATERIAL = 2)
 	fire_sound = 'sound/weapons/gunshot/gunshot_rifle.ogg'
 
 	is_wieldable = TRUE
 
-	magazine_type = /obj/item/ammo_magazine/c762/dpra
-	allowed_magazines = list(/obj/item/ammo_magazine/c762/dpra)
+	can_bayonet = TRUE
+	knife_x_offset = 23
+	knife_y_offset = 14
 
 /obj/item/gun/projectile/automatic/rifle/dpra/update_icon()
-	if(ammo_magazine)
-		icon_state = "mrrazhak"
-		item_state = "mrrazhak"
-	else
-		icon_state = "mrrazhak_nomag"
-		item_state = "mrrazhak_nomag"
-	..()
-
-/obj/item/gun/projectile/automatic/rifle/dpra/gold
-	name = "gold plated adhomian assault rifle"
-	desc = "The Mrrazhak Model-1 is the newest Al'mariist automatic rifle. The Mrrazhak is notorious for its simple and reliable design; it can be fabricated and assembled without the \
-	need of a specialized industry or a highly trained workforce. This one is golden plated."
-	icon = 'icons/obj/guns/golden_mrrazhak.dmi'
+	item_state = (ammo_magazine)? "mrrazhak" : "mrrazhak_nomag"
+	..() //Placed here so in-hand sprite reflects no magazine properly.
+	icon_state = (ammo_magazine)? "mrrazhak" : "mrrazhak_nomag"
 
 /obj/item/gun/projectile/automatic/tommygun
 	name = "submachine gun"

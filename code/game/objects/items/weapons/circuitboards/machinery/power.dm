@@ -1,7 +1,3 @@
-#ifndef T_BOARD
-#error T_BOARD macro is not defined but we need it!
-#endif
-
 /obj/item/circuitboard/smes
 	name = T_BOARD("superconductive magnetic energy storage")
 	build_path = /obj/machinery/power/smes/buildable
@@ -24,7 +20,7 @@
 	req_components = list("/obj/item/cell" = 3)
 
 /obj/item/circuitboard/ghettosmes/attackby(obj/item/attacking_item, mob/user)
-	if(attacking_item.ismultitool())
+	if(attacking_item.tool_behaviour == TOOL_MULTITOOL)
 		var/obj/item/module/power_control/new_circuit = new /obj/item/module/power_control(get_turf(src))
 		to_chat(user, SPAN_NOTICE("You modify \the [src] into an APC power control module."))
 		qdel(src)

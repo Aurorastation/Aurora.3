@@ -1220,7 +1220,7 @@
 /obj/structure/table/standard,
 /obj/item/paper_bin,
 /obj/item/pen/multi,
-/obj/item/device/hand_labeler,
+/obj/item/hand_labeler,
 /obj/effect/floor_decal/corner/red{
 	dir = 8
 	},
@@ -1496,13 +1496,13 @@
 /area/database_freighter)
 "gm" = (
 /obj/structure/table/rack,
-/obj/item/storage/box/monkeycubes/farwacubes{
+/obj/item/storage/box/unique/monkeycubes/farwacubes{
 	pixel_x = -5
 	},
-/obj/item/storage/box/monkeycubes/farwacubes{
+/obj/item/storage/box/unique/monkeycubes/farwacubes{
 	pixel_x = 5
 	},
-/obj/item/storage/box/monkeycubes/farwacubes,
+/obj/item/storage/box/unique/monkeycubes/farwacubes,
 /obj/item/reagent_containers/spray/cleaner{
 	pixel_x = -4;
 	pixel_y = -3
@@ -1684,19 +1684,19 @@
 	},
 /area/database_freighter/bridge)
 "hk" = (
-/obj/item/device/radio,
-/obj/item/device/radio,
-/obj/item/device/radio,
-/obj/item/device/radio,
-/obj/item/device/radio,
-/obj/item/device/radio,
+/obj/item/radio,
+/obj/item/radio,
+/obj/item/radio,
+/obj/item/radio,
+/obj/item/radio,
+/obj/item/radio,
 /obj/structure/table/standard,
 /obj/structure/extinguisher_cabinet/north,
-/obj/item/device/gps/science,
-/obj/item/device/gps/science,
-/obj/item/device/gps/science,
-/obj/item/device/gps/science,
-/obj/item/device/gps/science,
+/obj/item/gps/science,
+/obj/item/gps/science,
+/obj/item/gps/science,
+/obj/item/gps/science,
+/obj/item/gps/science,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -2386,7 +2386,7 @@
 /area/database_freighter/hangar)
 "kU" = (
 /obj/structure/table/wood,
-/obj/item/device/flashlight/lamp,
+/obj/item/flashlight/lamp,
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/carpet/art{
 	temperature = 278.15
@@ -4061,7 +4061,7 @@
 	},
 /obj/item/paper_bin,
 /obj/item/pen/multi,
-/obj/item/device/hand_labeler,
+/obj/item/hand_labeler,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -4201,7 +4201,7 @@
 	},
 /obj/structure/closet/crate/internals,
 /obj/item/storage/bag/inflatable,
-/obj/item/device/oxycandle,
+/obj/item/oxycandle,
 /obj/item/tank/emergency_oxygen{
 	pixel_x = 5
 	},
@@ -4898,7 +4898,7 @@
 /area/database_freighter/engineering)
 "Th" = (
 /obj/structure/table/wood,
-/obj/item/device/flashlight/lamp,
+/obj/item/flashlight/lamp,
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},

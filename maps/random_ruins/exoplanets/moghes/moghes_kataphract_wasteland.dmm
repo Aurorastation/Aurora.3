@@ -83,7 +83,7 @@
 /turf/simulated/floor/exoplanet/carpet/orange,
 /area/moghes/kataphract_wasteland/tent)
 "n" = (
-/obj/item/device/flashlight/lamp/box,
+/obj/item/flashlight/lamp/box,
 /turf/simulated/floor/exoplanet/carpet/lightblue,
 /area/moghes/kataphract_wasteland/tent)
 "o" = (
@@ -91,9 +91,9 @@
 /obj/item/saddle,
 /obj/item/clothing/suit/armor/unathi/hegemony,
 /obj/item/clothing/head/helmet/unathi/hegemony,
-/obj/item/device/radio,
-/obj/item/device/geiger,
-/obj/item/device/gps,
+/obj/item/radio,
+/obj/item/geiger,
+/obj/item/gps,
 /obj/item/gun/energy/pistol/hegemony,
 /turf/simulated/floor/exoplanet/carpet/orange,
 /area/moghes/kataphract_wasteland/tent)
@@ -241,12 +241,12 @@
 /area/moghes/kataphract_wasteland/tent)
 "N" = (
 /obj/random/dirt_75,
-/obj/item/device/flashlight/lamp/box,
+/obj/item/flashlight/lamp/box,
 /turf/simulated/floor/exoplanet/carpet/orange,
 /area/moghes/kataphract_wasteland/tent)
 "O" = (
 /obj/random/dirt_75,
-/obj/item/device/flashlight/lantern,
+/obj/item/flashlight/lantern,
 /turf/simulated/floor/exoplanet/carpet/orange,
 /area/moghes/kataphract_wasteland/tent)
 "Q" = (
@@ -284,7 +284,7 @@
 /turf/simulated/floor/exoplanet/carpet/orange,
 /area/moghes/kataphract_wasteland/tent)
 "W" = (
-/obj/item/device/flashlight/lantern,
+/obj/item/flashlight/lantern,
 /turf/simulated/floor/exoplanet/carpet/orange,
 /area/moghes/kataphract_wasteland/tent)
 "X" = (
@@ -298,13 +298,13 @@
 /obj/item/clothing/head/helmet/unathi/hegemony,
 /obj/item/clothing/head/helmet/unathi/hegemony,
 /obj/item/clothing/head/helmet/unathi/hegemony,
-/obj/item/device/radio,
-/obj/item/device/radio,
-/obj/item/device/radio,
-/obj/item/device/geiger,
-/obj/item/device/geiger,
-/obj/item/device/geiger,
-/obj/item/device/gps,
+/obj/item/radio,
+/obj/item/radio,
+/obj/item/radio,
+/obj/item/geiger,
+/obj/item/geiger,
+/obj/item/geiger,
+/obj/item/gps,
 /obj/item/gun/energy/pistol/hegemony,
 /obj/item/gun/energy/pistol/hegemony,
 /obj/item/gun/energy/pistol/hegemony,

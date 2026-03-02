@@ -44,7 +44,7 @@
 /obj/machinery/power/smes/batteryrack/attackby(obj/item/attacking_item, mob/user) //these can only be moved by being reconstructed, solves having to remake the powernet.
 	..() //SMES attackby for now handles screwdriver, cable coils and wirecutters, no need to repeat that here
 	if(open_hatch)
-		if(attacking_item.iscrowbar())
+		if(attacking_item.tool_behaviour == TOOL_CROWBAR)
 			if (charge < (capacity / 100))
 				if (!output_attempt && !input_attempt)
 					attacking_item.play_tool_sound(get_turf(src), 50)
@@ -156,7 +156,8 @@
 	if(terminal)
 		if(input_attempt)
 			var/target_load = min((capacity-charge)/SMESRATE, input_level)		// charge at set rate, limited to spare capacity
-			var/actual_load = draw_power(target_load)		// add the load to the terminal side network
+			var/actual_load = POWER_DRAW(src, target_load)		// add the load to the terminal side network
+			DRAW_POWER(src, actual_load)
 			charge += actual_load * SMESRATE	// increase the charge
 
 			if (actual_load >= target_load) // did the powernet have enough power available for us?
@@ -167,7 +168,7 @@
 	if(output_attempt)		// if outputting
 		output_used = min( charge/SMESRATE, output_level)		//limit output to that stored
 		charge -= output_used*SMESRATE		// reduce the storage (may be recovered in /restore() if excessive)
-		add_avail(output_used)				// add output to powernet (smes side)
+		ADD_TO_POWERNET(src, output_used)				// add output to powernet (smes side)
 		if(charge < 0.0001)
 			outputting(0)					// stop output if charge falls to zero
 

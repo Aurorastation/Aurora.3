@@ -2179,9 +2179,9 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/obj/item/storage/box/produce,
-/obj/item/storage/box/produce,
-/obj/item/storage/box/produce,
+/obj/item/storage/box/large/produce,
+/obj/item/storage/box/large/produce,
+/obj/item/storage/box/large/produce,
 /turf/simulated/floor/lino/diamond,
 /area/miners_guild/canteen)
 "qD" = (
@@ -4033,7 +4033,7 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/obj/item/device/multitool{
+/obj/item/multitool{
 	pixel_x = 6
 	},
 /turf/simulated/floor/tiled/steel,
@@ -5172,16 +5172,16 @@
 /obj/item/crowbar/red,
 /obj/item/crowbar/red,
 /obj/item/crowbar/red,
-/obj/item/device/analyzer,
-/obj/item/device/analyzer,
-/obj/item/device/analyzer,
+/obj/item/analyzer,
+/obj/item/analyzer,
+/obj/item/analyzer,
 /obj/effect/floor_decal/corner/brown/full,
 /obj/item/ore_detector,
 /obj/item/ore_detector,
 /obj/item/ore_detector,
-/obj/item/device/flashlight/lantern,
-/obj/item/device/flashlight/lantern,
-/obj/item/device/flashlight/lantern,
+/obj/item/flashlight/lantern,
+/obj/item/flashlight/lantern,
+/obj/item/flashlight/lantern,
 /obj/machinery/light,
 /turf/simulated/floor/tiled/steel{
 	temperature = 278.15
@@ -6636,7 +6636,7 @@
 /obj/item/clothing/head/helmet/space/void/mining,
 /obj/item/clothing/mask/breath,
 /obj/item/clothing/shoes/magboots,
-/obj/item/device/gps/mining,
+/obj/item/gps/mining,
 /obj/effect/floor_decal/corner/brown{
 	dir = 5
 	},

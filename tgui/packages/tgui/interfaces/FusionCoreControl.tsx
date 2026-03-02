@@ -2,7 +2,18 @@ import { round } from '../../common/math';
 import { BooleanLike } from '../../common/react';
 import { capitalize } from '../../common/string';
 import { useBackend, useSharedState } from '../backend';
-import { Box, Button, Dimmer, Divider, Flex, LabeledList, NoticeBox, NumberInput, ProgressBar, Section } from '../components';
+import {
+  Box,
+  Button,
+  Dimmer,
+  Divider,
+  Flex,
+  LabeledList,
+  NoticeBox,
+  NumberInput,
+  ProgressBar,
+  Section,
+} from '../components';
 import { Window } from '../layouts';
 
 export type FusionCoreData = {
@@ -40,7 +51,7 @@ export const FusionCoreControl = (props, context) => {
   const [override, setOverride] = useSharedState<boolean>(
     context,
     'override',
-    false
+    false,
   );
   return (
     <Window resizable width={800} height={500} theme={data.manufacturer}>
@@ -72,7 +83,8 @@ export const FusionCoreControl = (props, context) => {
                     disabled={core.field}
                   />
                 )
-              }>
+              }
+            >
               {!core.shutdown_safe ? (
                 <NoticeBox>
                   Fusion core shutdown locked for safety reasons.{' '}

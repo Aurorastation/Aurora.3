@@ -3087,9 +3087,7 @@
 /turf/simulated/floor/plating,
 /area/enviro_testing_facility/inside/testing_dome/boris)
 "kr" = (
-/obj/machinery/autolathe{
-	hacked = 1
-	},
+/obj/machinery/fabricator/autolathe/hacked,
 /obj/machinery/alarm/north{
 	req_one_access = null
 	},
@@ -3120,7 +3118,7 @@
 /turf/simulated/floor/plating,
 /area/enviro_testing_facility/inside/operations/fabrication)
 "kw" = (
-/obj/item/device/flashlight/lantern{
+/obj/item/flashlight/lantern{
 	pixel_x = 6;
 	pixel_y = -8
 	},
@@ -3899,11 +3897,11 @@
 /turf/simulated/floor/plating,
 /area/enviro_testing_facility/inside/maintenance/center_east)
 "nm" = (
-/obj/item/device/binoculars/high_power{
+/obj/item/binoculars/high_power{
 	pixel_x = -3;
 	pixel_y = 13
 	},
-/obj/item/device/binoculars{
+/obj/item/binoculars{
 	pixel_x = 3;
 	pixel_y = 3
 	},
@@ -5370,10 +5368,10 @@
 /area/enviro_testing_facility/inside/maintenance/control)
 "rX" = (
 /obj/structure/closet/crate/freezer,
-/obj/item/storage/box/produce,
-/obj/item/storage/box/produce,
-/obj/item/storage/box/produce,
-/obj/item/storage/box/produce,
+/obj/item/storage/box/large/produce,
+/obj/item/storage/box/large/produce,
+/obj/item/storage/box/large/produce,
+/obj/item/storage/box/large/produce,
 /obj/effect/floor_decal/industrial/outline/service,
 /turf/simulated/floor/plating,
 /area/enviro_testing_facility/inside/maintenance/center_east)
@@ -5607,7 +5605,7 @@
 "sR" = (
 /obj/structure/table/rack,
 /obj/item/melee/telebaton,
-/obj/item/device/flashlight/maglight,
+/obj/item/flashlight/maglight,
 /obj/item/storage/box/handcuffs,
 /obj/item/handcuffs,
 /turf/simulated/floor/tiled/dark,
@@ -6873,7 +6871,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/enviro_testing_facility/inside/hallway/east)
 "xo" = (
-/obj/item/device/camera,
+/obj/item/camera,
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 6
 	},
@@ -7076,7 +7074,7 @@
 /turf/simulated/floor/plating,
 /area/enviro_testing_facility/inside/maintenance/center_far)
 "xV" = (
-/obj/item/device/camera_film{
+/obj/item/camera_film{
 	pixel_x = -3;
 	pixel_y = 3
 	},
@@ -7626,7 +7624,7 @@
 /area/enviro_testing_facility/inside/maintenance/center_east)
 "zD" = (
 /obj/structure/table/steel,
-/obj/item/device/cratescanner{
+/obj/item/cratescanner{
 	pixel_y = 7;
 	pixel_x = -2
 	},
@@ -7791,7 +7789,7 @@
 	},
 /obj/structure/table/rack,
 /obj/item/melee/telebaton,
-/obj/item/device/flashlight/maglight,
+/obj/item/flashlight/maglight,
 /obj/item/storage/box/handcuffs,
 /obj/item/handcuffs,
 /turf/simulated/floor/tiled/dark,
@@ -8703,7 +8701,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/enviro_testing_facility/inside/hallway/east)
 "Dh" = (
-/obj/item/device/camera_film{
+/obj/item/camera_film{
 	pixel_x = 3;
 	pixel_y = 10
 	},
@@ -10288,7 +10286,7 @@
 /obj/machinery/door/firedoor/noid,
 /obj/structure/table/reinforced/steel,
 /obj/machinery/door/window/southright,
-/obj/item/device/flashlight/lamp/off{
+/obj/item/flashlight/lamp/off{
 	pixel_x = 1;
 	pixel_y = 12
 	},
@@ -11876,7 +11874,7 @@
 /obj/machinery/alarm/west{
 	req_one_access = null
 	},
-/obj/item/device/flashlight/lamp/off{
+/obj/item/flashlight/lamp/off{
 	pixel_x = 4;
 	pixel_y = 8
 	},
@@ -12792,7 +12790,7 @@
 /turf/simulated/floor/plating,
 /area/enviro_testing_facility/inside/maintenance/center_east)
 "QR" = (
-/obj/machinery/autolathe,
+/obj/machinery/fabricator/autolathe,
 /turf/simulated/floor/tiled,
 /area/template_noop)
 "QU" = (
@@ -14717,7 +14715,7 @@
 /area/enviro_testing_facility/inside/crew/cryo_2)
 "Xi" = (
 /obj/structure/table/standard,
-/obj/item/device/laser_pointer/red{
+/obj/item/laser_pointer/red{
 	pixel_x = 1;
 	pixel_y = 5
 	},
@@ -14752,7 +14750,7 @@
 /area/enviro_testing_facility/inside/hallway/east)
 "Xq" = (
 /obj/structure/table/reinforced/wood,
-/obj/item/device/flashlight/lamp/green{
+/obj/item/flashlight/lamp/green{
 	pixel_x = 5;
 	pixel_y = 6
 	},

@@ -1,7 +1,15 @@
 import { BooleanLike } from '../../common/react';
 import { capitalizeAll } from '../../common/string';
 import { useBackend, useLocalState } from '../backend';
-import { Box, Button, Flex, Input, LabeledList, NoticeBox, Section } from '../components';
+import {
+  Box,
+  Button,
+  Flex,
+  Input,
+  LabeledList,
+  NoticeBox,
+  Section,
+} from '../components';
 import { Window } from '../layouts';
 
 export type VendingData = {
@@ -57,7 +65,7 @@ export const ShowAllItems = (props, context) => {
   const [searchTerm, setSearchTerm] = useLocalState<string>(
     context,
     `searchTerm`,
-    ``
+    ``,
   );
 
   return (
@@ -93,7 +101,7 @@ export const ShowAllItems = (props, context) => {
         {data.products
           .filter(
             (product) =>
-              product.name.toLowerCase().indexOf(searchTerm.toLowerCase()) > -1
+              product.name.toLowerCase().indexOf(searchTerm.toLowerCase()) > -1,
           )
           ?.map((product) => (
             <Button
@@ -104,7 +112,8 @@ export const ShowAllItems = (props, context) => {
               style={{
                 height: '70px',
                 width: '70px',
-              }}>
+              }}
+            >
               <Box
                 as="img"
                 className={product.icon_tag}
@@ -149,7 +158,8 @@ export const ShowVendingItem = (props, context) => {
           color="bad"
           onClick={() => act('cancelpurchase')}
         />
-      }>
+      }
+    >
       <LabeledList>
         <LabeledList.Item label="Selected Item">
           {capitalizeAll(data.sel_name)}

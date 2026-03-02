@@ -38,7 +38,7 @@
 
 /obj/machinery/computer/ship/sensors/terminal
 	name = "sensors terminal"
-	icon = 'icons/obj/machinery/modular_terminal.dmi'
+	icon = 'icons/obj/modular_computers/modular_terminal.dmi'
 	icon_screen = "teleport"
 	icon_keyboard = "teleport_key"
 	icon_keyboard_emis = "teleport_key_mask"
@@ -392,7 +392,7 @@
 		if(direction != "clear")
 			security_announcement.Announce("Enemy fire inbound, enemy fire inbound! [sanitizeSafe(direction)]!", "Brace for shock!", sound('sound/mecha/internaldmgalarm.ogg', volume = 90), 0)
 		else
-			security_announcement.Announce("No fire is incoming at the current moment, resume damage control.", "Space clear!", sound('sound/misc/announcements/security_level_old.ogg'), 0)
+			security_announcement.Announce("No fire is incoming at the current moment, resume damage control.", "Space clear!", sound('sound/ai/announcements/security_level_old.ogg'), 0)
 		return TRUE
 
 /obj/machinery/shipsensors
@@ -437,8 +437,8 @@
 		return TRUE
 	if(default_part_replacement(user, attacking_item))
 		return TRUE
-	var/damage = maxhealth - health
-	if(damage && attacking_item.iswelder())
+	var/damage = max_health - health
+	if(damage && attacking_item.tool_behaviour == TOOL_WELDER)
 
 		var/obj/item/weldingtool/WT = attacking_item
 
@@ -461,7 +461,7 @@
 	var/turf/T=get_turf(src)
 	if(istype(T))
 		var/datum/gas_mixture/environment = T.return_air()
-		if(environment && environment.return_pressure() > MINIMUM_PRESSURE_DIFFERENCE_TO_SUSPEND)
+		if(SAFE_XGM_PRESSURE(environment) > MINIMUM_PRESSURE_DIFFERENCE_TO_SUSPEND)
 			return 0
 	return 1
 

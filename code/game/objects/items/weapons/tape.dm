@@ -6,7 +6,7 @@
 	w_class = WEIGHT_CLASS_TINY
 	drop_sound = 'sound/items/drop/cardboardbox.ogg'
 	pickup_sound = 'sound/items/pickup/cardboardbox.ogg'
-	surgerysound = /singleton/sound_category/rip_sound
+	surgerysound = SFX_RIP
 
 /obj/item/tape_roll/attack(mob/living/target_mob, mob/living/user, target_zone)
 	var/mob/living/carbon/human/H = target_mob
@@ -34,7 +34,7 @@
 			if(!H || !src || !H.organs_by_name[BP_HEAD] || !H.has_eyes() || H.glasses || (H.head && (H.head.body_parts_covered & FACE)))
 				return
 
-			playsound(src, /singleton/sound_category/rip_sound, 25)
+			playsound(src, SFX_RIP, 25)
 			user.visible_message(SPAN_DANGER("\The [user] has taped up \the [H]'s eyes!"))
 			H.equip_to_slot_or_del(new /obj/item/clothing/glasses/sunglasses/blindfold/tape(H), slot_glasses)
 			H.update_inv_glasses()
@@ -53,7 +53,7 @@
 				to_chat(user, SPAN_WARNING("Remove their [H.head] first."))
 				return
 
-			playsound(src, /singleton/sound_category/rip_sound, 25)
+			playsound(src, SFX_RIP, 25)
 			user.visible_message(SPAN_DANGER("\The [user] begins taping up \the [H]'s mouth!"))
 
 			if(!do_after(user, 3 SECONDS, H, DO_UNIQUE))
@@ -63,13 +63,13 @@
 			if(!H || !src || !H.organs_by_name[BP_HEAD] || !H.check_has_mouth() || H.wear_mask || (H.head && (H.head.body_parts_covered & FACE)))
 				return
 
-			playsound(src, /singleton/sound_category/rip_sound,25)
+			playsound(src, SFX_RIP,25)
 			user.visible_message(SPAN_DANGER("\The [user] has taped up \the [H]'s mouth!"))
 			H.equip_to_slot_or_del(new /obj/item/clothing/mask/muzzle/tape(H), slot_wear_mask)
 			H.update_inv_wear_mask()
 
 		else if(target_zone == BP_R_HAND || target_zone == BP_L_HAND)
-			playsound(src, /singleton/sound_category/rip_sound,25)
+			playsound(src, SFX_RIP,25)
 			var/obj/item/handcuffs/cable/tape/T = new(user)
 			if(!T.place_handcuffs(H, user))
 				user.unEquip(T)
@@ -144,7 +144,7 @@
 			return											// reduce papers around corners issue.
 
 	user.drop_from_inventory(src,source_turf)
-	playsound(src, /singleton/sound_category/rip_sound,25)
+	playsound(src, SFX_RIP,25)
 
 	if(params)
 		var/list/mouse_control = mouse_safe_xy(params)

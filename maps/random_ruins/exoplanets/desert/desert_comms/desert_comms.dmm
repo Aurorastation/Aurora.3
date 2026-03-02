@@ -173,7 +173,7 @@
 /turf/simulated/floor/tiled/techmaint,
 /area/desert_comms)
 "fb" = (
-/obj/item/device/flashlight/flare/glowstick/red{
+/obj/item/flashlight/flare/glowstick/red{
 	on = 1
 	},
 /turf/simulated/floor/exoplanet/desert,
@@ -332,9 +332,9 @@
 /obj/item/clothing/suit/armor/carrier/military{
 	starting_accessories = list(/obj/item/clothing/accessory/armor_plate/military,/obj/item/clothing/accessory/storage/modular_pouch)
 	},
-/obj/item/device/flashlight/maglight,
-/obj/item/device/flashlight/maglight,
-/obj/item/device/flashlight/maglight,
+/obj/item/flashlight/maglight,
+/obj/item/flashlight/maglight,
+/obj/item/flashlight/maglight,
 /obj/item/storage/belt/military,
 /obj/item/storage/belt/military,
 /obj/item/storage/belt/military,
@@ -851,7 +851,7 @@
 /obj/structure/closet/crate/tool,
 /obj/item/clothing/head/welding,
 /obj/item/clothing/gloves/yellow,
-/obj/item/device/multitool,
+/obj/item/multitool,
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1;
 	level = 2
@@ -1319,7 +1319,7 @@
 /obj/structure/table/rack,
 /obj/effect/decal/cleanable/dirt,
 /obj/item/newspaper,
-/obj/item/device/gps,
+/obj/item/gps,
 /turf/simulated/floor/tiled,
 /area/desert_comms)
 "Ky" = (

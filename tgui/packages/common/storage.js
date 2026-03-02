@@ -27,7 +27,7 @@ const testGeneric = (testFn) => () => {
 };
 
 const testHubStorage = testGeneric(
-  () => window.hubStorage && window.hubStorage.getItem
+  () => window.hubStorage && window.hubStorage.getItem,
 );
 
 // TODO: Remove with 516
@@ -148,7 +148,7 @@ class IFrameIndexedDbBackend {
   async processChatMessages(messages) {
     this.iframeWindow.postMessage(
       { type: 'processChatMessages', messages: messages },
-      '*'
+      '*',
     );
   }
 
@@ -168,7 +168,7 @@ class IFrameIndexedDbBackend {
   async setNumberStored(number) {
     this.iframeWindow.postMessage(
       { type: 'setNumberStored', newMax: number },
-      '*'
+      '*',
     );
   }
 
@@ -278,7 +278,7 @@ export class StorageProxy {
         } catch {}
       }
       console.warn(
-        'No supported storage backend found. Using in-memory storage.'
+        'No supported storage backend found. Using in-memory storage.',
       );
       return new MemoryBackend();
     })();

@@ -72,7 +72,7 @@
 			qdel(grenade_casing)
 			update_icon()
 
-	if(attacking_item.isscrewdriver() && bombcasing > BOMBCASING_EMPTY)
+	if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER && bombcasing > BOMBCASING_EMPTY)
 		if(bombcasing == BOMBCASING_LOOSE)
 			bombcasing = BOMBCASING_SECURE
 			shrapnelcount = 14
@@ -107,7 +107,7 @@
 		else
 			to_chat(user, SPAN_WARNING("There is no opening on \the [name] for the steel wool!"))
 
-	else if(attacking_item.iswirecutter() && fuselength)
+	else if(attacking_item.tool_behaviour == TOOL_WIRECUTTER && fuselength)
 		switch(fuselength)
 			if(1 to FUSELENGTH_MIN) // you can't increase the fuse with wirecutters and you can't trim it down below 3, so just remove it outright.
 				user.visible_message("<b>[user]</b> removes the steel wool from \the [name].",
@@ -473,6 +473,16 @@
 	desc_extended = "Fermend fatshouters milk is a drink that originated among the nomadic populations of Rhazar'Hrujmagh, and it has spread to the rest of Adhomai."
 
 	reagents_to_add = list(/singleton/reagent/drink/milk/adhomai/fermented = 30)
+
+/obj/item/reagent_containers/food/drinks/cans/earthen_juice
+	name = "earthen-root juice"
+	desc = "A can of earthen-root juice, imported from Adhomai."
+	icon_state = "earthen_can"
+	item_state = "earthen_can"
+	center_of_mass = list("x"=16, "y"=10)
+	desc_extended = "The Earthen-Root, or Binajr-nab'at, is a herbaceous plant native to the region of the Northern Harr'masir, and is popular in the New Kingdom of Adhomai due to it's resilience in harsh environments. Common uses for the Earth-Root, besides being used in dishes, include distillation to brew alcoholic beverages, extraction of the blue pigment for the fabrication of dyes, and the production of sugar."
+
+	reagents_to_add = list(/singleton/reagent/drink/earthenrootjuice = 30)
 
 /obj/item/reagent_containers/food/drinks/cans/beetle_milk
 	name = "\improper Hakhma Milk"

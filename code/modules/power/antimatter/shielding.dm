@@ -219,7 +219,7 @@
 	control_unit.reported_core_efficiency += (new_efficiency - efficiency)
 	efficiency = new_efficiency
 
-/obj/item/device/am_shielding_container
+/obj/item/am_shielding_container
 	name = "packaged antimatter reactor section"
 	desc = "A section of antimatter reactor shielding. Do not eat."
 	icon = 'icons/obj/machinery/antimatter.dmi'
@@ -229,12 +229,12 @@
 	throw_speed = 1
 	throw_range = 2
 
-/obj/item/device/am_shielding_container/mechanics_hints(mob/user, distance, is_adjacent)
+/obj/item/am_shielding_container/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	. += "To deploy, drop near an antimatter control unit or an existing deployed section and use your multitool on it."
 
-/obj/item/device/am_shielding_container/attackby(obj/item/attacking_item, mob/user)
-	if(attacking_item.ismultitool() && isturf(loc))
+/obj/item/am_shielding_container/attackby(obj/item/attacking_item, mob/user)
+	if(attacking_item.tool_behaviour == TOOL_MULTITOOL && isturf(loc))
 		if(locate(/obj/machinery/am_shielding) in loc)
 			to_chat(user, SPAN_WARNING("There is already an antimatter reactor section there."))
 			return

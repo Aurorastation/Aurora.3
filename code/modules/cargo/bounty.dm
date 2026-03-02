@@ -16,7 +16,7 @@
 
 /datum/bounty/New()
 	if(reward_low > 0 && reward_high > reward_low)
-		reward = round(rand(reward_low, reward_high), 100)
+		reward = round(rand(reward_low, reward_high), 10)
 	description = replacetext(description, "%DOCKNAME", SSatlas.current_map.dock_name)
 	description = replacetext(description, "%DOCKSHORT", SSatlas.current_map.dock_short)
 	description = replacetext(description, "%BOSSNAME", SSatlas.current_map.boss_name)
@@ -31,7 +31,7 @@
 
 // Displayed on bounty UI screen.
 /datum/bounty/proc/reward_string()
-	return "[reward] Credits"
+	return "[reward]电"
 
 /datum/bounty/proc/can_claim()
 	return !claimed
@@ -209,7 +209,7 @@
 
 	if(prob(60))
 		//phoron bounties
-		var/datum/bounty/item/phoron_bounty = pick(/datum/bounty/item/phoron_sheet, /datum/bounty/item/solar_array)
+		var/datum/bounty/item/phoron_bounty = pick(/datum/bounty/item/phoron_sheet, /datum/bounty/item/engineer/solar)
 		try_add_bounty(new phoron_bounty)
 	else
 		var/datum/bounty/B = pick(bounties_list)

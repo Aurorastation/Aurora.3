@@ -55,11 +55,10 @@ ABSTRACT_TYPE(/mob/living/simple_animal/hostile)
 
 /mob/living/simple_animal/hostile/Destroy()
 	friends = null
-	last_found_target = null
+	unset_last_found_target()
 	targets = null
 	target_type_validator_map = null
 	return ..()
-
 
 /mob/living/simple_animal/hostile/proc/setup_target_type_validators()
 	target_type_validator_map[/mob/living] = CALLBACK(src, PROC_REF(validator_living))
@@ -74,6 +73,10 @@ ABSTRACT_TYPE(/mob/living/simple_animal/hostile)
 
 /mob/living/simple_animal/hostile/proc/FindTarget()
 	if(!faction) //No faction, no reason to attack anybody.
+		return null
+
+	// Reduce spam for when you put 20 rogue maint drones in a box.
+	if(!isturf(loc) && prob(33))
 		return null
 
 	var/atom/T = null
@@ -275,7 +278,7 @@ ABSTRACT_TYPE(/mob/living/simple_animal/hostile)
 	if(target)
 		face_atom(target)
 		if(!ranged && smart_melee)
-			addtimer(CALLBACK(src, PROC_REF(PostAttack), target), 1.2 SECONDS)
+			addtimer(CALLBACK(src, PROC_REF(PostAttack), target), 1.2 SECONDS, TIMER_STOPPABLE|TIMER_DELETE_ME)
 		return target
 
 /mob/living/simple_animal/hostile/proc/PostAttack(var/atom/target)
@@ -386,9 +389,9 @@ ABSTRACT_TYPE(/mob/living/simple_animal/hostile)
 
 	if(rapid)
 		var/datum/callback/shoot_cb = CALLBACK(src, PROC_REF(shoot_wrapper), target, loc, src)
-		addtimer(shoot_cb, 1)
-		addtimer(shoot_cb, 4)
-		addtimer(shoot_cb, 6)
+		addtimer(shoot_cb, 1, TIMER_STOPPABLE|TIMER_DELETE_ME)
+		addtimer(shoot_cb, 4, TIMER_STOPPABLE|TIMER_DELETE_ME)
+		addtimer(shoot_cb, 6, TIMER_STOPPABLE|TIMER_DELETE_ME)
 	else
 		shoot_wrapper(target, loc, src)
 
@@ -417,7 +420,7 @@ ABSTRACT_TYPE(/mob/living/simple_animal/hostile)
 	Shoot(target, location, user)
 	if(casingtype)
 		new casingtype(loc)
-		playsound(src, /singleton/sound_category/casing_drop_sound, 50, TRUE)
+		playsound(src, SFX_CASING_DROP, 50, TRUE)
 
 /mob/living/simple_animal/hostile/proc/Shoot(var/target, var/start, var/mob/user, var/bullet = 0)
 	if(target == start)
@@ -431,6 +434,10 @@ ABSTRACT_TYPE(/mob/living/simple_animal/hostile)
 	if(ON_ATTACK_COOLDOWN(src))
 		return FALSE
 
+	// Can't break shit from inside crates and whatnot.
+	if(!isturf(loc))
+		return
+
 	if(prob(break_stuff_probability) || bypass_prob) //bypass_prob is used to make mob destroy things in the way to our target
 		for(var/card_dir in GLOB.cardinals) // North, South, East, West
 			var/turf/target_turf = get_step(src, card_dir)
@@ -439,7 +446,7 @@ ABSTRACT_TYPE(/mob/living/simple_animal/hostile)
 			found_obj = locate(/obj/effect/energy_field) in target_turf
 			if(found_obj && !found_obj.invisibility && found_obj.density)
 				var/obj/effect/energy_field/e = found_obj
-				e.Stress(rand(0.5, 1.5))
+				e.damage_field(rand(0.5, 1.5))
 				visible_message(SPAN_DANGER("[capitalize_first_letters(src.name)] [attacktext] \the [e]!"))
 				src.do_attack_animation(e)
 				set_last_found_target(e)
@@ -511,42 +518,6 @@ ABSTRACT_TYPE(/mob/living/simple_animal/hostile)
 			if(target && Adjacent(target))
 				return UnarmedAttack(target, TRUE)
 	return ..()
-
-/mob/living/simple_animal/hostile/proc/check_horde()
-	if(GLOB.evacuation_controller.is_prepared())
-		if(!enroute && !last_found_target)	//The shuttle docked, all monsters rush for the escape hallway
-			if(!shuttletarget && GLOB.escape_list.len) //Make sure we didn't already assign it a target, and that there are targets to pick
-				shuttletarget = pick(GLOB.escape_list) //Pick a shuttle target
-			enroute = 1
-			stop_automated_movement = 1
-			if(!src.stat)
-				horde()
-
-		if(get_dist(src, shuttletarget) <= 2)		//The monster reached the escape hallway
-			enroute = 0
-			stop_automated_movement = 0
-
-/mob/living/simple_animal/hostile/proc/horde()
-	var/turf/T = get_step_to(src, shuttletarget)
-	for(var/atom/A in T)
-		if(istype(A,/obj/machinery/door/airlock))
-			var/obj/machinery/door/airlock/D = A
-			D.open(1)
-		else if(istype(A,/obj/structure/simple_door))
-			var/obj/structure/simple_door/D = A
-			if(D.density)
-				D.Open()
-		else if(istype(A,/obj/structure/cult/pylon))
-			A.attack_generic(src, rand(melee_damage_lower, melee_damage_upper))
-		else if(istype(A, /obj/structure/window) || istype(A, /obj/structure/closet) || istype(A, /obj/structure/table) || istype(A, /obj/structure/grille))
-			A.attack_generic(src, rand(melee_damage_lower, melee_damage_upper))
-	Move(T)
-	var/atom/target = FindTarget()
-	if(istype(target) && !QDELETED(target))
-		set_last_found_target(target)
-	if(!last_found_target || enroute)
-		if(!src.stat)
-			horde()
 
 //////////////////////////////
 ///////VALIDATOR PROCS////////

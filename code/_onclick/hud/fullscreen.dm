@@ -114,6 +114,10 @@
 	icon_state = "brutedamageoverlay6"
 	alpha = 0
 
+/atom/movable/screen/fullscreen/robot_pain
+	icon = 'icons/mob/screen/robot_pain.dmi'
+	alpha = 255
+
 /atom/movable/screen/fullscreen/flash
 	icon = 'icons/mob/screen/effects.dmi'
 	screen_loc = "WEST,SOUTH to EAST,NORTH"
@@ -158,3 +162,33 @@
 	icon_state = "base"
 	screen_loc = ui_entire_screen
 	alpha = 100
+
+/atom/movable/screen/fullscreen/blueprints/less_alpha
+	alpha = 35
+
+/atom/movable/screen/fullscreen/lighting_backdrop
+	icon = 'icons/mob/screen/white.dmi'
+	icon_state = "flash"
+	transform = matrix(200, 0, 0, 0, 200, 0)
+	plane = LIGHTING_PLANE
+	blend_mode = BLEND_OVERLAY
+
+//Provides darkness to the back of the lighting plane
+/atom/movable/screen/fullscreen/lighting_backdrop/lit_secondary
+	invisibility = INVISIBILITY_LIGHTING
+	layer = BACKGROUND_LAYER + LIGHTING_PRIMARY_DIMMER_LAYER
+	color = "#000"
+	alpha = 60
+
+/atom/movable/screen/fullscreen/lighting_backdrop/backplane
+	invisibility = INVISIBILITY_LIGHTING
+	layer = LIGHTING_BACKPLANE_LAYER
+	color = "#000"
+	blend_mode = BLEND_ADD
+	//show_when_dead = TRUE
+
+/atom/movable/screen/fullscreen/see_through_darkness
+	icon_state = "nightvision"
+	plane = LIGHTING_PLANE
+	layer = LIGHTING_PRIMARY_LAYER
+	blend_mode = BLEND_ADD

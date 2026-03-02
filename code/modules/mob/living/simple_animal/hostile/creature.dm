@@ -37,6 +37,3 @@
 /mob/living/simple_animal/hostile/creature/cult/cultify()
 	return
 
-/mob/living/simple_animal/hostile/creature/cult/Life(seconds_per_tick, times_fired)
-	..()
-	check_horde()

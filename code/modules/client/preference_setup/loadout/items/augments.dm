@@ -163,8 +163,8 @@
 /datum/gear/augment/psiaug
 	display_name = "psionic receiver"
 	description = "An augment installed into the head that functions as a surrogate for a missing zona bovinae, also functioning as a filter for the psionically-challenged."
-	path = /obj/item/organ/internal/augment/psi
-	whitelisted = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD, SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI, SPECIES_UNATHI, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_ATTENDANT, SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_BREEDER, SPECIES_IPC, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU, SPECIES_IPC_BISHOP, SPECIES_IPC_SHELL)
+	path = /obj/item/organ/internal/augment/bioaug/psi
+	whitelisted = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD, SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI, SPECIES_UNATHI, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_ATTENDANT, SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_BREEDER)
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
 
 /datum/gear/augment/memory_inhibitor
@@ -323,6 +323,14 @@
 	whitelisted = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD)
 	cost = 2
 
+/datum/gear/augment/gravity_adaptations
+	display_name = "Gravity Adaptations"
+	description = "A suite of chemical glands, tailored genetic therapies, and skeletal reinforcements that are aimed towards Galatean Off-worlders. These bioaugmentations serve to eliminate the weakness experienced by Off-worlders in standard terrestrial gravity."
+	path = /obj/item/organ/internal/augment/bioaug/gravity_adaptations
+	origin_restriction = list(/singleton/origin_item/origin/galatea)
+	whitelisted = list(SPECIES_HUMAN_OFFWORLD)
+	cost = 1
+
 /datum/gear/augment/mind_blanker
 	display_name = "Galatean Mind Blanker"
 	description = "A small, discrete organ attached near the base of the brainstem. Any attempt to read the mind of an individual with this augment installed will fail, as will attempts at psychic brainwashing."
@@ -345,29 +353,26 @@
 	description = "A fluff based bioaug that can be renamed/redescribed to appear as something else for RP purposes."
 	path = /obj/item/organ/internal/augment/bioaug/head_fluff
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
-	origin_restriction = list(/singleton/origin_item/origin/galatea)
-	whitelisted = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD)
+	whitelisted = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD, SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_DIONA, SPECIES_DIONA_COEUS, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_ATTENDANT, SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_BREEDER, SPECIES_UNATHI)
+
 
 /datum/gear/augment/bio_chest_fluff
 	display_name = "custom chest bioaug"
 	description = "A fluff based bioaug that can be renamed/redescribed to appear as something else for RP purposes."
 	path = /obj/item/organ/internal/augment/bioaug/head_fluff/chest_fluff
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
-	origin_restriction = list(/singleton/origin_item/origin/galatea)
-	whitelisted = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD)
+	whitelisted = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD, SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_DIONA, SPECIES_DIONA_COEUS, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_ATTENDANT, SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_BREEDER, SPECIES_UNATHI)
 
 /datum/gear/augment/bio_rhand_fluff
 	display_name = "custom right hand bioaug"
 	description = "A fluff based bioaug that can be renamed/redescribed to appear as something else for RP purposes."
 	path = /obj/item/organ/internal/augment/bioaug/head_fluff/rhand_fluff
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
-	origin_restriction = list(/singleton/origin_item/origin/galatea)
-	whitelisted = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD)
+	whitelisted = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD, SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_DIONA, SPECIES_DIONA_COEUS, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_ATTENDANT, SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_BREEDER, SPECIES_UNATHI)
 
 /datum/gear/augment/bio_lhand_fluff
 	display_name = "custom left hand bioaug"
 	description = "A fluff based bioaug that can be renamed/redescribed to appear as something else for RP purposes."
 	path = /obj/item/organ/internal/augment/bioaug/head_fluff/lhand_fluff
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
-	origin_restriction = list(/singleton/origin_item/origin/galatea)
-	whitelisted = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD)
+	whitelisted = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD, SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_DIONA, SPECIES_DIONA_COEUS, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_ATTENDANT, SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_BREEDER, SPECIES_UNATHI)

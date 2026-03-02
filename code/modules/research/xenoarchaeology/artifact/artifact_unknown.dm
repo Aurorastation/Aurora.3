@@ -227,14 +227,14 @@
 			istype(attacking_item,/obj/item/melee/energy) ||\
 			istype(attacking_item,/obj/item/melee/cultblade) ||\
 			istype(attacking_item,/obj/item/card/emag) ||\
-			attacking_item.ismultitool())
+			attacking_item.tool_behaviour == TOOL_MULTITOOL)
 		if (my_effect.trigger == TRIGGER_ENERGY)
 			my_effect.ToggleActivate()
 		if(secondary_effect?.trigger == TRIGGER_ENERGY)
 			secondary_effect.ToggleActivate()
 
 	else if (istype(attacking_item,/obj/item/flame) && attacking_item:lit ||\
-			attacking_item.iswelder() && attacking_item:welding)
+			attacking_item.tool_behaviour == TOOL_WELDER && attacking_item:welding)
 		if(my_effect.trigger == TRIGGER_HEAT)
 			my_effect.ToggleActivate()
 		if(secondary_effect?.trigger == TRIGGER_HEAT)

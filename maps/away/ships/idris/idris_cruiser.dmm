@@ -651,7 +651,7 @@
 /obj/structure/bed/stool/chair/padded/teal{
 	dir = 8
 	},
-/obj/item/device/radio/intercom/locked/east,
+/obj/item/radio/intercom/locked/east,
 /turf/simulated/floor/wood,
 /area/ship/idris_cruiser/corridor/civ_aft)
 "cS" = (
@@ -1778,7 +1778,7 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/obj/item/device/radio/intercom/locked/north,
+/obj/item/radio/intercom/locked/north,
 /turf/simulated/floor/carpet/green,
 /area/ship/idris_cruiser/corridor/starboard_lobby)
 "hn" = (
@@ -1990,11 +1990,11 @@
 	dir = 9
 	},
 /obj/structure/table/reinforced/steel,
-/obj/item/device/radio/off{
+/obj/item/radio/off{
 	pixel_y = 4;
 	pixel_x = 6
 	},
-/obj/item/device/radio/off{
+/obj/item/radio/off{
 	pixel_y = 4;
 	pixel_x = 6
 	},
@@ -2024,7 +2024,7 @@
 /area/ship/idris_cruiser/corridor/dockingarm/port)
 "ii" = (
 /obj/structure/table/reinforced/wood,
-/obj/item/device/hand_labeler,
+/obj/item/hand_labeler,
 /turf/simulated/floor/tiled,
 /area/ship/idris_cruiser/corridor/lobby)
 "im" = (
@@ -2733,10 +2733,10 @@
 	dir = 1
 	},
 /obj/structure/table/rack,
-/obj/item/device/suit_cooling_unit{
+/obj/item/suit_cooling_unit{
 	pixel_y = 4
 	},
-/obj/item/device/suit_cooling_unit{
+/obj/item/suit_cooling_unit{
 	pixel_y = 4
 	},
 /obj/item/tank/jetpack/carbondioxide,
@@ -3079,8 +3079,8 @@
 /obj/structure/table/rack{
 	dir = 8
 	},
-/obj/item/device/suit_cooling_unit,
-/obj/item/device/suit_cooling_unit,
+/obj/item/suit_cooling_unit,
+/obj/item/suit_cooling_unit,
 /obj/item/clothing/shoes/magboots,
 /obj/item/clothing/shoes/magboots,
 /obj/item/tank/jetpack/carbondioxide,
@@ -3334,10 +3334,10 @@
 /obj/item/pen/fountain/black,
 /obj/item/pen/fountain/black,
 /obj/item/pen/fountain/black,
-/obj/item/device/toner,
-/obj/item/device/toner,
-/obj/item/device/toner,
-/obj/item/device/toner,
+/obj/item/toner,
+/obj/item/toner,
+/obj/item/toner,
+/obj/item/toner,
 /obj/machinery/firealarm/south,
 /turf/simulated/floor/tiled/full,
 /area/ship/idris_cruiser/cargo_bay)
@@ -3580,7 +3580,7 @@
 /obj/machinery/light/floor{
 	dir = 4
 	},
-/obj/item/device/radio/intercom/locked/north,
+/obj/item/radio/intercom/locked/north,
 /turf/simulated/floor/wood,
 /area/ship/idris_cruiser/great_room)
 "ny" = (
@@ -3902,7 +3902,7 @@
 /obj/machinery/alarm/east{
 	req_one_access = list(220)
 	},
-/obj/item/device/lightreplacer/advanced{
+/obj/item/lightreplacer/advanced{
 	pixel_y = 10;
 	pixel_x = 9
 	},
@@ -4106,7 +4106,7 @@
 "pl" = (
 /obj/structure/table/stone/marble,
 /obj/effect/floor_decal/corner/dark_green/diagonal,
-/obj/item/storage/box/condiment{
+/obj/item/storage/box/large/condiment{
 	pixel_y = 10;
 	pixel_x = 2
 	},
@@ -4229,27 +4229,27 @@
 	},
 /obj/effect/floor_decal/industrial/outline/security,
 /obj/item/storage/box/fancy/donut,
-/obj/item/device/flashlight/maglight{
+/obj/item/flashlight/maglight{
 	pixel_y = -1
 	},
-/obj/item/device/flashlight/maglight{
+/obj/item/flashlight/maglight{
 	pixel_y = -1
 	},
-/obj/item/device/flashlight/maglight{
+/obj/item/flashlight/maglight{
 	pixel_y = -1
 	},
-/obj/item/device/flashlight/maglight{
+/obj/item/flashlight/maglight{
 	pixel_y = -1
 	},
-/obj/item/device/hand_labeler{
+/obj/item/hand_labeler{
 	pixel_x = 2;
 	pixel_y = 10
 	},
 /obj/structure/reagent_dispensers/peppertank{
 	pixel_y = -32
 	},
-/obj/item/device/taperecorder,
-/obj/item/device/taperecorder,
+/obj/item/taperecorder,
+/obj/item/taperecorder,
 /turf/simulated/floor/tiled/full,
 /area/ship/idris_cruiser/security)
 "pE" = (
@@ -4408,15 +4408,15 @@
 	pixel_y = 15;
 	pixel_x = 1
 	},
-/obj/item/device/radio/off{
+/obj/item/radio/off{
 	pixel_y = 4;
 	pixel_x = 6
 	},
-/obj/item/device/radio/off{
+/obj/item/radio/off{
 	pixel_y = 4;
 	pixel_x = 6
 	},
-/obj/item/device/radio/off{
+/obj/item/radio/off{
 	pixel_y = 4;
 	pixel_x = 6
 	},
@@ -4621,7 +4621,7 @@
 	pixel_y = 4;
 	req_one_access = list(220)
 	},
-/obj/item/device/radio/intercom/ship/north,
+/obj/item/radio/intercom/ship/north,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/idris_cruiser/bridge)
 "qT" = (
@@ -4670,7 +4670,7 @@
 /turf/simulated/floor/wood,
 /area/ship/idris_cruiser/corridor/civ_aft)
 "qY" = (
-/obj/machinery/autolathe,
+/obj/machinery/fabricator/autolathe,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/structure/sign/nosmoking_1{
 	pixel_x = -26
@@ -5628,10 +5628,10 @@
 "ue" = (
 /obj/effect/floor_decal/corner/dark_green/diagonal,
 /obj/structure/table/stone/marble,
-/obj/item/storage/box/produce{
+/obj/item/storage/box/large/produce{
 	pixel_y = 9
 	},
-/obj/item/storage/box/produce{
+/obj/item/storage/box/large/produce{
 	pixel_y = 3
 	},
 /obj/item/material/kitchen/rollingpin{
@@ -6065,7 +6065,7 @@
 	dir = 4
 	},
 /obj/random/pottedplant,
-/obj/item/device/radio/intercom/locked/west,
+/obj/item/radio/intercom/locked/west,
 /turf/simulated/floor/wood,
 /area/ship/idris_cruiser/corridor/civ_fore)
 "vJ" = (
@@ -6518,19 +6518,19 @@
 /obj/structure/closet/crate{
 	name = "vendor refill crate"
 	},
-/obj/item/device/vending_refill/booze,
-/obj/item/device/vending_refill/cola,
-/obj/item/device/vending_refill/cola,
-/obj/item/device/vending_refill/cola,
-/obj/item/device/vending_refill/cutlery,
-/obj/item/device/vending_refill/cutlery,
-/obj/item/device/vending_refill/hydro,
-/obj/item/device/vending_refill/meds,
-/obj/item/device/vending_refill/seeds,
-/obj/item/device/vending_refill/snack,
-/obj/item/device/vending_refill/snack,
-/obj/item/device/vending_refill/snack,
-/obj/item/device/vending_refill/snack,
+/obj/item/vending_refill/booze,
+/obj/item/vending_refill/cola,
+/obj/item/vending_refill/cola,
+/obj/item/vending_refill/cola,
+/obj/item/vending_refill/cutlery,
+/obj/item/vending_refill/cutlery,
+/obj/item/vending_refill/hydro,
+/obj/item/vending_refill/meds,
+/obj/item/vending_refill/seeds,
+/obj/item/vending_refill/snack,
+/obj/item/vending_refill/snack,
+/obj/item/vending_refill/snack,
+/obj/item/vending_refill/snack,
 /obj/machinery/alarm/north{
 	req_one_access = list(220)
 	},
@@ -7226,7 +7226,7 @@
 	req_one_access = list(220)
 	},
 /obj/structure/table/reinforced/steel,
-/obj/item/storage/box/flashbangs{
+/obj/item/storage/box/tactical/flashbangs{
 	pixel_y = 7;
 	pixel_x = 7
 	},
@@ -7667,7 +7667,7 @@
 /turf/simulated/floor/tiled,
 /area/ship/idris_cruiser/corridor/dockingarm/port)
 "BK" = (
-/obj/structure/cart/storage/janitorialcart{
+/obj/structure/cart/storage/janitorialcart/full{
 	dir = 4
 	},
 /obj/item/reagent_containers/glass/bucket,
@@ -8201,7 +8201,7 @@
 	pixel_y = -2;
 	pixel_x = 5
 	},
-/obj/item/device/radio/intercom/ship/west,
+/obj/item/radio/intercom/ship/west,
 /turf/simulated/floor/tiled,
 /area/ship/idris_cruiser/security)
 "Dz" = (
@@ -8320,7 +8320,7 @@
 /obj/item/pen/fountain/silver{
 	pixel_x = -2
 	},
-/obj/item/device/cratescanner{
+/obj/item/cratescanner{
 	pixel_y = 5
 	},
 /obj/item/storage/secure/safe{
@@ -9469,7 +9469,7 @@
 "ID" = (
 /obj/machinery/portable_atmospherics/canister/oxygen,
 /obj/effect/floor_decal/industrial/outline/emergency_closet,
-/obj/item/device/radio/intercom/ship/east,
+/obj/item/radio/intercom/ship/east,
 /turf/simulated/floor/plating,
 /area/ship/idris_cruiser/engineering)
 "IE" = (
@@ -9675,7 +9675,7 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 1
 	},
-/obj/item/device/radio/intercom/locked/north,
+/obj/item/radio/intercom/locked/north,
 /turf/simulated/floor/carpet/green,
 /area/ship/idris_cruiser/corridor/suites_b)
 "Jr" = (
@@ -9972,7 +9972,7 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 1
 	},
-/obj/item/device/radio/intercom/locked/north,
+/obj/item/radio/intercom/locked/north,
 /turf/simulated/floor/carpet/green,
 /area/ship/idris_cruiser/corridor/suites_a)
 "Kc" = (
@@ -12418,12 +12418,12 @@
 /obj/item/stack/cable_coil/green{
 	pixel_x = -8
 	},
-/obj/item/device/lightreplacer/advanced,
+/obj/item/lightreplacer/advanced,
 /obj/item/storage/box/fancy/crayons/chalkbox{
 	pixel_y = 8
 	},
 /obj/item/blueprints,
-/obj/item/device/radio/intercom/ship/west,
+/obj/item/radio/intercom/ship/west,
 /turf/simulated/floor/plating,
 /area/ship/idris_cruiser/engineering)
 "SB" = (
@@ -12463,8 +12463,8 @@
 /obj/item/clothing/shoes/workboots,
 /obj/item/clothing/suit/storage/hazardvest,
 /obj/item/clothing/suit/storage/hazardvest,
-/obj/item/device/flashlight/heavy,
-/obj/item/device/flashlight/heavy,
+/obj/item/flashlight/heavy,
+/obj/item/flashlight/heavy,
 /obj/item/clothing/accessory/armband/idris,
 /obj/item/clothing/accessory/armband/idris,
 /obj/item/clothing/accessory/storage/overalls/engineer,
@@ -12546,7 +12546,7 @@
 /area/ship/idris_cruiser/corridor/suites_a)
 "SY" = (
 /obj/structure/table/reinforced/steel,
-/obj/item/device/flashlight/lamp{
+/obj/item/flashlight/lamp{
 	pixel_x = -11;
 	pixel_y = 2
 	},
@@ -13615,11 +13615,11 @@
 /turf/simulated/floor/tiled,
 /area/ship/idris_cruiser/engineering)
 "Xd" = (
-/obj/item/device/synthesized_instrument/violin,
-/obj/item/device/synthesized_instrument/trumpet,
-/obj/item/device/synthesized_instrument/synthesizer,
-/obj/item/device/synthesized_instrument/guitar/multi,
-/obj/item/device/synthesized_instrument/guitar,
+/obj/item/synthesized_instrument/violin,
+/obj/item/synthesized_instrument/trumpet,
+/obj/item/synthesized_instrument/synthesizer,
+/obj/item/synthesized_instrument/guitar/multi,
+/obj/item/synthesized_instrument/guitar,
 /obj/structure/closet/secure_closet{
 	name = "instruments locker";
 	req_access = list(220)

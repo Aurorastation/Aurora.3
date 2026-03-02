@@ -27,7 +27,7 @@
 	return TRUE
 
 /mob/living/carbon/brain/update_canmove()
-	if(istype(loc, /obj/item/device/mmi))
+	if(istype(loc, /obj/item/mmi))
 		canmove = 1
 		use_me = 1
 	else

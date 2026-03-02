@@ -7,7 +7,7 @@
 	thrown_force_divisor = 0.1
 
 /obj/item/material/butterflyconstruction/attackby(obj/item/attacking_item, mob/user)
-	if(attacking_item.isscrewdriver())
+	if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 		to_chat(user, "You finish the concealed blade weapon.")
 		new /obj/item/material/knife/butterfly(user.loc, material.name)
 		qdel(src)
@@ -71,7 +71,7 @@
 		var/obj/item/material/tmp_shard = attacking_item
 		finished = new /obj/item/material/twohanded/spear(get_turf(user), tmp_shard.material.name)
 		to_chat(user, SPAN_NOTICE("You fasten \the [attacking_item] to the top of the rod with the cable."))
-	else if(attacking_item.iswirecutter())
+	else if(attacking_item.tool_behaviour == TOOL_WIRECUTTER)
 		finished = new /obj/item/melee/baton/cattleprod(get_turf(user), forward_cable_color)
 		to_chat(user, SPAN_NOTICE("You fasten the wirecutters to the top of the rod with the cable, prongs outward."))
 	else if(istype(attacking_item, /obj/item/material/wirerod))

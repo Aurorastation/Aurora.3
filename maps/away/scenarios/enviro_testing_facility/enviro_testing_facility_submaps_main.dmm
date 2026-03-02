@@ -60,11 +60,11 @@
 /area/template_noop)
 "abO" = (
 /obj/structure/table/steel,
-/obj/item/device/electronic_assembly/clam{
+/obj/item/electronic_assembly/clam{
 	pixel_y = 3;
 	pixel_x = 1
 	},
-/obj/item/device/electronic_assembly/calc{
+/obj/item/electronic_assembly/calc{
 	pixel_x = -3;
 	pixel_y = 4
 	},
@@ -154,7 +154,7 @@
 	pixel_x = 5;
 	pixel_y = 1
 	},
-/obj/item/device/mmi/digital/posibrain{
+/obj/item/mmi/digital/posibrain{
 	pixel_x = -2;
 	pixel_y = 11
 	},
@@ -486,7 +486,7 @@
 	dir = 4
 	},
 /obj/structure/table/wood/maple,
-/obj/item/device/laser_pointer/red{
+/obj/item/laser_pointer/red{
 	pixel_x = 9;
 	pixel_y = 9
 	},
@@ -627,11 +627,11 @@
 /area/enviro_testing_facility/inside/crew/canteen)
 "aIf" = (
 /obj/structure/table/standard,
-/obj/item/device/mass_spectrometer{
+/obj/item/mass_spectrometer{
 	pixel_x = -6;
 	pixel_y = 6
 	},
-/obj/item/device/reagent_scanner{
+/obj/item/reagent_scanner{
 	pixel_x = 9;
 	pixel_y = 6
 	},
@@ -787,7 +787,7 @@
 "aPn" = (
 /obj/structure/table/standard,
 /obj/effect/floor_decal/corner/mauve/diagonal,
-/obj/item/device/mmi/digital/robot{
+/obj/item/mmi/digital/robot{
 	pixel_x = 5;
 	pixel_y = 15
 	},
@@ -939,7 +939,7 @@
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 4
 	},
-/obj/item/storage/box/monkeycubes,
+/obj/item/storage/box/unique/monkeycubes,
 /obj/structure/table/steel,
 /obj/machinery/light{
 	dir = 8
@@ -1187,7 +1187,7 @@
 /area/enviro_testing_facility/inside/research/hallway)
 "bgB" = (
 /obj/structure/table/steel,
-/obj/item/device/multitool{
+/obj/item/multitool{
 	pixel_x = 12;
 	pixel_y = 5
 	},
@@ -2344,11 +2344,11 @@
 /area/template_noop)
 "cnR" = (
 /obj/structure/table/standard,
-/obj/item/device/mmi/digital/posibrain{
+/obj/item/mmi/digital/posibrain{
 	pixel_x = -3;
 	pixel_y = 8
 	},
-/obj/item/device/mmi/digital/posibrain{
+/obj/item/mmi/digital/posibrain{
 	pixel_x = 5;
 	pixel_y = 4
 	},
@@ -2356,7 +2356,7 @@
 /obj/structure/cable/yellow{
 	icon_state = "0-4"
 	},
-/obj/item/device/mmi/digital/posibrain{
+/obj/item/mmi/digital/posibrain{
 	pixel_x = -3
 	},
 /obj/machinery/power/apc/west{
@@ -2380,7 +2380,7 @@
 /area/enviro_testing_facility/inside/engineering/secure_storage)
 "coB" = (
 /obj/structure/table/steel,
-/obj/item/device/mmi/digital/posibrain{
+/obj/item/mmi/digital/posibrain{
 	pixel_y = 8;
 	pixel_x = 4
 	},
@@ -3081,11 +3081,11 @@
 	req_access = null;
 	name = "ammunition cabinet"
 	},
-/obj/item/storage/box/haywireshells,
-/obj/item/storage/box/haywireshells,
-/obj/item/storage/box/flashshells,
-/obj/item/storage/box/shotgunshells,
-/obj/item/storage/box/stunshells,
+/obj/item/storage/box/shells/haywireshells,
+/obj/item/storage/box/shells/haywireshells,
+/obj/item/storage/box/shells/flashshells,
+/obj/item/storage/box/shells/buckshot,
+/obj/item/storage/box/shells/stunshells,
 /obj/effect/floor_decal/industrial/outline/red,
 /turf/simulated/floor/tiled/dark,
 /area/enviro_testing_facility/inside/security/storage)
@@ -3105,14 +3105,14 @@
 /area/enviro_testing_facility/inside/research/hallway)
 "dbd" = (
 /obj/structure/table/steel,
-/obj/item/device/firing_pin/access{
+/obj/item/firing_pin/access{
 	pixel_x = 6
 	},
-/obj/item/device/firing_pin/access{
+/obj/item/firing_pin/access{
 	pixel_x = 9;
 	pixel_y = 5
 	},
-/obj/item/device/firing_pin/access{
+/obj/item/firing_pin/access{
 	pixel_x = 16;
 	pixel_y = 10
 	},
@@ -3320,7 +3320,7 @@
 /turf/simulated/floor/tiled,
 /area/enviro_testing_facility/inside/crew/quarters)
 "dlE" = (
-/obj/item/device/electronic_assembly/tiny/box{
+/obj/item/electronic_assembly/tiny/box{
 	pixel_x = 4;
 	pixel_y = 2
 	},
@@ -3329,11 +3329,11 @@
 /area/enviro_testing_facility/inside/research/electronics)
 "dlF" = (
 /obj/structure/table/standard,
-/obj/item/device/reagent_scanner{
+/obj/item/reagent_scanner{
 	pixel_x = 9;
 	pixel_y = 6
 	},
-/obj/item/device/mass_spectrometer{
+/obj/item/mass_spectrometer{
 	pixel_x = -6;
 	pixel_y = 6
 	},
@@ -3540,7 +3540,7 @@
 	},
 /area/template_noop)
 "dvB" = (
-/obj/item/storage/box/freezer/organcooler{
+/obj/item/storage/box/unique/freezer/organcooler{
 	pixel_x = 5;
 	pixel_y = -4
 	},
@@ -3753,7 +3753,7 @@
 /obj/effect/floor_decal/corner/beige{
 	dir = 5
 	},
-/obj/item/device/mmi/digital/posibrain{
+/obj/item/mmi/digital/posibrain{
 	pixel_x = -9;
 	pixel_y = 8
 	},
@@ -3973,7 +3973,7 @@
 /area/enviro_testing_facility/inside/engineering/robo_lab)
 "dRW" = (
 /obj/structure/table/standard,
-/obj/item/device/mmi/digital/posibrain{
+/obj/item/mmi/digital/posibrain{
 	pixel_x = 4;
 	pixel_y = 11
 	},
@@ -4371,7 +4371,7 @@
 /area/enviro_testing_facility/inside/research/telescience)
 "erT" = (
 /obj/structure/table/steel,
-/obj/item/device/mmi/digital/posibrain{
+/obj/item/mmi/digital/posibrain{
 	pixel_y = 3;
 	pixel_x = 1
 	},
@@ -4794,7 +4794,7 @@
 "eLz" = (
 /obj/structure/table/steel,
 /obj/effect/floor_decal/corner/paleblue/diagonal,
-/obj/item/device/healthanalyzer{
+/obj/item/healthanalyzer{
 	pixel_x = -3
 	},
 /turf/simulated/floor/tiled,
@@ -5288,10 +5288,10 @@
 "fqV" = (
 /obj/structure/table/rack,
 /obj/effect/floor_decal/industrial/outline/security,
-/obj/item/storage/box/smokebombs{
+/obj/item/storage/box/tactical/smokebombs{
 	pixel_y = 5
 	},
-/obj/item/storage/box/teargas,
+/obj/item/storage/box/tactical/teargas,
 /turf/simulated/floor/tiled,
 /area/enviro_testing_facility/inside/security/equipment)
 "frP" = (
@@ -5636,8 +5636,8 @@
 /obj/item/gun/energy/stunrevolver,
 /obj/item/melee/telebaton,
 /obj/item/handcuffs,
-/obj/item/device/flash,
-/obj/item/device/flashlight/maglight,
+/obj/item/flash,
+/obj/item/flashlight/maglight,
 /obj/effect/floor_decal/industrial/outline/security,
 /obj/item/storage/box/handcuffs,
 /obj/item/reagent_containers/spray/pepper,
@@ -5701,7 +5701,7 @@
 /area/enviro_testing_facility/inside/engineering/reactors)
 "fJM" = (
 /obj/structure/table/steel,
-/obj/item/device/mmi/digital/posibrain{
+/obj/item/mmi/digital/posibrain{
 	pixel_x = -15;
 	pixel_y = 7
 	},
@@ -5772,7 +5772,7 @@
 /obj/effect/floor_decal/corner/green{
 	dir = 10
 	},
-/obj/item/storage/box/sharps{
+/obj/item/storage/box/unique/sharps{
 	pixel_x = -3;
 	pixel_y = 9
 	},
@@ -5873,7 +5873,7 @@
 /turf/simulated/floor/tiled/slate,
 /area/enviro_testing_facility/inside/security/lobby)
 "fRC" = (
-/obj/machinery/autolathe,
+/obj/machinery/fabricator/autolathe,
 /turf/simulated/floor/carpet/rubber,
 /area/enviro_testing_facility/inside/engineering/mech_lab)
 "fRE" = (
@@ -5985,7 +5985,7 @@
 /obj/effect/floor_decal/corner/brown{
 	dir = 10
 	},
-/obj/item/device/robotanalyzer{
+/obj/item/robotanalyzer{
 	pixel_x = -7
 	},
 /obj/machinery/alarm/south{
@@ -6296,10 +6296,10 @@
 /obj/effect/floor_decal/corner/pink{
 	dir = 1
 	},
-/obj/item/device/electronic_assembly/pda{
+/obj/item/electronic_assembly/pda{
 	pixel_y = 4
 	},
-/obj/item/device/electronic_assembly/medium/gun{
+/obj/item/electronic_assembly/medium/gun{
 	pixel_y = 4;
 	pixel_x = 14
 	},
@@ -6514,11 +6514,11 @@
 /obj/structure/table/rack,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/effect/map_effect/marker/mapmanip/submap/extract/enviro_testing_facility/misc/armory,
-/obj/item/storage/box/emps{
+/obj/item/storage/box/tactical/emps{
 	pixel_x = -3;
 	pixel_y = 6
 	},
-/obj/item/storage/box/smokebombs,
+/obj/item/storage/box/tactical/smokebombs,
 /turf/template_noop,
 /area/template_noop)
 "gwR" = (
@@ -6975,8 +6975,8 @@
 /obj/item/gun/energy/stunrevolver,
 /obj/item/melee/telebaton,
 /obj/item/handcuffs,
-/obj/item/device/flash,
-/obj/item/device/flashlight/maglight,
+/obj/item/flash,
+/obj/item/flashlight/maglight,
 /obj/effect/floor_decal/industrial/outline/security,
 /obj/item/storage/box/handcuffs,
 /obj/item/reagent_containers/spray/pepper,
@@ -7309,10 +7309,10 @@
 /obj/structure/table/rack,
 /obj/effect/floor_decal/corner/dark_blue/diagonal,
 /obj/effect/floor_decal/industrial/outline/security,
-/obj/item/storage/box/smokebombs{
+/obj/item/storage/box/tactical/smokebombs{
 	pixel_y = 5
 	},
-/obj/item/storage/box/flashbangs,
+/obj/item/storage/box/tactical/flashbangs,
 /turf/simulated/floor/tiled,
 /area/enviro_testing_facility/inside/security/equipment)
 "hnr" = (
@@ -8626,7 +8626,7 @@
 /obj/effect/floor_decal/corner/pink{
 	dir = 6
 	},
-/obj/item/device/multitool{
+/obj/item/multitool{
 	pixel_x = -11;
 	pixel_y = 1
 	},
@@ -8724,7 +8724,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/enviro_testing_facility/inside/security/lobby)
 "iFZ" = (
-/obj/item/device/flashlight/lantern/on,
+/obj/item/flashlight/lantern/on,
 /turf/simulated/floor/exoplanet/basalt,
 /area/template_noop)
 "iGa" = (
@@ -9172,7 +9172,7 @@
 /area/enviro_testing_facility/inside/engineering/reactors)
 "jdE" = (
 /obj/structure/table/steel,
-/obj/item/device/paint_sprayer{
+/obj/item/paint_sprayer{
 	pixel_x = 3;
 	pixel_y = 4
 	},
@@ -9240,11 +9240,11 @@
 "jga" = (
 /obj/structure/table/rack,
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/item/storage/box/emps{
+/obj/item/storage/box/tactical/emps{
 	pixel_x = -3;
 	pixel_y = 6
 	},
-/obj/item/storage/box/smokebombs,
+/obj/item/storage/box/tactical/smokebombs,
 /turf/template_noop,
 /area/template_noop)
 "jge" = (
@@ -9811,7 +9811,7 @@
 /turf/simulated/floor/tiled/light,
 /area/enviro_testing_facility/inside/research/entrance)
 "jPu" = (
-/obj/item/device/electronic_assembly/drone,
+/obj/item/electronic_assembly/drone,
 /obj/structure/cable/yellow{
 	icon_state = "0-8"
 	},
@@ -9963,7 +9963,7 @@
 	pixel_y = -11;
 	pixel_x = -2
 	},
-/obj/item/device/flash{
+/obj/item/flash{
 	pixel_x = 9;
 	pixel_y = 5
 	},
@@ -10038,7 +10038,7 @@
 "kay" = (
 /obj/structure/table/standard,
 /obj/effect/floor_decal/corner_wide/paleblue/diagonal,
-/obj/item/storage/box/sharps{
+/obj/item/storage/box/unique/sharps{
 	pixel_x = 4;
 	pixel_y = -1
 	},
@@ -10317,7 +10317,7 @@
 /area/enviro_testing_facility/inside/crew/quarters)
 "kqo" = (
 /obj/structure/table/rack,
-/obj/item/storage/box/smokebombs,
+/obj/item/storage/box/tactical/smokebombs,
 /turf/template_noop,
 /area/template_noop)
 "kqT" = (
@@ -10453,7 +10453,7 @@
 /area/enviro_testing_facility/inside/security/hallway)
 "kuh" = (
 /obj/structure/table/stone/marble,
-/obj/item/storage/box/produce{
+/obj/item/storage/box/large/produce{
 	pixel_x = 6;
 	pixel_y = 6
 	},
@@ -10768,7 +10768,7 @@
 /area/template_noop)
 "kIw" = (
 /obj/structure/table/steel,
-/obj/item/device/integrated_electronics/debugger{
+/obj/item/integrated_electronics/debugger{
 	pixel_x = 8;
 	pixel_y = 11
 	},
@@ -11028,7 +11028,7 @@
 /area/enviro_testing_facility/inside/crew/quarters)
 "kXn" = (
 /obj/structure/table/steel,
-/obj/item/device/flashlight/lamp/off{
+/obj/item/flashlight/lamp/off{
 	pixel_x = -1;
 	pixel_y = 3
 	},
@@ -11154,7 +11154,7 @@
 /area/enviro_testing_facility/inside/engineering/equipment)
 "ldX" = (
 /obj/structure/table/steel,
-/obj/item/device/robotanalyzer{
+/obj/item/robotanalyzer{
 	pixel_x = 9
 	},
 /turf/simulated/floor/tiled/dark,
@@ -11382,8 +11382,8 @@
 /obj/item/gun/energy/stunrevolver,
 /obj/item/melee/telebaton,
 /obj/item/handcuffs,
-/obj/item/device/flash,
-/obj/item/device/flashlight/maglight,
+/obj/item/flash,
+/obj/item/flashlight/maglight,
 /obj/item/storage/box/handcuffs,
 /obj/item/reagent_containers/spray/pepper,
 /obj/item/storage/belt/security,
@@ -11563,7 +11563,7 @@
 /obj/machinery/light{
 	dir = 4
 	},
-/obj/item/storage/box/sharps{
+/obj/item/storage/box/unique/sharps{
 	pixel_x = -4;
 	pixel_y = 4
 	},
@@ -11727,7 +11727,7 @@
 /area/enviro_testing_facility/inside/engineering/equipment)
 "lKT" = (
 /obj/structure/table/wood,
-/obj/item/device/flashlight/lamp/box{
+/obj/item/flashlight/lamp/box{
 	pixel_x = -2;
 	pixel_y = 8
 	},
@@ -12108,7 +12108,7 @@
 /obj/effect/floor_decal/corner/orange{
 	dir = 6
 	},
-/obj/item/device/flashlight/lamp/off{
+/obj/item/flashlight/lamp/off{
 	pixel_x = -5;
 	pixel_y = 9
 	},
@@ -12330,8 +12330,8 @@
 /obj/item/gun/energy/stunrevolver,
 /obj/item/melee/telebaton,
 /obj/item/handcuffs,
-/obj/item/device/flash,
-/obj/item/device/flashlight/maglight,
+/obj/item/flash,
+/obj/item/flashlight/maglight,
 /obj/effect/floor_decal/industrial/outline/security,
 /obj/item/storage/box/handcuffs,
 /obj/machinery/light{
@@ -12535,7 +12535,7 @@
 /area/enviro_testing_facility/inside/engineering/mech_lab)
 "mEm" = (
 /obj/structure/table/standard,
-/obj/item/device/mmi{
+/obj/item/mmi{
 	pixel_x = -1;
 	pixel_y = 5
 	},
@@ -12677,7 +12677,7 @@
 /area/template_noop)
 "mJP" = (
 /obj/structure/table/standard,
-/obj/item/device/mmi/digital/robot{
+/obj/item/mmi/digital/robot{
 	pixel_x = -4;
 	pixel_y = -2
 	},
@@ -12911,14 +12911,14 @@
 /area/enviro_testing_facility/inside/engineering/reactors)
 "nbn" = (
 /obj/structure/closet/secure_closet/freezer,
-/obj/item/storage/box/produce,
-/obj/item/storage/box/produce,
-/obj/item/storage/box/produce,
-/obj/item/storage/box/produce,
+/obj/item/storage/box/large/produce,
+/obj/item/storage/box/large/produce,
+/obj/item/storage/box/large/produce,
+/obj/item/storage/box/large/produce,
 /obj/effect/floor_decal/corner/lime/diagonal,
-/obj/item/storage/box/produce,
-/obj/item/storage/box/produce,
-/obj/item/storage/box/produce,
+/obj/item/storage/box/large/produce,
+/obj/item/storage/box/large/produce,
+/obj/item/storage/box/large/produce,
 /turf/simulated/floor/tiled/freezer,
 /area/enviro_testing_facility/inside/crew/canteen)
 "nbt" = (
@@ -13041,11 +13041,11 @@
 "nhn" = (
 /obj/structure/table/standard,
 /obj/effect/floor_decal/corner/pink,
-/obj/item/device/assembly/electronic_assembly{
+/obj/item/assembly/electronic_assembly{
 	pixel_x = -5;
 	pixel_y = -5
 	},
-/obj/item/device/integrated_electronics/debugger{
+/obj/item/integrated_electronics/debugger{
 	pixel_x = 7;
 	pixel_y = 3
 	},
@@ -13075,7 +13075,7 @@
 /turf/simulated/floor/plating,
 /area/enviro_testing_facility/inside/maintenance/engineering_south)
 "nkn" = (
-/obj/machinery/autolathe,
+/obj/machinery/fabricator/autolathe,
 /obj/effect/floor_decal/spline/plain{
 	dir = 6
 	},
@@ -13138,11 +13138,11 @@
 "nnS" = (
 /obj/structure/table/rack,
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/item/storage/box/frags{
+/obj/item/storage/box/tactical/frags{
 	pixel_x = -3;
 	pixel_y = 6
 	},
-/obj/item/storage/box/smokebombs,
+/obj/item/storage/box/tactical/smokebombs,
 /turf/template_noop,
 /area/template_noop)
 "nol" = (
@@ -13419,15 +13419,15 @@
 /area/enviro_testing_facility/inside/engineering/reactors)
 "nzH" = (
 /obj/structure/table/rack,
-/obj/item/device/flashlight/lantern{
+/obj/item/flashlight/lantern{
 	pixel_x = -8;
 	pixel_y = -2
 	},
-/obj/item/device/flashlight/lantern{
+/obj/item/flashlight/lantern{
 	pixel_x = 4;
 	pixel_y = -4
 	},
-/obj/item/device/flashlight/lantern,
+/obj/item/flashlight/lantern,
 /obj/machinery/light/small{
 	dir = 8
 	},
@@ -13480,8 +13480,8 @@
 /area/template_noop)
 "nDq" = (
 /obj/structure/table/standard,
-/obj/item/device/memorywiper,
-/obj/item/device/memorywiper{
+/obj/item/memorywiper,
+/obj/item/memorywiper{
 	pixel_y = -7;
 	pixel_x = 2
 	},
@@ -13849,7 +13849,7 @@
 "nTD" = (
 /obj/structure/lattice/catwalk/indoor/planks,
 /obj/structure/table/rack/cafe_table,
-/obj/item/device/flashlight/lamp/box{
+/obj/item/flashlight/lamp/box{
 	pixel_x = 3;
 	pixel_y = 4
 	},
@@ -13949,7 +13949,7 @@
 /area/enviro_testing_facility/inside/control/offices)
 "nXf" = (
 /obj/structure/table/steel,
-/obj/item/device/paicard{
+/obj/item/paicard{
 	pixel_x = 4;
 	pixel_y = -3
 	},
@@ -13979,8 +13979,8 @@
 /area/enviro_testing_facility/inside/engineering/storage_1)
 "nZi" = (
 /obj/structure/closet,
-/obj/item/clothing/pants/highvis_alt,
-/obj/item/clothing/suit/storage/toggle/highvis_alt,
+/obj/item/clothing/pants/highvis/alt,
+/obj/item/clothing/suit/storage/toggle/highvis/alt,
 /obj/item/clothing/head/softcap/engineering,
 /obj/item/clothing/suit/storage/hazardvest,
 /obj/outfit/admin/generic/engineer,
@@ -14169,7 +14169,7 @@
 /area/enviro_testing_facility/inside/crew/quarters)
 "ohK" = (
 /obj/structure/table/steel,
-/obj/item/device/mmi/digital/robot{
+/obj/item/mmi/digital/robot{
 	pixel_y = 6;
 	pixel_x = -3
 	},
@@ -14374,10 +14374,10 @@
 /turf/simulated/floor/tiled/dark,
 /area/enviro_testing_facility/inside/research/electronics)
 "otM" = (
-/obj/item/device/integrated_electronics/detailer{
+/obj/item/integrated_electronics/detailer{
 	pixel_x = -3
 	},
-/obj/item/device/integrated_electronics/wirer{
+/obj/item/integrated_electronics/wirer{
 	pixel_x = 7;
 	pixel_y = -5
 	},
@@ -14685,7 +14685,7 @@
 "oPL" = (
 /obj/structure/table/standard,
 /obj/effect/floor_decal/corner/mauve/diagonal,
-/obj/item/device/assembly/igniter{
+/obj/item/assembly/igniter{
 	pixel_x = -2;
 	pixel_y = 4
 	},
@@ -15073,7 +15073,7 @@
 /area/enviro_testing_facility/inside/medical/hallway)
 "pfs" = (
 /obj/structure/table/steel,
-/obj/item/device/mmi/digital/posibrain{
+/obj/item/mmi/digital/posibrain{
 	pixel_y = 8
 	},
 /turf/simulated/floor/carpet/rubber,
@@ -16438,7 +16438,7 @@
 /obj/effect/floor_decal/corner/beige{
 	dir = 10
 	},
-/obj/item/device/robotanalyzer{
+/obj/item/robotanalyzer{
 	pixel_x = 5
 	},
 /turf/simulated/floor/tiled/white,
@@ -16467,7 +16467,7 @@
 "qBW" = (
 /obj/structure/table/standard,
 /obj/effect/floor_decal/corner_wide/paleblue/diagonal,
-/obj/item/device/healthanalyzer{
+/obj/item/healthanalyzer{
 	pixel_x = -3
 	},
 /obj/machinery/alarm/east{
@@ -16984,7 +16984,7 @@
 /obj/effect/floor_decal/corner/green{
 	dir = 10
 	},
-/obj/item/device/healthanalyzer{
+/obj/item/healthanalyzer{
 	pixel_x = -3
 	},
 /turf/simulated/floor/tiled/light,
@@ -18085,7 +18085,7 @@
 /area/enviro_testing_facility/inside/crew/quarters)
 "stc" = (
 /obj/random/dirt_75,
-/obj/item/device/flashlight/lantern/on,
+/obj/item/flashlight/lantern/on,
 /turf/simulated/floor/exoplanet/basalt,
 /area/template_noop)
 "stS" = (
@@ -18357,7 +18357,7 @@
 /obj/item/clothing/glasses/safety/goggles/science{
 	pixel_y = 10
 	},
-/obj/item/device/robotanalyzer{
+/obj/item/robotanalyzer{
 	pixel_x = -4
 	},
 /obj/machinery/light{
@@ -18461,7 +18461,7 @@
 	dir = 10
 	},
 /obj/structure/table/steel,
-/obj/item/device/flashlight/lamp/off{
+/obj/item/flashlight/lamp/off{
 	pixel_x = -3;
 	pixel_y = 5
 	},
@@ -18824,7 +18824,7 @@
 /area/enviro_testing_facility/inside/crew/quarters)
 "tgV" = (
 /obj/structure/table/standard,
-/obj/item/device/multitool{
+/obj/item/multitool{
 	pixel_x = -3;
 	pixel_y = 3
 	},
@@ -18966,7 +18966,7 @@
 /area/enviro_testing_facility/inside/security/hallway)
 "tlW" = (
 /obj/structure/table/standard,
-/obj/item/device/multitool{
+/obj/item/multitool{
 	pixel_x = -3;
 	pixel_y = -3
 	},
@@ -19180,7 +19180,7 @@
 /area/enviro_testing_facility/inside/maintenance/engineering_north)
 "tuV" = (
 /obj/structure/table/standard,
-/obj/item/device/integrated_electronics/wirer,
+/obj/item/integrated_electronics/wirer,
 /turf/simulated/floor/tiled/white,
 /area/enviro_testing_facility/inside/research/rnd)
 "tvA" = (
@@ -19496,7 +19496,7 @@
 /area/template_noop)
 "tLz" = (
 /obj/structure/table/wood,
-/obj/item/device/flashlight/lamp/green{
+/obj/item/flashlight/lamp/green{
 	pixel_x = 4;
 	pixel_y = 8
 	},
@@ -19700,7 +19700,7 @@
 /turf/simulated/floor/tiled/white,
 /area/enviro_testing_facility/inside/medical/recovery_2)
 "tVk" = (
-/obj/item/device/paint_sprayer{
+/obj/item/paint_sprayer{
 	pixel_x = 3;
 	pixel_y = -2
 	},
@@ -19880,7 +19880,7 @@
 /area/enviro_testing_facility/inside/control/offices)
 "tZm" = (
 /obj/structure/table/steel,
-/obj/item/device/mmi/digital/robot{
+/obj/item/mmi/digital/robot{
 	pixel_x = -5
 	},
 /turf/simulated/floor/carpet/rubber,
@@ -20013,7 +20013,7 @@
 /obj/effect/floor_decal/corner/pink{
 	dir = 1
 	},
-/obj/item/device/electronic_assembly/drone/android,
+/obj/item/electronic_assembly/drone/android,
 /obj/machinery/alarm/north{
 	req_one_access = null
 	},
@@ -20862,7 +20862,7 @@
 /obj/structure/table/glass{
 	table_reinf = "glass"
 	},
-/obj/item/device/healthanalyzer{
+/obj/item/healthanalyzer{
 	pixel_x = -3
 	},
 /turf/simulated/floor/tiled/white,
@@ -20936,15 +20936,15 @@
 /area/enviro_testing_facility/inside/security/lobby)
 "vhv" = (
 /obj/structure/closet/secure_closet/freezer,
-/obj/item/storage/box/produce,
-/obj/item/storage/box/produce,
-/obj/item/storage/box/produce,
-/obj/item/storage/box/produce,
+/obj/item/storage/box/large/produce,
+/obj/item/storage/box/large/produce,
+/obj/item/storage/box/large/produce,
+/obj/item/storage/box/large/produce,
 /obj/effect/floor_decal/corner/lime/diagonal,
 /obj/machinery/light{
 	dir = 4
 	},
-/obj/item/storage/box/produce,
+/obj/item/storage/box/large/produce,
 /turf/simulated/floor/tiled/white,
 /area/enviro_testing_facility/inside/crew/canteen)
 "vhB" = (
@@ -21463,7 +21463,7 @@
 /area/enviro_testing_facility/inside/engineering/robo_lab)
 "vKU" = (
 /obj/structure/table/wood,
-/obj/item/device/flashlight/lamp/box{
+/obj/item/flashlight/lamp/box{
 	pixel_x = -3;
 	pixel_y = 6
 	},
@@ -21807,7 +21807,7 @@
 "wct" = (
 /obj/structure/table/standard,
 /obj/effect/floor_decal/corner/pink/diagonal,
-/obj/item/device/robotanalyzer{
+/obj/item/robotanalyzer{
 	pixel_x = -4;
 	pixel_y = 4
 	},
@@ -22683,7 +22683,7 @@
 	pixel_x = -2;
 	pixel_y = 17
 	},
-/obj/item/device/advanced_healthanalyzer,
+/obj/item/advanced_healthanalyzer,
 /turf/simulated/floor/carpet/green,
 /area/enviro_testing_facility/inside/medical/chief_office)
 "wVB" = (
@@ -22867,7 +22867,7 @@
 /obj/machinery/door/firedoor/noid,
 /obj/structure/table/reinforced/steel,
 /obj/structure/window/reinforced,
-/obj/item/device/flashlight/maglight{
+/obj/item/flashlight/maglight{
 	pixel_x = 7;
 	pixel_y = 6
 	},
@@ -22903,7 +22903,7 @@
 /area/enviro_testing_facility/inside/engineering/reactors)
 "xlJ" = (
 /obj/structure/table/steel,
-/obj/item/device/hand_labeler,
+/obj/item/hand_labeler,
 /obj/machinery/light{
 	dir = 1
 	},
@@ -23355,8 +23355,8 @@
 "xQT" = (
 /obj/structure/closet,
 /obj/effect/floor_decal/industrial/outline/engineering,
-/obj/item/clothing/pants/highvis_alt,
-/obj/item/clothing/suit/storage/toggle/highvis_alt,
+/obj/item/clothing/pants/highvis/alt,
+/obj/item/clothing/suit/storage/toggle/highvis/alt,
 /obj/item/clothing/head/softcap/engineering,
 /obj/item/clothing/suit/storage/hazardvest,
 /obj/outfit/admin/generic/engineer,

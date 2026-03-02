@@ -20,11 +20,11 @@
 		/obj/item/cell,
 		/obj/item/modular_computer,
 		/obj/item/computer_hardware/battery_module,
-		/obj/item/device/flashlight,
+		/obj/item/flashlight,
 		/obj/item/clothing/mask/smokable/ecig,
 		/obj/item/inductive_charger/handheld,
 		/obj/item/auto_cpr,
-		/obj/item/device/personal_shield
+		/obj/item/personal_shield
 	)
 	var/icon_state_charged = "recharger100"
 	var/icon_state_charging = "recharger"
@@ -59,7 +59,7 @@
 		qdel(bar)
 
 /obj/machinery/recharger/attackby(obj/item/attacking_item, mob/user)
-	if(portable && attacking_item.iswrench())
+	if(portable && attacking_item.tool_behaviour == TOOL_WRENCH)
 		if(charging)
 			to_chat(user, SPAN_WARNING("You can't modify \the [src] while it has something charging inside."))
 			return TRUE
@@ -190,7 +190,7 @@
 	allowed_devices = list(
 		/obj/item/gun/energy,
 		/obj/item/melee/baton,
-		/obj/item/device/flashlight
+		/obj/item/flashlight
 	)
 	icon_state_charged = "wrecharger100"
 	icon_state_charging = "wrecharger"

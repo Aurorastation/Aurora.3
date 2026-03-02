@@ -407,8 +407,8 @@
 	active_w_class = WEIGHT_CLASS_NORMAL
 	w_class = WEIGHT_CLASS_NORMAL
 	drop_sound = 'sound/items/drop/sword.ogg'
-	pickup_sound = /singleton/sound_category/sword_pickup_sound
-	equip_sound = /singleton/sound_category/sword_equip_sound
+	pickup_sound = SFX_PICKUP_SWORD
+	equip_sound = SFX_EQUIP_SWORD
 
 /obj/item/melee/energy/sword/powersword/activate(mob/living/user)
 	..()

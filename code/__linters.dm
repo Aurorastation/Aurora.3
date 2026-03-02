@@ -21,7 +21,6 @@ Nothing should ever be included before this file.
 #define MANUAL_UNIT_TEST
 #define AMAP
 #define ENABLE_SUNLIGHT
-#define AO_USE_LIGHTING_OPACITY
 
 #endif //SPACEMAN_DMM
 
@@ -44,6 +43,5 @@ Nothing should ever be included before this file.
 #define MANUAL_UNIT_TEST
 #define AMAP
 #define ENABLE_SUNLIGHT
-#define AO_USE_LIGHTING_OPACITY
 
 #endif //OPENDREAM

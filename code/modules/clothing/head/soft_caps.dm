@@ -27,6 +27,7 @@
 	icon_state = "[initial(icon_state)][flipped ? "_flipped" : ""]"
 	item_state = icon_state
 	to_chat(usr, "You flip the hat [flipped ? "backwards" : "forwards"].")
+	update_icon()
 	update_clothing_icon()	// So our mob-overlays update.
 
 /obj/item/clothing/head/softcap/colorable

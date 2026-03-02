@@ -9,6 +9,7 @@ ABSTRACT_TYPE(/singleton/overhead_emote)
 	var/image/image = image(icon, icon_state)
 	image.pixel_y = 18 + target.get_floating_chat_y_offset()
 	image.pixel_x = target.get_floating_chat_x_offset()
+	image.plane = ABOVE_GAME_PLANE
 	return image
 
 /singleton/overhead_emote/proc/start_emote(var/mob/parent, var/mob/victim)
@@ -56,7 +57,7 @@ ABSTRACT_TYPE(/singleton/overhead_emote)
 	INVOKE_ASYNC(reciprocator, TYPE_PROC_REF(/atom/movable, do_attack_animation), original, FIST_ATTACK_ANIMATION)
 	INVOKE_ASYNC(original, TYPE_PROC_REF(/atom/movable, do_attack_animation), reciprocator, FIST_ATTACK_ANIMATION)
 
-	playsound(reciprocator.loc, /singleton/sound_category/punchmiss_sound, 30, 1)
+	playsound(reciprocator.loc, SFX_PUNCH_MISS, 30, 1)
 
 	original_emote_component.remove_from_mob()
 

@@ -47,7 +47,7 @@
 /area/tajara_safehouse)
 "bg" = (
 /obj/structure/table/steel,
-/obj/item/device/flashlight/lantern,
+/obj/item/flashlight/lantern,
 /turf/simulated/floor/tiled/dark,
 /area/tajara_safehouse/hangar)
 "bt" = (
@@ -70,11 +70,11 @@
 /area/tajara_safehouse)
 "bO" = (
 /obj/structure/closet/crate,
-/obj/item/device/magnetic_lock,
-/obj/item/device/magnetic_lock,
-/obj/item/device/magnetic_lock,
-/obj/item/device/magnetic_lock,
-/obj/item/device/magnetic_lock,
+/obj/item/magnetic_lock,
+/obj/item/magnetic_lock,
+/obj/item/magnetic_lock,
+/obj/item/magnetic_lock,
+/obj/item/magnetic_lock,
 /turf/simulated/floor/tiled/dark,
 /area/tajara_safehouse)
 "bP" = (
@@ -523,7 +523,7 @@
 "pF" = (
 /obj/structure/table/wood,
 /obj/item/material/knife/bayonet,
-/obj/item/device/radio/phone,
+/obj/item/radio/phone,
 /turf/simulated/floor/tiled/dark,
 /area/tajara_safehouse)
 "pL" = (
@@ -841,8 +841,8 @@
 /obj/structure/closet/cabinet,
 /obj/item/storage/firstaid,
 /obj/item/storage/firstaid,
-/obj/item/device/megaphone,
-/obj/item/device/binoculars,
+/obj/item/megaphone,
+/obj/item/binoculars,
 /turf/simulated/floor/tiled/dark,
 /area/tajara_safehouse)
 "zP" = (
@@ -1012,7 +1012,7 @@
 /area/shuttle/tajara_safehouse_shuttle)
 "Hp" = (
 /obj/structure/table/wood,
-/obj/item/device/flashlight/lamp,
+/obj/item/flashlight/lamp,
 /turf/simulated/floor/tiled/dark,
 /area/tajara_safehouse)
 "Hr" = (

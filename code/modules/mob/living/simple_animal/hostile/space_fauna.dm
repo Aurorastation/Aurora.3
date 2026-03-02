@@ -53,7 +53,7 @@
 	attack_emote = "nashes at"
 
 	flying = TRUE
-	see_invisible = SEE_INVISIBLE_NOLIGHTING
+	lighting_alpha = LIGHTING_PLANE_ALPHA_SOMEWHAT_INVISIBLE
 
 	smart_melee = FALSE
 	sample_data = list("Cellular structure shows adaptation for survival in vacuum", "Genetic biomarkers identified linked with agressiveness", "Tissue sample contains micro-gas release structures")
@@ -91,7 +91,7 @@
 		return
 	if(istype(last_found_target, /obj/effect/energy_field))
 		var/obj/effect/energy_field/e = last_found_target
-		e.Stress(rand(1,2))
+		e.damage_field(rand(1,2))
 		visible_message(SPAN_DANGER("\the [src] bites \the [e]!"))
 		src.do_attack_animation(e)
 		return e
@@ -187,10 +187,16 @@
 /mob/living/simple_animal/hostile/carp/shark/reaver/eel/Initialize()
 	. = ..()
 	eye_overlay = image(icon, "eel_eyeglow")
-	eye_overlay.plane = EFFECTS_ABOVE_LIGHTING_PLANE
+	eye_overlay.plane = ABOVE_LIGHTING_PLANE
 	eye_overlay.appearance_flags = KEEP_APART
 	AddOverlays(eye_overlay)
 	set_light(MINIMUM_USEFUL_LIGHT_RANGE, 2, LIGHT_COLOR_TUNGSTEN)
+
+/mob/living/simple_animal/hostile/carp/shark/reaver/eel/Destroy()
+	ClearOverlays()
+	QDEL_NULL(eye_overlay)
+	set_light(0)
+	return ..()
 
 /mob/living/simple_animal/hostile/carp/shark/reaver/eel/death()
 	. = ..()
@@ -223,11 +229,13 @@
 	change_stance(HOSTILE_STANCE_TIRED)
 	stop_automated_movement = 1
 	wander = 0
-	if(!has_exploded)
-		icon_state = "bloater_bloating"
-		icon_living = "bloater_bloating"
-		has_exploded = TRUE
-		addtimer(CALLBACK(src, PROC_REF(explode)), 5)
+	if(has_exploded)
+		return
+
+	icon_state = "bloater_bloating"
+	icon_living = "bloater_bloating"
+	has_exploded = TRUE
+	addtimer(CALLBACK(src, PROC_REF(explode)), 5, TIMER_STOPPABLE|TIMER_DELETE_ME)
 
 /mob/living/simple_animal/hostile/carp/bloater/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
 	. = ..()
@@ -307,5 +315,5 @@
 	attack_emote = "nashes at"
 
 	flying = TRUE
-	see_invisible = SEE_INVISIBLE_NOLIGHTING
+	lighting_alpha = LIGHTING_PLANE_ALPHA_SOMEWHAT_INVISIBLE
 	sample_data = list("Cellular structure shows adaptation for survival in vacuum", "Genetic biomarkers identified linked with agressiveness", "Tissue sample contains micro-gas release structures")

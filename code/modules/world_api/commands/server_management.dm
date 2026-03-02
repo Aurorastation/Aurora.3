@@ -130,8 +130,8 @@
 /datum/topic_command/admins_reload/run_command(queryparams)
 	log_and_message_admins("AdminRanks: remote reload of the admins list initiated.")
 
-	if (GLOB.config.use_forumuser_api)
-		if (!update_admins_from_api(reload_once_done=FALSE))
+	if (GLOB.config.use_authentik_api)
+		if (!SSauth.update_admins_from_authentik(reload_once_done=TRUE))
 			statuscode = 500
 			response = "Updating admins from the forumuser API failed. Aborted."
 			return FALSE
@@ -141,6 +141,4 @@
 	else
 		statuscode = 200
 		response = "Admins reloaded."
-
-	load_admins()
 	return TRUE

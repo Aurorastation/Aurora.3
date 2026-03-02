@@ -447,7 +447,7 @@
 /obj/item/ammo_magazine/c762/sol,
 /obj/item/ammo_magazine/mc9mm,
 /obj/item/ammo_magazine/mc9mm,
-/obj/item/storage/box/shotgunammo,
+/obj/item/storage/box/shells/slugs,
 /turf/simulated/floor/tiled,
 /area/sol_listening_post)
 "xP" = (

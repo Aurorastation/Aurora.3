@@ -19,7 +19,7 @@
 
 /obj/machinery/mineral/stacking_unit_console/Initialize(mapload, d, populate_components)
 	..()
-	var/mutable_appearance/screen_overlay = mutable_appearance(icon, "production_console-screen", plane = EFFECTS_ABOVE_LIGHTING_PLANE)
+	var/mutable_appearance/screen_overlay = mutable_appearance(icon, "production_console-screen", plane = ABOVE_LIGHTING_PLANE)
 	AddOverlays(screen_overlay)
 	set_light(1.4, 1, COLOR_CYAN)
 	return INITIALIZE_HINT_LATELOAD
@@ -104,7 +104,7 @@
 			return
 
 		if(machine.stack_storage[stacktype] > 0)
-			var/obj/item/stack/material/S = new stacktype(machine.output)
+			var/obj/item/stack/material/S = new stacktype(machine.output_turf)
 			S.amount = machine.stack_storage[stacktype]
 			machine.stack_storage[stacktype] = 0
 			return TRUE
@@ -121,9 +121,8 @@
 	icon_state = "stacker"
 	density = TRUE
 	anchored = TRUE
+	is_processing_machine = TRUE
 	var/obj/machinery/mineral/stacking_unit_console/console
-	var/obj/machinery/mineral/input
-	var/obj/machinery/mineral/output
 	var/list/stack_storage = list()
 	var/list/stack_paths = list()
 	var/stack_amt = 50 // Amount to stack before releasing
@@ -143,22 +142,7 @@
 		stack_storage[stacktype] = 0
 		stack_paths[stacktype] = capitalize(initial(S.name))
 
-	//Locate our output and input machinery.
-	for(var/dir in GLOB.cardinals)
-		var/input_spot = locate(/obj/machinery/mineral/input, get_step(src, dir))
-		if(input_spot)
-			input = get_turf(input_spot) // thought of qdeling the spots here, but it's useful when rebuilding a destroyed machine
-			break
-	for(var/dir in GLOB.cardinals)
-		var/output_spot = locate(/obj/machinery/mineral/output, get_step(src, dir))
-		if(output)
-			output = get_turf(output_spot)
-			break
-
-	if(!input)
-		input = get_step(src, REVERSE_DIR(dir))
-	if(!output)
-		output = get_step(src, dir)
+	setup_io()
 
 /obj/machinery/mineral/stacking_machine/Destroy()
 	if(console)
@@ -182,8 +166,8 @@
 	if(stat & NOPOWER)
 		return
 
-	if(output && input)
-		for(var/obj/item/O in input)
+	if(output_turf && input_turf)
+		for(var/obj/item/O in input_turf)
 			if(!O)
 				return
 			var/obj/item/stack/S = O
@@ -191,11 +175,11 @@
 				stack_storage[S.type] += S.amount
 				qdel(S)
 			else
-				O.forceMove(output)
+				O.forceMove(output_turf)
 
 	//Output amounts that are past stack_amt.
 	for(var/sheet in stack_storage)
 		if(stack_storage[sheet] >= stack_amt)
-			new sheet(output, stack_amt)
+			new sheet(output_turf, stack_amt)
 			stack_storage[sheet] -= stack_amt
 			intent_message(MACHINE_SOUND)

@@ -116,7 +116,7 @@
 /obj/machinery/portable_atmospherics/powered/scrubber/ui_data(mob/user)
 	var/list/data = list()
 	data["portConnected"] = connected_port ? 1 : 0
-	data["tankPressure"] = round(air_contents.return_pressure() > 0 ? air_contents.return_pressure() : 0)
+	data["tankPressure"] = round(XGM_PRESSURE(air_contents))
 	data["rate"] = round(volume_rate)
 	data["minrate"] = round(minrate)
 	data["maxrate"] = round(maxrate)
@@ -127,7 +127,7 @@
 	data["hasHoldingTank"] = holding ? 1 : 0
 	if(holding)
 		data["holdingTankName"] = holding?.name
-		data["holdingTankPressure"] = round(holding.air_contents.return_pressure() > 0 ? holding.air_contents.return_pressure() : 0)
+		data["holdingTankPressure"] = round(XGM_PRESSURE(holding.air_contents))
 	else
 		data["holdingTankName"] = null
 		data["holdingTankPressure"] = null
@@ -217,7 +217,7 @@
 		update_connected_network()
 
 /obj/machinery/portable_atmospherics/powered/scrubber/huge/attackby(obj/item/attacking_item, mob/user)
-	if(attacking_item.iswrench())
+	if(attacking_item.tool_behaviour == TOOL_WRENCH)
 		if(on)
 			to_chat(user, SPAN_WARNING("Turn \the [src] off first!"))
 			return TRUE
@@ -231,7 +231,7 @@
 	//doesn't use power cells
 	if(istype(attacking_item, /obj/item/cell))
 		return TRUE
-	if (attacking_item.isscrewdriver())
+	if (attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 		return TRUE
 
 	//doesn't hold tanks
@@ -244,7 +244,7 @@
 	name = "Stationary Air Scrubber"
 
 /obj/machinery/portable_atmospherics/powered/scrubber/huge/stationary/attackby(obj/item/attacking_item, mob/user)
-	if(attacking_item.iswrench())
+	if(attacking_item.tool_behaviour == TOOL_WRENCH)
 		to_chat(user, SPAN_WARNING("The bolts are too tight for you to unscrew!"))
 		return TRUE
 

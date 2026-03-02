@@ -2,11 +2,12 @@ name: "Stale bot - Issue and PR triage"
 
 on:
   schedule:
-    # Run every monday and friday at 06:00 UTC, giving an update for the new week and the weekend
-    - cron: "0 6 * * 1,5"
+    # Run every hour
+    - cron: "0 * * * *"
   workflow_dispatch: # Allow manual trigger
 
 permissions:
+  actions: write
   issues: write
   pull-requests: write
 
@@ -16,10 +17,12 @@ jobs:
     steps:
       - uses: actions/stale@v9
         with:
+          # --- Global settings ---
+          operations-per-run: 100
+
           # --- Issue settings ---
-          days-before-stale: 60
-          days-before-close: 30
-          stale-issue-label: "Stale"
+          days-before-issue-stale: 60
+          days-before-issue-close: 30
           stale-issue-message: >
             This issue has been marked as stale due to the lack of activity within the last 60 days.
             If you think the issue is still relevant, leave a comment or let the issue get labeled as replicable by staff.
@@ -27,15 +30,13 @@ jobs:
           close-issue-message: >
             This issue has been closed automatically after 90 days of inactivity.
             If you think this issue is still relevant, please reopen it or create a new issue.
-          exempt-issue-labels-regex: "(?i).*replicable.*" # Problems that are waiting for resolution shouldn't be closed
+          exempt-issue-labels: "Bot Ignore,⛔ Lore Discussion,⛔ Maintainer Discussion,✔️ Issue Replicable"
 
           # --- PR settings ---
           days-before-pr-stale: 60
           days-before-pr-close: -1 # Never auto-close PRs
-          stale-pr-label: "Stale"
           stale-pr-message: >
             This pull request has been marked as stale due to the lack of activity within the last 60 days.
             If you are still working on this, please push your work or leave a comment.
             Pull requests marked as stale won't be auto-closed but are at the discretion of staff to be closed at any point without further notice.
-          exempt-pr-labels-regex: "(?i).*discussion.*" # Match any label containing "discussion"
-          # Draft PRs are not exempted from getting marked as stale
+          exempt-pr-labels: "Bot Ignore,⛔ Lore Discussion,⛔ Maintainer Discussion,✔️ Issue Replicable"

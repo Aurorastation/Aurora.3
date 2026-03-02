@@ -36,7 +36,7 @@
 		QUEUE_SMOOTH_NEIGHBORS(src)
 
 	climbers = null
-
+	material = null
 	return ..()
 
 /obj/structure/attackby(obj/item/attacking_item, mob/user, params)

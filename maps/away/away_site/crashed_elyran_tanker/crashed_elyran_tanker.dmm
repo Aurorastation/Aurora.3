@@ -22,7 +22,7 @@
 /obj/item/reagent_containers/food/drinks/waterbottle{
 	pixel_x = 5
 	},
-/obj/item/device/radio/phone{
+/obj/item/radio/phone{
 	frequency = 1280;
 	pixel_x = -4;
 	pixel_y = -16
@@ -471,7 +471,7 @@
 /turf/simulated/floor/reinforced/airless,
 /area/crashed_elyran_tanker/engineering)
 "ea" = (
-/obj/item/device/pipe_painter{
+/obj/item/pipe_painter{
 	pixel_x = -4
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -1088,7 +1088,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/table/wood,
-/obj/item/device/gps{
+/obj/item/gps{
 	pixel_x = 5
 	},
 /turf/simulated/floor/tiled,
@@ -1171,7 +1171,7 @@
 /obj/item/pipe{
 	pixel_y = -3
 	},
-/obj/item/device/transfer_valve{
+/obj/item/transfer_valve{
 	pixel_x = -10;
 	pixel_y = 2
 	},
@@ -1310,7 +1310,7 @@
 "nw" = (
 /obj/structure/table/standard,
 /obj/effect/decal/cleanable/dirt,
-/obj/item/device/radio/phone{
+/obj/item/radio/phone{
 	frequency = 1280;
 	pixel_y = 11
 	},
@@ -1594,7 +1594,7 @@
 /area/crashed_elyran_tanker/bridge)
 "qn" = (
 /obj/structure/table/steel,
-/obj/item/device/radio/phone{
+/obj/item/radio/phone{
 	frequency = 1280
 	},
 /turf/simulated/floor/airless,
@@ -2032,7 +2032,7 @@
 /turf/simulated/floor,
 /area/crashed_elyran_tanker/crew)
 "vu" = (
-/obj/item/device/flashlight/flare{
+/obj/item/flashlight/flare{
 	pixel_y = 5;
 	pixel_x = -12
 	},
@@ -2678,7 +2678,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
-/obj/item/device/pipe_painter{
+/obj/item/pipe_painter{
 	pixel_x = 4;
 	pixel_y = -6
 	},
@@ -2722,7 +2722,7 @@
 /area/crashed_elyran_tanker/engineering)
 "Bw" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/item/device/radio{
+/obj/item/radio{
 	pixel_x = 5;
 	pixel_y = -8
 	},
@@ -4798,7 +4798,7 @@
 /obj/structure/toilet{
 	pixel_y = 8
 	},
-/obj/item/device/radio/phone{
+/obj/item/radio/phone{
 	frequency = 1280;
 	pixel_y = -8;
 	pixel_x = 9

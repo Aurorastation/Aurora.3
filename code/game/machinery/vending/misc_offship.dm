@@ -17,7 +17,7 @@
 	)
 	premium = list(
 		/obj/item/gun/projectile/shotgun/pump/rifle/blank = 3,
-		/obj/item/ammo_magazine/boltaction/blank = 10,
+		/obj/item/ammo_magazine/boltaction/adhomai/blank = 10,
 		/obj/item/storage/box/fancy/cigarettes/dpra = 5,
 		/obj/item/storage/chewables/tobacco/bad = 5,
 		/obj/item/reagent_containers/food/drinks/bottle/messa_mead = 5,
@@ -35,10 +35,10 @@
 		/obj/item/grenade/fake = 2,
 		/obj/item/eightball/haunted = 5,
 		/obj/item/spirit_board = 5,
-		/obj/item/device/flashlight/maglight = 5,
+		/obj/item/flashlight/maglight = 5,
 		/obj/item/contraband/poster = 5,
 		/obj/item/spacecash/ewallet/lotto = 15,
-		/obj/item/device/laser_pointer = 5,
+		/obj/item/laser_pointer = 5,
 		/obj/item/beach_ball = 1,
 		/obj/item/material/knife/butterfly/switchblade = 2,
 		/obj/item/reagent_containers/hypospray/autoinjector/stimpack = 2,

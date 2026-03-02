@@ -17,6 +17,7 @@
 	name = "Head of Staff's Office (PARENT AREA - DON'T USE)"
 	area_flags = AREA_FLAG_RAD_SHIELDED
 	sound_environment = SOUND_AREA_SMALL_ENCLOSED
+	lightswitch = FALSE
 
 /area/horizon/command/heads/captain
 	name = "Captain's Office"
@@ -69,7 +70,6 @@
 	no_light_control = 1
 	area_blurb = "The sound here seems to carry more than others, every click of a shoe or clearing of a throat amplified. \
 	The smell of ink, written and printed, wafts notably through the air."
-	area_blurb_category = "command"
 	horizon_deck = 3
 
 /area/horizon/command/bridge/bridge_crew
@@ -85,7 +85,7 @@
 	icon_state = "bridge"
 
 /area/horizon/command/bridge/minibar
-	name = "Bridge Break Room"
+	name = "Bridge Wardoom"
 	icon_state = "bridge"
 
 /area/horizon/command/bridge/aibunker
@@ -100,7 +100,6 @@
 	ambience = list()
 	sound_environment = SOUND_AREA_MEDIUM_SOFTFLOOR
 	area_blurb = "A place for behind-closed-doors meetings to get things done (or to argue for hours)."
-	area_blurb_category = "command_meeting"
 	area_flags = AREA_FLAG_RAD_SHIELDED
 
 /area/horizon/command/bridge/cciaroom
@@ -108,7 +107,6 @@
 	icon_state = "hr"
 	sound_environment = SOUND_AREA_MEDIUM_SOFTFLOOR
 	area_blurb = "You might feel dread when you enter this meeting room."
-	area_blurb_category = "hr_meeting"
 	area_flags = AREA_FLAG_RAD_SHIELDED
 
 /area/horizon/command/bridge/cciaroom/lounge
@@ -116,7 +114,6 @@
 	icon_state = "hrlounge"
 	sound_environment = SOUND_AREA_SMALL_SOFTFLOOR
 	area_blurb = "A place that may worsen any anxiety surrounding meetings with your bosses' bosses."
-	area_blurb_category = "hr_lounge"
 	area_flags = AREA_FLAG_RAD_SHIELDED
 
 /area/horizon/command/bridge/selfdestruct
@@ -128,7 +125,6 @@
 /area/horizon/command/bridge/controlroom
 	name = "Bridge Control Room"
 	area_blurb = "The full expanse of space lies beyond a thick pane of reinforced glass, all that protects you from a cold and painful death. The computers hum, showing various displays and holographic signs. The sight would be overwhelming to one unused to such an environment. Even at full power, the sensors fail to map even a fraction of the dots of light making up the cosmic filament."
-	area_blurb_category = "bridge"
 	area_flags = AREA_FLAG_RAD_SHIELDED
 
 //Teleporter
@@ -137,4 +133,3 @@
 	icon_state = "teleporter"
 	horizon_deck = 1
 	area_blurb = "The air in here always feels charged with the subdued crackle of electricity, tasting faintly of ozone."
-	area_blurb_category = "teleporter"

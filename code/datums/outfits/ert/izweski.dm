@@ -10,7 +10,7 @@
 	accessory_contents = list(/obj/item/gun/energy/pistol/hegemony = 1)
 	gloves = /obj/item/clothing/gloves/black/unathi
 	back = /obj/item/recharger_backpack/high
-	l_ear = /obj/item/device/radio/headset/distress
+	l_ear = /obj/item/radio/headset/distress
 	l_pocket = /obj/item/tank/emergency_oxygen/double
 	belt_contents = list(
 		/obj/item/melee/energy/sword/hegemony = 1,
@@ -48,7 +48,7 @@
 		/obj/item/shield/energy/hegemony = 1,
 		/obj/item/crowbar = 1,
 		/obj/item/storage/firstaid/adv = 1,
-		/obj/item/device/healthanalyzer = 1,
+		/obj/item/healthanalyzer = 1,
 		/obj/item/handcuffs/ziptie = 2
 	)
 	gloves = /obj/item/clothing/gloves/latex/nitrile/unathi

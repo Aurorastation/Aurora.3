@@ -7,9 +7,7 @@
 ///The time at which the next automatic transfer vote will be called
 GLOBAL_VAR_INIT(next_transfer_time, null)
 
-var/datum/controller/subsystem/ticker/SSticker
-
-/datum/controller/subsystem/ticker
+SUBSYSTEM_DEF(ticker)
 	// -- Subsystem stuff --
 	name = "Ticker"
 
@@ -72,9 +70,6 @@ var/datum/controller/subsystem/ticker/SSticker
 	var/total_players = 0
 	var/total_players_ready = 0
 	var/list/ready_player_jobs
-
-/datum/controller/subsystem/ticker/New()
-	NEW_SS_GLOBAL(SSticker)
 
 /datum/controller/subsystem/ticker/Initialize(timeofday)
 	pregame()
@@ -565,22 +560,20 @@ var/datum/controller/subsystem/ticker/SSticker
 		fail_reasons +=  "Too many players, less than [mode.max_players] antagonist(s) needed"
 
 	if(can_start != GAME_FAILURE_NONE)
-		to_world("<B>Unable to start the game mode, due to lack of available antagonists.</B> [english_list(fail_reasons,"No reason specified",". ",". ")]")
+		message_admins("<B>Unable to start the game mode, due to lack of available antagonists.</B> [english_list(fail_reasons,"No reason specified",". ",". ")]")
 		current_state = GAME_STATE_PREGAME
 		mode.fail_setup()
 		mode = null
 		SSjobs.ResetOccupations()
 		if(GLOB.master_mode in list(ROUNDTYPE_STR_RANDOM, ROUNDTYPE_STR_SECRET, ROUNDTYPE_STR_MIXED_SECRET))
-			to_world("<B>Reselecting gamemode...</B>")
 			return SETUP_REATTEMPT
 		else
-			to_world("<B>Reverting to pre-game lobby.</B>")
 			return SETUP_REVOTE
 
 	var/starttime = REALTIMEOFDAY
 
 	if(hide_mode)
-		to_world("<B>The current game mode is - [hide_mode == ROUNDTYPE_SECRET ? "Secret" : "Mixed Secret"]!</B>")
+		to_world("<B>The current game mode is [hide_mode == ROUNDTYPE_SECRET ? "Secret" : "Mixed Secret"]!</B>")
 		if(runnable_modes.len)
 			var/list/tmpmodes = new
 			for (var/datum/game_mode/M in runnable_modes)

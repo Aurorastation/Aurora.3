@@ -262,14 +262,14 @@
 ////////////////////////
 
 
-/obj/item/device/synthesized_instrument
+/obj/item/synthesized_instrument
 	var/datum/real_instrument/real_instrument
 	icon = 'icons/obj/musician.dmi'
 	var/list/datum/instrument/instruments = list()
 	var/path = /datum/instrument
 	var/sound_player = /datum/sound_player
 
-/obj/item/device/synthesized_instrument/Initialize()
+/obj/item/synthesized_instrument/Initialize()
 	. = ..()
 	for (var/type in typesof(path))
 		var/datum/instrument/new_instrument = new type
@@ -278,7 +278,7 @@
 		src.instruments[new_instrument.name] = new_instrument
 	src.real_instrument = new /datum/real_instrument(src, new sound_player(src, instruments[pick(instruments)]), instruments)
 
-/obj/item/device/synthesized_instrument/Destroy()
+/obj/item/synthesized_instrument/Destroy()
 	QDEL_NULL(src.real_instrument)
 	if (islist(instruments))
 		var/list/as_list = instruments
@@ -288,23 +288,23 @@
 	. = ..()
 
 
-/obj/item/device/synthesized_instrument/attack_self(mob/user as mob)
+/obj/item/synthesized_instrument/attack_self(mob/user as mob)
 	src.interact(user)
 
 
-/obj/item/device/synthesized_instrument/interact(mob/user) // CONDITIONS ..(user) that shit in subclasses
+/obj/item/synthesized_instrument/interact(mob/user) // CONDITIONS ..(user) that shit in subclasses
 	src.ui_interact(user)
 
 
-/obj/item/device/synthesized_instrument/ui_interact(mob/user, ui_key = "instrument", datum/nanoui/ui = null, force_open = 0)
+/obj/item/synthesized_instrument/ui_interact(mob/user, ui_key = "instrument", datum/nanoui/ui = null, force_open = 0)
 	if (real_instrument)
 		real_instrument.ui_call(user,ui_key,ui,force_open)
 
 
-/obj/item/device/synthesized_instrument/proc/shouldStopPlaying(mob/user)
+/obj/item/synthesized_instrument/proc/shouldStopPlaying(mob/user)
 	return !(src && in_range(src, user))
 
-/obj/item/device/synthesized_instrument/Topic(href, href_list)
+/obj/item/synthesized_instrument/Topic(href, href_list)
 	if (..())
 		return 1
 

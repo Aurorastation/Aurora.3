@@ -26,7 +26,7 @@
 	shoes = /obj/item/clothing/shoes/jackboots/tajara
 
 	uniform = /obj/item/clothing/under/tajaran/pvsm
-	l_ear = /obj/item/device/radio/headset/ship
+	l_ear = /obj/item/radio/headset/ship
 
 	back = /obj/item/storage/backpack/rucksack
 	belt = /obj/item/storage/belt/military

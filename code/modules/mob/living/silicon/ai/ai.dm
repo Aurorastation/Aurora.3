@@ -68,8 +68,8 @@ GLOBAL_LIST_INIT(ai_verbs_default, list(
 	var/obj/machinery/camera/camera
 	/// For storing what is shown to the cameras
 	var/list/cameraRecords = list()
-	var/obj/item/device/multitool/ai_multi
-	var/obj/item/device/radio/headset/heads/ai_integrated/ai_radio
+	var/obj/item/multitool/ai_multi
+	var/obj/item/radio/headset/heads/ai_integrated/ai_radio
 	var/datum/announcement/priority/announcement
 	var/obj/machinery/ai_powersupply/psupply
 
@@ -145,7 +145,7 @@ GLOBAL_LIST_INIT(ai_verbs_default, list(
 	remove_verb(src, GLOB.ai_verbs_default)
 	remove_verb(src, silicon_subsystems)
 
-/mob/living/silicon/ai/Initialize(mapload, datum/ai_laws/L, obj/item/device/mmi/B, safety = 0)
+/mob/living/silicon/ai/Initialize(mapload, datum/ai_laws/L, obj/item/mmi/B, safety = 0)
 	shouldnt_see = typecacheof(/obj/effect/rune)
 	announcement = new()
 	announcement.title = "A.I. Announcement"
@@ -180,7 +180,7 @@ GLOBAL_LIST_INIT(ai_verbs_default, list(
 	ai_radio.myAi = src
 	additional_law_channels["Holopad"] = ":h"
 
-	ai_camera = new/obj/item/device/camera/siliconcam/ai_camera(src)
+	ai_camera = new/obj/item/camera/siliconcam/ai_camera(src)
 
 	if(istype(loc, /turf))
 		add_ai_verbs(src)
@@ -779,12 +779,14 @@ GLOBAL_LIST_INIT(ai_verbs_default, list(
 
 
 /mob/living/silicon/ai/attackby(obj/item/attacking_item, mob/user)
-	if(istype(attacking_item, /obj/item/aicard))
+	if(user.a_intent == I_HURT) // So you can attack an AI with a wrench, if you really wanted to.
+		return ..()
 
+	if(istype(attacking_item, /obj/item/aicard))
 		var/obj/item/aicard/card = attacking_item
 		card.grab_ai(src, user)
 
-	else if(attacking_item.iswrench())
+	else if(attacking_item.tool_behaviour == TOOL_WRENCH)
 		if(anchored)
 			user.visible_message(SPAN_NOTICE("\The [user] starts to unbolt \the [src] from the plating..."))
 			if(!attacking_item.use_tool(src, user, 40, volume = 50))

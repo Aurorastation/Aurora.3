@@ -185,7 +185,7 @@ INITIALIZE_IMMEDIATE(/mob/living/carbon/human/dummy/mannequin)
 
 	equip_to_slot_or_del(new /obj/item/clothing/suit/armor/vest(src), slot_wear_suit)
 	equip_to_slot_or_del(new /obj/item/clothing/shoes/jackboots(src), slot_shoes)
-	equip_to_slot_or_del(new /obj/item/device/radio/headset/headset_com(src), slot_l_ear)
+	equip_to_slot_or_del(new /obj/item/radio/headset/headset_com(src), slot_l_ear)
 
 	remote_network = REMOTE_BUNKER_ROBOT
 	SSvirtualreality.add_robot(src, remote_network)
@@ -200,7 +200,7 @@ INITIALIZE_IMMEDIATE(/mob/living/carbon/human/dummy/mannequin)
 		mind.name = real_name
 	status_flags |= NO_ANTAG
 
-	equip_to_slot_or_del(new /obj/item/device/radio/headset/headset_penal(src), slot_l_ear)
+	equip_to_slot_or_del(new /obj/item/radio/headset/headset_penal(src), slot_l_ear)
 
 	remote_network = REMOTE_PRISON_ROBOT
 	SSvirtualreality.add_robot(src, remote_network)
@@ -222,7 +222,7 @@ INITIALIZE_IMMEDIATE(/mob/living/carbon/human/dummy/mannequin)
 	equip_to_slot_or_del(ID, slot_wear_id)
 	equip_to_slot_or_del(new /obj/item/clothing/under/rank/warden/remote(src), slot_w_uniform)
 	equip_to_slot_or_del(new /obj/item/clothing/shoes/jackboots(src), slot_shoes)
-	equip_to_slot_or_del(new /obj/item/device/radio/headset/headset_warden(src), slot_l_ear)
+	equip_to_slot_or_del(new /obj/item/radio/headset/headset_warden(src), slot_l_ear)
 
 	remote_network = REMOTE_WARDEN_ROBOT
 	SSvirtualreality.add_robot(src, remote_network)
@@ -261,7 +261,7 @@ INITIALIZE_IMMEDIATE(/mob/living/carbon/human/dummy/mannequin)
 
 	equip_to_slot_or_del(new /obj/item/clothing/suit/armor/vest(src), slot_wear_suit)
 	equip_to_slot_or_del(new /obj/item/clothing/shoes/jackboots(src), slot_shoes)
-	equip_to_slot_or_del(new /obj/item/device/radio/headset/headset_com(src), slot_l_ear)
+	equip_to_slot_or_del(new /obj/item/radio/headset/headset_com(src), slot_l_ear)
 
 	remote_network = REMOTE_BUNKER_ROBOT
 	SSvirtualreality.add_robot(src, remote_network)

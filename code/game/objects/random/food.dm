@@ -182,7 +182,62 @@
 		/obj/item/reagent_containers/food/drinks/bottle/sarezhiwine,
 		/obj/item/reagent_containers/food/drinks/bottle/small/beer,
 		/obj/item/reagent_containers/food/drinks/bottle/small/ale,
-		/obj/item/reagent_containers/food/drinks/bottle/small/xuizijuice
+		/obj/item/reagent_containers/food/drinks/bottle/small/xuizijuice,
+		/obj/random/yoke
+	)
+
+/obj/random/yoke
+	name = "random yoke"
+	desc = "This is a random yoke of alcoholic cans."
+	icon_state = "broken_bottle"
+	spawnlist = list(
+		/obj/item/storage/box/fancy/yoke/beer,
+		/obj/item/storage/box/fancy/yoke/ebisu,
+		/obj/item/storage/box/fancy/yoke/shimauma,
+		/obj/item/storage/box/fancy/yoke/moonlabor,
+		/obj/item/storage/box/fancy/yoke/earthmover,
+		/obj/item/storage/box/fancy/yoke/whistlingforest,
+		/obj/item/storage/box/fancy/yoke/threetowns,
+		/obj/item/storage/box/fancy/yoke/alcoholic/random // one yoke of randomly different cans
+	)
+
+/obj/random/yoke/soda
+	name = "random soda yoke"
+	desc = "This is a random yoke of soda cans."
+	spawnlist = list(
+		/obj/item/storage/box/fancy/yoke/cola,
+		/obj/item/storage/box/fancy/yoke/space_mountain_wind,
+		/obj/item/storage/box/fancy/yoke/thirteenloko,
+		/obj/item/storage/box/fancy/yoke/dr_gibb,
+		/obj/item/storage/box/fancy/yoke/starkist,
+		/obj/item/storage/box/fancy/yoke/space_up,
+		/obj/item/storage/box/fancy/yoke/lemon_lime,
+		/obj/item/storage/box/fancy/yoke/iced_tea,
+		/obj/item/storage/box/fancy/yoke/grape_juice,
+		/obj/item/storage/box/fancy/yoke/tonic,
+		/obj/item/storage/box/fancy/yoke/sodawater,
+		/obj/item/storage/box/fancy/yoke/root_beer,
+		/obj/item/storage/box/fancy/yoke/diet_cola,
+		/obj/item/storage/box/fancy/yoke/peach_soda,
+		/obj/item/storage/box/fancy/yoke/melon_soda,
+		/obj/item/storage/box/fancy/yoke/himeokvass,
+		/obj/item/storage/box/fancy/yoke/xanuchai,
+		/obj/item/storage/box/fancy/yoke/beetle_milk,
+		/obj/item/storage/box/fancy/yoke/random
+	)
+
+/obj/random/yoke/energy
+	name = "random energy yoke"
+	desc = "This is a random yoke of energy drink cans."
+	spawnlist = list(
+		/obj/item/storage/box/fancy/yoke/energy/zoracherry,
+		/obj/item/storage/box/fancy/yoke/energy/zoraphoron,
+		/obj/item/storage/box/fancy/yoke/energy/zoraklax,
+		/obj/item/storage/box/fancy/yoke/energy/zoracthur,
+		/obj/item/storage/box/fancy/yoke/energy/zoravenom,
+		/obj/item/storage/box/fancy/yoke/energy/zorahozm,
+		/obj/item/storage/box/fancy/yoke/energy/zorakois,
+		/obj/item/storage/box/fancy/yoke/energy/random
 	)
 
 /obj/random/keg

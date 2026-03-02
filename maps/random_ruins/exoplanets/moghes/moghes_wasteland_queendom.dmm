@@ -55,7 +55,7 @@
 /obj/item/clothing/suit/armor/unathi,
 /obj/item/gun/projectile/shotgun/pump/rifle/magazine_fed/crackrifle,
 /obj/item/gun/projectile/shotgun/wallgun,
-/obj/item/storage/box/wallgunammo,
+/obj/item/storage/box/shells/wallgunammo,
 /obj/item/gun/projectile/automatic/tempestsmg,
 /obj/item/ammo_magazine/tempestsmg,
 /obj/effect/floor_decal/spline/plain/blue,
@@ -72,7 +72,7 @@
 /area/exoplanet/moghes)
 "i" = (
 /obj/effect/floor_decal/spline/plain/brown,
-/obj/item/device/flashlight/lamp/box,
+/obj/item/flashlight/lamp/box,
 /turf/simulated/floor/exoplanet/carpet/orange,
 /area/moghes_queendom)
 "k" = (
@@ -159,17 +159,17 @@
 /area/moghes_queendom)
 "C" = (
 /obj/structure/closet/crate,
-/obj/item/device/flashlight/lantern,
-/obj/item/device/flashlight/lantern,
-/obj/item/device/flashlight/lantern,
-/obj/item/device/flashlight/lantern,
-/obj/item/device/flashlight/lantern,
-/obj/item/device/radio,
+/obj/item/flashlight/lantern,
+/obj/item/flashlight/lantern,
+/obj/item/flashlight/lantern,
+/obj/item/flashlight/lantern,
+/obj/item/flashlight/lantern,
+/obj/item/radio,
 /obj/item/torch,
-/obj/item/device/geiger,
-/obj/item/device/geiger,
-/obj/item/device/geiger,
-/obj/item/device/geiger,
+/obj/item/geiger,
+/obj/item/geiger,
+/obj/item/geiger,
+/obj/item/geiger,
 /obj/effect/floor_decal/spline/plain/blue{
 	dir = 1
 	},
@@ -277,7 +277,7 @@
 	},
 /area/exoplanet/moghes)
 "V" = (
-/obj/item/device/flashlight/lantern/on,
+/obj/item/flashlight/lantern/on,
 /turf/simulated/floor/exoplanet/desert{
 	temperature = 315.15
 	},

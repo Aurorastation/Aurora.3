@@ -109,7 +109,7 @@
 		update_components()
 
 /obj/item/mech_component/attackby(obj/item/attacking_item, mob/user)
-	if(attacking_item.isscrewdriver())
+	if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 		if(contents.len)
 			var/obj/item/removed = pick(contents)
 			user.visible_message(SPAN_NOTICE("\The [user] removes \the [removed] from \the [src]."))
@@ -119,10 +119,10 @@
 		else
 			to_chat(user, SPAN_WARNING("There is nothing to remove."))
 		return
-	if(attacking_item.iswelder())
+	if(attacking_item.tool_behaviour == TOOL_WELDER)
 		repair_brute_generic(attacking_item, user)
 		return
-	if(attacking_item.iscoil())
+	if(attacking_item.tool_behaviour == TOOL_CABLECOIL)
 		repair_burn_generic(attacking_item, user)
 		return
 	return ..()

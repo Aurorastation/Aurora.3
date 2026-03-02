@@ -9,7 +9,7 @@
 
 /obj/machinery/computer/fusion/gyrotron/terminal
 	name = "gyrotron control terminal"
-	icon = 'icons/obj/machinery/modular_terminal.dmi'
+	icon = 'icons/obj/modular_computers/modular_terminal.dmi'
 	icon_screen = "rust_screen"
 	icon_keyboard = "generic_key"
 	icon_keyboard_emis = "generic_key_mask"

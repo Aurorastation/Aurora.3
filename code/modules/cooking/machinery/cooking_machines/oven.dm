@@ -66,13 +66,13 @@
 		icon_state = door_closed
 		if(!stat)
 			var/image/ovenclosed_on = image('icons/obj/machinery/cooking_machines.dmi', door_closed_overlay)
-			ovenclosed_on.plane = EFFECTS_ABOVE_LIGHTING_PLANE
+			ovenclosed_on.plane = ABOVE_LIGHTING_PLANE
 			AddOverlays(ovenclosed_on)
 	else
 		icon_state = door_open
 		if(!stat)
 			var/image/ovenopen_on = image('icons/obj/machinery/cooking_machines.dmi', door_open_overlay)
-			ovenopen_on.plane = EFFECTS_ABOVE_LIGHTING_PLANE
+			ovenopen_on.plane = ABOVE_LIGHTING_PLANE
 			AddOverlays(ovenopen_on)
 	..()
 
@@ -111,7 +111,7 @@
 /obj/machinery/appliance/cooker/oven/proc/manip(var/obj/item/I)
 	// check if someone's trying to manipulate the machine
 
-	return I.iscrowbar() || I.isscrewdriver() || istype(I, /obj/item/storage/part_replacer) || istype(I, /obj/item/stock_parts)
+	return I.tool_behaviour == TOOL_CROWBAR || I.tool_behaviour == TOOL_SCREWDRIVER || istype(I, /obj/item/storage/part_replacer) || istype(I, /obj/item/stock_parts)
 
 /obj/machinery/appliance/cooker/oven/can_insert(var/obj/item/I, var/mob/user)
 	if (!open && !manip(I, user))

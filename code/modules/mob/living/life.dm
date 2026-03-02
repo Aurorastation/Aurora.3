@@ -13,7 +13,7 @@
 	var/datum/gas_mixture/environment = loc.return_air()
 	//Handle temperature/pressure differences between body and environment
 	if(environment)
-		handle_environment(environment)
+		handle_environment(environment, seconds_per_tick)
 
 	blinded = 0 // Placing this here just show how out of place it is.
 
@@ -173,6 +173,7 @@
 	var/list/vision = get_accumulated_vision_handlers()
 	set_sight(sight | vision[1])
 	set_see_invisible(max(vision[2], see_invisible))
+	sync_lighting_plane_alpha()
 
 /mob/living/proc/update_living_sight()
 	var/set_sight_flags = is_ventcrawling ? (SEE_TURFS) : sight & ~(SEE_TURFS|SEE_MOBS|SEE_OBJS)
@@ -212,7 +213,7 @@
 	if(!.) // If we're under or inside shelter, use the z-level rain (for ambience)
 		. = SSweather.weather_by_z["[my_turf.z]"]
 
-/mob/living/proc/handle_environment(var/datum/gas_mixture/environment)
+/mob/living/proc/handle_environment(var/datum/gas_mixture/environment, seconds_per_tick)
 
 	SHOULD_CALL_PARENT(TRUE)
 

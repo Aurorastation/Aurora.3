@@ -1,5 +1,12 @@
 import { useBackend } from '../backend';
-import { Section, Box, ProgressBar, Knob, Button, LabeledList } from '../components';
+import {
+  Section,
+  Box,
+  ProgressBar,
+  Knob,
+  Button,
+  LabeledList,
+} from '../components';
 import { Window } from '../layouts';
 import { BooleanLike } from '../../common/react';
 
@@ -38,7 +45,8 @@ export const Canister = (props, context) => {
                 onClick={() => act('relabel')}
               />
             )
-          }>
+          }
+        >
           <LabeledList>
             <LabeledList.Item label="Tank Label">{data.name}</LabeledList.Item>
             <LabeledList.Item label="Tank Pressure">
@@ -60,7 +68,8 @@ export const Canister = (props, context) => {
                 onClick={() => act('remove_tank')}
               />
             )
-          }>
+          }
+        >
           {data.hasHoldingTank ? (
             <HoldingTankWindow />
           ) : (

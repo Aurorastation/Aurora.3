@@ -17,7 +17,6 @@
 	name = "PRA Military Outpost"
 	icon_state = "bluenew"
 	requires_power = FALSE
-	dynamic_lighting = TRUE
 	no_light_control = FALSE
 	base_turf = /turf/simulated/floor/exoplanet/mineral/adhomai
 	area_flags = AREA_FLAG_RAD_SHIELDED
@@ -58,7 +57,7 @@
 
 	id = /obj/item/card/id
 	r_pocket = /obj/item/storage/wallet/random
-	l_pocket = /obj/item/device/radio
+	l_pocket = /obj/item/radio
 
 /obj/outfit/admin/pra_base/get_id_access()
 	return list(ACCESS_PRA)
@@ -94,6 +93,6 @@
 						/obj/item/storage/box/hadii_manifesto = 1,
 						/obj/item/storage/box/hadii_card = 1
 						)
-	l_hand = /obj/item/device/megaphone
+	l_hand = /obj/item/megaphone
 
 	accessory = /obj/item/clothing/accessory/hadii_pin

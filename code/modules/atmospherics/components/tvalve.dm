@@ -347,7 +347,7 @@
 				go_to_side()
 
 /obj/machinery/atmospherics/tvalve/attackby(obj/item/attacking_item, mob/user)
-	if (!attacking_item.iswrench())
+	if (attacking_item.tool_behaviour != TOOL_WRENCH)
 		return ..()
 	if (istype(src, /obj/machinery/atmospherics/tvalve/digital))
 		to_chat(user, SPAN_WARNING("You cannot unwrench \the [src], it's too complicated."))
@@ -355,7 +355,7 @@
 	var/datum/gas_mixture/int_air = return_air()
 	if(!loc) return FALSE
 	var/datum/gas_mixture/env_air = loc.return_air()
-	if ((int_air.return_pressure()-env_air.return_pressure()) > PRESSURE_EXERTED)
+	if ((XGM_PRESSURE(int_air)-XGM_PRESSURE(env_air)) > PRESSURE_EXERTED)
 		to_chat(user, "<span class='warnng'>You cannot unwrench \the [src], it too exerted due to internal pressure.</span>")
 		add_fingerprint(user)
 		return TRUE

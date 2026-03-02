@@ -1,4 +1,4 @@
-/obj/item/device/assembly/signaler
+/obj/item/assembly/signaler
 	name = "remote signaling device"
 	desc = "Used to remotely activate devices."
 	icon_state = "signaller"
@@ -20,20 +20,20 @@
 	var/datum/radio_frequency/radio_connection
 	var/deadman = FALSE
 
-/obj/item/device/assembly/signaler/mechanics_hints(mob/user, distance, is_adjacent)
+/obj/item/assembly/signaler/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	. += "Signalers can be attached to a variety of machinery to remotely activate them."
 	. += "Signalers can be to individual wires within machinery; when a signal is received, it will pulse the wire much like a multitool."
 
-/obj/item/device/assembly/signaler/antagonist_hints(mob/user, distance, is_adjacent)
+/obj/item/assembly/signaler/antagonist_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	. += "Signalers can be attached to a variety of machinery to do unspeakable harm or serve as fantastic diversions."
 
-/obj/item/device/assembly/signaler/Initialize()
+/obj/item/assembly/signaler/Initialize()
 	. = ..()
 	set_frequency(frequency)
 
-/obj/item/device/assembly/signaler/activate()
+/obj/item/assembly/signaler/activate()
 	if(cooldown)
 		return FALSE
 	cooldown = 2
@@ -42,21 +42,21 @@
 	signal()
 	return TRUE
 
-/obj/item/device/assembly/signaler/update_icon()
+/obj/item/assembly/signaler/update_icon()
 	if(holder)
 		holder.update_icon()
 	return
 
-/obj/item/device/assembly/signaler/interact(mob/user, flag1)
+/obj/item/assembly/signaler/interact(mob/user, flag1)
 	ui_interact(user)
 
-/obj/item/device/assembly/signaler/ui_interact(mob/user, datum/tgui/ui)
+/obj/item/assembly/signaler/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
 		ui = new(user, src, "Signaler", "Signaler", 320, 220)
 		ui.open()
 
-/obj/item/device/assembly/signaler/ui_data(mob/user)
+/obj/item/assembly/signaler/ui_data(mob/user)
 	var/list/data = list()
 
 	data["frequency"] = format_frequency(frequency)
@@ -64,7 +64,7 @@
 
 	return data
 
-/obj/item/device/assembly/signaler/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
+/obj/item/assembly/signaler/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	. = ..()
 	if(.)
 		return
@@ -85,7 +85,7 @@
 			spawn(0)
 				signal(usr)
 
-/obj/item/device/assembly/signaler/proc/signal(var/mob/user)
+/obj/item/assembly/signaler/proc/signal(var/mob/user)
 	if(!radio_connection)
 		return
 	if(within_jamming_range(src))
@@ -99,7 +99,7 @@
 	radio_connection.post_signal(src, signal)
 	return
 
-/obj/item/device/assembly/signaler/pulse(var/radio = FALSE)
+/obj/item/assembly/signaler/pulse(var/radio = FALSE)
 	if(connected && wires)
 		connected.pulse_assembly(src)
 	else if(holder)
@@ -110,7 +110,7 @@
 		..(radio)
 	return TRUE
 
-/obj/item/device/assembly/signaler/receive_signal(datum/signal/signal)
+/obj/item/assembly/signaler/receive_signal(datum/signal/signal)
 	if(!signal)
 		return FALSE
 
@@ -139,7 +139,7 @@
 	else if(!holder)
 		audible_message("[icon2html(src, viewers(get_turf(src)))] [capitalize_first_letters(src.name)] beeps, \"<b>Beep beep!</b>\"")
 
-/obj/item/device/assembly/signaler/proc/set_frequency(new_frequency)
+/obj/item/assembly/signaler/proc/set_frequency(new_frequency)
 	if(!frequency)
 		return
 	SSradio.remove_object(src, frequency)
@@ -147,7 +147,7 @@
 	radio_connection = SSradio.add_object(src, frequency, RADIO_CHAT)
 
 //Triggers the deadmanswitch if its dropped or moved into ones backpack
-/obj/item/device/assembly/signaler/dropped(mob/user)
+/obj/item/assembly/signaler/dropped(mob/user)
 	. = ..()
 	if(deadman)
 		if(!user.client)
@@ -156,12 +156,12 @@
 			deadman_trigger(user)
 
 //Triggers the deadmanswitch if its moved between slots (i.e. from hand into the pocket)
-/obj/item/device/assembly/signaler/on_slotmove(var/mob/user)
+/obj/item/assembly/signaler/on_slotmove(var/mob/user)
 	. = ..()
 	if(deadman)
 		deadman_trigger(user)
 
-/obj/item/device/assembly/signaler/process()
+/obj/item/assembly/signaler/process()
 	//If we have disabled the deadmanswitch. stop here
 	if(!deadman)
 		STOP_PROCESSING(SSprocessing, src)
@@ -174,13 +174,13 @@
 		M.visible_message(SPAN_DANGER("\The [M]'s finger twitches a bit over \the [src]'s deadman switch!"))
 	return
 
-/obj/item/device/assembly/signaler/AltClick(mob/user)
+/obj/item/assembly/signaler/AltClick(mob/user)
 	if(use_check_and_message(user))
 		return
 	to_chat(user, SPAN_NOTICE("You click \the [src]'s signal button."))
 	signal(user)
 
-/obj/item/device/assembly/signaler/proc/deadman_trigger(var/mob/user)
+/obj/item/assembly/signaler/proc/deadman_trigger(var/mob/user)
 	if(deadman) //If its not activated, there is no point in triggering it
 		if(user)
 			visible_message(SPAN_DANGER("\The [user] releases \the [src]'s deadman switch!"))
@@ -190,7 +190,7 @@
 		deadman = FALSE
 		STOP_PROCESSING(SSprocessing, src)
 
-/obj/item/device/assembly/signaler/verb/deadman_it()
+/obj/item/assembly/signaler/verb/deadman_it()
 	set src in usr
 	set name = "Hold the deadman switch!"
 	set desc = "Sends a signal if dropped or moved into a container."
@@ -201,7 +201,7 @@
 		deadman_deactivate(usr)
 
 
-/obj/item/device/assembly/signaler/proc/deadman_activate(var/mob/user)
+/obj/item/assembly/signaler/proc/deadman_activate(var/mob/user)
 	deadman = TRUE
 	START_PROCESSING(SSprocessing, src)
 	log_and_message_admins("is threatening to trigger a signaler deadman's switch")
@@ -209,12 +209,12 @@
 	to_chat(user, SPAN_WARNING("You are now holding \the [src]'s deadman switch. Dropping, putting the device away, or being hit will activate the signaller."))
 	to_chat(user, SPAN_NOTICE("To deactivate it, make sure to press the verb again."))
 
-/obj/item/device/assembly/signaler/proc/deadman_deactivate(var/mob/user)
+/obj/item/assembly/signaler/proc/deadman_deactivate(var/mob/user)
 	deadman = FALSE
 	STOP_PROCESSING(SSprocessing, src)
 	user.visible_message(SPAN_NOTICE("\The [user] secures and releases \the [src]'s deadman switch..."))
 
-/obj/item/device/assembly/signaler/Destroy()
+/obj/item/assembly/signaler/Destroy()
 	if(SSradio)
 		SSradio.remove_object(src,frequency)
 	frequency = 0

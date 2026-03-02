@@ -121,7 +121,7 @@ Thus, the two variables affect pump operation are set in New():
 		broadcast_status_next_process = FALSE
 
 	var/power_draw = -1
-	var/pressure_delta = target_pressure - air2.return_pressure()
+	var/pressure_delta = target_pressure - XGM_PRESSURE(air2)
 
 	if(pressure_delta > 0.01 && air1.temperature > 0)
 		//Figure out how much gas to transfer to meet the target pressure.
@@ -274,7 +274,7 @@ Thus, the two variables affect pump operation are set in New():
 		update_icon()
 
 /obj/machinery/atmospherics/binary/pump/attackby(obj/item/attacking_item, mob/user)
-	if (!attacking_item.iswrench() && !istype(attacking_item, /obj/item/pipewrench))
+	if (attacking_item.tool_behaviour != TOOL_WRENCH && !istype(attacking_item, /obj/item/pipewrench))
 		return ..()
 	if (!(stat & NOPOWER) && use_power)
 		to_chat(user, SPAN_WARNING("You cannot unwrench this [src], turn it off first."))
@@ -282,7 +282,7 @@ Thus, the two variables affect pump operation are set in New():
 	var/datum/gas_mixture/int_air = return_air()
 	if (!loc) return FALSE
 	var/datum/gas_mixture/env_air = loc.return_air()
-	if ((int_air.return_pressure()-env_air.return_pressure()) > PRESSURE_EXERTED && !istype(attacking_item, /obj/item/pipewrench))
+	if ((XGM_PRESSURE(int_air)-XGM_PRESSURE(env_air)) > PRESSURE_EXERTED && !istype(attacking_item, /obj/item/pipewrench))
 		to_chat(user, SPAN_WARNING("You cannot unwrench this [src], it's too exerted due to internal pressure."))
 		add_fingerprint(user)
 		return TRUE

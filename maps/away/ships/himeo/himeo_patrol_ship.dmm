@@ -2,8 +2,8 @@
 "ac" = (
 /obj/random/dirt_75,
 /obj/structure/table/rack/folding_table,
-/obj/item/device/binoculars/high_power,
-/obj/item/device/binoculars{
+/obj/item/binoculars/high_power,
+/obj/item/binoculars{
 	pixel_y = 8
 	},
 /turf/simulated/floor/plating,
@@ -1102,9 +1102,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/himeo_patrol_ship/deck_2_interstitial)
 "ew" = (
-/obj/machinery/autolathe{
-	hacked = 1
-	},
+/obj/machinery/fabricator/autolathe/hacked,
 /obj/effect/floor_decal/corner/orange/full,
 /turf/simulated/floor/tiled/gunmetal,
 /area/himeo_patrol_ship/engineering)
@@ -3605,7 +3603,7 @@
 /obj/item/clothing/head/bandana/engineering,
 /obj/item/clothing/head/beret/engineering,
 /obj/item/clothing/head/softcap/engineering,
-/obj/item/device/magnetic_lock/engineering,
+/obj/item/magnetic_lock/engineering,
 /obj/item/clothing/suit/storage/hooded/wintercoat/engineering,
 /obj/effect/floor_decal/corner/orange{
 	dir = 10
@@ -4144,28 +4142,28 @@
 "rT" = (
 /obj/structure/table/rack,
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/item/device/suit_cooling_unit,
-/obj/item/device/suit_cooling_unit,
-/obj/item/device/suit_cooling_unit,
-/obj/item/device/suit_cooling_unit,
+/obj/item/suit_cooling_unit,
+/obj/item/suit_cooling_unit,
+/obj/item/suit_cooling_unit,
+/obj/item/suit_cooling_unit,
 /obj/item/tank/jetpack/carbondioxide,
 /obj/item/tank/jetpack/carbondioxide,
 /obj/item/tank/jetpack/carbondioxide,
 /obj/item/tank/jetpack/carbondioxide,
 /obj/structure/extinguisher_cabinet/south,
-/obj/item/device/gps{
+/obj/item/gps{
 	gps_prefix = "HPG";
 	gpstag = "HPG0"
 	},
-/obj/item/device/gps{
+/obj/item/gps{
 	gps_prefix = "HPG";
 	gpstag = "HPG0"
 	},
-/obj/item/device/gps{
+/obj/item/gps{
 	gps_prefix = "HPG";
 	gpstag = "HPG0"
 	},
-/obj/item/device/gps{
+/obj/item/gps{
 	gps_prefix = "HPG";
 	gpstag = "HPG0"
 	},
@@ -4295,7 +4293,7 @@
 "sg" = (
 /obj/structure/table/reinforced,
 /obj/machinery/door/window/desk/westright,
-/obj/item/device/flashlight/lamp{
+/obj/item/flashlight/lamp{
 	pixel_y = -3;
 	pixel_x = 6
 	},
@@ -4441,7 +4439,7 @@
 	pixel_x = 9;
 	pixel_y = -4
 	},
-/obj/item/device/flashlight/lamp/off{
+/obj/item/flashlight/lamp/off{
 	pixel_y = 11;
 	pixel_x = -6
 	},
@@ -5270,7 +5268,7 @@
 	pixel_y = 7;
 	pixel_x = 7
 	},
-/obj/item/device/binoculars{
+/obj/item/binoculars{
 	pixel_y = -5;
 	pixel_x = -1
 	},
@@ -5592,7 +5590,7 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 5
 	},
-/obj/item/device/gps/stationary{
+/obj/item/gps/stationary{
 	gps_prefix = "HPG";
 	gpstag = "HPGPATROL";
 	pixel_y = 28;
@@ -5885,7 +5883,7 @@
 	pixel_x = 4;
 	pixel_y = 5
 	},
-/obj/item/device/flashlight/lamp{
+/obj/item/flashlight/lamp{
 	pixel_x = -10
 	},
 /turf/simulated/floor/tiled/dark,
@@ -6551,7 +6549,7 @@
 /obj/structure/fuel_port/hydrogen{
 	pixel_y = 32
 	},
-/obj/item/device/gps/stationary{
+/obj/item/gps/stationary{
 	gps_prefix = "HPG";
 	gpstag = "HPGSHUTTLE";
 	pixel_x = -24;
@@ -8634,7 +8632,7 @@
 /obj/structure/closet/secure_closet/refrigerator,
 /obj/random/kitchen_staples,
 /obj/random/kitchen_staples,
-/obj/item/storage/box/produce,
+/obj/item/storage/box/large/produce,
 /obj/effect/floor_decal/corner/red/diagonal,
 /turf/simulated/floor/tiled/light,
 /area/himeo_patrol_ship/messhall)
@@ -8694,11 +8692,11 @@
 "KY" = (
 /obj/random/dirt_75,
 /obj/structure/table/wood,
-/obj/item/device/flashlight/lamp/lava/red{
+/obj/item/flashlight/lamp/lava/red{
 	pixel_x = 8;
 	pixel_y = 14
 	},
-/obj/item/device/electronic_assembly/simple{
+/obj/item/electronic_assembly/simple{
 	desc = "The remote for a PanaVision 2400. This one feels a bit hollow.";
 	name = "television remote";
 	pixel_x = -6;
@@ -9005,8 +9003,8 @@
 /obj/random/dirt_75,
 /obj/item/stack/material/steel/full,
 /obj/item/stack/rods/full,
-/obj/item/device/oxycandle,
-/obj/item/device/oxycandle,
+/obj/item/oxycandle,
+/obj/item/oxycandle,
 /obj/item/storage/bag/inflatable,
 /obj/structure/closet/walllocker{
 	pixel_x = 32;
@@ -11673,7 +11671,7 @@
 	pixel_y = 3;
 	pixel_x = -6
 	},
-/obj/item/device/flashlight/lamp/green{
+/obj/item/flashlight/lamp/green{
 	pixel_x = 8;
 	pixel_y = 4
 	},

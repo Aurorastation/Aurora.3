@@ -44,8 +44,8 @@
 /singleton/surgery_step/set_bone
 	name = "Set Broken Bone"
 	allowed_tools = list(
-	/obj/item/surgery/bonesetter = 100,	\
-	WRENCH = 75		\
+	TOOL_BONESET = 100,	\
+	TOOL_WRENCH = 75		\
 	)
 
 	min_duration = 30
@@ -84,8 +84,8 @@
 /singleton/surgery_step/mend_skull
 	name = "Repair Broken Skull"
 	allowed_tools = list(
-	/obj/item/surgery/bonesetter = 100,	\
-	WRENCH = 75		\
+	TOOL_BONESET = 100,	\
+	TOOL_WRENCH = 75		\
 	)
 
 	min_duration = 40

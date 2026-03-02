@@ -27,7 +27,7 @@
 	else if(src.target)
 		var/datum/gas_mixture/environment = target.return_air()
 		if(environment)
-			. += "The pressure gauge reads [round(environment.return_pressure(), 0.01)] kPa; [round(environment.temperature,0.01)]K ([round(environment.temperature-T0C,0.01)]&deg;C)"
+			. += "The pressure gauge reads [round(XGM_PRESSURE(environment), 0.01)] kPa; [round(environment.temperature,0.01)]K ([round(environment.temperature-T0C,0.01)]&deg;C)"
 		else
 			. += SPAN_WARNING("The sensor error light is blinking.")
 	else
@@ -55,7 +55,7 @@
 
 	var/button_overlay_name
 	var/atmos_overlay_name
-	var/env_pressure = environment.return_pressure()
+	var/env_pressure = XGM_PRESSURE(environment)
 	if(env_pressure <= 0.15*ONE_ATMOSPHERE)
 		button_overlay_name = "buttons_0"
 		atmos_overlay_name = "pressure0"
@@ -116,7 +116,7 @@
 	var/datum/gas_mixture/environment = target.return_air()
 	if(!environment)
 		return FALSE
-	var/env_pressure = environment.return_pressure()
+	var/env_pressure = XGM_PRESSURE(environment)
 
 	if(frequency)
 		var/datum/radio_frequency/radio_connection = SSradio.return_frequency(frequency)
@@ -142,7 +142,7 @@
 	return ..()
 
 /obj/machinery/meter/attackby(obj/item/attacking_item, mob/user)
-	if (!attacking_item.iswrench())
+	if(attacking_item.tool_behaviour != TOOL_WRENCH)
 		return ..()
 	to_chat(user, SPAN_NOTICE("You begin to unfasten \the [src]..."))
 	if(attacking_item.use_tool(src, user, 40, volume = 50))

@@ -57,10 +57,10 @@
 	 */
 	var/list/icon_supported_species_tags
 
-	///If `TRUE`, will use the `icon_species_tag` var for rendering this item in the left/right hand
+	/// If `TRUE`, will use the `icon_species_tag` var for rendering this item in the left/right hand.
 	var/icon_species_in_hand = FALSE
 
-
+	var/equip_slot = 0
 	///Played when the item is used, for example tools
 	var/usesound
 	/// The speed of the tool. This is generally a divisor.
@@ -461,6 +461,30 @@
 
 /// Override this to customize the effects an activated signaler has.
 /obj/proc/do_signaler()
+	return
+
+
+/**
+ * Called when an access cable - from an IPC or from a roboticist tool - is inserted into an object.
+ */
+/obj/proc/insert_cable(obj/item/access_cable/cable, mob/user)
+	user.drop_from_inventory(cable)
+	cable.forceMove(src)
+	cable.target = src
+
+/**
+ * Called when an access cable is removed from something, forcibly or not.
+ * Override as needed to clear variables up.
+ */
+/obj/proc/remove_cable(obj/item/access_cable/cable)
+	SHOULD_CALL_PARENT(TRUE)
+	cable.target = null
+
+/**
+ * Called when an access cable - from an IPC or from a roboticist tool - is used on an object to interact with it.
+ * For example, brings up diagnostics for an access port if it's hooked into one.
+ */
+/obj/proc/cable_interact(obj/item/access_cable/cable, mob/user)
 	return
 
 /*#############################################

@@ -11,12 +11,10 @@
 	build_path = /obj/item/rig_assembly/ce
 	req_tech = list(TECH_MATERIAL = 4, TECH_ENGINEERING = 3, TECH_MAGNET = 3, TECH_POWER = 4)
 	materials = list(
-		MATERIAL_ALUMINIUM = 12500,
+		MATERIAL_ALUMINIUM = 20000,
 		MATERIAL_GLASS = 12500,
-		DEFAULT_WALL_MATERIAL = 7000,
-		MATERIAL_SILVER = 5500,
-		MATERIAL_GOLD = 5500,
-		MATERIAL_PHORON = 7550,
+		DEFAULT_WALL_MATERIAL = 10000,
+		MATERIAL_PLASTEEL = 8000,
 		MATERIAL_LEAD = 5500,
 	)
 
@@ -42,13 +40,13 @@
 	name = "AMI Control Module Assembly"
 	desc = "An assembly for Anomalous Material Interaction hardsuit that protects against the strangest energies the universe can throw at it."
 	build_path = /obj/item/rig_assembly/hazmat
-	materials = list(DEFAULT_WALL_MATERIAL = 19500, MATERIAL_GLASS = 25000, MATERIAL_SILVER = 5500, MATERIAL_GOLD = 5500, MATERIAL_PHORON = 7550, MATERIAL_LEAD = 5500)
+	materials = list(DEFAULT_WALL_MATERIAL = 25000, MATERIAL_GLASS = 25000, MATERIAL_PLASTEEL = 10000, MATERIAL_LEAD = 5500)
 
 /datum/design/rig/medical
 	name = "Rescue Suit Control Module Assembly"
 	desc = "An assembly for a durable suit designed for medical rescue in high risk areas."
 	build_path = /obj/item/rig_assembly/medical
-	materials = list(MATERIAL_ALUMINIUM = 14000, MATERIAL_GLASS = 12500, DEFAULT_WALL_MATERIAL = 8500, MATERIAL_SILVER = 5500, MATERIAL_GOLD = 3500, MATERIAL_PHORON = 7550, MATERIAL_LEAD = 2500)
+	materials = list(MATERIAL_ALUMINIUM = 20000, MATERIAL_GLASS = 17500, DEFAULT_WALL_MATERIAL = 2500, MATERIAL_LEAD = 2500, MATERIAL_PLASTEEL = 1000)
 
 /datum/design/rig/hazard
 	name = "Hazard Hardsuit Control Module"

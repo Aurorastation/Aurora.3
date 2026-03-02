@@ -58,7 +58,7 @@
 		return ..()
 	if(!istype(user))
 		return TRUE
-	if(attacking_item.isscrewdriver() && emag)
+	if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER && emag)
 		//Stops people from just unscrewing the monitor and putting it back to get the console working again.
 		to_chat(user, SPAN_WARNING("It is too hot to mess with!"))
 		return TRUE

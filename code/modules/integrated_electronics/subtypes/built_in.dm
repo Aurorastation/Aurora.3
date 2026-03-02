@@ -23,8 +23,8 @@
 	activators = list("pulse attached" = IC_PINTYPE_PULSE_IN)
 
 /obj/item/integrated_circuit/built_in/device_output/do_work()
-	if(istype(assembly, /obj/item/device/electronic_assembly/device))
-		var/obj/item/device/electronic_assembly/device/device = assembly
+	if(istype(assembly, /obj/item/electronic_assembly/device))
+		var/obj/item/electronic_assembly/device/device = assembly
 		device.holder.pulse()
 
 // Triggered when clothing assembly's hud button is clicked, used in-hand, or when another clothing-specific interaction occurs (like touching something with gloves on).

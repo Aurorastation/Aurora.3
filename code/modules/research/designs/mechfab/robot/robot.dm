@@ -62,7 +62,7 @@
 	name = "Synthetic Flash"
 	req_tech = list(TECH_MAGNET = 3, TECH_COMBAT = 2)
 	materials = list(DEFAULT_WALL_MATERIAL = 750, MATERIAL_GLASS = 750)
-	build_path = /obj/item/device/flash/synthetic
+	build_path = /obj/item/flash/synthetic
 
 /datum/design/item/mechfab/robot/component/binary_communication_device
 	name = "Binary Communication Device"

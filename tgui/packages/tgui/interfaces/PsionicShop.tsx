@@ -1,5 +1,12 @@
 import { useBackend, useLocalState } from '../backend';
-import { BlockQuote, Box, Button, Input, NoticeBox, Section } from '../components';
+import {
+  BlockQuote,
+  Box,
+  Button,
+  Input,
+  NoticeBox,
+  Section,
+} from '../components';
 import { Window } from '../layouts';
 
 export type PsiData = {
@@ -23,7 +30,7 @@ export const PsionicShop = (props, context) => {
   const [searchTerm, setSearchTerm] = useLocalState<string>(
     context,
     `searchTerm`,
-    ``
+    ``,
   );
 
   return (
@@ -43,7 +50,8 @@ export const PsionicShop = (props, context) => {
               }}
               value={searchTerm}
             />
-          }>
+          }
+        >
           <Box fontSize={1.4}>
             You are{' '}
             <Box as="span" bold>
@@ -80,14 +88,15 @@ export const PsionicsList = (props, context) => {
   const [searchTerm, setSearchTerm] = useLocalState<string>(
     context,
     `searchTerm`,
-    ``
+    ``,
   );
 
   return (
     <Section>
       {data.available_psionics
         .filter(
-          (psi) => psi.name.toLowerCase().indexOf(searchTerm.toLowerCase()) > -1
+          (psi) =>
+            psi.name.toLowerCase().indexOf(searchTerm.toLowerCase()) > -1,
         )
         .map((psi) => (
           <Section
@@ -104,7 +113,8 @@ export const PsionicsList = (props, context) => {
                 }
                 onClick={() => act('buy', { buy: psi.path })}
               />
-            }>
+            }
+          >
             <BlockQuote>{psi.desc}</BlockQuote>
           </Section>
         ))}

@@ -254,7 +254,7 @@
 /area/dungeon/syndie_listening_post)
 "aK" = (
 /obj/structure/table/reinforced,
-/obj/item/storage/box/sinpockets,
+/obj/item/storage/box/unique/donkpockets/sinpockets,
 /turf/simulated/floor/tiled/dark/airless,
 /area/dungeon/syndie_listening_post)
 "aL" = (

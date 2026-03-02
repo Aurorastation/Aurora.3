@@ -298,7 +298,7 @@
 	icon_state = "scout"
 	item_state = "scout"
 	desc = "Armor designed for K'laxan scouts, made of lightweight sturdy material that does not restrict movement."
-	slowdown = -1
+	slowdown = -0.2
 
 	species_restricted = list(BODYTYPE_VAURCA)
 	armor = list(
@@ -449,7 +449,7 @@
 	icon = 'icons/obj/vaurca_items.dmi'
 	icon_state = "gaussrifle"
 	item_state = "gaussrifle"
-	fire_sound = /singleton/sound_category/gauss_fire_sound
+	fire_sound = SFX_SHOOT_GAUSS
 	fire_sound_text = "a subdued boom"
 	fire_delay = 12
 	slot_flags = SLOT_BACK

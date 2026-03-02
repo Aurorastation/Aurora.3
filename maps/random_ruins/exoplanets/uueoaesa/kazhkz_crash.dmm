@@ -111,7 +111,7 @@
 	},
 /obj/machinery/door/airlock/multi_tile{
 	name = "Cockpit";
-	insecure = 0
+	features_powerloss_manual_override = 0
 	},
 /turf/simulated/floor/tiled/slate,
 /area/shuttle/kazhkz_crash)
@@ -719,7 +719,7 @@
 	req_access = null
 	},
 /obj/item/ammo_magazine/crackrifle,
-/obj/item/storage/box/wallgunammo,
+/obj/item/storage/box/shells/wallgunammo,
 /obj/item/ammo_magazine/hookmg,
 /obj/item/ammo_magazine/spitterpistol,
 /obj/item/ammo_magazine/spitterpistol,

@@ -1,5 +1,12 @@
 import { useBackend } from '../backend';
-import { Section, ProgressBar, Box, NumberInput, Button, BlockQuote } from '../components';
+import {
+  Section,
+  ProgressBar,
+  Box,
+  NumberInput,
+  Button,
+  BlockQuote,
+} from '../components';
 import { Window } from '../layouts';
 
 export type PhotocopierData = {
@@ -37,7 +44,8 @@ export const Photocopier = (props, context) => {
             ) : (
               ''
             )
-          }>
+          }
+        >
           {data.gotitem ? (
             <PrintOptions />
           ) : (

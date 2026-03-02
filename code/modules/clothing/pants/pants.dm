@@ -54,91 +54,11 @@ ABSTRACT_TYPE(/obj/item/clothing/pants)
 
 /********** Pants Start **********/
 // Pants
-/obj/item/clothing/pants/white
-	name = "white pants"
-	desc = "Plain boring white pants."
-	icon_state = "whitepants"
-	item_state = "whitepants"
-
 /obj/item/clothing/pants/black
 	name = "black pants"
 	desc = "A pair of plain black pants."
 	icon_state = "blackpants"
 	item_state = "blackpants"
-
-/obj/item/clothing/pants/red
-	name = "red pants"
-	desc = "Bright red pants."
-	icon_state = "redpants"
-	item_state = "redpants"
-
-/obj/item/clothing/pants/tan
-	name = "tan pants"
-	desc = "Some tan pants. You look like a white collar worker with these on."
-	icon_state = "tanpants"
-	item_state = "tanpants"
-
-/obj/item/clothing/pants/khaki
-	name = "tan pants"
-	desc = "A pair of dust beige khaki pants."
-	icon_state = "khaki"
-	item_state = "khaki"
-
-/obj/item/clothing/pants/highvis
-	name = "high visibility pants"
-	desc = "A pair of loose-fitting, high visibility pants to help the wearer be recognizable in high traffic areas with large industrial equipment."
-	icon = 'icons/obj/item/clothing/pants/highvis.dmi'
-	icon_state = "pants_highvis"
-	item_state = "pants_highvis"
-
-/obj/item/clothing/pants/highvis/get_mob_overlay(mob/living/carbon/human/H, mob_icon, mob_state, slot)
-	var/image/I = ..()
-	if(slot == slot_pants_str)
-		var/image/emissive_overlay = emissive_appearance(mob_icon, "[icon_state][species_sprite_adaption_type]-emis", alpha = src.alpha)
-		I.AddOverlays(emissive_overlay)
-	return I
-
-/obj/item/clothing/pants/highvis_alt
-	name = "high visibility pants"
-	desc = "A pair of bright yellow pants with reflective stripes. For use in operations, engineering, and sometimes even law enforcement, in cold and poor weather or when visibility is low."
-	icon = 'icons/obj/item/clothing/pants/highvis.dmi'
-	icon_state = "pants_highvis_alt"
-	item_state = "pants_highvis_alt"
-
-/obj/item/clothing/pants/highvis_alt/get_mob_overlay(mob/living/carbon/human/H, mob_icon, mob_state, slot)
-	var/image/I = ..()
-	if(slot == slot_pants_str)
-		var/image/emissive_overlay = emissive_appearance(mob_icon, "[icon_state][species_sprite_adaption_type]-emis", alpha = src.alpha)
-		I.AddOverlays(emissive_overlay)
-	return I
-
-/obj/item/clothing/pants/highvis_red
-	name = "high visibility pants"
-	desc = "A pair of red pants with reflective stripes. For use in different departments, commonly found in civilian emergency services, in cold and poor weather or when visibility is low."
-	icon = 'icons/obj/item/clothing/pants/highvis.dmi'
-	icon_state = "pants_highvis_red"
-	item_state = "pants_highvis_red"
-
-/obj/item/clothing/pants/highvis_red/get_mob_overlay(mob/living/carbon/human/H, mob_icon, mob_state, slot)
-	var/image/I = ..()
-	if(slot == slot_pants_str)
-		var/image/emissive_overlay = emissive_appearance(mob_icon, "[icon_state][species_sprite_adaption_type]-emis", alpha = src.alpha)
-		I.AddOverlays(emissive_overlay)
-	return I
-
-/obj/item/clothing/pants/highvis_orange
-	name = "high visibility pants"
-	desc = "A pair of orange pants with reflective stripes. For use in different departments, commonly found in civilian industrial services, in dark or secluded areas where visibility is critical for safety."
-	icon = 'icons/obj/item/clothing/pants/highvis.dmi'
-	icon_state = "pants_highvis_orange"
-	item_state = "pants_highvis_orange"
-
-/obj/item/clothing/pants/highvis_orange/get_mob_overlay(mob/living/carbon/human/H, mob_icon, mob_state, slot)
-	var/image/I = ..()
-	if(slot == slot_pants_str)
-		var/image/emissive_overlay = emissive_appearance(mob_icon, "[icon_state][species_sprite_adaption_type]-emis", alpha = src.alpha)
-		I.AddOverlays(emissive_overlay)
-	return I
 
 /obj/item/clothing/pants/camo
 	name = "camouflage pants"
@@ -155,8 +75,8 @@ ABSTRACT_TYPE(/obj/item/clothing/pants)
 /obj/item/clothing/pants/dress/belt
 	name = "dress pants"
 	desc = "A pair of suit trousers. Comes with a belt, to secure your burdens."
-	icon_state = "dresspants_belt"
-	item_state = "dresspants_belt"
+	build_from_parts = TRUE
+	worn_overlay = "belt"
 
 /obj/item/clothing/pants/striped
 	name = "striped pants"

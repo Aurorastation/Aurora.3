@@ -156,7 +156,7 @@
 /area/exoplanet/grass/konyang)
 "jB" = (
 /obj/item/mop,
-/obj/item/device/flashlight/empty,
+/obj/item/flashlight/empty,
 /turf/simulated/floor/exoplanet/sidewalk/dark,
 /area/konyang/house_small)
 "jL" = (
@@ -175,7 +175,7 @@
 "jZ" = (
 /obj/random/dirt_75,
 /obj/item/extinguisher/mini,
-/obj/item/device/measuring_tape{
+/obj/item/measuring_tape{
 	pixel_y = 2
 	},
 /turf/simulated/floor/exoplanet/foundation,
@@ -354,7 +354,7 @@
 	pixel_x = -8;
 	pixel_y = 6
 	},
-/obj/item/device/hand_labeler,
+/obj/item/hand_labeler,
 /obj/item/wrench,
 /turf/simulated/floor/exoplanet/sidewalk/dark,
 /area/konyang/house_small)
@@ -715,7 +715,7 @@
 /area/konyang/house_small)
 "Ob" = (
 /obj/structure/table/glass,
-/obj/item/device/flashlight/lamp/off,
+/obj/item/flashlight/lamp/off,
 /turf/simulated/floor/exoplanet/wood/bamboo,
 /area/konyang/house_small)
 "Oi" = (
