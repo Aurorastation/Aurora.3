@@ -1425,6 +1425,8 @@ Note that amputating the affected organ does in fact remove the infection from t
 	else
 		return FALSE
 
+#define EMBED_BASE_DAMAGE 5
+
 /obj/item/organ/external/proc/embed(obj/item/W, silent = FALSE, supplied_message, datum/wound/supplied_wound)
 	if(!owner || loc != owner)
 		return
@@ -1442,12 +1444,12 @@ Note that amputating the affected organ does in fact remove the infection from t
 	//Did we not get a supplied wound? Start by finding an existing wound that fits.
 	if(!supplied_wound)
 		for(var/datum/wound/wound as anything in wounds)
-			if ((wound.damage_type == INJURY_TYPE_CUT || wound.damage_type == INJURY_TYPE_PIERCE) && wound.damage >= W.w_class * 5)
+			if ((wound.damage_type == INJURY_TYPE_CUT || wound.damage_type == INJURY_TYPE_PIERCE) && wound.damage >= W.w_class * EMBED_BASE_DAMAGE)
 				supplied_wound = wound
 				break
 	//Nothing still? Make a new wound for this object to embed in.
 	if(!supplied_wound)
-		supplied_wound = createwound(INJURY_TYPE_PIERCE, W.w_class * 5)
+		supplied_wound = createwound(INJURY_TYPE_PIERCE, W.w_class * EMBED_BASE_DAMAGE)
 
 	if(!supplied_wound || (W in supplied_wound.embedded_objects)) // Just in case.
 		return
@@ -1461,6 +1463,8 @@ Note that amputating the affected organ does in fact remove the infection from t
 		var/mob/living/H = W.loc
 		H.drop_from_inventory(W,owner)
 	W.forceMove(owner)
+
+#undef EMBED_BASE_DAMAGE
 
 /obj/item/organ/external/removed(var/mob/living/user, var/ignore_children = 0)
 
