@@ -250,12 +250,12 @@
 			fire_sound = 'sound/weapons/gunshot/bolter.ogg',
 			recoil = 1),
 		list(
-			mode_name = "Heavy (Explosive)",
+			mode_name = "Heavy",
 			projectile_type = /obj/projectile/energy/blaster/disruptor/explosive,
 			charge_cost = 300,
 			modifystate = "disruptorpistolheavy",
 			accuracy = -2,
-			fire_delay = 18, // 3x delay so you can't rapid fire these explosive blaster bolts
+			fire_delay = 18, // 3x delay so you can't rapid fire these blaster bolts
 			recoil = 3,
 			fire_sound = 'sound/weapons/gunshot/bolter.ogg')
 	)

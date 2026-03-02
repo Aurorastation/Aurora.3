@@ -193,10 +193,6 @@
 	damage = 50
 	armor_penetration = 10
 
-/obj/projectile/energy/blaster/disruptor/explosive/on_hit(atom/target, blocked, def_zone)
-	explosion(target, -1, 0, 2)
-	. = ..()
-
 /obj/projectile/energy/blaster/disruptor/heavy/practice
 	damage = 10
 	damage_type = DAMAGE_PAIN
