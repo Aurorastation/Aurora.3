@@ -20,7 +20,7 @@
 	has_item_ratio = FALSE
 	modifystate = "disruptorpistolstun"
 	sel_mode = 1
-	pin = /obj/item/device/firing_pin/wireless // A wireless pin is required for the weapon to function due to repeated logic comparisons against a wireless pin's registered owner.
+	pin = /obj/item/firing_pin/wireless // A wireless pin is required for the weapon to function due to repeated logic comparisons against a wireless pin's registered owner.
 	required_firemode_auth = list(WIRELESS_PIN_STUN, WIRELESS_PIN_STUN, WIRELESS_PIN_LETHAL, WIRELESS_PIN_LETHAL, WIRELESS_PIN_LETHAL)
 
 	firemodes = list(
@@ -69,7 +69,7 @@
 	become_hearing_sensitive()
 
 /obj/item/gun/energy/disruptorpistol/proc/check_disruptor_user(mob/user)
-	if(!pin || (pin && !(istype(pin, /obj/item/device/firing_pin/wireless))))
+	if(!pin || (pin && !(istype(pin, /obj/item/firing_pin/wireless))))
 		to_chat(usr, SPAN_WARNING("The incorrect or no firing pin installed. Contact a warden."))
 		return
 
@@ -78,7 +78,7 @@
 		return
 
 	if(!disruptor_user)
-		var/obj/item/device/firing_pin/wireless/pin_temp = pin
+		var/obj/item/firing_pin/wireless/pin_temp = pin
 		disruptor_user = pin_temp.registered_user
 
 	var/obj/item/card/id/user_id_card = user.GetIdCard()
@@ -88,7 +88,7 @@
 		return 0
 
 /obj/item/gun/energy/disruptorpistol/proc/play_message()
-	if(!pin || (pin && !(istype(pin, /obj/item/device/firing_pin/wireless))))
+	if(!pin || (pin && !(istype(pin, /obj/item/firing_pin/wireless))))
 		to_chat(usr, SPAN_WARNING("The incorrect or no firing pin installed. Contact a warden."))
 		return
 
@@ -102,7 +102,7 @@
 
 
 /obj/item/gun/energy/disruptorpistol/hear_talk(mob/living/M in range(0,src), msg)
-	if(!pin || (pin && !(istype(pin, /obj/item/device/firing_pin/wireless))))
+	if(!pin || (pin && !(istype(pin, /obj/item/firing_pin/wireless))))
 		to_chat(usr, SPAN_WARNING("The incorrect or no firing pin installed. Contact a warden."))
 		return
 
@@ -111,7 +111,7 @@
 	return
 
 /obj/item/gun/energy/disruptorpistol/proc/hear(var/msg)
-	if(!pin || (pin && !(istype(pin, /obj/item/device/firing_pin/wireless))))
+	if(!pin || (pin && !(istype(pin, /obj/item/firing_pin/wireless))))
 		to_chat(usr, SPAN_WARNING("The incorrect or no firing pin installed. Contact a warden."))
 		return
 
@@ -149,7 +149,7 @@
 			playsound(src, safetyoff_sound, 25)
 
 /obj/item/gun/energy/disruptorpistol/AltClick(mob/user)
-	if(!pin || (pin && !(istype(pin, /obj/item/device/firing_pin/wireless))))
+	if(!pin || (pin && !(istype(pin, /obj/item/firing_pin/wireless))))
 		to_chat(usr, SPAN_WARNING("The incorrect or no firing pin installed. Contact a warden."))
 		return
 
@@ -165,7 +165,7 @@
 		to_chat(user, SPAN_NOTICE("Loudspeaker message set."))
 
 /obj/item/gun/energy/disruptorpistol/unique_action(mob/living/carbon/user)
-	if(!pin || (pin && !(istype(pin, /obj/item/device/firing_pin/wireless))))
+	if(!pin || (pin && !(istype(pin, /obj/item/firing_pin/wireless))))
 		to_chat(usr, SPAN_WARNING("The incorrect or no firing pin installed. Contact a warden."))
 		return
 
@@ -261,13 +261,13 @@
 	)
 
 /obj/item/gun/energy/disruptorpistol/unlocked
-	pin = /obj/item/device/firing_pin/wireless/unlocked
+	pin = /obj/item/firing_pin/wireless/unlocked
 
 /obj/item/gun/energy/disruptorpistol/miniature/unlocked
-	pin = /obj/item/device/firing_pin/wireless/unlocked
+	pin = /obj/item/firing_pin/wireless/unlocked
 
 /obj/item/gun/energy/disruptorpistol/magnum/unlocked
-	pin = /obj/item/device/firing_pin/wireless/unlocked
+	pin = /obj/item/firing_pin/wireless/unlocked
 
 /obj/item/gun/energy/disruptorpistol/magnum/security
 	pin = /obj/item/firing_pin/wireless

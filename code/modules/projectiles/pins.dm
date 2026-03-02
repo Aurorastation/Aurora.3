@@ -382,10 +382,10 @@ GLOBAL_LIST_EMPTY_TYPED(wireless_firing_pins, /obj/item/firing_pin/wireless)
 		return TRUE
 	return FALSE
 
-/obj/item/device/firing_pin/wireless/unlocked
+/obj/item/firing_pin/wireless/unlocked
 	name = "unrestricted wireless-control firing pin"
 	desc = "This firing pin is wirelessly controlled. However, it seems to have been locked into the 'Unrestricted Mode', be it jailbroken or overridden by a superior fire control programme."
 
-/obj/item/device/firing_pin/wireless/unlocked/pin_auth(mob/living/user)
+/obj/item/firing_pin/wireless/unlocked/pin_auth(mob/living/user)
 	lock_status = WIRELESS_PIN_LETHAL
 	. = ..()

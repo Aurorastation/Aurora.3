@@ -153,7 +153,7 @@
 	new /obj/item/storage/belt/medical(src)
 	new /obj/item/clothing/accessory/stethoscope(src)
 	new /obj/item/storage/box/fancy/keypouch/med(src)
-	new /obj/item/device/advanced_healthanalyzer(src)
+	new /obj/item/advanced_healthanalyzer(src)
 	new /obj/item/gun/energy/disruptorpistol/miniature/unlocked(src)
 	new /obj/item/clothing/accessory/holster/waist(src)
 	new /obj/item/eftpos(src)
