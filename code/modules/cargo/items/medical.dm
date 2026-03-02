@@ -263,7 +263,7 @@
 	items = list(
 		/obj/item/reagent_containers/glass/bottle/bicaridine
 	)
-	access = 0
+	access = ACCESS_MEDICAL
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -305,7 +305,7 @@
 	items = list(
 		/obj/item/reagent_containers/glass/bottle/dermaline
 	)
-	access = 0
+	access = ACCESS_MEDICAL
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
