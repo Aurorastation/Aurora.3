@@ -246,7 +246,7 @@ GLOBAL_LIST_INIT(gear_datums, list())
 			&& G.check_culture(text2path(pref.culture)) \
 			&& G.check_origin(text2path(pref.origin)) \
 			&& G.check_religion(pref.religion)) \
-			&& G.check_citizenship(text2path(pref.citizenship))
+			&& G.check_citizenship(pref.citizenship)
 		var/ticked = (G.display_name in pref.gear)
 		var/style = ""
 
@@ -631,7 +631,7 @@ GLOBAL_LIST_INIT(gear_datums, list())
 		return TRUE
 	return FALSE
 
-// arg should be a religion name string
+// arg should be a citizenship name string
 /datum/gear/proc/check_citizenship(var/user_citizenship)
 	if(!citizenship || !user_citizenship)
 		return TRUE
