@@ -43,6 +43,8 @@
 	var/datum/wires/smartfridge/wires = null
 	atmos_canpass = CANPASS_DENSITY
 
+	VAR_PRIVATE/static/list/base64_cache = list()
+
 /obj/machinery/smartfridge/secure
 	is_secure = 1
 
@@ -95,6 +97,7 @@
 	for(var/obj/item/reagent_containers/food/snacks/grown/g in contents)
 		item_quants[g.name]++
 	update_overlays()
+	update_static_data_for_all_viewers()
 
 /obj/machinery/smartfridge/Initialize()
 	. = ..()
@@ -230,6 +233,10 @@
 		if(S.on_dry(src)) //Drying rack keeps the item but changes the name. This prevents pre-dried item lingering in the UI as vendable
 			item_quants[S.name]++
 			item_quants[old_name]--
+			if(item_quants[old_name] <= 0 || item_quants[S.name] == 1)
+				update_static_data_for_all_viewers()
+				if(item_quants[old_name] <= 0)
+					item_quants -= old_name
 	return
 
 /obj/machinery/smartfridge/drying_rack/update_overlays()
@@ -360,25 +367,32 @@
 		user.remove_from_mob(attacking_item)
 		attacking_item.forceMove(src)
 		item_quants[attacking_item.name]++
+		if(item_quants[attacking_item.name] == 1)
+			update_static_data_for_all_viewers()
 		user.visible_message("<b>[user]</b> adds \a [attacking_item] to [src].", SPAN_NOTICE("You add [attacking_item] to [src]."))
 		update_overlays()
-		return
+		return TRUE
 
 	if(istype(attacking_item, /obj/item/storage))
 		var/obj/item/storage/P = attacking_item
 		var/plants_loaded = 0
+		var/update_static_data = FALSE
 		for(var/obj/G in P.contents)
 			if(accept_check(G))
 				if(length(contents) >= max_n_of_items)
 					break
 				P.remove_from_storage(G,src)
 				item_quants[G.name]++
+				if(item_quants[G.name] == 1)
+					update_static_data = TRUE
 				plants_loaded++
 		if(plants_loaded)
 			user.visible_message("<b>[user]</b> loads [src] with [P].", SPAN_NOTICE("You load [src] with [P]."))
 			if(length(P.contents) > 0)
 				to_chat(user, SPAN_NOTICE("Some items are refused."))
 			update_overlays()
+		if(update_static_data)
+			update_static_data_for_all_viewers()
 		return TRUE
 	to_chat(user, SPAN_NOTICE("[src] smartly refuses [attacking_item]."))
 	return TRUE
@@ -416,22 +430,59 @@
 /obj/machinery/smartfridge/ui_data(mob/user)
 	var/list/data = list()
 
-	data["contents"] = null
 	data["electrified"] = seconds_electrified > 0
 	data["shoot_inventory"] = shoot_inventory
 	data["locked"] = locked
 	data["secure"] = is_secure
 	data["sort_alphabetically"] = ui_sort_alphabetically
 
-	var/list/items = list()
-	for (var/i = 1 to length(item_quants))
+	var/list/stocks
+	for (var/i in 1 to length(item_quants))
 		var/K = item_quants[i]
 		var/count = item_quants[K]
 		if(count > 0)
-			items.Add(list(list("display_name" = capitalize(K), "vend" = i, "quantity" = count)))
+			LAZYADDASSOC(stocks, capitalize(K), count)
+
+	data["stocks"] = stocks
+
+	return data
+
+/obj/machinery/smartfridge/ui_static_data(mob/user)
+	var/list/data = list()
+	data["contents"] = null
+
+	var/list/items = list()
+	for (var/i = 1 to length(item_quants))
+		var/K = item_quants[i]
+		var/obj/item/item_used = null
+		for (var/obj/item/O in contents - component_parts)
+			if(O.name == K)
+				item_used = O
+				break
+
+		if(!item_used)
+			continue
+
+		var/final_icon = base64_cache["[K]_[item_used.type]_[item_used.icon_state]"]
+		if(!final_icon)
+			var/icon/item_icon
+			if(istype(item_used, /obj/item/seeds))
+				var/obj/item/seeds/S = item_used
+				item_icon = S.update_appearance(TRUE)
+			else
+				item_icon = getFlatIcon(item_used)
+			final_icon = icon2base64(item_icon)
+			base64_cache["[K]_[item_used.type]_[item_used.icon_state]"] = final_icon
+
+		items.Add(list(list(
+			"display_name" = capitalize(K),
+			"vend" = i,
+			"icon" = final_icon,
+		)))
 
 	if(length(items) > 0)
 		data["contents"] = items
+
 	return data
 
 /obj/machinery/smartfridge/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
@@ -472,6 +523,10 @@
 						update_overlays()
 						if(i <= 0)
 							break
+
+				if(item_quants[K] <= 0)
+					update_static_data_for_all_viewers()
+					item_quants -= K
 		if("switch_sort_alphabetically")
 			ui_sort_alphabetically = !ui_sort_alphabetically
 
@@ -485,6 +540,7 @@
 
 	for (var/O in item_quants)
 		if(item_quants[O] <= 0) //Try to use a record that actually has something to dump.
+			item_quants -= O
 			continue
 
 		item_quants[O]--
@@ -493,6 +549,10 @@
 				T.forceMove(loc)
 				throw_item = T
 				break
+
+		if(item_quants[O] <= 0)
+			update_static_data_for_all_viewers()
+			item_quants -= O
 		break
 	if(!throw_item)
 		return FALSE

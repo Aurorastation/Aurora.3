@@ -88,10 +88,10 @@
 
 	var/int_pressure = 0
 	for(var/datum/omni_port/P in ports)
-		int_pressure += P.air.return_pressure()
+		int_pressure += XGM_PRESSURE(P.air)
 	if(!loc) return FALSE
 	var/datum/gas_mixture/env_air = loc.return_air()
-	if ((int_pressure - env_air.return_pressure()) > PRESSURE_EXERTED)
+	if ((int_pressure - XGM_PRESSURE(env_air)) > PRESSURE_EXERTED)
 		to_chat(user, SPAN_WARNING("You cannot unwrench \the [src], it is too exerted due to internal pressure."))
 		add_fingerprint(user)
 		return TRUE
@@ -212,15 +212,9 @@
 
 /obj/machinery/atmospherics/omni/Destroy()
 	loc = null
-
-	for(var/datum/omni_port/P in ports)
-		if(P.node)
-			P.node.disconnect(src)
-			qdel(P.network)
-			P.node = null
+	QDEL_LIST(ports)
 
 	. = ..()
-	GC_TEMPORARY_HARDDEL
 
 /obj/machinery/atmospherics/omni/atmos_init()
 	for(var/datum/omni_port/P in ports)

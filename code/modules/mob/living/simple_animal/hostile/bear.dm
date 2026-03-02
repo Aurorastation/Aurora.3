@@ -347,7 +347,7 @@
 		if(istype(loc,/turf))
 			var/turf/T = loc
 			var/datum/gas_mixture/environment = T.return_air()
-			if (environment.return_pressure() <= 80)
+			if (XGM_PRESSURE(environment) <= 80)
 				bearmode = BEARMODE_SPACE
 
 	if (bearmode != former)

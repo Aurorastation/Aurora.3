@@ -172,14 +172,13 @@
 		/obj/item/clothing/accessory/storage            = TRADER_BLACKLIST_ALL,
 		/obj/item/clothing/accessory/fluff              = TRADER_BLACKLIST_ALL,
 		/obj/item/clothing/accessory/armband/fluff      = TRADER_BLACKLIST_ALL,
+		/obj/item/clothing/accessory/poncho/tajarancloak/fluff = TRADER_BLACKLIST_ALL,
 		/obj/item/clothing/gloves                       = TRADER_SUBTYPES_ONLY,
 		/obj/item/clothing/gloves/lightrig              = TRADER_BLACKLIST_ALL,
 		/obj/item/clothing/gloves/rig                   = TRADER_BLACKLIST_ALL,
 		/obj/item/clothing/gloves/chameleon             = TRADER_BLACKLIST,
 		/obj/item/clothing/gloves/force                 = TRADER_BLACKLIST_ALL,
 		/obj/item/clothing/gloves/swat/bst              = TRADER_BLACKLIST,
-		/obj/item/clothing/wrists/watch/fluff           = TRADER_BLACKLIST_ALL,
-		/obj/item/clothing/gloves/fluff                 = TRADER_BLACKLIST_ALL,
 		/obj/item/clothing/gloves/powerfist             = TRADER_BLACKLIST,
 		/obj/item/clothing/gloves/claws                 = TRADER_BLACKLIST,
 		/obj/item/clothing/gloves/brassknuckles         = TRADER_BLACKLIST,
@@ -200,7 +199,6 @@
 		/obj/item/clothing/head/tajaran                 = TRADER_BLACKLIST,
 		/obj/item/clothing/head/welding                 = TRADER_BLACKLIST,
 		/obj/item/clothing/head/fluff                   = TRADER_BLACKLIST_ALL,
-		/obj/item/clothing/head/det/fluff               = TRADER_BLACKLIST_ALL,
 		/obj/item/clothing/head/winterhood              = TRADER_BLACKLIST_ALL
 	)
 
@@ -222,7 +220,6 @@ Sells devices, odds and ends, and medical stuff
 		/obj/item/lightreplacer             						= TRADER_THIS_TYPE,
 		/obj/item/megaphone                						= TRADER_THIS_TYPE,
 		/obj/item/paicard                   						= TRADER_THIS_TYPE,
-		/obj/item/pipe_painter              						= TRADER_THIS_TYPE,
 		/obj/item/healthanalyzer            						= TRADER_THIS_TYPE,
 		/obj/item/breath_analyzer          						= TRADER_THIS_TYPE,
 		/obj/item/analyzer                  						= TRADER_ALL,

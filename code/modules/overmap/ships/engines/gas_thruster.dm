@@ -170,7 +170,7 @@
 
 	.+= "Propellant total mass: [round(air_contents.get_mass(),0.01)] kg."
 	.+= "Propellant used per burn: [round(air_contents.get_mass() * volume_per_burn * thrust_limit / air_contents.volume,0.01)] kg."
-	.+= "Propellant pressure: [round(air_contents.return_pressure()/1000,0.1)] MPa."
+	.+= "Propellant pressure: [round(XGM_PRESSURE(air_contents)/1000,0.1)] MPa."
 	. = jointext(.,"<br>")
 
 /obj/machinery/atmospherics/unary/engine/power_change()
@@ -241,10 +241,12 @@
 		T = get_step(T, exhaust_dir)
 	if(T)
 		T.assume_air(removed)
-		new/obj/effect/engine_exhaust(T, dir, air_contents.check_combustibility() && air_contents.temperature >= PHORON_MINIMUM_BURN_TEMPERATURE)
+		var/is_cmb = 0
+		CHECK_COMBUSTIBLE(is_cmb, air_contents)
+		new/obj/effect/engine_exhaust(T, dir, is_cmb && air_contents.temperature >= PHORON_MINIMUM_BURN_TEMPERATURE)
 
 /obj/machinery/atmospherics/unary/engine/proc/calculate_thrust(datum/gas_mixture/propellant, used_part = 1)
-	return round(sqrt(propellant.get_mass() * used_part * sqrt(air_contents.return_pressure()/200)),0.1)
+	return round(sqrt(propellant.get_mass() * used_part * sqrt(XGM_PRESSURE(air_contents)/200)),0.1)
 
 //Exhaust effect
 /obj/effect/engine_exhaust

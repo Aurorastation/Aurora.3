@@ -17614,11 +17614,11 @@
 /area/centcom/holding)
 "xkI" = (
 /obj/structure/table/stone/marble,
-/obj/item/reagent_containers/food/snacks/salad/tossedsalad{
+/obj/item/reagent_containers/food/snacks/salad/applesalad{
 	pixel_x = 18;
 	pixel_y = 10
 	},
-/obj/item/reagent_containers/food/snacks/salad/tossedsalad{
+/obj/item/reagent_containers/food/snacks/salad/applesalad{
 	pixel_x = 16;
 	pixel_y = 3
 	},

@@ -57,7 +57,7 @@
 
 	var/t = SPAN_NOTICE("Coordinates: [T.x],[T.y],[T.z]\n")
 	t += SPAN_WARNING("Temperature: [env.temperature]\n")
-	t += SPAN_WARNING("Pressure: [env.return_pressure()]kPa\n")
+	t += SPAN_WARNING("Pressure: [XGM_PRESSURE(env)]kPa\n")
 	for(var/g in env.gas)
 		t += SPAN_NOTICE("[g]: [env.gas[g]] / [env.gas[g] * R_IDEAL_GAS_EQUATION * env.temperature / env.volume]kPa\n")
 

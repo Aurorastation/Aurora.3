@@ -114,9 +114,10 @@
 
 	GLOB.human_mob_list -= src
 	GLOB.intent_listener -= src
+	// This is apparently a different list entirely from the list of organs on /mob/living/carbon.
+	// It's actually the set of all Limbs (left arm, head, leg leg, etc) we have. We Qdel and null the set of all limbs, which is unique to /human.
 	QDEL_LIST(organs)
-	internal_organs_by_name = null
-	internal_organs = null
+	// Then also null the associative list of those same limbs, which contains the same references.
 	organs_by_name = null
 	bad_internal_organs = null
 	bad_external_organs = null
@@ -252,7 +253,7 @@
 			qdel(internal)
 		else
 			. += "Internal Atmosphere Info: [internal.name]"
-			. += "Tank Pressure: [internal.air_contents.return_pressure()]"
+			. += "Tank Pressure: [XGM_PRESSURE(internal.air_contents)]"
 			. += "Distribution Pressure: [internal.distribute_pressure]"
 
 	var/obj/item/organ/internal/machine/power_core/IC = internal_organs_by_name[BP_CELL]
@@ -1891,10 +1892,10 @@
 		playsound(src.loc, SFX_FRACTURE, 50, 1, -2)
 	current_limb.undislocate()
 
-/mob/living/carbon/human/drop_from_inventory(var/obj/item/W, var/atom/target = null)
-	if(W in organs)
+/mob/living/carbon/human/drop_from_inventory(obj/item/W, atom/target, update_icons = TRUE, force = FALSE)
+	if(!force && (W in organs))
 		return
-	..()
+	return ..()
 
 /mob/living/carbon/human/reset_view(atom/A, update_hud = 1)
 	..()
@@ -1904,15 +1905,15 @@
 		eyeobj.remove_visual(src)
 
 
-/mob/living/carbon/human/can_stand_overridden()
+/mob/living/carbon/human/proc/can_stand_overridden()
 	if(wearing_rig && wearing_rig.ai_can_move_suit(check_for_ai = 1))
 		// Actually missing a leg will screw you up. Everything else can be compensated for.
 		for(var/limbcheck in list(BP_L_LEG,BP_R_LEG))
 			var/obj/item/organ/affecting = get_organ(limbcheck)
 			if(!affecting)
-				return 0
-		return 1
-	return 0
+				return FALSE
+		return TRUE
+	return FALSE
 
 /mob/living/carbon/human/proc/can_drink(var/obj/item/I)
 	if(should_have_organ(BP_REACTOR))
@@ -2306,7 +2307,7 @@
 	look_up_open_space(get_turf(src))
 
 /mob/living/proc/look_up_open_space(var/turf/T)
-	if(client && !is_physically_disabled())
+	if(client && !MOB_IS_INCAPACITATED(INCAPACITATION_DISABLED))
 		if(z_eye)
 			reset_view(null)
 			QDEL_NULL(z_eye)
@@ -2329,7 +2330,7 @@
 	look_down_open_space(get_turf(src))
 
 /mob/living/proc/look_down_open_space(var/turf/T)
-	if(client && !is_physically_disabled())
+	if(client && !MOB_IS_INCAPACITATED(INCAPACITATION_DISABLED))
 		if(z_eye)
 			reset_view(null)
 			QDEL_NULL(z_eye)
