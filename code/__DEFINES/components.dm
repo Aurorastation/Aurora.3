@@ -17,3 +17,7 @@
 #define MEDICINE_SKILL_COMPONENT /datum/component/skill/medicine
 #define SKILL_COMPONENT /datum/component/skill
 #define MORALE_COMPONENT /datum/component/morale
+#define ELECTRICAL_ENGINEERING_SKILL_COMPONENT /datum/component/skill/electrical_engineering
+#define MECHANICAL_ENGINEERING_SKILL_COMPONENT /datum/component/skill/electrical_engineering
+#define ATMOSPHERICS_SYSTEMS_SKILL_COMPONENT /datum/component/skill/atmospherics_systems
+#define REACTOR_SYSTEMS_SKILL_COMPONENT /datum/component/skill/reactor_systems

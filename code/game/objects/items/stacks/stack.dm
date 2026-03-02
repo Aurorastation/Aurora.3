@@ -99,10 +99,34 @@
 	if(locate(/datum/stack_recipe) in recipes_sublist)
 		var/sublist_title = sublist ? " ([capitalize_first_letters(sublist.title)])" : ""
 		t1 += "<h2>Recipes[sublist_title]</h2>"
+
+	// Cache "skill visits" to avoid having to constantly recheck for components.
+	var/alist/checked_skills = alist()
+	var/visited_skill = null // Trinary boolean as null/0/nonzero
+	var/lacks_skill = FALSE
+
 	for(var/datum/stack_recipe/R in recipes_sublist)
-		var/lacks_skill = FALSE
-		for(var/skill_type,skill_level in R.required_skills)
-			if(!user.skill_check(skill_type, skill_level))
+		// If you put anything other than a skill component in the required skills for a recipe, I will destroy you.
+		for(var/skill_comp as anything, skill_level_requirement in R.required_skills)
+			visited_skill = checked_skills[skill_comp]
+			// ** Trinary Check for Null, 0, or Nonzero. **
+			// Case for skill hasn't been checked yet.
+			if (isnull(visited_skill))
+				// null if no component at all, otherwise equal to the skill level (which can be any real number).
+				var/visited_comp = astype(user.GetComponent(skill_comp), SKILL_COMPONENT)?.skill_level
+
+				// Case for "Non-Player Characters", which will never have the component at all.
+				if (isnull(visited_comp))
+					checked_skills[skill_comp] = SKILL_LEVEL_PROFESSIONAL
+					break // Not a player character, just assume they can craft everything.
+
+				// Player characters will always have the component if relevant.
+				checked_skills[skill_comp] = visited_comp
+				if (visited_comp < skill_level_requirement)
+					lacks_skill = TRUE
+					break
+			// Case for skill has been checked AND the character has the component.
+			else if (visited_skill < skill_level_requirement)
 				lacks_skill = TRUE
 				break
 
@@ -167,13 +191,13 @@
 		return
 
 	to_chat(user, SPAN_NOTICE("Building [recipe.title]..."))
-	if (recipe.time)
-		if(length(recipe.required_skills))
-			if (!user.do_after_skill(recipe.time, src, user.get_highest_skill_from_list(recipe.required_skills), do_flags = DO_REPAIR_CONSTRUCT))
-				return
-		else
-			if (!user.do_after_skill(recipe.time, src, /singleton/skill/mechanical_engineering, do_flags = DO_REPAIR_CONSTRUCT))
-				return
+	var/doafter_time = recipe.time
+	if (doafter_time)
+		for (var/skill_type as anything, required_level in recipe.required_skills)
+			doafter_time *= 1 + (required_level - astype(user.GetComponent(skill_type), SKILL_COMPONENT)?.skill_level) * 0.2
+
+		if (!do_after(user, doafter_time, do_flags = DO_REPAIR_CONSTRUCT))
+			return
 
 	if (use(required))
 		recipe.Produce(produced, user.loc, user.dir, user)
@@ -377,7 +401,11 @@
 	var/one_per_turf = 0
 	var/on_floor = 0
 	var/use_material
-	/// Assoc list of required skills to required skill levels. This is the MINIMUM to craft the item. You must have ALL these skills at that level to see the item as craftable.
+	/**
+	 * Assoc list of required skills to required skill levels. This is the MINIMUM to craft the item.
+	 * You must have ALL these skills at that level to see the item as craftable.
+	 * THIS MAY ONLY HAVE /datum/component/skill/skill_name in it. I WILL DESTROY YOU IF YOU PUT ANYTHING ELSE IN HERE.
+	 */
 	var/alist/required_skills
 
 /datum/stack_recipe/New(title, result_type, req_amount = 1, res_amount = 1, max_res_amount = 1, time = 0, one_per_turf = 0, on_floor = 0, supplied_material = null, list/required_skills)
