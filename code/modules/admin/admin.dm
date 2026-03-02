@@ -1399,11 +1399,14 @@ var/global/enabled_spooking = 0
 /datum/admins/proc/set_odyssey()
 	set name = "Set Odyssey Type"
 	set category = "Special Verbs"
+	if (!SSodyssey.initialized)
+		to_chat(usr, SPAN_WARNING("You must wait for the server to finish initializing."))
+		return
 
 	if(!check_rights(R_ADMIN))
 		return
 
-	if(SSticker.current_state != GAME_STATE_SETTING_UP)
+	if(SSticker.current_state > GAME_STATE_SETTING_UP)
 		to_chat(usr, SPAN_WARNING("You need to use this verb while the game is still setting up!"))
 		return
 

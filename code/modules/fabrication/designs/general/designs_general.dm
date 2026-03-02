@@ -30,6 +30,10 @@ ABSTRACT_TYPE(/singleton/fabricator_recipe/general)
 	name = "tape recorder"
 	path = /obj/item/taperecorder
 
+/singleton/fabricator_recipe/general/spotlight
+	name = "spotlight light tube"
+	path = /obj/item/light/tube/large
+
 /singleton/fabricator_recipe/general/tube
 	name = "light tube"
 	path = /obj/item/light/tube

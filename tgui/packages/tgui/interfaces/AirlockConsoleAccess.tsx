@@ -1,15 +1,11 @@
 import { useBackend } from '../backend';
 import { Box, Button, LabeledList, Section } from '../components';
 import { Window } from '../layouts';
-
-export type StatusData = {
-  state: string;
-  lock: string;
-};
+import { BooleanLike } from '../../common/react';
 
 export type AccessAirlockConsoleData = {
-  exterior_status: StatusData;
-  interior_status: StatusData;
+  exterior_secured: BooleanLike;
+  interior_secured: BooleanLike;
   processing: boolean;
 };
 
@@ -22,18 +18,24 @@ export const AirlockConsoleAccess = (props, context) => {
         <Section title="Status">
           <Box>
             <LabeledList>
-              <LabeledList.Item label="Exterior Door Status">
-                {data.exterior_status.state === 'open' ? (
-                  <Box>Open</Box>
+              <LabeledList.Item
+                label="Exterior Door Status"
+                color={data.exterior_secured ? 'green' : 'red'}
+              >
+                {data.exterior_secured ? (
+                  <Box>Secured</Box>
                 ) : (
-                  <Box>Locked</Box>
+                  <Box>Unsecured</Box>
                 )}
               </LabeledList.Item>
-              <LabeledList.Item label="Interior Door Status">
-                {data.interior_status.state === 'open' ? (
-                  <Box>Open</Box>
+              <LabeledList.Item
+                label="Interior Door Status"
+                color={data.interior_secured ? 'green' : 'red'}
+              >
+                {data.interior_secured ? (
+                  <Box>Secured</Box>
                 ) : (
-                  <Box>Locked</Box>
+                  <Box>Unsecured</Box>
                 )}
               </LabeledList.Item>
             </LabeledList>
@@ -44,12 +46,26 @@ export const AirlockConsoleAccess = (props, context) => {
             <Button
               content="Cycle to Exterior"
               icon="arrow-right-from-bracket"
-              onClick={() => act('command', { command: 'cycle_ext' })}
+              onClick={() => act('command', { command: 'cycle_ext_door' })}
             />
             <Button
               content="Cycle to Interior"
               icon="arrow-right-to-bracket"
-              onClick={() => act('command', { command: 'cycle_int' })}
+              onClick={() => act('command', { command: 'cycle_int_door' })}
+            />
+          </Box>
+          <Box>
+            <Button
+              content="Lock Exterior Door"
+              disabled={data.exterior_secured}
+              icon="lock"
+              onClick={() => act('command', { command: 'force_ext' })}
+            />
+            <Button
+              content="Lock Interior Door"
+              disabled={data.interior_secured}
+              icon="lock"
+              onClick={() => act('command', { command: 'force_int' })}
             />
           </Box>
         </Section>

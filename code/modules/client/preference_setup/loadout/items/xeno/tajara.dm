@@ -20,7 +20,7 @@ ABSTRACT_TYPE(/datum/gear/shoes/tajara)
 	boots["grey workboots"] = /obj/item/clothing/shoes/workboots/tajara/grey
 	boots["dark workboots"] = /obj/item/clothing/shoes/workboots/tajara/dark
 	boots["adhomian boots"] = /obj/item/clothing/shoes/workboots/tajara/adhomian_boots
-	boots["native tajaran footwear"] = /obj/item/clothing/shoes/tajara/footwraps
+	boots["kah'romra wraps"] = /obj/item/clothing/shoes/tajara/footwraps
 	boots["fancy adhomian shoes"] = /obj/item/clothing/shoes/tajara/fancy
 	boots["saddle shoes, black"] = /obj/item/clothing/shoes/sneakers/black/tajara
 	boots["high-heeled adhomian shoes, black"] = /obj/item/clothing/shoes/heels/tajara

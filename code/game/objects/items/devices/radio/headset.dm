@@ -4,6 +4,7 @@
 	icon = 'icons/obj/item/radio/headset.dmi'
 	icon_state = "headset"
 	item_state = "headset"
+	contained_sprite = TRUE
 	matter = list(MATERIAL_ALUMINIUM = 75)
 	subspace_transmission = TRUE
 	canhear_range = 0 // can't hear headsets from very far away
@@ -1042,7 +1043,6 @@
 /obj/item/radio/headset/heads/ai_integrated/Destroy()
 	myAi = null
 	. = ..()
-	GC_TEMPORARY_HARDDEL
 
 /obj/item/radio/headset/heads/ai_integrated/can_receive(input_frequency, level)
 	return ..(input_frequency, level, !disabledAi)

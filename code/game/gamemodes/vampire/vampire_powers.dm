@@ -672,7 +672,7 @@
 				else
 					E.germ_level = 0
 					blood_used += 0.25
-			for(var/datum/wound/W in E.wounds)
+			for(var/datum/wound/W as anything in E.wounds)
 				if(W.germ_level > 0)
 					W.germ_level = max(0, W.germ_level - 50)
 					blood_used += 0.5
