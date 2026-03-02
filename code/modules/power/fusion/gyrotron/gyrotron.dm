@@ -34,7 +34,7 @@
 	return E
 
 /obj/machinery/power/emitter/gyrotron/update_icon()
-	if (active && powernet && avail(active_power_usage))
+	if (active && powernet && POWER_AVAIL(src))
 		icon_state = "emitter-on"
 	else
 		icon_state = "emitter-off"

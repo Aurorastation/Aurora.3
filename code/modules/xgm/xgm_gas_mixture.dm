@@ -216,14 +216,6 @@
 		else
 			total_moles += gas[g]
 
-
-///Returns the pressure of the gas mix.  Only accurate if there have been no gas modifications since update_values() has been called.
-/datum/gas_mixture/proc/return_pressure()
-	if(volume)
-		return total_moles * R_IDEAL_GAS_EQUATION * temperature / volume
-	return 0
-
-
 ///Removes moles from the gas mixture and returns a gas_mixture containing the removed air.
 /datum/gas_mixture/proc/remove(amount)
 	amount = min(amount, total_moles * group_multiplier) //Can not take more air than the gas mixture has!
@@ -332,7 +324,7 @@
 			return 0
 		marked[g] = 1
 
-	if(abs(return_pressure() - sample.return_pressure()) > MINIMUM_PRESSURE_DIFFERENCE_TO_SUSPEND)
+	if(abs(XGM_PRESSURE(src) - XGM_PRESSURE(sample)) > MINIMUM_PRESSURE_DIFFERENCE_TO_SUSPEND)
 		return 0
 
 	for(var/g in sample.gas)
@@ -349,11 +341,6 @@
 			return 0
 
 	return 1
-
-
-/datum/gas_mixture/proc/react()
-	zburn(null, force_burn=0, no_check=0) //could probably just call zburn() here with no args but I like being explicit.
-
 
 //Rechecks the gas_mixture and adjusts the graphic list if needed.
 //Two lists can be passed by reference if you need know specifically which graphics were added and removed.
@@ -381,8 +368,10 @@
 	else if (heat_overlay in graphic)
 		LAZYADD(graphic_remove, heat_overlay)
 
+	var/pressure = XGM_PRESSURE(src)
+
 	var/cold_overlay = get_tile_overlay(GAS_COLD)
-	if(temperature <= FOGGING_TEMPERATURE && (return_pressure() >= (ONE_ATMOSPHERE / 4)))
+	if(temperature <= FOGGING_TEMPERATURE && (pressure >= (ONE_ATMOSPHERE / 4)))
 		if(!(cold_overlay in graphic))
 			LAZYADD(graphic_add, cold_overlay)
 	else if (cold_overlay in graphic)
@@ -396,7 +385,7 @@
 		graphic -= graphic_remove
 		. = 1
 	if(length(graphic))
-		var/pressure_mod = clamp(return_pressure() / ONE_ATMOSPHERE, 0, 2)
+		var/pressure_mod = clamp(pressure / ONE_ATMOSPHERE, 0, 2)
 		for(var/obj/gas_overlay/O in graphic)
 			if(istype(O, /obj/gas_overlay/heat)) //Heat based
 				var/new_alpha = clamp(max(125, 255 * ((temperature - CARBON_LIFEFORM_FIRE_RESISTANCE) / CARBON_LIFEFORM_FIRE_RESISTANCE * 4)), 125, 255)

@@ -33,10 +33,6 @@
 		tag_chamber_sensor = given_tag_chamber_sensor
 	program = new /datum/computer/file/embedded_program/airlock(src)
 
-/obj/machinery/embedded_controller/radio/airlock/Destroy()
-	. = ..()
-	GC_TEMPORARY_HARDDEL
-
 /obj/machinery/embedded_controller/radio/airlock/attackby(obj/item/attacking_item, mob/user)
 	//Swiping ID on the access button
 	if (attacking_item.GetID())
@@ -138,8 +134,11 @@
 /obj/machinery/embedded_controller/radio/airlock/access_controller/ui_data(mob/user)
 	var/list/data = list()
 
-	data["exterior_status"] = round(program.memory["exterior_status"])
-	data["interior_status"] = round(program.memory["interior_status"])
+	var/ext_door_status = (program.memory["exterior_status"]["state"] == "closed" && program.memory["exterior_status"]["lock"] == "locked")
+	var/int_door_status = (program.memory["interior_status"]["state"] == "closed" && program.memory["interior_status"]["lock"] == "locked")
+
+	data["exterior_secured"] = ext_door_status
+	data["interior_secured"] = int_door_status
 	data["processing"] = program.memory["processing"]
 
 	return data

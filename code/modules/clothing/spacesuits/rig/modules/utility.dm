@@ -292,7 +292,7 @@
 	if(target_mob != user)
 		to_chat(user, SPAN_NOTICE("You inject [target_mob] with [chems_to_use] unit\s of [charge.display_name]."))
 
-	if(!target_mob.is_physically_disabled())
+	if(!target_mob.incapacitated(INCAPACITATION_DISABLED))
 		to_chat(target_mob, SPAN_NOTICE("<b>You feel a rushing in your veins as [chems_to_use] unit\s of [charge.display_name] [chems_to_use == 1 ? "is" : "are"] injected.</b>"))
 	target_mob.reagents.add_reagent(charge.product_type, chems_to_use)
 

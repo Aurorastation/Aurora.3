@@ -20,7 +20,7 @@ ABSTRACT_TYPE(/datum/gear/shoes/tajara)
 	boots["grey workboots"] = /obj/item/clothing/shoes/workboots/tajara/grey
 	boots["dark workboots"] = /obj/item/clothing/shoes/workboots/tajara/dark
 	boots["adhomian boots"] = /obj/item/clothing/shoes/workboots/tajara/adhomian_boots
-	boots["native tajaran footwear"] = /obj/item/clothing/shoes/tajara/footwraps
+	boots["kah'romra wraps"] = /obj/item/clothing/shoes/tajara/footwraps
 	boots["fancy adhomian shoes"] = /obj/item/clothing/shoes/tajara/fancy
 	boots["saddle shoes, black"] = /obj/item/clothing/shoes/sneakers/black/tajara
 	boots["high-heeled adhomian shoes, black"] = /obj/item/clothing/shoes/heels/tajara
@@ -176,7 +176,7 @@ ABSTRACT_TYPE(/datum/gear/shoes/tajara)
 	display_name = "adhomian surgeon garb"
 	path = /obj/item/clothing/suit/storage/hooded/tajaran/surgery
 	whitelisted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
-	allowed_roles = list("Chief Medical Officer", "Physician", "Surgeon", "Xenobiologist", "Roboticist", "Medical Intern", "Medical Personnel")
+	allowed_roles = list("Chief Medical Officer", "Physician", "Surgeon", "Xenobiologist", "Machinist", "Medical Intern", "Medical Personnel")
 	sort_category = "Xenowear - Tajara"
 
 // Cloaks

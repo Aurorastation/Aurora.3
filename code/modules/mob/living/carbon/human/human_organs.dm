@@ -30,18 +30,6 @@
 		for(var/obj/item/organ/external/Ex in organs)
 			bad_external_organs |= Ex
 
-	//processing internal organs is pretty cheap, do that first.
-	for(var/obj/item/organ/I in internal_organs)
-		if (QDELETED(I))
-			LOG_DEBUG("Organ [DEBUG_REF(src)] was not properly removed from its parent!")
-			internal_organs -= I
-			continue
-
-		if(I.status & ORGAN_DEAD)
-			continue
-
-		I.process(seconds_per_tick)
-
 	handle_stance()
 	handle_grasp()
 
@@ -55,7 +43,6 @@
 			bad_external_organs -= E
 			continue
 		else
-			E.process()
 			number_wounds += E.number_wounds
 
 			if (!lying && !buckled_to && world.time - l_move_time < 15)
@@ -66,7 +53,7 @@
 					I.take_damage(rand(3,5))
 
 				//Moving makes open wounds get infected much faster
-				for(var/datum/wound/W in E.wounds)
+				for(var/datum/wound/W as anything in E.wounds)
 					if (W.infection_check())
 						W.germ_level += 1
 

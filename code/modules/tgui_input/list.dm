@@ -81,7 +81,8 @@
 
 /datum/tgui_list_input/Destroy(force, ...)
 	SStgui.close_uis(src)
-	QDEL_NULL(items)
+	items?.Cut()
+	items_map?.Cut()
 	return ..()
 
 /**

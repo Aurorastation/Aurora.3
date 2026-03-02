@@ -84,7 +84,7 @@
 /obj/structure/closet/airbubble/feedback_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	if(!isnull(internal_tank))
-		. += SPAN_NOTICE("\The [src] has [internal_tank] attached, that displays <b>[round(internal_tank.air_contents.return_pressure() ? internal_tank.air_contents.return_pressure() : 0)] kPa</b>.")
+		. += SPAN_NOTICE("\The [src] has [internal_tank] attached, that displays <b>[round(SAFE_XGM_PRESSURE(internal_tank.air_contents))] kPa</b>.")
 	else
 		. += SPAN_NOTICE("\The [src] has no tank attached.")
 	if (cell)
@@ -508,12 +508,13 @@
 /obj/structure/closet/airbubble/proc/process_tank_give_air()
 	if(internal_tank)
 		var/datum/gas_mixture/tank_air = internal_tank.return_air()
+		var/tank_pressure = XGM_PRESSURE(tank_air)
 
 		var/release_pressure = internal_tank_valve
 		// If ripped, we are leaking
 		if(ripped)
 			// If we has no pressure in the tank, why bother?
-			if(tank_air.return_pressure() <= 1)
+			if(tank_pressure <= 1)
 				STOP_PROCESSING(SSfast_process, src)
 				use_internal_tank = !use_internal_tank
 				visible_message(SPAN_WARNING("You hear last bits of air coming out from [src]'s hole.Maybe the tank run out of air?"))
@@ -530,8 +531,8 @@
 			else
 				qdel(removed)
 			return
-		var/inside_pressure = inside_air.return_pressure()
-		var/pressure_delta = min(release_pressure - inside_pressure, (tank_air.return_pressure() - inside_pressure)/2)
+		var/inside_pressure = XGM_PRESSURE(inside_air)
+		var/pressure_delta = min(release_pressure - inside_pressure, (tank_pressure - inside_pressure)/2)
 		var/transfer_moles = 0
 
 		if(pressure_delta > 0) //inside pressure lower than release pressure
@@ -545,7 +546,7 @@
 			pressure_delta = inside_pressure - release_pressure
 
 			if(t_air)
-				pressure_delta = min(inside_pressure - t_air.return_pressure(), pressure_delta)
+				pressure_delta = min(inside_pressure - XGM_PRESSURE(t_air), pressure_delta)
 			if(pressure_delta > 0) //if location pressure is lower than inside pressure
 				transfer_moles = pressure_delta*inside_air.volume/(inside_air.temperature * R_IDEAL_GAS_EQUATION)
 
@@ -585,27 +586,6 @@
 	var/turf/T = get_turf(src)
 	if(T)
 		return T.return_air()
-
-/obj/structure/closet/airbubble/proc/return_pressure()
-	. = 0
-	if(use_internal_tank)
-		. =  inside_air.return_pressure()
-	else
-		var/datum/gas_mixture/t_air = get_turf_air()
-		if(t_air)
-			. = t_air.return_pressure()
-	return
-
-
-/obj/structure/closet/airbubble/proc/return_temperature()
-	. = 0
-	if(use_internal_tank)
-		. = inside_air.temperature
-	else
-		var/datum/gas_mixture/t_air = get_turf_air()
-		if(t_air)
-			. = t_air.temperature
-	return
 
 /obj/structure/closet/airbubble/process()
 	process_preserve_temp()
