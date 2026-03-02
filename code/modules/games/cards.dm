@@ -78,8 +78,8 @@
 	..()
 
 /obj/item/deck/verb/drawcard()
-	set category = "Object"
-	set name = "Draw"
+	set category = "Object.Cards"
+	set name = "Deck - Draw"
 	set desc = "Draw a card from the deck."
 	set src in view(1)
 
@@ -117,8 +117,8 @@
 		qdel(src)
 
 /obj/item/deck/verb/pickcard()
-	set category = "Object"
-	set name = "Pick"
+	set category = "Object.Cards"
+	set name = "Deck - Pick"
 	set desc = "Pick a card from the deck."
 	set src in view(1)
 
@@ -161,8 +161,8 @@
 		qdel(src)
 
 /obj/item/deck/verb/dealcard()
-	set category = "Object"
-	set name = "Deal"
+	set category = "Object.Cards"
+	set name = "Deck - Deal"
 	set desc = "Deal a card from the deck."
 	set src in view(1)
 
@@ -310,8 +310,8 @@
 	closeToolTip(usr)
 
 /obj/item/hand/verb/pickcard()
-	set category = "Object"
-	set name = "Pick"
+	set category = "Object.Cards"
+	set name = "Hand - Pick"
 	set desc = "Pick a card from your hand in front of you."
 	set src in usr
 
@@ -434,8 +434,8 @@
 	update_icon()
 
 /obj/item/hand/verb/deck_card()
-	set category = "Object"
-	set name = "Deck"
+	set category = "Object.Cards"
+	set name = "Turn Hand Into Deck"
 	set desc = "Turn this hand of cards into a deck."
 	set src in usr
 

@@ -221,7 +221,8 @@
 		else
 			user.visible_message(SPAN_DANGER("\The [user] blocks [attack_text] with \the [src]!"))
 			return BULLET_ACT_BLOCK
-
+	else
+		return BULLET_ACT_HIT
 
 /obj/item/shield/energy/get_block_chance(mob/user, damage, atom/damage_source = null, mob/attacker = null)
 	if(isprojectile(damage_source))

@@ -151,15 +151,12 @@
 	icon_state = "cablecuff"
 	item_state = "coil"
 	color = COLOR_RED
-	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items/stacks/lefthand_materials.dmi',
-		slot_r_hand_str = 'icons/mob/items/stacks/righthand_materials.dmi',
-		)
 	breakouttime = 30 SECONDS
 	cuff_sound = 'sound/weapons/cablecuff.ogg'
 	cuff_type = "cable restraint handcuffs"
 	var/can_be_cut = TRUE
 	elastic = TRUE
+	contained_sprite = TRUE
 	build_from_parts = TRUE
 	worn_overlay = "end"
 
@@ -223,7 +220,7 @@
 			to_chat(user, SPAN_NOTICE("You wrap \the [src] around the top of the rod."))
 			qdel(src)
 			update_icon(user)
-	else if(can_be_cut && attacking_item.iswirecutter())
+	else if(can_be_cut && attacking_item.tool_behaviour == TOOL_WIRECUTTER)
 		user.visible_message("[user] cuts the [src].", SPAN_NOTICE("You cut the [src]."))
 		playsound(src.loc, 'sound/items/Wirecutter.ogg', 50, 1)
 		new/obj/item/stack/cable_coil(get_turf(src), 15, color)

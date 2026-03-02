@@ -10,7 +10,7 @@
 
 	h_l_hand = /obj/item/mecha_equipment/drill
 	h_r_hand = /obj/item/mecha_equipment/clamp
-	h_l_shoulder = /obj/item/mecha_equipment/mounted_system/mining/kinetic_accelerator
+	h_l_shoulder = /obj/item/mecha_equipment/mounted_system/mining/kinetic_accelerator/heavy
 	h_back = /obj/item/mecha_equipment/ore_summoner
 
 /mob/living/heavy_vehicle/premade/miner/remote

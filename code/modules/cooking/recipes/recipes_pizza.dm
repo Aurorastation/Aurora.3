@@ -104,3 +104,99 @@
 	)
 	result = /obj/item/reagent_containers/food/snacks/bacon_flatbread
 
+/singleton/recipe/chocolate_pizza
+	appliance = OVEN
+	reagents = list(/singleton/reagent/nutriment/sprinkles = 2)
+	items = list(
+		/obj/item/reagent_containers/food/snacks/sliceable/flatdough,
+		/obj/item/reagent_containers/food/snacks/chocolatebar,
+		/obj/item/reagent_containers/food/snacks/chocolatebar,
+		/obj/item/reagent_containers/food/snacks/candy
+	)
+	reagent_mix = RECIPE_REAGENT_REPLACE
+	result = /obj/item/reagent_containers/food/snacks/sliceable/pizza/chocolate_pizza
+
+//Deep Dish
+
+/singleton/recipe/deepdish_margherita
+	appliance = OVEN
+	fruit = list("tomato" = 3)
+	items = list(
+		/obj/item/reagent_containers/food/snacks/dough,
+		/obj/item/reagent_containers/food/snacks/dough,
+		/obj/item/reagent_containers/food/snacks/cheesewedge,
+		/obj/item/reagent_containers/food/snacks/cheesewedge,
+		/obj/item/reagent_containers/food/snacks/cheesewedge,
+		/obj/item/reagent_containers/food/snacks/cheesewedge
+	)
+	reagent_mix = RECIPE_REAGENT_REPLACE // simplify and replace
+	result = /obj/item/reagent_containers/food/snacks/sliceable/pizza/deepdish/margherita
+
+/singleton/recipe/deepdish_mushroompizza
+	appliance = OVEN
+	fruit = list("mushroom" = 3, "tomato" = 3)
+	items = list(
+		/obj/item/reagent_containers/food/snacks/dough,
+		/obj/item/reagent_containers/food/snacks/dough,
+		/obj/item/reagent_containers/food/snacks/cheesewedge,
+		/obj/item/reagent_containers/food/snacks/cheesewedge,
+		/obj/item/reagent_containers/food/snacks/cheesewedge
+	)
+	reagent_mix = RECIPE_REAGENT_REPLACE // simplify and replace
+	result = /obj/item/reagent_containers/food/snacks/sliceable/pizza/deepdish/mushroom
+
+/singleton/recipe/deepdish_pepperonipizza
+	appliance = OVEN
+	fruit = list("tomato" = 3)
+	items = list(
+		/obj/item/reagent_containers/food/snacks/dough,
+		/obj/item/reagent_containers/food/snacks/dough,
+		/obj/item/reagent_containers/food/snacks/cheesewedge,
+		/obj/item/reagent_containers/food/snacks/cheesewedge,
+		/obj/item/reagent_containers/food/snacks/cheesewedge,
+		/obj/item/reagent_containers/food/snacks/pepperoni
+	)
+	reagent_mix = RECIPE_REAGENT_REPLACE // simplify and replace
+	result = /obj/item/reagent_containers/food/snacks/sliceable/pizza/deepdish/pepperoni
+
+/singleton/recipe/deepdish_district6
+	appliance = OVEN
+	fruit = list("tomato" = 3, "dirtberries" = 1)
+	items = list(
+		/obj/item/reagent_containers/food/snacks/dough,
+		/obj/item/reagent_containers/food/snacks/dough,
+		/obj/item/reagent_containers/food/snacks/cheesewedge,
+		/obj/item/reagent_containers/food/snacks/cheesewedge,
+		/obj/item/reagent_containers/food/snacks/cheesewedge,
+		/obj/item/reagent_containers/food/snacks/earthenroot_chopped
+	)
+	reagent_mix = RECIPE_REAGENT_REPLACE // simplify and replace
+	result = /obj/item/reagent_containers/food/snacks/sliceable/pizza/deepdish/district6
+
+/singleton/recipe/deepdish_mendell
+	appliance = OVEN
+	fruit = list("tomato" = 3, "bellpepper" = 1)
+	items = list(
+		/obj/item/reagent_containers/food/snacks/dough,
+		/obj/item/reagent_containers/food/snacks/dough,
+		/obj/item/reagent_containers/food/snacks/cheesewedge,
+		/obj/item/reagent_containers/food/snacks/cheesewedge,
+		/obj/item/reagent_containers/food/snacks/cheesewedge,
+		/obj/item/reagent_containers/food/snacks/fish
+	)
+	reagent_mix = RECIPE_REAGENT_REPLACE // simplify and replace
+	result = /obj/item/reagent_containers/food/snacks/sliceable/pizza/deepdish/mendell
+
+/singleton/recipe/deepdish_seafood
+	appliance = OVEN
+	fruit = list("tomato" = 3, "onion" = 1)
+	items = list(
+		/obj/item/reagent_containers/food/snacks/dough,
+		/obj/item/reagent_containers/food/snacks/dough,
+		/obj/item/reagent_containers/food/snacks/cheesewedge,
+		/obj/item/reagent_containers/food/snacks/cheesewedge,
+		/obj/item/reagent_containers/food/snacks/cheesewedge,
+		/obj/item/reagent_containers/food/snacks/fish/raw_shrimp
+	)
+	reagent_mix = RECIPE_REAGENT_REPLACE // simplify and replace
+	result = /obj/item/reagent_containers/food/snacks/sliceable/pizza/deepdish/seafood

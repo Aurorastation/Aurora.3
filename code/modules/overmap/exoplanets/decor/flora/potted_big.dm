@@ -57,7 +57,7 @@
 		if(!stored_item)
 			to_chat(user,SPAN_NOTICE("There is nothing hidden in [src]."))
 		else
-			if(istype(stored_item, /obj/item/device/paicard))
+			if(istype(stored_item, /obj/item/paicard))
 				stored_item.forceMove(src.loc)
 				to_chat(user,SPAN_NOTICE("You reveal \the [stored_item] from [src]."))
 			else

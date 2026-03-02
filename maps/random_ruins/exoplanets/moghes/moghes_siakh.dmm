@@ -183,10 +183,10 @@
 /obj/item/ammo_casing/shotgun/moghes,
 /obj/item/ammo_casing/shotgun/moghes,
 /obj/item/clothing/accessory/storage/bandolier,
-/obj/item/device/flashlight/flare/torch,
-/obj/item/device/flashlight/flare/torch,
-/obj/item/device/flashlight/flare/torch,
-/obj/item/device/flashlight/flare/torch,
+/obj/item/flashlight/flare/torch,
+/obj/item/flashlight/flare/torch,
+/obj/item/flashlight/flare/torch,
+/obj/item/flashlight/flare/torch,
 /turf/simulated/floor/exoplanet/foundation{
 	temperature = 315.15
 	},

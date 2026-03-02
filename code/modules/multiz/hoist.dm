@@ -17,7 +17,7 @@
 
 /obj/effect/hoist_hook
 	name = "hoist clamp"
-	desc = "A clamp used to lift people or things."
+	desc = "A clamp used to safely lift (or lower) people or things."
 	icon = 'icons/obj/hoists.dmi'
 	icon_state = "hoist_hook"
 	var/obj/structure/hoist/source_hoist
@@ -26,8 +26,9 @@
 
 /obj/effect/hoist_hook/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()
-	. += "To use the hook, click drag the object you want to it to attach it."
-	. += "To remove an object from the hook, click drag the hook to a nearby turf."
+	. += "Use this on yourself to deploy the hoist in the direction you're facing."
+	. += "To load something onto the hook, click-drag the object you want to it to attach it."
+	. += "To remove something from the hook, click-drag the hook to a nearby turf."
 
 /obj/effect/hoist_hook/attack_hand(mob/living/user)
 	if (use_check_and_message(user, USE_DISALLOW_SILICONS))
@@ -89,7 +90,7 @@
 	user.visible_message(SPAN_NOTICE("[user] detaches \the [source_hoist.hoistee] from the hoist clamp."), SPAN_NOTICE("You detach \the [source_hoist.hoistee] from the hoist clamp."), SPAN_NOTICE("You hear something unclamp."))
 	source_hoist.release_hoistee()
 
-// This will handle mobs unbuckling themselves.
+/// This will handle mobs unbuckling themselves.
 /obj/effect/hoist_hook/unbuckle()
 	. = ..()
 	if (. && !QDELETED(source_hoist))
@@ -111,8 +112,14 @@
 
 /obj/structure/hoist/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()
-	. += "To use the hook, click drag the object you want to it to attach it."
-	. += "To remove an object from the hook, click drag the hook to a nearby turf."
+	. += "To load something onto the hook, click-drag the object you want to it to attach it."
+	. += "Use an empty hand on the hoist to start the pulley lifting or lowering."
+	. += "To remove something from the hook, click-drag the hook to a nearby turf."
+
+/obj/structure/hoist/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(broken)
+		. += "It looks broken, and the clamp has retracted back into the hoist. Seems like you'd have to re-deploy it to get it to work again."
 
 /obj/structure/hoist/Initialize(mapload, ndir)
 	. = ..()
@@ -131,6 +138,7 @@
 	source_hoist = null
 	return ..()
 
+/// Checks that the hoistee and the hook its supposed to be attached to are on the same z-level. If not, release the hoistee.
 /obj/structure/hoist/proc/check_consistency()
 	if(hoistee && (hoistee.z != source_hook.z))
 		release_hoistee()
@@ -146,7 +154,6 @@
 	if(broken)
 		return
 	broken = TRUE
-	desc += " It looks broken, and the clamp has retracted back into the hoist. Seems like you'd have to re-deploy it to get it to work again."
 	if(hoistee)
 		release_hoistee()
 	QDEL_NULL(source_hook)

@@ -49,6 +49,14 @@
 /// Max width of chat message in pixels
 #define CHAT_MESSAGE_WIDTH 112
 
+// Setting this much higher than 1024 could allow spammers to DOS the server easily.
+#define MAX_MESSAGE_LEN       1024
+#define MAX_PAPER_MESSAGE_LEN 3072
+#define MAX_BOOK_MESSAGE_LEN  9216
+#define MAX_LNAME_LEN         64
+#define MAX_NAME_LEN          63
+#define MAX_MESSAGE_CHUNKS 	  20
+
 //All < and > characters
 GLOBAL_DATUM_INIT(angular_brackets, /regex, regex(@"[<>]", "g"))
 

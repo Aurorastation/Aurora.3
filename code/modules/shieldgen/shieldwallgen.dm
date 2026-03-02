@@ -23,7 +23,21 @@
 	///How much power is drawn from powernet. Increase this to allow the generator to sustain longer shields, at the cost of more power draw.
 	var/power_draw = 30 KILO WATTS
 	var/max_stored_power = 50 KILO WATTS
-	use_power = POWER_USE_OFF //Draws directly from power net. Does not use APC power.
+	/// Draws directly from power net. Does not use APC power.
+	use_power = POWER_USE_OFF
+
+/obj/machinery/shieldwallgen/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "ALT-click the [src] to lock or unlock it (if you have the appropriate ID access)."
+
+/obj/machinery/shieldwallgen/active
+	power_state = POWER_STARTING
+	is_powered = TRUE
+	wrenched = TRUE
+	anchored = TRUE
+	locked = FALSE
+	icon_state = "Shield_Gen +a"
+	storedpower = 9000000
 
 /obj/machinery/shieldwallgen/update_icon()
 	if(power_state >= POWER_STARTING)
@@ -71,7 +85,8 @@
 		return FALSE
 
 	var/shieldload = between(500, max_stored_power - storedpower, (power_draw*seconds_per_tick))	//what we try to draw
-	shieldload = PN.draw_power(shieldload) //what we actually get
+	shieldload = POWERNET_POWER_DRAW(PN, shieldload) //what we actually get
+	DRAW_FROM_POWERNET(PN, shieldload)
 	storedpower += shieldload
 
 	//If we're still in the red, then there must not be enough available power to cover our load.
@@ -143,7 +158,7 @@
 		CF.set_dir(field_dir)
 
 /obj/machinery/shieldwallgen/attackby(obj/item/attacking_item, mob/user)
-	if(attacking_item.iswrench())
+	if(attacking_item.tool_behaviour == TOOL_WRENCH)
 		if(power_state)
 			to_chat(user, SPAN_WARNING("You cannot unsecure \the [src] while it's active."))
 			return
@@ -156,17 +171,23 @@
 		var/self_msg = wrenched ? "You secure the external reinforcing bolts to the floor." : "You unsecure the external reinforcing bolts."
 		user.visible_message(others_msg, SPAN_NOTICE(self_msg), SPAN_NOTICE("You hear a ratcheting noise."))
 		return
+	return ..()
 
-	if(attacking_item.GetID())
+/obj/machinery/shieldwallgen/AltClick(mob/user)
+	if(Adjacent(user))
 		add_fingerprint(user)
 		if(allowed(user))
 			locked = !locked
-			var/msg = "The controls are now [locked ? "locked" : "unlocked"]."
-			to_chat(user, SPAN_NOTICE(msg))
+			if(locked)
+				playsound(src, 'sound/machines/terminal/terminal_button03.ogg', 35, FALSE)
+			else
+				playsound(src, 'sound/machines/terminal/terminal_button01.ogg', 35, FALSE)
+			balloon_alert(user, locked ? "locked" : "unlocked")
 		else
 			to_chat(user, SPAN_WARNING("Access denied."))
+			playsound(src, 'sound/machines/terminal/terminal_error.ogg', 25, FALSE)
+			balloon_alert(user, "access denied!")
 		return
-	return ..()
 
 /obj/machinery/shieldwallgen/proc/alldir_cleanup()
 	for(var/dir in list(NORTH, SOUTH, EAST, WEST))

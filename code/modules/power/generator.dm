@@ -1,15 +1,15 @@
 /obj/machinery/power/generator
-	name = "thermoelectric generator"
-	desc = "It's a high efficiency thermoelectric generator."
+	name = "\improper Stirling engine"
+	desc = "It's a high efficiency Stirling engine. This model produces electricity from the temperature and differential between two gas loops."
 	icon_state = "teg-unassembled"
 	density = TRUE
 	anchored = FALSE
 	obj_flags = OBJ_FLAG_ROTATABLE
 
 	use_power = POWER_USE_OFF
-	idle_power_usage = 100 //Watts, I hope.  Just enough to do the computer and display things.
+	idle_power_usage = 1000
 
-	var/max_power = 500000
+	var/max_power = 2500000
 	var/thermal_efficiency = 0.65
 
 	var/obj/machinery/atmospherics/binary/circulator/circ1
@@ -44,11 +44,13 @@
 	circ2 = null
 	return ..()
 
-//generators connect in dir and reverse_dir(dir) directions
-//mnemonic to determine circulator/generator directions: the cirulators orbit clockwise around the generator
-//so a circulator to the NORTH of the generator connects first to the EAST, then to the WEST
-//and a circulator to the WEST of the generator connects first to the NORTH, then to the SOUTH
-//note that the circulator's outlet dir is it's always facing dir, and it's inlet is always the reverse
+/**
+ * Circulators connect in dir and reverse_dir(dir) directions
+ * A mnemonic to determine circulator/generator directions: the cirulators orbit clockwise around the generator.
+ * So a circulator to the NORTH of the generator connects first to the EAST, then to the WEST,
+ * and a circulator to the WEST of the generator connects first to the NORTH, then to the SOUTH.
+ * Note that the circulator's outlet dir is it's always facing dir, and it's inlet is always the reverse
+ */
 /obj/machinery/power/generator/proc/reconnect()
 	if(circ1)
 		circ1.temperature_overlay = null
@@ -78,11 +80,11 @@
 /obj/machinery/power/generator/update_icon()
 	icon_state = anchored ? "teg-assembled" : "teg-unassembled"
 	ClearOverlays()
-	if (circ1)
+	if(circ1)
 		circ1.temperature_overlay = null
-	if (circ2)
+	if(circ2)
 		circ2.temperature_overlay = null
-	if (stat & (NOPOWER|BROKEN))
+	if(stat & (NOPOWER|BROKEN))
 		return TRUE
 	else
 		if (lastgenlev != 0)
@@ -91,18 +93,20 @@
 				var/extreme = (lastgenlev > 9) ? "ex" : ""
 				if (circ1.last_temperature < circ2.last_temperature)
 					circ1.temperature_overlay = "circ-[extreme]cold"
+					circ1.is_hot_loop = FALSE
 					circ2.temperature_overlay = "circ-[extreme]hot"
+					circ2.is_hot_loop = TRUE
 				else
 					circ1.temperature_overlay = "circ-[extreme]hot"
+					circ1.is_hot_loop = TRUE
 					circ2.temperature_overlay = "circ-[extreme]cold"
+					circ2.is_hot_loop = FALSE
 		return TRUE
 
 /obj/machinery/power/generator/process()
 	if(!circ1 || !circ2 || !anchored || stat & (BROKEN|NOPOWER))
 		stored_energy = 0
 		return
-
-	updateDialog()
 
 	var/datum/gas_mixture/air1 = circ1.return_transfer_air()
 	var/datum/gas_mixture/air2 = circ2.return_transfer_air()
@@ -146,7 +150,7 @@
 	//Exceeding maximum power leads to some power loss
 	if(effective_gen > max_power && prob(5))
 		spark_system.queue()
-		stored_energy *= 0.5
+		stored_energy *= 0.67
 
 	//Power
 	last_circ1_gen = circ1.return_stored_energy()
@@ -163,7 +167,7 @@
 	if(genlev != lastgenlev)
 		lastgenlev = genlev
 		update_icon()
-	add_avail(effective_gen)
+	ADD_TO_POWERNET(src, effective_gen)
 
 /obj/machinery/power/generator/attack_ai(mob/user)
 	if(!ai_can_interact(user))
@@ -171,9 +175,10 @@
 	attack_hand(user)
 
 /obj/machinery/power/generator/attackby(obj/item/attacking_item, mob/user)
-	if(attacking_item.iswrench())
+	if(attacking_item.tool_behaviour == TOOL_WRENCH)
 		attacking_item.play_tool_sound(get_turf(src), 75)
 		anchored = !anchored
+		balloon_alert(user, "[anchored ? "secure" : "unsecure"]")
 		user.visible_message("[user.name] [anchored ? "secures" : "unsecures"] the bolts holding [src.name] to the floor.", \
 					"You [anchored ? "secure" : "unsecure"] the bolts holding [src] to the floor.", \
 					"You hear a ratchet")
@@ -193,56 +198,50 @@
 		reconnect()
 	ui_interact(user)
 
-/obj/machinery/power/generator/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1)
-	// this is the data which will be sent to the ui
-	var/vertical = 0
-	if (dir == NORTH || dir == SOUTH)
-		vertical = 1
+/obj/machinery/power/generator/ui_interact(mob/user, datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
+	if(!ui)
+		// Interface ID should match your tgui route registration/name.
+		ui = new(user, src, "StirlingEngine", "Stirling Engine")
+		ui.open()
 
-	var/data[0]
-	data["totalOutput"] = effective_gen/1000
-	data["maxTotalOutput"] = max_power/1000
-	data["thermalOutput"] = last_thermal_gen/1000
-	data["circConnected"] = 0
+/obj/machinery/power/generator/ui_data(mob/user)
+	var/list/data = list()
+
+	var/vertical = FALSE
+	if(dir == NORTH || dir == SOUTH)
+		vertical = TRUE
+
+	data["totalOutput"] = effective_gen / 1000
+	data["maxTotalOutput"] = max_power / 1000
+	data["thermalOutput"] = last_thermal_gen / 1000
+	data["circConnected"] = FALSE
 
 	if(circ1)
-		//The one on the left (or top)
+		// The one on the left (or top)
 		data["primaryDir"] = vertical ? "top" : "left"
 		data["primaryOutput"] = last_circ1_gen/1000
 		data["primaryFlowCapacity"] = circ1.volume_capacity_used*100
-		data["primaryInletPressure"] = circ1.air1.return_pressure()
+		data["primaryInletPressure"] = XGM_PRESSURE(circ1.air1)
 		data["primaryInletTemperature"] = circ1.air1.temperature
-		data["primaryOutletPressure"] = circ1.air2.return_pressure()
+		data["primaryOutletPressure"] = XGM_PRESSURE(circ1.air2)
 		data["primaryOutletTemperature"] = circ1.air2.temperature
+		data["primaryIsHot"] = circ1.is_hot_loop
 
 	if(circ2)
-		//Now for the one on the right (or bottom)
+		// The one on the right (or bottom)
 		data["secondaryDir"] = vertical ? "bottom" : "right"
 		data["secondaryOutput"] = last_circ2_gen/1000
 		data["secondaryFlowCapacity"] = circ2.volume_capacity_used*100
-		data["secondaryInletPressure"] = circ2.air1.return_pressure()
+		data["secondaryInletPressure"] = XGM_PRESSURE(circ2.air1)
 		data["secondaryInletTemperature"] = circ2.air1.temperature
-		data["secondaryOutletPressure"] = circ2.air2.return_pressure()
+		data["secondaryOutletPressure"] = XGM_PRESSURE(circ2.air2)
 		data["secondaryOutletTemperature"] = circ2.air2.temperature
+		data["secondaryIsHot"] = circ2.is_hot_loop
 
-	if(circ1 && circ2)
-		data["circConnected"] = 1
-	else
-		data["circConnected"] = 0
+	data["circConnected"] = (circ1 && circ2) ? TRUE : FALSE
 
-
-	// update the ui if it exists, returns null if no ui is passed/found
-	ui = SSnanoui.try_update_ui(user, src, ui_key, ui, data, force_open)
-	if(!ui)
-		// the ui does not exist, so we'll create a new() one
-		// for a list of parameters and their descriptions see the code docs in \code\modules\nano\nanoui.dm
-		ui = new(user, src, ui_key, "generator.tmpl", "Thermoelectric Generator", 450, 500)
-		// when the ui is first opened this is the data it will use
-		ui.set_initial_data(data)
-		// open the new ui window
-		ui.open()
-		// auto update every Master Controller tick
-		ui.set_auto_update(1)
+	return data
 
 /obj/machinery/power/generator/power_change()
 	..()

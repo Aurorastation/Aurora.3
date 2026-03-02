@@ -1,19 +1,19 @@
 /singleton/recipe/cutlet
-	appliance = SKILLET
+	appliance = SKILLET | MICROWAVE
 	items = list(
 		/obj/item/reagent_containers/food/snacks/rawcutlet
 	)
 	result = /obj/item/reagent_containers/food/snacks/cutlet
 
 /singleton/recipe/meatball
-	appliance = SKILLET | SAUCEPAN
+	appliance = SKILLET | SAUCEPAN | MICROWAVE
 	items = list(
 		/obj/item/reagent_containers/food/snacks/rawmeatball
 	)
 	result = /obj/item/reagent_containers/food/snacks/meatball
 
 /singleton/recipe/bacon
-	appliance = SKILLET
+	appliance = SKILLET | MICROWAVE
 	items = list(
 		/obj/item/reagent_containers/food/snacks/rawbacon
 	)
@@ -49,19 +49,19 @@
 	result_quantity = 6
 
 /singleton/recipe/meatsteak
-	appliance = SKILLET
+	appliance = SKILLET | MICROWAVE
 	reagents = list(/singleton/reagent/sodiumchloride = 1, /singleton/reagent/blackpepper = 1)
 	items = list(/obj/item/reagent_containers/food/snacks/meat)
 	result = /obj/item/reagent_containers/food/snacks/meatsteak
 
 /singleton/recipe/syntisteak
-	appliance = SKILLET
+	appliance = SKILLET | MICROWAVE
 	reagents = list(/singleton/reagent/sodiumchloride = 1, /singleton/reagent/blackpepper = 1)
 	items = list(/obj/item/reagent_containers/food/snacks/meat/syntiflesh)
 	result = /obj/item/reagent_containers/food/snacks/meatsteak
 
 /singleton/recipe/sausage
-	appliance = SKILLET
+	appliance = SKILLET | MICROWAVE
 	items = list(
 		/obj/item/reagent_containers/food/snacks/meatball,
 		/obj/item/reagent_containers/food/snacks/cutlet
@@ -112,7 +112,7 @@
 	result = /obj/item/reagent_containers/food/snacks/donerkebab
 
 /singleton/recipe/meatballs_and_peas
-	appliance = SKILLET | SAUCEPAN
+	appliance = SKILLET | SAUCEPAN | MICROWAVE
 	fruit = list("peas" = 1, "tomato" = 1)
 	items = list(
 		/obj/item/reagent_containers/food/snacks/meatball,
@@ -146,4 +146,15 @@
 	reagents = list(/singleton/reagent/sodiumchloride = 1, /singleton/reagent/blackpepper = 1, /singleton/reagent/nutriment/protein/egg = 3)
 	items = list(/obj/item/reagent_containers/food/snacks/meat)
 	result = /obj/item/reagent_containers/food/snacks/steak_tartare
+	reagent_mix = RECIPE_REAGENT_REPLACE
+
+/singleton/recipe/meatloaf
+	appliance = OVEN
+	fruit = list("onion" = 1)
+	reagents = list(/singleton/reagent/nutriment/protein/egg = 3, /singleton/reagent/nutriment/ketchup = 5)
+	items = list(
+		/obj/item/reagent_containers/food/snacks/meat,
+		/obj/item/reagent_containers/food/snacks/meat
+	)
+	result = /obj/item/reagent_containers/food/snacks/sliceable/meatloaf
 	reagent_mix = RECIPE_REAGENT_REPLACE

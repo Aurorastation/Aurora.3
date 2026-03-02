@@ -1,7 +1,15 @@
 import { BooleanLike } from '../../common/react';
 import { capitalize } from '../../common/string';
 import { useBackend } from '../backend';
-import { Box, Button, LabeledList, NoticeBox, ProgressBar, Section, Slider } from '../components';
+import {
+  Box,
+  Button,
+  LabeledList,
+  NoticeBox,
+  ProgressBar,
+  Section,
+  Slider,
+} from '../components';
 import { Window } from '../layouts';
 
 export type FusionGyrotronControl = {
@@ -23,7 +31,7 @@ export const FusionInjectorControl = (props, context) => {
   const { act, data } = useBackend<FusionGyrotronControl>(context);
 
   return (
-    <Window resizable theme={data.manufacturer}>
+    <Window resizable width={400} height={500} theme={data.manufacturer}>
       <Window.Content scrollable>
         {data.injectors && data.injectors.length ? (
           <>
@@ -66,7 +74,8 @@ export const FusionInjectorControl = (props, context) => {
                       act('toggle_injecting', { machine: injector.ref })
                     }
                   />
-                }>
+                }
+              >
                 <LabeledList>
                   <LabeledList.Item label="Status">
                     <Box as="span" color={injector.injecting ? 'good' : 'bad'}>

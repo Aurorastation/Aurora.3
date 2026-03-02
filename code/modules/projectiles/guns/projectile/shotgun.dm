@@ -63,7 +63,7 @@
 	handle_casings = HOLD_CASINGS
 	fire_sound = 'sound/weapons/gunshot/gunshot_shotgun2.ogg'
 	is_wieldable = TRUE
-	var/rack_sound = /singleton/sound_category/shotgun_pump
+	var/rack_sound = SFX_PUMP_SHOTGUN
 	var/rack_verb = "pump"
 	///Whether the item icon has a cycling animation
 	var/cycle_anim = TRUE
@@ -185,7 +185,7 @@
 	desc = "A double-barreled shotgun meant to fire signal flash shells."
 	ammo_type = /obj/item/ammo_casing/shotgun/flash
 
-/obj/item/gun/projectile/shotgun/doublebarrel/unload_ammo(user, allow_dump)
+/obj/item/gun/projectile/shotgun/doublebarrel/unload_ammo(mob/user, allow_dump = TRUE, drop_mag = FALSE)
 	..(user, allow_dump=1)
 
 /obj/item/gun/projectile/shotgun/doublebarrel/saw_off(mob/user, obj/item/tool)
@@ -237,7 +237,7 @@
 	caliber = "gauss"
 	origin_tech = list(TECH_COMBAT = 3, TECH_MATERIAL = 1)
 	ammo_type = /obj/item/ammo_casing/gauss
-	fire_sound = /singleton/sound_category/gauss_fire_sound
+	fire_sound = SFX_SHOOT_GAUSS
 	fire_delay = ROF_INTERMEDIATE
 
 	can_sawoff = FALSE
@@ -349,7 +349,7 @@
 		open = FALSE
 		update_icon()
 
-/obj/item/gun/projectile/shotgun/wallgun/unload_ammo(user, allow_dump)
+/obj/item/gun/projectile/shotgun/wallgun/unload_ammo(mob/user, allow_dump = TRUE, drop_mag = FALSE)
 	if(open)
 		..(user, allow_dump=1)
 

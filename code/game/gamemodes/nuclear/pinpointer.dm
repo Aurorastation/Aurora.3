@@ -150,7 +150,7 @@
 			AddOverlays("pinonfar")
 
 /obj/item/pinpointer/advpinpointer/verb/toggle_mode()
-	set category = "Object"
+	set category = "Object.Held"
 	set name = "Toggle Pinpointer Mode"
 	set src in view(1)
 

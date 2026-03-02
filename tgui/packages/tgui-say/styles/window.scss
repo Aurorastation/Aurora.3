@@ -21,13 +21,6 @@
   background-color: colors.$lightMode;
 }
 
-.window__content {
-  display: flex;
-  flex-direction: row;
-  height: 100%;
-  padding: 1px 0 1px 5px;
-}
-
 /** Window sizes */
 .window-30 {
   height: 30px;

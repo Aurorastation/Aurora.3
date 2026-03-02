@@ -18,7 +18,7 @@
 /obj/item/reagent_containers/blood/OMinus,
 /obj/item/reagent_containers/blood/OMinus,
 /obj/structure/closet/crate/freezer,
-/obj/item/storage/box/freezer/organcooler,
+/obj/item/storage/box/unique/freezer/organcooler,
 /obj/machinery/light/colored/decayed{
 	dir = 8
 	},
@@ -312,7 +312,7 @@
 /obj/item/clothing/gloves/latex/unathi,
 /obj/item/clothing/mask/surgical/w,
 /obj/item/clothing/mask/surgical/w,
-/obj/item/device/versebook/skakh,
+/obj/item/versebook/skakh,
 /obj/item/nullrod/shaman,
 /obj/item/cane/crutch,
 /obj/item/cane/crutch,
@@ -329,11 +329,11 @@
 /obj/item/clothing/accessory/stethoscope,
 /obj/item/clothing/accessory/stethoscope,
 /obj/item/clothing/accessory/stethoscope,
-/obj/item/device/flashlight/pen,
-/obj/item/device/flashlight/pen,
-/obj/item/device/breath_analyzer,
-/obj/item/device/healthanalyzer,
-/obj/item/device/healthanalyzer,
+/obj/item/flashlight/pen,
+/obj/item/flashlight/pen,
+/obj/item/breath_analyzer,
+/obj/item/healthanalyzer,
+/obj/item/healthanalyzer,
 /turf/simulated/floor/exoplanet/foundation{
 	temperature = 315.15
 	},
@@ -360,7 +360,7 @@
 /obj/item/stack/medical/bruise_pack/full,
 /obj/item/stack/medical/bruise_pack/full,
 /obj/item/stack/medical/ointment/full,
-/obj/item/device/breath_analyzer,
+/obj/item/breath_analyzer,
 /turf/simulated/floor/exoplanet/foundation{
 	temperature = 315.15
 	},

@@ -27,8 +27,8 @@
 /obj/item/reagent_containers/blood/OMinus,
 /obj/item/reagent_containers/blood/OMinus,
 /obj/item/reagent_containers/blood/OMinus,
-/obj/item/storage/box/freezer/organcooler,
-/obj/item/storage/box/freezer/organcooler,
+/obj/item/storage/box/unique/freezer/organcooler,
+/obj/item/storage/box/unique/freezer/organcooler,
 /turf/simulated/floor/tiled/gunmetal/full,
 /area/ship/xanu_frigate/cargo_bay)
 "ad" = (
@@ -1173,10 +1173,10 @@
 /obj/item/grenade/chem_grenade/metalfoam,
 /obj/item/stack/rods/full,
 /obj/item/stack/material/glass/full,
-/obj/item/device/oxycandle,
-/obj/item/device/oxycandle,
-/obj/item/device/flashlight/flare,
-/obj/item/device/flashlight/flare,
+/obj/item/oxycandle,
+/obj/item/oxycandle,
+/obj/item/flashlight/flare,
+/obj/item/flashlight/flare,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/xanu_frigate/weapon/longbow)
 "eq" = (
@@ -1460,7 +1460,7 @@
 /obj/item/storage/toolbox/mechanical{
 	pixel_y = 5
 	},
-/obj/item/device/multitool{
+/obj/item/multitool{
 	pixel_y = -8
 	},
 /obj/structure/cable{
@@ -1831,10 +1831,10 @@
 "gw" = (
 /obj/structure/table/rack,
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/item/device/suit_cooling_unit,
-/obj/item/device/suit_cooling_unit,
-/obj/item/device/suit_cooling_unit,
-/obj/item/device/suit_cooling_unit,
+/obj/item/suit_cooling_unit,
+/obj/item/suit_cooling_unit,
+/obj/item/suit_cooling_unit,
+/obj/item/suit_cooling_unit,
 /turf/simulated/floor/tiled/gunmetal,
 /area/ship/xanu_frigate/eva)
 "gz" = (
@@ -4397,14 +4397,14 @@
 /obj/structure/closet/crate{
 	name = "vendor resupply crate"
 	},
-/obj/item/device/vending_refill/frontiervend,
-/obj/item/device/vending_refill/cola,
-/obj/item/device/vending_refill/cutlery,
-/obj/item/device/vending_refill/hydro,
-/obj/item/device/vending_refill/meds,
-/obj/item/device/vending_refill/snack,
-/obj/item/device/vending_refill/zora,
-/obj/item/device/vending_refill/tools,
+/obj/item/vending_refill/frontiervend,
+/obj/item/vending_refill/cola,
+/obj/item/vending_refill/cutlery,
+/obj/item/vending_refill/hydro,
+/obj/item/vending_refill/meds,
+/obj/item/vending_refill/snack,
+/obj/item/vending_refill/zora,
+/obj/item/vending_refill/tools,
 /obj/random/tech_supply,
 /obj/random/tech_supply,
 /obj/item/flame/lighter/random,
@@ -4927,7 +4927,7 @@
 /obj/structure/bed/handrail{
 	dir = 4
 	},
-/obj/item/device/radio/intercom/hailing/west,
+/obj/item/radio/intercom/hailing/west,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/xanu_fighter)
 "qP" = (
@@ -4955,7 +4955,7 @@
 	dir = 5
 	},
 /obj/structure/closet/crate/elec,
-/obj/item/device/multitool,
+/obj/item/multitool,
 /obj/item/storage/toolbox/electrical,
 /obj/item/circuitboard/smes,
 /obj/item/circuitboard/smes,
@@ -5226,7 +5226,7 @@
 	name = "External Airlocks Lockdown";
 	req_access = list(222)
 	},
-/obj/item/device/radio/intercom/hailing/west,
+/obj/item/radio/intercom/hailing/west,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/xanu_frigate/bridge)
 "rP" = (
@@ -5639,10 +5639,10 @@
 "tz" = (
 /obj/effect/floor_decal/corner/blue/diagonal,
 /obj/structure/table/reinforced/steel,
-/obj/item/storage/box/produce{
+/obj/item/storage/box/large/produce{
 	pixel_y = 9
 	},
-/obj/item/storage/box/produce{
+/obj/item/storage/box/large/produce{
 	pixel_y = 3
 	},
 /turf/simulated/floor/tiled/white,
@@ -5911,7 +5911,7 @@
 /obj/effect/floor_decal/corner/purple{
 	dir = 10
 	},
-/obj/item/device/lightreplacer,
+/obj/item/lightreplacer,
 /turf/simulated/floor/tiled/gunmetal,
 /area/ship/xanu_frigate/custodial)
 "up" = (
@@ -6792,7 +6792,7 @@
 /area/shuttle/xanu_boarder/main)
 "xH" = (
 /obj/structure/table/reinforced/steel,
-/obj/item/device/flashlight/lamp{
+/obj/item/flashlight/lamp{
 	pixel_x = 3;
 	pixel_y = -6
 	},
@@ -6801,8 +6801,8 @@
 "xK" = (
 /obj/structure/table/reinforced/steel,
 /obj/machinery/light,
-/obj/item/device/binoculars,
-/obj/item/device/binoculars{
+/obj/item/binoculars,
+/obj/item/binoculars{
 	pixel_y = 5
 	},
 /turf/simulated/floor/tiled/dark/full,
@@ -6922,7 +6922,7 @@
 /obj/item/reagent_containers/food/condiment/enzyme{
 	pixel_y = 12
 	},
-/obj/item/storage/box/condiment{
+/obj/item/storage/box/large/condiment{
 	pixel_y = 3
 	},
 /obj/item/reagent_containers/spray/cleaner{
@@ -7334,7 +7334,7 @@
 /area/ship/xanu_frigate/cargo_bay)
 "zA" = (
 /obj/structure/bed/stool/chair/sofa/right/black,
-/obj/item/device/synthesized_instrument/guitar,
+/obj/item/synthesized_instrument/guitar,
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 5
 	},
@@ -8076,8 +8076,8 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/item/weldingtool/hugetank,
 /obj/item/weldingtool/hugetank,
-/obj/item/device/multitool,
-/obj/item/device/multitool,
+/obj/item/multitool,
+/obj/item/multitool,
 /turf/simulated/floor/plating,
 /area/ship/xanu_frigate/engineering/port)
 "Cu" = (
@@ -8321,7 +8321,7 @@
 /obj/effect/floor_decal/corner/dark_blue/full{
 	dir = 4
 	},
-/obj/item/device/radio/intercom/hailing/east,
+/obj/item/radio/intercom/hailing/east,
 /turf/simulated/floor/tiled/dark,
 /area/ship/xanu_frigate/cic)
 "Dc" = (
@@ -8896,8 +8896,8 @@
 /obj/item/clothing/mask/gas/alt,
 /obj/item/clothing/mask/gas/alt,
 /obj/item/clothing/mask/gas/alt,
-/obj/item/device/oxycandle,
-/obj/item/device/oxycandle,
+/obj/item/oxycandle,
+/obj/item/oxycandle,
 /turf/simulated/floor/tiled/dark,
 /area/ship/xanu_frigate/cic)
 "EY" = (
@@ -9456,8 +9456,8 @@
 	},
 /obj/item/stack/material/steel/full,
 /obj/item/stack/rods/full,
-/obj/item/device/oxycandle,
-/obj/item/device/oxycandle,
+/obj/item/oxycandle,
+/obj/item/oxycandle,
 /obj/item/storage/bag/inflatable,
 /turf/simulated/floor/plating,
 /area/shuttle/xanu_fighter)
@@ -9475,7 +9475,7 @@
 	pixel_x = 8;
 	pixel_y = 11
 	},
-/obj/item/device/flashlight/lamp{
+/obj/item/flashlight/lamp{
 	pixel_x = 3;
 	pixel_y = -6
 	},
@@ -10492,7 +10492,7 @@
 	name = "Privacy Shutters"
 	},
 /obj/structure/table/steel,
-/obj/item/device/mass_spectrometer,
+/obj/item/mass_spectrometer,
 /turf/simulated/floor/tiled/white,
 /area/ship/xanu_frigate/medbay)
 "Kc" = (
@@ -10650,10 +10650,10 @@
 /obj/item/grenade/chem_grenade/metalfoam,
 /obj/item/stack/rods/full,
 /obj/item/stack/material/glass/full,
-/obj/item/device/oxycandle,
-/obj/item/device/oxycandle,
-/obj/item/device/flashlight/flare,
-/obj/item/device/flashlight/flare,
+/obj/item/oxycandle,
+/obj/item/oxycandle,
+/obj/item/flashlight/flare,
+/obj/item/flashlight/flare,
 /obj/item/storage/bag/inflatable,
 /turf/simulated/floor/tiled/gunmetal,
 /area/shuttle/xanu_boarder/main)
@@ -10752,7 +10752,7 @@
 "KH" = (
 /obj/structure/table/reinforced/steel,
 /obj/structure/railing/mapped,
-/obj/item/device/flashlight/lamp{
+/obj/item/flashlight/lamp{
 	pixel_x = 3;
 	pixel_y = 11
 	},
@@ -11245,7 +11245,7 @@
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 5
 	},
-/obj/item/device/radio/intercom/hailing/north,
+/obj/item/radio/intercom/hailing/north,
 /turf/simulated/floor/tiled/dark,
 /area/ship/xanu_frigate/cic)
 "Mz" = (
@@ -12027,7 +12027,7 @@
 /area/ship/xanu_frigate/corridor/aft)
 "Pj" = (
 /obj/effect/floor_decal/corner/purple/full,
-/obj/structure/janitorialcart{
+/obj/structure/cart/storage/janitorialcart/full{
 	dir = 8
 	},
 /obj/machinery/power/apc/west,
@@ -13019,7 +13019,7 @@
 /area/shuttle/xanu_fighter)
 "Sz" = (
 /obj/machinery/computer/ship/engines/terminal,
-/obj/item/device/radio/intercom/hailing/north,
+/obj/item/radio/intercom/hailing/north,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/xanu_boarder/cockpit)
 "SC" = (
@@ -13731,11 +13731,11 @@
 /obj/item/storage/toolbox/mechanical{
 	pixel_y = 8
 	},
-/obj/item/device/multitool{
+/obj/item/multitool{
 	pixel_y = 3;
 	pixel_x = 3
 	},
-/obj/item/device/t_scanner{
+/obj/item/t_scanner{
 	pixel_y = 4;
 	pixel_x = -5
 	},
@@ -13806,7 +13806,7 @@
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/autolathe,
+/obj/machinery/fabricator/autolathe,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/plating,
 /area/ship/xanu_frigate/engineering/port)
@@ -13843,7 +13843,7 @@
 /area/ship/xanu_frigate/disposals)
 "Vs" = (
 /obj/structure/table/reinforced/steel,
-/obj/item/device/flashlight/lamp{
+/obj/item/flashlight/lamp{
 	pixel_x = -5;
 	pixel_y = 10
 	},
@@ -14198,10 +14198,10 @@
 	dir = 8
 	},
 /obj/structure/table/rack,
-/obj/item/device/paint_sprayer{
+/obj/item/paint_sprayer{
 	pixel_y = 3
 	},
-/obj/item/device/paint_sprayer{
+/obj/item/paint_sprayer{
 	pixel_y = -2
 	},
 /obj/machinery/power/apc/super/critical/south,
@@ -14805,7 +14805,7 @@
 	},
 /obj/item/storage/toolbox/mechanical,
 /obj/item/clothing/glasses/welding,
-/obj/item/device/multitool,
+/obj/item/multitool,
 /turf/simulated/floor/plating,
 /area/shuttle/xanu_boarder/engineering)
 "Yy" = (
@@ -14936,13 +14936,13 @@
 /obj/item/rfd/piping{
 	pixel_y = 6
 	},
-/obj/item/device/flashlight/heavy{
+/obj/item/flashlight/heavy{
 	pixel_y = -1
 	},
-/obj/item/device/flashlight/heavy{
+/obj/item/flashlight/heavy{
 	pixel_y = -1
 	},
-/obj/item/device/flashlight/heavy{
+/obj/item/flashlight/heavy{
 	pixel_y = -1
 	},
 /turf/simulated/floor/plating,

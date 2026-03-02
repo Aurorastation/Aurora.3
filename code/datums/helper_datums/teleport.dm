@@ -146,6 +146,14 @@
 
 	playSpecials(curturf,effectin,soundin)
 
+	// we don't want a teleportation loop, if we teleport to a destination that already has a portal
+	// disable it for just a moment until we get there
+	var/has_active_destination_portal = FALSE
+	var/obj/effect/portal/destination_portal = locate() in destturf
+	if(destination_portal?.does_teleport)
+		has_active_destination_portal = TRUE
+		destination_portal.does_teleport = FALSE
+
 	var/obj/structure/bed/stool/chair/C = null
 	if(isliving(teleatom))
 		var/mob/living/L = teleatom
@@ -269,6 +277,9 @@
 		C.forceMove(destturf)
 
 	destarea.Entered(teleatom)
+
+	if(has_active_destination_portal)
+		destination_portal.does_teleport = TRUE
 
 	return TRUE
 

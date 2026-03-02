@@ -21,11 +21,11 @@
 	var/ticket = ""
 	var/destinationact = "Service"
 	var/ticket_number = 1
-	req_one_access = list(ACCESS_BAR, ACCESS_KITCHEN) // Access to change the menu
+	req_one_access = list(ACCESS_BAR, ACCESS_GALLEY) // Access to change the menu
 
 /obj/machinery/orderterminal/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()
-	. += "To edit the menu, select 'Toggle Lock' while wearing an ID with kitchen access."
+	. += "To edit the menu, select 'Toggle Lock' while wearing an ID with galley access."
 	. += "All credits from the machine will automatically go to the civilian account."
 
 /obj/machinery/orderterminal/Initialize()
@@ -43,7 +43,7 @@
 		set_light(FALSE)
 		return
 
-	var/mutable_appearance/screen_overlay = mutable_appearance(icon, "kitchenterminal-active", plane = EFFECTS_ABOVE_LIGHTING_PLANE)
+	var/mutable_appearance/screen_overlay = mutable_appearance(icon, "kitchenterminal-active", plane = ABOVE_LIGHTING_PLANE)
 	AddOverlays(screen_overlay)
 	set_light(1.4, 1, COLOR_CYAN)
 
@@ -63,12 +63,12 @@
 		ui.open()
 
 /obj/machinery/orderterminal/proc/print_receipt() // Print the receipt followed by the order ticket
-	var/obj/item/paper/R = new(usr.loc)
+	var/obj/item/paper/notepad/receipt/R = new(usr.loc)
 	var/receiptname = "Receipt: [machine_id]"
 	R.set_content_unsafe(receiptname, receipt, sum)
 	stamp_receipt(R)
 	// And now we do it but for the ticket.
-	var/obj/item/paper/T = new(usr.loc)
+	var/obj/item/paper/notepad/receipt/T = new(usr.loc)
 	var/tickettname = "Order ticket: [ticket_number]"
 	ticket_number++
 	T.set_content_unsafe(tickettname, ticket, sum)
@@ -76,12 +76,13 @@
 
 /obj/machinery/orderterminal/proc/stamp_receipt(obj/item/paper/R) // Stamps the papers, made into a proc to avoid copy pasting too much
 	var/image/stampoverlay = image('icons/obj/bureaucracy.dmi')
-	stampoverlay.icon_state = "paper_stamp-cent"
+	stampoverlay.icon_state = "paper_stamp-hop"
 	if(!R.stamped)
 		R.stamped = new
 	R.stamped += /obj/item/stamp
 	R.AddOverlays(stampoverlay)
 	R.stamps += "<HR><i>This paper has been stamped by the Idris Ordering Terminal.</i>"
+	R.ripped = TRUE
 
 /obj/machinery/orderterminal/attackby(obj/item/attacking_item, mob/user)
 	var/obj/item/card/id/I = attacking_item.GetID()
@@ -180,8 +181,8 @@
 				var/item_price = items_to_price[item_name]
 				sum += item_price
 
-				receipt += "<b>[name]</b>: [item_name] x[item_amount] at [item_price]cr each<br>"
-				ticket += "<b>[name]</b>: [item_name] x[item_amount] at [item_price]cr each<br>"
+				receipt += "<b>[name]</b>: [item_name] x[item_amount] at [item_price]电 each<br>"
+				ticket += "<b>[name]</b>: [item_name] x[item_amount] at [item_price]电 each<br>"
 			receipt += "<hr><b>Total:</b> [sum]电"
 			ticket += "<hr><b>Total:</b> [sum]电"
 			sum = sum

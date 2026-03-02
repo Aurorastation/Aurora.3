@@ -12,6 +12,7 @@ GLOBAL_LIST_INIT_TYPED(all_cargo_receptacles, /obj/structure/cargo_receptacle, l
 		with Orion Express only delivering to automated stations and other distribution points."
 	icon = 'icons/obj/orion_delivery.dmi'
 	icon_state = "delivery_point"
+	density = TRUE
 
 	var/delivery_id = ""
 	var/datum/weakref/delivery_sector
@@ -25,6 +26,11 @@ GLOBAL_LIST_INIT_TYPED(all_cargo_receptacles, /obj/structure/cargo_receptacle, l
 	var/min_spawn = 2
 	/// Maximum amount of packages that can spawn for this receptacle. INTEGER
 	var/max_spawn = 4
+	/// Used to handle spawn points for the packages. It's set to 'True' for the ships that is invisible if unoccupied.
+	var/late_spawner = FALSE
+	var/announcer_name = "Automated Delivery System"
+	var/announcement_message = "A new delivery point has been detected in the sector. Relevant packages have been unloaded."
+	var/channel = "Operations"
 
 /obj/structure/cargo_receptacle/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()
@@ -38,10 +44,10 @@ GLOBAL_LIST_INIT_TYPED(all_cargo_receptacles, /obj/structure/cargo_receptacle, l
 /obj/structure/cargo_receptacle/LateInitialize()
 	delivery_id = "#[rand(1, 9)][rand(1, 9)][rand(1, 9)]"
 	name += " ([delivery_id])"
+	var/turf/current_turf = get_turf(loc)
+	var/obj/effect/overmap/visitable/my_sector = GLOB.map_sectors["[current_turf.z]"]
 
 	if(SSatlas.current_map.use_overmap)
-		var/turf/current_turf = get_turf(loc)
-		var/obj/effect/overmap/visitable/my_sector = GLOB.map_sectors["[current_turf.z]"]
 		if(my_sector)
 			delivery_sector = WEAKREF(my_sector)
 		else
@@ -49,22 +55,41 @@ GLOBAL_LIST_INIT_TYPED(all_cargo_receptacles, /obj/structure/cargo_receptacle, l
 	else
 		delivery_sector = null
 
+	if(!spawns_packages) // excludes horizon's receptacle, we don't want to send packages to ourselves.
+		GLOB.all_cargo_receptacles += src
+		return
+
+	if(!my_sector?.invisible_until_ghostrole_spawn)
+		spawn_packages() // if the `overmap/visitable` isn't hidden, we don't need to wait for a ghost spawn.
+	else if(my_sector)
+		late_spawner = TRUE
+		RegisterSignal(my_sector, COMSIG_GHOSTROLE_TAKEN, PROC_REF(spawn_packages)) // signal is sent by the same sector our object is in
+
 	GLOB.all_cargo_receptacles += src
 
-	if(spawns_packages)
-		var/list/warehouse_turfs = list()
-		for(var/area_path in typesof(SSatlas.current_map.warehouse_basearea))
-			var/area/warehouse = locate(area_path)
-			if(warehouse)
-				for(var/turf/simulated/floor/T in warehouse)
-					if(!turf_contains_dense_objects(T))
-						warehouse_turfs += T
+/obj/structure/cargo_receptacle/proc/spawn_packages()
+	SIGNAL_HANDLER
+	var/list/warehouse_turfs = list()
+	var/list/area_types
+	if(late_spawner)
+		area_types = typesof(SSatlas.current_map.warehouse_packagearea)
+	else
+		area_types = typesof(SSatlas.current_map.warehouse_basearea)
+	for(var/area_path in area_types)
+		var/area/warehouse = locate(area_path)
+		if(warehouse)
+			for(var/turf/simulated/floor/T in warehouse)
+				if(!turf_contains_dense_objects(T))
+					warehouse_turfs += T
 
-		var/package_amount = rand(min_spawn, max_spawn)
-		for(var/i = 1 to package_amount)
-			var/turf/random_turf = pick_n_take(warehouse_turfs)
-			if(random_turf)
-				new /obj/item/cargo_package(random_turf, src)
+	var/package_amount = rand(min_spawn, max_spawn)
+	for(var/i = 1 to package_amount)
+		var/turf/random_turf = pick_n_take(warehouse_turfs)
+		if(random_turf)
+			new /obj/item/cargo_package(random_turf, src)
+	if(late_spawner)
+		playsound(pick(warehouse_turfs), 'sound/machines/twobeep.ogg', 50, 1)
+		GLOB.global_announcer.autosay(announcement_message, capitalize_first_letters(announcer_name), channel)
 
 /obj/structure/cargo_receptacle/Destroy()
 	GLOB.all_cargo_receptacles -= src
@@ -93,7 +118,7 @@ GLOBAL_LIST_INIT_TYPED(all_cargo_receptacles, /obj/structure/cargo_receptacle, l
 			var/obj/structure/cargo_receptacle/selected_delivery_point = get_cargo_package_delivery_point(src)
 			if(selected_delivery_point)
 				visible_message("\The [src] beeps, \"[SPAN_NOTICE("New package available for delivery.")]\"")
-				playsound(src, /singleton/sound_category/print_sound, 50, TRUE)
+				playsound(src, SFX_PRINT, 50, TRUE)
 
 				var/obj/item/cargo_package/printed_package = new /obj/item/cargo_package/offship(get_turf(user), selected_delivery_point)
 				printed_package.pays_horizon_account = pays_horizon_account
@@ -142,7 +167,7 @@ GLOBAL_LIST_INIT_TYPED(all_cargo_receptacles, /obj/structure/cargo_receptacle, l
 	if(!found_user_account)
 		playsound(loc, 'sound/machines/buzz-sigh.ogg', 50, TRUE)
 		visible_message("\The [src] buzzes harshly, \"[SPAN_WARNING("Delivery complete! User account details not found... printing cash tip...")]\"")
-		playsound(loc, /singleton/sound_category/print_sound, 50, TRUE)
+		playsound(loc, SFX_PRINT, 50, TRUE)
 		var/obj/item/spacecash/bundle/cash_tip = new /obj/item/spacecash/bundle(loc)
 		cash_tip.worth = package.pay_amount * 0.02
 		cash_tip.update_icon()

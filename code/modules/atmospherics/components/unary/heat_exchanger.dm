@@ -64,7 +64,7 @@
 	return TRUE
 
 /obj/machinery/atmospherics/unary/heat_exchanger/attackby(obj/item/attacking_item, mob/user)
-	if(!attacking_item.iswrench())
+	if(attacking_item.tool_behaviour != TOOL_WRENCH)
 		return ..()
 	var/turf/T = src.loc
 	if(level == 1 && isturf(T) && !T.is_plating())
@@ -73,7 +73,7 @@
 	var/datum/gas_mixture/int_air = return_air()
 	if(!loc) return FALSE
 	var/datum/gas_mixture/env_air = loc.return_air()
-	if((int_air.return_pressure() - env_air.return_pressure()) > PRESSURE_EXERTED)
+	if((XGM_PRESSURE(int_air) - XGM_PRESSURE(env_air)) > PRESSURE_EXERTED)
 		to_chat(user, SPAN_WARNING("You cannot unwrench \the [src], it is too exerted due to internal pressure."))
 		add_fingerprint(user)
 		return TRUE

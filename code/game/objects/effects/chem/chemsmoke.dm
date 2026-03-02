@@ -200,7 +200,7 @@
 
 	var/pressure = 0
 	var/datum/gas_mixture/environment = location.return_air()
-	if(environment) pressure = environment.return_pressure()
+	pressure = SAFE_XGM_PRESSURE(environment)
 	duration = between(5, (duration*pressure)/(ONE_ATMOSPHERE), duration*2)
 
 	var/const/arcLength = 2.3559 //distance between each smoke cloud
@@ -232,7 +232,7 @@
 
 /datum/effect/effect/system/smoke_spread/chem/spores/start()
 	..()
-	if(seed && seed.get_trait(TRAIT_SPREAD))
+	if(seed && GET_SEED_TRAIT(seed, TRAIT_SPREAD))
 		var/sporecount = 0
 		for(var/turf/T in targetTurfs)
 			var/bad_turf = 0
@@ -242,10 +242,10 @@
 					break
 			if(bad_turf)
 				continue
-			if(prob(min(seed.get_trait(TRAIT_POTENCY), 50)))
+			if(prob(min(GET_SEED_TRAIT(seed, TRAIT_POTENCY), 50)))
 				new /obj/machinery/portable_atmospherics/hydroponics/soil/invisible(T,seed)
 				sporecount++
-			if(sporecount < max(1, round(seed.get_trait(TRAIT_POTENCY) / 20), 1))
+			if(sporecount < max(1, round(GET_SEED_TRAIT(seed, TRAIT_POTENCY) / 20), 1))
 				break
 
 

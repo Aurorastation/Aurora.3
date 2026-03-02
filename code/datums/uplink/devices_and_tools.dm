@@ -27,7 +27,7 @@
 /datum/uplink_item/item/tools/firingpin //todo, make this a special syndicate one instead of just a normal one?
 	name = "Firing Pin"
 	bluecrystal_cost = 1
-	path = /obj/item/device/firing_pin
+	path = /obj/item/firing_pin
 	desc = "An unmarked firing pin - It should be compatible with nearly every weapon onboard."
 
 /datum/uplink_item/item/tools/surge
@@ -59,14 +59,14 @@
 	name = "Encrypted Radio Channel Key"
 	telecrystal_cost = 1
 	bluecrystal_cost = 1
-	path = /obj/item/device/encryptionkey/syndicate
+	path = /obj/item/encryptionkey/syndicate
 	desc = "An encryption key for use in a headset, intercepts all frequencies and grants access to a secure private frequency."
 
 /datum/uplink_item/item/tools/encryptionkey_binary
 	name = "Binary Translator Key"
 	telecrystal_cost = 1
 	bluecrystal_cost = 1
-	path = /obj/item/device/encryptionkey/binary
+	path = /obj/item/encryptionkey/binary
 	desc = "An encryption key for use in a headset, capable of intercepting stationbound binary communications."
 
 /datum/uplink_item/item/tools/emag
@@ -74,6 +74,7 @@
 	telecrystal_cost = 1
 	bluecrystal_cost = 1
 	path = /obj/item/card/emag
+	desc = "It's a card that can be used to override, booby-trap, manipulate, take over, and otherwise do nefarious things to a wide variety of objects. Has ten uses."
 
 /datum/uplink_item/item/tools/personal_shield
 	name = "Personal Shield"
@@ -81,13 +82,13 @@
 			This can only be bought once."
 	telecrystal_cost = 1
 	item_limit = 1
-	path = /obj/item/device/personal_shield
+	path = /obj/item/personal_shield
 
 /datum/uplink_item/item/tools/hacking_tool
 	name = "Door Hacking Tool"
 	telecrystal_cost = 1
 	bluecrystal_cost = 1
-	path = /obj/item/device/multitool/hacktool
+	path = /obj/item/multitool/hacktool
 	desc = "Appears and functions as a standard multitool until the mode is toggled by applying a screwdriver appropriately. \
 			When in hacking mode this device will grant full access to any standard airlock within 7 to 13 seconds. \
 			This device will also be able to immediately access the last 6 to 8 hacked airlocks."
@@ -108,7 +109,7 @@
 	name = "Powersink (DANGER!)"
 	telecrystal_cost = 6
 	bluecrystal_cost = 6
-	path = /obj/item/device/powersink
+	path = /obj/item/powersink
 
 /datum/uplink_item/item/tools/ai_module
 	name = "Hacked AI Upload Module"
@@ -173,35 +174,35 @@
 	name = "Portable suit cooling unit"
 	telecrystal_cost = 1
 	bluecrystal_cost = 1
-	path = /obj/item/device/suit_cooling_unit
+	path = /obj/item/suit_cooling_unit
 	desc = "A suit cooling unit with a high capacity power cell."
 
 /datum/uplink_item/item/tools/keypad
 	name = "Keypad Mag-Lock"
 	telecrystal_cost = 1
 	bluecrystal_cost = 1
-	path = /obj/item/device/magnetic_lock/keypad
+	path = /obj/item/magnetic_lock/keypad
 	desc = "A maglock that requires the user to enter a passcode to lock and then later unlock."
 
 /datum/uplink_item/item/tools/personal_ai
 	name = "Personal AI"
 	telecrystal_cost = 1
 	bluecrystal_cost = 1
-	path = /obj/item/device/paicard
+	path = /obj/item/paicard
 	desc = "An unmodified personal AI that can assist you in your ventures."
 
 /datum/uplink_item/item/tools/pin_extractor
 	name = "Firing Pin Extractor"
 	telecrystal_cost = 1
 	bluecrystal_cost = 1
-	path = /obj/item/device/pin_extractor
+	path = /obj/item/pin_extractor
 	desc = "An extractor tool capable of extracting firing pins from most firearms."
 
 /datum/uplink_item/item/tools/radio_jammer
 	name = "Radio Jammer"
 	telecrystal_cost = 2
 	bluecrystal_cost = 2
-	path = /obj/item/device/radiojammer
+	path = /obj/item/radiojammer
 	desc = "A small jammer that can fit inside a pocket. Capable of disrupting nearby radios and hivenet transmitters."
 
 /datum/uplink_item/item/tools/jetpack
@@ -214,7 +215,7 @@
 	name = "Electropack"
 	telecrystal_cost = 1
 	bluecrystal_cost = 1
-	path = /obj/item/device/radio/electropack
+	path = /obj/item/radio/electropack
 	desc = "A backpack wired with electrodes. Sync up with a signaller, attach to an unwilling host and pulse the signal to shock them."
 
 /datum/uplink_item/item/tools/ammo_display
@@ -242,7 +243,7 @@
 	desc = "This set of earmuffs has a secret compartment housing radio gear, allowing it to function as a standard headset."
 	telecrystal_cost = 1
 	bluecrystal_cost = 1
-	path = /obj/item/device/radio/headset/earmuff
+	path = /obj/item/radio/headset/earmuff
 
 /datum/uplink_item/item/tools/liquidbags
 	name = "25 Liquid-Bags"

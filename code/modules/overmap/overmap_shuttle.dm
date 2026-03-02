@@ -191,7 +191,7 @@
 		icon_state = icon_closed
 
 /obj/structure/fuel_port/attackby(obj/item/attacking_item, mob/user)
-	if(attacking_item.iscrowbar())
+	if(attacking_item.tool_behaviour == TOOL_CROWBAR)
 		if(state != FUEL_PORT_WELDED)
 			to_chat(user, SPAN_WARNING("\The [src] must be bolted and welded in place before it can be opened!"))
 			return
@@ -212,7 +212,7 @@
 			return
 		if(contents.len == 0)
 			user.unEquip(attacking_item, TRUE, src)
-	else if(attacking_item.iswrench())
+	else if(attacking_item.tool_behaviour == TOOL_WRENCH)
 		switch(state)
 			if(FUEL_PORT_WELDED)
 				to_chat(user, SPAN_WARNING("\The [src] is welded in place!"))
@@ -229,7 +229,7 @@
 					SPAN_NOTICE("You secure \the [src]'s external reinforcing bolts."), \
 					SPAN_WARNING("You hear a ratcheting noise."))
 				state = FUEL_PORT_BOLTED
-	else if(attacking_item.iswelder())
+	else if(attacking_item.tool_behaviour == TOOL_WELDER)
 		var/obj/item/weldingtool/WT = attacking_item
 		switch(state)
 			if(FUEL_PORT_UNSECURED)

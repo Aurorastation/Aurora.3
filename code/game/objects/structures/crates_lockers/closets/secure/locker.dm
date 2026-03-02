@@ -1,7 +1,7 @@
 /obj/structure/closet/secure_closet
 	name = "locker"
 	desc = "It's a steel ID-locked locker."
-	icon = 'icons/obj/closet.dmi'
+	icon = 'icons/obj/containers/closet.dmi'
 	icon_state = "secure"
 	anchored = FALSE
 	secure = TRUE
@@ -49,7 +49,7 @@
 									SPAN_NOTICE("You [locked ? null : "un"]lock \the [src]."))
 			update_icon()
 		else if(!silent)
-			to_chat(user, SPAN_NOTICE("Access Denied."))
+			to_chat(user, SPAN_NOTICE("Access denied."))
 
 /obj/structure/closet/AltClick(mob/user)
 	. = ..()
@@ -64,7 +64,7 @@
 		desc += " It appears to be broken."
 		AddOverlays("[icon_door_overlay]sparking")
 		CUT_OVERLAY_IN("[icon_door_overlay]sparking", 6)
-		playsound(loc, /singleton/sound_category/spark_sound, 60, 1)
+		playsound(loc, SFX_SPARKS, 60, 1)
 		broken = TRUE
 		locked = FALSE
 		update_icon()

@@ -309,8 +309,8 @@
 	for(var/thing in contents)
 		var/obj/O = thing
 		O.forceMove(get_turf(src))
-	var/area/A = get_area(src)
-	message_all_revenants(FONT_LARGE(SPAN_WARNING("The rift keeping us here has been destroyed in [A.name]!")))
+	var/area_display_name = get_area_display_name(get_area(src))
+	message_all_revenants(FONT_LARGE(SPAN_WARNING("The rift keeping us here has been destroyed in [area_display_name]!")))
 	return ..()
 
 /obj/effect/portal/revenant/attackby(obj/item/attacking_item, mob/user)
@@ -330,8 +330,8 @@
 	var/color_level = round((health_timer / 600) / 2) // this should give a value from 0 - 5
 	if(color_level == last_color_level)
 		return
-	var/area/A = get_area(src)
-	message_all_revenants(FONT_LARGE(SPAN_WARNING("The rift keeping us here is being attacked in [A.name]!")))
+	var/area_display_name = get_area_display_name(get_area(src))
+	message_all_revenants(FONT_LARGE(SPAN_WARNING("The rift keeping us here is being attacked in [area_display_name]!")))
 	last_color_level = color_level
 	switch(color_level)
 		if(0)

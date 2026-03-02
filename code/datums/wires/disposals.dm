@@ -30,7 +30,7 @@
 	var/obj/machinery/disposal/D = holder
 	switch(wire)
 		if(WIRE_FLUSH)
-			if(D.air_contents.return_pressure() >= (700 + ONE_ATMOSPHERE) || !D.uses_air)
+			if(XGM_PRESSURE(D.air_contents) >= (700 + ONE_ATMOSPHERE) || !D.uses_air)
 				D.flush()
 
 /datum/wires/disposal/interactable(mob/user)

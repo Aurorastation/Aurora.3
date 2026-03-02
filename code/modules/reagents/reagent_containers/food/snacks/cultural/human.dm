@@ -296,6 +296,122 @@
 	icon_state = "mozzarella_stick"
 	filling_color = "#fabe17"
 
+/obj/item/reagent_containers/food/snacks/jambalaya
+	name = "jambalaya"
+	desc = "A Creole/Cajun-American dish popularized in Louisiana with origins in Africa and Asia. It is a flavorful mixture of seafood, meats, rice, spices and vegetables. A real celebration of all that is food."
+	icon = 'icons/obj/item/reagent_containers/food/cultural/human.dmi'
+	icon_state = "jambalaya"
+	trash = /obj/item/trash/shakshouka
+	reagents_to_add = list(/singleton/reagent/nutriment/protein = 6, /singleton/reagent/nutriment = 6)
+	reagent_data = list(/singleton/reagent/nutriment/protein = list("chicken" = 5, "shrimp" = 5, "sausage" = 4), /singleton/reagent/nutriment = list("rice" = 5, "rich spicy flavors" = 5))
+	filling_color = "#c06917"
+
+/obj/item/reagent_containers/food/snacks/jambalaya/update_icon()
+	var/percent_jambalaya = round((reagents.total_volume / 12) * 100)
+	switch(percent_jambalaya)
+		if(0 to 50)
+			icon_state = "jambalaya_half"
+		else
+			icon_state = "jambalaya"
+
+/obj/item/reagent_containers/food/snacks/bowl/pop_shrimp_bowl
+	name = "bowl of pop shrimp" //Popcorn shrimp were invented in the 70's (after the timeline divergence date) so I figured I'd call them something similar but different in this universe.
+	desc = "A bowl of fried shrimp so small and crunchy you can just pop them right in your mouth!"
+	icon = 'icons/obj/item/reagent_containers/food/fryer.dmi'
+	icon_state = "popshrimp_full"
+	unitname = "pop shrimp"
+	filling_color = "#be7017"
+	trash = /obj/item/trash/snack_bowl
+	vendingobject = /obj/item/reagent_containers/food/snacks/pop_shrimp
+	bitesize = 1
+	reagents_to_add = list(/singleton/reagent/nutriment/protein/seafood = 5, /singleton/reagent/nutriment = 1)
+	reagent_data = list(/singleton/reagent/nutriment/protein/seafood = list("crunchy fried shrimp" = 5), /singleton/reagent/nutriment = list("seasoning" = 5))
+
+/obj/item/reagent_containers/food/snacks/bowl/pop_shrimp_bowl/update_icon()
+	switch(reagents.total_volume)
+		if(1 to 3)
+			icon_state = "popshrimp_half"
+		if(4 to INFINITY)
+			icon_state = "popshrimp_full"
+
+/obj/item/reagent_containers/food/snacks/pop_shrimp
+	name = "pop shrimp"
+	gender = PLURAL
+	desc = "A handful of crunchy, fried shrampies!"
+	icon = 'icons/obj/item/reagent_containers/food/fryer.dmi'
+	icon_state = "popshrimp"
+	bitesize = 10
+	filling_color = "#be7017"
+
+/obj/item/reagent_containers/food/snacks/chipplate/churros
+	name = "churros"
+	gender = PLURAL
+	desc = "Sweet, deep fried batter coated in powdered sugar. While this beloved dish originated in Europe, it became popular in cultures all around Earth long before Humanity took to the stars, and as such - today it can be found in many different cultures all across the spur. Despite this, it is sometimes attributed to Mictlani cuisine for whatever reason."
+	icon = 'icons/obj/item/reagent_containers/food/cultural/human.dmi'
+	icon_state = "churros"
+	unitname = "churro"
+	filling_color = "#a77339"
+	trash = /obj/item/trash/chipbasket
+	vendingobject = /obj/item/reagent_containers/food/snacks/churro
+	bitesize = 3
+	reagents_to_add = list(/singleton/reagent/nutriment = 6)
+	reagent_data = list(/singleton/reagent/nutriment = list("fried pastry dough" = 5, "cinnamon sugar" = 4))
+
+/obj/item/reagent_containers/food/snacks/chipplate/churros/update_icon()
+	switch(reagents.total_volume)
+		if(1 to 3)
+			icon_state = "churros_half"
+		if(4 to INFINITY)
+			icon_state = "churros"
+
+/obj/item/reagent_containers/food/snacks/chipplate/churros/attack_hand(mob/user)
+	SHOULD_CALL_PARENT(FALSE)
+	var/obj/item/reagent_containers/food/snacks/returningitem = new vendingobject(loc)
+	returningitem.reagents.clear_reagents()
+	reagents.trans_to(returningitem, bitesize)
+	user.put_in_hands(returningitem)
+	if (reagents && reagents.total_volume)
+		to_chat(user, "You take \a [unitname] from the plate.")
+	else
+		to_chat(user, "You take the last [unitname] from the plate.")
+		var/obj/waste = new trash(loc)
+		if (loc == user)
+			user.put_in_hands(waste)
+		qdel(src)
+
+/obj/item/reagent_containers/food/snacks/churro
+	name = "churro"
+	desc = "A classic sweet fried batter stick found anywhere from carnival booths to higher end restaurants."
+	icon = 'icons/obj/item/reagent_containers/food/cultural/human.dmi'
+	icon_state = "churro"
+	filling_color = "#a77339"
+	center_of_mass = list("x"=15, "y"=9)
+	bitesize = 1
+
+/obj/item/reagent_containers/food/snacks/churro/on_reagent_change()
+	if(reagents.has_reagent(/singleton/reagent/condiment/syrup_chocolate))
+		if(bitecount>=1)
+			icon_state = "churro_bitten"
+		else
+			name = "chocolate dipped churro"
+			desc = "The sweets just keep getting sweeter!"
+			icon_state = "churro_chocolate"
+
+	else if(reagents.has_reagent(/singleton/reagent/condiment/syrup_caramel))
+		if(bitecount>=1)
+			icon_state = "churro_bitten"
+		else
+			name = "caramel dipped churro"
+			desc = "A classic snack with a classic dip."
+			icon_state = "churro_caramel"
+	else if(bitecount>=1)
+		icon_state = "churro_bitten"
+
+
+/obj/item/reagent_containers/food/snacks/churro/filled
+	reagents_to_add = list(/singleton/reagent/nutriment = 3)
+	reagent_data = list(/singleton/reagent/nutriment = list("fried pastry dough" = 5, "cinnamon sugar" = 4))
+
 // Konyang
 
 /obj/item/reagent_containers/food/snacks/mossbowl
@@ -348,7 +464,7 @@
 
 /obj/item/reagent_containers/food/snacks/ricetub/verb/remove_sticks()
 	set name = "Remove Chopsticks"
-	set category = "Object"
+	set category = "Object.Held"
 	set src in usr
 
 	var/obj/item/material/kitchen/utensil/fork/chopsticks/bamboo/S = new()
@@ -499,7 +615,7 @@
 	icon = 'icons/obj/item/reagent_containers/food/cultural/human.dmi'
 	icon_state = "dynpozole"
 	reagent_data = list(/singleton/reagent/nutriment = list("peppermint" = 2, "salad" = 4, "hot stew" = 2))
-	reagents_to_add = list(/singleton/reagent/nutriment = 8, /singleton/reagent/water = 5, /singleton/reagent/drink/dynjuice =2)
+	reagents_to_add = list(/singleton/reagent/nutriment/protein = 5, /singleton/reagent/nutriment = 4, /singleton/reagent/water = 5, /singleton/reagent/drink/dynjuice =2)
 
 /obj/item/reagent_containers/food/snacks/elotes
 	name = "elotes"
@@ -577,6 +693,28 @@
 	filling_color = "#dbb06f"
 	reagents_to_add = list(/singleton/reagent/nutriment/protein/seafood/mollusc = 6, /singleton/reagent/nutriment = 2, /singleton/reagent/water = 5, /singleton/reagent/sodiumchloride = 2)
 	reagent_data = list(/singleton/reagent/nutriment/protein/seafood/mollusc = list("pillowy scallops" = 10, "salt" = 5), /singleton/reagent/nutriment = list("butter" = 10))
+
+/obj/item/reagent_containers/food/snacks/voidsman_stew
+	name = "voidsman's stew"
+	desc = "Fried fish balls in a light sauce. This dish predates the Imperial liberation of Sun Reach, being originally known as a 'freebooter stew'. The name was changed by the Viceroy's orders to honor those who died fighting the pirate lords."
+	icon = 'icons/obj/item/reagent_containers/food/cultural/human.dmi'
+	icon_state = "voidsman_stew"
+	trash = /obj/item/trash/wooden_platter
+	reagents_to_add = list(/singleton/reagent/nutriment/protein = 8, /singleton/reagent/nutriment = 4, /singleton/reagent/nutriment/triglyceride = 4, /singleton/reagent/spacespice = 2)
+	reagent_data = list(/singleton/reagent/nutriment = list("hot stew" = 3, "spices" = 1, "vegetables" = 1, "fish" = 2))
+	bitesize = 3
+	filling_color = "#4D2009"
+
+/obj/item/reagent_containers/food/snacks/carian_stroganoff
+	name = "carian stroganoff"
+	desc = "Meaty mushrooms drenched in a creamy sauce. Caria has a variety of mushroom dishes, but the rich flavours of Carian stroganoff made it popular when brought to Moroz and to the rest of the Spur."
+	icon = 'icons/obj/item/reagent_containers/food/cultural/human.dmi'
+	icon_state = "carian_stroganoff"
+	trash = /obj/item/trash/wooden_platter
+	reagents_to_add = list(/singleton/reagent/nutriment/protein = 6, /singleton/reagent/nutriment = 4)
+	reagent_data = list(/singleton/reagent/nutriment = list("creamy sauce" = 2, "savory spices" = 2), /singleton/reagent/nutriment = list("fried mushrooms" = 4))
+	bitesize = 3
+	filling_color = "#986E55"
 
 //New Hai Phong
 
@@ -779,16 +917,33 @@ ABSTRACT_TYPE(/obj/item/reagent_containers/food/snacks/bowl)
 
 //Silversun
 
-/obj/item/reagent_containers/food/snacks/clams_casino
+/obj/item/reagent_containers/food/snacks/bowl/clams_casino
 	name = "silversun clams casino"
 	desc = "A true silversun classic, clams on the halfshell with breadcrumbs, bacon, and bell peppers. Somehow landing right in the middle ring between average joe finger food and upper class fanciness."
 	icon = 'icons/obj/item/reagent_containers/food/cultural/human.dmi'
 	icon_state = "clamscasino"
+	gender = PLURAL
+	unitname = "clam casino"
+	vendingobject = /obj/item/reagent_containers/food/snacks/clam_casino
 	trash = /obj/item/trash/plate
 	bitesize = 2
 	filling_color = "#a5683f"
 	reagents_to_add = list(/singleton/reagent/nutriment/protein/seafood/mollusc = 6, /singleton/reagent/nutriment/protein = 2, /singleton/reagent/nutriment = 2)
 	reagent_data = list(/singleton/reagent/nutriment/protein/seafood/mollusc = list("buttery clams" = 15), /singleton/reagent/nutriment/protein = list ("bacon" = 15), /singleton/reagent/nutriment = list("breadcrumbs" = 10, "bell peppers" = 10))
+
+/obj/item/reagent_containers/food/snacks/bowl/clams_casino/update_icon()
+	switch(reagents.total_volume)
+		if(1 to 3)
+			icon_state = "clamscasino_half"
+		if(4 to INFINITY)
+			icon_state = "clamscasino"
+
+/obj/item/reagent_containers/food/snacks/clam_casino
+	name = "clam casino"
+	desc = "Buttery, crunchy, fancy without being hoity toity, nothing says nouveau riche like clams casino"
+	icon = 'icons/obj/item/reagent_containers/food/cultural/human.dmi'
+	icon_state = "clam_casino"
+	filling_color = "#c98151"
 
 /obj/item/reagent_containers/food/snacks/sliceable/lady_lulaine
 	name = "lady lulaine"
@@ -998,3 +1153,124 @@ ABSTRACT_TYPE(/obj/item/reagent_containers/food/snacks/bowl)
 			icon_state = "fireloaf_half"
 		if(50 to INFINITY)
 			icon_state = "fireloaf"
+
+//Sankt Frederick
+
+/obj/item/reagent_containers/food/snacks/bierock
+	name = "bierock"
+	desc = "A bun filled with meat, cabbage and seasoning. It originates in Eastern Europe but has also become an iconic food for the Solarian world of Sankt Frederick, where this dish is made either traditionally or with fish instead of meat."
+	icon = 'icons/obj/item/reagent_containers/food/cultural/human.dmi'
+	icon_state = "bierock"
+	bitesize = 2
+	filling_color = "#7e5527"
+	reagents_to_add = list(/singleton/reagent/nutriment = 3, /singleton/reagent/nutriment/protein = 6)
+	reagent_data = list(/singleton/reagent/nutriment = list("bun" = 5, "cabbage" =5), /singleton/reagent/nutriment/protein = list("seasoned meat" = 5))
+
+/obj/item/reagent_containers/food/snacks/bierock/update_icon()
+	var/expected_initial_reagent_volume
+	for(var/k in src.reagents_to_add)
+		expected_initial_reagent_volume += reagents_to_add[k]
+	var/percent_bierock = round((reagents.total_volume / expected_initial_reagent_volume) * 100)
+	switch(percent_bierock)
+		if(0 to 49)
+			icon_state = "bierock_half"
+		if(50 to INFINITY)
+			icon_state = "bierock"
+
+/obj/item/reagent_containers/food/snacks/bowl/belinas
+	name = "belinas"
+	gender = PLURAL
+	desc = "Tiny little mini-pancakes with cream cheese and salmon. This dish originates in eastern Europe and has been popularized in the solarian world Sankt Frederick, especially in large gatherings and events."
+	icon = 'icons/obj/item/reagent_containers/food/cultural/human.dmi'
+	icon_state = "belinas_full"
+	unitname = "belina"
+	filling_color = "#c98151"
+	trash = /obj/item/trash/plate
+	vendingobject = /obj/item/reagent_containers/food/snacks/belina
+	bitesize = 2
+	reagents_to_add = list(/singleton/reagent/nutriment = 4, /singleton/reagent/nutriment/protein/cream_cheese = 8, /singleton/reagent/nutriment/protein/seafood = 8)
+	reagent_data = list(/singleton/reagent/nutriment = list("pancake" = 4), /singleton/reagent/nutriment/protein/cream_cheese = list("cream cheese" =5), /singleton/reagent/nutriment/protein/seafood = list("salmon" = 5))
+
+/obj/item/reagent_containers/food/snacks/bowl/belinas/update_icon()
+	switch(reagents.total_volume)
+		if(1 to 3)
+			icon_state = "belinas_few"
+		if(4 to 8)
+			icon_state = "belinas_half"
+		if(9 to INFINITY)
+			icon_state = "belinas_full"
+
+/obj/item/reagent_containers/food/snacks/belina
+	name = "belina"
+	desc = "A mini pancake with cream cheese, salmon and a garnish."
+	icon = 'icons/obj/item/reagent_containers/food/cultural/human.dmi'
+	icon_state = "belina"
+	filling_color = "#c98151"
+
+//Venus
+
+/obj/item/reagent_containers/food/snacks/elata
+	name = "elata"
+	desc = "An overwhelmingly sweet and photogenic Cytherean dessert with a berry flavored shell, a thick, creamy interior and a dulce de leche core. Too sweet for some, absolute decedance for those who can handle it."
+	icon = 'icons/obj/item/reagent_containers/food/cultural/human.dmi'
+	icon_state = "elata"
+	filling_color = "#d872be"
+	bitesize = 2
+	reagents_to_add = list(/singleton/reagent/nutriment/ = 3, /singleton/reagent/nutriment/glucose = 2, /singleton/reagent/drink/milk/cream = 3, /singleton/reagent/drink/ice = 1)
+	reagent_data = list(/singleton/reagent/nutriment = list("dulche de leche" = 5, "sweet cream" = 4, "wafer" = 3, "pink attitude" = 3))
+
+/obj/item/reagent_containers/food/snacks/elata/update_icon()
+	var/expected_initial_reagent_volume
+	for(var/k in src.reagents_to_add)
+		expected_initial_reagent_volume += reagents_to_add[k]
+	var/percent_elata = round((reagents.total_volume / expected_initial_reagent_volume) * 100)
+	switch(percent_elata)
+		if(0 to 90)
+			icon_state = "elata_half"
+		if(91 to INFINITY)
+			icon_state = "elata"
+
+/obj/item/reagent_containers/food/snacks/filet_cabaret
+	name = "filet cabaret"
+	desc = "A fancy Cytherian dish of braised, slow cooked, buttery prime tenderloin soaked in red wine and herbs. Just like the true 5-star dish it is, it is fancy, it is delicious, and it is so abhorrently tiny there's no way you'll feel like you ate anything. If you have to ask how much it costs, you can't afford it."
+	icon = 'icons/obj/item/reagent_containers/food/cultural/human.dmi'
+	icon_state = "filet_cabaret"
+	bitesize = 2
+	filling_color = "#61391e"
+	reagents_to_add = list(/singleton/reagent/nutriment/protein = 1, /singleton/reagent/nutriment = 1, /singleton/reagent/alcohol/wine/assunzione = 1)
+	reagent_data = list(/singleton/reagent/nutriment = list("fanciness" =5), /singleton/reagent/nutriment/protein = list("juicy meat" = 5, "herbs" = 5))
+
+/obj/item/reagent_containers/food/snacks/embassy_strips
+	name = "embassy strips"
+	desc = "A fairly fancy Cytherian dish with clear inspiration in Asian and Konyanger cuisine, it offers strips of fish in vinigrette sauce, soy jelly cubes with dyn coating, ginger and mayonnaise."
+	icon = 'icons/obj/item/reagent_containers/food/cultural/human.dmi'
+	icon_state = "embassy"
+	bitesize = 2
+	filling_color = "#f0eaca"
+	reagents_to_add = list(/singleton/reagent/nutriment/protein/seafood = 5, /singleton/reagent/nutriment = 2)
+	reagent_data = list(/singleton/reagent/nutriment/protein/seafood = list("lemony seasoned fish" = 5), /singleton/reagent/nutriment = list("soy jelly" = 5, "mayonnaise" = 5, "mint" = 4))
+
+/obj/item/reagent_containers/food/snacks/embassy_strips/update_icon()
+	var/expected_initial_reagent_volume
+	for(var/k in src.reagents_to_add)
+		expected_initial_reagent_volume += reagents_to_add[k]
+	var/percent_embassy = round((reagents.total_volume / expected_initial_reagent_volume) * 100)
+	switch(percent_embassy)
+		if(0 to 50)
+			icon_state = "embassy_half"
+		if(51 to INFINITY)
+			icon_state = "embassy"
+
+/obj/item/reagent_containers/food/snacks/blitz_shake //Yes, it's a food, not a drink.
+	name = "blitz shake"
+	desc = "Specifically created to look good on social media and blind innocent passerbys, this trendy Cytherian milkshake has an entire candystore toppled on top of it. Whipped cream, sprinkles, marshmallows, candy... Hell, there's an entire freaking donut on this thing! Calling this a drink would be very generous, calling it diabetic shock might be a bit more accurate."
+	icon = 'icons/obj/item/reagent_containers/food/cultural/human.dmi'
+	icon_state = "blitz"
+	item_state = "blitz"
+	bitesize = 2
+	trash = /obj/item/reagent_containers/food/drinks/drinkingglass
+	filling_color = "#ff00ea"
+	is_liquid = TRUE
+	contained_sprite = TRUE
+	reagents_to_add = list(/singleton/reagent/drink/shake_strawberry = 3, /singleton/reagent/nutriment/sprinkles = 3, /singleton/reagent/nutriment/glucose = 3, /singleton/reagent/nutriment = 3)
+	reagent_data = list(/singleton/reagent/nutriment/sprinkles = list("unicorns" = 5), /singleton/reagent/nutriment/glucose = list("rainbows" = 5), /singleton/reagent/nutriment = list("your doctor crying" = 5))

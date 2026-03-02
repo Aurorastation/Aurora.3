@@ -30,7 +30,6 @@ GLOBAL_LIST_INIT(admin_verbs_admin, list(
 	/client/proc/cmd_admin_delete,		/*delete an instance/object/mob/etc*/
 	/client/proc/cmd_admin_check_contents,	/*displays the contents of an instance*/
 	/datum/admins/proc/access_news_network,	/*allows access of newscasters*/
-	/client/proc/getserverlog,			/*allows us to fetch server logs (diary) for other days*/
 	/client/proc/jumptocoord,			/*we ghost and jump to a coordinate*/
 	/client/proc/jumptozlevel,
 	/client/proc/jumptoshuttle,
@@ -49,6 +48,7 @@ GLOBAL_LIST_INIT(admin_verbs_admin, list(
 	/client/proc/cmd_admin_local_narrate,	//sends text to all mobs within 7 tiles of src.mob
 	/client/proc/cmd_admin_local_screen_text,
 	/client/proc/cmd_admin_global_screen_text,
+	/client/proc/cmd_admin_open_narrate_panel, // Admin logged variant of the narrator panel.
 	/client/proc/cmd_admin_world_narrate,	//sends text to all players with no padding,
 	/client/proc/cmd_admin_create_centcom_report,
 	/client/proc/check_ai_laws,			//shows AI and borg laws,
@@ -105,7 +105,8 @@ GLOBAL_LIST_INIT(admin_verbs_admin, list(
 	/client/proc/reset_openturf,
 	/client/proc/toggle_aooc,
 	/client/proc/force_away_mission,
-	/client/proc/alooc
+	/client/proc/alooc,
+	/client/proc/create_portal
 ))
 
 GLOBAL_LIST_INIT(admin_verbs_ban, list(
@@ -144,7 +145,8 @@ GLOBAL_LIST_INIT(admin_verbs_fun, list(
 	/client/proc/fab_tip,
 	/client/proc/apply_sunstate,
 	/datum/admins/proc/ccannoucment,
-	/datum/admins/proc/set_odyssey
+	/datum/admins/proc/set_odyssey,
+	/datum/admins/proc/set_odyssey_canonicity
 	))
 
 GLOBAL_LIST_INIT(admin_verbs_spawn, list(
@@ -185,7 +187,6 @@ GLOBAL_LIST_INIT(admin_verbs_server, list(
 	))
 
 GLOBAL_LIST_INIT(admin_verbs_debug, list(
-	/client/proc/getruntimelog,                     // allows us to access runtime logs to somebody,
 	/client/proc/cmd_admin_list_open_jobs,
 	/client/proc/Debug2,
 	/client/proc/DebugToggle,
@@ -223,7 +224,6 @@ GLOBAL_LIST_INIT(admin_verbs_debug, list(
 	/client/proc/toggle_recursive_explosions,
 	/client/proc/restart_sql,
 	/client/proc/fix_player_list,
-	/client/proc/lighting_show_verbs,
 	/client/proc/restart_controller,
 	/client/proc/cmd_display_del_log,
 	/client/proc/cmd_display_harddel_log,
@@ -235,7 +235,6 @@ GLOBAL_LIST_INIT(admin_verbs_debug, list(
 	/datum/admins/proc/map_template_load,
 	/datum/admins/proc/map_template_load_new_z,
 	/datum/admins/proc/map_template_upload,
-	/client/proc/global_ao_regenerate,
 	/client/proc/add_client_color,
 	/client/proc/connect_ntsl,
 	/client/proc/disconnect_ntsl,
@@ -309,6 +308,7 @@ GLOBAL_LIST_INIT(admin_verbs_hideable, list(
 	/client/proc/cmd_admin_local_narrate,
 	/client/proc/cmd_admin_local_screen_text,
 	/client/proc/cmd_admin_global_screen_text,
+	/client/proc/cmd_admin_open_narrate_panel, // Admin logged variant of the narrator panel.
 	/client/proc/cmd_admin_world_narrate,
 	/client/proc/cmd_admin_grab_observers,
 	/client/proc/cmd_admin_create_centcom_report,
@@ -341,7 +341,6 @@ GLOBAL_LIST_INIT(admin_verbs_hideable, list(
 	/client/proc/end_round,
 	/datum/admins/proc/immreboot,
 	/client/proc/cmd_dev_bst,
-	/client/proc/global_ao_regenerate,
 	/client/proc/everyone_random,
 	/datum/admins/proc/toggleAI,
 	/client/proc/cmd_admin_delete,
@@ -410,16 +409,14 @@ GLOBAL_LIST_INIT(admin_verbs_hideable, list(
 	/client/proc/cmd_display_harddel_log,
 	/datum/admins/proc/ccannoucment,
 	/datum/admins/proc/set_odyssey,
+	/datum/admins/proc/set_odyssey_canonicity,
 	/client/proc/cmd_display_init_log,
 	/client/proc/cmd_generate_lag,
-	/client/proc/getruntimelog,
 	/client/proc/toggledebuglogs,
-	/client/proc/getserverlog,
 	/client/proc/view_chemical_reaction_logs,
 	/datum/admins/proc/capture_map,
 	/turf/proc/view_chunk,
 	/turf/proc/update_chunk,
-	/client/proc/lighting_show_verbs,
 	/client/proc/callproc,
 	/client/proc/callproc_target,
 	/client/proc/debug_controller,
@@ -429,6 +426,7 @@ GLOBAL_LIST_INIT(admin_verbs_hideable, list(
 	/proc/release,
 	/client/proc/force_away_mission,
 	/client/proc/profiler_start,
+	/client/proc/create_portal,
 	))
 
 GLOBAL_LIST_INIT(admin_verbs_mod, list(
@@ -487,7 +485,6 @@ GLOBAL_LIST_INIT(admin_verbs_dev, list( //will need to be altered - Ryan784
 	/client/proc/debug_controller,
 	/client/proc/debug_variables,
 	/client/proc/dsay,
-	/client/proc/getruntimelog,
 	/client/proc/hide_most_verbs,
 	/client/proc/kill_air,
 	/client/proc/kill_airgroup,
@@ -496,7 +493,6 @@ GLOBAL_LIST_INIT(admin_verbs_dev, list( //will need to be altered - Ryan784
 	/client/proc/toggledebuglogs,
 	/client/proc/ZASSettings,
 	/client/proc/cmd_dev_bst,
-	/client/proc/lighting_show_verbs,
 	/client/proc/cmd_display_del_log,
 	/client/proc/cmd_display_harddel_log,
 	/client/proc/cmd_display_init_log,
@@ -517,6 +513,32 @@ GLOBAL_LIST_INIT(admin_verbs_cciaa, list(
 	/client/proc/check_antagonists,
 	/client/proc/odyssey_panel,
 	/client/proc/toggle_aooc
+))
+
+GLOBAL_LIST_INIT(admin_verbs_storyteller, list(
+	/client/proc/toggle_view_range,		/*changes how far we can see*/
+	/client/proc/jumptozlevel,
+	/client/proc/jumptoshuttle,
+	/client/proc/jumptoship,
+	/client/proc/jumptosector,
+	/client/proc/Getmob,				/*teleports a mob to our location*/
+	/client/proc/Jump,
+	/client/proc/jumptomob,				//allows us to jump to a specific mob,
+	/client/proc/jumptoturf,			/*allows us to jump to a specific turf*/
+	/client/proc/check_ai_laws,			//shows AI and borg laws,
+	/client/proc/manage_silicon_laws,
+	/client/proc/odyssey_panel,
+	/client/proc/damage_menu,
+	/client/proc/change_human_appearance_admin,	// Allows an admin to change the basic appearance of human-based mobs ,
+	/client/proc/change_security_level,
+	/client/proc/cmd_dev_bst,
+	/datum/admins/proc/create_admin_fax,
+	/client/proc/check_fax_history,
+	/client/proc/clear_toxins,
+	/datum/admins/proc/call_supply_drop,
+	/datum/admins/proc/call_drop_pod,
+	/client/proc/event_manager_panel,
+	/client/proc/toggle_random_events
 ))
 
 
@@ -560,6 +582,12 @@ GLOBAL_LIST_INIT(admin_verbs_cciaa, list(
 	remove_verb(src, GLOB.admin_verbs_spawn)
 	remove_verb(src, GLOB.debug_verbs)
 	add_aooc_if_necessary()
+
+/client/proc/add_storyteller_verbs()
+	SHOULD_NOT_SLEEP(TRUE)
+
+	if(isstoryteller(src.mob))
+		add_verb(src, GLOB.admin_verbs_storyteller)
 
 /client/proc/hide_most_verbs()//Allows you to keep some functionality while hiding some verbs
 	set name = "Adminverbs - Hide Most"
@@ -736,8 +764,8 @@ GLOBAL_LIST_INIT(admin_verbs_cciaa, list(
 	set name = "Drop Bomb"
 	set desc = "Cause an explosion of varying strength at your location."
 
-	var/turf/epicenter = get_turf(mob)
 	var/choice = tgui_input_list(usr, "What size explosion would you like to produce?", "Drop Bomb", list("Small Bomb", "Medium Bomb", "Big Bomb", "Custom Bomb"))
+	var/turf/epicenter = get_turf(mob)
 	switch(choice)
 		if(null)
 			return 0
@@ -752,6 +780,7 @@ GLOBAL_LIST_INIT(admin_verbs_cciaa, list(
 			var/heavy_impact_range = tgui_input_number(usr, "Set the heavy impact range (in tiles).", "Heavy")
 			var/light_impact_range = tgui_input_number(usr, "Set the light impact range (in tiles).", "Light")
 			var/flash_range = tgui_input_number(usr, "Set the flash range (in tiles).", "Flash")
+			epicenter = get_turf(mob)
 			explosion(epicenter, devastation_range, heavy_impact_range, light_impact_range, flash_range)
 	message_admins(SPAN_NOTICE("[ckey] creating an admin explosion at [epicenter.loc]."))
 	feedback_add_details("admin_verb","DB") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
@@ -856,7 +885,7 @@ GLOBAL_LIST_INIT(admin_verbs_cciaa, list(
 /client/proc/check_ai_laws()
 	set name = "Check AI Laws"
 	set category = "Admin"
-	if(holder)
+	if(holder || isstoryteller(src.mob))
 		src.holder.output_ai_laws()
 
 /client/proc/rename_silicon()
@@ -878,29 +907,27 @@ GLOBAL_LIST_INIT(admin_verbs_cciaa, list(
 	set name = "Manage Silicon Laws"
 	set category = "Admin"
 
-	if(!check_rights(R_ADMIN)) return
+	if(check_rights(R_ADMIN) || isstoryteller(src.mob))
+		var/mob/living/silicon/S = input("Select silicon.", "Manage Silicon Laws") as null|anything in GLOB.silicon_mob_list
+		if(!S) return
 
-	var/mob/living/silicon/S = input("Select silicon.", "Manage Silicon Laws") as null|anything in GLOB.silicon_mob_list
-	if(!S) return
-
-	var/datum/tgui_module/admin/law_manager/L = new(S)
-	L.ui_interact(usr)
-	log_and_message_admins("has opened [S]'s law manager.")
-	feedback_add_details("admin_verb","MSL") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
+		var/datum/tgui_module/admin/law_manager/L = new(S)
+		L.ui_interact(usr)
+		log_and_message_admins("has opened [S]'s law manager.")
+		feedback_add_details("admin_verb","MSL") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 /client/proc/change_human_appearance_admin()
 	set name = "Change Mob Appearance - Admin"
 	set desc = "Allows you to change the mob appearance"
 	set category = "Admin"
 
-	if(!check_rights(R_FUN)) return
+	if(check_rights(R_FUN) || isstoryteller(src.mob))
+		var/mob/living/carbon/human/H = tgui_input_list(usr, "Select mob.", "Change Mob Appearance - Self", GLOB.human_mob_list)
+		if(!H) return
 
-	var/mob/living/carbon/human/H = tgui_input_list(usr, "Select mob.", "Change Mob Appearance - Self", GLOB.human_mob_list)
-	if(!H) return
-
-	log_and_message_admins("is altering the appearance of [H].")
-	H.change_appearance(APPEARANCE_ALL, usr, FALSE)
-	feedback_add_details("admin_verb","CHAA") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
+		log_and_message_admins("is altering the appearance of [H].")
+		H.change_appearance(APPEARANCE_ALL, usr, FALSE)
+		feedback_add_details("admin_verb","CHAA") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 /client/proc/change_human_appearance_self()
 	set name = "Change Mob Appearance - Self"
@@ -930,13 +957,12 @@ GLOBAL_LIST_INIT(admin_verbs_cciaa, list(
 	set desc = "Sets the station's security level"
 	set category = "Admin"
 
-	if(!check_rights(R_ADMIN))
-		return
-	var/sec_level = tgui_input_list(usr, "It's currently code [get_security_level()].", "Select Security Level", list("green", "blue", "red", "yellow", "delta") - get_security_level())
-	var/msg = tgui_alert(usr, "Switch from code [get_security_level()] to code [sec_level]?", "Security Level", list("Yes","No"))
-	if(msg == "Yes")
-		set_security_level(sec_level)
-		log_admin("[key_name(usr)] changed the security level to code [sec_level].")
+	if(check_rights(R_ADMIN) || isstoryteller(src.mob))
+		var/sec_level = tgui_input_list(usr, "It's currently code [get_security_level()].", "Select Security Level", list("green", "blue", "red", "yellow", "delta") - get_security_level())
+		var/msg = tgui_alert(usr, "Switch from code [get_security_level()] to code [sec_level]?", "Security Level", list("Yes","No"))
+		if(msg == "Yes")
+			set_security_level(sec_level)
+			log_admin("[key_name(usr)] changed the security level to code [sec_level].")
 
 //---- bs12 verbs ----
 
@@ -952,65 +978,64 @@ GLOBAL_LIST_INIT(admin_verbs_cciaa, list(
 	set name = "Edit Appearance"
 	set category = "Fun"
 
-	if(!check_rights(R_FUN))	return
+	if(check_rights(R_FUN) || isstoryteller(src.mob))
+		var/mob/living/carbon/human/selected_human = input("Select mob.", "Edit Appearance") as null|anything in GLOB.human_mob_list
 
-	var/mob/living/carbon/human/selected_human = input("Select mob.", "Edit Appearance") as null|anything in GLOB.human_mob_list
-
-	if(!istype(selected_human, /mob/living/carbon/human))
-		to_chat(usr, SPAN_WARNING("You can only do this to humans!"))
-		return
-	switch(alert("Are you sure you wish to edit this mob's appearance? Skrell, Unathi and Tajaran can result in unintended consequences.",,"Yes","No"))
-		if("No")
+		if(!istype(selected_human, /mob/living/carbon/human))
+			to_chat(usr, SPAN_WARNING("You can only do this to humans!"))
 			return
-	var/new_facial = input("Please select facial hair color.", "Character Generation") as color
-	if(new_facial)
-		selected_human.r_facial = hex2num(copytext(new_facial, 2, 4))
-		selected_human.g_facial = hex2num(copytext(new_facial, 4, 6))
-		selected_human.b_facial = hex2num(copytext(new_facial, 6, 8))
+		switch(alert("Are you sure you wish to edit this mob's appearance? Skrell, Unathi and Tajaran can result in unintended consequences.",,"Yes","No"))
+			if("No")
+				return
+		var/new_facial = input("Please select facial hair color.", "Character Generation") as color
+		if(new_facial)
+			selected_human.r_facial = hex2num(copytext(new_facial, 2, 4))
+			selected_human.g_facial = hex2num(copytext(new_facial, 4, 6))
+			selected_human.b_facial = hex2num(copytext(new_facial, 6, 8))
 
-	var/new_hair = input("Please select hair color.", "Character Generation") as color
-	if(new_facial)
-		selected_human.r_hair = hex2num(copytext(new_hair, 2, 4))
-		selected_human.g_hair = hex2num(copytext(new_hair, 4, 6))
-		selected_human.b_hair = hex2num(copytext(new_hair, 6, 8))
+		var/new_hair = input("Please select hair color.", "Character Generation") as color
+		if(new_facial)
+			selected_human.r_hair = hex2num(copytext(new_hair, 2, 4))
+			selected_human.g_hair = hex2num(copytext(new_hair, 4, 6))
+			selected_human.b_hair = hex2num(copytext(new_hair, 6, 8))
 
-	var/new_eyes = input("Please select eye color.", "Character Generation") as color
-	if(new_eyes)
-		selected_human.r_eyes = hex2num(copytext(new_eyes, 2, 4))
-		selected_human.g_eyes = hex2num(copytext(new_eyes, 4, 6))
-		selected_human.b_eyes = hex2num(copytext(new_eyes, 6, 8))
-		selected_human.update_eyes()
+		var/new_eyes = input("Please select eye color.", "Character Generation") as color
+		if(new_eyes)
+			selected_human.r_eyes = hex2num(copytext(new_eyes, 2, 4))
+			selected_human.g_eyes = hex2num(copytext(new_eyes, 4, 6))
+			selected_human.b_eyes = hex2num(copytext(new_eyes, 6, 8))
+			selected_human.update_eyes()
 
-	var/new_skin = input("Please select body color. This is for Tajaran, Unathi, and Skrell only!", "Character Generation") as color
-	if(new_skin)
-		selected_human.r_skin = hex2num(copytext(new_skin, 2, 4))
-		selected_human.g_skin = hex2num(copytext(new_skin, 4, 6))
-		selected_human.b_skin = hex2num(copytext(new_skin, 6, 8))
+		var/new_skin = input("Please select body color. This is for Tajaran, Unathi, and Skrell only!", "Character Generation") as color
+		if(new_skin)
+			selected_human.r_skin = hex2num(copytext(new_skin, 2, 4))
+			selected_human.g_skin = hex2num(copytext(new_skin, 4, 6))
+			selected_human.b_skin = hex2num(copytext(new_skin, 6, 8))
 
-	var/new_tone = input("Please select skin tone level: (Light [selected_human.species.lower_skin_tone_bound] - [selected_human.species.upper_skin_tone_bound] Dark). Higher is darker.", "Character Generation")  as text
+		var/new_tone = input("Please select skin tone level: (Light [selected_human.species.lower_skin_tone_bound] - [selected_human.species.upper_skin_tone_bound] Dark). Higher is darker.", "Character Generation")  as text
 
-	if (new_tone)
-		selected_human.s_tone = 35 - clamp(round(text2num(new_tone)), selected_human.species.lower_skin_tone_bound, selected_human.species.upper_skin_tone_bound)
+		if (new_tone)
+			selected_human.s_tone = 35 - clamp(round(text2num(new_tone)), selected_human.species.lower_skin_tone_bound, selected_human.species.upper_skin_tone_bound)
 
-	// hair
-	var/new_hstyle = input(usr, "Select a hair style", "Grooming")  as null|anything in GLOB.hair_styles_list
-	if(new_hstyle)
-		selected_human.h_style = new_hstyle
+		// hair
+		var/new_hstyle = input(usr, "Select a hair style", "Grooming")  as null|anything in GLOB.hair_styles_list
+		if(new_hstyle)
+			selected_human.h_style = new_hstyle
 
-	// facial hair
-	var/new_fstyle = input(usr, "Select a facial hair style", "Grooming")  as null|anything in GLOB.facial_hair_styles_list
-	if(new_fstyle)
-		selected_human.f_style = new_fstyle
+		// facial hair
+		var/new_fstyle = input(usr, "Select a facial hair style", "Grooming")  as null|anything in GLOB.facial_hair_styles_list
+		if(new_fstyle)
+			selected_human.f_style = new_fstyle
 
-	var/new_gender = alert(usr, "Please select gender.", "Character Generation", "Male", "Female")
-	if (new_gender)
-		if(new_gender == "Male")
-			selected_human.gender = MALE
-		else
-			selected_human.gender = FEMALE
-	selected_human.update_hair()
-	selected_human.update_body()
-	selected_human.check_dna(selected_human)
+		var/new_gender = alert(usr, "Please select gender.", "Character Generation", "Male", "Female")
+		if (new_gender)
+			if(new_gender == "Male")
+				selected_human.gender = MALE
+			else
+				selected_human.gender = FEMALE
+		selected_human.update_hair()
+		selected_human.update_body()
+		selected_human.check_dna(selected_human)
 
 /client/proc/playernotes()
 	set name = "Show Player Info"
@@ -1378,3 +1403,52 @@ GLOBAL_LIST_INIT(admin_verbs_cciaa, list(
 			prefix = ""
 		if((target.mob in messagemobs) || display_remote)
 			to_chat(target, "<span class='ooc'><span class='adminlooc'>" + create_text_tag("ALOOC", target) + " <span class='prefix'>[prefix]</span><EM>[display_name][admin_stuff]:</EM> <span class='message linkify'>[msg]</span></span></span>")
+
+/// Allows the admin to set up portals to and from a destination, can be used for event bugs and such
+/client/proc/create_portal()
+	set name = "Create Portal"
+	set category = "Admin"
+
+	if(!check_rights(R_ADMIN))
+		return
+
+	var/turf/creation_turf
+	if(tgui_alert(usr, "Please select where you would like to place the portal. When you're in position, press 'Place'.", "Place Portal", list("Place", "Cancel")) != "Place")
+		return
+	creation_turf = get_turf(src.mob)
+
+	var/turf/destination_turf
+	if(tgui_alert(usr, "Please select where you would like to place the portal destination. When you're in position, press 'Place'.", "Place Destination", list("Place", "Cancel")) != "Place")
+		return
+	destination_turf = get_turf(src.mob)
+
+	var/custom_color
+	var/custom_color_choice = tgui_alert(usr, "Would you like the portal to be a specific color? If not, it'll default to the normal blue color.", "Custom Color", list("Yes", "No", "Cancel"))
+	if(custom_color_choice in list(null, "Cancel"))
+		return
+	if(custom_color_choice == "Yes")
+		// purposefully doesn't return on null here, it'll just default to blue
+		custom_color = input(usr, "Choose the color you want your portal to be.", "Color Selection") as null|color
+
+	var/two_way_portals
+	var/two_way_portals_choice = tgui_alert(usr, "Would you like this portal to be standalone, or a two-way portal? If it's a two-way, a portal will also be at the destination turf, allowing anyone to come back.", "Two Way", list("Standalone", "Two-Way", "Cancel"))
+	if(two_way_portals_choice in list(null, "Cancel"))
+		return
+	two_way_portals = two_way_portals_choice == "Two-Way"
+
+	feedback_add_details("admin_verb","CrP") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
+
+	var/obj/effect/portal/permanent/main_portal = new /obj/effect/portal/permanent(creation_turf, destination_turf)
+	main_portal.precision = 0
+	main_portal.failchance = 0
+	if(custom_color)
+		main_portal.icon_state = "portal_g"
+		main_portal.color = custom_color
+
+	if(two_way_portals)
+		var/obj/effect/portal/permanent/destination_portal = new /obj/effect/portal/permanent(destination_turf, creation_turf)
+		destination_portal.precision = 0
+		destination_portal.failchance = 0
+		if(custom_color)
+			destination_portal.icon_state = "portal_g"
+			destination_portal.color = custom_color

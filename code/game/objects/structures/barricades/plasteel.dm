@@ -1,6 +1,6 @@
 /obj/structure/barricade/plasteel
 	name = "plasteel barricade"
-	desc = "A very sturdy barricade made out of plasteel panels, the pinnacle of strongpoints. Use a blowtorch to repair. Can be flipped down to create a path."
+	desc = "A very sturdy barricade made out of plasteel panels, the pinnacle of strongpoints."
 	icon_state = "plasteel_closed_0"
 	health = 800
 	maxhealth = 800
@@ -15,9 +15,12 @@
 	closed = TRUE
 	can_wire = TRUE
 
-	var/build_state = BARRICADE_BSTATE_SECURED //Look at __game.dm for barricade defines
-	var/tool_cooldown = 0 //Delay to apply tools to prevent spamming
-	var/busy = 0 //Standard busy check
+	/// Look at __game.dm for barricade defines
+	var/build_state = BARRICADE_BSTATE_SECURED
+	/// Delay to apply tools to prevent spamming
+	var/tool_cooldown = 0
+	/// Standard busy check
+	var/busy = 0
 	var/linked = 0
 	var/recentlyflipped = FALSE
 	var/hasconnectionoverlay = TRUE
@@ -35,22 +38,37 @@
 						overlays += image('icons/obj/barricades.dmi', icon_state = "[src.barricade_type]_connection_[get_dir(src, cade)]")
 					continue
 
-
 /obj/structure/barricade/plasteel/handle_barrier_chance(mob/living/M)
 	if(!closed) // Closed = gate down for plasteel for some reason
 		return ..()
 	else
 		return 0
 
-/obj/structure/barricade/plasteel/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
+/obj/structure/barricade/plasteel/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Use this with an empty active hand to toggle it closed or open."
+	. += "Multiple plasteel barricades aligned in a row can be linked together by using a crowbar on adjacent ones sequentially."
+
+// Duplicated in /obj/structure/barricade/metal. If you change one, also change the other.
+/obj/structure/barricade/plasteel/assembly_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Damage (up to a point) can be repaired with a welding torch."
+	switch(build_state)
+		if(BARRICADE_BSTATE_MOVABLE)
+			. += "The barricade is ready to have its <b>anchor bolts</b> tightened."
+		if(BARRICADE_BSTATE_UNSECURED)
+			. += "The protection panel is ready to be <b>screwed</b> into place."
+
+// Duplicated in /obj/structure/barricade/metal. If you change one, also change the other.
+/obj/structure/barricade/plasteel/disassembly_hints(mob/user, distance, is_adjacent)
+	. += ..()
 	switch(build_state)
 		if(BARRICADE_BSTATE_SECURED)
-			. += SPAN_INFO("The protection panel is still tighly screwed in place.")
+			. += "The protection panel is still tighly <b>screwed</b> in place."
 		if(BARRICADE_BSTATE_UNSECURED)
-			. += SPAN_INFO("The protection panel has been removed, you can see the anchor bolts.")
+			. += "The protection panel has been removed, you can see the <b>anchor bolts</b>."
 		if(BARRICADE_BSTATE_MOVABLE)
-			. += SPAN_INFO("The protection panel has been removed and the anchor bolts loosened. It's ready to be taken apart.")
+			. += "The protection panel has been removed and the anchor bolts loosened. It's ready to be <b>pried</b> apart."
 
 /obj/structure/barricade/plasteel/weld_cade(obj/item/W, mob/user)
 	busy = TRUE
@@ -58,7 +76,7 @@
 	busy = FALSE
 
 /obj/structure/barricade/plasteel/attackby(obj/item/attacking_item, mob/user)
-	if(attacking_item.iswelder())
+	if(attacking_item.tool_behaviour == TOOL_WELDER)
 		if(busy || tool_cooldown > world.time)
 			return
 		tool_cooldown = world.time + 10
@@ -76,7 +94,7 @@
 
 	switch(build_state)
 		if(2) //Fully constructed step. Use screwdriver to remove the protection panels to reveal the bolts
-			if(attacking_item.isscrewdriver())
+			if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 				if(busy || tool_cooldown > world.time)
 					return
 				tool_cooldown = world.time + 10
@@ -90,7 +108,7 @@
 				SPAN_NOTICE("You remove [src]'s protection panels, exposing the anchor bolts."))
 				build_state = BARRICADE_BSTATE_UNSECURED
 				return
-			if(attacking_item.iscrowbar())
+			if(attacking_item.tool_behaviour == TOOL_CROWBAR)
 				playsound(src.loc, 'sound/items/crowbar_pry.ogg', 25, 1)
 				if(linked)
 					user.visible_message(SPAN_NOTICE("[user] removes the linking on [src]."),
@@ -107,7 +125,7 @@
 						cade.update_icon()
 				update_icon()
 		if(1) //Protection panel removed step. Screwdriver to put the panel back, wrench to unsecure the anchor bolts
-			if(attacking_item.isscrewdriver())
+			if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 				if(busy || tool_cooldown > world.time)
 					return
 				tool_cooldown = world.time + 10
@@ -117,7 +135,7 @@
 				SPAN_NOTICE("You set [src]'s protection panel back."))
 				build_state = BARRICADE_BSTATE_SECURED
 				return
-			if(attacking_item.iswrench())
+			if(attacking_item.tool_behaviour == TOOL_WRENCH)
 				if(busy || tool_cooldown > world.time)
 					return
 				if(!attacking_item.use_tool(src, user, 10, volume = 50))
@@ -130,7 +148,7 @@
 				return
 
 		if(0) //Anchor bolts loosened step. Apply crowbar to unseat the panel and take apart the whole thing. Apply wrench to rescure anchor bolts
-			if(attacking_item.iswrench())
+			if(attacking_item.tool_behaviour == TOOL_WRENCH)
 				if(busy || tool_cooldown > world.time)
 					return
 				tool_cooldown = world.time + 10
@@ -146,7 +164,7 @@
 				build_state = BARRICADE_BSTATE_UNSECURED
 				update_icon() //unanchored changes layer
 				return
-			if(attacking_item.iscrowbar())
+			if(attacking_item.tool_behaviour == TOOL_CROWBAR)
 				if(busy || tool_cooldown > world.time)
 					return
 				tool_cooldown = world.time + 10
@@ -167,6 +185,10 @@
 	. = ..()
 
 /obj/structure/barricade/plasteel/attack_hand(mob/user as mob)
+	// For preventing cyborgs from flipping barricades remotely.
+	if(get_dist(src, user) > 1)
+		return FALSE
+
 	if(closed)
 		if(recentlyflipped)
 			to_chat(user, SPAN_NOTICE("\The [src] has been flipped too recently!"))

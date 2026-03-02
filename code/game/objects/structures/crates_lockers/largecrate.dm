@@ -9,7 +9,7 @@
 	return
 
 /obj/structure/largecrate/attackby(obj/item/attacking_item, mob/user)
-	if(attacking_item.iscrowbar())
+	if(attacking_item.tool_behaviour == TOOL_CROWBAR)
 		new /obj/item/stack/material/wood(src)
 		var/turf/T = get_turf(src)
 		for(var/atom/movable/AM in contents)
@@ -62,6 +62,10 @@
 /obj/structure/largecrate/animal/cat
 	name = "cat carrier"
 	held_type = /mob/living/simple_animal/cat
+
+/obj/structure/largecrate/animal/snake
+	name = "snake crate"
+	held_type = /mob/living/simple_animal/snake
 
 /obj/structure/largecrate/animal/cat/bones
 	held_type = /mob/living/simple_animal/cat/fluff/bones

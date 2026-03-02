@@ -265,7 +265,7 @@
 /turf/simulated/floor/tiled,
 /area/template_noop)
 "le" = (
-/obj/item/storage/box/excavation{
+/obj/item/storage/box/unique/excavation{
 	pixel_x = -9;
 	pixel_y = 7
 	},
@@ -598,7 +598,7 @@
 "ua" = (
 /obj/effect/floor_decal/industrial/warning,
 /obj/structure/table/steel,
-/obj/item/device/flashlight{
+/obj/item/flashlight{
 	pixel_x = -4;
 	pixel_y = 5
 	},
@@ -819,12 +819,12 @@
 "Bp" = (
 /obj/random/dirt_75,
 /obj/item/storage/belt/archaeology,
-/obj/item/storage/box/excavation,
-/obj/item/device/flashlight/lantern,
-/obj/item/device/ano_scanner,
-/obj/item/device/depth_scanner,
-/obj/item/device/core_sampler,
-/obj/item/device/measuring_tape,
+/obj/item/storage/box/unique/excavation,
+/obj/item/flashlight/lantern,
+/obj/item/ano_scanner,
+/obj/item/depth_scanner,
+/obj/item/core_sampler,
+/obj/item/measuring_tape,
 /obj/item/pickaxe/hand,
 /obj/item/storage/bag/fossils,
 /obj/item/stack/flag/green,
@@ -1083,12 +1083,12 @@
 /area/template_noop)
 "GP" = (
 /obj/item/storage/belt/archaeology,
-/obj/item/storage/box/excavation,
-/obj/item/device/flashlight/lantern,
-/obj/item/device/ano_scanner,
-/obj/item/device/depth_scanner,
-/obj/item/device/core_sampler,
-/obj/item/device/measuring_tape,
+/obj/item/storage/box/unique/excavation,
+/obj/item/flashlight/lantern,
+/obj/item/ano_scanner,
+/obj/item/depth_scanner,
+/obj/item/core_sampler,
+/obj/item/measuring_tape,
 /obj/item/pickaxe/hand,
 /obj/item/storage/bag/fossils,
 /obj/item/stack/flag/green,
@@ -1332,7 +1332,7 @@
 /area/template_noop)
 "OI" = (
 /obj/structure/table/steel,
-/obj/item/device/flashlight/lamp/off{
+/obj/item/flashlight/lamp/off{
 	pixel_x = 4;
 	pixel_y = 11
 	},
@@ -1423,7 +1423,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
 "RL" = (
-/obj/item/storage/box/excavation{
+/obj/item/storage/box/unique/excavation{
 	pixel_x = -9;
 	pixel_y = 7
 	},

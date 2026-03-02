@@ -99,7 +99,7 @@
 
 /obj/structure/plasticflaps/attackby(obj/item/attacking_item, mob/user)
 	if(manipulating)	return
-	if(attacking_item.iswirecutter() || attacking_item.sharp && !attacking_item.noslice)
+	if(attacking_item.tool_behaviour == TOOL_WIRECUTTER || attacking_item.sharp && !attacking_item.noslice)
 		manipulating = TRUE
 		visible_message(SPAN_NOTICE("[user] begins cutting down \the [src]."),
 					SPAN_NOTICE("You begin cutting down \the [src]."))

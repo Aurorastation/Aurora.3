@@ -81,7 +81,7 @@
 
 /obj/item/clothing/head/helmet/proc/toggle_camera()
 	set name = "Toggle Helmet Camera"
-	set category = "Object"
+	set category = "Object.Equipped"
 	set src in usr
 
 	if(ispath(camera))
@@ -469,7 +469,6 @@
 
 	action_button_name = "Toggle Helmet Light"
 	light_overlay = "helmet_light_dual"
-	brightness_on = 6
-	light_wedge = LIGHT_WIDE
+	light_range = 6
 	camera = /obj/machinery/camera/network/tcfl
 	on = 0

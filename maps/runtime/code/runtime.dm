@@ -12,8 +12,8 @@
 
 	force_spawnpoint = TRUE
 
-	lobby_icon_image_paths = list(list('icons/misc/titlescreens/runtime/test.png'))
-	lobby_transitions = 10 SECONDS
+	lobby_icons = list('icons/misc/titlescreens/runtime/developers.dmi', 'icons/misc/titlescreens/runtime/away.dmi')
+	lobby_transitions = FALSE
 
 	admin_levels = list(9)
 	contact_levels = list(1, 2)
@@ -62,26 +62,25 @@
 	warehouse_basearea = /area/storage/primary
 
 /**
- *	This file is the only location in which runtime map areas should be defined.
- *	Each department (or other appropriate grouping) will have its own section that you can jump to with ctrl-f.
- *	For convenience, these groupings are:
- *	CREW_AREAS
- *	COMMAND_AREAS
- *	ENGINEERING_AREAS
- *	MAINTENANCE_AREAS
- *	MEDICAL_AREAS
- *	OPERATIONS_AREAS
- *	SCIENCE_AREAS
- *	SECURITY_AREAS
- *	SERVICE_AREAS
- *	TCOMMS_AREAS
+ * This file is the only location in which runtime map areas should be defined.
+ * Each department (or other appropriate grouping) will have its own section that you can jump to with ctrl-f.
+ * For convenience, these groupings are:
+ * * CREW_AREAS
+ * * COMMAND_AREAS
+ * * ENGINEERING_AREAS
+ * * MAINTENANCE_AREAS
+ * * MEDICAL_AREAS
+ * * OPERATIONS_AREAS
+ * * SCIENCE_AREAS
+ * * SECURITY_AREAS
+ * * SERVICE_AREAS
+ * * TCOMMS_AREAS
  *
- *	GUIDELINES:
- *	- The Horizon should not have any areas mapped to it which are defined outside this file.
- *	- Any PR that removes all areas of a given definition should also remove that definition from this file.
- *	- No area should exist across multiple decks. Ex., an elevator vestibule on all three decks should have three
- *	child definitions, one for each deck. This is both for organization and for managing area objects like APCs etc.
- *	- Update the groupings list if anything is added/removed.
+ * GUIDELINES:
+ * * The Horizon should not have any areas mapped to it which are defined outside this file.
+ * * Any PR that removes all areas of a given definition should also remove that definition from this file.
+ * * No area should exist across multiple decks. Ex., an elevator vestibule on all three decks should have three child definitions, one for each deck. This is both for organization and for managing area objects like APCs etc.
+ * * Update the groupings list if anything is added/removed.
  */
 
 /// CIVILIAN_AREAS
@@ -114,7 +113,6 @@
 	station_area = TRUE
 	holomap_color = HOLOMAP_AREACOLOR_COMMAND
 	area_blurb = "The sound here seems to carry more than others, every click of a shoe or clearing of a throat amplified. The smell of ink, written and printed, wafts notably through the air."
-	area_blurb_category = "command"
 
 /// ENGINEERING_AREAS
 /area/engineering
@@ -131,7 +129,6 @@
 	no_light_control = 1
 	ambience = list(AMBIENCE_ENGINEERING, AMBIENCE_ATMOS)
 	area_blurb = "Many volume tanks filled with gas reside here, some providing vital gases for the vessel's life support systems."
-	area_blurb_category = "atmos"
 
 /area/engineering/gravity_gen
 	name = "Engineering - Gravity Generator"
@@ -145,7 +142,6 @@
 	turf_initializer = new /datum/turf_initializer/maintenance()
 	ambience = AMBIENCE_MAINTENANCE
 	area_blurb = "Scarcely lit, cramped, and filled with stale, dusty air. Around you hisses compressed air through the pipes, a buzz of electrical charge through the wires, and muffled rumbles of the hull settling. This place may feel alien compared to the interior of the ship and is a place where one could get lost or badly hurt, but some may find the isolation comforting."
-	area_blurb_category = "maint"
 
 /area/maintenance/maintcentral
 	name = "Bridge Maintenance"

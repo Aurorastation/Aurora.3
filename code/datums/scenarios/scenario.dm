@@ -84,7 +84,7 @@
 	// load the site
 	var/list/bounds = scenario_site.load_new_z()
 	for(var/z_index in bounds[MAP_MINZ] to bounds[MAP_MAXZ])
-		SSodyssey.scenario_zlevels += world.maxz
+		SSodyssey.scenario_zlevels += z_index
 	base_area = new base_area()
 
 	// regenerate minimaps

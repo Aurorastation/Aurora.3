@@ -21,7 +21,7 @@
 	description = "Used for blinding and being an asshole."
 	price = 235
 	items = list(
-		/obj/item/device/flash
+		/obj/item/flash
 	)
 	access = ACCESS_SECURITY
 	container_type = "crate"
@@ -35,7 +35,7 @@
 	description = "A small handheld black light."
 	price = 115
 	items = list(
-		/obj/item/device/uv_light
+		/obj/item/uv_light
 	)
 	access = 0
 	container_type = "crate"
@@ -61,9 +61,9 @@
 	name = "maglight"
 	supplier = "nanotrasen"
 	description = "A heavy flashlight designed for security personnel."
-	price = 150
+	price = 75
 	items = list(
-		/obj/item/device/flashlight/maglight
+		/obj/item/flashlight/maglight
 	)
 	access = ACCESS_SECURITY
 	container_type = "crate"
@@ -75,9 +75,9 @@
 	name = "magnetic door lock - security"
 	supplier = "nanotrasen"
 	description = "A large, ID locked device used for completely locking down airlocks. It is painted with Security colors."
-	price = 135
+	price = 50
 	items = list(
-		/obj/item/device/magnetic_lock/security
+		/obj/item/magnetic_lock/security
 	)
 	access = ACCESS_SECURITY
 	container_type = "crate"
@@ -89,7 +89,7 @@
 	name = "box of handcuffs"
 	supplier = "nanotrasen"
 	description = "A box full of handcuffs."
-	price = 345
+	price = 145
 	items = list(
 		/obj/item/storage/box/handcuffs
 	)
@@ -103,7 +103,7 @@
 	name = "box of zipties"
 	supplier = "nanotrasen"
 	description = "A box full of zipties."
-	price = 145
+	price = 88
 	items = list(
 		/obj/item/storage/box/zipties
 	)
@@ -117,7 +117,7 @@
 	name = "Shield Generator"
 	supplier = "nanotrasen"
 	description = "A shield generator."
-	price = 1500
+	price = 550
 	items = list(
 		/obj/machinery/shieldwallgen
 	)
@@ -131,9 +131,9 @@
 	name = "box of pepperspray grenades"
 	supplier = "zavodskoi"
 	description = "A box containing 7 tear gas grenades. A gas mask is printed on the label. WARNING: Exposure carries risk of serious injuries."
-	price = 750
+	price = 450
 	items = list(
-		/obj/item/storage/box/teargas
+		/obj/item/storage/box/tactical/teargas
 	)
 	access = ACCESS_SECURITY
 	container_type = "crate"
@@ -147,7 +147,7 @@
 	description = "A box containing 7 antipersonnel flashbang grenades. WARNING: Can cause permanent vision or hearing loss. Use with caution."
 	price = 520
 	items = list(
-		/obj/item/storage/box/flashbangs
+		/obj/item/storage/box/tactical/flashbangs
 	)
 	access = ACCESS_SECURITY
 	container_type = "crate"
@@ -159,9 +159,9 @@
 	name = "box of EMP grenades"
 	supplier = "zavodskoi"
 	description = "A box containing 5 military grade EMP grenades. WARNING: Do not use near unshielded electronics or biomechanical augmentations."
-	price = 4395
+	price = 1450
 	items = list(
-		/obj/item/storage/box/emps
+		/obj/item/storage/box/tactical/emps
 	)
 	access = ACCESS_SECURITY
 	container_type = "crate"
@@ -173,7 +173,7 @@
 	name = "deployable barrier"
 	supplier = "zavodskoi"
 	description = "A deployable barrier. Swipe your ID card to lock/unlock it."
-	price = 750
+	price = 440
 	items = list(
 		/obj/machinery/deployable/barrier
 	)
@@ -217,7 +217,7 @@
 	name = "standard plate carrier"
 	supplier = "zavodskoi"
 	description = "A plate carrier with basic accessories and an armor plate."
-	price = 800
+	price = 600
 	items = list(
 		/obj/item/clothing/suit/armor/carrier/officer
 	)
@@ -329,7 +329,7 @@
 	name = "security voidsuit"
 	supplier = "zavodskoi"
 	description = "A special suit that protects against hazardous, low pressure environments. Has an additional layer of armor."
-	price = 1500
+	price = 900
 	items = list(
 		/obj/item/clothing/suit/space/void/security
 	)
@@ -343,7 +343,7 @@
 	name = "security voidsuit helmet"
 	supplier = "zavodskoi"
 	description = "A special helmet designed for work in a hazardous, low pressure environment. Has an additional layer of armor."
-	price = 900
+	price = 550
 	items = list(
 		/obj/item/clothing/head/helmet/space/void/security
 	)
@@ -367,9 +367,9 @@
 	spawn_amount = 1
 /singleton/cargo_item/blackgloves
 	category = "security"
-	name = "black gloves"
+	name = "work gloves"
 	supplier = "nanotrasen"
-	description = "Black gloves that are somewhat fire resistant."
+	description = "Work gloves that are somewhat fire resistant."
 	price = 70
 	items = list(
 		/obj/item/clothing/gloves/black
@@ -456,7 +456,7 @@
 	description = "A small authentication device, to be inserted into a firearm receiver to allow operation."
 	price = 2000
 	items = list(
-		/obj/item/device/firing_pin
+		/obj/item/firing_pin
 	)
 	access = ACCESS_SECURITY
 	container_type = "crate"
@@ -557,6 +557,20 @@
 	price = 25
 	items = list(
 		/obj/item/storage/box/swabs
+	)
+	access = ACCESS_FORENSICS_LOCKERS
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/autopsy_scanner
+	category = "security"
+	name = "autopsy scanner"
+	supplier = "nanotrasen"
+	description = "A handheld autopsy scanner that extracts information on wounds."
+	price = 250
+	items = list(
+		/obj/item/autopsy_scanner
 	)
 	access = ACCESS_FORENSICS_LOCKERS
 	container_type = "crate"

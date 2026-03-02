@@ -41,6 +41,7 @@
 	return INITIALIZE_HINT_LATELOAD
 
 /obj/machinery/computer/message_monitor/LateInitialize()
+	. = ..()
 	//If the server isn't linked to a server, and there's a server available, default it to the first one in the list.
 	if(!linkedServer)
 		for(var/obj/machinery/telecomms/message_server/S in SSmachinery.all_telecomms)
@@ -57,7 +58,7 @@
 		return ..()
 	if(!istype(user))
 		return TRUE
-	if(attacking_item.isscrewdriver() && emag)
+	if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER && emag)
 		//Stops people from just unscrewing the monitor and putting it back to get the console working again.
 		to_chat(user, SPAN_WARNING("It is too hot to mess with!"))
 		return TRUE

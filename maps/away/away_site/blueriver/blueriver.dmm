@@ -1,6 +1,6 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "as" = (
-/obj/item/device/camera,
+/obj/item/camera,
 /turf/simulated/floor/away/blueriver/alienfloor{
 	light_range = 5
 	},
@@ -59,7 +59,7 @@
 /area/bluespaceriver/ship)
 "dH" = (
 /obj/structure/table/standard,
-/obj/item/device/flashlight/lamp,
+/obj/item/flashlight/lamp,
 /turf/simulated/floor/exoplanet/barren{
 	temperature = 250
 	},
@@ -336,7 +336,7 @@
 /area/bluespaceriver/underground)
 "rF" = (
 /obj/item/gun/energy/plasmacutter,
-/obj/item/device/depth_scanner,
+/obj/item/depth_scanner,
 /turf/simulated/floor/exoplanet/barren{
 	temperature = 250
 	},
@@ -407,7 +407,7 @@
 /area/bluespaceriver/ship)
 "uw" = (
 /obj/machinery/r_n_d/circuit_imprinter,
-/obj/item/device/ano_scanner,
+/obj/item/ano_scanner,
 /turf/simulated/floor/tiled/white,
 /area/bluespaceriver/ship)
 "uM" = (
@@ -445,7 +445,7 @@
 /turf/simulated/floor/tiled/white,
 /area/bluespaceriver/ship)
 "vV" = (
-/obj/item/device/flashlight/flare/glowstick/random{
+/obj/item/flashlight/flare/glowstick/random{
 	fuel = 100000
 	},
 /turf/simulated/floor/away/blueriver/alienfloor{
@@ -569,7 +569,7 @@
 	},
 /area/bluespaceriver/underground)
 "AQ" = (
-/obj/item/device/camera,
+/obj/item/camera,
 /turf/simulated/floor/exoplanet/barren{
 	temperature = 250
 	},
@@ -1029,7 +1029,7 @@
 /area/bluespaceriver/ship)
 "Va" = (
 /obj/structure/closet/excavation,
-/obj/item/storage/box/flares,
+/obj/item/storage/box/large/flares,
 /turf/simulated/floor/exoplanet/barren{
 	temperature = 250
 	},
@@ -1117,7 +1117,7 @@
 	},
 /area/bluespaceriver/underground)
 "YP" = (
-/obj/item/device/measuring_tape,
+/obj/item/measuring_tape,
 /turf/simulated/floor/away/blueriver/alienfloor{
 	light_range = 5
 	},

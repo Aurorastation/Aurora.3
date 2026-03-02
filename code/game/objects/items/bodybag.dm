@@ -77,7 +77,7 @@
 	can_be_buckled = TRUE
 
 /obj/structure/closet/body_bag/attackby(obj/item/attacking_item, mob/user)
-	if (attacking_item.ispen())
+	if (attacking_item.tool_behaviour == TOOL_PEN)
 		var/t = tgui_input_text(user, "What would you like the label to be?", name)
 		if (user.get_active_hand() != attacking_item)
 			return TRUE
@@ -87,12 +87,12 @@
 		if (t)
 			src.name = "body bag - "
 			src.name += t
-			playsound(src, pick('sound/bureaucracy/pen1.ogg','sound/bureaucracy/pen2.ogg'), 20)
+			playsound(src, pick('sound/items/bureaucracy/pen1.ogg','sound/items/bureaucracy/pen2.ogg'), 20)
 			LAZYADD(overlays, image(icon, "bodybag_label"))
 		else
 			src.name = "body bag"
 		return TRUE
-	else if(attacking_item.iswirecutter())
+	else if(attacking_item.tool_behaviour == TOOL_WIRECUTTER)
 		to_chat(user, "You cut the tag off the bodybag.")
 		playsound(src.loc, 'sound/items/Wirecutter.ogg', 50, 1)
 		src.name = "body bag"
@@ -169,6 +169,12 @@
 
 	var/stasis_power = 20
 	var/degradation_time = 60 // 2 minutes: 60 ticks * 2 seconds per tick
+
+/obj/structure/closet/body_bag/cryobag/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Applies a [stasis_power]x stasis effect to any living creature stored inside this bag."
+	. += "This causes effects such as bleeding and brain damage to accumulate 10x slower."
+	. += "stasis bags will only last for [degradation_time] seconds before becoming useless. The bag will turn from blue to grey when this happens."
 
 /obj/structure/closet/body_bag/cryobag/feedback_hints(mob/user, distance, is_adjacent)
 	. += ..()

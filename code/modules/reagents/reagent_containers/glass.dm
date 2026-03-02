@@ -77,7 +77,7 @@
 	if(istype(attacking_item,/obj/item/storage/part_replacer))
 		if(!reagents || !reagents.total_volume)
 			return ..()
-	if(attacking_item.ispen() || istype(attacking_item, /obj/item/device/flashlight/pen))
+	if(attacking_item.tool_behaviour == TOOL_PEN || istype(attacking_item, /obj/item/flashlight/pen))
 		var/tmp_label = sanitizeSafe( tgui_input_text(user, "Enter a label for [name]", "Label", label_text, MAX_NAME_LEN), MAX_NAME_LEN )
 		if(length(tmp_label) > 15)
 			to_chat(user, SPAN_NOTICE("The label can be at most 15 characters long."))
@@ -202,6 +202,21 @@
 	amount_per_transfer_from_this = 5
 	reagents_to_add = list(/singleton/reagent/antibodies = 60)
 
+/obj/item/reagent_containers/glass/beaker/vial/dexalin_plus
+	name = "dexalin plus vial"
+	desc = "A small vial of Dexalin Plus, a potent medication that aids in the re-oxygenating of blood cells."
+	reagents_to_add = list(/singleton/reagent/dexalin/plus = 15)
+
+/obj/item/reagent_containers/glass/beaker/vial/peridaxon
+	name = "peridaxon vial"
+	desc = "A small vial of Peridaxon, an advanced organ regenerative compound."
+	reagents_to_add = list(/singleton/reagent/peridaxon = 15)
+
+/obj/item/reagent_containers/glass/beaker/vial/arithrazine
+	name = "arithrazine vial"
+	desc = "A small vial of Arithrazine, a potent anti-radiation medication."
+	reagents_to_add = list(/singleton/reagent/arithrazine = 15)
+
 /obj/item/reagent_containers/glass/beaker/medcup
 	name = "medicine cup"
 	desc = "A glass medicine cup. Like a shot glass for medicine."
@@ -267,7 +282,7 @@
 		user.put_in_hands(new /obj/item/bucket_sensor)
 		qdel(src)
 		return
-	else if(attacking_item.iswirecutter())
+	else if(attacking_item.tool_behaviour == TOOL_WIRECUTTER)
 		to_chat(user, SPAN_NOTICE("You cut a big hole in \the [src] with \the [attacking_item]."))
 		user.put_in_hands(new helmet_type)
 		qdel(src)

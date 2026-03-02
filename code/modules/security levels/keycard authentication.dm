@@ -4,19 +4,22 @@
 	icon = 'icons/obj/monitors.dmi'
 	icon_state = "auth_off"
 	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
-	var/active = 0 //This gets set to 1 on all devices except the one where the initial request was made.
+	/// This gets set to TRUE on all devices except the one where the initial request was made.
+	var/active = FALSE
 	var/event = ""
 	var/screen = 1
-	var/confirmed = 0 //This variable is set by the device that confirms the request.
-	var/confirm_delay = 20 //(2 seconds)
-	var/busy = 0 //Busy when waiting for authentication or an event request has been sent from this device.
+	/// This variable is set by the device that confirms the request.
+	var/confirmed = FALSE
+	var/confirm_delay = 2 SECONDS
+	/// Busy when waiting for authentication, or an event request has been sent from this device.
+	var/busy = FALSE
 	var/obj/machinery/keycard_auth/event_source
 	var/mob/event_triggered_by
 	var/mob/event_confirmed_by
 	var/recorded_message = ""
 	//1 = select event
 	//2 = authenticate
-	anchored = 1.0
+	anchored = TRUE
 	idle_power_usage = 2
 	active_power_usage = 6
 	power_channel = AREA_USAGE_ENVIRON
@@ -27,6 +30,7 @@
 	return INITIALIZE_HINT_LATELOAD
 
 /obj/machinery/keycard_auth/LateInitialize()
+	. = ..()
 	if(SSatlas.current_map.use_overmap && !linked)
 		var/my_sector = GLOB.map_sectors["[z]"]
 		if (istype(my_sector, /obj/effect/overmap/visitable))
@@ -39,7 +43,7 @@
 /obj/machinery/keycard_auth/attackby(obj/item/attacking_item, mob/user)
 	if(stat & (NOPOWER|BROKEN))
 		to_chat(user, "This device is not powered.")
-		return
+		return FALSE
 	if(istype(attacking_item, /obj/item/card/id))
 		var/obj/item/card/id/ID = attacking_item
 		if(ACCESS_KEYCARD_AUTH in ID.access)
@@ -62,10 +66,10 @@
 		to_chat(user, "This device is not powered.")
 		return
 	if(!user.IsAdvancedToolUser())
-		return 0
+		return FALSE
 	if(busy)
 		to_chat(user, "This device is busy.")
-		return
+		return FALSE
 
 	user.set_machine(src)
 
@@ -110,10 +114,10 @@
 	return
 
 /obj/machinery/keycard_auth/proc/reset()
-	active = 0
+	active = FALSE
 	event = ""
 	screen = 1
-	confirmed = 0
+	confirmed = FALSE
 	event_source = null
 	icon_state = "auth_off"
 	event_triggered_by = null
@@ -146,7 +150,7 @@
 
 	sleep(confirm_delay)
 	if(confirmed)
-		confirmed = 0
+		confirmed = FALSE
 		trigger_event(event, recorded_message, user)
 		log_game("[key_name(event_triggered_by)] triggered and [key_name(event_confirmed_by)] confirmed event [event]")
 		message_admins("[key_name_admin(event_triggered_by)] triggered and [key_name_admin(event_confirmed_by)] confirmed event [event]", 1)
@@ -156,16 +160,16 @@
 	if(stat & (BROKEN|NOPOWER))
 		return
 	event_source = source
-	busy = 1
-	active = 1
+	busy = TRUE
+	active = TRUE
 	icon_state = "auth_on"
 
 	sleep(confirm_delay)
 
 	event_source = null
 	icon_state = "auth_off"
-	active = 0
-	busy = 0
+	active = FALSE
+	busy = FALSE
 
 /obj/machinery/keycard_auth/proc/trigger_event(var/event, var/distress_message, var/mob/user)
 	switch(event)
@@ -195,12 +199,12 @@
 
 /obj/machinery/keycard_auth/proc/is_ert_blocked()
 	if(GLOB.config.ert_admin_call_only)
-		return 1
+		return TRUE
 	if(SSticker.mode.ert_disabled)
 		SSticker.mode.announce_ert_disabled()
-		return 1
+		return TRUE
 	else
-		return 0
+		return FALSE
 
 GLOBAL_VAR_INIT(maint_all_access, FALSE)
 
@@ -214,7 +218,7 @@ GLOBAL_VAR_INIT(maint_all_access, FALSE)
 
 /obj/machinery/door/airlock/allowed(mob/M)
 	if(locked)
-		return 0
+		return FALSE
 
 	var/obj/item/I = M.GetIdCard()
 	if(!I)
@@ -223,7 +227,7 @@ GLOBAL_VAR_INIT(maint_all_access, FALSE)
 	var/maint_sec_access = ((GLOB.security_level > SEC_LEVEL_GREEN) && has_access(ACCESS_SECURITY, accesses = A))
 	var/exceptional_circumstances = GLOB.maint_all_access || maint_sec_access
 	if(exceptional_circumstances && src.check_access_list(list(ACCESS_MAINT_TUNNELS)))
-		return 1
+		return TRUE
 	if(access_by_level || req_one_access_by_level)
 		var/sec_level = get_security_level()
 		if(sec_level in (req_one_access_by_level ? req_one_access_by_level : access_by_level))

@@ -60,7 +60,7 @@
 		return 0
 
 	var/n = 0
-	for (var/mob/living in GLOB.player_list)
+	for(var/mob/living/living in GLOB.player_list)
 		n++
 	if(n <= pop_requirement)
 		return 0
@@ -91,24 +91,24 @@
 
 	return total_weight
 
-/datum/event	//NOTE: Times are measured in master controller ticks!
+/datum/event
 
-	///When in the lifetime to call start()
+	///When in the lifetime to call start(). IMPORTANT: Measured in ticks (two seconds)!
 	var/startWhen = 0
 
-	///When in the lifetime to call announce()
+	///When in the lifetime to call announce(). IMPORTANT: Measured in ticks (two seconds)!
 	var/announceWhen = 0
 
-	///When in the lifetime the event should end
+	///When in the lifetime the event should end. IMPORTANT: Measured in ticks (two seconds)!
 	var/endWhen = 0
 
 	///Severity. Lower means less severe, higher means more severe. Does not have to be supported. Is set on New()
 	var/severity = 0
 
-	///How long the event has existed. You don't need to change this
+	///How long the event has existed. You don't need to change this.
 	var/activeFor = 0
 
-	///If this event is currently running. You should not change this
+	///If this event is currently running. You should not change this.
 	var/isRunning = TRUE
 
 	///When this event started
@@ -274,7 +274,7 @@
 		return station_name()
 
 	var/obj/effect/overmap/O = GLOB.map_sectors["[pick(affecting_z)]"]
-	return O ? O.name : "Unknown Location"
+	return O ? O.name : station_name()
 
 /datum/event/proc/get_skybox_image()
 	return

@@ -9,7 +9,7 @@
 	matter = list(MATERIAL_ALUMINIUM = 700, MATERIAL_GLASS = 300)
 
 	//	Motion, EMP-Proof, X-Ray
-	var/list/obj/item/possible_upgrades = list(/obj/item/device/assembly/prox_sensor, /obj/item/stack/material/osmium, /obj/item/stock_parts/scanning_module)
+	var/list/obj/item/possible_upgrades = list(/obj/item/assembly/prox_sensor, /obj/item/stack/material/osmium, /obj/item/stock_parts/scanning_module)
 	var/list/upgrades = list()
 	var/camera_name
 	var/camera_network
@@ -29,7 +29,7 @@
 
 		if(0)
 			// State 0
-			if(attacking_item.iswrench() && isturf(src.loc))
+			if(attacking_item.tool_behaviour == TOOL_WRENCH && isturf(src.loc))
 				attacking_item.play_tool_sound(get_turf(src), 50)
 				to_chat(user, "You wrench the assembly into place.")
 				anchored = 1
@@ -40,14 +40,14 @@
 
 		if(1)
 			// State 1
-			if(attacking_item.iswelder())
+			if(attacking_item.tool_behaviour == TOOL_WELDER)
 				if(weld(attacking_item, user))
 					to_chat(user, "You weld the assembly securely into place.")
 					anchored = 1
 					state = 2
 				return TRUE
 
-			else if(attacking_item.iswrench())
+			else if(attacking_item.tool_behaviour == TOOL_WRENCH)
 				attacking_item.play_tool_sound(get_turf(src), 50)
 				to_chat(user, "You unattach the assembly from its place.")
 				anchored = 0
@@ -57,7 +57,7 @@
 
 		if(2)
 			// State 2
-			if(attacking_item.iscoil())
+			if(attacking_item.tool_behaviour == TOOL_CABLECOIL)
 				var/obj/item/stack/cable_coil/C = attacking_item
 				if(C.use(2))
 					to_chat(user, SPAN_NOTICE("You add wires to the assembly."))
@@ -66,7 +66,7 @@
 					to_chat(user, SPAN_WARNING("You need 2 coils of wire to wire the assembly."))
 				return TRUE
 
-			else if(attacking_item.iswelder())
+			else if(attacking_item.tool_behaviour == TOOL_WELDER)
 
 				if(weld(attacking_item, user))
 					to_chat(user, "You unweld the assembly from its place.")
@@ -77,7 +77,7 @@
 
 		if(3)
 			// State 3
-			if(attacking_item.isscrewdriver())
+			if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 				attacking_item.play_tool_sound(get_turf(src), 50)
 
 				var/input = sanitize( tgui_input_text(user, "Which networks would you like to connect this camera to? Separate networks with a comma. No Spaces!\nFor example: Station,Security,Secret",
@@ -118,7 +118,7 @@
 							break
 				return TRUE
 
-			else if(attacking_item.iswirecutter())
+			else if(attacking_item.tool_behaviour == TOOL_WIRECUTTER)
 
 				new/obj/item/stack/cable_coil(get_turf(src), 2)
 				playsound(src.loc, 'sound/items/Wirecutter.ogg', 50, 1)
@@ -140,7 +140,7 @@
 		return
 
 	// Taking out upgrades
-	else if(attacking_item.iscrowbar() && upgrades.len)
+	else if(attacking_item.tool_behaviour == TOOL_CROWBAR && upgrades.len)
 		var/obj/U = locate(/obj) in upgrades
 		if(U)
 			to_chat(user, "You unattach an upgrade from the assembly.")

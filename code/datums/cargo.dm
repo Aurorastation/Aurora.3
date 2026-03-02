@@ -42,9 +42,8 @@
 // Returns a list of all the objects in the order - Formatted as a list to be json_encoded
 /datum/cargo_order/proc/get_object_list()
 	var/list/object_list = list()
-	for (var/datum/cargo_order_item/coi in items)
-		for(var/atom/object in coi.ci.items)
-			object_list.Add(object.name)
+	for(var/item in get_item_list())
+		object_list.Add(item["name"])
 	return object_list
 
 // Gets a list of the order data - Formatted as list to be json_encoded
@@ -253,7 +252,7 @@
 	if(time_shipped)
 		order_data += "<u>Shipped at:</u> [time_shipped]<br>"
 	if(received_by)
-		order_data += "<u>Received by:</u [received_by]><br>"
+		order_data += "<u>Received by:</u> [received_by]<br>"
 		order_data += "<u>Delivered at:</u> [time_delivered]<br>"
 	order_data += "<hr>"
 	order_data += "<u>Order ID:</u> [order_id]<br>"
@@ -273,10 +272,10 @@
 	order_data += "<u>Order Fees:</u><br>"
 	order_data += "<ul>"
 	for(var/item in get_item_list())
-		order_data += "<li>[item["name"]]: [item["price"]]</li>"
-	order_data += "<li>Crate Fee: [SScargo.get_cratefee()]</li>"
-	order_data += "<li>Handling Fee: [SScargo.get_handlingfee()]</li>"
-	order_data += "<li>Shuttle Fee: [get_shipment_cost()]</li>"
+		order_data += "<li>[item["name"]]: [item["price"]]电</li>"
+	order_data += "<li>Crate Fee: [SScargo.get_cratefee()]电</li>"
+	order_data += "<li>Handling Fee: [SScargo.get_handlingfee()]电</li>"
+	order_data += "<li>Supplier Fee: [get_shipment_cost()]电</li>"
 	order_data += "</ul>"
 
 	return order_data.Join("")
@@ -338,7 +337,7 @@
 	time_shipped = worldtime2text()
 
 //Marks a order as delivered - Returns a status message
-/datum/cargo_order/proc/set_delivered(var/user_name, var/user_id, var/paid=0)
+/datum/cargo_order/proc/set_delivered(var/user_name, var/user_id)
 	if(user_id <= 0)
 		user_id = null
 	if(status == "shipped")
@@ -346,8 +345,6 @@
 		time_delivered = worldtime2text()
 		received_by = user_name
 		received_by_id = user_id
-		if(paid)
-			set_paid(user_name, user_id)
 		return "The order has been delivered"
 	else
 		return "The order could not be delivered - Invalid Status"
@@ -443,7 +440,7 @@
 	invoice_data += "<p>Shuttle Data</p>"
 	invoice_data += "<table>"
 	invoice_data += "<tr>"
-	invoice_data += "<td>Shuttle Fee::</td>"
+	invoice_data += "<td>Supplier fee::</td>"
 	invoice_data += "<td>[shuttle_fee]</td>"
 	invoice_data += "</tr>"
 	invoice_data += "<tr>"

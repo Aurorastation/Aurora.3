@@ -50,7 +50,7 @@
 #define CARBON_LIFEFORM_FIRE_DAMAGE     4
 
 #define FOGGING_TEMPERATURE (T0C + 5)
-#define MAX_FOG_TEMPERATURE (T0C - 50)
+#define MAX_FOG_TEMPERATURE (T0C - 70)
 
 // Phoron fire properties.
 #define PHORON_MINIMUM_BURN_TEMPERATURE    (T0C +  126) //400 K - autoignite temperature in tanks and canisters - enclosed environments I guess
@@ -77,9 +77,13 @@
 #define LIQUIDFUEL_AMOUNT_TO_MOL		0.45  //mol/volume unit
 
 // XGM gas flags.
+/// Used by combustion reactions.
 #define XGM_GAS_FUEL        1
+/// Used by combustion reactions.
 #define XGM_GAS_OXIDIZER    2
+/// Attaches itself to certain objects/atoms.
 #define XGM_GAS_CONTAMINANT 4
+/// Used by nuclear fusion reactions.
 #define XGM_GAS_FUSION_FUEL 8
 
 #define TANK_LEAK_PRESSURE     (30.*ONE_ATMOSPHERE) // Tank starts leaking.
@@ -118,13 +122,13 @@
 #define GAS_PHORON				"phoron"
 #define GAS_HYDROGEN            "hydrogen"
 #define GAS_ALIEN				"aliether"
-#define GAS_STEAM				"water"
+#define GAS_WATERVAPOR			"water_vapor"
 #define GAS_SULFUR				"sulfur_dioxide"
 #define GAS_CHLORINE			"chlorine"
 #define GAS_HELIUM				"helium"
+#define GAS_HELIUMFUEL			"helium-3"
 #define GAS_DEUTERIUM			"deuterium"
 #define GAS_TRITIUM				"tritium"
-#define GAS_BORON				"boron"
 #define GAS_HEAT                "heat" //Not a real gas, used for visual effects
 #define GAS_COLD                "cold" //Not a real gas, used for visual effects
 
@@ -154,3 +158,27 @@ GLOBAL_LIST_INIT(pipe_colors, list(
 	"black" = PIPE_COLOR_BLACK,
 	"purple" = PIPE_COLOR_PURPLE
 ))
+
+#define CMB_LIQUID_FUEL (1 << 1)
+#define CHECK_COMBUSTIBLE(cmb, xgm) \
+	do { \
+		for(var/g in xgm.gas) { \
+			if(!(cmb & 1) && gas_data.flags[g] & XGM_GAS_OXIDIZER && QUANTIZE(xgm.gas[g] * GLOB.vsc.fire_consuption_rate) >= 0.1) { \
+				cmb |= (1 << 0); \
+			} \
+			else if(!(cmb & 2) && gas_data.flags[g] & XGM_GAS_FUEL && QUANTIZE(xgm.gas[g] * GLOB.vsc.fire_consuption_rate) >= 0.005) { \
+				cmb |= (1 << 1); \
+			} \
+			else if(cmb & 3) { \
+				break; \
+			} \
+		} \
+		if(cmb == 1) { \
+			cmb = 0; \
+		} \
+	} while (FALSE);
+
+/// Returns the pressure of the gas mix.  Only accurate if there have been no gas modifications since update_values() has been called.
+#define XGM_PRESSURE(xgm) (xgm.volume ? xgm.total_moles * R_IDEAL_GAS_EQUATION * xgm.temperature / xgm.volume : 0)
+/// XGM_PRESSURE but accounts for xgm (gas mixture) being null
+#define SAFE_XGM_PRESSURE(xgm) (xgm ? XGM_PRESSURE(xgm) : 0)

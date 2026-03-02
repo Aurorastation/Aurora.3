@@ -425,7 +425,7 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 4
 	},
-/obj/item/device/radio/intercom/east,
+/obj/item/radio/intercom/east,
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8
 	},
@@ -474,7 +474,7 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 4
 	},
-/obj/item/device/radio/intercom/east,
+/obj/item/radio/intercom/east,
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8
 	},
@@ -681,7 +681,7 @@
 	dir = 4
 	},
 /obj/structure/table/wood,
-/obj/item/device/flashlight/lamp,
+/obj/item/flashlight/lamp,
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8
 	},
@@ -692,7 +692,7 @@
 	dir = 8
 	},
 /obj/structure/table/wood,
-/obj/item/device/radio/phone,
+/obj/item/radio/phone,
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 4
 	},
@@ -1582,7 +1582,7 @@
 	dir = 8;
 	req_one_access = list(150)
 	},
-/obj/item/device/radio/intercom/north,
+/obj/item/radio/intercom/north,
 /turf/simulated/floor/lino,
 /area/grand_romanovich)
 "ep" = (
@@ -2128,7 +2128,7 @@
 	dir = 10
 	},
 /obj/random/pottedplant,
-/obj/item/device/radio/intercom/south,
+/obj/item/radio/intercom/south,
 /obj/machinery/light{
 	dir = 8;
 	icon_state = "tube_empty"
@@ -2279,7 +2279,7 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 5
 	},
-/obj/item/device/radio/intercom/east,
+/obj/item/radio/intercom/east,
 /obj/machinery/vending/casino,
 /turf/simulated/floor/wood,
 /area/grand_romanovich)
@@ -2447,7 +2447,7 @@
 /area/grand_romanovich)
 "gu" = (
 /obj/effect/floor_decal/spline/fancy/wood,
-/obj/item/device/radio/intercom/south,
+/obj/item/radio/intercom/south,
 /turf/simulated/floor/wood,
 /area/grand_romanovich)
 "gv" = (
@@ -2458,7 +2458,7 @@
 /area/grand_romanovich/outdoors)
 "gw" = (
 /obj/effect/floor_decal/spline/fancy/wood,
-/obj/item/device/radio/intercom/south,
+/obj/item/radio/intercom/south,
 /obj/machinery/light{
 	icon_state = "tube_empty"
 	},
@@ -2515,7 +2515,7 @@
 "gD" = (
 /obj/structure/table/wood,
 /obj/item/clothing/accessory/badge/hadii_card,
-/obj/item/device/versebook/pra,
+/obj/item/versebook/pra,
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8
 	},
@@ -2566,7 +2566,7 @@
 /area/grand_romanovich)
 "gM" = (
 /obj/structure/table/wood,
-/obj/item/device/flashlight/lamp,
+/obj/item/flashlight/lamp,
 /turf/simulated/floor/wood{
 	temperature = 278
 	},
@@ -2605,7 +2605,7 @@
 /area/grand_romanovich)
 "gT" = (
 /obj/structure/table/stone/marble,
-/obj/item/device/radio/phone,
+/obj/item/radio/phone,
 /turf/simulated/floor/lino,
 /area/grand_romanovich)
 "gU" = (
@@ -2619,7 +2619,7 @@
 "gV" = (
 /obj/structure/table/wood,
 /obj/item/phone,
-/obj/item/device/radio/intercom/north,
+/obj/item/radio/intercom/north,
 /turf/simulated/floor/lino,
 /area/grand_romanovich)
 "gW" = (
@@ -2916,7 +2916,7 @@
 "hM" = (
 /obj/effect/floor_decal/spline/fancy/wood/cee,
 /obj/random/pottedplant,
-/obj/item/device/radio/intercom/east,
+/obj/item/radio/intercom/east,
 /turf/simulated/floor/wood,
 /area/grand_romanovich)
 "hN" = (
@@ -2981,7 +2981,7 @@
 	dir = 1
 	},
 /obj/structure/bed/stool/chair/wood,
-/obj/item/device/radio/intercom/north,
+/obj/item/radio/intercom/north,
 /turf/simulated/floor/wood,
 /area/grand_romanovich)
 "ib" = (
@@ -3163,7 +3163,7 @@
 "iG" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/structure/table/stone/marble,
-/obj/item/device/radio/phone,
+/obj/item/radio/phone,
 /turf/simulated/floor/tiled/white,
 /area/grand_romanovich)
 "iH" = (
@@ -3341,7 +3341,7 @@
 /area/grand_romanovich)
 "jj" = (
 /obj/structure/table/stone/marble,
-/obj/item/device/radio/phone,
+/obj/item/radio/phone,
 /turf/simulated/floor/wood,
 /area/grand_romanovich)
 "jm" = (
@@ -4064,7 +4064,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/grand_romanovich)
 "lL" = (
-/obj/item/device/radio/intercom/north,
+/obj/item/radio/intercom/north,
 /obj/effect/floor_decal/corner/yellow{
 	dir = 5;
 	icon_state = "corner_white"
@@ -4659,7 +4659,7 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 4
 	},
-/obj/item/device/radio/intercom/east,
+/obj/item/radio/intercom/east,
 /turf/simulated/floor/wood,
 /area/grand_romanovich)
 "nq" = (
@@ -4918,7 +4918,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/grand_romanovich)
 "nT" = (
-/obj/item/device/radio/intercom/east,
+/obj/item/radio/intercom/east,
 /obj/effect/floor_decal/corner/yellow{
 	dir = 6;
 	icon_state = "corner_white"
@@ -4987,7 +4987,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/grand_romanovich)
 "oc" = (
-/obj/item/device/radio/intercom/south,
+/obj/item/radio/intercom/south,
 /obj/effect/floor_decal/corner/yellow{
 	dir = 10;
 	icon_state = "corner_white"
@@ -5253,7 +5253,7 @@
 /area/grand_romanovich)
 "qA" = (
 /obj/structure/table/wood,
-/obj/item/device/radio/phone,
+/obj/item/radio/phone,
 /turf/simulated/floor/carpet/art,
 /area/grand_romanovich)
 "qE" = (
@@ -5463,7 +5463,7 @@
 /area/grand_romanovich)
 "uG" = (
 /obj/structure/table/wood,
-/obj/item/device/radio/phone,
+/obj/item/radio/phone,
 /obj/machinery/light/small{
 	dir = 8
 	},
@@ -6201,7 +6201,7 @@
 /area/grand_romanovich)
 "Hv" = (
 /obj/structure/table/wood,
-/obj/item/device/flashlight/lamp,
+/obj/item/flashlight/lamp,
 /obj/item/storage/secure/safe{
 	pixel_x = 32;
 	pixel_y = 32
@@ -6315,7 +6315,7 @@
 /area/grand_romanovich)
 "Jh" = (
 /obj/structure/table/wood,
-/obj/item/device/flashlight/lamp,
+/obj/item/flashlight/lamp,
 /turf/simulated/floor/carpet/art,
 /area/grand_romanovich)
 "Jl" = (
@@ -6467,12 +6467,12 @@
 	icon_state = "corner_white"
 	},
 /obj/structure/table/rack,
-/obj/item/device/flashlight,
-/obj/item/device/flashlight,
-/obj/item/device/flashlight,
-/obj/item/device/flashlight,
-/obj/item/device/flashlight,
-/obj/item/device/flashlight,
+/obj/item/flashlight,
+/obj/item/flashlight,
+/obj/item/flashlight,
+/obj/item/flashlight,
+/obj/item/flashlight,
+/obj/item/flashlight,
 /obj/machinery/light{
 	dir = 4;
 	icon_state = "tube_empty"
@@ -6719,7 +6719,7 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
 	},
-/obj/item/device/radio/intercom/north,
+/obj/item/radio/intercom/north,
 /turf/simulated/floor/wood,
 /area/grand_romanovich)
 "Pu" = (
@@ -7014,7 +7014,7 @@
 	icon_state = "tube_empty"
 	},
 /obj/structure/table/wood,
-/obj/item/device/radio/phone,
+/obj/item/radio/phone,
 /turf/simulated/floor/wood,
 /area/grand_romanovich)
 "Ut" = (
@@ -7022,7 +7022,7 @@
 /obj/structure/railing/mapped{
 	dir = 4
 	},
-/obj/item/device/flashlight/lantern{
+/obj/item/flashlight/lantern{
 	on = 1
 	},
 /turf/simulated/floor/wood{
@@ -7034,7 +7034,7 @@
 /obj/structure/railing/mapped{
 	dir = 8
 	},
-/obj/item/device/flashlight/lantern{
+/obj/item/flashlight/lantern{
 	on = 1
 	},
 /turf/simulated/floor/wood{
@@ -7149,7 +7149,7 @@
 /area/grand_romanovich)
 "VM" = (
 /obj/structure/table/wood,
-/obj/item/device/flashlight/lamp,
+/obj/item/flashlight/lamp,
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 4
 	},

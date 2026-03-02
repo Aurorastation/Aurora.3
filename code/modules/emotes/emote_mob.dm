@@ -5,14 +5,14 @@
 	return (..() && !(silent && emote_type == AUDIBLE_MESSAGE))
 
 /mob/verb/custom_audible_emote()
-	set name = "Audible Emote"
+	set name = "Emote (Audible)"
 	set category = "IC"
 	set desc = "Type in an emote message that will be received by mobs that can hear you."
 
 	custom_emote(m_type = AUDIBLE_MESSAGE, message = sanitize(input(src,"Choose an emote to display.") as text|null))
 
 /mob/verb/custom_visible_emote()
-	set name = "Visible Emote"
+	set name = "Emote (Visible)"
 	set category = "IC"
 	set desc = "Type in an emote message that will be received by mobs that can see you."
 

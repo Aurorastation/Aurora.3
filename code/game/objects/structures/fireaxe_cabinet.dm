@@ -30,7 +30,7 @@
 	dir = SOUTH
 	pixel_y = -20
 
-/obj/structure/fireaxecabinet/attack_generic(var/mob/user, var/damage, var/attack_verb, var/wallbreaker)
+/obj/structure/fireaxecabinet/attack_generic(mob/user, damage, attack_message, environment_smash, armor_penetration, attack_flags, damage_type)
 	user.do_attack_animation(src)
 	playsound(user, 'sound/effects/glass_hit.ogg', 50, 1)
 	visible_message(SPAN_WARNING("\The [user] [attack_verb] \the [src]!"))
@@ -42,7 +42,7 @@
 	shattered = TRUE
 	unlocked = TRUE
 	open = TRUE
-	playsound(user, /singleton/sound_category/glass_break_sound, 100, 1)
+	playsound(user, SFX_BREAK_GLASS, 100, 1)
 	update_icon()
 
 /obj/structure/fireaxecabinet/update_icon()
@@ -115,7 +115,7 @@
 	return ..()
 
 /obj/structure/fireaxecabinet/attackby(obj/item/attacking_item, mob/user)
-	if(attacking_item.ismultitool())
+	if(attacking_item.tool_behaviour == TOOL_MULTITOOL)
 		toggle_lock(user)
 		return
 

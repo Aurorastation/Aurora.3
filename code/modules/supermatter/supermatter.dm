@@ -21,7 +21,7 @@
 #define DECAY_FACTOR 700			//Affects how fast the supermatter power decays
 #define CRITICAL_TEMPERATURE 5000	//K
 #define CHARGING_FACTOR 0.05
-#define DAMAGE_RATE_LIMIT 2			//damage rate cap at power = 300, scales linearly with power
+#define DAMAGE_RATE_LIMIT 4			//damage rate cap at power = 300, scales linearly with power
 #define SPACED_DAMAGE_FACTOR 0.5	//multiplier for damage taken in a vacuum, but on a tile. Used to prevent/configure near-instant explosions when vented
 
 //These would be what you would get at point blank, decreases with distance
@@ -64,7 +64,6 @@
 	var/explosion_point = 1000
 
 	light_color = "#8A8A00"
-	uv_intensity = 255
 	var/warning_color = "#B8B800"
 	var/emergency_color = "#D9D900"
 	var/rotation_angle = 0
@@ -96,7 +95,7 @@
 	//How much hallucination should it produce per unit of power?
 	var/config_hallucination_power = 0.1
 
-	var/obj/item/device/radio/radio
+	var/obj/item/radio/radio
 
 	var/debug = 0
 	var/last_message_time = -100 //for message
@@ -120,7 +119,7 @@
 
 /obj/machinery/power/supermatter/Initialize()
 	. = ..()
-	radio = new /obj/item/device/radio{channels=list("Engineering")}(src)
+	radio = new /obj/item/radio{channels=list("Engineering")}(src)
 	soundloop = new(src, TRUE)
 
 /obj/machinery/power/supermatter/Destroy()
@@ -241,9 +240,9 @@
 	if(last_accent_sound < world.time && prob(20))
 		var/aggression = min(((damage / 800) * (power / 2500)), 1.0) * 100
 		if(damage >= 300)
-			playsound(src, /singleton/sound_category/supermatter_delam, max(50, aggression), FALSE, 10)
+			playsound(src, SFX_SM_DELAM, clamp(aggression, 50, 75), FALSE, 10)
 		else
-			playsound(src, /singleton/sound_category/supermatter_calm, max(50, aggression), FALSE, 10)
+			playsound(src, SFX_SM_CALM, clamp(aggression, 50, 75), FALSE, 10)
 		var/next_sound = round((100 - aggression) * 5)
 		last_accent_sound = world.time + max(SUPERMATTER_ACCENT_SOUND_MIN_COOLDOWN, next_sound)
 
@@ -386,7 +385,7 @@
 	if(loc && !istype(loc, /turf/space))
 		env = src.loc.return_air()
 	data["ambient_temp"] = round(env?.temperature)
-	data["ambient_pressure"] = round(env?.return_pressure())
+	data["ambient_pressure"] = round(SAFE_XGM_PRESSURE(env))
 	data["detonating"] = grav_pulling
 	return data
 

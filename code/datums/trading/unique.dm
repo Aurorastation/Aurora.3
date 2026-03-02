@@ -150,7 +150,7 @@
 		/obj/machinery/bluespacerelay                 = TRADER_ALL,
 		/obj/item/stack/telecrystal                   = TRADER_THIS_TYPE,
 		/obj/item/organ/internal/brain/golem                   = TRADER_THIS_TYPE,
-		/obj/item/device/soulstone                    = TRADER_THIS_TYPE,
+		/obj/item/soulstone                    = TRADER_THIS_TYPE,
 		/obj/item/circuitboard/telesci_console = TRADER_THIS_TYPE,
 		/obj/item/circuitboard/telesci_pad     = TRADER_THIS_TYPE,
 		/obj/item/phylactery                          = TRADER_THIS_TYPE,

@@ -17,10 +17,11 @@
 	map = "People's Space Station"
 	descriptor = "Built in the interwar period, the People's Space Station bears the prestige of being the first space installation designed, constructed, and manned by Tajara."
 
-/obj/effect/overmap/visitable/sector/peoples_station
+/obj/effect/overmap/visitable/ship/stationary/peoples_station
 	name = "People's Space Station"
+	class = "PRASS"
+	designation = "People's Space Station"
 	desc = "Built in the interwar period, the People's Space Station bears the prestige of being the first space installation designed, constructed, and manned by Tajara."
-
 	icon = 'icons/obj/overmap/overmap_stationary.dmi'
 	icon_state = "battlestation"
 	color = "#8C8A81"
@@ -50,7 +51,7 @@
 	comms_support = TRUE
 	comms_name = "people's station"
 
-/obj/effect/overmap/visitable/sector/peoples_station/get_skybox_representation()
+/obj/effect/overmap/visitable/ship/stationary/peoples_station/get_skybox_representation()
 	var/image/skybox_image = image('icons/skybox/subcapital_ships.dmi', "pss")
 	skybox_image.pixel_x = rand(0,64)
 	skybox_image.pixel_y = rand(128,256)

@@ -203,12 +203,12 @@
 	var/old_broken_state = broken_state
 	switch(broken_state)
 		if(GRAV_NEEDS_SCREWDRIVER)
-			if(attacking_item.isscrewdriver())
+			if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 				to_chat(user, SPAN_NOTICE("You secure the screws of the framework."))
 				attacking_item.play_tool_sound(get_turf(src), 50)
 				broken_state++
 		if(GRAV_NEEDS_WELDING)
-			if(attacking_item.iswelder())
+			if(attacking_item.tool_behaviour == TOOL_WELDER)
 				var/obj/item/weldingtool/WT = attacking_item
 				if(WT.use(1, user))
 					to_chat(user, SPAN_NOTICE("You mend the damaged framework."))
@@ -225,13 +225,13 @@
 				else
 					to_chat(user, SPAN_NOTICE("You need 10 sheets of plasteel."))
 		if(GRAV_NEEDS_WRENCH)
-			if(attacking_item.iswrench())
+			if(attacking_item.tool_behaviour == TOOL_WRENCH)
 				to_chat(user, SPAN_NOTICE("You secure the plating to the framework."))
 				attacking_item.play_tool_sound(get_turf(src), 75)
 				set_fix()
 		else
 			..()
-	if(attacking_item.iscrowbar())
+	if(attacking_item.tool_behaviour == TOOL_CROWBAR)
 		if(backpanelopen)
 			attacking_item.play_tool_sound(get_turf(src), 50)
 			to_chat(user, SPAN_NOTICE("You replace the back panel."))
@@ -381,9 +381,9 @@
 			set_state(0)
 		else
 			if(charging_state == POWER_UP)
-				charge_count += 2
+				charge_count += rand(1,5)
 			else if(charging_state == POWER_DOWN)
-				charge_count -= 2
+				charge_count -= rand(1,5)
 
 			if(charge_count % 4 == 0 && prob(75)) // Let them know it is charging/discharging.
 				playsound(src.loc, 'sound/effects/EMPulse.ogg', 100, 1)
@@ -418,8 +418,7 @@
 					current_overlay = overlay_state
 
 /obj/machinery/gravity_generator/main/proc/pulse_radiation(var/amount = 20)
-	for(var/mob/living/L in view(7, src))
-		L.apply_damage(amount, DAMAGE_RADIATION, damage_flags = DAMAGE_FLAG_DISPERSED)
+	SSradiation.radiate(src, amount)
 
 // Shake everyone on the z level to let them know that gravity was enagaged/disenagaged.
 /obj/machinery/gravity_generator/main/proc/shake_everyone()
@@ -455,6 +454,7 @@
 	return INITIALIZE_HINT_LATELOAD
 
 /obj/machinery/gravity_generator/main/LateInitialize()
+	..()
 	if(SSatlas.current_map.use_overmap && !linked)
 		var/my_sector = GLOB.map_sectors["[z]"]
 		if (istype(my_sector, /obj/effect/overmap/visitable))
@@ -463,7 +463,7 @@
 		linked.gravity_generator = src
 
 /obj/machinery/gravity_generator/main/proc/updateareas()
-	for(var/area/A in get_sorted_areas())
+	for(var/area/A in GLOB.the_station_areas)
 		if(!(get_area_type(A) == AREA_STATION))
 			continue
 		localareas += A

@@ -30,7 +30,7 @@
 		return
 	. += "The valve is dialed to <b>[pressure_setting]%</b>."
 	if(tank)
-		. += "The tank dial reads <b>[tank.air_contents.return_pressure()] kPa</b>."
+		. += "The tank dial reads <b>[XGM_PRESSURE(tank.air_contents)] kPa</b>."
 	else
 		. += "Nothing is attached to the tank valve!"
 
@@ -44,7 +44,7 @@
 
 /obj/item/gun/launcher/pneumatic/verb/set_pressure() //set amount of tank pressure.
 	set name = "Set Valve Pressure"
-	set category = "Object"
+	set category = "Object.Held"
 	set src in range(0)
 	var/N = input("Percentage of tank used per shot:","[src]") as null|anything in possible_pressure_amounts
 	if (N)
@@ -101,9 +101,9 @@
 	if(T)
 		var/datum/gas_mixture/environment = T.return_air()
 		if(environment)
-			environment_pressure = environment.return_pressure()
+			environment_pressure = XGM_PRESSURE(environment)
 
-	fire_pressure = (tank.air_contents.return_pressure() - environment_pressure)*pressure_setting/100
+	fire_pressure = (XGM_PRESSURE(tank.air_contents) - environment_pressure)*pressure_setting/100
 	if(fire_pressure < 10)
 		to_chat(user, "There isn't enough gas in the tank to fire [src].")
 		return null
@@ -188,14 +188,14 @@
 			else
 				to_chat(user, SPAN_NOTICE("You need at least five metal sheets to complete this task."))
 			return
-	else if(istype(attacking_item,/obj/item/device/transfer_valve))
+	else if(istype(attacking_item,/obj/item/transfer_valve))
 		if(buildstate == 4)
 			qdel(attacking_item)
 			to_chat(user, SPAN_NOTICE("You install the transfer valve and connect it to the piping."))
 			buildstate++
 			update_icon()
 			return
-	else if(attacking_item.iswelder())
+	else if(attacking_item.tool_behaviour == TOOL_WELDER)
 		if(buildstate == 1)
 			var/obj/item/weldingtool/T = attacking_item
 			if(T.use(0,user))

@@ -19,9 +19,12 @@ BLIND     // can't see anything
 	w_class = WEIGHT_CLASS_SMALL
 	slot_flags = SLOT_EYES
 	body_parts_covered = EYES
+	light_system = MOVABLE_LIGHT
 	var/vision_flags = 0
 	var/darkness_view = 0//Base human is 2
 	var/prescription = 0
+	/// The amount of nightvision these glasses have. This should be a number between 0 and 1.
+	var/lighting_alpha = LIGHTING_PLANE_ALPHA_VISIBLE
 	var/see_invisible = -1
 	var/toggleable = 0
 	var/toggle_changes_appearance = TRUE
@@ -33,16 +36,22 @@ BLIND     // can't see anything
 	var/activated_color = null
 	var/normal_layer = GLASSES_LAYER
 	var/shatter_material = /obj/item/material/shard
+	var/brand_name
 	species_restricted = list("exclude",BODYTYPE_VAURCA_BREEDER)
 	drop_sound = 'sound/items/drop/accessory.ogg'
 	pickup_sound = 'sound/items/pickup/accessory.ogg'
+
+/obj/item/clothing/glasses/Initialize()
+	. = ..()
+	if(brand_name)
+		desc += " This pair has been made in [brand_name] colors."
 
 // Called in mob/RangedAttack() and mob/UnarmedAttack.
 /obj/item/clothing/glasses/proc/Look(var/atom/A, mob/user, var/proximity)
 	return 0 // return 1 to cancel attack_hand/RangedAttack()
 
 /obj/item/clothing/glasses/verb/change_layer()
-	set category = "Object"
+	set category = "Object.Equipped"
 	set name = "Change Glasses Layer"
 	set src in usr
 
@@ -57,7 +66,7 @@ BLIND     // can't see anything
 	if(stabbed && (body_parts_covered & EYES) && !(item_flags & ITEM_FLAG_THICK_MATERIAL) && shatter_material && prob(stab_item.force * 5))
 		var/mob/M = loc
 		M.visible_message(SPAN_WARNING("\The [src] [M] is wearing gets shattered!"))
-		playsound(loc, /singleton/sound_category/glass_break_sound, 70, TRUE)
+		playsound(loc, SFX_BREAK_GLASS, 70, TRUE)
 		new shatter_material(M.loc)
 		qdel(src)
 		return FALSE
@@ -71,18 +80,18 @@ BLIND     // can't see anything
 /obj/item/clothing/glasses/attack_self(mob/user)
 	if(toggleable)
 		if(active)
-			active = 0
+			active = FALSE
 			if(toggle_changes_appearance)
 				icon_state = off_state
 				item_state = off_state
 				user.update_inv_glasses()
 			flash_protection = FLASH_PROTECTION_NONE
 			tint = TINT_NONE
-			to_chat(usr, "You deactivate the optical matrix on the [src].")
+			to_chat(usr, SPAN_NOTICE("You deactivate the optical matrix on the [src]."))
 			if(activated_color)
-				set_light(0)
+				set_light_on(active)
 		else
-			active = 1
+			active = TRUE
 			if(toggle_changes_appearance)
 				icon_state = initial(icon_state)
 				item_state = initial(icon_state)
@@ -91,9 +100,10 @@ BLIND     // can't see anything
 				sound_to(usr, activation_sound)
 			flash_protection = initial(flash_protection)
 			tint = initial(tint)
-			to_chat(usr, "You activate the optical matrix on the [src].")
+			to_chat(usr, SPAN_NOTICE("You activate the optical matrix on the [src]."))
 			if(activated_color)
-				set_light(2, 0.4, activated_color)
+				set_light_range_power_color(2, 0.4, activated_color)
+				set_light_on(active)
 	user.update_action_buttons()
 	user.update_inv_l_hand(0)
 	user.update_inv_r_hand(1)
@@ -114,7 +124,7 @@ BLIND     // can't see anything
 	origin_tech = list(TECH_MAGNET = 2, TECH_ENGINEERING = 2)
 	toggleable = 1
 	vision_flags = SEE_TURFS
-	see_invisible = SEE_INVISIBLE_NOLIGHTING
+	lighting_alpha = LIGHTING_PLANE_ALPHA_SOMEWHAT_INVISIBLE
 	item_flags = ITEM_FLAG_AIRTIGHT
 	activated_color = LIGHT_COLOR_GREEN
 
@@ -137,8 +147,8 @@ BLIND     // can't see anything
 	prescription = 7
 
 /obj/item/clothing/glasses/meson/aviator/verb/toggle()
-	set category = "Object"
-	set name = "Toggle Aviators"
+	set category = "Object.Equipped"
+	set name = "Toggle Meson Mode"
 	set src in usr
 
 	attack_self(usr)
@@ -148,14 +158,14 @@ BLIND     // can't see anything
 	desc = "Modified aviator glasses with a toggled health HUD. Comes with bonus prescription overlay."
 	icon_state = "aviator_med"
 	item_state = "aviator_med"
-	action_button_name = "Toggle Mode"
+	action_button_name = "Toggle HUD"
 	toggleable = 1
 	activation_sound = 'sound/effects/pop.ogg'
 	prescription = 7
 
 /obj/item/clothing/glasses/hud/health/aviator/verb/toggle()
-	set category = "Object"
-	set name = "Toggle Aviators"
+	set category = "Object.Equipped"
+	set name = "Toggle HUD mode"
 	set src in usr
 
 	attack_self(usr)
@@ -219,7 +229,7 @@ BLIND     // can't see anything
 	origin_tech = list(TECH_MAGNET = 2)
 	darkness_view = 7
 	toggleable = 1
-	see_invisible = SEE_INVISIBLE_NOLIGHTING
+	lighting_alpha = LIGHTING_PLANE_ALPHA_SOMEWHAT_INVISIBLE
 	off_state = "denight"
 
 /obj/item/clothing/glasses/night/Initialize()
@@ -237,8 +247,8 @@ BLIND     // can't see anything
 	prescription = 7
 
 /obj/item/clothing/glasses/night/aviator/verb/toggle()
-	set category = "Object"
-	set name = "Toggle Aviators"
+	set category = "Object.Equipped"
+	set name = "Toggle Nightvision Mode"
 	set src in usr
 
 	attack_self(usr)
@@ -280,8 +290,8 @@ BLIND     // can't see anything
 	toggle()
 
 /obj/item/clothing/glasses/safety/goggles/verb/toggle()
-	set category = "Object"
-	set name = "Adjust goggles"
+	set category = "Object.Equipped"
+	set name = "Adjust Goggles"
 	set src in usr
 
 	if(use_check_and_message(usr))
@@ -309,7 +319,7 @@ BLIND     // can't see anything
 	return
 
 /obj/item/clothing/glasses/safety/goggles/change_layer()
-	set category = "Object"
+	set category = "Object.Equipped"
 	set name = "Change Glasses Layer"
 	set src in usr
 
@@ -365,7 +375,6 @@ BLIND     // can't see anything
 /obj/item/clothing/glasses/safety/goggles/tactical
 	name = "tactical goggles"
 	desc = "A stylish pair of tactical goggles that protect the eyes from aerosolized chemicals, debris and bright flashes."
-	var/brand_name
 	icon_state = "military_goggles"
 	var/sprite_state = "military_goggles"
 	// Implementing this temporarily to use the generic goggle inhands until unique sprites are made.
@@ -381,8 +390,6 @@ BLIND     // can't see anything
 	item_state = sprite_state
 	off_state = sprite_state
 	. = ..()
-	if(brand_name)
-		desc += " This pair has been made in [brand_name] colors."
 
 /obj/item/clothing/glasses/safety/goggles/tactical/handle_additional_changes()
 	flash_protection = up ? FLASH_PROTECTION_NONE : FLASH_PROTECTION_MODERATE
@@ -395,7 +402,6 @@ BLIND     // can't see anything
 /obj/item/clothing/glasses/safety/goggles/goon
 	name = "tactical goggles"
 	desc = "A stylish pair of tactical goggles that protect the eyes from aerosolized chemicals, debris and bright flashes. Comes with a security HUD."
-	var/brand_name
 	icon_state = "security_goggles"
 	var/sprite_state = "security_goggles"
 	// Implementing this temporarily to use the generic goggle inhands until unique sprites are made.
@@ -411,8 +417,6 @@ BLIND     // can't see anything
 	item_state = sprite_state
 	off_state = sprite_state
 	. = ..()
-	if(brand_name)
-		desc += " This pair has been made in [brand_name] colors."
 
 /obj/item/clothing/glasses/safety/goggles/goon/process_hud(var/mob/M)
 	if(!up)
@@ -443,7 +447,6 @@ BLIND     // can't see anything
 /obj/item/clothing/glasses/safety/goggles/medical
 	name = "medical goggles"
 	desc = "A stylish pair of medical goggles that protect the eyes from aerosolized chemicals and debris. Comes with a medical HUD."
-	var/brand_name
 	icon_state = "security_goggles"
 	var/sprite_state = "security_goggles"
 	// Implementing this temporarily to use the generic goggle inhands until unique sprites are made.
@@ -458,8 +461,6 @@ BLIND     // can't see anything
 	item_state = sprite_state
 	off_state = sprite_state
 	. = ..()
-	if(brand_name)
-		desc += " This pair has been made in [brand_name] colors."
 
 /obj/item/clothing/glasses/safety/goggles/medical/process_hud(var/mob/M)
 	if(!up)
@@ -492,8 +493,8 @@ BLIND     // can't see anything
 	pickup_sound = 'sound/items/pickup/gloves.ogg'
 
 /obj/item/clothing/glasses/eyepatch/verb/flip_patch()
-	set name = "Flip Patch"
-	set category = "Object"
+	set name = "Flip Eyepatch"
+	set category = "Object.Equipped"
 	set src in usr
 
 	if(use_check_and_message(usr))
@@ -540,7 +541,7 @@ BLIND     // can't see anything
 	prescription = 7
 
 /obj/item/clothing/glasses/material/aviator/verb/toggle()
-	set category = "Object"
+	set category = "Object.Equipped"
 	set name = "Toggle Aviators"
 	set src in usr
 
@@ -756,8 +757,8 @@ BLIND     // can't see anything
 	toggle()
 
 /obj/item/clothing/glasses/welding/verb/toggle()
-	set category = "Object"
-	set name = "Adjust welding goggles"
+	set category = "Object.Equipped"
+	set name = "Adjust Welding Goggles"
 	set src in usr
 
 	if(usr.canmove && !usr.stat && !usr.restrained())
@@ -993,7 +994,7 @@ BLIND     // can't see anything
 		item_state = "[initial(item_state)]_off"
 
 /obj/item/clothing/glasses/sunglasses/sechud/aviator/verb/toggle()
-	set category = "Object"
+	set category = "Object.Equipped"
 	set name = "Toggle Aviators"
 	set src in usr
 
@@ -1051,7 +1052,7 @@ BLIND     // can't see anything
 	origin_tech = list(TECH_MAGNET = 3)
 	toggleable = 1
 	vision_flags = SEE_MOBS
-	see_invisible = SEE_INVISIBLE_NOLIGHTING
+	lighting_alpha = LIGHTING_PLANE_ALPHA_SOMEWHAT_INVISIBLE
 	flash_protection = FLASH_PROTECTION_REDUCED
 	item_flags = ITEM_FLAG_AIRTIGHT
 
@@ -1121,7 +1122,7 @@ BLIND     // can't see anything
 	. += "Modified aviator glasses with a toggled thermal-vision mode."
 
 /obj/item/clothing/glasses/thermal/aviator/verb/toggle()
-	set category = "Object"
+	set category = "Object.Equipped"
 	set name = "Toggle Aviators"
 	set src in usr
 
@@ -1168,11 +1169,9 @@ BLIND     // can't see anything
 	if(active && slot == slot_glasses)
 		user.AddOverlays(mob_overlay, ATOM_ICON_CACHE_PROTECTED)
 		user.AddOverlays(mob_overlay_emis, TRUE)
-		user.z_flags |= ZMM_MANGLE_PLANES
 	else
 		user.CutOverlays(mob_overlay, ATOM_ICON_CACHE_PROTECTED)
 		user.AddOverlays(mob_overlay_emis, TRUE)
-		user.z_flags &= ZMM_MANGLE_PLANES
 	return ..()
 
 /obj/item/clothing/glasses/eyepatch/hud/Destroy()
@@ -1232,7 +1231,7 @@ BLIND     // can't see anything
 	name = "MESpatch"
 	desc = "An optical meson scanner display that connects directly to the optic nerve of the user, giving you cool green vision at the low cost of your only other eye."
 	vision_flags = SEE_TURFS
-	see_invisible = SEE_INVISIBLE_NOLIGHTING
+	lighting_alpha = LIGHTING_PLANE_ALPHA_SOMEWHAT_INVISIBLE
 	eye_color = COLOR_LIME
 
 /obj/item/clothing/glasses/eyepatch/hud/meson/Initialize()
@@ -1258,7 +1257,7 @@ BLIND     // can't see anything
 	name = "HEATpatch"
 	desc = "A thermal-type heads-up display that connects directly to the optic nerve of the user. Double the tacticool, half the eyes."
 	vision_flags = SEE_MOBS
-	see_invisible = SEE_INVISIBLE_NOLIGHTING
+	lighting_alpha = LIGHTING_PLANE_ALPHA_SOMEWHAT_INVISIBLE
 	eye_color = COLOR_ORANGE
 
 /obj/item/clothing/glasses/eyepatch/hud/thermal/Initialize()
@@ -1276,7 +1275,7 @@ BLIND     // can't see anything
 	name = "NITEpatch"
 	desc = "A light-amplifying display that connects directly to the optic nerve of the user. Helps you avoid a battery charge from bumping an officer in the dark."
 	darkness_view = 7
-	see_invisible = SEE_INVISIBLE_NOLIGHTING
+	lighting_alpha = LIGHTING_PLANE_ALPHA_SOMEWHAT_INVISIBLE
 	eye_color = COLOR_GREEN
 
 /obj/item/clothing/glasses/eyepatch/hud/night/Initialize()
@@ -1296,9 +1295,8 @@ BLIND     // can't see anything
 /obj/item/clothing/glasses/spiffygogs/attack_self()
 	toggle()
 
-
 /obj/item/clothing/glasses/spiffygogs/verb/toggle()
-	set category = "Object"
+	set category = "Object.Equipped"
 	set name = "Adjust Goggles"
 	set src in usr
 

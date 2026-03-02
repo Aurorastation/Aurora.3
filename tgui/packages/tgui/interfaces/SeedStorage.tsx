@@ -44,7 +44,8 @@ export const SeedStorage = (props, context) => {
               color="bad"
               onClick={() => act('purge')}
             />
-          }>
+          }
+        >
           <Table>
             <Table.Row header>
               <Table.Cell>Name</Table.Cell>

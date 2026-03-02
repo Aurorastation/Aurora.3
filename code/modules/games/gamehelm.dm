@@ -68,7 +68,7 @@
 
 	if(playing_game)
 		if(!muted)
-			playsound(loc, /singleton/sound_category/quick_arcade, 20)
+			playsound(loc, SFX_ARCADE, 20)
 		if(ismob(loc))
 			var/picked_action = pick(game_actions)
 			var/self_action = game_actions[picked_action]
@@ -77,7 +77,7 @@
 			loc.visible_message("<b>[loc]</b> [picked_action]!", SPAN_NOTICE("You [self_action]!"), range = 3)
 	else
 		if(!muted)
-			playsound(loc, /singleton/sound_category/computerbeep_sound, 20)
+			playsound(loc, SFX_COMPUTER_BEEP, 20)
 
 /obj/item/gamehelm/AltClick(mob/user)
 	if(use_check(user))
@@ -123,7 +123,7 @@
 		else
 			user.visible_message("<b>[user]</b> taps on a few buttons and \the [src] springs to life!", SPAN_NOTICE("You tap on a few buttons and \the [src] springs to life!"), range = 3)
 		if(!muted)
-			playsound(loc, /singleton/sound_category/boops, 25)
+			playsound(loc, SFX_COMPUTER_BOOP, 25)
 		set_game(game_type_to_state[choice])
 	return ..()
 

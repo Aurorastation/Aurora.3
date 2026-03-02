@@ -19,6 +19,7 @@
 	attack_verb = list("attacked", "slashed", "stabbed", "sliced", "torn", "ripped", "diced", "cut")
 	canremove = FALSE
 	var/mob/living/creator
+	tool_behaviour = TOOL_CROWBAR
 
 /obj/item/melee/arm_blade/New()
 	..()
@@ -49,11 +50,6 @@
 			host.embedded -= src
 			host.drop_from_inventory(src)
 		QDEL_IN(src, 1)
-
-/obj/item/melee/arm_blade/iscrowbar()
-	if(creator.a_intent == I_HELP)
-		return TRUE
-	return FALSE
 
 /obj/item/melee/arm_blade/resolve_attackby(atom/A, mob/living/user, var/click_parameters)
 	if(istype(A,/turf/simulated/floor) && user.a_intent != I_HELP)

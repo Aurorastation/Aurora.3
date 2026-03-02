@@ -297,7 +297,7 @@ GLOBAL_LIST_EMPTY(ticket_panels)
 		if("close")
 			ticket.close(usr.client)
 		if("pm")
-			if(check_rights(R_MOD|R_ADMIN) && ticket.owner != usr.ckey)
+			if(ticket.owner != usr.ckey && check_rights(R_MOD|R_ADMIN))
 				usr.client.cmd_admin_pm(client_by_ckey(ticket.owner), ticket = ticket)
 			else if(ticket.status == TICKET_ASSIGNED)
 				// manually check that the target client exists here as to not spam the usr for each logged out admin on the ticket

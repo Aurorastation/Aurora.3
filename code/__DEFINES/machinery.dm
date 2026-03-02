@@ -14,21 +14,63 @@
 
 // Channel numbers for power.
 #define POWER_CHAN  -1  // Use default
-#define AREA_USAGE_EQUIP   1
-#define AREA_USAGE_LIGHT   2
-#define AREA_USAGE_ENVIRON 3
-#define AREA_USAGE_TOTAL   4 // For total power used only.
+#define AREA_USAGE_EQUIP   BITFLAG(1)
+#define AREA_USAGE_LIGHT   BITFLAG(2)
+#define AREA_USAGE_ENVIRON BITFLAG(3)
+#define AREA_USAGE_TOTAL   (AREA_USAGE_EQUIP|AREA_USAGE_LIGHT|AREA_USAGE_ENVIRON) // For total power used only.
+
+#define LIGHT_USAGE(area) (area.used_light + area.oneoff_light)
+#define EQUIP_USAGE(area) (area.used_equip + area.oneoff_equip)
+#define ENVIRON_USAGE(area) (area.used_environ + area.oneoff_environ)
+#define CLEAR_USAGE(area) area.oneoff_equip = 0; area.oneoff_light = 0; area.oneoff_environ = 0;
+
+/// Returns the surplus power available to the powernet (avail - load)
+#define POWERNET_SURPLUS(powernet) powernet.avail - powernet.load
+/// Clamps the passed-in amount between 0 and the powernet's available load capacity.
+#define POWERNET_POWER_DRAW(powernet, amt) ((powernet) ? clamp(amt, 0, powernet.avail - powernet.load) : 0)
+/// Draws power from the powernet directly, if it exists.
+#define DRAW_FROM_POWERNET(powernet, amt) ((powernet) ? (powernet.load += amt) : 0)
+
+/// Adds an amount from SMES to the powernet (powernet.smes_newavail)
+#define SMES_ADD_TO_POWERNET(smes, amt) if(smes.powernet) { \
+	smes.powernet.newavail += amt; \
+	smes.powernet.smes_newavail += amt; \
+}
+/// Adds an amount to the available power in the powernet (powernet.newavail)
+#define ADD_TO_POWERNET(machine, amt) ((machine.powernet) ? (machine.powernet.newavail += amt) : 0)
+/// Returns the available power to the machine via the powernet (powernet.avail)
+#define POWER_AVAIL(machine) (machine.powernet?.avail || 0)
+/// Returns the load of the powernet attached to the machine (powernet.load)
+#define POWER_LOAD(machine) (machine.powernet?.load || 0)
+/// Returns the surplus power available to the machine via the powernet (avail - load)
+#define POWER_SURPLUS(machine) ((machine.powernet) ? (POWERNET_SURPLUS(machine.powernet)) : 0)
+/// Clamps the passed-in amount between 0 and the powernet's available load capacity.
+#define POWER_DRAW(machine, amt) (POWERNET_POWER_DRAW(machine.powernet, amt))
+/// Draws power from the machine's powernet, if it exists.
+#define DRAW_POWER(machine, amt) (DRAW_FROM_POWERNET(machine.powernet, amt))
+/// Clamps the passed-in amount between 0 and the terminal's powernet's available load capacity.
+#define TERMINAL_POWER_DRAW(amt) (src.terminal ? POWER_DRAW(src.terminal, amt) : 0)
+/// Draws power from src's terminal, if it exists.
+#define TERMINAL_DRAW_POWER(amt) (src.terminal ? (DRAW_POWER(src.terminal, amt)) : 0)
 
 #define POWER_USE_OFF       0
 #define POWER_USE_IDLE      1
 #define POWER_USE_ACTIVE    2
 
 // Bitflags for machine stat variable.
+// These definitions are copypasted in the dmdocs in 'code/game/machinery.dm' so they can be easily referenced by checking the 'stat' variable.
+// SO THAT MEANS IF YOU UPDATE THEM HERE, UPDATE THEM THERE FOR VISIBILITY!
 #define BROKEN   0x1
 #define NOPOWER  0x2
 #define POWEROFF 0x4  // TBD.
 #define MAINT    0x8  // Under maintenance.
 #define EMPED    0x10 // Temporary broken by EMP pulse.
+
+#define FABRICATOR_EXTRA_COST_FACTOR 1.25
+#define FAB_HACKED BITFLAG(1)
+#define FAB_DISABLED BITFLAG(2)
+#define FAB_SHOCKED BITFLAG(3)
+#define FAB_BUSY     BITFLAG(4)
 
 #define INOPERABLE(machine)  (machine.stat & (BROKEN|NOPOWER|MAINT|EMPED))
 #define OPERABLE(machine)    !INOPERABLE(machine)
@@ -81,7 +123,7 @@
 #define NETWORK_THIRD_DECK "Third Deck"
 #define NETWORK_INTREPID "Intrepid" // horizon shuttle, expedition/transport
 #define NETWORK_CANARY "Canary" // horizon shuttle, scout/fighter
-#define NETWORK_QUARK "Quark" // horizon shuttle, xenoarch/science
+#define NETWORK_QUARK "Quark" // horizon shuttle, xenostudies
 #define NETWORK_NEWS "News"
 #define NETWORK_CRYO_OUTPOST "#187-D Outpost"
 
@@ -104,14 +146,14 @@ GLOBAL_LIST_INIT(restricted_camera_networks, list(NETWORK_ERT,NETWORK_MERCENARY,
 #define STATUS_DISABLED 0 // RED Visability
 #define STATUS_CLOSE -1 // Close the interface
 
-/*
- *	Atmospherics Machinery.
-*/
+/**
+ * Atmospherics Machinery.
+ */
 
-///Maximum flowrate, in L/s, that the scrubbers use when siphoning. Anything higher than `CELL_VOLUME` has no effect.
+/// Maximum flowrate, in L/s, that the scrubbers use when siphoning. Anything higher than `CELL_VOLUME` has no effect.
 #define MAX_SIPHON_FLOWRATE   5000
 
-///Maximum flowrate, in L/s, that the scrubbers use when scrubbing from a turf.
+/// Maximum flowrate, in L/s, that the scrubbers use when scrubbing from a turf.
 #define MAX_SCRUBBER_FLOWRATE 400
 
 #define ATMOS_PUMP_MAX_PRESSURE 15000
@@ -159,3 +201,11 @@ GLOBAL_LIST_INIT(restricted_camera_networks, list(NETWORK_ERT,NETWORK_MERCENARY,
 #define INIT_MACHINERY_PROCESS_SELF         0x1
 #define INIT_MACHINERY_PROCESS_COMPONENTS   0x2
 #define INIT_MACHINERY_PROCESS_ALL          0x3
+
+// Status Display Modes
+#define STATUS_DISPLAY_BLANK 0
+#define STATUS_DISPLAY_TRANSFER_SHUTTLE_TIME 1
+#define STATUS_DISPLAY_MESSAGE 2
+#define STATUS_DISPLAY_ALERT 3
+#define STATUS_DISPLAY_TIME 4
+#define STATUS_DISPLAY_CUSTOM 99

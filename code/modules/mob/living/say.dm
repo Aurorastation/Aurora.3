@@ -147,7 +147,7 @@ var/list/channel_to_radio_key = new
 
 /mob/living/proc/handle_message_mode(message_mode, message, verb, speaking, used_radios, alt_name, whisper)
 	if(message_mode == "intercom")
-		for(var/obj/item/device/radio/intercom/I in view(1, src))
+		for(var/obj/item/radio/intercom/I in view(1, src))
 			used_radios += I
 			I.talk_into(src, message, verb, speaking)
 
@@ -248,6 +248,13 @@ var/list/channel_to_radio_key = new
 	if(!verb)
 		verb = say_quote(message, speaking, is_singing, whisper)
 
+	var/is_shouting = FALSE
+	if(speaking)
+		for(var/verb_to_check in speaking.shout_verb)
+			if(verb_to_check == verb)
+				is_shouting = TRUE
+				continue
+
 	if(is_muzzled())
 		to_chat(src, SPAN_DANGER("You're muzzled and cannot speak!"))
 		return
@@ -313,7 +320,7 @@ var/list/channel_to_radio_key = new
 		if(!speaking || !(speaking.flags & PRESSUREPROOF))
 			//make sure the air can transmit speech - speaker's side
 			var/datum/gas_mixture/environment = T.return_air()
-			var/pressure = (environment)? environment.return_pressure() : 0
+			var/pressure = SAFE_XGM_PRESSURE(environment)
 			if(pressure < SOUND_MINIMUM_PRESSURE)
 				message_range = 1
 
@@ -357,6 +364,10 @@ var/list/channel_to_radio_key = new
 	var/list/langchat_styles = list()
 	if(istype(speaking, /datum/language/noise))
 		langchat_styles = list("emote", "langchat_small")
+	if(whisper)
+		langchat_styles = list("langchat_italic")
+	if(is_shouting)
+		langchat_styles = list("langchat_yell")
 
 	langchat_speech(message, get_hearers_in_view(message_range, src), speaking, additional_styles = langchat_styles)
 

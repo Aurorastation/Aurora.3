@@ -7,7 +7,7 @@
 /datum/uplink_item/item/medical/sinpockets
 	name = "Box of Sin-Pockets"
 	bluecrystal_cost = 1
-	path = /obj/item/storage/box/sinpockets
+	path = /obj/item/storage/box/unique/donkpockets/sinpockets
 
 /datum/uplink_item/item/medical/lunchbox
 	name = "Tactical Lunchbox"
@@ -61,7 +61,7 @@
 
 /datum/uplink_item/item/medical/berserk_injectors
 	name = "Box of Berserk Injectors"
-	bluecrystal_cost = 4
+	telecrystal_cost = 4
 	path = /obj/item/storage/box/syndie_kit/berserk_injectors
 	desc = "Comes with 2x autoinjectors filled with Red Nightshade - used to induce a berserk state lasting ~2.5 minutes per injector. You cannot use advanced tools (guns/computer consoles/etc.) while berserk. Using both injectors will increase time berserk, but will lead to liver failure."
 
@@ -88,6 +88,12 @@
 	bluecrystal_cost = 1
 	path = /obj/item/storage/firstaid/adv
 	desc = "Note: doesn't come with a medical scanner."
+
+/datum/uplink_item/item/medical/nanopaste
+	name = "Nanopaste"
+	bluecrystal_cost = 4
+	path = /obj/item/stack/nanopaste
+	desc = "A tube of paste containing swarms of repair nanites. Very effective in repairing robotic machinery."
 
 /datum/uplink_item/item/medical/bloodpack
 	name = "O- blood pack"

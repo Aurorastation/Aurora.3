@@ -211,6 +211,8 @@
 			fire_sound = 'sound/weapons/gunshot/bolter.ogg')
 	)
 
+/obj/item/gun/energy/disruptorpistol/security
+	pin = /obj/item/firing_pin/wireless
 
 /obj/item/gun/energy/disruptorpistol/miniature
 	name = "miniature disruptor pistol"
@@ -266,3 +268,6 @@
 
 /obj/item/gun/energy/disruptorpistol/magnum/unlocked
 	pin = /obj/item/device/firing_pin/wireless/unlocked
+
+/obj/item/gun/energy/disruptorpistol/magnum/security
+	pin = /obj/item/firing_pin/wireless

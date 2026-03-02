@@ -22,6 +22,7 @@
 	return INITIALIZE_HINT_LATELOAD
 
 /obj/machinery/ammunition_loader/LateInitialize()
+	. = ..()
 	for(var/obj/machinery/ship_weapon/SW in SSmachinery.machinery)
 		if(SW.weapon_id == weapon_id)
 			if(get_area(SW) == get_area(src))
@@ -66,7 +67,7 @@
 				return load_ammo(SA, HV)
 			else
 				to_chat(user, SPAN_WARNING("\The [CL] does not appear to be holding any compatible ammunition."))
-		if(istype(attacking_item, /obj/item/device/multitool))
+		if(istype(attacking_item, /obj/item/multitool))
 			to_chat(user, SPAN_NOTICE("You hook up the tester's wires to \the [src]: its identification tag is <b>[weapon_id]</b>."))
 			var/new_id = input(user, "Change the identification tag?", "Identification Tag", weapon_id)
 			if(length(new_id) && !use_check_and_message(user))

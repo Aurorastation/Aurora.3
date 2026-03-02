@@ -16,7 +16,7 @@
 		/obj/item/clothing/accessory/badge,
 		/obj/item/clothing/accessory/locket,
 		/obj/item/clothing/ring,
-		/obj/item/device/flashlight/pen,
+		/obj/item/flashlight/pen,
 		/obj/item/seeds,
 		/obj/item/coin,
 		/obj/item/stack/dice,
@@ -32,8 +32,8 @@
 		/obj/item/photo,
 		/obj/item/reagent_containers/pill,
 		/obj/item/stamp,
-		/obj/item/device/paicard,
-		/obj/item/device/encryptionkey,
+		/obj/item/paicard,
+		/obj/item/encryptionkey,
 		/obj/item/fluff,
 		/obj/item/storage/business_card_holder,
 		/obj/item/sample,
@@ -184,7 +184,7 @@
 
 /obj/item/storage/wallet/lanyard/verb/toggle_icon_layer()
 	set name = "Switch Lanyard Layer"
-	set category = "Object"
+	set category = "Object.Equipped"
 	set src in usr
 
 	if(use_check_and_message(usr, use_flags = USE_DISALLOW_SILICONS))

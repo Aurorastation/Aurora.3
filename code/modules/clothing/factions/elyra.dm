@@ -51,7 +51,7 @@
 
 /obj/item/clothing/under/elyra_holo/verb/transform_holoclothing()
 	set name = "Transform Holoclothing"
-	set category = "Object"
+	set category = "Object.Equipped"
 	set src in usr
 	select_appearance(usr)
 

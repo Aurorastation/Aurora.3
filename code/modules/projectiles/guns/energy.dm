@@ -11,21 +11,31 @@
 	safetyon_sound = 'sound/weapons/laser_safetyon.ogg'
 	safetyoff_sound = 'sound/weapons/laser_safetyoff.ogg'
 
-	var/has_icon_ratio = TRUE // Does this gun use the ratio system to modify its icon_state?
-	var/has_item_ratio = TRUE // Does this gun use the ratio system to paint its item_states?
+	/// Does this gun use the ratio system to modify its icon_state?
+	var/has_icon_ratio = TRUE
+	/// Does this gun use the ratio system to paint its item_states?
+	var/has_item_ratio = TRUE
 
-	var/obj/item/cell/power_supply //What type of power cell this uses
-	var/charge_cost = 200 //How much energy is needed to fire.
-	var/max_shots = 10 //Determines the capacity of the weapon's power cell. Specifying a cell_type overrides this value.
+	/// What type of power cell this uses.
+	var/obj/item/cell/power_supply
+	/// How much energy is needed to fire.
+	var/charge_cost = 200
+	/// Determines the capacity of the weapon's power cell. Specifying a cell_type overrides this value.
+	var/max_shots = 10
 	var/cell_type = null
-	var/projectile_type = /obj/projectile/beam/practice //also passed to turrets
+	/// Also passed to turrets.
+	var/projectile_type = /obj/projectile/beam/practice
 	var/modifystate
-	var/charge_meter = 1	//if set, the icon state will be chosen based on the current charge
-	var/list/required_firemode_auth //This list matches with firemode index, used to determine which firemodes get unlocked with what level of authorization.
+	/// If set, the icon state will be chosen based on the current charge.
+	var/charge_meter = 1
+	/// This list matches with firemode index, used to determine which firemodes get unlocked with what level of authorization.
+	var/list/required_firemode_auth
 
 	//self-recharging
-	var/self_recharge = 0	//if set, the weapon will recharge itself
-	var/use_external_power = 0 //if set, the weapon will look for an external power source to draw from, otherwise it recharges magically
+	/// If set, the weapon will recharge itself.
+	var/self_recharge = FALSE
+	/// If set, the weapon will look for an external power source to draw from, otherwise it recharges magically
+	var/use_external_power = FALSE
 	var/recharge_time = 4
 	/// Multiplies by charge cost to determine how much charge should be returned
 	var/recharge_multiplier = 1
@@ -34,17 +44,25 @@
 	/// External power source for the gun. Checked by get_external_power_supply()
 	var/obj/item/recharger
 
-	//vars passed to turrets
-	var/can_turret = 0						//1 allows you to attach the gun on a turret
-	var/secondary_projectile_type = null	//if null, turret defaults to projectile_type
-	var/secondary_fire_sound = null			//if null, turret defaults to fire_sound
-	var/can_switch_modes = 0				//1 allows switching lethal and stun modes
-	var/turret_sprite_set = "carbine"		//set of sprites to use for the turret gun
-	var/turret_is_lethal = 1				//is the gun in lethal (secondary) mode by default
+	// Vars passed to turrets
+	/// If TRUE, allows you to attach the gun on a turret.
+	var/can_turret = FALSE
+	/// If null, turret defaults to projectile_type.
+	var/secondary_projectile_type = null
+	/// If null, turret defaults to fire_sound.
+	var/secondary_fire_sound = null
+	/// If TRUE, allows switching lethal and stun modes.
+	var/can_switch_modes = FALSE
+	/// Set of sprites to use for the turret gun.
+	var/turret_sprite_set = "carbine"
+	/// Is the gun in lethal (secondary) mode by default?
+	var/turret_is_lethal = TRUE
 
 /obj/item/gun/energy/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	. += "This is an energy weapon. Most energy weapons can fire through windows harmlessly. Energy weapons must be recharged once depleted."
+	if(can_turret)
+		. += "This weapon can be installed on a turret mount."
 
 /obj/item/gun/energy/feedback_hints(mob/user, distance, is_adjacent)
 	. += ..()

@@ -28,7 +28,7 @@
 
 /obj/item/gun/projectile/colt/detective/verb/rename_gun()
 	set name = "Name Gun"
-	set category = "Object"
+	set category = "Object.Held"
 	set desc = "Rename your gun. If you're the detective."
 	set src in usr
 
@@ -332,7 +332,7 @@
 
 /obj/item/gun/projectile/pistol/detective/verb/rename_gun()
 	set name = "Name Gun"
-	set category = "Object"
+	set category = "Object.Held"
 	set desc = "Rename your gun."
 	set src in usr
 
@@ -419,6 +419,22 @@
 		icon_state = "m8"
 	else
 		icon_state = "m8-empty"
+
+/obj/item/gun/projectile/pistol/sol/siib
+	name = "solarian SIIB silenced pistol"
+	desc = "A variant of the M8 solarian service pistol, this paticular variant comes with an integrated recoil compensator and are used by SIIB agents and operatives. Officially, this pistol does not exist."
+	icon = 'icons/obj/guns/sol_pistol.dmi'
+	icon_state = "m8-siib"
+	item_state = "m8-siib"
+	suppressed = FALSE
+	can_suppress = FALSE
+
+/obj/item/gun/projectile/pistol/sol/siib/update_icon()
+	..()
+	if(ammo_magazine)
+		icon_state = "m8-siib"
+	else
+		icon_state = "m8-siib-empty"
 
 /obj/item/gun/projectile/pistol/sol/konyang
 	name = "konyang service pistol"

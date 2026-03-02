@@ -3,8 +3,8 @@
 	icon_keyboard_emis = "yellow_key_mask"
 	icon_screen = "solar"
 	light_color = COLOR_ORANGE
-	idle_power_usage = 250
-	active_power_usage = 500
+	idle_power_usage = 2500
+	active_power_usage = 10000
 	manufacturer = "hephaestus"
 	var/ui_template
 	var/initial_id_tag
@@ -18,7 +18,7 @@
 	return fusion.get_local_network()
 
 /obj/machinery/computer/fusion/attackby(obj/item/attacking_item, mob/user)
-	if(attacking_item.ismultitool())
+	if(attacking_item.tool_behaviour == TOOL_MULTITOOL)
 		var/datum/component/local_network_member/fusion = GetComponent(/datum/component/local_network_member)
 		fusion.get_new_tag(user)
 		return
@@ -45,5 +45,5 @@
 /obj/machinery/computer/fusion/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if (!ui)
-		ui = new(user, src, ui_template, name, 400, 500)
+		ui = new(user, src, ui_template, name)
 		ui.open()

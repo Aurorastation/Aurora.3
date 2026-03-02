@@ -1,6 +1,12 @@
 import { BooleanLike } from '../../common/react';
 import { useBackend } from '../backend';
-import { LabeledList, Button, Input, NumberInput, Section } from '../components';
+import {
+  LabeledList,
+  Button,
+  Input,
+  NumberInput,
+  Section,
+} from '../components';
 import { Window } from '../layouts';
 
 export type TerminalData = {
@@ -38,7 +44,8 @@ export const OrderTerminal = (props, context) => {
               icon={data.editmode ? 'lock-open' : 'lock'}
               onClick={() => act('locking')}
             />
-          }>
+          }
+        >
           {data.editmode ? <AddItems /> : ''}
           {data.items.length < 1 ? 'No items available.' : <ItemWindow />}
         </Section>
@@ -55,7 +62,7 @@ export const ItemWindow = (props, context) => {
       <LabeledList>
         {data.items.map((item) => (
           <LabeledList.Item key={item.name} label={item.name}>
-            {item.price}电 &nbsp;
+            {item.price.toFixed(2)}电 &nbsp;
             <Button
               content="Buy"
               icon="calendar"
@@ -84,7 +91,8 @@ export const ItemWindow = (props, context) => {
               onClick={() => act('confirm')}
             />
           </>
-        }>
+        }
+      >
         {data.buying.length < 1 ? (
           'Your shopping cart is empty.'
         ) : (

@@ -19,8 +19,8 @@
 	toggle()
 
 /obj/item/clothing/accessory/sinta_hood/verb/toggle()
-	set category = "Object"
-	set name = "Adjust Hood"
+	set category = "Object.Equipped"
+	set name = "Toggle Hood"
 	set src in usr
 
 	if(use_check_and_message(usr))

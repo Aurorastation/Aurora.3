@@ -35,6 +35,7 @@
 	if(do_after(user, 3 SECONDS, src, DO_UNIQUE))
 		user.visible_message("<b>[user]</b> climbs into \the [src], disappearing from sight.", SPAN_NOTICE("You climb into \the [src], finally finding a good spot to hide."))
 		user.forceMove(src)
+		user.set_fullscreen(TRUE, "closet_impaired", /atom/movable/screen/fullscreen/closet_impaired)
 		hider = user
 		if(ishuman(user) && prob(5))
 			var/mob/living/carbon/human/H = user
@@ -47,6 +48,7 @@
 	if(user.stat || user.resting) // don't care too much about use_check here, checking these will suffice
 		return
 	user.forceMove(get_turf(src))
+	user.set_fullscreen(FALSE, "closet_impaired", /atom/movable/screen/fullscreen/closet_impaired)
 	if(user == hider)
 		hider = null
 
@@ -93,6 +95,7 @@
 	if(hider && prob(chance))
 		to_chat(hider, SPAN_DANGER("You've been discovered!"))
 		hider.forceMove(get_turf(src))
+		hider.set_fullscreen(FALSE, "closet_impaired", /atom/movable/screen/fullscreen/closet_impaired)
 		to_chat(user, SPAN_DANGER("You discover that \the [hider] was hiding inside \the [src]!"))
 		hider = null
 		return TRUE
@@ -143,14 +146,14 @@
 		/obj/item/storage/box/fancy/cigarettes = 3,
 		/obj/item/storage/box/fancy/cigarettes/acmeco = 3,
 		/obj/item/storage/box/fancy/cigarettes/blank = 3,
-		/obj/item/device/radio/headset = 3,
+		/obj/item/radio/headset = 3,
 		/obj/item/camera_assembly = 3,
 		/obj/item/clothing/head/cone = 3,
 		/obj/item/cell/high = 3,
 		/obj/item/spacecash/c10 = 3,
 		/obj/item/spacecash/c20 = 3,
 		/obj/item/storage/backpack/duffel = 3,
-		/obj/item/storage/box/donkpockets = 3,
+		/obj/item/storage/box/unique/donkpockets = 3,
 		/obj/item/storage/box/mousetraps = 3,
 		/obj/item/storage/wallet = 3,
 		/obj/item/clothing/gloves/yellow/budget = 2,
@@ -161,13 +164,13 @@
 		/obj/item/clothing/shoes/galoshes = 2,
 		/obj/item/clothing/pants/camo = 2,
 		/obj/item/clothing/under/syndicate/tacticool = 2,
-		/obj/item/device/camera = 2,
-		/obj/item/device/flashlight/flare = 2,
-		/obj/item/device/flashlight/flare/glowstick/random = 2,
+		/obj/item/camera = 2,
+		/obj/item/flashlight/flare = 2,
+		/obj/item/flashlight/flare/glowstick/random = 2,
 		/obj/item/cell/super = 2,
 		/obj/item/contraband/poster = 2,
 		/obj/item/reagent_containers/glass/rag = 2,
-		/obj/item/storage/box/sinpockets = 2,
+		/obj/item/storage/box/unique/donkpockets/sinpockets = 2,
 		/obj/item/storage/secure/briefcase = 2,
 		/obj/item/clothing/glasses/sunglasses = 1,
 		/obj/item/clothing/glasses/welding = 1,
@@ -205,7 +208,7 @@
 		/obj/item/handcuffs/legcuffs = 2,
 		/obj/item/grenade/chem_grenade/gas = 2,
 		/obj/item/clothing/suit/storage/vest/heavy = 1,
-		/obj/item/device/radiojammer = 1,
+		/obj/item/radiojammer = 1,
 		/obj/item/trap = 1,
 		/obj/item/cell/hyper/empty = 1,
 		/obj/item/material/knife/tacknife = 1,

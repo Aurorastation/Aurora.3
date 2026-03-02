@@ -1,6 +1,6 @@
 /obj/item/mesmetron
 	name = "mesmetron pocketwatch"
-	desc = "An elaborate pocketwatch, with a captivating gold etching and an enchanting face. . ."
+	desc = "An elaborate pocketwatch, with a captivating gold etching and an enchanting face..."
 	icon = 'icons/obj/item/clothing/wrists/wrist.dmi'
 	icon_state = "pocketwatch"
 	item_state = "pocketwatch"
@@ -13,6 +13,13 @@
 	var/datum/weakref/thrall = null
 	var/time_counter = 0
 	var/closed = FALSE
+
+/obj/item/mesmetron/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "ALT-click this to snap it open or shut."
+	. += "Use this on yourself (when opened) to check the date and time."
+	. += "Use this on someone (when opened) to attempt to hypnotize them! They will receive a prompt; if they believe in hypnosis, they will fall into a deep slumber."
+	. += "While you have someone hypnotized, use this on yourself to either awaken them, or to whisper a suggestion to them!"
 
 /obj/item/mesmetron/AltClick(mob/user)
 	if(!closed)
@@ -132,7 +139,7 @@
 	START_PROCESSING(SSfast_process, src)
 
 /obj/structure/metronome/attackby(obj/item/attacking_item, mob/user)
-	if(attacking_item.iswrench())
+	if(attacking_item.tool_behaviour == TOOL_WRENCH)
 		attacking_item.play_tool_sound(get_turf(src), 50)
 		if(anchored)
 			to_chat(user, SPAN_NOTICE("You unanchor \the [src] and it destabilizes."))

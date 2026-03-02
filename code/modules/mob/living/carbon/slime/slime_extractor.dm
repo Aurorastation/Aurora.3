@@ -39,9 +39,9 @@
 		var/mutable_appearance/panel_overlay = mutable_appearance(icon, "[icon_state]-panel")
 		AddOverlays(panel_overlay)
 	if(length(extract_slimes))
-		var/mutable_appearance/interior_overlay = mutable_appearance(icon, "[icon_state]-interior", plane = EFFECTS_ABOVE_LIGHTING_PLANE)
+		var/mutable_appearance/interior_overlay = mutable_appearance(icon, "[icon_state]-interior", plane = ABOVE_LIGHTING_PLANE)
 		AddOverlays(interior_overlay)
-		var/mutable_appearance/spinning_overlay = mutable_appearance(icon, "[icon_state]-running", plane = EFFECTS_ABOVE_LIGHTING_PLANE)
+		var/mutable_appearance/spinning_overlay = mutable_appearance(icon, "[icon_state]-running", plane = ABOVE_LIGHTING_PLANE)
 		AddOverlays(spinning_overlay)
 		set_light(2.5, 1, COLOR_VIOLET)
 	else
@@ -105,10 +105,6 @@
 	extract_slimes -= extracted_slime
 	qdel(extracted_slime)
 	update_icon()
-
-#ifndef T_BOARD
-#error T_BOARD macro is not defined but we need it!
-#endif
 
 /obj/item/circuitboard/slime_extractor
 	name = T_BOARD("slime extractor")

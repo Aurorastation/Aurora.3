@@ -24,38 +24,26 @@
 ///////////////////////////////
 // General procedures
 //////////////////////////////
-
-// common helper procs for all power machines
-/obj/machinery/power/drain_power(var/drain_check, var/surge, var/amount = 0)
-	if(drain_check)
-		return 1
-
-	if(powernet && powernet.avail)
-		powernet.trigger_warning()
-		return powernet.draw_power(amount)
-
-/obj/machinery/power/proc/add_avail(var/amount)
-	if(powernet)
-		powernet.newavail += amount
-		return 1
-	return 0
-
-/obj/machinery/power/proc/draw_power(var/amount)
-	if(powernet)
-		return powernet.draw_power(amount)
-	return 0
-
-/obj/machinery/power/proc/surplus()
-	if(powernet)
-		return powernet.avail-powernet.load
+// Proc: power_wattage_readable()
+// Parameters: 1 (amount - Power in Watts to be converted to W, kW or MW)
+// Description: Helper proc that converts reading in Watts to kW or MW (returns string version of amount parameter)
+/obj/machinery/proc/power_wattage_readable(var/amount = 0)
+	var/units = ""
+	// 10kW and less - Watts
+	if(amount < 10000)
+		units = "W"
+	// 10MW and less - KiloWatts
+	else if(amount < 10000000)
+		units = "kW"
+		amount = (round(amount/100) / 10)
+	// More than 10MW - MegaWatts
 	else
-		return 0
-
-/obj/machinery/power/proc/avail()
-	if(powernet)
-		return powernet.avail
+		units = "MW"
+		amount = (round(amount/10000) / 100)
+	if (units == "W")
+		return "[amount] W"
 	else
-		return 0
+		return "[amount] [units]"
 
 /obj/machinery/power/proc/disconnect_terminal() // machines without a terminal will just return, no harm no fowl.
 	return
@@ -84,7 +72,7 @@
 //almost never called, overwritten by all power machines but terminal and generator
 /obj/machinery/power/attackby(obj/item/attacking_item, mob/user)
 
-	if(attacking_item.iscoil())
+	if(attacking_item.tool_behaviour == TOOL_CABLECOIL)
 
 		var/obj/item/stack/cable_coil/coil = attacking_item
 
@@ -349,7 +337,8 @@
 		source_area.use_power_oneoff(drained_energy/CELLRATE)
 	else if (istype(power_source,/datum/powernet))
 		var/drained_power = drained_energy/CELLRATE
-		drained_power = PN.draw_power(drained_power)
+		drained_power = POWERNET_POWER_DRAW(PN, drained_power)
+		DRAW_FROM_POWERNET(PN, drained_power)
 	else if (istype(power_source, /obj/item/cell))
 		cell.use(drained_energy)
 	return drained_energy

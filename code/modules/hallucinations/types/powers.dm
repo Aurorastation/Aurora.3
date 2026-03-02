@@ -19,7 +19,7 @@
 	duration = rand(2, 4) MINUTES
 	switch(rand(1, 3))
 		if(1)
-			sound_to(holder, 'sound/misc/announcements/notice.ogg')
+			sound_to(holder, 'sound/ai/announcements/notice.ogg')
 			to_chat(holder, "<h2 class='alert'>Ion Storm?</h2>")
 			to_chat(holder, SPAN_ALERT("It has come to our attention that the [station_name(TRUE)] has passed through an unusual ion storm. Several crewmembers are exhibiting unusual abilities."))
 		if(2)
@@ -106,7 +106,7 @@
 	duration = rand(2, 4) MINUTES
 	switch(rand(1, 3))
 		if(1)
-			sound_to(holder, 'sound/misc/announcements/notice.ogg')
+			sound_to(holder, 'sound/ai/announcements/notice.ogg')
 			to_chat(holder, "<h2 class='alert'>Ion Storm?</h2>")
 			to_chat(holder, SPAN_ALERT("It has come to our attention that the [station_name(TRUE)] has passed through an unusual ion storm. Several crewmembers are exhibiting unusual abilities."))
 		if(2)

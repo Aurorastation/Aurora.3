@@ -311,3 +311,22 @@
 			icon_state = "orszi_half"
 		if(50 to INFINITY)
 			icon_state = "orszi"
+
+/obj/item/reagent_containers/food/snacks/sth_fish
+	name = "S'th fish"
+	desc = "A high-end, flavorful dish fit for Unathi nobility. It is made of a few strips of well-seasoned, pan-fried fish served in or next to a bowl of hot S'th-berry soup. You dip the fish strips in the soup and eat them. It is intentionally big but not very filling, as if to say 'I am wealthy enough that this is not my only meal today'. Noble Unathi will likely avoid finishing the soup once they've already eaten the fish, as it is considered to be lower-class behavior unbefitting of the well-fed nobility, akin to licking your plate clean."
+	icon = 'icons/obj/item/reagent_containers/food/cultural/unathi.dmi'
+	icon_state = "sthfish"
+	trash = /obj/item/trash/snack_bowl
+	filling_color = "#882936"
+	reagents_to_add = list(/singleton/reagent/nutriment/protein/seafood = 4, /singleton/reagent/nutriment = 2, /singleton/reagent/drink/sthberryjuice = 5)
+	reagent_data = list(/singleton/reagent/nutriment/protein/seafood = list("grilled fish" = 5, "seasoning" = 3), /singleton/reagent/nutriment = list("rich berry soup" = 5))
+	bitesize = 3
+
+/obj/item/reagent_containers/food/snacks/sth_fish/update_icon()
+	var/percent_sthfish = round((reagents.total_volume / 10) * 100)
+	switch(percent_sthfish)
+		if(0 to 44)
+			icon_state = "sthfish_soup"
+		if(45 to INFINITY)
+			icon_state = "sthfish"

@@ -40,7 +40,7 @@
 	body_part = UPPER_TORSO
 	vital = TRUE
 	parent_organ = null
-	limb_flags = 0
+	limb_flags = ORGAN_HEALS_OVERKILL
 	dislocated = -1
 	joint = "structural ligament"
 	amputation_point = "branch"

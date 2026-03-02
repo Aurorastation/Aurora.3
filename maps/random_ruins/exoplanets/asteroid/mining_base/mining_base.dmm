@@ -118,7 +118,7 @@
 /obj/effect/floor_decal/industrial/warning/dust{
 	dir = 1
 	},
-/obj/item/device/flashlight/lantern,
+/obj/item/flashlight/lantern,
 /obj/structure/table/reinforced/steel,
 /turf/simulated/floor/airless/ceiling,
 /area/template_noop)

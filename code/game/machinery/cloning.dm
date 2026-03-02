@@ -222,7 +222,7 @@
 			return TRUE
 	if(attacking_item.GetID())
 		if(!check_access(attacking_item.GetID()))
-			to_chat(user, SPAN_WARNING("Access Denied."))
+			to_chat(user, SPAN_WARNING("Access denied."))
 			return TRUE
 		if((!locked) || (isnull(occupant)))
 			return TRUE
@@ -238,7 +238,7 @@
 		user.drop_from_inventory(attacking_item, src)
 		qdel(attacking_item)
 		return TRUE
-	else if(attacking_item.iswrench())
+	else if(attacking_item.tool_behaviour == TOOL_WRENCH)
 		if(locked && (anchored || occupant))
 			to_chat(user, SPAN_WARNING("Can not do that while [src] is in use."))
 		else
@@ -439,7 +439,7 @@
 	to_chat(user, "You flip the write-protect tab to [read_only ? "protected" : "unprotected"].")
 
 /*
- *	Diskette Box
+ * Diskette Box
  */
 
 /obj/item/storage/box/disks
@@ -456,7 +456,7 @@
 	new /obj/item/disk/data(src)
 
 /*
- *	Manual -- A big ol' manual.
+ * Manual -- A big ol' manual.
  */
 
 /obj/item/paper/Cloning

@@ -1,6 +1,14 @@
 import { BooleanLike } from '../../common/react';
 import { useBackend } from '../backend';
-import { BlockQuote, Button, Knob, LabeledList, ProgressBar, Section, Table } from '../components';
+import {
+  BlockQuote,
+  Button,
+  Knob,
+  LabeledList,
+  ProgressBar,
+  Section,
+  Table,
+} from '../components';
 import { Window } from '../layouts';
 
 export type SleeperData = {
@@ -12,6 +20,7 @@ export type SleeperData = {
   blood_pressure: number[];
   blood_pressure_level: number;
   blood_o2: number;
+  bac: number;
   bloodreagents: Reagent[];
   hasstomach: BooleanLike;
   stomachreagents: Reagent[];
@@ -76,11 +85,13 @@ export const OccupantStatus = (props, context) => {
                 icon="person-booth"
                 onClick={() => act('eject')}
               />
-            }>
+            }
+          >
             <LabeledList>
               <LabeledList.Item
                 label="Status"
-                color={consciousnessLabel(data.stat)}>
+                color={consciousnessLabel(data.stat)}
+              >
                 {consciousnessText(data.stat)}
               </LabeledList.Item>
               <LabeledList.Item label="Stasis Level">
@@ -98,24 +109,34 @@ export const OccupantStatus = (props, context) => {
                   }}
                   value={data.brain_activity}
                   minValue={0}
-                  maxValue={100}>
+                  maxValue={100}
+                >
                   {data.brain_activity}%
                 </ProgressBar>
               </LabeledList.Item>
               <LabeledList.Item
                 label="Pulse"
-                color={progressClass(data.brain_activity)}>
+                color={progressClass(data.brain_activity)}
+              >
                 {data.pulse}
               </LabeledList.Item>
               <LabeledList.Item
                 label="BP"
-                color={getPressureClass(data.blood_pressure_level)}>
+                color={getPressureClass(data.blood_pressure_level)}
+              >
                 {data.blood_pressure}
               </LabeledList.Item>
               <LabeledList.Item
                 label="Blood Oxygenation"
-                color={progressClass(data.blood_o2)}>
+                color={progressClass(data.blood_o2)}
+              >
                 {Math.round(data.blood_o2)}
+              </LabeledList.Item>
+              <LabeledList.Item
+                label="Blood Alcohol Content"
+                color={bacClass(data.bac)}
+              >
+                {data.bac}
               </LabeledList.Item>
             </LabeledList>
           </Section>
@@ -187,7 +208,8 @@ export const OccupantStatus = (props, context) => {
                   disabled={!data.beaker}
                   onClick={() => act('beaker')}
                 />
-              }>
+              }
+            >
               <Button
                 content="Blood Dialysis"
                 color={data.filtering ? 'good' : ''}
@@ -276,6 +298,18 @@ const progressClass = (value) => {
     return 'average';
   } else {
     return 'green';
+  }
+};
+
+const bacClass = (value) => {
+  if (value < 0.05) {
+    return 'green';
+  } else if (value < 0.1) {
+    return 'yellow';
+  } else if (value < 0.2) {
+    return 'average';
+  } else {
+    return 'bad';
   }
 };
 

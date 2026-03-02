@@ -46,14 +46,20 @@
 /datum/gear/utility/journal
 	display_name = "journal"
 	description = "A journal, kind of like a folder, but bigger! And personal."
-	path = /obj/item/journal
+	path = /obj/item/journal/filled
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/utility/notepad
 	display_name = "notepad"
 	description = "A notepad for jotting down notes in meetings or interrogations."
-	path = /obj/item/journal/notepad
+	path = /obj/item/journal/notepad/filled
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
+/datum/gear/utility/stickynote
+	display_name = "sticky note pad"
+	description = "A pad full of sticky notes, to stick notes to places with."
+	path = /obj/item/paper/stickynotes/pad
+	flags = GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/utility/fountainpen
 	display_name = "fountain pen selection"
@@ -72,7 +78,7 @@
 
 /datum/gear/utility/paicard
 	display_name = "personal AI device"
-	path = /obj/item/device/paicard
+	path = /obj/item/paicard
 
 /datum/gear/utility/classicwallet
 	display_name = "wallet"
@@ -98,11 +104,11 @@
 
 /datum/gear/utility/recorder
 	display_name = "universal recorder"
-	path = /obj/item/device/taperecorder
+	path = /obj/item/taperecorder
 
 /datum/gear/utility/camera
 	display_name = "camera"
-	path = /obj/item/device/camera
+	path = /obj/item/camera
 
 /datum/gear/utility/himeo_kit
 	display_name = "himean voidsuit kit"
@@ -206,7 +212,9 @@
 	music_cartridges["Konyang Vibes 2463"] = /obj/item/music_cartridge/konyang_retrowave
 	music_cartridges["Top of the Charts 66 (Venusian Hits)"] = /obj/item/music_cartridge/venus_funkydisco
 	music_cartridges["SCC Welcome Package"] = /obj/item/music_cartridge/audioconsole
-	music_cartridges["Spacer Classics Vol. 1"] = /obj/item/music_cartridge/
+	music_cartridges["Spacer Classics Vol. 1"] = /obj/item/music_cartridge/ss13
 	music_cartridges["Indulgence EP (X-Rock)"] = /obj/item/music_cartridge/xanu_rock
 	music_cartridges["Electro-Swing of Adhomai"] = /obj/item/music_cartridge/adhomai_swing
+	music_cartridges["Adhomai Vibes"] = /obj/item/music_cartridge/adhomai_vibes
+	music_cartridges["Europa: Best of the 50s"] = /obj/item/music_cartridge/europa_various
 	gear_tweaks += new /datum/gear_tweak/path(music_cartridges)

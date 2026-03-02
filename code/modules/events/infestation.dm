@@ -4,6 +4,7 @@
 #define INFESTATION_SPIDERLINGS "greimorian larva"
 #define INFESTATION_HIVEBOTS "hivebots"
 #define INFESTATION_SLIMES "slimes"
+#define INFESTATION_SNAKES "snakes"
 
 /datum/event/infestation
 	startWhen = 1
@@ -11,6 +12,7 @@
 	endWhen = 11
 	no_fake = 1
 	var/area/chosen_area
+	var/location_name
 	var/event_name = "Slime Leak"
 	var/chosen_mob = INFESTATION_SLIMES
 	var/chosen_verb = "have leaked into"
@@ -18,7 +20,8 @@
 	var/chosen_scan_type = "Bioscans"
 	var/list/possible_mobs = list(
 		INFESTATION_RATS = 1,
-		INFESTATION_LIZARDS = 1
+		INFESTATION_LIZARDS = 1,
+		INFESTATION_SNAKES = 1
 	)
 
 /datum/event/infestation/moderate
@@ -93,6 +96,12 @@
 			for(var/i = 1, i < rand(6,8),i++)
 				chosen_mob_types += /mob/living/simple_animal/lizard
 
+		if(INFESTATION_SNAKES)
+			event_name = "Snake Nest"
+			chosen_verb = "have been breeding in"
+			for(var/i = 1, i < rand(2,5),i++)
+				chosen_mob_types += /mob/living/simple_animal/snake
+
 		if(INFESTATION_RATS)
 			event_name = "Rat Nest"
 			chosen_verb = "have been breeding in"
@@ -145,7 +154,8 @@
 			to_chat(H, SPAN_CULT("Suddenly, an anomalous pinging makes itself known in your internals. It rises to a shrill high, setting your mind on edge, and it then disappears just as abruptly..."))
 
 /datum/event/infestation/announce()
-	command_announcement.Announce("[chosen_scan_type] indicate that [chosen_mob] [chosen_verb] [chosen_area]. Clear them out before this starts to affect productivity.", event_name, new_sound = 'sound/AI/vermin.ogg', zlevels = affecting_z)
+	location_name = get_area_display_name(chosen_area)
+	command_announcement.Announce("[chosen_scan_type] indicate that [chosen_mob] [chosen_verb] [location_name]. Clear them out before this starts to affect productivity.", event_name, new_sound = 'sound/AI/vermin.ogg', zlevels = affecting_z)
 
 
 #undef INFESTATION_RATS
@@ -154,3 +164,4 @@
 #undef INFESTATION_SPIDERLINGS
 #undef INFESTATION_HIVEBOTS
 #undef INFESTATION_SLIMES
+#undef INFESTATION_SNAKES

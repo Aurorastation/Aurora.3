@@ -1,5 +1,8 @@
 // fun if you want to typecast humans/monkeys/etc without writing long path-filled lines.
 
+/**
+ * Returns mob_size <= MOB_SMALL if used on a /mob/living.
+ */
 /proc/issmall(A)
 	if(A && istype(A, /mob/living))
 		var/mob/living/L = A
@@ -25,7 +28,7 @@
 /proc/isMMI(A)
 	if(isbrain(A))
 		var/mob/living/carbon/brain/B = A
-		return istype(B.container, /obj/item/device/mmi)
+		return istype(B.container, /obj/item/mmi)
 
 /mob/living/bot/isSynthetic()
 	return 1
@@ -38,7 +41,6 @@
 
 /mob/living/carbon/human/isMonkey()
 	return istype(species, /datum/species/monkey)
-
 
 /proc/ishuman_species(A)
 	if(istype(A, /mob/living/carbon/human))
@@ -148,7 +150,10 @@
 /mob/living/carbon/alien/diona/is_diona()
 	return DIONA_NYMPH
 
-/proc/is_mob_special(A) // determines special mobs. has restrictions on certain things, like welderbombing
+/**
+ * Determines special mobs; places restrictions on certain things, like welderbombing.
+ */
+/proc/is_mob_special(A)
 	if(isrevenant(A))
 		return TRUE
 	if(iszombie(A))
@@ -288,7 +293,9 @@ GLOBAL_LIST_INIT(organ_rel_size, list(
 	BP_R_FOOT = 10
 ))
 
-///Find the mob at the bottom of a buckle chain
+/**
+ * Find the mob at the bottom of a buckle chain.
+ */
 /mob/proc/lowest_buckled_mob()
 	. = src
 	//buckled -> buckled_to from TG
@@ -321,9 +328,11 @@ GLOBAL_LIST_INIT(organ_rel_size, list(
 		zone = pick_weight(weighted_list ? weighted_list : GLOB.organ_rel_size) //Slightly different from TG, we have a list with organ sizes
 	return zone
 
-/// Emulates targetting a specific body part, and miss chances
-/// May return null if missed
-/// miss_chance_mod may be negative.
+/**
+ * Emulates targetting a specific body part, and miss chances.
+ * May return null if missed.
+ * miss_chance_mod can be negative.
+ */
 /proc/get_zone_with_miss_chance(zone, var/mob/target, var/miss_chance_mod = 0, var/ranged_attack=0, var/point_blank = FALSE)
 	zone = check_zone(zone)
 
@@ -351,7 +360,9 @@ GLOBAL_LIST_INIT(organ_rel_size, list(
 		return pick(GLOB.base_miss_chance)
 	return zone
 
-// never a chance to miss, but you might not hit what you want to hit
+/**
+ * No a chance to miss, but you might not hit what you want to hit.
+ */
 /mob/living/heavy_vehicle/calculate_zone_with_miss_chance(zone, miss_chance_mod)
 	var/miss_chance = 10
 	if(zone in GLOB.base_miss_chance)
@@ -380,6 +391,9 @@ GLOBAL_LIST_INIT(organ_rel_size, list(
 		chars[i] = "*"
 	return sanitize(jointext(chars, ""))
 
+/**
+ * The speech impediment, not the other thing.
+ */
 /proc/slur(phrase, strength = 100)
 	phrase = html_decode(phrase)
 	var/leng = length_char(phrase)
@@ -408,13 +422,18 @@ GLOBAL_LIST_INIT(organ_rel_size, list(
 				if (7)
 					newletter += "'"
 				else
-					. = null // For dreamchecker, does nothing
+					. = null // For dreamchecker, does nothing.
 		newphrase += "[newletter]"
 		counter -= 1
 	return newphrase
 
-/proc/Gibberish(t, p)//t is the inputted message, and any value higher than 70 for p will cause letters to be replaced instead of added
-	/* Turn text into complete gibberish! */
+/**
+ * Turns text into complete gibberish.
+ *
+ * * t - inputted message
+ * * p - higher than 70 cause letters to be replaced instead of added
+ */
+/proc/Gibberish(t, p)
 	var/returntext = ""
 	for(var/i = 1, i <= length(t), i++)
 
@@ -430,13 +449,14 @@ GLOBAL_LIST_INIT(organ_rel_size, list(
 
 	return returntext
 
-
+/**
+ * Stuttering. Is this even used anywhere???
+ *
+ * The difference with stutter is that this proc can stutter more than 1 letter
+ * The issue here is that anything that does not have a space is treated as one word (in many instances). For instance, "LOOKING," is a word, including the comma.
+ * It's fairly easy to fix if dealing with single letters but not so much with compounds of letters.
+ */
 /proc/ninjaspeak(n)
-/*
-The difference with stutter is that this proc can stutter more than 1 letter
-The issue here is that anything that does not have a space is treated as one word (in many instances). For instance, "LOOKING," is a word, including the comma.
-It's fairly easy to fix if dealing with single letters but not so much with compounds of letters./N
-*/
 	var/te = html_decode(n)
 	var/t = ""
 	n = length(n)
@@ -459,24 +479,48 @@ It's fairly easy to fix if dealing with single letters but not so much with comp
 		p=p+n_mod
 	return sanitize(t)
 
-
-#define TICKS_PER_RECOIL_ANIM 2
-#define PIXELS_PER_STRENGTH_VAL 16
-
-/proc/shake_camera(mob/M, duration, strength = 1)
-	var/current_time = world.time
-	if(!M || !M.client || (M.shakecamera > current_time)|| M.stat || isEye(M) || isAI(M))
+#define TILES_PER_SECOND 0.7
+/// Shake the camera of the person viewing the mob SO REAL!
+/// Takes the mob to shake, the time span to shake for, and the amount of tiles we're allowed to shake by in tiles
+/// Duration isn't taken as a strict limit, since we don't trust our coders to not make things feel shitty. So it's more like a soft cap.
+/proc/shake_camera(mob/M, duration, strength=1)
+	if(!M || !M.client || duration < 1)
 		return
-	if(((M.client.view != world.view) || (M.client.pixel_x != 0) || (M.client.pixel_y != 0))) //to prevent it while zooming, because zoom does not play well with this code
-		return
-	M.shakecamera = current_time + max(TICKS_PER_RECOIL_ANIM, duration)
-	strength = abs(strength)*PIXELS_PER_STRENGTH_VAL
-	var/steps = min(1, FLOOR(duration/TICKS_PER_RECOIL_ANIM, 1))-1
-	animate(M.client, pixel_x = rand(-(strength), strength), pixel_y = rand(-(strength), strength), time = TICKS_PER_RECOIL_ANIM, easing = JUMP_EASING|EASE_IN)
-	if(steps)
-		for(var/i = 1 to steps)
-			animate(pixel_x =  0 + rand(-(strength), strength), pixel_y = 0 + rand(-(strength), strength), time = TICKS_PER_RECOIL_ANIM, easing = JUMP_EASING|EASE_IN)
-	animate(pixel_x = 0, pixel_y = 0, time = TICKS_PER_RECOIL_ANIM)
+	var/client/C = M.client
+	var/oldx = C.pixel_x
+	var/oldy = C.pixel_y
+	var/max_x = strength*ICON_SIZE_X
+	var/max_y = strength*ICON_SIZE_Y
+	var/min_x = -(strength*ICON_SIZE_X)
+	var/min_y = -(strength*ICON_SIZE_Y)
+
+	//How much time to allot for each pixel moved
+	var/time_scalar = (1 / ICON_SIZE_ALL) * TILES_PER_SECOND
+	var/last_x = oldx
+	var/last_y = oldy
+
+	var/time_spent = 0
+	while(time_spent < duration)
+		//Get a random pos in our box
+		var/x_pos = rand(min_x, max_x) + oldx
+		var/y_pos = rand(min_y, max_y) + oldy
+
+		//We take the smaller of our two distances so things still have the propencity to feel somewhat jerky
+		var/time = round(max(min(abs(last_x - x_pos), abs(last_y - y_pos)) * time_scalar, 1))
+
+		if (time_spent == 0)
+			animate(C, pixel_x=x_pos, pixel_y=y_pos, time=time)
+		else
+			animate(pixel_x=x_pos, pixel_y=y_pos, time=time)
+
+		last_x = x_pos
+		last_y = y_pos
+		//We go based on time spent, so there is a chance we'll overshoot our duration. Don't care
+		time_spent += time
+
+	animate(pixel_x=oldx, pixel_y=oldy, time=3)
+
+#undef TILES_PER_SECOND
 
 /proc/findname(msg)
 	for(var/mob/M in GLOB.mob_list)
@@ -1097,8 +1141,8 @@ It's fairly easy to fix if dealing with single letters but not so much with comp
 
 #undef SAFE_PERP
 
-/mob/proc/get_multitool(var/obj/P)
-	if(P?.ismultitool())
+/mob/proc/get_multitool(var/obj/item/P)
+	if(P?.tool_behaviour == TOOL_MULTITOOL)
 		return P
 
 /mob/abstract/ghost/observer/get_multitool()
@@ -1208,6 +1252,7 @@ It's fairly easy to fix if dealing with single letters but not so much with comp
 
 /mob/proc/set_intent(var/set_intent)
 	a_intent = set_intent
+	SEND_SIGNAL(src, COMSIG_INTENT_CHANGE, set_intent)
 
 /mob/proc/get_accent_icon(var/datum/language/speaking, var/mob/hearer, var/force_accent)
 	SHOULD_CALL_PARENT(TRUE)
@@ -1250,6 +1295,8 @@ It's fairly easy to fix if dealing with single letters but not so much with comp
 			if(M.client)
 				M.client.eye = M.client.mob
 				M.client.perspective = MOB_PERSPECTIVE
+
+
 
 /mob/proc/in_neck_grab()
 	for(var/thing in grabbed_by)
@@ -1338,3 +1385,7 @@ It's fairly easy to fix if dealing with single letters but not so much with comp
 		message_notifications.Cut(1, 2)
 
 	message_notifications[key_check] = world.time + next_message_time
+
+/// Gets a mob's strength.
+/mob/proc/get_mob_strength()
+	return mob_weight + mob_strength

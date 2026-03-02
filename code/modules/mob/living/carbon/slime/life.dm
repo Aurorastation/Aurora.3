@@ -140,7 +140,10 @@
 	if(src.ear_damage < 25)
 		src.ear_damage = FALSE
 
-	src.density = !src.lying
+	if(lying)
+		ADD_TRAIT(src, TRAIT_UNDENSE, TRAIT_SOURCE_LYING_DOWN)
+	else
+		REMOVE_TRAIT(src, TRAIT_UNDENSE, TRAIT_SOURCE_LYING_DOWN)
 
 	if(src.sdisabilities & BLIND)
 		src.blinded = TRUE
@@ -311,14 +314,14 @@
 					set_intent(I_HURT)
 					UnarmedAttack(target)
 					Atkcool = TRUE
-					addtimer(CALLBACK(src, PROC_REF(disable_attack_cooldown)), 4.5 SECONDS)
+					addtimer(CALLBACK(src, PROC_REF(disable_attack_cooldown)), 4.5 SECONDS, TIMER_DELETE_ME)
 				AIproc = FALSE
 				return
 
 			if(target.client && !target.lying && prob(60 + powerlevel * 4)) // Try to take down the target first
 				if(!Atkcool)
 					Atkcool = TRUE
-					addtimer(CALLBACK(src, PROC_REF(disable_attack_cooldown)), 4.5 SECONDS)
+					addtimer(CALLBACK(src, PROC_REF(disable_attack_cooldown)), 4.5 SECONDS, TIMER_DELETE_ME)
 
 					set_intent(I_DISARM)
 					UnarmedAttack(target)

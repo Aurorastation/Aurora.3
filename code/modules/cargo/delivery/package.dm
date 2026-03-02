@@ -51,9 +51,9 @@
 
 /obj/item/cargo_package/Initialize(mapload, obj/structure/cargo_receptacle/delivery_point)
 	. = ..()
-	pay_amount = rand(4, 7) * 1000
+	pay_amount = rand(4, 7) * 100
 	if(prob(3))
-		pay_amount = rand(12, 17) * 1000
+		pay_amount = rand(12, 17) * 100
 	if(delivery_point)
 		setup_delivery_point(delivery_point)
 	accent_color = pick(COLOR_RED, COLOR_AMBER, COLOR_PINK, COLOR_YELLOW, COLOR_LIME)

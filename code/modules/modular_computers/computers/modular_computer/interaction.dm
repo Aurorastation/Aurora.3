@@ -139,20 +139,31 @@
 	verbs -= /obj/item/modular_computer/proc/eject_personal_ai
 	update_uis()
 
-/obj/item/modular_computer/AltClick(var/mob/user)
-	if(use_check_and_message(user, 32))
+/obj/item/modular_computer/AltClick(mob/user)
+	if(use_check_and_message(user, USE_FORCE_SRC_IN_USER))
 		return
 
 	if(!card_slot)
 		to_chat(user, SPAN_WARNING("\The [src] does not have an ID card slot."))
 		return
 
-	if(card_slot.stored_card)
-		eject_id()
-	else if(card_slot.stored_item)
-		eject_item()
-	else
-		to_chat(user, SPAN_WARNING("\The [src] does not have a card or item stored in the card slot."))
+	if(!card_slot.stored_card)
+		to_chat(user, SPAN_WARNING("\The [src] does not have a card stored in the card slot."))
+		return
+	eject_id()
+
+/obj/item/modular_computer/CtrlClick(mob/user)
+	if(use_check_and_message(user, USE_FORCE_SRC_IN_USER))
+		return
+
+	if(!card_slot)
+		to_chat(user, SPAN_WARNING("\The [src] does not have an ID card slot."))
+		return
+
+	if(!card_slot.stored_item)
+		to_chat(user, SPAN_WARNING("\The [src] does not have an item stored in the card slot."))
+		return
+	eject_item()
 
 /obj/item/modular_computer/attack(mob/living/target_mob, mob/living/user, target_zone)
 	var/sound_scan = FALSE
@@ -188,6 +199,14 @@
 		var/response = alert(user, "This computer is turned off. Would you like to turn it on?", "Admin Override", "Yes", "No")
 		if(response == "Yes")
 			turn_on(user)
+
+/obj/item/modular_computer/attack_ranged(mob/user, params)
+	. = ..()
+	if(ishuman(user) && isipc(user))
+		var/mob/living/carbon/human/robot = user
+		var/obj/item/organ/internal/machine/wireless_access/wireless_access_point = robot.internal_organs_by_name[BP_WIRELESS_ACCESS]
+		if(wireless_access_point?.access_terminal(src))
+			attack_hand(user)
 
 /obj/item/modular_computer/attack_hand(var/mob/user)
 	if(anchored)
@@ -272,10 +291,10 @@
 		else
 			to_chat(user, SPAN_WARNING("This component is too large for \the [src]."))
 		return TRUE
-	if(istype(attacking_item, /obj/item/device/paicard))
+	if(istype(attacking_item, /obj/item/paicard))
 		try_install_component(user, attacking_item)
 		return TRUE
-	if(attacking_item.iswrench())
+	if(attacking_item.tool_behaviour == TOOL_WRENCH)
 		var/list/components = get_all_components()
 		if(components.len)
 			to_chat(user, SPAN_WARNING("You have to remove all the components from \the [src] before disassembling it."))
@@ -286,7 +305,7 @@
 			user.visible_message(SPAN_NOTICE("\The [user] disassembles \the [src]."), SPAN_NOTICE("You disassemble \the [src]."), SPAN_NOTICE("You hear a ratcheting noise."))
 			qdel(src)
 		return TRUE
-	if(attacking_item.iswelder())
+	if(attacking_item.tool_behaviour == TOOL_WELDER)
 		var/obj/item/weldingtool/WT = attacking_item
 		if(!WT.isOn())
 			to_chat(user, SPAN_WARNING("\The [attacking_item] is off."))
@@ -304,7 +323,7 @@
 		update_icon()
 		return TRUE
 
-	if(attacking_item.isscrewdriver())
+	if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 		var/list/all_components = get_all_components()
 		if(!all_components.len)
 			to_chat(user, SPAN_WARNING("This device doesn't have any components installed."))
@@ -321,6 +340,20 @@
 			return TRUE
 		uninstall_component(user, H)
 		return TRUE
+
+	if(istype(attacking_item, /obj/item/access_cable))
+		var/obj/item/access_cable/access_cable = attacking_item
+		if(!universal_port)
+			to_chat(user, SPAN_WARNING("There isn't a port to slot \the [access_cable] into!"))
+			return
+
+		if(universal_port.access_cable)
+			to_chat(user, SPAN_WARNING("There's already a cable in the universal port!"))
+			return
+
+		if(do_after(user, 1 SECONDS))
+			visible_message(SPAN_NOTICE("[user] slots \the [access_cable] into \the [src]."))
+			universal_port.insert_cable(access_cable, user)
 	return ..()
 
 /obj/item/modular_computer/mouse_drop_dragged(atom/over, mob/user, src_location, over_location, params)

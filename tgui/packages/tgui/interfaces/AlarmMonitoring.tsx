@@ -43,18 +43,19 @@ export const AlarmMonitoring = (props, context) => {
                   <LabeledList.Item
                     label={alarm.origin_lost ? 'Origin Lost' : alarm.name}
                     labelColor="red"
-                    key={alarm.name}>
+                    key={alarm.name}
+                  >
                     {alarm.has_cameras
                       ? alarm.cameras.map((camera) => (
-                        <Button
-                          content="Switch To"
-                          disabled={camera.deact}
-                          onClick={() =>
-                            act('switchTo', { switchTo: camera.camera })
-                          }
-                          key={camera.camera}
-                        />
-                      ))
+                          <Button
+                            content="Switch To"
+                            disabled={camera.deact}
+                            onClick={() =>
+                              act('switchTo', { switchTo: camera.camera })
+                            }
+                            key={camera.camera}
+                          />
+                        ))
                       : ' (No cameras for this alarm.)'}
                   </LabeledList.Item>
                 ))}

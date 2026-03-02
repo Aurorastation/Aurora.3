@@ -269,3 +269,11 @@ GLOBAL_DATUM(basic_robolimb, /datum/robolimb)
 	linked_frame = SPECIES_IPC_BISHOP
 	icon = 'icons/mob/human_races/ipc/siseyo.dmi'
 	allowed_external_organs = list(BP_HEAD)
+
+/datum/robolimb/cheap
+	company = PROSTHETIC_CHEAP
+	desc = "A cheap, basic, and outdated prosthetic limb made out of plastic and metal. Straps onto the body."
+	allows_internal = FALSE
+	icon = 'icons/mob/human_races/cheap_prosthetic.dmi'
+	brute_mod = 1.1
+	burn_mod = 1.2

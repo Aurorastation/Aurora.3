@@ -3,7 +3,7 @@
 	name = "boxes (x5)"
 	supplier = "orion"
 	description = "Versatile cardboard boxes."
-	price = 45
+	price = 15
 	items = list(
 		/obj/item/storage/box
 	)
@@ -12,12 +12,40 @@
 	groupable = TRUE
 	spawn_amount = 5
 
+/singleton/cargo_item/package_wrapper
+	category = "supply"
+	name = "package wrapping paper (x2)"
+	supplier = "orion"
+	description = "Package wrapping paper, for deliveries."
+	price = 10
+	items = list(
+		/obj/item/stack/packageWrap
+	)
+	access = 0
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 2
+
+/singleton/cargo_item/gift_wrapper
+	category = "supply"
+	name = "gift wrapping paper (x2)"
+	supplier = "orion"
+	description = "Gift wrapping paper, for festive activities."
+	price = 10
+	items = list(
+		/obj/item/stack/wrapping_paper
+	)
+	access = 0
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 2
+
 /singleton/cargo_item/bucket
 	category = "supply"
 	name = "bucket"
 	supplier = "blam"
 	description = "It's a bucket."
-	price = 10
+	price = 8
 	items = list(
 		/obj/item/reagent_containers/glass/bucket
 	)
@@ -44,8 +72,8 @@
 	category = "supply"
 	name = "clipboard"
 	supplier = "orion"
-	description = "The timeless prop for looking like your working."
-	price = 23
+	description = "The timeless prop for looking like you're working."
+	price = 12
 	items = list(
 		/obj/item/clipboard
 	)
@@ -56,68 +84,68 @@
 
 /singleton/cargo_item/folderblue
 	category = "supply"
-	name = "blue folder"
+	name = "blue folders (x5)"
 	supplier = "orion"
-	description = "A blue folder."
-	price = 8
+	description = "Five blue folders."
+	price = 4.50
 	items = list(
 		/obj/item/folder/blue
 	)
 	access = 0
 	container_type = "crate"
 	groupable = TRUE
-	spawn_amount = 1
+	spawn_amount = 5
 
 /singleton/cargo_item/folderyellow
 	category = "supply"
-	name = "yellow folder"
+	name = "yellow folders (x5)"
 	supplier = "orion"
-	description = "A yellow folder."
-	price = 8
+	description = "Five yellow folders."
+	price = 4.50
 	items = list(
 		/obj/item/folder/yellow
 	)
 	access = 0
 	container_type = "crate"
 	groupable = TRUE
-	spawn_amount = 1
+	spawn_amount = 5
 
 /singleton/cargo_item/folderred
 	category = "supply"
-	name = "red folder"
+	name = "red folders (x5)"
 	supplier = "orion"
-	description = "A red folder."
-	price = 8
+	description = "Five red folders."
+	price = 4.50
 	items = list(
 		/obj/item/folder/red
 	)
 	access = 0
 	container_type = "crate"
 	groupable = TRUE
-	spawn_amount = 1
+	spawn_amount = 5
 
 /singleton/cargo_item/folderwhite
 	category = "supply"
-	name = "white folder"
+	name = "white folders (x5)"
 	supplier = "orion"
-	description = "A white folder."
-	price = 8
+	description = "Five white folders."
+	price = 4.50
 	items = list(
 		/obj/item/folder/white
 	)
 	access = 0
 	container_type = "crate"
 	groupable = TRUE
-	spawn_amount = 1
+	spawn_amount = 5
 
 /singleton/cargo_item/handlabeler
 	category = "supply"
 	name = "hand labeler"
 	supplier = "nanotrasen"
 	description = "Yes, it has your name on it!"
-	price = 8
+	price = 12.50
 	items = list(
-		/obj/item/device/hand_labeler
+		/obj/item/hand_labeler
 	)
 	access = 0
 	container_type = "crate"
@@ -126,10 +154,10 @@
 
 /singleton/cargo_item/inflatableduck
 	category = "supply"
-	name = "inflatable duck"
+	name = "rubber duck"
 	supplier = "nanotrasen"
 	description = "No bother to sink or swim when you can just float!"
-	price = 200
+	price = 4.50
 	items = list(
 		/obj/item/inflatable_duck
 	)
@@ -142,10 +170,24 @@
 	category = "supply"
 	name = "paper bin"
 	supplier = "nanotrasen"
-	description = "A bin filled with paper - a paper bin!"
+	description = "Pre-stocked stationery bin filled with paper."
 	price = 12
 	items = list(
 		/obj/item/paper_bin
+	)
+	access = 0
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/stickypad
+	category = "supply"
+	name = "stickynote pad"
+	supplier = "nanotrasen"
+	description = "A wad of stickynotes."
+	price = 10
+	items = list(
+		/obj/item/paper/stickynotes/pad
 	)
 	access = 0
 	container_type = "crate"
@@ -157,7 +199,7 @@
 	name = "pen"
 	supplier = "nanotrasen"
 	description = "A normal black ink ballpen."
-	price = 8
+	price = 2.50
 	items = list(
 		/obj/item/pen
 	)
@@ -171,7 +213,7 @@
 	name = "blue pen"
 	supplier = "nanotrasen"
 	description = "A normal blue ink ballpen."
-	price = 8
+	price = 2.50
 	items = list(
 		/obj/item/pen/blue
 	)
@@ -185,7 +227,7 @@
 	name = "red pen"
 	supplier = "nanotrasen"
 	description = "A normal red ink ballpen."
-	price = 8
+	price = 2.50
 	items = list(
 		/obj/item/pen/red
 	)
@@ -199,7 +241,7 @@
 	name = "multicolor pen"
 	supplier = "nanotrasen"
 	description = "A fancy pen that has several nibs in different colors that you can slide up and down."
-	price = 20
+	price = 4.35
 	items = list(
 		/obj/item/pen/multi
 	)
@@ -213,7 +255,7 @@
 	name = "fountain pen"
 	supplier = "nanotrasen"
 	description = "It's an expensive fountain pen."
-	price = 30
+	price = 50
 	items = list(
 		/obj/item/pen/fountain
 	)
@@ -241,21 +283,119 @@
 	name = "toner cartridge (x2)"
 	supplier = "nanotrasen"
 	description = "Toner is the back bone of any space based litigation."
-	price = 135
+	price = 125
 	items = list(
-		/obj/item/device/toner
+		/obj/item/toner
 	)
 	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 2
 
+/singleton/cargo_item/camera
+	category = "supply"
+	name = "camera"
+	supplier = "nanotrasen"
+	description = "A polaroid camera. 10 photos left."
+	price = 45
+	items = list(
+		/obj/item/camera
+	)
+	access = 0
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/filmcartridge
+	category = "supply"
+	name = "film cartridge"
+	supplier = "nanotrasen"
+	description = "A camera film cartridge. Insert it into a camera to reload it."
+	price = 8
+	items = list(
+		/obj/item/camera_film
+	)
+	access = 0
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/pda
+	category = "supply"
+	name = "PDA"
+	supplier = "nanotrasen"
+	description = "A personal data assistant. Useful for replacing lost ones, or ordering for new crew."
+	price = 200
+	items = list(
+		/obj/item/modular_computer/handheld/pda
+	)
+	access = 0
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/taperecorder
+	category = "supply"
+	name = "universal recorder"
+	supplier = "nanotrasen"
+	description = "A device that can record up to an hour of dialogue and play it back. It automatically translates the content in playback."
+	price = 20
+	items = list(
+		/obj/item/taperecorder
+	)
+	access = 0
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/paperscanner
+	category = "supply"
+	name = "paper scanner"
+	supplier = "nanotrasen"
+	description = "A simple device that can be used to scan paper or paper bundles in order to digitize them."
+	price = 15
+	items = list(
+		/obj/item/paper_scanner
+	)
+	access = 0
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/datadisk
+	category = "supply"
+	name = "basic data disk"
+	supplier = "nanotrasen"
+	description = "Small diskette with imprinted photonic circuits that can be used to store data. Its capacity is 16 GQ."
+	price = 8.50
+	items = list(
+		/obj/item/computer_hardware/hard_drive/portable
+	)
+	access = 0
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/datadisk_adv
+	category = "supply"
+	name = "advanced data disk"
+	supplier = "nanotrasen"
+	description = "Small diskette with imprinted high-density photonic circuits that can be used to store data. Its capacity is 64 GQ."
+	price = 20
+	items = list(
+		/obj/item/computer_hardware/hard_drive/portable/advanced
+	)
+	access = 0
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
 /singleton/cargo_item/potted_plant_small
 	category = "supply"
 	name = "small potted plant"
 	supplier = "nanotrasen"
 	description = "A random small potted plant, for when you want to add some greenery to your desk."
-	price = 100
+	price = 35
 	items = list(
 		/obj/random/pottedplant_small
 	)
@@ -269,7 +409,7 @@
 	name = "large potted plant"
 	supplier = "nanotrasen"
 	description = "A random large potted plant, for when you want to add some greenery to your office space."
-	price = 300
+	price = 70
 	items = list(
 		/obj/random/pottedplant
 	)

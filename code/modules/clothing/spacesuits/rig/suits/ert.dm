@@ -11,6 +11,7 @@
 	icon_supported_species_tags = list("skr")
 	emp_protection = 35
 	helm_type = /obj/item/clothing/head/helmet/space/rig/ert
+	boot_type =  /obj/item/clothing/shoes/magboots/rig/heavy
 	req_access = list(ACCESS_CENT_SPECOPS)
 	species_restricted = list(BODYTYPE_SKRELL,BODYTYPE_HUMAN)
 	armor = list(
@@ -24,9 +25,9 @@
 	)
 	siemens_coefficient = 0.1
 	allowed = list(
-	/obj/item/device/flashlight, /obj/item/tank, /obj/item/device/t_scanner, /obj/item/rfd/construction, /obj/item/crowbar, \
-	/obj/item/screwdriver, /obj/item/weldingtool, /obj/item/wirecutters, /obj/item/wrench, /obj/item/device/multitool, \
-	/obj/item/device/radio, /obj/item/device/analyzer, /obj/item/storage/bag/inflatable, /obj/item/melee/baton, /obj/item/gun, \
+	/obj/item/flashlight, /obj/item/tank, /obj/item/t_scanner, /obj/item/rfd/construction, /obj/item/crowbar, \
+	/obj/item/screwdriver, /obj/item/weldingtool, /obj/item/wirecutters, /obj/item/wrench, /obj/item/multitool, \
+	/obj/item/radio, /obj/item/analyzer, /obj/item/storage/bag/inflatable, /obj/item/melee/baton, /obj/item/gun, \
 	/obj/item/storage/firstaid, /obj/item/reagent_containers/hypospray, /obj/item/roller,/obj/item/material/twohanded/fireaxe)
 	initial_modules = list(
 		/obj/item/rig_module/ai_container,
@@ -222,7 +223,7 @@
 	)
 	slowdown = 0
 	emp_protection = 50
-
+	boot_type =  /obj/item/clothing/shoes/magboots/rig/chonk
 	species_restricted = list(BODYTYPE_HUMAN)
 
 	initial_modules = list(
@@ -265,6 +266,8 @@
 	emp_protection = 50
 
 	species_restricted = list(BODYTYPE_HUMAN)
+
+	boot_type =  /obj/item/clothing/shoes/magboots/rig/chonk
 
 	initial_modules = list(
 		/obj/item/rig_module/ai_container,

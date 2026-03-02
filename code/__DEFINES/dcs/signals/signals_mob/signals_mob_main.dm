@@ -39,3 +39,15 @@
 
 /// For loss of limbs.
 #define COMSIG_LIMB_LOSS "lost_limb"
+
+/// From /mob/living/verb/execute_resist(). Resisting.
+#define COMSIG_MOB_RESISTED "mob_resist"
+
+/// From /obj/item/organ/external/take_damage. Updates the limb's colour matrix. Very laggy, so we do it on reaction to stuff.
+#define COMSIG_UPDATE_LIMB_IMAGE "update_limb_image"
+
+/// For when bone is fixed with surgery
+#define COMSIG_BEGIN_SURGERY "begin_surgery"
+
+/// For when the players intent changes
+#define COMSIG_INTENT_CHANGE "intent_change"

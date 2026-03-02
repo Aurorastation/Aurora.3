@@ -44,6 +44,7 @@
 	return INITIALIZE_HINT_LATELOAD
 
 /obj/machinery/atmospherics/portables_connector/LateInitialize()
+	. = ..()
 	toggle_process()
 
 /obj/machinery/atmospherics/portables_connector/update_icon()
@@ -153,7 +154,7 @@
 
 
 /obj/machinery/atmospherics/portables_connector/attackby(obj/item/attacking_item, mob/user)
-	if (!attacking_item.iswrench())
+	if (attacking_item.tool_behaviour != TOOL_WRENCH)
 		return ..()
 	if (connected_device)
 		to_chat(user, SPAN_WARNING("You cannot unwrench \the [src], dettach \the [connected_device] first."))
@@ -163,7 +164,7 @@
 	var/datum/gas_mixture/int_air = return_air()
 	if(!loc) return FALSE
 	var/datum/gas_mixture/env_air = loc.return_air()
-	if ((int_air.return_pressure()-env_air.return_pressure()) > PRESSURE_EXERTED)
+	if ((XGM_PRESSURE(int_air)-XGM_PRESSURE(env_air)) > PRESSURE_EXERTED)
 		to_chat(user, SPAN_WARNING("You cannot unwrench \the [src], it too exerted due to internal pressure."))
 		add_fingerprint(user)
 		return TRUE

@@ -13,7 +13,7 @@
 	var/active = FALSE
 
 /obj/machinery/power/tesla_beacon/proc/activate(mob/user = null)
-	if(surplus() < 1500)
+	if(POWER_SURPLUS(src) < 1500)
 		if(user) to_chat(user, SPAN_NOTICE("The connected wire doesn't have enough current."))
 		return
 	for(var/A in SScalamity.singularities)
@@ -52,7 +52,7 @@
 		return
 
 /obj/machinery/power/tesla_beacon/attackby(obj/item/attacking_item, mob/user)
-	if(attacking_item.isscrewdriver())
+	if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 		if(active)
 			to_chat(user, SPAN_WARNING("You need to deactivate \the [src] first!"))
 			return TRUE
@@ -80,6 +80,7 @@
 /obj/machinery/power/tesla_beacon/process()
 	if(!active)
 		return PROCESS_KILL
-	else
-		if(draw_power(1500) < 1500)
-			deactivate()
+	var/can_draw = POWER_DRAW(src, 1500) >= 1500
+	DRAW_POWER(src, can_draw)
+	if(!can_draw)
+		deactivate()

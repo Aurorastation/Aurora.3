@@ -241,7 +241,7 @@
 
 	if(T)
 		var/datum/gas_mixture/environment = T.return_air()
-		var/pressure = (environment)? environment.return_pressure() : 0
+		var/pressure = SAFE_XGM_PRESSURE(environment)
 		if(ispath(installed_barrel.projectile_type, /obj/projectile/kinetic))
 			var/obj/projectile/kinetic/shot_projectile = new installed_barrel.projectile_type(get_turf(src))
 			shot_projectile.damage = damage_increase
@@ -408,7 +408,7 @@
 		to_chat(user,"You label \the [name] as \"[custom_name]\"")
 		update_icon()
 		return TRUE
-	else if(attacking_item.iswrench())
+	else if(attacking_item.tool_behaviour == TOOL_WRENCH)
 		if(installed_upgrade_chip)
 			attacking_item.play_tool_sound(get_turf(src), 50)
 			to_chat(user,"You remove \the [installed_upgrade_chip].")
@@ -567,14 +567,14 @@
 	origin_tech = list(TECH_POWER = 4,TECH_MAGNET = 4, TECH_DATA = 4)
 
 
-/obj/item/device/kinetic_analyzer
+/obj/item/kinetic_analyzer
 	name = "kinetic analyzer"
 	desc = "Analyzes the kinetic accelerator and prints useful information on it's statistics."
-	icon = 'icons/obj/item/device/kinetic_analyzer.dmi'
+	icon = 'icons/obj/item/kinetic_analyzer.dmi'
 	icon_state = "kinetic_analyzer"
 
 
-/obj/item/device/kinetic_analyzer/afterattack(var/atom/target, var/mob/living/user, proximity, params)
+/obj/item/kinetic_analyzer/afterattack(var/atom/target, var/mob/living/user, proximity, params)
 
 	user.visible_message(
 		SPAN_WARNING("\The [user] scans \the [target] with \the [src]."),

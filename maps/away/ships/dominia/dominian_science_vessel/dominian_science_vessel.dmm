@@ -579,7 +579,7 @@
 /area/ship/dominian_science_vessel/mess)
 "bpG" = (
 /obj/structure/table/steel,
-/obj/item/device/flashlight/lamp,
+/obj/item/flashlight/lamp,
 /turf/simulated/floor/reinforced,
 /area/ship/dominian_science_vessel/isolation)
 "bqZ" = (
@@ -1000,28 +1000,28 @@
 "cQs" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/structure/closet/crate,
-/obj/item/device/gps/science{
+/obj/item/gps/science{
 	pixel_y = 1;
 	pixel_x = 6;
 	gpstag = "SCC12"
 	},
-/obj/item/device/gps/science{
+/obj/item/gps/science{
 	pixel_y = 1;
 	pixel_x = 8;
 	gpstag = "SCC11"
 	},
-/obj/item/device/gps/science{
+/obj/item/gps/science{
 	pixel_y = 1;
 	pixel_x = -6;
 	gpstag = "SCC13"
 	},
-/obj/item/device/gps/science{
+/obj/item/gps/science{
 	pixel_y = 1;
 	pixel_x = -8;
 	gpstag = "SCC14"
 	},
-/obj/item/device/radio,
-/obj/item/device/radio,
+/obj/item/radio,
+/obj/item/radio,
 /turf/simulated/floor/carpet/rubber,
 /area/shuttle/dominian_science_shuttle)
 "cTq" = (
@@ -1961,7 +1961,7 @@
 /area/ship/dominian_science_vessel/aft_dock)
 "fnE" = (
 /obj/structure/table/steel,
-/obj/item/device/binoculars,
+/obj/item/binoculars,
 /turf/simulated/floor/carpet/rubber,
 /area/ship/dominian_science_vessel/bridge)
 "fnY" = (
@@ -2464,7 +2464,7 @@
 /obj/structure/table/steel,
 /obj/item/storage/box/beakers,
 /obj/item/storage/box/samplebags,
-/obj/item/device/hand_labeler,
+/obj/item/hand_labeler,
 /obj/effect/floor_decal/corner/purple{
 	dir = 5
 	},
@@ -2548,8 +2548,8 @@
 /area/shuttle/dominian_science_shuttle)
 "huX" = (
 /obj/structure/table/steel,
-/obj/item/device/binoculars,
-/obj/item/device/binoculars/high_power,
+/obj/item/binoculars,
+/obj/item/binoculars/high_power,
 /obj/effect/floor_decal/corner/blue/full{
 	dir = 4
 	},
@@ -2580,7 +2580,7 @@
 	pixel_x = 6;
 	pixel_y = 2
 	},
-/obj/item/storage/box/produce{
+/obj/item/storage/box/large/produce{
 	pixel_x = 2;
 	pixel_y = 9
 	},
@@ -3081,7 +3081,7 @@
 /area/shuttle/dominian_science_shuttle)
 "iRm" = (
 /obj/structure/table/steel,
-/obj/item/device/camera,
+/obj/item/camera,
 /obj/item/paper_bin{
 	pixel_x = 4;
 	pixel_y = 2
@@ -3166,7 +3166,7 @@
 /area/shuttle/dominian_science_shuttle)
 "iXb" = (
 /obj/structure/table/steel,
-/obj/item/device/binoculars,
+/obj/item/binoculars,
 /obj/item/clothing/head/helmet/pilot{
 	pixel_x = 1
 	},
@@ -3667,17 +3667,17 @@
 "kyi" = (
 /obj/structure/closet/crate,
 /obj/effect/floor_decal/industrial/outline/operations,
-/obj/item/device/flashlight,
-/obj/item/device/radio,
-/obj/item/device/flashlight/heavy,
-/obj/item/device/flashlight/marshallingwand,
-/obj/item/device/flashlight,
+/obj/item/flashlight,
+/obj/item/radio,
+/obj/item/flashlight/heavy,
+/obj/item/flashlight/marshallingwand,
+/obj/item/flashlight,
 /obj/random/dirt_75,
 /turf/simulated/floor/carpet/rubber,
 /area/shuttle/dominian_science_shuttle)
 "kAa" = (
 /obj/structure/table/steel,
-/obj/item/device/multitool,
+/obj/item/multitool,
 /obj/machinery/light{
 	dir = 8;
 	icon_state = "tube_empty"
@@ -4076,7 +4076,7 @@
 /area/ship/dominian_science_vessel/armory)
 "lLG" = (
 /obj/structure/table/steel,
-/obj/item/device/flashlight/lamp,
+/obj/item/flashlight/lamp,
 /obj/effect/floor_decal/corner/purple{
 	dir = 5
 	},
@@ -4925,12 +4925,12 @@
 /area/ship/dominian_science_vessel/hangar)
 "oBB" = (
 /obj/item/storage/belt/archaeology,
-/obj/item/storage/box/excavation,
-/obj/item/device/flashlight/lantern,
-/obj/item/device/ano_scanner,
-/obj/item/device/depth_scanner,
-/obj/item/device/core_sampler,
-/obj/item/device/measuring_tape,
+/obj/item/storage/box/unique/excavation,
+/obj/item/flashlight/lantern,
+/obj/item/ano_scanner,
+/obj/item/depth_scanner,
+/obj/item/core_sampler,
+/obj/item/measuring_tape,
 /obj/item/pickaxe/hand,
 /obj/item/storage/bag/fossils,
 /obj/item/stack/flag/green,
@@ -5009,7 +5009,7 @@
 "oGe" = (
 /obj/structure/table/stone/marble,
 /obj/item/book/manual/dominia_honor,
-/obj/item/device/versebook/tribunal,
+/obj/item/versebook/tribunal,
 /turf/simulated/floor/marble/dark,
 /area/ship/dominian_science_vessel/chapel)
 "oMn" = (
@@ -5580,7 +5580,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_science_vessel/armory)
 "qJb" = (
-/obj/item/device/suit_cooling_unit,
+/obj/item/suit_cooling_unit,
 /obj/item/tank/jetpack/carbondioxide{
 	pixel_x = -6
 	},
@@ -5734,12 +5734,12 @@
 	req_one_access = null
 	},
 /obj/structure/table/steel,
-/obj/item/device/versebook/tribunal,
-/obj/item/device/versebook/tribunal,
-/obj/item/device/versebook/tribunal,
-/obj/item/device/versebook/tribunal,
-/obj/item/device/versebook/tribunal,
-/obj/item/device/versebook/tribunal,
+/obj/item/versebook/tribunal,
+/obj/item/versebook/tribunal,
+/obj/item/versebook/tribunal,
+/obj/item/versebook/tribunal,
+/obj/item/versebook/tribunal,
+/obj/item/versebook/tribunal,
 /obj/effect/floor_decal/corner/red{
 	dir = 9
 	},
@@ -5984,7 +5984,7 @@
 /obj/item/clothing/accessory/holster/waist,
 /obj/item/clothing/accessory/holster/waist/brown,
 /obj/item/clothing/accessory/holster,
-/obj/item/device/flash,
+/obj/item/flash,
 /obj/item/clothing/suit/armor/carrier/heavy,
 /obj/item/clothing/head/helmet/merc,
 /obj/structure/sign/flag/dominia{
@@ -6964,7 +6964,7 @@
 /area/ship/dominian_science_vessel/center_hall)
 "vfS" = (
 /obj/structure/table/steel,
-/obj/item/device/flashlight/lamp,
+/obj/item/flashlight/lamp,
 /obj/effect/floor_decal/corner/purple/full{
 	dir = 1
 	},
@@ -7914,7 +7914,7 @@
 /obj/effect/floor_decal/spline/fancy/wood,
 /obj/structure/table/wood,
 /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/dom,
-/obj/item/device/versebook/tribunal,
+/obj/item/versebook/tribunal,
 /turf/simulated/floor/carpet,
 /area/ship/dominian_science_vessel/officer)
 "xue" = (
@@ -8057,7 +8057,7 @@
 /obj/item/reagent_containers/food/snacks/meat,
 /obj/item/reagent_containers/food/snacks/meat,
 /obj/item/reagent_containers/food/snacks/meat,
-/obj/item/storage/box/produce{
+/obj/item/storage/box/large/produce{
 	pixel_x = 3;
 	pixel_y = -5
 	},

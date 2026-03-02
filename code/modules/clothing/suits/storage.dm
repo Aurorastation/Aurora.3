@@ -48,7 +48,7 @@
 
 /obj/item/clothing/suit/storage/toggle/verb/toggle()
 	set name = "Toggle Coat Buttons"
-	set category = "Object"
+	set category = "Object.Equipped"
 	set src in usr
 
 	if(use_check_and_message(usr))
@@ -59,7 +59,7 @@
 /obj/item/clothing/suit/storage/toggle/proc/toggle_open()
 	opened = !opened
 	to_chat(usr, SPAN_NOTICE("You [opened ? "unbutton" : "button up"] \the [src]."))
-	playsound(src, /singleton/sound_category/rustle_sound, EQUIP_SOUND_VOLUME, TRUE)
+	playsound(src, SFX_RUSTLE, EQUIP_SOUND_VOLUME, TRUE)
 	icon_state = "[initial(icon_state)][opened ? "_open" : ""]"
 	item_state = icon_state
 	update_icon()
@@ -84,7 +84,7 @@
 
 /obj/item/clothing/suit/storage/vest/verb/toggle()
 	set name ="Adjust Badge"
-	set category = "Object"
+	set category = "Object.Equipped"
 	set src in usr
 	if(!usr.canmove || usr.stat || usr.restrained())
 		return 0

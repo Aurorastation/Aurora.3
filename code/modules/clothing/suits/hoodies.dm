@@ -21,7 +21,7 @@
 
 /obj/item/clothing/suit/storage/hooded/verb/ToggleHood()
 	set name = "Toggle Coat Hood"
-	set category = "Object"
+	set category = "Object.Equipped"
 	set src in usr
 
 	if(use_check_and_message(usr))
@@ -287,7 +287,7 @@
 
 /obj/item/clothing/suit/storage/hooded/wintercoat/hoodie/verb/Toggle()
 	set name = "Toggle Coat Zipper"
-	set category = "Object"
+	set category = "Object.Equipped"
 	set src in usr
 	if(use_check_and_message(usr))
 		return 0

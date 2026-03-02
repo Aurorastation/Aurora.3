@@ -7,6 +7,7 @@
 	species_height = HEIGHT_CLASS_TALL
 	height_min = 175
 	height_max = 215
+	selectable_pronouns = list(NEUTER, MALE, FEMALE, PLURAL)
 	icobase = 'icons/mob/human_races/unathi/r_unathi.dmi'
 	deform = 'icons/mob/human_races/unathi/r_def_unathi.dmi'
 	preview_icon = 'icons/mob/human_races/unathi/unathi_preview.dmi'
@@ -36,7 +37,7 @@
 
 	ethanol_resistance = 0.8
 	taste_sensitivity = TASTE_SENSITIVE
-	economic_modifier = 7
+	economic_modifier = 9
 
 	num_alternate_languages = 2
 	secondary_langs = list(LANGUAGE_UNATHI, LANGUAGE_AZAZIBA)
@@ -45,8 +46,8 @@
 	stamina	=	120			  // Unathi have the shortest but fastest sprint of all
 	stamina_recovery = 5
 
-	sprint_cost_factor = 1.45
-	sprint_speed_factor = 3.2
+	sprint_cost_factor = 1.75
+	sprint_speed_factor = 1.6
 	exhaust_threshold = 65
 	bp_base_systolic = 80 // Default 120
 	bp_base_disatolic = 50 // Default 80
@@ -60,6 +61,7 @@
 	rarity_value = 3
 	break_cuffs = TRUE
 	mob_size = 10
+	mob_weight = MOB_WEIGHT_HEAVY
 	climb_coeff = 1.35
 
 	blurb = "A heavily reptillian species, Unathi (or 'Sinta as they call themselves) hail from the Uuosa-Eso \
@@ -105,7 +107,7 @@
 		"Your scales bristle against the cold."
 		)
 
-	footsound = /singleton/sound_category/footstep_unathi_sound
+	footsound = SFX_FOOTSTEP_UNATHI
 
 	has_organ = list(
 		BP_BRAIN =    /obj/item/organ/internal/brain/unathi,

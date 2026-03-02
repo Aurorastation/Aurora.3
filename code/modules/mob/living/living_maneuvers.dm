@@ -28,7 +28,7 @@
 /mob/living/verb/prepare_maneuver()
 	set name = "Prepare To Maneuver"
 	set desc = "Select a maneuver to perform."
-	set category = "IC"
+	set category = "IC.Maneuver"
 
 	if(!length(available_maneuvers))
 		to_chat(src, SPAN_WARNING("You are unable to perform any maneuvers."))

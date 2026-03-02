@@ -1,7 +1,3 @@
-#ifndef T_BOARD
-#error T_BOARD macro is not defined but we need it!
-#endif
-
 /obj/item/circuitboard/air_management
 	name = T_BOARD("atmosphere monitoring console")
 	build_path = /obj/machinery/computer/general_air_control

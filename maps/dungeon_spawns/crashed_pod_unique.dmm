@@ -122,7 +122,7 @@
 /turf/simulated/floor/shuttle/dark_blue,
 /area/mine/unexplored)
 "C" = (
-/obj/item/device/gps,
+/obj/item/gps,
 /turf/simulated/floor/shuttle/dark_blue,
 /area/mine/unexplored)
 "D" = (

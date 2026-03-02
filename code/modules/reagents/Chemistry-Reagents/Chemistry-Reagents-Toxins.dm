@@ -409,7 +409,7 @@
 	if(!istype(T))
 		return
 
-	var/hotspot = (locate(/obj/fire) in T)
+	var/hotspot = (locate(/obj/hotspot) in T)
 	if(hotspot && !istype(T, /turf/space))
 		var/datum/gas_mixture/lowertemp = T.return_air()
 		lowertemp.temperature = max(lowertemp.temperature-2000, lowertemp.temperature / 2, T0C)
@@ -443,6 +443,11 @@
 	if(istype(O, /obj/structure/bonfire))
 		var/obj/structure/bonfire/B = O
 		B.fuel = max(0, B.fuel - (150 * amount))
+	if(istype(O, /obj/turf_fire))
+		var/obj/turf_fire/F = O
+		F.AddPower(-30 * amount) //Thirty times as effective as water
+		if (F.fire_power <= 0)
+			qdel(F)
 
 /singleton/reagent/toxin/plantbgone
 	name = "Plant-B-Gone"
@@ -818,6 +823,7 @@
 		H.berserk_process()
 	M.make_jittery(20)
 	M.add_chemical_effect(CE_BERSERK, 1)
+	M.add_up_to_chemical_effect(CE_PAINKILLER, 75)
 	if(M.a_intent != I_HURT)
 		M.a_intent_change(I_HURT)
 	if(prob(3))
@@ -1027,6 +1033,49 @@
 			var/obj/item/organ/external/affected = H.get_organ(BP_CHEST)
 			var/obj/item/organ/internal/parasite/heartworm/infest = new()
 			infest.replaced(H, affected)
+
+/// Functions as a weaker version of soporific and also infests the victim with eggs.
+/singleton/reagent/toxin/greimorian_eggs
+	name = "Greimorian Eggs"
+	description = "The eggs of a greimorian clade. They are highly opportunistic, capable of infesting almost any organism, and are feared for the relatively swift speed with which they gestate. Immediate surgical removal or pharmaceutical intervention is a vital necessity."
+	reagent_state = SOLID
+	color = "#5f683f"
+	metabolism = REM*2
+	ingest_met = REM*2
+	touch_met = REM*5
+	taste_description = "something noxious"
+	taste_mult = 0.25
+	strength = 0
+
+/singleton/reagent/toxin/greimorian_eggs/affect_blood(mob/living/carbon/mob, alien, removed, datum/reagents/holder)
+	..()
+	if(istype(mob,/mob/living/carbon/human))
+		var/mob/living/carbon/human/victim = mob
+
+		victim.add_chemical_effect(CE_PULSE, -2)
+		var/dose = victim.chem_doses[type]
+		if(dose > 2)
+			if(ishuman(victim) && (dose == metabolism * 2 || prob(3)))
+				victim.emote("yawn")
+		if(dose > 20)
+			victim.eye_blurry = max(victim.eye_blurry, 10)
+		if(dose > 40)
+			victim.Weaken(1)
+			victim.drowsiness = max(victim.drowsiness, 20)
+
+		if(victim.chem_effects[CE_ANTIPARASITE])
+			return
+
+		if(!victim.internal_organs_by_name[BP_GREIMORIAN_EGGCLUSTER] && prob(20))
+			var/obj/item/organ/external/affected = pick(victim.organs)
+			if(BP_IS_ROBOTIC(affected))
+				return
+			// Give the victim an extra chance to NOT get an eggsac in their head; reroll. Ditto mechanical limbs.
+			if(affected == BP_HEAD)
+				affected = pick(victim.organs)
+			var/obj/item/organ/internal/parasite/greimorian_eggcluster/infest = new()
+			infest.parent_organ = affected.limb_name
+			infest.replaced(victim, affected)
 
 /singleton/reagent/toxin/malignant_tumour_cells
 	name = "Malignant Tumour Cells"

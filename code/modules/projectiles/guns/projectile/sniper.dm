@@ -78,13 +78,13 @@
 		return
 	..()
 
-/obj/item/gun/projectile/heavysniper/unload_ammo(mob/user, var/allow_dump=1)
+/obj/item/gun/projectile/heavysniper/unload_ammo(mob/user, allow_dump = TRUE, drop_mag = FALSE)
 	if(!bolt_open)
 		return
 	..()
 
 /obj/item/gun/projectile/heavysniper/verb/scope()
-	set category = "Object"
+	set category = "Object.Held"
 	set name = "Use Scope"
 	set src in usr
 
@@ -189,14 +189,16 @@
 	force = 15
 	slot_flags = SLOT_BACK
 	origin_tech = list(TECH_COMBAT = 8, TECH_MATERIAL = 3, TECH_MAGNET = 2, TECH_ILLEGAL = 5)
-	caliber = "a762"
+	caliber = "6.8mm"
 	recoil = 2
 	fire_sound = 'sound/weapons/gunshot/gunshot_svd.ogg'
 	load_method = MAGAZINE
 	max_shells = 10
 
-	magazine_type = /obj/item/ammo_magazine/d762
-	allowed_magazines = list(/obj/item/ammo_magazine/d762)
+	worn_x_dimension = 48 //Uses 48x32 gun sprite
+
+	magazine_type = /obj/item/ammo_magazine/a68/hotaki
+	allowed_magazines = list(/obj/item/ammo_magazine/a68/hotaki)
 
 	accuracy = -4
 	scoped_accuracy = 3
@@ -208,11 +210,9 @@
 	fire_delay = ROF_SUPERHEAVY
 
 /obj/item/gun/projectile/dragunov/update_icon()
-	..()
-	if(ammo_magazine)
-		icon_state = "dragunov"
-	else
-		icon_state = "dragunov-empty"
+	item_state = (ammo_magazine)? "dragunov" : "dragunov_nomag"
+	..() //Placed here so in-hand sprite reflects no magazine properly.
+	icon_state = (ammo_magazine)? "dragunov" : "dragunov_nomag"
 
 /obj/item/gun/projectile/dragunov/special_check(mob/user)
 	if(!wielded)
@@ -221,7 +221,7 @@
 	return ..()
 
 /obj/item/gun/projectile/dragunov/verb/scope()
-	set category = "Object"
+	set category = "Object.Held"
 	set name = "Use Scope"
 	set src in usr
 
@@ -271,7 +271,7 @@
 		icon_state = "w556rifle-empty"
 
 /obj/item/gun/projectile/automatic/rifle/w556/verb/scope()
-	set category = "Object"
+	set category = "Object.Held"
 	set name = "Use Scope"
 	set src in usr
 

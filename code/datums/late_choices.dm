@@ -57,7 +57,7 @@
 	for(var/mutable_appearance/I in mannequin.overlays)
 		if(I.plane == EMISSIVE_PLANE)
 			mannequin.overlays -= I
-	character_image = getFlatIcon(mannequin, SOUTH)
+	character_image = getFlatIcon(mannequin, SOUTH, no_anim = TRUE)
 
 /datum/late_choices/ui_data(mob/user)
 	var/list/data = list()

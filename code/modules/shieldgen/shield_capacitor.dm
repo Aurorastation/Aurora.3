@@ -26,6 +26,7 @@
 	return INITIALIZE_HINT_LATELOAD
 
 /obj/machinery/shield_capacitor/LateInitialize()
+	. = ..()
 	for(var/obj/machinery/shield_gen/possible_gen in range(1, src))
 		if(get_dir(src, possible_gen) == dir)
 			possible_gen.owned_capacitor = src
@@ -48,7 +49,7 @@
 			updateDialog()
 		else
 			to_chat(user, SPAN_ALERT("Access denied."))
-	else if(attacking_item.iswrench())
+	else if(attacking_item.tool_behaviour == TOOL_WRENCH)
 		anchored = !anchored
 		visible_message(SPAN_NOTICE("\The [src] has been [anchored ? "bolted to the floor" : "unbolted from the floor"] by \the [user]."))
 
@@ -122,7 +123,8 @@
 
 	if (PN)
 		var/power_draw = between(0, max_charge - stored_charge, charge_rate) //what we are trying to draw
-		power_draw = PN.draw_power(power_draw) //what we actually get
+		power_draw = POWERNET_POWER_DRAW(PN, power_draw) //what we actually get
+		DRAW_FROM_POWERNET(PN, power_draw)
 		stored_charge += power_draw
 
 	time_since_fail++
@@ -137,4 +139,4 @@
 		..()
 
 /obj/machinery/shield_capacitor/multiz
-	max_charge_rate = 1250000	//1250 kW
+	max_charge_rate = 1250000

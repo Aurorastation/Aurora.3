@@ -75,14 +75,14 @@ GLOBAL_LIST_EMPTY(total_active_bonfires)
 	if(fuel >= max(max_fuel * 0.1, 50) && on_fire)
 		to_chat(H, SPAN_NOTICE("You grab a burning stick from the fire."))
 		fuel -= 40
-		var/obj/item/device/flashlight/flare/torch/stick/torch = new(get_turf(user))
+		var/obj/item/flashlight/flare/torch/stick/torch = new(get_turf(user))
 		H.put_in_active_hand(torch)
 
 /obj/structure/bonfire/attackby(obj/item/attacking_item, mob/user)
 	if(attacking_item.isFlameSource() && !on_fire) // needs to go last or else nothing else will work
 		light(user)
 		return
-	if(on_fire && (istype(attacking_item, /obj/item/flame) || istype(attacking_item, /obj/item/device/flashlight/flare/torch) || istype(attacking_item, /obj/item/clothing/mask/smokable))) //light unlit stuff
+	if(on_fire && (istype(attacking_item, /obj/item/flame) || istype(attacking_item, /obj/item/flashlight/flare/torch) || istype(attacking_item, /obj/item/clothing/mask/smokable))) //light unlit stuff
 		attacking_item.attackby(src, user)
 		return
 	if(fuel < max_fuel)

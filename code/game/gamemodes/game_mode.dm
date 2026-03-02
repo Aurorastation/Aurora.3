@@ -596,7 +596,7 @@ GLOBAL_LIST_EMPTY(additional_antag_types)
 
 /mob/verb/check_round_info()
 	set name = "Check Round Info"
-	set category = "OOC"
+	set category = "OOC.Round"
 
 	if(!SSticker.mode)
 		to_chat(usr, "Something is terribly wrong; there is no gametype.")
@@ -614,7 +614,7 @@ GLOBAL_LIST_EMPTY(additional_antag_types)
 
 /mob/verb/check_gamemode_probability()
 	set name = "Check Gamemode Probability"
-	set category = "OOC"
+	set category = "OOC.Round"
 
 	if(GLOB.config.show_game_type_odd)
 		to_chat(src, "<b>Secret Mode Odds:</b>")

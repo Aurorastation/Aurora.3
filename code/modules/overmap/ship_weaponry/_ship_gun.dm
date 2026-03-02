@@ -78,6 +78,7 @@
 	return INITIALIZE_HINT_LATELOAD
 
 /obj/machinery/ship_weapon/LateInitialize()
+	. = ..()
 	SSshuttle.weapons_to_initialize += src
 	if(SSshuttle.initialized)
 		SSshuttle.initialize_ship_weapons()
@@ -113,7 +114,7 @@
 		qdel(src)
 
 /obj/machinery/ship_weapon/attackby(obj/item/attacking_item, mob/user)
-	if(istype(attacking_item, /obj/item/device/multitool))
+	if(istype(attacking_item, /obj/item/multitool))
 		to_chat(user, SPAN_NOTICE("You hook up the tester to \the [src]'s wires: its identification tag is <b>[weapon_id]></b>."))
 		var/new_id = input(user, "Change the identification tag?", "Identification Tag", weapon_id) as text|null
 		if(length(new_id) && !use_check_and_message(user))

@@ -275,8 +275,32 @@
 	telecrystal_cost = 19
 	path = /obj/item/psionic_jumpstarter
 
+/datum/uplink_item/item/visible_weapons/vampiric_jumpstarter
+	name = "Vampiric Jumpstarter"
+	telecrystal_cost = 20
+	path = /obj/item/vampiric_jumpstarter
+	antag_roles = list(MODE_TRAITOR)
+
+/datum/uplink_item/item/visible_weapons/changeling_jumpstarter
+	name = "Changeling Jumpstarter"
+	telecrystal_cost = 20
+	path = /obj/item/changeling_jumpstarter
+	antag_roles = list(MODE_TRAITOR)
+
 /datum/uplink_item/item/visible_weapons/flamethrower
 	name = "Flamethrower"
-	desc = "A flamethrower, with a full canister of Phoron installed to fuel it. Handle with caution."
-	telecrystal_cost = 10
+	desc = "A flamethrower, with a full canister of fuel installed. Handle with caution."
+	telecrystal_cost = 6
 	path = /obj/item/flamethrower/full
+
+/datum/uplink_item/item/visible_weapons/military_flamethrower
+	name = "Military-Grade Flamethrower"
+	desc = "A military-grade flamethrower, with a full canister of napalm installed. Burn it all to the ground!"
+	telecrystal_cost = 12
+	path = /obj/item/flamethrower/military/full
+
+/datum/uplink_item/item/visible_weapons/psionic_awakener
+	name = "Psionic Jumpstarter (Minor)"
+	telecrystal_cost = 3
+	bluecrystal_cost = 3
+	path = /obj/item/psionic_jumpstarter/sensitive

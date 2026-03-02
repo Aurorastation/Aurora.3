@@ -7,7 +7,7 @@
  */
 /mob/verb/up()
 	set name = "Move Upwards"
-	set category = "IC"
+	set category = "IC.Maneuver"
 
 	if(zMove(UP))
 		visible_message(SPAN_NOTICE("[src] has moved upwards."), SPAN_NOTICE("You move upwards."))
@@ -16,8 +16,8 @@
  * Verb for the mob to move down a z-level if possible.
  */
 /mob/verb/down()
-	set name = "Move Down"
-	set category = "IC"
+	set name = "Move Downwards"
+	set category = "IC.Maneuver"
 
 	if(zMove(DOWN))
 		visible_message(SPAN_NOTICE("[src] has moved downwards."), SPAN_NOTICE("You move downwards."))
@@ -31,8 +31,9 @@
  *			FALSE otherwise.
  */
 /mob/proc/zMove(direction)
-	// In the case of an active eyeobj, move that instead.
-	if (eyeobj)
+	// If the calling mob has an active eyeobj reference, we move it instead.
+	// This is important because zMove is called from the actual mob and not the eyeobj they're controlling.
+	if(eyeobj)
 		return eyeobj.zMove(direction)
 
 	// Check if we can actually travel a Z-level.
@@ -229,7 +230,7 @@
 	return 1
 
 /mob/living/silicon/robot/can_ztravel(var/direction)
-	if(incapacitated() || is_dead())
+	if(incapacitated() || (stat == DEAD))
 		return FALSE
 
 	if(Allow_Spacemove()) //Checks for active jetpack
@@ -459,7 +460,7 @@
 
 	if(status_flags & GODMODE) // Godmode
 		visible_message(SPAN_NOTICE("\The [src] lands flawlessly on their legs, bending their knee to the floor. They promptly stand up."))
-		playsound(src.loc, /singleton/sound_category/swing_hit_sound, 50, 1)
+		playsound(src.loc, SFX_SWING_HIT, 50, 1)
 		return FALSE
 
 	visible_message("\The [src] falls and lands on \the [loc]!",
@@ -482,7 +483,7 @@
 			if(51 to INFINITY)
 				playsound(src.loc, 'sound/weapons/heavysmash.ogg', 100, 1)
 			else
-				playsound(src.loc, /singleton/sound_category/swing_hit_sound, 75, 1)
+				playsound(src.loc, SFX_SWING_HIT, 75, 1)
 	else
 		playsound(src.loc, 'sound/weapons/smash.ogg', 75, 1)
 
@@ -503,7 +504,7 @@
 
 	if(status_flags & GODMODE) // Godmode
 		visible_message(SPAN_NOTICE("\The [src] lands flawlessly on their legs, bending their knee to the floor. They promptly stand up."))
-		playsound(src.loc, /singleton/sound_category/swing_hit_sound, 50, 1)
+		playsound(src.loc, SFX_SWING_HIT, 50, 1)
 		return FALSE
 
 	var/combat_roll = 1
@@ -638,11 +639,11 @@
 			if(-INFINITY to 10)
 				playsound(src.loc, 'sound/weapons/bladeslice.ogg', 50, 1)
 			if(11 to 50)
-				playsound(src.loc, /singleton/sound_category/punch_sound, 75, 1)
+				playsound(src.loc, SFX_PUNCH, 75, 1)
 			if(51 to INFINITY)
 				playsound(src.loc, 'sound/weapons/heavysmash.ogg', 100, 1)
 			else
-				playsound(src.loc, /singleton/sound_category/swing_hit_sound, 75, 1)
+				playsound(src.loc, SFX_SWING_HIT, 75, 1)
 	else
 		playsound(src.loc, 'sound/weapons/smash.ogg', 75, 1)
 
@@ -804,10 +805,10 @@
 /atom/movable/z_observer/proc/follow()
 
 /atom/movable/z_observer/z_up/follow()
-	forceMove(get_step(target_turf, UP))
+	forceMove(get_step(owner, UP))
 	if(isturf(src.loc))
 		var/turf/T = src.loc
-		if((T && TURF_IS_MIMICING(T)) && (get_turf(owner) == get_step(src, DOWN)))
+		if(T && TURF_IS_MIMICING(T))
 			return
 	owner.reset_view(null)
 	owner.z_eye = null
@@ -818,7 +819,7 @@
 	/// If we move down more than 1 step, don't move down again.
 	if((GET_Z(owner) - down_step.z) < 2)
 		forceMove(down_step)
-	if(owner.Adjacent(target_turf) && (owner.dir == get_dir(owner, target_turf)))
+	if(owner.Adjacent(target_turf) && (get_dir(owner, target_turf) & owner.dir))
 		return
 	owner.reset_view(null)
 	owner.z_eye = null

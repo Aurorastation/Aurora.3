@@ -71,6 +71,7 @@
 			"tgui_inputs",
 			"tgui_buttons_large",
 			"tgui_inputs_swapped",
+			"tgui_say_light_mode",
 			"ui_scale",
 			"ckey" = 1
 		)
@@ -90,6 +91,7 @@
 		"tgui_inputs" = pref.tgui_inputs,
 		"tgui_buttons_large" = pref.tgui_buttons_large,
 		"tgui_inputs_swapped" = pref.tgui_inputs_swapped,
+		"tgui_say_light_mode" = pref.tgui_say_light_mode,
 		"ui_scale" = pref.ui_scale
 	)
 
@@ -103,6 +105,7 @@
 	pref.tgui_inputs = sanitize_bool(pref.tgui_inputs, TRUE)
 	pref.tgui_buttons_large = sanitize_bool(pref.tgui_buttons_large, FALSE)
 	pref.tgui_inputs_swapped = sanitize_bool(pref.tgui_inputs_swapped, FALSE)
+	pref.tgui_say_light_mode = sanitize_bool(pref.tgui_say_light_mode, FALSE)
 	pref.ooccolor = sanitize_hexcolor(pref.ooccolor, initial(pref.ooccolor))
 
 /datum/category_item/player_setup_item/player_global/ui/content(mob/user)

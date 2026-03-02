@@ -3,9 +3,9 @@
 	name = "stok cube box"
 	supplier = "nanotrasen"
 	description = "Drymate brand stok cubes, shipped from Moghes. Just add water!"
-	price = 60
+	price = 250
 	items = list(
-		/obj/item/storage/box/monkeycubes/stokcubes
+		/obj/item/storage/box/unique/monkeycubes/stokcubes
 	)
 	access = 0
 	container_type = "crate"
@@ -17,9 +17,9 @@
 	name = "vkrexi cube box"
 	supplier = "nanotrasen"
 	description = "Drymate brand vkrexi cubes. Just add water!"
-	price = 60
+	price = 250
 	items = list(
-		/obj/item/storage/box/monkeycubes/vkrexicubes
+		/obj/item/storage/box/unique/monkeycubes/vkrexicubes
 	)
 	access = 0
 	container_type = "crate"
@@ -31,9 +31,9 @@
 	name = "farwa cube box"
 	supplier = "nanotrasen"
 	description = "Drymate brand farwa cubes, shipped from Adhomai. Just add water!"
-	price = 55
+	price = 250
 	items = list(
-		/obj/item/storage/box/monkeycubes/farwacubes
+		/obj/item/storage/box/unique/monkeycubes/farwacubes
 	)
 	access = 0
 	container_type = "crate"
@@ -45,9 +45,9 @@
 	name = "monkey cube box"
 	supplier = "nanotrasen"
 	description = "Drymate brand monkey cubes. Just add water!"
-	price = 60
+	price = 250
 	items = list(
-		/obj/item/storage/box/monkeycubes
+		/obj/item/storage/box/unique/monkeycubes
 	)
 	access = 0
 	container_type = "crate"
@@ -58,10 +58,10 @@
 	category = "science"
 	name = "neaera cube box"
 	supplier = "nanotrasen"
-	description = "Drymate brand neaera cubes, shipped from Qerrbalak. Just add water!"
-	price = 65
+	description = "Drymate brand neaera cubes, shipped from Nralakk IV. Just add water!"
+	price = 250
 	items = list(
-		/obj/item/storage/box/monkeycubes/neaeracubes
+		/obj/item/storage/box/unique/monkeycubes/neaeracubes
 	)
 	access = 0
 	container_type = "crate"
@@ -72,7 +72,7 @@
 	name = "hazmat hood"
 	supplier = "nanotrasen"
 	description = "This hood protects against biological hazards."
-	price = 105
+	price = 165
 	items = list(
 		/obj/item/clothing/head/hazmat/general
 	)
@@ -86,23 +86,9 @@
 	name = "hazmat suit"
 	supplier = "nanotrasen"
 	description = "This suit protects against biological hazards."
-	price = 105
+	price = 200
 	items = list(
 		/obj/item/clothing/suit/hazmat/general
-	)
-	access = 0
-	container_type = "crate"
-	groupable = TRUE
-	spawn_amount = 1
-
-/singleton/cargo_item/igniter
-	category = "science"
-	name = "igniter"
-	supplier = "nanotrasen"
-	description = "A small electronic device able to ignite combustable substances."
-	price = 23
-	items = list(
-		/obj/item/device/assembly/igniter
 	)
 	access = 0
 	container_type = "crate"
@@ -113,10 +99,10 @@
 	category = "science"
 	name = "mindshield firing pin"
 	supplier = "nanotrasen"
-	description = "This implant - locked firing pin authorizes the weapon for only loyalty - implanted users."
-	price = 2000
+	description = "This implant - locked firing pin authorizes the weapon for only mindshield-implanted users."
+	price = 800
 	items = list(
-		/obj/item/device/firing_pin/implant/loyalty
+		/obj/item/firing_pin/implant/loyalty
 	)
 	access = ACCESS_HEADS
 	container_type = "crate"
@@ -128,7 +114,7 @@
 	name = "Proto-Human"
 	supplier = "zeng_hu"
 	description = "A human body, vat-grown and artificially raised without a functional brain. The everyman's relatively-ethical solution to organ harvesting."
-	price = 2300
+	price = 7200
 	items = list(
 		/mob/living/carbon/human
 	)
@@ -142,7 +128,7 @@
 	name = "Proto-Skrell"
 	supplier = "zeng_hu"
 	description = "A Skrell body, vat-grown and artificially raised without a functional brain. The everyman's relatively-ethical solution to organ harvesting."
-	price = 4000
+	price = 9100
 	items = list(
 		/mob/living/carbon/human/skrell
 	)
@@ -156,7 +142,7 @@
 	name = "Proto-Tajara"
 	supplier = "zeng_hu"
 	description = "A Tajara body, vat-grown and artificially raised without a functional brain. The everyman's relatively-ethical solution to organ harvesting."
-	price = 1800
+	price = 7450
 	items = list(
 		/mob/living/carbon/human/tajaran
 	)
@@ -170,7 +156,7 @@
 	name = "Proto-Unathi"
 	supplier = "zeng_hu"
 	description = "An Unathi body, vat-grown and artificially raised without a functional brain. The everyman's relatively-ethical solution to organ harvesting."
-	price = 2000
+	price = 7800
 	items = list(
 		/mob/living/carbon/human/unathi
 	)
@@ -181,10 +167,10 @@
 
 /singleton/cargo_item/blankvaurcadrone
 	category = "science"
-	name = "Blank Vaurca Drone"
+	name = "Surplus Vaurca Drone"
 	supplier = "zora"
-	description = "A surplus Vaurca drone body. Thousands of these are thrown at the wayside every day. The everyman's relatively-ethical solution to organ harvesting."
-	price = 300
+	description = "A surplus Vaurca drone body with functioning organs but a defective brain. Thousands of these are thrown at the wayside every day. The everyman's relatively-ethical solution to organ harvesting."
+	price = 500
 	items = list(
 		/mob/living/carbon/human/type_a/cargo
 	)
@@ -198,9 +184,9 @@
 	name = "proximity sensor"
 	supplier = "nanotrasen"
 	description = "Used for scanning and alerting when someone enters a certain proximity."
-	price = 75
+	price = 35
 	items = list(
-		/obj/item/device/assembly/prox_sensor
+		/obj/item/assembly/prox_sensor
 	)
 	access = 0
 	container_type = "crate"
@@ -212,9 +198,9 @@
 	name = "test - range firing pin"
 	supplier = "nanotrasen"
 	description = "This safety firing pin allows weapons to be fired within proximity to a firing range."
-	price = 500
+	price = 200
 	items = list(
-		/obj/item/device/firing_pin/test_range
+		/obj/item/firing_pin/test_range
 	)
 	access = ACCESS_RESEARCH
 	container_type = "crate"
@@ -226,9 +212,23 @@
 	name = "timer"
 	supplier = "nanotrasen"
 	description = "Used to time things. Works well with contraptions which has to count down. Tick tock."
-	price = 75
+	price = 22
 	items = list(
-		/obj/item/device/assembly/timer
+		/obj/item/assembly/timer
+	)
+	access = 0
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/igniter
+	category = "science"
+	name = "igniter"
+	supplier = "nanotrasen"
+	description = "A small electronic device able to ignite combustable substances."
+	price = 23
+	items = list(
+		/obj/item/assembly/igniter
 	)
 	access = 0
 	container_type = "crate"

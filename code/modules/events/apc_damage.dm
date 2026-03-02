@@ -25,7 +25,7 @@
 		else
 			victim_apc.overload_lighting(60, TRUE)
 			victim_apc.emagged = TRUE
-			victim_apc.flicker_all()
+			victim_apc.flicker_lights()
 
 	victim_apc.update_icon()
 	victim_apc.update()

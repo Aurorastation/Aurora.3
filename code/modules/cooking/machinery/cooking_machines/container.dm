@@ -258,14 +258,26 @@
 		return FALSE
 	return TRUE
 
+/obj/item/reagent_containers/cooking_container/microwave_plate
+	name = "microwave plate"
+	shortname = "plate"
+	desc = "Put ingredients on this; designed for use with a microwave."
+	icon_state = "microwave_plate"
+	appliancetype = MICROWAVE
+	max_space = 30
+	volume = 90
+	force = 18
+	drop_sound = 'sound/items/drop/glass.ogg'
+	pickup_sound = 'sound/items/pickup/glass.ogg'
+
 /obj/item/reagent_containers/cooking_container/board
 	name = "chopping board"
 	shortname = "board"
 	place_verb = "onto"
 	desc = "A board for preparing food. Not chopping. I'm sorry."
 	icon_state = "board"
-	drop_sound = /singleton/sound_category/generic_drop_sound
-	pickup_sound = /singleton/sound_category/generic_pickup_sound
+	drop_sound = SFX_DROP
+	pickup_sound = SFX_PICKUP
 	appliancetype = MIX
 	atom_flags = ATOM_FLAG_OPEN_CONTAINER // Will still react
 	volume = 15 // for things like jelly sandwiches etc

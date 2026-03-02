@@ -15,7 +15,7 @@
 	if(!..())
 		return FALSE
 	var/obj/machinery/alarm/A = holder
-	if(A.wiresexposed && A.buildstage == 2)
+	if(A.panel_open && A.buildstage == 2)
 		return TRUE
 
 /datum/wires/alarm/get_status()

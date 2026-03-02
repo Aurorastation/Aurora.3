@@ -24,11 +24,8 @@
 	idle_power_usage = 10
 	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
 	var/hears_arrivals = FALSE
-	var/mode = 1	// 0 = Blank
-					// 1 = Shuttle timer
-					// 2 = Arbitrary message(s)
-					// 3 = alert picture
-					// 4 = Supply shuttle timer
+	var/mode = STATUS_DISPLAY_TRANSFER_SHUTTLE_TIME
+	var/last_mode = STATUS_DISPLAY_TRANSFER_SHUTTLE_TIME
 
 	var/picture_state	// icon_state of alert picture
 
@@ -41,13 +38,6 @@
 
 	var/friendc = 0      // track if Friend Computer mode
 	var/ignore_friendc = 0
-
-	var/const/STATUS_DISPLAY_BLANK = 0
-	var/const/STATUS_DISPLAY_TRANSFER_SHUTTLE_TIME = 1
-	var/const/STATUS_DISPLAY_MESSAGE = 2
-	var/const/STATUS_DISPLAY_ALERT = 3
-	var/const/STATUS_DISPLAY_TIME = 4
-	var/const/STATUS_DISPLAY_CUSTOM = 99
 
 	/// Normal text color
 	var/text_color = COLOR_DISPLAY_BLUE
@@ -80,7 +70,19 @@
 		remove_display()
 		update_lighting()
 		return
-	update()
+	if((mode == STATUS_DISPLAY_TIME) && (message2 != worldtime2text()))
+		update()
+
+/obj/machinery/status_display/update_use_power(new_use_power)
+	var/should_update = (use_power != new_use_power && (use_power == POWER_USE_OFF || new_use_power == POWER_USE_OFF))
+	. = ..()
+	if(should_update)
+		update()
+
+/obj/machinery/status_display/power_change()
+	. = ..()
+	if(.)
+		update()
 
 /obj/machinery/status_display/emp_act(severity)
 	. = ..()
@@ -119,24 +121,7 @@
 					AddOverlays(emissive_appearance(icon, "outline", src, alpha = src.alpha))
 				return 1
 		if(STATUS_DISPLAY_MESSAGE)	//custom messages
-			var/line1_metric
-			var/line2_metric
-			var/line_pair
-			var/datum/font/display_font = new STATUS_DISPLAY_FONT_DATUM()
-			line1_metric = display_font.get_metrics(message1)
-			line2_metric = display_font.get_metrics(message2)
-			line_pair = (line1_metric > line2_metric ? line1_metric : line2_metric)
-			var/overlay = update_message(message1_overlay, LINE1_Y, message1, LINE1_X, line_pair)
-			if(overlay)
-				message1_overlay = overlay
-			overlay = update_message(message2_overlay, LINE2_Y, message2, LINE2_X, line_pair)
-			if(overlay)
-				message2_overlay = overlay
-			if(message1 == "" && message2 == "")
-				return 1
-			else
-				AddOverlays(emissive_appearance(icon, "outline", src, alpha = src.alpha))
-				return 1
+			arrange_displayed_texts(message1, message2)
 		if(STATUS_DISPLAY_ALERT)
 			set_picture(picture_state)
 			return 1
@@ -144,25 +129,28 @@
 			message1 = "-Time-"
 			message2 = worldtime2text()
 			set_messages(message1, message2)
-			var/line1_metric
-			var/line2_metric
-			var/line_pair
-			var/datum/font/display_font = new STATUS_DISPLAY_FONT_DATUM()
-			line1_metric = display_font.get_metrics(message1)
-			line2_metric = display_font.get_metrics(message2)
-			line_pair = (line1_metric > line2_metric ? line1_metric : line2_metric)
-			var/overlay = update_message(message1_overlay, LINE1_Y, message1, LINE1_X, line_pair)
-			if(overlay)
-				message1_overlay = overlay
-			overlay = update_message(message2_overlay, LINE2_Y, message2, LINE2_X, line_pair)
-			if(overlay)
-				message2_overlay = overlay
-			if(message1 == "" && message2 == "")
-				return 1
-			else
-				AddOverlays(emissive_appearance(icon, "outline", src, alpha = src.alpha))
-			return 1
+			arrange_displayed_texts(message1, message2)
 	return 0
+
+/obj/machinery/status_display/proc/arrange_displayed_texts(message1, message2)
+	var/line1_metric
+	var/line2_metric
+	var/line_pair
+	var/datum/font/display_font = new STATUS_DISPLAY_FONT_DATUM()
+	line1_metric = display_font.get_metrics(message1)
+	line2_metric = display_font.get_metrics(message2)
+	line_pair = (line1_metric > line2_metric ? line1_metric : line2_metric)
+	var/overlay = update_message(message1_overlay, LINE1_Y, message1, LINE1_X, line_pair)
+	if(overlay)
+		message1_overlay = overlay
+	overlay = update_message(message2_overlay, LINE2_Y, message2, LINE2_X, line_pair)
+	if(overlay)
+		message2_overlay = overlay
+	if(message1 == "" && message2 == "")
+		return 1
+	else
+		AddOverlays(emissive_appearance(icon, "outline", src, alpha = src.alpha))
+		return 1
 
 /obj/machinery/status_display/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
@@ -236,7 +224,7 @@
 	)
 		set_light(0)
 		return
-	set_light(1.5, 0.7, LIGHT_COLOR_FAINT_CYAN) // blue light
+	set_light(L_WALLMOUNT_RANGE, L_WALLMOUNT_POWER, LIGHT_COLOR_FAINT_CYAN) // blue light
 
 /obj/machinery/status_display/proc/get_shuttle_timer()
 	var/timeleft = GLOB.evacuation_controller.get_eta()
@@ -376,5 +364,3 @@
 #undef LINE2_X
 #undef LINE2_Y
 #undef STATUS_DISPLAY_FONT_DATUM
-
-#undef SCROLL_PADDING

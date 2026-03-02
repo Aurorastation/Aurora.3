@@ -182,10 +182,10 @@
 /area/ship/sfa_patrol_ship)
 "auY" = (
 /obj/structure/table/steel,
-/obj/item/device/binoculars{
+/obj/item/binoculars{
 	pixel_x = -4
 	},
-/obj/item/device/binoculars{
+/obj/item/binoculars{
 	pixel_y = 10;
 	pixel_x = -3
 	},
@@ -1135,16 +1135,16 @@
 /obj/item/clothing/mask/gas/half,
 /obj/item/clothing/mask/gas/half,
 /obj/item/clothing/mask/gas/half,
-/obj/item/device/gps,
-/obj/item/device/gps,
-/obj/item/device/gps,
-/obj/item/device/gps,
-/obj/item/device/gps,
-/obj/item/device/radio/off,
-/obj/item/device/radio/off,
-/obj/item/device/radio/off,
-/obj/item/device/radio/off,
-/obj/item/device/radio/off,
+/obj/item/gps,
+/obj/item/gps,
+/obj/item/gps,
+/obj/item/gps,
+/obj/item/gps,
+/obj/item/radio/off,
+/obj/item/radio/off,
+/obj/item/radio/off,
+/obj/item/radio/off,
+/obj/item/radio/off,
 /obj/item/tank/jetpack/carbondioxide,
 /obj/item/tank/jetpack/carbondioxide,
 /obj/item/tank/jetpack/carbondioxide,
@@ -1493,7 +1493,7 @@
 /obj/item/reagent_containers/food/snacks/meat,
 /obj/item/reagent_containers/food/snacks/meat,
 /obj/item/reagent_containers/food/snacks/meat,
-/obj/item/storage/box/produce{
+/obj/item/storage/box/large/produce{
 	pixel_x = 3;
 	pixel_y = -11
 	},
@@ -1671,7 +1671,7 @@
 /area/ship/sfa_patrol_ship)
 "eOZ" = (
 /obj/structure/closet/secure_closet/refrigerator,
-/obj/item/storage/box/freezer/organcooler,
+/obj/item/storage/box/unique/freezer/organcooler,
 /turf/simulated/floor/tiled/freezer{
 	name = "cooled tiles";
 	temperature = 253.15
@@ -1738,7 +1738,7 @@
 /area/ship/sfa_patrol_ship/Engineering)
 "faR" = (
 /obj/structure/table/rack,
-/obj/item/device/assembly/infra,
+/obj/item/assembly/infra,
 /obj/effect/floor_decal/corner/red{
 	dir = 9
 	},
@@ -4214,11 +4214,11 @@
 "mnb" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
-/obj/item/device/pipe_painter{
+/obj/item/pipe_painter{
 	pixel_x = 3;
 	pixel_y = 2
 	},
-/obj/item/device/paint_sprayer{
+/obj/item/paint_sprayer{
 	pixel_x = -2;
 	pixel_y = -3
 	},
@@ -4578,7 +4578,7 @@
 /area/ship/sfa_patrol_ship/custodialammo)
 "nny" = (
 /obj/structure/table/steel,
-/obj/item/device/flashlight/lamp,
+/obj/item/flashlight/lamp,
 /obj/effect/floor_decal/corner/red/full{
 	dir = 1
 	},
@@ -5667,9 +5667,7 @@
 /turf/simulated/wall/shuttle/raider,
 /area/ship/sfa_patrol_ship/Officer)
 "qXN" = (
-/obj/machinery/autolathe{
-	hacked = 1
-	},
+/obj/machinery/fabricator/autolathe/hacked,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
@@ -6325,7 +6323,7 @@
 	dir = 8;
 	icon_state = "tube_empty"
 	},
-/obj/item/device/versebook/tribunal{
+/obj/item/versebook/tribunal{
 	pixel_x = 6;
 	pixel_y = 3
 	},

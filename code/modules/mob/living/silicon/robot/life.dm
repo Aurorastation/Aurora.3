@@ -154,10 +154,10 @@
 		set_see_invisible(SEE_INVISIBLE_LEVEL_TWO)
 	else if((sight_mode & BORGMESON) && (sight_mode & BORGTHERM))
 		set_sight(sight|SEE_TURFS|SEE_MOBS)
-		set_see_invisible(SEE_INVISIBLE_NOLIGHTING)
+		lighting_alpha = LIGHTING_PLANE_ALPHA_MOSTLY_INVISIBLE
 	else if(sight_mode & BORGMESON)
 		set_sight(sight|SEE_TURFS)
-		set_see_invisible(SEE_INVISIBLE_NOLIGHTING)
+		lighting_alpha = LIGHTING_PLANE_ALPHA_MOSTLY_INVISIBLE
 	else if(sight_mode & BORGMATERIAL)
 		set_sight(sight|SEE_OBJS)
 	else if(sight_mode & BORGTHERM)
@@ -273,7 +273,7 @@
 	if(client)
 		client.screen -= contents
 		for(var/obj/I in contents)
-			if(I && !(istype(I, /obj/item/cell) || istype(I, /obj/item/device/radio) || istype(I, /obj/machinery/camera) || istype(I, /obj/item/device/mmi)))
+			if(I && !(istype(I, /obj/item/cell) || istype(I, /obj/item/radio) || istype(I, /obj/machinery/camera) || istype(I, /obj/item/mmi)))
 				client.screen += I
 	if(module_state_1)
 		module_state_1.screen_loc = ui_inv1

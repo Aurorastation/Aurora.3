@@ -10,6 +10,7 @@
 	name = "psionic recovery"
 	desc = "It's an aura recharge."
 	icon_state = "generic"
+	item_icons = null
 	cast_methods = CAST_USE
 	aspect = ASPECT_PSIONIC
 	cooldown = 5

@@ -30,7 +30,7 @@
 	var/turf/T = get_turf(M)
 	if(istype(T))
 		var/datum/gas_mixture/environment = T.return_air()
-		if(environment && environment.return_pressure() >= MIN_WIND_PRESSURE) // Arbitrary low pressure bound.
+		if(SAFE_XGM_PRESSURE(environment) >= MIN_WIND_PRESSURE) // Arbitrary low pressure bound.
 			var/absolute_strength = abs(wind_strength)
 			if(absolute_strength <= 0.5 || !wind_direction)
 				to_chat(M, SPAN_NOTICE("The wind is calm."))

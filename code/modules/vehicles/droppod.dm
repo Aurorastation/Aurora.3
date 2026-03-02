@@ -45,7 +45,7 @@
 	return
 
 /obj/vehicle/droppod/attackby(obj/item/attacking_item, mob/user)
-	if(attacking_item.iswelder() && status == USED && !humanload && !passenger)
+	if(attacking_item.tool_behaviour == TOOL_WELDER && status == USED && !humanload && !passenger)
 		var/obj/item/weldingtool/W = attacking_item
 		if(W.welding)
 			src.visible_message(SPAN_NOTICE("[user] starts cutting \the [src] apart."))

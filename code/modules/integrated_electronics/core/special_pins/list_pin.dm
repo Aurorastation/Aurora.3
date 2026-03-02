@@ -23,7 +23,7 @@
 	t += "<hr>"
 	// Iterating by index simplifies editing/deletion in game,
 	// since the href_list["pos"] var is consistent
-	for(var/i = 1, i <= my_list.len; i++)
+	for(var/i = 1; i <= length(my_list); i++)
 		t += "#[i] | [display_data(my_list[i])]  |  "
 		t += "<a href='byond://?src=[REF(src)];edit=1;pos=[i]'>Edit</a>  |  "
 		t += "<a href='byond://?src=[REF(src)];remove=1;pos=[i]'>Remove</a><br>"

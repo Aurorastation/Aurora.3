@@ -47,68 +47,6 @@
 				new/obj/effect/decal/cleanable/liquid_fuel(target, amount*0.25,1)
 			amount *= 0.75
 
-/obj/effect/decal/cleanable/liquid_fuel/flamethrower_fuel
-	anchored = 0
-
-/obj/effect/decal/cleanable/liquid_fuel/flamethrower_fuel/Initialize(mapload, amt = 1, d = 0)
-	set_dir(d) //Setting this direction means you won't get torched by your own flamethrower.
-	. = ..()
-
-/obj/effect/decal/cleanable/liquid_fuel/flamethrower_fuel/Spread()
-	//The spread for flamethrower fuel is much more precise, to create a wide fire pattern.
-	if(amount < 1) return
-	var/turf/simulated/S = loc
-	if(!istype(S)) return
-
-	for(var/d in list(turn(dir, 45), turn(dir, -45), dir))
-		var/turf/simulated/O = get_step(S,d)
-		if(locate(/obj/effect/decal/cleanable/liquid_fuel/flamethrower_fuel) in O)
-			continue
-		if(O.CanPass(null, S, 0, 0) && S.CanPass(null, O, 0, 0))
-			new/obj/effect/decal/cleanable/liquid_fuel/flamethrower_fuel(O,amount * 0.25,d)
-			O.hotspot_expose((T20C*2) + 400, 500) //Light flamethrower fuel on fire immediately.
-
-	amount *= 0.25
-
-
-/obj/effect/decal/cleanable/liquid_fuel/napalm
-	name = "napalm gel"
-
-/obj/effect/decal/cleanable/liquid_fuel/napalm/Initialize(mapload, amt = 1, nologs = 0)
-	. = ..()
-	START_PROCESSING(SSprocessing, src)
-
-/obj/effect/decal/cleanable/liquid_fuel/napalm/Destroy()
-	STOP_PROCESSING(SSprocessing, src)
-	return ..()
-
-/obj/effect/decal/cleanable/liquid_fuel/napalm/Spread()
-	if(amount < 100)
-		return
-	var/turf/simulated/S = loc
-	if(!istype(S))
-		return
-	for(var/d in GLOB.cardinals)
-		var/turf/simulated/target = get_step(src,d)
-		var/turf/simulated/origin = get_turf(src)
-		if(origin.CanPass(null, target, 0, 0) && target.CanPass(null, origin, 0, 0))
-			var/obj/effect/decal/cleanable/liquid_fuel/napalm/other_fuel = locate() in target
-			if(other_fuel)
-				other_fuel.amount += amount*0.5
-				target.hotspot_expose(2000, 400)
-			else
-				new/obj/effect/decal/cleanable/liquid_fuel/napalm(target, amount*0.5,1)
-				target.hotspot_expose(2000, 400)
-			amount *= 0.5
-		origin.hotspot_expose(2000, 400) //immediately ignite. its napalm bitch
-
-/obj/effect/decal/cleanable/liquid_fuel/napalm/process()
-	for(var/mob/living/L in get_turf(src))
-		var/sticky = min(rand(5,25), amount)
-		if(sticky > 1)
-			L.adjust_fire_stacks(sticky)
-			amount = max(1, amount - sticky)
-
 /obj/effect/decal/cleanable/foam //Copied from liquid fuel
 	name = "foam"
 	desc = "Some kind of extinguishing foam."

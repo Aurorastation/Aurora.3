@@ -15,7 +15,7 @@
 	new /obj/item/crowbar/red(src)
 	new /obj/item/cell/high(src)
 	new /obj/item/card/id/syndicate(src)
-	new /obj/item/device/multitool(src)
+	new /obj/item/multitool(src)
 	new /obj/item/shield/energy(src)
 	new /obj/item/clothing/shoes/magboots/syndie(src)
 
@@ -41,8 +41,8 @@
 	new /obj/item/ammo_magazine/a10mm(src)
 	new /obj/item/ammo_magazine/a10mm(src)
 	new /obj/item/storage/box/handcuffs(src)
-	new /obj/item/storage/box/flashbangs(src)
-	new /obj/item/storage/box/stingers(src)
+	new /obj/item/storage/box/tactical/flashbangs(src)
+	new /obj/item/storage/box/tactical/stingers(src)
 	new /obj/item/gun/energy/gun(src)
 	new /obj/item/gun/energy/gun(src)
 	new /obj/item/gun/energy/gun(src)
@@ -54,7 +54,7 @@
 	new /obj/item/pinpointer/nukeop(src)
 	new /obj/item/pinpointer/nukeop(src)
 	new /obj/item/modular_computer/handheld/pda/syndicate(src)
-	var/obj/item/device/radio/uplink/U = new(src)
+	var/obj/item/radio/uplink/U = new(src)
 	U.hidden_uplink.telecrystals = 40
 	U.hidden_uplink.bluecrystals = 20
 	return

@@ -46,7 +46,8 @@ export const TrainEngine = (props, context) => {
                   }}
                   value={data.cell_charge}
                   minValue={0}
-                  maxValue={100}>
+                  maxValue={100}
+                >
                   {data.cell_charge}%
                 </ProgressBar>
               ) : (

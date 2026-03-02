@@ -31,7 +31,7 @@ export const ChemCodex = (props, context) => {
   const [searchTerm, setSearchTerm] = useLocalState<string>(
     context,
     `searchTerm`,
-    ``
+    ``,
   );
 
   return (
@@ -59,12 +59,13 @@ export const ChemCodex = (props, context) => {
             (reaction) =>
               reaction.result.name
                 .toLowerCase()
-                .indexOf(searchTerm.toLowerCase()) > -1
+                .indexOf(searchTerm.toLowerCase()) > -1,
           )
           .map((reaction) => (
             <Section
               title={reaction.result.name + '(' + reaction.result.amount + 'u)'}
-              key={reaction.result.name}>
+              key={reaction.result.name}
+            >
               <NoticeBox>{reaction.result.description}</NoticeBox>
               <Section title="Required Reagents">
                 <LabeledList>
@@ -78,12 +79,13 @@ export const ChemCodex = (props, context) => {
                   <LabeledList>
                     {reaction.catalysts.length
                       ? reaction.catalysts.map((catalyst) => (
-                        <LabeledList.Item
-                          label={catalyst.name}
-                          key={catalyst.name}>
-                          {catalyst.amount}u
-                        </LabeledList.Item>
-                      ))
+                          <LabeledList.Item
+                            label={catalyst.name}
+                            key={catalyst.name}
+                          >
+                            {catalyst.amount}u
+                          </LabeledList.Item>
+                        ))
                       : 'No catalysts present for this recipe.'}
                   </LabeledList>
                 </Section>
@@ -91,12 +93,13 @@ export const ChemCodex = (props, context) => {
                   <LabeledList>
                     {reaction.inhibitors.length
                       ? reaction.inhibitors.map((inhibitor) => (
-                        <LabeledList.Item
-                          label={inhibitor.name}
-                          key={inhibitor.name}>
-                          {inhibitor.amount}u
-                        </LabeledList.Item>
-                      ))
+                          <LabeledList.Item
+                            label={inhibitor.name}
+                            key={inhibitor.name}
+                          >
+                            {inhibitor.amount}u
+                          </LabeledList.Item>
+                        ))
                       : 'No inhibitors present for this recipe.'}
                   </LabeledList>
                 </Section>

@@ -106,12 +106,13 @@ SUBSYSTEM_DEF(plants)
 		processing = old
 
 	var/list/queue = current
+	var/seconds_per_tick = wait * 0.1
 	while (queue.len)
 		var/obj/effect/plant/P = queue[queue.len]
 		queue.len--
 
 		if (!QDELETED(P))
-			P.process()
+			P.process(seconds_per_tick)
 
 		if (MC_TICK_CHECK)
 			return
@@ -137,12 +138,12 @@ SUBSYSTEM_DEF(plants)
 		if(seed.chems && !isnull(seed.chems[/singleton/reagent/acid/polyacid]))
 			seed.chems[/singleton/reagent/acid/polyacid] = null // Eating through the hull will make these plants completely inviable, albeit very dangerous.
 			seed.chems -= null // Setting to null does not actually remove the entry, which is weird.
-		seed.set_trait(TRAIT_IDEAL_HEAT,293)
-		seed.set_trait(TRAIT_HEAT_TOLERANCE,20)
-		seed.set_trait(TRAIT_IDEAL_LIGHT,8)
-		seed.set_trait(TRAIT_LIGHT_TOLERANCE,5)
-		seed.set_trait(TRAIT_LOWKPA_TOLERANCE,25)
-		seed.set_trait(TRAIT_HIGHKPA_TOLERANCE,200)
+		SET_SEED_TRAIT(seed, TRAIT_IDEAL_HEAT, 293)
+		SET_SEED_TRAIT(seed, TRAIT_HEAT_TOLERANCE, 20)
+		SET_SEED_TRAIT(seed, TRAIT_IDEAL_LIGHT, 8)
+		SET_SEED_TRAIT(seed, TRAIT_LIGHT_TOLERANCE, 5)
+		SET_SEED_TRAIT(seed, TRAIT_LOWKPA_TOLERANCE, 25)
+		SET_SEED_TRAIT(seed, TRAIT_HIGHKPA_TOLERANCE, 200)
 	return seed
 
 /// Debug for testing seed genes.

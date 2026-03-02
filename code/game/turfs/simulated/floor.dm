@@ -90,11 +90,15 @@
 			new flooring.build_type(src)
 		flooring = null
 
-	set_light(0)
 	broken = null
 	burnt = null
 	flooring_override = null
 	levelupdate()
+
+	// Set light to zero, so glowing turfs cease to glow if turned into plating.
+	set_light(0)
+	// Check if this still needs to have starlight - if it does, it'll be given back its starlight.
+	update_starlight()
 
 	if(!defer_icon_update)
 		update_icon(1)
@@ -120,3 +124,9 @@
 	name = "hull plating"
 	icon = 'icons/turf/flooring/tiles.dmi'
 	icon_state = "reinforced_light"
+
+/turf/simulated/IgniteTurf(power, fire_color)
+	if(turf_fire)
+		turf_fire.AddPower(power)
+		return
+	new /obj/turf_fire(src, power, fire_color)

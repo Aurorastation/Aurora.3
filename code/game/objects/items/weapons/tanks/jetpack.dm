@@ -54,7 +54,7 @@
 
 /obj/item/tank/jetpack/verb/toggle_rockets()
 	set name = "Toggle Jetpack Stabilization"
-	set category = "Object"
+	set category = "Object.Jetpack"
 	set src in usr
 
 	toggle_rockets_stabilization(usr)
@@ -67,7 +67,7 @@
 
 /obj/item/tank/jetpack/verb/toggle()
 	set name = "Toggle Jetpack"
-	set category = "Object"
+	set category = "Object.Jetpack"
 	set src in usr
 
 	toggle_jetpack(usr)

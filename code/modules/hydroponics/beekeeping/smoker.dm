@@ -8,6 +8,10 @@
 	w_class = WEIGHT_CLASS_BULKY
 	var/max_fuel = 60
 
+/obj/item/bee_smoker/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Use this to pacify bees before extracting frames from a hive!"
+
 /obj/item/bee_smoker/antagonist_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	. += "This device can be used to blind people in short range."

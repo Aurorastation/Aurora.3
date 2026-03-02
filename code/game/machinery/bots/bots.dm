@@ -5,6 +5,7 @@
 	layer = MOB_LAYER
 	light_range = 3
 	use_power = POWER_USE_OFF
+	light_system = MOVABLE_LIGHT
 	var/obj/item/card/id/botcard			// the ID card that the bot "holds"
 	var/on = 1
 	var/health = 0 //do not forget to set health for your bot!
@@ -33,14 +34,14 @@
 	return ..()
 
 /obj/machinery/bot/proc/turn_on()
-	if(stat)	return 0
+	if(stat)
+		return 0
 	on = 1
-	set_light(initial(light_range))
-	return 1
+	set_light_on(on)
 
 /obj/machinery/bot/proc/turn_off()
 	on = 0
-	set_light(0)
+	set_light_on(on)
 
 /obj/machinery/bot/proc/explode()
 	qdel(src)
@@ -63,12 +64,12 @@
 		return 1
 
 /obj/machinery/bot/attackby(obj/item/attacking_item, mob/user)
-	if(attacking_item.isscrewdriver())
+	if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 		if(!locked)
 			open = !open
 			to_chat(user, SPAN_NOTICE("Maintenance panel is now [src.open ? "opened" : "closed"]."))
 		return TRUE
-	else if(attacking_item.iswelder())
+	else if(attacking_item.tool_behaviour == TOOL_WELDER)
 		if(health < maxhealth)
 			if(open)
 				health = min(maxhealth, health+10)

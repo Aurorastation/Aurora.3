@@ -1,7 +1,7 @@
-/obj/item/device/eftpos
+/obj/item/eftpos
 	name = "\improper EFTPOS scanner"
 	desc = "Swipe your ID card to make purchases electronically."
-	icon = 'icons/obj/item/device/eftpos.dmi'
+	icon = 'icons/obj/item/eftpos.dmi'
 	icon_state = "eftpos"
 	item_state = "electronic"
 	w_class = WEIGHT_CLASS_TINY
@@ -15,7 +15,7 @@
 	var/datum/money_account/linked_account
 	var/prelocked_account = null
 
-/obj/item/device/eftpos/Initialize()
+/obj/item/eftpos/Initialize()
 	..()
 	machine_id = "[station_name()] EFTPOS #[SSeconomy.num_financial_terminals++]"
 	access_code = rand(1111,111111)
@@ -24,14 +24,14 @@
 
 	return INITIALIZE_HINT_LATELOAD
 
-/obj/item/device/eftpos/proc/link_account()
+/obj/item/eftpos/proc/link_account()
 	//Link to the station account, unless prelocked_account is set
 	if(!prelocked_account)
 		linked_account = SSeconomy.station_account
 	else
 		linked_account = SSeconomy.get_department_account(prelocked_account)
 
-/obj/item/device/eftpos/LateInitialize()
+/obj/item/eftpos/LateInitialize()
 	print_reference()
 
 	//create a short manual as well
@@ -50,18 +50,18 @@
 
 	//stamp the paper
 	var/image/stampoverlay = image('icons/obj/bureaucracy.dmi')
-	stampoverlay.icon_state = "paper_stamp-cent"
+	stampoverlay.icon_state = "paper_stamp-hop"
 	if(!R.stamped)
 		R.stamped = new
 	R.offset_x += 0
 	R.offset_y += 0
-	R.ico += "paper_stamp-cent"
+	R.ico += "paper_stamp-hop"
 	R.stamped += /obj/item/stamp
 	R.AddOverlays(stampoverlay)
 	R.stamps += "<HR><i>This paper has been stamped by the EFTPOS device.</i>"
 
-/obj/item/device/eftpos/proc/print_reference()
-	var/obj/item/paper/R = new(src.loc)
+/obj/item/eftpos/proc/print_reference()
+	var/obj/item/paper/notepad/receipt/R = new(src.loc)
 	var/pname = "Reference: [eftpos_name]"
 	var/info = "<b>[eftpos_name] reference</b><br><br>"
 	info += "Access code: [access_code]<br><br>"
@@ -70,7 +70,7 @@
 
 	//stamp the paper
 	var/image/stampoverlay = image('icons/obj/bureaucracy.dmi')
-	stampoverlay.icon_state = "paper_stamp-cent"
+	stampoverlay.icon_state = "paper_stamp-hop"
 	if(!R.stamped)
 		R.stamped = new
 	R.stamped += /obj/item/stamp
@@ -81,7 +81,7 @@
 	D.wrapped = R
 	D.name = "small parcel - 'EFTPOS access code'"
 
-/obj/item/device/eftpos/attack_self(mob/user as mob)
+/obj/item/eftpos/attack_self(mob/user as mob)
 	if(get_dist(src,user) <= 1)
 		var/dat = "<b>[eftpos_name]</b><br>"
 		dat += "<i>This terminal is</i> [machine_id]. <i>Report this code when contacting IT Support</i><br>"
@@ -112,7 +112,7 @@
 	else
 		user << browse(null,"window=eftpos")
 
-/obj/item/device/eftpos/attackby(obj/item/attacking_item, mob/user)
+/obj/item/eftpos/attackby(obj/item/attacking_item, mob/user)
 
 	var/obj/item/card/id/I = attacking_item.GetID()
 
@@ -154,7 +154,7 @@
 	else
 		..()
 
-/obj/item/device/eftpos/Topic(var/href, var/href_list)
+/obj/item/eftpos/Topic(var/href, var/href_list)
 	if(href_list["choice"])
 		switch(href_list["choice"])
 			if("change_code")
@@ -230,7 +230,7 @@
 
 	src.attack_self(usr)
 
-/obj/item/device/eftpos/proc/scan_card(var/obj/item/card/I, var/obj/item/ID_container)
+/obj/item/eftpos/proc/scan_card(var/obj/item/card/I, var/obj/item/ID_container)
 	if (istype(I, /obj/item/card/id))
 		var/obj/item/card/id/C = I
 		if(I==ID_container || ID_container == null)

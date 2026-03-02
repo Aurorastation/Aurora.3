@@ -220,13 +220,13 @@ macro "borghotkeymode"
 		command = "Move-Upwards"
 	elem
 		name = "CTRL+Southeast"
-		command = "Move-Down"
+		command = "Move-Downwards"
 	elem
 		name = ","
 		command = "Move-Upwards"
 	elem
 		name = "."
-		command = "Move-Down"
+		command = "Move-Downwards"
 
 
 macro "macro"
@@ -403,13 +403,13 @@ macro "macro"
 		command = "Move-Upwards"
 	elem
 		name = "CTRL+Southeast"
-		command = "Move-Down"
+		command = "Move-Downwards"
 	elem
 		name = ","
 		command = "Move-Upwards"
 	elem
 		name = "."
-		command = "Move-Down"
+		command = "Move-Downwards"
   elem
     name = "R"
     command = "throw_intent_toggle"
@@ -649,13 +649,13 @@ macro "hotkeymode"
 		command = "Move-Upwards"
 	elem
 		name = "CTRL+Southeast"
-		command = "Move-Down"
+		command = "Move-Downwards"
 	elem
 		name = ","
 		command = "move-upwards"
 	elem
 		name = "."
-		command = "Move-Down"
+		command = "Move-Downwards"
   elem
     name = "R"
     command = "throw_intent_toggle"
@@ -829,13 +829,13 @@ macro "borgmacro"
 		command = "Move-Upwards"
 	elem
 		name = "CTRL+Southeast"
-		command = "Move-Down"
+		command = "Move-Downwards"
 	elem
 		name = ","
 		command = "Move-Upwards"
 	elem
 		name = "."
-		command = "Move-Down"
+		command = "Move-Downwards"
 
 
 menu "menu"
@@ -1281,6 +1281,7 @@ window "output_browser"
 		size = 640x456
 		anchor1 = 0,0
 		anchor2 = 100,100
+		background-color = none
 		saved-params = ""
 
 window "preferences_window"

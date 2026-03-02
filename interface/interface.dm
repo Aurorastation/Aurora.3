@@ -97,7 +97,7 @@ Hotkey-Mode: (hotkey-mode must be on)
 \td = right
 \tw = up
 \t, = move-upwards
-\t. = move-down
+\t. = move-downwards
 \tq = drop
 \te = equip
 \tr = throw
