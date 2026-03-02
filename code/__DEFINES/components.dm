@@ -21,3 +21,8 @@
 #define MECHANICAL_ENGINEERING_SKILL_COMPONENT /datum/component/skill/electrical_engineering
 #define ATMOSPHERICS_SYSTEMS_SKILL_COMPONENT /datum/component/skill/atmospherics_systems
 #define REACTOR_SYSTEMS_SKILL_COMPONENT /datum/component/skill/reactor_systems
+#define LEADERSHIP_SKILL_COMPONENT /datum/component/skill/leadership
+#define ANATOMY_SKILL_COMPONENT /datum/component/skill/anatomy
+#define FORENSICS_SKILL_COMPONENT /datum/component/skill/forensics
+#define PHARMACOLOGY_SKILL_COMPONENT /datum/component/skill/pharmacology
+#define SURGERY_SKILL_COMPONENT /datum/component/skill/surgery

@@ -4,6 +4,7 @@
 	uneducated_skill_cap = SKILL_LEVEL_UNFAMILIAR
 	category =  /singleton/skill_category/occupational
 	subcategory = SKILL_SUBCATEGORY_SCIENCE
+	component_type = RESEARCH_SKILL_COMPONENT
 
 /singleton/skill/xenobotany
 	name = "Xenobotany"
@@ -11,6 +12,7 @@
 	uneducated_skill_cap = SKILL_LEVEL_UNFAMILIAR
 	category =  /singleton/skill_category/occupational
 	subcategory = SKILL_SUBCATEGORY_SCIENCE
+	component_type = XENOBOTANY_SKILL_COMPONENT
 
 /singleton/skill/archaeology
 	name = "Xenoarchaeology"
@@ -19,6 +21,7 @@
 	uneducated_skill_cap = SKILL_LEVEL_UNFAMILIAR
 	category =  /singleton/skill_category/occupational
 	subcategory = SKILL_SUBCATEGORY_SCIENCE
+	component_type = ARCHAOLOGY_SKILL_COMPONENT
 
 /singleton/skill/xenobiology
 	name = "Xenobiology"
@@ -27,3 +30,4 @@
 	uneducated_skill_cap = SKILL_LEVEL_UNFAMILIAR
 	category =  /singleton/skill_category/occupational
 	subcategory = SKILL_SUBCATEGORY_SCIENCE
+	component_type = XENOBOTANY_SKILL_COMPONENT

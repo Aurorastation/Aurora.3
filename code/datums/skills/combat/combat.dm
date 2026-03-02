@@ -28,18 +28,14 @@
 	category = /singleton/skill_category/combat
 	subcategory = SKILL_SUBCATEGORY_MELEE
 	required = TRUE
-
-/singleton/skill/unarmed_combat/on_spawn(mob/owner, skill_level)
-	if (!owner)
-		return
-
-	owner.AddComponent(UNARMED_COMBAT_SKILL_COMPONENT, skill_level)
+	component_type = UNARMED_COMBAT_SKILL_COMPONENT
 
 /singleton/skill/armed_combat
 	name = "Armed Combat"
 	description = "zomboid time"
 	category = /singleton/skill_category/combat
 	subcategory = SKILL_SUBCATEGORY_MELEE
+	component_type = ARMED_COMBAT_SKILL_COMPONENT
 
 /singleton/skill/firearms
 	name = "Firearms"
@@ -48,12 +44,7 @@
 	category = /singleton/skill_category/combat
 	subcategory = SKILL_SUBCATEGORY_RANGED
 	required = TRUE
-
-/singleton/skill/firearms/on_spawn(mob/owner, skill_level)
-	if (!owner)
-		return
-
-	owner.AddComponent(FIREARMS_SKILL_COMPONENT, skill_level)
+	component_type = FIREARMS_SKILL_COMPONENT
 
 /singleton/skill/leadership
 	name = "Leadership"
@@ -61,3 +52,5 @@
 	category = /singleton/skill_category/combat
 	subcategory = SKILL_SUBCATEGORY_SUPPORT
 	required = TRUE
+	component_type = LEADERSHIP_SKILL_COMPONENT
+

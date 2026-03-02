@@ -33,6 +33,8 @@
 	 * This is needed for skills that rely on components.
 	 */
 	var/required = FALSE
+	/// The component datum that this skill will add during character spawning
+	var/component_type = null
 
 /**
  * Returns the maximum level a character can have in this skill depending on education.
@@ -68,13 +70,8 @@
  * It will be called during the process of spawning a player character in.
  */
 /singleton/skill/proc/on_spawn(var/mob/owner, var/skill_level)
-	// Gentle reminder that if you use this proc for a skill, you don't need any variety of ..() in it.
-	SHOULD_CALL_PARENT(FALSE)
+	SHOULD_CALL_PARENT(TRUE)
+	if (!owner || !component_type)
+		return
 
-	// Code comments below this line are provided as an example ECS hook.
-	//if (!owner)
-	//	return
-
-	// Change YourSkillComponent to the pretty #define used by whatever component you make.
-	//var YourSkillComponent/skill = character._LoadComponent(YourSkillComponent)
-	//skill.level = skill_level
+	owner.AddComponent(component_type, skill_level)

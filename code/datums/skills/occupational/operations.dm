@@ -5,6 +5,7 @@
 	uneducated_skill_cap = SKILL_LEVEL_FAMILIAR
 	category =  /singleton/skill_category/occupational
 	subcategory = SKILL_SUBCATEGORY_OPERATIONS
+	component_type = ROBOTICS_SKILL_COMPONENT
 
 /singleton/skill/pilot_spacecraft
 	name = "Pilot: Spacecraft"
@@ -22,12 +23,7 @@
 		SKILL_LEVEL_FAMILIAR = "You are capable of piloting spacecraft."
 	)
 	required = TRUE
-
-/singleton/skill/pilot_spacecraft/on_spawn(mob/owner, skill_level)
-	if (!owner)
-		return
-
-	owner.AddComponent(PILOT_SPACECRAFT_SKILL_COMPONENT, skill_level)
+	component_type = PILOT_SPACECRAFT_SKILL_COMPONENT
 
 /singleton/skill/pilot_mechs
 	name = "Pilot: Exosuits"
@@ -55,9 +51,4 @@
 			+ " - You have a small bonus to mech handling characteristics. Turning, Strafing, and Reverse speeds are all improved when piloting mechs. Forward speeds are still unchanged."
 	)
 	required = TRUE
-
-/singleton/skill/pilot_mechs/on_spawn(mob/owner, skill_level)
-	if (!owner)
-		return
-
-	owner.AddComponent(PILOT_MECHS_SKILL_COMPONENT, skill_level)
+	component_type = PILOT_MECHS_SKILL_COMPONENT

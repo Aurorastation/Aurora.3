@@ -6,12 +6,7 @@
 	category =  /singleton/skill_category/occupational
 	subcategory = SKILL_SUBCATEGORY_MEDICAL
 	required = TRUE
-
-/singleton/skill/medicine/on_spawn(mob/owner, skill_level)
-	if (!owner)
-		return
-
-	owner.AddComponent(MEDICINE_SKILL_COMPONENT, skill_level)
+	component_type = MEDICINE_SKILL_COMPONENT
 
 /singleton/skill/surgery
 	name = "Surgery"
@@ -20,6 +15,7 @@
 	uneducated_skill_cap = SKILL_LEVEL_UNFAMILIAR
 	category =  /singleton/skill_category/occupational
 	subcategory = SKILL_SUBCATEGORY_MEDICAL
+	component_type = SURGERY_SKILL_COMPONENT
 
 /singleton/skill/pharmacology
 	name = "Pharmacology"
@@ -27,6 +23,7 @@
 	uneducated_skill_cap = SKILL_LEVEL_UNFAMILIAR
 	category =  /singleton/skill_category/occupational
 	subcategory = SKILL_SUBCATEGORY_MEDICAL
+	component_type = PHARMACOLOGY_SKILL_COMPONENT
 
 /singleton/skill/anatomy
 	name = "Anatomy"
@@ -35,6 +32,7 @@
 	uneducated_skill_cap = SKILL_LEVEL_FAMILIAR
 	category =  /singleton/skill_category/occupational
 	subcategory = SKILL_SUBCATEGORY_MEDICAL
+	component_type = ANATOMY_SKILL_COMPONENT
 
 /singleton/skill/forensics
 	name = "Forensics"
@@ -42,3 +40,4 @@
 	uneducated_skill_cap = SKILL_LEVEL_UNFAMILIAR
 	category =  /singleton/skill_category/occupational
 	subcategory = SKILL_SUBCATEGORY_MEDICAL
+	component_type = FORENSICS_SKILL_COMPONENT

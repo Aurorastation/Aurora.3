@@ -7,12 +7,7 @@
 	category =  /singleton/skill_category/occupational
 	subcategory = SKILL_SUBCATEGORY_ENGINEERING
 	required = TRUE
-
-/singleton/skill/electrical_engineering/on_spawn(mob/owner, skill_level)
-	if (!owner)
-		return
-
-	owner.AddComponent(ELECTRICAL_ENGINEERING_SKILL_COMPONENT, skill_level)
+	component_type = ELECTRICAL_ENGINEERING_SKILL_COMPONENT
 
 /singleton/skill/mechanical_engineering
 	name = "Mechanical Engineering"
@@ -23,12 +18,7 @@
 	category =  /singleton/skill_category/occupational
 	subcategory = SKILL_SUBCATEGORY_ENGINEERING
 	required = TRUE
-
-/singleton/skill/mechanical_engineering/on_spawn(mob/owner, skill_level)
-	if (!owner)
-		return
-
-	owner.AddComponent(MECHANICAL_ENGINEERING_SKILL_COMPONENT, skill_level)
+	component_type = MECHANICAL_ENGINEERING_SKILL_COMPONENT
 
 /singleton/skill/atmospherics_systems
 	name = "Atmospherics Systems"
@@ -39,12 +29,7 @@
 	category =  /singleton/skill_category/occupational
 	subcategory = SKILL_SUBCATEGORY_ENGINEERING
 	required = TRUE
-
-/singleton/skill/atmospherics_systems/on_spawn(mob/owner, skill_level)
-	if (!owner)
-		return
-
-	owner.AddComponent(ATMOSPHERICS_SYSTEMS_SKILL_COMPONENT, skill_level)
+	component_type = ATMOSPHERICS_SYSTEMS_SKILL_COMPONENT
 
 /singleton/skill/reactor_systems
 	name = "Reactor Systems"
@@ -55,9 +40,4 @@
 	category =  /singleton/skill_category/occupational
 	subcategory = SKILL_SUBCATEGORY_ENGINEERING
 	required = TRUE
-
-/singleton/skill/reactor_systems/on_spawn(mob/owner, skill_level)
-	if (!owner)
-		return
-
-	owner.AddComponent(REACTOR_SYSTEMS_SKILL_COMPONENT, skill_level)
+	component_type = REACTOR_SYSTEMS_SKILL_COMPONENT

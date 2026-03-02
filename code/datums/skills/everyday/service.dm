@@ -4,6 +4,7 @@
 	maximum_level = SKILL_LEVEL_PROFESSIONAL
 	category =  /singleton/skill_category/everyday
 	subcategory = SKILL_SUBCATEGORY_SERVICE
+	component_type = BARTENDING_SKILL_COMPONENT
 
 /singleton/skill/cooking
 	name = "Cooking"
@@ -11,6 +12,7 @@
 	maximum_level = SKILL_LEVEL_PROFESSIONAL
 	category =  /singleton/skill_category/everyday
 	subcategory = SKILL_SUBCATEGORY_SERVICE
+	component_type = COOKING_SKILL_COMPONENT
 
 /singleton/skill/gardening
 	name = "Gardening"
@@ -18,6 +20,7 @@
 	maximum_level = SKILL_LEVEL_PROFESSIONAL
 	category =  /singleton/skill_category/everyday
 	subcategory = SKILL_SUBCATEGORY_SERVICE
+	component_type = GARDENING_SKILL_COMPONENT
 
 /singleton/skill/entertaining
 	name = "Entertaining"
@@ -25,3 +28,4 @@
 	maximum_level = SKILL_LEVEL_PROFESSIONAL
 	category =  /singleton/skill_category/everyday
 	subcategory = SKILL_SUBCATEGORY_SERVICE
+	component_type = ENTERTAINING_SKILL_COMPONENT
