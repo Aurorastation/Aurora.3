@@ -71,14 +71,13 @@
 
 
 /datum/overmap_contact/proc/ping(time_delay = 0)
-	if(pinged_until <= world.time)
+	if(pinged_until > world.time)
 		return
 	pinged_until = world.time + time_delay + 1 SECOND
 	effect.opacity = initial(effect.opacity)
 	show()
 	animate(marker, alpha=75, time_delay, 1, flags = ANIMATION_END_NOW)
-	animate(alpha=255, 0.5 SECOND, 1)
-	animate(alpha=255, 0.5 SECOND, 1)
+	animate(alpha=255, 1 SECOND, 1)
 	animate(alpha=75, 2 SECOND, 1)
 
 /datum/overmap_contact/Destroy()
