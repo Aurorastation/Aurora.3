@@ -74,6 +74,6 @@ changes:
   - code_imp: "Consolidates various shield generation machine sprites in scattered across multiple files into a single shield generator machines sprite file."
   - bugfix: "Fixes Emergency Shield Projector hard del issue."
   - bugfix: "Emergency Shield Projector now shuts down as intended if the area's APC gets completely drained."
-  - bugfix: "Firing the gyrotron into the INDRA while no reactants are present will no longer generaate heat."
+  - bugfix: "Firing the gyrotron into the INDRA while no reactants are present will no longer generate heat."
   - bugfix: "Fixes INDRA runtime."
   - bugfix: "Fixes Power Monitoring app not displaying grid sensors when run from a modular computer held in-hand."
