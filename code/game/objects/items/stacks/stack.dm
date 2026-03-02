@@ -107,7 +107,7 @@
 
 	for(var/datum/stack_recipe/R in recipes_sublist)
 		// If you put anything other than a skill component in the required skills for a recipe, I will destroy you.
-		for(var/skill_comp as anything, skill_level_requirement in R.required_skills)
+		for(var/skill_comp, skill_level_requirement in R.required_skills)
 			visited_skill = checked_skills[skill_comp]
 			// ** Trinary Check for Null, 0, or Nonzero. **
 			// Case for skill hasn't been checked yet.
@@ -193,7 +193,7 @@
 	to_chat(user, SPAN_NOTICE("Building [recipe.title]..."))
 	var/doafter_time = recipe.time
 	if (doafter_time)
-		for (var/skill_type as anything, required_level in recipe.required_skills)
+		for (var/skill_type, required_level in recipe.required_skills)
 			doafter_time *= 1 + (required_level - astype(user.GetComponent(skill_type), SKILL_COMPONENT)?.skill_level) * 0.2
 
 		if (!do_after(user, doafter_time, do_flags = DO_REPAIR_CONSTRUCT))
