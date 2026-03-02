@@ -12,3 +12,4 @@ delete-after: True
 changes:
   - rscadd: "Added citizenship loadout restrictions to the loadout."
   - rscadd: "Dominian Consular loadout items are now citizenship restricted to the Empire of Dominia."
+  - bugfix: "Religion loadout restrictions now actually restrict items to religions."
