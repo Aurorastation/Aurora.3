@@ -213,7 +213,7 @@
 
 /obj/item/clothing/under/dressshirt/tajaran
 	name = "adhomian summer shirt"
-	desc = "A simple piece of adhomian summerwear made with linen."
+	desc = "A simple piece of Adhomian summerwear made with linen."
 	icon = 'icons/obj/tajara_items.dmi'
 	icon_state = "summer-shirt"
 	item_state = "summer-shirt"
