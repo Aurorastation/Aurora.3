@@ -102,8 +102,13 @@
 	complexity = 4
 	inputs = list("target" = IC_PINTYPE_REF)
 	outputs = list(
-		"total health %" = IC_PINTYPE_NUMBER,
-		"total missing health" = IC_PINTYPE_NUMBER
+		// Basic medical analyser stuff
+		"brain activity" = IC_PINTYPE_NUMBER,
+		"heart pulse" = IC_PINTYPE_NUMBER,
+		"blood pressure" = IC_PINTYPE_NUMBER,
+		"blood oxygenation" = IC_PINTYPE_NUMBER,
+		"body temperature" = IC_PINTYPE_NUMBER,
+		"is arresting?" = IC_PINTYPE_BOOLEAN,
 	)
 	activators = list("scan" = IC_PINTYPE_PULSE_IN, "on scanned" = IC_PINTYPE_PULSE_OUT)
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
@@ -114,12 +119,18 @@
 	var/mob/living/carbon/human/H = get_pin_data_as_type(IC_INPUT, 1, /mob/living/carbon/human)
 	if(!istype(H)) //Invalid input
 		return
-	if(H.Adjacent(get_turf(src))) // Like normal analysers, it can't be used at range.
-		var/total_health = round(H.health/H.getMaxHealth(), 0.01)*100
-		var/missing_health = H.getMaxHealth() - H.health
 
-		set_pin_data(IC_OUTPUT, 1, total_health)
-		set_pin_data(IC_OUTPUT, 2, missing_health)
+	if(H.isSynthetic() || H.is_diona()) // incompatible anatomy
+		return
+
+	if(H.Adjacent(get_turf(src))) // Like normal analysers, it can't be used at range.
+		// Basic medical analyser stuff
+		set_pin_data(IC_OUTPUT, 1, H.get_brain_status())
+		set_pin_data(IC_OUTPUT, 2, H.get_pulse(GETPULSE_TOOL))
+		set_pin_data(IC_OUTPUT, 3, H.get_blood_pressure())
+		set_pin_data(IC_OUTPUT, 4, H.get_blood_oxygenation())
+		set_pin_data(IC_OUTPUT, 5, H.bodytemperature)
+		set_pin_data(IC_OUTPUT, 6, H.is_asystole())
 
 	push_data()
 	activate_pin(2)
@@ -132,13 +143,20 @@
 	complexity = 12
 	inputs = list("target" = IC_PINTYPE_REF)
 	outputs = list(
-		"total health %"       = IC_PINTYPE_NUMBER,
-		"total missing health" = IC_PINTYPE_NUMBER,
-		"brute damage"         = IC_PINTYPE_NUMBER,
-		"burn damage"          = IC_PINTYPE_NUMBER,
-		"tox damage"           = IC_PINTYPE_NUMBER,
-		"oxy damage"           = IC_PINTYPE_NUMBER,
-		"clone damage"         = IC_PINTYPE_NUMBER
+		// Basic medical analyser stuff
+		"brain activity" = IC_PINTYPE_NUMBER,
+		"heart pulse" = IC_PINTYPE_NUMBER,
+		"blood pressure" = IC_PINTYPE_NUMBER,
+		"blood oxygenation" = IC_PINTYPE_NUMBER,
+		"body temperature" = IC_PINTYPE_NUMBER,
+		"is arresting?" = IC_PINTYPE_BOOLEAN,
+		// Advanced
+		"brute damage" = IC_PINTYPE_NUMBER,
+		"burn damage" = IC_PINTYPE_NUMBER,
+		"toxin damage" = IC_PINTYPE_NUMBER,
+		"radiation dose" = IC_PINTYPE_NUMBER,
+		"genetic instability" = IC_PINTYPE_NUMBER,
+
 	)
 	activators = list("scan" = IC_PINTYPE_PULSE_IN, "on scanned" = IC_PINTYPE_PULSE_OUT)
 	spawn_flags = IC_SPAWN_RESEARCH
@@ -149,17 +167,24 @@
 	var/mob/living/carbon/human/H = get_pin_data_as_type(IC_INPUT, 1, /mob/living/carbon/human)
 	if(!istype(H)) //Invalid input
 		return
-	if(H.Adjacent(get_turf(src))) // Like normal analysers, it can't be used at range.
-		var/total_health = round(H.health/H.getMaxHealth(), 0.01)*100
-		var/missing_health = H.getMaxHealth() - H.health
 
-		set_pin_data(IC_OUTPUT, 1, total_health)
-		set_pin_data(IC_OUTPUT, 2, missing_health)
-		set_pin_data(IC_OUTPUT, 3, H.getBruteLoss())
-		set_pin_data(IC_OUTPUT, 4, H.getFireLoss())
-		set_pin_data(IC_OUTPUT, 5, H.getToxLoss())
-		set_pin_data(IC_OUTPUT, 6, H.getOxyLoss())
-		set_pin_data(IC_OUTPUT, 7, H.getCloneLoss())
+	if(H.isSynthetic() || H.is_diona()) // incompatible anatomy
+		return
+
+	if(H.Adjacent(get_turf(src))) // Like normal analysers, it can't be used at range.
+		// Basic medical analyser stuff
+		set_pin_data(IC_OUTPUT, 1, H.get_brain_status())
+		set_pin_data(IC_OUTPUT, 2, H.get_pulse(GETPULSE_TOOL))
+		set_pin_data(IC_OUTPUT, 3, H.get_blood_pressure())
+		set_pin_data(IC_OUTPUT, 4, H.get_blood_oxygenation())
+		set_pin_data(IC_OUTPUT, 5, H.bodytemperature)
+		set_pin_data(IC_OUTPUT, 6, H.is_asystole())
+		// Advanced
+		set_pin_data(IC_OUTPUT, 7, H.getBruteLoss())
+		set_pin_data(IC_OUTPUT, 8, H.getFireLoss())
+		set_pin_data(IC_OUTPUT, 9, H.getToxLoss())
+		set_pin_data(IC_OUTPUT, 10, H.total_radiation)
+		set_pin_data(IC_OUTPUT, 11, H.getCloneLoss())
 
 	push_data()
 	activate_pin(2)
@@ -1073,3 +1098,96 @@
 	push_data()
 	activate_pin(1)
 	return TRUE
+
+/obj/item/integrated_circuit/input/radiation_sensor
+	name = "radiation sensor"
+	desc = "A tiny radiation sensor module similar to that found in a geiger counter."
+	icon_state = "medscan_adv"
+	complexity = 3
+	inputs = list()
+	outputs = list(
+		"radiation"       = IC_PINTYPE_NUMBER
+	)
+	activators = list("scan" = IC_PINTYPE_PULSE_IN, "on scanned" = IC_PINTYPE_PULSE_OUT)
+	spawn_flags = IC_SPAWN_DEFAULT
+	origin_tech = list(TECH_ENGINEERING = 3, TECH_DATA = 3)
+	power_draw_per_use = 20
+
+/obj/item/integrated_circuit/input/radiation_sensor/do_work()
+	var/turf/T = get_turf(src)
+	if(!istype(T)) //Invalid input
+		return
+
+	var/radiation_count = SSradiation.get_rads_at_turf(get_turf(src))
+
+	if(radiation_count)
+		set_pin_data(IC_OUTPUT, 1, round(radiation_count,0.1))
+	else
+		set_pin_data(IC_OUTPUT, 1, 0)
+	push_data()
+
+/obj/item/integrated_circuit/input/light_sensor
+	name = "light sensor"
+	desc = "A tiny light sensor module."
+	icon_state = "medscan_adv"
+	complexity = 3
+	inputs = list()
+	outputs = list(
+		"lumens"       = IC_PINTYPE_NUMBER
+	)
+	activators = list("scan" = IC_PINTYPE_PULSE_IN, "on scanned" = IC_PINTYPE_PULSE_OUT)
+	spawn_flags = IC_SPAWN_DEFAULT
+	origin_tech = list(TECH_ENGINEERING = 3, TECH_DATA = 3)
+	power_draw_per_use = 20
+
+/obj/item/integrated_circuit/input/light_sensor/do_work()
+	var/turf/T = get_turf(src)
+	if(!istype(T)) //Invalid input
+		return
+
+	var/lumens = T.get_lumcount(0, 3) * 5
+	if(lumens)
+		set_pin_data(IC_OUTPUT, 1, round(lumens,0.1))
+	else
+		set_pin_data(IC_OUTPUT, 1, 0)
+	push_data()
+
+/obj/item/integrated_circuit/input/face_scanner
+	name = "face scanner"
+	desc = "A complex camera and in-built scanner, similar to an examiner but specifically for sophonts.\
+	It can identify species type, height and eye colour, and it can estimate age (to the half-decade).\
+	It also provides a short description of the sophont and their face (if able)."
+	icon_state = "video_camera"
+	complexity = 12
+	inputs = list("target" = IC_PINTYPE_REF)
+	outputs = list(
+		"name" = IC_PINTYPE_STRING,
+		"description (general)" = IC_PINTYPE_STRING,
+		"description (face)" = IC_PINTYPE_STRING,
+		"species" = IC_PINTYPE_STRING,
+		"height" = IC_PINTYPE_NUMBER,
+		"estimated age" = IC_PINTYPE_NUMBER,
+		"eye colour" = IC_PINTYPE_COLOR
+	)
+	activators = list("scan" = IC_PINTYPE_PULSE_IN, "on scanned" = IC_PINTYPE_PULSE_OUT, "not scanned" = IC_PINTYPE_PULSE_OUT)
+	spawn_flags = IC_SPAWN_RESEARCH
+	origin_tech = list(TECH_ENGINEERING = 3, TECH_DATA = 3, TECH_BIO = 5)
+	power_draw_per_use = 100
+
+/obj/item/integrated_circuit/input/face_scanner/do_work()
+	var/mob/living/carbon/human/H = get_pin_data_as_type(IC_INPUT, 1, /mob/living/carbon/human)
+	if(!istype(H)) //Invalid input
+		return
+
+	if(H in view(get_turf(src))) // This is a camera. It can't examine thngs,that it can't see.
+		set_pin_data(IC_OUTPUT, 1, H.name)
+		set_pin_data(IC_OUTPUT, 2, H.flavor_texts["general"])
+		set_pin_data(IC_OUTPUT, 3, H.flavor_texts["face"])
+		set_pin_data(IC_OUTPUT, 4, H.species)
+		set_pin_data(IC_OUTPUT, 5, H.height)
+		set_pin_data(IC_OUTPUT, 6, round(H.age, 5))
+		set_pin_data(IC_OUTPUT, 7, rgb(H.r_eyes, H.g_eyes, H.b_eyes))
+		push_data()
+		activate_pin(2)
+	else
+		activate_pin(3)

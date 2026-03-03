@@ -122,6 +122,22 @@
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 	power_draw_per_use = 2
 
+/obj/item/integrated_circuit/time/ticker/custom
+	name = "custom ticker"
+	desc = "This advanced circuit sends an automatic pulse with a configurable interval between 2 and 600 seconds."
+	icon_state = "tick-f"
+	complexity = 12
+	ticks_to_pulse = 60
+	spawn_flags = IC_SPAWN_RESEARCH
+	power_draw_per_use = 8
+
+/obj/item/integrated_circuit/time/ticker/custom/do_work()
+	var/interval_input = get_pin_data(IC_INPUT, 1)
+	if(interval_input && isnum(interval_input) )
+		var/new_interval = between(2, interval_input, 1 HOUR)
+		ticks_to_pulse = new_interval
+	..()
+
 /obj/item/integrated_circuit/time/clock
 	name = "integrated clock"
 	desc = "Tells you what the local time is, specific to your station, planet, or facility."
