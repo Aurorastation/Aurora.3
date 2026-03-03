@@ -224,5 +224,5 @@
 	name = "Quik Stop"
 	icon_state = "quikstop"
 	desc = "The Orion operated Quik Stop is often known to provide a wide variety at a small premium, thanks to Orion's spur spanning logistics operation. What you need, when you need it: that's the Orion Promise!"
-	desc_extended = "Orion’s spur-wide logistics already had warehouses and sorting offices spread on hundreds of planets from the cosmopolitan Biesel to the dinkiest frontier colony. \
-	It was only a matter of fittings and branding which turned many of these into Orion Quik Stops, able to fulfill the Spur’s need for convenient shopping and able to tap into Orion’s delivery system."
+	desc_extended = "Orion's spur-wide logistics already had warehouses and sorting offices spread on hundreds of planets from the cosmopolitan Biesel to the dinkiest frontier colony. \
+	It was only a matter of fittings and branding which turned many of these into Orion Quik Stops, able to fulfill the Spur's need for convenient shopping and able to tap into Orion's delivery system."
