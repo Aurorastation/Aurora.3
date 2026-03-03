@@ -123,8 +123,6 @@
 	. = ..()
 	if(. && tail_style)
 		update_tail_showing(!lying)
-	if(lying)
-		update_icon(TRUE)
 
 /mob/living/carbon/human/Move()
 	. = ..()
