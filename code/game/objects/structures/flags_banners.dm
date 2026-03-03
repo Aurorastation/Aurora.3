@@ -1414,13 +1414,13 @@
 
 /obj/item/flag/volvalaad
 	name = "\improper House Volvalaad standard"
-	desc = "The black and dark blue hues of House Vovalaad's standard go hand-in-hand with the Empire's greatest scientific accomplishment: geneboosting. May Crown Princess Keeser live for a thousand years!"
+	desc = "The black and dark blue hues of House Volvalaad's standard go hand-in-hand with the Empire's greatest scientific accomplishment: geneboosting. May Crown Princess Keeser live for a thousand years!"
 	flag_path = "volvalaad"
 	flag_structure = /obj/structure/sign/flag/volvalaad
 
 /obj/structure/sign/flag/volvalaad
 	name = "\improper House Volvalaad standard"
-	desc = "The black and dark blue hues of House Vovalaad's standard go hand-in-hand with the Empire's greatest scientific accomplishment: geneboosting. May Crown Princess Keeser live for a thousand years!"
+	desc = "The black and dark blue hues of House Volvalaad's standard go hand-in-hand with the Empire's greatest scientific accomplishment: geneboosting. May Crown Princess Keeser live for a thousand years!"
 	flag_path = "volvalaad"
 	icon_state = "volvalaad"
 	flag_item = /obj/item/flag/volvalaad
