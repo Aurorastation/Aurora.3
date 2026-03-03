@@ -1489,6 +1489,60 @@
 	icon_state = "zhao"
 	flag_item = /obj/item/flag/zhao
 
+/obj/item/flag/seok
+	name = "\improper House Seok standard"
+	desc = "The red-black-red banner of House Seok. Long live the Empress and her family!"
+	desc_extended = "House Seok symbolizes itself with a traditional character roughly translating as "ancient," signifying its venerable history and \
+	ties to the Imperial Household. Many Imperial cultural buildings, from libraries to opera houses, have this symbol engraved somewhere inside them as \
+	an enduring testament to House Seok's generosity."
+	flag_path = "seok"
+	flag_structure = /obj/structure/sign/flag/seok
+
+/obj/structure/sign/flag/seok
+	name = "\improper House Seok standard"
+	desc = "The red-black-red banner of House Seok. Long live the Empress and her family!"
+	desc_extended = "House Seok symbolizes itself with a traditional character roughly translating as "ancient," signifying its venerable history and \
+	ties to the Imperial Household. Many Imperial cultural buildings, from libraries to opera houses, have this symbol engraved somewhere inside them as \
+	an enduring testament to House Seok's generosity."
+	icon_state = "seok"
+	flag_item = /obj/item/flag/seok
+
+/obj/item/flag/kaneko
+	name = "\improper House Kaneko standard"
+	desc = "The gold-and-silver banner of House Kaneko. Long live Zhurong and Count Kaneko!"
+	desc_extended = "The sixth great houses' symbol, a golden crysanthemum, symbolises the long history of House Kaneko and its great potential - and ambition. \
+	This symbol is often stamped on the support beams of Zhurong's structures and on the interior of Imperial Fleet hulls, symbolizing the steel used to construct \
+	it draws from the same great strength as House Kaneko."
+	flag_path = "kaneko"
+	flag_structure = /obj/structure/sign/flag/kaneko
+
+/obj/structure/sign/flag/kaneko
+	name = "\improper House Kaneko standard"
+	desc = "The gold-and-silver banner of House Kaneko. Long live Zhurong and Count Kaneko!"
+	desc_extended = "The sixth great houses' symbol, a golden crysanthemum, symbolises the long history of House Kaneko and its great potential - and ambition. \
+	This symbol is often stamped on the support beams of Zhurong's structures and on the interior of Imperial Fleet hulls, symbolizing the steel used to construct \
+	it draws from the same great strength as House Kaneko."
+	icon_state = "kaneko"
+	flag_item = /obj/item/flag/kaneko
+
+/obj/item/flag/sinzendorf
+	name = "\improper House von Sinzendorf standard"
+	desc = "The black-and-red banner of House von Sinzendorf. En garde!"
+	desc_extended = "The crossed swords and Imperial Eye of House von Sinzendorf’s crest feature prominently on its banner. The swords symbolize duty, honour, \
+	and loyalty until the end. The Imperial Eye symbolizes the Imperial Household, their masters. The Imperial Household's guard is closely associated with the \
+	von Sinzendorf's symbol, due to their long history as the Imperial family's bodyguards."
+	flag_path = "sinzendorf"
+	flag_structure = /obj/structure/sign/flag/sinzendorf
+
+/obj/structure/sign/flag/sinzendorf
+	name = "\improper House von Sinzendorf standard"
+	desc = "The black-and-red banner of House von Sinzendorf. En garde!"
+	desc_extended = "The crossed swords and Imperial Eye of House von Sinzendorf’s crest feature prominently on its banner. The swords symbolize duty, honour, \
+	and loyalty until the end. The Imperial Eye symbolizes the Imperial Household, their masters. The Imperial Household's guard is closely associated with the \
+	von Sinzendorf's symbol, due to their long history as the Imperial family's bodyguards."
+	icon_state = "sinzendorf"
+	flag_item = /obj/item/flag/sinzendorf
+
 // Biesel.
 
 /obj/item/flag/biesel
