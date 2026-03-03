@@ -9,7 +9,7 @@
 	light_system = MOVABLE_LIGHT
 	light_range = 5
 	light_color = "#3e0000"
-		maxhealth = 30
+	maxhealth = 30
 	anchored = FALSE
 
 	var/pylonmode = PYLON_IDLE
@@ -28,6 +28,8 @@
 	var/shot_delay = 5
 
 	var/mob/living/target
+
+	var/isbroken = FALSE
 
 	/**
 	 * Number of times handle_firing has been called without finding anything to shoot at
