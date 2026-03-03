@@ -1179,7 +1179,7 @@
 		/obj/item/flag/zhurong = 2,
 		/obj/item/flag/zhurong/l = 2,
 		/obj/item/flag/imperial_frontier = 2,
-		/obj/item/flag/imperial_frontier/l = 2
+		/obj/item/flag/imperial_frontier/l = 2,
 		/obj/item/flag/seok = 1,
 		/obj/item/flag/kaneko = 1,
 		/obj/item/flag/sinzendorf = 1,
