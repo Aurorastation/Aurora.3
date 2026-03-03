@@ -1401,30 +1401,26 @@
 
 /obj/item/flag/strelitz
 	name = "\improper House Strelitz standard"
-	desc = "A red-and-dark standard with a gold trim that represents House Strelitz, one of the great houses of the Empire of Dominia. \
-	They are known for their military service and emphasis on personal bravery."
+	desc = "The red and gold standard of House Strelitz represents loyalty and bravery. It proudly flies above thousands of military facilities across the Empire and beyond."
 	flag_path = "strelitz"
 	flag_structure = /obj/structure/sign/flag/strelitz
 
 /obj/structure/sign/flag/strelitz
 	name = "\improper House Strelitz standard"
-	desc = "A red-and-dark standard with a gold trim that represents House Strelitz, one of the great houses of the Empire of Dominia. \
-	They are known for their military service and emphasis on personal bravery."
+	desc = "The red and gold standard of House Strelitz represents loyalty and bravery. It proudly flies above thousands of military facilities across the Empire and beyond."
 	icon_state = "strelitz"
 	flag_path = "strelitz"
 	flag_item = /obj/item/flag/strelitz
 
 /obj/item/flag/volvalaad
 	name = "\improper House Volvalaad standard"
-	desc = "A blue-and-black standard which represents House Volvalaad, one of the great houses of the Empire of Dominia. \
-	They are known for their reformist ideals, and scientific prowess."
+	desc = "The black and dark blue hues of House Vovalaad's standard go hand-in-hand with the Empire's greatest scientific accomplishment: geneboosting. May Crown Princess Keeser live for a thousand years!"
 	flag_path = "volvalaad"
 	flag_structure = /obj/structure/sign/flag/volvalaad
 
 /obj/structure/sign/flag/volvalaad
 	name = "\improper House Volvalaad standard"
-	desc = "A blue-and-black standard which represents House Volvalaad, one of the great houses of the Empire of Dominia. \
-	They are known for their reformist ideals and scientific prowess."
+	desc = "The black and dark blue hues of House Vovalaad's standard go hand-in-hand with the Empire's greatest scientific accomplishment: geneboosting. May Crown Princess Keeser live for a thousand years!"
 	flag_path = "volvalaad"
 	icon_state = "volvalaad"
 	flag_item = /obj/item/flag/volvalaad
@@ -1461,30 +1457,26 @@
 
 /obj/item/flag/caladius
 	name = "\improper House Caladius standard"
-	desc = "A purple standard which represents House Caladius, one of the great houses of the Empire of Dominia. They are \
-	known for their support of the Dominian clergy as well as the skill of their bureaucrats and economists."
+	desc = "The purple standard of House Caladius flies proudly from Imperial government buildings, colonies, and merchant vessels. Known for its meritocracy, it also flies above many schools for gifted Ma'zals -- the future of the Imperial colonial bureaucracy."
 	flag_path = "caladius"
 	flag_structure = /obj/structure/sign/flag/caladius
 
 /obj/structure/sign/flag/caladius
 	name = "\improper House Caladius standard"
-	desc = "A purple standard which represents House Caladius, one of the great houses of the Empire of Dominia. They are \
-	known for their support of the Dominian clergy as well as the skill of their bureaucrats and economists."
+	desc = "The purple standard of House Caladius flies proudly from Imperial government buildings, colonies, and merchant vessels. Known for its meritocracy, it also flies above many schools for gifted Ma'zals -- the future of the Imperial colonial bureaucracy."
 	flag_path = "caladius"
 	icon_state = "caladius"
 	flag_item = /obj/item/flag/caladius
 
 /obj/item/flag/zhao
 	name = "\improper House Zhao standard"
-	desc = "A white Dominian standard with a prominent grey circle which represents House Zhao, one of the great houses of the Empire of Dominia,\
-	known for its naval officers and patronage of the Dominian shipbuilding industry."
+	desc = "Renowned for their naval and engineering prowess, the white-and-silver standard of House Zhao flies proudly from Imperial Fleet facilities and colonial holdings across the southern Spur. Long live the Grand Admiral and the Empire!"
 	flag_path = "zhao"
 	flag_structure = /obj/structure/sign/flag/zhao
 
 /obj/structure/sign/flag/zhao
 	name = "\improper House Zhao standard"
-	desc = "A white Dominian standard with a prominent grey circle which represents House Zhao, one of the great houses of  the Empire of Dominia,\
-	known for its naval officers and patronage of the Dominian shipbuilding and naval industries."
+	desc = "Renowned for their naval and engineering prowess, the white-and-silver standard of House Zhao flies proudly from Imperial Fleet facilities and colonial holdings across the southern Spur. Long live the Grand Admiral and the Empire!"
 	flag_path = "zhao"
 	icon_state = "zhao"
 	flag_item = /obj/item/flag/zhao
@@ -1492,7 +1484,7 @@
 /obj/item/flag/seok
 	name = "\improper House Seok standard"
 	desc = "The red-black-red banner of House Seok. Long live the Empress and her family!"
-	desc_extended = "House Seok symbolizes itself with a traditional character roughly translating as "ancient," signifying its venerable history and \
+	desc_extended = "House Seok symbolizes itself with a traditional character roughly translating as ancient, signifying its venerable history and \
 	ties to the Imperial Household. Many Imperial cultural buildings, from libraries to opera houses, have this symbol engraved somewhere inside them as \
 	an enduring testament to House Seok's generosity."
 	flag_path = "seok"
@@ -1501,7 +1493,7 @@
 /obj/structure/sign/flag/seok
 	name = "\improper House Seok standard"
 	desc = "The red-black-red banner of House Seok. Long live the Empress and her family!"
-	desc_extended = "House Seok symbolizes itself with a traditional character roughly translating as "ancient," signifying its venerable history and \
+	desc_extended = "House Seok symbolizes itself with a traditional character roughly translating as ancient, signifying its venerable history and \
 	ties to the Imperial Household. Many Imperial cultural buildings, from libraries to opera houses, have this symbol engraved somewhere inside them as \
 	an enduring testament to House Seok's generosity."
 	icon_state = "seok"
