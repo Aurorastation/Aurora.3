@@ -760,7 +760,6 @@
 	secured_wires = TRUE
 	assembly_type = /obj/structure/door_assembly/door_assembly_highsecurity
 	maxhealth = OBJECT_HEALTH_EXTREMELY_HIGH
-	insecure = 0
 	maxhealth = 600
 	features_powerloss_manual_override = FALSE
 	ai_bolting_delay = 10
@@ -774,7 +773,6 @@
 	explosion_resistance = 20
 	secured_wires = TRUE
 	maxhealth = OBJECT_HEALTH_EXTREMELY_HIGH
-	insecure = 0
 	maxhealth = 600
 	features_powerloss_manual_override = FALSE
 	hashatch = FALSE
@@ -786,7 +784,6 @@
 	explosion_resistance = 20
 	secured_wires = TRUE
 	maxhealth = OBJECT_HEALTH_EXTREMELY_HIGH
-	insecure = FALSE
 	maxhealth = 600
 	features_powerloss_manual_override = FALSE
 	hashatch = FALSE

@@ -437,7 +437,7 @@
 		return TRUE
 	if(default_part_replacement(user, attacking_item))
 		return TRUE
-	var/damage = max_health - health
+	var/damage = maxhealth - health
 	if(damage && attacking_item.tool_behaviour == TOOL_WELDER)
 
 		var/obj/item/weldingtool/WT = attacking_item

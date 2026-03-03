@@ -60,7 +60,6 @@
 	/// If `TRUE`, will use the `icon_species_tag` var for rendering this item in the left/right hand.
 	var/icon_species_in_hand = FALSE
 
-	var/equip_slot = 0
 	///Played when the item is used, for example tools
 	var/usesound
 	/// The speed of the tool. This is generally a divisor.

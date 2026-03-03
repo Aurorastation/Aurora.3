@@ -243,7 +243,7 @@
 	info = stars(info,85)
 	if(user)
 		user.visible_message("\The [user] crumples \the [src] into a ball!", "You crumple \the [src] into a ball.")
-		playsound(src, 'sound/bureaucracy/papercrumple.ogg', 50, 1)
+		playsound(src, 'sound/items/bureaucracy/papercrumple.ogg', 50, 1)
 	icon_state = "scrap"
 	throw_range = 4
 
