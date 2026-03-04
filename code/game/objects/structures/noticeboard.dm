@@ -28,17 +28,18 @@
 
 //attaching papers!!
 /obj/structure/noticeboard/attackby(obj/item/attacking_item, mob/user)
-	if(istype(attacking_item, /obj/item/paper))
-		if(notice_limit > notices)
-			attacking_item.add_fingerprint(user)
-			add_fingerprint(user)
-			user.drop_from_inventory(attacking_item,src)
-			notices++
-			update_icon()
-			SSpersistence.register_track(attacking_item, ckey(usr.key)) // Add paper to persistent tracker
-			to_chat(user, SPAN_NOTICE("You pin the paper to the noticeboard."))
-		else
-			to_chat(user, SPAN_NOTICE("You reach to pin your paper to the board but hesitate. You are certain your paper will not be seen among the many others already attached."))
+	if(!istype(attacking_item, /obj/item/paper) || istype(attacking_item, /obj/item/paper/stickynotes)) //Stickynotes on a noticeboard are redundant and have overlapping persistence.
+		return
+	if(notice_limit > notices)
+		attacking_item.add_fingerprint(user)
+		add_fingerprint(user)
+		user.drop_from_inventory(attacking_item, src)
+		notices++
+		update_icon()
+		SSpersistence.register_track(attacking_item, ckey(usr.key)) // Add paper to persistent tracker
+		to_chat(user, SPAN_NOTICE("You pin the paper to the noticeboard."))
+	else
+		to_chat(user, SPAN_NOTICE("\The [src] is already full of papers and can not fit another."))
 
 /obj/structure/noticeboard/attack_hand(var/mob/user)
 	examine(user)
