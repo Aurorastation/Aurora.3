@@ -556,7 +556,7 @@
 		GAS_DEUTERIUM		= IC_PINTYPE_NUMBER,
 		GAS_TRITIUM			= IC_PINTYPE_NUMBER,
 		GAS_HELIUM			= IC_PINTYPE_NUMBER,
-		GAS_HELIUMFUE		= IC_PINTYPE_NUMBER,
+		GAS_HELIUMFUEL		= IC_PINTYPE_NUMBER,
 		GAS_SULFUR			= IC_PINTYPE_NUMBER,
 		GAS_NO2				= IC_PINTYPE_NUMBER,
 		GAS_CHLORINE		= IC_PINTYPE_NUMBER,
@@ -784,9 +784,6 @@
 	var/gas_display_name = GAS_OXYGEN
 
 /obj/item/integrated_circuit/input/gas_sensor/Initialize()
-	name = "[gas_display_name] sensor"
-	displayed_name = "[gas_display_name] sensor"
-	desc = "A tiny [gas_display_name] sensor module similar to that found in a PDA atmosphere analyser."
 	outputs = list(
 		gas_name = IC_PINTYPE_NUMBER
 	)
@@ -809,50 +806,86 @@
 	activate_pin(2)
 
 /obj/item/integrated_circuit/input/gas_sensor/co2
+	name = "carbon dioxide sensor"
+	displayed_name = "carbon dioxide sensor"
+	desc = "A tiny carbon dioxide sensor module similar to that found in a PDA atmosphere analyser."
 	gas_name = GAS_CO2
 	gas_display_name = "carbon dioxide"
 
 /obj/item/integrated_circuit/input/gas_sensor/nitrogen
+	name = "nitrogen sensor"
+	displayed_name = "nitrogen sensor"
+	desc = "A tiny nitrogen sensor module similar to that found in a PDA atmosphere analyser."
 	gas_name = GAS_NITROGEN
 	gas_display_name = "nitrogen"
 
 /obj/item/integrated_circuit/input/gas_sensor/phoron
+	name = "phoron sensor"
+	displayed_name = "phoron sensor"
+	desc = "A tiny phoron sensor module similar to that found in a PDA atmosphere analyser."
 	gas_name = GAS_PHORON
 	gas_display_name = GAS_PHORON
 
 /obj/item/integrated_circuit/input/gas_sensor/hydrogen_level
+	name = "hydrogen sensor"
+	displayed_name = "hydrogen sensor"
+	desc = "A tiny hydrogen sensor module similar to that found in a PDA atmosphere analyser."
 	gas_name = GAS_HYDROGEN
 	gas_display_name = GAS_HYDROGEN
 
 /obj/item/integrated_circuit/input/gas_sensor/deuterium_level
+	name = "deuterium sensor"
+	displayed_name = "deuterium sensor"
+	desc = "A tiny deuterium sensor module similar to that found in a PDA atmosphere analyser."
 	gas_name = GAS_DEUTERIUM
 	gas_display_name = GAS_DEUTERIUM
 
 /obj/item/integrated_circuit/input/gas_sensor/tritium_level
+	name = "tritium sensor"
+	displayed_name = "tritium sensor"
+	desc = "A tiny tritium sensor module similar to that found in a PDA atmosphere analyser."
 	gas_name = GAS_TRITIUM
 	gas_display_name = GAS_TRITIUM
 
 /obj/item/integrated_circuit/input/gas_sensor/helium_level
+	name = "helium sensor"
+	displayed_name = "helium sensor"
+	desc = "A tiny helium sensor module similar to that found in a PDA atmosphere analyser."
 	gas_name = GAS_HELIUM
 	gas_display_name = GAS_HELIUM
 
 /obj/item/integrated_circuit/input/gas_sensor/helium3_level
+	name = "helium-3 sensor"
+	displayed_name = "helium-3 sensor"
+	desc = "A tiny helium-3 sensor module similar to that found in a PDA atmosphere analyser."
 	gas_name = GAS_HELIUMFUEL
 	gas_display_name = GAS_HELIUMFUEL
 
 /obj/item/integrated_circuit/input/gas_sensor/sulfurdioxide_level
+	name = "sulphur dioxide sensor"
+	displayed_name = "sulphur dioxide sensor"
+	desc = "A tiny sulphur dioxide sensor module similar to that found in a PDA atmosphere analyser."
 	gas_name = GAS_SULFUR
 	gas_display_name = GAS_SULFUR
 
 /obj/item/integrated_circuit/input/gas_sensor/nitrogendioxide_level
+	name = "nitrogen dioxide sensor"
+	displayed_name = "nitrogen dioxide sensor"
+	desc = "A tiny nitrogen dioxide sensor module similar to that found in a PDA atmosphere analyser."
 	gas_name = GAS_NO2
 	gas_display_name = GAS_NO2
 
 /obj/item/integrated_circuit/input/gas_sensor/chlorine_level
+	name = "chlorine sensor"
+	displayed_name = "chlorine sensor"
+	desc = "A tiny chlorine sensor module similar to that found in a PDA atmosphere analyser."
 	gas_name = GAS_CHLORINE
 	gas_display_name = GAS_CHLORINE
 
 /obj/item/integrated_circuit/input/gas_sensor/watervapor_level
+	name = "water vapour sensor"
+	displayed_name = "water vapour sensor"
+	desc = "A tiny water vapour sensor module similar to that found in a PDA atmosphere analyser."
 	gas_name = GAS_WATERVAPOR
 	gas_display_name = GAS_WATERVAPOR
 
