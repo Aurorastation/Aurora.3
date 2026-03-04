@@ -125,6 +125,8 @@
 			if(armor[type])
 				AddComponent(/datum/component/armor, armor)
 				break
+	else
+		AddComponent(/datum/component/armor, GLOB.default_object_armor)
 
 /obj/Destroy()
 	if(persistence_track_active) // Prevent hard deletion of references in the persistence register by removing it preemptively
@@ -164,7 +166,7 @@
  * This proc is called to add damage to an object. If there is no health left, it calls on_death().
  */
 /obj/proc/add_damage(damage, damage_flags, damage_type, armor_penetration, obj/weapon)
-	if(!damage || !maxhealth)
+	if(!damage || !maxhealth || (damage < 1))
 		return FALSE
 
 	var/datum/component/armor/armor = GetComponent(/datum/component/armor)
