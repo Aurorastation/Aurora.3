@@ -105,10 +105,10 @@
 		// Basic medical analyser stuff
 		"brain activity" = IC_PINTYPE_NUMBER,
 		"heart pulse" = IC_PINTYPE_NUMBER,
-		"blood pressure" = IC_PINTYPE_NUMBER,
+		"blood pressure" = IC_PINTYPE_LIST,
 		"blood oxygenation" = IC_PINTYPE_NUMBER,
 		"body temperature" = IC_PINTYPE_NUMBER,
-		"is arresting?" = IC_PINTYPE_BOOLEAN,
+		"in cardiac arrest?" = IC_PINTYPE_BOOLEAN,
 	)
 	activators = list("scan" = IC_PINTYPE_PULSE_IN, "on scanned" = IC_PINTYPE_PULSE_OUT)
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
@@ -125,9 +125,9 @@
 
 	if(H.Adjacent(get_turf(src))) // Like normal analysers, it can't be used at range.
 		// Basic medical analyser stuff
-		set_pin_data(IC_OUTPUT, 1, H.get_brain_status())
-		set_pin_data(IC_OUTPUT, 2, H.get_pulse(GETPULSE_TOOL))
-		set_pin_data(IC_OUTPUT, 3, H.get_blood_pressure())
+		set_pin_data(IC_OUTPUT, 1, H.get_brain_result())
+		set_pin_data(IC_OUTPUT, 2, H.get_pulse_as_number(GETPULSE_TOOL))
+		set_pin_data(IC_OUTPUT, 3, H.blood_pressure())
 		set_pin_data(IC_OUTPUT, 4, H.get_blood_oxygenation())
 		set_pin_data(IC_OUTPUT, 5, H.bodytemperature)
 		set_pin_data(IC_OUTPUT, 6, H.is_asystole())
@@ -146,17 +146,16 @@
 		// Basic medical analyser stuff
 		"brain activity" = IC_PINTYPE_NUMBER,
 		"heart pulse" = IC_PINTYPE_NUMBER,
-		"blood pressure" = IC_PINTYPE_NUMBER,
+		"blood pressure" = IC_PINTYPE_LIST,
 		"blood oxygenation" = IC_PINTYPE_NUMBER,
 		"body temperature" = IC_PINTYPE_NUMBER,
-		"is arresting?" = IC_PINTYPE_BOOLEAN,
+		"in cardiac arrest?" = IC_PINTYPE_BOOLEAN,
 		// Advanced
 		"brute damage" = IC_PINTYPE_NUMBER,
 		"burn damage" = IC_PINTYPE_NUMBER,
 		"toxin damage" = IC_PINTYPE_NUMBER,
 		"radiation dose" = IC_PINTYPE_NUMBER,
-		"genetic instability" = IC_PINTYPE_NUMBER,
-
+		"genetic instability" = IC_PINTYPE_NUMBER
 	)
 	activators = list("scan" = IC_PINTYPE_PULSE_IN, "on scanned" = IC_PINTYPE_PULSE_OUT)
 	spawn_flags = IC_SPAWN_RESEARCH
@@ -173,9 +172,9 @@
 
 	if(H.Adjacent(get_turf(src))) // Like normal analysers, it can't be used at range.
 		// Basic medical analyser stuff
-		set_pin_data(IC_OUTPUT, 1, H.get_brain_status())
-		set_pin_data(IC_OUTPUT, 2, H.get_pulse(GETPULSE_TOOL))
-		set_pin_data(IC_OUTPUT, 3, H.get_blood_pressure())
+		set_pin_data(IC_OUTPUT, 1, H.get_brain_result())
+		set_pin_data(IC_OUTPUT, 2, H.get_pulse_as_number(GETPULSE_TOOL))
+		set_pin_data(IC_OUTPUT, 3, H.blood_pressure())
 		set_pin_data(IC_OUTPUT, 4, H.get_blood_oxygenation())
 		set_pin_data(IC_OUTPUT, 5, H.bodytemperature)
 		set_pin_data(IC_OUTPUT, 6, H.is_asystole())
@@ -1183,7 +1182,7 @@
 		set_pin_data(IC_OUTPUT, 1, H.name)
 		set_pin_data(IC_OUTPUT, 2, H.flavor_texts["general"])
 		set_pin_data(IC_OUTPUT, 3, H.flavor_texts["face"])
-		set_pin_data(IC_OUTPUT, 4, H.species)
+		set_pin_data(IC_OUTPUT, 4, H.species.name)
 		set_pin_data(IC_OUTPUT, 5, H.height)
 		set_pin_data(IC_OUTPUT, 6, round(H.age, 5))
 		set_pin_data(IC_OUTPUT, 7, rgb(H.r_eyes, H.g_eyes, H.b_eyes))
@@ -1191,3 +1190,33 @@
 		activate_pin(2)
 	else
 		activate_pin(3)
+
+/obj/item/integrated_circuit/input/anomaly_scanner
+	name = "alden-saraspova counter"
+	desc = "A miniaturised Alden-Saraspova counter, used to detected anomalous readings. Often used by xenoarchaeologists."
+	extended_desc = "It can only scan a 14x14 area and has an in-built ~15sec cooldown."
+	icon_state = "medscan_adv"
+	complexity = 12
+	outputs = list(
+		"exotic particle type" = IC_PINTYPE_STRING,
+		"range detected at" = IC_PINTYPE_NUMBER
+	)
+	activators = list("scan" = IC_PINTYPE_PULSE_IN, "anomaly found" = IC_PINTYPE_PULSE_OUT, "no anomaly found" = IC_PINTYPE_PULSE_OUT)
+	spawn_flags = IC_SPAWN_RESEARCH
+	origin_tech = list(TECH_ENGINEERING = 4, TECH_DATA = 4, TECH_MAGNET = 6, TECH_BLUESPACE = 4)
+	power_draw_per_use = 200
+	cooldown_per_use = 10 // sizeable cooldown to prevent view spam
+
+/obj/item/integrated_circuit/input/anomaly_scanner/do_work()
+	if(!SSxenoarch)
+		return
+
+	var/turf/our_turf = get_turf(src)
+	for(var/turf/simulated/mineral/scanned_turf in view(our_turf)) // Restrict range to only visible tiles, instead of the entire Z-level like standalone AS counters
+		if(scanned_turf.artifact_find)
+			set_pin_data(IC_OUTPUT, 1, scanned_turf.artifact_find.artifact_id)
+			set_pin_data(IC_OUTPUT, 2, get_dist(our_turf, scanned_turf))
+			push_data()
+			activate_pin(2)
+		else
+			activate_pin(3)

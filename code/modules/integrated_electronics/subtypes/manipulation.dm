@@ -313,7 +313,7 @@
 	desc = "Used to shock adjacent creatures with electricity."
 	icon_state = "shocker"
 	extended_desc = "The circuit accepts a reference to creature to shock. It can shock a target on adjacent tiles. \
-	Severity determines the power draw and usage of each shock. It accepts values between 0 and 20."
+	Severity determines the power draw and usage of each shock. It accepts values between 0 and 20. It has a 5 second cooldown."
 	w_class = WEIGHT_CLASS_TINY
 	complexity = 24
 	inputs = list("target" = IC_PINTYPE_REF,"severity" = IC_PINTYPE_NUMBER)
@@ -325,7 +325,7 @@
 
 /obj/item/integrated_circuit/manipulation/shocker/on_data_written()
 	var/s = get_pin_data(IC_INPUT, 2)
-	power_draw_per_use = clamp(s,0,20)*8
+	power_draw_per_use = clamp(s,0,20)*20 // big power draw to shock large creatures
 
 /obj/item/integrated_circuit/manipulation/shocker/do_work()
 	..()
@@ -339,8 +339,48 @@
 		to_chat(M, SPAN_DANGER("You feel a light tingle from [src]. Luckily it was charging!"))
 		return
 	else
+		msg_admin_attack("An integrated circuit with a shocker circuit was used to shock [M.name] ([M.ckey]) (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[x];Y=[y];Z=[z]'>JMP</a>)")
 		to_chat(M, SPAN_DANGER("You feel a sharp shock from the [src]!"))
 		spark(get_turf(M), 3, 1)
 		M.stun_effect_act(0, clamp(get_pin_data(IC_INPUT, 2),0,20), null)
 		shocktime = world.time
+		return
+
+/obj/item/integrated_circuit/manipulation/flasher
+	name = "flasher circuit"
+	desc = "Used to flash adjacent creatures."
+	icon_state = "video_camera"
+	extended_desc = "The circuit accepts a reference to creature to flash. It can shock a target on adjacent tiles. \
+	Severity determines the power draw and duration of each flash. It accepts values between 1 and 4. It has a 5 second cooldown."
+	w_class = WEIGHT_CLASS_TINY
+	complexity = 24
+	inputs = list("target" = IC_PINTYPE_REF,"severity" = IC_PINTYPE_NUMBER)
+	outputs = list()
+	activators = list("flash" = IC_PINTYPE_PULSE_IN)
+	spawn_flags = IC_SPAWN_RESEARCH
+	power_draw_per_use = 0
+	var/flashtime
+
+/obj/item/integrated_circuit/manipulation/flasher/on_data_written()
+	var/s = get_pin_data(IC_INPUT, 2)
+	power_draw_per_use = clamp(s,1,4)*200 // big power draw to achieve a blinding flash
+
+/obj/item/integrated_circuit/manipulation/flasher/do_work()
+	..()
+	var/turf/T = get_turf(src)
+	var/mob/living/scanned_mob = get_pin_data_as_type(IC_INPUT, 1, /mob/living)
+	if(!istype(scanned_mob)) //Invalid input
+		return
+	if(!T.Adjacent(scanned_mob))
+		return //Can't reach
+	if((flashtime + (5 SECONDS)) > world.time) // Cooldown
+		visible_message(SPAN_WARNING("You see a weak flash from the [src]."))
+	else
+		var/flash_duration = clamp(get_pin_data(IC_INPUT, 2),1,4)
+
+		scanned_mob.flash_act(length = flash_duration SECONDS)
+
+		flashtime = world.time
+		msg_admin_attack("An integrated circuit with a flasher was used to flash [scanned_mob.name] ([scanned_mob.ckey]) (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[x];Y=[y];Z=[z]'>JMP</a>)")
+		playsound(src.loc, 'sound/weapons/flash.ogg', 100, 1)
 		return
