@@ -38,6 +38,11 @@
 	power_use = 2500
 	trample_damage = 45
 
+	// Uniquely increases speed when damaged. Fragile, but good for melee.
+	// It can become faster than a light mech, but only when on the verge of death.
+	damaged_delay = 4
+	damaged_delay_slope = -1
+
 /obj/item/mech_component/sensors/cult
 	name = "daemon sensors"
 	desc = "A hard shell to protect those that follow the Great One, these sensors assist in the slaughter."
