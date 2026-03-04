@@ -5,8 +5,8 @@ SUBSYSTEM_DEF(turf_fire)
 	flags = SS_NO_INIT
 	var/list/fires = list()
 
-/datum/controller/subsystem/turf_fire/fire()
-	var/seconds_per_tick = (wait * 0.1) // Equivalent to wait / (1 SECOND) but micro-optimized
+/datum/controller/subsystem/turf_fire/fire(resumed)
+	var/seconds_per_tick = wait * 0.1
 	for(var/obj/turf_fire/fire as anything in fires)
 		fire.process(seconds_per_tick)
 		if(MC_TICK_CHECK)

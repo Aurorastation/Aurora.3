@@ -27,26 +27,26 @@ export const pAIRadio = (props, context) => {
               <Button
                 content={data.listening ? 'On' : 'Off'}
                 selected={data.listening}
-                onClick={() => act('talk', { nowindow: 1 })}
+                onClick={() => act('toggle_talk', { nowindow: 1 })}
               />
             </LabeledList.Item>
             <LabeledList.Item label="Frequency">
               <Button
                 content="--"
-                onClick={() => act('freq', { freq: -10, nowindow: 1 })}
+                onClick={() => act('set_freq', { freq: -10, nowindow: 1 })}
               />
               <Button
                 content="-"
-                onClick={() => act('freq', { freq: -2, nowindow: 1 })}
+                onClick={() => act('set_freq', { freq: -2, nowindow: 1 })}
               />
               {data.frequency}
               <Button
                 content="+"
-                onClick={() => act('freq', { freq: 2, nowindow: 1 })}
+                onClick={() => act('set_freq', { freq: 2, nowindow: 1 })}
               />
               <Button
                 content="++"
-                onClick={() => act('freq', { freq: 10, nowindow: 1 })}
+                onClick={() => act('set_freq', { freq: 10, nowindow: 1 })}
               />
             </LabeledList.Item>
             <LabeledList.Item label="Range">
@@ -68,9 +68,8 @@ export const pAIRadio = (props, context) => {
                     content={channel.listening ? 'On' : 'Off'}
                     selected={channel.listening}
                     onClick={() =>
-                      act('ch_name', {
-                        ch_name: channel.name,
-                        listen: 1,
+                      act('toggle_listen', {
+                        channel_name: channel.name,
                         nowindow: 1,
                       })
                     }

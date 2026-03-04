@@ -1,0 +1,47 @@
+2026-03-01:
+  ASmallCuteCat:
+  - qol: Adds one light to Medical that solves the huge blob of darkness in the middle
+      of the GTR
+  FabianK3:
+  - bugfix: Fixed handheld sprite for marshalling wands.
+  GeneralCamo:
+  - rscadd: Allowed M'sai Tajara to be Executive Officers.
+  - rscadd: Allowed Zhan-Khazan Tajara to be Operations Managers and Chief Engineers.
+  - rscadd: Allowed Zhan-Khazan Tajara to be Diplomatic Aides and Bodyguards for the
+      PRA, and DPRA.
+  - rscadd: Allowed M'sai Tajara to be Consular Officers for the PRA, DPRA, and NKA.
+  - rscdel: Disallowed M'sai Tajara to be Diplomatic Aides for the NKA.
+  - qol: Touched up the Tajara ethnicity descriptions.
+  Hellfirejag:
+  - bugfix: Fixed bug with firelocks and doors.
+  JohnWildkins:
+  - code_imp: Add check to qdel() to prevent attempts to qdel lists.
+  - bugfix: Fix bad qdels on tgui list inputs and engicarts. Minor performance increase.
+  TheGreyWolf:
+  - rscadd: The commissary cash register can now be filled out with a paper form.
+2026-03-02:
+  Batrachophrenoboocosmomachia:
+  - bugfix: Cleans up Access Controller TGUI to restore functionality of manually
+      securing interior/exterior doors, general cleanup and jank reduction.
+  WickedCybs:
+  - rscdel: Removed quite a bit of unused custom items. They can return should their
+      characters resume activity.
+2026-03-03:
+  Batrachophrenoboocosmomachia:
+  - spellcheck: Renames TEGs to Stirling engines to more accurately reflect their
+      functionality.
+  - refactor: Refactor of interface for TEG/Stirling Engines to use TGUI instead of
+      NanoUI.
+  GeneralCamo:
+  - bugfix: Fixed shrapnel not correctly creating new wounds, causing them to disappear.
+  Greenjoe:
+  - rscadd: Allows Little Adhomai tajara to select Biesel citizenship.
+  - rscadd: Little Adhomai tajara are now more used to heat compared to Adhomian tajara.
+  JohnWildkins:
+  - refactor: Move smartfridge icon generation to static data and cache results to
+      improve performance.
+  - bugfix: Fix chemical bottles not having proper colors in SmartFridge UI.
+  - bugfix: Fix hivebot hard delete.
+  Mynameasjeff:
+  - qol: The Ranger Gunboat has been given a bit of a update. Thank you to @Cormallenfield
+      on discord for helping with the submap inserts.

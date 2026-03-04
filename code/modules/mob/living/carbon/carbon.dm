@@ -416,11 +416,6 @@
 		usr.sleeping = 20 // Short nap.
 		usr.eye_blurry = 20
 
-/mob/living/carbon/sleeps_horizontal()
-	if(species && species.sleeps_upright)
-		return FALSE
-	return ..()
-
 /verb/toggle_indefinite_sleep()
 	set name = "Toggle Indefinite Sleep"
 	set category = "IC"

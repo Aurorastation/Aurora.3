@@ -1060,6 +1060,7 @@
 	icon_state = "toptart_strawberry_box"
 	icon_type = "toptart"
 	storage_type = "box"
+	w_class = WEIGHT_CLASS_SMALL
 	starts_with = list(/obj/item/reagent_containers/food/snacks/toptart_strawberry_raw = 4)
 	can_hold = list(
 		/obj/item/reagent_containers/food/snacks/toptart_strawberry_raw,
@@ -1079,6 +1080,7 @@
 	icon_state = "toptart_chocolate_box"
 	icon_type = "toptart"
 	storage_type = "box"
+	w_class = WEIGHT_CLASS_SMALL
 	starts_with = list(/obj/item/reagent_containers/food/snacks/toptart_chocolate_peanutbutter_raw = 4)
 	can_hold = list(
 		/obj/item/reagent_containers/food/snacks/toptart_strawberry_raw,
@@ -1098,6 +1100,7 @@
 	icon_state = "toptart_blueberry_box"
 	icon_type = "toptart"
 	storage_type = "box"
+	w_class = WEIGHT_CLASS_SMALL
 	starts_with = list(/obj/item/reagent_containers/food/snacks/toptart_blueberry_raw = 4)
 	can_hold = list(
 		/obj/item/reagent_containers/food/snacks/toptart_strawberry_raw,

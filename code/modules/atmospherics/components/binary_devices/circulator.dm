@@ -21,6 +21,8 @@
 	var/volume_capacity_used = 0
 	var/stored_energy = 0
 	var/temperature_overlay
+	/// When passing its status to the main Stirling generator, this informs labeling on the TGUI.
+	var/is_hot_loop = FALSE
 
 	density = TRUE
 
@@ -37,8 +39,8 @@
 /obj/machinery/atmospherics/binary/circulator/proc/return_transfer_air()
 	var/datum/gas_mixture/removed
 	if(anchored && !(stat&BROKEN) && network1)
-		var/input_starting_pressure = air1.return_pressure()
-		var/output_starting_pressure = air2.return_pressure()
+		var/input_starting_pressure = XGM_PRESSURE(air1)
+		var/output_starting_pressure = XGM_PRESSURE(air2)
 		last_pressure_delta = max(input_starting_pressure - output_starting_pressure - 5, 0)
 
 		//only circulate air if there is a pressure difference (plus 5kPa kinetic, 10kPa static friction)

@@ -54,5 +54,5 @@
 	if(action == "radio_range") //fuck nanoUI and fuck vueui two-way bullshit, and fuck topic hooking
 		host.radio.canhear_range = params["radio_range"]
 	else
-		host.radio.Topic(action, params)
+		host.radio.ui_act(action, params, ui, state)
 	. = TRUE
