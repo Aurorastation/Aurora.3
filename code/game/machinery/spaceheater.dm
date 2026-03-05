@@ -122,7 +122,7 @@
 			else
 				high_power_cell = FALSE
 		else
-			to_chat(user,SPAN_WARNING("There's no cell to remove!"))
+			to_chat(user, SPAN_WARNING("There's no cell to remove!"))
 	else
 		ui_interact(user)
 
