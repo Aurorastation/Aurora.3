@@ -34,6 +34,8 @@ env:
   CI_TRIGGER_REASON: ${{ github.event_name }}
   #The maximum number of retries the unit tests (excluding linters) can make, if appropriate for them to
   CI_MAX_RETRIES: 3
+  #Should CI be skipped for this run?
+  CI_SKIP_WORKFLOW: ${{ contains(github.event.head_commit.message, '[ci skip]') }}
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
@@ -46,8 +48,10 @@ jobs:
 ###########################################
   validate-structure:
     name: Validate Structure
+    outputs:
+      skipci: ${{ steps.check_skipci.outputs.skipci }}
+      skiput: ${{ steps.check_skiput.outputs.skiput }}
     runs-on: ubuntu-24.04
-    if: ${{ !(contains(github.event.head_commit.message, '[ci skip]')) }}
 
     concurrency:
       group: validate-structure-${{ github.head_ref || github.run_id }}
@@ -71,6 +75,21 @@ jobs:
           bash tools/ci/check_grep.sh $PWD
           awk -f tools/indentation.awk **/*.dm
 
+      - name: "Check if running CI"
+        run: |
+          if git log -1 --pretty=%B | grep -q '\[ci skip\]'; then
+            echo "skipci=true" >> $GITHUB_OUTPUT
+          else
+            echo "skipci=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: "Check if running UTs"
+        run: |
+          if git log -1 --pretty=%B | grep -q '\[ut skip\]'; then
+            echo "skiput=true" >> $GITHUB_OUTPUT
+          else
+            echo "skiput=false" >> $GITHUB_OUTPUT
+          fi
 
 ###########################################
 ############### EditorConfig ##############
@@ -78,7 +97,8 @@ jobs:
   megalinter:
     name: Validate EditorConfig Compliance
     runs-on: ubuntu-24.04
-    if: ${{ !(contains(github.event.head_commit.message, '[ci skip]')) }}
+    needs: validate-structure
+    if: needs.validate-structure.outputs.skipci == 'false'
 
     concurrency:
       group: megalinter-${{ github.head_ref || github.run_id }}
@@ -131,8 +151,8 @@ jobs:
   lint-spacemandmm:
     name: Lint SpacemanDMM
     runs-on: ubuntu-24.04
-    if: ${{ !(contains(github.event.head_commit.message, '[ci skip]')) }}
     needs: validate-structure
+    if: needs.validate-structure.outputs.skipci == 'false'
 
     concurrency:
       group: lint-spacemandmm-${{ github.head_ref || github.run_id }}
@@ -178,8 +198,8 @@ jobs:
   lint-opendream:
     name: Lint OpenDream
     runs-on: ubuntu-24.04
-    if: ${{ !(contains(github.event.head_commit.message, '[ci skip]')) }}
     needs: validate-structure
+    if: needs.validate-structure.outputs.skipci == 'false'
 
     concurrency:
       group: lint-opendream-${{ github.head_ref || github.run_id }}
@@ -219,8 +239,8 @@ jobs:
   lint-tgui:
     name: Lint TGUI
     runs-on: ubuntu-24.04
-    if: ${{ !(contains(github.event.head_commit.message, '[ci skip]')) }}
     needs: validate-structure
+    if: needs.validate-structure.outputs.skipci == 'false'
 
     concurrency:
       group: lint-tgui-${{ github.head_ref || github.run_id }}
@@ -256,8 +276,8 @@ jobs:
   lint-misc:
     name: Lint Misc
     runs-on: ubuntu-24.04
-    if: ${{ !(contains(github.event.head_commit.message, '[ci skip]')) }}
     needs: validate-structure
+    if: needs.validate-structure.outputs.skipci == 'false'
 
     concurrency:
       group: lint-misc-${{ github.head_ref || github.run_id }}
@@ -310,7 +330,7 @@ jobs:
     name: Generic Tests
     runs-on: ubuntu-24.04
 
-    if: ${{ !(contains(github.event.head_commit.message, '[ci skip]')) && !(contains(github.event.head_commit.message, '[ut skip]'))}}
+    if: needs.validate-structure.outputs.skipci == 'false' && needs.validate-structure.outputs.skiput == 'false'
     needs: [validate-structure, lint-spacemandmm, lint-opendream, lint-tgui, lint-misc]
 
     services:
@@ -433,7 +453,7 @@ jobs:
     name: Create and Destroy Test
     runs-on: ubuntu-24.04
 
-    if: ${{ !(contains(github.event.head_commit.message, '[ci skip]')) && !(contains(github.event.head_commit.message, '[ut skip]'))}}
+    if: needs.validate-structure.outputs.skipci == 'false' && needs.validate-structure.outputs.skiput == 'false'
     needs: [validate-structure, lint-spacemandmm, lint-opendream, lint-tgui, lint-misc]
 
     services:
@@ -558,7 +578,7 @@ jobs:
     name: Run Map Tests
     runs-on: ubuntu-24.04
 
-    if: ${{ !(contains(github.event.head_commit.message, '[ci skip]')) && !(contains(github.event.head_commit.message, '[ut skip]'))}}
+    if: needs.validate-structure.outputs.skipci == 'false' && needs.validate-structure.outputs.skiput == 'false'
     needs: [validate-structure, lint-spacemandmm, lint-opendream, lint-tgui, lint-misc]
 
     services:
@@ -683,7 +703,7 @@ jobs:
     name: Run Exoplanet Tests
     runs-on: ubuntu-24.04
 
-    if: ${{ !(contains(github.event.head_commit.message, '[ci skip]')) && !(contains(github.event.head_commit.message, '[ut skip]'))}}
+    if: needs.validate-structure.outputs.skipci == 'false' && needs.validate-structure.outputs.skiput == 'false'
     needs: [validate-structure, lint-spacemandmm, lint-opendream, lint-tgui, lint-misc]
 
     services:
@@ -807,7 +827,7 @@ jobs:
     name: Run Map Tests
     runs-on: ubuntu-24.04
 
-    if: ${{ !(contains(github.event.head_commit.message, '[ci skip]')) && !(contains(github.event.head_commit.message, '[ut skip]'))}}
+    if: needs.validate-structure.outputs.skipci == 'false' && needs.validate-structure.outputs.skiput == 'false'
     needs: [validate-structure, lint-spacemandmm, lint-opendream, lint-tgui, lint-misc]
 
     services:
@@ -930,7 +950,7 @@ jobs:
     name: Run Ruins Tests
     runs-on: ubuntu-24.04
 
-    if: ${{ !(contains(github.event.head_commit.message, '[ci skip]')) && !(contains(github.event.head_commit.message, '[ut skip]'))}}
+    if: needs.validate-structure.outputs.skipci == 'false' && needs.validate-structure.outputs.skiput == 'false'
     needs: [validate-structure, lint-spacemandmm, lint-opendream, lint-tgui, lint-misc]
 
     services:
