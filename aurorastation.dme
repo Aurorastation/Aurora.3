@@ -2289,6 +2289,7 @@
 #include "code\modules\events\event.dm"
 #include "code\modules\events\event_container.dm"
 #include "code\modules\events\false_alarm.dm"
+#include "code\modules\events\grav_anomaly.dm"
 #include "code\modules\events\gravity.dm"
 #include "code\modules\events\grid_check.dm"
 #include "code\modules\events\infestation.dm"

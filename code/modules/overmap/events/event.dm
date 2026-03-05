@@ -301,6 +301,14 @@
 	difficulty = EVENT_LEVEL_MAJOR
 	movable_event_chance = 15
 
+/obj/effect/overmap/event/grav_anomaly
+	name = "gravitational anomaly"
+	events = list(/datum/event/grav_anomaly)
+	opacity = 0
+	difficulty = EVENT_LEVEL_MODERATE
+	event_icon_states = list("grav")
+	can_be_destroyed = FALSE
+
 // see comment at code/modules/events/gravity.dm
 // tl;dr gravity is handled globally, meaning if the horizon loses gravity, everyone does
 // /obj/effect/overmap/event/gravity
