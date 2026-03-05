@@ -1234,7 +1234,7 @@
 		"exotic particle type" = IC_PINTYPE_STRING,
 		"range detected at" = IC_PINTYPE_NUMBER
 	)
-	activators = list("scan" = IC_PINTYPE_PULSE_IN, "anomaly found" = IC_PINTYPE_PULSE_OUT, "no anomaly found" = IC_PINTYPE_PULSE_OUT)
+	activators = list("scan" = IC_PINTYPE_PULSE_IN, "anomaly found" = IC_PINTYPE_PULSE_OUT)
 	spawn_flags = IC_SPAWN_RESEARCH
 	origin_tech = list(TECH_ENGINEERING = 4, TECH_DATA = 4, TECH_MAGNET = 6, TECH_BLUESPACE = 4)
 	power_draw_per_use = 200
@@ -1247,9 +1247,12 @@
 	var/turf/our_turf = get_turf(src)
 	for(var/turf/simulated/mineral/scanned_turf in view(our_turf)) // Restrict range to only visible tiles, instead of the entire Z-level like standalone AS counters
 		if(scanned_turf.artifact_find)
-			set_pin_data(IC_OUTPUT, 1, scanned_turf.artifact_find.artifact_id)
+			if(scanned_turf.artifact_find.artifact_id)
+				set_pin_data(IC_OUTPUT, 1, scanned_turf.artifact_find.artifact_id)
+			else
+				set_pin_data(IC_OUTPUT, 1, "Exotic Particles (Various)")
 			set_pin_data(IC_OUTPUT, 2, get_dist(our_turf, scanned_turf))
 			push_data()
 			activate_pin(2)
-		else
-			activate_pin(3)
+			break
+	..()

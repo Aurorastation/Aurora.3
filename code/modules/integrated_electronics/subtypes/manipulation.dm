@@ -384,3 +384,83 @@
 		msg_admin_attack("An integrated circuit with a flasher was used to flash [scanned_mob.name] ([scanned_mob.ckey]) (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[x];Y=[y];Z=[z]'>JMP</a>)")
 		playsound(src.loc, 'sound/weapons/flash.ogg', 100, 1)
 		return
+
+/obj/item/integrated_circuit/manipulation/portal_opener // basically a mini telescience setup, but consumes bluespace crystals, is one-way, only along cardinals and ordinals, cannot cross z-levels, and more imprecise (higher chance of getting beamed into a wall/table).
+	name = "bluespace portal circuit"
+	desc = "A miniaturised circuit that uses bluespace crystals to open a one-way bluespace portal. Costlier to use than a standard telescience set up, but portable."
+	extended_desc = "The circuit can store 3 bluespace crystals; each crystal is 1 use. Power determines number of tiles jumped (max 50m). Lifespan determines how long the portal is there (3-15sec) Imprecise with a high variance (DANGER IN CLOSED SPACES)! Cooldown: 30secs."
+	icon_state = "shocker"
+	w_class = WEIGHT_CLASS_TINY
+	size = 10
+	complexity = 30 // needs a big assembly if you want to use this in any non-simplistic way
+	inputs = list("direction" = IC_PINTYPE_DIR, "power" = IC_PINTYPE_NUMBER, "lifespan" = IC_PINTYPE_NUMBER)
+	outputs = list("bluespace crystals stored" = IC_PINTYPE_NUMBER)
+	activators = list("pulse in" = IC_PINTYPE_PULSE_IN, "portal opened" = IC_PINTYPE_PULSE_OUT, "cannot open portal" = IC_PINTYPE_PULSE_OUT)
+	spawn_flags = IC_SPAWN_RESEARCH
+	power_draw_per_use = 100 // multiplied by up to 50 during on_data_written(). should slurp up power in smaller assemblies or those without power generation
+	cooldown_per_use = 300 // big cooldown
+	origin_tech = list(TECH_DATA = 4, TECH_ENGINEERING = 4, TECH_MATERIAL = 4, TECH_BLUESPACE = 5)
+
+	/// The number of stored bluespace crystals stored in the device. Each stored bluespace crystal is 1 use.
+	var/list/obj/item/bluespace_crystal/crystals = list()
+
+	/// Maximum number of crystals the circuit can store.
+	var/max_crystals = 3
+
+/obj/item/integrated_circuit/manipulation/portal_opener/attackby(obj/item/attacking_item, mob/user, params)
+	if(istype(attacking_item, /obj/item/bluespace_crystal))
+		if(length(crystals) >= max_crystals)
+			to_chat(user, SPAN_WARNING("There are not enough crystal slots."))
+			return
+
+		user.drop_item(src)
+		crystals += attacking_item
+		attacking_item.forceMove(null)
+		user.visible_message("[user] inserts [attacking_item] into \the [src]'s crystal slot.",
+								SPAN_NOTICE("You insert [attacking_item] into \the [src]'s crystal slot."))
+	else
+		..()
+
+/obj/item/integrated_circuit/manipulation/portal_opener/on_data_written()
+	power_draw_per_use = round(between(100, 100*(get_pin_data(IC_INPUT, 2)), 5000), 50) // potentially big power draw for a maximum jump range
+	..()
+
+/obj/item/integrated_circuit/manipulation/portal_opener/do_work()
+	if(!crystals.len >= 1) // no crystals, no portal
+		activate_pin(3)
+		return
+
+	var/turf/assembly_turf = get_turf(assembly)
+	if(assembly_turf)
+		// maffs
+		var/proj_power = round(between(1, get_pin_data(IC_INPUT, 2), 50), 1) // max range of 50 metres
+		var/proj_rotation = dir2angle(get_pin_data(IC_INPUT, 1)) // in degrees please
+		var/proj_angle = 60
+
+		var/datum/projectile_data/proj_data = projectile_trajectory(assembly_turf.x, assembly_turf.y, proj_rotation, proj_angle, proj_power)
+
+		var/destination_x = clamp(round(proj_data.dest_x, 1), 1, world.maxx) // dont want to exit map
+		var/destination_y = clamp(round(proj_data.dest_y, 1), 1, world.maxy)
+
+		var/turf/portal_destination = locate(destination_x, destination_y, assembly_turf.z)
+
+		// effects
+		playsound(assembly.loc, 'sound/weapons/flash.ogg', 25, 1)
+		spark(assembly, 5, GLOB.alldirs)
+
+		// portal creation
+		var/lifespan = between(30, SecondsToTicks(get_pin_data(IC_INPUT, 2)), 150)
+		var/obj/effect/portal/our_portal = new /obj/effect/portal(assembly_turf, null, null, lifespan, 0)
+		our_portal.set_target(portal_destination)
+		our_portal.precision = 2 // very imprecise, 5x5 turf variance. best used in very open spaces
+		our_portal.has_failed = FALSE
+
+		// consume a bluespace crystal
+		crystals -= /obj/item/bluespace_crystal //to-do. i dont think this will work, especially with subtypes
+
+		activate_pin(2)
+	else
+		activate_pin(3)
+
+	set_pin_data(IC_OUTPUT, 3, crystals.len) // set the bluespace crystals counter
+	..()
