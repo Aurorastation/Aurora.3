@@ -86,7 +86,7 @@
 
 /obj/item/cell/apc
 	name = "heavy-duty power cell"
-	desc = "A rechargable electrochemical power cell. This variant is rated for use in APCs and other high-draw electronics in industrial environments. Environments like, say, a space ship."
+	desc = "A rechargeable electrochemical power cell. This variant is rated for use in APCs and other high-draw electronics in industrial environments. Environments like, say, a space ship."
 	origin_tech = list(TECH_POWER = 1)
 	icon_state = "hcell"
 	maxcharge = 15000
