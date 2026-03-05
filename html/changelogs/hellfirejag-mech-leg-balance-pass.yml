@@ -1,6 +1,0 @@
-author: Hellfirejag
-delete-after: True
-changes:
-  - balance: "Balance pass for 'damaged movement delays' and movement types in general for mech legs to make them less punishing. Quad mechs now uniquely don't have a strafe delay. Combat mechs and heavier mechs are in general more resistant to losing movespeed from damage."
-  - rscadd: "Cult mechs now have a unique mechanic where their movement speed increases as they take damage. For the Dark Gods!"
-  - bugfix: "Fixed mechs not having correct glide sizes for smooth movement when strafing and reversing."

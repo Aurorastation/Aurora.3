@@ -45,3 +45,26 @@
   Mynameasjeff:
   - qol: The Ranger Gunboat has been given a bit of a update. Thank you to @Cormallenfield
       on discord for helping with the submap inserts.
+2026-03-05:
+  CatsinHD:
+  - bugfix: Fixes stickynotes adding papers to the noticeboard despite not being able
+      to be added to one.
+  Evandorf:
+  - rscadd: Standardizes the airlocks in all shuttles by adding manual shutters to
+      the Spark, Quark, and Canary. This also coincides with changes to SoP - Preflight
+      Safety Checks.
+  Hellfirejag:
+  - balance: Balance pass for 'damaged movement delays' and movement types in general
+      for mech legs to make them less punishing. Quad mechs now uniquely don't have
+      a strafe delay. Combat mechs and heavier mechs are in general more resistant
+      to losing movespeed from damage.
+  - rscadd: Cult mechs now have a unique mechanic where their movement speed increases
+      as they take damage. For the Dark Gods!
+  - bugfix: Fixed mechs not having correct glide sizes for smooth movement when strafing
+      and reversing.
+  JohnWildkins:
+  - rscadd: Added a debug command for devs/admins to list timer sources.
+  Timby:
+  - imageadd: Changes the camera sprites to not be so r4407. Resultantly changes the
+      ever-popular camera gun's sprite.
+  - imagedel: Old camera and camera gun sprites are gone.
