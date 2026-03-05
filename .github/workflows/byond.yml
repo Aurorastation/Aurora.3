@@ -74,6 +74,7 @@ jobs:
           awk -f tools/indentation.awk **/*.dm
 
       - name: "Check if running CI"
+        id: check_skipci
         run: |
           if git log -1 --pretty=%B | grep -qi '\[ci ignore\]'; then
             echo "skipci=true" >> $GITHUB_OUTPUT
@@ -82,6 +83,7 @@ jobs:
           fi
 
       - name: "Check if running UTs"
+        id: check_skiput
         run: |
           if git log -1 --pretty=%B | grep -qi '\[ut ignore\]'; then
             echo "skiput=true" >> $GITHUB_OUTPUT
@@ -327,8 +329,7 @@ jobs:
   generic-tests:
     name: Generic Tests
     runs-on: ubuntu-24.04
-
-    if: needs.validate-structure.outputs.skipci == 'false' && needs.validate-structure.outputs.skiput == 'false'
+    if: ${{ !cancelled() }}
     needs: [validate-structure, lint-spacemandmm, lint-opendream, lint-tgui, lint-misc]
 
     services:
@@ -354,43 +355,55 @@ jobs:
 
     steps:
 
+      - name: "Check if CI or UT ignored"
+        id: check
+        if: ${{ needs.validate-structure.outputs.skipci == 'true' || needs.validate-structure.outputs.skiput == 'true' }}
+        run: |
+          echo "skip=true" >> $GITHUB_OUTPUT
+
       #This allows us to SSH into the pod, and it's only enabled if we're running in debug mode
       - name: Setup TMATE session (Debug only)
         uses: mxschmitt/action-tmate@v3
-        if: ${{ env.RUNNER_DEBUG_SHELL == true }}
+        if: ${{ steps.check.outputs.skip != 'true' && env.RUNNER_DEBUG_SHELL == true }}
         with:
           detached: true
         timeout-minutes: 5
 
       #Checkout the repository
       - name: Checkout repository
+        if: steps.check.outputs.skip != 'true'
         uses: actions/checkout@v4
 
       #Initialize the environment variables
       - name: Set ENV variables
+        if: steps.check.outputs.skip != 'true'
         run: bash dependencies.sh
 
       #Restores BYOND cache
       - name: Restore BYOND cache
+        if: steps.check.outputs.skip != 'true'
         uses: actions/cache@v4
         with:
           path: ~/BYOND/*
           key: ${{ runner.os }}-byond-${{ env.BYOND_MAJOR }}-${{ env.BYOND_MINOR }}
 
       - name: Restore FlyWay cache
+        if: steps.check.outputs.skip != 'true'
         uses: actions/cache@v4
         with:
           path: ~/flyway
           key: ${{ runner.os }}-flyway-${{ env.FLYWAY_BUILD }}
 
       #Add the x86 architecture and update apt-get's local indexes
-      - name: Prepare OS Environtment
+      - name: Prepare OS Environment
+        if: steps.check.outputs.skip != 'true'
         run: |
           sudo dpkg --add-architecture i386
           sudo apt-get update
 
       #Installs the packages we need, from a cache
       - name: Install OS Packages
+        if: steps.check.outputs.skip != 'true'
         uses: awalsh128/cache-apt-pkgs-action@latest
         with:
           packages: gcc-multilib zlib1g-dev:i386 libssl-dev:i386 libgcc-s1:i386 libc6:i386
@@ -398,22 +411,26 @@ jobs:
 
       #And natively, the packages that break from a cache
       - name: Install OS Packages (Native)
+        if: steps.check.outputs.skip != 'true'
         run: |
           sudo apt-get install libgcc-s1:i386 libssl-dev:i386 libcurl4t64 libcurl4t64:i386
 
       #Install flyway
       - name: Install Flyway
+        if: steps.check.outputs.skip != 'true'
         run: |
           tools/ci/install_flyway.sh
 
       #Apply the database migration
       - name: Apply Database Migrations (FlyWay)
+        if: steps.check.outputs.skip != 'true'
         env:
           PORT: ${{ job.services.mariadb.ports[3306] }}
         run: |
           $HOME/flyway/flyway-$FLYWAY_BUILD/flyway migrate -user=root -password=root -url="jdbc:mariadb://localhost:$PORT/game" -validateMigrationNaming="true"
 
       - name: Install BYOND & rust_g
+        if: steps.check.outputs.skip != 'true'
         run: |
           source dependencies.sh
           bash tools/ci/install_byond.sh
@@ -421,6 +438,7 @@ jobs:
           bash tools/ci/install_rust_g.sh
 
       - name: Configure pod, build and run
+        if: steps.check.outputs.skip != 'true'
         env:
           PORT: ${{ job.services.mariadb.ports[3306] }}
           POD: ${{ matrix.pod }}
@@ -438,7 +456,7 @@ jobs:
 
       - name: Upload Condensed UT Log
         uses: actions/upload-artifact@v4
-        if: failure() || runner.debug
+        if: steps.check.outputs.skip != 'true' && (failure() || runner.debug)
         with:
           name: condensed-${{ matrix.map }}-${{ matrix.pod }}.log
           path: ./data/logs/**/condensed.log
@@ -450,8 +468,7 @@ jobs:
   create-and-destroy:
     name: Create and Destroy Test
     runs-on: ubuntu-24.04
-
-    if: needs.validate-structure.outputs.skipci == 'false' && needs.validate-structure.outputs.skiput == 'false'
+    if: ${{ !cancelled() }}
     needs: [validate-structure, lint-spacemandmm, lint-opendream, lint-tgui, lint-misc]
 
     services:
@@ -477,43 +494,55 @@ jobs:
 
     steps:
 
+      - name: "Check if CI or UT ignored"
+        id: check
+        if: ${{ needs.validate-structure.outputs.skipci == 'true' || needs.validate-structure.outputs.skiput == 'true' }}
+        run: |
+          echo "skip=true" >> $GITHUB_OUTPUT
+
       #This allows us to SSH into the pod, and it's only enabled if we're running in debug mode
       - name: Setup TMATE session (Debug only)
         uses: mxschmitt/action-tmate@v3
-        if: ${{ env.RUNNER_DEBUG_SHELL == true }}
+        if: ${{ steps.check.outputs.skip != 'true' && env.RUNNER_DEBUG_SHELL == true }}
         with:
           detached: true
         timeout-minutes: 5
 
       #Checkout the repository
       - name: Checkout repository
+        if: steps.check.outputs.skip != 'true'
         uses: actions/checkout@v4
 
       #Initialize the environment variables
       - name: Set ENV variables
+        if: steps.check.outputs.skip != 'true'
         run: bash dependencies.sh
 
       #Restores BYOND cache
       - name: Restore BYOND cache
+        if: steps.check.outputs.skip != 'true'
         uses: actions/cache@v4
         with:
           path: ~/BYOND/*
           key: ${{ runner.os }}-byond-${{ env.BYOND_MAJOR }}-${{ env.BYOND_MINOR }}
 
       - name: Restore FlyWay cache
+        if: steps.check.outputs.skip != 'true'
         uses: actions/cache@v4
         with:
           path: ~/flyway
           key: ${{ runner.os }}-flyway-${{ env.FLYWAY_BUILD }}
 
       #Add the x86 architecture and update apt-get's local indexes
-      - name: Prepare OS Environtment
+      - name: Prepare OS Environment
+        if: steps.check.outputs.skip != 'true'
         run: |
           sudo dpkg --add-architecture i386
           sudo apt-get update
 
       #Installs the packages we need, from a cache
       - name: Install OS Packages
+        if: steps.check.outputs.skip != 'true'
         uses: awalsh128/cache-apt-pkgs-action@latest
         with:
           packages: gcc-multilib zlib1g-dev:i386 libssl-dev:i386 libgcc-s1:i386 libc6:i386
@@ -521,22 +550,26 @@ jobs:
 
       #And natively, the packages that break from a cache
       - name: Install OS Packages (Native)
+        if: steps.check.outputs.skip != 'true'
         run: |
           sudo apt-get install libgcc-s1:i386 libssl-dev:i386 libcurl4t64 libcurl4t64:i386
 
       #Install flyway
       - name: Install Flyway
+        if: steps.check.outputs.skip != 'true'
         run: |
           tools/ci/install_flyway.sh
 
       #Apply the database migration
       - name: Apply Database Migrations (FlyWay)
+        if: steps.check.outputs.skip != 'true'
         env:
           PORT: ${{ job.services.mariadb.ports[3306] }}
         run: |
           $HOME/flyway/flyway-$FLYWAY_BUILD/flyway migrate -user=root -password=root -url="jdbc:mariadb://localhost:$PORT/game" -validateMigrationNaming="true"
 
       - name: Install BYOND & rust_g
+        if: steps.check.outputs.skip != 'true'
         run: |
           source dependencies.sh
           bash tools/ci/install_byond.sh
@@ -544,6 +577,7 @@ jobs:
           bash tools/ci/install_rust_g.sh
 
       - name: Configure pod, build and run
+        if: steps.check.outputs.skip != 'true'
         env:
           PORT: ${{ job.services.mariadb.ports[3306] }}
           POD: ${{ matrix.pod }}
@@ -561,7 +595,7 @@ jobs:
 
       - name: Upload Condensed UT Log
         uses: actions/upload-artifact@v4
-        if: failure() || runner.debug
+        if: steps.check.outputs.skip != 'true' && (failure() || runner.debug)
         with:
           name: condensed-${{ matrix.map }}-${{ matrix.pod }}.log
           path: ./data/logs/**/condensed.log
@@ -575,7 +609,7 @@ jobs:
   map-tests:
     name: Run Map Tests
     runs-on: ubuntu-24.04
-    if: ${{ needs.validate-structure.status != 'failure' }}
+    if: ${{ !cancelled() }}
     needs: [validate-structure, lint-spacemandmm, lint-opendream, lint-tgui, lint-misc]
 
     services:
@@ -716,6 +750,7 @@ jobs:
   exoplanet_testing:
     name: Run Exoplanet Tests
     runs-on: ubuntu-24.04
+    if: ${{ !cancelled() }}
     needs: [validate-structure, lint-spacemandmm, lint-opendream, lint-tgui, lint-misc]
 
     services:
@@ -742,48 +777,54 @@ jobs:
     steps:
 
       - name: "Check if CI or UT ignored"
+        id: check
         if: ${{ needs.validate-structure.outputs.skipci == 'true' || needs.validate-structure.outputs.skiput == 'true' }}
         run: |
-          echo "CI or UT skip detected, skipping tests"
-          exit 0
+          echo "skip=true" >> $GITHUB_OUTPUT
 
       #This allows us to SSH into the pod, and it's only enabled if we're running in debug mode
       - name: Setup TMATE session (Debug only)
         uses: mxschmitt/action-tmate@v3
-        if: ${{ env.RUNNER_DEBUG_SHELL == true }}
+        if: ${{ steps.check.outputs.skip != 'true' && env.RUNNER_DEBUG_SHELL == true }}
         with:
           detached: true
         timeout-minutes: 5
 
       #Checkout the repository
       - name: Checkout repository
+        if: steps.check.outputs.skip != 'true'
         uses: actions/checkout@v4
 
       #Initialize the environment variables
       - name: Set ENV variables
+        if: steps.check.outputs.skip != 'true'
         run: bash dependencies.sh
 
       #Restores BYOND cache
       - name: Restore BYOND cache
+        if: steps.check.outputs.skip != 'true'
         uses: actions/cache@v4
         with:
           path: ~/BYOND/*
           key: ${{ runner.os }}-byond-${{ env.BYOND_MAJOR }}-${{ env.BYOND_MINOR }}
 
       - name: Restore FlyWay cache
+        if: steps.check.outputs.skip != 'true'
         uses: actions/cache@v4
         with:
           path: ~/flyway
           key: ${{ runner.os }}-flyway-${{ env.FLYWAY_BUILD }}
 
       #Add the x86 architecture and update apt-get's local indexes
-      - name: Prepare OS Environtment
+      - name: Prepare OS Environment
+        if: steps.check.outputs.skip != 'true'
         run: |
           sudo dpkg --add-architecture i386
           sudo apt-get update
 
       #Installs the packages we need, from a cache
       - name: Install OS Packages
+        if: steps.check.outputs.skip != 'true'
         uses: awalsh128/cache-apt-pkgs-action@latest
         with:
           packages: gcc-multilib zlib1g-dev:i386 libssl-dev:i386 libgcc-s1:i386 libc6:i386
@@ -791,22 +832,26 @@ jobs:
 
       #And natively, the packages that break from a cache
       - name: Install OS Packages (Native)
+        if: steps.check.outputs.skip != 'true'
         run: |
           sudo apt-get install libgcc-s1:i386 libssl-dev:i386 libcurl4t64 libcurl4t64:i386
 
       #Install flyway
       - name: Install Flyway
+        if: steps.check.outputs.skip != 'true'
         run: |
           tools/ci/install_flyway.sh
 
       #Apply the database migration
       - name: Apply Database Migrations (FlyWay)
+        if: steps.check.outputs.skip != 'true'
         env:
           PORT: ${{ job.services.mariadb.ports[3306] }}
         run: |
           $HOME/flyway/flyway-$FLYWAY_BUILD/flyway migrate -user=root -password=root -url="jdbc:mariadb://localhost:$PORT/game" -validateMigrationNaming="true"
 
       - name: Install BYOND & rust_g
+        if: steps.check.outputs.skip != 'true'
         run: |
           source dependencies.sh
           bash tools/ci/install_byond.sh
@@ -814,6 +859,7 @@ jobs:
           bash tools/ci/install_rust_g.sh
 
       - name: Configure pod, build and run
+        if: steps.check.outputs.skip != 'true'
         env:
           PORT: ${{ job.services.mariadb.ports[3306] }}
           POD: ${{ matrix.pod }}
@@ -831,7 +877,7 @@ jobs:
 
       - name: Upload Condensed UT Log
         uses: actions/upload-artifact@v4
-        if: failure() || runner.debug
+        if: steps.check.outputs.skip != 'true' && (failure() || runner.debug)
         with:
           name: condensed-${{ matrix.map }}-${{ matrix.pod }}.log
           path: ./data/logs/**/condensed.log
@@ -844,6 +890,7 @@ jobs:
   away-sites-tests:
     name: Run Map Tests
     runs-on: ubuntu-24.04
+    if: ${{ !cancelled() }}
     needs: [validate-structure, lint-spacemandmm, lint-opendream, lint-tgui, lint-misc]
 
     services:
@@ -870,48 +917,54 @@ jobs:
     steps:
 
       - name: "Check if CI or UT ignored"
+        id: check
         if: ${{ needs.validate-structure.outputs.skipci == 'true' || needs.validate-structure.outputs.skiput == 'true' }}
         run: |
-          echo "CI or UT skip detected, skipping tests"
-          exit 0
+          echo "skip=true" >> $GITHUB_OUTPUT
 
       #This allows us to SSH into the pod, and it's only enabled if we're running in debug mode
       - name: Setup TMATE session (Debug only)
         uses: mxschmitt/action-tmate@v3
-        if: ${{ env.RUNNER_DEBUG_SHELL == true }}
+        if: ${{ steps.check.outputs.skip != 'true' && env.RUNNER_DEBUG_SHELL == true }}
         with:
           detached: true
         timeout-minutes: 5
 
       #Checkout the repository
       - name: Checkout repository
+        if: steps.check.outputs.skip != 'true'
         uses: actions/checkout@v4
 
       #Initialize the environment variables
       - name: Set ENV variables
+        if: steps.check.outputs.skip != 'true'
         run: bash dependencies.sh
 
       #Restores BYOND cache
       - name: Restore BYOND cache
+        if: steps.check.outputs.skip != 'true'
         uses: actions/cache@v4
         with:
           path: ~/BYOND/*
           key: ${{ runner.os }}-byond-${{ env.BYOND_MAJOR }}-${{ env.BYOND_MINOR }}
 
       - name: Restore FlyWay cache
+        if: steps.check.outputs.skip != 'true'
         uses: actions/cache@v4
         with:
           path: ~/flyway
           key: ${{ runner.os }}-flyway-${{ env.FLYWAY_BUILD }}
 
       #Add the x86 architecture and update apt-get's local indexes
-      - name: Prepare OS Environtment
+      - name: Prepare OS Environment
+        if: steps.check.outputs.skip != 'true'
         run: |
           sudo dpkg --add-architecture i386
           sudo apt-get update
 
       #Installs the packages we need, from a cache
       - name: Install OS Packages
+        if: steps.check.outputs.skip != 'true'
         uses: awalsh128/cache-apt-pkgs-action@latest
         with:
           packages: gcc-multilib zlib1g-dev:i386 libssl-dev:i386 libgcc-s1:i386 libc6:i386
@@ -919,22 +972,26 @@ jobs:
 
       #And natively, the packages that break from a cache
       - name: Install OS Packages (Native)
+        if: steps.check.outputs.skip != 'true'
         run: |
           sudo apt-get install libgcc-s1:i386 libssl-dev:i386 libcurl4t64 libcurl4t64:i386
 
       #Install flyway
       - name: Install Flyway
+        if: steps.check.outputs.skip != 'true'
         run: |
           tools/ci/install_flyway.sh
 
       #Apply the database migration
       - name: Apply Database Migrations (FlyWay)
+        if: steps.check.outputs.skip != 'true'
         env:
           PORT: ${{ job.services.mariadb.ports[3306] }}
         run: |
           $HOME/flyway/flyway-$FLYWAY_BUILD/flyway migrate -user=root -password=root -url="jdbc:mariadb://localhost:$PORT/game" -validateMigrationNaming="true"
 
       - name: Install BYOND & rust_g
+        if: steps.check.outputs.skip != 'true'
         run: |
           source dependencies.sh
           bash tools/ci/install_byond.sh
@@ -942,6 +999,7 @@ jobs:
           bash tools/ci/install_rust_g.sh
 
       - name: Configure pod, build and run
+        if: steps.check.outputs.skip != 'true'
         env:
           PORT: ${{ job.services.mariadb.ports[3306] }}
           POD: ${{ matrix.pod }}
@@ -959,7 +1017,7 @@ jobs:
 
       - name: Upload Condensed UT Log
         uses: actions/upload-artifact@v4
-        if: failure() || runner.debug
+        if: steps.check.outputs.skip != 'true' && (failure() || runner.debug)
         with:
           name: condensed-${{ matrix.map }}-${{ matrix.pod }}.log
           path: ./data/logs/**/condensed.log
@@ -971,6 +1029,7 @@ jobs:
   ruins-tests:
     name: Run Ruins Tests
     runs-on: ubuntu-24.04
+    if: ${{ !cancelled() }}
     needs: [validate-structure, lint-spacemandmm, lint-opendream, lint-tgui, lint-misc]
 
     services:
@@ -997,48 +1056,54 @@ jobs:
     steps:
 
       - name: "Check if CI or UT ignored"
+        id: check
         if: ${{ needs.validate-structure.outputs.skipci == 'true' || needs.validate-structure.outputs.skiput == 'true' }}
         run: |
-          echo "CI or UT skip detected, skipping tests"
-          exit 0
+          echo "skip=true" >> $GITHUB_OUTPUT
 
       #This allows us to SSH into the pod, and it's only enabled if we're running in debug mode
       - name: Setup TMATE session (Debug only)
         uses: mxschmitt/action-tmate@v3
-        if: ${{ env.RUNNER_DEBUG_SHELL == true }}
+        if: ${{ steps.check.outputs.skip != 'true' && env.RUNNER_DEBUG_SHELL == true }}
         with:
           detached: true
         timeout-minutes: 5
 
       #Checkout the repository
       - name: Checkout repository
+        if: steps.check.outputs.skip != 'true'
         uses: actions/checkout@v4
 
       #Initialize the environment variables
       - name: Set ENV variables
+        if: steps.check.outputs.skip != 'true'
         run: bash dependencies.sh
 
       #Restores BYOND cache
       - name: Restore BYOND cache
+        if: steps.check.outputs.skip != 'true'
         uses: actions/cache@v4
         with:
           path: ~/BYOND/*
           key: ${{ runner.os }}-byond-${{ env.BYOND_MAJOR }}-${{ env.BYOND_MINOR }}
 
       - name: Restore FlyWay cache
+        if: steps.check.outputs.skip != 'true'
         uses: actions/cache@v4
         with:
           path: ~/flyway
           key: ${{ runner.os }}-flyway-${{ env.FLYWAY_BUILD }}
 
       #Add the x86 architecture and update apt-get's local indexes
-      - name: Prepare OS Environtment
+      - name: Prepare OS Environment
+        if: steps.check.outputs.skip != 'true'
         run: |
           sudo dpkg --add-architecture i386
           sudo apt-get update
 
       #Installs the packages we need, from a cache
       - name: Install OS Packages
+        if: steps.check.outputs.skip != 'true'
         uses: awalsh128/cache-apt-pkgs-action@latest
         with:
           packages: gcc-multilib zlib1g-dev:i386 libssl-dev:i386 libgcc-s1:i386 libc6:i386
@@ -1046,22 +1111,26 @@ jobs:
 
       #And natively, the packages that break from a cache
       - name: Install OS Packages (Native)
+        if: steps.check.outputs.skip != 'true'
         run: |
           sudo apt-get install libgcc-s1:i386 libssl-dev:i386 libcurl4t64 libcurl4t64:i386
 
       #Install flyway
       - name: Install Flyway
+        if: steps.check.outputs.skip != 'true'
         run: |
           tools/ci/install_flyway.sh
 
       #Apply the database migration
       - name: Apply Database Migrations (FlyWay)
+        if: steps.check.outputs.skip != 'true'
         env:
           PORT: ${{ job.services.mariadb.ports[3306] }}
         run: |
           $HOME/flyway/flyway-$FLYWAY_BUILD/flyway migrate -user=root -password=root -url="jdbc:mariadb://localhost:$PORT/game" -validateMigrationNaming="true"
 
       - name: Install BYOND & rust_g
+        if: steps.check.outputs.skip != 'true'
         run: |
           source dependencies.sh
           bash tools/ci/install_byond.sh
@@ -1069,6 +1138,7 @@ jobs:
           bash tools/ci/install_rust_g.sh
 
       - name: Configure pod, build and run
+        if: steps.check.outputs.skip != 'true'
         env:
           PORT: ${{ job.services.mariadb.ports[3306] }}
           POD: ${{ matrix.pod }}
@@ -1086,7 +1156,7 @@ jobs:
 
       - name: Upload Condensed UT Log
         uses: actions/upload-artifact@v4
-        if: failure() || runner.debug
+        if: steps.check.outputs.skip != 'true' && (failure() || runner.debug)
         with:
           name: condensed-${{ matrix.map }}-${{ matrix.pod }}.log
           path: ./data/logs/**/condensed.log
