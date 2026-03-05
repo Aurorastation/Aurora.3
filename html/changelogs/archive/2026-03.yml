@@ -64,6 +64,10 @@
       and reversing.
   JohnWildkins:
   - rscadd: Added a debug command for devs/admins to list timer sources.
+  - bugfix: Fixed an issue where Extended wouldn't be selected if no votes for gamemode
+      were cast.
+  - code_imp: PRs can now correctly ignore CI runs or just unit tests with [CI Ignore]
+      and [UT Ignore] respectively.
   Timby:
   - imageadd: Changes the camera sprites to not be so r4407. Resultantly changes the
       ever-popular camera gun's sprite.
