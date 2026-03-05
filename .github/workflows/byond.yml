@@ -575,8 +575,6 @@ jobs:
   map-tests:
     name: Run Map Tests
     runs-on: ubuntu-24.04
-
-    if: needs.validate-structure.outputs.skipci == 'false' && needs.validate-structure.outputs.skiput == 'false'
     needs: [validate-structure, lint-spacemandmm, lint-opendream, lint-tgui, lint-misc]
 
     services:
@@ -601,6 +599,12 @@ jobs:
       fail-fast: false
 
     steps:
+
+      - name: "Check if CI or UT ignored"
+        if: ${{ needs.validate-structure.outputs.skipci == 'true' || needs.validate-structure.outputs.skiput == 'true' }}
+        run: |
+          echo "CI or UT skip detected, skipping tests"
+          exit 0
 
       #This allows us to SSH into the pod, and it's only enabled if we're running in debug mode
       - name: Setup TMATE session (Debug only)
@@ -700,8 +704,6 @@ jobs:
   exoplanet_testing:
     name: Run Exoplanet Tests
     runs-on: ubuntu-24.04
-
-    if: needs.validate-structure.outputs.skipci == 'false' && needs.validate-structure.outputs.skiput == 'false'
     needs: [validate-structure, lint-spacemandmm, lint-opendream, lint-tgui, lint-misc]
 
     services:
@@ -726,6 +728,12 @@ jobs:
       fail-fast: false
 
     steps:
+
+      - name: "Check if CI or UT ignored"
+        if: ${{ needs.validate-structure.outputs.skipci == 'true' || needs.validate-structure.outputs.skiput == 'true' }}
+        run: |
+          echo "CI or UT skip detected, skipping tests"
+          exit 0
 
       #This allows us to SSH into the pod, and it's only enabled if we're running in debug mode
       - name: Setup TMATE session (Debug only)
@@ -824,8 +832,6 @@ jobs:
   away-sites-tests:
     name: Run Map Tests
     runs-on: ubuntu-24.04
-
-    if: needs.validate-structure.outputs.skipci == 'false' && needs.validate-structure.outputs.skiput == 'false'
     needs: [validate-structure, lint-spacemandmm, lint-opendream, lint-tgui, lint-misc]
 
     services:
@@ -850,6 +856,12 @@ jobs:
       fail-fast: false
 
     steps:
+
+      - name: "Check if CI or UT ignored"
+        if: ${{ needs.validate-structure.outputs.skipci == 'true' || needs.validate-structure.outputs.skiput == 'true' }}
+        run: |
+          echo "CI or UT skip detected, skipping tests"
+          exit 0
 
       #This allows us to SSH into the pod, and it's only enabled if we're running in debug mode
       - name: Setup TMATE session (Debug only)
@@ -947,8 +959,6 @@ jobs:
   ruins-tests:
     name: Run Ruins Tests
     runs-on: ubuntu-24.04
-
-    if: needs.validate-structure.outputs.skipci == 'false' && needs.validate-structure.outputs.skiput == 'false'
     needs: [validate-structure, lint-spacemandmm, lint-opendream, lint-tgui, lint-misc]
 
     services:
@@ -973,6 +983,12 @@ jobs:
       fail-fast: false
 
     steps:
+
+      - name: "Check if CI or UT ignored"
+        if: ${{ needs.validate-structure.outputs.skipci == 'true' || needs.validate-structure.outputs.skiput == 'true' }}
+        run: |
+          echo "CI or UT skip detected, skipping tests"
+          exit 0
 
       #This allows us to SSH into the pod, and it's only enabled if we're running in debug mode
       - name: Setup TMATE session (Debug only)
