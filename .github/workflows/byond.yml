@@ -575,7 +575,7 @@ jobs:
   map-tests:
     name: Run Map Tests
     runs-on: ubuntu-24.04
-    if: ${{ !cancelled() }}
+    if: ${{ needs.validate-structure.status != 'failure' }}
     needs: [validate-structure, lint-spacemandmm, lint-opendream, lint-tgui, lint-misc]
 
     services:
