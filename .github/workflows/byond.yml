@@ -34,8 +34,6 @@ env:
   CI_TRIGGER_REASON: ${{ github.event_name }}
   #The maximum number of retries the unit tests (excluding linters) can make, if appropriate for them to
   CI_MAX_RETRIES: 3
-  #Should CI be skipped for this run?
-  CI_SKIP_WORKFLOW: ${{ contains(github.event.head_commit.message, '[ci skip]') }}
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
@@ -77,7 +75,7 @@ jobs:
 
       - name: "Check if running CI"
         run: |
-          if git log -1 --pretty=%B | grep -q '\[ci skip\]'; then
+          if git log -1 --pretty=%B | grep -qi '\[ci ignore\]'; then
             echo "skipci=true" >> $GITHUB_OUTPUT
           else
             echo "skipci=false" >> $GITHUB_OUTPUT
@@ -85,7 +83,7 @@ jobs:
 
       - name: "Check if running UTs"
         run: |
-          if git log -1 --pretty=%B | grep -q '\[ut skip\]'; then
+          if git log -1 --pretty=%B | grep -qi '\[ut ignore\]'; then
             echo "skiput=true" >> $GITHUB_OUTPUT
           else
             echo "skiput=false" >> $GITHUB_OUTPUT
