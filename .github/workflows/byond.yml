@@ -77,7 +77,10 @@ jobs:
         id: check_skipci
         run: |
           if [ "${GITHUB_EVENT_NAME}" = "pull_request" ]; then
-            target_sha="${{ github.event.pull_request.head.sha }}"
+            pr_num="${{ github.event.number }}"
+            echo "fetching pull/$pr_num/head"
+            git fetch origin "pull/$pr_num/head" || true
+            target_sha=FETCH_HEAD
           else
             target_sha=HEAD
           fi
@@ -98,7 +101,10 @@ jobs:
         id: check_skiput
         run: |
           if [ "${GITHUB_EVENT_NAME}" = "pull_request" ]; then
-            target_sha="${{ github.event.pull_request.head.sha }}"
+            pr_num="${{ github.event.number }}"
+            echo "fetching pull/$pr_num/head"
+            git fetch origin "pull/$pr_num/head" || true
+            target_sha=FETCH_HEAD
           else
             target_sha=HEAD
           fi
@@ -353,7 +359,7 @@ jobs:
   generic-tests:
     name: Generic Tests
     runs-on: ubuntu-24.04
-    if: ${{ !cancelled() }}
+    if: ${{ !failure() }}
     needs: [validate-structure, lint-spacemandmm, lint-opendream, lint-tgui, lint-misc]
 
     services:
@@ -492,7 +498,7 @@ jobs:
   create-and-destroy:
     name: Create and Destroy Test
     runs-on: ubuntu-24.04
-    if: ${{ !cancelled() }}
+    if: ${{ !failure() }}
     needs: [validate-structure, lint-spacemandmm, lint-opendream, lint-tgui, lint-misc]
 
     services:
@@ -633,7 +639,7 @@ jobs:
   map-tests:
     name: Run Map Tests
     runs-on: ubuntu-24.04
-    if: ${{ !cancelled() }}
+    if: ${{ !failure() }}
     needs: [validate-structure, lint-spacemandmm, lint-opendream, lint-tgui, lint-misc]
 
     services:
@@ -774,7 +780,7 @@ jobs:
   exoplanet_testing:
     name: Run Exoplanet Tests
     runs-on: ubuntu-24.04
-    if: ${{ !cancelled() }}
+    if: ${{ !failure() }}
     needs: [validate-structure, lint-spacemandmm, lint-opendream, lint-tgui, lint-misc]
 
     services:
@@ -914,7 +920,7 @@ jobs:
   away-sites-tests:
     name: Run Map Tests
     runs-on: ubuntu-24.04
-    if: ${{ !cancelled() }}
+    if: ${{ !failure() }}
     needs: [validate-structure, lint-spacemandmm, lint-opendream, lint-tgui, lint-misc]
 
     services:
@@ -1053,7 +1059,7 @@ jobs:
   ruins-tests:
     name: Run Ruins Tests
     runs-on: ubuntu-24.04
-    if: ${{ !cancelled() }}
+    if: ${{ !failure() }}
     needs: [validate-structure, lint-spacemandmm, lint-opendream, lint-tgui, lint-misc]
 
     services:
