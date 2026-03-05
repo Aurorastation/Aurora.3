@@ -263,19 +263,19 @@
 		if(leader)
 			if(holding_still)
 				holding_still = max(holding_still - 1, 0)
-			else if(canmove && !LAZYLEN(grabbed_by) && !length(grabbed_by) && isturf(loc))
+			else if(canmove && !LAZYLEN(grabbed_by) && isturf(loc))
 				step_to(src, leader)
 
 		else if(hungry)
 			if(holding_still)
 				holding_still = max(holding_still - 1 - hungry, 0)
-			else if(canmove && !LAZYLEN(grabbed_by) && !length(grabbed_by) && isturf(loc) && prob(50))
+			else if(canmove && !LAZYLEN(grabbed_by) && isturf(loc) && prob(50))
 				step(src, pick(GLOB.cardinals))
 
 		else
 			if(holding_still)
 				holding_still = max(holding_still - 1, 0)
-			else if(canmove && !LAZYLEN(grabbed_by) && !length(grabbed_by) && isturf(loc) && prob(33))
+			else if(canmove && !LAZYLEN(grabbed_by) && isturf(loc) && prob(33))
 				step(src, pick(GLOB.cardinals))
 
 /mob/living/carbon/slime/proc/handle_AI() // the master AI process

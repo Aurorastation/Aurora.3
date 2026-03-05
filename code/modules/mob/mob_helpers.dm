@@ -1374,3 +1374,39 @@ GLOBAL_LIST_INIT(organ_rel_size, list(
 /// Gets a mob's strength.
 /mob/proc/get_mob_strength()
 	return mob_weight + mob_strength
+
+/**
+ * If you ever want to change how a mob offsets by default, you MUST add the offset
+ * changes to this proc and call it from your new feature code. This prevents conflicting
+ * animations and offsets from getting weird and ovewriting each other.
+ */
+/mob/reset_offsets(var/anim_time = 2)
+	var/last_pixel_x = pixel_x
+	var/last_pixel_y = pixel_y
+	var/last_pixel_z = pixel_z
+
+	var/new_pixel_x =  default_pixel_x
+	var/new_pixel_y =  default_pixel_y
+	var/new_pixel_z =  default_pixel_z
+
+	if(isturf(loc))
+		// Update offsets from grabs.
+		for(var/obj/item/grab/grab as anything in grabbed_by)
+			var/grab_dir = get_dir(grab.grabber, src)
+			if(grab_dir && grab.current_grab.shift > 0)
+				if(grab_dir & WEST)
+					new_pixel_x = min(new_pixel_x+grab.current_grab.shift, default_pixel_x+grab.current_grab.shift)
+				else if(grab_dir & EAST)
+					new_pixel_x = max(new_pixel_x-grab.current_grab.shift, default_pixel_x-grab.current_grab.shift)
+				if(grab_dir & NORTH)
+					new_pixel_y = max(new_pixel_y-grab.current_grab.shift, default_pixel_y-grab.current_grab.shift)
+				else if(grab_dir & SOUTH)
+					new_pixel_y = min(new_pixel_y+grab.current_grab.shift, default_pixel_y+grab.current_grab.shift)
+
+	if(last_pixel_x != new_pixel_x || last_pixel_y != new_pixel_y || last_pixel_z != new_pixel_z)
+		if(anim_time > 0)
+			animate(src, pixel_x = new_pixel_x, pixel_y = new_pixel_y, pixel_z = new_pixel_z, anim_time, 1, (LINEAR_EASING|EASE_IN))
+		else
+			pixel_x = new_pixel_x
+			pixel_y = new_pixel_y
+			pixel_z = new_pixel_z

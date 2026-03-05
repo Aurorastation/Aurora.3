@@ -32,8 +32,9 @@
 	for(var/obj/item/grab/grab as anything in grabs)
 		if(grab.grabbed)
 			L |= grab.grabbed
-			var/mob/living/grabbed_mob = astype(grab.get_grabbed_mob())
-			grabbed_mob?.get_grab_targets(L)
+			if(grab.grabbed != src)
+				var/mob/living/grabbed_mob = astype(grab.get_grabbed_mob())
+				grabbed_mob?.get_grab_targets(L)
 	return L
 
 /mob/proc/handle_grab_damage()

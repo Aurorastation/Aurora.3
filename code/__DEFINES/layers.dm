@@ -261,7 +261,7 @@
 	layer = initial(layer)
 
 /atom/proc/reset_offsets(anim_time = 2)
-	pixel_w = initial(pixel_w)
-	pixel_x = initial(pixel_x)
-	pixel_y = initial(pixel_y)
-	pixel_z = initial(pixel_z)
+	pixel_w = default_pixel_w
+	pixel_x = default_pixel_x
+	pixel_y = default_pixel_y
+	pixel_z = default_pixel_z

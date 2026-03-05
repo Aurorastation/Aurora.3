@@ -28,7 +28,7 @@
 
 /// Attempts to make a grab with USER as the grabber and SRC as the grabbed AM
 /atom/movable/proc/try_make_grab(mob/living/user, defer_hand = FALSE)
-	if(istype(user) && use_check_and_message(user, USE_ALLOW_NON_ADV_TOOL_USR) && !user.lying)
+	if(istype(user) && !use_check_and_message(user, USE_ALLOW_NON_ADV_TOOL_USR) && !user.lying)
 		if(user == buckled)
 			return give_control_grab(buckled)
 		return user.make_grab(src, defer_hand = defer_hand)
