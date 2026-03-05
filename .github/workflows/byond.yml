@@ -76,7 +76,7 @@ jobs:
       - name: "Check if running CI"
         id: check_skipci
         run: |
-          git log -1 --pretty=%B
+          git log --pretty=%B
           if git log -1 --pretty=%B | grep -qi '\[ci ignore\]'; then
             echo "skipci=true" >> $GITHUB_OUTPUT
             echo "Skipping CI."
