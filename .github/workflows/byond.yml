@@ -76,8 +76,17 @@ jobs:
       - name: "Check if running CI"
         id: check_skipci
         run: |
-          git log --pretty=%B
-          if git log -1 --pretty=%B | grep -qi '\[ci ignore\]'; then
+          if [ "${GITHUB_EVENT_NAME}" = "pull_request" ]; then
+            target_sha="${{ github.event.pull_request.head.sha }}"
+          else
+            target_sha=HEAD
+          fi
+          echo "target commit: $target_sha"
+
+          COMMIT_MSG=$(git log -1 --pretty=%B "$target_sha")
+          echo "commit message: $COMMIT_MSG"
+
+          if echo "$COMMIT_MSG" | grep -qi '\[ci ignore\]'; then
             echo "skipci=true" >> $GITHUB_OUTPUT
             echo "Skipping CI."
           else
@@ -88,12 +97,22 @@ jobs:
       - name: "Check if running UTs"
         id: check_skiput
         run: |
-          if git log -1 --pretty=%B | grep -qi '\[ut ignore\]'; then
-            echo "skiput=true" >> $GITHUB_OUTPUT
-            echo "Skipping unit tests."
+          if [ "${GITHUB_EVENT_NAME}" = "pull_request" ]; then
+            target_sha="${{ github.event.pull_request.head.sha }}"
           else
-            echo "skiput=false" >> $GITHUB_OUTPUT
-            echo "Continuing with unit tests."
+            target_sha=HEAD
+          fi
+          echo "target commit: $target_sha"
+
+          COMMIT_MSG=$(git log -1 --pretty=%B "$target_sha")
+          echo "commit message: $COMMIT_MSG"
+
+          if echo "$COMMIT_MSG" | grep -qi '\[ut ignore\]'; then
+            echo "skipci=true" >> $GITHUB_OUTPUT
+            echo "Skipping CI."
+          else
+            echo "skipci=false" >> $GITHUB_OUTPUT
+            echo "Continuing with CI."
           fi
 
 ###########################################
