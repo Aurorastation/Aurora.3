@@ -98,7 +98,7 @@ jobs:
     name: Validate EditorConfig Compliance
     runs-on: ubuntu-24.04
     needs: validate-structure
-    if: needs.validate-structure.outputs.skipci == 'false'
+    if: needs.validate-structure.outputs.skipci != 'true'
 
     concurrency:
       group: megalinter-${{ github.head_ref || github.run_id }}
@@ -152,7 +152,7 @@ jobs:
     name: Lint SpacemanDMM
     runs-on: ubuntu-24.04
     needs: validate-structure
-    if: needs.validate-structure.outputs.skipci == 'false'
+    if: needs.validate-structure.outputs.skipci != 'true'
 
     concurrency:
       group: lint-spacemandmm-${{ github.head_ref || github.run_id }}
@@ -199,7 +199,7 @@ jobs:
     name: Lint OpenDream
     runs-on: ubuntu-24.04
     needs: validate-structure
-    if: needs.validate-structure.outputs.skipci == 'false'
+    if: needs.validate-structure.outputs.skipci != 'true'
 
     concurrency:
       group: lint-opendream-${{ github.head_ref || github.run_id }}
@@ -240,7 +240,7 @@ jobs:
     name: Lint TGUI
     runs-on: ubuntu-24.04
     needs: validate-structure
-    if: needs.validate-structure.outputs.skipci == 'false'
+    if: needs.validate-structure.outputs.skipci != 'true'
 
     concurrency:
       group: lint-tgui-${{ github.head_ref || github.run_id }}
@@ -277,7 +277,7 @@ jobs:
     name: Lint Misc
     runs-on: ubuntu-24.04
     needs: validate-structure
-    if: needs.validate-structure.outputs.skipci == 'false'
+    if: needs.validate-structure.outputs.skipci != 'true'
 
     concurrency:
       group: lint-misc-${{ github.head_ref || github.run_id }}
@@ -918,8 +918,9 @@ jobs:
 
       - name: "Check if CI or UT ignored"
         id: check
-        if: ${{ needs.validate-structure.outputs.skipci == 'true' || needs.validate-structure.outputs.skiput == 'true' }}
         run: |
+          echo "skipci was: '${{ needs.validate-structure.outputs.skipci }}'"
+          echo -n "${{ needs.validate-structure.outputs.skipci }}" | od -An -tx1
           echo "skip=true" >> $GITHUB_OUTPUT
 
       #This allows us to SSH into the pod, and it's only enabled if we're running in debug mode
