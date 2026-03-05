@@ -456,7 +456,7 @@
 		our_portal.has_failed = FALSE
 
 		// consume a bluespace crystal
-		crystals -= /obj/item/bluespace_crystal //to-do. i dont think this will work, especially with subtypes
+		crystals.Cut(1,2)
 
 		activate_pin(2)
 	else
