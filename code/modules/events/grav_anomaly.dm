@@ -71,9 +71,9 @@
 		return
 
 	for(var/obj/machinery/gravity_generator/main/grav_gen in SSmachinery.gravity_generators)
-		if(!(grav_gen.z in affecting_z))
+		if(!(grav_gen?.z in affecting_z))
 			return
-		else if(!grav_gen.on)
+		else if(!grav_gen?.on)
 			return
 
 	for(var/mob/living/carbon/human/potential_victim in valid_victims)
