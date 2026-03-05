@@ -9,3 +9,4 @@ changes:
   - rscadd: "Adds a flasher circuit. Same complexity/powerusage/etc as the shocker. Non-stunning/non-weakening. Upgraded printer only."
   - rscadd: "Adds an Alden-Saraspova anomaly counter circuit. Only scans minerals in-view. Upgraded printer only."
   - rscadd: "Adds a bluespace portal circuit. Consumes bluespace crystals. Inferior to just using the telescience lab, but portable/miniaturised. Upgraded printer only."
+  - bugfix: "Fixes the atmospheric sensor circuits all being named 'oxygen sensor'."
