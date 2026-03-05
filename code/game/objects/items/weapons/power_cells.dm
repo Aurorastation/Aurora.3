@@ -59,7 +59,7 @@
 
 /obj/item/cell/crap/Initialize()
 	. = ..()
-	// Lol. Lmao, even.
+	// 5% chance to make the cell rigged.
 	if(prob(5))
 		rigged = TRUE
 
