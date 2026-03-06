@@ -388,7 +388,7 @@
 /obj/item/integrated_circuit/manipulation/portal_opener // basically a mini telescience setup, but consumes bluespace crystals, is one-way, only along cardinals and ordinals, cannot cross z-levels, and more imprecise (higher chance of getting beamed into a wall/table).
 	name = "bluespace portal circuit"
 	desc = "A miniaturised circuit that uses bluespace crystals to open a one-way bluespace portal. Costlier to use than a standard telescience set up, but portable."
-	extended_desc = "The circuit can store 3 bluespace crystals; each crystal is 1 use. Power determines number of tiles jumped (max 50m). Lifespan determines how long the portal is there (3-15sec) Imprecise with a high variance (DANGER IN CLOSED SPACES)! Cooldown: 30secs."
+	extended_desc = "The circuit can store 3 bluespace crystals; each crystal is 1 use. Power determines number of tiles jumped (max 50m). Lifespan determines how long the portal is there (3-15 sec). Imprecise with a high variance <b>(DANGER IN CLOSED SPACES!)</b>. It has a cooldown of 30 seconds."
 	icon_state = "shocker"
 	w_class = WEIGHT_CLASS_TINY
 	size = 10
