@@ -101,7 +101,7 @@
 		activate_pin(1)
 
 /obj/item/integrated_circuit/time/ticker/fast
-	name = "two-sec ticker"
+	name = "two second ticker"
 	desc = "This advanced circuit sends an automatic pulse every two seconds."
 	icon_state = "tick-f"
 	complexity = 12
