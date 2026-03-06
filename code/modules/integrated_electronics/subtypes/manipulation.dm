@@ -398,7 +398,7 @@
 	activators = list("pulse in" = IC_PINTYPE_PULSE_IN, "portal opened" = IC_PINTYPE_PULSE_OUT, "cannot open portal" = IC_PINTYPE_PULSE_OUT)
 	spawn_flags = IC_SPAWN_RESEARCH
 	power_draw_per_use = 100 // multiplied by up to 50 during on_data_written(). should slurp up power in smaller assemblies or those without power generation
-	cooldown_per_use = 300 // big cooldown
+	cooldown_per_use = 30 SECONDS // big cooldown
 	origin_tech = list(TECH_DATA = 4, TECH_ENGINEERING = 4, TECH_MATERIAL = 4, TECH_BLUESPACE = 5)
 
 	/// The number of stored bluespace crystals stored in the device. Each stored bluespace crystal is 1 use.
