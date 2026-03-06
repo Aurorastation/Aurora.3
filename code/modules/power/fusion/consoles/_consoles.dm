@@ -43,6 +43,10 @@
 	. = data
 
 /obj/machinery/computer/fusion/ui_interact(mob/user, datum/tgui/ui)
+	if (Get_Skill_Level(user, REACTOR_SYSTEMS_SKILL_COMPONENT) < SKILL_LEVEL_TRAINED)
+		to_chat(user, SPAN_WARNING("You have no idea how to use this computer."))
+		return
+
 	ui = SStgui.try_update_ui(user, src, ui)
 	if (!ui)
 		ui = new(user, src, ui_template, name)
