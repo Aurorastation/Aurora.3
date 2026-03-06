@@ -16,6 +16,7 @@
 	category =  /singleton/skill_category/occupational
 	subcategory = SKILL_SUBCATEGORY_MEDICAL
 	component_type = SURGERY_SKILL_COMPONENT
+	required = TRUE
 
 /singleton/skill/pharmacology
 	name = "Pharmacology"

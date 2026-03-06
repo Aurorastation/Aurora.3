@@ -6,6 +6,7 @@
 	category =  /singleton/skill_category/occupational
 	subcategory = SKILL_SUBCATEGORY_OPERATIONS
 	component_type = ROBOTICS_SKILL_COMPONENT
+	required = TRUE
 
 /singleton/skill/pilot_spacecraft
 	name = "Pilot: Spacecraft"

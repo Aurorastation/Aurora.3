@@ -19,6 +19,7 @@
 
 	min_duration = 10
 	max_duration = 35
+	skill_requirements = alist(XENOBIOLOGY_SKILL_COMPONENT = SKILL_LEVEL_TRAINED)
 
 /singleton/surgery_step/slime/cut_flesh/can_use(mob/living/user, mob/living/carbon/slime/target, target_zone, obj/item/tool)
 	return ..() && istype(target) && target.core_removal_stage == ORGAN_CLOSED
@@ -47,6 +48,7 @@
 
 	min_duration = 20
 	max_duration = 45
+	skill_requirements = alist(XENOBIOLOGY_SKILL_COMPONENT = SKILL_LEVEL_TRAINED)
 
 /singleton/surgery_step/slime/cut_innards/can_use(mob/living/user, mob/living/carbon/slime/target, target_zone, obj/item/tool)
 	return ..() && istype(target) && target.core_removal_stage == ORGAN_OPEN_INCISION
@@ -74,6 +76,7 @@
 
 	min_duration = 35
 	max_duration = 55
+	skill_requirements = alist(XENOBIOLOGY_SKILL_COMPONENT = SKILL_LEVEL_TRAINED)
 
 /singleton/surgery_step/slime/saw_core/can_use(mob/living/user, mob/living/carbon/slime/target, target_zone, obj/item/tool)
 	return ..() && (istype(target) && target.core_removal_stage == ORGAN_OPEN_RETRACTED && target.cores > 0) //This is being passed a human as target, unsure why.

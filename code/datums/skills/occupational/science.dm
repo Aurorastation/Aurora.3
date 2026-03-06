@@ -31,3 +31,4 @@
 	category =  /singleton/skill_category/occupational
 	subcategory = SKILL_SUBCATEGORY_SCIENCE
 	component_type = XENOBOTANY_SKILL_COMPONENT
+	required = TRUE
