@@ -1238,7 +1238,7 @@
 	spawn_flags = IC_SPAWN_RESEARCH
 	origin_tech = list(TECH_ENGINEERING = 4, TECH_DATA = 4, TECH_MAGNET = 6, TECH_BLUESPACE = 4)
 	power_draw_per_use = 200
-	cooldown_per_use = 10 // sizeable cooldown to prevent view spam
+	cooldown_per_use = 15 SECONDS // sizeable cooldown to prevent view spam
 
 /obj/item/integrated_circuit/input/anomaly_scanner/do_work()
 	if(!SSxenoarch)
