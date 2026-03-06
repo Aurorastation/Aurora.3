@@ -72,3 +72,12 @@
   - imageadd: Changes the camera sprites to not be so r4407. Resultantly changes the
       ever-popular camera gun's sprite.
   - imagedel: Old camera and camera gun sprites are gone.
+2026-03-06:
+  GeneralCamo:
+  - rscadd: Added bicaridine, dermaline, and tricordrazine to the cargo order interface.
+  - balance: Dermaline and butazoline are now priced as premium medicines.
+  - rscadd: The Horizon's medical bay now starts with a single bottle of bicaridine,
+      kelotane, and dexalin.
+  - rscadd: Smartfridges now have emissive masks.
+  fyni:
+  - rscadd: Adds a sign for the commissary - Quik Stop, by Orion.
