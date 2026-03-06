@@ -28,7 +28,8 @@
 			to_chat(user, SPAN_WARNING("The power indicator flashes briefly."))
 		return
 
-	next_mecha_move = delay_modifier + world.time + (incorporeal_move ? legs.move_delay / 2 : legs.move_delay) + (legs.damaged_delay * (legs.total_damage / legs.max_damage))
+
+	next_mecha_move = delay_modifier + world.time + (incorporeal_move ? legs.move_delay / 2 : legs.move_delay) + (legs.damaged_delay * (legs.total_damage / legs.max_damage) * legs.damaged_delay_slope)
 	return TRUE
 
 /mob/living/heavy_vehicle/proc/can_turn(var/mob/user, delay_modifier)
@@ -61,7 +62,8 @@
 			to_chat(user, SPAN_WARNING("The power indicator flashes briefly."))
 		return
 
-	next_mecha_turn = delay_modifier + world.time + legs.turn_delay + (legs.damaged_delay * (legs.total_damage / legs.max_damage))
+
+	next_mecha_turn = delay_modifier + world.time + legs.turn_delay + (legs.damaged_delay * (legs.total_damage / legs.max_damage) * legs.damaged_delay_slope)
 	return TRUE
 
 /mob/living/heavy_vehicle/proc/can_strafe(var/mob/user, delay_modifier)
@@ -100,7 +102,7 @@
 			to_chat(user, SPAN_WARNING("The power indicator flashes briefly."))
 		return
 
-	next_mecha_move = world.time + ((legs.move_delay + (legs.damaged_delay * (legs.total_damage / legs.max_damage))) * legs.strafe_delay_modifier)
+	next_mecha_move = world.time + ((legs.move_delay + (legs.damaged_delay * (legs.total_damage / legs.max_damage) * legs.damaged_delay_slope)) * legs.strafe_delay_modifier)
 	return TRUE
 
 /mob/living/heavy_vehicle/get_standard_pixel_x()

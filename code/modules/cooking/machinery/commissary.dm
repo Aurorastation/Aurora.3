@@ -40,6 +40,7 @@
 	)
 	display_tiers = 5
 	display_tier_amt = 3
+	has_emissive = FALSE
 
 /obj/machinery/smartfridge/tradeshelf/clothing
 	name = "clothing shelf"
@@ -84,6 +85,7 @@
 	)
 	display_tiers = 4
 	display_tier_amt = 5
+	has_emissive = TRUE
 
 /obj/machinery/smartfridge/tradeshelf/toy
 	name = "toy shelf"
@@ -131,7 +133,7 @@
 			user.visible_message("<b>[user]</b> loads [src] with [P].", SPAN_NOTICE("You load [src] with [P]."))
 			if(length(P.contents) > 0)
 				to_chat(user, SPAN_NOTICE("Some items are refused."))
-			update_overlays()
+			update_icon()
 		return TRUE
 	. = ..()
 

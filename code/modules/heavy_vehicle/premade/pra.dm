@@ -28,6 +28,7 @@
 	desc = "Strong legs adapted for the Adhomian rought terrain."
 	icon_state = "egg_legs"
 	move_delay = 3
+	damaged_delay = 3
 	turn_delay = 3
 	max_damage = 100
 	power_use = 2500
