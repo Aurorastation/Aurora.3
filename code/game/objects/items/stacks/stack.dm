@@ -107,7 +107,7 @@
 
 	for(var/datum/stack_recipe/R in recipes_sublist)
 		// If you put anything other than a skill component in the required skills for a recipe, I will destroy you.
-		for(var/skill_comp, skill_level_requirement in R.required_skills)
+		for(var/skill_comp, skill_level_requirement in R.required_skills_hard)
 			visited_skill = checked_skills[skill_comp]
 			// ** Trinary Check for Null, 0, or Nonzero. **
 			// Case for skill hasn't been checked yet.
@@ -193,14 +193,19 @@
 	to_chat(user, SPAN_NOTICE("Building [recipe.title]..."))
 	var/doafter_time = recipe.time
 	if (doafter_time)
-		for (var/skill_type, required_level in recipe.required_skills)
-			doafter_time *= 1 + (required_level - astype(user.GetComponent(skill_type), SKILL_COMPONENT)?.skill_level) * 0.2
+		// Modify the crafting time based on skill requirements (if any).
+		var/skill_diff = 0
+		for (var/skill_type, required_level in recipe.required_skills_soft)
+			skill_diff += required_level - astype(user.GetComponent(skill_type), SKILL_COMPONENT)?.skill_level
 
+		// Approximately no crafting time if you beat the skill req by 4, approximately twice as long to craft if you're under by 4.
+		// No need to do an expensive min because it is mathematically impossible for this to ever be negative.
+		doafter_time += doafter_time * ftanh(0.5 * skill_diff)
 		if (!do_after(user, doafter_time, do_flags = DO_REPAIR_CONSTRUCT))
 			return
 
 	if (use(required))
-		recipe.Produce(produced, user.loc, user.dir, user)
+		recipe.Produce(produced, user.loc, user.dir, user, skill_diff)
 
 /obj/item/stack/Topic(href, href_list)
 	..()
@@ -402,11 +407,18 @@
 	var/on_floor = 0
 	var/use_material
 	/**
+	 * Assoc list of required skills to required skill levels. Requirements are taken as a "soft" requirement used to generate a "skill difference", which is applied as a modifier to a d20 roll.
+	 * This roll currently just affects the name of the resulting item and is for fun, but should be later expanded to have more unique effects.
+	 * THIS MAY ONLY HAVE /datum/component/skill/skill_name in it. I WILL DESTROY YOU IF YOU PUT ANYTHING ELSE IN HERE.
+	 */
+	var/alist/required_skills_soft
+
+	/**
 	 * Assoc list of required skills to required skill levels. This is the MINIMUM to craft the item.
 	 * You must have ALL these skills at that level to see the item as craftable.
 	 * THIS MAY ONLY HAVE /datum/component/skill/skill_name in it. I WILL DESTROY YOU IF YOU PUT ANYTHING ELSE IN HERE.
 	 */
-	var/alist/required_skills
+	var/alist/required_skills_hard
 
 /datum/stack_recipe/New(title, result_type, req_amount = 1, res_amount = 1, max_res_amount = 1, time = 0, one_per_turf = 0, on_floor = 0, supplied_material = null, list/required_skills)
 	src.title = title
@@ -424,7 +436,7 @@
 	src.use_material = supplied_material
 	src.required_skills = required_skills
 
-/datum/stack_recipe/proc/Produce(var/amount = 1, var/loc = null, var/dir = NORTH, var/user = null)
+/datum/stack_recipe/proc/Produce(var/amount = 1, var/loc = null, var/dir = NORTH, var/user = null, var/skill_diff = 0)
 	if(amount < 1)
 		return null
 
@@ -435,6 +447,26 @@
 		O = new result_type(loc)
 	O.set_dir(dir)
 	O.add_fingerprint(user)
+
+	// Setup fun item name modifiers based on skill level.
+	var/d20Roll = rand(1, 20) + 3 * skill_diff
+	var/initial_name = "[initial(O.name)]"
+	// Yes some of these are from the dwarf fortress wiki.
+	if (d20Roll <= 0)
+		O.name = "shoddy " + initial_name
+	else if (d20Roll <= 5)
+		O.name = "-inferior " + initial_name + "-"
+	else if (d20Roll <= 10)
+		O.name = "+cheap " + initial_name + "+"
+	else if (d20Roll <= 15)
+		O.name = "*finely-crafted " + initial_name + "*"
+	else if (d20Roll <= 20)
+		O.name = "≡superior quality " + initial_name + "≡"
+	else if (d20Roll < 30)
+		O.name = "☼masterful " + initial_name + "☼"
+		O.desc = "[initial(O.desc)]\n All craftsmanship is of the highest quality."
+	else
+		O.name = "artifact " + initial_name
 
 	if (istype(O, /obj/item/stack))
 		var/obj/item/stack/S = O
