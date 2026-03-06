@@ -124,6 +124,11 @@
 	if(!allowed(user))
 		to_chat(user, SPAN_WARNING("Access denied."))
 		return
+
+	if (Get_Skill_Level(user, ROBOTICS_SKILL_COMPONENT) < SKILL_LEVEL_FAMILIAR)
+		to_chat(user, SPAN_WARNING("You have no idea how to use this machine."))
+		return
+
 	do_hair_pull(user)
 	ui_interact(user)
 
