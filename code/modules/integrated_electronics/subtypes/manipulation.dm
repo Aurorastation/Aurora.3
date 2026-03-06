@@ -416,8 +416,7 @@
 		user.drop_item(src)
 		crystals += attacking_item
 		attacking_item.forceMove(null)
-		user.visible_message("[user] inserts [attacking_item] into \the [src]'s crystal slot.",
-								SPAN_NOTICE("You insert [attacking_item] into \the [src]'s crystal slot."))
+		user.visible_message("[user] inserts [attacking_item] into \the [src]'s crystal slot.", SPAN_NOTICE("You insert [attacking_item] into \the [src]'s crystal slot."))
 	else
 		..()
 
