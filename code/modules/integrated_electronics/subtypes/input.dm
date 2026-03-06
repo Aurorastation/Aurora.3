@@ -1138,7 +1138,7 @@
 	complexity = 3
 	inputs = list()
 	outputs = list(
-		"radiation"       = IC_PINTYPE_NUMBER
+		"radiation" = IC_PINTYPE_NUMBER
 	)
 	activators = list("scan" = IC_PINTYPE_PULSE_IN, "on scanned" = IC_PINTYPE_PULSE_OUT)
 	spawn_flags = IC_SPAWN_DEFAULT
