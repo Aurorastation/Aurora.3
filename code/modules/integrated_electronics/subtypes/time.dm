@@ -119,8 +119,8 @@
 	power_draw_per_use = 2
 
 /obj/item/integrated_circuit/time/ticker/very_slow
-	name = "five-min ticker"
-	desc = "This simple circuit sends an automatic pulse every three-hundred seconds."
+	name = "five minute ticker"
+	desc = "This simple circuit sends an automatic pulse every five minutes (three hundred seconds)."
 	icon_state = "tick-s"
 	complexity = 4
 	seconds_to_pulse = 300 SECONDS
