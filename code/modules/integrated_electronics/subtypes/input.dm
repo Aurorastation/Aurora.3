@@ -1227,7 +1227,7 @@
 /obj/item/integrated_circuit/input/anomaly_scanner
 	name = "alden-saraspova counter"
 	desc = "A miniaturised Alden-Saraspova counter, used to detected anomalous readings. Often used by xenoarchaeologists."
-	extended_desc = "It can only scan a 14x14 area and has an in-built ~15sec cooldown."
+	extended_desc = "It can only scan a 14x14 area and has an built-in 15 second cooldown."
 	icon_state = "medscan_adv"
 	complexity = 12
 	outputs = list(
