@@ -1186,9 +1186,9 @@
 
 /obj/item/integrated_circuit/input/face_scanner
 	name = "face scanner"
-	desc = "A complex camera and in-built scanner, similar to an examiner but specifically for sophonts.\
+	desc = "A complex camera and in-built scanner, similar to an examiner but specifically for people.\
 	It can identify species type, height and eye colour, and it can estimate age (to the half-decade).\
-	It also provides a short description of the sophont and their face (if able)."
+	It also provides a short description of the person and their face (if able)."
 	icon_state = "video_camera"
 	complexity = 12
 	inputs = list("target" = IC_PINTYPE_REF)
