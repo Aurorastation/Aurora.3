@@ -1211,7 +1211,7 @@
 	if(!istype(H)) //Invalid input
 		return
 
-	if(H in view(get_turf(src))) // This is a camera. It can't examine thngs,that it can't see.
+	if(H in view(get_turf(src))) // This is a camera. It can't examine things that it can't see.
 		set_pin_data(IC_OUTPUT, 1, H.name)
 		set_pin_data(IC_OUTPUT, 2, H.flavor_texts["general"])
 		set_pin_data(IC_OUTPUT, 3, H.flavor_texts["face"])
