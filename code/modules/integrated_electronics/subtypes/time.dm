@@ -110,7 +110,7 @@
 	power_draw_per_use = 8
 
 /obj/item/integrated_circuit/time/ticker/slow
-	name = "thirty-sec ticker"
+	name = "thirty second ticker"
 	desc = "This simple circuit sends an automatic pulse every thirty seconds."
 	icon_state = "tick-s"
 	complexity = 4
