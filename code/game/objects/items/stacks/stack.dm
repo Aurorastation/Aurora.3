@@ -420,7 +420,7 @@
 	 */
 	var/alist/required_skills_hard
 
-/datum/stack_recipe/New(title, result_type, req_amount = 1, res_amount = 1, max_res_amount = 1, time = 0, one_per_turf = 0, on_floor = 0, supplied_material = null, list/required_skills)
+/datum/stack_recipe/New(title, result_type, req_amount = 1, res_amount = 1, max_res_amount = 1, time = 0, one_per_turf = 0, on_floor = 0, supplied_material = null, alist/required_skills_soft, alist/required_skills_hard)
 	src.title = title
 	src.result_type = result_type
 	if(ispath(result_type, /obj/structure))
@@ -434,7 +434,8 @@
 	src.one_per_turf = one_per_turf
 	src.on_floor = on_floor
 	src.use_material = supplied_material
-	src.required_skills = required_skills
+	src.required_skills_soft = required_skills_soft
+	src.required_skills_hard = required_skills_hard
 
 /datum/stack_recipe/proc/Produce(var/amount = 1, var/loc = null, var/dir = NORTH, var/user = null, var/skill_diff = 0)
 	if(amount < 1)
