@@ -189,14 +189,13 @@
 	if (recipe.on_floor && !isfloor(user.loc))
 		to_chat(user, SPAN_WARNING("\The [recipe.title] must be constructed on the floor!"))
 		return
+	var/skill_diff = 0
+	for (var/skill_type, required_level in recipe.required_skills_soft)
+		skill_diff += required_level - astype(user.GetComponent(skill_type), SKILL_COMPONENT)?.skill_level
 
 	to_chat(user, SPAN_NOTICE("Building [recipe.title]..."))
 	var/doafter_time = recipe.time
 	if (doafter_time)
-		// Modify the crafting time based on skill requirements (if any).
-		var/skill_diff = 0
-		for (var/skill_type, required_level in recipe.required_skills_soft)
-			skill_diff += required_level - astype(user.GetComponent(skill_type), SKILL_COMPONENT)?.skill_level
 
 		// Approximately no crafting time if you beat the skill req by 4, approximately twice as long to craft if you're under by 4.
 		// No need to do an expensive min because it is mathematically impossible for this to ever be negative.
