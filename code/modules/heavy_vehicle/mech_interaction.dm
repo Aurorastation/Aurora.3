@@ -370,12 +370,15 @@
 	Move(src.loc, direction, 0, TRUE)
 
 /mob/living/heavy_vehicle/Move(atom/newloc, direct, glide_size_override = 0, update_dir = TRUE)
+	// They shouldn't get to this proc without legs in the first place, but its okay to guard here.
+	if (!legs)
+		return
 	. = ..()
+	set_glide_size(DELAY_TO_GLIDE_SIZE(next_mecha_move - world.time))
 	if(. && !istype(loc, /turf/space))
-		if(legs)
-			if(legs.mech_step_sound)
-				playsound(src.loc, legs.mech_step_sound, 40, TRUE)
-			use_cell_power(legs.power_use * CELLRATE)
+		if(legs.mech_step_sound)
+			playsound(src.loc, legs.mech_step_sound, 40, TRUE)
+		use_cell_power(legs.power_use * CELLRATE)
 	update_icon()
 
 /mob/living/heavy_vehicle/Post_Incorpmove()
