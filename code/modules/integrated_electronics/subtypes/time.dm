@@ -64,7 +64,7 @@
 	..()
 
 /obj/item/integrated_circuit/time/ticker
-	name = "ten-sec ticker"
+	name = "ten second ticker"
 	desc = "This circuit sends an automatic pulse every ten seconds."
 	icon_state = "tick-m"
 	complexity = 8
