@@ -27,4 +27,4 @@
 #define PHARMACOLOGY_SKILL_COMPONENT /datum/component/skill/pharmacology
 #define SURGERY_SKILL_COMPONENT /datum/component/skill/surgery
 
-#define Get_Skill_Level(user, comp) astype(user.GetComponent(comp), SKILL_COMPONENT)?.skill_level
+#define GET_SKILL_LEVEL(user, comp) astype(user.GetComponent(comp), SKILL_COMPONENT)?.skill_level

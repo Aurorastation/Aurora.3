@@ -119,3 +119,7 @@
 #define COMSIG_UNARMED_HARM_DEFENDER "unarmed_harm_defender"
 #define COMSIG_UNARMED_DISARM_ATTACKER "unarmed_disarm_attacker"
 #define COMSIG_UNARMED_DISARM_DEFENDER "unarmed_disarm_defender"
+
+// Bartending Skill Signals
+
+#define COMSIG_CONTAINER_DRANK "container_drank"

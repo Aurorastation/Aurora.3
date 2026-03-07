@@ -125,7 +125,7 @@
 		to_chat(user, SPAN_WARNING("Access denied."))
 		return
 
-	if (Get_Skill_Level(user, ROBOTICS_SKILL_COMPONENT) < SKILL_LEVEL_FAMILIAR)
+	if (GET_SKILL_LEVEL(user, ROBOTICS_SKILL_COMPONENT) < SKILL_LEVEL_FAMILIAR)
 		to_chat(user, SPAN_WARNING("You have no idea how to use this machine."))
 		return
 

@@ -43,7 +43,7 @@
 	. = data
 
 /obj/machinery/computer/fusion/ui_interact(mob/user, datum/tgui/ui)
-	if (Get_Skill_Level(user, REACTOR_SYSTEMS_SKILL_COMPONENT) < SKILL_LEVEL_TRAINED)
+	if (GET_SKILL_LEVEL(user, REACTOR_SYSTEMS_SKILL_COMPONENT) < SKILL_LEVEL_TRAINED)
 		to_chat(user, SPAN_WARNING("You have no idea how to use this computer."))
 		return
 

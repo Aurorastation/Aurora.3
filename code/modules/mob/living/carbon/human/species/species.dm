@@ -468,6 +468,9 @@
 	/// The default lighting alpha of this species. Override to set innate NVGs.
 	var/default_lighting_alpha = LIGHTING_PLANE_ALPHA_VISIBLE
 
+	/// Controls whether this species spawns with a Morale Component.
+	var/has_morale = TRUE
+
 /datum/species/proc/get_eyes(var/mob/living/carbon/human/H)
 	return
 
@@ -597,6 +600,9 @@
 
 	if(natural_armor)
 		H.AddComponent(natural_armor_type, natural_armor)
+
+	if(has_morale)
+		H.LoadComponent(MORALE_COMPONENT)
 
 /datum/species/proc/tap(var/mob/living/carbon/human/H,var/mob/living/target)
 	if(H.on_fire)
