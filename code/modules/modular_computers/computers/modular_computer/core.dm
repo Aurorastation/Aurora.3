@@ -341,6 +341,8 @@
 	enabled = TRUE
 	if(looping_sound)
 		soundloop.start(src)
+	if(startup_sound)
+		playsound(loc, startup_sound, 25)
 	update_icon()
 
 	// Autorun feature
