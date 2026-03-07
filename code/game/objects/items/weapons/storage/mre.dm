@@ -222,7 +222,7 @@ MRE Stuff
 	starts_with = list(/obj/item/reagent_containers/food/snacks/meatbreadslice/filled = 1)
 
 /obj/item/storage/box/fancy/mrebag/menu7
-	starts_with = list(/obj/item/reagent_containers/food/snacks/salad/tossedsalad = 1)
+	starts_with = list(/obj/item/reagent_containers/food/snacks/salad/applesalad = 1)
 
 /obj/item/storage/box/fancy/mrebag/menu8
 	starts_with = list(/obj/item/reagent_containers/food/snacks/hotchili = 1)

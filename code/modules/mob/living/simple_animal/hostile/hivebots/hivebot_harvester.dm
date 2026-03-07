@@ -45,26 +45,42 @@
 	psi_pingable = FALSE
 	sample_data = null
 
-/mob/living/simple_animal/hostile/retaliate/hivebotharvester/Initialize(mapload,mob/living/simple_animal/hostile/hivebot/hivebotbeacon)
-	if(hivebotbeacon)
-		linked_parent = hivebotbeacon
-		linked_parent.harvester_amt ++
-	.=..()
+/mob/living/simple_animal/hostile/retaliate/hivebotharvester/Initialize(mapload,mob/living/simple_animal/hostile/hivebotbeacon/beacon)
+	do_link(beacon)
+	. = ..()
 	set_light(3,2,LIGHT_COLOR_RED)
 	if(!mapload)
 		spark(get_turf(src), 3, GLOB.alldirs)
 
+/mob/living/simple_animal/hostile/retaliate/hivebotharvester/proc/do_link(mob/living/simple_animal/hostile/hivebotbeacon/beacon)
+	if(QDELETED(beacon))
+		return
+
+	if(linked_parent)
+		if(linked_parent == beacon)
+			return
+		linked_parent.unlink(src)
+
+	linked_parent = beacon
+	beacon.do_link(src)
+	RegisterSignal(linked_parent, COMSIG_QDELETING, PROC_REF(unlink))
+
+/mob/living/simple_animal/hostile/retaliate/hivebotharvester/proc/unlink()
+	SIGNAL_HANDLER
+	if(!linked_parent)
+		return
+	linked_parent.unlink(src)
+	UnregisterSignal(linked_parent, COMSIG_QDELETING)
+	linked_parent = null
+
 /mob/living/simple_animal/hostile/retaliate/hivebotharvester/death()
 	..(null,"teleports away!")
-	if(linked_parent)
-		linked_parent.harvester_amt --
 	spark(get_turf(src), 3, GLOB.alldirs)
 	qdel(src)
 
 /mob/living/simple_animal/hostile/retaliate/hivebotharvester/Destroy()
+	unlink()
 	. = ..()
-	if(linked_parent)
-		linked_parent.linked_bots -= src
 
 /mob/living/simple_animal/hostile/retaliate/hivebotharvester/Allow_Spacemove(var/check_drift = 0)
 	return 1

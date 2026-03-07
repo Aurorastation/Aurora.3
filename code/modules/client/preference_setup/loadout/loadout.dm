@@ -245,7 +245,8 @@ GLOBAL_LIST_INIT(gear_datums, list())
 			&& (job && G.check_role(job.title)) \
 			&& G.check_culture(text2path(pref.culture)) \
 			&& G.check_origin(text2path(pref.origin)) \
-			&& G.check_religion(pref.religion))
+			&& G.check_religion(pref.religion)) \
+			&& G.check_citizenship(pref.citizenship)
 		var/ticked = (G.display_name in pref.gear)
 		var/style = ""
 
@@ -479,6 +480,13 @@ GLOBAL_LIST_INIT(gear_datums, list())
 	var/religion
 
 	/**
+	 * A string of the citizenship that can use this item
+	 *
+	 * If left `null`, any citizenship can spawn with this item
+	 */
+	var/citizenship
+
+	/**
 	 * A `/list` of [/singleton/origin_item/culture] paths that can use this item
 	 */
 	var/list/singleton/origin_item/culture/culture_restriction
@@ -545,11 +553,13 @@ GLOBAL_LIST_INIT(gear_datums, list())
 		return "You cannot spawn with the [initial(spawning_item.name)] with your current species!"
 	if(gd.faction_requirement && (human.employer_faction != "Stellar Corporate Conglomerate" && gd.faction_requirement != human.employer_faction))
 		return "You cannot spawn with the [initial(spawning_item.name)] with your current faction!"
-	var/our_culture = text2path(prefs.culture)
-	if(culture_restriction && !(our_culture in culture_restriction))
+	if(!check_religion(prefs.religion))
+		return "You cannot spawn with the [initial(spawning_item.name)] with your current religion!"
+	if(!check_citizenship(prefs.citizenship))
+		return "You cannot spawn with the [initial(spawning_item.name)] with your current citizenship!"
+	if(!check_culture(text2path(prefs.culture)))
 		return "You cannot spawn with the [initial(spawning_item.name)] with your current culture!"
-	var/our_origin = text2path(prefs.origin)
-	if(origin_restriction && !(our_origin in origin_restriction))
+	if(!check_origin(text2path(prefs.origin)))
 		return "You cannot spawn with the [initial(spawning_item.name)] with your current origin!"
 	return null
 
@@ -612,17 +622,24 @@ GLOBAL_LIST_INIT(gear_datums, list())
 	return TRUE
 
 // arg should be a religion name string
-/datum/gear/proc/check_religion(var/religion_)
-	if((religion && religion_))
-		if(islist(religion))
-			var/result = FALSE
-			for(var/religion_path in religion)
-				if(religion_path == religion_)
-					result = TRUE
-			return result
-		else if (religion != religion_)
-			return FALSE
-	return TRUE
+/datum/gear/proc/check_religion(var/user_religion)
+	if(!religion || !user_religion)
+		return TRUE
+	if(religion == user_religion)
+		return TRUE
+	if(islist(religion) && (user_religion in religion))
+		return TRUE
+	return FALSE
+
+// arg should be a citizenship name string
+/datum/gear/proc/check_citizenship(var/user_citizenship)
+	if(!citizenship || !user_citizenship)
+		return TRUE
+	if(citizenship == user_citizenship)
+		return TRUE
+	if(islist(citizenship) && (user_citizenship in citizenship))
+		return TRUE
+	return FALSE
 
 // arg should be a role name string
 /datum/gear/proc/check_role(var/role)
