@@ -1041,6 +1041,7 @@
 #include "code\game\machinery\computer\computer.dm"
 #include "code\game\machinery\computer\guestpass.dm"
 #include "code\game\machinery\computer\law.dm"
+#include "code\game\machinery\computer\loreconsole.dm"
 #include "code\game\machinery\computer\Operating.dm"
 #include "code\game\machinery\computer\pod.dm"
 #include "code\game\machinery\computer\robot.dm"
