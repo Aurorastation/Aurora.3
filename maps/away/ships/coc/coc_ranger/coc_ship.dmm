@@ -1326,9 +1326,6 @@
 /obj/item/clothing/accessory/holster,
 /obj/item/clothing/accessory/holster,
 /obj/item/clothing/accessory/holster,
-/obj/item/clothing/accessory/holster/thigh/fluff,
-/obj/item/clothing/accessory/holster/thigh/fluff,
-/obj/item/clothing/accessory/holster/thigh/fluff,
 /obj/item/clothing/head/helmet{
 	name = "Cheap-looking helmet";
 	desc = "A cheap helmet, most likely purchased off the aftermarket for some raggedy band of Frontier law enforcement. It might, **might** be able to stop a 9mm and some shrapnel."
@@ -2042,6 +2039,11 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/foyer)
+"hUh" = (
+/obj/structure/ship_weapon_dummy,
+/obj/structure/lattice/catwalk,
+/turf/template_noop,
+/area/ship/ranger_corvette/engine1)
 "hUx" = (
 /obj/effect/landmark/entry_point/port{
 	name = "port, quarters"
@@ -3884,8 +3886,7 @@
 /area/ship/ranger_corvette/brig)
 "pmD" = (
 /obj/structure/ship_weapon_dummy/barrel,
-/obj/structure/lattice/catwalk,
-/turf/simulated/floor/airless,
+/turf/template_noop,
 /area/ship/ranger_corvette/engine1)
 "ppM" = (
 /obj/structure/sign/directions/medical{
@@ -4903,6 +4904,7 @@
 	identifier = "ranger";
 	name = "igs - ranger"
 	},
+/obj/item/synthesized_instrument/guitar,
 /turf/simulated/floor/wood,
 /area/ship/ranger_corvette/foyer)
 "sMm" = (
@@ -37596,7 +37598,7 @@ tWh
 uFD
 uFD
 uFD
-uFD
+hUh
 pmD
 xRX
 xRX
