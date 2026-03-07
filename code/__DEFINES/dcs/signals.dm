@@ -129,3 +129,6 @@
 #define COMSIG_PLANT_HARVESTER "plant_harvester"
 /// Signal raised against the plant being harvested during the Harvest() proc.
 #define COMSIG_PLANT_HARVESTED "plant_harvested"
+
+// Armed Combat Signals
+#define COMSIG_APPLY_HIT_EFFECT "apply_hit_effect"

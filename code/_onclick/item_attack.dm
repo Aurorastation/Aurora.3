@@ -179,6 +179,7 @@ This calls [atom/proc/tool_act], among others.
 //Called when a weapon is used to make a successful melee attack on a mob. Returns whether damage was dealt.
 /obj/item/proc/apply_hit_effect(mob/living/target, mob/living/user, var/hit_zone)
 	var/power = force
+	SEND_SIGNAL(user, COMSIG_APPLY_HIT_EFFECT, target, src, &power, &hit_zone)
 	if((user.mutations & HULK))
 		power *= 1.25
 	if(user.is_berserk())
