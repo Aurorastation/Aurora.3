@@ -3,7 +3,6 @@
 	upgrade = /singleton/grab/normal/struggle
 	shift = 8
 	point_blank_mult = 1.1
-	grab_icon_state = "reinforce"
 	break_chance_table = list(15, 60, 100)
 
 	action_verb = "holding"

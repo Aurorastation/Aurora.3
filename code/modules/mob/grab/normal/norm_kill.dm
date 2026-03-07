@@ -5,7 +5,9 @@
 	point_blank_mult = 2
 	damage_stage = 3
 	grab_flags = GRAB_STOP_MOVE | GRAB_REVERSE_FACING | GRAB_SHARE_TILE | GRAB_FORCE_HARM | GRAB_RESTRAINS | GRAB_DOWNGRADE_ACT | GRAB_DOWNGRADE_MOVE
-	grab_icon_state = "kill1"
+	grab_text_state = "kill"
+	grab_color = "#E80000"
+	grab_special_state = "grab_flash"
 	break_chance_table = list(5, 20, 40, 80, 100)
 
 	action_verb = "strangling"

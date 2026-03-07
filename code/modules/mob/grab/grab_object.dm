@@ -73,9 +73,6 @@
 	if(grabbed_mob && grabber?.a_intent == I_HURT)
 		upgrade(TRUE)
 
-	if(current_grab.grab_color)
-		color = current_grab.grab_color
-
 	var/bp = grabber.get_bp_holding(src)
 	var/mob/living/carbon/human/H = astype(grabber)
 	icon_hand = (bp == BP_L_HAND) ? BP_L_HAND : (bp == BP_R_HAND) ? BP_R_HAND : (H && H.species && (bp in H.species.limb_mapping[BP_L_HAND])) ? BP_L_HAND : BP_R_HAND
@@ -226,16 +223,36 @@
 	if(current_grab.grab_icon)
 		icon = current_grab.grab_icon
 	if(current_grab.grab_icon_state)
-		icon_state = current_grab.grab_icon_state
+		icon_state = "[current_grab.grab_icon_state]_base"
+	if(current_grab.grab_color)
+		color = current_grab.grab_color
 	ClearOverlays()
+	QDEL_LIST(vis_contents)
 	var/image/item_overlay = image(grabbed.icon, loc, grabbed.icon_state)
 	item_overlay.alpha = 170
-	var/image/hand_overlay = image(icon, loc, "[icon_state]_[icon_hand]")
-	var/image/text_overlay = image(icon, loc, "[icon_state]_text")
-	var/list/overlays_to_add = list(item_overlay, hand_overlay, text_overlay)
+
+	var/list/overlays_to_add = list(item_overlay)
+
+	overlays_to_add += image(icon, loc, "[current_grab.grab_hand_state]_[icon_hand]")
+
+	var/image/text_overlay = image(icon, loc, "[current_grab.grab_text_state]_text")
+	text_overlay.add_filter("text_effect", 1, drop_shadow_filter(x = 0, y = 0, size = 4))
+	overlays_to_add += text_overlay
+
+	var/is_special_anim = ispath(current_grab.grab_special_state)
+	if(!is_special_anim && istext(current_grab.grab_special_state))
+		overlays_to_add += image(icon, loc, "[current_grab.grab_special_state]")
+
 	for(var/image/OV as anything in overlays_to_add)
 		OV.color = current_grab.grab_color
+
 	AddOverlays(overlays_to_add)
+
+	if(is_special_anim)
+		var/obj/effect/overlay/temp/grab_special_animation/grab_effect = new current_grab.grab_special_state(loc, "[REF(src)]")
+		add_filter("grab_effect", 1, layering_filter(render_source = grab_effect.render_target, blend_mode = BLEND_INSET_OVERLAY))
+		vis_contents += grab_effect
+		grab_effect.do_animate()
 
 /obj/item/grab/proc/throw_held()
 	return current_grab.throw_held(src)

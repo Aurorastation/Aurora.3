@@ -11,7 +11,7 @@
 
 /mob/living/drop_from_inventory(var/obj/item/item, var/atom/target, update_icons = TRUE, force = FALSE)
 	. = ..()
-	if(item?.GetID())
+	if(isobj(item) && item.GetID())
 		BITSET(hud_updateflag, ID_HUD) //If we drop our ID, update ID HUD
 
 /mob/living/carbon/drop_from_inventory(obj/item/W, atom/target, update_icons = TRUE, force = FALSE)

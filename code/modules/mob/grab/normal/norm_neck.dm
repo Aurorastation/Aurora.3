@@ -7,7 +7,9 @@
 	grab_flags = GRAB_STOP_MOVE | GRAB_REVERSE_FACING | GRAB_SHIELDS_YOU | GRAB_SHARE_TILE | GRAB_CAN_THROW | GRAB_FORCE_HARM | GRAB_RESTRAINS
 	point_blank_mult = 2
 	damage_stage = 2
-	grab_icon_state = "kill"
+	grab_text_state = "kill"
+	grab_color = "#E80000"
+	grab_special_state = /obj/effect/overlay/temp/grab_special_animation
 	break_chance_table = list(3, 18, 45, 100)
 
 	action_verb = "restraining"

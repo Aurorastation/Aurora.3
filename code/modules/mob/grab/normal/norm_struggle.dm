@@ -8,8 +8,9 @@
 	breakability = 3
 	grab_slowdown = 0.35
 	upgrade_cooldown = 2 SECONDS
-	grab_icon_state = "reinforce"
 	break_chance_table = list(5, 20, 30, 80, 100)
+	grab_color = "#0092FD"
+	grab_special_state = /obj/effect/overlay/temp/grab_special_animation
 
 	action_verb = "struggling with"
 

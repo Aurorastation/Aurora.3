@@ -22,7 +22,10 @@
 	var/fail_down               = "You can't seem to relax your grip on $rep_affecting$!"
 
 	var/grab_icon = 'icons/mob/screen/generic.dmi'
-	var/grab_icon_state = "reinforce"
+	var/grab_hand_state = "grab"
+	var/grab_text_state = "reinforce"
+	var/grab_icon_state = "grab"
+	var/grab_special_state
 	var/grab_color = "#FDD200"
 
 	var/upgrade_cooldown = 4 SECONDS

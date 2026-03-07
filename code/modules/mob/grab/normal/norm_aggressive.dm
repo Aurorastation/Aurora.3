@@ -7,9 +7,10 @@
 	point_blank_mult = 1.5
 	damage_stage = 1
 	breakability = 3
-	grab_icon_state = "reinforce1"
 	break_chance_table = list(5, 20, 40, 80, 100)
 	help_action = "wound pressure"
+	grab_color = "#0092FD"
+	grab_special_state = /obj/effect/overlay/temp/grab_special_animation
 
 	action_verb = "grappling"
 
