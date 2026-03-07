@@ -123,3 +123,9 @@
 // Bartending Skill Signals
 
 #define COMSIG_CONTAINER_DRANK "container_drank"
+
+// Hydroponics Signals
+/// Signal raised against the harvester of a plant during the Harvest() proc.
+#define COMSIG_PLANT_HARVESTER "plant_harvester"
+/// Signal raised against the plant being harvested during the Harvest() proc.
+#define COMSIG_PLANT_HARVESTED "plant_harvested"

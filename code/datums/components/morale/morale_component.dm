@@ -64,11 +64,16 @@
 
 /datum/component/morale/Initialize()
 	. = ..()
+	if (!parent)
+		return
 	//Wall of RegisterSignal() goes here.
 
 /datum/component/morale/Destroy()
-	// Wall of UnregisterSignal() goes here.
 	QDEL_NULL_LIST_FORCE(moodlets)
+	if (!parent)
+		return ..()
+
+	// Wall of UnregisterSignal() goes here.
 	return ..()
 
 /datum/component/morale/process(seconds_per_tick)
