@@ -64,7 +64,7 @@
 	..()
 
 /obj/item/integrated_circuit/time/ticker
-	name = "ten-sec ticker"
+	name = "ten second ticker"
 	desc = "This circuit sends an automatic pulse every ten seconds."
 	icon_state = "tick-m"
 	complexity = 8
@@ -101,7 +101,7 @@
 		activate_pin(1)
 
 /obj/item/integrated_circuit/time/ticker/fast
-	name = "two-sec ticker"
+	name = "two second ticker"
 	desc = "This advanced circuit sends an automatic pulse every two seconds."
 	icon_state = "tick-f"
 	complexity = 12
@@ -110,7 +110,7 @@
 	power_draw_per_use = 8
 
 /obj/item/integrated_circuit/time/ticker/slow
-	name = "thirty-sec ticker"
+	name = "thirty second ticker"
 	desc = "This simple circuit sends an automatic pulse every thirty seconds."
 	icon_state = "tick-s"
 	complexity = 4
@@ -119,8 +119,8 @@
 	power_draw_per_use = 2
 
 /obj/item/integrated_circuit/time/ticker/very_slow
-	name = "five-min ticker"
-	desc = "This simple circuit sends an automatic pulse every three-hundred seconds."
+	name = "five minute ticker"
+	desc = "This simple circuit sends an automatic pulse every five minutes (three hundred seconds)."
 	icon_state = "tick-s"
 	complexity = 4
 	seconds_to_pulse = 300 SECONDS

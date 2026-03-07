@@ -388,7 +388,7 @@
 /obj/item/integrated_circuit/manipulation/portal_opener // basically a mini telescience setup, but consumes bluespace crystals, is one-way, only along cardinals and ordinals, cannot cross z-levels, and more imprecise (higher chance of getting beamed into a wall/table).
 	name = "bluespace portal circuit"
 	desc = "A miniaturised circuit that uses bluespace crystals to open a one-way bluespace portal. Costlier to use than a standard telescience set up, but portable."
-	extended_desc = "The circuit can store 3 bluespace crystals; each crystal is 1 use. Power determines number of tiles jumped (max 50m). Lifespan determines how long the portal is there (3-15sec) Imprecise with a high variance (DANGER IN CLOSED SPACES)! Cooldown: 30secs."
+	extended_desc = "The circuit can store 3 bluespace crystals; each crystal is 1 use. Power determines number of tiles jumped (max 50m). Lifespan determines how long the portal is there (3-15 sec). Imprecise with a high variance <b>(DANGER IN CLOSED SPACES!)</b>. It has a cooldown of 30 seconds."
 	icon_state = "shocker"
 	w_class = WEIGHT_CLASS_TINY
 	size = 10
@@ -398,7 +398,7 @@
 	activators = list("pulse in" = IC_PINTYPE_PULSE_IN, "portal opened" = IC_PINTYPE_PULSE_OUT, "cannot open portal" = IC_PINTYPE_PULSE_OUT)
 	spawn_flags = IC_SPAWN_RESEARCH
 	power_draw_per_use = 100 // multiplied by up to 50 during on_data_written(). should slurp up power in smaller assemblies or those without power generation
-	cooldown_per_use = 300 // big cooldown
+	cooldown_per_use = 30 SECONDS // big cooldown
 	origin_tech = list(TECH_DATA = 4, TECH_ENGINEERING = 4, TECH_MATERIAL = 4, TECH_BLUESPACE = 5)
 
 	/// The number of stored bluespace crystals stored in the device. Each stored bluespace crystal is 1 use.
@@ -416,8 +416,7 @@
 		user.drop_item(src)
 		crystals += attacking_item
 		attacking_item.forceMove(null)
-		user.visible_message("[user] inserts [attacking_item] into \the [src]'s crystal slot.",
-								SPAN_NOTICE("You insert [attacking_item] into \the [src]'s crystal slot."))
+		user.visible_message("[user] inserts [attacking_item] into \the [src]'s crystal slot.", SPAN_NOTICE("You insert [attacking_item] into \the [src]'s crystal slot."))
 	else
 		..()
 

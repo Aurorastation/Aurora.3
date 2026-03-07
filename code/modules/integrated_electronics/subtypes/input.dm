@@ -1138,7 +1138,7 @@
 	complexity = 3
 	inputs = list()
 	outputs = list(
-		"radiation"       = IC_PINTYPE_NUMBER
+		"radiation" = IC_PINTYPE_NUMBER
 	)
 	activators = list("scan" = IC_PINTYPE_PULSE_IN, "on scanned" = IC_PINTYPE_PULSE_OUT)
 	spawn_flags = IC_SPAWN_DEFAULT
@@ -1165,7 +1165,7 @@
 	complexity = 3
 	inputs = list()
 	outputs = list(
-		"lumens"       = IC_PINTYPE_NUMBER
+		"lumens" = IC_PINTYPE_NUMBER
 	)
 	activators = list("scan" = IC_PINTYPE_PULSE_IN, "on scanned" = IC_PINTYPE_PULSE_OUT)
 	spawn_flags = IC_SPAWN_DEFAULT
@@ -1186,9 +1186,9 @@
 
 /obj/item/integrated_circuit/input/face_scanner
 	name = "face scanner"
-	desc = "A complex camera and in-built scanner, similar to an examiner but specifically for sophonts.\
+	desc = "A complex camera and in-built scanner, similar to an examiner but specifically for people.\
 	It can identify species type, height and eye colour, and it can estimate age (to the half-decade).\
-	It also provides a short description of the sophont and their face (if able)."
+	It also provides a short description of the person and their face (if able)."
 	icon_state = "video_camera"
 	complexity = 12
 	inputs = list("target" = IC_PINTYPE_REF)
@@ -1211,7 +1211,7 @@
 	if(!istype(H)) //Invalid input
 		return
 
-	if(H in view(get_turf(src))) // This is a camera. It can't examine thngs,that it can't see.
+	if(H in view(get_turf(src))) // This is a camera. It can't examine things that it can't see.
 		set_pin_data(IC_OUTPUT, 1, H.name)
 		set_pin_data(IC_OUTPUT, 2, H.flavor_texts["general"])
 		set_pin_data(IC_OUTPUT, 3, H.flavor_texts["face"])
@@ -1227,7 +1227,7 @@
 /obj/item/integrated_circuit/input/anomaly_scanner
 	name = "alden-saraspova counter"
 	desc = "A miniaturised Alden-Saraspova counter, used to detected anomalous readings. Often used by xenoarchaeologists."
-	extended_desc = "It can only scan a 14x14 area and has an in-built ~15sec cooldown."
+	extended_desc = "It can only scan a 14x14 area and has an built-in 15 second cooldown."
 	icon_state = "medscan_adv"
 	complexity = 12
 	outputs = list(
@@ -1238,7 +1238,7 @@
 	spawn_flags = IC_SPAWN_RESEARCH
 	origin_tech = list(TECH_ENGINEERING = 4, TECH_DATA = 4, TECH_MAGNET = 6, TECH_BLUESPACE = 4)
 	power_draw_per_use = 200
-	cooldown_per_use = 10 // sizeable cooldown to prevent view spam
+	cooldown_per_use = 15 SECONDS // sizeable cooldown to prevent view spam
 
 /obj/item/integrated_circuit/input/anomaly_scanner/do_work()
 	if(!SSxenoarch)
