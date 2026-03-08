@@ -81,3 +81,21 @@
   - rscadd: Smartfridges now have emissive masks.
   fyni:
   - rscadd: Adds a sign for the commissary - Quik Stop, by Orion.
+2026-03-08:
+  ElorgRHG:
+  - rscdel: Consular Officers no longer start with a corporate tie and a corporate
+      badge.
+  - rscadd: Added citizenship loadout restrictions to the loadout.
+  - rscadd: Dominian Consular loadout items are now citizenship restricted to the
+      Empire of Dominia.
+  - bugfix: Religion loadout restrictions now actually restrict items to religions.
+  Greenjoe:
+  - rscadd: Adds Twin Suns and Raskara symbols to paperwork, use [twinsuns] and [raskara_sigil]
+      to write them. Add _small to make small versions.
+  - rscadd: Adhomaian tajara can now select Biesel citizenship to represent those
+      who immigrated there as an adult.
+  JohnWildkins:
+  - bugfix: Fix issue whereby Tajara would lose movement speed due to lowering their
+      body temperature.
+  fyni:
+  - rscadd: Adds three new Domi house banners!
