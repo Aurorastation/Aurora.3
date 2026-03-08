@@ -93,6 +93,7 @@
 	for(var/obj/effect/plant/neighbor in range(1,src))
 		if (!QDELETED(neighbor))
 			SSplants.add_plant(neighbor)
+	QDEL_NULL(plant)
 	return ..()
 
 /obj/effect/plant/single

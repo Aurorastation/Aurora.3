@@ -58,7 +58,7 @@
 	var/tray_light = 5
 
 	// Mechanical concerns.
-	/// Plant plant_health.
+	/// Plant health.
 	var/plant_health = 0
 	/// Last time tray was harvested
 	var/lastproduce = 0
@@ -486,7 +486,7 @@
 /// Verifies that all values are what they should be.
 /obj/machinery/portable_atmospherics/hydroponics/proc/check_level_sanity()
 	if(seed)
-		health =     max(0,min(GET_SEED_TRAIT(seed, TRAIT_ENDURANCE),health))
+		plant_health = max(0,min(GET_SEED_TRAIT(seed, TRAIT_ENDURANCE),health))
 	else
 		plant_health = 0
 		dead = FALSE
@@ -510,7 +510,7 @@
 	dead = FALSE
 	mutate(1)
 	age = 0
-	health = GET_SEED_TRAIT(seed, TRAIT_ENDURANCE)
+	plant_health = GET_SEED_TRAIT(seed, TRAIT_ENDURANCE)
 	lastcycle = world.time
 	harvest = FALSE
 	weedlevel = 0
@@ -610,7 +610,7 @@
 			dead = 0
 			age = 1
 			//Snowflakey, maybe move this to the seed datum
-			health = (istype(S, /obj/item/seeds/cutting) ? round(GET_SEED_TRAIT(seed, TRAIT_ENDURANCE)/rand(2,5)) : GET_SEED_TRAIT(seed, TRAIT_ENDURANCE))
+			plant_health = (istype(S, /obj/item/seeds/cutting) ? round(GET_SEED_TRAIT(seed, TRAIT_ENDURANCE)/rand(2,5)) : GET_SEED_TRAIT(seed, TRAIT_ENDURANCE))
 			lastcycle = world.time
 
 			qdel(attacking_item)
@@ -801,7 +801,7 @@
 	if(seed)
 		if(dead)
 			. += SPAN_DANGER("The plant is dead.")
-		else if(health <= (GET_SEED_TRAIT(seed, TRAIT_ENDURANCE)/ 2))
+		else if(plant_health <= (GET_SEED_TRAIT(seed, TRAIT_ENDURANCE)/ 2))
 			. += SPAN_BAD("The plant looks unhealthy.")
 		if(stunted)
 			. += SPAN_BAD("This harvest is stunted due to improper growing conditions, reducing yield.")
