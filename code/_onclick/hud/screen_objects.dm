@@ -520,6 +520,9 @@
 				if(!(usr.get_species() in BLACKLIST_SPECIES_RUNNING))
 					usr.m_intent = M_RUN
 
+		if(modifiers["button"] == "middle")
+			C.lay_down()
+
 		C.update_canmove()
 		C.update_icon()
 

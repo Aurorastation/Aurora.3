@@ -55,4 +55,4 @@ delete-after: True
 # Also, this gets changed to [] after reading.  Just remove the brackets when you add new shit.
 # Please surround your changes in  double quotes ("). It works without them, but if you use certain characters it screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - refactor: "Laying down no longer exists as a separate movement intent, you can now simply rest with your weapon in your hand."
+  - refactor: "Laying down no longer exists as a separate movement intent, you can now simply rest with your weapon in your hand. Middle clicking the walk/run intent icon now functions as a rest macro."
