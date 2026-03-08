@@ -671,43 +671,6 @@
 		return pick(turfs)
 	else return null
 
-/**
-* Displays an area blurb on a mob's screen.
-*
-* Areas with blurbs set [/area/var/area_blurb] will display their blurb. Otherwise no blurb will be shown. Contains checks to avoid duplicate blurbs, pass the `override` variable to bypass this. If passed when an area has no blurb, will show a generic "no blurb" message.
-*
-* * `target_mob` - The mob to show an area blurb.
-* * `override` - Pass `TRUE` to override duplicate checks, for usage with verbs, etc.
-*/
-/area/proc/do_area_blurb(mob/living/target_mob, override)
-	if(isnull(area_blurb))
-		if(override)
-			to_chat(target_mob, EXAMINE_BLOCK_GREY("There's nothing particularly noteworthy about this area."))
-		return
-
-	if(!(target_mob.ckey in GLOB.area_blurb_stated_to[area_blurb_category]) || override)
-		LAZYADD(GLOB.area_blurb_stated_to[area_blurb_category], target_mob.ckey)
-		to_chat(target_mob, EXAMINE_BLOCK_GREY(area_blurb))
-
-/// A verb to view an area's blurb on demand. Overrides the check for if you have seen the blurb before so you can always see it when used.
-/mob/living/verb/show_area_blurb()
-	set name = "Show Area Blurb"
-	set category = "IC"
-
-	if(!incapacitated(INCAPACITATION_KNOCKOUT))
-		var/area/blurb_verb = get_area(src)
-		if(blurb_verb)
-			blurb_verb.do_area_blurb(src, TRUE)
-
-/// A ghost version of the view area blurb verb so you can view it while observing.
-/mob/abstract/ghost/observer/verb/ghost_show_area_blurb()
-	set name = "Show Area Blurb"
-	set category = "IC"
-
-	var/area/blurb_verb = get_area(src)
-	if(blurb_verb)
-		blurb_verb.do_area_blurb(src, TRUE)
-
 /// A hook so areas can modify the incoming args of ChangeTurf
 /area/proc/place_on_top_react(list/new_baseturfs, turf/added_layer, flags)
 	return flags

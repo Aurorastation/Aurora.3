@@ -337,7 +337,6 @@
 #include "code\controllers\subsystems\ai_obfuscation.dm"
 #include "code\controllers\subsystems\air.dm"
 #include "code\controllers\subsystems\alarm.dm"
-#include "code\controllers\subsystems\ao.dm"
 #include "code\controllers\subsystems\area_contents.dm"
 #include "code\controllers\subsystems\arrivals.dm"
 #include "code\controllers\subsystems\asset_loading.dm"

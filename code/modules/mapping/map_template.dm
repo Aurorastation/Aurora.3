@@ -91,7 +91,6 @@
 	//initialize things that are normally initialized after map load
 	initTemplateBounds(bounds)
 	init_shuttles(shuttle_state)
-	create_lighting_overlays_zlevel(world.maxz)
 	log_game("Z-level [name] loaded at [x], [y], [world.maxz]")
 	message_admins("Z-level [name] loaded at [x], [y], [world.maxz]")
 	SSicon_smooth.can_fire = TRUE

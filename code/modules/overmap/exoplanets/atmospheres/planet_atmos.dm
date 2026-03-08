@@ -11,7 +11,9 @@
 	var/list/gas_potential = list(
 		GAS_PHORON = 0,
 		GAS_WATERVAPOR = 0,
-		GAS_ALIEN = 0.5
+		GAS_ALIEN = 0.5,
+		GAS_HELIUMFUEL = 0,
+		GAS_TRITIUM = 0,
 	)
 
 /singleton/atmosphere/void
