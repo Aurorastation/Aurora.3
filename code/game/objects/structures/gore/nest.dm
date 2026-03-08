@@ -5,7 +5,7 @@
 	desc = "It's a gruesome pile of thick, sticky flesh shaped like a nest."
 	icon = 'icons/obj/gore_structures.dmi'
 	icon_state = "nest"
-	maxhealth = 100
+	maxhealth = OBJECT_HEALTH_LOW
 	var/destroy_message = "THE STRUCTURE collapses in on itself!"
 
 /obj/structure/bed/nest/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)

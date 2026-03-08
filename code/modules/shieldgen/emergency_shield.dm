@@ -8,7 +8,7 @@
 	anchored = TRUE
 	unacidable = TRUE
 	atmos_canpass = CANPASS_NEVER
-	health = 75
+	maxhealth = 75
 	var/shield_generate_power = 2500	//how much power we use when regenerating
 	var/shield_idle_power = 500		//how much power we use when just being sustained.
 
@@ -153,7 +153,7 @@
 	opacity = FALSE
 	anchored = FALSE
 	req_access = list(ACCESS_ENGINE)
-	health = 100
+	maxhealth = OBJECT_HEALTH_LOW
 	var/active = FALSE
 	// Malfunction causes parts of the shield to slowly dissapate
 	var/malfunction = FALSE

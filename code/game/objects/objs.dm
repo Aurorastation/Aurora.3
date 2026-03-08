@@ -8,7 +8,7 @@
 	var/recyclable = FALSE
 	/// Size of the object.
 	var/w_class
-	///Used by R&D to determine what research bonuses it grants.
+	/// Used by R&D to determine what research bonuses it grants.
 	var/list/origin_tech = null
 	/// Universal "unacidabliness" var, here so you can use it in any obj. As xeno acid is gone, this is now only used for chemistry acid.
 	var/unacidable = 0
@@ -75,7 +75,7 @@
 	var/buckle_movable = 0
 	/// The direction forced on a buckled atom.
 	var/buckle_dir = 0
-	/// Causesbed-like behavior, forces mob.lying = buckle_lying if != -1.
+	/// Causes bed-like behavior, forces mob.lying = buckle_lying if != -1.
 	var/buckle_lying = -1
 	/// Require people to be handcuffed before being able to buckle. eg: pipes.
 	var/buckle_require_restraints = 0

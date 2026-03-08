@@ -13,7 +13,7 @@
 	density = TRUE
 	opacity = FALSE
 	layer = ABOVE_TILE_LAYER
-	maxhealth = 50
+	maxhealth = OBJECT_HEALTH_VERY_LOW
 	var/destroy_spawntype = /mob/living/carbon/alien/diona
 
 /obj/structure/diona/attackby(obj/item/attacking_item, mob/user)

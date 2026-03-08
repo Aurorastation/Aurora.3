@@ -7,7 +7,7 @@
 	build_amt = 2
 	slowdown = 5
 	pass_flags_self = PASSSTRUCTURE | LETPASSCLICKS | PASSTRACE
-	health = 150
+	maxhealth = OBJECT_HEALTH_MEDIUM
 	armor = list(MELEE = ARMOR_MELEE_RESISTANT, BULLET = ARMOR_BALLISTIC_PISTOL, LASER = ARMOR_LASER_KEVLAR)
 
 	var/icon_door = null

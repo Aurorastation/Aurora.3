@@ -401,7 +401,7 @@
 	icon = 'icons/obj/machinery/sensors.dmi'
 	icon_state = "sensors"
 	anchored = 1
-	health = 200
+	maxhealth = OBJECT_HEALTH_HIGH
 	var/critical_heat = 50 // sparks and takes damage when active & above this heat
 	var/heat_reduction = 1.7 // mitigates this much heat per tick - can sustain range 4
 	var/heat = 0

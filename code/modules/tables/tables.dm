@@ -16,7 +16,7 @@
 	var/no_cargo
 
 	var/flipped = 0
-	health = 10
+	maxhealth = 10
 
 	// For racks (which cannot be either of these things)
 	var/can_reinforce = 1

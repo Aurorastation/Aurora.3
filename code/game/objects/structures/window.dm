@@ -642,7 +642,7 @@
 	atom_flags = 0
 	obj_flags = null
 	dir = 5
-	maxhealth = OBJECT_HEALTH_EXTREMELY_LOW // Two glass panes worth of health, since that's the minimum you need to break through to get to the other side.
+	maxhealth = OBJECT_HEALTH_EXTREMELY_LOW
 	glasstype = /obj/item/stack/material/glass
 	shardtype = /obj/item/material/shard
 	full = TRUE

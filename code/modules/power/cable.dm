@@ -38,7 +38,7 @@ By design, d1 is the smallest direction and d2 is the highest
 	icon = 'icons/obj/power_cond_white.dmi'
 	icon_state = "0-1"
 	level = 1
-	anchored =1
+	anchored = TRUE
 	maxhealth = null //why is this even a structure?
 	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
 	layer = EXPOSED_WIRE_LAYER

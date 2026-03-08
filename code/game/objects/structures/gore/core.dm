@@ -4,7 +4,7 @@
 	icon = 'icons/obj/gore_structures.dmi'
 	anchored = TRUE
 	density = FALSE
-	maxhealth = 50
+	maxhealth = OBJECT_HEALTH_VERY_LOW
 	var/destroy_message = "THE STRUCTURE collapses in on itself!"
 
 /obj/structure/gore/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)

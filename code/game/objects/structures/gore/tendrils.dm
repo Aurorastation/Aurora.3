@@ -4,7 +4,7 @@
 	name = "bloody tendrils"
 	desc = "Bloody, pulsating tendrils."
 	icon_state = "tendril"
-	maxhealth = 40
+	maxhealth = OBJECT_HEALTH_VERY_LOW
 	pass_flags = PASSTABLE | PASSMOB | PASSTRACE | PASSRAILING
 	var/being_destroyed = FALSE
 	var/is_node = FALSE
@@ -18,7 +18,7 @@
 	desc = "Clumped up flesh, pulsating in rhythm with the tendrils that surround it."
 	icon_state = "tendril_node"
 	density = TRUE
-	maxhealth = 150
+	maxhealth = OBJECT_HEALTH_MEDIUM
 	light_range = NODERANGE
 	light_color = LIGHT_COLOR_EMERGENCY
 	is_node = TRUE

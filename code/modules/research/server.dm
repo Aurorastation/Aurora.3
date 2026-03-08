@@ -2,7 +2,7 @@
 	name = "\improper R&D server"
 	desc = "A server which houses a back-up of all station research. It can be used to restore lost data, or to act as another point of retrieval."
 	icon_state = "RD-server"
-	health = 100
+	maxhealth = OBJECT_HEALTH_LOW
 
 	var/datum/research/files
 	var/list/id_with_upload = list()	//List of R&D consoles with upload to server access.
