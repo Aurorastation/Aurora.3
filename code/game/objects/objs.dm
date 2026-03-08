@@ -15,7 +15,7 @@
 
 	/// Special flags such as whether or not this object can be rotated.
 	var/obj_flags
-	/// The object's force when thrown.
+	/// Integer. Used for varied damage and item volume calculations.
 	var/throwforce = 1
 	/// Used in attackby() to say how something was attacked "[x] has been [z.attack_verb] by [y] with [z]".
 	var/list/attack_verb
@@ -31,7 +31,7 @@
 	var/force = 0
 	/// The armour penetration this object has.
 	var/armor_penetration = 0
-	/// To make it not able to slice things. Used for curtains, flaps, pumpkins... why the fuck aren't you just using edge?
+	/// To make it not able to slice things. Used for curtains, flaps, pumpkins... why aren't you just using edge?
 	var/noslice = FALSE
 	/// The health of this object. If this is null, it will set health to maxhealth on Initialize. Otherwise, you can set a custom health value to use at initialize.
 	var/health
@@ -42,7 +42,7 @@
 	/// The sound played when this object is destroyed.
 	var/destroy_sound
 	/// Set to TRUE when shocked by the tesla ball, to not repeatedly shock the object.
-	var/being_shocked = 0
+	var/being_shocked = FALSE
 
 	/// The slot the object will equip to.
 	var/equip_slot = 0
