@@ -3884,10 +3884,6 @@
 "plP" = (
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/brig)
-"pmD" = (
-/obj/structure/ship_weapon_dummy/barrel,
-/turf/template_noop,
-/area/ship/ranger_corvette/engine1)
 "ppM" = (
 /obj/structure/sign/directions/medical{
 	dir = 4;
@@ -37599,7 +37595,7 @@ uFD
 uFD
 uFD
 hUh
-pmD
+lhJ
 xRX
 xRX
 xRX
