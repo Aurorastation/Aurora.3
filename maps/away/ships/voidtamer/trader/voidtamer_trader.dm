@@ -45,7 +45,7 @@
 	invisible_until_ghostrole_spawn = TRUE
 
 /obj/effect/overmap/visitable/ship/voidtamer_trade_ship/New()
-	designation = "[pick("Followers of the Voidic Call", "Embrace of the Void", "Choir of Endless Expanses)]"
+	designation = "[pick("Followers of the Voidic Call", "Embrace of the Void", "Choir of Endless Expanses")]"
 	..()
 
 /obj/effect/overmap/visitable/ship/voidtamer_trade_ship/get_skybox_representation()
