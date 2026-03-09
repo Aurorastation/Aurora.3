@@ -42,14 +42,11 @@
 /turf/simulated/floor/diona,
 /area/voidtamer/trader/mining)
 "aD" = (
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable{
 	icon_state = "1-4"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/red,
 /turf/simulated/floor/tiled/dark,
 /area/voidtamer/trader/warehouse)
 "aG" = (
@@ -62,11 +59,8 @@
 /turf/simulated/floor/diona,
 /area/voidtamer/trader/dock)
 "aK" = (
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/red,
 /obj/effect/floor_decal/industrial/warning/dust{
 	dir = 8
 	},
@@ -79,32 +73,25 @@
 /obj/structure/cable{
 	icon_state = "0-2"
 	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/diona,
 /area/voidtamer/trader/supermatter)
 "aS" = (
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/white,
 /area/voidtamer/trader/kitchen)
 "aX" = (
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/red,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /turf/simulated/floor/diona,
 /area/voidtamer/trader/mining)
 "aZ" = (
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/red,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /obj/effect/floor_decal/industrial/warning/dust{
@@ -142,9 +129,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/voidtamer/trader/autocannon_gun)
 "bo" = (
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/structure/sink/kitchen{
 	dir = 8;
@@ -173,7 +158,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/red{
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
 /obj/machinery/hologram/holopad/long_range,
@@ -186,14 +171,12 @@
 /area/voidtamer/trader/supermatter)
 "bt" = (
 /obj/structure/diona/bulb,
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 4
 	},
 /obj/random/dirt_75,
-/obj/machinery/atmospherics/pipe/manifold/hidden/red{
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 8
 	},
 /obj/structure/cable{
@@ -206,17 +189,13 @@
 "bu" = (
 /obj/structure/table/steel,
 /obj/item/blueprints/outpost,
-/obj/item/device/hand_labeler,
 /turf/simulated/floor/diona,
 /area/voidtamer/trader/mining)
 "bw" = (
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
-/obj/machinery/atmospherics/pipe/simple/hidden/red,
 /turf/simulated/floor/tiled/dark,
 /area/voidtamer/trader/warehouse)
 "bB" = (
@@ -232,7 +211,7 @@
 	dir = 8
 	},
 /obj/item/trash/chips/chicken,
-/obj/machinery/atmospherics/pipe/simple/hidden/red{
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -253,7 +232,6 @@
 "bI" = (
 /obj/effect/floor_decal/industrial/outline/engineering,
 /obj/structure/table/rack/folding_table,
-/obj/item/device/flashlight/lamp/box,
 /obj/machinery/light/voidtamer{
 	dir = 4
 	},
@@ -281,7 +259,7 @@
 /obj/effect/floor_decal/industrial/warning/dust{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/red{
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -300,7 +278,7 @@
 /turf/simulated/wall/diona,
 /area/voidtamer/trader/supermatter)
 "cf" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/red{
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
 	},
 /turf/simulated/floor/tiled/dark,
@@ -370,7 +348,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/red{
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/random/dirt_75,
@@ -398,7 +376,7 @@
 /obj/effect/floor_decal/industrial/warning/dust{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/red{
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -517,11 +495,8 @@
 /area/voidtamer/trader/engineering/starboard)
 "dI" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/random/dirt_75,
-/obj/machinery/atmospherics/pipe/simple/hidden/red,
 /turf/simulated/floor/diona,
 /area/voidtamer/trader/kitchen)
 "dM" = (
@@ -540,8 +515,8 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/red{
-	dir = 8
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
 	},
 /turf/simulated/floor,
 /area/voidtamer/trader/engineering/starboard)
@@ -566,13 +541,11 @@
 /turf/simulated/floor,
 /area/voidtamer/trader/engineering/port)
 "ek" = (
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/red{
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 4
 	},
 /obj/structure/lattice,
@@ -708,11 +681,8 @@
 /turf/simulated/floor/tiled/dark,
 /area/voidtamer/trader/engineering/starboard)
 "fk" = (
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/red,
 /obj/random/dirt_75,
 /obj/machinery/door/airlock/hatch,
 /obj/machinery/door/firedoor/noid,
@@ -735,8 +705,8 @@
 	dir = 4
 	},
 /obj/random/dirt_75,
-/obj/machinery/atmospherics/pipe/simple/hidden/red{
-	dir = 8
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
 	},
 /turf/simulated/floor/diona,
 /area/voidtamer/trader/autocannon_gun)
@@ -753,7 +723,7 @@
 	dir = 9
 	},
 /obj/random/dirt_75,
-/obj/machinery/atmospherics/pipe/simple/hidden/red{
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
 /turf/simulated/floor/tiled/dark,
@@ -773,7 +743,7 @@
 	dir = 4
 	},
 /obj/random/dirt_75,
-/obj/machinery/atmospherics/pipe/simple/hidden/red{
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
@@ -786,20 +756,6 @@
 /obj/machinery/alarm/south,
 /turf/simulated/floor,
 /area/shuttle/voidtamer_trade_ship_shuttle)
-"fV" = (
-/obj/structure/diona/bulb,
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/random/dirt_75,
-/obj/machinery/atmospherics/pipe/simple/hidden/red{
-	dir = 8
-	},
-/turf/simulated/floor/diona,
-/area/voidtamer/trader/warehouse)
 "ga" = (
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
 /area/voidtamer/trader/kitchen)
@@ -861,6 +817,12 @@
 /obj/structure/cable{
 	icon_state = "1-4"
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 5
+	},
 /turf/simulated/floor,
 /area/voidtamer/trader/warehouse)
 "gy" = (
@@ -868,10 +830,7 @@
 /area/voidtamer/trader/mining_blaster)
 "gG" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/red,
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/diona,
 /area/voidtamer/trader/temple)
 "gH" = (
@@ -885,8 +844,8 @@
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/warning/dust,
-/obj/machinery/atmospherics/pipe/simple/hidden/red{
-	dir = 8
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/voidtamer/trader/dock)
@@ -915,8 +874,8 @@
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
-/obj/machinery/atmospherics/pipe/simple/hidden/red{
-	dir = 8
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
 	},
 /obj/structure/trash_pile,
 /turf/simulated/floor/tiled/dark,
@@ -930,13 +889,13 @@
 "hd" = (
 /obj/machinery/air_sensor,
 /obj/effect/map_effect/marker/large_tank{
-	master_tag = "coc_ship_co2_star";
-	name = "coc_ship_co2_star"
+	master_tag = "voidtamer_ship_co2_star";
+	name = "voidtamer_ship_co2_star"
 	},
 /obj/machinery/light{
 	dir = 8
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/reinforced/carbon_dioxide,
 /area/voidtamer/trader/engineering/port)
 "he" = (
 /obj/structure/flora/pottedplant/fortune_flower,
@@ -972,7 +931,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/red{
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/random/dirt_75,
@@ -1010,7 +969,7 @@
 "hN" = (
 /obj/item/toy/plushie/carp,
 /obj/random/dirt_75,
-/obj/machinery/atmospherics/pipe/simple/hidden/red{
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/structure/table/rack/folding_table,
@@ -1018,6 +977,9 @@
 /obj/structure/cable{
 	icon_state = "1-2";
 	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/voidtamer/trader/warehouse)
@@ -1042,12 +1004,9 @@
 /turf/simulated/floor/diona,
 /area/voidtamer/trader/dock)
 "hW" = (
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/random/dirt_75,
-/obj/machinery/atmospherics/pipe/simple/hidden/red,
 /turf/simulated/floor/diona,
 /area/voidtamer/trader/kitchen)
 "hX" = (
@@ -1129,10 +1088,7 @@
 /area/voidtamer/trader/dock)
 "iT" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/red,
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/bed/stool/chair/office/hover/command{
 	dir = 1
 	},
@@ -1166,7 +1122,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/red{
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/random/dirt_75,
@@ -1274,8 +1230,8 @@
 	dir = 9
 	},
 /obj/random/dirt_75,
-/obj/machinery/atmospherics/pipe/simple/hidden/red{
-	dir = 8
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
 	},
 /turf/simulated/floor/diona,
 /area/voidtamer/trader/autocannon_gun)
@@ -1293,8 +1249,8 @@
 	icon_state = "2-4"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/yellow,
-/obj/machinery/atmospherics/pipe/simple/hidden/red,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/dark,
 /area/voidtamer/trader/engineering/starboard)
 "kc" = (
@@ -1331,6 +1287,10 @@
 /area/voidtamer/trader/engineering/starboard)
 "kn" = (
 /obj/structure/bed/roller/hover,
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 8;
+	level = 2
+	},
 /turf/simulated/floor/diona,
 /area/voidtamer/trader/supermatter)
 "kp" = (
@@ -1368,13 +1328,13 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/red,
 /obj/effect/floor_decal/industrial/warning/dust{
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 6
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/dark,
 /area/voidtamer/trader/dock)
 "li" = (
@@ -1410,11 +1370,8 @@
 /turf/simulated/floor/tiled/dark,
 /area/voidtamer/trader/warehouse)
 "lt" = (
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/red,
 /turf/simulated/floor/tiled/dark,
 /area/voidtamer/trader/warehouse)
 "lx" = (
@@ -1444,10 +1401,10 @@
 	id_tag = "idris_co2_out"
 	},
 /obj/effect/map_effect/marker/large_tank{
-	master_tag = "coc_ship_co2_star";
-	name = "coc_ship_co2_star"
+	master_tag = "voidtamer_ship_co2_star";
+	name = "voidtamer_ship_co2_star"
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/reinforced/carbon_dioxide,
 /area/voidtamer/trader/engineering/port)
 "lT" = (
 /obj/structure/diona/bulb,
@@ -1487,11 +1444,8 @@
 /turf/simulated/floor/tiled/dark,
 /area/voidtamer/trader/warehouse)
 "mm" = (
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/red,
 /obj/random/dirt_75,
 /turf/simulated/floor/diona,
 /area/voidtamer/trader/dock)
@@ -1517,11 +1471,8 @@
 /turf/simulated/floor/tiled/dark,
 /area/voidtamer/trader/dock)
 "mp" = (
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/red,
 /turf/simulated/floor/diona,
 /area/voidtamer/trader/warehouse)
 "mB" = (
@@ -1549,7 +1500,6 @@
 /obj/random/dirt_75,
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/red,
 /obj/structure/cable{
 	icon_state = "1-2";
 	dir = 1
@@ -1565,15 +1515,13 @@
 /obj/structure/cable{
 	icon_state = "1-8"
 	},
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable{
 	icon_state = "1-4"
 	},
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
 /obj/random/dirt_75,
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/red,
+/obj/machinery/atmospherics/pipe/manifold4w/visible/scrubbers,
 /turf/simulated/floor/diona,
 /area/voidtamer/trader/warehouse)
 "mL" = (
@@ -1614,7 +1562,7 @@
 	dir = 4
 	},
 /obj/random/dirt_75,
-/obj/machinery/atmospherics/pipe/simple/hidden/red{
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/effect/decal/cleanable/floor_damage/tiled_broken0,
@@ -1637,11 +1585,8 @@
 /area/voidtamer/trader/armory)
 "nk" = (
 /obj/structure/diona/bulb,
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/red,
 /obj/random/dirt_75,
 /turf/simulated/floor/diona,
 /area/voidtamer/trader/dock)
@@ -1686,8 +1631,8 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/red{
-	dir = 8
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
 	},
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -1697,10 +1642,7 @@
 "oi" = (
 /obj/structure/table/diona,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/red,
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/gunmetal,
 /area/voidtamer/trader/temple)
 "oj" = (
@@ -1711,8 +1653,8 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/red{
-	dir = 8
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
 	},
 /turf/simulated/floor,
 /area/voidtamer/trader/engineering/starboard)
@@ -1765,7 +1707,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/red{
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
 /obj/structure/cable{
@@ -1788,7 +1730,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/yellow,
 /obj/random/dirt_75,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/red,
 /obj/structure/cable{
 	icon_state = "0-2"
 	},
@@ -1808,7 +1749,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/red{
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
 /obj/structure/cable{
@@ -1818,7 +1759,7 @@
 /area/voidtamer/trader/dock)
 "pb" = (
 /obj/random/dirt_75,
-/obj/machinery/atmospherics/pipe/simple/hidden/red{
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -1894,9 +1835,9 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/yellow,
 /obj/machinery/door/airlock/hatch,
-/obj/machinery/atmospherics/pipe/simple/hidden/red,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/door/firedoor/noid,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/dark,
 /area/voidtamer/trader/dock)
 "pO" = (
@@ -1955,7 +1896,7 @@
 	dir = 4
 	},
 /obj/random/dirt_75,
-/obj/machinery/atmospherics/pipe/simple/hidden/red{
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /turf/simulated/floor/diona,
@@ -1995,16 +1936,14 @@
 	dir = 4
 	},
 /obj/structure/reagent_dispensers/watertank,
-/obj/machinery/atmospherics/pipe/simple/hidden/red{
-	dir = 8
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/voidtamer/trader/mining_blaster)
 "qB" = (
 /obj/effect/floor_decal/industrial/outline/engineering,
 /obj/structure/closet/crate,
-/obj/item/storage/box/flares,
-/obj/item/storage/box/flares,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/voidtamer_trade_ship_shuttle)
 "qF" = (
@@ -2016,12 +1955,15 @@
 /area/shuttle/voidtamer_trade_ship_shuttle)
 "qG" = (
 /obj/random/dirt_75,
-/obj/machinery/atmospherics/pipe/simple/hidden/red{
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/structure/cable{
 	icon_state = "1-2";
 	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/voidtamer/trader/warehouse)
@@ -2095,7 +2037,7 @@
 	},
 /obj/random/dirt_75,
 /obj/effect/floor_decal/industrial/warning/dust/corner,
-/obj/machinery/atmospherics/pipe/simple/hidden/red{
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -2127,7 +2069,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/yellow,
 /obj/machinery/door/airlock/hatch,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/red,
 /obj/structure/cable{
 	icon_state = "1-2";
 	dir = 1
@@ -2136,12 +2077,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/voidtamer/trader/dock)
 "rQ" = (
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/random/dirt_75,
-/obj/machinery/atmospherics/pipe/simple/hidden/red,
 /turf/simulated/floor/tiled/dark,
 /area/voidtamer/trader/warehouse)
 "rY" = (
@@ -2150,11 +2088,6 @@
 	},
 /turf/simulated/floor/diona,
 /area/voidtamer/trader/kitchen)
-"rZ" = (
-/obj/structure/table/diona,
-/obj/item/device/flashlight/lantern/on,
-/turf/simulated/floor/tiled/gunmetal,
-/area/voidtamer/trader/temple)
 "sd" = (
 /obj/structure/bed/stool/chair/shuttle{
 	dir = 1
@@ -2165,12 +2098,13 @@
 "se" = (
 /obj/structure/diona/bulb,
 /obj/item/trash/sosjerky,
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/alarm/west{
 	req_one_access = null;
 	req_access = list(256)
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 6
 	},
 /turf/simulated/floor/diona,
 /area/voidtamer/trader/supermatter)
@@ -2191,13 +2125,11 @@
 /turf/simulated/floor/diona,
 /area/shuttle/voidtamer_trade_ship_shuttle)
 "sn" = (
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/red{
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 4
 	},
 /turf/simulated/floor/diona,
@@ -2214,11 +2146,8 @@
 /turf/simulated/floor/tiled/dark,
 /area/voidtamer/trader/warehouse)
 "sw" = (
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/red,
 /obj/structure/lattice,
 /turf/simulated/floor,
 /area/voidtamer/trader/crew)
@@ -2263,7 +2192,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/red{
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /turf/simulated/floor/diona,
@@ -2298,8 +2227,8 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/red{
-	dir = 8
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
 	},
 /turf/simulated/floor/diona,
 /area/voidtamer/trader/kitchen)
@@ -2360,7 +2289,7 @@
 	dir = 4;
 	name = "Airlock"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/red{
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/machinery/door/firedoor/noid{
@@ -2382,7 +2311,7 @@
 	dir = 4
 	},
 /obj/random/dirt_75,
-/obj/machinery/atmospherics/pipe/simple/hidden/red{
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /turf/simulated/floor/diona,
@@ -2396,7 +2325,6 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/red,
 /obj/structure/cable{
 	icon_state = "1-2";
 	dir = 1
@@ -2410,16 +2338,18 @@
 /turf/simulated/floor/tiled/dark,
 /area/voidtamer/trader/engineering/port)
 "tK" = (
-/obj/item/device/flashlight/survival,
-/obj/item/device/flashlight/survival,
 /obj/random/dirt_75,
-/obj/machinery/atmospherics/pipe/simple/hidden/red{
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/structure/table/rack/folding_table,
 /obj/structure/cable{
 	icon_state = "1-2";
 	dir = 8
+	},
+/obj/item/flashlight/survival,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/voidtamer/trader/warehouse)
@@ -2439,7 +2369,7 @@
 /obj/effect/floor_decal/industrial/warning/dust{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/red{
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 8
 	},
 /turf/simulated/floor,
@@ -2452,7 +2382,7 @@
 	pixel_y = 6
 	},
 /obj/random/dirt_75,
-/obj/machinery/atmospherics/pipe/simple/hidden/red{
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/structure/table/rack/folding_table,
@@ -2460,6 +2390,9 @@
 /obj/structure/cable{
 	icon_state = "1-2";
 	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/voidtamer/trader/warehouse)
@@ -2509,7 +2442,6 @@
 "uE" = (
 /obj/structure/table/rack,
 /obj/item/pickaxe/diamonddrill,
-/obj/item/device/gps,
 /obj/item/storage/belt/mining,
 /obj/item/material/knife/trench,
 /obj/item/gun/launcher/harpoon,
@@ -2518,8 +2450,9 @@
 /obj/item/material/harpoon,
 /obj/item/material/harpoon,
 /obj/item/material/harpoon,
-/obj/item/storage/box/flares,
-/obj/item/device/flashlight/lantern,
+/obj/item/flashlight/lantern,
+/obj/item/gps,
+/obj/item/flashlight/survival,
 /turf/simulated/floor/diona,
 /area/voidtamer/trader/mining)
 "uF" = (
@@ -2527,7 +2460,7 @@
 	icon_state = "4-8"
 	},
 /obj/random/dirt_75,
-/obj/machinery/atmospherics/pipe/simple/hidden/red{
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
 	},
 /turf/simulated/floor/tiled/dark,
@@ -2538,9 +2471,7 @@
 /turf/template_noop,
 /area/space)
 "uL" = (
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/random/dirt_75,
 /obj/machinery/light/voidtamer{
 	dir = 8
@@ -2652,22 +2583,6 @@
 "vP" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/structure/table/stone/marble,
-/obj/item/storage/box/produce{
-	pixel_x = 3;
-	pixel_y = 1
-	},
-/obj/item/storage/box/produce{
-	pixel_x = 3;
-	pixel_y = 1
-	},
-/obj/item/storage/box/produce{
-	pixel_x = 3;
-	pixel_y = 1
-	},
-/obj/item/storage/box/produce{
-	pixel_x = 3;
-	pixel_y = 1
-	},
 /obj/item/reagent_containers/food/condiment/enzyme{
 	pixel_x = -9;
 	pixel_y = 5
@@ -2680,7 +2595,6 @@
 "vS" = (
 /obj/random/dirt_75,
 /obj/structure/closet/crate,
-/obj/item/storage/box/monkeycubes,
 /turf/simulated/floor/diona,
 /area/voidtamer/trader/dock)
 "vU" = (
@@ -2709,7 +2623,7 @@
 /obj/structure/cable{
 	icon_state = "2-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/red{
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/random/dirt_75,
@@ -2862,9 +2776,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/voidtamer/trader/armory)
 "xp" = (
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/random/dirt_75,
 /turf/simulated/floor,
 /area/voidtamer/trader/crew)
@@ -2919,7 +2831,6 @@
 	},
 /obj/random/dirt_75,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/red,
 /obj/structure/cable{
 	icon_state = "1-2";
 	dir = 1
@@ -3006,12 +2917,10 @@
 /obj/structure/cable{
 	icon_state = "1-4"
 	},
-/obj/machinery/vending/vendors{
-	req_access = list(256)
-	},
 /obj/machinery/light/voidtamer{
 	dir = 8
 	},
+/obj/machinery/vending/engivend,
 /turf/simulated/floor/tiled/dark,
 /area/voidtamer/trader/mining_blaster)
 "zn" = (
@@ -3065,7 +2974,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/red{
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
 /obj/random/dirt_75,
@@ -3097,10 +3006,7 @@
 "Aa" = (
 /obj/structure/flora/tree/crystal,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/red,
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/grass/no_edge,
 /area/voidtamer/trader/temple)
 "Ab" = (
@@ -3135,8 +3041,8 @@
 	},
 /obj/structure/diona/bulb,
 /obj/random/dirt_75,
-/obj/machinery/atmospherics/pipe/simple/hidden/red{
-	dir = 8
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
 	},
 /turf/simulated/floor/diona,
 /area/voidtamer/trader/kitchen)
@@ -3152,18 +3058,10 @@
 /obj/machinery/appliance/cooker/stove,
 /turf/simulated/floor/tiled/white,
 /area/voidtamer/trader/kitchen)
-"AK" = (
-/obj/random/dirt_75,
-/obj/effect/floor_decal/industrial/warning/dust,
-/obj/machinery/atmospherics/unary/engine,
-/obj/machinery/atmospherics/unary/engine,
-/turf/simulated/floor,
-/area/shuttle/voidtamer_trade_ship_shuttle)
 "AT" = (
 /obj/structure/lattice,
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor,
 /area/voidtamer/trader/warehouse)
 "Ba" = (
@@ -3193,8 +3091,8 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/red{
-	dir = 8
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
 	},
 /obj/effect/decal/cleanable/floor_damage/random_tiled_broken,
 /obj/item/trash/plate,
@@ -3229,7 +3127,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/red{
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /turf/simulated/floor/diona,
@@ -3251,21 +3149,15 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/voidtamer_trade_ship_shuttle)
 "Bt" = (
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/random/dirt_75,
-/obj/machinery/atmospherics/pipe/simple/hidden/red,
 /turf/simulated/floor/diona,
 /area/voidtamer/trader/autocannon_gun)
 "Bu" = (
 /obj/effect/landmark/entry_point/fore,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/red,
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/door/airlock/diona{
 	req_access = list(256)
 	},
@@ -3335,7 +3227,6 @@
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
 /area/voidtamer/trader/crew)
 "Cu" = (
-/obj/item/device/flashlight/lamp/box,
 /obj/structure/table/rack/folding_table,
 /turf/simulated/floor/tiled/dark,
 /area/voidtamer/trader/crew)
@@ -3417,13 +3308,12 @@
 	name = "weapons closet'"
 	},
 /obj/item/gun/projectile/shotgun/pump/combat/sol,
-/obj/item/storage/box/shotgunshells,
-/obj/item/storage/box/stunshells,
-/obj/item/storage/box/stunshells,
 /obj/random/dirt_75,
 /obj/machinery/power/apc/critical/west{
 	req_access = list(256)
 	},
+/obj/item/storage/box/shells,
+/obj/item/storage/box/shells/stunshells,
 /turf/simulated/floor/tiled/dark,
 /area/voidtamer/trader/armory)
 "Df" = (
@@ -3499,8 +3389,8 @@
 	dir = 4
 	},
 /obj/random/dirt_75,
-/obj/machinery/atmospherics/pipe/simple/hidden/red{
-	dir = 8
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
 	},
 /obj/structure/trash_pile,
 /turf/simulated/floor/tiled/dark,
@@ -3576,7 +3466,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/red{
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
 /obj/structure/cable{
@@ -3602,11 +3492,8 @@
 /turf/simulated/floor/diona,
 /area/shuttle/voidtamer_trade_ship_shuttle)
 "Et" = (
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/red,
 /obj/random/dirt_75,
 /obj/effect/floor_decal/industrial/warning/dust{
 	dir = 8
@@ -3734,11 +3621,8 @@
 /turf/space/dynamic,
 /area/voidtamer/trader/exterior)
 "Fs" = (
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/red,
 /obj/machinery/door/airlock/diona{
 	req_access = list(256)
 	},
@@ -3801,9 +3685,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/voidtamer/trader/dock)
 "FW" = (
-/obj/item/storage/box/flares,
 /obj/random/dirt_75,
 /obj/structure/table/rack/folding_table,
+/obj/item/flashlight/lantern,
 /turf/simulated/floor/tiled/dark,
 /area/voidtamer/trader/warehouse)
 "Gb" = (
@@ -3811,13 +3695,13 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/red,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /obj/effect/floor_decal/industrial/warning/dust{
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/dark,
 /area/voidtamer/trader/dock)
 "Gf" = (
@@ -3875,7 +3759,7 @@
 /obj/structure/bed/stool/bar{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/red{
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
 /turf/simulated/floor/tiled/dark,
@@ -3905,12 +3789,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/voidtamer/trader/mining_blaster)
 "GL" = (
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/random/dirt_75,
-/obj/machinery/atmospherics/pipe/simple/hidden/red,
 /turf/simulated/floor/tiled/dark,
 /area/voidtamer/trader/mining_blaster)
 "GO" = (
@@ -3992,26 +3873,10 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/yellow,
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/voidtamer/trader/engineering/port)
-"Hx" = (
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/random/dirt_75,
-/obj/machinery/atmospherics/pipe/simple/hidden/red{
-	dir = 8
-	},
-/turf/simulated/floor/diona,
-/area/voidtamer/trader/warehouse)
 "Hz" = (
 /obj/structure/diona/bulb,
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/red,
 /obj/random/dirt_75,
 /obj/effect/floor_decal/industrial/warning/dust{
 	dir = 8
@@ -4047,9 +3912,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/voidtamer_trade_ship_shuttle)
 "HM" = (
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/door/airlock/diona,
 /obj/machinery/door/firedoor/noid,
@@ -4062,7 +3925,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/red{
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/machinery/embedded_controller/radio/simple_docking_controller{
@@ -4177,8 +4040,8 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/red{
-	dir = 8
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
 	},
 /obj/machinery/door/airlock/diona{
 	dir = 8
@@ -4197,7 +4060,7 @@
 	},
 /obj/random/dirt_75,
 /obj/random/dirt_75,
-/obj/machinery/atmospherics/pipe/simple/hidden/red{
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
 	},
 /turf/simulated/floor/diona,
@@ -4214,7 +4077,7 @@
 /obj/effect/floor_decal/industrial/warning/dust{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/red{
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -4245,7 +4108,6 @@
 /obj/structure/diona/bulb,
 /obj/structure/table/rack,
 /obj/item/pickaxe/diamonddrill,
-/obj/item/device/gps,
 /obj/item/storage/belt/mining,
 /obj/item/material/knife/trench,
 /obj/item/gun/launcher/harpoon,
@@ -4254,8 +4116,9 @@
 /obj/item/material/harpoon,
 /obj/item/material/harpoon,
 /obj/item/material/harpoon,
-/obj/item/storage/box/flares,
-/obj/item/device/flashlight/lantern,
+/obj/item/flashlight/lantern,
+/obj/item/gps,
+/obj/item/flashlight/survival,
 /turf/simulated/floor/diona,
 /area/voidtamer/trader/mining)
 "Jz" = (
@@ -4273,8 +4136,8 @@
 	dir = 8
 	},
 /obj/random/dirt_75,
-/obj/machinery/atmospherics/pipe/simple/hidden/red{
-	dir = 8
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
 	},
 /turf/simulated/floor/diona,
 /area/voidtamer/trader/warehouse)
@@ -4292,20 +4155,6 @@
 "JO" = (
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /obj/effect/floor_decal/industrial/outline/engineering,
-/obj/item/device/flashlight/lantern,
-/obj/item/device/flashlight/lantern,
-/obj/item/device/flashlight/lantern,
-/obj/item/device/flashlight/lantern,
-/obj/item/device/flashlight/lantern,
-/obj/item/device/flashlight/lantern,
-/obj/item/device/flashlight/lantern,
-/obj/item/device/flashlight/lantern,
-/obj/item/device/flashlight/heavy,
-/obj/item/device/flashlight/heavy,
-/obj/item/device/flashlight/heavy,
-/obj/item/device/flashlight/heavy,
-/obj/item/device/flashlight/heavy,
-/obj/item/device/flashlight/heavy,
 /obj/structure/closet/crate,
 /turf/simulated/floor/tiled/dark,
 /area/voidtamer/trader/warehouse)
@@ -4347,7 +4196,6 @@
 /obj/effect/floor_decal/industrial/outline/engineering,
 /obj/structure/closet/crate,
 /obj/item/pickaxe/diamonddrill,
-/obj/item/device/flashlight/lantern,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/voidtamer_trade_ship_shuttle)
 "Ke" = (
@@ -4357,7 +4205,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/red{
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /turf/simulated/floor/diona,
@@ -4380,8 +4228,8 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/red{
-	dir = 8
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
 	},
 /obj/structure/lattice,
 /turf/simulated/floor,
@@ -4457,11 +4305,8 @@
 /turf/simulated/floor/tiled/dark,
 /area/voidtamer/trader/warehouse)
 "Lk" = (
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/red,
 /obj/machinery/door/airlock/hatch,
 /obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled/dark,
@@ -4469,16 +4314,15 @@
 "Ll" = (
 /obj/structure/diona/bulb,
 /obj/random/dirt_75,
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/diona,
 /area/voidtamer/trader/warehouse)
 "Lm" = (
 /turf/simulated/wall/diona,
 /area/voidtamer/trader/armory)
 "Lr" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/red{
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
 /obj/random/dirt_75,
@@ -4496,8 +4340,8 @@
 	dir = 5
 	},
 /obj/structure/reagent_dispensers/watertank,
-/obj/machinery/atmospherics/pipe/simple/hidden/red{
-	dir = 8
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/voidtamer/trader/mining_blaster)
@@ -4509,8 +4353,8 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/red{
-	dir = 8
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/voidtamer/trader/engineering/starboard)
@@ -4525,8 +4369,8 @@
 /obj/structure/bed/stool/bar{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/red{
-	dir = 8
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/voidtamer/trader/kitchen)
@@ -4535,10 +4379,7 @@
 	icon_state = "1-4"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/red,
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/diona,
 /area/voidtamer/trader/temple)
 "LI" = (
@@ -4639,7 +4480,6 @@
 /obj/item/storage/firstaid/o2,
 /obj/item/storage/firstaid/large/adv,
 /obj/structure/closet/crate/medical,
-/obj/structure/closet/crate/medical,
 /obj/item/roller,
 /obj/item/roller,
 /obj/item/roller,
@@ -4652,8 +4492,8 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/red{
-	dir = 8
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
 	},
 /obj/structure/bed/roller/hover,
 /obj/effect/ghostspawpoint{
@@ -4668,8 +4508,8 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/red{
-	dir = 8
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
 	},
 /turf/simulated/floor,
 /area/voidtamer/trader/engineering/starboard)
@@ -4685,11 +4525,6 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/voidtamer/trader/engineering/starboard)
-"Nj" = (
-/obj/structure/table/diona,
-/obj/item/device/flashlight/lamp/box,
-/turf/simulated/floor/diona,
-/area/voidtamer/trader/dock)
 "Nt" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
 	dir = 1
@@ -4717,8 +4552,8 @@
 	},
 /obj/random/dirt_75,
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/red{
-	dir = 8
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/voidtamer/trader/engineering/starboard)
@@ -4740,11 +4575,11 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/red,
 /obj/random/dirt_75,
 /obj/effect/floor_decal/industrial/warning/dust{
 	dir = 8
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/dark,
 /area/voidtamer/trader/dock)
 "NK" = (
@@ -4752,11 +4587,8 @@
 /turf/template_noop,
 /area/space)
 "NM" = (
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/red,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
@@ -4776,7 +4608,7 @@
 /area/voidtamer/trader/temple)
 "NV" = (
 /obj/random/dirt_75,
-/obj/machinery/atmospherics/pipe/simple/hidden/red{
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -4840,11 +4672,8 @@
 /turf/simulated/floor,
 /area/voidtamer/trader/mining_blaster)
 "Oz" = (
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/red,
 /obj/structure/bed/stool/chair/folding{
 	dir = 4
 	},
@@ -4856,7 +4685,7 @@
 /turf/simulated/floor,
 /area/voidtamer/trader/mining_blaster)
 "OC" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/red{
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /turf/simulated/floor/diona,
@@ -4876,8 +4705,8 @@
 /obj/machinery/mining/brace{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/red{
-	dir = 8
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
 	},
 /obj/structure/cable{
 	icon_state = "1-2";
@@ -4970,11 +4799,8 @@
 /turf/simulated/floor/tiled/dark,
 /area/voidtamer/trader/crew)
 "Pv" = (
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/red,
 /mob/living/simple_animal/carp/baby,
 /turf/simulated/floor/tiled/dark,
 /area/voidtamer/trader/crew)
@@ -5007,11 +4833,11 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/red{
-	dir = 6
-	},
 /obj/structure/sign/flag/voidtamer{
 	pixel_y = 32
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6
 	},
 /turf/simulated/floor/tiled/dark,
 /area/voidtamer/trader/crew)
@@ -5026,11 +4852,11 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/red,
 /obj/random/dirt_75,
 /obj/effect/floor_decal/industrial/warning/dust{
 	dir = 8
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor,
 /area/voidtamer/trader/dock)
 "PM" = (
@@ -5162,7 +4988,6 @@
 "Rc" = (
 /obj/structure/table/rack,
 /obj/item/pickaxe/diamonddrill,
-/obj/item/device/gps,
 /obj/item/storage/belt/mining,
 /obj/item/material/knife/trench,
 /obj/item/gun/launcher/harpoon,
@@ -5171,9 +4996,10 @@
 /obj/item/material/harpoon,
 /obj/item/material/harpoon,
 /obj/item/material/harpoon,
-/obj/item/storage/box/flares,
-/obj/item/device/flashlight/lantern,
 /obj/structure/diona/bulb,
+/obj/item/flashlight/lantern,
+/obj/item/gps,
+/obj/item/flashlight/survival,
 /turf/simulated/floor/diona,
 /area/voidtamer/trader/mining)
 "Ri" = (
@@ -5198,7 +5024,7 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/red{
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
 /turf/simulated/floor/diona,
@@ -5208,11 +5034,8 @@
 /turf/simulated/floor,
 /area/voidtamer/trader/autocannon_gun)
 "Rp" = (
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/red,
 /obj/machinery/door/airlock/diona,
 /obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/diona,
@@ -5266,10 +5089,7 @@
 "Sc" = (
 /obj/effect/floor_decal/concrete/gutter/corner,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/red,
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/railing/mapped,
 /turf/simulated/floor/grass/no_edge,
 /area/voidtamer/trader/temple)
@@ -5322,9 +5142,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/voidtamer/trader/crew)
 "SW" = (
-/obj/structure/closet/secure_closet/kitchen_cabinet/standard{
-	req_access = list(201)
-	},
+/obj/structure/closet/secure_closet/kitchen_cabinet/standard,
 /obj/item/reagent_containers/food/snacks/meat,
 /obj/item/reagent_containers/food/snacks/meat,
 /obj/item/reagent_containers/food/snacks/meat,
@@ -5333,17 +5151,12 @@
 /obj/item/reagent_containers/food/snacks/meat,
 /obj/item/reagent_containers/food/snacks/meat,
 /obj/item/reagent_containers/food/snacks/meat,
-/obj/item/storage/box/produce{
-	pixel_x = 3;
-	pixel_y = -11
-	},
 /obj/item/storage/box/fancy/egg_box,
 /obj/item/storage/box/fancy/egg_box,
 /obj/item/reagent_containers/food/drinks/carton/milk,
 /obj/item/reagent_containers/food/drinks/carton/milk,
 /obj/item/reagent_containers/food/condiment/flour,
 /obj/item/reagent_containers/food/condiment/flour,
-/obj/item/storage/box/condiment,
 /obj/item/reagent_containers/food/drinks/carton/milk,
 /obj/item/reagent_containers/food/drinks/carton/soymilk,
 /obj/item/reagent_containers/food/drinks/carton/soymilk,
@@ -5362,8 +5175,8 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/red{
-	dir = 8
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
 	},
 /turf/simulated/floor,
 /area/voidtamer/trader/engineering/starboard)
@@ -5386,8 +5199,8 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/red{
-	dir = 8
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
 	},
 /mob/living/simple_animal/carp/baby,
 /turf/simulated/floor/tiled/dark,
@@ -5452,7 +5265,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
-/obj/machinery/atmospherics/pipe/simple/hidden/red,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/diona,
 /area/voidtamer/trader/kitchen)
 "Ux" = (
@@ -5484,7 +5297,6 @@
 /area/voidtamer/trader/mining)
 "Vi" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/red,
 /obj/structure/cable{
 	icon_state = "1-8"
 	},
@@ -5537,20 +5349,6 @@
 /area/voidtamer/trader/warehouse)
 "VH" = (
 /obj/effect/floor_decal/industrial/outline/engineering,
-/obj/item/device/flashlight/lantern,
-/obj/item/device/flashlight/lantern,
-/obj/item/device/flashlight/lantern,
-/obj/item/device/flashlight/lantern,
-/obj/item/device/flashlight/lantern,
-/obj/item/device/flashlight/lantern,
-/obj/item/device/flashlight/lantern,
-/obj/item/device/flashlight/lantern,
-/obj/item/device/flashlight/heavy,
-/obj/item/device/flashlight/heavy,
-/obj/item/device/flashlight/heavy,
-/obj/item/device/flashlight/heavy,
-/obj/item/device/flashlight/heavy,
-/obj/item/device/flashlight/heavy,
 /obj/structure/closet/crate,
 /obj/structure/diona/bulb,
 /turf/simulated/floor/diona,
@@ -5607,10 +5405,10 @@
 	dir = 4
 	},
 /obj/effect/map_effect/marker/large_tank{
-	master_tag = "coc_ship_co2_star";
-	name = "coc_ship_co2_star"
+	master_tag = "voidtamer_ship_co2_star";
+	name = "voidtamer_ship_co2_star"
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/reinforced/carbon_dioxide,
 /area/voidtamer/trader/engineering/port)
 "Wh" = (
 /obj/structure/closet{
@@ -5679,7 +5477,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/voidtamer_trade_ship_shuttle)
 "Wq" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/red{
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
 /obj/machinery/meter,
@@ -5697,14 +5495,11 @@
 /turf/simulated/floor/tiled/gunmetal,
 /area/voidtamer/trader/bridge)
 "Ws" = (
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 8
 	},
 /obj/random/dirt_75,
-/obj/machinery/atmospherics/pipe/manifold/hidden/red{
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 8
 	},
 /turf/simulated/floor/diona,
@@ -5719,7 +5514,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/red{
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
 /turf/simulated/floor/diona,
@@ -5759,8 +5554,8 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/red{
-	dir = 8
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
 	},
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -5794,7 +5589,6 @@
 /area/voidtamer/trader/dock)
 "WP" = (
 /obj/structure/table/diona,
-/obj/item/device/flashlight/lantern/on,
 /turf/simulated/floor/diona,
 /area/voidtamer/trader/temple)
 "WQ" = (
@@ -5812,7 +5606,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/red{
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
 /turf/simulated/floor,
@@ -5881,18 +5675,14 @@
 /turf/simulated/floor/tiled/dark,
 /area/voidtamer/trader/crew)
 "XE" = (
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
-	dir = 8
-	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/red{
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 4
 	},
 /obj/structure/cable{
 	icon_state = "1-8"
 	},
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
 /turf/simulated/floor/tiled/dark,
 /area/voidtamer/trader/warehouse)
 "XJ" = (
@@ -5916,9 +5706,8 @@
 	req_access = list(256)
 	},
 /obj/machinery/door/firedoor/noid,
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/diona,
 /area/voidtamer/trader/supermatter)
 "XV" = (
@@ -5942,10 +5731,7 @@
 	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/red,
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/grass/no_edge,
 /area/voidtamer/trader/temple)
 "Yc" = (
@@ -5972,18 +5758,15 @@
 /obj/structure/bed/stool/bar{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/red{
-	dir = 8
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
 	},
 /obj/effect/decal/cleanable/floor_damage/broken4,
 /turf/simulated/floor/tiled/dark,
 /area/voidtamer/trader/kitchen)
 "Yl" = (
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/red,
 /turf/simulated/floor/tiled/dark,
 /area/voidtamer/trader/crew)
 "Yr" = (
@@ -6003,7 +5786,7 @@
 	},
 /obj/random/dirt_75,
 /obj/random/dirt_75,
-/obj/machinery/atmospherics/pipe/simple/hidden/red{
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /turf/simulated/floor/diona,
@@ -6025,15 +5808,16 @@
 /area/shuttle/voidtamer_trade_ship_shuttle)
 "YD" = (
 /obj/random/dirt_75,
-/obj/machinery/atmospherics/pipe/simple/hidden/red{
-	dir = 5
-	},
 /obj/structure/bed/stool/chair/folding{
 	dir = 4
 	},
 /obj/structure/cable{
 	icon_state = "1-2";
 	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/voidtamer/trader/warehouse)
@@ -6090,11 +5874,8 @@
 /turf/simulated/floor/tiled/dark,
 /area/voidtamer/trader/crew)
 "Zp" = (
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/red,
 /turf/simulated/floor/diona,
 /area/voidtamer/trader/mining)
 "Zs" = (
@@ -6115,8 +5896,8 @@
 /obj/machinery/mining/brace{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/red{
-	dir = 8
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
 	},
 /obj/random/dirt_75,
 /obj/structure/cable{
@@ -6139,8 +5920,8 @@
 	dir = 5
 	},
 /obj/random/dirt_75,
-/obj/machinery/atmospherics/pipe/simple/hidden/red,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/dark,
 /area/voidtamer/trader/dock)
 "ZK" = (
@@ -6155,7 +5936,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/yellow,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
-/obj/machinery/atmospherics/pipe/simple/hidden/red{
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -6168,8 +5949,8 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/warning/dust,
-/obj/machinery/atmospherics/pipe/simple/hidden/red{
-	dir = 8
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
@@ -31737,7 +31518,7 @@ oj
 lj
 kq
 nW
-AK
+so
 QF
 TJ
 OM
@@ -31778,7 +31559,7 @@ Ff
 ZW
 Di
 ZK
-rZ
+ij
 CG
 OY
 CG
@@ -32540,7 +32321,7 @@ TB
 pk
 zD
 fc
-Hx
+qf
 RD
 Fn
 NS
@@ -32797,7 +32578,7 @@ tr
 pk
 LU
 ia
-fV
+tF
 YL
 rA
 NS
@@ -34575,7 +34356,7 @@ QB
 Fr
 YG
 tC
-Nj
+nf
 lx
 VH
 YG
