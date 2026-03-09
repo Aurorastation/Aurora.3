@@ -632,4 +632,4 @@
 /// Recharges from external lighting. Slower at recharging from external sources.
 #define POWER_SUPPLY_SOLAR 8
 
-
+#define WEATHER_COOLDOWN_TIME (5 SECONDS)

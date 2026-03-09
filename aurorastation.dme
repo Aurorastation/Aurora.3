@@ -203,6 +203,7 @@
 #include "code\__HELPERS\atoms.dm"
 #include "code\__HELPERS\data_structures.dm"
 #include "code\__HELPERS\dll_call.dm"
+#include "code\__HELPERS\duplicating.dm"
 #include "code\__HELPERS\emissives.dm"
 #include "code\__HELPERS\files.dm"
 #include "code\__HELPERS\functional.dm"

@@ -3,7 +3,7 @@
 
 	var/name  = "Unknown"	 // Contact name.
 	var/image/marker		 // Image overlay attached to the contact.
-	var/pinged = FALSE		 // Used to animate overmap effects.
+	var/pinged_until = 0     // Used to animate overmap effects.
 	var/list/images = list() // Our list of images to cast to users.
 	var/image/radar			 // Radar image for sonar esque effect
 
@@ -70,18 +70,15 @@
 				M.client.images |= images
 
 
-/datum/overmap_contact/proc/ping()
-	if(pinged)
+/datum/overmap_contact/proc/ping(time_delay = 0)
+	if(pinged_until > world.time)
 		return
-	pinged = TRUE
+	pinged_until = world.time + time_delay + 1 SECOND
 	effect.opacity = initial(effect.opacity)
 	show()
-	animate(marker, alpha=255, 0.5 SECOND, 1, LINEAR_EASING)
-	addtimer(CALLBACK(src, PROC_REF(unping)), 1 SECOND)
-
-/datum/overmap_contact/proc/unping()
-	animate(marker, alpha=75, 2 SECOND, 1, LINEAR_EASING)
-	pinged = FALSE
+	animate(marker, alpha=75, time_delay, 1, flags = ANIMATION_END_NOW)
+	animate(alpha=255, 1 SECOND, 1)
+	animate(alpha=75, 2 SECOND, 1)
 
 /datum/overmap_contact/Destroy()
 	if(owner)
