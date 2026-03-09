@@ -62,7 +62,7 @@
 
 /obj/structure/lift/button/Initialize(mapload, datum/turbolift/_lift)
 	. = ..()
-	AddComponent(TURF_HAND_COMPONENT)
+	AddComponent(/datum/component/turf_hand)
 
 /obj/structure/lift/button/Destroy()
 	if(floor && floor.ext_panel == src)
@@ -108,7 +108,7 @@
 
 /obj/structure/lift/panel/Initialize(mapload, datum/turbolift/_lift)
 	. = ..()
-	AddComponent(TURF_HAND_COMPONENT)
+	AddComponent(/datum/component/turf_hand)
 
 /obj/structure/lift/panel/attack_ghost(var/mob/user)
 	return ui_interact(user)

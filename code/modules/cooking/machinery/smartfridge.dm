@@ -22,6 +22,11 @@
 	var/machineselect = 0
 
 	var/list/accepted_items = list(/obj/item/reagent_containers/food/snacks/grown, /obj/item/seeds, /obj/item/mollusc)
+	/// List of items that the machine starts with upon spawn
+	var/list/initial_contents
+
+	/// Is this smartfridge going to have a glowing screen? (Drying Racks are not)
+	var/has_emissive = TRUE
 
 	var/cooling = 0 //Whether or not to vend products at the cooling temperature
 	var/heating = 0 //Whether or not to vend products at the heating temperature
@@ -42,6 +47,8 @@
 
 	var/datum/wires/smartfridge/wires = null
 	atmos_canpass = CANPASS_DENSITY
+
+	VAR_PRIVATE/static/list/base64_cache = list()
 
 /obj/machinery/smartfridge/secure
 	is_secure = 1
@@ -95,13 +102,22 @@
 	for(var/obj/item/reagent_containers/food/snacks/grown/g in contents)
 		item_quants[g.name]++
 	update_overlays()
+	update_static_data_for_all_viewers()
 
-/obj/machinery/smartfridge/Initialize()
+/obj/machinery/smartfridge/Initialize(mapload)
 	. = ..()
 	if(is_secure)
 		wires = new/datum/wires/smartfridge/secure(src)
 	else
 		wires = new(src)
+	if(islist(initial_contents))
+		for(var/obj/item/typekey as anything in initial_contents)
+			var/amount = initial_contents[typekey]
+			if(isnull(amount))
+				amount = 1
+			for(var/i in 1 to amount)
+				new typekey(src)
+				item_quants[typekey.name]++
 	update_icon()
 
 /obj/machinery/smartfridge/Destroy()
@@ -167,6 +183,12 @@
 						/obj/item/reagent_containers/hypospray/autoinjector,
 						/obj/item/personal_inhaler)
 
+//Variant of medical fridge, but with some starting gear
+/obj/machinery/smartfridge/secure/medbay/horizon
+	initial_contents = list(/obj/item/reagent_containers/glass/bottle/bicaridine = 1,
+						/obj/item/reagent_containers/glass/bottle/kelotane = 1,
+						/obj/item/reagent_containers/glass/bottle/dexalin = 1)
+
 /obj/machinery/smartfridge/secure/virology
 	name = "\improper Refrigerated Virus Storage"
 	desc = "A refrigerated storage unit for storing viral material."
@@ -210,6 +232,7 @@
 	icon_state = "drying_rack"
 	accepted_items = list(/obj/item/reagent_containers/food/snacks)
 	contents_path = null
+	has_emissive = FALSE
 
 /obj/machinery/smartfridge/drying_rack/accept_check(var/obj/item/O)
 	if(!..())
@@ -230,6 +253,10 @@
 		if(S.on_dry(src)) //Drying rack keeps the item but changes the name. This prevents pre-dried item lingering in the UI as vendable
 			item_quants[S.name]++
 			item_quants[old_name]--
+			if(item_quants[old_name] <= 0 || item_quants[S.name] == 1)
+				update_static_data_for_all_viewers()
+				if(item_quants[old_name] <= 0)
+					item_quants -= old_name
 	return
 
 /obj/machinery/smartfridge/drying_rack/update_overlays()
@@ -285,10 +312,12 @@
 	if(panel_open)
 		AddOverlays("[initial(icon_state)]-panel")
 	var/list/shown_contents = contents - component_parts
-	if(contents_path && shown_contents.len > 0)
-		var/contents_icon_state = change_display(shown_contents.len - 1)
+	if(contents_path && length(shown_contents) > 0)
+		var/contents_icon_state = change_display(length(shown_contents) - 1)
 		AddOverlays("[initial(icon_state)][contents_path][contents_icon_state]")
 	AddOverlays("[initial(icon_state)]-glass[(stat & BROKEN) ? "-broken" : ""]")
+	if(has_emissive && powered() && !(stat & BROKEN))
+		AddOverlays(emissive_appearance(icon, "[initial(icon_state)]-light-mask", src, alpha = src.alpha))
 
 /obj/machinery/smartfridge/proc/change_display(var/length)
 	var/tier = clamp((floor(length / display_tier_amt) + 1), 1, display_tiers)
@@ -360,25 +389,32 @@
 		user.remove_from_mob(attacking_item)
 		attacking_item.forceMove(src)
 		item_quants[attacking_item.name]++
+		if(item_quants[attacking_item.name] == 1)
+			update_static_data_for_all_viewers()
 		user.visible_message("<b>[user]</b> adds \a [attacking_item] to [src].", SPAN_NOTICE("You add [attacking_item] to [src]."))
 		update_overlays()
-		return
+		return TRUE
 
 	if(istype(attacking_item, /obj/item/storage))
 		var/obj/item/storage/P = attacking_item
 		var/plants_loaded = 0
+		var/update_static_data = FALSE
 		for(var/obj/G in P.contents)
 			if(accept_check(G))
 				if(length(contents) >= max_n_of_items)
 					break
 				P.remove_from_storage(G,src)
 				item_quants[G.name]++
+				if(item_quants[G.name] == 1)
+					update_static_data = TRUE
 				plants_loaded++
 		if(plants_loaded)
 			user.visible_message("<b>[user]</b> loads [src] with [P].", SPAN_NOTICE("You load [src] with [P]."))
 			if(length(P.contents) > 0)
 				to_chat(user, SPAN_NOTICE("Some items are refused."))
 			update_overlays()
+		if(update_static_data)
+			update_static_data_for_all_viewers()
 		return TRUE
 	to_chat(user, SPAN_NOTICE("[src] smartly refuses [attacking_item]."))
 	return TRUE
@@ -417,43 +453,55 @@
 /obj/machinery/smartfridge/ui_data(mob/user)
 	var/list/data = list()
 
-	data["contents"] = null
 	data["electrified"] = seconds_electrified > 0
 	data["shoot_inventory"] = shoot_inventory
 	data["locked"] = locked
 	data["secure"] = is_secure
 	data["sort_alphabetically"] = ui_sort_alphabetically
 
-	var/list/items = list()
-	for (var/i = 1 to length(item_quants))
+	var/list/stocks
+	for (var/i in 1 to length(item_quants))
 		var/K = item_quants[i]
 		var/count = item_quants[K]
 		if(count > 0)
+			LAZYADDASSOC(stocks, capitalize(K), count)
 
-			var/obj/item/item_used = null
-			for (var/obj/item/O in contents)
-				if(O.name == K)
-					item_used = O
-					break
+	data["stocks"] = stocks
 
-			var/icon/item_icon = null
-			if(item_used)
-				if(istype(item_used, /obj/item/seeds))
-					var/obj/item/seeds/S = item_used
-					item_icon = S.update_appearance(TRUE)
-				else
-					item_icon = new /icon(item_used.icon, item_used.icon_state)
+	return data
 
-			var/final_icon = null
-			if(item_icon)
-				final_icon = icon2base64(item_icon)
+/obj/machinery/smartfridge/ui_static_data(mob/user)
+	var/list/data = list()
+	data["contents"] = null
 
-			items.Add(list(list(
-				"display_name" = capitalize(K),
-				"vend" = i,
-				"quantity" = count,
-				"icon" = final_icon,
-			)))
+	var/list/items = list()
+	for (var/i = 1 to length(item_quants))
+		var/K = item_quants[i]
+		var/obj/item/item_used = null
+		for (var/obj/item/O in contents - component_parts)
+			if(O.name == K)
+				item_used = O
+				break
+
+		if(!item_used)
+			continue
+
+		var/final_icon = base64_cache["[K]_[item_used.type]_[item_used.icon_state]"]
+		if(!final_icon)
+			var/icon/item_icon
+			if(istype(item_used, /obj/item/seeds))
+				var/obj/item/seeds/S = item_used
+				item_icon = S.update_appearance(TRUE)
+			else
+				item_icon = getFlatIcon(item_used)
+			final_icon = icon2base64(item_icon)
+			base64_cache["[K]_[item_used.type]_[item_used.icon_state]"] = final_icon
+
+		items.Add(list(list(
+			"display_name" = capitalize(K),
+			"vend" = i,
+			"icon" = final_icon,
+		)))
 
 	if(length(items) > 0)
 		data["contents"] = items
@@ -498,6 +546,10 @@
 						update_overlays()
 						if(i <= 0)
 							break
+
+				if(item_quants[K] <= 0)
+					update_static_data_for_all_viewers()
+					item_quants -= K
 		if("switch_sort_alphabetically")
 			ui_sort_alphabetically = !ui_sort_alphabetically
 
@@ -511,6 +563,7 @@
 
 	for (var/O in item_quants)
 		if(item_quants[O] <= 0) //Try to use a record that actually has something to dump.
+			item_quants -= O
 			continue
 
 		item_quants[O]--
@@ -519,6 +572,10 @@
 				T.forceMove(loc)
 				throw_item = T
 				break
+
+		if(item_quants[O] <= 0)
+			update_static_data_for_all_viewers()
+			item_quants -= O
 		break
 	if(!throw_item)
 		return FALSE
@@ -545,6 +602,7 @@
 	icon = 'icons/obj/structure/urban/restaurant.dmi'
 	icon_state = "buffet"
 	contents_path = null
+	has_emissive = FALSE
 
 /obj/machinery/smartfridge/foodheater/buffet/Initialize()
 	. = ..()

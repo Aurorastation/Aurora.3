@@ -381,6 +381,10 @@
 		t = replacetext(t, "\[logo_pvpolice_small\]", "")
 		t = replacetext(t, "\[logo_outereyes\]", "")
 		t = replacetext(t, "\[logo_outereyes_small\]", "")
+		t = replacetext(t, "\[twinsuns\]", "")
+		t = replacetext(t, "\[twinsuns_small\]", "")
+		t = replacetext(t, "\[raskara_sigil\]", "")
+		t = replacetext(t, "\[raskara_sigil_small\]", "")
 		t = replacetext(t, "\[barcode\]", "")
 
 	if(istypewriter)

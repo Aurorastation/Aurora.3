@@ -36,7 +36,7 @@
 	update_icon()
 
 /obj/structure/cart/storage/parcelcart/Destroy()
-	QDEL_NULL(my_parcels)
+	QDEL_LIST(my_parcels)
 	return ..()
 
 /obj/structure/cart/storage/parcelcart/attackby(obj/item/attacking_item, mob/user)
