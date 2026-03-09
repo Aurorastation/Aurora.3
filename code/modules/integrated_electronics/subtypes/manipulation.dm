@@ -474,7 +474,7 @@
 	complexity = 20
 	inputs = list("relative X" = IC_PINTYPE_NUMBER, "relative Y" = IC_PINTYPE_NUMBER, "strength" = IC_PINTYPE_NUMBER, "lifespan" = IC_PINTYPE_NUMBER)
 	outputs = list("shields projected" = IC_PINTYPE_NUMBER)
-	activators = list("shield created" = IC_PINTYPE_PULSE_OUT, "shield capacity reached" = IC_PINTYPE_PULSE_OUT)
+	activators = list("create shield" = IC_PINTYPE_PULSE_IN, "shield created" = IC_PINTYPE_PULSE_OUT, "shield capacity reached" = IC_PINTYPE_PULSE_OUT)
 	spawn_flags = IC_SPAWN_RESEARCH
 	power_draw_per_use = 100
 	origin_tech = list(TECH_ENGINEERING = 4, TECH_MAGNET = 5)
