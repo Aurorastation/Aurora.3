@@ -486,7 +486,7 @@
 /// Verifies that all values are what they should be.
 /obj/machinery/portable_atmospherics/hydroponics/proc/check_level_sanity()
 	if(seed)
-		plant_health = max(0,min(GET_SEED_TRAIT(seed, TRAIT_ENDURANCE),health))
+		plant_health = max(0,min(GET_SEED_TRAIT(seed, TRAIT_ENDURANCE), plant_health))
 	else
 		plant_health = 0
 		dead = FALSE
