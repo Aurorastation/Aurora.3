@@ -29,7 +29,7 @@
 	weapons = "Unknown."
 	sizeclass = "Unknown.k"
 	shiptype = "Unknown."
-	vessel_mass = 5000
+	vessel_mass = 12000
 	max_speed = 1/(2 SECONDS)
 	fore_dir = SOUTH
 	vessel_size = SHIP_SIZE_SMALL
@@ -45,7 +45,7 @@
 	invisible_until_ghostrole_spawn = TRUE
 
 /obj/effect/overmap/visitable/ship/voidtamer_trade_ship/New()
-	designation = "[pick("Test", "Embrace of the Void")]"
+	designation = "[pick("Followers of the Voidic Call", "Embrace of the Void", "Choir of Endless Expanses)]"
 	..()
 
 /obj/effect/overmap/visitable/ship/voidtamer_trade_ship/get_skybox_representation()
@@ -86,7 +86,7 @@
 	shuttle = "Voidtamer Shuttle"
 	max_speed = 1/(3 SECONDS)
 	burn_delay = 2 SECONDS
-	vessel_mass = 3000 //very inefficient pod
+	vessel_mass = 4000
 	fore_dir = SOUTH
 	vessel_size = SHIP_SIZE_TINY
 
