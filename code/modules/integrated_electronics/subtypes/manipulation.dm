@@ -463,3 +463,74 @@
 
 	set_pin_data(IC_OUTPUT, 3, crystals.len) // set the bluespace crystals counter
 	..()
+
+/obj/item/integrated_circuit/manipulation/bubble_shield
+	name = "bubble shield circuit"
+	desc = "A large bubble shield generator circuit, like those found in atmospheric emergency shields... sans all the automated features."
+	extended_desc = "Receives relative coordinates to project a shield upon (must be within 3 tiles). Strength determines shield hitpoints (range: 10-50). Lifespan given in seconds (range: 2-60 secs). Can only sustain 3 shields."
+	icon_state = "power_transmitter"
+	w_class = WEIGHT_CLASS_TINY
+	size = 30 // needs a medium-sized assembly minimum
+	complexity = 20
+	inputs = list("relative X" = IC_PINTYPE_NUMBER, "relative Y" = IC_PINTYPE_NUMBER, "strength" = IC_PINTYPE_NUMBER, "lifespan" = IC_PINTYPE_NUMBER)
+	outputs = list("shields projected" = IC_PINTYPE_NUMBER)
+	activators = list("shield created" = IC_PINTYPE_PULSE_OUT, "shield capacity reached" = IC_PINTYPE_PULSE_OUT)
+	spawn_flags = IC_SPAWN_RESEARCH
+	power_draw_per_use = 100
+	origin_tech = list(TECH_ENGINEERING = 4, TECH_MAGNET = 5)
+
+	/// A list of shields deployed by this circuit for amount checks/shield deletions.
+	var/list/obj/machinery/shield/deployed_shields = list()
+
+/obj/item/integrated_circuit/manipulation/bubble_shield/proc/kill_shield(var/obj/machinery/shield/shield)
+	deployed_shields -= shield
+	qdel(shield)
+	set_pin_data(IC_OUTPUT, 1, deployed_shields.len)
+
+/obj/item/integrated_circuit/manipulation/bubble_shield/do_work()
+	if(!assembly)
+		return
+
+	var/strength = between(10, get_pin_data(IC_INPUT, 3), 50)
+	var/lifespan = between(2, get_pin_data(IC_INPUT, 4), 60)
+
+	// find target turf based on relative coordinates
+	var/target_relative_x = round(get_pin_data(IC_INPUT, 1))
+	var/target_relative_y = round(get_pin_data(IC_INPUT, 2))
+
+	var/turf/our_turf = get_turf(assembly)
+	var/target_x = our_turf.x + target_relative_x
+	var/target_y = our_turf.y + target_relative_y
+	if (target_x > world.maxx || target_x < 1 || target_y > world.maxy || target_y < 1)
+		return	// Off the edge of the map.
+
+	var/target_turf = locate(target_x, target_y, our_turf.z)
+
+	// create the shield
+	if(target_turf && (target_turf in view(3, our_turf))) // must be in view and within 3 tiles
+		if(locate(/obj/machinery/shield) in target_turf) // already got a shield
+			return
+
+		if(deployed_shields.len >= 3) // do not generate more than 3 shields
+			activate_pin(2)
+			return
+		//actually creating the shield
+		var/obj/machinery/shield/shield = new /obj/machinery/shield(target_turf)
+		shield.name = "bubble shield"
+		shield.health = strength
+		deployed_shields += shield
+		addtimer(CALLBACK(src, PROC_REF(kill_shield), shield), lifespan SECONDS, TIMER_DELETE_ME) // clean up after ourselves later
+		set_pin_data(IC_OUTPUT, 1, deployed_shields.len)
+		activate_pin(1)
+
+	// power stuff
+	if(deployed_shields)
+		power_draw_per_use = initial(power_draw_per_use)*(strength/10)*deployed_shields.len
+	else
+		power_draw_per_use = initial(power_draw_per_use)
+
+	..()
+
+/obj/item/integrated_circuit/manipulation/bubble_shield/power_fail()
+	for(var/obj/machinery/shield/shield in deployed_shields)
+		kill_shield(shield)
