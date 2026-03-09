@@ -99,3 +99,7 @@
       body temperature.
   fyni:
   - rscadd: Adds three new Domi house banners!
+2026-03-09:
+  MattAtlas:
+  - bugfix: Fixes admin announces sanitizing HTML, meaning that admins can terrorize
+      you with big red text once more.
