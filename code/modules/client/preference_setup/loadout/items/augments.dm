@@ -335,7 +335,7 @@
 	display_name = "ZHP-MSv3 Mind Blanker"
 	description = "An experimental cranial augmentation based on Galatean bio-engineering and now offered by Zeng-Hu Pharmaceuticals for select consumers. Also known as the Mindshield v3 or \"Mind Blanker\". " \
 		+ "It consists of a small, discrete organ attached near the base of the brainstem. The mind blanker generates interfering 'anti-signals' in response to incoming psychic signals, effectively blocking the user from being telepathically contacted. " \
-		+ "Zeng-Hu marketing pitches these radical bioaugs as a peace of mind solution for explorers traveling into the Lemurian sea, while ignoring or downplaying any concerns of possible deleterious side effects."
+		+ "Zeng-Hu marketing pitches these radical bioaugs as a peace of mind solution for explorers traveling into the Lemurian Sea, while ignoring or downplaying any concerns of possible deleterious side effects."
 	path = /obj/item/organ/internal/augment/bioaug/mind_blanker
 	whitelisted = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD, SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI, SPECIES_UNATHI)
 	cost = 2
