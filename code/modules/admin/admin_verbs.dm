@@ -243,7 +243,8 @@ GLOBAL_LIST_INIT(admin_verbs_debug, list(
 	/client/proc/profiler_start,
 	/datum/admins/proc/force_initialize_weather,
 	/datum/admins/proc/force_weather_state,
-	/datum/admins/proc/force_kill_weather
+	/datum/admins/proc/force_kill_weather,
+	/client/proc/check_timer_sources
 	))
 
 GLOBAL_LIST_INIT(admin_verbs_paranoid_debug, list(

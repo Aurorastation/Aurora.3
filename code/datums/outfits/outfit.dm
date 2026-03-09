@@ -633,6 +633,8 @@
 		H.gloves.add_fingerprint(H, 1)
 	if(H.wrists)
 		H.wrists.add_fingerprint(H, 1)
+	if(H.pants)
+		H.pants.add_fingerprint(H, 1)
 	if(H.l_ear)
 		H.l_ear.add_fingerprint(H, 1)
 	if(H.r_ear)

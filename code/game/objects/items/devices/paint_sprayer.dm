@@ -8,7 +8,8 @@
 	desc = "A Hephaestus-made paint gun that uses microbes to replenish its paint storage. Very high-tech and fancy too!"
 	icon = 'icons/obj/item/paint_sprayer.dmi'
 	icon_state = "paint_sprayer"
-	item_state = "mister"
+	item_state = "paint_sprayer"
+	contained_sprite = TRUE
 	var/decal =        "remove all decals"
 	var/paint_dir =    "precise"
 	var/paint_colour = COLOR_WHITE
@@ -79,9 +80,58 @@
 		"bulkhead black" = COLOR_WALL_GUNMETAL
 		)
 
+	var/list/locker_paint_schemes = list(
+		"Fire Control" = "fire",
+		"Emergency O2" = "emergency",
+		"Medical" = "med",
+		"Ops (Mining)" = "miner",
+		"Ops (Hangar Tech)" = "hangar_tech",
+		"Ops (Machinist)" = "machinist",
+		"Hazmat" = "hazmat",
+		"Hazmat (Custodial)" = "hazmat_custodial",
+		"Engi (Tool)" = "eng_tool",
+		"Engi (Rad)" = "eng_rad",
+		"Engi (Elec)" = "eng_elec",
+		"Engi (Weld)" = "eng_weld",
+		"Engi (L2)" = "eng_l2",
+		"Atmos" = "atmos",
+		"Security" = "sec",
+		"Hydroponics" = "hydro"
+	)
+
+	var/list/crate_paint_schemes = list(
+		"Fire Control" = "fire",
+		"Emergency O2" = "o2_crate",
+		"Medical" = "medical_crate",
+		"Science" = "science_crate",
+		"Engi (Tool)" = "eng_tool",
+		"Engi (Rad)" = "eng_rad",
+		"Engi (Elec)" = "eng_elec",
+		"Engi (Weld)" = "eng_weld",
+		"Engi (L2)" = "eng_l2",
+		"Security" = "security_crate",
+		"Contraband Stripes" = "secgear_crate",
+		"Hydroponics" = "hydro_crate"
+	)
+
+	/// Pipe painting modes
+	var/list/modes
+	var/mode
+
+
+/// Initialize available pipe color modes.
+/obj/item/paint_sprayer/New()
+	..()
+	modes = new()
+	for(var/C in GLOB.pipe_colors)
+		modes += "[C]"
+	mode = pick(modes)
+
 /obj/item/paint_sprayer/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()
-	. += "CTRL-click a turf with the paint sprayer to copy the color(s) used on it."
+	. += "Use a paint sprayer on yourself to configure it."
+	. += "Paint sprayers can be used on the following targets: floors, airlocks, exosuit frames and components, beds, atmos pipes, and (plain grey) lockers/crates."
+	. += "CTRL-click a turf or airlock with the paint sprayer to copy the color(s) used on it."
 	. += "SHIFT-click a turf with the paint sprayer to clear all decals from it."
 
 /obj/item/paint_sprayer/feedback_hints(mob/user, distance, is_adjacent)
@@ -126,8 +176,24 @@
 	else if (istype(A, /turf/simulated/floor))
 		return paint_floor(A, user, params)
 
+	else if (istype(A, /obj/structure/closet/crate))
+		return paint_crate(A, user, params)
+
+	else if (istype(A, /obj/structure/closet))
+		return paint_locker(A, user, params)
+
+	else if(istype(A,/obj/machinery/atmospherics/pipe))
+		var/obj/machinery/atmospherics/pipe/P = A
+		P.change_color(GLOB.pipe_colors[mode])
+		playsound(get_turf(src), 'sound/effects/spray3.ogg', 30, 1, -6)
+
+	else if(istype(A, /obj/item/pipe) && pipe_color_check(GLOB.pipe_colors[mode]))
+		var/obj/item/pipe/P = A
+		P.color = GLOB.pipe_colors[mode]
+		playsound(get_turf(src), 'sound/effects/spray3.ogg', 30, 1, -6)
+
 /obj/item/paint_sprayer/proc/paint_floor(turf/simulated/floor/F, mob/user, params)
-	if(!F.flooring.can_paint)
+	if(!F.flooring?.can_paint)
 		to_chat(user, SPAN_WARNING("\The [src] cannot paint this type of flooring."))
 		return
 
@@ -185,20 +251,22 @@
 	new painting_decal(F, painting_dir, painting_colour)
 
 /obj/item/paint_sprayer/attack_self(var/mob/user)
-	var/choice = tgui_alert(user, "Do you wish to change the decal type, paint direction, or paint colour?", "Paint Sprayer", list("Decal","Direction", "Colour"))
+	var/choice = tgui_input_list(user, "Do you wish to change: decal type, paint direction, paint colour (for turfs), or pipe colour mode?", "Paint Sprayer", list("Decal","Direction","Colour","Pipe Colour"), 30 SECONDS)
 	if(choice == "Decal")
 		choose_decal()
 	else if(choice == "Direction")
 		choose_direction()
 	else if(choice == "Colour")
 		choose_colour()
+	else if(choice == "Pipe Colour")
+		choose_pipe_colour()
 
 /obj/item/paint_sprayer/proc/change_colour(new_colour, mob/user)
 	if (new_colour)
 		paint_colour = new_colour
 		if (user)
 			add_fingerprint(user)
-			to_chat(user, SPAN_NOTICE("You set \the [src] to paint with <span style='color:[paint_colour]'>a new color</span>."))
+			to_chat(user, SPAN_NOTICE("You set \the [src] to paint with <span style='color:[paint_colour]'>a new colour</span>."))
 		update_icon()
 		playsound(src, 'sound/weapons/blade_open.ogg', 30, 1)
 		return TRUE
@@ -365,5 +433,68 @@
 		paint_dir = new_dir
 		to_chat(usr, SPAN_NOTICE("You set \the [src] direction to '[paint_dir]'."))
 
+/obj/item/paint_sprayer/verb/choose_pipe_colour(var/mob/user)
+	mode = tgui_input_list(user, "Choose a colour.", "Pipe Painter", modes, mode)
+
+/obj/item/paint_sprayer/proc/paint_locker(obj/structure/closet/target_closet, mob/user, input_text)
+	if(!target_closet.can_label)
+		to_chat(user, SPAN_NOTICE("This container has already been painted."))
+		return FALSE
+	var/paint_job = tgui_input_list(usr, "Choose locker paint scheme.", "Paint Sprayer", locker_paint_schemes)
+	if(paint_job)
+		var/new_icon_state = locker_paint_schemes[paint_job]
+		target_closet.paint_container(new_icon_state)
+		playsound(get_turf(src), 'sound/effects/spray3.ogg', 30, 1, -6)
+	return TRUE
+
+/obj/item/paint_sprayer/proc/paint_crate(obj/structure/closet/crate/target_crate, mob/user, input_text)
+	if(!target_crate.can_label)
+		to_chat(user, SPAN_NOTICE("This container has already been painted."))
+		return FALSE
+	var/paint_job = tgui_input_list(usr, "Choose crate paint scheme.", "Paint Sprayer", crate_paint_schemes)
+	if(paint_job)
+		var/new_icon_state = crate_paint_schemes[paint_job]
+		target_crate.paint_container(new_icon_state)
+		playsound(get_turf(src), 'sound/effects/spray3.ogg', 30, 1, -6)
+	. = TRUE
+
 #undef AIRLOCK_REGION_PAINT
 #undef AIRLOCK_REGION_STRIPE
+
+
+// Pipe painter still exists but only as offsite flavor.
+/obj/item/pipe_painter
+	name = "pipe painter"
+	icon = 'icons/obj/item/paint_sprayer.dmi'
+	icon_state = "pipe_painter"
+	item_state = "pipe_painter"
+	var/list/modes
+	var/mode
+
+/obj/item/pipe_painter/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. +=  "It is in [mode] mode."
+
+/obj/item/pipe_painter/New()
+	..()
+	modes = new()
+	for(var/C in GLOB.pipe_colors)
+		modes += "[C]"
+	mode = pick(modes)
+
+/obj/item/pipe_painter/afterattack(var/atom/A, var/mob/user, proximity)
+	if(!proximity)
+		return
+	if(!in_range(user, A))
+		return
+	else if(is_type_in_list(A, list(/obj/machinery/atmospherics/pipe/tank, /obj/machinery/atmospherics/pipe/simple/heat_exchanging)))
+		return
+	else if(istype(A,/obj/machinery/atmospherics/pipe))
+		var/obj/machinery/atmospherics/pipe/P = A
+		P.change_color(GLOB.pipe_colors[mode])
+	else if(istype(A, /obj/item/pipe) && pipe_color_check(GLOB.pipe_colors[mode]))
+		var/obj/item/pipe/P = A
+		P.color = GLOB.pipe_colors[mode]
+
+/obj/item/pipe_painter/attack_self(var/mob/user)
+	mode = tgui_input_list(user, "Which colour do you want to use?", "Pipe Painter", modes, mode)

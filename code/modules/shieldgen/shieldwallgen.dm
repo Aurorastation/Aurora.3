@@ -85,7 +85,8 @@
 		return FALSE
 
 	var/shieldload = between(500, max_stored_power - storedpower, (power_draw*seconds_per_tick))	//what we try to draw
-	shieldload = PN.draw_power(shieldload) //what we actually get
+	shieldload = POWERNET_POWER_DRAW(PN, shieldload) //what we actually get
+	DRAW_FROM_POWERNET(PN, shieldload)
 	storedpower += shieldload
 
 	//If we're still in the red, then there must not be enough available power to cover our load.

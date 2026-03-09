@@ -56,7 +56,7 @@ Pipelines + Other Objects -> Pipe network
 	atmos_init()
 
 /obj/machinery/atmospherics/attackby(obj/item/attacking_item, mob/user)
-	if(istype(attacking_item, /obj/item/pipe_painter))
+	if(istype(attacking_item, /obj/item/paint_sprayer))
 		return FALSE
 	..()
 

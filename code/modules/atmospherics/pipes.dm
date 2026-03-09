@@ -95,7 +95,7 @@
 	if (istype(src, /obj/machinery/atmospherics/pipe/tank))
 		return ..()
 
-	if(istype(attacking_item,/obj/item/pipe_painter))
+	if(istype(attacking_item,/obj/item/paint_sprayer))
 		return FALSE
 
 	if(istype(attacking_item, /obj/item/analyzer) && Adjacent(user))
@@ -112,7 +112,7 @@
 	var/datum/gas_mixture/int_air = return_air()
 	if(!loc) return FALSE
 	var/datum/gas_mixture/env_air = loc.return_air()
-	if ((int_air.return_pressure()-env_air.return_pressure()) > PRESSURE_EXERTED)
+	if ((XGM_PRESSURE(int_air)-XGM_PRESSURE(env_air)) > PRESSURE_EXERTED)
 		if(!istype(attacking_item, /obj/item/pipewrench))
 			to_chat(user, SPAN_WARNING("You cannot unwrench \the [src], it is too exerted due to internal pressure."))
 			add_fingerprint(user)
@@ -236,7 +236,7 @@
 	if(!loc) return
 	var/datum/gas_mixture/environment = loc.return_air()
 
-	var/pressure_difference = pressure - environment.return_pressure()
+	var/pressure_difference = pressure - XGM_PRESSURE(environment)
 
 	if(pressure_difference > maximum_pressure)
 		burst()
@@ -1303,7 +1303,7 @@
 	return null
 
 /obj/machinery/atmospherics/pipe/tank/attackby(obj/item/attacking_item, mob/user)
-	if(istype(attacking_item, /obj/item/pipe_painter))
+	if(istype(attacking_item, /obj/item/paint_sprayer))
 		return FALSE
 
 	if(istype(attacking_item, /obj/item/analyzer) && in_range(user, src))
