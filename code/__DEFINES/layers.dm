@@ -265,3 +265,9 @@
 	pixel_x = default_pixel_x
 	pixel_y = default_pixel_y
 	pixel_z = default_pixel_z
+
+/image/proc/reset_offsets()
+	pixel_w = 0
+	pixel_x = 0
+	pixel_y = 0
+	pixel_z = 0

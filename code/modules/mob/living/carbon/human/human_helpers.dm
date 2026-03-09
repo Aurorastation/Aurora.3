@@ -218,7 +218,7 @@
 	addtimer(CALLBACK(psi, TYPE_PROC_REF(/datum/psi_complexus, check_psionic_trigger), 100, source, TRUE), 4.5 SECONDS)
 
 /mob/living/carbon/human/get_resist_power()
-	return species.resist_mod
+	return species.mob_strength + species.mob_weight
 
 // Handle cases where the mob's awareness may reside in another mob, but still cares about how its brain is doing
 /mob/living/carbon/human/proc/find_mob_consciousness()

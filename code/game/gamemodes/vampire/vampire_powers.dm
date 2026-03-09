@@ -1015,7 +1015,7 @@
 
 	visible_message(SPAN_WARNING("<b>[src]</b> seizes [T] aggressively!"))
 
-	make_grab(T, /singleton/grab/normal/aggressive, TRUE, TRUE)
+	make_grab(T, /singleton/grab/normal/aggressive, TRUE)
 
 	remove_verb(src, /mob/living/carbon/human/proc/grapple)
 	ADD_VERB_IN_IF(src, 800, /mob/living/carbon/human/proc/grapple, CALLBACK(src, PROC_REF(finish_vamp_timeout), VAMP_FRENZIED))

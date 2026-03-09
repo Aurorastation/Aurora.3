@@ -27,7 +27,7 @@
 	add_to_streak("G",D)
 	if(check_streak(A,D))
 		return 1
-	A.make_grab(D, /singleton/grab/normal/aggressive, FALSE, prob(50))
+	A.make_grab(D, prob(50) ? /singleton/grab/normal/aggressive : null, FALSE)
 	return 1
 
 /datum/martial_art/kis_khan/harm_act(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)

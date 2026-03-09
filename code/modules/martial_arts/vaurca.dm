@@ -55,7 +55,7 @@
 	return 1
 
 /datum/martial_art/vkutet/proc/swift_bite(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)
-	var/obj/item/grab/G = A.make_grab(D, /singleton/grab/normal/aggressive, FALSE, TRUE)
+	var/obj/item/grab/G = A.make_grab(D, /singleton/grab/normal/aggressive, FALSE)
 	if(isvaurca(A))
 		A.bugbite(TRUE)
 		qdel(G)
@@ -64,7 +64,7 @@
 /datum/martial_art/vkutet/proc/crushing_jaws(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)
 	if(!isvaurca(A))
 		return 0
-	var/obj/item/grab/G = A.make_grab(D, /singleton/grab/normal/aggressive, FALSE, TRUE)
+	var/obj/item/grab/G = A.make_grab(D, /singleton/grab/normal/aggressive, FALSE)
 	if(G && !QDELETED(G))
 		A.visible_message(SPAN_WARNING("[A] crushes [D] with its mandibles!"))
 		D.apply_damage(30, DAMAGE_BRUTE)

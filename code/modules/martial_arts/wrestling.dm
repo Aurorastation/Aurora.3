@@ -9,7 +9,7 @@
 
 /datum/martial_art/wrestling/harm_act(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)
 	var/clinch = prob(50)
-	var/obj/item/grab/G = A.make_grab(D, /singleton/grab/normal/aggressive, FALSE, clinch)
+	var/obj/item/grab/G = A.make_grab(D, clinch ? /singleton/grab/normal/aggressive : null, FALSE)
 	if(G && clinch)
 		D.visible_message(SPAN_DANGER("[A] has [D] in a clinch!"))
 	else
@@ -41,7 +41,7 @@
 	return TRUE
 
 /datum/martial_art/wrestling/grab_act(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)
-	A.make_grab(D, /singleton/grab/normal/aggressive, FALSE, TRUE)
+	A.make_grab(D, /singleton/grab/normal/aggressive, FALSE)
 	D.visible_message(SPAN_DANGER("[A] holds [D] down!"))
 	var/obj/item/organ/external/affecting = D.get_organ(ran_zone(D, A.zone_sel.selecting))
 	affecting.jointlock(A, 40)

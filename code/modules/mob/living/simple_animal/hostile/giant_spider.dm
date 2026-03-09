@@ -33,7 +33,6 @@
 	melee_damage_lower = 15
 	melee_damage_upper = 20
 	armor_penetration = 10
-	resist_mod = 1.5
 	heat_damage_per_tick = 20
 	cold_damage_per_tick = 20
 	var/venom_per_bite = 5

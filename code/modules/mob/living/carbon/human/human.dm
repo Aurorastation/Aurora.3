@@ -601,7 +601,7 @@
 /mob/living/carbon/human/Topic(href, href_list)
 	if (href_list["refresh"])
 		if((machine)&&(in_range(src, usr)))
-			show_inv(machine)
+			astype(machine, /mob).show_inv(usr)
 
 	if (href_list["mach_close"])
 		var/t1 = "window=[href_list["mach_close"]]"

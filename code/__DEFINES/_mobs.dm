@@ -641,4 +641,14 @@
 /// Recharges from external lighting. Slower at recharging from external sources.
 #define POWER_SUPPLY_SOLAR 8
 
+/// Returns the number of size categories between two mob_sizes, rounded. Positive: A > B
+#define MOB_SIZE_DIFF(A, B) (round(log(2, A.mob_size - B.mob_size), 1))
 
+// Resist mods for mobs
+#define RESIST_WEAK 1
+#define RESIST_NORM 2
+#define RESIST_STRONG 3
+#define RESIST_STRONGER 4
+#define RESIST_VERY_STRONG 5
+#define RESIST_EXTREMELY_STRONG 6
+#define RESIST_OVERWHELMING 7

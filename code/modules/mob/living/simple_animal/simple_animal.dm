@@ -127,8 +127,6 @@
 	var/environment_smash = 0
 	/// Damage reduction
 	var/resistance = 0
-	/// A multiplier for the chance the animal has to break out
-	var/resist_mod = 1
 
 	//Null rod stuff
 	var/supernatural = 0
@@ -1064,10 +1062,6 @@
 		AddOverlays(upper_fire_emissive)
 		AddOverlays(lower_fire_overlay)
 		AddOverlays(lower_fire_emissive)
-
-
-/mob/living/simple_animal/get_resist_power()
-	return resist_mod
 
 
 /mob/living/simple_animal/get_gibs_type()

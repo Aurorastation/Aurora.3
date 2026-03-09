@@ -17,8 +17,6 @@
 	bleed_mod = 1.5
 	burn_mod = 1.0
 	grab_mod = 1.25
-	resist_mod = 2.5 //Most are weaker then a Unathi, but have an evolutionary disposition towards close-combat.
-
 	mob_size = 10 //fairly lighter than the worker type.
 	taste_sensitivity = TASTE_DULL
 	blurb = "Type BA, a sub-type of the generic Type B Warriors, are the second most prominent type of Vaurca society, taking the form of hive security and military grunts. \
@@ -82,7 +80,6 @@
 	sprint_speed_factor = 0.6
 	sprint_cost_factor = 0.40
 	grab_mod = 1.1
-	resist_mod = 4
 	standing_jump_range = 3
 	pain_mod = 1.5
 
@@ -371,7 +368,6 @@
 	toxins_mod = 3
 
 	grab_mod = 0.5 //very big, very easy to grab
-	resist_mod = 14 //also very strong
 
 	mob_size = 28
 	mob_weight = MOB_WEIGHT_SUPERHEAVY

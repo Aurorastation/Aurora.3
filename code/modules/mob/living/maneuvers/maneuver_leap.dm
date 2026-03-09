@@ -78,7 +78,7 @@
 	. = ..()
 	var/atom/movable/AM = target
 	if(istype(AM))
-		AM.try_make_grab(user, TRUE)
+		AM.try_make_grab(user, defer_hand = TRUE)
 
 /singleton/maneuver/leap/industrial
 	cooldown = 8 SECONDS

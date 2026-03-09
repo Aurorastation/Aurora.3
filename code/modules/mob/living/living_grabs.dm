@@ -35,7 +35,10 @@
 				return FALSE
 	return TRUE
 
-/mob/living/proc/make_grab(atom/movable/target, grab_tag = /singleton/grab/simple, defer_hand = FALSE, force_grab_tag = FALSE)
+/mob/try_make_grab(mob/living/user, grab_tag = /singleton/grab/normal/passive, defer_hand = FALSE)
+	return ..(user, /singleton/grab/normal/passive, FALSE)
+
+/mob/living/proc/make_grab(atom/movable/target, grab_tag = null, defer_hand = FALSE)
 	var/atom/movable/original_target = target
 	var/mob/grabbing_mob = (ismob(target) && target)
 	while(istype(grabbing_mob) && grabbing_mob.buckled_to)
@@ -47,7 +50,7 @@
 	if(!istype(target))
 		return
 
-	if(!force_grab_tag && ismob(target))
+	if(!grab_tag && ismob(target))
 		var/datum/species/my_species = get_species(TRUE)
 		if(istype(my_species) && my_species.grab_type)
 			grab_tag = my_species.grab_type
@@ -86,4 +89,4 @@
 		execute_resist()
 
 /mob/living/give_control_grab(mob/living/M)
-	return(isliving(M) && M == buckled) ? M.make_grab(src, /singleton/grab/simple/control, force_grab_tag = TRUE) : ..()
+	return(isliving(M) && M == buckled) ? M.make_grab(src, /singleton/grab/simple/control) : ..()

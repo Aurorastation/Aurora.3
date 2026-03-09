@@ -6,6 +6,8 @@
 
 	action_cooldown = 0
 
+	grab_color = "#CCCCCC"
+	grab_text_state = null
 	action_verb = "pulling"
 
 /singleton/grab/simple/hit_with_grab(obj/item/grab/G, atom/A, P)

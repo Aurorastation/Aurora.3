@@ -84,17 +84,24 @@
 	icon = 'icons/mob/screen/grab_spin.dmi'
 	icon_state = "grab_spin.1"
 	duration = 9
-	var/static/list/delay = list(5,5,5,5,5,5,5,5,1)
+	var/static/list/base_delay = list(5,5,5,5,5,5,5,5,1)
+	var/list/delay
 	randomdir = FALSE
 	var/base_icon_state = "grab_spin"
 
-/obj/effect/overlay/temp/grab_special_animation/Initialize(mapload, anim_id = "random_default_anti_collision_text")
+/obj/effect/overlay/temp/grab_special_animation/Initialize(mapload, delay_mult = 1, anim_id = "random_default_anti_collision_text")
 	. = ..()
 	deltimer(timerid)
-	if(duration != length(delay))
-		stack_trace("Duration (# of frames) [duration] does not match delay list length [length(delay)] in [src]!")
+	if(duration != length(base_delay))
+		stack_trace("Duration (# of frames) [duration] does not match delay list length [length(base_delay)] in [src]!")
 		return INITIALIZE_HINT_QDEL
 	render_target = "*[base_icon_state]-[anim_id]"
+	delay = base_delay.Copy(1, length(delay))
+	// animate time needs to be in whole deciseconds, so we try to correct as close as we can based on our delay_mult
+	if(delay_mult != 1)
+		MODULATE_LIST(delay, delay_mult)
+		delay = error_correct_round(delay)
+	delay.Add(1)
 
 /obj/effect/overlay/temp/grab_special_animation/proc/do_animate()
 	for(var/i in 2 to duration)

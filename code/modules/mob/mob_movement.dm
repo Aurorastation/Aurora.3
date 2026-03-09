@@ -308,8 +308,9 @@
 		else
 			. = mob.SelfMove(new_loc, direct)
 
-		var/grab_glide_size = mob.recalculate_glide_size(old_move_delay, move_delay, direct)
-		mob.handle_grabs_after_move(old_loc, direct, grab_glide_size)
+		if(mob.loc != old_loc) // don't bother handling grabs if we didn't actually move
+			var/grab_glide_size = mob.recalculate_glide_size(old_move_delay, move_delay, direct)
+			mob.handle_grabs_after_move(old_loc, direct, grab_glide_size)
 
 		moving = FALSE
 

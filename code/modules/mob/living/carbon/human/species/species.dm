@@ -156,10 +156,8 @@
 	var/flash_mod =     1
 	/// Fall damage modifier, further modified by brute damage modifier
 	var/fall_mod =      1
-	/// How easy it is to grab the species. Higher is harder to grab.
+	/// How easily this species is grabbed. Multiplied against grab upgrade cooldown.
 	var/grab_mod =      1
-	/// How easy it is for the species to resist out of a grab.
-	var/resist_mod =    1
 	/// Reagent metabolism modifier
 	var/metabolism_mod = 1
 	/// How fast this species bleeds.

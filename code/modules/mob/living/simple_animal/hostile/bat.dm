@@ -22,7 +22,7 @@
 	harm_intent_damage = 8
 	melee_damage_lower = 10
 	melee_damage_upper = 10
-	resist_mod = 10 // can't grab a cloud of bats easily
+	// todo: find a way to represent this being effectively ungrabbable
 	attacktext = "bites"
 	attack_sound = 'sound/weapons/bite.ogg'
 

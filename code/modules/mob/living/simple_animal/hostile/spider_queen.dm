@@ -28,7 +28,8 @@
 	melee_damage_upper = 40
 	melee_reach = 2
 	armor_penetration = 30
-	resist_mod = 15 // LOL good luck pal
+	mob_weight = MOB_WEIGHT_HEAVY
+	mob_strength = MOB_STRENGTH_STRONG
 	heat_damage_per_tick = 20
 	cold_damage_per_tick = 20
 	faction = "spiders"

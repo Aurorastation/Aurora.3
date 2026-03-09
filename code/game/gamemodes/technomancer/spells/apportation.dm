@@ -66,7 +66,7 @@
 	L.Weaken(3)
 	user.visible_message(SPAN_WARNING("<b>\The [user]</b> seizes [L]!"))
 
-	living_user.make_grab(L, TRUE)
+	living_user.make_grab(L, defer_hand = TRUE)
 
 	qdel(src)
 

@@ -41,7 +41,6 @@
 	burn_mod = 1.5
 	fall_mod = 0.5
 	grab_mod = 1.25
-	resist_mod = 0.25
 	natural_climbing = 1
 
 	spawn_flags = IS_RESTRICTED

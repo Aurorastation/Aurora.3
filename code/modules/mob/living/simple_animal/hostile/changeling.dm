@@ -30,7 +30,7 @@
 	ranged = 1
 	projectiletype = /obj/projectile/bonedart/ling
 	projectilesound = 'sound/weapons/bloodyslice.ogg'
-	resist_mod = 15
+	mob_strength = MOB_STRENGTH_VERY_STRONG
 	mob_size = 25
 	environment_smash = 2
 	attacktext = "mangled"

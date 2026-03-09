@@ -15,7 +15,7 @@
 			to_chat(user, SPAN_WARNING("You can't do that without working hands!"))
 			return FALSE
 
-	var/obj/item/target_slot = get_equipped_item(text2num(slot_to_strip))
+	var/obj/item/target_slot = get_equipped_item(slot_to_strip)
 	if(istype(target_slot, /obj/item/clothing/ears/offear))
 		target_slot = (l_ear == target_slot ? r_ear : l_ear)
 
@@ -110,8 +110,10 @@
 		unEquip(target_slot)
 		user.put_in_hands(target_slot)
 	else if(user.unEquip(held))
-		if(!equip_to_slot_if_possible(held, text2num(slot_to_strip), FALSE, TRUE, TRUE, FALSE, TRUE))
+		if(!equip_to_slot_if_possible(held, slot_to_strip, FALSE, TRUE, TRUE, FALSE, TRUE))
 			user.put_in_hands(held)
+
+	show_inv(user)
 	return 1
 
 // Empty out everything in the target's pockets.

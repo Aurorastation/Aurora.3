@@ -96,7 +96,7 @@
 	if(current_grab.upgrade)
 		upgrade()
 		return TRUE
-	grabbed.attack_hand(grabber)
+	current_grab.hit_with_grab(src, grabbed, TRUE)
 
 /obj/item/grab/afterattack(atom/target, mob/user, proximity_flag, click_parameters)
 	if(QDELETED(src) || !current_grab || !grabber || proximity_flag) // Close-range is handled in resolve_attackby().
@@ -185,10 +185,14 @@
 	leave_forensic_traces()
 
 /obj/item/grab/proc/check_action_cooldown()
-	return (world.time >= last_action + current_grab.action_cooldown)
+	var/mob/living/carbon/human/grabbed_human = astype(grabbed)
+	var/grab_mod = grabbed_human ? grabbed_human.species?.grab_mod : 1
+	return (world.time >= last_action + (current_grab.action_cooldown * grab_mod))
 
 /obj/item/grab/proc/check_upgrade_cooldown()
-	return (world.time >= last_upgrade + current_grab.upgrade_cooldown)
+	var/mob/living/carbon/human/grabbed_human = astype(grabbed)
+	var/grab_mod = grabbed_human ? grabbed_human.species?.grab_mod : 1
+	return (world.time >= last_upgrade + (current_grab.upgrade_cooldown * grab_mod))
 
 /obj/item/grab/proc/leave_forensic_traces()
 	if(ishuman(grabbed))
@@ -215,6 +219,7 @@
 	var/singleton/grab/downgrade = current_grab.downgrade(src)
 	if(downgrade)
 		current_grab = downgrade
+		last_upgrade = world.time
 		adjust_position()
 		update_icon()
 
@@ -228,28 +233,49 @@
 		color = current_grab.grab_color
 	ClearOverlays()
 	QDEL_LIST(vis_contents)
-	var/image/item_overlay = image(grabbed.icon, loc, grabbed.icon_state)
+	var/mutable_appearance/item_overlay = new(grabbed.appearance)
 	item_overlay.alpha = 170
+	item_overlay.plane = plane
+	item_overlay.layer = layer
+	item_overlay.reset_offsets()
+
+	var/icon/grab_icon = icon(icon, icon_state)
+
+	item_overlay.add_filter("grab_mask", 0, alpha_mask_filter(icon = grab_icon))
 
 	var/list/overlays_to_add = list(item_overlay)
 
-	overlays_to_add += image(icon, loc, "[current_grab.grab_hand_state]_[icon_hand]")
+	overlays_to_add += image(icon, loc, "[current_grab.grab_hand_state]_[icon_hand]", layer + 0.1)
 
-	var/image/text_overlay = image(icon, loc, "[current_grab.grab_text_state]_text")
-	text_overlay.add_filter("text_effect", 1, drop_shadow_filter(x = 0, y = 0, size = 4))
-	overlays_to_add += text_overlay
+	if(current_grab.grab_text_state)
+		var/image/text_overlay = image(icon, loc, "[current_grab.grab_text_state]_text", layer + 0.2)
+		text_overlay.add_filter("text_effect", 1, drop_shadow_filter(x = 0, y = 0, size = 4))
+		overlays_to_add += text_overlay
 
 	var/is_special_anim = ispath(current_grab.grab_special_state)
 	if(!is_special_anim && istext(current_grab.grab_special_state))
-		overlays_to_add += image(icon, loc, "[current_grab.grab_special_state]")
+		overlays_to_add += image(icon, loc, "[current_grab.grab_special_state]", layer + 0.3)
 
-	for(var/image/OV as anything in overlays_to_add)
-		OV.color = current_grab.grab_color
+	for(var/mutable_appearance/OV as anything in overlays_to_add) // todo replace this with atom coloring
+		OV.color = color
+		for(var/overlay_index in 1 to length(OV.overlays))
+			var/mutable_appearance/child_overlay = new(OV.overlays[overlay_index])
+			child_overlay.color = color
+			child_overlay.add_filter("grab_mask", 0, alpha_mask_filter(icon = grab_icon))
+			OV.overlays[overlay_index] = child_overlay
+
+		for(var/underlay_index in 1 to length(OV.underlays))
+			var/mutable_appearance/child_underlay = new(OV.underlays[underlay_index])
+			child_underlay.color = color
+			child_underlay.add_filter("grab_mask", 0, alpha_mask_filter(icon = grab_icon))
+			OV.underlays[underlay_index] = child_underlay
 
 	AddOverlays(overlays_to_add)
 
 	if(is_special_anim)
-		var/obj/effect/overlay/temp/grab_special_animation/grab_effect = new current_grab.grab_special_state(loc, "[REF(src)]")
+		var/mob/living/carbon/human/grabbed_human = astype(grabbed)
+		var/grab_mod = grabbed_human ? grabbed_human.species?.grab_mod : 1
+		var/obj/effect/overlay/temp/grab_special_animation/grab_effect = new current_grab.grab_special_state(loc, grab_mod, "[REF(src)]")
 		add_filter("grab_effect", 1, layering_filter(render_source = grab_effect.render_target, blend_mode = BLEND_INSET_OVERLAY))
 		vis_contents += grab_effect
 		grab_effect.do_animate()

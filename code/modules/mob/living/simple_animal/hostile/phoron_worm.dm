@@ -20,7 +20,7 @@
 	harm_intent_damage = 0
 	melee_damage_lower = 30
 	melee_damage_upper = 30
-	resist_mod = 2
+	mob_weight = MOB_WEIGHT_SUPERHEAVY
 	mob_size = 30
 	environment_smash = 2
 	attacktext = "chomped"
@@ -148,6 +148,5 @@
 	health = 80
 	melee_damage_lower = 15
 	melee_damage_upper = 15
-	resist_mod = 1
 	mob_size = 15
 	environment_smash = 1

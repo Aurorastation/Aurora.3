@@ -1,4 +1,4 @@
-/singleton/grab/normal
+ABSTRACT_TYPE(/singleton/grab/normal)
 	name = "grab"
 
 	help_action = "inspect"

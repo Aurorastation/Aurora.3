@@ -21,7 +21,7 @@
 	var/fail_up                 = "You can't get a better grip on $rep_affecting$!"
 	var/fail_down               = "You can't seem to relax your grip on $rep_affecting$!"
 
-	var/grab_icon = 'icons/mob/screen/generic.dmi'
+	var/grab_icon = 'icons/mob/screen/grab.dmi'
 	var/grab_hand_state = "grab"
 	var/grab_text_state = "reinforce"
 	var/grab_icon_state = "grab"
@@ -196,11 +196,11 @@
 		to_chat(G.grabbed, SPAN_WARNING("You can't resist in your current state!"))
 		return
 
-	var/break_strength = breakability + (grabbed.mob_size - grabber.mob_size)
-	if(ishuman(grabbed))
-		var/mob/living/carbon/human/H = grabbed
-		break_strength *= H.species.resist_mod
-		break_strength *= H.species.grab_mod
+	var/mob/living/carbon/human/grabbed_human = astype(grabbed)
+	var/grab_mod = grabbed_human?.species ? error_correct_round(grabbed_human.species.grab_mod) : 1
+
+	var/resist_strength = (grabbed.get_mob_strength() * grab_mod) - grabber.get_mob_strength()
+	var/break_strength = breakability + MOB_SIZE_DIFF(grabbed, grabber) + resist_strength
 
 	if(grabbed.incapacitated(INCAPACITATION_ALL))
 		break_strength--

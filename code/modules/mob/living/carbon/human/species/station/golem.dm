@@ -49,7 +49,6 @@ GLOBAL_LIST_INIT(golem_types, list(
 	brute_mod = 2
 	burn_mod = 4
 	grab_mod = 2
-	resist_mod = 2
 
 	warning_low_pressure = 50 //golems can into space now
 	hazard_low_pressure = 0
