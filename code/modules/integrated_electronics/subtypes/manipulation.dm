@@ -395,28 +395,34 @@
 	complexity = 30 // needs a big assembly if you want to use this in any non-simplistic way
 	inputs = list("direction" = IC_PINTYPE_DIR, "power" = IC_PINTYPE_NUMBER, "lifespan" = IC_PINTYPE_NUMBER)
 	outputs = list("bluespace crystals stored" = IC_PINTYPE_NUMBER)
-	activators = list("pulse in" = IC_PINTYPE_PULSE_IN, "portal opened" = IC_PINTYPE_PULSE_OUT, "cannot open portal" = IC_PINTYPE_PULSE_OUT)
+	activators = list("open portal" = IC_PINTYPE_PULSE_IN, "portal opened" = IC_PINTYPE_PULSE_OUT, "cannot open portal" = IC_PINTYPE_PULSE_OUT)
 	spawn_flags = IC_SPAWN_RESEARCH
 	power_draw_per_use = 100 // multiplied by up to 50 during on_data_written(). should slurp up power in smaller assemblies or those without power generation
 	cooldown_per_use = 30 SECONDS // big cooldown
 	origin_tech = list(TECH_DATA = 4, TECH_ENGINEERING = 4, TECH_MATERIAL = 4, TECH_BLUESPACE = 5)
 
 	/// The number of stored bluespace crystals stored in the device. Each stored bluespace crystal is 1 use.
-	var/list/obj/item/bluespace_crystal/crystals = list()
+	var/list/obj/item/bluespace_crystal/crystals
 
 	/// Maximum number of crystals the circuit can store.
 	var/max_crystals = 3
 
+/obj/item/integrated_circuit/manipulation/portal_opener/Destroy()
+	for(var/obj/item/bluespace_crystal/crystal in crystals)
+		crystal.dropInto(get_turf(assembly))
+	LAZYNULL(crystals)
+	..()
+
 /obj/item/integrated_circuit/manipulation/portal_opener/attackby(obj/item/attacking_item, mob/user, params)
 	if(istype(attacking_item, /obj/item/bluespace_crystal))
-		if(length(crystals) >= max_crystals)
+		if(LAZYLEN(crystals) >= max_crystals)
 			to_chat(user, SPAN_WARNING("There are not enough crystal slots."))
 			return
 
-		user.drop_item(src)
-		crystals += attacking_item
-		attacking_item.forceMove(null)
 		user.visible_message("[user] inserts [attacking_item] into \the [src]'s crystal slot.", SPAN_NOTICE("You insert [attacking_item] into \the [src]'s crystal slot."))
+		user.drop_item(src)
+		LAZYADD(crystals, attacking_item)
+		attacking_item.forceMove(null)
 	else
 		..()
 
@@ -425,7 +431,7 @@
 	..()
 
 /obj/item/integrated_circuit/manipulation/portal_opener/do_work()
-	if(!crystals.len >= 1) // no crystals, no portal
+	if(!LAZYLEN(crystals) >= 1) // no crystals, no portal
 		activate_pin(3)
 		return
 
@@ -455,13 +461,16 @@
 		our_portal.has_failed = FALSE
 
 		// consume a bluespace crystal
-		crystals.Cut(1,2)
+		var/obj/item/bluespace_crystal/consumed_bsc = LAZYACCESS(crystals, 1)
+		LAZYREMOVE(crystals, consumed_bsc)
+		qdel(consumed_bsc)
 
 		activate_pin(2)
 	else
 		activate_pin(3)
 
-	set_pin_data(IC_OUTPUT, 3, crystals.len) // set the bluespace crystals counter
+	set_pin_data(IC_OUTPUT, 1, LAZYLEN(crystals)) // set the bluespace crystals counter
+	push_data()
 	..()
 
 /obj/item/integrated_circuit/manipulation/bubble_shield
@@ -480,12 +489,16 @@
 	origin_tech = list(TECH_ENGINEERING = 4, TECH_MAGNET = 5)
 
 	/// A list of shields deployed by this circuit for amount checks/shield deletions.
-	var/list/obj/machinery/shield/deployed_shields = list()
+	var/list/obj/machinery/shield/deployed_shields
+
+/obj/item/integrated_circuit/manipulation/bubble_shield/Destroy()
+	QDEL_LAZYLIST(deployed_shields)
+	..()
 
 /obj/item/integrated_circuit/manipulation/bubble_shield/proc/kill_shield(var/obj/machinery/shield/shield)
-	deployed_shields -= shield
+	LAZYREMOVE(deployed_shields, shield)
 	qdel(shield)
-	set_pin_data(IC_OUTPUT, 1, deployed_shields.len)
+	set_pin_data(IC_OUTPUT, 1, LAZYLEN(deployed_shields))
 
 /obj/item/integrated_circuit/manipulation/bubble_shield/do_work()
 	if(!assembly)
@@ -511,21 +524,21 @@
 		if(locate(/obj/machinery/shield) in target_turf) // already got a shield
 			return
 
-		if(deployed_shields.len >= 3) // do not generate more than 3 shields
+		if(LAZYLEN(deployed_shields) >= 3) // do not generate more than 3 shields
 			activate_pin(2)
 			return
 		//actually creating the shield
 		var/obj/machinery/shield/shield = new /obj/machinery/shield(target_turf)
 		shield.name = "bubble shield"
 		shield.health = strength
-		deployed_shields += shield
+		LAZYADD(deployed_shields, shield)
 		addtimer(CALLBACK(src, PROC_REF(kill_shield), shield), lifespan SECONDS, TIMER_DELETE_ME) // clean up after ourselves later
-		set_pin_data(IC_OUTPUT, 1, deployed_shields.len)
+		set_pin_data(IC_OUTPUT, 1, LAZYLEN(deployed_shields))
 		activate_pin(1)
 
 	// power stuff
 	if(deployed_shields)
-		power_draw_per_use = initial(power_draw_per_use)*(strength/10)*deployed_shields.len
+		power_draw_per_use = initial(power_draw_per_use)*(strength/10)*LAZYLEN(deployed_shields)
 	else
 		power_draw_per_use = initial(power_draw_per_use)
 
