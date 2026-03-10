@@ -401,7 +401,7 @@
 	cooldown_per_use = 30 SECONDS // big cooldown
 	origin_tech = list(TECH_DATA = 4, TECH_ENGINEERING = 4, TECH_MATERIAL = 4, TECH_BLUESPACE = 5)
 
-	/// The number of stored bluespace crystals stored in the device. Each stored bluespace crystal is 1 use.
+	/// Lazylist of stored bluespace crystals stored in the device for amount checks/deletions.
 	var/list/obj/item/bluespace_crystal/crystals
 
 	/// Maximum number of crystals the circuit can store.
