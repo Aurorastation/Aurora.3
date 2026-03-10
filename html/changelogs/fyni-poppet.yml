@@ -1,0 +1,4 @@
+author: fyni
+delete-after: True
+changes:
+  - rscadd: "Adds the poppet to the uplink"
