@@ -513,7 +513,7 @@ ABSTRACT_TYPE(/obj/machinery/atmospherics/pipe)
 		if(!(direction & initialize_directions))
 			continue
 		var/list/check_nodes = nodes_in_dir(direction)
-		add_underlay(get_turf(src), length(check_nodes) && check_nodes[1], direction, icon_connect_type)
+		add_underlay(get_turf(src), length(check_nodes) && check_nodes[1], direction, icon_connect_type, icon = 'icons/atmos/manifold_underlays.dmi')
 
 	try_leak()
 
