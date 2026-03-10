@@ -391,7 +391,7 @@
 	extended_desc = "The circuit can store 3 bluespace crystals; each crystal is 1 use. Power determines number of tiles jumped (max 50m). Lifespan determines how long the portal is there (3-15 sec). Imprecise with a high variance <b>(DANGER IN CLOSED SPACES!)</b>. It has a cooldown of 30 seconds."
 	icon_state = "shocker"
 	w_class = WEIGHT_CLASS_TINY
-	size = 10
+	size = 20
 	complexity = 30 // needs a big assembly if you want to use this in any non-simplistic way
 	inputs = list("direction" = IC_PINTYPE_DIR, "power" = IC_PINTYPE_NUMBER, "lifespan" = IC_PINTYPE_NUMBER)
 	outputs = list("bluespace crystals stored" = IC_PINTYPE_NUMBER)
