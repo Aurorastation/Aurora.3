@@ -103,3 +103,15 @@
   MattAtlas:
   - bugfix: Fixes admin announces sanitizing HTML, meaning that admins can terrorize
       you with big red text once more.
+2026-03-10:
+  Batrachophrenoboocosmomachia:
+  - balance: Reduces flashlight power consumption by 10x globally.
+  JohnWildkins:
+  - refactor: Ported object duplication handling from /tg/ to fix holodeck generating
+      massive lag spikes.
+  - refactor: Refactored weather, turrets, and overmap contacts to not use timers
+      to reduce the number created + deleted over a round substantially.
+  MattAtlas:
+  - refactor: Laying down no longer exists as a separate movement intent, you can
+      now simply rest with your weapon in your hand. Middle clicking the walk/run
+      intent icon now functions as a rest macro.
