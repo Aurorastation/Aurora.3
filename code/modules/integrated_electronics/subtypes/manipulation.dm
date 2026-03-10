@@ -411,7 +411,7 @@
 	for(var/obj/item/bluespace_crystal/crystal in crystals)
 		crystal.dropInto(get_turf(assembly))
 	LAZYNULL(crystals)
-	..()
+	return ..()
 
 /obj/item/integrated_circuit/manipulation/portal_opener/attackby(obj/item/attacking_item, mob/user, params)
 	if(istype(attacking_item, /obj/item/bluespace_crystal))
@@ -493,7 +493,7 @@
 
 /obj/item/integrated_circuit/manipulation/bubble_shield/Destroy()
 	QDEL_LAZYLIST(deployed_shields)
-	..()
+	return ..()
 
 /obj/item/integrated_circuit/manipulation/bubble_shield/proc/kill_shield(var/obj/machinery/shield/shield)
 	LAZYREMOVE(deployed_shields, shield)
