@@ -86,3 +86,11 @@
 	desc = "A box for a sidearm double barrel shotgun, containing a sawn-off double barrel shotgun, a holster and some ammo."
 	telecrystal_cost = 4
 	path = /obj/item/storage/box/sawn_doublebarrel_shotgun
+
+/datum/uplink_item/item/stealthy_weapons/poppet
+	name = "Poppet"
+	desc = "With a drop of blood, this strange effigy can be used to torment someone."
+	telecrystal_cost = 3
+	bluecrystal_cost = 3
+	path = /obj/item/poppet
+
