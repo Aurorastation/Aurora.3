@@ -205,12 +205,10 @@
 	if(!prob(chance) || !istype(user) || !istype(target))
 		return FALSE
 
-	target.apply_effect(6, WEAKEN)
+	target.apply_effect(3 * amplification, WEAKEN)
 	playsound(target.loc, 'sound/weapons/push_connect.ogg', 50, 1, -1)
 	target.visible_message(SPAN_DANGER("[user] hurls [target] to the floor!"))
-	step_away(target, user, 15)
-	sleep(3)
-	step_away(target, user, 15)
+	target.throw_at(get_edge_target_turf(user, user.dir), floor(1.5 * amplification), amplification / 2)
 	return TRUE
 
 /obj/item/clothing/gloves/force/proc/try_throw(mob/living/carbon/human/user, mob/living/carbon/human/target, chance = 60)
@@ -219,15 +217,8 @@
 
 	playsound(target.loc, 'sound/weapons/push_connect.ogg', 50, 1, -1)
 	target.visible_message(SPAN_DANGER("[user] shoves, sending [target] flying!"))
-	step_away(target, user, 15)
-	sleep(1)
-	step_away(target, user, 15)
-	sleep(1)
-	step_away(target, user, 15)
-	sleep(1)
-	step_away(target, user, 15)
-	sleep(1)
-	target.apply_effect(1, WEAKEN, target.get_blocked_ratio(user.zone_sel.selecting, DAMAGE_BRUTE, damage = 20) * 100)
+	target.throw_at(get_edge_target_turf(user, user.dir), floor(2.5 * amplification), amplification)
+	target.apply_effect(floor(amplification / 2), WEAKEN, target.get_blocked_ratio(user.zone_sel.selecting, DAMAGE_BRUTE, damage = 10 * amplification) * 100)
 	return TRUE
 
 /obj/item/clothing/gloves/force/basic //dooo iiiitttttt

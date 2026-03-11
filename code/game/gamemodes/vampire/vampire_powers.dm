@@ -32,29 +32,58 @@
 		to_chat(src, SPAN_WARNING("You are fully loaded on usable blood, you cannot store any more!"))
 		return
 
-	var/obj/item/grab/G = get_active_hand()
-	if(!istype(G))
-		to_chat(src, SPAN_WARNING("You must be grabbing a victim in your active hand to drain their blood."))
-		return
-
-	if(!G.has_grab_flags(GRAB_FORCE_HARM))
-		to_chat(src, SPAN_WARNING("You must have a better grip of the victim to drain their blood."))
-		return
-
-	var/mob/living/carbon/human/T = G.get_grabbed_mob()
-	if(!istype(T) || T.species.flags & NO_BLOOD)
-		//Added this to prevent vampires draining diona and IPCs
-		//Diona have 'blood' but its really green sap and shouldn't help vampires
-		//IPCs leak oil
-		to_chat(src, SPAN_WARNING("[T] is not a creature you can drain useful blood from."))
-		return
-	if(T.head && (T.head.item_flags & ITEM_FLAG_AIRTIGHT))
-		to_chat(src, SPAN_WARNING("[T]'s headgear is blocking the way to the neck."))
-		return
 	var/obj/item/blocked = check_mouth_coverage()
 	if(blocked)
 		to_chat(src, SPAN_WARNING("\The [blocked] is in the way of your fangs!"))
 		return
+
+	var/mob/living/carbon/human/T
+	var/obj/item/grab/active_grab = get_active_hand()
+	if(istype(active_grab) && ishuman(active_grab.grabbed) && active_grab.has_grab_flags(GRAB_FORCE_HARM))
+		T = G.grabbed // we're gonna shortcircuit The Check (tm) by assuming the active hand will have our grab
+	else
+		var/list/obj/item/grab/grabs = get_active_grabs() - active_grab
+		if(!length(grabs))
+			to_chat(src, SPAN_WARNING("You must be grabbing a victim to drain their blood."))
+			return
+
+		for(var/obj/item/grab/G as anything in grabs)
+			var/mob/living/carbon/human/H = astype(G.grabbed)
+			if(!G || G.species.flags & NO_BLOOD)
+				grabs -= G
+
+		if(!length(grabs))
+			//Added this to prevent vampires draining diona and IPCs
+			//Diona have 'blood' but its really green sap and shouldn't help vampires
+			//IPCs leak oil
+			to_chat(src, SPAN_WARNING("You must be grabbing a creature you can drain useful blood from!"))
+			return
+
+		for(var/obj/item/grab/G as anything in grabs)
+			if(!G.has_grab_flags(GRAB_FORCE_HARM))
+				grabs -= G
+
+		if(!length(grabs))
+			to_chat(src, SPAN_WARNING("You must have a better grip of the victim to drain their blood."))
+			return
+
+		for(var/obj/item/grab/G as anything in grabs)
+			var/mob/living/carbon/human/H = astype(G.grabbed)
+			if(!H.head || !(H.head.item_flags & ITEM_FLAG_AIRTIGHT))
+				grabs -= G
+
+		if(!length(grabs))
+			to_chat(src, SPAN_WARNING("Your victim's headgear is blocking access to the neck!"))
+			return
+
+		if(length(grabs) == 1)
+			T = grabs[1].grabbed
+		else
+			var/list/options = list()
+			for(var/obj/item/grab/G as anything in grabs)
+				var/mob/living/carbon/human/H = G.grabbed
+				LAZYSET(options, H.name, H)
+			T = tgui_input_list(src, "Choose a target to drain blood.", "Drain Blood", options, timeout = 10 SECONDS)
 
 	var/datum/vampire/draining_vamp = null
 	if(T.mind)

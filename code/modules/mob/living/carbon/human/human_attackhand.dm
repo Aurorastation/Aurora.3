@@ -31,13 +31,15 @@
 			O.show_message("[user.name] appears from thin air!",1)
 		playsound(get_turf(user), 'sound/effects/stealthoff.ogg', 75, 1)
 
-	if(user.a_intent != I_GRAB)
-		for(var/obj/item/grab/G as anything in user.get_active_grabs())
-			if(G.grabber == user && G.grabbed == src && G.resolve_openhand_attack())
-				return TRUE
-		if(ishuman(user) && user != src && check_shields(0, null, user, user.zone_sel.selecting, user) != BULLET_ACT_HIT)
-			user.do_attack_animation(src)
+	if(user.a_intent == I_GRAB)
+		return
+
+	for(var/obj/item/grab/G as anything in user.get_active_grabs())
+		if(G.grabber == user && G.grabbed == src && G.resolve_openhand_attack())
 			return TRUE
+	if(ishuman(user) && user != src && check_shields(0, null, user, user.zone_sel.selecting, user) != BULLET_ACT_HIT)
+		user.do_attack_animation(src)
+		return TRUE
 
 /mob/living/carbon/human/default_help_interaction(mob/user)
 	var/user_target_zone = user.zone_sel.selecting

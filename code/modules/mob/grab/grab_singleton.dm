@@ -1,4 +1,4 @@
-/singleton/grab
+ABSTRACT_TYPE(/singleton/grab)
 	var/name = "generic grab"
 	var/desc
 

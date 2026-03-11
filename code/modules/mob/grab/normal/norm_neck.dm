@@ -4,7 +4,7 @@
 	downgrade = /singleton/grab/normal/aggressive
 	drop_headbutt = FALSE
 	shift = -10
-	grab_flags = GRAB_STOP_MOVE | GRAB_REVERSE_FACING | GRAB_SHIELDS_YOU | GRAB_SHARE_TILE | GRAB_CAN_THROW | GRAB_FORCE_HARM | GRAB_RESTRAINS
+	grab_flags = GRAB_STOP_MOVE | GRAB_REVERSE_FACING | GRAB_SHIELDS_YOU | GRAB_SHARE_TILE | GRAB_CAN_THROW | GRAB_FORCE_HARM | GRAB_RESTRAINS | GRAB_FORCE_STAND
 	point_blank_mult = 2
 	damage_stage = 2
 	grab_text_state = "kill"

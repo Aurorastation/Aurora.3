@@ -311,7 +311,7 @@ GLOBAL_LIST_INIT(slot_equipment_priority, list(
 	var/obj/item/I = get_active_hand()
 	if(!istype(I))
 		. = FALSE
-		for(var/obj/item/grab/G as anything in get_active_grabs())
+		for(var/obj/item/grab/G as anything in get_active_grabs(TRUE))
 			qdel(G)
 			. = TRUE
 		return
@@ -457,35 +457,33 @@ GLOBAL_LIST_INIT(slot_equipment_priority, list(
 	var/throw_range = item.throw_range
 	var/itemsize
 
-	if(istype(item, /obj/item/grab))
-		var/obj/item/grab/G = item
-		item = G.throw_held() //throw the person instead of the grab
-		if(ismob(item))
-			var/mob/M = item
-			if(M.mob_weight > get_mob_strength())
-				to_chat(src, SPAN_WARNING("[M] is far too heavy for you to throw around!"))
-				return
+	var/obj/item/grab/G = astype(item)
+	var/mob/M = astype(item?.throw_held())
+	if(G)
+		if(!M)
+			return FALSE
+		if(M.mob_weight > get_mob_strength())
+			to_chat(src, SPAN_WARNING("[M] is far too heavy for you to throw around!"))
+			return
 
-			throw_range = round(throw_range * (src.mob_size/M.mob_size))
-			itemsize = round(M.mob_size/4)
-			var/turf/start_T = get_turf(loc) //Get the start and target tile for the descriptors
-			var/turf/end_T = get_turf(target)
-			if(start_T && end_T)
-				if(is_pacified())
-					to_chat(src, SPAN_NOTICE("You gently let go of [M]."))
-					src.remove_from_mob(item)
-					item.loc = src.loc
-					return TRUE
-				var/start_T_descriptor = "<font color='#6b5d00'>tile at [start_T.x], [start_T.y], [start_T.z] in area [get_area(start_T)]</font>"
-				var/end_T_descriptor = "<font color='#6b4400'>tile at [end_T.x], [end_T.y], [end_T.z] in area [get_area(end_T)]</font>"
+		throw_range = round(throw_range * (src.mob_size/M.mob_size))
+		itemsize = round(M.mob_size/4)
+		var/turf/start_T = get_turf(loc) //Get the start and target tile for the descriptors
+		var/turf/end_T = get_turf(target)
+		if(start_T && end_T)
+			if(is_pacified())
+				to_chat(src, SPAN_NOTICE("You gently let go of [M]."))
+				src.remove_from_mob(item)
+				item.loc = src.loc
+				return TRUE
+			var/start_T_descriptor = "<font color='#6b5d00'>tile at [start_T.x], [start_T.y], [start_T.z] in area [get_area(start_T)]</font>"
+			var/end_T_descriptor = "<font color='#6b4400'>tile at [end_T.x], [end_T.y], [end_T.z] in area [get_area(end_T)]</font>"
 
-				M.attack_log += "\[[time_stamp()]\] <font color='orange'>Has been thrown by [usr.name] ([usr.ckey]) from [start_T_descriptor] with the target [end_T_descriptor]</font>"
-				usr.attack_log += "\[[time_stamp()]\] <span class='warning'>Has thrown [M.name] ([M.ckey]) from [start_T_descriptor] with the target [end_T_descriptor]</span>"
-				msg_admin_attack("[usr.name] ([usr.ckey]) has thrown [M.name] ([M.ckey]) from [start_T_descriptor] with the target [end_T_descriptor] (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[usr.x];Y=[usr.y];Z=[usr.z]'>JMP</a>)",ckey=key_name(usr),ckey_target=key_name(M))
+			M.attack_log += "\[[time_stamp()]\] <font color='orange'>Has been thrown by [usr.name] ([usr.ckey]) from [start_T_descriptor] with the target [end_T_descriptor]</font>"
+			usr.attack_log += "\[[time_stamp()]\] <span class='warning'>Has thrown [M.name] ([M.ckey]) from [start_T_descriptor] with the target [end_T_descriptor]</span>"
+			msg_admin_attack("[usr.name] ([usr.ckey]) has thrown [M.name] ([M.ckey]) from [start_T_descriptor] with the target [end_T_descriptor] (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[usr.x];Y=[usr.y];Z=[usr.z]'>JMP</a>)",ckey=key_name(usr),ckey_target=key_name(M))
 
 			qdel(G)
-		else
-			return FALSE
 
 	else if(istype(item, /obj/item))
 		var/obj/item/I = item

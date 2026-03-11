@@ -233,6 +233,7 @@
 
 /turf/grab_attack(obj/item/grab/G, mob/user)
 	if(G.grabbed != user)
+		user.setClickCooldown(DEFAULT_QUICK_COOLDOWN)
 		step(G.grabbed, get_dir(G.grabbed.loc, src))
 	return TRUE
 

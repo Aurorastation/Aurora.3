@@ -49,9 +49,11 @@
 /mob/proc/ProcessGrabs()
 	return
 
-/mob/proc/get_active_grabs()
+/mob/proc/get_active_grabs(include_offhand = FALSE)
 	. = list()
 	for(var/obj/item/grab/G in contents)
+		if(!include_offhand && istype(G, /obj/item/grab/offhand))
+			continue
 		. += G
 
 /mob/get_object_size()

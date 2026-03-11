@@ -25,16 +25,6 @@
 #define INCORPOREAL_SHADE   4 // Shady
 #define INCORPOREAL_MECH    5 // stripped down bstech
 
-#define MOB_GRAB_NORMAL 1
-#define MOB_GRAB_FIREMAN 2
-
-// Grab levels.
-#define GRAB_PASSIVE    1
-#define GRAB_AGGRESSIVE 2
-#define GRAB_NECK       3
-#define GRAB_UPGRADING  4
-#define GRAB_KILL       5
-
 #define BORGMESON 0x1
 #define BORGTHERM 0x2
 #define BORGXRAY  0x4

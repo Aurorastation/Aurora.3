@@ -30,7 +30,7 @@
 	//Check if we're on fire
 	handle_fire(seconds_per_tick, environment)
 
-	for(var/obj/item/grab/G in src)
+	for(var/obj/item/grab/G in get_active_grabs())
 		INVOKE_ASYNC(G, TYPE_PROC_REF(/datum, process))
 
 	handle_actions()

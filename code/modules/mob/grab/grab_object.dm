@@ -6,6 +6,7 @@
 	drop_sound = null
 	equip_sound = null
 	w_class = INFINITY
+	throw_range = 5
 
 	var/icon_hand = BP_L_HAND
 
@@ -19,11 +20,72 @@
 	var/target_zone
 	var/done_struggle
 
-/obj/item/grab/Initialize(mapload, atom/movable/target, use_grab_state, defer_hand)
-	. = ..(mapload)
-	if (. == INITIALIZE_HINT_QDEL)
+/// This whole thing is basically a hack to get fireman carrying working. It will be ripped out when two-handing is better done.
+/obj/item/grab/offhand
+	var/obj/item/grab/linked_grab = null
+
+/obj/item/grab/offhand/Destroy()
+	UnregisterSignal(linked_grab, COMSIG_QDELETING)
+	linked_grab = null
+	. = ..()
+
+/obj/item/grab/offhand/setup_grab(atom/movable/target, use_grab_state, defer_hand)
+	current_grab = GET_SINGLETON(use_grab_state)
+	if(!istype(current_grab))
+		return INITIALIZE_HINT_QDEL
+	grabber = loc
+	if(!ismob(grabber) || !grabber.add_grab(src, defer_hand = defer_hand))
+		return INITIALIZE_HINT_QDEL
+	for(var/obj/item/grab/G as anything in grabber.get_active_grabs())
+		if(G.grabbed == target)
+			grabbed = target
+	if(!ishuman(grabbed) || grabbed.buckled_to)
+		return INITIALIZE_HINT_QDEL
+
+	playsound(grabbed.loc, 'sound/weapons/thudswoosh.ogg', 50, 1, -1)
+	RegisterSignal(linked_grab, COMSIG_QDELETING, TYPE_PROC_REF(/obj/item/grab, force_drop))
+
+	name = "[name] off-hand (\the [grabbed])"
+	visible_message(SPAN_NOTICE("\The [grabber] lifts \the [grabbed] onto [grabber.get_pronoun("his")] shoulders!", SPAN_NOTICE("You lift \the [grabbed] onto your shoulders!")))
+
+	grabber.buckle(grabbed, grabber)
+	adjust_position()
+
+	update_icon()
+
+/obj/item/grab/MouseDrop(atom/over, src_location, over_location, src_control, over_control, params)
+	if(!istype(current_grab, /singleton/grab/fireman))
+		return
+	var/mob/living/carbon/human/grabber_human = astype(over)
+	if(!grabber_human || grabber_human != grabber)
+		return
+	var/mob/living/carbon/human/grabbed_human = astype(grabbed)
+	if(!grabbed_human)
+		to_chat(grabber_human, SPAN_WARNING("You can only fireman carry humanoids!"))
+		return
+	if(grabber_human.get_mob_strength() < grabbed_human.mob_weight)
+		to_chat(grabber_human, SPAN_WARNING("\The [grabbed_human] weighs too much for you to fireman carry!"))
+		return
+	if(!has_grab_flags(GRAB_STOP_MOVE))
+		to_chat(grabber_human, SPAN_WARNING("You need a stronger grip on \the [grabbed_human] to fireman carry them!"))
+		return
+	if(!grabber_human.get_empty_hand_slot())
+		to_chat(grabber_human, SPAN_WARNING("You need a free hand to fireman carry \the [grabbed_human]!"))
 		return
 
+	grabber_human.visible_message(
+		SPAN_NOTICE("[SPAN_BOLD("[grabber_human]")] starts lifting \the [grabbed] onto their shoulders..."),
+		SPAN_NOTICE("You start lifting \the [grabbed] onto your shoulders...")
+	)
+
+	if(do_mob(grabber_human, grabbed_human, 3 SECONDS, TRUE))
+		transfer(/singleton/grab/fireman)
+		var/obj/item/grab/offhand/OH = grabber_human.make_grab(grabbed_human, /singleton/grab/fireman/offhand, TRUE)
+		if(!QDELETED(OH))
+			OH.linked_grab = src
+			RegisterSignal(OH, COMSIG_QDELETING, PROC_REF(force_drop))
+
+/obj/item/grab/proc/setup_grab(atom/movable/target, use_grab_state, defer_hand)
 	current_grab = GET_SINGLETON(use_grab_state)
 	if(!istype(current_grab))
 		return INITIALIZE_HINT_QDEL
@@ -79,6 +141,13 @@
 
 	update_icon()
 
+/obj/item/grab/Initialize(mapload, atom/movable/target, use_grab_state, defer_hand)
+	. = ..(mapload)
+	if (. == INITIALIZE_HINT_QDEL)
+		return
+
+	return setup_grab(target, use_grab_state, defer_hand)
+
 /obj/item/grab/get_examine_text(mob/user, distance, is_adjacent, infix, suffix, get_extended)
 	SHOULD_CALL_PARENT(FALSE)
 	var/grab_descriptor = current_grab.action_verb
@@ -125,9 +194,13 @@
 		LAZYREMOVE(grabbed.grabbed_by, src)
 		grabbed.reset_plane_and_layer()
 		grabbed = null
+		if(grabber && grabbed.buckled_to == grabber)
+			grabber.unbuckle()
 	if(grabber)
 		if(grabber.zone_sel)
 			UnregisterSignal(grabber, COMSIG_MOB_ZONE_SEL_CHANGE)
+		for(var/obj/item/grab/offhand/OH in grabber.get_active_grabs(TRUE))
+			UnregisterSignal(OH, COMSIG_QDELETING)
 		grabber = null
 	. = ..()
 	if(old_grabbed)
@@ -163,12 +236,10 @@
 /obj/item/grab/proc/force_drop()
 	grabber.drop_from_inventory(src)
 
+/// This actually returns only if the mob is mob/living. I hate life
 /obj/item/grab/proc/get_grabbed_mob()
-	if(isobj(grabbed))
-		var/obj/O = grabbed
-		return O.buckled
-	if(isliving(grabbed))
-		return grabbed
+	var/mob/living/potential_mob = astype(grabbed, /obj)?.buckled || grabbed
+	return astype(potential_mob)
 
 /obj/item/grab/proc/get_targeted_organ()
 	var/mob/living/carbon/human/H = get_grabbed_mob()
@@ -214,6 +285,17 @@
 		update_icon()
 		leave_forensic_traces()
 		current_grab.enter_as_up(src)
+
+/obj/item/grab/proc/transfer(grab_tag)
+	var/singleton/grab/new_grab = GET_SINGLETON(grab_tag)
+	if(!istype(new_grab))
+		return
+	current_grab = new_grab
+	last_upgrade = world.time
+	adjust_position()
+	update_icon()
+	leave_forensic_traces()
+	current_grab.enter_as_up(src)
 
 /obj/item/grab/proc/downgrade()
 	var/singleton/grab/downgrade = current_grab.downgrade(src)

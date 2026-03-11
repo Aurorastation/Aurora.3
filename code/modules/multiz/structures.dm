@@ -132,6 +132,11 @@
 	if(incapacitated())
 		to_chat(src, SPAN_WARNING("You are physically unable to climb \the [ladder]."))
 		return FALSE
+	for(var/obj/item/grab/G as anything in get_active_grabs())
+		var/mob/grabbed = astype(G.grabbed)
+		if(grabbed.mob_weight > mob_strength)
+			to_chat(src, SPAN_WARNING("[grabbed] is too heavy for you to lift up \the [ladder]!"))
+			return FALSE
 	return TRUE
 
 /mob/living/silicon/may_climb_ladders(ladder)

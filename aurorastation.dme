@@ -2685,6 +2685,7 @@
 #include "code\modules\mob\abstract\unauthed\login.dm"
 #include "code\modules\mob\grab\grab_object.dm"
 #include "code\modules\mob\grab\grab_singleton.dm"
+#include "code\modules\mob\grab\fireman\grab_fireman.dm"
 #include "code\modules\mob\grab\normal\grab_normal.dm"
 #include "code\modules\mob\grab\normal\norm_aggressive.dm"
 #include "code\modules\mob\grab\normal\norm_kill.dm"

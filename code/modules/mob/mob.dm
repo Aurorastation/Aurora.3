@@ -758,12 +758,19 @@
 
 /// Updates canmove, lying and icons. Could perhaps do with a rename but I can't think of anything to describe it.
 /mob/proc/update_canmove()
-	for(var/obj/item/grab/G as anything in grabbed_by)
-		if(G.grabber != src && (MOB_IS_INCAPACITATED(INCAPACITATION_RESTRAINED) || HAS_GRAB_FLAGS(G, GRAB_STOP_MOVE)))
-			ProcessGrabs()
-			canmove = FALSE
 	var/mob/living/carbon/human/H = astype(src)
-	if(!resting && MOB_IS_INCAPACITATED(INCAPACITATION_KNOCKDOWN) && H?.can_stand_overridden())
+	if(!LAZYLEN(grabbed_by)) // strictly speaking this is unnecessary but it allows the conditional logic below
+		for(var/obj/item/grab/G as anything in grabbed_by)
+			if(G.grabber != src && (MOB_IS_INCAPACITATED(INCAPACITATION_RESTRAINED) || HAS_GRAB_FLAGS(G, GRAB_STOP_MOVE)))
+				ProcessGrabs()
+				canmove = FALSE
+			if(HAS_GRAB_FLAGS(G, GRAB_FORCE_STAND))
+				lying = FALSE
+				lying_is_intentional = FALSE
+			else if(HAS_GRAB_FLAGS(G, GRAB_FORCE_LYING))
+				lying = TRUE
+				lying_is_intentional = FALSE
+	else if(!resting && MOB_IS_INCAPACITATED(INCAPACITATION_KNOCKDOWN) && H?.can_stand_overridden())
 		lying = FALSE
 		lying_is_intentional = FALSE
 		canmove = TRUE

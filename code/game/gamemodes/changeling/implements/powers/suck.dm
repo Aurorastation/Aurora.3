@@ -6,16 +6,46 @@
 	if(!changeling)
 		return
 
-	var/obj/item/grab/G = src.get_active_hand()
-	if(!istype(G))
-		to_chat(src, SPAN_WARNING("We must be grabbing a creature in our active hand to absorb them."))
-		return
+	var/mob/living/carbon/human/T
+	var/obj/item/grab/active_grab = get_active_hand()
+	if(istype(active_grab) && ishuman(active_grab.grabbed) && active_grab.has_grab_flags(GRAB_CAN_KILL))
+		T = G.grabbed // we're gonna shortcircuit The Check (tm) by assuming the active hand will have our grab
+	else
+		var/list/obj/item/grab/grabs = get_active_grabs() - active_grab
+		if(!length(grabs))
+			to_chat(src, SPAN_WARNING("We must be grabbing a creature to absorb them."))
+			return
+
+		for(var/obj/item/grab/G as anything in grabs)
+			if(!ishuman(G.grabbed))
+				grabs -= G
+
+		if(!length(grabs))
+			to_chat(src, SPAN_WARNING("We aren't grabbing anything compatible with our biology."))
+			return
+
+		for(var/obj/item/grab/G as anything in grabs)
+			if(!G.has_grab_flags(GRAB_CAN_KILL))
+				grabs -= G
+
+		if(!length(grabs))
+			to_chat(src, SPAN_WARNING("We must have a tighter grip to absorb DNA!"))
+			return
+
+		if(length(grabs) == 1)
+			T = grabs[1].grabbed
+		else
+			var/list/options = list()
+			for(var/obj/item/grab/G as anything in grabs)
+				var/mob/living/carbon/human/H = G.grabbed
+				LAZYSET(options, H.name, H)
+			T = tgui_input_list(src, "Choose a target to absorb.", "Absorb DNA", options, timeout = 10 SECONDS)
+
+		if(!T)
+			return
+
 	if(!src.get_pressure_weakness())
 		to_chat(src, SPAN_WARNING("We cannot absorb this creature from inside a sealed environment."))
-		return
-	var/mob/living/carbon/human/T = G.get_grabbed_mob()
-	if(!istype(T))
-		to_chat(src, SPAN_WARNING("[T] is not compatible with our biology."))
 		return
 	if(T.species.flags & NO_SCAN)
 		to_chat(src, SPAN_WARNING("We do not know how to parse this creature's DNA!"))
@@ -25,9 +55,6 @@
 		return
 	if((T.mutations & HUSK))
 		to_chat(src, SPAN_WARNING("This creature's DNA is ruined beyond useability!"))
-		return
-	if(!G.has_grab_flags(GRAB_LING_ABSORB))
-		to_chat(src, SPAN_WARNING("We must have a tighter grip to absorb this creature."))
 		return
 	for(var/datum/absorbed_dna/D in changeling.absorbed_dna)
 		if(D.dna == T.dna)

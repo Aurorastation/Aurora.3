@@ -22,8 +22,8 @@
 	if(LAZYLEN(grabbed_by))
 		to_chat(src, SPAN_WARNING("You're already being grappled!"))
 		return FALSE
-	for(var/obj/item/grab/G as anything in target.grabbed_by)
-		if(G.grabber != src)
+	for(var/obj/item/grab/G as anything in get_active_grabs())
+		if(G.grabbed != target)
 			continue
 		if(!target_zone || !ismob(target))
 			to_chat(src, SPAN_WARNING("You already have a grip on \the [target]!"))
