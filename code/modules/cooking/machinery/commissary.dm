@@ -178,19 +178,31 @@
 		return
 	qp_shop.interact_object(attacking_item, user)
 
-// /obj/structure/cash_register/commissary/proc/print_price(mob/user)
-// 	var/datum/component/quikpay_shop/qp_shop = src.GetComponent(/datum/component/quikpay_shop)
-// 	if(!qp_shop)
-// 		return
-// 	return print_price_to_paper(shop_name, items, loc, user)
-
 /obj/structure/cash_register/commissary/attack_hand(mob/living/user)
 	. = ..()
 	var/datum/component/quikpay_shop/qp_shop = src.GetComponent(/datum/component/quikpay_shop)
 	if(!qp_shop)
 		return
 	qp_shop.interact_with_ui(user)
+
+/obj/structure/cash_register/commissary/wall
+	name = "self-serve shop teller"
+	desc = "An ordering terminal designed by Idris for quicker expedition."
+	// icon = 'icons/obj/structure/urban/infrastructure.dmi'
+	// icon_state = "cashier"
+	icon = 'icons/obj/machinery/wall/terminals.dmi'
+	icon_state = "kitchenterminal"
+	anchored = TRUE
+	var/turned_on = FALSE
+
+/obj/structure/cash_register/commissary/wall/CtrlClick(mob/user)
+	turned_on = !turned_on
+
+/obj/structure/cash_register/commissary/wall/attack_hand(mob/living/user)
+	if(!turned_on)
+		balloon_alert(user, "Turned off")
 		return
+	. = ..()
 
 /obj/item/commissary_restrock
 	name = "commissary cigarette restock pack"

@@ -18,14 +18,12 @@
 	R.name = "Quik And Easy: How to make a transaction"
 
 	R.info += "<b>Quik-Pay setup:</b><br>"
-	R.info += "<ol><li>Remember your access code included on the paper that is included with your device</li>"
 	R.info += "<li>Unlock it to be able to add items to the menu</li>"
-	R.info += "<li>Add items to the menu by typing the item name and its price</li></ol>"
+	R.info += "<li>Add items to the menu by typing the item name and its price, optionally include a category</li></ol>"
 	R.info += "<b>When starting a new transaction:</b><br>"
 	R.info += "<ol><li>Have the customer enter the amount of the item they want and then confirm the purchase.</li>"
 	R.info += "<li>Allow them to review the sum.</li>"
 	R.info += "<li>Have them swipe their card to pay for the items.</li></ol>"
-
 
 	//stamp the paper
 	var/image/stampoverlay = image('icons/obj/bureaucracy.dmi')

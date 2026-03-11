@@ -4,6 +4,7 @@
 	var/list/buying = list()
 	var/new_item = ""
 	var/new_price = 0
+	var/new_category = ""
 	var/sum = 0
 	var/editmode = FALSE
 	var/receipt = ""
@@ -19,32 +20,37 @@
 	destinationact = "Service"
 	stamp = "Quik-Pay device"
 
+// Add an item by clicking on it with the quikpay
 /datum/component/quikpay_shop/quikpay/proc/add_item(atom/target, mob/user)
 	if (!istype(target, /obj))
 		return
 	if (!editmode)
 		to_chat(user, SPAN_NOTICE("Unlock \the [owner] to add items."))
 		return
+
 	var/obj/O = target
 	var/name_guess = O.name
 	var/price_guess = 0
+	var/category_guess = ""
 
-	price_guess = text2num(sanitizeSafe( tgui_input_text(user, "Set price for [name_guess]:", "[stamp]", 0, 10), 10))
+	price_guess = text2num(sanitizeSafe(tgui_input_text(user, "Set price for [name_guess]:", "[stamp]", 0, 10), 10))
 	if(isnull(price_guess) || price_guess == 0)
 		return
 	price_guess = max(0, round(price_guess, 0.01))
 
-	items += list(list("name" = "[name_guess]", "price" = price_guess))
+	category_guess = sanitizeSafe(tgui_input_text(user, "Set category for [name_guess]:", "[stamp]", "Uncategorized", 32), 32)
+	if(isnull(category_guess) || !length(category_guess))
+		category_guess = "Uncategorized"
 
-	to_chat(user, SPAN_NOTICE("[owner]: added '[name_guess]' for [price_guess]."))
+	items += list(list(
+		"name" = "[name_guess]",
+		"price" = price_guess,
+		"category" = "[category_guess]"
+	))
 
-// /datum/component/quikpay_shop/mechanics_hints(mob/user, distance, is_adjacent)
-// 	. = list()
-// 	. += "Alt click with a command id in hand, to gain command access."
-// 	. += "Alt click with credits in hand, to deposit them."
-// 	. += "Alt click while having operations access, to withdraw credits from it."
-// 	. += "Items can be paid for with id cards, charge cards or physical credits, and a receipt will be printed."
-// 	. += "The register can print a paper which can be used to quickly fill it out in the future by using it on the register."
+	to_chat(user, SPAN_NOTICE("[owner]: added '[name_guess]' for [price_guess] in category '[category_guess]'."))
+	return TRUE
+
 
 /datum/component/quikpay_shop/Initialize()
 	. = ..()
@@ -53,6 +59,7 @@
 		return
 	owner = parent
 
+// Put credits in or take them out, assuming the device has credits
 /datum/component/quikpay_shop/proc/take_give_credits(var/mob/user)
 	if(!can_use_credits)
 		return
@@ -68,7 +75,7 @@
 
 	var/obj/item/card/id/I = user.GetIdCard()
 	if(istype(I) && (ACCESS_CARGO in I.access))
-		var/price_guess = text2num(sanitizeSafe( tgui_input_text(user, "How much do you wish to withdraw? Remaining credits: [credit]电", "QuikPay", 0, 10), 10))
+		var/price_guess = text2num(sanitizeSafe(tgui_input_text(user, "How much do you wish to withdraw? Remaining credits: [credit]电", "QuikPay", 0, 10), 10))
 		if(isnull(price_guess) || price_guess == 0)
 			return
 		price_guess = max(0, round(price_guess, 0.01))
@@ -78,6 +85,7 @@
 		user.visible_message("\The [user] remove some credits from \the [owner]." )
 		return
 
+// Print out a relevant receipt
 /datum/component/quikpay_shop/proc/print_receipt()
 	var/obj/item/paper/notepad/receipt/R = new(owner.loc)
 	var/receiptname = "Receipt: [machine_id]"
@@ -94,6 +102,7 @@
 	usr.put_in_any_hand_if_possible(R)
 	R.ripped = TRUE
 
+// Interact with an object. Papers or payment pethods
 /datum/component/quikpay_shop/proc/interact_object(obj/item/attacking_item, mob/user)
 	if(istype(attacking_item, /obj/item/paper))
 		read_paper_list(attacking_item, user)
@@ -110,7 +119,10 @@
 		cash_pay(attacking_item, user)
 		return
 
+// Paying with cash
 /datum/component/quikpay_shop/proc/cash_pay(obj/item/spacecash/cashmoney, mob/user)
+	if(!can_use_credits)
+		return
 	var/transaction_amount = sum
 	if(transaction_amount > cashmoney.worth)
 		to_chat(user, SPAN_WARNING("[icon2html(cashmoney, user)] That is not enough money."))
@@ -138,6 +150,7 @@
 	clear_order()
 	return 1
 
+// Paying with an id card
 /datum/component/quikpay_shop/proc/ID_pay(obj/item/attacking_item, mob/user)
 	var/obj/item/card/id/I = attacking_item.GetID()
 	var/transaction_amount = sum
@@ -158,6 +171,7 @@
 		to_chat(user, SPAN_NOTICE("Transaction completed, please return to the home screen."))
 		clear_order()
 
+// Paying with a charge card
 /datum/component/quikpay_shop/proc/card_pay(obj/item/attacking_item, mob/user)
 	var/obj/item/spacecash/ewallet/E = attacking_item
 	var/transaction_amount = sum
@@ -180,17 +194,26 @@
 		to_chat(user, SPAN_WARNING("[icon2html(owner, user)]\The [E] doesn't have that much money!"))
 	return
 
+// Read a paper to get data
 /datum/component/quikpay_shop/proc/read_paper_list(obj/item/paper/R, mob/user)
 	if(!editmode)
 		owner.balloon_alert(user, "device locked!")
 		return FALSE
+
 	var/result = read_paper_price_list(R)
 	for(var/item in result)
-		items += list(list("name" = item["name"], "price" = item["price"]))
+		items += list(list(
+			"name" = item["name"],
+			"price" = item["price"],
+			"category" = item["category"] || "Uncategorized"
+		))
+	return TRUE
 
+// Print the prices to a paper
 /datum/component/quikpay_shop/proc/print_price(mob/user, var/spawn_loc)
 	return print_price_to_paper(shop_name, items, spawn_loc, user)
 
+// Open the tgui
 /datum/component/quikpay_shop/proc/interact_with_ui(mob/living/user)
 	ui_interact(user)
 
@@ -208,6 +231,7 @@
 	data["sum"] = sum
 	data["new_item"] = new_item
 	data["new_price"] = new_price
+	data["new_category"] = new_category
 	data["editmode"] = editmode
 	data["destinationact"] = destinationact
 
@@ -223,10 +247,23 @@
 				owner.balloon_alert(usr, "device locked!")
 				return FALSE
 
-			for(var/list/L in buying)
+			if(!length(new_item))
+				return FALSE
+
+			if(!length(new_category))
+				new_category = "Uncategorized"
+
+			for(var/list/L in items)
 				if(L["name"] == new_item)
-					return
-			items += list(list("name" = new_item, "price" = new_price))
+					return FALSE
+
+			items += list(list(
+				"name" = new_item,
+				"price" = new_price,
+				"category" = new_category
+			))
+
+			new_item = ""
 			. = TRUE
 
 		if("remove")
@@ -238,6 +275,7 @@
 				index++
 				if(L["name"] == params["removing"])
 					items.Cut(index, index+1)
+					break
 			. = TRUE
 
 		if("set_new_price")
@@ -246,6 +284,10 @@
 
 		if("set_new_item")
 			new_item = params["set_new_item"]
+			. = TRUE
+
+		if("set_new_category")
+			new_category = params["set_new_category"]
 			. = TRUE
 
 		if("clear")
@@ -268,14 +310,14 @@
 						L["amount"]--
 					else
 						buying.Cut(index, index+1)
+					break
 			. = TRUE
 
 		if("confirm")
-			// Ensuring it is clear, in case the button is clicked multiple times
 			receipt = ""
 			sum = 0
 			var/obj/item/card/id/id_card = usr.GetIdCard()
-			var/cashier = id_card? id_card.registered_name : "Unknown"
+			var/cashier = id_card ? id_card.registered_name : "Unknown"
 			receipt = "<center><H2>[shop_name] receipt</H2>Today's date: [worlddate2text()]<BR>Cashier: [cashier]</center><HR>Purchased items:<ul>"
 			for(var/list/bought_item in buying)
 				var/item_name = bought_item["name"]
@@ -322,6 +364,7 @@
 			print_price(usr)
 			. = TRUE
 
+// Clear the order from the selection
 /datum/component/quikpay_shop/proc/clear_order()
 	buying.Cut()
 	sum = 0
