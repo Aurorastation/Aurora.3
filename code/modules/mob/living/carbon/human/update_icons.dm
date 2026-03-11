@@ -1206,7 +1206,7 @@ There are several things that need to be remembered:
 			overlays_raw[layer] = held.get_mob_overlay(src, mob_icon, mob_state, mode)
 
 	if(update_icons)
-		update_icon(forceDirUpdate = TRUE)
+		update_icon()
 
 /mob/living/carbon/human/update_inv_wrists(var/update_icons=1)
 	if (QDELETED(src))

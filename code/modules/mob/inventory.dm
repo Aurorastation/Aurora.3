@@ -205,7 +205,7 @@ GLOBAL_LIST_INIT(slot_equipment_priority, list(
  */
 /mob/proc/put_in_active_hand(obj/item/item_to_equip)
 	SHOULD_NOT_SLEEP(TRUE)
-	. = equip_to_slot_if_possible(item_to_equip, get_active_held_item_slot())
+	. = equip_to_slot_if_possible(item_to_equip, get_active_held_item_slot(), disable_warning = TRUE)
 
 /**
  * Puts the item in (one of) our inactive hands, if possible
@@ -220,7 +220,7 @@ GLOBAL_LIST_INIT(slot_equipment_priority, list(
 	for(var/slot in get_empty_hand_slots())
 		if(slot == active_slot)
 			continue
-		. = equip_to_slot_if_possible(item_to_equip, slot)
+		. = equip_to_slot_if_possible(item_to_equip, slot, disable_warning = TRUE)
 		if(.)
 			break
 
@@ -458,7 +458,7 @@ GLOBAL_LIST_INIT(slot_equipment_priority, list(
 	var/itemsize
 
 	var/obj/item/grab/G = astype(item)
-	var/mob/M = astype(item?.throw_held())
+	var/mob/M = astype(G?.throw_held())
 	if(G)
 		if(!M)
 			return FALSE
@@ -466,6 +466,7 @@ GLOBAL_LIST_INIT(slot_equipment_priority, list(
 			to_chat(src, SPAN_WARNING("[M] is far too heavy for you to throw around!"))
 			return
 
+		item = M
 		throw_range = round(throw_range * (src.mob_size/M.mob_size))
 		itemsize = round(M.mob_size/4)
 		var/turf/start_T = get_turf(loc) //Get the start and target tile for the descriptors

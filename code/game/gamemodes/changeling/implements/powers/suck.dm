@@ -9,7 +9,7 @@
 	var/mob/living/carbon/human/T
 	var/obj/item/grab/active_grab = get_active_hand()
 	if(istype(active_grab) && ishuman(active_grab.grabbed) && active_grab.has_grab_flags(GRAB_CAN_KILL))
-		T = G.grabbed // we're gonna shortcircuit The Check (tm) by assuming the active hand will have our grab
+		T = active_grab.grabbed // we're gonna shortcircuit The Check (tm) by assuming the active hand will have our grab
 	else
 		var/list/obj/item/grab/grabs = get_active_grabs() - active_grab
 		if(!length(grabs))

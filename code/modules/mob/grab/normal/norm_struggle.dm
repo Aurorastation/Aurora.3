@@ -35,7 +35,7 @@
 		return
 
 	if(grabbed.incapacitated(INCAPACITATION_UNRESISTING) || grabbed.a_intent == I_HELP)
-		grabbed.visible_message(SPAN_DANGER("\The [grabbed] isn't prepared to fight back as [grabbed] tightens [grabber.get_pronoun("his")] grip!"))
+		grabbed.visible_message(SPAN_DANGER("\The [grabbed] isn't prepared to fight back as [grabber] tightens [grabber.get_pronoun("his")] grip!"))
 		G.done_struggle = TRUE
 		G.upgrade(TRUE)
 	else

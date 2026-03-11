@@ -11,6 +11,8 @@
 #define GRAB_BLOCK_RESIST	BITFLAG(10)	// Grabbed person cannot cause a grab downgrade by resisting.
 #define GRAB_CAN_KILL		BITFLAG(11) // Basically just means "is this GRAB_KILL" under the old system. Allows you to do things that will Definitely Kill People.
 #define GRAB_FORCE_LYING	BITFLAG(12) // Opposite of GRAB_FORCE_STAND, forces the grabbed person to be lying down.
+#define GRAB_WIELDED		BITFLAG(13) // Grab made up of 2 or more grabs. Ignores checks for already having a grab on someone.
+#define GRAB_WALK_FORWARD	BITFLAG(14) // Basically you don't moonwalk if this is set
 
 /// equivalent of /obj/item/grab/proc/has_grab_flags, but without proc overhead for hot procs like canmove
 #define HAS_GRAB_FLAGS(GRABOBJ, GRABFLAGS)	(GRABOBJ.current_grab.grab_flags & GRABFLAGS)

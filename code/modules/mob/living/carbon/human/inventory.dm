@@ -472,7 +472,7 @@ This saves us from having to call add_fingerprint() any time something is put in
 	if(QDELETED(item_to_equip) || !istype(item_to_equip))
 		return FALSE
 
-	if(put_in_active_hand(item_to_equip, TRUE) || put_in_inactive_hand(item_to_equip, TRUE))
+	if(put_in_active_hand(item_to_equip) || put_in_inactive_hand(item_to_equip))
 		return TRUE
 
 	return ..()

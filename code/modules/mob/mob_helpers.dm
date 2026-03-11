@@ -1393,7 +1393,7 @@ GLOBAL_LIST_INIT(organ_rel_size, list(
 		// Update offsets from grabs.
 		for(var/obj/item/grab/grab as anything in grabbed_by)
 			var/grab_dir = get_dir(grab.grabber, src)
-			if(grab_dir && grab.current_grab.shift > 0)
+			if(grab_dir && grab.current_grab.shift != 0)
 				if(grab_dir & WEST)
 					new_pixel_x = min(new_pixel_x+grab.current_grab.shift, default_pixel_x+grab.current_grab.shift)
 				else if(grab_dir & EAST)

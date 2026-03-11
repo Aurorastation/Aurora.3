@@ -43,18 +43,20 @@
 		return INITIALIZE_HINT_QDEL
 
 	playsound(grabbed.loc, 'sound/weapons/thudswoosh.ogg', 50, 1, -1)
-	RegisterSignal(linked_grab, COMSIG_QDELETING, TYPE_PROC_REF(/obj/item/grab, force_drop))
 
 	name = "[name] off-hand (\the [grabbed])"
-	visible_message(SPAN_NOTICE("\The [grabber] lifts \the [grabbed] onto [grabber.get_pronoun("his")] shoulders!", SPAN_NOTICE("You lift \the [grabbed] onto your shoulders!")))
+	visible_message(SPAN_NOTICE("\The [grabber] lifts \the [grabbed] onto [grabber.get_pronoun("his")] shoulders!"), SPAN_NOTICE("You lift \the [grabbed] onto your shoulders!"))
 
 	grabber.buckle(grabbed, grabber)
 	adjust_position()
 
 	update_icon()
 
-/obj/item/grab/MouseDrop(atom/over, src_location, over_location, src_control, over_control, params)
-	if(!istype(current_grab, /singleton/grab/fireman))
+/obj/item/grab/mouse_drop_dragged(atom/over, mob/user, src_location, over_location, params)
+	if(istype(current_grab, /singleton/grab/fireman))
+		return
+	if(!check_upgrade_cooldown())
+		to_chat(user, SPAN_WARNING("You can't start carrying them just yet!"))
 		return
 	var/mob/living/carbon/human/grabber_human = astype(over)
 	if(!grabber_human || grabber_human != grabber)
@@ -79,11 +81,15 @@
 	)
 
 	if(do_mob(grabber_human, grabbed_human, 3 SECONDS, TRUE))
+		var/original_tag = current_grab
 		transfer(/singleton/grab/fireman)
-		var/obj/item/grab/offhand/OH = grabber_human.make_grab(grabbed_human, /singleton/grab/fireman/offhand, TRUE)
+		var/obj/item/grab/offhand/OH = grabber_human.make_grab(grabbed_human, /singleton/grab/fireman/offhand, TRUE, /obj/item/grab/offhand)
 		if(!QDELETED(OH))
 			OH.linked_grab = src
 			RegisterSignal(OH, COMSIG_QDELETING, PROC_REF(force_drop))
+			OH.RegisterSignal(src, COMSIG_QDELETING, TYPE_PROC_REF(/obj/item/grab, force_drop))
+		else
+			transfer(original_tag)
 
 /obj/item/grab/proc/setup_grab(atom/movable/target, use_grab_state, defer_hand)
 	current_grab = GET_SINGLETON(use_grab_state)
@@ -193,9 +199,9 @@
 		UnregisterSignal(grabbed, COMSIG_MOVABLE_MOVED)
 		LAZYREMOVE(grabbed.grabbed_by, src)
 		grabbed.reset_plane_and_layer()
-		grabbed = null
 		if(grabber && grabbed.buckled_to == grabber)
 			grabber.unbuckle()
+		grabbed = null
 	if(grabber)
 		if(grabber.zone_sel)
 			UnregisterSignal(grabber, COMSIG_MOB_ZONE_SEL_CHANGE)
@@ -357,7 +363,7 @@
 	if(is_special_anim)
 		var/mob/living/carbon/human/grabbed_human = astype(grabbed)
 		var/grab_mod = grabbed_human ? grabbed_human.species?.grab_mod : 1
-		var/obj/effect/overlay/temp/grab_special_animation/grab_effect = new current_grab.grab_special_state(loc, grab_mod, "[REF(src)]")
+		var/obj/effect/overlay/temp/grab_special_animation/grab_effect = new current_grab.grab_special_state(loc, grab_mod * (current_grab.upgrade_cooldown / 40), "[REF(src)]")
 		add_filter("grab_effect", 1, layering_filter(render_source = grab_effect.render_target, blend_mode = BLEND_INSET_OVERLAY))
 		vis_contents += grab_effect
 		grab_effect.do_animate()
@@ -376,9 +382,8 @@
 		qdel(src)
 		return FALSE
 
-	var/adir = get_dir(grabber, grabbed)
-	if(grabber)
-		grabber.set_dir(adir)
+	if(grabber && !(current_grab.grab_flags & GRAB_WALK_FORWARD))
+		grabber.set_dir(get_dir(grabber, grabbed))
 	if(current_grab.grab_flags & GRAB_SHARE_TILE)
 		grabbed.forceMove(get_turf(grabber))
 		grabbed.set_dir(grabber.dir)

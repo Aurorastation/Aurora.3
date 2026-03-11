@@ -23,7 +23,7 @@
 		to_chat(src, SPAN_WARNING("You're already being grappled!"))
 		return FALSE
 	for(var/obj/item/grab/G as anything in get_active_grabs())
-		if(G.grabbed != target)
+		if(G.grabbed != target || G.has_grab_flags(GRAB_WIELDED))
 			continue
 		if(!target_zone || !ismob(target))
 			to_chat(src, SPAN_WARNING("You already have a grip on \the [target]!"))
@@ -38,7 +38,7 @@
 /mob/try_make_grab(mob/living/user, grab_tag = /singleton/grab/normal/passive, defer_hand = FALSE)
 	return ..(user, /singleton/grab/normal/passive, FALSE)
 
-/mob/living/proc/make_grab(atom/movable/target, grab_tag = null, defer_hand = FALSE)
+/mob/living/proc/make_grab(atom/movable/target, grab_tag = null, defer_hand = FALSE, grab_type = /obj/item/grab)
 	var/atom/movable/original_target = target
 	var/mob/grabbing_mob = (ismob(target) && target)
 	while(istype(grabbing_mob) && grabbing_mob.buckled_to)
@@ -61,7 +61,7 @@
 	face_atom(target)
 	var/obj/item/grab/G
 	if(ispath(grab_tag, /singleton/grab) && can_grab(target, zone_sel.selecting, defer_hand = defer_hand) && target.can_be_grabbed(src, zone_sel.selecting, defer_hand))
-		G = new/obj/item/grab(src, target, grab_tag, defer_hand)
+		G = new grab_type(src, target, grab_tag, defer_hand)
 		if(grabbing_mob)
 			grabbing_mob.LAssailant = WEAKREF(src)
 
