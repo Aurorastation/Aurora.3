@@ -1,7 +1,7 @@
 /obj/machinery/containment_field
 	name = "containment field"
 	desc = "An energy field."
-	icon = 'icons/obj/machinery/field_generator.dmi'
+	icon = 'icons/effects/effects.dmi'
 	icon_state = "contain_f"
 	anchored = 1
 	density = 0

@@ -4,7 +4,7 @@
 /obj/effect/energy_field
 	name = "energy shield"
 	desc = "A strong field of energy, capable of blocking anything as long as it's active."
-	icon = 'icons/obj/machinery/shielding.dmi'
+	icon = 'icons/effects/effects.dmi'
 	icon_state = "shield_normal"
 	alpha = 0
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
