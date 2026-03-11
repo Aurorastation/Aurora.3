@@ -7,7 +7,7 @@
 	opacity = TRUE
 	anchored = FALSE
 	req_access = list(ACCESS_ENGINE)
-	var/health = 100
+	maxhealth = 100
 	var/active = FALSE
 	/// Malfunction causes parts of the shield to slowly dissipate
 	var/malfunction = FALSE
