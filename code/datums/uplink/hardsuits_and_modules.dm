@@ -42,11 +42,11 @@
 	path = /obj/item/rig_module/grenade_launcher/frag
 	desc = "A hardsuit mounted grenade launcher, containing three fragmentation grenades."
 
-/datum/uplink_item/item/hardsuit_modules/plasma
-	name = "Mounted Plasma Cannon"
-	telecrystal_cost = 8
-	path = /obj/item/rig_module/mounted/plasma
-	desc = "A marvel of Elyran weapons technology which utilizes superheated plasma to pierce thick armor with gruesome results. This one seems fitted for RIG usage."
+// /datum/uplink_item/item/hardsuit_modules/plasma // Currently a bit broken.
+// 	name = "Mounted Plasma Cannon"
+// 	telecrystal_cost = 8
+// 	path = /obj/item/rig_module/mounted/plasma
+//	desc = "A marvel of Elyran weapons technology which utilizes superheated plasma to pierce thick armor with gruesome results. This one seems fitted for RIG usage."
 
 /datum/uplink_item/item/hardsuit_modules/egun
 	name = "Mounted Energy Gun"
