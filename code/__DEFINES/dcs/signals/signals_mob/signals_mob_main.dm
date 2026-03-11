@@ -43,6 +43,9 @@
 /// From /mob/living/verb/execute_resist(). Resisting.
 #define COMSIG_MOB_RESISTED "mob_resist"
 
+/// Sent when a mob rests.
+#define COMSIG_MOB_RESTED "mob_rested"
+
 /// From /obj/item/organ/external/take_damage. Updates the limb's colour matrix. Very laggy, so we do it on reaction to stuff.
 #define COMSIG_UPDATE_LIMB_IMAGE "update_limb_image"
 

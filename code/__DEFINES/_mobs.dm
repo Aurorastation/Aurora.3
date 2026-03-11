@@ -81,7 +81,6 @@
 //movement intents
 #define M_WALK "walk"
 #define M_RUN  "run"
-#define M_LAY  "lay"	// Intentional lying only! To not confuse with the state (variable with the same name on the mob, but not necessarity intentional)
 
 // Limbs and robotic stuff.
 #define BP_L_FOOT "l_foot"
@@ -642,3 +641,5 @@
 #define RESIST_VERY_STRONG 5
 #define RESIST_EXTREMELY_STRONG 6
 #define RESIST_OVERWHELMING 7
+
+#define WEATHER_COOLDOWN_TIME (5 SECONDS)

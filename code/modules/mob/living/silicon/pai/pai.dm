@@ -428,6 +428,8 @@
 		icon_state = resting ? "[chassis]_rest" : "[chassis]"
 		to_chat(src, SPAN_NOTICE("You are now [resting ? "resting" : "getting up"]."))
 
+	SEND_SIGNAL(src, COMSIG_MOB_RESTED)
+
 	canmove = !resting
 
 //Overriding this will stop a number of headaches down the track.

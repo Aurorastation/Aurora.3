@@ -972,6 +972,8 @@
 
 	to_chat(src, SPAN_NOTICE("You are now [resting ? "resting" : "getting up"]."))
 
+	SEND_SIGNAL(src, COMSIG_MOB_RESTED)
+
 	update_icon()
 
 //Todo: add snowflakey shit to it.
