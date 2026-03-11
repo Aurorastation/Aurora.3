@@ -33,6 +33,9 @@
 	max_damage = 100
 	power_use = 2500
 	trample_damage = 35
+	// Dedicated combat chassis is highly resistant to mobility loss until a full "mobility kill"
+	damaged_delay = 3
+	damaged_delay_slope = 0.5
 
 /obj/item/mech_component/sensors/combat
 	name = "combat sensors"

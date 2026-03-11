@@ -890,17 +890,16 @@
 				anchored = TRUE
 				canmove = FALSE
 				lying = FALSE
-			else if(m_intent == M_LAY && !MOB_IS_INCAPACITATED(INCAPACITATION_DEFAULT))
-				lying = TRUE
-				lying_is_intentional = TRUE
-				canmove = TRUE
+				lying_is_intentional = FALSE
 			else if(sleeping)
 				lying = resting || (stat == DEAD) || (MOB_IS_INCAPACITATED(INCAPACITATION_KNOCKDOWN) && !(H?.species?.sleeps_upright)) // Vaurca, IPCs and Diona sleep standing up, unless they were already lying down
 				lying_is_intentional = FALSE
 				canmove = !MOB_IS_INCAPACITATED(INCAPACITATION_KNOCKOUT) && !weakened
 			else
-				lying = resting || (stat == DEAD) || MOB_IS_INCAPACITATED(INCAPACITATION_KNOCKDOWN) && !recently_slept
-				lying_is_intentional = FALSE
+				var/incapacitated = (stat == DEAD) || MOB_IS_INCAPACITATED(INCAPACITATION_KNOCKDOWN)
+				lying = incapacitated || resting && !recently_slept
+				if(!incapacitated)
+					lying_is_intentional = TRUE
 				canmove = !MOB_IS_INCAPACITATED(INCAPACITATION_KNOCKOUT) && !weakened
 
 	if(lying)

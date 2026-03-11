@@ -297,6 +297,9 @@
 	standards["standard, Volvalaad"] = /obj/item/flag/volvalaad
 	standards["standard, Caladius"] = /obj/item/flag/caladius
 	standards["standard, Zhao"] = /obj/item/flag/zhao
+	standards["standard, Seok"] = /obj/item/flag/seok
+	standards["standard, Kaneko"] = /obj/item/flag/kaneko
+	standards["standard, von Sinzendorf"] = /obj/item/flag/sinzendorf
 	gear_tweaks += new /datum/gear_tweak/path(standards)
 
 /datum/gear/flag

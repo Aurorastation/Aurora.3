@@ -44,8 +44,8 @@
 	if (!(species.flags & NO_COLD_SLOWDOWN))	// Bugs and machines don't move slower when cold.
 		if((mutations & FAT))
 			tally += 1.5
-		if (bodytemperature < 283.222)
-			tally += (283.222 - bodytemperature) / 10 * 1.75
+		if (bodytemperature < species.cold_discomfort_level)
+			tally += (species.cold_discomfort_level - bodytemperature) / 10 * 1.75
 
 	tally += max(2 * stance_damage, 0) //damaged/missing feet or legs is slow
 	if((mutations & mRun))
@@ -123,8 +123,6 @@
 	. = ..()
 	if(. && tail_style)
 		update_tail_showing(!lying)
-	if(lying)
-		update_icon(TRUE)
 
 /mob/living/carbon/human/Move()
 	. = ..()

@@ -91,7 +91,6 @@
 //movement intents
 #define M_WALK "walk"
 #define M_RUN  "run"
-#define M_LAY  "lay"	// Intentional lying only! To not confuse with the state (variable with the same name on the mob, but not necessarity intentional)
 
 // Limbs and robotic stuff.
 #define BP_L_FOOT "l_foot"
@@ -633,4 +632,4 @@
 /// Recharges from external lighting. Slower at recharging from external sources.
 #define POWER_SUPPLY_SOLAR 8
 
-
+#define WEATHER_COOLDOWN_TIME (5 SECONDS)

@@ -240,6 +240,8 @@
 	uniform = /obj/item/clothing/under/suit_jacket/navy
 	head = null
 	suit = null
+	accessory = null
+	suit_accessory = null
 	backpack_contents = list(
 		/obj/item/camera = 1,
 		/obj/item/gun/energy/pistol = 1

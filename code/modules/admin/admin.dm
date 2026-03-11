@@ -701,9 +701,9 @@ var/global/enabled_spooking = 0
 	if (!check_rights(R_ADMIN))
 		return
 
-	var/message = tgui_input_text(usr, "Enter a global message to send.", "Admin Announce", multiline = TRUE)
+	var/message = tgui_input_text(usr, "Enter a global message to send.", "Admin Announce", multiline = TRUE, encode = FALSE)
 	if(message)
-		if(!check_rights(R_SERVER, 0))
+		if(!check_rights(R_ADMIN, 0))
 			message = sanitize(message, 500, extra = 0)
 		message = replacetext(message, "\n", "<br>") // required since we're putting it in a <p> tag
 		to_world("<span class=notice><b>[usr.client.holder.fakekey ? "Administrator" : usr.key] Announces:</b><p style='text-indent: 50px'>[message]</p></span>")

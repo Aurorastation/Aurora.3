@@ -16,6 +16,8 @@
 	desc = "Four utterly goliath stump-like pistons hold this propulsion mechanism together."
 	icon_state = "strider_legs"
 	move_delay = 5
+	damaged_delay = 5
+	damaged_delay_slope = 0.5
 	max_damage = 650
 	power_use = 2500
 	trample_damage = 45

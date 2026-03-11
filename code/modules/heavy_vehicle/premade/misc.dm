@@ -6,8 +6,9 @@
 	max_damage = 160
 	move_delay = 4
 	turn_delay = 1
-	reverse_delay = 2 // Faster than usual reverse for legs
-	strafe_delay_modifier = 1.2 // Faster than usual strafing
+	reverse_delay = 1 // Faster than usual reverse for legs
+	strafe_delay_modifier = 1 // Uniquely the only chassis without a strafe delay
+	damaged_delay = 4
 	power_use = 1250
 	trample_damage = 10
 
@@ -18,8 +19,8 @@
 	icon_state = "spiderlegs-industrial"
 	max_damage = 250
 	move_delay = 5
+	damaged_delay = 5
 	turn_delay = 1
-	strafe_delay_modifier = 1.2 // Faster than usual strafing
 	power_use = 3500
 	trample_damage = 25
 
@@ -30,6 +31,7 @@
 	icon_state = "tracks"
 	max_damage = 450
 	move_delay = 2 //Its fast
+	damaged_delay = 2
 	turn_delay = 7
 	reverse_delay = 0 // Uniquely the only chassis without a reverse delay.
 	power_use = 3500

@@ -1173,14 +1173,17 @@
 	starts_with = list(
 		/obj/item/flag/dominia = 8,
 		/obj/item/flag/dominia/l = 6,
-		/obj/item/flag/strelitz = 4,
-		/obj/item/flag/volvalaad = 4,
+		/obj/item/flag/strelitz = 2,
+		/obj/item/flag/volvalaad = 2,
 		/obj/item/flag/caladius = 2,
-		/obj/item/flag/zhao = 4,
-		/obj/item/flag/zhurong = 3,
+		/obj/item/flag/zhao = 2,
+		/obj/item/flag/zhurong = 2,
 		/obj/item/flag/zhurong/l = 2,
-		/obj/item/flag/imperial_frontier = 3,
-		/obj/item/flag/imperial_frontier/l = 2
+		/obj/item/flag/imperial_frontier = 2,
+		/obj/item/flag/imperial_frontier/l = 2,
+		/obj/item/flag/seok = 1,
+		/obj/item/flag/kaneko = 1,
+		/obj/item/flag/sinzendorf = 1,
 	)
 
 /obj/item/storage/box/large/flags/elyra

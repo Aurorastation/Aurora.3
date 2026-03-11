@@ -240,12 +240,40 @@
 	groupable = TRUE
 	spawn_amount = 1
 
+/singleton/cargo_item/tricordrazine
+	category = "medical"
+	name = "tricordrazine bottle"
+	supplier = "nanotrasen"
+	description = "A bottle of tricordrazine, a medicine used to treat various wounds."
+	price = 175
+	items = list(
+		/obj/item/reagent_containers/glass/bottle/tricordrazine
+	)
+	access = 0
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/bicaridine_bottle
+	category = "medical"
+	name = "bicaridine bottle"
+	supplier = "nanotrasen"
+	description = "A bottle of bicaridine, a medicine used to treat trauma."
+	price = 250
+	items = list(
+		/obj/item/reagent_containers/glass/bottle/bicaridine
+	)
+	access = ACCESS_MEDICAL
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
 /singleton/cargo_item/butazoline_bottle
 	category = "medical"
 	name = "butazoline bottle"
-	supplier = "nanotrasen"
+	supplier = "zeng_hu"
 	description = "A bottle of butazoline, a medicine used to treat severe trauma."
-	price = 250
+	price = 525
 	items = list(
 		/obj/item/reagent_containers/glass/bottle/butazoline
 	)
@@ -258,12 +286,26 @@
 	category = "medical"
 	name = "kelotane bottle"
 	supplier = "nanotrasen"
-	description = "A bottle of kelotane, a medicine used to treat severe burns."
+	description = "A bottle of kelotane, a medicine used to treat burns."
 	price = 250
 	items = list(
 		/obj/item/reagent_containers/glass/bottle/kelotane
 	)
 	access = 0
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/dermaline_bottle
+	category = "medical"
+	name = "dermaline bottle"
+	supplier = "zeng_hu"
+	description = "A bottle of dermaline, a medicine used to treat severe burns."
+	price = 525
+	items = list(
+		/obj/item/reagent_containers/glass/bottle/dermaline
+	)
+	access = ACCESS_MEDICAL
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
