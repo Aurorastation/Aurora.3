@@ -97,7 +97,11 @@ export const ItemWindow = (props, context) => {
                         content="Buy"
                         icon="calendar"
                         onClick={() =>
-                          act('buy', { buying: item.name, amount: 1 })
+                          act('buy', {
+                            buying: item.name,
+                            amount: 1,
+                            price: item.price,
+                          })
                         }
                       />
                     ) : (
