@@ -26,3 +26,98 @@
   WickedCybs:
   - rscdel: Removed quite a bit of unused custom items. They can return should their
       characters resume activity.
+2026-03-03:
+  Batrachophrenoboocosmomachia:
+  - spellcheck: Renames TEGs to Stirling engines to more accurately reflect their
+      functionality.
+  - refactor: Refactor of interface for TEG/Stirling Engines to use TGUI instead of
+      NanoUI.
+  GeneralCamo:
+  - bugfix: Fixed shrapnel not correctly creating new wounds, causing them to disappear.
+  Greenjoe:
+  - rscadd: Allows Little Adhomai tajara to select Biesel citizenship.
+  - rscadd: Little Adhomai tajara are now more used to heat compared to Adhomian tajara.
+  JohnWildkins:
+  - refactor: Move smartfridge icon generation to static data and cache results to
+      improve performance.
+  - bugfix: Fix chemical bottles not having proper colors in SmartFridge UI.
+  - bugfix: Fix hivebot hard delete.
+  Mynameasjeff:
+  - qol: The Ranger Gunboat has been given a bit of a update. Thank you to @Cormallenfield
+      on discord for helping with the submap inserts.
+2026-03-05:
+  CatsinHD:
+  - bugfix: Fixes stickynotes adding papers to the noticeboard despite not being able
+      to be added to one.
+  Evandorf:
+  - rscadd: Standardizes the airlocks in all shuttles by adding manual shutters to
+      the Spark, Quark, and Canary. This also coincides with changes to SoP - Preflight
+      Safety Checks.
+  Hellfirejag:
+  - balance: Balance pass for 'damaged movement delays' and movement types in general
+      for mech legs to make them less punishing. Quad mechs now uniquely don't have
+      a strafe delay. Combat mechs and heavier mechs are in general more resistant
+      to losing movespeed from damage.
+  - rscadd: Cult mechs now have a unique mechanic where their movement speed increases
+      as they take damage. For the Dark Gods!
+  - bugfix: Fixed mechs not having correct glide sizes for smooth movement when strafing
+      and reversing.
+  JohnWildkins:
+  - rscadd: Added a debug command for devs/admins to list timer sources.
+  - bugfix: Fixed an issue where Extended wouldn't be selected if no votes for gamemode
+      were cast.
+  - code_imp: PRs can now correctly ignore CI runs or just unit tests with [CI Ignore]
+      and [UT Ignore] respectively.
+  Timby:
+  - imageadd: Changes the camera sprites to not be so r4407. Resultantly changes the
+      ever-popular camera gun's sprite.
+  - imagedel: Old camera and camera gun sprites are gone.
+2026-03-06:
+  GeneralCamo:
+  - rscadd: Added bicaridine, dermaline, and tricordrazine to the cargo order interface.
+  - balance: Dermaline and butazoline are now priced as premium medicines.
+  - rscadd: The Horizon's medical bay now starts with a single bottle of bicaridine,
+      kelotane, and dexalin.
+  - rscadd: Smartfridges now have emissive masks.
+  fyni:
+  - rscadd: Adds a sign for the commissary - Quik Stop, by Orion.
+2026-03-08:
+  ElorgRHG:
+  - rscdel: Consular Officers no longer start with a corporate tie and a corporate
+      badge.
+  - rscadd: Added citizenship loadout restrictions to the loadout.
+  - rscadd: Dominian Consular loadout items are now citizenship restricted to the
+      Empire of Dominia.
+  - bugfix: Religion loadout restrictions now actually restrict items to religions.
+  Greenjoe:
+  - rscadd: Adds Twin Suns and Raskara symbols to paperwork, use [twinsuns] and [raskara_sigil]
+      to write them. Add _small to make small versions.
+  - rscadd: Adhomaian tajara can now select Biesel citizenship to represent those
+      who immigrated there as an adult.
+  JohnWildkins:
+  - bugfix: Fix issue whereby Tajara would lose movement speed due to lowering their
+      body temperature.
+  fyni:
+  - rscadd: Adds three new Domi house banners!
+2026-03-09:
+  MattAtlas:
+  - bugfix: Fixes admin announces sanitizing HTML, meaning that admins can terrorize
+      you with big red text once more.
+2026-03-10:
+  Batrachophrenoboocosmomachia:
+  - balance: Reduces flashlight power consumption by 10x globally.
+  JohnWildkins:
+  - refactor: Ported object duplication handling from /tg/ to fix holodeck generating
+      massive lag spikes.
+  - refactor: Refactored weather, turrets, and overmap contacts to not use timers
+      to reduce the number created + deleted over a round substantially.
+  MattAtlas:
+  - refactor: Laying down no longer exists as a separate movement intent, you can
+      now simply rest with your weapon in your hand. Middle clicking the walk/run
+      intent icon now functions as a rest macro.
+2026-03-11:
+  FabianK3:
+  - bugfix: Fixed material stacks being able to have negative amounts.
+  MattAtlas:
+  - bugfix: Fixes paincrit (or incapacitation in general) not making people drop what
+      they're holding.

@@ -298,7 +298,6 @@ GLOBAL_LIST_EMPTY(gamemode_cache)
 	//Unversal modifiers
 	var/walk_speed = 0
 	var/walk_delay_multiplier = 1
-	var/lying_delay_multiplier = 4
 	var/run_delay_multiplier = 1
 	var/vehicle_delay_multiplier = 1
 
