@@ -85,9 +85,11 @@
 /turf/simulated/floor/diona,
 /area/voidtamer/trader/supermatter)
 "aS" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/random/dirt_75,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/tiled/white,
 /area/voidtamer/trader/kitchen)
 "aX" = (
@@ -145,12 +147,14 @@
 /turf/simulated/floor/tiled/dark,
 /area/voidtamer/trader/autocannon_gun)
 "bo" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/structure/sink/kitchen{
 	dir = 8;
 	pixel_x = 22;
 	name = "sink"
+	},
+/obj/structure/cable{
+	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/white,
 /area/voidtamer/trader/kitchen)
@@ -196,9 +200,11 @@
 	dir = 8
 	},
 /obj/structure/cable{
-	d1 = 2;
-	d2 = 4;
-	icon_state = "2-4"
+	icon_state = "1-2";
+	dir = 1
+	},
+/obj/structure/cable{
+	icon_state = "1-4"
 	},
 /turf/simulated/floor/diona,
 /area/voidtamer/trader/mining)
@@ -919,7 +925,6 @@
 /turf/simulated/floor,
 /area/voidtamer/trader/mining)
 "hd" = (
-/obj/machinery/air_sensor,
 /obj/effect/map_effect/marker/large_tank{
 	master_tag = "voidtamer_ship_co2_star";
 	name = "voidtamer_ship_co2_star"
@@ -927,6 +932,7 @@
 /obj/machinery/light{
 	dir = 8
 	},
+/obj/machinery/air_sensor,
 /turf/simulated/floor/reinforced/carbon_dioxide,
 /area/voidtamer/trader/engineering/port)
 "he" = (
@@ -1435,14 +1441,12 @@
 /turf/simulated/floor/diona,
 /area/voidtamer/trader/mining)
 "lM" = (
-/obj/machinery/atmospherics/unary/vent_pump/siphon/on/atmos{
-	dir = 4;
-	frequency = 1515;
-	id_tag = "idris_co2_out"
-	},
 /obj/effect/map_effect/marker/large_tank{
 	master_tag = "voidtamer_ship_co2_star";
 	name = "voidtamer_ship_co2_star"
+	},
+/obj/machinery/atmospherics/unary/vent_pump/siphon/on/atmos{
+	dir = 4
 	},
 /turf/simulated/floor/reinforced/carbon_dioxide,
 /area/voidtamer/trader/engineering/port)
@@ -1546,7 +1550,6 @@
 	dir = 4
 	},
 /obj/random/dirt_75,
-/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable{
 	icon_state = "1-2";
@@ -1556,6 +1559,8 @@
 	req_one_access = null;
 	req_access = list(256)
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
 /turf/simulated/floor/tiled/dark,
 /area/voidtamer/trader/engineering/port)
 "mH" = (
@@ -1569,11 +1574,11 @@
 	},
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
 /obj/random/dirt_75,
-/obj/machinery/atmospherics/pipe/manifold4w/visible/scrubbers,
 /obj/structure/cable{
 	icon_state = "1-2";
 	dir = 1
 	},
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
 /turf/simulated/floor/diona,
 /area/voidtamer/trader/warehouse)
 "mL" = (
@@ -1792,6 +1797,7 @@
 /obj/machinery/power/apc/east{
 	req_access = list(256)
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/dark,
 /area/voidtamer/trader/engineering/port)
 "pa" = (
@@ -2130,6 +2136,7 @@
 	dir = 1
 	},
 /obj/machinery/door/firedoor/noid,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/dark,
 /area/voidtamer/trader/dock)
 "rQ" = (
@@ -2401,6 +2408,7 @@
 	icon_state = "1-2";
 	dir = 1
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/dark,
 /area/voidtamer/trader/dock)
 "tI" = (
@@ -2919,6 +2927,7 @@
 	icon_state = "1-2";
 	dir = 1
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/dark,
 /area/voidtamer/trader/engineering/port)
 "yn" = (
@@ -3047,7 +3056,7 @@
 /area/voidtamer/trader/warehouse)
 "zF" = (
 /obj/machinery/mineral/stacking_machine{
-	id = "coalit_stacker_1"
+	id = "voidtamer_trade_stacker_1"
 	},
 /turf/simulated/floor/diona,
 /area/voidtamer/trader/mining)
@@ -3320,6 +3329,7 @@
 /area/voidtamer/trader/crew)
 "Cu" = (
 /obj/structure/table/rack/folding_table,
+/obj/item/flashlight/lantern,
 /turf/simulated/floor/tiled/dark,
 /area/voidtamer/trader/crew)
 "Cw" = (
@@ -4095,7 +4105,7 @@
 /area/voidtamer/trader/crew)
 "Il" = (
 /obj/machinery/mineral/stacking_unit_console{
-	id = "coalit_stacker_1";
+	id = "voidtamer_trade_stacker_1";
 	pixel_y = 28
 	},
 /turf/simulated/floor/diona,
@@ -4123,7 +4133,7 @@
 /area/voidtamer/trader/mining)
 "IG" = (
 /obj/machinery/mineral/processing_unit_console{
-	id = "coalition_miner";
+	id = "Voidtamer_1";
 	pixel_y = 28
 	},
 /turf/simulated/floor/diona,
@@ -4402,6 +4412,11 @@
 	dir = 4
 	},
 /obj/random/dirt_75,
+/obj/machinery/computer/general_air_control/large_tank_control,
+/obj/effect/map_effect/marker/large_tank{
+	master_tag = "voidtamer_ship_co2_star";
+	name = "voidtamer_ship_co2_star"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/voidtamer/trader/engineering/port)
 "Lh" = (
@@ -4450,8 +4465,7 @@
 	},
 /obj/random/dirt_75,
 /obj/structure/cable{
-	icon_state = "1-2";
-	dir = 8
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/diona,
 /area/voidtamer/trader/mining)
@@ -4849,8 +4863,7 @@
 	dir = 4
 	},
 /obj/structure/cable{
-	icon_state = "1-2";
-	dir = 8
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/diona,
 /area/voidtamer/trader/mining)
@@ -5182,6 +5195,10 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/door/airlock/diona,
 /obj/machinery/door/firedoor/noid,
+/obj/structure/cable{
+	icon_state = "1-2";
+	dir = 1
+	},
 /turf/simulated/floor/diona,
 /area/voidtamer/trader/dock)
 "Rz" = (
@@ -5434,8 +5451,7 @@
 "Vg" = (
 /obj/random/dirt_75,
 /obj/structure/cable{
-	icon_state = "1-2";
-	dir = 8
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/diona,
 /area/voidtamer/trader/mining)
@@ -5545,12 +5561,12 @@
 /turf/simulated/floor/diona,
 /area/voidtamer/trader/dock)
 "Wf" = (
-/obj/machinery/atmospherics/unary/outlet_injector{
-	dir = 4
-	},
 /obj/effect/map_effect/marker/large_tank{
 	master_tag = "voidtamer_ship_co2_star";
 	name = "voidtamer_ship_co2_star"
+	},
+/obj/machinery/atmospherics/unary/outlet_injector{
+	dir = 4
 	},
 /turf/simulated/floor/reinforced/carbon_dioxide,
 /area/voidtamer/trader/engineering/port)
@@ -6036,11 +6052,6 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/voidtamer/trader/crew)
-"Zp" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/turf/simulated/floor/diona,
-/area/voidtamer/trader/mining)
 "Zs" = (
 /obj/random/dirt_75,
 /obj/machinery/alarm/west{
@@ -6068,8 +6079,7 @@
 	},
 /obj/random/dirt_75,
 /obj/structure/cable{
-	icon_state = "1-2";
-	dir = 8
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/diona,
 /area/voidtamer/trader/mining)
@@ -32216,7 +32226,7 @@ Kq
 WK
 sG
 Rp
-Zp
+MA
 bt
 MA
 aX
