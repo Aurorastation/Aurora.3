@@ -56,12 +56,6 @@
 	icon_state = "furscarf_colorable"
 	item_state = "furscarf_colorable"
 
-/obj/item/clothing/accessory/tajaran/summershirt
-	name = "adhomian summerwear shirt"
-	desc = "A simple piece of adhomian summerwear made with linen."
-	icon_state = "summer-shirt"
-	item_state = "summer-shirt"
-
 /obj/item/clothing/accessory/poncho/tajarancloak
 	name = "common cloak"
 	desc = "A tajaran cloak made with the middle class in mind, fancy but nothing special."

@@ -115,3 +115,9 @@
   - refactor: Laying down no longer exists as a separate movement intent, you can
       now simply rest with your weapon in your hand. Middle clicking the walk/run
       intent icon now functions as a rest macro.
+2026-03-11:
+  FabianK3:
+  - bugfix: Fixed material stacks being able to have negative amounts.
+  MattAtlas:
+  - bugfix: Fixes paincrit (or incapacitation in general) not making people drop what
+      they're holding.
