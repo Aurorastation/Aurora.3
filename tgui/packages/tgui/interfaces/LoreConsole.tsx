@@ -1,5 +1,5 @@
 import { useBackend, useLocalState } from '../backend';
-import { Button, Section, Stack } from '../components';
+import { Box, Button, Section, Stack } from '../components';
 import { Window } from '../layouts';
 
 type LoreEntry = {
@@ -60,7 +60,7 @@ export const LoreConsole = (props, context) => {
         )}
         <Stack.Item>
           <h1>{entry.title && entry.title}</h1>
-          <div
+          <Box
             className="LoreConsole__entryText"
             dangerouslySetInnerHTML={{ __html: entry.body }}
           />

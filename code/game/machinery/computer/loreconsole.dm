@@ -13,6 +13,8 @@
  * * This list can contain multiple datum entries, each entry represents a page
  */
 ABSTRACT_TYPE(/obj/machinery/computer/terminal/loreconsole)
+	name = "information terminal"
+	desc = "A terminal with a blank screen, waiting to receive an input."
 	icon_screen = "loreconsole"
 	icon_keyboard = "power_key"
 	light_power_on = 2
