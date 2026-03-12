@@ -74,7 +74,7 @@ BREATH ANALYZER
 	switch(amount)
 		if (0)
 			output = "none"
-		if (1 to 10)
+		if (0 to 10)
 			output = "minor"
 		if (11 to 25)
 			output = "moderate"
