@@ -1818,8 +1818,7 @@
 /obj/structure/ship_weapon_dummy{
 	is_barrel = 1
 	},
-/obj/structure/lattice/catwalk,
-/turf/template_noop,
+/turf/space,
 /area/ship/ranger_corvette/engine1)
 "gUj" = (
 /obj/machinery/door/firedoor{
@@ -2604,8 +2603,7 @@
 /obj/structure/ship_weapon_dummy{
 	is_barrel = 1
 	},
-/obj/structure/lattice/catwalk,
-/turf/simulated/floor/airless,
+/turf/template_noop,
 /area/ship/ranger_corvette/engine1)
 "kaR" = (
 /obj/structure/sign/directions/com{
@@ -4067,7 +4065,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/telecomms)
 "pZW" = (
-/obj/structure/lattice/catwalk,
 /obj/structure/ship_weapon_dummy,
 /turf/template_noop,
 /area/ship/ranger_corvette/engine1)
@@ -5696,10 +5693,9 @@
 /turf/simulated/floor/plating,
 /area/ship/ranger_corvette/foyer)
 "uFD" = (
-/obj/structure/ship_weapon_dummy,
 /obj/structure/lattice/catwalk,
-/turf/simulated/floor/airless,
-/area/ship/ranger_corvette/engine1)
+/turf/template_noop,
+/area/space)
 "uGk" = (
 /obj/machinery/door/airlock/external{
 	dir = 4
@@ -37084,7 +37080,7 @@ tWh
 tWh
 tWh
 tWh
-xRX
+uFD
 xRX
 xRX
 xRX
@@ -37339,8 +37335,8 @@ xRX
 xRX
 tWh
 pZW
-gSr
-gSr
+jYf
+jYf
 usZ
 qHO
 xRX
@@ -37595,10 +37591,10 @@ xRX
 xRX
 xRX
 tWh
-uFD
-uFD
-uFD
+pZW
 hUh
+pZW
+pZW
 qbD
 xRX
 xRX
@@ -37853,8 +37849,8 @@ xRX
 xRX
 tWh
 jYf
-jYf
 gSr
+jYf
 usZ
 aXi
 xRX
@@ -38112,7 +38108,7 @@ tWh
 boM
 tWh
 tWh
-xRX
+usZ
 xRX
 xRX
 rrQ
