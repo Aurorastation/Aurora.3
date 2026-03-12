@@ -1,6 +1,5 @@
-import { decodeHtmlEntities } from 'common/string';
 import { useBackend, useLocalState } from '../backend';
-import { Box, Button, Section, Stack } from '../components';
+import { Button, Section, Stack } from '../components';
 import { Window } from '../layouts';
 
 type LoreEntry = {
