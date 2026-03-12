@@ -4079,6 +4079,10 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/foyer)
+"qbD" = (
+/obj/structure/ship_weapon_dummy/barrel,
+/turf/template_noop,
+/area/space)
 "qcF" = (
 /obj/machinery/power/smes/buildable/third_party_shuttle,
 /obj/structure/cable/green,
@@ -4306,11 +4310,11 @@
 /turf/simulated/floor/tiled/white,
 /area/ship/ranger_corvette/canteen)
 "qHO" = (
+/obj/structure/lattice/catwalk,
+/obj/item/hullbeacon/red,
 /obj/machinery/ship_weapon/autocannon{
 	weapon_id = "Ranger Francisca Rotary Gun"
 	},
-/obj/structure/lattice/catwalk,
-/obj/item/hullbeacon/red,
 /turf/template_noop,
 /area/ship/ranger_corvette/engine1)
 "qMt" = (
@@ -37595,7 +37599,7 @@ uFD
 uFD
 uFD
 hUh
-lhJ
+qbD
 xRX
 xRX
 xRX
