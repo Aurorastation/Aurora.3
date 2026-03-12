@@ -373,7 +373,7 @@
 /area/ship/ranger_corvette/foyer)
 "boM" = (
 /obj/machinery/ammunition_loader/autocannon{
-	weapon_id = "Ranger Francisca Rotary Gun"
+	weapon_id = s
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/engine1)
@@ -1814,12 +1814,6 @@
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor/plating,
 /area/ship/ranger_corvette/foyer)
-"gSr" = (
-/obj/structure/ship_weapon_dummy{
-	is_barrel = 1
-	},
-/turf/space,
-/area/ship/ranger_corvette/engine1)
 "gUj" = (
 /obj/machinery/door/firedoor{
 	req_one_access = list(221,222)
@@ -2038,11 +2032,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/foyer)
-"hUh" = (
-/obj/structure/ship_weapon_dummy,
-/obj/structure/lattice/catwalk,
-/turf/template_noop,
-/area/ship/ranger_corvette/engine1)
 "hUx" = (
 /obj/effect/landmark/entry_point/port{
 	name = "port, quarters"
@@ -2599,12 +2588,6 @@
 	},
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/shuttle/ranger_shuttle)
-"jYf" = (
-/obj/structure/ship_weapon_dummy{
-	is_barrel = 1
-	},
-/turf/template_noop,
-/area/ship/ranger_corvette/engine1)
 "kaR" = (
 /obj/structure/sign/directions/com{
 	dir = 4;
@@ -37335,8 +37318,8 @@ xRX
 xRX
 tWh
 pZW
-jYf
-jYf
+pZW
+pZW
 usZ
 qHO
 xRX
@@ -37592,7 +37575,7 @@ xRX
 xRX
 tWh
 pZW
-hUh
+pZW
 pZW
 pZW
 qbD
@@ -37848,9 +37831,9 @@ xRX
 xRX
 xRX
 tWh
-jYf
-gSr
-jYf
+pZW
+pZW
+pZW
 usZ
 aXi
 xRX

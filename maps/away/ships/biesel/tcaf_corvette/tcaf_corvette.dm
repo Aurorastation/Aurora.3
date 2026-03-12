@@ -13,8 +13,8 @@
 	)
 
 	sectors = list(ALL_TAU_CETI_SECTORS, SECTOR_BADLANDS, SECTOR_VALLEY_HALE)
-	spawn_weight = 1
-	ship_cost = 1
+	spawn_weight = 900
+	ship_cost = 0
 	id = "tcaf_corvette"
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/tcaf_shuttle, /datum/shuttle/autodock/multi/lift/tcaf)
 	ban_ruins = list(/datum/map_template/ruin/away_site/tcfl_peacekeeper_ship) // This might not work, I haven't tested it.
