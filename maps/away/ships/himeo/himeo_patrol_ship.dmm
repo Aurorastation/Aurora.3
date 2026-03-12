@@ -1473,6 +1473,9 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8
 	},
+/obj/item/clothing/accessory/temperature/cold,
+/obj/item/clothing/accessory/temperature/cold,
+/obj/item/clothing/accessory/temperature/cold,
 /turf/simulated/floor/carpet/red,
 /area/himeo_patrol_ship/barracks)
 "fQ" = (
@@ -3297,6 +3300,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/himeo_patrol/central)
 "nK" = (
+/obj/machinery/recharge_station,
 /turf/simulated/floor/tiled/dark,
 /area/himeo_patrol_ship/generator)
 "nM" = (

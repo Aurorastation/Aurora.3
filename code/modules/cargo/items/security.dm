@@ -114,9 +114,9 @@
 
 /singleton/cargo_item/shieldgenerator
 	category = "security"
-	name = "Shield Generator"
+	name = "Shield Wall Generator"
 	supplier = "nanotrasen"
-	description = "A shield generator."
+	description = "A shield wall generator."
 	price = 550
 	items = list(
 		/obj/machinery/shieldwallgen
