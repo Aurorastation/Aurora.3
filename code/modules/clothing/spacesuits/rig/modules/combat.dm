@@ -308,7 +308,7 @@
 
 	var/mob/living/M = holder.wearer
 
-	if(M.l_hand && M.r_hand)
+	if(!M.get_empty_hand_slot())
 		if(M == user)
 			to_chat(M, SPAN_WARNING("Your hands are full."))
 		else
@@ -361,7 +361,7 @@
 		holder.wearer.visible_message(SPAN_DANGER("[user] launches \a [firing]!"))
 		firing.throw_at(target, fire_force, fire_distance)
 	else
-		if(H.l_hand && H.r_hand)
+		if(!H.get_empty_hand_slot())
 			if(H == user)
 				to_chat(H, SPAN_WARNING("Your hands are full."))
 			else

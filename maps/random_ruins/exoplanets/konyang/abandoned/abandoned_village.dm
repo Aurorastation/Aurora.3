@@ -22,7 +22,7 @@
 
 /obj/effect/landmark/corpse/konyang_villager/do_extra_customization(mob/living/carbon/human/M)
 	if(prob(25))
-		M.equip_to_slot_or_del(new /obj/item/clothing/suit/storage/hooded/wintercoat/konyang(M), slot_wear_suit)
+		M.equip_to_slot_or_del(new /obj/item/clothing/suit/storage/hooded/wintercoat/konyang(M), slot_wear_suit_str)
 	M.adjustBruteLoss(rand(200, 400))
 	M.change_skin_tone(rand(0, 100))
 	M.dir = pick(GLOB.cardinals)

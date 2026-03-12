@@ -54,7 +54,7 @@
 
 	if(!H.shoes)
 		var/obj/item/clothing/shoes/jackboots/toeless/shoes = new(src)
-		H.equip_to_slot_if_possible(shoes, slot_shoes)
+		H.equip_to_slot_if_possible(shoes, slot_shoes_str)
 
 /obj/outfit/admin/ert/ap_eridani/lead
 	name = "Eridani Section Leader"
@@ -65,8 +65,7 @@
 	mask = /obj/item/clothing/mask/smokable/cigarette/cigar/cohiba
 	back = /obj/item/rig/strike/distress
 	suit_store = null
-	l_hand = /obj/item/gun/energy/rifle
-	r_hand = /obj/item/flame/lighter/zippo
+	hands = list(/obj/item/gun/energy/rifle, /obj/item/flame/lighter/zippo)
 	l_pocket = /obj/item/clothing/mask/gas/tactical
 	r_pocket = /obj/item/storage/box/fancy/cigarettes/cigar
 
@@ -100,8 +99,7 @@
 	r_ear = /obj/item/flashlight/pen
 	l_pocket = /obj/item/healthanalyzer
 	r_pocket = /obj/item/melee/telebaton
-	l_hand = /obj/item/clothing/head/helmet/space/void/medical
-	r_hand = /obj/item/clothing/suit/space/void/medical
+	hands = list(/obj/item/clothing/head/helmet/space/void/medical, /obj/item/clothing/suit/space/void/medical)
 
 
 	backpack_contents = list(
@@ -143,7 +141,7 @@
 	accessory_contents = list(/obj/item/gun/energy/disruptorpistol/magnum = 1)
 	l_pocket = /obj/item/healthanalyzer
 	r_pocket = /obj/item/crowbar
-	l_hand = /obj/item/storage/firstaid/adv
+	hands= list(/obj/item/storage/firstaid/adv)
 
 	backpack_contents = list(
 		/obj/item/storage/box/survival = 1,

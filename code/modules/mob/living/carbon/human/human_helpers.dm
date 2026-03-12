@@ -218,7 +218,7 @@
 	addtimer(CALLBACK(psi, TYPE_PROC_REF(/datum/psi_complexus, check_psionic_trigger), 100, source, TRUE), 4.5 SECONDS)
 
 /mob/living/carbon/human/get_resist_power()
-	return species.resist_mod
+	return species.mob_strength + species.mob_weight
 
 // Handle cases where the mob's awareness may reside in another mob, but still cares about how its brain is doing
 /mob/living/carbon/human/proc/find_mob_consciousness()
@@ -398,12 +398,6 @@
 		return TRUE
 	return FALSE
 
-/mob/living/carbon/human/get_organ_name_from_zone(var/def_zone)
-	var/obj/item/organ/external/E = organs_by_name[parse_zone(def_zone)]
-	if(E)
-		return E.name
-	return ..()
-
 /mob/living/carbon/human/is_anti_materiel_vulnerable()
 	if(isSynthetic())
 		return TRUE
@@ -450,10 +444,9 @@
 	indicator.pixel_y = species.typing_indicator_y_offset
 
 /mob/living/carbon/human/proc/wash()
-	if(r_hand)
-		r_hand.clean_blood()
-	if(l_hand)
-		l_hand.clean_blood()
+	for(var/obj/item/held in get_held_items())
+		held.clean_blood()
+	update_inv_hands(FALSE)
 	if(back)
 		if(back.clean_blood())
 			update_inv_back(0)

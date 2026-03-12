@@ -161,8 +161,9 @@ GLOBAL_LIST_EMPTY(random_stock_large)
 		//by selecting the least-filled one for each spawn
 
 		for (var/obj/structure/closet/crate/C as anything in containers)
-			if (C.stored_weight() < minweight && C.stored_weight() < C.storage_capacity)
-				minweight = C.stored_weight()
+			var/stored_volume = C.stored_volume()
+			if (stored_volume < minweight && stored_volume < C.storage_capacity)
+				minweight = stored_volume
 				emptiest = C
 				cratespawn = 1
 

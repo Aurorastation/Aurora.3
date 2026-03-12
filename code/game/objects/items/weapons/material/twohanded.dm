@@ -29,8 +29,8 @@
 	action_button_name = "Wield two-handed weapon"
 	icon = 'icons/obj/weapons.dmi'
 	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items/weapons/lefthand_twohanded.dmi',
-		slot_r_hand_str = 'icons/mob/items/weapons/righthand_twohanded.dmi'
+		BP_L_HAND = 'icons/mob/items/weapons/lefthand_twohanded.dmi',
+		BP_R_HAND = 'icons/mob/items/weapons/righthand_twohanded.dmi'
 		)
 	drop_sound = 'sound/items/drop/sword.ogg'
 	pickup_sound = SFX_PICKUP_SWORD
@@ -70,27 +70,27 @@
 /obj/item/material/twohanded/mob_can_equip(var/mob/user, slot, disable_warning = FALSE)
 	if(wielded)
 		unwield()
-		var/obj/item/material/twohanded/offhand/O = user.get_inactive_hand()
-		if(istype(O))
-			O.unwield()
+		for(var/obj/item/material/twohanded/offhand/O in user.get_inactive_held_items())
+			if(istype(O))
+				O.unwield()
 	return ..()
 
 /obj/item/material/twohanded/can_swap_hands(mob/user)
 	if(wielded)
 		unwield()
-		var/obj/item/material/twohanded/offhand/O = user.get_inactive_hand()
-		if(istype(O))
-			O.unwield()
+		for(var/obj/item/material/twohanded/offhand/O in user.get_inactive_held_items())
+			if(istype(O))
+				O.unwield()
 	return ..()
 
 /obj/item/material/twohanded/dropped(mob/user)
 	. = ..()
 	//handles unwielding a twohanded weapon when dropped as well as clearing up the offhand
 	if(user)
-		var/obj/item/material/twohanded/O = user.get_inactive_hand()
-		if(istype(O))
-			O.unwield()
-	return	unwield()
+		for(var/obj/item/material/twohanded/O in user.get_inactive_held_items())
+			if(istype(O))
+				O.unwield()
+	return unwield()
 
 //Allow a small chance of parrying melee attacks when wielded - maybe generalize this to other weapons someday
 /obj/item/material/twohanded/handle_shield(mob/user, var/on_back, var/damage, atom/damage_source = null, mob/attacker = null, var/def_zone = null, var/attack_text = "the attack")
@@ -128,17 +128,13 @@
 		unwield()
 		to_chat(user, SPAN_NOTICE("You are now carrying the [name] with one hand."))
 
-		var/obj/item/material/twohanded/offhand/O = user.get_inactive_hand()
-		if(O && istype(O))
-			user.u_equip(O)
-			O.unwield()
+		for(var/obj/item/material/twohanded/offhand/O in user.get_inactive_held_items())
+			if(istype(O))
+				O.unwield()
 
 	else //Trying to wield it
-		var/obj/item/offhand_item = user.get_inactive_hand()
-		if(offhand_item)
-			user.unEquip(offhand_item, FALSE, user.loc)
-		if(user.get_inactive_hand())
-			to_chat(user, SPAN_WARNING("You need your other hand to be empty."))
+		if(!user.get_empty_hand_slot())
+			to_chat(user, SPAN_WARNING("You need a free hand to wield this."))
 			return
 		wield()
 		to_chat(user, SPAN_NOTICE("You grip the [base_name] with both hands."))
@@ -150,8 +146,7 @@
 
 	if(istype(user,/mob/living/carbon/human))
 		var/mob/living/carbon/human/H = user
-		H.update_inv_l_hand()
-		H.update_inv_r_hand()
+		H.update_inv_hands()
 
 	return
 
@@ -347,6 +342,7 @@
 	anchored = 1
 
 /obj/structure/headspear/attack_hand(mob/living/user)
+	. = ..()
 	user.visible_message(SPAN_WARNING("[user] kicks over \the [src]!"), SPAN_DANGER("You kick down \the [src]!"))
 	new /obj/item/material/twohanded/spear(user.loc, material)
 	for(var/obj/item/organ/external/head/H in src)

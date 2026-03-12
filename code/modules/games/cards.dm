@@ -63,7 +63,7 @@
 		cards += P
 
 /obj/item/deck/attack_hand(mob/user)
-	if(length(cards) && (user.l_hand == src || user.r_hand == src))
+	if(length(cards) && user.is_holding(src))
 		deal_card(user, user)
 	else
 		..()
@@ -94,12 +94,8 @@
 		to_chat(usr, SPAN_WARNING("There are no cards in \the [src]."))
 		return
 
-	var/obj/item/hand/H
-	if(user.l_hand && istype(user.l_hand, /obj/item/hand))
-		H = user.l_hand
-	else if(user.r_hand && istype(user.r_hand, /obj/item/hand))
-		H = user.r_hand
-	else
+	var/obj/item/hand/H = user.get_held_type(/obj/item/hand)
+	if(!H)
 		H = new hand_type(get_turf(src))
 		H.concealed = TRUE
 		if(!user.put_in_hands(H))
@@ -133,12 +129,8 @@
 		to_chat(usr, SPAN_WARNING("There are no cards in \the [src]."))
 		return
 
-	var/obj/item/hand/H
-	if(user.l_hand && istype(user.l_hand,/obj/item/hand))
-		H = user.l_hand
-	else if(user.r_hand && istype(user.r_hand,/obj/item/hand))
-		H = user.r_hand
-	else
+	var/obj/item/hand/H = user.get_held_type(/obj/item/hand)
+	if(!H)
 		H = new hand_type(get_turf(src))
 		user.put_in_hands(H)
 
@@ -346,7 +338,7 @@
 		qdel(src)
 
 /obj/item/hand/attack_hand(mob/user)
-	if(length(cards) > 1 && (user.l_hand == src || user.r_hand == src))
+	if(length(cards) > 1 && user.is_holding(src))
 		pick_card(user, FALSE)
 	else
 		..()

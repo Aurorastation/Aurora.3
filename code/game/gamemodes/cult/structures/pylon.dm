@@ -342,6 +342,7 @@
 	addtimer(CALLBACK(src, PROC_REF(handle_firing)), shot_delay + 1)
 
 /obj/structure/cult/pylon/attack_hand(mob/living/user)
+	. = ..()
 	if (user.a_intent == I_HELP)
 		to_chat(user, SPAN_WARNING("The pylon feels warm to the touch..."))
 

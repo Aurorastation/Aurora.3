@@ -21,7 +21,8 @@
 	melee_damage_lower = 30
 	melee_damage_upper = 30
 	armor_penetration = 15
-	resist_mod = 3
+	mob_weight = MOB_WEIGHT_HEAVY
+	mob_strength = MOB_STRENGTH_STRONG
 	mob_size = 15
 	environment_smash = 2
 	attacktext = "mangled"
@@ -79,7 +80,7 @@
 
 		visible_message(SPAN_NOTICE("[user] recovers a bluespace crystal from [src]'s remains!"))
 		var/obj/item/bluespace_crystal/C = new(get_turf(src))
-		user.put_in_any_hand_if_possible(C)
+		user.put_in_hands(C)
 		crystal_harvested = TRUE
 		return
 

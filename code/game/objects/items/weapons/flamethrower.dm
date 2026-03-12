@@ -93,13 +93,9 @@
 		update_icon()
 		STOP_PROCESSING(SSprocessing, src)
 		return null
-	var/turf/location = loc
-	if(ismob(location))
-		var/mob/M = location
-		if(M.l_hand == src || M.r_hand == src)
-			location = M.loc
-	if(isturf(location)) //start a fire if possible
-		location.hotspot_expose(700, 2)
+	var/turf/location = get_turf(src)
+	//start a fire if possible
+	location?.hotspot_expose(700, 2)
 
 /obj/item/flamethrower/update_icon()
 	ClearOverlays()

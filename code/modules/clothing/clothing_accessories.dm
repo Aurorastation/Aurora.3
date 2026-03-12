@@ -55,10 +55,10 @@
 		if(!over || over == src)
 			return
 
-		if(istype(over, /atom/movable/screen/inventory))
-			var/atom/movable/screen/inventory/S = over
-			if(S.slot_id == src.equip_slot)
-				return
+		var/atom/movable/screen/inventory/S = over
+
+		if(!istype(S) || S.slot_id == src.equip_slot)
+			return
 
 		if(use_check_and_message(user))
 			return
@@ -68,16 +68,7 @@
 
 		var/obj/item/clothing/C = src
 		user.unEquip(C)
-
-		switch(over.name)
-			if("right hand")
-				if(istype(src, /obj/item/clothing/ears))
-					C = check_two_ears(user)
-				user.equip_to_slot_if_possible(C, slot_r_hand)
-			if("left hand")
-				if(istype(src, /obj/item/clothing/ears))
-					C = check_two_ears(user)
-				user.equip_to_slot_if_possible(C, slot_l_hand)
+		user.equip_to_slot_if_possible(src, S.slot_id)
 		src.add_fingerprint(user)
 
 /obj/item/clothing/proc/check_two_ears(var/mob/user)

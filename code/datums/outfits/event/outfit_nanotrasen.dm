@@ -117,7 +117,7 @@
 	head = /obj/item/clothing/head/beret/centcom/officer
 	l_pocket = /obj/item/reagent_containers/spray/pepper
 	r_pocket = /obj/item/taperecorder/cciaa
-	l_hand = /obj/item/storage/lockbox/cciaa
+	hands = list(/obj/item/storage/lockbox/cciaa)
 	pda = /obj/item/modular_computer/handheld/pda/command/cciaa
 	id = /obj/item/card/id/ccia
 
@@ -151,7 +151,7 @@
 	head = /obj/item/clothing/head/helmet/swat/peacekeeper
 	back = null
 	r_pocket = /obj/item/handcuffs/ziptie
-	l_hand = /obj/item/shield/riot/tact
+	hands = list(/obj/item/shield/riot/tact)
 	suit_store = /obj/item/gun/energy/gun
 	belt = /obj/item/storage/belt/security
 
@@ -211,7 +211,7 @@
 
 	l_pocket = /obj/item/reagent_containers/spray/pepper
 	r_pocket = /obj/item/taperecorder/cciaa
-	l_hand = /obj/item/storage/lockbox/cciaa/bssb
+	hands = list(/obj/item/storage/lockbox/cciaa/bssb)
 	id = /obj/item/card/id/ccia/bssb
 
 	accessory = /obj/item/clothing/accessory/holster/hip
@@ -246,7 +246,7 @@
 		SPECIES_TAJARA_MSAI = /obj/item/clothing/shoes/jackboots/tajara
 	)
 	r_pocket = null
-	l_hand = null
+	hands = null
 	belt_contents = list(
 		/obj/item/flash = 1,
 		/obj/item/melee/baton/loaded = 1,
@@ -275,7 +275,7 @@
 	suit = /obj/item/clothing/suit/storage/toggle/labcoat
 	shoes = /obj/item/clothing/shoes/sneakers/black
 	mask = /obj/item/clothing/mask/surgical
-	l_hand = /obj/item/storage/firstaid/adv
+	hands = list(/obj/item/storage/firstaid/adv)
 	headset = /obj/item/radio/headset/headset_med
 	bowman = /obj/item/radio/headset/headset_med/alt
 	glasses = /obj/item/clothing/glasses/hud/health

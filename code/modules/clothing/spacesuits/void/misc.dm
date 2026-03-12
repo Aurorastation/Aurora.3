@@ -740,8 +740,8 @@
 	icon_state = "himeo_helm"
 	item_state = "himeo_helm"
 	item_state_slots = list(
-		slot_l_hand_str = "mining_helm",
-		slot_r_hand_str = "mining_helm"
+		BP_L_HAND = "mining_helm",
+		BP_R_HAND = "mining_helm"
 		)
 
 	light_overlay = "helmet_light_dual"
@@ -755,8 +755,8 @@
 	item_state = "himeo"
 	icon_state = "himeo"
 	item_state_slots = list(
-		slot_l_hand_str = "mining",
-		slot_r_hand_str = "mining"
+		BP_L_HAND = "mining",
+		BP_R_HAND = "mining"
 		)
 
 /obj/item/clothing/head/helmet/space/void/engineering/himeo
@@ -768,8 +768,8 @@
 	icon_state = "himeo_helm"
 	light_overlay = "helmet_light_dual"
 	item_state_slots = list(
-		slot_l_hand_str = "engineering_helm",
-		slot_r_hand_str = "engineering_helm"
+		BP_L_HAND = "engineering_helm",
+		BP_R_HAND = "engineering_helm"
 		)
 
 /obj/item/clothing/suit/space/void/engineering/himeo
@@ -781,8 +781,8 @@
 	item_state = "himeo"
 	icon_state = "himeo"
 	item_state_slots = list(
-		slot_l_hand_str = "engineering",
-		slot_r_hand_str = "engineering"
+		BP_L_HAND = "engineering",
+		BP_R_HAND = "engineering"
 		)
 
 /obj/item/clothing/head/helmet/space/void/atmos/himeo
@@ -793,8 +793,8 @@
 	item_state = "himeo_helm"
 	icon_state = "himeo_helm"
 	item_state_slots = list(
-		slot_l_hand_str = "atmos_helm",
-		slot_r_hand_str = "atmos_helm"
+		BP_L_HAND = "atmos_helm",
+		BP_R_HAND = "atmos_helm"
 		)
 
 	light_overlay = "helmet_light_dual"
@@ -808,8 +808,8 @@
 	item_state = "himeo"
 	icon_state = "himeo"
 	item_state_slots = list(
-		slot_l_hand_str = "atmos",
-		slot_r_hand_str = "atmos"
+		BP_L_HAND = "atmos",
+		BP_R_HAND = "atmos"
 		)
 
 /obj/item/clothing/head/helmet/space/void/mining/himeo/tajara
@@ -822,8 +822,8 @@
 	icon_state = "rig0-himeotaj"
 	item_state = "rig0-himeotaj"
 	item_state_slots = list(
-		slot_l_hand_str = "mining_helm",
-		slot_r_hand_str = "mining_helm"
+		BP_L_HAND = "mining_helm",
+		BP_R_HAND = "mining_helm"
 		)
 	contained_sprite = TRUE
 	species_restricted = list(BODYTYPE_TAJARA)
@@ -839,8 +839,8 @@
 	item_state = "rig-himeotaj"
 	icon_state = "rig-himeotaj"
 	item_state_slots = list(
-		slot_l_hand_str = "mining_hardsuit",
-		slot_r_hand_str = "mining_hardsuit"
+		BP_L_HAND = "mining_hardsuit",
+		BP_R_HAND = "mining_hardsuit"
 	)
 	contained_sprite = TRUE
 	species_restricted = list(BODYTYPE_TAJARA)
@@ -855,8 +855,8 @@
 	icon_state = "rig0-himeotaj-engineering"
 	item_state = "rig0-himeotaj-engineering"
 	item_state_slots = list(
-		slot_l_hand_str = "engineering_helm",
-		slot_r_hand_str = "engineering_helm"
+		BP_L_HAND = "engineering_helm",
+		BP_R_HAND = "engineering_helm"
 		)
 
 	contained_sprite = TRUE
@@ -873,8 +873,8 @@
 	item_state = "rig-himeotaj-engineering"
 	icon_state = "rig-himeotaj-engineering"
 	item_state_slots = list(
-		slot_l_hand_str = "engineering_hardsuit",
-		slot_r_hand_str = "engineering_hardsuit"
+		BP_L_HAND = "engineering_hardsuit",
+		BP_R_HAND = "engineering_hardsuit"
 	)
 	contained_sprite = TRUE
 	species_restricted = list(BODYTYPE_TAJARA)
@@ -889,8 +889,8 @@
 	icon_state = "rig0-himeotaj-engineering"
 	item_state = "rig0-himeotaj-engineering"
 	item_state_slots = list(
-		slot_l_hand_str = "atmos_helm",
-		slot_r_hand_str = "atmos_helm"
+		BP_L_HAND = "atmos_helm",
+		BP_R_HAND = "atmos_helm"
 		)
 
 	contained_sprite = TRUE
@@ -907,8 +907,8 @@
 	item_state = "rig-himeotaj-engineering"
 	icon_state = "rig-himeotaj-engineering"
 	item_state_slots = list(
-		slot_l_hand_str = "atmos_hardsuit",
-		slot_r_hand_str = "atmos_hardsuit"
+		BP_L_HAND = "atmos_hardsuit",
+		BP_R_HAND = "atmos_hardsuit"
 	)
 	contained_sprite = TRUE
 	species_restricted = list(BODYTYPE_TAJARA)

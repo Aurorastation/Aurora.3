@@ -293,7 +293,7 @@
 		if(!H.can_drink())
 			return
 
-		if(!(H.l_hand == src) && !(H.r_hand == src))
+		if(!H.is_holding(src))
 			return
 
 		if(!reagents.total_volume)

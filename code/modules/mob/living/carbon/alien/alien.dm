@@ -38,7 +38,7 @@
 	gender = NEUTER
 
 /mob/living/carbon/alien/u_equip(obj/item/W as obj)
-	return
+	return ..()
 
 /mob/living/carbon/alien/get_status_tab_items()
 	. = ..()

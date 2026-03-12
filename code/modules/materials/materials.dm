@@ -146,8 +146,7 @@
 	target_stack.use(1)
 	to_chat(user, SPAN_NOTICE("You attach wires to the [display_name]."))
 	var/obj/item/product = new wire_product(get_turf(user))
-	if(!(user.l_hand && user.r_hand))
-		user.put_in_hands(product)
+	user.put_in_hands(product)
 
 // Make sure we have a display name and shard icon even if they aren't explicitly set.
 /material/New()

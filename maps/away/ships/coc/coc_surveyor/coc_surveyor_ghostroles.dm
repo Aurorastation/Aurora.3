@@ -39,7 +39,7 @@
 	if(!istype(H))
 		return
 	if(istajara(H))
-		H.equip_to_slot_or_del(new /obj/item/voidsuit_modkit/himeo/tajara, slot_r_hand)
+		H.equip_to_slot_or_del(new /obj/item/voidsuit_modkit/himeo/tajara, BP_R_HAND)
 	if(isipc(H))
 		var/obj/item/organ/internal/machine/ipc_tag/tag = H.internal_organs_by_name[BP_IPCTAG]
 		if(istype(tag))

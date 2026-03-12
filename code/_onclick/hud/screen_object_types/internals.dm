@@ -27,8 +27,8 @@
 				if(ishuman(C))
 					var/mob/living/carbon/human/H = C
 					breathes = H.species.breath_type
-					nicename = list ("suit", "back", "belt", "right hand", "left hand", "left pocket", "right pocket")
-					tankcheck = list (H.s_store, C.back, H.belt, C.r_hand, C.l_hand, H.l_store, H.r_store)
+					nicename = list ("suit", "back", "belt", "left pocket", "right pocket")
+					tankcheck = list (H.s_store, C.back, H.belt, H.l_store, H.r_store)
 					if(H.species.has_organ[BP_PHORON_RESERVE])
 						var/obj/item/organ/internal/vaurca/preserve/preserve = H.internal_organs_by_name[BP_PHORON_RESERVE]
 						if(preserve && preserve.air_contents)
@@ -37,8 +37,13 @@
 							tankcheck |= preserve
 
 				else
-					nicename = list("right hand", "left hand", "back")
-					tankcheck = list(C.r_hand, C.l_hand, C.back)
+					nicename = list("back")
+					tankcheck = list(C.back)
+
+				for(var/datum/inventory_slot/islot as anything in C.held_item_slots)
+					tankcheck |= islot.holding
+					var/obj/item/organ/external/limb = C.organs_by_name[islot.slot_id]
+					nicename |= limb.name
 
 				// Rigs are a fucking pain since they keep an air tank in nullspace.
 				if(istype(C.back,/obj/item/rig))

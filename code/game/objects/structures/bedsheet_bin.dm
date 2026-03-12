@@ -11,8 +11,8 @@ LINEN BINS
 	icon_state = "sheetwhite"
 	item_state = "sheetwhite"
 	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items/lefthand_bedsheet.dmi',
-		slot_r_hand_str = 'icons/mob/items/righthand_bedsheet.dmi',
+		BP_L_HAND = 'icons/mob/items/lefthand_bedsheet.dmi',
+		BP_R_HAND = 'icons/mob/items/righthand_bedsheet.dmi',
 		)
 	slot_flags = SLOT_BACK
 	layer = BASE_ABOVE_OBJ_LAYER
@@ -87,9 +87,7 @@ LINEN BINS
 			var/mob/mouse_dropped_over = over
 			if( !mouse_dropped_over.get_active_hand() )		//if active hand is empty
 				var/mob/living/carbon/human/H = user
-				var/obj/item/organ/external/temp = H.organs_by_name["r_hand"]
-				if (H.hand)
-					temp = H.organs_by_name["l_hand"]
+				var/obj/item/organ/external/temp = H.get_active_hand_organ()
 				if(temp && !temp.is_usable())
 					to_chat(H, SPAN_NOTICE("You try to move your [temp.name], but cannot!"))
 					return
@@ -432,6 +430,7 @@ LINEN BINS
 			to_chat(user, SPAN_NOTICE("You hide [attacking_item] among the sheets."))
 
 /obj/structure/bedsheetbin/attack_hand(mob/user as mob)
+	. = ..()
 	if(amount >= 1)
 		amount--
 

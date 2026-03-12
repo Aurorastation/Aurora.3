@@ -477,6 +477,7 @@
 // attack with hand - remove tube/bulb
 // if hands aren't protected and the light is on, burn the player
 /obj/machinery/light/attack_hand(mob/user)
+	. = ..()
 	add_fingerprint(user)
 
 	if(status == LIGHT_EMPTY)

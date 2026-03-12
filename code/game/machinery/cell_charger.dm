@@ -84,6 +84,7 @@
 		return TRUE
 
 /obj/machinery/cell_charger/attack_hand(mob/user)
+	. = ..()
 	if(charging)
 		user.put_in_hands(charging, TRUE)
 		charging.add_fingerprint(user)

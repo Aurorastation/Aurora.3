@@ -35,7 +35,7 @@
 	if(iscultist(user) || !does_cult_check)
 		return ..()
 
-	var/zone = (user.hand ? BP_L_ARM:BP_R_ARM)
+	var/zone = user.get_bp_holding(src)
 	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
 		var/obj/item/organ/external/affecting = H.get_organ(zone)

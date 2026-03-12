@@ -291,13 +291,17 @@
 			removable_objects |= I
 	if(length(removable_objects))
 		var/obj/item/I = pick(removable_objects)
-		I.forceMove(get_turf(user)) //just in case something was embedded that is not an item
 		if(istype(I))
-			if(!(user.l_hand && user.r_hand))
-				user.put_in_hands(I)
+			user.put_in_hands(I)
+		else
+			I.forceMove(get_turf(user)) //just in case something was embedded that is not an item
 		user.visible_message(SPAN_DANGER("\The [user] rips \the [I] out of \the [src]!"))
 		return //no eating the limb until everything's been removed
-	return ..()
+	. = ..()
+	if(. && can_activate())
+		for(var/obj/item/grab/G as anything in owner.get_active_grabs())
+			if(activate(G.grabbed))
+				return TRUE
 
 /obj/item/organ/external/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
@@ -331,10 +335,7 @@
 
 					status |= ORGAN_CUT_AWAY
 
-					removing.forceMove(get_turf(user))
-
-					if(!(user.l_hand && user.r_hand))
-						user.put_in_hands(removing)
+					user.put_in_hands(removing)
 					user.visible_message(SPAN_DANGER("<b>[user]</b> extracts [removing] from [src] with [attacking_item]!"))
 				else
 					user.visible_message(SPAN_DANGER("<b>[user]</b> fishes around fruitlessly in [src] with [attacking_item]."))
@@ -354,6 +355,17 @@
 		all_items.Add(child.get_contents_recursive())
 
 	return all_items
+
+/obj/item/organ/external/proc/jointlock(mob/attacker, lockdamage = 30)
+	if(!ORGAN_CAN_FEEL_PAIN(src))
+		return
+
+	var/armor = 100 * owner.get_blocked_ratio(owner, DAMAGE_BRUTE, lockdamage)
+	if(armor < (100 - lockdamage))
+		to_chat(owner, SPAN_DANGER("You feel extreme pain!"))
+
+		var/max_halloss = round(owner.species.total_health * 0.8 * ((100 - armor) / 100)) //up to 80% of passing out, further reduced by armour
+		add_pain(clamp(0, max_halloss - owner.getHalLoss(), lockdamage))
 
 /obj/item/organ/external/proc/dislocate(var/primary)
 	if(dislocated == -1)
@@ -1514,6 +1526,8 @@ Note that amputating the affected organ does in fact remove the infection from t
 	victim.organs -= src
 	victim.organs_by_name[limb_name] = null // Remove from owner's vars.
 	victim.organs_by_name -= organ_tag
+
+	SEND_SIGNAL(owner, COMSIG_ORGAN_DISMEMBERED, src)
 
 	//Robotic limbs explode if sabotaged.
 	if(is_robotic && sabotaged)

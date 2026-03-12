@@ -22,7 +22,7 @@
 	back = /obj/item/gun/projectile/automatic/rifle/adhomian
 	accessory = /obj/item/clothing/accessory/badge/hadii_card
 	r_pocket = /obj/item/crowbar/red
-	l_hand = /obj/item/martial_manual/tajara
+	hands = list(/obj/item/martial_manual/tajara)
 
 /obj/outfit/admin/ert/pra_cosmonaut/get_id_access()
 	return get_distress_access()
@@ -51,7 +51,7 @@
 
 	l_pocket = /obj/item/megaphone
 	accessory = /obj/item/clothing/accessory/hadii_pin
-	l_hand = /obj/item/martial_manual/tajara
+	hands = list(/obj/item/martial_manual/tajara)
 
 /obj/outfit/admin/ert/pra_cosmonaut/commander
 	name = "Kosmostrelki Commander"
@@ -74,12 +74,11 @@
 						/obj/item/ammo_magazine/submachinedrum = 1)
 
 	l_pocket = /obj/item/megaphone
-	l_hand = /obj/item/martial_manual/tajara
+	hands = list(/obj/item/martial_manual/tajara)
 
 /obj/outfit/admin/ert/pra_cosmonaut/tesla
 	name = "Tesla Trooper"
-	r_hand = /obj/item/gun/energy/rifle/icelance
-	l_hand = /obj/item/rig/tesla
+	hands = list(/obj/item/gun/energy/rifle/icelance, /obj/item/rig/tesla)
 	head = null
 	suit = null
 	suit_store = null
@@ -132,7 +131,7 @@
 		/obj/item/healthanalyzer = 1
 	)
 
-	l_hand = /obj/item/martial_manual/tajara
+	hands = list(/obj/item/martial_manual/tajara)
 
 /obj/outfit/admin/ert/pra_cosmonaut/engineer
 	name = "Kosmostrelki Sapper"
@@ -158,4 +157,4 @@
 	)
 
 	belt_contents = null
-	l_hand = /obj/item/martial_manual/tajara
+	hands = list(/obj/item/martial_manual/tajara)

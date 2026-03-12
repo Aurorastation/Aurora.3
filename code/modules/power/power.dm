@@ -323,10 +323,7 @@
 	var/drained_hp
 	var/touchy_hand
 	if(contact_zone == "hand")
-		if(victim.hand)
-			touchy_hand = BP_R_HAND
-		else
-			touchy_hand = BP_L_HAND
+		touchy_hand = victim.get_active_held_item_slot()
 	if(!touchy_hand)
 		drained_hp = victim.electrocute_act(shock_damage, source, siemens_coeff, ground_zero = contact_zone) //zzzzzzap!
 	else

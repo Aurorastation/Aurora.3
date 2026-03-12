@@ -27,11 +27,7 @@
 	add_to_streak("G",D)
 	if(check_streak(A,D))
 		return 1
-	D.grabbedby(A,1)
-	var/obj/item/grab/G = A.get_active_hand()
-	if(G && prob(50))
-		G.state = GRAB_AGGRESSIVE
-		D.visible_message(SPAN_DANGER("[A] gets a strong grip on [D]!"))
+	A.make_grab(D, prob(50) ? /singleton/grab/normal/aggressive : null, FALSE)
 	return 1
 
 /datum/martial_art/kis_khan/harm_act(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)
@@ -75,17 +71,10 @@
 
 /datum/martial_art/kis_khan/proc/swift_disarm(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)
 	A.do_attack_animation(D)
-	if(prob(80))
-		if(D.hand)
-			if(istype(D.l_hand, /obj/item))
-				var/obj/item/I = D.l_hand
-				D.drop_item()
-				A.put_in_hands(I)
-		else
-			if(istype(D.r_hand, /obj/item))
-				var/obj/item/I = D.r_hand
-				D.drop_item()
-				A.put_in_hands(I)
+	var/obj/item/I = D.get_active_hand()
+	if(I && prob(80))
+		D.drop_from_hand(D.get_active_held_item_slot(), get_turf(D))
+		A.put_in_hands(I)
 		D.visible_message(SPAN_DANGER("[A] has disarmed [D]!"))
 		playsound(D, 'sound/weapons/thudswoosh.ogg', 50, 1, -1)
 	else

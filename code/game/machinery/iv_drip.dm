@@ -215,7 +215,7 @@
 			breath_mask_rip()
 			return
 		var/mask_check = breath_mask.get_equip_slot()
-		if(mask_check != slot_wear_mask)
+		if(mask_check != slot_wear_mask_str)
 			src.visible_message(SPAN_NOTICE("\The [src] automatically retracts \the [breath_mask]."))
 			breath_mask_rip()
 			return
@@ -384,7 +384,7 @@
 				visible_message("<b>[user]</b> secures the mask over \the <b>[breather]'s</b> face.")
 				playsound(breather, 'sound/effects/buckle.ogg', 50, extrarange = SILENCED_SOUND_EXTRARANGE)
 				breath_mask.forceMove(breather.loc)
-				breather.equip_to_slot(breath_mask, slot_wear_mask)
+				breather.equip_to_slot(breath_mask, slot_wear_mask_str)
 				breather.update_inv_wear_mask()
 				update_icon()
 				tank_on()
@@ -510,6 +510,7 @@
 	return attack_hand(user)
 
 /obj/machinery/iv_drip/attack_hand(mob/user)
+	. = ..()
 	if(use_check_and_message(user))
 		return
 	if(isDrone(user))
@@ -608,8 +609,7 @@
 			var/mob/living/carbon/human/holder = loc_check
 			holder.remove_from_mob(breath_mask)
 			holder.update_inv_wear_mask()
-			holder.update_inv_l_hand()
-			holder.update_inv_r_hand()
+			holder.update_inv_hands()
 		breath_mask.forceMove(src)
 		breather = null
 		update_icon()

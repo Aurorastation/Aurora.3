@@ -58,11 +58,11 @@
 
 		if(target_zone == BP_L_HAND || target_zone == BP_L_ARM)
 			to_chat(user, SPAN_NOTICE("You twist \the [src]'s left arm."))
-			H.drop_l_hand()
+			H.drop_from_hand(BP_L_HAND)
 
 		if(target_zone == BP_R_HAND || target_zone == BP_R_ARM)
 			to_chat(user, SPAN_NOTICE("You twist \the [src]'s right arm.."))
-			H.drop_r_hand()
+			H.drop_from_hand(BP_R_HAND)
 
 		if(target_zone == BP_HEAD)
 			to_chat(user, SPAN_NOTICE("You smack \the [src]'s head with your hand."))

@@ -79,6 +79,7 @@
 	examinate(user, src)
 
 /turf/unsimulated/wall/supermatter/attack_hand(mob/user as mob)
+	. = ..()
 	user.visible_message("<span class=\"warning\">\The [user] reaches out and touches \the [src]... And then blinks out of existance.</span>",\
 		"<span class=\"danger\">You reach out and touch \the [src]. Everything immediately goes quiet. Your last thought is \"That was not a wise decision.\"</span>",\
 		"<span class=\"warning\">You hear an unearthly noise.</span>")

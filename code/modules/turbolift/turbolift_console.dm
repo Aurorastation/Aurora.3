@@ -42,7 +42,9 @@
 	return attack_hand(user)
 
 /obj/structure/lift/attack_hand(var/mob/user)
-	return ui_interact(user)
+	. = ..()
+	if(!.)
+		return ui_interact(user)
 
 /obj/structure/lift/ui_interact(var/mob/user)
 	if(!lift.is_functional())

@@ -61,16 +61,14 @@
 #define ORGAN_CAN_AMPUTATE BITFLAG(0)
 ///Can this organ break?
 #define ORGAN_CAN_BREAK    BITFLAG(1)
-///Can this organ grasp things?
-#define ORGAN_CAN_GRASP    BITFLAG(2)
 ///Can this organ allow you to stand?
-#define ORGAN_CAN_STAND    BITFLAG(3)
+#define ORGAN_CAN_STAND    BITFLAG(2)
 ///Can this organ be maimed?
-#define ORGAN_CAN_MAIM     BITFLAG(4)
+#define ORGAN_CAN_MAIM     BITFLAG(3)
 ///Does this organ have tendons?
-#define ORGAN_HAS_TENDON   BITFLAG(5)
+#define ORGAN_HAS_TENDON   BITFLAG(4)
 /// Does this organ heal from overkill?
-#define ORGAN_HEALS_OVERKILL BITFLAG(6)
+#define ORGAN_HEALS_OVERKILL BITFLAG(5)
 
 #define TENDON_BRUISED (1<<0)
 #define TENDON_CUT     (1<<1)

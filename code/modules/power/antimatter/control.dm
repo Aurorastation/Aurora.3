@@ -183,6 +183,7 @@
 		return ..()
 
 /obj/machinery/power/am_control_unit/attack_hand(mob/user)
+	. = ..()
 	if(anchored)
 		interact(user)
 

@@ -141,7 +141,7 @@
 	return 1
 
 /obj/item/flashlight/attack_hand(mob/user)
-	if(user.get_inactive_hand() == src)
+	if(user.is_holding_offhand(src))
 		if(cell)
 			STOP_PROCESSING(SSprocessing, src)
 			cell.update_icon()

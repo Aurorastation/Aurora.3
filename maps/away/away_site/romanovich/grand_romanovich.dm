@@ -48,6 +48,7 @@
 	var/busy= FALSE
 
 /obj/structure/casino/roulette/attack_hand(mob/user as mob)
+	. = ..()
 	if (busy)
 		to_chat(user, SPAN_NOTICE("You cannot spin now! \The [src] is already spinning."))
 		return

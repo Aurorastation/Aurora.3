@@ -101,6 +101,7 @@
 		. = TRUE
 
 /obj/machinery/ntnet_relay/attack_hand(var/mob/living/user)
+	. = ..()
 	ui_interact(user)
 
 /obj/machinery/ntnet_relay/Initialize()

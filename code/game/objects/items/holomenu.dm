@@ -145,6 +145,7 @@
 	. += "Note that holodecks do not support RAVE MODE."
 
 /obj/item/holomenu/holodeck/attack_hand(mob/user)
+	. = ..()
 	var/new_text = sanitize(input(user, "Enter new text for the hologram to display.", "Hologram Display", html2pencode(menu_text, TRUE)) as null|message)
 	if(!isnull(new_text))
 		menu_text = pencode2html(new_text)

@@ -136,4 +136,4 @@
 	if(H.shoes)
 		return
 	var/obj/item/clothing/shoes/tajara/footwraps/S = new /obj/item/clothing/shoes/tajara/footwraps(H)
-	H.equip_to_slot_or_del(S,slot_shoes)
+	H.equip_to_slot_or_del(S,slot_shoes_str)

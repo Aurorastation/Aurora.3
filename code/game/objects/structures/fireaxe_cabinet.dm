@@ -82,6 +82,7 @@
 	toggle_lock(user)
 
 /obj/structure/fireaxecabinet/attack_hand(var/mob/user)
+	. = ..()
 	if(!unlocked)
 		to_chat(user, SPAN_NOTICE("\The [src] is locked."))
 		return

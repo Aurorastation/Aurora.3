@@ -25,6 +25,7 @@
 	var/last_print_time
 
 /obj/machinery/computer/telecomms/server/attack_hand(mob/user)
+	. = ..()
 	if(stat & (BROKEN|NOPOWER))
 		return
 	user.set_machine(src)

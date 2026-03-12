@@ -58,22 +58,22 @@ Deployable Kits
 
 /obj/structure/blocker/attackby(obj/item/attacking_item, mob/user)
 	if(attacking_item.tool_behaviour == TOOL_HAMMER && user.a_intent != I_HURT)
-		var/obj/item/I = usr.get_inactive_hand()
-		if(I && istype(I, /obj/item/stack))
-			var/obj/item/stack/D = I
-			if(D.get_material_name() != material.name)
-				to_chat(user, SPAN_WARNING("You need one sheet of [material.display_name] to repair \the [src]."))
-				return ..()
-			if(health < maxhealth)
-				if(D.get_amount() < 1)
+		for(var/obj/item/I in user.get_inactive_held_items())
+			if(I && istype(I, /obj/item/stack))
+				var/obj/item/stack/D = I
+				if(D.get_material_name() != material.name)
 					to_chat(user, SPAN_WARNING("You need one sheet of [material.display_name] to repair \the [src]."))
-					return TRUE
-				user.visible_message("<b>[user]</b> begins to repair \the [src].", SPAN_NOTICE("You begin to repair \the [src]."))
-				if(I.use_tool(src, user, 20, volume = 50) && health < maxhealth)
-					if(D.use(1))
-						health = maxhealth
-						visible_message("<b>[user]</b> repairs \the [src].", SPAN_NOTICE("You repair \the [src]."))
-			return TRUE
+					return ..()
+				if(health < maxhealth)
+					if(D.get_amount() < 1)
+						to_chat(user, SPAN_WARNING("You need one sheet of [material.display_name] to repair \the [src]."))
+						return TRUE
+					user.visible_message("<b>[user]</b> begins to repair \the [src].", SPAN_NOTICE("You begin to repair \the [src]."))
+					if(I.use_tool(src, user, 20, volume = 50) && health < maxhealth)
+						if(D.use(1))
+							health = maxhealth
+							visible_message("<b>[user]</b> repairs \the [src].", SPAN_NOTICE("You repair \the [src]."))
+				return TRUE
 	else
 		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 		switch(attacking_item.damtype)

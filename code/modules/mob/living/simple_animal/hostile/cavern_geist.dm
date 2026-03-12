@@ -27,7 +27,7 @@
 	melee_damage_lower = 40
 	melee_damage_upper = 40
 	armor_penetration = 20
-	resist_mod = 15
+	// todo: find a way to represent this being effectively ungrabbable
 	mob_size = 25
 	environment_smash = 2
 	attacktext = "mangled"

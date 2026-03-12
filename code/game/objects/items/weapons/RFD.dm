@@ -17,8 +17,8 @@ ABSTRACT_TYPE(/obj/item/rfd)
 	icon_state = "rfd"
 	item_state = "rfd"
 	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items/lefthand_tools.dmi',
-		slot_r_hand_str = 'icons/mob/items/righthand_tools.dmi'
+		BP_L_HAND = 'icons/mob/items/lefthand_tools.dmi',
+		BP_R_HAND = 'icons/mob/items/righthand_tools.dmi'
 		)
 	opacity = FALSE
 	density = FALSE

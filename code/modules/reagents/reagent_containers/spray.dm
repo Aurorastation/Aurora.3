@@ -3,8 +3,8 @@
 	desc = "A spray bottle, with an unscrewable top."
 	icon = 'icons/obj/janitor.dmi'
 	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items/lefthand_janitor.dmi',
-		slot_r_hand_str = 'icons/mob/items/righthand_janitor.dmi',
+		BP_L_HAND = 'icons/mob/items/lefthand_janitor.dmi',
+		BP_R_HAND = 'icons/mob/items/righthand_janitor.dmi',
 		)
 	icon_state = "cleaner"
 	item_state = "cleaner"
@@ -156,8 +156,8 @@
 	desc = "Great for hiding incriminating bloodstains and sterilizing scalpels."
 	icon = 'icons/obj/janitor.dmi'
 	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items/lefthand_janitor.dmi',
-		slot_r_hand_str = 'icons/mob/items/righthand_janitor.dmi',
+		BP_L_HAND = 'icons/mob/items/lefthand_janitor.dmi',
+		BP_R_HAND = 'icons/mob/items/righthand_janitor.dmi',
 		)
 	icon_state = "sterilespray"
 	item_state = "cleaner"
@@ -196,8 +196,8 @@
 	desc = "A seemingly innocent sunflower...with a twist."
 	icon = 'icons/obj/toy.dmi'
 	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items/lefthand_toy.dmi',
-		slot_r_hand_str = 'icons/mob/items/righthand_toy.dmi',
+		BP_L_HAND = 'icons/mob/items/lefthand_toy.dmi',
+		BP_R_HAND = 'icons/mob/items/righthand_toy.dmi',
 		)
 	icon_state = "sunflower"
 	item_state = "sunflower"
@@ -277,8 +277,8 @@
 	desc = "Kills those pesky weeds!"
 	icon = 'icons/obj/hydroponics_machines.dmi'
 	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items/lefthand_hydro.dmi',
-		slot_r_hand_str = 'icons/mob/items/righthand_hydro.dmi',
+		BP_L_HAND = 'icons/mob/items/lefthand_hydro.dmi',
+		BP_R_HAND = 'icons/mob/items/righthand_hydro.dmi',
 		)
 	icon_state = "plantbgone"
 	item_state = "plantbgone"

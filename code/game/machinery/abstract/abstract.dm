@@ -17,7 +17,7 @@
 	return
 
 /obj/machinery/abstract/attack_hand(mob/user as mob)
-	return
+	. = ..()
 
 /obj/machinery/abstract/emp_act(severity)
 	. = ..()

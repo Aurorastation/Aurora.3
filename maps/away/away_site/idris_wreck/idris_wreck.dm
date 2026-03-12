@@ -70,8 +70,8 @@
 
 /obj/effect/landmark/corpse/idris/do_extra_customization(mob/living/carbon/human/M)
 	if(prob(25))
-		M.equip_to_slot_or_del(new /obj/item/clothing/suit/space/void/security(M), slot_wear_suit)
-		M.equip_to_slot_or_del(new /obj/item/tank/oxygen(M), slot_s_store)
+		M.equip_to_slot_or_del(new /obj/item/clothing/suit/space/void/security(M), slot_wear_suit_str)
+		M.equip_to_slot_or_del(new /obj/item/tank/oxygen(M), slot_s_store_str)
 	M.ChangeToHusk()
 	M.adjustBruteLoss(rand(200,400))
 	M.dir = pick(GLOB.cardinals)
@@ -119,7 +119,7 @@
 
 /obj/effect/landmark/corpse/izharshan/do_extra_customization(mob/living/carbon/human/M)
 	M.ChangeToHusk()
-	M.equip_to_slot_or_del(new /obj/item/tank/oxygen(M), slot_s_store)
+	M.equip_to_slot_or_del(new /obj/item/tank/oxygen(M), slot_s_store_str)
 	M.adjustFireLoss(rand(200,400))
 	M.dir = pick(GLOB.cardinals)
 

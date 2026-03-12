@@ -42,6 +42,7 @@
 		to_chat(user, SPAN_NOTICE("\The [src] is already full of papers and can not fit another."))
 
 /obj/structure/noticeboard/attack_hand(var/mob/user)
+	. = ..()
 	examine(user)
 
 // Since Topic() never seems to interact with usr on more than a superficial
@@ -77,15 +78,12 @@
 			return
 		var/obj/item/P = locate(href_list["write"])
 		if((P && P.loc == src)) //ifthe paper's on the board
-			var/obj/item/R = usr.r_hand
-			var/obj/item/L = usr.l_hand
-			if(R.tool_behaviour == TOOL_PEN)
-				P.attackby(R, usr)
-			else if(L.tool_behaviour == TOOL_PEN)
-				P.attackby(L, usr)
-			else
+			var/obj/item/writing_tool = usr.get_held_tool(TOOL_PEN)
+			if(!writing_tool)
 				to_chat(usr, SPAN_NOTICE("You'll need something to write with!"))
 				return
+
+			P.attackby(writing_tool, usr)
 			add_fingerprint(usr)
 	if(href_list["read"])
 		var/obj/item/paper/P = locate(href_list["read"])
@@ -122,6 +120,7 @@
 		AddOverlays("glass")
 
 /obj/structure/noticeboard/command/attack_hand(var/mob/user)
+	. = ..()
 	if(!unlocked)
 		to_chat(user, SPAN_NOTICE("\The [src] is locked."))
 		return

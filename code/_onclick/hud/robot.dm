@@ -110,12 +110,6 @@ GLOBAL_DATUM(robot_inventory, /atom/movable/screen)
 
 //Temp
 
-	mymob.pullin = new /atom/movable/screen()
-	mymob.pullin.icon = 'icons/mob/screen/robot.dmi'
-	mymob.pullin.icon_state = "pull0"
-	mymob.pullin.name = "pull"
-	mymob.pullin.screen_loc = ui_borg_pull
-
 	mymob.zone_sel = new /atom/movable/screen/zone_sel()
 	mymob.zone_sel.icon = 'icons/mob/screen/robot.dmi'
 	mymob.zone_sel.ClearOverlays()
@@ -143,7 +137,6 @@ GLOBAL_DATUM(robot_inventory, /atom/movable/screen)
 		mymob.healths,
 		r.cells,
 		mymob.up_hint,
-		mymob.pullin,
 		GLOB.robot_inventory,
 		mymob.gun_setting_icon,
 		mymob.toggle_firing_mode,

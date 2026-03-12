@@ -526,14 +526,8 @@
 				H.drop_item(src)
 				src.throw_at(get_edge_target_turf(src, REVERSE_DIR(H.dir)), 4, 4)
 
-				var/obj/item/organ/external/LH = H.get_organ(BP_L_HAND)
-				var/obj/item/organ/external/RH = H.get_organ(BP_R_HAND)
-				var/active_hand = H.hand
-
-				if(active_hand)
-					LH.take_damage(30)
-				else
-					RH.take_damage(30)
+				var/obj/item/organ/external/active_hand = H.get_active_hand_organ()
+				active_hand.take_damage(30)
 
 /obj/item/gun/projectile/xanupistol
 	name = "\improper Xanan service pistol"

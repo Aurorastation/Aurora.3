@@ -56,7 +56,7 @@
 			H.bloody_body(src)
 			H.bloody_hands(src)
 			var/blinding = FALSE
-			if(ran_zone(BP_HEAD, 75))
+			if(ran_zone(src, BP_HEAD, 75))
 				blinding = TRUE
 				for(var/obj/item/I in list(H.head, H.glasses, H.wear_mask))
 					if(I && (I.body_parts_covered & EYES))

@@ -48,7 +48,6 @@
 	burn_mod = 1.2
 
 	grab_mod = 1.1 // Smooth, no real edges to grab onto
-	resist_mod = 2 // Robotic strength
 
 	show_ssd = "flashing a 'system offline' glyph on their monitor"
 

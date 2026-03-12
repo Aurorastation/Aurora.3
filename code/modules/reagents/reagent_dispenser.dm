@@ -105,6 +105,7 @@
 	icon_state = "extinguisher_tank"
 	amount_per_transfer_from_this = 30
 	reagents_to_add = list(/singleton/reagent/toxin/fertilizer/monoammoniumphosphate = 1000)
+	movable_flags = MOVABLE_FLAG_WHEELED
 
 // Tanks
 /obj/structure/reagent_dispensers/watertank
@@ -113,6 +114,7 @@
 	icon_state = "watertank"
 	amount_per_transfer_from_this = 300
 	reagents_to_add = list(/singleton/reagent/water = 1000)
+	movable_flags = MOVABLE_FLAG_WHEELED
 
 /obj/structure/reagent_dispensers/lube
 	name = "lube tank"
@@ -120,6 +122,7 @@
 	icon_state = "lubetank"
 	amount_per_transfer_from_this = 30
 	reagents_to_add = list(/singleton/reagent/lube = 1000)
+	movable_flags = MOVABLE_FLAG_WHEELED
 
 /obj/structure/reagent_dispensers/fueltank
 	name = "fuel tank"
@@ -131,6 +134,7 @@
 	var/armed = 0
 	var/obj/item/assembly_holder/rig = null
 	reagents_to_add = list(/singleton/reagent/fuel = 1000)
+	movable_flags = MOVABLE_FLAG_WHEELED
 
 /obj/structure/reagent_dispensers/fueltank/feedback_hints(mob/user, distance, is_adjacent)
 	. += ..()
@@ -142,6 +146,7 @@
 		. += SPAN_NOTICE("There is some kind of device rigged to the tank.")
 
 /obj/structure/reagent_dispensers/fueltank/attack_hand(mob/user)
+	. = ..()
 	if (rig)
 		user.visible_message("[user] begins to detach [rig] from \the [src].", "You begin to detach [rig] from \the [src]")
 		if(do_after(user, 20))
@@ -243,6 +248,7 @@
 	icon_state = "lubetank"
 	amount_per_transfer_from_this = 30
 	reagents_to_add = list(/singleton/reagent/toxin/fertilizer = 1000)
+	movable_flags = MOVABLE_FLAG_WHEELED
 
 //Wall Dispensers
 
@@ -307,6 +313,7 @@
 	var/cup_type = /obj/item/reagent_containers/food/drinks/sillycup
 
 /obj/structure/reagent_dispensers/water_cooler/attack_hand(var/mob/user)
+	. = ..()
 	if(cups > 0)
 		var/visible_messages = DispenserMessages(user)
 		visible_message(SPAN_NOTICE(visible_messages[1]), SPAN_NOTICE(visible_messages[2]))
@@ -419,6 +426,7 @@
 	amount_per_transfer_from_this = 120
 	capacity = 1000
 	reagents_to_add = list(/singleton/reagent/nutriment/triglyceride/oil/corn = 1000)
+	movable_flags = MOVABLE_FLAG_WHEELED
 
 /obj/structure/reagent_dispensers/cookingoil/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
 	. = ..()

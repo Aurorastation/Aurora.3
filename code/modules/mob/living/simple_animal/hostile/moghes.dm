@@ -25,7 +25,8 @@
 	melee_damage_lower = 40
 	melee_damage_upper = 40
 	armor_penetration = 20
-	resist_mod = 10
+	mob_strength = MOB_STRENGTH_VERY_STRONG
+	mob_weight = MOB_WEIGHT_SUPERHEAVY
 	mob_size = 30
 	environment_smash = 2
 	attacktext = "chomped"

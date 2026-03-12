@@ -385,6 +385,7 @@
 	return
 
 /obj/machinery/mining/drill/attack_hand(mob/user)
+	. = ..()
 	check_supports()
 
 	if(need_player_check)
@@ -551,14 +552,9 @@
 		if(istype(user, /mob/living/carbon/human))
 			//Save the users active hand
 			var/mob/living/carbon/human/H = user
-			var/obj/item/organ/external/LA = H.get_organ(BP_L_HAND)
-			var/obj/item/organ/external/RA = H.get_organ(BP_R_HAND)
-			var/active_hand = H.hand
-			if(prob(20))
-				if(active_hand)
-					LA.droplimb(0, DROPLIMB_BLUNT)
-				else
-					RA.droplimb(0, DROPLIMB_BLUNT)
+			var/obj/item/organ/external/destroy_hand = pick(H.get_inactive_hand_organs())
+			if(prob(20) && destroy_hand)
+				destroy_hand.droplimb(0, DROPLIMB_BLUNT)
 				connected.system_error("Unexpected user interface error.")
 				return
 			else

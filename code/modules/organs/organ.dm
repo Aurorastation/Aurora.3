@@ -40,6 +40,7 @@
 	var/list/datum/autopsy_data/autopsy_data = list()
 	var/list/organ_verbs	//verb that are added when you gain the organ
 	var/list/trace_chemicals = list() // traces of chemicals in the organ, links chemical IDs to number of ticks for which they'll stay in the blood
+	var/list/organ_traits // traits added to the OWNER so long as the organ isn't dead or nonfunctional
 
 	//DNA stuff.
 	var/datum/dna/dna
@@ -57,6 +58,8 @@ INITIALIZE_IMMEDIATE(/obj/item/organ)
 		max_damage = min_broken_damage * 2
 	if(istype(holder))
 		src.owner = holder
+		for(var/trait in organ_traits)
+			ADD_TRAIT(owner, trait, REF(src))
 		species = GLOB.all_species[SPECIES_HUMAN]
 		if(holder.dna)
 			dna = holder.dna.Clone()
@@ -88,6 +91,8 @@ INITIALIZE_IMMEDIATE(/obj/item/organ)
 	if(istype(owner, /mob/living/carbon))
 		if(owner.internal_organs)
 			owner.internal_organs -= src
+		for(var/trait in organ_traits)
+			REMOVE_TRAIT(owner, trait, REF(src))
 		if(istype(owner, /mob/living/carbon/human))
 			if(owner.internal_organs_by_name)
 				owner.internal_organs_by_name -= src
@@ -120,6 +125,8 @@ INITIALIZE_IMMEDIATE(/obj/item/organ)
 /obj/item/organ/proc/die()
 	if(status & ORGAN_ROBOT)
 		return
+	for(var/trait in organ_traits)
+		REMOVE_TRAIT(owner, trait, REF(src))
 	damage = max_damage
 	status |= ORGAN_DEAD
 	death_time = world.time
@@ -136,6 +143,26 @@ INITIALIZE_IMMEDIATE(/obj/item/organ)
 #define ORGAN_RECOVERY_THRESHOLD (5 MINUTES)
 /obj/item/organ/proc/can_recover()
 	return (max_damage > 0) && !(status & ORGAN_DEAD) || death_time >= world.time - ORGAN_RECOVERY_THRESHOLD
+
+/// Add a Trait to an organ that it will give its owner.
+/obj/item/organ/proc/add_organ_trait(trait)
+	LAZYADD(organ_traits, trait)
+	if(isnull(owner))
+		return
+	ADD_TRAIT(owner, trait, REF(src))
+
+/// Removes a Trait from an organ, and by extension, its owner.
+/obj/item/organ/proc/remove_organ_trait(trait)
+	LAZYREMOVE(organ_traits, trait)
+	if(isnull(owner))
+		return
+	REMOVE_TRAIT(owner, trait, REF(src))
+
+/obj/item/organ/proc/can_activate()
+	return TRUE
+
+/obj/item/organ/proc/activate(atom/target)
+	return
 
 /obj/item/organ/process(seconds_per_tick)
 	if(loc != owner)
@@ -433,6 +460,9 @@ INITIALIZE_IMMEDIATE(/obj/item/organ)
 	if(!istype(owner))
 		return
 
+	for(var/trait in organ_traits)
+		REMOVE_TRAIT(owner, trait, REF(src))
+
 	action_button_name = null
 
 	owner.internal_organs_by_name[organ_tag] = null
@@ -471,6 +501,8 @@ INITIALIZE_IMMEDIATE(/obj/item/organ)
 	owner = target
 	action_button_name = initial(action_button_name)
 	forceMove(owner) //just in case
+	for(var/trait in organ_traits)
+		ADD_TRAIT(owner, trait, REF(src))
 	if(BP_IS_ROBOTIC(src))
 		set_dna(owner.dna)
 	return 1

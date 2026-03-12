@@ -159,47 +159,49 @@
 	to_chat(usr, SPAN_NOTICE("You decide to make [choice == "Default" ? "nothing specific" : choice] with [src]."))
 
 //Handles all validity checking and error messages for inserting things
-/obj/machinery/appliance/proc/can_insert(var/obj/item/I, var/mob/user)
-	if(!I.dropsafety())
-		return CANNOT_INSERT
+/obj/machinery/appliance/proc/can_insert(var/atom/movable/AM, var/mob/user)
+	if(!AM.dropsafety())
+		return FALSE
 
 	// We are trying to cook a grabbed mob.
-	var/obj/item/grab/G = I
+	var/obj/item/grab/G = AM
 	if(istype(G))
-
 		if(!can_cook_mobs)
 			to_chat(user, SPAN_WARNING("That's not going to fit."))
-			return CANNOT_INSERT
-
-		if(!isliving(G.affecting))
+			return FALSE
+		if(!isliving(G.grabbed))
 			to_chat(user, SPAN_WARNING("You can't cook that."))
-			return CANNOT_INSERT
+			return FALSE
+		return TRUE
 
-		return INSERT_GRABBED
+	var/obj/item/I = AM
+
+	if(!istype(I))
+		return FALSE
 
 	if (!has_space(I))
 		to_chat(user, SPAN_WARNING("There's no room in [src] for that!"))
-		return CANNOT_INSERT
+		return FALSE
 
 	if (istype(I, /obj/item/reagent_containers/cooking_container))
 		var/obj/item/reagent_containers/cooking_container/CC = I
 		if(CC.appliancetype & appliancetype)
-			return CAN_INSERT
+			return TRUE
 
 	// We're trying to cook something else. Check if it's valid.
 	var/obj/item/reagent_containers/food/snacks/check = I
 	if(istype(check) && LAZYISIN(cook_type,check.cooked))
 		to_chat(user, SPAN_WARNING("[check] has already been [cook_type]."))
-		return CANNOT_INSERT
+		return FALSE
 	else if(istype(I, /obj/item/reagent_containers/glass))
 		to_chat(user, SPAN_WARNING("That would probably break [I]."))
-		return CANNOT_INSERT
+		return FALSE
 	else if(I.tool_behaviour == TOOL_CROWBAR || I.tool_behaviour == TOOL_SCREWDRIVER || istype(I, /obj/item/storage/part_replacer))
-		return CANNOT_INSERT
+		return FALSE
 	else if(!istype(check) && !istype(I, /obj/item/holder))
 		to_chat(user, SPAN_WARNING("That's not edible."))
-		return CANNOT_INSERT
-	return CAN_INSERT
+		return FALSE
+	return TRUE
 
 
 //This function is overridden by cookers that do stuff with containers
@@ -208,13 +210,18 @@
 		return FALSE
 	return TRUE
 
+/obj/machinery/appliance/grab_attack(obj/item/grab/G, mob/user)
+	if(can_insert(G, user))
+		cook_mob(G.grabbed, user)
+		return TRUE
+	return FALSE
+
 /obj/machinery/appliance/attackby(obj/item/attacking_item, mob/user)
 	if(!cook_type || (stat & (BROKEN)))
 		to_chat(user, SPAN_WARNING("[src] is not working."))
 		return
 
-	var/result = can_insert(attacking_item, user)
-	if(result == CANNOT_INSERT)
+	if(!can_insert(attacking_item, user))
 		if(default_deconstruction_screwdriver(user, attacking_item))
 			return
 		else if(default_part_replacement(user, attacking_item))
@@ -222,12 +229,6 @@
 		else if(default_deconstruction_crowbar(user, attacking_item))
 			return
 		return
-
-	if(result == INSERT_GRABBED)
-		var/obj/item/grab/G = attacking_item
-		if (G && istype(G) && G.affecting)
-			cook_mob(G.affecting, user)
-			return
 
 	//From here we can start cooking food
 	add_content(attacking_item, user)

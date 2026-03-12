@@ -257,6 +257,8 @@ GLOBAL_LIST_INIT(valid_bloodtypes, list(
 	for(var/name in pref.organ_data)
 		var/status = pref.organ_data[name]
 		var/organ_name = name
+		var/parsed_organ_name = capitalize_first_letters(
+			LAZYACCESSASSOC(mob_species.has_limbs, organ_name, "descriptor") || organ_name)
 
 		if(status == ORGAN_PREF_CYBORG)
 			var/datum/robolimb/R
@@ -264,32 +266,32 @@ GLOBAL_LIST_INIT(valid_bloodtypes, list(
 				R = GLOB.all_robolimbs[pref.rlimb_data[name]]
 			else
 				R = GLOB.basic_robolimb
-			out += "<li>- [R.company] [capitalize_first_letters(parse_zone(organ_name))] Prosthesis</li>"
+			out += "<li>- [R.company] [parsed_organ_name] Prosthesis</li>"
 		else if(status == ORGAN_PREF_AMPUTATED)
-			out += "<li>- Amputated [capitalize_first_letters(parse_zone(organ_name))]</li>"
+			out += "<li>- Amputated [parsed_organ_name]</li>"
 		else if(status == ORGAN_PREF_MECHANICAL)
 			var/datum/robolimb/R
 			if(pref.rlimb_data[name] && GLOB.all_robolimbs[pref.rlimb_data[name]])
 				R = GLOB.all_robolimbs[pref.rlimb_data[name]]
 			else
 				R = GLOB.basic_robolimb
-			out += "<li>- [R.company] Mechanical [capitalize_first_letters(parse_zone(organ_name))]</li>"
+			out += "<li>- [R.company] Mechanical [parsed_organ_name]</li>"
 		else if(status == ORGAN_PREF_NYMPH)
-			out += "<li>- Diona Nymph [capitalize_first_letters(parse_zone(organ_name))]</li>"
+			out += "<li>- Diona Nymph [parsed_organ_name]</li>"
 		else if(status == ORGAN_PREF_ASSISTED)
 			switch(organ_name)
 				if(BP_HEART)
-					out += "<li>- Pacemaker-Assisted [capitalize_first_letters(parse_zone(organ_name))]</li>"
+					out += "<li>- Pacemaker-Assisted [parsed_organ_name]</li>"
 				if("voicebox") //on adding voiceboxes for speaking skrell/similar replacements
-					out += "<li>- Surgically Altered [capitalize_first_letters(parse_zone(organ_name))]</li>"
+					out += "<li>- Surgically Altered [parsed_organ_name]</li>"
 				if(BP_EYES)
-					out += "<li>- Retinal Overlayed [capitalize_first_letters(parse_zone(organ_name))]</li>"
+					out += "<li>- Retinal Overlayed [parsed_organ_name]</li>"
 				if(BP_BRAIN)
-					out += "<li>- Pseudoneuron-Assisted [capitalize_first_letters(parse_zone(organ_name))]</li>"
+					out += "<li>- Pseudoneuron-Assisted [parsed_organ_name]</li>"
 				else
-					out += "<li>- Mechanically Assisted [capitalize_first_letters(parse_zone(organ_name))]</li>"
+					out += "<li>- Mechanically Assisted [parsed_organ_name]</li>"
 		else if(status == ORGAN_PREF_REMOVED)
-			out += "<li>- Removed [capitalize_first_letters(parse_zone(organ_name))]</li>"
+			out += "<li>- Removed [parsed_organ_name]</li>"
 
 	if(length(pref.organ_data))
 		out += "</ul><br><br>"

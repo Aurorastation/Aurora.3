@@ -101,10 +101,7 @@
 		. += "It contains: [counting_english_list(contents)]"
 
 	if(distance <= 1 && !src.opened)
-		var/content_size = 0
-		for(var/obj/item/I in contents)
-			if(!I.anchored)
-				content_size += Ceiling(I.w_class/2)
+		var/content_size = stored_volume()
 		if(!content_size)
 			. += "\The [src] is empty."
 		else if(storage_capacity > content_size*4)
@@ -144,9 +141,7 @@
 			continue
 		I.forceMove(src)
 	// adjust locker size to hold all items with 5 units of free store room
-	var/content_size = 0
-	for(I in contents)
-		content_size += Ceiling(I.w_class/2)
+	var/content_size = stored_volume()
 	if(content_size > storage_capacity-5)
 		storage_capacity = content_size + 5
 
@@ -161,12 +156,22 @@
 /obj/structure/closet/proc/fill()
 	return
 
-/obj/structure/closet/proc/stored_weight()
+/obj/structure/closet/proc/stored_volume()
 	var/content_size = 0
-	for(var/obj/item/I in contents)
-		if(!I.anchored)
-			content_size += Ceiling(I.w_class/2)
+	for(var/atom/movable/AM as anything in contents)
+		if(!AM.anchored)
+			var/obj/O = astype(AM)
+			if(O)
+				content_size += ROUND_UP(O.w_class/2)
+				continue
+			var/mob/M = astype(AM)
+			if(M)
+				content_size += M.mob_size
 	return content_size
+
+/// TODO: we should be using mob_weight once objects have defined weight (material or whatever) and they make sense with each other
+/obj/structure/closet/get_object_size()
+	return w_class + stored_volume()
 
 /obj/structure/closet/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
 	if(air_group || (height==0 || wall_mounted))
@@ -353,6 +358,12 @@
 
 	damage(proj_damage)
 
+/obj/structure/closet/grab_attack(obj/item/grab/G, mob/user)
+	if(opened)
+		mouse_drop_receive(G.grabbed, user)
+		return TRUE
+	return FALSE
+
 /obj/structure/closet/attackby(obj/item/attacking_item, mob/user)
 	if(istype(attacking_item, /obj/item/closet_teleporter))
 		if(linked_teleporter)
@@ -367,10 +378,6 @@
 			user.drop_from_inventory(CT, src)
 		return
 	if(opened)
-		if(istype(attacking_item, /obj/item/grab))
-			var/obj/item/grab/G = attacking_item
-			mouse_drop_receive(G.affecting, user) //act like they were dragged onto the closet
-			return 0
 		if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER) // Moved here so you can only detach linked teleporters when the door is open. So you can like unscrew and bolt the locker normally in most circumstances.
 			if(linked_teleporter)
 				user.visible_message(SPAN_NOTICE("\The [user] starts detaching \the [linked_teleporter] from \the [src]..."), SPAN_NOTICE("You begin detaching \the [linked_teleporter] from \the [src]..."), range = 3)
@@ -585,6 +592,7 @@
 	to_chat(user, SPAN_NOTICE("It won't budge!"))
 
 /obj/structure/closet/attack_hand(mob/user as mob)
+	. = ..()
 	add_fingerprint(user)
 	if(locked)
 		togglelock(user)

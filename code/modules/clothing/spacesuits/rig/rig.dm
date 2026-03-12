@@ -691,7 +691,7 @@
 			. = 1
 
 /obj/item/rig/check_equipped(mob/living/carbon/human/M, slot, assisted_equip = FALSE)
-	if(istype(M) && slot == slot_back)
+	if(istype(M) && slot == slot_back_str)
 		if(!assisted_equip && seal_delay > 0)
 			M.visible_message(SPAN_NOTICE("[M] starts putting on \the [src]..."), SPAN_NOTICE("You start putting on \the [src]..."))
 			if(!do_after(M, seal_delay))
@@ -724,19 +724,19 @@
 
 	switch(piece)
 		if("helmet")
-			equip_to = slot_head
+			equip_to = slot_head_str
 			use_obj = helmet
 			check_slot = wearer.head
 		if("gauntlets")
-			equip_to = slot_gloves
+			equip_to = slot_gloves_str
 			use_obj = gloves
 			check_slot = wearer.gloves
 		if("boots")
-			equip_to = slot_shoes
+			equip_to = slot_shoes_str
 			use_obj = boots
 			check_slot = wearer.shoes
 		if("chest")
-			equip_to = slot_wear_suit
+			equip_to = slot_wear_suit_str
 			use_obj = chest
 			check_slot = wearer.wear_suit
 
@@ -996,15 +996,9 @@
 		var/atom/O = wearer.loc
 		return O.relaymove(wearer, direction)
 
-	if(isturf(wearer.loc))
-		if(wearer.restrained())//Why being pulled while cuffed prevents you from moving
-			for(var/mob/M in range(wearer, 1))
-				if(M.pulling == wearer)
-					if(!M.restrained() && M.stat == 0 && M.canmove && wearer.Adjacent(M))
-						to_chat(user, SPAN_NOTICE("Your host is restrained! They can't move!"))
-						return 0
-					else
-						M.stop_pulling()
+	if(isturf(wearer.loc) && wearer.restrained())
+		to_chat(user, SPAN_NOTICE("Your host is restrained! They can't move!"))
+		return FALSE
 
 	if(wearer.pinned.len)
 		to_chat(src, "<span class='notice'>Your host is pinned to a wall by [wearer.pinned[1]]</span>!")
@@ -1023,12 +1017,14 @@
 		if(wearer.machine.relaymove(wearer, direction))
 			return
 
-	if(wearer.pulledby || wearer.buckled_to) // Wheelchair driving!
+	var/list/active_grabs = wearer.get_active_grabs()
+	if(length(active_grabs) || wearer.buckled_to) // Wheelchair driving!
 		if(istype(wearer.loc, /turf/space))
 			return // No wheelchair driving in space
-		if(istype(wearer.pulledby, /obj/structure/bed/stool/chair/office/wheelchair))
-			return wearer.pulledby.relaymove(wearer, direction)
-		else if(istype(wearer.buckled_to, /obj/structure/bed/stool/chair/office/wheelchair))
+		for(var/obj/item/grab/G as anything in active_grabs)
+			if(istype(G.grabbed, /obj/structure/bed/stool/chair/office/wheelchair))
+				return G.grabbed.relaymove(wearer, direction)
+		if(istype(wearer.buckled_to, /obj/structure/bed/stool/chair/office/wheelchair))
 			if(ishuman(wearer.buckled_to))
 				var/obj/item/organ/external/l_hand = wearer.get_organ(BP_L_HAND)
 				var/obj/item/organ/external/r_hand = wearer.get_organ(BP_R_HAND)

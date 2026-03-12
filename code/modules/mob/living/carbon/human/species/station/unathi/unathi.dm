@@ -33,7 +33,6 @@
 	fall_mod = 1.2
 	radiation_mod = 0.9 // how else did they survive nuclear armageddon?
 	grab_mod = 1.25 // Huge, usually have horns
-	resist_mod = 2.5 // Arguably our strongest organic species
 
 	ethanol_resistance = 0.8
 	taste_sensitivity = TASTE_SENSITIVE
@@ -144,4 +143,4 @@
 	if(H.shoes)
 		return
 	var/obj/item/clothing/shoes/sandals/S = new /obj/item/clothing/shoes/sandals(H)
-	H.equip_to_slot_or_del(S,slot_shoes)
+	H.equip_to_slot_or_del(S,slot_shoes_str)

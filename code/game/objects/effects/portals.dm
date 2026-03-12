@@ -98,12 +98,8 @@
 	var/list/things_to_teleport = list(movable)
 	if(ismob(movable))
 		var/mob/M = movable
-		if(M.pulling)
-			things_to_teleport += M.pulling
-		if(ishuman(movable))
-			var/mob/living/carbon/human/H = movable
-			for(var/obj/item/grab/G in list(H.l_hand, H.r_hand))
-				things_to_teleport += G.affecting
+		for(var/obj/item/grab/G as anything in M.get_active_grabs())
+			things_to_teleport += G.grabbed
 	for(var/atom/movable/M in things_to_teleport)
 		if(has_failed) //oh dear a problem, put em in deep space
 			icon_state = "portal1" // only tell people the portal failed after a teleport has been done

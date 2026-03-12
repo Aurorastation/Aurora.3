@@ -26,10 +26,8 @@
 		if(!istype(user, /mob/living/carbon/slime) && !istype(user, /mob/living/simple_animal))
 			if( !user.get_active_hand() )		//if active hand is empty
 				var/mob/living/carbon/human/H = over
-				var/obj/item/organ/external/temp = H.organs_by_name[BP_R_HAND]
+				var/obj/item/organ/external/temp = H.get_active_hand_organ()
 
-				if (H.hand)
-					temp = H.organs_by_name[BP_L_HAND]
 				if(temp && !temp.is_usable())
 					to_chat(H, SPAN_NOTICE("You try to move your [temp.name], but cannot!"))
 					return
@@ -39,11 +37,10 @@
 	return
 
 /obj/item/paper_bin/attack_hand(mob/user as mob)
+	. = ..()
 	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
-		var/obj/item/organ/external/temp = H.organs_by_name[BP_R_HAND]
-		if (H.hand)
-			temp = H.organs_by_name[BP_L_HAND]
+		var/obj/item/organ/external/temp = H.get_active_hand_organ()
 		if(temp && !temp.is_usable())
 			to_chat(user, SPAN_NOTICE("You try to move your [temp.name], but cannot!"))
 			return

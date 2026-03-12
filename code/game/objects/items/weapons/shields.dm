@@ -33,8 +33,8 @@
 	name = "shield"
 	icon = 'icons/obj/weapons.dmi'
 	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items/weapons/lefthand_shield.dmi',
-		slot_r_hand_str = 'icons/mob/items/weapons/righthand_shield.dmi'
+		BP_L_HAND = 'icons/mob/items/weapons/lefthand_shield.dmi',
+		BP_R_HAND = 'icons/mob/items/weapons/righthand_shield.dmi'
 		)
 	var/base_block_chance = 50
 	recyclable = TRUE
@@ -173,8 +173,7 @@
 		HandleShutOff()
 	add_fingerprint(user)
 	update_icon()
-	user.update_inv_l_hand()
-	user.update_inv_r_hand()
+	user.update_inv_hands()
 
 /obj/item/shield/energy/handle_shield(mob/user, on_back, damage, atom/damage_source = null, mob/attacker = null, def_zone = null, attack_text = "the attack")
 	var/shield_dir = on_back ? user.dir : REVERSE_DIR(user.dir)
@@ -355,8 +354,7 @@
 
 	if(istype(user,/mob/living/carbon/human))
 		var/mob/living/carbon/human/H = user
-		H.update_inv_l_hand()
-		H.update_inv_r_hand()
+		H.update_inv_hands()
 
 	add_fingerprint(user)
 	return

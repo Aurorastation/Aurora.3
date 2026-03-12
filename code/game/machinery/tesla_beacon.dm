@@ -45,6 +45,7 @@
 		to_chat(user, SPAN_WARNING("You need to be adjacent to \the [src] to activate it!"))
 
 /obj/machinery/power/tesla_beacon/attack_hand(mob/user)
+	. = ..()
 	if(anchored)
 		return active ? deactivate(user) : activate(user)
 	else

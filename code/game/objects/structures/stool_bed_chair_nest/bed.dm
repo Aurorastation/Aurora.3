@@ -41,7 +41,6 @@
 	slowdown = 5
 
 	var/driving = FALSE // Shit for wheelchairs. Doesn't really get used here, but it's for code cleanliness.
-	var/mob/living/pulling = null
 	var/propelled = 0 // Check for fire-extinguisher-driven chairs
 
 /obj/structure/bed/mechanics_hints()
@@ -158,6 +157,25 @@
 				qdel(src)
 				return
 
+/obj/structure/bed/grab_attack(obj/item/grab/G, mob/user)
+	var/mob/living/grabbed = G.grabbed
+	if(!istype(grabbed))
+		return FALSE
+	user.visible_message(SPAN_NOTICE("[user] attempts to buckle [grabbed] into \the [src]!"))
+	if(do_after(user, 2 SECONDS, grabbed, DO_UNIQUE))
+		if(grabbed != G.grabbed)
+			return FALSE
+		grabbed.forceMove(loc)
+		spawn(0)
+			if(buckle(grabbed, user))
+				grabbed.visible_message(\
+					SPAN_DANGER("[grabbed.name] is buckled to [src] by [user.name]!"),\
+					SPAN_DANGER("You are buckled to [src] by [user.name]!"),\
+					SPAN_NOTICE("You hear metal clanking."))
+		qdel(G)
+		return TRUE
+	return FALSE
+
 /obj/structure/bed/attackby(obj/item/attacking_item, mob/user)
 	if(attacking_item.tool_behaviour == TOOL_WRENCH)
 		if(can_dismantle)
@@ -211,20 +229,6 @@
 			to_chat(user, "You fasten \the [src] to the floor.")
 		playsound(src, 'sound/items/Screwdriver.ogg', 100, 1)
 
-	else if(istype(attacking_item, /obj/item/grab))
-		var/obj/item/grab/G = attacking_item
-		var/mob/living/affecting = G.affecting
-		user.visible_message(SPAN_NOTICE("[user] attempts to buckle [affecting] into \the [src]!"))
-		if(do_after(user, 2 SECONDS, affecting, DO_UNIQUE))
-			affecting.forceMove(loc)
-			spawn(0)
-				if(buckle(affecting, user))
-					affecting.visible_message(\
-						SPAN_DANGER("[affecting.name] is buckled to [src] by [user.name]!"),\
-						SPAN_DANGER("You are buckled to [src] by [user.name]!"),\
-						SPAN_NOTICE("You hear metal clanking."))
-			qdel(attacking_item)
-
 	else if(istype(attacking_item, /obj/item/gripper) && buckled)
 		var/obj/item/gripper/G = attacking_item
 		if(!G.wrapped)
@@ -276,10 +280,6 @@
 							Collide(O)
 				else
 					unbuckle()
-			if (pulling && (get_dist(src, pulling) > 1))
-				pulling.pulledby = null
-				to_chat(pulling, SPAN_WARNING("You lost your grip!"))
-				pulling = null
 		else
 			if (occupant && (src.loc != occupant.loc))
 				src.forceMove(occupant.loc) // Failsafe to make sure the wheelchair stays beneath the occupant after driving
@@ -289,15 +289,26 @@
 	if(!buckled)
 		return
 
-	if(propelled || (pulling && (pulling.a_intent == I_HURT)))
-		var/mob/living/occupant = unbuckle()
+	var/harm_intent = FALSE
+	var/obj/item/grab/harm_grab
 
-		if (pulling && (pulling.a_intent == I_HURT))
-			occupant.throw_at(A, 3, 3, pulling)
+	if(!propelled && LAZYLEN(grabbed_by))
+		for(var/obj/item/grab/G as anything in grabbed_by)
+			if(G.grabber.a_intent == I_HURT)
+				harm_intent = TRUE
+				harm_grab = G
+				break
+
+	if(propelled || harm_intent)
+		var/mob/living/occupant = unbuckle()
+		var/mob/living/grabber = harm_grab.grabber
+
+		if (harm_intent)
+			occupant.throw_at(A, 3, 3, grabber)
 		else if (propelled)
 			occupant.throw_at(A, 3, propelled)
 
-		var/def_zone = ran_zone()
+		var/def_zone = ran_zone(occupant)
 		occupant.throw_at(A, 3, propelled)
 		occupant.apply_effect(6, STUN)
 		occupant.apply_effect(6, WEAKEN)
@@ -306,17 +317,17 @@
 		playsound(src.loc, "punch", 50, 1, -1)
 		if(isliving(A))
 			var/mob/living/victim = A
-			def_zone = ran_zone()
+			def_zone = ran_zone(victim)
 			victim.apply_effect(6, STUN)
 			victim.apply_effect(6, WEAKEN)
 			victim.apply_effect(6, STUTTER)
 			victim.apply_damage(10, DAMAGE_BRUTE, def_zone)
 
-		if(pulling)
-			occupant.visible_message(SPAN_DANGER("[pulling] has thrusted \the [name] into \the [A], throwing \the [occupant] out of it!"))
-			pulling.attack_log += "\[[time_stamp()]\]<span class='warning'> Crashed [occupant.name]'s ([occupant.ckey]) [name] into \a [A]</span>"
-			occupant.attack_log += "\[[time_stamp()]\]<font color='orange'> Thrusted into \a [A] by [pulling.name] ([pulling.ckey]) with \the [name]</font>"
-			msg_admin_attack("[pulling.name] ([pulling.ckey]) has thrusted [occupant.name]'s ([occupant.ckey]) [name] into \a [A] (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[pulling.x];Y=[pulling.y];Z=[pulling.z]'>JMP</a>)",ckey=key_name(pulling),ckey_target=key_name(occupant))
+		if(harm_intent)
+			occupant.visible_message(SPAN_DANGER("[grabber] has thrusted \the [name] into \the [A], throwing \the [occupant] out of it!"))
+			grabber.attack_log += "\[[time_stamp()]\]<span class='warning'> Crashed [occupant.name]'s ([occupant.ckey]) [name] into \a [A]</span>"
+			occupant.attack_log += "\[[time_stamp()]\]<font color='orange'> Thrusted into \a [A] by [grabber.name] ([grabber.ckey]) with \the [name]</font>"
+			msg_admin_attack("[grabber.name] ([grabber.ckey]) has thrusted [occupant.name]'s ([occupant.ckey]) [name] into \a [A] (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[grabber.x];Y=[grabber.y];Z=[grabber.z]'>JMP</a>)",ckey=key_name(grabber),ckey_target=key_name(occupant))
 		else
 			occupant.visible_message(SPAN_DANGER("[occupant] crashed into \the [A]!"))
 
@@ -378,6 +389,7 @@
 	makes_rolling_sound = TRUE
 	base_icon = "standard"
 	held_item = /obj/item/roller
+	movable_flags = MOVABLE_FLAG_WHEELED
 	var/obj/item/reagent_containers/beaker
 	var/obj/item/vitals_monitor/vitals
 	var/obj/item/paper/medscan
@@ -786,6 +798,7 @@
 		AddOverlays(I)
 
 /obj/structure/roller_rack/attack_hand(mob/user)
+	. = ..()
 	if(!LAZYLEN(held))
 		to_chat(user, SPAN_NOTICE("The rack is empty."))
 		return

@@ -256,7 +256,7 @@
 			balloon_alert(user, "already has a suppressor!")
 			return
 
-		if(user.l_hand != S && user.r_hand != S)
+		if(!user.is_holding(attacking_item))
 			balloon_alert(user, "not in hand!")
 			return
 
@@ -284,7 +284,7 @@
 		unload_ammo(user)
 
 /obj/item/gun/projectile/attack_hand(mob/user)
-	if(user.get_inactive_hand() == src)
+	if(user.is_holding_offhand(src))
 		unload_ammo(user, allow_dump=0)
 	else
 		return ..()

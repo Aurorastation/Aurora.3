@@ -75,6 +75,7 @@
 	return
 
 /obj/structure/morgue/attack_hand(mob/user)
+	. = ..()
 	if(connected && !locked)
 		for(var/atom/movable/A in connected.loc)
 			if(!A.anchored)
@@ -155,6 +156,7 @@
 	return ..()
 
 /obj/structure/m_tray/attack_hand(mob/user)
+	. = ..()
 	if(connected)
 		for(var/atom/movable/A in src.loc)
 			if(!A.anchored)

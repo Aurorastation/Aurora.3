@@ -47,11 +47,7 @@
 	if(card_id in stored_card_names)
 		var/obj/item/battle_monsters/card/new_card = SSbattle_monsters.CreateCard(card_id,src.loc)
 
-		if(!user.get_active_hand())
-			user.put_in_active_hand(new_card)
-		else if(!user.get_inactive_hand())
-			user.put_in_inactive_hand(new_card)
-		else
+		if(!user.put_in_hands(src))
 			to_chat(user, SPAN_NOTICE("Your hands are full!"))
 			return
 

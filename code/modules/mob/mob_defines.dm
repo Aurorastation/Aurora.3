@@ -29,7 +29,6 @@
 	var/atom/movable/screen/flash = null
 	var/atom/movable/screen/blind = null
 	var/atom/movable/screen/hands = null
-	var/atom/movable/screen/pullin = null
 	var/atom/movable/screen/purged = null
 	var/atom/movable/screen/internals/internals = null
 	var/atom/movable/screen/oxygen = null
@@ -78,11 +77,9 @@
 	var/height = HEIGHT_NOT_USED
 	var/sdisabilities = 0				//Carbon
 	var/disabilities = 0				//Carbon
-	var/atom/movable/pulling = null
 	var/next_move = null
 	var/transforming = null				//Carbon
 	var/other = 0.0
-	var/hand = null
 	var/eye_blind = null				//Carbon
 	var/eye_blurry = null				//Carbon
 	var/ear_deaf = null					//Carbon
@@ -161,8 +158,6 @@
 	var/a_intent = I_HELP//Living
 	var/m_intent = M_WALK //Living
 	var/lastKnownIP = null
-	var/obj/item/l_hand = null//Living
-	var/obj/item/r_hand = null//Living
 	var/obj/item/back = null//Human/Monkey
 	var/obj/item/tank/internal = null//Human/Monkey
 	var/obj/item/storage/s_active = null//Carbon
@@ -174,7 +169,6 @@
 
 	var/datum/hud/hud_used = null
 
-	var/list/grabbed_by = list(  )
 	var/list/requests = list(  )
 
 	var/list/mapobjs = list()

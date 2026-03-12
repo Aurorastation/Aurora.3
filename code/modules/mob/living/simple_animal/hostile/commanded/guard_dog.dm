@@ -28,7 +28,7 @@
 	harm_intent_damage = 5
 	melee_damage_lower = 15
 	melee_damage_upper = 15
-	resist_mod = 2
+	mob_strength = MOB_STRENGTH_STRONG
 
 	mob_size = 5
 
@@ -143,7 +143,8 @@
 
 	melee_damage_lower = 20
 	melee_damage_upper = 20
-	resist_mod = 4
+	mob_strength = MOB_STRENGTH_STRONG
+	mob_weight = MOB_WEIGHT_HEAVY
 
 	health = 100
 	maxHealth = 100

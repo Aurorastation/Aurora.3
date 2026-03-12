@@ -11,7 +11,7 @@
 	var/obj/machinery/computer/rdconsole/linked_console
 
 /obj/machinery/r_n_d/attack_hand(mob/user as mob)
-	return
+	. = ..()
 
 /obj/machinery/r_n_d/proc/getMaterialType(var/name)
 	switch(name)

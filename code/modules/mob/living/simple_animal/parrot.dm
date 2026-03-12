@@ -276,7 +276,7 @@
 /mob/living/simple_animal/parrot/think()
 	..()
 	//Sprite and AI update for when a parrot gets pulled
-	if(pulledby && stat == CONSCIOUS)
+	if(!LAZYLEN(grabbed_by) && stat == CONSCIOUS)
 		icon_state = "parrot_fly"
 		if(!client)
 			parrot_state = PARROT_WANDER
@@ -483,7 +483,7 @@
 
 			if(ishuman(parrot_interest))
 				var/mob/living/carbon/human/H = parrot_interest
-				var/obj/item/organ/external/affecting = H.get_organ(ran_zone(pick(parrot_dam_zone)))
+				var/obj/item/organ/external/affecting = H.get_organ(ran_zone(H, pick(parrot_dam_zone)))
 
 				H.apply_damage(damage, DAMAGE_BRUTE, affecting, damage_flags = DAMAGE_FLAG_SHARP)
 				visible_emote(pick("pecks [H]'s [affecting].", "cuts [H]'s [affecting] with its talons."))
@@ -521,15 +521,15 @@
 		if(parrot_perch && AM.loc == parrot_perch.loc || AM.loc == src)
 			continue
 
-		if(istype(AM, /obj/item))
-			var/obj/item/I = AM
-			if(I.w_class < 2)
-				return I
+		var/obj/item/I = astype(AM)
+		if(I && I.w_class <= WEIGHT_CLASS_SMALL)
+			return I
 
-		if(iscarbon(AM))
-			var/mob/living/carbon/C = AM
-			if((C.l_hand && C.l_hand.w_class <= 2) || (C.r_hand && C.r_hand.w_class <= 2))
-				return C
+		var/mob/M = astype(AM)
+		for(var/obj/item/held in M.get_held_items())
+			if(held.w_class <= WEIGHT_CLASS_SMALL)
+				return held
+
 	return null
 
 /mob/living/simple_animal/parrot/proc/search_for_perch()
@@ -550,15 +550,14 @@
 		if(parrot_perch && AM.loc == parrot_perch.loc || AM.loc == src)
 			continue
 
-		if(istype(AM, /obj/item))
-			var/obj/item/I = AM
-			if(I.w_class <= 2)
-				return I
+		var/obj/item/I = astype(AM)
+		if(I && I.w_class <= WEIGHT_CLASS_SMALL)
+			return I
 
-		if(iscarbon(AM))
-			var/mob/living/carbon/C = AM
-			if(C.l_hand && C.l_hand.w_class <= 2 || C.r_hand && C.r_hand.w_class <= 2)
-				return C
+		var/mob/M = astype(AM)
+		for(var/obj/item/held in M.get_held_items())
+			if(held.w_class <= WEIGHT_CLASS_SMALL)
+				return held
 	return null
 
 
@@ -607,18 +606,17 @@
 
 	var/obj/item/stolen_item = null
 
-	for(var/mob/living/carbon/C in view(1,src))
-		if(C.l_hand && C.l_hand.w_class <= 2)
-			stolen_item = C.l_hand
-
-		if(C.r_hand && C.r_hand.w_class <= 2)
-			stolen_item = C.r_hand
+	for(var/mob/M in view(1,src))
+		for(var/obj/item/held in M.get_held_items())
+			if(held.w_class <= WEIGHT_CLASS_SMALL)
+				stolen_item = held
+				break
 
 		if(stolen_item)
-			C.remove_from_mob(stolen_item)
+			M.remove_from_mob(stolen_item)
 			held_item = stolen_item
 			stolen_item.forceMove(src)
-			visible_message("[src] grabs the [held_item] out of [C]'s hand!", SPAN_NOTICE("You snag the [held_item] out of [C]'s hand!"), "You hear the sounds of wings flapping furiously.")
+			visible_message("[src] grabs the [held_item] out of [M]'s hand!", SPAN_NOTICE("You snag the [held_item] out of [M]'s hand!"), "You hear the sounds of wings flapping furiously.")
 			return held_item
 
 	to_chat(src, SPAN_WARNING("There is nothing of interest to take."))

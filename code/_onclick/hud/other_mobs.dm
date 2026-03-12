@@ -124,12 +124,6 @@
 		mymob.healths.name = "health"
 		mymob.healths.screen_loc = ui_construct_health
 
-		mymob.pullin = new /atom/movable/screen()
-		mymob.pullin.icon = 'icons/mob/screen/construct.dmi'
-		mymob.pullin.icon_state = "pull0"
-		mymob.pullin.name = "pull"
-		mymob.pullin.screen_loc = ui_construct_pull
-
 		mymob.zone_sel = new /atom/movable/screen/zone_sel()
 
 		mymob.zone_sel.icon = 'icons/mob/screen/construct.dmi'
@@ -144,4 +138,4 @@
 
 	mymob.client.screen = null
 
-	mymob.client.screen += list(mymob.fire, mymob.healths, mymob.pullin, mymob.zone_sel, mymob.purged)
+	mymob.client.screen += list(mymob.fire, mymob.healths, mymob.zone_sel, mymob.purged)

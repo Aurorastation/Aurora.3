@@ -186,7 +186,7 @@
 	jobtype = /datum/job/librarian
 
 	r_pocket = /obj/item/price_scanner
-	l_hand = null
+	hands = null
 
 /obj/outfit/job/librarian/orion/tech_support
 	name = "Tech Support - Orion Express"
@@ -194,8 +194,7 @@
 
 	l_pocket = /obj/item/modular_computer/handheld/preset/generic
 	r_pocket = /obj/item/card/tech_support
-	r_hand = /obj/item/storage/bag/circuits/basic
-	l_hand = /obj/item/debugger
+	hands = list(/obj/item/storage/bag/circuits/basic, /obj/item/debugger)
 	wrist = /obj/item/modular_computer/handheld/wristbound/preset/advanced/civilian
 
 /obj/outfit/job/journalist/orion

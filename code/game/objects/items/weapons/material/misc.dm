@@ -30,8 +30,8 @@
 	desc = "A very sharp axe blade upon a short fibremetal handle. It has a long history of chopping things, but now it is used for chopping wood."
 	icon = 'icons/obj/weapons.dmi'
 	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items/lefthand_hydro.dmi',
-		slot_r_hand_str = 'icons/mob/items/righthand_hydro.dmi',
+		BP_L_HAND = 'icons/mob/items/lefthand_hydro.dmi',
+		BP_R_HAND = 'icons/mob/items/righthand_hydro.dmi',
 		)
 	icon_state = "hatchet"
 	item_state = "hatchet"
@@ -70,8 +70,8 @@
 	desc = "A length of leather-bound wood studded with razor-sharp teeth. How crude."
 	icon = 'icons/obj/weapons.dmi'
 	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items/weapons/lefthand_knives.dmi',
-		slot_r_hand_str = 'icons/mob/items/weapons/righthand_knives.dmi',
+		BP_L_HAND = 'icons/mob/items/weapons/lefthand_knives.dmi',
+		BP_R_HAND = 'icons/mob/items/weapons/righthand_knives.dmi',
 		)
 	icon_state = "unathiknife"
 	attack_verb = list("ripped", "torn", "cut")
@@ -84,8 +84,8 @@
 	desc = "A long, sturdy blade with a rugged handle. Leading the way to cursed treasures since before space travel."
 	icon = 'icons/obj/item/melee/machete.dmi'
 	item_icons = list(
-		slot_l_hand_str = 'icons/obj/item/melee/machete.dmi',
-		slot_r_hand_str = 'icons/obj/item/melee/machete.dmi',
+		BP_L_HAND = 'icons/obj/item/melee/machete.dmi',
+		BP_R_HAND = 'icons/obj/item/melee/machete.dmi',
 	)
 	hitsound = 'sound/weapons/bladeslice.ogg'
 	contained_sprite = TRUE
@@ -143,8 +143,8 @@
 	desc = "It's used for removing weeds or scratching your back."
 	icon = 'icons/obj/weapons.dmi'
 	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items/lefthand_hydro.dmi',
-		slot_r_hand_str = 'icons/mob/items/righthand_hydro.dmi',
+		BP_L_HAND = 'icons/mob/items/lefthand_hydro.dmi',
+		BP_R_HAND = 'icons/mob/items/righthand_hydro.dmi',
 	)
 	icon_state = "hoe"
 	item_state = "hoe"
@@ -159,8 +159,8 @@
 	desc = "A sharp and curved blade on a long fibremetal handle, this tool makes it easy to reap what you sow."
 	icon_state = "scythe"
 	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items/lefthand_hydro.dmi',
-		slot_r_hand_str = 'icons/mob/items/righthand_hydro.dmi',
+		BP_L_HAND = 'icons/mob/items/lefthand_hydro.dmi',
+		BP_R_HAND = 'icons/mob/items/righthand_hydro.dmi',
 	)
 	force_divisor = 0.275 // 16 with hardness 60 (steel)
 	thrown_force_divisor = 0.25 // 5 with weight 20 (steel)

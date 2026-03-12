@@ -127,8 +127,6 @@
 	var/environment_smash = 0
 	/// Damage reduction
 	var/resistance = 0
-	/// A multiplier for the chance the animal has to break out
-	var/resist_mod = 1
 
 	//Null rod stuff
 	var/supernatural = 0
@@ -389,7 +387,7 @@
 
 	if(wander && !anchored && !stop_automated_movement)
 		if(isturf(loc) && !resting && !buckled_to && canmove)
-			if(!(pulledby && stop_automated_movement_when_pulled))
+			if(!(LAZYLEN(grabbed_by) && stop_automated_movement_when_pulled))
 				step_rand(src)
 
 	//Speaking
@@ -586,18 +584,12 @@
 			if (!(status_flags & CANPUSH))
 				return
 
-			if (!attempt_grab(M))
+			if (!try_make_grab(M))
 				return
 
-			var/obj/item/grab/G = new /obj/item/grab(M, M, src)
-
-			M.put_in_active_hand(G)
-
-			G.synch()
-			G.affecting = src
 			LAssailant = WEAKREF(M)
 
-			M.visible_message(SPAN_WARNING("\The [M] has grabbed \the [src] passively!"))
+			M.visible_message(SPAN_WARNING("\The [M] has grabbed \the [src]!"))
 			M.do_attack_animation(src)
 			poke(1)
 			handle_attack_by(M)
@@ -1074,10 +1066,6 @@
 		AddOverlays(lower_fire_emissive)
 
 
-/mob/living/simple_animal/get_resist_power()
-	return resist_mod
-
-
 /mob/living/simple_animal/get_gibs_type()
 	if(isSynthetic())
 		return /obj/effect/gibspawner/robot
@@ -1087,9 +1075,6 @@
 /mob/living/simple_animal/set_respawn_time()
 	set_death_time(ANIMAL, world.time)
 
-/mob/living/simple_animal/get_organ_name_from_zone(var/def_zone)
-	return pick(organ_names)
-
 /mob/living/simple_animal/is_anti_materiel_vulnerable()
 	if(isSynthetic())
 		return TRUE
@@ -1098,11 +1083,7 @@
 
 /mob/living/simple_animal/proc/reflect_unarmed_damage(var/mob/living/carbon/human/attacker, var/damage_type, var/description)
 	if(attacker.a_intent == I_HURT)
-		var/hand_hurtie
-		if(attacker.hand)
-			hand_hurtie = BP_L_HAND
-		else
-			hand_hurtie = BP_R_HAND
+		var/hand_hurtie = get_active_held_item_slot()
 		attacker.apply_damage(rand(return_damage_min, return_damage_max), damage_type, hand_hurtie, used_weapon = description)
 		if(rand(25))
 			to_chat(attacker, SPAN_WARNING("Your attack has no obvious effect on \the [src]'s [description]!"))

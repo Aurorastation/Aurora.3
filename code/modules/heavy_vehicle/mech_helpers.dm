@@ -197,8 +197,8 @@
 			animate(src, time = 1 SECOND, alpha = initial(alpha), flags = ANIMATION_PARALLEL)
 			remove_filter("INCORPBLUR")
 
-/mob/living/heavy_vehicle/get_organ_name_from_zone(var/def_zone)
-	var/obj/item/mech_component/MC = zoneToComponent(def_zone)
-	if(MC)
-		return MC.name
-	return ..()
+/mob/living/heavy_vehicle/reset_offsets(anim_time = 2)
+	pixel_w = default_pixel_w
+	pixel_x = default_pixel_x
+	pixel_y = default_pixel_y
+	pixel_z = default_pixel_z

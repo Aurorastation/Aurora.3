@@ -6,8 +6,8 @@
 	icon_state = "plantclippers"
 	item_state = "plantclippers"
 	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items/lefthand_hydro.dmi',
-		slot_r_hand_str = 'icons/mob/items/righthand_hydro.dmi',
+		BP_L_HAND = 'icons/mob/items/lefthand_hydro.dmi',
+		BP_R_HAND = 'icons/mob/items/righthand_hydro.dmi',
 		)
 	toolspeed = 0.7
 	/// Plant clippers have a 40% chance to successfully defuse a bomb, higher than standard because plant clippers are smaller.
@@ -54,7 +54,7 @@
 		return
 	var/obj/item/paper/P = new /obj/item/paper(get_turf(src))
 	P.set_content_unsafe("paper - [form_title]", "[last_data]")
-	if(istype(user,/mob/living/carbon/human) && !(user.l_hand && user.r_hand))
+	if(istype(user,/mob/living/carbon/human))
 		user.put_in_hands(P)
 	user.visible_message("\The [src] spits out a piece of paper.")
 	return

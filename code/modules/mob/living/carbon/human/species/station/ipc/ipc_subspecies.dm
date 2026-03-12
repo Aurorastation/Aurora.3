@@ -141,7 +141,6 @@
 	burn_mod = 1.1
 
 	grab_mod = 0.8 // Big, easy to grab onto
-	resist_mod = 10 // Good luck wrestling against this powerhouse.
 
 	slowdown = 3
 
@@ -241,7 +240,6 @@
 	burn_mod = 0.5
 
 	grab_mod = 0.9
-	resist_mod = 10
 
 	flash_mod = 0
 	siemens_coefficient = 0
@@ -347,7 +345,6 @@
 	slowdown = 2
 	brute_mod = 0.9
 	grab_mod = 0.7 // Bulkier and bigger than the G1
-	resist_mod = 12 // Overall stronger than G1
 
 	heat_level_1 = 1000
 	heat_level_2 = 2000
@@ -496,7 +493,6 @@
 
 	brute_mod = 0.9
 	grab_mod = 0.9
-	resist_mod = 8
 
 	cold_level_1 = -1 //RaceDefault 50 Default -1
 	cold_level_2 = -1 //RaceDefault -1 Default -1
@@ -591,7 +587,6 @@
 	standing_jump_range = 3
 
 	grab_mod = 1.1 // Smooth, fast
-	resist_mod = 4 // Not super strong, but still rather strong
 
 	appearance_flags = HAS_EYE_COLOR | HAS_UNDERWEAR | HAS_SOCKS
 	flags = IS_IPC | NO_SLIP
@@ -658,7 +653,6 @@
 
 	brute_mod = 1.2
 	grab_mod = 1.1
-	resist_mod = 4
 	num_alternate_languages = 3
 
 	appearance_flags = HAS_HAIR_COLOR | HAS_UNDERWEAR | HAS_SOCKS

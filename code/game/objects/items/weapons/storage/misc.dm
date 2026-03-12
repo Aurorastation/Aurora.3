@@ -63,8 +63,8 @@
 	pickup_sound = 'sound/items/pickup/wrapper.ogg'
 	use_sound = 'sound/items/storage/wrapper.ogg'
 	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items/lefthand_cigs_lighters.dmi',
-		slot_r_hand_str = 'icons/mob/items/righthand_cigs_lighters.dmi',
+		BP_L_HAND = 'icons/mob/items/lefthand_cigs_lighters.dmi',
+		BP_R_HAND = 'icons/mob/items/righthand_cigs_lighters.dmi',
 		)
 	w_class = WEIGHT_CLASS_TINY
 	make_exact_fit = TRUE
@@ -87,8 +87,8 @@
 	icon_state = "cigfilters_generic"
 	item_state = "cigpacket"
 	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items/lefthand_cigs_lighters.dmi',
-		slot_r_hand_str = 'icons/mob/items/righthand_cigs_lighters.dmi',
+		BP_L_HAND = 'icons/mob/items/lefthand_cigs_lighters.dmi',
+		BP_R_HAND = 'icons/mob/items/righthand_cigs_lighters.dmi',
 		)
 	w_class = WEIGHT_CLASS_TINY
 	starts_with = list(/obj/item/cigarette_filter = 10)
@@ -104,8 +104,8 @@
 	icon_state = "cigpaperbook_fine"
 	item_state = "Dpacket"
 	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items/lefthand_cigs_lighters.dmi',
-		slot_r_hand_str = 'icons/mob/items/righthand_cigs_lighters.dmi',
+		BP_L_HAND = 'icons/mob/items/lefthand_cigs_lighters.dmi',
+		BP_R_HAND = 'icons/mob/items/righthand_cigs_lighters.dmi',
 		)
 	starts_with = list(/obj/item/paper/cig/fine = 10)
 
@@ -138,8 +138,8 @@
 	icon_state = "chew_generic"
 	item_state = "cigpacket"
 	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items/lefthand_cigs_lighters.dmi',
-		slot_r_hand_str = 'icons/mob/items/righthand_cigs_lighters.dmi',
+		BP_L_HAND = 'icons/mob/items/lefthand_cigs_lighters.dmi',
+		BP_R_HAND = 'icons/mob/items/righthand_cigs_lighters.dmi',
 		)
 	starts_with = list(/obj/item/clothing/mask/chewable/tobacco/generic = 6)
 
@@ -165,8 +165,8 @@
 	item_state = "Epacket"
 	icon_type = "gum stick"
 	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items/lefthand_cigs_lighters.dmi',
-		slot_r_hand_str = 'icons/mob/items/righthand_cigs_lighters.dmi',
+		BP_L_HAND = 'icons/mob/items/lefthand_cigs_lighters.dmi',
+		BP_R_HAND = 'icons/mob/items/righthand_cigs_lighters.dmi',
 		)
 	starts_with = list(/obj/item/clothing/mask/chewable/tobacco/nico = 6)
 	storage_slots = 6
@@ -189,8 +189,8 @@
 	icon_state = "roll_generic"
 	item_state = "cigpacket"
 	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items/lefthand_cigs_lighters.dmi',
-		slot_r_hand_str = 'icons/mob/items/righthand_cigs_lighters.dmi',
+		BP_L_HAND = 'icons/mob/items/lefthand_cigs_lighters.dmi',
+		BP_R_HAND = 'icons/mob/items/righthand_cigs_lighters.dmi',
 		)
 	w_class = WEIGHT_CLASS_TINY
 	drop_sound = 'sound/items/drop/cardboardbox.ogg'

@@ -52,20 +52,22 @@
 
 /obj/effect/overlay/temp
 	icon_state = "nothing"
-	anchored = 1
-	layer = 5
+	anchored = TRUE
+	layer = ABOVE_HUMAN_LAYER
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	var/duration = 10 //in deciseconds
 	var/randomdir = TRUE
 	var/timerid
 
-/obj/effect/overlay/temp/New()
-	..()
+/obj/effect/overlay/temp/Initialize(mapload)
+	. = ..()
 	if(randomdir)
-		dir = (pick(GLOB.cardinals))
-	flick("[icon_state]", src)
+		set_dir(pick(GLOB.cardinals))
+	timerid = QDEL_IN_STOPPABLE(src, duration)
 
-	QDEL_IN(src, duration)
+/obj/effect/overlay/temp/Destroy()
+	. = ..()
+	deltimer(timerid)
 
 /obj/effect/overlay/temp/ex_act(var/severity = 2.0)
 	return
@@ -73,11 +75,37 @@
 /obj/effect/overlay/temp/dir_setting
 	randomdir = FALSE
 
-/obj/effect/overlay/temp/dir_setting/New(loc, set_dir)
+/obj/effect/overlay/temp/dir_setting/Initialize(mapload, set_dir)
 	if(set_dir)
-		dir = set_dir
-	..()
+		set_dir(set_dir)
+	. = ..()
 
+/obj/effect/overlay/temp/grab_special_animation
+	icon = 'icons/mob/screen/grab_spin.dmi'
+	icon_state = "grab_spin.1"
+	duration = 9
+	var/static/list/base_delay = list(5,5,5,5,5,5,5,5,1)
+	var/list/delay
+	randomdir = FALSE
+	var/base_icon_state = "grab_spin"
+
+/obj/effect/overlay/temp/grab_special_animation/Initialize(mapload, delay_mult = 1, anim_id = "random_default_anti_collision_text")
+	. = ..()
+	deltimer(timerid)
+	if(duration != length(base_delay))
+		stack_trace("Duration (# of frames) [duration] does not match delay list length [length(base_delay)] in [src]!")
+		return INITIALIZE_HINT_QDEL
+	render_target = "*[base_icon_state]-[anim_id]"
+	delay = base_delay.Copy(1, length(delay))
+	// animate time needs to be in whole deciseconds, so we try to correct as close as we can based on our delay_mult
+	if(delay_mult != 1)
+		MODULATE_LIST(delay, delay_mult)
+		delay = error_correct_round(delay)
+	delay.Add(1)
+
+/obj/effect/overlay/temp/grab_special_animation/proc/do_animate()
+	for(var/i in 2 to duration)
+		animate(src, time = delay[i], icon_state = "[base_icon_state].[i]", flags = ANIMATION_CONTINUE)
 
 /obj/effect/overlay/temp/kinetic_blast
 	name = "kinetic explosion"

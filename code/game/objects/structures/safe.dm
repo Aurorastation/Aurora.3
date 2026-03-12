@@ -105,6 +105,7 @@ FLOOR SAFES
 		AddOverlays(drill_overlay)
 
 /obj/structure/safe/attack_hand(mob/user as mob)
+	. = ..()
 	if(drill)
 		switch(alert("What would you like to do?", "Thermal Drill", "Turn [(datum_flags & DF_ISPROCESSING) ? "Off" : "On"]", "Remove Drill", "Cancel"))
 			if("Turn On")
@@ -159,9 +160,7 @@ FLOOR SAFES
 	if(!ishuman(usr))	return
 	var/mob/living/carbon/human/user = usr
 
-	var/canhear = 0
-	if(istype(user.l_hand, /obj/item/clothing/accessory/stethoscope) || istype(user.r_hand, /obj/item/clothing/accessory/stethoscope))
-		canhear = 1
+	var/canhear = user.get_held_type(/obj/item/clothing/accessory/stethoscope)
 
 	if(href_list["open"])
 		if(drill)

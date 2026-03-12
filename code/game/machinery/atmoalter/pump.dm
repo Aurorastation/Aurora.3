@@ -5,6 +5,7 @@
 	icon_state = "psiphon:0"
 	density = TRUE
 	w_class = WEIGHT_CLASS_NORMAL
+	movable_flags = MOVABLE_FLAG_WHEELED
 
 	var/on = FALSE
 	var/direction_out = 0 //0 = siphoning, 1 = releasing
@@ -130,6 +131,7 @@
 	return src.attack_hand(user)
 
 /obj/machinery/portable_atmospherics/powered/pump/attack_hand(var/mob/user)
+	. = ..()
 	ui_interact(user)
 
 /obj/machinery/portable_atmospherics/powered/pump/ui_data(mob/user)

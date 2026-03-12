@@ -37,7 +37,7 @@
 		if(!user.Adjacent(target))
 			return
 		var/mob/living/carbon/human/H = target
-		var/obj/item/reagent_containers/food/drinks/drinkingglass/glass = H.get_type_in_hands(/obj/item/reagent_containers/food/drinks/drinkingglass)
+		var/obj/item/reagent_containers/food/drinks/drinkingglass/glass = H.get_held_type(/obj/item/reagent_containers/food/drinks/drinkingglass)
 		if(!use_check(H))
 			to_chat(user, SPAN_WARNING("[H] is in no condition to perform a toast!"))
 			return

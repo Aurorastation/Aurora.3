@@ -2,7 +2,7 @@
 	display_name = "fingerless gloves"
 	path = /obj/item/clothing/gloves/fingerless
 	cost = 1
-	slot = slot_gloves
+	slot = slot_gloves_str
 	sort_category = "Gloves and Handwear"
 
 /datum/gear/gloves/fingerless_colour

@@ -115,6 +115,7 @@
 	return
 
 /obj/machinery/gibber/attack_hand(mob/user as mob)
+	. = ..()
 	if(stat & (NOPOWER|BROKEN))
 		return
 	if(operating)
@@ -127,16 +128,16 @@
 	to_chat(user, SPAN_DANGER("You [emagged ? "disable" : "enable"] [src]'s safety guard."))
 	return TRUE
 
-/obj/machinery/gibber/attackby(obj/item/attacking_item, mob/user)
-	if(istype(attacking_item, /obj/item/grab))
-		var/obj/item/grab/G = attacking_item
-		if(G.state < GRAB_AGGRESSIVE)
-			to_chat(user, SPAN_DANGER("You need a better grip to do that!"))
-			return
-		move_into_gibber(user,G.affecting)
-		user.drop_from_inventory(G)
+/obj/machinery/gibber/grab_attack(obj/item/grab/G, mob/user)
+	if(!G.has_grab_flags(GRAB_FORCE_HARM))
+		to_chat(user, SPAN_DANGER("You need a better grip to do that!"))
+		return FALSE
+	move_into_gibber(user, G.grabbed)
+	user.drop_from_inventory(G)
+	return TRUE
 
-	else if(isorgan(attacking_item))
+/obj/machinery/gibber/attackby(obj/item/attacking_item, mob/user)
+	if(isorgan(attacking_item))
 		user.drop_from_inventory(attacking_item)
 		//TODO: Gibber Animations
 		qdel(attacking_item)

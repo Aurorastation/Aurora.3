@@ -25,16 +25,6 @@
 #define INCORPOREAL_SHADE   4 // Shady
 #define INCORPOREAL_MECH    5 // stripped down bstech
 
-#define MOB_GRAB_NORMAL 1
-#define MOB_GRAB_FIREMAN 2
-
-// Grab levels.
-#define GRAB_PASSIVE    1
-#define GRAB_AGGRESSIVE 2
-#define GRAB_NECK       3
-#define GRAB_UPGRADING  4
-#define GRAB_KILL       5
-
 #define BORGMESON 0x1
 #define BORGTHERM 0x2
 #define BORGXRAY  0x4
@@ -105,6 +95,7 @@
 #define BP_CHEST  "chest"
 #define BP_GROIN  "groin"
 #define BP_ALL_LIMBS list(BP_CHEST, BP_GROIN, BP_HEAD, BP_L_ARM, BP_R_ARM, BP_L_HAND, BP_R_HAND, BP_L_LEG, BP_R_LEG, BP_L_FOOT, BP_R_FOOT)
+#define BP_BY_DEPTH list(BP_HEAD, BP_L_HAND, BP_R_HAND, BP_L_ARM, BP_R_ARM, BP_L_FOOT, BP_R_FOOT, BP_L_LEG, BP_R_LEG, BP_GROIN, BP_CHEST)
 #define BP_IS_ROBOTIC(org)  (org.status & ORGAN_ROBOT)
 
 #define ROBOTIC_NONE       0
@@ -121,6 +112,11 @@
 #define BP_KIDNEYS  "kidneys"
 #define BP_STOMACH  "stomach"
 #define BP_APPENDIX "appendix"
+
+/// Special organ tags
+#define BP_L_HAND_UPPER	"l_u_hand"
+#define BP_R_HAND_UPPER	"r_u_hand"
+#define BP_M_HAND		"midlimb"
 
 //Vaurca organs
 #define BP_NEURAL_SOCKET "neural socket"
@@ -408,6 +404,8 @@
 #define INCAPACITATION_FORCELYING 16
 #define INCAPACITATION_KNOCKOUT 32
 
+#define INCAPACITATION_UNRESISTING (INCAPACITATION_KNOCKOUT|INCAPACITATION_STUNNED)
+#define INCAPACITATION_DISRUPTED   (INCAPACITATION_UNRESISTING|INCAPACITATION_WEAKENED)
 #define INCAPACITATION_KNOCKDOWN (INCAPACITATION_KNOCKOUT|INCAPACITATION_FORCELYING)
 #define INCAPACITATION_DISABLED (INCAPACITATION_KNOCKDOWN|INCAPACITATION_STUNNED)
 #define INCAPACITATION_DEFAULT (INCAPACITATION_RESTRAINED|INCAPACITATION_BUCKLED_FULLY|INCAPACITATION_DISABLED)
@@ -631,5 +629,17 @@
 #define POWER_SUPPLY_BIOLOGICAL 4
 /// Recharges from external lighting. Slower at recharging from external sources.
 #define POWER_SUPPLY_SOLAR 8
+
+/// Returns the number of size categories between two mob_sizes, rounded. Positive: A > B
+#define MOB_SIZE_DIFF(A, B) (round(log(2, A.mob_size - B.mob_size), 1))
+
+// Resist mods for mobs
+#define RESIST_WEAK 1
+#define RESIST_NORM 2
+#define RESIST_STRONG 3
+#define RESIST_STRONGER 4
+#define RESIST_VERY_STRONG 5
+#define RESIST_EXTREMELY_STRONG 6
+#define RESIST_OVERWHELMING 7
 
 #define WEATHER_COOLDOWN_TIME (5 SECONDS)

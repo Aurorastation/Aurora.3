@@ -664,23 +664,18 @@
 			sprint_cost_factor -= 0.35 * chem_effects[CE_ADRENALINE]
 			stamina_recovery += max ((stamina_recovery * 0.7 * chem_effects[CE_ADRENALINE]), 5)
 
-		var/obj/item/clothing/suit = wear_suit
-		var/protected = FALSE
-		if(suit && (suit.body_parts_covered & HANDS) && (suit.heat_protection & HANDS))
-			protected = TRUE
+		var/protection = get_heat_protection_flags(T0C + 45) // find stuff with good insulation
 
-		if(gloves && (gloves.heat_protection & HANDS))
-			protected = TRUE
-
-		if(!protected)
-			for(var/obj/item/held_item in src)
-				if(held_item.contaminated && !(species.flags & PHORON_IMMUNE))
-					if(held_item == r_hand)
-						apply_damage(GLOB.vsc.plc.CONTAMINATION_LOSS, DAMAGE_BURN, BP_R_HAND)
-					else if(held_item == l_hand)
-						apply_damage(GLOB.vsc.plc.CONTAMINATION_LOSS, DAMAGE_BURN, BP_L_HAND)
-					else
-						adjustFireLoss(GLOB.vsc.plc.CONTAMINATION_LOSS)
+		for(var/obj/item/equipped_item in get_equipped_items(INCLUDE_HELD|INCLUDE_POCKETS))
+			var/unprotected_zones = equipped_item.body_parts_covered & ~protection
+			if(equipped_item.contaminated && !(species.flags & PHORON_IMMUNE) && unprotected_zones)
+				var/list/effected_bps = equipped_item.get_bps_covered(unprotected_zones)
+				if(!length(effected_bps))
+					adjustFireLoss(GLOB.vsc.plc.CONTAMINATION_LOSS)
+					continue
+				var/average_per_zone = GLOB.vsc.plc.CONTAMINATION_LOSS / length(effected_bps)
+				for(var/bp in effected_bps)
+					apply_damage(average_per_zone, DAMAGE_BURN, bp)
 
 	if (intoxication)
 		handle_intoxication()

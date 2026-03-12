@@ -2,7 +2,7 @@
 	display_name = "belt (colorable)"
 	description = "A generic colorable belt."
 	path = /obj/item/storage/belt/generic
-	slot = slot_belt
+	slot = slot_belt_str
 	sort_category = "Belts"
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 

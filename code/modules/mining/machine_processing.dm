@@ -134,6 +134,7 @@
 	return ..()
 
 /obj/machinery/mineral/processing_unit_console/attack_hand(mob/user)
+	. = ..()
 	add_fingerprint(user)
 	if(!setup_machine(user))
 		return

@@ -202,12 +202,10 @@ note dizziness decrements automatically in the mob's Life() proc.
 	else if(attack_item)
 		I = image(attack_item.icon, A, attack_item.icon_state, A.layer + 1)
 	else
-		if(hand && l_hand) // Attacked with item in left hand.
-			I = image(l_hand.icon, A, l_hand.icon_state, A.layer + 1)
-		else if (!hand && r_hand) // Attacked with item in right hand.
-			I = image(r_hand.icon, A, r_hand.icon_state, A.layer + 1)
-		else // Attacked with a fist?
+		var/obj/item/held = get_active_hand()
+		if(!held) // Attacked with a fist?
 			return
+		I = image(held.icon, A, held.icon_state, A.layer + 1)
 
 	// Who can see the attack?
 	var/list/viewing = list()

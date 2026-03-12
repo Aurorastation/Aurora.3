@@ -26,4 +26,4 @@
 	shoes = /obj/item/clothing/shoes/sneakers/medsci/zeng
 	belt = /obj/item/storage/belt/utility/full
 	id = /obj/item/card/id/zeng_hu
-	r_hand = /obj/item/flashlight
+	hands = list(/obj/item/flashlight)

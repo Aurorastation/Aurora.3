@@ -36,8 +36,8 @@ GLOBAL_DATUM(renegades, /datum/antagonist/renegade)
 		return
 
 	if(!player.back)
-		player.equip_to_slot_or_del(new /obj/item/storage/backpack(player), slot_back) // if they have no backpack, spawn one
-	player.equip_to_slot_or_del(new /obj/item/storage/box/syndie_kit/random_weapon/concealable(player), slot_in_backpack)
+		player.equip_to_slot_or_del(new /obj/item/storage/backpack(player), slot_back_str) // if they have no backpack, spawn one
+	player.equip_to_slot_or_del(new /obj/item/storage/box/syndie_kit/random_weapon/concealable(player), slot_in_backpack_str)
 
 /proc/rightandwrong()
 	to_chat(usr, "<B>You summoned guns!</B>")

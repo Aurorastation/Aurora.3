@@ -36,7 +36,7 @@
 
 	belt = /obj/item/storage/belt/medical/paramedic/combat
 	back = /obj/item/rig/ert/medical
-	r_hand = /obj/item/storage/firstaid/combat
+	hands = list(/obj/item/storage/firstaid/combat)
 
 	belt_contents = list(
 		/obj/item/reagent_containers/hypospray/combat/empty = 1,

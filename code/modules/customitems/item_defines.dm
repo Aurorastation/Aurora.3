@@ -103,8 +103,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 		to_chat(user, SPAN_NOTICE("You turn \the [src] off."))
 
 	update_icon()
-	user.update_inv_l_hand(FALSE)
-	user.update_inv_r_hand()
+	user.update_inv_hands()
 
 /obj/item/clothing/mask/fluff/corvo_cigarette/update_icon()
 	if(active)
@@ -171,8 +170,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 		w_class = initial(w_class)
 
 	update_icon()
-	user.update_inv_l_hand(FALSE)
-	user.update_inv_r_hand()
+	user.update_inv_hands()
 
 /obj/item/cane/fluff/qrqil_cane/update_icon()
 	if(active)
@@ -240,6 +238,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 		icon_state = "stand"
 
 /obj/item/fluff/tokash_spear/attack_hand(var/mob/user)
+	. = ..()
 	if(has_spear)
 		to_chat(user, SPAN_NOTICE("You remove the spearhead from \the [src]."))
 		var/obj/item/fluff/tokash_spearhead/piece = new(get_turf(user))
@@ -262,10 +261,8 @@ All custom items with worn sprites must follow the contained sprite system: http
 		if(!istype(user, /mob/living/carbon/slime) && !istype(user, /mob/living/simple_animal))
 			if(!user.get_active_hand()) // If active hand is empty.
 				var/mob/living/carbon/human/H = over
-				var/obj/item/organ/external/temp = H.organs_by_name[BP_R_HAND]
+				var/obj/item/organ/external/temp = H.get_active_hand_organ()
 
-				if(H.hand)
-					temp = H.organs_by_name[BP_L_HAND]
 				if(temp && !temp.is_usable())
 					to_chat(H, SPAN_NOTICE("You try to move your [temp.name], but cannot!"))
 					return

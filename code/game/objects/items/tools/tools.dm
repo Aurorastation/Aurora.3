@@ -20,8 +20,8 @@
 	desc = "An adjustable tool used for gripping and turning nuts or bolts."
 	icon = 'icons/obj/tools.dmi'
 	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items/lefthand_tools.dmi',
-		slot_r_hand_str = 'icons/mob/items/righthand_tools.dmi',
+		BP_L_HAND = 'icons/mob/items/lefthand_tools.dmi',
+		BP_R_HAND = 'icons/mob/items/righthand_tools.dmi',
 		)
 	icon_state = "wrench"
 	item_state = "wrench"
@@ -47,8 +47,8 @@
 	desc = "A tool with a flattened or cross-shaped tip that fits into the head of a screw to turn it."
 	icon = 'icons/obj/tools.dmi'
 	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items/lefthand_tools.dmi',
-		slot_r_hand_str = 'icons/mob/items/righthand_tools.dmi',
+		BP_L_HAND = 'icons/mob/items/lefthand_tools.dmi',
+		BP_R_HAND = 'icons/mob/items/righthand_tools.dmi',
 		)
 	icon_state = "screwdriver"
 	item_state = "screwdriver"
@@ -122,8 +122,8 @@
 	desc = "A tool used to cut wires in electrical work."
 	icon = 'icons/obj/tools.dmi'
 	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items/lefthand_tools.dmi',
-		slot_r_hand_str = 'icons/mob/items/righthand_tools.dmi',
+		BP_L_HAND = 'icons/mob/items/lefthand_tools.dmi',
+		BP_R_HAND = 'icons/mob/items/righthand_tools.dmi',
 		)
 	icon_state = "wirecutters"
 	item_state = "wirecutters"
@@ -353,8 +353,7 @@
 	update_torch()
 	var/mob/M = loc
 	if(istype(M))
-		M.update_inv_l_hand()
-		M.update_inv_r_hand()
+		M.update_inv_hands()
 
 /obj/item/weldingtool/Destroy()
 	STOP_PROCESSING(SSprocessing, src)
@@ -396,13 +395,8 @@
 			setWelding(0)
 
 	// If we're running process(), we're currently running. Hotspot on the current tile.
-	var/turf/location = src.loc
-	if(istype(location, /mob/))
-		var/mob/M = location
-		if(M.l_hand == src || M.r_hand == src)
-			location = get_turf(M)
-	if (istype(location, /turf))
-		location.hotspot_expose(700, 5)
+	var/turf/location = get_turf(src)
+	location?.hotspot_expose(700, 5)
 
 /obj/item/weldingtool/attack(mob/living/target_mob, mob/living/user, target_zone)
 	if(ishuman(target_mob))
@@ -696,8 +690,8 @@
 	desc = "A big wrench that is made for working with pipes."
 	icon = 'icons/obj/tools.dmi'
 	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items/lefthand_tools.dmi',
-		slot_r_hand_str = 'icons/mob/items/righthand_tools.dmi',
+		BP_L_HAND = 'icons/mob/items/lefthand_tools.dmi',
+		BP_R_HAND = 'icons/mob/items/righthand_tools.dmi',
 		)
 	icon_state = "pipewrench"
 	item_state = "pipewrench"
@@ -722,8 +716,8 @@
 	icon_state = "combitool"
 	item_state = "combitool"
 	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items/lefthand_tools.dmi',
-		slot_r_hand_str = 'icons/mob/items/righthand_tools.dmi',
+		BP_L_HAND = 'icons/mob/items/lefthand_tools.dmi',
+		BP_R_HAND = 'icons/mob/items/righthand_tools.dmi',
 		)
 	force = 3
 	w_class = WEIGHT_CLASS_SMALL
@@ -903,14 +897,11 @@
 	visible_message(SPAN_NOTICE("The steel wool burns out."))
 	if(ishuman(loc))
 		var/mob/living/carbon/human/user = loc
-		if(!user.gloves)
-			var/UserLoc = get_equip_slot()
-			if(UserLoc == slot_l_hand)
-				user.apply_damage(5, DAMAGE_BURN, BP_L_HAND)
-				to_chat(user, SPAN_DANGER("The steel wool burns your left hand!"))
-			else if(UserLoc == slot_r_hand)
-				user.apply_damage(5, DAMAGE_BURN, BP_R_HAND)
-				to_chat(user, SPAN_DANGER("The steel wool burns your right hand!"))
+		if(!user.gloves && user.is_holding(src))
+			var/obj/item/organ/external/hand = user.get_organ(user.get_bp_holding(src))
+			if(istype(hand))
+				user.apply_damage(5, DAMAGE_BURN, hand.limb_name)
+				to_chat(user, SPAN_DANGER("The steel wool burns your [hand]!"))
 
 	new /obj/effect/decal/cleanable/ash(get_turf(src))
 	qdel(src)
@@ -921,8 +912,8 @@
 	desc = "A tool with a weighted head used for striking."
 	icon = 'icons/obj/tools.dmi'
 	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items/lefthand_tools.dmi',
-		slot_r_hand_str = 'icons/mob/items/righthand_tools.dmi',
+		BP_L_HAND = 'icons/mob/items/lefthand_tools.dmi',
+		BP_R_HAND = 'icons/mob/items/righthand_tools.dmi',
 		)
 	icon_state = "hammer"
 	item_state = "hammer"

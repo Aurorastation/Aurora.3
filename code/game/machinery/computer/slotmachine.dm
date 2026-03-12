@@ -67,6 +67,7 @@
 	. = ..()
 
 /obj/machinery/computer/slot_machine/attack_hand(mob/user)
+	. = ..()
 	add_fingerprint(user)
 	if(stat & (BROKEN|NOPOWER))
 		return

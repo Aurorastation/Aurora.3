@@ -185,6 +185,7 @@
 	interact(user, 1)
 
 /obj/machinery/navbeacon/attack_hand(var/mob/user)
+	. = ..()
 	if(!user.IsAdvancedToolUser())
 		return 0
 

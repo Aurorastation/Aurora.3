@@ -95,7 +95,7 @@
 	id = /obj/item/card/id/distress/kataphract
 	back = /obj/item/storage/backpack/satchel/hegemony
 
-	l_hand = /obj/item/martial_manual/vaurca
+	hands = list(/obj/item/martial_manual/vaurca)
 
 
 	backpack_contents = list(

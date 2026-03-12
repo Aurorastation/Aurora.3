@@ -47,8 +47,8 @@
 		if(istype(user, /mob/living/silicon/robot))
 			can_place = TRUE
 		else
-			for (var/obj/item/grab/G in C.grabbed_by)
-				if (G.state >= GRAB_AGGRESSIVE)
+			for (var/obj/item/grab/G as anything in C.grabbed_by)
+				if (G.has_grab_flags(GRAB_FORCE_HARM))
 					can_place = TRUE
 					break
 
@@ -64,7 +64,7 @@
 	if(!istype(H))
 		return FALSE
 
-	if((!legcuff && !H.has_organ_for_slot(slot_handcuffed)) || (legcuff && !H.has_organ_for_slot(slot_legcuffed)))
+	if((!legcuff && !H.has_organ_for_slot(slot_handcuffed_str)) || (legcuff && !H.has_organ_for_slot(slot_legcuffed_str)))
 		if(user)
 			to_chat(user, SPAN_DANGER("\The [H] needs at least two [legcuff ? "ankles" : "wrists"] before you can cuff them together!"))
 		return FALSE
@@ -98,8 +98,7 @@
 		user.visible_message(SPAN_DANGER("\The [user] has put [cuff_type] on \the [H]!"))
 
 	if(!legcuff)
-		target.drop_r_hand()
-		target.drop_l_hand()
+		target.drop_held_items()
 
 	// Apply cuffs.
 	var/obj/item/handcuffs/cuffs = src
@@ -131,7 +130,7 @@
 	if (H.wear_mask) return
 	if (istype(H.wear_suit, /obj/item/clothing/suit/straight_jacket)) return
 
-	var/obj/item/organ/external/O = H.organs_by_name[H.hand?BP_L_HAND:BP_R_HAND]
+	var/obj/item/organ/external/O = H.get_active_hand_organ()
 	if (!O) return
 
 	var/s = SPAN_WARNING("[H] chews on [H.get_pronoun("his")] [O.name]!")

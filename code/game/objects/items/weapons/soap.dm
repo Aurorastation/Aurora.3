@@ -6,8 +6,8 @@
 	gender = PLURAL
 	icon = 'icons/obj/soap.dmi'
 	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items/lefthand_janitor.dmi',
-		slot_r_hand_str = 'icons/mob/items/righthand_janitor.dmi',
+		BP_L_HAND = 'icons/mob/items/lefthand_janitor.dmi',
+		BP_R_HAND = 'icons/mob/items/righthand_janitor.dmi',
 		)
 	icon_state = "soap"
 	item_state = "soap"

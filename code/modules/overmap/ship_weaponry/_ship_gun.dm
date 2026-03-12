@@ -305,6 +305,7 @@
 		return TRUE
 
 /obj/structure/ship_weapon_dummy/attack_hand(mob/user)
+	SHOULD_CALL_PARENT(FALSE)
 	if(connected)
 		connected.attack_hand(user)
 

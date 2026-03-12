@@ -16,8 +16,8 @@
 	desc = "Does card things."
 	icon = 'icons/obj/card.dmi'
 	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items/lefthand_card.dmi',
-		slot_r_hand_str = 'icons/mob/items/righthand_card.dmi',
+		BP_L_HAND = 'icons/mob/items/lefthand_card.dmi',
+		BP_R_HAND = 'icons/mob/items/righthand_card.dmi',
 		)
 	w_class = WEIGHT_CLASS_TINY
 	var/associated_account_number = 0

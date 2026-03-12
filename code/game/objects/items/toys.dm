@@ -25,8 +25,8 @@
 /obj/item/toy
 	icon = 'icons/obj/toy.dmi'
 	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items/lefthand_toy.dmi',
-		slot_r_hand_str = 'icons/mob/items/righthand_toy.dmi',
+		BP_L_HAND = 'icons/mob/items/lefthand_toy.dmi',
+		BP_R_HAND = 'icons/mob/items/righthand_toy.dmi',
 		)
 	throwforce = 0
 	throw_speed = 4
@@ -579,8 +579,8 @@
 	icon_state = "sword0"
 	item_state = "sword0"
 	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items/weapons/lefthand_energy.dmi',
-		slot_r_hand_str = 'icons/mob/items/weapons/righthand_energy.dmi',
+		BP_L_HAND = 'icons/mob/items/weapons/lefthand_energy.dmi',
+		BP_R_HAND = 'icons/mob/items/weapons/righthand_energy.dmi',
 		)
 	drop_sound = 'sound/items/drop/gun.ogg'
 	pickup_sound = 'sound/items/pickup/gun.ogg'
@@ -609,8 +609,7 @@
 
 		if(istype(user,/mob/living/carbon/human))
 			var/mob/living/carbon/human/H = user
-			H.update_inv_l_hand()
-			H.update_inv_r_hand()
+			H.update_inv_hands()
 
 		src.add_fingerprint(user)
 		return
@@ -1408,6 +1407,7 @@
 	. += "Use the Harm intent to signal a disqualification."
 
 /obj/item/toy/ringbell/attack_hand(mob/user)
+	. = ..()
 	switch(user.a_intent)
 		if (I_HELP)
 			user.visible_message(FONT_LARGE(SPAN_NOTICE("[user] rings \the [src], signalling the beginning of the contest.")), SPAN_NOTICE("You ring \the [src] to signal the beginning of the contest!"))
@@ -1651,7 +1651,7 @@
 		var/mob/dropped_onto_mob = over
 		if(ishuman(dropped_onto_mob) && !dropped_onto_mob.get_active_hand())
 			var/mob/living/carbon/human/H = user
-			var/obj/item/organ/external/temp = H.organs_by_name[H.hand?BP_L_HAND:BP_R_HAND]
+			var/obj/item/organ/external/temp = H.get_active_hand_organ()
 
 			if(temp && !temp.is_usable())
 				to_chat(user, SPAN_NOTICE("You try to move your [temp.name], but cannot!"))

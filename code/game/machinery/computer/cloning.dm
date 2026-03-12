@@ -105,6 +105,7 @@
 	return attack_hand(user)
 
 /obj/machinery/computer/cloning/attack_hand(mob/user as mob)
+	. = ..()
 	if(!allowed(user))
 		to_chat(user, SPAN_WARNING("Access denied."))
 		return

@@ -192,6 +192,15 @@
 			user.visible_message(SPAN_NOTICE("[user] lowers the manual release lever on \the [src]."), SPAN_NOTICE("You lower the manual release lever on \the [src]."))
 			go_out()
 
+/obj/machinery/recharge_station/grab_attack(obj/item/grab/G, mob/user)
+	var/mob/living/grabbed = G.get_grabbed_mob()
+	if(!grabbed.isSynthetic() || !grabbed.bucklecheck(user))
+		return FALSE
+
+	move_ipc(grabbed)
+	qdel(G)
+	return TRUE
+
 /obj/machinery/recharge_station/attackby(obj/item/attacking_item, mob/user)
 	if(!occupant)
 		if(default_deconstruction_screwdriver(user, attacking_item))
@@ -200,19 +209,6 @@
 			return TRUE
 		else if(default_part_replacement(user, attacking_item))
 			return TRUE
-
-	if(istype(attacking_item, /obj/item/grab))
-		var/obj/item/grab/grab = attacking_item
-		var/mob/living/L = grab.affecting
-		if(!L.isSynthetic())
-			return TRUE
-
-		var/bucklestatus = L.bucklecheck(user)
-		if(!bucklestatus)
-			return TRUE
-
-		move_ipc(grab.affecting)
-		qdel(attacking_item)
 	return ..()
 
 /obj/machinery/recharge_station/RefreshParts()

@@ -25,8 +25,6 @@
 		/singleton/maneuver/leap
 	)
 
-	resist_mod = 1.5 // ZHAN POWERRRRRR
-
 	cold_level_1 = 160 //RaceDefault 200 Default 260
 	cold_level_2 = 100 //RaceDefault 140 Default 200
 	cold_level_3 = 50  //RaceDefault 80 Default 120
@@ -120,7 +118,6 @@
 	fall_mod = 1.2
 
 	grab_mod = 3
-	resist_mod = 10
 	break_cuffs = TRUE
 	mob_size = 25
 

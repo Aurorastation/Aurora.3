@@ -10,7 +10,8 @@
 		tally += (8 + ((weakened * 3) + (confused * 2)))
 
 	if (!(species.flags & NO_EQUIP_SPEEDMODS))
-		tally += get_pulling_movement_delay()
+		for(var/obj/item/grab/G as anything in get_active_grabs())
+			tally += G.grab_slowdown()
 
 	if (istype(loc, /turf/space) || isopenturf(loc))
 		if(!(locate(/obj/structure/lattice, loc) || locate(/obj/structure/stairs, loc) || locate(/obj/structure/ladder, loc)))
@@ -50,15 +51,6 @@
 	tally += max(2 * stance_damage, 0) //damaged/missing feet or legs is slow
 	if((mutations & mRun))
 		tally = 0
-
-	if(isitem(pulling) && !(species.flags & NO_EQUIP_SPEEDMODS))
-		var/obj/item/P = pulling
-		tally += P.slowdown
-
-	var/obj/item/grab/grab = get_type_in_hands(/obj/item/grab)
-	if(istype(grab) && ishuman(grab.affecting))
-		if(grab.affecting.mob_weight > get_mob_strength())
-			tally += grab.affecting.mob_weight - get_mob_strength()
 
 	var/turf/T = get_turf(src)
 	if(T) // changelings don't get movement costs
@@ -104,13 +96,12 @@
 	if(!..())
 		return 0
 
-	//Check hands and mod slip
-	if(!l_hand)	prob_slip -= 2
-	else if(l_hand.w_class <= 2)	prob_slip -= 1
-	if (!r_hand)	prob_slip -= 2
-	else if(r_hand.w_class <= 2)	prob_slip -= 1
+	prob_slip -= length(get_empty_hand_slots()) * 2
+	for(var/obj/held in get_held_items())
+		if(held.w_class <= WEIGHT_CLASS_SMALL)
+			prob_slip -= 1
 
-	return prob_slip
+	return max(prob_slip, 0)
 
 /mob/living/carbon/human/Check_Shoegrip(checkSpecies = TRUE)
 	if(shoes && (shoes.item_flags & ITEM_FLAG_NO_SLIP) && istype(shoes, /obj/item/clothing/shoes/magboots) && !lying && !buckled_to && !length(grabbed_by))  //magboots + dense_object = no floating. Doesn't work if lying. Grabbedby and buckled_to are for mob carrying, wheelchairs, roller beds, etc.
@@ -165,7 +156,7 @@
 	if(!can_feel_pain())
 		return
 	var/crutches = 0
-	for (var/obj/item/cane/C as anything in get_type_in_hands(/obj/item/cane))
+	for (var/obj/item/cane/C as anything in get_held_type(/obj/item/cane))
 		if(istype(C) && (C?.can_support))
 			crutches++
 	for(var/organ_name in list(BP_L_LEG, BP_R_LEG, BP_L_FOOT, BP_R_FOOT))
@@ -183,12 +174,3 @@
 
 /mob/living/carbon/human/mob_negates_gravity()
 	return (shoes && shoes.negates_gravity())
-
-/mob/living/carbon/human/get_pulling_movement_delay()
-	. = ..()
-
-	if(ishuman(pulling))
-		var/mob/living/carbon/human/H = pulling
-		if(H.species.slowdown > species.slowdown)
-			. += H.species.slowdown - species.slowdown
-

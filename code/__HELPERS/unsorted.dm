@@ -458,29 +458,28 @@ Turf and target are seperate in case you want to teleport some distance from a t
 //		mob_list.Add(M)
 	return moblist
 
-/**
- * Returns the turf located at the map edge in the specified direction relative to A
- * used for mass driver
- */
-/proc/get_edge_target_turf(var/atom/A, var/direction)
-
-	var/turf/target = locate(A.x, A.y, A.z)
-	if(!A || !target)
+/// Returns the turf located at the map edge in the specified direction relative to target_atom used for mass driver
+/proc/get_edge_target_turf(atom/target_atom, direction)
+	var/turf/target = locate(target_atom.x, target_atom.y, target_atom.z)
+	if(!target_atom || !target)
 		return 0
-		//since NORTHEAST == NORTH & EAST, etc, doing it this way allows for diagonal mass drivers in the future
+		//since NORTHEAST == NORTH|EAST, etc, doing it this way allows for diagonal mass drivers in the future
 		//and isn't really any more complicated
 
-		// Note diagonal directions won't usually be accurate
+	var/x = target_atom.x
+	var/y = target_atom.y
 	if(direction & NORTH)
-		target = locate(target.x, world.maxy, target.z)
-	if(direction & SOUTH)
-		target = locate(target.x, 1, target.z)
+		y = world.maxy
+	else if(direction & SOUTH) //you should not have both NORTH and SOUTH in the provided direction
+		y = 1
 	if(direction & EAST)
-		target = locate(world.maxx, target.y, target.z)
-	if(direction & WEST)
-		target = locate(1, target.y, target.z)
-
-	return target
+		x = world.maxx
+	else if(direction & WEST)
+		x = 1
+	if(ISDIAGONALDIR(direction)) //let's make sure it's accurately-placed for diagonals
+		var/lowest_distance_to_map_edge = min(abs(x - target_atom.x), abs(y - target_atom.y))
+		return get_ranged_target_turf(target_atom, direction, lowest_distance_to_map_edge)
+	return locate(x,y,target_atom.z)
 
 /**
  * returns turf relative to A in given direction at set range
@@ -488,20 +487,20 @@ Turf and target are seperate in case you want to teleport some distance from a t
  * note range is non-pythagorean
  * used for disposal system
  */
-/proc/get_ranged_target_turf(var/atom/A, var/direction, var/range)
+/proc/get_ranged_target_turf(atom/target_atom, direction, range)
 
-	var/x = A.x
-	var/y = A.y
+	var/x = target_atom.x
+	var/y = target_atom.y
 	if(direction & NORTH)
 		y = min(world.maxy, y + range)
-	if(direction & SOUTH)
+	else if(direction & SOUTH)
 		y = max(1, y - range)
 	if(direction & EAST)
 		x = min(world.maxx, x + range)
-	if(direction & WEST)
+	else if(direction & WEST) //if you have both EAST and WEST in the provided direction, then you're gonna have issues
 		x = max(1, x - range)
 
-	return locate(x,y,A.z)
+	return locate(x,y,target_atom.z)
 
 
 /// Returns turf relative to A offset in dx and dy tiles. Bound to map limits.
@@ -674,7 +673,7 @@ Turf and target are seperate in case you want to teleport some distance from a t
 
 	var/atom/user_loc = (do_flags & DO_USER_CAN_MOVE) ? null : user.loc
 	var/user_dir = (do_flags & DO_USER_CAN_TURN) ? null : user.dir
-	var/user_hand = (do_flags & DO_USER_SAME_HAND) ? user.hand : null
+	var/user_hand = (do_flags & DO_USER_SAME_HAND) ? user.get_active_held_item_slot() : null
 
 	var/atom/target_loc = (do_flags & DO_TARGET_CAN_MOVE) ? null : target?.loc
 	var/target_dir = (do_flags & DO_TARGET_CAN_TURN) ? null : target?.dir
@@ -724,7 +723,7 @@ Turf and target are seperate in case you want to teleport some distance from a t
 		if (target_dir && target_dir != target.dir)
 			. = DO_TARGET_CAN_TURN
 			break
-		if ((do_flags & DO_USER_SAME_HAND) && user_hand != user.hand)
+		if ((do_flags & DO_USER_SAME_HAND) && user_hand != user.get_active_held_item_slot())
 			. = DO_USER_SAME_HAND
 			break
 		if (initial_handle && initial_handle != user.do_unique_user_handle)
@@ -839,37 +838,6 @@ Turf and target are seperate in case you want to teleport some distance from a t
 		if (M.client)
 			mobs += M
 	return mobs
-
-
-/proc/parse_zone(zone)
-	if(zone == BP_R_HAND) return "right hand"
-	else if (zone == BP_L_HAND) return "left hand"
-	else if (zone == BP_L_ARM) return "left arm"
-	else if (zone == BP_R_ARM) return "right arm"
-	else if (zone == BP_L_LEG) return "left leg"
-	else if (zone == BP_R_LEG) return "right leg"
-	else if (zone == BP_L_FOOT) return "left foot"
-	else if (zone == BP_R_FOOT) return "right foot"
-	else if (zone == BP_L_HAND) return "left hand"
-	else if (zone == BP_R_HAND) return "right hand"
-	else if (zone == BP_L_FOOT) return "left foot"
-	else if (zone == BP_R_FOOT) return "right foot"
-	else return zone
-
-/proc/reverse_parse_zone(zone)
-	if(zone == "right hand") return BP_R_HAND
-	else if (zone == "left hand") return BP_L_HAND
-	else if (zone == "left arm") return BP_L_ARM
-	else if (zone == "right arm") return BP_R_ARM
-	else if (zone == "left leg") return BP_L_LEG
-	else if (zone == "right leg") return BP_R_LEG
-	else if (zone == "left foot") return BP_L_FOOT
-	else if (zone == "right foot") return BP_R_FOOT
-	else if (zone == "left hand") return BP_L_HAND
-	else if (zone == "right hand") return BP_R_HAND
-	else if (zone == "left foot") return BP_L_FOOT
-	else if (zone == "right foot") return BP_R_FOOT
-	else return zone
 
 /proc/get(atom/loc, type)
 	while(loc)
