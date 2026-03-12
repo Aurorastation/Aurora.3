@@ -48,6 +48,8 @@
 	change_power_consumption(shield_power_usage, POWER_USE_IDLE)
 	update_use_power(POWER_USE_IDLE)
 
+	return TRUE
+
 /obj/machinery/shieldgen/proc/shields_down()
 	if(!active) return FALSE //If it's already off, how did this get called?
 
@@ -88,8 +90,6 @@
 	if(!active) return
 	if(stat & NOPOWER)
 		collapse_shields()
-	else
-		create_shields()
 	update_icon()
 
 /obj/machinery/shieldgen/process()
@@ -104,18 +104,17 @@
 		if(deployed_shields.len && prob(5))
 			qdel(pick(deployed_shields))
 	else
-		if (check_delay <= 0)
-			create_shields()
+		if(check_delay <= 0)
+			if(shields_up())
+				var/new_power_usage = 0
+				for(var/obj/machinery/shield/shield_tile in deployed_shields)
+					new_power_usage += shield_tile.shield_idle_power
 
-			var/new_power_usage = 0
-			for(var/obj/machinery/shield/shield_tile in deployed_shields)
-				new_power_usage += shield_tile.shield_idle_power
+				if (new_power_usage != idle_power_usage)
+					change_power_consumption(new_power_usage, POWER_USE_IDLE)
+					use_power_oneoff(0)
 
-			if (new_power_usage != idle_power_usage)
-				change_power_consumption(new_power_usage, POWER_USE_IDLE)
-				use_power_oneoff(0)
-
-			check_delay = 30
+				check_delay = 30
 		else
 			check_delay--
 

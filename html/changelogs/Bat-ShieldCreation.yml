@@ -1,0 +1,4 @@
+author: Batrachophrenoboocosmomachia
+delete-after: True
+changes:
+  - bugfix: "Fixes emergency shield projector sometimes attempting to project shields during power_change() or some inactive ticks."
