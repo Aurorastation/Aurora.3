@@ -1,0 +1,7 @@
+author: kermit
+
+delete-after: True
+
+changes:
+  - rscadd: "Splits the Bluespace Drive Control Console into a Control Console (energisation/purging contents; located in BSD Control Room) and Jump Console (actually jumping; located in Bridge)."
+  - rscadd: "Minor remapping of the Bridge to make room for said Jump Console. Moves the Medical/Security Consoles to a new command station at the back; BSD Jump Computer takes its place."
