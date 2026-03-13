@@ -173,3 +173,17 @@
   - bugfix: Fixed floor tiles showing their quantity when not held.
   KingOfThePing:
   - rscadd: Returns a selection of alternative job titles to the engineering department.
+2026-03-13:
+  Batrachophrenoboocosmomachia:
+  - bugfix: Fixes emergency shield projector sometimes attempting to project shields
+      during power_change() or some inactive ticks.
+  FabianK3:
+  - bugfix: Fixed missing Atmos tech alt title Enviromental Systems Engineer.
+  Kano:
+  - bugfix: Moved shuttle shutter access requirements from req_access to req_one_access.
+  MattAtlas:
+  - bugfix: Fixes slipping not dropping people.
+  - bugfix: Pneumalin no longer fixes damage on robotic lungs.
+  - bugfix: Fixed augments not processing. This means that HUD augments are fixed
+      as well.
+  - bugfix: Fixed health analyzers displaying damage between 0 and 1 as 'none'.

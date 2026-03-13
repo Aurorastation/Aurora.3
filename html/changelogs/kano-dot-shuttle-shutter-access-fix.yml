@@ -1,6 +1,0 @@
-author: Kano
-
-delete-after: True
-
-changes:
-  - bugfix: "Moved shuttle shutter access requirements from req_access to req_one_access."
