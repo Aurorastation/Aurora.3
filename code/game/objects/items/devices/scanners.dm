@@ -71,21 +71,20 @@ BREATH ANALYZER
 /proc/get_severity(amount, can_heal_overkill, uppercase = FALSE)
 	var/output = "none"
 
-	switch(amount)
-		if (0)
-			output = "none"
-		if (0 to 10)
-			output = "minor"
-		if (11 to 25)
-			output = "moderate"
-		if (26 to 50)
-			output = "significant"
-		if (51 to 75)
-			output = "severe"
-		if (76 to 99)
-			output = "extreme"
-		if (100 to INFINITY)
-			output = can_heal_overkill ? "critical" : "irreparable"
+	if(amount)
+		switch(amount)
+			if (0 to 10)
+				output = "minor"
+			if (11 to 25)
+				output = "moderate"
+			if (26 to 50)
+				output = "significant"
+			if (51 to 75)
+				output = "severe"
+			if (76 to 99)
+				output = "extreme"
+			if (100 to INFINITY)
+				output = can_heal_overkill ? "critical" : "irreparable"
 
 	if(uppercase)
 		output = capitalize(output)
