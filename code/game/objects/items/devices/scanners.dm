@@ -50,7 +50,7 @@ BREATH ANALYZER
 /proc/get_wound_severity(damage_ratio, can_heal_overkill, uppercase = FALSE)
 	var/degree = "none"
 
-	if(!amount)
+	if(!damage_ratio)
 		if(uppercase)
 			degree = capitalize(degree)
 		return degree
