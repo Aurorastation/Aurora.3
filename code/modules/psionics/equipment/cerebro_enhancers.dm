@@ -178,8 +178,8 @@
 	to_chat(H, awakening_message)
 
 	for (var/power in additional_powers)
-		var/singleton/psionic_power/new_power = GET_SINGLETON(power)
-		new_power.apply(H)
+		astype(GET_SINGLETON(power), /singleton/psionic_power)?.apply(H)
+		
 	qdel(src)
 
 /obj/item/psionic_jumpstarter/sensitive

@@ -48,8 +48,8 @@ GLOBAL_DATUM(loners, /datum/antagonist/loner)
 	player.set_psi_rank(PSI_RANK_HARMONIOUS)
 
 	for (var/power in additional_powers)
-		var/singleton/psionic_power/new_power = GET_SINGLETON(power)
-		new_power.apply(player)
+		astype(GET_SINGLETON(power), /singleton/psionic_power)?.apply(player)
+
 	player.force_update_limbs()
 	player.update_eyes()
 	player.regenerate_icons()
