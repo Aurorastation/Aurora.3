@@ -179,7 +179,7 @@
 
 	for (var/power in additional_powers)
 		astype(GET_SINGLETON(power), /singleton/psionic_power)?.apply(H)
-		
+
 	qdel(src)
 
 /obj/item/psionic_jumpstarter/sensitive
