@@ -1,0 +1,4 @@
+author: fyni
+delete-after: True
+changes:
+  - rscadd: "Adds .45 speedloaders to the autolathe, to supply the investigators. Comes with rubber, flash and regular rounds, with the last one only available on red alert or when hacked."
