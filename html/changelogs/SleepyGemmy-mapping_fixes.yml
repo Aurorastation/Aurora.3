@@ -1,0 +1,7 @@
+author: SleepyGemmy
+
+delete-after: True
+
+changes:
+  - bugfix: "Fixed the account console in the captain's office having collision."
+  - bugfix: "Fixed the hand teleporter in the teleporter room being placed inside the wall locker."
