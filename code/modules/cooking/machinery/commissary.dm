@@ -151,6 +151,8 @@
 // -------------------------------------------------
 /obj/structure/cash_register/commissary
 	storage_type = null
+	req_one_access = list(ACCESS_BAR, ACCESS_GALLEY, ACCESS_CARGO)
+	var/destination = "Operations"
 
 /obj/structure/cash_register/commissary/mechanics_hints(mob/user, distance, is_adjacent)
 	. = list()
@@ -162,7 +164,7 @@
 
 /obj/structure/cash_register/commissary/Initialize()
 	. = ..()
-	src.LoadComponent(/datum/component/quikpay_shop)
+	src.LoadComponent(/datum/component/quikpay_shop, req_one_access, destination)
 
 /obj/structure/cash_register/commissary/AltClick(var/mob/user)
 	. = ..()
@@ -193,7 +195,8 @@
 	idle_power_usage = 10
 	anchored = TRUE
 	var/turned_on = FALSE
-	req_one_access = list(ACCESS_BAR, ACCESS_GALLEY) // Access to change the menu
+	req_one_access = list(ACCESS_BAR, ACCESS_GALLEY, ACCESS_CARGO)
+	var/destination = "Operations"
 
 /obj/machinery/commissary_wall_shop/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()
@@ -202,36 +205,36 @@
 
 /obj/machinery/commissary_wall_shop/Initialize()
 	. = ..()
-	src.LoadComponent(/datum/component/quikpay_shop)
+	src.LoadComponent(/datum/component/quikpay_shop/orderterminal, req_one_access, destination)
 	update_icon()
 
 /obj/machinery/commissary_wall_shop/attackby(obj/item/attacking_item, mob/user)
 	if(!turned_on)
-		balloon_alert(user, "Turned off")
+		balloon_alert(user, "turned off")
 		return
 	if(stat & NOPOWER)
-		balloon_alert(user, "No power")
+		balloon_alert(user, "no power")
 		return
-	var/datum/component/quikpay_shop/qp_shop = src.GetComponent(/datum/component/quikpay_shop)
+	var/datum/component/quikpay_shop/orderterminal/qp_shop = src.GetComponent(/datum/component/quikpay_shop/orderterminal)
 	if(!qp_shop)
 		return
 	qp_shop.interact_object(attacking_item, user)
 
 /obj/machinery/commissary_wall_shop/attack_hand(mob/living/user)
 	if(!turned_on)
-		balloon_alert(user, "Turned off")
+		balloon_alert(user, "turned off")
 		return
 	if(stat & NOPOWER)
-		balloon_alert(user, "No power")
+		balloon_alert(user, "no power")
 		return
-	var/datum/component/quikpay_shop/qp_shop = src.GetComponent(/datum/component/quikpay_shop)
+	var/datum/component/quikpay_shop/orderterminal/qp_shop = src.GetComponent(/datum/component/quikpay_shop/orderterminal)
 	if(!qp_shop)
 		return
 	qp_shop.interact_with_ui(user)
 
 /obj/machinery/commissary_wall_shop/CtrlClick(mob/user)
 	turned_on = !turned_on
-	balloon_alert(user, "Turned [turned_on]")
+	balloon_alert(user, "turned [turned_on ? "on" : "off"]")
 	update_icon()
 
 /obj/machinery/commissary_wall_shop/power_change()

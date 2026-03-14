@@ -21,7 +21,7 @@
 	var/ticket = ""
 	var/destinationact = "Service"
 	var/ticket_number = 1
-	req_one_access = list(ACCESS_BAR, ACCESS_GALLEY) // Access to change the menu
+	req_one_access = list(ACCESS_BAR, ACCESS_GALLEY, ACCESS_CARGO) // Access to change the menu
 
 /obj/machinery/orderterminal/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()
@@ -30,7 +30,7 @@
 
 /obj/machinery/orderterminal/Initialize()
 	. = ..()
-	src.LoadComponent(/datum/component/quikpay_shop/orderterminal/food)
+	src.LoadComponent(/datum/component/quikpay_shop/orderterminal/food, req_one_access, destinationact)
 	update_icon()
 
 /obj/machinery/orderterminal/power_change()
@@ -55,7 +55,7 @@
 
 /obj/machinery/orderterminal/attack_hand(var/mob/user)
 	if(stat & NOPOWER)
-		balloon_alert(user, "No power")
+		balloon_alert(user, "no power")
 		return
 	var/datum/component/quikpay_shop/orderterminal/food/qp_shop = src.GetComponent(/datum/component/quikpay_shop/orderterminal/food)
 	if(!qp_shop)
@@ -64,7 +64,7 @@
 
 /obj/machinery/orderterminal/attackby(obj/item/attacking_item, mob/user)
 	if(stat & NOPOWER)
-		balloon_alert(user, "No power")
+		balloon_alert(user, "no power")
 		return
 	var/datum/component/quikpay_shop/orderterminal/food/qp_shop = src.GetComponent(/datum/component/quikpay_shop/orderterminal/food)
 	if(!qp_shop)

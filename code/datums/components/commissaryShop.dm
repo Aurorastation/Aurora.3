@@ -14,6 +14,7 @@
 	var/obj/owner
 	var/can_use_credits = TRUE
 	var/stamp = "Idris Quik-Pay Register"
+	var/req_one_access = list(ACCESS_BAR, ACCESS_GALLEY, ACCESS_CARGO)
 
 /datum/component/quikpay_shop/quikpay
 	shop_name = "Quikpay"
@@ -52,11 +53,13 @@
 	return TRUE
 
 
-/datum/component/quikpay_shop/Initialize()
+/datum/component/quikpay_shop/Initialize(var/access = list(ACCESS_BAR, ACCESS_GALLEY, ACCESS_CARGO), var/destination = "Operations")
 	. = ..()
 	machine_id = "[station_name()] [stamp] #[SSeconomy.num_financial_terminals++]"
 	if(!istype(parent, /obj))
 		return
+	req_one_access = access
+	destinationact = destination
 	owner = parent
 
 // Put credits in or take them out, assuming the device has credits
@@ -74,7 +77,7 @@
 		return
 
 	var/obj/item/card/id/I = user.GetIdCard()
-	if(istype(I) && (ACCESS_CARGO in I.access))
+	if(istype(I) && has_access(req_one_access = src.req_one_access, accesses = I.access))
 		var/price_guess = text2num(sanitizeSafe(tgui_input_text(user, "How much do you wish to withdraw? Remaining credits: [credit]电", "QuikPay", 0, 10), 10))
 		if(isnull(price_guess) || price_guess == 0)
 			return
@@ -198,6 +201,7 @@
 			"price" = item["price"],
 			"category" = item["category"] || "Uncategorized"
 		))
+	owner.balloon_alert(user, "device set!")
 	return TRUE
 
 // Print the prices to a paper
@@ -336,9 +340,11 @@
 					var/obj/item/card/id/I = usr.GetIdCard()
 					if(!istype(I))
 						return
-					if(owner.check_access(I))
-						editmode = !editmode
-						owner.balloon_alert(usr, "device [editmode ? "un" : ""]locked")
+					if(!has_access(req_one_access = src.req_one_access, accesses = I.access))
+						owner.balloon_alert(usr, "no access!")
+						return
+					editmode = !editmode
+					owner.balloon_alert(usr, "device [editmode ? "un" : ""]locked")
 			. = TRUE
 
 		if("accountselect")
@@ -366,16 +372,17 @@
 	receipt = ""
 
 /datum/component/quikpay_shop/orderterminal
-	var/ticket = ""
-	var/ticket_number = 1
+
 	shop_name = "Commissary"
 	stamp = "Self-serve Shop Teller"
 
 /datum/component/quikpay_shop/orderterminal/food
+	var/ticket = ""
+	var/ticket_number = 1
 	shop_name = "Service terminal"
 	stamp = "Idris Food Terminal"
 
-/datum/component/quikpay_shop/orderterminal/buying_receipt(mob/user)
+/datum/component/quikpay_shop/orderterminal/food/buying_receipt(mob/user)
 	ticket = ""
 	receipt = ""
 	sum = 0
@@ -394,7 +401,7 @@
 	sum = sum
 
 // Print the receipt followed by the order ticket
-/datum/component/quikpay_shop/orderterminal/print_receipt()
+/datum/component/quikpay_shop/orderterminal/food/print_receipt()
 	var/obj/item/card/id/id_card = usr.GetIdCard()
 	ticket += "<br><b>Customer:</b> [id_card ? id_card.registered_name : "Unknown"]"
 	receipt += "<br><b>Customer:</b> [id_card ? id_card.registered_name : "Unknown"]"
@@ -420,5 +427,5 @@
 		R.stamped = new
 	R.stamped += /obj/item/stamp
 	R.AddOverlays(stampoverlay)
-	R.stamps += "<HR><i>This paper has been stamped by the Idris Ordering Terminal.</i>"
+	R.stamps += "<HR><i>This paper has been stamped by \the [owner].</i>"
 	R.ripped = TRUE

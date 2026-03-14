@@ -10,10 +10,11 @@
 	slot_flags = SLOT_BELT
 	var/destinationact = "Service"
 	var/shop_name
+	req_one_access = list(ACCESS_BAR, ACCESS_GALLEY, ACCESS_CARGO)
 
 /obj/item/quikpay/Initialize()
 	. = ..()
-	src.LoadComponent(/datum/component/quikpay_shop/quikpay)
+	src.LoadComponent(/datum/component/quikpay_shop/quikpay, req_one_access, destinationact)
 
 	//create a short manual as well
 	var/obj/item/paper/R = new(src.loc)
