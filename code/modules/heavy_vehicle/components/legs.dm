@@ -25,6 +25,12 @@
 	 */
 	var/damaged_delay = 10
 
+	/**
+	 * Linear slope of a mech's damage delay characteristics, EG how "fast" it linearly scales.
+	 * This allows floating points, and can technically be a negative number. EG: "Rage mechanic where being damaged makes the mech faster"
+	 */
+	var/damaged_delay_slope = 1.0
+
 	var/obj/item/robot_parts/robot_component/actuator/motivator
 	var/mech_turn_sound = 'sound/mecha/mechturn.ogg'
 	var/mech_step_sound = 'sound/mecha/mechstep.ogg'

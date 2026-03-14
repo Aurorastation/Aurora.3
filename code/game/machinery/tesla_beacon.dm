@@ -13,7 +13,7 @@
 	var/active = FALSE
 
 /obj/machinery/power/tesla_beacon/proc/activate(mob/user = null)
-	if(surplus() < 1500)
+	if(POWER_SURPLUS(src) < 1500)
 		if(user) to_chat(user, SPAN_NOTICE("The connected wire doesn't have enough current."))
 		return
 	for(var/A in SScalamity.singularities)
@@ -80,6 +80,7 @@
 /obj/machinery/power/tesla_beacon/process()
 	if(!active)
 		return PROCESS_KILL
-	else
-		if(draw_power(1500) < 1500)
-			deactivate()
+	var/can_draw = POWER_DRAW(src, 1500) >= 1500
+	DRAW_POWER(src, can_draw)
+	if(!can_draw)
+		deactivate()

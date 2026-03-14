@@ -91,7 +91,6 @@
 //movement intents
 #define M_WALK "walk"
 #define M_RUN  "run"
-#define M_LAY  "lay"	// Intentional lying only! To not confuse with the state (variable with the same name on the mob, but not necessarity intentional)
 
 // Limbs and robotic stuff.
 #define BP_L_FOOT "l_foot"
@@ -562,6 +561,10 @@
 #define HEIGHT_CLASS_HUGE 240
 #define HEIGHT_CLASS_GIGANTIC 300
 
+#define UNBUCKLED 0
+#define PARTIALLY_BUCKLED 1
+#define FULLY_BUCKLED 2
+
 #define MOB_IS_INCAPACITATED(incapacitation_flags)\
 (\
 	((incapacitation_flags & INCAPACITATION_STUNNED) && stunned) ||\
@@ -629,4 +632,4 @@
 /// Recharges from external lighting. Slower at recharging from external sources.
 #define POWER_SUPPLY_SOLAR 8
 
-
+#define WEATHER_COOLDOWN_TIME (5 SECONDS)

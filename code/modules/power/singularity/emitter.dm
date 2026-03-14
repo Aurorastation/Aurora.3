@@ -92,9 +92,16 @@
 
 /obj/machinery/power/emitter/update_icon()
 	ClearOverlays()
-	if(active && powernet && avail(active_power_usage))
+	if(active && powernet && POWER_AVAIL(src))
 		AddOverlays(emissive_appearance(icon, "[icon_state]_lights"))
 		AddOverlays("[icon_state]_lights")
+	if(anchored)
+		AddOverlays("+bolts")
+		if(state == 2)
+			AddOverlays("+welding")
+			var/image/lights_image = image(icon, null, "+lights")
+			lights_image.plane = ABOVE_LIGHTING_PLANE
+			AddOverlays(lights_image)
 
 /obj/machinery/power/emitter/attack_hand(mob/user)
 	add_fingerprint(user)
@@ -149,7 +156,8 @@
 		update_icon()
 		return
 	if(((last_shot + fire_delay) <= world.time) && active)
-		var/actual_load = draw_power(active_power_usage)
+		var/actual_load = POWER_DRAW(src, active_power_usage)
+		DRAW_POWER(src, actual_load)
 		if(actual_load >= active_power_usage) //does the laser have enough power to shoot?
 			if(!powered)
 				powered = TRUE

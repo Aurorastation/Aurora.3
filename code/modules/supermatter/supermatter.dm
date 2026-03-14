@@ -385,7 +385,7 @@
 	if(loc && !istype(loc, /turf/space))
 		env = src.loc.return_air()
 	data["ambient_temp"] = round(env?.temperature)
-	data["ambient_pressure"] = round(env?.return_pressure())
+	data["ambient_pressure"] = round(SAFE_XGM_PRESSURE(env))
 	data["detonating"] = grav_pulling
 	return data
 

@@ -510,10 +510,6 @@ Turf and target are seperate in case you want to teleport some distance from a t
 	var/y = min(world.maxy, max(1, A.y + dy))
 	return locate(x,y,A.z)
 
-/// Makes sure MIDDLE is between LOW and HIGH. If not, it adjusts it. Returns the adjusted value.
-/proc/between(var/low, var/middle, var/high)
-	return max(min(middle, high), low)
-
 /// Returns random gauss number
 /proc/GaussRand(var/sigma)
 	var/x,y,rsq
@@ -785,24 +781,6 @@ Turf and target are seperate in case you want to teleport some distance from a t
 /proc/hasvar(var/datum/A, var/varname)
 	if(A.vars.Find(lowertext(varname))) return 1
 	else return 0
-
-/proc/DuplicateObject(obj/original, var/perfectcopy = 0 , var/sameloc = 0)
-	if(!original)
-		return null
-
-	var/obj/O = null
-
-	if(sameloc)
-		O=new original.type(original.loc)
-	else
-		O=new original.type(locate(0,0,0))
-
-	if(perfectcopy)
-		if((O) && (original))
-			for(var/V in original.vars)
-				if(!(V in list("type","loc","locs","vars", "parent", "parent_type","verbs","ckey","key")))
-					O.vars[V] = original.vars[V]
-	return O
 
 /proc/get_cardinal_dir(atom/A, atom/B)
 	var/dx = abs(B.x - A.x)

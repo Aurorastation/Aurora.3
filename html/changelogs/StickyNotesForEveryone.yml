@@ -1,7 +1,0 @@
-author: TheGreyWolf
-
-delete-after: True
-
-changes:
-  - rscadd: "Added stickynote pads to the following locations: Command offices, bridge, rep and liaison offices, journalist office, eng, medical and operations lobby, invest office and lab, galley, vacant office on D3, all three custodial closets, security meeting room, HR meeting room, machinist workshop, and tool storage."
-  - rscadd: "Added stickynotes to the loadout."

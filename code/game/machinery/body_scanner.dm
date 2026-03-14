@@ -536,9 +536,9 @@
 	for(var/obj/item/organ/external/O in H.organs)
 		var/list/data = list()
 		data["name"] = capitalize_first_letters(O.name)
-		var/burn_damage = get_severity(O.burn_dam, (O.limb_flags & ORGAN_HEALS_OVERKILL), TRUE)
+		var/burn_damage = get_wound_severity(O.burn_dam, (O.limb_flags & ORGAN_HEALS_OVERKILL), TRUE)
 		data["burn_damage"] = burn_damage
-		var/brute_damage = get_severity(O.brute_dam, (O.limb_flags & ORGAN_HEALS_OVERKILL), TRUE)
+		var/brute_damage = get_wound_severity(O.brute_dam, (O.limb_flags & ORGAN_HEALS_OVERKILL), TRUE)
 		data["brute_damage"] = brute_damage
 
 		var/list/wounds = list()

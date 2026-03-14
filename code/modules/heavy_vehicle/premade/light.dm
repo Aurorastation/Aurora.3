@@ -29,6 +29,7 @@
 	icon_state = "light_legs"
 	move_delay = 2
 	turn_delay = 2
+	damaged_delay = 4
 	max_damage = 100
 	power_use = 1500
 	desc = "The electrical systems driving these legs are almost totally silent. Unfortunately slamming a plate of metal against the ground is not."
