@@ -185,4 +185,7 @@ services:
             - aurora:/var/lib/mysql:Z
         ports:
         - 3306:3306
+
+volumes:
+  aurora:
 ```
