@@ -24,6 +24,9 @@
 	return content
 
 /obj/item/material/ashtray/persistence_apply_content(content, x, y, z)
+	src.x = x
+	src.y = y
+	src.z = z
 	if(content["material"])
 		set_material(content["material"])
 		max_butts = round(material.hardness/10)
