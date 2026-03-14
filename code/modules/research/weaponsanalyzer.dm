@@ -172,7 +172,7 @@
 			var/obj/item/gun/energy/E = gun
 			var/obj/projectile/P = new E.projectile_type
 			data["gun"]["max_shots"] = initial(E.max_shots)
-			data["gun"]["recharge"] = initial(E.self_recharge) ? "self recharging" : "not self recharging"
+			data["gun"]["recharge"] = E.self_recharge ? "self recharging" : "not self recharging" //Not initial because modular guns are not self charging at initialization
 			data["gun"]["recharge_time"] = initial(E.recharge_time)
 			data["gun"]["damage"] = initial(P.damage)
 			data["gun"]["damage_type"] = initial(P.damage_type)
