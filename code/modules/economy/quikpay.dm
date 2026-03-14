@@ -8,6 +8,8 @@
 	item_state = "electronic"
 	w_class = WEIGHT_CLASS_SMALL
 	slot_flags = SLOT_BELT
+	var/destinationact = "Service"
+	var/shop_name
 
 /obj/item/quikpay/Initialize()
 	. = ..()

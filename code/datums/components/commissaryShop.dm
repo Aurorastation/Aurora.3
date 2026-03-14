@@ -90,17 +90,8 @@
 	var/obj/item/paper/notepad/receipt/R = new(owner.loc)
 	var/receiptname = "Receipt: [machine_id]"
 	R.set_content_unsafe(receiptname, receipt, sum)
-
-	//stamp the paper
-	var/image/stampoverlay = image('icons/obj/bureaucracy.dmi')
-	stampoverlay.icon_state = "paper_stamp-hop"
-	if(!R.stamped)
-		R.stamped = new
-	R.stamped += /obj/item/stamp
-	R.AddOverlays(stampoverlay)
-	R.stamps += "<HR><i>This paper has been stamped by the [stamp].</i>"
+	stamp_receipt(R)
 	usr.put_in_any_hand_if_possible(R)
-	R.ripped = TRUE
 
 // Interact with an object. Papers or payment pethods
 /datum/component/quikpay_shop/proc/interact_object(obj/item/attacking_item, mob/user)
@@ -213,6 +204,23 @@
 /datum/component/quikpay_shop/proc/print_price(mob/user, var/spawn_loc)
 	return print_price_to_paper(shop_name, items, spawn_loc, user)
 
+// Handles receipt creation
+/datum/component/quikpay_shop/proc/buying_receipt(mob/user)
+	receipt = ""
+	sum = 0
+	var/obj/item/card/id/id_card = user.GetIdCard()
+	var/cashier = id_card ? id_card.registered_name : "Unknown"
+	receipt = "<center><H2>[shop_name] receipt</H2>Today's date: [worlddate2text()]<BR>Cashier: [cashier]</center><HR>Purchased items:<ul>"
+	for(var/list/bought_item in buying)
+		var/item_name = bought_item["name"]
+		var/item_amount = bought_item["amount"]
+		var/item_price = bought_item["price"]
+
+		receipt += "<li><b>[item_name]</b>: [item_amount] x [item_price]电: [item_amount * item_price]电<br>"
+		sum += item_price * item_amount
+
+	receipt += "</ul><HR>Total:</b> [sum]电<br>"
+
 // Open the tgui
 /datum/component/quikpay_shop/proc/interact_with_ui(mob/living/user)
 	ui_interact(user)
@@ -314,20 +322,7 @@
 			. = TRUE
 
 		if("confirm")
-			receipt = ""
-			sum = 0
-			var/obj/item/card/id/id_card = usr.GetIdCard()
-			var/cashier = id_card ? id_card.registered_name : "Unknown"
-			receipt = "<center><H2>[shop_name] receipt</H2>Today's date: [worlddate2text()]<BR>Cashier: [cashier]</center><HR>Purchased items:<ul>"
-			for(var/list/bought_item in buying)
-				var/item_name = bought_item["name"]
-				var/item_amount = bought_item["amount"]
-				var/item_price = bought_item["price"]
-
-				receipt += "<li><b>[item_name]</b>: [item_amount] x [item_price]电: [item_amount * item_price]电<br>"
-				sum += item_price * item_amount
-
-			receipt += "</ul><HR>Total:</b> [sum]电<br>"
+			buying_receipt(usr)
 			playsound(owner, 'sound/machines/ping.ogg', 25, 1)
 			owner.audible_message(SPAN_NOTICE("[icon2html(owner, viewers(get_turf(owner)))] \The [owner] pings."))
 			. = TRUE
@@ -369,3 +364,61 @@
 	buying.Cut()
 	sum = 0
 	receipt = ""
+
+/datum/component/quikpay_shop/orderterminal
+	var/ticket = ""
+	var/ticket_number = 1
+	shop_name = "Commissary"
+	stamp = "Self-serve Shop Teller"
+
+/datum/component/quikpay_shop/orderterminal/food
+	shop_name = "Service terminal"
+	stamp = "Idris Food Terminal"
+
+/datum/component/quikpay_shop/orderterminal/buying_receipt(mob/user)
+	ticket = ""
+	receipt = ""
+	sum = 0
+	receipt += "<center><font size=\"4\"><b>[stamp] Receipt</b></font></br><img src = idrislogo.png></center><hr>"
+	ticket += "<center><font size=\"4\"><b>[stamp] Ticket</b></font></br><img src = idrislogo.png></center><hr>"
+	for(var/list/bought_item in buying)
+		var/item_name = bought_item["name"]
+		var/item_amount = bought_item["amount"]
+		var/item_price = bought_item["price"]
+		sum += item_price * item_amount
+
+		receipt += "<li><b>[item_name]</b>: [item_amount] x [item_price]电: [item_amount * item_price]电<br>"
+		ticket += "<li><b>[item_name]</b>: [item_amount] x [item_price]电: [item_amount * item_price]电<br>"
+	receipt += "<hr><b>Total:</b> [sum]电"
+	ticket += "<hr><b>Total:</b> [sum]电"
+	sum = sum
+
+// Print the receipt followed by the order ticket
+/datum/component/quikpay_shop/orderterminal/print_receipt()
+	var/obj/item/card/id/id_card = usr.GetIdCard()
+	ticket += "<br><b>Customer:</b> [id_card ? id_card.registered_name : "Unknown"]"
+	receipt += "<br><b>Customer:</b> [id_card ? id_card.registered_name : "Unknown"]"
+	var/obj/item/paper/notepad/receipt/R = new(owner.loc)
+	var/receiptname = "Receipt: [machine_id]"
+	R.set_content_unsafe(receiptname, receipt, sum)
+	stamp_receipt(R)
+	usr.put_in_any_hand_if_possible(R)
+	// And now we do it but for the ticket.
+	var/obj/item/paper/notepad/receipt/T = new(owner.loc)
+	var/tickettname = "Order ticket: [ticket_number]"
+	ticket_number++
+	T.set_content_unsafe(tickettname, ticket, sum)
+	stamp_receipt(T)
+	usr.put_in_any_hand_if_possible(T)
+	ticket = ""
+	receipt = ""
+
+/datum/component/quikpay_shop/proc/stamp_receipt(obj/item/paper/R) // Stamps the papers, made into a proc to avoid copy pasting too much
+	var/image/stampoverlay = image('icons/obj/bureaucracy.dmi')
+	stampoverlay.icon_state = "paper_stamp-hop"
+	if(!R.stamped)
+		R.stamped = new
+	R.stamped += /obj/item/stamp
+	R.AddOverlays(stampoverlay)
+	R.stamps += "<HR><i>This paper has been stamped by the Idris Ordering Terminal.</i>"
+	R.ripped = TRUE

@@ -185,24 +185,74 @@
 		return
 	qp_shop.interact_with_ui(user)
 
-/obj/structure/cash_register/commissary/wall
+/obj/machinery/commissary_wall_shop
 	name = "self-serve shop teller"
 	desc = "An ordering terminal designed by Idris for quicker expedition."
-	// icon = 'icons/obj/structure/urban/infrastructure.dmi'
-	// icon_state = "cashier"
 	icon = 'icons/obj/machinery/wall/terminals.dmi'
-	icon_state = "kitchenterminal"
+	icon_state = "orderterminal"
+	idle_power_usage = 10
 	anchored = TRUE
 	var/turned_on = FALSE
+	req_one_access = list(ACCESS_BAR, ACCESS_GALLEY) // Access to change the menu
 
-/obj/structure/cash_register/commissary/wall/CtrlClick(mob/user)
-	turned_on = !turned_on
+/obj/machinery/commissary_wall_shop/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "To edit the menu, select 'Toggle Lock' while wearing an ID with galley access."
+	. += "All credits from the machine will automatically go to the civilian account."
 
-/obj/structure/cash_register/commissary/wall/attack_hand(mob/living/user)
+/obj/machinery/commissary_wall_shop/Initialize()
+	. = ..()
+	src.LoadComponent(/datum/component/quikpay_shop)
+	update_icon()
+
+/obj/machinery/commissary_wall_shop/attackby(obj/item/attacking_item, mob/user)
 	if(!turned_on)
 		balloon_alert(user, "Turned off")
 		return
-	. = ..()
+	if(stat & NOPOWER)
+		balloon_alert(user, "No power")
+		return
+	var/datum/component/quikpay_shop/qp_shop = src.GetComponent(/datum/component/quikpay_shop)
+	if(!qp_shop)
+		return
+	qp_shop.interact_object(attacking_item, user)
+
+/obj/machinery/commissary_wall_shop/attack_hand(mob/living/user)
+	if(!turned_on)
+		balloon_alert(user, "Turned off")
+		return
+	if(stat & NOPOWER)
+		balloon_alert(user, "No power")
+		return
+	var/datum/component/quikpay_shop/qp_shop = src.GetComponent(/datum/component/quikpay_shop)
+	if(!qp_shop)
+		return
+	qp_shop.interact_with_ui(user)
+
+/obj/machinery/commissary_wall_shop/CtrlClick(mob/user)
+	turned_on = !turned_on
+	balloon_alert(user, "Turned [turned_on]")
+	update_icon()
+
+/obj/machinery/commissary_wall_shop/power_change()
+	..()
+	update_icon()
+
+/obj/machinery/commissary_wall_shop/update_icon()
+	ClearOverlays()
+	if(stat & NOPOWER || !turned_on)
+		set_light(FALSE)
+		return
+
+	var/mutable_appearance/screen_overlay = mutable_appearance(icon, "kitchenterminal-active", plane = ABOVE_LIGHTING_PLANE)
+	AddOverlays(screen_overlay)
+	set_light(1.4, 1, COLOR_CYAN)
+
+/obj/machinery/commissary_wall_shop/process()
+	if(stat & NOPOWER || !turned_on)
+		ClearOverlays()
+		set_light(FALSE)
+		return
 
 /obj/item/commissary_restrock
 	name = "commissary cigarette restock pack"
