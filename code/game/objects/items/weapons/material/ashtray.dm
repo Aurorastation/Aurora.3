@@ -8,10 +8,10 @@
 	var/image/base_image
 	var/max_butts = 10
 	w_class = WEIGHT_CLASS_TINY
-	persistance_expiration_time_days = 180 // Imagine they get stolen, lost or break...
 
 /obj/item/material/ashtray/Initialize(newloc, material_key)
 	. = ..()
+	persistance_expiration_time_days = rand(7, 180) // Imagine they get stolen, lost or break...
 	max_butts = round(material.hardness/10) //This is arbitrary but whatever.
 	randpixel_xy()
 	update_icon()
