@@ -26,7 +26,6 @@
 	skills = list(
 		/singleton/skill/research = SKILL_LEVEL_FAMILIAR,
 		/singleton/skill/robotics = SKILL_LEVEL_PROFESSIONAL,
-		/singleton/skill/surgery = SKILL_LEVEL_FAMILIAR,
 		/singleton/skill/electrical_engineering = SKILL_LEVEL_FAMILIAR,
 		/singleton/skill/mechanical_engineering = SKILL_LEVEL_FAMILIAR,
 	)
@@ -44,7 +43,6 @@
 	skills = list(
 		/singleton/skill/research = SKILL_LEVEL_FAMILIAR,
 		/singleton/skill/robotics = SKILL_LEVEL_TRAINED,
-		/singleton/skill/surgery = SKILL_LEVEL_FAMILIAR,
 		/singleton/skill/electrical_engineering = SKILL_LEVEL_FAMILIAR,
 		/singleton/skill/mechanical_engineering = SKILL_LEVEL_PROFESSIONAL
 	)

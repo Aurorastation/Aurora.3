@@ -1,6 +1,6 @@
 /singleton/skill/medicine
 	name = "Medicine"
-	description = "how to use health analyzers, ATKs, syringes"
+	description = "Governs the user's ability to perform basic first-aid, as well as operate medical equipment."
 	maximum_level = SKILL_LEVEL_PROFESSIONAL
 	uneducated_skill_cap = SKILL_LEVEL_FAMILIAR
 	category =  /singleton/skill_category/occupational
@@ -10,17 +10,46 @@
 
 /singleton/skill/surgery
 	name = "Surgery"
-	description = "the one everyone wants to do in medical to be the protag"
+	description = "Governs the user's ability to perform surgical procedures on organic humanoids, as well as what complexity of procedures can be performed. " \
+		+ "This does not affect \"surgeries\" performed on mechanical prosthetics, robots, or synthetics in general."
 	maximum_level = SKILL_LEVEL_PROFESSIONAL
 	uneducated_skill_cap = SKILL_LEVEL_UNFAMILIAR
 	category =  /singleton/skill_category/occupational
 	subcategory = SKILL_SUBCATEGORY_MEDICAL
 	component_type = SURGERY_SKILL_COMPONENT
 	required = TRUE
+	skill_level_map = list(
+		"Untrained",
+		"Med Student",
+		"Licensed Surgeon",
+		"World-class Surgeon"
+	)
+	skill_level_descriptions = alist(
+		SKILL_LEVEL_UNFAMILIAR = "You have zero training or experience with surgery.<br>" \
+			+ " - You cannot perform any surgical procedures on organic humanoids.",
+		SKILL_LEVEL_FAMILIAR = "You have minimal training on the basics of surgery. This is equivalent to a fresh med school graduate, or a military corpsman.<br>" \
+			+ "You can perform the following procedures: <br>" \
+			+ " - Opening or Closing incisions.<br>" \
+			+ " - Clamp bleeders.<br>" \
+			+ " - Fixing Arterial Bleeding<br>" \
+			+ " - Amputating a limb.",
+		SKILL_LEVEL_TRAINED = "You have years of formal training and experience with surgery. This is equivalent to a fully licensed surgeon.<br>" \
+			+ "You can perform the following procedures in addition to all procedures allowed by the previous level:<br>" \
+			+ " - Repairing broken bones or muscle tendons.<br>" \
+			+ " - Sawing and retracting a ribcage.<br>" \
+			+ " - Facial Reconstructions only on organic humanoids, not synthetics.<br>" \
+			+ " - Remove or Insert implants.<br>" \
+			+ " - Re-attach (organic) limbs. Robotic limbs require the Robotics skill instead.<br>" \
+			+ " - Repair non-necrotic organs other than the brain, or mechanical prosthetics.<br>",
+		SKILL_LEVEL_PROFESSIONAL = "You are a world class surgeon with decades worth of training and experience.<br>" \
+			+ "In addition to all previous procedures, you can also perform these procedures:<br>" \
+			+ " - Repair and debride necrotic organs.<br>" \
+			+ " - Repair damaged brains."
+	)
 
 /singleton/skill/pharmacology
 	name = "Pharmacology"
-	description = "why are you playing pharma LOL"
+	description = "Not currently implemented."
 	uneducated_skill_cap = SKILL_LEVEL_UNFAMILIAR
 	category =  /singleton/skill_category/occupational
 	subcategory = SKILL_SUBCATEGORY_MEDICAL
@@ -28,7 +57,7 @@
 
 /singleton/skill/anatomy
 	name = "Anatomy"
-	description = "this one lets you know what's wrong with people"
+	description = "Not currently implemented."
 	maximum_level = SKILL_LEVEL_PROFESSIONAL
 	uneducated_skill_cap = SKILL_LEVEL_FAMILIAR
 	category =  /singleton/skill_category/occupational
@@ -37,7 +66,7 @@
 
 /singleton/skill/forensics
 	name = "Forensics"
-	description = "forensics shit i guess"
+	description = "Not currently implemented."
 	uneducated_skill_cap = SKILL_LEVEL_UNFAMILIAR
 	category =  /singleton/skill_category/occupational
 	subcategory = SKILL_SUBCATEGORY_MEDICAL
