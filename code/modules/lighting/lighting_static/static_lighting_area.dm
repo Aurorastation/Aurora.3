@@ -9,4 +9,3 @@
 /area/space
 	static_lighting = FALSE
 	base_lighting_alpha = 255
-	area_flags = AREA_FLAG_PREVENT_PERSISTENT_TRASH
