@@ -115,3 +115,81 @@
   - refactor: Laying down no longer exists as a separate movement intent, you can
       now simply rest with your weapon in your hand. Middle clicking the walk/run
       intent icon now functions as a rest macro.
+2026-03-11:
+  FabianK3:
+  - bugfix: Fixed material stacks being able to have negative amounts.
+  MattAtlas:
+  - bugfix: Fixes paincrit (or incapacitation in general) not making people drop what
+      they're holding.
+2026-03-12:
+  Batrachophrenoboocosmomachia:
+  - rscadd: Adds a recharge station and three cold packs to the Himean Patrol Ship.
+  - imageadd: Adds +bolted, +welded, +lights overlays to several large machines for
+      easier visual identification of whether or not clicking on that emitter will
+      kill you or not, etc.
+  - imageadd: Modifies the base of the Shield Wall Generator sprite to better match
+      that of the Emergency Shield Projector (and so they can use the same overlays
+      mentioned above).
+  - imageadd: Tweaks the Emitter's directional sprites slightly so that the base doesn't
+      seem to change shape quite so drastically when rotated.
+  - imageadd: Ports very pretty space heater sprites made by Wallemations and vinylspiders
+      from /tg/.
+  - imageadd: Adds unique sprites for Old and Heavy-Duty power cells.
+  - balance: Increases power draw and range of Emergency Shield Projectors.
+  - balance: Increases power draw of Shield Wall Generators.
+  - balance: Greatly reduces time for debugger to fix APCs corrupted by electrical
+      storms.
+  - balance: Increases multi-z shield capacitor reserve charge and maximum throughput,
+      so that high-strength shields can actually be run (at high power draw).
+  - balance: Tweaks the INDRA power output formula to scale better with increasing
+      temperature.
+  - balance: Slight adjustments to space heater efficiency formula with a friendly
+      handwave to entropy.
+  - balance: Old power cells have a 5% chance to be defective and have slightly lower
+      maxcharge than standard cells.
+  - qol: Adds extended examine hints to engineering objects.
+  - qol: Extends list of object types which INDRA core field will interact peacefully
+      with.
+  - qol: Improved space heater UX (chat msgs changed to balloon alerts, audible feedback,
+      etc.)
+  - code_imp: Updates many code comments to use DMdocs.
+  - code_imp: Consolidates various shield generation machine sprites in scattered
+      across multiple files into a single shield generator machines sprite file.
+  - bugfix: Fixes Emergency Shield Projector hard del issue.
+  - bugfix: Emergency Shield Projector now shuts down as intended if the area's APC
+      gets completely drained.
+  - bugfix: Firing the gyrotron into the INDRA while no reactants are present will
+      no longer generate heat.
+  - bugfix: Fixes INDRA runtime.
+  - bugfix: Fixes Power Monitoring app not displaying grid sensors when run from a
+      modular computer held in-hand.
+  ElorgRHG:
+  - rscadd: 'Added two new tajaran loadout options: pants and skirts + shirts. Summer
+      pants and dress (renamed to skirt) have been put there.'
+  - bugfix: The tajaran summer dress and pants have been made into pants slot items
+      and should now display properly.
+  GeneralCamo:
+  - bugfix: Balloon Alerts no longer blend improperly, giving them weird transparency.
+  - bugfix: Fixed floor tiles showing their quantity when not held.
+  KingOfThePing:
+  - rscadd: Returns a selection of alternative job titles to the engineering department.
+2026-03-13:
+  Batrachophrenoboocosmomachia:
+  - bugfix: Fixes emergency shield projector sometimes attempting to project shields
+      during power_change() or some inactive ticks.
+  FabianK3:
+  - bugfix: Fixed missing Atmos tech alt title Enviromental Systems Engineer.
+  Kano:
+  - bugfix: Moved shuttle shutter access requirements from req_access to req_one_access.
+  MattAtlas:
+  - bugfix: Fixes slipping not dropping people.
+  - bugfix: Pneumalin no longer fixes damage on robotic lungs.
+  - bugfix: Fixed augments not processing. This means that HUD augments are fixed
+      as well.
+  - bugfix: Fixed health analyzers displaying damage between 0 and 1 as 'none'.
+2026-03-14:
+  Hellfirejag:
+  - rscadd: Zeng-Hu Pharmaceuticals has now begun offering mind-blanker bioaugs to
+      paying Horizon crew. Non-Galatean psi sensitive species can now buy a mind blanker
+      in their loadout selections.
+  - rscadd: Zeng-Hu mind blankers can now be ordered through Cargo.

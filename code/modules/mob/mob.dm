@@ -896,10 +896,9 @@
 				lying_is_intentional = FALSE
 				canmove = !MOB_IS_INCAPACITATED(INCAPACITATION_KNOCKOUT) && !weakened
 			else
-				var/incapacitated = (stat == DEAD) || MOB_IS_INCAPACITATED(INCAPACITATION_KNOCKDOWN)
-				lying = incapacitated || resting && !recently_slept
-				if(!incapacitated)
-					lying_is_intentional = TRUE
+				var/incapacitated = (stat == DEAD) || MOB_IS_INCAPACITATED(INCAPACITATION_KNOCKOUT) || weakened && !recently_slept
+				lying = incapacitated || resting
+				lying_is_intentional = !incapacitated
 				canmove = !MOB_IS_INCAPACITATED(INCAPACITATION_KNOCKOUT) && !weakened
 
 	if(lying)

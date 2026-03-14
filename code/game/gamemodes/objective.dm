@@ -627,7 +627,7 @@ GLOBAL_LIST_EMPTY(process_objectives)
 /datum/objective/heist/kidnap
 
 /datum/objective/heist/kidnap/choose_target()
-	var/list/roles = list("Chief Engineer","Research Director","Machinist","Pharmacist","Engineer")
+	var/list/roles = list("Chief Engineer","Research Director","Machinist","Pharmacist","Ship Engineer")
 	var/list/possible_targets = list()
 	var/list/priority_targets = list()
 
