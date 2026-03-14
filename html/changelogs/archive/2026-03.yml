@@ -187,3 +187,9 @@
   - bugfix: Fixed augments not processing. This means that HUD augments are fixed
       as well.
   - bugfix: Fixed health analyzers displaying damage between 0 and 1 as 'none'.
+2026-03-14:
+  Hellfirejag:
+  - rscadd: Zeng-Hu Pharmaceuticals has now begun offering mind-blanker bioaugs to
+      paying Horizon crew. Non-Galatean psi sensitive species can now buy a mind blanker
+      in their loadout selections.
+  - rscadd: Zeng-Hu mind blankers can now be ordered through Cargo.
