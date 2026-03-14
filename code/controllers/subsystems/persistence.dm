@@ -65,6 +65,15 @@ SUBSYSTEM_DEF(persistence)
 		// Update tracked objects that have an ID (already existing from previous rounds)
 		// Delete persistent records that no longer exist in the registry (removed during the round)
 
+		// Run checks on each track that might prevent further persistence
+		for (var/obj/track in GLOB.persistence_register)
+			CHECK_TICK
+			var/turf/T = get_turf(track)
+			if(!T || !is_station_level(T.z)) // The persistence system only supports objects from the main map levels for multiple reasons, e.g. Z level value, mapping support
+				deregister_track(track)
+			if(astype(track, /obj/item)?.in_inventory) // Objects that are held by players won't become persistent
+				deregister_track(track)
+
 		var/created = 0
 		var/updated = 0
 		var/expired = 0
@@ -209,7 +218,7 @@ SUBSYSTEM_DEF(persistence)
 		log_subsystem_persistence("SQL ERROR during persistence database_add_entry. Failed to connect.")
 	else
 		var/turf/T = get_turf(track)
-		if(!T || !is_station_level(T.z)) // The persistence system only supports objects from the main map levels for multiple reasons, e.g. Z level value, mapping support
+		if(!T)
 			return
 
 		var/datum/db_query/insert_query = SSdbcore.NewQuery(
@@ -239,7 +248,7 @@ SUBSYSTEM_DEF(persistence)
 		log_subsystem_persistence("SQL ERROR during persistence database_update_entry. Failed to connect.")
 	else
 		var/turf/T = get_turf(track)
-		if(!T || !is_station_level(T.z)) // The persistence system only supports objects from the main map levels for multiple reasons, e.g. Z level value, mapping support
+		if(!T)
 			return
 
 		var/datum/db_query/update_query = SSdbcore.NewQuery(
