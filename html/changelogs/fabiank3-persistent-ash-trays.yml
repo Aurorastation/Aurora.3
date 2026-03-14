@@ -9,5 +9,5 @@ changes:
   - bugfix: "Fixed persistent track loss when picking up items."
   - bugfix: "Fixed objects becoming persistent on round end when held by a player."
   - bugfix: "Fixed matter configuration logic on material initialization."
-  - rscdel: "Fixed persistence of objects out in space. Why is there a cigarette butt in space in front of the captains office?"
+  - bugfix: "Fixed persistent objects floating in space. Why is there a cigarette butt in space in front of the captains office?"
   - refactor: "Updated SQL readme."
