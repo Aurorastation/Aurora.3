@@ -50,16 +50,21 @@ BREATH ANALYZER
 /proc/get_wound_severity(damage_ratio, can_heal_overkill, uppercase = FALSE)
 	var/degree = "none"
 
+	if(!damage_ratio)
+		if(uppercase)
+			degree = capitalize(degree)
+		return degree
+
 	switch(damage_ratio)
 		if (0 to 10)
 			degree = "minor"
-		if (11 to 25)
+		if (10 to 25)
 			degree = "moderate"
-		if (26 to 50)
+		if (25 to 50)
 			degree = "significant"
-		if (51 to 75)
+		if (50 to 75)
 			degree = "severe"
-		if (76 to 99)
+		if (75 to 100)
 			degree = "extreme"
 		if (100 to INFINITY)
 			degree = can_heal_overkill ? "critical" : "irreparable"
@@ -68,24 +73,27 @@ BREATH ANALYZER
 		degree = capitalize(degree)
 	return degree
 
-/proc/get_severity(amount, can_heal_overkill, uppercase = FALSE)
+/proc/get_severity(amount, uppercase = FALSE)
 	var/output = "none"
 
+	if(!amount)
+		if(uppercase)
+			output = capitalize(output)
+		return output
+
 	switch(amount)
-		if (0)
-			output = "none"
 		if (0 to 10)
 			output = "minor"
-		if (11 to 25)
+		if (10 to 25)
 			output = "moderate"
-		if (26 to 50)
+		if (25 to 50)
 			output = "significant"
-		if (51 to 75)
+		if (50 to 75)
 			output = "severe"
-		if (76 to 99)
+		if (75 to 100)
 			output = "extreme"
 		if (100 to INFINITY)
-			output = can_heal_overkill ? "critical" : "irreparable"
+			output = "critical"
 
 	if(uppercase)
 		output = capitalize(output)
@@ -253,9 +261,9 @@ BREATH ANALYZER
 			for(var/obj/item/organ/external/org in damaged)
 				var/limb_result = "[capitalize(org.name)][BP_IS_ROBOTIC(org) ? " (Cybernetic)" : ""]:"
 				if(org.brute_dam > 0)
-					limb_result = "[limb_result] \[<font color = 'red'><b>[get_severity(org.brute_dam, TRUE)] physical trauma</b></font>\]"
+					limb_result = "[limb_result] \[<font color = 'red'><b>[get_wound_severity(org.brute_dam, (org.limb_flags & ORGAN_HEALS_OVERKILL), TRUE)] physical trauma</b></font>\]"
 				if(org.burn_dam > 0)
-					limb_result = "[limb_result] \[<font color = '#ffa500'><b>[get_severity(org.burn_dam, TRUE)] burns</b></font>\]"
+					limb_result = "[limb_result] \[<font color = '#ffa500'><b>[get_wound_severity(org.burn_dam, (org.limb_flags & ORGAN_HEALS_OVERKILL), TRUE)] burns</b></font>\]"
 				if(org.status & ORGAN_BLEEDING)
 					limb_result = "[limb_result] \[<span class='scan_danger'>bleeding</span>\]"
 				var/is_bandaged = org.is_bandaged()
