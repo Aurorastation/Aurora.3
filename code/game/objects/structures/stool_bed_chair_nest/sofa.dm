@@ -4,6 +4,7 @@
 	icon = 'icons/obj/structure/sofa.dmi'
 	icon_state = "sofa_middle"
 	base_icon = "sofa_middle"
+	obj_flags = null
 
 /obj/structure/bed/stool/chair/sofa/brown/New(var/newloc)
 	..(newloc, MATERIAL_STEEL, MATERIAL_LEATHER)

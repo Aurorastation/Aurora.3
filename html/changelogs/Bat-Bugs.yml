@@ -1,0 +1,5 @@
+author: Batrachophrenoboocosmomachia
+delete-after: True
+changes:
+  - bugfix: "Sofas no longer able to be rotated."
+  - bugfix: "Attempting to use crowbars, fire axes, hammers on airlocks while in the Hurt intent will now make you attack the airlock."
