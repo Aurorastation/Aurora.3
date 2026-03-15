@@ -60,3 +60,4 @@ changes:
   - rscadd: "Ported the stasis bed animation from tgstation."
   - bugfix: "Stasis beds are now required to be turned on to provide stasis."
   - balance: "Reworked stasis bed upgrades. Lasers are used to upgrade stasis bed level instead of scanners, but will now increase the power consumption. Capacitors will make them more efficient."
+  - balance: "Greatly increased the base power consumption of the stasis bed."
