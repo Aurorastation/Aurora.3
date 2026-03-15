@@ -38,7 +38,7 @@
 	if (direction == NORTH)
 		return
 
-	*delay_modifier += (SKILL_LEVEL_TRAINED - skill_level) * move_delay_per_skill_diff
+	*delay_modifier = *delay_modifier + (SKILL_LEVEL_TRAINED - skill_level) * move_delay_per_skill_diff
 
 /datum/component/skill/pilot_mechs/proc/handle_user_strafe(mob/living/user, direction, delay_modifier)
 	SIGNAL_HANDLER
@@ -50,13 +50,13 @@
 		to_chat(user, SPAN_WARNING("You fumble with the controls!"))
 		*direction = angle2dir(dir2angle(direction) + 180)
 
-	*delay_modifier += (SKILL_LEVEL_TRAINED - skill_level) * move_delay_per_skill_diff
+	*delay_modifier = *delay_modifier + (SKILL_LEVEL_TRAINED - skill_level) * move_delay_per_skill_diff
 
 /datum/component/skill/pilot_mechs/proc/handle_toggle_power(mob/user, cancelled, delay)
 	SIGNAL_HANDLER
-	if (parent != user || skill_level != SKILL_LEVEL_UNFAMILIAR)
+	if (parent != user || cancelled || skill_level != SKILL_LEVEL_UNFAMILIAR)
 		return
 
-	*delay += 5 SECONDS
+	*delay = *delay + (5 SECONDS)
 	to_chat(user, SPAN_NOTICE("You struggle with searching all these buttons for the power switch."))
 	playsound(user.loc, SFX_KEYBOARD, 30, TRUE)

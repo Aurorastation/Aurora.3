@@ -31,24 +31,24 @@
 
 /datum/component/skill/unarmed_combat/proc/handle_harm_attack(mob/attacker, mob/defender, attacker_skill_level, miss_chance, rand_damage, block_chance)
 	SIGNAL_HANDLER
-	*attacker_skill_level += skill_level - 1
-	*miss_chance += (skill_diff_reference - skill_level) * harm_miss_chance_per_skill_diff
-	*block_chance += (skill_diff_reference - skill_level) * block_chance_per_skill_diff
+	*attacker_skill_level = *attacker_skill_level + skill_level - 1
+	*miss_chance = *miss_chance + (skill_diff_reference - skill_level) * harm_miss_chance_per_skill_diff
+	*block_chance = *block_chance + (skill_diff_reference - skill_level) * block_chance_per_skill_diff
 
 /datum/component/skill/unarmed_combat/proc/handle_harm_defend(mob/defender, mob/attacker, defender_skill_level, miss_chance, rand_damage, block_chance)
 	SIGNAL_HANDLER
-	*defender_skill_level += skill_level - 1
-	*miss_chance -= (skill_diff_reference - skill_level) * harm_miss_chance_per_skill_diff
-	*block_chance -= (skill_diff_reference - skill_level) * block_chance_per_skill_diff
+	*defender_skill_level = *defender_skill_level + skill_level - 1
+	*miss_chance = *miss_chance - (skill_diff_reference - skill_level) * harm_miss_chance_per_skill_diff
+	*block_chance = *block_chance - (skill_diff_reference - skill_level) * block_chance_per_skill_diff
 
 /datum/component/skill/unarmed_combat/proc/handle_disarm_attack(mob/attacker, mob/defender, attacker_skill_level, disarm_cost, push_chance, disarm_chance)
 	SIGNAL_HANDLER
-	*attacker_skill_level += skill_level - 1
-	*push_chance -= (skill_diff_reference - skill_level) * push_chance_per_skill_diff
-	*disarm_chance -= (skill_diff_reference - skill_level) * disarm_chance_per_skill_diff
+	*attacker_skill_level = *attacker_skill_level + skill_level - 1
+	*push_chance = *push_chance - (skill_diff_reference - skill_level) * push_chance_per_skill_diff
+	*disarm_chance = *disarm_chance - (skill_diff_reference - skill_level) * disarm_chance_per_skill_diff
 
 /datum/component/skill/unarmed_combat/proc/handle_disarm_defend(mob/defender, mob/attacker, defender_skill_level, disarm_cost, push_chance, disarm_chance)
 	SIGNAL_HANDLER
-	*defender_skill_level += skill_level - 1
-	*push_chance += (skill_diff_reference - skill_level) * push_chance_per_skill_diff
-	*disarm_chance += (skill_diff_reference - skill_level) * push_chance_per_skill_diff
+	*defender_skill_level = *defender_skill_level + skill_level - 1
+	*push_chance = *push_chance + (skill_diff_reference - skill_level) * push_chance_per_skill_diff
+	*disarm_chance = *disarm_chance + (skill_diff_reference - skill_level) * push_chance_per_skill_diff

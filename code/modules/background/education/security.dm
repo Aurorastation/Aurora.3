@@ -48,20 +48,6 @@
 		/singleton/skill/medicine = SKILL_LEVEL_FAMILIAR
 	)
 
-/singleton/education/military_marksman
-	name = "Marksman Training"
-	description = "You were selected for sniper school during \"Basic\". " \
-		+ "Your skills with firearms are unmatched. Unfortunately your other combat skills are rustier."
-	minimum_character_age = list(
-		SPECIES_HUMAN = 25,
-		SPECIES_SKRELL = 60,
-		SPECIES_SKRELL_AXIORI = 60
-	)
-	skills = list(
-		/singleton/skill/unarmed_combat = SKILL_LEVEL_FAMILIAR,
-		/singleton/skill/firearms = SKILL_LEVEL_PROFESSIONAL
-	)
-
 /singleton/education/police_academy
 	name = "Police Academy Graduate"
 	description = "You are a police academy graduate. Your combat skills are not as stringent as actual military service, though this is made up for with more generalized training suitable for a first-responder."
@@ -86,7 +72,7 @@
 		SPECIES_SKRELL_AXIORI = 60
 	)
 	skills = list(
-		/singleton/skill/pilot_spacecraft = SKILL_LEVEL_FAMILIAR,
+		/singleton/skill/pilot_spacecraft = SKILL_LEVEL_TRAINED,
 		/singleton/skill/firearms = SKILL_LEVEL_TRAINED
 	)
 
@@ -99,7 +85,6 @@
 		SPECIES_SKRELL_AXIORI = 60
 	)
 	skills = list(
-		/singleton/skill/pilot_mechs = SKILL_LEVEL_PROFESSIONAL,
+		/singleton/skill/pilot_mechs = SKILL_LEVEL_TRAINED,
 		/singleton/skill/firearms = SKILL_LEVEL_TRAINED, /* Actually needed for firing mech guns oddly enough. */
-		/singleton/skill/armed_combat = SKILL_LEVEL_FAMILIAR
 	)

@@ -49,7 +49,7 @@
 		"Untrained",
 		"Dabbling",
 		"Trained",
-		"Gun-Nut"
+		"Gunslinger"
 	)
 	skill_level_descriptions = alist(
 		SKILL_LEVEL_UNFAMILIAR = "You have no knowledge of how firearms work at all.<br>" \

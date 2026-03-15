@@ -27,4 +27,9 @@
 #define PHARMACOLOGY_SKILL_COMPONENT /datum/component/skill/pharmacology
 #define SURGERY_SKILL_COMPONENT /datum/component/skill/surgery
 
+/**
+ * Trinary-Boolean helper that either returns null, or the skill level of a given skill component(which can be zero).
+ * It will ALWAYS be null if you try to use this to check for something that isn't a skill component, so just don't. Refer to the list above this function to see what your options are.
+ * Therefore, merely checking if (!this) is not sufficient to use this function, and instead you should be using isnull() on it to determine whether or not the skill exists.
+ */
 #define GET_SKILL_LEVEL(user, comp) astype(user.GetComponent(comp), SKILL_COMPONENT)?.skill_level

@@ -132,3 +132,7 @@
 
 // Armed Combat Signals
 #define COMSIG_APPLY_HIT_EFFECT "apply_hit_effect"
+
+// Various computer signals for interrupting via skill or other effects.
+#define COMSIG_USE_REACTOR_COMPUTER "use_reactor_computer"
+#define COMSIG_USE_MECH_FAB "use_mech_fab"

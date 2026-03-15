@@ -37,17 +37,21 @@
 /singleton/skill/pilot_spacecraft
 	name = "Pilot: Spacecraft"
 	description = "Governs the user's ability to pilot spacecraft of any size, and is required to do so in the first place."
-	maximum_level = SKILL_LEVEL_FAMILIAR
+	maximum_level = SKILL_LEVEL_PROFESSIONAL
 	uneducated_skill_cap = SKILL_LEVEL_FAMILIAR
 	category =  /singleton/skill_category/occupational
 	subcategory = SKILL_SUBCATEGORY_OPERATIONS
 	skill_level_map = list(
 		"Unlicensed",
-		"Licensed Pilot"
+		"Licensed Pilot",
+		"Experienced Pilot",
+		"Ace"
 	)
 	skill_level_descriptions = alist(
 		SKILL_LEVEL_UNFAMILIAR = "You are incapable of piloting spacecraft.",
-		SKILL_LEVEL_FAMILIAR = "You are capable of piloting spacecraft."
+		SKILL_LEVEL_FAMILIAR = "You are capable of piloting spacecraft.",
+		SKILL_LEVEL_TRAINED = "Currently unimplemented.",
+		SKILL_LEVEL_PROFESSIONAL = "Currently unimplemented."
 	)
 	required = TRUE
 	component_type = PILOT_SPACECRAFT_SKILL_COMPONENT

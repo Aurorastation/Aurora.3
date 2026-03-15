@@ -124,12 +124,14 @@
 	if(!allowed(user))
 		to_chat(user, SPAN_WARNING("Access denied."))
 		return
+	do_hair_pull(user)
 
-	if (GET_SKILL_LEVEL(user, ROBOTICS_SKILL_COMPONENT) < SKILL_LEVEL_FAMILIAR)
-		to_chat(user, SPAN_WARNING("You have no idea how to use this machine."))
+	// Yes I'm doing this after do_hair_pull() intentionally, you can totally fail the skill check and still get your hair stuck in a blender.
+	var/cancelled = FALSE
+	SEND_SIGNAL(user, COMSIG_USE_MECH_FAB, &cancelled)
+	if (cancelled)
 		return
 
-	do_hair_pull(user)
 	ui_interact(user)
 
 /obj/machinery/mecha_part_fabricator/ui_interact(mob/user, datum/tgui/ui)

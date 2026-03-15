@@ -133,7 +133,7 @@
 
 	// Check via skill components if the user knows how to perform the surgery.
 	for (var/skill_comp, required_level in S.skill_requirements)
-		var/skill_level = astype(user.GetComponent(skill_comp), SKILL_COMPONENT)?.skill_level
+		var/skill_level = GET_SKILL_LEVEL(user, skill_comp)
 		// Null condition handles NPCs and Antags that won't have the skill setup.
 		if (!isnull(skill_level) && skill_level < required_level)
 			to_chat(user, SPAN_WARNING("You lack the skills needed to perform this surgical procedure."))

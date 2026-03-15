@@ -20,5 +20,6 @@
 	return ..()
 
 /datum/component/skill/armed_combat/proc/modify_hit_effect(var/owner, var/mob/living/target, var/obj/item/weapon, var/power, var/hit_zone)
+	SIGNAL_HANDLER
 	var/skill_diff = skill_diff_reference - skill_level
-	*power *= 1 + (0.1 * skill_diff)
+	*power = *power * (1 + (0.1 * skill_diff))

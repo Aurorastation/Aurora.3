@@ -59,6 +59,9 @@
 		SPECIES_SKRELL_AXIORI = 60
 	)
 	skills = list(
+		/* Uncomment this block after finishing the Leadership skill. Psychologists should be able to give people morale bonuses as a mechanic.
+		/singleton/skill/leadership = SKILL_LEVEL_TRAINED,
+		*/
 		/singleton/skill/pharmacology = SKILL_LEVEL_FAMILIAR,
 		/singleton/skill/medicine = SKILL_LEVEL_FAMILIAR,
 		/singleton/skill/anatomy = SKILL_LEVEL_FAMILIAR,

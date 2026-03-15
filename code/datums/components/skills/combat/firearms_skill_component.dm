@@ -45,12 +45,12 @@
 	UnregisterSignal(parent, COMSIG_GUN_TOGGLE_FIRING_MODE)
 	return ..()
 
-/datum/component/skill/firearms/proc/handle_footgun(var/mob/shooter, var/footgun_chance)
+/datum/component/skill/firearms/proc/handle_footgun(var/mob/shooter, var/footgun)
 	SIGNAL_HANDLER
 	if (skill_level != SKILL_LEVEL_UNFAMILIAR)
 		return
 
-	*footgun_chance += footgun_chance
+	*footgun = *footgun + footgun_chance
 
 /datum/component/skill/firearms/proc/handle_accuracy(var/mob/shooter, var/accuracy_decrease, var/dispersion_increase)
 	SIGNAL_HANDLER
@@ -58,21 +58,21 @@
 
 	// Count the target as being one tile further away from the shooter
 	// per the difference between a skilled professional, and the shooter's skill level
-	*accuracy_decrease += accuracy_per_skill_diff * skill_diff
+	*accuracy_decrease = *accuracy_decrease + accuracy_per_skill_diff * skill_diff
 
 	// Unskilled shooters get an increased firing arc for their guns
 	// to a maximum of 30 degrees when fully untrained.
-	*dispersion_increase += dispersion_per_skill_diff * skill_diff
+	*dispersion_increase = *dispersion_increase + dispersion_per_skill_diff * skill_diff
 
 /datum/component/skill/firearms/proc/safety_fumble(var/mob/shooter, var/obj/item/gun/shoota, var/cancelled)
 	SIGNAL_HANDLER
-	if (skill_level >= skill_diff_reference)
-		return // Trained and up will never fumble the safety.
+	if (cancelled || skill_level >= skill_diff_reference)
+		return // Trained and up will never fumble the safety. Except if morale has anything to say about that...
 
 	if (!prob(safety_fumble_per_skill_diff * (skill_diff_reference - skill_level)))
 		return // if they pass the skill check.
 
 	*cancelled = TRUE
 	shooter.visible_message(
-			SPAN_DANGER("<b>\The [shooter] fumbles with \the [shoota]'s safety!</b>"),
-			SPAN_DANGER("<b>You fumble with \the [shoota]'s safety!"))
+		SPAN_DANGER("<b>\The [shooter] fumbles with \the [shoota]'s safety!</b>"),
+		SPAN_DANGER("<b>You fumble with \the [shoota]'s safety!"))

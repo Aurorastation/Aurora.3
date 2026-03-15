@@ -17,5 +17,5 @@
 	return ..()
 
 /datum/component/skill/gardening/proc/modify_yield(var/owner, var/datum/seed/plant, var/total_yield, var/cancelled, var/doafter)
-	*total_yield += bonus_yield_per_rank * (skill_level - 1)
-	*doafter -= harvest_speedup_per_rank * (skill_level - 1)
+	*total_yield = *total_yield + bonus_yield_per_rank * (skill_level - 1)
+	*doafter = *doafter - harvest_speedup_per_rank * (skill_level - 1)
