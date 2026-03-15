@@ -7,7 +7,7 @@
 		return
 
 	var/datum/db_query/cleanup_query = SSdbcore.NewQuery(
-		"DELETE FROM ss13_persistent_data WHERE DATE_ADD(expires_at, INTERVAL :grace_period_days DAY) <= NOW()",
+		"DELETE FROM ss13_persistent_objects WHERE DATE_ADD(expires_at, INTERVAL :grace_period_days DAY) <= NOW()",
 		list("grace_period_days" = PERSISTENT_EXPIRATION_CLEANUP_DELAY_DAYS)
 	)
 
@@ -28,7 +28,7 @@
 		return
 
 	var/datum/db_query/get_query = SSdbcore.NewQuery(
-		"SELECT id, author_ckey, type, content, x, y, z FROM ss13_persistent_data WHERE NOW() < expires_at"
+		"SELECT id, author_ckey, type, content, x, y, z FROM ss13_persistent_objects WHERE NOW() < expires_at"
 	)
 	get_query.Execute()
 
@@ -63,7 +63,7 @@
 		return
 
 	var/datum/db_query/insert_query = SSdbcore.NewQuery(
-		"INSERT INTO ss13_persistent_data (author_ckey, type, created_at, expires_at, content, x, y, z) \
+		"INSERT INTO ss13_persistent_objects (author_ckey, type, created_at, expires_at, content, x, y, z) \
 		VALUES (:author_ckey, :type, NOW(), DATE_ADD(NOW(), INTERVAL :expire_in_days DAY), :content, :x, :y, :z)",
 		list(
 			"author_ckey" = track.persistent_objects_author_ckey,
@@ -92,7 +92,7 @@
 		return
 
 	var/datum/db_query/update_query = SSdbcore.NewQuery(
-		"UPDATE ss13_persistent_data SET author_ckey=:author_ckey, expires_at=DATE_ADD(NOW(), INTERVAL :expire_in_days DAY), content=:content, x=:x, y=:y, z=:z WHERE id = :id",
+		"UPDATE ss13_persistent_objects SET author_ckey=:author_ckey, expires_at=DATE_ADD(NOW(), INTERVAL :expire_in_days DAY), content=:content, x=:x, y=:y, z=:z WHERE id = :id",
 		list(
 			"author_ckey" = track.persistent_objects_author_ckey,
 			"expire_in_days" = track.persistant_objects_expiration_time_days,
@@ -116,7 +116,7 @@
 		return
 
 	var/datum/db_query/expire_query = SSdbcore.NewQuery(
-		"UPDATE ss13_persistent_data SET expires_at=NOW() WHERE id = :id",
+		"UPDATE ss13_persistent_objects SET expires_at=NOW() WHERE id = :id",
 		list("id" = track_id)
 	)
 	expire_query.Execute()
