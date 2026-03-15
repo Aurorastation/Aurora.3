@@ -6,12 +6,16 @@
 	name = "Triesto, ZH Spaceport Landing Pad A (Intrepid)"
 	landmark_tag = "nav_triesto_spaceport_intrepid"
 
+/obj/effect/shuttle_landmark/triesto/spaceport_intrepid
+	name = "Triesto, ZH Spaceport Landing Pad B (Quark)"
+	landmark_tag = "nav_triesto_spaceport_quark"
+
 /obj/effect/shuttle_landmark/triesto/spaceport_spark
-	name = "Triesto, ZH Spaceport Landing Pad B (Spark)"
+	name = "Triesto, ZH Spaceport Landing Pad C (Spark)"
 	landmark_tag = "nav_triesto_spaceport_spark"
 
 /obj/effect/shuttle_landmark/triesto/spaceport_canary
-	name = "Triesto, ZH Spaceport Landing Pad C (Canary)"
+	name = "Triesto, ZH Spaceport Landing Pad D (Canary)"
 	landmark_tag = "nav_triesto_spaceport_canary"
 
 /obj/effect/shuttle_landmark/triesto/offship

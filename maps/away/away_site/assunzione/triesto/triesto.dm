@@ -49,6 +49,7 @@
 	)
 	initial_restricted_waypoints = list(
 		"Intrepid" = list("nav_triesto_spaceport_intrepid"),
+		"Quark" = list("nav_triesto_spaceport_quark"),
 		"Spark" = list("nav_triesto_spaceport_spark"),
 		"Canary" = list("nav_triesto_spaceport_canary", "nav_triesto_corporate_canary"),
 	)
