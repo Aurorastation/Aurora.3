@@ -15,7 +15,7 @@
 	max_butts = round(material.hardness/10) //This is arbitrary but whatever.
 	randpixel_xy()
 	update_icon()
-	SSpersistence.register_track(src, null)
+	SSpersistence.objectsRegisterTrack(src, null)
 
 /obj/item/material/ashtray/persistence_get_content()
 	var/list/content = list()
@@ -89,7 +89,7 @@
 		attacking_item.forceMove(src)
 
 		if(istype(attacking_item, /obj/item/trash/cigbutt))
-			SSpersistence.deregister_track(attacking_item) // Ashtray will handle the persistent contents in it itself
+			SSpersistence.objectsDeregisterTrack(attacking_item) // Ashtray will handle the persistent contents in it itself
 
 		if (istype(attacking_item,/obj/item/clothing/mask/smokable/cigarette))
 			var/obj/item/clothing/mask/smokable/cigarette/cig = attacking_item

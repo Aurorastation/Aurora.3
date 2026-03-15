@@ -2,7 +2,7 @@
  * Run cleanup on the persistence entries in the database.
  * Cleanup includes all entries that have expired and have passed the clean up grace period (PERSISTENT_EXPIRATION_CLEANUP_DELAY_DAYS).
  */
-/datum/controller/subsystem/persistence/proc/database_clean_entries()
+/datum/controller/subsystem/persistence/proc/objectsDatabaseCleanEntries()
 	if(!SSdbcore.Connect())
 		log_subsystem_persistence("SQL ERROR during persistence database_clean_entries. Failed to connect.")
 	else
@@ -11,11 +11,11 @@
 			list("grace_period_days" = PERSISTENT_EXPIRATION_CLEANUP_DELAY_DAYS)
 		)
 
-		cleanup_query.SetFailCallback(CALLBACK(PROC_REF(database_clean_entries_callback_failure)))
+		cleanup_query.SetFailCallback(CALLBACK(PROC_REF(objectsDatabaseCleanEntries_CallbackFailure)))
 		cleanup_query.SetSuccessCallback(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(qdel)))
 		cleanup_query.ExecuteNoSleep(TRUE)
 
-/datum/controller/subsystem/persistence/proc/database_clean_entries_callback_failure(var/datum/db_query/cleanup_query)
+/datum/controller/subsystem/persistence/proc/objectsDatabaseCleanEntries_CallbackFailure(var/datum/db_query/cleanup_query)
 	if (cleanup_query.ErrorMsg())
 		log_subsystem_persistence("SQL ERROR during persistence database_clean_entries. " + cleanup_query.ErrorMsg())
 	qdel(cleanup_query)
@@ -24,7 +24,7 @@
  * Retrieve persistent data entries that haven't expired.
  * RETURN: List of JSON, with ID, author_ckey, type, content, x, y, z
  */
-/datum/controller/subsystem/persistence/proc/database_get_active_entries()
+/datum/controller/subsystem/persistence/proc/objectsDatabaseGetActiveEntries()
 	if(!SSdbcore.Connect())
 		log_subsystem_persistence("SQL ERROR during persistence database_get_active_entries. Failed to connect.")
 	else
@@ -56,7 +56,7 @@
 /**
  * Adds a persistent data record to the database.
  */
-/datum/controller/subsystem/persistence/proc/database_add_entry(var/obj/track)
+/datum/controller/subsystem/persistence/proc/objectsDatabaseAddEntry(var/obj/track)
 	if(!SSdbcore.Connect())
 		log_subsystem_persistence("SQL ERROR during persistence database_add_entry. Failed to connect.")
 	else
@@ -71,7 +71,7 @@
 				"author_ckey" = track.persistence_author_ckey,
 				"type" = "[track.type]",
 				"expire_in_days" = track.persistance_expiration_time_days,
-				"content" = track_get_content(track),
+				"content" = objectsGetTrackContent(track),
 				"x" = T.x,
 				"y" = T.y,
 				"z" = T.z
@@ -86,7 +86,7 @@
 /**
  * Updates a persistent data record in the database.
  */
-/datum/controller/subsystem/persistence/proc/database_update_entry(var/obj/track)
+/datum/controller/subsystem/persistence/proc/objectsDatabaseUpdateEntry(var/obj/track)
 	if(!SSdbcore.Connect())
 		log_subsystem_persistence("SQL ERROR during persistence database_update_entry. Failed to connect.")
 	else
@@ -99,7 +99,7 @@
 			list(
 				"author_ckey" = track.persistence_author_ckey,
 				"expire_in_days" = track.persistance_expiration_time_days,
-				"content" = track_get_content(track),
+				"content" = objectsGetTrackContent(track),
 				"x" = T.x,
 				"y" = T.y,
 				"z" = T.z,
@@ -115,7 +115,7 @@
 /**
  * Expire a persistent data record in the database by setting it's expiration date to now.
  */
-/datum/controller/subsystem/persistence/proc/database_expire_entry(var/track_id)
+/datum/controller/subsystem/persistence/proc/objectsDatabaseExpireEntry(var/track_id)
 	if(!SSdbcore.Connect())
 		log_subsystem_persistence("SQL ERROR during persistence database_expire_entry. Failed to connect.")
 	else

@@ -883,7 +883,7 @@
 	src.z = z
 
 /obj/item/paper/stickynotes/pickup()
-	SSpersistence.deregister_track(src)
+	SSpersistence.objectsDeregisterTrack(src)
 	..()
 
 /obj/item/paper/stickynotes/afterattack(var/A, mob/user, var/prox, var/params)
@@ -900,7 +900,7 @@
 	if(!params || !prox)
 		return
 
-	SSpersistence.register_track(src, ckey(user.key))
+	SSpersistence.objectsRegisterTrack(src, ckey(user.key))
 	user.drop_from_inventory(src,source_turf)
 	if(params) //Parallels taped paper placement method, and avoids seeing stickynotes through walls
 		var/list/mouse_control = mouse_safe_xy(params)

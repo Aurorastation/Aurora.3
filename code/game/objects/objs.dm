@@ -95,7 +95,7 @@
 
 /obj/Destroy()
 	if(persistence_track_active) // Prevent hard deletion of references in the persistence register by removing it preemptively
-		SSpersistence.deregister_track(src)
+		SSpersistence.objectsDeregisterTrack(src)
 	STOP_PROCESSING(SSprocessing, src)
 	unbuckle()
 	QDEL_NULL(talking_atom)

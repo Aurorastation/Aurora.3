@@ -381,6 +381,7 @@
 #include "code\controllers\subsystems\persistence\persistence.dm"
 #include "code\controllers\subsystems\persistence\persistence.objects.dm"
 #include "code\controllers\subsystems\persistence\persistence.objects.sql.dm"
+#include "code\controllers\subsystems\persistence\persistence.objects.public.dm"
 #include "code\controllers\subsystems\ping.dm"
 #include "code\controllers\subsystems\plants.dm"
 #include "code\controllers\subsystems\profiler.dm"

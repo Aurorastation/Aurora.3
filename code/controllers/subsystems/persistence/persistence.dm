@@ -25,7 +25,7 @@ SUBSYSTEM_DEF(persistence)
 		return SS_INIT_FAILURE
 
 	try
-		initialize_persistent_objects()
+		objectsInitialize()
 	catch(var/exception/e)
 		log_subsystem_persistence_panic("Unhandled exception during persistent objects initialization: [e]")
 		return SS_INIT_FAILURE
@@ -42,7 +42,7 @@ SUBSYSTEM_DEF(persistence)
 		return
 
 	try
-		finalize_persistent_objects()
+		objectsFinalize()
 	catch(var/exception/e)
 		log_subsystem_persistence_panic("Unhandled exception during persistent objects finalization: [e]")
 		return
