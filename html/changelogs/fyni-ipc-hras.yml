@@ -1,4 +1,0 @@
-author: fyni
-delete-after: True
-changes:
-  - rscadd: "Allows all types of IPCs to be HRAs."
