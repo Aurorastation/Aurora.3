@@ -367,7 +367,7 @@
 #include "code\controllers\subsystems\job.dm"
 #include "code\controllers\subsystems\law.dm"
 #include "code\controllers\subsystems\lighting.dm"
-#include "code\controllers\subsystems\machinery.dm"D
+#include "code\controllers\subsystems\machinery.dm"
 #include "code\controllers\subsystems\mapping.dm"
 #include "code\controllers\subsystems\materials.dm"
 #include "code\controllers\subsystems\mob.dm"
