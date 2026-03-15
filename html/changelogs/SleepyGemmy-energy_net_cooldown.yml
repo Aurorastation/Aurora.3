@@ -3,4 +3,4 @@ author: SleepyGemmy
 delete-after: True
 
 changes:
-  - rscadd: "Fixed attacking energy nets with a weapon having no cooldown."
+  - bugfix: "Fixed attacking energy nets with a weapon having no cooldown."
