@@ -228,6 +228,7 @@
 /obj/item/nullrod/luceiansceptre/Initialize(mapload)
 	set_light_on(TRUE)
 	..()
+	return INITIALIZE_HINT_NORMAL
 
 /obj/item/nullrod/clockworkstave
 	name = "\improper clockwork stave"
@@ -440,6 +441,7 @@
 /obj/item/assunzioneorb/Initialize(mapload)
 	set_light_on(TRUE)
 	..()
+	return INITIALIZE_HINT_NORMAL
 
 /obj/item/assunzioneorb/proc/shatter()
 	visible_message(SPAN_WARNING("\The [src] shatters!"), SPAN_WARNING("You hear a small glass object shatter!"))
