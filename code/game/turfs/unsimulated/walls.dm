@@ -56,6 +56,7 @@
 	icon_state = "map-shuttle"
 	desc = "It's a wall. It appears to be composed of a highly durable alloy."
 	smoothing_flags = SMOOTH_TRUE
+	color = COLOR_WALL_GUNMETAL
 	canSmoothWith = list(
 		/turf/unsimulated/wall/darkshuttlewall,
 		/turf/unsimulated/wall/riveted,
