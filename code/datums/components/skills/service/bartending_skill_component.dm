@@ -22,7 +22,8 @@
 	UnregisterSignal(parent, COMSIG_CONTAINER_DRANK)
 	return ..()
 
-/datum/component/drink_moodlet_provider/proc/handle_drank(var/obj/item/reagent_containers/owner, var/mob/user)
+/datum/component/drink_moodlet_provider/proc/handle_drank(obj/item/reagent_containers/owner, mob/user)
+	SIGNAL_HANDLER
 	if (QDELING(src))
 		return
 

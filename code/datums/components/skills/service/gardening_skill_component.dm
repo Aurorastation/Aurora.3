@@ -16,6 +16,7 @@
 	UnregisterSignal(parent, COMSIG_PLANT_HARVESTER)
 	return ..()
 
-/datum/component/skill/gardening/proc/modify_yield(var/owner, var/datum/seed/plant, var/total_yield, var/cancelled, var/doafter)
+/datum/component/skill/gardening/proc/modify_yield(owner, datum/seed/plant, total_yield, cancelled, doafter)
+	SIGNAL_HANDLER
 	*total_yield = *total_yield + bonus_yield_per_rank * (skill_level - 1)
 	*doafter = *doafter - harvest_speedup_per_rank * (skill_level - 1)

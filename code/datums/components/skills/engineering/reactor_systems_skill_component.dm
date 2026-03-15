@@ -14,7 +14,7 @@
 	UnregisterSignal(parent, COMSIG_USE_REACTOR_COMPUTER)
 	return ..()
 
-/datum/component/skill/reactor_systems/proc/use_reactor_computer(var/mob/user, var/cancelled)
+/datum/component/skill/reactor_systems/proc/use_reactor_computer(mob/user, cancelled)
 	SIGNAL_HANDLER
 	if (skill_level >= SKILL_LEVEL_TRAINED)
 		return

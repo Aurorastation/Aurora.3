@@ -14,7 +14,7 @@
 	UnregisterSignal(parent, COMSIG_USE_MECH_FAB)
 	return ..()
 
-/datum/component/skill/robotics/proc/use_mech_fab(var/mob/user, var/cancelled)
+/datum/component/skill/robotics/proc/use_mech_fab(mob/user, cancelled)
 	SIGNAL_HANDLER
 	if (cancelled || skill_level >= SKILL_LEVEL_TRAINED)
 		return

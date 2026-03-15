@@ -1,5 +1,4 @@
 /datum/component/skill/unarmed_combat
-	var/skill_diff_reference = SKILL_LEVEL_TRAINED
 	/// Percent chance modifier for harm intent
 	var/harm_miss_chance_per_skill_diff = 5
 	/// Percent chance modifier for blocking unarmed attacks

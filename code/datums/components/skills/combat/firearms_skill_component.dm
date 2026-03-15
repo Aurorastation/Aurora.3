@@ -4,12 +4,6 @@
  */
 /datum/component/skill/firearms
 	/**
-	 * Reference value used for checking "Skill Diff"
-	 * "Skill Diff" is the distance from the actual skill level to the reference.
-	 */
-	var/skill_diff_reference = SKILL_LEVEL_TRAINED
-
-	/**
 	 * Accuracy modifier to fired guns per point of "Skill Diff".
 	 * As an "Effective increase" in tiles to the target being shot.
 	 */
@@ -45,14 +39,14 @@
 	UnregisterSignal(parent, COMSIG_GUN_TOGGLE_FIRING_MODE)
 	return ..()
 
-/datum/component/skill/firearms/proc/handle_footgun(var/mob/shooter, var/footgun)
+/datum/component/skill/firearms/proc/handle_footgun(mob/shooter, footgun)
 	SIGNAL_HANDLER
 	if (skill_level != SKILL_LEVEL_UNFAMILIAR)
 		return
 
 	*footgun = *footgun + footgun_chance
 
-/datum/component/skill/firearms/proc/handle_accuracy(var/mob/shooter, var/accuracy_decrease, var/dispersion_increase)
+/datum/component/skill/firearms/proc/handle_accuracy(mob/shooter, accuracy_decrease, dispersion_increase)
 	SIGNAL_HANDLER
 	var/skill_diff = skill_diff_reference - skill_level
 
@@ -64,7 +58,7 @@
 	// to a maximum of 30 degrees when fully untrained.
 	*dispersion_increase = *dispersion_increase + dispersion_per_skill_diff * skill_diff
 
-/datum/component/skill/firearms/proc/safety_fumble(var/mob/shooter, var/obj/item/gun/shoota, var/cancelled)
+/datum/component/skill/firearms/proc/safety_fumble(mob/shooter, obj/item/gun/shoota, cancelled)
 	SIGNAL_HANDLER
 	if (cancelled || skill_level >= skill_diff_reference)
 		return // Trained and up will never fumble the safety. Except if morale has anything to say about that...
