@@ -4,9 +4,9 @@
  *
  * This subsystem consists of multiple partial files, following the structure:
  * - persistence.dm						- Subsystem definition and generic code.
- * - persistence.objects.dm				- Persistent object related code.
- * - persistence.objects.public.dm		- Persistent object public procs.
- * - persistence.objects.sql.dm			- Persistent object database code.
+ * - persistence_objects.dm				- Persistent objects related code.
+ * - persistence_objects_sql.dm			- Persistent objects database code.
+ * - persistence_objects_public.dm		- Persistent objects public procs.
  */
 
 SUBSYSTEM_DEF(persistence)
