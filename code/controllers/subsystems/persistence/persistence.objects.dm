@@ -106,7 +106,7 @@
 		if(content && content.len)
 			result = json_encode(content)
 	catch(var/exception/e)
-		log_subsystem_persistence("Track: Failed to get/encode track content: [e]")
+		log_subsystem_persistence_error("Error during json serialization for persistent object. Failed to get/encode track content: [e]")
 	return result
 
 /**
@@ -121,4 +121,4 @@
 	try
 		track.persistence_apply_content(json_decode(json), x, y, z)
 	catch(var/exception/e)
-		log_subsystem_persistence("Track: Failed to apply/decode track content: [e]")
+		log_subsystem_persistence_error("Error during json deserialization for persistent object. Failed to apply/decode track content: [e]")

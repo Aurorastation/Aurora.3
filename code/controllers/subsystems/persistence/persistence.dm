@@ -11,6 +11,17 @@ SUBSYSTEM_DEF(persistence)
 	return ..()
 
 /**
+ * Helper method to check and log database connection.
+ */
+/datum/controller/subsystem/persistence/proc/databaseConnectionCheck(var/action)
+	PRIVATE_PROC(TRUE)
+	if(!SSdbcore.Connect())
+		if(action)
+			log_subsystem_persistence_error("SQL error during [action], connection failed.")
+		return FALSE
+	return TRUE
+
+/**
  * Initialization of the persistence subsystem.
  * Includes generic startup checks and init of the different persistent data types.
  */
@@ -20,8 +31,7 @@ SUBSYSTEM_DEF(persistence)
 		log_subsystem_persistence_warning("SQL configuration not enabled. Persistence subsystem requires SQL. Skipping init.")
 		return SS_INIT_SUCCESS
 
-	if(!SSdbcore.Connect())
-		log_subsystem_persistence_error("SQL error during persistence subsystem init. Not connected.")
+	if(!databaseConnectionCheck("subsystem init"))
 		return SS_INIT_FAILURE
 
 	try
@@ -37,7 +47,7 @@ SUBSYSTEM_DEF(persistence)
  * The shutdown consists of finalization steps for each persistent data type.
  */
 /datum/controller/subsystem/persistence/Shutdown()
-	if(!SSdbcore.Connect())
+	if(!databaseConnectionCheck("subsystem shutdown"))
 		log_subsystem_persistence_panic("SQL error during persistence subsystem shutdown. Cannot finalise persistence of the round.")
 		return
 
