@@ -1,0 +1,4 @@
+author: fyni
+delete-after: True
+changes:
+  - bugfix: "Allows all types of IPCs to select the admin faction, so they can be HRAs. Whoops!"
