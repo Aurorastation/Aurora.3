@@ -45,6 +45,12 @@
 	/// How many effective ranks of unarmed combat skill this morale component can contribute
 	var/unarmed_rank_contribution = 0.5
 
+	/**
+	 * The maximum possible panic chance from negative morale point sums.
+	 * Since negative moodlets are unique to psychic damage, the effects of psychically induced panic are uniquely stronger than simply being unskilled.
+	 */
+	var/panic_chance_ceiling = 10
+
 /datum/component/morale/proc/get_morale_ratio()
 	return morale_ratio
 
@@ -145,7 +151,7 @@
 
 /datum/component/morale/proc/handle_footgun(mob/shooter, footgun_chance)
 	SIGNAL_HANDLER
-	if (morale_points >= 0 || !prob(floor(10 * -morale_ratio)))
+	if (morale_points >= 0 || !prob(floor(panic_chance_ceiling * -morale_ratio)))
 		return
 
 	// Go guarantee the footgun because we're simulating a psychically induced panic.
@@ -159,7 +165,7 @@
 
 /datum/component/morale/proc/safety_fumble(mob/shooter, obj/item/gun/shoota, cancelled)
 	SIGNAL_HANDLER
-	if (cancelled || morale_points >= 0 || !prob(floor(50 * -morale_ratio)))
+	if (cancelled || morale_points >= 0 || !prob(floor(panic_chance_ceiling * -morale_ratio)))
 		return
 
 	*cancelled = TRUE
@@ -196,7 +202,7 @@
 	if (parent != user)
 		return
 
-	if (morale_points < 0 && prob(floor(10 * -morale_ratio)))
+	if (morale_points < 0 && prob(floor(panic_chance_ceiling * -morale_ratio)))
 		user.visible_message(
 			SPAN_DANGER("<b>\The [user] fumbles with their mech's controls in a blind panic!</b>"),
 			SPAN_DANGER("<b>You fumble with your mech's controls in a blind panic!</b>"))
@@ -212,7 +218,7 @@
 	if (parent != user)
 		return
 
-	if (morale_points < 0 && prob(floor(10 * -morale_ratio)))
+	if (morale_points < 0 && prob(floor(panic_chance_ceiling * -morale_ratio)))
 		user.visible_message(
 			SPAN_DANGER("<b>\The [user] fumbles with their mech's controls in a blind panic!</b>"),
 			SPAN_DANGER("<b>You fumble with your mech's controls in a blind panic!</b>"))
@@ -225,7 +231,7 @@
 	if (parent != user || cancelled || morale_points >= 0)
 		return
 
-	if (prob(floor(50 * -morale_ratio)))
+	if (prob(floor(panic_chance_ceiling * -morale_ratio)))
 		to_chat(user, SPAN_DANGER("The pressure on your mind overwhelms you completely. You can't even think to find the power switch..."))
 		*cancelled = TRUE
 		return
