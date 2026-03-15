@@ -148,7 +148,9 @@
 /turf/simulated/floor/plating,
 /area/ship/ranger_corvette/engine1)
 "aFp" = (
-/obj/machinery/computer/ship/sensors,
+/obj/machinery/computer/ship/sensors{
+	req_access = list(222)
+	},
 /turf/simulated/floor/tiled/full,
 /area/shuttle/ranger_shuttle)
 "aHv" = (
@@ -343,7 +345,8 @@
 	},
 /obj/machinery/door/airlock/service{
 	name = "Custodial Closet";
-	dir = 4
+	dir = 4;
+	req_access = list(222)
 	},
 /obj/machinery/door/firedoor{
 	dir = 4;
@@ -404,7 +407,8 @@
 /obj/machinery/door/airlock{
 	name = "EVA Storage";
 	dir = 1;
-	req_one_access = list(221,222)
+	req_one_access = list(221,222);
+	req_access = list(222)
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -599,7 +603,8 @@
 /obj/machinery/door/airlock/engineering{
 	dir = 4;
 	req_one_access = list(221,222);
-	name = "Rotary Cannon Chamber/Starboard Propulsion"
+	name = "Rotary Cannon Chamber/Starboard Propulsion";
+	req_access = list(222)
 	},
 /obj/machinery/door/firedoor{
 	req_one_access = list(221,222)
@@ -994,7 +999,8 @@
 /obj/machinery/door/airlock/hatch{
 	name = "Starboard Propulsion";
 	dir = 1;
-	req_one_access = list(221,222)
+	req_one_access = list(221,222);
+	req_access = list(222)
 	},
 /obj/machinery/door/firedoor{
 	req_one_access = list(221,222)
@@ -1251,7 +1257,8 @@
 "fbf" = (
 /obj/machinery/door/airlock/hatch{
 	name = "Port Propulsion";
-	dir = 1
+	dir = 1;
+	req_access = list(222)
 	},
 /obj/machinery/door/firedoor{
 	req_one_access = list(221,222)
@@ -1781,7 +1788,8 @@
 "gMK" = (
 /obj/machinery/door/airlock/hatch{
 	name = "Cryogenics";
-	dir = 4
+	dir = 4;
+	req_access = list(222)
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -1824,7 +1832,8 @@
 	},
 /obj/machinery/door/airlock/service{
 	name = "Dormitory";
-	dir = 1
+	dir = 1;
+	req_access = list(222)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/crew)
@@ -1889,7 +1898,8 @@
 "hdZ" = (
 /obj/machinery/door/airlock/engineering{
 	req_one_access = list(221,222);
-	name = "Engineering"
+	name = "Engineering";
+	req_access = list(222)
 	},
 /obj/machinery/door/firedoor{
 	req_one_access = list(221,222)
@@ -1952,7 +1962,8 @@
 	},
 /obj/machinery/door/airlock/atmos{
 	dir = 4;
-	req_one_access = list(221,222)
+	req_one_access = list(221,222);
+	req_access = list(222)
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -2055,7 +2066,8 @@
 "hZi" = (
 /obj/machinery/door/airlock/service{
 	name = "Dormitory";
-	dir = 4
+	dir = 4;
+	req_access = list(222)
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -2126,7 +2138,8 @@
 /obj/machinery/door/airlock/security{
 	dir = 4;
 	req_one_access = list(221,222);
-	name = "Brig"
+	name = "Brig";
+	req_access = list(222)
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -2297,7 +2310,9 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
-/obj/structure/closet/secure_closet/guncabinet,
+/obj/structure/closet/secure_closet/guncabinet{
+	req_access = list(222)
+	},
 /obj/item/gun/projectile/revolver/lemat,
 /obj/item/gun/projectile/revolver/lemat,
 /obj/item/gun/projectile/revolver/lemat,
@@ -2339,7 +2354,8 @@
 /obj/machinery/door/airlock/glass_command{
 	name = "Bridge";
 	dir = 1;
-	req_one_access = list(221,222)
+	req_one_access = list(221,222);
+	req_access = list(222)
 	},
 /obj/machinery/door/firedoor{
 	req_one_access = list(221,222)
@@ -2434,7 +2450,8 @@
 	icon_state = "tube_empty"
 	},
 /obj/machinery/computer/ship/sensors{
-	dir = 4
+	dir = 4;
+	req_access = list(222)
 	},
 /obj/effect/floor_decal/corner_wide/blue/diagonal,
 /turf/simulated/floor/tiled/dark,
@@ -2465,7 +2482,8 @@
 /obj/machinery/door/airlock/highsecurity{
 	name = "Ship Munitions Storage";
 	dir = 4;
-	req_one_access = list(221,222)
+	req_one_access = list(221,222);
+	req_access = list(222)
 	},
 /obj/machinery/door/firedoor{
 	req_one_access = list(221,222)
@@ -2719,7 +2737,8 @@
 /obj/machinery/door/airlock/highsecurity{
 	name = "Ship Munitions Storage";
 	dir = 4;
-	req_one_access = list(221,222)
+	req_one_access = list(221,222);
+	req_access = list(222)
 	},
 /obj/machinery/door/firedoor{
 	req_one_access = list(221,222)
@@ -2854,7 +2873,8 @@
 /area/ship/ranger_corvette/munitions)
 "lvN" = (
 /obj/machinery/computer/shuttle_control/explore/ranger_shuttle{
-	req_one_access = list(221,222)
+	req_one_access = list(221,222);
+	req_access = list(222)
 	},
 /turf/simulated/floor/tiled/full,
 /area/shuttle/ranger_shuttle)
@@ -3036,7 +3056,8 @@
 /obj/machinery/door/airlock/silver{
 	name = "Kitchen";
 	dir = 4;
-	req_one_access = list(221,222)
+	req_one_access = list(221,222);
+	req_access = list(222)
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -3131,7 +3152,8 @@
 /obj/machinery/door/airlock/highsecurity{
 	name = "Flak Battery Chamber";
 	dir = 1;
-	req_one_access = list(221,222)
+	req_one_access = list(221,222);
+	req_access = list(222)
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -3375,7 +3397,8 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/door/airlock/medical{
 	name = "Surgical Suite";
-	dir = 1
+	dir = 1;
+	req_access = list(222)
 	},
 /obj/machinery/door/firedoor{
 	req_one_access = list(221,222)
@@ -3632,7 +3655,8 @@
 	pixel_x = -28;
 	pixel_y = 12;
 	dir = 1;
-	frequency = 2137
+	frequency = 2137;
+	req_access = list(222)
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/effect/map_effect/marker/airlock/docking/ranger_corvette/aft,
@@ -3979,7 +4003,8 @@
 /obj/machinery/door/airlock/medical{
 	name = "Medbay";
 	dir = 4;
-	req_one_access = list(221,222)
+	req_one_access = list(221,222);
+	req_access = list(222)
 	},
 /obj/machinery/door/firedoor{
 	dir = 4;
@@ -4145,7 +4170,8 @@
 /obj/machinery/door/airlock/highsecurity{
 	name = "Auxiliary CIC";
 	dir = 4;
-	req_one_access = list(221,222)
+	req_one_access = list(221,222);
+	req_access = list(222)
 	},
 /obj/machinery/door/firedoor{
 	req_one_access = list(221,222)
@@ -4210,7 +4236,8 @@
 /obj/machinery/door/airlock/highsecurity{
 	name = "Armory";
 	dir = 4;
-	req_one_access = list(221,222)
+	req_one_access = list(221,222);
+	req_access = list(222)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/gunnery)
@@ -4327,7 +4354,8 @@
 "qRJ" = (
 /obj/machinery/door/airlock/silver{
 	name = "Washroom";
-	dir = 4
+	dir = 4;
+	req_access = list(222)
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -4547,7 +4575,8 @@
 	icon_state = "tube_empty"
 	},
 /obj/machinery/computer/ship/engines{
-	dir = 4
+	dir = 4;
+	req_access = list(222)
 	},
 /obj/effect/floor_decal/corner_wide/blue/diagonal,
 /turf/simulated/floor/tiled/dark,
@@ -5219,7 +5248,8 @@
 /area/ship/ranger_corvette/crew)
 "twl" = (
 /obj/machinery/computer/ship/helm{
-	req_one_access = list(221,222)
+	req_one_access = list(221,222);
+	req_access = list(222)
 	},
 /turf/simulated/floor/tiled/full,
 /area/shuttle/ranger_shuttle)
@@ -5229,7 +5259,8 @@
 	},
 /obj/structure/railing/mapped,
 /obj/machinery/computer/ship/sensors{
-	dir = 1
+	dir = 1;
+	req_access = list(222)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/bridge)
@@ -5460,7 +5491,8 @@
 /obj/structure/railing/mapped,
 /obj/machinery/computer/ship/helm{
 	dir = 1;
-	req_one_access = list(221,222)
+	req_one_access = list(221,222);
+	req_access = list(222)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/bridge)
@@ -5736,7 +5768,8 @@
 	name = "fore blast door-control";
 	pixel_x = -6;
 	pixel_y = 6;
-	req_one_access = list(221,222)
+	req_one_access = list(221,222);
+	req_access = list(222)
 	},
 /obj/machinery/button/remote/blast_door{
 	id = "coc_midship";
@@ -5750,14 +5783,16 @@
 	name = "aft blast door-control";
 	pixel_x = 4;
 	pixel_y = -3;
-	req_one_access = list(221,222)
+	req_one_access = list(221,222);
+	req_access = list(222)
 	},
 /obj/machinery/button/remote/blast_door{
 	id = "coc_bridge";
 	name = "bridge blast door-control";
 	pixel_x = 4;
 	pixel_y = 6;
-	req_one_access = list(221,222)
+	req_one_access = list(221,222);
+	req_access = list(222)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/bridge)
@@ -5867,7 +5902,8 @@
 /obj/machinery/door/airlock/command{
 	dir = 4;
 	name = "Ranger Leader Quarters";
-	req_one_access = list(221,222)
+	req_one_access = list(221,222);
+	req_access = list(222)
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -6321,7 +6357,8 @@
 "wPn" = (
 /obj/machinery/door/airlock/engineering{
 	req_one_access = list(221,222);
-	name = "Engineering"
+	name = "Engineering";
+	req_access = list(222)
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -6437,7 +6474,8 @@
 	},
 /obj/machinery/door/airlock/engineering{
 	dir = 4;
-	req_one_access = list(221,222)
+	req_one_access = list(221,222);
+	req_access = list(222)
 	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -6545,7 +6583,8 @@
 /obj/machinery/door/airlock/glass_security{
 	name = "Holding Cell";
 	dir = 1;
-	req_one_access = list(221,222)
+	req_one_access = list(221,222);
+	req_access = list(222)
 	},
 /obj/machinery/door/firedoor{
 	req_one_access = list(221,222)
