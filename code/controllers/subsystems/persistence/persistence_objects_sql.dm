@@ -3,6 +3,7 @@
  * Cleanup includes all entries that have expired and have passed the clean up grace period (PERSISTENT_EXPIRATION_CLEANUP_DELAY_DAYS).
  */
 /datum/controller/subsystem/persistence/proc/objectsDatabaseCleanEntries()
+	PRIVATE_PROC(TRUE)
 	if(!databaseCheckConnection("objectsDatabaseCleanEntries"))
 		return
 
@@ -24,6 +25,7 @@
  * RETURN: List of JSON, with ID, author_ckey, type, content, x, y, z
  */
 /datum/controller/subsystem/persistence/proc/objectsDatabaseGetActiveEntries()
+	PRIVATE_PROC(TRUE)
 	if(!databaseCheckConnection("objectsDatabaseGetActiveEntries"))
 		return
 
@@ -55,6 +57,7 @@
  * Adds a persistent data record to the database.
  */
 /datum/controller/subsystem/persistence/proc/objectsDatabaseAddEntry(var/obj/track)
+	PRIVATE_PROC(TRUE)
 	if(!databaseCheckConnection("objectsDatabaseAddEntry"))
 		return
 
@@ -84,6 +87,7 @@
  * Updates a persistent data record in the database.
  */
 /datum/controller/subsystem/persistence/proc/objectsDatabaseUpdateEntry(var/obj/track)
+	PRIVATE_PROC(TRUE)
 	if(!databaseCheckConnection("objectsDatabaseUpdateEntry"))
 		return
 
@@ -112,6 +116,7 @@
  * Expire a persistent data record in the database by setting it's expiration date to now.
  */
 /datum/controller/subsystem/persistence/proc/objectsDatabaseExpireEntry(var/track_id)
+	PRIVATE_PROC(TRUE)
 	if(!databaseCheckConnection("objectsDatabaseExpireEntry"))
 		return
 
