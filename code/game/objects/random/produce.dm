@@ -47,21 +47,28 @@
 
 /obj/random_produce/box // produce for spawning in chef produce boxes. better suited for the job
 	produce_list = list(
-		"chili" = 1,
+		"chili" = 1.5,
 		"tomato" = 2,
 		"eggplant" = 0.5,
 		"mushrooms" = 0.25,
 		"cabbage" = 2,
-		"corn" = 2,
+		"corn" = 1.5,
 		"potato" = 2,
 		"soybean" = 0.5,
 		"carrot" = 1,
-		"whitebeet" = 1,
+		"whitebeet" = 0.25,
 		"pumpkin" = 0.1,
 		"onion" = 0.5,
 		"garlic" = 0.5,
 		"bellpepper" = 0.25,
-		"cucumber" = 0.25
+		"cucumber" = 0.25,
+		"lime" = 0.25,
+		"lemon" = 0.5,
+		"chickpeas" = 0.1,
+		"banana" = 0.1,
+		"plumphelmet" = 0.1,
+		"orange" = 0.1,
+		"berries" = 0.1
 	)
 
 /obj/random_produce/box/adhomai

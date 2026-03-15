@@ -242,7 +242,7 @@
 
 /obj/item/reagent_containers/food/snacks/caramelized_steak_bites
 	name = "caramelized steak bites"
-	desc = "A rich, sticky-sweet dessert for any Unathi. For non-Unathi thixxs may sometimes be considered a main dish, albeit a very sweet one, as far as meat dishes are concerned."
+	desc = "A rich, sticky-sweet dessert for any Unathi. For non-Unathi this may sometimes be considered a main dish, albeit a very sweet one, as far as meat dishes are concerned."
 	icon = 'icons/obj/item/reagent_containers/food/cultural/unathi.dmi'
 	icon_state = "steakbites"
 	trash = /obj/item/trash/bowl_brown
