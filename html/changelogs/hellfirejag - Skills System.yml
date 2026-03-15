@@ -1,0 +1,4 @@
+author: Hellfirejag and Matt Atlas
+delete-after: True
+changes:
+  - rscadd: "Added a basic initial implementation of a Mechanical Skills System."
