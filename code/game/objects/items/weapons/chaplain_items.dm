@@ -226,9 +226,8 @@
 	light_color = LIGHT_COLOR_BLUE
 
 /obj/item/nullrod/luceiansceptre/Initialize()
-	..()
-
 	set_light_on(TRUE)
+	..()
 
 /obj/item/nullrod/clockworkstave
 	name = "\improper clockwork stave"
@@ -439,9 +438,8 @@
 	pickup_sound = 'sound/items/pickup/glass.ogg'
 
 /obj/item/assunzioneorb/Initialize()
-	..()
-
 	set_light_on(TRUE)
+	..()
 
 /obj/item/assunzioneorb/proc/shatter()
 	visible_message(SPAN_WARNING("\The [src] shatters!"), SPAN_WARNING("You hear a small glass object shatter!"))
