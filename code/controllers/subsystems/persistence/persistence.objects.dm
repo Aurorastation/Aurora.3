@@ -25,7 +25,7 @@
 		// as this will give the subsystem the chance to apply the content and
 		// the object to continue with init logic after the subsystem is done in LateInitialize.
 		var/obj/instance = new typepath()
-		instance.persistence_track_id = data["id"]
+		instance.persistent_objects_track_id = data["id"]
 		objectsApplyTrackContent(instance, data["content"], data["x"], data["y"], data["z"])
 		objectsRegisterTrack(instance, data["author_ckey"])
 
@@ -59,7 +59,7 @@
 
 	for (var/obj/track in GLOB.persistence_register)
 		CHECK_TICK
-		if (track.persistence_track_id == 0)
+		if (track.persistent_objects_track_id == 0)
 			// Tracked object has no ID meaning it is new, create a new persistent record for it
 			objectsDatabaseAddEntry(track)
 			created++
@@ -70,7 +70,7 @@
 		var/found = FALSE
 		for (var/obj/track in GLOB.persistence_register)
 			CHECK_TICK
-			if (record["id"] == track.persistence_track_id)
+			if (record["id"] == track.persistent_objects_track_id)
 				// A track with the same ID has been found in the register, it still exists, check if we need to update it instead
 				found = TRUE // Prevent expiration of track
 				var/changed = FALSE
@@ -102,7 +102,7 @@
 	PRIVATE_PROC(TRUE)
 	var/result = json_encode(list())
 	try
-		var/list/content = track.persistence_get_content()
+		var/list/content = track.persistent_objects_get_content()
 		if(content && content.len)
 			result = json_encode(content)
 	catch(var/exception/e)
@@ -119,6 +119,6 @@
 /datum/controller/subsystem/persistence/proc/objectsApplyTrackContent(var/obj/track, var/json, var/x, var/y, var/z)
 	PRIVATE_PROC(TRUE)
 	try
-		track.persistence_apply_content(json_decode(json), x, y, z)
+		track.persistent_objects_apply_content(json_decode(json), x, y, z)
 	catch(var/exception/e)
 		log_subsystem_persistence_error("Error during json deserialization for persistent object. Failed to apply/decode track content: [e]")

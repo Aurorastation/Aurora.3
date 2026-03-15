@@ -515,7 +515,7 @@
 	if(T)
 		var/area/A = get_area(T)
 		if(A && !(A.area_flags & AREA_FLAG_PREVENT_PERSISTENT_TRASH))
-			persistance_expiration_time_days = 3 // Ensure expiration date is set to prevent long term trash
+			persistant_objects_expiration_time_days = 3 // Ensure expiration date is set to prevent long term trash
 			SSpersistence.objectsRegisterTrack(src, usr == null ? null : ckey(usr.key))
 			return
 

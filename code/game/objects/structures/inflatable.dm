@@ -293,7 +293,7 @@
 	icon_state = "folded_wall-torn"
 	persistency_considered_trash = TRUE
 
-/obj/item/inflatable/torn/persistence_apply_content(content, x, y, z)
+/obj/item/inflatable/torn/persistent_objects_apply_content(content, x, y, z)
 	src.x = x
 	src.y = y
 	src.z = z
@@ -308,7 +308,7 @@
 	icon_state = "folded_door-torn"
 	persistency_considered_trash = TRUE
 
-/obj/item/inflatable/door/torn/persistence_apply_content(content, x, y, z)
+/obj/item/inflatable/door/torn/persistent_objects_apply_content(content, x, y, z)
 	src.x = x
 	src.y = y
 	src.z = z

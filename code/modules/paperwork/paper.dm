@@ -822,13 +822,13 @@
 				PERSISTENT
 #############################################*/
 
-/obj/item/paper/persistence_get_content()
+/obj/item/paper/persistent_objects_get_content()
 	var/list/content = list()
 	content["title"] = name
 	content["text"] = info
 	return content
 
-/obj/item/paper/persistence_apply_content(content, x, y, z)
+/obj/item/paper/persistent_objects_apply_content(content, x, y, z)
 	set_content(content["title"], content["text"])
 	src.x = x
 	src.y = y
@@ -865,14 +865,14 @@
 
 	icon_state = info ? "stickynote_words" : "stickynote"
 
-/obj/item/paper/stickynotes/persistence_get_content()
+/obj/item/paper/stickynotes/persistent_objects_get_content()
 	var/list/content = ..()
 	content["color"] = color
 	content["pixel_x"] = pixel_x
 	content["pixel_y"] = pixel_y
 	return content
 
-/obj/item/paper/stickynotes/persistence_apply_content(content, x, y, z)
+/obj/item/paper/stickynotes/persistent_objects_apply_content(content, x, y, z)
 	src.name = content["title"]
 	src.info = content["text"]
 	src.color = content["color"]

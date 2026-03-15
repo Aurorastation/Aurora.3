@@ -249,7 +249,7 @@
 	w_class = WEIGHT_CLASS_SMALL
 	persistency_considered_trash = TRUE
 
-/obj/item/broken_bottle/persistence_apply_content(content, x, y, z)
+/obj/item/broken_bottle/persistent_objects_apply_content(content, x, y, z)
 	src.x = x
 	src.y = y
 	src.z = z
