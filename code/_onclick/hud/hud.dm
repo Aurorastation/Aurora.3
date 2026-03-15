@@ -426,6 +426,7 @@ GLOBAL_LIST(global_huds)
 
 	hud_used.hidden_inventory_update()
 	hud_used.persistant_inventory_update()
+	hud_used.reorganize_alerts()
 	update_action_buttons()
 
 //Similar to button_pressed_F12() but keeps zone_sel, gun_setting_icon, and healths.

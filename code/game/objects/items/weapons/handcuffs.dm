@@ -97,10 +97,6 @@
 		user.do_attack_animation(H)
 		user.visible_message(SPAN_DANGER("\The [user] has put [cuff_type] on \the [H]!"))
 
-	if(!legcuff)
-		target.drop_r_hand()
-		target.drop_l_hand()
-
 	// Apply cuffs.
 	var/obj/item/handcuffs/cuffs = src
 	if(dispenser)
@@ -112,10 +108,10 @@
 
 	if(!legcuff)
 		target.handcuffed = cuffs
-		target.update_inv_handcuffed()
+		target.handcuff_update()
 	else
 		target.legcuffed = cuffs
-		target.update_inv_legcuffed()
+		target.legcuff_update()
 	return TRUE
 
 /mob/living/carbon/human/RestrainedClickOn(var/atom/A)

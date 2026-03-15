@@ -251,13 +251,6 @@
 		mymob.toxin.screen_loc = ui_temp
 		hud_elements |= mymob.toxin
 
-		mymob.fire = new /atom/movable/screen()
-		mymob.fire.icon = ui_style
-		mymob.fire.icon_state = "fire0"
-		mymob.fire.name = "fire"
-		mymob.fire.screen_loc = ui_fire
-		hud_elements |= mymob.fire
-
 		mymob.paralysis_indicator = new /atom/movable/screen/paralysis()
 		mymob.paralysis_indicator.icon = 'icons/mob/status_indicators.dmi'
 		mymob.paralysis_indicator.icon_state = "paralysis0"

@@ -70,7 +70,6 @@
 	i_select = null
 	m_select = null
 	toxin = null
-	fire = null
 	bodytemp = null
 	healths = null
 	throw_icon = null
