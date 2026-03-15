@@ -27,6 +27,7 @@
 #define SECTOR_XANU					"Xanu"				// Xanu Prime is here
 #define SECTOR_BURZSIA				"Burzsia" 			//Burzsia I and II are here
 #define SECTOR_HANEUNIM				"Haneunim"			//Haneunim and its gravity well, Konyang is found here
+#define SECTOR_ASSUNZIONE			"Assunzione"		//Assunzione is here
 #define ALL_COALITION_SECTORS	list(SECTOR_COALITION, SECTOR_XANU, SECTOR_WEEPING_STARS, SECTOR_ARUSHA, SECTOR_LIBERTYS_CRADLE, SECTOR_BURZSIA, SECTOR_HANEUNIM)
 
 //Light's edge, which should have unique properties all around
