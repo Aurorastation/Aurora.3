@@ -1815,8 +1815,7 @@
 /turf/simulated/floor/plating,
 /area/ship/ranger_corvette/foyer)
 "gSr" = (
-/obj/effect/decal/cleanable/dirt,
-/mob/living/heavy_vehicle/premade/ripley/loader,
+/obj/item/ship_ammunition/autocannon/he,
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/engine1)
 "gUj" = (
@@ -2038,8 +2037,8 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/foyer)
 "hUh" = (
-/obj/item/ship_ammunition/autocannon/he,
-/turf/simulated/floor/tiled/dark,
+/obj/structure/ship_weapon_dummy,
+/turf/template_noop,
 /area/ship/ranger_corvette/engine1)
 "hUx" = (
 /obj/effect/landmark/entry_point/port{
@@ -2597,10 +2596,6 @@
 	},
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/shuttle/ranger_shuttle)
-"jYf" = (
-/obj/structure/ship_weapon_dummy,
-/turf/template_noop,
-/area/ship/ranger_corvette/engine1)
 "kaR" = (
 /obj/structure/sign/directions/com{
 	dir = 4;
@@ -5688,6 +5683,11 @@
 	},
 /turf/simulated/floor/plating,
 /area/ship/ranger_corvette/foyer)
+"uFD" = (
+/obj/effect/decal/cleanable/dirt,
+/mob/living/heavy_vehicle/premade/ripley/loader,
+/turf/simulated/floor/tiled/dark,
+/area/ship/ranger_corvette/engine1)
 "uGk" = (
 /obj/machinery/door/airlock/external{
 	dir = 4
@@ -37326,9 +37326,9 @@ xRX
 xRX
 xRX
 tWh
-jYf
-jYf
-jYf
+hUh
+hUh
+hUh
 usZ
 qHO
 xRX
@@ -37583,10 +37583,10 @@ xRX
 xRX
 xRX
 tWh
-jYf
-jYf
-jYf
-jYf
+hUh
+hUh
+hUh
+hUh
 qbD
 xRX
 xRX
@@ -37840,9 +37840,9 @@ xRX
 xRX
 xRX
 tWh
-jYf
-jYf
-jYf
+hUh
+hUh
+hUh
 usZ
 aXi
 xRX
@@ -38354,7 +38354,7 @@ tWh
 usz
 dLB
 vOd
-hUh
+gSr
 kJM
 tWh
 xRX
@@ -38611,7 +38611,7 @@ eiR
 frC
 iOe
 vPn
-gSr
+uFD
 eSo
 tWh
 xRX
