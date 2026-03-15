@@ -225,7 +225,7 @@
 	light_power = 2
 	light_color = LIGHT_COLOR_BLUE
 
-/obj/item/nullrod/luceiansceptre/Initialize()
+/obj/item/nullrod/luceiansceptre/Initialize(mapload)
 	set_light_on(TRUE)
 	..()
 
@@ -437,7 +437,7 @@
 	drop_sound = 'sound/items/drop/glass.ogg'
 	pickup_sound = 'sound/items/pickup/glass.ogg'
 
-/obj/item/assunzioneorb/Initialize()
+/obj/item/assunzioneorb/Initialize(mapload)
 	set_light_on(TRUE)
 	..()
 
