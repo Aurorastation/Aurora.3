@@ -1,3 +1,14 @@
+/*
+ * Persistence subsystem
+ * Subsytem for managing any form of persistent content across rounds.
+ *
+ * This subsystem consists of multiple partial files, following the structure:alist
+ * - persistence.dm						- Subsystem definition and generic code.
+ * - persistence.objects.dm				- Persistent object related code.
+ * - persistence.objects.public.dm		- Persistent object public procs.
+ * - persistence.objects.sql.dm			- Persistent object database code.
+ */
+
 SUBSYSTEM_DEF(persistence)
 	name = "Persistence"
 	init_order = INIT_ORDER_PERSISTENCE // The order is tied with the init and maploading subsystem.
