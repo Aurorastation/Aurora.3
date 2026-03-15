@@ -55,5 +55,5 @@ delete-after: True
 # Also, this gets changed to [] after reading.  Just remove the brackets when you add new shit.
 # Please surround your changes in  double quotes ("). It works without them, but if you use certain characters it screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - qol: "Changed the kitchen produce boxes to include a few more things that would be useful for chefs (in small quantities, we're not trying to replace Botany here)"
-  - spellcheck: "Fixed a small typo in the description of caramelized steak bites"
+  - qol: "Changed the kitchen produce boxes to include a few more things that would be useful for chefs (in small quantities, we're not trying to replace Botany here)."
+  - spellcheck: "Fixed a small typo in the description of caramelized steak bites."
