@@ -2,7 +2,7 @@
  * Persistence subsystem
  * Subsytem for managing any form of persistent content across rounds.
  *
- * This subsystem consists of multiple partial files, following the structure:alist
+ * This subsystem consists of multiple partial files, following the structure:
  * - persistence.dm						- Subsystem definition and generic code.
  * - persistence.objects.dm				- Persistent object related code.
  * - persistence.objects.public.dm		- Persistent object public procs.
