@@ -378,7 +378,7 @@
 #include "code\controllers\subsystems\overlays.dm"
 #include "code\controllers\subsystems\pai.dm"
 #include "code\controllers\subsystems\pathfinder.dm"
-#include "code\controllers\subsystems\persistence\persistence.dm"
+#include "code\controllers\subsystems\persistence\persistence.base.dm"
 #include "code\controllers\subsystems\persistence\persistence.objects.dm"
 #include "code\controllers\subsystems\persistence\persistence.objects.public.dm"
 #include "code\controllers\subsystems\persistence\persistence.objects.sql.dm"
