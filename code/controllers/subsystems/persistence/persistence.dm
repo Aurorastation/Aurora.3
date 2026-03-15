@@ -23,12 +23,23 @@ SUBSYSTEM_DEF(persistence)
 
 /**
  * Helper method to check and log database connection.
+ * Returns true if connection is scuccessful, false if not.
  */
-/datum/controller/subsystem/persistence/proc/databaseConnectionCheck(var/action)
+/datum/controller/subsystem/persistence/proc/databaseCheckConnection(var/action)
 	PRIVATE_PROC(TRUE)
 	if(!SSdbcore.Connect())
-		if(action)
-			log_subsystem_persistence_error("SQL error during [action], connection failed.")
+		log_subsystem_persistence_error("SQL error during [action], connection failed.")
+		return FALSE
+	return TRUE
+
+/**
+ * Helper method to check the SQL query result and log possible errors.
+ * Returns true if no error occured, false if an error was found.
+ */
+/datum/controller/subsystem/persistence/proc/databaseCheckQueryResult(var/datum/db_query/query, var/action)
+	PRIVATE_PROC(TRUE)
+	if (query.ErrorMsg())
+		log_subsystem_persistence_error("SQL error during [action]. " + query.ErrorMsg())
 		return FALSE
 	return TRUE
 
@@ -42,7 +53,7 @@ SUBSYSTEM_DEF(persistence)
 		log_subsystem_persistence_warning("SQL configuration not enabled. Persistence subsystem requires SQL. Skipping init.")
 		return SS_INIT_SUCCESS
 
-	if(!databaseConnectionCheck("subsystem init"))
+	if(!databaseCheckConnection("subsystem init"))
 		return SS_INIT_FAILURE
 
 	try
@@ -58,7 +69,7 @@ SUBSYSTEM_DEF(persistence)
  * The shutdown consists of finalization steps for each persistent data type.
  */
 /datum/controller/subsystem/persistence/Shutdown()
-	if(!databaseConnectionCheck("subsystem shutdown"))
+	if(!databaseCheckConnection("subsystem shutdown"))
 		log_subsystem_persistence_panic("SQL error during persistence subsystem shutdown. Cannot finalise persistence of the round.")
 		return
 

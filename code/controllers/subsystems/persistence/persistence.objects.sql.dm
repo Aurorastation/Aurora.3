@@ -3,7 +3,7 @@
  * Cleanup includes all entries that have expired and have passed the clean up grace period (PERSISTENT_EXPIRATION_CLEANUP_DELAY_DAYS).
  */
 /datum/controller/subsystem/persistence/proc/objectsDatabaseCleanEntries()
-	if(!databaseConnectionCheck("objectsDatabaseCleanEntries"))
+	if(!databaseCheckConnection("objectsDatabaseCleanEntries"))
 		return
 
 	var/datum/db_query/cleanup_query = SSdbcore.NewQuery(
@@ -16,8 +16,7 @@
 	cleanup_query.ExecuteNoSleep(TRUE)
 
 /datum/controller/subsystem/persistence/proc/objectsDatabaseCleanEntries_CallbackFailure(var/datum/db_query/cleanup_query)
-	if (cleanup_query.ErrorMsg())
-		log_subsystem_persistence_error("SQL error during persistence objectsDatabaseCleanEntries. " + cleanup_query.ErrorMsg())
+	databaseCheckQueryResult(cleanup_query, "objectsDatabaseCleanEntries")
 	qdel(cleanup_query)
 
 /**
@@ -25,7 +24,7 @@
  * RETURN: List of JSON, with ID, author_ckey, type, content, x, y, z
  */
 /datum/controller/subsystem/persistence/proc/objectsDatabaseGetActiveEntries()
-	if(!databaseConnectionCheck("objectsDatabaseGetActiveEntries"))
+	if(!databaseCheckConnection("objectsDatabaseGetActiveEntries"))
 		return
 
 	var/datum/db_query/get_query = SSdbcore.NewQuery(
@@ -34,8 +33,7 @@
 	get_query.Execute()
 
 	var/list/results = list()
-	if (get_query.ErrorMsg())
-		log_subsystem_persistence_error("SQL error during persistence objectsDatabaseGetActiveEntries. " + get_query.ErrorMsg())
+	if (!databaseCheckQueryResult(get_query, "objectsDatabaseGetActiveEntries"))
 		return
 	else
 		while (get_query.NextRow())
@@ -57,7 +55,7 @@
  * Adds a persistent data record to the database.
  */
 /datum/controller/subsystem/persistence/proc/objectsDatabaseAddEntry(var/obj/track)
-	if(!databaseConnectionCheck("objectsDatabaseAddEntry"))
+	if(!databaseCheckConnection("objectsDatabaseAddEntry"))
 		return
 
 	var/turf/T = get_turf(track)
@@ -79,15 +77,14 @@
 	)
 	insert_query.Execute()
 
-	if (insert_query.ErrorMsg())
-		log_subsystem_persistence_error("SQL error during persistence objectsDatabaseAddEntry. " + insert_query.ErrorMsg())
+	databaseCheckQueryResult(insert_query, "objectsDatabaseAddEntry")
 	qdel(insert_query)
 
 /**
  * Updates a persistent data record in the database.
  */
 /datum/controller/subsystem/persistence/proc/objectsDatabaseUpdateEntry(var/obj/track)
-	if(!databaseConnectionCheck("objectsDatabaseUpdateEntry"))
+	if(!databaseCheckConnection("objectsDatabaseUpdateEntry"))
 		return
 
 	var/turf/T = get_turf(track)
@@ -108,15 +105,14 @@
 	)
 	update_query.Execute()
 
-	if (update_query.ErrorMsg())
-		log_subsystem_persistence_error("SQL error during persistence objectsDatabaseUpdateEntry. " + update_query.ErrorMsg())
+	databaseCheckQueryResult(update_query, "objectsDatabaseUpdateEntry")
 	qdel(update_query)
 
 /**
  * Expire a persistent data record in the database by setting it's expiration date to now.
  */
 /datum/controller/subsystem/persistence/proc/objectsDatabaseExpireEntry(var/track_id)
-	if(!databaseConnectionCheck("objectsDatabaseExpireEntry"))
+	if(!databaseCheckConnection("objectsDatabaseExpireEntry"))
 		return
 
 	var/datum/db_query/expire_query = SSdbcore.NewQuery(
@@ -125,6 +121,5 @@
 	)
 	expire_query.Execute()
 
-	if (expire_query.ErrorMsg())
-		log_subsystem_persistence_error("SQL error during persistence objectsDatabaseExpireEntry. " + expire_query.ErrorMsg())
+	databaseCheckQueryResult(expire_query, "objectsDatabaseExpireEntry")
 	qdel(expire_query)
