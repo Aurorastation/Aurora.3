@@ -21,13 +21,18 @@
 	var/datum/gas_mixture/air_contents = null
 	var/distribute_pressure = ONE_ATMOSPHERE
 	var/integrity = 3
-	var/volume = 70
+	var/volume = STANDARD_TANK_VOLUME
 	var/manipulated_by = null		//Used by _onclick/hud/screen_objects.dm internals to determine if someone has messed with our tank or not.
 						//If they have and we haven't scanned it with a computer or handheld gas analyzer then we might just breath whatever they put in it.
 
+	var/list/starting_pressure //list in format 'xgm gas id' = 'desired pressure at start'
+
 /obj/item/tank/feedback_hints(mob/user, distance, is_adjacent)
 	. += ..()
-	if(distance <= 0)
+	if(!is_adjacent)
+		. += SPAN_NOTICE("You see some information on the gauge on the tank, but you'll need to get closer to see it.")
+	else
+		. += SPAN_NOTICE("The gauge reads <b>[round(air_contents.total_moles, 0.01)] mol</b> at <b>[round(XGM_PRESSURE(air_contents), 0.01)] kPa</b>.")
 		var/celsius_temperature = air_contents.temperature - T0C
 		switch(celsius_temperature)
 			if(300 to INFINITY)
@@ -46,12 +51,12 @@
 /obj/item/tank/Initialize()
 	. = ..()
 
-	air_contents = new /datum/gas_mixture()
-	air_contents.volume = volume //liters
-	air_contents.temperature = T20C
+	air_contents = new /datum/gas_mixture(volume, T20C)
+	for(var/gas in starting_pressure)
+		air_contents.adjust_gas(gas, starting_pressure[gas]*volume/(R_IDEAL_GAS_EQUATION*T20C), 0)
+	air_contents.update_values()
 
 	START_PROCESSING(SSprocessing, src)
-	adjust_initial_gas()
 	update_gauge()
 
 /obj/item/tank/Destroy()
@@ -62,6 +67,8 @@
 	if(istype(loc, /obj/item/transfer_valve))
 		var/obj/item/transfer_valve/TTV = loc
 		TTV.remove_tank(src)
+		if(!QDELETED(TTV)) // It will delete tanks inside it on qdel.
+			qdel(TTV)
 
 	return ..()
 
@@ -211,9 +218,6 @@
 		tank_pressure = check_status(tank_pressure)
 	if(gauge_icon)
 		update_gauge(tank_pressure)
-
-/obj/item/tank/proc/adjust_initial_gas()
-	return
 
 /obj/item/tank/proc/update_gauge(gauge_pressure = 0)
 	if(air_contents)

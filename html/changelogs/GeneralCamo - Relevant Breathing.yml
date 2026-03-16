@@ -56,3 +56,7 @@ delete-after: True
 # Please surround your changes in  double quotes ("). It works without them, but if you use certain characters it screws up compiling. The quotes will not show up in the changelog.
 changes:
   - rscadd: "Breath requirements are now scaled by pulse."
+  - balance: "Greatly increased breath requirements to make it actually relevant in a single round."
+  - balance: "Rebalanced tank volumes to account for new breath equation."
+  - bugfix: "Resolve a potential runtime loop in tank deletion."
+  - imageadd: "Replaced the void jetpack sprite with a sprite by Azlan of Baystation12."

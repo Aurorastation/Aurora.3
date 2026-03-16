@@ -15,7 +15,7 @@
 #define MIN_TOXIN_DAMAGE 1
 #define MAX_TOXIN_DAMAGE 10
 
-#define STD_BREATH_VOLUME 0.5 // Liters in a normal breath.
+#define STD_BREATH_VOLUME 12 // Liters in a normal breath.
 #define HUMAN_HEAT_CAPACITY 280000 //J/K For 80kg person
 
 #define PRESSURE_DAMAGE_COEFFICIENT 4 // The amount of pressure damage someone takes is equal to (pressure / HAZARD_HIGH_PRESSURE)*PRESSURE_DAMAGE_COEFFICIENT, with the maximum of MAX_PRESSURE_DAMAGE.
@@ -179,3 +179,10 @@ GLOBAL_LIST_INIT(pipe_colors, list(
 #define XGM_PRESSURE(xgm) (xgm.volume ? xgm.total_moles * R_IDEAL_GAS_EQUATION * xgm.temperature / xgm.volume : 0)
 /// XGM_PRESSURE but accounts for xgm (gas mixture) being null
 #define SAFE_XGM_PRESSURE(xgm) (xgm ? XGM_PRESSURE(xgm) : 0)
+
+// Standard atmospheric volumes
+#define STANDARD_TANK_VOLUME 70
+#define LARGE_TANK_VOLUME 180
+#define EMERGENCY_TANK_VOLUME 40
+#define EMERGENCY_EXTENDED_TANK_VOLUME 60
+#define EMERGENCY_DOUBLE_TANK_VOLUME 80
