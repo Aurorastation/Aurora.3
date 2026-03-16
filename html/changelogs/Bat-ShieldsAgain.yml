@@ -1,0 +1,8 @@
+author: Batrachophrenoboocosmomachia
+delete-after: True
+changes:
+  - bugfix: "Resolves some lingering weird behavior with emergency shield projectors with regards to power draw."
+  - bugfix: "Updates Warding Spheres, Luminous Sceptres, and Azubarre Torches to correctly emit light."
+  - bugfix: "Updates temp control unit to correctly use MOVABLE_LIGHT for its light_system."
+  - bugfix: "Hull shield generator correctly checks for both capacitor presence and activation state when toggling."
+  - qol: "INDRA Kinetic Harvester no longer disables harvesting a material if it happens to drop to zero (less aggravation when staggering fuel injection)."
