@@ -184,7 +184,7 @@
 	A.damage = min(A.damage, 60) //Caps the maximum damage one shot can do, this matches the laser cannon
 	if(!bypass_degrade)
 		for(var/obj/item/laser_components/modifier/modifier in gun_mods) //This repeats for EVERY MOD, fail chance goes up quadratically with the number of mods
-			if(prob((gun_mods.len * 2 * damage_coeff)/(max(1,(burst - 1))))) //TODO: pick which mod type damages which component?
+			if(prob((gun_mods.len * 2 * damage_coeff)/(max(1,(burst - 1)))))
 				capacitor.degrade(modifier.malus)
 			if(prob((gun_mods.len * 2 * damage_coeff)/(max(1,(burst - 1)))))
 				focusing_lens.degrade(modifier.malus)
