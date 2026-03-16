@@ -187,3 +187,25 @@
   - bugfix: Fixed augments not processing. This means that HUD augments are fixed
       as well.
   - bugfix: Fixed health analyzers displaying damage between 0 and 1 as 'none'.
+2026-03-14:
+  Hellfirejag:
+  - rscadd: Zeng-Hu Pharmaceuticals has now begun offering mind-blanker bioaugs to
+      paying Horizon crew. Non-Galatean psi sensitive species can now buy a mind blanker
+      in their loadout selections.
+  - rscadd: Zeng-Hu mind blankers can now be ordered through Cargo.
+2026-03-15:
+  Fenodyree:
+  - bugfix: The weapon analyzer now shows if your modular gun is self recharging.
+  GeneralCamo:
+  - rscdel: Removed the shotgun from the bar, and its associated ammo and permit.
+  - bugfix: Fix no wounds showing 'minor' wounds in medical scans.
+  MattAtlas:
+  - bugfix: Fixed a rounding issue that made it so that organs would sometimes retain
+      very small, unhealable amounts of damage when surgically fixed.
+  fyni:
+  - rscadd: Allows all types of IPCs to be HRAs.
+  steviii:
+  - rscadd: Adds an SCC-branded sleepmask and slippers, along with generic recolourable
+      slippers.
+  - rscadd: Adds the generic slippers to the recovery ward in the medbay, and the
+      SCC-branded sleepmask and slippers to the intrepid.
