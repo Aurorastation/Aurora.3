@@ -68,6 +68,23 @@
 	gear_tweaks += new /datum/gear_tweak/path(lunchboxes)
 	gear_tweaks += new /datum/gear_tweak/contents(lunchables_lunches(), lunchables_snacks(), lunchables_drinks(), lunchables_utensil())
 
+/datum/gear/teaset
+	display_name = "tea set"
+	description = "A box containing a tea set."
+	cost = 2
+	path = /obj/item/storage/toolbox/lunchbox
+
+/datum/gear/teaset/New()
+	..()
+	var/list/teas = list()
+	for(var/teabox_type in typesof(/obj/item/storage/toolbox/lunchbox))
+		var/obj/item/storage/toolbox/lunchbox/lunchbox = teabox_type
+		if(!initial(lunchbox.filled))
+			teas[initial(lunchbox.name)] = teabox_type
+	sortTim(teas, GLOBAL_PROC_REF(cmp_text_asc))
+	gear_tweaks += new /datum/gear_tweak/path(teas)
+	gear_tweaks += new /datum/gear_tweak/contents(teas_tea_type(), teas_teapot_type(), teas_teacup_type(), teas_teacup_type(), teas_teacup_type(), teas_teacup_type())
+
 /datum/gear/coffeecup
 	display_name = "coffee cups"
 	description = "A coffee cup in various designs."
