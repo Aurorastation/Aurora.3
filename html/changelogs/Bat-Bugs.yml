@@ -3,3 +3,5 @@ delete-after: True
 changes:
   - bugfix: "Sofas no longer able to be rotated while anchored."
   - bugfix: "Attempting to use crowbars, fire axes, hammers on airlocks while in the Hurt intent will now make you attack the airlock."
+  - bugfix: "Fixes graphical bug with open lid graphics for crates painted in any engineering color variants."
+  - bugfix: "Individual butterfly knife parts are no longer larger than butterfly knives themselves."
