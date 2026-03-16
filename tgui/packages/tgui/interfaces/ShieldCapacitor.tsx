@@ -18,7 +18,9 @@ export type CapacitorData = {
   time_since_fail: number;
   charge_rate: number;
   stored_charge: number;
+  stored_charge_readable: string;
   max_charge: number;
+  max_charge_readable: string;
   max_charge_rate: number;
 };
 
@@ -74,7 +76,7 @@ export const CapacitorWindow = (props, context) => {
             minValue={0}
             maxValue={data.max_charge}
           >
-            {data.stored_charge} / {data.max_charge} W
+            {data.stored_charge} / {data.max_charge} J
           </ProgressBar>
         </LabeledList.Item>
         <LabeledList.Item label="Charge Rate">
