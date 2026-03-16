@@ -19,7 +19,7 @@
 
 /obj/item/material/ashtray/persistence_get_content()
 	var/list/content = list()
-	content["fill_count"] = contents.len
+	content["fill_count"] = length(contents)
 	content["material"] = material.name
 	return content
 
