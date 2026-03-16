@@ -24,6 +24,7 @@
 	var/volume = STANDARD_TANK_VOLUME
 	var/manipulated_by = null		//Used by _onclick/hud/screen_objects.dm internals to determine if someone has messed with our tank or not.
 						//If they have and we haven't scanned it with a computer or handheld gas analyzer then we might just breath whatever they put in it.
+	var/last_alert = null
 
 	var/list/starting_pressure //list in format 'xgm gas id' = 'desired pressure at start'
 
@@ -235,6 +236,16 @@
 	ClearOverlays()
 	// SSoverlay will handle icon caching.
 	AddOverlays("[gauge_icon][(gauge_pressure == -1) ? "overload" : gauge_pressure]")
+
+	var/high_freq = 96000
+	if(gauge_pressure == 1)
+		playsound(src, 'sound/machines/twobeep.ogg', 30, TRUE, extrarange = SILENCED_SOUND_EXTRARANGE, frequency = high_freq)
+		audible_message("Tank pressure low -- Estimated time until depletion: [(volume/2) * 5] minutes.", hearing_distance = 2)
+	else if(gauge_pressure == 0)
+		playsound(src, 'sound/machines/twobeep.ogg', 30, TRUE, extrarange = SILENCED_SOUND_EXTRARANGE, frequency = high_freq)
+		playsound(src, 'sound/machines/beep.ogg', 30, FALSE, extrarange = SILENCED_SOUND_EXTRARANGE)
+		audible_message("Tank is nearly empty! Replacement recommended!", hearing_distance = 2)
+
 
 /obj/item/tank/proc/percent()
 	var/gauge_pressure = 0
