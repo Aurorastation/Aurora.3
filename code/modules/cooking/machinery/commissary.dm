@@ -41,6 +41,7 @@
 	display_tiers = 5
 	display_tier_amt = 3
 	has_emissive = FALSE
+	visible_takeout = TRUE
 
 /obj/machinery/smartfridge/tradeshelf/clothing
 	name = "clothing shelf"
@@ -233,6 +234,13 @@
 	qp_shop.interact_with_ui(user)
 
 /obj/machinery/commissary_wall_shop/CtrlClick(mob/user)
+	var/obj/item/card/id/I = user.GetIdCard()
+	if(!istype(I))
+		balloon_alert(user, "no id!")
+		return
+	if(!has_access(req_one_access = src.req_one_access, accesses = I.access))
+		balloon_alert(user, "no access!")
+		return
 	turned_on = !turned_on
 	balloon_alert(user, "turned [turned_on ? "on" : "off"]")
 	update_icon()
