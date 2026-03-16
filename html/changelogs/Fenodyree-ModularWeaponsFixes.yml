@@ -55,4 +55,10 @@ delete-after: True
 # Also, this gets changed to [] after reading.  Just remove the brackets when you add new shit.
 # Please surround your changes in  double quotes ("). It works without them, but if you use certain characters it screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - bugfix: "The weapon analyzer now shows if your modular gun is self recharging."
+  - bugfix: "The weapon analyzer now correctly shows the damage and number of shots for modular lasers."
+  - bugfix: "Modular lasers can break again when fired by mobs."
+  - bugfix: "Modular lasers now have working fire delay."
+  - bugfix: "Backup Capacitors and Capacitor Overcharge now correctly reduce or increase the max number of shots."
+  - balance: "Chance per mod to break a component was decreased from 10 * Number of Mods * Damage Mult, to 2 * Number of Mods * Damage Mult"
+  - balance: "Components were reduced in size, so that the components of a gun aren't ten times the size of the finished product."
+
