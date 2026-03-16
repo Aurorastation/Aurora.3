@@ -466,8 +466,8 @@ ABSTRACT_TYPE(/datum/gear/accessory)
 	TCAFcard["veteran"] = /obj/item/clothing/accessory/badge/tcaf_papers/service/veteran
 	gear_tweaks += new /datum/gear_tweak/path(TCAFcard)
 
-/datum/gear/accessory/XANUMILcard
-	display_name = "Xanu Millita Card"
+/datum/gear/accessory/xanu_mil_card
+	display_name = "xanu militia reservist card"
 	description = "An identification document issued to reservists of the All-Xanu National Militia."
 	path = /obj/item/clothing/accessory/badge/passcard/coalition/xanu/military
 
