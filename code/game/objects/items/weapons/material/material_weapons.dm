@@ -80,10 +80,9 @@
 		update_force()
 
 		matter = material.get_matter()
-		if(matter.len)
-			for(var/material_type in matter)
-				if(!isnull(matter[material_type]))
-					matter[material_type] *= force_divisor // May require a new var instead.
+		for(var/material_type in matter)
+			if(!isnull(matter[material_type]))
+				matter[material_type] *= force_divisor // May require a new var instead.
 
 /obj/item/material/Destroy()
 	STOP_PROCESSING(SSprocessing, src)
