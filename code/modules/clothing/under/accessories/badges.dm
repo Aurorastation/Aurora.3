@@ -505,8 +505,8 @@
 /obj/item/clothing/accessory/badge/passcard/coalition/xanu
 	name = "xanu passcard"
 	desc = "An identity document, or 'passcard' issued to citizens of the All-Xanu Republic."
-	desc_extended = "The Principal identification document issued by the government of the All-Xanu Republic, this passcard is embedded with encrypted biometric, demographic, and civil registry data, serving as secure proof of identity and citizenship.\
-A security hologram of the Xanan Feather is centered within the background, its iridescent contours shifting subtly with movement.  The Republic's motto 'Liberty, Equality, Solidarity' is displayed both above, and beneath the emblem."
+	desc_extended = "The principal identification document issued by the government of the All-Xanu Republic, this passcard is embedded with encrypted biometric, demographic, and civil registry data, serving as secure proof of identity and citizenship. \
+	A security hologram of the Xanan Feather is centered within the background, its iridescent contours shifting subtly with movement. The Republic's motto 'Liberty, Equality, Solidarity' is displayed both above, and beneath the emblem."
 	icon_state = "xanu_passcard"
 	item_state = "xanu_passcard"
 
