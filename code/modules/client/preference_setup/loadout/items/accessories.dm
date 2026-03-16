@@ -470,6 +470,7 @@ ABSTRACT_TYPE(/datum/gear/accessory)
 	display_name = "Xanu Millita Card"
 	description = "An identification document issued to reservists of the All-Xanu National Militia."
 	path = /obj/item/clothing/accessory/badge/passcard/coalition/xanu/military
+	citizenship = CITIZENSHIP_COALITION
 
 /datum/gear/accessory/kneepads
 	display_name = "kneepads"
