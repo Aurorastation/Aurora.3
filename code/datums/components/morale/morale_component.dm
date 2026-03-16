@@ -87,7 +87,6 @@
 
 	// Behold my wall of RegisterSignal()
 	RegisterSignal(parent, COMSIG_APPLY_HIT_EFFECT, PROC_REF(modify_hit_effect), override = TRUE)
-	RegisterSignal(parent, COMSIG_GUN_SPECIAL_CHECK, PROC_REF(handle_footgun), override = TRUE)
 	RegisterSignal(parent, COMSIG_BEFORE_GUN_FIRE, PROC_REF(handle_accuracy), override = TRUE)
 	RegisterSignal(parent, COMSIG_GUN_TOGGLE_FIRING_MODE, PROC_REF(safety_fumble), override = TRUE)
 	RegisterSignal(parent, COMSIG_UNARMED_HARM_ATTACKER, PROC_REF(handle_harm_attack), override = TRUE)
@@ -105,7 +104,6 @@
 
 	// Behold my wall of UnregisterSignal()
 	UnregisterSignal(parent, COMSIG_APPLY_HIT_EFFECT)
-	UnregisterSignal(parent, COMSIG_GUN_SPECIAL_CHECK)
 	UnregisterSignal(parent, COMSIG_BEFORE_GUN_FIRE)
 	UnregisterSignal(parent, COMSIG_GUN_TOGGLE_FIRING_MODE)
 	UnregisterSignal(parent, COMSIG_UNARMED_HARM_ATTACKER)
@@ -149,15 +147,6 @@
 	SIGNAL_HANDLER
 	*power = *power * (1 + (0.05 * morale_ratio))
 
-/datum/component/morale/proc/handle_footgun(mob/shooter, footgun_chance)
-	SIGNAL_HANDLER
-	if (morale_points >= 0 || !prob(floor(panic_chance_ceiling * -morale_ratio)))
-		return
-
-	// Go guarantee the footgun because we're simulating a psychically induced panic.
-	*footgun_chance = *footgun_chance + 100
-	to_chat(shooter, SPAN_DANGER("In a blind panic, you accidentally shoot yourself!"))
-
 /datum/component/morale/proc/handle_accuracy(mob/shooter, accuracy_decrease, dispersion_increase)
 	SIGNAL_HANDLER
 	*accuracy_decrease = *accuracy_decrease - morale_ratio
@@ -165,7 +154,8 @@
 
 /datum/component/morale/proc/safety_fumble(mob/shooter, obj/item/gun/shoota, cancelled)
 	SIGNAL_HANDLER
-	if (cancelled || morale_points >= 0 || !prob(floor(panic_chance_ceiling * -morale_ratio)))
+	// Up to 50% chance to fumble a safety when in a psionically-induced panic.
+	if (cancelled || morale_points >= 0 || !prob(floor(5 * panic_chance_ceiling * -morale_ratio)))
 		return
 
 	*cancelled = TRUE

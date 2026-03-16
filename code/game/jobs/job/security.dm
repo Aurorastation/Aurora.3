@@ -35,6 +35,11 @@
 
 	blacklisted_species = list(SPECIES_TAJARA_ZHAN, SPECIES_DIONA, SPECIES_DIONA_COEUS, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_ATTENDANT, SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_BREEDER)
 
+	// Make sure security at bare minimum won't footgun themselves...
+	skill_requirements = alist(
+		/singleton/skill/firearms = SKILL_LEVEL_TRAINED
+	)
+
 /obj/outfit/job/hos
 	name = "Head of Security"
 	jobtype = /datum/job/hos
@@ -101,6 +106,11 @@
 
 	blacklisted_species = list(SPECIES_IPC_XION_REMOTE, SPECIES_VAURCA_BULWARK, SPECIES_DIONA_COEUS, SPECIES_VAURCA_BREEDER)
 
+	// Make sure security at bare minimum won't footgun themselves...
+	skill_requirements = alist(
+		/singleton/skill/firearms = SKILL_LEVEL_TRAINED
+	)
+
 /obj/outfit/job/warden
 	name = "Warden"
 	jobtype = /datum/job/warden
@@ -165,6 +175,11 @@
 	outfit = /obj/outfit/job/forensics
 	blacklisted_species = list(SPECIES_IPC_XION_REMOTE, SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_BREEDER)
 
+	// Make sure security at bare minimum won't footgun themselves...
+	skill_requirements = alist(
+		/singleton/skill/firearms = SKILL_LEVEL_TRAINED
+	)
+
 /obj/outfit/job/forensics
 	name = "Investigator"
 	jobtype = /datum/job/investigator
@@ -223,6 +238,11 @@
 	outfit = /obj/outfit/job/officer
 
 	blacklisted_species = list(SPECIES_IPC_XION_REMOTE, SPECIES_VAURCA_BULWARK, SPECIES_DIONA_COEUS, SPECIES_VAURCA_BREEDER)
+
+	// Make sure security at bare minimum won't footgun themselves...
+	skill_requirements = alist(
+		/singleton/skill/firearms = SKILL_LEVEL_TRAINED
+	)
 
 /obj/outfit/job/officer
 	name = "Security Officer"
@@ -290,6 +310,9 @@
 	)
 
 	blacklisted_species = list(SPECIES_IPC_XION_REMOTE, SPECIES_VAURCA_BULWARK, SPECIES_DIONA_COEUS, SPECIES_VAURCA_BREEDER)
+
+	// Let the sec cadets footgun themselves as a little treat. <3
+	// skill_requirements = alist()
 
 /obj/outfit/job/intern_sec
 	name = "Security Cadet"
