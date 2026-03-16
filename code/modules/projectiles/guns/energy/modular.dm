@@ -63,7 +63,7 @@
 		if(mod.gun_overlay)
 			underlays += mod.gun_overlay
 
-/obj/item/gun/energy/laser/prototype/proc/reset_vars() //Why do this?
+/obj/item/gun/energy/laser/prototype/proc/reset_vars()
 	burst = initial(burst)
 	reliability = initial(reliability)
 	burst_delay = initial(burst_delay)
