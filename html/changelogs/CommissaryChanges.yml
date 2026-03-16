@@ -10,3 +10,4 @@ changes:
   - bugfix: "The noticeboard in operations is now properly on one side of the wall, instead of on the wall turf itself."
   - rscadd: "The food and drink fridges in the commissary can now be renamed."
   - rscadd: "The shelves in the commissary now has a message when an item are taken from them."
+  - rscadd: "The quick-e-meals vendor was readded behind the café."
