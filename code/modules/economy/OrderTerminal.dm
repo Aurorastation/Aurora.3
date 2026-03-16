@@ -25,8 +25,8 @@
 
 /obj/machinery/orderterminal/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()
-	. += "To edit the menu, select 'Toggle Lock' while wearing an ID with galley access."
-	. += "All credits from the machine will automatically go to the civilian account."
+	. += "Items can be paid for with id cards or charge cards, and a receipt will be printed."
+	. += "The terminal can print a paper which can be used to quickly fill it out in the future by using it on the register."
 
 /obj/machinery/orderterminal/Initialize()
 	. = ..()

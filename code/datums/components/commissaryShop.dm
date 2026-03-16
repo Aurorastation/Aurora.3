@@ -20,6 +20,7 @@
 	shop_name = "Quikpay"
 	destinationact = "Service"
 	stamp = "Quik-Pay device"
+	can_use_credits = FALSE
 
 // Add an item by clicking on it with the quikpay
 /datum/component/quikpay_shop/quikpay/proc/add_item(atom/target, mob/user)
@@ -375,6 +376,7 @@
 
 	shop_name = "Commissary"
 	stamp = "Self-serve Shop Teller"
+	can_use_credits = FALSE
 
 /datum/component/quikpay_shop/orderterminal/food
 	var/ticket = ""

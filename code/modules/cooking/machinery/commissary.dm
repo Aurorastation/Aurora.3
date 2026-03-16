@@ -157,9 +157,8 @@
 
 /obj/structure/cash_register/commissary/mechanics_hints(mob/user, distance, is_adjacent)
 	. = list()
-	. += "Alt click with a command id in hand, to gain command access."
-	. += "Alt click with credits in hand, to deposit them."
-	. += "Alt click while having operations access, to withdraw credits from it."
+	. += "Alt-click with credits in hand, to deposit them."
+	. += "Alt-click while having the proper access, to withdraw credits from it."
 	. += "Items can be paid for with id cards, charge cards or physical credits, and a receipt will be printed."
 	. += "The register can print a paper which can be used to quickly fill it out in the future by using it on the register."
 
@@ -201,8 +200,9 @@
 
 /obj/machinery/commissary_wall_shop/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()
-	. += "To edit the menu, select 'Toggle Lock' while wearing an ID with galley access."
-	. += "All credits from the machine will automatically go to the civilian account."
+	. += "Items can be paid for with id cards or charge cards, and a receipt will be printed."
+	. += "The terminal can print a paper which can be used to quickly fill it out in the future by using it on the register."
+	. += "With the proper access, ctrl-click to turn the machine on and off."
 
 /obj/machinery/commissary_wall_shop/Initialize()
 	. = ..()

@@ -12,6 +12,11 @@
 	var/shop_name
 	req_one_access = list(ACCESS_BAR, ACCESS_GALLEY, ACCESS_CARGO)
 
+/obj/item/quikpay/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Items can be paid for with id cards or charge cards, and a receipt will be printed."
+	. += "The quikpay can print a paper which can be used to quickly fill it out in the future by using it on the register."
+
 /obj/item/quikpay/Initialize()
 	. = ..()
 	src.LoadComponent(/datum/component/quikpay_shop/quikpay, req_one_access, destinationact)
