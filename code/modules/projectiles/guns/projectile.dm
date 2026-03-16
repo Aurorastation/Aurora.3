@@ -1,4 +1,4 @@
-/obj/item/gun/projectile
+ABSTRACT_TYPE(/obj/item/gun/projectile)
 	name = "gun"
 	desc = "A gun that fires bullets."
 	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2)

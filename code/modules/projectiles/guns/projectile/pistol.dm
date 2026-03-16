@@ -1,5 +1,5 @@
 /obj/item/gun/projectile/colt
-	name = ".45 combat pistol"
+	name = "\improper Pattern 5 .45 combat pistol"
 	desc = "A robust metal-framed semi-automatic pistol produced in the system of San Colette."
 	desc_extended = "The Pattern 5 Pistol is the standard-issue sidearm for the Civil Guard, San Colette’s local military force. Loosely based on the standard 9mm pistol of the Solarian Army, the P5 fires a larger .45 round intended for use against heavier targets. \
 	The P5 is produced by the San Colette Interstellar Armaments Company (CAISC) and is often found abroad due to its rugged construction."
@@ -46,7 +46,7 @@
 		return 1
 
 /obj/item/gun/projectile/colt/super
-	name = "ornamental .45 combat pistol"
+	name = "ornamental Pattern 5 .45 combat pistol"
 	desc = "A robust metal-framed semi-automatic pistol produced in the system of San Colette. This example sports a short slide, wood-paneled grips, and few signs of use, likely belonging to someone of higher stature."
 	desc_extended = "The Pattern 5 Pistol is the standard-issue sidearm for the Civil Guard, San Colette’s local military force. Loosely based on the standard 9mm pistol of the Solarian Army, the P5 fires a larger .45 round intended for use against heavier targets. \
 	The P5 is produced by the San Colette Interstellar Armaments Company (CAISC) and is often found abroad due to its rugged construction."
@@ -201,12 +201,12 @@
 		icon_state = "c05r-e"
 
 /obj/item/gun/projectile/silenced
-	name = "suppressed pistol"
+	name = "\improper Mrrazhakulii suppressed pistol"
 	desc = "A small, quiet, easily concealable gun."
 	desc_extended = "Created as a disposable and concealable weapon, the Mrrazhakulii suppressed pistol is a firearm with a suppressor integrated as part of its barrel. \
 		Carried by guerrilla forces and spies, those guns are used in assassination and subterfuge operations. Due to using cheap and available materials, such as \
 		recycled iron and tires, countless of those pistols were distributed among cells and ALA soldiers."
-	icon = 'icons/obj/guns/silenced_pistol.dmi'
+	icon = 'icons/obj/guns/tajara/mrrazhakulii_suppressed_pistol.dmi'
 	icon_state = "silenced_pistol"
 	item_state = "silenced_pistol"
 	fire_sound = 'sound/weapons/gunshot/gunshot_suppressed.ogg'
@@ -253,9 +253,9 @@
 		icon_state = "[initial(icon_state)]-e"
 
 /obj/item/gun/projectile/deagle/adhomai
-	name = "adhomian heavy pistol"
+	name = "\improper Nal'tor heavy pistol"
 	desc = "A bulky handgun used by republican commissars and high-ranking members of the Hadiist Party."
-	icon = 'icons/obj/guns/adhomian_heavy_pistol.dmi'
+	icon = 'icons/obj/guns/tajara/naltor_heavy_pistol.dmi'
 	icon_state = "adhomian_heavy_pistol"
 	item_state = "adhomian_heavy_pistol"
 	desc_extended = "Given to Republican Commissars and high ranking Party members, the Nal'tor Model Pistol is notable for its large caliber. Unlike the Adar'Mazy pistol, only a \
@@ -289,7 +289,7 @@
 		icon_state = "gyropistol"
 
 /obj/item/gun/projectile/pistol
-	name = "9mm pistol"
+	name = "\improper Moonlight 9mm pistol"
 	desc = "An extremely popular compact handgun, used throughout human space."
 	desc_extended = "The Zavodskoi Interstellar Moonlight 9mm can be found in the hands of just about anyone imaginable - special operatives, common criminals, police officers, the average Joe - on account of the time-tested design, low price point, reliability, and ease of concealment. Having a threaded barrel helps, too, and it isn't uncommon to see the Moonlight as a prop in spy films, suppressed."
 	icon = 'icons/obj/guns/pistol.dmi'

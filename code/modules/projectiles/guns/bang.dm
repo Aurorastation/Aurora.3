@@ -1,4 +1,4 @@
-/obj/item/gun/bang
+ABSTRACT_TYPE(/obj/item/gun/bang)
 	name = "some shitty-ass gun"
 	desc = "This is a gun. Neat!"
 	icon = 'icons/obj/guns/revolver.dmi'

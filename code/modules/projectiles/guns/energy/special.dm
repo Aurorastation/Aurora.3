@@ -193,32 +193,13 @@
 	desc = "Vaurcae weapons tend to be specialized and highly lethal. This one doesn't do much"
 	var/is_charging = 0 //special var for sanity checks in the three guns that currently use charging as a special_check
 
-/obj/item/gun/energy/vaurca/bfg
-	name = "BFG 9000"
-	desc = "'Bio-Force Gun'. Yeah, right."
-	icon = 'icons/obj/guns/bfg.dmi'
-	icon_state = "bfg"
-	item_state = "bfg"
-	has_item_ratio = FALSE
-	charge_meter = 0
-	w_class = WEIGHT_CLASS_BULKY
-	fire_sound = 'sound/magic/LightningShock.ogg'
-	force = 33
-	projectile_type = /obj/projectile/energy/bfg
-	slot_flags = SLOT_BACK
-	max_shots = 3
-	sel_mode = 1
-	fire_delay = 10
-	accuracy = 20
-	muzzle_flash = 10
-
 #define GATLINGLASER_DISPERSION_CONCENTRATED list(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
 #define GATLINGLASER_DISPERSION_SPRAY list(0, 5, 5, 10, 10, 15, 15, 20, 20, 25, 25, 25, 30, 30, 35, 40)
 
 /obj/item/gun/energy/vaurca/gatlinglaser
 	name = "gatling laser"
 	desc = "A highly sophisticated rapid fire laser weapon."
-	icon = 'icons/obj/guns/gatling.dmi'
+	icon = 'icons/obj/guns/vaurca/gatling_laser.dmi'
 	icon_state = "gatling"
 	item_state = "gatling"
 	has_item_ratio = FALSE
@@ -274,7 +255,7 @@
 	name = "\improper thermic blaster"
 	desc = "An opulent Vaurceisan pistol, handcrafted for each wielder by the Court of Queen's master weaponsmiths. For those Ta and few notable Warriors who wield it, the Thermic Blaster is as much a badge of office as it is a fiercely deadly weapon."
 	desc_extended = "The Thermic Blaster is a weapon with a history dating back as far as the Vaurcesian Court of Queens, for since its founding, it has forged one of these blasters for every newborn Ta, bestowed as a coming-of-age gift. With every major advancement in technology, the Court's weaponsmiths have gathered together to upgrade the existing batch, resulting in many Thermic Blasters being millennia old, and many Ta add personal flourishes. This iteration of the firearm was developed after the Zo'rane arrival in the Spur and distributed as a celebration for the refounding of the Court of Queens. The Court may occasionally bestow this exceptionally expensive Blaster on an accomplished Warrior, but very few ever leave Vaurca hands and those that do are fiercely prized."
-	icon = 'icons/obj/guns/blaster.dmi'
+	icon = 'icons/obj/guns/vaurca/thermic_blaster.dmi'
 	icon_state = "blaster"
 	item_state = "blaster"
 	has_item_ratio = FALSE
@@ -298,7 +279,7 @@
 /obj/item/gun/energy/vaurca/typec
 	name = "thermal lance"
 	desc = "A powerful piece of Zo'rane energy artillery, converted to be portable...if you weigh a metric tonne, that is."
-	icon = 'icons/obj/guns/megaglaive.dmi'
+	icon = 'icons/obj/guns/vaurca/megaglaive.dmi'
 	sprite_sheets = list(BODYTYPE_VAURCA_BREEDER = 'icons/obj/guns/megaglaive.dmi')
 	icon_state = "megaglaive0"
 	item_state = "megaglaive"
@@ -511,7 +492,7 @@
 /obj/item/laserpack
 	name = "galatean bioelectrical reactor backpack"
 	desc = "An ominously-thrumming backpack-mounted machine, powering an O61 Infantry Laser Rifle."
-	icon = 'icons/obj/guns/galatea_laser.dmi'
+	icon = 'icons/obj/guns/energy/galatea_laser.dmi'
 	icon_state = "laserpack_holstered"
 	item_state = "laserpack_holstered"
 	contained_sprite = 1
@@ -619,7 +600,7 @@
 	desc_extended = "Galatean soldiers are heavily bioaugmented, combining soldier and weapon into a cohesive unit. The Mark 61 Infantry Rifle is one such example, drawing on the bioelectricity of the human body \
 	through an implant with which to power the gun. Unaugmented users complained of headaches, lethargy, and impossible dreams; The O61B has integrated the bioaugments into the firing mechanism, preventing 'baselines' \
 	from even using it. Luckily, this is an export version, the O61-B, which allows foreign users a taste of advanced Technocracy weaponry for the low price of a single bioaugment."
-	icon = 'icons/obj/guns/galatea_laser.dmi'
+	icon = 'icons/obj/guns/energy/galatea_laser.dmi'
 	icon_state = "galatealaser"
 	item_state = "galatealaser"
 	slot_flags = 0

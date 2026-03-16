@@ -48,7 +48,6 @@ var/list/worths = list(
 					/obj/item/gun/energy/toxgun = 350,
 					/obj/item/gun/energy/mousegun = 200,
 					/obj/item/gun/energy/net = 350,
-					/obj/item/gun/energy/vaurca/bfg = 2000,
 					/obj/item/gun/energy/vaurca/gatlinglaser = 600,
 					/obj/item/gun/energy/vaurca/blaster = 450,
 					/obj/item/gun/energy/vaurca/thermaldrill = 500,

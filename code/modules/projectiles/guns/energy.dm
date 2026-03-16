@@ -1,4 +1,4 @@
-/obj/item/gun/energy
+ABSTRACT_TYPE(/obj/item/gun/energy)
 	name = "energy gun"
 	desc = "A basic energy-based gun."
 	icon = 'icons/obj/guns/ecarbine.dmi'
