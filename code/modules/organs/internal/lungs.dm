@@ -143,7 +143,7 @@
 	var/SA_sleep_min = 5
 	var/inhaled_gas_used = 0
 
-	var/breath_pressure = (breath.total_moles * R_IDEAL_GAS_EQUATION * breath.temperature) / (BREATH_VOLUME * owner.species.breath_vol_mul)
+	var/breath_pressure = breath.return_pressure()
 
 	var/inhaling
 	var/poison
@@ -324,7 +324,7 @@
 		else
 			temp_adj /= (BODYTEMP_HEAT_DIVISOR * 5)	//don't raise temperature as much as if we were directly exposed
 
-		var/relative_density = breath.total_moles / (MOLES_CELLSTANDARD * BREATH_PERCENTAGE)
+		var/relative_density = breath.total_moles / (MOLES_CELLSTANDARD * breath.volume/CELL_VOLUME)
 		temp_adj *= relative_density
 
 		if (temp_adj > BODYTEMP_HEATING_MAX) temp_adj = BODYTEMP_HEATING_MAX

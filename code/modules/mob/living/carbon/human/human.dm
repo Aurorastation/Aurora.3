@@ -2041,6 +2041,12 @@
 	if(istype(stomach))
 		victim.forceMove(stomach)
 
+/mob/living/carbon/human/get_breath_volume()
+	. = ..()
+	var/obj/item/organ/internal/heart/H = internal_organs_by_name[BP_HEART]
+	if(H)
+		. *= (H.robotic < ORGAN_ROBOT) ? pulse()/PULSE_NORM : 1.5
+
 /mob/living/carbon/human/need_breathe()
 	if(!(mutations & mNobreath) && species.breathing_organ && species.has_organ[species.breathing_organ])
 		return TRUE
