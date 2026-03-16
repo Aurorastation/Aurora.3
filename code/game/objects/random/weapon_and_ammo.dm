@@ -25,7 +25,7 @@
 	var/list/Common = list(
 		/obj/item/gun/energy/blaster/carbine = 1,
 		/obj/item/gun/energy/crossbow/largecrossbow = 1,
-		/obj/item/gun/energy/laser = 0.5,
+		/obj/item/gun/energy/rifle/laser = 0.5,
 		/obj/item/gun/energy/pistol = 1,
 		/obj/item/gun/energy/rifle = 1,
 		/obj/item/gun/projectile/automatic/c20r = 1,
@@ -57,7 +57,7 @@
 		/obj/item/gun/energy/rifle/ionrifle = 0.5,
 		/obj/item/gun/energy/vaurca/blaster = 1,
 		/obj/item/gun/energy/xray = 1,
-		/obj/item/gun/energy/lasercannon = 1,
+		/obj/item/gun/energy/rifle/laser/heavy = 1,
 		/obj/item/gun/projectile/automatic/rifle/sts35 = 1,
 		/obj/item/gun/projectile/automatic/rifle/shorty = 1,
 		/obj/item/gun/projectile/automatic/rifle/carbine = 1,

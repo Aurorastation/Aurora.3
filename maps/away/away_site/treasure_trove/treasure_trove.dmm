@@ -375,7 +375,7 @@
 /turf/simulated/floor/exoplanet/asphalt,
 /area/trove/tunnels)
 "cf" = (
-/obj/item/gun/energy/lasercannon,
+/obj/item/gun/energy/rifle/laser/heavy,
 /obj/random/dirt_75,
 /turf/simulated/floor/wood/mahogany,
 /area/trove/vault)

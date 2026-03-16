@@ -7,7 +7,7 @@
 	shoes = /obj/item/clothing/shoes/magboots
 	belt = /obj/item/storage/belt/military
 	l_ear = /obj/item/radio/headset/syndicate
-	suit_store = /obj/item/gun/energy/laser
+	suit_store = /obj/item/gun/energy/rifle/laser
 	suit = /obj/item/clothing/suit/space/void/hephaestus
 	head = /obj/item/clothing/head/helmet/space/void/hephaestus
 	id = /obj/item/card/id/syndicate
@@ -50,7 +50,7 @@
 	shoes = /obj/item/clothing/shoes/magboots
 	belt = /obj/item/storage/belt/military
 	l_ear = /obj/item/radio/headset/syndicate
-	suit_store = /obj/item/gun/energy/laser
+	suit_store = /obj/item/gun/energy/rifle/laser
 	suit = /obj/item/clothing/suit/space/void/zenghu
 	head = /obj/item/clothing/head/helmet/space/void/zenghu
 	id = /obj/item/card/id/syndicate

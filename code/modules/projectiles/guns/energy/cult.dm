@@ -2,7 +2,7 @@
 	name = "bloodpike"
 	desc = "A ranged weapon of demonic origin, surely. It menaces with crimson spikes."
 	desc_extended = null
-	icon = 'icons/obj/guns/bloodpike.dmi'
+	icon = 'icons/obj/guns/energy/bloodpike.dmi'
 	icon_state = "bloodpike"
 	item_state = "bloodpike"
 	fire_sound = 'sound/weapons/laserstrong.ogg'

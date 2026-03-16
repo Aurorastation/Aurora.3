@@ -953,7 +953,7 @@ GLOBAL_LIST_INIT(robot_modules, list(
 
 /obj/item/robot_module/military/Initialize()
 	. = ..()
-	modules += new /obj/item/gun/energy/laser/mounted(src)
+	modules += new /obj/item/gun/energy/rifle/laser/mounted(src)
 	modules += new /obj/item/melee/hammer/powered(src)
 	modules += new /obj/item/borg/combat/shield(src)
 	modules += new /obj/item/borg/combat/mobility(src)
@@ -962,7 +962,7 @@ GLOBAL_LIST_INIT(robot_modules, list(
 	modules += new /obj/item/extinguisher(src) // For navigating space and/or low grav, and just being useful.
 	modules += new /obj/item/flash(src) // Non-lethal tool that prevents any 'borg from going lethal on Crew so long as it's an option according to laws.
 	modules += new /obj/item/crowbar/robotic(src) // Base crowbar that all 'borgs should have access to.
-	emag = new /obj/item/gun/energy/lasercannon/mounted(src)
+	emag = new /obj/item/gun/energy/rifle/laser/heavy/mounted(src)
 
 /obj/item/robot_module/drone
 	name = "drone module"
@@ -1216,7 +1216,7 @@ GLOBAL_LIST_INIT(robot_modules, list(
 	modules += new /obj/item/handcuffs/cyborg(src)
 	modules += new /obj/item/melee/baton/robot(src)
 	modules += new /obj/item/melee/hammer/powered(src)
-	modules += new /obj/item/gun/energy/lasercannon/mounted/cyborg/overclocked(src)
+	modules += new /obj/item/gun/energy/rifle/laser/heavy/mounted/cyborg/overclocked(src)
 	modules += new /obj/item/borg/combat/shield(src)
 	modules += new /obj/item/borg/combat/mobility(src)
 	// BST
@@ -1347,7 +1347,7 @@ GLOBAL_LIST_INIT(robot_modules, list(
 	modules += new /obj/item/healthanalyzer(src)
 	modules += new /obj/item/borg/sight/thermal(src)
 	modules += new /obj/item/gun/energy/pulse/mounted(src)
-	modules += new /obj/item/gun/energy/lasercannon/mounted/cyborg/overclocked(src)
+	modules += new /obj/item/gun/energy/rifle/laser/heavy/mounted/cyborg/overclocked(src)
 	modules += new /obj/item/handcuffs/cyborg(src)
 	modules += new /obj/item/melee/baton/robot(src)
 	modules += new /obj/item/tank/jetpack/carbondioxide(src)

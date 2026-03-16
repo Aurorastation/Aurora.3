@@ -105,7 +105,7 @@
 		/obj/item/gun/energy/rifle/laser/heavy,
 		/obj/item/gun/energy/rifle/laser/xray,
 		/obj/item/gun/energy/net,
-		/obj/item/gun/energy/laser/shotgun,
+		/obj/item/gun/energy/rifle/laser/shotgun,
 		/obj/item/gun/energy/decloner,
 		/obj/item/gun/energy/freeze
 	)
@@ -201,7 +201,7 @@
 		/obj/item/gun/projectile/shotgun/foldable,
 		/obj/item/gun/projectile/revolver,
 		/obj/item/gun/energy/blaster/carbine,
-		/obj/item/gun/energy/laser/shotgun,
+		/obj/item/gun/energy/rifle/laser/shotgun,
 		/obj/item/gun/energy/rifle,
 		/obj/item/gun/energy/rifle/laser,
 		/obj/item/gun/energy/gun,

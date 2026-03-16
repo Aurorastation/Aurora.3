@@ -1,7 +1,7 @@
 /obj/item/gun/energy/decloner
 	name = "biological demolecularisor"
 	desc = "A gun that discharges high amounts of controlled radiation to slowly break a target into component elements."
-	icon = 'icons/obj/guns/decloner.dmi'
+	icon = 'icons/obj/guns/energy/decloner.dmi'
 	icon_state = "decloner"
 	item_state = "decloner"
 	has_item_ratio = FALSE
@@ -13,7 +13,7 @@
 /obj/item/gun/energy/floragun
 	name = "floral somatoray"
 	desc = "A tool that discharges controlled radiation which induces mutation in plant cells."
-	icon = 'icons/obj/guns/flora.dmi'
+	icon = 'icons/obj/guns/energy/flora.dmi'
 	icon_state = "floramut100"
 	item_state = "floramut"
 	has_item_ratio = FALSE
@@ -117,7 +117,7 @@
 	turret_sprite_set = "net"
 
 /obj/item/gun/energy/mousegun
-	name = "pest gun"
+	name = "\improper NT Pesti-Shock gun"
 	desc = "The NT \"Arodentia\" Pesti-Shock is a highly sophisticated and probably safe beamgun designed for rapid pest-control."
 	icon = 'icons/obj/guns/pestishock.dmi'
 	icon_state = "pestishock"
@@ -153,9 +153,9 @@
 		return TRUE
 
 /obj/item/gun/energy/mousegun/xenofauna
-	name = "xenofauna gun"
+	name = "\improper NT Zap-Blast xenofauna gun"
 	desc = "The NT \"Xenovermino\" Zap-Blast is a highly sophisticated and probably safe beamgun designed to deal with hostile xenofauna."
-	icon = 'icons/obj/guns/xenogun.dmi'
+	icon = 'icons/obj/guns/energy/xenogun.dmi'
 	icon_state = "xenogun"
 	item_state = "xenogun"
 	projectile_type = /obj/projectile/beam/mousegun/xenofauna
