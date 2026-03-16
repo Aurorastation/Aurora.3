@@ -11,6 +11,13 @@
 	},
 /turf/simulated/floor/reinforced,
 /area/triesto/outdoors)
+"aO" = (
+/obj/structure/flora/ausbushes/ppflowers,
+/obj/structure/flora/ausbushes/brflowers,
+/obj/structure/flora/ausbushes/ywflowers,
+/obj/structure/railing/mapped,
+/turf/simulated/floor/grass/no_edge,
+/area/triesto/outdoors)
 "aP" = (
 /obj/machinery/atmospherics/pipe/simple/visible/black{
 	dir = 4
@@ -37,8 +44,6 @@
 /obj/machinery/door/urban{
 	dir = 4
 	},
-/obj/random/dirt_75,
-/obj/random/dirt_75,
 /obj/effect/floor_decal/industrial/hatch_door/yellow,
 /obj/machinery/door/firedoor{
 	dir = 4;
@@ -168,6 +173,12 @@
 "el" = (
 /obj/machinery/vending/overloaders,
 /turf/simulated/floor/wood,
+/area/triesto/outdoors)
+"er" = (
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/full,
 /area/triesto/outdoors)
 "eP" = (
 /obj/effect/map_effect/map_helper/ruler_tiles_3{
@@ -439,6 +450,12 @@
 "lA" = (
 /obj/machinery/atmospherics/portables_connector,
 /turf/simulated/floor/airless,
+/area/triesto/outdoors)
+"lJ" = (
+/obj/structure/rod_railing,
+/obj/random/dirt_75,
+/obj/effect/floor_decal/industrial/warning,
+/turf/simulated/floor/tiled/full,
 /area/triesto/outdoors)
 "lO" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -853,6 +870,18 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/triesto/outdoors)
+"wz" = (
+/obj/machinery/door/urban{
+	dir = 4
+	},
+/obj/random/dirt_75,
+/obj/effect/floor_decal/industrial/hatch_door/yellow,
+/obj/machinery/door/firedoor{
+	dir = 4;
+	req_one_access = null
+	},
+/turf/simulated/floor/tiled/full,
+/area/triesto/outdoors)
 "wM" = (
 /obj/structure/ledge{
 	dir = 5
@@ -868,6 +897,16 @@
 /obj/structure/lattice/catwalk/indoor,
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
+/area/triesto/outdoors)
+"wT" = (
+/obj/structure/flora/ausbushes/ppflowers,
+/obj/structure/flora/ausbushes/brflowers,
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/obj/structure/railing/mapped,
+/obj/structure/flora/ausbushes/ppflowers,
+/turf/simulated/floor/grass/no_edge,
 /area/triesto/outdoors)
 "xf" = (
 /obj/effect/decal/road_marking/thin,
@@ -1249,6 +1288,11 @@
 /obj/effect/map_effect/window_spawner/full/reinforced,
 /turf/simulated/floor/reinforced,
 /area/triesto/outdoors)
+"Hn" = (
+/obj/random/dirt_75,
+/obj/effect/floor_decal/industrial/warning,
+/turf/simulated/floor/tiled/full,
+/area/triesto/outdoors)
 "Ho" = (
 /obj/structure/railing/mapped,
 /obj/structure/bed/stool/chair/office/bridge{
@@ -1444,6 +1488,14 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/reinforced,
 /area/triesto/outdoors)
+"Og" = (
+/obj/effect/decal/curb{
+	dir = 8
+	},
+/obj/random/dirt_75,
+/obj/effect/floor_decal/industrial/warning,
+/turf/simulated/floor/tiled/full,
+/area/triesto/outdoors)
 "Oq" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 8
@@ -1500,6 +1552,10 @@
 /obj/structure/reagent_dispensers/watertank,
 /obj/random/dirt_75,
 /turf/simulated/floor/airless,
+/area/triesto/outdoors)
+"Qy" = (
+/obj/effect/floor_decal/industrial/warning,
+/turf/simulated/floor/tiled/full,
 /area/triesto/outdoors)
 "QD" = (
 /obj/structure/ledge{
@@ -1558,6 +1614,15 @@
 /obj/structure/reagent_dispensers/coolanttank,
 /obj/item/reagent_containers/glass/bucket,
 /turf/simulated/floor/wood,
+/area/triesto/outdoors)
+"RS" = (
+/obj/structure/flora/ausbushes/ppflowers,
+/obj/structure/flora/ausbushes/brflowers,
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/obj/structure/railing/mapped,
+/turf/simulated/floor/grass/no_edge,
 /area/triesto/outdoors)
 "Sf" = (
 /obj/effect/decal/curb{
@@ -18765,7 +18830,7 @@ kx
 mb
 Cu
 kx
-kx
+Ct
 HZ
 HZ
 HZ
@@ -19022,8 +19087,8 @@ kx
 cG
 cG
 cG
-cG
-HZ
+Ct
+Ct
 HZ
 HZ
 HZ
@@ -19279,8 +19344,8 @@ kx
 cG
 cG
 cG
-cG
-HZ
+Jh
+Ct
 HZ
 HZ
 HZ
@@ -19536,8 +19601,8 @@ kx
 cG
 cG
 cG
-cG
-HZ
+Jh
+Ct
 HZ
 HZ
 HZ
@@ -19793,8 +19858,8 @@ kx
 cG
 cG
 cG
-cG
-HZ
+Ct
+Ct
 HZ
 HZ
 HZ
@@ -20049,8 +20114,8 @@ cG
 kx
 mb
 Cu
-kx
-kx
+Ct
+Ct
 HZ
 HZ
 HZ
@@ -20306,7 +20371,7 @@ cG
 cG
 cG
 cG
-kx
+Ct
 HZ
 HZ
 HZ
@@ -20563,7 +20628,7 @@ cG
 cG
 cG
 cG
-kx
+Ct
 HZ
 HZ
 HZ
@@ -20820,7 +20885,7 @@ cG
 cG
 cG
 cG
-kx
+Ct
 HZ
 HZ
 HZ
@@ -21075,9 +21140,9 @@ cG
 cG
 cG
 cG
-kx
-kx
-kx
+Ct
+Ct
+Ct
 HZ
 HZ
 HZ
@@ -21332,7 +21397,7 @@ cG
 cG
 cG
 cG
-kx
+Ct
 HZ
 kx
 HZ
@@ -21589,7 +21654,7 @@ cG
 cG
 cG
 cG
-kx
+Ct
 HZ
 HZ
 HZ
@@ -21846,7 +21911,7 @@ cG
 cG
 cG
 cG
-kx
+Ct
 HZ
 HZ
 HZ
@@ -22103,7 +22168,7 @@ cG
 cG
 cG
 cG
-kx
+Ct
 HZ
 HZ
 HZ
@@ -22352,15 +22417,15 @@ cG
 cG
 cG
 cG
-kx
-kx
-kx
-kx
-kx
-kx
-kx
-kx
-kx
+Ct
+Ct
+Ct
+Ct
+Ct
+Ct
+Ct
+Ct
+Ct
 HZ
 HZ
 HZ
@@ -22609,7 +22674,7 @@ cG
 cG
 cG
 cG
-kx
+Ct
 HZ
 HZ
 HZ
@@ -22866,7 +22931,7 @@ cG
 cG
 cG
 cG
-kx
+Ct
 HZ
 HZ
 HZ
@@ -23123,7 +23188,7 @@ cG
 cG
 cG
 cG
-kx
+Ct
 HZ
 HZ
 HZ
@@ -23380,7 +23445,7 @@ cG
 cG
 cG
 cG
-kx
+Ct
 HZ
 HZ
 HZ
@@ -23637,7 +23702,7 @@ cG
 cG
 cG
 cG
-kx
+Ct
 HZ
 HZ
 HZ
@@ -23894,7 +23959,7 @@ cG
 cG
 cG
 cG
-kx
+Ct
 HZ
 HZ
 HZ
@@ -24151,7 +24216,7 @@ cG
 cG
 cG
 cG
-kx
+Ct
 HZ
 HZ
 HZ
@@ -24408,7 +24473,7 @@ cG
 cG
 cG
 cG
-kx
+Ct
 HZ
 HZ
 HZ
@@ -24665,7 +24730,7 @@ cG
 cG
 cG
 cG
-kx
+Ct
 HZ
 HZ
 HZ
@@ -24922,7 +24987,7 @@ cG
 cG
 cG
 cG
-kx
+Ct
 HZ
 HZ
 HZ
@@ -25179,10 +25244,10 @@ cG
 cG
 cG
 cG
-kx
-kx
-kx
-kx
+Ct
+Ct
+Ct
+Ct
 HZ
 HZ
 HZ
@@ -25439,7 +25504,7 @@ cG
 cG
 cG
 cG
-kx
+Ct
 HZ
 HZ
 HZ
@@ -25696,7 +25761,7 @@ cG
 cG
 cG
 cG
-kx
+Ct
 HZ
 HZ
 HZ
@@ -25953,7 +26018,7 @@ cG
 cG
 cG
 cG
-kx
+Ct
 HZ
 HZ
 HZ
@@ -26210,7 +26275,7 @@ cG
 cG
 cG
 cG
-kx
+Ct
 HZ
 HZ
 HZ
@@ -26467,9 +26532,9 @@ cG
 kx
 mb
 Cu
-kx
-kx
-kx
+Ct
+Ct
+Ct
 HZ
 HZ
 HZ
@@ -26726,8 +26791,8 @@ cG
 cG
 cG
 cG
-kx
-HZ
+Ct
+Ct
 HZ
 HZ
 HZ
@@ -26984,7 +27049,7 @@ cG
 cG
 cG
 Jh
-HZ
+Ct
 HZ
 HZ
 HZ
@@ -27241,7 +27306,7 @@ cG
 cG
 cG
 Jh
-HZ
+Ct
 HZ
 HZ
 HZ
@@ -27498,7 +27563,7 @@ cG
 cG
 cG
 Jh
-HZ
+Ct
 HZ
 HZ
 HZ
@@ -27754,8 +27819,8 @@ cG
 cG
 cG
 cG
-kx
-HZ
+Ct
+Ct
 HZ
 HZ
 HZ
@@ -28009,9 +28074,9 @@ cG
 kx
 mb
 Cu
-kx
-kx
-kx
+Ct
+Ct
+Ct
 HZ
 HZ
 HZ
@@ -28266,7 +28331,7 @@ cG
 cG
 cG
 cG
-kx
+Ct
 HZ
 HZ
 HZ
@@ -28523,7 +28588,7 @@ cG
 cG
 cG
 cG
-kx
+Ct
 HZ
 HZ
 HZ
@@ -28780,7 +28845,7 @@ cG
 cG
 cG
 cG
-kx
+Ct
 HZ
 HZ
 HZ
@@ -29037,7 +29102,7 @@ cG
 cG
 cG
 cG
-kx
+Ct
 HZ
 HZ
 HZ
@@ -29294,7 +29359,7 @@ kx
 kx
 kx
 kx
-kx
+Ct
 HZ
 HZ
 HZ
@@ -32635,9 +32700,9 @@ KQ
 KQ
 kx
 kx
-kx
-kx
-kx
+Ct
+Ct
+Ct
 HZ
 HZ
 HZ
@@ -32894,7 +32959,7 @@ cG
 cG
 cG
 cG
-kx
+Ct
 HZ
 HZ
 HZ
@@ -33151,7 +33216,7 @@ cG
 cG
 cG
 cG
-kx
+Ct
 HZ
 HZ
 HZ
@@ -33408,7 +33473,7 @@ cG
 cG
 cG
 cG
-kx
+Ct
 HZ
 HZ
 HZ
@@ -33665,7 +33730,7 @@ cG
 cG
 cG
 cG
-kx
+Ct
 HZ
 HZ
 HZ
@@ -33922,7 +33987,7 @@ cG
 cG
 cG
 cG
-kx
+Ct
 HZ
 HZ
 HZ
@@ -34179,7 +34244,7 @@ cG
 cG
 cG
 cG
-kx
+Ct
 HZ
 HZ
 HZ
@@ -34436,7 +34501,7 @@ cG
 cG
 cG
 cG
-kx
+Ct
 HZ
 HZ
 HZ
@@ -86103,7 +86168,7 @@ kx
 he
 QW
 QW
-he
+Qy
 hT
 QD
 QD
@@ -86360,7 +86425,7 @@ kx
 QW
 cG
 cG
-he
+Qy
 mF
 qZ
 Xh
@@ -86617,7 +86682,7 @@ nT
 QW
 cG
 cG
-he
+Qy
 mF
 Xh
 Xh
@@ -86874,7 +86939,7 @@ kx
 sO
 cG
 cG
-he
+Qy
 mF
 qZ
 Xh
@@ -87131,7 +87196,7 @@ kx
 fs
 cG
 cG
-he
+Qy
 nS
 qZ
 Xh
@@ -87388,7 +87453,7 @@ kx
 sO
 cG
 cG
-he
+Qy
 nS
 qZ
 Xh
@@ -87645,7 +87710,7 @@ kx
 AC
 cG
 cG
-QW
+Hn
 lh
 Xh
 Xh
@@ -87902,7 +87967,7 @@ kx
 sO
 cG
 cG
-he
+Qy
 mF
 qZ
 Xh
@@ -88159,7 +88224,7 @@ kx
 sO
 cG
 cG
-he
+Qy
 mF
 Xh
 Xh
@@ -88416,7 +88481,7 @@ kx
 sO
 cG
 cG
-he
+Qy
 mF
 Xh
 Xh
@@ -88673,7 +88738,7 @@ nT
 QW
 cG
 cG
-he
+Qy
 lh
 Xh
 Xh
@@ -88930,7 +88995,7 @@ kx
 QW
 cG
 cG
-he
+Qy
 nS
 qZ
 Xh
@@ -89187,7 +89252,7 @@ kx
 QW
 cG
 WL
-he
+Qy
 nS
 Xh
 Xh
@@ -89444,7 +89509,7 @@ he
 he
 cG
 cG
-he
+Qy
 mF
 Xh
 Xh
@@ -89701,7 +89766,7 @@ he
 he
 cG
 cG
-he
+Qy
 mF
 Xh
 Xh
@@ -89958,7 +90023,7 @@ he
 he
 cG
 cG
-he
+Qy
 mF
 Xh
 Xh
@@ -90215,7 +90280,7 @@ kx
 he
 he
 he
-QW
+Hn
 wM
 hK
 zS
@@ -90722,7 +90787,7 @@ kx
 Ct
 kx
 he
-cG
+he
 WL
 he
 QW
@@ -90978,8 +91043,8 @@ fB
 kx
 Ct
 kx
-QW
-cG
+RS
+he
 cG
 cG
 cG
@@ -91235,7 +91300,7 @@ fB
 kx
 Ct
 kx
-QW
+aO
 QW
 cG
 cG
@@ -92263,7 +92328,7 @@ fB
 fB
 Av
 zB
-cG
+wT
 cG
 cG
 he
@@ -93291,7 +93356,7 @@ fB
 fB
 Av
 SZ
-cG
+RS
 cG
 cG
 QW
@@ -93550,8 +93615,8 @@ kx
 kx
 kx
 he
-he
 QW
+he
 Tu
 hH
 iV
@@ -93811,7 +93876,7 @@ Ku
 YR
 kx
 kx
-bM
+wz
 kx
 kx
 Xh
@@ -94069,7 +94134,7 @@ he
 QW
 he
 uH
-Te
+lJ
 lh
 Xh
 Xh
@@ -94320,13 +94385,13 @@ kx
 Ct
 kx
 QW
-WL
+QW
 cG
 cG
 cG
 cG
 cG
-he
+Qy
 mF
 Xh
 qZ
@@ -94583,7 +94648,7 @@ cG
 cG
 cG
 WL
-QW
+Hn
 mF
 Xh
 qZ
@@ -94840,7 +94905,7 @@ cG
 cG
 Ed
 cG
-QW
+Hn
 mF
 Xh
 Xh
@@ -95097,7 +95162,7 @@ WL
 WL
 WL
 WL
-QW
+Hn
 mF
 Xh
 Xh
@@ -95354,7 +95419,7 @@ WL
 WL
 WL
 YB
-QW
+Hn
 mF
 Xh
 Xh
@@ -95611,7 +95676,7 @@ WL
 YB
 YB
 WL
-Te
+lJ
 lh
 Xh
 Xh
@@ -95868,7 +95933,7 @@ WL
 WL
 cG
 WL
-QW
+Hn
 nS
 Xh
 Xh
@@ -96125,7 +96190,7 @@ WL
 cG
 cG
 cG
-he
+Qy
 nS
 Xh
 Xh
@@ -96382,7 +96447,7 @@ cG
 cG
 cG
 cG
-he
+Qy
 nS
 qZ
 Xh
@@ -96639,7 +96704,7 @@ WL
 WL
 WL
 cG
-he
+Qy
 nS
 Xh
 Xh
@@ -96896,7 +96961,7 @@ cG
 WL
 cG
 cG
-he
+Qy
 nS
 Xh
 Xh
@@ -97153,7 +97218,7 @@ cG
 cG
 cG
 WL
-he
+Qy
 nS
 qZ
 Xh
@@ -97410,7 +97475,7 @@ cG
 cG
 WL
 WL
-QW
+Hn
 mF
 Xh
 Xh
@@ -97667,7 +97732,7 @@ cG
 cG
 cG
 cG
-QW
+Hn
 mF
 Xh
 Xh
@@ -97924,7 +97989,7 @@ he
 QW
 QW
 he
-QW
+Hn
 wM
 hK
 hK
@@ -98181,7 +98246,7 @@ os
 os
 os
 os
-he
+er
 kx
 kx
 kx
@@ -99218,7 +99283,7 @@ KZ
 OW
 DR
 he
-he
+Qy
 hT
 CS
 km
@@ -99475,7 +99540,7 @@ cG
 cG
 DR
 he
-he
+Qy
 mF
 Xh
 Xh
@@ -99732,7 +99797,7 @@ WL
 WL
 DR
 QW
-he
+Qy
 mF
 qZ
 Xh
@@ -99989,7 +100054,7 @@ KZ
 OW
 DR
 he
-QW
+Hn
 mF
 qZ
 Xh
@@ -100246,7 +100311,7 @@ ri
 tM
 kx
 he
-he
+Qy
 nS
 Xh
 Xh
@@ -100503,7 +100568,7 @@ sN
 ZT
 so
 he
-he
+Qy
 nS
 Xh
 Xh
@@ -100760,7 +100825,7 @@ JW
 sN
 Py
 he
-he
+Qy
 lh
 Xh
 Xh
@@ -101017,7 +101082,7 @@ sN
 rU
 TD
 he
-he
+Qy
 mF
 Xh
 Xh
@@ -101274,7 +101339,7 @@ cW
 lW
 kx
 he
-he
+Qy
 mF
 Xh
 Xh
@@ -101531,7 +101596,7 @@ yS
 EZ
 KF
 he
-he
+Qy
 mF
 Xh
 ky
@@ -101788,7 +101853,7 @@ Cm
 Cm
 EB
 he
-QW
+Hn
 lh
 Xh
 Xh
@@ -102045,7 +102110,7 @@ yj
 ja
 kx
 QW
-he
+Qy
 nS
 Xh
 Xh
@@ -102302,7 +102367,7 @@ qv
 Ij
 nu
 QW
-he
+Qy
 nS
 Xh
 Xh
@@ -102559,7 +102624,7 @@ dH
 qv
 AK
 he
-he
+Qy
 mF
 Xh
 Xh
@@ -102816,7 +102881,7 @@ qv
 nK
 yf
 QW
-QW
+Hn
 mF
 Xh
 Xh
@@ -103073,7 +103138,7 @@ lO
 ck
 kx
 QW
-he
+Qy
 mF
 Xh
 Xh
@@ -103330,7 +103395,7 @@ DI
 UU
 mx
 bR
-mt
+Og
 wM
 zS
 zS
