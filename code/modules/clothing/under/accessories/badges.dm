@@ -510,7 +510,7 @@ A security hologram of the Xanan Feather is centered within the background, its 
 	icon_state = "xanu_passcard"
 	item_state = "xanu_passcard"
 
-	/obj/item/clothing/accessory/badge/passcard/coalition/xanu/military
+/obj/item/clothing/accessory/badge/passcard/coalition/xanu/military
 	name = "xanu militia reservist card"
 	desc = "An identification document issued to reservists of the All-Xanu National Militia."
 	desc_extended = "A form of identification certifying its bearer as a reservist within Xanu’s National Militia. Embedded with encrypted biometric identifiers, service status, and mobilization data, it functions as proof of militia affiliation and the holder’s military status.\
