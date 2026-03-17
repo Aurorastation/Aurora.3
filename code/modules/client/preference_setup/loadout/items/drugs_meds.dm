@@ -39,13 +39,13 @@
 /datum/gear/drugs_meds/cigarcase
 	display_name = "cigar case"
 	path = /obj/item/storage/box/fancy/cigarettes/cigar
-	cost = 2
+	cost = 1
 
 /datum/gear/drugs_meds/cigarettes
 	display_name = "cigarette packet selection"
 	description = "A selection of cigarette packets."
 	path = /obj/item/storage/box/fancy/cigarettes
-	cost = 2
+	cost = 1
 	flags = GEAR_HAS_DESC_SELECTION
 
 /datum/gear/drugs_meds/cigarettes/New()
@@ -68,7 +68,7 @@
 	display_name = "chewing tobacco selection"
 	description = "A selection of chewing tobacco."
 	path = /obj/item/storage/chewables/tobacco
-	cost = 2
+	cost = 1
 	flags = GEAR_HAS_DESC_SELECTION
 
 /datum/gear/drugs_meds/chew/New()
@@ -88,7 +88,7 @@
 	display_name = "smokable leaf selection"
 	description = "A selection of smokable leaves."
 	path = /obj/item/storage/chewables/rollable
-	cost = 2
+	cost = 1
 	flags = GEAR_HAS_DESC_SELECTION
 
 /datum/gear/drugs_meds/leaves/New()

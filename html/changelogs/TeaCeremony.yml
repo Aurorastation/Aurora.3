@@ -1,0 +1,8 @@
+author: TheGreyWolf
+
+delete-after: True
+
+changes:
+  - rscadd: "Added a tea set box to the loadout costing 2 points. It contain 1 tin of tea, 1 teapot and 4 empty cups."
+  - rscadd: "Reduced the cost of loadout cigs to 1 point."
+  - rscadd: "Reduced the size of tea tins."
