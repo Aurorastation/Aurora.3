@@ -23,7 +23,9 @@ SUBSYSTEM_DEF(persistence)
 
 /**
  * Helper method to check and log database connection.
- * Returns true if connection is scuccessful, false if not.
+ * RETURN: True if connection is scuccessful, false if not.
+ * PARAMS:
+ * 	action = Custom string of the action being performed written to log.
  */
 /datum/controller/subsystem/persistence/proc/databaseCheckConnection(var/action)
 	PRIVATE_PROC(TRUE)
@@ -34,7 +36,7 @@ SUBSYSTEM_DEF(persistence)
 
 /**
  * Helper method to check the SQL query result and log possible errors.
- * Returns true if no error occured, false if an error was found.
+ * RETURN: True if no error occured, false if an error was found.
  */
 /datum/controller/subsystem/persistence/proc/databaseCheckQueryResult(var/datum/db_query/query, var/action)
 	PRIVATE_PROC(TRUE)
