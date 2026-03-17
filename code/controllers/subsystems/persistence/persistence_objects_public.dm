@@ -15,7 +15,7 @@
 
 	new_track.persistent_objects_track_active = TRUE
 	new_track.persistent_objects_author_ckey = ckey
-	GLOB.persistence_register += new_track
+	GLOB.persistence_object_track_register += new_track
 
 /**
  * Removes the given object from the list of tracked objects. At shutdown the tracked object will be remove from the database.
@@ -25,4 +25,4 @@
 		return
 
 	old_track.persistent_objects_track_active = FALSE
-	GLOB.persistence_register -= old_track
+	GLOB.persistence_object_track_register -= old_track

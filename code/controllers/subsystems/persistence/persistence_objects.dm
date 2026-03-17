@@ -4,7 +4,7 @@
  */
 /datum/controller/subsystem/persistence/proc/objectsInitialize()
 	PRIVATE_PROC(TRUE)
-	GLOB.persistence_register = list()
+	GLOB.persistence_object_track_register = list()
 
 	// Delete all persistent objects in the database that have expired and have passed the cleanup grace period (PERSISTENT_EXPIRATION_CLEANUP_DELAY_DAYS)
 	objectsDatabaseCleanEntries()
@@ -42,7 +42,7 @@
 	// Delete persistent records that no longer exist in the registry (removed during the round)
 
 	// Run checks on each track that might prevent further persistence
-	for (var/obj/track in GLOB.persistence_register)
+	for (var/obj/track in GLOB.persistence_object_track_register)
 		CHECK_TICK
 		var/turf/T = get_turf(track)
 		if(!T || !is_station_level(T.z)) // The persistence system only supports objects from the main map levels for multiple reasons, e.g. Z level value, mapping support
@@ -57,7 +57,7 @@
 	// Get already stored data before saving new tracks so we can compare what has been updated or removed during the round.
 	var/list/existing_data = objectsDatabaseGetActiveEntries()
 
-	for (var/obj/track in GLOB.persistence_register)
+	for (var/obj/track in GLOB.persistence_object_track_register)
 		CHECK_TICK
 		if (track.persistent_objects_track_id == 0)
 			// Tracked object has no ID meaning it is new, create a new persistent record for it
@@ -68,7 +68,7 @@
 	// If we find the track, we need to check if it requires an update instead
 	for (var/record in existing_data)
 		var/found = FALSE
-		for (var/obj/track in GLOB.persistence_register)
+		for (var/obj/track in GLOB.persistence_object_track_register)
 			CHECK_TICK
 			if (record["id"] == track.persistent_objects_track_id)
 				// A track with the same ID has been found in the register, it still exists, check if we need to update it instead

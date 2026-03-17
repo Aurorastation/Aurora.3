@@ -18,7 +18,7 @@ SUBSYSTEM_DEF(persistence)
  * Subsystem info stub message generation.
  */
 /datum/controller/subsystem/persistence/stat_entry(msg)
-	msg = ("Object tracking register: [GLOB.persistence_register.len]")
+	msg = ("Tracked object register: [GLOB.persistence_object_track_register.len]")
 	return ..()
 
 /**
