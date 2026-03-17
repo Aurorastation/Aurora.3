@@ -70,8 +70,7 @@
 /obj/random/melee/highvalue
 	name = "random high value melee weapon"
 	desc = "This is a random high value melee weapon."
-	icon = 'icons/obj/weapons.dmi'
-	icon_state = "baton"
+	icon_state = "melee"
 	spawnlist = list(
 		/obj/item/melee/energy/sword,
 		/obj/item/melee/energy/glaive,
@@ -123,7 +122,6 @@
 /obj/random/civgun
 	name = "random civilian handgun"
 	desc = "This is a random civilian gun."
-	icon = 'icons/obj/random.dmi'
 	icon_state = "pistol"
 	has_postspawn = TRUE
 	spawnlist = list(
@@ -171,7 +169,6 @@
 /obj/random/civgun/rifle
 	name = "random civilian longarm"
 	desc = "This is a random civilian long gun."
-	icon = 'icons/obj/random.dmi'
 	icon_state = "rifle"
 	has_postspawn = TRUE
 	spawnlist = list(
@@ -211,8 +208,7 @@
 /obj/random/vault_weapon
 	name = "random vault weapon"
 	desc = "This is a random vault weapon."
-	icon = 'icons/obj/guns/energy/caplaser.dmi'
-	icon_state = "caplaser"
+	icon_state = "needsprite"
 	spawnlist = list(
 		/obj/item/gun/custom_ka/frameA/prebuilt = 1,
 		/obj/item/gun/custom_ka/frameB/prebuilt = 0.5,

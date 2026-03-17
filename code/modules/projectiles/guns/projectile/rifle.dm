@@ -226,7 +226,7 @@
 /obj/item/gun/projectile/shotgun/pump/rifle/vintage
 	name = "vintage bolt action rifle"
 	desc = "An extremely old-looking rifle. Words you can't read are stamped on the gun. Doesn't look like it'll take any modern rounds."
-	icon = 'icons/obj/guns/springfield.dmi'
+	icon = 'icons/obj/guns/manufacturer/antique/springfield.dmi'
 	icon_state = "springfield"
 	item_state = "springfield"
 	origin_tech = list(TECH_COMBAT = 1, TECH_MATERIAL = 3)

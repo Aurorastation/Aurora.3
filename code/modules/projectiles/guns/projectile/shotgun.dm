@@ -1,4 +1,4 @@
-/obj/item/gun/projectile/shotgun
+ABSTRACT_TYPE(/obj/item/gun/projectile/shotgun)
 	name = "strange shotgun"
 	desc = DESC_PARENT
 	accuracy = -1
@@ -48,7 +48,7 @@
 /obj/item/gun/projectile/shotgun/pump
 	name = "pump shotgun"
 	desc = "An ubiquitous unbranded shotgun. Useful for sweeping alleys."
-	icon = 'icons/obj/guns/shotgun.dmi'
+	icon = 'icons/obj/guns/manufacturer/frontier/shotgun.dmi'
 	icon_state = "shotgun"
 	item_state = "shotgun"
 	max_shells = 7 // max of 8
@@ -114,9 +114,9 @@
 	ammo_type = null
 
 /obj/item/gun/projectile/shotgun/pump/combat
-	name = "combat shotgun"
+	name = "\improper KS-40 combat shotgun"
 	desc = "Built for close quarters combat, the Hephaestus Industries KS-40 is widely regarded as a weapon of choice for repelling boarders."
-	icon = 'icons/obj/guns/cshotgun.dmi'
+	icon = 'icons/obj/guns/manufacturer/hephaestus_industries/cshotgun.dmi'
 	icon_state = "cshotgun"
 	item_state = "cshotgun"
 	origin_tech = list(TECH_COMBAT = 5, TECH_MATERIAL = 2)
@@ -127,9 +127,9 @@
 	cycle_anim = FALSE
 
 /obj/item/gun/projectile/shotgun/pump/combat/sol
-	name = "solarian combat shotgun"
+	name = "\improper M63 combat shotgun"
 	desc = "A compact combat shotgun manufactured by Zavodskoi Interstellar for the Solarian Armed Forces, the M63 is most frequently employed by assaulters fighting in close-quarters environments, though it is also uncommonly used as a defensive weapon by Navy crewmen. Chambered in 12 gauge."
-	icon = 'icons/obj/guns/sol_shotgun.dmi'
+	icon = 'icons/obj/guns/manufacturer/zavodskoi_interstellar/sol_shotgun.dmi'
 	icon_state = "malella"
 	item_state = "malella"
 	origin_tech = list(TECH_COMBAT = 6, TECH_MATERIAL = 3, TECH_ILLEGAL = 2)
@@ -216,7 +216,7 @@
 	force = 11
 
 /obj/item/gun/projectile/shotgun/doublebarrel/nitro
-	name = "gauss express rifle"
+	name = "\improper Pattern Nine gauss express rifle"
 	desc = "A Galatean nitro express rifle. Loaded with tungsten slugs."
 	desc_extended = "While Galatea almost universally uses lasers for their weapons, gauss weapons see some use in the hands of expeditionary forces and military specialist units. The Pattern Nine is a single-barrel, double-shot \
 	rifle designed for intermediate range anti-infantry specialists just as much as it is for Tsukuyomian game wardens."

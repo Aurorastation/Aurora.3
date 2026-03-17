@@ -206,7 +206,7 @@
 	desc_extended = "Created as a disposable and concealable weapon, the Mrrazhakulii suppressed pistol is a firearm with a suppressor integrated as part of its barrel. \
 		Carried by guerrilla forces and spies, those guns are used in assassination and subterfuge operations. Due to using cheap and available materials, such as \
 		recycled iron and tires, countless of those pistols were distributed among cells and ALA soldiers."
-	icon = 'icons/obj/guns/tajara/mrrazhakulii_suppressed_pistol.dmi'
+	icon = 'icons/obj/guns/species/tajara/mrrazhakulii_suppressed_pistol.dmi'
 	icon_state = "silenced_pistol"
 	item_state = "silenced_pistol"
 	fire_sound = 'sound/weapons/gunshot/gunshot_suppressed.ogg'
@@ -255,7 +255,7 @@
 /obj/item/gun/projectile/deagle/adhomai
 	name = "\improper Nal'tor heavy pistol"
 	desc = "A bulky handgun used by republican commissars and high-ranking members of the Hadiist Party."
-	icon = 'icons/obj/guns/tajara/naltor_heavy_pistol.dmi'
+	icon = 'icons/obj/guns/species/tajara/naltor_heavy_pistol.dmi'
 	icon_state = "adhomian_heavy_pistol"
 	item_state = "adhomian_heavy_pistol"
 	desc_extended = "Given to Republican Commissars and high ranking Party members, the Nal'tor Model Pistol is notable for its large caliber. Unlike the Adar'Mazy pistol, only a \
@@ -440,7 +440,7 @@
 	name = "konyang service pistol"
 	desc = "The compact M8, redesignated as the K8, is the standard service pistol of the Konyanger Armed Forces. Inherited from the Solarian military, Zavodskoi has since given these handguns \
 	a service extension package, including laser sights and replacement of worn-out parts."
-	icon = 'icons/obj/guns/konyang_weapons.dmi'
+	icon = 'icons/obj/guns/manufacturer/einstein_engines/konyang_weapons.dmi'
 	icon_state = "k8"
 	item_state = "k8"
 
@@ -454,7 +454,7 @@
 /obj/item/gun/projectile/pistol/adhomai
 	name = "\improper Adar'Mazy pistol"
 	desc = "The Adar'Mazy pistol is an Adhomian firearm commonly issued to People's Republic officers, government officials and low-ranking Party members."
-	icon = 'icons/obj/guns/tajara/adhomian_pistol.dmi'
+	icon = 'icons/obj/guns/species/tajara/adhomian_pistol.dmi'
 	icon_state = "adhomian_pistol"
 	item_state = "adhomian_pistol"
 	can_suppress = FALSE
@@ -536,12 +536,12 @@
 					RH.take_damage(30)
 
 /obj/item/gun/projectile/xanupistol
-	name = "\improper Xanan service pistol"
+	name = "dNAC-4.6 service pistol"
 	desc = "A sleek metal-framed semi-automatic pistol, produced by d.N.A Defense for the All-Xanu Armed Forces."
 	desc_extended = "The dNAC-4.6 pistol is the standard issue sidearm for the All-Xanu Armed Forces. Designed to use 4.6x30mm rounds with less weight but better armor penetration than the 9mm pistols it replaced, the dNAC-4.6 has seen great success in Xanu Prime and beyond, as it has been adopted as a standard sidearm for police forces, military units, and other entities across the Coalition of Colonies and beyond."
 	magazine_type = /obj/item/ammo_magazine/c46m
 	allowed_magazines = list(/obj/item/ammo_magazine/c46m, /obj/item/ammo_magazine/c46m/extended)
-	icon = 'icons/obj/guns/xanu_pistol.dmi'
+	icon = 'icons/obj/guns/manufacturer/dna_defense/xanu_pistol.dmi'
 	icon_state = "xanu_pistol"
 	item_state = "xanu_pistol"
 	caliber = "4.6mm"

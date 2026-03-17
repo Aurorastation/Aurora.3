@@ -1,7 +1,7 @@
 /obj/item/gun/energy/taser
 	name = "\improper NT Mk30 NL stun pistol"
 	desc = "The NT Mk30 NL is a small, low capacity pistol used for non-lethal takedowns."
-	icon = 'icons/obj/guns/energy/nanotrasen/stunpistol.dmi'
+	icon = 'icons/obj/guns/manufacturer/nanotrasen/stunpistol.dmi'
 	icon_state = "taser"
 	item_state = "taser"
 	fire_sound = 'sound/weapons/Taser.ogg'
@@ -22,7 +22,7 @@
 	name = "\improper NT ST-30 stun revolver"
 	desc = "A NanoTrasen designed high-tech revolver that fires rechargeable stun bolts."
 	desc_extended = "The ST-30 is a highly advanced sidearm produced by NanoTrasen. It is designed for self-defense in a less-than-lethal manner. While the weapon design itself is not groundbreaking, it fires high velocity energy bolts with rechargeable cartridges, possessing unusual high stopping power."
-	icon = 'icons/obj/guns/energy/nanotrasen/stunrevolver.dmi'
+	icon = 'icons/obj/guns/manufacturer/nanotrasen/stunrevolver.dmi'
 	icon_state = "stunrevolver"
 	item_state = "stunrevolver"
 	has_item_ratio = FALSE

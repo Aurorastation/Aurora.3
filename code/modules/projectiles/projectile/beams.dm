@@ -46,7 +46,7 @@
 	impact_type = /obj/effect/projectile/impact/laser/scc
 
 /obj/projectile/beam/pistol/hegemony
-	icon = 'icons/obj/guns/unathi/hegemony_pistol.dmi'
+	icon = 'icons/obj/guns/species/unathi/hegemony_pistol.dmi'
 	icon_state = "hegemony_pistol"
 	damage = 30
 

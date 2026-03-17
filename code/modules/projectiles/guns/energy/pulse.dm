@@ -2,7 +2,7 @@
 /obj/item/gun/energy/rifle/pulse
 	name = "\improper NT PL-10 pulse rifle"
 	desc = "A top-of-the-line, heavy-duty, multifaceted energy rifle with three firing modes. The gold standard for NanoTrasen's heavier security specialists."
-	icon = 'icons/obj/guns/energy/pulse/pulse.dmi'
+	icon = 'icons/obj/guns/manufacturer/nanotrasen/pulse.dmi'
 	icon_state = "pulse"
 	item_state = "pulse"
 	fire_sound = 'sound/weapons/laser1.ogg'
@@ -41,7 +41,7 @@
 /obj/item/gun/energy/pulse
 	name = "\improper NT PL-4 pulse carbine"
 	desc = "A next-generation pulse weapon for NanoTrasen's security forces. High production costs and logistical issues have limited its deployment to specialist Loss Prevention and Emergency Response units."
-	icon = 'icons/obj/guns/energy/pulse/pulse_carbine.dmi'
+	icon = 'icons/obj/guns/manufacturer/nanotrasen/pulse_carbine.dmi'
 	icon_state = "pulse_carbine"
 	item_state = "pulse_carbine"
 	slot_flags = SLOT_BELT
@@ -76,7 +76,7 @@
 	name = "\improper NT PL-7 pulse pistol"
 	desc = "A weapon that uses advanced pulse-based beam generation technology to emit powerful laser blasts. This one is a really compact model."
 	slot_flags = SLOT_BELT|SLOT_HOLSTER
-	icon = 'icons/obj/guns/energy/pulse/pulse_pistol.dmi'
+	icon = 'icons/obj/guns/manufacturer/nanotrasen/pulse_pistol.dmi'
 	icon_state = "pulse_pistol"
 	item_state = "pulse_pistol"
 	offhand_accuracy = 1

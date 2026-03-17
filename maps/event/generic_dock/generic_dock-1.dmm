@@ -8979,7 +8979,7 @@
 /obj/item/clothing/accessory/holster/hip,
 /obj/item/radio/headset/ert,
 /obj/item/clothing/head/beret/centcom/captain,
-/obj/item/gun/energy/lawgiver,
+/obj/item/gun/energy/acp,
 /obj/item/card/id/centcom,
 /obj/structure/closet/secure_closet/guncabinet{
 	name = "captain's cabinet";

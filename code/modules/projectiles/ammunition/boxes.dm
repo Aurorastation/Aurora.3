@@ -648,7 +648,7 @@ If nothing is chosen, reload sounds revert to the default, which is metal_slide_
 /obj/item/ammo_magazine/xanan_shotgun
 	name = "magazine"
 	desc = "A magazine for the dNAC-12 combat shotgun."
-	icon = 'icons/obj/guns/xanu_shotgun_mags.dmi'
+	icon = 'icons/obj/guns/manufacturer/dna_defense/xanu_shotgun_mags.dmi'
 	icon_state = "xanu_shell_magazine"
 	caliber = "shotgun"
 	insert_sound = SFX_RELOAD_RIFLE_SLIDE

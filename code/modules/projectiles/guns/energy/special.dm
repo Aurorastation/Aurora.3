@@ -92,7 +92,7 @@
 /obj/item/gun/energy/mindflayer
 	name = "mind flayer"
 	desc = "A custom-built weapon of some kind."
-	icon = 'icons/obj/guns/energy/nanotrasen/xray.dmi'
+	icon = 'icons/obj/guns/manufacturer/nanotrasen/xray.dmi'
 	icon_state = "xray"
 	item_state = "xray"
 	has_item_ratio = FALSE
@@ -119,7 +119,7 @@
 /obj/item/gun/energy/mousegun
 	name = "\improper NT Pesti-Shock gun"
 	desc = "The NT \"Arodentia\" Pesti-Shock is a highly sophisticated and probably safe beamgun designed for rapid pest-control."
-	icon = 'icons/obj/guns/energy/nanotrasen/pestishock.dmi'
+	icon = 'icons/obj/guns/manufacturer/nanotrasen/pestishock.dmi'
 	icon_state = "pestishock"
 	item_state = "pestishock"
 	has_item_ratio = FALSE
@@ -155,7 +155,7 @@
 /obj/item/gun/energy/mousegun/xenofauna
 	name = "\improper NT Zap-Blast xenofauna gun"
 	desc = "The NT \"Xenovermino\" Zap-Blast is a highly sophisticated and probably safe beamgun designed to deal with hostile xenofauna."
-	icon = 'icons/obj/guns/energy/nanotrasen/xenogun.dmi'
+	icon = 'icons/obj/guns/manufacturer/nanotrasen/xenogun.dmi'
 	icon_state = "xenogun"
 	item_state = "xenogun"
 	projectile_type = /obj/projectile/beam/mousegun/xenofauna
@@ -199,7 +199,7 @@
 /obj/item/gun/energy/vaurca/gatlinglaser
 	name = "gatling laser"
 	desc = "A highly sophisticated rapid fire laser weapon."
-	icon = 'icons/obj/guns/vaurca/gatling_laser.dmi'
+	icon = 'icons/obj/guns/species/vaurca/gatling_laser.dmi'
 	icon_state = "gatling"
 	item_state = "gatling"
 	has_item_ratio = FALSE
@@ -255,7 +255,7 @@
 	name = "\improper thermic blaster"
 	desc = "An opulent Vaurceisan pistol, handcrafted for each wielder by the Court of Queen's master weaponsmiths. For those Ta and few notable Warriors who wield it, the Thermic Blaster is as much a badge of office as it is a fiercely deadly weapon."
 	desc_extended = "The Thermic Blaster is a weapon with a history dating back as far as the Vaurcesian Court of Queens, for since its founding, it has forged one of these blasters for every newborn Ta, bestowed as a coming-of-age gift. With every major advancement in technology, the Court's weaponsmiths have gathered together to upgrade the existing batch, resulting in many Thermic Blasters being millennia old, and many Ta add personal flourishes. This iteration of the firearm was developed after the Zo'rane arrival in the Spur and distributed as a celebration for the refounding of the Court of Queens. The Court may occasionally bestow this exceptionally expensive Blaster on an accomplished Warrior, but very few ever leave Vaurca hands and those that do are fiercely prized."
-	icon = 'icons/obj/guns/vaurca/thermic_blaster.dmi'
+	icon = 'icons/obj/guns/species/vaurca/thermic_blaster.dmi'
 	icon_state = "blaster"
 	item_state = "blaster"
 	has_item_ratio = FALSE
@@ -279,8 +279,8 @@
 /obj/item/gun/energy/vaurca/typec
 	name = "thermal lance"
 	desc = "A powerful piece of Zo'rane energy artillery, converted to be portable...if you weigh a metric tonne, that is."
-	icon = 'icons/obj/guns/vaurca/megaglaive.dmi'
-	sprite_sheets = list(BODYTYPE_VAURCA_BREEDER = 'icons/obj/guns/vaurca/megaglaive.dmi')
+	icon = 'icons/obj/guns/species/vaurca/megaglaive.dmi'
+	sprite_sheets = list(BODYTYPE_VAURCA_BREEDER = 'icons/obj/guns/species/vaurca/megaglaive.dmi')
 	icon_state = "megaglaive0"
 	item_state = "megaglaive"
 	origin_tech = list(TECH_COMBAT = 6, TECH_PHORON = 8)

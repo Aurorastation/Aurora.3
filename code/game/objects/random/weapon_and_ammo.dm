@@ -95,7 +95,7 @@
 		)
 
 	var/list/Legendary = list(
-		/obj/item/gun/energy/lawgiver = 1,
+		/obj/item/gun/energy/acp = 1,
 		/obj/item/gun/energy/pulse = 1,
 		/obj/item/gun/energy/pulse/pistol = 1,
 		/obj/item/gun/energy/rifle/pulse = 1,

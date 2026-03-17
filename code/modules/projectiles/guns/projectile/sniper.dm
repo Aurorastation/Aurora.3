@@ -1,5 +1,5 @@
 /obj/item/gun/projectile/heavysniper
-	name = "anti-materiel rifle"
+	name = "\improper PTR-7 anti-materiel rifle"
 	desc = "The PTR-7 is man-portable anti-armor rifle fitted with a high-powered scope, capable of penetrating through most windows, airlocks, and non-reinforced walls with ease."
 	desc_extended = "A single-shot, bolt-action anachronism in an age of energy weapons, the PTR-7 was originally developed to combat exosuits, either by disabling critical systems \
 	or killing the pilot. Firing a high-velocity 14.5mm cartridge designed to defeat heavy armor, the PTR-7 boasts penetrative power unmatched by most in its class, though recent advancements \
@@ -176,7 +176,7 @@
 		icon_state = "tranqsniper"
 
 /obj/item/gun/projectile/dragunov
-	name = "adhomian marksman rifle"
+	name = "\improper Ho'taki marksman rifle"
 	desc = "A semi-automatic marksman rifle."
 	icon = 'icons/obj/guns/dragunov.dmi'
 	icon_state = "dragunov"
@@ -231,11 +231,11 @@
 		to_chat(usr, SPAN_WARNING("You can't look through the scope without stabilizing the rifle!"))
 
 /obj/item/gun/projectile/automatic/rifle/w556
-	name = "scout rifle"
+	name = "\improper ZI Greyhound marksman rifle"
 	desc = "The ZI Greyhound, the designated marksman rifle variant of Zavodskoi's ZI Bulldog carbine. Features a longer, heavier barrel \
 	with a low-power fixed-magnification optic. A vertical grip has been attached under the forend, to help offset the change in balance \
 	and improve handling."
-	icon = 'icons/obj/guns/w556.dmi'
+	icon = 'icons/obj/guns/manufacturer/zavodskoi_interstellar/w556.dmi'
 	icon_state = "w556rifle"
 	item_state = "w556rifle"
 	w_class = WEIGHT_CLASS_BULKY

@@ -1177,7 +1177,7 @@
 "gf" = (
 /obj/random/dirt_75,
 /obj/random/ammo,
-/obj/item/gun/energy/lawgiver,
+/obj/item/gun/energy/acp,
 /turf/simulated/floor/wood/mahogany,
 /area/trove/vault)
 "gh" = (
