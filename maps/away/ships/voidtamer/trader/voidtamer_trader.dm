@@ -14,21 +14,21 @@
 
 /singleton/submap_archetype/voidtamer_trade_ship
 	map = "Voidtamer Trade Ship"
-	descriptor = "A trade ship of the Voidtamer Conflux. While far from being built for combat, the vessel is outfited for self-defense against space fauna and potentialy hostile ships. The vessel is loaded for trade, looking for various ports and ships to trade at."
+	descriptor = "A trade ship of the Voidtamer Conflux. While far from being built for combat, the vessel is outfitted for self-defense against space fauna and potentially hostile ships. The vessel is loaded for trade, looking for various ports and ships to trade at."
 
 /obj/effect/overmap/visitable/ship/voidtamer_trade_ship
 	name = "Voidtamer Trade Ship"
-	desc = "A trade ship of the Voidtamer Conflux. While far from being built for combat, the vessel is outfited for self-defense against space fauna and potentialy hostile ships. The vessel is loaded for trade, looking for various ports and ships to trade at."
-	class = "VCV" //Pending
+	desc = "A trade ship of the Voidtamer Conflux. While far from being built for combat, the vessel is outfitted for self-defense against space fauna and potentially hostile ships. The vessel is loaded for trade, looking for various ports and ships to trade at."
+	class = "VCV"
 	icon_state = "asteroid_cluster"
 	moving_state = "asteroid_cluster_moving"
 	colors = list("#9900FF")
 	designer = "Obfuscated, hull origin uncertain"
-	volume = "Unknown."
-	drive = "Unknown."
-	weapons = "Unknown."
-	sizeclass = "Unknown.k"
-	shiptype = "Unknown."
+	volume = "Unknown"
+	drive = "Unknown"
+	weapons = "Unknown"
+	sizeclass = "Unknown"
+	shiptype = "Unknown"
 	vessel_mass = 12000
 	max_speed = 1/(2 SECONDS)
 	fore_dir = SOUTH

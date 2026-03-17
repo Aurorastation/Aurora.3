@@ -902,4 +902,3 @@
 	id = ACCESS_VOIDTAMER_SHIP
 	access_type = ACCESS_TYPE_CENTCOM
 
-

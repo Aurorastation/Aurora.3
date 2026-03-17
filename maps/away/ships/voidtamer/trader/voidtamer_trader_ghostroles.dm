@@ -1,7 +1,7 @@
 /datum/ghostspawner/human/voidtamer_crew
 	short_name = "voidtamer_crew"
 	name = "Voidtamer Crew"
-	desc = "Dionae crew of a voidtamer vessel"
+	desc = "Dionae crew of a Voidtamer vessel."
 	tags = list("External")
 
 	spawnpoints = list("voidtamer_crew")
@@ -13,7 +13,7 @@
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
 	assigned_role = "Voidtamer Crew"
-	special_role = "Voidtamer crew"
+	special_role = "Voidtamer Crew"
 	respawn_flag = null
 
 /obj/outfit/admin/voidtamer_crew
@@ -32,7 +32,7 @@
 /datum/ghostspawner/human/voidtamer_crew/captain
 	short_name = "voidtamer_captain"
 	name = "Voidtamer Captain"
-	desc = "Captain of a voidtamer vessel"
+	desc = "Captain of a Voidtamer vessel."
 	tags = list("External")
 	uses_species_whitelist = TRUE
 	spawnpoints = list("voidtamer_captain")
