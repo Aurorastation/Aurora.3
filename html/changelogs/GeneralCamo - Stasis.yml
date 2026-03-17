@@ -44,7 +44,7 @@
 #################################
 
 # Your name.
-author: steviii
+author: GeneralCamo
 
 # Optional: Remove this file after generating master changelog.  Useful for PR changelogs that won't get used again.
 delete-after: True
@@ -55,5 +55,9 @@ delete-after: True
 # Also, this gets changed to [] after reading.  Just remove the brackets when you add new shit.
 # Please surround your changes in  double quotes ("). It works without them, but if you use certain characters it screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - rscadd: "Adds an SCC-branded sleepmask and slippers, along with generic recolourable slippers."
-  - rscadd: "Adds the generic slippers to the recovery ward in the medbay, and the SCC-branded sleepmask and slippers to the intrepid."
+  - rscadd: "Going into stasis now has a status icon."
+  - rscadd: "Ported the stasis effect filter from tgstation."
+  - rscadd: "Ported the stasis bed animation from tgstation."
+  - bugfix: "Stasis beds are now required to be turned on to provide stasis."
+  - balance: "Reworked stasis bed upgrades. Lasers are used to upgrade stasis bed level instead of scanners, but will now increase the power consumption. Capacitors will make them more efficient."
+  - balance: "Greatly increased the base power consumption of the stasis bed."

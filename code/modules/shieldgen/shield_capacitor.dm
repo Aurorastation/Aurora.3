@@ -14,7 +14,7 @@
 	var/stored_charge = 0
 	var/last_stored_charge = 0
 	var/time_since_fail = 100
-	var/max_charge = 2e8			//200 MJ
+	var/max_charge = 2e7			//20 MJ
 	var/max_charge_rate = 9000000	//9 MW
 	var/locked = FALSE
 

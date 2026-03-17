@@ -36,12 +36,6 @@
 		qdel(src)
 		return
 
-	matter = material.get_matter()
-	if(matter.len)
-		for(var/material_type in matter)
-			if(!isnull(matter[material_type]))
-				matter[material_type] *= force_divisor // May require a new var instead.
-
 /obj/item/material/should_equip()
 	return TRUE
 
@@ -84,6 +78,11 @@
 		if(material.products_need_process())
 			START_PROCESSING(SSprocessing, src)
 		update_force()
+
+		matter = material.get_matter()
+		for(var/material_type in matter)
+			if(!isnull(matter[material_type]))
+				matter[material_type] *= force_divisor // May require a new var instead.
 
 /obj/item/material/Destroy()
 	STOP_PROCESSING(SSprocessing, src)

@@ -283,7 +283,7 @@
 	damage_type = DAMAGE_BRUTE
 	damage_flags = DAMAGE_FLAG_LASER
 	check_armor = ENERGY
-	incinerate = 10
+	incinerate = 2
 	armor_penetration = 60
 	penetrating = 1
 
@@ -291,7 +291,7 @@
 	name = "plasma bolt"
 	damage = 15
 	armor_penetration = 60
-	incinerate = 8
+	incinerate = 1
 
 /obj/item/missile
 	icon = 'icons/obj/grenade.dmi'
