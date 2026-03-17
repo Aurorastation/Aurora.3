@@ -88,7 +88,7 @@
 # Modular computers, wildkins
 /code/modules/modular_computers/ @JohnWildkins
 
-# Persistence, Fabian
+# Persistence, Fabian's area
 **/persistence @Arrow768 @NonQueueingMatt @FabianK3
 /code/__DEFINES/persistence.dm @Arrow768 @NonQueueingMatt @FabianK3
 /code/__HELPERS/logging/subsystems/persistence.dm @Arrow768 @NonQueueingMatt @FabianK3
