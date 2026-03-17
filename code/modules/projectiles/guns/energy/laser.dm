@@ -21,7 +21,7 @@
 
 /obj/item/gun/energy/captain
 	name = "antique laser gun"
-	icon = 'icons/obj/guns/caplaser.dmi'
+	icon = 'icons/obj/guns/energy/caplaser.dmi'
 	desc = "This is an antique laser gun. All craftsmanship is of the highest quality. The object menaces with spikes of energy."
 	icon_state = "caplaser"
 	item_state = "caplaser"
@@ -47,7 +47,7 @@
 	name = "\improper NT XG-1 X-Ray laser pistol"
 	desc = "A NanoTrasen designed high-power laser sidearm capable of expelling concentrated X-Ray blasts."
 	desc_extended = "The NT XG-1 is a laser sidearm developed and produced by NanoTrasen. A recent invention, used for specialist operations, it is presently being produced and sold in limited capacity over the galaxy. Designed for precision strikes, releasing concentrated xray blasts that are capable of hitting targets behind cover. It is compact with relatively high capacity to other sidearms."
-	icon = 'icons/obj/guns/energy/xray.dmi'
+	icon = 'icons/obj/guns/energy/nanotrasen/xray.dmi'
 	icon_state = "xray"
 	item_state = "xray"
 	has_item_ratio = FALSE
@@ -73,7 +73,7 @@
 /obj/item/gun/energy/sniperrifle
 	name = "\improper HI L.W.A.P. marksman energy rifle"
 	desc = "The HI L.W.A.P. is an older NanoTrasen design. A designated marksman rifle capable of shooting powerful ionized beams, this is a weapon to kill from a distance."
-	icon = 'icons/obj/guns/energy/nt_laser_sniper.dmi'
+	icon = 'icons/obj/guns/energy/nanotrasen/nt_laser_sniper.dmi'
 	icon_state = "sniper"
 	item_state = "sniper"
 	has_item_ratio = FALSE // same as the laserrifle
@@ -115,7 +115,7 @@
 	name = "\improper NT QB-2 laser shotgun"
 	desc = "A NanoTrasen designed laser weapon, designed to split a single amplified beam four times."
 	desc_extended = "The NT QB-2 is a laser weapon developed and produced by NanoTrasen. Designed to fill in the niche that ballistic shotguns do, but in the form of laser weaponry. It is equipped with a special crystal lens that splits a single laser beam into four."
-	icon = 'icons/obj/guns/energy/lasershotgun.dmi'
+	icon = 'icons/obj/guns/energy/nanotrasen/lasershotgun.dmi'
 	icon_state = "lasershotgun"
 	item_state = "lasershotgun"
 	modifystate = null
@@ -181,9 +181,9 @@ ABSTRACT_TYPE(/obj/item/gun/energy/lasertag)
 		pin = new pin_path(src)
 	switch(set_color)
 		if("red")
-			icon = 'icons/obj/guns/redtag.dmi'
+			icon = 'icons/obj/guns/toy/redtag.dmi'
 		if("blue")
-			icon = 'icons/obj/guns/bluetag.dmi'
+			icon = 'icons/obj/guns/toy/bluetag.dmi'
 	icon_state = "[set_color]tag"
 	item_state = icon_state
 	modifystate = item_state

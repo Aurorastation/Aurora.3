@@ -2,7 +2,7 @@
 	name = "\improper NT EC-4 energy carbine"
 	desc = "A NanoTrasen designed energy-based carbine with two settings: Stun and kill."
 	desc_extended = "The NT EC-4 is an energy carbine developed and produced by NanoTrasen. Compact, light and durable, used by security forces and law enforcement for its ability to fire stun or lethal beams, depending on selection. It is widely sold and distributed across the galaxy."
-	icon = 'icons/obj/guns/energy/ecarbine.dmi'
+	icon = 'icons/obj/guns/energy/nanotrasen/ecarbine.dmi'
 	icon_state = "energystun"
 	item_state = "energystun"
 	fire_sound = 'sound/weapons/Taser.ogg'
@@ -126,7 +126,7 @@
 	name = "\improper NT EP-3 energy pistol"
 	desc = "A NanoTrasen energy-based pistol gun with two settings: Stun and kill."
 	desc_extended = "The NT EP-3 is an energy sidearm developed and produced by NanoTrasen. Compact, light and durable, used by security forces and law enforcement for its ability to fire stun or lethal beams, depending on selection. It is widely sold and distributed across the galaxy."
-	icon = 'icons/obj/guns/energy/epistol.dmi'
+	icon = 'icons/obj/guns/energy/nanotrasen/epistol.dmi'
 	icon_state = "epistolstun100"
 	item_state = "epistolstun100"
 	fire_sound = 'sound/weapons/Taser.ogg'
@@ -153,7 +153,7 @@
 	name = "hegemony energy pistol"
 	desc = "An upgraded variant of the standard energy pistol with two settings: Incapacitate and Smite."
 	desc_extended = "This is the Zkrehk-Guild Beamgun, an energy-based sidearm designed and manufactured on Moghes. A special crystal used in its design allows it to penetrate armor with pinpoint accuracy."
-	icon = 'icons/obj/guns/hegemony_pistol.dmi'
+	icon = 'icons/obj/guns/unathi/hegemony_pistol.dmi'
 	icon_state = "hegemony_pistol"
 	item_state = "hegemony_pistol"
 	has_item_ratio = FALSE

@@ -2,7 +2,7 @@
 	name = "\improper NT ER-2 energy rifle"
 	desc = "A NanoTrasen designed energy-based rifle with two settings: Stun and Kill."
 	desc_extended = "The NT ER-2 is an energy rifle developed and produced by NanoTrasen. Widely produced and sold across the galaxy. Designed to both stun and kill with concentrated energy blasts of varying strengths based on the fire mode, focused through a crystal lens. Considered to be a dual-purpose rifle with prolonged combat capability."
-	icon = 'icons/obj/guns/energy/erifle.dmi'
+	icon = 'icons/obj/guns/energy/nanotrasen/erifle.dmi'
 	icon_state = "eriflestun"
 	item_state = "eriflestun"
 	fire_sound = 'sound/weapons/Taser.ogg'
@@ -41,7 +41,7 @@
 	name = "\improper NT LR-6 laser rifle"
 	desc = "A NanoTrasen designed laser weapon, designed to kill with concentrated energy blasts."
 	desc_extended = "The NT LR-6 is a laser rifle developed and produced by NanoTrasen. Designed to kill with concentrated energy blasts focused through a crystal lens. It is considered to be the template of other standard laser weaponry."
-	icon = 'icons/obj/guns/energy/laserrifle.dmi'
+	icon = 'icons/obj/guns/energy/nanotrasen/laserrifle.dmi'
 	icon_state = "laserrifle"
 	item_state = "laserrifle"
 	has_item_ratio = FALSE // the back and suit slots have ratio sprites but the in-hands dont
@@ -105,7 +105,7 @@
 	name = "\improper NT LC-4 laser cannon"
 	desc = "A NanoTrasen designed laser cannon capable of acting as a powerful support weapon."
 	desc_extended = "The NT LC-4 is a laser cannon developed and produced by NanoTrasen. Produced and sold to organizations both in need of a highly powerful support weapon and can afford its high unit cost. In spite of the low capacity, it is a highly capable tool, cutting down fortifications and armored targets with ease."
-	icon = 'icons/obj/guns/energy/lasercannon.dmi'
+	icon = 'icons/obj/guns/energy/nanotrasen/lasercannon.dmi'
 	icon_state = "lasercannon100"
 	item_state = "lasercannon100"
 	has_item_ratio = TRUE
@@ -142,7 +142,7 @@
 	name = "\improper NT XR-1 X-Ray laser rifle"
 	desc = "A NanoTrasen designed high-power laser rifle capable of expelling concentrated X-Ray blasts."
 	desc_extended = "The NT XR-1 is a laser firearm developed and produced by NanoTrasen. A recent innovation, used for specialist operations, it is presently being produced and sold in limited capacity over the galaxy. Designed for precision strikes, releasing concentrated xray blasts that are capable of hitting targets behind cover, all the while having a large ammo capacity."
-	icon = 'icons/obj/guns/xrifle.dmi'
+	icon = 'icons/obj/guns/energy/nanotrasen/xrifle.dmi'
 	icon_state = "xrifle"
 	item_state = "xrifle"
 	fire_sound = 'sound/weapons/laser3.ogg'

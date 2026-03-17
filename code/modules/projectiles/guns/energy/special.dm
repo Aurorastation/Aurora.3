@@ -92,7 +92,7 @@
 /obj/item/gun/energy/mindflayer
 	name = "mind flayer"
 	desc = "A custom-built weapon of some kind."
-	icon = 'icons/obj/guns/xray.dmi'
+	icon = 'icons/obj/guns/energy/nanotrasen/xray.dmi'
 	icon_state = "xray"
 	item_state = "xray"
 	has_item_ratio = FALSE
@@ -119,7 +119,7 @@
 /obj/item/gun/energy/mousegun
 	name = "\improper NT Pesti-Shock gun"
 	desc = "The NT \"Arodentia\" Pesti-Shock is a highly sophisticated and probably safe beamgun designed for rapid pest-control."
-	icon = 'icons/obj/guns/pestishock.dmi'
+	icon = 'icons/obj/guns/energy/nanotrasen/pestishock.dmi'
 	icon_state = "pestishock"
 	item_state = "pestishock"
 	has_item_ratio = FALSE
@@ -155,7 +155,7 @@
 /obj/item/gun/energy/mousegun/xenofauna
 	name = "\improper NT Zap-Blast xenofauna gun"
 	desc = "The NT \"Xenovermino\" Zap-Blast is a highly sophisticated and probably safe beamgun designed to deal with hostile xenofauna."
-	icon = 'icons/obj/guns/energy/xenogun.dmi'
+	icon = 'icons/obj/guns/energy/nanotrasen/xenogun.dmi'
 	icon_state = "xenogun"
 	item_state = "xenogun"
 	projectile_type = /obj/projectile/beam/mousegun/xenofauna
@@ -280,7 +280,7 @@
 	name = "thermal lance"
 	desc = "A powerful piece of Zo'rane energy artillery, converted to be portable...if you weigh a metric tonne, that is."
 	icon = 'icons/obj/guns/vaurca/megaglaive.dmi'
-	sprite_sheets = list(BODYTYPE_VAURCA_BREEDER = 'icons/obj/guns/megaglaive.dmi')
+	sprite_sheets = list(BODYTYPE_VAURCA_BREEDER = 'icons/obj/guns/vaurca/megaglaive.dmi')
 	icon_state = "megaglaive0"
 	item_state = "megaglaive"
 	origin_tech = list(TECH_COMBAT = 6, TECH_PHORON = 8)

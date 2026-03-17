@@ -1,5 +1,5 @@
 /obj/item/gun/projectile/revolver
-	name = "revolver"
+	name = "\improper Mark II revolver"
 	desc = "The revised Mark II Zavodskoi Interstellar revolver, utilizing a robust firing mechanism to deliver deadly rounds downrange. This is a monster of a hand cannon, with a beautiful cedar grip and a transparent plastic cover(so as to not splinter your hands while firing)."
 	icon = 'icons/obj/guns/revolver.dmi'
 	icon_state = "revolver"
@@ -267,9 +267,9 @@
 		. += "\The [src] has a secondary barrel that is empty."
 
 /obj/item/gun/projectile/revolver/adhomian
-	name = "adhomian service revolver"
+	name = "\improper Royal Firearms service revolver"
 	desc = "The Royal Firearms Service Revolver is a simple and reliable design, favored by the nobility of the New Kingdom of Adhomai."
-	icon = 'icons/obj/guns/adhomian_revolver.dmi'
+	icon = 'icons/obj/guns/tajara/adhomian_revolver.dmi'
 	icon_state = "adhomian_revolver"
 	item_state = "adhomian_revolver"
 	caliber = "38"

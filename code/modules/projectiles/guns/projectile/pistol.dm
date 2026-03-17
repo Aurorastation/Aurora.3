@@ -452,9 +452,9 @@
 		icon_state = "k8-empty"
 
 /obj/item/gun/projectile/pistol/adhomai
-	name = "adhomian service pistol"
+	name = "\improper Adar'Mazy pistol"
 	desc = "The Adar'Mazy pistol is an Adhomian firearm commonly issued to People's Republic officers, government officials and low-ranking Party members."
-	icon = 'icons/obj/guns/adhomian_pistol.dmi'
+	icon = 'icons/obj/guns/tajara/adhomian_pistol.dmi'
 	icon_state = "adhomian_pistol"
 	item_state = "adhomian_pistol"
 	can_suppress = FALSE
@@ -469,7 +469,7 @@
 		icon_state = "adhomian_pistol-e"
 
 /obj/item/gun/projectile/pistol/super_heavy
-	name = "super-heavy pistol"
+	name = "\improper Kumar Arms 2557 super-heavy pistol"
 	desc = "A big, bulky, and extremely powerful pistol, intended to pierce even your strongest enemy. You should wield this thing with two hands, if you want your wrists to stay intact."
 	desc_extended = "The Kumar Arms 2557 is a newly designed type of \"super-heavy\" pistol. \
 	It features a light-weight polymer pistol grip, a bulky plasteel frame and an extra long barrel. \

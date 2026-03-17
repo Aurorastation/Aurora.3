@@ -3,7 +3,7 @@
 	desc = "A complex single use injector that is used to implant augments without the need for surgery."
 	w_class = WEIGHT_CLASS_NORMAL
 	origin_tech = list(TECH_BIO = 5, TECH_MATERIAL = 2)
-	icon = 'icons/obj/guns/decloner.dmi'
+	icon = 'icons/obj/guns/energy/decloner.dmi'
 	icon_state = "decloner"
 	item_state = "decloner"
 	var/obj/item/organ/augment_type
