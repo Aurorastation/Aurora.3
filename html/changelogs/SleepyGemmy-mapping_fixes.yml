@@ -1,8 +1,0 @@
-author: SleepyGemmy
-
-delete-after: True
-
-changes:
-  - bugfix: "Fixed a floating camera in the machinist workshop."
-  - bugfix: "Fixed the account console in the captain's office having collision."
-  - bugfix: "Fixed the hand teleporter in the teleporter room being placed inside the wall locker."

@@ -1,6 +1,0 @@
-author: Batrachophrenoboocosmomachia
-delete-after: True
-changes:
-  - balance: "Reduces Horizon multi-z hull generator Watt -> Renwick conversion rate from 0.0002 to 0.00006, given increased capacitor throughput and reactor outputs."
-  - balance: "Reduces maximum shield capacitor storage from 200 mJ to 20 mJ."
-  - bugfix: "Corrects Shield Capacitor TGUI displaying capacitor storage as Watts instead of Joules."

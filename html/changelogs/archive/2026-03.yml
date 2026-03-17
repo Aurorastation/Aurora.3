@@ -209,3 +209,47 @@
       slippers.
   - rscadd: Adds the generic slippers to the recovery ward in the medbay, and the
       SCC-branded sleepmask and slippers to the intrepid.
+2026-03-17:
+  Batrachophrenoboocosmomachia:
+  - bugfix: Resolves some lingering weird behavior with emergency shield projectors
+      with regards to power draw.
+  - bugfix: Updates Warding Spheres, Luminous Sceptres, and Azubarre Torches to correctly
+      emit light.
+  - bugfix: Updates temp control unit to correctly use MOVABLE_LIGHT for its light_system.
+  - bugfix: Hull shield generator correctly checks for both capacitor presence and
+      activation state when toggling.
+  - qol: INDRA Kinetic Harvester no longer disables harvesting a material if it happens
+      to drop to zero (less aggravation when staggering fuel injection).
+  - balance: Replaces primary SM gas canisters (in Hard Storage) from Hydrogen to
+      Helium to prevent burnoff and delam during long rounds.
+  - rscdel: Removes two light switches in the Engineering department that were located
+      on windows.
+  - balance: Reduces Horizon multi-z hull generator Watt -> Renwick conversion rate
+      from 0.0002 to 0.00006, given increased capacitor throughput and reactor outputs.
+  - balance: Reduces maximum shield capacitor storage from 200 mJ to 20 mJ.
+  - bugfix: Corrects Shield Capacitor TGUI displaying capacitor storage as Watts instead
+      of Joules.
+  DoctorRay2:
+  - imageadd: Replaced a wide selection of gun icon sprites.
+  GeneralCamo:
+  - balance: Drastically reduced the amount of fire stacks all incendiary projectiles
+      gave.
+  - bugfix: Thermal lances no longer call ignition effects twice.
+  SabreML:
+  - bugfix: Fixed the last round in an ammo pile (stack of cartridges) getting deleted
+      after the second-to-last round was removed.
+  SimpleMaroon:
+  - qol: Added a floor light to brighten the center of the Chapel.
+  - qol: Changed the Chapel Office's outer windows to use the same tints as the inner
+      windows.
+  SleepyGemmy:
+  - bugfix: Fixed a floating camera in the machinist workshop.
+  - bugfix: Fixed the account console in the captain's office having collision.
+  - bugfix: Fixed the hand teleporter in the teleporter room being placed inside the
+      wall locker.
+  - bugfix: Fixed attacking energy nets with a weapon having no cooldown.
+  WickedCybs:
+  - rscadd: Added Vien's custom item. Waow.
+  fyni:
+  - bugfix: Allows all types of IPCs to select the admin faction, so they can be HRAs.
+      Whoops!
