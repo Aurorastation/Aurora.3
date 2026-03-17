@@ -216,7 +216,7 @@
 	icon_state = "laser"
 	damage = 35
 	armor_penetration = 60
-	incinerate = 15
+	incinerate = 2
 
 /obj/projectile/energy/disruptorstun/skrell // for nralakk fed consular pistol
 	agony = 45
