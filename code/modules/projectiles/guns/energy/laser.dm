@@ -1,6 +1,6 @@
 /obj/item/gun/energy/retro
 	name = "\improper L104 laser gun"
-	icon = 'icons/obj/guns/retro.dmi'
+	icon = 'icons/obj/guns/manufacturer/antique/retro.dmi'
 	icon_state = "retro"
 	item_state = "retro"
 	has_item_ratio = FALSE

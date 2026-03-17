@@ -1,7 +1,7 @@
 ABSTRACT_TYPE(/obj/item/gun/bang)
 	name = "some shitty-ass gun"
 	desc = "This is a gun. Neat!"
-	icon = 'icons/obj/guns/revolver.dmi'
+	icon = 'icons/obj/guns/manufacturer/zavodskoi_interstellar/revolver.dmi'
 	icon_state = "revolver"
 	item_state = "revolver"
 	fire_sound = 'sound/misc/sadtrombone.ogg'

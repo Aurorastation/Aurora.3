@@ -142,7 +142,7 @@
 	desc_extended = "Originally developed in 2351, the Type-11 \"Guthrie\" is a descendant of the first Himean-made weapons; haphazardly overcharged mining equipment. If it ain't broke, don't fix it; variants \
 	of this rifle have served in the United Syndicates' arsenal for generations, although none have matched modern improvements 'borrowed' from Zavodskoi Interstellar. Waterproof, spaceproof, idiot-proof; it's here to stay, even as advanced Xanan ballistics \
 	creep their way into the market. Ironically, lend-lease aid to the now-defunct League of Independent Corporate-Free Systems have seen a great deal of these end up in the hands of pirates."
-	icon = 'icons/obj/guns/himeo_free_consortium/himeo_blaster.dmi'
+	icon = 'icons/obj/guns/manufacturer/himeo_free_consortium/himeo_blaster.dmi'
 	icon_state = "himeoblaster"
 	item_state = "himeoblaster"
 	projectile_type = /obj/projectile/energy/blaster/heavy

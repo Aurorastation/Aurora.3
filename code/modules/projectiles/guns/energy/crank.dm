@@ -1,5 +1,5 @@
 /obj/item/gun/energy/rifle/icelance
-	name = "icelance rifle"
+	name = "\improper Tui'ad icelance rifle"
 	desc = "A Tajaran made rifle, it houses a crank-chargable internal battery. It only holds three shots and each shot must be cranked manually."
 	icon = 'icons/obj/guns/species/tajara/icelance.dmi'
 	icon_state = "icelance"

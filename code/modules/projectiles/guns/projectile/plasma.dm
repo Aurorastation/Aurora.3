@@ -1,5 +1,5 @@
 /obj/item/gun/projectile/plasma
-	name = "plasma shotgun"
+	name = "OEI-2 plasma shotgun"
 	desc = "A marvel of Elyran weapons technology which utilizes superheated plasma to pierce thick armor with gruesome results."
 	icon = 'icons/obj/guns/manufacturer/osman_electric_industries/slammer.dmi'
 	icon_state = "slammer"
@@ -23,7 +23,7 @@
 		icon_state = "[initial(icon_state)]-empty"
 
 /obj/item/gun/projectile/plasma/bolter
-	name = "plasma bolter"
+	name = "\improper OEI-2M plasma bolter"
 	desc = "A miniaturized, less efficient version of the infamous plasma slammer. Sacrifices much of its power for a more compact frame."
 	icon = 'icons/obj/guns/manufacturer/osman_electric_industries/bolter.dmi'
 	icon_state = "bolter"
@@ -48,7 +48,7 @@
 	projectile_type = /obj/projectile/plasma
 
 /obj/item/gun/projectile/plasma/bolter/pistol
-	name = "plasma pistol"
+	name = "\improper OEI-7 plasma pistol"
 	desc = "An Elyran designed firearm, used for diplomatic protection and high-value escort, which fires super heated bolts of plasma. Rare outside of Elyra due to the maintenance and production costs."
 	icon = 'icons/obj/guns/manufacturer/osman_electric_industries/plasma_pistol.dmi'
 	icon_state = "plasma"

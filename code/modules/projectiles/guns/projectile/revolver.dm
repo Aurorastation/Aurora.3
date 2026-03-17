@@ -1,7 +1,7 @@
 /obj/item/gun/projectile/revolver
-	name = "\improper Mark II revolver"
-	desc = "The revised Mark II Zavodskoi Interstellar revolver, utilizing a robust firing mechanism to deliver deadly rounds downrange. This is a monster of a hand cannon, with a beautiful cedar grip and a transparent plastic cover(so as to not splinter your hands while firing)."
-	icon = 'icons/obj/guns/revolver.dmi'
+	name = "\improper Z.I. Mark II revolver"
+	desc = "The revised Mark II Zavodskoi Interstellar revolver, utilizing a robust firing mechanism to deliver deadly rounds downrange. This is a monster of a hand cannon, with a beautiful cedar grip and a transparent plastic cover (so as to not splinter your hands while firing)."
+	icon = 'icons/obj/guns/manufacturer/zavodskoi_interstellar/revolver.dmi'
 	icon_state = "revolver"
 	item_state = "revolver"
 	accuracy = 1
@@ -44,7 +44,7 @@
 	return ..()
 
 /obj/item/gun/projectile/revolver/mateba
-	name = "automatic revolver"
+	name = "\improper Hammerhead automatic revolver"
 	desc = "The Hammerhead .454 autorevolver, a very rare weapon typical of special ops teams and mercenary teams. It packs quite the punch."
 	icon = 'icons/obj/guns/autorevolver.dmi'
 	icon_state = "autorevolver"
@@ -58,13 +58,13 @@
 	magazine_type = /obj/item/ammo_magazine/a454
 
 /obj/item/gun/projectile/revolver/mateba/captain
-	name = "\improper SCC command autorevolver"
+	name = "\improper Z.I. Protektor autorevolver"
 	desc = "A ludicrously powerful .454 autorevolver with equally ludicrous recoil which is issued by the SCC to the administrators of critical facilities and vessels. While revolvers may be a thing of the past, the stopping power displayed by this weapon is second to none."
 	desc_extended = "A Zavodskoi Interstellar design from the mid 2450s intended for export to the Eridani Corporate Federation and the Republic of Biesel, the Protektor \
 	revolver was never designed with practicality in mind. The .454 rounds fired from this weapon are liable to snap the wrist of an unprepared shooter and \
 	any following shots will be difficult to place onto a human-sized target due to the recoil, let alone a skrell. But nobody buys a Protektor for the purpose of \
 	practicality: they buy it due to having too much money and wanting a revolver large enough for their ego."
-	icon = 'icons/obj/guns/captain_revolver.dmi'
+	icon = 'icons/obj/guns/manufacturer/zavodskoi_interstellar/captain_revolver.dmi'
 	icon_state = "captain_revolver"
 	item_state = "captain_revolver"
 	is_wieldable = TRUE
@@ -96,7 +96,7 @@
 /obj/item/gun/projectile/revolver/detective
 	name = "antique revolver"
 	desc = "An old, obsolete revolver. It has no identifying marks, and is chambered in an equally antiquated caliber."
-	icon = 'icons/obj/guns/detective.dmi'
+	icon = 'icons/obj/guns/manufacturer/antique/detective.dmi'
 	icon_state = "detective"
 	item_state = "detective"
 	max_shells = 6
@@ -160,7 +160,7 @@
 	if(attacking_item.tool_behaviour != TOOL_WIRECUTTER || icon_state == "revolver")
 		return ..()
 	to_chat(user, SPAN_NOTICE("You snip off the toy markings off the [src]."))
-	icon = 'icons/obj/guns/revolver.dmi'
+	icon = 'icons/obj/guns/manufacturer/zavodskoi_interstellar/revolver.dmi'
 	name = "revolver"
 	icon_state = "revolver"
 	item_state = "revolvers"
@@ -328,7 +328,7 @@
 		icon_state = "38_revolver-e"
 
 /obj/item/gun/projectile/revolver/konyang/police
-	name = "police service revolver"
+	name = "\improper Nam-Kawada revolver"
 	desc = "A compact and reliable .45 caliber revolver. This one has Konyang National Police markings as well as a lanyard attached to it."
 	desc_extended = "The Nam-Kawada model .45 caliber revolver, named after its two inventors, is an adaptation of an old Zavodskoi design designed to be easily made from colony ship autolathes. \
 	The original design was first introduced in 2307 due to a growing need to arm the nascent Konyang National Police (then known as the Suwon Colonial Constabulary) in the face of both wildlife and the occasional criminal activity.\

@@ -40,10 +40,10 @@
 		original_settings = null
 
 /// Parent gun type. Guns are weapons that can be aimed at mobs and act over a distance.
-/obj/item/gun
+ABSTRACT_TYPE(/obj/item/gun)
 	name = "gun"
 	desc = "It's a gun. It's pretty terrible, though."
-	icon = 'icons/obj/guns/pistol.dmi'
+	icon = 'icons/obj/guns/manufacturer/zavodskoi_interstellar/pistol.dmi'
 	var/gun_gui_icons = 'icons/obj/guns/gun_gui.dmi'
 	icon_state = "pistol"
 	item_state = "pistol"

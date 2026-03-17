@@ -51,12 +51,12 @@
 	icon_state = (ammo_magazine)? "mini-uzi" : "mini-uzi-e"
 
 /obj/item/gun/projectile/automatic/c20r
-	name = "submachine gun"
+	name = "\improper CA-25E submachine gun"
 	desc = "A conventional bullpup submachine gun with an extendable stock."
 	desc_extended = "The Colettish Armaments Model 25 SMG is a typical product of the San Colette Interstellar Armaments Company (CAISC). Rejected by the Solarian military due to competition with the Zavodskoi M470-L, the CA-M25 was repurposed \
 	into the Colettish Armaments Model 25 Export (CA-25E) and has found reasonable success in mercenary groups across the Orion Spur. Recently many have found their ways into the hands of violent non-state actors in the Corporate Reconstruction Zone, where \
 	they contribute to the further destabilization of the region. Curiously, these models typically have a filed-off serial number or no serial number at all."
-	icon = 'icons/obj/guns/c20r.dmi'
+	icon = 'icons/obj/guns/manufacturer/caisc/ca-25e.dmi'
 	icon_state = "c20r"
 	item_state = "c20r"
 	w_class = WEIGHT_CLASS_NORMAL
@@ -83,10 +83,10 @@
 	return
 
 /obj/item/gun/projectile/automatic/c20r/sol
-	name = "solarian submachine gun"
+	name = "\improper M470-L submachine gun"
 	desc = "Designed by Zavodskoi as a scaled-down version of their M469, the M470-L is a personal defense weapon intended for use by second-line personnel from all branches of the Solarian military, such as support troops and Navy crewmen."
 	desc_extended = null
-	icon = 'icons/obj/guns/sol_smg.dmi'
+	icon = 'icons/obj/guns/manufacturer/zavodskoi_interstellar/sol_smg.dmi'
 	icon_state = "vityaz"
 	item_state = "vityaz"
 	suppressor_x_offset = 10
@@ -96,9 +96,9 @@
 	icon_state = (ammo_magazine)? "vityaz" : "vityaz-empty"
 
 /obj/item/gun/projectile/automatic/c20r/sol/siib
-	name = "solarian SIIB submachine gun"
+	name = "\improper M470-SIIB submachine gun"
 	desc = "Based off the standard solarian M470-L, this SMG is used by SIIB Operatives during raids and specialist operations. Officially, this variant of the SMG does not exist."
-	icon = 'icons/obj/guns/sol_smg.dmi'
+	icon = 'icons/obj/guns/manufacturer/zavodskoi_interstellar/sol_smg.dmi'
 	icon_state = "vityaz-siib"
 	item_state = "vityaz-siib"
 
@@ -130,9 +130,9 @@
 
 
 /obj/item/gun/projectile/automatic/wt550
-	name = "machine pistol"
-	desc = "The ZI 550 Saber is a cheap self-defense weapon, mass-produced by Zavodskoi Interstellar for paramilitary and private use."
-	icon = 'icons/obj/guns/wt550.dmi'
+	name = "\improper Z.I. 550 Saber machine pistol"
+	desc = "The Z.I. 550 Saber is a cheap self-defense weapon, mass-produced by Zavodskoi Interstellar for paramilitary and private use."
+	icon = 'icons/obj/guns/manufacturer/zavodskoi_interstellar/wt550.dmi'
 	icon_state = "wt550"
 	item_state = "wt550"
 	w_class = WEIGHT_CLASS_NORMAL
@@ -292,7 +292,7 @@ ABSTRACT_TYPE(/obj/item/gun/projectile/automatic/rifle)
 	icon_state = (ammo_magazine)? "bcarbine" : "bcarbine-empty"
 
 /obj/item/gun/projectile/automatic/rifle/carbine/civcarbine
-	name = "\improper ZI Terrier bullpup carbine"
+	name = "\improper Z.I. Terrier bullpup carbine"
 	desc = "A variant of the ZI Bulldog assault carbine, the ZI Terrier is a slimmer and lighter version, only capable of accepting smaller magazines. \
 	It also lacks the integrated grenade launcher and burst fire of the Bulldog."
 	desc_extended = "It makes you feel like a corporate goon when you hold it."
@@ -349,7 +349,7 @@ ABSTRACT_TYPE(/obj/item/gun/projectile/automatic/rifle)
 	icon_state = (ammo_magazine)? "acr" : "acr-empty"
 
 /obj/item/gun/projectile/automatic/rifle/z8
-	name = "\improper ZI Bulldog bullpup assault carbine"
+	name = "\improper Z.I. Bulldog bullpup assault carbine"
 	desc = "The ZI Bulldog bullpup assault carbine, Zavodskoi Industries' answer to any problem that can be solved by an assault rifle."
 	desc_extended = "It makes you feel like a corporate commando when you hold it."
 	icon = 'icons/obj/guns/manufacturer/zavodskoi_interstellar/carbine.dmi'
@@ -464,7 +464,7 @@ ABSTRACT_TYPE(/obj/item/gun/projectile/automatic/rifle)
 	desc = "A squad machine gun with a clunky, outdated loading mechanism. Loads from 7.62mm ammunition boxes. Gentlemen, lock and load."
 	desc_extended = "Created by the San Colette Interstellar Armaments Company (CAISC) explicitly for export, the Colettish Armaments Model 75 Export machine gun is a cheap yet outdated method of providing large amounts of firepower to a squad. \
 	The CA-75E is not used by San Colette’s Civil Guard and is typically sold to mercenary groups or other Solarian systems. Since the Solarian Collapse more and more CA-75Es have found themselves in the hands of pirates and rebels in the Corporate Reconstruction Zone, and captured models curiously often have no serial number."
-	icon = 'icons/obj/guns/l6.dmi'
+	icon = 'icons/obj/guns/manufacturer/caisc/ca-75e.dmi'
 	icon_state = "l6closed100"
 	item_state = "l6closedmag"
 	w_class = WEIGHT_CLASS_BULKY
@@ -534,7 +534,7 @@ ABSTRACT_TYPE(/obj/item/gun/projectile/automatic/rifle)
 	..()
 
 /obj/item/gun/projectile/automatic/rifle/adhomian
-	name = "\improper Tsarrayut'yan automatic rifle"
+	name = "\improper Tsarrayut'yan assault rifle"
 	desc = "The Tsarrayut'yan rifle is a select-fire automatic rifle producted by the People's Republic of Adhomai."
 	icon = 'icons/obj/guns/tsarrayut.dmi'
 	icon_state = "tsarrayut"

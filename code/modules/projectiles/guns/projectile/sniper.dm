@@ -4,7 +4,7 @@
 	desc_extended = "A single-shot, bolt-action anachronism in an age of energy weapons, the PTR-7 was originally developed to combat exosuits, either by disabling critical systems \
 	or killing the pilot. Firing a high-velocity 14.5mm cartridge designed to defeat heavy armor, the PTR-7 boasts penetrative power unmatched by most in its class, though recent advancements \
 	in composites have rendered the weapon less effective at its intended purpose. Nonetheless, it still sees use among some groups as a general-purpose anti-materiel rifle."
-	icon = 'icons/obj/guns/heavysniper.dmi'
+	icon = 'icons/obj/guns/manufacturer/frontier/heavysniper.dmi'
 	icon_state = "heavysniper"
 	item_state = "heavysniper"
 	w_class = WEIGHT_CLASS_BULKY
@@ -146,7 +146,7 @@
 	desc_extended = "Designed and sold by Zeng-Hu Pharmaceuticals and produced on contract by Zavodskoi's Kumar Arms subsidiary, the rifle has quietly become ubiquitous among xenobiological researchers. \
 	While the weapon platform itself is expensive for a dart gun, users have come to adore it thanks to the benefit of its conditionally cheap ammo. Pricey off the shelf, facilities often pay a fraction \
 	of the cost thanks to rebates and bulk order discounts."
-	icon = 'icons/obj/guns/tranqsniper.dmi'
+	icon = 'icons/obj/guns/manufacturer/zavodskoi_interstellar/tranqsniper.dmi'
 	icon_state = "tranqsniper"
 	item_state = "tranqsniper"
 	w_class = WEIGHT_CLASS_BULKY

@@ -1,7 +1,7 @@
 /obj/item/gun/projectile/shotgun/pump/rifle
-	name = "bolt action rifle"
+	name = "\improper Harrzhak pattern bolt action rifle"
 	desc = "A cheap ballistic rifle, often found in the hands of Tajaran conscripts."
-	icon = 'icons/obj/guns/moistnugget.dmi'
+	icon = 'icons/obj/guns/manufacturer/adhomai/bolt.dmi'
 	icon_state = "moistnugget"
 	item_state = "moistnugget"
 	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2)
@@ -40,9 +40,9 @@
 	ammo_type = /obj/item/ammo_casing/a68/blank
 
 /obj/item/gun/projectile/shotgun/pump/rifle/scope
-	name = "sniper bolt action rifle"
+	name = "scoped Harrzhak pattern bolt action rifle"
 	desc = "A cheap ballistic rifle, often found in the hands of Tajaran conscripts. This one has a telescopic sight attached to it."
-	icon = 'icons/obj/guns/bolt_scope.dmi'
+	icon = 'icons/obj/guns/manufacturer/adhomai/bolt_scope.dmi'
 
 /obj/item/gun/projectile/shotgun/pump/rifle/scope/verb/scope()
 	set category = "Object.Held"
@@ -135,7 +135,7 @@
 	jam_chance = min(jam_chance + 5, 100)
 
 /obj/item/gun/projectile/shotgun/pump/rifle/dominia
-	name = "dominian sniper rifle"
+	name = "\improper MPMR-08/2 sniper rifle"
 	desc = "A precision rifle used by snipers and sharpshooters of the Imperial Army. One of the few modern military-grade weapons to use a bolt for its action."
 	desc_extended = "The MPMR-08/2 is a precisely machined and meticulously designed rifle which prioritizes accuracy and precision over rate of fire. \
 	Outside of the Imperial Army, it is commonly seen in the hands of competition shooters."
@@ -224,7 +224,7 @@
 	..()
 
 /obj/item/gun/projectile/shotgun/pump/rifle/vintage
-	name = "vintage bolt action rifle"
+	name = "\improper M1903 Springfield rifle"
 	desc = "An extremely old-looking rifle. Words you can't read are stamped on the gun. Doesn't look like it'll take any modern rounds."
 	icon = 'icons/obj/guns/manufacturer/antique/springfield.dmi'
 	icon_state = "springfield"
@@ -401,7 +401,7 @@
 /obj/item/gun/projectile/shotgun/pump/lever_action
 	name = "lever action rifle"
 	desc = "A lever action rifle with a side-loading port, these are still popular with frontiersmen for hunting and self-defense purposes."
-	icon = 'icons/obj/guns/leveraction.dmi'
+	icon = 'icons/obj/guns/manufacturer/antique/leveraction.dmi'
 	icon_state = "leveraction"
 	item_state = "leveraction"
 	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2)
@@ -420,7 +420,7 @@
 	can_sawoff = FALSE
 
 /obj/item/gun/projectile/shotgun/pump/rifle/magazine_fed/crackrifle
-	name = "crack rifle"
+	name = "\improper Azarak-96 crack rifle"
 	desc = "A heavy bolt-action rifle of Moghesian manufacture."
 	desc_extended = "Manufactured by the Azarak Kingdom in 2350, the Azarak-96 'Crack Rifle' is a bolt-action rifle of Moghesian manufacture, easily recognizable by its long bayonet and large magazine wrapped around its trigger guard.\
 	This heavy but powerful weapon is mostly known for its use by the common warrior of the Traditionalist Coalition during the Contact War.\
