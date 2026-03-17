@@ -17,7 +17,7 @@
 	var/req_one_access = list(ACCESS_BAR, ACCESS_GALLEY, ACCESS_CARGO)
 
 /datum/component/quikpay_shop/quikpay
-	shop_name = "Quikpay"
+	shop_name = "Quik-Pay"
 	destinationact = "Service"
 	stamp = "Quik-Pay device"
 	can_use_credits = FALSE
@@ -79,7 +79,7 @@
 
 	var/obj/item/card/id/I = user.GetIdCard()
 	if(istype(I) && has_access(req_one_access = src.req_one_access, accesses = I.access))
-		var/price_guess = text2num(sanitizeSafe(tgui_input_text(user, "How much do you wish to withdraw? Remaining credits: [credit]电", "QuikPay", 0, 10), 10))
+		var/price_guess = text2num(sanitizeSafe(tgui_input_text(user, "How much do you wish to withdraw? Remaining credits: [credit]电", "Quik-Pay", 0, 10), 10))
 		if(isnull(price_guess) || price_guess == 0)
 			return
 		price_guess = max(0, round(price_guess, 0.01))
@@ -121,7 +121,7 @@
 	var/transaction_amount = sum
 	if(transaction_amount > cashmoney.worth)
 		to_chat(user, SPAN_WARNING("[icon2html(cashmoney, user)] That is not enough money."))
-		return 0
+		return FALSE
 	if(istype(cashmoney, /obj/item/spacecash/bundle))
 		user.visible_message(SPAN_INFO("\The [user] inserts some cash into \the [owner]."))
 		var/obj/item/spacecash/bundle/cashmoney_bundle = cashmoney
@@ -143,7 +143,7 @@
 	credit += transaction_amount
 	print_receipt()
 	clear_order()
-	return 1
+	return TRUE
 
 // Paying with an id card
 /datum/component/quikpay_shop/proc/ID_pay(obj/item/attacking_item, mob/user)
@@ -159,7 +159,7 @@
 	else
 		user.visible_message("\The [user] swipes a card on \the [owner]." )
 		owner.audible_message(SPAN_NOTICE("[icon2html(owner, viewers(get_turf(owner)))] \The [owner] chimes."))
-		playsound(owner, 'sound/machines/chime.ogg', 50, 1)
+		playsound(owner, 'sound/machines/chime.ogg', 50, TRUE)
 		print_receipt()
 		sum = 0
 		receipt = ""
@@ -179,7 +179,7 @@
 
 		user.visible_message("\The [user] swipes a card on \the [owner]." )
 		owner.audible_message(SPAN_NOTICE("[icon2html(owner, viewers(get_turf(owner)))] \The [owner] chimes."))
-		playsound(owner, 'sound/machines/chime.ogg', 50, 1)
+		playsound(owner, 'sound/machines/chime.ogg', 50, TRUE)
 		print_receipt()
 		sum = 0
 		receipt = ""
@@ -233,7 +233,7 @@
 /datum/component/quikpay_shop/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
-		ui = new(user, src, "QuikPay", "[stamp]", 550, 550)
+		ui = new(user, src, "Quik-Pay", "[stamp]", 550, 550)
 		ui.open()
 
 /datum/component/quikpay_shop/ui_data(var/mob/user)
@@ -328,7 +328,7 @@
 
 		if("confirm")
 			buying_receipt(usr)
-			playsound(owner, 'sound/machines/ping.ogg', 25, 1)
+			playsound(owner, 'sound/machines/ping.ogg', 25, TRUE)
 			owner.audible_message(SPAN_NOTICE("[icon2html(owner, viewers(get_turf(owner)))] \The [owner] pings."))
 			. = TRUE
 
@@ -373,7 +373,6 @@
 	receipt = ""
 
 /datum/component/quikpay_shop/orderterminal
-
 	shop_name = "Commissary"
 	stamp = "Self-serve Shop Teller"
 	can_use_credits = FALSE
