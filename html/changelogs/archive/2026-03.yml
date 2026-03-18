@@ -253,3 +253,42 @@
   fyni:
   - bugfix: Allows all types of IPCs to select the admin faction, so they can be HRAs.
       Whoops!
+2026-03-18:
+  FabianK3:
+  - rscadd: Added persistent ashtrays. Ashtrays will now keep their contents and are
+      generally persistent.
+  - rscdel: Removed all occurances of ashtrays on the horizon as they are now persistent.
+      Requisition a new one for you in operations.
+  - bugfix: Fixed cigarette butts not being made persistent when intentionally put
+      out and fixed them spawning in previous ashtray locations.
+  - bugfix: Fixed persistent track loss when picking up items.
+  - bugfix: Fixed objects becoming persistent on round end when held by a player.
+  - bugfix: Fixed matter configuration logic on material initialization.
+  - bugfix: Fixed persistent objects floating in space. Why is there a cigarette butt
+      in space in front of the captains office?
+  - refactor: Updated SQL readme.
+  Fenodyree:
+  - bugfix: The weapon analyzer now correctly shows the damage and number of shots
+      for modular lasers.
+  - bugfix: Modular lasers can break again when fired by mobs.
+  - bugfix: Modular lasers now have working fire delay.
+  - bugfix: Backup Capacitors and Capacitor Overcharge now correctly reduce or increase
+      the max number of shots.
+  - balance: Chance per mod to break a component was decreased from 10 * Number of
+      Mods * Damage Mult, to 2 * Number of Mods * Damage Mult
+  - balance: Components were reduced in size, so that the components of a gun aren't
+      ten times the size of the finished product.
+  GeneralCamo:
+  - rscadd: Going into stasis now has a status icon.
+  - rscadd: Ported the stasis effect filter from tgstation.
+  - rscadd: Ported the stasis bed animation from tgstation.
+  - bugfix: Stasis beds are now required to be turned on to provide stasis.
+  - balance: Reworked stasis bed upgrades. Lasers are used to upgrade stasis bed level
+      instead of scanners, but will now increase the power consumption. Capacitors
+      will make them more efficient.
+  - balance: Greatly increased the base power consumption of the stasis bed.
+  Kano:
+  - rscadd: Ported lore consoles from Paradise Station.
+  MynameAsJeff:
+  - rscadd: Fixes several errors on the Ranger Gunboat. Everything actually works
+      as intended, now!
