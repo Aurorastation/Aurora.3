@@ -37,6 +37,10 @@ SUBSYSTEM_DEF(persistence)
 				var/typepath = text2path(data["type"])
 				if (!ispath(typepath)) // Type checking
 					continue
+				// Note that the object here is instantiated without init args.
+				// Objects that require init args should fall back to INITALIZE_HINT_LATELOAD during Init,
+				// as this will give the subsystem the chance to apply the content and
+				// the object to continue with init logic after the subsystem is done in LateInitialize.
 				var/obj/instance = new typepath()
 				instance.persistence_track_id = data["id"]
 				track_apply_content(instance, data["content"], data["x"], data["y"], data["z"])
@@ -60,6 +64,15 @@ SUBSYSTEM_DEF(persistence)
 		// Create new persistent records for objects that have been created in the round
 		// Update tracked objects that have an ID (already existing from previous rounds)
 		// Delete persistent records that no longer exist in the registry (removed during the round)
+
+		// Run checks on each track that might prevent further persistence
+		for (var/obj/track in GLOB.persistence_register)
+			CHECK_TICK
+			var/turf/T = get_turf(track)
+			if(!T || !is_station_level(T.z)) // The persistence system only supports objects from the main map levels for multiple reasons, e.g. Z level value, mapping support
+				deregister_track(track)
+			if(astype(track, /obj/item)?.in_inventory) // Objects that are held by players won't become persistent
+				deregister_track(track)
 
 		var/created = 0
 		var/updated = 0
@@ -205,7 +218,7 @@ SUBSYSTEM_DEF(persistence)
 		log_subsystem_persistence("SQL ERROR during persistence database_add_entry. Failed to connect.")
 	else
 		var/turf/T = get_turf(track)
-		if(!T || !is_station_level(T.z)) // The persistence system only supports objects from the main map levels for multiple reasons, e.g. Z level value, mapping support
+		if(!T)
 			return
 
 		var/datum/db_query/insert_query = SSdbcore.NewQuery(
@@ -235,7 +248,7 @@ SUBSYSTEM_DEF(persistence)
 		log_subsystem_persistence("SQL ERROR during persistence database_update_entry. Failed to connect.")
 	else
 		var/turf/T = get_turf(track)
-		if(!T || !is_station_level(T.z)) // The persistence system only supports objects from the main map levels for multiple reasons, e.g. Z level value, mapping support
+		if(!T)
 			return
 
 		var/datum/db_query/update_query = SSdbcore.NewQuery(

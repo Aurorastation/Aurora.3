@@ -10,7 +10,8 @@
 
 	allowed_species_types = list(
 		/datum/species/human,
-		/datum/species/skrell
+		/datum/species/skrell,
+		/datum/species/machine
 	)
 
 /datum/faction/admin/is_visible(var/mob/user)

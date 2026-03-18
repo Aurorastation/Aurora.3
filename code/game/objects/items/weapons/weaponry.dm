@@ -108,6 +108,7 @@
 	health_check()
 
 /obj/effect/energy_net/attackby(obj/item/attacking_item, mob/user)
+	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 	user.do_attack_animation(src, attacking_item)
 	var/attack_force = attacking_item.force
 	if(user == affecting)
