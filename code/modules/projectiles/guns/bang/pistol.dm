@@ -6,8 +6,8 @@
 	icon = 'icons/obj/guns/manufacturer/caisc/pattern_5.dmi'
 	icon_state = "colt"
 	item_state = "colt"
-	pixel_offset_x = 30
-	pixel_offset_y = 18
+	pixel_offset_x = 29
+	pixel_offset_y = 12
 	fakecaliber = ".45"
 
 /obj/item/gun/bang/sec
@@ -17,8 +17,8 @@
 	icon = 'icons/obj/guns/manufacturer/nanotrasen/secgun.dmi'
 	icon_state = "secgun"
 	item_state = "secgun"
-	pixel_offset_x = 28
-	pixel_offset_y = 14
+	pixel_offset_x = 26
+	pixel_offset_y = 12
 	fakecaliber = ".45"
 
 /obj/item/gun/bang/sec/flash
@@ -43,8 +43,8 @@
 	icon = 'icons/obj/guns/manufacturer/nanotrasen/x9.dmi'
 	icon_state = "secgunauto"
 	item_state = "secgunauto"
-	pixel_offset_x = 28
-	pixel_offset_y = 13
+	pixel_offset_x = 32
+	pixel_offset_y = 14
 	fakecaliber = ".45"
 
 /obj/item/gun/bang/tanto
@@ -55,8 +55,8 @@
 	icon = 'icons/obj/guns/manufacturer/nanotrasen/tanto.dmi'
 	icon_state = "c05r"
 	item_state = "c05r"
-	pixel_offset_x = 31
-	pixel_offset_y = 14
+	pixel_offset_x = 28
+	pixel_offset_y = 12
 	fakecaliber = "10mm"
 
 /obj/item/gun/bang/silenced
@@ -68,8 +68,8 @@
 	icon = 'icons/obj/guns/species/tajara/mrrazhakulii_suppressed_pistol.dmi'
 	icon_state = "silenced_pistol"
 	item_state = "silenced_pistol"
-	pixel_offset_x = -4
-	pixel_offset_y = 15
+	pixel_offset_x = 32
+	pixel_offset_y = 12
 	fakecaliber = ".45"
 
 /obj/item/gun/bang/deagle
@@ -78,8 +78,8 @@
 	icon = 'icons/obj/guns/manufacturer/antique/deagle.dmi'
 	icon_state = "deagle"
 	item_state = "deagle"
-	pixel_offset_x = -4
-	pixel_offset_y = 16
+	pixel_offset_x = 28
+	pixel_offset_y = 12
 	fakecaliber = ".50"
 
 /obj/item/gun/bang/pistol
@@ -89,9 +89,11 @@
 	icon = 'icons/obj/guns/manufacturer/zavodskoi_interstellar/pistol.dmi'
 	icon_state = "pistol"
 	item_state = "pistol"
-	pixel_offset_x = 26
-	pixel_offset_y = 14
+	pixel_offset_x = 28
+	pixel_offset_y = 13
 	fakecaliber = "9mm"
+	can_suppress = TRUE
+	suppressor_x_offset = 3
 
 /obj/item/gun/bang/pirate
 	name = "zip gun"
@@ -99,6 +101,6 @@
 	icon = 'icons/obj/guns/zipgun.dmi'
 	icon_state = "zipgun"
 	item_state = "zipgun"
-	pixel_offset_x = 0
-	pixel_offset_y = 12
+	pixel_offset_x = 32
+	pixel_offset_y = 10
 	fakecaliber = "7.62mm"

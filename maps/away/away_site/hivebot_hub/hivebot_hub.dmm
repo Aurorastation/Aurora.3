@@ -3385,7 +3385,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
 	},
-/obj/item/gun/energy,
+/obj/item/gun/energy/gun,
 /turf/simulated/floor/tiled/dark/airless,
 /area/hivebothub/starboarddocks)
 "wN" = (

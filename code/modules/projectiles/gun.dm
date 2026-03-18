@@ -407,7 +407,9 @@ ABSTRACT_TYPE(/obj/item/gun)
 		if(user.a_intent == I_HURT)
 			toggle_safety(user)
 		else
+			var/safety_cooldown = 5 // Half a second
 			handle_click_empty(user)
+			user.setClickCooldown(safety_cooldown)
 			return FALSE
 
 	if(!special_check(user))
@@ -762,6 +764,7 @@ ABSTRACT_TYPE(/obj/item/gun)
 	return new_mode
 
 /obj/item/gun/attack_self(mob/user)
+	. = ..()
 	if(is_wieldable)
 		toggle_wield(usr)
 		update_held_icon()
@@ -1012,7 +1015,7 @@ ABSTRACT_TYPE(/obj/item/gun)
 /obj/item/gun/proc/critical_fail(var/mob/user)
 	return
 
-/obj/item/gun/attackby(obj/item/attacking_item, mob/user)
+/obj/item/gun/attackby(obj/item/attacking_item, mob/user, params)
 	if(istype(attacking_item, /obj/item/material/knife/bayonet))
 		if(!can_bayonet)
 			balloon_alert(user, "doesn't fit!")

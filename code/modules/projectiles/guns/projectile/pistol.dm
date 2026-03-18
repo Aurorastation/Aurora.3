@@ -307,7 +307,7 @@
 	magazine_type = /obj/item/ammo_magazine/mc9mm
 	allowed_magazines = list(/obj/item/ammo_magazine/mc9mm)
 	fire_delay = ROF_PISTOL
-	suppressor_x_offset = 5
+	suppressor_x_offset = 3
 
 /obj/item/gun/projectile/pistol/flash
 	name = "9mm signal pistol"
@@ -410,8 +410,8 @@
 	icon_state = "m8"
 	item_state = "m8"
 	can_suppress = TRUE
-	suppressor_x_offset = 9
-	suppressor_y_offset = 3
+	suppressor_x_offset = 3
+	suppressor_y_offset = -2
 
 /obj/item/gun/projectile/pistol/sol/update_icon()
 	..()
