@@ -10,8 +10,10 @@
 
 ///similar function to range(), but with no limitations on the distance; will search spiralling outwards from the center
 ///NOT Z-Level aware
-/proc/spiral_range(dist = 0, center = usr, orange = FALSE)
+/proc/spiral_range(dist = 0, center, orange = FALSE)
 	var/list/atom_list = list()
+	if(!center)
+		return center = usr
 	var/turf/t_center = get_turf(center)
 	if(!t_center)
 		return list()
