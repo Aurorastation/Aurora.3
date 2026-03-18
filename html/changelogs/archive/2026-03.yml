@@ -81,3 +81,214 @@
   - rscadd: Smartfridges now have emissive masks.
   fyni:
   - rscadd: Adds a sign for the commissary - Quik Stop, by Orion.
+2026-03-08:
+  ElorgRHG:
+  - rscdel: Consular Officers no longer start with a corporate tie and a corporate
+      badge.
+  - rscadd: Added citizenship loadout restrictions to the loadout.
+  - rscadd: Dominian Consular loadout items are now citizenship restricted to the
+      Empire of Dominia.
+  - bugfix: Religion loadout restrictions now actually restrict items to religions.
+  Greenjoe:
+  - rscadd: Adds Twin Suns and Raskara symbols to paperwork, use [twinsuns] and [raskara_sigil]
+      to write them. Add _small to make small versions.
+  - rscadd: Adhomaian tajara can now select Biesel citizenship to represent those
+      who immigrated there as an adult.
+  JohnWildkins:
+  - bugfix: Fix issue whereby Tajara would lose movement speed due to lowering their
+      body temperature.
+  fyni:
+  - rscadd: Adds three new Domi house banners!
+2026-03-09:
+  MattAtlas:
+  - bugfix: Fixes admin announces sanitizing HTML, meaning that admins can terrorize
+      you with big red text once more.
+2026-03-10:
+  Batrachophrenoboocosmomachia:
+  - balance: Reduces flashlight power consumption by 10x globally.
+  JohnWildkins:
+  - refactor: Ported object duplication handling from /tg/ to fix holodeck generating
+      massive lag spikes.
+  - refactor: Refactored weather, turrets, and overmap contacts to not use timers
+      to reduce the number created + deleted over a round substantially.
+  MattAtlas:
+  - refactor: Laying down no longer exists as a separate movement intent, you can
+      now simply rest with your weapon in your hand. Middle clicking the walk/run
+      intent icon now functions as a rest macro.
+2026-03-11:
+  FabianK3:
+  - bugfix: Fixed material stacks being able to have negative amounts.
+  MattAtlas:
+  - bugfix: Fixes paincrit (or incapacitation in general) not making people drop what
+      they're holding.
+2026-03-12:
+  Batrachophrenoboocosmomachia:
+  - rscadd: Adds a recharge station and three cold packs to the Himean Patrol Ship.
+  - imageadd: Adds +bolted, +welded, +lights overlays to several large machines for
+      easier visual identification of whether or not clicking on that emitter will
+      kill you or not, etc.
+  - imageadd: Modifies the base of the Shield Wall Generator sprite to better match
+      that of the Emergency Shield Projector (and so they can use the same overlays
+      mentioned above).
+  - imageadd: Tweaks the Emitter's directional sprites slightly so that the base doesn't
+      seem to change shape quite so drastically when rotated.
+  - imageadd: Ports very pretty space heater sprites made by Wallemations and vinylspiders
+      from /tg/.
+  - imageadd: Adds unique sprites for Old and Heavy-Duty power cells.
+  - balance: Increases power draw and range of Emergency Shield Projectors.
+  - balance: Increases power draw of Shield Wall Generators.
+  - balance: Greatly reduces time for debugger to fix APCs corrupted by electrical
+      storms.
+  - balance: Increases multi-z shield capacitor reserve charge and maximum throughput,
+      so that high-strength shields can actually be run (at high power draw).
+  - balance: Tweaks the INDRA power output formula to scale better with increasing
+      temperature.
+  - balance: Slight adjustments to space heater efficiency formula with a friendly
+      handwave to entropy.
+  - balance: Old power cells have a 5% chance to be defective and have slightly lower
+      maxcharge than standard cells.
+  - qol: Adds extended examine hints to engineering objects.
+  - qol: Extends list of object types which INDRA core field will interact peacefully
+      with.
+  - qol: Improved space heater UX (chat msgs changed to balloon alerts, audible feedback,
+      etc.)
+  - code_imp: Updates many code comments to use DMdocs.
+  - code_imp: Consolidates various shield generation machine sprites in scattered
+      across multiple files into a single shield generator machines sprite file.
+  - bugfix: Fixes Emergency Shield Projector hard del issue.
+  - bugfix: Emergency Shield Projector now shuts down as intended if the area's APC
+      gets completely drained.
+  - bugfix: Firing the gyrotron into the INDRA while no reactants are present will
+      no longer generate heat.
+  - bugfix: Fixes INDRA runtime.
+  - bugfix: Fixes Power Monitoring app not displaying grid sensors when run from a
+      modular computer held in-hand.
+  ElorgRHG:
+  - rscadd: 'Added two new tajaran loadout options: pants and skirts + shirts. Summer
+      pants and dress (renamed to skirt) have been put there.'
+  - bugfix: The tajaran summer dress and pants have been made into pants slot items
+      and should now display properly.
+  GeneralCamo:
+  - bugfix: Balloon Alerts no longer blend improperly, giving them weird transparency.
+  - bugfix: Fixed floor tiles showing their quantity when not held.
+  KingOfThePing:
+  - rscadd: Returns a selection of alternative job titles to the engineering department.
+2026-03-13:
+  Batrachophrenoboocosmomachia:
+  - bugfix: Fixes emergency shield projector sometimes attempting to project shields
+      during power_change() or some inactive ticks.
+  FabianK3:
+  - bugfix: Fixed missing Atmos tech alt title Enviromental Systems Engineer.
+  Kano:
+  - bugfix: Moved shuttle shutter access requirements from req_access to req_one_access.
+  MattAtlas:
+  - bugfix: Fixes slipping not dropping people.
+  - bugfix: Pneumalin no longer fixes damage on robotic lungs.
+  - bugfix: Fixed augments not processing. This means that HUD augments are fixed
+      as well.
+  - bugfix: Fixed health analyzers displaying damage between 0 and 1 as 'none'.
+2026-03-14:
+  Hellfirejag:
+  - rscadd: Zeng-Hu Pharmaceuticals has now begun offering mind-blanker bioaugs to
+      paying Horizon crew. Non-Galatean psi sensitive species can now buy a mind blanker
+      in their loadout selections.
+  - rscadd: Zeng-Hu mind blankers can now be ordered through Cargo.
+2026-03-15:
+  Fenodyree:
+  - bugfix: The weapon analyzer now shows if your modular gun is self recharging.
+  GeneralCamo:
+  - rscdel: Removed the shotgun from the bar, and its associated ammo and permit.
+  - bugfix: Fix no wounds showing 'minor' wounds in medical scans.
+  MattAtlas:
+  - bugfix: Fixed a rounding issue that made it so that organs would sometimes retain
+      very small, unhealable amounts of damage when surgically fixed.
+  fyni:
+  - rscadd: Allows all types of IPCs to be HRAs.
+  steviii:
+  - rscadd: Adds an SCC-branded sleepmask and slippers, along with generic recolourable
+      slippers.
+  - rscadd: Adds the generic slippers to the recovery ward in the medbay, and the
+      SCC-branded sleepmask and slippers to the intrepid.
+2026-03-17:
+  Batrachophrenoboocosmomachia:
+  - bugfix: Resolves some lingering weird behavior with emergency shield projectors
+      with regards to power draw.
+  - bugfix: Updates Warding Spheres, Luminous Sceptres, and Azubarre Torches to correctly
+      emit light.
+  - bugfix: Updates temp control unit to correctly use MOVABLE_LIGHT for its light_system.
+  - bugfix: Hull shield generator correctly checks for both capacitor presence and
+      activation state when toggling.
+  - qol: INDRA Kinetic Harvester no longer disables harvesting a material if it happens
+      to drop to zero (less aggravation when staggering fuel injection).
+  - balance: Replaces primary SM gas canisters (in Hard Storage) from Hydrogen to
+      Helium to prevent burnoff and delam during long rounds.
+  - rscdel: Removes two light switches in the Engineering department that were located
+      on windows.
+  - balance: Reduces Horizon multi-z hull generator Watt -> Renwick conversion rate
+      from 0.0002 to 0.00006, given increased capacitor throughput and reactor outputs.
+  - balance: Reduces maximum shield capacitor storage from 200 mJ to 20 mJ.
+  - bugfix: Corrects Shield Capacitor TGUI displaying capacitor storage as Watts instead
+      of Joules.
+  DoctorRay2:
+  - imageadd: Replaced a wide selection of gun icon sprites.
+  GeneralCamo:
+  - balance: Drastically reduced the amount of fire stacks all incendiary projectiles
+      gave.
+  - bugfix: Thermal lances no longer call ignition effects twice.
+  SabreML:
+  - bugfix: Fixed the last round in an ammo pile (stack of cartridges) getting deleted
+      after the second-to-last round was removed.
+  SimpleMaroon:
+  - qol: Added a floor light to brighten the center of the Chapel.
+  - qol: Changed the Chapel Office's outer windows to use the same tints as the inner
+      windows.
+  SleepyGemmy:
+  - bugfix: Fixed a floating camera in the machinist workshop.
+  - bugfix: Fixed the account console in the captain's office having collision.
+  - bugfix: Fixed the hand teleporter in the teleporter room being placed inside the
+      wall locker.
+  - bugfix: Fixed attacking energy nets with a weapon having no cooldown.
+  WickedCybs:
+  - rscadd: Added Vien's custom item. Waow.
+  fyni:
+  - bugfix: Allows all types of IPCs to select the admin faction, so they can be HRAs.
+      Whoops!
+2026-03-18:
+  FabianK3:
+  - rscadd: Added persistent ashtrays. Ashtrays will now keep their contents and are
+      generally persistent.
+  - rscdel: Removed all occurances of ashtrays on the horizon as they are now persistent.
+      Requisition a new one for you in operations.
+  - bugfix: Fixed cigarette butts not being made persistent when intentionally put
+      out and fixed them spawning in previous ashtray locations.
+  - bugfix: Fixed persistent track loss when picking up items.
+  - bugfix: Fixed objects becoming persistent on round end when held by a player.
+  - bugfix: Fixed matter configuration logic on material initialization.
+  - bugfix: Fixed persistent objects floating in space. Why is there a cigarette butt
+      in space in front of the captains office?
+  - refactor: Updated SQL readme.
+  Fenodyree:
+  - bugfix: The weapon analyzer now correctly shows the damage and number of shots
+      for modular lasers.
+  - bugfix: Modular lasers can break again when fired by mobs.
+  - bugfix: Modular lasers now have working fire delay.
+  - bugfix: Backup Capacitors and Capacitor Overcharge now correctly reduce or increase
+      the max number of shots.
+  - balance: Chance per mod to break a component was decreased from 10 * Number of
+      Mods * Damage Mult, to 2 * Number of Mods * Damage Mult
+  - balance: Components were reduced in size, so that the components of a gun aren't
+      ten times the size of the finished product.
+  GeneralCamo:
+  - rscadd: Going into stasis now has a status icon.
+  - rscadd: Ported the stasis effect filter from tgstation.
+  - rscadd: Ported the stasis bed animation from tgstation.
+  - bugfix: Stasis beds are now required to be turned on to provide stasis.
+  - balance: Reworked stasis bed upgrades. Lasers are used to upgrade stasis bed level
+      instead of scanners, but will now increase the power consumption. Capacitors
+      will make them more efficient.
+  - balance: Greatly increased the base power consumption of the stasis bed.
+  Kano:
+  - rscadd: Ported lore consoles from Paradise Station.
+  MynameAsJeff:
+  - rscadd: Fixes several errors on the Ranger Gunboat. Everything actually works
+      as intended, now!

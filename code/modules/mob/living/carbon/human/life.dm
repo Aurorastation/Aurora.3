@@ -872,6 +872,7 @@
 #define DRUNK_STRING "drunk"
 #define BLEEDING_STRING "bleeding"
 #define POSING_STRING "posing"
+#define STASIS_STRING "stasis"
 
 /mob/living/carbon/human/handle_regular_hud_updates()
 	if(hud_updateflag) // update our mob's hud overlays, AKA what others see flaoting above our head
@@ -1137,6 +1138,15 @@
 				qdel(status_overlays[DRUNK_STRING])
 				status_overlays -= DRUNK_STRING
 
+			var/has_stasis_status = LAZYISIN(status_overlays, STASIS_STRING)
+			if(InStasis())
+				if(!has_stasis_status)
+					add_status_to_hud(STASIS_STRING, "Your biological functions are slowed. You can't interact with much in this state.")
+			else if(has_stasis_status)
+				client.screen -= status_overlays[STASIS_STRING]
+				qdel(status_overlays[STASIS_STRING])
+				status_overlays -= STASIS_STRING
+
 			var/has_bleeding_limb = FALSE
 			var/has_bleeding_status = LAZYISIN(status_overlays, BLEEDING_STRING)
 			for(var/obj/item/organ/external/damaged_limb as anything in bad_external_organs)
@@ -1170,6 +1180,7 @@
 #undef DRUNK_STRING
 #undef BLEEDING_STRING
 #undef POSING_STRING
+#undef STASIS_STRING
 
 /mob/living/carbon/human/proc/add_status_to_hud(var/set_overlay, var/set_status_message)
 	var/atom/movable/screen/status/new_status = new /atom/movable/screen/status(null, ui_style2icon(client.prefs.UI_style), set_overlay, set_status_message)

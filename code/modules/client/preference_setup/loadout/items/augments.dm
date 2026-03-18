@@ -231,7 +231,7 @@
 	display_name = "retractable glare dampeners"
 	description = "A subdermal implant installed just above the brow line that deploys a thin sheath of hyperpolycarbonate that protects from eye damage associated with arc flash."
 	path = /obj/item/organ/internal/augment/tool/correctivelens/glare_dampener
-	allowed_roles = list("Chief Engineer", "Engineer", "Atmospheric Technician", "Engineering Apprentice", "Machinist", "Engineering Personnel", "Operations Personnel")
+	allowed_roles = list("Chief Engineer", "Ship Engineer", "Atmospheric Technician", "Engineering Apprentice", "Machinist", "Engineering Personnel", "Operations Personnel")
 	cost = 2
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
 
@@ -332,11 +332,12 @@
 	cost = 1
 
 /datum/gear/augment/mind_blanker
-	display_name = "Galatean Mind Blanker"
-	description = "A small, discrete organ attached near the base of the brainstem. Any attempt to read the mind of an individual with this augment installed will fail, as will attempts at psychic brainwashing."
+	display_name = "ZHP-MSv3 Mind Blanker"
+	description = "An experimental cranial augmentation based on Galatean bio-engineering and now offered by Zeng-Hu Pharmaceuticals for select consumers. Also known as the Mindshield v3 or \"Mind Blanker\". " \
+		+ "It consists of a small, discrete organ attached near the base of the brainstem. The mind blanker generates interfering 'anti-signals' in response to incoming psychic signals, effectively blocking the user from being telepathically contacted. " \
+		+ "Zeng-Hu marketing pitches these radical bioaugs as a peace of mind solution for explorers traveling into the Lemurian Sea, while ignoring or downplaying any concerns of possible deleterious side effects."
 	path = /obj/item/organ/internal/augment/bioaug/mind_blanker
-	origin_restriction = list(/singleton/origin_item/origin/galatea)
-	whitelisted = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD)
+	whitelisted = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD, SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI, SPECIES_UNATHI)
 	cost = 2
 
 /datum/gear/augment/mind_blanker_lethal

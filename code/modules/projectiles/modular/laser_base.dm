@@ -2,11 +2,12 @@
 	icon = 'icons/obj/guns/modular_laser.dmi'
 	icon_state = "bfg"
 	contained_sprite = TRUE
+	w_class = WEIGHT_CLASS_TINY  //A dissasembled gun is easier to carry, this lets people bring bits of their broken gun back to R&D.
 	var/reliability = 0
 	var/damage = 1
-	var/fire_delay = 0
+	var/fire_delay = 1
 	var/condition = 0 //inverse health of the component. subtracted from reliability.
-	var/shots = 0
+	var/shots = 1
 	var/burst = 0
 	var/accuracy = 0
 	var/obj/item/repair_item
@@ -73,6 +74,7 @@
 	shots = 5
 	damage = 10
 	reliability = 50
+	fire_delay = 5
 	repair_item = /obj/item/stack/cable_coil
 
 /obj/item/laser_components/capacitor/condition_hints(mob/user, distance, is_adjacent)
@@ -137,7 +139,6 @@
 /obj/item/laser_assembly
 	name = "laser assembly (small)"
 	desc = "A case for shoving things into. Hopefully they work."
-	w_class = WEIGHT_CLASS_SMALL
 	icon = 'icons/obj/guns/modular_laser.dmi'
 	var/base_icon_state = "small"
 	contained_sprite = TRUE

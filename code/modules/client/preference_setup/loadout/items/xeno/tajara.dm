@@ -101,7 +101,7 @@ ABSTRACT_TYPE(/datum/gear/shoes/tajara)
 	uniform["red noble adhomian dress"] = /obj/item/clothing/under/dress/tajaran/fancy
 	uniform["black noble adhomian dress"] = /obj/item/clothing/under/dress/tajaran/fancy/black
 	uniform["black noble adhomian dress"] = /obj/item/clothing/under/dress/tajaran/fancy/black
-	uniform["adhomian summer dress"] = /obj/item/clothing/under/dress/tajaran/summer
+	uniform["adhomian summer dress"] = /obj/item/clothing/pants/skirt/tajaran
 	uniform["fancy uniform with skirt"] = /obj/item/clothing/under/dress/tajaran/formal
 	uniform["fancy uniform with skirt, alt 1"] = /obj/item/clothing/under/dress/tajaran/formal/alt1
 	uniform["fancy uniform with skirt, alt 2"] = /obj/item/clothing/under/dress/tajaran/formal/alt2
@@ -112,6 +112,33 @@ ABSTRACT_TYPE(/datum/gear/shoes/tajara)
 	uniform["housewife dress, mauve"] = /obj/item/clothing/under/dress/tajaran/housewife/mauve
 	uniform["housewife dress, yellow"] = /obj/item/clothing/under/dress/tajaran/housewife/yellow
 	gear_tweaks += new /datum/gear_tweak/path(uniform)
+
+/datum/gear/pants/tajara
+	display_name = "tajaran pants and skirts selection"
+	description = "A selection of tajaran native pants and skirts."
+	path = /obj/item/clothing/pants/tajaran
+	whitelisted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
+	sort_category = "Xenowear - Tajara"
+
+/datum/gear/pants/tajara/New()
+	..()
+	var/list/pants = list()
+	pants["adhomian summer pants"] = /obj/item/clothing/pants/tajaran
+	pants["adhomian summer skirt"] =  /obj/item/clothing/pants/skirt/tajaran
+	gear_tweaks += new /datum/gear_tweak/path(pants)
+
+/datum/gear/shirts/tajara
+	display_name = "tajaran shirts selection"
+	description = "A selection of tajaran native shirts."
+	path = /obj/item/clothing/under/dressshirt/tajaran
+	whitelisted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
+	sort_category = "Xenowear - Tajara"
+
+/datum/gear/shirts/tajara/New()
+	..()
+	var/list/shirt = list()
+	shirt["adhomian summer shirt"] = /obj/item/clothing/under/dressshirt/tajaran
+	gear_tweaks += new /datum/gear_tweak/path(shirt)
 
 /datum/gear/uniform/tajara_colorable
 	display_name = "tajaran uniform and dress selection (colorable)"
@@ -137,7 +164,7 @@ ABSTRACT_TYPE(/datum/gear/shoes/tajara)
 	path = /obj/item/voidsuit_modkit/himeo/tajara
 	sort_category = "Xenowear - Tajara"
 	whitelisted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
-	allowed_roles = list("Shaft Miner", "Operations Manager", "Engineer", "Atmospheric Technician", "Chief Engineer", "Engineering Apprentice", "Engineering Personnel", "Operations Personnel")
+	allowed_roles = list("Shaft Miner", "Operations Manager", "Ship Engineer", "Atmospheric Technician", "Chief Engineer", "Engineering Apprentice", "Engineering Personnel", "Operations Personnel")
 	origin_restriction = list(/singleton/origin_item/origin/free_council)
 
 /datum/gear/suit/tajara_coat

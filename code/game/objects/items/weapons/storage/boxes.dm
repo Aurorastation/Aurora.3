@@ -1172,14 +1172,17 @@
 	starts_with = list(
 		/obj/item/flag/dominia = 8,
 		/obj/item/flag/dominia/l = 6,
-		/obj/item/flag/strelitz = 4,
-		/obj/item/flag/volvalaad = 4,
+		/obj/item/flag/strelitz = 2,
+		/obj/item/flag/volvalaad = 2,
 		/obj/item/flag/caladius = 2,
-		/obj/item/flag/zhao = 4,
-		/obj/item/flag/zhurong = 3,
+		/obj/item/flag/zhao = 2,
+		/obj/item/flag/zhurong = 2,
 		/obj/item/flag/zhurong/l = 2,
-		/obj/item/flag/imperial_frontier = 3,
-		/obj/item/flag/imperial_frontier/l = 2
+		/obj/item/flag/imperial_frontier = 2,
+		/obj/item/flag/imperial_frontier/l = 2,
+		/obj/item/flag/seok = 1,
+		/obj/item/flag/kaneko = 1,
+		/obj/item/flag/sinzendorf = 1,
 	)
 
 /obj/item/storage/box/large/flags/elyra
@@ -1809,3 +1812,14 @@
 	starts_with = list(
 		/obj/item/cane/crutch/forearm = 2
 	)
+
+/obj/item/storage/box/unique/freezer/organcooler/mind_blanker
+	name = "mind blanker cooler"
+	desc = "A cooling box for mind blankers, which can be surgically implanted to protect the patient from unwanted psionic interference."
+	color = COLOR_PURPLE_GRAY
+	illustration = "implant"
+	starts_with = list(/obj/item/organ/internal/augment/bioaug/mind_blanker = 1)
+	can_hold = list(
+		/obj/item/organ/internal/augment/bioaug/mind_blanker
+	)
+	storage_slots = 4

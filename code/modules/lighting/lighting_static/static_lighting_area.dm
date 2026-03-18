@@ -9,4 +9,3 @@
 /area/space
 	static_lighting = FALSE
 	base_lighting_alpha = 255
-
