@@ -13,7 +13,7 @@
 /proc/spiral_range(dist = 0, center, orange = FALSE)
 	var/list/atom_list = list()
 	if(!center)
-		return center = usr
+		center = usr
 	var/turf/t_center = get_turf(center)
 	if(!t_center)
 		return list()
