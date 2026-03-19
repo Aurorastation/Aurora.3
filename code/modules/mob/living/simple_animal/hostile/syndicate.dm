@@ -19,7 +19,7 @@
 	harm_intent_damage = 5
 	melee_damage_lower = 10
 	melee_damage_upper = 10
-	attacktext = "punched"
+	attacktext = "punches"
 	a_intent = I_HURT
 	var/corpse = /obj/effect/landmark/mobcorpse/syndicatesoldier
 	var/weapon1
@@ -59,7 +59,7 @@
 	icon_living = "syndicatemelee"
 	weapon1 = /obj/item/melee/energy/sword/red
 	weapon2 = /obj/item/shield/energy
-	attacktext = "slashed"
+	attacktext = "slashes"
 	status_flags = 0
 
 /mob/living/simple_animal/hostile/syndicate/melee/attackby(obj/item/attacking_item, mob/user)

@@ -229,7 +229,7 @@
 	icon_state_closed = "pdoor1"
 	icon_state_closing = "pdoorc1"
 	icon_state = "pdoor1"
-	maxhealth = 600
+	maxhealth = OBJECT_HEALTH_EXTREMELY_HIGH
 	block_air_zones = 1
 
 /obj/machinery/door/blast/regular/open
@@ -264,7 +264,7 @@
 	icon_state_closed = "pdoor1"
 	icon_state_closing = "pdoorc1"
 	icon_state = "pdoor1"
-	maxhealth = 1000
+	maxhealth = OBJECT_HEALTH_EXTREMELY_HIGH
 	block_air_zones = 1
 
 /obj/machinery/door/blast/odin/open

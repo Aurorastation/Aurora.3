@@ -6,7 +6,7 @@
 	anchored = TRUE
 	density = FALSE
 	mouse_opacity = MOUSE_OPACITY_ICON
-	var/health = 15
+	maxhealth = OBJECT_HEALTH_FRAGILE
 
 //similar to weeds, but only barfed out by nurses manually
 /obj/effect/spider/ex_act(severity)

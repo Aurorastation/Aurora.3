@@ -8,8 +8,8 @@
 	use_power = POWER_USE_OFF
 	idle_power_usage = 0
 	active_power_usage = 0
+
 	var/id = 0
-	var/health = 10
 	var/obscured = 0
 	var/sunfrac = 0
 	var/adir = SOUTH // actual dir

@@ -60,7 +60,7 @@ This calls [atom/proc/tool_act], among others.
 		return TRUE
 
 	if((user?.a_intent == I_HURT) && !(attacking_item.item_flags & ITEM_FLAG_NO_BLUDGEON))
-		visible_message(SPAN_DANGER("[src] has been hit by [user] with [attacking_item]."))
+		visible_message(SPAN_DANGER("[src] has been [attacking_item.attack_verb ? pick(attacking_item.attack_verb) : "hit"] by [user] with [attacking_item]."))
 
 	var/item_interact_result = src.base_item_interaction(user, attacking_item, modifiers)
 	if(item_interact_result & ITEM_INTERACT_SUCCESS)

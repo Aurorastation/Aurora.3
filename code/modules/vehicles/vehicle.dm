@@ -12,7 +12,6 @@
 	anchored = 1
 	animate_movement=1
 	light_range = 3
-
 	buckle_movable = 1
 	buckle_lying = 0
 
@@ -20,8 +19,6 @@
 
 	var/attack_log = null
 	var/on = 0
-	var/health = 0	//do not forget to set health for your vehicle!
-	var/maxhealth = 0
 	var/fire_dam_coeff = 1.0
 	var/brute_dam_coeff = 1.0
 	var/open = 0	//Maint panel

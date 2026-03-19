@@ -121,7 +121,7 @@
 	var/melee_reach = 1
 	var/armor_penetration = 0
 	var/attack_flags = 0
-	var/attacktext = "attacked"
+	var/attacktext = "attacks"
 	var/attack_sound = SFX_SWING_HIT
 	var/friendly = "nuzzles"
 	var/environment_smash = 0

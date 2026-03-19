@@ -15,7 +15,7 @@
 	response_help  = "pets"
 	response_disarm = "gently pushes aside"
 	response_harm   = "kicks"
-	attacktext = "kicked"
+	attacktext = "kicks"
 	faction = "Moghes"
 
 	maxHealth = 100
@@ -61,7 +61,7 @@
 	response_help  = "pets"
 	response_disarm = "gently pushes aside"
 	response_harm   = "kicks"
-	attacktext = "gored"
+	attacktext = "gores"
 	faction = "Moghes"
 
 	maxHealth = 200
@@ -123,7 +123,7 @@
 	response_help  = "pets"
 	response_disarm = "gently pushes aside"
 	response_harm   = "kicks"
-	attacktext = "kicked"
+	attacktext = "kicks"
 	canbrush = TRUE
 	brush = /obj/item/reagent_containers/glass/rag
 	speed = -1
@@ -154,7 +154,7 @@
 	response_help  = "pets"
 	response_disarm = "gently pushes aside"
 	response_harm   = "swats"
-	attacktext = "swatted"
+	attacktext = "swats"
 	flying = TRUE
 	butchering_products = list(/obj/item/stack/material/animalhide = 1)
 	meat_type = /obj/item/reagent_containers/food/snacks/meat/moghes

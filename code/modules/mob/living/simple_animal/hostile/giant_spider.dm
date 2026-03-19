@@ -45,7 +45,7 @@
 	mob_size = 6
 	smart_melee = FALSE
 
-	attacktext = "bitten"
+	attacktext = "bites"
 	attack_emote = "skitters toward"
 	attack_sound = 'sound/weapons/bite.ogg'
 	emote_sounds = list('sound/effects/creatures/spider_critter.ogg')

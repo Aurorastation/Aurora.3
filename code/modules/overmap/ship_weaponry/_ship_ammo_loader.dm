@@ -5,8 +5,7 @@
 	icon_state = "ammo_loader"
 	density = TRUE
 	anchored = TRUE
-	var/damage = 0
-	var/max_damage = 1000
+	maxhealth = 1000
 	var/obj/machinery/ship_weapon/weapon
 	var/weapon_id //Used to connect weapon systems to the relevant ammunition loader.
 
@@ -40,14 +39,6 @@
 			add_damage(25)
 		if(3)
 			add_damage(10)
-
-/obj/machinery/ammunition_loader/proc/add_damage(var/amount)
-	damage = max(0, min(damage + amount, max_damage))
-	update_damage()
-
-/obj/machinery/ammunition_loader/proc/update_damage()
-	if(damage >= max_damage)
-		qdel(src)
 
 /obj/machinery/ammunition_loader/attackby(obj/item/attacking_item, mob/user)
 	if(isliving(user))

@@ -7,8 +7,8 @@
 	w_class = WEIGHT_CLASS_HUGE
 	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
 	pass_flags_self = PASSTABLE
+	maxhealth = OBJECT_HEALTH_HIGH
 	var/state = 0
-	var/health = 200
 	/// How much cover the girder provides against projectiles.
 	var/cover = 50
 	build_amt = 2
@@ -16,8 +16,7 @@
 	var/reinforcing = 0
 	var/plating = FALSE
 
-/obj/structure/girder/condition_hints(mob/user, distance, is_adjacent)
-	. += ..()
+/obj/structure/girder/get_damage_condition_hints(mob/user, distance, is_adjacent)
 	var/state
 	var/current_damage = health / initial(health)
 	switch(current_damage)
@@ -29,7 +28,7 @@
 			state = SPAN_NOTICE("The support struts are dented, but holding together.")
 		if(0.8 to 1)
 			state = SPAN_NOTICE("The support struts look completely intact.")
-	. += state
+	. = state
 
 /obj/structure/girder/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()

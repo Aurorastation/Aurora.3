@@ -12,7 +12,7 @@
 	armor_penetration = 40
 	attack_flags = DAMAGE_FLAG_SHARP|DAMAGE_FLAG_EDGE
 	break_stuff_probability = 25
-	attacktext = "slashed"
+	attacktext = "slashes"
 	attack_sound = SFX_HIVEBOT_MELEE
 	projectilesound = 'sound/weapons/gunshot/gunshot_suppressed.ogg'
 	projectiletype = /obj/projectile/bullet/pistol/hivebotspike
@@ -183,7 +183,7 @@
 	maxHealth = 100
 	icon_state = "hivebotbomber"
 	organ_names = list("head", "core", "bottom thruster")
-	attacktext = "bumped"
+	attacktext = "bumps"
 	speed = 8
 	var/has_exploded = FALSE
 
@@ -235,7 +235,7 @@
 	melee_damage_lower = 20
 	melee_damage_upper = 30
 	armor_penetration = 20
-	attacktext = "eviscerated"
+	attacktext = "eviscerates"
 	projectiletype = null
 	var/playable = TRUE
 	speed = -2
@@ -262,7 +262,7 @@
 	melee_damage_lower = 10
 	melee_damage_upper = 20
 	armor_penetration = 20
-	attacktext = "stabbed"
+	attacktext = "stabs"
 	ranged = 1
 	projectiletype = /obj/projectile/bullet/pistol/medium
 	speed = -3
@@ -289,7 +289,7 @@
 	melee_damage_lower = 10
 	melee_damage_upper = 10
 	armor_penetration = 10
-	attacktext = "slashed"
+	attacktext = "slashes"
 	ranged = -1
 	projectiletype = /obj/projectile/bullet/pistol/
 

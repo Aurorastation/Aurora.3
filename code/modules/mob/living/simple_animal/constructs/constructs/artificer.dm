@@ -11,7 +11,7 @@
 	melee_damage_lower = 10
 	melee_damage_upper = 10
 	armor_penetration = 20
-	attacktext = "rammed"
+	attacktext = "rams"
 	organ_names = list("core", "production array", "sensor array")
 	speed = 0
 	environment_smash = TRUE

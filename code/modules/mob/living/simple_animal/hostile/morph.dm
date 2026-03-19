@@ -43,7 +43,7 @@
 
 	wander = FALSE
 
-	attacktext = "glomped"
+	attacktext = "glomps"
 	attack_sound = 'sound/effects/blobattack.ogg'
 	blood_overlay_icon = null
 

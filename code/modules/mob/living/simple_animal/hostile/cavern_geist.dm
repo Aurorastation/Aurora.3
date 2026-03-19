@@ -30,7 +30,7 @@
 	resist_mod = 15
 	mob_size = 25
 	environment_smash = 2
-	attacktext = "mangled"
+	attacktext = "mangles"
 	attack_sound = 'sound/weapons/bloodyslice.ogg'
 
 	lighting_alpha = LIGHTING_PLANE_ALPHA_SOMEWHAT_INVISIBLE

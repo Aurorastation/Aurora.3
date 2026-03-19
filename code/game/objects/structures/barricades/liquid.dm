@@ -120,7 +120,7 @@
 	health = BARRICADE_LIQUIDBAG_TRESHOLD_5
 	maxhealth = BARRICADE_LIQUIDBAG_TRESHOLD_5
 	maxhealth += 50
-	update_health(-50)
+	add_health(50)
 	stack_amount = 5
 	can_wire = FALSE
 	is_wired = TRUE

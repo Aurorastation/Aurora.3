@@ -7,7 +7,7 @@
 	opacity = FALSE
 	anchored = FALSE
 	req_access = list(ACCESS_ENGINE)
-	var/health = 100
+	maxhealth = 100
 	var/active = FALSE
 	/// Malfunction causes parts of the shield to slowly dissipate
 	var/malfunction = FALSE
@@ -270,8 +270,7 @@
 	anchored = TRUE
 	unacidable = TRUE
 	atmos_canpass = CANPASS_NEVER
-	/// The shield can only take so much beating (prevents perma-prisons)
-	var/health = 75
+	maxhealth = 75
 	/// How much power we use when first creating the shield
 	var/shield_generate_power = 75 KILO WATTS
 	/// How much power we use when just being sustained.

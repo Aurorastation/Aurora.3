@@ -36,7 +36,8 @@
 	use_power = POWER_USE_OFF
 	clicksound = SFX_SWITCH
 
-	var/health = 500
+	maxhealth = 500
+
 	/// this it to prevent the damage text from playing repeatedly
 	var/busted = FALSE
 	/// maximum charge

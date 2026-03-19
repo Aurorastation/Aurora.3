@@ -10,7 +10,7 @@
 	melee_damage_lower = 25
 	melee_damage_upper = 25
 	armor_penetration = 60
-	attacktext = "violently stabbed"
+	attacktext = "violently stabs"
 	organ_names = list("core", "harvesting array")
 	speed = -1
 	environment_smash = 1
