@@ -457,7 +457,7 @@
 /turf/simulated/floor/tiled,
 /area/hideout)
 "go" = (
-/obj/machinery/atmospherics/pipe/tank/air{
+/obj/machinery/atmospherics/unary/tank/air{
 	pixel_y = 3
 	},
 /obj/effect/floor_decal/industrial/outline/red,
@@ -1166,7 +1166,7 @@
 /area/hideout)
 "qN" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/pipedispenser,
+/obj/machinery/fabricator/pipe_dispenser,
 /turf/simulated/floor/tiled,
 /area/hideout)
 "qP" = (

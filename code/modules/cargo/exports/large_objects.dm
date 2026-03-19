@@ -79,11 +79,6 @@
 	unit_name = "particle accelerator control console"
 	export_types = list(/obj/machinery/particle_accelerator/control_box)
 
-/datum/export/large/pipedispenser
-	cost = 500
-	unit_name = "pipe dispenser"
-	export_types = list(/obj/machinery/pipedispenser)
-
 /datum/export/large/supermatter
 	cost = 9000
 	unit_name = "supermatter shard"

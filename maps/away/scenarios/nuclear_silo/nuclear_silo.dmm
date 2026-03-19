@@ -5386,7 +5386,7 @@
 	dir = 10
 	},
 /obj/random/dirt_75,
-/obj/machinery/pipedispenser,
+/obj/machinery/fabricator/pipe_dispenser,
 /turf/simulated/floor/tiled/dark/full,
 /area/nuclear_silo/lower_level/engineering)
 "lT" = (
@@ -11055,7 +11055,7 @@
 /area/nuclear_silo/outside/landing)
 "yw" = (
 /obj/machinery/atmospherics/portables_connector,
-/obj/machinery/atmospherics/pipe/tank/air,
+/obj/machinery/atmospherics/unary/tank/air,
 /obj/effect/floor_decal/industrial/outline/blue,
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
@@ -22102,7 +22102,7 @@
 /area/nuclear_silo/lower_level/maintenance/north)
 "WP" = (
 /obj/machinery/atmospherics/portables_connector,
-/obj/machinery/atmospherics/pipe/tank/air,
+/obj/machinery/atmospherics/unary/tank/air,
 /obj/effect/floor_decal/industrial/outline/blue,
 /turf/simulated/floor/plating,
 /area/nuclear_silo/lower_level/engineering)

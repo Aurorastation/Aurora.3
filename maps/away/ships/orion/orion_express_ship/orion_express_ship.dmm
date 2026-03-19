@@ -1504,7 +1504,7 @@
 /turf/simulated/floor/tiled/white,
 /area/ship/orion/forehall)
 "eCV" = (
-/obj/machinery/atmospherics/pipe/tank/carbon_dioxide,
+/obj/machinery/atmospherics/unary/tank/carbon_dioxide,
 /turf/simulated/floor/airless,
 /area/ship/orion/thruster2)
 "eEj" = (
@@ -1831,7 +1831,7 @@
 /turf/simulated/floor,
 /area/shuttle/orion_shuttle/starboardthrust)
 "gkw" = (
-/obj/machinery/atmospherics/pipe/tank/carbon_dioxide{
+/obj/machinery/atmospherics/unary/tank/carbon_dioxide{
 	dir = 1
 	},
 /turf/simulated/floor/airless,
@@ -2586,7 +2586,7 @@
 	},
 /area/ship/orion/thruster1)
 "iuL" = (
-/obj/machinery/atmospherics/pipe/tank/air,
+/obj/machinery/atmospherics/unary/tank/air,
 /turf/simulated/floor,
 /area/ship/orion/atmos)
 "iuW" = (
@@ -2829,7 +2829,7 @@
 /turf/simulated/floor/airless,
 /area/ship/orion/thruster1)
 "jub" = (
-/obj/machinery/atmospherics/pipe/tank/carbon_dioxide{
+/obj/machinery/atmospherics/unary/tank/carbon_dioxide{
 	dir = 8
 	},
 /obj/structure/railing/mapped{
@@ -3898,7 +3898,7 @@
 /turf/simulated/floor,
 /area/ship/orion/cargo)
 "ntw" = (
-/obj/machinery/atmospherics/pipe/tank/carbon_dioxide{
+/obj/machinery/atmospherics/unary/tank/carbon_dioxide{
 	dir = 8
 	},
 /turf/simulated/floor,
@@ -4510,7 +4510,7 @@
 /turf/simulated/floor/airless,
 /area/ship/orion/thruster1)
 "pdw" = (
-/obj/machinery/atmospherics/pipe/tank/air{
+/obj/machinery/atmospherics/unary/tank/air{
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/outline,

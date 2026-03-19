@@ -2996,7 +2996,7 @@
 /turf/simulated/floor/tiled/rust,
 /area/racers)
 "owK" = (
-/obj/machinery/atmospherics/pipe/tank/carbon_dioxide,
+/obj/machinery/atmospherics/unary/tank/carbon_dioxide,
 /turf/simulated/floor/plating,
 /area/racers)
 "owN" = (
@@ -3049,7 +3049,7 @@
 /turf/simulated/floor/plating,
 /area/racers)
 "oNS" = (
-/obj/machinery/pipedispenser,
+/obj/machinery/fabricator/pipe_dispenser,
 /obj/item/laser_pointer/red,
 /turf/simulated/floor/plating,
 /area/racers)
@@ -3241,7 +3241,7 @@
 /turf/simulated/floor/tiled/white/airless,
 /area/racers)
 "pPd" = (
-/obj/machinery/atmospherics/pipe/tank/phoron,
+/obj/machinery/atmospherics/unary/tank/phoron,
 /turf/simulated/floor/tiled/rust/airless,
 /area/racers)
 "pPW" = (
@@ -3524,7 +3524,7 @@
 /turf/simulated/floor/tiled/rust,
 /area/racers)
 "qWG" = (
-/obj/machinery/atmospherics/pipe/tank/oxygen,
+/obj/machinery/atmospherics/unary/tank/oxygen,
 /turf/simulated/floor/plating,
 /area/racers)
 "qZQ" = (
@@ -3558,7 +3558,7 @@
 /turf/simulated/floor/carpet/art,
 /area/racers)
 "riz" = (
-/obj/machinery/pipedispenser,
+/obj/machinery/fabricator/pipe_dispenser,
 /obj/item/reagent_containers/food/drinks/bottle/small/beer,
 /turf/simulated/floor/tiled/rust,
 /area/racers)

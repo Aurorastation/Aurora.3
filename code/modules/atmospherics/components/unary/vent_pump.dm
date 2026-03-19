@@ -42,6 +42,8 @@
 
 	var/welded = 0 // Added for aliens -- TLE
 
+	build_icon_state = "uvent"
+
 	var/frequency = 1439
 	var/datum/radio_frequency/radio_connection
 
@@ -163,49 +165,44 @@
 	. = ..()
 	air_contents.volume = ATMOS_DEFAULT_VOLUME_PUMP + 500 //meant to match air injector
 
-/obj/machinery/atmospherics/unary/vent_pump/update_icon(safety = 0)
-	if (!node)
-		update_use_power(POWER_USE_OFF)
-
+/obj/machinery/atmospherics/unary/vent_pump/update_icon()
 	var/vent_icon = ""
-
+	ClearOverlays()
+	var/list/overlays = list()
 	if(welded)
 		vent_icon += "weld"
+		if(powered())
+			overlays += mutable_appearance(icon, "light_error")
+			overlays += emissive_appearance(icon, "light-emissive-anim")
 	else if(!powered())
 		vent_icon += "off"
 	else
 		vent_icon += "[use_power ? "[pump_direction ? "out" : "in"]" : "off"]"
+		overlays += mutable_appearance(icon, use_power ? "[pump_direction ? "light_out" : "light_in"]" : "light_standby")
+		overlays += emissive_appearance(icon, "light-emissive")
 
 	icon_state = vent_icon
+	AddOverlays(overlays)
 
 	update_underlays()
 
-/obj/machinery/atmospherics/unary/vent_pump/update_underlays()
-	if(..())
-		underlays.Cut()
-		var/turf/T = get_turf(src)
-		if(!istype(T))
-			return
-		if(!T.is_plating() && node && node.level == 1 && istype(node, /obj/machinery/atmospherics/pipe))
-			return
-		else
-			if(node)
-				add_underlay(T, node, dir, node.icon_connect_type)
-			else
-				add_underlay(T,, dir)
-			underlays += "frame"
+/obj/machinery/atmospherics/unary/vent_pump/proc/update_underlays()
+	build_device_underlays()
+	var/turf/T = get_turf(src)
+	if(T?.is_plating())
+		underlays += "frame"
 
 /obj/machinery/atmospherics/unary/vent_pump/hide()
 	queue_icon_update()
 
 /obj/machinery/atmospherics/unary/vent_pump/proc/can_pump()
 	if(stat & (NOPOWER|BROKEN))
-		return 0
+		return FALSE
 	if(!use_power)
-		return 0
+		return FALSE
 	if(welded)
-		return 0
-	return 1
+		return FALSE
+	return TRUE
 
 /obj/machinery/atmospherics/unary/vent_pump/process(seconds_per_tick)
 	..()
@@ -217,30 +214,27 @@
 	if (hibernate > world.time)
 		return 1
 
-	if (!node)
+	if (!LAZYLEN(nodes_to_networks))
 		update_use_power(POWER_USE_OFF)
 	if(!can_pump())
 		return 0
 
-	if(!loc) return FALSE
-
-	var/datum/gas_mixture/environment = loc.return_air()
+	var/datum/gas_mixture/environment = loc?.return_air()
 
 	var/power_draw = -1
 
 	//Figure out the target pressure difference
 	var/pressure_delta = get_pressure_delta(environment)
+	var/transfer_moles
 	//src.visible_message("DEBUG >>> [src]: pressure_delta = [pressure_delta]")
 
 	if((environment.temperature || air_contents.temperature) && pressure_delta > 0.5)
 		if(pump_direction) //internal -> external
-			var/transfer_moles = calculate_transfer_moles(air_contents, environment, pressure_delta)
+			transfer_moles = calculate_transfer_moles(air_contents, environment, pressure_delta)
 			power_draw = pump_gas(src, air_contents, environment, transfer_moles, power_rating)
 		else //external -> internal
-			var/transfer_moles = calculate_transfer_moles(environment, air_contents, pressure_delta, (network)? network.volume : 0)
-
-			//limit flow rate from turfs
-			transfer_moles = min(transfer_moles, environment.total_moles*air_contents.volume/environment.volume)	//group_multiplier gets divided out here
+			var/datum/pipe_network/network = network_in_dir(dir)
+			transfer_moles = calculate_transfer_moles(environment, air_contents, pressure_delta, network?.total_volume) / environment.group_multiplier // limit it to just one turf's worth of gas per tick
 			power_draw = pump_gas(src, environment, air_contents, transfer_moles * seconds_per_tick, power_rating)
 
 	else
@@ -249,12 +243,11 @@
 		if(pump_direction && pressure_checks == PRESSURE_CHECK_EXTERNAL) //99% of all vents
 			hibernate = world.time + (rand(100,200))
 
-
+	if(transfer_moles > 0)
+		update_networks()
 	if (power_draw >= 0)
 		last_power_draw = power_draw
 		use_power_oneoff(power_draw * seconds_per_tick)
-		if(network)
-			network.update = 1
 
 	return 1
 
@@ -429,12 +422,12 @@
 
 		else
 
-			var/turf/T = src.loc
+			for(var/obj/machinery/atmospherics/node as anything in nodes_to_networks)
+				if(node.level == 1)
+					to_chat(user, SPAN_WARNING("You must remove the plating first."))
+					return ..()
 
-			if(node && node.level==1 && isturf(T) && !T.is_plating())
-				to_chat(user, SPAN_WARNING("You must remove the plating first."))
-
-			else if(loc)
+			if(loc)
 				var/datum/gas_mixture/int_air = return_air()
 				var/datum/gas_mixture/env_air = loc.return_air()
 
@@ -449,7 +442,7 @@
 						user.visible_message(SPAN_NOTICE("\The [user] unfastens \the [src]."), \
 												SPAN_NOTICE("You have unfastened \the [src]."), \
 												"You hear a ratchet.")
-						new /obj/item/pipe(loc, make_from=src)
+						new /obj/item/pipe(loc, src)
 						qdel(src)
 
 		return ..()

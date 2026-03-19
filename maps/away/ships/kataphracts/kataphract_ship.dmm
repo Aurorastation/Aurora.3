@@ -1408,7 +1408,7 @@
 /turf/simulated/floor/reinforced,
 /area/kataphract_chapter/engineering)
 "fm" = (
-/obj/machinery/pipedispenser,
+/obj/machinery/fabricator/pipe_dispenser,
 /obj/item/pipewrench,
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/atmospherics)
@@ -1738,7 +1738,7 @@
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/hangar)
 "gp" = (
-/obj/machinery/atmospherics/pipe/tank{
+/obj/machinery/atmospherics/unary/tank{
 	dir = 4
 	},
 /obj/machinery/light{
@@ -4303,7 +4303,7 @@
 /turf/simulated/floor/plating,
 /area/kataphract_chapter/portpropulsion)
 "st" = (
-/obj/machinery/atmospherics/pipe/tank/air{
+/obj/machinery/atmospherics/unary/tank/air{
 	dir = 4
 	},
 /turf/simulated/floor/carpet/rubber,
@@ -5924,7 +5924,7 @@
 /turf/simulated/floor/plating,
 /area/shuttle/kataphract_shuttle/main_compartment)
 "Km" = (
-/obj/machinery/atmospherics/pipe/tank/air{
+/obj/machinery/atmospherics/unary/tank/air{
 	dir = 4
 	},
 /obj/machinery/light{

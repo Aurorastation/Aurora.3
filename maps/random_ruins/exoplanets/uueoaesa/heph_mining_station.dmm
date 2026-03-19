@@ -1107,7 +1107,7 @@
 	},
 /area/heph_mining_station/equipmentstorage)
 "pH" = (
-/obj/machinery/atmospherics/pipe/tank/air,
+/obj/machinery/atmospherics/unary/tank/air,
 /obj/structure/sign/flag/heph/large/north{
 	pixel_y = 32
 	},
@@ -2616,7 +2616,7 @@
 	},
 /area/heph_mining_station/medbay)
 "PA" = (
-/obj/machinery/atmospherics/pipe/tank/air,
+/obj/machinery/atmospherics/unary/tank/air,
 /turf/simulated/floor{
 	temperature = 303.15
 	},
@@ -2684,7 +2684,7 @@
 	},
 /area/heph_mining_station/mess)
 "Qb" = (
-/obj/machinery/atmospherics/pipe/tank{
+/obj/machinery/atmospherics/unary/tank{
 	dir = 1
 	},
 /turf/simulated/floor{

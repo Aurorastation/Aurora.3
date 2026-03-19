@@ -935,7 +935,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/red{
 	dir = 9
 	},
-/obj/machinery/pipedispenser,
+/obj/machinery/fabricator/pipe_dispenser,
 /turf/simulated/floor,
 /area/ship/gadpathur_patrol/atmos)
 "ii" = (
@@ -1373,7 +1373,7 @@
 /turf/simulated/floor/airless,
 /area/ship/gadpathur_patrol/fuel)
 "kV" = (
-/obj/machinery/atmospherics/pipe/tank/air,
+/obj/machinery/atmospherics/unary/tank/air,
 /obj/effect/floor_decal/industrial/outline/emergency_closet,
 /obj/structure/window/reinforced,
 /turf/simulated/floor/tiled/dark/full,
@@ -3519,7 +3519,7 @@
 /area/ship/gadpathur_patrol/fuel)
 "BW" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/atmospherics/pipe/tank/air{
+/obj/machinery/atmospherics/unary/tank/air{
 	dir = 4
 	},
 /turf/simulated/floor/plating,
@@ -3901,7 +3901,7 @@
 /area/ship/gadpathur_patrol/atmos)
 "En" = (
 /obj/effect/floor_decal/industrial/outline/engineering,
-/obj/machinery/atmospherics/pipe/tank/carbon_dioxide,
+/obj/machinery/atmospherics/unary/tank/carbon_dioxide,
 /obj/structure/window/reinforced,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/gadpathur_shuttle)
@@ -4211,7 +4211,7 @@
 /turf/simulated/floor,
 /area/ship/gadpathur_patrol/crew_prep)
 "Gh" = (
-/obj/machinery/atmospherics/pipe/tank{
+/obj/machinery/atmospherics/unary/tank{
 	dir = 4
 	},
 /turf/simulated/floor,

@@ -136,8 +136,6 @@
 		/obj/structure/dispenser                        = TRADER_THIS_TYPE,
 		/obj/item/ladder_mobile                         = TRADER_THIS_TYPE,
 		/obj/item/inflatable_dispenser                  = TRADER_THIS_TYPE,
-		/obj/machinery/pipedispenser/orderable          = TRADER_THIS_TYPE,
-		/obj/machinery/pipedispenser/disposal/orderable = TRADER_THIS_TYPE,
 		/obj/structure/reagent_dispensers/water_cooler  = TRADER_THIS_TYPE,
 		/obj/machinery/media/jukebox                    = TRADER_THIS_TYPE,
 		/obj/machinery/reagentgrinder                   = TRADER_THIS_TYPE,

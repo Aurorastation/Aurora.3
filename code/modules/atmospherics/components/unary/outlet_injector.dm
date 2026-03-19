@@ -35,18 +35,26 @@
 	air_contents.volume = ATMOS_DEFAULT_VOLUME_PUMP + 500	//Give it a small reservoir for injecting. Also allows it to have a higher flow rate limit than vent pumps, to differentiate injectors a bit more.
 
 /obj/machinery/atmospherics/unary/outlet_injector/update_icon()
+	icon_state = "injector"
+	build_device_underlays()
+	ClearOverlays()
+	var/list/injecting_overlays = list()
 	if(!powered())
-		icon_state = "off"
+		return
 	else
-		icon_state = "[use_power ? "on" : "off"]"
+		if(!use_power)
+			injecting_overlays += mutable_appearance(icon, "off")
+			injecting_overlays += emissive_appearance(icon, "off-emissive")
+		else if(injecting)
+			injecting_overlays += mutable_appearance(icon, "injecting")
+			injecting_overlays += emissive_appearance(icon, "injecting-emissive")
+		else
+			injecting_overlays += mutable_appearance(icon, "on")
+			injecting_overlays += emissive_appearance(icon, "on-emissive")
+	AddOverlays(injecting_overlays)
 
-/obj/machinery/atmospherics/unary/outlet_injector/update_underlays()
-	if(..())
-		underlays.Cut()
-		var/turf/T = get_turf(src)
-		if(!istype(T))
-			return
-		add_underlay(T, node, dir)
+
+
 
 /obj/machinery/atmospherics/unary/outlet_injector/power_change()
 	var/old_stat = stat
@@ -68,19 +76,17 @@
 		return
 
 	var/power_draw = -1
-	if(!loc) return FALSE
-	var/datum/gas_mixture/environment = loc.return_air()
+	var/datum/gas_mixture/environment = loc?.return_air()
 
 	if(environment && air_contents.temperature > 0)
 		var/transfer_moles = (volume_rate/air_contents.volume)*air_contents.total_moles //apply flow rate limit
 		power_draw = pump_gas(src, air_contents, environment, transfer_moles, power_rating)
+		if(transfer_moles > 0)
+			update_networks()
 
 	if (power_draw >= 0)
 		last_power_draw = power_draw
 		use_power_oneoff(power_draw)
-
-		if(network)
-			network.update = 1
 
 	return 1
 
@@ -92,16 +98,13 @@
 	if (!environment)
 		return 0
 
-	injecting = 1
+	injecting = TRUE
+	queue_icon_update()
 
 	if(air_contents.temperature > 0)
 		var/power_used = pump_gas(src, air_contents, environment, air_contents.total_moles, power_rating)
 		use_power_oneoff(power_used)
-
-		if(network)
-			network.update = 1
-
-	flick("inject", src)
+		update_networks()
 
 /obj/machinery/atmospherics/unary/outlet_injector/proc/set_frequency(new_frequency)
 	SSradio.remove_object(src, frequency)
@@ -161,7 +164,7 @@
 	update_icon()
 
 /obj/machinery/atmospherics/unary/outlet_injector/hide(var/i)
-	update_underlays()
+	queue_icon_update()
 
 // ---------- subtypes
 

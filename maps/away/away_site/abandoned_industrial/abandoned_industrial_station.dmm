@@ -177,7 +177,7 @@
 /turf/simulated/floor/plating,
 /area/abandoned_industrial_station/service)
 "aD" = (
-/obj/machinery/atmospherics/pipe/tank/air,
+/obj/machinery/atmospherics/unary/tank/air,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
@@ -5276,7 +5276,7 @@
 /turf/simulated/floor/tiled,
 /area/abandoned_industrial_station/hallways)
 "qR" = (
-/obj/machinery/pipedispenser,
+/obj/machinery/fabricator/pipe_dispenser,
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/abandoned_industrial_station/engineering)
@@ -7924,7 +7924,7 @@
 /turf/simulated/floor/airless,
 /area/abandoned_industrial_station/atmos)
 "za" = (
-/obj/machinery/pipedispenser/disposal,
+/obj/machinery/fabricator/pipe_dispenser,
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/abandoned_industrial_station/engineering)
@@ -9778,7 +9778,7 @@
 /turf/simulated/floor/tiled/white,
 /area/abandoned_industrial_station/medical)
 "EG" = (
-/obj/machinery/atmospherics/unary/freezer{
+/obj/machinery/atmospherics/unary/temperature/freezer{
 	dir = 1;
 	icon_state = "freezer"
 	},
@@ -13406,7 +13406,7 @@
 /turf/simulated/floor/plating,
 /area/abandoned_industrial_station/atmos)
 "QA" = (
-/obj/machinery/atmospherics/unary/heater{
+/obj/machinery/atmospherics/unary/temperature/heater{
 	dir = 1
 	},
 /turf/simulated/floor/plating,

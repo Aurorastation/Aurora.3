@@ -4837,7 +4837,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/eva)
 "axz" = (
-/obj/machinery/atmospherics/pipe/tank/air{
+/obj/machinery/atmospherics/unary/tank/air{
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
@@ -8682,7 +8682,7 @@
 /turf/simulated/floor/plating,
 /area/cult_base/engineering)
 "aVg" = (
-/obj/machinery/atmospherics/pipe/tank/air{
+/obj/machinery/atmospherics/unary/tank/air{
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,

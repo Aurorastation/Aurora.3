@@ -4521,7 +4521,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
-/obj/machinery/pipedispenser,
+/obj/machinery/fabricator/pipe_dispenser,
 /turf/simulated/floor/plating,
 /area/ship/idris_cruiser/engineering/reactor)
 "qJ" = (
@@ -8375,7 +8375,7 @@
 /turf/simulated/wall/shuttle/idris,
 /area/ship/idris_cruiser/corridor/dockingarm/starboard)
 "Ec" = (
-/obj/machinery/atmospherics/pipe/tank/carbon_dioxide,
+/obj/machinery/atmospherics/unary/tank/carbon_dioxide,
 /turf/simulated/floor/plating,
 /area/shuttle/idris_cruiser_shuttle/engineering)
 "Ee" = (

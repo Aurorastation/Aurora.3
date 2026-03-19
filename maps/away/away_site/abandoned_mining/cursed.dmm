@@ -294,7 +294,7 @@
 	},
 /area/cursed/bridge)
 "bBh" = (
-/obj/machinery/atmospherics/unary/freezer{
+/obj/machinery/atmospherics/unary/temperature/freezer{
 	dir = 4;
 	icon_state = "freezer"
 	},
@@ -427,7 +427,7 @@
 /turf/template_noop,
 /area/space)
 "cjM" = (
-/obj/machinery/atmospherics/pipe/tank/air,
+/obj/machinery/atmospherics/unary/tank/air,
 /turf/simulated/floor,
 /area/cursed/eva_storage)
 "cjO" = (
@@ -1114,7 +1114,7 @@
 /turf/simulated/floor/tiled/yellow,
 /area/cursed/living_area)
 "gGl" = (
-/obj/machinery/atmospherics/pipe/tank/air{
+/obj/machinery/atmospherics/unary/tank/air{
 	dir = 8
 	},
 /turf/simulated/floor,
@@ -1541,7 +1541,7 @@
 	dir = 4
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/item/pipe_meter,
+/obj/item/machine_chassis/pipe_meter,
 /turf/simulated/floor,
 /area/cursed/eva_storage)
 "jyl" = (
@@ -3083,7 +3083,7 @@
 /turf/simulated/floor/tiled/yellow,
 /area/cursed/living_area)
 "rwC" = (
-/obj/machinery/atmospherics/pipe/tank/air{
+/obj/machinery/atmospherics/unary/tank/air{
 	start_pressure = 5066.26;
 	dir = 4
 	},
@@ -3275,7 +3275,7 @@
 /turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/mine)
 "sxL" = (
-/obj/machinery/atmospherics/pipe/tank/carbon_dioxide,
+/obj/machinery/atmospherics/unary/tank/carbon_dioxide,
 /turf/simulated/floor,
 /area/cursed/hangar)
 "syg" = (

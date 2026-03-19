@@ -4200,7 +4200,7 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/decrepit_shipyard/transport_tunnels_south)
 "cQy" = (
-/obj/machinery/atmospherics/pipe/tank/air{
+/obj/machinery/atmospherics/unary/tank/air{
 	dir = 8
 	},
 /turf/simulated/floor/reinforced,
@@ -7794,7 +7794,7 @@
 	icon_state = "co2-12";
 	opacity = 0
 	},
-/obj/machinery/atmospherics/pipe/tank/carbon_dioxide{
+/obj/machinery/atmospherics/unary/tank/carbon_dioxide{
 	dir = 8
 	},
 /turf/simulated/floor/reinforced,
@@ -8443,7 +8443,7 @@
 	icon_state = "h12";
 	opacity = 0
 	},
-/obj/machinery/atmospherics/pipe/tank/hydrogen{
+/obj/machinery/atmospherics/unary/tank/hydrogen{
 	dir = 8
 	},
 /turf/simulated/floor/reinforced,
@@ -9151,7 +9151,7 @@
 /turf/simulated/floor/airless,
 /area/decrepit_shipyard/exterior)
 "gmi" = (
-/obj/machinery/atmospherics/pipe/tank/air{
+/obj/machinery/atmospherics/unary/tank/air{
 	dir = 4
 	},
 /turf/simulated/floor/reinforced,
@@ -10242,7 +10242,7 @@
 	icon_state = "h11";
 	opacity = 0
 	},
-/obj/machinery/atmospherics/pipe/tank/hydrogen{
+/obj/machinery/atmospherics/unary/tank/hydrogen{
 	dir = 4
 	},
 /turf/simulated/floor/reinforced,
@@ -15041,7 +15041,7 @@
 	icon_state = "air12";
 	opacity = 0
 	},
-/obj/machinery/atmospherics/pipe/tank/air{
+/obj/machinery/atmospherics/unary/tank/air{
 	dir = 8
 	},
 /turf/simulated/floor/reinforced,
@@ -15907,7 +15907,7 @@
 /area/decrepit_shipyard/engineering_equipment_room)
 "kLA" = (
 /obj/effect/floor_decal/corner/brown/full,
-/obj/machinery/pipedispenser,
+/obj/machinery/fabricator/pipe_dispenser,
 /turf/simulated/floor/tiled/gridded,
 /area/decrepit_shipyard/atmospherics)
 "kLT" = (
@@ -18716,7 +18716,7 @@
 	icon_state = "air11";
 	opacity = 0
 	},
-/obj/machinery/atmospherics/pipe/tank/air{
+/obj/machinery/atmospherics/unary/tank/air{
 	dir = 4
 	},
 /turf/simulated/floor/reinforced,
@@ -18893,7 +18893,7 @@
 /turf/simulated/floor,
 /area/decrepit_shipyard/docking_arm)
 "mPH" = (
-/obj/machinery/atmospherics/pipe/tank/carbon_dioxide{
+/obj/machinery/atmospherics/unary/tank/carbon_dioxide{
 	dir = 8
 	},
 /turf/simulated/floor/reinforced,
@@ -20147,7 +20147,7 @@
 	icon_state = "air5";
 	opacity = 0
 	},
-/obj/machinery/atmospherics/pipe/tank/air{
+/obj/machinery/atmospherics/unary/tank/air{
 	dir = 4
 	},
 /turf/simulated/floor/reinforced,
@@ -20158,7 +20158,7 @@
 	icon_state = "co2-6";
 	opacity = 0
 	},
-/obj/machinery/atmospherics/pipe/tank/carbon_dioxide{
+/obj/machinery/atmospherics/unary/tank/carbon_dioxide{
 	dir = 8
 	},
 /turf/simulated/floor/reinforced,
@@ -20330,7 +20330,7 @@
 /turf/simulated/floor,
 /area/decrepit_shipyard/transport_tunnels_south)
 "nKZ" = (
-/obj/machinery/atmospherics/pipe/tank/carbon_dioxide{
+/obj/machinery/atmospherics/unary/tank/carbon_dioxide{
 	dir = 4
 	},
 /turf/simulated/floor/reinforced,
@@ -21128,7 +21128,7 @@
 	icon_state = "h6";
 	opacity = 0
 	},
-/obj/machinery/atmospherics/pipe/tank/hydrogen{
+/obj/machinery/atmospherics/unary/tank/hydrogen{
 	dir = 8
 	},
 /turf/simulated/floor/reinforced,
@@ -27074,7 +27074,7 @@
 	icon_state = "air6";
 	opacity = 0
 	},
-/obj/machinery/atmospherics/pipe/tank/air{
+/obj/machinery/atmospherics/unary/tank/air{
 	dir = 8
 	},
 /turf/simulated/floor/reinforced,
@@ -27215,7 +27215,7 @@
 	icon_state = "co2-11";
 	opacity = 0
 	},
-/obj/machinery/atmospherics/pipe/tank/carbon_dioxide{
+/obj/machinery/atmospherics/unary/tank/carbon_dioxide{
 	dir = 4
 	},
 /turf/simulated/floor/reinforced,
@@ -27538,7 +27538,7 @@
 /area/decrepit_shipyard/south_hallway)
 "sKE" = (
 /obj/effect/floor_decal/corner/brown/full,
-/obj/machinery/atmospherics/pipe/tank{
+/obj/machinery/atmospherics/unary/tank{
 	dir = 4;
 	name = "Waste Tank"
 	},
@@ -30590,7 +30590,7 @@
 	icon_state = "co2-5";
 	opacity = 0
 	},
-/obj/machinery/atmospherics/pipe/tank/carbon_dioxide{
+/obj/machinery/atmospherics/unary/tank/carbon_dioxide{
 	dir = 4
 	},
 /turf/simulated/floor/reinforced,
@@ -31778,7 +31778,7 @@
 	icon_state = "h5";
 	opacity = 0
 	},
-/obj/machinery/atmospherics/pipe/tank/hydrogen{
+/obj/machinery/atmospherics/unary/tank/hydrogen{
 	dir = 4
 	},
 /turf/simulated/floor/reinforced,
@@ -33506,7 +33506,7 @@
 /obj/effect/floor_decal/corner/brown{
 	dir = 9
 	},
-/obj/machinery/atmospherics/pipe/tank{
+/obj/machinery/atmospherics/unary/tank{
 	dir = 4;
 	name = "Waste Tank"
 	},

@@ -1515,7 +1515,7 @@
 /turf/simulated/floor/exoplanet/dirt_konyang,
 /area/space)
 "vf" = (
-/obj/machinery/atmospherics/pipe/tank/air,
+/obj/machinery/atmospherics/unary/tank/air,
 /obj/effect/floor_decal/industrial/outline,
 /turf/simulated/floor/exoplanet/tiled/dark/full,
 /area/hivebot_burrows_2)

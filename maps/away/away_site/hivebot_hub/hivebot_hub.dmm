@@ -3589,7 +3589,7 @@
 /turf/simulated/floor/tiled/white/airless,
 /area/hivebothub/washroom)
 "yf" = (
-/obj/machinery/atmospherics/pipe/tank/air{
+/obj/machinery/atmospherics/unary/tank/air{
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -4587,7 +4587,7 @@
 /turf/simulated/floor/tiled/white/airless,
 /area/hivebothub/washroom)
 "DX" = (
-/obj/machinery/atmospherics/pipe/tank/air{
+/obj/machinery/atmospherics/unary/tank/air{
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,

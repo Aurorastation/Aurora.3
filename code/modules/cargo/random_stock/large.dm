@@ -115,12 +115,6 @@ STOCK_ITEM_LARGE(dispenser, 3.5)
 STOCK_ITEM_LARGE(jukebox, 1.2)
 	new /obj/machinery/media/jukebox(L)
 
-STOCK_ITEM_LARGE(pipemachine, 1.7)
-	if (prob(50))
-		new /obj/machinery/pipedispenser/disposal(L)
-	else
-		new /obj/machinery/pipedispenser(L)
-
 STOCK_ITEM_LARGE(bike, 0.3)
 	if (prob(75))
 		new /obj/vehicle/bike(L)

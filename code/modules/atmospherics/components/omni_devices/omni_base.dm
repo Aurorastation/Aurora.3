@@ -10,7 +10,6 @@
 	layer = ABOVE_CATWALK_LAYER
 
 	var/configuring = 0
-	//var/target_pressure = ONE_ATMOSPHERE	//a base type as abstract as this should NOT be making these kinds of assumptions
 
 	var/base_icon
 
@@ -25,6 +24,9 @@
 	var/underlays_current[4]
 
 	var/list/ports = new()
+
+	pipe_class = PIPE_CLASS_OMNI
+	connect_dir_type = SOUTH | NORTH | EAST | WEST
 
 /obj/machinery/atmospherics/omni/Initialize()
 	icon_state = "base"
@@ -101,7 +103,7 @@
 			SPAN_NOTICE("\The [user] unfastens \the [src]."), \
 			SPAN_NOTICE("You have unfastened \the [src]."), \
 			"You hear a ratchet.")
-		new /obj/item/pipe(loc, make_from=src)
+		new /obj/item/pipe(loc, src)
 		qdel(src)
 		return TRUE
 
@@ -114,11 +116,8 @@
 	return
 
 /obj/machinery/atmospherics/omni/proc/update_port_icons()
-	if(!check_icon_cache())
-		return
-
-	on_states.Cut()
-	off_states.Cut()
+	//on_states.Cut()
+	//off_states.Cut()
 
 	for(var/datum/omni_port/P in ports)
 		var/ref_layer = 0
@@ -135,12 +134,14 @@
 		if(!ref_layer)
 			continue
 
-		var/list/underlay_icon = select_port_icons(P)
-		if(underlay_icon)
-			if(P.node)
-				underlays_current[ref_layer] = underlay_icon
+		var/list/port_icons = select_port_icons(P)
+		if(port_icons)
+			if(LAZYLEN(P.nodes))
+				underlays_current[ref_layer] = port_icons["pipe_icon"]
 			else
 				underlays_current[ref_layer] = null
+			off_states = port_icons["off_icon"]
+			on_states = port_icons["on_icon"]
 		else
 			underlays_current[ref_layer] = null
 
@@ -166,18 +167,21 @@
 				ic_on += "_filter"
 				ic_off += "_out"
 
-		on_states += ic_on
-		off_states += ic_off
-
+		var/pipe_state_key
 		var/turf/T = get_turf(src)
 		if(!istype(T))
 			return
-		if(!T.is_plating() && istype(P.node, /obj/machinery/atmospherics/pipe) && P.node.level == 1 )
-			. = icon_manager.get_atmos_icon("underlay", P.dir, color_cache_name(P.node), "down")
+		var/obj/machinery/atmospherics/node = LAZYACCESS(P.nodes, 1)
+		if(!T.is_plating() && istype(node, /obj/machinery/atmospherics/pipe) && node.level == LEVEL_BELOW_PLATING)
+			pipe_state_key = "down"
 		else
-			. = icon_manager.get_atmos_icon("underlay", P.dir, color_cache_name(P.node), "intact")
+			pipe_state_key = "intact"
+		var/image/pipe_state = image('icons/atmos/pipe_underlays.dmi', pipe_state_key, dir = P.dir)
+		pipe_state.color = color_cache_name(node)
 
-/obj/machinery/atmospherics/omni/update_underlays()
+		return list("on_icon" = ic_on, "off_icon" = ic_off, "pipe_icon" = pipe_state)
+
+/obj/machinery/atmospherics/omni/proc/update_underlays()
 	for(var/datum/omni_port/P in ports)
 		P.update = 1
 	update_ports()
@@ -189,7 +193,7 @@
 	sort_ports()
 	update_port_icons()
 	for(var/datum/omni_port/P in ports)
-		P.update = 0
+		P.update = FALSE
 
 /obj/machinery/atmospherics/omni/proc/sort_ports()
 	return
@@ -199,50 +203,51 @@
 
 /obj/machinery/atmospherics/omni/network_expand(datum/pipe_network/new_network, obj/machinery/atmospherics/pipe/reference)
 	for(var/datum/omni_port/P in ports)
-		if(reference == P.node)
+		if((reference in P.nodes) && (new_network != P.network))
+			qdel(P.network)
 			P.network = new_network
-			break
+			for(var/obj/machinery/atmospherics/node as anything in P.nodes)
+				if(node != reference)
+					node.network_expand(new_network, src)
 
-	if(new_network.normal_members.Find(src))
-		return 0
-
-	new_network.normal_members += src
-
-	return null
+	new_network.normal_members |= src
 
 /obj/machinery/atmospherics/omni/Destroy()
-	loc = null
 	QDEL_LIST(ports)
-
 	. = ..()
 
 /obj/machinery/atmospherics/omni/atmos_init()
+	atmos_initialised = TRUE
+	nodes_to_networks = null
 	for(var/datum/omni_port/P in ports)
-		if(P.node || P.mode == 0)
+		P.nodes = null
+		QDEL_NULL(P.network)
+		if(P.mode == 0)
 			continue
+
 		for(var/obj/machinery/atmospherics/target in get_step(src, P.dir))
 			if(target.initialize_directions & get_dir(target,src))
 				if (check_connect_types(target,src))
-					P.node = target
-					break
+					LAZYDISTINCTADD(P.nodes, target)
+					LAZYDISTINCTADD(nodes_to_networks, target) // we don't fully track networks here, but we do keep a list of nodes in order to share code
 
 	for(var/datum/omni_port/P in ports)
-		P.update = 1
+		P.update = TRUE
 
 	update_ports()
 
 /obj/machinery/atmospherics/omni/build_network()
 	for(var/datum/omni_port/P in ports)
-		if(!P.network && P.node)
+		if(!P.network && LAZYLEN(P.nodes))
 			P.network = new /datum/pipe_network()
 			P.network.normal_members += src
-			P.network.build_network(P.node, src)
+			P.network.build_network(P.nodes[1], src)
 
 /obj/machinery/atmospherics/omni/return_network(obj/machinery/atmospherics/reference)
 	build_network()
 
 	for(var/datum/omni_port/P in ports)
-		if(reference == P.node)
+		if(reference in P.nodes)
 			return P.network
 
 	return null
@@ -265,15 +270,13 @@
 
 /obj/machinery/atmospherics/omni/disconnect(obj/machinery/atmospherics/reference)
 	for(var/datum/omni_port/P in ports)
-		if(reference == P.node)
-			qdel(P.network)
-			P.node = null
+		if(reference in P.nodes)
+			QDEL_NULL(P.network)
+			LAZYREMOVE(P.nodes, reference)
 			P.update = 1
-			break
 
+	LAZYREMOVE(nodes_to_networks, reference)
 	update_ports()
-
-	return null
 
 /obj/machinery/atmospherics/omni/AltClick(var/mob/user)
 	if(!allowed(user))

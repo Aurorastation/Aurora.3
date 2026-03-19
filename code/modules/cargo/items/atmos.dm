@@ -194,20 +194,6 @@
 	groupable = FALSE
 	spawn_amount = 1
 
-/singleton/cargo_item/pipedispenser
-	category = "atmos"
-	name = "pipe dispenser"
-	supplier = "hephaestus"
-	description = "It dispenses pipes, no idea how though."
-	price = 90
-	items = list(
-		/obj/machinery/pipedispenser/orderable
-	)
-	access = ACCESS_ENGINE
-	container_type = "box"
-	groupable = FALSE
-	spawn_amount = 1
-
 /singleton/cargo_item/paint_sprayer
 	category = "atmos"
 	name = "paint sprayer"

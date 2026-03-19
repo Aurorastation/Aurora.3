@@ -117,22 +117,6 @@
 		return TRUE
 	return FALSE
 
-/obj/machinery/atmospherics/unary/engine/atmos_init()
-	..()
-	if(node)
-		return
-
-	var/node_connect = dir
-
-	for(var/obj/machinery/atmospherics/target in get_step(src,node_connect))
-		if(target.initialize_directions & get_dir(target,src))
-			if (check_connect_types(target,src))
-				node = target
-				break
-
-	update_icon()
-	update_underlays()
-
 /obj/machinery/atmospherics/unary/engine/Initialize()
 	. = ..()
 	controller = new(src)
@@ -232,8 +216,7 @@
 		volume_adjustment = length(my_ship.engines)
 
 	playsound(loc, 'sound/machines/thruster.ogg', ((50 * thrust_limit * power_modifier) / volume_adjustment ), FALSE, world.view * 4, 0.1)
-	if(network)
-		network.update = 1
+	update_networks()
 
 	var/exhaust_dir = REVERSE_DIR(dir)
 	var/turf/T = get_turf(src)

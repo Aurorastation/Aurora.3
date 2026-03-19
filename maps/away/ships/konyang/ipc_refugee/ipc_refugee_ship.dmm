@@ -955,7 +955,7 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ipc_refugee/cargopod_a)
 "hK" = (
-/obj/machinery/atmospherics/pipe/tank/air{
+/obj/machinery/atmospherics/unary/tank/air{
 	start_pressure = 1000
 	},
 /obj/machinery/light/small/emergency{
@@ -1068,7 +1068,7 @@
 /turf/simulated/floor,
 /area/shuttle/ipc_refugee_shuttle)
 "iC" = (
-/obj/machinery/atmospherics/pipe/tank,
+/obj/machinery/atmospherics/unary/tank,
 /obj/effect/floor_decal/industrial/outline/red,
 /obj/effect/decal/cleanable/cobweb2,
 /turf/simulated/floor/carpet/rubber,
@@ -1225,7 +1225,7 @@
 /turf/simulated/floor/tiled,
 /area/ship/ipc_refugee/forehall)
 "jP" = (
-/obj/machinery/atmospherics/pipe/tank/air{
+/obj/machinery/atmospherics/unary/tank/air{
 	dir = 8
 	},
 /obj/structure/lattice,
@@ -3903,7 +3903,7 @@
 /turf/simulated/floor,
 /area/ship/ipc_refugee/cargopod_b)
 "CZ" = (
-/obj/machinery/atmospherics/pipe/tank/air{
+/obj/machinery/atmospherics/unary/tank/air{
 	dir = 8
 	},
 /turf/simulated/floor/airless,

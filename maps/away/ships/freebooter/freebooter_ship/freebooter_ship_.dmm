@@ -1070,7 +1070,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/bridge)
 "dHq" = (
-/obj/machinery/pipedispenser,
+/obj/machinery/fabricator/pipe_dispenser,
 /obj/item/pipewrench,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/railing/mapped{
@@ -2353,7 +2353,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/engineering)
 "jQP" = (
-/obj/machinery/atmospherics/pipe/tank/air,
+/obj/machinery/atmospherics/unary/tank/air,
 /obj/effect/floor_decal/spline/plain{
 	dir = 4
 	},
@@ -4491,7 +4491,7 @@
 /obj/structure/sign/securearea{
 	pixel_y = 32
 	},
-/obj/machinery/atmospherics/unary/heater,
+/obj/machinery/atmospherics/unary/temperature/heater,
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/thruster1)
 "rzA" = (
@@ -5117,7 +5117,7 @@
 /turf/simulated/floor,
 /area/shuttle/freebooter_shuttle)
 "tES" = (
-/obj/machinery/atmospherics/pipe/tank,
+/obj/machinery/atmospherics/unary/tank,
 /obj/effect/floor_decal/industrial/outline/red,
 /obj/machinery/light{
 	dir = 1;
@@ -5857,7 +5857,7 @@
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/ship/freebooter_ship/head)
 "wmT" = (
-/obj/machinery/atmospherics/unary/heater,
+/obj/machinery/atmospherics/unary/temperature/heater,
 /obj/effect/decal/cleanable/cobweb2,
 /obj/machinery/light/small/emergency{
 	dir = 1
@@ -5920,7 +5920,7 @@
 /turf/simulated/floor/airless,
 /area/ship/freebooter_ship/exterior)
 "wuO" = (
-/obj/machinery/atmospherics/pipe/tank/air,
+/obj/machinery/atmospherics/unary/tank/air,
 /obj/effect/floor_decal/industrial/outline/emergency_closet,
 /turf/simulated/floor/plating,
 /area/ship/freebooter_ship/engineering)

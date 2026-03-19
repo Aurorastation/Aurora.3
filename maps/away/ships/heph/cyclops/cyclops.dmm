@@ -1818,7 +1818,7 @@
 	req_one_access = null;
 	req_access = list(216)
 	},
-/obj/machinery/atmospherics/pipe/tank/air{
+/obj/machinery/atmospherics/unary/tank/air{
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/hatch/engineering,
@@ -2819,7 +2819,7 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/hephmining_ship/cyclops/cyclops_engineering)
 "yZ" = (
-/obj/machinery/atmospherics/pipe/tank{
+/obj/machinery/atmospherics/unary/tank{
 	dir = 8
 	},
 /obj/effect/floor_decal/corner/orange{
@@ -3796,7 +3796,7 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/hephmining_ship/cyclops/cyclops_barracks)
 "GP" = (
-/obj/machinery/atmospherics/pipe/tank/air{
+/obj/machinery/atmospherics/unary/tank/air{
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/orange{
@@ -5169,7 +5169,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops/bathroom)
 "Uh" = (
-/obj/machinery/atmospherics/pipe/tank/air{
+/obj/machinery/atmospherics/unary/tank/air{
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/orange{

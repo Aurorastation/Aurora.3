@@ -793,11 +793,11 @@
 /turf/space,
 /area/derelict)
 "cE" = (
-/obj/machinery/pipedispenser,
+/obj/machinery/fabricator/pipe_dispenser,
 /turf/simulated/floor/tiled/dark,
 /area/derelict)
 "cF" = (
-/obj/machinery/pipedispenser/disposal,
+/obj/machinery/fabricator/pipe_dispenser,
 /turf/simulated/floor/tiled/dark,
 /area/derelict)
 "cH" = (

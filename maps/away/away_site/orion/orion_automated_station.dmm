@@ -397,7 +397,7 @@
 /turf/simulated/floor/tiled,
 /area/orion_automated_station/west)
 "ge" = (
-/obj/machinery/atmospherics/pipe/tank/air,
+/obj/machinery/atmospherics/unary/tank/air,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4

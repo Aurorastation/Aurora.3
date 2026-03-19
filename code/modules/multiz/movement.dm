@@ -97,14 +97,6 @@
 					G.affecting.Move(get_turf(src))
 					visible_message(SPAN_WARNING("[src] pulls [G.affecting] [direction & UP ? "upwards" : "downwards"]!"))
 
-/mob/living/zMove(direction)
-	if (is_ventcrawling)
-		var/obj/machinery/atmospherics/pipe/zpipe/P = loc
-		if (istype(P) && P.can_z_crawl(src, direction))
-			return P.handle_z_crawl(src, direction)
-
-	return ..()
-
 /mob/abstract/eye/zMove(direction)
 	var/turf/T = get_turf(src)
 	var/turf/destination = (direction == UP) ? GET_TURF_ABOVE(T) : GET_TURF_BELOW(T)

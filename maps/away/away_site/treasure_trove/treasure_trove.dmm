@@ -477,7 +477,7 @@
 /turf/simulated/floor/lino/diamond,
 /area/trove/vault)
 "cJ" = (
-/obj/machinery/atmospherics/pipe/tank/carbon_dioxide,
+/obj/machinery/atmospherics/unary/tank/carbon_dioxide,
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/trove/vault)
@@ -8100,7 +8100,7 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/trove/vault)
 "TI" = (
-/obj/machinery/atmospherics/pipe/tank/carbon_dioxide{
+/obj/machinery/atmospherics/unary/tank/carbon_dioxide{
 	dir = 8
 	},
 /obj/random/dirt_75,

@@ -564,7 +564,7 @@
 /area/shuttle/yacht/engine)
 "bR" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/pipe/tank/air,
+/obj/machinery/atmospherics/unary/tank/air,
 /turf/simulated/floor/plating,
 /area/shuttle/yacht/engine)
 "bS" = (
@@ -1006,11 +1006,11 @@
 /turf/simulated/floor/plating,
 /area/shuttle/yacht/engine)
 "di" = (
-/obj/machinery/atmospherics/unary/heater,
+/obj/machinery/atmospherics/unary/temperature/heater,
 /turf/simulated/floor/plating,
 /area/shuttle/yacht/engine)
 "dk" = (
-/obj/machinery/atmospherics/unary/heater,
+/obj/machinery/atmospherics/unary/temperature/heater,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
 /area/shuttle/yacht/engine)
@@ -1099,7 +1099,7 @@
 /turf/simulated/floor/plating,
 /area/shuttle/yacht/engine)
 "dw" = (
-/obj/machinery/atmospherics/unary/heater{
+/obj/machinery/atmospherics/unary/temperature/heater{
 	dir = 1
 	},
 /obj/effect/decal/cleanable/dirt,

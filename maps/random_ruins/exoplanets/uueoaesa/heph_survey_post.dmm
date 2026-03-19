@@ -824,7 +824,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/heph_survey_post)
 "NF" = (
-/obj/machinery/atmospherics/pipe/tank/air{
+/obj/machinery/atmospherics/unary/tank/air{
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/outline/emergency_closet,

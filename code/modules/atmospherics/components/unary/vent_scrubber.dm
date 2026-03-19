@@ -29,6 +29,8 @@
 
 	var/welded = 0
 
+	build_icon_state = "scrubber"
+
 	var/broadcast_status_next_process = FALSE
 
 /obj/machinery/atmospherics/unary/vent_scrubber/mechanics_hints(mob/user, distance, is_adjacent)
@@ -49,6 +51,9 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on
 	use_power = POWER_USE_IDLE
 	icon_state = "map_scrubber_on"
+
+/obj/machinery/atmospherics/unary/vent_scrubber/on/siphoning
+	icon_state = "map_scrubber_siphon"
 
 /obj/machinery/atmospherics/unary/vent_scrubber/Initialize(mapload)
 	if(mapload)
@@ -103,36 +108,41 @@
 
 	return ..()
 
-/obj/machinery/atmospherics/unary/vent_scrubber/update_icon(var/safety = 0)
-	var/turf/T = get_turf(src)
-	if(!istype(T))
-		return
+/obj/machinery/atmospherics/unary/vent_scrubber/update_icon()
+	ClearOverlays()
+	var/list/powered_overlays = list()
+
+	update_underlays()
 
 	if (welded)
 		icon_state = "weld"
+		if(powered())
+			powered_overlays += mutable_appearance(icon, "error")
+			powered_overlays += emissive_appearance(icon, "emissive-error")
+		AddOverlays(powered_overlays)
 		return
 
-	if (!powered() || !use_power)
-		icon_state = "off"
-	else if (scrubbing)
-		icon_state = "on"
-	else
-		icon_state = "in"
+	icon_state = "off"
 
-/obj/machinery/atmospherics/unary/vent_scrubber/update_underlays()
-	if(..())
-		underlays.Cut()
-		var/turf/T = get_turf(src)
-		if(!istype(T))
-			return
-		if(!T.is_plating() && node && node.level == 1 && istype(node, /obj/machinery/atmospherics/pipe))
-			return
-		else
-			if(node)
-				add_underlay(T, node, dir, node.icon_connect_type)
-			else
-				add_underlay(T,, dir)
-			underlays += "frame"
+	if (!powered())
+		return
+	else if (!use_power)
+		powered_overlays += mutable_appearance(icon, "standby")
+		powered_overlays += emissive_appearance(icon, "emissive-standby")
+	else if (scrubbing)
+		powered_overlays += mutable_appearance(icon, "on")
+		powered_overlays += emissive_appearance(icon, "emissive-on")
+	else
+		powered_overlays += mutable_appearance(icon, "in")
+		powered_overlays += emissive_appearance(icon, "emissive-in")
+
+	AddOverlays(powered_overlays)
+
+/obj/machinery/atmospherics/unary/vent_scrubber/proc/update_underlays()
+	build_device_underlays()
+	var/turf/T = get_turf(src)
+	if(T?.is_plating())
+		underlays += "frame"
 
 /obj/machinery/atmospherics/unary/vent_scrubber/proc/set_frequency(new_frequency)
 	SSradio.remove_object(src, frequency)
@@ -187,7 +197,7 @@
 	if (hibernate > world.time)
 		return 1
 
-	if (!node)
+	if (!LAZYLEN(nodes_to_networks))
 		update_use_power(POWER_USE_OFF)
 
 	if (broadcast_status_next_process)
@@ -202,14 +212,15 @@
 	var/datum/gas_mixture/environment = loc.return_air()
 
 	var/power_draw = -1
+	var/transfer_moles = 0
 	if(scrubbing)
 		//limit flow rate from turfs
-		var/transfer_moles = min(environment.total_moles, environment.total_moles*MAX_SCRUBBER_FLOWRATE/environment.volume)	//group_multiplier gets divided out here
+		transfer_moles = min(environment.total_moles, environment.total_moles*MAX_SCRUBBER_FLOWRATE/environment.volume)	//group_multiplier gets divided out here
 
 		power_draw = scrub_gas(src, scrubbing_gas, environment, air_contents, transfer_moles, power_rating)
 	else //Just siphon all air
 		//limit flow rate from turfs
-		var/transfer_moles = min(environment.total_moles, environment.total_moles*MAX_SIPHON_FLOWRATE/environment.volume)	//group_multiplier gets divided out here
+		transfer_moles = min(environment.total_moles, environment.total_moles*MAX_SIPHON_FLOWRATE/environment.volume)	//group_multiplier gets divided out here
 
 		power_draw = pump_gas(src, environment, air_contents, transfer_moles, power_rating)
 
@@ -221,14 +232,13 @@
 		last_power_draw = power_draw
 		use_power_oneoff(power_draw)
 
-	if(network)
-		network.update = 1
+	if(transfer_moles > 0)
+		update_networks()
 
 	return 1
 
 /obj/machinery/atmospherics/unary/vent_scrubber/hide(var/i) //to make the little pipe section invisible, the icon changes.
 	update_icon()
-	update_underlays()
 
 /obj/machinery/atmospherics/unary/vent_scrubber/receive_signal(datum/signal/signal)
 	if(stat & (NOPOWER|BROKEN))
@@ -362,10 +372,10 @@
 		if (!(stat & NOPOWER) && use_power)
 			to_chat(user, SPAN_WARNING("You cannot unwrench \the [src], turn it off first."))
 			return TRUE
-		var/turf/T = src.loc
-		if (node && node.level==1 && isturf(T) && !T.is_plating())
-			to_chat(user, SPAN_WARNING("You must remove the plating first."))
-			return TRUE
+		for(var/obj/machinery/atmospherics/node as anything in nodes_to_networks)
+			if(node.level == 1)
+				to_chat(user, SPAN_WARNING("You must remove the plating first."))
+				return ..()
 		var/datum/gas_mixture/int_air = return_air()
 		if(!loc) return FALSE
 		var/datum/gas_mixture/env_air = loc.return_air()
@@ -379,7 +389,7 @@
 				SPAN_NOTICE("\The [user] unfastens \the [src]."), \
 				SPAN_NOTICE("You have unfastened \the [src]."), \
 				"You hear a ratchet.")
-			new /obj/item/pipe(loc, make_from=src)
+			new /obj/item/pipe(loc, src)
 			qdel(src)
 		return TRUE
 

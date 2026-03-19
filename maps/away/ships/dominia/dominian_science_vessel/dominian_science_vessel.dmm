@@ -3173,7 +3173,7 @@
 /turf/simulated/floor/carpet/rubber,
 /area/ship/dominian_science_vessel/bridge)
 "iYb" = (
-/obj/machinery/atmospherics/pipe/tank/carbon_dioxide,
+/obj/machinery/atmospherics/unary/tank/carbon_dioxide,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 9
 	},
@@ -6130,7 +6130,7 @@
 /turf/simulated/floor/plating,
 /area/shuttle/dominian_science_shuttle)
 "sFQ" = (
-/obj/machinery/atmospherics/pipe/tank/carbon_dioxide,
+/obj/machinery/atmospherics/unary/tank/carbon_dioxide,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
@@ -6911,7 +6911,7 @@
 /obj/structure/window/reinforced{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/tank/carbon_dioxide{
+/obj/machinery/atmospherics/unary/tank/carbon_dioxide{
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -7608,7 +7608,7 @@
 /turf/simulated/wall/shuttle,
 /area/ship/dominian_science_vessel/port_hall)
 "wNH" = (
-/obj/machinery/atmospherics/pipe/tank/air{
+/obj/machinery/atmospherics/unary/tank/air{
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/warning{
@@ -7764,7 +7764,7 @@
 /turf/template_noop,
 /area/ship/dominian_science_vessel/exterior)
 "xeU" = (
-/obj/machinery/atmospherics/pipe/tank/carbon_dioxide,
+/obj/machinery/atmospherics/unary/tank/carbon_dioxide,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
@@ -7930,7 +7930,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
 	},
-/obj/machinery/pipedispenser,
+/obj/machinery/fabricator/pipe_dispenser,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 6
 	},

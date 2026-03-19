@@ -2749,7 +2749,7 @@
 /turf/simulated/floor/tiled/dark/full/airless,
 /area/shuttle/lone_spacer/storage)
 "Rf" = (
-/obj/machinery/atmospherics/pipe/tank/air{
+/obj/machinery/atmospherics/unary/tank/air{
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/outline/operations,

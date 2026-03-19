@@ -1575,7 +1575,7 @@
 	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/pipedispenser/disposal,
+/obj/machinery/fabricator/pipe_dispenser,
 /obj/effect/floor_decal/industrial/outline/operations,
 /turf/simulated/floor/tiled/dark,
 /area/ship/coc_scarab/atmospherics)
@@ -2300,7 +2300,7 @@
 /area/ship/coc_scarab/exterior)
 "jy" = (
 /obj/effect/floor_decal/industrial/outline/operations,
-/obj/machinery/atmospherics/pipe/tank/air,
+/obj/machinery/atmospherics/unary/tank/air,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/coc_scarab/port)
 "jz" = (
@@ -4731,7 +4731,7 @@
 	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/pipedispenser,
+/obj/machinery/fabricator/pipe_dispenser,
 /obj/effect/floor_decal/industrial/outline/operations,
 /turf/simulated/floor/tiled/dark,
 /area/ship/coc_scarab/atmospherics)
@@ -11769,7 +11769,7 @@
 /turf/simulated/floor/reinforced,
 /area/ship/coc_scarab/starboardhallway)
 "UA" = (
-/obj/machinery/atmospherics/pipe/tank/air{
+/obj/machinery/atmospherics/unary/tank/air{
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/warning{
@@ -12487,7 +12487,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/coc_scarab/central)
 "Xv" = (
-/obj/machinery/atmospherics/pipe/tank/air{
+/obj/machinery/atmospherics/unary/tank/air{
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/warning{

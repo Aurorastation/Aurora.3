@@ -6662,7 +6662,7 @@
 /turf/simulated/floor/plating,
 /area/golden_deep/atmos)
 "BP" = (
-/obj/machinery/atmospherics/pipe/tank/air,
+/obj/machinery/atmospherics/unary/tank/air,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/effect/floor_decal/industrial/warning,
 /obj/machinery/light/small{
@@ -7246,7 +7246,7 @@
 	must_start_working = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/universal,
-/obj/item/pipe_meter,
+/obj/item/machine_chassis/pipe_meter,
 /obj/machinery/button/remote/blast_door{
 	name = "Atmospherics Blast Door";
 	id = "gd_atmos";
@@ -7362,7 +7362,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/blue{
 	dir = 5
 	},
-/obj/item/pipe_meter,
+/obj/item/machine_chassis/pipe_meter,
 /obj/machinery/alarm/south{
 	req_one_access = list(229, 217)
 	},
@@ -7895,7 +7895,7 @@
 "GG" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/effect/floor_decal/industrial/warning,
-/obj/machinery/atmospherics/pipe/tank/air,
+/obj/machinery/atmospherics/unary/tank/air,
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/golden_deep/atmos)
@@ -9508,7 +9508,7 @@
 /obj/effect/floor_decal/corner_wide/dark_blue{
 	dir = 9
 	},
-/obj/machinery/pipedispenser,
+/obj/machinery/fabricator/pipe_dispenser,
 /turf/simulated/floor/tiled/dark,
 /area/golden_deep/portprop)
 "Nx" = (
@@ -10317,7 +10317,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/golden_deep/portprop)
 "Ql" = (
-/obj/machinery/atmospherics/pipe/tank/air,
+/obj/machinery/atmospherics/unary/tank/air,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/effect/floor_decal/industrial/warning,
 /obj/random/dirt_75,

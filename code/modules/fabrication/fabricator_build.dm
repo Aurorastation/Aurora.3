@@ -10,15 +10,15 @@
 		return
 
 	// Print the item.
-	var/obj/item/I = new currently_printing.target_recipe.path(get_turf(print_loc))
-	I.Created()
-	if(currently_printing.multiplier > 1 && istype(I, /obj/item/stack))
-		var/obj/item/stack/S = I
-		S.amount = currently_printing.multiplier
+	do_build(currently_printing)
 	print_queue -= currently_printing
 	QDEL_NULL(currently_printing)
 	get_next_build()
 	update_icon()
+
+/obj/machinery/fabricator/proc/do_build(datum/fabricator_build_order/order)
+	ASSERT(order.target_recipe, "Order [order] in [name] failed to specify a recipe!")
+	. = order.target_recipe.build(get_turf(src), order)
 
 /obj/machinery/fabricator/proc/start_building()
 	if(!(fab_status_flags & FAB_BUSY) && is_functioning())

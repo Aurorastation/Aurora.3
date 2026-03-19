@@ -5721,7 +5721,7 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/freebooter_salvager/warehouse)
 "zM" = (
-/obj/machinery/atmospherics/pipe/tank,
+/obj/machinery/atmospherics/unary/tank,
 /obj/effect/floor_decal/industrial/outline/red,
 /obj/effect/decal/cleanable/cobweb,
 /turf/simulated/floor,
@@ -9225,7 +9225,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_salvager/warehouse)
 "Qi" = (
-/obj/machinery/atmospherics/pipe/tank/air{
+/obj/machinery/atmospherics/unary/tank/air{
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/outline/emergency_closet,
@@ -9626,7 +9626,7 @@
 /obj/machinery/light/small/emergency{
 	dir = 4
 	},
-/obj/machinery/pipedispenser,
+/obj/machinery/fabricator/pipe_dispenser,
 /turf/simulated/floor,
 /area/ship/freebooter_salvager/engineering)
 "Sp" = (

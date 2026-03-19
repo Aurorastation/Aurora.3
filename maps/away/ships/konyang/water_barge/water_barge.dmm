@@ -1538,7 +1538,7 @@
 /turf/simulated/floor/plating,
 /area/water_barge/thrust)
 "nF" = (
-/obj/machinery/atmospherics/pipe/tank{
+/obj/machinery/atmospherics/unary/tank{
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/outline/red,
@@ -3823,7 +3823,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/water_barge/dockingport/port)
 "LC" = (
-/obj/machinery/atmospherics/pipe/tank/air{
+/obj/machinery/atmospherics/unary/tank/air{
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/outline/emergency_closet,
