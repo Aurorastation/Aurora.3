@@ -78,6 +78,11 @@
 	// Create and destroy is weird and I wanna cover my bases
 	var/harddel_deets_dumped = FALSE
 
+#ifdef AUTOWIKI
+	/// When set to TRUE, will not be added to the autowiki
+	var/autowiki_skip = FALSE
+#endif
+
 /**
  * Default implementation of clean-up code.
  *

@@ -850,6 +850,8 @@
 			var/mob/living/simple_animal/mushroom/mush = product
 			mush.seed = src
 
+	return product
+
 /** When the seed in this machine mutates/is modified, the tray seed value
 is set to a new datum copied from the original. This datum won't actually
 be put into the global datum list until the product is harvested, though. */
