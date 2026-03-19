@@ -44,7 +44,7 @@
 	working = hard_drive && processor_unit && damage < broken_damage && computer_use_power()
 	check_update_ui_need()
 
-	if(looping_sound && working && enabled && world.time > ambience_last_played_time + 30 SECONDS && prob(3))
+	if(ambience_beeps && working && enabled && world.time > ambience_last_played_time + 30 SECONDS && prob(3))
 		playsound(get_turf(src), SFX_COMPUTER_BEEP, 30, 1, 10, required_preferences = ASFX_AMBIENCE)
 		ambience_last_played_time = world.time
 
@@ -341,8 +341,8 @@
 	enabled = TRUE
 	if(looping_sound)
 		soundloop.start(src)
-	if(startup_sound)
-		playsound(loc, startup_sound, 25)
+		if(startup_sound)
+			playsound(loc, startup_sound, 10)
 	update_icon()
 
 	// Autorun feature

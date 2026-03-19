@@ -359,6 +359,8 @@
 	icon = 'icons/obj/modular_computers/tesla_laptop.dmi'
 	w_class = WEIGHT_CLASS_BULKY //Massive computer, cannot be stored. Also to balance for the Tesla generator
 	startup_sound = 'sound/machines/computer/old_computer_start.ogg'
+	click_sound = 'sound/machines/terminal/terminal_button03.ogg'
+	ambience_beeps = FALSE
 
 /obj/item/modular_computer/laptop/preset/tajara/install_default_hardware()
 	..()
