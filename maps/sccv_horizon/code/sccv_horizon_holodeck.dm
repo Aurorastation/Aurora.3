@@ -91,7 +91,7 @@
 		"chapel_tribunal" = new /datum/holodeck_program(/area/horizon/holodeck/source_tribunal),
 		"chapel_trinary" = new /datum/holodeck_program(/area/horizon/holodeck/source_trinary),
 		"chapel_luceism" = new /datum/holodeck_program(/area/horizon/holodeck/source_luceism),
- 		"konyang" = new /datum/holodeck_program(/area/horizon/holodeck/source_konyang),
+		"konyang" = new /datum/holodeck_program(/area/horizon/holodeck/source_konyang),
 		"moghes" = new /datum/holodeck_program(/area/horizon/holodeck/source_moghes),
 		"adhomai" = new /datum/holodeck_program(/area/horizon/holodeck/source_adhomai),
 		"pool" = new /datum/holodeck_program(/area/horizon/holodeck/source_pool),
