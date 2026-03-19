@@ -131,7 +131,7 @@
 			pilot.body_return()
 			eject(pilot, silent=1)
 			if(remote_network && istype(pilot, /mob/living/simple_animal/spiderbot))
-				gib(pilot)
+				pilot.gib()
 
 	// Handle the rest of things.
 	..(gibbed, (gibbed ? "explodes!" : "grinds to a halt before collapsing!"))
