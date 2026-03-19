@@ -1,6 +1,0 @@
-author: Hellfirejag
-delete-after: True
-changes:
-  - rscadd: "Added a new Loner Jumpstarter to antag uplinks, which costs 20tc."
-  - balance: "Reduced cost of standard Psionic Jumpstarter to 15tc."
-  - rscadd: "Loner now also starts with Awaken and Drain powers."
