@@ -27,37 +27,34 @@
 					SPAN_NOTICE("You put two fingers to your temple and focus on locating Nlom signatures..."))
 	if(do_after(L, 3 SECONDS))
 		var/list/level_humans = list()
-		var/found_apex = FALSE
 		for(var/mob/living/carbon/human/H in GLOB.human_mob_list)
 			if(H == L)
 				continue
 			if((GET_Z(H) == GET_Z(L)) && !H.is_psi_blocked(user, TRUE))
 				level_humans |= H
-				if(H.psi)
-					if(H.psi.get_rank() >= PSI_RANK_APEX)
-						found_apex = TRUE
 		if(!length(level_humans))
 			to_chat(L, SPAN_WARNING("The Nlom is quiet and empty here."))
 			return TRUE
-		if(found_apex)
-			to_chat(L, SPAN_DANGER(FONT_HUGE("You reach out into the Nlom and your senses are overwhelmed by a massive signature!")))
-			L.flash_pain(20)
-			L.adjustHalLoss(20)
-			return
 		var/list/signatures = list()
 		var/harmonious_signatures = 0
 		var/sensitive_signatures = 0
 		var/perceptive_signatures = 0
 		for(var/mob/living/carbon/human/H in level_humans)
-			if(!H.psi)
+			var/target_sensitivity = H.check_psi_sensitivity()
+			// Also ignore anyone with negative psi-sensitivity.
+			if (target_sensitivity < 0)
+				continue
+			else if (target_sensitivity < PSI_RANK_SENSITIVE)
 				perceptive_signatures++
 				continue
-			if(H.psi && H.psi.get_rank() == PSI_RANK_SENSITIVE)
+			else if (target_sensitivity < PSI_RANK_HARMONIOUS)
 				sensitive_signatures++
 				continue
-			if(H.psi && H.psi.get_rank() == PSI_RANK_HARMONIOUS)
+			// Intentionally includes anyone with High-sensitivity + Receiver so that it's not immediately obvious an antag psychic is in the round.
+			// You could guess there might be one, but it's not conclusive.
+			else
 				harmonious_signatures++
-				continue
+
 		if(perceptive_signatures)
 			signatures += "[perceptive_signatures] weak signature[perceptive_signatures > 1 ? "s" : ""]"
 		if(sensitive_signatures)
