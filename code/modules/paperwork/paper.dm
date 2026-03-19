@@ -822,13 +822,13 @@
 				PERSISTENT
 #############################################*/
 
-/obj/item/paper/persistence_get_content()
+/obj/item/paper/persistent_objects_get_content()
 	var/list/content = list()
 	content["title"] = name
 	content["text"] = info
 	return content
 
-/obj/item/paper/persistence_apply_content(content, x, y, z)
+/obj/item/paper/persistent_objects_apply_content(content, x, y, z)
 	set_content(content["title"], content["text"])
 	src.x = x
 	src.y = y
@@ -865,14 +865,14 @@
 
 	icon_state = info ? "stickynote_words" : "stickynote"
 
-/obj/item/paper/stickynotes/persistence_get_content()
+/obj/item/paper/stickynotes/persistent_objects_get_content()
 	var/list/content = ..()
 	content["color"] = color
 	content["pixel_x"] = pixel_x
 	content["pixel_y"] = pixel_y
 	return content
 
-/obj/item/paper/stickynotes/persistence_apply_content(content, x, y, z)
+/obj/item/paper/stickynotes/persistent_objects_apply_content(content, x, y, z)
 	src.name = content["title"]
 	src.info = content["text"]
 	src.color = content["color"]
@@ -883,7 +883,7 @@
 	src.z = z
 
 /obj/item/paper/stickynotes/pickup()
-	SSpersistence.deregister_track(src)
+	SSpersistence.objectsDeregisterTrack(src)
 	..()
 
 /obj/item/paper/stickynotes/afterattack(var/A, mob/user, var/prox, var/params)
@@ -900,7 +900,7 @@
 	if(!params || !prox)
 		return
 
-	SSpersistence.register_track(src, ckey(user.key))
+	SSpersistence.objectsRegisterTrack(src, ckey(user.key))
 	user.drop_from_inventory(src,source_turf)
 	if(params) //Parallels taped paper placement method, and avoids seeing stickynotes through walls
 		var/list/mouse_control = mouse_safe_xy(params)

@@ -507,7 +507,7 @@
 		return
 
 	if(in_storage) // Items getting moved into storages (lunchboxes, backpacks) triggers the dropped handler and requires no persistency as a result
-		SSpersistence.deregister_track(src)
+		SSpersistence.objectsDeregisterTrack(src)
 		return
 
 	// Trash-like items should become only persistent when they are not dropped in an area flagged with AREA_FLAG_PREVENT_PERSISTENT_TRASH
@@ -515,12 +515,12 @@
 	if(T)
 		var/area/A = get_area(T)
 		if(A && !(A.area_flags & AREA_FLAG_PREVENT_PERSISTENT_TRASH))
-			persistance_expiration_time_days = 3 // Ensure expiration date is set to prevent long term trash
-			SSpersistence.register_track(src, usr == null ? null : ckey(usr.key))
+			persistant_objects_expiration_time_days = 3 // Ensure expiration date is set to prevent long term trash
+			SSpersistence.objectsRegisterTrack(src, usr == null ? null : ckey(usr.key))
 			return
 
 	// Fallback - No persistency
-	SSpersistence.deregister_track(src)
+	SSpersistence.objectsDeregisterTrack(src)
 
 /obj/item/proc/remove_item_verbs(mob/user)
 	if(ismech(user)) //very snowflake, but necessary due to how mechs work
