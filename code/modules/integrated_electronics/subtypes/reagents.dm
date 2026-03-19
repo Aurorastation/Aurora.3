@@ -23,7 +23,7 @@
 	activators = list("inject" = IC_PINTYPE_PULSE_IN, "on injected" = IC_PINTYPE_PULSE_OUT, "on fail" = IC_PINTYPE_PULSE_OUT)
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 	volume = 30
-	power_draw_per_use = 15
+	power_draw_per_use = 150
 	var/direc = 1
 	var/transfer_amount = 10
 
@@ -148,7 +148,7 @@
 	origin_tech = list(TECH_ENGINEERING = 2, TECH_DATA = 2, TECH_BIO = 2)
 	var/transfer_amount = 10
 	var/direc = 1
-	power_draw_per_use = 10
+	power_draw_per_use = 100
 
 /obj/item/integrated_circuit/reagent/pump/on_data_written()
 	var/new_amount = get_pin_data(IC_INPUT, 3)
@@ -273,7 +273,7 @@
 	origin_tech = list(TECH_ENGINEERING = 2, TECH_DATA = 2, TECH_BIO = 2)
 	var/transfer_amount = 10
 	var/direc = 1
-	power_draw_per_use = 10
+	power_draw_per_use = 100
 
 /obj/item/integrated_circuit/reagent/filter/on_data_written()
 	var/new_amount = get_pin_data(IC_INPUT, 3)

@@ -9,7 +9,7 @@
 	outputs = list()
 	activators = list("load data" = IC_PINTYPE_PULSE_IN)
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
-	power_draw_per_use = 10
+	power_draw_per_use = 100
 	var/stuff_to_display = null
 
 /obj/item/integrated_circuit/output/screen/disconnect_all()
@@ -36,7 +36,7 @@
 	name = "screen"
 	desc = "This screen allows for people holding the device to see a piece of data."
 	icon_state = "screen_medium"
-	power_draw_per_use = 20
+	power_draw_per_use = 200
 
 /obj/item/integrated_circuit/output/screen/medium/do_work()
 	..()
@@ -49,7 +49,7 @@
 	name = "large screen"
 	desc = "This screen allows for people able to see the device to see a piece of data."
 	icon_state = "screen_large"
-	power_draw_per_use = 40
+	power_draw_per_use = 400
 
 /obj/item/integrated_circuit/output/screen/large/do_work()
 	..()
@@ -139,7 +139,7 @@
 	)
 	outputs = list()
 	activators = list("play sound" = IC_PINTYPE_PULSE_IN)
-	power_draw_per_use = 20
+	power_draw_per_use = 200
 	var/list/sounds = list()
 
 /obj/item/integrated_circuit/output/text_to_speech
@@ -153,7 +153,7 @@
 	outputs = list()
 	activators = list("to speech" = IC_PINTYPE_PULSE_IN)
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
-	power_draw_per_use = 60
+	power_draw_per_use = 600
 
 /obj/item/integrated_circuit/output/text_to_speech/do_work()
 	text = get_pin_data(IC_INPUT, 1)
@@ -252,7 +252,7 @@
 	outputs = list()
 	activators = list()
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
-	power_draw_idle = 5 // Raises to 80 when on.
+	power_draw_idle = 5 // Raises to 200 when on.
 	var/obj/machinery/camera/network/research/camera
 
 /obj/item/integrated_circuit/output/video_camera/Initialize()
@@ -267,7 +267,7 @@
 /obj/item/integrated_circuit/output/video_camera/proc/set_camera_status(var/status)
 	if(camera)
 		camera.set_status(status)
-		power_draw_idle = camera.status ? 80 : 5
+		power_draw_idle = camera.status ? 200 : 5
 		if(camera.status) // Ensure that there's actually power.
 			if(!draw_idle_power())
 				power_fail()
@@ -302,13 +302,13 @@
 	inputs = list("lit" = IC_PINTYPE_BOOLEAN)
 	outputs = list()
 	activators = list()
-	power_draw_idle = 0 // Raises to 1 when lit.
+	power_draw_idle = 0 // Raises to 10 when lit.
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 	var/led_color
 	var/color_name
 
 /obj/item/integrated_circuit/output/led/on_data_written()
-	power_draw_idle = get_pin_data(IC_INPUT, 1) ? 1 : 0
+	power_draw_idle = get_pin_data(IC_INPUT, 1) ? 10 : 0
 
 /obj/item/integrated_circuit/output/led/power_fail()
 	set_pin_data(IC_INPUT, 1, FALSE)
@@ -381,7 +381,7 @@
 	outputs = list()
 	activators = list("print page" = IC_PINTYPE_PULSE_IN)
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
-	power_draw_per_use = 20
+	power_draw_per_use = 200
 	w_class = WEIGHT_CLASS_NORMAL
 	size = 5
 	var/stuff_to_print = null

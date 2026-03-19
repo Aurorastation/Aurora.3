@@ -1,7 +1,7 @@
 /obj/item/integrated_circuit/input
 	var/can_be_asked_input = 0
 	category_text = "Input"
-	power_draw_per_use = 5
+	power_draw_per_use = 50
 
 /obj/item/integrated_circuit/input/proc/ask_for_input(mob/user)
 	return
@@ -48,7 +48,7 @@
 	outputs = list("number entered" = IC_PINTYPE_NUMBER)
 	activators = list("on entered" = IC_PINTYPE_PULSE_OUT)
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
-	power_draw_per_use = 4
+	power_draw_per_use = 40
 
 /obj/item/integrated_circuit/input/numberpad/ask_for_input(mob/user)
 	var/new_input = input(user, "Enter a number, please.","Number pad") as null|num
@@ -67,7 +67,7 @@
 	outputs = list("string entered" = IC_PINTYPE_STRING)
 	activators = list("on entered" = IC_PINTYPE_PULSE_OUT)
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
-	power_draw_per_use = 4
+	power_draw_per_use = 40
 
 /obj/item/integrated_circuit/input/textpad/ask_for_input(mob/user)
 	var/new_input = sanitize(input(user, "Enter some words, please.","Number pad") as null|text, MAX_MESSAGE_LEN, 1, 0, 1)
@@ -86,7 +86,7 @@
 	outputs = list("color entered" = IC_PINTYPE_COLOR)
 	activators = list("on entered" = IC_PINTYPE_PULSE_OUT)
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
-	power_draw_per_use = 4
+	power_draw_per_use = 40
 
 /obj/item/integrated_circuit/input/colorpad/ask_for_input(mob/user)
 	var/new_color = input(user, "Enter a color, please.", "Color pad", get_pin_data(IC_OUTPUT, 1)) as color|null
@@ -113,7 +113,7 @@
 	activators = list("scan" = IC_PINTYPE_PULSE_IN, "on scanned" = IC_PINTYPE_PULSE_OUT)
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 	origin_tech = list(TECH_ENGINEERING = 2, TECH_DATA = 2, TECH_BIO = 2)
-	power_draw_per_use = 40
+	power_draw_per_use = 400
 
 /obj/item/integrated_circuit/input/med_scanner/do_work()
 	var/mob/living/carbon/human/H = get_pin_data_as_type(IC_INPUT, 1, /mob/living/carbon/human)
@@ -160,7 +160,7 @@
 	activators = list("scan" = IC_PINTYPE_PULSE_IN, "on scanned" = IC_PINTYPE_PULSE_OUT)
 	spawn_flags = IC_SPAWN_RESEARCH
 	origin_tech = list(TECH_ENGINEERING = 3, TECH_DATA = 3, TECH_BIO = 4)
-	power_draw_per_use = 80
+	power_draw_per_use = 800
 
 /obj/item/integrated_circuit/input/adv_med_scanner/do_work()
 	var/mob/living/carbon/human/H = get_pin_data_as_type(IC_INPUT, 1, /mob/living/carbon/human)
@@ -210,7 +210,7 @@
 	activators = list("scan" = IC_PINTYPE_PULSE_IN, "on scanned" = IC_PINTYPE_PULSE_OUT, "not scanned" = IC_PINTYPE_PULSE_OUT)
 	spawn_flags = IC_SPAWN_RESEARCH
 	origin_tech = list(TECH_ENGINEERING = 3, TECH_DATA = 3, TECH_BIO = 4)
-	power_draw_per_use = 80
+	power_draw_per_use = 800
 
 /obj/item/integrated_circuit/input/examiner/do_work()
 	var/atom/H = get_pin_data_as_type(IC_INPUT, 1, /atom)
@@ -254,7 +254,7 @@
 		"on locate" = IC_PINTYPE_PULSE_OUT
 	)
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
-	power_draw_per_use = 20
+	power_draw_per_use = 200
 
 /obj/item/integrated_circuit/input/local_locator/do_work()
 	if(assembly && istype(assembly.loc, /mob/living))
@@ -276,7 +276,7 @@
 	outputs = list("located ref" = IC_PINTYPE_REF)
 	activators = list("locate" = IC_PINTYPE_PULSE_IN)
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
-	power_draw_per_use = 30
+	power_draw_per_use = 300
 
 /obj/item/integrated_circuit/input/adjacent_locator/do_work()
 	var/atom/A = get_pin_data_as_type(IC_INPUT, 1, /atom)
@@ -306,7 +306,7 @@
 	outputs = list("located ref" = IC_PINTYPE_REF )
 	activators = list("locate" = IC_PINTYPE_PULSE_IN,"found" = IC_PINTYPE_PULSE_OUT,"not found" = IC_PINTYPE_PULSE_OUT)
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
-	power_draw_per_use = 30
+	power_draw_per_use = 300
 	var/radius = 1
 
 /obj/item/integrated_circuit/input/advanced_locator/on_data_written()
@@ -361,8 +361,8 @@
 	)
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 	origin_tech = list(TECH_ENGINEERING = 2, TECH_DATA = 2, TECH_MAGNET = 2)
-	power_draw_idle = 5
-	power_draw_per_use = 40
+	power_draw_idle = 50
+	power_draw_per_use = 400
 
 	var/frequency = 1457
 	var/code = 30
@@ -446,7 +446,7 @@
 		"on get coordinates" = IC_PINTYPE_PULSE_OUT
 	)
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
-	power_draw_per_use = 30
+	power_draw_per_use = 300
 
 /obj/item/integrated_circuit/input/gps/do_work()
 	var/turf/T = get_turf(src)
@@ -482,7 +482,7 @@
 		"on translation" = IC_PINTYPE_PULSE_OUT
 	)
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
-	power_draw_per_use = 15
+	power_draw_per_use = 150
 
 /obj/item/integrated_circuit/input/microphone/Initialize()
 	. = ..()
@@ -521,7 +521,7 @@
 	outputs = list("scanned" = IC_PINTYPE_REF)
 	activators = list("on scanned" = IC_PINTYPE_PULSE_OUT)
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
-	power_draw_per_use = 120
+	power_draw_per_use = 1200
 
 /obj/item/integrated_circuit/input/sensor/proc/sense(var/atom/A, mob/user)
 	if(!user.Adjacent(A))
@@ -566,7 +566,7 @@
 	activators = list("scan" = IC_PINTYPE_PULSE_IN, "on scanned" = IC_PINTYPE_PULSE_OUT)
 	spawn_flags = IC_SPAWN_RESEARCH
 	origin_tech = list(TECH_ENGINEERING = 3, TECH_DATA = 3)
-	power_draw_per_use = 60
+	power_draw_per_use = 600
 
 /obj/item/integrated_circuit/input/internalbm
 	name = "internal battery monitor"
@@ -585,7 +585,7 @@
 	activators = list("read" = IC_PINTYPE_PULSE_IN, "on read" = IC_PINTYPE_PULSE_OUT)
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 	origin_tech = list(TECH_ENGINEERING = 4, TECH_DATA = 4, TECH_POWER = 4, TECH_MAGNET = 3)
-	power_draw_per_use = 1
+	power_draw_per_use = 10
 
 /obj/item/integrated_circuit/input/internalbm/do_work()
 	set_pin_data(IC_OUTPUT, 1, null)
@@ -617,7 +617,7 @@
 	activators = list("read" = IC_PINTYPE_PULSE_IN, "on read" = IC_PINTYPE_PULSE_OUT)
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 	origin_tech = list(TECH_ENGINEERING = 4, TECH_DATA = 4, TECH_POWER = 4, TECH_MAGNET = 3)
-	power_draw_per_use = 1
+	power_draw_per_use = 10
 
 /obj/item/integrated_circuit/input/externalbm/do_work()
 
@@ -723,7 +723,7 @@
 	activators = list("scan" = IC_PINTYPE_PULSE_IN, "on scanned" = IC_PINTYPE_PULSE_OUT)
 	spawn_flags = IC_SPAWN_RESEARCH
 	origin_tech = list(TECH_ENGINEERING = 3, TECH_DATA = 3)
-	power_draw_per_use = 20
+	power_draw_per_use = 200
 
 /obj/item/integrated_circuit/input/pressure_sensor/do_work()
 	var/turf/T = get_turf(src)
@@ -753,7 +753,7 @@
 	activators = list("scan" = IC_PINTYPE_PULSE_IN, "on scanned" = IC_PINTYPE_PULSE_OUT)
 	spawn_flags = IC_SPAWN_RESEARCH
 	origin_tech = list(TECH_ENGINEERING = 3, TECH_DATA = 3)
-	power_draw_per_use = 20
+	power_draw_per_use = 200
 
 /obj/item/integrated_circuit/input/temperature_sensor/do_work()
 	var/turf/T = get_turf(src)
@@ -778,7 +778,7 @@
 	activators = list("scan" = IC_PINTYPE_PULSE_IN, "on scanned" = IC_PINTYPE_PULSE_OUT)
 	spawn_flags = IC_SPAWN_RESEARCH
 	origin_tech = list(TECH_ENGINEERING = 3, TECH_DATA = 3)
-	power_draw_per_use = 20
+	power_draw_per_use = 200
 
 	var/gas_name = GAS_OXYGEN
 	var/gas_display_name = GAS_OXYGEN
@@ -900,7 +900,7 @@
 	outputs = list("tile" = IC_PINTYPE_REF)
 	activators = list("calculate dir" = IC_PINTYPE_PULSE_IN, "on calculated" = IC_PINTYPE_PULSE_OUT,"not calculated" = IC_PINTYPE_PULSE_OUT)
 	spawn_flags = IC_SPAWN_RESEARCH
-	power_draw_per_use = 40
+	power_draw_per_use = 400
 
 /obj/item/integrated_circuit/input/turfpoint/do_work()
 	if(!assembly)
@@ -938,7 +938,7 @@
 		"not scanned" = IC_PINTYPE_PULSE_OUT
 		)
 	spawn_flags = IC_SPAWN_RESEARCH
-	power_draw_per_use = 40
+	power_draw_per_use = 400
 	cooldown_per_use = 10
 
 /obj/item/integrated_circuit/input/turfscan/do_work()
@@ -979,7 +979,7 @@
 	outputs = list("located ref" = IC_PINTYPE_LIST)
 	activators = list("locate" = IC_PINTYPE_PULSE_IN,"found" = IC_PINTYPE_PULSE_OUT,"not found" = IC_PINTYPE_PULSE_OUT)
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
-	power_draw_per_use = 30
+	power_draw_per_use = 300
 	var/radius = 1
 	cooldown_per_use = 10
 
@@ -1036,7 +1036,7 @@
 	outputs = list("scanned" = IC_PINTYPE_REF)
 	activators = list("on scanned" = IC_PINTYPE_PULSE_OUT)
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
-	power_draw_per_use = 120
+	power_draw_per_use = 1200
 
 /obj/item/integrated_circuit/input/sensor/ranged/sense(atom/A, mob/user)
 	if(!user || (!istype(A)  && !isliving(A)))
@@ -1070,7 +1070,7 @@
 	outputs = list("scanned" = IC_PINTYPE_REF)
 	activators = list("on scanned" = IC_PINTYPE_PULSE_OUT)
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
-	power_draw_per_use = 20
+	power_draw_per_use = 200
 
 /obj/item/integrated_circuit/input/obj_scanner/attackby_react(var/atom/A,var/mob/user,intent)
 	if(intent!=I_HELP)
@@ -1143,7 +1143,7 @@
 	activators = list("scan" = IC_PINTYPE_PULSE_IN, "on scanned" = IC_PINTYPE_PULSE_OUT)
 	spawn_flags = IC_SPAWN_DEFAULT
 	origin_tech = list(TECH_ENGINEERING = 3, TECH_DATA = 3)
-	power_draw_per_use = 20
+	power_draw_per_use = 200
 
 /obj/item/integrated_circuit/input/radiation_sensor/do_work()
 	var/turf/T = get_turf(src)
@@ -1170,7 +1170,7 @@
 	activators = list("scan" = IC_PINTYPE_PULSE_IN, "on scanned" = IC_PINTYPE_PULSE_OUT)
 	spawn_flags = IC_SPAWN_DEFAULT
 	origin_tech = list(TECH_ENGINEERING = 3, TECH_DATA = 3)
-	power_draw_per_use = 20
+	power_draw_per_use = 200
 
 /obj/item/integrated_circuit/input/light_sensor/do_work()
 	var/turf/T = get_turf(src)
@@ -1204,7 +1204,7 @@
 	activators = list("scan" = IC_PINTYPE_PULSE_IN, "on scanned" = IC_PINTYPE_PULSE_OUT, "not scanned" = IC_PINTYPE_PULSE_OUT)
 	spawn_flags = IC_SPAWN_RESEARCH
 	origin_tech = list(TECH_ENGINEERING = 3, TECH_DATA = 3, TECH_BIO = 5)
-	power_draw_per_use = 100
+	power_draw_per_use = 1000
 
 /obj/item/integrated_circuit/input/face_scanner/do_work()
 	var/mob/living/carbon/human/H = get_pin_data_as_type(IC_INPUT, 1, /mob/living/carbon/human)
@@ -1237,7 +1237,7 @@
 	activators = list("scan" = IC_PINTYPE_PULSE_IN, "anomaly found" = IC_PINTYPE_PULSE_OUT)
 	spawn_flags = IC_SPAWN_RESEARCH
 	origin_tech = list(TECH_ENGINEERING = 4, TECH_DATA = 4, TECH_MAGNET = 6, TECH_BLUESPACE = 4)
-	power_draw_per_use = 200
+	power_draw_per_use = 2000
 	cooldown_per_use = 15 SECONDS // sizeable cooldown to prevent view spam
 
 /obj/item/integrated_circuit/input/anomaly_scanner/do_work()
