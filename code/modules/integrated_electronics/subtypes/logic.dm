@@ -6,7 +6,7 @@
 	outputs = list("result" = IC_PINTYPE_BOOLEAN)
 	activators = list("compare" = IC_PINTYPE_PULSE_IN)
 	category_text = "Logic"
-	power_draw_per_use = 1
+	power_draw_per_use = 10
 
 /obj/item/integrated_circuit/logic/binary
 	inputs = list(

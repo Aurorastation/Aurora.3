@@ -7,7 +7,7 @@
 	outputs = list("result" = IC_PINTYPE_STRING)
 	activators = list("compute" = IC_PINTYPE_PULSE_IN, "on computed" = IC_PINTYPE_PULSE_OUT)
 	category_text = "Lists"
-	power_draw_per_use = 20
+	power_draw_per_use = 200
 
 /obj/item/integrated_circuit/list/pick
 	name = "pick circuit"

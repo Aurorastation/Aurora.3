@@ -1,0 +1,8 @@
+author: kermit
+
+delete-after: True
+
+changes:
+  - bugfix: "Integrated circuits actually draw significant amounts of power"
+  - bugfix: "Reagent pumps can pump while in a held assembly"
+  - bugfix: "Tickers work as advertised, take 2"
