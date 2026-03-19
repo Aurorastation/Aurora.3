@@ -13,19 +13,19 @@
 /obj/item/integrated_circuit/passive/power/solar_cell
 	name = "tiny photovoltaic cell"
 	desc = "It's a very tiny solar cell, generally used in calculators."
-	extended_desc = "The cell generates up to 200 W of energy in optimal lighting conditions. Less light will result in less power being generated."
+	extended_desc = "The cell generates up to 100 W of energy in optimal lighting conditions. Less light will result in less power being generated."
 	icon_state = "solar_cell"
 	complexity = 8
 	origin_tech = list(TECH_POWER = 3, TECH_ENGINEERING = 3, TECH_DATA = 2)
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 
 	/// Multiplied by amount of lumens to get amount of power to generate.
-	var/power_factor = 25
+	var/power_factor = 15
 
 /obj/item/integrated_circuit/passive/power/solar_cell/make_energy()
 	var/turf/T = get_turf(src)
 	var/light_amount = T ? T.get_lumcount() : 0
-	var/adjusted_power = clamp(power_factor*light_amount, 0, 200)
+	var/adjusted_power = clamp(power_factor*light_amount, 0, 100)
 	adjusted_power = round(adjusted_power, 0.1)
 	if(adjusted_power && assembly)
 		assembly.give_power(adjusted_power)

@@ -164,7 +164,7 @@
 /obj/item/integrated_circuit/reagent/pump/do_work()
 	var/atom/movable/source = get_pin_data_as_type(IC_INPUT, 1, /atom/movable)
 	var/atom/movable/target = get_pin_data_as_type(IC_INPUT, 2, /atom/movable)
-	if(!source)
+	if(!source || !assembly)
 		return
 
 	var/obj/item/integrated_circuit/insert_slot/beaker_holder/beaker_slot = source
@@ -172,7 +172,11 @@
 		source = beaker_slot.get_item(FALSE)
 	if(!istype(source) || (!istype(target))) //Invalid input
 		return
-	if((src.Adjacent(source)  || istype(beaker_slot)) && src.Adjacent(target))
+
+	var/turf/our_turf = get_turf(assembly) // there is probably a more elegant way to do this, but it covers all the bases (including assembly being held [or source/target being in a being held assembly], which prev implementation didn't)
+	var/turf/source_turf = get_turf(source)
+	var/turf/target_turf = get_turf(target)
+	if((source_turf.Adjacent(our_turf)  || istype(beaker_slot)) && target_turf.Adjacent(our_turf))
 		if(!source.reagents || !target.reagents)
 			return
 		if(ismob(source) || ismob(target))
