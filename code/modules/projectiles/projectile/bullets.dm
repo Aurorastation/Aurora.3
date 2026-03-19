@@ -205,8 +205,8 @@
 /obj/projectile/bullet/pistol/rubber //"rubber" bullets
 	name = "rubber bullet"
 	check_armor = MELEE
-	damage = 5
-	agony = 40
+	damage = 3
+	agony = 30
 	embed = 0
 
 /obj/projectile/bullet/pistol/assassin

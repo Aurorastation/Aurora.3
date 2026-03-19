@@ -76,6 +76,19 @@ ABSTRACT_TYPE(/singleton/fabricator_recipe/ammunition)
 	name = "magazine (.45, flash, pistol)"
 	path = /obj/item/ammo_magazine/c45m/flash
 
+/singleton/fabricator_recipe/ammunition/revolver_fourty_five
+	name = "speedloader (.45, revolver)"
+	path = /obj/item/ammo_magazine/c45/revolver
+	security_level = SEC_LEVEL_RED
+
+/singleton/fabricator_recipe/ammunition/revolver_rubber
+	name = "speedloader (.45, rubber, revolver)"
+	path = /obj/item/ammo_magazine/c45/revolver/rubber
+
+/singleton/fabricator_recipe/ammunition/revolver_flash
+	name = "speedloader (.45, flash, revolver)"
+	path = /obj/item/ammo_magazine/c45/revolver/flash
+
 /singleton/fabricator_recipe/ammunition/magazine_fourty_five/extended
 	name = "magazine (.45, extended, pistol)"
 	path = /obj/item/ammo_magazine/c45m/stendo

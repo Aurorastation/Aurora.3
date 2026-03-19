@@ -58,6 +58,14 @@ If nothing is chosen, reload sounds revert to the default, which is metal_slide_
 	max_ammo = 6
 	multiple_sprites = TRUE
 
+/obj/item/ammo_magazine/c45/revolver/rubber
+	name = "speed loader (.45 rubber)"
+	ammo_type = /obj/item/ammo_casing/c45/rubber
+
+/obj/item/ammo_magazine/c45/revolver/flash
+	name = "speed loader (.45 flash)"
+	ammo_type = /obj/item/ammo_casing/c45/flash
+
 // End of Revolvos //
 
 // Pistols and handguns //

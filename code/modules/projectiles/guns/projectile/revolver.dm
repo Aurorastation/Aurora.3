@@ -341,3 +341,15 @@
 	ammo_type = /obj/item/ammo_casing/c45/revolver
 	magazine_type = /obj/item/ammo_magazine/c45/revolver
 	max_shells = 6
+
+/obj/item/gun/projectile/revolver/security
+	name = "Z.I. C45 revolver"
+	desc = "A reliable .45 caliber revolver designed by Zavodskoi."
+	icon = 'icons/obj/guns/sec_revolver.dmi'
+	icon_state = "sec_revolver"
+	item_state = "sec_revolver"
+	w_class = WEIGHT_CLASS_NORMAL
+	caliber = ".45"
+	ammo_type = /obj/item/ammo_casing/c45/rubber
+	magazine_type = /obj/item/ammo_magazine/c45/revolver
+	max_shells = 6
