@@ -52,9 +52,9 @@ GLOBAL_LIST_EMPTY(trackables_pool)
 	health = 300
 	speed = 6
 
-	melee_damage_lower = 30
-	melee_damage_upper = 30
-	armor_penetration = 15
+	melee_damage_lower = 15
+	melee_damage_upper = 25
+	armor_penetration = 10
 
 	/// Used on deleting revive timer if the mob is burning while being dead.
 	var/revive_timer
