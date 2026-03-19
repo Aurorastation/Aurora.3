@@ -6,3 +6,5 @@ changes:
   - rscadd: "Replaces security officers and the wardens disruptors with .45 loaded with rubbers, and a spare rubber mag."
   - rscadd: "Replaced investigators disruptor with a .45 revolver loaded with rubbers, and a spare rubber speedloader."
   - rscadd: "Added the ability for the autolathe to print .45 speedloaders for the investigators handgun."
+  - rscadd: "Added .45 revolver speedloaders to the armory."
+  - balance: "Reduced the effectiveness of rubber bullets."
