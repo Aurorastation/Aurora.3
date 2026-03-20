@@ -324,3 +324,10 @@
 	. = density
 	density = new_value
 	SEND_SIGNAL(src, COMSIG_ATOM_DENSITY_CHANGED)
+
+/atom/proc/get_affecting_weather()
+	return
+
+/atom/proc/is_outside()
+	var/turf/turf = get_turf(src)
+	return istype(turf) ? turf.is_outside() : OUTSIDE_UNCERTAIN

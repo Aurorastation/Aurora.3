@@ -55,11 +55,16 @@
 /obj/structure/bed/stool/chair{
 	dir = 8
 	},
+/obj/abstract/exterior_marker/inside,
 /turf/simulated/floor/sidewalk/dark/grid,
 /area/konyang/robotics_factory)
 "dj" = (
 /obj/machinery/door/urban/glass_sliding/double,
 /turf/simulated/floor/foundation,
+/area/konyang/robotics_factory)
+"ee" = (
+/obj/abstract/exterior_marker/inside,
+/turf/simulated/floor/sidewalk/dark,
 /area/konyang/robotics_factory)
 "ek" = (
 /obj/random/dirt_75,
@@ -72,6 +77,11 @@
 /obj/structure/flora/rock/konyang,
 /turf/simulated/floor/sidewalk/flat,
 /area/exoplanet/grass/konyang)
+"es" = (
+/obj/random/dirt_75,
+/obj/abstract/exterior_marker/inside,
+/turf/simulated/floor/sidewalk/dark,
+/area/konyang/robotics_factory)
 "eI" = (
 /obj/random/dirt_75,
 /turf/simulated/floor/asphalt,
@@ -98,6 +108,14 @@
 "fL" = (
 /turf/simulated/floor/exoplanet/water/shallow/konyang,
 /area/exoplanet/grass/konyang)
+"fU" = (
+/obj/random/dirt_75,
+/obj/machinery/light/broken{
+	dir = 4
+	},
+/obj/abstract/exterior_marker/inside,
+/turf/simulated/floor/reinforced,
+/area/konyang/robotics_factory)
 "fZ" = (
 /obj/structure/parking_meter,
 /turf/simulated/floor/sidewalk/flat,
@@ -120,6 +138,7 @@
 "hD" = (
 /obj/structure/table/rack/retail_shelf,
 /obj/item/healthanalyzer,
+/obj/abstract/exterior_marker/inside,
 /turf/simulated/floor/reinforced,
 /area/konyang/robotics_factory)
 "hJ" = (
@@ -139,6 +158,7 @@
 "is" = (
 /obj/random/dirt_75,
 /obj/item/mecha_equipment/drill_mover,
+/obj/abstract/exterior_marker/inside,
 /turf/simulated/floor/reinforced,
 /area/konyang/robotics_factory)
 "iv" = (
@@ -155,6 +175,7 @@
 	pixel_x = 22;
 	pixel_y = 4
 	},
+/obj/abstract/exterior_marker/inside,
 /turf/simulated/floor/sidewalk/dark,
 /area/konyang/robotics_factory)
 "jA" = (
@@ -191,10 +212,12 @@
 "ki" = (
 /obj/random/dirt_75,
 /mob/living/simple_animal/thinbug,
+/obj/abstract/exterior_marker/inside,
 /turf/simulated/floor/sidewalk/dark/grid,
 /area/konyang/robotics_factory)
 "km" = (
 /obj/machinery/shield_capacitor,
+/obj/abstract/exterior_marker/inside,
 /turf/simulated/floor/foundation,
 /area/konyang/robotics_factory)
 "kr" = (
@@ -204,6 +227,7 @@
 "kZ" = (
 /obj/random/dirt_75,
 /obj/item/mecha_equipment/shield,
+/obj/abstract/exterior_marker/inside,
 /turf/simulated/floor/foundation,
 /area/konyang/robotics_factory)
 "lo" = (
@@ -219,6 +243,7 @@
 "lN" = (
 /obj/random/dirt_75,
 /obj/random/tech_supply,
+/obj/abstract/exterior_marker/inside,
 /turf/simulated/floor/sidewalk/dark,
 /area/konyang/robotics_factory)
 "lT" = (
@@ -260,6 +285,7 @@
 /area/konyang/robotics_factory)
 "nn" = (
 /obj/item/material/shard,
+/obj/abstract/exterior_marker/inside,
 /turf/simulated/floor/foundation,
 /area/konyang/robotics_factory)
 "np" = (
@@ -289,6 +315,7 @@
 /area/konyang/robotics_factory)
 "oG" = (
 /obj/random/dirt_75,
+/obj/abstract/exterior_marker/inside,
 /turf/simulated/floor/tiled/white,
 /area/konyang/robotics_factory)
 "oH" = (
@@ -333,6 +360,7 @@
 /obj/random/dirt_75,
 /obj/machinery/reagentgrinder,
 /obj/structure/table/glass,
+/obj/abstract/exterior_marker/inside,
 /turf/simulated/floor/sidewalk/dark,
 /area/konyang/robotics_factory)
 "rl" = (
@@ -345,13 +373,19 @@
 /obj/random/dirt_75,
 /mob/living/simple_animal/thinbug,
 /obj/machinery/light/broken,
+/obj/abstract/exterior_marker/inside,
 /turf/simulated/floor/sidewalk/dark,
+/area/konyang/robotics_factory)
+"rx" = (
+/obj/abstract/exterior_marker/inside,
+/turf/simulated/floor/foundation,
 /area/konyang/robotics_factory)
 "rT" = (
 /obj/item/mecha_equipment/mounted_system/rfd,
 /obj/machinery/light/broken{
 	dir = 8
 	},
+/obj/abstract/exterior_marker/inside,
 /turf/simulated/floor/reinforced,
 /area/konyang/robotics_factory)
 "se" = (
@@ -362,6 +396,12 @@
 	dir = 8
 	},
 /obj/machinery/photocopier,
+/obj/abstract/exterior_marker/inside,
+/turf/simulated/floor/sidewalk/dark/grid,
+/area/konyang/robotics_factory)
+"sQ" = (
+/obj/random/dirt_75,
+/obj/abstract/exterior_marker/inside,
 /turf/simulated/floor/sidewalk/dark/grid,
 /area/konyang/robotics_factory)
 "sY" = (
@@ -371,6 +411,7 @@
 "tf" = (
 /obj/structure/bed/stool/chair,
 /obj/item/ore_radar,
+/obj/abstract/exterior_marker/inside,
 /turf/simulated/floor/sidewalk/dark,
 /area/konyang/robotics_factory)
 "tS" = (
@@ -379,12 +420,14 @@
 /area/konyang/robotics_factory)
 "tU" = (
 /obj/structure/window/reinforced,
+/obj/abstract/exterior_marker/inside,
 /turf/simulated/floor/sidewalk/dark,
 /area/konyang/robotics_factory)
 "uk" = (
 /obj/random/dirt_75,
 /obj/item/stack/rods,
 /obj/machinery/light/broken,
+/obj/abstract/exterior_marker/inside,
 /turf/simulated/floor/sidewalk/dark,
 /area/konyang/robotics_factory)
 "um" = (
@@ -399,6 +442,7 @@
 	dir = 8
 	},
 /obj/machinery/papershredder,
+/obj/abstract/exterior_marker/inside,
 /turf/simulated/floor/sidewalk/dark/grid,
 /area/konyang/robotics_factory)
 "uv" = (
@@ -408,6 +452,7 @@
 "uL" = (
 /obj/random/dirt_75,
 /obj/item/ipc_overloader/rainbow,
+/obj/abstract/exterior_marker/inside,
 /turf/simulated/floor/sidewalk/dark,
 /area/konyang/robotics_factory)
 "uN" = (
@@ -420,12 +465,17 @@
 /obj/structure/flora/bush/konyang_reeds,
 /turf/simulated/floor/sidewalk/dark,
 /area/konyang/robotics_factory)
+"ve" = (
+/obj/effect/landmark/clear,
+/turf/template_noop,
+/area/exoplanet/grass/konyang)
 "vl" = (
 /obj/random/dirt_75,
 /obj/random/junk,
 /obj/machinery/light/broken{
 	dir = 4
 	},
+/obj/abstract/exterior_marker/inside,
 /turf/simulated/floor/tiled/white,
 /area/konyang/robotics_factory)
 "vo" = (
@@ -449,6 +499,7 @@
 	},
 /obj/random/dirt_75,
 /obj/effect/decal/cleanable/blood,
+/obj/abstract/exterior_marker/inside,
 /turf/simulated/floor/tiled/white,
 /area/konyang/robotics_factory)
 "wj" = (
@@ -477,10 +528,12 @@
 /area/konyang/robotics_factory)
 "xg" = (
 /obj/item/geiger,
+/obj/abstract/exterior_marker/inside,
 /turf/simulated/floor/sidewalk/dark/grid,
 /area/konyang/robotics_factory)
 "xo" = (
 /obj/effect/decal/remains/rat,
+/obj/abstract/exterior_marker/inside,
 /turf/simulated/floor/sidewalk/dark,
 /area/konyang/robotics_factory)
 "xw" = (
@@ -491,6 +544,7 @@
 /obj/random/dirt_75,
 /obj/structure/table/glass,
 /obj/random/tech_supply,
+/obj/abstract/exterior_marker/inside,
 /turf/simulated/floor/sidewalk/dark,
 /area/konyang/robotics_factory)
 "xM" = (
@@ -528,11 +582,13 @@
 /obj/structure/bed/stool/chair{
 	dir = 8
 	},
+/obj/abstract/exterior_marker/inside,
 /turf/simulated/floor/sidewalk/dark,
 /area/konyang/robotics_factory)
 "zC" = (
 /obj/random/dirt_75,
 /obj/item/mecha_equipment/mounted_system/combat/smg,
+/obj/abstract/exterior_marker/inside,
 /turf/simulated/floor/sidewalk/dark,
 /area/konyang/robotics_factory)
 "Aj" = (
@@ -553,6 +609,7 @@
 "BH" = (
 /obj/random/dirt_75,
 /obj/item/mecha_equipment/autolathe,
+/obj/abstract/exterior_marker/inside,
 /turf/simulated/floor/sidewalk/dark,
 /area/konyang/robotics_factory)
 "BP" = (
@@ -563,9 +620,15 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/concrete,
 /area/exoplanet/grass/konyang)
+"Ch" = (
+/obj/machinery/floodlight,
+/obj/abstract/exterior_marker/inside,
+/turf/simulated/floor/sidewalk/dark,
+/area/konyang/robotics_factory)
 "CF" = (
 /obj/random/dirt_75,
 /obj/item/cell/crap,
+/obj/abstract/exterior_marker/inside,
 /turf/simulated/floor/sidewalk/dark,
 /area/konyang/robotics_factory)
 "Dq" = (
@@ -577,11 +640,13 @@
 	dir = 1;
 	pixel_y = 26
 	},
+/obj/abstract/exterior_marker/inside,
 /turf/simulated/floor/sidewalk/dark,
 /area/konyang/robotics_factory)
 "Ed" = (
 /obj/random/dirt_75,
 /obj/item/material/shard,
+/obj/abstract/exterior_marker/inside,
 /turf/simulated/floor/sidewalk/dark,
 /area/konyang/robotics_factory)
 "EF" = (
@@ -595,7 +660,13 @@
 /area/exoplanet/grass/konyang)
 "ER" = (
 /obj/structure/extinguisher_cabinet/east,
+/obj/abstract/exterior_marker/inside,
 /turf/simulated/floor/sidewalk/dark,
+/area/konyang/robotics_factory)
+"ES" = (
+/obj/random/dirt_75,
+/obj/abstract/exterior_marker/inside,
+/turf/simulated/floor/foundation,
 /area/konyang/robotics_factory)
 "FI" = (
 /obj/item/stack/rods,
@@ -621,6 +692,7 @@
 /area/konyang/robotics_factory)
 "Hq" = (
 /obj/random/junk,
+/obj/abstract/exterior_marker/inside,
 /turf/simulated/floor/sidewalk/dark,
 /area/konyang/robotics_factory)
 "HA" = (
@@ -649,6 +721,7 @@
 "HZ" = (
 /obj/structure/table/glass,
 /obj/item/hand_labeler,
+/obj/abstract/exterior_marker/inside,
 /turf/simulated/floor/reinforced,
 /area/konyang/robotics_factory)
 "Im" = (
@@ -657,11 +730,13 @@
 /area/konyang/robotics_factory)
 "Iu" = (
 /obj/machinery/pipedispenser,
+/obj/abstract/exterior_marker/inside,
 /turf/simulated/floor/foundation,
 /area/konyang/robotics_factory)
 "Iv" = (
 /obj/structure/table/rack,
 /obj/random/tech_supply,
+/obj/abstract/exterior_marker/inside,
 /turf/simulated/floor/sidewalk/dark,
 /area/konyang/robotics_factory)
 "Ix" = (
@@ -681,25 +756,30 @@
 /turf/simulated/floor/exoplanet/dirt_konyang,
 /area/exoplanet/grass/konyang)
 "IM" = (
+/obj/abstract/exterior_marker/inside,
 /turf/simulated/floor/sidewalk/dark/grid,
 /area/konyang/robotics_factory)
 "IR" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
+/obj/abstract/exterior_marker/inside,
 /turf/simulated/floor/sidewalk/dark,
 /area/konyang/robotics_factory)
 "IS" = (
 /obj/random/dirt_75,
 /obj/structure/flora/bush/konyang_reeds,
+/obj/abstract/exterior_marker/inside,
 /turf/simulated/floor/sidewalk/dark,
 /area/konyang/robotics_factory)
 "Jv" = (
 /obj/random/tech_supply,
 /obj/item/material/shard,
+/obj/abstract/exterior_marker/inside,
 /turf/simulated/floor/sidewalk/dark,
 /area/konyang/robotics_factory)
 "JR" = (
 /obj/item/mech_component/propulsion/spider/heavy,
+/obj/abstract/exterior_marker/inside,
 /turf/simulated/floor/sidewalk/dark/grid,
 /area/konyang/robotics_factory)
 "JS" = (
@@ -716,6 +796,7 @@
 /area/exoplanet/grass/konyang)
 "Kc" = (
 /obj/item/mech_component/chassis/heavy,
+/obj/abstract/exterior_marker/inside,
 /turf/simulated/floor/sidewalk/dark,
 /area/konyang/robotics_factory)
 "Kk" = (
@@ -724,11 +805,13 @@
 /area/konyang/robotics_factory)
 "Ku" = (
 /obj/machinery/mecha_part_fabricator,
+/obj/abstract/exterior_marker/inside,
 /turf/simulated/floor/foundation,
 /area/konyang/robotics_factory)
 "KC" = (
 /obj/random/dirt_75,
 /obj/item/mech_component/sensors,
+/obj/abstract/exterior_marker/inside,
 /turf/simulated/floor/sidewalk/dark,
 /area/konyang/robotics_factory)
 "KP" = (
@@ -744,10 +827,17 @@
 /area/konyang/robotics_factory)
 "LU" = (
 /obj/item/hammer,
+/obj/abstract/exterior_marker/inside,
 /turf/simulated/floor/sidewalk/dark,
 /area/konyang/robotics_factory)
+"MI" = (
+/obj/structure/flora/rock/pile/random,
+/obj/effect/landmark/clear,
+/turf/template_noop,
+/area/exoplanet/grass/konyang)
 "MT" = (
 /obj/item/stack/material/steel/full,
+/obj/abstract/exterior_marker/inside,
 /turf/simulated/floor/sidewalk/dark,
 /area/konyang/robotics_factory)
 "MU" = (
@@ -785,6 +875,7 @@
 /turf/simulated/floor/sidewalk/dark,
 /area/konyang/robotics_factory)
 "OT" = (
+/obj/abstract/exterior_marker/inside,
 /turf/simulated/floor/sidewalk/dark/detail,
 /area/konyang/robotics_factory)
 "OY" = (
@@ -793,6 +884,7 @@
 	dir = 1;
 	pixel_y = 26
 	},
+/obj/abstract/exterior_marker/inside,
 /turf/simulated/floor/tiled/white,
 /area/konyang/robotics_factory)
 "Po" = (
@@ -800,6 +892,15 @@
 	dir = 1
 	},
 /turf/simulated/floor/asphalt,
+/area/exoplanet/grass/konyang)
+"Pp" = (
+/obj/random/tech_supply,
+/obj/abstract/exterior_marker/inside,
+/turf/simulated/floor/foundation,
+/area/konyang/robotics_factory)
+"Pv" = (
+/obj/structure/flora/rock/pile/random,
+/turf/template_noop,
 /area/exoplanet/grass/konyang)
 "PB" = (
 /obj/random/dirt_75,
@@ -814,10 +915,15 @@
 "PL" = (
 /obj/structure/table/glass,
 /obj/item/multitool,
+/obj/abstract/exterior_marker/inside,
 /turf/simulated/floor/reinforced,
 /area/konyang/robotics_factory)
+"PR" = (
+/turf/template_noop,
+/area/exoplanet/grass/konyang)
 "PZ" = (
 /obj/random/tech_supply,
+/obj/abstract/exterior_marker/inside,
 /turf/simulated/floor/sidewalk/dark,
 /area/konyang/robotics_factory)
 "Qk" = (
@@ -826,8 +932,13 @@
 	},
 /turf/simulated/floor/concrete,
 /area/exoplanet/grass/konyang)
+"QH" = (
+/obj/abstract/exterior_marker/inside,
+/turf/simulated/wall,
+/area/konyang/robotics_factory)
 "RC" = (
 /obj/structure/filingcabinet,
+/obj/abstract/exterior_marker/inside,
 /turf/simulated/floor/sidewalk/dark,
 /area/konyang/robotics_factory)
 "RH" = (
@@ -847,6 +958,7 @@
 /area/konyang/robotics_factory)
 "SC" = (
 /obj/machinery/light/broken,
+/obj/abstract/exterior_marker/inside,
 /turf/simulated/floor/sidewalk/dark,
 /area/konyang/robotics_factory)
 "SD" = (
@@ -872,16 +984,19 @@
 "TC" = (
 /obj/random/dirt_75,
 /obj/structure/table/rack,
+/obj/abstract/exterior_marker/inside,
 /turf/simulated/floor/sidewalk/dark,
 /area/konyang/robotics_factory)
 "Ui" = (
 /obj/structure/flora/bush/konyang_reeds,
+/obj/abstract/exterior_marker/inside,
 /turf/simulated/floor/sidewalk/dark/detail,
 /area/konyang/robotics_factory)
 "Uk" = (
 /obj/random/dirt_75,
 /obj/random/junk,
 /obj/item/stack/rods,
+/obj/abstract/exterior_marker/inside,
 /turf/simulated/floor/sidewalk/dark,
 /area/konyang/robotics_factory)
 "Us" = (
@@ -918,6 +1033,7 @@
 /area/konyang/robotics_factory)
 "WG" = (
 /obj/item/ladder_mobile,
+/obj/abstract/exterior_marker/inside,
 /turf/simulated/floor/sidewalk/dark,
 /area/konyang/robotics_factory)
 "WP" = (
@@ -935,24 +1051,39 @@
 /obj/machinery/light/broken{
 	dir = 8
 	},
+/obj/abstract/exterior_marker/inside,
 /turf/simulated/floor/reinforced,
 /area/konyang/robotics_factory)
 "XD" = (
 /obj/random/dirt_75,
 /obj/machinery/mecha_part_fabricator,
+/obj/abstract/exterior_marker/inside,
 /turf/simulated/floor/sidewalk/dark,
 /area/konyang/robotics_factory)
 "XI" = (
 /obj/structure/girder,
 /turf/simulated/floor/sidewalk/flat,
 /area/exoplanet/grass/konyang)
+"XJ" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/random/junk,
+/obj/abstract/exterior_marker/inside,
+/turf/simulated/floor/sidewalk/dark,
+/area/konyang/robotics_factory)
+"XX" = (
+/obj/structure/flora/rock/konyang/small,
+/turf/template_noop,
+/area/exoplanet/grass/konyang)
 "Yb" = (
 /obj/structure/table/rack/retail_shelf,
 /obj/item/measuring_tape,
+/obj/abstract/exterior_marker/inside,
 /turf/simulated/floor/reinforced,
 /area/konyang/robotics_factory)
 "Yc" = (
 /obj/machinery/light/broken,
+/obj/abstract/exterior_marker/inside,
 /turf/simulated/floor/sidewalk/dark/grid,
 /area/konyang/robotics_factory)
 "Yd" = (
@@ -986,6 +1117,7 @@
 /area/exoplanet/grass/konyang)
 "Zz" = (
 /obj/structure/flora/pottedplant/dead,
+/obj/abstract/exterior_marker/inside,
 /turf/simulated/floor/sidewalk/dark,
 /area/konyang/robotics_factory)
 "ZG" = (
@@ -998,143 +1130,144 @@
 /area/exoplanet/grass/konyang)
 "ZP" = (
 /obj/item/mecha_equipment/quick_enter,
+/obj/abstract/exterior_marker/inside,
 /turf/simulated/floor/foundation,
 /area/konyang/robotics_factory)
 
 (1,1,1) = {"
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
+PR
+PR
+PR
+PR
+PR
+PR
+PR
+PR
+PR
+PR
+PR
+PR
+PR
+PR
+PR
+PR
+PR
+PR
+PR
+PR
+PR
+PR
+PR
+PR
+PR
+PR
+PR
+PR
+PR
+PR
+PR
+PR
+PR
+PR
+PR
+PR
+PR
+PR
+PR
+PR
 "}
 (2,1,1) = {"
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
+PR
+PR
+PR
+PR
+PR
+PR
+PR
+PR
+PR
+PR
+PR
+PR
+PR
+PR
+PR
+PR
+PR
+PR
+PR
+PR
+PR
+PR
+PR
+PR
+PR
+PR
+PR
+PR
+PR
+PR
+PR
+PR
+PR
+PR
+PR
+PR
+PR
+PR
+PR
+PR
 "}
 (3,1,1) = {"
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-yf
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-IL
-vQ
+ve
+ve
+ve
+ve
+ve
+ve
+ve
+ve
+ve
+ve
+ve
+ve
+ve
+ve
+ve
+ve
+ve
+ve
+ve
+ve
+ve
+ve
+ve
+ve
+ve
+MI
+ve
+ve
+ve
+ve
+ve
+ve
+ve
+ve
+ve
+ve
+ve
+ve
+XX
+PR
 "}
 (4,1,1) = {"
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
+ve
+ve
+ve
+ve
+ve
+ve
+ve
 vo
 vo
 vo
@@ -1159,21 +1292,21 @@ vo
 vo
 vo
 vo
-vQ
-vQ
-vQ
+ve
+ve
+ve
 vo
 vo
-vQ
-vQ
-vQ
-vQ
+ve
+ve
+ve
+PR
 "}
 (5,1,1) = {"
-vQ
-vQ
-vQ
-vQ
+ve
+ve
+ve
+ve
 vo
 vo
 vo
@@ -1208,12 +1341,12 @@ vo
 vo
 vo
 vo
-vQ
-vQ
+ve
+PR
 "}
 (6,1,1) = {"
-vQ
-vQ
+ve
+ve
 vo
 vQ
 vQ
@@ -1250,13 +1383,13 @@ iv
 vo
 vo
 Po
-vQ
-vQ
+ve
+PR
 "}
 (7,1,1) = {"
-vQ
-vQ
-vQ
+ve
+ve
+ve
 Td
 vQ
 vQ
@@ -1292,13 +1425,13 @@ vo
 kg
 vo
 Po
-vQ
-vQ
+ve
+PR
 "}
 (8,1,1) = {"
-vQ
-vQ
-vQ
+ve
+ve
+ve
 vQ
 vQ
 vo
@@ -1335,11 +1468,11 @@ kg
 vo
 vo
 se
-vQ
+PR
 "}
 (9,1,1) = {"
-vQ
-vQ
+ve
+ve
 se
 vQ
 se
@@ -1377,10 +1510,10 @@ uv
 uv
 uv
 Vx
-vQ
+PR
 "}
 (10,1,1) = {"
-vQ
+PR
 vQ
 vQ
 vQ
@@ -1419,10 +1552,10 @@ kg
 vo
 vo
 se
-vQ
+PR
 "}
 (11,1,1) = {"
-vQ
+PR
 vQ
 vQ
 se
@@ -1461,10 +1594,10 @@ GU
 vo
 Po
 se
-vQ
+PR
 "}
 (12,1,1) = {"
-vQ
+PR
 vQ
 se
 hJ
@@ -1502,11 +1635,11 @@ vo
 GU
 vo
 vo
-vQ
-vQ
+ve
+PR
 "}
 (13,1,1) = {"
-vQ
+PR
 hJ
 hJ
 hJ
@@ -1544,11 +1677,11 @@ eI
 GU
 vo
 vo
-vQ
-vQ
+ve
+PR
 "}
 (14,1,1) = {"
-vQ
+PR
 hJ
 SY
 SY
@@ -1561,13 +1694,13 @@ SY
 SY
 SY
 xg
-fJ
+ee
 tU
 RC
-fJ
-fJ
-fJ
-fJ
+ee
+ee
+ee
+ee
 Iv
 Iv
 SY
@@ -1586,11 +1719,11 @@ eI
 GU
 vo
 vo
-vQ
-vQ
+ve
+PR
 "}
 (15,1,1) = {"
-vQ
+PR
 hJ
 SY
 hD
@@ -1606,14 +1739,14 @@ IM
 eM
 Go
 wU
-Us
-fJ
+es
+ee
 Jv
 eM
 eM
 Ui
 SY
-fJ
+ee
 uk
 SY
 se
@@ -1627,12 +1760,12 @@ vo
 eI
 kg
 vo
-vQ
-vQ
-vQ
+ve
+ve
+PR
 "}
 (16,1,1) = {"
-vQ
+PR
 hJ
 SY
 Yb
@@ -1641,16 +1774,16 @@ rl
 cU
 WP
 WP
-tS
-fJ
+sQ
+ee
 nm
 IM
 eM
 SY
 Ay
 xH
-fJ
-fJ
+ee
+ee
 UL
 Lb
 Ui
@@ -1669,12 +1802,12 @@ vo
 vo
 kg
 vo
-vQ
-vQ
-vQ
+ve
+ve
+PR
 "}
 (17,1,1) = {"
-vQ
+PR
 hJ
 Lb
 KP
@@ -1686,12 +1819,12 @@ yn
 uq
 sg
 Lb
-fJ
+ee
 eM
 eM
 Oi
 TC
-fJ
+ee
 mb
 wj
 PC
@@ -1711,19 +1844,19 @@ vo
 vo
 kg
 vo
-vQ
-vQ
-vQ
+ve
+ve
+PR
 "}
 (18,1,1) = {"
-vQ
+PR
 vQ
 eM
 KP
 Us
 ek
 tS
-tS
+sQ
 IM
 IM
 Yc
@@ -1733,11 +1866,11 @@ eM
 Lb
 wF
 TC
-Us
+es
 eM
 Vq
 oF
-fJ
+ee
 eM
 NP
 YB
@@ -1753,12 +1886,12 @@ vo
 vo
 kg
 vo
-vQ
-vQ
-IL
+ve
+ve
+XX
 "}
 (19,1,1) = {"
-vQ
+PR
 vQ
 SY
 EF
@@ -1766,16 +1899,16 @@ qB
 nL
 PB
 qw
-nL
+fU
 is
 HZ
 SY
-fJ
+ee
 FI
 eM
 eM
 OT
-fJ
+ee
 Lb
 jW
 Tn
@@ -1795,12 +1928,12 @@ Yd
 eI
 GU
 vo
-vQ
-vQ
-vQ
+ve
+ve
+PR
 "}
 (20,1,1) = {"
-vQ
+PR
 vQ
 SY
 SY
@@ -1813,12 +1946,12 @@ SY
 SY
 SY
 ER
-fJ
-fJ
+ee
+ee
 Hq
-fJ
-fJ
-fJ
+ee
+ee
+ee
 jm
 Hq
 Zz
@@ -1837,21 +1970,21 @@ vo
 eI
 GU
 vo
-vQ
-vQ
-vQ
+ve
+ve
+PR
 "}
 (21,1,1) = {"
-vQ
+PR
 vQ
 IL
 vQ
 kr
 hP
+ee
 fJ
-fJ
-YB
-YB
+ES
+ES
 kZ
 SY
 SY
@@ -1880,11 +2013,11 @@ eI
 GU
 vo
 vo
-vQ
-vQ
+ve
+PR
 "}
 (22,1,1) = {"
-vQ
+PR
 vQ
 vQ
 He
@@ -1893,13 +2026,13 @@ Us
 Us
 lp
 mP
-Us
-Us
-eM
+es
+es
+rx
 SY
 tf
 BH
-Us
+es
 CF
 SY
 cP
@@ -1922,22 +2055,22 @@ eI
 GU
 vo
 Po
-vQ
-vQ
+ve
+PR
 "}
 (23,1,1) = {"
+PR
 vQ
 vQ
 vQ
 vQ
-vQ
 SY
 SY
 SY
 SY
 SY
 SY
-eM
+rx
 SY
 LU
 XD
@@ -1964,11 +2097,11 @@ eI
 GU
 vo
 Po
-vQ
-vQ
+ve
+PR
 "}
 (24,1,1) = {"
-vQ
+PR
 vQ
 He
 vQ
@@ -1978,12 +2111,12 @@ ZP
 Kc
 Im
 fi
-Us
+es
 eM
 iB
-fJ
+ee
 Ed
-Us
+es
 lN
 SY
 se
@@ -2006,11 +2139,11 @@ eI
 GU
 vo
 vo
-vQ
-vQ
+ve
+PR
 "}
 (25,1,1) = {"
-vQ
+PR
 vQ
 vQ
 vQ
@@ -2019,11 +2152,11 @@ SY
 km
 IR
 fb
-Wv
+XJ
 IR
 eM
-eM
-fJ
+rx
+ee
 XD
 uL
 KC
@@ -2048,11 +2181,11 @@ eI
 GU
 vo
 vo
-vQ
-vQ
+ve
+PR
 "}
 (26,1,1) = {"
-vQ
+PR
 vQ
 vQ
 vQ
@@ -2065,10 +2198,10 @@ IR
 Uk
 eM
 eM
-fJ
-fJ
-fJ
-jZ
+ee
+ee
+ee
+Ch
 SY
 se
 gZ
@@ -2090,11 +2223,11 @@ vo
 kg
 vo
 vo
-vQ
-vQ
+ve
+PR
 "}
 (27,1,1) = {"
-vQ
+PR
 vQ
 vQ
 vQ
@@ -2107,7 +2240,7 @@ IS
 WG
 jA
 SY
-eM
+rx
 Ku
 eM
 jZ
@@ -2132,11 +2265,11 @@ vo
 kg
 vo
 vQ
-vQ
-vQ
+ve
+PR
 "}
 (28,1,1) = {"
-vQ
+PR
 yf
 vQ
 vQ
@@ -2145,14 +2278,14 @@ SY
 SY
 SY
 SY
+QH
+es
 SY
-Us
 SY
-SY
-eM
-eM
+rx
+rx
 Hh
-fJ
+ee
 SY
 mV
 HY
@@ -2174,11 +2307,11 @@ vQ
 vo
 vo
 vQ
-vQ
-vQ
+ve
+PR
 "}
 (29,1,1) = {"
-vQ
+PR
 vQ
 vQ
 IL
@@ -2191,8 +2324,8 @@ OY
 oG
 SY
 Ix
-NP
-fJ
+Pp
+ee
 Hh
 Sb
 SY
@@ -2216,15 +2349,15 @@ vo
 vo
 vo
 vQ
-vQ
-vQ
+ve
+PR
 "}
 (30,1,1) = {"
-vQ
-vQ
-vQ
-vQ
-vQ
+PR
+PR
+PR
+PR
+PR
 se
 vo
 vo
@@ -2233,7 +2366,7 @@ wf
 vl
 SY
 Kk
-eM
+rx
 PZ
 Hh
 vd
@@ -2258,15 +2391,15 @@ vo
 vQ
 vo
 vQ
-vQ
-vQ
+ve
+PR
 "}
 (31,1,1) = {"
-vQ
-vQ
-vQ
-vQ
-vQ
+PR
+PR
+PR
+PR
+PR
 se
 vo
 eI
@@ -2276,9 +2409,9 @@ SY
 SY
 SY
 MT
-eM
+rx
 fJ
-fJ
+ee
 SY
 se
 RH
@@ -2300,15 +2433,15 @@ vo
 vQ
 vQ
 vQ
-vQ
-vQ
+ve
+PR
 "}
 (32,1,1) = {"
-vQ
-vQ
-vQ
-vQ
-vQ
+PR
+PR
+PR
+PR
+PR
 se
 cD
 eI
@@ -2318,7 +2451,7 @@ vo
 vQ
 SY
 zb
-eM
+rx
 MU
 yk
 ir
@@ -2342,15 +2475,15 @@ vo
 vQ
 vQ
 vQ
-vQ
-vQ
+ve
+PR
 "}
 (33,1,1) = {"
-vQ
-vQ
-vQ
-vQ
-vQ
+PR
+PR
+PR
+PR
+PR
 vQ
 vo
 eI
@@ -2384,15 +2517,15 @@ vQ
 vQ
 vQ
 vQ
-vQ
-vQ
+ve
+PR
 "}
 (34,1,1) = {"
-vQ
-vQ
-vQ
-vQ
-vQ
+PR
+PR
+PR
+PR
+PR
 se
 RH
 se
@@ -2426,15 +2559,15 @@ vQ
 vQ
 vQ
 Td
-vQ
-vQ
+ve
+PR
 "}
 (35,1,1) = {"
-vQ
-vQ
-vQ
-vQ
-vQ
+PR
+PR
+PR
+PR
+PR
 ep
 se
 RH
@@ -2468,16 +2601,16 @@ vo
 vQ
 vQ
 vQ
-vQ
-vQ
+ve
+PR
 "}
 (36,1,1) = {"
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
+PR
+PR
+PR
+PR
+PR
+ve
 se
 RH
 RH
@@ -2510,16 +2643,16 @@ vQ
 vQ
 vQ
 vQ
-vQ
-vQ
+PR
+PR
 "}
 (37,1,1) = {"
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
+PR
+PR
+PR
+PR
+PR
+ve
 se
 se
 oH
@@ -2552,16 +2685,16 @@ vQ
 vQ
 yf
 vQ
-vQ
-vQ
+PR
+PR
 "}
 (38,1,1) = {"
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
+PR
+PR
+PR
+PR
+PR
+ve
 se
 se
 se
@@ -2594,16 +2727,16 @@ vQ
 vQ
 vQ
 vQ
-vQ
-vQ
+PR
+PR
 "}
 (39,1,1) = {"
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
+PR
+PR
+PR
+PR
+PR
+PR
 vQ
 vQ
 vQ
@@ -2613,33 +2746,39 @@ se
 se
 se
 se
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-yf
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
+ve
+PR
+PR
+PR
+PR
+PR
+PR
+PR
+PR
+PR
+PR
+PR
+PR
+PR
+PR
+PR
+PR
+PR
+Pv
+PR
+PR
+PR
+PR
+PR
+PR
 "}
 (40,1,1) = {"
+PR
+PR
+PR
+PR
+PR
+PR
 vQ
 vQ
 vQ
@@ -2649,35 +2788,29 @@ vQ
 vQ
 vQ
 vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
-vQ
+PR
+PR
+PR
+PR
+PR
+PR
+PR
+PR
+PR
+PR
+PR
+PR
+PR
+PR
+PR
+PR
+PR
+PR
+PR
+PR
+PR
+PR
+PR
+PR
+PR
 "}

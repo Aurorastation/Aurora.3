@@ -455,10 +455,8 @@
 /area/burzsia_mining/engineering)
 "lO" = (
 /obj/effect/landmark/clear,
-/turf/simulated/floor/exoplanet/barren{
-	color = "#b7410e"
-	},
-/area/exoplanet/barren/burzsia)
+/turf/template_noop,
+/area/template_noop)
 "lR" = (
 /obj/machinery/shower{
 	dir = 8
@@ -568,7 +566,7 @@
 	pixel_y = 32
 	},
 /obj/random/dirt_75,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/airless,
 /area/burzsia_mining/mining)
 "ov" = (
 /obj/effect/floor_decal/corner/orange{
@@ -1154,10 +1152,8 @@
 /turf/simulated/floor/tiled/dark,
 /area/burzsia_mining/mess_hall)
 "AI" = (
-/turf/simulated/floor/exoplanet/barren{
-	color = "#b7410e"
-	},
-/area/exoplanet/barren/burzsia)
+/turf/template_noop,
+/area/template_noop)
 "AK" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/mining/brace{

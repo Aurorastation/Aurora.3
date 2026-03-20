@@ -216,10 +216,6 @@
 /obj/effect/map_effect/window_spawner/full/wood,
 /turf/simulated/floor/tiled/white,
 /area/konyang/rural_clinic)
-"yZ" = (
-/obj/structure/window_frame/wood,
-/turf/simulated/floor/tiled/white,
-/area/konyang/rural_clinic)
 "zu" = (
 /obj/effect/floor_decal/corner/green/diagonal{
 	dir = 4
@@ -775,7 +771,7 @@ GS
 GS
 xw
 xw
-yZ
+xw
 GS
 gj
 GS
@@ -972,7 +968,7 @@ cd
 GT
 cd
 zu
-yZ
+xw
 Xe
 Xe
 Xe
