@@ -54,6 +54,7 @@
 @include meta.load-css('./interfaces/PersonalCrafting.scss');
 @include meta.load-css('./interfaces/RequestManager.scss');
 @include meta.load-css('./interfaces/Radio.scss');
+@include meta.load-css('./interfaces/LoreConsole.scss');
 
 // Layouts
 @include meta.load-css('./layouts/Layout.scss');

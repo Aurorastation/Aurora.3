@@ -107,7 +107,7 @@
 
 	fire_delay = capacitor.fire_delay
 	max_shots = capacitor.shots
-	power_supply.maxcharge = max_shots*charge_cost
+
 	dispersion = focusing_lens.dispersion
 	accuracy = focusing_lens.accuracy
 	burst += focusing_lens.burst
@@ -116,10 +116,11 @@
 	if(gun_mods.len)
 		handle_mod()
 
-	fire_delay_wielded = min(0,(fire_delay - fire_delay*3))
+	max_shots = max_shots * burst
+	power_supply.maxcharge = max_shots*charge_cost
+	fire_delay_wielded = fire_delay * 0.75
 	accuracy_wielded = accuracy + accuracy/4
 	scoped_accuracy = accuracy_wielded + accuracy/4
-	max_shots = max_shots * burst
 	w_class = gun_type
 	reliability = max(reliability, 1)
 
@@ -160,7 +161,7 @@
 		if(modifier.scope_name)
 			zoomdevicename = modifier.scope_name
 
-/obj/item/gun/energy/laser/prototype/consume_next_projectile(var/bypass_degrade = FALSE)
+/obj/item/gun/energy/laser/prototype/consume_next_projectile(var/mob/user, var/bypass_degrade = FALSE)
 	if(!power_supply)
 		return null
 	if(!ispath(projectile_type))
@@ -177,17 +178,17 @@
 	for(var/obj/item/laser_components/modifier/modifier in gun_mods)
 		damage_coeff *= modifier.damage
 	if(burst > 1)
-		A.damage = A.damage/(burst - 1)
+		A.damage = A.damage/(max(1, burst - 1)) //Damage is divided by the number of shots
 	damage_coeff *= modulator.damage
 	A.damage *= damage_coeff
-	A.damage = min(A.damage, 60) //let's not get too ridiculous here
+	A.damage = min(A.damage, 60) //Caps the maximum damage one shot can do, this matches the laser cannon
 	if(!bypass_degrade)
-		for(var/obj/item/laser_components/modifier/modifier in gun_mods)
-			if(prob((gun_mods.len * 10 * damage_coeff)/(max(1,(burst - 1)))))
+		for(var/obj/item/laser_components/modifier/modifier in gun_mods) //This repeats for EVERY MOD, fail chance goes up quadratically with the number of mods
+			if(prob((gun_mods.len * 2 * damage_coeff)/(max(1,(burst - 1)))))
 				capacitor.degrade(modifier.malus)
-			if(prob((gun_mods.len * 10 * damage_coeff)/(max(1,(burst - 1)))))
+			if(prob((gun_mods.len * 2 * damage_coeff)/(max(1,(burst - 1)))))
 				focusing_lens.degrade(modifier.malus)
-			if(prob((33 + capacitor.damage)/(max(1,(burst - 1)))))
+			if(prob((33 + capacitor.damage)/(max(1,(burst - 1))))) //Firing a gun with a damaged capacitor risks arcing to other components, damaging them
 				modifier.degrade(1)
 
 	updatetype(ismob(loc) ? loc : null)

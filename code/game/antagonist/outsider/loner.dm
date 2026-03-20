@@ -20,6 +20,12 @@ GLOBAL_DATUM(loners, /datum/antagonist/loner)
 
 	id_type = /obj/item/card/id/syndicate
 
+	/// List of additional psi powers to give the loner.
+	var/list/singleton/psionic_power/additional_powers = list(
+		/singleton/psionic_power/zona_absorption,
+		/singleton/psionic_power/awaken,
+		/singleton/psionic_power/psi_drain)
+
 /datum/antagonist/loner/New()
 	..()
 	welcome_text = "You are a Loner, someone underequipped to deal with the [station_name()]. You will probably not survive for the whole round, so don't sweat it if you die!<br> \
@@ -40,8 +46,10 @@ GLOBAL_DATUM(loners, /datum/antagonist/loner)
 	player.preEquipOutfit(/obj/outfit/admin/syndicate/mercenary/loner, FALSE)
 	player.equipOutfit(/obj/outfit/admin/syndicate/mercenary/loner, FALSE)
 	player.set_psi_rank(PSI_RANK_HARMONIOUS)
-	var/singleton/psionic_power/P = GET_SINGLETON(/singleton/psionic_power/zona_absorption)
-	P.apply(player)
+
+	for (var/power in additional_powers)
+		astype(GET_SINGLETON(power), /singleton/psionic_power)?.apply(player)
+
 	player.force_update_limbs()
 	player.update_eyes()
 	player.regenerate_icons()

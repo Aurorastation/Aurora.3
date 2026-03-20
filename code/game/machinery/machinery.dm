@@ -141,15 +141,20 @@ Class Procs:
 	var/uid
 	var/panel_open = 0
 	var/global/gl_uid = 1
-	var/interact_offline = 0 // Can the machine be interacted with while de-powered.
-	var/printing = 0 // Is this machine currently printing anything?
-	var/list/processing_parts // Component parts queued for processing by the machine. Expected type: `/obj/item/stock_parts` Unused currently
+	/// Can the machine be interacted with while de-powered?
+	var/interact_offline = FALSE
+	/// Is this machine currently printing anything?
+	var/printing = FALSE
+	/// Component parts queued for processing by the machine. Expected type: `/obj/item/stock_parts` Unused currently.
+	var/list/processing_parts
 
 	/// Bitflag. What is being processed. One of `MACHINERY_PROCESS_*`.
 	var/processing_flags
 
-	var/clicksound //played sound on usage
-	var/clickvol = 40 //volume
+	/// Played sound on usage.
+	var/clicksound
+	/// Volume.
+	var/clickvol = 40
 	/// Signaller attached to the machine
 	var/obj/item/assembly/signaler/signaler
 	/// Overmap sector the machine is linked to
