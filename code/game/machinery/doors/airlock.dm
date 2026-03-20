@@ -1803,6 +1803,9 @@ About the new airlock wires panel:
 		cable.plugin(src, user)
 		return TRUE
 	else if(!repairing && attacking_item.tool_behaviour == TOOL_CROWBAR)
+		if(user.a_intent == I_HURT)
+			..()
+			return
 		if(istype(attacking_item, /obj/item/melee/arm_blade))
 			if(arePowerSystemsOn() &&!(stat & BROKEN))
 				..()
@@ -1841,30 +1844,35 @@ About the new airlock wires panel:
 			else
 				close(1)
 		return TRUE
-	else if(istype(attacking_item, /obj/item/material/twohanded/fireaxe) && !arePowerSystemsOn())
+	else if(istype(attacking_item, /obj/item/material/twohanded/fireaxe))
 		if(locked && user.a_intent != I_HURT)
 			to_chat(user, SPAN_NOTICE("The airlock's bolts prevent it from being forced."))
-		else if(locked && user.a_intent == I_HURT)
+		else if(user.a_intent == I_HURT)
 			..()
-		else if(!welded && !operating)
-			if(density)
-				var/obj/item/material/twohanded/fireaxe/F = attacking_item
-				if(F.wielded)
-					open(1)
+		else if(arePowerSystemsOn())
+			to_chat(user, SPAN_NOTICE("The airlock's motors resist your efforts to force it."))
+		else
+			if(!welded && !operating)
+				if(density)
+					var/obj/item/material/twohanded/fireaxe/F = attacking_item
+					if(F.wielded)
+						open(1)
+					else
+						to_chat(user, SPAN_WARNING("You need to be wielding \the [attacking_item] to do that."))
 				else
-					to_chat(user, SPAN_WARNING("You need to be wielding \the [attacking_item] to do that."))
-			else
-				var/obj/item/material/twohanded/fireaxe/F = attacking_item
-				if(F.wielded)
-					close(1)
-				else
-					to_chat(user, SPAN_WARNING("You need to be wielding \the [attacking_item] to do that."))
+					var/obj/item/material/twohanded/fireaxe/F = attacking_item
+					if(F.wielded)
+						close(1)
+					else
+						to_chat(user, SPAN_WARNING("You need to be wielding \the [attacking_item] to do that."))
 		return TRUE
-	else if(attacking_item.tool_behaviour == TOOL_HAMMER && !arePowerSystemsOn())
+	else if(attacking_item.tool_behaviour == TOOL_HAMMER)
 		if(locked && user.a_intent != I_HURT)
 			to_chat(user, SPAN_NOTICE("The airlock's bolts prevent it from being forced."))
-		else if(locked && user.a_intent == I_HURT)
+		else if(user.a_intent == I_HURT)
 			..()
+		else if(arePowerSystemsOn())
+			to_chat(user, SPAN_NOTICE("The airlock's motors resist your efforts to force it."))
 		else if(!welded && !operating)
 			if(density)
 				open(1)
