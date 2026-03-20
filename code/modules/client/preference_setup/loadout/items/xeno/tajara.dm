@@ -809,6 +809,14 @@ ABSTRACT_TYPE(/datum/gear/shoes/tajara)
 	path = /obj/item/typewriter_case
 	flags = GEAR_HAS_DESC_SELECTION
 
+/datum/gear/tesla_computer
+	display_name = "portable Tesla computer"
+	description = "A Tesla-powered portable computer. Available only to citizens of the People's Republic of Adhomai."
+	whitelisted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
+	sort_category = "Xenowear - Tajara"
+	path = /obj/item/laptop_case
+	flags = GEAR_HAS_DESC_SELECTION
+
 /datum/gear/prrama
 	display_name = "p'rrama"
 	whitelisted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)

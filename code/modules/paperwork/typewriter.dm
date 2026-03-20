@@ -5,10 +5,10 @@
 /obj/item/portable_typewriter
 	name = "portable typewriter"
 	desc = "A reasonably lightweight typewriter designed to be moved around."
-	desc_extended = "The National Typist Company in the People's Republic of Adhomai was once the largest producer of \
-	typewriters on the planet. With the introduction of human technology, however, these items - \
-	which were once staples of Tajaran offices - have slowly become more uncommon. That \
-	said, rural areas and less urban parts of the planet still rely heavily on these machines."
+	desc_extended = "Adhomai is dominated by the many typewriters originating from the National Typist Company \
+	of the People's Republic of Adhomai. Even as modern technologies sweep across the PRA, the humble typewriter \
+	continues to see use across the rest of Adhomai with recreations and iterations of the common NTC-37 typewriter \
+	being the backbone of offices and businesses."
 	icon_state = "typewriter"
 	icon = 'icons/obj/bureaucracy.dmi'
 	force = 25
@@ -126,10 +126,10 @@
 /obj/item/typewriter_case
 	name = "typewriter case"
 	desc = "A large briefcase-esque place to store one's typewriter."
-	desc_extended = "The National Typist Company in the People's Republic of Adhomai was once the largest producer of \
-	typewriters on the planet. With the introduction of human technology, however, these items - \
-	which were once staples of Tajaran offices - have slowly become more uncommon. That \
-	said, rural areas and less urban parts of the planet still rely heavily on these machines."
+	desc_extended = "Adhomai is dominated by the many typewriters originating from the National Typist Company \
+	of the People's Republic of Adhomai. Even as modern technologies sweep across the PRA, the humble typewriter \
+	continues to see use across the rest of Adhomai with recreations and iterations of the common NTC-37 typewriter \
+	being the backbone of offices and businesses."
 	icon = 'icons/obj/storage/briefcase.dmi'
 	icon_state = "typewriter_case_closed"
 	item_state = "briefcase_black"

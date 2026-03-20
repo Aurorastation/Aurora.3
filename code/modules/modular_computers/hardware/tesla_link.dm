@@ -12,6 +12,13 @@
 		parent_computer.tesla_link = null
 	return ..()
 
+/obj/item/computer_hardware/tesla_link/tesla_generator //Acts pretty much as a tesla link, but is Tajaran flavored.
+	name = "small tesla generator"
+	desc = "A small tesla generator from the People's Republic of Adhomai. It utilizes a highly volatile power source to power electronics."
+	critical = TRUE
+	icon_state = "tesla_generator"
+	hardware_size = 2 // Designed to fit in portable computers
+
 /obj/item/computer_hardware/tesla_link/charging_cable
 	name = "charging cable"
 	desc = "An integrated charging cable used to recharge small devices manually, by hooking into the local area power controller."

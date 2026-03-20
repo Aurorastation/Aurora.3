@@ -25,8 +25,12 @@
 	var/list/last_header_icons
 	/// Looping sound for when the computer is on
 	var/datum/looping_sound/computer/soundloop
-	/// Whether or not this modular computer uses the looping sound. Also handles ambience beeps.
+	/// Whether or not this modular computer uses the looping sound.
 	var/looping_sound = TRUE
+	/// Whether or not this modular computer plays ambience beeps at random intervals.
+	var/ambience_beeps = TRUE
+	/// Sound played when the computer is first booted.
+	var/startup_sound = 'sound/machines/computer/computer_start.ogg'
 	/// Whether the computer is emagged.
 	var/computer_emagged = FALSE
 	/// Set automatically. Whether the computer used APC power last tick.

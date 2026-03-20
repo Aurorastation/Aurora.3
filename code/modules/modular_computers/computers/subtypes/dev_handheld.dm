@@ -13,6 +13,7 @@
 	max_hardware_size = 1
 	w_class = WEIGHT_CLASS_SMALL
 	looping_sound = FALSE
+	ambience_beeps = FALSE
 
 /obj/item/modular_computer/handheld/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()

@@ -348,3 +348,108 @@
 		<b>Background:</b><ul><li><span class=\"paper_field\"></span></li></ul></td></tr></table> \
 		")
 	update_icon()
+
+// Tajaran laptop
+/obj/item/modular_computer/laptop/preset/tajara
+	name = "tesla laptop"
+	desc = "A bulky portable computer from the People's Republic of Adhomai."
+	desc_extended = "Tesla technology is a novel field of research hailing from the People's Republic of Adhomai. The scalable power generation technology \
+	has been uitilized by the Adhomian nation in numerous consumer goods, including personal computers. While traditional Adhomian computers are static desktops, \
+	the National Computational Technologies Manufactory produces a line of bulky 'portable' computers utilizing tesla generators."
+	icon = 'icons/obj/modular_computers/tesla_laptop.dmi'
+	w_class = WEIGHT_CLASS_BULKY //Massive computer, cannot be stored. Also to balance for the Tesla generator
+	startup_sound = 'sound/machines/computer/old_computer_start.ogg'
+	click_sound = 'sound/machines/terminal/terminal_button03.ogg'
+	ambience_beeps = FALSE
+
+/obj/item/modular_computer/laptop/preset/tajara/install_default_hardware()
+	..()
+	tesla_link = new /obj/item/computer_hardware/tesla_link/tesla_generator(src)
+
+/obj/item/modular_computer/laptop/preset/tajara/update_icon()
+	..()
+	if(anchored)
+		icon_state = enabled ? "laptop-open-on" : "[icon_state]"
+
+/obj/item/laptop_case
+	name = "tesla laptop case"
+	desc = "A huge briefcase-esque place to store one's tesla laptop."
+	desc_extended = "The National Computational Technologies Manufactory is the primary producer of consumer-grade\
+	computers within the People's Republic of Adhomai. The majority of their products are static desktops,\
+	however with the further development of Tesla technologies, attempts at a portable computer have resulted in\
+	bulky but powerful products that are quickly spreading across the cities of the Republic."
+	icon = 'icons/obj/storage/briefcase.dmi'
+	icon_state = "laptop_case_closed"
+	item_state = "briefcase_black"
+	contained_sprite = TRUE
+	force = 15
+	throwforce = 5
+	throw_speed = 1
+	throw_range = 4
+	w_class = WEIGHT_CLASS_BULKY
+	drop_sound = 'sound/items/drop/backpack.ogg'
+	pickup_sound = 'sound/items/pickup/backpack.ogg'
+
+	var/obj/item/laptop_case/machine
+	var/opened = FALSE
+
+/obj/item/laptop_case/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "You can ALT-click on this case to open and close it. A tesla laptop can only be removed or added when it is open!"
+
+/obj/item/laptop_case/Initialize()
+	. = ..()
+	if(!machine)
+		machine = new /obj/item/modular_computer/laptop/preset/tajara(src)
+
+/obj/item/laptop_case/Destroy()
+	QDEL_NULL(machine)
+	return ..()
+
+/obj/item/laptop_case/AltClick(mob/user)
+	if(!Adjacent(user))
+		return
+
+	playsound(loc, 'sound/items/storage/briefcase.ogg', 50, 0, -5)
+
+	opened = !opened
+	update_icon()
+
+/obj/item/laptop_case/update_icon()
+	if(opened && machine)
+		icon_state = "laptop_case_open"
+	else if (opened && !machine)
+		icon_state = "laptop_case_open_e"
+	else if (!opened)
+		icon_state = "laptop_case_closed"
+
+/obj/item/laptop_case/attack_self(mob/user)
+	if(use_check_and_message(user))
+		return
+	if(((user.contents.Find(src) || in_range(src, user))))
+		if(opened)
+			if(!machine)
+				to_chat(user, SPAN_ALERT("\The [src] is currently empty!"))
+			else
+				user.put_in_hands(machine)
+				machine = null
+				update_icon()
+		else
+			to_chat(user, SPAN_ALERT("\The [src] is currently closed!"))
+	return
+
+/obj/item/laptop_case/mouse_drop_dragged(atom/over, mob/user, src_location, over_location, params)
+	attack_self(over)
+
+/obj/item/laptop_case/attackby(obj/item/attacking_item, mob/user, params)
+	if(istype(attacking_item, /obj/item/modular_computer/laptop/preset/tajara))
+		if(!machine)
+			user.drop_item(attacking_item)
+			user.unEquip(attacking_item)
+			attacking_item.forceMove(src)
+			src.machine = attacking_item
+			user.visible_message(SPAN_ALERT("[user] places \the [attacking_item] into \the [src]."), SPAN_ALERT ("You store \the [attacking_item] in \the [src]."))
+			src.update_icon()
+		else
+			to_chat(user, SPAN_ALERT("\The [src] already has a computer in it!"))
+		. = ..()

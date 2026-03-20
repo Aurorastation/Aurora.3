@@ -15,6 +15,7 @@
 	/// Thing that contains this computer. Used for silicon computers
 	var/mob/living/silicon/computer_host
 	looping_sound = FALSE
+	ambience_beeps = FALSE
 
 /obj/item/modular_computer/silicon/ui_host()
 	. = computer_host
