@@ -312,3 +312,7 @@
       to just using the telescience lab, but portable/miniaturised. Upgraded printer
       only.
   - bugfix: Fixes the atmospheric sensor circuits all being named 'oxygen sensor'.
+2026-03-20:
+  ASmallCuteCat:
+  - balance: Slightly reduced the damage and armor penetration of the Husked Creatures
+      found at the Quarantined Outpost away site.
