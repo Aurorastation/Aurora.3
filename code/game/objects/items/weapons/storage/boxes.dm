@@ -170,6 +170,15 @@
 	label = null
 	illustration = null
 
+/obj/item/storage/box/blank/teabox
+	max_storage_space = 12
+	can_hold = list(
+		/obj/item/storage/box/unique/tea,
+		/obj/item/reagent_containers/glass/beaker/teapot,
+		/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/teacup,
+		/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/konyang
+		)
+
 /obj/item/storage/box/survival
 	name = "emergency survival box"
 	desc = "A faithful box that will remain with you, no matter where you go, and probably save you."
@@ -1612,6 +1621,7 @@
 		/obj/item/reagent_containers/food/snacks/grown/konyang_tea = 12
 	)
 	foldable = null
+	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/storage/box/unique/tea/tieguanyin
 	name = "tieguanyin cha-tin"
