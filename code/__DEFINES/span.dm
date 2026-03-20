@@ -39,6 +39,9 @@
 
 #define SPAN_LANGCHAT(X) "<span class='langchat'>[X]</span>"
 
+#define SPAN_BOLDNOTICE(str) ("<span class='boldnotice'>" + str + "</span>")
+#define SPAN_BOLDWARNING(X) "<span class='boldwarning'>[X]</span>"
+
 /*
 #####################
 	Font sizes

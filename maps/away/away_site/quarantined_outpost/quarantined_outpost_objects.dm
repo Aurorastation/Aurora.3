@@ -112,6 +112,9 @@ GLOBAL_LIST_EMPTY(trackables_pool)
 
 	if(on_fire)
 		AddOverlays(image("icon" = 'icons/mob/burning/burning_generic.dmi', "icon_state" = "lower"))
+		throw_alert(ALERT_FIRE, /atom/movable/screen/alert/fire)
+	else
+		clear_alert(ALERT_FIRE)
 
 /mob/living/simple_animal/hostile/revivable/AttackTarget()
 	. = ..()

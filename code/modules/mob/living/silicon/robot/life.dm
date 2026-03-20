@@ -332,6 +332,9 @@
 	if(on_fire)
 		AddOverlays(image("icon" = 'icons/mob/burning/burning_generic.dmi', "icon_state" = "upper"))
 		AddOverlays(image("icon" = 'icons/mob/burning/burning_generic.dmi', "icon_state" = "lower"))
+		throw_alert(ALERT_FIRE, /atom/movable/screen/alert/fire)
+	else
+		clear_alert(ALERT_FIRE)
 
 /mob/living/silicon/robot/fire_act(exposed_temperature, exposed_volume)
 	. = ..()
