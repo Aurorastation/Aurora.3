@@ -273,7 +273,7 @@
 		return
 	..()
 
-/mob/living/carbon/human/get_breath_from_internal(volume_needed=BREATH_VOLUME)
+/mob/living/carbon/human/get_breath_from_internal(volume_needed=STD_BREATH_VOLUME)
 	if(internal)
 
 		var/obj/item/tank/rig_supply
@@ -291,7 +291,7 @@
 			internals.icon_state = "internal0"
 	return null
 
-/mob/living/carbon/human/get_breath_from_environment(var/volume_needed=BREATH_VOLUME)
+/mob/living/carbon/human/get_breath_from_environment(volume_needed=STD_BREATH_VOLUME)
 	var/datum/gas_mixture/breath = ..()
 
 	if(breath)

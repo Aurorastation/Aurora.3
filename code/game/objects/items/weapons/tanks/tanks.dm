@@ -21,13 +21,19 @@
 	var/datum/gas_mixture/air_contents = null
 	var/distribute_pressure = ONE_ATMOSPHERE
 	var/integrity = 3
-	var/volume = 70
+	var/volume = STANDARD_TANK_VOLUME
 	var/manipulated_by = null		//Used by _onclick/hud/screen_objects.dm internals to determine if someone has messed with our tank or not.
 						//If they have and we haven't scanned it with a computer or handheld gas analyzer then we might just breath whatever they put in it.
+	var/last_alert = null
+
+	var/list/starting_pressure //list in format 'xgm gas id' = 'desired pressure at start'
 
 /obj/item/tank/feedback_hints(mob/user, distance, is_adjacent)
 	. += ..()
-	if(distance <= 0)
+	if(!is_adjacent)
+		. += SPAN_NOTICE("You see some information on the gauge on the tank, but you'll need to get closer to see it.")
+	else
+		. += SPAN_NOTICE("The gauge reads <b>[round(air_contents.total_moles, 0.01)] mol</b> at <b>[round(XGM_PRESSURE(air_contents), 0.01)] kPa</b>.")
 		var/celsius_temperature = air_contents.temperature - T0C
 		switch(celsius_temperature)
 			if(300 to INFINITY)
@@ -46,12 +52,12 @@
 /obj/item/tank/Initialize()
 	. = ..()
 
-	air_contents = new /datum/gas_mixture()
-	air_contents.volume = volume //liters
-	air_contents.temperature = T20C
+	air_contents = new /datum/gas_mixture(volume, T20C)
+	for(var/gas in starting_pressure)
+		air_contents.adjust_gas(gas, starting_pressure[gas]*volume/(R_IDEAL_GAS_EQUATION*T20C), 0)
+	air_contents.update_values()
 
 	START_PROCESSING(SSprocessing, src)
-	adjust_initial_gas()
 	update_gauge()
 
 /obj/item/tank/Destroy()
@@ -62,6 +68,8 @@
 	if(istype(loc, /obj/item/transfer_valve))
 		var/obj/item/transfer_valve/TTV = loc
 		TTV.remove_tank(src)
+		if(!QDELETED(TTV)) // It will delete tanks inside it on qdel.
+			qdel(TTV)
 
 	return ..()
 
@@ -197,9 +205,9 @@
 	if(tank_pressure < distribute_pressure)
 		distribute_pressure = tank_pressure
 
-	var/moles_needed = distribute_pressure*volume_to_return/(R_IDEAL_GAS_EQUATION*air_contents.temperature)
-
-	return remove_air(moles_needed)
+	var/datum/gas_mixture/removed = remove_air(distribute_pressure*volume_to_return/(R_IDEAL_GAS_EQUATION*air_contents.temperature))
+	removed.volume = volume_to_return
+	return removed
 
 /obj/item/tank/process()
 	var/tank_pressure = 0
@@ -211,9 +219,6 @@
 		tank_pressure = check_status(tank_pressure)
 	if(gauge_icon)
 		update_gauge(tank_pressure)
-
-/obj/item/tank/proc/adjust_initial_gas()
-	return
 
 /obj/item/tank/proc/update_gauge(gauge_pressure = 0)
 	if(air_contents)
@@ -231,6 +236,16 @@
 	ClearOverlays()
 	// SSoverlay will handle icon caching.
 	AddOverlays("[gauge_icon][(gauge_pressure == -1) ? "overload" : gauge_pressure]")
+
+	var/high_freq = 96000
+	if(gauge_pressure == 1)
+		playsound(src, 'sound/machines/twobeep.ogg', 30, TRUE, extrarange = SILENCED_SOUND_EXTRARANGE, frequency = high_freq)
+		audible_message("Tank pressure low -- Estimated time until depletion: [(volume/2) * 5] minutes.", hearing_distance = 2)
+	else if(gauge_pressure == 0)
+		playsound(src, 'sound/machines/twobeep.ogg', 30, TRUE, extrarange = SILENCED_SOUND_EXTRARANGE, frequency = high_freq)
+		playsound(src, 'sound/machines/beep.ogg', 30, FALSE, extrarange = SILENCED_SOUND_EXTRARANGE)
+		audible_message("Tank is nearly empty! Replacement recommended!", hearing_distance = 2)
+
 
 /obj/item/tank/proc/percent()
 	var/gauge_pressure = 0

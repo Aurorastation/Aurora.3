@@ -17,6 +17,11 @@
 
 	var/breathing = 0
 
+	var/min_breath_pressure
+	var/last_int_pressure
+	var/last_ext_pressure
+	var/max_pressure_diff = 60
+
 	// Handles rupture grace period
 	var/rupture_imminent = FALSE // If this is true and the pressure is too high or low, our lungs will rupture
 	var/checking_rupture = TRUE // If this is false, the rupture check won't run, granting a grace period
@@ -109,7 +114,20 @@
 /obj/item/organ/internal/lungs/proc/disable_rupture()
 	rupture_imminent = FALSE
 
-/obj/item/organ/internal/lungs/proc/handle_breath(datum/gas_mixture/breath)
+//exposure to extreme pressures can rupture lungs
+/obj/item/organ/internal/lungs/proc/check_rupturing(breath_pressure)
+	if(isnull(last_int_pressure))
+		last_int_pressure = breath_pressure
+		return
+	var/datum/gas_mixture/environment = loc.return_air_for_internal_lifeform()
+	var/ext_pressure = SAFE_XGM_PRESSURE(environment)
+	var/int_pressure_diff = abs(last_int_pressure - breath_pressure)
+	var/ext_pressure_diff = abs(last_ext_pressure - ext_pressure) * owner.get_pressure_weakness(ext_pressure)
+	if(checking_rupture && int_pressure_diff > max_pressure_diff && ext_pressure_diff > max_pressure_diff)
+		if(!is_bruised()) //only rupture if NOT already ruptured
+			rupture()
+
+/obj/item/organ/internal/lungs/proc/handle_breath(datum/gas_mixture/breath, forced = FALSE)
 	if(!owner)
 		return 1
 
@@ -118,21 +136,16 @@
 		handle_failed_breath()
 		return 1
 
-	var/high_pressure = breath.total_moles / (owner.species?.breath_vol_mul || 1) > BREATH_MOLES * 5
-	var/low_pressure = breath.total_moles / (owner.species?.breath_vol_mul || 1) < BREATH_MOLES / 5
-	//exposure to extreme pressures can rupture lungs
-	if(checking_rupture && damage < min_bruised_damage && (high_pressure || low_pressure))
-		if(rupture_imminent)
-			rupture()
-		else
-			if(low_pressure)
-				to_chat(owner, FONT_LARGE(SPAN_WARNING("You feel air rapidly beginning to exit your lungs!")))
-			else if(high_pressure)
-				to_chat(owner, FONT_LARGE(SPAN_WARNING("You feel vast amounts of air force itself into your lungs!")))
-			else
-				to_chat(owner, FONT_LARGE(SPAN_WARNING("You feel as if your lungs are about to blow!")))
-			addtimer(CALLBACK(src, PROC_REF(enable_rupture)), 2 SECONDS, TIMER_UNIQUE)
-			checking_rupture = FALSE
+	var/breath_pressure = XGM_PRESSURE(breath)
+	check_rupturing(breath_pressure)
+
+	var/datum/gas_mixture/environment = loc.return_air_for_internal_lifeform()
+	last_ext_pressure = SAFE_XGM_PRESSURE(environment)
+	last_int_pressure = breath_pressure
+	if(breath.total_moles == 0)
+		breath_fail_ratio = 1
+		handle_failed_breath()
+		return 1
 
 	var/safe_pressure_min = owner.species.breath_pressure // Minimum safe partial pressure of breathable gas in kPa
 	// Lung damage increases the minimum safe pressure.
@@ -142,8 +155,6 @@
 	var/safe_toxins_max = 0.2
 	var/SA_sleep_min = 5
 	var/inhaled_gas_used = 0
-
-	var/breath_pressure = (breath.total_moles * R_IDEAL_GAS_EQUATION * breath.temperature) / (BREATH_VOLUME * owner.species.breath_vol_mul)
 
 	var/inhaling
 	var/poison
@@ -324,7 +335,7 @@
 		else
 			temp_adj /= (BODYTEMP_HEAT_DIVISOR * 5)	//don't raise temperature as much as if we were directly exposed
 
-		var/relative_density = breath.total_moles / (MOLES_CELLSTANDARD * BREATH_PERCENTAGE)
+		var/relative_density = breath.total_moles / (MOLES_CELLSTANDARD * breath.volume/CELL_VOLUME)
 		temp_adj *= relative_density
 
 		if (temp_adj > BODYTEMP_HEATING_MAX) temp_adj = BODYTEMP_HEATING_MAX

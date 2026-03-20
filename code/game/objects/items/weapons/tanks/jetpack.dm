@@ -39,18 +39,13 @@
 	item_state = "jetpack"
 	gauge_icon = null
 	w_class = WEIGHT_CLASS_BULKY
-	distribute_pressure = ONE_ATMOSPHERE*O2STANDARD
+	distribute_pressure = ONE_ATMOSPHERE * O2STANDARD
 	var/ion_trail_type = /obj/effect/effect/ion_trails
 	var/on = 0.0
 	var/stabilization_on = 0
 	var/warned = 0
 	var/volume_rate = 500              //Needed for borg jetpack transfer
 	action_button_name = "Toggle Jetpack"
-
-/obj/item/tank/jetpack/feedback_hints(mob/user, distance, is_adjacent)
-	. += ..()
-	if(air_contents.total_moles < 25)
-		. += SPAN_NOTICE("The meter on \the [src] indicates you are almost out of gas!")
 
 /obj/item/tank/jetpack/verb/toggle_rockets()
 	set name = "Toggle Jetpack Stabilization"
@@ -124,22 +119,18 @@
 
 
 /obj/item/tank/jetpack/void
-	name = "void jetpack (oxygen)"
-	desc = "It works well in a void."
+	name = "void maneuvering unit"
+	desc = "An ancient model of a zero-gravity propulsion unit, used by the first pioneers of human space travel. Surprisingly reliable."
 	icon_state = "jetpack-void"
 	item_state =  "jetpack-void"
-
-/obj/item/tank/jetpack/void/adjust_initial_gas()
-	air_contents.adjust_gas(GAS_OXYGEN, (6*ONE_ATMOSPHERE)*volume/(R_IDEAL_GAS_EQUATION*T20C))
+	starting_pressure = list(GAS_OXYGEN = 6*ONE_ATMOSPHERE)
 
 /obj/item/tank/jetpack/oxygen
 	name = "jetpack (oxygen)"
 	desc = "A tank of compressed oxygen for use as propulsion in zero-gravity areas. Use with caution."
 	icon_state = "jetpack"
 	item_state = "jetpack"
-
-/obj/item/tank/jetpack/oxygen/adjust_initial_gas()
-	air_contents.adjust_gas(GAS_OXYGEN, (6*ONE_ATMOSPHERE)*volume/(R_IDEAL_GAS_EQUATION*T20C))
+	starting_pressure = list(GAS_OXYGEN = 6*ONE_ATMOSPHERE)
 
 /obj/item/tank/jetpack/carbondioxide
 	name = "jetpack (carbon dioxide)"
@@ -147,16 +138,12 @@
 	distribute_pressure = 0
 	icon_state = "jetpack-black"
 	item_state = "jetpack-black"
-
-/obj/item/tank/jetpack/carbondioxide/adjust_initial_gas()
-	air_contents.adjust_gas(GAS_CO2, (6*ONE_ATMOSPHERE)*volume/(R_IDEAL_GAS_EQUATION*T20C))
+	starting_pressure = list(GAS_CO2 = 6*ONE_ATMOSPHERE)
 
 /obj/item/tank/jetpack/carbondioxide/synthetic
 	name = "Synthetic Jetpack"
 	desc = "A chassis-mounted tank of compressed carbon dioxide for use as propulsion in zero-gravity areas."
-
-/obj/item/tank/jetpack/carbondioxide/synthetic/adjust_initial_gas()
-	air_contents.adjust_gas(GAS_CO2, (15*ONE_ATMOSPHERE)*volume/(R_IDEAL_GAS_EQUATION*T20C))
+	starting_pressure = list(GAS_CO2 = 15*ONE_ATMOSPHERE)
 
 /obj/item/tank/jetpack/carbondioxide/synthetic/verb/toggle_synthetic_jetpack()
 	set name = "Toggle Jetpack"
@@ -202,10 +189,9 @@
 	if((num < 0.005 || pressure_vessel.air_contents.total_moles < num))
 		return FALSE
 
-	var/datum/gas_mixture/G = pressure_vessel.air_contents.remove(num)
+	var/datum/gas_mixture/G = pressure_vessel.remove_air(num)
 
-	var/allgases = G.gas[GAS_CO2] + G.gas[GAS_NITROGEN] + G.gas[GAS_OXYGEN] + G.gas[GAS_PHORON] + G.gas[GAS_HYDROGEN]
-	if(allgases >= 0.005)
+	if(G.total_moles >= 0.005)
 		var/obj/effect/effect/ion_trails/ion_trail = new(user.loc)
 		flick("ion_fade", ion_trail)
 		ion_trail.icon_state = "blank"

@@ -5,13 +5,11 @@
 		breathe()
 
 /// If we're a species that needs to breathe, it checks current health effects and, if we CAN breathe, checks for air from internals -> envvironment -> then runs handle_breath() and handle_post_breath().
-/mob/living/carbon/proc/breathe(var/volume_needed = BREATH_VOLUME)
+/mob/living/carbon/proc/breathe(active_breathe = TRUE)
 	if(species && (species.flags & NO_BREATHE))
 		return
 	if(HAS_TRAIT(src, TRAIT_PRESSURE_IMMUNITY))
 		return
-
-	volume_needed *= (species?.breath_vol_mul || 1)
 
 	var/datum/gas_mixture/breath = null
 
@@ -21,20 +19,26 @@
 
 	if(losebreath>0) //Suffocating so do not take a breath
 		losebreath--
-		if (prob(10) && !isipc(src) && !is_asystole()) //Gasp per 10 ticks? Sounds about right.
+		if (prob(10) && !isipc(src) && !is_asystole() && active_breathe) //Gasp per 10 ticks? Sounds about right.
 			emote("gasp")
 	else
 		//Okay, we can breathe, now check if we can get air
+		var/volume_needed = get_breath_volume()
 		breath = get_breath_from_internal(volume_needed) //First, check for air from internals
 		if(!breath)
 			breath = get_breath_from_environment(volume_needed) //No breath from internals so let's try to get air from our location
+		if(!breath)
+			var/static/datum/gas_mixture/vacuum //avoid having to create a new gas mixture for each breath in space
+			if(!vacuum) vacuum = new
+
+			breath = vacuum //still nothing? must be vacuum
 
 	// Passing the gas mixture to the lungs, if they exist.
 	handle_breath(breath)
 	// Handling exhalation.
 	handle_post_breath(breath)
 
-/mob/living/carbon/proc/get_breath_from_internal(var/volume_needed=BREATH_VOLUME) //hopefully this will allow overrides to specify a different default volume without breaking any cases where volume is passed in.
+/mob/living/carbon/proc/get_breath_from_internal(volume_needed=STD_BREATH_VOLUME) //hopefully this will allow overrides to specify a different default volume without breaking any cases where volume is passed in.
 	if(internal)
 		if (!contents.Find(internal))
 			internal = null
@@ -49,7 +53,7 @@
 				internals.icon_state = "internal0"
 	return null
 
-/mob/living/carbon/proc/get_breath_from_environment(var/volume_needed=BREATH_VOLUME)
+/mob/living/carbon/proc/get_breath_from_environment(volume_needed=STD_BREATH_VOLUME)
 	var/datum/gas_mixture/breath = null
 
 	var/datum/gas_mixture/environment
@@ -68,6 +72,9 @@
 			loc.assume_air(filtered)
 		return breath
 	return null
+
+/mob/living/carbon/proc/get_breath_volume()
+	return STD_BREATH_VOLUME
 
 /mob/living/carbon/proc/handle_breath(datum/gas_mixture/breath)
 	return
