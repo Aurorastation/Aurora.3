@@ -1,4 +1,8 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"as" = (
+/obj/structure/urban_grate,
+/turf/simulated/floor/sidewalk/blocks,
+/area/triesto/outdoors)
 "at" = (
 /obj/structure/sign/urban/staff{
 	pixel_y = 40
@@ -25,12 +29,27 @@
 /obj/structure/lattice/catwalk/indoor,
 /turf/simulated/floor/plating,
 /area/triesto/outdoors)
+"aU" = (
+/obj/effect/decal/road_marking/center,
+/obj/random/dirt_75,
+/turf/simulated/floor/asphalt,
+/area/triesto/outdoors)
+"aZ" = (
+/obj/effect/decal/curb/corner,
+/turf/simulated/floor/asphalt,
+/area/triesto/outdoors)
 "bh" = (
 /obj/structure/ledge{
 	dir = 10
 	},
 /obj/item/hullbeacon/red,
 /turf/simulated/floor/reinforced,
+/area/triesto/outdoors)
+"bk" = (
+/obj/effect/decal/curb/corner{
+	dir = 4
+	},
+/turf/simulated/floor/concrete,
 /area/triesto/outdoors)
 "bt" = (
 /obj/effect/map_effect/map_helper/ruler_tiles_3,
@@ -69,6 +88,15 @@
 /obj/structure/lattice/catwalk/indoor,
 /turf/simulated/floor/airless,
 /area/triesto/outdoors)
+"cc" = (
+/obj/effect/decal/road_marking/thin{
+	dir = 4
+	},
+/obj/effect/decal/road_marking/thin{
+	dir = 8
+	},
+/turf/simulated/floor/asphalt,
+/area/triesto/outdoors)
 "cg" = (
 /obj/machinery/mech_recharger/automobile,
 /turf/simulated/floor/concrete,
@@ -81,6 +109,12 @@
 	icon_state = "co2-13"
 	},
 /turf/simulated/floor/airless,
+/area/triesto/outdoors)
+"cs" = (
+/obj/effect/decal/road_marking{
+	dir = 4
+	},
+/turf/simulated/floor/asphalt,
 /area/triesto/outdoors)
 "cv" = (
 /obj/structure/bed/stool/chair,
@@ -132,6 +166,9 @@
 	},
 /turf/simulated/floor/airless,
 /area/triesto/outdoors)
+"ds" = (
+/turf/space,
+/area/triesto/outdoors)
 "du" = (
 /obj/effect/decal/curb{
 	dir = 4
@@ -151,6 +188,14 @@
 	},
 /obj/effect/decal/fake_object/light_source/invisible,
 /turf/simulated/floor/reinforced/carbon_dioxide,
+/area/triesto/outdoors)
+"dN" = (
+/obj/structure/utility_pole/street/crosswalk,
+/obj/structure/utility_pole/street/traffic/base{
+	pixel_y = 18;
+	pixel_x = -14
+	},
+/turf/simulated/floor/sidewalk/blocks,
 /area/triesto/outdoors)
 "dZ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/aux{
@@ -206,6 +251,19 @@
 	},
 /turf/simulated/floor/tiled/techfloor,
 /area/triesto/outdoors)
+"fr" = (
+/obj/effect/decal/road_marking,
+/obj/effect/decal/road_marking{
+	dir = 8
+	},
+/obj/effect/decal/curb{
+	dir = 6
+	},
+/obj/structure/utility_pole/street/on{
+	dir = 4
+	},
+/turf/simulated/floor/asphalt,
+/area/triesto/outdoors)
 "fs" = (
 /obj/structure/bed/stool/chair,
 /obj/random/dirt_75,
@@ -233,11 +291,25 @@
 /obj/machinery/portable_atmospherics/canister/air,
 /turf/simulated/floor/asphalt,
 /area/triesto/outdoors)
+"gO" = (
+/obj/effect/decal/road_marking/center{
+	dir = 8
+	},
+/obj/effect/decal/road_marking/reflector{
+	dir = 8
+	},
+/obj/effect/decal/road_marking/no_pass,
+/turf/simulated/floor/asphalt,
+/area/triesto/outdoors)
 "gX" = (
 /obj/effect/decal/curb/corner{
 	dir = 4
 	},
 /obj/effect/decal/curb,
+/turf/simulated/floor/asphalt,
+/area/triesto/outdoors)
+"gY" = (
+/obj/random/dirt_75,
 /turf/simulated/floor/asphalt,
 /area/triesto/outdoors)
 "ha" = (
@@ -363,12 +435,30 @@
 	},
 /turf/simulated/floor/airless,
 /area/triesto/outdoors)
+"jk" = (
+/obj/effect/decal/road_marking/center{
+	dir = 8
+	},
+/obj/effect/decal/road_marking/no_pass{
+	dir = 1
+	},
+/obj/effect/decal/road_marking/reflector{
+	dir = 8
+	},
+/turf/simulated/floor/asphalt,
+/area/triesto/outdoors)
 "jt" = (
 /obj/structure/table/wood,
 /obj/machinery/light/small{
 	dir = 8
 	},
 /turf/simulated/floor/wood,
+/area/triesto/outdoors)
+"jD" = (
+/obj/effect/decal/curb{
+	dir = 8
+	},
+/turf/simulated/floor/concrete,
 /area/triesto/outdoors)
 "jR" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/aux{
@@ -443,6 +533,9 @@
 	},
 /turf/simulated/floor/tiled/full,
 /area/triesto/outdoors)
+"lk" = (
+/turf/simulated/floor/grass,
+/area/triesto/outdoors)
 "lu" = (
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
@@ -451,11 +544,26 @@
 /obj/machinery/atmospherics/portables_connector,
 /turf/simulated/floor/airless,
 /area/triesto/outdoors)
+"lC" = (
+/obj/structure/neon_sign{
+	icon_state = "sign7";
+	pixel_x = -3;
+	pixel_y = 32
+	},
+/turf/simulated/floor/concrete,
+/area/triesto/outdoors)
 "lJ" = (
 /obj/structure/rod_railing,
 /obj/random/dirt_75,
 /obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/tiled/full,
+/area/triesto/outdoors)
+"lN" = (
+/obj/effect/decal/road_marking/thin{
+	dir = 1
+	},
+/obj/effect/decal/road_marking/thin,
+/turf/simulated/floor/asphalt,
 /area/triesto/outdoors)
 "lO" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -544,6 +652,15 @@
 /obj/effect/decal/exterior_stairs/center,
 /turf/simulated/floor/reinforced,
 /area/triesto/outdoors)
+"mJ" = (
+/obj/effect/decal/road_marking/crosswalk{
+	dir = 4
+	},
+/obj/effect/decal/curb{
+	dir = 8
+	},
+/turf/simulated/floor/asphalt,
+/area/triesto/outdoors)
 "mO" = (
 /obj/effect/decal/curb{
 	dir = 8
@@ -615,6 +732,27 @@
 /obj/structure/lattice/catwalk/indoor/urban,
 /turf/simulated/floor/airless,
 /area/triesto/outdoors)
+"ox" = (
+/obj/effect/decal/road_marking{
+	dir = 1
+	},
+/obj/effect/decal/curb{
+	dir = 1
+	},
+/obj/structure/utility_pole/street/on{
+	dir = 1
+	},
+/turf/simulated/floor/asphalt,
+/area/triesto/outdoors)
+"oU" = (
+/obj/effect/decal/road_marking/crosswalk{
+	dir = 4
+	},
+/obj/effect/decal/curb{
+	dir = 4
+	},
+/turf/simulated/floor/asphalt,
+/area/triesto/outdoors)
 "pi" = (
 /turf/unsimulated/wall/fakepdoor{
 	icon_state = "shutter1";
@@ -663,6 +801,13 @@
 /obj/structure/railing/mapped,
 /obj/structure/lattice/catwalk/indoor,
 /turf/simulated/floor/plating,
+/area/triesto/outdoors)
+"qy" = (
+/obj/effect/decal/road_marking,
+/obj/effect/decal/curb{
+	dir = 8
+	},
+/turf/simulated/floor/asphalt,
 /area/triesto/outdoors)
 "qF" = (
 /obj/machinery/atm{
@@ -715,6 +860,15 @@
 	},
 /turf/simulated/floor/reinforced/airmix,
 /area/triesto/outdoors)
+"rD" = (
+/obj/effect/decal/road_marking{
+	dir = 4
+	},
+/obj/effect/decal/curb{
+	dir = 1
+	},
+/turf/simulated/floor/asphalt,
+/area/triesto/outdoors)
 "rO" = (
 /obj/machinery/atm{
 	dir = 1;
@@ -732,6 +886,20 @@
 	opacity = 0
 	},
 /turf/simulated/floor/reinforced/airmix,
+/area/triesto/outdoors)
+"sf" = (
+/obj/effect/decal/curb/corner{
+	dir = 4
+	},
+/turf/simulated/floor/asphalt,
+/area/triesto/outdoors)
+"sk" = (
+/obj/effect/decal/road_marking/center,
+/obj/effect/decal/road_marking/no_pass{
+	dir = 8
+	},
+/obj/effect/decal/road_marking/reflector,
+/turf/simulated/floor/asphalt,
 /area/triesto/outdoors)
 "sn" = (
 /obj/effect/map_effect/window_spawner/full/wood,
@@ -754,6 +922,24 @@
 /obj/structure/lattice/catwalk/indoor/urban,
 /turf/simulated/floor/airless,
 /area/triesto/outdoors)
+"sz" = (
+/obj/structure/road_barrier/bot_end{
+	dir = 1
+	},
+/turf/simulated/floor/sidewalk,
+/area/triesto/outdoors)
+"sE" = (
+/obj/structure/ledge/corner{
+	dir = 1
+	},
+/obj/effect/decal/road_marking{
+	dir = 4
+	},
+/obj/effect/decal/curb{
+	dir = 8
+	},
+/turf/simulated/floor/asphalt,
+/area/triesto/outdoors)
 "sH" = (
 /obj/structure/lattice/catwalk/indoor,
 /obj/random/dirt_75,
@@ -775,6 +961,12 @@
 "tx" = (
 /obj/effect/decal/road_marking/reflector,
 /turf/simulated/floor/concrete,
+/area/triesto/outdoors)
+"tB" = (
+/obj/effect/decal/curb/corner{
+	dir = 8
+	},
+/turf/simulated/floor/asphalt,
 /area/triesto/outdoors)
 "tC" = (
 /obj/effect/decal/curb,
@@ -812,6 +1004,12 @@
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /turf/simulated/floor/reinforced,
+/area/triesto/outdoors)
+"uv" = (
+/obj/effect/decal/curb{
+	dir = 1
+	},
+/turf/simulated/floor/concrete,
 /area/triesto/outdoors)
 "uw" = (
 /obj/item/hullbeacon/red,
@@ -854,6 +1052,28 @@
 /obj/structure/tank_wall/air,
 /turf/simulated/floor/plating,
 /area/triesto/outdoors)
+"vO" = (
+/obj/effect/decal/road_marking/center{
+	dir = 8
+	},
+/obj/effect/decal/road_marking/reflector{
+	dir = 8
+	},
+/turf/simulated/floor/asphalt,
+/area/triesto/outdoors)
+"vW" = (
+/obj/structure/utility_pole/street/traffic/inverted{
+	dir = 8;
+	pixel_y = 12
+	},
+/obj/structure/road_sign/street{
+	pixel_x = -11;
+	pixel_y = 28;
+	icon_state = "street_right";
+	street_name = "Spaceport Avenue"
+	},
+/turf/simulated/floor/sidewalk/blocks,
+/area/triesto/outdoors)
 "wq" = (
 /obj/item/hullbeacon/red,
 /obj/structure/railing/mapped{
@@ -881,6 +1101,15 @@
 	req_one_access = null
 	},
 /turf/simulated/floor/tiled/full,
+/area/triesto/outdoors)
+"wA" = (
+/obj/effect/decal/road_marking/crosswalk{
+	dir = 8
+	},
+/obj/effect/decal/curb{
+	dir = 8
+	},
+/turf/simulated/floor/asphalt,
 /area/triesto/outdoors)
 "wM" = (
 /obj/structure/ledge{
@@ -913,6 +1142,22 @@
 /obj/structure/closet/crate/secure/large,
 /turf/simulated/floor/asphalt,
 /area/triesto/outdoors)
+"xi" = (
+/obj/effect/decal/road_marking{
+	dir = 8
+	},
+/obj/effect/decal/curb,
+/turf/simulated/floor/asphalt,
+/area/triesto/outdoors)
+"xq" = (
+/obj/effect/decal/road_marking{
+	dir = 4
+	},
+/obj/effect/decal/curb{
+	dir = 8
+	},
+/turf/simulated/floor/asphalt,
+/area/triesto/outdoors)
 "xx" = (
 /obj/structure/railing/mapped,
 /obj/structure/lattice/catwalk/indoor,
@@ -934,6 +1179,10 @@
 	},
 /obj/structure/lattice/catwalk/indoor,
 /turf/simulated/floor/plating,
+/area/triesto/outdoors)
+"xI" = (
+/obj/structure/road_barrier/bot_end,
+/turf/simulated/floor/sidewalk,
 /area/triesto/outdoors)
 "ya" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/aux,
@@ -999,6 +1248,13 @@
 "zg" = (
 /obj/structure/table/steel,
 /turf/simulated/floor/tiled/full,
+/area/triesto/outdoors)
+"zr" = (
+/obj/structure/road_barrier{
+	dir = 4
+	},
+/obj/structure/urban_grate,
+/turf/simulated/floor/sidewalk,
 /area/triesto/outdoors)
 "zu" = (
 /obj/effect/map_effect/window_spawner/full/reinforced,
@@ -1087,6 +1343,12 @@
 	},
 /turf/simulated/floor/reinforced,
 /area/triesto/outdoors)
+"Ci" = (
+/obj/structure/road_barrier/bot_in{
+	dir = 4
+	},
+/turf/simulated/floor/sidewalk/detail,
+/area/triesto/outdoors)
 "Cm" = (
 /obj/effect/decal/curb{
 	dir = 8
@@ -1103,6 +1365,14 @@
 	req_one_access = null
 	},
 /turf/simulated/floor/tiled/full,
+/area/triesto/outdoors)
+"Cy" = (
+/obj/structure/neon_sign{
+	icon_state = "internet_cafe";
+	pixel_y = 26;
+	pixel_x = -27
+	},
+/turf/simulated/floor/sidewalk,
 /area/triesto/outdoors)
 "CD" = (
 /obj/effect/floor_decal/industrial/hatch/red,
@@ -1123,6 +1393,12 @@
 	},
 /obj/effect/decal/curb,
 /turf/simulated/floor/asphalt,
+/area/triesto/outdoors)
+"DB" = (
+/obj/structure/road_barrier{
+	dir = 4
+	},
+/turf/simulated/floor/sidewalk/detail,
 /area/triesto/outdoors)
 "DI" = (
 /obj/structure/ledge/quarter{
@@ -1161,6 +1437,11 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/concrete,
 /area/triesto/outdoors)
+"Ee" = (
+/obj/effect/decal/road_marking,
+/obj/effect/decal/curb,
+/turf/simulated/floor/asphalt,
+/area/triesto/outdoors)
 "Eh" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/aux,
 /obj/machinery/meter{
@@ -1173,6 +1454,12 @@
 /obj/effect/floor_decal/industrial/warning,
 /obj/random/dirt_75,
 /turf/simulated/floor/airless,
+/area/triesto/outdoors)
+"Er" = (
+/obj/effect/decal/road_marking/turn_left{
+	dir = 8
+	},
+/turf/simulated/floor/asphalt,
 /area/triesto/outdoors)
 "Et" = (
 /obj/machinery/atmospherics/pipe/simple/visible/black{
@@ -1240,6 +1527,13 @@
 	},
 /turf/simulated/floor/concrete/square,
 /area/triesto/outdoors)
+"FP" = (
+/obj/effect/decal/road_marking/crosswalk{
+	dir = 1
+	},
+/obj/effect/decal/curb,
+/turf/simulated/floor/asphalt,
+/area/triesto/outdoors)
 "FR" = (
 /obj/random/dirt_75,
 /obj/effect/floor_decal/industrial/hatch/red,
@@ -1277,6 +1571,15 @@
 /obj/item/hullbeacon/red,
 /turf/simulated/floor/reinforced,
 /area/triesto/outdoors)
+"GZ" = (
+/obj/effect/decal/road_marking/crosswalk{
+	dir = 1
+	},
+/obj/effect/decal/curb{
+	dir = 1
+	},
+/turf/simulated/floor/asphalt,
+/area/triesto/outdoors)
 "Hi" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 6
@@ -1308,6 +1611,17 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/reinforced,
 /area/triesto/outdoors)
+"HN" = (
+/obj/structure/hydrant{
+	pixel_x = -15
+	},
+/turf/simulated/floor/sidewalk/blocks,
+/area/triesto/outdoors)
+"HQ" = (
+/obj/effect/decal/road_marking/crosswalk,
+/obj/effect/decal/curb,
+/turf/simulated/floor/asphalt,
+/area/triesto/outdoors)
 "HZ" = (
 /turf/unsimulated/mineral/assunzione,
 /area/triesto/outdoors)
@@ -1337,6 +1651,10 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/triesto/outdoors)
+"IO" = (
+/obj/structure/road_barrier,
+/turf/simulated/floor/sidewalk,
+/area/triesto/outdoors)
 "Jh" = (
 /obj/structure/stairs/urban/south,
 /turf/simulated/floor/concrete,
@@ -1344,6 +1662,12 @@
 "Jv" = (
 /obj/effect/decal/exterior_stairs/half,
 /turf/simulated/floor/tiled/full,
+/area/triesto/outdoors)
+"Jx" = (
+/obj/effect/decal/curb/corner{
+	dir = 8
+	},
+/turf/simulated/floor/concrete,
 /area/triesto/outdoors)
 "Jz" = (
 /obj/structure/table/rack,
@@ -1365,6 +1689,12 @@
 	},
 /obj/effect/decal/fake_object/light_source/invisible,
 /turf/simulated/floor/reinforced/airmix,
+/area/triesto/outdoors)
+"Kh" = (
+/obj/effect/decal/road_marking/crosswalk{
+	dir = 1
+	},
+/turf/simulated/floor/asphalt,
 /area/triesto/outdoors)
 "Kn" = (
 /obj/machinery/door/urban/glass_sliding/double{
@@ -1411,6 +1741,15 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/steel,
 /area/triesto/outdoors)
+"Lb" = (
+/obj/effect/decal/road_marking{
+	dir = 1
+	},
+/obj/effect/decal/curb{
+	dir = 1
+	},
+/turf/simulated/floor/asphalt,
+/area/triesto/outdoors)
 "Li" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -1430,15 +1769,40 @@
 	},
 /turf/simulated/floor/reinforced,
 /area/triesto/outdoors)
+"LH" = (
+/obj/effect/decal/road_marking,
+/obj/effect/decal/road_marking/crosswalk{
+	dir = 1
+	},
+/obj/effect/decal/curb,
+/turf/simulated/floor/asphalt,
+/area/triesto/outdoors)
 "LQ" = (
 /obj/random/dirt_75,
 /obj/machinery/vending/cigarette,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/full,
 /area/triesto/outdoors)
+"Mf" = (
+/obj/effect/decal/road_marking/center,
+/obj/effect/decal/road_marking/no_pass{
+	dir = 4
+	},
+/obj/effect/decal/road_marking/reflector,
+/turf/simulated/floor/asphalt,
+/area/triesto/outdoors)
 "Ms" = (
 /obj/effect/decal/road_marking/thin,
 /obj/machinery/portable_atmospherics/canister,
+/turf/simulated/floor/asphalt,
+/area/triesto/outdoors)
+"MA" = (
+/obj/effect/decal/road_marking{
+	dir = 1
+	},
+/obj/effect/decal/curb/corner{
+	dir = 8
+	},
 /turf/simulated/floor/asphalt,
 /area/triesto/outdoors)
 "MF" = (
@@ -1477,6 +1841,10 @@
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
+/area/triesto/outdoors)
+"NJ" = (
+/obj/structure/utility_pole/street_aszn/on,
+/turf/simulated/floor/concrete,
 /area/triesto/outdoors)
 "NV" = (
 /obj/item/hullbeacon/red,
@@ -1518,6 +1886,12 @@
 "OW" = (
 /turf/simulated/floor/tiled/steel,
 /area/triesto/outdoors)
+"Ps" = (
+/obj/effect/decal/curb/corner{
+	dir = 1
+	},
+/turf/simulated/floor/asphalt,
+/area/triesto/outdoors)
 "Py" = (
 /obj/effect/floor_decal/industrial/warning,
 /obj/structure/tank_wall/air{
@@ -1533,6 +1907,25 @@
 	},
 /obj/structure/railing/mapped,
 /turf/simulated/floor/tiled/dark/full,
+/area/triesto/outdoors)
+"PZ" = (
+/obj/effect/decal/road_marking/center{
+	dir = 8
+	},
+/obj/effect/decal/road_marking/reflector{
+	dir = 8
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/asphalt,
+/area/triesto/outdoors)
+"Qh" = (
+/obj/effect/decal/road_marking/crosswalk{
+	dir = 8
+	},
+/obj/effect/decal/curb{
+	dir = 4
+	},
+/turf/simulated/floor/asphalt,
 /area/triesto/outdoors)
 "Qi" = (
 /obj/machinery/atmospherics/binary/pump/aux{
@@ -1553,9 +1946,15 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/airless,
 /area/triesto/outdoors)
+"Qt" = (
+/turf/simulated/floor/sidewalk/blocks,
+/area/triesto/outdoors)
 "Qy" = (
 /obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/tiled/full,
+/area/triesto/outdoors)
+"Qz" = (
+/turf/simulated/floor/sidewalk/detail,
 /area/triesto/outdoors)
 "QD" = (
 /obj/structure/ledge{
@@ -1606,6 +2005,10 @@
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/reinforced,
+/area/triesto/outdoors)
+"RM" = (
+/obj/effect/decal/road_marking/crosswalk,
+/turf/simulated/floor/asphalt,
 /area/triesto/outdoors)
 "RP" = (
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -1668,6 +2071,12 @@
 	},
 /turf/simulated/floor/reinforced,
 /area/triesto/outdoors)
+"SQ" = (
+/obj/effect/decal/curb{
+	dir = 4
+	},
+/turf/simulated/floor/concrete,
+/area/triesto/outdoors)
 "SZ" = (
 /obj/structure/rod_railing{
 	dir = 8
@@ -1680,9 +2089,24 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/full,
 /area/triesto/outdoors)
+"To" = (
+/obj/effect/decal/road_marking{
+	dir = 1
+	},
+/obj/effect/decal/curb{
+	dir = 4
+	},
+/turf/simulated/floor/asphalt,
+/area/triesto/outdoors)
 "Tu" = (
 /obj/effect/map_effect/window_spawner/full/reinforced,
 /turf/simulated/floor/tiled,
+/area/triesto/outdoors)
+"Tv" = (
+/obj/structure/road_barrier{
+	dir = 4
+	},
+/turf/simulated/floor/sidewalk,
 /area/triesto/outdoors)
 "TD" = (
 /obj/effect/floor_decal/industrial/warning,
@@ -1690,6 +2114,15 @@
 	icon_state = "air16"
 	},
 /turf/simulated/floor/plating,
+/area/triesto/outdoors)
+"TJ" = (
+/obj/structure/utility_pole/street/on{
+	dir = 1
+	},
+/obj/effect/decal/curb{
+	dir = 1
+	},
+/turf/simulated/floor/asphalt,
 /area/triesto/outdoors)
 "TW" = (
 /obj/machinery/meter{
@@ -1719,6 +2152,13 @@
 	},
 /obj/item/hullbeacon/red,
 /turf/simulated/floor/reinforced,
+/area/triesto/outdoors)
+"UF" = (
+/obj/effect/decal/road_marking/crosswalk,
+/obj/effect/decal/curb{
+	dir = 1
+	},
+/turf/simulated/floor/asphalt,
 /area/triesto/outdoors)
 "UU" = (
 /obj/structure/ledge/quarter{
@@ -1777,6 +2217,17 @@
 /obj/structure/rod_railing,
 /turf/simulated/floor/tiled/full,
 /area/triesto/outdoors)
+"VF" = (
+/obj/effect/decal/road_marking/center,
+/obj/effect/decal/road_marking/reflector,
+/turf/simulated/floor/asphalt,
+/area/triesto/outdoors)
+"VM" = (
+/obj/effect/decal/road_marking{
+	dir = 8
+	},
+/turf/simulated/floor/asphalt,
+/area/triesto/outdoors)
 "VT" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
@@ -1785,6 +2236,10 @@
 	icon_state = "air4"
 	},
 /turf/simulated/floor/plating,
+/area/triesto/outdoors)
+"VV" = (
+/obj/effect/decal/road_marking/turn_right,
+/turf/simulated/floor/asphalt,
 /area/triesto/outdoors)
 "Ws" = (
 /obj/structure/ledge{
@@ -1804,6 +2259,9 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/full,
 /area/triesto/outdoors)
+"WA" = (
+/turf/simulated/floor/sidewalk,
+/area/triesto/outdoors)
 "WL" = (
 /obj/random/dirt_75,
 /turf/simulated/floor/concrete,
@@ -1820,6 +2278,12 @@
 "Xh" = (
 /turf/simulated/floor/reinforced,
 /area/triesto/outdoors)
+"XL" = (
+/obj/structure/utility_pole/street/on{
+	pixel_y = -3
+	},
+/turf/simulated/floor/sidewalk,
+/area/triesto/outdoors)
 "XQ" = (
 /obj/machinery/atmospherics/unary/vent_pump/siphon/on/atmos{
 	dir = 1;
@@ -1831,6 +2295,29 @@
 /obj/effect/floor_decal/spline/fancy/wood,
 /obj/machinery/hologram/holopad/long_range,
 /turf/simulated/floor/wood,
+/area/triesto/outdoors)
+"Yh" = (
+/obj/structure/utility_pole/street/traffic/inverted{
+	dir = 4;
+	pixel_y = -1;
+	pixel_x = 1
+	},
+/obj/structure/road_sign/street{
+	pixel_x = 3;
+	icon_state = "street_left";
+	street_name = "Spaceport Avenue"
+	},
+/turf/simulated/floor/sidewalk/detail,
+/area/triesto/outdoors)
+"Yl" = (
+/obj/effect/decal/road_marking{
+	dir = 1
+	},
+/obj/effect/decal/curb{
+	dir = 1
+	},
+/obj/effect/decal/road_marking/crosswalk,
+/turf/simulated/floor/asphalt,
 /area/triesto/outdoors)
 "Yr" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -1845,6 +2332,13 @@
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /turf/simulated/floor/concrete,
+/area/triesto/outdoors)
+"YE" = (
+/obj/effect/decal/road_marking{
+	dir = 1
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/asphalt,
 /area/triesto/outdoors)
 "YG" = (
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -1899,6 +2393,15 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled/full,
+/area/triesto/outdoors)
+"ZA" = (
+/obj/effect/decal/road_marking{
+	dir = 8
+	},
+/obj/effect/decal/curb{
+	dir = 4
+	},
+/turf/simulated/floor/asphalt,
 /area/triesto/outdoors)
 "ZT" = (
 /obj/structure/tank_wall/air{
@@ -15232,13 +15735,13 @@ cG
 cG
 cG
 cG
-HZ
-HZ
-HZ
-HZ
-HZ
-HZ
-HZ
+cG
+cG
+cG
+cG
+cG
+cG
+cG
 HZ
 HZ
 HZ
@@ -15489,13 +15992,13 @@ cG
 cG
 cG
 cG
-HZ
-HZ
-HZ
-HZ
-HZ
-HZ
-HZ
+cG
+cG
+cG
+cG
+cG
+cG
+cG
 HZ
 HZ
 HZ
@@ -15746,13 +16249,13 @@ cG
 cG
 cG
 cG
-HZ
-HZ
-HZ
-HZ
-HZ
-HZ
-HZ
+cG
+cG
+cG
+cG
+cG
+cG
+cG
 HZ
 HZ
 HZ
@@ -16003,13 +16506,13 @@ cG
 cG
 cG
 cG
-HZ
-HZ
-HZ
-HZ
-HZ
-HZ
-HZ
+cG
+cG
+cG
+cG
+cG
+cG
+cG
 HZ
 HZ
 HZ
@@ -16260,13 +16763,13 @@ cG
 cG
 cG
 cG
-HZ
-HZ
-HZ
-HZ
-HZ
-HZ
-HZ
+cG
+cG
+cG
+cG
+cG
+cG
+cG
 HZ
 HZ
 HZ
@@ -16517,13 +17020,13 @@ cG
 cG
 cG
 cG
-HZ
-HZ
-HZ
-HZ
-HZ
-HZ
-HZ
+cG
+cG
+cG
+cG
+cG
+cG
+cG
 HZ
 HZ
 HZ
@@ -16774,13 +17277,13 @@ cG
 cG
 cG
 cG
-HZ
-HZ
-HZ
-HZ
-HZ
-HZ
-HZ
+cG
+cG
+cG
+cG
+cG
+cG
+cG
 HZ
 HZ
 HZ
@@ -17017,6 +17520,14 @@ cG
 cG
 cG
 cG
+lk
+lk
+lk
+lk
+lk
+lk
+lk
+lk
 cG
 cG
 cG
@@ -17030,14 +17541,6 @@ cG
 cG
 cG
 cG
-cG
-HZ
-HZ
-HZ
-HZ
-HZ
-HZ
-HZ
 HZ
 HZ
 HZ
@@ -17274,6 +17777,14 @@ cG
 cG
 cG
 cG
+lk
+lk
+lk
+lk
+lk
+lk
+lk
+lk
 cG
 cG
 cG
@@ -17287,14 +17798,6 @@ cG
 cG
 cG
 cG
-cG
-HZ
-HZ
-HZ
-HZ
-HZ
-HZ
-HZ
 HZ
 HZ
 HZ
@@ -17531,6 +18034,14 @@ cG
 cG
 cG
 cG
+lk
+lk
+lk
+lk
+lk
+lk
+lk
+lk
 cG
 cG
 cG
@@ -17544,14 +18055,6 @@ cG
 cG
 cG
 cG
-cG
-HZ
-HZ
-HZ
-HZ
-HZ
-HZ
-HZ
 HZ
 HZ
 HZ
@@ -17780,6 +18283,22 @@ cG
 cG
 cG
 cG
+lk
+lk
+lk
+lk
+lk
+lk
+lk
+lk
+lk
+lk
+lk
+lk
+lk
+lk
+lk
+lk
 cG
 cG
 cG
@@ -17793,22 +18312,6 @@ cG
 cG
 cG
 cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-HZ
-HZ
-HZ
-HZ
-HZ
-HZ
-HZ
 HZ
 HZ
 HZ
@@ -18021,13 +18524,38 @@ HZ
 HZ
 HZ
 HZ
-HZ
-HZ
-HZ
-HZ
-HZ
-HZ
-HZ
+Ci
+Tv
+Tv
+Tv
+zr
+DB
+Tv
+Tv
+cG
+cG
+cG
+cG
+cG
+cG
+cG
+cG
+lk
+lk
+lk
+lk
+lk
+lk
+lk
+lk
+lk
+lk
+lk
+lk
+lk
+lk
+lk
+lk
 cG
 cG
 cG
@@ -18041,31 +18569,6 @@ cG
 cG
 cG
 cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-HZ
-HZ
-HZ
-HZ
-HZ
-HZ
-HZ
 HZ
 HZ
 HZ
@@ -18278,13 +18781,14 @@ HZ
 HZ
 HZ
 HZ
-HZ
-HZ
-HZ
-HZ
-HZ
-HZ
-HZ
+IO
+fr
+ZA
+ZA
+ZA
+ZA
+ZA
+ZA
 cG
 cG
 cG
@@ -18293,36 +18797,35 @@ cG
 cG
 cG
 cG
+lk
+lk
+lk
+lk
+lk
+lk
+lk
+lk
+lk
+lk
+lk
+lk
+lk
+lk
+lk
+lk
 cG
 cG
 cG
 cG
 cG
 cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-HZ
-HZ
-HZ
-HZ
-HZ
-HZ
-HZ
+Ct
+Ct
+Ct
+Ct
+Ct
+Ct
+Ct
 HZ
 HZ
 HZ
@@ -18535,13 +19038,14 @@ HZ
 HZ
 HZ
 HZ
-HZ
-HZ
-HZ
-HZ
-HZ
-HZ
-HZ
+IO
+Ee
+Er
+pr
+pr
+pr
+pr
+pr
 cG
 cG
 cG
@@ -18550,30 +19054,29 @@ cG
 cG
 cG
 cG
+lk
+lk
+lk
+lk
+lk
+lk
+lk
+lk
+lk
+lk
+lk
+lk
+lk
+lk
+lk
+lk
 cG
 cG
 cG
 cG
 cG
 cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-HZ
+Ct
 HZ
 HZ
 HZ
@@ -18792,13 +19295,14 @@ HZ
 HZ
 HZ
 HZ
-HZ
-HZ
-HZ
-HZ
-HZ
-HZ
-HZ
+IO
+Ee
+pr
+pr
+pr
+aU
+VF
+VF
 cG
 cG
 cG
@@ -18807,23 +19311,22 @@ cG
 cG
 cG
 cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
+lk
+lk
+lk
+lk
+lk
+lk
+lk
+lk
+lk
+lk
+lk
+lk
+lk
+lk
+lk
+lk
 cG
 cG
 kx
@@ -19049,13 +19552,14 @@ HZ
 HZ
 HZ
 HZ
-HZ
-HZ
-HZ
-HZ
-HZ
-HZ
-HZ
+IO
+Ee
+pr
+gY
+gY
+YE
+VV
+pr
 cG
 cG
 cG
@@ -19064,23 +19568,22 @@ cG
 cG
 cG
 cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
+lk
+lk
+lk
+lk
+lk
+lk
+lk
+lk
+lk
+lk
+lk
+lk
+lk
+lk
+lk
+lk
 cG
 cG
 kx
@@ -19306,13 +19809,14 @@ HZ
 HZ
 HZ
 HZ
-HZ
-HZ
-HZ
-HZ
-HZ
-HZ
-HZ
+xI
+Ee
+pr
+PZ
+gY
+MA
+xq
+xq
 cG
 cG
 cG
@@ -19321,23 +19825,22 @@ cG
 cG
 cG
 cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
+lk
+lk
+lk
+lk
+lk
+lk
+lk
+lk
+lk
+lk
+lk
+lk
+lk
+lk
+lk
+lk
 cG
 cG
 kx
@@ -19563,13 +20066,14 @@ HZ
 HZ
 HZ
 HZ
-HZ
-HZ
-HZ
-HZ
-HZ
-HZ
-HZ
+Qz
+LH
+Kh
+cc
+RM
+Yl
+HN
+Qt
 cG
 cG
 cG
@@ -19578,23 +20082,22 @@ cG
 cG
 cG
 cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
+lk
+lk
+lk
+lk
+lk
+lk
+lk
+lk
+lk
+lk
+lk
+lk
+lk
+lk
+lk
+lk
 cG
 cG
 kx
@@ -19820,13 +20323,14 @@ HZ
 HZ
 HZ
 HZ
-HZ
-HZ
-HZ
-HZ
-HZ
-HZ
-HZ
+sz
+Ee
+pr
+vO
+pr
+ox
+as
+WA
 cG
 cG
 cG
@@ -19835,23 +20339,22 @@ cG
 cG
 cG
 cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
+lk
+lk
+lk
+lk
+lk
+lk
+lk
+lk
+lk
+lk
+lk
+lk
+lk
+lk
+lk
+lk
 cG
 cG
 kx
@@ -20093,22 +20596,22 @@ cG
 cG
 cG
 cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
+lk
+lk
+lk
+lk
+lk
+lk
+lk
+lk
+lk
+lk
+lk
+lk
+lk
+lk
+lk
+lk
 cG
 cG
 kx
@@ -20350,22 +20853,22 @@ cG
 cG
 cG
 cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
+lk
+lk
+lk
+lk
+lk
+lk
+lk
+lk
+lk
+lk
+lk
+lk
+lk
+lk
+lk
+lk
 cG
 cG
 cG
@@ -20607,22 +21110,22 @@ cG
 cG
 cG
 cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
+lk
+lk
+lk
+lk
+lk
+lk
+lk
+lk
+lk
+lk
+lk
+lk
+lk
+lk
+lk
+lk
 cG
 cG
 cG
@@ -20864,22 +21367,22 @@ cG
 cG
 cG
 cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
+lk
+lk
+lk
+lk
+lk
+lk
+lk
+lk
+lk
+lk
+lk
+lk
+lk
+lk
+lk
+lk
 cG
 cG
 cG
@@ -21121,22 +21624,22 @@ cG
 cG
 cG
 cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
+lk
+lk
+lk
+lk
+lk
+lk
+lk
+lk
+lk
+lk
+lk
+lk
+lk
+lk
+lk
+lk
 cG
 cG
 cG
@@ -21378,22 +21881,22 @@ cG
 cG
 cG
 cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
+lk
+lk
+lk
+lk
+lk
+lk
+lk
+lk
+lk
+lk
+lk
+lk
+lk
+lk
+lk
+lk
 cG
 cG
 cG
@@ -22407,16 +22910,16 @@ cG
 cG
 cG
 cG
+lk
+lk
+lk
 cG
 cG
 cG
 cG
-cG
-cG
-cG
-cG
-cG
-cG
+lk
+lk
+lk
 Ct
 Ct
 Ct
@@ -22664,16 +23167,16 @@ cG
 cG
 cG
 cG
+lk
+lk
+lk
 cG
 cG
 cG
 cG
-cG
-cG
-cG
-cG
-cG
-cG
+lk
+lk
+lk
 Ct
 HZ
 HZ
@@ -22921,16 +23424,16 @@ cG
 cG
 cG
 cG
+lk
+lk
+lk
 cG
 cG
 cG
 cG
-cG
-cG
-cG
-cG
-cG
-cG
+lk
+lk
+lk
 Ct
 HZ
 HZ
@@ -23178,16 +23681,16 @@ cG
 cG
 cG
 cG
+lk
+lk
+lk
 cG
 cG
 cG
 cG
-cG
-cG
-cG
-cG
-cG
-cG
+lk
+lk
+lk
 Ct
 HZ
 HZ
@@ -23435,16 +23938,16 @@ cG
 cG
 cG
 cG
+lk
+lk
+lk
 cG
 cG
 cG
 cG
-cG
-cG
-cG
-cG
-cG
-cG
+lk
+lk
+lk
 Ct
 HZ
 HZ
@@ -23692,16 +24195,16 @@ cG
 cG
 cG
 cG
+lk
+lk
+lk
 cG
 cG
 cG
 cG
-cG
-cG
-cG
-cG
-cG
-cG
+lk
+lk
+lk
 Ct
 HZ
 HZ
@@ -23949,16 +24452,16 @@ cG
 cG
 cG
 cG
+lk
+lk
+lk
 cG
 cG
 cG
 cG
-cG
-cG
-cG
-cG
-cG
-cG
+lk
+lk
+lk
 Ct
 HZ
 HZ
@@ -24206,16 +24709,16 @@ cG
 cG
 cG
 cG
+lk
+lk
+lk
 cG
 cG
 cG
 cG
-cG
-cG
-cG
-cG
-cG
-cG
+lk
+lk
+lk
 Ct
 HZ
 HZ
@@ -24447,6 +24950,11 @@ HZ
 HZ
 HZ
 HZ
+pr
+pr
+jk
+pr
+Lb
 cG
 cG
 cG
@@ -24458,21 +24966,16 @@ cG
 cG
 cG
 cG
+lk
+lk
+lk
 cG
 cG
 cG
 cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
+lk
+lk
+lk
 Ct
 HZ
 HZ
@@ -24704,6 +25207,11 @@ HZ
 HZ
 HZ
 HZ
+pr
+pr
+jk
+pr
+Lb
 cG
 cG
 cG
@@ -24715,21 +25223,16 @@ cG
 cG
 cG
 cG
+lk
+lk
+lk
 cG
 cG
 cG
 cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
+lk
+lk
+lk
 Ct
 HZ
 HZ
@@ -24960,7 +25463,12 @@ HZ
 HZ
 HZ
 HZ
-HZ
+ds
+pr
+pr
+jk
+pr
+Lb
 cG
 cG
 cG
@@ -24972,21 +25480,16 @@ cG
 cG
 cG
 cG
+lk
+lk
+lk
 cG
 cG
 cG
 cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
+lk
+lk
+lk
 Ct
 HZ
 HZ
@@ -25217,7 +25720,12 @@ HZ
 HZ
 HZ
 HZ
-HZ
+ds
+pr
+pr
+jk
+pr
+ox
 cG
 cG
 cG
@@ -25229,21 +25737,16 @@ cG
 cG
 cG
 cG
+lk
+lk
+lk
 cG
 cG
 cG
 cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
+lk
+lk
+lk
 Ct
 Ct
 Ct
@@ -25474,7 +25977,12 @@ HZ
 HZ
 HZ
 HZ
-HZ
+ds
+pr
+pr
+jk
+pr
+Lb
 cG
 cG
 cG
@@ -25486,24 +25994,19 @@ cG
 cG
 cG
 cG
+lk
+lk
+lk
 cG
 cG
 cG
 cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
+lk
+lk
+lk
+lk
+lk
+lk
 Ct
 HZ
 HZ
@@ -25731,7 +26234,12 @@ HZ
 HZ
 HZ
 HZ
-HZ
+ds
+pr
+pr
+jk
+pr
+Lb
 cG
 cG
 cG
@@ -25743,24 +26251,19 @@ cG
 cG
 cG
 cG
+lk
+lk
+lk
 cG
 cG
 cG
 cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
+lk
+lk
+lk
+lk
+lk
+lk
 Ct
 HZ
 HZ
@@ -25985,10 +26488,15 @@ HZ
 HZ
 HZ
 HZ
-HZ
-HZ
-HZ
-HZ
+ds
+ds
+ds
+ds
+aZ
+pr
+jk
+pr
+Lb
 cG
 cG
 cG
@@ -26007,17 +26515,12 @@ cG
 cG
 cG
 cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
+SQ
+SQ
+SQ
+SQ
+SQ
+SQ
 Ct
 HZ
 HZ
@@ -26242,10 +26745,16 @@ HZ
 HZ
 HZ
 HZ
-HZ
-HZ
-HZ
-HZ
+ds
+ds
+lC
+XL
+tC
+gY
+jk
+pr
+TJ
+Qt
 cG
 cG
 cG
@@ -26261,18 +26770,12 @@ cG
 cG
 cG
 cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
+Jx
+jD
+jD
+jD
+jD
+jD
 cG
 cG
 Ct
@@ -26499,10 +27002,16 @@ HZ
 HZ
 HZ
 HZ
-HZ
-HZ
-HZ
-HZ
+ds
+ds
+cG
+WA
+HQ
+RM
+cc
+RM
+UF
+Qz
 cG
 cG
 cG
@@ -26518,17 +27027,11 @@ cG
 cG
 cG
 cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
+uv
+lk
+lk
+lk
+lk
 kx
 mb
 Cu
@@ -26756,10 +27259,16 @@ HZ
 HZ
 HZ
 HZ
-HZ
-HZ
-HZ
-HZ
+ds
+ds
+cG
+Qz
+tC
+pr
+jk
+cs
+rD
+vW
 cG
 cG
 cG
@@ -26775,17 +27284,11 @@ cG
 cG
 cG
 cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
+uv
+lk
+lk
+lk
+NJ
 kx
 cG
 cG
@@ -27013,36 +27516,36 @@ HZ
 HZ
 HZ
 HZ
-HZ
-HZ
-HZ
-HZ
+ds
+ZA
+oU
+To
+Ps
+pr
+pr
+pr
+sf
+du
+Qh
+ZA
+ZA
+ZA
+ZA
+ZA
+ZA
+ZA
+ZA
+ZA
+ZA
+ZA
 cG
 cG
 cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
+uv
+lk
+lk
+lk
+lk
 kx
 cG
 cG
@@ -27270,36 +27773,36 @@ HZ
 HZ
 HZ
 HZ
-HZ
-HZ
-HZ
-HZ
+ds
+sk
+lN
+sk
+pr
+pr
+pr
+pr
+pr
+Mf
+lN
+Mf
+Mf
+Mf
+Mf
+Mf
+Mf
+Mf
+Mf
+Mf
+Mf
+Mf
 cG
 cG
 cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
+uv
+lk
+lk
+lk
+lk
 kx
 cG
 cG
@@ -27527,36 +28030,36 @@ HZ
 HZ
 HZ
 HZ
-HZ
-HZ
-HZ
-HZ
+ds
+xq
+mJ
+mO
+aZ
+pr
+pr
+pr
+tB
+qy
+wA
+xq
+xq
+sE
+xq
+xq
+xq
+sE
+xq
+xq
+xq
+sE
 cG
 cG
 cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
+uv
+lk
+lk
+lk
+lk
 kx
 cG
 cG
@@ -27784,10 +28287,17 @@ HZ
 HZ
 HZ
 HZ
-HZ
-HZ
-HZ
-HZ
+ds
+ds
+WA
+Yh
+xi
+VM
+gO
+pr
+fA
+dN
+Qz
 cG
 cG
 cG
@@ -27802,18 +28312,11 @@ cG
 cG
 cG
 cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
+uv
+lk
+lk
+lk
+NJ
 kx
 cG
 cG
@@ -28041,10 +28544,17 @@ HZ
 HZ
 HZ
 HZ
-HZ
-HZ
-HZ
-HZ
+ds
+ds
+Cy
+WA
+FP
+Kh
+cc
+Kh
+GZ
+Qt
+WA
 cG
 cG
 cG
@@ -28059,18 +28569,11 @@ cG
 cG
 cG
 cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
+uv
+lk
+lk
+lk
+lk
 kx
 mb
 Cu
@@ -28298,10 +28801,17 @@ HZ
 HZ
 HZ
 HZ
-HZ
-HZ
-HZ
-HZ
+ds
+ds
+WA
+XL
+tC
+pr
+gO
+pr
+TJ
+Qz
+WA
 cG
 cG
 cG
@@ -28316,19 +28826,12 @@ cG
 cG
 cG
 cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
+bk
+SQ
+SQ
+SQ
+SQ
+SQ
 cG
 cG
 Ct
@@ -28555,10 +29058,15 @@ HZ
 HZ
 HZ
 HZ
-HZ
-HZ
-HZ
-HZ
+ds
+ds
+ds
+ds
+pr
+pr
+gO
+pr
+Lb
 cG
 cG
 cG
@@ -28576,18 +29084,13 @@ cG
 cG
 cG
 cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
+jD
+jD
+jD
+jD
+jD
+jD
+jD
 Ct
 HZ
 HZ
@@ -28812,10 +29315,15 @@ HZ
 HZ
 HZ
 HZ
-HZ
-HZ
-HZ
-HZ
+ds
+ds
+ds
+ds
+pr
+pr
+gO
+pr
+Lb
 cG
 cG
 cG
@@ -28830,21 +29338,16 @@ cG
 cG
 cG
 cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
+lk
+lk
+lk
+lk
+lk
+lk
+lk
+lk
+lk
+lk
 Ct
 HZ
 HZ
@@ -29073,6 +29576,11 @@ HZ
 HZ
 HZ
 HZ
+pr
+pr
+gO
+pr
+Lb
 cG
 cG
 cG
@@ -29087,21 +29595,16 @@ cG
 cG
 cG
 cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
+lk
+lk
+lk
+lk
+lk
+lk
+lk
+lk
+lk
+lk
 Ct
 HZ
 HZ
@@ -29330,6 +29833,11 @@ HZ
 HZ
 HZ
 HZ
+pr
+pr
+gO
+pr
+ox
 cG
 cG
 cG
@@ -29344,13 +29852,8 @@ cG
 cG
 cG
 cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
+lk
+lk
 kx
 kx
 kx
@@ -29587,6 +30090,11 @@ HZ
 HZ
 HZ
 HZ
+pr
+pr
+gO
+pr
+Lb
 cG
 cG
 cG
@@ -29601,13 +30109,8 @@ cG
 cG
 cG
 cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
+lk
+lk
 kx
 Ct
 Ct
@@ -29844,6 +30347,11 @@ HZ
 HZ
 HZ
 HZ
+pr
+pr
+gO
+pr
+Lb
 cG
 cG
 cG
@@ -29858,13 +30366,8 @@ cG
 cG
 cG
 cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
+lk
+lk
 kx
 Ct
 HZ
@@ -30101,6 +30604,11 @@ HZ
 HZ
 HZ
 HZ
+aZ
+pr
+gO
+pr
+Lb
 cG
 cG
 cG
@@ -30115,13 +30623,8 @@ cG
 cG
 cG
 cG
-cG
-cG
-cG
-cG
-cG
-cG
-cG
+lk
+lk
 kx
 Ct
 HZ
@@ -30360,6 +30863,7 @@ HZ
 HZ
 cG
 cG
+gO
 cG
 cG
 cG
@@ -30376,9 +30880,8 @@ cG
 cG
 cG
 cG
-cG
-cG
-cG
+lk
+lk
 kx
 Ct
 HZ
@@ -30634,8 +31137,8 @@ cG
 cG
 cG
 cG
-cG
-cG
+lk
+lk
 kx
 Ct
 HZ
@@ -30891,8 +31394,8 @@ cG
 cG
 cG
 cG
-cG
-cG
+lk
+lk
 kx
 Ct
 HZ
@@ -31148,8 +31651,8 @@ cG
 cG
 cG
 cG
-cG
-cG
+lk
+lk
 kx
 Ct
 HZ
@@ -31405,8 +31908,8 @@ cG
 cG
 cG
 cG
-cG
-cG
+lk
+lk
 kx
 Ct
 HZ
@@ -31662,8 +32165,8 @@ cG
 cG
 cG
 cG
-cG
-cG
+lk
+lk
 kx
 Ct
 HZ
@@ -31919,8 +32422,8 @@ cG
 cG
 cG
 cG
-cG
-cG
+lk
+lk
 kx
 Ct
 HZ
@@ -32176,8 +32679,8 @@ cG
 cG
 cG
 cG
-cG
-cG
+lk
+lk
 kx
 Ct
 HZ
@@ -32433,8 +32936,8 @@ cG
 cG
 cG
 cG
-cG
-cG
+lk
+lk
 kx
 Ct
 Ct
@@ -32690,8 +33193,8 @@ cG
 cG
 cG
 cG
-cG
-cG
+lk
+lk
 kx
 kx
 KQ
@@ -32947,8 +33450,8 @@ cG
 cG
 cG
 cG
-cG
-cG
+lk
+lk
 cG
 cG
 FR
@@ -33204,8 +33707,8 @@ cG
 cG
 cG
 cG
-cG
-cG
+lk
+lk
 cG
 cG
 cG
@@ -33461,8 +33964,8 @@ cG
 cG
 cG
 cG
-cG
-cG
+lk
+lk
 cG
 cG
 cG
@@ -92322,7 +92825,7 @@ fB
 fB
 fB
 fB
-kx
+Tu
 fB
 fB
 fB
@@ -93350,7 +93853,7 @@ fB
 fB
 fB
 fB
-kx
+Tu
 fB
 fB
 fB
