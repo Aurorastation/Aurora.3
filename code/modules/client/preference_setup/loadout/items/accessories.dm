@@ -425,6 +425,7 @@ ABSTRACT_TYPE(/datum/gear/accessory)
 	passcard["passcard, elyra"] = /obj/item/clothing/accessory/badge/passcard/elyra
 	passcard["passcard, dominia"] = /obj/item/clothing/accessory/badge/passcard/dominia
 	passcard["passcard, coalition"] = /obj/item/clothing/accessory/badge/passcard/coalition
+	passcard["passcard, xanu"] = /obj/item/clothing/accessory/badge/passcard/coalition/xanu
 	passcard["passcard, himeo"] = /obj/item/clothing/accessory/badge/passcard/himeo
 	passcard["passcard, vysoka"] = /obj/item/clothing/accessory/badge/passcard/vysoka
 	passcard["passcard, gadpathur"] = /obj/item/clothing/accessory/badge/passcard/gad
@@ -464,6 +465,12 @@ ABSTRACT_TYPE(/datum/gear/accessory)
 	TCAFcard["reservist"] = /obj/item/clothing/accessory/badge/tcaf_papers/service/reservist
 	TCAFcard["veteran"] = /obj/item/clothing/accessory/badge/tcaf_papers/service/veteran
 	gear_tweaks += new /datum/gear_tweak/path(TCAFcard)
+
+/datum/gear/accessory/xanu_mil_card
+	display_name = "xanu militia reservist card"
+	description = "An identification document issued to reservists of the All-Xanu National Militia."
+	path = /obj/item/clothing/accessory/badge/passcard/coalition/xanu/military
+	citizenship = CITIZENSHIP_COALITION
 
 /datum/gear/accessory/kneepads
 	display_name = "kneepads"
