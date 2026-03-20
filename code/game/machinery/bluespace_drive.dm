@@ -476,10 +476,11 @@
 
 /**
  * # Bluespace Drive Control Console
- * The console that controls the bluespace drive
+ * The console that energises/deenergises the drive and can purge gas contents.
+ * For use by Engineering.
  */
-/obj/machinery/computer/bluespacedrive
-	name = "\improper Bluespace Drive Control Console"
+/obj/machinery/computer/bluespacedrivecontrol
+	name = "\improper bluespace drive control console"
 	desc = "Used to control the bluespace drive."
 	icon_keyboard = "lightblue_key"
 	icon_keyboard_emis = "lightblue_key_mask"
@@ -488,15 +489,23 @@
 	/// The bluespace drive (`/obj/machinery/bluespacedrive`) that this console controls
 	var/obj/machinery/bluespacedrive/linked_bluespace_drive
 
-/obj/machinery/computer/bluespacedrive/Initialize()
+/obj/machinery/computer/bluespacedrivecontrol/Initialize()
 	..()
 
 	return INITIALIZE_HINT_LATELOAD
 
-/obj/machinery/computer/bluespacedrive/LateInitialize()
+/obj/machinery/computer/bluespacedrivecontrol/LateInitialize()
 	. = ..()
 
-	linked_bluespace_drive = locate() in get_area(src)
+	if(SSatlas.current_map.use_overmap && !linked)
+		var/my_sector = GLOB.map_sectors["[z]"]
+		if(istype(my_sector, /obj/effect/overmap/visitable/ship))
+			attempt_hook_up(my_sector)
+
+		for(var/obj/machinery/bluespacedrive/BSD in SSmachinery.machinery)
+			if(linked.check_ownership(BSD))
+				linked_bluespace_drive = BSD
+				break
 
 	if(!linked_bluespace_drive)
 
@@ -510,26 +519,24 @@
 
 	RegisterSignal(linked_bluespace_drive, COMSIG_QDELETING, PROC_REF(handle_drive_deletion))
 
-/obj/machinery/computer/bluespacedrive/Destroy()
+/obj/machinery/computer/bluespacedrivecontrol/Destroy()
+	linked = null
 	linked_bluespace_drive = null
 
 	. = ..()
 
-
-/obj/machinery/computer/bluespacedrive/ui_data(mob/user)
+/obj/machinery/computer/bluespacedrivecontrol/ui_data(mob/user)
 	var/list/data = list()
 
 	data["energized"] = linked_bluespace_drive.energized
 	data["charge"] = (linked_bluespace_drive.internal_gas.total_moles || linked_bluespace_drive.fuel_gas.total_moles) ? TRUE : FALSE
-	data["rotation"] = linked_bluespace_drive.rotation
 	data["jumping"] = linked_bluespace_drive.initiate_jump_timer_id ? TRUE : FALSE
 	data["jump_power"] = linked_bluespace_drive.power_from_gas / (10 KILO)
 	data["fuel_gas"] = linked_bluespace_drive.fuel_gas.total_moles
 
 	return data
 
-
-/obj/machinery/computer/bluespacedrive/ui_act(action, params)
+/obj/machinery/computer/bluespacedrivecontrol/ui_act(action, params)
 	. = ..()
 	if(.)
 		return
@@ -538,6 +545,98 @@
 
 		if("toggle_energized")
 			linked_bluespace_drive.toggle_energized()
+
+		if("purge_charge")
+			linked_bluespace_drive.purge_charge(forced = TRUE)
+
+/obj/machinery/computer/bluespacedrivecontrol/ui_interact(mob/user, datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
+	if(!ui)
+		ui = new(user, src, "BluespaceDriveControl", ui_x=500, ui_y=380)
+		ui.open()
+
+
+/obj/machinery/computer/bluespacedrivecontrol/attack_hand(mob/user)
+		ui_interact(user)
+
+/// Signal handler for when the linked bluespace drive is deleted
+/obj/machinery/computer/bluespacedrivecontrol/proc/handle_drive_deletion()
+	SIGNAL_HANDLER
+
+	linked_bluespace_drive = null
+
+/*######################
+	JUMP CONSOLE
+######################*/
+
+/**
+ * # Bluespace Drive Jump Console
+ * The console that actually performs the bluespace jump.
+ * For use by the Bridge
+ */
+/obj/machinery/computer/bluespacedrivejump
+	name = "\improper bluespace drive jump console"
+	desc = "Used to align and engage the bluespace drive for a jump."
+	icon_keyboard = "lightblue_key"
+	icon_keyboard_emis = "lightblue_key_mask"
+	light_color = LIGHT_COLOR_BLUE
+
+	/// The bluespace drive (`/obj/machinery/bluespacedrive`) that this console controls
+	var/obj/machinery/bluespacedrive/linked_bluespace_drive
+
+/obj/machinery/computer/bluespacedrivejump/Initialize()
+	..()
+
+	return INITIALIZE_HINT_LATELOAD
+
+/obj/machinery/computer/bluespacedrivejump/LateInitialize()
+	. = ..()
+
+	if(SSatlas.current_map.use_overmap && !linked)
+		var/my_sector = GLOB.map_sectors["[z]"]
+		if(istype(my_sector, /obj/effect/overmap/visitable/ship))
+			attempt_hook_up(my_sector)
+
+		for(var/obj/machinery/bluespacedrive/BSD in SSmachinery.machinery)
+			if(linked.check_ownership(BSD))
+				linked_bluespace_drive = BSD
+				break
+
+	if(!linked_bluespace_drive)
+
+		//Stacktrace only outside unit tests
+		#if !defined(UNIT_TEST)
+		stack_trace("Bluespace drive not found!")
+		qdel(src)
+		#endif
+
+		return
+
+	RegisterSignal(linked_bluespace_drive, COMSIG_QDELETING, PROC_REF(handle_drive_deletion))
+
+/obj/machinery/computer/bluespacedrivejump/Destroy()
+	linked = null
+	linked_bluespace_drive = null
+
+	. = ..()
+
+/obj/machinery/computer/bluespacedrivejump/ui_data(mob/user)
+	var/list/data = list()
+
+	data["charge"] = (linked_bluespace_drive.internal_gas.total_moles || linked_bluespace_drive.fuel_gas.total_moles) ? TRUE : FALSE
+	data["rotation"] = linked_bluespace_drive.rotation
+	data["jumping"] = linked_bluespace_drive.initiate_jump_timer_id ? TRUE : FALSE
+	data["jump_power"] = linked_bluespace_drive.power_from_gas / (10 KILO)
+	data["fuel_gas"] = linked_bluespace_drive.fuel_gas.total_moles
+
+	return data
+
+/obj/machinery/computer/bluespacedrivejump/ui_act(action, params)
+	. = ..()
+	if(.)
+		return
+
+	switch(action)
 
 		if("purge_charge")
 			linked_bluespace_drive.purge_charge(forced = TRUE)
@@ -552,18 +651,17 @@
 											or jump already in progress\"!"))
 
 
-/obj/machinery/computer/bluespacedrive/ui_interact(mob/user, datum/tgui/ui)
+/obj/machinery/computer/bluespacedrivejump/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
-		ui = new(user, src, "BluespaceDrive", ui_x=500, ui_y=380)
+		ui = new(user, src, "BluespaceDriveJump", ui_x=500, ui_y=380)
 		ui.open()
 
-
-/obj/machinery/computer/bluespacedrive/attack_hand(mob/user)
+/obj/machinery/computer/bluespacedrivejump/attack_hand(mob/user)
 		ui_interact(user)
 
 /// Signal handler for when the linked bluespace drive is deleted
-/obj/machinery/computer/bluespacedrive/proc/handle_drive_deletion()
+/obj/machinery/computer/bluespacedrivejump/proc/handle_drive_deletion()
 	SIGNAL_HANDLER
 
 	linked_bluespace_drive = null
@@ -734,9 +832,9 @@
 			<li>Operate the inner shield generators to turn them on. <span style="color:red;">Move away from them as soon as activated, the shield can and will repel you too!</span></li>
 			<li>Unlock with your ID card and activate the outer shield generators, if non-specialized personnel is present, lock them back after activation.</li>
 			<li>Operate the control console, energize the drive and observe the gasses being fed into it.</li>
-			<li>Set the rotation of the jump on the knob, in absolute galactic degrees.</li>
+			<li>Once gas injections are complete, inform the Bridge that a jump can be performed.</li>
 			<li><b><span style="color:red;">Announce the jump and ensure no personnel is outside the ship!</span></b></li>
-			<li>Activate the jump, the drive will take approximately 30 seconds to energize the field, then it will jump automatically.</li>
+			<li>The Bridge can now set the rotation and engage the jump. Tthe drive will take approximately 30 seconds to energize the field, then it will jump automatically.</li>
 			<li>De-energize the drive in the control console.</li>
 			<li>Disable the secondary circuit SMES output to disable the emitters, and wait for the inner shield generators to discharge and the shield to extinguish.</li>
 			<li>Disable the outer shield generators.</li>
