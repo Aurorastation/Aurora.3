@@ -1,0 +1,13 @@
+author: TheGreyWolf
+
+delete-after: True
+
+changes:
+  - bugfix: "Fixed that the quikpay and cash register prices could be wrong."
+  - rscadd: "The commissary register now has categories."
+  - refactor: "Changed the commissary and quikpay to rely on a component, making them easier to maintan and ensuring they function almost identical."
+  - rscadd: "The commissary now has a wall terminal, that can be enabled by hangar technicians."
+  - bugfix: "The noticeboard in operations is now properly on one side of the wall, instead of on the wall turf itself."
+  - rscadd: "The food and drink fridges in the commissary can now be renamed."
+  - rscadd: "The shelves in the commissary now has a message when an item are taken from them."
+  - rscadd: "The quick-e-meals vendor was readded behind the café."
