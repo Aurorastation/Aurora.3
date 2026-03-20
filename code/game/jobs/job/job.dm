@@ -136,6 +136,10 @@
 			if(ECONOMICALLY_POOR)			econ_status = 0.50
 			if(ECONOMICALLY_DESTITUTE)		econ_status = 0.25
 			if(ECONOMICALLY_RUINED)			econ_status = 0.01
+			if(ECONOMICALLY_BANKRUPT)		econ_status = 0
+			if(ECONOMICALLY_DEBT_MINOR)		econ_status = -0.05
+			if(ECONOMICALLY_DEBT_MODERATE)	econ_status = -0.25
+			if(ECONOMICALLY_DEBT_MAJOR)		econ_status = -0.50
 
 	//give them an account in the station database
 	var/species_modifier = (H.species ? H.species.economic_modifier : null)
