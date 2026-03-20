@@ -43,6 +43,11 @@
 	. = data
 
 /obj/machinery/computer/fusion/ui_interact(mob/user, datum/tgui/ui)
+	var/cancelled = FALSE
+	SEND_SIGNAL(user, COMSIG_USE_REACTOR_COMPUTER, &cancelled)
+	if (cancelled)
+		return
+
 	ui = SStgui.try_update_ui(user, src, ui)
 	if (!ui)
 		ui = new(user, src, ui_template, name)

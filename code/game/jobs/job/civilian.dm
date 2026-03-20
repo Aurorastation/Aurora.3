@@ -467,6 +467,10 @@
 
 	blacklisted_species = list(SPECIES_VAURCA_BREEDER)
 
+	skill_requirements = alist(
+		/singleton/skill/pilot_spacecraft = SKILL_LEVEL_FAMILIAR
+	)
+
 /obj/outfit/job/mining
 	name = "Shaft Miner"
 	jobtype = /datum/job/mining

@@ -242,36 +242,30 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 
 /mob/abstract/new_player/proc/IsJobAvailable(rank)
 	var/datum/job/job = SSjobs.GetJob(rank)
-	if (!job)
-		return FALSE
-	if (!job.is_position_available())
-		return FALSE
-	if (jobban_isbanned(src,rank))
+		// Check if the job is open in-round.
+	if (!job || !job.is_position_available() \
+			/* check for job bans */\
+		|| jobban_isbanned(src,rank) \
+			/* check for species blacklists */\
+		|| (job.blacklisted_species && (GLOB.all_species[client.prefs.species].name in job.blacklisted_species)) \
+			/* check for citizenship restrictions */\
+		|| job.blacklisted_citizenship && (astype(SSrecords.citizenships[client.prefs.citizenship], /datum/citizenship).name in job.blacklisted_citizenship))
 		return FALSE
 
-	if(job.blacklisted_species) // check for restricted species
-		var/datum/species/S = GLOB.all_species[client.prefs.species]
-		if(S.name in job.blacklisted_species)
-			return FALSE
-
-	if(job.blacklisted_citizenship)
-		var/datum/citizenship/C = SSrecords.citizenships[client.prefs.citizenship]
-		if(C.name in job.blacklisted_citizenship)
-			return FALSE
-
+	// Checks for faction requirements.
 	var/datum/faction/faction = SSjobs.name_factions[client.prefs.faction] || SSjobs.default_faction
 	var/list/faction_allowed_roles = unpacklist(faction.allowed_role_types)
-	if (!(job.type in faction_allowed_roles))
+	if (!(job.type in faction_allowed_roles) \
+		|| !faction.can_select(client.prefs,src) \
+		|| !(client.prefs.GetPlayerAltTitle(job) in client.prefs.GetValidTitles(job)))
 		return FALSE
 
-	if(!faction.can_select(client.prefs,src))
-		return FALSE
-
-	if(!(client.prefs.GetPlayerAltTitle(job) in client.prefs.GetValidTitles(job))) // does age/species check for us!
-		return FALSE
+	// Checks for skill requirements.
+	for (var/key,value in job.skill_requirements)
+		if (key && client.prefs.skills[key] < value)
+			return FALSE
 
 	return TRUE
-
 
 /mob/abstract/new_player/proc/AttemptLateSpawn(rank,var/spawning_at)
 	if(src != usr)
