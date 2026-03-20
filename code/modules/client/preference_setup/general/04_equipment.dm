@@ -99,14 +99,14 @@
 			try
 				pref.all_underwear = json_decode(pref.all_underwear)
 			catch(var/exception/e)
-				LOG_DEBUG("UNDERWEAR: Caught [e]. Initial value: [before]")
+				log_module_preferences("UNDERWEAR: Caught [e]. Initial value: [before]")
 				pref.all_underwear = list()
 		if(istext(pref.all_underwear_metadata))
 			var/before = pref.all_underwear_metadata
 			try
 				pref.all_underwear_metadata = json_decode(pref.all_underwear_metadata)
 			catch(var/exception/e)
-				LOG_DEBUG("UNDERWEAR METADATA: Caught [e]. Initial value: [before]")
+				log_module_preferences("UNDERWEAR METADATA: Caught [e]. Initial value: [before]")
 				pref.all_underwear_metadata = list()
 
 	if(!istype(pref.all_underwear))
