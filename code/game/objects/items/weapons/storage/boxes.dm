@@ -278,10 +278,10 @@
 	foldable = null
 	chewable = FALSE
 
-/obj/item/storage/box/ammo/tungstenslugs
-	name = "box of compact tungsten slugs"
-	desc = "A box with several compact tungsten slugs, aimed for use in gauss carbines."
-	starts_with = list(/obj/item/ammo_casing/gauss/carbine = 4)
+/obj/item/storage/box/ammo/duslugs
+	name = "box of depleted uranium slugs"
+	desc = "A box with several depleted uranium slugs, aimed for use in older gauss rifles."
+	starts_with = list(/obj/item/ammo_casing/gauss/old = 4)
 
 /obj/item/storage/box/ammo/sniperammo
 	name = "box of 14.5mm shells"

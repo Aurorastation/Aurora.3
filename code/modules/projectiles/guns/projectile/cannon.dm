@@ -1,7 +1,7 @@
 /obj/item/gun/projectile/cannon
-	name = "hand cannon"
+	name = "culverin"
 	desc = "An amalgamation of ancient and modern tajaran technology. This old naval cannon was turned into a portable firearm."
-	icon = 'icons/obj/guns/cannon.dmi'
+	icon = 'icons/obj/guns/manufacturer/adhomai/cannon.dmi'
 	icon_state = "cannon"
 	item_state = "cannon"
 	caliber = "cannon"
@@ -31,7 +31,7 @@
 /obj/item/gun/projectile/nuke
 	name = "nuclear launcher"
 	desc = "A launcher weapon designated to fire miniaturized nuclear warheads."
-	icon = 'icons/obj/guns/blockbuster.dmi' // hoh
+	icon = 'icons/obj/guns/manufacturer/adhomai/blockbuster.dmi' // hoh
 	icon_state = "blockbuster"
 	item_state = "blockbuster"
 	caliber = "nuke"
@@ -69,7 +69,7 @@
 /obj/item/gun/projectile/recoilless_rifle
 	name = "adhomian recoilless rifle"
 	desc = "An inexpensive, one use anti-tank weapon used extensively by the Tajaran armed forces."
-	icon = 'icons/obj/guns/recoilless_rifle.dmi'
+	icon = 'icons/obj/guns/manufacturer/adhomai/recoilless_rifle.dmi'
 	icon_state = "recoilless_rifle"
 	item_state = "recoilless_rifle"
 	caliber = "recoilless_rifle"
@@ -110,9 +110,9 @@
 	return FALSE
 
 /obj/item/gun/projectile/peac
-	name = "point entry anti-materiel cannon"
+	name = "\improper SCC-PEAC-1 anti-materiel cannon"
 	desc = "An SCC-designed, man-portable cannon meant to neutralize mechanized threats. The disgustingly large accelerator capacitors make room for only one shot, so make it count."
-	icon = 'icons/obj/guns/peac.dmi'
+	icon = 'icons/obj/guns/manufacturer/stellar_corporate_conglomerate/peac.dmi'
 	icon_state = "peac"
 	item_state = "peac"
 	caliber = "peac"

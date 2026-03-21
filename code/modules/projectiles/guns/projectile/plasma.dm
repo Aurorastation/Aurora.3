@@ -37,7 +37,7 @@
 	fire_delay = ROF_RIFLE
 
 /obj/item/gun/energy/mountedplasma
-	name = "plasma cannon"
+	name = "mounted plasma cannon"
 	fire_sound = 'sound/weapons/gunshot/slammer.ogg'
 	burst = 2
 	burst_delay = 3

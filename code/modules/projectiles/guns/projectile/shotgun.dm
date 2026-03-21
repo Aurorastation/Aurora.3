@@ -220,7 +220,7 @@ ABSTRACT_TYPE(/obj/item/gun/projectile/shotgun)
 	desc = "A Galatean nitro express rifle. Loaded with tungsten slugs."
 	desc_extended = "While Galatea almost universally uses lasers for their weapons, gauss weapons see some use in the hands of expeditionary forces and military specialist units. The Pattern Nine is a single-barrel, double-shot \
 	rifle designed for intermediate range anti-infantry specialists just as much as it is for Tsukuyomian game wardens."
-	icon = 'icons/obj/guns/galatea_nitro.dmi'
+	icon = 'icons/obj/guns/manufacturer/galatea/galatea_nitro.dmi'
 	icon_state = "nitrorifle"
 	item_state = "nitrorifle"
 	//SPEEDLOADER because rapid unloading.
@@ -245,7 +245,7 @@ ABSTRACT_TYPE(/obj/item/gun/projectile/shotgun)
 /obj/item/gun/projectile/shotgun/foldable
 	name = "foldable shotgun"
 	desc = "A single-shot shotgun that can be folded for easy concealment."
-	icon = 'icons/obj/guns/overunder.dmi'
+	icon = 'icons/obj/guns/manufacturer/frontier/overunder.dmi'
 	icon_state = "overunder"
 	item_state = "overunder"
 	accuracy = 0
@@ -316,7 +316,7 @@ ABSTRACT_TYPE(/obj/item/gun/projectile/shotgun)
 	name = "wall gun"
 	desc = "A small yet powerful shotgun of Unathi make."
 	desc_extended = "The Moghesian wall gun, a classic Hegemonic weapon that saw plenty of service before and during the Contact War. This small-sized, break-action shotgun manages to pack a serious punch despite being barely larger than a pistol, however, it comes at the cost of extremely limited capacity. The wall gun is still produced and distributed nowadays, generally given to vehicle and ship crews and law enforcers."
-	icon = 'icons/obj/guns/unathi_ballistics.dmi'
+	icon = 'icons/obj/guns/manufacturer/moghes/unathi_ballistics.dmi'
 	icon_state = "wallgun"
 	item_state = "wallgun"
 	accuracy = 0

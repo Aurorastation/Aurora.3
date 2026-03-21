@@ -331,7 +331,7 @@ ABSTRACT_TYPE(/obj/item/gun/projectile/automatic/rifle)
 	var/use_launcher = 0
 
 /obj/item/gun/projectile/automatic/rifle/dominia
-	name = "\improper MPR-24 rifle"
+	name = "\improper MPR-24/5 rifle"
 	desc = "The standard-issue rifle of the Empire of Dominia's Imperial Army. Loads from 30 round 5.56 magazines."
 	desc_extended = "The Moroz Pattern Rifle, Year of 2424 has been the standard-issue rifle of the Imperial Army for decades thanks to its durable construction and ease \
 	of use. The Imperial Army has repeatedly modernized and updated the MPR-24 over the past 40 years, and the rifle is now in its fifth modernization: \
@@ -842,7 +842,7 @@ ABSTRACT_TYPE(/obj/item/gun/projectile/automatic/rifle)
 	max_shells = 8
 
 /obj/item/gun/projectile/automatic/rifle/dominia_carbine
-	name = "dominian carbine"
+	name = "\improper MPC-24/5 carbine"
 	desc = "A carbine variant of the MPR-24/5 with a shorter barrel and folding stock. Loads from 20 round 7.62 magazines."
 	desc_extended = "The carbine variant of the MPR-24/5 is commonly seen in the hands of vehicle crews, airborne troops, and other units that do not require a \
 	full-length rifle. Paramilitary units, such as the Imperial Fisanduhian Gendarmerie, are armed with these rather than full-length rifles."
@@ -863,7 +863,7 @@ ABSTRACT_TYPE(/obj/item/gun/projectile/automatic/rifle)
 	icon_state = (ammo_magazine)? "dom_carbine" : "dom_carbine-empty"
 
 /obj/item/gun/projectile/automatic/rifle/dominia_lmg
-	name = "dominian light machine gun"
+	name = "\improper MPMG-24/5 platoon machine gun"
 	desc = "A machine gun based on the MPR-24/5 platform."
 	desc_extended = "Originally developed as a platoon-level weapon but later converted to squad-level use, the MPR-24/5 PMG (Platoon Machine Gun) is \
 	the most commonly-issued machine gun in the Imperial Army. The PMG is reliable and capable yet fairly heavy, and most non-geneboosted soldiers \
@@ -885,9 +885,9 @@ ABSTRACT_TYPE(/obj/item/gun/projectile/automatic/rifle)
 	icon_state = (ammo_magazine)? "dom_lmg" : "dom_lmg-empty"
 
 /obj/item/gun/projectile/automatic/rifle/shotgun
-	name = "assault shotgun"
-	desc = "A experimental, semi-automatic combat shotgun, designed for boarding operations and law enforcement agencies."
-	icon = 'icons/obj/guns/assaultshotgun.dmi'
+	name = "STA42 assault shotgun"
+	desc = "An attempt to provide an alternative to the beloved STS35 for even heavier applications, it was not as well received as its younger cousins."
+	icon = 'icons/obj/guns/manufacturer/frontier/assaultshotgun.dmi'
 	icon_state = "assaultshotgun"
 	item_state = "assaultshotgun"
 	w_class = WEIGHT_CLASS_BULKY
@@ -937,7 +937,7 @@ ABSTRACT_TYPE(/obj/item/gun/projectile/automatic/rifle)
 		)
 
 /obj/item/gun/projectile/automatic/rifle/shotgun/konyang
-	name = "magazine-fed shotgun"
+	name = "\improper RCG-1 shotgun"
 	desc = "A compact semi-automatic shotgun, fed by a magazine. Unsuspectic, but powerful and not to be underestimated. Takes standard 12g shotgun ammo."
 	desc_extended = "The RCG-1, locally produced on Konyang, also nicknamed \"The Showstopper\" for its wide variety of applications. It uses a compact design with a newly developed type of double spring mechanism in the magazine \
 	to eradicate all kinds of feeding malfunctions, as well as groundbreaking caseless shotgun ammunition. Favoured by the Commandos of Konyang's Special Forces."
@@ -964,11 +964,11 @@ ABSTRACT_TYPE(/obj/item/gun/projectile/automatic/rifle)
 	icon_state = (ammo_magazine)? "mshotgun" : "mshotgun-empty"
 
 /obj/item/gun/projectile/automatic/rifle/hook_mg
-	name = "unathi hook machine gun"
+	name = "\improper Hook machine gun"
 	desc = "A ballistic machine gun of Unathi manufacture, often used by the forces of the Traditionalist Coalition during the Contact War."
 	desc_extended = "The Hook Machinegun is a heavy automatic machinegun of Moghesian manufacture. Though the name of the creators of this weapon was lost to the destruction of the nuclear exchange, the Hook was known to be found in the hands of some of the better-equipped forces of the Traditionalist Coalition during the Contact War. \
 	This machine gun is carried on one's shoulder and thus can be used with a single hand. Though it can fire heavy cartridges, it is quite lacking in accuracy."
-	icon = 'icons/obj/guns/unathi_ballistics.dmi'
+	icon = 'icons/obj/guns/manufacturer/moghes/unathi_ballistics.dmi'
 	icon_state = "hookmg"
 	item_state = "hookmg"
 	caliber = "5.8mm"
@@ -989,11 +989,11 @@ ABSTRACT_TYPE(/obj/item/gun/projectile/automatic/rifle)
 	icon_state = (ammo_magazine)? "hookmg" : "hookmg-empty"
 
 /obj/item/gun/projectile/automatic/tempestsmg
-	name = "tempest submachine gun"
-	desc = "The tempest sub-machine gun is a Hegemonic design dating back to the 2350s, though still produced in ample numbers to this day. While rather large and heavy for a weapon of its class, its simplicity and reliability have made it a popular weapon among Unathi for over a century, and the aging weapon was even used as the basis for future designs."
+	name = "\improper Tempest submachine gun"
+	desc = "The Tempest sub-machine gun is a Hegemonic design dating back to the 2350s, though still produced in ample numbers to this day. While rather large and heavy for a weapon of its class, its simplicity and reliability have made it a popular weapon among Unathi for over a century, and the aging weapon was even used as the basis for future designs."
 	magazine_type = /obj/item/ammo_magazine/tempestsmg
 	allowed_magazines = list(/obj/item/ammo_magazine/tempestsmg)
-	icon = 'icons/obj/guns/unathi_ballistics.dmi'
+	icon = 'icons/obj/guns/manufacturer/moghes/unathi_ballistics.dmi'
 	icon_state = "tempestsmg"
 	item_state = "tempestsmg"
 	caliber = "11.6mm"

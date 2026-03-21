@@ -44,9 +44,9 @@
 	return ..()
 
 /obj/item/gun/projectile/revolver/mateba
-	name = "\improper Hammerhead automatic revolver"
+	name = "\improper Hammerhead autorevolver"
 	desc = "The Hammerhead .454 autorevolver, a very rare weapon typical of special ops teams and mercenary teams. It packs quite the punch."
-	icon = 'icons/obj/guns/autorevolver.dmi'
+	icon = 'icons/obj/guns/manufacturer/ringspire/autorevolver.dmi'
 	icon_state = "autorevolver"
 	item_state = "autorevolver"
 	max_shells = 7
@@ -130,7 +130,7 @@
 /obj/item/gun/projectile/revolver/derringer
 	name = "derringer"
 	desc = "A small pocket pistol, easily concealed."
-	icon = 'icons/obj/guns/derringer.dmi'
+	icon = 'icons/obj/guns/manufacturer/frontier/derringer.dmi'
 	icon_state = "derringer"
 	item_state = "derringer"
 	accuracy = -1
@@ -168,9 +168,9 @@
 	return 1
 
 /obj/item/gun/projectile/revolver/lemat
-	name = "grapeshot revolver"
-	desc = "A six shot revolver, with a secondary firing barrel for loading shotgun shells."
-	icon = 'icons/obj/guns/lemat.dmi'
+	name = "\improper P100 Mako revolver"
+	desc = "The P100 Mako is a 6-shot .38 Special revolver with a secondary firing barrel that can load shotgun shells."
+	icon = 'icons/obj/guns/manufacturer/frontier/lemat.dmi'
 	icon_state = "lemat"
 	item_state = "lemat"
 	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2)
@@ -267,8 +267,8 @@
 		. += "\The [src] has a secondary barrel that is empty."
 
 /obj/item/gun/projectile/revolver/adhomian
-	name = "\improper Royal Firearms service revolver"
-	desc = "The Royal Firearms Service Revolver is a simple and reliable design, favored by the nobility of the New Kingdom of Adhomai."
+	name = "\improper Royal Firearms Model 1 revolver"
+	desc = "The Royal Firearms Model 1 service Revolver is a simple and reliable design, favored by the nobility of the New Kingdom of Adhomai."
 	icon = 'icons/obj/guns/species/tajara/adhomian_revolver.dmi'
 	icon_state = "adhomian_revolver"
 	item_state = "adhomian_revolver"

@@ -2,8 +2,8 @@
 /obj/random/weapon_and_ammo
 	name = "random weapon and ammo"
 	desc = "Summons a random weapon, with ammo if applicable."
-	icon = 'icons/obj/guns/xenoblaster.dmi'
-	icon_state = "xenoblaster"
+	icon = 'icons/obj/random.dmi'
+	icon_state = "pistol"
 	var/chosen_rarity //Can be set to force certain rarity
 	var/concealable = FALSE //If the gun should fit in a backpack
 	has_postspawn = TRUE
@@ -11,7 +11,6 @@
 	var/list/Shoddy = list(
 		/obj/item/gun/energy/blaster = 1,
 		/obj/item/gun/energy/retro = 0.5,
-		/obj/item/gun/energy/toxgun = 0.5,
 		/obj/item/gun/projectile/automatic/improvised = 1,
 		/obj/item/gun/projectile/contender = 0.5,
 		/obj/item/gun/projectile/leyon = 1,
@@ -81,7 +80,7 @@
 		/obj/item/gun/energy/decloner = 0.5,
 		/obj/item/gun/energy/rifle/laser/xray = 1,
 		/obj/item/gun/energy/rifle/laser/tachyon = 1,
-		/obj/item/gun/energy/sniperrifle = 1,
+		/obj/item/gun/energy/rifle/laser/sniper = 1,
 		/obj/item/gun/energy/tesla = 1,
 		/obj/item/gun/energy/laser/shotgun = 1,
 		/obj/item/gun/energy/vaurca/gatlinglaser = 1,

@@ -153,7 +153,7 @@
 	name = "\improper Zkrehk-Guild Beamgun"
 	desc = "An upgraded variant of the standard energy pistol with two settings: Incapacitate and Smite."
 	desc_extended = "This is the Zkrehk-Guild Beamgun, an energy-based sidearm designed and manufactured on Moghes. A special crystal used in its design allows it to penetrate armor with pinpoint accuracy."
-	icon = 'icons/obj/guns/species/unathi/hegemony_pistol.dmi'
+	icon = 'icons/obj/guns/manufacturer/moghes/hegemony_pistol.dmi'
 	icon_state = "hegemony_pistol"
 	item_state = "hegemony_pistol"
 	has_item_ratio = FALSE

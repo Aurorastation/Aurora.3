@@ -70,47 +70,6 @@
 	recharge_time = 5
 	can_turret = FALSE
 
-/obj/item/gun/energy/sniperrifle
-	name = "\improper HI L.W.A.P. marksman energy rifle"
-	desc = "The HI L.W.A.P. is an older NanoTrasen design. A designated marksman rifle capable of shooting powerful ionized beams, this is a weapon to kill from a distance."
-	icon = 'icons/obj/guns/manufacturer/nanotrasen/nt_laser_sniper.dmi'
-	icon_state = "sniper"
-	item_state = "sniper"
-	has_item_ratio = FALSE // same as the laserrifle
-	fire_sound = 'sound/weapons/marauder.ogg'
-	origin_tech = list(TECH_COMBAT = 6, TECH_MATERIAL = 5, TECH_POWER = 4)
-	projectile_type = /obj/projectile/beam/sniper
-	slot_flags = SLOT_BACK
-	charge_cost = 400
-	max_shots = 4
-	fire_delay = 45
-	force = 15
-	w_class = WEIGHT_CLASS_BULKY
-	accuracy = -3 //shooting at the hip
-	scoped_accuracy = 4
-	can_turret = TRUE
-	turret_sprite_set = "sniper"
-	turret_is_lethal = TRUE
-
-	is_wieldable = TRUE
-
-	fire_delay_wielded = 35
-	accuracy_wielded = 0
-
-/obj/item/gun/energy/sniperrifle/mechanics_hints(mob/user, distance, is_adjacent)
-	. += ..()
-	. += "To use the scope, use the appropriate verb in the object tab."
-
-/obj/item/gun/energy/sniperrifle/verb/scope()
-	set category = "Object.Held"
-	set name = "Use Scope"
-	set src in usr
-
-	if(wielded)
-		toggle_scope(2.0, usr)
-	else
-		to_chat(usr, SPAN_WARNING("You can't look through the scope without stabilizing the rifle!"))
-
 /obj/item/gun/energy/laser/shotgun
 	name = "\improper NT QB-2 laser shotgun"
 	desc = "A NanoTrasen designed laser weapon, designed to split a single amplified beam four times."
@@ -181,16 +140,16 @@ ABSTRACT_TYPE(/obj/item/gun/energy/lasertag)
 		pin = new pin_path(src)
 	switch(set_color)
 		if("red")
-			icon = 'icons/obj/guns/toy/redtag.dmi'
+			icon = 'icons/obj/guns/manufacturer/toy/redtag.dmi'
 		if("blue")
-			icon = 'icons/obj/guns/toy/bluetag.dmi'
+			icon = 'icons/obj/guns/manufacturer/toy/bluetag.dmi'
 	icon_state = "[set_color]tag"
 	item_state = icon_state
 	modifystate = item_state
 	update_held_icon()
 
 /obj/item/gun/energy/lasertag/blue
-	icon = 'icons/obj/guns/toy/bluetag.dmi'
+	icon = 'icons/obj/guns/manufacturer/toy/bluetag.dmi'
 	icon_state = "bluetag"
 	item_state = "bluetag"
 	projectile_type = /obj/projectile/beam/laser_tag/blue
@@ -198,6 +157,6 @@ ABSTRACT_TYPE(/obj/item/gun/energy/lasertag)
 	turret_sprite_set = "blue"
 
 /obj/item/gun/energy/lasertag/red
-	icon = 'icons/obj/guns/toy/redtag.dmi'
+	icon = 'icons/obj/guns/manufacturer/toy/redtag.dmi'
 	icon_state = "redtag"
 	item_state = "redtag"

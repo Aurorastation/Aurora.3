@@ -100,7 +100,7 @@
 /obj/item/gun/projectile/heavysniper/unathi
 	name = "hegemony slugger"
 	desc = "An incredibly large firearm, produced by an Ouerean Guild. Uses custom slugger rounds."
-	icon = 'icons/obj/guns/unathi_slugger.dmi'
+	icon = 'icons/obj/guns/manufacturer/ouerea/unathi_slugger.dmi'
 	icon_state = "slugger"
 	item_state = "slugger"
 	origin_tech = list(TECH_COMBAT = 8, TECH_MATERIAL = 2, TECH_ILLEGAL = 4)
@@ -178,7 +178,7 @@
 /obj/item/gun/projectile/dragunov
 	name = "\improper Ho'taki marksman rifle"
 	desc = "A semi-automatic marksman rifle."
-	icon = 'icons/obj/guns/dragunov.dmi'
+	icon = 'icons/obj/guns/manufacturer/adhomai/dragunov.dmi'
 	icon_state = "dragunov"
 	item_state = "dragunov"
 
@@ -231,8 +231,8 @@
 		to_chat(usr, SPAN_WARNING("You can't look through the scope without stabilizing the rifle!"))
 
 /obj/item/gun/projectile/automatic/rifle/w556
-	name = "\improper ZI Greyhound marksman rifle"
-	desc = "The ZI Greyhound, the designated marksman rifle variant of Zavodskoi's ZI Bulldog carbine. Features a longer, heavier barrel \
+	name = "\improper Z.I. Greyhound marksman rifle"
+	desc = "The Z.I. Greyhound, the designated marksman rifle variant of Zavodskoi's Z.I. Bulldog carbine. Features a longer, heavier barrel \
 	with a low-power fixed-magnification optic. A vertical grip has been attached under the forend, to help offset the change in balance \
 	and improve handling."
 	icon = 'icons/obj/guns/manufacturer/zavodskoi_interstellar/w556.dmi'

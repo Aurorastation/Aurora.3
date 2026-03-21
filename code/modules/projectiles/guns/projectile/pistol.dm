@@ -1,5 +1,5 @@
 /obj/item/gun/projectile/colt
-	name = "\improper Pattern 5 combat pistol"
+	name = "\improper Pattern 5 pistol"
 	desc = "A robust metal-framed semi-automatic pistol chambered in .45 produced in the system of San Colette."
 	desc_extended = "The Pattern 5 Pistol is the standard-issue sidearm for the Civil Guard, San Colette’s local military force. Loosely based on the standard 9mm pistol of the Solarian Army, the P5 fires a larger .45 round intended for use against heavier targets. \
 	The P5 is produced by the San Colette Interstellar Armaments Company (CAISC) and is often found abroad due to its rugged construction."
@@ -46,7 +46,7 @@
 		return 1
 
 /obj/item/gun/projectile/colt/super
-	name = "ornamental Pattern 5 combat pistol"
+	name = "ornamental Pattern 5 pistol"
 	desc = "A robust metal-framed semi-automatic pistol chambered in .45 produced in the system of San Colette. This example sports a short slide, wood-paneled grips, and few signs of use, likely belonging to someone of higher stature."
 	desc_extended = "The Pattern 5 Pistol is the standard-issue sidearm for the Civil Guard, San Colette’s local military force. Loosely based on the standard 9mm pistol of the Solarian Army, the P5 fires a larger .45 round intended for use against heavier targets. \
 	The P5 is produced by the San Colette Interstellar Armaments Company (CAISC) and is often found abroad due to its rugged construction."
@@ -63,7 +63,7 @@
 		icon_state = "coltsuper-e"
 
 /obj/item/gun/projectile/automatic/lebman
-	name = "automatic Pattern 5 combat pistol"
+	name = "automatic Pattern 5 pistol"
 	desc = "A robust metal-framed semi-automatic pistol chambered in .45 produced in the system of San Colette. This example has been modified to allow fully-automatic fire, and sports a prominent vertical grip and muzzle compensator to aid in control."
 	desc_extended = "The Pattern 5 Pistol is the standard-issue sidearm for the Civil Guard, San Colette’s local military force. Loosely based on the standard 9mm pistol of the Solarian Army, the P5 fires a larger .45 round intended for use against heavier targets. \
 	The P5 is produced by the San Colette Interstellar Armaments Company (CAISC) and is often found abroad due to its rugged construction."
@@ -353,7 +353,7 @@
 /obj/item/gun/projectile/pirate
 	name = "zip gun"
 	desc = "Little more than a barrel, handle, and firing mechanism, cheap makeshift firearms like this one are not uncommon in frontier systems."
-	icon = 'icons/obj/guns/zipgun.dmi'
+	icon = 'icons/obj/guns/manufacturer/frontier/zipgun.dmi'
 	icon_state = "zipgun"
 	item_state = "zipgun"
 	handle_casings = CYCLE_CASINGS //player has to take the old casing out manually before reloading
@@ -566,7 +566,7 @@
 		icon_state = "xanu_pistol-e"
 
 /obj/item/gun/projectile/pistol/dominia
-	name = "dominian service pistol"
+	name = "\improper MPP-50 pistol"
 	desc = "The Imperial Army's standard-issue handgun. Cheap, reliable, and easy to use."
 	desc_extended = "The Moroz Pattern Pistol, Year of 2450 (MPP-50) is a reliable handgun chambered in 7.62 \
 	Imperial Short which features an unusual magazine. Zavodskoi Interstellar is a major producer of these handguns."
@@ -588,13 +588,13 @@
 		icon_state = "dom_pistol-e"
 
 /obj/item/gun/projectile/pistol/spitter
-	name = "unathi spitter pistol"
+	name = "\improper Relzi-5 Spitter pistol"
 	desc = "The venerable 'spitter' pistol is an Unathi design nearly three centuries old. Though no longer in use by the Hegemony's forces, these guns are still commonplace in the hands of criminals, Wastelanders, and former Traditionalists."
 	desc_extended = "The Relzi-5 pistol, colloquially referred to as the 'spitter' was a common Unathi sidearm for centuries, though the design was already being phased out of Izweski use by the start of the Contact War due to superior-quality energy weapons becoming available.\
 	In the modern day, they are no longer produced, but the sheer volume of them in service means they can be found all over Moghes, and even in the wider Orion Spur."
 	magazine_type = /obj/item/ammo_magazine/spitterpistol
 	allowed_magazines = list(/obj/item/ammo_magazine/spitterpistol)
-	icon = 'icons/obj/guns/unathi_ballistics.dmi'
+	icon = 'icons/obj/guns/manufacturer/moghes/unathi_ballistics.dmi'
 	icon_state = "spitterpistol"
 	item_state = "spitterpistol"
 	caliber = "11.6mm"

@@ -101,21 +101,6 @@
 	can_turret = TRUE
 	turret_sprite_set = "xray"
 
-/obj/item/gun/energy/toxgun
-	name = "phoron pistol"
-	desc = "A specialized firearm designed to fire lethal bolts of phoron."
-	icon = 'icons/obj/guns/toxgun.dmi'
-	icon_state = "toxgun"
-	item_state = "toxgun"
-	has_item_ratio = FALSE
-	fire_sound = 'sound/effects/stealthoff.ogg'
-	w_class = WEIGHT_CLASS_NORMAL
-	origin_tech = list(TECH_COMBAT = 5, TECH_PHORON = 4)
-	projectile_type = /obj/projectile/energy/phoron
-	can_turret = TRUE
-	turret_is_lethal = FALSE
-	turret_sprite_set = "net"
-
 /obj/item/gun/energy/mousegun
 	name = "\improper NT Pesti-Shock gun"
 	desc = "The NT \"Arodentia\" Pesti-Shock is a highly sophisticated and probably safe beamgun designed for rapid pest-control."
@@ -447,7 +432,7 @@
 /obj/item/gun/energy/tesla
 	name = "tesla gun"
 	desc = "A gun that shoots a projectile that bounces from living thing to living thing. Keep your distance from whatever you are shooting at."
-	icon = 'icons/obj/guns/tesla.dmi'
+	icon = 'icons/obj/guns/manufacturer/adhomai/tesla.dmi'
 	icon_state = "tesla"
 	item_state = "tesla"
 	has_item_ratio = FALSE
@@ -595,7 +580,7 @@
 		return ..()
 
 /obj/item/gun/energy/galatea
-	name = "galatean laser rifle"
+	name = "\improper O61-B laser rifle"
 	desc = "The Galatean O61-B, an export model of their advanced Mark 61 Infantry Rifle."
 	desc_extended = "Galatean soldiers are heavily bioaugmented, combining soldier and weapon into a cohesive unit. The Mark 61 Infantry Rifle is one such example, drawing on the bioelectricity of the human body \
 	through an implant with which to power the gun. Unaugmented users complained of headaches, lethargy, and impossible dreams; The O61B has integrated the bioaugments into the firing mechanism, preventing 'baselines' \

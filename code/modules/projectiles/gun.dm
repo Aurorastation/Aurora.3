@@ -258,7 +258,7 @@ ABSTRACT_TYPE(/obj/item/gun)
 	underlays.Cut()
 	if(bayonet)
 		var/image/I
-		I = image(icon = 'icons/obj/guns/bayonet.dmi', icon_state = "bayonet")
+		I = image(icon = 'icons/obj/guns/attachments/bayonet.dmi', icon_state = "bayonet")
 		I.pixel_x = knife_x_offset
 		I.pixel_y = knife_y_offset
 		underlays += I

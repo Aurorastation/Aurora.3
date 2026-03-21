@@ -33,7 +33,7 @@ GLOBAL_LIST_INIT_TYPED(supply_drop, /datum/supply_drop_loot, null)
 	contents = list(
 		/obj/item/gun/energy/rifle/laser,
 		/obj/item/gun/energy/rifle/laser,
-		/obj/item/gun/energy/sniperrifle,
+		/obj/item/gun/energy/rifle/laser/sniper,
 		/obj/item/gun/energy/rifle/ionrifle)
 
 /datum/supply_drop_loot/ballistics

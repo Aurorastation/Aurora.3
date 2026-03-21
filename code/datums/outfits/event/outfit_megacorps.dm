@@ -60,7 +60,7 @@
 	r_pocket = /obj/item/crowbar/red
 
 	accessory = /obj/item/clothing/accessory/holster/hip/brown
-	accessory_contents = list(/obj/item/gun/energy/toxgun = 1)
+	accessory_contents = list(/obj/item/gun/energy/pistol = 1)
 
 	belt_contents = list(
 			/obj/item/shield/energy = 1,

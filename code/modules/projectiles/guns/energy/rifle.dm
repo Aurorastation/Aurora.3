@@ -76,6 +76,47 @@
 	max_shots = 15
 	recharge_time = 1
 
+/obj/item/gun/energy/rifle/laser/sniper
+	name = "\improper HI L.W.A.P. marksman energy rifle"
+	desc = "The HI L.W.A.P. is an older NanoTrasen design. A designated marksman rifle capable of shooting powerful ionized beams, this is a weapon to kill from a distance."
+	icon = 'icons/obj/guns/manufacturer/nanotrasen/nt_laser_sniper.dmi'
+	icon_state = "sniper"
+	item_state = "sniper"
+	has_item_ratio = FALSE // same as the laserrifle
+	fire_sound = 'sound/weapons/marauder.ogg'
+	origin_tech = list(TECH_COMBAT = 6, TECH_MATERIAL = 5, TECH_POWER = 4)
+	projectile_type = /obj/projectile/beam/sniper
+	slot_flags = SLOT_BACK
+	charge_cost = 400
+	max_shots = 4
+	fire_delay = 45
+	force = 15
+	w_class = WEIGHT_CLASS_BULKY
+	accuracy = -3 //shooting at the hip
+	scoped_accuracy = 4
+	can_turret = TRUE
+	turret_sprite_set = "sniper"
+	turret_is_lethal = TRUE
+
+	is_wieldable = TRUE
+
+	fire_delay_wielded = 35
+	accuracy_wielded = 0
+
+/obj/item/gun/energy/rifle/laser/sniper/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "To use the scope, use the appropriate verb in the object tab."
+
+/obj/item/gun/energy/rifle/laser/sniper/verb/scope()
+	set category = "Object.Held"
+	set name = "Use Scope"
+	set src in usr
+
+	if(wielded)
+		toggle_scope(2.0, usr)
+	else
+		to_chat(usr, SPAN_WARNING("You can't look through the scope without stabilizing the rifle!"))
+
 /obj/item/gun/energy/rifle/laser/noctiluca
 	name = "\improper Noctiluca XM/24 combat laser rifle"
 	desc = "The Noctiluca XM/24 is a brand new model of laser rifle, developed entirely by Kumar Arms, a Zavodskoi Interstellar subsidiary. Easy to handle for users with minimal training, reliable and with a reasonable form factor, it is poised to become the new standard for laser weaponry."
@@ -187,7 +228,7 @@
 /obj/item/gun/energy/rifle/ionrifle
 	name = "\improper NT Mk70 EW ion rifle"
 	desc = "The NT Mk70 EW \"Halicon\" is a man portable anti-armor weapon designed to disable mechanical threats, produced by NanoTrasen."
-	icon = 'icons/obj/guns/ionrifle.dmi'
+	icon = 'icons/obj/guns/manufacturer/nanotrasen/ionrifle.dmi'
 	icon_state = "ionrifle"
 	item_state = "ionrifle"
 	has_item_ratio = FALSE
@@ -230,7 +271,7 @@
 	name = "\improper Zkrehk-Guild heavy beamgun"
 	desc = "An upgraded variant of the standard laser rifle. It does not have a stun setting."
 	desc_extended = "The Zkrehk-Guild Heavy Beamgun, an energy-based rifle designed and manufactured on Moghes. A special crystal used in its design allows it to penetrate armor with pinpoint accuracy."
-	icon = 'icons/obj/guns/species/unathi/hegemony_rifle.dmi'
+	icon = 'icons/obj/guns/manufacturer/moghes/hegemony_rifle.dmi'
 	icon_state = "hegemonyrifle"
 	item_state = "hegemonyrifle"
 	has_item_ratio = FALSE
