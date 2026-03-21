@@ -1,0 +1,4 @@
+author: Batrachophrenoboocosmomachia
+delete-after: True
+changes:
+  - rscadd: "Renames Engineer alt title 'Reactor Technician' to 'Reactor Operator'."
