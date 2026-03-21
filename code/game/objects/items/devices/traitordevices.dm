@@ -56,7 +56,7 @@ effective or pretty fucking useless.
 /obj/item/liidrafier //adminspawn/event injector, designed to easily make someone a lii'dra zombie/actual lii'dra
 	name = "Lii'drafication Injector"
 	desc = "Use this single-use injector on a Vaurca to grant them access to the Lii'dra Hivenet. Use it on an organic non-Vaurca to infect them with black k'ois. This is an OOC item, do not let anyone see it!"
-	icon = 'icons/obj/guns/decloner.dmi'
+	icon = 'icons/obj/guns/energy/decloner.dmi'
 	icon_state = "decloner"
 	item_state = "decloner"
 

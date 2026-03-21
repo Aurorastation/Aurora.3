@@ -52,7 +52,7 @@
 		/obj/item/rig/light/stealth                  = TRADER_THIS_TYPE,
 		/obj/item/rig/light/hacker                   = TRADER_THIS_TYPE,
 		/obj/item/gun/launcher/grenade               = TRADER_THIS_TYPE,
-		/obj/item/gun/energy/sniperrifle             = TRADER_THIS_TYPE,
+		/obj/item/gun/energy/rifle/laser/sniper             = TRADER_THIS_TYPE,
 		/obj/item/gun/projectile/automatic           = TRADER_SUBTYPES_ONLY,
 		/mob/living/heavy_vehicle/premade/combat     = TRADER_THIS_TYPE
 	)

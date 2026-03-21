@@ -28,7 +28,7 @@
 	{
 		"ckey": "arrow768",
 		"character_name": "John Doe",
-		"item_path": "/obj/item/gun/energy/lawgiver",
+		"item_path": "/obj/item/gun/energy/acp",
 		"item_name": "Executioner",
 		"item_desc": "When you really need to motivate your crew."
 	}

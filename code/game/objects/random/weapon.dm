@@ -1,8 +1,7 @@
 /obj/random/energy
 	name = "random energy weapon"
 	desc = "This is a random energy weapon."
-	icon = 'icons/obj/guns/ecarbine.dmi'
-	icon_state = "energykill100"
+	icon_state = "energy_gun"
 	problist = list(
 		/obj/item/gun/energy/rifle/laser = 2,
 		/obj/item/gun/energy/gun = 2,
@@ -12,8 +11,7 @@
 /obj/random/projectile
 	name = "random projectile weapon"
 	desc = "This is a random projectile weapon."
-	icon = 'icons/obj/guns/cshotgun.dmi'
-	icon_state = "cshotgun"
+	icon_state = "rifle"
 	problist = list(
 		/obj/item/gun/projectile/shotgun/pump = 3,
 		/obj/item/gun/projectile/automatic/wt550 = 2,
@@ -23,8 +21,7 @@
 /obj/random/handgun
 	name = "random handgun"
 	desc = "This is a random handgun."
-	icon = 'icons/obj/guns/secgun.dmi'
-	icon_state = "secgun"
+	icon_state = "pistol"
 	problist = list(
 		/obj/item/gun/projectile/sec = 3,
 		/obj/item/gun/projectile/sec/wood = 1
@@ -33,8 +30,7 @@
 /obj/random/ammo
 	name = "random ammunition"
 	desc = "This is some random ammunition."
-	icon = 'icons/obj/ammo.dmi'
-	icon_state = "45-10"
+	icon_state = "needsprite"
 	problist = list(
 		/obj/item/storage/box/shells/beanbags = 6,
 		/obj/item/storage/box/shells/slugs = 2,
@@ -50,8 +46,7 @@
 /obj/random/melee
 	name = "random melee weapon"
 	desc = "This is a random melee weapon."
-	icon = 'icons/obj/weapons.dmi'
-	icon_state = "baton"
+	icon_state = "melee"
 	spawnlist = list(
 		/obj/item/melee/telebaton,
 		/obj/item/melee/energy/sword,
@@ -75,8 +70,7 @@
 /obj/random/melee/highvalue
 	name = "random high value melee weapon"
 	desc = "This is a random high value melee weapon."
-	icon = 'icons/obj/weapons.dmi'
-	icon_state = "baton"
+	icon_state = "melee"
 	spawnlist = list(
 		/obj/item/melee/energy/sword,
 		/obj/item/melee/energy/glaive,
@@ -88,15 +82,13 @@
 /obj/random/energy_antag
 	name = "random energy weapon"
 	desc = "This is a random energy weapon."
-	icon = 'icons/obj/guns/retro.dmi'
-	icon_state = "retro100"
+	icon_state = "energy_gun"
 	spawnlist = list(
 		/obj/item/gun/energy/retro,
 		/obj/item/gun/energy/xray,
 		/obj/item/gun/energy/gun,
 		/obj/item/gun/energy/pistol,
 		/obj/item/gun/energy/mindflayer,
-		/obj/item/gun/energy/toxgun,
 		/obj/item/gun/energy/vaurca/gatlinglaser,
 		/obj/item/gun/energy/vaurca/blaster,
 		/obj/item/gun/energy/crossbow/largecrossbow,
@@ -129,7 +121,6 @@
 /obj/random/civgun
 	name = "random civilian handgun"
 	desc = "This is a random civilian gun."
-	icon = 'icons/obj/random.dmi'
 	icon_state = "pistol"
 	has_postspawn = TRUE
 	spawnlist = list(
@@ -177,7 +168,6 @@
 /obj/random/civgun/rifle
 	name = "random civilian longarm"
 	desc = "This is a random civilian long gun."
-	icon = 'icons/obj/random.dmi'
 	icon_state = "rifle"
 	has_postspawn = TRUE
 	spawnlist = list(
@@ -194,7 +184,7 @@
 		/obj/item/gun/projectile/shotgun/pump/rifle/vintage,
 		/obj/item/gun/projectile/shotgun/pump/lever_action,
 		/obj/item/gun/projectile/gauss,
-		/obj/item/gun/projectile/gauss/carbine,
+		/obj/item/gun/projectile/gauss/old,
 		/obj/item/gun/projectile/shotgun/pump,
 		/obj/item/gun/projectile/shotgun/doublebarrel,
 		/obj/item/gun/projectile/shotgun/doublebarrel/sawn,
@@ -217,8 +207,7 @@
 /obj/random/vault_weapon
 	name = "random vault weapon"
 	desc = "This is a random vault weapon."
-	icon = 'icons/obj/guns/caplaser.dmi'
-	icon_state = "caplaser"
+	icon_state = "needsprite"
 	spawnlist = list(
 		/obj/item/gun/custom_ka/frameA/prebuilt = 1,
 		/obj/item/gun/custom_ka/frameB/prebuilt = 0.5,

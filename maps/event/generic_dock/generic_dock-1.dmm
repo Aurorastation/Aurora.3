@@ -3341,7 +3341,7 @@
 /obj/item/clothing/shoes/sneakers/brown,
 /obj/item/clothing/suit/armor/vest,
 /obj/item/clothing/head/helmet/swat,
-/obj/item/gun/energy/laser,
+/obj/item/gun/energy/rifle/laser,
 /obj/effect/decal/fake_object/light_source/invisible,
 /turf/simulated/floor,
 /area/tdome/tdome2)
@@ -5068,7 +5068,7 @@
 /obj/item/clothing/shoes/sneakers/brown,
 /obj/item/clothing/suit/armor/vest,
 /obj/item/clothing/head/helmet/swat,
-/obj/item/gun/energy/laser,
+/obj/item/gun/energy/rifle/laser,
 /turf/simulated/floor,
 /area/tdome/tdome1)
 "eUY" = (
@@ -7650,7 +7650,7 @@
 /obj/item/clothing/shoes/sneakers/brown,
 /obj/item/clothing/suit/armor/vest,
 /obj/item/clothing/head/helmet/swat,
-/obj/item/gun/energy/laser,
+/obj/item/gun/energy/rifle/laser,
 /obj/effect/decal/fake_object/light_source/invisible,
 /turf/simulated/floor,
 /area/tdome/tdome1)
@@ -8979,7 +8979,7 @@
 /obj/item/clothing/accessory/holster/hip,
 /obj/item/radio/headset/ert,
 /obj/item/clothing/head/beret/centcom/captain,
-/obj/item/gun/energy/lawgiver,
+/obj/item/gun/energy/acp,
 /obj/item/card/id/centcom,
 /obj/structure/closet/secure_closet/guncabinet{
 	name = "captain's cabinet";
@@ -17076,7 +17076,7 @@
 /obj/item/clothing/shoes/sneakers/brown,
 /obj/item/clothing/suit/armor/vest,
 /obj/item/clothing/head/helmet/swat,
-/obj/item/gun/energy/laser,
+/obj/item/gun/energy/rifle/laser,
 /turf/simulated/floor,
 /area/tdome/tdome2)
 "wEI" = (

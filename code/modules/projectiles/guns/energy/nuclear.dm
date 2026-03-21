@@ -1,8 +1,8 @@
 /obj/item/gun/energy/gun
-	name = "energy carbine"
+	name = "\improper NT EC-4 energy carbine"
 	desc = "A NanoTrasen designed energy-based carbine with two settings: Stun and kill."
 	desc_extended = "The NT EC-4 is an energy carbine developed and produced by NanoTrasen. Compact, light and durable, used by security forces and law enforcement for its ability to fire stun or lethal beams, depending on selection. It is widely sold and distributed across the galaxy."
-	icon = 'icons/obj/guns/ecarbine.dmi'
+	icon = 'icons/obj/guns/manufacturer/nanotrasen/ecarbine.dmi'
 	icon_state = "energystun"
 	item_state = "energystun"
 	fire_sound = 'sound/weapons/Taser.ogg'
@@ -123,10 +123,10 @@
 	update_mode()
 
 /obj/item/gun/energy/pistol
-	name = "energy pistol"
+	name = "\improper NT EP-3 energy pistol"
 	desc = "A NanoTrasen energy-based pistol gun with two settings: Stun and kill."
 	desc_extended = "The NT EP-3 is an energy sidearm developed and produced by NanoTrasen. Compact, light and durable, used by security forces and law enforcement for its ability to fire stun or lethal beams, depending on selection. It is widely sold and distributed across the galaxy."
-	icon = 'icons/obj/guns/epistol.dmi'
+	icon = 'icons/obj/guns/manufacturer/nanotrasen/epistol.dmi'
 	icon_state = "epistolstun100"
 	item_state = "epistolstun100"
 	fire_sound = 'sound/weapons/Taser.ogg'
@@ -150,10 +150,10 @@
 		)
 
 /obj/item/gun/energy/pistol/hegemony
-	name = "hegemony energy pistol"
+	name = "\improper Zkrehk-Guild Beamgun"
 	desc = "An upgraded variant of the standard energy pistol with two settings: Incapacitate and Smite."
 	desc_extended = "This is the Zkrehk-Guild Beamgun, an energy-based sidearm designed and manufactured on Moghes. A special crystal used in its design allows it to penetrate armor with pinpoint accuracy."
-	icon = 'icons/obj/guns/hegemony_pistol.dmi'
+	icon = 'icons/obj/guns/manufacturer/moghes/hegemony_pistol.dmi'
 	icon_state = "hegemony_pistol"
 	item_state = "hegemony_pistol"
 	has_item_ratio = FALSE
@@ -202,10 +202,10 @@
 		)
 
 /obj/item/gun/energy/repeater
-	name = "energy repeater"
+	name = "\improper SCC-ER1 energy repeater"
 	desc = "A Stellar Corporate Conglomerate created energy repeater, extremely lightweight. It has three settings: Single, Three-Burst, and Full-Auto."
 	desc_extended = "The SCC-ER1 was designed to be a reliable yet concealable firearm, capable of defending SCC assets and agents from various attackers."
-	icon = 'icons/obj/guns/erepeater.dmi'
+	icon = 'icons/obj/guns/manufacturer/stellar_corporate_conglomerate/erepeater.dmi'
 	icon_state = "energysmg100"
 	item_state = "energysmg100"
 	modifystate = "energysmg"
@@ -227,10 +227,10 @@
 		)
 
 /obj/item/gun/energy/repeater/pistol
-	name = "Energy Pistol"
+	name = "\improper SCC-ER1-2 energy pistol"
 	desc = "A more compact and portable version of the Stellar Corporate Conglomerate Energy Repeater. It has two settings: Stun, and Lethal."
 	desc_extended = "The SCC-ER1-2 was designed to be a reliable yet more compact version of the SCC-ER1, capable of defending Staff and Assets."
-	icon = 'icons/obj/guns/sccpistol.dmi'
+	icon = 'icons/obj/guns/manufacturer/stellar_corporate_conglomerate/sccpistol.dmi'
 	icon_state = "sccpistolstun100"
 	item_state = "sccpistolstun"
 	has_item_ratio = FALSE
@@ -251,7 +251,7 @@
 		list(mode_name="lethal", projectile_type=/obj/projectile/beam/pistol/scc/weak, modifystate="sccpistolkill", fire_sound='sound/weapons/energy_repeater.ogg')
 		)
 
-/obj/item/gun/energy/gun/skrell
+ABSTRACT_TYPE(/obj/item/gun/energy/gun/skrell)
 	self_recharge = TRUE
 	fire_sound = 'sound/weapons/Laser2.ogg'
 	modifystate = null
@@ -297,7 +297,7 @@
 		)
 
 /obj/item/gun/energy/gun/qukala
-	name = "tqi-qop carbine"
+	name = "\improper Tqi-Qop carbine"
 	desc = "The Tqi-Qop Carbine is the main weapon of the Qukala. Its compact light frame and excellent ammo capacity make it a superb weapon for the Skrell."
 	desc_extended = ""
 	icon = 'icons/obj/item/gun/energy/gun/qukala.dmi'
@@ -329,7 +329,7 @@
 	can_turret = FALSE
 
 /obj/item/gun/energy/fedpistol
-	name = "nralakk energy pistol"
+	name = "\improper Xuqm-3 energy pistol"
 	desc = "A Skrell-made pistol that utilises a psionic control mechanism. It's made from a lightweight alloy."
 	desc_extended = "A sidearm usually seen in the hands of Nralakk Federation officials and law enforcement, the Xuqm-3 energy pistol has a psionically-linked firing pin that checks for a developed Zona Bovinae in its user before it can be fired. A wire can be attached to the user's wrist to allow for mode switching using psionics rather than changing it physically. For non-psionic users, a small dial for mode switching has been attached."
 	icon = 'icons/obj/guns/psi_pistol.dmi'
