@@ -68,7 +68,6 @@
 	/// Maximum stamina. We start taking oxyloss when this runs out while sprinting
 	var/max_stamina = 100
 	var/sprint_speed_factor = 0.4
-	var/lying_speed_factor = 0
 	var/sprint_cost_factor = 1
 	var/stamina_recovery = 1
 	/// When move intent is walk, movedelay is clamped to this value as a lower bound
@@ -104,3 +103,6 @@
 
 	/// If true, ignores weather effects
 	var/resists_weather = FALSE
+
+	/// Time since last weather effect
+	var/weather_cooldown_time = 0

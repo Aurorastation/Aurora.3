@@ -841,6 +841,12 @@ BLIND     // can't see anything
 	desc = "A blindfold that covers the eyes, this one seems to be made of thinner material."
 	tint = TINT_NONE // It's practically a fluff thing anyway, so.
 
+/obj/item/clothing/glasses/sunglasses/blindfold/scc_sleepmask
+	name = "\improper SCC Sleepmask"
+	desc = "A sleep mask, branded with the unmistakable logo of the Stellar Corporate Conglomerate. A small tag on the inside indicates it is a Nyx-brand Sleep Mask, produced by Idris Incorporated for Stellar Corporate Conglomerate vessels."
+	icon_state = "scc_sleepmask"
+	item_state = "scc_sleepmask"
+
 /obj/item/clothing/glasses/sunglasses/blinders
 	name = "vaurcae blinders"
 	desc = "Specially designed Vaurca blindfold, designed to let in just enough light to see."

@@ -43,11 +43,11 @@
 	if (!stacktype)
 		stacktype = type
 	if (amount)
-		src.amount = amount
 		if(amount > max_amount)
-			var/amount_overdue = max_amount - amount
-			new type(get_turf(src), amount_overdue)
-			amount -= amount_overdue
+			var/amount_overdue = amount - max_amount
+			new type(get_turf(src), amount_overdue) // Remaining overflow recursively handled by new type
+			amount = max_amount
+		src.amount = amount
 
 	if (icon_has_variants && !item_state)
 		item_state = icon_state

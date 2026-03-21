@@ -19,8 +19,6 @@
 	randpixel = 7
 	drop_sound = 'sound/items/drop/axe.ogg'
 	pickup_sound = 'sound/items/pickup/axe.ogg'
-	item_flags = 0
-	obj_flags = 0
 
 /obj/item/stack/tile/Initialize(mapload, amount)
 	. = ..()

@@ -59,25 +59,21 @@
 	inputs = list("delay time" = IC_PINTYPE_NUMBER)
 	spawn_flags = IC_SPAWN_RESEARCH
 
-/obj/item/integrated_circuit/time/delay/custom/do_work()
-	var/delay_input = get_pin_data(IC_INPUT, 1)
-	if(delay_input && isnum(delay_input) )
-		var/new_delay = between(1, delay_input, 1 HOUR)
-		delay = new_delay
-
+/obj/item/integrated_circuit/time/delay/custom/on_data_written()
+	delay = between(1, get_pin_data(IC_INPUT, 1), 1 HOUR)
 	..()
 
 /obj/item/integrated_circuit/time/ticker
-	name = "ticker circuit"
-	desc = "This circuit sends an automatic pulse every four seconds."
+	name = "ten second ticker"
+	desc = "This circuit sends an automatic pulse every ten seconds."
 	icon_state = "tick-m"
 	complexity = 8
-	var/ticks_to_pulse = 4
+	var/seconds_to_pulse = 10 SECONDS
 	var/ticks_completed = 0
 	var/is_running = FALSE
 	inputs = list("enable ticking" = IC_PINTYPE_BOOLEAN)
 	activators = list("outgoing pulse" = IC_PINTYPE_PULSE_OUT)
-	spawn_flags = IC_SPAWN_RESEARCH
+	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 	power_draw_per_use = 4
 
 /obj/item/integrated_circuit/time/ticker/Destroy()
@@ -97,30 +93,53 @@
 /obj/item/integrated_circuit/time/ticker/process()
 	var/process_ticks = SSelectronics.wait
 	ticks_completed += process_ticks
-	if(ticks_completed >= ticks_to_pulse)
-		if(ticks_to_pulse >= process_ticks)
-			ticks_completed -= ticks_to_pulse
+	if(ticks_completed >= SecondsToTicks(seconds_to_pulse))
+		if(SecondsToTicks(seconds_to_pulse) >= process_ticks)
+			ticks_completed -= SecondsToTicks(seconds_to_pulse)
 		else
 			ticks_completed = 0
 		activate_pin(1)
 
 /obj/item/integrated_circuit/time/ticker/fast
-	name = "fast ticker"
+	name = "two second ticker"
 	desc = "This advanced circuit sends an automatic pulse every two seconds."
 	icon_state = "tick-f"
 	complexity = 12
-	ticks_to_pulse = 2
+	seconds_to_pulse = 2 SECONDS
 	spawn_flags = IC_SPAWN_RESEARCH
 	power_draw_per_use = 8
 
 /obj/item/integrated_circuit/time/ticker/slow
-	name = "slow ticker"
-	desc = "This simple circuit sends an automatic pulse every six seconds."
+	name = "thirty second ticker"
+	desc = "This simple circuit sends an automatic pulse every thirty seconds."
 	icon_state = "tick-s"
 	complexity = 4
-	ticks_to_pulse = 6
+	seconds_to_pulse = 30 SECONDS
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 	power_draw_per_use = 2
+
+/obj/item/integrated_circuit/time/ticker/very_slow
+	name = "five minute ticker"
+	desc = "This simple circuit sends an automatic pulse every five minutes (three hundred seconds)."
+	icon_state = "tick-s"
+	complexity = 4
+	seconds_to_pulse = 300 SECONDS
+	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
+	power_draw_per_use = 2
+
+/obj/item/integrated_circuit/time/ticker/custom
+	name = "custom ticker"
+	desc = "This advanced circuit sends an automatic pulse with a configurable interval between 2 and 600 seconds. Default: 60 seconds."
+	icon_state = "tick-f"
+	complexity = 15
+	seconds_to_pulse = 60 SECONDS
+	spawn_flags = IC_SPAWN_RESEARCH
+	power_draw_per_use = 8
+	inputs = list("enable ticking" = IC_PINTYPE_BOOLEAN, "ticker time" = IC_PINTYPE_NUMBER)
+
+/obj/item/integrated_circuit/time/ticker/custom/on_data_written()
+	seconds_to_pulse = between(2 SECONDS, get_pin_data(IC_INPUT, 2), 600 SECONDS)
+	..()
 
 /obj/item/integrated_circuit/time/clock
 	name = "integrated clock"

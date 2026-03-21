@@ -1812,3 +1812,14 @@
 	starts_with = list(
 		/obj/item/cane/crutch/forearm = 2
 	)
+
+/obj/item/storage/box/unique/freezer/organcooler/mind_blanker
+	name = "mind blanker cooler"
+	desc = "A cooling box for mind blankers, which can be surgically implanted to protect the patient from unwanted psionic interference."
+	color = COLOR_PURPLE_GRAY
+	illustration = "implant"
+	starts_with = list(/obj/item/organ/internal/augment/bioaug/mind_blanker = 1)
+	can_hold = list(
+		/obj/item/organ/internal/augment/bioaug/mind_blanker
+	)
+	storage_slots = 4

@@ -235,7 +235,7 @@
 	agony = 0
 	embed = 0
 	sharp = 0
-	incinerate = 10
+	incinerate = 2
 
 /obj/projectile/bullet/tracking
 	name = "tracking shot"

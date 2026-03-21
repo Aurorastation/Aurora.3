@@ -276,7 +276,7 @@
 		/obj/item/clothing/under/tajaran/nka_noble			= TRADER_THIS_TYPE,
 		/obj/item/clothing/accessory/tajaran/nka_waistcoat			= TRADER_THIS_TYPE,
 		/obj/item/clothing/accessory/tajaran/nka_vest			= TRADER_THIS_TYPE,
-		/obj/item/clothing/under/dress/tajaran/summer			= TRADER_THIS_TYPE,
+		/obj/item/clothing/pants/skirt/tajaran			= TRADER_THIS_TYPE,
 		/obj/item/clothing/under/dress/tajaran/fancy			= TRADER_THIS_TYPE,
 		/obj/item/clothing/under/dress/tajaran/fancy/black		= TRADER_THIS_TYPE,
 		/obj/item/clothing/under/dress/tajaran/fancy			= TRADER_THIS_TYPE,

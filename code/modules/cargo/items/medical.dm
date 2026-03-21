@@ -802,3 +802,11 @@
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
+
+/singleton/cargo_item/organcooler/mind_blanker
+	name = "mind blanker cooler"
+	description = "An organ cooler containing a single Zeng-Hu Mind Blanker. Their cost has been subsidized by ZH for Operation Deep Dive."
+	price = 500
+	items = list(
+		/obj/item/storage/box/unique/freezer/organcooler/mind_blanker
+	)

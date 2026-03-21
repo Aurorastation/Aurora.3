@@ -89,7 +89,7 @@
 	if(dir == SOUTH)
 		layer = ABOVE_HUMAN_LAYER
 	ClearOverlays()
-	if(stat & NOPOWER)
+	if(!interact_offline && (stat & NOPOWER)) // we only stop here if we care about power
 		set_light(0)
 		return
 	else

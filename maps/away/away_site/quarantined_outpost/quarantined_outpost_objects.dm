@@ -52,9 +52,9 @@ GLOBAL_LIST_EMPTY(trackables_pool)
 	health = 300
 	speed = 6
 
-	melee_damage_lower = 30
-	melee_damage_upper = 30
-	armor_penetration = 15
+	melee_damage_lower = 15
+	melee_damage_upper = 25
+	armor_penetration = 10
 
 	/// Used on deleting revive timer if the mob is burning while being dead.
 	var/revive_timer
@@ -1112,9 +1112,21 @@ GLOBAL_LIST_EMPTY(trackables_pool)
 /obj/structure/filler/ex_act()
 	return
 
-/*######################################
-				PAPERS
-######################################*/
+/*####################################
+		PAPERS & LORE CONSOLES
+####################################*/
+
+/obj/machinery/computer/terminal/loreconsole/always_powered/quarantined_outpost/maintenance_log
+	entries = list(
+		new/datum/lore_console_entry(
+			"\[11 FEB 2274 - CYCLE 451 - ATKINSON\]", {"
+	<hr>
+	Regular check-up, all green.
+	<br><br>
+	We're pushing more and more processing into the labs, even though the gear wasn't built for this kind of workload. Miracles don't happen by itself,
+	we <i>need</i> proper requipment and being in the middle of nowhere is no excuse. Open a ticket, get us some real hardware. Maybe then we can stop having to
+	manually pulse this box every time the red lights start blinking.
+	"}))
 
 /obj/item/paper/fluff/quarantined_outpost/engineers_note
 	name = "crumpled instructions"
@@ -1138,16 +1150,6 @@ GLOBAL_LIST_EMPTY(trackables_pool)
 	\[whatever once was written here is now mostly unintelligible, claimed by a fire. Following is the only things you can discern.\]
 	<br><br>
 	...bring the equipment to... dispose of... if you see any, make sure they stay down... burn...
-	"}
-
-/obj/item/paper/fluff/quarantined_outpost/maintenance_log
-	name = "maintenance log"
-	info = {"
-	...
-	<br><br>
-	- \[11 FEB 2274 - CYCLE 451 - ATKINSON\] Regular check-up, all green. Lately we allocate more and more processing space for the labs, even though these equipments
-	weren't meant to pull off such an intense workload. We may be in the middle of damn nowhere, but hoping for miracles won't get you too far either. Put a ticket,
-	get us some proper hardware and then maybe you will see less blinking red lights in the box that we have to pulse to reboot every now and then.
 	"}
 
 /obj/item/paper/fluff/quarantined_outpost/venusians_note

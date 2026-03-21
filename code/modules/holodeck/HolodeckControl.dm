@@ -315,6 +315,8 @@ GLOBAL_LIST_EMPTY_TYPED(holodeck_controls, /obj/machinery/computer/holodeck_cont
 	active = 1
 	update_use_power(POWER_USE_ACTIVE)
 
+	QDEL_LIST(holodeck_landmarks)
+
 	for(var/item in holographic_objs)
 		derez(item)
 

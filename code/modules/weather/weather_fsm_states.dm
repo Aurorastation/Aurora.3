@@ -70,7 +70,7 @@ ABSTRACT_TYPE(/singleton/state/weather)
 		if(!weather.show_weather(M))
 			weather.show_wind(M)
 
-	if(exposure != WEATHER_IGNORE && weather.set_cooldown(M))
+	if(exposure != WEATHER_IGNORE)
 		if(exposure == WEATHER_EXPOSED)
 			handle_exposure_effects(M, weather)
 		else if(exposure == WEATHER_ROOFED)

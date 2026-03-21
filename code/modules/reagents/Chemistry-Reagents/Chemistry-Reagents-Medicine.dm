@@ -1615,13 +1615,13 @@
 
 /singleton/reagent/pneumalin/affect_breathe(var/mob/living/carbon/human/H, var/alien, var/removed, var/datum/reagents/holder)
 	H.adjustOxyLoss(removed) //Every unit heals 1 oxy damage
-	H.add_chemical_effect(CE_PNEUMOTOXIC, -removed * 1.5)
+	H.remove_chemical_effect(CE_PNEUMOTOXIC, removed * 1.5)
 	H.add_chemical_effect(CE_PULSE, -1)
 
 	var/obj/item/organ/internal/lungs/L = H.internal_organs_by_name[BP_LUNGS]
 	if(istype(L) && !BP_IS_ROBOTIC(L))
 		L.rescued = FALSE
-		L.damage = max(L.damage - (removed * 1.5), 0)
+		L.heal_damage(removed * 1.5)
 
 	. = ..()
 

@@ -560,6 +560,13 @@
 	for(var/source in stasis_sources)
 		stasis_value += stasis_sources[source]
 	stasis_sources.Cut()
+	if(stasis_value == 0)
+		remove_filter("stasis_status_ripple")
+	else if(!get_filter("stasis_status_ripple"))
+		add_filter("stasis_status_ripple", 2, ripple_filter(flags = WAVE_BOUNDED, radius = 0, size = 2))
+		var/filter = get_filter("stasis_status_ripple")
+		animate(filter, radius = 0, time = 0.2 SECONDS, size = 2, easing = JUMP_EASING, loop = -1, flags = ANIMATION_PARALLEL)
+		animate(radius = 32, time = 1.5 SECONDS, size = 0)
 
 /mob/living/carbon/get_contained_external_atoms()
 	. = contents - internal_organs

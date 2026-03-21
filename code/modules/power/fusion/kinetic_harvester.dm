@@ -83,9 +83,9 @@
 				if(SSmaterials.materials_by_name[mat] && !stored[mat])
 					stored[mat] = 0
 			for(var/mat in harvesting)
-				if(!SSmaterials.materials_by_name[mat] || !harvest_from.owned_field.reactants[mat])
+				if(!SSmaterials.materials_by_name[mat])
 					harvesting -= mat
-				else
+				else if(mat in harvest_from.owned_field.reactants)
 					var/harvest = min(harvest_from.owned_field.reactants[mat], rand(100,200))
 					// Leave a few counts of the reactant to avoid deactivating harvest mode
 					harvest_from.owned_field.reactants[mat] -= (harvest - rand(0,5))

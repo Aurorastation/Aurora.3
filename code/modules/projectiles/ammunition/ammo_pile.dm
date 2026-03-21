@@ -119,24 +119,26 @@
 
 /obj/item/ammo_pile/proc/check_ammo()
 	var/ammo_amount = length(ammo)
-	switch(ammo_amount)
-		if(0)
-			qdel(src)
-		if(1)
-			var/obj/bullet = ammo[1]
-			bullet.forceMove(get_turf(src))
-			var/mob/gunman
-			if(ismob(loc))
-				gunman = loc
-			qdel(src)
-			if(gunman)
-				gunman.put_in_hands(bullet)
-	if(ammo_amount)
+	if(ammo_amount > 1)
 		var/obj/first_round = ammo[1]
 		if(ammo_amount > 7)
 			w_class = first_round.w_class + 2 // too many to fit in your pockets, generally
 		else
 			w_class = first_round.w_class + 1
+		return
+
+	switch(ammo_amount)
+		if(0)
+			qdel(src)
+		if(1)
+			var/obj/bullet = ammo[1]
+			ammo -= bullet
+			bullet.forceMove(get_turf(src))
+			var/mob/gunman = ismob(loc) ? loc : null
+			qdel(src)
+			if(gunman)
+				// Do this after qdeleting the pile so that they have a free hand.
+				gunman.put_in_hands(bullet)
 
 /obj/item/ammo_pile/proc/add_ammo(var/obj/item/ammo_casing/bullet)
 	if(!bullet.BB)

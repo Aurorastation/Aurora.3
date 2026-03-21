@@ -152,6 +152,12 @@
 	slippers["worn bunny slippers"] = /obj/item/clothing/shoes/slippers/worn
 	gear_tweaks += new /datum/gear_tweak/path(slippers)
 
+/datum/gear/shoes/recolourable_slippers
+	display_name = "slippers (colourable)"
+	description = "Slippers, in a selection of colours."
+	path = /obj/item/clothing/shoes/slippers/recolourable_slippers
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
 /datum/gear/shoes/recolourable_shoes
 	display_name = "shoe selection (colourable)"
 	description = "Shoes, in a selection of colors."

@@ -266,7 +266,7 @@ INITIALIZE_IMMEDIATE(/obj/item/organ)
 
 /obj/item/organ/proc/heal_damage(amount)
 	if(can_recover())
-		damage = between(0, damage - round(amount, 0.1), max_damage)
+		damage = between(0, damage - amount, max_damage)
 
 /obj/item/organ/proc/is_broken()
 	return (damage >= min_broken_damage || (status & ORGAN_CUT_AWAY) || (status & ORGAN_BROKEN))

@@ -161,12 +161,12 @@
 
 #define GHOST_PLANE 80
 
+//-------------------- Lighting ---------------------
+
 #define LIGHTING_PLANE 100
 	#define LIGHTING_LAYER 1
 #define EXTERIOR_LIGHTING_PLANE 101
 #define NVG_PLANE 110
-
-#define BALLOON_CHAT_PLANE 110
 
 #define O_LIGHTING_VISUAL_PLANE 120
 #define O_LIGHTING_VISUAL_LAYER 16
@@ -184,7 +184,12 @@
 	#define SUPERMATTER_WALL_LAYER 3
 	#define LIGHTNING_LAYER 4
 
+//--------------- FULLSCREEN RUNECHAT BUBBLES ------------
+
+///Popup Chat Messages
 #define RUNECHAT_PLANE 501
+/// Plane for balloon text (text that fades up)
+#define BALLOON_CHAT_PLANE 502
 
 #define FULLSCREEN_PLANE 900
 	#define FULLSCREEN_LAYER 1

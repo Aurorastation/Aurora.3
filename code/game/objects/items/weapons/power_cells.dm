@@ -52,9 +52,16 @@
 /obj/item/cell/crap
 	name = "old power cell"
 	desc = "A cheap, old power cell. It's probably been in use for quite some time now."
+	icon_state = "ocell"
 	origin_tech = list(TECH_POWER = 0)
-	maxcharge = 1500
+	maxcharge = 900
 	matter = list(DEFAULT_WALL_MATERIAL = 700, MATERIAL_GLASS = 40)
+
+/obj/item/cell/crap/Initialize()
+	. = ..()
+	// 5% chance to make the cell rigged.
+	if(prob(5))
+		rigged = TRUE
 
 /obj/item/cell/crap/empty/Initialize()
 	. = ..()
@@ -79,14 +86,16 @@
 
 /obj/item/cell/apc
 	name = "heavy-duty power cell"
+	desc = "A rechargeable electrochemical power cell. This variant is rated for use in APCs and other high-draw electronics in industrial environments. Environments like, say, a space ship."
 	origin_tech = list(TECH_POWER = 1)
+	icon_state = "hcell"
 	maxcharge = 15000
 	matter = list(DEFAULT_WALL_MATERIAL = 700, MATERIAL_GLASS = 50)
 
 /obj/item/cell/high
 	name = "high-capacity power cell"
 	origin_tech = list(TECH_POWER = 2)
-	icon_state = "hcell"
+	icon_state = "h+cell"
 	maxcharge = 30000
 	matter = list(DEFAULT_WALL_MATERIAL = 700, MATERIAL_GLASS = 60)
 

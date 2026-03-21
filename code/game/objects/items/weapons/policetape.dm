@@ -98,12 +98,12 @@ GLOBAL_LIST_INIT(tape_roll_applications, list())
 
 /obj/item/tape/engineering/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()
-	. += "You can use a multitool on this tape to allow emergency shield generators to deploy shields on this tile."
+	. += "You can use a multitool on this tape to allow emergency shield projectors to deploy shields on this tile."
 
 /obj/item/tape/engineering/feedback_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	if(shield_marker)
-		. += "This strip of tape has been modified to serve as a marker for emergency shield generators to lock onto."
+		. += "This strip of tape has been modified to serve as a marker for emergency shield projectors to lock onto."
 
 /obj/item/tape/engineering/attackby(obj/item/attacking_item, mob/user)
 	if(attacking_item.tool_behaviour == TOOL_MULTITOOL)

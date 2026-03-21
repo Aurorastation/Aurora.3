@@ -246,6 +246,7 @@ ABSTRACT_TYPE(/obj/item/clothing/mask/smokable)
 				to_chat(M, SPAN_NOTICE("Your [name] goes out."))
 			if(intentionally)
 				butt.loc = T
+				butt.try_make_persistent_trash()
 			else if(M.wear_mask == src)
 				M.remove_from_mob(src) //un-equip it so the overlays can update
 				M.update_inv_wear_mask(0)

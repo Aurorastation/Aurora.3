@@ -908,6 +908,9 @@
 		var/mob/living/living_user = user
 		living_user.stop_aiming(src)
 
+	// so that mobs don't rest with the gun already wielded to bypass the firing delay updates
+	UnregisterSignal(user, COMSIG_MOB_RESTED)
+
 	queue_icon_update()
 	//Unwields the item when dropped, deletes the offhand
 	update_maptext()
@@ -922,6 +925,8 @@
 	..()
 	queue_icon_update()
 	addtimer(CALLBACK(src, PROC_REF(update_maptext)), 1)
+	// so that mobs don't rest with the gun already wielded to bypass the firing delay updates
+	RegisterSignal(user, COMSIG_MOB_RESTED, PROC_REF(update_firing_delays))
 	if(is_wieldable)
 		unwield()
 

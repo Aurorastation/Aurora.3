@@ -1,3 +1,4 @@
+/// Pre-check proc for passing things over the turf. Passes more advanced checks for AMs to turf/enter(...), otherwise handles ZAS.
 /turf/CanPass(atom/movable/mover, turf/target, height=1.5,air_group=0)
 	if(!target)
 		return FALSE
@@ -10,31 +11,34 @@
 
 	else // Now, doing more detailed checks for air movement and air group formation
 		if(target.blocks_air||blocks_air)
-			return 0
+			return FALSE
 
 		for(var/obj/obstacle in src)
 			if(!obstacle.CanPass(mover, target, height, air_group))
-				return 0
+				return FALSE
 		if(target != src)
 			for(var/obj/obstacle in target)
 				if(!obstacle.CanPass(mover, src, height, air_group))
-					return 0
+					return FALSE
 
-		return 1
+		return TRUE
 
-//Convenience function for atoms to update turfs they occupy
+/// Convenience function for atoms to update turfs they occupy
 /atom/movable/proc/update_nearby_tiles(need_rebuild)
 	for(var/turf/simulated/turf in locs)
 		SSair.mark_for_update(turf)
 
 	return 1
 
-//Basically another way of calling CanPass(null, other, 0, 0) and CanPass(null, other, 1.5, 1).
-//Returns:
-// 0 - Not blocked
-// AIR_BLOCKED - Blocked
-// ZONE_BLOCKED - Not blocked, but zone boundaries will not cross.
-// BLOCKED - Blocked, zone boundaries will not cross even if opened.
+/**
+ * Basically another way of calling CanPass(null, other, 0, 0) and CanPass(null, other, 1.5, 1).
+ *
+ * Returns:
+ * - 0 - Not blocked
+ * - AIR_BLOCKED - Blocked
+ * - ZONE_BLOCKED - Not blocked, but zone boundaries will not cross.
+ * - BLOCKED - Blocked, zone boundaries will not cross even if opened.
+ */
 /atom/proc/c_airblock(turf/other)
 	#ifdef ZASDBG
 	ASSERT(isturf(other))

@@ -48,10 +48,10 @@
 
 	if(selected_hud == "disabled")
 		selected_hud = SEC_HUDTYPE
-		to_chat(user, "You activate \the [src].")
+		to_chat(user, SPAN_NOTICE("You activate \the [src]."))
 	else
 		selected_hud = "disabled"
-		to_chat(user, "You deactivate \the [src].")
+		to_chat(user, SPAN_NOTICE("You deactivate \the [src]."))
 
 /obj/item/organ/internal/augment/eye_sensors/security/process()
 	..()
@@ -67,6 +67,7 @@
 				active_hud = "disabled"
 		else
 			active_hud = "disabled"
+
 /obj/item/organ/internal/augment/eye_sensors/medical
 	name = "integrated medical HUD sensors"
 	action_button_name = "Toggle Medical Sensors"
@@ -76,10 +77,10 @@
 
 	if(selected_hud == "disabled")
 		selected_hud = MED_HUDTYPE
-		to_chat(user, "You activate \the [src].")
+		to_chat(user, SPAN_NOTICE("You activate \the [src]."))
 	else
 		selected_hud = "disabled"
-		to_chat(user, "You deactivate \the [src].")
+		to_chat(user, SPAN_NOTICE("You deactivate \the [src]."))
 
 /obj/item/organ/internal/augment/eye_sensors/medical/process()
 	..()

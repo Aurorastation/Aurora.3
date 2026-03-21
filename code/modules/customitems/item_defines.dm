@@ -1341,3 +1341,21 @@ All custom items with worn sprites must follow the contained sprite system: http
 
 	var/raskara_text = SPAN_CULT("\The [src] holds a treasure from the depths of the Maggot's hoard.")
 	. += raskara_text
+
+/obj/item/organ/external/leg/left/fluff/vien_autakh // Prosthetic Aut'akh Left Leg - Vien Xuan Pham - TheStripes
+	robotize_type = PROSTHETIC_AUTAKH
+	skin_color = FALSE
+	override_robotize_force_icon = 'icons/mob/human_races/fluff/vien_leg.dmi'
+	override_robotize_painted = FALSE
+	robotize_children = FALSE
+
+/obj/item/organ/external/leg/left/fluff/vien_autakh/Initialize(mapload)
+	. = ..()
+	LAZYADD(children, new /obj/item/organ/external/foot/left/fluff/vien_autakh(src))
+
+/obj/item/organ/external/foot/left/fluff/vien_autakh // Prosthetic Aut'akh Left Foot - Vien Xuan Pham - TheStripes
+	robotize_type = PROSTHETIC_AUTAKH
+	skin_color = FALSE
+	override_robotize_force_icon = 'icons/mob/human_races/fluff/vien_leg.dmi'
+	override_robotize_painted = FALSE
+	robotize_children = FALSE

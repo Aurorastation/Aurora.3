@@ -220,7 +220,8 @@
 	// Handle physical effects of weather.
 	var/singleton/state/weather/weather_state
 	var/obj/abstract/weather_system/weather = get_affecting_weather()
-	if(weather)
+	if(weather_cooldown_time <= world.time && weather)
+		weather_cooldown_time = world.time + WEATHER_COOLDOWN_TIME
 		weather_state = weather.weather_system.current_state
 		if(istype(weather_state))
 			weather_state.handle_exposure(src, get_weather_exposure(weather), weather)
