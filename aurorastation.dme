@@ -3251,7 +3251,6 @@
 #include "code\modules\overmap\exoplanets\decor\turfs\abyss.dm"
 #include "code\modules\overmap\exoplanets\decor\turfs\asphalt.dm"
 #include "code\modules\overmap\exoplanets\decor\turfs\assunzione.dm"
-
 #include "code\modules\overmap\exoplanets\decor\turfs\barren.dm"
 #include "code\modules\overmap\exoplanets\decor\turfs\carpet.dm"
 #include "code\modules\overmap\exoplanets\decor\turfs\ceiling.dm"
