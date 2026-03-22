@@ -86,7 +86,7 @@
 	back = /obj/item/storage/backpack/satchel
 
 /obj/outfit/admin/konyang/cop/get_id_access()
-	return list(ACCESS_KONYANG_POLICE)
+	return list(ACCESS_PORTOFCALL_POLICE)
 
 /datum/ghostspawner/human/konyang_cop/senior
 	short_name = "konyang_senior_cop"
@@ -180,7 +180,7 @@
 	id = /obj/item/card/id
 
 /obj/outfit/admin/konyang/vendor/get_id_access()
-	return list(ACCESS_KONYANG_VENDORS)
+	return list(ACCESS_PORTOFCALL_VENDORS)
 
 /datum/ghostspawner/human/konyang_clinic
 	short_name = "konyang_clinic"
@@ -205,7 +205,7 @@
 	l_pocket = /obj/item/storage/wallet/random
 
 /obj/outfit/admin/konyang/clinic/get_id_access()
-	return list(ACCESS_KONYANG_VENDORS)
+	return list(ACCESS_PORTOFCALL_VENDORS)
 
 /datum/ghostspawner/human/konyang_pharm
 	short_name = "konyang_pharm"
@@ -230,7 +230,7 @@
 	id = /obj/item/card/id
 
 /obj/outfit/admin/konyang/pharm/get_id_access()
-	return list(ACCESS_KONYANG_VENDORS)
+	return list(ACCESS_PORTOFCALL_VENDORS)
 
 /datum/ghostspawner/human/konyang_bar
 	short_name = "konyang_bar"
@@ -255,7 +255,7 @@
 	id = /obj/item/card/id
 
 /obj/outfit/admin/konyang/bar/get_id_access()
-	return list(ACCESS_KONYANG_VENDORS)
+	return list(ACCESS_PORTOFCALL_VENDORS)
 
 /datum/ghostspawner/human/konyang_utility
 	short_name = "konyang_utility"
@@ -307,7 +307,7 @@
 	back = /obj/item/storage/backpack/satchel
 
 /obj/outfit/admin/konyang/gwok/get_id_access()
-	return list(ACCESS_KONYANG_VENDORS)
+	return list(ACCESS_PORTOFCALL_VENDORS)
 
 //Konyang Army Personnel - basically a pseudo-ert for if shit's going down on Point Verdant
 /datum/ghostspawner/human/konyang_army
@@ -346,7 +346,7 @@
 
 
 /obj/outfit/admin/konyang/army_response/get_id_access()
-	return list(ACCESS_DISTRESS, ACCESS_KONYANG_POLICE, ACCESS_KONYANG_CORPORATE, ACCESS_KONYANG_POLICE, ACCESS_EXTERNAL_AIRLOCKS)
+	return list(ACCESS_DISTRESS, ACCESS_PORTOFCALL_POLICE, ACCESS_KONYANG_CORPORATE, ACCESS_PORTOFCALL_POLICE, ACCESS_EXTERNAL_AIRLOCKS)
 
 /datum/ghostspawner/human/konyang_army/medic
 	name = "Konyang Army Medic"

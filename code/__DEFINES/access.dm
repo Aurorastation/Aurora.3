@@ -695,14 +695,14 @@
 	access_type = ACCESS_TYPE_CENTCOM
 	desc = "Golden Deep"
 
-#define ACCESS_KONYANG_POLICE 218
-/datum/access/konyang_police
-	id = ACCESS_KONYANG_POLICE
+#define ACCESS_PORTOFCALL_POLICE 218
+/datum/access/portofcall_police
+	id = ACCESS_PORTOFCALL_POLICE
 	access_type = ACCESS_TYPE_CENTCOM
 
-#define ACCESS_KONYANG_VENDORS 219
-/datum/access/konyang_vendors
-	id = ACCESS_KONYANG_VENDORS
+#define ACCESS_PORTOFCALL_VENDORS 219
+/datum/access/portofcall_vendors
+	id = ACCESS_PORTOFCALL_VENDORS
 	access_type = ACCESS_TYPE_CENTCOM
 
 #define ACCESS_IDRIS 220

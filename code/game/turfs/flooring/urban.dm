@@ -132,3 +132,54 @@
 	broken_overlay = "tiled"
 	burned_overlay = "tiled"
 	initial_flooring = /singleton/flooring/concrete/square
+
+// Assunzione variants.
+
+/turf/simulated/floor/asphalt/assunzione
+	name = "asphalt"
+	desc = "Once-hot asphalt."
+	icon = 'icons/turf/flooring/assun_turfs.dmi'
+	icon_state = "asphalt0"
+
+/turf/simulated/floor/asphalt/Initialize(mapload)
+	. = ..()
+	icon_state = "asphalt[rand(0,3)]"
+
+/turf/simulated/floor/sidewalk/assunzione
+	name = "weathered tiling"
+	desc = "Great for speeding on."
+	icon = 'icons/turf/flooring/assun_turfs.dmi'
+	icon_state = "sidewalk-tile"
+
+/turf/simulated/floor/sidewalk/assunzione/detail
+	icon_state = "sidewalk-tile-detail"
+
+/turf/simulated/floor/sidewalk/assunzione/paved
+	name = "paved tiles"
+	icon_state = "brick-paver"
+
+/turf/simulated/floor/sidewalk/assunzione/flat
+	name = "flat paved tiles"
+	icon_state = "flat"
+
+/turf/simulated/floor/sidewalk/assunzione/flat/Initialize(mapload)
+	. = ..()
+	icon_state = "flat[rand(1,3)]"
+
+/turf/simulated/floor/sidewalk/assunzione/blocks
+	name = "blocked sidewalk tiles"
+	icon_state = "blocks"
+
+/turf/simulated/floor/sidewalk/assunzione/blocks/Initialize(mapload)
+	. = ..()
+	icon_state = "blocks[rand(1,3)]"
+
+/turf/simulated/floor/roofing_tiles/assunzione
+	name = "roofing tiles"
+	desc = "You're on top of the world!"
+	icon = 'icons/turf/flooring/assun_turfs.dmi'
+	icon_state = "rooftop"
+
+/turf/simulated/floor/roofing_tiles/assunzione/Initialize(mapload)
+	. = ..()
+	icon_state = "rooftop[rand(1,3)]"
