@@ -2579,6 +2579,7 @@
 #include "code\modules\mapping\planet_types\jungle.dm"
 #include "code\modules\mapping\planet_types\lava.dm"
 #include "code\modules\mapping\planet_types\snow.dm"
+#include "code\modules\mapping\planet_types\lore\assunzione.dm"
 #include "code\modules\mapping\planet_types\lore\burzsia.dm"
 #include "code\modules\mapping\planet_types\lore\konyang.dm"
 #include "code\modules\mapping\planet_types\lore\srandmarr.dm"

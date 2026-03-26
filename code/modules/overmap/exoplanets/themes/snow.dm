@@ -103,3 +103,21 @@
 			BIOME_SEMIARID = /singleton/biome/snow/forest/xanu
 			)
 	)
+
+/datum/exoplanet_theme/snow/assunzione
+	name = "Assunzione"
+	surface_turfs = list(
+		/turf/simulated/mineral/adhomai
+	)
+	mountain_threshold = 0.6
+	mountain_biome = /singleton/biome/mountain/adhomai
+	possible_biomes = list(
+		BIOME_POLAR = list(
+			BIOME_ARID = /singleton/biome/water/ice,
+			BIOME_SEMIARID = /singleton/biome/snow/adhomai
+		),
+		BIOME_COOL = list(
+			BIOME_ARID = /singleton/biome/snow/adhomai,
+			BIOME_SEMIARID = /singleton/biome/snow/forest/adhomai
+		)
+	)

@@ -147,13 +147,58 @@
 		)
 
 	ports_of_call = list("the corporate district of Aoyama")
-	scheduled_port_visits = list("Saturday", "Sunday")
+	scheduled_port_visits = list("Saturday", "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday")
 	starlight_color = "#e2719b"
 	starlight_power = 2//placeholder
 	starlight_range = 4//placeholder
 	sector_lobby_art = list('icons/misc/titlescreens/lore/silicon_nightmares.dmi')
 	sector_lobby_transitions = 0
 	sector_welcome_message = 'sound/AI/welcome_konyang.ogg'
+	sector_hud_menu = 'icons/misc/hudmenu/konyang_hud.dmi'
+	sector_hud_arrow = "menu_arrow"
+
+	lobby_tracks = list(
+		'sound/music/lobby/konyang/konyang-1.ogg',
+		'sound/music/lobby/konyang/konyang-2.ogg',
+		'sound/music/lobby/konyang/konyang-3.ogg',
+		'sound/music/lobby/konyang/konyang-4.ogg'
+	)
+
+	lore_radio_stations = list(
+		"73.2 Navy Broadcasting Service" = 'texts/lore_radio/konyang/73.2_Navy_Broadcasting_Service.txt',
+		"122 Great Blue Dot" = 'texts/lore_radio/konyang//122_Great_Blue_Dot.txt',
+		"75.4 PBA" = 'texts/lore_radio/konyang/75.4_PBA.txt',
+		"77.7 SoulFM" = 'texts/lore_radio/konyang/77.7_SoulFM.txt',
+		"78.1 RealFM" = 'texts/lore_radio/konyang/78.1_RealFM.txt'
+	)
+
+/datum/space_sector/al_maqdisi
+	name = SECTOR_AL_MAQDISI
+	description = "Whole lot of spooky space shit happening around here, dawg. CHANGEME"
+	skybox_icon = "lights_edge"
+	guaranteed_exoplanets = list(/obj/effect/overmap/visitable/sector/exoplanet/assunzione)
+	cargo_price_coef = list(
+		"nanotrasen" = 1.1,
+		"orion" = 0.7,
+		"hephaestus" = 0.7,
+		"zeng_hu" = 0.6,
+		"eckharts" = 1,
+		"blam" = 0.9,
+		"zharkov" = 1.2,
+		"virgo" = 0.9,
+		"bishop" = 0.5,
+		"xion" = 0.8,
+		"zavodskoi" = 0.8,
+		)
+
+	ports_of_call = list("Zeng-Hu City Bay-bee CHANGEME")
+	scheduled_port_visits = list("Wednesday", "Sunday")
+	starlight_color = "#910091"
+	starlight_power = 2//placeholder
+	starlight_range = 4//placeholder
+	sector_lobby_art = list('icons/misc/titlescreens/lore/silicon_nightmares.dmi')
+	sector_lobby_transitions = 0
+	sector_welcome_message = 'sound/AI/welcome_assunzione.ogg'
 	sector_hud_menu = 'icons/misc/hudmenu/konyang_hud.dmi'
 	sector_hud_arrow = "menu_arrow"
 

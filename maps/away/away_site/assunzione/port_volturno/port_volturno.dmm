@@ -676,6 +676,12 @@
 /obj/machinery/mech_recharger/automobile,
 /turf/simulated/floor/concrete,
 /area/port_volturno/outdoors)
+"ch" = (
+/obj/structure/flora/bush/konyang_reeds,
+/obj/structure/flora/ausbushes/fullgrass,
+/obj/structure/arch/gothic/single,
+/turf/simulated/floor/grass,
+/area/port_volturno/outdoors)
 "cj" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
@@ -8279,10 +8285,8 @@
 /turf/simulated/floor/tiled/white,
 /area/port_volturno/outdoors)
 "DN" = (
-/obj/structure/flora/bush/grove,
-/obj/effect/decal/curb{
-	dir = 8
-	},
+/obj/structure/flora/ausbushes/fullgrass,
+/obj/structure/arch/gothic/single,
 /turf/simulated/floor/grass,
 /area/port_volturno/outdoors)
 "DP" = (
@@ -8678,6 +8682,13 @@
 	},
 /obj/structure/flora/bush/konyang_reeds,
 /turf/simulated/floor/exoplanet/dirt_konyang,
+/area/port_volturno/outdoors)
+"Fi" = (
+/obj/effect/decal/curb{
+	dir = 4
+	},
+/obj/structure/arch/gothic/left,
+/turf/simulated/floor/sidewalk/assunzione/blocks,
 /area/port_volturno/outdoors)
 "Fm" = (
 /obj/effect/decal/curb/corner{
@@ -11127,11 +11138,8 @@
 /turf/simulated/floor/roofing_tiles/assunzione,
 /area/port_volturno/outdoors)
 "Nh" = (
-/obj/structure/flora/bush/konyang_reeds,
-/obj/effect/decal/curb{
-	dir = 8
-	},
 /obj/structure/flora/ausbushes/fullgrass,
+/obj/structure/flora/bush/mushroom,
 /turf/simulated/floor/grass,
 /area/port_volturno/outdoors)
 "Ni" = (
@@ -14175,6 +14183,16 @@
 "Ya" = (
 /obj/effect/floor_decal/corner/dark_green/diagonal,
 /turf/simulated/floor/tiled/freezer,
+/area/port_volturno/outdoors)
+"Yd" = (
+/obj/effect/decal/curb{
+	dir = 8
+	},
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/obj/structure/arch/gothic/right,
+/turf/simulated/floor/sidewalk/assunzione/flat,
 /area/port_volturno/outdoors)
 "Ye" = (
 /obj/random/dirt_75,
@@ -36586,11 +36604,11 @@ BY
 mR
 jD
 lk
-DN
+HN
 WP
 jD
-lk
-Nh
+Qt
+HN
 DY
 Qs
 Kv
@@ -36843,16 +36861,16 @@ BY
 BY
 vW
 Qt
-BY
-Yh
+DN
+Nh
 Ii
 jD
-BY
-Qt
+ch
+jD
 Tr
 wa
 fu
-NJ
+Kv
 FP
 Kh
 cc
@@ -100576,15 +100594,15 @@ fB
 fB
 oT
 CT
+Fi
 CT
 CT
 CT
+Fi
 CT
 CT
 CT
-CT
-CT
-CT
+Fi
 CT
 rx
 pu
@@ -100833,15 +100851,15 @@ fB
 fB
 ud
 GG
-ud
+Yd
 ud
 ud
 am
-ud
+Yd
 ud
 GG
 ud
-ud
+Yd
 ud
 ud
 iW
@@ -102379,11 +102397,11 @@ wx
 wx
 iE
 Oe
-wx
+fB
 Oe
 Oe
 Oe
-wx
+fB
 fB
 Oe
 Oe
