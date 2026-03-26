@@ -2,12 +2,12 @@
 	name = "Port Volturno - Zeng-Hu Spaceport"
 	requires_power = 0
 	no_light_control = 1
-	area_flags = AREA_FLAG_HIDE_FROM_HOLOMAP | AREA_FLAG_RAD_SHIELDED | AREA_FLAG_INDESTRUCTIBLE_TURFS
+	area_flags = AREA_FLAG_HIDE_FROM_HOLOMAP | AREA_FLAG_RAD_SHIELDED | AREA_FLAG_INDESTRUCTIBLE_TURFS | AREA_FLAG_PREVENT_PERSISTENT_TRASH
 	base_turf = /turf/simulated/floor/exoplanet/assunzione
 	ambience = AMBIENCE_KONYANG_TRAFFIC
 	sound_environment = SOUND_ENVIRONMENT_CITY
 	is_outside = OUTSIDE_YES
-	var/lighting = FALSE //Is this area automatically lit?
+	var/lighting = TRUE //Is this area automatically lit?
 
 /area/port_volturno/Initialize()
 	. = ..()
@@ -19,8 +19,9 @@
 /area/port_volturno/interior
 	name = "Port Volturno - Indoors"
 	sound_environment = SOUND_AREA_LARGE_SOFTFLOOR
-	ambience = AMBIENCE_KONYANG_RAIN_MUFFLED
+	ambience = AMBIENCE_HANGAR
 	is_outside = OUTSIDE_NO
+	lighting = FALSE
 
 //Main city buildings
 /area/port_volturno/interior/laundromat

@@ -192,21 +192,16 @@
 		)
 
 	ports_of_call = list("Zeng-Hu City Bay-bee CHANGEME")
-	scheduled_port_visits = list("Wednesday", "Sunday")
-	starlight_color = "#910091"
-	starlight_power = 2//placeholder
-	starlight_range = 4//placeholder
-	sector_lobby_art = list('icons/misc/titlescreens/lore/silicon_nightmares.dmi')
+	scheduled_port_visits = list("Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday")
+	starlight_color = "#2e002e"
+	starlight_power = 1
+	starlight_range = 2
 	sector_lobby_transitions = 0
 	sector_welcome_message = 'sound/AI/welcome_assunzione.ogg'
-	sector_hud_menu = 'icons/misc/hudmenu/konyang_hud.dmi'
-	sector_hud_arrow = "menu_arrow"
 
 	lobby_tracks = list(
-		'sound/music/lobby/konyang/konyang-1.ogg',
-		'sound/music/lobby/konyang/konyang-2.ogg',
-		'sound/music/lobby/konyang/konyang-3.ogg',
-		'sound/music/lobby/konyang/konyang-4.ogg'
+		'sound/music/lobby/lights_edge/lights_edge_1.ogg',
+		'sound/music/lobby/lights_edge/lights_edge_2.ogg'
 	)
 
 	lore_radio_stations = list(

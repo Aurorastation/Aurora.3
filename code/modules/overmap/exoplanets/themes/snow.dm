@@ -109,10 +109,13 @@
 	surface_turfs = list(
 		/turf/simulated/floor/exoplanet/permafrost
 	)
-	mountain_threshold = 1.0
-	mountain_biome = /singleton/biome/mountain/adhomai
+	mountain_biome = null
 	possible_biomes = list(
 		BIOME_POLAR = list(
+			BIOME_ARID = /singleton/biome/water/ice,
+			BIOME_SEMIARID = /singleton/biome/snow/assunzione
+		),
+		BIOME_COOL = list(
 			BIOME_ARID = /singleton/biome/water/ice,
 			BIOME_SEMIARID = /singleton/biome/snow/assunzione
 		)

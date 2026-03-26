@@ -134,7 +134,7 @@
 /obj/effect/decal/curb{
 	dir = 4
 	},
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "aq" = (
 /obj/effect/decal/road_marking{
@@ -199,7 +199,7 @@
 	dir = 1
 	},
 /obj/structure/flora/ausbushes/fernybush,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "aE" = (
 /obj/structure/ledge/corner{
@@ -281,7 +281,7 @@
 "aR" = (
 /obj/effect/decal/curb,
 /obj/structure/flora/ausbushes/ywflowers,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "aS" = (
 /obj/effect/decal/road_marking{
@@ -327,7 +327,8 @@
 /obj/vehicle/bike/motor/blue{
 	dir = 8;
 	registration_plate = "S35-8084";
-	spawns_with_key = 0
+	spawns_with_key = 0;
+	name = "moped"
 	},
 /turf/simulated/floor/asphalt/assunzione,
 /area/port_volturno/interior/tunnels)
@@ -359,7 +360,7 @@
 /obj/effect/decal/curb{
 	dir = 4
 	},
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "bd" = (
 /obj/machinery/light{
@@ -388,7 +389,7 @@
 /area/port_volturno/outdoors)
 "bk" = (
 /obj/effect/decal/curb,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "bl" = (
 /obj/machinery/light/floor{
@@ -409,7 +410,7 @@
 	},
 /obj/structure/flora/ausbushes/fullgrass,
 /obj/structure/flora/ausbushes/ywflowers,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "bo" = (
 /obj/effect/decal/road_marking,
@@ -511,7 +512,7 @@
 /obj/structure/flora/bush/konyang_reeds,
 /obj/structure/flora/bush/konyang_reeds,
 /obj/structure/flora/ausbushes/lavendergrass,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "bD" = (
 /obj/machinery/vending/minimart/alcohol{
@@ -599,7 +600,8 @@
 /obj/vehicle/bike/motor{
 	dir = 8;
 	registration_plate = "S53-6393";
-	spawns_with_key = 0
+	spawns_with_key = 0;
+	name = "moped"
 	},
 /turf/simulated/floor/asphalt/assunzione,
 /area/port_volturno/interior/tunnels)
@@ -703,14 +705,14 @@
 "cm" = (
 /obj/effect/decal/curb,
 /obj/structure/flora/ausbushes/lavendergrass,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "cn" = (
 /obj/effect/decal/curb{
 	dir = 10
 	},
 /obj/structure/flora/ausbushes/lavendergrass,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "co" = (
 /obj/structure/flora/ausbushes/fullgrass,
@@ -719,14 +721,14 @@
 	dir = 10
 	},
 /obj/structure/flora/ausbushes/lavendergrass,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "cr" = (
 /obj/effect/decal/curb{
 	dir = 9
 	},
 /obj/structure/flora/ausbushes/ywflowers,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "cs" = (
 /obj/effect/decal/road_marking{
@@ -850,7 +852,7 @@
 "cR" = (
 /obj/structure/flora/ausbushes/fullgrass,
 /obj/structure/flora/ausbushes/lavendergrass,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "cT" = (
 /obj/random/dirt_75,
@@ -1061,7 +1063,7 @@
 "dI" = (
 /obj/structure/flora/ausbushes/lavendergrass,
 /obj/structure/flora/ausbushes/ywflowers,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "dL" = (
 /obj/structure/table/rack/retail_shelf,
@@ -1111,7 +1113,7 @@
 /obj/structure/sign/urban/staff{
 	pixel_y = 40
 	},
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "dY" = (
 /obj/structure/ledge/roof{
@@ -1152,7 +1154,7 @@
 /obj/effect/decal/curb{
 	dir = 8
 	},
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "ek" = (
 /turf/simulated/floor/lino,
@@ -1244,7 +1246,7 @@
 /obj/structure/flora/ausbushes/ywflowers,
 /obj/structure/flora/ausbushes/fullgrass,
 /obj/structure/flora/ausbushes/fullgrass,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "ex" = (
 /obj/structure/rod_railing,
@@ -1258,7 +1260,7 @@
 	dir = 5
 	},
 /obj/structure/flora/ausbushes/fullgrass,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "eA" = (
 /obj/structure/reagent_dispensers/water_cooler,
@@ -1268,7 +1270,7 @@
 /obj/structure/flora/bush/konyang_reeds,
 /obj/structure/flora/bush/konyang_reeds,
 /obj/structure/flora/ausbushes/brflowers,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "eF" = (
 /obj/structure/table/wood,
@@ -1315,7 +1317,7 @@
 /obj/structure/flora/ausbushes/lavendergrass,
 /obj/structure/flora/ausbushes/fullgrass,
 /obj/structure/flora/bush/konyang_reeds,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "eP" = (
 /obj/effect/map_effect/map_helper/ruler_tiles_3{
@@ -1397,7 +1399,7 @@
 /obj/effect/decal/curb{
 	dir = 1
 	},
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "fg" = (
 /obj/structure/rod_railing{
@@ -1550,7 +1552,7 @@
 /obj/effect/decal/curb{
 	dir = 1
 	},
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "fH" = (
 /obj/structure/rod_railing{
@@ -1691,7 +1693,7 @@
 "gg" = (
 /obj/structure/flora/bush/konyang_reeds,
 /obj/structure/flora/bush/konyang_reeds,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "gh" = (
 /obj/structure/table/steel,
@@ -1712,7 +1714,7 @@
 /obj/structure/flora/bush/konyang_reeds,
 /obj/effect/decal/curb,
 /obj/structure/flora/ausbushes/brflowers,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "gp" = (
 /obj/structure/table/standard,
@@ -1842,7 +1844,7 @@
 /obj/structure/flora/ausbushes/fullgrass,
 /obj/structure/flora/bush/konyang_reeds,
 /obj/structure/flora/bush/konyang_reeds,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "gL" = (
 /obj/structure/toilet{
@@ -1953,7 +1955,7 @@
 /obj/structure/flora/bush/konyang_reeds,
 /obj/effect/decal/curb,
 /obj/structure/flora/ausbushes/fullgrass,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "he" = (
 /turf/simulated/floor/tiled/full,
@@ -1989,7 +1991,7 @@
 /area/port_volturno/interior)
 "hn" = (
 /obj/structure/flora/bush/konyang_reeds,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "hq" = (
 /obj/structure/table/rack/retail_shelf,
@@ -2057,7 +2059,7 @@
 /obj/effect/decal/curb{
 	dir = 4
 	},
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "hy" = (
 /obj/effect/decal/curb{
@@ -2068,13 +2070,13 @@
 	},
 /obj/structure/flora/ausbushes/fullgrass,
 /obj/structure/flora/ausbushes/brflowers,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "hz" = (
 /obj/effect/decal/curb{
 	dir = 4
 	},
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "hA" = (
 /obj/random/dirt_75,
@@ -2147,7 +2149,7 @@
 "hO" = (
 /obj/structure/flora/bush/konyang_reeds,
 /obj/structure/flora/ausbushes/fernybush,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "hQ" = (
 /obj/structure/table/stone/marble,
@@ -2179,7 +2181,7 @@
 	dir = 6
 	},
 /obj/structure/flora/ausbushes/fullgrass,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "hX" = (
 /obj/effect/decal/road_marking/no_pass{
@@ -2231,13 +2233,13 @@
 	dir = 9
 	},
 /obj/structure/flora/ausbushes/fernybush,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "ie" = (
 /obj/structure/flora/ausbushes/fernybush,
 /obj/structure/flora/ausbushes/fullgrass,
 /obj/structure/flora/bush/konyang_reeds,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "if" = (
 /obj/effect/decal/curb/corner{
@@ -2268,7 +2270,7 @@
 "ij" = (
 /obj/structure/flora/bush/grove,
 /obj/structure/flora/ausbushes/fernybush,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "ik" = (
 /obj/structure/table/stone/marble,
@@ -2322,7 +2324,7 @@
 	dir = 4
 	},
 /obj/structure/flora/ausbushes/lavendergrass,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "is" = (
 /obj/effect/decal/curb{
@@ -2346,7 +2348,7 @@
 /obj/structure/flora/bush/konyang_reeds,
 /obj/structure/flora/ausbushes/fullgrass,
 /obj/structure/arch/gothic/single,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "ix" = (
 /obj/structure/table/stone/marble,
@@ -2394,16 +2396,6 @@
 "iG" = (
 /turf/simulated/floor/sidewalk/assunzione,
 /area/port_volturno/outdoors)
-"iI" = (
-/obj/effect/decal/road_marking/thin,
-/obj/random/dirt_75,
-/obj/vehicle/bike/motor/green{
-	dir = 8;
-	registration_plate = "S27-3782";
-	spawns_with_key = 0
-	},
-/turf/simulated/floor/asphalt/assunzione,
-/area/port_volturno/interior/tunnels)
 "iJ" = (
 /obj/effect/decal/curb{
 	dir = 1
@@ -2412,7 +2404,7 @@
 	dir = 6
 	},
 /obj/structure/flora/bush/konyang_reeds,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "iM" = (
 /obj/effect/floor_decal/corner/dark_green/diagonal,
@@ -2476,7 +2468,7 @@
 	dir = 9
 	},
 /obj/structure/flora/ausbushes/lavendergrass,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "ja" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -2516,7 +2508,7 @@
 	dir = 10
 	},
 /obj/structure/flora/bush/konyang_reeds,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "jj" = (
 /obj/effect/decal/road_marking/incline{
@@ -2568,7 +2560,7 @@
 "jr" = (
 /obj/structure/flora/ausbushes/fernybush,
 /obj/structure/flora/ausbushes/ywflowers,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "js" = (
 /obj/effect/decal/road_marking/center,
@@ -2590,7 +2582,7 @@
 	dir = 5
 	},
 /obj/structure/flora/ausbushes/fullgrass,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "jw" = (
 /obj/structure/table/stone/marble,
@@ -2613,7 +2605,7 @@
 /obj/structure/flora/ausbushes/sunnybush,
 /obj/effect/decal/curb,
 /obj/structure/flora/ausbushes/lavendergrass,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "jy" = (
 /turf/simulated/floor/carpet/darkblue,
@@ -2624,7 +2616,7 @@
 /area/port_volturno/interior/tailor)
 "jD" = (
 /obj/structure/flora/ausbushes/ywflowers,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "jE" = (
 /obj/structure/closet/cabinet,
@@ -2648,7 +2640,7 @@
 "jH" = (
 /obj/structure/flora/bush/konyang_reeds,
 /obj/structure/flora/ausbushes/lavendergrass,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "jK" = (
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -2854,13 +2846,13 @@
 /obj/structure/flora/bush/konyang_reeds,
 /obj/structure/flora/ausbushes/ywflowers,
 /obj/structure/flora/ausbushes/lavendergrass,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "kx" = (
 /turf/simulated/wall/r_wall,
 /area/port_volturno/outdoors)
 "ky" = (
-/obj/effect/shuttle_landmark/point_verdant/spaceport_canary{
+/obj/effect/shuttle_landmark/port_volturno/spaceport_canary{
 	dir = 1
 	},
 /turf/simulated/floor/reinforced,
@@ -2964,7 +2956,7 @@
 "kO" = (
 /obj/structure/flora/ausbushes/fullgrass,
 /obj/structure/arch/gothic/single,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "kP" = (
 /obj/machinery/photocopier,
@@ -2997,7 +2989,7 @@
 	},
 /obj/structure/flora/ausbushes/fullgrass,
 /obj/structure/flora/bush/konyang_reeds,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "kW" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -3054,7 +3046,7 @@
 	},
 /obj/structure/flora/ausbushes/genericbush,
 /obj/structure/flora/ausbushes/fullgrass,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "lg" = (
 /obj/machinery/door/urban,
@@ -3074,13 +3066,13 @@
 /turf/simulated/wall,
 /area/port_volturno/outdoors)
 "lk" = (
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "ll" = (
 /obj/structure/konyang_cliff{
 	icon_state = "cliff1-bottom"
 	},
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "lm" = (
 /obj/structure/table/standard,
@@ -3116,7 +3108,7 @@
 "lr" = (
 /obj/effect/decal/curb,
 /obj/structure/flora/bush/konyang_reeds,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "ls" = (
 /obj/effect/decal/cleanable/dirt,
@@ -3181,14 +3173,14 @@
 	icon_state = "cliff-top1"
 	},
 /obj/structure/rod_railing,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "lI" = (
 /obj/effect/decal/curb{
 	dir = 6
 	},
 /obj/structure/flora/ausbushes/lavendergrass,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "lJ" = (
 /obj/structure/rod_railing,
@@ -3202,7 +3194,7 @@
 /obj/effect/decal/curb{
 	dir = 9
 	},
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "lN" = (
 /obj/effect/decal/road_marking/thin{
@@ -3302,7 +3294,7 @@
 /obj/effect/decal/curb/corner{
 	dir = 8
 	},
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "mh" = (
 /obj/structure/flora/ausbushes/fernybush,
@@ -3312,7 +3304,7 @@
 /obj/effect/decal/curb{
 	dir = 8
 	},
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "mi" = (
 /obj/structure/road_barrier/bot_in{
@@ -3326,7 +3318,7 @@
 	dir = 8
 	},
 /obj/structure/flora/ausbushes/ywflowers,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "mk" = (
 /obj/effect/floor_decal/corner/blue{
@@ -3430,7 +3422,7 @@
 /obj/effect/decal/curb{
 	dir = 6
 	},
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "mA" = (
 /obj/structure/sign/urban/drive_thru,
@@ -3543,7 +3535,7 @@
 	},
 /obj/structure/flora/ausbushes/ywflowers,
 /obj/structure/flora/ausbushes/lavendergrass,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "mS" = (
 /obj/item/reagent_containers/cooking_container/board{
@@ -3752,7 +3744,7 @@
 /obj/structure/flora/ausbushes/fullgrass,
 /obj/effect/decal/curb,
 /obj/structure/flora/ausbushes/fernybush,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "nu" = (
 /obj/effect/floor_decal/industrial/warning,
@@ -3809,7 +3801,7 @@
 /obj/effect/decal/curb,
 /obj/structure/flora/bush/konyang_reeds,
 /obj/structure/flora/ausbushes/sunnybush,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "nD" = (
 /obj/effect/decal/curb/corner,
@@ -3830,7 +3822,7 @@
 /obj/structure/flora/tree/grove{
 	pixel_y = -16
 	},
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors,
 /area/port_volturno/outdoors)
 "nG" = (
@@ -3859,7 +3851,7 @@
 "nJ" = (
 /obj/structure/flora/ausbushes/fullgrass,
 /obj/structure/flora/bush/grove,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "nK" = (
 /obj/structure/tank_wall/carbon_dioxide{
@@ -3898,7 +3890,7 @@
 /obj/structure/flora/bush/konyang_reeds,
 /obj/structure/flora/ausbushes/ywflowers,
 /obj/structure/flora/tree/grove,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "nS" = (
 /obj/structure/ledge{
@@ -3978,14 +3970,14 @@
 	dir = 5
 	},
 /obj/structure/flora/ausbushes/lavendergrass,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "oh" = (
 /obj/structure/flora/ausbushes/fullgrass,
 /obj/effect/decal/curb{
 	dir = 1
 	},
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "oi" = (
 /obj/machinery/light/floor,
@@ -4014,7 +4006,7 @@
 	dir = 6
 	},
 /obj/structure/flora/ausbushes/leafybush,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "os" = (
 /obj/structure/lattice/catwalk/indoor/urban,
@@ -4070,7 +4062,7 @@
 	},
 /obj/structure/flora/ausbushes/lavendergrass,
 /obj/structure/flora/ausbushes/brflowers,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "oD" = (
 /obj/effect/decal/curb{
@@ -4078,7 +4070,7 @@
 	},
 /obj/structure/flora/bush/konyang_reeds,
 /obj/structure/flora/ausbushes/ywflowers,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "oF" = (
 /obj/structure/rod_railing{
@@ -4201,7 +4193,7 @@
 /obj/effect/decal/curb{
 	dir = 1
 	},
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "oY" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/grille,
@@ -4296,7 +4288,7 @@
 	},
 /obj/effect/decal/curb,
 /obj/structure/flora/ausbushes/lavendergrass,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "pB" = (
 /turf/simulated/floor/tiled/full,
@@ -4306,13 +4298,13 @@
 /obj/structure/flora/ausbushes/brflowers,
 /obj/structure/flora/ausbushes/lavendergrass,
 /obj/effect/decal/curb,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "pI" = (
 /obj/structure/flora/ausbushes/fullgrass,
 /obj/structure/flora/tree/grove,
 /obj/effect/decal/curb,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "pJ" = (
 /obj/structure/flora/ausbushes/lavendergrass,
@@ -4320,7 +4312,7 @@
 /obj/effect/decal/curb{
 	dir = 4
 	},
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "pK" = (
 /obj/structure/table/rack/retail_shelf,
@@ -4343,8 +4335,9 @@
 /obj/random/dirt_75,
 /obj/vehicle/bike/motor/green{
 	dir = 8;
-	registration_plate = "S89-8023";
-	spawns_with_key = 0
+	registration_plate = "S27-3782";
+	spawns_with_key = 0;
+	name = "moped"
 	},
 /turf/simulated/floor/asphalt/assunzione,
 /area/port_volturno/interior/tunnels)
@@ -4419,7 +4412,8 @@
 /obj/vehicle/bike/motor{
 	dir = 8;
 	registration_plate = "S53-6393";
-	spawns_with_key = 0
+	spawns_with_key = 0;
+	name = "moped"
 	},
 /turf/simulated/floor/asphalt/assunzione,
 /area/port_volturno/interior/tunnels)
@@ -4440,7 +4434,7 @@
 /obj/effect/decal/curb{
 	dir = 8
 	},
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "qb" = (
 /obj/structure/closet/cabinet,
@@ -4489,7 +4483,7 @@
 /obj/effect/decal/curb{
 	dir = 6
 	},
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "ql" = (
 /obj/structure/table/rack,
@@ -4516,7 +4510,7 @@
 "qp" = (
 /obj/structure/flora/bush/konyang_reeds,
 /obj/structure/flora/ausbushes/brflowers,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "qr" = (
 /obj/structure/railing/mapped{
@@ -4526,7 +4520,7 @@
 	dir = 5
 	},
 /obj/structure/flora/ausbushes/ywflowers,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "qt" = (
 /obj/structure/rod_railing{
@@ -4566,7 +4560,7 @@
 /obj/effect/decal/curb,
 /obj/structure/flora/bush/konyang_reeds,
 /obj/structure/flora/ausbushes/fernybush,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "qA" = (
 /obj/structure/closet/walllocker/medical{
@@ -4677,7 +4671,7 @@
 	dir = 1
 	},
 /obj/structure/flora/ausbushes/ywflowers,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "qZ" = (
 /obj/random/dirt_75,
@@ -4743,7 +4737,7 @@
 	dir = 1
 	},
 /obj/structure/flora/ausbushes/fullgrass,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "rm" = (
 /obj/structure/closet/crate/bin/urban/compact{
@@ -4770,7 +4764,7 @@
 	dir = 4
 	},
 /obj/structure/flora/ausbushes/ywflowers,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "rq" = (
 /obj/effect/decal/curb{
@@ -4820,7 +4814,7 @@
 /obj/effect/decal/curb{
 	dir = 1
 	},
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "rz" = (
 /obj/structure/rod_railing{
@@ -4836,7 +4830,7 @@
 	dir = 8
 	},
 /obj/structure/flora/ausbushes/fullgrass,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "rB" = (
 /obj/structure/flora/pottedplant/woodyshrubdying,
@@ -4905,7 +4899,7 @@
 /obj/effect/decal/curb{
 	dir = 8
 	},
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "rS" = (
 /obj/effect/decal/road_marking/no_park,
@@ -4977,7 +4971,7 @@
 	},
 /obj/structure/flora/ausbushes/brflowers,
 /obj/structure/flora/ausbushes/lavendergrass,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "sb" = (
 /obj/effect/decal/road_marking/crosswalk,
@@ -4999,7 +4993,7 @@
 	dir = 6
 	},
 /obj/structure/flora/ausbushes/ywflowers,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "sf" = (
 /obj/effect/decal/curb/corner{
@@ -5012,7 +5006,7 @@
 /obj/effect/decal/curb{
 	dir = 8
 	},
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "sh" = (
 /obj/machinery/light/small{
@@ -5146,7 +5140,7 @@
 	dir = 4
 	},
 /obj/structure/flora/bush/grove,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "sB" = (
 /obj/machinery/recharge_station,
@@ -5261,7 +5255,7 @@
 	dir = 4
 	},
 /obj/structure/flora/ausbushes/fullgrass,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "sY" = (
 /obj/structure/barricade/wooden{
@@ -5279,7 +5273,7 @@
 "ta" = (
 /obj/structure/flora/ausbushes/fullgrass,
 /obj/structure/flora/ausbushes/ywflowers,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "tb" = (
 /obj/structure/table/standard,
@@ -5301,7 +5295,7 @@
 /obj/effect/decal/curb{
 	dir = 5
 	},
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "tg" = (
 /obj/effect/decal/curb/corner{
@@ -5314,11 +5308,11 @@
 /obj/effect/decal/curb,
 /obj/structure/flora/ausbushes/fullgrass,
 /obj/structure/flora/bush/konyang_reeds,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "ti" = (
 /obj/structure/flora/ausbushes/fernybush,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "tk" = (
 /obj/effect/decal/curb{
@@ -5327,7 +5321,7 @@
 /obj/effect/decal/curb,
 /obj/structure/flora/bush/konyang_reeds,
 /obj/structure/flora/ausbushes/brflowers,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "tl" = (
 /obj/structure/table/rack/retail_shelf,
@@ -5343,7 +5337,8 @@
 /obj/vehicle/bike/motor/brown{
 	dir = 8;
 	registration_plate = "S96-3842";
-	spawns_with_key = 0
+	spawns_with_key = 0;
+	name = "moped"
 	},
 /turf/simulated/floor/asphalt/assunzione,
 /area/port_volturno/interior/tunnels)
@@ -5361,7 +5356,7 @@
 /obj/structure/flora/ausbushes/leafybush,
 /obj/structure/flora/ausbushes/brflowers,
 /obj/structure/flora/ausbushes/lavendergrass,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "tw" = (
 /obj/effect/decal/road_marking{
@@ -5379,7 +5374,7 @@
 "ty" = (
 /obj/structure/flora/bush/konyang_reeds,
 /obj/effect/decal/curb,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "tz" = (
 /obj/structure/rod_railing,
@@ -5500,14 +5495,14 @@
 "tP" = (
 /obj/effect/decal/curb,
 /obj/structure/flora/ausbushes/sunnybush,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "tQ" = (
 /obj/structure/flora/ausbushes/brflowers,
 /obj/effect/decal/curb{
 	dir = 4
 	},
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "tR" = (
 /turf/simulated/floor/wood/maple,
@@ -5521,14 +5516,14 @@
 	dir = 4
 	},
 /obj/structure/flora/ausbushes/fullgrass,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "tV" = (
 /obj/effect/decal/curb{
 	dir = 1
 	},
 /obj/structure/flora/ausbushes/ywflowers,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "tX" = (
 /obj/machinery/body_scanconsole{
@@ -5567,7 +5562,7 @@
 "uf" = (
 /obj/structure/flora/ausbushes/fullgrass,
 /obj/structure/flora/ausbushes/fullgrass,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "ug" = (
 /obj/effect/decal/road_marking{
@@ -5636,7 +5631,7 @@
 "ul" = (
 /obj/structure/flora/bush/konyang_reeds,
 /obj/structure/flora/ausbushes/ywflowers,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "um" = (
 /obj/structure/closet/crate/secure/large,
@@ -5646,7 +5641,7 @@
 "un" = (
 /obj/structure/flora/ausbushes/lavendergrass,
 /obj/effect/decal/curb,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "up" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
@@ -5687,7 +5682,7 @@
 "uz" = (
 /obj/effect/decal/curb,
 /obj/structure/flora/ausbushes/brflowers,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "uB" = (
 /obj/effect/decal/curb/corner{
@@ -5701,7 +5696,7 @@
 /obj/effect/decal/curb{
 	dir = 8
 	},
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "uE" = (
 /obj/machinery/vending/dinnerware{
@@ -5720,7 +5715,7 @@
 	dir = 4
 	},
 /obj/structure/flora/ausbushes/fernybush,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "uH" = (
 /obj/machinery/light/floor{
@@ -5798,7 +5793,7 @@
 /turf/simulated/floor/tiled/white,
 /area/port_volturno/outdoors)
 "uR" = (
-/obj/effect/shuttle_landmark/point_verdant/spaceport_spark{
+/obj/effect/shuttle_landmark/port_volturno/spaceport_spark{
 	dir = 1
 	},
 /turf/simulated/floor/reinforced,
@@ -5852,7 +5847,7 @@
 	dir = 6
 	},
 /obj/structure/flora/ausbushes/brflowers,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "uZ" = (
 /obj/effect/decal/cleanable/dirt,
@@ -5874,7 +5869,7 @@
 "vd" = (
 /obj/effect/decal/curb,
 /obj/structure/flora/ausbushes/fernybush,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "vh" = (
 /obj/structure/table/wood,
@@ -5904,7 +5899,7 @@
 /obj/structure/flora/ausbushes/brflowers,
 /obj/effect/decal/curb,
 /obj/structure/flora/ausbushes/fernybush,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "vo" = (
 /obj/structure/table/wood,
@@ -5946,7 +5941,7 @@
 	icon_state = "cliff-top1"
 	},
 /obj/structure/rod_railing,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "vy" = (
 /obj/machinery/door/urban{
@@ -5967,7 +5962,7 @@
 	dir = 5
 	},
 /obj/structure/flora/ausbushes/fullgrass,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "vA" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -5991,7 +5986,7 @@
 /obj/effect/decal/curb,
 /obj/structure/flora/bush/konyang_reeds,
 /obj/structure/flora/ausbushes/ywflowers,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "vI" = (
 /obj/structure/table/rack/retail_shelf,
@@ -6038,7 +6033,7 @@
 	dir = 10
 	},
 /obj/structure/flora/bush/grove,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "vO" = (
 /obj/effect/map_effect/window_spawner/full/reinforced,
@@ -6092,7 +6087,7 @@
 "vW" = (
 /obj/structure/flora/ausbushes/fullgrass,
 /obj/structure/flora/ausbushes/brflowers,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "vX" = (
 /obj/structure/bed/stool/chair{
@@ -6211,10 +6206,10 @@
 /obj/effect/decal/curb,
 /obj/structure/flora/bush/konyang_reeds,
 /obj/structure/flora/ausbushes/lavendergrass,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "wv" = (
-/obj/effect/shuttle_landmark/point_verdant/spaceport_intrepid{
+/obj/effect/shuttle_landmark/port_volturno/spaceport_intrepid{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark/full,
@@ -6251,7 +6246,7 @@
 	dir = 8
 	},
 /obj/structure/flora/ausbushes/fullgrass,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "wE" = (
 /obj/effect/decal/exterior_stairs/half/right{
@@ -6362,7 +6357,7 @@
 "wQ" = (
 /obj/structure/flora/ausbushes/sunnybush,
 /obj/structure/flora/ausbushes/fullgrass,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "wR" = (
 /obj/structure/table/standard,
@@ -6409,7 +6404,7 @@
 /obj/structure/flora/ausbushes/fullgrass,
 /obj/structure/flora/ausbushes/brflowers,
 /obj/structure/flora/tree/grove,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "xc" = (
 /obj/structure/table/wood,
@@ -6463,7 +6458,7 @@
 	},
 /obj/structure/flora/ausbushes/ywflowers,
 /obj/structure/flora/ausbushes/lavendergrass,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "xn" = (
 /obj/effect/decal/curb{
@@ -6473,7 +6468,7 @@
 /obj/structure/sign/billboard{
 	icon_state = "board-c"
 	},
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "xp" = (
 /obj/effect/map_effect/window_spawner/full/reinforced,
@@ -6504,7 +6499,7 @@
 /obj/effect/decal/curb{
 	dir = 9
 	},
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "xx" = (
 /obj/structure/railing/mapped,
@@ -6589,7 +6584,7 @@
 /obj/effect/decal/curb,
 /obj/structure/flora/ausbushes/ywflowers,
 /obj/structure/flora/ausbushes/lavendergrass,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "xK" = (
 /obj/structure/table/standard,
@@ -6642,7 +6637,7 @@
 /obj/structure/flora/bush/konyang_reeds,
 /obj/structure/flora/ausbushes/brflowers,
 /obj/structure/flora/ausbushes/lavendergrass,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "xZ" = (
 /obj/structure/bed/stool/chair/sofa/right/blue{
@@ -6695,7 +6690,7 @@
 	},
 /obj/structure/flora/bush/konyang_reeds,
 /obj/structure/flora/ausbushes/ywflowers,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "yj" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -6805,14 +6800,14 @@
 	dir = 6
 	},
 /obj/structure/flora/ausbushes/lavendergrass,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "yG" = (
 /obj/structure/flora/bush/konyang_reeds,
 /obj/effect/decal/curb{
 	dir = 4
 	},
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "yI" = (
 /obj/structure/cash_register{
@@ -6865,7 +6860,7 @@
 	dir = 4
 	},
 /obj/structure/flora/ausbushes/ywflowers,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "yQ" = (
 /obj/structure/flora/pottedplant/bluefern,
@@ -6934,7 +6929,7 @@
 "zc" = (
 /obj/structure/flora/bush/grove,
 /obj/structure/flora/tree/grove,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "zd" = (
 /obj/structure/window/reinforced,
@@ -6946,7 +6941,7 @@
 /obj/structure/flora/bush/konyang_reeds,
 /obj/structure/flora/ausbushes/fernybush,
 /obj/structure/flora/ausbushes/ywflowers,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "zf" = (
 /obj/effect/floor_decal/corner/dark_green/diagonal,
@@ -7010,7 +7005,7 @@
 "zq" = (
 /obj/structure/flora/ausbushes/ywflowers,
 /obj/structure/flora/bush/konyang_reeds,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "zr" = (
 /obj/effect/decal/exterior_stairs/half,
@@ -7053,7 +7048,7 @@
 	dir = 9
 	},
 /obj/structure/flora/ausbushes/fullgrass,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "zy" = (
 /obj/effect/decal/curb{
@@ -7061,7 +7056,7 @@
 	},
 /obj/structure/flora/bush/konyang_reeds,
 /obj/structure/flora/ausbushes/lavendergrass,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "zz" = (
 /obj/effect/decal/curb{
@@ -7154,7 +7149,7 @@
 	dir = 9
 	},
 /obj/machinery/photocopier/faxmachine{
-	department = "Konyang, Point Verdant Corporate District, National Police Precinct 302";
+	department = "Assunzione, Triesto, Port Volturno, Zeng-Hu ISD Facility Eta";
 	pixel_y = 4;
 	req_one_access = list(218)
 	},
@@ -7252,7 +7247,7 @@
 	dir = 8
 	},
 /obj/structure/flora/bush/konyang_reeds,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "zZ" = (
 /obj/effect/floor_decal/corner/dark_green/diagonal,
@@ -7330,7 +7325,7 @@
 /obj/effect/decal/curb{
 	dir = 10
 	},
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "Aj" = (
 /obj/structure/closet/secure_closet{
@@ -7366,7 +7361,7 @@
 	dir = 8
 	},
 /obj/structure/flora/ausbushes/fernybush,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "Ao" = (
 /turf/simulated/floor/wood/maple,
@@ -7468,7 +7463,7 @@
 	dir = 4
 	},
 /obj/structure/flora/bush/konyang_reeds,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "AI" = (
 /obj/structure/bed/stool/chair/plastic,
@@ -7564,7 +7559,7 @@
 	dir = 8
 	},
 /obj/structure/flora/ausbushes/brflowers,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "AZ" = (
 /obj/machinery/shipsensors/weak,
@@ -7627,7 +7622,7 @@
 	icon_state = "cliff-top1"
 	},
 /obj/structure/rod_railing,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "Bq" = (
 /obj/machinery/door/urban{
@@ -7672,7 +7667,7 @@
 /obj/effect/decal/curb{
 	dir = 4
 	},
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "BA" = (
 /obj/effect/decal/curb{
@@ -7697,7 +7692,7 @@
 	dir = 1
 	},
 /obj/structure/flora/bush/konyang_reeds,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "BG" = (
 /obj/machinery/reagentgrinder{
@@ -7723,7 +7718,7 @@
 /obj/structure/flora/bush/mushroom,
 /obj/structure/flora/ausbushes/fullgrass,
 /obj/effect/decal/curb,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "BL" = (
 /obj/structure/closet/crate/bin/filled,
@@ -7895,7 +7890,7 @@
 /obj/structure/flora/ausbushes/fernybush,
 /obj/structure/flora/ausbushes/lavendergrass,
 /obj/structure/flora/tree/grove,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "Ct" = (
 /turf/unsimulated/wall/darkshuttlewall,
@@ -7916,7 +7911,7 @@
 /obj/effect/decal/curb{
 	dir = 8
 	},
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "Cx" = (
 /obj/machinery/door/blast/shutters{
@@ -7928,7 +7923,7 @@
 /obj/effect/decal/curb{
 	dir = 8
 	},
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "Cz" = (
 /obj/structure/stairs_railing{
@@ -7979,7 +7974,7 @@
 	},
 /obj/structure/flora/ausbushes/lavendergrass,
 /obj/structure/flora/ausbushes/lavendergrass,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "CK" = (
 /obj/effect/decal/curb{
@@ -7987,7 +7982,7 @@
 	},
 /obj/random/dirt_75,
 /obj/structure/flora/ausbushes/brflowers,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "CL" = (
 /turf/simulated/open,
@@ -8077,7 +8072,7 @@
 /obj/structure/flora/bush/konyang_reeds,
 /obj/structure/flora/ausbushes/ywflowers,
 /obj/structure/flora/ausbushes/lavendergrass,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "Da" = (
 /obj/effect/decal/road_marking/no_pass{
@@ -8105,7 +8100,7 @@
 "Di" = (
 /obj/structure/flora/ausbushes/brflowers,
 /obj/structure/flora/ausbushes/fernybush,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "Dj" = (
 /obj/structure/sign/double/barsign/marketsign/staticsign/quikstop{
@@ -8128,7 +8123,7 @@
 /obj/structure/sign/billboard{
 	icon_state = "board-r"
 	},
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "Do" = (
 /obj/random/dirt_75,
@@ -8155,7 +8150,7 @@
 	dir = 8
 	},
 /obj/structure/flora/ausbushes/lavendergrass,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "Dt" = (
 /obj/effect/decal/curb{
@@ -8182,7 +8177,7 @@
 /obj/effect/decal/curb{
 	dir = 8
 	},
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "Dy" = (
 /obj/structure/ledge/quarter/corner{
@@ -8398,7 +8393,7 @@
 /obj/structure/flora/ausbushes/fullgrass,
 /obj/structure/flora/ausbushes/fullgrass,
 /obj/structure/flora/bush/konyang_reeds,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "Ea" = (
 /obj/structure/bed/stool/chair{
@@ -8412,8 +8407,8 @@
 /turf/simulated/floor/tiled,
 /area/port_volturno/outdoors)
 "Ed" = (
-/obj/effect/overmap/visitable/sector/point_verdant,
 /obj/random/dirt_75,
+/obj/effect/overmap/visitable/sector/port_volturno,
 /turf/simulated/floor/concrete,
 /area/port_volturno/interior/spaceport)
 "Ee" = (
@@ -8533,7 +8528,7 @@
 	dir = 8
 	},
 /obj/structure/flora/bush/konyang_reeds,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "EA" = (
 /obj/effect/decal/curb{
@@ -8625,7 +8620,7 @@
 	dir = 4
 	},
 /obj/structure/flora/ausbushes/fullgrass,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "EV" = (
 /obj/machinery/smartfridge/foodheater/buffet,
@@ -8677,7 +8672,7 @@
 /obj/effect/decal/curb{
 	dir = 4
 	},
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "Fe" = (
 /obj/random/dirt_75,
@@ -8757,7 +8752,7 @@
 /obj/effect/decal/curb{
 	dir = 9
 	},
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "Ft" = (
 /obj/effect/decal/road_marking/thin{
@@ -8843,7 +8838,7 @@
 /obj/structure/flora/ausbushes/fernybush,
 /obj/structure/flora/ausbushes/ywflowers,
 /obj/effect/decal/curb,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "FD" = (
 /obj/machinery/light/colored{
@@ -8963,12 +8958,12 @@
 /obj/effect/decal/curb{
 	dir = 1
 	},
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "Ga" = (
 /obj/structure/flora/ausbushes/lavendergrass,
 /obj/structure/flora/ausbushes/fullgrass,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "Gd" = (
 /obj/machinery/optable{
@@ -9042,7 +9037,7 @@
 /area/port_volturno/outdoors)
 "Gq" = (
 /obj/structure/flora/bush/jungle/large/random,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "Gr" = (
 /obj/random/dirt_75,
@@ -9069,7 +9064,7 @@
 /obj/effect/decal/curb,
 /obj/structure/flora/bush/konyang_reeds,
 /obj/structure/flora/ausbushes/brflowers,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "GB" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
@@ -9093,7 +9088,7 @@
 	},
 /obj/structure/flora/ausbushes/fernybush,
 /obj/structure/flora/tree/grove,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "GE" = (
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -9124,7 +9119,7 @@
 /obj/effect/decal/curb{
 	dir = 10
 	},
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "GJ" = (
 /obj/machinery/light/floor{
@@ -9278,7 +9273,7 @@
 	dir = 5
 	},
 /obj/structure/flora/ausbushes/fernybush,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "Hl" = (
 /obj/structure/table/wood,
@@ -9445,7 +9440,7 @@
 	},
 /obj/structure/flora/ausbushes/fullgrass,
 /obj/structure/flora/ausbushes/brflowers,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "HC" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
@@ -9569,7 +9564,7 @@
 "HP" = (
 /obj/structure/flora/ausbushes/ywflowers,
 /obj/effect/decal/curb,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "HQ" = (
 /obj/effect/decal/road_marking/crosswalk,
@@ -9581,14 +9576,15 @@
 /obj/vehicle/bike/motor/brown{
 	dir = 8;
 	registration_plate = "S96-3842";
-	spawns_with_key = 0
+	spawns_with_key = 0;
+	name = "moped"
 	},
 /turf/simulated/floor/asphalt/assunzione,
 /area/port_volturno/interior/tunnels)
 "HT" = (
 /obj/structure/flora/ausbushes/ywflowers,
 /obj/structure/flora/tree/grove,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "HX" = (
 /obj/effect/decal/road_marking/thin,
@@ -9620,7 +9616,7 @@
 	},
 /obj/random/dirt_75,
 /obj/structure/flora/ausbushes/lavendergrass,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "Ig" = (
 /obj/structure/window/reinforced,
@@ -9634,11 +9630,11 @@
 /obj/effect/decal/curb{
 	dir = 5
 	},
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "Ii" = (
 /obj/structure/flora/ausbushes/fullgrass,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "Ij" = (
 /obj/structure/tank_wall/carbon_dioxide{
@@ -9825,7 +9821,7 @@
 "II" = (
 /obj/effect/decal/curb,
 /obj/structure/flora/ausbushes/fullgrass,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "IL" = (
 /obj/effect/decal/road_marking/center{
@@ -9888,7 +9884,7 @@
 /obj/structure/platform_stairs/full{
 	dir = 1
 	},
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/interior)
 "Jc" = (
 /obj/structure/table/rack/retail_shelf,
@@ -9907,7 +9903,7 @@
 "Jf" = (
 /obj/structure/flora/ausbushes/fullgrass,
 /obj/structure/flora/bush/mushroom,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "Jg" = (
 /obj/structure/table/stone/marble,
@@ -9964,7 +9960,7 @@
 "Js" = (
 /obj/structure/flora/ausbushes/ywflowers,
 /obj/structure/flora/ausbushes/fullgrass,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "Ju" = (
 /obj/structure/neon_sign{
@@ -10023,7 +10019,7 @@
 	dir = 8
 	},
 /obj/structure/flora/ausbushes/ywflowers,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "JI" = (
 /obj/structure/flora/bush/konyang_reeds,
@@ -10032,7 +10028,7 @@
 	},
 /obj/structure/flora/ausbushes/brflowers,
 /obj/structure/flora/ausbushes/lavendergrass,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "JJ" = (
 /obj/machinery/light/floor,
@@ -10077,7 +10073,7 @@
 /obj/effect/decal/curb/corner{
 	dir = 8
 	},
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "JO" = (
 /obj/effect/floor_decal/corner/blue{
@@ -10115,7 +10111,7 @@
 	},
 /obj/structure/flora/ausbushes/lavendergrass,
 /obj/structure/flora/ausbushes/fernybush,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "JT" = (
 /obj/effect/decal/road_marking{
@@ -10184,7 +10180,7 @@
 	dir = 10
 	},
 /obj/structure/flora/ausbushes/lavendergrass,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "Kh" = (
 /obj/effect/decal/road_marking/crosswalk{
@@ -10201,7 +10197,7 @@
 "Kl" = (
 /obj/structure/flora/ausbushes/fullgrass,
 /obj/structure/flora/tree/grove,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "Kn" = (
 /obj/machinery/door/urban/glass_sliding/double{
@@ -10226,7 +10222,7 @@
 	},
 /obj/structure/flora/bush/konyang_reeds,
 /obj/structure/flora/ausbushes/lavendergrass,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "Kq" = (
 /obj/effect/decal/cleanable/blood/oil,
@@ -10360,7 +10356,7 @@
 /obj/effect/decal/curb{
 	dir = 10
 	},
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "KN" = (
 /obj/structure/flora/bush/grove,
@@ -10368,7 +10364,7 @@
 	icon_state = "cliff-top1"
 	},
 /obj/structure/rod_railing,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "KP" = (
 /obj/structure/table/stone/marble,
@@ -10519,7 +10515,7 @@
 /obj/effect/decal/curb{
 	dir = 1
 	},
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "Lm" = (
 /obj/structure/ledge{
@@ -10566,7 +10562,7 @@
 	},
 /obj/structure/flora/ausbushes/leafybush,
 /obj/structure/flora/ausbushes/lavendergrass,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "Lu" = (
 /obj/structure/table/stone/marble,
@@ -10576,15 +10572,6 @@
 /obj/structure/window/reinforced,
 /turf/simulated/floor/lino,
 /area/port_volturno/interior/arcade)
-"Lv" = (
-/obj/effect/decal/road_marking/thin,
-/obj/vehicle/bike/motor/green{
-	dir = 8;
-	registration_plate = "S89-8023";
-	spawns_with_key = 0
-	},
-/turf/simulated/floor/asphalt/assunzione,
-/area/port_volturno/interior/tunnels)
 "Lw" = (
 /obj/random/dirt_75,
 /turf/simulated/floor/wood,
@@ -10719,7 +10706,7 @@
 	dir = 10
 	},
 /obj/structure/flora/ausbushes/fernybush,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "LX" = (
 /obj/structure/parking_meter{
@@ -10785,7 +10772,7 @@
 /obj/effect/decal/curb{
 	dir = 8
 	},
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "Mh" = (
 /obj/structure/ledge/quarter/corner{
@@ -11071,7 +11058,7 @@
 /obj/structure/flora/ausbushes/fullgrass,
 /obj/structure/flora/bush/konyang_reeds,
 /obj/effect/decal/curb,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "MS" = (
 /obj/structure/road_barrier{
@@ -11125,7 +11112,7 @@
 	},
 /obj/structure/flora/ausbushes/lavendergrass,
 /obj/structure/flora/ausbushes/fullgrass,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "Nd" = (
 /obj/structure/flora/bush/konyang_reeds,
@@ -11133,11 +11120,11 @@
 	dir = 9
 	},
 /obj/structure/flora/ausbushes/brflowers,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "Nf" = (
 /obj/structure/flora/tree/grove,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "Ng" = (
 /obj/structure/ledge/roof{
@@ -11250,7 +11237,7 @@
 /turf/simulated/floor/tiled,
 /area/port_volturno/outdoors)
 "Nt" = (
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/interior)
 "Nu" = (
 /obj/structure/platform_stairs/full{
@@ -11278,7 +11265,7 @@
 	dir = 4
 	},
 /obj/structure/flora/ausbushes/fullgrass,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "Nz" = (
 /obj/effect/decal/curb{
@@ -11317,7 +11304,7 @@
 /area/port_volturno/outdoors)
 "ND" = (
 /obj/structure/flora/ausbushes/lavendergrass,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "NE" = (
 /obj/machinery/light{
@@ -11335,7 +11322,7 @@
 	dir = 8
 	},
 /obj/structure/flora/ausbushes/lavendergrass,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "NH" = (
 /obj/item/hullbeacon/red,
@@ -11385,7 +11372,7 @@
 	dir = 1
 	},
 /obj/structure/flora/bush/konyang_reeds,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "NP" = (
 /obj/structure/trash_pile,
@@ -11491,7 +11478,7 @@
 	},
 /obj/structure/flora/ausbushes/ywflowers,
 /obj/structure/flora/ausbushes/lavendergrass,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "On" = (
 /obj/structure/table/rack/retail_shelf,
@@ -11625,13 +11612,13 @@
 /obj/effect/decal/curb{
 	dir = 5
 	},
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "ON" = (
 /obj/structure/flora/ausbushes/lavendergrass,
 /obj/structure/flora/ausbushes/ywflowers,
 /obj/structure/flora/bush/konyang_reeds,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "OO" = (
 /obj/effect/decal/road_marking/no_park,
@@ -11718,7 +11705,7 @@
 /obj/structure/sign/urban/staff{
 	pixel_y = -14
 	},
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "Pc" = (
 /obj/structure/table/wood,
@@ -11734,7 +11721,7 @@
 /obj/structure/flora/ausbushes/brflowers,
 /obj/effect/decal/curb,
 /obj/structure/flora/ausbushes/fullgrass,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "Pf" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
@@ -11751,14 +11738,14 @@
 /obj/structure/flora/ausbushes/fullgrass,
 /obj/structure/flora/bush/konyang_reeds,
 /obj/structure/flora/ausbushes/brflowers,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "Pn" = (
 /obj/effect/decal/curb{
 	dir = 8
 	},
 /obj/structure/flora/ausbushes/fernybush,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "Po" = (
 /obj/structure/ledge/roof{
@@ -11816,7 +11803,7 @@
 /obj/effect/decal/curb{
 	dir = 8
 	},
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "Px" = (
 /obj/random/dirt_75,
@@ -11903,7 +11890,7 @@
 "PI" = (
 /obj/structure/flora/ausbushes/fullgrass,
 /obj/structure/flora/bush/konyang_reeds,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "PJ" = (
 /obj/effect/floor_decal/corner/green/diagonal{
@@ -11937,7 +11924,7 @@
 	dir = 1
 	},
 /obj/effect/decal/curb,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "PP" = (
 /obj/structure/flora/bush/konyang_reeds,
@@ -12065,7 +12052,7 @@
 /area/port_volturno/outdoors)
 "Qt" = (
 /obj/structure/flora/bush/grove,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "Qv" = (
 /obj/structure/railing/mapped{
@@ -12089,7 +12076,7 @@
 /obj/effect/decal/curb{
 	dir = 1
 	},
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "Qy" = (
 /obj/effect/floor_decal/industrial/warning,
@@ -12264,7 +12251,7 @@
 /obj/structure/flora/bush/konyang_reeds,
 /obj/structure/flora/bush/konyang_reeds,
 /obj/structure/flora/ausbushes/brflowers,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "Rf" = (
 /obj/effect/decal/curb{
@@ -12280,7 +12267,7 @@
 	dir = 1
 	},
 /obj/structure/flora/ausbushes/lavendergrass,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "Ri" = (
 /obj/effect/decal/curb{
@@ -12334,7 +12321,7 @@
 /obj/effect/decal/curb{
 	dir = 8
 	},
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "Rs" = (
 /obj/effect/decal/road_marking{
@@ -12419,7 +12406,7 @@
 /obj/effect/decal/curb{
 	dir = 1
 	},
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "RC" = (
 /obj/machinery/light{
@@ -12449,7 +12436,7 @@
 /obj/structure/flora/ausbushes/fullgrass,
 /obj/structure/flora/ausbushes/brflowers,
 /obj/structure/flora/ausbushes/lavendergrass,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "RM" = (
 /obj/effect/decal/road_marking/crosswalk,
@@ -12536,7 +12523,7 @@
 /obj/structure/sign/billboard/advert{
 	icon_state = "sign_assunzione1"
 	},
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "RY" = (
 /obj/machinery/door/airlock/multi_tile/glass{
@@ -12593,7 +12580,7 @@
 /obj/structure/flora/ausbushes/lavendergrass,
 /obj/structure/flora/ausbushes/ywflowers,
 /obj/structure/flora/ausbushes/fullgrass,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "Se" = (
 /obj/structure/ledge/quarter{
@@ -12640,7 +12627,7 @@
 	dir = 1
 	},
 /obj/structure/flora/ausbushes/fernybush,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "Sm" = (
 /obj/structure/table/rack,
@@ -12770,7 +12757,7 @@
 	dir = 10
 	},
 /obj/structure/flora/ausbushes/fullgrass,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "SE" = (
 /obj/structure/bed/stool/chair/sofa/right/blue{
@@ -12829,16 +12816,13 @@
 /obj/effect/decal/curb,
 /turf/simulated/floor/asphalt,
 /area/port_volturno/outdoors)
-"SM" = (
-/turf/space,
-/area/port_volturno/interior/spaceport)
 "SN" = (
 /obj/structure/stairs_lower/stairs_upper,
 /turf/simulated/wall,
 /area/port_volturno/interior/minimart)
 "SO" = (
 /obj/structure/road_barrier/bot_end,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "SQ" = (
 /obj/structure/ledge/quarter{
@@ -12890,7 +12874,7 @@
 "Ta" = (
 /obj/structure/flora/ausbushes/lavendergrass,
 /obj/structure/flora/ausbushes/brflowers,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "Tb" = (
 /obj/random/dirt_75,
@@ -12910,7 +12894,8 @@
 /obj/vehicle/bike/motor/green{
 	dir = 8;
 	registration_plate = "S27-3782";
-	spawns_with_key = 0
+	spawns_with_key = 0;
+	name = "moped"
 	},
 /turf/simulated/floor/asphalt/assunzione,
 /area/port_volturno/interior/tunnels)
@@ -12932,7 +12917,7 @@
 /obj/effect/decal/curb{
 	dir = 4
 	},
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "To" = (
 /obj/effect/decal/road_marking{
@@ -12980,7 +12965,7 @@
 /obj/structure/konyang_cliff{
 	icon_state = "cliff2-bottom"
 	},
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "Ty" = (
 /obj/machinery/door/urban{
@@ -13078,7 +13063,7 @@
 	},
 /obj/structure/flora/ausbushes/fullgrass,
 /obj/structure/flora/ausbushes/ywflowers,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "TH" = (
 /obj/structure/ledge/roof,
@@ -13109,7 +13094,7 @@
 /obj/effect/decal/curb{
 	dir = 1
 	},
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "TO" = (
 /obj/structure/bed/stool/chair{
@@ -13180,7 +13165,7 @@
 /obj/effect/decal/curb{
 	dir = 8
 	},
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "Ua" = (
 /turf/simulated/floor/sidewalk/assunzione,
@@ -13207,13 +13192,13 @@
 	dir = 4
 	},
 /obj/structure/flora/ausbushes/brflowers,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "Uh" = (
 /obj/structure/flora/bush/grove,
 /obj/structure/flora/ausbushes/fernybush,
 /obj/structure/flora/ausbushes/fullgrass,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "Uj" = (
 /obj/effect/decal/curb{
@@ -13251,7 +13236,7 @@
 /obj/structure/flora/ausbushes/fernybush,
 /obj/structure/flora/ausbushes/fullgrass,
 /obj/structure/flora/ausbushes/brflowers,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "Up" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
@@ -13329,7 +13314,7 @@
 	},
 /obj/structure/flora/ausbushes/sunnybush,
 /obj/structure/flora/ausbushes/lavendergrass,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "UG" = (
 /obj/effect/decal/road_marking/no_park,
@@ -13342,7 +13327,7 @@
 	icon_state = "cliff-top1"
 	},
 /obj/structure/rod_railing,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "UK" = (
 /obj/structure/stairs/south,
@@ -13505,7 +13490,7 @@
 "Vs" = (
 /obj/structure/flora/ausbushes/lavendergrass,
 /obj/structure/flora/bush/konyang_reeds,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "Vu" = (
 /obj/structure/rod_railing{
@@ -13553,7 +13538,7 @@
 /obj/effect/decal/curb{
 	dir = 4
 	},
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "VE" = (
 /obj/structure/stairs_lower/stairs_upper{
@@ -13579,7 +13564,7 @@
 	dir = 4
 	},
 /obj/structure/cargo_receptacle{
-	override_name = "Konyang - Point Verdant - Up!Burger";
+	override_name = "Assunzione - Port Volturno - Stafylia";
 	payment_modifier = 0.4;
 	min_spawn = 1;
 	max_spawn = 2
@@ -13599,7 +13584,7 @@
 	dir = 1;
 	req_access = list(219)
 	},
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "VM" = (
 /obj/effect/decal/road_marking{
@@ -13616,7 +13601,7 @@
 	},
 /obj/structure/flora/ausbushes/ywflowers,
 /obj/structure/flora/ausbushes/lavendergrass,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "VO" = (
 /obj/machinery/door/urban{
@@ -13652,7 +13637,7 @@
 	},
 /obj/structure/flora/ausbushes/fullgrass,
 /obj/structure/flora/bush/konyang_reeds,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "VT" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -13725,7 +13710,7 @@
 /obj/structure/flora/bush/konyang_reeds,
 /obj/structure/flora/ausbushes/fernybush,
 /obj/structure/flora/ausbushes/lavendergrass,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "Wj" = (
 /turf/simulated/floor/sidewalk/detail,
@@ -13827,7 +13812,7 @@
 	dir = 1
 	},
 /obj/structure/flora/ausbushes/brflowers,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "WA" = (
 /turf/simulated/floor/sidewalk,
@@ -13867,7 +13852,7 @@
 /obj/effect/decal/curb,
 /obj/structure/flora/bush/jungle/c/random,
 /obj/structure/flora/ausbushes/brflowers,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "WH" = (
 /obj/effect/floor_decal/corner/blue{
@@ -13916,7 +13901,7 @@
 /area/port_volturno/outdoors)
 "WP" = (
 /obj/structure/flora/ausbushes/brflowers,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "WQ" = (
 /obj/item/hullbeacon/red,
@@ -13924,7 +13909,7 @@
 /area/port_volturno/interior/spaceport)
 "WS" = (
 /obj/structure/road_barrier,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "WT" = (
 /obj/machinery/light/small{
@@ -14186,7 +14171,7 @@
 	dir = 4
 	},
 /obj/structure/flora/ausbushes/fullgrass,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "XX" = (
 /obj/effect/decal/exterior_stairs/half/left{
@@ -14235,7 +14220,7 @@
 "Yh" = (
 /obj/structure/flora/bush/mushroom,
 /obj/structure/flora/ausbushes/fullgrass,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "Yj" = (
 /obj/structure/sink/kitchen{
@@ -14287,7 +14272,7 @@
 /obj/effect/decal/curb{
 	dir = 4
 	},
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "Yp" = (
 /obj/random/automobile{
@@ -14399,7 +14384,7 @@
 /obj/effect/decal/curb{
 	dir = 4
 	},
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "YK" = (
 /obj/structure/rod_railing,
@@ -14505,7 +14490,7 @@
 	icon_state = "cliff-top1"
 	},
 /obj/structure/rod_railing,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "YV" = (
 /obj/random/dirt_75,
@@ -14629,7 +14614,7 @@
 	dir = 6
 	},
 /obj/structure/flora/ausbushes/lavendergrass,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/no_edge,
 /area/port_volturno/outdoors)
 "Zl" = (
 /obj/structure/ledge/quarter{
@@ -36665,7 +36650,7 @@ MI
 Ae
 qH
 bT
-Lv
+Th
 pM
 tn
 MI
@@ -37174,7 +37159,7 @@ qH
 Th
 aX
 HX
-iI
+pM
 MI
 Ci
 qH
@@ -100646,12 +100631,12 @@ fB
 fB
 Lx
 jQ
-jQ
-jQ
-jQ
-jQ
-jQ
-jQ
+YC
+YC
+YC
+YC
+YC
+YC
 jQ
 jQ
 jQ
@@ -100903,12 +100888,12 @@ fB
 uv
 SQ
 jQ
-SM
-SM
-SM
-SM
-SM
-SM
+AZ
+YC
+tG
+eY
+um
+YC
 jQ
 jQ
 jQ
@@ -101160,12 +101145,12 @@ fB
 Lx
 FE
 jQ
-SM
-SM
-SM
-SM
-SM
-SM
+aZ
+YC
+Vj
+pB
+pB
+YC
 jQ
 jQ
 jQ
@@ -101417,12 +101402,12 @@ fB
 Lx
 Po
 LO
-SM
-SM
-SM
-SM
-SM
-SM
+pv
+aY
+rn
+pB
+pB
+LO
 jQ
 jQ
 jQ
@@ -101674,14 +101659,14 @@ fB
 Lx
 Jo
 LO
-SM
-SM
-SM
-SM
-SM
-SM
-SM
-SM
+vj
+DA
+Jv
+pB
+pB
+LO
+jQ
+jQ
 jQ
 nT
 QW
@@ -101931,14 +101916,14 @@ fB
 Lx
 Po
 LO
-SM
-SM
-SM
-SM
-SM
-SM
-SM
-SM
+wi
+Dp
+mf
+hs
+pB
+LO
+jQ
+jQ
 jQ
 YC
 QW
@@ -102187,14 +102172,14 @@ fB
 fB
 Lx
 dY
-jQ
 YC
 YC
 YC
 YC
+my
+jU
 YC
 YC
-SM
 YC
 YC
 YC
@@ -102444,14 +102429,14 @@ fB
 fB
 eq
 lG
-jQ
-AZ
 YC
-tG
-eY
-um
-YC
-YC
+pB
+pB
+pB
+pB
+pB
+pB
+pB
 YC
 LQ
 pB
@@ -102701,13 +102686,13 @@ fB
 fB
 fB
 Lx
-jQ
-aZ
 YC
-Vj
 pB
 pB
-YC
+pB
+pB
+pB
+pB
 pB
 YC
 Wv
@@ -102958,13 +102943,13 @@ fB
 fB
 fB
 fB
-LO
-pv
-aY
-rn
+YC
 pB
 pB
-LO
+pB
+pB
+pB
+pB
 bg
 YC
 Xb
@@ -103215,13 +103200,13 @@ fB
 fB
 fB
 Lx
-LO
-vj
-DA
-Jv
+YC
 pB
 pB
-LO
+pB
+pB
+pB
+pB
 bg
 YC
 YC
@@ -103472,13 +103457,13 @@ fB
 fB
 fB
 fB
-LO
-wi
-Dp
-mf
-hs
+YC
 pB
-LO
+pB
+pB
+pB
+pB
+pB
 YB
 YC
 Hi
@@ -103729,13 +103714,13 @@ fB
 fB
 fB
 Lx
-jQ
 YC
 YC
 YC
-my
-jU
 YC
+pB
+pB
+pB
 bg
 YC
 YC
@@ -103989,7 +103974,7 @@ fB
 fB
 fB
 fB
-jQ
+YC
 RS
 bg
 bg
@@ -104246,7 +104231,7 @@ fB
 fB
 fB
 fB
-jQ
+YC
 aO
 WL
 bg
@@ -104503,7 +104488,7 @@ fB
 fB
 fB
 fB
-jQ
+YC
 YC
 YC
 YC
@@ -104760,7 +104745,7 @@ fB
 fB
 fB
 fB
-jQ
+YC
 Hi
 Hi
 YC
@@ -105014,10 +104999,10 @@ fB
 fB
 fB
 fB
-jQ
+YC
 Tu
 Tu
-jQ
+YC
 YC
 YC
 UN
@@ -106556,10 +106541,10 @@ fB
 fB
 fB
 fB
-jQ
+YC
 Tu
 Tu
-jQ
+YC
 YC
 YC
 sU
@@ -106816,9 +106801,9 @@ fB
 fB
 fB
 fB
-jQ
-jQ
-jQ
+YC
+YC
+YC
 YC
 Ku
 Ku
@@ -107073,8 +107058,8 @@ fB
 fB
 fB
 fB
-jQ
-jQ
+YC
+YC
 YC
 YC
 uH
@@ -107330,8 +107315,8 @@ fB
 fB
 fB
 fB
-jQ
-jQ
+YC
+YC
 YC
 QW
 QW
@@ -107587,8 +107572,8 @@ fB
 fB
 fB
 fB
-jQ
-jQ
+YC
+YC
 YC
 Bc
 bg
@@ -107834,18 +107819,18 @@ fB
 fB
 fB
 fB
-jQ
-jQ
-jQ
-jQ
-jQ
-jQ
-jQ
-jQ
-jQ
-jQ
-jQ
-jQ
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
 YC
 qF
 bg
@@ -108091,18 +108076,18 @@ fB
 fB
 fB
 fB
+YC
 jQ
-rQ
-rQ
-rQ
-rQ
-rQ
-rQ
-rQ
-rQ
-rQ
-rQ
-rQ
+jQ
+jQ
+jQ
+jQ
+jQ
+jQ
+jQ
+jQ
+jQ
+jQ
 YC
 QW
 bg
@@ -108348,8 +108333,8 @@ fB
 fB
 fB
 fB
+YC
 jQ
-rQ
 rQ
 rQ
 rQ
@@ -108605,8 +108590,8 @@ fB
 fB
 fB
 fB
+YC
 jQ
-rQ
 rQ
 rQ
 rQ
@@ -108862,8 +108847,8 @@ fB
 fB
 fB
 fB
+YC
 jQ
-rQ
 rQ
 rQ
 rQ
@@ -109119,8 +109104,8 @@ fB
 fB
 fB
 fB
+YC
 jQ
-rQ
 rQ
 rQ
 rQ
@@ -109376,8 +109361,8 @@ fB
 fB
 fB
 fB
+YC
 jQ
-rQ
 rQ
 rQ
 rQ
@@ -109633,8 +109618,8 @@ fB
 fB
 fB
 fB
+YC
 jQ
-rQ
 rQ
 rQ
 rQ
@@ -109890,8 +109875,8 @@ fB
 fB
 fB
 fB
+YC
 jQ
-rQ
 rQ
 rQ
 rQ
@@ -110147,8 +110132,8 @@ fB
 fB
 fB
 fB
+YC
 jQ
-rQ
 rQ
 rQ
 rQ
@@ -110404,8 +110389,8 @@ fB
 fB
 fB
 fB
+YC
 jQ
-rQ
 rQ
 rQ
 rQ
@@ -110661,8 +110646,8 @@ fB
 fB
 fB
 fB
+YC
 jQ
-rQ
 rQ
 rQ
 rQ
@@ -110918,18 +110903,18 @@ fB
 fB
 fB
 fB
+YC
 jQ
-rQ
-rQ
-rQ
-rQ
-rQ
-rQ
-rQ
-rQ
-rQ
-rQ
-rQ
+jQ
+jQ
+jQ
+jQ
+jQ
+jQ
+jQ
+jQ
+jQ
+jQ
 jQ
 jQ
 YC
@@ -111175,19 +111160,19 @@ fB
 fB
 fB
 fB
-jQ
-jQ
-jQ
-jQ
-jQ
-jQ
-jQ
-jQ
-jQ
-jQ
-jQ
-jQ
-jQ
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
 jQ
 YC
 pB
@@ -111444,7 +111429,7 @@ fB
 fB
 fB
 fB
-jQ
+YC
 jQ
 YC
 pB
@@ -111701,7 +111686,7 @@ fB
 fB
 fB
 fB
-jQ
+YC
 jQ
 YC
 Bc
@@ -111958,7 +111943,7 @@ fB
 fB
 fB
 fB
-jQ
+YC
 jQ
 YC
 pB
@@ -112215,7 +112200,7 @@ fB
 fB
 fB
 fB
-jQ
+YC
 jQ
 YC
 pB
@@ -112472,7 +112457,7 @@ fB
 fB
 fB
 fB
-jQ
+YC
 jQ
 YC
 pB
@@ -112729,7 +112714,7 @@ fB
 fB
 fB
 fB
-jQ
+YC
 jQ
 YC
 YC
@@ -112986,7 +112971,7 @@ fB
 fB
 fB
 fB
-jQ
+YC
 jQ
 jQ
 jQ
