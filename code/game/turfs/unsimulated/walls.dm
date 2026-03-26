@@ -29,7 +29,8 @@
 		/turf/unsimulated/wall/fakepdoor,
 		/obj/structure/window_frame,
 		/obj/structure/window_frame/unanchored,
-		/obj/structure/window_frame/empty
+		/obj/structure/window_frame/empty,
+		/obj/structure/arch
 	)
 
 /turf/unsimulated/wall/fakepdoor

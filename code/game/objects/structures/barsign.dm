@@ -9,6 +9,8 @@
 	var/currently_on = FALSE
 	var/on_icon_state
 	var/off_icon_state = "off"
+	/// Whether or not the sign settings can be modified.
+	var/sign_change_allowed = TRUE
 
 /obj/structure/sign/double/barsign/attackby(obj/item/attacking_item, mob/user)
 	if(cult)
@@ -41,6 +43,9 @@
 
 /obj/structure/sign/double/barsign/proc/set_sign()
 	var/list/sign_choices = get_sign_choices()
+	if(!sign_change_allowed)
+		balloon_alert("access denied")
+		return
 
 	var/list/sign_index = list()
 	for(var/sign in sign_choices)
@@ -82,6 +87,23 @@
 
 /obj/structure/sign/double/barsign/marketsign/mirrored // Visible from the other end of the sign.
 	pixel_x = -32
+
+/// Static signs can be toggled on and off, but have no alternative icons to set. Used for mapping.
+/obj/structure/sign/double/barsign/marketsign/staticsign
+	sign_change_allowed = FALSE
+
+/obj/structure/sign/double/barsign/marketsign/staticsign/quikstop
+
+/obj/structure/sign/double/barsign/marketsign/staticsign/quikstop/Initialize()
+	..()
+	var/singleton/sign/double/market/signselect = /singleton/sign/double/market/quikstop
+	name = signselect.name
+	desc = signselect.desc
+	desc_extended = signselect.desc_extended
+	icon_state = signselect.icon_state
+	currently_on = TRUE
+	on_icon_state = icon_state
+	update_icon()
 
 /singleton/sign/double
 	var/name = "Holographic Projector"

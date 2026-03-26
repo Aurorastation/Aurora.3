@@ -285,6 +285,31 @@ ABSTRACT_TYPE(/obj/structure/stairs/urban/road_ramp)
 	dir = SOUTH
 	bound_height = 64
 
+ABSTRACT_TYPE(/obj/structure/stairs/urban/road_ramp_assun)
+	icon = 'icons/obj/structure/urban/ledges_assun.dmi'
+	name = "inclined asphalt ramp"
+	desc = "A solid asphalt ramp to allow your vehicle to traverse inclines with ease."
+	icon_state = "road-ramp-center"
+	layer = 2.02
+
+/obj/structure/stairs/urban/road_ramp_assun/right
+	dir = EAST
+	bound_width = 64
+	bound_x = -32
+
+/obj/structure/stairs/urban/road_ramp_assun/left
+	dir = WEST
+	bound_width = 64
+
+/obj/structure/stairs/urban/road_ramp_assun/north
+	dir = NORTH
+	bound_height = 64
+	bound_y = -32
+
+/obj/structure/stairs/urban/road_ramp_assun/south
+	dir = SOUTH
+	bound_height = 64
+
 /obj/structure/closet/crate/bin/urban
 	name = "tall garbage can"
 	desc = "Garbage day!"
@@ -658,11 +683,41 @@ ABSTRACT_TYPE(/obj/structure/stairs/urban/road_ramp)
 	desc = null
 	icon_state = "sign"
 	density = TRUE
+	/**
+	 * Billboard adverts have icon_states named for whether they're generic or location-specific. These variable records the # of a given type for the purpose of populating appropriate adverts.
+	 * When new adverts are added to a pool, or a new pool is added, the XYZ_adverts variables should be updated so that billboards at a given location populate their adverts randomly.
+	 */
+	var/list/advert_pool = list()
+	var/generic_adverts = 8
+	var/konyang_adverts = 11
+	var/assunzione_adverts = 2
 
-/obj/structure/sign/billboard/advert/random/Initialize(mapload)
+/obj/structure/sign/billboard/advert/random/generic/Initialize(mapload)
 	. = ..()
 	ClearOverlays()
-	icon_state = "sign[rand(1, 14)]"
+	for(var/x = 1 to generic_adverts)
+		advert_pool += "sign_generic[x]"
+	icon_state = pick(advert_pool)
+	return
+
+/obj/structure/sign/billboard/advert/random/konyang/Initialize(mapload)
+	. = ..()
+	ClearOverlays()
+	for(var/x = 1 to generic_adverts)
+		advert_pool += "sign_generic[x]"
+	for(var/y = 1 to konyang_adverts)
+		advert_pool += "sign_konyang[y]"
+	icon_state = pick(advert_pool)
+	return
+
+/obj/structure/sign/billboard/advert/random/assunzione/Initialize(mapload)
+	. = ..()
+	ClearOverlays()
+	for(var/x = 1 to generic_adverts)
+		advert_pool += "sign_generic[x]"
+	for(var/y = 1 to assunzione_adverts)
+		advert_pool += "sign_assunzione[y]"
+	icon_state = pick(advert_pool)
 	return
 
 /obj/structure/sign/urban/drive_thru
@@ -738,6 +793,22 @@ ABSTRACT_TYPE(/obj/structure/stairs/urban/road_ramp)
 /obj/structure/sign/urban/konyang/pharmacy
 	name = "pharmacy sign"
 	desc = "A sign labeling the structure as a Konyang health and supply pharmacy."
+	icon_state = "pharmacy_sign"
+
+/obj/structure/sign/urban/assunzione
+	name = "convenience store sign"
+	desc = "A sign labeling the structure as a 24-7 MINI MART. Convenient!"
+	icon = 'icons/obj/structure/urban/assunzione_signs.dmi'
+	icon_state = "shop_sign"
+
+/obj/structure/sign/urban/assunzione/police
+	name = "police station sign"
+	desc = "A sign labeling the structure as an Volturno Spaceport security facility; while the spaceport is administered by the government of Triesto, internal security is Zeng-Hu corporate."
+	icon_state = "police_sign"
+
+/obj/structure/sign/urban/assunzione/pharmacy
+	name = "pharmacy & clinic sign"
+	desc = "A sign labeling the structure as a Zeng-Hu pharmaceutical distributor and medical clinic."
 	icon_state = "pharmacy_sign"
 
 /obj/structure/window/urban
@@ -1007,3 +1078,26 @@ ABSTRACT_TYPE(/obj/structure/stairs/urban/road_ramp)
 
 /obj/item/key/door_key/GetAccess()
 	return access_list
+
+// Overhead structural arches. Cool as hell.
+ABSTRACT_TYPE(/obj/structure/arch)
+	icon = 'icons/obj/structure/urban/arches.dmi'
+	icon_state = "gothic_arch_single"
+	layer = ABOVE_ABOVE_HUMAN_LAYER
+	name = "arch"
+	anchored = TRUE
+
+/obj/structure/arch/Initialize()
+	. = ..()
+	AddComponent(/datum/component/large_transparency, 0, 0, 0, 0)
+
+/obj/structure/arch/gothic/single
+
+/obj/structure/arch/gothic/left
+	icon_state = "gothic_arch_left"
+
+/obj/structure/arch/gothic/center
+	icon_state = "gothic_arch_middle"
+
+/obj/structure/arch/gothic/right
+	icon_state = "gothic_arch_right"

@@ -2,7 +2,7 @@
 	name = "Triesto, ZH District - Multipurpose Zoning Area"
 	id = "triesto"
 	description = "A landing zone designated by local authorities within a ZH-affiliated spaceport. Accommodations have been made to ensure full visitation of any open facilities present."
-	sectors = list(SECTOR_ASSUNZIONE)
+	sectors = list(SECTOR_AL_MAQDISI)
 
 	traits = list(
 		//Z1

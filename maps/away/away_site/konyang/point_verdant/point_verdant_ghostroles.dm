@@ -31,7 +31,7 @@
 	r_pocket = /obj/item/storage/wallet/random
 
 /obj/outfit/admin/konyang/zh/get_id_access()
-	return list(ACCESS_KONYANG_CORPORATE)
+	return list(ACCESS_PORTOFCALL_CORPORATE)
 
 /datum/ghostspawner/human/konyang_ee
 	short_name = "konyang_ee"
@@ -56,7 +56,7 @@
 	r_pocket = /obj/item/storage/wallet/random
 
 /obj/outfit/admin/konyang/ee/get_id_access()
-	return list(ACCESS_KONYANG_CORPORATE)
+	return list(ACCESS_PORTOFCALL_CORPORATE)
 
 //Police
 /datum/ghostspawner/human/konyang_cop
@@ -346,7 +346,7 @@
 
 
 /obj/outfit/admin/konyang/army_response/get_id_access()
-	return list(ACCESS_DISTRESS, ACCESS_PORTOFCALL_POLICE, ACCESS_KONYANG_CORPORATE, ACCESS_PORTOFCALL_POLICE, ACCESS_EXTERNAL_AIRLOCKS)
+	return list(ACCESS_DISTRESS, ACCESS_PORTOFCALL_POLICE, ACCESS_PORTOFCALL_CORPORATE, ACCESS_PORTOFCALL_POLICE, ACCESS_EXTERNAL_AIRLOCKS)
 
 /datum/ghostspawner/human/konyang_army/medic
 	name = "Konyang Army Medic"
@@ -436,7 +436,7 @@
 	back = null
 
 /obj/outfit/admin/corporate_solutions/get_id_access()
-	return list(ACCESS_CENT_SPECOPS, ACCESS_KONYANG_CORPORATE, ACCESS_EXTERNAL_AIRLOCKS)
+	return list(ACCESS_CENT_SPECOPS, ACCESS_PORTOFCALL_CORPORATE, ACCESS_EXTERNAL_AIRLOCKS)
 
 /datum/ghostspawner/human/corporate_solutions/einstein
 	name = "Einstein Corporate Solutions Agent"
