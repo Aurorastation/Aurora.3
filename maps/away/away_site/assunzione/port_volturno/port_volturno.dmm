@@ -676,12 +676,6 @@
 /obj/machinery/mech_recharger/automobile,
 /turf/simulated/floor/concrete,
 /area/port_volturno/outdoors)
-"ch" = (
-/obj/structure/flora/bush/konyang_reeds,
-/obj/structure/flora/ausbushes/fullgrass,
-/obj/structure/arch/gothic/single,
-/turf/simulated/floor/grass,
-/area/port_volturno/outdoors)
 "cj" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
@@ -2349,7 +2343,10 @@
 /turf/simulated/floor/carpet/purple,
 /area/port_volturno/interior/tailor)
 "iw" = (
-/turf/space,
+/obj/structure/flora/bush/konyang_reeds,
+/obj/structure/flora/ausbushes/fullgrass,
+/obj/structure/arch/gothic/single,
+/turf/simulated/floor/grass,
 /area/port_volturno/outdoors)
 "ix" = (
 /obj/structure/table/stone/marble,
@@ -2963,6 +2960,11 @@
 /obj/structure/window/reinforced,
 /obj/machinery/icecream_vat,
 /turf/simulated/floor/tiled,
+/area/port_volturno/outdoors)
+"kO" = (
+/obj/structure/flora/ausbushes/fullgrass,
+/obj/structure/arch/gothic/single,
+/turf/simulated/floor/grass,
 /area/port_volturno/outdoors)
 "kP" = (
 /obj/machinery/photocopier,
@@ -6464,10 +6466,14 @@
 /turf/simulated/floor/grass,
 /area/port_volturno/outdoors)
 "xn" = (
+/obj/effect/decal/curb{
+	dir = 1
+	},
+/obj/structure/flora/ausbushes/lavendergrass,
 /obj/structure/sign/billboard{
 	icon_state = "board-c"
 	},
-/turf/space,
+/turf/simulated/floor/grass,
 /area/port_volturno/outdoors)
 "xp" = (
 /obj/effect/map_effect/window_spawner/full/reinforced,
@@ -8115,10 +8121,14 @@
 /turf/simulated/floor/roofing_tiles/assunzione,
 /area/port_volturno/outdoors)
 "Dn" = (
+/obj/effect/decal/curb{
+	dir = 1
+	},
+/obj/structure/flora/ausbushes/lavendergrass,
 /obj/structure/sign/billboard{
 	icon_state = "board-r"
 	},
-/turf/space,
+/turf/simulated/floor/grass,
 /area/port_volturno/outdoors)
 "Do" = (
 /obj/random/dirt_75,
@@ -8285,9 +8295,14 @@
 /turf/simulated/floor/tiled/white,
 /area/port_volturno/outdoors)
 "DN" = (
-/obj/structure/flora/ausbushes/fullgrass,
-/obj/structure/arch/gothic/single,
-/turf/simulated/floor/grass,
+/obj/effect/decal/curb{
+	dir = 8
+	},
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/obj/structure/arch/gothic/right,
+/turf/simulated/floor/sidewalk/assunzione/flat,
 /area/port_volturno/outdoors)
 "DP" = (
 /obj/effect/map_effect/map_helper/ruler_tiles_3{
@@ -8682,13 +8697,6 @@
 	},
 /obj/structure/flora/bush/konyang_reeds,
 /turf/simulated/floor/exoplanet/dirt_konyang,
-/area/port_volturno/outdoors)
-"Fi" = (
-/obj/effect/decal/curb{
-	dir = 4
-	},
-/obj/structure/arch/gothic/left,
-/turf/simulated/floor/sidewalk/assunzione/blocks,
 /area/port_volturno/outdoors)
 "Fm" = (
 /obj/effect/decal/curb/corner{
@@ -9895,6 +9903,11 @@
 	pixel_x = -6
 	},
 /turf/simulated/floor/wood,
+/area/port_volturno/outdoors)
+"Jf" = (
+/obj/structure/flora/ausbushes/fullgrass,
+/obj/structure/flora/bush/mushroom,
+/turf/simulated/floor/grass,
 /area/port_volturno/outdoors)
 "Jg" = (
 /obj/structure/table/stone/marble,
@@ -11138,9 +11151,11 @@
 /turf/simulated/floor/roofing_tiles/assunzione,
 /area/port_volturno/outdoors)
 "Nh" = (
-/obj/structure/flora/ausbushes/fullgrass,
-/obj/structure/flora/bush/mushroom,
-/turf/simulated/floor/grass,
+/obj/effect/decal/curb{
+	dir = 4
+	},
+/obj/structure/arch/gothic/left,
+/turf/simulated/floor/sidewalk/assunzione/blocks,
 /area/port_volturno/outdoors)
 "Ni" = (
 /obj/random/dirt_75,
@@ -12514,8 +12529,14 @@
 /turf/simulated/floor/tiled/full,
 /area/port_volturno/outdoors)
 "RX" = (
+/obj/effect/decal/curb{
+	dir = 1
+	},
 /obj/structure/sign/billboard,
-/turf/space,
+/obj/structure/sign/billboard/advert{
+	icon_state = "sign_assunzione1"
+	},
+/turf/simulated/floor/grass,
 /area/port_volturno/outdoors)
 "RY" = (
 /obj/machinery/door/airlock/multi_tile/glass{
@@ -14183,16 +14204,6 @@
 "Ya" = (
 /obj/effect/floor_decal/corner/dark_green/diagonal,
 /turf/simulated/floor/tiled/freezer,
-/area/port_volturno/outdoors)
-"Yd" = (
-/obj/effect/decal/curb{
-	dir = 8
-	},
-/obj/structure/railing/mapped{
-	dir = 4
-	},
-/obj/structure/arch/gothic/right,
-/turf/simulated/floor/sidewalk/assunzione/flat,
 /area/port_volturno/outdoors)
 "Ye" = (
 /obj/random/dirt_75,
@@ -36861,11 +36872,11 @@ BY
 BY
 vW
 Qt
-DN
-Nh
+kO
+Jf
 Ii
 jD
-ch
+iw
 jD
 Tr
 wa
@@ -37135,20 +37146,20 @@ Kk
 zh
 iG
 Na
-iw
-iw
-iw
-iw
-iw
-iw
-iw
-iw
-iw
-iw
-iw
-iw
-iw
-iw
+lI
+AG
+ir
+ir
+ir
+hz
+ap
+hz
+hz
+hz
+VB
+hz
+hz
+OK
 Kv
 Kv
 Kv
@@ -37392,20 +37403,20 @@ Kk
 fn
 iG
 Kv
-iw
-iw
-iw
-iw
-iw
-iw
-iw
-iw
-iw
-iw
-iw
-iw
-iw
-iw
+cm
+gK
+lk
+lk
+Vs
+dI
+jD
+WP
+ND
+lk
+ND
+hn
+Ga
+ff
 Kv
 iG
 Na
@@ -37649,20 +37660,20 @@ Kk
 fn
 Kv
 Kv
-iw
-iw
-iw
-iw
-iw
-iw
-iw
-iw
-iw
-iw
-iw
-iw
-iw
-iw
+cm
+lk
+Ii
+ew
+Sd
+ND
+ND
+ND
+lk
+ON
+dI
+wQ
+Ii
+RB
 Kv
 iG
 iG
@@ -37906,20 +37917,20 @@ Kk
 fn
 iG
 Kv
-iw
-iw
-iw
-iw
-iw
-iw
-iw
-iw
-iw
-iw
-iw
-iw
-iw
-iw
+cm
+lk
+lk
+PI
+lk
+DY
+uf
+Ga
+Ii
+Ii
+Sd
+Ga
+WP
+NO
 Kv
 Kv
 iG
@@ -38163,20 +38174,20 @@ Kk
 fn
 Na
 Kv
-iw
-iw
-iw
-iw
-iw
-iw
-iw
-iw
-iw
-iw
-iw
-iw
-iw
-iw
+cm
+cR
+hn
+lk
+bC
+hn
+Ii
+lk
+ND
+lk
+Ii
+Ga
+ND
+ff
 iG
 iG
 Kv
@@ -38420,20 +38431,20 @@ Kk
 fn
 iG
 Kv
-iw
-iw
-iw
-iw
-iw
-iw
-iw
-iw
-iw
-iw
-iw
-iw
-iw
-iw
+cm
+Uh
+vW
+lk
+jH
+ND
+lk
+Ii
+Ii
+lk
+Ii
+lk
+Ii
+HA
 iG
 Kv
 Kv
@@ -38677,20 +38688,20 @@ Kk
 fn
 Na
 Kv
-iw
-iw
-iw
-iw
-iw
-iw
-iw
-iw
-iw
-iw
-iw
-iw
-iw
-Kv
+bk
+Js
+Ii
+ti
+hn
+Ii
+cR
+lk
+uf
+RI
+cR
+eO
+zq
+rk
 iG
 iG
 Na
@@ -38934,20 +38945,20 @@ Kk
 fn
 iG
 Kv
-iw
-iw
-iw
-iw
-iw
-iw
-iw
-iw
-iw
-iw
-iw
-iw
-iw
-Kv
+bk
+lk
+Nf
+Uo
+lk
+lk
+hn
+hn
+zq
+jH
+ND
+uf
+lk
+RB
 iG
 iG
 Kv
@@ -39191,20 +39202,20 @@ Kk
 fn
 Kv
 Kv
-iw
-iw
-iw
-iw
-iw
-iw
-iw
-iw
-iw
-iw
-iw
-iw
-iw
-Kv
+bk
+lk
+lk
+PI
+WP
+hn
+ND
+hn
+PI
+cR
+DY
+cR
+ND
+Rh
 Kv
 Kv
 Kv
@@ -39448,20 +39459,20 @@ Kk
 fn
 Kv
 iG
-iw
-iw
-iw
-iw
-iw
-iw
-iw
-iw
-iw
-iw
-iw
-iw
-iw
-Kv
+bk
+Ii
+jD
+Ii
+Ii
+Ii
+ND
+Ii
+lk
+Ii
+Ii
+ND
+lk
+RB
 Kv
 Kv
 Na
@@ -39705,20 +39716,20 @@ Kk
 fn
 iG
 iG
-iw
-iw
-iw
-iw
-iw
-iw
-iw
-iw
-iw
-iw
-iw
-iw
-iw
-Kv
+cm
+jD
+Yh
+Qt
+lk
+uf
+lk
+DY
+PI
+Ii
+Ii
+qp
+ND
+NO
 iG
 iG
 iG
@@ -39962,19 +39973,19 @@ Kk
 fn
 iG
 iG
-iw
-iw
-iw
-iw
-iw
-iw
-iw
-iw
-iw
-iw
-iw
-iw
-iw
+II
+ul
+lk
+Ii
+Ii
+lk
+bC
+jH
+lk
+Ii
+lk
+PI
+lk
 RX
 iG
 iG
@@ -40219,19 +40230,19 @@ Kk
 fn
 Kv
 Kv
-iw
-iw
-iw
-iw
-iw
-iw
-iw
-iw
-iw
-iw
-iw
-iw
-iw
+vd
+ul
+lk
+ND
+hn
+Pm
+jH
+jH
+lk
+Re
+hn
+Ii
+lk
 xn
 iG
 iG
@@ -40476,19 +40487,19 @@ Kk
 fn
 Kv
 iG
-iw
-iw
-iw
-iw
-iw
-iw
-iw
-iw
-iw
-iw
-iw
-iw
-iw
+ty
+hO
+lk
+hn
+PI
+lk
+ND
+cR
+Ii
+gg
+hn
+lk
+Ii
 Dn
 iG
 iG
@@ -40733,20 +40744,20 @@ Kk
 fn
 Kv
 iG
-iw
-iw
-iw
-iw
-iw
-iw
-iw
-iw
-iw
-iw
-iw
-iw
-iw
-iw
+go
+Ii
+ND
+hn
+lk
+lk
+eB
+hn
+PI
+Ii
+Ii
+jH
+lk
+zy
 iG
 iG
 Kv
@@ -40990,20 +41001,20 @@ Kk
 fn
 iG
 iG
-iw
-iw
-iw
-iw
-iw
-iw
-iw
-iw
-iw
-iw
-iw
-iw
-iw
-iw
+KK
+NG
+Cy
+NG
+NG
+NG
+NG
+NG
+Cy
+Cy
+NG
+Cy
+Ey
+iZ
 iG
 iG
 Na
@@ -100594,15 +100605,15 @@ fB
 fB
 oT
 CT
-Fi
+Nh
 CT
 CT
 CT
-Fi
+Nh
 CT
 CT
 CT
-Fi
+Nh
 CT
 rx
 pu
@@ -100851,15 +100862,15 @@ fB
 fB
 ud
 GG
-Yd
+DN
 ud
 ud
 am
-Yd
+DN
 ud
 GG
 ud
-Yd
+DN
 ud
 ud
 iW

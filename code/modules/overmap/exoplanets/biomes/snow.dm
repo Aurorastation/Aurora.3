@@ -302,3 +302,17 @@
 		),
 		WILDLIFE = list() //no xanu wildlife assets yet
 	)
+
+// it's looking pretty bleak out there boys
+/singleton/biome/snow/assunzione
+	spawn_types = list(
+		PLANET_TURF = list(/turf/simulated/floor/exoplanet/permafrost = 1),
+		GRASSES = list(),
+		LARGE_FLORA = list(
+			/obj/effect/floor_decal/snowdrift/large/random = 6,
+			/obj/structure/flora/rock/adhomai = 4,
+			/obj/structure/flora/tree/dead = 1
+		),
+		SMALL_FLORA = list(),
+		WILDLIFE = list()
+	)

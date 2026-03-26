@@ -107,17 +107,13 @@
 /datum/exoplanet_theme/snow/assunzione
 	name = "Assunzione"
 	surface_turfs = list(
-		/turf/simulated/mineral/adhomai
+		/turf/simulated/floor/exoplanet/permafrost
 	)
-	mountain_threshold = 0.6
+	mountain_threshold = 1.0
 	mountain_biome = /singleton/biome/mountain/adhomai
 	possible_biomes = list(
 		BIOME_POLAR = list(
 			BIOME_ARID = /singleton/biome/water/ice,
-			BIOME_SEMIARID = /singleton/biome/snow/adhomai
-		),
-		BIOME_COOL = list(
-			BIOME_ARID = /singleton/biome/snow/adhomai,
-			BIOME_SEMIARID = /singleton/biome/snow/forest/adhomai
+			BIOME_SEMIARID = /singleton/biome/snow/assunzione
 		)
 	)
