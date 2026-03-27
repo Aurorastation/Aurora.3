@@ -1,5 +1,5 @@
 /area/port_volturno
-	name = "Port Volturno - Zeng-Hu Spaceport"
+	name = "Port Volturno"
 	requires_power = 0
 	no_light_control = 1
 	area_flags = AREA_FLAG_HIDE_FROM_HOLOMAP | AREA_FLAG_RAD_SHIELDED | AREA_FLAG_INDESTRUCTIBLE_TURFS | AREA_FLAG_PREVENT_PERSISTENT_TRASH
@@ -8,6 +8,7 @@
 	sound_environment = SOUND_ENVIRONMENT_CITY
 	is_outside = OUTSIDE_YES
 	var/lighting = TRUE //Is this area automatically lit?
+	area_blurb = "A vast dome encloses you within the open space; beyond it only is killing cold and darkness, but here, inside, it is warm and bright and welcoming."
 
 /area/port_volturno/Initialize()
 	. = ..()
@@ -17,7 +18,7 @@
 
 //All walls and interior stuff uses this area, otherwise rain will appear over walls. suboptimal!
 /area/port_volturno/interior
-	name = "Port Volturno - Indoors"
+	name = "Port Volturno - Interior"
 	sound_environment = SOUND_AREA_LARGE_SOFTFLOOR
 	ambience = AMBIENCE_HANGAR
 	is_outside = OUTSIDE_NO
@@ -99,9 +100,10 @@
 	name = "Port Volturno - Maint/Janitorial"
 	icon_state = "maintenance"
 
-/area/port_volturno/interior/tunnels
-	name = "Port Volturno - Tunnels"
-	area_blurb = "Sounds echo impressively through these tunnels."
+/area/port_volturno/interior/parking
+	name = "Port Volturno - Parking"
+	area_blurb = "Sounds echo impressively through this space."
+	icon_state = "dk_yellow"
 
 /area/port_volturno/interior/shallow//For open-walled areas, like awnings and balconies
 	sound_environment = SOUND_ENVIRONMENT_CITY

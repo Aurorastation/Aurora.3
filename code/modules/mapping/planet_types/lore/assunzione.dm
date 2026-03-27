@@ -3,19 +3,19 @@
 
 /obj/effect/overmap/visitable/sector/exoplanet/assunzione
 	name = "Assunzione"
-	desc = "space italy w star that got mysteriously offed CHANGEME"
-	icon_state = "globe2"
-	color = "#990099"
+	desc = "A dark, frozen world blighted by the mysterious extinguishing of its star in 2274. Surface uninhabitable; significant (500+ mil) population resides in planetary network of biodomes."
+	icon_state = "globe1"
+	color = "#b375ca"
 	planetary_area = /area/exoplanet/assunzione
 	initial_weather_state = /singleton/state/weather/calm
 	scanimage = "assunzione.png"
-	massvolume = "0.96-1.01"
-	surfacegravity = "0.97"
+	massvolume = "0.97-1.01"
+	surfacegravity = "0.98"
 	charted = "Charted 2243CE, Sol Alliance Department of Colonization."
 	alignment = "Coalition of Colonies"
-	geology = "Low- to mid-energy tectonic heat signature, minimal surface disruption"
-	weather = "Negligible. Lack of solar convective heating, collapse of the water cycle, and ~200 years of thermal equalization has reduced atmospheric activity to effective total stillness disrupted only by marginal wind drift imparted by Coriolis force."
-	surfacewater = "All surface water is frozen; majority exists in former oceans, while remainder is ice deposition over landmass following 2274 stellar collapse event."
+	geology = "Low tectonic heat signature, minimal surface disruption."
+	weather = "Negligible. All atmospheric and hydrological activity collapsed; marginal wind drift imparted by Coriolis force present."
+	surfacewater = "All surface water is frozen; majority exists in former oceans, while remainder is ice deposition over permafrost."
 	features_budget = 8
 	surface_color = null//pre colored
 	water_color = null//pre colored

@@ -74,9 +74,9 @@
 
 /area/exoplanet/assunzione
 	name = "Assunzioni Wilderness"
-	ambience = list('sound/effects/wind/tundra0.ogg', 'sound/effects/wind/tundra1.ogg', 'sound/effects/wind/tundra2.ogg', 'sound/effects/wind/spooky0.ogg', 'sound/effects/wind/spooky1.ogg')
-	base_turf = /turf/simulated/floor/exoplanet/mineral/adhomai
-	area_blurb = "SCARY SCARY COLD COLD CHANGEME."
+	ambience = list()
+	base_turf = /turf/simulated/floor/exoplanet/snow
+	area_blurb = "A lightless lifelessness more oppressive than even that of barren asteroids. One day, even the nitrogen in the still air will freeze solid and the luce vines will finally die out in the wild."
 
 /area/exoplanet/lava
 	name = "\improper Planetary surface"

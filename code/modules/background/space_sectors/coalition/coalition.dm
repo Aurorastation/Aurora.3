@@ -191,9 +191,9 @@
 		"zavodskoi" = 0.8,
 		)
 
-	ports_of_call = list("Zeng-Hu City Bay-bee CHANGEME")
+	ports_of_call = list("Port Volturno, Triesto")
 	scheduled_port_visits = list("Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday")
-	starlight_color = "#2e002e"
+	starlight_color = "#351035"
 	starlight_power = 1
 	starlight_range = 2
 	sector_lobby_transitions = 0

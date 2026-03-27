@@ -1091,13 +1091,26 @@ ABSTRACT_TYPE(/obj/structure/arch)
 	. = ..()
 	AddComponent(/datum/component/large_transparency, 0, 0, 0, 0)
 
-/obj/structure/arch/gothic/single
-
-/obj/structure/arch/gothic/left
-	icon_state = "gothic_arch_left"
-
-/obj/structure/arch/gothic/center
+// East/west arch pieces
+/obj/structure/arch/gothic/eastwest/_single
+	dir = 4
+/obj/structure/arch/gothic/eastwest/left
+	icon_state = "gothic_arch_end"
+	dir = 4
+/obj/structure/arch/gothic/eastwest/middle
 	icon_state = "gothic_arch_middle"
+	dir = 4
+/obj/structure/arch/gothic/eastwest/right
+	icon_state = "gothic_arch_end"
+	dir = 8
 
-/obj/structure/arch/gothic/right
-	icon_state = "gothic_arch_right"
+// North/south arch pieces
+/obj/structure/arch/gothic/northsouth/_single
+/obj/structure/arch/gothic/northsouth/upper
+	icon_state = "gothic_arch_end"
+/obj/structure/arch/gothic/northsouth/center
+	icon_state = "gothic_arch_middle"
+/obj/structure/arch/gothic/northsouth/lower
+	icon_state = "gothic_arch_end"
+	dir = 1
+
