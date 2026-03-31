@@ -174,7 +174,7 @@
 
 /datum/space_sector/al_maqdisi
 	name = SECTOR_AL_MAQDISI
-	description = "Whole lot of spooky space shit happening around here, dawg. CHANGEME"
+	description = "Located in the southeastern reaches of the Spur, Light's Edge was the furthest that explorers from the Alliance's hegemonic colonization era reached. Few attempts were made to colonize it prior to the Interstellar War, and it remains sparsely populated even today. It is home to Assunzione in the Al-Maqdisi sector and the mysterious, inimical Lemurian Sea, about which extraordinarily little is known."
 	skybox_icon = "lights_edge"
 	guaranteed_exoplanets = list(/obj/effect/overmap/visitable/sector/exoplanet/assunzione)
 	cargo_price_coef = list(

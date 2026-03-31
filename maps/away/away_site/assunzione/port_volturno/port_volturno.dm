@@ -1,5 +1,5 @@
 /datum/map_template/ruin/away_site/port_volturno
-	name = "Port Volturno, ZH District - Multipurpose Zoning Area"
+	name = "Port Volturno, Triesto - ZH Spaceport"
 	id = "port_volturno"
 	description = "A landing zone designated by local authorities within a ZH-affiliated spaceport. Accommodations have been made to ensure full visitation of any open facilities present."
 	sectors = list(SECTOR_AL_MAQDISI)
@@ -28,7 +28,7 @@
 	name = "Port Volturno - ZH District Spaceport"
 	desc = "A landing zone designated by local authorities within a ZH-affiliated spaceport. Accommodations have been made to ensure full visitation of any open facilities present."
 	icon_state = "poi"
-	scanimage = "konyang_point_verdant.png"
+	scanimage = "assunzione.png"
 	place_near_main = list(0,0)
 	landing_site = TRUE
 	alignment = "Coalition of Colonies"

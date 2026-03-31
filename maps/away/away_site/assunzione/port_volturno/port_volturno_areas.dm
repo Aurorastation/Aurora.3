@@ -6,7 +6,7 @@
 	base_turf = /turf/simulated/floor/exoplanet/assunzione
 	ambience = AMBIENCE_KONYANG_TRAFFIC
 	sound_environment = SOUND_ENVIRONMENT_CITY
-	is_outside = OUTSIDE_YES
+	is_outside = OUTSIDE_NO
 	var/lighting = TRUE //Is this area automatically lit?
 	area_blurb = "A vast dome encloses you within the open space; beyond it only is killing cold and darkness, but here, inside, it is warm and bright and welcoming."
 

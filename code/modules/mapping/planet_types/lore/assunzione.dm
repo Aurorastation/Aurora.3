@@ -3,7 +3,7 @@
 
 /obj/effect/overmap/visitable/sector/exoplanet/assunzione
 	name = "Assunzione"
-	desc = "A dark, frozen world blighted by the mysterious extinguishing of its star in 2274. Surface uninhabitable; significant (500+ mil) population resides in planetary network of biodomes."
+	desc = "A dark, frozen world blighted by the mysterious extinguishing of its star in 2274. Surface uninhabitable; significant (500+ mil) population resides in planetary network of biodomes. Both legal injunction and mass ice deposition makes mining here effectively impossible."
 	icon_state = "globe1"
 	color = "#b375ca"
 	planetary_area = /area/exoplanet/assunzione

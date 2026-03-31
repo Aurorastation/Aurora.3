@@ -67,6 +67,9 @@
 	icon_state = "classic_lamp_light"
 	density = 1
 
+/obj/effect/overlay/street_light/classic/alt
+	icon_state = "classic_lamp_light_alt"
+
 /obj/effect/overlay/street_aszn_light
 	icon = 'icons/obj/structure/urban/poles.dmi'
 	icon_state = "street_aszn_light"
@@ -109,6 +112,21 @@
 	. = ..()
 	ClearOverlays()
 	AddOverlays(/obj/effect/overlay/street_light/classic)
+	return
+
+/obj/structure/utility_pole/street/classic/alt
+	icon_state = "classic_lamp"
+
+/obj/structure/utility_pole/street/classic/alt/on
+	desc = "A tall light source. This one shines brightly."
+	light_color = LIGHT_COLOR_PURPLE
+	light_range = 8
+	light_power = 2.4
+
+/obj/structure/utility_pole/street/classic/alt/on/Initialize(mapload)
+	. = ..()
+	ClearOverlays()
+	AddOverlays(/obj/effect/overlay/street_light/classic/alt)
 	return
 
 /obj/effect/overlay/street_light/crosswalk
