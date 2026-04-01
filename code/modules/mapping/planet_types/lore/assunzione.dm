@@ -45,6 +45,7 @@
 	..()
 
 /obj/effect/overmap/visitable/sector/exoplanet/assunzione/generate_planet_image()
+	LOG_DEBUG("<b>do you only work when i have a debug log???</b>")
 	skybox_image = image('icons/skybox/lore_planets.dmi', "assunzione")
 	skybox_image.pixel_x = rand(0,64)
 	skybox_image.pixel_y = rand(128,256)
