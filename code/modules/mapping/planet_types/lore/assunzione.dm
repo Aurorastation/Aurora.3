@@ -27,7 +27,7 @@
 	ruin_planet_type = PLANET_LORE
 	ruin_type_whitelist = list()
 	possible_themes = list(/datum/exoplanet_theme/snow/assunzione)
-	place_near_main = list(1,0)
+	place_near_main = list(0,0)
 	var/landing_area
 
 /obj/effect/overmap/visitable/sector/exoplanet/assunzione/Initialize()
@@ -41,11 +41,10 @@
 	return HABITABILITY_BAD
 
 /obj/effect/overmap/visitable/sector/exoplanet/assunzione/generate_map()
-	lightlevel = 0
+	lightlevel = 100
 	..()
 
 /obj/effect/overmap/visitable/sector/exoplanet/assunzione/generate_planet_image()
-	LOG_DEBUG("<b>do you only work when i have a debug log???</b>")
 	skybox_image = image('icons/skybox/lore_planets.dmi', "assunzione")
 	skybox_image.pixel_x = rand(0,64)
 	skybox_image.pixel_y = rand(128,256)

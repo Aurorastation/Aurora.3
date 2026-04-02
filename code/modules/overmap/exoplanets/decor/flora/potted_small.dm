@@ -189,3 +189,13 @@
 	name = "blueish potted fern"
 	desc = "A miniature fern, with one big dark blue leaf."
 	icon_state = "plant-27"
+
+/obj/item/flora/pottedplant_small/luce_vine
+	name = "potted luce vine"
+	desc = "The namesake plant for Luceism, the light-centric religion of Assunzione, the Luce Vine is a fruiting vine noted for its astounding resilience to cold following the Dimming. \
+			The plant and its bioluminscent fruit, called 'luce bulbs', are considered evidence of miracle to devout Assunzioni."
+	icon_state = "plant-luce-vine"
+
+/obj/item/flora/pottedplant_small/luce_vine/Initialize()
+	. = ..()
+	set_light(l_range = 1, l_power = 1, l_color = "#dfc7ff")

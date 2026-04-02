@@ -89,14 +89,31 @@
 
 /obj/structure/utility_pole/street_aszn/on
 	desc = "A tall light source. This one shines painfully brightly in all directions."
-	light_color = "#e8ffeb"
-	light_range = 12
+	light_color = LIGHT_COLOR_PALE_PURPLE
+	light_range = 16
 	light_power = 4.0
 
 /obj/structure/utility_pole/street_aszn/on/Initialize(mapload)
 	. = ..()
 	ClearOverlays()
 	AddOverlays(/obj/effect/overlay/street_aszn_light)
+	return
+
+/obj/effect/overlay/floodlight
+	icon = 'icons/obj/structure/urban/poles.dmi'
+	icon_state = "radial_floodlight-on"
+	plane = ABOVE_LIGHTING_PLANE
+
+/obj/structure/utility_pole/floodlight
+	desc = "Most people probably wouldn't go this far to light up public spaces; this fixture shines painfully brightly in all directions."
+	light_color = LIGHT_COLOR_PALE_PURPLE
+	light_range = 12
+	light_power = 3.0
+
+/obj/structure/utility_pole/floodlight/on/Initialize(mapload)
+	. = ..()
+	ClearOverlays()
+	AddOverlays(/obj/effect/overlay/floodlight)
 	return
 
 /obj/structure/utility_pole/street/classic
@@ -119,8 +136,8 @@
 
 /obj/structure/utility_pole/street/classic/alt/on
 	desc = "A tall light source. This one shines brightly."
-	light_color = LIGHT_COLOR_PURPLE
-	light_range = 8
+	light_color = LIGHT_COLOR_PALE_PURPLE
+	light_range = 12
 	light_power = 2.4
 
 /obj/structure/utility_pole/street/classic/alt/on/Initialize(mapload)

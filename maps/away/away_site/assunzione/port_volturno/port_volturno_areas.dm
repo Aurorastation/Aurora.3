@@ -2,52 +2,78 @@
 	name = "Port Volturno"
 	requires_power = 0
 	no_light_control = 1
+	icon_state = "dark128"
 	area_flags = AREA_FLAG_HIDE_FROM_HOLOMAP | AREA_FLAG_RAD_SHIELDED | AREA_FLAG_INDESTRUCTIBLE_TURFS | AREA_FLAG_PREVENT_PERSISTENT_TRASH
 	base_turf = /turf/simulated/floor/exoplanet/assunzione
 	ambience = AMBIENCE_KONYANG_TRAFFIC
 	sound_environment = SOUND_ENVIRONMENT_CITY
 	is_outside = OUTSIDE_NO
-	var/lighting = TRUE //Is this area automatically lit?
+	area_has_base_lighting = TRUE
+	base_lighting_alpha = 255
+	base_lighting_color = COLOR_OFF_WHITE
+	luminosity = 1
+
+/area/port_volturno/exterior
 	area_blurb = "A vast dome encloses you within the open space; beyond it only is killing cold and darkness, but here, inside, it is warm and bright and welcoming."
 
-/area/port_volturno/Initialize()
-	. = ..()
-	if(lighting)
-		for(var/turf/T in src)
-			T.set_light(MINIMUM_USEFUL_LIGHT_RANGE, 50, COLOR_WHITE) //Same light level as Konyang proper
-
-//All walls and interior stuff uses this area, otherwise rain will appear over walls. suboptimal!
 /area/port_volturno/interior
 	name = "Port Volturno - Interior"
-	sound_environment = SOUND_AREA_LARGE_SOFTFLOOR
+	sound_environment = SOUND_AREA_LARGE_ENCLOSED
 	ambience = AMBIENCE_HANGAR
+	area_has_base_lighting = FALSE
 	is_outside = OUTSIDE_NO
-	lighting = FALSE
+	area_blurb = "With the interior curvature of the dome out of sight, it's easy to imagine you're on a normal, well-lit temperate world somewhere."
+
+/area/port_volturno/interior/spaceport
+	name = "Port Volturno - Spaceport"
+	icon_state = "ship"
+
+/area/port_volturno/interior/spaceport/traffic_control
+	name = "Port Volturno - Spaceport Traffic Control"
+	sound_environment = SOUND_AREA_SMALL_ENCLOSED
+	icon_state = "wizard"
+
+/area/port_volturno/interior/spaceport/security_office
+	name = "Port Volturno - Spaceport Security Office"
+	sound_environment = SOUND_AREA_SMALL_ENCLOSED
+	icon_state = "security"
 
 //Main city buildings
-/area/port_volturno/interior/laundromat
-	name = "Port Volturno - Laundromat"
-
-/area/port_volturno/interior/tailor
-	name = "Port Volturno - Clothing Store"
-
-/area/port_volturno/interior/restaurant
-	name = "Port Volturno - Restaurant"
-
-/area/port_volturno/interior/hotel
-	name = "Port Volturno - Hotel"
+/area/port_volturno/interior/liquor_store
+	name = "Port Volturno - Liquor Store"
 	icon_state = "crew_quarters"
+	sound_environment = SOUND_AREA_SMALL_ENCLOSED
 
-/area/port_volturno/interior/hotel/basement
-	name = "Port Volturno - Hotel - Basement"
-	icon_state = "crew_quarters"
+/area/port_volturno/interior/music_store
+	name = "Port Volturno - Music Store"
+	icon_state = "party"
+	sound_environment = SOUND_AREA_SMALL_ENCLOSED
+
+/area/port_volturno/interior/parking
+	name = "Port Volturno - Parking Garage"
+	area_blurb = "Sounds echo impressively through this space."
+	sound_environment = SOUND_AREA_STANDARD_STATION
+	icon_state = "dk_yellow"
+
+/area/port_volturno/interior/riad
+	name = "Port Volturno - Spaceport Riad"
+	icon_state = "bar"
+
+/area/port_volturno/interior/riad/garden
+	name = "Port Volturno - AEC Memorial Garden"
+	icon_state = "green"
+
+/area/port_volturno/interior/robotics
+	name = "Port Volturno - Electromechanics Shop"
+	icon_state = "machinist_workshop"
 
 /area/port_volturno/interior/arcade
 	name = "Port Volturno - Arcade"
 	area_blurb = "The deafening avalanche of arcade machines begging for your attention fill the air, all promising fantastic gaming experiences for fun and prizes."
 
 /area/port_volturno/interior/minimart
-	name = "Port Volturno - Convenience Store"
+	name = "Port Volturno - QuikStop"
+	icon_state = "merchant"
 
 /area/port_volturno/interior/cafe
 	name = "Port Volturno - Cafe"
@@ -56,17 +82,11 @@
 	name = "Port Volturno - Decrepit Street Vendor"
 
 /area/port_volturno/interior/police
-	name = "Port Volturno - Police Department"
+	name = "Port Volturno - Zeng-Hu Spaceport Security Department"
 	icon_state = "security"
 
 /area/port_volturno/interior/bar
 	name = "Port Volturno - Bar"
-
-/area/port_volturno/interior/robotics
-	name = "Port Volturno - Robotics Clinic"
-
-/area/port_volturno/interior/spaceport
-	name = "Port Volturno - Spaceport"
 
 /area/port_volturno/interior/decrepit
 	name = "Port Volturno - Decrepit Apartments"
@@ -74,9 +94,6 @@
 
 /area/port_volturno/interior/pharmacy
 	name = "Port Volturno - Pharmacy"
-
-/area/port_volturno/interior/parking
-	name = "Port Volturno - Parking Shelter"
 
 /area/port_volturno/interior/special_ops
 	name = "Port Volturno - Conglomerate Oversight"
@@ -99,25 +116,3 @@
 /area/port_volturno/interior/maint_janitorial
 	name = "Port Volturno - Maint/Janitorial"
 	icon_state = "maintenance"
-
-/area/port_volturno/interior/parking
-	name = "Port Volturno - Parking"
-	area_blurb = "Sounds echo impressively through this space."
-	icon_state = "dk_yellow"
-
-/area/port_volturno/interior/shallow//For open-walled areas, like awnings and balconies
-	sound_environment = SOUND_ENVIRONMENT_CITY
-
-/area/port_volturno/outdoors
-	name = "Port Volturno - Outdoors"
-	area_blurb = "The sounds and smells of Port Volturno bombard you from all directions. Skyscrapers tower up further into the city."
-	lighting = TRUE
-
-/area/port_volturno/water
-	name = "Port Volturno - Open Water"
-	icon_state = "fitness_pool"
-	lighting = TRUE
-
-/area/port_volturno/water/deep // also used for waterdock landing area
-	name = "Port Volturno - Deep Water"
-	lighting = TRUE

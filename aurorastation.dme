@@ -3236,6 +3236,7 @@
 #include "code\modules\overmap\exoplanets\decor\flora\_rock.dm"
 #include "code\modules\overmap\exoplanets\decor\flora\_tree.dm"
 #include "code\modules\overmap\exoplanets\decor\flora\adhomai.dm"
+#include "code\modules\overmap\exoplanets\decor\flora\assunzione.dm"
 #include "code\modules\overmap\exoplanets\decor\flora\crystal.dm"
 #include "code\modules\overmap\exoplanets\decor\flora\desert.dm"
 #include "code\modules\overmap\exoplanets\decor\flora\generic_flora.dm"

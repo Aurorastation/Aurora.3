@@ -432,6 +432,14 @@ ABSTRACT_TYPE(/obj/structure/stairs/urban/road_ramp_assun)
 	anchored = TRUE
 	layer = ABOVE_HUMAN_LAYER
 
+/obj/structure/neon_sign_assunzione
+	name = "large neon sign"
+	desc = "A bright neon sign advertising something."
+	icon = 'icons/obj/structure/urban/assunzione_neon.dmi'
+	icon_state = "sign1"
+	anchored = TRUE
+	layer = ABOVE_HUMAN_LAYER
+
 /obj/structure/shipping_container_old
 	name = "freight container"
 	desc = "A hulking industrial shipping container, bound for who knows where."
@@ -652,7 +660,6 @@ ABSTRACT_TYPE(/obj/structure/stairs/urban/road_ramp_assun)
 	density = TRUE
 	anchored = TRUE
 
-
 /obj/structure/statue/buddha
 	name = "buddha statue"
 	desc = "A bronze statue of the Amitabha Buddha, the Buddha of Limitless Light."
@@ -662,6 +669,24 @@ ABSTRACT_TYPE(/obj/structure/stairs/urban/road_ramp_assun)
 	name = "gusoku"
 	desc = "A set of armor modelled after historical designs. Pieces replicating ancient artifacts are common on Konyang and viewed as favored pieces of art."
 	icon_state = "gusoku"
+
+/obj/structure/statue/aec/small
+	name = "AEC memorial statue"
+	desc = "A bronze statue of the Amitabha Buddha, the Buddha of Limitless Light."
+	icon_state = "aec_small"
+
+/obj/structure/statue/aec/large
+	name = "AEC memorial statue"
+	desc = "A towering memorial to all the fatalities incurred over the AEC's operations. Beneath the towering ranger in bronze, a plaque reads:<br>\
+			<b>FOR ALL HEROES FALLEN;</b><br>\
+			<b>INTREPID AND PIOUS,</b><br>\
+			<b>IN THAT HOLIEST OF MISSIONS:</b><br>\
+			<b>THE SEARCH OF LIGHT IN DARKNESS.</b><br>\
+			The list of names below is terribly long, the font so small as to be barely readable at all."
+	icon = 'icons/obj/structure/urban/statues_96x160.dmi'
+	icon_state = "aec_big"
+	pixel_x = -48
+	pixel_y = -32
 
 /obj/structure/sign/urban
 	name = "exit sign"
@@ -675,6 +700,14 @@ ABSTRACT_TYPE(/obj/structure/stairs/urban/road_ramp_assun)
 	desc = "A large and typically roadside billboard rented out for advertisement space."
 	icon = 'icons/obj/structure/urban/billboard.dmi'
 	icon_state = "board-l"
+	density = TRUE
+	layer = ABOVE_HUMAN_LAYER
+
+/obj/structure/sign/billboard
+	name = "commercial billboard"
+	desc = "A large billboard rented out for advertisement space."
+	icon = 'icons/obj/structure/urban/billboard.dmi'
+	icon_state = "board_nolegs-l"
 	density = TRUE
 	layer = ABOVE_HUMAN_LAYER
 
