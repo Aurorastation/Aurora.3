@@ -41,6 +41,7 @@
 	display_tiers = 5
 	display_tier_amt = 3
 	has_emissive = FALSE
+	visible_takeout = TRUE
 
 /obj/machinery/smartfridge/tradeshelf/clothing
 	name = "clothing shelf"
@@ -86,6 +87,17 @@
 	display_tiers = 4
 	display_tier_amt = 5
 	has_emissive = TRUE
+
+/obj/machinery/smartfridge/tradeshelf/food/attackby(obj/item/attacking_item, mob/user)
+	if(attacking_item.tool_behaviour == TOOL_PEN)
+		name_fridge(user)
+		return
+	. = ..()
+
+/obj/machinery/smartfridge/tradeshelf/food/proc/name_fridge(mob/user)
+	var/newname = tgui_input_text(user, "What would you like to rename the fridge? Note that fridge will be appended to the end of it", "Fridge name")
+	if(newname)
+		name = newname + " fridge"
 
 /obj/machinery/smartfridge/tradeshelf/toy
 	name = "toy shelf"
@@ -139,308 +151,119 @@
 
 // -------------------------------------------------
 /obj/structure/cash_register/commissary
-	var/machine_id = ""
-	var/list/items = list()
-	var/list/items_to_price = list()
-	var/list/buying = list()
-	var/new_item = ""
-	var/new_price = 0
-	var/sum = 0
-	var/editmode = FALSE
-	var/receipt = ""
-	var/destinationact = "Operations"
-	var/credit = 100
-	var/shop_name = "Commissary"
 	storage_type = null
+	req_one_access = list(ACCESS_BAR, ACCESS_GALLEY, ACCESS_CARGO)
+	var/destination = "Operations"
 
 /obj/structure/cash_register/commissary/mechanics_hints(mob/user, distance, is_adjacent)
 	. = list()
-	. += "Alt click with a command id in hand, to gain command access."
-	. += "Alt click with credits in hand, to deposit them."
-	. += "Alt click while having operations access, to withdraw credits from it."
+	. += "Alt-click with credits in hand, to deposit them."
+	. += "Alt-click while having the proper access, to withdraw credits from it."
 	. += "Items can be paid for with id cards, charge cards or physical credits, and a receipt will be printed."
 	. += "The register can print a paper which can be used to quickly fill it out in the future by using it on the register."
 
 /obj/structure/cash_register/commissary/Initialize()
 	. = ..()
-	machine_id = "[station_name()] Idris Quik-Pay Register #[SSeconomy.num_financial_terminals++]"
+	src.LoadComponent(/datum/component/quikpay_shop, req_one_access, destination)
 
 /obj/structure/cash_register/commissary/AltClick(var/mob/user)
-	var/item = user.get_active_hand()
-	var/obj/item/card/id/I = item
-	if(istype(I) && (ACCESS_HEADS in I.access))
-		if(ACCESS_HEADS in I.access)
-			editmode = TRUE
-			to_chat(user, SPAN_NOTICE("Command access granted."))
-			SStgui.update_uis(src)
+	. = ..()
+	var/datum/component/quikpay_shop/qp_shop = src.GetComponent(/datum/component/quikpay_shop)
+	if(!qp_shop)
 		return
-	if(istype(item, /obj/item/spacecash) && !istype(item, /obj/item/spacecash/ewallet))
-		var/obj/item/spacecash/cashmoney = item
-		credit += cashmoney.worth
-		user.drop_from_inventory(cashmoney,get_turf(src))
-		visible_message("\The [user] inserts some credits into \the [src]." )
-		qdel(cashmoney)
-		return
-	I = user.GetIdCard()
-	if(istype(I) && (ACCESS_CARGO in I.access))
-		var/price_guess = text2num(sanitizeSafe( tgui_input_text(user, "How much do you wish to withdraw? Remaining credits: [credit]电", "QuikPay", 0, 10), 10))
-		if(isnull(price_guess) || price_guess == 0)
-			return
-		price_guess = max(0, round(price_guess, 0.01))
-		if(credit >= price_guess)
-			spawn_money(price_guess, loc, user)
-			credit -= price_guess
-		visible_message("\The [user] remove some credits from \the [src]." )
-		return
-
-/obj/structure/cash_register/commissary/proc/print_receipt()
-	var/obj/item/paper/notepad/receipt/R = new(loc)
-	var/receiptname = "Receipt: [machine_id]"
-	R.set_content_unsafe(receiptname, receipt, sum)
-
-	//stamp the paper
-	var/image/stampoverlay = image('icons/obj/bureaucracy.dmi')
-	stampoverlay.icon_state = "paper_stamp-hop"
-	if(!R.stamped)
-		R.stamped = new
-	R.stamped += /obj/item/stamp
-	R.AddOverlays(stampoverlay)
-	R.stamps += "<HR><i>This paper has been stamped by the Idris Quik-Pay Register.</i>"
-	usr.put_in_any_hand_if_possible(R)
-	R.ripped = TRUE
+	qp_shop.take_give_credits(user, loc)
 
 /obj/structure/cash_register/commissary/attackby(obj/item/attacking_item, mob/user)
-	if(istype(attacking_item, /obj/item/paper))
-		read_paper_list(attacking_item, user)
+	. = ..()
+	var/datum/component/quikpay_shop/qp_shop = src.GetComponent(/datum/component/quikpay_shop)
+	if(!qp_shop)
 		return
-	if(sum == 0)
-		return
-	if (istype(attacking_item, /obj/item/spacecash/ewallet))
-		card_pay(attacking_item, user)
-		return
-	else if (istype(attacking_item, /obj/item/card/id))
-		ID_pay(attacking_item, user)
-		return
-	else if(istype(attacking_item, /obj/item/spacecash))
-		cash_pay(attacking_item, user)
-		return
-
-/obj/structure/cash_register/commissary/proc/cash_pay(obj/item/spacecash/cashmoney, mob/user)
-	var/transaction_amount = sum
-	if(transaction_amount > cashmoney.worth)
-		to_chat(user, SPAN_WARNING("[icon2html(cashmoney, user)] That is not enough money."))
-		return 0
-	if(istype(cashmoney, /obj/item/spacecash/bundle))
-		visible_message(SPAN_INFO("\The [user] inserts some cash into \the [src]."))
-		var/obj/item/spacecash/bundle/cashmoney_bundle = cashmoney
-		cashmoney_bundle.worth -= transaction_amount
-
-		if(cashmoney_bundle.worth <= 0)
-			usr.drop_from_inventory(cashmoney_bundle,get_turf(src))
-			qdel(cashmoney_bundle)
-		else
-			cashmoney_bundle.update_icon()
-	else
-		visible_message(SPAN_INFO("\The [user] inserts a bill into \the [src]."))
-		var/left = cashmoney.worth - transaction_amount
-		user.drop_from_inventory(cashmoney,get_turf(src))
-		qdel(cashmoney)
-
-		if(left)
-			spawn_money(left, get_turf(user), user)
-	credit += transaction_amount
-	print_receipt()
-	clear_order()
-	return 1
-
-/obj/structure/cash_register/commissary/proc/ID_pay(obj/item/attacking_item, mob/user)
-	var/obj/item/card/id/I = attacking_item.GetID()
-	var/transaction_amount = sum
-	var/transaction_purpose = "[destinationact] Payment"
-	var/transaction_terminal = machine_id
-
-	var/transaction = SSeconomy.transfer_money(I.associated_account_number, SSeconomy.get_department_account(destinationact)?.account_number,transaction_purpose,transaction_terminal,transaction_amount,null,usr)
-
-	if(transaction)
-		to_chat(user, SPAN_NOTICE("[icon2html(src, user)]<span class='warning'>[transaction].</span>"))
-	else
-		visible_message("\The [user] swipes a card on \the [src]." )
-		audible_message(SPAN_NOTICE("[icon2html(src, viewers(get_turf(src)))] \The [src] chimes."))
-		playsound(src, 'sound/machines/chime.ogg', 50, 1)
-		print_receipt()
-		sum = 0
-		receipt = ""
-		to_chat(user, SPAN_NOTICE("Transaction completed, please return to the home screen."))
-		clear_order()
-
-/obj/structure/cash_register/commissary/proc/card_pay(obj/item/attacking_item, mob/user)
-	var/obj/item/spacecash/ewallet/E = attacking_item
-	var/transaction_amount = sum
-	var/transaction_purpose = "[destinationact] Payment"
-	var/transaction_terminal = machine_id
-
-	if(transaction_amount <= E.worth)
-		SSeconomy.charge_to_account(SSeconomy.get_department_account(destinationact)?.account_number, E.owner_name, transaction_purpose, transaction_terminal, transaction_amount)
-		E.worth -= transaction_amount
-
-		visible_message("\The [user] swipes a card on \the [src]." )
-		audible_message(SPAN_NOTICE("[icon2html(src, viewers(get_turf(src)))] \The [src] chimes."))
-		playsound(src, 'sound/machines/chime.ogg', 50, 1)
-		print_receipt()
-		sum = 0
-		receipt = ""
-		to_chat(user, SPAN_NOTICE("Transaction completed, please return to the home screen."))
-		clear_order()
-	else if (transaction_amount > E.worth)
-		to_chat(user, SPAN_WARNING("[icon2html(src, user)]\The [E] doesn't have that much money!"))
-	return
-
-/obj/structure/cash_register/commissary/proc/read_paper_list(obj/item/paper/R, mob/user)
-	if(!editmode)
-		balloon_alert(user, "device locked!")
-		return FALSE
-	var/result = read_paper_price_list(R)
-	for(var/item in result)
-		items += list(list("name" = item["name"], "price" = item["price"]))
-		items_to_price[item["name"]] += item["price"]
-
-/obj/structure/cash_register/commissary/proc/print_price(mob/user)
-	return print_price_to_paper(shop_name, items, loc, user)
+	qp_shop.interact_object(attacking_item, user)
 
 /obj/structure/cash_register/commissary/attack_hand(mob/living/user)
 	. = ..()
-	ui_interact(user)
-
-/obj/structure/cash_register/commissary/ui_interact(mob/user, datum/tgui/ui)
-	ui = SStgui.try_update_ui(user, src, ui)
-	if(!ui)
-		ui = new(user, src, "QuikPay", "Idris Quik-Pay Register", 550, 550)
-		ui.open()
-
-/obj/structure/cash_register/commissary/ui_data(var/mob/user)
-	var/list/data = list()
-
-	data["items"] = items
-	data["buying"] = buying
-	data["sum"] = sum
-	data["new_item"] = new_item
-	data["new_price"] = new_price
-	data["editmode"] = editmode
-	data["destinationact"] = destinationact
-
-	return data
-
-/obj/structure/cash_register/commissary/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
-	. = ..()
-	if(.)
+	var/datum/component/quikpay_shop/qp_shop = src.GetComponent(/datum/component/quikpay_shop)
+	if(!qp_shop)
 		return
-	switch(action)
-		if("add")
-			if(!editmode)
-				balloon_alert(usr, "device locked!")
-				return FALSE
+	qp_shop.ui_interact(user)
 
-			items += list(list("name" = new_item, "price" = new_price))
-			items_to_price[new_item] = new_price
-			. = TRUE
+/obj/machinery/commissary_wall_shop
+	name = "self-serve shop teller"
+	desc = "An ordering terminal designed by Idris for quicker expedition."
+	icon = 'icons/obj/machinery/wall/terminals.dmi'
+	icon_state = "orderterminal"
+	idle_power_usage = 10
+	anchored = TRUE
+	var/turned_on = FALSE
+	req_one_access = list(ACCESS_BAR, ACCESS_GALLEY, ACCESS_CARGO)
+	var/destination = "Operations"
 
-		if("remove")
-			if(!editmode)
-				balloon_alert(usr, "device locked!")
-				return FALSE
-			var/index = 0
-			for(var/list/L in items)
-				index++
-				if(L["name"] == params["removing"])
-					items.Cut(index, index+1)
-			. = TRUE
+/obj/machinery/commissary_wall_shop/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Items can be paid for with id cards or charge cards, and a receipt will be printed."
+	. += "The terminal can print a paper which can be used to quickly fill it out in the future by using it on the register."
+	. += "With the proper access, ctrl-click to turn the machine on and off."
 
-		if("set_new_price")
-			new_price = params["set_new_price"]
-			. = TRUE
+/obj/machinery/commissary_wall_shop/Initialize()
+	. = ..()
+	src.LoadComponent(/datum/component/quikpay_shop/orderterminal, req_one_access, destination)
+	update_icon()
 
-		if("set_new_item")
-			new_item = params["set_new_item"]
-			. = TRUE
+/obj/machinery/commissary_wall_shop/attackby(obj/item/attacking_item, mob/user)
+	if(!turned_on)
+		balloon_alert(user, "turned off")
+		return
+	if(stat & NOPOWER)
+		balloon_alert(user, "no power")
+		return
+	var/datum/component/quikpay_shop/orderterminal/qp_shop = src.GetComponent(/datum/component/quikpay_shop/orderterminal)
+	if(!qp_shop)
+		return
+	qp_shop.interact_object(attacking_item, user)
 
-		if("clear")
-			clear_order()
-			. = TRUE
+/obj/machinery/commissary_wall_shop/attack_hand(mob/living/user)
+	if(!turned_on)
+		balloon_alert(user, "turned off")
+		return
+	if(stat & NOPOWER)
+		balloon_alert(user, "no power")
+		return
+	var/datum/component/quikpay_shop/orderterminal/qp_shop = src.GetComponent(/datum/component/quikpay_shop/orderterminal)
+	if(!qp_shop)
+		return
+	qp_shop.ui_interact(user)
 
-		if("buy")
-			for(var/list/L in buying)
-				if(L["name"] == params["buying"])
-					L["amount"]++
-					return TRUE
-			buying += list(list("name" = params["buying"], "amount" = params["amount"], "price" = items_to_price[params["buying"]]))
+/obj/machinery/commissary_wall_shop/CtrlClick(mob/user)
+	var/obj/item/card/id/I = user.GetIdCard()
+	if(!istype(I))
+		balloon_alert(user, "no id!")
+		return
+	if(!has_access(req_one_access = src.req_one_access, accesses = I.access))
+		balloon_alert(user, "no access!")
+		return
+	turned_on = !turned_on
+	balloon_alert(user, "turned [turned_on ? "on" : "off"]")
+	update_icon()
 
-		if("removal")
-			var/index = 0
-			for(var/list/L in buying)
-				index++
-				if(L["name"] == params["removal"])
-					if(L["amount"] > 1)
-						L["amount"]--
-					else
-						buying.Cut(index, index+1)
-			. = TRUE
+/obj/machinery/commissary_wall_shop/power_change()
+	..()
+	update_icon()
 
-		if("confirm")
-			// Ensuring it is clear, in case the button is clicked multiple times
-			receipt = ""
-			sum = 0
-			var/obj/item/card/id/id_card = usr.GetIdCard()
-			var/cashier = id_card? id_card.registered_name : "Unknown"
-			receipt = "<center><H2>[shop_name] receipt</H2>Today's date: [worlddate2text()]<BR>Cashier: [cashier]</center><HR>Purchased items:<ul>"
-			for(var/list/bought_item in buying)
-				var/item_name = bought_item["name"]
-				var/item_amount = bought_item["amount"]
-				var/item_price = items_to_price[item_name]
+/obj/machinery/commissary_wall_shop/update_icon()
+	ClearOverlays()
+	if(stat & NOPOWER || !turned_on)
+		set_light(FALSE)
+		return
 
-				receipt += "<li><b>[item_name]</b>: [item_amount] x [item_price]电: [item_amount * item_price]电<br>"
-				sum += item_price * item_amount
+	var/mutable_appearance/screen_overlay = mutable_appearance(icon, "kitchenterminal-active", plane = ABOVE_LIGHTING_PLANE)
+	AddOverlays(screen_overlay)
+	set_light(1.4, 1, COLOR_CYAN)
 
-			receipt += "</ul><HR>Total:</b> [sum]电<br>"
-			playsound(src, 'sound/machines/ping.ogg', 25, 1)
-			audible_message(SPAN_NOTICE("[icon2html(src, viewers(get_turf(src)))] \The [src] pings."))
-			. = TRUE
-
-		if("locking")
-			if(editmode)
-				editmode = FALSE
-				balloon_alert(usr, "device locked!")
-			else
-				if(!editmode)
-					var/obj/item/card/id/I = usr.GetIdCard()
-					if(!istype(I))
-						return
-					if(check_access(I))
-						editmode = !editmode
-						balloon_alert(usr, "device [editmode ? "un" : ""]locked")
-			. = TRUE
-
-		if("accountselect")
-			if(!editmode)
-				balloon_alert(usr, "device locked!")
-				return FALSE
-
-			var/dest = tgui_input_list(usr, "What account would you like to select?", "Destination Account", assoc_to_keys(SSeconomy.department_accounts))
-			if(!dest)
-				return FALSE
-			destinationact = dest
-			. = TRUE
-
-		if("print_dsv")
-			if(!editmode)
-				balloon_alert(usr, "device locked!")
-				return FALSE
-			print_price(usr)
-			. = TRUE
-
-/obj/structure/cash_register/commissary/proc/clear_order()
-	buying.Cut()
-	sum = 0
-	receipt = ""
+/obj/machinery/commissary_wall_shop/process()
+	if(stat & NOPOWER || !turned_on)
+		ClearOverlays()
+		set_light(FALSE)
+		return
 
 /obj/item/commissary_restrock
 	name = "commissary cigarette restock pack"
@@ -701,6 +524,17 @@
 	desc = "A crate packed with boxes of various goods. Handle with care!"
 
 /obj/structure/closet/crate/commissary/fill()
+	for(var/i = 1 to 8)
+		new /obj/item/storage/box/unique/papersack(src)
+		new /obj/item/storage/bag/plasticbag(src)
+	new /obj/item/storage/box/plasticbag(src)
+	new /obj/item/tape_roll(src)
+	new /obj/item/hand_labeler(src)
+	new /obj/item/storage/toolbox/mechanical(src)
+
+/obj/structure/closet/crate/commissary/resupply
+
+/obj/structure/closet/crate/commissary/resupply/fill()
 	new /obj/item/commissary_restrock(src)
 	new /obj/item/commissary_restrock/rollable(src)
 	new /obj/item/commissary_restrock/chewable(src)

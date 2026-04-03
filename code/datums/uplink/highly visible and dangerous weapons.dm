@@ -253,7 +253,7 @@
 /datum/uplink_item/item/visible_weapons/laser_cannon
 	name = "Laser Cannon"
 	telecrystal_cost = 12
-	path = /obj/item/gun/energy/lasercannon
+	path = /obj/item/gun/energy/rifle/laser/heavy
 
 /datum/uplink_item/item/visible_weapons/derringer
 	name = "Derringer"

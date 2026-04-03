@@ -81,21 +81,21 @@
 
 	/* START PERSISTENCE VARS */
 	// State check if the subsystem is tracking the object, used for easy state checking without iterating the register
-	var/persistence_track_active = FALSE
+	var/persistent_objects_track_active = FALSE
 	// Tracking ID of the object used by the persistence subsystem
-	var/persistence_track_id = 0
+	var/persistent_objects_track_id = 0
 	// Author ckey of the object used in persistence subsystem
 	// Note: Not every type can have an author, like generated dirt for example
 	// Additionally, the ckey is only an indicator, for example: A player could pin a paper without having written it
 	// This should be considered for any moderation purpose
-	var/persistence_author_ckey = null
+	var/persistent_objects_author_ckey = null
 	// Expiration time used when saving/updating a persistent type, this can be changed depending on the use case by assigning a new value
-	var/persistance_expiration_time_days = PERSISTENT_DEFAULT_EXPIRATION_DAYS
+	var/persistant_objects_expiration_time_days = PERSISTENT_DEFAULT_EXPIRATION_DAYS
 	/* END PERSISTENCE VARS */
 
 /obj/Destroy()
-	if(persistence_track_active) // Prevent hard deletion of references in the persistence register by removing it preemptively
-		SSpersistence.deregister_track(src)
+	if(persistent_objects_track_active) // Prevent hard deletion of references in the persistence register by removing it preemptively
+		SSpersistence.objectsDeregisterTrack(src)
 	STOP_PROCESSING(SSprocessing, src)
 	unbuckle()
 	QDEL_NULL(talking_atom)
@@ -388,7 +388,7 @@
  * Expected to be overriden by derived objects.
  * RETURN: Associated list with custom information (e.g.: ["test" = "abc", "counter" = 123])
  */
-/obj/proc/persistence_get_content()
+/obj/proc/persistent_objects_get_content()
 	return
 
 /**
@@ -398,5 +398,5 @@
  * 	content = Associated list with custom information (e.g.: ["test" = "abc", "counter" = 123]).
  *	x,y,z = x-y-z coordinates of object, can be null.
  */
-/obj/proc/persistence_apply_content(content, x, y, z)
+/obj/proc/persistent_objects_apply_content(content, x, y, z)
 	return

@@ -419,6 +419,14 @@
 		'sound/weapons/empty/empty_shotgun1.ogg'
 	)
 
+/datum/sound_effect/plastic_dry_fire
+	key = SFX_PLASTIC_DRY_FIRE
+	file_paths = list(
+		'sound/weapons/empty/dryfire_plastic_01.ogg',
+		'sound/weapons/empty/dryfire_plastic_02.ogg',
+		'sound/weapons/empty/dryfire_plastic_03.ogg'
+	)
+
 /datum/sound_effect/metal_slide_reload
 	key = SFX_RELOAD_METAL_SLIDE
 	file_paths = list(

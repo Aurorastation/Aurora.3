@@ -18,6 +18,9 @@ type Data = {
   power_draw: number;
   max_power_draw: number;
   flow_rate: number;
+  flow_rate_normal: number;
+  liters_pumped: number;
+  measure_enabled: BooleanLike;
 };
 
 export const AtmosPump = (props, context) => {
@@ -31,10 +34,13 @@ export const AtmosPump = (props, context) => {
     pressure,
     power_draw,
     flow_rate,
+    flow_rate_normal,
+    liters_pumped,
+    measure_enabled,
   } = data;
 
   return (
-    <Window width={320} height={150}>
+    <Window width={320} height={255}>
       <Window.Content>
         <Section>
           <LabeledList>
@@ -126,6 +132,29 @@ export const AtmosPump = (props, context) => {
               ''
             )}
             <LabeledList.Item label="Flow">{flow_rate} L/s</LabeledList.Item>
+            <LabeledList.Item label="Flow (normalized)">
+              {flow_rate_normal} L/s
+            </LabeledList.Item>
+          </LabeledList>
+        </Section>
+        <Section title="Measurement">
+          <LabeledList>
+            <LabeledList.Item label="Liters Pumped">
+              {liters_pumped} L
+              <Button
+                ml={1}
+                icon={measure_enabled ? 'pause' : 'play'}
+                content={measure_enabled ? 'Stop' : 'Start'}
+                selected={!!measure_enabled}
+                onClick={() => act('toggle_measure')}
+              />
+              <Button
+                ml={1}
+                icon="rotate-left"
+                content="Reset"
+                onClick={() => act('reset_measure')}
+              />
+            </LabeledList.Item>
           </LabeledList>
         </Section>
       </Window.Content>

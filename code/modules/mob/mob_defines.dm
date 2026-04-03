@@ -37,7 +37,6 @@
 	var/atom/movable/screen/i_select = null
 	var/atom/movable/screen/m_select = null
 	var/atom/movable/screen/toxin = null
-	var/atom/movable/screen/fire = null
 	var/atom/movable/screen/bodytemp = null
 	var/atom/movable/screen/healths = null
 	var/atom/movable/screen/throw_icon = null
@@ -168,6 +167,8 @@
 	var/obj/item/storage/s_active = null//Carbon
 	var/obj/item/clothing/mask/wear_mask = null//Carbon
 
+	/// contains [/atom/movable/screen/alert only] // On /mob so clientless mobs will throw alerts properly
+	var/list/alerts = list()
 	var/list/screens = list()
 
 	var/seer = 0 //for cult//Carbon, probably Human

@@ -15,7 +15,7 @@
 /obj/item/trash/attack(mob/living/target_mob, mob/living/user, target_zone)
 	return
 
-/obj/item/trash/persistence_get_content()
+/obj/item/trash/persistent_objects_get_content()
 	var/list/content = list()
 	content["name"] = name
 	content["desc"] = desc
@@ -26,7 +26,7 @@
 	content["pickup_sound"] = pickup_sound
 	return content
 
-/obj/item/trash/persistence_apply_content(content, x, y, z)
+/obj/item/trash/persistent_objects_apply_content(content, x, y, z)
 	name = content["name"]
 	desc = content["desc"]
 	icon = file(content["icon"])

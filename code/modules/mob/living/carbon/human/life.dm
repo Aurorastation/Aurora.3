@@ -1062,12 +1062,6 @@
 			if (oxygen.icon_state != new_oxy)
 				oxygen.icon_state = new_oxy
 
-		if(fire)
-			//fire_alert is either 0 if no alert, 1 for cold and 2 for heat.
-			var/new_fire = fire_alert ? "fire[fire_alert]" : "fire0"
-			if (fire.icon_state != new_fire)
-				fire.icon_state = new_fire
-
 		if(bodytemp)
 			var/new_temp
 			if (!species)

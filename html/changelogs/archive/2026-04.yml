@@ -1,0 +1,20 @@
+2026-04-01:
+  Batrachophrenooboocosmomaachia:
+  - rscadd: Adds Light's Edge sector to the ALL_COALITION_SECTORS define.
+2026-04-02:
+  Batrachophrenoboocosmomachia:
+  - bugfix: Sudden strong airflow now checks for more than just shoes with NO_SLIP
+      (like active magboots) when determining whether to knock people over.
+  Kano:
+  - rscadd: Expanded wiring guidelines to include legal multi-z wires.
+  SimpleMaroon:
+  - qol: Hats and other headwear are now elevated for Vaurca Workers and Warriors,
+      preventing them from blocking the eyes.
+  TheGreyWolf:
+  - bugfix: Fixed investigator's lethal revolver ammo.
+  - bugfix: Fixed the suit storage slot permitted any item in it.
+2026-04-03:
+  TheGreyWolf:
+  - bugfix: Fixed a rat missing one handheld and one ear slot sprite.
+  - bugfix: Made the RFID card slot eject ID cards when removed from a pda, such as
+      when a pda explodes.

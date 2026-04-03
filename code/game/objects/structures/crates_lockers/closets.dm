@@ -850,6 +850,7 @@
 		if(istype(src,/obj/structure/closet/crate))
 			icon_state = paint_color
 			icon_door = "eng"
+			icon_door_override = TRUE
 		else
 			icon_state = "eng"
 			icon_door = paint_color

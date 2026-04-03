@@ -166,9 +166,9 @@ default behaviour is:
 			if(ishuman(target_movable_atom))
 				var/mob/living/carbon/human/target_human = target_movable_atom
 				if(target_human.grabbed_by)
-					for(var/obj/item/grab/grab_item in target_human.grabbed_by)
-						step(grab_item.assailant, get_dir(grab_item.assailant, target_human))
-						grab_item.adjust_position()
+					for (var/obj/item/grab/G in list(target_human.l_hand, target_human.r_hand))
+						step(G.assailant, get_dir(G.assailant, target_human))
+						G.adjust_position()
 		now_pushing = FALSE
 
 /**

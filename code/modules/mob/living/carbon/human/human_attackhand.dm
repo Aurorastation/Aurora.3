@@ -126,6 +126,9 @@
 				if(G.assailant == M)
 					to_chat(M, SPAN_NOTICE("You already grabbed [src]."))
 					return
+				if(G.state >= GRAB_NECK)
+					to_chat(M, SPAN_NOTICE("You try to grab [src], but they are being held too tightly."))
+					return
 
 			if (!attempt_grab(M))
 				return

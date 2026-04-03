@@ -1,4 +1,4 @@
-/obj/item/gun/launcher
+ABSTRACT_TYPE(/obj/item/gun/launcher)
 	name = "launcher"
 	desc = "A device that launches things."
 	w_class = WEIGHT_CLASS_HUGE

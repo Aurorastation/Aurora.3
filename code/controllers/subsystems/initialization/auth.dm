@@ -140,6 +140,7 @@ SUBSYSTEM_DEF(auth)
 		var/datum/admins/D = new /datum/admins(rank, rights, ckey)
 		//find the client for a ckey if they are connected and associate them with the new admin datum
 		D.associate(GLOB.directory[ckey])
+	qdel(query)
 
 	if(!admin_datums)
 		log_world("ERROR: AdminRanks: The database query in load_admins() resulted in no admins being added to the list. Reverting to legacy system.")

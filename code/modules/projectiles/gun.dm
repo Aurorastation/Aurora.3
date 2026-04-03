@@ -40,10 +40,10 @@
 		original_settings = null
 
 /// Parent gun type. Guns are weapons that can be aimed at mobs and act over a distance.
-/obj/item/gun
+ABSTRACT_TYPE(/obj/item/gun)
 	name = "gun"
 	desc = "It's a gun. It's pretty terrible, though."
-	icon = 'icons/obj/guns/pistol.dmi'
+	icon = 'icons/obj/guns/faction/zavodskoi_interstellar/pistol.dmi'
 	var/gun_gui_icons = 'icons/obj/guns/gun_gui.dmi'
 	icon_state = "pistol"
 	item_state = "pistol"
@@ -258,7 +258,7 @@
 	underlays.Cut()
 	if(bayonet)
 		var/image/I
-		I = image(icon = 'icons/obj/guns/bayonet.dmi', icon_state = "bayonet")
+		I = image(icon = 'icons/obj/guns/attachments/bayonet.dmi', icon_state = "bayonet")
 		I.pixel_x = knife_x_offset
 		I.pixel_y = knife_y_offset
 		underlays += I
@@ -407,7 +407,9 @@
 		if(user.a_intent == I_HURT)
 			toggle_safety(user)
 		else
+			var/safety_cooldown = 5 // Half a second
 			handle_click_empty(user)
+			user.setClickCooldown(safety_cooldown)
 			return FALSE
 
 	if(!special_check(user))
@@ -762,6 +764,7 @@
 	return new_mode
 
 /obj/item/gun/attack_self(mob/user)
+	. = ..()
 	if(is_wieldable)
 		toggle_wield(usr)
 		update_held_icon()
@@ -1012,7 +1015,7 @@
 /obj/item/gun/proc/critical_fail(var/mob/user)
 	return
 
-/obj/item/gun/attackby(obj/item/attacking_item, mob/user)
+/obj/item/gun/attackby(obj/item/attacking_item, mob/user, params)
 	if(istype(attacking_item, /obj/item/material/knife/bayonet))
 		if(!can_bayonet)
 			balloon_alert(user, "doesn't fit!")

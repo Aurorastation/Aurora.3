@@ -135,10 +135,6 @@
 	. = ..()
 	if(.)
 		var/newstate
-		if(fire)
-			newstate = fire_alert ? "fire1" : "fire0"
-			if(fire.icon_state != newstate)
-				fire.icon_state = newstate
 
 		if(pullin)
 			newstate = pulling ? "pull1" : "pull0"

@@ -2233,7 +2233,7 @@
 /area/cruise/pool)
 "bDH" = (
 /obj/structure/closet/secure_closet/hos,
-/obj/item/gun/energy/lawgiver,
+/obj/item/gun/energy/acp,
 /turf/unsimulated/floor{
 	dir = 8;
 	icon_state = "wood"

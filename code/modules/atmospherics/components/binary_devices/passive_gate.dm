@@ -112,6 +112,7 @@
 		broadcast_status_next_process = FALSE
 
 	last_flow_rate = 0
+	last_mole_transfer = 0
 
 	if(!unlocked)
 		return 0

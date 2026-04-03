@@ -203,5 +203,8 @@
 /obj/item/ammo_pile/shotgun_stunshell
 	ammo_type = /obj/item/ammo_casing/shotgun/stunshell
 
+/obj/item/ammo_pile/shotgun_practice
+	ammo_type = /obj/item/ammo_casing/shotgun/practice
+
 /obj/item/ammo_pile/fourty_five
 	ammo_type = /obj/item/ammo_casing/c45

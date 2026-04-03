@@ -22,7 +22,7 @@
 	var/obj/item/gun/installed_gun
 	spawn_flags = IC_SPAWN_RESEARCH
 	origin_tech = list(TECH_ENGINEERING = 3, TECH_DATA = 3, TECH_COMBAT = 4)
-	power_draw_per_use = 50 // The targeting mechanism uses this.  The actual gun uses its own cell for firing if it's an energy weapon.
+	power_draw_per_use = 500 // The targeting mechanism uses this.  The actual gun uses its own cell for firing if it's an energy weapon.
 
 /obj/item/integrated_circuit/manipulation/weapon_firing/Destroy()
 	QDEL_NULL(installed_gun)
@@ -95,7 +95,7 @@
 	outputs = list()
 	activators = list("step towards dir" = IC_PINTYPE_PULSE_IN)
 	spawn_flags = IC_SPAWN_RESEARCH
-	power_draw_per_use = 100
+	power_draw_per_use = 1000
 
 /obj/item/integrated_circuit/manipulation/locomotion/do_work()
 	..()
@@ -200,7 +200,7 @@
 	outputs = list("first" = IC_PINTYPE_REF, "last" = IC_PINTYPE_REF, "amount" = IC_PINTYPE_NUMBER)
 	activators = list("pulse in" = IC_PINTYPE_PULSE_IN,"pulse out" = IC_PINTYPE_PULSE_OUT)
 	spawn_flags = IC_SPAWN_RESEARCH
-	power_draw_per_use = 50
+	power_draw_per_use = 500
 
 /obj/item/integrated_circuit/manipulation/grabber/do_work()
 	var/turf/T = get_turf(src)
@@ -250,7 +250,7 @@
 	)
 	spawn_flags = IC_SPAWN_RESEARCH
 	origin_tech = list(TECH_ENGINEERING = 3, TECH_DATA = 3, TECH_COMBAT = 4)
-	power_draw_per_use = 50
+	power_draw_per_use = 500
 
 /obj/item/integrated_circuit/manipulation/thrower/do_work()
 
@@ -325,7 +325,7 @@
 
 /obj/item/integrated_circuit/manipulation/shocker/on_data_written()
 	var/s = get_pin_data(IC_INPUT, 2)
-	power_draw_per_use = clamp(s,0,20)*20 // big power draw to shock large creatures
+	power_draw_per_use = clamp(s,0,20)*200 // big power draw to shock large creatures
 
 /obj/item/integrated_circuit/manipulation/shocker/do_work()
 	..()
@@ -363,7 +363,7 @@
 
 /obj/item/integrated_circuit/manipulation/flasher/on_data_written()
 	var/s = get_pin_data(IC_INPUT, 2)
-	power_draw_per_use = clamp(s,1,4)*200 // big power draw to achieve a blinding flash
+	power_draw_per_use = clamp(s,1,4)*2000 // big power draw to achieve a blinding flash
 
 /obj/item/integrated_circuit/manipulation/flasher/do_work()
 	..()
@@ -397,7 +397,7 @@
 	outputs = list("bluespace crystals stored" = IC_PINTYPE_NUMBER)
 	activators = list("open portal" = IC_PINTYPE_PULSE_IN, "portal opened" = IC_PINTYPE_PULSE_OUT, "cannot open portal" = IC_PINTYPE_PULSE_OUT)
 	spawn_flags = IC_SPAWN_RESEARCH
-	power_draw_per_use = 100 // multiplied by up to 50 during on_data_written(). should slurp up power in smaller assemblies or those without power generation
+	power_draw_per_use = 1000 // multiplied by up to 50 during on_data_written(). should slurp up power in smaller assemblies or those without power generation
 	cooldown_per_use = 30 SECONDS // big cooldown
 	origin_tech = list(TECH_DATA = 4, TECH_ENGINEERING = 4, TECH_MATERIAL = 4, TECH_BLUESPACE = 5)
 
@@ -485,7 +485,8 @@
 	outputs = list("shields projected" = IC_PINTYPE_NUMBER)
 	activators = list("create shield" = IC_PINTYPE_PULSE_IN, "shield created" = IC_PINTYPE_PULSE_OUT, "shield capacity reached" = IC_PINTYPE_PULSE_OUT)
 	spawn_flags = IC_SPAWN_RESEARCH
-	power_draw_per_use = 100
+	power_draw_per_use = 1000
+	power_draw_idle = 0 // Adjusted by amount of active shields.
 	origin_tech = list(TECH_ENGINEERING = 4, TECH_MAGNET = 5)
 
 	/// A list of shields deployed by this circuit for amount checks/shield deletions.
@@ -538,9 +539,9 @@
 
 	// power stuff
 	if(deployed_shields)
-		power_draw_per_use = initial(power_draw_per_use)*(strength/10)*LAZYLEN(deployed_shields)
+		power_draw_idle = power_draw_per_use*(strength/10)*LAZYLEN(deployed_shields)
 	else
-		power_draw_per_use = initial(power_draw_per_use)
+		power_draw_idle = 0
 
 	..()
 

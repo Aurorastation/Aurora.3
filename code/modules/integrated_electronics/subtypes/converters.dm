@@ -5,7 +5,7 @@
 	outputs = list("output")
 	activators = list("convert" = IC_PINTYPE_PULSE_IN, "on convert" = IC_PINTYPE_PULSE_OUT)
 	category_text = "Converter"
-	power_draw_per_use = 10
+	power_draw_per_use = 100
 
 /obj/item/integrated_circuit/converter/num2text
 	name = "number to string"

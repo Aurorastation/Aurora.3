@@ -1,7 +1,7 @@
 /obj/item/gun/energy/blaster
 	name = "blaster pistol"
 	desc = "A tiny energy pistol converted to fire off energy bolts rather than lasers beams."
-	icon = 'icons/obj/guns/blaster_pistol.dmi'
+	icon = 'icons/obj/guns/faction/nanotrasen_corporation/blaster_pistol.dmi'
 	icon_state = "blaster_pistol"
 	item_state = "blaster_pistol"
 	has_item_ratio = FALSE
@@ -48,7 +48,7 @@
 /obj/item/gun/energy/blaster/revolver
 	name = "blaster revolver"
 	desc = "A robust eight-shot blaster."
-	icon = 'icons/obj/guns/blaster_revolver.dmi'
+	icon = 'icons/obj/guns/faction/nanotrasen_corporation/blaster_revolver.dmi'
 	icon_state = "blaster_revolver"
 	item_state = "blaster_revolver"
 	fire_sound = 'sound/weapons/laserstrong.ogg'
@@ -63,7 +63,7 @@
 /obj/item/gun/energy/blaster/carbine
 	name = "blaster carbine"
 	desc = "A short-barreled blaster carbine meant for easy handling and comfort when in combat."
-	icon = 'icons/obj/guns/blaster_carbine.dmi'
+	icon = 'icons/obj/guns/faction/nanotrasen_corporation/blaster_carbine.dmi'
 	icon_state = "blaster_carbine"
 	item_state = "blaster_carbine"
 	max_shots = 16
@@ -76,7 +76,7 @@
 /obj/item/gun/energy/blaster/rifle
 	name = "bolt slinger"
 	desc = "A blaster rifle which seems to work by accelerating particles and flinging them out in destructive bolts."
-	icon = 'icons/obj/guns/blaster_rifle.dmi'
+	icon = 'icons/obj/guns/faction/nanotrasen_corporation/blaster_rifle.dmi'
 	icon_state = "blaster_rifle"
 	item_state = "blaster_rifle"
 	max_shots = 20
@@ -110,10 +110,10 @@
 		to_chat(usr, SPAN_WARNING("You can't look through the scope without stabilizing the rifle!"))
 
 /obj/item/gun/energy/blaster/tcaf
-	name = "blaster rifle"
-	desc = "Developed by Zavodskoi Interstellar, the Z.I. Guardian is a burst-fire blaster rifle designed for the armed forces of the Republic of Biesel. Cheap, reliable and easy to mass-produce, these weapons can be seen across the branches of the TCAF."
+	name = "\improper Guardian blaster rifle"
+	desc = "Developed by Zavodskoi Interstellar, the Guardian is a burst-fire blaster rifle designed for the armed forces of the Republic of Biesel. Cheap, reliable and easy to mass-produce, these weapons can be seen across the branches of the TCAF."
 	desc_extended = "Released in early 2464, the Guardian is a modernisation of the outdated blasters previously used by the TCFL developed in conjunction with the Zo'ra Hive. Since its release, it has been widely adopted by Biesel, leading to a slight fall in NanoTrasen market share as Zavodskoi took their place as the main arms supplier of the TCAF."
-	icon = 'icons/obj/guns/blaster_ar.dmi'
+	icon = 'icons/obj/guns/faction/zavodskoi_interstellar/blaster_ar.dmi'
 	icon_state = "blaster_ar"
 	item_state = "blaster_ar"
 	max_shots = 24
@@ -137,12 +137,12 @@
 		)
 
 /obj/item/gun/energy/blaster/himeo
-	name = "himean assault blaster"
+	name = "\improper Type-11 assault blaster"
 	desc = "The standard infantry blaster of the Himean Planetary Guard. 'TO RESIST EVIL BY FORCE' is stamped on the side."
 	desc_extended = "Originally developed in 2351, the Type-11 \"Guthrie\" is a descendant of the first Himean-made weapons; haphazardly overcharged mining equipment. If it ain't broke, don't fix it; variants \
 	of this rifle have served in the United Syndicates' arsenal for generations, although none have matched modern improvements 'borrowed' from Zavodskoi Interstellar. Waterproof, spaceproof, idiot-proof; it's here to stay, even as advanced Xanan ballistics \
 	creep their way into the market. Ironically, lend-lease aid to the now-defunct League of Independent Corporate-Free Systems have seen a great deal of these end up in the hands of pirates."
-	icon = 'icons/obj/guns/himeo_blaster.dmi'
+	icon = 'icons/obj/guns/faction/himeo_free_consortium/himeo_blaster.dmi'
 	icon_state = "himeoblaster"
 	item_state = "himeoblaster"
 	projectile_type = /obj/projectile/energy/blaster/heavy
@@ -220,11 +220,11 @@
 		update_icon()
 
 /obj/item/gun/energy/blaster/himeo/pistol
-	name = "himean heavy blaster pistol"
+	name = "\improper Type-45 heavy blaster pistol"
 	desc = "The standard sidearm of the Himean Planetary Guard. For those revolutions you cannot fight with fists."
 	desc_extended = "A plasma cutter gave its life for the first Type-45 \"Sabo-Tabby\" pistol. Powered by the same hydrogen cells as the Type-11 \"Guthrie\" rifle, this robust model has earned the nickname of \
 	the 'One Big Handgun' in those foreign markets it has cropped up. What was initially seen as a flaw in the power converter led to its 'magnum'-sized blaster bolts."
-	icon = 'icons/obj/guns/himeo_pistol.dmi'
+	icon = 'icons/obj/guns/faction/himeo_free_consortium/himeo_pistol.dmi'
 	icon_state = "himeopistol"
 	item_state = "himeopistol"
 	projectile_type = /obj/projectile/energy/blaster/heavy

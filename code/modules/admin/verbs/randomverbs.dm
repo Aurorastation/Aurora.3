@@ -1,5 +1,5 @@
 /client/proc/cmd_admin_drop_everything(mob/M as mob in GLOB.mob_list)
-	set category = null
+	set category = "Admin"
 	set name = "Drop Everything"
 	if(!holder)
 		to_chat(src, "Only administrators may use this command.")
@@ -18,7 +18,7 @@
 
 
 /client/proc/cmd_admin_subtle_message(mob/M as mob in GLOB.mob_list)
-	set category = "Special Verbs"
+	set category = "Special Verbs.Narration/Messaging"
 	set name = "Subtle Message"
 
 	if(!ismob(M))	return
@@ -40,7 +40,7 @@
 	feedback_add_details("admin_verb","SMS") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 /client/proc/cmd_mentor_check_new_players()	//Allows mentors / admins to determine who the newer players are.
-	set category = "Admin"
+	set category = "Admin.Player Info"
 	set name = "Check new Players"
 	if(!holder)
 		to_chat(src, "Only staff members may use this command.")
@@ -76,7 +76,7 @@
 
 
 /client/proc/cmd_admin_world_narrate() // Allows administrators to fluff events a little easier -- TLE
-	set category = "Special Verbs"
+	set category = "Special Verbs.Narration/Messaging"
 	set name = "Global Narrate"
 
 	if (!holder)
@@ -93,7 +93,7 @@
 	feedback_add_details("admin_verb","GLN") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 /client/proc/cmd_admin_local_narrate()
-	set category = "Special Verbs"
+	set category = "Special Verbs.Narration/Messaging"
 	set name = "Local Narrate"
 
 	if(!check_rights(R_ADMIN, TRUE))
@@ -121,7 +121,7 @@
 
 
 /client/proc/cmd_admin_local_screen_text()
-	set category = "Special Verbs"
+	set category = "Special Verbs.Narration/Messaging"
 	set name = "Local Screen Text"
 
 	if(!check_rights(R_ADMIN, TRUE))
@@ -155,7 +155,7 @@
 	feedback_add_details("admin_verb", "LSTX") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 /client/proc/cmd_admin_global_screen_text()
-	set category = "Special Verbs"
+	set category = "Special Verbs.Narration/Messaging"
 	set name = "Global Screen Text"
 
 	if(!check_rights(R_ADMIN, TRUE))
@@ -179,7 +179,7 @@
 	feedback_add_details("admin_verb", "GSTX") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 /client/proc/cmd_admin_direct_narrate(var/mob/M)	// Targetted narrate -- TLE
-	set category = "Special Verbs"
+	set category = "Special Verbs.Narration/Messaging"
 	set name = "Direct Narrate"
 
 	if(!holder)
@@ -602,7 +602,7 @@ Traitors and the like can also be revived with the previous role mostly intact.
 	feedback_add_details("admin_verb","REJU") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 /client/proc/cmd_admin_create_centcom_report()
-	set category = "Special Verbs"
+	set category = "Special Verbs.Narration/Messaging"
 	set name = "Create Command Report"
 
 	if(!holder)
@@ -1129,7 +1129,7 @@ Traitors and the like can also be revived with the previous role mostly intact.
 
 // Variant of the narrate panel that is for admins. This is logged to check if people are abusing it.
 /client/proc/cmd_admin_open_narrate_panel()
-	set category = "Special Verbs"
+	set category = "Special Verbs.Narration/Messaging"
 	set name = "Narration Panel"
 
 	if (!check_rights(R_ADMIN, TRUE))

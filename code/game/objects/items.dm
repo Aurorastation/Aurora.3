@@ -507,7 +507,7 @@
 		return
 
 	if(in_storage) // Items getting moved into storages (lunchboxes, backpacks) triggers the dropped handler and requires no persistency as a result
-		SSpersistence.deregister_track(src)
+		SSpersistence.objectsDeregisterTrack(src)
 		return
 
 	// Trash-like items should become only persistent when they are not dropped in an area flagged with AREA_FLAG_PREVENT_PERSISTENT_TRASH
@@ -515,12 +515,12 @@
 	if(T)
 		var/area/A = get_area(T)
 		if(A && !(A.area_flags & AREA_FLAG_PREVENT_PERSISTENT_TRASH))
-			persistance_expiration_time_days = 3 // Ensure expiration date is set to prevent long term trash
-			SSpersistence.register_track(src, usr == null ? null : ckey(usr.key))
+			persistant_objects_expiration_time_days = 3 // Ensure expiration date is set to prevent long term trash
+			SSpersistence.objectsRegisterTrack(src, usr == null ? null : ckey(usr.key))
 			return
 
 	// Fallback - No persistency
-	SSpersistence.deregister_track(src)
+	SSpersistence.objectsDeregisterTrack(src)
 
 /obj/item/proc/remove_item_verbs(mob/user)
 	if(ismech(user)) //very snowflake, but necessary due to how mechs work
@@ -729,7 +729,7 @@ GLOBAL_LIST_INIT(slot_flags_enumeration, list(
 				if(!disable_warning)
 					to_chat(usr, SPAN_WARNING("You somehow have a suit with no defined allowed items for suit storage, stop that."))
 				return 0
-			if(!istype(src, /obj/item/modular_computer) && tool_behaviour == TOOL_PEN && !is_type_in_list(src, H.wear_suit.allowed))
+			if(!istype(src, /obj/item/modular_computer) && tool_behaviour != TOOL_PEN && !is_type_in_list(src, H.wear_suit.allowed))
 				return 0
 		if(slot_handcuffed)
 			if(!istype(src, /obj/item/handcuffs))
