@@ -1,10 +1,11 @@
 /obj/structure/flora/assunzione
 	name = "native Assunzioni flora"
-	desc = "One of the species of local plantlife originally native to Assunzione preserved now only in biodomes after the Dimming all but flattened its biosphere."
+	desc = "One of the species of local plantlife originally native to Assunzione, preserved now only in domes after the Dimming all but flattened the biosphere."
 	icon = 'icons/obj/flora/assunzione/grass.dmi'
 	icon_state = "stalks"
 	layer = ABOVE_HUMAN_LAYER
 	anchored = TRUE
+	density = FALSE
 
 /obj/structure/flora/assunzione/grass
 	name = "grass stalks"
@@ -40,6 +41,7 @@
 
 /obj/structure/flora/assunzione/flowers
 	icon = 'icons/obj/flora/assunzione/flowers.dmi'
+	layer = BASE_ABOVE_OBJ_LAYER
 
 /obj/structure/flora/assunzione/flowers/lavendergrass
 	icon_state = "lavendergrass_1"
@@ -90,16 +92,27 @@
 	name = "luce vine cluster"
 	desc = "The namesake plant for Luceism, the light-centric religion of Assunzione, the Luce Vine is a fruiting vine noted for its astounding resilience to cold following the Dimming. \
 			The plant and its bioluminscent fruit, called 'luce bulbs', are considered evidence of miracle to devout Assunzioni."
-	icon_state = "lucevinecluster_1"
+	icon_state = "lvcluster_1"
+	light_range = 2
+	light_power = 3
+	light_color = LIGHT_COLOR_FAINT_CYAN
+	layer = BASE_ABOVE_OBJ_LAYER
 
 /obj/structure/flora/assunzione/bush/lucevine/New()
 	..()
-	icon_state = "lucevinecreeper_[rand(1, 3)]"
+	icon_state = "lvcluster_[rand(1, 3)]"
+
+/obj/structure/flora/assunzione/bush/lucevine/Initialize(mapload)
+	..()
+	AddOverlays(emissive_appearance(icon, "[icon_state]-em", src, alpha = src.alpha))
+	set_light_range_power_color(light_range, light_power, light_color)
+	set_light_on(TRUE)
+	return INITIALIZE_HINT_NORMAL
 
 /obj/structure/flora/assunzione/bush/lucevine/creeper
 	icon = 'icons/obj/flora/assunzione/bush.dmi'
-	icon_state = "lucevine_1"
+	icon_state = "lvcreeper_1"
 
 /obj/structure/flora/assunzione/bush/lucevine/creeper/New()
 	..()
-	icon_state = "lucevine_[rand(1, 3)]"
+	icon_state = "lvcreeper_[rand(1, 3)]"

@@ -141,10 +141,6 @@
 	icon = 'icons/turf/flooring/urban_turfs_assun.dmi'
 	icon_state = "asphalt0"
 
-/turf/simulated/floor/asphalt/Initialize(mapload)
-	. = ..()
-	icon_state = "asphalt[rand(0,3)]"
-
 /turf/simulated/floor/sidewalk/assunzione
 	name = "weathered tiling"
 	desc = "Great for speeding on."

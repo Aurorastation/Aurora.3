@@ -9,9 +9,9 @@
 	sound_environment = SOUND_ENVIRONMENT_CITY
 	is_outside = OUTSIDE_NO
 	area_has_base_lighting = TRUE
-	base_lighting_alpha = 255
+	base_lighting_alpha = 50
 	base_lighting_color = COLOR_OFF_WHITE
-	luminosity = 1
+	luminosity = 0.8
 
 /area/port_volturno/exterior
 	area_blurb = "A vast dome encloses you within the open space; beyond it only is killing cold and darkness, but here, inside, it is warm and bright and welcoming."

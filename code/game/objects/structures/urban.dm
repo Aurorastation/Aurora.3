@@ -432,13 +432,40 @@ ABSTRACT_TYPE(/obj/structure/stairs/urban/road_ramp_assun)
 	anchored = TRUE
 	layer = ABOVE_HUMAN_LAYER
 
-/obj/structure/neon_sign_assunzione
-	name = "large neon sign"
-	desc = "A bright neon sign advertising something."
+/obj/structure/neon_sign/assunzione/music_shop
+	name = "\improper PV AV"
+	desc = "The PV AV (Port Volturno Audio / Visual), a trendy hang-out spot for the music-conscious. Local radio DJ, John Assunzione, is said to be a regular."
 	icon = 'icons/obj/structure/urban/assunzione_neon.dmi'
-	icon_state = "sign1"
-	anchored = TRUE
-	layer = ABOVE_HUMAN_LAYER
+	icon_state = "PV_AV"
+	layer = 5.16 // in the biz, we call this the above above ABOVE human layer
+
+/obj/structure/neon_sign/assunzione/music_shop/Initialize()
+	. = ..()
+	AddComponent(/datum/component/large_transparency)
+
+/obj/structure/neon_sign/assunzione/liquor_shop
+	name = "\improper Assunzione Duty-Free Libations"
+	desc = "Spaceports are fine places to make a tidy profit selling alcohol. Don't drink and pilot."
+	icon = 'icons/obj/structure/urban/assunzione_neon.dmi'
+	icon_state = "duty_free"
+
+/obj/structure/neon_sign/assunzione/repair_shop
+	name = "\improper Port Volturno Electromechanics"
+	desc = "A hybrid mechanics' bay and electronics shop that will fix just anything, from mopeds to handheld electronics. Though not built for serious IPC work, they can help out in a pinch."
+	icon = 'icons/obj/structure/urban/assunzione_neon.dmi'
+	icon_state = "repair_shop"
+
+/obj/structure/neon_sign/assunzione/hotel
+	name = "\improper H O T E L sign"
+	desc = "A design five-hundred years old and still seen all across human space."
+	icon = 'icons/obj/structure/urban/assunzione_neon.dmi'
+	icon_state = "repair_shop"
+
+/obj/structure/neon_sign/assunzione/chapel
+	name = "\improper  sign"
+	desc = "A design five-hundred years old and still seen all across human space."
+	icon = 'icons/obj/structure/urban/assunzione_neon.dmi'
+	icon_state = "assunzione"
 
 /obj/structure/shipping_container_old
 	name = "freight container"
@@ -685,8 +712,13 @@ ABSTRACT_TYPE(/obj/structure/stairs/urban/road_ramp_assun)
 			The list of names below is terribly long, the font so small as to be barely readable at all."
 	icon = 'icons/obj/structure/urban/statues_96x160.dmi'
 	icon_state = "aec_big"
-	pixel_x = -48
+	layer = 5.16 // in the biz, we call this the above above ABOVE human layer
+	pixel_x = -32
 	pixel_y = -32
+
+/obj/structure/statue/aec/large/Initialize()
+	. = ..()
+	AddComponent(/datum/component/large_transparency)
 
 /obj/structure/sign/urban
 	name = "exit sign"
@@ -703,7 +735,7 @@ ABSTRACT_TYPE(/obj/structure/stairs/urban/road_ramp_assun)
 	density = TRUE
 	layer = ABOVE_HUMAN_LAYER
 
-/obj/structure/sign/billboard
+/obj/structure/sign/billboard/nolegs
 	name = "commercial billboard"
 	desc = "A large billboard rented out for advertisement space."
 	icon = 'icons/obj/structure/urban/billboard.dmi'
