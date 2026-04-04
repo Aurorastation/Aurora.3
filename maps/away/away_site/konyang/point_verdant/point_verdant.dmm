@@ -2327,7 +2327,7 @@
 /area/point_verdant/outdoors)
 "boY" = (
 /obj/structure/sign/billboard,
-/obj/structure/sign/billboard/advert/random/konyang,
+/obj/structure/sign/billboard/advert/random,
 /turf/simulated/floor/sidewalk/detail,
 /area/point_verdant/outdoors)
 "bpe" = (
@@ -4041,7 +4041,7 @@
 /obj/structure/ledge,
 /obj/structure/chainlink_fence,
 /obj/structure/sign/billboard,
-/obj/structure/sign/billboard/advert/random/konyang,
+/obj/structure/sign/billboard/advert/random,
 /turf/simulated/floor/exoplanet/water/shallow/konyang,
 /area/point_verdant/water)
 "clN" = (
@@ -25056,7 +25056,7 @@
 /area/point_verdant/interior/laundromat)
 "omZ" = (
 /obj/structure/sign/billboard,
-/obj/structure/sign/billboard/advert/random/konyang,
+/obj/structure/sign/billboard/advert/random,
 /turf/simulated/floor/sidewalk/blocks,
 /area/point_verdant/outdoors)
 "one" = (
@@ -40898,7 +40898,7 @@
 /area/point_verdant/interior/offices)
 "xHk" = (
 /obj/structure/sign/billboard,
-/obj/structure/sign/billboard/advert/random/konyang,
+/obj/structure/sign/billboard/advert/random,
 /turf/simulated/floor/concrete,
 /area/point_verdant/outdoors)
 "xHy" = (

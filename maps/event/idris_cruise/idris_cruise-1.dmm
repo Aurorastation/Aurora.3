@@ -483,7 +483,9 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 9
 	},
-/turf/unsimulated/floor/wood,
+/turf/unsimulated/floor{
+	icon_state = "floor7"
+	},
 /area/cruise/arcade)
 "asV" = (
 /obj/structure/railing/mapped{
@@ -1197,7 +1199,9 @@
 	name = "arcade indicator";
 	pixel_x = 32
 	},
-/turf/unsimulated/floor/wood,
+/turf/unsimulated/floor{
+	icon_state = "floor7"
+	},
 /area/cruise/arcade)
 "aTB" = (
 /obj/structure/window/reinforced/crescent{
@@ -1940,7 +1944,9 @@
 /obj/machinery/light/small{
 	dir = 8
 	},
-/turf/unsimulated/floor/wood,
+/turf/unsimulated/floor{
+	icon_state = "floor7"
+	},
 /area/cruise/arcade)
 "bsm" = (
 /obj/machinery/door/airlock{
@@ -2072,7 +2078,9 @@
 	},
 /area/cruise/pool)
 "bxB" = (
-/turf/unsimulated/floor,
+/turf/unsimulated/floor{
+	icon_state = "tiles_small"
+	},
 /area/cruise/aft_s)
 "bxY" = (
 /obj/machinery/light/small{
@@ -2922,7 +2930,9 @@
 	dir = 8
 	},
 /obj/machinery/door/firedoor,
-/turf/unsimulated/floor,
+/turf/unsimulated/floor{
+	icon_state = "tiles_small"
+	},
 /area/cruise/aft_s)
 "cpD" = (
 /obj/structure/table/rack,
@@ -3520,7 +3530,9 @@
 /area/cruise/main_bar/aft)
 "cNV" = (
 /obj/structure/bed/stool/chair/sofa/right/red,
-/turf/unsimulated/floor/wood,
+/turf/unsimulated/floor{
+	icon_state = "carpet"
+	},
 /area/cruise/arcade)
 "cOM" = (
 /obj/effect/floor_decal/spline/fancy/wood/full,
@@ -3688,7 +3700,9 @@
 /obj/machinery/light/small{
 	dir = 1
 	},
-/turf/unsimulated/floor/wood,
+/turf/unsimulated/floor{
+	icon_state = "carpet10-8"
+	},
 /area/cruise/arcade)
 "cVq" = (
 /obj/effect/floor_decal/spline/fancy{
@@ -4605,7 +4619,9 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/turf/unsimulated/floor,
+/turf/unsimulated/floor{
+	icon_state = "tiles_small"
+	},
 /area/cruise/aft_s)
 "dSm" = (
 /obj/machinery/door/window/brigdoor/southleft{
@@ -5066,7 +5082,9 @@
 /area/cruise/custodial_s)
 "eoY" = (
 /obj/machinery/hologram/holopad,
-/turf/unsimulated/floor/wood,
+/turf/unsimulated/floor{
+	icon_state = "wood_birch"
+	},
 /area/cruise/arcade)
 "epe" = (
 /obj/effect/decal/fake_object{
@@ -6803,7 +6821,9 @@
 /area/cruise/arcade)
 "fKG" = (
 /obj/machinery/door/firedoor,
-/turf/unsimulated/floor,
+/turf/unsimulated/floor{
+	icon_state = "tiles_small"
+	},
 /area/cruise/aft_s)
 "fKU" = (
 /mob/living/simple_animal/cow,
@@ -8250,6 +8270,11 @@
 	icon_state = "wood"
 	},
 /area/cruise/pool/sauna1)
+"gQK" = (
+/turf/unsimulated/floor{
+	icon_state = "wood_birch"
+	},
+/area/cruise/arcade)
 "gSl" = (
 /obj/structure/table/steel,
 /obj/item/stack/rods{
@@ -8926,7 +8951,9 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/turf/unsimulated/floor,
+/turf/unsimulated/floor{
+	icon_state = "tiles_small"
+	},
 /area/cruise/aft_s)
 "huB" = (
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -9042,7 +9069,9 @@
 /obj/machinery/light{
 	dir = 4
 	},
-/turf/unsimulated/floor,
+/turf/unsimulated/floor{
+	icon_state = "tiles_small"
+	},
 /area/cruise/aft_s)
 "hAR" = (
 /obj/effect/floor_decal/corner/lime/diagonal,
@@ -9955,7 +9984,9 @@
 	name = "expensive flatscreen holovision";
 	pixel_y = 15
 	},
-/turf/unsimulated/floor/wood,
+/turf/unsimulated/floor{
+	icon_state = "wood_birch"
+	},
 /area/cruise/arcade)
 "ipQ" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
@@ -10501,7 +10532,9 @@
 	dir = 10
 	},
 /obj/machinery/light/small,
-/turf/unsimulated/floor/wood,
+/turf/unsimulated/floor{
+	icon_state = "floor7"
+	},
 /area/cruise/arcade)
 "iQL" = (
 /obj/structure/table/stone/marble,
@@ -11119,7 +11152,9 @@
 /area/cruise/library)
 "joQ" = (
 /obj/structure/closet/emcloset,
-/turf/unsimulated/floor,
+/turf/unsimulated/floor{
+	icon_state = "tiles_small"
+	},
 /area/cruise/aft_s)
 "jpA" = (
 /obj/structure/curtain/open/privacy,
@@ -11373,7 +11408,9 @@
 	dir = 4
 	},
 /obj/item/toy/desk/fan,
-/turf/unsimulated/floor/wood,
+/turf/unsimulated/floor{
+	icon_state = "wood_birch"
+	},
 /area/cruise/arcade)
 "jAu" = (
 /obj/effect/floor_decal/corner/blue,
@@ -11572,7 +11609,9 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 6
 	},
-/turf/unsimulated/floor/wood,
+/turf/unsimulated/floor{
+	icon_state = "floor7"
+	},
 /area/cruise/arcade)
 "jQT" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -12157,7 +12196,9 @@
 "kox" = (
 /obj/structure/closet/firecloset/full,
 /obj/machinery/light,
-/turf/unsimulated/floor,
+/turf/unsimulated/floor{
+	icon_state = "tiles_small"
+	},
 /area/cruise/aft_s)
 "koz" = (
 /obj/machinery/light{
@@ -12282,7 +12323,9 @@
 /area/cruise/centerline)
 "ktg" = (
 /obj/structure/bed/stool/padded/red,
-/turf/unsimulated/floor/wood,
+/turf/unsimulated/floor{
+	icon_state = "wood_birch"
+	},
 /area/cruise/arcade)
 "ktD" = (
 /obj/structure/table/stone/marble,
@@ -12461,7 +12504,9 @@
 /area/cruise/aft)
 "kzV" = (
 /obj/machinery/light/small,
-/turf/unsimulated/floor/wood,
+/turf/unsimulated/floor{
+	icon_state = "floor7"
+	},
 /area/cruise/arcade)
 "kAu" = (
 /obj/machinery/telecomms/bus/preset_three,
@@ -13674,7 +13719,9 @@
 "lBt" = (
 /obj/structure/table/standard,
 /obj/random/lavalamp,
-/turf/unsimulated/floor/wood,
+/turf/unsimulated/floor{
+	icon_state = "floor7"
+	},
 /area/cruise/arcade)
 "lBD" = (
 /obj/structure/railing/mapped{
@@ -16143,7 +16190,9 @@
 "nFi" = (
 /obj/machinery/vending/snack,
 /obj/effect/floor_decal/industrial/outline/yellow,
-/turf/unsimulated/floor/wood,
+/turf/unsimulated/floor{
+	icon_state = "floor7"
+	},
 /area/cruise/arcade)
 "nFu" = (
 /obj/machinery/door/window/eastright,
@@ -17762,7 +17811,9 @@
 /area/cruise/virtual_reality)
 "oXt" = (
 /obj/structure/bed/stool/chair/sofa/red,
-/turf/unsimulated/floor/wood,
+/turf/unsimulated/floor{
+	icon_state = "carpet14-10"
+	},
 /area/cruise/arcade)
 "oXB" = (
 /obj/structure/lattice/catwalk,
@@ -18425,7 +18476,9 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/turf/unsimulated/floor/wood,
+/turf/unsimulated/floor{
+	icon_state = "floor7"
+	},
 /area/cruise/arcade)
 "pxT" = (
 /obj/machinery/atm{
@@ -18689,7 +18742,9 @@
 	dir = 4
 	},
 /obj/structure/closet/crate/bin,
-/turf/unsimulated/floor/wood,
+/turf/unsimulated/floor{
+	icon_state = "floor7"
+	},
 /area/cruise/arcade)
 "pKY" = (
 /obj/machinery/light{
@@ -19063,7 +19118,9 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/turf/unsimulated/floor/wood,
+/turf/unsimulated/floor{
+	icon_state = "wood_birch"
+	},
 /area/cruise/arcade)
 "qcD" = (
 /obj/effect/floor_decal/industrial/warning,
@@ -19390,7 +19447,9 @@
 /obj/machinery/atm{
 	pixel_y = 30
 	},
-/turf/unsimulated/floor,
+/turf/unsimulated/floor{
+	icon_state = "tiles_small"
+	},
 /area/cruise/aft_s)
 "qsn" = (
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -19970,7 +20029,9 @@
 /area/cruise/jungle)
 "qUA" = (
 /obj/machinery/light,
-/turf/unsimulated/floor,
+/turf/unsimulated/floor{
+	icon_state = "tiles_small"
+	},
 /area/cruise/aft_s)
 "qVv" = (
 /turf/simulated/floor/grass{
@@ -20041,7 +20102,9 @@
 /area/cruise/fore_p)
 "qZv" = (
 /obj/structure/window/reinforced,
-/turf/unsimulated/floor/wood,
+/turf/unsimulated/floor{
+	icon_state = "wood_birch"
+	},
 /area/cruise/arcade)
 "qZE" = (
 /obj/structure/bed/stool/chair/folding{
@@ -20254,7 +20317,9 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 10
 	},
-/turf/unsimulated/floor/wood,
+/turf/unsimulated/floor{
+	icon_state = "floor7"
+	},
 /area/cruise/arcade)
 "rkR" = (
 /turf/unsimulated/floor,
@@ -20914,7 +20979,9 @@
 "rJS" = (
 /obj/machinery/vending/cola,
 /obj/effect/floor_decal/industrial/outline/yellow,
-/turf/unsimulated/floor/wood,
+/turf/unsimulated/floor{
+	icon_state = "floor7"
+	},
 /area/cruise/arcade)
 "rLb" = (
 /obj/machinery/mech_recharger,
@@ -21455,7 +21522,9 @@
 "smT" = (
 /obj/structure/table/standard,
 /obj/item/paper_scanner,
-/turf/unsimulated/floor/wood,
+/turf/unsimulated/floor{
+	icon_state = "floor7"
+	},
 /area/cruise/arcade)
 "smV" = (
 /obj/effect/decal/fake_object{
@@ -21801,6 +21870,14 @@
 /obj/item/melee/energy/sword/knife/sol,
 /obj/item/melee/energy/sword/knife/sol,
 /obj/item/gun/projectile/heavysniper,
+/obj/item/storage/box/sniperammo,
+/obj/item/storage/box/sniperammo,
+/obj/item/storage/box/sniperammo,
+/obj/item/storage/box/sniperammo,
+/obj/item/storage/box/sniperammo,
+/obj/item/storage/box/sniperammo,
+/obj/item/storage/box/sniperammo,
+/obj/item/storage/box/sniperammo,
 /obj/item/gun/projectile/heavysniper,
 /obj/item/gun/projectile/heavysniper,
 /obj/item/gun/projectile/heavysniper,
@@ -22050,7 +22127,9 @@
 	},
 /area/cruise/centerline)
 "sQs" = (
-/turf/unsimulated/floor/wood,
+/turf/unsimulated/floor{
+	icon_state = "carpet"
+	},
 /area/cruise/arcade)
 "sQw" = (
 /obj/machinery/light{
@@ -22698,7 +22777,9 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/turf/unsimulated/floor,
+/turf/unsimulated/floor{
+	icon_state = "tiles_small"
+	},
 /area/cruise/aft_s)
 "tpy" = (
 /obj/structure/window/reinforced/crescent{
@@ -24176,7 +24257,9 @@
 	name = "washroom indicator";
 	pixel_y = 32
 	},
-/turf/unsimulated/floor,
+/turf/unsimulated/floor{
+	icon_state = "tiles_small"
+	},
 /area/cruise/aft_s)
 "urH" = (
 /obj/machinery/recharge_station,
@@ -24879,7 +24962,9 @@
 "uTn" = (
 /obj/structure/table/standard,
 /obj/item/newspaper,
-/turf/unsimulated/floor/wood,
+/turf/unsimulated/floor{
+	icon_state = "wood_birch"
+	},
 /area/cruise/arcade)
 "uTz" = (
 /obj/structure/flora/grass/jungle{
@@ -25261,7 +25346,10 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/turf/unsimulated/floor/wood,
+/turf/unsimulated/floor{
+	dir = 6;
+	icon_state = "carpet"
+	},
 /area/cruise/arcade)
 "viO" = (
 /obj/effect/decal/fake_object{
@@ -25471,7 +25559,9 @@
 /obj/machinery/light/small{
 	dir = 1
 	},
-/turf/unsimulated/floor/wood,
+/turf/unsimulated/floor{
+	icon_state = "floor7"
+	},
 /area/cruise/arcade)
 "vvz" = (
 /obj/structure/railing/mapped{
@@ -26248,7 +26338,9 @@
 /area/cruise/escort)
 "whj" = (
 /obj/machinery/door/window/southright,
-/turf/unsimulated/floor/wood,
+/turf/unsimulated/floor{
+	icon_state = "wood_birch"
+	},
 /area/cruise/arcade)
 "whw" = (
 /obj/machinery/suit_storage_unit/standard_unit,
@@ -26706,7 +26798,9 @@
 /area/cruise/main_bar)
 "wFi" = (
 /obj/item/radio/intercom/east,
-/turf/unsimulated/floor/wood,
+/turf/unsimulated/floor{
+	icon_state = "floor7"
+	},
 /area/cruise/arcade)
 "wFG" = (
 /obj/machinery/vending/wallmed1{
@@ -27257,7 +27351,9 @@
 /obj/structure/railing/mapped{
 	dir = 8
 	},
-/turf/unsimulated/floor/wood,
+/turf/unsimulated/floor{
+	icon_state = "floor7"
+	},
 /area/cruise/arcade)
 "xdd" = (
 /obj/effect/floor_decal/corner/green/diagonal,
@@ -27822,7 +27918,9 @@
 /obj/machinery/light/small{
 	dir = 4
 	},
-/turf/unsimulated/floor/wood,
+/turf/unsimulated/floor{
+	icon_state = "floor7"
+	},
 /area/cruise/arcade)
 "xzH" = (
 /obj/structure/flora/grass/jungle{
@@ -28090,7 +28188,9 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 8
 	},
-/turf/unsimulated/floor/wood,
+/turf/unsimulated/floor{
+	icon_state = "floor7"
+	},
 /area/cruise/arcade)
 "xIC" = (
 /obj/item/gun/energy/meteorgun{
@@ -28504,7 +28604,9 @@
 /area/cruise/jungle)
 "yeJ" = (
 /obj/machinery/door/window/southleft,
-/turf/unsimulated/floor/wood,
+/turf/unsimulated/floor{
+	icon_state = "wood_birch"
+	},
 /area/cruise/arcade)
 "yfa" = (
 /obj/machinery/vending/coffee,
@@ -66914,10 +67016,10 @@ cWL
 ooa
 sjz
 vvb
-sQs
-sQs
-sQs
-sQs
+qOc
+qOc
+qOc
+qOc
 xbP
 sjz
 rAc
@@ -67174,7 +67276,7 @@ pJK
 pxG
 pxG
 pxG
-sQs
+qOc
 kzV
 sjz
 sjz
@@ -67431,7 +67533,7 @@ ipv
 uTn
 ktg
 qZv
-sQs
+qOc
 rkI
 sjz
 kjl
@@ -67440,9 +67542,9 @@ llz
 oaK
 lBt
 bro
-sQs
-sQs
-sQs
+qOc
+qOc
+qOc
 kNh
 bxB
 bxB
@@ -67685,10 +67787,10 @@ cKw
 cKw
 sjz
 cNV
-sQs
-sQs
+chC
+gQK
 yeJ
-sQs
+qOc
 rkI
 sjz
 sPo
@@ -67696,10 +67798,10 @@ kGs
 chC
 oaK
 smT
-sQs
-sQs
-sQs
-sQs
+qOc
+qOc
+qOc
+qOc
 jEb
 bxB
 bxB
@@ -67945,18 +68047,18 @@ oXt
 sQs
 eoY
 whj
-sQs
+qOc
 rkI
 sjz
 lNp
 kGs
 chC
 oaK
-sQs
-sQs
-sQs
-sQs
-sQs
+qOc
+qOc
+qOc
+qOc
+qOc
 mMV
 hAn
 joQ
@@ -68202,15 +68304,15 @@ cUA
 vir
 jAm
 qbQ
-sQs
+qOc
 iPq
 sjz
 gWQ
 liZ
 hJZ
 jBK
-sQs
-sQs
+qOc
+qOc
 xze
 jPh
 jPh
@@ -68454,19 +68556,19 @@ hFF
 lIu
 sjz
 rJS
-sQs
-sQs
-sQs
-sQs
-sQs
-sQs
+qOc
+qOc
+qOc
+qOc
+qOc
+qOc
 xIq
 asO
 asO
 asO
 asO
 asO
-sQs
+qOc
 kzV
 sjz
 chC
@@ -68711,19 +68813,19 @@ hFF
 lIu
 sjz
 nFi
-sQs
-sQs
-sQs
+qOc
+qOc
+qOc
 wFi
 jPh
 xze
-sQs
-sQs
-sQs
+qOc
+qOc
+qOc
 aSN
 xze
-sQs
-sQs
+qOc
+qOc
 rkI
 lmg
 chC
