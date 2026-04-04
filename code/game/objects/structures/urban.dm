@@ -448,10 +448,11 @@ ABSTRACT_TYPE(/obj/structure/stairs/urban/road_ramp_assun)
 	desc = "Spaceports are fine places to make a tidy profit selling alcohol. Don't drink and pilot."
 	icon = 'icons/obj/structure/urban/assunzione_neon.dmi'
 	icon_state = "duty_free"
+	layer = 5.16 // in the biz, we call this the above above ABOVE human layer
 
 /obj/structure/neon_sign/assunzione/repair_shop
-	name = "\improper Port Volturno Electromechanics"
-	desc = "A hybrid mechanics' bay and electronics shop that will fix just anything, from mopeds to handheld electronics. Though not built for serious IPC work, they can help out in a pinch."
+	name = "\improper Sybdari Electromechanics"
+	desc = "A hybrid mechanics' bay and electronics shop that will fix just anything, from mopeds to laptops. Though not built for serious IPC work, they can help out in a pinch. A subsidiary of Iraklio Shipworks, as it happens."
 	icon = 'icons/obj/structure/urban/assunzione_neon.dmi'
 	icon_state = "repair_shop"
 
@@ -459,11 +460,11 @@ ABSTRACT_TYPE(/obj/structure/stairs/urban/road_ramp_assun)
 	name = "\improper H O T E L sign"
 	desc = "A design five-hundred years old and still seen all across human space."
 	icon = 'icons/obj/structure/urban/assunzione_neon.dmi'
-	icon_state = "repair_shop"
+	icon_state = "hotel"
 
 /obj/structure/neon_sign/assunzione/chapel
-	name = "\improper  sign"
-	desc = "A design five-hundred years old and still seen all across human space."
+	name = "\improper Saint Alvisiol Chapel"
+	desc = "A local chapel consecrated by the Luceist Church, dedicated to spreading the Light of Ennoia."
 	icon = 'icons/obj/structure/urban/assunzione_neon.dmi'
 	icon_state = "assunzione"
 
@@ -711,14 +712,21 @@ ABSTRACT_TYPE(/obj/structure/stairs/urban/road_ramp_assun)
 			<b>THE SEARCH OF LIGHT IN DARKNESS.</b><br>\
 			The list of names below is terribly long, the font so small as to be barely readable at all."
 	icon = 'icons/obj/structure/urban/statues_96x160.dmi'
-	icon_state = "aec_big"
+	icon_state = "aec_large"
 	layer = 5.16 // in the biz, we call this the above above ABOVE human layer
 	pixel_x = -32
 	pixel_y = -32
+	light_range = 1.8
+	light_power = 0.75
+	light_color = LIGHT_COLOR_FAINT_CYAN
 
 /obj/structure/statue/aec/large/Initialize()
 	. = ..()
 	AddComponent(/datum/component/large_transparency)
+	AddOverlays(emissive_appearance(icon, "[icon_state]-em", src, alpha = src.alpha))
+	set_light_range_power_color(light_range, light_power, light_color)
+	set_light_on(TRUE)
+	return INITIALIZE_HINT_NORMAL
 
 /obj/structure/sign/urban
 	name = "exit sign"

@@ -1,5 +1,5 @@
 /datum/map_template/ruin/away_site/port_volturno
-	name = "Port Volturno, Triesto - ZH Spaceport"
+	name = "Assunzione (Triesto) - Port Volturno"
 	id = "port_volturno"
 	description = "A landing zone designated by local authorities within a ZH-affiliated spaceport. Accommodations have been made to ensure full visitation of any open facilities present."
 	sectors = list(SECTOR_AL_MAQDISI)
@@ -25,7 +25,7 @@
 	descriptor = "A landing zone within one of the Triesto biodomes."
 
 /obj/effect/overmap/visitable/sector/port_volturno
-	name = "Port Volturno - ZH District Spaceport"
+	name = "Assunzione (Triesto) - Port Volturno"
 	desc = "A landing zone designated by local authorities within a ZH-affiliated spaceport. Accommodations have been made to ensure full visitation of any open facilities present."
 	icon_state = "poi"
 	scanimage = "assunzione.png"
@@ -50,6 +50,5 @@
 	initial_restricted_waypoints = list(
 		"Intrepid" = list("nav_port_volturno_spaceport_intrepid"),
 		"Quark" = list("nav_port_volturno_spaceport_quark"),
-		"Spark" = list("nav_port_volturno_spaceport_spark"),
-		"Canary" = list("nav_port_volturno_spaceport_canary", "nav_port_volturno_corporate_canary"),
+		"Spark" = list("nav_port_volturno_spaceport_spark")
 	)

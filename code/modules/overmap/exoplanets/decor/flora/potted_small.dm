@@ -195,8 +195,9 @@
 	desc = "The namesake plant for Luceism, the light-centric religion of Assunzione, the Luce Vine is a fruiting vine noted for its astounding resilience to cold following the Dimming. \
 			The plant and its bioluminscent fruit, called 'luce bulbs', are considered evidence of miracle to devout Assunzioni."
 	icon_state = "plant-luce-vine"
+	light_system = MOVABLE_LIGHT
 
 /obj/item/flora/pottedplant_small/luce_vine/Initialize()
 	. = ..()
-	set_light(l_range = 1.8, l_power = 2, l_color = "#92e9ff")
+	set_light(l_range = 1.8, l_power = 2, l_color = LIGHT_COLOR_PURPLE)
 	return INITIALIZE_HINT_NORMAL

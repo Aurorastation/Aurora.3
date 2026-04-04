@@ -1433,6 +1433,17 @@
 	glass_name = "glass of Orange Starshine"
 	glass_desc = "A citrusy orange soda."
 
+/singleton/reagent/drink/orangeade
+	name = "Orangeade"
+	description = "A fizzy citrus-y splash of delight."
+	color = "#e77110"
+	taste_description = "fizzy citrus"
+	carbonated = TRUE
+
+	glass_icon_state = "glass_orange"
+	glass_name = "glass of orangeade"
+	glass_desc = "It tastes like it might be good for you, but it's not! Mmm, citrus!"
+
 //
 // Diet Soda
 //

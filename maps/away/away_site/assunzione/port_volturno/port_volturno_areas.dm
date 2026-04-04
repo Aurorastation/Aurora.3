@@ -2,7 +2,7 @@
 	name = "Port Volturno"
 	requires_power = 0
 	no_light_control = 1
-	icon_state = "dark128"
+	icon_state = "dark64"
 	area_flags = AREA_FLAG_HIDE_FROM_HOLOMAP | AREA_FLAG_RAD_SHIELDED | AREA_FLAG_INDESTRUCTIBLE_TURFS | AREA_FLAG_PREVENT_PERSISTENT_TRASH
 	base_turf = /turf/simulated/floor/exoplanet/assunzione
 	ambience = AMBIENCE_KONYANG_TRAFFIC
@@ -18,6 +18,7 @@
 
 /area/port_volturno/interior
 	name = "Port Volturno - Interior"
+	icon_state = "green"
 	sound_environment = SOUND_AREA_LARGE_ENCLOSED
 	ambience = AMBIENCE_HANGAR
 	area_has_base_lighting = FALSE
@@ -67,10 +68,6 @@
 	name = "Port Volturno - Electromechanics Shop"
 	icon_state = "machinist_workshop"
 
-/area/port_volturno/interior/arcade
-	name = "Port Volturno - Arcade"
-	area_blurb = "The deafening avalanche of arcade machines begging for your attention fill the air, all promising fantastic gaming experiences for fun and prizes."
-
 /area/port_volturno/interior/minimart
 	name = "Port Volturno - QuikStop"
 	icon_state = "merchant"
@@ -78,41 +75,38 @@
 /area/port_volturno/interior/cafe
 	name = "Port Volturno - Cafe"
 
-/area/port_volturno/interior/streetvendor
-	name = "Port Volturno - Decrepit Street Vendor"
+/area/port_volturno/interior/stafylia
+	name = "Port Volturno - Stafylia"
+	icon_state = "burg"
 
 /area/port_volturno/interior/police
 	name = "Port Volturno - Zeng-Hu Spaceport Security Department"
 	icon_state = "security"
 
-/area/port_volturno/interior/bar
-	name = "Port Volturno - Bar"
+/area/port_volturno/interior/pool
+	name = "Port Volturno - Pool"
+	icon_state = "fitness_pool"
 
-/area/port_volturno/interior/decrepit
-	name = "Port Volturno - Decrepit Apartments"
-	area_blurb = "A damp smell lingers in the air inside these dusty apartments, it might be wise to keep an eye out for mold."
+/area/port_volturno/interior/clinic
+	name = "Port Volturno - Zeng-Hu Clinic"
 
-/area/port_volturno/interior/pharmacy
-	name = "Port Volturno - Pharmacy"
+/area/port_volturno/interior/clinic/pharmacy
+	name = "Port Volturno - Zeng-Hu Clinic Pharmacy"
 
-/area/port_volturno/interior/special_ops
-	name = "Port Volturno - Conglomerate Oversight"
+/area/port_volturno/interior/clinic/storage
+	name = "Port Volturno - Zeng-Hu Clinic Storage"
 
-/area/port_volturno/interior/offices
-	name = "Port Volturno - Corporate Offices"
-
-/area/port_volturno/interior/offices/basement
-	name = "Port Volturno - Corporate Subterranean Compound"
-
-/area/port_volturno/interior/offices/headquarters
-	name = "Conglomerate Local Command Headquarters"
-
-/area/port_volturno/interior/offices/kaf
-	name = "KAF Military Base"
-
-/area/port_volturno/interior/offices/einstein
-	name = "Einstein Engines System Advisory"
-
-/area/port_volturno/interior/maint_janitorial
-	name = "Port Volturno - Maint/Janitorial"
+/area/port_volturno/interior/maintenance
+	name = "Port Volturno - Maintenance Tunnels"
+	icon_state = "green"
+	sound_environment = SOUND_AREA_SMALL_ENCLOSED
+	ambience = AMBIENCE_MAINTENANCE
 	icon_state = "maintenance"
+
+/area/port_volturno/interior/hotel
+	name = "Port Volturno - Hotel"
+	icon_state = "yellow"
+
+/area/port_volturno/interior/hotel
+	name = "Port Volturno - Hotel Basement"
+	icon_state = "yellow"

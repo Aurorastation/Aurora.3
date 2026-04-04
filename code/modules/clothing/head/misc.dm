@@ -771,6 +771,15 @@
 	icon_state = "pmc_warden_hat_nologo"
 	item_state = "pmc_warden_hat_nologo"
 
+// Assunzione security overseer hat
+/obj/item/clothing/head/peaked_cap/zenghu
+	name = "\improper Zeng-Hu peaked cap"
+	desc = "A military-style corporate peaked cap. This one bears the emblem of Zeng-Hu Pharmaceuticals."
+	icon_state = "zh_warden_hat"
+	item_state = "zh_warden_hat"
+	icon = 'icons/obj/item/clothing/department_uniforms/security.dmi'
+	contained_sprite = TRUE
+
 //goblin.stev's stuff
 /obj/item/clothing/head/qeburger_visor
 	name = "Quick-E-Burger Food Technician Visor"

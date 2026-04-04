@@ -93,9 +93,9 @@
 	desc = "The namesake plant for Luceism, the light-centric religion of Assunzione, the Luce Vine is a fruiting vine noted for its astounding resilience to cold following the Dimming. \
 			The plant and its bioluminscent fruit, called 'luce bulbs', are considered evidence of miracle to devout Assunzioni."
 	icon_state = "lvcluster_1"
-	light_range = 2
-	light_power = 3
-	light_color = LIGHT_COLOR_FAINT_CYAN
+	light_range = 3.8
+	light_power = 0.5
+	light_color = LIGHT_COLOR_PURPLE
 	layer = BASE_ABOVE_OBJ_LAYER
 
 /obj/structure/flora/assunzione/bush/lucevine/New()
