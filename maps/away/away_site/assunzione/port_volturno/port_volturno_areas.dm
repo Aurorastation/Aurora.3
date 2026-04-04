@@ -110,3 +110,11 @@
 /area/port_volturno/interior/hotel
 	name = "Port Volturno - Hotel Basement"
 	icon_state = "yellow"
+
+/area/port_volturno/interior/chapel
+	name = "Port Volturno - Chapel"
+	icon_state = "yellow"
+
+/area/port_volturno/interior/chapel/office
+	name = "Port Volturno - Chapel Office"
+	icon_state = "yellow"
