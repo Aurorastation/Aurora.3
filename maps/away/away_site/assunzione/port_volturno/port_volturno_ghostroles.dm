@@ -54,7 +54,7 @@
 /datum/ghostspawner/human/assunzione_vendor
 	short_name = "assunzione_vendor"
 	name = "Point Volturno Vendor"
-	desc = "Man the stores around Point Verdant. Sell goods to the visiting crewmembers. Try not to get shaken down by the local 5-Cheung thugs."
+	desc = "Man the stores around Port Volturno. Sell goods to the visiting crewmembers. Don't think too hard about what's probably going to happen to them in the Sea."
 	max_count = 6
 	tags = list("External")
 	spawnpoints = list("assunzione_vendor")
