@@ -14,6 +14,7 @@
 	color = "#514e5c"
 
 /turf/unsimulated/mineral/assunzione
+	name = "impassable substrate"
 	color = "#222222"
 
 /// This is a global list so we can share the same list with all mineral turfs; it's the same for all of them anyways.

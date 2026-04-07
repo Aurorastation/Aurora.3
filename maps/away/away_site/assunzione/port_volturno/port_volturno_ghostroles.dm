@@ -8,14 +8,11 @@
 	max_count = 2
 	outfit = /obj/outfit/admin/assunzione/cop
 	possible_species = list(SPECIES_HUMAN,
-							SPECIES_SKRELL,
-							SPECIES_SKRELL_AXIORI,
 							SPECIES_IPC,
 							SPECIES_IPC_XION,
 							SPECIES_IPC_ZENGHU,
 							SPECIES_IPC_BISHOP,
-							SPECIES_IPC_SHELL,
-							SPECIES_DIONA)
+							SPECIES_IPC_SHELL)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 	assigned_role = "Zeng-Hu Security Officer"
 	special_role = "Zeng-Hu Security Officer"
@@ -60,14 +57,11 @@
 	spawnpoints = list("assunzione_vendor")
 	outfit = /obj/outfit/admin/assunzione/vendor
 	possible_species = list(SPECIES_HUMAN,
-							SPECIES_SKRELL,
-							SPECIES_SKRELL_AXIORI,
 							SPECIES_IPC,
 							SPECIES_IPC_XION,
 							SPECIES_IPC_ZENGHU,
 							SPECIES_IPC_BISHOP,
-							SPECIES_IPC_SHELL,
-							SPECIES_DIONA)
+							SPECIES_IPC_SHELL)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 	assigned_role = "Point Volturno Vendor"
 	special_role = "Point Volturno Vendor"
@@ -94,14 +88,11 @@
 	spawnpoints = list("assunzione_electromechanic")
 	outfit = /obj/outfit/admin/assunzione/mechanic
 	possible_species = list(SPECIES_HUMAN,
-							SPECIES_SKRELL,
-							SPECIES_SKRELL_AXIORI,
 							SPECIES_IPC,
 							SPECIES_IPC_XION,
 							SPECIES_IPC_ZENGHU,
 							SPECIES_IPC_BISHOP,
-							SPECIES_IPC_SHELL,
-							SPECIES_DIONA)
+							SPECIES_IPC_SHELL)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 	assigned_role = "Sybdari Electromechanics Employee"
 	special_role = "Sybdari Electromechanics Employee"
@@ -127,14 +118,11 @@
 	spawnpoints = list("assunzione_clinic")
 	outfit = /obj/outfit/admin/assunzione/clinic
 	possible_species = list(SPECIES_HUMAN,
-							SPECIES_SKRELL,
-							SPECIES_SKRELL_AXIORI,
 							SPECIES_IPC,
 							SPECIES_IPC_XION,
 							SPECIES_IPC_ZENGHU,
 							SPECIES_IPC_BISHOP,
-							SPECIES_IPC_SHELL,
-							SPECIES_DIONA)
+							SPECIES_IPC_SHELL)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 	assigned_role = "Clinician"
 	special_role = "Clinician"
@@ -169,14 +157,11 @@
 	spawnpoints = list("assunzione_utility")
 	outfit = /obj/outfit/admin/assunzione/utility
 	possible_species = list(SPECIES_HUMAN,
-							SPECIES_SKRELL,
-							SPECIES_SKRELL_AXIORI,
 							SPECIES_IPC,
 							SPECIES_IPC_XION,
 							SPECIES_IPC_ZENGHU,
 							SPECIES_IPC_BISHOP,
-							SPECIES_IPC_SHELL,
-							SPECIES_DIONA)
+							SPECIES_IPC_SHELL)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 	assigned_role = "Port Volturno Utility Worker"
 	special_role = "Port Volturno Utility Worker"
@@ -202,14 +187,11 @@
 	spawnpoints = list("assunzione_stafylia")
 	outfit = /obj/outfit/admin/assunzione/stafylia
 	possible_species = list(SPECIES_HUMAN,
-							SPECIES_SKRELL,
-							SPECIES_SKRELL_AXIORI,
 							SPECIES_IPC,
 							SPECIES_IPC_XION,
 							SPECIES_IPC_ZENGHU,
 							SPECIES_IPC_BISHOP,
-							SPECIES_IPC_SHELL,
-							SPECIES_DIONA)
+							SPECIES_IPC_SHELL)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 	assigned_role = "Stafylia Employee"
 	special_role = "Stafylia Employee"

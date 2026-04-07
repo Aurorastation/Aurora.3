@@ -1,5 +1,5 @@
 /obj/structure/flora/assunzione
-	name = "native Assunzioni flora"
+	name = "native Assunzionii flora"
 	desc = "One of the species of local plantlife originally native to Assunzione, preserved now only in domes after the Dimming all but flattened the biosphere."
 	icon = 'icons/obj/flora/assunzione/grass.dmi'
 	icon_state = "stalks"
@@ -9,7 +9,7 @@
 
 /obj/structure/flora/assunzione/grass
 	name = "grass stalks"
-	desc = "Thin and tall stalks of native Assunzioni grasses, soft though slightly rubbery to the touch."
+	desc = "Thin and tall stalks of native Assunzionii grasses, soft though slightly rubbery to the touch."
 
 /obj/structure/flora/assunzione/grass/Initialize(mapload)
 	. = ..()
@@ -100,6 +100,7 @@
 
 /obj/structure/flora/assunzione/bush/lucevine/New()
 	..()
+	LOG_DEBUG("<b>Randomizing lv icon</b>")
 	icon_state = "lvcluster_[rand(1, 3)]"
 
 /obj/structure/flora/assunzione/bush/lucevine/Initialize(mapload)
@@ -108,11 +109,3 @@
 	set_light_range_power_color(light_range, light_power, light_color)
 	set_light_on(TRUE)
 	return INITIALIZE_HINT_NORMAL
-
-/obj/structure/flora/assunzione/bush/lucevine/creeper
-	icon = 'icons/obj/flora/assunzione/bush.dmi'
-	icon_state = "lvcreeper_1"
-
-/obj/structure/flora/assunzione/bush/lucevine/creeper/New()
-	..()
-	icon_state = "lvcreeper_[rand(1, 3)]"

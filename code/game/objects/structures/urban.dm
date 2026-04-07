@@ -468,6 +468,33 @@ ABSTRACT_TYPE(/obj/structure/stairs/urban/road_ramp_assun)
 	icon = 'icons/obj/structure/urban/assunzione_neon.dmi'
 	icon_state = "assunzione"
 
+/obj/structure/neon_sign/assunzione/witch_hand
+	name = "WITCH HAND"
+	desc = "A towering memorial to all the fatalities incurred over the AEC's operations. Beneath the towering ranger in bronze, a plaque reads:<br>\
+			<b>FOR ALL HEROES FALLEN;</b><br>\
+			<b>INTREPID AND PIOUS,</b><br>\
+			<b>IN THAT HOLIEST OF MISSIONS:</b><br>\
+			<b>THE SEARCH OF LIGHT IN DARKNESS.</b><br>\
+			The list of names below is terribly long, the font so small as to be barely readable at all."
+	icon = 'icons/obj/structure/urban/assunzione_96x160.dmi'
+	icon_state = "wh_sign"
+	layer = 5.16 // in the biz, we call this the above above ABOVE human layer
+	pixel_x = -32
+	pixel_y = -32
+	light_range = 3.8
+	light_power = 0.5
+	light_color = LIGHT_COLOR_VIOLET
+
+/obj/structure/neon_sign/assunzione/witch_hand/Initialize()
+	. = ..()
+	AddComponent(/datum/component/large_transparency)
+	AddOverlays(emissive_appearance(icon, "[icon_state]-em", src, alpha = src.alpha))
+	set_light_range_power_color(light_range, light_power, light_color)
+	set_light_on(TRUE)
+	bound_width = 96
+	bound_height = 96
+	return INITIALIZE_HINT_NORMAL
+
 /obj/structure/shipping_container_old
 	name = "freight container"
 	desc = "A hulking industrial shipping container, bound for who knows where."
@@ -711,14 +738,14 @@ ABSTRACT_TYPE(/obj/structure/stairs/urban/road_ramp_assun)
 			<b>IN THAT HOLIEST OF MISSIONS:</b><br>\
 			<b>THE SEARCH OF LIGHT IN DARKNESS.</b><br>\
 			The list of names below is terribly long, the font so small as to be barely readable at all."
-	icon = 'icons/obj/structure/urban/statues_96x160.dmi'
+	icon = 'icons/obj/structure/urban/assunzione_96x160.dmi'
 	icon_state = "aec_large"
 	layer = 5.16 // in the biz, we call this the above above ABOVE human layer
 	pixel_x = -32
 	pixel_y = -32
-	light_range = 1.8
-	light_power = 0.75
-	light_color = LIGHT_COLOR_FAINT_CYAN
+	light_range = 3.8
+	light_power = 0.5
+	light_color = LIGHT_COLOR_VIOLET
 
 /obj/structure/statue/aec/large/Initialize()
 	. = ..()
@@ -726,6 +753,8 @@ ABSTRACT_TYPE(/obj/structure/stairs/urban/road_ramp_assun)
 	AddOverlays(emissive_appearance(icon, "[icon_state]-em", src, alpha = src.alpha))
 	set_light_range_power_color(light_range, light_power, light_color)
 	set_light_on(TRUE)
+	bound_width = 96
+	bound_height = 96
 	return INITIALIZE_HINT_NORMAL
 
 /obj/structure/sign/urban
@@ -763,7 +792,7 @@ ABSTRACT_TYPE(/obj/structure/stairs/urban/road_ramp_assun)
 	var/list/advert_pool = list()
 	var/generic_adverts = 8
 	var/konyang_adverts = 11
-	var/assunzione_adverts = 2
+	var/assunzione_adverts = 3
 
 /obj/structure/sign/billboard/advert/random/generic/Initialize(mapload)
 	. = ..()

@@ -2,16 +2,12 @@
 	name = "Port Volturno"
 	requires_power = 0
 	no_light_control = 1
-	icon_state = "dark64"
+	icon_state = "nature_showcase"
 	area_flags = AREA_FLAG_HIDE_FROM_HOLOMAP | AREA_FLAG_RAD_SHIELDED | AREA_FLAG_INDESTRUCTIBLE_TURFS | AREA_FLAG_PREVENT_PERSISTENT_TRASH
 	base_turf = /turf/simulated/floor/exoplanet/assunzione
 	ambience = AMBIENCE_KONYANG_TRAFFIC
 	sound_environment = SOUND_ENVIRONMENT_CITY
 	is_outside = OUTSIDE_NO
-	area_has_base_lighting = TRUE
-	base_lighting_alpha = 50
-	base_lighting_color = COLOR_OFF_WHITE
-	luminosity = 0.8
 
 /area/port_volturno/exterior
 	area_blurb = "A vast dome encloses you within the open space; beyond it only is killing cold and darkness, but here, inside, it is warm and bright and welcoming."
@@ -21,7 +17,6 @@
 	icon_state = "green"
 	sound_environment = SOUND_AREA_LARGE_ENCLOSED
 	ambience = AMBIENCE_HANGAR
-	area_has_base_lighting = FALSE
 	is_outside = OUTSIDE_NO
 	area_blurb = "With the interior curvature of the dome out of sight, it's easy to imagine you're on a normal, well-lit temperate world somewhere."
 
@@ -74,10 +69,11 @@
 
 /area/port_volturno/interior/cafe
 	name = "Port Volturno - Cafe"
+	icon_state = "cafe"
 
 /area/port_volturno/interior/stafylia
 	name = "Port Volturno - Stafylia"
-	icon_state = "burg"
+	icon_state = "burglar"
 
 /area/port_volturno/interior/police
 	name = "Port Volturno - Zeng-Hu Spaceport Security Department"
@@ -89,12 +85,15 @@
 
 /area/port_volturno/interior/clinic
 	name = "Port Volturno - Zeng-Hu Clinic"
+	icon_state = "morgue"
 
 /area/port_volturno/interior/clinic/pharmacy
 	name = "Port Volturno - Zeng-Hu Clinic Pharmacy"
+	icon_state = "phar"
 
 /area/port_volturno/interior/clinic/storage
 	name = "Port Volturno - Zeng-Hu Clinic Storage"
+	icon_state = "toxstorage"
 
 /area/port_volturno/interior/maintenance
 	name = "Port Volturno - Maintenance Tunnels"
@@ -105,16 +104,12 @@
 
 /area/port_volturno/interior/hotel
 	name = "Port Volturno - Hotel"
-	icon_state = "yellow"
-
-/area/port_volturno/interior/hotel
-	name = "Port Volturno - Hotel Basement"
-	icon_state = "yellow"
+	icon_state = "locker"
 
 /area/port_volturno/interior/chapel
 	name = "Port Volturno - Chapel"
-	icon_state = "yellow"
+	icon_state = "chapel"
 
 /area/port_volturno/interior/chapel/office
 	name = "Port Volturno - Chapel Office"
-	icon_state = "yellow"
+	icon_state = "chapeloffice"

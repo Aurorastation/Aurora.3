@@ -1,7 +1,7 @@
 /datum/map_template/ruin/away_site/port_volturno
-	name = "Assunzione (Triesto) - Port Volturno"
+	name = "Assunzione - Port Volturno"
 	id = "port_volturno"
-	description = "A landing zone designated by local authorities within a ZH-affiliated spaceport. Accommodations have been made to ensure full visitation of any open facilities present."
+	description = "A landing zone designated by local authorities within a Zeng-Hu-affiliated spaceport in the planetary capital of Triesto. Accommodations have been made to ensure full visitation of any open facilities present."
 	sectors = list(SECTOR_AL_MAQDISI)
 
 	traits = list(
@@ -25,8 +25,8 @@
 	descriptor = "A landing zone within one of the Triesto biodomes."
 
 /obj/effect/overmap/visitable/sector/port_volturno
-	name = "Assunzione (Triesto) - Port Volturno"
-	desc = "A landing zone designated by local authorities within a ZH-affiliated spaceport. Accommodations have been made to ensure full visitation of any open facilities present."
+	name = "Assunzione - Port Volturno"
+	desc = "A landing zone designated by local authorities within a Zeng-Hu-affiliated spaceport in the planetary capital of Triesto. Accommodations have been made to ensure full visitation of any open facilities present."
 	icon_state = "poi"
 	scanimage = "assunzione.png"
 	place_near_main = list(0,0)
@@ -36,7 +36,7 @@
 	instant_contact = TRUE
 
 	comms_support = TRUE
-	comms_name = "Zeng-Hu Corporate Security" //these comms should only be used by Konyang Police ghostroles
+	comms_name = "Zeng-Hu Corporate Security" //these comms should only be used by ZH Security ghostroles
 	freq_name = "ZH Volturno-13-Kappa Patrol"
 
 	initial_generic_waypoints = list(

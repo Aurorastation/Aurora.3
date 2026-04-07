@@ -199,5 +199,5 @@
 
 /obj/item/flora/pottedplant_small/luce_vine/Initialize()
 	. = ..()
-	set_light(l_range = 1.8, l_power = 2, l_color = LIGHT_COLOR_PURPLE)
+	set_light(l_range = 1.4, l_power = 3, l_color = LIGHT_COLOR_PURPLE)
 	return INITIALIZE_HINT_NORMAL
