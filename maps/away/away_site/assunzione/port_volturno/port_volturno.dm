@@ -6,9 +6,9 @@
 
 	traits = list(
 		//Z1
-		list(ZTRAIT_AWAY = TRUE, ZTRAIT_UP = TRUE, ZTRAIT_DOWN = FALSE),
+		list(ZTRAIT_AWAY = TRUE, ZTRAIT_PORTOFCALL = TRUE, ZTRAIT_UP = TRUE, ZTRAIT_DOWN = FALSE),
 		//Z2
-		list(ZTRAIT_AWAY = TRUE, ZTRAIT_UP = FALSE, ZTRAIT_DOWN = TRUE),
+		list(ZTRAIT_AWAY = TRUE, ZTRAIT_PORTOFCALL = TRUE, ZTRAIT_UP = FALSE, ZTRAIT_DOWN = TRUE),
 	)
 
 	prefix = "away_site/assunzione/port_volturno/"

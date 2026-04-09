@@ -3,7 +3,7 @@
 	desc = "One of the species of local plantlife originally native to Assunzione, preserved now only in domes after the Dimming all but flattened the biosphere."
 	icon = 'icons/obj/flora/assunzione/grass.dmi'
 	icon_state = "stalks"
-	layer = ABOVE_HUMAN_LAYER
+	layer = BASE_ABOVE_OBJ_LAYER
 	anchored = TRUE
 	density = FALSE
 
@@ -93,9 +93,9 @@
 	desc = "The namesake plant for Luceism, the light-centric religion of Assunzione, the Luce Vine is a fruiting vine noted for its astounding resilience to cold following the Dimming. \
 			The plant and its bioluminscent fruit, called 'luce bulbs', are considered evidence of miracle to devout Assunzioni."
 	icon_state = "lvcluster_1"
-	light_range = 3.8
-	light_power = 0.5
-	light_color = LIGHT_COLOR_PURPLE
+	light_range = 1.4
+	light_power = 1
+	light_color = COLOR_CYAN
 	layer = BASE_ABOVE_OBJ_LAYER
 
 /obj/structure/flora/assunzione/bush/lucevine/New()

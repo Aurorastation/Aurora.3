@@ -454,7 +454,7 @@ ABSTRACT_TYPE(/obj/structure/stairs/urban/road_ramp_assun)
 	name = "\improper Sybdari Electromechanics"
 	desc = "A hybrid mechanics' bay and electronics shop that will fix just anything, from mopeds to laptops. Though not built for serious IPC work, they can help out in a pinch. A subsidiary of Iraklio Shipworks, as it happens."
 	icon = 'icons/obj/structure/urban/assunzione_neon.dmi'
-	icon_state = "repair_shop"
+	icon_state = "repair_shop_r"
 
 /obj/structure/neon_sign/assunzione/hotel
 	name = "\improper H O T E L sign"

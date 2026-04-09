@@ -208,3 +208,29 @@
 
 /obj/outfit/admin/assunzione/stafylia/get_id_access()
 	return list(ACCESS_PORTOFCALL_VENDORS)
+
+/datum/ghostspawner/human/assunzione_keeper
+	short_name = "assunzione_keeper"
+	name = "Luceist Keeper"
+	desc = "Preach the Light of Ennoia! Give out warding spheres for free to Assunzionii, and to any non-believers as well (after they fork over some donation money). Show non-believers where the ATM is!"
+	max_count = 1
+	tags = list("External")
+	spawnpoints = list("assunzione_keeper")
+	outfit = /obj/outfit/admin/assunzione/keeper
+	possible_species = list(SPECIES_HUMAN)
+	allow_appearance_change = APPEARANCE_PLASTICSURGERY
+	assigned_role = "Luceist Keeper"
+	special_role = "Luceist Keeper"
+	respawn_flag = null
+
+/obj/outfit/admin/assunzione/keeper
+	name = "Luceist Keeper"
+	uniform = /obj/item/clothing/under/assunzione/priest
+	shoes = /obj/item/clothing/shoes/laceup
+	suit = /obj/item/clothing/suit/storage/hooded/wintercoat/assunzione_robe
+	id = /obj/item/card/id
+	l_pocket = /obj/item/storage/wallet/random
+	back = /obj/item/storage/backpack/satchel
+
+/obj/outfit/admin/assunzione/keeper/get_id_access()
+	return list(ACCESS_PORTOFCALL_VENDORS)
