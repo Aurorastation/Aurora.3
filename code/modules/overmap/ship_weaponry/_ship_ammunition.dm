@@ -4,7 +4,7 @@
 	icon = 'icons/obj/projectiles.dmi'
 	icon_state = "nuke"
 	w_class = WEIGHT_CLASS_HUGE
-	slowdown = 2
+	slowdown = 1
 	drop_sound = 'sound/items/drop/shell_drop.ogg'
 	var/projectile_type_override //Override projectile type fired by the gun. This is because certain guns don't use ammo (the Leviathan) but with some we want the ammo to matter.
 	var/overmap_projectile_type_override //Override projectile type on the overmap, fired by the gun. Like the Grauwolf Probe.
@@ -224,6 +224,7 @@
 	anti_materiel_potential = 3
 	impact_sounds = list(BULLET_IMPACT_MEAT = SOUNDS_BULLET_MEAT, BULLET_IMPACT_METAL = SOUNDS_BULLET_METAL)
 	accuracy = 100
+	projectile_piercing = PASSMOB|PASSDOORS|PASSGLASS|PASSCLOSEDTURF|PASSWINDOW|PASSMACHINE|PASSBLOB|PASSFLAPS|PASSVEHICLE //It's a ship weapon let it try to penetrate everything.
 	var/obj/item/ship_ammunition/ammo
 	var/primed = FALSE
 	var/hit_target = FALSE //First target we hit. Used to report if a hit was successful.

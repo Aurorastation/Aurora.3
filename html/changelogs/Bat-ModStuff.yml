@@ -1,5 +1,0 @@
-author: Batrachophrenoboocosmomachia
-delete-after: True
-changes:
-  - qol: "Slightly increases Player Panel default window size."
-  - qol: "Improves some verb subcategorization, mostly for modmin verbs."

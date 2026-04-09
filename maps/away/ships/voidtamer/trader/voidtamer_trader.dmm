@@ -471,7 +471,7 @@
 /obj/machinery/door/airlock/hatch{
 	dir = 4;
 	name = "Airlock";
-	req_access = list(201)
+	req_access = list(256)
 	},
 /obj/machinery/door/firedoor/noid{
 	dir = 4
@@ -869,6 +869,10 @@
 "gG" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable{
+	icon_state = "1-2";
+	dir = 1
+	},
 /turf/simulated/floor/diona,
 /area/voidtamer/trader/temple)
 "gH" = (
@@ -1132,6 +1136,10 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/bed/stool/chair/office/hover/command{
+	dir = 1
+	},
+/obj/structure/cable{
+	icon_state = "1-2";
 	dir = 1
 	},
 /turf/simulated/floor/diona,
@@ -1704,6 +1712,10 @@
 /obj/structure/table/diona,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable{
+	icon_state = "1-2";
+	dir = 1
+	},
 /turf/simulated/floor/tiled/gunmetal,
 /area/voidtamer/trader/temple)
 "oj" = (
@@ -3013,7 +3025,9 @@
 /obj/machinery/light/voidtamer{
 	dir = 8
 	},
-/obj/machinery/vending/engivend,
+/obj/machinery/vending/engivend{
+	req_access = null
+	},
 /turf/simulated/floor/tiled/dark,
 /area/voidtamer/trader/mining_blaster)
 "zn" = (
@@ -3100,6 +3114,10 @@
 /obj/structure/flora/tree/crystal,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable{
+	icon_state = "1-2";
+	dir = 1
+	},
 /turf/simulated/floor/grass/no_edge,
 /area/voidtamer/trader/temple)
 "Ab" = (
@@ -3262,6 +3280,10 @@
 /obj/machinery/door/airlock/diona{
 	req_access = list(256)
 	},
+/obj/structure/cable{
+	icon_state = "1-2";
+	dir = 1
+	},
 /turf/simulated/floor/diona,
 /area/voidtamer/trader/temple)
 "Bv" = (
@@ -3299,6 +3321,12 @@
 /obj/item/reagent_containers/blood/AMinus,
 /obj/item/reagent_containers/blood/AMinus,
 /obj/item/reagent_containers/blood/OPlus,
+/obj/structure/mirror{
+	pixel_y = 35
+	},
+/obj/structure/sink{
+	pixel_y = 20
+	},
 /turf/simulated/floor/diona,
 /area/voidtamer/trader/crew)
 "BT" = (
@@ -3391,6 +3419,7 @@
 /area/voidtamer/trader/mining_blaster)
 "CY" = (
 /obj/structure/bed/roller/hover,
+/obj/item/geiger,
 /turf/simulated/floor/tiled/dark,
 /area/voidtamer/trader/supermatter)
 "Da" = (
@@ -3661,7 +3690,7 @@
 /area/voidtamer/trader/mining)
 "ES" = (
 /obj/structure/flora/pottedplant/crystal,
-/turf/simulated/floor/diona,
+/turf/simulated/floor/tiled/dark,
 /area/voidtamer/trader/supermatter)
 "EZ" = (
 /obj/effect/floor_decal/industrial/outline/engineering,
@@ -4517,11 +4546,15 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable{
+	icon_state = "1-2";
+	dir = 1
+	},
 /turf/simulated/floor/diona,
 /area/voidtamer/trader/temple)
 "LI" = (
 /obj/structure/diona/bulb,
-/obj/structure/flora/pottedplant/crystal,
+/obj/machinery/supermatter_growth_tray,
 /turf/simulated/floor/diona,
 /area/voidtamer/trader/supermatter)
 "LJ" = (
@@ -5252,6 +5285,10 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/railing/mapped,
+/obj/structure/cable{
+	icon_state = "1-2";
+	dir = 1
+	},
 /turf/simulated/floor/grass/no_edge,
 /area/voidtamer/trader/temple)
 "Sg" = (
@@ -5907,6 +5944,10 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable{
+	icon_state = "1-2";
+	dir = 1
+	},
 /turf/simulated/floor/grass/no_edge,
 /area/voidtamer/trader/temple)
 "Yc" = (
@@ -30947,7 +30988,7 @@ CK
 sD
 Uh
 re
-ES
+bs
 ZY
 kn
 RM
@@ -31463,7 +31504,7 @@ Yr
 Zt
 bs
 eJ
-dn
+ES
 DJ
 RJ
 Gm
@@ -31720,7 +31761,7 @@ xq
 Zt
 dn
 dn
-dn
+ES
 DJ
 Oh
 Gm

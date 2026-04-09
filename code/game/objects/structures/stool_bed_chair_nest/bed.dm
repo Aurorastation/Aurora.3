@@ -38,7 +38,7 @@
 	gfi_layer_rotation = GFI_ROTATION_DEFDIR
 	var/makes_rolling_sound = FALSE
 	var/held_item = null // Set to null if you don't want people to pick this up.
-	slowdown = 5
+	slowdown = 2.5
 
 	var/driving = FALSE // Shit for wheelchairs. Doesn't really get used here, but it's for code cleanliness.
 	var/mob/living/pulling = null

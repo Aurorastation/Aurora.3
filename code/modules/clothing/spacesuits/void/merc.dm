@@ -32,7 +32,7 @@
 	item_state = "syndie"
 	contained_sprite = TRUE
 	icon_supported_species_tags = list("skr", "taj", "una", "ipc")
-	slowdown = 1
+	slowdown = 0.5
 	w_class = WEIGHT_CLASS_NORMAL
 	armor = list(
 		MELEE = ARMOR_MELEE_RESISTANT,

@@ -85,8 +85,8 @@
 		RAD = ARMOR_RAD_RESISTANT
 	)
 	siemens_coefficient = 0.35
-	slowdown = 2
-	offline_slowdown = 7
+	slowdown = 1
+	offline_slowdown = 3.5
 	offline_vision_restriction = TINT_HEAVY
 	emp_protection = -20
 	max_pressure_protection = FIRESUIT_MAX_PRESSURE
@@ -169,7 +169,7 @@
 		RAD = ARMOR_RAD_SHIELDED
 	)
 	slowdown = 0
-	offline_slowdown = 3
+	offline_slowdown = 1.5
 	offline_vision_restriction = TINT_HEAVY
 
 	helm_type = /obj/item/clothing/head/helmet/space/rig/eva
@@ -246,7 +246,7 @@
 		RAD = ARMOR_RAD_SHIELDED
 	)
 	slowdown = 0
-	offline_slowdown = 3
+	offline_slowdown = 1.5
 	offline_vision_restriction = 0
 	max_heat_protection_temperature = FIRESUIT_MAX_HEAT_PROTECTION_TEMPERATURE / 1.5 // Good against fires, but not as good as a proper firesuit / atmos voidsuit
 	max_pressure_protection = FIRESUIT_MAX_PRESSURE
@@ -336,8 +336,8 @@
 		RAD = ARMOR_RAD_SHIELDED
 	)
 	siemens_coefficient = 0.50
-	slowdown = 1
-	offline_slowdown = 2
+	slowdown = 0.5
+	offline_slowdown = 1
 	offline_vision_restriction = TINT_HEAVY
 
 	helm_type = /obj/item/clothing/head/helmet/space/rig/medical
@@ -378,7 +378,7 @@
 		BIO = ARMOR_BIO_SHIELDED,
 		RAD = ARMOR_RAD_RESISTANT
 	)
-	offline_slowdown = 3
+	offline_slowdown = 1.5
 	offline_vision_restriction = TINT_HEAVY
 
 	helm_type = /obj/item/clothing/head/helmet/space/rig/hazard
@@ -424,8 +424,8 @@
 		BIO = ARMOR_BIO_SHIELDED,
 		RAD = ARMOR_RAD_SHIELDED
 	)
-	slowdown = 3
-	offline_slowdown = 4
+	slowdown = 1.5
+	offline_slowdown = 2
 	offline_vision_restriction = TINT_HEAVY
 	boot_type =  /obj/item/clothing/shoes/magboots/rig/chonk
 

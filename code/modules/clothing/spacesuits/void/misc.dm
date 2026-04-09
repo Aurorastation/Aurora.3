@@ -36,7 +36,7 @@
 		BIO = ARMOR_BIO_SHIELDED,
 		RAD = ARMOR_RAD_SMALL
 	)
-	slowdown = 1
+	slowdown = 0.5
 	allowed = list(/obj/item/flashlight,/obj/item/tank,/obj/item/suit_cooling_unit,/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/melee/energy/sword,/obj/item/handcuffs)
 	siemens_coefficient = 0.35
 	species_restricted = list(BODYTYPE_HUMAN)
@@ -75,7 +75,7 @@
 	icon_state = "vulture"
 	item_state = "vulture"
 	contained_sprite = TRUE
-	slowdown = 1
+	slowdown = 0.5
 	armor = list(
 		MELEE = ARMOR_MELEE_RESISTANT,
 		BULLET = ARMOR_BALLISTIC_MEDIUM,
@@ -110,7 +110,7 @@
 	icon_state = "xanu_voidsuit"
 	item_state = "xanu_voidsuit"
 	contained_sprite = TRUE
-	slowdown = 1
+	slowdown = 0.5
 	allowed = list(/obj/item/flashlight,/obj/item/tank,/obj/item/suit_cooling_unit,/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/melee/energy/sword,/obj/item/handcuffs)
 	siemens_coefficient = 0.35
 	species_restricted = list(BODYTYPE_HUMAN)
@@ -203,7 +203,7 @@
 		BIO = ARMOR_BIO_SHIELDED,
 		RAD = ARMOR_RAD_SMALL
 	)
-	slowdown = 1
+	slowdown = 0.5
 	allowed = list(/obj/item/tank,/obj/item/flashlight,/obj/item/suit_cooling_unit,/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/melee/energy/sword,/obj/item/handcuffs)
 	siemens_coefficient = 0.35
 	species_restricted = list(BODYTYPE_HUMAN)
@@ -239,7 +239,7 @@
 	item_state = "valkyrie"
 	icon = 'icons/obj/clothing/voidsuit/elyra.dmi'
 	contained_sprite = TRUE
-	slowdown = 1
+	slowdown = 0.5
 	armor = list(
 		MELEE = ARMOR_MELEE_RESISTANT,
 		BULLET = ARMOR_BALLISTIC_MEDIUM,
@@ -289,7 +289,7 @@
 	item_state = "lancer"
 	icon_supported_species_tags = list("una")
 	contained_sprite = TRUE
-	slowdown = 1
+	slowdown = 0.65
 	w_class = WEIGHT_CLASS_NORMAL
 	armor = list(
 		MELEE = ARMOR_MELEE_RESISTANT,
@@ -344,7 +344,7 @@
 	item_state = "banshee"
 	contained_sprite = 1
 
-	slowdown = 1
+	slowdown = 0.1
 	armor = list(
 		MELEE = ARMOR_MELEE_RESISTANT,
 		BULLET = ARMOR_BALLISTIC_MEDIUM,
@@ -396,7 +396,7 @@
 	item_state = "dragon"
 	contained_sprite = 1
 
-	slowdown = 1
+	slowdown = 0.25
 	armor = list(
 		MELEE = ARMOR_MELEE_RESISTANT,
 		BULLET = ARMOR_BALLISTIC_MEDIUM,
@@ -448,7 +448,7 @@
 	item_state = "caiman"
 	contained_sprite = 1
 
-	slowdown = 1
+	slowdown = 0.75
 	armor = list(
 		MELEE = ARMOR_MELEE_RESISTANT,
 		BULLET = ARMOR_BALLISTIC_MEDIUM,
@@ -508,7 +508,7 @@
 		BIO = ARMOR_BIO_SHIELDED,
 		RAD = ARMOR_RAD_SMALL
 	)
-	slowdown = 1
+	slowdown = 0.3
 	allowed = list(/obj/item/flashlight,/obj/item/tank,/obj/item/suit_cooling_unit,/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/melee/energy/sword,/obj/item/handcuffs)
 	siemens_coefficient = 0.35
 	species_restricted = list(BODYTYPE_HUMAN)
@@ -547,7 +547,7 @@
 	item_state = "freelancer"
 	contained_sprite = TRUE
 	icon_supported_species_tags = list("skr", "taj", "una", "ipc")
-	slowdown = 1
+	slowdown = 0.5
 	w_class = WEIGHT_CLASS_NORMAL
 	armor = list(
 		MELEE = ARMOR_MELEE_RESISTANT,
@@ -601,7 +601,7 @@
 	icon_state = "dvoidsuit"
 	item_state = "dvoidsuit"
 	contained_sprite = 1
-	slowdown = 1
+	slowdown = 0.5
 
 	w_class = WEIGHT_CLASS_NORMAL
 	armor = list(
@@ -657,7 +657,7 @@
 	icon_state = "goldsuit"
 	item_state = "goldsuit"
 	contained_sprite = 1
-	slowdown = 1
+	slowdown = 1.0
 
 	armor = list(
 		MELEE = ARMOR_MELEE_RESISTANT,
@@ -1068,7 +1068,7 @@
 		BIO = ARMOR_BIO_SHIELDED,
 		RAD = ARMOR_RAD_SMALL
 	)
-	slowdown = 1
+	slowdown = 0.5
 	allowed = list(/obj/item/flashlight,/obj/item/tank,/obj/item/suit_cooling_unit,/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/melee/energy/sword,/obj/item/handcuffs)
 	siemens_coefficient = 0.35
 	species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_SKRELL)

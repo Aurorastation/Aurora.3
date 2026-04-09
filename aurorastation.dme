@@ -1496,6 +1496,7 @@
 #include "code\game\objects\structures\watercloset.dm"
 #include "code\game\objects\structures\weapon_rack.dm"
 #include "code\game\objects\structures\weapons_rack.dm"
+#include "code\game\objects\structures\whiteboard.dm"
 #include "code\game\objects\structures\windoor_assembly.dm"
 #include "code\game\objects\structures\window.dm"
 #include "code\game\objects\structures\barricades\_barricade.dm"

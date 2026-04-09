@@ -53,7 +53,7 @@
 
 /obj/item/cargo_backpack/proc/update_state(mob/user)
 	if(LAZYLEN(contained_packages))
-		slowdown = 1
+		slowdown = 0.5
 	else
 		slowdown = 0
 	update_icon()

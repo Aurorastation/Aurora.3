@@ -326,13 +326,15 @@
 			if (prob(50))
 				Paralyse(10)
 
+	var/target_zone = ran_zone()
+
 	// focus most of the blast on one organ
-	apply_damage(0.7 * b_loss, DAMAGE_BRUTE, null, DAMAGE_FLAG_EXPLODE, used_weapon = "Explosive blast")
-	apply_damage(0.7 * f_loss, DAMAGE_BURN, null, DAMAGE_FLAG_EXPLODE, used_weapon = "Explosive blast")
+	apply_damage(0.7 * b_loss, DAMAGE_BRUTE, target_zone, "Explosive blast", DAMAGE_FLAG_EXPLODE)
+	apply_damage(0.7 * f_loss, DAMAGE_BURN, target_zone, "Explosive blast", DAMAGE_FLAG_EXPLODE)
 
 	// distribute the remaining 30% on all limbs equally (including the one already dealt damage)
-	apply_damage(0.3 * b_loss, DAMAGE_BRUTE, null, DAMAGE_FLAG_EXPLODE | DAMAGE_FLAG_DISPERSED, used_weapon = "Explosive blast")
-	apply_damage(0.3 * f_loss, DAMAGE_BURN, null, DAMAGE_FLAG_EXPLODE | DAMAGE_FLAG_DISPERSED, used_weapon = "Explosive blast")
+	apply_damage(0.3 * b_loss, DAMAGE_BRUTE, null, "Explosive blast", DAMAGE_FLAG_EXPLODE | DAMAGE_FLAG_DISPERSED)
+	apply_damage(0.3 * f_loss, DAMAGE_BURN, null, "Explosive blast", DAMAGE_FLAG_EXPLODE | DAMAGE_FLAG_DISPERSED)
 
 	UpdateDamageIcon()
 

@@ -15255,7 +15255,7 @@
 "rbF" = (
 /obj/structure/closet,
 /obj/item/reagent_containers/spray/pepper,
-/obj/item/storage/belt/security/full/disruptor,
+/obj/item/storage/belt/security/full/pistol45,
 /obj/item/handcuffs,
 /obj/item/clothing/glasses/sunglasses/aviator,
 /obj/effect/floor_decal/corner/blue/diagonal,

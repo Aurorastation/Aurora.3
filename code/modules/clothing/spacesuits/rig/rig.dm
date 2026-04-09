@@ -34,7 +34,7 @@
 	siemens_coefficient = 0.35
 	permeability_coefficient = 0.1
 	unacidable = 1
-	slowdown = 1 // All rigs by default should have slowdown.
+	slowdown = 0.5 // All rigs by default should have slowdown.
 
 	var/has_sealed_state = FALSE
 	var/has_hidden_jumpsuit = FALSE
@@ -88,7 +88,7 @@
 	var/seal_delay = SEAL_DELAY
 	var/sealing                                               // Keeps track of seal status independantly of canremove.
 	var/offline = 1                                           // Should we be applying suit maluses?
-	var/offline_slowdown = 3                                  // If the suit is deployed and unpowered, it sets slowdown to this.
+	var/offline_slowdown = 1.5                                  // If the suit is deployed and unpowered, it sets slowdown to this.
 	var/vision_restriction = TINT_NONE
 	var/offline_vision_restriction = TINT_HEAVY
 	var/airtight = 1 //If set, will adjust the ITEM_FLAG_AIRTIGHT flag on components. Otherwise it should leave them untouched.

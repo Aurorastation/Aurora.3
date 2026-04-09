@@ -5,7 +5,7 @@
 	icon_state = "generic"
 	density = TRUE
 	build_amt = 2
-	slowdown = 5
+	slowdown = 2.5
 	pass_flags_self = PASSSTRUCTURE | LETPASSCLICKS | PASSTRACE
 
 	var/icon_door = null

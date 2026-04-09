@@ -35,7 +35,7 @@ They are very slow, reasonably strong, and quite durable. They also require ligh
 		/mob/living/carbon/proc/sample,
 	)
 	//primitive_form = "Nymph"
-	slowdown = 4
+	slowdown = 1.6
 	rarity_value = 4
 	hud_type = /datum/hud_data/diona
 	siemens_coefficient = 0.3

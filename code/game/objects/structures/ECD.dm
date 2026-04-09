@@ -10,7 +10,7 @@
 	anchored = TRUE
 	density = TRUE
 	var/state = ECD_WELDED
-	slowdown = 10
+	slowdown = 5
 	layer = ABOVE_HUMAN_LAYER
 
 /obj/structure/ecd/examine(mob/user, distance, is_adjacent, infix, suffix, show_extended)

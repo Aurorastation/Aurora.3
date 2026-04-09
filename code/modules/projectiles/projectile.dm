@@ -74,7 +74,10 @@
 	var/projectile_piercing = NONE
 	/// Number of times we've pierced something. Incremented BEFORE bullet_act and on_hit proc!
 	var/pierces = 0
-
+	///The base chance that a projectile capable of piercing will actually pierce.
+	var/pierce_chance = 0
+	///Used to determine whether or not to apply embed chances on hit.
+	var/last_hit_pierced = FALSE
 	/// If objects are below this layer, we pass through them.
 	var/hit_threshhold = PROJECTILE_HIT_THRESHHOLD_LAYER
 
@@ -234,7 +237,7 @@
 
 	var/reflected = FALSE
 
-	/// If greater than zero, the projectile will pass through dense objects as specified by on_penetrate()
+	/// If greater than zero, the projectile will pass through dense objects as specified by prehit_pierce()
 	var/penetrating = 0
 
 	/// For KAs, really.
@@ -647,11 +650,17 @@
 	if((projectile_phasing & A.pass_flags_self) && (phasing_ignore_direct_target || original != A))
 		return PROJECTILE_PIERCE_PHASE
 	if(projectile_piercing & A.pass_flags_self)
-		return PROJECTILE_PIERCE_HIT
+		if (penetrating > pierces)
+			if(damage > 20 && prob(pierce_chance + damage))
+				penetrating--
+				last_hit_pierced = TRUE
+				return PROJECTILE_PIERCE_HIT
+
 	if(ismovable(A))
 		var/atom/movable/AM = A
 		if(AM.throwing)
 			return (projectile_phasing & LETPASSTHROW) ? PROJECTILE_PIERCE_PHASE : ((projectile_piercing & LETPASSTHROW)? PROJECTILE_PIERCE_HIT : PROJECTILE_PIERCE_NONE)
+	last_hit_pierced = FALSE
 	return PROJECTILE_PIERCE_NONE
 
 /obj/projectile/proc/check_ricochet(atom/A)
@@ -1137,6 +1146,9 @@
 /// Checks if the projectile is eligible for embedding. Not that it necessarily will.
 /obj/projectile/proc/can_embed()
 	//embed must be enabled and damage type must be brute
+	if (projectile_piercing & PASSMOB) //If the shot passes through you it can't embed.
+		if (last_hit_pierced)
+			return FALSE
 	if(!embed || damage_type != DAMAGE_BRUTE)
 		return FALSE
 	return TRUE
