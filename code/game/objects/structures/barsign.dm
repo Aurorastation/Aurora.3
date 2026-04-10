@@ -49,6 +49,9 @@ GLOBAL_LIST_EMPTY(marketsign_overlay_cache)
 /obj/structure/sign/double/barsign/attackby(obj/item/attacking_item, mob/user)
 	if(cult)
 		return ..()
+	if(!sign_change_allowed)
+		balloon_alert("access denied")
+		return
 	var/obj/item/card/id/card = attacking_item.GetID()
 	if(istype(card))
 		if(!check_access(card))
@@ -85,17 +88,6 @@ GLOBAL_LIST_EMPTY(marketsign_overlay_cache)
 
 	. = TRUE
 
-/obj/structure/sign/double/barsign/proc/set_sign(choice)
-	var/singleton/sign/double/chosen_singleton = text2path(choice)
-
-	name = chosen_singleton.name
-	desc = chosen_singleton.desc
-	desc_extended = chosen_singleton.desc_extended
-	icon_state = chosen_singleton.icon_state
-	currently_on = TRUE
-	on_icon_state = icon_state
-	update_icon()
-
 /obj/structure/sign/double/barsign/AltClick(mob/user) // Alt-click a sign with an empty hand to power or depower it, if it has the associated "[name]-off" state in the .dmi file.
 	if(!on_icon_state)
 		to_chat(user, SPAN_WARNING("The sign is already off!"))
@@ -111,29 +103,17 @@ GLOBAL_LIST_EMPTY(marketsign_overlay_cache)
 	var/list/sign_choices = GET_SINGLETON_SUBTYPE_MAP(choice_types)
 	return sign_choices
 
-/obj/structure/sign/double/barsign/proc/set_sign()
-	var/list/sign_choices = get_sign_choices()
-	if(!sign_change_allowed)
-		balloon_alert("access denied")
-		return
+/obj/structure/sign/double/barsign/proc/set_sign(choice)
+	var/singleton/sign/double/chosen_singleton = text2path(choice)
 
-	var/list/sign_index = list()
-	for(var/sign in sign_choices)
-		var/singleton/sign/double/B = GET_SINGLETON(sign)
-		sign_index["[B.name]"] = B
-
-	var/sign_choice = tgui_input_list(usr, "What should the sign be changed to?", "Bar Sign", sign_index)
-	if(!sign_choice)
-		return
-	var/singleton/sign/double/signselect = sign_index[sign_choice]
-
-	name = signselect.name
-	desc = signselect.desc
-	desc_extended = signselect.desc_extended
-	icon_state = signselect.icon_state
+	name = chosen_singleton.name
+	desc = chosen_singleton.desc
+	desc_extended = chosen_singleton.desc_extended
+	icon_state = chosen_singleton.icon_state
 	currently_on = TRUE
 	on_icon_state = icon_state
 	update_icon()
+
 
 // ---- Kitchen sign
 
