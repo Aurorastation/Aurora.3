@@ -44,24 +44,43 @@
 	shots = 10
 	reliability = 60
 
-/obj/item/laser_components/capacitor/nuclear/small_fail(var/mob/user, var/obj/item/gun/energy/laser/prototype/prototype)
-	for (var/mob/living/M in range(0,src)) //Only a minor failure, enjoy your radiation if you're in the same tile or carrying it
-		if (M != user)
-			to_chat(M, SPAN_WARNING("You feel a warm sensation."))
-		M.apply_effect(rand(1,10)*(prototype.criticality+1), DAMAGE_RADIATION)
+
+/obj/item/laser_components/capacitor/reinforced/small_fail(var/mob/living/user, var/obj/item/gun/energy/laser/prototype/prototype)
+	tesla_zap(prototype, 0, 1000*max((prototype.criticality / 2), 1)) //This capacitor is the safest you can make.
 	return
 
-/obj/item/laser_components/capacitor/nuclear/medium_fail(var/mob/user, var/obj/item/gun/energy/laser/prototype/prototype)
-	for (var/mob/living/M in range(round((prototype.criticality+1)),src)) //Only a minor failure, enjoy your radiation if you're in the same tile or carrying it
-		if (M != user)
-			to_chat(M, SPAN_WARNING("You feel a warm sensation."))
-		M.apply_effect(rand(1,40)*(prototype.criticality+1), DAMAGE_RADIATION)
+/obj/item/laser_components/capacitor/reinforced/medium_fail(var/mob/living/user, var/obj/item/gun/energy/laser/prototype/prototype)
+	tesla_zap(prototype, 0, 1200*max((prototype.criticality / 2), 1))
+	visible_message(SPAN_DANGER("\The [src] powering \the [prototype] mostly contains the sparks as it overloads!"), range = 3)
 	return
 
-/obj/item/laser_components/capacitor/nuclear/critical_fail(var/mob/user, var/obj/item/gun/energy/laser/prototype/prototype)
-	for (var/mob/living/M in range(rand(2,6)*(prototype.criticality+1),src))
+/obj/item/laser_components/capacitor/reinforced/critical_fail(var/mob/living/user, var/obj/item/gun/energy/laser/prototype/prototype)
+	tesla_zap(prototype, 1, 1600*max((prototype.criticality / 2), 1))
+	visible_message(SPAN_DANGER("\The [src] powering \the [prototype] goes critical but contains the worst of the sparks!"), range = 4)
+	return
+
+/obj/item/laser_components/capacitor/nuclear/small_fail(var/mob/living/user, var/obj/item/gun/energy/laser/prototype/prototype)
+	tesla_zap(prototype, 1, 1000*max(prototype.criticality, 1))
+	var/turf/T = get_turf(src)
+	for (var/mob/living/M in range(0, T)) //Only a minor failure, enjoy your radiation if you're in the same tile or carrying it
+		to_chat(M, SPAN_WARNING("You feel a warm sensation."))
+		M.apply_damage(rand(1,10)*max(prototype.criticality, 1), DAMAGE_RADIATION)
+	return
+
+/obj/item/laser_components/capacitor/nuclear/medium_fail(var/mob/living/user, var/obj/item/gun/energy/laser/prototype/prototype)
+	visible_message(SPAN_DANGER("\The [src] in \the [prototype] glows ominously as it overloads!"), range = 6)
+	var/turf/T = get_turf(src)
+	for (var/mob/living/M in range(round(max(prototype.criticality, 1)),T)) //Only a minor failure, enjoy your radiation if you're in the same tile or carrying it
+		to_chat(M, SPAN_WARNING("You feel a warm sensation."))
+		M.apply_damage(rand(1,40)*max(prototype.criticality, 1), DAMAGE_RADIATION)
+	return
+
+/obj/item/laser_components/capacitor/nuclear/critical_fail(var/mob/living/user, var/obj/item/gun/energy/laser/prototype/prototype)
+	visible_message(SPAN_DANGER("\The [src] in \the [prototype] goes critical and explodes in a burst of radiation!"), range = 6)
+	var/turf/T = get_turf(src)
+	for (var/mob/living/M in range(rand(2,6)*max(prototype.criticality, 1),T))
 		to_chat(M, SPAN_WARNING("You feel a wave of heat wash over you."))
-		M.apply_effect(300*(prototype.criticality+1), DAMAGE_RADIATION)
+		M.apply_damage(300*max(prototype.criticality, 1), DAMAGE_RADIATION)
 	..()
 
 /obj/item/laser_components/capacitor/teranium
@@ -73,16 +92,17 @@
 	reliability = 55
 
 /obj/item/laser_components/capacitor/teranium/small_fail(var/mob/user, var/obj/item/gun/energy/laser/prototype/prototype)
-	tesla_zap(prototype, 3, 1000*(prototype.criticality+1))
+	tesla_zap(prototype, 2, 1000*max(prototype.criticality, 1))
 	return
 
 /obj/item/laser_components/capacitor/teranium/medium_fail(var/mob/user, var/obj/item/gun/energy/laser/prototype/prototype)
-	tesla_zap(prototype, round((prototype.criticality+1)*2), 2000*(prototype.criticality+1))
+	visible_message(SPAN_DANGER("\The [src] in \the [prototype] shoots random arcs of electricity as it overloads!"), range = 6)
+	tesla_zap(prototype, round(max(prototype.criticality, 1)*2,1), 2000*max(prototype.criticality, 1))
 	return
 
 /obj/item/laser_components/capacitor/teranium/critical_fail(var/mob/user, var/obj/item/gun/energy/laser/prototype/prototype)
-	for (var/i = 0 to round((prototype.criticality+1)))
-		tesla_zap(prototype, round((prototype.criticality+1)*2,1), 4000*(prototype.criticality+1))
+	visible_message(SPAN_DANGER("\The [src] in \the [prototype] blasts huge lightning bolts in all directions as it goes critical!"), range = 6)
+	tesla_zap(prototype, round(max(prototype.criticality, 1)*2,1), 4000*max(prototype.criticality, 1), TRUE)
 	..()
 
 /obj/item/laser_components/capacitor/phoron
@@ -93,21 +113,37 @@
 	shots = 25
 	reliability = 50
 
-/obj/item/laser_components/capacitor/phoron/small_fail(var/mob/user, var/obj/item/gun/energy/laser/prototype/prototype)
-	for (var/mob/living/M in range(0,src)) //Only a minor failure, enjoy your radiation if you're in the same tile or carrying it
-		if (M != user)
-			to_chat(M, SPAN_WARNING("You feel a warm sensation."))
-		M.apply_effect(rand(1,10)*(prototype.criticality+1), DAMAGE_RADIATION)
+/obj/item/laser_components/capacitor/phoron/small_fail(var/mob/living/user, var/obj/item/gun/energy/laser/prototype/prototype)
+	tesla_zap(prototype, 1, 1000*max(prototype.criticality, 1))
+	var/turf/T = get_turf(src)
+	for (var/mob/living/M in range(0, T)) //Only a minor failure, enjoy your radiation if you're in the same tile or carrying it
+		to_chat(M, SPAN_WARNING("You feel a warm sensation."))
+		M.apply_damage(rand(1,10)*max(prototype.criticality, 1), DAMAGE_RADIATION)
 	return
 
-/obj/item/laser_components/capacitor/phoron/medium_fail(var/mob/user, var/obj/item/gun/energy/laser/prototype/prototype)
-	empulse(get_turf(src), 0, round((prototype.criticality+1)*3,1))
-	explosion(get_turf(prototype), 0, 0, round((prototype.criticality+1)*2,1))
+/obj/item/laser_components/capacitor/phoron/medium_fail(var/mob/living/user, var/obj/item/gun/energy/laser/prototype/prototype)
+	if (user)
+		visible_message(SPAN_DANGER("\The [src] powering \the [prototype] hisses in \the [user]'s hand and explosively vents hot phoron!"), range = 6)
+		if (prototype in list(user.l_hand))
+			user.apply_damage(25*max(prototype.criticality, 1), DAMAGE_BRUTE, BP_L_HAND, prototype, DAMAGE_FLAG_EXPLODE)
+		else if (prototype in list(user.r_hand))
+			user.apply_damage(25*max(prototype.criticality, 1), DAMAGE_BRUTE, BP_R_HAND, prototype, DAMAGE_FLAG_EXPLODE)
+	else
+		visible_message(SPAN_DANGER("\The [src] powering \the [prototype] hisses and explosively vents hot phoron!"), range = 6)
+	explosion(get_turf(prototype), 0, 0, round(max(prototype.criticality, 1)*2,1))
 	return
 
-/obj/item/laser_components/capacitor/phoron/critical_fail(var/mob/user, var/obj/item/gun/energy/laser/prototype/prototype)
-	empulse(get_turf(src), round((prototype.criticality+1),1), round((prototype.criticality+1)*4,1))
-	explosion(get_turf(prototype), 0, round((prototype.criticality+1),1), round((prototype.criticality+1)*3,1))
+/obj/item/laser_components/capacitor/phoron/critical_fail(var/mob/living/user, var/obj/item/gun/energy/laser/prototype/prototype)
+	if (user)
+		visible_message(SPAN_DANGER("\The [src] powering \the [prototype] goes critical in \the [user]'s hand causing a massive explosion!"), range = 6)
+		if (prototype in list(user.l_hand))
+			user.apply_damage(40*max(prototype.criticality, 1), DAMAGE_BRUTE, BP_L_HAND, prototype, DAMAGE_FLAG_EXPLODE)
+		else if (prototype in list(user.r_hand))
+			user.apply_damage(40*max(prototype.criticality, 1), DAMAGE_BRUTE, BP_R_HAND, prototype, DAMAGE_FLAG_EXPLODE)
+	else
+		visible_message(SPAN_DANGER("\The [src] powering \the [prototype] goes critical causing a massive explosion!"), range = 6)
+	empulse(get_turf(src), round(max(prototype.criticality, 1),1), round(max(prototype.criticality, 1)*4,1))
+	explosion(get_turf(prototype), 0, round(max(prototype.criticality, 1),1), round(max(prototype.criticality, 1)*3,1))
 	..()
 
 /obj/item/laser_components/capacitor/bluespace
@@ -118,21 +154,27 @@
 	shots = 30
 	reliability = 45
 
-/obj/item/laser_components/capacitor/bluespace/small_fail(var/mob/user, var/obj/item/gun/energy/laser/prototype/prototype)
-	for (var/mob/living/M in range(round((prototype.criticality+1),1),src))
-		empulse(get_turf(M), 0, round((prototype.criticality+1)*2,1))
+/obj/item/laser_components/capacitor/bluespace/small_fail(var/mob/living/user, var/obj/item/gun/energy/laser/prototype/prototype)
+	tesla_zap(prototype, 1, 1000*max(prototype.criticality, 1))
+	var/turf/T = get_turf(src)
+	for (var/mob/living/M in range(round(max(prototype.criticality, 1),1),T))
+		do_teleport(M, get_turf(M), rand(1,3)*round(max(prototype.criticality, 1),1), asoundin = 'sound/effects/phasein.ogg')
 	return
 
-/obj/item/laser_components/capacitor/bluespace/medium_fail(var/mob/user, var/obj/item/gun/energy/laser/prototype/prototype)
-	for (var/mob/living/M in range(round(3*(prototype.criticality+1),1),src))
-		empulse(get_turf(M), 0, round((prototype.criticality+1)*2,1))
-		do_teleport(M, get_turf(M), rand(1,3)*round((prototype.criticality+1),1), asoundin = 'sound/effects/phasein.ogg')
+/obj/item/laser_components/capacitor/bluespace/medium_fail(var/mob/living/user, var/obj/item/gun/energy/laser/prototype/prototype)
+	visible_message(SPAN_DANGER("\The [src] in \the [prototype] flickers then vanishes along with everything around it!"), range = 6)
+	var/turf/T = get_turf(src)
+	for (var/mob/living/M in range(round(3*max(prototype.criticality, 1),1),T))
+		empulse(get_turf(M), 0, round(max(prototype.criticality, 1)*2,1))
+		do_teleport(M, get_turf(M), rand(2,6)*round(max(prototype.criticality, 1),1), asoundin = 'sound/effects/phasein.ogg')
 	return
 
-/obj/item/laser_components/capacitor/bluespace/critical_fail(var/mob/user, var/obj/item/gun/energy/laser/prototype/prototype)
-	for (var/mob/living/M in range(round(6*(prototype.criticality+1),1),src))
-		empulse(get_turf(M), 0, round((prototype.criticality+1)*4,1))
-		do_teleport(M, get_turf(M), rand(6,18)*round((prototype.criticality+1),1), asoundin = 'sound/effects/phasein.ogg')
+/obj/item/laser_components/capacitor/bluespace/critical_fail(var/mob/living/user, var/obj/item/gun/energy/laser/prototype/prototype)
+	visible_message(SPAN_DANGER("\The [src] in \the [prototype] implodes in a catastrophic spatial anomaly, teleporting everything around it!"), range = 6)
+	var/turf/T = get_turf(src)
+	for (var/mob/living/M in range(round(6*max(prototype.criticality, 1),1),T))
+		empulse(get_turf(M), 0, round(max(prototype.criticality, 1)*4,1))
+		do_teleport(M, get_turf(M), rand(4,12)*round(max(prototype.criticality, 1),1), asoundin = 'sound/effects/phasein.ogg')
 	..()
 
 //Lenses
@@ -140,7 +182,7 @@
 	name = "splitter lens"
 	desc = "A focusing lens that splits the beam into several sub-beams."
 	icon_state = "splitter_lens"
-	dispersion = list(1,-1,2,-2,3,-3,4,-4,5,-5,6,-6,7,-7,8,-8,9,-9,10,-10,11,-11,12,-12,13,-13,14,-14,15,-15)
+	dispersion = list(5, 15, 25, 35, 45, 55, 65, 75)
 	burst = 4
 	accuracy = -1
 	reliability = 35
@@ -172,6 +214,8 @@
 	desc = "An internal nuclear reactor which recharges the energy cell of the weapon. Feels tingly."
 	icon_state = "mini_reactor"
 	mod_type = MOD_NUCLEAR_CHARGE
+	base_malus = 2
+	malus = 2
 	reliability = -10
 	criticality = 1.5
 
@@ -240,8 +284,6 @@
 	name = "reinforced barrel"
 	desc = "Reinforcement along the barrel extends the longevity of the prototype."
 	reliability = 25
-	base_malus = 0
-	malus = 0
 	icon_state = "reinforced_barrel"
 
 /obj/item/laser_components/modifier/barrel/nano
@@ -417,8 +459,9 @@
 
 /obj/item/laser_components/modulator/blaster
 	name = "blaster-bolt modulator"
-	desc = "Modulates the beam into firing disparate energy bolts."
-	projectile = /obj/projectile/energy/blaster/incendiary
+	desc = "Modulates the beam into firing disparate energy bolts designed to burn through armour."
+	projectile = /obj/projectile/energy/blaster/incendiary/light
+	damage = 0.8 //Specialist anti-armour incendiary projectile.
 	icon_state = "lensatic"
 	origin_tech = list(TECH_COMBAT = 2, TECH_PHORON = 4)
 

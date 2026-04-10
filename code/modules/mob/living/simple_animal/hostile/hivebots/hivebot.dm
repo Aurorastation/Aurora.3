@@ -250,8 +250,8 @@
 		SSghostroles.add_spawn_atom("hivebotdestroyer", src)
 
 /mob/living/simple_animal/hostile/hivebot/playable/Destroy()
-	. = ..()
 	SSghostroles.remove_spawn_atom("hivebotdestroyer", src)
+	return ..()
 
 /mob/living/simple_animal/hostile/hivebot/playable/ranged
 	name = "Hivebot marksman"
@@ -277,8 +277,8 @@
 		SSghostroles.add_spawn_atom("hivebotmarksman", src)
 
 /mob/living/simple_animal/hostile/hivebot/playable/ranged/Destroy()
-	. = ..()
 	SSghostroles.remove_spawn_atom("hivebotmarksman", src)
+	return ..()
 
 /mob/living/simple_animal/hostile/hivebot/playable/overseer
 	name = "Hivebot overseer"
@@ -303,8 +303,8 @@
 		SSghostroles.add_spawn_atom("hivebotoverseer", src)
 
 /mob/living/simple_animal/hostile/hivebot/playable/overseer/Destroy()
-	. = ..()
 	SSghostroles.remove_spawn_atom("hivebotoverseer", src)
+	return ..()
 
 /mob/living/simple_animal/hostile/hivebot/playable/overseer/verb/build_bot()
 	set name = "Assemble hivebot"

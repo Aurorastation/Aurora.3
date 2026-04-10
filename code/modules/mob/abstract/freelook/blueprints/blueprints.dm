@@ -46,7 +46,7 @@
 	selected_turfs = null
 	valid_z_levels = null
 	last_selected_turf = null
-	. = ..()
+	return ..()
 
 /mob/abstract/eye/blueprints/release(var/mob/user)
 	if(owner && owner.client && user == owner)

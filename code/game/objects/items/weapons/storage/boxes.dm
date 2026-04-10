@@ -513,6 +513,80 @@
 	illustration = "firingpin"
 	starts_with = list(/obj/item/firing_pin = 2, /obj/item/firing_pin/access = 2, /obj/item/firing_pin/implant/loyalty = 2, /obj/item/firing_pin/psionic = 1, /obj/item/firing_pin/dna = 1)
 
+/obj/item/storage/box/modlaser
+	name = "box of modular laser capacitors"
+	desc = "A box full of laser capacitors, used to build laser weapons."
+	color = COLOR_PURPLE_GRAY
+	illustration = "scicircuit"
+	starts_with = list(
+		/obj/item/laser_components/capacitor = 1,
+		/obj/item/laser_components/capacitor/potato = 1,
+		/obj/item/laser_components/capacitor/reinforced = 1,
+		/obj/item/laser_components/capacitor/nuclear = 1,
+		/obj/item/laser_components/capacitor/teranium = 1,
+		/obj/item/laser_components/capacitor/phoron = 2,
+		/obj/item/laser_components/capacitor/bluespace = 2
+	)
+
+/obj/item/storage/box/modlaser/modulators
+	name = "box of modular laser modulators"
+	desc = "A box full of laser modulators, used to build laser weapons."
+	illustration = "firecracker"
+	starts_with = list(
+		/obj/item/laser_components/modulator/taser = 1,
+		/obj/item/laser_components/modulator/tesla = 1,
+		/obj/item/laser_components/modulator/ion = 1,
+		/obj/item/laser_components/modulator/floramut = 1,
+		/obj/item/laser_components/modulator/floramut2 = 1,
+		/obj/item/laser_components/modulator/arodentia = 1,
+		/obj/item/laser_components/modulator/red = 1,
+		/obj/item/laser_components/modulator/blue = 1,
+		/obj/item/laser_components/modulator/omni = 1,
+		/obj/item/laser_components/modulator/practice = 1,
+		/obj/item/laser_components/modulator/mindflayer = 1,
+		/obj/item/laser_components/modulator/decloner = 1,
+		/obj/item/laser_components/modulator/ebow = 1,
+		/obj/item/laser_components/modulator/blaster = 1,
+		/obj/item/laser_components/modulator/tox = 1,
+		/obj/item/laser_components/modulator/net = 1,
+		/obj/item/laser_components/modulator/freeze = 1
+	)
+
+/obj/item/storage/box/modlaser/modifiers
+	name = "box of modular laser mods"
+	desc = "A box full of laser mods, used to build laser weapons."
+	illustration = "circuit"
+	starts_with = list(
+		/obj/item/laser_components/modifier/silencer = 1,
+		/obj/item/laser_components/modifier/aeg = 1,
+		/obj/item/laser_components/modifier/surge = 1,
+		/obj/item/laser_components/modifier/repeater = 1,
+		/obj/item/laser_components/modifier/auxiliarycap = 1,
+		/obj/item/laser_components/modifier/overcharge = 1,
+		/obj/item/laser_components/modifier/gatling = 1,
+		/obj/item/laser_components/modifier/scope = 1,
+		/obj/item/laser_components/modifier/barrel = 1,
+		/obj/item/laser_components/modifier/barrel/nano = 1,
+		/obj/item/laser_components/modifier/vents = 1,
+		/obj/item/laser_components/modifier/grip = 1,
+		/obj/item/laser_components/modifier/grip/improved = 1,
+		/obj/item/laser_components/modifier/stock = 1,
+		/obj/item/laser_components/modifier/stock/gyro = 1,
+		/obj/item/laser_components/modifier/bayonet = 1,
+		/obj/item/laser_components/modifier/ebayonet = 1
+	)
+
+/obj/item/storage/box/modlaser/lens
+	name = "box of modular laser lenses"
+	desc = "A box full of laser lenses, used to build laser weapons."
+	illustration = "petridish"
+	starts_with = list(
+		/obj/item/laser_components/focusing_lens = 2,
+		/obj/item/laser_components/focusing_lens/shotgun = 2,
+		/obj/item/laser_components/focusing_lens/sniper = 2,
+		/obj/item/laser_components/focusing_lens/strong = 2
+	)
+
 /obj/item/storage/box/unique/freezer/organcooler/psireceiver
 	name = "psionic receivers cooler"
 	desc = "A cooling box for psionic receivers, which can be surgically implanted to act as a replacement for an underdeveloped or non-existent zona bovinae. This one has a large sticker on the side reading FOR RESEARCH USE ONLY."

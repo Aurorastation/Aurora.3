@@ -4,7 +4,7 @@
 	icon_state = "smtray"
 	anchored = FALSE
 	density = TRUE
-	var/radioactivity = 25
+	var/radioactivity = RAD_LEVEL_MODERATE
 
 /obj/machinery/supermatter_growth_tray/Initialize()
 	. = ..()

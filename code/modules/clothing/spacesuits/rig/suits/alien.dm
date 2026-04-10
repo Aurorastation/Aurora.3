@@ -209,9 +209,17 @@
 	..()
 	if(wearer)
 		var/obj/item/organ/internal/augment/tesla/T = wearer.internal_organs_by_name[BP_AUG_TESLA]
-		if(T && !T.is_broken())
+		if(istype(T, /obj/item/organ/internal/augment/tesla/advanced) && !T.is_broken())
 			if(cell)
 				cell.give(T.max_charges)
+
+/obj/item/rig/tesla/toggle_seals(mob/initiator, instant)
+	var/obj/item/organ/internal/augment/tesla/T = wearer.internal_organs_by_name[BP_AUG_TESLA]
+	if(istype(T, /obj/item/organ/internal/augment/tesla/advanced) && !T.is_broken())
+		. = ..()
+	else
+		to_chat(initiator, SPAN_DANGER("Cannot toggle suit: A functional, military grade tesla spine is required to use the suit."))
+		return FALSE
 
 /obj/item/rig/tesla/ninja
 

@@ -14,7 +14,7 @@
 
 /datum/visualnet/camera/Destroy()
 	cameras.Cut()
-	. = ..()
+	return ..()
 
 /datum/visualnet/camera/add_source(obj/machinery/camera/c)
 	if(istype(c))

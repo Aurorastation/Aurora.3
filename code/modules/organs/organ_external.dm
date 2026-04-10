@@ -224,8 +224,6 @@
 
 /obj/item/organ/external/Destroy()
 
-	. = ..()
-
 	if(parent?.children)
 		parent.children -= src
 
@@ -262,7 +260,7 @@
 	QDEL_NULL(nymph)
 
 	QDEL_NULL(tendon)
-
+	return ..()
 
 /obj/item/organ/external/proc/invalidate_marking_cache()
 	cached_markings = null

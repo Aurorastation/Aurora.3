@@ -179,8 +179,8 @@
 		SSghostroles.add_spawn_atom("servant", src)
 
 /mob/living/simple_animal/hostile/giant_spider/nurse/servant/Destroy()
-	. = ..()
 	SSghostroles.remove_spawn_atom("servant", src)
+	return ..()
 
 /mob/living/simple_animal/hostile/giant_spider/on_attack_mob(var/mob/hit_mob, var/obj/item/organ/external/limb)
 	. = ..()

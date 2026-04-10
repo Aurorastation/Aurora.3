@@ -316,7 +316,7 @@
 	icon_has_variants = TRUE
 
 /obj/item/stack/material/plasteel/Destroy()
-	. = ..()
+	return ..()
 
 /obj/item/stack/material/plasteel/full/Initialize()
 	. = ..()

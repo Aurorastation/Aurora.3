@@ -84,6 +84,10 @@
 		name = capitalize(pick(GLOB.first_names_male)) + " " + capitalize(pick(GLOB.last_names))
 	real_name = name
 
+/mob/abstract/ghost/observer/Destroy()
+	QDEL_NULL(hud)
+	return ..()
+
 /mob/abstract/ghost/observer/proc/initialise_postkey(set_timers = TRUE)
 	//This function should be run after a ghost has been created and had a ckey assigned
 	if (!set_timers)

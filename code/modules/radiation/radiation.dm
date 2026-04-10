@@ -86,12 +86,12 @@
 /**
  * Called when radiation affects a /mob/living.
  *
- * * severity - The amount of radiation being applied. Anything over RAD_LEVEL_LOW will deal [severity] dispersed damage and run rad_act to everything in it.
+ * * severity - The amount of radiation being applied. Anything over RAD_LEVEL_VERY_LOW will deal [severity] dispersed damage and run rad_act to everything in it.
  *
  * Returns boolean
  */
 /mob/living/rad_act(severity)
-	if(severity > RAD_LEVEL_LOW)
+	if(severity > RAD_LEVEL_VERY_LOW)
 		apply_damage(severity, DAMAGE_RADIATION, damage_flags = DAMAGE_FLAG_DISPERSED)
 		for(var/atom/I in src)
 			I.rad_act(severity)

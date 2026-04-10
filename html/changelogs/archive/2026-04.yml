@@ -71,3 +71,76 @@
   Kano:
   - rscadd: Added whiteboards, sprites by KingOfThePing.
   - qol: Gave barsigns and its subtypes a tgui menu.
+2026-04-08:
+  FabianK3:
+  - rscadd: Extended the maint between ops and medical into the public hallway. This
+      drastically shortens the way to starboard-aft maint areas from the center of
+      the ship.
+  Fenodyree:
+  - bugfix: Fixes projectile piercing, some rifle bullets and most ship-weapons will
+      now pierce through most things.
+  - bugfix: Fixes laser shotguns having no dispersion.
+  - bugfix: Fixes laser shotguns having no delay between shots.
+  - bugfix: Fixes mod laser bluespace capacitors not teleporting you.
+  - bugfix: Fixes mod laser phoron capacitors not hurting when they explode.
+  - bugfix: Fixes mod laser malfunction messages not displaying.
+  - bugfix: Fixes mod laser wielded firedelay.
+  - bugfix: Fixes being able to spam click to repair mod laser components.
+  - bugfix: Fixes being able to attempt a repair on undamaged components.
+  - bugfix: Fixes the weapons analyzer to correctly display damage on burst fire weapons.
+  - bugfix: The power capacity of the modlasers is no longer multiplied by the shot
+      count. Instead burst fire reduces power cost.
+  - bugfix: Capacitors no longer get deleted when at reliability 0 as this broke all
+      other components. You can keep shooting until it kills you.
+  - rscadd: Adds new messages for mod laser malfunctions, visible to everyone nearby.
+  - rscadd: Adds a locker that spawns with boxes of mod laser components, mostly for
+      testing purposes.
+  - balance: Modifiers no longer break immediately, they instead degrade over multiple
+      shots.
+  - balance: Makes mod laser lenses repairable with glass or reinforced glass.
+  - balance: Adds an electric shock on all minor capacitor failures, as an instant
+      consequence, radiation was too slow to affect an in progress fight.
+  - balance: Adds a direct damage component to phoron capacitor overloads, if the
+      gun is being held.
+  - balance: Reduces the damage of mod laser blasters by 20%, cuts their AP in half
+      and halves the firestacks they cause.
+  - balance: Critical capacitor failures are now very dangerous, probably deadly without
+      apporiate protection or medical help.
+  Hellfirejag:
+  - bugfix: Fixed a hard del related to grem larva.
+  - bugfix: Fixed grem larva having no delay when attempting to flee into a vent.
+  - bugfix: Fixed a hard deleted related to ghost observers.
+  - bugfix: Fixed a hard del related to limbs being deleted in the wrong order.
+  fyni:
+  - bugfix: Fixes the sprites for the laser rifle by adding the drained states
+  - bugfix: Fixes the PRA Submarine Coat closed state not working by removing six
+      letters from the sprite sheet. Whoops!
+  - rscadd: Adds the PRA submarine coat, available in the loadout for Tajara characters.
+2026-04-09:
+  Arbiterambrose:
+  - bugfix: Fixed Vaurca and Skrell hardsuits not spawning in operative crates.
+  - balance: Added belt and back slot as choices for the thermal blade.
+  CatsinHD:
+  - rscadd: Added Kalkii Dynhvah's custom item.
+  Fenodyree:
+  - bugfix: Fixes flashbangs not damaging the hand they explode in.
+  Hellfirejag:
+  - bugfix: Fixed a hard del related to freelook cameras.
+  - bugfix: Fixed a hard delete related to telescience portals.
+  - bugfix: Fixed some hard dels related to Destroy() procs triggering in the wrong
+      order of operations.
+  TheGreyWolf:
+  - bugfix: Fixes ID being ejected on the floor when going to cryo/residential deck.
+  - rscadd: The tesla hardsuit now requires an advanced military grade tesla spine
+      to use.
+  - rscdel: The tesla hardsuit has been removed from the golden deep submap and replaced
+      with a hazard and AMI rig instead.
+2026-04-10:
+  FabianK3:
+  - bugfix: Fixed uranium golems not emitting detectable radiation by geiger counters.
+  - balance: Replaced arbitrary radioactivity values in a lot of things with new more
+      inline radiation level defines. These balances are minor and don't effect item,
+      object or material behavior.
+  - rscadd: Added a new version for radioactive green glow and waste barrels, radiation
+      level very high.
+  - rscdel: Removed the LRP hairloss on radiation exposure.

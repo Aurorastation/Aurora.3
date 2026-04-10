@@ -500,34 +500,42 @@ ABSTRACT_TYPE(/obj/structure/reagent_dispensers/radioactive_waste/hazardous)
 	. += "Characters directly adjacent to this object will be exposed to <b>[radioactivity] IU/s</b> of radiation. Radiation falls off (approximately) by 75% for every tile away you move."
 
 /obj/structure/reagent_dispensers/radioactive_waste/hazardous/low
-	radioactivity = 25
+	radioactivity = RAD_LEVEL_LOW
 
 /obj/structure/reagent_dispensers/radioactive_waste/hazardous/low/antagonist_hints(mob/user, distance, is_adjacent)
 	. += ..()
-	. += "Geiger counters will start clicking at ~7 tiles away from this object."
+	. += "Geiger counters will start clicking at ~3 tiles away from this object."
 	. += "Almost all voidsuits, including softsuits, provide sufficient protection to move safely adjacent to it."
 
 /obj/structure/reagent_dispensers/radioactive_waste/hazardous/medium
-	radioactivity = 50
+	radioactivity = RAD_LEVEL_MODERATE
 
 /obj/structure/reagent_dispensers/radioactive_waste/hazardous/medium/antagonist_hints(mob/user, distance, is_adjacent)
-	. += "Geiger counters will start clicking at ~9 tiles away from this object."
+	. += "Geiger counters will start clicking at ~5 tiles away from this object."
 	. += "An engineering voidsuit is necessary to move safely adjacent to it."
 
 /obj/structure/reagent_dispensers/radioactive_waste/hazardous/high
 	/// This is as high as radsuits can absorb! Use with caution.
-	radioactivity = 100
+	radioactivity = RAD_LEVEL_HIGH
 
 /obj/structure/reagent_dispensers/radioactive_waste/hazardous/high/antagonist_hints(mob/user, distance, is_adjacent)
+	. += "Geiger counters will start clicking at ~7 tiles away from this object."
+	. += "A radsuit is necessary to move safely adjacent to it."
+
+/obj/structure/reagent_dispensers/radioactive_waste/hazardous/very_high
+	/// This is as high as radsuits can absorb! Use with caution.
+	radioactivity = RAD_LEVEL_VERY_HIGH
+
+/obj/structure/reagent_dispensers/radioactive_waste/hazardous/very_high/antagonist_hints(mob/user, distance, is_adjacent)
 	. += "Geiger counters will start clicking at ~11 tiles away from this object."
 	. += "A radsuit is necessary to move safely adjacent to it."
 
 /obj/structure/reagent_dispensers/radioactive_waste/hazardous/extreme
 	/// This is higher than radsuits can absorb! Use with caution.
-	radioactivity = 150
+	radioactivity = RAD_LEVEL_CATASTROPHIC
 
 /obj/structure/reagent_dispensers/radioactive_waste/hazardous/extreme/antagonist_hints(mob/user, distance, is_adjacent)
-	. += "Geiger counters will start clicking at ~13 tiles away from this object."
+	. += "Geiger counters will start clicking at ~11 tiles away from this object."
 	. += "No living thing can safely stand next to this object! Borgs or IPCs only!"
 
 /obj/structure/reagent_dispensers/radioactive_waste/hazardous/Initialize()

@@ -190,6 +190,7 @@ ABSTRACT_TYPE(/datum/gear/shoes/tajara)
 	coat["fine blue coat"] = /obj/item/clothing/suit/storage/tajaran/finecoat/blue
 	coat["fancy royalist jacket"] = /obj/item/clothing/suit/storage/tajaran/fancy
 	coat["adhomian hunting coat"] = /obj/item/clothing/suit/storage/tajaran/hunting
+	coat["PRA submariner coat"] = /obj/item/clothing/suit/storage/toggle/tajaran/pra_submarine
 	gear_tweaks += new /datum/gear_tweak/path(coat)
 
 /datum/gear/suit/tajaran_labcoat

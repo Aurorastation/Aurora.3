@@ -116,7 +116,8 @@
 		QDEL_LIST(hard_drive.stored_files)
 
 	for(var/obj/item/computer_hardware/CH in src.get_all_components())
-		uninstall_component(null, CH)
+		// Eject_id is made false here as we want to delete the id too
+		uninstall_component(null, CH, eject_id = FALSE)
 		qdel(CH)
 
 	registered_id = null

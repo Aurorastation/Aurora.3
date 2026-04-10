@@ -459,11 +459,6 @@ example:
 
 #define LANDING_ZONE_RADIUS 15 // Used for autoplacing landmarks on exoplanets
 
-#define RAD_LEVEL_LOW 1 // Around the level at which radiation starts to become harmful
-#define RAD_LEVEL_MODERATE 25
-#define RAD_LEVEL_HIGH 40
-#define RAD_LEVEL_VERY_HIGH 100
-
 #define RADIATION_THRESHOLD_CUTOFF 0.1	// Radiation will not affect a tile when below this value.
 
 // Defines for formatting cooldown actions for the stat panel.
