@@ -81,8 +81,16 @@
 	icon_state = "burglar"
 
 /area/port_volturno/interior/police
-	name = "Port Volturno - Zeng-Hu Security Department"
+	name = "Port Volturno - Zeng-Hu ISD"
 	icon_state = "security"
+
+/area/port_volturno/interior/police/overseer
+	name = "Port Volturno - Zeng-Hu ISD (Overseer's Office)"
+	icon_state = "sec_hos"
+
+/area/port_volturno/interior/police/brig
+	name = "Port Volturno - Zeng-Hu ISD (Detention Area)"
+	icon_state = "brig"
 
 /area/port_volturno/interior/pool
 	name = "Port Volturno - Pool"
