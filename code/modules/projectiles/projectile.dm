@@ -531,6 +531,8 @@
 /obj/projectile/proc/can_hit_target(atom/target, direct_target = FALSE, ignore_loc = FALSE, cross_failed = FALSE)
 	if(QDELETED(target) || impacted[target.weak_reference])
 		return FALSE
+	if(target == firer && !ignore_source_check)
+		return FALSE
 	if(!ignore_loc && (loc != target.loc) && !(can_hit_turfs && direct_target && loc == target))
 		return FALSE
 	// if pass_flags match, pass through entirely - unless direct target is set.
@@ -734,8 +736,9 @@
 	if(!log_override && firer && original && !do_not_log)
 		log_combat(firer, original, "fired at", src, "from [get_area_name(src, TRUE)]")
 			//note: mecha projectile logging is handled in /obj/item/mecha_parts/mecha_equipment/weapon/action(). try to keep these messages roughly the sameish just for consistency's sake.
-	if(direct_target && (get_dist(direct_target, get_turf(src)) <= 1)) // point blank shots
-		process_hit(get_turf(direct_target), direct_target)
+	var/atom/pb_target = direct_target || original
+	if(pb_target && (get_dist(pb_target, get_turf(src)) == 0)) // point blank shots
+		process_hit(get_turf(pb_target), pb_target)
 		if(QDELETED(src))
 			return
 	var/turf/starting = get_turf(src)
@@ -978,7 +981,10 @@
 	if(target_loc)
 		yo = target_loc.y - source_loc.y
 		xo = target_loc.x - source_loc.x
-		set_angle(get_angle(src, target_loc) + deviation)
+		if(target_loc == source_loc)
+			set_angle(dir2angle(source_position.dir) + deviation)
+		else
+			set_angle(get_angle(src, target_loc) + deviation)
 		return TRUE
 
 	stack_trace("WARNING: Projectile [type] fired without a target or mouse parameters to aim with.")
@@ -1004,7 +1010,10 @@
 		var/turf/target_loc = get_turf(target)
 		var/dx = ((target_loc.x - source_loc.x) * world.icon_size) + (target.pixel_x - source.pixel_x) + (p_x - (world.icon_size / 2))
 		var/dy = ((target_loc.y - source_loc.y) * world.icon_size) + (target.pixel_y - source.pixel_y) + (target.pixel_z - source.pixel_z) + (p_y - (world.icon_size / 2))
-		angle = ATAN2(dy, dx)
+		if(!dx && !dy)
+			angle = dir2angle(source.dir)
+		else
+			angle = ATAN2(dy, dx)
 		return list(angle, p_x, p_y)
 
 	if(!ismob(source) || !LAZYACCESS(modifiers, SCREEN_LOC))

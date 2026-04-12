@@ -1,0 +1,13 @@
+author: diggiez
+
+# Optional: Remove this file after generating master changelog.  Useful for PR changelogs that won't get used again.
+delete-after: True
+
+# Any changes you've made.  See valid prefix list above.
+# INDENT WITH TWO SPACES.  NOT TABS.  SPACES.
+# SCREW THIS UP AND IT WON'T WORK.
+# Also, this gets changed to [] after reading.  Just remove the brackets when you add new shit.
+# Please surround your changes in  double quotes ("). It works without them, but if you use certain characters it screws up compiling. The quotes will not show up in the changelog.
+changes:
+  - rscadd: "Commune can now be used on adjacent objects to later send a mental image of their icon and examine, like a psionic Show-Held-Item"
+  - rscadd: "With a mental image stored, Commune may be used in hand to warp and add custom text after its description."

@@ -142,6 +142,8 @@
 	QDEL_NULL(back)
 	QDEL_NULL(l_hand)
 	QDEL_NULL(r_hand)
+	QDEL_NULL(wrists)
+	QDEL_NULL(pants)
 	// Do this last so the mob's stuff doesn't drop on del.
 	QDEL_NULL(w_uniform)
 
