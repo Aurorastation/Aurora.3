@@ -36,12 +36,17 @@
 
 //Main city buildings
 /area/port_volturno/interior/liquor_store
-	name = "Port Volturno - Liquor Store"
+	name = "Port Volturno - Duty-Free Liquor Store"
 	icon_state = "crew_quarters"
 	sound_environment = SOUND_AREA_SMALL_ENCLOSED
 
 /area/port_volturno/interior/music_store
-	name = "Port Volturno - Music Store"
+	name = "Port Volturno - PV|AV"
+	icon_state = "party"
+	sound_environment = SOUND_AREA_SMALL_ENCLOSED
+
+/area/port_volturno/interior/clothing_store
+	name = "Port Volturno - Parilti Outfitters"
 	icon_state = "party"
 	sound_environment = SOUND_AREA_SMALL_ENCLOSED
 
@@ -76,7 +81,7 @@
 	icon_state = "burglar"
 
 /area/port_volturno/interior/police
-	name = "Port Volturno - Zeng-Hu Spaceport Security Department"
+	name = "Port Volturno - Zeng-Hu Security Department"
 	icon_state = "security"
 
 /area/port_volturno/interior/pool
@@ -101,15 +106,22 @@
 	sound_environment = SOUND_AREA_SMALL_ENCLOSED
 	ambience = AMBIENCE_MAINTENANCE
 	icon_state = "maintenance"
+	area_blurb = "Even the emergency lighting here seems tuned a little brighter than seems strictly necessary."
 
 /area/port_volturno/interior/hotel
 	name = "Port Volturno - Hotel"
 	icon_state = "locker"
+	area_blurb = "Many local vendors either commute to Port Volturno daily or stay in hotels like these."
 
 /area/port_volturno/interior/chapel
-	name = "Port Volturno - Chapel"
+	name = "Port Volturno - Saint Alvisiol Chapel"
 	icon_state = "chapel"
 
 /area/port_volturno/interior/chapel/office
-	name = "Port Volturno - Chapel Office"
+	name = "Port Volturno - Saint Alvisiol Chapel (Office)"
 	icon_state = "chapeloffice"
+
+/area/port_volturno/interior/tram_station
+	name = "Port Volturno - Triesto Tram Line"
+	icon_state = "ship"
+	area_blurb = "The tram stations at Port Volturno serve not only as the fastest link to the rest of Triesto, but also as emergency shelters in the catastrophic event of a dome breach."

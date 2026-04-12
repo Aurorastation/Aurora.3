@@ -1083,6 +1083,7 @@ ABSTRACT_TYPE(/obj/structure/stairs/urban/road_ramp_assun)
 					balloon_alert_to_viewers("*unlocks*")
 					to_chat(user, SPAN_NOTICE("You unlock \the [src]."))
 
+				playsound(src.loc, hatch_open_sound, 40, TRUE, extrarange = SILENCED_SOUND_EXTRARANGE)
 				open()
 
 				//Save the list of accesses and empty them up
@@ -1101,6 +1102,7 @@ ABSTRACT_TYPE(/obj/structure/stairs/urban/road_ramp_assun)
 					balloon_alert_to_viewers("*locks*")
 					to_chat(user, SPAN_NOTICE("You lock \the [src]."))
 
+				playsound(src.loc, hatch_close_sound, 30, TRUE, extrarange = SILENCED_SOUND_EXTRARANGE)
 				close()
 
 				//Readd the list of accesses, and empty up the previous access lists

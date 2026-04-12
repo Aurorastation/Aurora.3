@@ -124,8 +124,8 @@
 							SPECIES_IPC_BISHOP,
 							SPECIES_IPC_SHELL)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
-	assigned_role = "Clinician"
-	special_role = "Clinician"
+	assigned_role = "Zeng-Hu Clinician"
+	special_role = "Zeng-Hu Clinician"
 	respawn_flag = null
 
 /datum/ghostspawner/human/assunzione_clinic/pharmacist
@@ -134,8 +134,8 @@
 	desc = "Sell medicine out of the pharmacy. Forget to check for prescriptions. Negotiate with Zeng-Hu for your latest batch of supplies."
 	spawnpoints = list("assunzione_pharm")
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
-	assigned_role = "Pharmacist"
-	special_role = "Pharmacist"
+	assigned_role = "Zeng-Hu Pharmacist"
+	special_role = "Zeng-Hu Pharmacist"
 
 /obj/outfit/admin/assunzione/clinic
 	name = "Zeng-Hu Clinician"
