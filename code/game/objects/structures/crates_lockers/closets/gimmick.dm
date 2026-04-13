@@ -124,7 +124,12 @@
 
 /obj/structure/closet/skrell
 	icon_state = "alien"
-	layer = BELOW_OBJ_LAYER
+
+/obj/structure/closet/firecloset/skrell
+	icon_state = "alien"
+
+/obj/structure/closet/emcloset/skrell
+	icon_state = "alien"
 
 /obj/structure/closet/outhouse
 	name = "outhouse"

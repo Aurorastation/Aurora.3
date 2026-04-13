@@ -23,6 +23,12 @@
 	icon_state = "rub_carpet"
 	initial_flooring = /singleton/flooring/carpet/rubber
 
+/turf/simulated/floor/carpet/rubber/airless
+	initial_gas = null
+
+/turf/simulated/floor/carpet/rubber/cooled
+	temperature = 278
+
 /turf/simulated/floor/carpet/art
 	icon_state = "artcarpet"
 	initial_flooring = /singleton/flooring/carpet/art
@@ -120,3 +126,6 @@
 /turf/simulated/floor/marble/dark
 	initial_flooring = /singleton/flooring/marble/dark
 	color = COLOR_DARK_GRAY
+
+/turf/simulated/floor/marble/dark/cooled
+	temperature = 278

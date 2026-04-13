@@ -5,6 +5,7 @@
 	icon_state = "stool_preview"
 	base_icon = "stool"
 	anchored = FALSE
+	obj_flags = OBJ_FLAG_ROTATABLE_ANCHORED
 	buckle_dir = 0
 	buckle_lying = FALSE //force people to sit up in chairs when buckled
 	build_amt = 2
@@ -92,7 +93,6 @@
 	item_state = "bar_stool"
 	base_icon = "bar_stool"
 	held_item = /obj/item/material/stool/bar
-	obj_flags = OBJ_FLAG_ROTATABLE_ANCHORED
 
 /obj/structure/bed/stool/bar/wood/New(var/newloc)
 	..(newloc, MATERIAL_WOOD)
@@ -148,10 +148,12 @@
 	can_dismantle = FALSE
 	material_alteration = MATERIAL_ALTERATION_NAME || MATERIAL_ALTERATION_DESC
 	held_item = /obj/item/material/stool/hover
+	light_system = MOVABLE_LIGHT
 
 /obj/structure/bed/stool/hover/New(var/newloc)
 	..(newloc, MATERIAL_SHUTTLE_SKRELL)
-	set_light(1,1,LIGHT_COLOR_CYAN)
+	set_light_range_power_color(2, 0.5, LIGHT_COLOR_CYAN)
+	set_light_on(TRUE)
 
 /obj/structure/bed/chair/stool/bamboo
 	name = "bamboo stool"

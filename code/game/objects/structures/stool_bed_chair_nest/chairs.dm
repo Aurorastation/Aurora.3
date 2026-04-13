@@ -154,10 +154,12 @@
 	can_dismantle = FALSE
 	can_pad = TRUE
 	held_item = null
+	light_system = MOVABLE_LIGHT
 
 /obj/structure/bed/stool/chair/office/hover/New(var/newloc)
 	..(newloc, MATERIAL_SHUTTLE_SKRELL)
-	set_light(1,1,LIGHT_COLOR_CYAN)
+	set_light_range_power_color(2, 0.5, LIGHT_COLOR_CYAN)
+	set_light_on(TRUE)
 
 /obj/structure/bed/stool/chair/office/hover/command
 	icon_state = "hover_command"

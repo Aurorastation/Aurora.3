@@ -17,7 +17,8 @@
 		/obj/structure/window/shuttle,
 		/obj/machinery/door/airlock,
 		/obj/machinery/door/unpowered/shuttle,
-		/obj/structure/shuttle/engine/propulsion
+		/obj/structure/shuttle/engine/propulsion,
+		/obj/structure/arch
 	)
 
 /turf/simulated/wall/shuttle/Initialize(mapload)

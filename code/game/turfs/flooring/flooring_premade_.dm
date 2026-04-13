@@ -227,6 +227,9 @@
 	name = "airless full plasteel tile"
 	initial_gas = null
 
+/turf/simulated/floor/tiled/dark/full/cooled
+	temperature = 278
+
 // ------------------------------- tiled/light
 
 /turf/simulated/floor/tiled/light

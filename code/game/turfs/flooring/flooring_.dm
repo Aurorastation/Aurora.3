@@ -68,6 +68,12 @@
 	wall_smooth = SMOOTH_ALL
 	space_smooth = SMOOTH_NONE
 
+/singleton/flooring/grass/recolorable
+	icon_base = "recolorable_grass"
+
+/singleton/flooring/grass/recolorable/mycelium
+	color = "#59544e"
+
 /singleton/flooring/asteroid
 	name = "coarse sand"
 	desc = "Gritty and unpleasant."

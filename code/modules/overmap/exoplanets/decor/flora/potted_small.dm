@@ -86,10 +86,12 @@
 	name = "unusual potted plant"
 	desc = "A fleshy cave dwelling plant with one small flower nodule. Its bulbous end emits a soft blue light."
 	icon_state = "plant-08"
+	light_system = MOVABLE_LIGHT
 
 /obj/item/flora/pottedplant_small/unusual/Initialize()
 	. = ..()
-	set_light(l_range = 2, l_power = 2, l_color = "#007fff")
+	set_light_range_power_color(1.5, 0.5, "#007fff")
+	set_light_on(TRUE)
 
 /obj/item/flora/pottedplant_small/smallcactus
 	name = "miniature potted cactus"

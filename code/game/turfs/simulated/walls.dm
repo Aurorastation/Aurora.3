@@ -1,3 +1,43 @@
+ABSTRACT_TYPE(/obj/structure/arch)
+	icon = 'icons/obj/structure/urban/arches.dmi'
+	icon_state = "gothic_arch_single"
+	layer = ABOVE_ABOVE_HUMAN_LAYER
+	name = "arch"
+	anchored = TRUE
+
+/obj/structure/arch/Initialize()
+	. = ..()
+	AddComponent(/datum/component/large_transparency, 0, 0, 0, 0)
+
+/obj/structure/arch/gothic/single
+
+/obj/structure/arch/gothic/left
+	icon_state = "gothic_arch_left"
+
+/obj/structure/arch/gothic/center
+	icon_state = "gothic_arch_middle"
+
+/obj/structure/arch/gothic/right
+	icon_state = "gothic_arch_right"
+
+/obj/structure/arch/skrell/left
+	icon_state = "skrellian_arch_left"
+
+/obj/structure/arch/skrell/center
+	icon_state = "skrellian_arch_middle"
+
+/obj/structure/arch/skrell/right
+	icon_state = "skrellian_arch_right"
+
+/obj/structure/arch/skrell/light/left
+	icon_state = "light_skrellian_arch_left"
+
+/obj/structure/arch/skrell/light/center
+	icon_state = "light_skrellian_arch_middle"
+
+/obj/structure/arch/skrell/light/right
+	icon_state = "light_skrellian_arch_right"
+
 /turf/simulated/wall
 	name = "wall"
 	desc = "A huge chunk of metal used to seperate compartments."
@@ -20,7 +60,8 @@
 		/obj/structure/window_frame/unanchored,
 		/obj/structure/window_frame/empty,
 		/obj/machinery/door,
-		/obj/machinery/door/airlock
+		/obj/machinery/door/airlock,
+		/obj/structure/arch
 	)
 
 	explosion_resistance = 10

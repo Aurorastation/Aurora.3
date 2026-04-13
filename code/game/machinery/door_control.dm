@@ -157,7 +157,6 @@
 		if(M.id == src.id)
 			if(M.density)
 				M.open()
-				return
 
 /*
 	Emitter remote control

@@ -188,3 +188,71 @@
 		var/turf/tile = loc
 		tile.clean_blood()
 		tile.remove_cleanables()
+
+///////////// OVERLAY EFFECTS /////////////
+/obj/effect/overlay/water
+	icon = 'icons/turf/newwater.dmi'
+	icon_state = "bottom"
+	density = FALSE
+	mouse_opacity = FALSE
+	layer = DECAL_LAYER
+	anchored = TRUE
+
+/obj/effect/overlay/water/top
+	icon_state = "top"
+
+/turf/simulated/floor/exoplanet/water/smooth
+	gender = PLURAL
+	name = "water"
+	icon = 'icons/turf/newwater.dmi'
+	icon_state = "together"
+	deep = FALSE
+	var/base_turf_icon = "together"
+	var/obj/effect/overlay/water/water_bottom_overlay
+	var/obj/effect/overlay/water/top/water_top_overlay
+	smoothing_flags = SMOOTH_TRUE | SMOOTH_BORDER | SMOOTH_NO_CLEAR_ICON
+	smoothing_hints = SMOOTHHINT_CUT_F | SMOOTHHINT_ONLY_MATCH_TURF | SMOOTHHINT_TARGETS_NOT_UNIQUE
+	var/water_color = "#6a9295"
+	var/water_level = 2
+
+/turf/simulated/floor/exoplanet/water/smooth/Initialize()
+	.  = ..()
+	return INITIALIZE_HINT_LATELOAD
+
+/turf/simulated/floor/exoplanet/water/smooth/LateInitialize()
+	icon_state = base_turf_icon
+	water_bottom_overlay = new(src)
+	water_top_overlay = new(src)
+	update_icon()
+
+/turf/simulated/floor/exoplanet/water/smooth/update_icon()
+	var/turf/T = get_turf(src)
+	if(water_bottom_overlay)
+		water_bottom_overlay.color = water_color
+		water_bottom_overlay.icon_state = "bottom[water_level]"
+		if(locate(/obj/structure/lattice) in T)
+			water_bottom_overlay = DECAL_LAYER
+	if(water_top_overlay)
+		water_top_overlay.color = water_color
+		water_top_overlay.icon_state = "top[water_level]"
+		if(locate(/obj/structure/lattice) in T)
+			water_top_overlay = DECAL_LAYER
+
+/turf/simulated/floor/exoplanet/water/smooth/Entered(atom/movable/AM, atom/oldLoc)
+	. = ..()
+	if(locate(/obj/structure/lattice) in get_turf(src))
+		movement_cost = 0
+		return
+
+	if(AM && !AM.throwing)
+		water_bottom_overlay?.layer = isliving(AM) ? ABOVE_HUMAN_LAYER : ABOVE_STRUCTURE_LAYER
+
+/turf/simulated/floor/exoplanet/water/smooth/Exited(atom/movable/AM, atom/newloc)
+	. = ..()
+	if(AM && !locate(AM) in get_turf(src)) // check if there's anything left in this turf, remove the overlay if nothing is found
+		water_bottom_overlay?.layer = BELOW_DOOR_LAYER
+
+/turf/simulated/floor/exoplanet/water/smooth/swamp
+	name = "murk"
+	desc = "Weeds and algae cover the surface of the water."
+	water_color = "#705a43"

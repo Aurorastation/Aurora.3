@@ -657,10 +657,12 @@
 	makes_rolling_sound = FALSE
 	held_item = /obj/item/roller/hover
 	has_iv_light = FALSE
+	light_system = MOVABLE_LIGHT
 
 /obj/structure/bed/roller/hover/Initialize()
 	.=..()
-	set_light(2,1,LIGHT_COLOR_CYAN)
+	set_light_range_power_color(2, 0.5, LIGHT_COLOR_CYAN)
+	set_light_on(TRUE)
 
 /obj/item/roller
 	name = "roller bed"

@@ -110,6 +110,14 @@
 /turf/simulated/floor/grass/no_edge
 	has_edge_icon = FALSE
 
+ABSTRACT_TYPE(/turf/simulated/floor/grass/recolorable)
+	icon_state = "recolorable_grass0"
+
+/turf/simulated/floor/grass/recolorable/mycelium
+	name = "mycelium patch"
+	color = "#59544e"
+	initial_flooring = /singleton/flooring/grass/recolorable/mycelium
+
 /turf/simulated/floor/diona
 	name = "biomass flooring"
 	icon = 'icons/turf/flooring/diona.dmi'

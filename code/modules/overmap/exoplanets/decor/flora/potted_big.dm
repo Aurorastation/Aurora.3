@@ -144,10 +144,12 @@
 	name = "unusual potted plant"
 	desc = "A fleshy cave dwelling plant with huge nodules for flowers. Its bulbous ends emit a soft blue light."
 	icon_state = "plant-09"
+	light_system = MOVABLE_LIGHT
 
 /obj/structure/flora/pottedplant/unusual/Initialize()
 	. = ..()
-	set_light(l_range = 2, l_power = 2, l_color = "#007fff")
+	set_light_range_power_color(3, 2, "#007fff")
+	set_light_on(TRUE)
 
 /obj/structure/flora/pottedplant/cherrytree
 	name = "potted cherry blossom tree"

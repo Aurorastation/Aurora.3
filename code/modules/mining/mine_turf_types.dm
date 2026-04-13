@@ -182,3 +182,11 @@
 	base_icon = 'icons/turf/smooth/rocky_ash.dmi'
 	desc = "A fine grey ash. Seems to contain medium-sized rocks."
 
+/turf/simulated/floor/cave
+	icon = 'icons/turf/cave_floor.dmi'
+	icon_state = "cave"
+	color = "#3b3b3a"
+
+/turf/simulated/floor/cave/Initialize()
+	. = ..()
+	icon_state = "cave_[rand(1, 7)]"

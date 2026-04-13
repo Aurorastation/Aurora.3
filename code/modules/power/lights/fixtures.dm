@@ -677,13 +677,15 @@
 /obj/machinery/light/skrell
 	base_state = "skrell"
 	icon_state = "skrell_empty"
-	supports_nightmode = FALSE
 	fitting = "skrell"
+	supports_nightmode = FALSE
 	bulb_is_noisy = FALSE
-	light_type = /obj/item/light/tube
-	inserted_light = /obj/item/light/tube
-	brightness_power = 0.45
 	brightness_color = LIGHT_COLOR_PURPLE
+	randomize_color = FALSE
+
+/obj/machinery/light/skrell/set_pixel_offsets()
+	pixel_x = dir & (NORTH|SOUTH) ? 0 : (dir == EAST ? 8 : -8)
+	pixel_y = dir & (NORTH|SOUTH) ? (dir == NORTH ? 18 : -2) : 0
 
 /obj/machinery/light/spot
 	name = "spotlight fixture"
@@ -751,7 +753,7 @@
 	icon_state = "floortube_maybe_broken"
 
 /obj/machinery/light/floor/decayed
-	brightness_color = "#fabd6d"
+	brightness_color = LIGHT_COLOR_DECAYED
 	randomize_color = FALSE
 	brightness_power = 0.3
 
