@@ -224,8 +224,6 @@
 
 /obj/item/organ/external/Destroy()
 
-	. = ..()
-
 	if(parent?.children)
 		parent.children -= src
 
@@ -262,7 +260,7 @@
 	QDEL_NULL(nymph)
 
 	QDEL_NULL(tendon)
-
+	return ..()
 
 /obj/item/organ/external/proc/invalidate_marking_cache()
 	cached_markings = null
@@ -512,7 +510,8 @@
 	update_damages()
 	if(owner)
 		owner.updatehealth() //droplimb will call updatehealth() again if it does end up being called
-	update_icon()
+	if (update_icon())
+		SEND_SIGNAL(src, COMSIG_UPDATE_LIMB_IMAGE)
 
 	return created_wound
 
@@ -1359,6 +1358,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 			burn_mod = R.burn_mod
 			robotize_type = company
 			augment_limit += 1	//robotic limbs get one extra augment capacity
+			SEND_SIGNAL(src, COMSIG_UPDATE_LIMB_IMAGE)
 
 	dislocated = -1 //TODO, make robotic limbs a separate type, remove snowflake
 	limb_flags &= ~ORGAN_CAN_BREAK
@@ -1709,6 +1709,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 		return
 	var/last_pain = pain
 	pain = max(0, min(species.total_health * 2, pain - amount))
+	SEND_SIGNAL(src, COMSIG_UPDATE_LIMB_IMAGE)
 	return -(pain-last_pain)
 
 /obj/item/organ/external/proc/add_pain(var/amount)

@@ -235,12 +235,6 @@
 					Weaken(3)
 					if(!lying)
 						emote("collapse")
-				if(prob(5) && prob(100 * RADIATION_SPEED_COEFFICIENT) && species.name == SPECIES_HUMAN) //apes go bald
-					if((h_style != "Bald" || f_style != "Shaved" ))
-						to_chat(src, SPAN_WARNING("Your hair falls out."))
-						h_style = "Bald"
-						f_style = "Shaved"
-						update_hair()
 
 			if (total_radiation > 75)
 				src.apply_radiation(-1 * RADIATION_SPEED_COEFFICIENT)
@@ -1206,31 +1200,50 @@
 			else if (prob(1))
 				vomit()
 
-	//0.1% chance of playing a scary sound to someone who's in complete darkness
-	if(isturf(loc) && rand(1,1000) == 1)
-		var/turf/T = loc
-		if (T.get_lumcount() < 0.01)	// give a little bit of tolerance for near-dark areas.
-			playsound(null, pick(GLOB.scarySounds), 50, TRUE)
+	// Handle turf brightness behavior:
+	if(isturf(loc))
+		var/turf/T
+		// 0.1% chance of playing a scary sound to someone who's in complete darkness
+		if(rand(1,1000) == 1)
+			T = loc
+			if(T.get_lumcount() < 0.05)	// give a little bit of tolerance for near-dark areas.
+				playsound(null, pick(GLOB.scarySounds), 50, TRUE)
 
+		// People who are afraid of the dark get anxious.
 		if(HAS_TRAIT(src, TRAIT_ORIGIN_DARK_AFRAID))
-			if(T.get_lumcount() < 0.1)
-				if(prob(2))
-					var/list/assunzione_messages = list(
-						"You feel a bit afraid...",
-						"You feel somewhat nervous...",
-						"You could use a little light here...",
-						"Ennoia be with you, it's a bit too dark..."
-					)
-					to_chat(src, SPAN_WARNING(pick(assunzione_messages)))
+			T = loc
+			if(prob(2) && T.get_lumcount() < 0.2)
+				var/list/afraid_of_the_dark_messages = list(
+					"You feel a bit afraid...",
+					"You feel somewhat nervous...",
+					"You could use a little light here...",
+					"It's dark enough that you feel a little anxious..."
+				)
+				to_chat(src, SPAN_WARNING(pick(afraid_of_the_dark_messages)))
 
+		// People sensitive to light get eye strain.
 		if(HAS_TRAIT(src, TRAIT_ORIGIN_LIGHT_SENSITIVE))
-			if(T.get_lumcount() > 0.8)
-				if(prob(1))
-					if(prob(5))
+			T = loc
+			// From testing, this generally leaves several minutes between each message.
+			if(prob(1) && T.get_lumcount() > 0.8)
+				var/mob/living/carbon/human/self = src
+
+				// If you have this trait, your default flash protection is -1; check for ANY protection.
+				var/flash_protection = self.get_flash_protection()
+
+				// I hate this. We removed flash protection from basic sunglasses for 'powergaming concerns.'
+				// Check if we're wearing the stupid fake loadout sunglasses.
+				// Yes this is stupid. Remove this when we rebalance flash protection to be a 0-100 threshold.
+				var/fakesunglasses = istype(self?.glasses, /obj/item/clothing/glasses/fakesunglasses)
+
+				if(!flash_protection && !fakesunglasses)
+					var/obj/item/organ/eyes = self.get_eyes()
+					if(istype(eyes))
+						self.eye_blurry = max(self.eye_blurry, 6)
 						var/list/eye_sensitivity_messages = list(
-							"Your eyes tire a bit.",
-							"Your eyes sting a little.",
-							"Your vision feels a bit strained."
+							"Your eyes tire a bit from the brightness.",
+							"Your eyes sting a little; it's too bright.",
+							"The bright light leaves your vision strained."
 						)
 						to_chat(src, SPAN_WARNING(pick(eye_sensitivity_messages)))
 

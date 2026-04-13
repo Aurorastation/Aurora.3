@@ -477,6 +477,8 @@ ABSTRACT_TYPE(/obj/item/gun)
 
 	// Custom formula here because otherwise you can fire bursts within the burst.
 	var/shoot_time = burst > 1 ? burst_delay + 1 : fire_delay
+	if (burst > 1 && burst_delay == 0) //Prevents guns with no burst delay (laser shotguns) from firing as fast as you can click.
+		shoot_time = fire_delay
 	user.setClickCooldown(shoot_time)
 
 /// Similar to the Fire() proc, but does not require a user, which is ideal for things like turrets.
@@ -994,9 +996,9 @@ ABSTRACT_TYPE(/obj/item/gun)
  */
 /obj/item/gun/proc/handle_reliability_fail(var/mob/user)
 	var/severity = 1
-	if(prob(100-reliability))
+	if(prob(80-reliability)) //Medium severity failures only possible under 80% reliability.
 		severity = 2
-		if(prob(100-reliability))
+		if(prob(65-reliability)) //Critical failures only possible under 65% reliability.
 			severity = 3
 	switch(severity)
 		if(1)

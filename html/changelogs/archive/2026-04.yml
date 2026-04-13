@@ -61,3 +61,148 @@
   kermit:
   - qol: 'Light''s Edge AI Lobby Announcement: 10dB noise reduction, sample rate reduced
       to 16mHz like other AI lobby announcements'
+2026-04-06:
+  Batrachophrenoboocosmomachia:
+  - bugfix: Fixes Callistean and Europan origins not being listed for Sol compatibility.
+  Yonnimer:
+  - balance: Gives Geras Dionae a general speed buff, taking them from 2.2x slower
+      than humans to about 1.5, or a little faster than G2S.
+2026-04-07:
+  Kano:
+  - rscadd: Added whiteboards, sprites by KingOfThePing.
+  - qol: Gave barsigns and its subtypes a tgui menu.
+2026-04-08:
+  FabianK3:
+  - rscadd: Extended the maint between ops and medical into the public hallway. This
+      drastically shortens the way to starboard-aft maint areas from the center of
+      the ship.
+  Fenodyree:
+  - bugfix: Fixes projectile piercing, some rifle bullets and most ship-weapons will
+      now pierce through most things.
+  - bugfix: Fixes laser shotguns having no dispersion.
+  - bugfix: Fixes laser shotguns having no delay between shots.
+  - bugfix: Fixes mod laser bluespace capacitors not teleporting you.
+  - bugfix: Fixes mod laser phoron capacitors not hurting when they explode.
+  - bugfix: Fixes mod laser malfunction messages not displaying.
+  - bugfix: Fixes mod laser wielded firedelay.
+  - bugfix: Fixes being able to spam click to repair mod laser components.
+  - bugfix: Fixes being able to attempt a repair on undamaged components.
+  - bugfix: Fixes the weapons analyzer to correctly display damage on burst fire weapons.
+  - bugfix: The power capacity of the modlasers is no longer multiplied by the shot
+      count. Instead burst fire reduces power cost.
+  - bugfix: Capacitors no longer get deleted when at reliability 0 as this broke all
+      other components. You can keep shooting until it kills you.
+  - rscadd: Adds new messages for mod laser malfunctions, visible to everyone nearby.
+  - rscadd: Adds a locker that spawns with boxes of mod laser components, mostly for
+      testing purposes.
+  - balance: Modifiers no longer break immediately, they instead degrade over multiple
+      shots.
+  - balance: Makes mod laser lenses repairable with glass or reinforced glass.
+  - balance: Adds an electric shock on all minor capacitor failures, as an instant
+      consequence, radiation was too slow to affect an in progress fight.
+  - balance: Adds a direct damage component to phoron capacitor overloads, if the
+      gun is being held.
+  - balance: Reduces the damage of mod laser blasters by 20%, cuts their AP in half
+      and halves the firestacks they cause.
+  - balance: Critical capacitor failures are now very dangerous, probably deadly without
+      apporiate protection or medical help.
+  Hellfirejag:
+  - bugfix: Fixed a hard del related to grem larva.
+  - bugfix: Fixed grem larva having no delay when attempting to flee into a vent.
+  - bugfix: Fixed a hard deleted related to ghost observers.
+  - bugfix: Fixed a hard del related to limbs being deleted in the wrong order.
+  fyni:
+  - bugfix: Fixes the sprites for the laser rifle by adding the drained states
+  - bugfix: Fixes the PRA Submarine Coat closed state not working by removing six
+      letters from the sprite sheet. Whoops!
+  - rscadd: Adds the PRA submarine coat, available in the loadout for Tajara characters.
+2026-04-09:
+  Arbiterambrose:
+  - bugfix: Fixed Vaurca and Skrell hardsuits not spawning in operative crates.
+  - balance: Added belt and back slot as choices for the thermal blade.
+  CatsinHD:
+  - rscadd: Added Kalkii Dynhvah's custom item.
+  Fenodyree:
+  - bugfix: Fixes flashbangs not damaging the hand they explode in.
+  Hellfirejag:
+  - bugfix: Fixed a hard del related to freelook cameras.
+  - bugfix: Fixed a hard delete related to telescience portals.
+  - bugfix: Fixed some hard dels related to Destroy() procs triggering in the wrong
+      order of operations.
+  TheGreyWolf:
+  - bugfix: Fixes ID being ejected on the floor when going to cryo/residential deck.
+  - rscadd: The tesla hardsuit now requires an advanced military grade tesla spine
+      to use.
+  - rscdel: The tesla hardsuit has been removed from the golden deep submap and replaced
+      with a hazard and AMI rig instead.
+2026-04-10:
+  FabianK3:
+  - bugfix: Fixed uranium golems not emitting detectable radiation by geiger counters.
+  - balance: Replaced arbitrary radioactivity values in a lot of things with new more
+      inline radiation level defines. These balances are minor and don't effect item,
+      object or material behavior.
+  - rscadd: Added a new version for radioactive green glow and waste barrels, radiation
+      level very high.
+  - rscdel: Removed the LRP hairloss on radiation exposure.
+2026-04-11:
+  Hellfirejag:
+  - bugfix: Fixed a hard delete related to pants.
+2026-04-12:
+  Fenodyree:
+  - bugfix: Fixes the health doll not updating when pain goes away.
+  - bugfix: Fixes robot limbs not showing in the health doll, unless they have been
+      repaired.
+  Hellfirejag:
+  - bugfix: Fixed the ability to close airlocks by clicking on the tile underneath
+      them.
+  - bugfix: Fixed LED collars not emitting light when attached to clothing.
+  - bugfix: Admins and CCIAA now have a universal translator for faxes, letting them
+      read any fax via admin command, regardless of language markings used.
+  - bugfix: Fixed the IIS module not allowing a PAI to actually do anything with a
+      hardsuit.
+  - bugfix: Fixed an astoundingly massive memory leak related to Instruments.
+  - bugfix: Fixed color blind traits not working.
+  - bugfix: Fixed projectile hit detection for point-blank situations. It's no longer
+      possible to run into your own projectiles. You can take a human shield and either
+      shoot through your human shield, or kill them by clicking their head.
+  - bugfix: Fixed surgically removing a positronic brain deleting it and ghosting
+      the player, you now correctly get a sentient cube.
+  - bugfix: Fixed posibrains despawning instantly when joined as a ghostrole. They
+      have souls, this is proof!
+  - bugfix: Fixed implanted medical and security huds flickering.
+  - rscadd: Components and Implants can now add hud elements via signals.
+  arrow768:
+  - refactor: Refactored the air alarm, atmospheric alert computer, oxygen regenerator,
+      omni gas mixer, and omni gas filter from NanoUI to TGUI.
+  - refactor: Updates the Library Machines to TGUI
+2026-04-13:
+  Batrachophrenoboocosmomachia:
+  - bugfix: Fixes light and dark sensitivity trait behaviors being locked behind an
+      unrelated rare prob event.
+  - balance: Makes light sensitivity apply the basic low-level flash effect when triggered
+      (trivial eye damage that immediately heals, very brief translucent grey overlay).
+  - balance: Makes minor+ flash protection (basic sunglasses etc.) protect against
+      bright lights for affected characters.
+  Hellfirejag:
+  - bugfix: Made a 2nd attempt to fix the instruments memory leak.
+  - rscdel: Sheet Snatchers no longer flood your chat with messages.
+  - bugfix: Fixed a hard delete in water effects.
+  - bugfix: Fixed a memory leak related to projectiles.
+  - bugfix: Finally fixed the pants memory leak. It is no longer possible to accidentally
+      put Abstract (not real) pants in your loadout.
+  - bugfix: Fixed drugs being extremely chat spammy.
+  - bugfix: Tweaked bluespace techs to hold a weakref to their original mob instead
+      of a real reference, in order to mitigate race condition hard deletes.
+  - bugfix: Fixed a spammy nonsense runtime error related to signals.
+  - bugfix: Fixed doors with shutters not responding to clicking the tile underneath
+      them.
+  - bugfix: Fixed numerous hard dels that were universal to all hostile mobs.
+  arrow768:
+  - bugfix: Fixes being unable to change the temperature on an air alarm without unlocking
+      it.
+  - rscdel: Fixes missing toolbar after unlocking the air alarm.
+  diggiez:
+  - rscadd: Commune can now be used on adjacent objects to later send a mental image
+      of their icon and examine, like a psionic Show-Held-Item
+  - rscadd: With a mental image stored, Commune may be used in hand to warp and add
+      custom text after its description.

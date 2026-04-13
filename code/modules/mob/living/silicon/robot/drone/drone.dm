@@ -264,8 +264,8 @@
 		request_player()
 
 /mob/living/silicon/robot/drone/construction/matriarch/Destroy()
-	. = ..()
 	SSghostroles.remove_spawn_atom("matriarchmaintdrone", src)
+	return ..()
 
 /mob/living/silicon/robot/drone/construction/matriarch/request_player()
 	SSghostroles.add_spawn_atom("matriarchmaintdrone", src)

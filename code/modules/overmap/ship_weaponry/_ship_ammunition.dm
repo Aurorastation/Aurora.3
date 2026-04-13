@@ -224,6 +224,7 @@
 	anti_materiel_potential = 3
 	impact_sounds = list(BULLET_IMPACT_MEAT = SOUNDS_BULLET_MEAT, BULLET_IMPACT_METAL = SOUNDS_BULLET_METAL)
 	accuracy = 100
+	projectile_piercing = PASSMOB|PASSDOORS|PASSGLASS|PASSCLOSEDTURF|PASSWINDOW|PASSMACHINE|PASSBLOB|PASSFLAPS|PASSVEHICLE //It's a ship weapon let it try to penetrate everything.
 	var/obj/item/ship_ammunition/ammo
 	var/primed = FALSE
 	var/hit_target = FALSE //First target we hit. Used to report if a hit was successful.

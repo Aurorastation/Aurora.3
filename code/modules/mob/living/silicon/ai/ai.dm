@@ -363,8 +363,8 @@ GLOBAL_LIST_INIT(ai_verbs_default, list(
 	use_power_oneoff(1) // Just incase we need to wake up the power system.
 
 /obj/machinery/ai_powersupply/Destroy()
-	. = ..()
 	powered_ai = null
+	return ..()
 
 /obj/machinery/ai_powersupply/process()
 	if(!powered_ai || powered_ai.stat == DEAD)

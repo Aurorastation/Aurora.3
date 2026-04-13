@@ -143,7 +143,7 @@
 	/// Their current growth, from 0-100.
 	var/growth_level = 0
 	var/obj/machinery/atmospherics/unary/vent_pump/entry_vent
-	var/travelling_in_vent = 0
+	var/travelling_in_vent = FALSE
 	/// Possible creatures the larva can mature into.
 	var/list/possible_offspring = list(
 		/mob/living/simple_animal/hostile/giant_spider,
@@ -192,7 +192,7 @@
 /obj/effect/spider/spiderling/process()
 	if(travelling_in_vent)
 		if(istype(src.loc, /turf))
-			travelling_in_vent = 0
+			travelling_in_vent = FALSE
 			entry_vent = null
 	else if(entry_vent)
 		if(get_dist(src, entry_vent) <= 1)
@@ -207,8 +207,9 @@
 
 				spawn(rand(20,60))
 					if(!QDELETED(src))
-						loc = exit_vent
 						var/travel_time = round(get_dist(loc, exit_vent.loc) / 2)
+						travelling_in_vent = TRUE
+						loc = exit_vent
 						spawn(travel_time)
 							if(!QDELETED(src))
 								if(!exit_vent || exit_vent.welded)
@@ -219,6 +220,9 @@
 								if(prob(50))
 									visible_message(SPAN_NOTICE("You hear something squeezing through the ventilation ducts."), range = 2)
 								sleep(travel_time)
+								// It's possible for the grem to get qdel'd during the sleep above this line.
+								if(QDELETED(src))
+									return
 
 								if(!exit_vent || exit_vent.welded)
 									loc = entry_vent

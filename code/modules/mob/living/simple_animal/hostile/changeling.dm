@@ -203,9 +203,9 @@
 	mind.assigned_role = "Changeling"
 
 /mob/living/simple_animal/hostile/lesser_changeling/Destroy()
-	. = ..()
 	QDEL_NULL(occupant)
 	QDEL_NULL(untransform_occupant)
+	return ..()
 
 /mob/living/simple_animal/hostile/lesser_changeling/proc/add_untransform_verb()
 	if(!occupant)

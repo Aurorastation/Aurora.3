@@ -56,6 +56,10 @@
 	AddOverlays(emissive_overlay)
 	set_light(MINIMUM_USEFUL_LIGHT_RANGE, 2, LIGHT_COLOR_TUNGSTEN)
 
+/mob/living/simple_animal/hostile/ipc_zombie/Destroy()
+	QDEL_NULL(screen_overlay)
+	return ..()
+
 /mob/living/simple_animal/hostile/ipc_zombie/update_icon()
 	ClearOverlays()
 	if(screen && stat != DEAD)

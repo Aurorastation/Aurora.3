@@ -14,7 +14,7 @@
 	color_type - a typepath (subtyped from /datum/client_color)
 */
 /mob/proc/has_client_color(color_type)
-	if(!ispath(/datum/client_color) || !LAZYLEN(client_colors))
+	if(!ispath(color_type, /datum/client_color) || !LAZYLEN(client_colors))
 		return FALSE
 	for(var/thing in client_colors)
 		var/datum/client_color/col = thing
@@ -58,11 +58,11 @@
 	Resets the mob's client.color to null, and then sets it to the highest priority
 	client_color datum, if one exists
 */
-/mob/proc/update_client_color()
+/mob/proc/update_client_color(no_animate = FALSE)
 	if(!client)
 		return
-	client.color = null
 	if(!client_colors.len)
+		client.color = null
 		return
 	var/list/c = list(1,0,0, 0,1,0, 0,0,1) //Star at normal
 	for(var/datum/client_color/CC in client_colors)
@@ -80,7 +80,10 @@
 		if(CC.override)
 			break
 
-	animate(client, color = c)
+	if(no_animate)
+		client.color = c
+	else
+		animate(client, color = c, time = 1 SECONDS)
 
 /datum/client_color/monochrome
 	client_color = list(0.33, 0.33, 0.33, 0.33, 0.33, 0.33, 0.33, 0.33, 0.33)

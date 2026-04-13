@@ -762,9 +762,7 @@ GLOBAL_LIST_INIT(golem_types, list(
 	..()
 
 /datum/species/golem/uranium/handle_environment_special(var/mob/living/carbon/human/H)
-	if(prob(25))
-		for(var/mob/living/L in view(7, H))
-			L.apply_damage(20, DAMAGE_RADIATION, damage_flags = DAMAGE_FLAG_DISPERSED)
+	SSradiation.radiate(src, RAD_LEVEL_LOW)
 
 /datum/species/golem/homunculus
 	name = SPECIES_GOLEM_MEAT

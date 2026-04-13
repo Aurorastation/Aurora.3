@@ -1024,6 +1024,10 @@ var/global/enabled_spooking = 0
 	if(!check_rights(R_SPAWN))
 		return
 
+	if(!length(object)) // Prevent server lag caused by searching all atoms
+		to_chat(src, SPAN_WARNING("Spawn verb requires an argument, partial or full type path, e.g.: Spawn \"/obj/item/toy"))
+		return
+
 	var/list/matches = typesof(/atom)
 
 	for(var/path in matches)

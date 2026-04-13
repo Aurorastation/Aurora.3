@@ -224,8 +224,8 @@ GLOBAL_LIST_EMPTY_TYPED(preferences_datums, /datum/preferences)
 			load_and_update_character()
 
 /datum/preferences/Destroy()
-	. = ..()
 	QDEL_LIST(char_render_holders)
+	return ..()
 
 /datum/preferences/proc/load_and_update_character(var/slot)
 	load_character(slot)

@@ -1,3 +1,8 @@
+/// Lists of data passed over to tgui, obtained from numerous singletons. List contains lists of: "display_name", "icon", "icon_name", "singleton_path"
+GLOBAL_LIST_EMPTY(barsign_overlay_cache)
+GLOBAL_LIST_EMPTY(kitchensign_overlay_cache)
+GLOBAL_LIST_EMPTY(marketsign_overlay_cache)
+
 /obj/structure/sign/double/barsign
 	icon = 'icons/obj/barsigns.dmi'
 	icon_state = "off"
@@ -9,20 +14,85 @@
 	var/currently_on = FALSE
 	var/on_icon_state
 	var/off_icon_state = "off"
+	/// Local reference of the global list associated with this object's singletons.
+	var/list/target_cache = list()
+
+/obj/structure/sign/double/barsign/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "You can <b>Alt Click</b> to toggle power of \the [src]."
+
+/obj/structure/sign/double/barsign/Initialize()
+	. = ..()
+	set_overlay_cache()
+
+/obj/structure/sign/double/barsign/proc/get_target_cache()
+	return GLOB.barsign_overlay_cache
+
+/obj/structure/sign/double/barsign/proc/set_overlay_cache()
+	target_cache = get_target_cache()
+
+	if(!length(target_cache))
+		var/list/singleton_instances = GET_SINGLETON_SUBTYPE_MAP(choice_types)
+		for(var/i in singleton_instances)
+			var/singleton/sign/double/bar/S = GET_SINGLETON(i)
+			var/overlay_image = image(icon = icon, icon_state = S.icon_state)
+
+			target_cache.Add(list(list(
+			"display_name" = S.name,
+			"icon" = icon2base64(getFlatIcon(overlay_image, no_anim = TRUE)), // expensive but we only do it once
+			"icon_name" = S.icon_state,
+			"singleton_path" = "[S.type]"
+		)))
 
 /obj/structure/sign/double/barsign/attackby(obj/item/attacking_item, mob/user)
 	if(cult)
 		return ..()
 	var/obj/item/card/id/card = attacking_item.GetID()
 	if(istype(card))
-		if(check_access(card))
-			set_sign()
-			to_chat(user, SPAN_NOTICE("You change the sign."))
-		else
+		if(!check_access(card))
 			to_chat(user, SPAN_WARNING("Access denied."))
-		return
+			return
+		ui_interact(user)
 
 	return ..()
+
+/obj/structure/sign/double/barsign/ui_interact(mob/user, datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
+	if(!ui)
+		ui = new(user, src, "OverlayChoice", capitalize_first_letters(name))
+		ui.open()
+
+/obj/structure/sign/double/barsign/ui_static_data(mob/user)
+	var/list/data = list()
+	data["contents"] = target_cache
+	return data
+
+/obj/structure/sign/double/barsign/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
+	. = ..()
+	if(.)
+		return
+
+	var/mob/user = ui.user
+	add_fingerprint(user)
+	switch(action)
+		if("select_overlay")
+			var/choice = params["singleton_path"]
+			INVOKE_ASYNC(src, PROC_REF(set_sign), choice)
+
+			SStgui.close_uis(src)
+
+	. = TRUE
+
+/obj/structure/sign/double/barsign/proc/set_sign(choice)
+	var/singleton/sign/double/chosen_singleton = text2path(choice)
+
+	name = chosen_singleton.name
+	desc = chosen_singleton.desc
+	desc_extended = chosen_singleton.desc_extended
+	icon_state = chosen_singleton.icon_state
+	currently_on = TRUE
+	on_icon_state = icon_state
+	update_icon()
 
 /obj/structure/sign/double/barsign/AltClick(mob/user) // Alt-click a sign with an empty hand to power or depower it, if it has the associated "[name]-off" state in the .dmi file.
 	if(!on_icon_state)
@@ -35,30 +105,7 @@
 	icon_state = off_icon_state
 	currently_on = FALSE
 
-/obj/structure/sign/double/barsign/proc/get_sign_choices()
-	var/list/sign_choices = GET_SINGLETON_SUBTYPE_MAP(choice_types)
-	return sign_choices
-
-/obj/structure/sign/double/barsign/proc/set_sign()
-	var/list/sign_choices = get_sign_choices()
-
-	var/list/sign_index = list()
-	for(var/sign in sign_choices)
-		var/singleton/sign/double/B = GET_SINGLETON(sign)
-		sign_index["[B.name]"] = B
-
-	var/sign_choice = tgui_input_list(usr, "What should the sign be changed to?", "Bar Sign", sign_index)
-	if(!sign_choice)
-		return
-	var/singleton/sign/double/signselect = sign_index[sign_choice]
-
-	name = signselect.name
-	desc = signselect.desc
-	desc_extended = signselect.desc_extended
-	icon_state = signselect.icon_state
-	currently_on = TRUE
-	on_icon_state = icon_state
-	update_icon()
+// ---- Kitchen sign
 
 /obj/structure/sign/double/barsign/kitchensign
 	icon = 'icons/obj/kitchensigns.dmi'
@@ -66,8 +113,13 @@
 	req_access = list(ACCESS_GALLEY)
 	choice_types = /singleton/sign/double/kitchen
 
+/obj/structure/sign/double/barsign/kitchensign/get_target_cache()
+	return GLOB.kitchensign_overlay_cache
+
 /obj/structure/sign/double/barsign/kitchensign/mirrored // Visible from the other end of the sign.
 	pixel_x = -32
+
+// ---- Market sign
 
 /obj/structure/sign/double/barsign/marketsign
 	icon = 'icons/obj/marketsigns.dmi'
@@ -76,9 +128,8 @@
 	req_one_access = list(ACCESS_CARGO, ACCESS_JANITOR, ACCESS_ROBOTICS, ACCESS_MINING, ACCESS_PARAMEDIC, ACCESS_HYDROPONICS, ACCESS_GALLEY, ACCESS_LIBRARY)
 	choice_types = /singleton/sign/double/market
 
-/obj/structure/sign/double/barsign/marketsign/set_sign()
-	. = ..()
-	off_icon_state = "[icon_state]-off"
+/obj/structure/sign/double/barsign/marketsign/get_target_cache()
+	return GLOB.marketsign_overlay_cache
 
 /obj/structure/sign/double/barsign/marketsign/mirrored // Visible from the other end of the sign.
 	pixel_x = -32

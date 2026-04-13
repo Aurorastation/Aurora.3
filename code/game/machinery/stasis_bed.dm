@@ -56,8 +56,8 @@
 	update_icon()
 
 /obj/machinery/stasis_bed/Destroy()
-	. = ..()
 	QDEL_NULL(mattress_on)
+	return ..()
 
 /obj/machinery/stasis_bed/attackby(obj/item/attacking_item, mob/user)
 	if(default_part_replacement(user, attacking_item))

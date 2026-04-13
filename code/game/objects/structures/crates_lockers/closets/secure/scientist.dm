@@ -14,6 +14,18 @@
 	new /obj/item/taperoll/science(src)
 	new /obj/item/sampler(src)
 
+/obj/structure/closet/secure_closet/scientist/modlaser
+	name = "scientist's laser locker"
+
+/obj/structure/closet/secure_closet/scientist/modlaser/fill()
+	new /obj/item/laser_assembly(src)
+	new /obj/item/laser_assembly/medium(src)
+	new /obj/item/laser_assembly/large(src)
+	new /obj/item/storage/box/modlaser(src)
+	new /obj/item/storage/box/modlaser/modulators(src)
+	new /obj/item/storage/box/modlaser/lens(src)
+	new /obj/item/storage/box/modlaser/modifiers(src)
+
 /obj/structure/closet/secure_closet/RD
 	name = "research director's locker"
 	req_access = list(ACCESS_RD)

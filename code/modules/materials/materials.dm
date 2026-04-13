@@ -281,7 +281,7 @@
 /material/uranium
 	name = MATERIAL_URANIUM
 	stack_type = /obj/item/stack/material/uranium
-	radioactivity = 12
+	radioactivity = RAD_LEVEL_LOW
 	icon_base = "stone"
 	reinf_icon = "reinf_stone"
 	icon_colour = "#007A00"
@@ -378,7 +378,7 @@
 /material/phoron/supermatter
 	name = MATERIAL_SUPERMATTER
 	icon_colour = "#ffff00"
-	radioactivity = 20
+	radioactivity = RAD_LEVEL_MODERATE
 	conductivity = 100
 	integrity = 10
 	luminescence = 3

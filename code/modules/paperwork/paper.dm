@@ -143,7 +143,7 @@
 /obj/item/paper/proc/show_content(mob/user, forceshow)
 	simple_asset_ensure_is_sent(user, /datum/asset/simple/paper)
 	var/datum/browser/paper_win = new(user, name, null, 450, 500, null, TRUE)
-	paper_win.set_content(get_content(user, can_read(user, forceshow)))
+	paper_win.set_content(get_content(user, can_read(user, forceshow), forceshow))
 	paper_win.add_stylesheet("paper_languages", 'html/browser/paper_languages.css')
 	paper_win.open()
 
@@ -154,8 +154,8 @@
 		can_read = get_dist(src, AI.camera) < 2
 	return can_read
 
-/obj/item/paper/proc/get_content(var/mob/user, var/can_read = TRUE)
-	return "<head><title>[capitalize_first_letters(name)]</title><style>body {background-color: [color];}</style></head><body>[can_read ? parse_languages(user, info) : stars(info)][stamps]</body>"
+/obj/item/paper/proc/get_content(var/mob/user, var/can_read = TRUE, var/ignore_languages = FALSE)
+	return "<head><title>[capitalize_first_letters(name)]</title><style>body {background-color: [color];}</style></head><body>[can_read ? parse_languages(user, info, FALSE, ignore_languages) : stars(info)][stamps]</body>"
 
 /obj/item/paper/verb/rename()
 	set name = "Rename paper"
@@ -474,7 +474,7 @@
  * @return	An HTML string where all of the [lang][/lang] marker contents are replaced
  * with scrambled and properly fonted content depending on what languages the user knows.
  */
-/obj/item/paper/proc/parse_languages(mob/user, input, language_check = FALSE)
+/obj/item/paper/proc/parse_languages(mob/user, input, language_check = FALSE, ignore_languages = FALSE)
 	// Just a safety fallback.
 	if (!user)
 		return input
@@ -492,7 +492,7 @@
 			continue
 
 		var/content = written_lang_regex.group[3]
-		var/reader_understands = user.say_understands(null, L)
+		var/reader_understands = ignore_languages || user.say_understands(null, L)
 
 		// Replace the content with <p>content here</p>
 		if(!reader_understands)

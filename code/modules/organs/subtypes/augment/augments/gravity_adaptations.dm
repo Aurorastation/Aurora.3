@@ -21,11 +21,11 @@
 	RegisterSignal(owner, COMSIG_GRAVITY_WEAKNESS_EVENT, PROC_REF(negate_weakness), override = TRUE)
 
 /obj/item/organ/internal/augment/bioaug/gravity_adaptations/removed()
-	. = ..()
 	if(!owner)
-		return
+		return ..()
 
 	UnregisterSignal(owner, COMSIG_GRAVITY_WEAKNESS_EVENT)
+	return ..()
 
 /obj/item/organ/internal/augment/bioaug/gravity_adaptations/proc/negate_weakness(var/implantee, var/canceled)
 	SIGNAL_HANDLER

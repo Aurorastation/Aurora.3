@@ -269,6 +269,8 @@
 		adjustToxLoss(getToxLoss()-amount)
 
 /mob/living/carbon/human/adjustHalLoss(var/amount)
+	if (!amount)
+		return
 	var/heal = (amount < 0)
 	amount = abs(amount)
 	var/list/pick_organs = organs.Copy()
@@ -279,7 +281,8 @@
 			continue
 
 		if(heal)
-			amount -= E.remove_pain(amount)
+			if(E.get_pain() > 0)
+				amount -= E.remove_pain(amount)
 		else
 			amount -= E.add_pain(amount)
 	BITSET(hud_updateflag, HEALTH_HUD)
