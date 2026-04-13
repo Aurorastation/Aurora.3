@@ -36,10 +36,16 @@ Thus, the two variables affect pump operation are set in New():
 
 	var/broadcast_status_next_process = FALSE
 
+	// Measure amount of gas pumped through
+	var/measure_enabled = FALSE
+	var/moles_pumped = 0
+
 /obj/machinery/atmospherics/binary/pump/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	. += "This moves gas from one pipe to another. A higher target pressure demands more energy."
 	. += "The side with the colored end is the output."
+	. += "The normalized flow rate is the flow rate in L based on the moles transferred normalized to a preassure 1ATM and temperature of 20C."
+	. += "The same applies to the measurement section."
 
 /obj/machinery/atmospherics/binary/pump/Initialize()
 	. = ..()
@@ -112,6 +118,7 @@ Thus, the two variables affect pump operation are set in New():
 /obj/machinery/atmospherics/binary/pump/process()
 	last_power_draw = 0
 	last_flow_rate = 0
+	last_mole_transfer = 0
 
 	if((stat & (NOPOWER|BROKEN)) || !use_power)
 		return
@@ -137,6 +144,9 @@ Thus, the two variables affect pump operation are set in New():
 
 		if(network2)
 			network2.update = 1
+
+		if (measure_enabled)
+			moles_pumped += last_mole_transfer
 
 	return 1
 
@@ -182,6 +192,10 @@ Thus, the two variables affect pump operation are set in New():
 	data["power_draw"] = round(last_power_draw)
 	data["max_power_draw"] = power_rating
 	data["flow_rate"] = round(last_flow_rate)
+	data["flow_rate_normal"] = round((last_mole_transfer * R_IDEAL_GAS_EQUATION * T20C) / ONE_ATMOSPHERE)
+	data["measure_enabled"] = measure_enabled
+	data["moles_pumped"] = round(moles_pumped)
+	data["liters_pumped"] = round((moles_pumped * R_IDEAL_GAS_EQUATION * T20C) / ONE_ATMOSPHERE)
 	return data
 
 /obj/machinery/atmospherics/binary/pump/ui_act(action, params)
@@ -202,6 +216,10 @@ Thus, the two variables affect pump operation are set in New():
 				. = TRUE
 			if(.)
 				target_pressure = clamp(pressure, 0, ATMOS_PUMP_MAX_PRESSURE)
+		if("toggle_measure")
+			measure_enabled = !measure_enabled
+		if("reset_measure")
+			moles_pumped = 0
 	update_icon()
 
 /obj/machinery/atmospherics/binary/pump/atmos_init()

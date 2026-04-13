@@ -112,6 +112,7 @@
 		nano_printer = null
 		found = TRUE
 	else if(card_slot == H)
+		astype(H, /obj/item/computer_hardware/card_slot)?.eject_id()
 		card_slot = null
 		found = TRUE
 	else if(battery_module == H)

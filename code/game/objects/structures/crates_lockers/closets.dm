@@ -5,7 +5,7 @@
 	icon_state = "generic"
 	density = TRUE
 	build_amt = 2
-	slowdown = 5
+	slowdown = 2.5
 	pass_flags_self = PASSSTRUCTURE | LETPASSCLICKS | PASSTRACE
 
 	var/icon_door = null
@@ -850,6 +850,7 @@
 		if(istype(src,/obj/structure/closet/crate))
 			icon_state = paint_color
 			icon_door = "eng"
+			icon_door_override = TRUE
 		else
 			icon_state = "eng"
 			icon_door = paint_color

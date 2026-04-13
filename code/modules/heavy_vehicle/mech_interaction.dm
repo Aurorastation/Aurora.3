@@ -43,24 +43,29 @@
 			setClickCooldown(5)
 			return
 
-	if(!(user in pilots) && user != src)
+	if(/* Do we have a pilot? */\
+		!(user in pilots) && user != src \
+		/* Are we facing the target? */\
+		|| !(get_dir(src, A) & dir) \
+		/* Can we click on them? */\
+		|| !canClick())
 		return
 
-	// Are we facing the target?
-	if(!(get_dir(src, A) & dir))
-		return
-
-	if(!canClick())
-		return
-
+	// Check if the arms were completely destroyed.
 	if(!arms)
 		to_chat(user, SPAN_WARNING("\The [src] has no manipulators!"))
 		setClickCooldown(3)
+		// Give some visible feedback for the mech damage preventing this.
+		spark(src, 2, GLOB.alldirs)
 		return
 
-	if(!arms.motivator || !arms.motivator.is_functional())
+	var/obj/item/robot_parts/robot_component/actuator/motivator = arms.motivator
+	// Check if the motivators were broken.
+	if(!motivator || !motivator.is_functional())
 		to_chat(user, SPAN_WARNING("Your motivators are damaged! You can't use your manipulators!"))
 		setClickCooldown(15)
+		// Give some visible feedback for the mech damage preventing this.
+		spark(src, 2, GLOB.alldirs)
 		return
 
 	if(!checked_use_cell(arms.power_use * CELLRATE))
@@ -74,10 +79,18 @@
 		else
 			zone_sel.set_selected_zone("chest", user)
 
+	// Get the ratio of damage over max damage
+	var/spark_chance = (motivator.total_dam / motivator.max_dam + arms.total_damage / arms.max_damage) \
+		/* Multiply by the spark chance */\
+		* arms.spark_chance_ratio \
+		/* Then add the contribution from EMP damage. */\
+		+ emp_damage
+
 	// You may attack the target with your exosuit FIST if you're malfunctioning.
 	var/failed = FALSE
-	if(emp_damage > EMP_ATTACK_DISRUPT && prob(emp_damage*2))
-		to_chat(user, SPAN_WARNING("The wiring sparks as you attempt to control the exosuit!"))
+	if(prob(spark_chance))
+		to_chat(user, SPAN_WARNING("Your exosuit's manipulators spark as you attempt to control them!"))
+		spark(src, 3, GLOB.alldirs)
 		failed = TRUE
 
 	if(!failed)
@@ -146,7 +159,7 @@
 		D.TryToSwitchState(user)
 		return
 	else if(adj)
-		setClickCooldown(arms ? arms.action_delay : 15)
+		setClickCooldown(arms.action_delay)
 		playsound(src.loc, arms.punch_sound, 45 + 25 * (arms.melee_damage / 50), -1 )
 		if(ismob(A))
 			var/mob/target = A
@@ -246,7 +259,8 @@
 		if(hatch_locked)
 			if(!silent) to_chat(user, SPAN_WARNING("The [body.hatch_descriptor] is locked."))
 			return
-		hud_open.toggled(FALSE)
+		if(!hud_open.toggled(FALSE))
+			return
 		if(!silent)
 			to_chat(user, SPAN_NOTICE("You open the hatch and climb out of \the [src]."))
 	else
@@ -362,7 +376,7 @@
 
 /mob/living/heavy_vehicle/Move(atom/newloc, direct, glide_size_override = 0, update_dir = TRUE)
 	// They shouldn't get to this proc without legs in the first place, but its okay to guard here.
-	if (!legs)
+	if (!legs || !legs.motivator)
 		return
 	. = ..()
 	set_glide_size(DELAY_TO_GLIDE_SIZE(next_mecha_move - world.time))
@@ -371,6 +385,21 @@
 			playsound(src.loc, legs.mech_step_sound, 40, TRUE)
 		use_cell_power(legs.power_use * CELLRATE)
 	update_icon()
+
+	// Handling for leg damage feedback on movement.
+	var/obj/item/robot_parts/robot_component/actuator/motivator = legs.motivator
+
+	// Get the ratio of damage over max damage.
+	var/spark_chance = (motivator.total_dam / motivator.max_dam + legs.total_damage / legs.max_damage) \
+		/* Then multiply by the spark chance. */\
+		* legs.spark_chance_ratio \
+		/* And finally add the contribution from EMP damage. */\
+		+ emp_damage
+
+	if(prob(spark_chance))
+		for (var/mob/pilot in pilots)
+			to_chat(pilot, SPAN_WARNING("Your exosuit's legs spark as you attempt to control them!"))
+		spark(src, 3, GLOB.alldirs)
 
 /mob/living/heavy_vehicle/Post_Incorpmove()
 	if(istype(hardpoints[HARDPOINT_BACK], /obj/item/mecha_equipment/phazon))
@@ -537,28 +566,41 @@
 	return ..()
 
 /mob/living/heavy_vehicle/attack_hand(var/mob/user)
-	// Drag the pilot out if possible.
-	if(user.a_intent == I_GRAB)
-		if(!LAZYLEN(pilots))
-			to_chat(user, SPAN_WARNING("There is nobody inside \the [src]."))
-		else if(!hatch_closed)
+	// Try to attack on harm intent.
+	if(user.a_intent == I_HURT)
+		attack_generic(user)
+		return
+
+	// Otherwise try to toggle the hatch.
+	if(!body) // Edge case for the mech SOMEHOW not having a body. Players shouldn't ever see this. A mech without a body should be in the process of exploding.
+		to_chat(user, SPAN_WARNING("What hatch? There's nothing left to open. If you're seeing this, please submit a bug report to our github issue tracker and tell us how!"))
+		return
+
+	if(hatch_locked)
+		to_chat(user, SPAN_WARNING("The [body.hatch_descriptor] is locked."))
+		return
+
+	if(!hatch_closed)
+		// Drag the pilot out if possible.
+		if(user.a_intent == I_GRAB)
+			if(!LAZYLEN(pilots))
+				to_chat(user, SPAN_WARNING("There is nobody inside \the [src]."))
+				return
+
 			var/mob/pilot = pick(pilots)
 			user.visible_message(SPAN_DANGER("\The [user] is trying to pull \the [pilot] out of \the [src]!"))
 			if(do_after(user, 30) && user.Adjacent(src) && (pilot in pilots) && !hatch_closed)
 				user.visible_message(SPAN_DANGER("\The [user] drags \the [pilot] out of \the [src]!"))
 				eject(pilot, silent=1)
-
+			return
+	else if (body.total_damage > 1 && prob((body.total_damage / body.max_damage) * body.ejection_fail_chance))
+		to_chat(user, SPAN_WARNING("You pull the hatch release. The hatch bolts hiss and clang with a deafening screech, but the hatch fails to open!"))
+		spark(src, 6, GLOB.alldirs)
+		playsound(loc, 'sound/effects/metalhit.ogg', 75, 1)
 		return
 
-	if(user.a_intent == I_HURT)
-		attack_generic(user)
-		return
-
-	// Otherwise toggle the hatch.
-	if(hatch_locked)
-		to_chat(user, SPAN_WARNING("The [body.hatch_descriptor] is locked."))
-		return
 	hatch_closed = !hatch_closed
+	playsound(loc, hatch_closed ? 'sound/effects/metal_close.ogg' : 'sound/effects/air_seal.ogg', 75, 1)
 	to_chat(user, SPAN_NOTICE("You [hatch_closed ? "close" : "open"] the [body.hatch_descriptor]."))
 	hud_open.update_icon()
 	update_icon()

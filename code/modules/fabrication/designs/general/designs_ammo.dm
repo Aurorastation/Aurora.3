@@ -22,6 +22,7 @@ ABSTRACT_TYPE(/singleton/fabricator_recipe/ammunition)
 	name = "syringe gun cartridge"
 	path = /obj/item/syringe_cartridge
 
+// Shotuns
 /singleton/fabricator_recipe/ammunition/shotgun
 	name = "shells (blank, shotgun)"
 	path = /obj/item/ammo_pile/shotgun_blanks
@@ -48,6 +49,11 @@ ABSTRACT_TYPE(/singleton/fabricator_recipe/ammunition)
 	path = /obj/item/ammo_pile/shotgun_pellet
 	security_level = SEC_LEVEL_RED
 
+/singleton/fabricator_recipe/ammunition/shotgun/practice
+	name = "shells (buckshot, shotgun)"
+	path = /obj/item/ammo_pile/shotgun_practice
+
+// Revolvers
 /singleton/fabricator_recipe/ammunition/magazine_revolver_1
 	name = "speed loader (.357)"
 	path = /obj/item/ammo_magazine/a357
@@ -63,6 +69,24 @@ ABSTRACT_TYPE(/singleton/fabricator_recipe/ammunition)
 	path = /obj/item/ammo_magazine/c38
 	hack_only = TRUE
 
+/singleton/fabricator_recipe/ammunition/revolver_fourty_five
+	name = "speedloader (.45, revolver)"
+	path = /obj/item/ammo_magazine/c45/revolver
+	security_level = SEC_LEVEL_RED
+
+/singleton/fabricator_recipe/ammunition/revolver_rubber
+	name = "speedloader (.45, rubber, revolver)"
+	path = /obj/item/ammo_magazine/c45/revolver/rubber
+
+/singleton/fabricator_recipe/ammunition/revolver_flash
+	name = "speedloader (.45, flash, revolver)"
+	path = /obj/item/ammo_magazine/c45/revolver/flash
+
+/singleton/fabricator_recipe/ammunition/revolver_practice
+	name = "speedloader (.45, practice, revolver)"
+	path = /obj/item/ammo_magazine/c45/revolver/practice
+
+// .45 pistol
 /singleton/fabricator_recipe/ammunition/magazine_fourty_five
 	name = "magazine (.45, pistol)"
 	path = /obj/item/ammo_magazine/c45m
@@ -76,11 +100,16 @@ ABSTRACT_TYPE(/singleton/fabricator_recipe/ammunition)
 	name = "magazine (.45, flash, pistol)"
 	path = /obj/item/ammo_magazine/c45m/flash
 
+/singleton/fabricator_recipe/ammunition/magazine_practice
+	name = "magazine (.45, practice, pistol)"
+	path = /obj/item/ammo_magazine/c45m/practice
+
 /singleton/fabricator_recipe/ammunition/magazine_fourty_five/extended
 	name = "magazine (.45, extended, pistol)"
 	path = /obj/item/ammo_magazine/c45m/stendo
 	security_level = SEC_LEVEL_RED
 
+// .45 other
 /singleton/fabricator_recipe/ammunition/submachine_mag
 	name = "magazine (.45, submachine gun)"
 	path = /obj/item/ammo_magazine/submachinemag
@@ -91,6 +120,7 @@ ABSTRACT_TYPE(/singleton/fabricator_recipe/ammunition)
 	path = /obj/item/ammo_magazine/c45uzi
 	security_level = SEC_LEVEL_RED
 
+// 9mm
 /singleton/fabricator_recipe/ammunition/magazine_stetchkin
 	name = "magazine (9mm)"
 	path = /obj/item/ammo_magazine/mc9mm
@@ -109,11 +139,17 @@ ABSTRACT_TYPE(/singleton/fabricator_recipe/ammunition)
 	name = "magazine (9mm rubber, top mounted, machine pistol)"
 	path = /obj/item/ammo_magazine/mc9mmt/rubber
 
+/singleton/fabricator_recipe/ammunition/magazine_smg_practice
+	name = "magazine (9mm practice, top mounted, machine pistol)"
+	path = /obj/item/ammo_magazine/mc9mmt/practice
+
+// 10mm
 /singleton/fabricator_recipe/ammunition/magazine_c20r
 	name = "magazine (10mm)"
 	path = /obj/item/ammo_magazine/a10mm
 	hack_only = TRUE
 
+// 5.56mm
 /singleton/fabricator_recipe/ammunition/magazine_carbine
 	name = "magazine (5.56mm, rifle)"
 	path = /obj/item/ammo_magazine/a556
@@ -134,6 +170,15 @@ ABSTRACT_TYPE(/singleton/fabricator_recipe/ammunition)
 	path = /obj/item/ammo_magazine/a556/carbine/polymer
 	security_level = SEC_LEVEL_RED
 
+/singleton/fabricator_recipe/ammunition/magazine_carbine_practice
+	name = "magazine (5.56mm, practice, rifle)"
+	path = /obj/item/ammo_magazine/a556/practice
+
+/singleton/fabricator_recipe/ammunition/magazine_smallcarbine_practice
+	name = "magazine (5.56mm, practice, carbine)"
+	path = /obj/item/ammo_magazine/a556/carbine/practice
+
+// 7.62mm
 /singleton/fabricator_recipe/ammunition/magazine_arifle
 	name = "magazine (7.62mm)"
 	path = /obj/item/ammo_magazine/c762

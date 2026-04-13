@@ -399,7 +399,7 @@ Slows you down while being used, and will be automatically retracted if both fee
 
 /// Movespeed modifier used in the root_to_ground proc. This determines how much the ability slows you down by.
 /datum/movespeed_modifier/root_to_ground
-	multiplicative_slowdown = 1.5
+	multiplicative_slowdown = 0.375
 
 /// Engages Diona magboot roots.
 /mob/living/carbon/human/proc/root_enable()

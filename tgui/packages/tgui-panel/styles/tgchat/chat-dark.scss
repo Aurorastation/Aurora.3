@@ -536,6 +536,11 @@ em {
   color: #c51e1e;
   font-style: italic;
 }
+.boldwarning {
+  color: #c51e1e;
+  font-weight: bold;
+  font-style: italic;
+}
 .boldannounce {
   color: #c51e1e;
   font-weight: bold;
@@ -548,6 +553,10 @@ em {
 }
 .notice {
   color: #6685f5;
+}
+.boldnotice {
+  color: #6685f5;
+  font-weight: bold;
 }
 .rose {
   color: #ff5050;

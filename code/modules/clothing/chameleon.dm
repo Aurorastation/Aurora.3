@@ -479,9 +479,9 @@
 //**Chameleon Gun**
 //*****************
 /obj/item/gun/energy/chameleon
-	name = "desert eagle"
+	name = "\improper Desert Eagle pistol"
 	desc = null
-	icon = 'icons/obj/guns/deagle.dmi'
+	icon = 'icons/obj/guns/faction/antique/deagle.dmi'
 	icon_state = "deagle"
 	w_class = WEIGHT_CLASS_NORMAL
 	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2, TECH_ILLEGAL = 8)

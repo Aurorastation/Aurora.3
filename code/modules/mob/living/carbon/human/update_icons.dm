@@ -1476,8 +1476,10 @@ There are several things that need to be remembered:
 
 	if(!on_fire)
 		set_light_on(FALSE)
+		clear_alert(ALERT_FIRE)
 	else
 		set_light_on(TRUE)
+		throw_alert(ALERT_FIRE, /atom/movable/screen/alert/fire)
 
 	var/image/fire_image_lower = on_fire ? image(species.onfire_overlay, "lower", layer = FIRE_LAYER_LOWER) : null
 	var/image/fire_image_upper = on_fire ? image(species.onfire_overlay, "upper", layer = FIRE_LAYER_UPPER) : null

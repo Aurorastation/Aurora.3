@@ -16,19 +16,6 @@
 /obj/item/arrow/proc/removed() //Helper for metal rods falling apart.
 	return
 
-/obj/item/spike
-	name = "alloy spike"
-	desc = "It's about a foot of weird silver metal with a wicked point."
-	sharp = TRUE
-	edge = FALSE
-	throwforce = 5
-	w_class = WEIGHT_CLASS_SMALL
-	icon = 'icons/obj/weapons.dmi'
-	icon_state = "metal-rod"
-	item_state = "bolt"
-	drop_sound = 'sound/items/drop/sword.ogg'
-	pickup_sound = SFX_PICKUP_SWORD
-
 /obj/item/arrow/quill
 	name = "alien quill"
 	desc = "A wickedly barbed quill from some bizarre animal."

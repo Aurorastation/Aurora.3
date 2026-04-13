@@ -219,10 +219,6 @@
 /area/template_noop)
 "eB" = (
 /obj/structure/table/wood/gamblingtable,
-/obj/item/material/ashtray/glass{
-	pixel_y = 6;
-	pixel_x = -5
-	},
 /obj/random/smokable{
 	pixel_y = -8;
 	pixel_x = 4

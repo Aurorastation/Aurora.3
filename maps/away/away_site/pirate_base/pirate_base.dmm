@@ -1242,7 +1242,7 @@
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /obj/structure/table/rack,
-/obj/item/gun/energy/disruptorpistol/practice,
+/obj/item/gun/projectile/sec/flash,
 /turf/simulated/floor/exoplanet/barren,
 /area/piratebase/hallway_north)
 "fM" = (

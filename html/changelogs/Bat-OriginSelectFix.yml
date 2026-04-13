@@ -1,0 +1,4 @@
+author: Batrachophrenoboocosmomachia
+delete-after: True
+changes:
+  - bugfix: "Fixes Callistean and Europan origins not being listed for Sol compatibility."

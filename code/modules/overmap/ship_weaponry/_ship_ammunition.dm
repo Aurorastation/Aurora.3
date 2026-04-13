@@ -4,7 +4,7 @@
 	icon = 'icons/obj/projectiles.dmi'
 	icon_state = "nuke"
 	w_class = WEIGHT_CLASS_HUGE
-	slowdown = 2
+	slowdown = 1
 	drop_sound = 'sound/items/drop/shell_drop.ogg'
 	var/projectile_type_override //Override projectile type fired by the gun. This is because certain guns don't use ammo (the Leviathan) but with some we want the ammo to matter.
 	var/overmap_projectile_type_override //Override projectile type on the overmap, fired by the gun. Like the Grauwolf Probe.

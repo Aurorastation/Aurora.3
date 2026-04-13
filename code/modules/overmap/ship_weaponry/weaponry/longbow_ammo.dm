@@ -126,7 +126,7 @@
 	warhead_state = "high_ex"
 	caliber = SHIP_CALIBER_406MM
 	warhead_type = SHIP_AMMO_IMPACT_HE
-	slowdown = 2
+	slowdown = 1
 	var/drop_counter = 0
 	var/cookoff_devastation = 0
 	var/cookoff_heavy = 3

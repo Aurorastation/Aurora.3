@@ -20,6 +20,7 @@
 	var/scan_id = 1
 	var/is_secure = 0
 	var/machineselect = 0
+	var/visible_takeout = FALSE
 
 	var/list/accepted_items = list(/obj/item/reagent_containers/food/snacks/grown, /obj/item/seeds, /obj/item/mollusc)
 	/// List of items that the machine starts with upon spawn
@@ -536,15 +537,20 @@
 
 				var/i = amount
 				for(var/obj/O in contents)
-					if(O.name == K)
-						if(Adjacent(user))
-							user.put_in_hands(O)
-						else
-							O.forceMove(loc)
-						i--
-						update_overlays()
-						if(i <= 0)
-							break
+					if(O.name != K)
+						continue
+					if(Adjacent(user))
+						user.put_in_hands(O)
+						if(visible_takeout)
+							user.visible_message(
+								"[SPAN_BOLD("[user]")] takes \a [O] from \the [src].",
+								SPAN_NOTICE("You take \a [O] from \the [src]."))
+					else
+						O.forceMove(loc)
+					i--
+					update_overlays()
+					if(i <= 0)
+						break
 
 				if(item_quants[K] <= 0)
 					update_static_data_for_all_viewers()

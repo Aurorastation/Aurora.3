@@ -1,0 +1,63 @@
+2026-04-01:
+  Batrachophrenooboocosmomaachia:
+  - rscadd: Adds Light's Edge sector to the ALL_COALITION_SECTORS define.
+2026-04-02:
+  Batrachophrenoboocosmomachia:
+  - bugfix: Sudden strong airflow now checks for more than just shoes with NO_SLIP
+      (like active magboots) when determining whether to knock people over.
+  Kano:
+  - rscadd: Expanded wiring guidelines to include legal multi-z wires.
+  SimpleMaroon:
+  - qol: Hats and other headwear are now elevated for Vaurca Workers and Warriors,
+      preventing them from blocking the eyes.
+  TheGreyWolf:
+  - bugfix: Fixed investigator's lethal revolver ammo.
+  - bugfix: Fixed the suit storage slot permitted any item in it.
+2026-04-03:
+  TheGreyWolf:
+  - bugfix: Fixed a rat missing one handheld and one ear slot sprite.
+  - bugfix: Made the RFID card slot eject ID cards when removed from a pda, such as
+      when a pda explodes.
+2026-04-04:
+  Batrachophrenoboocosmomachia:
+  - qol: Slightly increases Player Panel default window size.
+  - qol: Improves some verb subcategorization, mostly for modmin verbs.
+  GeneralCamo:
+  - rscadd: Two sheets of cardboard can now be used to make large boxes.
+2026-04-05:
+  Batrachophrenoboocosmomachia:
+  - balance: Halves all non-species movespeed_modifier/slowdown datums, positive and
+      negative; old values were too high for the switch to smooth movement. Some additional
+      tweaks on top of this.
+  - balance: Movespeed modifier datums derived from chems/reagents no longer stack.
+  - refactor: 'Splits the Jupiter origin into three: (''Jupiter'', ''Jupiter, Callisto'',
+      ''Jupiter, Europa'').'
+  - balance: Characters with the Europa origin gain the Cold Resistance and Light
+      Sensitivity traits.
+  - balance: Characters with the New Gibson origin gain the Cold Resistance trait.
+  Fenodyree:
+  - bugfix: Fixes explosions exclusively damaging the torso, and instead distributes
+      damage across all limbs, with a focus on one random limb.
+  Hellfirejag:
+  - rscadd: Mech arms now have a chance to fail on use when damaged, which scales
+      proportionally with said damage.
+  - balance: Since damage to mech arms now matters, the max health of all mech arms
+      has been increased by 50%.
+  - balance: Nerfed Superheavy mech arms to be more in line with other Superheavy
+      mech components.
+  - rscadd: Mech arms and legs now have a chance to create electrical sparks when
+      utilized while damaged. This provides visual and audible feedback for a mech
+      being damaged.
+  - rscadd: Ejecting from a mech or opening its canopy now has a chance to fail loudly
+      based on how much damage its center torso has taken.
+  - rscadd: Added sound effects to mechs for opening and closing hatches, toggling
+      the hatch lock, and for toggling the mech's air supply.
+  TheGreyWolf:
+  - bugfix: Fixed mapped in disruptors not being replaced correctly.
+  Yonnimer:
+  - bugfix: Minor bugfixes for the voidtamer ship, including access and a missing
+      powercable.
+  - rscadd: Makes supermatter growthtrays a little radioactive, as a treat for Dionae.
+  kermit:
+  - qol: 'Light''s Edge AI Lobby Announcement: 10dB noise reduction, sample rate reduced
+      to 16mHz like other AI lobby announcements'

@@ -42,7 +42,7 @@
 /obj/item/mech_component/manipulators/ripley
 	name = "exosuit arms"
 	exosuit_desc_string = "heavy-duty industrial lifters"
-	max_damage = 150
+	max_damage = 225
 	power_use = 1000
 	melee_damage = 40
 	desc = "The Xion Manufacturing Group Digital Interaction Manifolds allow you poke untold dangers from the relative safety of your cockpit."

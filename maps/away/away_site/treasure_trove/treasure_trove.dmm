@@ -375,7 +375,7 @@
 /turf/simulated/floor/exoplanet/asphalt,
 /area/trove/tunnels)
 "cf" = (
-/obj/item/gun/energy/lasercannon,
+/obj/item/gun/energy/rifle/laser/heavy,
 /obj/random/dirt_75,
 /turf/simulated/floor/wood/mahogany,
 /area/trove/vault)
@@ -1177,7 +1177,7 @@
 "gf" = (
 /obj/random/dirt_75,
 /obj/random/ammo,
-/obj/item/gun/energy/lawgiver,
+/obj/item/gun/energy/acp,
 /turf/simulated/floor/wood/mahogany,
 /area/trove/vault)
 "gh" = (
@@ -2341,7 +2341,7 @@
 /turf/simulated/floor/exoplanet/grass/moghes,
 /area/trove/beach)
 "mx" = (
-/obj/item/gun/energy/sniperrifle,
+/obj/item/gun/energy/rifle/laser/sniper,
 /obj/random/dirt_75,
 /turf/simulated/floor/wood/mahogany,
 /area/trove/vault)

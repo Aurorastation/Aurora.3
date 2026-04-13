@@ -37,7 +37,7 @@
 	accessory_contents = list(
 		/obj/item/gun/projectile/sec = 1
 	)
-	belt = /obj/item/storage/belt/security/full/disruptor
+	belt = /obj/item/storage/belt/security/full/pistol45
 
 
 /datum/job/eventmed

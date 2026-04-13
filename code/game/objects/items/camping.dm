@@ -276,6 +276,7 @@
 
 /obj/structure/component/tent_canvas/roof
 	plane = ROOF_PLANE
+	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 
 /obj/structure/component/tent_canvas/roof/CanPass(atom/movable/mover, turf/target, height, air_group)
 	return TRUE

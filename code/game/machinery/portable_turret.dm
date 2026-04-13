@@ -159,7 +159,7 @@
 	lethal = 1
 	lethal_icon = 1
 	egun = 0
-	installation = /obj/item/gun/energy/laser
+	installation = /obj/item/gun/energy/rifle/laser
 	sprite_set = "laser"
 
 /obj/machinery/porta_turret/Initialize(mapload)
@@ -1172,7 +1172,7 @@
 	req_one_access = list(ACCESS_SYNDICATE)
 
 /obj/machinery/porta_turret/sniper
-	installation = /obj/item/gun/energy/sniperrifle
+	installation = /obj/item/gun/energy/rifle/laser/sniper
 	lethal = 1
 	lethal_icon = 1
 	egun = 0

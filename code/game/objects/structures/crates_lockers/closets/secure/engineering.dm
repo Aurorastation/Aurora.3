@@ -21,7 +21,7 @@
 	new /obj/item/flash(src)
 	new /obj/item/taperoll/engineering(src)
 	new /obj/item/rfd/piping(src)
-	new /obj/item/gun/energy/disruptorpistol/miniature(src)
+	new /obj/item/gun/projectile/sec(src)
 	new /obj/item/clothing/accessory/holster/waist(src)
 	new /obj/item/gps/engineering(src)
 	new /obj/item/pipewrench(src)

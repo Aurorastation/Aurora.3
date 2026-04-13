@@ -9,12 +9,18 @@
 	var/total_damage = 0
 	var/brute_damage = 0
 	var/burn_damage = 0
+
+	/// The maximum combined brute and burn damage that the mech component can take before becoming completely broken.
 	var/max_damage = 120
+
 	var/damage_state = 1
 	var/list/has_hardpoints = list()
 	var/power_use = 0
 	matter = list(DEFAULT_WALL_MATERIAL = 15000, MATERIAL_PLASTIC = 1000, MATERIAL_OSMIUM = 500)
 	dir = SOUTH
+
+	/// Half of the baseline chance that attempting to use these arms will create sparks. Actual chance is twice this since the motivator damage contributes to the ratio.
+	var/spark_chance_ratio = 50
 
 /obj/item/mech_component/feedback_hints(mob/user, distance, is_adjacent)
 	. += ..()

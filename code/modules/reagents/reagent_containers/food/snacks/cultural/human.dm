@@ -1274,3 +1274,15 @@ ABSTRACT_TYPE(/obj/item/reagent_containers/food/snacks/bowl)
 	contained_sprite = TRUE
 	reagents_to_add = list(/singleton/reagent/drink/shake_strawberry = 3, /singleton/reagent/nutriment/sprinkles = 3, /singleton/reagent/nutriment/glucose = 3, /singleton/reagent/nutriment = 3)
 	reagent_data = list(/singleton/reagent/nutriment/sprinkles = list("unicorns" = 5), /singleton/reagent/nutriment/glucose = list("rainbows" = 5), /singleton/reagent/nutriment = list("your doctor crying" = 5))
+
+// Assunzione
+
+/obj/item/reagent_containers/food/snacks/stafylia_gyro
+	name = "stafylia gyro"
+	desc = "The authentic Assunzione fast food, accept no substitutes. Sliced meat traditionally cooked on a vertical rotisserie, and served in a pita with a salad and most importantly, a sweet jam made from much regarded Assunzione grape."
+	icon = 'icons/obj/item/reagent_containers/food/cultural/human.dmi'
+	icon_state = "stafylia_gyro"
+	reagents_to_add = list(/singleton/reagent/nutriment/protein = 6, /singleton/reagent/nutriment = 4, /singleton/reagent/nutriment/triglyceride = 2, /singleton/reagent/spacespice = 1)
+	reagent_data = list(/singleton/reagent/nutriment = list("jam" = 5, "salad" =5), /singleton/reagent/nutriment/protein = list("seasoned meat" = 5))
+	bitesize = 3
+	filling_color = "#695753"
