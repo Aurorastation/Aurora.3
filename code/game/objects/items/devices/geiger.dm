@@ -87,7 +87,7 @@
 /obj/item/geiger/dosimeter
 	name = "combination dosimeter"
 	desc = "A wrist-worn device for keeping track of recieved radiation doses."
-	desc_extended = "This advanced radition monitor will count up the total radiation it has recieved, in addition to functioning as a normal geiger counter. Wear on the wrist, under any protective gear. Turn it off to reset the count."
+	desc_extended = "This advanced radiation monitor will count up the total radiation it has received, in addition to functioning as a normal geiger counter. For it to accurately account for any protective gear, it must be worn beneath it in the wrist slot. Turn it off to reset the count."
 	icon = 'icons/obj/item/scanner.dmi'
 	icon_state = "dosimeter_off"
 	item_state = "dosimeter"
