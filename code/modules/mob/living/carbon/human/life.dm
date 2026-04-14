@@ -249,7 +249,7 @@
 				if(!lying)
 					emote("collapse")
 			if (prob(total_radiation/200))
-				to_chat(src, SPAN_DANGER("Your skin burns and sloughs off!"))
+				to_chat(src, SPAN_DANGER("Patches of your skin burn and slough off!"))
 				apply_damage(30, DAMAGE_BURN, null, "Radiation Sickness", DAMAGE_FLAG_DISPERSED | DAMAGE_FLAG_IGNORE_PROSTHETICS)
 			if (prob(total_radiation/200))
 				to_chat(src, SPAN_WARNING("You feel terribly sick, everything aches!"))
