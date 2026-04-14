@@ -2,7 +2,7 @@
 	name = "Medicine"
 	description = "Governs the user's ability to perform basic first-aid, as well as operate medical equipment."
 	maximum_level = SKILL_LEVEL_PROFESSIONAL
-	uneducated_skill_cap = SKILL_LEVEL_FAMILIAR
+	uneducated_skill_cap = SKILL_LEVEL_TRAINED
 	category =  /singleton/skill_category/occupational
 	subcategory = SKILL_SUBCATEGORY_MEDICAL
 	required = TRUE
@@ -13,7 +13,7 @@
 	description = "Governs the user's ability to perform surgical procedures on organic humanoids, as well as what complexity of procedures can be performed. " \
 		+ "This does not affect \"surgeries\" performed on mechanical prosthetics, robots, or synthetics in general."
 	maximum_level = SKILL_LEVEL_PROFESSIONAL
-	uneducated_skill_cap = SKILL_LEVEL_UNFAMILIAR
+	uneducated_skill_cap = SKILL_LEVEL_FAMILIAR // Only the most basic of all surgeries could be bought into, you'll need a real doctor education to do anything more.
 	category =  /singleton/skill_category/occupational
 	subcategory = SKILL_SUBCATEGORY_MEDICAL
 	component_type = SURGERY_SKILL_COMPONENT
@@ -58,7 +58,8 @@
 /singleton/skill/pharmacology
 	name = "Pharmacology"
 	description = "Not currently implemented."
-	uneducated_skill_cap = SKILL_LEVEL_UNFAMILIAR
+	maximum_level = SKILL_LEVEL_PROFESSIONAL
+	uneducated_skill_cap = SKILL_LEVEL_TRAINED
 	category =  /singleton/skill_category/occupational
 	subcategory = SKILL_SUBCATEGORY_MEDICAL
 	component_type = PHARMACOLOGY_SKILL_COMPONENT
@@ -67,7 +68,7 @@
 	name = "Anatomy"
 	description = "Not currently implemented."
 	maximum_level = SKILL_LEVEL_PROFESSIONAL
-	uneducated_skill_cap = SKILL_LEVEL_FAMILIAR
+	uneducated_skill_cap = SKILL_LEVEL_TRAINED
 	category =  /singleton/skill_category/occupational
 	subcategory = SKILL_SUBCATEGORY_MEDICAL
 	component_type = ANATOMY_SKILL_COMPONENT
@@ -75,7 +76,8 @@
 /singleton/skill/forensics
 	name = "Forensics"
 	description = "Not currently implemented."
-	uneducated_skill_cap = SKILL_LEVEL_UNFAMILIAR
+	maximum_level = SKILL_LEVEL_PROFESSIONAL
+	uneducated_skill_cap = SKILL_LEVEL_TRAINED
 	category =  /singleton/skill_category/occupational
 	subcategory = SKILL_SUBCATEGORY_MEDICAL
 	component_type = FORENSICS_SKILL_COMPONENT

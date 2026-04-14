@@ -7,13 +7,13 @@
 	 * Accuracy modifier to fired guns per point of "Skill Diff".
 	 * As an "Effective increase" in tiles to the target being shot.
 	 */
-	var/accuracy_per_skill_diff = 1
+	var/accuracy_per_skill_diff = 2
 
 	/**
 	 * Dispersion modifier to fired guns per point of "Skill Diff".
 	 * As an arc-length in Degrees.
 	 */
-	var/dispersion_per_skill_diff = 15
+	var/dispersion_per_skill_diff = 30
 
 	/// %chance per point of "Skill Diff" to fumble changing a weapon's safety.
 	var/safety_fumble_per_skill_diff = 15

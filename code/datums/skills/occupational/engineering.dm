@@ -41,7 +41,7 @@
 	name = "Atmospherics Systems"
 	description = "Not currently implemented."
 	maximum_level = SKILL_LEVEL_PROFESSIONAL
-	uneducated_skill_cap = SKILL_LEVEL_UNFAMILIAR
+	uneducated_skill_cap = SKILL_LEVEL_FAMILIAR
 	category =  /singleton/skill_category/occupational
 	subcategory = SKILL_SUBCATEGORY_ENGINEERING
 	required = TRUE
@@ -52,7 +52,7 @@
 	description = "Reactor systems envelops anything used for reactors, such as the computers and gyrotrons for the INDRA. It is also necessary to correctly interpret information \
 				from reactor monitoring programs."
 	maximum_level = SKILL_LEVEL_PROFESSIONAL
-	uneducated_skill_cap = SKILL_LEVEL_UNFAMILIAR
+	uneducated_skill_cap = SKILL_LEVEL_FAMILIAR
 	category =  /singleton/skill_category/occupational
 	subcategory = SKILL_SUBCATEGORY_ENGINEERING
 	required = TRUE

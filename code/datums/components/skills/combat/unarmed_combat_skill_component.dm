@@ -1,12 +1,12 @@
 /datum/component/skill/unarmed_combat
 	/// Percent chance modifier for harm intent
-	var/harm_miss_chance_per_skill_diff = 5
+	var/harm_miss_chance_per_skill_diff = 2
 	/// Percent chance modifier for blocking unarmed attacks
-	var/block_chance_per_skill_diff = 5
+	var/block_chance_per_skill_diff = 2
 	/// Push chance modifier for disarm intent
-	var/push_chance_per_skill_diff = 5
+	var/push_chance_per_skill_diff = 2
 	/// Disarm chance modifier for disarm intent
-	var/disarm_chance_per_skill_diff = 5
+	var/disarm_chance_per_skill_diff = 2
 
 /datum/component/skill/unarmed_combat/Initialize()
 	. = ..()

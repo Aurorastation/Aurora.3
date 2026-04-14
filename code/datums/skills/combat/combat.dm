@@ -42,7 +42,7 @@
 /// Currently just a simple percent modifier to melee weapon damage. -20% at rank 1, -10% at rank 2, 0% at rank 3, +10% at rank 4.
 /singleton/skill/armed_combat
 	name = "Armed Combat"
-	description = "Armed Combat influences your effectiveness when fighting with any melee weapon. Your rank in this skill increases the damage dealt with melee weapons."
+	description = "Armed Combat influences your effectiveness when fighting with any melee weapon. Having low ranks in this skill slightly decreases damage dealt with melee weapons, while higher ranks can slightly increase it."
 	maximum_level = SKILL_LEVEL_PROFESSIONAL
 	category = /singleton/skill_category/combat
 	subcategory = SKILL_SUBCATEGORY_MELEE
@@ -58,15 +58,15 @@
 	component_type = FIREARMS_SKILL_COMPONENT
 	skill_level_descriptions = alist(
 		SKILL_LEVEL_UNFAMILIAR = "You have no knowledge of how firearms work at all.<br>" \
-			+ " - Firearms you shoot have a 30 degree spread-angle increase, making them very inaccurate.<br>" \
+			+ " - Firearms you shoot have a 60 degree spread-angle increase, making them very inaccurate.<br>" \
 			+ " - You have a decent chance of failing to find the safety when attempting to switch it on or off.",
 		SKILL_LEVEL_FAMILIAR = "You have fired a gun once or twice in your life, but are by no means fully trained. At least you know how to not shoot yourself in the foot or get scope-eye.<br>" \
-			+ " - Firearms you shoot have a 15 degree spread-angle increase, making them somewhat less accurate.",
+			+ " - Firearms you shoot have a 30 degree spread-angle increase, making them somewhat less accurate.",
 		SKILL_LEVEL_TRAINED = "You have both training and actual experience with firearms. Equivalent to a few years of experience in roles such as military, police, or armed security.<br>" \
 			+ " - You suffer no maluses to firearms use. <br>" \
 			+ " - You have no bonuses to firearms use either.",
 		SKILL_LEVEL_PROFESSIONAL = "You have many years of experience with firearms, potentially even in actual combat. Retired special forces, police marksmen, and hardened mercenaries fall under this category.<br>" \
-			+ " - Firearms you shoot have a 15 degree spread-angle decrease, making them somewhat more accurate. This generally doesn't apply to weapons fired in semi-auto, but will make burst and automatic fire more manageable." \
+			+ " - Firearms you shoot have a 30 degree spread-angle decrease, making them somewhat more accurate. This generally doesn't apply to weapons fired in semi-auto, but will make burst and automatic fire more manageable." \
 	)
 
 // Temporarily commented because this is a little too complicated to catch in the initial release.
