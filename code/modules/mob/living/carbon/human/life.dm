@@ -2,47 +2,47 @@
 
 //NOTE: Breathing happens once per FOUR TICKS, unless the last breath fails. In which case it happens once per ONE TICK! So oxyloss healing is done once per 4 ticks while oxyloss damage is applied once per tick!
 
-//Amount of damage applied when your body temperature just passes the 360.15k safety point
+///Amount of damage applied when your body temperature just passes the 360.15k safety point
 #define HEAT_DAMAGE_LEVEL_1 2
-//Amount of damage applied when your body temperature passes the 400K point
+///Amount of damage applied when your body temperature passes the 400K point
 #define HEAT_DAMAGE_LEVEL_2 4
-//Amount of damage applied when your body temperature passes the 1000K point
+///Amount of damage applied when your body temperature passes the 1000K point
 #define HEAT_DAMAGE_LEVEL_3 8
 
-//Amount of damage applied when your body temperature just passes the 260.15k safety point
+///Amount of damage applied when your body temperature just passes the 260.15k safety point
 #define COLD_DAMAGE_LEVEL_1 0.5
-//Amount of damage applied when your body temperature passes the 200K point
+///Amount of damage applied when your body temperature passes the 200K point
 #define COLD_DAMAGE_LEVEL_2 1.5
-//Amount of damage applied when your body temperature passes the 120K point
+///Amount of damage applied when your body temperature passes the 120K point
 #define COLD_DAMAGE_LEVEL_3 3
 
 //Note that gas heat damage is only applied once every FOUR ticks.
- //Amount of damage applied when the current breath's temperature just passes the 360.15k safety point
+///Amount of damage applied when the current breath's temperature just passes the 360.15k safety point
 #define HEAT_GAS_DAMAGE_LEVEL_1 2
-//Amount of damage applied when the current breath's temperature passes the 400K point
+///Amount of damage applied when the current breath's temperature passes the 400K point
 #define HEAT_GAS_DAMAGE_LEVEL_2 4
-//Amount of damage applied when the current breath's temperature passes the 1000K point
+///Amount of damage applied when the current breath's temperature passes the 1000K point
 #define HEAT_GAS_DAMAGE_LEVEL_3 8
 
-//Amount of damage applied when the current breath's temperature just passes the 260.15k safety point
+///Amount of damage applied when the current breath's temperature just passes the 260.15k safety point
 #define COLD_GAS_DAMAGE_LEVEL_1 0.5
-//Amount of damage applied when the current breath's temperature passes the 200K point
+///Amount of damage applied when the current breath's temperature passes the 200K point
 #define COLD_GAS_DAMAGE_LEVEL_2 1.5
-//Amount of damage applied when the current breath's temperature passes the 120K point
+///Amount of damage applied when the current breath's temperature passes the 120K point
 #define COLD_GAS_DAMAGE_LEVEL_3 3
 
-//Multiplies the speed at which radiation is processed.
+///Multiplies the speed at which radiation is processed.
 #define RADIATION_SPEED_COEFFICIENT 0.1
 
-//A dose below this level causes no symptoms.
+///A dose below this level causes no symptoms.
 #define RADIATION_NEGLIGABLE_DOSE 100
-//A dose above this level causes minor symptoms; nausea, vomiting, headaches.
+///A dose above this level causes minor symptoms; nausea, vomiting, headaches.
 #define RADIATION_MINOR_DOSE 250
-//A dose above this level causes slight organ damage and major symptoms; slowdown, confusion, hallucinations. Usually survivable with consequences.
+///A dose above this level causes slight organ damage and major symptoms; slowdown, confusion, hallucinations. Usually survivable with consequences.
 #define RADIATION_MAJOR_DOSE 500
-//A dose above this level causes heavy organ damage and debilitating symptoms, bleeding, weakness, cloneloss. Usually fatal without treatment.
+///A dose above this level causes heavy organ damage and debilitating symptoms, bleeding, weakness, cloneloss. Usually fatal without treatment.
 #define RADIATION_DEADLY_DOSE 750
-//The maximum dose that can be received, above this level all further radiation is taken as damage directly to the body, ignoring armor. Very rapidly fatal.
+///The maximum dose that can be received, above this level all further radiation is taken as damage directly to the body, ignoring armor. Very rapidly fatal.
 #define RADIATION_MAX_DOSE 1000
 
 /mob/living/carbon/human

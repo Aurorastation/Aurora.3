@@ -99,13 +99,13 @@
 	matter = list(DEFAULT_WALL_MATERIAL = 100, MATERIAL_GLASS = 50)
 	origin_tech = list(TECH_MAGNET = 4, TECH_ENGINEERING = 4)
 
-	//The amount of rads the dosimeter has detected after armor mitigation.
+	///The amount of rads the dosimeter has detected after armor mitigation.
 	var/current_rate_after_armor = 0
-	//The amount of rads the dosimeter had recorded the last time it checked, used to calculate how many new rads have been absorbed since then.
+	///The amount of rads the dosimeter had recorded the last time it checked, used to calculate how many new rads have been absorbed since then.
 	var/previous_dose = 0
-	//The number of rads the dosimeter has recieved, human max is 1000, but the dosimeter will keep counting.
+	///The number of rads the dosimeter has recieved, human max is 1000, but the dosimeter will keep counting.
 	var/total_dose = 0
-	//Counts up as radiation thresholds are reached, giving the user a warning each time.
+	///Counts up as radiation thresholds are reached, giving the user a warning each time.
 	var/warning_threshold = 0
 
 /obj/item/geiger/dosimeter/feedback_hints(mob/user, distance, is_adjacent)
