@@ -43,6 +43,7 @@
 //A dose above this level causes heavy organ damage and debilitating symptoms, bleeding, weakness, cloneloss. Usually fatal without treatment.
 #define RADIATION_DEADLY_DOSE 750
 //The maximum dose that can be received, above this level all further radiation is taken as damage directly to the body, ignoring armor. Very rapidly fatal.
+#define RADIATION_DEADLY_DOSE 1000
 
 /mob/living/carbon/human
 	var/oxygen_alert = 0
