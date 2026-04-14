@@ -200,6 +200,11 @@
 	if(loc)
 		return loc.return_air()
 
+/obj/condition_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(health < maxhealth)
+		. += get_damage_condition_hints(user, distance, is_adjacent)
+
 /obj/proc/updateUsrDialog()
 	if(in_use)
 		var/is_in_use = 0

@@ -453,7 +453,7 @@
 		return
 	return attackby(null, user)
 
-/obj/machinery/door/airlock/centcom/take_damage()
+/obj/machinery/door/airlock/centcom/add_damage(damage, damage_flags, damage_type, armor_penetration, obj/weapon)
 	return	// No.
 
 /obj/machinery/door/airlock/centcom/emag_act()
@@ -493,7 +493,7 @@
 		return
 	return attackby(null, user)
 
-/obj/machinery/door/airlock/glass_centcom/take_damage()
+/obj/machinery/door/airlock/glass_centcom/add_damage(damage, damage_flags, damage_type, armor_penetration, obj/weapon)
 	return	// No.
 
 /obj/machinery/door/airlock/glass_centcom/emag_act()
@@ -760,7 +760,6 @@
 	secured_wires = TRUE
 	assembly_type = /obj/structure/door_assembly/door_assembly_highsecurity
 	maxhealth = OBJECT_HEALTH_EXTREMELY_HIGH
-	maxhealth = 600
 	features_powerloss_manual_override = FALSE
 	ai_bolting_delay = 10
 	ai_unbolt_delay = 5
@@ -773,7 +772,6 @@
 	explosion_resistance = 20
 	secured_wires = TRUE
 	maxhealth = OBJECT_HEALTH_EXTREMELY_HIGH
-	maxhealth = 600
 	features_powerloss_manual_override = FALSE
 	hashatch = FALSE
 
@@ -784,9 +782,12 @@
 	explosion_resistance = 20
 	secured_wires = TRUE
 	maxhealth = OBJECT_HEALTH_EXTREMELY_HIGH
-	maxhealth = 600
 	features_powerloss_manual_override = FALSE
 	hashatch = FALSE
+	armor = list(
+		MELEE = ARMOR_MELEE_MINOR,
+		BULLET = ARMOR_BALLISTIC_MINOR
+	)
 
 /// Placeholder object until it gets new sprites.
 /obj/machinery/door/airlock/diona/external
@@ -1439,7 +1440,7 @@ About the new airlock wires panel:
 				user.visible_message(SPAN_DANGER("\The [user] forcefully strikes \the [src] with their [H.default_attack.attack_name]!"))
 				user.do_attack_animation(src, null)
 				playsound(loc, hitsound, 60, TRUE)
-				take_damage(H.default_attack.attack_door)
+				add_damage(H.default_attack.attack_door)
 				user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 				return
 
@@ -1838,7 +1839,7 @@ About the new airlock wires panel:
 					)
 					if (do_after(user, 5 SECONDS))
 						playsound(src, 'sound/weapons/smash.ogg', 100, TRUE, extrarange = MEDIUM_RANGE_SOUND_EXTRARANGE)
-						take_damage(50)
+						add_damage(50)
 						set_broken()
 						to_chat(user, SPAN_NOTICE("The hydraulic strength easily overcomes the resistance of the airlock's motors opening the way ahead!"))
 						open(1)
@@ -1909,7 +1910,7 @@ About the new airlock wires panel:
 				sleep(1 SECONDS)
 				CreateAssembly()
 			ChainSawVar.cutting = 0
-			take_damage(50)
+			add_damage(50)
 		else if(locked)
 			ChainSawVar.cutting = 1
 			user.visible_message(\
@@ -1925,7 +1926,7 @@ About the new airlock wires panel:
 				)
 				unlock(1)
 			ChainSawVar.cutting = 0
-			take_damage(50)
+			add_damage(50)
 		else
 			ChainSawVar.cutting = 1
 			user.visible_message(\
@@ -1940,7 +1941,7 @@ About the new airlock wires panel:
 					SPAN_NOTICE("You hear a metal clank and some sparks.")\
 				)
 				open(1)
-				take_damage(50)
+				add_damage(50)
 			ChainSawVar.cutting = 0
 		return TRUE
 	else
@@ -2031,8 +2032,7 @@ About the new airlock wires panel:
 
 /obj/machinery/portable_atmospherics/canister/airlock_crush(var/crush_damage)
 	. = ..()
-	health -= crush_damage
-	healthcheck()
+	add_damage(crush_damage)
 
 /obj/effect/energy_field/airlock_crush(var/crush_damage)
 	damage_field(crush_damage)
@@ -2095,7 +2095,7 @@ About the new airlock wires panel:
 					open_hatch(AM)
 				has_opened_hatch = TRUE
 			else if(AM.airlock_crush(DOOR_CRUSH_DAMAGE))
-				take_damage(DOOR_CRUSH_DAMAGE)
+				add_damage(DOOR_CRUSH_DAMAGE)
 	use_power_oneoff(360)	//360 W seems much more appropriate for an actuator moving an industrial door capable of crushing people
 	if(arePowerSystemsOn())
 		playsound(src.loc, close_sound_powered, 100, TRUE, extrarange = SHORT_RANGE_SOUND_EXTRARANGE)

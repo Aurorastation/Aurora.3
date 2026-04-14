@@ -88,8 +88,8 @@
 
 		name = "[material.display_name] [initial(name)]"
 		desc = "A simple [material.display_name] railing designed to protect against careless trespass."
-		maxhealth = round(material.integrity / 5)
-		health = maxhealth
+		set_maxhealth(round(material.integrity / 5))
+		set_health(maxhealth)
 		color = material.icon_colour
 
 		if(material.products_need_process())
@@ -124,13 +124,11 @@
 		return !density
 	return TRUE
 
-/obj/structure/railing/proc/take_damage(amount)
-	health -= amount
-	if(health <= 0)
-		visible_message(SPAN_WARNING("\The [src] [material.destruction_desc]!"))
-		playsound(get_turf(src), 'sound/effects/grillehit.ogg', 50, TRUE)
-		material.place_shard(get_turf(src))
-		qdel(src)
+/obj/structure/railing/on_death(damage, damage_flags, damage_type, armor_penetration, obj/weapon)
+	visible_message(SPAN_WARNING("\The [src] [material.destruction_desc]!"))
+	playsound(get_turf(src), 'sound/effects/grillehit.ogg', 50, TRUE)
+	material.place_shard(get_turf(src))
+	qdel(src)
 
 /obj/structure/railing/proc/NeighborsCheck(var/UpdateNeighbors = 1)
 	neighbor_status = 0
@@ -298,7 +296,7 @@
 				if(health >= maxhealth)
 					return
 				user.visible_message(SPAN_NOTICE("\The [user] repairs some damage to \the [src]."), SPAN_NOTICE("You repair some damage to \the [src]."))
-				health = min(health + (maxhealth / 5), maxhealth)
+				add_health(maxhealth * 0.5)
 			return
 
 	// Install
@@ -320,7 +318,7 @@
 	if(attacking_item.force && (attacking_item.damtype == DAMAGE_BURN || attacking_item.damtype == DAMAGE_BRUTE))
 		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 		visible_message(SPAN_WARNING("\The [src] has been [LAZYLEN(attacking_item.attack_verb) ? pick(attacking_item.attack_verb) : "attacked"] with \the [attacking_item] by \the [user]!"))
-		take_damage(attacking_item.force)
+		add_damage(attacking_item.force, attacking_item.damage_flags(), attacking_item.damtype, attacking_item.armor_penetration, attacking_item)
 		return
 	. = ..()
 
@@ -367,7 +365,7 @@
 	LAZYREMOVE(climbers, user)
 
 	if(!anchored || material.is_brittle())
-		take_damage(maxhealth) // Fatboy
+		add_damage(maxhealth) // Fatboy
 
 /obj/structure/railing/proc/get_destination_turf(var/mob/user)
 	. = get_turf(src) // by default, we pop into the turf the railing's on
@@ -394,8 +392,7 @@
 	icon = 'icons/obj/doors/retractable_railing.dmi'
 	icon_state = "railing1"
 	anchored = TRUE
-	health = 150
-	maxhealth = 150
+	maxhealth = OBJECT_HEALTH_MEDIUM, TRUE
 	non_material_object = TRUE
 	can_wrench = FALSE
 	can_screwdriver = FALSE

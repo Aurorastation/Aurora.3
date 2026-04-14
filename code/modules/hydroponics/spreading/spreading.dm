@@ -67,8 +67,6 @@
 	movable_flags = MOVABLE_FLAG_PROXMOVE
 	pass_flags = PASSTABLE
 	mouse_opacity = MOUSE_OPACITY_OPAQUE
-
-	health = 10
 	maxhealth = 100
 	var/growth_threshold = 0
 	var/growth_type = 0

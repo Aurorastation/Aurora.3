@@ -556,7 +556,6 @@
 		/obj/item/reagent_containers/food/snacks/truffle/random
 	)
 	starts_with = list(/obj/item/reagent_containers/food/snacks/truffle/random = 8)
-	maxhealth = OBJECT_HEALTH_EXTREMELY_LOW
 
 /obj/item/storage/box/fancy/chocolate_box/fill()
 	for(var/i=1; i <= storage_slots; i++)

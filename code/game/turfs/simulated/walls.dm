@@ -22,7 +22,7 @@
 		/obj/machinery/door,
 		/obj/machinery/door/airlock
 	)
-
+	hitsound = 'sound/weapons/Genhit.ogg'
 	explosion_resistance = 10
 
 	var/damage = 0
@@ -34,7 +34,6 @@
 	var/material/reinf_material
 	var/last_state
 	var/construction_stage
-	var/hitsound = 'sound/weapons/Genhit.ogg'
 	var/use_set_icon_state
 
 	var/under_turf = /turf/simulated/floor/plating

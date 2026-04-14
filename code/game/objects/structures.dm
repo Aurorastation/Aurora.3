@@ -82,6 +82,8 @@
 		dismantle_material = SSmaterials.get_material_by_name(DEFAULT_WALL_MATERIAL) //if there is no defined material, it will use steel
 	else
 		dismantle_material = get_material()
+	if(should_use_health && health <= 0)
+		build_amt /= rand(2, 4) //if the structure is destroyed by damage, it will yield less materials
 	for(var/i = 1 to build_amt)
 		dismantle_material.place_sheet(loc)
 	qdel(src)
@@ -233,15 +235,6 @@
 		to_chat(user, SPAN_NOTICE("You need hands for this."))
 		return 0
 	return 1
-
-/obj/structure/attack_generic(mob/user, damage, attack_message, environment_smash, armor_penetration, attack_flags, damage_type)
-	if(!damage || !maxhealth)
-		return FALSE
-
-	user.do_attack_animation(src)
-	visible_message(SPAN_DANGER("[user] [attack_verb] \the [src]!"))
-	add_damage(damage)
-	return TRUE
 
 /obj/structure/on_death(damage, damage_flags, damage_type, armor_penetration, obj/weapon)
 	dismantle()

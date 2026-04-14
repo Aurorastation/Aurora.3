@@ -186,7 +186,7 @@
 	for(var/turf/turf in locs)
 		for(var/atom/movable/AM in turf)
 			if(AM.airlock_crush(damage))
-				take_damage(damage*0.2)
+				add_damage(damage * 0.2)
 
 
 /**
@@ -280,7 +280,7 @@
 /obj/machinery/door/blast/odin/ex_act(var/severity)
 	return
 
-/obj/machinery/door/blast/odin/take_damage(var/damage)
+/obj/machinery/door/blast/odin/add_damage(damage, damage_flags, damage_type, armor_penetration, obj/weapon)
 	return
 
 /obj/machinery/door/blast/odin/shuttle

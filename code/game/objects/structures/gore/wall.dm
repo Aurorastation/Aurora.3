@@ -33,8 +33,7 @@
 	user.do_attack_animation(src, FIST_ATTACK_ANIMATION)
 	if((user.mutations & HULK))
 		visible_message(SPAN_DANGER("\The [user] destroys \the [src]!"))
-		health = 0
+		add_damage(maxhealth)
 	else
 		visible_message(SPAN_DANGER("\The [user] claws at \the [src]!"))
-		health -= rand(5, 10)
-	healthcheck()
+		add_damage(rand(5, 10))

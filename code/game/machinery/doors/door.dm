@@ -11,6 +11,13 @@
 	density = TRUE
 	layer = CLOSED_DOOR_LAYER
 	dir = SOUTH
+	hitsound = 'sound/weapons/smash.ogg' //sound door makes when hit with a weapon
+	armor = list(
+		MELEE = ARMOR_MELEE_RESISTANT,
+		BULLET = ARMOR_BALLISTIC_SMALL
+		LASER = ARMOR_LASER_PISTOL
+	)
+	var/hitsound_light = 'sound/effects/glass_hit.ogg'//Sound door makes when hit very gently
 
 	maxhealth = OBJECT_HEALTH_VERY_HIGH
 
@@ -42,8 +49,6 @@
 	var/destroy_hits = 10
 	/// Integer. Minimum amount of force needed to damage the door with a melee weapon.
 	var/min_force = 10
-	var/hitsound = 'sound/weapons/smash.ogg' //sound door makes when hit with a weapon
-	var/hitsound_light = 'sound/effects/glass_hit.ogg'//Sound door makes when hit very gently
 	var/block_air_zones = 1 //If set, air zones cannot merge across the door even when it is opened.
 	var/open_duration = 150//How long it stays open
 
@@ -70,7 +75,7 @@
 	if(damage >= 10)
 		visible_message(SPAN_DANGER("\The [user] smashes into the [src]!"))
 		playsound(src.loc, hitsound, 60, 1)
-		take_damage(damage)
+		add_damage(damage)
 	else
 		visible_message(SPAN_NOTICE("\The [user] bonks \the [src] harmlessly."))
 		playsound(src.loc, hitsound_light, 8, TRUE, extrarange = SHORT_RANGE_SOUND_EXTRARANGE)
@@ -265,9 +270,7 @@
 			qdel(src)
 
 	if(damage)
-		//cap projectile damage so that there's still a minimum number of hits required to break the door
-		take_damage(min(damage, 100))
-
+		add_damage(damage)
 
 /obj/machinery/door/hitby(atom/movable/hitting_atom, skipcatch, hitpush, blocked, datum/thrownthing/throwingdatum)
 	..()
@@ -286,7 +289,7 @@
 		if (tforce < 20)//No more stupidly loud banging sound from throwing a piece of paper at a door
 			volume *= (tforce / 20)
 		playsound(src.loc, hitsound, volume, TRUE)
-		take_damage(tforce)
+		add_damage(tforce)
 
 /obj/machinery/door/attack_ai(mob/user)
 	if(!ai_can_interact(user))
@@ -380,7 +383,7 @@
 			else
 				user.visible_message(SPAN_DANGER("\The [user] forcefully strikes \the [src] with \the [W]!"))
 				playsound(src.loc, hitsound, W.get_clamped_volume(), TRUE, extrarange = MEDIUM_RANGE_SOUND_EXTRARANGE)
-				take_damage(W.force)
+				add_damage(W.force, W.damage_flags(), W.damtype, W.armor_penetration, W)
 		return TRUE
 
 	if(src.operating > 0 || isrobot(user))
@@ -405,12 +408,9 @@
 		open(1)
 		return 1
 
-/obj/machinery/door/proc/take_damage(var/damage, message = TRUE)
-	var/initialhealth = src.health
-	src.health = max(0, src.health - damage)
-	if(src.health <= 0 && initialhealth > 0)
-		src.set_broken()
-	else if(message)
+/obj/machinery/door/add_damage(damage, damage_flags, damage_type, armor_penetration, obj/weapon, message = TRUE)
+	. = ..()
+	if(message)
 		if(src.health < src.maxhealth / 4 && initialhealth >= src.maxhealth / 4)
 			visible_message(SPAN_WARNING("\The [src] looks like it's about to break!"))
 		else if(src.health < src.maxhealth / 2 && initialhealth >= src.maxhealth / 2)
@@ -418,13 +418,14 @@
 		else if(src.health < src.maxhealth * 3/4 && initialhealth >= src.maxhealth * 3/4)
 			visible_message(SPAN_WARNING("\The [src] shows signs of damage!"))
 	update_icon()
-	return
+
+/obj/machinery/door/on_death(damage, damage_flags, damage_type, armor_penetration, obj/weapon)
+	set_broken()
 
 /obj/machinery/door/proc/set_broken()
 	stat |= BROKEN
 	visible_message(SPAN_WARNING("[src] breaks!"))
 	update_icon()
-	return
 
 /obj/machinery/door/emp_act(severity)
 	. = ..()
@@ -445,7 +446,7 @@
 				var/damage = rand(300,600)
 				if (bolted)
 					damage *= 0.8 //Bolted doors are a bit tougher
-				take_damage(damage, FALSE)
+				add_damage(damage, message = FALSE)
 		if(2.0)
 			if((!bolted && prob(25)) || prob(20))
 				qdel(src)
@@ -453,14 +454,14 @@
 				var/damage = rand(150,300)
 				if (bolted)
 					damage *= 0.8 //Bolted doors are a bit tougher
-				take_damage(damage, FALSE)
+				add_damage(damage, message = FALSE)
 		if(3.0)
 			if(prob(80))
 				spark(src, 2, GLOB.alldirs)
 			var/damage = rand(100,150)
 			if (bolted)
 				damage *= 0.8
-			take_damage(damage, FALSE)
+			add_damage(damage, message = FALSE)
 
 	if (health <= 0)
 		qdel(src)

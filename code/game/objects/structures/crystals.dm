@@ -39,11 +39,10 @@
 	if(our_creator)
 		creator = our_creator
 
-/obj/structure/reagent_crystal/proc/take_damage(var/damage)
-	health -= damage
-	if(health <= 0)
-		visible_message(SPAN_WARNING("\The [src] collapses into smaller crystals!"))
-		harvest()
+/obj/structure/reagent_crystal/on_death(damage, damage_flags, damage_type, armor_penetration, obj/weapon)
+	visible_message(SPAN_WARNING("\The [src] collapses into smaller crystals!"))
+	new /obj/item/reagent_crystal(get_turf(src), reagent_id, 5)
+	qdel(src)
 
 /obj/structure/reagent_crystal/attack_hand(mob/user)
 	if((user.mutations & HULK))
@@ -75,7 +74,7 @@
 		user.do_attack_animation(src)
 		playsound(get_turf(src), 'sound/weapons/smash.ogg', 50)
 		visible_message(SPAN_WARNING("\The [user] smashes \the [attacking_item] into \the [src]."))
-		take_damage(attacking_item.force * 4)
+		add_damage(attacking_item.force * 4)
 
 /obj/structure/reagent_crystal/proc/mine_crystal(var/mob/user, var/time_to_dig, var/use_sound)
 	if(!user)
@@ -90,31 +89,20 @@
 		if(use_sound)
 			playsound(get_turf(src), use_sound, 30, TRUE)
 
-/obj/structure/reagent_crystal/proc/harvest()
-	new /obj/item/reagent_crystal(get_turf(src), reagent_id, 5)
-	qdel(src)
-
 /obj/structure/reagent_crystal/ex_act(severity)
 	switch(severity)
 		if(1.0)
 			qdel(src)
-			return
 		if(2.0)
 			if(prob(30))
 				harvest()
-				return
 			else
-				health -= rand(60,180)
+				add_damage(rand(60,180))
 		if(3.0)
 			if(prob(5))
 				harvest()
-				return
 			else
-				health -= rand(40,80)
-
-	if(health <= 0)
-		harvest()
-	return
+				add_damage(rand(40,80))
 
 /obj/structure/reagent_crystal/attack_generic(mob/user, damage, attack_message, environment_smash, armor_penetration, attack_flags, damage_type)
 	if(!damage || !environment_smash)
@@ -125,7 +113,7 @@
 	return TRUE
 
 /obj/structure/reagent_crystal/proc/become_dense()
-	var/health_mod = health / initial(health)
+	var/health_mod = health / maxhealth
 	var/obj/structure/reagent_crystal/dense/P = new /obj/structure/reagent_crystal/dense(get_turf(src), reagent_id, creator)
 	P.health *= health_mod
 	if(creator)
@@ -136,7 +124,7 @@
 	name = "dense chemical crystal cluster"
 	desc = "A dense cluster of hardened chemical crystals."
 	icon_state = "dense"
-	health = 200
+	maxhealth = OBJECT_HEALTH_HIGH
 	mine_rate = 2
 
 /obj/structure/reagent_crystal/dense/harvest()

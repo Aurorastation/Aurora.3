@@ -103,7 +103,7 @@
 		if(T.welding)
 			if(health < maxhealth)
 				if(open)
-					health = min(maxhealth, health+10)
+					add_health(10)
 					user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 					user.visible_message(SPAN_WARNING("[user] repairs [src]!"),
 											SPAN_NOTICE("<span class='notice'>You repair [src]!"))
@@ -116,12 +116,11 @@
 	else if(hasvar(attacking_item,"force") && hasvar(attacking_item,"damtype"))
 		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 		switch(attacking_item.damtype)
-			if("fire")
-				health -= attacking_item.force * fire_dam_coeff
-			if("brute")
-				health -= attacking_item.force * brute_dam_coeff
+			if(DAMAGE_BURN)
+				add_damage(attacking_item.force * fire_dam_coeff)
+			if(DAMAGE_BRUTE)
+				add_damage(attacking_item.force * brute_dam_coeff)
 		..()
-		healthcheck()
 	else
 		..()
 
@@ -129,31 +128,21 @@
 	. = ..()
 	if(. != BULLET_ACT_HIT)
 		return .
-
-	health -= hitting_projectile.get_structure_damage()
-
+	add_damage(hitting_projectile.get_structure_damage())
 	if (prob(20) && !organic)
 		spark(src, 5, GLOB.alldirs)
-
-	healthcheck()
 
 /obj/vehicle/ex_act(severity)
 	switch(severity)
 		if(1.0)
 			explode()
-			return
 		if(2.0)
-			health -= rand(5,10)*fire_dam_coeff
-			health -= rand(10,20)*brute_dam_coeff
-			healthcheck()
-			return
+			add_damage(rand(5,10)*fire_dam_coeff)
+			add_damage(rand(10,20)*brute_dam_coeff)
 		if(3.0)
 			if (prob(50))
-				health -= rand(1,5)*fire_dam_coeff
-				health -= rand(1,5)*brute_dam_coeff
-				healthcheck()
-				return
-	return
+				add_damage(rand(1,5)*fire_dam_coeff)
+				add_damage(rand(1,5)*brute_dam_coeff)
 
 /obj/vehicle/emp_act(severity)
 	. = ..()
@@ -250,9 +239,8 @@
 	unload()
 	qdel(src)
 
-/obj/vehicle/proc/healthcheck()
-	if(health <= 0)
-		explode()
+/obj/vehicle/on_death(damage, damage_flags, damage_type, armor_penetration, obj/weapon)
+	explode()
 
 /obj/vehicle/proc/powercheck()
 	if(!cell && !powered)
@@ -428,11 +416,10 @@
 	visible_message(SPAN_DANGER("[user] [attack_message] the [src]!"))
 	user.attack_log += "\[[time_stamp()]\] <span class='warning'>attacked [src.name]</span>"
 	user.do_attack_animation(src)
-	src.health -= damage
+	add_damage(damage)
 	if(prob(10))
 		new /obj/effect/decal/cleanable/blood/oil(src.loc)
-	spawn(1) healthcheck()
-	return 1
+	return TRUE
 
 /obj/vehicle/can_fall(turf/below, turf/simulated/open/dest = src.loc)
 	if (flying)

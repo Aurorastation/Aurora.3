@@ -35,9 +35,8 @@
 /obj/machinery/bot/proc/explode()
 	qdel(src)
 
-/obj/machinery/bot/proc/healthcheck()
-	if (src.health <= 0)
-		src.explode()
+/obj/machinery/bot/on_death(damage, damage_flags, damage_type, armor_penetration, obj/weapon)
+	explode()
 
 /obj/machinery/bot/emag_act(var/remaining_charges, var/user)
 	if(locked && !emagged)
@@ -61,7 +60,7 @@
 	else if(attacking_item.tool_behaviour == TOOL_WELDER)
 		if(health < maxhealth)
 			if(open)
-				health = min(maxhealth, health+10)
+				add_health(10)
 				user.visible_message(SPAN_WARNING("[user] repairs [src]!"),SPAN_NOTICE("You repair [src]!"))
 				user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 			else
@@ -70,47 +69,33 @@
 			to_chat(user, SPAN_NOTICE("[src] does not need a repair."))
 		return TRUE
 	else
-		if(hasvar(attacking_item,"force") && hasvar(attacking_item,"damtype"))
+		if(attacking_item.force && attacking_item.damtype)
 			switch(attacking_item.damtype)
-				if("fire")
-					src.health -= attacking_item.force * fire_dam_coeff
-				if("brute")
-					src.health -= attacking_item.force * brute_dam_coeff
+				if(DAMAGE_BURN)
+					add_damage(attacking_item.force * fire_dam_coeff)
+				if(DAMAGE_BRUTE)
+					add_damage(attacking_item.force * brute_dam_coeff)
 			user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
-			. = ..()
-			healthcheck()
-			return .
+			return ..()
 		else
 			return ..()
 
 /obj/machinery/bot/bullet_act(var/obj/projectile/Proj)
 	if(!(Proj.damage_type == DAMAGE_BRUTE || Proj.damage_type == DAMAGE_BURN))
 		return BULLET_ACT_BLOCK
-
 	. = ..()
-	if(. != BULLET_ACT_HIT)
-		return .
-
-	health -= Proj.damage
-	healthcheck()
 
 /obj/machinery/bot/ex_act(severity)
 	switch(severity)
-		if(1.0)
-			src.explode()
-			return
-		if(2.0)
-			src.health -= rand(5,10)*fire_dam_coeff
-			src.health -= rand(10,20)*brute_dam_coeff
-			healthcheck()
-			return
-		if(3.0)
+		if(1)
+			explode()
+		if(2)
+			add_damage(rand(5,10)*fire_dam_coeff)
+			add_damage(rand(10,20)*brute_dam_coeff)
+		if(3)
 			if (prob(50))
-				src.health -= rand(1,5)*fire_dam_coeff
-				src.health -= rand(1,5)*brute_dam_coeff
-				healthcheck()
-				return
-	return
+				add_damage(rand(1,5)*fire_dam_coeff)
+				add_damage(rand(1,5)*brute_dam_coeff)
 
 /obj/machinery/bot/emp_act(severity)
 	. = ..()
@@ -146,12 +131,11 @@
 		return ..()
 
 	if(user.species.can_shred(user))
-		src.health -= rand(15,30)*brute_dam_coeff
+		add_damage(rand(15,30) * brute_dam_coeff)
 		src.visible_message(SPAN_DANGER("[user] has slashed [src]!"))
 		playsound(src.loc, 'sound/weapons/slice.ogg', 25, 1, -1)
 		if(prob(10))
 			new /obj/effect/decal/cleanable/blood/oil(src.loc)
-		healthcheck()
 
 /******************************************************************/
 // Navigation procs

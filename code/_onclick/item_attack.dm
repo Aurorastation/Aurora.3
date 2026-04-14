@@ -60,7 +60,13 @@ This calls [atom/proc/tool_act], among others.
 		return TRUE
 
 	if((user?.a_intent == I_HURT) && !(attacking_item.item_flags & ITEM_FLAG_NO_BLUDGEON))
-		visible_message(SPAN_DANGER("[src] has been [attacking_item.attack_verb ? pick(attacking_item.attack_verb) : "hit"] by [user] with [attacking_item]."))
+		if(attacking_item.force && should_use_health)
+			user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
+			user.do_attack_animation(src)
+			visible_message(SPAN_DANGER("[user] [attacking_item.attack_verb] \the [src]!"))
+			add_damage(attacking_item.force, attacking_item.damage_flags(), attacking_item.damtype, attacking_item.armor_penetration, attacking_item)
+			playsound(src, hitsound, attacking_item.get_clamped_volume(), 1)
+			return FALSE
 
 	var/item_interact_result = src.base_item_interaction(user, attacking_item, modifiers)
 	if(item_interact_result & ITEM_INTERACT_SUCCESS)

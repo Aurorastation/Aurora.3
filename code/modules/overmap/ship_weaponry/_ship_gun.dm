@@ -60,9 +60,7 @@
 
 /obj/machinery/ship_weapon/assembly_hints(mob/user, distance, is_adjacent)
 	. += ..()
-	var/ratio = (health / maxhealth) * 100
-	if(ratio > 0)
-		. += "The damage can be repaired with a <b>welder</b>, but given the size of \the [src] it will take a lot of time and welding fuel."
+	. += "If damaged, it can be repaired with a <b>welder</b>, but given the size of \the [src] it will take a lot of time and welding fuel."
 
 /obj/machinery/ship_weapon/feedback_hints(mob/user, distance, is_adjacent)
 	. += ..()
@@ -132,7 +130,7 @@
 			user.visible_message(SPAN_NOTICE("[user] starts slowly welding kinks and holes in \the [src] back to working shape..."),
 								SPAN_NOTICE("You start welding kinks and holes back to working shape. This'll take a long while..."))
 			if(do_after(user, 15 SECONDS))
-				change_health(maxhealth)
+				set_health(maxhealth)
 				user.visible_message(SPAN_NOTICE("[user] finally finishes patching up \the [src]'s exterior! It's not a pretty job, but it'll do."),
 									SPAN_NOTICE("You finally finish patching up \the [src]'s exterior! It's not a pretty job, but it'll do."))
 				WT.use(20)

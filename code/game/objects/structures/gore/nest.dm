@@ -46,19 +46,16 @@
 		unbuckle()
 
 /obj/structure/bed/nest/attackby(obj/item/attacking_item, mob/user)
-	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
-	user.do_attack_animation(src, attacking_item)
-	var/force_damage = attacking_item.force
+	var/damage = attacking_item.force
 	if(attacking_item.damtype == DAMAGE_BURN)
-		force_damage *= 1.25
-	health -= force_damage
+		damage *= 1.25
+	. = ..()
+	add_damage(damage)
 	playsound(loc, 'sound/effects/attackblob.ogg', 80, TRUE)
-	healthcheck()
 
-/obj/structure/bed/nest/proc/healthcheck()
-	if(health <= 0)
-		var/final_message = replacetext(destroy_message, "THE STRUCTURE", "\The [src]")
-		visible_message(SPAN_WARNING(final_message))
-		qdel(src)
+/obj/structure/bed/nest/on_death(damage, damage_flags, damage_type, armor_penetration, obj/weapon)
+	var/final_message = replacetext(destroy_message, "THE STRUCTURE", "\The [src]")
+	visible_message(SPAN_WARNING(final_message))
+	qdel(src)
 
 #undef NEST_RESIST_TIME

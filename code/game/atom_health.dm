@@ -4,6 +4,8 @@
 /atom/var/health
 /// The maximum health of this atom. If null, health is not used.
 /atom/var/maxhealth
+/// The sound played when an item hits something OR when something is hit.
+/atom/var/hitsound
 /// The sound played when this object is destroyed.
 /atom/var/destroy_sound
 
@@ -27,17 +29,12 @@
 		on_death()
 	return TRUE
 
-/obj/condition_hints(mob/user, distance, is_adjacent)
-	. += ..()
-	if(health < maxhealth)
-		. += get_damage_condition_hints(user, distance, is_adjacent)
-
 /**
  * For custom damage condition hints. Some structures may want different ones than the default, like the cult crystal.
  */
 /atom/proc/get_damage_condition_hints(mob/user, distance, is_adjacent)
 	if(!should_use_health)
-		return
+		return FALSE
 	if(health < maxhealth * 0.25)
 		. = SPAN_DANGER("\The [src] looks like it's about to break!")
 	else if(health < maxhealth * 0.5)
@@ -56,15 +53,15 @@
  */
 /atom/proc/on_death(damage, damage_flags, damage_type, armor_penetration, obj/weapon)
 	if(!should_use_health)
-		return
+		return FALSE
 	qdel(src)
 
 /**
  * This proc is called to set the atom's health directly.
  */
-/atom/proc/change_health(new_health)
+/atom/proc/set_health(new_health)
 	if(!maxhealth || !should_use_health)
-		return
+		return FALSE
 
 	if(health >= maxhealth)
 		return FALSE
@@ -73,11 +70,24 @@
 	return TRUE
 
 /**
+ * Use this proc to update an atom's maxhealth. Set update_current_health to TRUE if you want to change the current health proportionally to the new maxhealth, or FALSE if you want to keep the current health the same.
+ */
+/atom/proc/set_maxhealth(new_maxhealth, update_current_health = FALSE)
+	if(!maxhealth || !should_use_health)
+		return FALSE
+
+	var/old_maxhealth = maxhealth
+	maxhealth = new_maxhealth
+	if(update_current_health || health > maxhealth)
+		health *= maxhealth / old_maxhealth
+	return TRUE
+
+/**
  * This proc is called to directly add to an atom's health (basically, to add it).
  */
 /atom/proc/add_health(repair_amount)
 	if(!maxhealth || !should_use_health)
-		return
+		return FALSE
 
 	if(health >= maxhealth)
 		return FALSE

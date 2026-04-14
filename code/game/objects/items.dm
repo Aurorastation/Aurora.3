@@ -4,6 +4,8 @@
 	w_class = WEIGHT_CLASS_NORMAL
 	light_system = MOVABLE_LIGHT
 	blocks_emissive = EMISSIVE_BLOCK_GENERIC
+	/// Generic hit sound
+	hitsound = SFX_SWING_HIT
 
 	/// This saves our blood splatter overlay, which will be processed not to go over the edges of the sprite
 	var/image/blood_overlay
@@ -13,9 +15,6 @@
 	var/r_speed = 1.0
 	var/burn_point
 	var/burning
-
-	/// Generic hit sound
-	var/hitsound = SFX_SWING_HIT
 
 	var/storage_cost
 

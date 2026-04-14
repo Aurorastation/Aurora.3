@@ -22,6 +22,7 @@
 	anchored = TRUE
 	idle_power_usage = 600 // WATTS
 	active_power_usage = 15 KILO WATTS
+	hitsound = 'sound/weapons/smash.ogg'
 
 	/// List of machines this machine is linked to
 	var/list/links = list()
@@ -55,8 +56,6 @@
 	var/circuitboard = null
 	/// Is it a hidden machine?
 	var/hide = FALSE
-
-	var/hitsound = 'sound/weapons/smash.ogg'
 
 	/// Overmap ranges in terms of map tile distance, used by receivers, relays, and broadcasters (and AIOs)
 	var/overmap_range = 0

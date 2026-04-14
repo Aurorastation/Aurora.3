@@ -18,8 +18,8 @@
 	atom_flags = ATOM_FLAG_CHECKS_BORDER
 	obj_flags = OBJ_FLAG_ROTATABLE|OBJ_FLAG_MOVES_UNSUPPORTED
 	maxhealth = OBJECT_HEALTH_FRAGILE
+	hitsound = 'sound/effects/glass_hit.ogg'
 
-	var/hitsound = 'sound/effects/glass_hit.ogg'
 	var/maximal_heat = T0C + 100 // Maximal heat before this window begins taking damage from fire
 	var/damage_per_fire_tick = 2 // Amount of damage per fire tick. Regular windows are not fireproof so they might as well break quickly.
 	var/ini_dir = null
@@ -64,38 +64,14 @@
 			layer = ABOVE_HUMAN_LAYER
 	QUEUE_SMOOTH(src)
 
-/obj/structure/window/proc/take_damage(var/damage = 0,  var/sound_effect = 1, message = TRUE)
-	var/initialhealth = health
-
-	if(silicate)
-		damage = damage * (1 - silicate / 200)
-
-	health = max(0, health - damage)
-
-	if(health <= 0)
-		shatter(message)
-	else
-		if(sound_effect)
-			playsound(loc, 'sound/effects/glass_hit.ogg', 100, 1)
-		if(health < maxhealth / 4 && initialhealth >= maxhealth / 4)
-			if(message)
-				visible_message(SPAN_DANGER("[src] looks like it's about to shatter!"))
-			playsound(loc, SFX_GLASS_CRACK, 100, 1)
-		else if(health < maxhealth / 2 && initialhealth >= maxhealth / 2)
-			if(message)
-				visible_message(SPAN_WARNING("[src] looks seriously damaged!"))
-			playsound(loc, SFX_GLASS_CRACK, 100, 1)
-		else if(health < maxhealth * 3/4 && initialhealth >= maxhealth * 3/4)
-			if(message)
-				visible_message(SPAN_WARNING("Cracks begin to appear in [src]!"))
-			playsound(loc, SFX_GLASS_CRACK, 100, 1)
-	return
+/obj/structure/window/on_death(damage, damage_flags, damage_type, armor_penetration, obj/weapon)
+	shatter(message)
 
 /obj/structure/window/proc/apply_silicate(var/amount)
 	if(health < maxhealth) // Mend the damage.
-		health = min(health + amount * 3, maxhealth)
+		add_health(amount * 3)
 		if(health == maxhealth)
-			visible_message("[src] looks fully repaired." )
+			visible_message(SPAN_NOTICE("The silicate fully mends the damage on \the [src]."))
 	else // Reinforce.
 		silicate = min(silicate + amount, 100)
 		updateSilicate()
@@ -367,8 +343,6 @@
 
 	if (start_dir)
 		set_dir(start_dir)
-
-	health = maxhealth
 
 	ini_dir = dir
 
@@ -752,13 +726,13 @@
 	qdel(src)
 	return
 
-/obj/structure/window/full/take_damage(var/damage = 0, var/sound_effect = 1)
+/obj/structure/window/full/add_damage(damage, damage_flags, damage_type, armor_penetration, obj/weapon)
 	var/initialhealth = health
 
 	if(silicate)
 		damage = damage * (1 - silicate / 200)
 
-	health = max(0, health - damage)
+
 
 	if(health <= 0)
 		shatter()
