@@ -47,7 +47,7 @@
 /obj/structure/reagent_crystal/attack_hand(mob/user)
 	if((user.mutations & HULK))
 		user.visible_message(SPAN_WARNING("\The [user] smashes \the [src] apart!"), SPAN_WARNING("You smash \the [src] apart!"))
-		harvest()
+		add_damage(health)
 		return
 	return ..()
 
@@ -85,7 +85,7 @@
 	if(do_after(user, time_to_dig * mine_rate, src))
 		if(!src)
 			return
-		harvest()
+		add_damage(health)
 		if(use_sound)
 			playsound(get_turf(src), use_sound, 30, TRUE)
 
@@ -95,12 +95,12 @@
 			qdel(src)
 		if(2.0)
 			if(prob(30))
-				harvest()
+				add_damage(health)
 			else
 				add_damage(rand(60,180))
 		if(3.0)
 			if(prob(5))
-				harvest()
+				add_damage(health)
 			else
 				add_damage(rand(40,80))
 
@@ -109,7 +109,7 @@
 		return FALSE
 	user.do_attack_animation(src)
 	visible_message(SPAN_WARNING("\The [user] [attack_message] \the [src]!"))
-	harvest()
+	add_damage(health)
 	return TRUE
 
 /obj/structure/reagent_crystal/proc/become_dense()
@@ -127,7 +127,7 @@
 	maxhealth = OBJECT_HEALTH_HIGH
 	mine_rate = 2
 
-/obj/structure/reagent_crystal/dense/harvest()
+/obj/structure/reagent_crystal/dense/on_death(damage, damage_flags, damage_type, armor_penetration, obj/weapon)
 	var/turf/our_turf = get_turf(src)
 	for(var/i = 0 to 2)
 		new /obj/item/reagent_crystal(our_turf, reagent_id, 5)

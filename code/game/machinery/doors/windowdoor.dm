@@ -126,7 +126,7 @@
 	operating = FALSE
 	return 1
 
-/obj/machinery/door/window/on_death(damage, damage_flags, damage_type, armor_penetration, obj/weapon)
+/obj/machinery/door/window/on_death(damage, damage_flags, damage_type, armor_penetration, obj/weapon, display_message = FALSE)
 	new /obj/item/trash/broken_electronics(loc)
 	new /obj/item/material/shard(loc)
 	var/obj/item/stack/cable_coil/CC = new /obj/item/stack/cable_coil(loc)

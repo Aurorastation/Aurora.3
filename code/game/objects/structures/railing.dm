@@ -392,7 +392,7 @@
 	icon = 'icons/obj/doors/retractable_railing.dmi'
 	icon_state = "railing1"
 	anchored = TRUE
-	maxhealth = OBJECT_HEALTH_MEDIUM, TRUE
+	maxhealth = OBJECT_HEALTH_MEDIUM
 	non_material_object = TRUE
 	can_wrench = FALSE
 	can_screwdriver = FALSE

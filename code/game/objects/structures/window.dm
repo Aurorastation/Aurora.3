@@ -64,7 +64,7 @@
 			layer = ABOVE_HUMAN_LAYER
 	QUEUE_SMOOTH(src)
 
-/obj/structure/window/on_death(damage, damage_flags, damage_type, armor_penetration, obj/weapon)
+/obj/structure/window/on_death(damage, damage_flags, damage_type, armor_penetration, obj/weapon, message)
 	shatter(message)
 
 /obj/structure/window/proc/apply_silicate(var/amount)
@@ -120,23 +120,19 @@
 	if(. != BULLET_ACT_HIT)
 		return .
 
-	take_damage(proj_damage)
-	return
+	add_damage(proj_damage)
 
 /obj/structure/window/ex_act(severity)
 	switch(severity)
 		if(1)
 			qdel(src)
-			return
 		if(2)
 			shatter(0)
-			return
 		if(3)
 			if(prob(50))
 				shatter(0)
-				return
 			else
-				take_damage(rand(10,30), TRUE, FALSE)
+				add_damage(rand(10,30), TRUE, FALSE)
 
 // This and relevant verbs/procs can probably be removed since full windows are a thing now. -Gem
 /obj/structure/window/proc/is_full_window()
@@ -185,7 +181,7 @@
 		anchored = 0
 		update_nearby_icons()
 		step(src, get_dir(hitting_atom, src))
-	take_damage(tforce)
+	add_damage(tforce)
 
 /obj/structure/window/attack_hand(var/mob/living/user)
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
@@ -218,7 +214,7 @@
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 	if(damage >= 10)
 		visible_message(SPAN_DANGER("[user] smashes into [src]!"))
-		take_damage(damage)
+		add_damage(damage)
 	else
 		visible_message(SPAN_NOTICE("\The [user] bonks \the [src] harmlessly."))
 		playsound(src.loc, 'sound/effects/glass_hit.ogg', 10, 1, -2)
@@ -322,8 +318,7 @@
 /obj/structure/window/proc/hit(var/damage, var/sound_effect = 1)
 	if(reinf)
 		damage *= 0.5
-	take_damage(damage)
-	return
+	add_damage(damage)
 
 /obj/structure/window/proc/dismantle_window()
 	if(dir == SOUTHWEST)
@@ -460,9 +455,6 @@
 	return
 
 /obj/structure/window/reinforced/crescent/hitby(atom/movable/hitting_atom, skipcatch, hitpush, blocked, datum/thrownthing/throwingdatum)
-	return
-
-/obj/structure/window/reinforced/crescent/take_damage()
 	return
 
 /obj/structure/window/reinforced/crescent/shatter()
@@ -604,9 +596,6 @@
 /obj/structure/window/shuttle/crescent
 	desc = "It looks rather strong."
 
-/obj/structure/window/shuttle/crescent/take_damage()
-	return
-
 //
 // Full Windows
 //
@@ -726,13 +715,11 @@
 	qdel(src)
 	return
 
-/obj/structure/window/full/add_damage(damage, damage_flags, damage_type, armor_penetration, obj/weapon)
+/obj/structure/window/full/add_damage(damage, damage_flags, damage_type, armor_penetration, obj/weapon, sound_effect = TRUE)
 	var/initialhealth = health
 
 	if(silicate)
 		damage = damage * (1 - silicate / 200)
-
-
 
 	if(health <= 0)
 		shatter()
@@ -748,7 +735,6 @@
 		else if(health < maxhealth * 3/4 && initialhealth >= maxhealth * 3/4)
 			visible_message(SPAN_WARNING("Cracks begin to appear in [src]!"))
 			playsound(loc, SFX_GLASS_CRACK, 100, 1)
-	return
 
 /obj/structure/window/full/dismantle_window()
 	var/obj/item/stack/material/mats = new glasstype(loc)
@@ -803,9 +789,6 @@
 /obj/structure/window/full/reinforced/indestructible/hitby(atom/movable/hitting_atom, skipcatch, hitpush, blocked, datum/thrownthing/throwingdatum)
 	return
 
-/obj/structure/window/full/reinforced/indestructible/take_damage()
-	return
-
 /obj/structure/window/full/reinforced/indestructible/shatter()
 	return
 
@@ -834,9 +817,6 @@
 	return
 
 /obj/structure/window/full/reinforced/polarized/indestructible/hitby(atom/movable/hitting_atom, skipcatch, hitpush, blocked, datum/thrownthing/throwingdatum)
-	return
-
-/obj/structure/window/full/reinforced/polarized/indestructible/take_damage()
 	return
 
 /obj/structure/window/full/reinforced/polarized/indestructible/shatter()

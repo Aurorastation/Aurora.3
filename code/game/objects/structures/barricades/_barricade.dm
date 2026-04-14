@@ -155,7 +155,7 @@
 		visible_message(SPAN_DANGER("\The [src]'s barbed wire slices into [L]!"))
 		L.apply_damage((5), DAMAGE_BRUTE, pick(BP_R_HAND, BP_L_HAND), "barbed wire", DAMAGE_FLAG_SHARP|DAMAGE_FLAG_EDGE, 25)
 	L.do_attack_animation(src)
-	take_damage(damage)
+	add_damage(damage)
 
 /obj/structure/barricade/attackby(obj/item/attacking_item, mob/user)
 	if(istype(attacking_item, /obj/item/stack/barbed_wire))
@@ -172,7 +172,7 @@
 				user.visible_message(SPAN_NOTICE("[user] sets up [attacking_item.name] on [src]."),
 				SPAN_NOTICE("You set up [attacking_item.name] on [src]."))
 
-				maxhealth += 50
+				set_maxhealth(maxhealth + 50)
 				add_health(50)
 				can_wire = FALSE
 				is_wired = TRUE
@@ -190,8 +190,8 @@
 				playsound(src.loc, 'sound/items/Wirecutter.ogg', 25, 1)
 				user.visible_message(SPAN_NOTICE("[user] removes the barbed wire on [src]."),
 				SPAN_NOTICE("You remove the barbed wire on [src]."))
-				maxhealth -= 50
-				add_health(50)
+				set_maxhealth(maxhealth - 50)
+				add_damage(50)
 				can_wire = TRUE
 				is_wired = FALSE
 				climbable = TRUE
@@ -212,7 +212,7 @@
 
 	bullet_ping(hitting_projectile)
 	var/damage_to_take = hitting_projectile.damage * hitting_projectile.anti_materiel_potential
-	take_damage(damage_to_take)
+	add_damage(damage_to_take, hitting_projectile.damage_flags(), hitting_projectile.damtype, hitting_projectile.armor_penetration, hitting_projectile)
 
 /obj/structure/barricade/proc/barricade_deconstruct(deconstruct)
 	if(deconstruct && is_wired)
@@ -257,14 +257,12 @@
 	var/message = pick(I.attack_verb)
 	visible_message(SPAN_DANGER("[L] has [message] the [src]!"))
 	L.do_attack_animation(src)
-	take_damage(I.force)
-
-/obj/structure/barricade/proc/take_damage(var/damage)
-	for(var/obj/structure/barricade/B in get_step(src,dir)) //discourage double-stacking barricades by removing health from opposing barricade
-		if(B.dir == REVERSE_DIR(dir))
-			B.add_damage(damage)
+	add_damage(I.force, I.damage_flags(), I.damtype, I.armor_penetration, I)
 
 /obj/structure/barricade/add_damage(damage, damage_flags, damage_type, armor_penetration, obj/weapon)
+	for(var/obj/structure/barricade/B in get_step(src,dir)) //discourage double-stacking barricades by removing health from opposing barricade
+		if(B.dir == REVERSE_DIR(dir))
+			B.add_damage(damage, damage_flags, damage_type, armor_penetration, weapon)
 	if(..())
 		update_damage_state()
 		update_icon()

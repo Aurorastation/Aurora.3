@@ -280,7 +280,7 @@
 /obj/machinery/door/blast/odin/ex_act(var/severity)
 	return
 
-/obj/machinery/door/blast/odin/add_damage(damage, damage_flags, damage_type, armor_penetration, obj/weapon)
+/obj/machinery/door/blast/odin/add_damage(damage, damage_flags, damage_type, armor_penetration, obj/weapon, message)
 	return
 
 /obj/machinery/door/blast/odin/shuttle

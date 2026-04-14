@@ -270,7 +270,7 @@ ABSTRACT_TYPE(/mob/living/simple_animal/hostile)
 			return
 		face_atom(T)
 		src.do_attack_animation(T)
-		T.take_damage(max(melee_damage_lower, melee_damage_upper) / 2)
+		T.add_damage(max(melee_damage_lower, melee_damage_upper) / 2, armor_penetration = armor_penetration)
 		visible_message(SPAN_DANGER("\The [src] [attacktext] \the [T]!"))
 		return T // no need to take a step back here
 	if(loc && attack_sound)

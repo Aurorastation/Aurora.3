@@ -14,7 +14,7 @@
 	hitsound = 'sound/weapons/smash.ogg' //sound door makes when hit with a weapon
 	armor = list(
 		MELEE = ARMOR_MELEE_RESISTANT,
-		BULLET = ARMOR_BALLISTIC_SMALL
+		BULLET = ARMOR_BALLISTIC_SMALL,
 		LASER = ARMOR_LASER_PISTOL
 	)
 	var/hitsound_light = 'sound/effects/glass_hit.ogg'//Sound door makes when hit very gently
@@ -409,6 +409,7 @@
 		return 1
 
 /obj/machinery/door/add_damage(damage, damage_flags, damage_type, armor_penetration, obj/weapon, message = TRUE)
+	var/initialhealth = health
 	. = ..()
 	if(message)
 		if(src.health < src.maxhealth / 4 && initialhealth >= src.maxhealth / 4)

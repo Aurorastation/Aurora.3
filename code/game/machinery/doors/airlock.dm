@@ -453,7 +453,7 @@
 		return
 	return attackby(null, user)
 
-/obj/machinery/door/airlock/centcom/add_damage(damage, damage_flags, damage_type, armor_penetration, obj/weapon)
+/obj/machinery/door/airlock/centcom/add_damage(damage, damage_flags, damage_type, armor_penetration, obj/weapon, message)
 	return	// No.
 
 /obj/machinery/door/airlock/centcom/emag_act()
@@ -493,7 +493,7 @@
 		return
 	return attackby(null, user)
 
-/obj/machinery/door/airlock/glass_centcom/add_damage(damage, damage_flags, damage_type, armor_penetration, obj/weapon)
+/obj/machinery/door/airlock/glass_centcom/add_damage(damage, damage_flags, damage_type, armor_penetration, obj/weapon, message)
 	return	// No.
 
 /obj/machinery/door/airlock/glass_centcom/emag_act()
