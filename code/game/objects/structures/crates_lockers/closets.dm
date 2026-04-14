@@ -159,6 +159,10 @@
 
 	. = ..()
 
+/obj/structure/closet/on_death(damage, damage_flags, damage_type, armor_penetration, obj/weapon)
+	dump_contents()
+	. = ..()
+
 /// Fill lockers with this.
 /obj/structure/closet/proc/fill()
 	return
