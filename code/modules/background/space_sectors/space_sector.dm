@@ -61,7 +61,7 @@
 	/// Does this sector permit communication with Central Command? Reserved for remote/uncharted sectors. The EBS system is unaffected as it is necessary for certain CCIA functions (eg. scuttling).
 	var/ccia_link = TRUE
 	///Does this sector allow Vaurcae catch fluff echoes of the greater Hivenet? Primarily for Lemurian Sea, but some super remote areas also fit. Obviously, consult w/ lore.
-	var/catchecho = TRUE
+	var/hivenet_echoes = TRUE
 
 	//vars used by the meteor random event
 

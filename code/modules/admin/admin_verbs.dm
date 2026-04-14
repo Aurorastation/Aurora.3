@@ -161,7 +161,7 @@ GLOBAL_LIST_INIT(admin_verbs_spawn, list(
 	))
 
 GLOBAL_LIST_INIT(admin_verbs_server, list(
-	/datum/controller/subsystem/processing/HiveEchoes/proc/ToggleEchoes, //Toggles if Vaurcae receive faint echoes (fluff) of the wider Hivenet. Useful for events or gimmicks.
+	/datum/component/HiveEchoes/proc/ToggleEchoes, //Toggles if Vaurcae receive faint echoes (fluff) of the wider Hivenet. Useful for events or gimmicks.
 	/datum/admins/proc/capture_map_part,
 	/client/proc/Set_Holiday,
 	/datum/admins/proc/startnow,
