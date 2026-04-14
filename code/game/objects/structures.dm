@@ -46,7 +46,8 @@
 		user.do_attack_animation(src)
 		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 		add_damage(attacking_item.force, attacking_item.damage_flags(), attacking_item.damtype, attacking_item.armor_penetration, attacking_item)
-		playsound(user, attacking_item.hitsound, attacking_item.get_clamped_volume())
+		if(hitsound)
+			playsound(user, hitsound, attacking_item.get_clamped_volume())
 
 /obj/structure/attack_hand(mob/living/user)
 	if((user.mutations & HULK) && !(user.isSynthetic()) && !(isvaurca(user)))

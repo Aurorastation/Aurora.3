@@ -3,6 +3,7 @@
 	desc = "It's a basic storage unit."
 	icon = 'icons/obj/containers/closet.dmi'
 	icon_state = "generic"
+	hitsound = 'sound/effects/metalhit.ogg'
 	density = TRUE
 	build_amt = 2
 	slowdown = 2.5

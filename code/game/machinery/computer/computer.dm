@@ -181,7 +181,7 @@
 		A.circuit = M
 	else
 		new /obj/effect/decal/cleanable/blood/oil(loc)
-		new /obj/item/trash/broken_electronics(current_turf)
+		new /obj/item/trash/broken_electronics(loc)
 	new /obj/item/material/shard(loc)
 	new /obj/effect/decal/cleanable/blood/oil(loc)
 	spark(A, 5, GLOB.alldirs)
