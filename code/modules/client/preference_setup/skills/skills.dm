@@ -40,7 +40,10 @@
 		var/singleton/skill/skill = GET_SINGLETON(S)
 		if(!istype(skill))
 			continue
-		sanitized_skills[skill.type] = pref.skills[S]
+		var/skill_val = pref.skills[S]
+		if(skill_val <= SKILL_LEVEL_UNFAMILIAR)
+			continue
+		sanitized_skills["[skill.type]"] = skill_val
 
 	return list(
 		"education" = pref.education,
