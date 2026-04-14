@@ -53,7 +53,7 @@ This has been talked with a lore writer as of April 2026.
 		to_chat(vaurca, "<i><span class='game say'>Hivenet, <span class='name'>a [pick("Faint", "Distant", "Fading", "Fleeting", "Drifting", "Low", "Weak", "Far", "Pinging", "Whispering")] Echo</span> broadcasts, <span class='vaurca'>\"[pick(echo_response)]\"</span></span></i>")
 
 /datum/component/HiveEchoes/proc/GetProjectionEcho()
-	var/list/echo_projections = file2list("config/hivenet_echoes/echo_projections.txt") //It works, I simply forgot the .txt
+	var/list/echo_projections = file2list("config/hivenet_echoes/echo_projections.txt")
 	var/mob/living/carbon/human/vaurca = parent
 	if(vaurca.internal_organs_by_name[BP_NEURAL_SOCKET] && !within_jamming_range(vaurca) && GLOB.all_languages[LANGUAGE_VAURCA])
 		to_chat(vaurca, "<i><span class='game say'>Hivenet, <span class='name'>a [pick("Faint", "Distant", "Fading", "Fleeting", "Drifting", "Low", "Weak", "Far", "Pinging", "Whispering")] Echo</span> projects <span class='vaurca'>[pick(echo_projections)]</span></span></i>")
