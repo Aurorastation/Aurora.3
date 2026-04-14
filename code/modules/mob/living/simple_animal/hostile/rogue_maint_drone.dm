@@ -33,6 +33,10 @@
 	eye_overlay.appearance_flags = KEEP_APART
 	AddOverlays(eye_overlay)
 
+/mob/living/simple_animal/hostile/rogue_drone/Destroy()
+	QDEL_NULL(eye_overlay)
+	return ..()
+
 /mob/living/simple_animal/hostile/rogue_drone/CanPass(atom/movable/mover, turf/target, height, air_group)
 	. = ..()
 	if(.)

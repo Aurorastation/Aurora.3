@@ -1240,7 +1240,6 @@
 					var/obj/item/organ/eyes = self.get_eyes()
 					if(istype(eyes))
 						self.eye_blurry = max(self.eye_blurry, 6)
-						eyes.take_damage(1, TRUE)
 						var/list/eye_sensitivity_messages = list(
 							"Your eyes tire a bit from the brightness.",
 							"Your eyes sting a little; it's too bright.",

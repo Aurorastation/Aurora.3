@@ -1,6 +1,0 @@
-author: Batrachophrenoboocosmomachia
-delete-after: True
-changes:
-  - bugfix: "Fixes light and dark sensitivity trait behaviors being locked behind an unrelated rare prob event."
-  - balance: "Makes light sensitivity apply the basic low-level flash effect when triggered (trivial eye damage that immediately heals, very brief translucent grey overlay)."
-  - balance: "Makes minor+ flash protection (basic sunglasses etc.) protect against bright lights for affected characters."

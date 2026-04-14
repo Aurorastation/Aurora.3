@@ -129,6 +129,9 @@ jobs:
     runs-on: ubuntu-24.04
     needs: validate-structure
     if: needs.validate-structure.outputs.skipci != 'true'
+    permissions:
+      contents: read
+      statuses: write
 
     concurrency:
       group: megalinter-${{ github.head_ref || github.run_id }}

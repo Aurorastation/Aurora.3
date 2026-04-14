@@ -28,8 +28,6 @@ ABSTRACT_TYPE(/mob/living/simple_animal/hostile)
 	var/destroy_surroundings = 1
 	a_intent = I_HURT
 	hunger_enabled = 0//Until automated eating mechanics are enabled, disable hunger for hostile mobs
-	var/shuttletarget = null
-	var/enroute = 0
 	var/obj/effect/landmark/mob_waypoint/target_waypoint = null // The waypoint mobs that are spawned by mapped in spawners move to
 
 	// Vars to help find targets
@@ -54,10 +52,13 @@ ABSTRACT_TYPE(/mob/living/simple_animal/hostile)
 	setup_target_type_validators()
 
 /mob/living/simple_animal/hostile/Destroy()
-	friends = null
+	GLOB.move_manager.stop_looping(src)
 	unset_last_found_target()
-	targets = null
-	target_type_validator_map = null
+	friends.Cut()
+	target_waypoint = null
+	targets.Cut()
+	target_type_validator_map.Cut()
+	tolerated_types.Cut()
 	return ..()
 
 /mob/living/simple_animal/hostile/proc/setup_target_type_validators()

@@ -251,6 +251,7 @@
 
 /mob/living/simple_animal/Destroy()
 	CutOverlays(blood_overlay)
+	QDEL_NULL(blood_overlay)
 	lostMovementTarget()
 	QDEL_NULL(udder)
 

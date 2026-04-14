@@ -175,3 +175,75 @@
   - refactor: Refactored the air alarm, atmospheric alert computer, oxygen regenerator,
       omni gas mixer, and omni gas filter from NanoUI to TGUI.
   - refactor: Updates the Library Machines to TGUI
+2026-04-13:
+  Batrachophrenoboocosmomachia:
+  - bugfix: Fixes light and dark sensitivity trait behaviors being locked behind an
+      unrelated rare prob event.
+  - balance: Makes light sensitivity apply the basic low-level flash effect when triggered
+      (trivial eye damage that immediately heals, very brief translucent grey overlay).
+  - balance: Makes minor+ flash protection (basic sunglasses etc.) protect against
+      bright lights for affected characters.
+  Hellfirejag:
+  - bugfix: Made a 2nd attempt to fix the instruments memory leak.
+  - rscdel: Sheet Snatchers no longer flood your chat with messages.
+  - bugfix: Fixed a hard delete in water effects.
+  - bugfix: Fixed a memory leak related to projectiles.
+  - bugfix: Finally fixed the pants memory leak. It is no longer possible to accidentally
+      put Abstract (not real) pants in your loadout.
+  - bugfix: Fixed drugs being extremely chat spammy.
+  - bugfix: Tweaked bluespace techs to hold a weakref to their original mob instead
+      of a real reference, in order to mitigate race condition hard deletes.
+  - bugfix: Fixed a spammy nonsense runtime error related to signals.
+  - bugfix: Fixed doors with shutters not responding to clicking the tile underneath
+      them.
+  - bugfix: Fixed numerous hard dels that were universal to all hostile mobs.
+  arrow768:
+  - bugfix: Fixes being unable to change the temperature on an air alarm without unlocking
+      it.
+  - rscdel: Fixes missing toolbar after unlocking the air alarm.
+  diggiez:
+  - rscadd: Commune can now be used on adjacent objects to later send a mental image
+      of their icon and examine, like a psionic Show-Held-Item
+  - rscadd: With a mental image stored, Commune may be used in hand to warp and add
+      custom text after its description.
+2026-04-14:
+  Batrachophrenoboocosmomachia:
+  - bugfix: Removes superficial eye damage from light sensitivity proc.
+  - rscadd: Adds custom voidsuit & cloak items for Shigaraz Hiskyn.
+  - qol: Warehouse submap compartment shutter now spawns closed by default.
+  - qol: Warehouse submap compartment walls are now reinforced walls for radiation
+      blocking.
+  - qol: Modifies several warehouse submaps; removes static objs like ship weapon
+      and cars, increase variety of existing content, removes a few lore-unfriendly
+      items, tunes radiatioactive waste submap, etc.
+  - bugfix: Acid barrel now spawns with acid in it.
+  FabianK3:
+  - code_imp: Fixed server lag when using the admin spawn verb with an empty argument.
+  arrow768:
+  - refactor: Refactors IPIntel (XKeyScore) to use the SShttp subsystem for async
+      HTTP requests instead of world.Export.
+  - refactor: Moves IPIntel logic into the SSipintel subsystem as proper subsystem
+      procs.
+  - code_imp: IPIntel database queries now use SSdbcore with parameterized queries
+      instead of GLOB.dbcon string interpolation.
+  - config: Adds a dedicated IPIntel subsystem log (subsystems/ipintel.log) controlled
+      by log_subsystems_ipintel in logging.json.
+  - code_imp: Refactors BYOND account age lookup (findJoinDate) to use async RUSTG
+      HTTP instead of world.Export.
+  - code_imp: Refactors client login DB logging (log_client_to_db) to use SSdbcore
+      with parameterized queries.
+  - code_imp: Removes unused get_player_age proc.
+  - server: Changed the synthsprites to use the new DBCore
+  - server: Changed the MalfAI to use the new DBCore
+  - server: Changed the Alien Whitelists to use the new DBCore
+  - server: Changed the Requests Console to use the new DBCore
+  - server: Changed the Contracts Uplink to use the new DBCore
+  - server: Changed the Admin Ranks to use the new DBCore
+  - server: Changed the Job Bans to use the new DBCore
+  - server: Changed the Tickets to use the new DBCore
+  - server: Changed the Create Command Report to use the new DBCore
+  - server: Changed the WebInterface interconnect to use the new DBCore
+  - server: Changed the CCIA Recorder to use the new DBCore
+  - server: Changed the IPCTags to use the new DBCore
+  - server: Changed the Main Menu Poll-Check to use the new DBCore
+  - server: Changed the Client-Procs to use the new DBCore

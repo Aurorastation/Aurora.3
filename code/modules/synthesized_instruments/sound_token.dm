@@ -49,8 +49,8 @@
 /datum/sound_token/instrument/Stop()
 	if(player)
 		player.unsubscribe(src)
+		player = null
 	. = ..()
 
 /datum/sound_token/instrument/Destroy()
-	player = null
 	return ..()

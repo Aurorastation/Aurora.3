@@ -1048,8 +1048,13 @@
 		finalize_hitscan_and_generate_tracers()
 	STOP_PROCESSING(SSprojectiles, src)
 	cleanup_beam_segments()
-	if(trajectory)
-		QDEL_NULL(trajectory)
+	QDEL_NULL(trajectory)
+	firer = null
+	fired_from = null
+	original = null
+	starting = null
+	homing_target = null
+	impacted.Cut()
 	return ..()
 
 /obj/projectile/proc/cleanup_beam_segments()

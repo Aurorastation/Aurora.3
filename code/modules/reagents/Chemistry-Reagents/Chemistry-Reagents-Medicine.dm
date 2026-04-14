@@ -1232,9 +1232,10 @@
 	if(alchohol_affected && bac > 0.03)
 		H.hallucination = max(H.hallucination, bac * 400)
 
-	if(H.chem_doses[type] < overdose && H.shock_stage < 5) //Don't want feel-good messages when we're suffering an OD or particularly hurt/injured
+	if(H.chem_doses[type] < overdose && H.shock_stage < 5 && REALTIMEOFDAY >= H.next_drug_message)
 		message = feedback_message(H)
 		to_chat(H, SPAN_GOOD("[message]"))
+		H.next_drug_message = REALTIMEOFDAY + DRUG_MESSAGE_COOLDOWN
 
 	LAZYSET(holder.reagent_data[type], "last_tick_time", world.time + (messagedelay))
 

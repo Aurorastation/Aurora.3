@@ -104,6 +104,8 @@ GLOBAL_LIST_INIT(gear_datums, list())
 	var/list/whitelist_cache = list()
 
 	if(preference_mob)
+		if(preference_mob.client)
+			preference_mob.client.load_whitelist_status()
 		for(var/species in GLOB.all_species)
 			var/datum/species/S = GLOB.all_species[species]
 			if(is_alien_whitelisted(preference_mob, S))

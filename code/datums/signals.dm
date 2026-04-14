@@ -13,7 +13,7 @@
  * * proctype The proc to call back when the signal is emitted
  * * override If a previous registration exists you must explicitly set this
  */
-/datum/proc/RegisterSignal(datum/target, signal_type, proctype, override = FALSE)
+/datum/proc/RegisterSignal(datum/target, signal_type, proctype, override = TRUE)
 	if(QDELETED(src) || QDELETED(target))
 		return
 
@@ -53,7 +53,7 @@
 		looked_up += src
 
 /// Registers multiple signals to the same proc.
-/datum/proc/RegisterSignals(datum/target, list/signal_types, proctype, override = FALSE)
+/datum/proc/RegisterSignals(datum/target, list/signal_types, proctype, override = TRUE)
 	for (var/signal_type in signal_types)
 		RegisterSignal(target, signal_type, proctype, override)
 

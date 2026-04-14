@@ -9,7 +9,8 @@
 /turf/template_noop,
 /area/template_noop)
 "ai" = (
-/obj/machinery/recharge_station,
+/obj/random/dirt_75,
+/obj/machinery/space_heater,
 /turf/template_noop,
 /area/template_noop)
 "ao" = (
@@ -28,7 +29,9 @@
 /turf/template_noop,
 /area/template_noop)
 "aG" = (
-/obj/machinery/vending/phoronresearch,
+/obj/machinery/vending/phoronresearch{
+	anchored = 0
+	},
 /turf/template_noop,
 /area/template_noop)
 "aH" = (
@@ -105,6 +108,7 @@
 "bA" = (
 /obj/effect/map_effect/marker/mapmanip/submap/extract/sccv_horizon/ops_warehouse_small_storage,
 /obj/structure/reagent_dispensers/radioactive_waste,
+/obj/effect/decal/cleanable/greenglow/radioactive/low,
 /turf/template_noop,
 /area/template_noop)
 "bU" = (
@@ -122,6 +126,7 @@
 /area/template_noop)
 "cn" = (
 /obj/structure/automobile_filler,
+/obj/structure/particle_accelerator/particle_emitter/right,
 /turf/template_noop,
 /area/template_noop)
 "cE" = (
@@ -177,7 +182,9 @@
 /turf/template_noop,
 /area/template_noop)
 "dJ" = (
-/obj/machinery/washing_machine,
+/obj/machinery/washing_machine{
+	anchored = 0
+	},
 /turf/template_noop,
 /area/template_noop)
 "dN" = (
@@ -257,7 +264,7 @@
 /turf/template_noop,
 /area/template_noop)
 "fY" = (
-/obj/machinery/power/rtg/advanced,
+/obj/machinery/power/rad_collector,
 /turf/template_noop,
 /area/template_noop)
 "go" = (
@@ -284,7 +291,9 @@
 /turf/template_noop,
 /area/template_noop)
 "gV" = (
-/obj/effect/decal/cleanable/greenglow/radioactive/low,
+/obj/structure/dispenser/oxygen{
+	anchored = 0
+	},
 /turf/template_noop,
 /area/template_noop)
 "ha" = (
@@ -306,11 +315,17 @@
 /area/template_noop)
 "ht" = (
 /obj/structure/table/rack/no_cargo,
-/obj/machinery/chemical_dispenser/coffee/full,
+/obj/machinery/chemical_dispenser/coffee/full{
+	anchored = 0
+	},
 /turf/template_noop,
 /area/template_noop)
 "hu" = (
 /obj/vehicle/bike/motor/brown,
+/turf/template_noop,
+/area/template_noop)
+"hD" = (
+/obj/item/reagent_containers/chem_disp_cartridge/coffee,
 /turf/template_noop,
 /area/template_noop)
 "hY" = (
@@ -349,7 +364,9 @@
 /turf/template_noop,
 /area/template_noop)
 "is" = (
-/obj/machinery/vending/overloaders,
+/obj/machinery/vending/overloaders{
+	anchored = 0
+	},
 /turf/template_noop,
 /area/template_noop)
 "ix" = (
@@ -359,8 +376,16 @@
 /turf/template_noop,
 /area/template_noop)
 "iE" = (
-/obj/item/stellascope,
 /obj/structure/table/rack/no_cargo,
+/obj/item/tvcamera,
+/obj/item/tvcamera,
+/obj/item/tvcamera,
+/obj/item/tvcamera,
+/obj/item/tvcamera,
+/turf/template_noop,
+/area/template_noop)
+"iG" = (
+/obj/machinery/space_heater,
 /turf/template_noop,
 /area/template_noop)
 "iL" = (
@@ -385,12 +410,16 @@
 /turf/template_noop,
 /area/template_noop)
 "iR" = (
-/obj/machinery/chemical_dispenser/coffee/full,
+/obj/machinery/chemical_dispenser/coffee/full{
+	anchored = 0
+	},
 /obj/structure/table/rack/no_cargo,
 /turf/template_noop,
 /area/template_noop)
 "jB" = (
-/obj/machinery/vending/coffee/free,
+/obj/machinery/vending/coffee/free{
+	anchored = 0
+	},
 /turf/template_noop,
 /area/template_noop)
 "jI" = (
@@ -551,6 +580,15 @@
 /obj/machinery/vending/security,
 /turf/template_noop,
 /area/template_noop)
+"mY" = (
+/obj/structure/table/rack/no_cargo,
+/obj/item/camera,
+/obj/item/camera,
+/obj/item/camera,
+/obj/item/camera,
+/obj/item/camera,
+/turf/template_noop,
+/area/template_noop)
 "nj" = (
 /obj/random/mre/spread,
 /obj/random/mre/spread,
@@ -640,7 +678,9 @@
 /turf/template_noop,
 /area/template_noop)
 "ot" = (
-/obj/structure/inflatable/wall,
+/obj/machinery/vending/cigarette{
+	anchored = 0
+	},
 /turf/template_noop,
 /area/template_noop)
 "oz" = (
@@ -730,7 +770,9 @@
 /turf/template_noop,
 /area/template_noop)
 "rO" = (
-/obj/machinery/vending/battlemonsters,
+/obj/machinery/vending/battlemonsters{
+	anchored = 0
+	},
 /turf/template_noop,
 /area/template_noop)
 "rP" = (
@@ -751,9 +793,8 @@
 /turf/template_noop,
 /area/template_noop)
 "rW" = (
-/obj/machinery/media/jukebox/audioconsole{
-	anchored = 1
-	},
+/obj/item/book/manual/engineering_particle_accelerator,
+/obj/structure/table/rack/no_cargo,
 /turf/template_noop,
 /area/template_noop)
 "se" = (
@@ -770,7 +811,9 @@
 /area/template_noop)
 "sv" = (
 /obj/structure/table/rack/no_cargo,
-/obj/machinery/chemical_dispenser/coffeemaster/low_supply,
+/obj/machinery/chemical_dispenser/coffeemaster/low_supply{
+	anchored = 0
+	},
 /turf/template_noop,
 /area/template_noop)
 "sF" = (
@@ -931,10 +974,23 @@
 "vm" = (
 /obj/effect/map_effect/marker/mapmanip/submap/extract/sccv_horizon/ops_warehouse_small_storage,
 /obj/structure/table/rack/no_cargo,
+/obj/item/camera_film,
+/obj/item/camera_film,
+/obj/item/camera_film,
+/obj/item/camera_film,
+/obj/item/camera_film,
+/obj/item/camera_film,
+/obj/item/camera_film,
+/obj/item/camera_film,
+/obj/item/camera_film,
+/obj/item/camera_film,
 /turf/template_noop,
 /area/template_noop)
 "vo" = (
-/obj/machinery/cablelayer,
+/obj/effect/map_effect/marker/mapmanip/submap/extract/sccv_horizon/ops_warehouse_small_storage,
+/obj/structure/punching_bag{
+	anchored = 0
+	},
 /turf/template_noop,
 /area/template_noop)
 "vs" = (
@@ -966,7 +1022,9 @@
 /turf/template_noop,
 /area/template_noop)
 "wW" = (
-/obj/structure/weightlifter,
+/obj/structure/weightlifter{
+	anchored = 0
+	},
 /turf/template_noop,
 /area/template_noop)
 "xb" = (
@@ -980,6 +1038,42 @@
 /obj/item/storage/box/large/produce,
 /obj/item/storage/box/large/produce,
 /obj/item/storage/box/large/produce,
+/turf/template_noop,
+/area/template_noop)
+"xi" = (
+/obj/structure/closet/crate,
+/obj/item/music_cartridge/adhomai_swing,
+/obj/item/music_cartridge/adhomai_swing,
+/obj/item/music_cartridge/adhomai_swing,
+/obj/item/music_cartridge/adhomai_swing,
+/obj/item/music_cartridge/adhomai_vibes,
+/obj/item/music_cartridge/adhomai_vibes,
+/obj/item/music_cartridge/adhomai_vibes,
+/obj/item/music_cartridge/adhomai_vibes,
+/obj/item/music_cartridge/audioconsole,
+/obj/item/music_cartridge/audioconsole,
+/obj/item/music_cartridge/audioconsole,
+/obj/item/music_cartridge/audioconsole,
+/obj/item/music_cartridge/europa_various,
+/obj/item/music_cartridge/europa_various,
+/obj/item/music_cartridge/europa_various,
+/obj/item/music_cartridge/europa_various,
+/obj/item/music_cartridge/konyang_retrowave,
+/obj/item/music_cartridge/konyang_retrowave,
+/obj/item/music_cartridge/konyang_retrowave,
+/obj/item/music_cartridge/konyang_retrowave,
+/obj/item/music_cartridge/ss13,
+/obj/item/music_cartridge/ss13,
+/obj/item/music_cartridge/ss13,
+/obj/item/music_cartridge/ss13,
+/obj/item/music_cartridge/venus_funkydisco,
+/obj/item/music_cartridge/venus_funkydisco,
+/obj/item/music_cartridge/venus_funkydisco,
+/obj/item/music_cartridge/venus_funkydisco,
+/obj/item/music_cartridge/xanu_rock,
+/obj/item/music_cartridge/xanu_rock,
+/obj/item/music_cartridge/xanu_rock,
+/obj/item/music_cartridge/xanu_rock,
 /turf/template_noop,
 /area/template_noop)
 "xu" = (
@@ -1017,12 +1111,22 @@
 /turf/template_noop,
 /area/template_noop)
 "xM" = (
-/obj/structure/reagent_dispensers/radioactive_waste,
+/obj/machinery/vending/security{
+	anchored = 0
+	},
 /turf/template_noop,
 /area/template_noop)
 "yk" = (
 /obj/structure/table/rack/no_cargo,
 /obj/item/stack/material/steel/full,
+/obj/item/stack/tile/carpet/cyan,
+/obj/item/stack/tile/carpet/cyan,
+/obj/item/stack/tile/carpet/black,
+/obj/item/stack/tile/carpet/black,
+/obj/item/stack/tile/carpet/purple,
+/obj/item/stack/tile/carpet/purple,
+/obj/item/stack/tile/carpet/red,
+/obj/item/stack/tile/carpet/red,
 /turf/template_noop,
 /area/template_noop)
 "yo" = (
@@ -1062,7 +1166,8 @@
 /obj/random/condiment,
 /obj/random/condiment,
 /obj/random/condiment,
-/obj/item/reagent_containers/spray/chemsprayer/mister/janitor,
+/obj/item/reagent_containers/spray/chemsprayer,
+/obj/item/reagent_containers/spray/chemsprayer,
 /turf/template_noop,
 /area/template_noop)
 "zs" = (
@@ -1096,7 +1201,8 @@
 /turf/template_noop,
 /area/template_noop)
 "Ao" = (
-/obj/machinery/artifact,
+/obj/item/vending_refill/coffee,
+/obj/item/vending_refill/coffee,
 /turf/template_noop,
 /area/template_noop)
 "AD" = (
@@ -1114,7 +1220,9 @@
 /turf/template_noop,
 /area/template_noop)
 "AX" = (
-/obj/machinery/computer/arcade,
+/obj/machinery/computer/arcade{
+	anchored = 0
+	},
 /turf/template_noop,
 /area/template_noop)
 "AY" = (
@@ -1134,6 +1242,10 @@
 /obj/vehicle/bike/motor/blue{
 	dir = 8
 	},
+/turf/template_noop,
+/area/template_noop)
+"Bp" = (
+/obj/structure/particle_accelerator/fuel_chamber,
 /turf/template_noop,
 /area/template_noop)
 "BM" = (
@@ -1162,7 +1274,9 @@
 /turf/template_noop,
 /area/template_noop)
 "Cv" = (
-/obj/machinery/chemical_dispenser/coffeemaster/full,
+/obj/machinery/chemical_dispenser/coffeemaster/full{
+	anchored = 0
+	},
 /obj/structure/table/rack/no_cargo,
 /turf/template_noop,
 /area/template_noop)
@@ -1182,7 +1296,9 @@
 /turf/template_noop,
 /area/template_noop)
 "Dv" = (
-/obj/machinery/computer/arcade/orion_trail,
+/obj/machinery/computer/arcade/orion_trail{
+	anchored = 0
+	},
 /turf/template_noop,
 /area/template_noop)
 "Dy" = (
@@ -1209,9 +1325,7 @@
 /area/template_noop)
 "Eg" = (
 /obj/effect/map_effect/marker/mapmanip/submap/extract/sccv_horizon/ops_warehouse_small_storage,
-/obj/machinery/media/jukebox/audioconsole{
-	anchored = 1
-	},
+/obj/machinery/media/jukebox/audioconsole,
 /turf/template_noop,
 /area/template_noop)
 "Er" = (
@@ -1220,13 +1334,13 @@
 /area/template_noop)
 "EC" = (
 /obj/effect/map_effect/marker/mapmanip/submap/extract/sccv_horizon/ops_warehouse_small_storage,
-/obj/structure/automobile/langenfeld_hybrid_red{
-	dir = 8
-	},
+/obj/structure/particle_accelerator/particle_emitter/left,
 /turf/template_noop,
 /area/template_noop)
 "EF" = (
-/obj/machinery/appliance/cooker/oven/small,
+/obj/machinery/appliance/cooker/oven/small{
+	anchored = 0
+	},
 /turf/template_noop,
 /area/template_noop)
 "ER" = (
@@ -1237,13 +1351,17 @@
 /area/template_noop)
 "Fb" = (
 /obj/effect/map_effect/marker/mapmanip/submap/extract/sccv_horizon/ops_warehouse_small_storage,
-/obj/machinery/vending/boozeomat,
+/obj/machinery/vending/boozeomat{
+	anchored = 0
+	},
 /turf/template_noop,
 /area/template_noop)
 "Fh" = (
 /obj/effect/map_effect/marker/mapmanip/submap/extract/sccv_horizon/ops_warehouse_small_storage,
-/obj/machinery/ship_weapon/autocannon,
-/obj/random/dirt_75,
+/obj/structure/table/rack/no_cargo,
+/obj/machinery/chemical_dispenser/coffeemaster/low_supply{
+	anchored = 0
+	},
 /turf/template_noop,
 /area/template_noop)
 "FD" = (
@@ -1299,7 +1417,9 @@
 /turf/template_noop,
 /area/template_noop)
 "HG" = (
-/obj/machinery/smartfridge/foodheater,
+/obj/machinery/smartfridge/foodheater{
+	anchored = 0
+	},
 /turf/template_noop,
 /area/template_noop)
 "HL" = (
@@ -1379,7 +1499,7 @@
 /area/template_noop)
 "JM" = (
 /obj/effect/map_effect/marker/mapmanip/submap/extract/sccv_horizon/ops_warehouse_small_storage,
-/obj/machinery/power/rtg/advanced,
+/obj/machinery/power/rad_collector,
 /turf/template_noop,
 /area/template_noop)
 "JN" = (
@@ -1388,7 +1508,9 @@
 /turf/template_noop,
 /area/template_noop)
 "Kn" = (
-/obj/structure/punching_bag,
+/obj/structure/punching_bag{
+	anchored = 0
+	},
 /turf/template_noop,
 /area/template_noop)
 "Kp" = (
@@ -1446,7 +1568,9 @@
 /turf/template_noop,
 /area/template_noop)
 "LU" = (
-/obj/machinery/vending/boozeomat/merchant,
+/obj/machinery/vending/boozeomat/merchant{
+	anchored = 0
+	},
 /turf/template_noop,
 /area/template_noop)
 "LW" = (
@@ -1467,8 +1591,8 @@
 /turf/template_noop,
 /area/template_noop)
 "Mk" = (
-/obj/effect/decal/cleanable/greenglow/radioactive/low,
-/obj/structure/reagent_dispensers/radioactive_waste/hazardous/low,
+/obj/structure/reagent_dispensers/radioactive_waste/hazardous/medium,
+/obj/effect/decal/cleanable/greenglow/radioactive/medium,
 /turf/template_noop,
 /area/template_noop)
 "Ms" = (
@@ -1481,7 +1605,9 @@
 /turf/template_noop,
 /area/template_noop)
 "MJ" = (
-/obj/machinery/power/portgen/basic/fusion,
+/obj/machinery/power/portgen/basic/fusion{
+	anchored = 0
+	},
 /obj/effect/decal/cleanable/greenglow/radioactive/medium,
 /turf/template_noop,
 /area/template_noop)
@@ -1510,7 +1636,9 @@
 /turf/template_noop,
 /area/template_noop)
 "Nm" = (
-/obj/machinery/vending/hydronutrients/xenobotany,
+/obj/machinery/vending/hydronutrients/xenobotany{
+	anchored = 0
+	},
 /turf/template_noop,
 /area/template_noop)
 "NI" = (
@@ -1581,6 +1709,10 @@
 /obj/random/tech_supply,
 /obj/random/tech_supply,
 /obj/random/toolbox,
+/turf/template_noop,
+/area/template_noop)
+"OL" = (
+/obj/item/vending_refill/coffee,
 /turf/template_noop,
 /area/template_noop)
 "OS" = (
@@ -1661,23 +1793,43 @@
 /turf/template_noop,
 /area/template_noop)
 "Qb" = (
-/obj/machinery/chemical_dispenser/coffee/full,
+/obj/machinery/chemical_dispenser/coffee/full{
+	anchored = 0
+	},
 /turf/template_noop,
 /area/template_noop)
 "Qj" = (
-/obj/machinery/vending/boozeomat/unathi_pirate,
+/obj/machinery/vending/boozeomat/unathi_pirate{
+	anchored = 0
+	},
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /turf/template_noop,
 /area/template_noop)
 "QA" = (
-/obj/machinery/vending/boozeomat/unathi_pirate,
+/obj/machinery/vending/boozeomat/unathi_pirate{
+	anchored = 0
+	},
 /obj/random/dirt_75,
+/turf/template_noop,
+/area/template_noop)
+"QF" = (
+/obj/structure/table/rack/no_cargo,
+/obj/item/tvcamera,
+/obj/item/tvcamera,
+/obj/item/tvcamera,
 /turf/template_noop,
 /area/template_noop)
 "QG" = (
 /obj/structure/largecrate/animal/shark,
 /obj/effect/floor_decal/industrial/outline/engineering,
+/turf/template_noop,
+/area/template_noop)
+"Rg" = (
+/obj/structure/automobile_filler,
+/obj/structure/particle_accelerator/power_box{
+	dir = 8
+	},
 /turf/template_noop,
 /area/template_noop)
 "Rn" = (
@@ -1693,36 +1845,92 @@
 /turf/template_noop,
 /area/template_noop)
 "RB" = (
-/obj/item/rig/skrell,
 /obj/structure/table/rack/no_cargo,
 /obj/random/dirt_75,
+/obj/random/rig_module,
+/obj/random/rig_module,
+/obj/random/rig_module,
 /turf/template_noop,
 /area/template_noop)
 "RD" = (
-/obj/structure/reagent_dispensers/radioactive_waste/hazardous/low,
-/obj/effect/decal/cleanable/greenglow/radioactive/low,
+/obj/effect/map_effect/marker/mapmanip/submap/extract/sccv_horizon/ops_warehouse_small_storage,
+/obj/structure/closet,
+/obj/item/clothing/suit/cult_leader,
+/obj/item/clothing/suit/cult_leader,
+/obj/item/clothing/suit/cult_leader,
+/obj/item/clothing/suit/dark_witch_costume,
+/obj/item/clothing/suit/dark_witch_costume,
+/obj/item/clothing/suit/dark_witch_costume,
+/obj/item/clothing/suit/fake_cultrobes,
+/obj/item/clothing/suit/fake_cultrobes,
+/obj/item/clothing/suit/fake_cultrobes,
+/obj/item/clothing/suit/witch_hunter_costume,
+/obj/item/clothing/suit/witch_hunter_costume,
+/obj/item/clothing/suit/witch_hunter_costume,
+/obj/item/clothing/suit/wizard_costume,
+/obj/item/clothing/suit/wizard_costume,
+/obj/item/clothing/suit/wizard_costume,
+/obj/item/clothing/suit/wizrobe/black,
+/obj/item/clothing/suit/wizrobe/black,
+/obj/item/clothing/suit/wizrobe/black,
+/obj/item/clothing/suit/wizrobe/magusblue,
+/obj/item/clothing/suit/wizrobe/magusblue,
+/obj/item/clothing/suit/wizrobe/magusblue,
+/obj/item/clothing/suit/wizrobe/magusred,
+/obj/item/clothing/suit/wizrobe/magusred,
+/obj/item/clothing/suit/wizrobe/magusred,
+/obj/item/clothing/suit/wizrobe/nature,
+/obj/item/clothing/suit/wizrobe/nature,
+/obj/item/clothing/suit/wizrobe/nature,
+/obj/item/clothing/suit/wizrobe/psypurple,
+/obj/item/clothing/suit/wizrobe/psypurple,
+/obj/item/clothing/suit/wizrobe/psypurple,
+/obj/item/clothing/suit/wizrobe/red,
+/obj/item/clothing/suit/wizrobe/red,
+/obj/item/clothing/suit/wizrobe/red,
+/obj/item/clothing/suit/wizrobe/storm,
+/obj/item/clothing/suit/wizrobe/storm,
+/obj/item/clothing/suit/wizrobe/storm,
+/obj/item/clothing/suit/wizrobe/sorceress,
+/obj/item/clothing/suit/wizrobe/sorceress,
+/obj/item/clothing/suit/wizrobe/sorceress,
+/obj/item/clothing/suit/wizrobe/shimmer,
+/obj/item/clothing/suit/wizrobe/shimmer,
+/obj/item/clothing/suit/wizrobe/shimmer,
+/obj/item/clothing/suit/upburger,
 /turf/template_noop,
 /area/template_noop)
 "RG" = (
-/obj/machinery/vending/cigarette/hacked,
+/obj/machinery/vending/cigarette/hacked{
+	anchored = 0
+	},
 /turf/template_noop,
 /area/template_noop)
 "RN" = (
 /obj/effect/map_effect/marker/mapmanip/submap/extract/sccv_horizon/ops_warehouse_small_storage,
-/obj/machinery/chemical_dispenser/coffee/full,
+/obj/machinery/chemical_dispenser/coffee/full{
+	anchored = 0
+	},
 /obj/structure/table/rack/no_cargo,
 /turf/template_noop,
 /area/template_noop)
 "RO" = (
-/obj/structure/automobile/shibata_compact_white,
+/obj/structure/particle_accelerator/end_cap,
 /turf/template_noop,
 /area/template_noop)
 "Se" = (
-/obj/machinery/vending/mredispenser,
+/obj/machinery/vending/mredispenser{
+	anchored = 0
+	},
 /turf/template_noop,
 /area/template_noop)
 "Sl" = (
 /obj/structure/closet/crate/rad/gear,
+/turf/template_noop,
+/area/template_noop)
+"Sz" = (
+/obj/structure/automobile_filler,
+/obj/structure/particle_accelerator/particle_emitter/center,
 /turf/template_noop,
 /area/template_noop)
 "SE" = (
@@ -1734,7 +1942,7 @@
 /area/template_noop)
 "SU" = (
 /obj/effect/map_effect/marker/mapmanip/submap/extract/sccv_horizon/ops_warehouse_small_storage,
-/obj/structure/inflatable/door,
+/obj/structure/closet/hazmat/research,
 /turf/template_noop,
 /area/template_noop)
 "SX" = (
@@ -1746,7 +1954,9 @@
 /area/template_noop)
 "SY" = (
 /obj/effect/map_effect/marker/mapmanip/submap/extract/sccv_horizon/ops_warehouse_small_storage,
-/obj/machinery/vending/coffee/free,
+/obj/machinery/vending/coffee/free{
+	anchored = 0
+	},
 /turf/template_noop,
 /area/template_noop)
 "Tf" = (
@@ -1776,11 +1986,15 @@
 /area/template_noop)
 "TL" = (
 /obj/effect/map_effect/marker/mapmanip/submap/extract/sccv_horizon/ops_warehouse_small_storage,
-/obj/machinery/vending/ramen,
+/obj/machinery/vending/ramen{
+	anchored = 0
+	},
 /turf/template_noop,
 /area/template_noop)
 "TP" = (
-/obj/machinery/appliance/cooker/grill,
+/obj/machinery/appliance/cooker/grill{
+	anchored = 0
+	},
 /turf/template_noop,
 /area/template_noop)
 "Ul" = (
@@ -1864,8 +2078,8 @@
 /turf/template_noop,
 /area/template_noop)
 "Vz" = (
-/obj/effect/decal/cleanable/greenglow/radioactive/low,
-/obj/structure/reagent_dispensers/radioactive_waste,
+/obj/effect/decal/cleanable/greenglow,
+/obj/structure/reagent_dispensers/radioactive_waste/hazardous/medium,
 /turf/template_noop,
 /area/template_noop)
 "VO" = (
@@ -1900,7 +2114,8 @@
 /turf/template_noop,
 /area/template_noop)
 "Wm" = (
-/obj/structure/inflatable/door,
+/obj/structure/automobile_filler,
+/obj/machinery/particle_accelerator/control_box,
 /turf/template_noop,
 /area/template_noop)
 "WG" = (
@@ -2157,7 +2372,7 @@ fw
 UE
 fw
 UE
-tG
+RD
 Gz
 Gz
 Gz
@@ -2688,9 +2903,9 @@ Gz
 Gz
 Gz
 sW
-RD
-xM
-NI
+Mk
+Mk
+UE
 Mk
 bA
 Gz
@@ -2698,9 +2913,9 @@ Gz
 Gz
 sW
 lC
-Gz
-rW
-rW
+xi
+Er
+Er
 Eg
 Gz
 Gz
@@ -2736,14 +2951,14 @@ Gz
 Gz
 MJ
 Gz
-gV
+Al
 Gz
 Vz
 Gz
 Gz
 Gz
 Gz
-rW
+Er
 Gz
 Gz
 Gz
@@ -2780,8 +2995,8 @@ Gz
 Gz
 Gz
 sW
+NI
 Sl
-Gz
 Gz
 Al
 dh
@@ -2789,11 +3004,11 @@ nn
 Gz
 Gz
 sW
-rW
+Er
 Gz
 Gz
 Gz
-rW
+Er
 nn
 Gz
 sW
@@ -2982,7 +3197,7 @@ Gz
 Gz
 sW
 gr
-Gz
+iG
 Gz
 nK
 tG
@@ -3027,7 +3242,7 @@ mQ
 Gz
 Gz
 Gz
-Gz
+iG
 Gz
 Gz
 Gz
@@ -3073,7 +3288,7 @@ UE
 nn
 Gz
 sW
-UE
+ai
 cE
 Gz
 Gz
@@ -3629,12 +3844,12 @@ Gz
 Gz
 Gz
 Gz
-mS
+xM
 nn
 Gz
 Gz
 sW
-Xc
+gV
 Gz
 Gz
 Gz
@@ -3819,9 +4034,9 @@ Gz
 Gz
 sW
 RO
+Bp
 Gz
-Gz
-Gz
+rW
 EC
 Gz
 sW
@@ -3864,11 +4079,11 @@ Gz
 Gz
 Gz
 Gz
-cn
+Wm
 Gz
 Gz
 Gz
-cn
+Sz
 Gz
 Gz
 Gz
@@ -3910,7 +4125,7 @@ nn
 Gz
 Gz
 sW
-cn
+Rg
 Gz
 Gz
 Gz
@@ -4071,7 +4286,7 @@ sW
 eg
 eg
 Gz
-Xc
+gV
 tn
 Gz
 Gz
@@ -4085,7 +4300,7 @@ MQ
 Gz
 Gz
 sW
-ar
+ot
 Gz
 Gz
 UE
@@ -4403,7 +4618,7 @@ Gz
 Gz
 Gz
 Gz
-iM
+QF
 Gz
 Gz
 Gz
@@ -4445,7 +4660,7 @@ nn
 Gz
 Gz
 sW
-iM
+mY
 Gz
 Gz
 Gz
@@ -4622,8 +4837,8 @@ Gz
 sW
 iM
 Gz
-Wm
-Wm
+Gz
+Gz
 SU
 Gz
 Gz
@@ -4633,7 +4848,7 @@ wW
 Gz
 Gz
 Kn
-tG
+vo
 Gz
 Gz
 sW
@@ -4666,11 +4881,11 @@ Gz
 Gz
 Gz
 Gz
-DB
+iM
 Gz
-ot
-ot
-Ao
+Gz
+Gz
+DB
 Gz
 Gz
 Gz
@@ -4712,11 +4927,11 @@ Gz
 Gz
 Gz
 sW
-iM
 Gz
 Gz
-ot
-ot
+Gz
+Gz
+DB
 nn
 Gz
 Gz
@@ -4896,16 +5111,16 @@ Gz
 Gz
 Gz
 sW
-vo
 Gz
-ai
-ai
+Gz
+Gz
+Gz
 JM
 Gz
 Gz
 Gz
 sW
-ar
+ot
 Gz
 Gz
 Gz
@@ -5448,10 +5663,10 @@ Gz
 Gz
 Gz
 sW
-UE
-UE
-UE
-UE
+Cv
+sv
+ht
+sv
 Fh
 Gz
 Gz
@@ -5494,11 +5709,11 @@ Gz
 Gz
 Gz
 Gz
-UE
-UE
-UE
-UE
-UE
+jB
+Gz
+hD
+Gz
+iR
 Gz
 Gz
 Gz
@@ -5540,11 +5755,11 @@ Gz
 Gz
 Gz
 sW
-UE
-UE
-UE
-UE
-UE
+Ao
+OL
+lu
+lu
+kO
 nn
 Gz
 Gz

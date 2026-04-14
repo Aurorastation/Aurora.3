@@ -5,7 +5,7 @@ ABSTRACT_TYPE(/datum/gear/shoes/tajara)
 /datum/gear/shoes/tajara/boots
 	display_name = "tajaran boots selection"
 	description = "A selection of shoes and boots fitted for Tajara."
-	path = /obj/item/clothing/shoes/tajara
+	path = /obj/item/clothing/shoes/jackboots/tajara
 	whitelisted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
 	sort_category = "Xenowear - Tajara"
 
