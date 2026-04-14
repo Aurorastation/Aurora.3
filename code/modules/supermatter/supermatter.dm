@@ -18,19 +18,26 @@
 
 //Controls how much power is produced by each collector in range - this is the main parameter for tweaking SM balance, as it basically controls how the power variable relates to the rest of the game.
 #define POWER_FACTOR 1.0
-#define DECAY_FACTOR 700			//Affects how fast the supermatter power decays
-#define CRITICAL_TEMPERATURE 5000	//K
+//Affects how fast the supermatter power decays
+#define DECAY_FACTOR 700
+//The temperature at which the SM starts taking damage.
+#define CRITICAL_TEMPERATURE 5000//K
+//Controls how much emitter shots excite the SM.
 #define CHARGING_FACTOR 0.05
-#define DAMAGE_RATE_LIMIT 4			//damage rate cap at power = 300, scales linearly with power
-#define SPACED_DAMAGE_FACTOR 0.5	//multiplier for damage taken in a vacuum, but on a tile. Used to prevent/configure near-instant explosions when vented
+//damage rate cap at power = 300, scales linearly with power
+#define DAMAGE_RATE_LIMIT 4
+//multiplier for damage taken in a vacuum, but on a tile. Used to prevent/configure near-instant explosions when vented
+#define SPACED_DAMAGE_FACTOR 0.5
 
 //These would be what you would get at point blank, does NOT decrease with distance.
-#define DETONATION_RADS 50 //Rads decay slowly over time. This will give an unprotected person 1275 rads over 100 seconds.
+//The amount of radiation the whole Z level (except maintenance) will recieve. Rads decay slowly over time. This will give an unprotected person 1275 rads over 100 seconds.
+#define DETONATION_RADS 50
+//How many seconds of halucinations affected mobs are given.
 #define DETONATION_HALLUCINATION 600
 //This creates a radiation source of strength 500 at the explosion site. This will kill through a radsuit but falls off rapidly with distance.
 #define LOCAL_DETONATION_RADS 500
-
-#define WARNING_DELAY 20			//seconds between warnings.
+//Seconds between warnings.
+#define WARNING_DELAY 20
 
 ///to prevent accent sounds from layering
 #define SUPERMATTER_ACCENT_SOUND_MIN_COOLDOWN 2 SECONDS
