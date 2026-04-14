@@ -1,0 +1,6 @@
+author: TheGreyWolf
+
+delete-after: True
+
+changes:
+  - bugfix: "Fixes APCs saying a room is turned on, but the room is without power and the APC is not updating from being bluescreened."
