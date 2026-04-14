@@ -848,14 +848,21 @@ ABSTRACT_TYPE(/obj/structure/stairs/urban/road_ramp_assun)
 	light_color = LIGHT_COLOR_CYAN
 	light_range = 1.8
 	var/menu_text = ""
+	/// Whether or not the menu text can be updated.
+	var/static_menu = FALSE
 
 /obj/structure/restaurant_menu/attack_hand(mob/user)
+	if(static_menu)
+		to_chat(user, SPAN_WARNING("This menu sign's text is not configurable."))
 	var/new_text = sanitize(input(user, "Enter new text for the hologram to display.", "Hologram Display", html2pencode(menu_text, TRUE)) as null|message)
 	if(!isnull(new_text))
 		menu_text = pencode2html(new_text)
 		update_icon()
 
 /obj/structure/restaurant_menu/attackby(obj/item/attacking_item, mob/user)
+	if(static_menu)
+		to_chat(user, SPAN_WARNING("This menu sign's text is not configurable."))
+		return ..()
 	if(istype(attacking_item, /obj/item/paper))
 		var/obj/item/paper/P = attacking_item
 		to_chat(user, SPAN_NOTICE("You scan \the [attacking_item.name] into \the [name]."))
@@ -865,6 +872,30 @@ ABSTRACT_TYPE(/obj/structure/stairs/urban/road_ramp_assun)
 		update_icon()
 		return TRUE
 	return ..()
+
+/obj/structure/restaurant_menu/stafylia
+	name = "\improper Stafýlia menu"
+	icon_state = "menu_gyro"
+	desc = "Welcome to Stafýlia! The real taste of Assunzione!\
+	<br><br>\
+	<br><b>Mains</b>\
+	<br>Signature Stafýlia Gyro - 6电\
+	<br>Doner Kebab - 6电\
+	<br>Falafel Pita - 6电\
+	<br><br>\
+	<br><b>Sides</b>\
+	<br>Salad - 3电\
+	<br>Fries - 3电\
+	<br>Chocolate Pita - 4电\
+	<br><br>\
+	<br><b>Drinks</b>\
+	<br>Drosiá Grape - 2电\
+	<br>Drosiá Cherry - 2电\
+	<br>Comet Cola - 2电\
+	<br>Xanu Rush - 2电\
+	<br><br>\
+	<br>Get the Stafýlia meal combo! Your choice of main, side and drink for only 9.50电!"
+	static_menu = TRUE
 
 /obj/structure/sign/urban/konyang
 	name = "convenience store sign"
