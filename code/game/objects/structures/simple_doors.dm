@@ -42,8 +42,8 @@
 	name = "[material.display_name] door"
 	color = material.icon_colour
 
-	maxhealth = max(1,round(material.integrity))
-	health = maxhealth
+	set_health(material.integrity)
+	set_health(maxhealth)
 
 	if(initial_lock_value)
 		locked = initial_lock_value

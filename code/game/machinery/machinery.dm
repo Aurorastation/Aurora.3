@@ -88,6 +88,7 @@ Class Procs:
 	init_flags = INIT_MACHINERY_PROCESS_SELF
 	pass_flags_self = PASSMACHINE | LETPASSCLICKS
 	destroy_sound = 'sound/effects/meteorimpact.ogg'
+	hitsound = 'sound/effects/metalhit.ogg'
 	should_use_health = TRUE
 
 	/**
@@ -391,13 +392,6 @@ Class Procs:
 			user.visible_message("<b>[user]</b> removes \the [signaler] from \the [src].", SPAN_NOTICE("You remove \the [signaler] from \the [src]."), range = 3)
 			user.put_in_hands(detach_signaler())
 			return TRUE
-
-	if(user?.a_intent == I_HURT && maxhealth)
-		user.do_attack_animation(src)
-		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
-		add_damage(attacking_item.force, attacking_item.damage_flags(), attacking_item.damtype, attacking_item.armor_penetration, attacking_item)
-		playsound(user, 'sound/effects/metalhit.ogg', attacking_item.get_clamped_volume())
-
 	return ..()
 
 /obj/machinery/proc/detach_signaler(var/turf/detach_turf)

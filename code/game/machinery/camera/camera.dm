@@ -287,17 +287,17 @@
 		set_status(!src.status)
 		if (!(src.status))
 			if(user)
-				visible_message(SPAN_NOTICE(" [user] has deactivated [src]!"))
+				visible_message(SPAN_NOTICE("[user] has deactivated [src]!"))
 			else
-				visible_message(SPAN_NOTICE(" [src] clicks and shuts down. "))
+				visible_message(SPAN_NOTICE("[src] clicks and shuts down. "))
 			playsound(src.loc, 'sound/items/Wirecutter.ogg', 100, 1)
 			icon_state = "[initial(icon_state)]1"
 			add_hiddenprint(user)
 		else
 			if(user)
-				visible_message(SPAN_NOTICE(" [user] has reactivated [src]!"))
+				visible_message(SPAN_NOTICE("[user] has reactivated [src]!"))
 			else
-				visible_message(SPAN_NOTICE(" [src] clicks and reactivates itself. "))
+				visible_message(SPAN_NOTICE("[src] clicks and reactivates itself. "))
 			playsound(src.loc, 'sound/items/Wirecutter.ogg', 100, 1)
 			icon_state = initial(icon_state)
 			add_hiddenprint(user)
@@ -310,7 +310,8 @@
 	GLOB.cameranet.update_visibility(src)
 
 /obj/machinery/camera/on_death(damage, damage_flags, damage_type, armor_penetration, obj/weapon)
-	destroy()
+	if(!(stat & BROKEN))
+		destroy()
 
 //Used when someone breaks a camera
 /obj/machinery/camera/proc/destroy()

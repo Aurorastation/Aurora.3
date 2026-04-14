@@ -40,7 +40,6 @@
 
 /obj/effect/blob/Initialize()
 	. = ..()
-	health = maxhealth
 	update_icon()
 	START_PROCESSING(SSprocessing, src)
 

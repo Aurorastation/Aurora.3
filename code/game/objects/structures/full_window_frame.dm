@@ -169,6 +169,7 @@
 		new_grille.shock(user, 70) // You haven't forgotten your precautions, have you?
 		has_grille_installed = TRUE
 		return
+	else return ..()
 
 /obj/structure/window_frame/hitby(atom/movable/hitting_atom, skipcatch, hitpush, blocked, datum/thrownthing/throwingdatum)
 	. = ..()

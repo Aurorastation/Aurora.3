@@ -502,7 +502,7 @@
 
 	process_interval = 1 //Wake up the crystal
 	notarget = 0
-	health = maxhealth
+	set_health(maxhealth)
 	update_icon()
 
 /obj/structure/cult/pylon/update_icon()

@@ -60,12 +60,14 @@ This calls [atom/proc/tool_act], among others.
 		return TRUE
 
 	if((user?.a_intent == I_HURT) && !(attacking_item.item_flags & ITEM_FLAG_NO_BLUDGEON))
-		if(attacking_item.force && should_use_health)
+		if(attacking_item.force && should_use_health && maxhealth)
 			user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 			user.do_attack_animation(src)
-			visible_message(SPAN_DANGER("[user] [attacking_item.attack_verb] \the [src]!"))
+			visible_message(SPAN_DANGER("[user] [pick(attacking_item.attack_verb)] \the [src]!"))
 			add_damage(attacking_item.force, attacking_item.damage_flags(), attacking_item.damtype, attacking_item.armor_penetration, attacking_item)
-			playsound(src, hitsound, attacking_item.get_clamped_volume(), 1)
+			playsound(src, attacking_item.hitsound, attacking_item.get_clamped_volume(), 1)
+			if(hitsound)
+				playsound(src, hitsound, attacking_item.get_clamped_volume(), 1, falloff_distance = 0)
 			return FALSE
 
 	var/item_interact_result = src.base_item_interaction(user, attacking_item, modifiers)

@@ -526,6 +526,8 @@
 				playsound(loc, 'sound/weapons/blade.ogg', 50, 1)
 			else
 				attack_hand(user)
+		else
+			return ..()
 	else
 		if(attacking_item.force < 10 && user.a_intent != I_HURT)
 			attack_hand(user)

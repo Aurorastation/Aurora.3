@@ -75,7 +75,6 @@
 	. = ..()
 	if(illustration)
 		AddOverlays(illustration)
-	health = maxhealth
 	update_icon()
 
 /obj/item/storage/box/proc/damage(var/severity)

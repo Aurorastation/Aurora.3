@@ -193,7 +193,7 @@
  * Fully repairs the blast door.
  */
 /obj/machinery/door/blast/proc/repair()
-	health = maxhealth
+	set_health(maxhealth)
 	if(stat & BROKEN)
 		stat &= ~BROKEN
 

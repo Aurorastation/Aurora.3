@@ -92,8 +92,6 @@
 		explosion_resistance = 0
 
 	SetBounds()
-	health = maxhealth
-
 	update_nearby_tiles(need_rebuild=1)
 	if(turf_hand_priority)
 		AddComponent(/datum/component/turf_hand, turf_hand_priority)

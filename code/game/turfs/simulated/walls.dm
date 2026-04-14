@@ -5,6 +5,7 @@
 	icon_state = "wall"
 	opacity = TRUE
 	density = TRUE
+	should_use_health = TRUE
 	blocks_air = TRUE
 	pass_flags_self = PASSCLOSEDTURF
 	thermal_conductivity = WALL_HEAT_TRANSFER_COEFFICIENT
