@@ -1,6 +1,6 @@
 --
 -- Implemented in PR #21853.
--- Increased size limit for skills column to 512
+-- Changed skills column to TEXT to prevent size overflow
 --
 
-ALTER TABLE `ss13_characters` MODIFY COLUMN `skills` VARCHAR(512);
+ALTER TABLE `ss13_characters` MODIFY COLUMN `skills` TEXT;
