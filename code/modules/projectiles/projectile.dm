@@ -76,6 +76,8 @@
 	var/pierces = 0
 	///The base chance that a projectile capable of piercing will actually pierce.
 	var/pierce_chance = 0
+	/// 0-1 multiplier, the projectile's damage is modified by multiplying this after each pierce.
+	var/pierce_decay_damage = 0.7
 	///Used to determine whether or not to apply embed chances on hit.
 	var/last_hit_pierced = FALSE
 	/// If objects are below this layer, we pass through them.
@@ -654,6 +656,7 @@
 	if(projectile_piercing & A.pass_flags_self)
 		if (penetrating > pierces)
 			if(prob(min(100, (pierce_chance + (damage/4) + armor_penetration) * anti_materiel_potential))) //Base pierce_chance is 0. This gives the STS a 30% chance to pierce once.
+				damage *= piercing_decay_damage
 				penetrating--
 				last_hit_pierced = TRUE
 				return PROJECTILE_PIERCE_HIT
