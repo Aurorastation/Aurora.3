@@ -323,26 +323,27 @@
 	if(use_check(user) || !Adjacent(user))
 		return ..()
 
+	to_chat(user, SPAN_NOTICE("You try to squeeze through \the [src]..."))
+
+	var/speed_multiplier = 1
+	switch(user.mob_size)
+		if(MOB_LARGE)
+			to_chat(user, SPAN_WARNING("However, you are too large to fit through it!"))
+			return ..()
+		if(MOB_MEDIUM)
+			speed_multiplier = 1.0
+		if(MOB_SMALL)
+			speed_multiplier = 0.66
+		if(MOB_TINY)
+			speed_multiplier = 0.33
+		if(MOB_MINISCULE)
+			speed_multiplier = 0.25
+		else
+			speed_multiplier = 1.0
+
 	if(!src.anchored)
 		to_chat(user, SPAN_WARNING("\The [src] isn't secured to the floor yet, you can't squeeze through it."))
 		return ..()
-
-	var/list/species_too_big = list(SPECIES_VAURCA_BREEDER, SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_WARFORM, SPECIES_IPC_G1, SPECIES_IPC_G2)
-	var/list/species_fast = list(SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_TAJARA_MSAI)
-	var/list/species_slow = list(SPECIES_UNATHI, SPECIES_HUMAN_OFFWORLD, SPECIES_IPC_XION, SPECIES_VAURCA_WARRIOR)
-
-	var/speed_multiplier = 1.0
-	if (istype(user, /mob/living/carbon/human))
-		var/species = user.get_species()
-		if(species in species_too_big)
-			visible_message(SPAN_NOTICE("\The [user] tries to squeeze through \the [src]! That's never going to fit..."))
-			return ..()
-		else if(species in species_fast)
-			speed_multiplier = 0.5
-		else if(species in species_slow)
-			speed_multiplier = 1.5
-
-	visible_message(SPAN_NOTICE("\The [user] tries to squeeze through \the [src]!"))
 
 	// Check if user is standing directly infront of the airlock facing the open assembly, not diagonal or besides the assembly.
 	if((src.dir == NORTH || src.dir == SOUTH) && !((src.loc.y == user.loc.y + 1 || src.loc.y == user.loc.y -1) && user.loc.x == src.loc.x))
@@ -374,13 +375,13 @@
 			user.resting = FALSE
 			return ..()
 		if(prob(10 * speed_multiplier)) // Climb out
-			visible_message(SPAN_WARNING("[user] gets tangled in the \the [src] for a moment..."))
+			visible_message(SPAN_WARNING("[user] gets tangled in the \the [src] for a moment while squeezing through it..."))
 			if(!do_after(user, (5 * speed_multiplier) SECONDS, src, DO_UNIQUE, (INCAPACITATION_RESTRAINED|INCAPACITATION_BUCKLED_FULLY)))
 				user.forceMove(old_loc)
 				user.resting = FALSE
 				return ..()
 		user.Move(T) // Get out behind assembly
-		visible_message(SPAN_NOTICE("[user] climbed through the \the [src]!"))
+		visible_message(SPAN_NOTICE("[user] squeezes through the \the [src]!"))
 	user.resting = FALSE
 
 	..()
