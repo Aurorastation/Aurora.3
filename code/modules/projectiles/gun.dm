@@ -648,6 +648,12 @@ ABSTRACT_TYPE(/obj/item/gun)
 		F = firemodes[sel_mode]
 	if(one_hand_fa_penalty > 2 && !wielded && F?.name == "full auto") // todo: make firemode names defines
 		P.accuracy -= one_hand_fa_penalty * 0.5
+		P.spread -= one_hand_fa_penalty * 0.5 //Adds 6 degrees of spread on all rifles. Not very significant.
+	if(one_hand_fa_penalty > 2 && !wielded && F?.name == "short burst")
+		P.accuracy -= one_hand_fa_penalty * 0.5
+		P.spread -= one_hand_fa_penalty * 0.5
+	if(one_hand_fa_penalty > 2 && !wielded && F?.name == "3 round burst")
+		P.accuracy -= one_hand_fa_penalty * 0.5
 		P.spread -= one_hand_fa_penalty * 0.5
 
 //does the actual launching of the projectile
