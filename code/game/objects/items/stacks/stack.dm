@@ -103,9 +103,9 @@
 	// Cache "skill visits" to avoid having to constantly recheck for components.
 	var/alist/checked_skills = alist()
 	var/visited_skill = null // Trinary boolean as null/0/nonzero
-	var/lacks_skill = FALSE
 
 	for(var/datum/stack_recipe/R in recipes_sublist)
+		var/lacks_skill = FALSE
 		// If you put anything other than a skill component in the required skills for a recipe, I will destroy you.
 		for(var/skill_comp, skill_level_requirement in R.required_skills_hard)
 			visited_skill = checked_skills[skill_comp]
@@ -118,7 +118,7 @@
 				// Case for "Non-Player Characters", which will never have the component at all.
 				if (isnull(visited_comp))
 					checked_skills[skill_comp] = SKILL_LEVEL_PROFESSIONAL
-					break // Not a player character, just assume they can craft everything.
+					continue // Not a player character, just assume they can craft everything.
 
 				// Player characters will always have the component if relevant.
 				checked_skills[skill_comp] = visited_comp
