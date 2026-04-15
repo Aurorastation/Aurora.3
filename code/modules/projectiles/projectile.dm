@@ -653,7 +653,7 @@
 		return PROJECTILE_PIERCE_PHASE
 	if(projectile_piercing & A.pass_flags_self)
 		if (penetrating > pierces)
-			if(damage > 20 && prob(pierce_chance + damage))
+			if(prob(min(100, (pierce_chance + (damage/4) + armor_penetration) * anti_materiel_potential))) //Base pierce_chance is 0. This gives the STS a 30% chance to pierce once.
 				penetrating--
 				last_hit_pierced = TRUE
 				return PROJECTILE_PIERCE_HIT
