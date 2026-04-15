@@ -137,7 +137,7 @@
 		// Null condition handles NPCs and Antags that won't have the skill setup.
 		if (!isnull(skill_level) && skill_level < required_level)
 			to_chat(user, SPAN_WARNING("You lack the skills needed to perform this surgical procedure."))
-			return FALSE
+			return TRUE
 
 	// We didn't find a surgery, or decided not to perform one.
 	if(!istype(S))
