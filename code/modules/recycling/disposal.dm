@@ -210,10 +210,12 @@
 		update()
 		return TRUE
 
-	else if (istype (attacking_item, /obj/item/material/ashtray) && user.a_intent != I_HURT)
+	else if(istype(attacking_item, /obj/item/material/ashtray) && user.a_intent != I_HURT) // If attacked with ashtray on harm intent.
 		var/obj/item/material/ashtray/A = attacking_item
-		if(A.emptyout(src))
-			user.visible_message("<b>[user]</b> pours [attacking_item] out into [src].", SPAN_NOTICE("You pour [attacking_item] out into [src]."))
+		if(A.emptyout(src)) // Ashtray has contents.
+			user.visible_message("<b>[user]</b> pours \the [attacking_item] out into \the [src].", SPAN_NOTICE("You pour \the [attacking_item] out into \the [src]."))
+		else // Ashtray has no contents.
+			to_chat(user, SPAN_NOTICE("\The [attacking_item] is empty."))
 		return TRUE
 
 	else if (istype (attacking_item, /obj/item/lightreplacer))
@@ -261,7 +263,7 @@
 
 	user.drop_from_inventory(attacking_item, src)
 
-	user.visible_message("<b>[user]</b> places \the [attacking_item] into \the [src].", SPAN_NOTICE("You place \the [attacking_item] into the [src]."), range = 3)
+	user.visible_message("<b>[user]</b> places \the [attacking_item] into \the [src].", SPAN_NOTICE("You place \the [attacking_item] into \the [src]."), range = 3)
 	update()
 
 /**

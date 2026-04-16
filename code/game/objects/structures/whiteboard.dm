@@ -291,3 +291,19 @@ GLOBAL_LIST_EMPTY(whiteboard_overlay_cache)
 /singleton/whiteboard/archeological
 	name = "Archeological"
 	icon_state = "overlay_14"
+
+/singleton/whiteboard/horizon
+	name = "SCCV Horizon"
+	icon_state = "overlay_15"
+
+/singleton/whiteboard/thrust
+	name = "Thrust diagram"
+	icon_state = "overlay_16"
+
+/singleton/whiteboard/navchart
+	name = "Navigation chart"
+	icon_state = "overlay_17"
+
+/singleton/whiteboard/tasks
+	name = "Task list"
+	icon_state = "overlay_18"

@@ -247,3 +247,25 @@
   - server: Changed the IPCTags to use the new DBCore
   - server: Changed the Main Menu Poll-Check to use the new DBCore
   - server: Changed the Client-Procs to use the new DBCore
+2026-04-16:
+  Batrachophrenoboocosmomachia:
+  - bugfix: Makes 'tanks' with distribution pressure set to 0 not count for purposes
+      of Internals button trying to find the 'best' tank.
+  - qol: Makes such tanks provide feedback hint text explaining that they cannot be
+      used for Internals.
+  FabianK3:
+  - rscadd: 'Added four new whiteboard overlays: SCCV Horizon, Navigation chart, Task
+      list and Thrust diagram.'
+  SleepyGemmy:
+  - bugfix: Fixed the shuttles' access shutters not allowing the Spark and Canary
+      accesses.
+  - bugfix: Fixed the Spark's access shutters not having mining access.
+  - bugfix: Fixed watches referring to bluespace transfer during the round end timer.
+  - bugfix: Fixed ashtrays not having a examine hint about emptying vs putting it
+      into a disposal.
+  - bugfix: Fixed ashtrays not giving a feedback message when trying to empty a empty
+      one.
+  - bugfix: Fixed a duplicate "the" when putting something inside a disposal.
+  TheGreyWolf:
+  - bugfix: Fixes APCs saying a room is turned on, but the room is without power and
+      the APC is not updating from being bluescreened.
