@@ -84,8 +84,14 @@
 	desc = "A short ledge that an adult-sized Human wouldn't have much trouble traversing. At best, an oversized step."
 	icon_state = "quarter-height"
 
+/obj/structure/ledge/quarter/above_decals
+	layer = ABOVE_TILE_LAYER // Forgive me.
+
 /obj/structure/ledge/quarter/corner
 	icon_state = "quarter-corner"
+
+/obj/structure/ledge/quarter/corner/above_decals
+	layer = ABOVE_TILE_LAYER // Forgive me.
 
 /obj/structure/ledge/roof
 	name = "roof ledge"

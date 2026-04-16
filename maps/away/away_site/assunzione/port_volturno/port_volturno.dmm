@@ -713,7 +713,7 @@
 	},
 /obj/structure/flora/assunzione/flowers/brflowers,
 /turf/simulated/floor/grass1/no_edge,
-/area/port_volturno/interior)
+/area/port_volturno/exterior)
 "aMh" = (
 /obj/structure/table/wood,
 /obj/item/reagent_containers/food/condiment/shaker/salt{
@@ -1036,7 +1036,7 @@
 /obj/structure/flora/assunzione/flowers/brflowers,
 /obj/structure/flora/assunzione/grass/full,
 /turf/simulated/floor/grass1/no_edge,
-/area/port_volturno/interior)
+/area/port_volturno/exterior)
 "beP" = (
 /obj/structure/tank_wall/carbon_dioxide{
 	density = 0;
@@ -1488,11 +1488,6 @@
 /obj/structure/flora/assunzione/grass/sparse,
 /turf/simulated/floor/grass1/no_edge,
 /area/port_volturno/interior/police)
-"bBv" = (
-/obj/random/dirt_75,
-/turf/simulated/floor/sidewalk/assunzione/flat,
-/area/port_volturno/interior/spaceport,
-/area/port_volturno/interior/spaceport)
 "bBN" = (
 /obj/machinery/door/urban{
 	dir = 4
@@ -1995,15 +1990,14 @@
 /turf/simulated/floor/sidewalk/assunzione,
 /area/port_volturno/exterior)
 "bVg" = (
-/obj/structure/ledge/quarter{
-	dir = 8;
-	layer = 2.04
-	},
 /obj/effect/floor_decal/corner/yellow{
 	dir = 6
 	},
 /obj/effect/floor_decal/corner/yellow{
 	dir = 9
+	},
+/obj/structure/ledge/quarter/above_decals{
+	dir = 8
 	},
 /turf/simulated/floor/marble/dark,
 /area/port_volturno/interior/chapel)
@@ -2339,7 +2333,7 @@
 /obj/structure/flora/assunzione/grass/full,
 /obj/structure/flora/assunzione/flowers/brflowers,
 /turf/simulated/floor/grass1/no_edge,
-/area/port_volturno/interior)
+/area/port_volturno/exterior)
 "cog" = (
 /obj/effect/decal/curb{
 	dir = 8
@@ -2517,18 +2511,11 @@
 /turf/simulated/floor/grass1/no_edge,
 /area/port_volturno/interior)
 "cxC" = (
-/obj/effect/decal/curb{
-	dir = 8
+/obj/structure/ledge/quarter{
+	dir = 1
 	},
-/obj/effect/decal/curb{
-	dir = 4
-	},
-/obj/structure/flora/assunzione/grass/full,
-/obj/structure/railing/mapped{
-	dir = 8
-	},
-/turf/simulated/floor/grass1/no_edge,
-/area/port_volturno/interior)
+/turf/simulated/open,
+/area/port_volturno/interior/robotics)
 "cxI" = (
 /obj/effect/decal/curb{
 	dir = 8
@@ -2629,7 +2616,7 @@
 	},
 /obj/structure/flora/assunzione/flowers/ppflowers,
 /turf/simulated/floor/grass1/no_edge,
-/area/port_volturno/interior)
+/area/port_volturno/exterior)
 "cCt" = (
 /obj/structure/tank_wall/air{
 	density = 0;
@@ -2894,7 +2881,7 @@
 /obj/structure/flora/assunzione/flowers/lavendergrass,
 /obj/structure/flora/assunzione/bush/ferny,
 /turf/simulated/floor/grass1/no_edge,
-/area/port_volturno/interior)
+/area/port_volturno/exterior)
 "cOS" = (
 /obj/structure/table/wood,
 /obj/item/paper_bin{
@@ -3033,7 +3020,7 @@
 /obj/structure/flora/assunzione/flowers/ppflowers,
 /obj/structure/flora/assunzione/bush/pale,
 /turf/simulated/floor/grass1/no_edge,
-/area/port_volturno/interior)
+/area/port_volturno/exterior)
 "cSY" = (
 /obj/effect/decal/road_marking{
 	dir = 4
@@ -3291,11 +3278,10 @@
 /obj/effect/floor_decal/corner_wide/mauve{
 	dir = 4
 	},
-/obj/structure/ledge/quarter{
-	dir = 8;
-	layer = 2.04
-	},
 /obj/effect/floor_decal/corner/yellow{
+	dir = 8
+	},
+/obj/structure/ledge/quarter/above_decals{
 	dir = 8
 	},
 /turf/simulated/floor/marble/dark,
@@ -3333,7 +3319,7 @@
 /obj/structure/flora/assunzione/flowers/lavendergrass,
 /obj/structure/flora/assunzione/grass/sparse,
 /turf/simulated/floor/grass1/no_edge,
-/area/port_volturno/interior)
+/area/port_volturno/exterior)
 "dgp" = (
 /obj/structure/flora/bush/mushroom,
 /obj/structure/flora/assunzione/grass/full,
@@ -3720,7 +3706,7 @@
 /obj/structure/flora/assunzione/flowers/brflowers,
 /obj/structure/flora/assunzione/grass/sparse,
 /turf/simulated/floor/grass1/no_edge,
-/area/port_volturno/interior)
+/area/port_volturno/exterior)
 "dzB" = (
 /obj/machinery/door/firedoor{
 	req_one_access = null
@@ -4231,7 +4217,7 @@
 /obj/structure/flora/assunzione/grass/sparse,
 /obj/structure/flora/assunzione/bush/lucevine,
 /turf/simulated/floor/grass1/no_edge,
-/area/port_volturno/interior)
+/area/port_volturno/exterior)
 "dRj" = (
 /obj/structure/arch/gothic/northsouth/upper,
 /turf/simulated/open,
@@ -4408,10 +4394,6 @@
 /turf/simulated/floor/tiled,
 /area/port_volturno/interior/police/brig)
 "ebM" = (
-/obj/structure/ledge/quarter{
-	dir = 9;
-	layer = 2.04
-	},
 /obj/effect/floor_decal/corner/yellow{
 	dir = 9
 	},
@@ -4420,6 +4402,9 @@
 	},
 /obj/structure/flora/pottedplant/luce_vine{
 	pixel_y = 5
+	},
+/obj/structure/ledge/quarter/above_decals{
+	dir = 9
 	},
 /turf/simulated/floor/marble/dark,
 /area/port_volturno/interior/chapel)
@@ -4759,7 +4744,6 @@
 	},
 /obj/structure/flora/assunzione/flowers/ppflowers,
 /obj/structure/statue/aec/large{
-	layer = 4.152;
 	pixel_y = 0;
 	pixel_x = 36
 	},
@@ -5925,7 +5909,7 @@
 /obj/structure/flora/assunzione/flowers/ppflowers,
 /obj/structure/flora/assunzione/bush/lucevine,
 /turf/simulated/floor/grass1/no_edge,
-/area/port_volturno/interior)
+/area/port_volturno/exterior)
 "fDh" = (
 /obj/structure/flora/assunzione/grass,
 /obj/effect/decal/curb,
@@ -6201,7 +6185,7 @@
 /obj/structure/flora/assunzione/flowers/ywflowers,
 /obj/structure/flora/assunzione/grass/sparse,
 /turf/simulated/floor/grass1/no_edge,
-/area/port_volturno/interior)
+/area/port_volturno/exterior)
 "fSP" = (
 /obj/random/dirt_75,
 /turf/simulated/floor/wood/birch,
@@ -7179,7 +7163,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/grass1/no_edge,
-/area/port_volturno/interior)
+/area/port_volturno/exterior)
 "gPt" = (
 /obj/structure/ledge/roof/corner{
 	dir = 8
@@ -7386,7 +7370,7 @@
 /obj/structure/flora/assunzione/grass/full,
 /obj/structure/flora/assunzione/bush/lucevine,
 /turf/simulated/floor/grass1/no_edge,
-/area/port_volturno/interior)
+/area/port_volturno/exterior)
 "gXR" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/carpet/rubber,
@@ -7750,7 +7734,7 @@
 /obj/structure/flora/assunzione/grass/sparse,
 /obj/structure/flora/assunzione/bush/pale,
 /turf/simulated/floor/grass1/no_edge,
-/area/port_volturno/interior)
+/area/port_volturno/exterior)
 "hrr" = (
 /obj/effect/decal/road_marking/no_pass{
 	dir = 1
@@ -7839,7 +7823,7 @@
 /obj/structure/flora/assunzione/flowers/ppflowers,
 /obj/structure/flora/assunzione/grass/sparse,
 /turf/simulated/floor/grass1/no_edge,
-/area/port_volturno/interior)
+/area/port_volturno/exterior)
 "huu" = (
 /obj/machinery/light/spot{
 	pixel_y = -2
@@ -8218,7 +8202,6 @@
 /area/port_volturno/interior/chapel)
 "hMm" = (
 /obj/structure/neon_sign/assunzione/repair_shop{
-	layer = 4.16;
 	pixel_x = 9;
 	pixel_y = 15
 	},
@@ -8388,9 +8371,7 @@
 /obj/effect/floor_decal/corner_wide/mauve/diagonal{
 	dir = 4
 	},
-/obj/structure/ledge/quarter/corner{
-	layer = 2.04
-	},
+/obj/structure/ledge/quarter/corner/above_decals,
 /turf/simulated/floor/marble/dark,
 /area/port_volturno/interior/chapel)
 "hXD" = (
@@ -8506,13 +8487,6 @@
 	},
 /turf/simulated/floor/grass1/no_edge,
 /area/port_volturno/interior/police)
-"ibY" = (
-/obj/effect/decal/curb{
-	dir = 8
-	},
-/obj/structure/flora/assunzione/grass/full,
-/turf/simulated/floor/grass1/no_edge,
-/area/port_volturno/interior)
 "icb" = (
 /obj/structure/ledge/quarter{
 	dir = 4
@@ -8541,7 +8515,7 @@
 /obj/structure/flora/assunzione/grass/full,
 /obj/structure/flora/assunzione/bush/lucevine,
 /turf/simulated/floor/grass1/no_edge,
-/area/port_volturno/interior)
+/area/port_volturno/exterior)
 "idZ" = (
 /obj/effect/decal/road_marking/center,
 /obj/effect/decal/road_marking/reflector,
@@ -9025,7 +8999,7 @@
 /obj/structure/flora/assunzione/flowers/brflowers,
 /obj/structure/flora/assunzione/grass/full,
 /turf/simulated/floor/grass1/no_edge,
-/area/port_volturno/interior)
+/area/port_volturno/exterior)
 "iEO" = (
 /obj/random/dirt_75,
 /obj/structure/closet/crate,
@@ -9770,7 +9744,7 @@
 /obj/structure/flora/assunzione/flowers/lavendergrass,
 /obj/structure/flora/assunzione/flowers/brflowers,
 /turf/simulated/floor/grass1/no_edge,
-/area/port_volturno/interior)
+/area/port_volturno/exterior)
 "jlB" = (
 /obj/structure/arch/gothic/eastwest/_single,
 /obj/effect/decal/curb{
@@ -11558,17 +11532,6 @@
 	},
 /turf/simulated/floor/asphalt/assunzione,
 /area/port_volturno/interior)
-"kSi" = (
-/obj/structure/ledge/quarter{
-	dir = 1
-	},
-/obj/structure/neon_sign/assunzione/repair_shop{
-	layer = 4.16;
-	pixel_x = 9;
-	pixel_y = -2
-	},
-/turf/simulated/open,
-/area/port_volturno/exterior)
 "kSk" = (
 /obj/structure/table/stone/marble,
 /obj/machinery/chemical_dispenser/bar_soft/full{
@@ -11630,7 +11593,7 @@
 /obj/structure/flora/assunzione/bush/pale,
 /obj/structure/flora/assunzione/bush/lucevine,
 /turf/simulated/floor/grass1/no_edge,
-/area/port_volturno/interior)
+/area/port_volturno/exterior)
 "kUc" = (
 /obj/structure/flora/assunzione/grass,
 /obj/structure/flora/assunzione/flowers/lavendergrass,
@@ -11904,7 +11867,7 @@
 /obj/structure/flora/assunzione/flowers/brflowers,
 /obj/structure/flora/assunzione/bush/ferny,
 /turf/simulated/floor/grass1/no_edge,
-/area/port_volturno/interior)
+/area/port_volturno/exterior)
 "leu" = (
 /obj/structure/flora/assunzione/flowers/ywflowers,
 /obj/effect/decal/curb{
@@ -11956,7 +11919,7 @@
 /obj/structure/flora/assunzione/flowers/ppflowers,
 /obj/structure/flora/assunzione/bush/lucevine,
 /turf/simulated/floor/grass1/no_edge,
-/area/port_volturno/interior)
+/area/port_volturno/exterior)
 "lgD" = (
 /obj/structure/sign/billboard/nolegs{
 	pixel_x = 14;
@@ -12172,14 +12135,12 @@
 	dir = 8
 	},
 /obj/effect/floor_decal/corner_wide/mauve/diagonal,
-/obj/structure/ledge/quarter{
-	layer = 2.04
-	},
+/obj/structure/ledge/quarter/above_decals,
 /turf/simulated/floor/marble/dark,
 /area/port_volturno/interior/chapel)
 "lqu" = (
 /turf/simulated/floor/beach/water/pool,
-/area/port_volturno/interior)
+/area/port_volturno/exterior)
 "lqF" = (
 /obj/effect/decal/curb,
 /obj/effect/decal/road_marking,
@@ -12503,14 +12464,7 @@
 /obj/effect/decal/curb/corner,
 /obj/structure/flora/assunzione/bush/lucevine,
 /turf/simulated/floor/grass1/no_edge,
-/area/port_volturno/interior)
-"lGx" = (
-/obj/effect/decal/curb{
-	dir = 4
-	},
-/obj/structure/flora/assunzione/grass/sparse,
-/turf/simulated/floor/grass1/no_edge,
-/area/port_volturno/interior)
+/area/port_volturno/exterior)
 "lGA" = (
 /obj/structure/tank_wall/air{
 	density = 0;
@@ -13059,7 +13013,7 @@
 	},
 /obj/structure/flora/assunzione/flowers/ppflowers,
 /turf/simulated/floor/grass1/no_edge,
-/area/port_volturno/interior)
+/area/port_volturno/exterior)
 "mgX" = (
 /obj/structure/table/wood,
 /turf/simulated/floor/tiled/slate/full,
@@ -13376,9 +13330,8 @@
 /obj/effect/floor_decal/corner_wide/mauve{
 	dir = 6
 	},
-/obj/structure/ledge/quarter/corner{
-	dir = 1;
-	layer = 2.04
+/obj/structure/ledge/quarter/corner/above_decals{
+	dir = 1
 	},
 /turf/simulated/floor/marble/dark,
 /area/port_volturno/interior/chapel)
@@ -13405,7 +13358,7 @@
 /obj/structure/flora/assunzione/flowers/lavendergrass,
 /obj/structure/flora/assunzione/bush/pale,
 /turf/simulated/floor/grass1/no_edge,
-/area/port_volturno/interior)
+/area/port_volturno/exterior)
 "mHN" = (
 /obj/machinery/light/floor,
 /turf/simulated/floor/wood/maple,
@@ -14086,7 +14039,7 @@
 /obj/structure/flora/assunzione/flowers/ywflowers,
 /obj/structure/flora/assunzione/bush/lucevine,
 /turf/simulated/floor/grass1/no_edge,
-/area/port_volturno/interior)
+/area/port_volturno/exterior)
 "nrX" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/sidewalk/flat,
@@ -14143,9 +14096,8 @@
 /obj/effect/floor_decal/corner_wide/mauve{
 	dir = 6
 	},
-/obj/structure/ledge/quarter/corner{
-	dir = 8;
-	layer = 2.04
+/obj/structure/ledge/quarter/corner/above_decals{
+	dir = 8
 	},
 /turf/simulated/floor/marble/dark,
 /area/port_volturno/interior/chapel)
@@ -14419,7 +14371,7 @@
 	},
 /obj/structure/flora/assunzione/flowers/lavendergrass,
 /turf/simulated/floor/grass1/no_edge,
-/area/port_volturno/interior)
+/area/port_volturno/exterior)
 "nKs" = (
 /obj/structure/toilet{
 	dir = 4
@@ -15634,7 +15586,7 @@
 /obj/structure/flora/assunzione/flowers/ywflowers,
 /obj/structure/flora/assunzione/grass/sparse,
 /turf/simulated/floor/grass1/no_edge,
-/area/port_volturno/interior)
+/area/port_volturno/exterior)
 "oJW" = (
 /obj/structure/flora/assunzione/bush/ferny,
 /obj/structure/flora/assunzione/grass/full,
@@ -16571,9 +16523,7 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/corner_wide/mauve/diagonal,
-/obj/structure/ledge/quarter{
-	layer = 2.04
-	},
+/obj/structure/ledge/quarter/above_decals,
 /turf/simulated/floor/marble/dark,
 /area/port_volturno/interior/chapel)
 "pxY" = (
@@ -17178,12 +17128,11 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/corner_wide/mauve,
-/obj/structure/ledge/quarter/corner{
-	dir = 4;
-	layer = 2.04
-	},
 /obj/effect/floor_decal/corner/yellow{
 	dir = 1
+	},
+/obj/structure/ledge/quarter/corner/above_decals{
+	dir = 4
 	},
 /turf/simulated/floor/marble/dark,
 /area/port_volturno/interior/chapel)
@@ -17664,7 +17613,7 @@
 	},
 /obj/structure/flora/assunzione/flowers/ywflowers,
 /turf/simulated/floor/grass1/no_edge,
-/area/port_volturno/interior)
+/area/port_volturno/exterior)
 "qrp" = (
 /obj/structure/table/rack,
 /obj/random/tool,
@@ -17696,9 +17645,8 @@
 /obj/effect/floor_decal/corner_wide/mauve{
 	dir = 4
 	},
-/obj/structure/ledge/quarter{
-	dir = 4;
-	layer = 2.04
+/obj/structure/ledge/quarter/above_decals{
+	dir = 4
 	},
 /turf/simulated/floor/marble/dark,
 /area/port_volturno/interior/chapel)
@@ -18759,7 +18707,7 @@
 /obj/structure/flora/assunzione/flowers/brflowers,
 /obj/structure/flora/assunzione/bush/lucevine,
 /turf/simulated/floor/grass1/no_edge,
-/area/port_volturno/interior)
+/area/port_volturno/exterior)
 "rCg" = (
 /obj/machinery/light/small/floor/emergency,
 /obj/random/dirt_75,
@@ -18945,7 +18893,7 @@
 	},
 /obj/structure/flora/assunzione/flowers/ppflowers,
 /turf/simulated/floor/grass1/no_edge,
-/area/port_volturno/interior)
+/area/port_volturno/exterior)
 "rKt" = (
 /obj/structure/flora/assunzione/bush/lucevine,
 /obj/effect/decal/curb{
@@ -19203,7 +19151,6 @@
 /area/port_volturno/interior/parking)
 "rUX" = (
 /obj/structure/neon_sign/assunzione/repair_shop{
-	layer = 4.16;
 	pixel_x = 9;
 	pixel_y = 9
 	},
@@ -19920,7 +19867,7 @@
 	},
 /obj/structure/flora/assunzione/flowers/ppflowers,
 /turf/simulated/floor/grass1/no_edge,
-/area/port_volturno/interior)
+/area/port_volturno/exterior)
 "sHf" = (
 /obj/structure/filingcabinet/filingcabinet{
 	pixel_x = -9;
@@ -20063,7 +20010,7 @@
 	},
 /obj/structure/flora/assunzione/flowers/lavendergrass,
 /turf/simulated/floor/grass1/no_edge,
-/area/port_volturno/interior)
+/area/port_volturno/exterior)
 "sRG" = (
 /obj/structure/table/steel,
 /obj/structure/bedsheetbin,
@@ -20468,11 +20415,10 @@
 /obj/effect/floor_decal/corner_wide/mauve/diagonal{
 	dir = 4
 	},
-/obj/structure/ledge/quarter/corner{
-	dir = 4;
-	layer = 2.04
-	},
 /obj/effect/floor_decal/corner_wide/mauve/diagonal,
+/obj/structure/ledge/quarter/corner/above_decals{
+	dir = 4
+	},
 /turf/simulated/floor/marble/dark,
 /area/port_volturno/interior/chapel)
 "tll" = (
@@ -20786,7 +20732,7 @@
 	},
 /obj/structure/flora/assunzione/grass/sparse,
 /turf/simulated/floor/grass1/no_edge,
-/area/port_volturno/interior)
+/area/port_volturno/exterior)
 "tAJ" = (
 /obj/structure/sign/emergency/evacuation/stairs{
 	pixel_y = 16;
@@ -21123,9 +21069,8 @@
 /obj/effect/floor_decal/corner_wide/mauve{
 	dir = 6
 	},
-/obj/structure/ledge/quarter{
-	dir = 4;
-	layer = 2.04
+/obj/structure/ledge/quarter/above_decals{
+	dir = 4
 	},
 /turf/simulated/floor/marble/dark,
 /area/port_volturno/interior/chapel)
@@ -21695,7 +21640,7 @@
 /obj/structure/flora/assunzione/flowers/lavendergrass,
 /obj/structure/flora/assunzione/bush/ferny,
 /turf/simulated/floor/grass1/no_edge,
-/area/port_volturno/interior)
+/area/port_volturno/exterior)
 "uhO" = (
 /obj/structure/table/rack/retail_shelf,
 /obj/item/reagent_containers/food/snacks/chips/chicken{
@@ -22136,7 +22081,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/grass1/no_edge,
-/area/port_volturno/interior)
+/area/port_volturno/exterior)
 "uAP" = (
 /obj/structure/flora/assunzione/grass/full,
 /obj/structure/flora/assunzione/grass/full,
@@ -22383,10 +22328,6 @@
 /obj/structure/railing/mapped,
 /turf/simulated/floor/sidewalk/assunzione,
 /area/port_volturno/exterior)
-"uQC" = (
-/obj/structure/flora/assunzione/flowers/ywflowers,
-/turf/simulated/floor/grass1/no_edge,
-/area/port_volturno/interior)
 "uRO" = (
 /obj/structure/flora/assunzione/flowers/lavendergrass,
 /turf/simulated/floor/grass1/no_edge,
@@ -22456,7 +22397,7 @@
 	},
 /obj/structure/flora/assunzione/flowers/ppflowers,
 /turf/simulated/floor/grass1/no_edge,
-/area/port_volturno/interior)
+/area/port_volturno/exterior)
 "uUa" = (
 /turf/simulated/floor/lino/diamond,
 /area/port_volturno/interior/music_store)
@@ -22647,7 +22588,7 @@
 /obj/effect/decal/curb/corner,
 /obj/structure/flora/assunzione/flowers/lavendergrass,
 /turf/simulated/floor/grass1/no_edge,
-/area/port_volturno/interior)
+/area/port_volturno/exterior)
 "vej" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -22864,14 +22805,10 @@
 /obj/effect/floor_decal/corner_wide/mauve/diagonal{
 	dir = 4
 	},
-/obj/structure/ledge/quarter{
+/obj/effect/floor_decal/corner/yellow/diagonal,
+/obj/structure/ledge/quarter/above_decals{
 	dir = 1
 	},
-/obj/structure/ledge/quarter{
-	dir = 1;
-	layer = 2.04
-	},
-/obj/effect/floor_decal/corner/yellow/diagonal,
 /turf/simulated/floor/marble/dark,
 /area/port_volturno/interior/chapel)
 "vnP" = (
@@ -24141,7 +24078,7 @@
 /obj/structure/flora/assunzione/grass/full,
 /obj/structure/flora/assunzione/bush/pale,
 /turf/simulated/floor/grass1/no_edge,
-/area/port_volturno/interior)
+/area/port_volturno/exterior)
 "wIm" = (
 /obj/effect/decal/cleanable/blood/oil,
 /turf/simulated/floor/exoplanet/assunzione,
@@ -24657,9 +24594,8 @@
 	dir = 8
 	},
 /obj/effect/floor_decal/corner_wide/mauve,
-/obj/structure/ledge/quarter{
-	dir = 4;
-	layer = 2.04
+/obj/structure/ledge/quarter/above_decals{
+	dir = 4
 	},
 /turf/simulated/floor/marble/dark,
 /area/port_volturno/interior/chapel)
@@ -25322,7 +25258,7 @@
 /obj/effect/decal/curb,
 /obj/structure/flora/assunzione/flowers/lavendergrass,
 /turf/simulated/floor/grass1/no_edge,
-/area/port_volturno/interior)
+/area/port_volturno/exterior)
 "xTw" = (
 /obj/structure/flora/assunzione/grass,
 /turf/simulated/floor/grass1/no_edge,
@@ -25612,7 +25548,7 @@
 	},
 /obj/structure/flora/assunzione/grass/sparse,
 /turf/simulated/floor/grass1/no_edge,
-/area/port_volturno/interior)
+/area/port_volturno/exterior)
 "yix" = (
 /obj/structure/table/standard,
 /obj/item/storage/pill_bottle/mortaphenyl{
@@ -53838,7 +53774,7 @@ tQD
 xPw
 kMJ
 nqb
-bBv
+xPw
 xJc
 xJc
 cQx
@@ -124230,7 +124166,7 @@ dgl
 dzt
 rBX
 kTZ
-cxC
+hxF
 iQh
 hxF
 wBk
@@ -124475,7 +124411,7 @@ mBd
 lho
 agK
 xSu
-chZ
+bfk
 hqG
 lqu
 lqu
@@ -124732,14 +124668,14 @@ spT
 aJu
 fDq
 dQR
-hZV
+jbQ
 rKo
 lqu
 lqu
 lqu
 lqu
 lqu
-pDl
+wUm
 gXE
 lkE
 ygd
@@ -124989,7 +124925,7 @@ xuE
 cgR
 agK
 jlu
-chZ
+bfk
 oJT
 lqu
 lqu
@@ -124997,7 +124933,7 @@ lqu
 lqu
 lqu
 mGW
-rHV
+sDY
 lkE
 qFF
 bhN
@@ -125245,12 +125181,12 @@ qcV
 sUj
 iGw
 fDq
-weo
+xeY
 cSr
 nrG
-lGx
+kiZ
 mgb
-lGx
+kiZ
 cnl
 huq
 sFr
@@ -125504,13 +125440,13 @@ pkK
 fDq
 ldT
 vdg
-chZ
+bfk
 wEw
-kLR
-chZ
-uQC
+uRO
+bfk
+pcn
 fBu
-chZ
+bfk
 tAH
 lkE
 raQ
@@ -125762,7 +125698,7 @@ agK
 agK
 cBr
 yiv
-ibY
+lRn
 idT
 yiv
 uhz
@@ -126293,7 +126229,7 @@ lkE
 bhN
 dvD
 lkE
-kSi
+bCu
 snN
 snN
 snN
@@ -126807,7 +126743,7 @@ bhN
 bhN
 dvD
 lkE
-lkE
+cxC
 snN
 snN
 snN
