@@ -100,7 +100,6 @@
 
 /obj/structure/flora/assunzione/bush/lucevine/New()
 	..()
-	LOG_DEBUG("<b>Randomizing lv icon</b>")
 	icon_state = "lvcluster_[rand(1, 3)]"
 
 /obj/structure/flora/assunzione/bush/lucevine/Initialize(mapload)
