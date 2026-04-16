@@ -39,14 +39,7 @@
 	comms_name = "Zeng-Hu Corporate Security" //these comms should only be used by ZH Security ghostroles
 	freq_name = "ZH Volturno-13-Kappa Patrol"
 
-	initial_generic_waypoints = list(
-		"nav_port_volturno_altdock_01",
-		"nav_port_volturno_altdock_02",
-		"nav_port_volturno_altdock_03",
-		"nav_port_volturno_altdock_04",
-		"nav_port_volturno_altdock_05",
-		"nav_port_volturno_altdock_06",
-	)
+	initial_generic_waypoints = list()
 	initial_restricted_waypoints = list(
 		"Intrepid" = list("nav_port_volturno_spaceport_intrepid"),
 		"Quark" = list("nav_port_volturno_spaceport_quark"),
