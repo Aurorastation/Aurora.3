@@ -1,0 +1,4 @@
+author: Batrachophrenoboocosmomachia
+delete-after: True
+changes:
+  - bugfix: "Fixes runtime when running internals with CO2 jetpack caused by distribute_pressure check update."

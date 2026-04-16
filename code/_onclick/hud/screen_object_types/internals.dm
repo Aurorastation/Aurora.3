@@ -75,7 +75,9 @@
 					if(istype(tankcheck[i], /obj/item/tank))
 						var/obj/item/tank/t = tankcheck[i]
 						// This tank has been set to not distribute any gas to internals. Skip it so we don't instantly detonate a pair of lungs.
-						if(t.distribute_pressure == 0) continue
+						if(t.distribute_pressure == 0)
+							contents.Add(0)
+							continue
 
 						// Someone messed with the tank and put unknown gases in it, so we're going to believe the tank is what it says it is.
 						if(!isnull(t.manipulated_by) && t.manipulated_by != C.real_name && findtext(t.desc,breathes))
@@ -113,7 +115,9 @@
 						var/obj/item/organ/internal/vaurca/preserve/t = tankcheck[i]
 
 						// This tank has been set to not distribute any gas to internals. Skip it so we don't instantly detonate a pair of lungs.
-						if(t.distribute_pressure == 0) continue
+						if(t.distribute_pressure == 0)
+							contents.Add(0)
+							continue
 
 						// Someone messed with the tank and put unknown gases in it, so we're going to believe the tank is what it says it is.
 						if(!isnull(t.manipulated_by) && t.manipulated_by != C.real_name && findtext(t.desc,breathes))
