@@ -192,7 +192,7 @@
 		)
 
 	ports_of_call = list("Port Volturno, Triesto")
-	scheduled_port_visits = list("Sunday", "Wednesday")
+	scheduled_port_visits = list("Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday")
 	starlight_color = "#351035"
 	starlight_power = 1
 	starlight_range = 2
@@ -205,9 +205,4 @@
 	)
 
 	lore_radio_stations = list(
-		"73.2 Navy Broadcasting Service" = 'texts/lore_radio/konyang/73.2_Navy_Broadcasting_Service.txt',
-		"122 Great Blue Dot" = 'texts/lore_radio/konyang//122_Great_Blue_Dot.txt',
-		"75.4 PBA" = 'texts/lore_radio/konyang/75.4_PBA.txt',
-		"77.7 SoulFM" = 'texts/lore_radio/konyang/77.7_SoulFM.txt',
-		"78.1 RealFM" = 'texts/lore_radio/konyang/78.1_RealFM.txt'
 	)

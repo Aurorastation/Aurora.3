@@ -1,0 +1,7 @@
+author: Batrachophrenoboocosmomachia
+delete-after: True
+changes:
+  - rscadd: "Adds the space sector for Assunzione, its exoplanet map, and its port of call, Port Volturno."
+  - rscadd: "Adds support for billboards to display sets of randomized ads based on icon_state prefixes for different worlds/locations."
+  - imageadd: "Adds many new sprites by Fyni, Minezeyes, Sammy, and Batrachophrenoboocosmomachia."
+  - bugfix: "Rental bike machines no longer vend dummy keys of a type if only configured to sell keys of another type."
