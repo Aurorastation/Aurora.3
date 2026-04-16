@@ -2510,12 +2510,6 @@
 /obj/structure/flora/assunzione/flowers/lavendergrass,
 /turf/simulated/floor/grass1/no_edge,
 /area/port_volturno/interior)
-"cxC" = (
-/obj/structure/ledge/quarter{
-	dir = 1
-	},
-/turf/simulated/open,
-/area/port_volturno/interior/robotics)
 "cxI" = (
 /obj/effect/decal/curb{
 	dir = 8
@@ -15502,7 +15496,6 @@
 /area/port_volturno/interior)
 "oFb" = (
 /obj/structure/neon_sign/assunzione/repair_shop{
-	layer = 4.16;
 	pixel_x = 9;
 	pixel_y = 9
 	},
@@ -22328,6 +22321,12 @@
 /obj/structure/railing/mapped,
 /turf/simulated/floor/sidewalk/assunzione,
 /area/port_volturno/exterior)
+"uQC" = (
+/obj/structure/ledge/quarter{
+	dir = 1
+	},
+/turf/simulated/open,
+/area/port_volturno/interior/robotics)
 "uRO" = (
 /obj/structure/flora/assunzione/flowers/lavendergrass,
 /turf/simulated/floor/grass1/no_edge,
@@ -126743,7 +126742,7 @@ bhN
 bhN
 dvD
 lkE
-cxC
+uQC
 snN
 snN
 snN
