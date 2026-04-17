@@ -6,7 +6,10 @@
 	var/moodlet_value = 0
 	var/overwrite_moodlet = FALSE
 
-/datum/component/drink_moodlet_provider/Initialize(var/value = 5.0, var/overwrite = FALSE)
+	/// Original name of the drink before the component changed it.
+	var/initial_name
+
+/datum/component/drink_moodlet_provider/Initialize(value = 5.0, overwrite = FALSE, drink_quality)
 	. = ..()
 	if (!parent)
 		return
@@ -15,11 +18,31 @@
 	overwrite_moodlet = overwrite
 	RegisterSignal(parent, COMSIG_CONTAINER_DRANK, PROC_REF(handle_drank), override = TRUE)
 
+	if (!isatom(parent))
+		return
+
+	var/atom/owner = parent
+	initial_name = owner.name
+	switch (drink_quality)
+		if (-INFINITY to 5)
+			owner.name = "inferior " + initial_name
+		if (5 to 10)
+			owner.name = "cheap " + initial_name
+		if (10 to 15)
+			owner.name = "finely-mixed " + initial_name
+		if (15 to 20)
+			owner.name = "superior quality " + initial_name
+		if (20 to INFINITY)
+			owner.name = "masterful " + initial_name
+
 /datum/component/drink_moodlet_provider/Destroy()
 	if (!parent)
 		return ..()
 
 	UnregisterSignal(parent, COMSIG_CONTAINER_DRANK)
+	if (initial_name && istype(parent, /atom))
+		parent:name = initial_name
+
 	return ..()
 
 /datum/component/drink_moodlet_provider/proc/handle_drank(obj/item/reagent_containers/owner, mob/user)

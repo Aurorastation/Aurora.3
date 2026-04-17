@@ -478,21 +478,8 @@ If you add a drink with an empty icon sprite, ensure it is in the same folder, e
 	return ..()
 
 /obj/item/reagent_containers/food/drinks/shaker/on_pour(atom/target)
-	if (!isnull(drink_quality))
-		switch (drink_quality)
-			if (0 to 5)
-				target.name = "inferior " + target.name
-			if (5 to 10)
-				target.name = "cheap " + target.name
-			if (10 to 15)
-				target.name = "finely-mixed " + target.name
-			if (15 to 20)
-				target.name = "superior quality " + target.name
-			if (20 to INFINITY)
-				target.name = "masterful " + target.name
-
 	if (!isnull(drink_moodlet_value))
-		target.LoadComponent(/datum/component/drink_moodlet_provider, drink_moodlet_value, FALSE)
+		target.LoadComponent(/datum/component/drink_moodlet_provider, drink_moodlet_value, FALSE, drink_quality)
 
 	// Bartender has finished pouring a drink, prepare the shaker to make the next one.
 	if (!reagents.total_volume)
