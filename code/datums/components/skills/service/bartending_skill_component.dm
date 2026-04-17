@@ -3,7 +3,10 @@
 /datum/moodlet/bartender_drink
 
 /datum/component/drink_moodlet_provider
+	/// The morale boosting value of the moodlet this drink will provide.
 	var/moodlet_value = 0
+
+	/// Whether the DrinkMoodletProvider is allowed to overwrite stronger moodlets with weaker moodlets.
 	var/overwrite_moodlet = FALSE
 
 	/// Original name of the drink before the component changed it.
