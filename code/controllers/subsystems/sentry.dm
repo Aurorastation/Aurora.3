@@ -274,6 +274,8 @@ SUBSYSTEM_DEF(sentry)
 
 /datum/controller/subsystem/sentry/proc/_send_event(datum/sentry_event/ev, attachment_body = null, attachment_filename = null, attachment_content_type = null)
 	SHOULD_NOT_SLEEP(TRUE)
+	PRIVATE_PROC(TRUE)
+
 	if (!enabled || !active)
 		return
 
@@ -301,6 +303,8 @@ SUBSYSTEM_DEF(sentry)
 		rustg_http_request_async(RUSTG_HTTP_METHOD_POST, endpoint_url, envelope_body, json_encode(req_headers), null)
 
 /datum/controller/subsystem/sentry/proc/_on_response(datum/http_response/res)
+	PRIVATE_PROC(TRUE)
+
 	if (!res || res.errored || (res.status_code && res.status_code >= 400))
 		consecutive_failures++
 		if (consecutive_failures >= max_consecutive_failures)
@@ -327,6 +331,8 @@ SUBSYSTEM_DEF(sentry)
  *   [{attachment-item-header}\n{attachment-payload}\n]   ← only when attachment_body set
  */
 /datum/controller/subsystem/sentry/proc/_build_envelope(datum/sentry_event/ev, attachment_body = null, attachment_filename = null, attachment_content_type = null)
+	PRIVATE_PROC(TRUE)
+
 	ev.event_id  = _generate_event_id()
 	ev.timestamp = _iso8601_now()
 
@@ -361,10 +367,14 @@ SUBSYSTEM_DEF(sentry)
 
 /// Generate a pseudo-random 32-char hex event ID via md5.
 /datum/controller/subsystem/sentry/proc/_generate_event_id()
+	PRIVATE_PROC(TRUE)
+
 	return md5("[world.time][world.realtime][rand(0, 9999999)]")
 
 /// Return current time as ISO-8601 UTC string (YYYY-MM-DDTHH:MM:SSZ).
 /datum/controller/subsystem/sentry/proc/_iso8601_now()
+	PRIVATE_PROC(TRUE)
+
 	var/t = time2text(world.realtime, "YYYY-MM-DD hh:mm:ss")
 	var/space = findtext(t, " ")
 	if (space)
