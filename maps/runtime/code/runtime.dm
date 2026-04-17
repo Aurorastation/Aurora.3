@@ -58,7 +58,10 @@
 	away_site_budget = 2
 	away_ship_budget = 2
 
-	map_shuttles = list(/datum/shuttle/autodock/overmap/runtime)
+	map_shuttles = list(
+		/datum/shuttle/autodock/overmap/runtime,
+		/datum/shuttle/autodock/ferry/supply/horizon
+		)
 	warehouse_basearea = /area/storage/primary
 
 /**

@@ -1,0 +1,9 @@
+author: TheGreyWolf
+
+delete-after: True
+
+changes:
+  - bugfix: "Fixed the operations status display screens not showing the elevator status."
+  - bugfix: "Fixed the cargo delivery program not displaying the account that was used to pay for an order with."
+  - bugfix: "Fixed the cargo delivery program not displaying shipped orders regardless of payment status."
+  - rscadd: "Added a cargo elevator to the runtime test map."
