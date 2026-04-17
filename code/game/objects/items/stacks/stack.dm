@@ -148,7 +148,7 @@
 			var/sublist_var = sublist ? "[REF(sublist)]" : ""
 			t1 += "<a href='byond://?src=[REF(src)];make=[REF(R)];sublist=[sublist_var];multiplier=1'>[title]</a>"
 		else
-			t1 += "[lacks_skill ? "<span class='warning'>Missing Skill — <s>" : ""]<div class='no-build inline'>[title]</div>[lacks_skill ? "</s></span>" : ""]<br>"
+			t1 += "[lacks_skill ? "<span class='warning'>Missing Skill — " : ""]<div class='no-build inline'>[title]</div>[lacks_skill ? "</span>" : ""]<br>"
 			continue
 
 		if(R.max_res_amount > 1 && max_multiplier > 1)
