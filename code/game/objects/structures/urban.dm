@@ -773,6 +773,10 @@ ABSTRACT_TYPE(/obj/structure/stairs/urban/road_ramp_assun)
 	density = TRUE
 	layer = ABOVE_HUMAN_LAYER
 
+/obj/structure/sign/billboard/Initialize()
+	. = ..()
+	AddComponent(/datum/component/large_transparency)
+
 /obj/structure/sign/billboard/nolegs
 	name = "commercial billboard"
 	desc = "A large billboard rented out for advertisement space."
