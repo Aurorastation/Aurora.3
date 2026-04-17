@@ -10310,7 +10310,7 @@
 /obj/item/storage/belt/medical/paramedic/combat,
 /obj/item/clothing/head/beret/medical,
 /obj/item/clothing/head/softcap/medical,
-/obj/item/clothing/accessory/armband/medgreen,
+/obj/item/clothing/accessory/armband/med,
 /obj/item/reagent_containers/hypospray,
 /obj/item/auto_cpr,
 /obj/item/auto_cpr,
