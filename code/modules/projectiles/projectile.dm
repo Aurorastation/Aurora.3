@@ -413,6 +413,8 @@
  * Also, we select_target to find what to process_hit first.
  */
 /obj/projectile/proc/Impact(atom/A)
+	if(QDELETED(src))
+		return TRUE
 	if(!trajectory)
 		qdel(src)
 		return FALSE
@@ -424,8 +426,6 @@
 		var/datum/weakref/original_ref = A.weak_reference
 		impacted[original_ref] = TRUE
 		process_hit(T, shield_target, A)
-		if(QDELETED(src))
-			return TRUE
 		impacted -= original_ref
 	var/datum/point/point_cache = trajectory.copy_to()
 	if(ricochets < ricochets_max && check_ricochet_flag(A) && check_ricochet(A))
