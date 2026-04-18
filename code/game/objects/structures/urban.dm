@@ -434,7 +434,7 @@ ABSTRACT_TYPE(/obj/structure/stairs/urban/road_ramp_assun)
 
 /obj/structure/neon_sign/assunzione/music_shop
 	name = "\improper PV AV"
-	desc = "The PV AV (Port Volturno Audio / Visual), a trendy hang-out spot for the music-conscious. Local radio DJ, John Assunzione, is said to be a regular."
+	desc = "The PV AV (Port Volturno Audio / Visual), a trendy hang-out spot for the music-conscious. Local radio DJ, Livia Sabatino, is said to be a regular."
 	icon = 'icons/obj/structure/urban/assunzione_neon.dmi'
 	icon_state = "PV_AV"
 	layer = 5.16 // in the biz, we call this the above above ABOVE human layer
