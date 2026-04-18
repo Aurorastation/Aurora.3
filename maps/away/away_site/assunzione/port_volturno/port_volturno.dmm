@@ -1822,6 +1822,7 @@
 /turf/simulated/floor/wood/maple,
 /area/port_volturno/interior/riad)
 "bzx" = (
+/obj/random/dirt_75,
 /obj/effect/floor_decal/corner/purple{
 	dir = 9
 	},
@@ -2809,6 +2810,11 @@
 	},
 /turf/simulated/floor/tiled/slate,
 /area/port_volturno/interior/stafylia)
+"cjp" = (
+/obj/structure/table/stone/marble,
+/obj/item/flame/lighter/zippo/luceian,
+/turf/simulated/floor/marble,
+/area/port_volturno/interior/chapel)
 "cjE" = (
 /obj/effect/floor_decal/corner/yellow{
 	dir = 8
@@ -8332,11 +8338,6 @@
 /obj/structure/flora/assunzione/grass/full,
 /turf/simulated/floor/grass1/no_edge,
 /area/port_volturno/interior/riad)
-"gtO" = (
-/obj/structure/table/stone/marble,
-/obj/item/flame/lighter/zippo/luceian,
-/turf/simulated/floor/marble,
-/area/port_volturno/interior/chapel)
 "guq" = (
 /obj/structure/table/rack/retail_shelf,
 /obj/effect/decal/cleanable/cobweb2,
@@ -11688,6 +11689,13 @@
 	},
 /obj/machinery/light/floor{
 	dir = 1
+	},
+/obj/machinery/photocopier{
+	pixel_x = -12
+	},
+/obj/structure/filingcabinet/filingcabinet{
+	pixel_x = 11;
+	pixel_y = 1
 	},
 /turf/simulated/floor/tiled/full,
 /area/port_volturno/interior/spaceport/security_office)
@@ -17850,12 +17858,13 @@
 /area/port_volturno/interior/maintenance)
 "nQT" = (
 /obj/effect/floor_decal/corner/blue/full,
-/obj/machinery/papershredder{
-	pixel_x = -6
-	},
 /obj/structure/filingcabinet/filingcabinet{
 	pixel_x = 10;
 	pixel_y = 1
+	},
+/obj/structure/filingcabinet/chestdrawer{
+	pixel_y = 1;
+	pixel_x = -6
 	},
 /turf/simulated/floor/tiled,
 /area/port_volturno/interior/spaceport/security_office)
@@ -23185,7 +23194,13 @@
 /obj/effect/floor_decal/corner/purple/full{
 	dir = 1
 	},
-/obj/structure/flora/pottedplant/luce_vine,
+/obj/machinery/papershredder{
+	pixel_x = 6
+	},
+/obj/structure/filingcabinet/filingcabinet{
+	pixel_x = -9;
+	pixel_y = 1
+	},
 /turf/simulated/floor/tiled/full,
 /area/port_volturno/interior/spaceport/security_office)
 "rMg" = (
@@ -25635,6 +25650,11 @@
 "tKv" = (
 /obj/effect/floor_decal/corner/purple/full{
 	dir = 8
+	},
+/obj/random/dirt_75,
+/obj/structure/filingcabinet/chestdrawer{
+	pixel_y = 1;
+	pixel_x = -6
 	},
 /turf/simulated/floor/tiled/full,
 /area/port_volturno/interior/spaceport/security_office)
@@ -132337,7 +132357,7 @@ hfg
 kab
 qOg
 pxK
-gtO
+cjp
 oVo
 sfw
 jVl
