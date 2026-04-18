@@ -359,11 +359,24 @@
 	paintable = AIRLOCK_PAINTABLE_MAIN
 	door_color = "#6f8751"
 
+/obj/machinery/door/airlock/service/custodial // Custodial Airlock
+	paintable = AIRLOCK_PAINTABLE_MAIN | AIRLOCK_PAINTABLE_STRIPE
+	door_color = "#6f8751"
+	stripe_color = COLOR_PURPLE_GRAY
+
 /obj/machinery/door/airlock/glass_service // Service Airlock (Glass)
 	icon_state = "ser_glass"
 	paintable = AIRLOCK_PAINTABLE_MAIN
 	door_color = "#6f8751"
-	glass = 1
+	glass = TRUE
+	hitsound = 'sound/effects/glass_hit.ogg'
+	open_sound_powered = 'sound/machines/airlock/hall3o.ogg'
+	close_sound_powered = 'sound/machines/airlock/hall3c.ogg'
+
+/obj/machinery/door/airlock/glass_service/custodial // Custodial Airlock (Glass)
+	paintable = AIRLOCK_PAINTABLE_MAIN | AIRLOCK_PAINTABLE_STRIPE
+	door_color = "#6f8751"
+	stripe_color = COLOR_PURPLE_GRAY
 
 /obj/machinery/door/airlock/command
 	icon_state = "cmd"
