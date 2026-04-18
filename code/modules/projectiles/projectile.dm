@@ -381,10 +381,7 @@
 		return FALSE
 
 	var/mob/living/M = A
-	if(!(M.dir & get_dir(M, starting)))
-		return FALSE
-
-	if(point_blank)
+	if(point_blank || !(M.dir & get_dir(M, starting)))
 		return FALSE
 
 	for(var/obj/item/grab/G in list(M.l_hand, M.r_hand))
