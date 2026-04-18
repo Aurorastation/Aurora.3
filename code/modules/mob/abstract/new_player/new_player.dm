@@ -35,7 +35,7 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 			stack_trace("The map is supposedly loaded, but GLOB.lobby_mobs_location is not set, unable to move the lobby mob!")
 			return
 
-		addtimer(CALLBACK(src, PROC_REF(attempt_moving_new_player_on_marker_turf)), 5 SECONDS)
+		addtimer(CALLBACK(src, PROC_REF(attempt_moving_new_player_on_marker_turf)), 5 SECONDS, TIMER_STOPPABLE | TIMER_DELETE_ME)
 
 /mob/abstract/new_player/Destroy()
 	QDEL_NULL(late_choices_ui)
