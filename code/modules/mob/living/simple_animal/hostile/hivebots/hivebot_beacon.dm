@@ -214,7 +214,7 @@
 	var/T = get_turf(src)
 	new /obj/effect/gibspawner/robot(T)
 	spark(T, 3, GLOB.alldirs)
-	qdel(src)
+	QDEL_IN(src, 0)
 	return
 
 /mob/living/simple_animal/hostile/hivebotbeacon/think()
@@ -280,6 +280,9 @@
 		do_teleport(src, random_turf)
 
 /mob/living/simple_animal/hostile/hivebotbeacon/proc/wakeup()
+	if(QDELETED(src))
+		return
+
 	change_stance(HOSTILE_STANCE_IDLE)
 	activated = 0
 	activate_beacon()
@@ -289,7 +292,7 @@
 		visible_message(SPAN_DANGER("[src] disappears in a cloud of smoke!"))
 		playsound(src.loc, 'sound/effects/teleport.ogg', 25, 1)
 		new /obj/effect/decal/cleanable/greenglow(src.loc)
-		qdel(src)
+		QDEL_IN(src, 0)
 		return
 
 	if(activated == -1)

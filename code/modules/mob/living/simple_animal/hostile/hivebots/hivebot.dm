@@ -108,7 +108,7 @@
 
 	var/turf/current_turf = get_turf(src)
 	if(!current_turf)
-		qdel(src)
+		QDEL_IN(src, 0)
 		return
 
 	var/robot_gib_type = /obj/effect/decal/cleanable/blood/gibs/robot
@@ -120,7 +120,7 @@
 
 	spark(current_turf, 1, GLOB.alldirs)
 
-	qdel(src)
+	QDEL_IN(src, 0)
 
 /mob/living/simple_animal/hostile/hivebot/think()
 	. =..()
