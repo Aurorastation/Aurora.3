@@ -160,6 +160,7 @@ GLOBAL_LIST_EMPTY(marketsign_overlay_cache)
 	currently_on = TRUE
 	on_icon_state = icon_state
 	update_icon()
+	return INITIALIZE_HINT_NORMAL
 
 /singleton/sign/double
 	var/name = "Holographic Projector"
