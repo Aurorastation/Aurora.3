@@ -191,7 +191,7 @@
 	var/obj/item/grab/G = new /obj/item/grab(src, src, T)
 
 	if(buckled_to)
-		to_chat(src, SPAN_NOTICE("You cannot grab [T], [T.get_pronoun("he")] [get_pronoun("is")] buckled in!"))
+		to_chat(src, SPAN_WARNING("You cannot grab [T], [T.get_pronoun("he")] [get_pronoun("is")] buckled in!"))
 	if(!G)	//the grab will delete itself in New if affecting is anchored
 		return
 	src.put_in_active_hand(G)
