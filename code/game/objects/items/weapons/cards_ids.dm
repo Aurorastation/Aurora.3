@@ -182,7 +182,8 @@
 
 /obj/item/card/id/Destroy()
 	QDEL_NULL(chat_user)
-	access.Cut()
+	mob_id = null
+	access = null
 	front = null
 	side = null
 	return ..()
