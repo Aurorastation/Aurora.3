@@ -82,6 +82,15 @@
 	. = ..(mapload, MATERIAL_SANDSTONE)
 	canSmoothWith = list(src.type)
 
+/turf/simulated/wall/brick
+	icon = 'icons/turf/smooth/wall_preview.dmi'
+	icon_state = "brick"
+
+/turf/simulated/wall/brick/Initialize(mapload)
+	canSmoothWith = list(src.type)
+	. = ..(mapload, MATERIAL_BRICK)
+	canSmoothWith = list(src.type)
+
 /turf/simulated/wall/ironphoron/Initialize(mapload)
 	canSmoothWith = list(src.type)
 	. = ..(mapload, MATERIAL_IRON, MATERIAL_PHORON)

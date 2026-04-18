@@ -420,6 +420,26 @@
 	drop_sound = 'sound/items/drop/boots.ogg'
 	pickup_sound = 'sound/items/pickup/boots.ogg'
 
+/material/stone/brick
+	name = MATERIAL_SANDSTONE
+	stack_type = /obj/item/stack/material/sandstone
+	icon_base = "stone"
+	reinf_icon = "reinf_stone"
+	icon_colour = "#d9c179"
+	wall_icon = 'icons/turf/smooth/composite_brick.dmi'
+	multipart_reinf_icon = 'icons/turf/smooth/composite_stone_reinf.dmi'
+	shard_type = SHARD_STONE_PIECE
+	weight = 22
+	hardness = 70
+	protectiveness = 5 // 20%
+	conductivity = 5
+	door_icon_base = "stone"
+	sheet_singular_name = "brick"
+	sheet_plural_name = "bricks"
+	golem = SPECIES_GOLEM_MARBLE
+	drop_sound = 'sound/items/drop/boots.ogg'
+	pickup_sound = 'sound/items/pickup/boots.ogg'
+
 /material/concrete
 	name = MATERIAL_CONCRETE
 	icon_colour = COLOR_CONCRETE

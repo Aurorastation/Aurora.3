@@ -26,7 +26,7 @@
 	head = /obj/item/clothing/head/beret/corporate/zeng
 	id = /obj/item/card/id
 	l_ear = /obj/item/radio/headset/ship
-	belt = /obj/item/storage/belt/security
+	belt = /obj/item/storage/belt/security/full
 	r_pocket = /obj/item/storage/wallet/random
 	back = /obj/item/storage/backpack/satchel
 
