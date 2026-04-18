@@ -7,7 +7,7 @@
 	 * Accuracy modifier to fired guns per point of "Skill Diff".
 	 * As an "Effective increase" in tiles to the target being shot.
 	 */
-	var/accuracy_per_skill_diff = 2
+	var/accuracy_per_skill_diff = 0.5
 
 	/**
 	 * Dispersion modifier to fired guns per point of "Skill Diff".

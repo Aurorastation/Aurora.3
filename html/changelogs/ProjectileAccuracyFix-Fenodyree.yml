@@ -1,0 +1,6 @@
+author: Fenodyree
+
+delete-after: True
+
+changes:
+  - bugfix: "Fixes projectile accuracy checks not working. Shots can now miss again."
