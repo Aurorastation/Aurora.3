@@ -10,6 +10,7 @@
 	name = "spasm"
 	desc = "Made you drop your gun."
 	icon_state = "control"
+	item_icons = null
 	cast_methods = CAST_RANGED
 	aspect = ASPECT_PSIONIC
 	cooldown = 100

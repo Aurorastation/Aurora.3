@@ -373,14 +373,14 @@ ABSTRACT_TYPE(/datum/gear/accessory/skrell)
 	workcloak["iqi cloak"] = /obj/item/clothing/accessory/poncho/shouldercape/cloak/iqi
 	gear_tweaks += new /datum/gear_tweak/path(workcloak)
 
-/datum/gear/accessory/skrell/tees
+/datum/gear/shirts/skrell
 	display_name = "skrellian wetshirts"
 	path = /obj/item/clothing/under/dressshirt/tshirt/skrell/ocean
 	whitelisted = list(SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_ATTENDANT, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_BREEDER)
 	sort_category = "Xenowear - Skrell"
 	flags = GEAR_HAS_DESC_SELECTION
 
-/datum/gear/accessory/skrell/tees/New()
+/datum/gear/shirts/skrell/New()
 	..()
 	var/list/tees = list()
 	tees["ocean wetshirt"] = /obj/item/clothing/under/dressshirt/tshirt/skrell/ocean
@@ -394,14 +394,14 @@ ABSTRACT_TYPE(/datum/gear/accessory/skrell)
 	tees["nralakk eriuyushi nebula shirt"] = /obj/item/clothing/under/dressshirt/tshirt/skrell/nebula/nralakk
 	gear_tweaks += new /datum/gear_tweak/path(tees)
 
-/datum/gear/accessory/skrell/dress
+/datum/gear/shirts/skrell/dress
 	display_name = "skrellian formal wetshirts"
 	path = /obj/item/clothing/under/dressshirt/skrell/ocean
 	whitelisted = list(SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_ATTENDANT, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_BREEDER)
 	sort_category = "Xenowear - Skrell"
 	flags = GEAR_HAS_DESC_SELECTION
 
-/datum/gear/accessory/skrell/dress/New()
+/datum/gear/shirts/skrell/dress/New()
 	..()
 	var/list/dress = list()
 	dress["ocean formal wetshirt"] = /obj/item/clothing/under/dressshirt/skrell/ocean
@@ -410,11 +410,34 @@ ABSTRACT_TYPE(/datum/gear/accessory/skrell)
 	gear_tweaks += new /datum/gear_tweak/path(dress)
 
 /datum/gear/uniform/skrell/wetsuit
-	display_name = "casual wetsuit"
+	display_name = "casual wetsuits and swimsuits"
 	path = /obj/item/clothing/under/skrell/wetsuit
 	whitelisted = list(SPECIES_SKRELL, SPECIES_SKRELL_AXIORI)
 	sort_category = "Xenowear - Skrell"
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION | GEAR_HAS_ACCENT_COLOR_SELECTION
+
+/datum/gear/uniform/skrell/wetsuit/New()
+	..()
+	var/list/wetsuit = list()
+	wetsuit["casual wetsuit"] = /obj/item/clothing/under/skrell/wetsuit
+	wetsuit["casual dark wetsuit"] = /obj/item/clothing/under/skrell/wetsuit/dark
+	wetsuit["casual swimsuit"] = /obj/item/clothing/under/skrell/wetsuit/swimsuit
+	wetsuit["casual swimsuit, alt"] = /obj/item/clothing/under/skrell/wetsuit/swimsuit/alt
+	gear_tweaks += new /datum/gear_tweak/path(wetsuit)
+
+/datum/gear/uniform/skrell/swimstars
+	display_name = "swimstars swimsuits"
+	path = /obj/item/clothing/under/skrell/wetsuit/swimstars
+	whitelisted = list(SPECIES_SKRELL, SPECIES_SKRELL_AXIORI)
+	sort_category = "Xenowear - Skrell"
+	flags = GEAR_NO_SELECTION
+
+/datum/gear/uniform/skrell/swimstars/New()
+	..()
+	var/list/swimstars = list()
+	swimstars["swimstars wetsuit"] = /obj/item/clothing/under/skrell/wetsuit/swimstars
+	swimstars["swimstars wetsuit, alt"] = /obj/item/clothing/under/skrell/wetsuit/swimstars/alt
+	gear_tweaks += new /datum/gear_tweak/path(swimstars)
 
 /datum/gear/ears/skrell/tailband
 	display_name = "SCI tailband"

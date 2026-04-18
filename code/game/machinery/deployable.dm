@@ -17,10 +17,9 @@ Deployable Kits
 	build_amt = 5
 	anchored = TRUE
 	density = TRUE
+	maxhealth = OBJECT_HEALTH_LOW
 
 	var/force_material
-	var/health = 100
-	var/maxhealth = 100
 
 /obj/structure/blocker/Initialize(mapload, var/material_name)
 	. = ..()
@@ -38,8 +37,8 @@ Deployable Kits
 	name = "[material.display_name] [name]"
 	desc = "This space is blocked off by a barricade made of [material.display_name]."
 	color = material.icon_colour
-	maxhealth = material.integrity
-	health = maxhealth
+	set_maxhealth(material.integrity)
+	set_health(maxhealth)
 
 /obj/structure/blocker/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
 	. = ..()
@@ -57,7 +56,7 @@ Deployable Kits
 		visible_message(SPAN_WARNING("\The [src] is hit by \the [hitting_projectile]!"))
 
 /obj/structure/blocker/attackby(obj/item/attacking_item, mob/user)
-	if(attacking_item.ishammer() && user.a_intent != I_HURT)
+	if(attacking_item.tool_behaviour == TOOL_HAMMER && user.a_intent != I_HURT)
 		var/obj/item/I = usr.get_inactive_hand()
 		if(I && istype(I, /obj/item/stack))
 			var/obj/item/stack/D = I
@@ -71,7 +70,7 @@ Deployable Kits
 				user.visible_message("<b>[user]</b> begins to repair \the [src].", SPAN_NOTICE("You begin to repair \the [src]."))
 				if(I.use_tool(src, user, 20, volume = 50) && health < maxhealth)
 					if(D.use(1))
-						health = maxhealth
+						set_health(maxhealth)
 						visible_message("<b>[user]</b> repairs \the [src].", SPAN_NOTICE("You repair \the [src]."))
 			return TRUE
 	else
@@ -146,8 +145,7 @@ Deployable Kits
 	anchored = 0.0
 	density = 1.0
 	icon_state = "barrier"
-	var/health = 100.0
-	var/maxhealth = 100.0
+	maxhealth = OBJECT_HEALTH_LOW
 	var/locked = 0.0
 //	req_access = list(ACCESS_MAINT_TUNNELS)
 
@@ -174,7 +172,7 @@ Deployable Kits
 				visible_message(SPAN_WARNING("BZZzZZzZZzZT"))
 				return
 		return
-	else if (attacking_item.iswrench())
+	else if (attacking_item.tool_behaviour == TOOL_WRENCH)
 		if (src.health < src.maxhealth)
 			user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 			src.health = src.maxhealth
@@ -272,6 +270,7 @@ Deployable Kits
 	icon = 'icons/obj/storage/briefcase.dmi'
 	icon_state = "inf_box"
 	item_state = "inf_box"
+	contained_sprite = TRUE
 	drop_sound = 'sound/items/drop/backpack.ogg'
 	pickup_sound = 'sound/items/pickup/backpack.ogg'
 
@@ -296,6 +295,7 @@ Deployable Kits
 	icon = 'icons/obj/storage/briefcase.dmi'
 	icon_state = "barrier_kit"
 	item_state = "barrier_kit"
+	contained_sprite = TRUE
 	w_class = WEIGHT_CLASS_SMALL
 	kit_product = /obj/machinery/deployable/barrier/legion
 
@@ -340,6 +340,7 @@ Deployable Kits
 	icon = 'icons/obj/storage/briefcase.dmi'
 	icon_state = "inf_box"
 	item_state = "inf_box"
+	contained_sprite = TRUE
 	w_class = WEIGHT_CLASS_NORMAL
 	kit_product = /obj/machinery/iv_drip
 	assembly_time = 4 SECONDS
@@ -350,6 +351,7 @@ Deployable Kits
 	icon = 'icons/obj/storage/briefcase.dmi'
 	icon_state = "barrier_kit"
 	item_state = "barrier_kit"
+	contained_sprite = TRUE
 	w_class = WEIGHT_CLASS_BULKY
 	kit_product = /obj/structure/bed/stool/chair/remote/mech/portable
 	assembly_time = 20 SECONDS

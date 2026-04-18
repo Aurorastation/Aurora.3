@@ -50,21 +50,21 @@
 	excavation_level = rand(5,50)
 
 /obj/structure/boulder/attackby(obj/item/attacking_item, mob/user)
-	if (istype(attacking_item, /obj/item/device/core_sampler))
+	if (istype(attacking_item, /obj/item/core_sampler))
 		src.geologic_data.artifact_distance = rand(-100,100) / 100
 		src.geologic_data.artifact_id = artifact_find.artifact_id
 
-		var/obj/item/device/core_sampler/C = attacking_item
+		var/obj/item/core_sampler/C = attacking_item
 		C.sample_item(src, user)
 		return
 
-	if (istype(attacking_item, /obj/item/device/depth_scanner))
-		var/obj/item/device/depth_scanner/C = attacking_item
+	if (istype(attacking_item, /obj/item/depth_scanner))
+		var/obj/item/depth_scanner/C = attacking_item
 		C.scan_atom(user, src)
 		return
 
-	if (istype(attacking_item, /obj/item/device/measuring_tape))
-		var/obj/item/device/measuring_tape/P = attacking_item
+	if (istype(attacking_item, /obj/item/measuring_tape))
+		var/obj/item/measuring_tape/P = attacking_item
 		user.visible_message(SPAN_NOTICE("[user] extends [P] towards [src]."),
 								SPAN_NOTICE("You extend [P] towards [src]."))
 

@@ -136,7 +136,7 @@
 /turf/simulated/floor/exoplanet/grass/grove,
 /area/template_noop)
 "N" = (
-/obj/item/device/flashlight/lantern/on,
+/obj/item/flashlight/lantern/on,
 /turf/simulated/floor/exoplanet/barren,
 /area/template_noop)
 "P" = (
@@ -161,7 +161,7 @@
 /turf/simulated/floor/exoplanet/barren,
 /area/template_noop)
 "S" = (
-/obj/item/device/flashlight/flare{
+/obj/item/flashlight/flare{
 	pixel_y = 7;
 	pixel_x = -6
 	},
@@ -187,7 +187,7 @@
 /turf/simulated/floor/exoplanet/barren,
 /area/template_noop)
 "X" = (
-/obj/item/device/flashlight/flare,
+/obj/item/flashlight/flare,
 /turf/simulated/floor/exoplanet/barren,
 /area/template_noop)
 

@@ -145,7 +145,9 @@ Path adjustment
 	return "Type: [metadata]"
 
 /datum/gear_tweak/path/get_default()
-	return valid_paths[1]
+	for(var/key in valid_paths)
+		return key
+	return null
 
 /datum/gear_tweak/path/get_random()
 	return pick(valid_paths)
@@ -154,9 +156,15 @@ Path adjustment
 	return tgui_input_list(user, "Choose a type.", "Character Preference", valid_paths, metadata)
 
 /datum/gear_tweak/path/tweak_gear_data(var/metadata, var/datum/gear_data/gear_data)
-	if(!(metadata in valid_paths))
+	if(metadata in valid_paths)
+		gear_data.path = valid_paths[metadata]
 		return
-	gear_data.path = valid_paths[metadata]
+
+	// Fallback for when metadata is actually the path (value) instead of the name (key)
+	for(var/key in valid_paths)
+		if(valid_paths[key] == metadata)
+			gear_data.path = metadata
+			return
 
 /*
 Faction-based Path adjustment
@@ -164,10 +172,17 @@ Same as the adjustment above, but the associated value is a list with the first 
 */
 
 /datum/gear_tweak/path/faction/tweak_gear_data(var/metadata, var/datum/gear_data/gear_data)
-	if(!(metadata in valid_paths))
+	if(metadata in valid_paths)
+		gear_data.path = valid_paths[metadata][1]
+		gear_data.faction_requirement = valid_paths[metadata][2]
 		return
-	gear_data.path = valid_paths[metadata][1]
-	gear_data.faction_requirement = valid_paths[metadata][2]
+
+	// Fallback for when metadata is actually the path (value) instead of the name (key)
+	for(var/key in valid_paths)
+		if(valid_paths[key][1] == metadata)
+			gear_data.path = metadata
+			gear_data.faction_requirement = valid_paths[key][2]
+			return
 
 /*
 Content adjustment

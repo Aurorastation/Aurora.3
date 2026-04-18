@@ -20,11 +20,11 @@
 				message2 = "ETA"
 		else
 			if(shuttle.at_station())
-				message2 = "Docked"
+				message2 = "Elevator Arrived"
 			else
 				message1 = ""
 		set_messages(message1, message2)
-		return 1
+		arrange_displayed_texts(message1, message2)
 	return 0
 
 /obj/machinery/status_display/supply_display/receive_signal(datum/signal/signal)

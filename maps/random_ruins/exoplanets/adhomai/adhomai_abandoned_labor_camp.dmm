@@ -412,7 +412,7 @@
 "GR" = (
 /obj/structure/table/rack,
 /obj/machinery/light/small,
-/obj/item/device/flashlight/lantern,
+/obj/item/flashlight/lantern,
 /turf/simulated/floor/exoplanet/concrete/square,
 /area/exoplanet/adhomai)
 "Ht" = (

@@ -8,6 +8,7 @@
 	sectors = list(SECTOR_ROMANOVICH, SECTOR_CORP_ZONE, ALL_BADLAND_SECTORS, SECTOR_WEEPING_STARS)
 	spawn_weight_sector_dependent = list(SECTOR_BADLANDS = 0.5)
 	spawn_weight = 1
+	template_flags = TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED // Disabled for debloating. Feel free to enable again if reworked or relevant.
 	ship_cost = 1
 	id = "tajaran_smuggler"
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/tajaran_smuggler_shuttle, /datum/shuttle/autodock/overmap/tajaran_smuggler_cargo)

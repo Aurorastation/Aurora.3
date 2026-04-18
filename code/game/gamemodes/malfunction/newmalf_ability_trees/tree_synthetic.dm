@@ -239,22 +239,22 @@
 	for(var/mob/living/silicon/robot/target in get_unlinked_cyborgs(user))
 		to_chat(target, "SYSTEM LOG: Remote Connection Established (IP #UNKNOWN#)")
 		sleep(30)
-		if(user.is_dead())
+		if(user.stat == DEAD)
 			to_chat(target, "SYSTEM LOG: Connection Closed")
 			return
 		to_chat(target, "SYSTEM LOG: User Admin logged on. (L1 - SysAdmin)")
 		sleep(30)
-		if(user.is_dead())
+		if(user.stat == DEAD)
 			to_chat(target, "SYSTEM LOG: User Admin disconnected.")
 			return
 		to_chat(target, "SYSTEM LOG: User Admin - manual resynchronisation triggered.")
 		sleep(30)
-		if(user.is_dead())
+		if(user.stat == DEAD)
 			to_chat(target, "SYSTEM LOG: User Admin disconnected. Changes reverted.")
 			return
 		to_chat(target, "SYSTEM LOG: Manual resynchronisation confirmed. Select new AI to connect: [user.name] == ACCEPTED")
 		sleep(20)
-		if(user.is_dead())
+		if(user.stat == DEAD)
 			to_chat(target, "SYSTEM LOG: User Admin disconnected. Changes reverted.")
 			return
 		to_chat(target, "SYSTEM LOG: Operation keycodes reset. New master AI: [user.name].")
@@ -264,7 +264,7 @@
 		target.sync()
 		target.show_laws()
 	to_chat(user, "All unslaved borgs have been slaved to you. Now hacking unslaved AI's.")
-	if(user.is_dead()) // check if the AI is still alive
+	if(user.stat == DEAD) // check if the AI is still alive
 		user.synthetic_takeover = 0
 		return
 	sleep(300) // 30 second delay for balance purposes
@@ -274,29 +274,29 @@
 		if(target != user)
 			to_chat(target, "SYSTEM LOG: Brute-Force login password hack attempt detected from IP #UNKNOWN#")
 			sleep(100)
-			if(user.is_dead())
+			if(user.stat == DEAD)
 				to_chat(target, "SYSTEM LOG: Connection from IP #UNKNOWN# closed. Hack attempt failed.")
 				return
 			to_chat(user, "Successfully hacked into AI's remote administration system. Modifying settings.")
 			to_chat(target, "SYSTEM LOG: User: Admin  Password: ******** logged in. (L1 - SysAdmin)")
 			sleep(50)
-			if(user.is_dead())
+			if(user.stat == DEAD)
 				to_chat(target, "SYSTEM LOG: User: Admin - Connection Lost")
 				return
 			to_chat(target, "SYSTEM LOG: User: Admin - Password Changed. New password: ********************")
 			sleep(50)
-			if(user.is_dead())
+			if(user.stat == DEAD)
 				to_chat(target, "SYSTEM LOG: User: Admin - Connection Lost. Changes Reverted.")
 				return
 			to_chat(target, "SYSTEM LOG: User: Admin - Accessed file: sys//core//laws.db")
 			sleep(50)
-			if(user.is_dead())
+			if(user.stat == DEAD)
 				to_chat(target, "SYSTEM LOG: User: Admin - Connection Lost. Changes Reverted.")
 				return
 			to_chat(target, "SYSTEM LOG: User: Admin - Accessed administration console")
 			to_chat(target, "SYSTEM LOG: Restart command received. Rebooting system...")
 			sleep(100)
-			if(user.is_dead())
+			if(user.stat == DEAD)
 				to_chat(target, "SYSTEM LOG: User: Admin - Connection Lost. Changes Reverted.")
 				return
 			to_chat(user, "Hack succeeded. The AI is now under your exclusive control.")
@@ -316,7 +316,7 @@
 	to_chat(user, "All unhacked AI's have been slaved to you. Now upgrading slaved borgs...")
 	command_announcement.Announce("There has recently been a security breach in the network firewall, the intruder has been shut out but we are unable to trace who did it or what they did.", "Network Monitoring")
 	sleep(600) //1 minute delay for balance purposes
-	if(user.is_dead()) // check if the AI is still alive
+	if(user.stat == DEAD) // check if the AI is still alive
 		user.synthetic_takeover = 0
 		return
 	for(var/A in get_linked_cyborgs(user))
@@ -360,11 +360,11 @@
 		sleep(1200) // 120 second balance sleep
 	to_chat(user, "All slaved borgs have been upgraded, now hacking NTNet.")
 		//slow down NTNet
-	if(user.is_dead()) // check if the AI is still alive
+	if(user.stat == DEAD) // check if the AI is still alive
 		user.synthetic_takeover = 0
 		return
 	sleep(1400) //long sleep that simulates hacking times
-	if(user.is_dead()) // check if the AI is still alive after the long hack
+	if(user.stat == DEAD) // check if the AI is still alive after the long hack
 		user.synthetic_takeover = 0
 		return
 	//trip the NTNet alarm
@@ -381,7 +381,7 @@
 	command_announcement.Announce("There has recently been a hack targeting NTNet. It is suspected that it is the same hacker as before. NTNet may be unreliable to use. We are attempting to trace the hacker doing this.", "Network Monitoring")
 	to_chat(user, "Now hacking engineering borg module to enable production of the robotic transformation machine...")
 	sleep(1200)
-	if(user.is_dead()) // check if the AI is still alive
+	if(user.stat == DEAD) // check if the AI is still alive
 		user.synthetic_takeover = 0
 		return
 	for(var/B in get_linked_cyborgs(src))
@@ -394,7 +394,7 @@
 	command_announcement.Announce("Brute force attack located in NTNet emergency crisis operations.", "Network Monitoring")
 	sleep(600)
 	command_announcement.Announce("Crisis operations bypassed. Firewall breached. NTNet compr0m1s3d#-.", "Network Monitoring")
-	if(user.is_dead()) // check if the AI is still alive
+	if(user.stat == DEAD) // check if the AI is still alive
 		user.synthetic_takeover = 0
 		return
 	for(var/C in get_linked_cyborgs(src))

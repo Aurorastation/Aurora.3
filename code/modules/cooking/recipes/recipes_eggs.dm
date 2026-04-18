@@ -1,6 +1,6 @@
 
 /singleton/recipe/chocolateegg
-	appliance = SAUCEPAN | POT // melt the chocolate
+	appliance = SAUCEPAN | POT | MICROWAVE // melt the chocolate
 	items = list(
 		/obj/item/reagent_containers/food/snacks/egg,
 		/obj/item/reagent_containers/food/snacks/chocolatebar
@@ -8,14 +8,14 @@
 	result = /obj/item/reagent_containers/food/snacks/chocolateegg
 
 /singleton/recipe/friedegg
-	appliance = SKILLET
+	appliance = SKILLET | MICROWAVE
 	items = list(
 		/obj/item/reagent_containers/food/snacks/friedegg/overeasy
 	)
 	result = /obj/item/reagent_containers/food/snacks/friedegg
 
 /singleton/recipe/friedegg_easy
-	appliance = SKILLET
+	appliance = SKILLET | MICROWAVE
 	reagents = list(/singleton/reagent/sodiumchloride = 1, /singleton/reagent/blackpepper = 1)
 	items = list(
 		/obj/item/reagent_containers/food/snacks/egg
@@ -23,7 +23,7 @@
 	result = /obj/item/reagent_containers/food/snacks/friedegg/overeasy
 
 /singleton/recipe/boiledegg
-	appliance = SAUCEPAN | POT
+	appliance = SAUCEPAN | POT | MICROWAVE
 	reagents = list(/singleton/reagent/water = 5)
 	reagent_mix = RECIPE_REAGENT_REPLACE
 	items = list(
@@ -32,7 +32,7 @@
 	result = /obj/item/reagent_containers/food/snacks/boiledegg
 
 /singleton/recipe/bacon_and_eggs
-	appliance = SKILLET
+	appliance = SKILLET | MICROWAVE
 	items = list(
 		/obj/item/reagent_containers/food/snacks/bacon,
 		/obj/item/reagent_containers/food/snacks/friedegg
@@ -41,13 +41,26 @@
 
 /singleton/recipe/omelette
 	appliance = SKILLET
+	reagents = list(/singleton/reagent/nutriment/protein/egg = 6, /singleton/reagent/drink/milk = 5)
+	reagent_mix = RECIPE_REAGENT_REPLACE
+	result = /obj/item/reagent_containers/food/snacks/omelette
+
+/singleton/recipe/omelette_veggie
+	appliance = SKILLET
+	fruit = list("onion" = 1) //if herbs ever get added to the game please add them to this recipe
+	reagents = list(/singleton/reagent/nutriment/protein/egg = 3, /singleton/reagent/drink/milk = 5)
+	reagent_mix = RECIPE_REAGENT_REPLACE
+	result = /obj/item/reagent_containers/food/snacks/omelette/veggie
+
+/singleton/recipe/omelette_du_fromage
+	appliance = SKILLET
 	items = list(
 		/obj/item/reagent_containers/food/snacks/cheesewedge,
 		/obj/item/reagent_containers/food/snacks/cheesewedge
 	)
 	reagents = list(/singleton/reagent/nutriment/protein/egg = 6)
 	reagent_mix = RECIPE_REAGENT_REPLACE
-	result = /obj/item/reagent_containers/food/snacks/omelette
+	result = /obj/item/reagent_containers/food/snacks/omelette/fromage
 
 /singleton/recipe/poachedegg
 	appliance = SKILLET | SAUCEPAN

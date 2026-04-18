@@ -7,8 +7,8 @@
 	var/planchette = "A"
 	var/lastuser = null
 
-/obj/item/spirit_board/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
+/obj/item/spirit_board/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
 	. += "The planchette is sitting at \"[planchette]\"."
 
 /obj/item/spirit_board/attack_hand(mob/user)

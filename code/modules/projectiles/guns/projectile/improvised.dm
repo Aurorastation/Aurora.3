@@ -3,7 +3,7 @@
 /obj/item/gun/projectile/shotgun/improvised //similar to the double barrel, but without the option to fire both barrels
 	name = "improvised shotgun"
 	desc = "An improvised pipe assembly that can fire shotgun shells."
-	icon = 'icons/obj/guns/ishotgun.dmi'
+	icon = 'icons/obj/guns/faction/improvised/ishotgun.dmi'
 	icon_state = "ishotgun"
 	item_state = "ishotgun"
 	max_shells = 2
@@ -19,6 +19,20 @@
 	needspin = FALSE
 	fire_sound = 'sound/weapons/gunshot/gunshot_shotgun2.ogg'
 	var/fail_chance = 35
+
+/obj/item/gun/projectile/shotgun/improvised/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	switch(fail_chance)
+		if(1)
+			. += "All craftsmanship is of the highest quality."
+		if(2 to 25)
+			. += "All craftsmanship is of high quality."
+		if(26 to 50)
+			. += "All craftsmanship is of average quality."
+		if(51 to 75)
+			. += "All craftsmanship is of low quality."
+		if(100)
+			. += "All craftsmanship is of the lowest quality."
 
 /obj/item/gun/projectile/shotgun/improvised/special_check(var/mob/living/carbon/human/M)
 	if(prob(fail_chance))
@@ -57,20 +71,6 @@
 	else
 		..()
 
-/obj/item/gun/projectile/shotgun/improvised/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	switch(fail_chance)
-		if(1)
-			. += "All craftsmanship is of the highest quality."
-		if(2 to 25)
-			. += "All craftsmanship is of high quality."
-		if(26 to 50)
-			. += "All craftsmanship is of average quality."
-		if(51 to 75)
-			. += "All craftsmanship is of low quality."
-		if(100)
-			. += "All craftsmanship is of the lowest quality."
-
 /obj/item/gun/projectile/shotgun/improvised/sawn
 	name = "sawn-off improvised shotgun"
 	desc = "An improvised pipe assembly that can fire shotgun shells."
@@ -89,6 +89,16 @@
 	icon_state = "riflestock"
 	var/buildstate = 0
 
+/obj/item/stock/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	switch(buildstate)
+		if(1)
+			. += "It is carved in the shape of a pistol handle."
+		if(2)
+			. += "It has a receiver installed."
+		if(3)
+			. += "It has a pipe installed."
+
 /obj/item/receivergun
 	name = "receiver"
 	desc = "A receiver and trigger assembly for a firearm."
@@ -99,8 +109,8 @@
 /obj/item/receivergun/update_icon()
 	icon_state = "ishotgun[buildstate]"
 
-/obj/item/receivergun/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
+/obj/item/receivergun/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
 	switch(buildstate)
 		if(1)
 			. += "It has a pipe segment installed."
@@ -131,7 +141,7 @@
 			buildstate++
 			update_icon()
 			return
-	else if(attacking_item.iscoil())
+	else if(attacking_item.tool_behaviour == TOOL_CABLECOIL)
 		var/obj/item/stack/cable_coil/C = attacking_item
 		if(buildstate == 3)
 			if(C.use(10))
@@ -154,7 +164,7 @@
 	accuracy = -1
 	offhand_accuracy = 1
 	fire_delay = ROF_PISTOL
-	icon = 'icons/obj/guns/ipistol.dmi'
+	icon = 'icons/obj/guns/faction/improvised/ipistol.dmi'
 	icon_state = "ipistol"
 	item_state = "ipistol"
 	caliber = ".45"
@@ -165,11 +175,8 @@
 	jam_chance = 20
 	needspin = FALSE
 
-/obj/item/gun/projectile/improvised_handgun/loaded
-	magazine_type = /obj/item/ammo_magazine/c45m
-
-/obj/item/gun/projectile/improvised_handgun/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
+/obj/item/gun/projectile/improvised_handgun/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
 	switch(jam_chance)
 		if(1)
 			. += "All craftsmanship is of the highest quality."
@@ -182,18 +189,11 @@
 		if(100)
 			. += "All craftsmanship is of the lowest quality."
 
+/obj/item/gun/projectile/improvised_handgun/loaded
+	magazine_type = /obj/item/ammo_magazine/c45m
+
 /obj/item/stock/update_icon()
 	icon_state = "ipistol[buildstate]"
-
-/obj/item/stock/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	switch(buildstate)
-		if(1)
-			. += "It is carved in the shape of a pistol handle."
-		if(2)
-			. += "It has a receiver installed."
-		if(3)
-			. += "It has a pipe installed."
 
 /obj/item/stock/attackby(obj/item/attacking_item, mob/user)
 	if(istype(attacking_item, /obj/item/material/hatchet))
@@ -216,7 +216,7 @@
 			buildstate++
 			update_icon()
 			return
-	else if(attacking_item.iswelder())
+	else if(attacking_item.tool_behaviour == TOOL_WELDER)
 		if(buildstate == 3)
 			var/obj/item/weldingtool/T = attacking_item
 			if(T.use(0,user))
@@ -231,7 +231,7 @@
 /obj/item/gun/projectile/automatic/improvised
 	name = "improvised machine pistol"
 	desc = "An improvised automatic handgun."
-	icon = 'icons/obj/guns/ismg.dmi'
+	icon = 'icons/obj/guns/faction/improvised/ismg.dmi'
 	icon_state = "ismg"
 	item_state = "ismg"
 	load_method = MAGAZINE

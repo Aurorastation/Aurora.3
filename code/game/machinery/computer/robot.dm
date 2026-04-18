@@ -1,7 +1,7 @@
 /obj/machinery/computer/robotics
 	name = "robotics control console"
 	desc = "Used to remotely lockdown or detonate linked cyborgs."
-	icon = 'icons/obj/machinery/modular_console.dmi'
+	icon = 'icons/obj/modular_computers/modular_console.dmi'
 
 	icon_screen = "robot"
 	icon_keyboard = "purple_key"

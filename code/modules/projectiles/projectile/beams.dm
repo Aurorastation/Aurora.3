@@ -13,6 +13,7 @@
 	var/frequency = 1
 	hitscan = 1
 	invisibility = 101	//beam projectiles are invisible as they are rendered by the effect engine
+	// color = COLOR_RED
 
 	muzzle_type = /obj/effect/projectile/muzzle/laser
 	tracer_type = /obj/effect/projectile/tracer/laser
@@ -45,7 +46,7 @@
 	impact_type = /obj/effect/projectile/impact/laser/scc
 
 /obj/projectile/beam/pistol/hegemony
-	icon = 'icons/obj/guns/hegemony_pistol.dmi'
+	icon = 'icons/obj/guns/faction/izweski_hegemony/hegemony_pistol.dmi'
 	icon_state = "hegemony_pistol"
 	damage = 30
 
@@ -150,6 +151,7 @@
 	name = "emitter beam"
 	icon_state = "emitter"
 	damage = 0 // The actual damage is computed in /code/modules/power/singularity/emitter.dm
+	color = COLOR_SPRING_GREEN
 
 	muzzle_type = /obj/effect/projectile/muzzle/emitter
 	tracer_type = /obj/effect/projectile/tracer/emitter
@@ -356,6 +358,16 @@
 		SA.take_organ_damage(0, 20)
 	return TRUE
 
+/obj/projectile/beam/mousegun/xenofauna_holo
+	damage = 0
+
+/obj/projectile/beam/mousegun/xenofauna_holo/on_hit(atom/target, blocked, def_zone)
+	. = ..()
+	if(istype(target, /mob/living/simple_animal/hostile/carp/holodeck))
+		var/mob/living/simple_animal/hostile/carp/holodeck/C = target
+		C.take_organ_damage(15)
+	return TRUE
+
 /obj/projectile/beam/shotgun
 	name = "diffuse laser"
 	icon_state = "laser"
@@ -367,7 +379,7 @@
 	name = "thermal lance"
 	icon_state = "gauss"
 	damage = 10
-	incinerate = 5
+	incinerate = 2
 	armor_penetration = 10
 
 	muzzle_type = /obj/effect/projectile/muzzle/solar
@@ -385,9 +397,6 @@
 					M.emitter_blasts_taken += 1
 				else if(prob(33))
 					M.emitter_blasts_taken += 1
-	if(ismob(target))
-		var/mob/living/M = target
-		M.apply_effect(1, INCINERATE, 0)
 	explosion(target, -1, 0, 2)
 	. = ..()
 

@@ -1,14 +1,16 @@
-/obj/item/gun/projectile/shotgun
+ABSTRACT_TYPE(/obj/item/gun/projectile/shotgun)
 	name = "strange shotgun"
 	desc = DESC_PARENT
-	desc_info = "This is a shotgun, chambered for various shells and slugs. To fire the weapon, toggle the safety with CTRL-Click or enable 'HARM' intent, then click where \
-	you want to fire. To pump a pump-action shotgun, use the Unique-Action hotkey or the button in the bottom right of your screen. To reload, insert shells or a magazine \
-	into the shotgun, then pump the shotgun to chamber a fresh round."
 	accuracy = -1
 	accuracy_wielded = 1
 	var/can_sawoff = FALSE
 	var/sawnoff_workmsg
 	var/sawing_in_progress = FALSE
+
+/obj/item/gun/projectile/shotgun/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "To pump a pump-action shotgun, use the Unique-Action hotkey or the button in the bottom right of your screen."
+	. += "To reload, insert shells or a magazine into the shotgun, then pump the shotgun to chamber a fresh round."
 
 /obj/item/gun/projectile/shotgun/attackby(obj/item/attacking_item, mob/user)
 	if (!can_sawoff || sawing_in_progress)
@@ -46,10 +48,7 @@
 /obj/item/gun/projectile/shotgun/pump
 	name = "pump shotgun"
 	desc = "An ubiquitous unbranded shotgun. Useful for sweeping alleys."
-	desc_info = "This is a ballistic weapon.  To fire the weapon, ensure your intent is *not* set to 'help', have your gun mode set to 'fire', \
-	then click where you want to fire.  After firing, you will need to pump the gun, by using the unique-action verb.  To reload, load more shotgun \
-	shells into the gun."
-	icon = 'icons/obj/guns/shotgun.dmi'
+	icon = 'icons/obj/guns/faction/frontier/shotgun.dmi'
 	icon_state = "shotgun"
 	item_state = "shotgun"
 	max_shells = 7 // max of 8
@@ -64,7 +63,7 @@
 	handle_casings = HOLD_CASINGS
 	fire_sound = 'sound/weapons/gunshot/gunshot_shotgun2.ogg'
 	is_wieldable = TRUE
-	var/rack_sound = /singleton/sound_category/shotgun_pump
+	var/rack_sound = SFX_PUMP_SHOTGUN
 	var/rack_verb = "pump"
 	///Whether the item icon has a cycling animation
 	var/cycle_anim = TRUE
@@ -115,9 +114,9 @@
 	ammo_type = null
 
 /obj/item/gun/projectile/shotgun/pump/combat
-	name = "combat shotgun"
+	name = "\improper KS-40 combat shotgun"
 	desc = "Built for close quarters combat, the Hephaestus Industries KS-40 is widely regarded as a weapon of choice for repelling boarders."
-	icon = 'icons/obj/guns/cshotgun.dmi'
+	icon = 'icons/obj/guns/faction/hephaestus_industries/cshotgun.dmi'
 	icon_state = "cshotgun"
 	item_state = "cshotgun"
 	origin_tech = list(TECH_COMBAT = 5, TECH_MATERIAL = 2)
@@ -128,9 +127,9 @@
 	cycle_anim = FALSE
 
 /obj/item/gun/projectile/shotgun/pump/combat/sol
-	name = "solarian combat shotgun"
+	name = "\improper M63 combat shotgun"
 	desc = "A compact combat shotgun manufactured by Zavodskoi Interstellar for the Solarian Armed Forces, the M63 is most frequently employed by assaulters fighting in close-quarters environments, though it is also uncommonly used as a defensive weapon by Navy crewmen. Chambered in 12 gauge."
-	icon = 'icons/obj/guns/sol_shotgun.dmi'
+	icon = 'icons/obj/guns/faction/sol_alliance/sol_shotgun.dmi'
 	icon_state = "malella"
 	item_state = "malella"
 	origin_tech = list(TECH_COMBAT = 6, TECH_MATERIAL = 3, TECH_ILLEGAL = 2)
@@ -186,7 +185,7 @@
 	desc = "A double-barreled shotgun meant to fire signal flash shells."
 	ammo_type = /obj/item/ammo_casing/shotgun/flash
 
-/obj/item/gun/projectile/shotgun/doublebarrel/unload_ammo(user, allow_dump)
+/obj/item/gun/projectile/shotgun/doublebarrel/unload_ammo(mob/user, allow_dump = TRUE, drop_mag = FALSE)
 	..(user, allow_dump=1)
 
 /obj/item/gun/projectile/shotgun/doublebarrel/saw_off(mob/user, obj/item/tool)
@@ -217,11 +216,11 @@
 	force = 11
 
 /obj/item/gun/projectile/shotgun/doublebarrel/nitro
-	name = "gauss express rifle"
+	name = "\improper Pattern Nine gauss express rifle"
 	desc = "A Galatean nitro express rifle. Loaded with tungsten slugs."
 	desc_extended = "While Galatea almost universally uses lasers for their weapons, gauss weapons see some use in the hands of expeditionary forces and military specialist units. The Pattern Nine is a single-barrel, double-shot \
 	rifle designed for intermediate range anti-infantry specialists just as much as it is for Tsukuyomian game wardens."
-	icon = 'icons/obj/guns/galatea_nitro.dmi'
+	icon = 'icons/obj/guns/faction/galatean_technocracy/galatea_nitro.dmi'
 	icon_state = "nitrorifle"
 	item_state = "nitrorifle"
 	//SPEEDLOADER because rapid unloading.
@@ -238,7 +237,7 @@
 	caliber = "gauss"
 	origin_tech = list(TECH_COMBAT = 3, TECH_MATERIAL = 1)
 	ammo_type = /obj/item/ammo_casing/gauss
-	fire_sound = /singleton/sound_category/gauss_fire_sound
+	fire_sound = SFX_SHOOT_GAUSS
 	fire_delay = ROF_INTERMEDIATE
 
 	can_sawoff = FALSE
@@ -246,7 +245,7 @@
 /obj/item/gun/projectile/shotgun/foldable
 	name = "foldable shotgun"
 	desc = "A single-shot shotgun that can be folded for easy concealment."
-	icon = 'icons/obj/guns/overunder.dmi'
+	icon = 'icons/obj/guns/faction/frontier/overunder.dmi'
 	icon_state = "overunder"
 	item_state = "overunder"
 	accuracy = 0
@@ -308,8 +307,8 @@
 	fire_sound = 'sound/weapons/gunshot/gunshot_pistol.ogg'
 	origin_tech = list(TECH_COMBAT = 3, TECH_MATERIAL = 2, TECH_ILLEGAL = 2)
 
-/obj/item/gun/projectile/shotgun/foldable/cameragun/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
+/obj/item/gun/projectile/shotgun/foldable/cameragun/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
 	if(distance <= 1)
 		. += SPAN_NOTICE("Upon closer inspection, this is not a camera at all, but a 9mm firearm concealed inside the shell of one, which can be deployed by pressing a button.")
 
@@ -317,7 +316,7 @@
 	name = "wall gun"
 	desc = "A small yet powerful shotgun of Unathi make."
 	desc_extended = "The Moghesian wall gun, a classic Hegemonic weapon that saw plenty of service before and during the Contact War. This small-sized, break-action shotgun manages to pack a serious punch despite being barely larger than a pistol, however, it comes at the cost of extremely limited capacity. The wall gun is still produced and distributed nowadays, generally given to vehicle and ship crews and law enforcers."
-	icon = 'icons/obj/guns/unathi_ballistics.dmi'
+	icon = 'icons/obj/guns/faction/izweski_hegemony/unathi_ballistics.dmi'
 	icon_state = "wallgun"
 	item_state = "wallgun"
 	accuracy = 0
@@ -350,7 +349,7 @@
 		open = FALSE
 		update_icon()
 
-/obj/item/gun/projectile/shotgun/wallgun/unload_ammo(user, allow_dump)
+/obj/item/gun/projectile/shotgun/wallgun/unload_ammo(mob/user, allow_dump = TRUE, drop_mag = FALSE)
 	if(open)
 		..(user, allow_dump=1)
 

@@ -126,7 +126,7 @@
 		SPAN_NOTICE("You shuffle \the [src].")\
 	)
 
-	playsound(src.loc, 'sound/items/cardshuffle.ogg', 100, 1, -4)
+	playsound(src.loc, 'sound/items/cards/cardshuffle.ogg', 100, 1, -4)
 
 	stored_card_names = shuffle(stored_card_names)
 

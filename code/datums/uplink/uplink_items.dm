@@ -44,7 +44,7 @@ GLOBAL_DATUM(uplink, /datum/uplink)
 /datum/uplink_item/item
 	var/path
 
-/datum/uplink_item/proc/buy(var/obj/item/device/uplink/U, var/mob/user)
+/datum/uplink_item/proc/buy(var/obj/item/uplink/U, var/mob/user)
 	var/extra_args = extra_args(user)
 	if(!extra_args)
 		return
@@ -76,7 +76,7 @@ GLOBAL_DATUM(uplink, /datum/uplink)
 	if(istype(implanter))
 		var/obj/item/implant/uplink/uplink_implant = implanter.imp
 		if(istype(uplink_implant))
-			var/obj/item/device/uplink/hidden/hidden_uplink = uplink_implant.hidden_uplink
+			var/obj/item/uplink/hidden/hidden_uplink = uplink_implant.hidden_uplink
 			if(istype(hidden_uplink))
 				hidden_uplink.purchase_log = U.purchase_log
 
@@ -87,7 +87,7 @@ GLOBAL_DATUM(uplink, /datum/uplink)
 /datum/uplink_item/proc/extra_args(var/mob/user)
 	return 1
 
-/datum/uplink_item/proc/can_buy_telecrystals(obj/item/device/uplink/U)
+/datum/uplink_item/proc/can_buy_telecrystals(obj/item/uplink/U)
 	if(isnull(telecrystal_cost))
 		return FALSE
 
@@ -99,7 +99,7 @@ GLOBAL_DATUM(uplink, /datum/uplink)
 
 	return can_view(U)
 
-/datum/uplink_item/proc/can_buy_bluecrystals(obj/item/device/uplink/U)
+/datum/uplink_item/proc/can_buy_bluecrystals(obj/item/uplink/U)
 	if(isnull(bluecrystal_cost))
 		return FALSE
 
@@ -111,10 +111,10 @@ GLOBAL_DATUM(uplink, /datum/uplink)
 
 	return can_view(U)
 
-/datum/uplink_item/proc/items_left(obj/item/device/uplink/U)
+/datum/uplink_item/proc/items_left(obj/item/uplink/U)
 	return item_limit - U.purchase_log[src]
 
-/datum/uplink_item/proc/can_view(obj/item/device/uplink/U)
+/datum/uplink_item/proc/can_view(obj/item/uplink/U)
 	// Making the assumption that if no uplink was supplied, then we don't care about antag roles
 	if(!U || (!length(antag_roles) && !antag_job))
 		return TRUE
@@ -142,13 +142,13 @@ GLOBAL_DATUM(uplink, /datum/uplink)
 	return desc
 
 // get_goods does not necessarily return physical objects, it is simply a way to acquire the uplink item without paying
-/datum/uplink_item/proc/get_goods(var/obj/item/device/uplink/U, var/loc)
+/datum/uplink_item/proc/get_goods(var/obj/item/uplink/U, var/loc)
 	return FALSE
 
 /datum/uplink_item/proc/log_icon()
 	return
 
-/datum/uplink_item/proc/purchase_log(obj/item/device/uplink/U)
+/datum/uplink_item/proc/purchase_log(obj/item/uplink/U)
 	feedback_add_details("traitor_uplink_items_bought", "[src]")
 	log_and_message_admins("used \the [U.loc] to buy \a [src]")
 	U.purchase_log[src] = U.purchase_log[src] + 1
@@ -158,7 +158,7 @@ GLOBAL_DATUM(uplink, /datum/uplink)
 *	Physical Uplink Entries		*
 *                           	*
 ********************************/
-/datum/uplink_item/item/buy(var/obj/item/device/uplink/U, var/mob/user)
+/datum/uplink_item/item/buy(var/obj/item/uplink/U, var/mob/user)
 	var/obj/item/I = ..()
 	if(!I)
 		return
@@ -172,7 +172,7 @@ GLOBAL_DATUM(uplink, /datum/uplink)
 		A.put_in_any_hand_if_possible(I)
 	return I
 
-/datum/uplink_item/item/get_goods(var/obj/item/device/uplink/U, var/loc)
+/datum/uplink_item/item/get_goods(var/obj/item/uplink/U, var/loc)
 	var/obj/I = new path(loc)
 	return I
 
@@ -197,14 +197,14 @@ GLOBAL_DATUM(uplink, /datum/uplink)
 
 /datum/uplink_item/abstract/log_icon()
 	if(!default_abstract_uplink_icon)
-		default_abstract_uplink_icon = image('icons/obj/pda.dmi', "pda-syn")
+		default_abstract_uplink_icon = image('icons/obj/modular_computers/pda.dmi', "pda-syn")
 
 	return "[icon2html(default_abstract_uplink_icon, usr)]"
 
 /****************
 * Support procs *
 ****************/
-/proc/get_random_uplink_items(var/obj/item/device/uplink/U, var/remaining_TC, var/loc)
+/proc/get_random_uplink_items(var/obj/item/uplink/U, var/remaining_TC, var/loc)
 	var/list/bought_items = list()
 	while(remaining_TC)
 		var/datum/uplink_item/I = GLOB.default_uplink_selection.get_random_item(remaining_TC, U, bought_items)

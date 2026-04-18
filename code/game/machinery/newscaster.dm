@@ -29,7 +29,6 @@ GLOBAL_LIST_INIT_TYPED(allCasters, /obj/machinery/newscaster, list())
 	anchored = TRUE
 	appearance_flags = TILE_BOUND // prevents people from viewing the overlay through a wall
 	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
-	z_flags = ZMM_MANGLE_PLANES
 
 	///If the newscaster is broken, boolean
 	var/isbroken = FALSE
@@ -169,7 +168,7 @@ GLOBAL_LIST_INIT_TYPED(allCasters, /obj/machinery/newscaster, list())
 	screen_hologram.blend_mode = BLEND_MULTIPLY
 	screen.blend_mode = BLEND_ADD
 	AddOverlays(list(screen_hologram, screen, screen_emis))
-	set_light(1.4, 1.3, COLOR_CYAN)
+	set_light(L_WALLMOUNT_RANGE, L_WALLMOUNT_POWER, COLOR_CYAN)
 
 	if(!alert || !SSnews.wanted_issue)
 		var/mutable_appearance/screen_title = overlay_image(icon, "newscaster-title")
@@ -553,7 +552,7 @@ GLOBAL_LIST_INIT_TYPED(allCasters, /obj/machinery/newscaster, list())
 					dat+="No comments on this story yet!</BR>"
 				else
 					for(var/datum/feed_comment/COMMENT in src.viewing_message.comments)
-						dat+="<BLOCKQUOTE style=\"padding:2px 4px;border-left:4px #797979 solid;\"><B>\[[world.time]\] [COMMENT.author]:</B>[COMMENT.message]<BR><A href='byond://?src=[REF(src)];censor_comment=1;comment=[REF(COMMENT)]>Censor Comment</A></BLOCKQUOTE>"
+						dat+="<BLOCKQUOTE style=\"padding:2px 4px;border-left:4px #797979 solid;\"><B>\[[world.time]\] [COMMENT.author]:</B>[COMMENT.message]<BR><A href='byond://?src=[REF(src)];censor_comment=1;comment=[REF(COMMENT)]'>Censor Comment</A></BLOCKQUOTE>"
 				dat+="<A href='byond://?src=[REF(src)];setScreen=[9]'>Return</A>"
 			if(24) //newscaster is not connected to the station-z-level
 				dat += "<B>ERROR: Newscaster unit cannot access main news server!</B></BR>"
@@ -893,7 +892,7 @@ GLOBAL_LIST_INIT_TYPED(allCasters, /obj/machinery/newscaster, list())
 					for (var/mob/O in hearers(5, src.loc))
 						O.show_message("[user.name] smashes the [src.name]!" )
 					src.isbroken=1
-					playsound(src.loc, /singleton/sound_category/glass_break_sound, 100, 1)
+					playsound(src.loc, SFX_BREAK_GLASS, 100, 1)
 				else
 					for (var/mob/O in hearers(5, src.loc))
 						O.show_message("[user.name] forcefully slams the [src.name] with the [attacking_item.name]!" )
@@ -950,7 +949,6 @@ GLOBAL_LIST_INIT_TYPED(allCasters, /obj/machinery/newscaster, list())
 /obj/item/newspaper
 	name = "newspaper"
 	desc = "An issue of The Griffon, the newspaper circulating aboard most stations."
-	desc_info = "You can alt-click this to roll it up."
 	icon = 'icons/obj/bureaucracy.dmi'
 	icon_state = "newspaper"
 	item_state = "newspaper"
@@ -966,6 +964,10 @@ GLOBAL_LIST_INIT_TYPED(allCasters, /obj/machinery/newscaster, list())
 	var/scribble=""
 	var/scribble_page = null
 	var/rolled = FALSE // Whether the newspaper is rolled or not, making it a deadly weapon.
+
+/obj/item/newspaper/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "You can use this on yourself with the Grab intent to roll it up or to unroll it."
 
 /obj/item/newspaper/attack_self(mob/user as mob)
 	if(user.a_intent == I_GRAB)
@@ -1072,7 +1074,7 @@ GLOBAL_LIST_INIT_TYPED(allCasters, /obj/machinery/newscaster, list())
 				if(curr_page == 0) //We're at the start, get to the middle
 					src.screen=1
 			src.curr_page++
-			playsound(src.loc, /singleton/sound_category/page_sound, 50, 1)
+			playsound(src.loc, SFX_PAGE_TURN, 50, 1)
 
 		else if(href_list["prev_page"])
 			if(curr_page == 0)
@@ -1084,14 +1086,14 @@ GLOBAL_LIST_INIT_TYPED(allCasters, /obj/machinery/newscaster, list())
 				if(curr_page == src.pages+1) //we're at the end, let's go back to the middle.
 					src.screen = 1
 			src.curr_page--
-			playsound(src.loc, /singleton/sound_category/page_sound, 50, 1)
+			playsound(src.loc, SFX_PAGE_TURN, 50, 1)
 
 		if (istype(src.loc, /mob))
 			src.attack_self(src.loc)
 
 
 /obj/item/newspaper/attackby(obj/item/attacking_item, mob/user)
-	if(attacking_item.ispen())
+	if(attacking_item.tool_behaviour == TOOL_PEN)
 		if(rolled)
 			user.visible_message(SPAN_NOTICE("\The [user] unrolls \the [src] to write on it."),\
 									SPAN_NOTICE("You unroll \the [src] to write on it."))
@@ -1145,7 +1147,7 @@ GLOBAL_LIST_INIT_TYPED(allCasters, /obj/machinery/newscaster, list())
 		NEWSPAPER.news_content += FC
 	if(SSnews.wanted_issue)
 		NEWSPAPER.important_message = SSnews.wanted_issue
-	playsound(src.loc, 'sound/bureaucracy/print.ogg', 75, 1)
+	playsound(src.loc, 'sound/items/bureaucracy/print.ogg', 75, 1)
 	usr.put_in_hands(NEWSPAPER)
 	src.paper_remaining--
 	return

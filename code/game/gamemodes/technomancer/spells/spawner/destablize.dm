@@ -17,7 +17,8 @@
 
 /obj/item/spell/spawner/destabilize/New()
 	..()
-	set_light(3, 2, l_color = "#C26DDE")
+	set_light_range_power_color(3, 2, "#C26DDE")
+	set_light_on(TRUE)
 
 /obj/item/spell/spawner/destabilize/on_ranged_cast(atom/hit_atom, mob/user)
 	if(within_range(hit_atom) && pay_energy(2000))

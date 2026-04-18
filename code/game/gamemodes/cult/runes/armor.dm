@@ -22,7 +22,7 @@
 
 		var/construct_path = construct_types[construct_class]
 		var/mob/living/simple_animal/construct/Z = new construct_path(get_turf(C))
-		Z.health = Z.health * (C.health / C.maxHealth)
+		Z.health = Z.health * (C.health / C.maxhealth)
 		Z.key = C.key
 		if(iscultist(C))
 			GLOB.cult.add_antagonist(Z.mind)

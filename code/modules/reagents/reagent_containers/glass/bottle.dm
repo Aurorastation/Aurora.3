@@ -162,6 +162,12 @@
 	icon_state = "bottle-4"
 	reagents_to_add = list(/singleton/reagent/adrenaline = 60)
 
+/obj/item/reagent_containers/glass/bottle/dexalin
+	name = "dexalin bottle"
+	desc = "A small bottle. Contains Dexalin that is used in the treatment of oxygen deprivation. It is somewhat effective, and is twice as powerful and lasts twice as long when inhaled."
+	icon_state = "bottle-4"
+	reagents_to_add = list(/singleton/reagent/dexalin = 60)
+
 /obj/item/reagent_containers/glass/bottle/dexalin_plus
 	name = "dexalin plus bottle"
 	desc = "A small bottle. Contains Dexalin Plus that is used in the treatment of oxygen deprivation. It is highly effective, and is twice as powerful and lasts twice as long when inhaled."
@@ -186,6 +192,12 @@
 	icon_state = "bottle-4"
 	reagents_to_add = list(/singleton/reagent/thetamycin = 60)
 
+/obj/item/reagent_containers/glass/bottle/tricordrazine
+	name = "tricordrazine bottle"
+	desc = "A small bottle. Contains bicaridine - treats all wounds slowly."
+	icon_state = "bottle-3"
+	reagents_to_add = list(/singleton/reagent/tricordrazine = 60)
+
 /obj/item/reagent_containers/glass/bottle/bicaridine
 	name = "bicaridine bottle"
 	desc = "A small bottle. Contains bicaridine - treats damaged tissues."
@@ -197,6 +209,12 @@
 	desc = "A small bottle. Contains butazoline - treats damaged tissues."
 	icon_state = "bottle-1"
 	reagents_to_add = list(/singleton/reagent/butazoline = 60)
+
+/obj/item/reagent_containers/glass/bottle/kelotane
+	name = "kelotane bottle"
+	desc = "A small bottle. Contains kelotane - treats burnt tissues."
+	icon_state = "bottle-2"
+	reagents_to_add = list(/singleton/reagent/kelotane = 60)
 
 /obj/item/reagent_containers/glass/bottle/dermaline
 	name = "dermaline bottle"

@@ -20,17 +20,17 @@ export const Map = (props, context) => {
   const [minimapZoom, setMinimapZoom] = useLocalState<number>(
     context,
     `minimapZoom`,
-    150
+    150,
   );
 
   const [showLegend, setShowLegend] = useLocalState<boolean>(
     context,
     `showLegend`,
-    false
+    false,
   );
 
   const pois = data.pois?.filter(
-    (poi) => poi.z === (data.z_override ? data.z_override : data.user_z)
+    (poi) => poi.z === (data.z_override ? data.z_override : data.user_z),
   );
 
   const map_size = 255;
@@ -50,16 +50,16 @@ export const Map = (props, context) => {
                   data.z_override === station_level ? '#4972a1' : null
                 }
                 icon={data.user_z === station_level ? 'user' : 'minus'}
-                onClick={() =>
-                  act('z_override', { z_override: station_level })
-                }>
+                onClick={() => act('z_override', { z_override: station_level })}
+              >
                 {station_level}
               </Tabs.Tab>
             ))}
             {data.z_override ? (
               <Tabs.Tab
                 icon="filter-circle-xmark"
-                onClick={() => act('z_override', { z_override: 0 })}>
+                onClick={() => act('z_override', { z_override: 0 })}
+              >
                 Clear Override
               </Tabs.Tab>
             ) : (
@@ -67,7 +67,8 @@ export const Map = (props, context) => {
             )}
             <Tabs.Tab
               icon="fa-circle-question"
-              onClick={() => setShowLegend(!showLegend)}>
+              onClick={() => setShowLegend(!showLegend)}
+            >
               {showLegend ? 'Hide Legend' : 'Show Legend'}
             </Tabs.Tab>
           </Tabs>
@@ -92,14 +93,16 @@ export const Map = (props, context) => {
             value={minimapZoom}
             minValue={100}
             maxValue={200}
-            onChange={(e, value) => setMinimapZoom(value)}>
+            onChange={(e, value) => setMinimapZoom(value)}
+          >
             Zoom: {minimapZoom}%
           </Slider>
           <svg
             height={'500px'}
             width={'100%'}
             viewBox={`0 0 ${map_size} ${map_size}`}
-            overflow={'hidden'}>
+            overflow={'hidden'}
+          >
             <rect width={map_size} height={map_size} />
             <g
               transform={`translate(
@@ -108,7 +111,8 @@ export const Map = (props, context) => {
                   (map_size * (zoom_mod - 1.0)) / -2 +
                   (255 / 2 - (map_size - data.user_y))
                 }
-              )`}>
+              )`}
+            >
               <image
                 width={map_size * zoom_mod}
                 height={map_size * zoom_mod}
@@ -120,7 +124,8 @@ export const Map = (props, context) => {
                   transform={`translate(
                   ${poi.x * zoom_mod}
                   ${(map_size - poi.y) * zoom_mod}
-                )`}>
+                )`}
+                >
                   <polygon
                     points="3,0 0,3 -3,0 0,-3"
                     fill="#AA0000"
@@ -134,7 +139,8 @@ export const Map = (props, context) => {
                     stroke="#FFFF00"
                     stroke-width="0.1"
                     font-size="9"
-                    text-anchor={poi.x > data.user_x ? 'start' : 'end'}>
+                    text-anchor={poi.x > data.user_x ? 'start' : 'end'}
+                  >
                     {poi.name}
                   </text>
                 </g>

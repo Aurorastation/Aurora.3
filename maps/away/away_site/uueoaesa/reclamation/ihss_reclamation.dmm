@@ -284,11 +284,11 @@
 /area/ihss_reclamation/southhall)
 "bl" = (
 /obj/structure/table/rack,
-/obj/item/device/binoculars,
-/obj/item/device/binoculars,
-/obj/item/device/binoculars,
-/obj/item/device/geiger,
-/obj/item/device/geiger,
+/obj/item/binoculars,
+/obj/item/binoculars,
+/obj/item/binoculars,
+/obj/item/geiger,
+/obj/item/geiger,
 /turf/simulated/floor/tiled/dark,
 /area/ihss_reclamation/storage)
 "bn" = (
@@ -574,7 +574,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ihss_reclamation/bridge)
 "cI" = (
-/obj/machinery/autolathe,
+/obj/machinery/fabricator/autolathe,
 /turf/simulated/floor/tiled/dark,
 /area/ihss_reclamation/equipment)
 "cJ" = (
@@ -1385,28 +1385,28 @@
 "gR" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/structure/closet/crate,
-/obj/item/device/gps/science{
+/obj/item/gps/science{
 	pixel_y = 1;
 	pixel_x = 6;
 	gpstag = "SCC12"
 	},
-/obj/item/device/gps/science{
+/obj/item/gps/science{
 	pixel_y = 1;
 	pixel_x = 8;
 	gpstag = "SCC11"
 	},
-/obj/item/device/gps/science{
+/obj/item/gps/science{
 	pixel_y = 1;
 	pixel_x = -6;
 	gpstag = "SCC13"
 	},
-/obj/item/device/gps/science{
+/obj/item/gps/science{
 	pixel_y = 1;
 	pixel_x = -8;
 	gpstag = "SCC14"
 	},
-/obj/item/device/radio,
-/obj/item/device/radio,
+/obj/item/radio,
+/obj/item/radio,
 /turf/simulated/floor/tiled/dark,
 /area/ihss_reclamation/storage)
 "gU" = (
@@ -1673,7 +1673,7 @@
 /obj/item/gun/energy/net,
 /obj/item/gun/energy/laser/shotgun,
 /obj/item/gun/energy/laser/shotgun,
-/obj/item/device/dociler,
+/obj/item/dociler,
 /turf/simulated/floor/tiled/white{
 	temperature = 303.15
 	},
@@ -2879,7 +2879,7 @@
 /area/ihss_reclamation/medsci)
 "ox" = (
 /obj/structure/table/steel,
-/obj/item/device/binoculars,
+/obj/item/binoculars,
 /obj/item/storage/bag/inflatable,
 /obj/effect/floor_decal/corner/red/diagonal{
 	dir = 4;
@@ -3278,7 +3278,7 @@
 /area/ihss_reclamation/solars)
 "pX" = (
 /obj/structure/table/standard,
-/obj/item/device/flashlight/lamp,
+/obj/item/flashlight/lamp,
 /turf/simulated/floor/tiled/dark,
 /area/ihss_reclamation/research)
 "pY" = (
@@ -3685,11 +3685,11 @@
 /area/ihss_reclamation/armoryfoyer)
 "sj" = (
 /obj/structure/table/rack,
-/obj/item/device/spaceflare,
-/obj/item/device/spaceflare,
-/obj/item/device/spaceflare,
-/obj/item/device/spaceflare,
-/obj/item/device/spaceflare,
+/obj/item/spaceflare,
+/obj/item/spaceflare,
+/obj/item/spaceflare,
+/obj/item/spaceflare,
+/obj/item/spaceflare,
 /turf/simulated/floor/tiled/dark,
 /area/ihss_reclamation/storage)
 "sl" = (
@@ -3765,7 +3765,7 @@
 /obj/effect/floor_decal/corner/lime{
 	dir = 5
 	},
-/obj/machinery/seed_storage/xenobotany,
+/obj/machinery/seed_storage/garden/hydroponics,
 /turf/simulated/floor/tiled/white{
 	temperature = 303.15
 	},
@@ -3949,7 +3949,7 @@
 /obj/item/clothing/gloves/latex/unathi,
 /obj/item/clothing/gloves/latex/vaurca,
 /obj/item/clothing/gloves/latex/vaurca,
-/obj/item/device/taperecorder,
+/obj/item/taperecorder,
 /turf/simulated/floor/tiled/white{
 	temperature = 303.15
 	},
@@ -3972,7 +3972,7 @@
 /obj/item/autopsy_scanner{
 	pixel_x = -11
 	},
-/obj/item/device/camera{
+/obj/item/camera{
 	pixel_x = 11;
 	pixel_y = 12
 	},
@@ -5505,7 +5505,6 @@
 /area/shuttle/ihss_reclamation)
 "Au" = (
 /obj/machinery/hologram/holopad/long_range,
-/obj/effect/overmap/visitable/sector/ihss_reclamation,
 /turf/simulated/floor/tiled/dark,
 /area/ihss_reclamation/bridge)
 "Ay" = (
@@ -6479,7 +6478,7 @@
 	},
 /obj/structure/window/reinforced,
 /obj/structure/table/standard,
-/obj/item/device/flashlight/lamp,
+/obj/item/flashlight/lamp,
 /obj/effect/floor_decal/corner/red{
 	color = "#941307";
 	dir = 10
@@ -6521,7 +6520,7 @@
 /obj/structure/table/standard,
 /obj/item/paper_bin,
 /obj/item/pen,
-/obj/item/device/camera,
+/obj/item/camera,
 /turf/simulated/floor/tiled/dark,
 /area/ihss_reclamation/research)
 "Gg" = (
@@ -6619,7 +6618,7 @@
 	dir = 9
 	},
 /obj/structure/table/standard,
-/obj/item/device/flashlight/lamp,
+/obj/item/flashlight/lamp,
 /turf/simulated/floor/tiled/white{
 	temperature = 303.15
 	},
@@ -8464,8 +8463,8 @@
 	dir = 5
 	},
 /obj/structure/table/standard,
-/obj/item/storage/box/monkeycubes/stokcubes,
-/obj/item/storage/box/monkeycubes/stokcubes,
+/obj/item/storage/box/unique/monkeycubes/stokcubes,
+/obj/item/storage/box/unique/monkeycubes/stokcubes,
 /obj/item/paper/fluff/ihss_reclamation_cell{
 	pixel_x = 6;
 	pixel_y = 4
@@ -8902,7 +8901,7 @@
 	pixel_x = -8;
 	pixel_y = -6
 	},
-/obj/item/device/hand_labeler,
+/obj/item/hand_labeler,
 /obj/effect/floor_decal/corner/mauve{
 	dir = 9
 	},
@@ -9124,7 +9123,7 @@
 /obj/item/clothing/gloves/latex/unathi,
 /obj/item/clothing/gloves/latex/vaurca,
 /obj/item/clothing/gloves/latex/vaurca,
-/obj/item/device/taperecorder,
+/obj/item/taperecorder,
 /obj/machinery/light{
 	dir = 4
 	},
@@ -9930,11 +9929,11 @@
 /obj/structure/table/standard,
 /obj/item/paper_bin,
 /obj/item/pen,
-/obj/item/device/camera{
+/obj/item/camera{
 	pixel_x = 5;
 	pixel_y = 5
 	},
-/obj/item/device/taperecorder,
+/obj/item/taperecorder,
 /obj/machinery/recharger{
 	pixel_x = -6;
 	pixel_y = 6
@@ -10111,7 +10110,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ihss_reclamation/northhall)
 "WM" = (
-/obj/structure/janitorialcart/full/water{
+/obj/structure/cart/storage/janitorialcart/full/water{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
@@ -10173,6 +10172,10 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/ihss_reclamation/hangar1)
+"Xg" = (
+/obj/effect/overmap/visitable/ship/stationary/ihss_reclamation,
+/turf/simulated/floor/tiled/dark,
+/area/ihss_reclamation/bridge)
 "Xk" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
@@ -10455,7 +10458,7 @@
 "Yo" = (
 /obj/structure/window/reinforced,
 /obj/structure/table/standard,
-/obj/item/device/hand_labeler,
+/obj/item/hand_labeler,
 /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/hegemony,
 /turf/simulated/floor/tiled/dark,
 /area/ihss_reclamation/bridge)
@@ -43783,7 +43786,7 @@ IX
 ME
 wJ
 wJ
-wJ
+Xg
 Au
 wJ
 wJ

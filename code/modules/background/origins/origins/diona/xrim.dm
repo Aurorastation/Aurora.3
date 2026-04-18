@@ -1,6 +1,13 @@
 /singleton/origin_item/culture/xrim
 	name = "Xrim"
-	desc = "Xrim plays host to one of the largest Dionae populations in the Spur, with much of its population being divided between two groups, the Enlightened and the Scorned. The planet was originally a Skrell colony, however, after the rise of Glorsh, the planet was taken over by its current Dionae inhabitants, with the entirety of the planet's skrell population dying off sometime before this occurred. These Dionae originally worshipped Glorsh as their god, but upon learning the true nature of Glorsh, many chose to renounce them and went on to form the Enlightened, meanwhile those that continued to worship the Glorsh became known as the Scorned. The divide between the two has grown considerably, with the Scorned being exiled from Enlightened society and forced to mostly live underground, doubly so once the planet was rediscovered by the Skrell and peacefully reincorporated into the Federation, with the Federation deeming the Scorned a threat to their nation and being outlawed, and members of the Scorned being forced to convert away from their worship of Glorsh. While the Federation has certainly helped shape modern Xrim culture, the planet still holds a distinct culture unlike anywhere else seen in the Federation, being one of the only planets with an almost entirety Dionae population in the entire Spur."
+	desc = "Xrim plays host to one of the largest Dionae populations in the Spur, with much of its population being divided between two groups, the Enlightened and the Scorned. The planet was \
+			originally a Skrell colony, however, after the rise of Glorsh, the planet was taken over by its current Dionae inhabitants, with the entirety of the planet's skrell population \
+			dying off sometime before this occurred. These Dionae originally worshipped Glorsh as their god, but upon learning the true nature of Glorsh, many chose to renounce them and went on \
+			to form the Enlightened, meanwhile those that continued to worship the Glorsh became known as the Scorned. The divide between the two has grown considerably, with the Scorned being exiled \
+			from Enlightened society and forced to mostly live underground, doubly so once the planet was rediscovered by the Skrell and peacefully reincorporated into the Federation, with the \
+			Federation deeming the Scorned a threat to their nation and being outlawed, and members of the Scorned being forced to convert away from their worship of Glorsh. While the Federation has \
+			certainly helped shape modern Xrim culture, the planet still holds a distinct culture unlike anywhere else seen in the Federation, being one of the only planets with an almost entirety Dionae \
+			population in the entire Spur."
 	possible_origins = list(
 		/singleton/origin_item/origin/enlightened,
 		/singleton/origin_item/origin/scorned

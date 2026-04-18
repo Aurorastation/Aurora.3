@@ -14,7 +14,7 @@
 	icon_state = "flash"
 	interface_name = "mounted flash"
 	interface_desc = "Stuns your target by blinding them with a bright light."
-	device_type = /obj/item/device/flash
+	device_type = /obj/item/flash
 	category = MODULE_LIGHT_COMBAT
 
 /obj/item/rig_module/grenade_launcher
@@ -126,7 +126,7 @@
 	interface_name = "mounted laser cannon"
 	interface_desc = "A shoulder-mounted cell-powered laser cannon."
 
-	var/gun_type = /obj/item/gun/energy/lasercannon/mounted
+	var/gun_type = /obj/item/gun/energy/rifle/laser/heavy/mounted
 	var/obj/item/gun/gun
 
 /obj/item/rig_module/mounted/New()

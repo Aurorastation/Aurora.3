@@ -4,7 +4,7 @@
 	uniform = /obj/item/clothing/under/rank/elyran_fatigues
 	shoes = /obj/item/clothing/shoes/magboots
 	gloves = /obj/item/clothing/gloves/combat
-	l_ear = /obj/item/device/radio/headset/distress
+	l_ear = /obj/item/radio/headset/distress
 	l_pocket = /obj/item/tank/emergency_oxygen/double
 	r_pocket = /obj/item/crowbar/red
 	id = /obj/item/card/id/ert
@@ -75,7 +75,7 @@
 		/obj/item/ammo_magazine/c45m = 3,
 		/obj/item/storage/firstaid/adv = 1,
 		/obj/item/handcuffs/ziptie = 1,
-		/obj/item/device/healthanalyzer = 1,
+		/obj/item/healthanalyzer = 1,
 		/obj/item/stack/medical/advanced/bruise_pack = 1,
 		/obj/item/stack/medical/advanced/ointment = 1,
 		/obj/item/melee/energy/sword = 1
@@ -114,4 +114,4 @@
 	l_hand = /obj/item/gun/projectile/plasma
 
 	accessory = /obj/item/clothing/accessory/storage/black_vest
-	accessory_contents = list(/obj/item/device/flash = 1, /obj/item/handcuffs = 2, /obj/item/gun/projectile/pistol = 1)
+	accessory_contents = list(/obj/item/flash = 1, /obj/item/handcuffs = 2, /obj/item/gun/projectile/pistol = 1)

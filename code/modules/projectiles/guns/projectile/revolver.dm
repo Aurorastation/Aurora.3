@@ -1,7 +1,7 @@
 /obj/item/gun/projectile/revolver
-	name = "revolver"
-	desc = "The revised Mark II Zavodskoi Interstellar revolver, utilizing a robust firing mechanism to deliver deadly rounds downrange. This is a monster of a hand cannon, with a beautiful cedar grip and a transparent plastic cover(so as to not splinter your hands while firing)."
-	icon = 'icons/obj/guns/revolver.dmi'
+	name = "\improper Mark II revolver"
+	desc = "The revised Mark II Zavodskoi Interstellar revolver, utilizing a robust firing mechanism to deliver deadly rounds downrange. This is a monster of a hand cannon, with a beautiful cedar grip and a transparent plastic cover (so as to not splinter your hands while firing)."
+	icon = 'icons/obj/guns/faction/zavodskoi_interstellar/revolver.dmi'
 	icon_state = "revolver"
 	item_state = "revolver"
 	accuracy = 1
@@ -13,14 +13,14 @@
 	ammo_type = /obj/item/ammo_casing/a357
 	magazine_type = /obj/item/ammo_magazine/a357
 	fire_sound = 'sound/weapons/gunshot/gunshot_revolver.ogg'
-	empty_sound = /singleton/sound_category/out_of_ammo_revolver
+	empty_sound = SFX_OUT_OF_AMMO_REVOLVER
 	fire_delay = ROF_RIFLE
 	var/chamber_offset = 0 //how many empty chambers in the cylinder until you hit a round
 
 /obj/item/gun/projectile/revolver/verb/spin_cylinder()
-	set name = "Spin cylinder"
+	set name = "Spin Cylinder"
 	set desc = "Fun when you're bored out of your skull."
-	set category = "Object"
+	set category = "Object.Held"
 	set src in usr
 
 	chamber_offset = 0
@@ -44,9 +44,9 @@
 	return ..()
 
 /obj/item/gun/projectile/revolver/mateba
-	name = "automatic revolver"
+	name = "\improper Hammerhead autorevolver"
 	desc = "The Hammerhead .454 autorevolver, a very rare weapon typical of special ops teams and mercenary teams. It packs quite the punch."
-	icon = 'icons/obj/guns/autorevolver.dmi'
+	icon = 'icons/obj/guns/faction/eridani_federation/autorevolver.dmi'
 	icon_state = "autorevolver"
 	item_state = "autorevolver"
 	max_shells = 7
@@ -58,14 +58,13 @@
 	magazine_type = /obj/item/ammo_magazine/a454
 
 /obj/item/gun/projectile/revolver/mateba/captain
-	name = "\improper SCC command autorevolver"
+	name = "\improper Protektor autorevolver"
 	desc = "A ludicrously powerful .454 autorevolver with equally ludicrous recoil which is issued by the SCC to the administrators of critical facilities and vessels. While revolvers may be a thing of the past, the stopping power displayed by this weapon is second to none."
-	desc_info = "In order to accurately fire this revolver, it must be wielded. Additionally, if you fire this revolver unwielded and you are not a G2 or Unathi, you will drop it."
 	desc_extended = "A Zavodskoi Interstellar design from the mid 2450s intended for export to the Eridani Corporate Federation and the Republic of Biesel, the Protektor \
 	revolver was never designed with practicality in mind. The .454 rounds fired from this weapon are liable to snap the wrist of an unprepared shooter and \
 	any following shots will be difficult to place onto a human-sized target due to the recoil, let alone a skrell. But nobody buys a Protektor for the purpose of \
 	practicality: they buy it due to having too much money and wanting a revolver large enough for their ego."
-	icon = 'icons/obj/guns/captain_revolver.dmi'
+	icon = 'icons/obj/guns/faction/zavodskoi_interstellar/captain_revolver.dmi'
 	icon_state = "captain_revolver"
 	item_state = "captain_revolver"
 	is_wieldable = TRUE
@@ -77,6 +76,10 @@
 	force = 15
 	recoil = 10
 	recoil_wielded = 5
+
+/obj/item/gun/projectile/revolver/mateba/captain/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "In order to accurately fire this revolver, it must be wielded with both hands. Additionally, if you fire this revolver unwielded and you are not a G2 or Unathi, you will drop it."
 
 /obj/item/gun/projectile/revolver/mateba/captain/handle_post_fire(mob/user)
 	..()
@@ -93,7 +96,7 @@
 /obj/item/gun/projectile/revolver/detective
 	name = "antique revolver"
 	desc = "An old, obsolete revolver. It has no identifying marks, and is chambered in an equally antiquated caliber."
-	icon = 'icons/obj/guns/detective.dmi'
+	icon = 'icons/obj/guns/faction/antique/detective.dmi'
 	icon_state = "detective"
 	item_state = "detective"
 	max_shells = 6
@@ -107,7 +110,7 @@
 
 /obj/item/gun/projectile/revolver/detective/verb/rename_gun()
 	set name = "Name Gun"
-	set category = "Object"
+	set category = "Object.Held"
 	set desc = "Click to rename your gun. If you're the detective."
 	set src in usr
 
@@ -127,7 +130,7 @@
 /obj/item/gun/projectile/revolver/derringer
 	name = "derringer"
 	desc = "A small pocket pistol, easily concealed."
-	icon = 'icons/obj/guns/derringer.dmi'
+	icon = 'icons/obj/guns/faction/frontier/derringer.dmi'
 	icon_state = "derringer"
 	item_state = "derringer"
 	accuracy = -1
@@ -154,10 +157,10 @@
 	needspin = FALSE
 
 /obj/item/gun/projectile/revolver/capgun/attackby(obj/item/attacking_item, mob/user)
-	if(!attacking_item.iswirecutter() || icon_state == "revolver")
+	if(attacking_item.tool_behaviour != TOOL_WIRECUTTER || icon_state == "revolver")
 		return ..()
 	to_chat(user, SPAN_NOTICE("You snip off the toy markings off the [src]."))
-	icon = 'icons/obj/guns/revolver.dmi'
+	icon = 'icons/obj/guns/faction/zavodskoi_interstellar/revolver.dmi'
 	name = "revolver"
 	icon_state = "revolver"
 	item_state = "revolvers"
@@ -165,9 +168,9 @@
 	return 1
 
 /obj/item/gun/projectile/revolver/lemat
-	name = "grapeshot revolver"
-	desc = "A six shot revolver, with a secondary firing barrel for loading shotgun shells."
-	icon = 'icons/obj/guns/lemat.dmi'
+	name = "\improper P100 Mako revolver"
+	desc = "The P100 Mako is a 6-shot .38 Special revolver with a secondary firing barrel that can load shotgun shells."
+	icon = 'icons/obj/guns/faction/frontier/lemat.dmi'
 	icon_state = "lemat"
 	item_state = "lemat"
 	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2)
@@ -185,12 +188,13 @@
 	var/list/tertiary_loaded = list()
 	fire_delay = ROF_INTERMEDIATE
 
+/obj/item/gun/projectile/revolver/lemat/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "This is a unique ballistic weapon. It fires .38 ammunition, but may also load shotgun shells into a secondary barrel."
+	. += "By using the Unique-Action macro, you can switch from one barrel to the other."
 
 /obj/item/gun/projectile/revolver/lemat/Initialize()
 	. = ..()
-	desc_info = "This is a unique ballistic weapon. It fires .38 ammunition, but may also load shotgun shells into a secondary barrel. To fire the weapon, toggle the safety \
-	with ctrl-click (or enable HARM intent), then click where you want to fire. By using the Unique-Action macro, you can switch from one barrel to the other. To reload, click the gun \
-	with an empty hand to remove any spent casings or shells, then insert new ones."
 	for(var/i in 1 to secondary_max_shells)
 		secondary_loaded += new secondary_ammo_type(src)
 
@@ -237,9 +241,9 @@
 		flipped_firing = 0
 
 /obj/item/gun/projectile/revolver/lemat/spin_cylinder()
-	set name = "Spin cylinder"
+	set name = "Spin Cylinder"
 	set desc = "Fun when you're bored out of your skull."
-	set category = "Object"
+	set category = "Object.Held"
 	set src in usr
 
 	chamber_offset = 0
@@ -251,8 +255,9 @@
 		if(rand(1,max_shells) > loaded.len)
 			chamber_offset = rand(0,max_shells - loaded.len)
 
-/obj/item/gun/projectile/revolver/lemat/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
+/obj/item/gun/projectile/revolver/lemat/feedback_hints(mob/user, distance, is_adjacent, infix, suffix)
+	. = list()
+	. += ..()
 	if(secondary_loaded)
 		var/to_print
 		for(var/round in secondary_loaded)
@@ -262,9 +267,9 @@
 		. += "\The [src] has a secondary barrel that is empty."
 
 /obj/item/gun/projectile/revolver/adhomian
-	name = "adhomian service revolver"
-	desc = "The Royal Firearms Service Revolver is a simple and reliable design, favored by the nobility of the New Kingdom of Adhomai."
-	icon = 'icons/obj/guns/adhomian_revolver.dmi'
+	name = "\improper Royal Firearms Model 1 revolver"
+	desc = "The Royal Firearms Model 1 service Revolver is a simple and reliable design, favored by the nobility of the New Kingdom of Adhomai."
+	icon = 'icons/obj/guns/faction/nka/adhomian_revolver.dmi'
 	icon_state = "adhomian_revolver"
 	item_state = "adhomian_revolver"
 	caliber = "38"
@@ -307,7 +312,7 @@
 	name = "reclaimed revolver"
 	desc = "A revolver, made out of cheap scrap metal. Often used by Konyang's pirates."
 	desc_extended = "A six-shot revolver, crudely hacked together out of different kinds of scrap metal and wood. Made working by the ingenuity Konyang's pirates often need to show. Chambered in .38 ammo."
-	icon = 'icons/obj/guns/konyang_weapons.dmi'
+	icon = 'icons/obj/guns/faction/konyang/konyang_weapons.dmi'
 	icon_state = "38_revolver"
 	item_state = "38_revolver"
 	caliber = "38"
@@ -323,16 +328,31 @@
 		icon_state = "38_revolver-e"
 
 /obj/item/gun/projectile/revolver/konyang/police
-	name = "police service revolver"
+	name = "\improper Nam-Kawada revolver"
 	desc = "A compact and reliable .45 caliber revolver. This one has Konyang National Police markings as well as a lanyard attached to it."
 	desc_extended = "The Nam-Kawada model .45 caliber revolver, named after its two inventors, is an adaptation of an old Zavodskoi design designed to be easily made from colony ship autolathes. \
 	The original design was first introduced in 2307 due to a growing need to arm the nascent Konyang National Police (then known as the Suwon Colonial Constabulary) in the face of both wildlife and the occasional criminal activity.\
 	The lack of a need for an upgrade, as well as institutional attachment to the design, has led to its continued use for almost two centuries."
-	icon = 'icons/obj/guns/konyang_weapons.dmi'
+	icon = 'icons/obj/guns/faction/konyang/konyang_weapons.dmi'
 	icon_state = "police_gun"
 	item_state = "police_gun"
 	w_class = WEIGHT_CLASS_NORMAL
 	caliber = ".45"
 	ammo_type = /obj/item/ammo_casing/c45/revolver
+	magazine_type = /obj/item/ammo_magazine/c45/revolver
+	max_shells = 6
+
+/obj/item/gun/projectile/revolver/security
+	name = "C45 revolver"
+	desc = "A Zavodskoi-designed .45 revolver, found among law enforcement and security support personnel."
+	desc_extended = "The C45 is a .45 chambered revolver designed and manufactured by Zavodskoi Interstellar for use among security forces across the Spur. \
+	Compact and minimalist, the C45 is prized for its form factor, low maintenance, and extremely long longevity. \
+	Its low capacity sees it used primarily as a trusty back-up for personnel needing protection, but without the volume or firepower of a bulky automatic pistol."
+	icon = 'icons/obj/guns/faction/zavodskoi_interstellar/sec_revolver.dmi'
+	icon_state = "sec_revolver"
+	item_state = "sec_revolver"
+	w_class = WEIGHT_CLASS_NORMAL
+	caliber = ".45"
+	ammo_type = /obj/item/ammo_casing/c45/rubber
 	magazine_type = /obj/item/ammo_magazine/c45/revolver
 	max_shells = 6

@@ -4,7 +4,6 @@
 /obj/item/stack/telecrystal
 	name = "telecrystal"
 	desc = "It seems to be pulsing with suspiciously enticing energies."
-	desc_antag = "Crystals can be activated by utilizing them on devices with an actively running uplink. They will not activate on unactivated uplinks."
 	singular_name = "telecrystal"
 	icon_state = "telecrystal"
 	w_class = WEIGHT_CLASS_TINY
@@ -13,6 +12,10 @@
 	origin_tech = list(TECH_MATERIAL = 6, TECH_BLUESPACE = 4)
 	icon_has_variants = TRUE
 	var/crystal_type = CRYSTAL_TYPE_TELECRYSTAL
+
+/obj/item/stack/telecrystal/antagonist_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Crystals can be activated by utilizing them on devices with an actively running uplink. They will not activate on unactivated uplinks."
 
 /obj/item/stack/telecrystal/five/Initialize()
 	. = ..()

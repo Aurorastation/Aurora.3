@@ -8,7 +8,7 @@
 	..()
 	items = list()
 
-/datum/uplink_category/proc/can_view(obj/item/device/uplink/U)
+/datum/uplink_category/proc/can_view(obj/item/uplink/U)
 	if(LAZYLEN(restricted_antags))
 		for(var/antag_role in restricted_antags)
 			var/datum/antagonist/antag = GLOB.all_antag_types[antag_role]
@@ -52,7 +52,7 @@
 	name = "Medical"
 
 /datum/uplink_category/hardsuit_modules
-	name = "Hardsuit Modules"
+	name = "Hardsuits and Modules"
 
 /datum/uplink_category/services
 	name = "Services"

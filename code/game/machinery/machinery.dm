@@ -68,7 +68,7 @@ Class Procs:
 		contained in the component_parts list. (example: glass and material amounts for
 		the autolathe)
 
-		Default definition does nothing.
+		Default definition handles power usage only (all parts contribute based on energy_rating).
 
 	assign_uid()               'game/machinery/machine.dm'
 		Called by machine to assign a value to the uid variable.
@@ -87,15 +87,40 @@ Class Procs:
 	layer = STRUCTURE_LAYER
 	init_flags = INIT_MACHINERY_PROCESS_SELF
 	pass_flags_self = PASSMACHINE | LETPASSCLICKS
+	destroy_sound = 'sound/effects/meteorimpact.ogg'
+	hitsound = 'sound/effects/metalhit.ogg'
+	should_use_health = TRUE
 
+	/**
+	 * 'stat' = 'state'. Controlled by a bitflag, differentiates between a few different possible states including the machine being broken or unpowered.
+	 * These definitions are copypasted from 'code/__DEFINES/machinery.dm' so they can be easily referenced in code.
+	 * SO THAT MEANS IF THEY'VE BEEN UPDATED THERE, MAKE SURE THEY'RE UPDATED HERE!
+	 *
+	 * #define BROKEN   0x1
+	 * #define NOPOWER  0x2
+	 * #define POWEROFF 0x4  // TBD.
+	 * #define MAINT    0x8  // Under maintenance.
+	 * #define EMPED    0x10 // Temporary broken by EMP pulse.
+	 *
+	 * #define INOPERABLE(machine)  (machine.stat & (BROKEN|NOPOWER|MAINT|EMPED))
+	 * #define OPERABLE(machine)    !INOPERABLE(machine)
+	 */
 	var/stat = 0
+	/// Is this machine emagged?
 	var/emagged = 0
-	var/use_power = POWER_USE_IDLE // See code/__defines/machinery.dm
+
+	/// In what power state is this machine? Possible states include being off, idle, or active - see code/__defines/machinery.dm.
+	/// You should not be modifying this directly! Use the procs in power_usage.dm.
+	var/use_power = POWER_USE_IDLE
 	var/internal = FALSE
+	/// How much power should this be drawing in the idle power state?
 	var/idle_power_usage = 0
+	/// How much power should this be drawing in the active power state?
 	var/active_power_usage = 0
 	var/power_init_complete = FALSE
-	var/power_channel = AREA_USAGE_EQUIP //AREA_USAGE_EQUIP, AREA_USAGE_ENVIRON or AREA_USAGE_LIGHT
+	/// What power channel does this fall under in APCs? Possible channels include: AREA_USAGE_EQUIP, AREA_USAGE_ENVIRON or AREA_USAGE_LIGHT
+	var/power_channel = AREA_USAGE_EQUIP
+
 	/* List of types that should be spawned as component_parts for this machine.
 		Structure:
 			type -> num_objects
@@ -109,25 +134,55 @@ Class Procs:
 		)
 	*/
 	var/list/component_types
-	var/list/component_parts = null //list of all the parts used to build it, if made from certain kinds of frames.
+	/// List of all the parts used to build it, if made from certain kinds of frames.
+	var/list/component_parts = null
+	/// Use the generic power rating mechanics for parts, or bespoke.
+	var/parts_power_mgmt = TRUE
+	/// The total power rating of all parts serves as a power usage multiplier.
+	var/parts_power_usage = 0
+
 	var/uid
 	var/panel_open = 0
 	var/global/gl_uid = 1
-	var/interact_offline = 0 // Can the machine be interacted with while de-powered.
-	var/printing = 0 // Is this machine currently printing anything?
-	var/list/processing_parts // Component parts queued for processing by the machine. Expected type: `/obj/item/stock_parts` Unused currently
+	/// Can the machine be interacted with while de-powered?
+	var/interact_offline = FALSE
+	/// Is this machine currently printing anything?
+	var/printing = FALSE
+	/// Component parts queued for processing by the machine. Expected type: `/obj/item/stock_parts` Unused currently.
+	var/list/processing_parts
 
 	/// Bitflag. What is being processed. One of `MACHINERY_PROCESS_*`.
 	var/processing_flags
 
-	var/clicksound //played sound on usage
-	var/clickvol = 40 //volume
-	var/obj/item/device/assembly/signaler/signaler // signaller attached to the machine
-	var/obj/effect/overmap/visitable/linked // overmap sector the machine is linked to
+	/// Played sound on usage.
+	var/clicksound
+	/// Volume.
+	var/clickvol = 40
+	/// Signaller attached to the machine
+	var/obj/item/assembly/signaler/signaler
+	/// Overmap sector the machine is linked to
+	var/obj/effect/overmap/visitable/linked
 
-	/// Manufacturer of this machine. Used for TGUI themes, when you have a base type and subtypes with different themes (like the coffee machine).
-	/// Pass the manufacturer in ui_data and then use it in the UI.
+	/**
+	 * Manufacturer of this machine. Used for TGUI themes, when you have a base type and subtypes with different themes (like the coffee machine).
+	 * Pass the manufacturer in ui_data and then use it in the UI.
+	 */
 	var/manufacturer = null
+
+	///Do we want to hook into on_enter_area and on_exit_area?
+	///Disables some optimizations
+	var/always_area_sensitive = FALSE
+
+/obj/machinery/feedback_hints(mob/user, distance, is_adjacent)
+	. = list()
+	if(signaler && is_adjacent)
+		. += SPAN_WARNING("\The [src] has a hidden signaler attached to it. You might or might not notice this.")
+	// Still needs some work- must be able to be distinguish between thinobjectsgs that are anchored that can be casually
+	// unanchored (i.e. vending machines) vs. objects that are anchored but require other steps to unanchor (i.e. airlocks).
+	/*
+	if(anchored)
+		. += SPAN_NOTICE("\The [src] is anchored to the floor by a couple of <b>bolts</b>.")
+	*/
 
 /obj/machinery/Initialize(mapload, d = 0, populate_components = TRUE, is_internal = FALSE)
 	//Stupid macro used in power usage
@@ -159,6 +214,8 @@ Class Procs:
 		if(component_parts.len)
 			RefreshParts()
 
+	return INITIALIZE_HINT_LATELOAD
+
 /obj/machinery/Destroy()
 	//Stupid macro used in power usage
 	CAN_BE_REDEFINED(TRUE)
@@ -177,10 +234,29 @@ Class Procs:
 
 	return ..()
 
-/obj/machinery/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
+/obj/machinery/on_death(damage, damage_flags, damage_type, armor_penetration, obj/weapon)
+	var/turf/current_turf = get_turf(src)
+	spark(current_turf, 3, GLOB.alldirs)
+	if(component_parts)
+		for(var/obj/item/stock_parts/part in component_parts)
+			if(prob(25))
+				part.forceMove(current_turf)
+				component_parts -= part
+		var/obj/item/circuitboard/board = locate() in component_parts
+		if(istype(board))
+			if(prob(25))
+				board.forceMove(current_turf)
+				component_parts -= board
+			else
+				new /obj/item/trash/broken_electronics(current_turf)
+	var/metal_to_spawn = 0
+	for(var/i = 1 to 2)
+		if(prob(50))
+			metal_to_spawn++
+	if(metal_to_spawn)
+		new /obj/item/stack/material/steel(get_turf(src), metal_to_spawn)
 	. = ..()
-	if(signaler && is_adjacent)
-		. += SPAN_WARNING("\The [src] has a hidden signaler attached to it.")
+
 
 // /obj/machinery/proc/process_all()
 // 	/* Uncomment this if/when you need component processing
@@ -214,18 +290,12 @@ Class Procs:
 
 /obj/machinery/ex_act(severity)
 	switch(severity)
-		if(1.0)
-			qdel(src)
-			return
-		if(2.0)
-			if (prob(50))
-				qdel(src)
-				return
-		if(3.0)
-			if (prob(25))
-				qdel(src)
-				return
-	return
+		if(1)
+			add_damage(maxhealth)
+		if(2)
+			add_damage(maxhealth * 0.5)
+		if(3)
+			add_damage(maxhealth * 0.25)
 
 /**
  * Check to see if the machine is operable
@@ -253,7 +323,7 @@ Class Procs:
 
 	update_icon()
 
-/obj/machinery/CanUseTopic(var/mob/user)
+/obj/machinery/CanUseTopic(mob/user)
 	if(stat & BROKEN)
 		return STATUS_CLOSE
 
@@ -262,18 +332,18 @@ Class Procs:
 
 	return ..()
 
-/obj/machinery/CouldUseTopic(var/mob/user)
+/obj/machinery/CouldUseTopic(mob/user)
 	..()
 	if(clicksound && iscarbon(user))
 		playsound(src, clicksound, clickvol)
 	user.set_machine(src)
 
-/obj/machinery/CouldNotUseTopic(var/mob/user)
+/obj/machinery/CouldNotUseTopic(mob/user)
 	user.unset_machine()
 
 ////////////////////////////////////////////////////////////////////////////////////////////
 
-/obj/machinery/attack_ai(mob/user as mob)
+/obj/machinery/attack_ai(mob/user)
 	if(!ai_can_interact(user))
 		return
 	if(isrobot(user))
@@ -284,32 +354,26 @@ Class Procs:
 	else
 		return src.attack_hand(user)
 
-/obj/machinery/attack_hand(mob/user as mob)
+/obj/machinery/attack_hand(mob/user)
 	if(!operable(MAINT))
-		return 1
+		return TRUE
 	if(user.lying || user.stat)
-		return 1
-	if ( ! (istype(usr, /mob/living/carbon/human) || \
-			istype(usr, /mob/living/silicon)))
+		return TRUE
+	if (!istype(usr, /mob/living/carbon/human) && !istype(usr, /mob/living/silicon))
 		to_chat(usr, SPAN_WARNING("You don't have the dexterity to do this!"))
-		return 1
-/*
-	//distance checks are made by atom/proc/DblClick
-	if ((get_dist(src, user) > 1 || !istype(src.loc, /turf)) && !istype(user, /mob/living/silicon))
-		return 1
-*/
-	if (ishuman(user))
-		var/mob/living/carbon/human/H = user
-		if(H.getBrainLoss() >= 60)
-			visible_message(SPAN_WARNING("[H] stares cluelessly at [src] and drools."))
-			return 1
-		else if(prob(H.getBrainLoss()))
-			to_chat(user, SPAN_WARNING("You momentarily forget how to use [src]."))
-			return 1
+		return TRUE
 
 	src.add_fingerprint(user)
 
 	return ..()
+
+/obj/machinery/attack_ranged(mob/user, params)
+	. = ..()
+	if(isipc(user))
+		var/mob/living/carbon/human/robot = user
+		var/obj/item/organ/internal/machine/wireless_access/wireless_access_point = robot.internal_organs_by_name[BP_WIRELESS_ACCESS]
+		if(wireless_access_point?.access_terminal(src))
+			attack_hand(user)
 
 /obj/machinery/attackby(obj/item/attacking_item, mob/user)
 	if(obj_flags & OBJ_FLAG_SIGNALER)
@@ -317,18 +381,17 @@ Class Procs:
 			if(signaler)
 				to_chat(user, SPAN_WARNING("\The [src] already has a signaler attached."))
 				return TRUE
-			var/obj/item/device/assembly/signaler/S = attacking_item
+			var/obj/item/assembly/signaler/S = attacking_item
 			user.drop_from_inventory(attacking_item, src)
 			signaler = S
 			S.machine = src
 			user.visible_message("<b>[user]</b> attaches \the [S] to \the [src].", SPAN_NOTICE("You attach \the [S] to \the [src]."), range = 3)
 			log_and_message_admins("has attached a signaler to \the [src].", user, get_turf(src))
 			return TRUE
-		else if(attacking_item.iswirecutter() && signaler)
+		else if(attacking_item.tool_behaviour == TOOL_WIRECUTTER && signaler)
 			user.visible_message("<b>[user]</b> removes \the [signaler] from \the [src].", SPAN_NOTICE("You remove \the [signaler] from \the [src]."), range = 3)
 			user.put_in_hands(detach_signaler())
 			return TRUE
-
 	return ..()
 
 /obj/machinery/proc/detach_signaler(var/turf/detach_turf)
@@ -341,7 +404,7 @@ Class Procs:
 		LOG_DEBUG("[src] tried to drop a signaler, but it had no turf ([src.x]-[src.y]-[src.z])")
 		return
 
-	var/obj/item/device/assembly/signaler/S = signaler
+	var/obj/item/assembly/signaler/S = signaler
 
 	signaler.forceMove(detach_turf)
 	signaler.machine = null
@@ -350,6 +413,24 @@ Class Procs:
 	return S
 
 /obj/machinery/proc/RefreshParts()
+	/*
+	if(parts_power_mgmt)
+		var/new_idle_power
+		var/new_active_power
+
+		if(!component_parts || !component_parts.len)
+			return
+		var/parts_energy_rating = 0
+
+		for(var/obj/item/stock_parts/part in component_parts)
+			parts_energy_rating += part.energy_rating()
+
+		new_idle_power = initial(idle_power_usage) * (1 + parts_energy_rating)
+		new_active_power = initial(active_power_usage) * (1 + parts_energy_rating)
+
+		change_power_consumption(new_idle_power)
+		change_power_consumption(new_active_power, POWER_USE_ACTIVE)
+	*/
 
 /obj/machinery/proc/assign_uid()
 	uid = gl_uid
@@ -398,14 +479,14 @@ Class Procs:
 	return 0
 
 /obj/machinery/proc/default_deconstruction_crowbar(var/mob/user, var/obj/item/C)
-	if(!istype(C) || !C.iscrowbar())
+	if(!istype(C) || C.tool_behaviour != TOOL_CROWBAR)
 		return 0
 	if(!panel_open)
 		return 0
 	. = dismantle()
 
 /obj/machinery/proc/default_deconstruction_screwdriver(var/mob/user, var/obj/item/S)
-	if(!istype(S) || !S.isscrewdriver())
+	if(!istype(S) || S.tool_behaviour != TOOL_SCREWDRIVER)
 		return FALSE
 	S.play_tool_sound(get_turf(src), 50)
 	panel_open = !panel_open
@@ -414,59 +495,59 @@ Class Procs:
 	return TRUE
 
 /obj/machinery/proc/default_part_replacement(var/mob/user, var/obj/item/storage/part_replacer/R)
-	if(!istype(R))
-		return FALSE
 	if(!LAZYLEN(component_parts))
 		return FALSE
-	var/parts_replaced = FALSE
-	if(panel_open)
-		var/obj/item/circuitboard/CB = locate(/obj/item/circuitboard) in component_parts
-		var/P
-		for(var/obj/item/reagent_containers/glass/G in component_parts)
-			for(var/D in CB.req_components)
-				var/T = text2path(D)
-				if(ispath(G.type, T))
-					P = T
-					break
-			for(var/obj/item/reagent_containers/glass/B in R.contents)
-				if(B.reagents && B.reagents.total_volume > 0) continue
-				if(istype(B, P) && istype(G, P))
-					if(B.volume > G.volume)
-						R.remove_from_storage(B, src)
-						R.handle_item_insertion(G, 1)
-						component_parts -= G
-						component_parts += B
-						B.forceMove(src)
-						to_chat(user, SPAN_NOTICE("[G.name] replaced with [B.name]."))
+	else if(istype(R))
+		var/parts_replaced = FALSE
+		if(panel_open)
+			var/obj/item/circuitboard/CB = locate(/obj/item/circuitboard) in component_parts
+			var/P
+			for(var/obj/item/reagent_containers/glass/G in component_parts)
+				for(var/D in CB.req_components)
+					var/T = text2path(D)
+					if(ispath(G.type, T))
+						P = T
 						break
-		for(var/obj/item/stock_parts/A in component_parts)
-			for(var/D in CB.req_components)
-				var/T = text2path(D)
-				if(ispath(A.type, T))
-					P = T
-					break
-			for(var/obj/item/stock_parts/B in R.contents)
-				if(istype(B, P) && istype(A, P))
-					if(B.rating > A.rating)
-						R.remove_from_storage(B, src)
-						R.handle_item_insertion(A, 1)
-						component_parts -= A
-						component_parts += B
-						B.forceMove(src)
-						to_chat(user, SPAN_NOTICE("[A.name] replaced with [B.name]."))
-						parts_replaced = TRUE
+				for(var/obj/item/reagent_containers/glass/B in R.contents)
+					if(B.reagents && B.reagents.total_volume > 0) continue
+					if(istype(B, P) && istype(G, P))
+						if(B.volume > G.volume)
+							R.remove_from_storage(B, src)
+							R.handle_item_insertion(G, 1)
+							component_parts -= G
+							component_parts += B
+							B.forceMove(src)
+							to_chat(user, SPAN_NOTICE("[G.name] replaced with [B.name]."))
+							break
+			for(var/obj/item/stock_parts/A in component_parts)
+				for(var/D in CB.req_components)
+					var/T = text2path(D)
+					if(ispath(A.type, T))
+						P = T
 						break
-		RefreshParts()
-		update_icon()
-	else
-		to_chat(user, SPAN_NOTICE("The following parts have been detected in \the [src]:"))
-		to_chat(user, counting_english_list(component_parts))
-	if(parts_replaced) //only play sound when RPED actually replaces parts
-		playsound(src, 'sound/items/rped.ogg', 40, TRUE)
-	return 1
+				for(var/obj/item/stock_parts/B in R.contents)
+					if(istype(B, P) && istype(A, P))
+						if(B.rating > A.rating)
+							R.remove_from_storage(B, src)
+							R.handle_item_insertion(A, 1)
+							component_parts -= A
+							component_parts += B
+							B.forceMove(src)
+							to_chat(user, SPAN_NOTICE("[A.name] replaced with [B.name]."))
+							parts_replaced = TRUE
+							break
+			RefreshParts()
+			update_icon()
+			if(parts_replaced) //only play sound when RPED actually replaces parts
+				playsound(src, 'sound/items/rped.ogg', 40, TRUE)
+			return TRUE
+		else
+			to_chat(user, SPAN_NOTICE("The following parts have been detected in \the [src]:"))
+			to_chat(user, counting_english_list(component_parts))
+	else return FALSE
 
 /obj/machinery/proc/dismantle()
-	playsound(loc, /singleton/sound_category/crowbar_sound, 50, 1)
+	playsound(loc, SFX_CROWBAR, 50, 1)
 	var/obj/machinery/constructable_frame/machine_frame/M = new /obj/machinery/constructable_frame/machine_frame(loc)
 	M.set_dir(src.dir)
 	M.state = 3
@@ -480,7 +561,7 @@ Class Procs:
 
 	return TRUE
 
-/obj/machinery/proc/print(var/obj/paper, var/play_sound = 1, var/print_sfx = /singleton/sound_category/print_sound, var/print_delay = 10, var/message, var/mob/user)
+/obj/machinery/proc/print(var/obj/paper, var/play_sound = 1, var/print_sfx = SFX_PRINT, var/print_delay = 10, var/message, var/mob/user)
 	if( printing )
 		return FALSE
 
@@ -512,6 +593,8 @@ Class Procs:
 	if(hitting_projectile.get_structure_damage() > 5)
 		bullet_ping(hitting_projectile)
 
+	add_damage(hitting_projectile.damage, hitting_projectile.damage_flags(), hitting_projectile.damage_type, hitting_projectile.armor_penetration, hitting_projectile)
+
 /obj/machinery/proc/do_hair_pull(mob/living/carbon/human/H)
 	if(stat & (NOPOWER|BROKEN))
 		return
@@ -537,10 +620,6 @@ Class Procs:
 		if(H.can_feel_pain())
 			H.emote("scream")
 			H.apply_damage(45, DAMAGE_PAIN)
-
-/obj/machinery/proc/do_signaler() // override this to customize effects
-	return
-
 
 // A late init operation called in SSshuttle for ship computers and holopads, used to attach the thing to the right ship.
 /obj/machinery/proc/attempt_hook_up(var/obj/effect/overmap/visitable/sector)

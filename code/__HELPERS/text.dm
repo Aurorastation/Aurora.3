@@ -1,11 +1,11 @@
 /*
  * Holds procs designed to help with filtering text
  * Contains groups:
- *			SQL sanitization
- *			Text sanitization
- *			Text searches
- *			Text modification
- *			Misc
+ * * SQL sanitization
+ * * Text sanitization
+ * * Text searches
+ * * Text modification
+ * * Misc
  */
 
 
@@ -13,7 +13,9 @@
  * SQL sanitization
  */
 
-// Run all strings to be used in an SQL query through this proc first to properly escape out injection attempts.
+/**
+ * Run all strings to be used in an SQL query through this proc first to properly escape out injection attempts.
+ */
 /proc/sanitizeSQL(var/t as text)
 	var/sqltext = GLOB.dbcon.Quote(t);
 	return copytext_char(sqltext, 2, length(sqltext));//Quote() adds quotes around input, we already do that
@@ -662,9 +664,18 @@
 	t = replacetext(t, "\[logo_golden_small\]", "<img src = goldenlogo_small.png>")
 	t = replacetext(t, "\[logo_pvpolice\]", "<img src = pvpolicelogo.png>")
 	t = replacetext(t, "\[logo_pvpolice_small\]", "<img src = pvpolicelogo_small.png>")
+	t = replacetext(t, "\[logo_outereyes\]", "<img src = outereyeslogo.png>")
+	t = replacetext(t, "\[logo_outereyes_small\]", "<img src = outereyeslogo_small.png>")
+	t = replacetext(t, "\[twinsuns\]", "<img src = twinsuns.png>")
+	t = replacetext(t, "\[twinsuns_small\]", "<img src = twinsuns_small.png>")
+	t = replacetext(t, "\[raskara_sigil\]", "<img src = raskara_sigil.png>")
+	t = replacetext(t, "\[raskara_sigil_small\]", "<img src = raskara_sigil_small.png>")
 	t = replacetext(t, "\[barcode\]", "<img src = barcode[rand(0, 3)].png>")
 	t = replacetext(t, "\[time\]", "[worldtime2text()]")
 	t = replacetext(t, "\[date\]", "[worlddate2text()]")
+	t = replacetext(t, "\[tajtime\]", "[tajaran_time()]")
+	t = replacetext(t, "\[tajdate\]", "[tajaran_full_date()]")
+	t = replacetext(t, "\[cr\]", "\u7535")
 	t = replacetext(t, "\[editorbr\]", "<BR>")
 	t = replacetext(t, @"[image id=([\w]*?\.[\w]*?)]", "<img style=\"display:block;width:90%;\" src = [GLOB.config.docs_image_host]$1></img>")
 	return t
@@ -732,6 +743,12 @@
 		t = replacetext(t, "<img src = goldenlogo.png>", "\[logo_golden\]")
 		t = replacetext(t, "<img src = pvpolicelogo.png>", "\[logo_pvpolice\]")
 		t = replacetext(t, "<img src = pvpolicelogo_small.png>", "\[logo_pvpolice_small\]")
+		t = replacetext(t, "<img src = outereyeslogo.png>", "\[logo_outereyes\]")
+		t = replacetext(t, "<img src = outereyeslogo_small.png>", "\[logo_outereyes_small\]")
+		t = replacetext(t, "<img src = twinsuns.png>", "\[twinsuns\]")
+		t = replacetext(t, "<img src = twinsuns_small.png>", "\[twinsuns_small\]")
+		t = replacetext(t, "<img src = raskara_sigil.png>", "\[raskara_sigil\]")
+		t = replacetext(t, "<img src = raskara_sigil_small.png>", "\[raskara_sigil_small\]")
 
 	return t
 

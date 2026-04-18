@@ -1423,7 +1423,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/table/wood,
-/obj/item/device/flashlight/lamp{
+/obj/item/flashlight/lamp{
 	pixel_y = 2;
 	pixel_x = -7
 	},
@@ -2011,7 +2011,7 @@
 /area/abandoned_prison/hydroponics)
 "zp" = (
 /obj/structure/table/standard,
-/obj/item/storage/box/dynamite,
+/obj/item/storage/box/unique/dynamite,
 /obj/effect/landmark/clear,
 /turf/template_noop,
 /area/space)
@@ -3598,10 +3598,10 @@
 /area/abandoned_prison/bathroom)
 "YZ" = (
 /obj/structure/table/rack,
-/obj/item/device/flashlight/lantern,
-/obj/item/device/flashlight/lantern,
-/obj/item/device/flashlight/lantern,
-/obj/item/device/flashlight/lantern,
+/obj/item/flashlight/lantern,
+/obj/item/flashlight/lantern,
+/obj/item/flashlight/lantern,
+/obj/item/flashlight/lantern,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/door/window/southleft,
 /obj/structure/window/reinforced{

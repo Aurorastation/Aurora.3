@@ -15,7 +15,7 @@
 	if(H && show_ssd && !client && !teleop)
 		if(H.bg)
 			visible_message(SPAN_DANGER("[src] is hit by [hitting_atom] waking [get_pronoun("him")] up!"))
-			if(H.health / H.maxHealth < 0.5)
+			if(H.health / H.maxhealth < 0.5)
 				H.bg.awaken_impl(TRUE)
 				sleeping = 0
 				willfully_sleeping = FALSE
@@ -52,7 +52,7 @@
 				if(!hitting_projectile.do_not_log)
 					visible_message(SPAN_DANGER("[hitting_projectile] hit [src] waking [get_pronoun("him")] up!"))
 
-				if(H.health / H.maxHealth < 0.5)
+				if(H.health / H.maxhealth < 0.5)
 					H.bg.awaken_impl(TRUE)
 					sleeping = 0
 					willfully_sleeping = FALSE
@@ -79,7 +79,7 @@
 		show_ssd = H.species.show_ssd
 	if(H && show_ssd && !client && !teleop)
 		if(H.bg)
-			if(H.health / H.maxHealth < 0.5)
+			if(H.health / H.maxhealth < 0.5)
 				H.bg.awaken_impl(TRUE)
 				sleeping = 0
 				willfully_sleeping = FALSE
@@ -104,7 +104,7 @@
 
 	//Apply weapon damage
 	var/damage_flags = I.damage_flags()
-	apply_damage(effective_force, I.damtype, hit_zone, null, I, damage_flags, I.armor_penetration)
+	var/datum/wound/created_wound = apply_damage(effective_force, I.damtype, hit_zone, I, damage_flags, I.armor_penetration)
 
 	//Melee weapon embedded object code.
 	if (I && I.damtype == DAMAGE_BRUTE && !I.anchored && !is_robot_module(I) && I.canremove)
@@ -120,7 +120,7 @@
 
 			//Sharp objects will always embed if they do enough damage.
 			if((sharp && damage > (10*I.w_class)) || (damage > embed_threshold && prob(embed_chance)))
-				src.embed(I, hit_zone)
+				src.embed(I, hit_zone, supplied_wound = created_wound)
 
 	return 1
 

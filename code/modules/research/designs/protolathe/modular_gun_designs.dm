@@ -4,25 +4,25 @@
 /datum/design/item/modular_weapon/firing_pin
 	req_tech = list(TECH_MATERIAL = 1)
 	materials = list(DEFAULT_WALL_MATERIAL = 500)
-	build_path = /obj/item/device/firing_pin/test_range
+	build_path = /obj/item/firing_pin/test_range
 
 /datum/design/item/modular_weapon/firing_pin/away
-	build_path = /obj/item/device/firing_pin/away_site
+	build_path = /obj/item/firing_pin/away_site
 
 /datum/design/item/modular_weapon/modular_small
 	req_tech = list(TECH_MATERIAL = 1)
 	materials = list(DEFAULT_WALL_MATERIAL = 2000)
-	build_path = /obj/item/device/laser_assembly
+	build_path = /obj/item/laser_assembly
 
 /datum/design/item/modular_weapon/modular_medium
 	req_tech = list(TECH_MATERIAL = 1)
 	materials = list(DEFAULT_WALL_MATERIAL = 4000)
-	build_path = /obj/item/device/laser_assembly/medium
+	build_path = /obj/item/laser_assembly/medium
 
 /datum/design/item/modular_weapon/modular_large
 	req_tech = list(TECH_MATERIAL = 1, TECH_ENGINEERING = 2)
 	materials = list(DEFAULT_WALL_MATERIAL = 8000)
-	build_path = /obj/item/device/laser_assembly/large
+	build_path = /obj/item/laser_assembly/large
 
 /datum/design/item/modular_weapon/modular_cap
 	req_tech = list(TECH_POWER = 2, TECH_ENGINEERING = 2)

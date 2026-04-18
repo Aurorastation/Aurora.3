@@ -2157,7 +2157,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
 	},
-/obj/machinery/autolathe,
+/obj/machinery/fabricator/autolathe,
 /obj/effect/floor_decal/corner/yellow/full{
 	dir = 4
 	},
@@ -2292,7 +2292,7 @@
 /area/hiskyn_ship/thrusts)
 "aSz" = (
 /obj/structure/table/reinforced/steel,
-/obj/item/device/binoculars/spyglass,
+/obj/item/binoculars/spyglass,
 /obj/item/clothing/ears/earmuffs,
 /turf/simulated/floor/tiled/dark,
 /area/hiskyn_ship/blaster)
@@ -2418,11 +2418,11 @@
 /obj/item/tank/emergency_oxygen/double,
 /obj/item/tank/emergency_oxygen/double,
 /obj/item/tank/emergency_oxygen/double,
-/obj/item/device/gps,
-/obj/item/device/gps,
-/obj/item/device/gps,
-/obj/item/device/gps,
-/obj/item/device/gps,
+/obj/item/gps,
+/obj/item/gps,
+/obj/item/gps,
+/obj/item/gps,
+/obj/item/gps,
 /turf/simulated/floor/carpet/rubber,
 /area/hiskyn_ship/cargobay)
 "aVP" = (
@@ -2431,7 +2431,7 @@
 	dir = 1
 	},
 /obj/item/clothing/ears/earmuffs,
-/obj/item/device/binoculars,
+/obj/item/binoculars,
 /turf/simulated/floor/tiled/dark,
 /area/hiskyn_ship/francisca)
 "aVW" = (
@@ -3811,7 +3811,7 @@
 	dir = 6
 	},
 /obj/structure/table/wood,
-/obj/item/device/flashlight/lamp/green{
+/obj/item/flashlight/lamp/green{
 	pixel_y = 3;
 	pixel_x = 6
 	},
@@ -4493,7 +4493,7 @@
 	dir = 4
 	},
 /obj/structure/lattice/catwalk/indoor,
-/obj/item/device/radio/intercom/hailing{
+/obj/item/radio/intercom/hailing{
 	pixel_x = -6;
 	dir = 8
 	},
@@ -4879,7 +4879,7 @@
 	name = "Shuttle Equipment"
 	},
 /obj/item/storage/toolbox/mechanical,
-/obj/item/device/binoculars/spyglass,
+/obj/item/binoculars/spyglass,
 /obj/item/storage/firstaid/light{
 	starts_with = list(/obj/item/clothing/gloves/latex/nitrile/unathi = 1, /obj/item/reagent_containers/hypospray/autoinjector/pouch_auto/inaprovaline = 1, /obj/item/reagent_containers/hypospray/autoinjector/pouch_auto/mortaphenyl = 1, /obj/item/reagent_containers/hypospray/autoinjector/pouch_auto/dexalin = 1, /obj/item/stack/medical/bruise_pack = 1)
 	},
@@ -5121,7 +5121,7 @@
 /area/hiskyn_ship/bridge)
 "nhs" = (
 /obj/structure/table/steel,
-/obj/item/device/versebook/tribunal,
+/obj/item/versebook/tribunal,
 /obj/effect/floor_decal/spline/plain/brown{
 	pixel_y = 29
 	},
@@ -5157,7 +5157,7 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 8
 	},
-/obj/item/device/versebook/thakh{
+/obj/item/versebook/thakh{
 	pixel_y = 8
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -6265,7 +6265,7 @@
 /obj/effect/floor_decal/corner/red{
 	dir = 1
 	},
-/obj/item/device/binoculars/spyglass,
+/obj/item/binoculars/spyglass,
 /turf/simulated/floor/tiled/dark,
 /area/hiskyn_ship/bridge)
 "sEq" = (

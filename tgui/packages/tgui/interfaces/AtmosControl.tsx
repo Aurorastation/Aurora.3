@@ -40,12 +40,13 @@ export const SensorData = (props, context) => {
               datapoint.data !== null ? (
                 <LabeledList.Item
                   key={datapoint.datapoint}
-                  label={capitalize(datapoint.datapoint)}>
+                  label={capitalize(datapoint.datapoint)}
+                >
                   {datapoint.data} {datapoint.unit}
                 </LabeledList.Item>
               ) : (
                 ''
-              )
+              ),
             )}
           </LabeledList>
         </Section>

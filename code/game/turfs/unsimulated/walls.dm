@@ -87,3 +87,18 @@
 	smoothing_flags = SMOOTH_MORE
 	icon_state = "map_white"
 
+/turf/unsimulated/wall/shuttle/scc_space_ship/cardinal
+	name = "reinforced plastitanium alloy wall"
+	desc = "Effectively impervious to conventional methods of destruction."
+	icon = 'icons/turf/smooth/scc_ship/scc_ship_exterior.dmi'
+	icon_state = "map-wall"
+	smoothing_flags = SMOOTH_MORE
+	canSmoothWith = list(
+		/turf/simulated/wall,
+		/turf/simulated/wall/r_wall,
+		/turf/unsimulated/wall/shuttle/scc_space_ship,
+		/turf/simulated/wall/shuttle/scc_space_ship,
+		/obj/structure/window/shuttle/scc_space_ship,
+		/obj/machinery/door/airlock
+	)
+

@@ -11,7 +11,6 @@
 	opacity = 1
 	//Just 300 Watts here. Power is drawn by the piston when it moves
 	idle_power_usage = 300
-	z_flags = ZMM_MANGLE_PLANES
 
 	var/obj/machinery/crusher_piston/pstn //Piston
 
@@ -105,7 +104,7 @@
 
 	//Stuff you can do if the maint hatch is open
 	if(panel_open)
-		if(attacking_item.iswrench())
+		if(attacking_item.tool_behaviour == TOOL_WRENCH)
 			to_chat(user, SPAN_NOTICE("You start [valve_open ? "closing" : "opening"] the pressure relief valve of [src]."))
 			if(attacking_item.use_tool(src, user, 50, volume = 50))
 				valve_open = !valve_open
@@ -158,7 +157,6 @@
 		icon_state = asmtype
 
 	var/image_overlay
-	var/emissive_overlay
 	if(powered(AREA_USAGE_EQUIP))
 		if(blocked == 1)
 			image_overlay = image(icon, "[asmtype]-overlay-red")

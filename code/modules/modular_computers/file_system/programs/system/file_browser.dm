@@ -19,8 +19,7 @@
 
 	var/obj/item/computer_hardware/hard_drive/HDD
 	var/obj/item/computer_hardware/hard_drive/portable/RHDD
-	if(error)
-		data["error"] = error
+	data["error"] = error
 	if(open_file)
 		var/datum/computer_file/data/file
 		var/datum/computer_file/script/script
@@ -44,6 +43,9 @@
 		if(!computer || !computer.hard_drive)
 			data["error"] = "I/O ERROR: Unable to access hard drive."
 		else
+			data["scriptdata"] = null
+			data["filedata"] = null
+			data["filename"] = null
 			HDD = computer.hard_drive
 			RHDD = computer.portable_drive
 			var/list/files = list()

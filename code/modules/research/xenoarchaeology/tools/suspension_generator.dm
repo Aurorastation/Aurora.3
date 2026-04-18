@@ -14,6 +14,10 @@
 	var/obj/item/cell/cell
 	var/obj/effect/suspension_field/suspension_field
 
+/obj/effect/suspension_field/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += SPAN_NOTICE("You can see something floating inside it:")
+	. += SPAN_NOTICE(english_list(contents))
 
 /obj/machinery/suspension_gen/Initialize()
 	. = ..()
@@ -47,7 +51,7 @@
 	return TRUE
 
 /obj/machinery/suspension_gen/attackby(obj/item/attacking_item, mob/user)
-	if(attacking_item.isscrewdriver())
+	if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 		if(!open)
 			screwed = !screwed
 			to_chat(user, SPAN_NOTICE("You [screwed ? "screw" : "unscrew"] the battery panel."))
@@ -55,7 +59,7 @@
 		else
 			to_chat(user, SPAN_WARNING("\The [src]'s battery panel is open!"))
 		return
-	else if (attacking_item.iscrowbar())
+	else if (attacking_item.tool_behaviour == TOOL_CROWBAR)
 		if(!screwed)
 			if(!suspension_field)
 				open = !open
@@ -65,7 +69,7 @@
 				to_chat(user, SPAN_WARNING("[src]'s safety locks are engaged, shut it down first."))
 		else
 			to_chat(user, SPAN_WARNING("Unscrew [src]'s battery panel first."))
-	else if (attacking_item.iswrench())
+	else if (attacking_item.tool_behaviour == TOOL_WRENCH)
 		if(!suspension_field)
 			anchored = !anchored
 			to_chat(user, SPAN_NOTICE("You wrench the stabilising bolts [anchored ? "into place" : "loose"]."))
@@ -174,11 +178,6 @@
 
 	var/field_type = "chlorine"
 	var/victim_number  //number of mobs it affected, needed for generator powerdraw calc
-
-/obj/effect/suspension_field/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	. += SPAN_NOTICE("You can see something floating inside it:")
-	. += SPAN_NOTICE(english_list(contents))
 
 /obj/effect/suspension_field/Initialize()
 	. = ..()

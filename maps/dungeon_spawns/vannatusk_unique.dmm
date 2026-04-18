@@ -15,7 +15,7 @@
 "ae" = (
 /obj/structure/table/standard,
 /obj/item/surgery/scalpel/laser,
-/obj/item/storage/box/freezer/organcooler,
+/obj/item/storage/box/unique/freezer/organcooler,
 /turf/simulated/floor/tiled/asteroid,
 /area/dungeon/bluespace_outpost)
 "af" = (
@@ -106,10 +106,6 @@
 /obj/effect/floor_decal/industrial/warning/dust{
 	dir = 10
 	},
-/turf/simulated/floor/tiled/asteroid,
-/area/dungeon/bluespace_outpost)
-"au" = (
-/obj/machinery/vannatusk_spawner,
 /turf/simulated/floor/tiled/asteroid,
 /area/dungeon/bluespace_outpost)
 "av" = (
@@ -382,7 +378,7 @@
 "bp" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/table/standard,
-/obj/item/device/camera,
+/obj/item/camera,
 /obj/item/paper{
 	info = "\[00:02] Recording started.\\\[br\\]\[01:00] Friday Lowell asks, 'Did you have to shoot it with the Lance?'\\\[br\\]\[01:12] Friday Lowell says, 'You completely cooked the animal. Every cell was either blown out from the inside or totally denatured.'\\\[br\\]\[01:30] San Taeyang says, 'You were there, I don't see why you're complaining.'\\\[br\\]\[01:41] William Alsever says, 'Give it a rest, Lowell. We don't need this right now.'\\\[br\\]\[01:57] William Alsever asks, 'Your findings?'\\\[br\\]\[02:32] Friday Lowell says, 'I'm afraid I can't give you much at the cellular level.'\\\[br\\]\[02:56] Friday Lowell says, 'There's not much left inside the membranes. Not many membranes left, for that matter.'\\\[br\\]\[03:19] Friday Lowell says, 'In terms of gross morphology…'\\\[br\\]\[03:56] Friday Lowell says, 'It's all pretty much there on the surface, Humanoid, similarly insectoid outside of that.'\\\[br\\]\[04:10] Friday Lowell says, 'Calcareous exoskeleton, keratinized plastic cuticle. Nothing special.'\\\[br\\]\[04:34] Friday Lowell says, 'Given the environment, I was half-expecting a Sanduloviciu plasma.'\\\[br\\]\[04:52] Friday Lowell says, 'This thing is carbon-based. It's even protein-based, although its proteins are a great deal tougher than ours.'\\\[br\\]\[05:01] San Taeyang asks, 'What does it eat?'\\\[br\\]\[05:21] Friday Lowell says, 'I couldn't say.'\\\[br\\]\[06:35] Friday Lowell says, 'I found gizzard-like contractile around it, which implies they chew on something, or did at some point in their history.'\\\[br\\]\[06:44] Friday Lowell says, 'Besides that...'\\\[br\\]\[07:20] Friday Lowell says, 'Inflate those contractile enough and you create an airtight seal, by the way. In conjunction with the cuticle bits, that would allow this fella to survive briefly in a vacuum.'\\\[br\\]\[07:47] San Taeyang says, 'So it can survive in space.'\\\[br\\]\[07:54] Friday Lowell says, 'In the sense that a dolphin survives underwater. Limited time only.'\\\[br\\]\[08:00] San Taeyang asks, 'How long?'\\\[br\\]\[08:08] Friday Lowell says, 'I'm not certain.'\\\[br\\]\[08:10] Recording stopped.";
 	name = "Recording"
@@ -444,7 +440,7 @@
 /area/dungeon/bluespace_outpost)
 "bz" = (
 /obj/structure/table/standard,
-/obj/item/device/hand_labeler,
+/obj/item/hand_labeler,
 /turf/simulated/floor/tiled/asteroid,
 /area/dungeon/bluespace_outpost)
 "bA" = (
@@ -1251,7 +1247,7 @@ Nw
 Nw
 Iu
 ar
-au
+ac
 bs
 bo
 ad

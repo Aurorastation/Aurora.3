@@ -1,7 +1,6 @@
-/obj/item/device/holowarrant
+/obj/item/holowarrant
 	name = "warrant projector"
 	desc = "The practical paperwork replacement for the officer on the go."
-	desc_info = "Use this item in-hand to select the active warrant. Click on the person you want to show it to to display the warrant."
 	icon = 'icons/obj/holowarrant.dmi'
 	icon_state = "holowarrant"
 	item_state = "holowarrant"
@@ -13,20 +12,25 @@
 
 	var/datum/record/warrant/selected_warrant
 
-/obj/item/device/holowarrant/Initialize(mapload, ...)
-	. = ..()
-	RegisterSignal(SSrecords, COMSIG_RECORD_CREATED, PROC_REF(handle_warrant_created))
+/obj/item/holowarrant/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Use this item in-hand to select the active warrant."
+	. += "Click on the person you want to show it to to display the warrant to them."
 
-/obj/item/device/holowarrant/Destroy()
-	unload_warrant()
-	return ..()
-
-/obj/item/device/holowarrant/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
+/obj/item/holowarrant/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
 	if(selected_warrant)
 		. += "It's a holographic warrant for '[selected_warrant.name]'."
 
-/obj/item/device/holowarrant/attack_self(mob/living/user as mob)
+/obj/item/holowarrant/Initialize(mapload, ...)
+	. = ..()
+	RegisterSignal(SSrecords, COMSIG_RECORD_CREATED, PROC_REF(handle_warrant_created))
+
+/obj/item/holowarrant/Destroy()
+	unload_warrant()
+	return ..()
+
+/obj/item/holowarrant/attack_self(mob/living/user as mob)
 	if(!LAZYLEN(SSrecords.warrants))
 		to_chat(user, SPAN_NOTICE("There are no warrants available at this time."))
 		return
@@ -48,32 +52,32 @@
 
 	play_message(SPAN_NOTICE("\The [src] pings, \"Warrant [selected_warrant ? "" : "un"]loaded.\""))
 
-/obj/item/device/holowarrant/proc/load_warrant(var/datum/record/warrant/warrant)
+/obj/item/holowarrant/proc/load_warrant(var/datum/record/warrant/warrant)
 	selected_warrant = warrant
 	RegisterSignal(selected_warrant, COMSIG_QDELETING, PROC_REF(handle_warrant_delete))
 	RegisterSignal(selected_warrant, COMSIG_RECORD_MODIFIED, PROC_REF(handle_warrant_modify))
 	update_icon()
 
-/obj/item/device/holowarrant/proc/unload_warrant()
+/obj/item/holowarrant/proc/unload_warrant()
 	if(selected_warrant)
 		UnregisterSignal(selected_warrant, COMSIG_QDELETING)
 		UnregisterSignal(selected_warrant, COMSIG_RECORD_MODIFIED)
 		selected_warrant = null
 		update_icon()
 
-/obj/item/device/holowarrant/proc/play_message(var/message)
+/obj/item/holowarrant/proc/play_message(var/message)
 	playsound(get_turf(src), 'sound/machines/ping.ogg', 40)
 	audible_message(message)
 
 /// Called when a warrant is created
-/obj/item/device/holowarrant/proc/handle_warrant_created(datum/source, datum/record/record)
+/obj/item/holowarrant/proc/handle_warrant_created(datum/source, datum/record/record)
 	SIGNAL_HANDLER
 
 	if(istype(record, /datum/record/warrant))
 		play_message(SPAN_NOTICE("\The [src] pings, \"New warrant on database.\""))
 
 /// Called right before the warrant is deleted
-/obj/item/device/holowarrant/proc/handle_warrant_delete(datum/source)
+/obj/item/holowarrant/proc/handle_warrant_delete(datum/source)
 	SIGNAL_HANDLER
 
 	unload_warrant()
@@ -81,12 +85,12 @@
 	play_message(SPAN_NOTICE("\The [src] pings, \"Active warrant deleted.\""))
 
 /// Called right after the warrant is modified
-/obj/item/device/holowarrant/proc/handle_warrant_modify(datum/source)
+/obj/item/holowarrant/proc/handle_warrant_modify(datum/source)
 	SIGNAL_HANDLER
 
 	play_message(SPAN_NOTICE("\The [src] pings, \"Active warrant modified.\""))
 
-/obj/item/device/holowarrant/attack(mob/living/target_mob, mob/living/user, target_zone)
+/obj/item/holowarrant/attack(mob/living/target_mob, mob/living/user, target_zone)
 	if(!selected_warrant)
 		to_chat(user, SPAN_WARNING("There are no warrants loaded!"))
 		return
@@ -94,13 +98,13 @@
 	user.visible_message("<b>[user]</b> holds \the [src] up to \the [target_mob].", SPAN_NOTICE("You hold up \the [src] to \the [target_mob]."))
 	show_content(target_mob)
 
-/obj/item/device/holowarrant/update_icon()
+/obj/item/holowarrant/update_icon()
 	if(selected_warrant)
 		icon_state = "holowarrant_filled"
 	else
 		icon_state = "holowarrant"
 
-/obj/item/device/holowarrant/proc/show_content(mob/user)
+/obj/item/holowarrant/proc/show_content(mob/user)
 	if(selected_warrant.wtype == "arrest")
 		var/output = {"
 		<HTML><HEAD><TITLE>Arrest Warrant: [selected_warrant.name]</TITLE></HEAD>

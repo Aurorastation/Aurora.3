@@ -1,7 +1,15 @@
 import { paginate } from 'common/collections';
 import { BooleanLike } from '../../common/react';
 import { useBackend, useLocalState } from '../backend';
-import { Box, Button, Input, Section, Table, Tabs, Tooltip } from '../components';
+import {
+  Box,
+  Button,
+  Input,
+  Section,
+  Table,
+  Tabs,
+  Tooltip,
+} from '../components';
 import { TableCell, TableRow } from '../components/Table';
 import { Window } from '../layouts';
 
@@ -39,7 +47,7 @@ const ManifestTable = function (act, spawner: Spawner) {
         const ManifestCell = function (
           act,
           spawner: Spawner,
-          spawned_mob_name: string
+          spawned_mob_name: string,
         ) {
           if (spawned_mob_name) {
             return (
@@ -85,11 +93,11 @@ export const GhostSpawner = (props, context) => {
   const [searchTerm, setSearchTerm] = useLocalState<string>(
     context,
     `searchTerm`,
-    ``
+    ``,
   );
 
   const spawners = data.spawners?.filter(
-    (S) => S.name.toLowerCase().indexOf(searchTerm.toLowerCase()) > -1
+    (S) => S.name.toLowerCase().indexOf(searchTerm.toLowerCase()) > -1,
   );
 
   const colors = [
@@ -112,12 +120,12 @@ export const GhostSpawner = (props, context) => {
         new Set(
           spawners
             .filter((s) => s.spawn_overmap_location)
-            .map((s) => s.spawn_overmap_location)
-        )
+            .map((s) => s.spawn_overmap_location),
+        ),
       ),
-      colors.length
+      colors.length,
     ).map((p) =>
-      p.map((l, i) => (loc_to_color[l] = colors[i % colors.length]))
+      p.map((l, i) => (loc_to_color[l] = colors[i % colors.length])),
     );
   }
 
@@ -138,7 +146,8 @@ export const GhostSpawner = (props, context) => {
               }}
               value={searchTerm}
             />
-          }>
+          }
+        >
           <Tabs>
             <Tabs.Tab selected={tab === 'All'} onClick={() => setTab('All')}>
               All
@@ -147,7 +156,8 @@ export const GhostSpawner = (props, context) => {
               <Tabs.Tab
                 key={cat}
                 selected={tab === cat}
-                onClick={() => setTab(cat)}>
+                onClick={() => setTab(cat)}
+              >
                 {cat}
               </Tabs.Tab>
             ))}
@@ -166,10 +176,12 @@ export const GhostSpawner = (props, context) => {
                   <Table.Row
                     key={spawner.short_name}
                     className="candystripe"
-                    color={spawner.cant_spawn ? 'gray' : null}>
+                    color={spawner.cant_spawn ? 'gray' : null}
+                  >
                     <Table.Cell>{spawner.name}</Table.Cell>
                     <Table.Cell
-                      color={loc_to_color[spawner.spawn_overmap_location]}>
+                      color={loc_to_color[spawner.spawn_overmap_location]}
+                    >
                       {spawner.spawn_overmap_location}
                     </Table.Cell>
                     <Table.Cell>
@@ -186,12 +198,13 @@ export const GhostSpawner = (props, context) => {
                           <Box
                             style={{
                               'background-color': 'rgba(0, 0, 0, 0.25)',
-                              'border': '1px solid rgba(0, 0, 0, 0.5)',
+                              border: '1px solid rgba(0, 0, 0, 0.5)',
                             }}
                             mt={2}
                             pb={1}
                             pt={1}
-                            pl={1}>
+                            pl={1}
+                          >
                             <Box fontSize="1.2rem" textAlign="center">
                               Manifest
                             </Box>
@@ -203,9 +216,9 @@ export const GhostSpawner = (props, context) => {
                     <Table.Cell>
                       {spawner.max_count > 0
                         ? spawner.max_count -
-                        spawner.count +
-                        ' / ' +
-                        spawner.max_count
+                          spawner.count +
+                          ' / ' +
+                          spawner.max_count
                         : spawner.spawn_atoms}
                     </Table.Cell>
                     <Table.Cell inline nowrap>
@@ -250,7 +263,7 @@ export const GhostSpawner = (props, context) => {
                       )}
                     </Table.Cell>
                   </Table.Row>
-                )
+                ),
             )}
           </Table>
         </Section>

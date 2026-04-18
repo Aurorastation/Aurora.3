@@ -78,13 +78,14 @@ GLOBAL_DATUM(mark_spell_ref, /obj/effect/mark_spell)
 			var/time_left = 3
 			if(check_for_scepter())
 				time_left = 2
+			set_light_on(TRUE)
 			while(time_left)
 				if(user.incapacitated())
 					visible_message(SPAN_NOTICE("\The [user]'s glow fades."))
 					to_chat(user, SPAN_DANGER("You cannot Recall while incapacitated!"))
 					return 0
 				light_intensity++
-				set_light(light_intensity, light_intensity, l_color = "#006AFF")
+				set_light_range_power_color(light_intensity, light_intensity, "#006AFF")
 				time_left--
 				sleep(1 SECOND)
 

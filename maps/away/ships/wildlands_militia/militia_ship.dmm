@@ -85,7 +85,7 @@
 	},
 /obj/item/clothing/suit/space/void/freelancer,
 /obj/item/clothing/head/helmet/space/void/freelancer,
-/obj/item/device/gps,
+/obj/item/gps,
 /turf/simulated/floor/tiled/dark,
 /area/ship/militia_ship)
 "atj" = (
@@ -575,7 +575,7 @@
 /obj/structure/extinguisher_cabinet/north,
 /obj/item/material/knife/trench,
 /obj/item/material/knife/trench,
-/obj/item/storage/box/shotgunshells,
+/obj/item/storage/box/shells/buckshot,
 /obj/random/civgun/rifle,
 /obj/random/civgun/rifle,
 /obj/item/gun/projectile/shotgun/pump,
@@ -622,7 +622,7 @@
 /area/ship/militia_ship)
 "hcf" = (
 /obj/structure/table/steel,
-/obj/item/device/flashlight/lamp/green,
+/obj/item/flashlight/lamp/green,
 /turf/simulated/floor/carpet/rubber,
 /area/ship/militia_ship)
 "hdb" = (
@@ -663,7 +663,7 @@
 /area/ship/militia_ship)
 "huE" = (
 /obj/structure/table/steel,
-/obj/item/device/radio{
+/obj/item/radio{
 	icon_state = "radio"
 	},
 /obj/item/toy/comic,
@@ -695,7 +695,7 @@
 	},
 /obj/item/clothing/suit/space/void/freelancer,
 /obj/item/clothing/head/helmet/space/void/freelancer,
-/obj/item/device/gps,
+/obj/item/gps,
 /turf/simulated/floor/tiled/dark,
 /area/ship/militia_ship)
 "hQA" = (
@@ -1148,7 +1148,7 @@
 /obj/item/reagent_containers/food/snacks/meat,
 /obj/item/reagent_containers/food/snacks/meat,
 /obj/item/reagent_containers/food/snacks/meat,
-/obj/item/storage/box/produce{
+/obj/item/storage/box/large/produce{
 	pixel_x = 3;
 	pixel_y = -11
 	},
@@ -1371,7 +1371,7 @@
 /obj/structure/table/standard,
 /obj/item/paper_bin,
 /obj/item/pen/multi,
-/obj/item/device/binoculars,
+/obj/item/binoculars,
 /turf/simulated/floor/tiled/dark,
 /area/ship/militia_ship)
 "uaE" = (
@@ -1427,7 +1427,7 @@
 /obj/structure/table/rack,
 /obj/item/clothing/suit/space/void/freelancer,
 /obj/item/clothing/head/helmet/space/void/freelancer,
-/obj/item/device/gps,
+/obj/item/gps,
 /turf/simulated/floor/tiled/dark,
 /area/ship/militia_ship)
 "uYP" = (
@@ -1708,7 +1708,7 @@
 /area/space)
 "ygr" = (
 /obj/structure/filingcabinet/chestdrawer,
-/obj/item/device/flashlight/lamp/lava/blue{
+/obj/item/flashlight/lamp/lava/blue{
 	pixel_x = 2;
 	pixel_y = 14
 	},

@@ -8,6 +8,16 @@
 	var/ammo_type // the type of ammo this ammo pile accepts
 	var/max_ammo = 5
 
+/obj/item/ammo_pile/Destroy()
+	QDEL_LIST(ammo)
+	ammo_overlays.Cut()
+	. = ..()
+
+/obj/item/ammo_pile/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(is_adjacent)
+		. += SPAN_NOTICE("It contains [length(ammo)] rounds.")
+
 /obj/item/ammo_pile/Initialize(mapload, var/list/provided_ammo)
 	. = ..()
 	if(islist(provided_ammo))
@@ -25,11 +35,6 @@
 			var/obj/C = new ammo_type()
 			add_ammo(C)
 	addtimer(CALLBACK(src, PROC_REF(check_ammo)), 5) // if we don't have any ammo in 5 deciseconds, we're an empty pile, which is worthless, so self-delete
-
-/obj/item/ammo_pile/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if(is_adjacent)
-		. += SPAN_NOTICE("It contains [length(ammo)] rounds.")
 
 /obj/item/ammo_pile/attack(mob/living/target_mob, mob/living/user, target_zone)
 	return
@@ -114,28 +119,31 @@
 
 /obj/item/ammo_pile/proc/check_ammo()
 	var/ammo_amount = length(ammo)
-	switch(ammo_amount)
-		if(0)
-			qdel(src)
-		if(1)
-			var/obj/bullet = ammo[1]
-			bullet.forceMove(get_turf(src))
-			var/mob/gunman
-			if(ismob(loc))
-				gunman = loc
-			qdel(src)
-			if(gunman)
-				gunman.put_in_hands(bullet)
-	if(ammo_amount)
+	if(ammo_amount > 1)
 		var/obj/first_round = ammo[1]
 		if(ammo_amount > 7)
 			w_class = first_round.w_class + 2 // too many to fit in your pockets, generally
 		else
 			w_class = first_round.w_class + 1
+		return
+
+	switch(ammo_amount)
+		if(0)
+			qdel(src)
+		if(1)
+			var/obj/bullet = ammo[1]
+			ammo -= bullet
+			bullet.forceMove(get_turf(src))
+			var/mob/gunman = ismob(loc) ? loc : null
+			qdel(src)
+			if(gunman)
+				// Do this after qdeleting the pile so that they have a free hand.
+				gunman.put_in_hands(bullet)
 
 /obj/item/ammo_pile/proc/add_ammo(var/obj/item/ammo_casing/bullet)
 	if(!bullet.BB)
 		return
+	RegisterSignal(bullet, COMSIG_QDELETING, PROC_REF(clear_ammo))
 	if(ismob(bullet.loc))
 		var/mob/gunman = bullet.loc
 		gunman.drop_from_inventory(bullet, src)
@@ -150,12 +158,20 @@
 	ammo_overlays[bullet] = ammo_picture
 	AddOverlays(ammo_overlays[bullet])
 
+/// Called when one of our contained bullets is qdel'd -- why does this happen? it is a mystery
+/obj/item/ammo_pile/proc/clear_ammo(datum/source)
+	SIGNAL_HANDLER
+	CutOverlays(ammo_overlays[source])
+	ammo -= source
+	UnregisterSignal(source, COMSIG_QDELETING)
+
 /obj/item/ammo_pile/proc/remove_ammo(var/atom/target)
 	var/obj/bullet = ammo[1]
 	if(target)
 		bullet.forceMove(target)
 	CutOverlays(ammo_overlays[bullet])
 	ammo -= bullet
+	UnregisterSignal(bullet, COMSIG_QDELETING)
 	check_ammo()
 
 /obj/item/ammo_pile/proc/scatter()
@@ -186,6 +202,9 @@
 
 /obj/item/ammo_pile/shotgun_stunshell
 	ammo_type = /obj/item/ammo_casing/shotgun/stunshell
+
+/obj/item/ammo_pile/shotgun_practice
+	ammo_type = /obj/item/ammo_casing/shotgun/practice
 
 /obj/item/ammo_pile/fourty_five
 	ammo_type = /obj/item/ammo_casing/c45

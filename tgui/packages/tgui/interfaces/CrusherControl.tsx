@@ -34,7 +34,8 @@ export const CrusherControl = (props, context) => {
                 onClick={() => act('initialize')}
               />
             )
-          }>
+          }
+        >
           {data.piston_count === 0 ? (
             'No pistons detected.'
           ) : (
@@ -95,7 +96,8 @@ export const PistonMonitoring = (props, context) => {
         {data.status_pistons.map((piston) => (
           <LabeledList.Item
             key={piston.piston}
-            label={'Piston' + piston.piston}>
+            label={'Piston' + piston.piston}
+          >
             <ProgressBar
               ranges={{
                 good: [75, 100],

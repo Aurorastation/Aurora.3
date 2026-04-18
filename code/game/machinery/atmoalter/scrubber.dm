@@ -1,10 +1,6 @@
 /obj/machinery/portable_atmospherics/powered/scrubber
 	name = "portable air scrubber"
 	desc = "Scrubs contaminants from the local atmosphere or the connected portable tank."
-	desc_info = "Filters the air, placing harmful gases into the internal gas container.  The container can be emptied by \
-	connecting it to a connector port.  The pump can pump the air in (sucking) or out (blowing), at a specific target pressure.  The powercell inside can be \
-	replaced by using a screwdriver, and then adding a new cell.  A tank of gas can also be attached to the scrubber. "
-
 	icon = 'icons/obj/atmos.dmi'
 	icon_state = "pscrubber:0"
 	density = TRUE
@@ -21,7 +17,14 @@
 	var/minrate = 0
 	var/maxrate = PRESSURE_ONE_THOUSAND
 
-	var/list/scrubbing_gas = list(GAS_PHORON, GAS_CO2, GAS_N2O, GAS_HYDROGEN, GAS_HELIUM, GAS_DEUTERIUM, GAS_TRITIUM, GAS_BORON, GAS_SULFUR, GAS_NO2, GAS_CHLORINE, GAS_STEAM)
+	var/list/scrubbing_gas = list(GAS_PHORON, GAS_CO2, GAS_N2O, GAS_HYDROGEN, GAS_HELIUM, GAS_DEUTERIUM, GAS_TRITIUM, GAS_HELIUMFUEL, GAS_SULFUR, GAS_NO2, GAS_CHLORINE, GAS_WATERVAPOR)
+
+/obj/machinery/portable_atmospherics/powered/scrubber/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Filters the air, placing harmful gases into the internal gas container. The container can be emptied by connecting it to a connector port."
+	. += "The pump can pump the air in (sucking) or out (blowing), at a specific target pressure."
+	. += "The power cell inside can be replaced by using a screwdriver, then adding a new cell. Screw it closed again afterwards."
+	. += "A tank of gas can also be attached to the scrubber."
 
 /obj/machinery/portable_atmospherics/powered/scrubber/Initialize()
 	. = ..()
@@ -36,7 +39,6 @@
 	if(prob(50/severity))
 		on = !on
 		update_icon()
-
 
 /obj/machinery/portable_atmospherics/powered/scrubber/update_icon()
 	ClearOverlays()
@@ -74,6 +76,7 @@
 	if (power_draw < 0)
 		last_flow_rate = 0
 		last_power_draw = 0
+		last_mole_transfer = 0
 	else
 		power_draw = max(power_draw, power_losses)
 		cell.use(power_draw * CELLRATE)
@@ -114,7 +117,7 @@
 /obj/machinery/portable_atmospherics/powered/scrubber/ui_data(mob/user)
 	var/list/data = list()
 	data["portConnected"] = connected_port ? 1 : 0
-	data["tankPressure"] = round(air_contents.return_pressure() > 0 ? air_contents.return_pressure() : 0)
+	data["tankPressure"] = round(XGM_PRESSURE(air_contents))
 	data["rate"] = round(volume_rate)
 	data["minrate"] = round(minrate)
 	data["maxrate"] = round(maxrate)
@@ -125,7 +128,7 @@
 	data["hasHoldingTank"] = holding ? 1 : 0
 	if(holding)
 		data["holdingTankName"] = holding?.name
-		data["holdingTankPressure"] = round(holding.air_contents.return_pressure() > 0 ? holding.air_contents.return_pressure() : 0)
+		data["holdingTankPressure"] = round(XGM_PRESSURE(holding.air_contents))
 	else
 		data["holdingTankName"] = null
 		data["holdingTankPressure"] = null
@@ -195,6 +198,7 @@
 		update_use_power(POWER_USE_OFF)
 		last_flow_rate = 0
 		last_power_draw = 0
+		last_mole_transfer = 0
 		return 0
 
 	var/power_draw = -1
@@ -210,12 +214,13 @@
 	if (power_draw < 0)
 		last_flow_rate = 0
 		last_power_draw = 0
+		last_mole_transfer = 0
 	else
 		use_power_oneoff(power_draw)
 		update_connected_network()
 
 /obj/machinery/portable_atmospherics/powered/scrubber/huge/attackby(obj/item/attacking_item, mob/user)
-	if(attacking_item.iswrench())
+	if(attacking_item.tool_behaviour == TOOL_WRENCH)
 		if(on)
 			to_chat(user, SPAN_WARNING("Turn \the [src] off first!"))
 			return TRUE
@@ -229,7 +234,7 @@
 	//doesn't use power cells
 	if(istype(attacking_item, /obj/item/cell))
 		return TRUE
-	if (attacking_item.isscrewdriver())
+	if (attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 		return TRUE
 
 	//doesn't hold tanks
@@ -237,11 +242,12 @@
 		return TRUE
 
 	return ..()
+
 /obj/machinery/portable_atmospherics/powered/scrubber/huge/stationary
 	name = "Stationary Air Scrubber"
 
 /obj/machinery/portable_atmospherics/powered/scrubber/huge/stationary/attackby(obj/item/attacking_item, mob/user)
-	if(attacking_item.iswrench())
+	if(attacking_item.tool_behaviour == TOOL_WRENCH)
 		to_chat(user, SPAN_WARNING("The bolts are too tight for you to unscrew!"))
 		return TRUE
 

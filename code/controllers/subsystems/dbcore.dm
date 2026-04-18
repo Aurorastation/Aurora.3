@@ -5,6 +5,7 @@ SUBSYSTEM_DEF(dbcore)
 	wait = 10 // Not seconds because we're running on SS_TICKER
 	runlevels = RUNLEVEL_LOBBY|RUNLEVELS_DEFAULT
 	init_order = INIT_ORDER_DBCORE
+	init_stage = INITSTAGE_FIRST
 	priority = FIRE_PRIORITY_DATABASE
 
 
@@ -308,6 +309,8 @@ SUBSYSTEM_DEF(dbcore)
 
 /// Check if we have established a DB Connection
 /datum/controller/subsystem/dbcore/proc/IsConnected()
+	PRIVATE_PROC(TRUE)
+
 	if(!GLOB.config.sql_enabled)
 		return FALSE
 	if (!connection)
@@ -370,8 +373,8 @@ SUBSYSTEM_DEF(dbcore)
  *
  */
 /datum/db_query_template/proc/Execute(arguments, allow_during_shutdown=FALSE)
-	return SSdbcore.NewQuery(sql, arguments, allow_during_shutdown)
-
+	var/datum/db_query/query = SSdbcore.NewQuery(sql, arguments, allow_during_shutdown)
+	return query.Execute()
 
 /datum/db_query
 	// Inputs
@@ -379,7 +382,9 @@ SUBSYSTEM_DEF(dbcore)
 	var/sql
 	var/arguments
 
+	/// The callback to invoke when the query is executed successfully
 	var/datum/callback/success_callback
+	/// The callback to invoke when the query was not executed successfully
 	var/datum/callback/fail_callback
 
 	// Status information
@@ -416,21 +421,78 @@ SUBSYSTEM_DEF(dbcore)
 	SSdbcore.queries_active -= src
 	return ..()
 
+/**
+ * SetSuccessCallback
+ *
+ * Sets a callback to be executed if the query completes successfully.
+ * The parameter for the callback is this query
+ *
+ * * success_callback - The callback to be executed
+ *
+ * Returns `TRUE` if the callback was set successfully
+ * Returns `FALSE` if the callback could not be set, because another callback was already set
+ */
+/datum/db_query/proc/SetSuccessCallback(datum/callback/success_callback)
+	if (src.success_callback != null)
+		return FALSE
+
+	src.success_callback = success_callback
+	return TRUE
+
+/**
+ * SetSuccessCallback
+ *
+ * Sets a callback to be executed if the query fails.
+ * The parameter for the callback is this query
+ *
+ * * fail_callback - The callback to be executed
+ *
+ * Returns `TRUE` if the callback was set successfully
+ * Returns `FALSE` if the callback could not be set, because another callback was already set
+ */
+/datum/db_query/proc/SetFailCallback(datum/callback/fail_callback)
+	if (src.fail_callback != null)
+		return FALSE
+	src.fail_callback = fail_callback
+
+/// Stores the last activity and the time it happened on the query
 /datum/db_query/proc/Activity(activity)
 	last_activity = activity
 	last_activity_time = world.time
 
+/**
+ * warn_execute
+ *
+ * Execute()'s the query and prints a warning to the chat of the `usr` if it fails
+ *
+ * * async - Default `TRUE` - See Execute() for a description
+ *
+ * Returns `TRUE` if the query was successfully executed
+ */
 /datum/db_query/proc/warn_execute(async = TRUE)
 	. = Execute(async)
 	if(!.)
 		to_chat(usr, SPAN_DANGER("A SQL error occurred during this operation, check the server logs."))
 
-/datum/db_query/proc/Execute(async = TRUE, log_error = TRUE)
+/**
+ * Execute
+ *
+ * Executes the query and waits until the query is successfully executed before return'ing
+ * The query can be executed "sync" or "async".
+ * If the query is executed async, the query is scheduled by the DBCore and not blocking other operations
+ * If the query is executed sync, the query is executed immediately in a blocking manner
+ * In case Success/Fail Callbacks are set, they are executed.
+ *
+ * * async - Default `TRUE`
+ *
+ * Returns `TRUE` if the query was successfully executed
+ */
+/datum/db_query/proc/Execute(async = TRUE)
 	Activity("Execute")
 	if(status == DB_QUERY_STARTED)
 		CRASH("Attempted to start a new query while waiting on the old one")
 
-	if(!SSdbcore.IsConnected())
+	if(!SSdbcore.Connect())
 		last_error = "No connection!"
 		return FALSE
 
@@ -449,30 +511,158 @@ SUBSYSTEM_DEF(dbcore)
 		var/job_result_str = rustg_sql_query_blocking(connection, sql, json_encode(arguments))
 		store_data(json_decode(job_result_str))
 
-	. = (status != DB_QUERY_BROKEN)
+	. = (status == DB_QUERY_FINISHED)
 	var/timed_out = !. && findtext(last_error, "Operation timed out")
-	if(!. && log_error)
-		log_subsystem_dbcore("SQL Query Failed. Query: [sql], Arguments: [json_encode(arguments)], error: [last_error]")
-		//logger.Log(LOG_CATEGORY_DEBUG_SQL, "sql query failed", list(
-		//	"query" = sql,
-		//	"arguments" = json_encode(arguments),
-		//	"error" = last_error,
-		//))
-
 	if(!async && timed_out)
 		log_subsystem_dbcore("SLOW QUERY TIMEOUT. Query: [sql], start_time: [start_time], end_time: [REALTIMEOFDAY]")
-		//logger.Log(LOG_CATEGORY_DEBUG_SQL, "slow query timeout", list(
-		//	"query" = sql,
-		//	"start_time" = start_time,
-		//	"end_time" = REALTIMEOFDAY,
-		//))
 		slow_query_check()
+
+/**
+ * ExecuteNoSleep
+ *
+ * This executes a query without waiting for the results of the query.
+ * This means, that you should not rely on being able to access the results of the query directly after the function call.
+ * Instead you need to use the Callbacks, where you can then process the query result.
+ *
+ * - permit_before_dbcore_running `FALSE` - If set to TRUE allows the query to be queued before the DBCore Subsystem is running (will still only be executed after it is running)
+ */
+/datum/db_query/proc/ExecuteNoSleep(permit_before_dbcore_running=FALSE)
+	Activity("Execute")
+	if(status == DB_QUERY_STARTED)
+		CRASH("Attempted to start a new query while waiting on the old one")
+
+	if(!SSdbcore.Connect())
+		last_error = "No connection!"
+		return FALSE
+
+	Close()
+	status = DB_QUERY_STARTED
+	if(!MC_RUNNING(SSdbcore.init_stage) && !permit_before_dbcore_running)
+		status = DB_QUERY_BROKEN
+		last_error = "MC not running, Cant Execute NoSleep Query"
+		log_subsystem_dbcore("Attemted to Execute NoSleep Query while MC was not running: [sql], Arguments: [json_encode(arguments)], error: [last_error]")
+		return FALSE
+	else
+		SSdbcore.queue_query(src)
+		return TRUE
 
 /// Sleeps until execution of the query has finished.
 /datum/db_query/proc/sync()
 	while(status < DB_QUERY_FINISHED)
 		stoplag()
 
+
+/** QuerySelect
+	Run a list of query datums in parallel, blocking until they all complete.
+	* queries - List of queries or single query datum to run.
+	* warn - Controls rather warn_execute() or Execute() is called.
+	* qdel - If you don't care about the result or checking for errors, you can have the queries be deleted afterwards.
+		This can be combined with invoke_async as a way of running queries async without having to care about waiting for them to finish so they can be deleted,
+		however you should probably just use FireAndForget instead if it's just a single query.
+*/
+/datum/controller/subsystem/dbcore/proc/QuerySelect(list/queries, warn = FALSE, qdel = FALSE)
+	if (!islist(queries))
+		if (!istype(queries, /datum/db_query))
+			CRASH("Invalid query passed to QuerySelect: [queries]")
+		queries = list(queries)
+	else
+		queries = queries.Copy() //we don't want to hide bugs in the parent caller by removing invalid values from this list.
+
+	for (var/datum/db_query/query as anything in queries)
+		if (!istype(query))
+			queries -= query
+			stack_trace("Invalid query passed to QuerySelect: `[query]` [REF(query)]")
+			continue
+
+		if (warn)
+			INVOKE_ASYNC(query, TYPE_PROC_REF(/datum/db_query, warn_execute))
+		else
+			INVOKE_ASYNC(query, TYPE_PROC_REF(/datum/db_query, Execute))
+
+	for (var/datum/db_query/query as anything in queries)
+		query.sync()
+		if (qdel)
+			qdel(query)
+
+/*
+Takes a list of rows (each row being an associated list of column => value) and inserts them via a single mass query.
+Rows missing columns present in other rows will resolve to SQL NULL
+You are expected to do your own escaping of the data, and expected to provide your own quotes for strings.
+The duplicate_key arg can be true to automatically generate this part of the query
+	or set to a string that is appended to the end of the query
+Ignore_errors instructes mysql to continue inserting rows if some of them have errors.
+	the erroneous row(s) aren't inserted and there isn't really any way to know why or why errored
+*/
+/datum/controller/subsystem/dbcore/proc/MassInsert(table, list/rows, duplicate_key = FALSE, ignore_errors = FALSE, warn = FALSE, async = TRUE, special_columns = null)
+	if (!table || !rows || !istype(rows))
+		return
+
+	// Prepare column list
+	var/list/columns = list()
+	var/list/has_question_mark = list()
+	for (var/list/row in rows)
+		for (var/column in row)
+			columns[column] = "?"
+			has_question_mark[column] = TRUE
+	for (var/column in special_columns)
+		columns[column] = special_columns[column]
+		has_question_mark[column] = findtext(special_columns[column], "?")
+
+	// Prepare SQL query full of placeholders
+	var/list/query_parts = list("INSERT")
+	if (ignore_errors)
+		query_parts += " IGNORE"
+	query_parts += " INTO "
+	query_parts += table
+	query_parts += "\n([columns.Join(", ")])\nVALUES"
+
+	var/list/arguments = list()
+	var/has_row = FALSE
+	for (var/list/row in rows)
+		if (has_row)
+			query_parts += ","
+		query_parts += "\n  ("
+		var/has_col = FALSE
+		for (var/column in columns)
+			if (has_col)
+				query_parts += ", "
+			if (has_question_mark[column])
+				var/name = "p[arguments.len]"
+				query_parts += replacetext(columns[column], "?", ":[name]")
+				arguments[name] = row[column]
+			else
+				query_parts += columns[column]
+			has_col = TRUE
+		query_parts += ")"
+		has_row = TRUE
+
+	if (duplicate_key == TRUE)
+		var/list/column_list = list()
+		for (var/column in columns)
+			column_list += "[column] = VALUES([column])"
+		query_parts += "\nON DUPLICATE KEY UPDATE [column_list.Join(", ")]"
+	else if (duplicate_key != FALSE)
+		query_parts += duplicate_key
+
+	var/datum/db_query/Query = NewQuery(query_parts.Join(), arguments)
+	if (warn)
+		. = Query.warn_execute(async)
+	else
+		. = Query.Execute(async)
+	qdel(Query)
+
+
+/**
+ * process
+ *
+ * Invoked by the DBcore Subsystem
+ * Checks if the query has been completed.
+ * Stores the results of the query in the /datum/db_query
+ * Calls invoke_callback()
+ * And logs failed queries
+ *
+ * Returns `TRUE` if the query finished (successful or not)
+ */
 /datum/db_query/process(seconds_per_tick)
 	if(status >= DB_QUERY_FINISHED)
 		return TRUE // we are done processing after all
@@ -483,8 +673,12 @@ SUBSYSTEM_DEF(dbcore)
 		return FALSE //no results yet
 
 	store_data(json_decode(job_result))
+	invoke_callback()
+	if (status != DB_QUERY_FINISHED)
+		log_subsystem_dbcore("SQL Query Failed. Query: [sql], Arguments: [json_encode(arguments)], error: [last_error]")
 	return TRUE
 
+/// Stores the returned query data and updates the `status` of the /datum/db_query
 /datum/db_query/proc/store_data(result)
 	switch(result["status"])
 		if("ok")
@@ -502,10 +696,20 @@ SUBSYSTEM_DEF(dbcore)
 			status = DB_QUERY_BROKEN
 			return
 
+/// Invokes the appropriate query callback if set
+/datum/db_query/proc/invoke_callback()
+	if (status == DB_QUERY_FINISHED)
+		if (success_callback)
+			success_callback.InvokeAsync(src)
+	else
+		if (fail_callback)
+			fail_callback.InvokeAsync(src)
 
+/// Messages the admin on sync queries to ask if the server just hung
 /datum/db_query/proc/slow_query_check()
 	message_admins("HEY! A database query timed out. Did the server just hang? <a href='?_src_=holder;slowquery=yes'>\[YES\]</a>|<a href='?_src_=holder;slowquery=no'>\[NO\]</a>")
 
+/// Load the NextRow from the query data into the item variable of the /datum/db_query
 /datum/db_query/proc/NextRow(async = TRUE)
 	Activity("NextRow")
 
@@ -519,6 +723,7 @@ SUBSYSTEM_DEF(dbcore)
 /datum/db_query/proc/ErrorMsg()
 	return last_error
 
+/// Deletes the Rows and Items from the Query
 /datum/db_query/proc/Close()
 	rows = null
 	item = null

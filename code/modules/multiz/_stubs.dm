@@ -3,5 +3,7 @@
 	desc = "An unknown location."
 	invisibility = 101
 
-	var/height = 1     ///< The number of Z-Levels in the map.
-	var/turf/edge_type ///< What the map edge should be formed with. (null = world.turf)
+	/// The number of Z-Levels in the map.
+	var/height = 1
+	/// What the map edge should be formed with. (null = world.turf)
+	var/turf/edge_type

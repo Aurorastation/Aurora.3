@@ -19,7 +19,7 @@
 	a_intent = I_HURT
 	stop_automated_movement_when_pulled = FALSE
 	health = 300
-	maxHealth = 300
+	maxhealth = 300
 	blood_type = COLOR_OIL
 	speed = 8
 	projectiletype = /obj/projectile/beam/drone
@@ -56,7 +56,7 @@
 	tameable = FALSE
 
 	flying = TRUE
-	see_invisible = SEE_INVISIBLE_NOLIGHTING
+	lighting_alpha = LIGHTING_PLANE_ALPHA_SOMEWHAT_INVISIBLE
 
 	psi_pingable = FALSE
 	sample_data = null
@@ -168,7 +168,7 @@
 		speak_chance = 5
 
 	//repair a bit of damage
-	if(prob(1) && health < maxHealth)
+	if(prob(1) && health < maxhealth)
 		visible_message(SPAN_NOTICE("\The [src] shudders and shakes as some of its damaged systems come back online."))
 		spark(src, 3, GLOB.alldirs)
 		health += rand(25, 100)
@@ -186,16 +186,16 @@
 			src.visible_message(SPAN_ALERT("\The [src] suddenly lights up, and additional targetting vanes slide into place."))
 			hostile_drone = TRUE
 
-	if(health / maxHealth > 0.9)
+	if(health / maxhealth > 0.9)
 		icon_state = "drone3"
 		explode_chance = 0
-	else if(health / maxHealth > 0.7)
+	else if(health / maxhealth > 0.7)
 		icon_state = "drone2"
 		explode_chance = 0
-	else if(health / maxHealth > 0.5)
+	else if(health / maxhealth > 0.5)
 		icon_state = "drone1"
 		explode_chance = 0.5
-	else if(health / maxHealth > 0.3)
+	else if(health / maxhealth > 0.3)
 		icon_state = "drone0"
 		explode_chance = 5
 	else if(health > 0)

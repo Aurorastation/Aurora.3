@@ -26,6 +26,13 @@
 		/obj/item/circuitboard/crystal_agitator
 	)
 
+	parts_power_mgmt = FALSE
+
+/obj/machinery/power/crystal_agitator/upgrade_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Upgraded <b>capacitors</b> will reduce active power usage."
+	. += "Upgraded <b>manipulators</b> will increase agitation speed."
+
 /obj/machinery/power/crystal_agitator/Initialize()
 	. = ..()
 	connect_to_network()
@@ -66,7 +73,8 @@
 		toggle_active()
 		return
 
-	var/actual_load = draw_power(active_power_usage)
+	var/actual_load = POWER_DRAW(src, active_power_usage)
+	DRAW_POWER(src, active_power_usage)
 	if(actual_load < active_power_usage)
 		toggle_active()
 		return
@@ -87,6 +95,7 @@
 	last_agitation = world.time
 
 /obj/machinery/power/crystal_agitator/RefreshParts()
+	..()
 	for(var/obj/item/stock_parts/SP in component_parts)
 		if(ismanipulator(SP))
 			agitation_rate = initial(agitation_rate) - (SP.rating * 5)

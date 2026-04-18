@@ -1,7 +1,7 @@
 /obj/item/clothing/accessory/aodai
 	name = "ao dai"
 	desc = "A long, split tunic worn over trousers."
-	icon = 'icons/clothing/under/uniforms/newhaiphong.dmi'
+	icon = 'icons/obj/item/clothing/under/human/sol/newhaiphong.dmi'
 	icon_state = "aodai"
 	item_state = "aodai"
 	contained_sprite = TRUE
@@ -17,9 +17,9 @@
 	item_state = "aodaicrop"
 
 /obj/item/clothing/head/nonla
-	name = "non la"
-	desc = "A conical straw hat enjoyed particularly by residents of New Hai Phong, to protect the head from sweltering suns and heavy rains."
-	icon = 'icons/clothing/under/uniforms/newhaiphong.dmi'
+	name = "non la conical hat"
+	desc = "A conical straw hat, also known as a non la, enjoyed particularly by residents of New Hai Phong, to protect the head from sweltering suns and heavy rains."
+	icon = 'icons/obj/item/clothing/head/newhaiphong.dmi'
 	icon_state = "nonla"
 	item_state = "nonla"
 	contained_sprite = TRUE

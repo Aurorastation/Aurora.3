@@ -76,11 +76,11 @@
 	back = /obj/item/storage/backpack/satchel/hegemony
 
 
-	l_ear = /obj/item/device/radio/headset/ship
+	l_ear = /obj/item/radio/headset/ship
 
 	backpack_contents = list(
 		/obj/item/storage/box/survival = 1,
-		/obj/item/storage/box/donkpockets = 1
+		/obj/item/storage/box/unique/donkpockets = 1
 	)
 
 /obj/outfit/admin/izweski/get_id_access()
@@ -123,8 +123,8 @@
 	uniform = /obj/item/clothing/under/unathi/skakh/warrior
 	backpack_contents = list(
 		/obj/item/storage/box/survival = 1,
-		/obj/item/storage/box/donkpockets = 1,
-		/obj/item/device/versebook/skakh = 1
+		/obj/item/storage/box/unique/donkpockets = 1,
+		/obj/item/versebook/skakh = 1
 	)
 
 

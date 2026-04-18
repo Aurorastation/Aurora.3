@@ -9,6 +9,7 @@
 	starlight_power = 2
 	starlight_range = 4
 	sector_welcome_message = 'sound/AI/welcome_coalition.ogg'
+	sector_hud_menu = 'icons/misc/hudmenu/coalition_hud.dmi'
 	sector_hud_arrow = "menu_arrow"
 
 /datum/space_sector/weeping_stars
@@ -37,6 +38,7 @@
 	starlight_power = 2
 	starlight_range = 4
 	sector_welcome_message = 'sound/AI/welcome_weeping.ogg'
+	sector_hud_menu = 'icons/misc/hudmenu/coalition_hud.dmi'
 	sector_hud_arrow = "menu_arrow"
 
 /datum/space_sector/arusha
@@ -51,11 +53,49 @@
 /datum/space_sector/libertys_cradle
 	name = SECTOR_LIBERTYS_CRADLE
 	description = "The beating heart of the modern Coalition of Colonies, Liberty’s Cradle is home to many of the Coalition’s most developed and influential worlds. In contrast to the Solarian stereotype of the frontier as a decivilized wasteland populated by roving bands of pirates and petty warlords, Liberty’s Cradle is a prosperous and safe region which has a higher standard of living than much of the former Middle and Outer Ring possessed prior to the Solarian Collapse of 2462. Post-Collapse the area has continued to prosper and, now that it dwells far behind the Coalition-controlled Weeping Stars, is more secure than it has ever been before."
-	skybox_icon = "the_clash"//placeholder
-//	cargo_price_coef = TBD
-	starlight_color = "#962d96"
+	skybox_icon = "arusha"//placeholder
+	scheduled_port_visits = null
+	cargo_price_coef = list(
+		"arisi" = 1.2,
+		"bishop" = 0.8,
+		"blam" = 1.2,
+		"eckharts" = 1.2,
+		"einstein" = 0.8,
+		"getmore" = 0.8,
+		"hephaestus" = 1.1,
+		"iac" = 1.2,
+		"idris" = 0.8,
+		"molinaris" = 1.2,
+		"nanotrasen" = 0.8,
+		"orion" = 0.8,
+		"virgo" = 1.2,
+		"vysoka" = 1.2,
+		"xion" = 1.1,
+		"zavodskoi" = 0.8,
+		"zeng_hu" = 0.7,
+		"zharkov" = 1.2,
+		"zora" = 1.2,
+		)
+	starlight_color = "#2d9647"
 	starlight_power = 2
-	starlight_range = 4
+	starlight_range = 5
+
+
+/datum/space_sector/libertys_cradle/xanu
+	name = SECTOR_XANU
+	description = "Located in the eastern Orion Spur. The Xanu system is home to the Xanu Prime, colonised in 2185, which has grown into the current capital of the Coalition of Colonies, a decentralised government that won its independence from the Solarian Alliance after the Interstellar War."
+	skybox_icon = "arusha" //placeholder
+	possible_exoplanets = list(/obj/effect/overmap/visitable/sector/exoplanet/barren/asteroid, /obj/effect/overmap/visitable/sector/exoplanet/barren/asteroid/ice)
+	guaranteed_exoplanets = list(/obj/effect/overmap/visitable/sector/exoplanet/xanu)
+
+	ports_of_call = list("Pataliputra")
+	scheduled_port_visits = list("Saturday", "Sunday")
+	starlight_range = 2
+
+	lobby_tracks = list(
+		'sound/music/ingame/xanu/xanu_rock_1.ogg',
+		'sound/music/ingame/xanu/xanu_rock_2.ogg'
+	)
 
 /datum/space_sector/burzsia
 	name = SECTOR_BURZSIA
@@ -83,6 +123,7 @@
 	starlight_power = 2
 	starlight_range = 4
 	sector_welcome_message = 'sound/AI/welcome_weeping.ogg'
+	sector_hud_menu = 'icons/misc/hudmenu/coalition_hud.dmi'
 	sector_hud_arrow = "menu_arrow"
 
 /datum/space_sector/haneunim
@@ -110,8 +151,10 @@
 	starlight_color = "#e2719b"
 	starlight_power = 2//placeholder
 	starlight_range = 4//placeholder
-	lobby_icon_image_paths = list(list('icons/misc/titlescreens/raccoon_city/title.png'))
+	sector_lobby_art = list('icons/misc/titlescreens/lore/silicon_nightmares.dmi')
+	sector_lobby_transitions = 0
 	sector_welcome_message = 'sound/AI/welcome_konyang.ogg'
+	sector_hud_menu = 'icons/misc/hudmenu/konyang_hud.dmi'
 	sector_hud_arrow = "menu_arrow"
 
 	lobby_tracks = list(

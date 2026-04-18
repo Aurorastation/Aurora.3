@@ -1,0 +1,493 @@
+2025-07-01:
+  Batrachophreno:
+  - bugfix: Removes false APC alarms.
+  - qol: Upgradeable objects now, on extended Examine (show more info), state what
+      parts can be upgraded and what they do.
+  - qol: Extended Examine text now formatted more cleanly and broken up by section
+      (mechanics, upgrades, antag hooks, etc.)
+  - refactor: Minor refactor to get_examine_text() to accommodate the above and make
+      room for future development.
+  - balance: Machine stock parts now more consistently affect power draw (usually
+      increases it, unless specified otherwise).
+  - balance: Antagonism extended descriptions now viewable by ghosts and Storytellers,
+      not just active antags.
+  - rscadd: Added missing descriptions or updated existing ones on several stock parts.
+  - bugfix: Restores correct resolutions to new TGUI windows.
+  - qol: Added additional description information for telecomms machines to communicate
+      that they can be repaired using Nanopaste.
+  - qol: Damaged telecomms machines now show their condition when examined.
+  - balance: Added small Nanopaste supply to the telecomms vestibule for repair.
+  - balance: Repairing telecomms machines now just repairs flat 25 damage (out of
+      max 100) instead of repairing by halves (was behaving oddly in-game).
+  - balance: Made the damaging variant of Communications Blackout do less damage to
+      soften the garbling effect.
+  - rscadd: Beating up a telecomms processor will now cause integrity damage to it,
+      which will result in garbled communications
+  - qol: Added antag desc text for the telecomms processor describing damage to it
+      garbling communications.
+  - balance: Comms Blackout events (base and damaging version) have had their weights
+      halved, given the addition of the new variant greatly increased their overall
+      likelihood.
+  - balance: APC Damage event now much more frequently causes lights to blow out.
+  - balance: Electrical Storm events have had their weights adjusted downwards slightly.
+  - balance: Electrical Storm events have had their durations reduced slightly.
+  - balance: Electrical Storm events now target fewer APCs at a time (2,4,6 -> 2,3,4).
+  - balance: Electrical Storm events no longer affect smaller offships.
+  - balance: Cosmic Expulsion event now weigh Bridge Crew/Engineer presence slightly
+      more heavily.
+  CometBlaze:
+  - rscadd: Added different Bishop screens! You can even change them during the round.
+  - bugfix: The default bishop face will no longer be layered over the alternate heads.
+  - rscdel: Removed the alternate head light markings as the new implementation made
+      them obsolete.
+  FabianK3:
+  - rscadd: Added an orange version of the high visibility jacket and pants. They
+      are available in the loadout.
+  Kano:
+  - rscadd: Remapped the SCCV Intrepid.
+  - rscadd: Ports CM's double vehicle seats.
+  SimpleMaroon:
+  - rscadd: Added 'diet Diesel' to the Diona - Xenowear loadout. It's like the Diesel
+      you know and love without all that dangerous radiation!
+  - qol: Regular and diet Diesel now both inflict toxin damage, with diet Diesel inflicting
+      less.
+  - spellcheck: Correct a typo in the description for standard Diesel.
+  SleepyGemmy:
+  - rscdel: Removed a duplicate candle in the chapel.
+  - bugfix: Fixed a lightswitch that had the wrong direction set in the auxiliary
+      custodial closet.
+  - bugfix: Fixed some doors having the wrong access set in research.
+  - bugfix: Added a missing emergency closet decal in research.
+  - rscadd: Added a charger and some minor furnishing to the RD office's empty corner.
+  - rscadd: Added a camera to the security equipment room.
+  - rscadd: Added an account console to the captain office.
+  - rscadd: Added an ATM to the bridge hallway.
+  - rscadd: Fixed a turf in the engineering hard storage not being the correct type.
+  - rscadd: Fixed the crusher disposal placing items on top of the crusher pistons.
+  - bugfix: Fixed grass flowing over onto tiles on the Horizon.
+  VMSolidus:
+  - rscadd: Added the option to give custom names and descriptions to most generic(non-corporate)
+      augments in loadouts.
+  - rscadd: Descriptions for augments will now appear in cyborg analyzer scans. Assisted
+      organs will also show up there as well.
+  hazelmouse:
+  - rscadd: The Cryo Outpost and Nuclear Silo scenario maps have been edited to minimise
+      the travel time between the shuttle landmarks and the centerpieces of each map.
+2025-07-02:
+  CometBlaze:
+  - rscadd: Renamed the positronic-implanted brain to pseudoneuron-assisted brain.
+  ElorgRHG:
+  - imageadd: Resprited colorable suit jackets, blazers, and dress pants.
+  Jasorn:
+  - rscdel: Removed the adult descriptions/references in the battlemonsters cards.
+  SleepyGemmy:
+  - imageadd: Added a small medical sign.
+  - rscadd: Replaced the medical signs with small medical signs.
+  hazelmouse:
+  - rscadd: K'ois spores no longer invariably begin to die after being planted. This
+      was happening because their light tolerance was lower than the light generated
+      by their own bioluminescence, causing them to die from the light they produce.
+  steviii:
+  - rscadd: Added a Himean ship and all the associated peripheries.
+  - rscadd: Adds Hydrogen cells to the military belts.
+  - rscadd: Adds the Nephilim blaster repeater cannon.
+  - rscadd: Adds an empty variant for the medical closet.
+  - rscadd: Redefines raider walls to use COLOR_RAIDER instead of a hexcode.
+  - rscadd: Adds Himean naval and army uniforms and a pilot helmet.
+  - soundadd: Adds a gatling laser sound for the Nephilim.
+  - rscadd: Adds an equipped variant of the Himean industrial rig.
+  - rscadd: Genericizes the description of the energy knife.
+2025-07-03:
+  hazelmouse, MattAtlas:
+  - rscadd: Dionae now have access to an ability granting them magboot-like functionality.
+  - code_imp: Implemented some miscellaneous documentation changes to Diona code.
+2025-07-04:
+  Batrachophrenoboocosmomachia:
+  - bugfix: Object examine text for upgrade components now correctly displays as available.
+  - bugfix: Missing RPED component detection text restored.
+  - rscdel: Remove component power draw multiplier factor.
+  SleepyGemmy:
+  - bugfix: Fixed wallets having a mob overlay.
+  - bugfix: Fixed lanyards having a duplicate overlay.
+2025-07-07:
+  ASmallCuteCat:
+  - rscadd: You can now wash dishes, cooking pots, and glassware! With the empty item
+      in hand, left-click a sink with DISARM intent.
+  Batrachophreno:
+  - rscadd: Offbrand variant of sightlights available to non-Zeng-Hu crew; 50% weaker
+      than Zeng-Hu variant.
+  - balance: Tiny increase to brightness of original Zeng-Hu sightlights and the light
+      is now tinged a stylish pale violet.
+  ElorgRHG:
+  - imageadd: 'Did a consistency pass, and some resprites, on most boot sprites, notable
+      changes include: all colorable boots, all workboots, all jackboots/ridingboots/ridingboots.'
+  GeneralCamo:
+  - rscadd: Prosthetics with lights now have emissives.
+  SimpleMaroon:
+  - bugfix: Diet Diesel no longer gives toxin damage to Dionae.
+  - qol: Queenless K'lax Vaurcae can now select Si'akh as their religion. This is
+      only meant for those of the Ssup'vihtal group!
+  SleepyGemmy:
+  - rscadd: Added a windoor to the SmartFridge in the kitchen on the kitchen side.
+  - bugfix: Fixed ringer terminals ringing across decks.
+  steviii:
+  - rscadd: Swaps some pipes and machinery around in the atmos locker room so it doesn't
+      overlap.
+2025-07-08:
+  Batrachophreno:
+  - bugfix: Replaced 691 standard grates in Horizon maintenance areas with dark grates.
+  MattAtlas (Porting), CM Developers (original code):
+  - rscadd: Replaced Runechat with Langchat from CM for better functionality and clearer
+      text.
+  - rscadd: Ported screen text from CM.
+  SleepyGemmy:
+  - bugfix: Fixed ringer buttons not animating when pressed.
+  - bugfix: Fixed the hydroponics ringers being named wrong.
+2025-07-09:
+  Batrachophreno:
+  - rscadd: New item for Odyssey Storytellers, antag_spawner/ody_actor, that when
+      spawned opens a new Actor slot.
+  Batrachophrenoboocosmomachia:
+  - bugfix: Fixed unclosed hrefs; Integrated Circuits and Electronic Assembly UIs
+      work again.
+  - bugfix: Fixed unclosed hrefs; Exosuits 'being piloted by' text with link to pilot
+      works again.
+  - bugfix: Fixed unclosed hrefs; Show Held Item 'Take a closer look' text link works
+      again.
+  - bugfix: Fixed unclosed hrefs; additional clothing accessory Examine detail links
+      work again.
+  - bugfix: Fixed unclosed hrefs; AI/Borg ship alarm camera links work again.
+  - bugfix: Fixed unclosed hrefs; borg/drone installed modules detail links works
+      again.
+  - bugfix: Fixed unclosed hrefs; various library computer links work again.
+  - bugfix: Fixed unclosed hrefs; various pAI window links work again.
+  - bugfix: Fixed unclosed hrefs; newscaster story comments work again.
+  Kano:
+  - bugfix: 'Fixed the following issues: banners appearing with their stand when put
+      on walls in mapping, being unable to place it when standing on furniture or
+      dense objects, banner duplication.'
+2025-07-10:
+  notagonk:
+  - bugfix: Fixes various mapping and code issues with the Dominian Corvette.
+2025-07-11:
+  CourierBravo:
+  - rscadd: Added destination taggers and package paper to the bar, hydroponics, library,
+      security, research and development, the mutual xenobio area, xenoarcheology,
+      engineering, medical, the chapel, deck 1 janitorial, the corporate rep offices,
+      the consular offices, and the bridge.
+  Geeves, Greenjoe:
+  - rscadd: You can now spawn with broken limbs. Select these via the disabilities
+      menu.
+  Jasorn:
+  - bugfix: Removed withdrawal messages from ambrosia extract to prevent constant
+      chatspam.
+  SimpleMaroon:
+  - bugfix: Fixed the loadout tab returning a /list error if you selected the Shirts
+      and Tops section.
+  Skull132:
+  - rscadd: Allows users to log in from the forums without having a ckey linked.
+  WickedCybs:
+  - rscadd: Added Sezrak's new custom item.
+  - rscdel: Removed their other retconned item.
+  Wowzewow (Wezzy):
+  - bugfix: Fixes Skrell shirts not showing up on loadout or in-game.
+  - bugfix: IPCs no longer have a minimum age for working assistant jobs.
+  - bugfix: Fixes Sinta Hoods not showing up on suits.
+  - bugfix: Fixes accessories being removed from range.
+  - bugfix: Fixes invisible glass tables.
+  - bugfix: Fixes invisible mag-claws, teriyaki donk pocket box, and warden's mine
+      detector.
+  hazelmouse:
+  - rscadd: All IPC subspecies besides shells are now limited exclusively to using
+      the machine variant of voidsuits rather than the human variants, in the interest
+      of enforcing more uniformity. Hardsuits have not been changed.
+  kermit:
+  - rscadd: Implements the bare essentials of the Xanu system and the planet of Xanu
+      Prime.
+  - soundadd: Xanu lobby music from 'Indulgence' album by Swara Sutra @ Bandcamp.
+  nauticall:
+  - rscadd: Added the Expeditionary radio frequency to all radios that come with Common
+      (and Entertainment) frequencies as a default radio channel.
+  - rscadd: The Expeditionary radio channel is now accessible in-radio via the shortcut
+      key 'D', e.g. ':d' or '.d'.
+  - qol: Expeditionary radio channel changed to custard yellow for easier visibility.
+  notagonk:
+  - qol: Completely remaps the PRA's Headmaster Cruiser to better spread the immortal
+      science of Hadiism across the stars.
+  - rscadd: Remaps the Operations Manager's office to a modern standard, including
+      their locker contents.
+  - qol: Instead of spawning with a clipboard, the Operations Manager can now find
+      it in their office.
+  steviii:
+  - bugfix: Fixed some unsimulated turfs, not having a distress beacon launcher, lighting
+      issues, an accidentally included (broken) flask, and the radio on the Himeo
+      Patrol Ship.
+2025-07-12:
+  ASmallCuteCat:
+  - rscadd: Adds some karaoke decoration to the Private Lounge in the Horizon's bar.
+  - rscadd: Moves the the arcade machine and the GwokBuzz! vendor into the Bar Lounge.
+  Batrachophrenoboocosmomachia:
+  - bugfix: Fixed unclosed hrefs; Integrated Circuits complexity issues.
+  - bugfix: Fixed double-closed hrefs; loadout category issue.
+  MattAtlas:
+  - bugfix: Fixes dynamic space turfs not being Z-mimiced properly.
+  Wowzewow (Wezzy):
+  - bugfix: Fixes invisible steel tables.
+2025-07-13:
+  4000daniel1:
+  - rscadd: Added the phoron deposit away site.
+  - balance: Hostile mobs now attack barricades & girders in their way.
+  - balance: Barricades with barbed wire now deal slightly less damage to attacking
+      mobs.
+  - bugfix: Fixed a bug where hostile mobs rarely continue chasing their target even
+      after dying.
+  ASmallCuteCat:
+  - qol: Added wet floor signs to the custodial cyborg module.
+  Batrachophrenoboocosmomachia:
+  - balance: Tunes down all electrical storm variant frequencies.
+  Greenjoe:
+  - rscadd: Adds a diplomatic bodyguard role, which can be opened by a consular in
+      the same way as the aide role. Consulars no longer have a pistol on them, with
+      the bodyguard carrying it instead.
+  KingOfThePing:
+  - rscadd: 'Added three new signs to the bar: Free Drinks! We Are Open! and Closed!,
+      from BayStation12.'
+  - rscadd: Added a new holosign in a classic (american) diner design to both the
+      kitchen and the bar. Toggle on and off with the new button.
+  arrow768:
+  - rscdel: Gets rid of SSdocs as its unused.
+  hazelmouse:
+  - rscadd: Plants now grow faster if within their ideal heat and light preferences!
+      If you notice plants growing unusually slowly, try checking their requirements
+      with a plant analyzer - you might be able to speed it up drastically by giving
+      them the right conditions. Currently, preferential temperatures are within 5
+      kelvin of their ideal, and preferential lighting is within 2 lumens of their
+      ideal.
+  - rscadd: The internal lighting setting of hydroponics trays can now be edited with
+      a ctrl + click.
+  - rscdel: All verbs have been removed from hydroponics trays - namely for closing
+      the lid and for changing the lighting - now that both are accessible via an
+      alt + click and a ctrl + click respectively.
+  - balance: Several plants in hydroponics now have more dramatic temperature requirements
+      - mushrooms and Adhomian plants require cooler temperatures, and several others
+      require warmer temperatures.
+  - rscadd: More feedback has been added to attacking the contents of hydroponics
+      trays, opening and closing their lids, and changing their light levels.
+  - rscadd: Fertiliser jugs now have descriptions defining their niche.
+  - code_imp: Introduced and shuffled a lot of documentation in hydroponics code.
+  - bugfix: Using the :h key no longer erroneously causes you to speak into the expeditionary
+      channel rather than your departmental channel.
+  kermit:
+  - rscadd: Adds the Crescent Expanse region. It's a big region, with an east (Sol/Nralakk
+      presence), west (Sol/CoC presence) and far sector (uncharted!).
+  - rscadd: Also adds an uncharted Lemurian Sea variant.
+  - soundadd: "7 regional lobby music tracks by either L\xFC\xFC\xFC, Little Bradley\
+      \ or Karl Casey. All on Bandcamp, check them out."
+  - rscadd: Adds the ccia_link variable which can be used to stop outbound faxes to
+      the CCIA. For uncharted sectors, such as the Crescent Expanse's far sector.
+  - rscadd: Adds low supply variant of most vending machines and dispensers for later
+      use. Ominous.
+  - rscdel: Removes the guaranteed spawn flag from the sensors relay, deferring to
+      the usual whitelist/blacklist system.
+  - rscdel: Burzsia is no longer a 'dangerous' system following completion of relief
+      efforts.
+2025-07-14:
+  Hellfirejag:
+  - rscadd: Added a missing construction recipe for pilot hardsuits to the mechatronic
+      fabricator
+  SleepyGemmy:
+  - rscadd: Added the Konyang and Adhomai lobby music to the audioconsole.
+2025-07-16:
+  Batrachophrenoboocosmomachia:
+  - bugfix: Fixed vertical cable connection from Security SMES to the actual department
+      subgrid, removed crosswire bandaid fix between it and Civilian Deck 2 subgrid.
+  - bugfix: Fixed mismatched maint floor grate coloring.
+  Kintsugi:
+  - bugfix: Liberty's Cradle now has proper starlight settings.
+  NobleRow:
+  - rscadd: 'Added six new baseline frame IPC screens: eyes colored green, red, yellow,
+      punk, orange, or blue.'
+  Wowzewow (Wezzy):
+  - bugfix: Fixes grammar for giving items.
+  - qol: Moved Dominian Consular outfit items from the loadout to be jobspawn items
+      to be in line with the other consulars.
+  - rscadd: Tidies up the hats section of the loadout and removes unused hats.
+  hazelmouse:
+  - bugfix: Hydroponicists can now access their own holomenu.
+  nauticall:
+  - rscadd: Added the Liberty's Cradle Stargazer hologram sprite to the game.
+2025-07-17:
+  Wowzewow (Wezzy):
+  - bugfix: Fixes head loadout.
+2025-07-18:
+  Hellfirejag:
+  - rscadd: Mechatronic fabricators now support recipes that require Plasteel, Lead,
+      or Aluminium.
+  - balance: Pilot hardsuits have had some of their steel costs replaced with the
+      more valuable plasteel.
+2025-07-22:
+  Batrachophrenoboocosmomachia:
+  - bugfix: Disposal Unit again provides a UI window when clicked on.
+  - refactor: Disposal Unit UI refactored to use TGUI.
+  - bugfix: Fixed sightlights object hierarchy; offbrand sightlights now selectable
+      by non-Zeng-Hu crew.
+  - qol: Examine text rewritten/broken into sections to make mechanics clearer and
+      easier to access in-game.
+  - refactor: Examine info now exists at atom-level, is handled by categorical functions
+      after object definitions.
+  - bugfix: Spotlights construction can now be completed rather than getting stuck
+      at final construction stage.
+  CometBlaze:
+  - rscadd: Tweaked some greyscale items, view PR-21006 for a full list.
+  FabianK3:
+  - bugfix: Fixed permanently stuck wall damage overlays. Walls now properly display
+      the correct damage visually according to their state and the damaged look vanishes
+      when they get repaired.
+  - rscadd: Added new informative descriptions when inspecting damaged walls to get
+      a better feeling for their state.
+  - bugfix: Fixed wall damage descriptions ignoring added strength of reinforced materials.
+      Reinforced wall descriptions will now show damage later as their additional
+      health is considered properly.
+  - balance: Changed levels of visual damage to walls to scale more linear. Thanks
+      to Batrachophrenoboocosmomachia.
+  Hellfirejag:
+  - bugfix: Fixed mechfab not being able to have its new materials inserted.
+  - rscadd: Added two variants of mind blanker bioaugs as loadout options for Galatean
+      characters.
+  Tag103:
+  - rscadd: Added Northern Wildlands Intervention Day, celebrated on June 8, to the
+      list of holidays.
+  - balance: The Solarian Marine event oufit now has a solarian energy dagger in its
+      belt rather than an energy sword. The Heavy Solarian Marine outfit has not been
+      changed, and still has an energy sword.
+  - bugfix: The Solarian submachine gun no longer inherits the extended description
+      intended for the submachine gun, which it is a subtype of.
+  - refactor: Part of the name used in the code for the sol alliance officer locker
+      has been changed from 'soll_officer' to 'sol_officer'.
+  - refactor: The name used in the code for the Solarian army beret has been changed
+      from '/obj/item/clothing/head/beret/sapk' to '/obj/item/clothing/head/beret/sol/army.'
+  Wowzewow (Wezzy):
+  - bugfix: Fixes flatcap recolorable.
+  - rscadd: Adds new lobby music. Updates the lobby music preference to be able to
+      adjust the volume.
+  - rscadd: Added the original Title3 song.
+  - rscdel: Removed Velvet Rose song.
+  hazelmouse:
+  - rscadd: The operations commissary has been moved to service, adjacent to the library,
+      and now accomodates access both from operations and service staff. The library
+      has also been remapped to accomodate this move.
+  - rscadd: Bookcases no longer obstruct vision.
+  - rscadd: Hydroponics now has a first-aid kit.
+  nauticall:
+  - rscadd: 'Adds over two dozen new shipping containers to the game in different
+      colors, brands, and more. Comes in three types: standard, refrigerated and tank.'
+  - code_imp: Old shipping containers and relevant paths and references have been
+      remapped to 'shipping_container_old' to avoid confusion.
+2025-07-23:
+  kermit:
+  - rscadd: Makes earphones/headphones/earbuds play music, much like Audioconsoles!
+  - rscadd: Adds music cartridges which are used to load music into earphones.
+  kermit, cometblaze:
+  - rscadd: Adds a football to the game. Available only to off-duty and passenger
+      loadouts only right now.
+  - imageadd: Football sprite by Comet.
+2025-07-24:
+  hazelmouse:
+  - rscadd: When plants grown in hydroponics or the garden go outside of their tolerances,
+      they will now cease to grow in addition to taking damage. If you notice plants
+      failing to grow for a long time, you may be running afoul of their light or
+      heat tolerances!
+  - rscadd: Seed packets now show their temperature and light tolerances on examine.
+  - rscadd: Hydroponicists now spawn with filled hydrobelts, similarly to engineers
+      and machinists.
+  - rscadd: Tweaked the preferential values of a few plants for consistency.
+  - rscadd: Eki is now, codewise, a mushroom.
+  - rscadd: Soil plots now produce noise when watered.
+  - rscadd: Hydrobelts can now contain crowbars.
+  - rscadd: Slightly increased the volume of a few sound effects for hydroponics trays.
+  - bugfix: Sugar tree seeds now appear corectly in seed storage machines.
+2025-07-26:
+  Batrachophrenoboocosmomachia:
+  - bugfix: Reassigned a few maintenance areas that were incorrectly placed port/starboard.
+  - qol: Adjusted default GPS UI size to better fit updated area names.
+  - rscadd: Area names now populate in the Status tab if your character is holding
+      a GPS unit in their active or inactive hand.
+  - rscadd: Area blurbs now poulate in the Status tab under any condition (so long
+      as the area has one).
+  - refactor: Refactored all the scattered Horizon /area/ definitions into unified
+      folder.
+  - refactor: Re-mapped and renamed most affected areas for better clarity and easier
+      future updates.
+  - code_imp: Added additional metadata variables to Horizon /areas/
+  - qol: Updated some procs to generate consistently descriptive area names for the
+      Horizon.
+  - qol: Added directional exit helpers to several access-restricted airlocks (able
+      to leave areas without needing someone to open the doors for you, where appropriate).
+  - bugfix: Assorted minor mapping bugfixes (random outside disconnected vent, non-functional
+      shutters, merge-mangled grates, etc.)
+  - qol: Made it so when no AI is being played, Communications Blackouts will always
+      announce their presence. If AI is being played, the existing 30% chance of firing
+      silently remains in place.
+  - bugfix: Refactor of Communications Blackout event to flag tcomm processors to
+      scramble signals due to previous implementation (mass faux-EMP) seeming too
+      unstable.
+  - bugfix: Removed duplicate Communications Blackout event entry from container,
+      removed deprecated event file.
+  - bugfix: Disposal units no longer try to siphon the entire atmosphere.
+  - bugfix: Remove orphaned fire alarm code from air alarms.
+  ElorgRHG:
+  - imageadd: 'Fixes an inconsistency on the north-facing sprites of every winter
+      coat. '
+  - imageadd: 'Changed the palette on the colorable winter coats. '
+2025-07-27:
+  AlaunusLux:
+  - bugfix: Buckling a grabbed mob to a bed will no longer cause the mob to lower
+      after buckling.
+  hellfirejag:
+  - bugfix: Fixed brain damage being inconsistent under high or low server load.
+2025-07-29:
+  Batrachophrenoboocosmomachia:
+  - rscadd: Added 39 additional options for Horizon warehouse submaps.
+  - rscadd: Added 14 additional regular cargo item spawns (flag boxes- each contain
+      sets of flags associated with a given nation, race, etc.)
+  - rscdel: Removed 'Russian' gimmick closet from warehouse spawn, increased spawn
+      rate of 'Tacticool' gimmick closet.
+  - balance: Warehouse rare RFD random spawn chance slightly increased, includes one
+      compressed matter block.
+  - balance: Warehouse rare clothing spawn now will spawn 1-4 items (increased from
+      1-2).
+  - balance: Warehouse 'unusual container' spawn chance slightly increased.
+  - balance: Warehouse chemical dispenser spawn pool now includes coffee makers, spawn
+      chance slightly increased.
+  - balance: Warehouse uncommon phoron sheets spawn chance slightly decreased.
+  - refactor: Updated radioactive greenglow decal to use ssRadiation proc instead
+      of old direct damage application.
+  ChangeMe:
+  - rscadd: Adds some new mission options for the shuttle manifest app.
+  TheGreyWolf:
+  - bugfix: Fixes the miner's bowman headset sprite.
+  - bugfix: Silicons can no longer open unpowered windoors from a distance.
+  nauticall:
+  - experiment: Reworked prices, wages and balances of (almost) everything ingame.
+  - rscadd: Added coinage and decimal support to cash, ruthlessly sanitized to avoid
+      floating-point errors. Reflected in cash-related things like ATMs.
+  - code_imp: Tweaked how cash bundles are made and distributed to support decimalization.
+  - balance: Adjusted the starting money individuals and departments receive in their
+      accounts.
+  - balance: Adjusted the funding Tajara, Unathi, Diona, Vaurca, and IPCs receive
+      in their accounts. Should earn more on average than they used to.
+2025-07-30:
+  TheGreyWolf:
+  - bugfix: Fixed the south-facing variant of the closed labcoat.
+  - bugfix: Vending machines no longer have a light overlay when losing power.
+2025-07-31:
+  AlaunusLux:
+  - bugfix: Mechs will no longer trample themselves when using a Phazon Bluespace
+      Transmission System.
+  Batrachophrenoboocosmomachia:
+  - bugfix: Fixed inconsistent behavior with gravity generator turning on/shutting
+      off, as well as associated inertial behaviors (throwing objects in zero g, etc.)
+  MattAtlas:
+  - qol: Tradeband and Encoded Audio Language are now more readable in dark mode (bright
+      purple and bright green).
+  - qol: Adjusted the dark mode colour for devsay and incoming admin messages.

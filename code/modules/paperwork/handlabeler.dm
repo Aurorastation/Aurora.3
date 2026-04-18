@@ -26,21 +26,22 @@
 
 	return TRUE
 
-/obj/item/device/hand_labeler
+/obj/item/hand_labeler
 	name = "hand labeler"
 	icon = 'icons/obj/bureaucracy.dmi'
 	icon_state = "labeler0"
 	item_state = "labeler0"
+	contained_sprite = TRUE
 	w_class = WEIGHT_CLASS_SMALL
 	var/label = null
 	var/labels_left = 30
 	var/mode = 0	//off or on.
 	matter = list(DEFAULT_WALL_MATERIAL = 120, MATERIAL_GLASS = 80)
 
-/obj/item/device/hand_labeler/attack(mob/living/target_mob, mob/living/user, target_zone)
+/obj/item/hand_labeler/attack(mob/living/target_mob, mob/living/user, target_zone)
 	return
 
-/obj/item/device/hand_labeler/afterattack(atom/A, mob/user as mob, proximity)
+/obj/item/hand_labeler/afterattack(atom/A, mob/user as mob, proximity)
 	if(!proximity)
 		return
 	if(!mode)	//if it's off, give up.
@@ -90,7 +91,7 @@
 
 	A.name = "[A.name] ([label])"
 
-/obj/item/device/hand_labeler/attack_self(mob/user as mob)
+/obj/item/hand_labeler/attack_self(mob/user as mob)
 	mode = !mode
 	icon_state = "labeler[mode]"
 	item_state = icon_state

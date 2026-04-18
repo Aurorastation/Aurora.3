@@ -4,8 +4,6 @@ with an /obj/effect/overmap/visitable/ship present elsewhere on that z level, or
 somewhere on that shuttle. Subtypes of these can be then used to perform ship overmap movement functions.
 */
 /obj/machinery/computer/ship
-	desc_antag = "These consoles, especially the ones that handle piloting and weaponry, may be access-locked.\
-	You can remove this lock with <b>wirecutters</b>, but it would take awhile! Alternatively, you can also use a cryptographic sequencer (emag) for instant removal."
 	/// Weakrefs to mobs in direct-view mode.
 	var/list/viewers
 	/// How much the view is increased by when the mob is in overmap mode.
@@ -19,6 +17,10 @@ somewhere on that shuttle. Subtypes of these can be then used to perform ship ov
 	/// For hotwiring, how many cycles are needed. This decreases by 1 each cycle and triggers at 0
 	var/hotwire_progress = 8
 
+/obj/machinery/computer/antagonist_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Consoles like these are typically access-locked."
+	. += "You can remove this lock with <b>wirecutters</b>, but it would take awhile! Alternatively, you can also use a cryptographic sequencer (emag) for instant removal."
 
 /obj/machinery/computer/ship/proc/display_reconnect_dialog(var/mob/user, var/flavor)
 	var/datum/browser/popup = new (user, "[src]", "[src]")
@@ -26,7 +28,7 @@ somewhere on that shuttle. Subtypes of these can be then used to perform ship ov
 	popup.open()
 
 /obj/machinery/computer/ship/attackby(obj/item/attacking_item, mob/user)
-	if(attacking_item.iscoil()) // Repair from hotwire
+	if(attacking_item.tool_behaviour == TOOL_CABLECOIL) // Repair from hotwire
 		var/obj/item/stack/cable_coil/C = attacking_item
 		if(hotwire_progress >= initial(hotwire_progress))
 			to_chat(usr, SPAN_BOLD("\The [src] does not require repairs."))
@@ -44,7 +46,7 @@ somewhere on that shuttle. Subtypes of these can be then used to perform ship ov
 						playsound(src.loc, 'sound/items/Deconstruct.ogg', 30, TRUE)
 			return
 
-	if(attacking_item.iswirecutter()) // Hotwiring
+	if(attacking_item.tool_behaviour == TOOL_WIRECUTTER) // Hotwiring
 		if(!req_access && !req_one_access && !emagged) // Already hacked/no need to hack
 			to_chat(user, SPAN_BOLD("[src] is not access-locked."))
 			return

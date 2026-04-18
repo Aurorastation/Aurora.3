@@ -36,7 +36,7 @@
 
 /obj/machinery/fusion_fuel_injector/attackby(obj/item/attacking_item, mob/user)
 
-	if(attacking_item.ismultitool())
+	if(attacking_item.tool_behaviour == TOOL_MULTITOOL)
 		var/datum/component/local_network_member/fusion = GetComponent(/datum/component/local_network_member)
 		fusion.get_new_tag(user)
 		return
@@ -57,7 +57,7 @@
 		cur_assembly = attacking_item
 		return
 
-	if(attacking_item.iswelder())
+	if(attacking_item.tool_behaviour == TOOL_WELDER)
 		if(injecting)
 			to_chat(user, SPAN_WARNING("Shut \the [src] off first!"))
 			return

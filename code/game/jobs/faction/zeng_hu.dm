@@ -1,18 +1,18 @@
 /datum/faction/zeng_hu
 	name = "Zeng-Hu Pharmaceuticals"
-	description = {"<p>
+	description = {"
 	Zeng-Hu Pharmaceuticals, born of a merger of two major biotech companies on
 	Earth in 2032, was the first to successfully develop cryogenics in the 21st
 	century for the purposes of space travel. This development, crucial to
 	interstellar colonization, helped propel them to their current position as the
-	largest pharmaceutical and medical corporation in the Orion Spur. In more recent
+	largest pharmaceutical and medical corporation in the Orion Spur.<br> In more recent
 	years, they were also the first mega-corporation to partner with the newly-discovered
 	Skrell, working closely with this alien species to pioneer cloning, a once
 	controversial field that is now more accepted today.
-	</p>"}
-
-	departments = {"Medical<br>Research"}
+	"}
+	departments = list(DEPARTMENT_MEDICAL, DEPARTMENT_SCIENCE)
 	title_suffix = "Zeng"
+	wiki_page = "Zeng-Hu_Pharmaceuticals"
 
 	allowed_role_types = ZENG_ROLES
 
@@ -57,6 +57,7 @@
 		"Xenoarchaeologist"= /obj/outfit/job/scientist/xenoarchaeologist/zeng_hu,
 		"Corporate Reporter" = /obj/outfit/job/journalist/zeng_hu,
 		"Corporate Liaison" = /obj/outfit/job/representative/zeng_hu,
+		"Corporate Aide" = /obj/outfit/job/corporate_aide/zeng_hu,
 		"Assistant" = /obj/outfit/job/assistant/zeng_hu,
 		"Medical Orderly" = /obj/outfit/job/assistant/med_assistant/zeng_hu,
 		"Lab Assistant" = /obj/outfit/job/assistant/lab_assistant/zeng_hu,
@@ -239,10 +240,23 @@
 	messengerbag_faction = /obj/item/storage/backpack/messenger/zeng
 
 	backpack_contents = list(
-		/obj/item/device/camera = 1,
+		/obj/item/camera = 1,
 		/obj/item/gun/energy/pistol = 1,
 		/obj/item/stamp/zeng_hu = 1
 	)
+
+/obj/outfit/job/corporate_aide/zeng_hu
+	name = "Zeng-Hu Corporate Aide"
+
+	id = /obj/item/card/id/zeng_hu
+	head = /obj/item/clothing/head/beret/corporate/zeng
+	suit = /obj/item/clothing/suit/storage/toggle/corp/zeng
+
+	backpack_faction = /obj/item/storage/backpack/zeng
+	satchel_faction = /obj/item/storage/backpack/satchel/zeng
+	dufflebag_faction = /obj/item/storage/backpack/duffel/zeng
+	messengerbag_faction = /obj/item/storage/backpack/messenger/zeng
+
 /obj/outfit/job/journalist/zeng_hu
 	name = "Corporate Reporter - Zeng-Hu"
 

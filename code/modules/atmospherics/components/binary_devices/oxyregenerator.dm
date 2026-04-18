@@ -58,7 +58,7 @@
 	. +=  "Its outlet port is to the [dir2text(dir)]."
 
 /obj/machinery/atmospherics/binary/oxyregenerator/attackby(obj/item/attacking_item, mob/user)
-	if(attacking_item.iswrench())
+	if(attacking_item.tool_behaviour == TOOL_WRENCH)
 		playsound(src.loc, 'sound/items/Ratchet.ogg', 75, 1)
 		anchored = !anchored
 		user.visible_message("[user.name] [anchored ? "secures" : "unsecures"] the bolts holding [src.name] to the floor.", \
@@ -103,7 +103,7 @@
 	last_power_draw = 0
 	//TODO Add overlay with F-P-R letter to display current state
 	if (phase == "filling")//filling tank
-		var/pressure_delta = target_pressure - inner_tank.return_pressure()
+		var/pressure_delta = target_pressure - XGM_PRESSURE(inner_tank)
 		if (pressure_delta > 0.01 && air1.temperature > 0)
 			var/transfer_moles = calculate_transfer_moles(air1, inner_tank, pressure_delta)
 			power_draw = pump_gas(src, air1, inner_tank, transfer_moles, power_rating*power_setting) * intake_power_efficiency
@@ -112,7 +112,7 @@
 				use_power_oneoff(power_draw)
 				if(network1)
 					network1.update = 1
-		if (air1.return_pressure() < 0.1 * ONE_ATMOSPHERE || inner_tank.return_pressure() >= target_pressure * 0.95)//if pipe is good as empty or tank is full
+		if (XGM_PRESSURE(air1) < 0.1 * ONE_ATMOSPHERE || XGM_PRESSURE(inner_tank) >= target_pressure * 0.95)//if pipe is good as empty or tank is full
 			phase = "processing"
 
 	if (phase == "processing")//processing CO2 in tank
@@ -137,7 +137,7 @@
 
 	if (phase == "releasing")//releasing processed gas mix
 		power_draw = -1
-		var/pressure_delta = target_pressure - air2.return_pressure()
+		var/pressure_delta = target_pressure - XGM_PRESSURE(air2)
 		if (pressure_delta > 0.01 && inner_tank.temperature > 0)
 			var/transfer_moles = calculate_transfer_moles(inner_tank, air2, pressure_delta, (network2)? network2.volume : 0)
 			power_draw = pump_gas(src, inner_tank, air2, transfer_moles, power_rating*power_setting)
@@ -148,7 +148,7 @@
 					network2.update = 1
 		else//can't push outside harder than target pressure. Device is not intended to be used as a pump after all
 			phase = "filling"
-		if (inner_tank.return_pressure() <= 0.1)
+		if (XGM_PRESSURE(inner_tank) <= 0.1)
 			phase = "filling"
 
 /obj/machinery/atmospherics/binary/oxyregenerator/update_icon()
@@ -157,37 +157,39 @@
 	else
 		icon_state = "[use_power ? "on" : "off"]"
 
-/obj/machinery/atmospherics/binary/oxyregenerator/ui_interact(mob/user, ui_key = "main", datum/nanoui/ui = null, force_open = 1)
-	var/data[0]
+/obj/machinery/atmospherics/binary/oxyregenerator/ui_interact(mob/user, datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
+	if(!ui)
+		ui = new(user, src, "OxyRegenerator")
+		ui.open()
+
+/obj/machinery/atmospherics/binary/oxyregenerator/ui_data(mob/user)
+	var/list/data = list()
 	data["on"] = use_power ? 1 : 0
 	data["powerSetting"] = power_setting
 	data["gasProcessed"] = last_flow_rate
-	data["air1Pressure"] = round(air1.return_pressure())
-	data["air2Pressure"] = round(air2.return_pressure())
-	data["tankPressure"] = round(inner_tank.return_pressure())
+	data["air1Pressure"] = round(XGM_PRESSURE(air1))
+	data["air2Pressure"] = round(XGM_PRESSURE(air2))
+	data["tankPressure"] = round(XGM_PRESSURE(inner_tank))
 	data["targetPressure"] = round(target_pressure)
 	data["phase"] = phase
-	if (inner_tank.total_moles > 0)
-		data["co2"] = round(100 * inner_tank.gas[GAS_CO2]/inner_tank.total_moles)
-		data["o2"] = round(100 * inner_tank.gas[GAS_OXYGEN]/inner_tank.total_moles)
+	if(inner_tank.total_moles > 0)
+		data["co2"] = round(100 * inner_tank.gas[GAS_CO2] / inner_tank.total_moles)
+		data["o2"] = round(100 * inner_tank.gas[GAS_OXYGEN] / inner_tank.total_moles)
 	else
 		data["co2"] = 0
 		data["o2"] = 0
-		// update the ui if it exists, returns null if no ui is passed/found
-	ui = SSnanoui.try_update_ui(user, src, ui_key, ui, data, force_open)
-	if(!ui)
-		ui = new(user, src, ui_key, "oxyregenerator.tmpl", "Oxygen Regeneration System", 440, 300)
-		ui.set_initial_data(data)
-		ui.open()
-		ui.set_auto_update(1)
+	return data
 
-/obj/machinery/atmospherics/binary/oxyregenerator/Topic(href, href_list)
-	if(..())
-		return 1
-	if(href_list["power"])
-		update_use_power(!use_power)
-		update_icon()
-		return 1
-	if(href_list["setPower"]) //setting power to 0 is redundant anyways
-		power_setting = clamp(text2num(href_list["setPower"]), 1, 5)
-		return 1
+/obj/machinery/atmospherics/binary/oxyregenerator/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
+	. = ..()
+	if(.)
+		return
+	switch(action)
+		if("power")
+			update_use_power(!use_power)
+			update_icon()
+			return TRUE
+		if("set_power")
+			power_setting = clamp(text2num(params["value"]), 1, 5)
+			return TRUE

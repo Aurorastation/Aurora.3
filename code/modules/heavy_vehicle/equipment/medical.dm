@@ -9,6 +9,12 @@
 	origin_tech = list(TECH_DATA = 2, TECH_BIO = 3)
 	passive_power_use = 25
 	var/obj/machinery/sleeper/mounted/sleeper = null
+	module_hints = list(
+		"<b>Left Click(Living Target):</b> Load the target into the mech's onboard Medical Sleeper unit.",
+		"<b>Alt Click(Icon):</b> Activate the sleeper unit's control interface.",
+		"Mounted sleepers are capable of performing any task that a stationary sleeper can do.",
+		"This includes putting a patient into stasis, injecting medicines, and performing kidney dialysis.",
+	)
 
 /obj/item/mecha_equipment/sleeper/Initialize()
 	. = ..()
@@ -132,7 +138,44 @@
 	var/mob/living/carbon/Target = null
 	var/datum/beam/MyBeam = null
 
+	module_hints = list(
+		"<b>Alt Click(Drone Icon):</b> Activates the drone. When active, it will bob up and down rapidly as a visual indication.",
+		"When active, a crisis drone will constantly attempt to heal injured people within <b>3</b> tiles.",
+		"The drone is capable of healing most damage types, it will even alleviate a patient's pain. It cannot heal patients with less than 30 total damage.",
+		"It <b>cannot</b> heal the dead. It also <b>cannot</b> mend broken bones.",
+	)
+
+/obj/item/mecha_equipment/crisis_drone/alien
+	name = "anomalous dronebay"
+	desc = "A small shoulder-mounted dronebay containing a drone made seemingly from mercury."
+	icon_state = "alien_drone"
+	origin_tech = list(TECH_PHORON = 9, TECH_MAGNET = 9, TECH_BIO = 9, TECH_DATA = 9)
+	restricted_hardpoints = list(HARDPOINT_LEFT_SHOULDER, HARDPOINT_RIGHT_SHOULDER)
+
+/obj/item/mecha_equipment/crisis_drone/alien/Initialize()
+	. = ..()
+	max_distance = rand(1, 5)
+	passive_power_use *= rand(0.8, 1.2)
+	damcap *= rand(0.8, 1.2)
+	heal_dead = prob(50)
+
+	// 5% chance to be a "Harming drone" instead of a healing drone. All healing is inverted to damage. Have fun with that.
+	var/harming_drone = 1
+	if(prob(5))
+		harming_drone = -1
+
+	brute_heal = rand(1, 5) * harming_drone
+	burn_heal = rand(1, 5) * harming_drone
+	tox_heal = rand(1, 5) * harming_drone
+	oxy_heal = rand(1, 5) * harming_drone
+	rad_heal = rand(1, 5) * harming_drone
+	clone_heal = rand(1, 5) * harming_drone
+	hal_heal = rand(1, 5) * harming_drone
+	bone_heal = rand(0, 499) / 5
+
 /obj/item/mecha_equipment/crisis_drone/Destroy()
+	Target = null
+	MyBeam = null
 	STOP_PROCESSING(SSprocessing, src)
 	. = ..()
 
@@ -276,21 +319,25 @@
 /obj/item/mecha_equipment/mounted_system/medanalyzer
 	name = "mounted health analyzer"
 	icon_state = "mecha_healthyanalyzer"
-	holding_type = /obj/item/device/healthanalyzer/mech
+	holding_type = /obj/item/healthanalyzer/mech
 	restricted_hardpoints = list(HARDPOINT_LEFT_HAND, HARDPOINT_RIGHT_HAND)
 	restricted_software = list(MECH_SOFTWARE_MEDICAL)
+	module_hints = list(
+		"<b>Left Click(Target):</b> Instantly perform a basic medical scan of the target.",
+		"<b>Ctrl Click(Target):</b> After remaining still for 7 seconds, print a full body scan of the target.",
+	)
 
 /// Special health analyzer used by the exosuit health analyzer.
-/obj/item/device/healthanalyzer/mech
+/obj/item/healthanalyzer/mech
 	name = "mounted health analyzer"
 	var/obj/machinery/body_scanconsole/connected = null
 	/// Toggle whether to do full or basic scan
 	var/fullScan = FALSE
 
-/obj/item/device/healthanalyzer/mech/get_hardpoint_maptext()
+/obj/item/healthanalyzer/mech/get_hardpoint_maptext()
 	return "[(fullScan ? "Full" : "Basic")]"
 
-/obj/item/device/healthanalyzer/mech/Initialize()
+/obj/item/healthanalyzer/mech/Initialize()
 	. = ..()
 	if(!connected)
 		var/obj/machinery/body_scanconsole/S = new (src)
@@ -298,13 +345,13 @@
 		S.update_use_power(POWER_USE_OFF)
 		connected = S
 
-/obj/item/device/healthanalyzer/mech/Destroy()
+/obj/item/healthanalyzer/mech/Destroy()
 	if(connected)
 		QDEL_NULL(connected)
 	. = ..()
 
 /obj/item/mecha_equipment/mounted_system/medanalyzer/CtrlClick(mob/user)
-	var/obj/item/device/healthanalyzer/mech/HA = holding
+	var/obj/item/healthanalyzer/mech/HA = holding
 	if(istype(HA))
 		HA.fullScan = !HA.fullScan
 		to_chat(user, SPAN_NOTICE("You switch to \the [src]'s [HA.fullScan ? "full body" : "basic"] scan mode."))
@@ -315,7 +362,7 @@
 		update_icon()
 		owner.update_icon()
 
-/obj/item/device/healthanalyzer/mech/attack(mob/living/target_mob, mob/living/user, target_zone)
+/obj/item/healthanalyzer/mech/attack(mob/living/target_mob, mob/living/user, target_zone)
 	user.setClickCooldown(DEFAULT_QUICK_COOLDOWN)
 	user.do_attack_animation(src)
 	var/mob/living/heavy_vehicle/user_vehicle = user
@@ -333,15 +380,15 @@
 				return FALSE
 		print_scan(target_mob, user_vehicle)
 
-/obj/item/device/healthanalyzer/mech/proc/print_scan(var/mob/M, var/mob/living/heavy_vehicle/user_vehicle)
+/obj/item/healthanalyzer/mech/proc/print_scan(var/mob/M, var/mob/living/heavy_vehicle/user_vehicle)
 	var/obj/item/paper/medscan/R = new /obj/item/paper/medscan(user_vehicle.loc, connected.format_occupant_data(get_medical_data(M)), "Scan ([M.name])", M)
 	for(var/mob/pilot in user_vehicle.pilots)
 		R.show_content(pilot)
 	user_vehicle.visible_message(SPAN_NOTICE("\The [src] spits out a piece of paper."))
-	playsound(user_vehicle.loc, /singleton/sound_category/print_sound, 50, 1)
+	playsound(user_vehicle.loc, SFX_PRINT, 50, 1)
 	R.forceMove(user_vehicle.loc)
 
-/obj/item/device/healthanalyzer/mech/proc/get_medical_data(var/mob/living/carbon/human/H)
+/obj/item/healthanalyzer/mech/proc/get_medical_data(var/mob/living/carbon/human/H)
 	if (!ishuman(H))
 		return
 

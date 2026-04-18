@@ -111,7 +111,7 @@
 	allowed_tools = list(
 	/obj/item/stack/nanopaste = 100,
 	/obj/item/surgery/bone_gel = 30,
-	SCREWDRIVER = 70
+	TOOL_SCREWDRIVER = 70
 	)
 
 	min_duration = 50
@@ -180,7 +180,7 @@
 	name = "Separate Organ"
 	priority = 1
 	allowed_tools = list(
-	/obj/item/surgery/scalpel = 100,
+	TOOL_SCALPEL = 100,
 	/obj/item/material/knife = 75,
 	/obj/item/material/shard = 50
 	)
@@ -246,8 +246,8 @@
 /singleton/surgery_step/internal/remove_organ
 	name = "Remove Organ"
 	allowed_tools = list(
-	/obj/item/surgery/hemostat = 100,	\
-	WIRECUTTER = 75,	\
+	TOOL_HEMOSTAT = 100,	\
+	TOOL_WIRECUTTER = 75,	\
 	/obj/item/material/kitchen/utensil/fork = 20
 	)
 
@@ -412,7 +412,7 @@
 	name = "Attach Organ"
 	allowed_tools = list(
 	/obj/item/surgery/fix_o_vein = 100, \
-	/obj/item/stack/cable_coil = 75
+	TOOL_CABLECOIL = 75
 	)
 
 	min_duration = 80
@@ -465,7 +465,7 @@
 	name = "Prepare Brain"
 	allowed_tools = list(
 	/obj/item/surgery/scalpel/manager = 95,
-	/obj/item/surgery/surgicaldrill = 75,
+	TOOL_DRILL = 75,
 	/obj/item/pickaxe/ = 5
 	)
 

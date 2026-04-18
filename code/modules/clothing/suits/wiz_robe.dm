@@ -39,15 +39,6 @@
 		slot_r_hand_str = "helmet"
 		)
 
-/obj/item/clothing/head/wizard/cap
-	name = "gentlemans cap"
-	desc = "A checkered gray flat cap woven together with the rarest of threads."
-	icon_state = "gentcap"
-	item_state_slots = list(
-		slot_l_hand_str = "det_hat",
-		slot_r_hand_str = "det_hat"
-		)
-
 /obj/item/clothing/suit/wizrobe
 	name = "wizard robe"
 	desc = "A magnificant, gem-lined robe that seems to radiate power."

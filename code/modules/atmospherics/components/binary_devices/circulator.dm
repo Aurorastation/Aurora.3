@@ -4,8 +4,6 @@
 /obj/machinery/atmospherics/binary/circulator
 	name = "circulator"
 	desc = "A gas circulator turbine and heat exchanger."
-	desc_info = "This generates electricity, depending on the difference in temperature between each side of the machine.  The meter in \
-	the center of the machine gives an indicator of how much elecrtricity is being generated."
 	icon = 'icons/obj/power.dmi'
 	icon_state = "circ-unassembled"
 	anchored = FALSE
@@ -23,8 +21,15 @@
 	var/volume_capacity_used = 0
 	var/stored_energy = 0
 	var/temperature_overlay
+	/// When passing its status to the main Stirling generator, this informs labeling on the TGUI.
+	var/is_hot_loop = FALSE
 
 	density = TRUE
+
+/obj/machinery/atmospherics/binary/circulator/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "This generates electricity, depending on the difference in temperature between each side of the machine."
+	. += "The meter in the center of the machine gives an indicator of how much elecrtricity is being generated."
 
 /obj/machinery/atmospherics/binary/circulator/Initialize()
 	. = ..()
@@ -34,8 +39,8 @@
 /obj/machinery/atmospherics/binary/circulator/proc/return_transfer_air()
 	var/datum/gas_mixture/removed
 	if(anchored && !(stat&BROKEN) && network1)
-		var/input_starting_pressure = air1.return_pressure()
-		var/output_starting_pressure = air2.return_pressure()
+		var/input_starting_pressure = XGM_PRESSURE(air1)
+		var/output_starting_pressure = XGM_PRESSURE(air2)
 		last_pressure_delta = max(input_starting_pressure - output_starting_pressure - 5, 0)
 
 		//only circulate air if there is a pressure difference (plus 5kPa kinetic, 10kPa static friction)
@@ -94,7 +99,7 @@
 	return TRUE
 
 /obj/machinery/atmospherics/binary/circulator/attackby(obj/item/attacking_item, mob/user)
-	if(attacking_item.iswrench())
+	if(attacking_item.tool_behaviour == TOOL_WRENCH)
 		attacking_item.play_tool_sound(get_turf(src), 50)
 		anchored = !anchored
 		user.visible_message("[user.name] [anchored ? "secures" : "unsecures"] the bolts holding [src.name] to the floor.", \

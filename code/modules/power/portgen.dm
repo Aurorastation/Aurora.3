@@ -7,6 +7,7 @@
 	var/base_icon = "portgen0"
 	density = TRUE
 	anchored = FALSE
+	atom_flags = CRITICAL_ATOM
 
 	var/active = FALSE
 	var/power_gen = 5000
@@ -14,6 +15,17 @@
 	var/power_output = 1
 	var/portgen_lightcolour = "#000000"
 	var/datum/looping_sound/generator/soundloop
+
+/obj/machinery/power/portgen/upgrade_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Upgraded <b>capacitors</b> will increase maximum power output."
+
+/obj/machinery/power/portgen/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(active)
+		. += "The generator is on."
+	else
+		. += "The generator is off."
 
 /obj/machinery/power/portgen/Initialize()
 	. = ..()
@@ -41,8 +53,7 @@
 /obj/machinery/power/portgen/process()
 	if(active && HasFuel() && !IsBroken() && anchored)
 		set_light(2, 1, l_color = portgen_lightcolour)
-		if(powernet)
-			add_avail(power_gen * power_output)
+		ADD_TO_POWERNET(src, power_gen * power_output)
 		UseFuel()
 	else
 		set_light(0)
@@ -65,14 +76,6 @@
 /obj/machinery/power/portgen/update_icon()
 	icon_state = "[base_icon]_[active]"
 	return ..()
-
-/obj/machinery/power/portgen/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if(is_adjacent)
-		if(active)
-			. += SPAN_NOTICE("The generator is on.")
-		else
-			. += SPAN_NOTICE("The generator is off.")
 
 /obj/machinery/power/portgen/emp_act(severity)
 	. = ..()
@@ -117,18 +120,28 @@
 		temperature_gain and max_temperature are set so that the max safe power level is 4.
 		Setting to 5 or higher can only be done temporarily before the generator overheats.
 	*/
-	power_gen = 25000				//Watts output per power_output level
-	var/max_power_output = 5		//The maximum power setting without emagging.
-	var/max_safe_output = 4			// For UI use, maximal output that won't cause overheat.
-	var/time_per_sheet = 576		//fuel efficiency - how long 1 sheet lasts at power level 1
-	var/max_sheets = 50 			//max capacity of the hopper
-	var/max_temperature = 300		//max temperature before overheating increases
-	var/temperature_gain = 50		//how much the temperature increases per power output level, in degrees per level
-
-	var/sheets = 0			//How many sheets of material are loaded in the generator
-	var/sheet_left = 0		//How much is left of the current sheet
-	var/temperature = 0		//The current temperature
-	var/overheating = 0		//if this gets high enough the generator explodes
+	/// Watts output per power_output level
+	power_gen = 50000
+	/// The maximum power setting without emagging.
+	var/max_power_output = 5
+	/// For UI use, maximal output that won't cause overheat.
+	var/max_safe_output = 4
+	/// Fuel efficiency - how long 1 sheet lasts at power level 1
+	var/time_per_sheet = 576
+	/// Max capacity of the hopper
+	var/max_sheets = 50
+	/// Max temperature before overheating increases
+	var/max_temperature = 300
+	/// How much the temperature increases per power output level, in degrees per level
+	var/temperature_gain = 50
+	/// How many sheets of material are loaded in the generator
+	var/sheets = 0
+	/// How much is left of the current sheet
+	var/sheet_left = 0
+	/// The current temperature
+	var/temperature = 0
+	/// If this gets high enough the generator explodes
+	var/overheating = 0
 
 	component_types = list(
 		/obj/item/stock_parts/matter_bin,
@@ -136,6 +149,17 @@
 		/obj/item/stack/cable_coil = 2,
 		/obj/item/stock_parts/capacitor
 	)
+
+	parts_power_mgmt = FALSE
+
+/obj/machinery/power/portgen/basic/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "\The [src] appears to be producing <b>[power_gen*power_output] W</b>."
+	. += "There [sheets == 1 ? "is" : "are"] [sheets] sheet\s left in the hopper."
+	if(IsBroken())
+		. += SPAN_WARNING("\The [src] seems to have broken down.")
+	if(overheating)
+		. += SPAN_DANGER("\The [src] is overheating!")
 
 /obj/machinery/power/portgen/basic/Initialize()
 	component_types += board_path
@@ -149,6 +173,7 @@
 	return ..()
 
 /obj/machinery/power/portgen/basic/RefreshParts()
+	..()
 	var/temp_rating = 0
 
 	for(var/obj/item/stock_parts/SP in component_parts)
@@ -158,15 +183,6 @@
 			temp_rating += SP.rating
 
 	power_gen = round(initial(power_gen) * (max(2, temp_rating) / 2))
-
-/obj/machinery/power/portgen/basic/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	. += "\The [src] appears to be producing [power_gen*power_output] W."
-	. += "There [sheets == 1 ? "is" : "are"] [sheets] sheet\s left in the hopper."
-	if(IsBroken())
-		. += SPAN_WARNING("\The [src] seems to have broken down.")
-	if(overheating)
-		. += SPAN_DANGER("\The [src] is overheating!")
 
 /obj/machinery/power/portgen/basic/HasFuel()
 	var/needed_sheets = power_output / time_per_sheet
@@ -208,7 +224,7 @@
 	if(!loc) return
 	var/datum/gas_mixture/environment = loc.return_air()
 	if (environment)
-		var/ratio = min(environment.return_pressure()/ONE_ATMOSPHERE, 1)
+		var/ratio = min(XGM_PRESSURE(environment)/ONE_ATMOSPHERE, 1)
 		var/ambient = environment.temperature - T20C
 		lower_limit += ambient*ratio
 		upper_limit += ambient*ratio
@@ -240,7 +256,7 @@
 	if(T)
 		var/datum/gas_mixture/environment = T.return_air()
 		if (environment)
-			var/ratio = min(environment.return_pressure()/ONE_ATMOSPHERE, 1)
+			var/ratio = min(XGM_PRESSURE(environment)/ONE_ATMOSPHERE, 1)
 			var/ambient = environment.temperature - T20C
 			cooling_temperature += ambient*ratio
 
@@ -277,7 +293,7 @@
 		addstack.use(amount)
 		return
 	else if(!active)
-		if(attacking_item.iswrench())
+		if(attacking_item.tool_behaviour == TOOL_WRENCH)
 
 			if(!anchored)
 				connect_to_network()
@@ -289,14 +305,14 @@
 			playsound(loc, 'sound/items/Deconstruct.ogg', 50, 1)
 			anchored = !anchored
 
-		else if(attacking_item.isscrewdriver())
+		else if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 			open = !open
 			attacking_item.play_tool_sound(get_turf(src), 50)
 			if(open)
 				to_chat(user, SPAN_NOTICE("You open the access panel."))
 			else
 				to_chat(user, SPAN_NOTICE("You close the access panel."))
-		else if(open && attacking_item.iscrowbar())
+		else if(open && attacking_item.tool_behaviour == TOOL_CROWBAR)
 			var/obj/machinery/constructable_frame/machine_frame/new_frame = new /obj/machinery/constructable_frame/machine_frame(loc)
 			for(var/obj/item/I in component_parts)
 				I.forceMove(loc)
@@ -410,7 +426,7 @@
 	sheet_path = /obj/item/stack/material/uranium
 	board_path = "/obj/item/circuitboard/portgen/advanced"
 
-	power_gen = 50000 // 200 kW = safe max, 250 kW = unsafe max.
+	power_gen = 100000 // 400 kW = safe max, 500 kW = unsafe max.
 	max_temperature = 340
 	temperature_gain = 60
 
@@ -422,7 +438,7 @@
 
 /obj/machinery/power/portgen/basic/advanced/explode()
 	//a nice burst of radiation
-	var/rads = 50 + (sheets + sheet_left)*1.5
+	var/rads = 20 + (sheets + sheet_left)*1.5
 	SSradiation.radiate(src, max(40, rads))
 	explosion(loc, 3, 3, 5, 3)
 	qdel(src)
@@ -442,7 +458,7 @@
 	sheet_path = /obj/item/stack/material/tritium
 	board_path = "/obj/item/circuitboard/portgen/super"
 
-	power_gen = 80000 // 400 kW = safe max, 640 kW = unsafe max
+	power_gen = 160000 // 800 kW = safe max, 960 kW = unsafe max
 	max_power_output = 8
 	max_safe_output = 5
 	time_per_sheet = 576
@@ -456,13 +472,13 @@
 /obj/machinery/power/portgen/basic/fusion
 	name = "minature fusion reactor"
 	desc = "The RT7-0, an industrial all-in-one nuclear fusion power plant created by Hephaestus. It uses tritium as a fuel source and relies on coolant to keep the reactor cool. Rated for 500 kW max safe output."
-	power_gen =  100000
+	power_gen =  200000
 	icon_state = "reactor"
 	base_icon = "reactor"
 	portgen_lightcolour = "#458943"
 	max_safe_output = 5
-	max_power_output = 8	//The maximum power setting without emagging.
-	temperature_gain = 70	//how much the temperature increases per power output level, in degrees per level
+	max_power_output = 8
+	temperature_gain = 70
 	max_temperature = 450
 	time_per_sheet = 400
 
@@ -479,12 +495,8 @@
 
 /obj/machinery/power/portgen/basic/fusion/explode()
 	//a nice burst of radiation
-	var/rads = 50 + (sheets + sheet_left)*1.5
-	for (var/mob/living/L in range(src, 10))
-		//should really fall with the square of the distance, but that makes the rads value drop too fast
-		//I dunno, maybe physics works different when you live in 2D -- SM radiation also works like this, apparently
-		L.apply_damage(max(20, round(rads/get_dist(L,src))), DAMAGE_RADIATION, damage_flags = DAMAGE_FLAG_DISPERSED)
-
+	var/rads = 40 + (sheets + sheet_left)*1.5
+	SSradiation.radiate(src, max(50, rads))
 	explosion(loc, 3, 6, 12, 16, 1)
 	qdel(src)
 
@@ -492,9 +504,9 @@
 	create_reagents(coolant_volume)
 	..()
 
-/obj/machinery/power/portgen/basic/fusion/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	. += "The auxilary tank shows [reagents.total_volume]u of liquid in it."
+/obj/machinery/power/portgen/basic/fusion/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "The auxiliary tank shows [reagents.total_volume]u of liquid in it."
 
 /obj/machinery/power/portgen/basic/fusion/UseFuel()
 	if(reagents.has_reagent(coolant_reagent))

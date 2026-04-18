@@ -36,7 +36,8 @@ const FlightSection = function (act, data) {
           }
           onClick={() => act('viewing')}
         />
-      }>
+      }
+    >
       <Table>
         <Table.Row>
           <Table.Cell>ETA to Next Grid:</Table.Cell>

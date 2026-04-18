@@ -1,4 +1,4 @@
-/obj/item/device/integrated_circuit_printer
+/obj/item/integrated_circuit_printer
 	name = "integrated circuit printer"
 	desc = "A portable(ish) machine made to print tiny modular circuitry out of metal."
 	icon = 'icons/obj/assemblies/electronic_tools.dmi'
@@ -10,13 +10,13 @@
 
 	var/upgraded = FALSE  // When hit with an upgrade disk, will turn true, allowing it to print the higher tier circuits.
 	var/can_clone = FALSE // Same for above, but will allow the printer to duplicate a specific assembly.
-	var/obj/item/device/electronic_assembly/assembly_to_clone
+	var/obj/item/electronic_assembly/assembly_to_clone
 
-/obj/item/device/integrated_circuit_printer/upgraded
+/obj/item/integrated_circuit_printer/upgraded
 	upgraded = TRUE
 	can_clone = TRUE
 
-/obj/item/device/integrated_circuit_printer/attackby(obj/item/attacking_item, mob/user)
+/obj/item/integrated_circuit_printer/attackby(obj/item/attacking_item, mob/user)
 	if(istype(attacking_item,/obj/item/stack/material))
 		var/obj/item/stack/material/stack = attacking_item
 		if(stack.material.name == DEFAULT_WALL_MATERIAL)
@@ -54,16 +54,16 @@
 
 	return ..()
 
-/obj/item/device/integrated_circuit_printer/attack_self(var/mob/user)
+/obj/item/integrated_circuit_printer/attack_self(var/mob/user)
 	ui_interact(user)
 
-/obj/item/device/integrated_circuit_printer/ui_interact(mob/user, datum/tgui/ui)
+/obj/item/integrated_circuit_printer/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
 		ui = new(user, src, "CircuitPrinter", "Integrated Circuit Printer", 600, 500)
 		ui.open()
 
-/obj/item/device/integrated_circuit_printer/ui_data(mob/user)
+/obj/item/integrated_circuit_printer/ui_data(mob/user)
 	var/list/data = list()
 
 	data["metal"] = metal / metal_per_sheet
@@ -81,7 +81,7 @@
 
 	return data
 
-/obj/item/device/integrated_circuit_printer/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
+/obj/item/integrated_circuit_printer/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	. = ..()
 	if(.)
 		return
@@ -99,8 +99,8 @@
 
 		var/cost = 1
 		var/is_asm = FALSE
-		if(ispath(build_type, /obj/item/device/electronic_assembly))
-			var/obj/item/device/electronic_assembly/E = build_type
+		if(ispath(build_type, /obj/item/electronic_assembly))
+			var/obj/item/electronic_assembly/E = build_type
 			cost = round( (initial(E.max_complexity) + initial(E.max_components) ) / 4)
 			is_asm = TRUE
 		else if(ispath(build_type, /obj/item/integrated_circuit))
@@ -117,7 +117,7 @@
 			new build_type(get_turf(loc))
 		. = TRUE
 
-/obj/item/device/integrated_circuit_printer/proc/can_print(build_type)
+/obj/item/integrated_circuit_printer/proc/can_print(build_type)
 	for(var/category in SSelectronics.printer_recipe_list)
 		var/list/current_list = SSelectronics.printer_recipe_list[category]
 

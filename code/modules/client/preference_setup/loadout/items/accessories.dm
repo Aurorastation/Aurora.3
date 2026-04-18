@@ -61,8 +61,8 @@ ABSTRACT_TYPE(/datum/gear/accessory)
 /datum/gear/accessory/holster
 	display_name = "holster selection"
 	path = /obj/item/clothing/accessory/holster/armpit
-	allowed_roles = list("Captain", "Executive Officer", "Bridge Crew", "Security Officer", "Warden", "Head of Security","Investigator", "Security Cadet", "Corporate Liaison", "Consular Officer",
-		"Chief Engineer", "Chief Medical Officer", "Research Director", "Operations Manager", "Diplomatic Aide", "Corporate Aide", "Security Personnel")
+	allowed_roles = list("Captain", "Executive Officer", "Bridge Crew", "Security Officer", "Warden", "Head of Security", "Investigator", "Security Cadet", "Corporate Liaison",
+		"Chief Engineer", "Chief Medical Officer", "Research Director", "Operations Manager", "Diplomatic Bodyguard", "Security Personnel")
 
 /datum/gear/accessory/holster/New()
 	..()
@@ -111,7 +111,7 @@ ABSTRACT_TYPE(/datum/gear/accessory)
 /datum/gear/accessory/brown_vest
 	display_name = "webbing, engineering"
 	path = /obj/item/clothing/accessory/storage/brown_vest
-	allowed_roles = list("Engineer", "Atmospheric Technician", "Chief Engineer", "Engineering Apprentice", "Engineering Personnel")
+	allowed_roles = list("Ship Engineer", "Atmospheric Technician", "Chief Engineer", "Engineering Apprentice", "Engineering Personnel")
 
 /datum/gear/accessory/black_vest
 	display_name = "webbing, security"
@@ -158,7 +158,7 @@ ABSTRACT_TYPE(/datum/gear/accessory)
 /datum/gear/accessory/brown_pouches
 	display_name = "drop pouches, engineering"
 	path = /obj/item/clothing/accessory/storage/pouches/brown
-	allowed_roles = list("Engineer", "Atmospheric Technician", "Chief Engineer", "Engineering Apprentice", "Engineering Personnel")
+	allowed_roles = list("Ship Engineer", "Atmospheric Technician", "Chief Engineer", "Engineering Apprentice", "Engineering Personnel")
 
 /datum/gear/accessory/black_pouches
 	display_name = "drop pouches, security"
@@ -179,7 +179,7 @@ ABSTRACT_TYPE(/datum/gear/accessory)
 /datum/gear/accessory/overalls_engineer
 	display_name = "overalls, engineering"
 	path = /obj/item/clothing/accessory/storage/overalls/engineer
-	allowed_roles = list("Engineer", "Atmospheric Technician", "Chief Engineer", "Engineering Apprentice", "Engineering Personnel")
+	allowed_roles = list("Ship Engineer", "Atmospheric Technician", "Chief Engineer", "Engineering Apprentice", "Engineering Personnel")
 	cost = 2
 
 /datum/gear/accessory/overalls_mining
@@ -407,22 +407,30 @@ ABSTRACT_TYPE(/datum/gear/accessory)
 	var/list/passcard = list()
 	passcard["passcard, tau ceti"] = /obj/item/clothing/accessory/badge/passcard
 	passcard["passcard, sol"] = /obj/item/clothing/accessory/badge/passcard/sol
-	passcard["passcard, pluto"] = /obj/item/clothing/accessory/badge/passcard/sol/pluto
-	passcard["passcard, jovian"] = /obj/item/clothing/accessory/badge/passcard/sol/jupiter
-	passcard["passcard, luna"] = /obj/item/clothing/accessory/badge/passcard/sol/luna
+	passcard["passcard, callisto"] = /obj/item/clothing/accessory/badge/passcard/sol/callisto
 	passcard["passcard, europa"] = /obj/item/clothing/accessory/badge/passcard/sol/europa
-	passcard["passcard, cytherean"] = /obj/item/clothing/accessory/badge/passcard/sol/cytherean
-	passcard["passcard, jintarian"] = /obj/item/clothing/accessory/badge/passcard/sol/jintarian
+	passcard["passcard, solarian konyang"] = /obj/item/clothing/accessory/badge/passcard/sol/konyang
+	passcard["passcard, luna"] = /obj/item/clothing/accessory/badge/passcard/sol/luna
+	passcard["passcard, solarian mictlan"] = /obj/item/clothing/accessory/badge/passcard/sol/mictlan
+	passcard["passcard, new hai phong"] = /obj/item/clothing/accessory/badge/passcard/sol/new_hai_phong
+	passcard["passcard, pluto"] = /obj/item/clothing/accessory/badge/passcard/sol/pluto
+	passcard["passcard, reconstruction mandate"] = /obj/item/clothing/accessory/badge/passcard/sol/restricted_mandate
+	passcard["passcard, mars"] = /obj/item/clothing/accessory/badge/passcard/sol/restricted_mars
+	passcard["passcard, san colette"] = /obj/item/clothing/accessory/badge/passcard/sol/san_colette
+	passcard["passcard, sankt frederick"] = /obj/item/clothing/accessory/badge/passcard/sol/sankt_frederick
+	passcard["passcard, silversun"] = /obj/item/clothing/accessory/badge/passcard/sol/silversun
+	passcard["passcard, venus"] = /obj/item/clothing/accessory/badge/passcard/sol/venus
+	passcard["passcard, visegrad"] = /obj/item/clothing/accessory/badge/passcard/sol/visegrad
 	passcard["passcard, eridani"] = /obj/item/clothing/accessory/badge/passcard/eridani
 	passcard["passcard, elyra"] = /obj/item/clothing/accessory/badge/passcard/elyra
 	passcard["passcard, dominia"] = /obj/item/clothing/accessory/badge/passcard/dominia
 	passcard["passcard, coalition"] = /obj/item/clothing/accessory/badge/passcard/coalition
+	passcard["passcard, xanu"] = /obj/item/clothing/accessory/badge/passcard/coalition/xanu
 	passcard["passcard, himeo"] = /obj/item/clothing/accessory/badge/passcard/himeo
 	passcard["passcard, vysoka"] = /obj/item/clothing/accessory/badge/passcard/vysoka
 	passcard["passcard, gadpathur"] = /obj/item/clothing/accessory/badge/passcard/gad
 	passcard["passcard, assunzione"] = /obj/item/clothing/accessory/badge/passcard/assu
 	passcard["passcard, konyang"] = /obj/item/clothing/accessory/badge/passcard/konyang
-	passcard["passcard, visegrad"] = /obj/item/clothing/accessory/badge/passcard/sol/visegrad
 	gear_tweaks += new /datum/gear_tweak/path(passcard)
 
 /datum/gear/accessory/workvisa
@@ -457,6 +465,12 @@ ABSTRACT_TYPE(/datum/gear/accessory)
 	TCAFcard["reservist"] = /obj/item/clothing/accessory/badge/tcaf_papers/service/reservist
 	TCAFcard["veteran"] = /obj/item/clothing/accessory/badge/tcaf_papers/service/veteran
 	gear_tweaks += new /datum/gear_tweak/path(TCAFcard)
+
+/datum/gear/accessory/xanu_mil_card
+	display_name = "xanu militia reservist card"
+	description = "An identification document issued to reservists of the All-Xanu National Militia."
+	path = /obj/item/clothing/accessory/badge/passcard/coalition/xanu/military
+	citizenship = CITIZENSHIP_COALITION
 
 /datum/gear/accessory/kneepads
 	display_name = "kneepads"

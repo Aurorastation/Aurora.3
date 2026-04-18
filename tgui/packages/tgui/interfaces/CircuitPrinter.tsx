@@ -38,7 +38,8 @@ export const CircuitPrinter = (props, context) => {
                 }}
                 value={data.metal}
                 minValue={0}
-                maxValue={data.metal_max}>
+                maxValue={data.metal_max}
+              >
                 {data.metal} sheets
               </ProgressBar>
             </LabeledList.Item>
@@ -57,7 +58,7 @@ export const CircuitPrinter = (props, context) => {
                 />
               ) : (
                 ''
-              )
+              ),
             )}
           </Section>
         ))}

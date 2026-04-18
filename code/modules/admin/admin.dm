@@ -35,7 +35,7 @@ var/global/enabled_spooking = 0
 ///////////////////////////////////////////////////////////////////////////////////////////////Panels
 
 /datum/admins/proc/show_player_panel(var/mob/M in GLOB.mob_list)
-	set category = "Admin"
+	set category = "Admin.Player Info"
 	set name = "Show Player Panel"
 	set desc="Edit player (respawn, ban, heal, etc)"
 
@@ -47,6 +47,8 @@ var/global/enabled_spooking = 0
 	if (!istype(src,/datum/admins))
 		to_chat(usr, "Error: you are not an admin!")
 		return
+
+	var/ui_scale = owner.prefs?.ui_scale
 
 	var/body = "<html><head><title>Options for [M.key]</title></head>"
 	body += "<body>Options panel for <b>[M]</b>"
@@ -219,7 +221,11 @@ var/global/enabled_spooking = 0
 		</body></html>
 	"}
 
-	usr << browse(body, "window=adminplayeropts;size=550x515")
+	var/window_size = "size=550x515"
+	if(owner.window_scaling && ui_scale)
+		window_size = "size=[550 * owner.window_scaling]x[515 * owner.window_scaling]"
+
+	usr << browse(body, "window=adminplayeropts;[window_size]")
 	feedback_add_details("admin_verb","SPP") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 
@@ -230,7 +236,7 @@ var/global/enabled_spooking = 0
 
 #define PLAYER_NOTES_ENTRIES_PER_PAGE 50
 /datum/admins/proc/PlayerNotes()
-	set category = "Admin"
+	set category = "Admin.Player Info"
 	set name = "Player Notes"
 	if (!istype(src,/datum/admins))
 		src = usr.client.holder
@@ -293,7 +299,7 @@ var/global/enabled_spooking = 0
 
 
 /datum/admins/proc/show_player_info(var/key as text)
-	set category = "Admin"
+	set category = "Admin.Player Info"
 	set name = "Show Player Info"
 	if (!istype(src,/datum/admins))
 		src = usr.client.holder
@@ -592,7 +598,7 @@ var/global/enabled_spooking = 0
 				dat+="No comments on this story yet!</BR>"
 			else
 				for(var/datum/feed_comment/COMMENT in src.admincaster_viewing_message.comments)
-					dat+="<BLOCKQUOTE style=\"padding:2px 4px;border-left:4px #797979 solid;\"><B>\[[world.time]\] [COMMENT.author]:</B>[COMMENT.message]<BR><A href='byond://?src=[REF(src)];ac_censorcomment=1;ac_comment=[REF(COMMENT)]>Censor Comment</A></BLOCKQUOTE>"
+					dat+="<BLOCKQUOTE style=\"padding:2px 4px;border-left:4px #797979 solid;\"><B>\[[world.time]\] [COMMENT.author]:</B>[COMMENT.message]<BR><A href='byond://?src=[REF(src)];ac_censorcomment=1;ac_comment=[REF(COMMENT)]'>Censor Comment</A></BLOCKQUOTE>"
 			dat+="<A href='byond://?src=[REF(src)];ac_setScreen=[9]'>Return</A>"
 		else
 			dat+="Please report this on GitHub, along with what you did to make this appear."
@@ -688,16 +694,16 @@ var/global/enabled_spooking = 0
 
 
 /datum/admins/proc/announce()
-	set category = "Special Verbs"
+	set category = "Special Verbs.Narration/Messaging"
 	set name = "Announce"
 	set desc="Announce your desires to the world"
 
 	if (!check_rights(R_ADMIN))
 		return
 
-	var/message = tgui_input_text(usr, "Enter a global message to send.", "Admin Announce", multiline = TRUE)
+	var/message = tgui_input_text(usr, "Enter a global message to send.", "Admin Announce", multiline = TRUE, encode = FALSE)
 	if(message)
-		if(!check_rights(R_SERVER, 0))
+		if(!check_rights(R_ADMIN, 0))
 			message = sanitize(message, 500, extra = 0)
 		message = replacetext(message, "\n", "<br>") // required since we're putting it in a <p> tag
 		to_world("<span class=notice><b>[usr.client.holder.fakekey ? "Administrator" : usr.key] Announces:</b><p style='text-indent: 50px'>[message]</p></span>")
@@ -1018,6 +1024,10 @@ var/global/enabled_spooking = 0
 	if(!check_rights(R_SPAWN))
 		return
 
+	if(!length(object)) // Prevent server lag caused by searching all atoms
+		to_chat(src, SPAN_WARNING("Spawn verb requires an argument, partial or full type path, e.g.: Spawn \"/obj/item/toy"))
+		return
+
 	var/list/matches = typesof(/atom)
 
 	for(var/path in matches)
@@ -1314,7 +1324,7 @@ var/global/enabled_spooking = 0
 
 /datum/admins/proc/paralyze_mob(mob/living/H as mob)
 	set category = "Admin"
-	set name = "Toggle Wind"
+	set name = "Toggle Winded"
 	set desc = "Paralyzes a player. Or unparalyses them."
 
 	toggle_wind_paralysis(H, usr)
@@ -1346,7 +1356,7 @@ var/global/enabled_spooking = 0
 	feedback_add_details("admin_verb","SPOOKY") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 /datum/admins/proc/ccannoucment()
-	set category = "Special Verbs"
+	set category = "Special Verbs.Narration/Messaging"
 	set name = "Custom sound Command Announcment"
 	set desc = "Emulate announcement that looks and sounds like the real one."
 	if(!check_rights(R_FUN))
@@ -1393,15 +1403,14 @@ var/global/enabled_spooking = 0
 /datum/admins/proc/set_odyssey()
 	set name = "Set Odyssey Type"
 	set category = "Special Verbs"
+	if (!SSodyssey.initialized)
+		to_chat(usr, SPAN_WARNING("You must wait for the server to finish initializing."))
+		return
 
 	if(!check_rights(R_ADMIN))
 		return
 
-	if(!SSticker.mode || !istype(SSticker.mode, /datum/game_mode/odyssey))
-		to_chat(usr, SPAN_WARNING("The gamemode either does not exist, or is not Odyssey."))
-		return
-
-	if(SSticker.current_state != GAME_STATE_SETTING_UP)
+	if(SSticker.current_state > GAME_STATE_SETTING_UP)
 		to_chat(usr, SPAN_WARNING("You need to use this verb while the game is still setting up!"))
 		return
 
@@ -1423,5 +1432,24 @@ var/global/enabled_spooking = 0
 
 	SSodyssey.scenario = chosen_scenario
 	log_and_message_admins("has manually set the Odyssey to [chosen_scenario.name]", usr)
-	feedback_add_details("admin_verb","SEST") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
+	feedback_add_details("admin_verb","SEOT") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
+/datum/admins/proc/set_odyssey_canonicity()
+	set name = "Set Odyssey Canonicity"
+	set category = "Special Verbs"
+
+	if(!check_rights(R_ADMIN))
+		return
+
+	if(!SSodyssey.scenario)
+		to_chat(usr, SPAN_WARNING("There needs to be an Odyssey selected first! Use the Set Odyssey Type verb."))
+		return
+
+	var/canonicity = tgui_input_list(usr, "Set the Odyssey canonicity.", "Set Odyssey Canonicity", list(SCENARIO_TYPE_CANON, SCENARIO_TYPE_NONCANON))
+	if(!canonicity)
+		return
+
+	SSodyssey.scenario.scenario_type = canonicity
+	to_world(FONT_LARGE(EXAMINE_BLOCK_ODYSSEY(SPAN_NOTICE("The scenario canonicity has been changed to [SPAN_BOLD(canonicity)] by an administrator."))))
+	log_and_message_admins("has set the Odyssey canonicity to [canonicity]", usr)
+	feedback_add_details("admin_verb","SEOC") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!

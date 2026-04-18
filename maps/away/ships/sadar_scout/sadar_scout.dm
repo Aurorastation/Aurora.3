@@ -5,8 +5,8 @@
 	prefix = "ships/sadar_scout/"
 	suffix = "sadar_scout.dmm"
 
-	sectors = list(ALL_COALITION_SECTORS)
-	sectors_blacklist = list(SECTOR_HANEUNIM, SECTOR_BURZSIA)
+	sectors = list(ALL_COALITION_SECTORS, ALL_CRESCENT_EXPANSE_SECTORS)
+	sectors_blacklist = list(SECTOR_HANEUNIM, SECTOR_BURZSIA, SECTOR_XANU)
 	spawn_weight = 1
 	ship_cost = 1
 	id = "sadar_scout"
@@ -159,7 +159,7 @@
 /obj/machinery/computer/shuttle_control/explore/sadar_shuttle
 	name = "shuttle control console"
 	shuttle_tag = "Modified Salvage Skiff"
-	icon = 'icons/obj/machinery/modular_terminal.dmi'
+	icon = 'icons/obj/modular_computers/modular_terminal.dmi'
 	icon_state = "computer"
 	icon_screen = "helm"
 	icon_keyboard = "security_key"

@@ -38,7 +38,7 @@ export const FlavorText = (props, context) => {
                 <Linkify text={line} />
                 <Divider />
               </Box>
-            ) : null
+            ) : null,
           )}
         </Section>
       </Window.Content>

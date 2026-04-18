@@ -10,15 +10,15 @@
 	var/cooldown_time = 120
 	var/cooldown = 0
 
+/obj/item/poppet/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(countenance)
+		. += SPAN_NOTICE("It is modeled after a [countenance].")
+
 /obj/item/poppet/Destroy()
 	if(target)
 		to_chat(target, SPAN_NOTICE("The strange presence vanishes away..."))
 	return ..()
-
-/obj/item/poppet/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if(countenance)
-		. += SPAN_NOTICE("It is modeled after a [countenance].")
 
 /obj/item/poppet/afterattack(var/atom/A, var/mob/user, var/proximity)
 
@@ -69,7 +69,7 @@
 			H.confused += 10
 			H.stuttering += 5
 			to_chat(H, SPAN_DANGER("You suddenly feel as if your head was hit by something!"))
-			playsound(get_turf(H), /singleton/sound_category/punch_sound, 50, 1, -1)
+			playsound(get_turf(H), SFX_PUNCH, 50, 1, -1)
 
 		cooldown = world.time + cooldown_time
 
@@ -88,13 +88,13 @@
 			playsound(get_turf(H), 'sound/weapons/Egloves.ogg', 50, 1, -1)
 			return TRUE
 
-		if(istype(attacking_item, /obj/item/device/flashlight))
+		if(istype(attacking_item, /obj/item/flashlight))
 			to_chat(H, SPAN_WARNING("You direct \the [attacking_item] towards \the [src]'s eyes!"))
 			playsound(get_turf(H), 'sound/items/flashlight.ogg', 50, 1, -1)
 			H.flash_act()
 			return TRUE
 
-		if(attacking_item.iscoil())
+		if(attacking_item.tool_behaviour == TOOL_CABLECOIL)
 			to_chat(H, SPAN_WARNING("You strangle \the [src] with \the [attacking_item]!"))
 			H.silent += 10
 			playsound(get_turf(H), 'sound/effects/noosed.ogg', 50, 1, -1)

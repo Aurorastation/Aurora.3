@@ -18,7 +18,7 @@
 	return ..()
 
 /obj/item/target/attackby(obj/item/attacking_item, mob/user)
-	if(attacking_item.iswelder())
+	if(attacking_item.tool_behaviour == TOOL_WELDER)
 		if(hp == initial(hp))
 			to_chat(user, SPAN_NOTICE("\The [src] is fully repaired."))
 			return TRUE

@@ -3,12 +3,16 @@ GLOBAL_LIST_INIT_TYPED(doppler_arrays, /obj/machinery/doppler_array, list())
 /obj/machinery/doppler_array
 	name = "tachyon-doppler array"
 	desc = "A highly precise sensor array which measures the release of quants from decaying tachyons. The doppler shifting of the mirror-image formed by these quants can reveal the size, location and temporal affects of energetic disturbances within a large radius ahead of the array."
-	icon = 'icons/obj/machinery/modular_console.dmi'
+	icon = 'icons/obj/modular_computers/modular_console.dmi'
 	icon_state = "computer"
 
 	anchored = TRUE
 	density = TRUE
 	var/active = TRUE
+
+/obj/machinery/doppler_array/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += SPAN_NOTICE("\The [src] is [active ? "listening for explosions" : "inactive"].")
 
 /obj/machinery/doppler_array/Initialize()
 	. = ..()
@@ -18,10 +22,6 @@ GLOBAL_LIST_INIT_TYPED(doppler_arrays, /obj/machinery/doppler_array, list())
 /obj/machinery/doppler_array/Destroy()
 	GLOB.doppler_arrays -= src
 	return ..()
-
-/obj/machinery/doppler_array/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	. += SPAN_NOTICE("\The [src] is [active ? "listening for explosions" : "[SPAN_WARNING("inactive")]"].")
 
 /obj/machinery/doppler_array/attack_hand(mob/user)
 	active = !active

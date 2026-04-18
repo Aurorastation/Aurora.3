@@ -9,8 +9,8 @@
 	min_brig_time = 3
 	max_brig_time = 10
 
-	min_fine = 200
-	max_fine = 300
+	min_fine = 120
+	max_fine = 145
 
 /datum/law/low_severity/petty_theft
 	name = "i102 - Petty Theft"
@@ -20,8 +20,8 @@
 	min_brig_time = 3
 	max_brig_time = 10
 
-	min_fine = 150
-	max_fine = 225
+	min_fine = 60
+	max_fine = 85
 
 /datum/law/low_severity/minor_assault
 	name = "i103 - Minor Assault"
@@ -31,8 +31,8 @@
 	min_brig_time = 4
 	max_brig_time = 10
 
-	min_fine = 400
-	max_fine = 800
+	min_fine = 175
+	max_fine = 245
 
 /datum/law/low_severity/battery
 	name = "i104 - Battery"
@@ -42,19 +42,19 @@
 	min_brig_time = 2
 	max_brig_time = 8
 
-	min_fine = 200
-	max_fine = 400
+	min_fine = 120
+	max_fine = 155
 
 /datum/law/low_severity/hooliganism
-	name = "i105 - Hooliganism"
-	desc = "To present an unnecessary nuisance to members of the crew including excessive departmental radio usage for private affairs, being intentionally unclothed, or otherwise disturbing the crew."
+	name = "i105 - Indecent Exposure or Hooliganism"
+	desc = "To be intentionally and publicly unclothed, to disrupt the peace and crew."
 	id = "i105"
 
 	min_brig_time = 5
 	max_brig_time = 8
 
-	min_fine = 250
-	max_fine = 375
+	min_fine = 85
+	max_fine = 120
 
 /datum/law/low_severity/radio_misuse
 	name = "i107 - Misuse of Public Radio Channels"
@@ -64,8 +64,8 @@
 	min_brig_time = 3
 	max_brig_time = 3
 
-	min_fine = 150
-	max_fine = 225
+	min_fine = 60
+	max_fine = 85
 
 /datum/law/low_severity/violating_injunction
 	name = "i108 - Violation of Injunction"
@@ -75,19 +75,19 @@
 	min_brig_time = 5
 	max_brig_time = 10
 
-	min_fine = 500
-	max_fine = 750
+	min_fine = 145
+	max_fine = 180
 
 /datum/law/low_severity/slander_hos
 	name = "i109 - Slandering a Head of Staff"
-	desc = "To directly insult a Head of Staff with no valid complaints."
+	desc = "To make a claim about a Head of Staff that is slanderous and untrue."
 	id = "i109"
 
 	min_brig_time = 5
 	max_brig_time = 10
 
-	min_fine = 250
-	max_fine = 375
+	min_fine = 85
+	max_fine = 145
 
 /datum/law/low_severity/slander
 	name = "i110 - Slander or Verbal Abuse"
@@ -97,7 +97,7 @@
 	min_brig_time = 3
 	max_brig_time = 5
 
-	min_fine = 150
+	min_fine = 25
 	max_fine = 250
 
 /datum/law/low_severity/failure_execute
@@ -108,19 +108,8 @@
 	min_brig_time = 5
 	max_brig_time = 15
 
-	min_fine = 500
-	max_fine = 750
-
-/datum/law/low_severity/sexual_harassment
-	name = "i112 - Sexual Harassment"
-	desc = "To make unwanted sexual advances or obscene remarks towards another employee."
-	id = "i112"
-
-	min_brig_time = 5
-	max_brig_time = 15
-
-	min_fine = 0
-	max_fine = 0
+	min_fine = 180
+	max_fine = 200
 
 /datum/law/low_severity/animal_cruelty
 	name = "i113 - Animal Cruelty"
@@ -141,8 +130,8 @@
 	min_brig_time = 3
 	max_brig_time = 10
 
-	min_fine = 450
-	max_fine = 675
+	min_fine = 120
+	max_fine = 180
 
 /datum/law/low_severity/threat_murder
 	name = "i115 - Threat of Murder or Serious Injury"
@@ -152,8 +141,8 @@
 	min_brig_time = 3
 	max_brig_time = 10
 
-	min_fine = 500
-	max_fine = 750
+	min_fine = 175
+	max_fine = 200
 
 /datum/law/low_severity/necrophilia
 	name = "i116 - Disrespect to the Dead"
@@ -163,8 +152,8 @@
 	min_brig_time = 5
 	max_brig_time = 10
 
-	min_fine = 400
-	max_fine = 600
+	min_fine = 120
+	max_fine = 180
 
 /datum/law/low_severity/excessive_detainment
 	name = "i117 - Excessive Use of Force in Detainment"
@@ -174,8 +163,8 @@
 	min_brig_time = 5
 	max_brig_time = 10
 
-	min_fine = 350
-	max_fine = 700
+	min_fine = 120
+	max_fine = 180
 
 /datum/law/low_severity/violation_privacy
 	name = "i118 - Violation of Privacy Laws"
@@ -185,8 +174,8 @@
 	min_brig_time = 3
 	max_brig_time = 10
 
-	min_fine = 500
-	max_fine = 750
+	min_fine = 145
+	max_fine = 190
 
 /datum/law/low_severity/illegal_search
 	name = "i119 - Illegal Search"
@@ -196,5 +185,16 @@
 	min_brig_time = 3
 	max_brig_time = 10
 
-	min_fine = 500
-	max_fine = 750
+	min_fine = 145
+	max_fine = 190
+
+/datum/law/low_severity/littering
+	name = "i120 - Littering"
+	desc = "To discard waste improperly in public areas."
+	id = "i120"
+
+	min_brig_time = 3
+	max_brig_time = 7
+
+	min_fine = 15
+	max_fine = 75

@@ -60,7 +60,7 @@
 	if(!T) // Safety check
 		return
 	for(var/obj/machinery/power/sensor/S in SSmachinery.all_sensors)
-		if(AreConnectedZLevels(S.z, computer.z) || (S.long_range))
+		if(AreConnectedZLevels(S.z, T.z) || (S.long_range))
 			if(S.name_tag == "#UNKN#") // Default name. Shouldn't happen!
 				warning("Powernet sensor with unset ID Tag! [S.x]X [S.y]Y [S.z]Z")
 			else
@@ -82,6 +82,7 @@
 
 /datum/computer_file/program/power_monitor/process_tick()
 	..()
+	refresh_sensors()
 	if(has_alarm())
 		if(!has_alert)
 			program_icon_state = "power_monitor_warn"

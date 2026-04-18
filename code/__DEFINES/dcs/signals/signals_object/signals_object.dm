@@ -70,6 +70,5 @@
 ///sent to the projectile when spawning the item (shrapnel) that may be embedded: (new_item)
 #define COMSIG_PROJECTILE_ON_SPAWN_EMBEDDED "projectile_on_spawn_embedded"
 
-/// from /obj/projectile/energy/fisher/on_hit() or /obj/item/gun/energy/recharge/fisher when striking a target
-#define COMSIG_HIT_BY_SABOTEUR "hit_by_saboteur"
-	#define COMSIG_SABOTEUR_SUCCESS (1<<0)
+/// From code\modules\shieldgen\energy_field.dm, the energy field datum uses this to tell shields when to turn dense or not
+#define COMSIG_SHIELDS_UPDATE_STRENGTH_STATUS "update_strength_status"

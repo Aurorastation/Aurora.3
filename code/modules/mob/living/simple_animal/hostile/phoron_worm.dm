@@ -15,7 +15,7 @@
 	response_help  = "pets"
 	response_disarm = "shoves"
 	response_harm   = "harmlessly punches"
-	maxHealth = 850
+	maxhealth = 850
 	health = 850
 	harm_intent_damage = 0
 	melee_damage_lower = 30
@@ -23,7 +23,7 @@
 	resist_mod = 2
 	mob_size = 30
 	environment_smash = 2
-	attacktext = "chomped"
+	attacktext = "chomps"
 	attack_sound = 'sound/weapons/bite.ogg'
 
 	faction = "worm"
@@ -31,7 +31,7 @@
 	mob_swap_flags = HUMAN|SIMPLE_ANIMAL|SLIME|MONKEY
 	mob_push_flags = ALLMOBS
 
-	see_invisible = SEE_INVISIBLE_NOLIGHTING
+	lighting_alpha = LIGHTING_PLANE_ALPHA_SOMEWHAT_INVISIBLE
 
 	minbodytemp = 0
 	maxbodytemp = 350
@@ -70,7 +70,7 @@
 			visible_message(SPAN_WARNING("\The [src] starts consuming \the [P]..."), SPAN_NOTICE("You start consuming \the [P]."))
 			if(!do_after(src, 1 SECOND, P))
 				return
-			var/self_msg = "You consume \the [P][health < maxHealth ? ", healing yourself" : ""]."
+			var/self_msg = "You consume \the [P][health < maxhealth ? ", healing yourself" : ""]."
 			adjustBruteLoss(-5 * P.amount)
 			visible_message(SPAN_WARNING("\The [src] consumes \the [P]!"), SPAN_NOTICE(self_msg))
 			P.amount /= 2
@@ -119,7 +119,7 @@
 	update_icon()
 	pass_flags = PASSTABLE | PASSMOB
 	layer = TURF_DETAIL_LAYER
-	density = FALSE
+	ADD_TRAIT(src, TRAIT_UNDENSE, TRAIT_SOURCE_WORM_BURROW)
 	visible_message(SPAN_DANGER("\The [src] burrows into the ground!"))
 
 /mob/living/simple_animal/hostile/phoron_worm/proc/unburrow()
@@ -131,7 +131,7 @@
 	update_icon()
 	pass_flags = initial(pass_flags)
 	layer = initial(layer)
-	density = TRUE
+	REMOVE_TRAIT(src, TRAIT_UNDENSE, TRAIT_SOURCE_WORM_BURROW)
 	visible_message(SPAN_DANGER("\The [src] emerges from the ground!"))
 	if(mob_size > 15)
 		for(var/mob/living/M in orange(1,src))
@@ -144,7 +144,7 @@
 	name = "black trident worm"
 	desc = "An utterly tremendous, disgustingly bloated worm which relishes in the consumption of phoron."
 	icon = 'icons/mob/npc/small_phoron_worm.dmi'
-	maxHealth = 80
+	maxhealth = 80
 	health = 80
 	melee_damage_lower = 15
 	melee_damage_upper = 15

@@ -1,7 +1,5 @@
 /obj/machinery/computer/shuttle_control
 	name = "shuttle control console"
-	desc_antag = "Consoles like these are typically access-locked.\
-	You can remove this lock with <b>wirecutters</b>, but it would take awhile! Alternatively, you can also use a cryptographic sequencer (emag) for instant removal."
 	icon_screen = "shuttle"
 	icon_keyboard = "cyan_key"
 	icon_keyboard_emis = "cyan_key_mask"
@@ -16,6 +14,14 @@
 
 	/// For hotwiring, how many cycles are needed. This decreases by 1 each cycle and triggers at 0
 	var/hotwire_progress = 8
+
+/obj/machinery/computer/shuttle_control/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(initial(hotwire_progress) != hotwire_progress)
+		if(hotwire_progress != 0)
+			. += SPAN_NOTICE("The bottom panel appears open with wires hanging out. It can be repaired with additional cabling. <i>Current progress: [(hotwire_progress / initial(hotwire_progress)) * 100]%</i>")
+		else
+			. += SPAN_NOTICE("The bottom panel appears open with wires hanging out. It can be repaired with additional cabling.")
 
 /obj/machinery/computer/shuttle_control/Initialize()
 	. = ..()
@@ -46,7 +52,7 @@
 			PH.set_console(src)
 			PH.set_hud_maptext("Shuttle Status: [get_shuttle_status(SSshuttle.shuttles[shuttle_tag])]")
 		return
-	if(attacking_item.iscoil()) // Repair from hotwire
+	if(attacking_item.tool_behaviour == TOOL_CABLECOIL) // Repair from hotwire
 		var/obj/item/stack/cable_coil/C = attacking_item
 		if(hotwire_progress >= initial(hotwire_progress))
 			to_chat(usr, SPAN_BOLD("\The [src] does not require repairs."))
@@ -64,7 +70,7 @@
 						playsound(src.loc, 'sound/items/Deconstruct.ogg', 30, TRUE)
 			return
 
-	if(attacking_item.iswirecutter()) // Hotwiring
+	if(attacking_item.tool_behaviour == TOOL_WIRECUTTER) // Hotwiring
 		if(!req_access && !req_one_access && !emagged) // Already hacked/no need to hack
 			to_chat(user, SPAN_BOLD("[src] is not access-locked."))
 			return
@@ -164,6 +170,7 @@
 		"can_force" = shuttle.can_force(),
 		"can_rename_ship" = can_rename_ship,
 		"ship_name" = shuttle.name,
+		"current_location" = shuttle.get_location_name(),
 	)
 
 /obj/machinery/computer/shuttle_control/ui_act(action, params)
@@ -203,14 +210,6 @@
 	var/shuttle_status = get_shuttle_status(shuttle)
 	for(var/obj/item/clothing/head/helmet/pilot/PH as anything in linked_helmets)
 		PH.set_hud_maptext("Shuttle Status: [shuttle_status]")
-
-/obj/machinery/computer/shuttle_control/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if(initial(hotwire_progress) != hotwire_progress)
-		if(hotwire_progress != 0)
-			. += SPAN_ITALIC("The bottom panel appears open with wires hanging out. It can be repaired with additional cabling. <i>Current progress: [(hotwire_progress / initial(hotwire_progress)) * 100]%</i>")
-		else
-			. += SPAN_ITALIC("The bottom panel appears open with wires hanging out. It can be repaired with additional cabling.")
 
 /obj/machinery/computer/shuttle_control/emag_act(var/remaining_charges, var/mob/user, var/emag_source, var/hotwired = FALSE)
 	if(emagged)

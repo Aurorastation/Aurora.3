@@ -1,11 +1,17 @@
 /datum/signal
+	/// The object (usually a radio, but also PDAs, etc.) which created the signal.
 	var/obj/source
 
+	/// How the signal is being transmitted, can be considered like 'range.' See 'code/__DEFINES/radio.dm' for details.
 	var/transmission_method = TRANSMISSION_WIRE
 
+
 	var/list/data = list()
+
+	/// Whether or not any random receiver can pick this signal up, or if it requires an encryption key. If encrypted with no key, the message is rejected and ignored on initial receipt (can_receive).
 	var/encryption
 
+	/// The frequency being broadcast on.
 	var/frequency = 0
 
 /datum/signal/proc/copy_from(datum/signal/model)

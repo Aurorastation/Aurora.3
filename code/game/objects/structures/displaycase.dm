@@ -7,7 +7,7 @@
 	anchored = TRUE
 	unacidable = TRUE
 	req_access = list(ACCESS_CAPTAIN)
-	var/health = 30
+	maxhealth = OBJECT_HEALTH_VERY_LOW
 	var/obj/held_obj
 	var/open = FALSE
 	var/destroyed = FALSE
@@ -53,7 +53,7 @@
 		density = FALSE
 		destroyed = TRUE
 		new /obj/item/material/shard(loc)
-		playsound(src, /singleton/sound_category/glass_break_sound, 70, 1)
+		playsound(src, SFX_BREAK_GLASS, 70, 1)
 		update_icon()
 
 /obj/structure/displaycase/update_icon()

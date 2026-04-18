@@ -8,7 +8,7 @@
 			return
 
 	// Pass repair items on to the chestpiece.
-	if(chest && (istype(attacking_item, /obj/item/stack/material) || attacking_item.iswelder()))
+	if(chest && (istype(attacking_item, /obj/item/stack/material) || attacking_item.tool_behaviour == TOOL_WELDER))
 		return chest.attackby(attacking_item, user)
 
 	// Lock or unlock the access panel.
@@ -31,7 +31,7 @@
 		to_chat(user, SPAN_NOTICE("You [locked ? "lock" : "unlock"] \the [src] access panel."))
 		return
 
-	else if(attacking_item.iscrowbar())
+	else if(attacking_item.tool_behaviour == TOOL_CROWBAR)
 
 		if(!open && locked)
 			//Ask to confirm the attempt, otherwise leave
@@ -58,14 +58,8 @@
 	if(open)
 
 		// Hacking.
-		if(attacking_item.iswirecutter() || attacking_item.ismultitool())
+		wires.interact(user)
 
-			if(open)
-				wires.interact(user)
-			else
-				to_chat(user, SPAN_ALERT("You can't reach the wiring."))
-
-			return
 		// Air tank.
 		if(istype(attacking_item,/obj/item/tank)) //Todo, some kind of check for suits without integrated air supplies.
 
@@ -129,10 +123,10 @@
 			src.cell = attacking_item
 			return
 
-		else if(attacking_item.iswrench())
+		else if(attacking_item.tool_behaviour == TOOL_WRENCH)
 
 			if(!air_supply)
-				to_chat(user, SPAN_WARNING("There is not tank to remove."))
+				to_chat(user, SPAN_WARNING("There is no tank to remove."))
 				return
 
 			if(user.r_hand && user.l_hand)
@@ -143,7 +137,7 @@
 			air_supply = null
 			return
 
-		else if(attacking_item.isscrewdriver())
+		else if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 
 			var/list/current_mounts = list()
 			if(cell) current_mounts   += "cell"

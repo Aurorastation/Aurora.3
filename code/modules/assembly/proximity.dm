@@ -1,4 +1,4 @@
-/obj/item/device/assembly/prox_sensor
+/obj/item/assembly/prox_sensor
 	name = "proximity sensor"
 	desc = "Used for scanning and alerting when someone enters a certain proximity."
 	icon_state = "prox"
@@ -16,7 +16,7 @@
 	var/time = 10
 	var/range = 2
 
-/obj/item/device/assembly/prox_sensor/activate()
+/obj/item/assembly/prox_sensor/activate()
 	. = ..()
 	if(!.)
 		return 0//Cooldown check
@@ -24,7 +24,7 @@
 	update_icon()
 	return FALSE
 
-/obj/item/device/assembly/prox_sensor/toggle_secure()
+/obj/item/assembly/prox_sensor/toggle_secure()
 	secured = !secured
 	if(secured)
 		START_PROCESSING(SSprocessing, src)
@@ -35,7 +35,7 @@
 	update_icon()
 	return secured
 
-/obj/item/device/assembly/prox_sensor/HasProximity(atom/movable/AM as mob|obj)
+/obj/item/assembly/prox_sensor/HasProximity(atom/movable/AM as mob|obj)
 	if(!istype(AM))
 		LOG_DEBUG("DEBUG: HasProximity called with [AM] on [src] ([usr]).")
 		return
@@ -44,7 +44,7 @@
 	if(AM.move_speed < 12)
 		sense()
 
-/obj/item/device/assembly/prox_sensor/proc/sense()
+/obj/item/assembly/prox_sensor/proc/sense()
 	var/turf/mainloc = get_turf(src)
 	if((!holder && !secured) || !scanning || cooldown)
 		return FALSE
@@ -54,7 +54,7 @@
 	cooldown = 2
 	addtimer(CALLBACK(src, PROC_REF(process_cooldown)), 1 SECOND)
 
-/obj/item/device/assembly/prox_sensor/process()
+/obj/item/assembly/prox_sensor/process()
 	if(scanning)
 		var/turf/mainloc = get_turf(src)
 		for(var/mob/living/A in range(range, mainloc))
@@ -69,19 +69,19 @@
 			toggle_scan()
 			time = 10
 
-/obj/item/device/assembly/prox_sensor/dropped()
+/obj/item/assembly/prox_sensor/dropped()
 	. = ..()
 	spawn(0)
 		sense()
 
-/obj/item/device/assembly/prox_sensor/proc/toggle_scan()
+/obj/item/assembly/prox_sensor/proc/toggle_scan()
 	if(!secured)
 		return FALSE
 	scanning = !scanning
 	update_icon()
 	return
 
-/obj/item/device/assembly/prox_sensor/update_icon()
+/obj/item/assembly/prox_sensor/update_icon()
 	ClearOverlays()
 	attached_overlays = list()
 	if(timing)
@@ -96,24 +96,24 @@
 			var/obj/item/grenade/chem_grenade/grenade = holder.loc
 			grenade.primed(scanning)
 
-/obj/item/device/assembly/prox_sensor/Move()
+/obj/item/assembly/prox_sensor/Move()
 	. = ..()
 	sense()
 
-/obj/item/device/assembly/prox_sensor/interact(mob/user)
+/obj/item/assembly/prox_sensor/interact(mob/user)
 	if(!secured)
 		to_chat(user, SPAN_WARNING("\The [src] is unsecured!"))
 		return FALSE
 
 	ui_interact(user)
 
-/obj/item/device/assembly/prox_sensor/ui_interact(mob/user, datum/tgui/ui)
+/obj/item/assembly/prox_sensor/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
 		ui = new(user, src, "Proximity", "Proximity Sensor", 450, 360)
 		ui.open()
 
-/obj/item/device/assembly/prox_sensor/ui_data(mob/user)
+/obj/item/assembly/prox_sensor/ui_data(mob/user)
 	var/list/data = list()
 
 	data["timeractive"] = timing
@@ -123,7 +123,7 @@
 
 	return data
 
-/obj/item/device/assembly/prox_sensor/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
+/obj/item/assembly/prox_sensor/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	. = ..()
 	if(.)
 		return

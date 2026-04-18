@@ -1,6 +1,6 @@
 /obj/machinery/recharge_station
-	name = "cyborg recharging station"
-	desc = "A heavy duty rapid charging system, designed to quickly recharge cyborg power reserves."
+	name = "synthetic recharging station"
+	desc = "A heavy duty rapid charging system, designed to quickly recharge synthetic power reserves."
 	icon = 'icons/obj/robot_charger.dmi'
 	icon_state = "borgcharger0"
 	density = 1
@@ -44,6 +44,25 @@
 		/obj/item/cell/high,
 		/obj/item/stack/cable_coil{amount = 5}
 	)
+
+/obj/machinery/recharge_station/upgrade_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Upgraded <b>capacitors</b> will increase charging rate (for shipbounds only, not IPCs)."
+	. += "Upgraded <b>manipulators</b> will make the recharging station also start to repair brute damage, then also burn damage, at increasing speed (for shipbounds only, not IPCs)."
+
+/obj/machinery/recharge_station/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	var/charging_power_kw = round(charging_power / 1000, 0.1)
+	. += "Uses a dedicated power supply to deliver <b>[charging_power_kw] kW</b> when in use."
+	. += "The charge meter reads: <b>[round(chargepercentage())]%</b>."
+	if(weld_rate)
+		. += "It is capable of repairing shipbounds' structural damage."
+	else
+		. += SPAN_ALERT("It has not been upgraded to repair shipbounds' structural damage.")
+	if(wire_rate)
+		. += "It is capable of repairing shipbounds' burn damage."
+	else
+		. += SPAN_ALERT("It has not been upgraded to repair shipbounds' burn damage.")
 
 /obj/machinery/recharge_station/Initialize()
 	. = ..()
@@ -98,6 +117,9 @@
 		return
 
 	var/obj/item/cell/target
+
+	// We use the reactor variable to see if this is an IPC that's charging.
+	var/obj/item/organ/internal/machine/reactor/reactor
 	if(isrobot(occupant))
 		var/mob/living/silicon/robot/R = occupant
 
@@ -113,9 +135,15 @@
 
 	if(ishuman(occupant))
 		var/mob/living/carbon/human/H = occupant
-		var/obj/item/organ/internal/cell/IC = H.internal_organs_by_name[BP_CELL]
-		if(IC)
+		var/obj/item/organ/internal/machine/power_core/IC = H.internal_organs_by_name[BP_CELL]
+		if(istype(IC))
 			target = IC.cell
+
+		// Different reactor types have different external recharge speeds.
+		reactor = H.internal_organs_by_name[BP_REACTOR]
+		if(!istype(reactor))
+			return
+
 		if((!target || target.percent() > 95) && istype(H.back, /obj/item/rig))
 			var/obj/item/rig/R = H.back
 			if(R.cell && !R.cell.fully_charged())
@@ -124,17 +152,17 @@
 	if(target && !target.fully_charged())
 		var/diff = min(target.maxcharge - target.charge, charging_power * CELLRATE * seconds_per_tick) // Capped by charging_power / tick
 		var/charge_used = cell.use(diff)
-		target.give(charge_used*charging_efficiency)
+
+		if(!reactor) // not an IPC
+			target.give(charge_used * charging_efficiency)
+		else
+			reactor.generate_power(charge_used * charging_efficiency * reactor.external_charge_multiplier)
 
 	if(isDrone(occupant))
 		var/mob/living/silicon/robot/drone/D = occupant
 		if(D.master_matrix && D.upgrade_cooldown < world.time && D.cell.fully_charged())
 			D.upgrade_cooldown = world.time + 1 MINUTE
 			D.master_matrix.apply_upgrades(D)
-
-/obj/machinery/recharge_station/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	. += "The charge meter reads: [round(chargepercentage())]%."
 
 /obj/machinery/recharge_station/proc/chargepercentage()
 	if(!cell)
@@ -156,6 +184,13 @@
 		go_out()
 	if(cell)
 		cell.emp_act(severity)
+
+/obj/machinery/recharge_station/attack_hand(mob/user)
+	. = ..()
+	if(occupant && (user != occupant))
+		if(do_after(user, 1 SECOND, src))
+			user.visible_message(SPAN_NOTICE("[user] lowers the manual release lever on \the [src]."), SPAN_NOTICE("You lower the manual release lever on \the [src]."))
+			go_out()
 
 /obj/machinery/recharge_station/attackby(obj/item/attacking_item, mob/user)
 	if(!occupant)
@@ -182,6 +217,7 @@
 
 /obj/machinery/recharge_station/RefreshParts()
 	..()
+
 	var/man_rating = 0
 	var/cap_rating = 0
 
@@ -198,13 +234,6 @@
 	restore_power_passive = 5000 + 1000 * cap_rating
 	weld_rate = max(0, man_rating - 3)
 	wire_rate = max(0, man_rating - 5)
-
-	desc = initial(desc)
-	desc += " Uses a dedicated internal power cell to deliver [charging_power]W when in use."
-	if(weld_rate)
-		desc += "<br>It is capable of repairing stationbounds' structural damage."
-	if(wire_rate)
-		desc += "<br>It is capable of repairing stationbounds' burn damage."
 
 /obj/machinery/recharge_station/proc/build_overlays()
 	ClearOverlays()

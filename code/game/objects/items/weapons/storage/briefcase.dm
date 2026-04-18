@@ -30,6 +30,9 @@
 	desc = "A heavy-duty briefcase for your most important documents."
 	icon_state = "briefcase_alum"
 	item_state = "briefcase_alum"
+	use_sound = 'sound/items/storage/toolbox.ogg'
+	drop_sound = 'sound/items/drop/toolbox.ogg'
+	pickup_sound = 'sound/items/pickup/toolbox.ogg'
 
 /obj/item/storage/briefcase/nt
 	name = "\improper NT briefcase"

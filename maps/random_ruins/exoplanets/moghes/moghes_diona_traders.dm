@@ -16,7 +16,6 @@
 	name = "Diona Trader Office"
 	icon_state = "bluenew"
 	requires_power = FALSE
-	dynamic_lighting = TRUE
 	no_light_control = FALSE
 	base_turf = /turf/simulated/floor/exoplanet/grass/moghes/dirt
 	area_flags = AREA_FLAG_RAD_SHIELDED|AREA_FLAG_INDESTRUCTIBLE_TURFS
@@ -49,7 +48,7 @@
 	back = /obj/item/storage/backpack/satchel/leather
 	r_pocket = /obj/item/storage/wallet/random
 	backpack_contents = list(
-		/obj/item/storage/box/donkpockets = 1
+		/obj/item/storage/box/unique/donkpockets = 1
 	)
 	l_ear = null
 
@@ -73,7 +72,7 @@
 /obj/outfit/admin/moghes_diona
 	name = "Diona Servant"
 	uniform = /obj/item/clothing/under/gearharness
-	belt = /obj/item/device/flashlight/lantern
+	belt = /obj/item/flashlight/lantern
 	back = /obj/item/storage/backpack/satchel/leather
 	id = null
 	l_ear = null
@@ -96,7 +95,7 @@
 	suit = /obj/item/clothing/accessory/poncho/unathimantle/mountain
 	id = /obj/item/card/id
 	backpack_contents = list(
-		/obj/item/device/uv_light = 1
+		/obj/item/uv_light = 1
 	)
 	r_pocket = /obj/item/storage/wallet
 

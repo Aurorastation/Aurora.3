@@ -1,8 +1,6 @@
 /obj/vehicle/animal
 	name = "animal"
 	desc = "Base type of rideable animals - you shouldn't be seeing this!"
-	desc_info = "Click-drag yourself onto the animal to climb onto it.<br>\
-		- Click-drag it onto yourself to access its mounted storage.<br>"
 	load_item_visible = 1
 	mob_offset_y = 5
 	health = 100
@@ -36,6 +34,15 @@
 		BULLET = ARMOR_BALLISTIC_MINOR,
 		BOMB = ARMOR_BOMB_MINOR
 	)
+
+/obj/vehicle/animal/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Click-drag yourself onto the animal to climb onto it."
+	. += "Click-drag it onto yourself to access its mounted storage."
+
+/obj/vehicle/animal/Destroy()
+	QDEL_NULL(storage_compartment)
+	return ..()
 
 /obj/vehicle/animal/setup_vehicle()
 	..()
@@ -159,7 +166,7 @@
 				M.attack_log += "\[[time_stamp()]\] <span class='warning'>rammed[M.name] ([M.ckey]) rammed [H.name] ([H.ckey]) with the [src].</span>"
 				msg_admin_attack("[src] crashed into [key_name(H)] at (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[H.x];Y=[H.y];Z=[H.z]'>JMP</a>)" )
 				src.visible_message(SPAN_DANGER("\The [src] smashes into \the [H]!"))
-				playsound(src, /singleton/sound_category/swing_hit_sound, 50, 1)
+				playsound(src, SFX_SWING_HIT, 50, 1)
 				H.apply_damage(20, DAMAGE_BRUTE)
 				H.throw_at(get_edge_target_turf(loc, loc.dir), 5, 1)
 				H.apply_effect(4, WEAKEN)
@@ -169,7 +176,7 @@
 			else
 				var/mob/living/L = AM
 				src.visible_message(SPAN_DANGER("\The [src] smashes into \the [L]!"))
-				playsound(src, /singleton/sound_category/swing_hit_sound, 50, 1)
+				playsound(src, SFX_SWING_HIT, 50, 1)
 				L.throw_at(get_edge_target_turf(loc, loc.dir), 5, 1)
 				L.apply_damage(20, DAMAGE_BRUTE)
 				M.setMoveCooldown(10)
@@ -180,8 +187,6 @@
 	desc = "A rideable beast of burden, large enough for one adult rider only but perfectly adapted for the rough terrain on Adhomai. This one has a saddle mounted on it."
 	icon = 'icons/mob/npc/adhomai_48.dmi'
 	icon_state = "climber_s"
-	desc_info = "Click-drag yourself onto the animal to climb onto it.<br>\
-		- Click-drag it onto yourself to access its mounted storage.<br>"
 	pixel_x = -8
 	mob_offset_y = 8
 	land_speed = 2
@@ -208,8 +213,6 @@
 	desc = "Large herbivorous reptiles native to Moghes, the azkrazal or 'threshbeast' is commonly used as a mount, beast of burden, or convenient food source by Unathi. They are highly valued for their speed and strength, capable of running at 30-42 miles per hour at top speed. This one has been fitted with a saddle."
 	icon = 'icons/mob/npc/moghes_64.dmi'
 	icon_state = "threshbeast_s"
-	desc_info = "Click-drag yourself onto the animal to climb onto it.<br>\
-		- Click-drag it onto yourself to access its mounted storage.<br>"
 	pixel_x = -15
 	mob_offset_y = 10
 	land_speed = 2
@@ -227,8 +230,6 @@
 	desc = "A large species of herbivorous horned reptiles native to Moghes, the hegeranzi or 'warmount' is commonly used as  mount or beast of war by the Unathi. They are highly valued for their speed, aggression, and fearsome horns. This one seems to have been fitted with a saddle."
 	icon = 'icons/mob/npc/moghes_64.dmi'
 	icon_state = "warmount_s"
-	desc_info = "Click-drag yourself onto the animal to climb onto it.<br>\
-		- Click-drag it onto yourself to access its mounted storage.<br>"
 	pixel_x = -14
 	mob_offset_y = 12
 

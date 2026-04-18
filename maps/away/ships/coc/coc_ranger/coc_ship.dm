@@ -7,7 +7,7 @@
 
 	sectors = list(SECTOR_BADLANDS, ALL_COALITION_SECTORS)
 	spawn_weight_sector_dependent = list(ALL_BADLAND_SECTORS = 0.3)
-	sectors_blacklist = list(SECTOR_HANEUNIM, SECTOR_BURZSIA)
+	sectors_blacklist = list(SECTOR_HANEUNIM)
 	spawn_weight = 1
 	ship_cost = 1
 	id = "ranger_corvette"
@@ -18,6 +18,14 @@
 /singleton/submap_archetype/ranger_corvette
 	map = "Ranger Gunboat"
 	descriptor = "The Xansan-class is not, in fact, a distinct design in of itself. It is instead Xanu Prime’s variant of the Lagos-class gunboat, a Solarian light attack ship design. While the Lagos-class has been out of service with the Alliance’s navy for centuries, the blueprints were captured during the Interstellar war by Xanu Prime militiamen from a regional naval shipyard during the opening stages of the conflict, and were immediately used to construct ships of the class for use by Xanu Prime’s burgeoning military. While the Xansan-class has been retired from Xanu service, the leftover ships were donated en masse to the Frontier Marshal Bureau, and the Rangers make use of the craft to this day, in spite of their advanced age."
+
+//armory submap
+/obj/effect/map_effect/marker/mapmanip/submap/extract/coc_ranger_lockers
+	name = "Ranger armory, lockers"
+
+/obj/effect/map_effect/marker/mapmanip/submap/insert/coc_ranger_lockers
+	name = "Ranger armory, lockers"
+
 
 //areas
 /area/ship/ranger_corvette

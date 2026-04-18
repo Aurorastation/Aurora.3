@@ -35,7 +35,7 @@
 "i" = (
 /obj/effect/decal/cleanable/liquid_fuel,
 /obj/structure/computerframe,
-/obj/item/device/gps,
+/obj/item/gps,
 /obj/item/material/shard,
 /turf/simulated/floor/airless,
 /area/dungeon/crashed_satellite)

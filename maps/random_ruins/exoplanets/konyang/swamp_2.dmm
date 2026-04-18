@@ -16,7 +16,7 @@
 	},
 /obj/effect/floor_decal/konyang_flowers,
 /obj/structure/bed/stool/wood,
-/obj/item/device/synthesized_instrument/guitar/multi/fluff/akinyi_symphette{
+/obj/item/synthesized_instrument/guitar/multi/fluff/akinyi_symphette{
 	pixel_x = 16;
 	pixel_y = 6
 	},

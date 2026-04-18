@@ -29,9 +29,7 @@
 		if(C_imp_in.handcuffed)
 			var/obj/item/W = C_imp_in.handcuffed
 			C_imp_in.handcuffed = null
-			if(C_imp_in.buckled_to && C_imp_in.buckled_to.buckle_require_restraints)
-				C_imp_in.buckled_to.unbuckle()
-			C_imp_in.update_inv_handcuffed()
+			C_imp_in.handcuff_update()
 			if(C_imp_in.client)
 				C_imp_in.client.screen -= W
 			if(W)
@@ -42,7 +40,7 @@
 		if(C_imp_in.legcuffed)
 			var/obj/item/W = C_imp_in.legcuffed
 			C_imp_in.legcuffed = null
-			C_imp_in.update_inv_legcuffed()
+			C_imp_in.legcuff_update()
 			if(C_imp_in.client)
 				C_imp_in.client.screen -= W
 			if(W)
@@ -84,7 +82,6 @@ No Implant Specifics"}
 /obj/item/implant/telefreedom
 	name = "telefreedom implant"
 	desc = "Use this to teleport to a linked teleporter in desperate times. Melts after being used."
-	desc_info = "Click a telepad to link your telefreedom implant to it before implanting."
 
 	//////Edit these when you can give it an unique sprite//////
 	icon_state = "implant_freedom"
@@ -99,6 +96,10 @@ No Implant Specifics"}
 	 * The linked telepad to teleport to, a weakref to an `/obj/machinery/telepad` object
 	 */
 	var/datum/weakref/linked_telepad = null
+
+/obj/item/implant/telefreedom/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Left-click a telepad to link your telefreedom implant to it before implanting."
 
 /obj/item/implant/telefreedom/activate()
 	if(!imp_in)

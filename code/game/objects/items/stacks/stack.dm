@@ -27,21 +27,27 @@
 	var/list/datum/matter_synth/synths = null
 	var/icon_has_variants = FALSE
 	icon = 'icons/obj/item/stacks/materials.dmi'
-	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items/stacks/lefthand_materials.dmi',
-		slot_r_hand_str = 'icons/mob/items/stacks/righthand_materials.dmi',
-		)
+	contained_sprite = TRUE
+
+/obj/item/stack/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(is_adjacent)
+		if(tool_behaviour != TOOL_CABLECOIL)
+			if(!uses_charge)
+				. += "There [src.amount == 1 ? "is" : "are"] <b>[src.amount]</b> [src.singular_name]\s in the stack."
+			else
+				. += "You have enough charge to produce <b>[get_amount()]</b>."
 
 /obj/item/stack/Initialize(mapload, amount)
 	. = ..()
 	if (!stacktype)
 		stacktype = type
 	if (amount)
-		src.amount = amount
 		if(amount > max_amount)
-			var/amount_overdue = max_amount - amount
-			new type(get_turf(src), amount_overdue)
-			amount -= amount_overdue
+			var/amount_overdue = amount - max_amount
+			new type(get_turf(src), amount_overdue) // Remaining overflow recursively handled by new type
+			amount = max_amount
+		src.amount = amount
 
 	if (icon_has_variants && !item_state)
 		item_state = icon_state
@@ -70,15 +76,6 @@
 		icon_state = "[initial(icon_state)]_2"
 	else
 		icon_state = "[initial(icon_state)]_3"
-
-/obj/item/stack/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if(is_adjacent)
-		if(!iscoil())
-			if(!uses_charge)
-				. += "There [src.amount == 1 ? "is" : "are"] <b>[src.amount]</b> [src.singular_name]\s in the stack."
-			else
-				. += "You have enough charge to produce <b>[get_amount()]</b>."
 
 /obj/item/stack/attack_self(mob/user)
 	list_recipes(user, recipes)

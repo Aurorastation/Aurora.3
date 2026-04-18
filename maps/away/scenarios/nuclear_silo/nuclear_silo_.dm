@@ -14,6 +14,7 @@
 	)
 
 	sectors = list(ALL_POSSIBLE_SECTORS)
+	template_flags = TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED
 	spawn_weight = 0
 	spawn_cost = 1
 	id = "nuclear_silo"

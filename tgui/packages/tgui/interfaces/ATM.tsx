@@ -1,6 +1,17 @@
 import { BooleanLike } from '../../common/react';
 import { useBackend, useLocalState, useSharedState } from '../backend';
-import { Box, Button, Divider, Input, LabeledList, NoticeBox, NumberInput, Section, Stack, Table } from '../components';
+import {
+  Box,
+  Button,
+  Divider,
+  Input,
+  LabeledList,
+  NoticeBox,
+  NumberInput,
+  Section,
+  Stack,
+  Table,
+} from '../components';
 import { Window } from '../layouts';
 
 export type ATMData = {
@@ -46,7 +57,8 @@ export const ATM = (props, context) => {
                 onClick={() => act('logout')}
               />
             )
-          }>
+          }
+        >
           {data.ticks_left_locked_down ? (
             <NoticeBox color="red">
               This machine is locked down! Please contact Idris technical
@@ -116,19 +128,19 @@ export const AuthenticatedWindow = (props, context) => {
   const [security, setSecurity] = useLocalState<boolean>(
     context,
     'security',
-    false
+    false,
   );
   const [transfer, setTransfer] = useLocalState<boolean>(
     context,
     'transfer',
-    false
+    false,
   );
   const [target, setTarget] = useLocalState<string>(context, 'target', '');
   const [funds, setFunds] = useLocalState<number>(context, 'funds', 0);
   const [purpose, setPurpose] = useLocalState<string>(
     context,
     'purpose',
-    'Funds transfer'
+    'Funds transfer',
   );
   const [logs, setLogs] = useLocalState<boolean>(context, 'logs', false);
 
@@ -139,14 +151,14 @@ export const AuthenticatedWindow = (props, context) => {
       </Box>
       Your account balance is{' '}
       <Box as="span" bold>
-        {data.money}
+        {data.money.toFixed(2)}
       </Box>
       电.
       <LabeledList>
         <LabeledList.Item label="Withdraw">
           <NumberInput
             value={withdraw}
-            minValue={0}
+            minValue={1}
             width={3}
             maxValue={data.money}
             animated
@@ -292,7 +304,8 @@ export const AuthenticatedWindow = (props, context) => {
               icon="print"
               onClick={() => act('print_transaction')}
             />
-          }>
+          }
+        >
           <Table>
             <Table.Row header>
               <Table.Cell>Date</Table.Cell>

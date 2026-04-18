@@ -36,3 +36,24 @@
 
 ///From base of mob/update_movespeed():area
 #define COMSIG_MOB_MOVESPEED_UPDATED "mob_update_movespeed"
+
+/// For loss of limbs.
+#define COMSIG_LIMB_LOSS "lost_limb"
+
+/// From /mob/living/verb/execute_resist(). Resisting.
+#define COMSIG_MOB_RESISTED "mob_resist"
+
+/// Sent when a mob rests.
+#define COMSIG_MOB_RESTED "mob_rested"
+
+/// From /obj/item/organ/external/take_damage. Updates the limb's colour matrix. Very laggy, so we do it on reaction to stuff.
+#define COMSIG_UPDATE_LIMB_IMAGE "update_limb_image"
+
+/// For when bone is fixed with surgery
+#define COMSIG_BEGIN_SURGERY "begin_surgery"
+
+/// For when the players intent changes
+#define COMSIG_INTENT_CHANGE "intent_change"
+
+/// Signal raised at the end of a mob's vision update to check if signals wish to supplement their own huds.
+#define COMSIG_MOB_UPDATE_VISION "mob_update_vision"

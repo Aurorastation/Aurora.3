@@ -1,7 +1,6 @@
 /obj/machinery/atmospherics/valve
 	name = "manual valve"
 	desc = "A pipe valve."
-	desc_info = "Click this to turn the valve.  If red, the pipes on each end are seperated.  Otherwise, they are connected."
 	icon = 'icons/atmos/valve.dmi'
 	icon_state = "map_valve0"
 
@@ -14,6 +13,15 @@
 
 	var/datum/pipe_network/network_node1
 	var/datum/pipe_network/network_node2
+
+/obj/machinery/atmospherics/valve/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "It is [open ? "open" : "closed"]."
+
+/obj/machinery/atmospherics/valve/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Click this to turn the valve."
+	. += "If red, the pipes on each end are seperated. Otherwise, they are connected."
 
 /obj/machinery/atmospherics/valve/open
 	open = 1
@@ -228,6 +236,18 @@
 	var/frequency = 0
 	var/id = null
 	var/datum/radio_frequency/radio_connection
+	/// Determines if this digital valve should provide an admin message. Set to false if the valve is not relevant to admins.
+	var/admin_message = TRUE
+
+/obj/machinery/atmospherics/valve/digital/no_admin_message
+	admin_message = FALSE
+
+/obj/machinery/atmospherics/valve/digital/open
+	open = 1
+	icon_state = "map_valve1"
+
+/obj/machinery/atmospherics/valve/digital/open/no_admin_message
+	admin_message = FALSE
 
 /obj/machinery/atmospherics/valve/digital/attack_ai(mob/user as mob)
 	if(!ai_can_interact(user))
@@ -242,7 +262,8 @@
 		return
 	..()
 
-	log_and_message_admins("has [open ? SPAN_WARNING("OPENED") : "closed"] [name].", user)
+	if(admin_message)
+		log_and_message_admins("has [open ? SPAN_WARNING("OPENED") : "closed"] [name].", user)
 
 /obj/machinery/atmospherics/valve/digital/AltClick(var/mob/abstract/ghost/observer/admin)
 	if (istype(admin))
@@ -255,10 +276,6 @@
 				open()
 
 			log_and_message_admins("has [open ? "opened" : "closed"] [name].", admin)
-
-/obj/machinery/atmospherics/valve/digital/open
-	open = 1
-	icon_state = "map_valve1"
 
 /obj/machinery/atmospherics/valve/digital/power_change()
 	var/old_stat = stat
@@ -302,7 +319,7 @@
 				open()
 
 /obj/machinery/atmospherics/valve/attackby(obj/item/attacking_item, mob/user)
-	if (!attacking_item.iswrench())
+	if (attacking_item.tool_behaviour != TOOL_WRENCH)
 		return ..()
 	if (istype(src, /obj/machinery/atmospherics/valve/digital))
 		to_chat(user, SPAN_WARNING("You cannot unwrench \the [src], it's too complicated."))
@@ -310,7 +327,7 @@
 	var/datum/gas_mixture/int_air = return_air()
 	if (!loc) return FALSE
 	var/datum/gas_mixture/env_air = loc.return_air()
-	if ((int_air.return_pressure()-env_air.return_pressure()) > PRESSURE_EXERTED)
+	if ((XGM_PRESSURE(int_air)-XGM_PRESSURE(env_air)) > PRESSURE_EXERTED)
 		to_chat(user, SPAN_WARNING("You cannot unwrench \the [src], it is too exerted due to internal pressure."))
 		add_fingerprint(user)
 		return TRUE
@@ -323,7 +340,3 @@
 		new /obj/item/pipe(loc, make_from=src)
 		qdel(src)
 		return TRUE
-
-/obj/machinery/atmospherics/valve/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	. += "It is [open ? "open" : "closed"]."

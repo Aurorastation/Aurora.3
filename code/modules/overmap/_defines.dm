@@ -1,6 +1,6 @@
 
 //How far from the edge of overmap zlevel could randomly placed objects spawn
-#define OVERMAP_EDGE 2
+#define OVERMAP_EDGE 4
 
 /// All sector overmap objects.
 /// Assoc list of stringified zlevel integer value (like `"1"` or `"42"` etc)
@@ -12,17 +12,16 @@ GLOBAL_LIST_EMPTY(map_sectors)
 /// to an instance of `/datum/map_template`.
 GLOBAL_LIST_EMPTY(map_templates)
 
-/area/overmap/
+/area/overmap
 	name = "System Map"
 	icon_state = "start"
 	requires_power = 0
 	base_turf = /turf/unsimulated/map
-	dynamic_lighting = 0
+	base_lighting_alpha = 255
 
 /turf/unsimulated/map
 	icon = 'icons/obj/overmap/overmap.dmi'
 	icon_state = "map"
-	permit_ao = FALSE
 
 /turf/unsimulated/map/edge
 	opacity = 1

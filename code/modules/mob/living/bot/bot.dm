@@ -2,7 +2,7 @@
 	name = "Bot"
 	accent = ACCENT_TTS
 	health = 20
-	maxHealth = 20
+	maxhealth = 20
 	icon = 'icons/mob/npc/aibots.dmi'
 	layer = MOB_LAYER
 	universal_speak = TRUE
@@ -23,7 +23,7 @@
 	var/last_emote = 0 // timer for emotes
 
 	var/can_take_pai = TRUE
-	var/obj/item/device/paicard/pAI
+	var/obj/item/paicard/pAI
 	var/old_name
 
 /mob/living/bot/Initialize()
@@ -72,10 +72,10 @@
 
 /mob/living/bot/updatehealth()
 	if(status_flags & GODMODE)
-		health = maxHealth
+		health = maxhealth
 		set_stat(CONSCIOUS)
 	else
-		health = maxHealth - getFireLoss() - getBruteLoss()
+		health = maxhealth - getFireLoss() - getBruteLoss()
 
 /mob/living/bot/death()
 	explode()
@@ -109,24 +109,24 @@
 			else
 				to_chat(user, SPAN_WARNING("As you swipe your ID, it reads: \"Access denied.\""))
 		return
-	else if(attacking_item.isscrewdriver())
+	else if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 		if(!locked)
 			open = !open
 			to_chat(user, SPAN_NOTICE("You [open ? "open" : "close"] the maintenance panel."))
 		else
 			to_chat(user, SPAN_WARNING("You need to unlock the controls first."))
 		return
-	else if(attacking_item.iswelder())
-		if(health < maxHealth)
+	else if(attacking_item.tool_behaviour == TOOL_WELDER)
+		if(health < maxhealth)
 			if(open)
-				health = min(maxHealth, health + 10)
+				health = min(maxhealth, health + 10)
 				user.visible_message(SPAN_NOTICE("\The [user] repairs [src]."), SPAN_NOTICE("You repair [src]."))
 			else
 				to_chat(user, SPAN_WARNING("You are unable to repair [src] with the maintenance panel closed."))
 		else
 			to_chat(user, SPAN_WARNING("[src] does not need a repair."))
 		return
-	else if(attacking_item.iscrowbar())
+	else if(attacking_item.tool_behaviour == TOOL_CROWBAR)
 		if(!pAI)
 			to_chat(user, SPAN_WARNING("\The [src] does not have a pAI installed!"))
 			return
@@ -136,14 +136,14 @@
 		user.put_in_hands(pAI)
 		user.visible_message(SPAN_NOTICE("\The [user] pries \the [pAI.pai] out of \the [src]."), SPAN_NOTICE("You pry \the [pAI.pai] out of \the [src]."))
 		pAI = null
-	else if(istype(attacking_item, /obj/item/device/paicard))
+	else if(istype(attacking_item, /obj/item/paicard))
 		if(!can_take_pai)
 			to_chat(user, SPAN_WARNING("\The [src] cannot take a pAI!"))
 			return
 		if(pAI)
 			to_chat(user, SPAN_WARNING("\The [src] already has a pAI installed!"))
 			return
-		var/obj/item/device/paicard/P = attacking_item
+		var/obj/item/paicard/P = attacking_item
 		P.pai.open_up(FALSE)
 		P.pai.close_up()
 		user.drop_from_inventory(P, src)

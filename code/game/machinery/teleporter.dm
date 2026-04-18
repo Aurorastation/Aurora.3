@@ -60,14 +60,14 @@
 	ClearOverlays()
 	if (engaged)
 		var/image/I = image(icon, src, "[initial(icon_state)]_active_overlay")
-		I.plane = EFFECTS_ABOVE_LIGHTING_PLANE
+		I.plane = ABOVE_LIGHTING_PLANE
 		AddOverlays(I)
 		set_light(4, 0.4)
 	else
 		set_light(0)
 		if (operable())
 			var/image/I = image(icon, src, "[initial(icon_state)]_idle_overlay")
-			I.plane = EFFECTS_ABOVE_LIGHTING_PLANE
+			I.plane = ABOVE_LIGHTING_PLANE
 			AddOverlays(I)
 
 /obj/machinery/teleport/pad/proc/within_range(var/target)
@@ -172,7 +172,7 @@
 	// actor check for radio headset
 	if(SSodyssey.scenario?.radio_frequency_name)
 		var/mob/living/living = user
-		if(istype(living) && !living.check_contents_for(/obj/item/device/radio/headset/ship/odyssey))
+		if(istype(living) && !living.check_contents_for(/obj/item/radio/headset/ship/odyssey))
 			var/choice = tgui_alert(user,
 				"Current odyssey scenario has defined radio channel, but you do not seem to have a headset that can transmit that channel. You can get one from the actor vendor.",
 				"Teleport Warning", list("Continue Teleport", "Cancel Teleport")

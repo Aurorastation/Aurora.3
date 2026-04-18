@@ -9,7 +9,7 @@
 
 /obj/machinery/computer/fusion/gyrotron/terminal
 	name = "gyrotron control terminal"
-	icon = 'icons/obj/machinery/modular_terminal.dmi'
+	icon = 'icons/obj/modular_computers/modular_terminal.dmi'
 	icon_screen = "rust_screen"
 	icon_keyboard = "generic_key"
 	icon_keyboard_emis = "generic_key_mask"
@@ -34,7 +34,7 @@
 
 	switch(action)
 		if("modifypower")
-			G.mega_energy = clamp(params["modifypower"], 1, 50)
+			G.mega_energy = clamp(params["modifypower"], 1, 250)
 			G.change_power_consumption(G.mega_energy * GYRO_POWER, POWER_USE_ACTIVE)
 			return TRUE
 
@@ -62,7 +62,7 @@
 			gyrotron["active"] = G.active
 			gyrotron["firedelay"] = G.rate
 			gyrotron["energy"] = G.mega_energy
+			gyrotron["power_status"] = power_wattage_readable(G.mega_energy * GYRO_POWER)
 			gyrotrons += list(gyrotron)
-	data["gyro_power_constant"] = GYRO_POWER
 	data["gyrotrons"] = gyrotrons
 	return data

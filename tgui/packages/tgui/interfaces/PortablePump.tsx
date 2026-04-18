@@ -1,6 +1,13 @@
 import { BooleanLike } from 'common/react';
 import { useBackend } from '../backend';
-import { Section, Box, ProgressBar, Button, Knob, LabeledList } from '../components';
+import {
+  Section,
+  Box,
+  ProgressBar,
+  Button,
+  Knob,
+  LabeledList,
+} from '../components';
 import { Window } from '../layouts';
 
 export type PumpData = {
@@ -46,7 +53,8 @@ export const PortablePump = (props, context) => {
                 onClick={() => act('direction')}
               />
             </>
-          }>
+          }
+        >
           <LabeledList>
             <LabeledList.Item label="Tank Pressure">
               {data.tankPressure} kPa
@@ -81,7 +89,8 @@ export const PortablePump = (props, context) => {
                 onClick={() => act('remove_tank')}
               />
             )
-          }>
+          }
+        >
           {data.hasHoldingTank ? (
             <HoldingTankWindow />
           ) : (

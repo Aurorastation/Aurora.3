@@ -44,7 +44,7 @@
 	name = "docking port controller"
 	var/master_tag	//for mapping
 	var/datum/computer/file/embedded_program/airlock/multi_docking/airlock_program
-	tag_secure = 1
+	tag_secure = TRUE
 
 /obj/machinery/embedded_controller/radio/airlock/docking_port_multi/Initialize()
 	. = ..()

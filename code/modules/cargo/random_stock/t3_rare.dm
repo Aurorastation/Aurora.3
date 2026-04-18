@@ -10,7 +10,7 @@ STOCK_ITEM_RARE(uranium, 3)
 	new /obj/item/stack/material/uranium(L, rand(5,30))
 
 STOCK_ITEM_RARE(EMP, 0.75)
-	new /obj/item/storage/box/emps(L)
+	new /obj/item/storage/box/tactical/emps(L)
 
 STOCK_ITEM_RARE(hypercell, 3)
 	new /obj/item/cell/hyper(L)
@@ -19,10 +19,10 @@ STOCK_ITEM_RARE(combatmeds, 3)
 	new /obj/item/storage/firstaid/combat(L)
 
 STOCK_ITEM_RARE(batterer, 0.75)
-	new /obj/item/device/batterer(L)
+	new /obj/item/batterer(L)
 
 STOCK_ITEM_RARE(posibrain, 3)
-	new /obj/item/device/mmi/digital/posibrain(L)
+	new /obj/item/mmi/digital/posibrain(L)
 
 STOCK_ITEM_RARE(bsbeaker, 3)
 	new /obj/item/reagent_containers/glass/beaker/bluespace(L)
@@ -110,9 +110,10 @@ STOCK_ITEM_RARE(ipctags, 0.5)
 	else
 		new /obj/item/implanter/ipc_tag(L)
 
-STOCK_ITEM_RARE(rfd, 0.5)
+STOCK_ITEM_RARE(rfd, 0.75)
 	var/obj/item/rfd/rfd_spawn = pick(/obj/item/rfd/construction, /obj/item/rfd/mining, /obj/item/rfd/piping)
 	new rfd_spawn(L)
+	new /obj/item/rfd_ammo(L)
 
 STOCK_ITEM_RARE(xbow, 0.5)
 	if(prob(95))
@@ -142,12 +143,12 @@ STOCK_ITEM_RARE(rare_clothing, 1)
 		/obj/item/clothing/under/lance,
 		/obj/item/clothing/under/dress/lance_dress/male,
 		/obj/item/clothing/under/kilt)
-	for(var/i in 1 to rand(1, 2))
+	for(var/i in 1 to rand(1, 4))
 		var/obj/item/clothing/C = pick(clothing_picks)
 		new C(L)
 
 STOCK_ITEM_RARE(megacorp_goods, 0.25)
-	var/obj/item/adv_item = pick(/obj/item/storage/backpack/service, /obj/item/device/advanced_healthanalyzer)
+	var/obj/item/adv_item = pick(/obj/item/storage/backpack/service, /obj/item/advanced_healthanalyzer)
 	new adv_item(L)
 
 STOCK_ITEM_RARE(pistols, 1)

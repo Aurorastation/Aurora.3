@@ -12,7 +12,6 @@
 	anchored = 1
 	animate_movement=1
 	light_range = 3
-
 	buckle_movable = 1
 	buckle_lying = 0
 
@@ -20,8 +19,6 @@
 
 	var/attack_log = null
 	var/on = 0
-	var/health = 0	//do not forget to set health for your vehicle!
-	var/maxhealth = 0
 	var/fire_dam_coeff = 1.0
 	var/brute_dam_coeff = 1.0
 	var/open = 0	//Maint panel
@@ -49,6 +46,10 @@
 /obj/vehicle/Initialize()
 	. = ..()
 	setup_vehicle()
+
+/obj/vehicle/Destroy()
+	QDEL_NULL(cell)
+	return ..()
 
 /obj/vehicle/proc/setup_vehicle()
 	LAZYADD(can_buckle, /mob/living)
@@ -85,24 +86,24 @@
 	return
 
 /obj/vehicle/attackby(obj/item/attacking_item, mob/user)
-	if(istype(attacking_item, /obj/item/device/hand_labeler))
+	if(istype(attacking_item, /obj/item/hand_labeler))
 		return
-	if(attacking_item.isscrewdriver() && !organic)
+	if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER && !organic)
 		if(!locked)
 			open = !open
 			update_icon()
 			to_chat(user, SPAN_NOTICE("Maintenance panel is now [open ? "opened" : "closed"]."))
-	else if(attacking_item.iscrowbar() && cell && open && !organic)
+	else if(attacking_item.tool_behaviour == TOOL_CROWBAR && cell && open && !organic)
 		remove_cell(user)
 
 	else if(istype(attacking_item, /obj/item/cell) && !cell && open && !organic)
 		insert_cell(attacking_item, user)
-	else if(attacking_item.iswelder() && !organic)
+	else if(attacking_item.tool_behaviour == TOOL_WELDER && !organic)
 		var/obj/item/weldingtool/T = attacking_item
 		if(T.welding)
 			if(health < maxhealth)
 				if(open)
-					health = min(maxhealth, health+10)
+					add_health(10)
 					user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 					user.visible_message(SPAN_WARNING("[user] repairs [src]!"),
 											SPAN_NOTICE("<span class='notice'>You repair [src]!"))
@@ -115,12 +116,11 @@
 	else if(hasvar(attacking_item,"force") && hasvar(attacking_item,"damtype"))
 		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 		switch(attacking_item.damtype)
-			if("fire")
-				health -= attacking_item.force * fire_dam_coeff
-			if("brute")
-				health -= attacking_item.force * brute_dam_coeff
+			if(DAMAGE_BURN)
+				add_damage(attacking_item.force * fire_dam_coeff)
+			if(DAMAGE_BRUTE)
+				add_damage(attacking_item.force * brute_dam_coeff)
 		..()
-		healthcheck()
 	else
 		..()
 
@@ -128,31 +128,21 @@
 	. = ..()
 	if(. != BULLET_ACT_HIT)
 		return .
-
-	health -= hitting_projectile.get_structure_damage()
-
+	add_damage(hitting_projectile.get_structure_damage())
 	if (prob(20) && !organic)
 		spark(src, 5, GLOB.alldirs)
-
-	healthcheck()
 
 /obj/vehicle/ex_act(severity)
 	switch(severity)
 		if(1.0)
 			explode()
-			return
 		if(2.0)
-			health -= rand(5,10)*fire_dam_coeff
-			health -= rand(10,20)*brute_dam_coeff
-			healthcheck()
-			return
+			add_damage(rand(5,10)*fire_dam_coeff)
+			add_damage(rand(10,20)*brute_dam_coeff)
 		if(3.0)
 			if (prob(50))
-				health -= rand(1,5)*fire_dam_coeff
-				health -= rand(1,5)*brute_dam_coeff
-				healthcheck()
-				return
-	return
+				add_damage(rand(1,5)*fire_dam_coeff)
+				add_damage(rand(1,5)*brute_dam_coeff)
 
 /obj/vehicle/emp_act(severity)
 	. = ..()
@@ -249,9 +239,8 @@
 	unload()
 	qdel(src)
 
-/obj/vehicle/proc/healthcheck()
-	if(health <= 0)
-		explode()
+/obj/vehicle/on_death(damage, damage_flags, damage_type, armor_penetration, obj/weapon)
+	explode()
 
 /obj/vehicle/proc/powercheck()
 	if(!cell && !powered)
@@ -421,17 +410,16 @@
 /obj/vehicle/proc/update_stats()
 	return
 
-/obj/vehicle/attack_generic(var/mob/user, var/damage, var/attack_message)
+/obj/vehicle/attack_generic(mob/user, damage, attack_message, environment_smash, armor_penetration, attack_flags, damage_type)
 	if(!damage)
 		return
 	visible_message(SPAN_DANGER("[user] [attack_message] the [src]!"))
 	user.attack_log += "\[[time_stamp()]\] <span class='warning'>attacked [src.name]</span>"
 	user.do_attack_animation(src)
-	src.health -= damage
+	add_damage(damage)
 	if(prob(10))
 		new /obj/effect/decal/cleanable/blood/oil(src.loc)
-	spawn(1) healthcheck()
-	return 1
+	return TRUE
 
 /obj/vehicle/can_fall(turf/below, turf/simulated/open/dest = src.loc)
 	if (flying)

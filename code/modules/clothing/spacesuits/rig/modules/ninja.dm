@@ -96,7 +96,7 @@
 	if(!M || !T)
 		return
 
-	playsound(T, /singleton/sound_category/spark_sound, 50, 1)
+	playsound(T, SFX_SPARKS, 50, 1)
 	new phase_out_visual(T, M.dir)
 
 /obj/item/rig_module/teleporter/engage(atom/target, mob/user, var/notify_ai)
@@ -349,7 +349,7 @@
 
 /obj/item/rig_module/device/door_hack/process()
 	if(holder && holder.wearer)
-		if(!(locate(/obj/item/device/multitool/hacktool/rig) in holder.wearer))
+		if(!(locate(/obj/item/multitool/hacktool/rig) in holder.wearer))
 			deactivate()
 			return FALSE
 
@@ -368,7 +368,7 @@
 		deactivate()
 		return
 
-	var/obj/item/device/multitool/hacktool/rig/hacktool = new(M)
+	var/obj/item/multitool/hacktool/rig/hacktool = new(M)
 	hacktool.creator = M
 	M.put_in_hands(hacktool)
 
@@ -380,5 +380,5 @@
 	if(!M)
 		return
 
-	for(var/obj/item/device/multitool/hacktool/rig/hacktool in M.contents)
+	for(var/obj/item/multitool/hacktool/rig/hacktool in M.contents)
 		qdel(hacktool)

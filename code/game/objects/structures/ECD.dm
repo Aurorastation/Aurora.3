@@ -10,7 +10,7 @@
 	anchored = TRUE
 	density = TRUE
 	var/state = ECD_WELDED
-	slowdown = 10
+	slowdown = 5
 	layer = ABOVE_HUMAN_LAYER
 
 	var/health = 50
@@ -116,7 +116,7 @@
 				playsound(get_turf(src), 'sound/machines/tcomms/tcomms_mid1.ogg', 100, TRUE)
 
 /obj/structure/ecd/attackby(obj/item/attacking_item, mob/user, params)
-	if(attacking_item.iswrench())
+	if(attacking_item.tool_behaviour == TOOL_WRENCH)
 		switch(state)
 			if(ECD_LOOSE)
 				state = ECD_BOLTED
@@ -136,7 +136,7 @@
 				to_chat(user, SPAN_WARNING("\The [src] needs to be unwelded from the floor."))
 		return
 
-	if(attacking_item.iswelder())
+	if(attacking_item.tool_behaviour == TOOL_WELDER)
 		var/obj/item/weldingtool/WT = attacking_item
 		switch(state)
 			if(ECD_LOOSE)

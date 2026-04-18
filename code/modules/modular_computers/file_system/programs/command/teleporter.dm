@@ -56,7 +56,7 @@
 		var/list/area_index = list()
 
 		var/list/teleport_beacon_info = list()
-		for(var/obj/item/device/radio/beacon/R as anything in GLOB.teleportbeacons)
+		for(var/obj/item/radio/beacon/R as anything in GLOB.teleportbeacons)
 			var/turf/BT = get_turf(R)
 			if(!BT)
 				continue

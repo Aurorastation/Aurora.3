@@ -644,7 +644,7 @@
 /area/moghes/hegemony_base)
 "ta" = (
 /obj/structure/table/wood,
-/obj/item/device/flashlight/lamp/green,
+/obj/item/flashlight/lamp/green,
 /turf/simulated/floor/exoplanet/carpet/red,
 /area/moghes/hegemony_base)
 "tl" = (
@@ -749,7 +749,7 @@
 /obj/item/clothing/under/unathi/izweski,
 /obj/item/clothing/shoes/sandals/caligae,
 /obj/item/clothing/accessory/poncho/red,
-/obj/item/device/versebook/thakh,
+/obj/item/versebook/thakh,
 /turf/simulated/floor/exoplanet/concrete/square{
 	temperature = 303.15
 	},
@@ -883,11 +883,11 @@
 	dir = 6
 	},
 /obj/structure/table/rack,
-/obj/item/device/radio,
-/obj/item/device/radio,
-/obj/item/device/radio,
-/obj/item/device/radio,
-/obj/item/device/radio,
+/obj/item/radio,
+/obj/item/radio,
+/obj/item/radio,
+/obj/item/radio,
+/obj/item/radio,
 /obj/item/storage/toolbox/mechanical,
 /turf/simulated/floor/exoplanet/concrete/square{
 	temperature = 303.15
@@ -1104,7 +1104,7 @@
 	pixel_y = 4;
 	pixel_x = -5
 	},
-/obj/item/device/healthanalyzer,
+/obj/item/healthanalyzer,
 /obj/item/storage/belt/medical,
 /obj/item/bodybag/cryobag,
 /turf/simulated/floor/exoplanet/tiled/white{
@@ -1294,7 +1294,7 @@
 /obj/item/clothing/under/unathi/izweski,
 /obj/item/clothing/shoes/sandals/caligae,
 /obj/item/clothing/accessory/poncho/red,
-/obj/item/device/versebook/thakh,
+/obj/item/versebook/thakh,
 /obj/item/toy/crossbow,
 /turf/simulated/floor/exoplanet/concrete/square{
 	temperature = 303.15
@@ -1337,7 +1337,7 @@
 /obj/item/clothing/under/unathi/izweski,
 /obj/item/clothing/shoes/sandals/caligae,
 /obj/item/clothing/accessory/poncho/red,
-/obj/item/device/versebook/skakh,
+/obj/item/versebook/skakh,
 /turf/simulated/floor/exoplanet/concrete/square{
 	temperature = 303.15
 	},
@@ -1718,8 +1718,8 @@
 /obj/item/storage/box/handcuffs,
 /obj/item/reagent_containers/spray/pepper,
 /obj/item/reagent_containers/spray/pepper,
-/obj/item/device/flash,
-/obj/item/device/flash,
+/obj/item/flash,
+/obj/item/flash,
 /turf/simulated/floor/exoplanet/concrete/square{
 	temperature = 303.15
 	},
@@ -1817,7 +1817,7 @@
 /obj/item/clothing/under/unathi/izweski,
 /obj/item/clothing/shoes/sandals/caligae,
 /obj/item/clothing/accessory/poncho/red,
-/obj/item/device/versebook/skakh,
+/obj/item/versebook/skakh,
 /turf/simulated/floor/exoplanet/concrete/square{
 	temperature = 303.15
 	},

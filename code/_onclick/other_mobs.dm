@@ -1,5 +1,5 @@
 ///Generic damage proc (slimes and monkeys).
-/atom/proc/attack_generic(mob/user as mob)
+/atom/proc/attack_generic(mob/user, damage, attack_message, environment_smash, armor_penetration, attack_flags, damage_type)
 	return 0
 
 ///Generic click on for pai

@@ -87,7 +87,7 @@
 		paste.use(1)
 		return
 
-	else if(attacking_item.iscoil())
+	else if(attacking_item.tool_behaviour == TOOL_CABLECOIL)
 		switch(damage)
 			if(0)
 				to_chat(user, SPAN_WARNING("There is no damage to mend."))
@@ -263,6 +263,16 @@
 	var/list/data = ..()
 	if(istype(back,/obj/item/rig))
 		var/obj/item/rig/R = back
+		for(var/obj/item/rig_module/module in R.installed_modules)
+			for(var/stat_rig_module/SRM in module.stat_modules)
+				if(SRM.CanUse())
+					data += list(list("Hardsuit Modules", "[SRM.module.interface_name]", "[SRM]", REF(SRM)))
+	return data
+
+/mob/living/silicon/get_actions_for_statpanel()
+	var/list/data = ..()
+	var/obj/item/rig/R = get_rig()
+	if(istype(R))
 		for(var/obj/item/rig_module/module in R.installed_modules)
 			for(var/stat_rig_module/SRM in module.stat_modules)
 				if(SRM.CanUse())

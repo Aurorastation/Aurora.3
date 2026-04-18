@@ -88,7 +88,7 @@
 	power_add = BATTLE_MONSTERS_POWER_COMMON
 	defense_add = 2
 	attack_add = 1
-	description = "a seductively buff male %SPECIES barbarian wearing a simple fur loincloth and a chest full of hair. They seem to be in possession of a %WEAPON_AND."
+	description = "a buff male %SPECIES barbarian wearing a simple fur loincloth and a chest full of hair. They seem to be in possession of a %WEAPON_AND."
 	special_effects = "%SPECIES_C Kinship: %NAME gains <b>300</b> attack points if there is another visible %SPECIES on the same side of the field."
 	attack_type = BATTLE_MONSTERS_ATTACKTYPE_SWORDSMAN
 	rarity = BATTLE_MONSTERS_RARITY_UNCOMMON
@@ -101,7 +101,7 @@
 	power_add = BATTLE_MONSTERS_POWER_COMMON
 	defense_add = 2
 	attack_add = 1
-	description = "a scantily clad male %SPECIES %NAME dressed in leopard skin. They proudly wield a giant %WEAPON_AND."
+	description = "a male %SPECIES %NAME dressed in leopard skin. They proudly wield a giant %WEAPON_AND."
 	attack_type = BATTLE_MONSTERS_ATTACKTYPE_CLUB
 	rarity = BATTLE_MONSTERS_RARITY_UNCOMMON
 	rarity_score = 0
@@ -113,7 +113,7 @@
 	power_add = BATTLE_MONSTERS_POWER_COMMON
 	defense_add = 2
 	attack_add = 1
-	description = "a scantily clad female %SPECIES %NAME dressed in leopard skin. They're one of the many queen guards of the Amazonian Kingdom."
+	description = "a female %SPECIES %NAME dressed in leopard skin. They're one of the many queen guards of the Amazonian Kingdom."
 	special_effects = "Free Shipping: A trap or spell card can be played from the card owner's hand during their opponent's turn, as long as %NAME is visible."
 	attack_type = BATTLE_MONSTERS_ATTACKTYPE_CLUB
 	rarity = BATTLE_MONSTERS_RARITY_RARE
@@ -152,8 +152,8 @@
 	power_add = BATTLE_MONSTERS_POWER_GREATER
 	defense_add = 1
 	attack_add = 5
-	description = "an incredibly voluptuous %SPECIES female adorned in a %ELEMENT_AND robe. An equally tight-fitting crown sits atop her head."
-	special_effects = "Lustful Aurora: %NAME cannot be attacked by %SPECIES monsters."
+	description = "a %SPECIES female adorned in a %ELEMENT_AND robe. An equally tight-fitting crown sits atop her head."
+	special_effects = "Pacifying Aurora: %NAME cannot be attacked by %SPECIES monsters."
 	attack_type = BATTLE_MONSTERS_ATTACKTYPE_ARMY
 	rarity = BATTLE_MONSTERS_RARITY_MYTHICAL
 	rarity_score = 1
@@ -192,8 +192,8 @@
 	power_add = BATTLE_MONSTERS_POWER_COMMON
 	defense_add = 2
 	attack_add = 1
-	description = "an unrealsticly busty feminine shaped %SPECIES. When not using their mammaries to confuse scientists, %NAME usually stalks careless human climbers for a quick and easy meal using their deadly %WEAPON_AND."
-	special_effects = "Lustful Aurora: %NAME cannot be attacked by %SPECIES monsters."
+	description = "a feminine shaped %SPECIES. %NAME usually stalks careless human climbers for a quick and easy meal using their deadly %WEAPON_AND."
+	special_effects = "Pacifying Aurora: %NAME cannot be attacked by %SPECIES monsters."
 	attack_type = BATTLE_MONSTERS_ATTACKTYPE_CLAWS
 	defense_type = BATTLE_MONSTERS_DEFENSETYPE_DRAGONHYBRID
 	rarity = BATTLE_MONSTERS_RARITY_RARE

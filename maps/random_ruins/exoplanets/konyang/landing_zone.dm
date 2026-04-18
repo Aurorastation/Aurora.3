@@ -15,7 +15,6 @@
 	name = "SCC Expedition Command Center"
 	icon_state = "bluenew"
 	requires_power = FALSE
-	dynamic_lighting = TRUE
 	no_light_control = FALSE
 	base_turf = /turf/simulated/mineral
 	area_flags = AREA_FLAG_HIDE_FROM_HOLOMAP | AREA_FLAG_INDESTRUCTIBLE_TURFS
@@ -23,6 +22,7 @@
 /area/konyang_landing_zone/command_center
 	name = "SCC Expedition Command Center"
 	requires_power = TRUE
+	is_outside = OUTSIDE_NO
 
 /area/konyang_landing_zone/command_center/reactor
 	name = "SCC Expedition Command Center Reactor"
@@ -38,6 +38,7 @@
 
 /area/konyang_landing_zone/command_center/landing_pads
 	name = "SCC Expedition Command Center Landing Pads"
+	is_outside = OUTSIDE_YES
 
 /obj/effect/shuttle_landmark/konyang_landing_zone_intrepid
 	name = "SCC Expedition Command Center - Intrepid"

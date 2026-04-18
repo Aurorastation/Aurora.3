@@ -33,7 +33,7 @@ module.exports = (env = {}, argv) => {
     context: path.resolve(__dirname),
     target: ['web', 'es3', 'browserslist:ie 8'],
     entry: {
-      'tgui': [
+      tgui: [
         './packages/tgui-polyfill',
         './packages/tgui',
       ],

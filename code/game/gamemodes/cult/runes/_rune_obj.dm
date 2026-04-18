@@ -10,6 +10,15 @@
 	mouse_opacity = MOUSE_OPACITY_OPAQUE
 	var/datum/rune/rune
 
+/obj/effect/rune/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(iscultist(user) || isobserver(user))
+		. += rune.get_cultist_fluff_text()
+		. += "This rune [rune.can_be_talisman() ? SPAN_CULT("can") : "[SPAN_CULT("cannot")]"] be turned into a talisman."
+		. += "This rune [rune.can_memorize() ? SPAN_CULT("can") : "[SPAN_CULT("cannot")]"] be memorized to be scribed without a tome."
+	else
+		. += rune.get_normal_fluff_text()
+
 /obj/effect/rune/Initialize(mapload, var/R)
 	. = ..()
 	if(!R)
@@ -22,15 +31,6 @@
 /obj/effect/rune/Destroy()
 	QDEL_NULL(rune)
 	return ..()
-
-/obj/effect/rune/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if(iscultist(user) || isobserver(user))
-		. += rune.get_cultist_fluff_text()
-		. += "This rune [rune.can_be_talisman() ? SPAN_CULT("can") : "[SPAN_CULT("cannot")]"] be turned into a talisman."
-		. += "This rune [rune.can_memorize() ? SPAN_CULT("can") : "[SPAN_CULT("cannot")]"] be memorized to be scribed without a tome."
-	else
-		. += rune.get_normal_fluff_text()
 
 /obj/effect/rune/attackby(obj/item/attacking_item, mob/user)
 	if(istype(attacking_item, /obj/item/book/tome) && iscultist(user))

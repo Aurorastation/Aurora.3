@@ -19,6 +19,13 @@
 	var/obj/item/shockpaddles/linked/paddles
 	var/obj/item/cell/bcell
 
+/obj/item/defibrillator/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(bcell)
+		. += "The charge meter is showing <b>[bcell.percent()]%</b> charge left."
+	else
+		. += "There is no cell inside."
+
 /obj/item/defibrillator/Initialize() //starts without a cell for rnd
 	. = ..()
 	if(ispath(paddles))
@@ -35,9 +42,9 @@
 	toggle_paddles()
 
 /obj/item/defibrillator/Destroy()
-	. = ..()
 	QDEL_NULL(paddles)
 	QDEL_NULL(bcell)
+	return ..()
 
 /obj/item/defibrillator/loaded //starts with regular power cell for R&D to replace later in the round.
 	bcell = /obj/item/cell
@@ -61,13 +68,6 @@
 		new_overlays += "[initial(icon_state)]-nocell"
 
 	overlays = new_overlays
-
-/obj/item/defibrillator/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if(bcell)
-		. += "The charge meter is showing [bcell.percent()]% charge left."
-	else
-		. += "There is no cell inside."
 
 /obj/item/defibrillator/ui_action_click()
 	toggle_paddles()
@@ -129,7 +129,7 @@
 			to_chat(user, SPAN_NOTICE("You install a cell in \the [src]."))
 			update_icon()
 
-	else if(attacking_item.isscrewdriver())
+	else if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 		if(bcell)
 			bcell.update_icon()
 			bcell.dropInto(loc)
@@ -420,7 +420,7 @@
 	make_announcement("pings, \"Resuscitation successful.\"", "notice")
 	playsound(get_turf(src), 'sound/machines/defib_success.ogg', 50, 0)
 	H.resuscitate()
-	var/obj/item/organ/internal/cell/potato = H.internal_organs_by_name[BP_CELL]
+	var/obj/item/organ/internal/machine/power_core/potato = H.internal_organs_by_name[BP_CELL]
 	if(istype(potato) && potato.cell)
 		var/obj/item/cell/C = potato.cell
 		C.give(chargecost)
@@ -651,9 +651,9 @@
 	var/fail_counter = 0
 
 /obj/item/shockpaddles/standalone/Destroy()
-	. = ..()
 	if(fail_counter)
 		STOP_PROCESSING(SSprocessing, src)
+	return ..()
 
 /obj/item/shockpaddles/standalone/check_charge(charge_amt)
 	return TRUE

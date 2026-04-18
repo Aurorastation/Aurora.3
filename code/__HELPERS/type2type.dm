@@ -1,11 +1,11 @@
 /*
  * Holds procs designed to change one type of value, into another.
  * Contains:
- *			text2list & list2text
- *			file2list
- *			angle2dir
- *			angle2text
- *			worldtime2text
+ * * text2list & list2text
+ * * file2list
+ * * angle2dir
+ * * angle2text
+ * * worldtime2text
  */
 
 // Splits the text of a file at seperator and returns them in a list.
@@ -108,6 +108,21 @@
 	if (degree < 270) return SOUTHWEST
 	if (degree < 315) return WEST
 	return NORTH|WEST
+
+/**
+ * Returns the trigonometric degrees of a given direction.
+ * Use this instead of dir2angle if you're using cos() and sin() to generate a velocity or acceleration vector.
+ */
+/proc/dir2degree(var/D)
+	switch (D) // Starting from 0 on a Unit Circle
+		if (EAST) 		return 0
+		if (NORTHEAST)  return 45
+		if (NORTH) 		return 90
+		if (NORTHWEST)  return 135
+		if (WEST) 		return 180
+		if (SOUTHWEST)  return 225
+		if (SOUTH) 		return 270
+		if (SOUTHEAST)  return 315
 
 // Returns the north-zero clockwise angle in degrees, given a direction
 /proc/dir2angle(var/D)

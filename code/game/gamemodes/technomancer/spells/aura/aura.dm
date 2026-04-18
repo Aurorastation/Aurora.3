@@ -8,7 +8,8 @@
 
 /obj/item/spell/aura/Initialize()
 	. = ..()
-	set_light(calculate_spell_power(7), calculate_spell_power(4), l_color = glow_color)
+	set_light_range_power_color(calculate_spell_power(7), calculate_spell_power(4), glow_color)
+	set_light_on(TRUE)
 	START_PROCESSING(SSprocessing, src)
 	log_and_message_admins("has started casting [src].")
 

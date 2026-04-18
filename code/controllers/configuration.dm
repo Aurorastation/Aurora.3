@@ -62,6 +62,7 @@ GLOBAL_LIST_EMPTY(gamemode_cache)
 	"log_subsystems_ghostroles" = TRUE,	// Ghost Roles
 	"log_subsystems_law" = TRUE,	// Law
 	"log_subsystems_cargo" = TRUE, // Cargo
+	"log_subsystems_persistence" = TRUE, // Persistence
 	"log_subsystems_documents" = TRUE, // Documents
 	"log_subsystems_fail2topic" = TRUE, // Fail2Topic
 	"log_subsystems_mapfinalization" = TRUE, // Map Finalization
@@ -120,6 +121,7 @@ GLOBAL_LIST_EMPTY(gamemode_cache)
 	"world_subsystems_ghostroles_log" = "subsystems/ghostroles.log",
 	"world_subsystems_law_log" = "subsystems/law.log",
 	"world_subsystems_cargo_log" = "subsystems/cargo.log",
+	"world_subsystems_persistence_log" = "subsystems/persistence.log",
 	"world_subsystems_documents_log" = "subsystems/documents.log",
 	"world_subsystems_fail2topic_log" = "subsystems/fail2topic.log",
 	"world_subsystems_mapfinalization_log" = "subsystems/mapfinalization.log",
@@ -296,7 +298,6 @@ GLOBAL_LIST_EMPTY(gamemode_cache)
 	//Unversal modifiers
 	var/walk_speed = 0
 	var/walk_delay_multiplier = 1
-	var/lying_delay_multiplier = 4
 	var/run_delay_multiplier = 1
 	var/vehicle_delay_multiplier = 1
 
@@ -339,13 +340,13 @@ GLOBAL_LIST_EMPTY(gamemode_cache)
 	var/expected_round_length = 3 * 60 * 60 * 10 // 3 hours
 	// If the first delay has a custom start time
 	// No custom time, no custom time, between 80 to 100 minutes respectively.
-	var/list/event_first_run   = list(EVENT_LEVEL_MUNDANE = null, 	EVENT_LEVEL_MODERATE = null,	EVENT_LEVEL_MAJOR = list("lower" = 48000, "upper" = 60000))
+	var/alist/event_first_run   = alist(EVENT_LEVEL_MUNDANE = null, 	EVENT_LEVEL_MODERATE = null,	EVENT_LEVEL_MAJOR = list("lower" = 48000, "upper" = 60000))
 	// The lowest delay until next event
 	// 10, 30, 50 minutes respectively
-	var/list/event_delay_lower = list(EVENT_LEVEL_MUNDANE = 6000,	EVENT_LEVEL_MODERATE = 18000,	EVENT_LEVEL_MAJOR = 30000)
+	var/alist/event_delay_lower = alist(EVENT_LEVEL_MUNDANE = 6000,	EVENT_LEVEL_MODERATE = 18000,	EVENT_LEVEL_MAJOR = 30000)
 	// The upper delay until next event
 	// 15, 45, 70 minutes respectively
-	var/list/event_delay_upper = list(EVENT_LEVEL_MUNDANE = 9000,	EVENT_LEVEL_MODERATE = 27000,	EVENT_LEVEL_MAJOR = 42000)
+	var/alist/event_delay_upper = alist(EVENT_LEVEL_MUNDANE = 9000,	EVENT_LEVEL_MODERATE = 27000,	EVENT_LEVEL_MAJOR = 42000)
 
 	var/ninjas_allowed = 0
 	var/abandon_allowed = 1
@@ -440,8 +441,11 @@ GLOBAL_LIST_EMPTY(gamemode_cache)
 	var/ntsl_port = "1945"
 	var/ntsl_disabled = TRUE
 
-	// Is external Auth enabled
-	var/external_auth = FALSE
+	/// Is external Auth enabled
+	// 0 - disabled.
+	// 1 - only users with linked ckeys can authenticate.
+	// 2 - users with a forum account and no linked ckeys can also authenticate.
+	var/external_auth = 0
 
 	// fail2topic settings
 	var/fail2topic_rate_limit = 5 SECONDS
@@ -455,9 +459,9 @@ GLOBAL_LIST_EMPTY(gamemode_cache)
 	// global.forum_api_key - see modules/http/forum_api.dm
 	var/news_use_forum_api = FALSE
 
-	var/forumuser_api_url
-	var/use_forumuser_api = FALSE
-	// global.forumuser_api_key - see modules/http/forumuser_api.dm
+	var/authentik_api_url
+	var/authentik_api_key
+	var/use_authentik_api = FALSE
 
 	var/profiler_is_enabled = FALSE
 	var/profiler_restart_period = 120 SECONDS
@@ -1038,7 +1042,9 @@ GENERAL_PROTECT_DATUM(/datum/configuration)
 					ntsl_disabled = text2num(value)
 
 				if ("external_auth")
-					external_auth = TRUE
+					external_auth = text2num(value)
+					if (external_auth > 2 || external_auth < 0)
+						external_auth = 0
 
 				if ("fail2topic_rate_limit")
 					fail2topic_rate_limit = text2num(value) SECONDS
@@ -1065,12 +1071,12 @@ GENERAL_PROTECT_DATUM(/datum/configuration)
 				if ("profiler_timeout_threshold")
 					profiler_timeout_threshold = text2num(value)
 
-				if ("forumuser_api_url")
-					forumuser_api_url = value
-				if ("use_forumuser_api")
-					use_forumuser_api = TRUE
-				if ("forumuser_api_key")
-					global.forumuser_api_key = value
+				if ("authentik_api_url")
+					GLOB.config.authentik_api_url = value
+				if ("use_authentik_api")
+					GLOB.config.use_authentik_api = TRUE
+				if ("authentik_api_key")
+					GLOB.config.authentik_api_key = value
 
 				if ("external_rsc_urls")
 					external_rsc_urls = splittext(value, ",")

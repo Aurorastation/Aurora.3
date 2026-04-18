@@ -139,10 +139,9 @@
 				continue
 			// Update identification information for this record.
 			record.update_marker_icon()
-
-			var/time_delay = max((SENSOR_TIME_DELAY * get_dist(linked, contact)),1)
-			if(!record.pinged)
-				addtimer(CALLBACK(record, PROC_REF(ping)), time_delay)
+			if(record.pinged_until <= world.time)
+				var/time_delay = max((SENSOR_TIME_DELAY * get_dist(linked, contact)), 1 SECOND)
+				record.ping(time_delay)
 
 /**
  * Adds an overmap object to the known contacts.
@@ -168,7 +167,7 @@
 
 /obj/machinery/computer/ship/sensors/attackby(obj/item/attacking_item, mob/user)
 	. = ..()
-	var/obj/item/device/multitool/P = attacking_item
+	var/obj/item/multitool/P = attacking_item
 	if(!istype(P))
 		return
 	var/obj/item/ship_tracker/tracker = P.get_buffer()

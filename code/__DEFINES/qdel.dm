@@ -1,14 +1,3 @@
-/**
- * THIS IS A TEMPORARY WORKAROUND WHILE WE RESOLVE HARDDELS WITH THE NEW GC
- *
- * YOU ARE ONLY ALLOWED TO REMOVE THE AMOUNT OF THEM, NOT ADD MORE
- *
- * AND FOR WHAT MATTERS, THE SAME GOES FOR QDEL_HINT_HARDDEL,
- * I DO NOT CARE HOW MANY REWRITES AND REFACTORS YOU HAVE TO DO, WHATEVER YOU ADD NEEDS TO BE GARGAGE COLLECTABLE, OR HAVE AN EXPLAINED, CLEAR, UNFIXABLE REASON WHY IT IS NOT
- *
- */
-#define GC_TEMPORARY_HARDDEL return QDEL_HINT_HARDDEL
-
 //! Defines that give qdel hints.
 //!
 //! These can be given as a return in [/atom/proc/Destroy] or by calling [/proc/qdel].
@@ -73,14 +62,15 @@
 // This is a bit hacky, we do it to avoid people relying on a return value for the macro
 // If you need that you should use QDEL_IN_STOPPABLE instead
 #define QDEL_IN(item, time) ; \
-	addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(qdel), (time) > GC_FILTER_QUEUE ? WEAKREF(item) : item), time);
-#define QDEL_IN_STOPPABLE(item, time) addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(qdel), (time) > GC_FILTER_QUEUE ? WEAKREF(item) : item), time, TIMER_STOPPABLE)
-#define QDEL_IN_CLIENT_TIME(item, time) addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(qdel), item), time, TIMER_STOPPABLE | TIMER_CLIENT_TIME)
+	addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(qdel), (time) > GC_FILTER_QUEUE ? WEAKREF(item) : item), time, TIMER_DELETE_ME);
+#define QDEL_IN_STOPPABLE(item, time) addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(qdel), (time) > GC_FILTER_QUEUE ? WEAKREF(item) : item), time, TIMER_STOPPABLE | TIMER_DELETE_ME)
+#define QDEL_IN_CLIENT_TIME(item, time) addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(qdel), item), time, TIMER_STOPPABLE | TIMER_CLIENT_TIME | TIMER_DELETE_ME)
 
 //Bay uses the check before deleting something, to ensure it's not null, TG does not, and since I don't want to go hunt down 3 billion runtimes, we keep bay's version
 
 ///Delete and null the reference, if the object isn't null
 #define QDEL_NULL(item) if(item) { qdel(item) ; item = null }
+#define QDEL_NULL_LIST(x) if(x) { for(var/y in x) { qdel(y) }}; if(x) {x.Cut(); x = null } // Second x check to handle items that LAZYREMOVE on qdel.
 
 #define QDEL_LIST(L) if(L) { for(var/I in L) qdel(I); L.Cut(); }
 #define QDEL_LIST_IN(L, time) addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(______qdel_list_wrapper), L), time, TIMER_STOPPABLE)

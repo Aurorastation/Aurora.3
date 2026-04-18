@@ -7,7 +7,7 @@
 
 /obj/item/storage/box/swabs/fill()
 	..()
-	for(var/i=0;i<storage_slots,i++) // Fill 'er up.
+	for(var/i=0; i < storage_slots; i++) // Fill 'er up.
 		new /obj/item/forensics/swab(src)
 
 /obj/item/storage/box/slides
@@ -17,7 +17,7 @@
 
 /obj/item/storage/box/slides/fill()
 	..()
-	for(var/i=0;i<storage_slots,i++)
+	for(var/i=0; i < storage_slots; i++)
 		new /obj/item/forensics/slide(src)
 
 /obj/item/storage/box/evidence
@@ -28,7 +28,7 @@
 
 /obj/item/storage/box/evidence/fill()
 	..()
-	for(var/i=0;i<storage_slots,i++)
+	for(var/i=0; i < storage_slots; i++)
 		new /obj/item/evidencebag(src)
 
 /obj/item/storage/box/fingerprints
@@ -40,5 +40,5 @@
 
 /obj/item/storage/box/fingerprints/fill()
 	..()
-	for(var/i=0;i<storage_slots,i++)
+	for(var/i=0; i < storage_slots; i++)
 		new /obj/item/sample/print(src)

@@ -5,16 +5,23 @@
 	icon_state = "ammo_loader"
 	density = TRUE
 	anchored = TRUE
-	var/damage = 0
-	var/max_damage = 1000
+	maxhealth = 1000
 	var/obj/machinery/ship_weapon/weapon
 	var/weapon_id //Used to connect weapon systems to the relevant ammunition loader.
+
+/obj/machinery/ammunition_loader/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Use a multitool to check or update the weapon loader's internal network ID for linking purposes. You probably don't need to do this."
+
+/obj/machinery/ammunition_loader/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
 
 /obj/machinery/ammunition_loader/Initialize(mapload)
 	..()
 	return INITIALIZE_HINT_LATELOAD
 
 /obj/machinery/ammunition_loader/LateInitialize()
+	. = ..()
 	for(var/obj/machinery/ship_weapon/SW in SSmachinery.machinery)
 		if(SW.weapon_id == weapon_id)
 			if(get_area(SW) == get_area(src))
@@ -33,14 +40,6 @@
 		if(3)
 			add_damage(10)
 
-/obj/machinery/ammunition_loader/proc/add_damage(var/amount)
-	damage = max(0, min(damage + amount, max_damage))
-	update_damage()
-
-/obj/machinery/ammunition_loader/proc/update_damage()
-	if(damage >= max_damage)
-		qdel(src)
-
 /obj/machinery/ammunition_loader/attackby(obj/item/attacking_item, mob/user)
 	if(isliving(user))
 		var/mob/living/carbon/human/H = user
@@ -57,7 +56,9 @@
 			if(istype(CL.carrying[1], /obj/item/ship_ammunition))
 				var/obj/item/ship_ammunition/SA = CL.carrying[1]
 				return load_ammo(SA, HV)
-		if(istype(attacking_item, /obj/item/device/multitool))
+			else
+				to_chat(user, SPAN_WARNING("\The [CL] does not appear to be holding any compatible ammunition."))
+		if(istype(attacking_item, /obj/item/multitool))
 			to_chat(user, SPAN_NOTICE("You hook up the tester's wires to \the [src]: its identification tag is <b>[weapon_id]</b>."))
 			var/new_id = input(user, "Change the identification tag?", "Identification Tag", weapon_id)
 			if(length(new_id) && !use_check_and_message(user))

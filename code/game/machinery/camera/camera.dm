@@ -1,6 +1,6 @@
 /obj/machinery/camera
 	name = "security camera"
-	desc = "It's used to monitor rooms."
+	desc = "It's used to monitor compartments."
 	icon = 'icons/obj/monitors.dmi'
 	icon_state = "camera"
 	use_power = POWER_USE_ACTIVE
@@ -8,6 +8,12 @@
 	active_power_usage = 10
 	layer = CAMERA_LAYER
 	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
+	maxhealth = OBJECT_HEALTH_EXTREMELY_LOW
+	armor = list(
+		MELEE = ARMOR_MELEE_SMALL,
+		BULLET = ARMOR_BALLISTIC_MINOR,
+		LASER = ARMOR_LASER_MINOR
+	)
 
 	var/list/network = list(NETWORK_STATION)
 	var/c_tag = null
@@ -21,7 +27,8 @@
 	var/toughness = 5 //sorta fragile
 
 	// WIRES
-	var/datum/wires/camera/wires = null // Wires datum
+	/// Wires datum
+	var/datum/wires/camera/wires = null
 
 	//OTHER
 
@@ -89,7 +96,6 @@
 		GLOB.cameranet.remove_source(src)
 
 	. = ..()
-	GC_TEMPORARY_HARDDEL
 
 /obj/machinery/camera/set_pixel_offsets()
 	pixel_x = dir & (NORTH|SOUTH) ? 0 : (dir == EAST ? -13 : 13)
@@ -143,7 +149,7 @@
 	if(. != BULLET_ACT_HIT)
 		return .
 
-	take_damage(hitting_projectile.get_structure_damage())
+	add_damage(hitting_projectile.get_structure_damage(), hitting_projectile.damage_flags(), hitting_projectile.damage_type, hitting_projectile.armor_penetration, hitting_projectile)
 
 /obj/machinery/camera/ex_act(severity)
 	if(src.invuln)
@@ -161,7 +167,7 @@
 		var/obj/O = hitting_atom
 		if (O.throwforce >= src.toughness)
 			visible_message(SPAN_WARNING("<B>[src] was hit by [O].</B>"))
-		take_damage(O.throwforce)
+		add_damage(O.throwforce, O.damage_flags(), O.damtype, O.armor_penetration, O)
 
 /obj/machinery/camera/proc/setViewRange(var/num = 7)
 	src.view_range = num
@@ -183,7 +189,7 @@
 /obj/machinery/camera/attackby(obj/item/attacking_item, mob/user)
 	update_coverage()
 	// DECONSTRUCTION
-	if(attacking_item.isscrewdriver())
+	if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 		//to_chat(user, SPAN_NOTICE("You start to [panel_open ? "close" : "open"] the camera's panel."))
 		//if(toggle_panel(user)) // No delay because no one likes screwdrivers trying to be hip and have a duration cooldown
 		panel_open = !panel_open
@@ -192,11 +198,11 @@
 		attacking_item.play_tool_sound(get_turf(src), 50)
 		return TRUE
 
-	else if((attacking_item.iswirecutter() || attacking_item.ismultitool()) && panel_open)
+	else if((attacking_item.tool_behaviour == TOOL_WIRECUTTER || attacking_item.tool_behaviour == TOOL_MULTITOOL) && panel_open)
 		interact(user)
 		return TRUE
 
-	else if(attacking_item.iswelder() && (wires.CanDeconstruct() || (stat & BROKEN)))
+	else if(attacking_item.tool_behaviour == TOOL_WELDER && (wires.CanDeconstruct() || (stat & BROKEN)))
 		if(weld(attacking_item, user))
 			if(assembly)
 				assembly.forceMove(src.loc)
@@ -264,7 +270,7 @@
 				var/obj/item/I = attacking_item
 				if (I.hitsound)
 					playsound(loc, I.hitsound, I.get_clamped_volume(), 1, -1)
-		take_damage(attacking_item.force)
+		add_damage(attacking_item.force, attacking_item.damage_flags(), attacking_item.damtype, attacking_item.armor_penetration, attacking_item)
 		return TRUE
 	else
 		return ..()
@@ -281,17 +287,17 @@
 		set_status(!src.status)
 		if (!(src.status))
 			if(user)
-				visible_message(SPAN_NOTICE(" [user] has deactivated [src]!"))
+				visible_message(SPAN_NOTICE("[user] has deactivated [src]!"))
 			else
-				visible_message(SPAN_NOTICE(" [src] clicks and shuts down. "))
+				visible_message(SPAN_NOTICE("[src] clicks and shuts down. "))
 			playsound(src.loc, 'sound/items/Wirecutter.ogg', 100, 1)
 			icon_state = "[initial(icon_state)]1"
 			add_hiddenprint(user)
 		else
 			if(user)
-				visible_message(SPAN_NOTICE(" [user] has reactivated [src]!"))
+				visible_message(SPAN_NOTICE("[user] has reactivated [src]!"))
 			else
-				visible_message(SPAN_NOTICE(" [src] clicks and reactivates itself. "))
+				visible_message(SPAN_NOTICE("[src] clicks and reactivates itself. "))
 			playsound(src.loc, 'sound/items/Wirecutter.ogg', 100, 1)
 			icon_state = initial(icon_state)
 			add_hiddenprint(user)
@@ -303,9 +309,8 @@
 
 	GLOB.cameranet.update_visibility(src)
 
-/obj/machinery/camera/proc/take_damage(var/force, var/message)
-	//prob(25) gives an average of 3-4 hits
-	if (force >= toughness && (force > toughness*4 || prob(25)))
+/obj/machinery/camera/on_death(damage, damage_flags, damage_type, armor_penetration, obj/weapon)
+	if(!(stat & BROKEN))
 		destroy()
 
 //Used when someone breaks a camera
@@ -320,7 +325,7 @@
 
 	//sparks
 	spark(loc, 5)
-	playsound(loc, /singleton/sound_category/spark_sound, 50, 1)
+	playsound(loc, SFX_SPARKS, 50, 1)
 
 /obj/machinery/camera/proc/set_status(var/newstatus)
 	if (status != newstatus)
@@ -391,7 +396,7 @@
 /atom/proc/auto_turn()
 	//Automatically turns based on nearby walls.
 	var/turf/simulated/wall/T = null
-	for(var/i = 1, i <= 8; i += i)
+	for(var/i = 1; i <= 8; i += i)
 		T = get_ranged_target_turf(src, i, 1)
 		if(istype(T))
 			//If someone knows a better way to do this, let me know. -Giacom

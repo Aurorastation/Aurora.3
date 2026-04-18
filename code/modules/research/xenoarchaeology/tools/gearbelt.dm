@@ -6,17 +6,17 @@
 	storage_slots = 10
 	can_hold = list(
 		/obj/item/storage/box/samplebags,
-		/obj/item/device/core_sampler,
-		/obj/item/device/beacon_locator,
-		/obj/item/device/radio/beacon,
-		/obj/item/device/gps,
-		/obj/item/device/radio,
-		/obj/item/device/measuring_tape,
-		/obj/item/device/flashlight,
+		/obj/item/core_sampler,
+		/obj/item/beacon_locator,
+		/obj/item/radio/beacon,
+		/obj/item/gps,
+		/obj/item/radio,
+		/obj/item/measuring_tape,
+		/obj/item/flashlight,
 		/obj/item/pickaxe,
-		/obj/item/device/depth_scanner,
-		/obj/item/device/camera,
-		/obj/item/device/camera_film,
+		/obj/item/depth_scanner,
+		/obj/item/camera,
+		/obj/item/camera_film,
 		/obj/item/paper,
 		/obj/item/photo,
 		/obj/item/folder,
@@ -26,22 +26,22 @@
 		/obj/item/anodevice,
 		/obj/item/clothing/glasses,
 		/obj/item/wrench,
-		/obj/item/storage/box/excavation,
+		/obj/item/storage/box/unique/excavation,
 		/obj/item/anobattery,
-		/obj/item/device/ano_scanner,
+		/obj/item/ano_scanner,
 		/obj/item/ore_detector,
-		/obj/item/device/spaceflare
+		/obj/item/spaceflare
 		)
 
 /obj/item/storage/belt/archaeology/full
 	starts_with = list(
-		/obj/item/device/core_sampler = 1,
-		/obj/item/device/gps = 1,
-		/obj/item/device/measuring_tape = 1,
+		/obj/item/core_sampler = 1,
+		/obj/item/gps = 1,
+		/obj/item/measuring_tape = 1,
 		/obj/item/pickaxe/hand = 1,
-		/obj/item/storage/box/excavation = 1,
-		/obj/item/device/depth_scanner = 1,
-		/obj/item/device/ano_scanner = 1,
+		/obj/item/storage/box/unique/excavation = 1,
+		/obj/item/depth_scanner = 1,
+		/obj/item/ano_scanner = 1,
 		/obj/item/ore_detector = 1,
 		/obj/item/wrench = 1
 		)

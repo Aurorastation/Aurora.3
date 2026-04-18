@@ -1,10 +1,6 @@
 /obj/machinery/portable_atmospherics/powered/pump
 	name = "portable air pump"
-	desc = "Used to fill or drain rooms without differentiating between gasses."
-	desc_info = "Invaluable for filling air in a room rapidly after a breach repair.  The internal gas container can be filled by \
-	connecting it to a connector port.  The pump can pump the air in (sucking) or out (blowing), at a specific target pressure.  The powercell inside can be \
-	replaced by using a screwdriver, and then adding a new cell.  A tank of gas can also be attached to the air pump."
-
+	desc = "Used to fill or drain rooms without differentiating between gases. Invaluable for filling air in a compartment rapidly after a breach repair."
 	icon = 'icons/obj/atmos.dmi'
 	icon_state = "psiphon:0"
 	density = TRUE
@@ -21,6 +17,13 @@
 
 	power_rating = 7500 //7500 W ~ 10 HP
 	power_losses = 150
+
+/obj/machinery/portable_atmospherics/powered/pump/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "The internal gas container can be filled by connecting it to a connector port.  The pump can pump the air in (sucking) \
+	or out (blowing), at a specific target pressure."
+	. += "The power cell inside can be replaced by using a screwdriver, then adding a new cell. Screw it closed again afterwards."
+	. += "A tank of gas can also be attached to the air pump."
 
 /obj/machinery/portable_atmospherics/powered/pump/filled
 	start_pressure = PRESSURE_ONE_THOUSAND * 5
@@ -64,7 +67,6 @@
 	update_icon()
 	SStgui.update_uis(src)
 
-
 /obj/machinery/portable_atmospherics/powered/pump/process()
 	..()
 	var/power_draw = -1
@@ -81,11 +83,11 @@
 		var/output_volume
 		var/air_temperature
 		if(direction_out)
-			pressure_delta = target_pressure - environment.return_pressure()
+			pressure_delta = target_pressure - XGM_PRESSURE(environment)
 			output_volume = environment.volume * environment.group_multiplier
 			air_temperature = environment.temperature? environment.temperature : air_contents.temperature
 		else
-			pressure_delta = environment.return_pressure() - target_pressure
+			pressure_delta = XGM_PRESSURE(environment) - target_pressure
 			output_volume = air_contents.volume * air_contents.group_multiplier
 			air_temperature = air_contents.temperature? air_contents.temperature : environment.temperature
 
@@ -100,6 +102,7 @@
 	if (power_draw < 0)
 		last_flow_rate = 0
 		last_power_draw = 0
+		last_mole_transfer = 0
 	else
 		power_draw = max(power_draw, power_losses)
 		cell.use(power_draw * CELLRATE)
@@ -131,9 +134,10 @@
 	ui_interact(user)
 
 /obj/machinery/portable_atmospherics/powered/pump/ui_data(mob/user)
+	var/air_pressure = XGM_PRESSURE(air_contents)
 	var/list/data = list()
 	data["portConnected"] = connected_port ? 1 : 0
-	data["tankPressure"] = round(air_contents.return_pressure() > 0 ? air_contents.return_pressure() : 0)
+	data["tankPressure"] = round(air_pressure)
 	data["targetpressure"] = round(target_pressure)
 	data["pump_dir"] = direction_out
 	data["minpressure"] = round(pressuremin)
@@ -145,7 +149,7 @@
 
 	data["hasHoldingTank"] = holding ? 1 : 0
 	if (holding)
-		data["holdingTank"] = list("name" = holding.name, "tankPressure" = round(holding.air_contents.return_pressure() > 0 ? holding.air_contents.return_pressure() : 0))
+		data["holdingTank"] = list("name" = holding.name, "tankPressure" = round(XGM_PRESSURE(holding.air_contents)))
 	return data
 
 /obj/machinery/portable_atmospherics/powered/pump/ui_interact(mob/user, datum/tgui/ui)

@@ -19,6 +19,7 @@
 	active_power_usage = 5 KILO WATTS
 	circuitboard = "/obj/item/circuitboard/telecomms/hub"
 	netspeed = 40
+	produces_sound = TRUE
 
 /obj/machinery/telecomms/hub/receive_information(datum/signal/signal, obj/machinery/telecomms/machine_from)
 	if(!is_freq_listening(signal))

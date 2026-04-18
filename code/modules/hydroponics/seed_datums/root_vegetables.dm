@@ -7,14 +7,14 @@
 
 /datum/seed/carrots/setup_traits()
 	..()
-	set_trait(TRAIT_MATURATION,10)
-	set_trait(TRAIT_PRODUCTION,1)
-	set_trait(TRAIT_YIELD,5)
-	set_trait(TRAIT_POTENCY,10)
-	set_trait(TRAIT_PRODUCT_ICON,"carrot")
-	set_trait(TRAIT_PRODUCT_COLOUR,"#FFDB4A")
-	set_trait(TRAIT_PLANT_ICON,"carrot")
-	set_trait(TRAIT_WATER_CONSUMPTION, 6)
+	SET_SEED_TRAIT(src, TRAIT_MATURATION, 10)
+	SET_SEED_TRAIT(src, TRAIT_PRODUCTION, 1)
+	SET_SEED_TRAIT(src, TRAIT_YIELD, 5)
+	SET_SEED_TRAIT(src, TRAIT_POTENCY, 10)
+	SET_SEED_TRAIT(src, TRAIT_PRODUCT_ICON, "carrot")
+	SET_SEED_TRAIT(src, TRAIT_PRODUCT_COLOUR, "#FFDB4A")
+	SET_SEED_TRAIT(src, TRAIT_PLANT_ICON, "carrot")
+	SET_SEED_TRAIT(src, TRAIT_WATER_CONSUMPTION, 6)
 
 /obj/item/seeds/carrotseed
 	seed_type = "carrot"
@@ -28,14 +28,14 @@
 
 /datum/seed/garlic/setup_traits()
 	..()
-	set_trait(TRAIT_MATURATION,10)
-	set_trait(TRAIT_PRODUCTION,1)
-	set_trait(TRAIT_YIELD,5)
-	set_trait(TRAIT_POTENCY,12)
-	set_trait(TRAIT_PRODUCT_ICON,"bulb")
-	set_trait(TRAIT_PRODUCT_COLOUR,"#fff8dd")
-	set_trait(TRAIT_PLANT_ICON,"stalk")
-	set_trait(TRAIT_WATER_CONSUMPTION, 7)
+	SET_SEED_TRAIT(src, TRAIT_MATURATION, 10)
+	SET_SEED_TRAIT(src, TRAIT_PRODUCTION, 1)
+	SET_SEED_TRAIT(src, TRAIT_YIELD, 5)
+	SET_SEED_TRAIT(src, TRAIT_POTENCY, 12)
+	SET_SEED_TRAIT(src, TRAIT_PRODUCT_ICON, "bulb")
+	SET_SEED_TRAIT(src, TRAIT_PRODUCT_COLOUR, "#fff8dd")
+	SET_SEED_TRAIT(src, TRAIT_PLANT_ICON, "stalk")
+	SET_SEED_TRAIT(src, TRAIT_WATER_CONSUMPTION, 7)
 
 /obj/item/seeds/garlicseed
 	seed_type = "garlic"
@@ -49,14 +49,14 @@
 
 /datum/seed/onion/setup_traits()
 	..()
-	set_trait(TRAIT_MATURATION,10)
-	set_trait(TRAIT_PRODUCTION,1)
-	set_trait(TRAIT_YIELD,4)
-	set_trait(TRAIT_POTENCY,10)
-	set_trait(TRAIT_PRODUCT_ICON,"bulb")
-	set_trait(TRAIT_PRODUCT_COLOUR,"#ffeedd")
-	set_trait(TRAIT_PLANT_ICON,"stalk")
-	set_trait(TRAIT_WATER_CONSUMPTION, 5)
+	SET_SEED_TRAIT(src, TRAIT_MATURATION, 10)
+	SET_SEED_TRAIT(src, TRAIT_PRODUCTION, 1)
+	SET_SEED_TRAIT(src, TRAIT_YIELD, 4)
+	SET_SEED_TRAIT(src, TRAIT_POTENCY, 10)
+	SET_SEED_TRAIT(src, TRAIT_PRODUCT_ICON, "bulb")
+	SET_SEED_TRAIT(src, TRAIT_PRODUCT_COLOUR, "#ffeedd")
+	SET_SEED_TRAIT(src, TRAIT_PLANT_ICON, "stalk")
+	SET_SEED_TRAIT(src, TRAIT_WATER_CONSUMPTION, 5)
 
 /obj/item/seeds/onionseed
 	seed_type = "onion"
@@ -70,15 +70,15 @@
 
 /datum/seed/potato/setup_traits()
 	..()
-	set_trait(TRAIT_PRODUCES_POWER,1)
-	set_trait(TRAIT_MATURATION,10)
-	set_trait(TRAIT_PRODUCTION,1)
-	set_trait(TRAIT_YIELD,4)
-	set_trait(TRAIT_POTENCY,10)
-	set_trait(TRAIT_PRODUCT_ICON,"potato")
-	set_trait(TRAIT_PRODUCT_COLOUR,"#D4CAB4")
-	set_trait(TRAIT_PLANT_ICON,"bush2")
-	set_trait(TRAIT_WATER_CONSUMPTION, 6)
+	SET_SEED_TRAIT(src, TRAIT_PRODUCES_POWER, 1)
+	SET_SEED_TRAIT(src, TRAIT_MATURATION, 10)
+	SET_SEED_TRAIT(src, TRAIT_PRODUCTION, 1)
+	SET_SEED_TRAIT(src, TRAIT_YIELD, 4)
+	SET_SEED_TRAIT(src, TRAIT_POTENCY, 10)
+	SET_SEED_TRAIT(src, TRAIT_PRODUCT_ICON, "potato")
+	SET_SEED_TRAIT(src, TRAIT_PRODUCT_COLOUR, "#D4CAB4")
+	SET_SEED_TRAIT(src, TRAIT_PLANT_ICON, "bush2")
+	SET_SEED_TRAIT(src, TRAIT_WATER_CONSUMPTION, 6)
 
 /obj/item/seeds/potatoseed
 	seed_type = "potato"
@@ -92,15 +92,15 @@
 
 /datum/seed/whitebeets/setup_traits()
 	..()
-	set_trait(TRAIT_MATURATION,6)
-	set_trait(TRAIT_PRODUCTION,6)
-	set_trait(TRAIT_YIELD,6)
-	set_trait(TRAIT_POTENCY,10)
-	set_trait(TRAIT_PRODUCT_ICON,"carrot2")
-	set_trait(TRAIT_PRODUCT_COLOUR,"#EEF5B0")
-	set_trait(TRAIT_PLANT_COLOUR,"#4D8F53")
-	set_trait(TRAIT_PLANT_ICON,"carrot2")
-	set_trait(TRAIT_WATER_CONSUMPTION, 6)
+	SET_SEED_TRAIT(src, TRAIT_MATURATION, 6)
+	SET_SEED_TRAIT(src, TRAIT_PRODUCTION, 6)
+	SET_SEED_TRAIT(src, TRAIT_YIELD, 6)
+	SET_SEED_TRAIT(src, TRAIT_POTENCY, 10)
+	SET_SEED_TRAIT(src, TRAIT_PRODUCT_ICON, "carrot2")
+	SET_SEED_TRAIT(src, TRAIT_PRODUCT_COLOUR, "#EEF5B0")
+	SET_SEED_TRAIT(src, TRAIT_PLANT_COLOUR, "#4D8F53")
+	SET_SEED_TRAIT(src, TRAIT_PLANT_ICON, "carrot2")
+	SET_SEED_TRAIT(src, TRAIT_WATER_CONSUMPTION, 6)
 
 /obj/item/seeds/whitebeetseed
 	seed_type = "whitebeet"

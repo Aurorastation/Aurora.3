@@ -11,7 +11,7 @@
 	age_max = 20
 	default_genders = list(NEUTER)
 	selectable_pronouns = null
-	economic_modifier = 2
+	economic_modifier = 7
 	language = LANGUAGE_VAURCA
 	primitive_form = SPECIES_MONKEY_VAURCA
 	greater_form = SPECIES_VAURCA_WARRIOR
@@ -203,3 +203,9 @@
 
 /datum/species/bug/sleep_examine_msg(var/mob/M)
 	return SPAN_NOTICE("[M.get_pronoun("He")] has locked [M.get_pronoun("his")] carapace in place, and is standing completely still.\n")
+
+/datum/species/bug/New()
+	..()
+	equip_adjust = list(
+		slot_head_str    = list("[EAST]" = list("x" = 0, "y" = 2), "[NORTH]" = list("x" = 0, "y" = 2), "[SOUTH]" = list("x" = 0, "y" = 2),  "[WEST]" = list("x" = 0, "y" = 2))
+	)

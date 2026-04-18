@@ -45,6 +45,7 @@ SUBSYSTEM_DEF(machinery)
 
 	var/list/all_cameras = list()
 	var/list/obj/machinery/hologram/holopad/all_holopads = list()
+	var/list/obj/machinery/power/apc/all_apcs = list()
 	var/list/all_status_displays = list()	// Note: This contains both ai_status_display and status_display.
 	var/list/gravity_generators = list()
 	var/list/obj/machinery/telecomms/all_telecomms = list()
@@ -54,9 +55,14 @@ SUBSYSTEM_DEF(machinery)
 	var/list/rcon_smes_units_by_tag = list()
 	var/list/rcon_breaker_units = list()
 	var/list/rcon_breaker_units_by_tag = list()
+	// Not yet implemented, added for future.
+	var/list/rcon_apc_units = list()
+	// Not yet implemented, added for future.
+	var/list/rcon_apc_units_by_tag = list()
 
 	var/list/breaker_boxes = list()
 	var/list/smes_units = list()
+	var/list/apc_units = list()
 	var/list/all_sensors = list()
 
 	var/list/slept_in_process = list()
@@ -67,6 +73,7 @@ SUBSYSTEM_DEF(machinery)
 /datum/controller/subsystem/machinery/Recover()
 	all_cameras = SSmachinery.all_cameras
 	all_holopads = SSmachinery.all_holopads
+	all_apcs = SSmachinery.all_apcs
 	recipe_datums = SSmachinery.recipe_datums
 	breaker_boxes = SSmachinery.breaker_boxes
 	all_sensors = SSmachinery.all_sensors
@@ -144,6 +151,7 @@ SUBSYSTEM_DEF(machinery)
 	if (!resumed)
 		queue = pipenets.Copy()
 	var/datum/pipe_network/network
+	var/seconds_per_tick = wait * 0.1
 	for (var/i = queue.len to 1 step -1)
 		network = queue[i]
 		if (QDELETED(network))
@@ -151,7 +159,7 @@ SUBSYSTEM_DEF(machinery)
 				network.datum_flags &= ~DF_ISPROCESSING
 			pipenets -= network
 			continue
-		network.process(wait * 0.1)
+		network.process(seconds_per_tick)
 		if (no_mc_tick)
 			CHECK_TICK
 		else if (MC_TICK_CHECK)
@@ -162,6 +170,7 @@ SUBSYSTEM_DEF(machinery)
 	if (!resumed)
 		queue = processing.Copy()
 	var/obj/machinery/machine
+	var/seconds_per_tick = wait * 0.1
 	for (var/i = queue.len to 1 step -1)
 		machine = queue[i]
 
@@ -189,7 +198,7 @@ SUBSYSTEM_DEF(machinery)
 			continue
 		//process_all was moved here because of calls overhead for no benefits
 		if((machine.processing_flags & MACHINERY_PROCESS_SELF))
-			if(machine.process(wait * 0.1) == PROCESS_KILL)
+			if(machine.process(seconds_per_tick) == PROCESS_KILL)
 				STOP_PROCESSING_MACHINE(machine, MACHINERY_PROCESS_SELF)
 				processing -= machine
 		if (no_mc_tick)

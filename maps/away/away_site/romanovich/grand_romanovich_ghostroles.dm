@@ -26,7 +26,7 @@
 	back = /obj/item/storage/backpack/satchel/leather
 
 	id = /obj/item/card/id/away_site
-	l_ear = /obj/item/device/radio/headset/ship/common
+	l_ear = /obj/item/radio/headset/ship/common
 
 	backpack_contents = list(/obj/item/storage/box/survival = 1, /obj/item/storage/wallet/random = 1, /obj/item/storage/bag/money/casino = 1)
 
@@ -61,7 +61,7 @@
 
 	id = /obj/item/card/id/away_site
 
-	l_ear = /obj/item/device/radio/headset/ship/common
+	l_ear = /obj/item/radio/headset/ship/common
 
 	backpack_contents = list(/obj/item/storage/box/survival = 1, /obj/item/storage/wallet/random = 1, /obj/item/storage/bag/money/casino = 1)
 
@@ -98,7 +98,7 @@
 
 	id = /obj/item/card/id/away_site
 
-	l_ear = /obj/item/device/radio/headset/ship/common
+	l_ear = /obj/item/radio/headset/ship/common
 
 	backpack_contents = list(/obj/item/storage/box/survival = 1, /obj/item/storage/wallet/random = 1, /obj/item/storage/box/handcuffs = 1)
 
@@ -110,7 +110,7 @@
 		/obj/item/reagent_containers/spray/pepper = 1,
 		/obj/item/melee/baton/loaded = 1,
 		/obj/item/grenade/chem_grenade/gas = 1,
-		/obj/item/device/flash = 1,
+		/obj/item/flash = 1,
 		/obj/item/ammo_magazine/mc9mm = 2
 	)
 
@@ -135,6 +135,6 @@
 	respawn_flag = null
 
 /obj/outfit/admin/random/casino_patron
-	l_ear = /obj/item/device/radio/headset/ship/common
+	l_ear = /obj/item/radio/headset/ship/common
 
 	backpack_contents = list(/obj/item/storage/box/survival = 1, /obj/item/storage/wallet/random = 1, /obj/item/storage/bag/money/casino = 1)

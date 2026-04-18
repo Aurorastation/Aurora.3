@@ -243,34 +243,47 @@
  * Called by /datum/preferences/proc/gather_notifications() in preferences.dm
  */
 /client/proc/warnings_gather()
-	var/count = 0
-	var/count_expire = 0
-
-	if (!establish_db_connection(GLOB.dbcon))
+	if (!SSdbcore.Connect())
 		return
 
 	var/list/client_details = list("ckey" = ckey, "computer_id" = computer_id, "address" = address)
 
-	var/DBQuery/expire_query = GLOB.dbcon.NewQuery("SELECT id FROM ss13_warnings WHERE (acknowledged = 1 AND expired = 0 AND DATE_SUB(CURDATE(),INTERVAL 3 MONTH) > time) AND (ckey = :ckey: OR computerid = :computer_id: OR ip = :address:)")
-	expire_query.Execute(client_details)
-	while (expire_query.NextRow())
-		var/warning_id = text2num(expire_query.item[1])
-		var/DBQuery/update_query = GLOB.dbcon.NewQuery("UPDATE ss13_warnings SET expired = 1 WHERE id = :warning_id:")
-		update_query.Execute(list("warning_id" = warning_id))
-		count_expire++
+	var/datum/db_query/expire_query = SSdbcore.NewQuery(
+		"SELECT id FROM ss13_warnings WHERE (acknowledged = 1 AND expired = 0 AND DATE_SUB(CURDATE(),INTERVAL 3 MONTH) > time) AND (ckey = :ckey OR computerid = :computer_id OR ip = :address)",
+		client_details)
+	expire_query.SetSuccessCallback(CALLBACK(src, PROC_REF(_warnings_expire_cb)))
+	expire_query.SetFailCallback(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(qdel)))
+	expire_query.ExecuteNoSleep(TRUE)
 
-	var/DBQuery/query = GLOB.dbcon.NewQuery("SELECT id FROM ss13_warnings WHERE (visible = 1 AND acknowledged = 0 AND expired = 0) AND (ckey = :ckey: OR computerid = :computer_id: OR ip = :address:)")
-	query.Execute(client_details)
+	var/datum/db_query/count_query = SSdbcore.NewQuery(
+		"SELECT id FROM ss13_warnings WHERE (visible = 1 AND acknowledged = 0 AND expired = 0) AND (ckey = :ckey OR computerid = :computer_id OR ip = :address)",
+		client_details)
+	count_query.SetSuccessCallback(CALLBACK(src, PROC_REF(_warnings_count_cb)))
+	count_query.SetFailCallback(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(qdel)))
+	count_query.ExecuteNoSleep(TRUE)
+
+/client/proc/_warnings_expire_cb(datum/db_query/query)
+	var/count_expire = 0
+	while (query.NextRow())
+		var/warning_id = text2num(query.item[1])
+		var/datum/db_query/update_query = SSdbcore.NewQuery(
+			"UPDATE ss13_warnings SET expired = 1 WHERE id = :warning_id",
+			list("warning_id" = warning_id))
+		update_query.SetSuccessCallback(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(qdel)))
+		update_query.SetFailCallback(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(qdel)))
+		update_query.ExecuteNoSleep(TRUE)
+		count_expire++
+	qdel(query)
+	if (count_expire)
+		prefs?.new_notification("info", "[count_expire] of your warnings have expired.")
+
+/client/proc/_warnings_count_cb(datum/db_query/query)
+	var/count = 0
 	while (query.NextRow())
 		count++
-
-	var/list/data = list("unread" = "", "expired" = "")
+	qdel(query)
 	if (count)
-		data["unread"] = "You have <b>[count] unread warning\s!</b> Click <a href='byond://?JSlink=warnings;notification=:src_ref'>here</a> to review and acknowledge them!"
-	if (count_expire)
-		data["expired"] = "[count_expire] of your warnings have expired."
-
-	return data
+		prefs?.new_notification("danger", "You have <b>[count] unread warning\s!</b> Click <a href='byond://?JSlink=warnings;notification=:src_ref'>here</a> to review and acknowledge them!", 1)
 
 /**
  * A proc used to gather if someone has Unacknowledged Warnings

@@ -54,26 +54,28 @@
 		/obj/item/clothing/under/overalls = 1,
 		/obj/item/clothing/under/syndicate/tacticool = 0.4,
 		/obj/item/clothing/under/syndicate/tracksuit = 0.2,
-		/obj/item/device/firing_pin = 0.3,
-		/obj/item/device/firing_pin/clown = 0.01,
-		/obj/item/device/flashlight = 1,
-		/obj/item/device/flashlight/flare = 0.5,
-		/obj/item/device/flashlight/heavy = 0.5,
-		/obj/item/device/flashlight/lantern = 0.4,
-		/obj/item/device/flashlight/maglight = 0.4,
-		/obj/item/device/paint_sprayer = 0.6,
-		/obj/item/device/gps/engineering = 0.6,
-		/obj/item/device/kinetic_analyzer = 0.1,
-		/obj/item/device/laser_pointer/purple = 0.1,
-		/obj/item/device/light_meter = 0.1,
-		/obj/item/device/magnetic_lock/engineering = 0.3,
-		/obj/item/device/magnetic_lock/keypad = 0.1,
-		/obj/item/device/magnetic_lock/security = 0.3,
-		/obj/item/device/megaphone = 0.3,
-		/obj/item/device/price_scanner = 0.1,
-		/obj/item/device/taperecorder = 0.6,
-		/obj/item/device/uv_light = 0.1,
-		/obj/item/device/wormhole_jaunter = 0.1,
+		/obj/item/clothing/under/skrell/wetsuit/swimstars = 0.1, // WE LOVE SWIMSTARS!
+		/obj/item/clothing/under/skrell/wetsuit/swimstars/alt = 0.1,
+		/obj/item/firing_pin = 0.3,
+		/obj/item/firing_pin/clown = 0.01,
+		/obj/item/flashlight = 1,
+		/obj/item/flashlight/flare = 0.5,
+		/obj/item/flashlight/heavy = 0.5,
+		/obj/item/flashlight/lantern = 0.4,
+		/obj/item/flashlight/maglight = 0.4,
+		/obj/item/paint_sprayer = 0.6,
+		/obj/item/gps/engineering = 0.6,
+		/obj/item/kinetic_analyzer = 0.1,
+		/obj/item/laser_pointer/purple = 0.1,
+		/obj/item/light_meter = 0.1,
+		/obj/item/magnetic_lock/engineering = 0.3,
+		/obj/item/magnetic_lock/keypad = 0.1,
+		/obj/item/magnetic_lock/security = 0.3,
+		/obj/item/megaphone = 0.3,
+		/obj/item/price_scanner = 0.1,
+		/obj/item/taperecorder = 0.6,
+		/obj/item/uv_light = 0.1,
+		/obj/item/wormhole_jaunter = 0.1,
 		/obj/item/inflatable/door/ = 0.1,
 		/obj/item/seeds/random = 0.25,
 		/obj/item/stack/material/bronze{amount=10},
@@ -106,8 +108,8 @@
 		/obj/item/spacecash/ewallet/lotto = 0.3,
 		/obj/item/staff/broom = 0.5,
 		/obj/item/storage/bag/plasticbag = 1,
-		/obj/item/storage/box/condimentbottles = 0.2,
-		/obj/item/storage/box/donkpockets = 0.6,
+		/obj/item/storage/box/large/condimentbottles = 0.2,
+		/obj/item/storage/box/unique/donkpockets = 0.6,
 		/obj/item/storage/box/drinkingglasses = 0.2,
 		/obj/item/storage/box/lights = 0.5,
 		/obj/item/storage/box/lights/colored/blue = 0.1,
@@ -121,7 +123,7 @@
 		/obj/item/storage/box/cleaner_tablets = 0.4,
 		/obj/item/storage/box/mousetraps = 0.3,
 		/obj/item/storage/box/pineapple = 0.1,
-		/obj/item/storage/box/smokebombs = 0.1,
+		/obj/item/storage/box/tactical/smokebombs = 0.1,
 		/obj/item/storage/box/syringes = 0.3,
 		/obj/item/storage/box/fancy/cigarettes = 1.2,
 		/obj/item/storage/box/fancy/cigarettes/acmeco = 0.3,
@@ -134,6 +136,8 @@
 		/obj/random/backpack = 0.7,
 		/obj/random/belt = 0.9,
 		/obj/random/booze = 1.1,
+		/obj/random/yoke/soda = 1.1,
+		/obj/random/yoke/energy = 1.1,
 		/obj/random/chameleon = 0.5,
 		/obj/random/coin = 1.2,
 		/obj/random/colored_jumpsuit = 0.7,
@@ -158,9 +162,9 @@
 		/obj/random_produce = 0.25,
 		/obj/random/watches = 1,
 		/obj/random/wizard_dressup = 0.25,
-		/obj/item/device/synthesized_instrument/violin = 0.1,
-		/obj/item/device/synthesized_instrument/guitar = 1,
-		/obj/item/device/synthesized_instrument/trumpet = 0.25,
+		/obj/item/synthesized_instrument/violin = 0.1,
+		/obj/item/synthesized_instrument/guitar = 1,
+		/obj/item/synthesized_instrument/trumpet = 0.25,
 		/obj/item/reagent_containers/pill/cleaner_tablet = 0.6,
 		/obj/item/storage/box/fancy/food/pralinebox = 0.1
 	)
@@ -173,11 +177,10 @@
 		/obj/random/telecrystals = 0.1,
 		/obj/item/gun/projectile/automatic/rifle/shotgun = 0.1,
 		/obj/random/melee = 0.3,
-		/obj/item/gun/energy/lawgiver = 0.1,
+		/obj/item/gun/energy/acp = 0.1,
 		/obj/item/gun/projectile/automatic/terminator = 0.1,
-		/obj/item/device/personal_shield = 0.4,
+		/obj/item/personal_shield = 0.4,
 		/obj/random/safe_rig = 0.4,
-		/obj/item/gun/energy/disruptorpistol/magnum = 0.3,
 		/obj/item/gun/projectile/shotgun/pump/combat = 0.2,
 		/obj/item/clothing/glasses/thermal = 0.5
 	)
@@ -188,7 +191,7 @@
 		/obj/item/clothing/glasses/thermal = 0.5,
 		/obj/item/gun/projectile/automatic/rifle/shotgun = 0.5,
 		/obj/random/sword = 0.5,
-		/obj/item/gun/energy/lawgiver = 0.5,
+		/obj/item/gun/energy/acp = 0.5,
 		/obj/item/melee/energy/axe = 0.5,
 		/obj/item/gun/projectile/automatic/terminator = 0.5,
 		/obj/item/rig/military = 0.5,
@@ -214,7 +217,7 @@
 		/obj/item/rfd/construction = 0.4,
 		/obj/item/vaurca/box = 0.1,
 		/obj/item/melee/vaurca/rock = 0.1,
-		/obj/item/device/personal_shield = 0.1,
+		/obj/item/personal_shield = 0.1,
 		/obj/item/storage/secure/briefcase/money = 0.1
 		)
 
@@ -229,14 +232,13 @@
 	desc = "This is a random corporate safe high value item."
 	icon_state = "coin"
 	problist = list(
-		/obj/item/device/personal_shield = 0.4,
+		/obj/item/personal_shield = 0.4,
 		/obj/random/safe_rig = 0.4,
 		/obj/item/clothing/glasses/thermal = 0.3,
 		/obj/item/storage/toolbox/infiltration = 0.3,
 		/obj/random/melee/highvalue = 0.3,
-		/obj/item/gun/energy/disruptorpistol/magnum = 0.3,
 		/obj/item/gun/projectile/shotgun/pump/combat = 0.2,
-		/obj/item/gun/energy/lawgiver = 0.1,
+		/obj/item/gun/energy/acp = 0.1,
 		/obj/item/gun/projectile/automatic/terminator = 0.1,
 		/obj/item/gun/projectile/automatic/rifle/shotgun = 0.1
 	)
@@ -312,7 +314,7 @@
 /obj/random/telecrystals
 	name = "random telecrystals"
 	desc = "Contains a random amount of telecrystals."
-	icon_state = "crystal"
+	icon_state = "coin"
 	spawnlist = list(
 		/obj/item/stack/telecrystal{amount = 10} = 0.5,
 		/obj/item/stack/telecrystal{amount = 15} = 0.4,
@@ -323,7 +325,7 @@
 /obj/random/contraband
 	name = "random contraband"
 	desc = "This is some random contraband."
-	icon_state = "need_sprite"
+	icon_state = "coin"
 	problist = list(
 		/obj/item/storage/pill_bottle/mortaphenyl = 3,
 		/obj/item/storage/pill_bottle/happy = 2,
@@ -341,7 +343,7 @@
 		/obj/item/reagent_containers/syringe/heroin = 1,
 		/obj/item/reagent_containers/inhaler/raskara_dust = 2,
 		/obj/item/reagent_containers/inhaler/space_drugs = 2,
-		/obj/item/storage/box/smokes = 0.7,
+		/obj/item/storage/box/tactical/smokes = 0.7,
 		/obj/item/grenade/napalm = 0.4,
 		/obj/item/reagent_containers/glass/beaker/vial/random/toxin = 1,
 		/obj/item/material/knife/butterfly = 2,
@@ -367,7 +369,6 @@
 /obj/random/contraband/pill
 	name = "random contraband pill"
 	desc = "This is a random pill of illegal drugs."
-	icon_state = "knife"
 	problist = list(
 		/obj/item/reagent_containers/pill/cocaine = 3,
 		/obj/item/reagent_containers/pill/contemplus = 3,
@@ -380,7 +381,6 @@
 /obj/random/contraband/pillbottle
 	name = "random contraband pill bottle"
 	desc = "This is a random bottle of illegal pills."
-	icon_state = "knife"
 	problist = list(
 		/obj/item/storage/pill_bottle/cocaine = 1,
 		/obj/item/storage/pill_bottle/contemplus = 1,
@@ -406,7 +406,6 @@
 /obj/random/spacecash
 	name = "random credit chips"
 	desc = "This is a random credit chip."
-	icon_state = "cash"
 	problist = list(
 		/obj/item/spacecash/c1 = 6,
 		/obj/item/spacecash/c10 = 3,
@@ -513,14 +512,14 @@
 	name = "random light"
 	icon_state = "flashlight"
 	problist = list(
-		/obj/item/device/flashlight = 1,
-		/obj/item/device/flashlight/flare = 2,
-		/obj/item/device/flashlight/lamp = 0.5,
-		/obj/item/device/flashlight/maglight = 0.25,
-		/obj/item/device/flashlight/marshallingwand = 0.25,
-		/obj/item/device/flashlight/pen = 1,
-		/obj/item/device/flashlight/heavy = 0.05,
-		/obj/item/device/flashlight/lamp = 0.25
+		/obj/item/flashlight = 1,
+		/obj/item/flashlight/flare = 2,
+		/obj/item/flashlight/lamp = 0.5,
+		/obj/item/flashlight/maglight = 0.25,
+		/obj/item/flashlight/marshallingwand = 0.25,
+		/obj/item/flashlight/pen = 1,
+		/obj/item/flashlight/heavy = 0.05,
+		/obj/item/flashlight/lamp = 0.25
 	)
 
 /obj/random/med_stack
@@ -566,6 +565,7 @@
 				var/to_delete = rand(1, length(AG.stored_ammo))
 				var/delete_counter = 0
 				for(var/obj/item/ammo_casing/AC in AG.stored_ammo)
+					AG.stored_ammo -= AC
 					qdel(AC)
 					delete_counter++
 					if(delete_counter > to_delete)

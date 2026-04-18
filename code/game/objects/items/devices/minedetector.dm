@@ -1,6 +1,9 @@
-/obj/item/device/mine_detector
+/obj/item/mine_detector
 	name = "mine detector"
 	desc = "A device capable of detecting mines and traps in a range."
+	icon = 'icons/obj/item/gps.dmi'
+	icon_state = "gps"
+	item_state = "radio"
 
 	///The types that are detected by this device
 	var/list/detectable_types = list(/obj/item/landmine, /obj/item/trap)
@@ -23,9 +26,9 @@
 	///The timer ID for the automatic rescans
 	var/timer_id = null
 
-/obj/item/device/mine_detector/attack_self(mob/user)
+/obj/item/mine_detector/attack_self(mob/user)
 	. = ..()
-
+	ClearOverlays()
 	//Apply the delay and check it is passed, so a new scan can be done
 	if((last_use + delay_between_scans) > world.time)
 		return
@@ -41,13 +44,14 @@
 		if(!timer_id)
 			to_chat(user, SPAN_NOTICE("You power on the automatic mine detection system, which shows a loading screen with a progress bar."))
 			timer_id = addtimer(CALLBACK(src, PROC_REF(perform_scan), user), delay_between_scans, TIMER_UNIQUE|TIMER_STOPPABLE)
+			AddOverlays("gps_on")
 		else
 			to_chat(user, SPAN_NOTICE("You power off the automatic mine detection system."))
 			deltimer(timer_id)
 			timer_id = null
 
 
-/obj/item/device/mine_detector/proc/perform_scan(mob/user)
+/obj/item/mine_detector/proc/perform_scan(mob/user)
 
 	var/list/turfs_scanned = get_turfs_in_cone(get_turf(src), dir2angle(user.dir), detection_range, detection_angle)
 
@@ -95,7 +99,7 @@
 	Subtypes
 #############*/
 
-/obj/item/device/mine_detector/advanced
+/obj/item/mine_detector/advanced
 	name = "advanced mine detector"
 	desc = "A device capable of detecting mines and traps in a range. This one is more advanced, featuring automatic scanning as well as a broader detection angle."
 	detection_angle = 45

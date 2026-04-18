@@ -12,7 +12,7 @@
 	blood_overlay_icon = null
 
 	health = 70
-	maxHealth = 70
+	maxhealth = 70
 
 	belongs_to_station = TRUE
 	stop_automated_movement_when_pulled = TRUE
@@ -35,7 +35,7 @@
 	projectilesound = 'sound/weapons/taser2.ogg'
 	projectiletype = /obj/projectile/beam/hivebot/harmless
 
-	attacktext = "harmlessly clawed"
+	attacktext = "harmlessly claws"
 	harm_intent_damage = 5 // the damage we take
 	melee_damage_lower = 0
 	melee_damage_upper = 0
@@ -68,7 +68,7 @@
 
 /mob/living/simple_animal/hostile/commanded/baby_harvester/verb/befriend()
 	set name = "Befriend Ives"
-	set category = "IC"
+	set category = "IC.Critters"
 	set src in view(1)
 
 	if(!master)
@@ -76,7 +76,7 @@
 		if(istype(H))
 			master = usr
 			audible_emote("bwuups happily!")
-			playsound(src, /singleton/sound_category/hivebot_wail, 100, FALSE, 4)
+			playsound(src, SFX_HIVEBOT_WAIL, 100, FALSE, 4)
 			return TRUE
 	else if(usr == master)
 		return TRUE

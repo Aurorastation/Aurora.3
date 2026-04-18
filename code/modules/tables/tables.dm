@@ -8,7 +8,6 @@
 	pass_flags_self = PASSTABLE | LETPASSTHROW
 	climbable = TRUE
 	layer = TABLE_LAYER
-	breakable = TRUE
 	build_amt = 1
 
 	//Preset shit
@@ -17,21 +16,76 @@
 	var/no_cargo
 
 	var/flipped = 0
-	var/maxhealth = 10
-	var/health = 10
+	maxhealth = 10
 
-	// For racks.
+	// For racks (which cannot be either of these things)
 	var/can_reinforce = 1
 	var/can_plate = 1
 
 	var/manipulating = 0
 	var/material/reinforced = null
+	var/obj/item/stack/dismantle_mat = /obj/item/stack/rods
 
 	// Gambling tables. I'd prefer reinforced with carpet/felt/cloth/whatever, but AFAIK it's either harder or impossible to get /obj/item/stack/material of those.
 	// Convert if/when you can easily get stacks of these.
 	var/carpeted = 0
 
 	var/list/connections = list("nw0", "ne0", "sw0", "se0")
+
+/obj/structure/table/get_damage_condition_hints(mob/user, distance, is_adjacent)
+	if(health < maxhealth)
+		switch(health / maxhealth)
+			if(0.0 to 0.5)
+				. += SPAN_WARNING("It looks severely damaged!")
+			if(0.25 to 0.5)
+				. += SPAN_WARNING("It looks damaged!")
+			if(0.5 to 1.0)
+				. += SPAN_NOTICE("It has a few scrapes and dents.")
+
+/obj/structure/table/mechanics_hints()
+	. = list()
+	. += ..()
+	. += "Straight tables, so long as they're not too heavy or reinforced, can be flipped over with a verb when adjacent to them!"
+
+/obj/structure/table/assembly_hints()
+	. = list()
+	. += ..()
+	// Rule racks out entirely first.
+	if(!can_reinforce || !can_plate)
+		return FALSE
+
+	if(health < maxhealth)
+		. += "It could be repaired with a few choice <b>welds</b>... no matter what its made of!"
+
+	// Needs to be plated before it can be carpeted
+	if(material && !carpeted)
+		. += "It could be surfaced with some <b>carpet</b>."
+	// Needs to be plated before it can be reinforced
+	if(material)
+		. += "It could be reinforced with a <b>stack</b> of an appropriate material."
+	// Needs to be plated before we can do much of anything
+	else
+		. += "It could be plated with a <b>stack</b> of an appropriate material."
+
+/obj/structure/table/disassembly_hints()
+	. = list()
+	. += ..()
+	// Rule racks out entirely first. If we ever let them be customized/have health, update this.
+	if(!can_reinforce || !can_plate)
+		. += "It is held together by a couple of <b>bolts</b>."
+
+	// Has a carpet
+	if(carpeted)
+		. += "Its carpeted surface could be <b>pried</b> loose."
+	// Has reinforcements
+	if(reinforced)
+		. += "Its reinforcements have been securely <b>screwed<b/> into place."
+	// Is not reinforced or carpeted, but is plated
+	else if(material && !carpeted)
+		. += "Its plating is secured by a couple of <b>bolts</b>."
+	// Table naked!!!
+	else if(!material)
+		. += "It is held together by a couple of <b>bolts</b>."
 
 /obj/structure/table/proc/update_material()
 	var/old_maxhealth = maxhealth
@@ -59,8 +113,8 @@
 			visible_message(SPAN_WARNING("\The [src] breaks down!"), intent_message = THUNK_SOUND)
 		return break_to_parts() // if we break and form shards, return them to the caller to do !FUN! things with
 
-/obj/structure/table/attack_generic(var/mob/user, var/damage, var/attack_message = "attacks", var/wallbreaker)
-	if(!damage || !wallbreaker)
+/obj/structure/table/attack_generic(mob/user, damage, attack_message, environment_smash, armor_penetration, attack_flags, damage_type)
+	if(!damage || !environment_smash)
 		return
 	user.do_attack_animation(src)
 	visible_message(SPAN_DANGER("[user] [attack_message] \the [src]!"))
@@ -77,14 +131,12 @@
 		if(3.0)
 			take_damage(rand(50,150), FALSE)
 
-
 /obj/structure/table/Initialize()
 	if(table_mat)
 		material = SSmaterials.get_material_by_name(table_mat)
 	if(table_reinf)
 		reinforced = SSmaterials.get_material_by_name(table_reinf)
-	if(reinforced)
-		breakable = FALSE
+		AddComponent(/datum/component/armor, list(MELEE = ARMOR_MELEE_KNIVES, BULLET = ARMOR_BALLISTIC_MINOR))
 
 	. = ..()
 
@@ -119,17 +171,6 @@
 		T.queue_icon_update()
 	return ..()
 
-/obj/structure/table/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if(health < maxhealth)
-		switch(health / maxhealth)
-			if(0.0 to 0.5)
-				. += SPAN_WARNING("It looks severely damaged!")
-			if(0.25 to 0.5)
-				. += SPAN_WARNING("It looks damaged!")
-			if(0.5 to 1.0)
-				. += SPAN_NOTICE("It has a few scrapes and dents.")
-
 /obj/structure/table/proc/reinforce_table(obj/item/stack/material/S, mob/user)
 	if(reinforced)
 		to_chat(user, SPAN_WARNING("\The [src] is already reinforced!"))
@@ -149,10 +190,10 @@
 
 	reinforced = common_material_add(S, user, "reinforc")
 	if(reinforced)
-		breakable = FALSE
 		update_desc()
 		queue_icon_update()
 		update_material()
+		AddComponent(/datum/component/armor, list(MELEE = ARMOR_MELEE_KNIVES, BULLET = ARMOR_BALLISTIC_MINOR))
 
 /obj/structure/table/proc/update_desc()
 	if(material)
@@ -209,7 +250,6 @@
 
 /obj/structure/table/proc/remove_reinforced(obj/item/screwdriver/S, mob/user)
 	reinforced = common_material_remove(user, reinforced, 40, "reinforcements", "screws", 'sound/items/Screwdriver.ogg')
-	breakable = TRUE
 
 /obj/structure/table/proc/remove_material(obj/item/wrench/W, mob/user)
 	material = common_material_remove(user, material, 20, "plating", "bolts", W.usesound)
@@ -225,7 +265,7 @@
 		return
 	user.visible_message("\The [user] dismantles \the [src].",
 						SPAN_NOTICE("You dismantle \the [src]."))
-	new /obj/item/stack/rods(src.loc, 2)
+	new dismantle_mat(src.loc)
 	qdel(src)
 
 // Returns a list of /obj/item/material/shard objects that were created as a result of this table's breakage.
@@ -254,9 +294,7 @@
 	if(carpeted && (full_return || prob(50))) // Higher chance to get the carpet back intact, since there's no non-intact option
 		new /obj/item/stack/tile/carpet(src.loc)
 	if(full_return || prob(20))
-		new /obj/item/stack/rods(src.loc, 2)
-	else
-		new /obj/item/stack/rods(src.loc)
+		new dismantle_mat(src.loc)
 	qdel(src)
 	return shards
 
@@ -268,10 +306,10 @@
 		if(material) // Standard table image.
 			for(var/i = 1 to 4)
 				if(material.table_icon)
-					if(reinforced && ("reinf_[material.name]_[connections[i]]" in icon_states(material.table_icon)))
-						I = image(material.table_icon, "reinf_[material.name]_[connections[i]]", dir = 1<<(i-1))
+					if(reinforced && ("reinf_[material.icon_base]_[connections[i]]" in icon_states(material.table_icon)))
+						I = image(material.table_icon, "reinf_[material.icon_base]_[connections[i]]", dir = 1<<(i-1))
 					else
-						I = image(material.table_icon, "[material.name]_[connections[i]]", dir = 1<<(i-1))
+						I = image(material.table_icon, "[material.icon_base]_[connections[i]]", dir = 1<<(i-1))
 				else
 					if(reinforced && ("reinf_[material.icon_base]_[connections[i]]" in icon_states(icon)))
 						I = image(icon, "reinf_[material.icon_base]_[connections[i]]", dir = 1<<(i-1))
@@ -305,15 +343,15 @@
 		var/tabledirs = 0
 		for(var/direction in list(turn(dir,90), turn(dir,-90)) )
 			var/obj/structure/table/T = locate(/obj/structure/table ,get_step(src,direction))
-			if (T && T.flipped == 1 && T.dir == src.dir && material && T.material && T.material.name == material.name)
+			if(T && T.flipped == 1 && T.dir == src.dir && material && T.material && T.material.name == material.name)
 				type++
 				tabledirs |= direction
 
 		type = "[type]"
-		if (type=="1")
-			if (tabledirs & turn(dir,90))
+		if(type=="1")
+			if(tabledirs & turn(dir,90))
 				type += "-"
-			if (tabledirs & turn(dir,-90))
+			if(tabledirs & turn(dir,-90))
 				type += "+"
 
 		if(material)

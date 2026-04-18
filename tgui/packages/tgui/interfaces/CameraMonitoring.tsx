@@ -53,7 +53,8 @@ export const ShowNetworks = (props, context) => {
           icon="user-circle"
           onClick={() => act('reset')}
         />
-      }>
+      }
+    >
       {data.networks
         .filter((n) => n.has_access)
         .map((network) => (
@@ -75,7 +76,7 @@ export const ShowNetworkCameras = (props, context) => {
   const [searchTerm, setSearchTerm] = useLocalState<string>(
     context,
     `searchTerm`,
-    ``
+    ``,
   );
 
   return (
@@ -93,11 +94,12 @@ export const ShowNetworkCameras = (props, context) => {
           }}
           value={searchTerm}
         />
-      }>
+      }
+    >
       {data.cameras && data.cameras.length ? (
         data.cameras
           .filter(
-            (c) => c.name?.toLowerCase().indexOf(searchTerm.toLowerCase()) > -1
+            (c) => c.name?.toLowerCase().indexOf(searchTerm.toLowerCase()) > -1,
           )
           .map((camera) => (
             <Button

@@ -43,7 +43,7 @@
 /obj/structure/table/rack/folding_table,
 /obj/item/clothing/suit/hazmat/anomaly,
 /obj/item/clothing/head/hazmat/anomaly,
-/obj/item/device/camera,
+/obj/item/camera,
 /turf/simulated/floor/exoplanet/desert,
 /area/template_noop)
 "v" = (
@@ -98,7 +98,7 @@
 /area/template_noop)
 "X" = (
 /obj/structure/table/rack/folding_table,
-/obj/item/device/flashlight/heavy,
+/obj/item/flashlight/heavy,
 /turf/simulated/floor/exoplanet/desert,
 /area/template_noop)
 "Z" = (

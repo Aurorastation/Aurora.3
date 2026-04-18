@@ -1,7 +1,7 @@
 /obj/item/clothing/mask/breath/infiltrator
 	name = "infiltration balaclava"
 	desc = "A close-fitting airtight balaclava that can be connected to an air supply."
-	icon = 'icons/clothing/kit/infiltrator.dmi'
+	icon = 'icons/obj/item/clothing/mask/breath/infiltrator.dmi'
 	icon_state = "mask"
 	item_state = "mask"
 	icon_auto_adapt = TRUE
@@ -17,7 +17,7 @@
 /obj/item/clothing/under/infiltrator
 	name = "infiltration suit"
 	desc = "A tight undersuit with thin pieces of armor bolted to it. It's airtight."
-	icon = 'icons/clothing/kit/infiltrator.dmi'
+	icon = 'icons/obj/item/clothing/under/infiltrator.dmi'
 	icon_state = "uniform"
 	item_state = "uniform"
 	contained_sprite = TRUE
@@ -33,7 +33,7 @@
 /obj/item/clothing/gloves/infiltrator
 	name = "infiltration gloves"
 	desc = "Tight insulated gloves with interwoven self-cleaning material. It's airtight."
-	icon = 'icons/clothing/kit/infiltrator.dmi'
+	icon = 'icons/obj/item/clothing/gloves/infiltrator.dmi'
 	icon_state = "gloves"
 	item_state = "gloves"
 	contained_sprite = TRUE
@@ -49,9 +49,9 @@
 /obj/item/clothing/shoes/infiltrator
 	name = "infiltration shoes"
 	desc = "Tight shoes with in-built Silent-Soles. It's airtight."
-	icon = 'icons/clothing/kit/infiltrator.dmi'
-	icon_state = "shoes"
-	item_state = "shoes"
+	icon = 'icons/obj/item/clothing/shoes/miscellaneous.dmi'
+	icon_state = "infiltrator_shoes"
+	item_state = "infiltrator_shoes"
 	contained_sprite = TRUE
 	silent = TRUE
 	item_flags = ITEM_FLAG_THICK_MATERIAL | ITEM_FLAG_INJECTION_PORT | ITEM_FLAG_AIRTIGHT
@@ -62,9 +62,8 @@
 /obj/item/storage/toolbox/infiltration
 	name = "infiltration case"
 	desc = "A case with an ominous red \"S\" painted on it. It seems pretty hefty."
-	icon = 'icons/clothing/kit/infiltrator.dmi'
-	icon_state = "case"
-	item_state = "case"
+	icon_state = "syndiecase"
+	item_state = "syndiecase"
 	contained_sprite = TRUE
 	item_icons = null
 	starts_with = list(

@@ -20,10 +20,11 @@
 
 /obj/outfit/admin/heph_security
 	name = "Hephaestus Asset Protection"
-	uniform = /obj/item/clothing/under/rank/security/heph
+	uniform = /obj/item/clothing/under/ert/hephaestus
+	head = /obj/item/clothing/head/hephaestus_military
 	shoes = /obj/item/clothing/shoes/jackboots
 	gloves = /obj/item/clothing/gloves/combat
-	l_ear = /obj/item/device/radio/headset/ship
+	l_ear = /obj/item/radio/headset/ship
 	belt = /obj/item/storage/belt/military
 	back = /obj/item/storage/backpack/satchel/heph
 	id = /obj/item/card/id/hephaestus
@@ -50,7 +51,7 @@
 	if(H?.wear_suit)
 		H.wear_suit.color = pick("#4f3911", "#292826")
 	if(isipc(H))
-		var/obj/item/organ/internal/ipc_tag/tag = H.internal_organs_by_name[BP_IPCTAG]
+		var/obj/item/organ/internal/machine/ipc_tag/tag = H.internal_organs_by_name[BP_IPCTAG]
 		if(istype(tag))
 			tag.modify_tag_data()
 
@@ -72,4 +73,5 @@
 
 /obj/outfit/admin/heph_security/captain
 	name = "Hephaestus Asset Protection Squad Leader"
-	uniform = /obj/item/clothing/under/rank/captain/hephaestus
+	uniform = /obj/item/clothing/under/ert/hephaestus/leader
+	head = /obj/item/clothing/head/caphat/cap/hephaestus

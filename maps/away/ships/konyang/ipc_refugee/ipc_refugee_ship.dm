@@ -5,7 +5,7 @@
 	prefix = "ships/konyang/ipc_refugee/"
 	suffix = "ipc_refugee_ship.dmm"
 
-	sectors = list(SECTOR_HANEUNIM, SECTOR_LIBERTYS_CRADLE)
+	sectors = list(SECTOR_HANEUNIM, SECTOR_LIBERTYS_CRADLE, SECTOR_XANU)
 	spawn_weight = 1
 	ship_cost = 1
 	id = "ipc_refugee_ship"

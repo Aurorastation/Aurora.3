@@ -25,14 +25,14 @@
 	status_flags = CANPUSH
 	pass_flags = PASSTABLE
 
-	maxHealth = 125
+	maxhealth = 125
 	health = 125
 	max_stamina = -1
 
 	melee_damage_lower = 12
 	melee_damage_upper = 16
 
-	see_invisible = SEE_INVISIBLE_NOLIGHTING
+	lighting_alpha = LIGHTING_PLANE_ALPHA_SOMEWHAT_INVISIBLE
 	stop_sight_update = TRUE
 
 	minbodytemp = 0
@@ -43,7 +43,7 @@
 
 	wander = FALSE
 
-	attacktext = "glomped"
+	attacktext = "glomps"
 	attack_sound = 'sound/effects/blobattack.ogg'
 	blood_overlay_icon = null
 
@@ -71,7 +71,7 @@
 		healths.icon_state = "health6"
 	if(.)
 		if(healths)
-			switch(health / maxHealth * 100)
+			switch(health / maxhealth * 100)
 				if(100 to INFINITY)
 					healths.icon_state = "health0"
 				if(80 to 100)
@@ -88,17 +88,17 @@
 					healths.icon_state = "health6"
 
 		if((stat == UNCONSCIOUS || resting) && locate(/obj/structure/gore/tendrils) in loc)
-			health = min(maxHealth, health + 1)
+			health = min(maxhealth, health + 1)
 
 /mob/living/simple_animal/hostile/morph/verb/toggle_darkview()
 	set name = "Toggle Darkvision"
 	set desc = "Toggles whether you see light or not."
 	set category = "Abilities"
 
-	if(see_invisible == SEE_INVISIBLE_NOLIGHTING)
-		see_invisible = SEE_INVISIBLE_LIVING
+	if(lighting_alpha == LIGHTING_PLANE_ALPHA_MOSTLY_INVISIBLE)
+		lighting_alpha = LIGHTING_PLANE_ALPHA_MOSTLY_INVISIBLE
 	else
-		see_invisible = SEE_INVISIBLE_NOLIGHTING
+		lighting_alpha = LIGHTING_PLANE_ALPHA_VISIBLE
 
 /mob/living/simple_animal/hostile/morph/examine(mob/user, distance, is_adjacent, infix, suffix, show_extended)
 	if(morphed)
@@ -217,7 +217,7 @@
 	if(morphed)
 		restore()
 
-/mob/living/simple_animal/hostile/morph/attack_generic(mob/user, damage, attack_message)
+/mob/living/simple_animal/hostile/morph/attack_generic(mob/user, damage, attack_message, environment_smash, armor_penetration, attack_flags, damage_type)
 	..()
 	if(morphed)
 		restore()

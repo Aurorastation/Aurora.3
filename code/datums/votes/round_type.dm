@@ -26,7 +26,7 @@
 
 	//Actually populate the voting choices, which are now sorted
 	for(var/datum/game_mode/votable_mode_sorted in gamemodes_list)
-		default_choices += capitalize(votable_mode_sorted.name)
+		default_choices |= capitalize(votable_mode_sorted.name)
 
 	//Stop the countdown while we vote
 	GLOB.round_progressing = FALSE

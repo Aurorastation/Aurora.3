@@ -10,11 +10,11 @@
 	universal_speak = FALSE
 	density = FALSE
 	health = 50
-	maxHealth = 50
+	maxhealth = 50
 	melee_damage_lower = 5
 	melee_damage_upper = 8
 	armor_penetration = 5
-	attacktext = "sliced"
+	attacktext = "slices"
 	faction = "silicon"
 	min_oxy = 0
 	minbodytemp = 0
@@ -29,9 +29,13 @@
 	. = ..()
 	name = "[initial(name)] ([rand(100, 999)])"
 	eye_overlay = image(icon, "[icon_state]-eyes_emag")
-	eye_overlay.plane = EFFECTS_ABOVE_LIGHTING_PLANE
+	eye_overlay.plane = ABOVE_LIGHTING_PLANE
 	eye_overlay.appearance_flags = KEEP_APART
 	AddOverlays(eye_overlay)
+
+/mob/living/simple_animal/hostile/rogue_drone/Destroy()
+	QDEL_NULL(eye_overlay)
+	return ..()
 
 /mob/living/simple_animal/hostile/rogue_drone/CanPass(atom/movable/mover, turf/target, height, air_group)
 	. = ..()

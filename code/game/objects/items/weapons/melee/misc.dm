@@ -79,16 +79,7 @@
 	attack_verb = list("smashed", "beaten", "slammed", "smacked", "struck", "battered", "bonked")
 	w_class = WEIGHT_CLASS_NORMAL
 	origin_tech = list(TECH_MATERIAL = 3, TECH_ILLEGAL = 2)
-
-/obj/item/melee/hammer/iscrowbar()
-	if(ismob(loc))
-		var/mob/M = loc
-		if(M.a_intent && M.a_intent == I_HURT)
-			return FALSE
-	return TRUE
-
-/obj/item/melee/hammer/ishammer()
-	return TRUE
+	tool_behaviour = TOOL_HAMMER
 
 /obj/item/melee/hammer/powered
 	name = "powered hammer"
@@ -179,7 +170,7 @@
 /obj/item/melee/ceremonial_sword
 	name = "sol officer ceremonial sword"
 	desc = "A ceremonial sword issued to Sol navy officers as part of their dress uniform."
-	icon = 'icons/clothing/under/uniforms/sol_uniform.dmi'
+	icon = 'icons/obj/sword.dmi'
 	icon_state = "officersword"
 	item_state = "officersword"
 	contained_sprite = TRUE

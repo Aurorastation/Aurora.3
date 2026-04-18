@@ -1,6 +1,15 @@
 import { BooleanLike } from 'common/react';
 import { useBackend, useLocalState } from '../backend';
-import { BlockQuote, Box, Button, Dropdown, LabeledList, NoticeBox, Section, Tabs } from '../components';
+import {
+  BlockQuote,
+  Box,
+  Button,
+  Dropdown,
+  LabeledList,
+  NoticeBox,
+  Section,
+  Tabs,
+} from '../components';
 import { NtosWindow } from '../layouts';
 
 type NTOSClientData = {
@@ -15,12 +24,12 @@ const DeviceEnrollment = (props, context) => {
   const [deviceType, setDeviceType] = useLocalState(
     context,
     'setDeviceType',
-    1
+    1,
   );
   const [devicePreset, setDevicePreset] = useLocalState(
     context,
     'setDevicePreset',
-    ''
+    '',
   );
   if (!ntnet_status) {
     return (
@@ -37,12 +46,14 @@ const DeviceEnrollment = (props, context) => {
         <Tabs>
           <Tabs.Tab
             selected={deviceType === 1}
-            onClick={() => setDeviceType(1)}>
+            onClick={() => setDeviceType(1)}
+          >
             Company Device
           </Tabs.Tab>
           <Tabs.Tab
             selected={deviceType === 2}
-            onClick={() => setDeviceType(2)}>
+            onClick={() => setDeviceType(2)}
+          >
             Private Device
           </Tabs.Tab>
         </Tabs>
@@ -69,10 +80,11 @@ const DeviceEnrollment = (props, context) => {
               }
               onClick={() =>
                 act('enroll', {
-                  'enroll_type': deviceType,
-                  'enroll_preset': devicePreset,
+                  enroll_type: deviceType,
+                  enroll_preset: devicePreset,
                 })
-              }>
+              }
+            >
               Confirm
             </Button>
           </LabeledList.Item>

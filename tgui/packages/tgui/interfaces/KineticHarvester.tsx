@@ -47,7 +47,8 @@ export const HarvestWindow = (props, context) => {
           color={data.status ? 'good' : 'bad'}
           onClick={() => act('toggle_power')}
         />
-      }>
+      }
+    >
       {data.status ? (
         data.materials && data.materials.length ? (
           data.materials.map((material) => (
@@ -68,7 +69,8 @@ export const HarvestWindow = (props, context) => {
                     act('toggle_harvest', { toggle_harvest: material.material })
                   }
                 />
-              }>
+              }
+            >
               {material.harvest ? (
                 material.amount ? (
                   <>

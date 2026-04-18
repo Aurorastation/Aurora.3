@@ -26,8 +26,8 @@ Contains helper procs for airflow, handled in /connection_group.
 	return
 
 /mob/living/carbon/human/airflow_stun()
-	if(shoes)
-		if(shoes.item_flags & ITEM_FLAG_NO_SLIP) return 0
+	if(Check_Shoegrip())
+		return FALSE
 	..()
 
 /atom/movable/proc/check_airflow_movable(n)
@@ -73,8 +73,7 @@ Contains helper procs for airflow, handled in /connection_group.
 		return 0
 	if(buckled_to)
 		return 0
-	var/obj/item/shoes = get_equipped_item(slot_shoes)
-	if(istype(shoes) && (shoes.item_flags & ITEM_FLAG_NO_SLIP))
+	if(Check_Shoegrip())
 		return 0
 	return 1
 
@@ -120,7 +119,7 @@ Contains helper procs for airflow, handled in /connection_group.
 /mob/living/carbon/human/airflow_hit(atom/A)
 //	for(var/mob/M in hearers(src))
 //		M.show_message(SPAN_DANGER("[src] slams into [A]!</span>",1,"<span class='danger'>You hear a loud slam!"),2)
-	playsound(src.loc, /singleton/sound_category/punch_sound, 25, 1, -1)
+	playsound(src.loc, SFX_PUNCH, 25, 1, -1)
 	if (prob(33))
 		loc:add_blood(src)
 		bloody_body(src)

@@ -5,7 +5,7 @@
 	prefix = "ships/tirakqi_smuggler/"
 	suffix = "tirakqi_smuggler.dmm"
 
-	sectors = list(ALL_TAU_CETI_SECTORS, ALL_BADLAND_SECTORS)
+	sectors = list(ALL_TAU_CETI_SECTORS, ALL_BADLAND_SECTORS, SECTOR_CRESCENT_EXPANSE_WEST)
 	spawn_weight = 1
 	ship_cost = 1
 	id = "tirakqi_smuggler"
@@ -159,7 +159,7 @@
 
 // wall nav console
 /obj/machinery/computer/ship/navigation/wall
-	icon = 'icons/obj/modular_telescreen.dmi'
+	icon = 'icons/obj/modular_computers/modular_telescreen.dmi'
 	icon_state = "telescreen"
 	icon_screen = "command"
 	density = FALSE
@@ -202,7 +202,6 @@
 	icon_state = "void"
 	footstep_sound = null
 	plane = SPACE_PLANE
-	dynamic_lighting = 0
 
 /turf/simulated/floor/holofloor/tirakqi_cosmocage/update_dirt()
 	return	// Space doesn't become dirty

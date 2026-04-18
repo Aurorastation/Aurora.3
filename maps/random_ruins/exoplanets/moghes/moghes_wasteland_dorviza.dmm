@@ -44,11 +44,11 @@
 /turf/simulated/floor/exoplanet/carpet/darkblue,
 /area/moghes_dorviza/tent)
 "iX" = (
-/obj/item/device/flashlight/lamp/box,
+/obj/item/flashlight/lamp/box,
 /turf/simulated/floor/exoplanet/carpet/red,
 /area/moghes_dorviza/tent)
 "jy" = (
-/obj/item/device/flashlight/lamp/box,
+/obj/item/flashlight/lamp/box,
 /turf/simulated/floor/exoplanet/desert{
 	temperature = 315.15
 	},
@@ -64,9 +64,9 @@
 /area/exoplanet/moghes)
 "lk" = (
 /obj/structure/closet/crate,
-/obj/item/device/flashlight/lantern,
-/obj/item/device/flashlight/lantern,
-/obj/item/device/flashlight/lantern,
+/obj/item/flashlight/lantern,
+/obj/item/flashlight/lantern,
+/obj/item/flashlight/lantern,
 /turf/simulated/floor/exoplanet/desert{
 	temperature = 315.15
 	},
@@ -100,7 +100,7 @@
 	},
 /area/moghes_dorviza)
 "ob" = (
-/obj/item/device/flashlight/lantern/on,
+/obj/item/flashlight/lantern/on,
 /turf/simulated/floor/exoplanet/desert{
 	temperature = 315.15
 	},
@@ -269,7 +269,7 @@
 /turf/simulated/floor/exoplanet/carpet/orange,
 /area/moghes_dorviza/tent)
 "Eq" = (
-/obj/item/device/flashlight/lamp/box,
+/obj/item/flashlight/lamp/box,
 /turf/simulated/floor/exoplanet/carpet/orange,
 /area/moghes_dorviza/tent)
 "EK" = (
@@ -292,7 +292,7 @@
 	},
 /area/moghes_dorviza)
 "FS" = (
-/obj/item/device/versebook/thakh,
+/obj/item/versebook/thakh,
 /obj/item/lore_radio,
 /turf/simulated/floor/exoplanet/carpet/red,
 /area/moghes_dorviza/tent)
@@ -313,7 +313,7 @@
 "Jp" = (
 /obj/structure/table/rack/cafe_table,
 /obj/item/storage/firstaid/surgery,
-/obj/item/device/flashlight/lamp/box,
+/obj/item/flashlight/lamp/box,
 /turf/simulated/floor/exoplanet/carpet/orange,
 /area/moghes_dorviza/tent)
 "JL" = (

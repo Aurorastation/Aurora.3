@@ -5,7 +5,7 @@ Exercise Verbs
 /mob/living/carbon/human/verb/pushup()
 	set name = "Do Pushup"
 	set desc = "Makes you do a pushup."
-	set category = "IC"
+	set category = "IC.Maneuver"
 
 	do_pushups()
 
@@ -99,6 +99,6 @@ Exercise Verbs
 		stamina_loss += 2
 	if(on_knees)
 		stamina_loss -= 2
-	if(health <= ((maxHealth / 10) * 9))
+	if(health <= ((maxhealth / 10) * 9))
 		stamina_loss += 2
 	return max(stamina_loss, 1)

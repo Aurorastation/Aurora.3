@@ -5,7 +5,7 @@
 /obj/structure/closet/crate
 	name = "crate"
 	desc = "A rectangular steel crate."
-	icon = 'icons/obj/crate.dmi'
+	icon = 'icons/obj/containers/crate.dmi'
 	icon_state = "crate"
 	climbable = TRUE
 	build_amt = 10
@@ -27,6 +27,13 @@
 	var/azimuth_angle_2 = 180 //in this context the azimuth angle for over 90 degree
 	var/radius_2 = 1.35
 	var/static/list/animation_math //assoc list with pre calculated values
+
+/obj/structure/closet/crate/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Crates can be placed on top of tables by clicking and dragging the crate onto the target table."
+
+/obj/structure/closet/crate/antagonist_hints(mob/user, distance, is_adjacent)
+	. = list()
 
 /obj/structure/closet/crate/can_open()
 	if(tablestatus == UNDER_TABLE)//Can't be opened while under a table
@@ -127,6 +134,9 @@
 	if(!opened && tablestatus == UNDER_TABLE)
 		to_chat(user, SPAN_WARNING("You can't open \the [src] while the lid is obstructed!"))
 		return FALSE
+	if(istype(loc, /obj/structure/crate_shelf))
+		to_chat(user, SPAN_WARNING("You can't open \the [src] while it is on a shelf!"))
+		return FALSE
 	else
 		return ..()
 
@@ -148,11 +158,29 @@
 
 //For putting on tables
 /obj/structure/closet/crate/mouse_drop_dragged(atom/over, mob/user, src_location, over_location, params)
-	if (istype(over, /obj/structure/table))
+	if (istype(over, /obj/structure/table) && !istype(loc, /obj/structure/crate_shelf))
 		put_on_table(over, user)
+		return TRUE
+	else if(istype(over, /obj/structure/crate_shelf) && !istype(loc, /obj/structure/crate_shelf))
+		put_on_shelf(over, user)
+		return TRUE
+	if(istype(loc, /obj/structure/crate_shelf) && isturf(over) && !is_blocked_turf(over))
+		take_off_shelf(loc, user, over)
 		return TRUE
 	else
 		return ..()
+
+/obj/structure/closet/crate/proc/put_on_shelf(var/obj/structure/crate_shelf/shelf, var/mob/user)
+	shelf.load(src, user)
+
+/obj/structure/closet/crate/proc/take_off_shelf(var/obj/structure/crate_shelf/shelf, var/mob/user, turf/unload_turf)
+	shelf.unload(src, user, unload_turf)
+
+/obj/structure/closet/crate/Adjacent(atom/neighbor, atom/target, atom/movable/mover)
+	. = ..()
+	if(istype(loc, /obj/structure/crate_shelf))
+		var/obj/structure/crate_shelf/S = loc
+		return S.Adjacent(neighbor, target, mover)
 
 /obj/structure/closet/crate/proc/put_on_table(var/obj/structure/table/table, var/mob/user)
 	if (!table || !user || (tablestatus == UNDER_TABLE))
@@ -185,9 +213,9 @@
 	else
 		//Add time based on mass of contents
 		for (var/obj/O in contents)
-			timeneeded += 3* O.w_class
+			timeneeded += 1.5* O.w_class
 		for (var/mob/M in contents)
-			timeneeded += 3* M.mob_size
+			timeneeded += 1.5* M.mob_size
 
 	if (timeneeded > 0)
 		user.visible_message("[user] starts hoisting \the [src] onto \the [table].", "You start hoisting \the [src] onto \the [table]. This will take about [timeneeded * 0.1] seconds.")
@@ -197,6 +225,10 @@
 		else
 			forceMove(get_turf(table))
 			set_tablestatus(ABOVE_TABLE)
+			var/loudness = "thunk."
+			if(timeneeded * 0.1 > 10)
+				loudness = "loud THUNK!"
+			visible_message("[user] puts \the [src] onto \the [table] with a [loudness]", "[user] puts \the [src] onto \the [table].", intent_message = THUNK_SOUND)
 			return TRUE
 
 /*
@@ -208,11 +240,16 @@
 /obj/structure/closet/crate/secure
 	name = "secure crate"
 	desc = "A secure crate."
-	icon_state = "secure_crate"
 	locked = TRUE
 	secure = TRUE
 	secure_lights = TRUE
-	health = 200
+	maxhealth = OBJECT_HEALTH_VERY_HIGH
+	armor = list(
+		MELEE = ARMOR_MELEE_RESISTANT,
+		BULLET = ARMOR_BALLISTIC_MEDIUM,
+		LASER = ARMOR_LASER_MEDIUM,
+		ENERGY = ARMOR_ENERGY_RESISTANT,
+	)
 
 /obj/structure/closet/crate/plastic
 	name = "plastic crate"
@@ -277,13 +314,6 @@
 /obj/structure/closet/crate/hat
 	desc = "A crate filled with Valuable Collector's Hats!."
 	name = "Hat Crate"
-	icon_state = "crate"
-	icon_opened = "crateopen"
-	icon_closed = "crate"
-
-/obj/structure/closet/crate/contraband
-	name = "Poster crate"
-	desc = "A random assortment of posters manufactured by providers NOT listed under NanoTrasen's whitelist."
 	icon_state = "crate"
 	icon_opened = "crateopen"
 	icon_closed = "crate"
@@ -463,12 +493,12 @@
 /obj/structure/closet/crate/secure/weapon
 	name = "weapons crate"
 	desc = "A secure weapons crate."
-	icon_state = "syndi_secure_crate"
+	icon_state = "syndi_crate"
 	icon_door_override = TRUE
 	icon_door = "syndi_crate"
 
 /obj/structure/closet/crate/secure/weapon/alt
-	icon_state = "syndi_secure_crate1"
+	icon_state = "syndi_crate1"
 	icon_door = "syndi_crate1"
 
 /obj/structure/closet/crate/secure/legion
@@ -491,8 +521,8 @@
 
 /obj/structure/closet/crate/secure/hydrosec
 	name = "secure hydroponics crate"
-	desc = "A crate with a lock on it, painted in the scheme of the station's botanists."
-	icon_state = "hydro_secure_crate"
+	desc = "A crate painted in the scheme of the station's botanists."
+	icon_state = "hydro_crate"
 	req_one_access = list(ACCESS_HYDROPONICS, ACCESS_XENOBOTANY)
 
 /obj/structure/closet/crate/secure/bin
@@ -580,14 +610,45 @@
 
 //This exists so the prespawned hydro crates spawn with their contents.
 /obj/structure/closet/crate/hydroponics/prespawned/fill()
-	new /obj/item/reagent_containers/spray/plantbgone(src)
-	new /obj/item/reagent_containers/spray/plantbgone(src)
 	new /obj/item/material/minihoe(src)
-//	new /obj/item/weedspray(src)
-//	new /obj/item/weedspray(src)
-//	new /obj/item/pestspray(src)
-//	new /obj/item/pestspray(src)
-//	new /obj/item/pestspray(src)
+	new /obj/item/material/hatchet(src)
+	new /obj/item/wirecutters/clippers(src)
+	new /obj/item/reagent_containers/glass/bucket(src)
+	new /obj/item/reagent_containers/spray/plantbgone(src)
+	new /obj/item/reagent_containers/spray/plantbgone(src)
+	new /obj/item/reagent_containers/glass/fertilizer/ez(src)
+	new /obj/item/reagent_containers/glass/fertilizer/ez(src)
+
+// Everything you need for beekeeping, including the bees. Those with allergies need not apply.
+/obj/structure/closet/crate/hydroponics/beekeeping
+	name = "beekeeping crate"
+	desc = "Live bees included! Several small labels warn of the hazards involved therein."
+
+/obj/structure/closet/crate/hydroponics/beekeeping/fill()
+	new /obj/item/bee_pack(src)
+	new /obj/item/honey_frame(src)
+	new /obj/item/honey_frame(src)
+	new /obj/item/beehive_assembly(src)
+	new /obj/item/bee_net(src)
+	new /obj/item/bee_smoker(src)
+	new /obj/item/crowbar(src)
+
+// Includes everything you need to run your own horticultural medicinal operation. Or something more nefarious, if you prefer.
+/obj/structure/closet/crate/hydroponics/herbalism
+	name = "herbalist crate"
+	desc = "Contains equipment and storage vessels involved in the processing and packaging of herbal medicine."
+
+/obj/structure/closet/crate/hydroponics/herbalism/fill()
+	new /obj/item/storage/box/spraybottles(src)
+	new /obj/item/storage/box/pillbottles(src)
+	new /obj/item/storage/box/inhalers_auto(src)
+	new /obj/item/storage/box/autoinjectors(src)
+	new /obj/item/reagent_containers/chem_disp_cartridge(src)
+	new /obj/item/reagent_containers/chem_disp_cartridge(src)
+	new /obj/item/reagent_containers/chem_disp_cartridge(src)
+	new /obj/item/reagent_containers/chem_disp_cartridge(src)
+	new /obj/item/reagent_containers/chem_disp_cartridge(src)
+	new /obj/item/reagent_containers/chem_disp_cartridge(src)
 
 // Spawns with everything you need to make your very own field kitchen! (assuming you have power)
 // Contains enough to create a stove and oven. Using loops for anything above one for readability. Best paired with a freezer with ingredients.
@@ -607,13 +668,15 @@
 	new /obj/item/storage/box/kitchen(src)
 	new /obj/item/reagent_containers/spray/cleaner(src)
 	new /obj/item/storage/box/gloves(src)
-	new /obj/item/storage/box/condiment(src)
+	new /obj/item/storage/box/large/condiment(src)
 
 //A crate that populates itself with randomly selected loot from randomstock.dm
 //Can be passed in a rarity value, which is used as a multiplier on the rare/uncommon chance
 //Quantity of spawns is number of discrete selections from the loot lists, default 10
 
 /obj/structure/closet/crate/loot
+	name = "unusual container"
+	desc = "A mysterious container of unknown origins. What mysteries lie within?"
 	icon = 'icons/obj/random.dmi'
 	icon_state = "loot_crate"
 	var/rarity = 1
@@ -631,15 +694,14 @@
 
 	var/list/crates_to_use = typesof(/obj/structure/closet/crate) - typesof(/obj/structure/closet/crate/secure/gear_loadout)
 	crates_to_use -= /obj/structure/closet/crate/loot
+	crates_to_use -= /obj/structure/closet/crate/loot/contraband
 	var/icontype = pick(crates_to_use)
 	var/obj/structure/closet/crate/C = new icontype(get_turf(src), TRUE) //TRUE as we do not want the crate to fill(), we will fill it ourselves.
 
-	C.name = "unusual container"
-	C.desc = "A mysterious container of unknown origins. What mysteries lie within?"
+	C.name = name
+	C.desc = desc
 
-	for(var/i in 1 to quantity)
-		var/newtype = get_spawntype()
-		call(newtype)(C)
+	fill_spawned_crate(C, quantity)
 
 	if(C.secure || C.locked) //These should always be accessible
 		C.secure = FALSE
@@ -662,6 +724,19 @@
 			return pickweight(GLOB.random_stock_uncommon)
 		if ("3")
 			return pickweight(GLOB.random_stock_common)
+
+/obj/structure/closet/crate/loot/proc/fill_spawned_crate(var/obj/structure/closet/crate/spawned_crate, var/quantity)
+	for(var/i in 1 to quantity)
+		var/newtype = get_spawntype()
+		call(newtype)(spawned_crate)
+
+/obj/structure/closet/crate/loot/contraband
+	name = "suspicious container"
+	desc = "A container of some kind. Any and all identifying markings have been filed away. Who knows what it could hold!"
+
+/obj/structure/closet/crate/loot/contraband/fill_spawned_crate(spawned_crate, quantity)
+	for(var/i in 1 to quantity)
+		new /obj/random/contraband(spawned_crate)
 
 /obj/structure/closet/crate/extinguisher_cartridges
 	name = "crate of extinguisher cartridges"
@@ -704,3 +779,21 @@
 	desc = "A secure security crate. Secure."
 	icon_state = "security_crate"
 	secure = TRUE
+
+/obj/structure/closet/crate/drinks
+	name = "exotic drinks crate"
+	desc = "A crate packed with boxes of various beverages. Handle with care!"
+
+/obj/structure/closet/crate/drinks/fill()
+	new /obj/item/storage/box/burukutu(src)
+	new /obj/item/storage/box/skrellbeerdyn(src)
+	new /obj/item/storage/box/khlibnyz(src)
+	new /obj/item/storage/box/hrozamal_soda(src)
+	new /obj/item/storage/box/xuizijuice(src)
+	new /obj/item/storage/box/midynhr_water(src)
+	new /obj/item/storage/box/fancy/yoke/grape_juice(src)
+	new /obj/item/storage/box/fancy/yoke/beetle_milk(src)
+	new /obj/item/storage/box/unique/tea/rasnif(src)
+	new /obj/item/storage/box/unique/tea/messa(src)
+	new /obj/item/reagent_containers/toothpaste(src)
+	new /obj/item/reagent_containers/food/drinks/flask/vacuumflask/mouthwash(src)

@@ -2,8 +2,9 @@
 	name = "\improper R&D server"
 	desc = "A server which houses a back-up of all station research. It can be used to restore lost data, or to act as another point of retrieval."
 	icon_state = "RD-server"
+	maxhealth = OBJECT_HEALTH_LOW
+
 	var/datum/research/files
-	var/health = 100
 	var/list/id_with_upload = list()	//List of R&D consoles with upload to server access.
 	var/list/id_with_download = list()	//List of R&D consoles with download from server access.
 	var/id_with_upload_string = ""		//String versions for easy editing in map editor.
@@ -22,6 +23,12 @@
 		/obj/item/stack/cable_coil = 2
 	)
 
+	parts_power_mgmt = FALSE
+
+/obj/machinery/r_n_d/server/upgrade_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Upgraded <b>scanning modules</b> will reduce active power usage."
+
 /obj/machinery/r_n_d/server/Destroy()
 	for(var/obj/machinery/r_n_d/tech_processor/TP as anything in linked_processors)
 		TP.set_server(null)
@@ -29,6 +36,7 @@
 	return ..()
 
 /obj/machinery/r_n_d/server/RefreshParts()
+	..()
 	var/tot_rating = 0
 
 	for(var/obj/item/stock_parts/SP in component_parts)
@@ -135,8 +143,8 @@
 			env.merge(removed)
 
 /obj/machinery/r_n_d/server/attackby(obj/item/attacking_item, mob/user)
-	if(attacking_item.ismultitool())
-		var/obj/item/device/multitool/MT = attacking_item
+	if(attacking_item.tool_behaviour == TOOL_MULTITOOL)
+		var/obj/item/multitool/MT = attacking_item
 		var/obj/machinery/r_n_d/tech_processor/TP = MT.get_buffer(/obj/machinery/r_n_d/tech_processor)
 		if(TP)
 			TP.set_server(src)
@@ -356,7 +364,7 @@
 	if(!emagged)
 		playsound(src.loc, 'sound/effects/sparks4.ogg', 75, 1)
 		emagged = 1
-		to_chat(user, SPAN_NOTICE("You you disable the security protocols."))
+		to_chat(user, SPAN_NOTICE("You disable the security protocols."))
 		src.updateUsrDialog()
 		return 1
 

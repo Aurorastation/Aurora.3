@@ -30,7 +30,7 @@
 /turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/mine/unexplored)
 "i" = (
-/obj/item/device/gps/engineering,
+/obj/item/gps/engineering,
 /turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/mine/unexplored)
 "j" = (

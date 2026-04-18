@@ -10,6 +10,7 @@
 	name = "mend"
 	desc = "Clear!"
 	icon_state = "mend_wounds"
+	item_icons = null
 	cast_methods = CAST_MELEE
 	aspect = ASPECT_PSIONIC
 	cooldown = 50

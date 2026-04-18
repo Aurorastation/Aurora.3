@@ -21,7 +21,7 @@ var/list/whitelist_jobconfig = list()
 	if(fexists("config/whitelist_jobconfig.json"))
 		LOG_DEBUG("Whitelist JobConfig: Loading from json")
 		try
-			whitelist_jobconfig = json_decode(return_file_text("config/whitelist_jobconfig.json"))
+			whitelist_jobconfig = json_decode(file2text("config/whitelist_jobconfig.json"))
 		catch(var/exception/e)
 			LOG_DEBUG("Whitelist JobConfig: Failed to load whitelist_jobconfig.json: [e]")
 
@@ -75,12 +75,14 @@ var/list/whitelist_jobconfig = list()
 			log_world("ERROR: Database connection failed while loading alien whitelists. Reverting to legacy system.")
 			GLOB.config.sql_whitelists = 0
 		else
-			var/DBQuery/query = GLOB.dbcon.NewQuery("SELECT status_name, flag FROM ss13_whitelist_statuses")
+			var/datum/db_query/query = SSdbcore.NewQuery("SELECT status_name, flag FROM ss13_whitelist_statuses")
 			query.Execute()
 
 			while (query.NextRow())
 				if (query.item[1] in GLOB.whitelisted_species)
 					GLOB.whitelisted_species[query.item[1]] = text2num(query.item[2])
+
+			qdel(query)
 
 			return
 

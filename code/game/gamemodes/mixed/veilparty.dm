@@ -5,7 +5,7 @@
 	required_players = 15
 	required_enemies = 5
 	require_all_templates = 1
-	votable = 1
+	votable = 0
 	antag_tags = list(MODE_VAMPIRE, MODE_CULTIST)
 
 /datum/game_mode/veilparty/pre_setup()

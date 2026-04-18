@@ -1,12 +1,11 @@
 /turf/simulated/wall
 	name = "wall"
-	desc = "A huge chunk of metal used to seperate rooms."
-	desc_info = "You can deconstruct this by welding it, and then wrenching the girder.<br>\
-	You can build a wall by using metal sheets and making a girder, then adding more material."
+	desc = "A huge chunk of metal used to seperate compartments."
 	icon = 'icons/turf/smooth/wall_preview.dmi'
 	icon_state = "wall"
 	opacity = TRUE
 	density = TRUE
+	should_use_health = TRUE
 	blocks_air = TRUE
 	pass_flags_self = PASSCLOSEDTURF
 	thermal_conductivity = WALL_HEAT_TRANSFER_COEFFICIENT
@@ -24,10 +23,9 @@
 		/obj/machinery/door,
 		/obj/machinery/door/airlock
 	)
-
+	hitsound = 'sound/weapons/Genhit.ogg'
 	explosion_resistance = 10
 
-	var/damage = 0
 	var/damage_overlay = 0
 	var/global/damage_overlays[16]
 	var/active
@@ -36,7 +34,6 @@
 	var/material/reinf_material
 	var/last_state
 	var/construction_stage
-	var/hitsound = 'sound/weapons/Genhit.ogg'
 	var/use_set_icon_state
 
 	var/under_turf = /turf/simulated/floor/plating
@@ -49,6 +46,53 @@
 	smoothing_flags = SMOOTH_MORE | SMOOTH_NO_CLEAR_ICON | SMOOTH_UNDERLAYS
 
 	pathing_pass_method = TURF_PATHING_PASS_NO //Literally a wall, until we implement bots that can wallwarp, we might aswell save the processing
+
+
+/turf/simulated/wall/condition_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(health >= maxhealth)
+		. += SPAN_NOTICE("It looks fully intact.")
+	else
+		// Total damage is based of base material integrity and optionally, if reinforced, reinforcement material integrity on top
+		var/integrity = material.integrity
+		if(reinf_material)
+			integrity += reinf_material.integrity
+
+		var/relative_damage = health / maxhealth
+
+		if(relative_damage <= 0.25)
+			. += SPAN_NOTICE("It looks slightly damaged.")
+		else if(relative_damage <= 0.5)
+			. += SPAN_WARNING("It looks damaged.")
+		else if(relative_damage <= 0.75)
+			. += SPAN_WARNING("It looks moderately damaged.")
+		else if(relative_damage <= 0.9)
+			. += SPAN_DANGER("It looks heavily damaged.")
+		else
+			. += SPAN_DANGER("It looks critically damaged and on the verge of structural collapse.")
+
+/turf/simulated/wall/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(locate(/obj/effect/overlay/wallrot) in src)
+		. += "Wall rot fungus makes walls highly susceptible to damage- pushing on it now might make it break apart."
+		. += "It can be removed cleanly with a welding tool, or scraped off for processing with a bladed item like wirecutters."
+
+/turf/simulated/wall/assembly_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "You can build a wall by using metal sheets and making a girder, then adding more material."
+
+/turf/simulated/wall/disassembly_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Plating can be removed from a wall by use of a <b>welder</b>."
+
+/turf/simulated/wall/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(locate(/obj/effect/overlay/wallrot) in src)
+		. += SPAN_WARNING("There is fungus growing on [src].")
+
+/turf/simulated/wall/mouse_drop_receive(atom/dropping, mob/user, params)
+	//Adds the component only once. We do it here & not in Initialize() because there are tons of walls & we don't want to add to their init times
+	LoadComponent(/datum/component/leanable, dropping)
 
 // Walls always hide the stuff below them.
 /turf/simulated/wall/levelupdate(mapload)
@@ -68,6 +112,7 @@
 		reinf_material = SSmaterials.get_material_by_name(rmaterialtype)
 	update_material()
 	hitsound = material.hitsound
+	set_maxhealth(material.integrity + (reinf_material ? reinf_material.integrity : 0))
 
 	if (material.radioactivity || (reinf_material && reinf_material.radioactivity))
 		START_PROCESSING(SSprocessing, src)
@@ -104,10 +149,10 @@
 	var/damage = proj_damage
 
 	//cap the amount of damage, so that things like emitters can't destroy walls in one hit.
-	if(hitting_projectile.anti_materiel_potential > 1)
+	if(hitting_projectile.anti_materiel_potential <= 1)
 		damage = min(proj_damage, 100)
 
-	take_damage(damage)
+	add_damage(damage)
 
 /turf/simulated/wall/hitby(atom/movable/hitting_atom, skipcatch, hitpush, blocked, datum/thrownthing/throwingdatum)
 	..()
@@ -121,7 +166,7 @@
 		var/tforce = O.throwforce * (throwingdatum.speed/THROWFORCE_SPEED_DIVISOR)
 		playsound(src, hitsound, tforce >= 15? 60 : 25, TRUE)
 		if(tforce >= 15)
-			take_damage(tforce)
+			add_damage(tforce)
 
 /turf/simulated/wall/proc/clear_plants()
 	for(var/obj/effect/overlay/wallrot/WR in src)
@@ -140,24 +185,6 @@
 	clear_bulletholes()
 	return ..()
 
-//Appearance
-/turf/simulated/wall/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-
-	if(!damage)
-		. += SPAN_NOTICE("It looks fully intact.")
-	else
-		var/dam = damage / material.integrity
-		if(dam <= 0.3)
-			. += SPAN_WARNING("It looks slightly damaged.")
-		else if(dam <= 0.6)
-			. += SPAN_WARNING("It looks moderately damaged.")
-		else
-			. += SPAN_DANGER("It looks heavily damaged.")
-
-	if(locate(/obj/effect/overlay/wallrot) in src)
-		. += SPAN_WARNING("There is fungus growing on [src].")
-
 //Damage
 
 /turf/simulated/wall/melt(var/do_message = TRUE)
@@ -170,26 +197,15 @@
 	if(do_message)
 		visible_message(SPAN_DANGER("\The [src] spontaneously combusts!")) //!!OH SHIT!!
 
-/turf/simulated/wall/proc/take_damage(dam)
-	if(dam)
-		damage = max(0, damage + dam)
-		update_damage()
-	return
-
-/turf/simulated/wall/proc/update_damage()
-	var/cap = material.integrity
-	if(reinf_material)
-		cap += reinf_material.integrity
-
+/turf/simulated/wall/add_damage(damage, damage_flags, damage_type, armor_penetration, obj/weapon)
 	if(locate(/obj/effect/overlay/wallrot) in src)
-		cap = cap / 10
+		visible_message(SPAN_WARNING("\The [src] crumbles further under the rot!"))
+		damage *= 10
+	. = ..()
+	update_icon()
 
-	if(damage >= cap)
-		dismantle_wall()
-	else
-		update_icon()
-
-	return
+/turf/simulated/wall/on_death(damage, damage_flags, damage_type, armor_penetration, obj/weapon)
+	dismantle_wall()
 
 /turf/simulated/wall/fire_act(exposed_temperature, exposed_volume) //Doesn't fucking work because walls don't interact with air :[
 	. = ..()
@@ -198,7 +214,7 @@
 /turf/simulated/wall/adjacent_fire_act(turf/simulated/floor/adj_turf, datum/gas_mixture/adj_air, adj_temp, adj_volume)
 	burn(adj_temp)
 	if(adj_temp > material.melting_point)
-		take_damage(log(RAND_F(0.9, 1.1) * (adj_temp - material.melting_point)))
+		add_damage(log(RAND_F(0.9, 1.1) * (adj_temp - material.melting_point)))
 
 	return ..()
 
@@ -235,11 +251,11 @@
 			return
 		if(2.0)
 			if(prob(75))
-				take_damage(rand(150, 250))
+				add_damage(rand(150, 250))
 			else
 				dismantle_wall(1,1)
 		if(3.0)
-			take_damage(rand(0, 250))
+			add_damage(rand(0, 250))
 
 	return
 

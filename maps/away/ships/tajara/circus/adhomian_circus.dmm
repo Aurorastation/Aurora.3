@@ -280,7 +280,7 @@
 /turf/simulated/wall/shuttle/space_ship,
 /area/shuttle/adhomian_circus_shuttle)
 "bpn" = (
-/obj/item/device/flashlight/lamp/stage,
+/obj/item/flashlight/lamp/stage,
 /turf/simulated/floor/marble{
 	temperature = 278.15
 	},
@@ -548,7 +548,7 @@
 /area/adhomian_circus/port)
 "cFk" = (
 /obj/structure/table/wood,
-/obj/item/device/flashlight/lamp,
+/obj/item/flashlight/lamp,
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
@@ -617,7 +617,7 @@
 	},
 /area/adhomian_circus/hangar)
 "cUS" = (
-/obj/item/storage/box/monkeycubes/farwacubes,
+/obj/item/storage/box/unique/monkeycubes/farwacubes,
 /obj/structure/closet/crate,
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
@@ -773,7 +773,7 @@
 /area/adhomian_circus/crew)
 "dIJ" = (
 /obj/structure/table/wood,
-/obj/item/device/flashlight/lamp,
+/obj/item/flashlight/lamp,
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
@@ -1387,7 +1387,7 @@
 /area/adhomian_circus/maintenance)
 "gTj" = (
 /obj/structure/table/wood,
-/obj/item/device/flashlight/lamp,
+/obj/item/flashlight/lamp,
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
@@ -2148,7 +2148,7 @@
 	},
 /area/adhomian_circus/crew)
 "lmZ" = (
-/obj/item/device/flashlight/lamp,
+/obj/item/flashlight/lamp,
 /obj/structure/table/wood,
 /turf/simulated/floor/wood{
 	temperature = 278.15
@@ -2429,7 +2429,7 @@
 /area/adhomian_circus/port)
 "mpc" = (
 /obj/structure/table/standard,
-/obj/item/device/flashlight/lamp,
+/obj/item/flashlight/lamp,
 /obj/effect/floor_decal/corner/pink/full,
 /turf/simulated/floor/tiled{
 	temperature = 278.15
@@ -3604,7 +3604,7 @@
 	},
 /area/adhomian_circus/clown)
 "sMW" = (
-/obj/item/device/flashlight/lamp/stage,
+/obj/item/flashlight/lamp/stage,
 /turf/simulated/floor/marble{
 	temperature = 278.15
 	},
@@ -4393,7 +4393,7 @@
 /area/adhomian_circus/starboard)
 "xCk" = (
 /obj/structure/table/wood,
-/obj/item/device/flashlight/lamp/lava/cyan,
+/obj/item/flashlight/lamp/lava/cyan,
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
@@ -4412,9 +4412,9 @@
 	},
 /area/adhomian_circus/starboard)
 "xGS" = (
-/obj/item/storage/box/snappops,
+/obj/item/storage/box/unique/snappops,
 /obj/structure/table/wood,
-/obj/item/storage/box/snappops,
+/obj/item/storage/box/unique/snappops,
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
@@ -4457,7 +4457,7 @@
 	},
 /obj/structure/closet/crate/internals,
 /obj/item/storage/bag/inflatable,
-/obj/item/device/oxycandle,
+/obj/item/oxycandle,
 /obj/item/tank/emergency_oxygen{
 	pixel_x = 5
 	},

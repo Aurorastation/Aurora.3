@@ -1,6 +1,13 @@
 import { BooleanLike } from '../../common/react';
 import { useBackend } from '../backend';
-import { Box, Button, Divider, LabeledList, ProgressBar, Section } from '../components';
+import {
+  Box,
+  Button,
+  Divider,
+  LabeledList,
+  ProgressBar,
+  Section,
+} from '../components';
 import { NtosWindow } from '../layouts';
 import { sanitizeText } from '../sanitize';
 
@@ -50,7 +57,8 @@ export const ErrorMessage = (props, context) => {
   return (
     <Section
       title="Error"
-      buttons={<Button content="Reset" onClick={() => act('PRG_reset')} />}>
+      buttons={<Button content="Reset" onClick={() => act('PRG_reset')} />}
+    >
       {data.message}
     </Section>
   );
@@ -68,7 +76,8 @@ export const ShowArticle = (props, context) => {
           <Button content="Save" onClick={() => act('PRG_savearticle')} />
           <Button content="Close" onClick={() => act('PRG_reset')} />
         </>
-      }>
+      }
+    >
       <Box dangerouslySetInnerHtml={contentHtml} />
     </Section>
   );
@@ -87,7 +96,8 @@ export const ShowArticleList = (props, context) => {
           }
           onClick={() => act('PRG_toggle_archived')}
         />
-      }>
+      }
+    >
       {data.download_running && (
         <Section title="Download">
           <LabeledList>
@@ -95,7 +105,8 @@ export const ShowArticleList = (props, context) => {
               <ProgressBar
                 value={data.download_progress}
                 minValue={0}
-                maxValue={data.download_maxprogress}>
+                maxValue={data.download_maxprogress}
+              >
                 {data.download_progress} / {data.download_maxprogress} GQ
               </ProgressBar>
             </LabeledList.Item>

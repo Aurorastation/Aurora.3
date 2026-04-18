@@ -46,7 +46,7 @@
 	construction_cost = list("$glass" = 5250, DEFAULT_WALL_MATERIAL = 2500)
 	construction_time = 300
 
-	device_type = /obj/item/device/healthanalyzer
+	device_type = /obj/item/healthanalyzer
 
 	category = MODULE_MEDICAL
 
@@ -101,7 +101,7 @@
 	engage_string = "Begin Scan"
 	usable = TRUE
 	selectable = 0
-	device_type = /obj/item/device/ano_scanner
+	device_type = /obj/item/ano_scanner
 
 	category = MODULE_UTILITY
 
@@ -292,7 +292,7 @@
 	if(target_mob != user)
 		to_chat(user, SPAN_NOTICE("You inject [target_mob] with [chems_to_use] unit\s of [charge.display_name]."))
 
-	if(!target_mob.is_physically_disabled())
+	if(!target_mob.incapacitated(INCAPACITATION_DISABLED))
 		to_chat(target_mob, SPAN_NOTICE("<b>You feel a rushing in your veins as [chems_to_use] unit\s of [charge.display_name] [chems_to_use == 1 ? "is" : "are"] injected.</b>"))
 	target_mob.reagents.add_reagent(charge.product_type, chems_to_use)
 
@@ -774,7 +774,7 @@
 	interface_desc = "A heat sink with liquid cooled radiator."
 	icon_state = "suitcooler"
 	var/charge_consumption = 1
-	var/max_cooling = 12
+	var/max_cooling = 24
 	var/thermostat = T20C
 
 	category = MODULE_GENERAL
@@ -785,14 +785,33 @@
 
 	var/mob/living/carbon/human/H = holder.wearer
 
-	var/temp_adj = min(H.bodytemperature - thermostat, max_cooling)
+	var/env_temp = get_environment_temperature()
+	var/temp_adj = min(H.bodytemperature - max(thermostat, env_temp), max_cooling)
 
 	if (temp_adj < 0.5)
 		return passive_power_cost
 
-	H.bodytemperature -= temp_adj
+	H.bodytemperature = max(T0C, H.bodytemperature - temp_adj)
 	active_power_cost = round((temp_adj/max_cooling)*charge_consumption)
+
 	return active_power_cost
+
+/obj/item/rig_module/cooling_unit/proc/get_environment_temperature()
+	if(ishuman(loc))
+		var/mob/living/carbon/human/H = loc
+		if(istype(H.loc, /obj/machinery/atmospherics/unary/cryo_cell))
+			var/obj/machinery/atmospherics/unary/cryo_cell/C = H.loc
+			return C.air_contents.temperature
+
+	var/turf/T = get_turf(src)
+	if(istype(T, /turf/space) || !isturf(T))
+		return FALSE	//space has no temperature, this just makes sure the cooling unit works in space
+
+	var/datum/gas_mixture/environment = T.return_air()
+	if(!environment)
+		return FALSE
+
+	return environment.temperature
 
 /obj/item/rig_module/boring
 	name = "burrowing lasers"

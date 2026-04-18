@@ -31,6 +31,9 @@ GLOBAL_LIST_EMPTY_TYPED(preferences_datums, /datum/preferences)
 	var/tgui_inputs = TRUE
 	var/tgui_buttons_large = FALSE
 	var/tgui_inputs_swapped = FALSE
+	var/tgui_say_light_mode = FALSE
+	var/ui_scale = TRUE
+	var/lobby_music_vol = 85
 	//Style for popup tooltips
 	var/tooltip_style = "Midnight"
 
@@ -92,6 +95,7 @@ GLOBAL_LIST_EMPTY_TYPED(preferences_datums, /datum/preferences)
 	var/machine_tag_status = TRUE
 	var/machine_serial_number
 	var/machine_ownership_status = IPC_OWNERSHIP_COMPANY
+	var/hidden_shell_status = FALSE
 
 		//Some faction information.
 	var/home_system = "Unset"           //System of birth.
@@ -220,8 +224,8 @@ GLOBAL_LIST_EMPTY_TYPED(preferences_datums, /datum/preferences)
 			load_and_update_character()
 
 /datum/preferences/Destroy()
-	. = ..()
 	QDEL_LIST(char_render_holders)
+	return ..()
 
 /datum/preferences/proc/load_and_update_character(var/slot)
 	load_character(slot)
@@ -307,7 +311,6 @@ GLOBAL_LIST_EMPTY_TYPED(preferences_datums, /datum/preferences)
 		O.appearance = MA
 		O.dir = D
 		O.hud_layerise()
-		O.plane = 11 //THIS IS DUMB. Figure out a way to remove emissive blockers from the mob and their overlays.
 		var/list/screen_locs = preview_screen_locs["[D]"]
 		var/screen_x = screen_locs[1]
 		var/screen_x_minor = screen_locs[2]
@@ -409,7 +412,7 @@ GLOBAL_LIST_EMPTY_TYPED(preferences_datums, /datum/preferences)
 	character.set_species(species)
 	if(character.dna)
 		character.dna.real_name = character.real_name
-	character.set_floating_chat_color(floating_chat_color)
+	character.langchat_color = floating_chat_color
 
 	character.flavor_texts["general"] = flavor_texts["general"]
 	character.flavor_texts[BP_HEAD] = flavor_texts[BP_HEAD]
@@ -491,7 +494,7 @@ GLOBAL_LIST_EMPTY_TYPED(preferences_datums, /datum/preferences)
 		else
 			all_underwear -= underwear_category_name
 
-	if(backbag > OUTFIT_POCKETBOOK || backbag < OUTFIT_NOTHING)
+	if(backbag > OUTFIT_CHESTPOUCH || backbag < OUTFIT_NOTHING)
 		backbag = OUTFIT_NOTHING //Same as above
 	character.backbag = backbag
 	character.backbag_style = backbag_style

@@ -122,7 +122,7 @@
 
 /proc/is_below_sound_pressure(var/turf/T)
 	var/datum/gas_mixture/environment = T ? T.return_air() : null
-	var/pressure =  environment ? environment.return_pressure() : 0
+	var/pressure =  SAFE_XGM_PRESSURE(environment)
 	if(pressure < SOUND_MINIMUM_PRESSURE)
 		return TRUE
 	return FALSE
@@ -160,6 +160,7 @@
 				source.change_area(source.loc, base_area)
 			else
 				. += transport_turf_contents(source, target, ignore_background)
+
 	//change the old turfs
 	for(var/turf/source in translation)
 		if(ignore_background && (source.turf_flags & TURF_FLAG_BACKGROUND))
@@ -211,7 +212,7 @@
 	var/turf/T = get_turf(source)
 	if(!istype(T)) return FALSE
 	var/datum/gas_mixture/environment = T.return_air()
-	var/pressure = (environment)? environment.return_pressure() : 0
+	var/pressure = SAFE_XGM_PRESSURE(environment)
 	if(pressure < required_pressure)
 		return FALSE
 	return TRUE

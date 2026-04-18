@@ -214,3 +214,39 @@
 	drydesc = "A dried trail left by someone crawling."
 	coming_state = "trail1"
 	going_state  = "trail2"
+
+/// Spawns footprints, a mapping helper. An example of its use can be seen at: `quarantined_outpost.dmm`.
+/obj/abstract/footprint_spawner
+	name = "blood footprint"
+	icon = 'icons/effects/map_effects.dmi'
+	icon_state = "footprint_helper"
+	/// String. Object path for the track type the spawner will use.
+	var/trail_path = "footprints"
+	var/going_dir
+	/// Blood colour by default.
+	var/trail_color = COLOR_HUMAN_BLOOD
+
+/obj/abstract/footprint_spawner/Initialize()
+	. = ..()
+	var/turf/T = get_turf(src)
+	for(var/obj/abstract/footprint_spawner_turn_helper/TH in T)
+		going_dir = TH.dir // if we have a turn_helper, we will use its direction
+	if(!going_dir)
+		going_dir = src.dir
+	T.add_tracks(text2path("/obj/effect/decal/cleanable/blood/tracks/[trail_path]"), null, src.dir, 0, trail_color)
+	T.add_tracks(text2path("/obj/effect/decal/cleanable/blood/tracks/[trail_path]"), null, 0, going_dir, trail_color)
+	qdel(src)
+
+/obj/abstract/footprint_spawner/oil
+	name = "oil footprints"
+	trail_color = COLOR_OIL
+
+/obj/abstract/footprint_spawner/body
+	name = "dragged body print"
+	trail_path = "body"
+
+/// Used for footprints that take 90 degree turns. This object leads the position of the footprints take a turn to. Place it onto the spawner.
+/obj/abstract/footprint_spawner_turn_helper
+	name = "footprint turn helper"
+	icon = 'icons/effects/map_effects.dmi'
+	icon_state = "portal_side_b"

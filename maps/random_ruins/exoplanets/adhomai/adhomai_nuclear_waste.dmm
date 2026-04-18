@@ -32,7 +32,7 @@
 	},
 /area/adhomai_nuclear_waste)
 "f" = (
-/obj/effect/decal/cleanable/greenglow/radioactive,
+/obj/effect/decal/cleanable/greenglow/radioactive/medium,
 /obj/machinery/light,
 /turf/simulated/floor/tiled/rust{
 	temperature = 268.15
@@ -58,7 +58,7 @@
 /turf/simulated/floor/exoplanet/snow/cold,
 /area/exoplanet/adhomai)
 "i" = (
-/obj/effect/decal/cleanable/greenglow/radioactive,
+/obj/effect/decal/cleanable/greenglow/radioactive/medium,
 /turf/simulated/floor/tiled/rust{
 	temperature = 268.15
 	},
@@ -77,7 +77,7 @@
 /turf/simulated/floor/exoplanet/snow/cold,
 /area/adhomai_nuclear_waste)
 "p" = (
-/obj/effect/decal/cleanable/greenglow/radioactive,
+/obj/effect/decal/cleanable/greenglow/radioactive/medium,
 /obj/machinery/light{
 	dir = 8
 	},
@@ -255,7 +255,7 @@
 /turf/simulated/floor/exoplanet/snow/cold,
 /area/adhomai_nuclear_waste)
 "X" = (
-/obj/effect/decal/cleanable/greenglow/radioactive,
+/obj/effect/decal/cleanable/greenglow/radioactive/medium,
 /obj/machinery/light{
 	dir = 1
 	},

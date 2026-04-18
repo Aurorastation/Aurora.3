@@ -3,25 +3,24 @@
 	icon_state = "blue"
 	luminosity = 0
 	requires_power = 0
-	dynamic_lighting = 1
 	no_light_control = 0
 
 /area/cruise/virtual_reality
 	name = "Virtual Reality"
 	icon_state = "start"
-	dynamic_lighting = 0
+	base_lighting_alpha = 255
 	luminosity = 1
 
 /area/cruise/escort
 	name = "Conglomerate Escort"
 	icon_state = "purple"
-	dynamic_lighting = 0
+	base_lighting_alpha = 255
 	luminosity = 1
 
 /area/cruise/tcomms_sat
 	name = "Telecommunications Buddy Satellite"
 	icon_state = "red"
-	dynamic_lighting = 0
+	base_lighting_alpha = 255
 	luminosity = 1
 
 /area/cruise/aft
@@ -99,7 +98,7 @@
 /area/cruise/beach
 	name = "Beach Dome"
 	icon_state = "red2"
-	dynamic_lighting = 0
+	base_lighting_alpha = 255
 	luminosity = 1
 
 /area/cruise/beach_bar

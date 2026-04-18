@@ -599,7 +599,7 @@
 	},
 /obj/structure/table/standard,
 /obj/random/tech_supply,
-/obj/item/device/gps{
+/obj/item/gps{
 	pixel_x = 10;
 	pixel_y = 5
 	},
@@ -2013,7 +2013,7 @@
 /area/ship/dominian_unathi/eva)
 "oW" = (
 /obj/structure/table/standard,
-/obj/item/device/flashlight/lamp,
+/obj/item/flashlight/lamp,
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/starboardthrust)
 "oY" = (
@@ -2263,7 +2263,7 @@
 /turf/simulated/floor/plating/cooled,
 /area/ship/dominian_unathi/portthrust)
 "qq" = (
-/obj/structure/janitorialcart/full,
+/obj/structure/cart/storage/janitorialcart/full,
 /obj/item/reagent_containers/glass/bucket,
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/janitor)
@@ -3256,7 +3256,7 @@
 /area/ship/dominian_unathi)
 "xc" = (
 /obj/structure/table/stone/marble,
-/obj/item/device/versebook/tribunal,
+/obj/item/versebook/tribunal,
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/chapel)
 "xn" = (
@@ -3529,7 +3529,7 @@
 	},
 /obj/item/clothing/under/dominia/priest,
 /obj/item/clothing/accessory/dominia,
-/obj/item/clothing/accessory/poncho/dominia/red/surcoat,
+/obj/item/clothing/accessory/poncho/dominia_cape/tribunalist/surcoat,
 /obj/item/clothing/head/beret/dominia,
 /obj/machinery/light,
 /turf/simulated/floor/tiled/dark,
@@ -7377,8 +7377,8 @@
 	dir = 9
 	},
 /obj/structure/table/rack,
-/obj/item/device/radio,
-/obj/item/device/radio,
+/obj/item/radio,
+/obj/item/radio,
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/eva)
 "Yn" = (
@@ -7642,11 +7642,11 @@
 /area/ship/dominian_unathi/cic)
 "ZK" = (
 /obj/structure/table/rack,
-/obj/item/device/gps,
-/obj/item/device/gps,
-/obj/item/device/gps,
-/obj/item/device/gps,
-/obj/item/device/gps,
+/obj/item/gps,
+/obj/item/gps,
+/obj/item/gps,
+/obj/item/gps,
+/obj/item/gps,
 /obj/effect/floor_decal/corner/orange{
 	dir = 10
 	},

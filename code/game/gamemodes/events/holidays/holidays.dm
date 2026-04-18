@@ -81,6 +81,7 @@ var/global/Holiday = null
 		if(6)	//Jun
 			switch(DD)
 				if(6)							Holiday = "Mictlani Tago de Eksterterano"
+				if(8)							Holiday = "Northern Wildlands Intervention Day"
 				if(14)
 					Holiday = "New Gibson Remembrance Day"
 					if(prob(50))				Holiday = "Skrell Qu'Qyu-Poxii"

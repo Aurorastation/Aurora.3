@@ -16,7 +16,7 @@
 	canbrush = TRUE
 	faction = "Adhomai"
 	gender = FEMALE
-	maxHealth = 50
+	maxhealth = 50
 	health = 50
 	mob_size = 5
 	var/eggsleft = 0
@@ -63,7 +63,7 @@
 	icon_state = "tunneler_baby"
 	icon_living = "tunneler_baby"
 	icon_dead = "tunneler_baby_dead"
-	maxHealth = 10
+	maxhealth = 10
 	health = 10
 	mob_size = 2
 	meat_amount = 1
@@ -85,9 +85,9 @@
 	response_help  = "pets"
 	response_disarm = "gently pushes aside"
 	response_harm   = "kicks"
-	attacktext = "kicked"
+	attacktext = "kicks"
 	health = 200
-	maxHealth = 200
+	maxhealth = 200
 	mob_size = 15
 
 	canbrush = TRUE
@@ -124,13 +124,13 @@
 	meat_type = /obj/item/reagent_containers/food/snacks/meat/adhomai
 	organ_names = list("head", "chest", "right fore leg", "left fore leg", "right rear leg", "left rear leg")
 
-	maxHealth = 150
+	maxhealth = 150
 	health = 150
 
 	melee_damage_lower = 15
 	melee_damage_upper = 15
 	armor_penetration = 20
-	attacktext = "gored"
+	attacktext = "gores"
 	attack_sound = 'sound/weapons/bite.ogg'
 
 	hostile_nameable = TRUE
@@ -151,7 +151,7 @@
 	icon_living = "rafama_baby"
 	icon_dead = "rafama_baby_dead"
 	gender = MALE
-	maxHealth = 30
+	maxhealth = 30
 	health = 30
 	mob_size = 5
 	melee_damage_lower = 5
@@ -169,7 +169,7 @@
 	meat_amount = 1
 	organ_names = list("thorax", "legs", "head")
 	faction = "Adhomai"
-	maxHealth = 20
+	maxhealth = 20
 	health = 20
 	mob_size = 3
 
@@ -192,7 +192,7 @@
 	organ_names = list("shell", "tentacles")
 	faction = "Adhomai"
 
-	maxHealth = 50
+	maxhealth = 50
 	health = 50
 	mob_size = 3
 	pixel_x = -8
@@ -272,13 +272,13 @@
 	response_help  = "pets"
 	response_disarm = "gently pushes aside"
 	response_harm   = "kicks"
-	attacktext = "kicked"
+	attacktext = "kicks"
 
 	meat_type = /obj/item/reagent_containers/food/snacks/meat/adhomai
 
 	faction = "Adhomai"
 
-	maxHealth = 100
+	maxhealth = 100
 	health = 100
 	mob_size = 12
 	pixel_x = -8
@@ -318,7 +318,7 @@
 	meat_type = /obj/item/reagent_containers/food/snacks/meat/adhomai
 	organ_names = list("head", "chest", "right fore leg", "left fore leg", "right rear leg", "left rear leg")
 
-	maxHealth = 150
+	maxhealth = 150
 	health = 150
 
 	butchering_products = list(/obj/item/stack/material/animalhide = 10)
@@ -343,9 +343,9 @@
 	response_help  = "pets"
 	response_disarm = "gently pushes aside"
 	response_harm   = "kicks"
-	attacktext = "kicked"
+	attacktext = "kicks"
 	health = 450
-	maxHealth = 452
+	maxhealth = 452
 	mob_size = 30
 
 	pixel_x = -32

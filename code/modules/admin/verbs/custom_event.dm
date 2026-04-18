@@ -26,7 +26,7 @@
 
 // normal verb for players to view info
 /client/verb/cmd_view_custom_event()
-	set category = "OOC"
+	set category = "OOC.Round"
 	set name = "Custom Event Info"
 
 	if(!GLOB.custom_event_msg || GLOB.custom_event_msg == "")

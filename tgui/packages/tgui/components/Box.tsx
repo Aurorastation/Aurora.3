@@ -271,7 +271,7 @@ export const Box: SFC<BoxProps> = (props: BoxProps) => {
     children,
     ChildFlags.UnknownChildren,
     computedProps,
-    undefined
+    undefined,
   );
 };
 

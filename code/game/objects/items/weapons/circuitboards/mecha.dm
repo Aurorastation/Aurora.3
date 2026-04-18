@@ -1,8 +1,3 @@
-#ifdef T_BOARD_MECHA
-#error T_BOARD_MECHA already defined elsewhere, we can't use it.
-#endif
-#define T_BOARD_MECHA(name)	"" + "exosuit module circuit board " + "(" + (name) + ")"
-
 /obj/item/circuitboard/mecha
 	name = "exosuit circuit board"
 	icon = 'icons/obj/module.dmi'

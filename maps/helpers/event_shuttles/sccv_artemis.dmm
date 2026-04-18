@@ -41,51 +41,51 @@
 /obj/item/crowbar,
 /obj/item/crowbar,
 /obj/item/crowbar,
-/obj/item/device/flashlight{
+/obj/item/flashlight{
 	pixel_y = -8;
 	pixel_x = 4
 	},
-/obj/item/device/flashlight{
+/obj/item/flashlight{
 	pixel_y = -8;
 	pixel_x = 4
 	},
-/obj/item/device/flashlight{
+/obj/item/flashlight{
 	pixel_y = -8;
 	pixel_x = 4
 	},
-/obj/item/device/flashlight{
+/obj/item/flashlight{
 	pixel_y = -8;
 	pixel_x = 4
 	},
-/obj/item/device/flashlight{
+/obj/item/flashlight{
 	pixel_y = -8;
 	pixel_x = 4
 	},
-/obj/item/device/flashlight{
+/obj/item/flashlight{
 	pixel_y = -8;
 	pixel_x = 4
 	},
-/obj/item/device/flashlight{
+/obj/item/flashlight{
 	pixel_y = -8;
 	pixel_x = 4
 	},
-/obj/item/device/flashlight{
+/obj/item/flashlight{
 	pixel_y = -8;
 	pixel_x = 4
 	},
-/obj/item/device/flashlight{
+/obj/item/flashlight{
 	pixel_y = -8;
 	pixel_x = 4
 	},
-/obj/item/device/flashlight{
+/obj/item/flashlight{
 	pixel_y = -8;
 	pixel_x = 4
 	},
-/obj/item/device/flashlight{
+/obj/item/flashlight{
 	pixel_y = -8;
 	pixel_x = 4
 	},
-/obj/item/device/flashlight{
+/obj/item/flashlight{
 	pixel_y = -8;
 	pixel_x = 4
 	},
@@ -291,12 +291,12 @@
 	pixel_x = 8
 	},
 /obj/effect/floor_decal/industrial/outline/operations,
-/obj/item/device/gps/engineering,
-/obj/item/device/gps/engineering,
-/obj/item/device/gps/engineering,
-/obj/item/device/gps/engineering,
-/obj/item/device/gps/engineering,
-/obj/item/device/gps/engineering,
+/obj/item/gps/engineering,
+/obj/item/gps/engineering,
+/obj/item/gps/engineering,
+/obj/item/gps/engineering,
+/obj/item/gps/engineering,
+/obj/item/gps/engineering,
 /turf/simulated/floor/tiled/steel,
 /area/scc_event_shuttle)
 "eX" = (
@@ -310,58 +310,58 @@
 /obj/structure/table/rack/retail_shelf{
 	name = "shelves"
 	},
-/obj/item/device/gps{
+/obj/item/gps{
 	pixel_x = -6
 	},
-/obj/item/device/gps{
+/obj/item/gps{
 	pixel_x = -6
 	},
-/obj/item/device/gps{
+/obj/item/gps{
 	pixel_x = -6
 	},
-/obj/item/device/gps{
+/obj/item/gps{
 	pixel_x = -6
 	},
-/obj/item/device/gps{
+/obj/item/gps{
 	pixel_x = -6
 	},
-/obj/item/device/gps{
+/obj/item/gps{
 	pixel_x = -6
 	},
-/obj/item/device/flashlight/maglight{
+/obj/item/flashlight/maglight{
 	pixel_y = -9
 	},
-/obj/item/device/flashlight/maglight{
+/obj/item/flashlight/maglight{
 	pixel_y = -9
 	},
-/obj/item/device/flashlight/maglight{
+/obj/item/flashlight/maglight{
 	pixel_y = -9
 	},
-/obj/item/device/flashlight/maglight{
+/obj/item/flashlight/maglight{
 	pixel_y = -9
 	},
-/obj/item/device/flashlight/maglight{
+/obj/item/flashlight/maglight{
 	pixel_y = -9
 	},
-/obj/item/device/flashlight/maglight{
+/obj/item/flashlight/maglight{
 	pixel_y = -9
 	},
-/obj/item/device/flashlight/maglight{
+/obj/item/flashlight/maglight{
 	pixel_y = -9
 	},
-/obj/item/device/flashlight/maglight{
+/obj/item/flashlight/maglight{
 	pixel_y = -9
 	},
-/obj/item/device/flashlight/maglight{
+/obj/item/flashlight/maglight{
 	pixel_y = -9
 	},
-/obj/item/device/flashlight/maglight{
+/obj/item/flashlight/maglight{
 	pixel_y = -9
 	},
-/obj/item/device/flashlight/maglight{
+/obj/item/flashlight/maglight{
 	pixel_y = -9
 	},
-/obj/item/device/flashlight/maglight{
+/obj/item/flashlight/maglight{
 	pixel_y = -9
 	},
 /turf/simulated/floor/tiled/dark,
@@ -1305,7 +1305,7 @@
 /turf/simulated/floor/tiled/steel,
 /area/scc_event_shuttle)
 "wt" = (
-/obj/machinery/autolathe,
+/obj/machinery/fabricator/autolathe,
 /turf/simulated/floor/tiled/steel,
 /area/scc_event_shuttle)
 "ww" = (
@@ -1532,16 +1532,16 @@
 /area/scc_event_shuttle)
 "zK" = (
 /obj/structure/table/reinforced/steel,
-/obj/item/device/megaphone/command,
-/obj/item/device/megaphone/command,
-/obj/item/device/megaphone/command,
-/obj/item/device/megaphone/command,
-/obj/item/device/megaphone/command,
-/obj/item/device/megaphone/command,
+/obj/item/megaphone/command,
+/obj/item/megaphone/command,
+/obj/item/megaphone/command,
+/obj/item/megaphone/command,
+/obj/item/megaphone/command,
+/obj/item/megaphone/command,
 /obj/machinery/light{
 	dir = 1
 	},
-/obj/item/device/vending_refill/encryption,
+/obj/item/vending_refill/encryption,
 /turf/simulated/floor/tiled/dark,
 /area/scc_event_shuttle)
 "zX" = (
@@ -1781,59 +1781,59 @@
 	pixel_y = 5;
 	pixel_x = -4
 	},
-/obj/item/device/radio/sec{
+/obj/item/radio/sec{
 	pixel_x = 7;
 	pixel_y = 5
 	},
-/obj/item/device/radio/sec{
+/obj/item/radio/sec{
 	pixel_x = 7;
 	pixel_y = 5
 	},
-/obj/item/device/radio/sec{
+/obj/item/radio/sec{
 	pixel_x = 7;
 	pixel_y = 5
 	},
-/obj/item/device/radio/sec{
+/obj/item/radio/sec{
 	pixel_x = 7;
 	pixel_y = 5
 	},
-/obj/item/device/radio/sec{
+/obj/item/radio/sec{
 	pixel_x = 7;
 	pixel_y = 5
 	},
-/obj/item/device/radio/sec{
+/obj/item/radio/sec{
 	pixel_x = 7;
 	pixel_y = 5
 	},
-/obj/item/device/radio/sec{
+/obj/item/radio/sec{
 	pixel_x = 7;
 	pixel_y = 5
 	},
-/obj/item/device/radio/sec{
+/obj/item/radio/sec{
 	pixel_x = 7;
 	pixel_y = 5
 	},
-/obj/item/device/radio/sec{
+/obj/item/radio/sec{
 	pixel_x = 7;
 	pixel_y = 5
 	},
-/obj/item/device/radio/sec{
+/obj/item/radio/sec{
 	pixel_x = 7;
 	pixel_y = 5
 	},
-/obj/item/device/radio/sec{
+/obj/item/radio/sec{
 	pixel_x = 7;
 	pixel_y = 5
 	},
-/obj/item/device/radio/sec{
+/obj/item/radio/sec{
 	pixel_x = 7;
 	pixel_y = 5
 	},
-/obj/item/device/radio/sec{
+/obj/item/radio/sec{
 	pixel_x = 7;
 	pixel_y = 5
 	},
-/obj/item/device/radio/sec{
+/obj/item/radio/sec{
 	pixel_x = 7;
 	pixel_y = 5
 	},
@@ -1965,32 +1965,32 @@
 /area/scc_event_shuttle)
 "FN" = (
 /obj/structure/table/standard,
-/obj/item/device/radio{
+/obj/item/radio{
 	pixel_x = -6;
 	pixel_y = 16
 	},
-/obj/item/device/radio{
+/obj/item/radio{
 	pixel_x = -6;
 	pixel_y = 16
 	},
-/obj/item/device/radio{
+/obj/item/radio{
 	pixel_x = 5;
 	pixel_y = 16
 	},
-/obj/item/device/radio{
+/obj/item/radio{
 	pixel_x = 5;
 	pixel_y = 16
 	},
-/obj/item/device/gps/medical{
+/obj/item/gps/medical{
 	pixel_x = -7
 	},
-/obj/item/device/gps/medical{
+/obj/item/gps/medical{
 	pixel_x = 5
 	},
-/obj/item/device/gps/medical{
+/obj/item/gps/medical{
 	pixel_x = -7
 	},
-/obj/item/device/gps/medical{
+/obj/item/gps/medical{
 	pixel_x = 5
 	},
 /obj/effect/floor_decal/spline/plain/green{
@@ -2185,34 +2185,34 @@
 	pixel_y = -5;
 	pixel_x = 6
 	},
-/obj/item/device/radio/off{
+/obj/item/radio/off{
 	pixel_x = -8
 	},
-/obj/item/device/radio/off{
+/obj/item/radio/off{
 	pixel_x = -8
 	},
-/obj/item/device/radio/off{
+/obj/item/radio/off{
 	pixel_x = -8
 	},
-/obj/item/device/radio/off{
+/obj/item/radio/off{
 	pixel_x = -8
 	},
-/obj/item/device/radio/off{
+/obj/item/radio/off{
 	pixel_x = -8
 	},
-/obj/item/device/radio/off{
+/obj/item/radio/off{
 	pixel_x = -8
 	},
-/obj/item/device/radio/off{
+/obj/item/radio/off{
 	pixel_x = -8
 	},
-/obj/item/device/radio/off{
+/obj/item/radio/off{
 	pixel_x = -8
 	},
-/obj/item/device/radio/off{
+/obj/item/radio/off{
 	pixel_x = -8
 	},
-/obj/item/device/radio/off{
+/obj/item/radio/off{
 	pixel_x = -8
 	},
 /turf/simulated/floor/tiled/dark,
@@ -2257,7 +2257,7 @@
 /area/scc_event_shuttle)
 "IW" = (
 /obj/effect/floor_decal/industrial/outline/operations,
-/obj/machinery/autolathe,
+/obj/machinery/fabricator/autolathe,
 /turf/simulated/floor/tiled/steel,
 /area/scc_event_shuttle)
 "IZ" = (
@@ -2308,14 +2308,14 @@
 /obj/structure/table/rack/retail_shelf{
 	name = "shelves"
 	},
-/obj/item/device/gps/mining,
-/obj/item/device/gps/mining,
-/obj/item/device/gps/mining,
-/obj/item/device/gps/mining,
-/obj/item/device/gps/mining,
-/obj/item/device/gps/mining,
-/obj/item/device/gps/mining,
-/obj/item/device/gps/mining,
+/obj/item/gps/mining,
+/obj/item/gps/mining,
+/obj/item/gps/mining,
+/obj/item/gps/mining,
+/obj/item/gps/mining,
+/obj/item/gps/mining,
+/obj/item/gps/mining,
+/obj/item/gps/mining,
 /obj/item/wrench,
 /obj/item/wrench,
 /obj/item/wrench,
@@ -2461,16 +2461,16 @@
 /obj/item/clothing/accessory/armband/sec,
 /obj/item/clothing/accessory/armband/sec,
 /obj/item/clothing/accessory/armband/sec,
-/obj/item/device/hand_labeler{
+/obj/item/hand_labeler{
 	pixel_y = 14
 	},
-/obj/item/device/hand_labeler{
+/obj/item/hand_labeler{
 	pixel_y = 14
 	},
-/obj/item/device/hand_labeler{
+/obj/item/hand_labeler{
 	pixel_y = 14
 	},
-/obj/item/device/hand_labeler{
+/obj/item/hand_labeler{
 	pixel_y = 14
 	},
 /turf/simulated/floor/tiled/dark,
@@ -2513,10 +2513,10 @@
 /obj/item/rfd_ammo,
 /obj/item/rfd_ammo,
 /obj/effect/floor_decal/industrial/outline/operations,
-/obj/item/device/paint_sprayer,
-/obj/item/device/paint_sprayer,
-/obj/item/device/paint_sprayer,
-/obj/item/device/paint_sprayer,
+/obj/item/paint_sprayer,
+/obj/item/paint_sprayer,
+/obj/item/paint_sprayer,
+/obj/item/paint_sprayer,
 /obj/item/taperoll/engineering,
 /obj/item/taperoll/engineering,
 /obj/item/taperoll/engineering,
@@ -2530,7 +2530,7 @@
 /turf/simulated/floor/tiled,
 /area/scc_event_shuttle)
 "Ml" = (
-/obj/item/device/gps/stationary{
+/obj/item/gps/stationary{
 	gpstag = "DROPSHIP"
 	},
 /turf/simulated/floor,
@@ -2577,7 +2577,7 @@
 /obj/item/storage/belt/medical{
 	pixel_y = -13
 	},
-/obj/item/storage/box/freezer/organcooler{
+/obj/item/storage/box/unique/freezer/organcooler{
 	pixel_x = -1;
 	pixel_y = 17
 	},
@@ -2749,13 +2749,13 @@
 /obj/item/clothing/gloves/yellow,
 /obj/item/clothing/gloves/yellow,
 /obj/item/clothing/gloves/yellow,
-/obj/item/device/geiger,
-/obj/item/device/geiger,
-/obj/item/device/geiger,
-/obj/item/device/geiger,
-/obj/item/device/geiger,
-/obj/item/device/geiger,
-/obj/item/device/geiger,
+/obj/item/geiger,
+/obj/item/geiger,
+/obj/item/geiger,
+/obj/item/geiger,
+/obj/item/geiger,
+/obj/item/geiger,
+/obj/item/geiger,
 /turf/simulated/floor/tiled/steel,
 /area/scc_event_shuttle)
 "Pe" = (
@@ -3008,10 +3008,10 @@
 /obj/item/clothing/head/welding,
 /obj/item/clothing/head/welding,
 /obj/item/ipc_tag_scanner,
-/obj/item/device/robotanalyzer,
-/obj/item/device/robotanalyzer,
-/obj/item/device/robotanalyzer,
-/obj/item/device/robotanalyzer,
+/obj/item/robotanalyzer,
+/obj/item/robotanalyzer,
+/obj/item/robotanalyzer,
+/obj/item/robotanalyzer,
 /obj/item/stack/cable_coil,
 /obj/item/stack/cable_coil,
 /obj/item/stack/cable_coil,
@@ -3055,27 +3055,27 @@
 /area/scc_event_shuttle)
 "Tw" = (
 /obj/structure/table/standard,
-/obj/item/device/radio/off{
+/obj/item/radio/off{
 	pixel_y = 5;
 	pixel_x = 7
 	},
-/obj/item/device/radio/off{
+/obj/item/radio/off{
 	pixel_y = 5;
 	pixel_x = 7
 	},
-/obj/item/device/radio/off{
+/obj/item/radio/off{
 	pixel_y = 5;
 	pixel_x = 7
 	},
-/obj/item/device/flashlight{
+/obj/item/flashlight{
 	pixel_y = 9;
 	pixel_x = -9
 	},
-/obj/item/device/flashlight{
+/obj/item/flashlight{
 	pixel_y = 3;
 	pixel_x = -9
 	},
-/obj/item/device/flashlight{
+/obj/item/flashlight{
 	pixel_y = -3;
 	pixel_x = -9
 	},

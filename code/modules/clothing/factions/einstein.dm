@@ -1,7 +1,7 @@
 /obj/item/clothing/under/rank/einstein
 	name = "\improper Einstein Engines uniform"
 	desc = "A standardized uniform used by Einstein Engines personnel."
-	icon = 'icons/clothing/under/uniforms/einstein.dmi'
+	icon = 'icons/obj/item/clothing/under/human/corporation/einstein.dmi'
 	icon_state = "einstein"
 	item_state = "einstein"
 	contained_sprite = TRUE
@@ -13,7 +13,7 @@
 	desc_extended = "Light as air, electrically insulated, and specially fitted to ensure surgical, microelectronic, or \
 	what-have-you precision, this expensive multipurpose synthetic worker's outfit feels like wearing a breeze! \
 	Synthetics intended to be seen by outsiders to the corporation are likely to wear more conventional clothing instead."
-	icon = 'icons/clothing/under/uniforms/einstein.dmi'
+	icon = 'icons/obj/item/clothing/under/human/corporation/einstein.dmi'
 	icon_state = "ees_utility"
 	item_state = "ees_utility"
 	siemens_coefficient = 0.75

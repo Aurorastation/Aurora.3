@@ -10,7 +10,7 @@
 	icon = 'icons/mob/npc/aibots.dmi'
 	icon_state = "farmbot0"
 	health = 50
-	maxHealth = 50
+	maxhealth = 50
 	req_one_access = list(ACCESS_HYDROPONICS, ACCESS_ROBOTICS, ACCESS_XENOBOTANY)
 
 	var/action = "" // Used to update icon
@@ -327,8 +327,8 @@
 
 	new /obj/item/material/minihoe(T)
 	new /obj/item/reagent_containers/glass/bucket(T)
-	new /obj/item/device/assembly/prox_sensor(T)
-	new /obj/item/device/analyzer/plant_analyzer(T)
+	new /obj/item/assembly/prox_sensor(T)
+	new /obj/item/analyzer/plant_analyzer(T)
 	if(tank)
 		tank.forceMove(T)
 	if(prob(50))
@@ -384,7 +384,7 @@
 
 /obj/item/farmbot_arm_assembly/attackby(obj/item/attacking_item, mob/user)
 	..()
-	if(istype(attacking_item, /obj/item/device/analyzer/plant_analyzer) && build_step == 0)
+	if(istype(attacking_item, /obj/item/analyzer/plant_analyzer) && build_step == 0)
 		build_step++
 		to_chat(user, SPAN_NOTICE("You add the plant analyzer to [src]."))
 		name = "farmbot assembly"
@@ -416,7 +416,7 @@
 		qdel(attacking_item)
 		qdel(src)
 		return TRUE
-	else if(attacking_item.ispen())
+	else if(attacking_item.tool_behaviour == TOOL_PEN)
 		var/t = tgui_input_text(user, "Enter new robot name", name, created_name)
 		t = sanitize(t, MAX_NAME_LEN)
 		if(!t)

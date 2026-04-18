@@ -16,8 +16,8 @@
 			var/obj/item/organ/internal/brain/B = I
 			victims += B.brainmob
 
-		else if(istype(I,/obj/item/device/mmi))
-			var/obj/item/device/mmi/B = I
+		else if(istype(I,/obj/item/mmi))
+			var/obj/item/mmi/B = I
 			victims += B.brainmob
 
 		else if(istype(I,/obj/item/aicard))

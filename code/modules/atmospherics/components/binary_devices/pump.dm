@@ -6,7 +6,7 @@ node2, air2, network2 correspond to output
 
 Thus, the two variables affect pump operation are set in New():
 	air1.volume
-		This is the volume of gas available to the pump that may be transfered to the output
+		This is the volume of gas available to the pump that may be transferred to the output
 	air2.volume
 		Higher quantities of this cause more air to be perfected later
 			but overall network volume is also increased as this increases...
@@ -15,7 +15,6 @@ Thus, the two variables affect pump operation are set in New():
 /obj/machinery/atmospherics/binary/pump
 	name = "gas pump"
 	desc = "A pump."
-	desc_info = "This moves gas from one pipe to another. A higher target pressure demands more energy. The side with the colored end is the output."
 	icon = 'icons/atmos/pump.dmi'
 	icon_state = "map_off"
 	level = 1
@@ -36,6 +35,17 @@ Thus, the two variables affect pump operation are set in New():
 	var/datum/radio_frequency/radio_connection
 
 	var/broadcast_status_next_process = FALSE
+
+	// Measure amount of gas pumped through
+	var/measure_enabled = FALSE
+	var/moles_pumped = 0
+
+/obj/machinery/atmospherics/binary/pump/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "This moves gas from one pipe to another. A higher target pressure demands more energy."
+	. += "The side with the colored end is the output."
+	. += "The normalized flow rate is the flow rate in L based on the moles transferred normalized to a preassure 1ATM and temperature of 20C."
+	. += "The same applies to the measurement section."
 
 /obj/machinery/atmospherics/binary/pump/Initialize()
 	. = ..()
@@ -108,6 +118,7 @@ Thus, the two variables affect pump operation are set in New():
 /obj/machinery/atmospherics/binary/pump/process()
 	last_power_draw = 0
 	last_flow_rate = 0
+	last_mole_transfer = 0
 
 	if((stat & (NOPOWER|BROKEN)) || !use_power)
 		return
@@ -117,7 +128,7 @@ Thus, the two variables affect pump operation are set in New():
 		broadcast_status_next_process = FALSE
 
 	var/power_draw = -1
-	var/pressure_delta = target_pressure - air2.return_pressure()
+	var/pressure_delta = target_pressure - XGM_PRESSURE(air2)
 
 	if(pressure_delta > 0.01 && air1.temperature > 0)
 		//Figure out how much gas to transfer to meet the target pressure.
@@ -133,6 +144,9 @@ Thus, the two variables affect pump operation are set in New():
 
 		if(network2)
 			network2.update = 1
+
+		if (measure_enabled)
+			moles_pumped += last_mole_transfer
 
 	return 1
 
@@ -178,6 +192,10 @@ Thus, the two variables affect pump operation are set in New():
 	data["power_draw"] = round(last_power_draw)
 	data["max_power_draw"] = power_rating
 	data["flow_rate"] = round(last_flow_rate)
+	data["flow_rate_normal"] = round((last_mole_transfer * R_IDEAL_GAS_EQUATION * T20C) / ONE_ATMOSPHERE)
+	data["measure_enabled"] = measure_enabled
+	data["moles_pumped"] = round(moles_pumped)
+	data["liters_pumped"] = round((moles_pumped * R_IDEAL_GAS_EQUATION * T20C) / ONE_ATMOSPHERE)
 	return data
 
 /obj/machinery/atmospherics/binary/pump/ui_act(action, params)
@@ -198,6 +216,10 @@ Thus, the two variables affect pump operation are set in New():
 				. = TRUE
 			if(.)
 				target_pressure = clamp(pressure, 0, ATMOS_PUMP_MAX_PRESSURE)
+		if("toggle_measure")
+			measure_enabled = !measure_enabled
+		if("reset_measure")
+			moles_pumped = 0
 	update_icon()
 
 /obj/machinery/atmospherics/binary/pump/atmos_init()
@@ -243,26 +265,6 @@ Thus, the two variables affect pump operation are set in New():
 	ui_interact(user)
 	return
 
-/obj/machinery/atmospherics/binary/pump/Topic(href,href_list)
-	if(..()) return 1
-
-	if(href_list["power"])
-		update_use_power(!use_power)
-
-	switch(href_list["set_press"])
-		if ("min")
-			target_pressure = 0
-		if ("max")
-			target_pressure = max_pressure_setting
-		if ("set")
-			var/new_pressure = input(usr,"Enter new output pressure (0-[max_pressure_setting]kPa)","Pressure control",src.target_pressure) as num
-			src.target_pressure = between(0, new_pressure, max_pressure_setting)
-
-	usr.set_machine(src)
-	src.add_fingerprint(usr)
-
-	src.update_icon()
-
 /obj/machinery/atmospherics/binary/pump/power_change()
 	var/old_stat = stat
 	..()
@@ -270,7 +272,7 @@ Thus, the two variables affect pump operation are set in New():
 		update_icon()
 
 /obj/machinery/atmospherics/binary/pump/attackby(obj/item/attacking_item, mob/user)
-	if (!attacking_item.iswrench() && !istype(attacking_item, /obj/item/pipewrench))
+	if (attacking_item.tool_behaviour != TOOL_WRENCH && !istype(attacking_item, /obj/item/pipewrench))
 		return ..()
 	if (!(stat & NOPOWER) && use_power)
 		to_chat(user, SPAN_WARNING("You cannot unwrench this [src], turn it off first."))
@@ -278,7 +280,7 @@ Thus, the two variables affect pump operation are set in New():
 	var/datum/gas_mixture/int_air = return_air()
 	if (!loc) return FALSE
 	var/datum/gas_mixture/env_air = loc.return_air()
-	if ((int_air.return_pressure()-env_air.return_pressure()) > PRESSURE_EXERTED && !istype(attacking_item, /obj/item/pipewrench))
+	if ((XGM_PRESSURE(int_air)-XGM_PRESSURE(env_air)) > PRESSURE_EXERTED && !istype(attacking_item, /obj/item/pipewrench))
 		to_chat(user, SPAN_WARNING("You cannot unwrench this [src], it's too exerted due to internal pressure."))
 		add_fingerprint(user)
 		return TRUE

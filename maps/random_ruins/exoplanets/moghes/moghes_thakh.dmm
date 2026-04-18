@@ -215,7 +215,7 @@
 	},
 /area/moghes_thakh)
 "Ir" = (
-/obj/item/device/versebook/thakh,
+/obj/item/versebook/thakh,
 /obj/structure/table/fancy/black,
 /turf/simulated/floor/exoplanet/wood/walnut{
 	temperature = 303.15
@@ -271,13 +271,13 @@
 /area/moghes_thakh)
 "Ou" = (
 /obj/structure/closet/cabinet,
-/obj/item/device/versebook/thakh,
-/obj/item/device/versebook/thakh,
-/obj/item/device/versebook/thakh,
-/obj/item/device/versebook/thakh,
-/obj/item/device/versebook/thakh,
-/obj/item/device/versebook/thakh,
-/obj/item/device/versebook/thakh,
+/obj/item/versebook/thakh,
+/obj/item/versebook/thakh,
+/obj/item/versebook/thakh,
+/obj/item/versebook/thakh,
+/obj/item/versebook/thakh,
+/obj/item/versebook/thakh,
+/obj/item/versebook/thakh,
 /turf/simulated/floor/exoplanet/wood/walnut{
 	temperature = 303.15
 	},
@@ -369,7 +369,7 @@
 /area/moghes_thakh)
 "Zn" = (
 /obj/structure/table/wood,
-/obj/item/device/flashlight/lamp,
+/obj/item/flashlight/lamp,
 /turf/simulated/floor/exoplanet/wood/walnut{
 	temperature = 303.15
 	},

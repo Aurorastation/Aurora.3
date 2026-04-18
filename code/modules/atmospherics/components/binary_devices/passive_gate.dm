@@ -5,7 +5,6 @@
 /obj/machinery/atmospherics/binary/passive_gate
 	name = "pressure regulator"
 	desc = "A one-way air valve that can be used to regulate input or output pressure, and flow rate. Does not require power."
-	desc_info = "This is a one-way regulator, allowing gas to flow only at a specific pressure and flow rate.  If the light is green, it is flowing."
 	icon = 'icons/atmos/passive_gate.dmi'
 	icon_state = "map"
 	level = 1
@@ -26,8 +25,14 @@
 
 	var/broadcast_status_next_process = FALSE
 
+/obj/machinery/atmospherics/binary/passive_gate/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "This is a one-way regulator, allowing gas to flow only at a specific pressure and flow rate."
+	. += "If the light is green, it is flowing."
+
 /obj/machinery/atmospherics/binary/passive_gate/on
 	unlocked = 1
+
 /obj/machinery/atmospherics/binary/passive_gate/on/input
 	regulate_mode = REGULATE_INPUT
 
@@ -107,12 +112,13 @@
 		broadcast_status_next_process = FALSE
 
 	last_flow_rate = 0
+	last_mole_transfer = 0
 
 	if(!unlocked)
 		return 0
 
-	var/output_starting_pressure = air2.return_pressure()
-	var/input_starting_pressure = air1.return_pressure()
+	var/output_starting_pressure = XGM_PRESSURE(air2)
+	var/input_starting_pressure = XGM_PRESSURE(air1)
 
 	var/pressure_delta
 	switch (regulate_mode)
@@ -198,11 +204,8 @@
 		unlocked = !unlocked
 
 	if("set_target_pressure" in signal.data)
-		target_pressure = between(
-			0,
-			text2num(signal.data["set_target_pressure"]),
-			max_pressure_setting
-		)
+		var/set_pressure = text2num(signal.data["set_target_pressure"])
+		target_pressure = between(0, set_pressure, max_pressure_setting)
 
 	if("set_regulate_mode" in signal.data)
 		regulate_mode = text2num(signal.data["set_regulate_mode"])
@@ -286,43 +289,9 @@
 	update_icon()
 
 
-/obj/machinery/atmospherics/binary/passive_gate/Topic(href,href_list)
-	if(..()) return 1
-
-	if(href_list["toggle_valve"])
-		unlocked = !unlocked
-
-	if(href_list["regulate_mode"])
-		switch(href_list["regulate_mode"])
-			if ("off") regulate_mode = REGULATE_NONE
-			if ("input") regulate_mode = REGULATE_INPUT
-			if ("output") regulate_mode = REGULATE_OUTPUT
-
-	switch(href_list["set_press"])
-		if ("min")
-			target_pressure = 0
-		if ("max")
-			target_pressure = max_pressure_setting
-		if ("set")
-			var/new_pressure = input(usr,"Enter new output pressure (0-[max_pressure_setting]kPa)","Pressure Control",src.target_pressure) as num
-			src.target_pressure = between(0, new_pressure, max_pressure_setting)
-
-	switch(href_list["set_flow_rate"])
-		if ("min")
-			set_flow_rate = 0
-		if ("max")
-			set_flow_rate = air1.volume
-		if ("set")
-			var/new_flow_rate = input(usr,"Enter new flow rate limit (0-[air1.volume]kPa)","Flow Rate Control",src.set_flow_rate) as num
-			src.set_flow_rate = between(0, new_flow_rate, air1.volume)
-
-	usr.set_machine(src)	//Is this even needed with NanoUI?
-	src.update_icon()
-	src.add_fingerprint(usr)
-	return
 
 /obj/machinery/atmospherics/binary/passive_gate/attackby(obj/item/attacking_item, mob/user)
-	if (!attacking_item.iswrench())
+	if (attacking_item.tool_behaviour != TOOL_WRENCH)
 		return ..()
 	if (unlocked)
 		to_chat(user, SPAN_WARNING("You cannot unwrench \the [src], turn it off first."))
@@ -330,7 +299,7 @@
 	var/datum/gas_mixture/int_air = return_air()
 	if (!loc) return FALSE
 	var/datum/gas_mixture/env_air = loc.return_air()
-	if ((int_air.return_pressure()-env_air.return_pressure()) > PRESSURE_EXERTED)
+	if ((XGM_PRESSURE(int_air)-XGM_PRESSURE(env_air)) > PRESSURE_EXERTED)
 		to_chat(user, SPAN_WARNING("You cannot unwrench \the [src], it too exerted due to internal pressure."))
 		add_fingerprint(user)
 		return TRUE

@@ -13,6 +13,8 @@
 			for(var/obj/item/grab/G in moving_mob.grabbed_by)
 				if(G.assailant == src)
 					return TRUE
+		if(HAS_TRAIT(src, TRAIT_UNDENSE))
+			return TRUE
 		return (!mover.density || !density || lying)
 	else
 		return (!mover.density || !density || lying)
@@ -50,6 +52,9 @@
 	diagonal_action(SOUTHWEST)
 
 /client/proc/diagonal_action(direction)
+	if (!mob)
+		return
+
 	switch(client_dir(direction, 1))
 		if(NORTHEAST)
 			swap_hand()
@@ -65,6 +70,11 @@
 				to_chat(usr, SPAN_WARNING("This mob type cannot throw items."))
 			return
 		if(NORTHWEST)
+			var/cancelled = FALSE
+			SEND_SIGNAL(mob, COMSIG_INPUT_KEY_DROP, &cancelled)
+			if (cancelled)
+				return
+
 			if(iscarbon(usr))
 				var/mob/living/carbon/C = usr
 				if(!C.get_active_hand())
@@ -155,10 +165,11 @@
  * This is called when a client tries to move, usually it dispatches the moving request to the mob it's controlling
  */
 /client/Move(new_loc, direct)
-	if(world.time < move_delay) //do not move anything ahead of this check please
+	if(moving || world.time < move_delay) //do not move anything ahead of this check please
 		return FALSE
 
 	var/old_move_delay = move_delay
+	move_delay = world.time + world.tick_lag
 
 	if(!direct || !new_loc)
 		return FALSE
@@ -172,9 +183,6 @@
 		Process_Incorpmove(direct, mob)
 		return
 
-	if(moving || world.time < move_delay)
-		return 0
-
 	if(mob.stat == DEAD && isliving(mob))
 		mob.ghostize()
 		return
@@ -186,14 +194,13 @@
 	if(mob.transforming)
 		return	//This is sota the goto stop mobs from moving var
 
-	var/add_delay = mob.cached_multiplicative_slowdown
-
 	if(isliving(mob))
 		if(SEND_SIGNAL(mob, COMSIG_MOB_CLIENT_PRE_LIVING_MOVE, new_loc, direct) & COMSIG_MOB_CLIENT_BLOCK_PRE_LIVING_MOVE)
 			return FALSE
 
 		var/mob/living/L = mob
 		if(L.incorporeal_move && isturf(mob.loc))//Move though walls
+			mob.recalculate_glide_size(old_move_delay, move_delay, direct)
 			Process_Incorpmove(direct, mob)
 			return
 		if(mob.client && ((mob.client.view != world.view) || (mob.client.pixel_x != 0) || (mob.client.pixel_y != 0)))		// If mob moves while zoomed in with device, unzoom them.
@@ -230,7 +237,9 @@
 		mob.lastarea = get_area(mob.loc)
 
 	if(isobj(mob.loc) || ismob(mob.loc))	//Inside an object, tell it we are moving out
-		var/atom/O = mob.loc
+		var/atom/movable/O = mob.loc
+		move_delay += (mob.movement_delay() + GLOB.config.walk_speed) * GLOB.config.walk_delay_multiplier
+		O.recalculate_glide_size(old_move_delay, move_delay, direct)
 		return O.relaymove(mob, direct)
 
 	if(isturf(mob.loc))
@@ -242,7 +251,6 @@
 				return 0
 			else
 				mob.inertia_dir = 0 //If not then we can reset inertia and move
-
 
 		if(mob.restrained())		//Why being pulled while cuffed prevents you from moving
 			var/mob/puller = mob.pulledby
@@ -258,23 +266,16 @@
 			move_delay = world.time + 1 SECOND // prevent spam
 			return FALSE
 
-		//If the move was recent, count using old_move_delay
-		//We want fractional behavior and all
-		if(old_move_delay + world.tick_lag > world.time)
-			//Yes this makes smooth movement stutter if add_delay is too fractional
-			//Yes this is better then the alternative
-			move_delay = old_move_delay
-		else
-			move_delay = world.time
-
 		if(mob.buckled_to)
 			if(istype(mob.buckled_to, /obj/vehicle))
-				//manually set move_delay for vehicles so we don't inherit any mob movement penalties
-				//specific vehicle move delays are set in code\modules\vehicles\vehicle.dm
-				move_delay = (old_move_delay + world.tick_lag > world.time) ? old_move_delay : world.time
 				//drunk driving
 				if(mob.confused && prob(25))
 					direct = pick(GLOB.cardinals)
+
+				var/obj/vehicle/vehicle = mob.buckled_to
+				move_delay += vehicle.move_delay
+				var/vehicle_glide_size = vehicle.recalculate_glide_size(old_move_delay, move_delay, direct)
+				mob.set_glide_size(vehicle_glide_size)
 				return mob.buckled_to.relaymove(mob,direct)
 
 			//TODO: Fuck wheelchairs.
@@ -292,9 +293,16 @@
 				if(mob.confused && prob(25))
 					direct = pick(GLOB.cardinals)
 				move_delay += max((mob.movement_delay() + GLOB.config.walk_speed) * GLOB.config.walk_delay_multiplier, min_move_delay)
+				var/wheelchair_glide_size = mob.buckled_to.recalculate_glide_size(old_move_delay, move_delay, direct)
+				mob.set_glide_size(wheelchair_glide_size)
 				return mob.buckled_to.relaymove(mob,direct)
 
 		var/tally = mob.movement_delay() + GLOB.config.walk_speed
+
+		// Factor in delay from sources handled by the mob's movespeed_modifier datum (this is what we Should be using).
+		var/movespeed_modifier_delay = mob.cached_multiplicative_slowdown
+
+		move_delay += movespeed_modifier_delay
 
 		// Apply human specific modifiers.
 		var/mob_is_human = ishuman(mob)	// Only check this once and just reuse the value.
@@ -305,15 +313,12 @@
 			if (H.m_intent == M_RUN && (H.status_flags & GODMODE || H.species.handle_sprint_cost(H, tally, TRUE))) //This will return false if we collapse from exhaustion
 				sprint_tally = tally
 				tally = (tally / (1 + H.sprint_speed_factor)) * GLOB.config.run_delay_multiplier
-			else if (H.m_intent == M_LAY && (H.status_flags & GODMODE || H.species.handle_sprint_cost(H, tally, TRUE)))
-				tally = (tally / (1 + H.lying_speed_factor)) * GLOB.config.lying_delay_multiplier
 			else
 				tally = max(tally * GLOB.config.walk_delay_multiplier, H.min_walk_delay) //clamp walking speed if its limited
 		else
 			tally *= GLOB.config.walk_delay_multiplier
 
 		move_delay += tally
-		move_delay += add_delay
 
 		if(mob_is_human && mob.lying)
 			var/mob/living/carbon/human/H = mob
@@ -321,21 +326,26 @@
 			if(crawl_tally >= 120)
 				return FALSE
 
-		if(istype(mob.machine, /obj/machinery))
-			if(mob.machine.relaymove(mob,direct))
-				return
 
 		//Wheelchair pushing goes here for now.
 		//TODO: Fuck wheelchairs.
-		if(istype(mob.pulledby, /obj/structure/bed/stool/chair/office/wheelchair) || istype(mob.pulledby, /obj/structure/janitorialcart))
+		if(istype(mob.pulledby, /obj/structure))
 			var/obj/structure/S = mob.pulledby
 			move_delay += S.slowdown
+			var/cart_glide_size = mob.pulledby.recalculate_glide_size(old_move_delay, move_delay, direct)
+			mob.set_glide_size(cart_glide_size)
 			return mob.pulledby.relaymove(mob, direct)
 
 		var/old_loc = mob.loc
 
 		//We are now going to move
 		moving = 1
+		var/new_glide_size = mob.recalculate_glide_size(old_move_delay, move_delay, direct)
+
+		if (mob.pulling)
+			mob.pulling.set_glide_size(new_glide_size)
+			mob.pulling.relaymove(mob, direct)
+
 		if(mob_is_human)
 			for(var/obj/item/grab/G in list(mob.l_hand, mob.r_hand))
 				switch(G.get_grab_type())
@@ -353,9 +363,13 @@
 		for (var/obj/item/grab/G in list(mob.l_hand, mob.r_hand))
 			if (G.state == GRAB_NECK)
 				mob.set_dir(REVERSE_DIR(direct))
+			G.affecting.set_glide_size(new_glide_size)
+			for (var/obj/item/grab/T in list(G.affecting.l_hand, G.affecting.r_hand))
+				T.adjust_position()
 			G.adjust_position()
 
 		for (var/obj/item/grab/G in mob.grabbed_by)
+			G.affecting.set_glide_size(new_glide_size)
 			G.adjust_position()
 
 		moving = 0
@@ -376,6 +390,21 @@
 
 	var/obj/item/organ/external/lfoot = organs_by_name[BP_L_FOOT]
 	. += limb_check(lfoot)
+
+/**
+ * Updates the glide size of a mob attempting to travel in a specific direction.
+ * Also returns the new glide size.
+ */
+/atom/movable/proc/recalculate_glide_size(var/old_move_delay, var/move_delay, var/direction)
+	var/new_glide_size = glide_size
+
+	if(old_move_delay + world.tick_lag > world.time)
+		new_glide_size = DELAY_TO_GLIDE_SIZE((move_delay - old_move_delay) * ( (NSCOMPONENT(direction) && EWCOMPONENT(direction)) ? sqrt(2) : 1 ) )
+	else
+		new_glide_size = DELAY_TO_GLIDE_SIZE((move_delay - world.time) * ( (NSCOMPONENT(direction) && EWCOMPONENT(direction)) ? sqrt(2) : 1 ) )
+
+	set_glide_size(new_glide_size) // set it now in case of pulled objects
+	return new_glide_size
 
 // Checks status of limb, returns an amount to
 /mob/living/carbon/human/proc/limb_check(var/obj/item/organ/external/limb)

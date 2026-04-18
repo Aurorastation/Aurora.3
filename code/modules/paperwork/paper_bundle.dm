@@ -23,8 +23,21 @@
 	drop_sound = 'sound/items/drop/paper.ogg'
 	pickup_sound = 'sound/items/pickup/paper.ogg'
 
+/obj/item/paper_bundle/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Both papers and photos can be added to a paper bundle."
+
+/obj/item/paper_bundle/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(is_adjacent)
+		src.show_content(user)
+	else
+		. += SPAN_NOTICE("It is too far away to read.")
+
 /obj/item/paper_bundle/attackby(obj/item/attacking_item, mob/user)
 	..()
+	if (istype(attacking_item, /obj/item/paper/stickynotes/pad))
+		return
 
 	if (istype(attacking_item, /obj/item/paper/carbon))
 		var/obj/item/paper/carbon/C = attacking_item
@@ -66,10 +79,9 @@
 	return
 
 /obj/item/paper_bundle/proc/insert_sheet_at(mob/user, var/index, obj/item/sheet)
-	if(istype(sheet, /obj/item/paper))
-		to_chat(user, SPAN_NOTICE("You add [(sheet.name == "paper") ? "the paper" : sheet.name] to [(src.name == "paper bundle") ? "the paper bundle" : src.name]."))
-	else if(istype(sheet, /obj/item/photo))
-		to_chat(user, SPAN_NOTICE("You add [(sheet.name == "photo") ? "the photo" : sheet.name] to [(src.name == "paper bundle") ? "the paper bundle" : src.name]."))
+	if(!is_type_in_list(sheet, list(/obj/item/paper, /obj/item/photo)))
+		return
+	to_chat(user, SPAN_NOTICE("You stick \the [sheet] to \the [src]."))
 
 	user.drop_from_inventory(sheet,src)
 
@@ -97,13 +109,6 @@
 
 			else
 				to_chat(user, SPAN_WARNING("You must hold \the [P] steady to burn \the [src]."))
-
-/obj/item/paper_bundle/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if(is_adjacent)
-		src.show_content(user)
-	else
-		. += SPAN_NOTICE("It is too far away.")
 
 /obj/item/paper_bundle/proc/show_content(mob/user as mob)
 	var/dat
@@ -190,7 +195,7 @@
 			var/obj/P = pages[page]
 			page++
 			var/obj/A = pages[page]
-			playsound(src.loc, /singleton/sound_category/page_sound, 50, 1)
+			playsound(src.loc, SFX_PAGE_TURN, 50, 1)
 			if(A.type != P.type)
 				show_browser(usr, null, "window=[name]")
 	if(href_list["prev_page"])
@@ -198,7 +203,7 @@
 			var/obj/P = pages[page]
 			page--
 			var/obj/A = pages[page]
-			playsound(src.loc, /singleton/sound_category/page_sound, 50, 1)
+			playsound(src.loc, SFX_PAGE_TURN, 50, 1)
 			if(A.type != P.type)
 				show_browser(usr, null, "window=[name]")
 	if(href_list["remove"])

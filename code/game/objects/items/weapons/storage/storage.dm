@@ -73,7 +73,7 @@
 	var/collection_mode = TRUE
 
 	///Sound played when used. null for no sound.
-	var/use_sound = /singleton/sound_category/rustle_sound
+	var/use_sound = SFX_RUSTLE
 
 	/// List of pre-filled items
 	var/list/starts_with
@@ -85,6 +85,11 @@
 	var/animated = TRUE
 
 	var/make_exact_fit = FALSE
+
+/obj/item/storage/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(isghost(user) || isstoryteller(user))
+		. += "It contains: [counting_english_list(contents)]"
 
 /obj/item/storage/Destroy()
 	close_all()
@@ -165,10 +170,10 @@
  * * detail_insertions - A boolean, if `TRUE`, `can_be_inserted()` will be told to give feedbacks
  */
 /obj/item/storage/proc/pickup_items_from_loc(mob/user, turf/location, detail_insertions = TRUE)
+	RETURN_TYPE(/list)
 
 	//In the format of list(SUCCESS, FAILURE)
 	var/list/return_status = list(FALSE, FALSE)
-	RETURN_TYPE(return_status)
 
 	var/list/rejections = list()
 
@@ -197,12 +202,6 @@
 		handle_storage_deferred(user)
 
 	return return_status
-
-
-/obj/item/storage/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if(isghost(user))
-		. += "It contains: [counting_english_list(contents)]"
 
 /obj/item/storage/mouse_drop_dragged(atom/over, mob/user, src_location, over_location, params)
 	. = ..()
@@ -239,12 +238,12 @@
 				user.equip_to_slot_if_possible(src, slot_l_hand)
 		src.add_fingerprint(user)
 
-/obj/item/storage/AltClick(var/mob/usr)
+/obj/item/storage/AltClick(var/mob/user)
 	if(!canremove)
 		return ..()
-	if (!use_check_and_message(usr))
-		add_fingerprint(usr)
-		open(usr)
+	if (!use_check_and_message(user))
+		add_fingerprint(user)
+		open(user)
 		return TRUE
 	. = ..()
 
@@ -538,12 +537,12 @@
 	if(LAZYLEN(can_hold))
 		var/can_hold_item = can_hold_strict ? (item_to_check.type in can_hold) : is_type_in_list(item_to_check, can_hold)
 		if(!can_hold_item)
-			if(!stop_messages && ! istype(item_to_check, /obj/item/device/hand_labeler))
+			if(!stop_messages && ! istype(item_to_check, /obj/item/hand_labeler))
 				to_chat(usr, SPAN_NOTICE("\The [src] cannot hold \the [item_to_check]."))
 			return FALSE
 		var/max_instances = can_hold[item_to_check.type]
 		if(max_instances && instances_of_type_in_list(item_to_check, contents, TRUE) >= max_instances)
-			if(!stop_messages && !istype(item_to_check, /obj/item/device/hand_labeler))
+			if(!stop_messages && !istype(item_to_check, /obj/item/hand_labeler))
 				to_chat(usr, SPAN_NOTICE("\The [src] has no more space specifically for \the [item_to_check]."))
 			return FALSE
 
@@ -595,13 +594,11 @@
 			add_fingerprint(user)
 
 		if(!prevent_warning)
-			for(var/mob/M in viewers(user, null))
-				if(M == usr)
-					continue
-				else if (M in range(1)) //If someone is standing close enough, they can tell what it is...
-					M.show_message(SPAN_NOTICE("\The [user] puts [W] into [src]."))
-				else if (W && W.w_class >= WEIGHT_CLASS_NORMAL) //Otherwise they can only see large or normal items from a distance...
-					M.show_message(SPAN_NOTICE("\The [user] puts [W] into [src]."))
+			if(W?.w_class >= WEIGHT_CLASS_NORMAL)
+				user.visible_message(SPAN_NOTICE("\The [user] puts [W] into [src]."), SPAN_NOTICE("You put [W] into [src]."))
+			else
+				user.visible_message(SPAN_NOTICE("\The [user] puts [W] into [src]."), SPAN_NOTICE("You slip [W] into [src]."), null, 2)
+
 		orient2hud(user)
 		if(user.s_active)
 			user.s_active.show_to(user)
@@ -736,8 +733,8 @@
 			to_chat(user, SPAN_WARNING("Trying to place a loaded tray into [src] was a bad idea."))
 			return
 
-	if(istype(attacking_item, /obj/item/device/hand_labeler))
-		var/obj/item/device/hand_labeler/HL = attacking_item
+	if(istype(attacking_item, /obj/item/hand_labeler))
+		var/obj/item/hand_labeler/HL = attacking_item
 		if(HL.mode == 1)
 			return
 

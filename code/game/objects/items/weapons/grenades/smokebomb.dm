@@ -41,11 +41,15 @@
 /obj/item/grenade/smokebomb/cyborg
 	name = "mounted smoke deployer"
 	desc = "A stationbound-mounted smoke grenade deployer. Activate to deploy."
-	desc_antag = "When activated, it will deploy a smokebomb which will instantly prime, blowing out clouds of smoke. Upon deploying, it will enter a charging state which will restock a new smokebomb in two minutes."
 	var/can_deploy = TRUE
 	var/recharge_time = 5 MINUTES
 	maptext_x = 3
 	maptext_y = 2
+
+/obj/item/grenade/smokebomb/cyborg/antagonist_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "When activated, it will deploy a smokebomb which will instantly prime, blowing out clouds of smoke."
+	. += "Upon deploying, it will enter a charging state which will restock a new smokebomb in two minutes."
 
 /obj/item/grenade/smokebomb/cyborg/Initialize()
 	. = ..()

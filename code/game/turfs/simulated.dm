@@ -16,7 +16,7 @@
 
 /turf/simulated/Initialize(mapload)
 	if (mapload)
-		if(istype(loc, /area/chapel))
+		if(istype(loc, /area/horizon/service/chapel))
 			holy = 1
 
 	. = ..()

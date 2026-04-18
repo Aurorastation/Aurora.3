@@ -29,7 +29,7 @@
 		verbs += /obj/item/clothing/wrists/watch/proc/swapwrists
 
 /obj/item/clothing/wrists/verb/change_layer()
-	set category = "Object"
+	set category = "Object.Equipped"
 	set name = "Change Wristwear Layer"
 	set src in usr
 
@@ -41,7 +41,7 @@
 		update_clothing_icon()
 
 /obj/item/clothing/wrists/watch/proc/swapwrists()
-	set category = "Object"
+	set category = "Object.Equipped"
 	set name = "Flip Wristwear"
 	set src in usr
 

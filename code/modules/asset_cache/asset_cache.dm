@@ -534,6 +534,12 @@ GLOBAL_LIST_EMPTY(asset_datums)
 		"goldenlogo_small.png" = 'html/images/factions/goldenlogo_small.png',
 		"pvpolicelogo.png" = 'html/images/pvpolicelogo.png',
 		"pvpolicelogo_small.png" = 'html/images/pvpolicelogo_small.png',
+		"outereyeslogo.png" = 'html/images/outereyeslogo.png',
+		"outereyeslogo_small.png" = 'html/images/outereyeslogo_small.png',
+		"twinsuns.png" = 'html/images/twinsuns.png',
+		"twinsuns_small.png" = 'html/images/twinsuns_small.png',
+		"raskara_sigil.png" = 'html/images/raskara_sigil.png',
+		"raskara_sigil_small.png" = 'html/images/raskara_sigil_small.png',
 		//scan images that appear on sensors
 		"no_data.png" = 'html/images/scans/no_data.png',
 		"horizon.png" = 'html/images/scans/horizon.png',

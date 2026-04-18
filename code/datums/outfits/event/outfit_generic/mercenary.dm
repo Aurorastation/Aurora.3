@@ -52,7 +52,7 @@
 		/obj/item/storage/belt/military,
 	)
 	belt_contents = list(
-		/obj/item/device/flash = 1,
+		/obj/item/flash = 1,
 		/obj/item/handcuffs/ziptie = 1,
 		/obj/item/material/knife/tacknife = 1,
 		/obj/item/gun/projectile/pistol = 1,

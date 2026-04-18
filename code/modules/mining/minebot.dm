@@ -6,7 +6,7 @@
 	law_type = /datum/ai_laws/mining_drone
 	module_type = /obj/item/robot_module/mining_drone
 	holder_type = /obj/item/holder/drone/mining
-	maxHealth = 45
+	maxhealth = 45
 	health = 45
 	pass_flags = PASSTABLE|PASSRAILING
 	req_access = list(ACCESS_MINING, ACCESS_ROBOTICS)
@@ -15,7 +15,7 @@
 	hat_x_offset = 1
 	hat_y_offset = -12
 	standard_drone = FALSE
-	var/list/allowed_areas = list(/area/exoplanet, /area/shuttle/mining, /area/shuttle/intrepid) //Needed for the bot to go mining
+	var/list/allowed_areas = list(/area/exoplanet, /area/horizon/shuttle/mining, /area/horizon/shuttle/intrepid) //Needed for the bot to go mining
 	var/seeking_player = FALSE
 	var/health_upgrade
 	var/ranged_upgrade
@@ -30,7 +30,7 @@
 	cell.maxcharge = 10000
 	cell.charge = 10000
 
-	mmi = /obj/item/organ/internal/mmi_holder/circuit
+	mmi = /obj/item/organ/internal/machine/posibrain/circuit
 
 	// Allows mining drones to pull ore boxes, might be useful for supporting miners
 	pull_list |= /obj/structure/ore_box
@@ -88,8 +88,8 @@
 		to_chat(user, SPAN_WARNING("\The [src] is not compatible with \the [attacking_item]."))
 		return
 
-	if(istype(attacking_item, /obj/item/device/mine_bot_upgrade))
-		var/obj/item/device/mine_bot_upgrade/MBU = attacking_item
+	if(istype(attacking_item, /obj/item/mine_bot_upgrade))
+		var/obj/item/mine_bot_upgrade/MBU = attacking_item
 		MBU.upgrade_bot(src, user)
 		return
 
@@ -105,7 +105,7 @@
 		if(seeking_player)
 			to_chat(user, SPAN_WARNING("\The [src] is already in the reboot process."))
 			return
-		if(!GLOB.config.allow_drone_spawn || emagged || health < -maxHealth) //It's dead, Dave.
+		if(!GLOB.config.allow_drone_spawn || emagged || health < -maxhealth) //It's dead, Dave.
 			to_chat(user, SPAN_WARNING("The interface is fried, and a distressing burned smell wafts from the robot's interior. You're not rebooting this one."))
 			return
 
@@ -132,19 +132,19 @@
 
 /mob/living/silicon/robot/drone/mining/update_robot_light()
 	if(lights_on)
-		set_light(5, 1, LIGHT_COLOR_FIRE, angle = LIGHT_OMNI)
+		set_light(5, 1, LIGHT_COLOR_FIRE)
 	else
 		set_light(0)
 
 /**********************Minebot Upgrades**********************/
 
-/obj/item/device/mine_bot_upgrade
+/obj/item/mine_bot_upgrade
 	name = "minebot drill upgrade"
 	desc = "A minebot upgrade."
 	icon_state = "mainboard"
 	icon = 'icons/obj/module.dmi'
 
-/obj/item/device/mine_bot_upgrade/proc/upgrade_bot(var/mob/living/silicon/robot/drone/mining/M, mob/user)
+/obj/item/mine_bot_upgrade/proc/upgrade_bot(var/mob/living/silicon/robot/drone/mining/M, mob/user)
 	if(M.drill_upgrade)
 		to_chat(user, SPAN_WARNING("[src] already has a drill upgrade installed!"))
 		return
@@ -161,14 +161,14 @@
 	to_chat(user, SPAN_NOTICE("You successfully install \the [src] into \the [M]."))
 	qdel(src)
 
-/obj/item/device/mine_bot_upgrade/health
+/obj/item/mine_bot_upgrade/health
 	name = "minebot chassis upgrade"
 
-/obj/item/device/mine_bot_upgrade/health/upgrade_bot(var/mob/living/silicon/robot/drone/mining/M, mob/user)
+/obj/item/mine_bot_upgrade/health/upgrade_bot(var/mob/living/silicon/robot/drone/mining/M, mob/user)
 	if(M.health_upgrade)
 		to_chat(user, SPAN_WARNING("[src] already has a reinforced chassis!"))
 		return
-	M.maxHealth = 100
+	M.maxhealth = 100
 	M.health += 55
 	for(var/V in M.components)
 		if(V != "power cell")
@@ -178,10 +178,10 @@
 	to_chat(user, SPAN_NOTICE("You successfully install \the [src] into \the [M]."))
 	qdel(src)
 
-/obj/item/device/mine_bot_upgrade/ka
+/obj/item/mine_bot_upgrade/ka
 	name = "minebot kinetic accelerator upgrade"
 
-/obj/item/device/mine_bot_upgrade/ka/upgrade_bot(var/mob/living/silicon/robot/drone/mining/M, mob/user)
+/obj/item/mine_bot_upgrade/ka/upgrade_bot(var/mob/living/silicon/robot/drone/mining/M, mob/user)
 	if(M.ranged_upgrade)
 		to_chat(user, "[src] already has a KA upgrade installed!")
 		return

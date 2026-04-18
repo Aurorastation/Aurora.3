@@ -18,6 +18,15 @@
 
 	var/temperature_override = 0 //A non-zero value with set the temperature of the reagents inside to this value, in kelvin.
 
+/obj/item/reagent_containers/chem_disp_cartridge/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "It has a capacity of [volume] units."
+	if(reagents.total_volume <= 0)
+		. += "It is empty."
+	else
+		. += "It contains [reagents.total_volume] units of liquid."
+	if(!is_open_container())
+		. += "The cap is sealed."
 
 /obj/item/reagent_containers/chem_disp_cartridge/Initialize(mapload,temperature_override)
 	. = ..()
@@ -43,16 +52,6 @@
 		var/lid_icon = "lid_[icon_state]"
 		var/mutable_appearance/lid = mutable_appearance(icon, lid_icon)
 		AddOverlays(lid)
-
-/obj/item/reagent_containers/chem_disp_cartridge/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	. += "It has a capacity of [volume] units."
-	if(reagents.total_volume <= 0)
-		. += "It is empty."
-	else
-		. += "It contains [reagents.total_volume] units of liquid."
-	if(!is_open_container())
-		. += "The cap is sealed."
 
 /obj/item/reagent_containers/chem_disp_cartridge/verb/verb_set_label(L as text)
 	set name = "Set Cartridge Label"

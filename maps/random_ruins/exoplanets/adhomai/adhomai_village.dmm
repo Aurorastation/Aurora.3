@@ -24,7 +24,7 @@
 /area/adhomai_village)
 "aF" = (
 /obj/structure/table/wood,
-/obj/item/device/flashlight/lamp,
+/obj/item/flashlight/lamp,
 /obj/machinery/light/small{
 	dir = 4
 	},
@@ -209,7 +209,7 @@
 /area/adhomai_village)
 "na" = (
 /obj/structure/table/wood,
-/obj/item/device/flashlight/lamp,
+/obj/item/flashlight/lamp,
 /turf/simulated/floor/exoplanet/wood,
 /area/adhomai_village)
 "nD" = (
@@ -256,8 +256,8 @@
 /obj/item/seeds/earthenroot,
 /obj/item/seeds/blizzard,
 /obj/item/seeds/blizzard,
-/obj/item/seeds/nifberries,
-/obj/item/seeds/nifberries,
+/obj/item/seeds/dirtberries,
+/obj/item/seeds/dirtberries,
 /turf/simulated/floor/exoplanet/wood,
 /area/adhomai_village)
 "qk" = (
@@ -318,7 +318,7 @@
 /obj/machinery/light/small{
 	dir = 8
 	},
-/obj/item/clothing/under/dress/tajaran/summer,
+/obj/item/clothing/pants/skirt/tajaran,
 /obj/item/clothing/under/dress/tajaran/red,
 /obj/item/clothing/under/dress/tajaran,
 /obj/item/clothing/accessory/tajaran/ruddy,
@@ -606,8 +606,8 @@
 /obj/item/seeds/blizzard,
 /obj/item/seeds/sugartree,
 /obj/item/seeds/sugartree,
-/obj/item/seeds/nifberries,
-/obj/item/seeds/nifberries,
+/obj/item/seeds/dirtberries,
+/obj/item/seeds/dirtberries,
 /turf/simulated/floor/exoplanet/wood,
 /area/adhomai_village)
 "Iy" = (
@@ -751,7 +751,7 @@
 /area/adhomai_village)
 "Pc" = (
 /obj/structure/closet/secure_closet/kitchen_cabinet/standard,
-/obj/item/storage/box/produce{
+/obj/item/storage/box/large/produce{
 	pixel_x = 3;
 	pixel_y = -11
 	},
@@ -855,7 +855,7 @@
 /obj/structure/closet/cabinet,
 /obj/item/clothing/under/dress/tajaran/fancy,
 /obj/item/clothing/under/dress/tajaran/green,
-/obj/item/clothing/under/dress/tajaran/summer,
+/obj/item/clothing/pants/skirt/tajaran,
 /obj/item/clothing/shoes/flats,
 /obj/item/clothing/under/dress/tajaran,
 /obj/item/clothing/head/tajaran/circlet/silver,
@@ -874,7 +874,7 @@
 /obj/structure/table/wood,
 /obj/effect/decal/cleanable/dirt,
 /obj/item/saddle,
-/obj/item/device/flashlight/lantern,
+/obj/item/flashlight/lantern,
 /turf/simulated/floor/exoplanet/wood,
 /area/adhomai_village)
 "Wa" = (

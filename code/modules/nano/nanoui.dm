@@ -519,7 +519,7 @@ nanoui is used to open and update nano browser uis
  * @return nothing
  */
 /datum/nanoui/process(update = 0)
-	if (!src_object || !user)
+	if (QDELETED(src_object) || QDELETED(user))
 		close()
 		return
 

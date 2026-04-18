@@ -9,8 +9,13 @@
 	var/flush = 0
 	var/mob/living/silicon/ai/carded_ai
 
-/obj/item/aicard/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
+/obj/item/aicard/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Use an active intelliCard to open its management interface."
+	. += "An AI inside an intelliCard can be transferred to an inactive AI Core by clicking on it."
+
+/obj/item/aicard/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
 	var/message = "Status of [carded_ai] is: "
 	if(!carded_ai)
 		message = "There is no AI loaded to the card."

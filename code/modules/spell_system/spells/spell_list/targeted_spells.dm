@@ -91,7 +91,7 @@ Targeted spells have two useful flags: INCLUDEUSER and SELECTABLE. These are exp
 			possible_targets += target
 
 		if(spell_flags & SELECTABLE)
-			for(var/i = 1; i <= max_targets, i++)
+			for(var/i = 1; i <= max_targets; i++)
 				if(!length(possible_targets))
 					to_chat(user, SPAN_WARNING("There are no targets in range!"))
 					break

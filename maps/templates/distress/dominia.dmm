@@ -65,11 +65,11 @@
 "Z" = (
 /obj/structure/table/rack,
 /obj/effect/floor_decal/industrial/outline/security,
-/obj/item/device/versebook/tribunal,
-/obj/item/device/versebook/tribunal,
-/obj/item/device/versebook/tribunal,
-/obj/item/device/versebook/tribunal,
-/obj/item/device/versebook/tribunal,
+/obj/item/versebook/tribunal,
+/obj/item/versebook/tribunal,
+/obj/item/versebook/tribunal,
+/obj/item/versebook/tribunal,
+/obj/item/versebook/tribunal,
 /obj/item/sign/painting_frame/goddess/soldier,
 /turf/unsimulated/floor,
 /area/centcom/distress_prep)

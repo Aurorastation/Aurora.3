@@ -2,18 +2,24 @@
 	name = "door"
 	density = 1
 	anchored = 1
+	maxhealth = OBJECT_HEALTH_VERY_LOW
 
 	icon = 'icons/obj/doors/material_doors.dmi'
 	icon_state = "metal"
 
 	build_amt = 10
+
 	var/state = 0 //closed, 1 == open
 	var/isSwitchingStates = 0
 	var/oreAmount = 7
 	var/datum/lock/lock
 	var/initial_lock_value //for mapping purposes. Basically if this value is set, it sets the lock to this value.
-	var/health = 100
-	var/maxhealth = 100
+
+
+/obj/structure/simple_door/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(lock)
+		. += SPAN_NOTICE("It appears to have a lock.")
 
 /obj/structure/simple_door/fire_act(exposed_temperature, exposed_volume)
 	. = ..()
@@ -36,8 +42,8 @@
 	name = "[material.display_name] door"
 	color = material.icon_colour
 
-	maxhealth = max(1,round(material.integrity))
-	health = maxhealth
+	set_health(material.integrity)
+	set_health(maxhealth)
 
 	if(initial_lock_value)
 		locked = initial_lock_value
@@ -60,11 +66,6 @@
 	lock = null
 	return ..()
 
-/obj/structure/simple_door/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if(lock)
-		. += SPAN_NOTICE("It appears to have a lock.")
-
 /obj/structure/simple_door/CollidedWith(atom/bumped_atom)
 	..()
 	if(!state)
@@ -80,7 +81,7 @@
 /obj/structure/simple_door/attack_hand(mob/user as mob)
 	return TryToSwitchState(user)
 
-/obj/structure/simple_door/attack_generic(mob/user)
+/obj/structure/simple_door/attack_generic(mob/user, damage, attack_message, environment_smash, armor_penetration, attack_flags, damage_type)
 	if(istype(user, /mob/living/simple_animal/construct)) // don't know of any other attack_generic smart enough to open doors
 		TryToSwitchState(user)
 	return

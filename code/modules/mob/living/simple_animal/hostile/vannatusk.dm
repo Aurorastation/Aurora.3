@@ -15,7 +15,7 @@
 	response_help  = "pets"
 	response_disarm = "shoves"
 	response_harm   = "harmlessly punches"
-	maxHealth = 350
+	maxhealth = 350
 	health = 350
 	harm_intent_damage = 5
 	melee_damage_lower = 30
@@ -24,7 +24,7 @@
 	resist_mod = 3
 	mob_size = 15
 	environment_smash = 2
-	attacktext = "mangled"
+	attacktext = "mangles"
 	attack_emote = "charges toward"
 	attack_sound = 'sound/effects/creatures/vannatusk_attack.ogg'
 	emote_sounds = list('sound/effects/creatures/vannatusk_sound.ogg', 'sound/effects/creatures/vannatusk_sound_2.ogg')
@@ -88,17 +88,3 @@
 /mob/living/simple_animal/hostile/vannatusk/dead/Initialize()
 	. = ..()
 	death()
-
-/obj/machinery/vannatusk_spawner
-	name = "telepad"
-	desc = "A bluespace telepad used for creating bluespace portals."
-	icon = 'icons/obj/telescience.dmi'
-	icon_state = "pad-idle"
-	anchored = TRUE
-	use_power = POWER_USE_IDLE
-
-/obj/machinery/vannatusk_spawner/power_change()
-	..()
-	spark(src, 3, GLOB.alldirs)
-	new /mob/living/simple_animal/hostile/vannatusk(get_turf(src))
-	qdel(src)

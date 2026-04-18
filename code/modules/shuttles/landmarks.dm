@@ -1,6 +1,12 @@
 //making this separate from /obj/effect/landmark until that mess can be dealt with
 /obj/effect/shuttle_landmark
 	name = "Nav Point"
+	/**
+	 * Preserves the original name without appended coordinates
+	 *
+	 * Set in `/obj/effect/shuttle_landmark/Initialize()`
+	 */
+	var/clean_name = "Nav Point"
 	icon = 'icons/effects/map_effects_96x96.dmi'
 	icon_state = "shuttle_landmark"
 	anchored = TRUE
@@ -34,8 +40,21 @@
 	/// Ghostspawners, means their `short_name` vars.
 	var/list/ghostspawners_to_activate_on_shuttle_arrival
 
+	/**
+	 * If TRUE, announces docking over the `announce_channel` frequency
+	 *
+	 * Checked in `/obj/effect/shuttle_landmark/proc/shuttle_arrived` and `/obj/effect/shuttle_landmark/proc/shuttle_departure`
+	 */
+	var/announce_docking = FALSE
+
+	/**
+	 * Determines which frequency to announce docking over if `announce_docking` is `TRUE`
+	 */
+	var/announce_channel = "Common"
+
 /obj/effect/shuttle_landmark/Initialize()
 	. = ..()
+	clean_name = name
 	name = name + " ([x],[y])"
 	SSshuttle.register_landmark(landmark_tag, src)
 	return INITIALIZE_HINT_LATELOAD
@@ -76,7 +95,7 @@
 		return FALSE
 	for(var/area/A in shuttle.shuttle_area)
 		var/list/translation = get_turf_translation(get_turf(shuttle.current_location), get_turf(src), A.contents)
-		if(check_collision(base_area, list_values(translation)))
+		if(check_collision(list_values(translation)))
 			return FALSE
 	var/conn = GetConnectedZlevels(z)
 	for(var/w in (z - shuttle.multiz) to z)
@@ -108,16 +127,42 @@
 /obj/effect/shuttle_landmark/proc/shuttle_arrived(datum/shuttle/shuttle)
 	clear_landing_indicators()
 	activate_ghostroles()
+	if(announce_docking)
+		var/datum/shuttle/autodock/multi/antag/antag_shuttle
+		if(istype(shuttle, /datum/shuttle/autodock/multi/antag))
+			antag_shuttle = shuttle
+		if(!antag_shuttle || (antag_shuttle && !antag_shuttle.cloaked))
+			var/message = "[shuttle.name] has docked at [src.clean_name]."
+			GLOB.global_announcer.autosay(message, "Docking Oversight", announce_channel)
+	GLOB.shuttle_moved_event.register(shuttle, src, PROC_REF(announce_departure))
 
-/proc/check_collision(area/target_area, list/target_turfs)
+/obj/effect/shuttle_landmark/proc/announce_departure(datum/shuttle/shuttle)
+	if(announce_docking)
+		var/datum/shuttle/autodock/multi/antag/antag_shuttle
+		if(istype(shuttle, /datum/shuttle/autodock/multi/antag))
+			antag_shuttle = shuttle
+		if(!antag_shuttle || (antag_shuttle && !antag_shuttle.cloaked))
+			var/message = "[shuttle.name] has undocked from [src.clean_name]."
+			GLOB.global_announcer.autosay(message, "Docking Oversight", announce_channel)
+	GLOB.shuttle_moved_event.unregister(shuttle, src)
+
+/proc/check_collision(list/target_turfs)
 	for(var/target_turf in target_turfs)
 		var/turf/target = target_turf
+
 		if(!target)
 			return TRUE //collides with edge of map
-		if(target.loc != target_area)
-			return TRUE //collides with another area
+
+		// IMPORTANT: The below area check is commented out as it is not compatible with the Horizon,
+		// which has docking ports with clashing turfs + areas! There's no good reason for this not to
+		// be re-enabled once the server's primary map doesn't have such poorly mapped docking ports.
+		// It being disabled shouldn't cause too many problems in the meantime. Hopefully.
+		// if(target.loc != target_area)
+		// 	return TRUE //clashes with another area
+
 		if(target.density)
 			return TRUE //dense turf
+
 	return FALSE
 
 //Self-naming/numbering ones.
@@ -165,7 +210,7 @@
 			qdel(S)
 	..()
 
-/obj/item/device/spaceflare
+/obj/item/spaceflare
 	name = "bluespace flare"
 	desc = "Burst transmitter used to broadcast all needed information for shuttle navigation systems. Has a flare attached for marking the spot where you probably shouldn't be standing."
 	icon = 'icons/obj/space_flare.dmi'
@@ -177,11 +222,11 @@
 	/// The shuttle landmark synced to this beacon. This is set when the beacon is activated.
 	var/obj/effect/shuttle_landmark/automatic/spaceflare/landmark
 
-/obj/item/device/spaceflare/attack_self(var/mob/user)
+/obj/item/spaceflare/attack_self(var/mob/user)
 	if(activate(user))
 		user.visible_message(SPAN_NOTICE("\The [user] pulls the cord, activating \the [src]."), SPAN_NOTICE("You pull the cord, activating \the [src]."), SPAN_ITALIC("You hear the sound of something being struck and ignited."))
 
-/obj/item/device/spaceflare/proc/activate(mob/user)
+/obj/item/spaceflare/proc/activate(mob/user)
 	if(active)
 		to_chat(user, SPAN_WARNING("\The [src] is already active."))
 		return FALSE
@@ -202,7 +247,7 @@
 	update_icon()
 	return TRUE
 
-/obj/item/device/spaceflare/proc/deactivate(silent = FALSE)
+/obj/item/spaceflare/proc/deactivate(silent = FALSE)
 	if (!active)
 		return FALSE
 
@@ -214,7 +259,7 @@
 		visible_message(SPAN_WARNING("\The [src] stops burning and deactivates."))
 	return TRUE
 
-/obj/item/device/spaceflare/update_icon()
+/obj/item/spaceflare/update_icon()
 	if (active)
 		icon_state = "[initial(icon_state)]_on"
 		set_light(0.3, 0.1, 6, 2, "85d1ff")
@@ -222,11 +267,11 @@
 		icon_state = initial(icon_state)
 		set_light(0)
 
-/obj/item/device/spaceflare/Destroy()
+/obj/item/spaceflare/Destroy()
 	deactivate(TRUE)
 	. = ..()
 
-/obj/item/device/spaceflare/attack_hand(mob/user)
+/obj/item/spaceflare/attack_hand(mob/user)
 	if(active)
 		var/choice = tgui_alert(user, "Do you want to deactivate \the [src]?", "Bluespace Flare", list("Yes","No"))
 		if(choice == "Yes")
@@ -239,9 +284,9 @@
 /obj/effect/shuttle_landmark/automatic/spaceflare
 	name = "Bluespace Beacon Signal"
 	/// The beacon object synced to this landmark. If this is ever null or qdeleted the landmark should delete itself.
-	var/obj/item/device/spaceflare/beacon
+	var/obj/item/spaceflare/beacon
 
-/obj/effect/shuttle_landmark/automatic/spaceflare/Initialize(mapload, obj/item/device/spaceflare/beacon)
+/obj/effect/shuttle_landmark/automatic/spaceflare/Initialize(mapload, obj/item/spaceflare/beacon)
 	. = ..()
 
 	if(!istype(beacon))

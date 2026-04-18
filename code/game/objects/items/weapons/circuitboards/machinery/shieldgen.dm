@@ -1,7 +1,3 @@
-#ifndef T_BOARD
-#error T_BOARD macro is not defined but we need it!
-#endif
-
 /obj/item/circuitboard/shield_gen_ex
 	name = T_BOARD("hull shield generator")
 	board_type = BOARD_MACHINE

@@ -211,6 +211,8 @@
 /atom/movable/screen/mecha/toggle/air/toggled()
 	toggled = !toggled
 	owner.use_air = toggled
+	if (owner.use_air)
+		playsound(owner.loc, 'sound/effects/internals.ogg', 75, 1)
 	var/main_color = owner.use_air ? "#d1d1d1" : "#525252"
 	maptext = "<span style=\"font-family: 'Small Fonts'; color: [main_color]; -dm-text-outline: 1 #242424; font-size: 6px;\">AIR</span>"
 	notify_user(usr, SPAN_NOTICE("Auxiliary atmospheric system [owner.use_air ? "enabled" : "disabled"]."))
@@ -286,6 +288,7 @@
 		maptext_y = 11
 		maptext_x = 5
 	notify_user(usr, SPAN_NOTICE("The [owner.body.hatch_descriptor] is [owner.hatch_locked ? "now" : "no longer" ] locked."))
+	playsound(owner.loc, 'sound/effects/magnetclamp.ogg', 100, 1)
 
 /atom/movable/screen/mecha/toggle/hatch_open
 	name = "open or close hatch"
@@ -298,15 +301,29 @@
 	maptext_x = owner.hatch_closed ? 4 : 3
 
 /atom/movable/screen/mecha/toggle/hatch_open/toggled(var/notify_user = TRUE)
+	var/obj/item/mech_component/chassis/body = owner.body
+	if(!body) // Edge case for the mech SOMEHOW not having a body. Players shouldn't ever see this. A mech without a body should be in the process of exploding.
+		notify_user(usr, SPAN_WARNING("What hatch? There's nothing left to open. If you're seeing this, please submit a bug report to our github issue tracker and tell us how!"))
+		return FALSE
+
 	if(owner.hatch_locked && owner.hatch_closed)
 		notify_user(usr, SPAN_WARNING("You cannot open the hatch while it is locked."))
-		return
+		return FALSE
+
+	if(owner.hatch_closed && body.total_damage > 1 && prob((body.total_damage / body.max_damage) * body.ejection_fail_chance))
+		to_chat(usr, SPAN_WARNING("You pull the hatch release. The hatch bolts hiss and clang with a deafening screech, but the hatch fails to open!"))
+		spark(owner, 6, GLOB.alldirs)
+		playsound(owner.loc, 'sound/effects/metalhit.ogg', 75, 1)
+		return FALSE
+
 	toggled = !toggled
 	owner.hatch_closed = toggled
+	playsound(owner.loc, owner.hatch_closed ? 'sound/effects/metal_close.ogg' : 'sound/effects/air_seal.ogg', 75, 1)
 	if(notify_user)
 		notify_user(usr, SPAN_NOTICE("The [owner.body.hatch_descriptor] is now [owner.hatch_closed ? "closed" : "open" ]."))
 	update_icon()
 	owner.update_icon()
+	return TRUE
 
 // This is basically just a holder for the updates the mech does.
 /atom/movable/screen/mecha/health

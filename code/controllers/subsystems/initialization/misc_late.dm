@@ -34,12 +34,14 @@ SUBSYSTEM_DEF(misc_late)
 		thing.do_late_fire()
 		LAZYREMOVE(late_misc_firers, thing)
 
-	if (GLOB.config.use_forumuser_api)
-		update_admins_from_api(TRUE)
-
 	// Load outfits here so that the verb isn't laggy as balls.
 	for(var/outfit_type in subtypesof(/obj/outfit))
 		var/obj/outfit/new_outfit = new outfit_type()
 		GLOB.outfit_cache[new_outfit.name] = new_outfit
+
+	// Load AI Icons here
+	for(var/ai_icon in subtypesof(/datum/ai_icon))
+		var/datum/ai_icon/new_icon = new ai_icon()
+		GLOB.ai_icons[new_icon.name] = ai_icon
 
 	return SS_INIT_SUCCESS

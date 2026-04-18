@@ -6,12 +6,12 @@
 	icon_living = "viscerator_attack"
 	pass_flags = PASSTABLE|PASSRAILING
 	health = 15
-	maxHealth = 15
+	maxhealth = 15
 	melee_damage_lower = 10
 	melee_damage_upper = 15
 	armor_penetration = 20
 	density = 0
-	attacktext = "cut"
+	attacktext = "cuts"
 	attack_sound = 'sound/weapons/bladeslice.ogg'
 	blood_overlay_icon = null
 	faction = "syndicate"

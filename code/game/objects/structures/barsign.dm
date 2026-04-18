@@ -1,69 +1,150 @@
+/// Lists of data passed over to tgui, obtained from numerous singletons. List contains lists of: "display_name", "icon", "icon_name", "singleton_path"
+GLOBAL_LIST_EMPTY(barsign_overlay_cache)
+GLOBAL_LIST_EMPTY(kitchensign_overlay_cache)
+GLOBAL_LIST_EMPTY(marketsign_overlay_cache)
+
 /obj/structure/sign/double/barsign
 	icon = 'icons/obj/barsigns.dmi'
-	icon_state = "Off"
+	icon_state = "off"
 	anchored = TRUE
 	req_access = list(ACCESS_BAR) //Has to initalize at first, this is updated by instance's req_access
 	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
 	var/cult = 0
 	var/choice_types = /singleton/sign/double/bar
+	var/currently_on = FALSE
+	var/on_icon_state
+	var/off_icon_state = "off"
+	/// Local reference of the global list associated with this object's singletons.
+	var/list/target_cache = list()
+
+/obj/structure/sign/double/barsign/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "You can <b>Alt Click</b> to toggle power of \the [src]."
+
+/obj/structure/sign/double/barsign/Initialize()
+	. = ..()
+	set_overlay_cache()
+
+/obj/structure/sign/double/barsign/proc/get_target_cache()
+	return GLOB.barsign_overlay_cache
+
+/obj/structure/sign/double/barsign/proc/set_overlay_cache()
+	target_cache = get_target_cache()
+
+	if(!length(target_cache))
+		var/list/singleton_instances = GET_SINGLETON_SUBTYPE_MAP(choice_types)
+		for(var/i in singleton_instances)
+			var/singleton/sign/double/bar/S = GET_SINGLETON(i)
+			var/overlay_image = image(icon = icon, icon_state = S.icon_state)
+
+			target_cache.Add(list(list(
+			"display_name" = S.name,
+			"icon" = icon2base64(getFlatIcon(overlay_image, no_anim = TRUE)), // expensive but we only do it once
+			"icon_name" = S.icon_state,
+			"singleton_path" = "[S.type]"
+		)))
 
 /obj/structure/sign/double/barsign/attackby(obj/item/attacking_item, mob/user)
 	if(cult)
 		return ..()
 	var/obj/item/card/id/card = attacking_item.GetID()
 	if(istype(card))
-		if(check_access(card))
-			set_sign()
-			to_chat(user, SPAN_NOTICE("You change the sign."))
-		else
+		if(!check_access(card))
 			to_chat(user, SPAN_WARNING("Access denied."))
-		return
+			return
+		ui_interact(user)
 
 	return ..()
 
-/obj/structure/sign/double/barsign/proc/get_sign_choices()
-	var/list/sign_choices = GET_SINGLETON_SUBTYPE_MAP(choice_types)
-	return sign_choices
+/obj/structure/sign/double/barsign/ui_interact(mob/user, datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
+	if(!ui)
+		ui = new(user, src, "OverlayChoice", capitalize_first_letters(name))
+		ui.open()
 
-/obj/structure/sign/double/barsign/proc/set_sign()
-	var/list/sign_choices = get_sign_choices()
+/obj/structure/sign/double/barsign/ui_static_data(mob/user)
+	var/list/data = list()
+	data["contents"] = target_cache
+	return data
 
-	var/list/sign_index = list()
-	for(var/sign in sign_choices)
-		var/singleton/sign/double/B = GET_SINGLETON(sign)
-		sign_index["[B.name]"] = B
-
-	var/sign_choice = tgui_input_list(usr, "What should the sign be changed to?", "Bar Sign", sign_index)
-	if(!sign_choice)
+/obj/structure/sign/double/barsign/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
+	. = ..()
+	if(.)
 		return
-	var/singleton/sign/double/signselect = sign_index[sign_choice]
 
-	name = signselect.name
-	desc = signselect.desc
-	desc_extended = signselect.desc_extended
-	icon_state = signselect.icon_state
+	var/mob/user = ui.user
+	add_fingerprint(user)
+	switch(action)
+		if("select_overlay")
+			var/choice = params["singleton_path"]
+			INVOKE_ASYNC(src, PROC_REF(set_sign), choice)
+
+			SStgui.close_uis(src)
+
+	. = TRUE
+
+/obj/structure/sign/double/barsign/proc/set_sign(choice)
+	var/singleton/sign/double/chosen_singleton = text2path(choice)
+
+	name = chosen_singleton.name
+	desc = chosen_singleton.desc
+	desc_extended = chosen_singleton.desc_extended
+	icon_state = chosen_singleton.icon_state
+	currently_on = TRUE
+	on_icon_state = icon_state
 	update_icon()
+
+/obj/structure/sign/double/barsign/AltClick(mob/user) // Alt-click a sign with an empty hand to power or depower it, if it has the associated "[name]-off" state in the .dmi file.
+	if(!on_icon_state)
+		to_chat(user, SPAN_WARNING("The sign is already off!"))
+		return
+	if(!currently_on)
+		currently_on = TRUE
+		icon_state = on_icon_state
+		return
+	icon_state = off_icon_state
+	currently_on = FALSE
+
+// ---- Kitchen sign
 
 /obj/structure/sign/double/barsign/kitchensign
 	icon = 'icons/obj/kitchensigns.dmi'
-	icon_state = "Off"
-	req_access = list(ACCESS_KITCHEN)
+	icon_state = "off"
+	req_access = list(ACCESS_GALLEY)
 	choice_types = /singleton/sign/double/kitchen
+
+/obj/structure/sign/double/barsign/kitchensign/get_target_cache()
+	return GLOB.kitchensign_overlay_cache
 
 /obj/structure/sign/double/barsign/kitchensign/mirrored // Visible from the other end of the sign.
 	pixel_x = -32
 
+// ---- Market sign
+
+/obj/structure/sign/double/barsign/marketsign
+	icon = 'icons/obj/marketsigns.dmi'
+	icon_state = "off"
+	req_access = null
+	req_one_access = list(ACCESS_CARGO, ACCESS_JANITOR, ACCESS_ROBOTICS, ACCESS_MINING, ACCESS_PARAMEDIC, ACCESS_HYDROPONICS, ACCESS_GALLEY, ACCESS_LIBRARY)
+	choice_types = /singleton/sign/double/market
+
+/obj/structure/sign/double/barsign/marketsign/get_target_cache()
+	return GLOB.marketsign_overlay_cache
+
+/obj/structure/sign/double/barsign/marketsign/mirrored // Visible from the other end of the sign.
+	pixel_x = -32
+
 /singleton/sign/double
 	var/name = "Holographic Projector"
-	var/icon_state = "Off"
+	var/icon_state = "off"
 	var/desc = "A holographic projector, displaying different saved themes. It is turned off right now."
-	var/desc_extended = "To change the displayed theme, use your bartender's or chef's ID on it and select something from the menu. There are two different selections for the bar and the kitchen."
+	var/desc_extended = "To change the displayed theme, use your bartender's or chef's or other applicable ID on it and select something from the menu. There are three different selections for the bar, galley and commissiary."
 
 /singleton/sign/double/off // Here start the different bar signs. To add any new ones, just copy the format, make sure its in the .dmi and write away. -KingOfThePing
 	name = "Holgraphic Projector"
-	icon_state = "Off"
+	icon_state = "off"
 	desc = "A holographic projector, displaying different saved themes. It is turned off right now."
-	desc_extended = "To change the displayed theme, use your bartender's or chef's ID on it and select something from the menu. There are two different selections for the bar and the kitchen."
+	desc_extended = "To change the displayed theme, use your bartender's or chef's ID on it and select something from the menu. There are two different selections for the bar and the galley."
 
 /singleton/sign/double/bar/whiskey_implant
 	name = "Whiskey Implant"
@@ -145,11 +226,25 @@
 	icon_state = "Commie"
 	desc = "The name of a bar, located at Pluto's biggest spaceport."
 	desc_extended = "People's Preferred is the name of the drinking hole at Pluto's biggest spaceport. Everyone stops there and everyone loves it there. It's what the people prefer, apparently."
+/singleton/sign/double/bar/we_are_open
+	name = "We Are Open!"
+	icon_state = "We Are Open!"
+	desc = "The bar's sign flashing 'We Are Open!' indicating that it is indeed open for business."
+	desc_extended = "Sometimes it doesn't need a fancy sign, slogan, or flashy colours to draw in people to the bar. The service and booze usually does. This sign here simply lets crew know that they are getting both here, right now."
+/singleton/sign/double/bar/closed
+	name = "Closed"
+	icon_state = "Closed"
+	desc = "The sign flashes 'CLOSED'. A real tragedy for crew far and wide."
+/singleton/sign/double/bar/free_drinks
+	name = "Free Drinks!"
+	icon_state = "Free Drinks!"
+	desc = "Either the XO or the Captain were in a really good mood, someone's pranking the crew, or it is your lucky day. Cheers!"
+
 /singleton/sign/double/kitchen/event_horizon // Start of the kitchen signs. Don't mix it up.
 	name = "Event Horizon"
 	icon_state = "Event Horizon"
-	desc = "The SCCV Horizon's kitchen franchise sign."
-	desc_extended = "The SCCV Horizon's dining area was the testing ground for the SCC to experiment with food franchising. The goal was to provide better food perparing processes, food quality and, of course, to maybe capitalize on this. To remember where it all started, the name 'Event Horizon' was chosen."
+	desc = "The SCCV Horizon's galley franchise sign."
+	desc_extended = "The SCCV Horizon's mess area was the testing ground for the SCC to experiment with food franchising. The goal was to provide better food perparing processes, food quality and, of course, to maybe capitalize on this. To remember where it all started, the name 'Event Horizon' was chosen."
 /singleton/sign/double/kitchen/paradise_sands
 	name = "Paradise Sands"
 	icon_state = "Paradise Sands"
@@ -160,3 +255,25 @@
 	icon_state = "City Alive"
 	desc = "City Alive is another popular restaurant chain, originating from Eridani I. It is famous for its light shows."
 	desc_extended = "City Alive is a high class restaurant chain, dotted all over Eridani I and III. Especially on Eridani I they are also famous for their light shows in the evenings. These lights look like pulsating veins, making the city seem alive, especially when observed from orbit."
+
+/singleton/sign/double/market/ntmart // Start of the marketsigns for the commissiary.
+	name = "NT-Mart"
+	icon_state = "ntmart"
+	desc = "NT-Mart is a relatively common convenience store chain. Usually smaller in scale and with more limited selection you can still get pretty much everything here."
+	desc_extended = "Before the SCC merged to one Conglomerate, NanoTrasen already tried to reel in as much revenue as possible. One of the easiest markets was retail. After some time, the NT-Mart could be seen on many corners \
+	in many places, selling a limited selection of basic items, usually with a markup."
+
+/singleton/sign/double/market/gm24
+	name = "GetMore24"
+	icon_state = "gm24"
+	desc = "The GetMore24, usually shortened to GM24, is the de-facto flagship of convenience stores. For the true convenience connoisseur. Get more, with Getmore."
+	desc_extended = "Getmore was always a big player in the food industry. A logical follow-up would be to get big into retail and cut out the middle-man in distribution. Thus, the king of convenience stores was born: \
+	GMG24. Usually open 24 hours, 7 days a week there aren't many places in the galaxy where you aren't in walking distance of a GM24. Selling everything you need for your daily life, the selection is surprisingly big \
+	and affordable. This strategy catapulted Getmore into the big league of convenience stores."
+
+/singleton/sign/double/market/quikstop
+	name = "Quik Stop"
+	icon_state = "quikstop"
+	desc = "The Orion operated Quik Stop is often known to provide a wide variety at a small premium, thanks to Orion's spur spanning logistics operation. What you need, when you need it: that's the Orion Promise!"
+	desc_extended = "Orion's spur-wide logistics already had warehouses and sorting offices spread on hundreds of planets from the cosmopolitan Biesel to the dinkiest frontier colony. \
+	It was only a matter of fittings and branding which turned many of these into Orion Quik Stops, able to fulfill the Spur's need for convenient shopping and able to tap into Orion's delivery system."

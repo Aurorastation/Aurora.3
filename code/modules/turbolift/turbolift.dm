@@ -95,13 +95,22 @@
 	if(!moving_upwards)
 		for(var/turf/T in destination)
 			for(var/atom/movable/AM in T)
-				AM.crush_act()
+				// for most Atom Movables, we'll more or less just delete them. Mobs get special treatment.
+				if(istype(AM, /mob/living))
+					var/mob/living/safety_hater = AM
+					safety_hater.gib()
+				else
+					AM.crush_act()
 	else
 		for(var/turf/simulated/wall/W in origin)
 			var/turf/T = GET_TURF_ABOVE(W)
 			for(var/atom/movable/AM in T)
 				if(next_floor == floors[floors.len])
-					AM.crush_act()
+					if(istype(AM, /mob/living))
+						var/mob/living/safety_hater = AM
+						safety_hater.gib()
+					else
+						AM.crush_act()
 				else
 					move_candidates += AM
 

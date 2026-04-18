@@ -9,7 +9,7 @@
 
 /obj/machinery/computer/fusion/fuel_control/terminal
 	name = "fuel injection control terminal"
-	icon = 'icons/obj/machinery/modular_terminal.dmi'
+	icon = 'icons/obj/modular_computers/modular_terminal.dmi'
 	icon_screen = "power_screen"
 	icon_keyboard = "med_key"
 	icon_keyboard_emis = "med_key_mask"

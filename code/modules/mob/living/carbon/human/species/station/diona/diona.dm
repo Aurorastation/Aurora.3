@@ -1,3 +1,7 @@
+/*
+This represents Geras Dionae, the older variant of the species. Coeus can be accessed via the subspecies file, and are the younger variant.
+They are very slow, reasonably strong, and quite durable. They also require light to survive, and build nutrition from being exposed to it.
+*/
 /datum/species/diona
 	name = SPECIES_DIONA
 	short_name = "dio"
@@ -12,7 +16,7 @@
 	age_max = 1000
 	default_genders = list(PLURAL)
 	selectable_pronouns = list(NEUTER, PLURAL)
-	economic_modifier = 3
+	economic_modifier = 7
 	icobase = 'icons/mob/human_races/diona/r_diona.dmi'
 	deform = 'icons/mob/human_races/diona/r_def_plant.dmi'
 	preview_icon = 'icons/mob/human_races/diona/diona_preview.dmi'
@@ -27,10 +31,11 @@
 	inherent_verbs = list(
 		/mob/living/carbon/human/proc/consume_nutrition_from_air,
 		/mob/living/carbon/human/proc/create_structure,
-		/mob/living/carbon/proc/sample
+		/mob/living/carbon/human/proc/root_to_ground,
+		/mob/living/carbon/proc/sample,
 	)
 	//primitive_form = "Nymph"
-	slowdown = 4
+	slowdown = 1.6
 	rarity_value = 4
 	hud_type = /datum/hud_data/diona
 	siemens_coefficient = 0.3
@@ -63,6 +68,10 @@
 	halloss_message_self = "We can't take this much pain..."
 	pain_messages = list("We're in pain", "We hurt so much", "We can't stand the pain")
 	pain_item_drop_cry = list("creaks loudly and ", "rustles erratically and ", "twitches for a moment and ")
+
+	natural_armor = list(
+		MELEE = ARMOR_MELEE_MEDIUM
+	)
 
 	pain_mod = 0.5
 	grab_mod = 0.6 // Viney Tentacles and shit to cling onto
@@ -188,7 +197,7 @@
 		H.adjustHalLoss(cost*0.3)
 		H.updatehealth()
 
-	if(H.getHalLoss() > (H.maxHealth*0.6))
+	if(H.getHalLoss() > (H.maxhealth*0.6))
 		var/shock = H.get_shock()
 		if(prob(shock * 2))
 			to_chat(H, SPAN_DANGER("You feel a sharp pain in your nervous system! You can't run anymore, or you might die!"))
@@ -208,7 +217,7 @@
 			if(SB)
 				break
 	if(SB)
-		SB.handle_item_insertion(new /obj/item/device/flashlight/survival(get_turf(H)), TRUE)
+		SB.handle_item_insertion(new /obj/item/flashlight/survival(get_turf(H)), TRUE)
 
 /datum/species/diona/is_naturally_insulated()
 	return TRUE

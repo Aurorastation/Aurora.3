@@ -320,7 +320,7 @@ GLOBAL_LIST_INIT(golem_types, list(
 
 	bodytype = "Human"
 
-	slowdown = -2
+	slowdown = -0.6
 
 	brute_mod = 1.5
 	burn_mod = 3
@@ -345,7 +345,7 @@ GLOBAL_LIST_INIT(golem_types, list(
 	icobase = 'icons/mob/human_races/golem/r_cardboard.dmi'
 	deform = 'icons/mob/human_races/golem/r_cardboard.dmi'
 
-	slowdown = -1
+	slowdown = -0.3
 
 	brute_mod = 1.5
 	burn_mod = 3
@@ -384,7 +384,7 @@ GLOBAL_LIST_INIT(golem_types, list(
 	death_message = "shatters into many shards!"
 	death_message_range = 7
 
-	death_sound = /singleton/sound_category/glass_break_sound
+	death_sound = SFX_BREAK_GLASS
 
 	heat_level_1 = T0C+350
 	heat_level_2 = T0C+550
@@ -656,7 +656,7 @@ GLOBAL_LIST_INIT(golem_types, list(
 
 	brute_mod = 1.2
 	burn_mod = 1
-	slowdown = -2
+	slowdown = -0.8
 
 	meat_type = /obj/item/ore/glass
 
@@ -691,7 +691,7 @@ GLOBAL_LIST_INIT(golem_types, list(
 		glassify(H)
 		return
 
-	if(H.getFireLoss() >= (H.health - H.maxHealth))	//if the sand golem suffered enough burn damage it turns into a glass one
+	if(H.getFireLoss() >= (H.health - H.maxhealth))	//if the sand golem suffered enough burn damage it turns into a glass one
 		glassify(H)
 		return
 
@@ -711,7 +711,7 @@ GLOBAL_LIST_INIT(golem_types, list(
 
 	brute_mod = 1.2
 	burn_mod = 1.3
-	slowdown = -1
+	slowdown = -0.3
 
 	meat_type = /obj/item/stack/material/plastic
 
@@ -762,9 +762,7 @@ GLOBAL_LIST_INIT(golem_types, list(
 	..()
 
 /datum/species/golem/uranium/handle_environment_special(var/mob/living/carbon/human/H)
-	if(prob(25))
-		for(var/mob/living/L in view(7, H))
-			L.apply_damage(20, DAMAGE_RADIATION, damage_flags = DAMAGE_FLAG_DISPERSED)
+	SSradiation.radiate(src, RAD_LEVEL_LOW)
 
 /datum/species/golem/homunculus
 	name = SPECIES_GOLEM_MEAT

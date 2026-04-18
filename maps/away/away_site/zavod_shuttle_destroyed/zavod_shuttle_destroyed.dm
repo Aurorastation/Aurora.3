@@ -6,6 +6,7 @@
 	suffix = "zavod_shuttle_destroyed.dmm"
 
 	sectors = list(ALL_POSSIBLE_SECTORS)
+	sectors_blacklist = list(ALL_UNCHARTED_SECTORS)
 	spawn_weight = 1
 	spawn_cost = 1
 	id = "destroyed zavod shuttle"

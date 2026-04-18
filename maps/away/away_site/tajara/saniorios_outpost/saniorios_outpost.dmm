@@ -1130,12 +1130,12 @@
 	req_access = list(214);
 	name = "gun cabinet (rifle ammo)"
 	},
-/obj/item/ammo_magazine/boltaction,
-/obj/item/ammo_magazine/boltaction,
-/obj/item/ammo_magazine/boltaction,
-/obj/item/ammo_magazine/boltaction,
-/obj/item/ammo_magazine/boltaction,
-/obj/item/ammo_magazine/boltaction,
+/obj/item/ammo_magazine/a68,
+/obj/item/ammo_magazine/a68,
+/obj/item/ammo_magazine/a68,
+/obj/item/ammo_magazine/a68,
+/obj/item/ammo_magazine/a68,
+/obj/item/ammo_magazine/a68,
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
@@ -1282,14 +1282,14 @@
 /obj/item/tank/jetpack/carbondioxide,
 /obj/item/tank/jetpack/carbondioxide,
 /obj/item/tank/jetpack/carbondioxide,
-/obj/item/device/radio,
-/obj/item/device/radio,
-/obj/item/device/radio,
-/obj/item/device/radio,
-/obj/item/device/gps,
-/obj/item/device/gps,
-/obj/item/device/gps,
-/obj/item/device/gps,
+/obj/item/radio,
+/obj/item/radio,
+/obj/item/radio,
+/obj/item/radio,
+/obj/item/gps,
+/obj/item/gps,
+/obj/item/gps,
+/obj/item/gps,
 /turf/simulated/floor/plating/cooled,
 /area/saniorios_outpost)
 "rw" = (
@@ -1423,12 +1423,12 @@
 	req_access = list(214);
 	name = "gun cabinet (assault rifle ammo)"
 	},
-/obj/item/ammo_magazine/c762/dpra,
-/obj/item/ammo_magazine/c762/dpra,
-/obj/item/ammo_magazine/c762/dpra,
-/obj/item/ammo_magazine/c762/dpra,
-/obj/item/ammo_magazine/c762/dpra,
-/obj/item/ammo_magazine/c762/dpra,
+/obj/item/ammo_magazine/a68,
+/obj/item/ammo_magazine/a68,
+/obj/item/ammo_magazine/a68,
+/obj/item/ammo_magazine/a68,
+/obj/item/ammo_magazine/a68,
+/obj/item/ammo_magazine/a68,
 /obj/machinery/alarm/cold/north{
 	req_one_access = list(214)
 	},
@@ -1662,7 +1662,7 @@
 	},
 /obj/structure/closet/crate/internals,
 /obj/item/storage/bag/inflatable,
-/obj/item/device/oxycandle,
+/obj/item/oxycandle,
 /obj/item/tank/emergency_oxygen{
 	pixel_x = 5
 	},
@@ -1774,7 +1774,7 @@
 /area/saniorios_outpost/crew_section)
 "yS" = (
 /obj/structure/table/standard,
-/obj/item/device/binoculars,
+/obj/item/binoculars,
 /obj/item/clothing/ears/earmuffs,
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
@@ -3347,7 +3347,7 @@
 /area/saniorios_outpost)
 "Yj" = (
 /obj/structure/table/standard,
-/obj/item/device/flashlight/lamp,
+/obj/item/flashlight/lamp,
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},

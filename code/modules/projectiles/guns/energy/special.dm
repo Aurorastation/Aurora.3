@@ -23,7 +23,7 @@
 	projectile_type = /obj/projectile/energy/floramut
 	origin_tech = list(TECH_MATERIAL = 2, TECH_BIO = 3, TECH_POWER = 3)
 	modifystate = "floramut"
-	self_recharge = 1
+	self_recharge = TRUE
 	var/singleton/plantgene/gene = null
 
 	firemodes = list(
@@ -71,10 +71,10 @@
 	w_class = WEIGHT_CLASS_BULKY
 	max_shots = 10
 	projectile_type = /obj/projectile/meteor
-	self_recharge = 1
+	self_recharge = TRUE
 	recharge_time = 5 //Time it takes for shots to recharge (in ticks)
 	charge_meter = 0
-	can_turret = 1
+	can_turret = TRUE
 	turret_sprite_set = "meteor"
 
 /obj/item/gun/energy/meteorgun/pen
@@ -86,41 +86,25 @@
 	item_state = "pen"
 	w_class = WEIGHT_CLASS_TINY
 	slot_flags = SLOT_BELT
-	can_turret = 0
+	can_turret = FALSE
 
 
 /obj/item/gun/energy/mindflayer
 	name = "mind flayer"
 	desc = "A custom-built weapon of some kind."
-	icon = 'icons/obj/guns/xray.dmi'
+	icon = 'icons/obj/guns/faction/nanotrasen_corporation/xray.dmi'
 	icon_state = "xray"
 	item_state = "xray"
 	has_item_ratio = FALSE
 	projectile_type = /obj/projectile/beam/mindflayer
 	fire_sound = 'sound/weapons/laser1.ogg'
-	can_turret = 1
+	can_turret = TRUE
 	turret_sprite_set = "xray"
 
-/obj/item/gun/energy/toxgun
-	name = "phoron pistol"
-	desc = "A specialized firearm designed to fire lethal bolts of phoron."
-	icon = 'icons/obj/guns/toxgun.dmi'
-	icon_state = "toxgun"
-	item_state = "toxgun"
-	has_item_ratio = FALSE
-	fire_sound = 'sound/effects/stealthoff.ogg'
-	w_class = WEIGHT_CLASS_NORMAL
-	origin_tech = list(TECH_COMBAT = 5, TECH_PHORON = 4)
-	projectile_type = /obj/projectile/energy/phoron
-	can_turret = 1
-	turret_is_lethal = 0
-	turret_sprite_set = "net"
-
 /obj/item/gun/energy/mousegun
-	name = "pest gun"
+	name = "\improper Arodentia Pesti-Shock gun"
 	desc = "The NT \"Arodentia\" Pesti-Shock is a highly sophisticated and probably safe beamgun designed for rapid pest-control."
-	desc_antag = "This gun can be emagged to make it fire damaging beams and get more max shots. It doesn't do a lot of damage, but it is concealable."
-	icon = 'icons/obj/guns/pestishock.dmi'
+	icon = 'icons/obj/guns/faction/nanotrasen_corporation/pestishock.dmi'
 	icon_state = "pestishock"
 	item_state = "pestishock"
 	has_item_ratio = FALSE
@@ -133,6 +117,10 @@
 	sel_mode = 1
 	var/emagged = FALSE
 	needspin = FALSE
+
+/obj/item/gun/energy/mousegun/antagonist_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "This gun can be emagged to make it fire damaging beams and get more max shots. It doesn't do a lot of damage, but it is concealable."
 
 /obj/item/gun/energy/mousegun/handle_post_fire(mob/user, atom/target, var/pointblank=0, var/reflex=0, var/playemote = 1)
 	var/T = get_turf(user)
@@ -150,9 +138,9 @@
 		return TRUE
 
 /obj/item/gun/energy/mousegun/xenofauna
-	name = "xenofauna gun"
+	name = "\improper Xenovermino Zap-Blast xenofauna gun"
 	desc = "The NT \"Xenovermino\" Zap-Blast is a highly sophisticated and probably safe beamgun designed to deal with hostile xenofauna."
-	icon = 'icons/obj/guns/xenogun.dmi'
+	icon = 'icons/obj/guns/faction/nanotrasen_corporation/xenogun.dmi'
 	icon_state = "xenogun"
 	item_state = "xenogun"
 	projectile_type = /obj/projectile/beam/mousegun/xenofauna
@@ -171,8 +159,8 @@
 	w_class = WEIGHT_CLASS_NORMAL
 	max_shots = 4
 	fire_delay = 25
-	can_turret = 1
-	turret_is_lethal = 0
+	can_turret = TRUE
+	turret_is_lethal = FALSE
 	turret_sprite_set = "net"
 
 /obj/item/gun/energy/net/mounted
@@ -190,32 +178,13 @@
 	desc = "Vaurcae weapons tend to be specialized and highly lethal. This one doesn't do much"
 	var/is_charging = 0 //special var for sanity checks in the three guns that currently use charging as a special_check
 
-/obj/item/gun/energy/vaurca/bfg
-	name = "BFG 9000"
-	desc = "'Bio-Force Gun'. Yeah, right."
-	icon = 'icons/obj/guns/bfg.dmi'
-	icon_state = "bfg"
-	item_state = "bfg"
-	has_item_ratio = FALSE
-	charge_meter = 0
-	w_class = WEIGHT_CLASS_BULKY
-	fire_sound = 'sound/magic/LightningShock.ogg'
-	force = 33
-	projectile_type = /obj/projectile/energy/bfg
-	slot_flags = SLOT_BACK
-	max_shots = 3
-	sel_mode = 1
-	fire_delay = 10
-	accuracy = 20
-	muzzle_flash = 10
-
 #define GATLINGLASER_DISPERSION_CONCENTRATED list(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
 #define GATLINGLASER_DISPERSION_SPRAY list(0, 5, 5, 10, 10, 15, 15, 20, 20, 25, 25, 25, 30, 30, 35, 40)
 
 /obj/item/gun/energy/vaurca/gatlinglaser
 	name = "gatling laser"
 	desc = "A highly sophisticated rapid fire laser weapon."
-	icon = 'icons/obj/guns/gatling.dmi'
+	icon = 'icons/obj/guns/faction/vaurca_hives/gatling_laser.dmi'
 	icon_state = "gatling"
 	item_state = "gatling"
 	has_item_ratio = FALSE
@@ -271,14 +240,14 @@
 	name = "\improper thermic blaster"
 	desc = "An opulent Vaurceisan pistol, handcrafted for each wielder by the Court of Queen's master weaponsmiths. For those Ta and few notable Warriors who wield it, the Thermic Blaster is as much a badge of office as it is a fiercely deadly weapon."
 	desc_extended = "The Thermic Blaster is a weapon with a history dating back as far as the Vaurcesian Court of Queens, for since its founding, it has forged one of these blasters for every newborn Ta, bestowed as a coming-of-age gift. With every major advancement in technology, the Court's weaponsmiths have gathered together to upgrade the existing batch, resulting in many Thermic Blasters being millennia old, and many Ta add personal flourishes. This iteration of the firearm was developed after the Zo'rane arrival in the Spur and distributed as a celebration for the refounding of the Court of Queens. The Court may occasionally bestow this exceptionally expensive Blaster on an accomplished Warrior, but very few ever leave Vaurca hands and those that do are fiercely prized."
-	icon = 'icons/obj/guns/blaster.dmi'
+	icon = 'icons/obj/guns/faction/vaurca_hives/thermic_blaster.dmi'
 	icon_state = "blaster"
 	item_state = "blaster"
 	has_item_ratio = FALSE
 	origin_tech = list(TECH_COMBAT = 6, TECH_PHORON = 4, TECH_POWER = 4)
 	fire_sound = 'sound/weapons/laser1.ogg'
 	slot_flags = SLOT_BACK | SLOT_HOLSTER | SLOT_BELT
-	self_recharge = 1
+	self_recharge = TRUE
 	recharge_time = 7
 	accuracy = 1
 	recoil = 1
@@ -288,15 +257,15 @@
 	burst = 1
 	burst_delay = 1
 	fire_delay = 5
-	can_turret = 1
+	can_turret = TRUE
 	turret_sprite_set = "laser"
 
 
 /obj/item/gun/energy/vaurca/typec
 	name = "thermal lance"
 	desc = "A powerful piece of Zo'rane energy artillery, converted to be portable...if you weigh a metric tonne, that is."
-	icon = 'icons/obj/guns/megaglaive.dmi'
-	sprite_sheets = list(BODYTYPE_VAURCA_BREEDER = 'icons/obj/guns/megaglaive.dmi')
+	icon = 'icons/obj/guns/faction/vaurca_hives/megaglaive.dmi'
+	sprite_sheets = list(BODYTYPE_VAURCA_BREEDER = 'icons/obj/guns/faction/vaurca_hives/megaglaive.dmi')
 	icon_state = "megaglaive0"
 	item_state = "megaglaive"
 	origin_tech = list(TECH_COMBAT = 6, TECH_PHORON = 8)
@@ -318,7 +287,7 @@
 	armor_penetration = 40
 	atom_flags = ATOM_FLAG_NO_BLOOD
 	can_embed = 0
-	self_recharge = 1
+	self_recharge = TRUE
 	recharge_time = 2
 	needspin = FALSE
 	is_wieldable = TRUE
@@ -458,12 +427,12 @@
 	max_shots = 10
 	accuracy = 1
 	fire_delay = 1
-	can_turret = 0
+	can_turret = FALSE
 
 /obj/item/gun/energy/tesla
-	name = "tesla gun"
+	name = "\improper Elektrotek Model anti-personnel rifle"
 	desc = "A gun that shoots a projectile that bounces from living thing to living thing. Keep your distance from whatever you are shooting at."
-	icon = 'icons/obj/guns/tesla.dmi'
+	icon = 'icons/obj/guns/faction/pra/elektrotek.dmi'
 	icon_state = "tesla"
 	item_state = "tesla"
 	has_item_ratio = FALSE
@@ -481,10 +450,10 @@
 
 /obj/item/gun/energy/tesla/mounted
 	name = "mounted tesla carbine"
-	self_recharge = 1
-	use_external_power = 1
+	self_recharge = TRUE
+	use_external_power = TRUE
 	recharge_time = 10
-	can_turret = 0
+	can_turret = FALSE
 
 /obj/item/gun/energy/gravity_gun
 	name = "gravity gun"
@@ -508,7 +477,7 @@
 /obj/item/laserpack
 	name = "galatean bioelectrical reactor backpack"
 	desc = "An ominously-thrumming backpack-mounted machine, powering an O61 Infantry Laser Rifle."
-	icon = 'icons/obj/guns/galatea_laser.dmi'
+	icon = 'icons/obj/guns/faction/galatean_technocracy/galatea_laser.dmi'
 	icon_state = "laserpack_holstered"
 	item_state = "laserpack_holstered"
 	contained_sprite = 1
@@ -611,12 +580,12 @@
 		return ..()
 
 /obj/item/gun/energy/galatea
-	name = "galatean laser rifle"
+	name = "\improper O61-B laser rifle"
 	desc = "The Galatean O61-B, an export model of their advanced Mark 61 Infantry Rifle."
 	desc_extended = "Galatean soldiers are heavily bioaugmented, combining soldier and weapon into a cohesive unit. The Mark 61 Infantry Rifle is one such example, drawing on the bioelectricity of the human body \
 	through an implant with which to power the gun. Unaugmented users complained of headaches, lethargy, and impossible dreams; The O61B has integrated the bioaugments into the firing mechanism, preventing 'baselines' \
 	from even using it. Luckily, this is an export version, the O61-B, which allows foreign users a taste of advanced Technocracy weaponry for the low price of a single bioaugment."
-	icon = 'icons/obj/guns/galatea_laser.dmi'
+	icon = 'icons/obj/guns/faction/galatean_technocracy/galatea_laser.dmi'
 	icon_state = "galatealaser"
 	item_state = "galatealaser"
 	slot_flags = 0
@@ -629,10 +598,10 @@
 	projectile_type = /obj/projectile/beam/xray // can't wear a hardsuit, and it's only 15 damage with a lot of AP
 	charge_cost = 100
 	max_shots = 20
-	self_recharge = 1 // bioreactor in the backpack; not entirely defenseless against EMPs
+	self_recharge = TRUE // bioreactor in the backpack; not entirely defenseless against EMPs
 	fire_delay = 35
 	burst_delay = 2
-	can_turret = 0
+	can_turret = FALSE
 
 	is_wieldable = TRUE
 

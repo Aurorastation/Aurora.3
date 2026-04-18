@@ -4,7 +4,7 @@
 	desc_extended = "The dNAXS-52 combat hardsuit is designed for the All-Xanu Spacefleet's interstellar infantry. It is specially designed for boarding operations, close quarters combat, and demolitions."
 	suit_type = "dNAXS-52 combat hardsuit"
 	icon_supported_species_tags = null
-	icon = 'icons/clothing/rig/xanu/xanu_rig.dmi'
+	icon = 'icons/obj/item/clothing/rig/xanu/xanu_rig.dmi'
 	icon_state = "xanu_rig"
 	helm_type = /obj/item/clothing/head/helmet/space/rig/combat/xanu
 
@@ -18,11 +18,11 @@
 		RAD = ARMOR_RAD_SMALL,
 	)
 
-	allowed = list(/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/melee/energy/sword,/obj/item/handcuffs)
+	allowed = list(/obj/item/flashlight,/obj/item/tank,/obj/item/suit_cooling_unit,/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/melee/energy/sword,/obj/item/handcuffs)
 	allowed_module_types = MODULE_GENERAL | MODULE_LIGHT_COMBAT | MODULE_HEAVY_COMBAT | MODULE_SPECIAL | MODULE_MEDICAL | MODULE_UTILITY
 
 	siemens_coefficient = 0.2
-	offline_slowdown = 2
+	offline_slowdown = 1
 	offline_vision_restriction = TINT_HEAVY
 
 	species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_IPC, BODYTYPE_IPC_BISHOP, BODYTYPE_IPC_ZENGHU)
@@ -59,7 +59,7 @@
 	suit_type = "dNAXS-26 null hardsuit"
 	desc = "A very lightweight suit designed to allow use inside mechs and starfighters, designed specially for the Xanan spacefleet. It feels like you're wearing nothing at all."
 	desc_extended = "The dNAXS-26 'null' hardsuit was designed by d.N.A Defense at the request of the All-Xanu Spacefleet, for its spaceborne mech and starfighter pilots. Designed with comfort and mobility in mind, this suit allows pilots their full range of motion, while protecting them from minor radiation hazards and the vacuum of space."
-	icon = 'icons/clothing/rig/xanu/xanu_zero_suit.dmi'
+	icon = 'icons/obj/item/clothing/rig/xanu/xanu_zero_suit.dmi'
 	icon_state = "xanu_zero"
 	species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_IPC, BODYTYPE_IPC_BISHOP, BODYTYPE_IPC_ZENGHU)
 	//This suit has no slowdown. These armor values are intentionally terrible as a result.
@@ -69,7 +69,7 @@
 		RAD = ARMOR_RAD_MINOR
 	)
 	slowdown = 0
-	offline_slowdown = 1
+	offline_slowdown = 0.5
 
 	allowed_module_types = MODULE_GENERAL | MODULE_UTILITY
 
@@ -93,7 +93,7 @@
 	breach_threshold = 18
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|FEET|ARMS|HANDS
 	allowed = list(
-		/obj/item/device/flashlight,
+		/obj/item/flashlight,
 		/obj/item/tank,
-		/obj/item/device/suit_cooling_unit
+		/obj/item/suit_cooling_unit
 	)

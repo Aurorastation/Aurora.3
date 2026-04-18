@@ -2,7 +2,7 @@
 	name = "Summon Creature"
 	desc = "Teleports a specific creature from their current location in the universe to the targeted tile, \
 	after a delay. The creature summoned can be chosen by using the ability in your hand. \
-	Available creatures are; mice, crabs, parrots, bats, goats, cats, corgis, spiders, and space carp. \
+	Available creatures are; mice, crabs, parrots, bats, goats, cats, corgis, snakes, spiders, and space carp. \
 	The creatures take a few moments to be teleported to the targeted tile. Note that the creatures summoned are \
 	not inherently loyal to the technomancer, and that the creatures will be hurt slightly from being teleported to you."
 	enhancement_desc = "Summoned entities will never harm their summoner."
@@ -27,6 +27,7 @@
 		"Cat"					=	/mob/living/simple_animal/cat,
 		"Corgi"					=	/mob/living/simple_animal/corgi,
 		"Corgi Pup"				=	/mob/living/simple_animal/corgi/puppy,
+		"Snake"					=	/mob/living/simple_animal/snake,
 		"BAT"					=	/mob/living/simple_animal/hostile/scarybat,
 		"GREIMORIAN"			=	/mob/living/simple_animal/hostile/giant_spider,
 		"GREIMORIAN HUNTER"		=	/mob/living/simple_animal/hostile/giant_spider/hunter,
@@ -46,7 +47,7 @@
 			H.friends += owner
 
 	// Makes their new pal big and strong, if they have spell power.
-	summoned.maxHealth = calculate_spell_power(summoned.maxHealth)
+	summoned.maxhealth = calculate_spell_power(summoned.maxhealth)
 	summoned.health = calculate_spell_power(summoned.health)
 	summoned.melee_damage_lower = calculate_spell_power(summoned.melee_damage_lower)
 	summoned.melee_damage_upper = calculate_spell_power(summoned.melee_damage_upper)

@@ -72,7 +72,8 @@ GLOBAL_LIST_INIT_TYPED(cleanbot_types, /obj/effect/decal/cleanable, typesof(/obj
 	listener = new /obj/cleanbot_listener(src)
 	listener.cleanbot = src
 
-	GLOB.janitorial_supplies |= src
+	if(is_station_turf(get_turf(src)))
+		GLOB.janitorial_supplies |= src
 
 	SSradio.add_object(listener, beacon_freq, filter = RADIO_NAVBEACONS)
 
@@ -86,7 +87,8 @@ GLOBAL_LIST_INIT_TYPED(cleanbot_types, /obj/effect/decal/cleanable, typesof(/obj
 	QDEL_NULL(listener)
 	SSradio.remove_object(listener, beacon_freq)
 
-	GLOB.janitorial_supplies -= src
+	if(src in GLOB.janitorial_supplies)
+		GLOB.janitorial_supplies -= src
 	return ..()
 
 /mob/living/bot/cleanbot/proc/handle_target()
@@ -305,7 +307,7 @@ GLOBAL_LIST_INIT_TYPED(cleanbot_types, /obj/effect/decal/cleanable, typesof(/obj
 	visible_message(SPAN_WARNING("[src] blows apart!"))
 	var/turf/T = get_turf(src)
 	new /obj/item/reagent_containers/glass/bucket(T)
-	new /obj/item/device/assembly/prox_sensor(T)
+	new /obj/item/assembly/prox_sensor(T)
 	if(prob(50))
 		new /obj/item/robot_parts/l_arm(T)
 	spark(src, 3, GLOB.alldirs)
@@ -504,7 +506,7 @@ GLOBAL_LIST_INIT_TYPED(cleanbot_types, /obj/effect/decal/cleanable, typesof(/obj
 		A.name = created_name
 		to_chat(user, SPAN_NOTICE("You add the robot arm to the bucket and sensor assembly. Beep boop!"))
 		qdel(src)
-	else if(attacking_item.ispen())
+	else if(attacking_item.tool_behaviour == TOOL_PEN)
 		var/t = sanitizeSafe( tgui_input_text(user, "Enter new robot name", name, created_name, MAX_NAME_LEN), MAX_NAME_LEN )
 		if(!t)
 			return

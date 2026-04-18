@@ -8,7 +8,7 @@
 	name = "animal"
 	icon = 'icons/mob/npc/animal.dmi'
 	health = 20
-	maxHealth = 20
+	maxhealth = 20
 
 	mob_bump_flag = SIMPLE_ANIMAL
 	mob_swap_flags = MONKEY|SLIME|SIMPLE_ANIMAL
@@ -26,13 +26,15 @@
 	/// We only try to show a gibbing animation if this exists
 	var/icon_gib = null
 
-	appearance_flags = KEEP_TOGETHER
+	appearance_flags = KEEP_TOGETHER | DEFAULT_APPEARANCE_FLAGS | TILE_BOUND | LONG_GLIDE
 
 	/// Blood colour for impact visuals
 	var/blood_type = COLOR_HUMAN_BLOOD
 	var/blood_overlay_icon = 'icons/mob/npc/blood_overlay.dmi'
 	var/blood_state = BLOOD_NONE
 	var/image/blood_overlay
+	/// If true, `handle_blood()` will run without handling blood overlays. Useful for the cases if Byond unable to handle overlay shenanigans happening in your mob.
+	var/bypass_blood_overlay = FALSE
 
 	/// If the animal is bleeding.
 	var/bleeding = FALSE
@@ -116,10 +118,11 @@
 	//LETTING SIMPLE ANIMALS ATTACK? WHAT COULD GO WRONG. Defaults to zero so Ian can still be cuddly
 	var/melee_damage_lower = 0
 	var/melee_damage_upper = 0
+	var/melee_reach = 1
 	var/armor_penetration = 0
 	var/attack_flags = 0
-	var/attacktext = "attacked"
-	var/attack_sound = /singleton/sound_category/swing_hit_sound
+	var/attacktext = "attacks"
+	var/attack_sound = SFX_SWING_HIT
 	var/friendly = "nuzzles"
 	var/environment_smash = 0
 	/// Damage reduction
@@ -222,9 +225,9 @@
 	. = ..()
 	seek_move_delay = (1 / seek_speed) * 10	//number of ds between moves
 	turns_since_scan = rand(min_scan_interval, max_scan_interval)//Randomise this at the start so animals don't sync up
-	health = maxHealth
+	health = maxhealth
 	remove_verb(src, /mob/verb/observe)
-	health = maxHealth
+	health = maxhealth
 	if (mob_size)
 		update_nutrition_stats()
 		reagents = new/datum/reagents(stomach_size_mult*mob_size, src)
@@ -248,13 +251,23 @@
 
 /mob/living/simple_animal/Destroy()
 	CutOverlays(blood_overlay)
-	movement_target = null
+	QDEL_NULL(blood_overlay)
+	lostMovementTarget()
 	QDEL_NULL(udder)
 
 	. = ..()
-	GC_TEMPORARY_HARDDEL
+
+/mob/living/simple_animal/proc/lostMovementTarget()
+	if(movement_target)
+		UnregisterSignal(movement_target, COMSIG_QDELETING)
+		movement_target = null
 
 /mob/living/simple_animal/Move(NewLoc, direct)
+	// this is a janky way to prevent mobs wandering into chasms, but allows them to be thrown into it by someone else if the mob is dead
+	if(ischasm(NewLoc))
+		var/obj/structure/lattice/L = locate(/obj/structure/lattice) in NewLoc
+		if(!L && stat != DEAD)
+			return
 	. = ..()
 	if(.)
 		if(src.nutrition && src.stat != DEAD && hunger_enabled)
@@ -280,9 +293,9 @@
 	. = ..()
 	if (stat == DEAD)
 		. += SPAN_DANGER("It looks dead.")
-	if (health < maxHealth * 0.5)
+	if (health < maxhealth * 0.5)
 		. += SPAN_DANGER("It looks badly wounded.")
-	else if (health < maxHealth)
+	else if (health < maxhealth)
 		. += SPAN_WARNING("It looks wounded.")
 
 /mob/living/simple_animal/can_name(var/mob/living/M)
@@ -302,8 +315,8 @@
 	//Health
 	updatehealth()
 
-	if(health > maxHealth)
-		health = maxHealth
+	if(health > maxhealth)
+		health = maxhealth
 
 	handle_blood()
 	handle_stunned()
@@ -430,14 +443,14 @@
 		purge -= 1
 
 /mob/living/simple_animal/proc/handle_blood(var/force_reset = FALSE)
-	if(!blood_overlay_icon)
+	if(!blood_overlay_icon && !bypass_blood_overlay)
 		return
 
 	if(blood_amount <= 0 && stat != DEAD)
 		death()
 
 	var/current_blood_state = blood_state
-	var/blood_mod = health / maxHealth
+	var/blood_mod = health / maxhealth
 	if(blood_mod > 0.9)
 		blood_state = BLOOD_NONE
 	else if(blood_mod >= 0.7)
@@ -459,7 +472,7 @@
 				blood_splatter(src, null, TRUE, sourceless_color = blood_type)
 				blood_amount -= 3
 
-	if(force_reset || current_blood_state != blood_state)
+	if((force_reset || current_blood_state != blood_state) && !bypass_blood_overlay)
 		if(blood_overlay)
 			CutOverlays(blood_overlay)
 		if(blood_state == BLOOD_NONE)
@@ -520,7 +533,7 @@
 	if (!hunger_enabled || nutrition > max_nutrition * 0.9)
 		return 0//full
 
-	else if ((nutrition > max_nutrition * 0.8) || health < maxHealth)
+	else if ((nutrition > max_nutrition * 0.8) || health < maxhealth)
 		return 1//content
 
 	else return 2//hungry
@@ -621,7 +634,7 @@
 	if(istype(attacking_item, /obj/item/saddle) && vehicle_version && (stat != DEAD))
 		var/obj/vehicle/V = new vehicle_version (get_turf(src))
 		V.health = health
-		V.maxhealth = maxHealth
+		V.maxhealth = maxhealth
 		to_chat(user, SPAN_WARNING("You place \the [attacking_item] on the \the [src]."))
 		user.drop_from_inventory(attacking_item)
 		attacking_item.forceMove(get_turf(src))
@@ -705,7 +718,7 @@
 	if(ismob(hitting_projectile.firer))
 		handle_attack_by(hitting_projectile.firer)
 
-/mob/living/simple_animal/apply_damage(damage = 0, damagetype = DAMAGE_BRUTE, def_zone, blocked, used_weapon, damage_flags = 0, armor_pen, silent = FALSE)
+/mob/living/simple_animal/apply_damage(damage = 0, damagetype = DAMAGE_BRUTE, def_zone, used_weapon, damage_flags = 0, armor_pen, silent = FALSE)
 	. = ..()
 	handle_bleeding_timer(damage)
 	handle_blood()
@@ -746,11 +759,11 @@
 /mob/living/simple_animal/cat/proc/handle_movement_target()
 	//if our target is neither inside a turf or inside a human(???), stop
 	if((movement_target) && !(isturf(movement_target.loc) || ishuman(movement_target.loc) ))
-		movement_target = null
+		lostMovementTarget()
 		stop_automated_movement = 0
 	//if we have no target or our current one is out of sight/too far away
 	if( !movement_target || !(movement_target.loc in oview(src, 4)) )
-		movement_target = null
+		lostMovementTarget()
 		stop_automated_movement = 0
 
 	if(movement_target)
@@ -761,7 +774,7 @@
 	. = ..()
 
 	if(show_stat_health)
-		. += "Health: [round((health / maxHealth) * 100)]%"
+		. += "Health: [round((health / maxhealth) * 100)]%"
 		. += "Nutrition: [nutrition]/[max_nutrition]"
 
 /mob/living/simple_animal/updatehealth()
@@ -771,8 +784,8 @@
 
 /mob/living/simple_animal/death(gibbed, deathmessage = "dies!")
 	GLOB.move_manager.stop_looping(src)
-	movement_target = null
-	density = FALSE
+	lostMovementTarget()
+	ADD_TRAIT(src, TRAIT_UNDENSE, TRAIT_SOURCE_MOB_DEATH)
 	if (isopenturf(loc))
 		ADD_FALLING_ATOM(src)
 	. = ..(gibbed, deathmessage)
@@ -835,7 +848,7 @@
 /mob/living/simple_animal/verb/change_name()
 	set name = "Name Animal"
 	set desc = "Rename an animal."
-	set category = "IC"
+	set category = "IC.Critters"
 	set src in view(1)
 
 	var/mob/living/carbon/M = usr
@@ -937,7 +950,7 @@
 		canmove = 0
 		wander = 0
 		GLOB.move_manager.stop_looping(src)
-		movement_target = null
+		lostMovementTarget()
 		update_icon()
 
 /// Wakes the mob up from sleeping
@@ -968,12 +981,14 @@
 
 	to_chat(src, SPAN_NOTICE("You are now [resting ? "resting" : "getting up"]."))
 
+	SEND_SIGNAL(src, COMSIG_MOB_RESTED)
+
 	update_icon()
 
 //Todo: add snowflakey shit to it.
 /mob/living/simple_animal/electrocute_act(var/shock_damage, var/obj/source, var/base_siemens_coeff = 1.0, var/def_zone = null, var/tesla_shock = 0, var/ground_zero)
 	apply_damage(shock_damage, DAMAGE_BURN)
-	playsound(loc, /singleton/sound_category/spark_sound, 50, 1, -1)
+	playsound(loc, SFX_SPARKS, 50, 1, -1)
 	spark(loc, 5, GLOB.alldirs)
 	visible_message(SPAN_WARNING("\The [src] was shocked by \the [source]!"), SPAN_WARNING("You are shocked by \the [source]!"), SPAN_WARNING("You hear an electrical crack!"))
 
@@ -1024,6 +1039,44 @@
 				var/matrix/M = new()
 				B.transform = M.Scale(scale)
 				B.update_icon()
+
+
+/mob/living/simple_animal/handle_fire(seconds_per_tick)
+	if(..())
+		return
+
+	var/burn_temperature = fire_burn_temperature()
+	var/thermal_protection = get_heat_protection()
+
+	if (thermal_protection < 1 && bodytemperature < burn_temperature)
+		bodytemperature += round(BODYTEMP_HEATING_MAX*(1-thermal_protection) * 20 * seconds_per_tick, 1)
+
+	burn_temperature -= maxbodytemp
+
+	if(burn_temperature < 1)
+		return
+
+	adjustBruteLoss(log(10, (burn_temperature + 10)))
+
+/mob/living/simple_animal/update_fire()
+	. = ..()
+	var/image/upper_fire_overlay = image("icon" = 'icons/mob/burning/burning_generic.dmi', "icon_state" = "upper", layer = MOB_UPPER_FIRE_OVERLAY)
+	var/image/upper_fire_emissive = emissive_appearance("icon" = 'icons/mob/burning/burning_generic.dmi', "icon_state" = "upper", layer = MOB_UPPER_FIRE_OVERLAY)
+	var/image/lower_fire_overlay = image("icon" = 'icons/mob/burning/burning_generic.dmi', "icon_state" = "lower", layer = MOB_LOWER_FIRE_OVERLAY)
+	var/image/lower_fire_emissive = emissive_appearance("icon" = 'icons/mob/burning/burning_generic.dmi', "icon_state" = "lower", layer = MOB_LOWER_FIRE_OVERLAY)
+	CutOverlays(upper_fire_overlay)
+	CutOverlays(upper_fire_emissive)
+	CutOverlays(lower_fire_overlay)
+	CutOverlays(lower_fire_emissive)
+	if(on_fire)
+		AddOverlays(upper_fire_overlay)
+		AddOverlays(upper_fire_emissive)
+		AddOverlays(lower_fire_overlay)
+		AddOverlays(lower_fire_emissive)
+		throw_alert(ALERT_FIRE, /atom/movable/screen/alert/fire)
+	else
+		clear_alert(ALERT_FIRE)
+
 
 /mob/living/simple_animal/get_resist_power()
 	return resist_mod
@@ -1078,6 +1131,16 @@
 /mob/living/simple_animal/proc/derez()
 	visible_message(SPAN_NOTICE("\The [src] fades away!"))
 	qdel(src)
+
+//Taken from /obj/item/proc/attack_can_reach
+/mob/living/simple_animal/proc/attack_can_reach(var/atom/us, var/atom/them, var/range)
+	if(us.Adjacent(them))
+		return TRUE // Already adjacent.
+	else if(range <= 1)
+		return FALSE
+	if(AStar(get_turf(us), get_turf(them), /turf/proc/AdjacentTurfsRanged, /turf/proc/Distance, max_nodes=25, max_node_depth=range))
+		return TRUE
+	return FALSE
 
 #undef BLOOD_NONE
 #undef BLOOD_LIGHT

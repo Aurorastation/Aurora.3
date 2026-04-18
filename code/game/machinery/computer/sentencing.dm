@@ -135,7 +135,7 @@
 	. += "<th>Fine:</th>"
 	. += "<td><a href='byond://?src=[REF(src)];button=change_fine;'>"
 	if( incident.fine )
-		. += "[incident.fine] Credits"
+		. += "[incident.fine]电"
 		// . += "</a></td>"
 		//
 		// . += "</tr><tr>"
@@ -517,7 +517,7 @@
 		if( "change_fine" )
 			if( !incident )
 				return
-			var/number = tgui_input_number(usr, "Enter a number between [incident.getMinFine()] and [incident.getMaxFine()] credits.", "Fine", 0, incident.getMaxFine(), incident.getMinFine())
+			var/number = tgui_input_number(usr, "Enter a number between [incident.getMinFine()] and [incident.getMaxFine()]电.", "Fine", 0, incident.getMaxFine(), incident.getMinFine())
 			if( number < incident.getMinFine() )
 				to_chat(usr, SPAN_ALERT("The entered sentence was less than the minimum sentence!"))
 			else if( number > incident.getMaxFine() )

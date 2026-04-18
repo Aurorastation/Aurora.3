@@ -8,8 +8,8 @@ export enum WINDOW_SIZES {
 
 /** Line lengths for autoexpand */
 export enum LINE_LENGTHS {
-  small = 38,
-  medium = 76,
+  small = 54,
+  medium = 108,
 }
 
 /**
@@ -34,4 +34,5 @@ export const RADIO_PREFIXES = {
   ':f ': 'Uncom',
   ':q ': 'Pen',
   ':t ': 'Merc',
+  ':d ': 'Exped',
 } as const;

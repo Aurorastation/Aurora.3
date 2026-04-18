@@ -92,15 +92,11 @@
 
 	return null
 
-/obj/machinery/atmospherics/unary/proc/is_welded()
+/obj/machinery/atmospherics/proc/is_welded()
 	return FALSE
 
 /obj/machinery/atmospherics/unary/vent_pump/is_welded()
-	if (welded > 0)
-		return TRUE
-	return FALSE
+	return welded
 
 /obj/machinery/atmospherics/unary/vent_scrubber/is_welded()
-	if (welded > 0)
-		return TRUE
-	return FALSE
+	return welded

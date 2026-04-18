@@ -33,7 +33,7 @@
 		BIO = ARMOR_BIO_SHIELDED,
 		RAD = ARMOR_RAD_SHIELDED
 	)
-	allowed = list(/obj/item/device/flashlight,/obj/item/tank,/obj/item/storage/bag/ore,/obj/item/device/t_scanner,/obj/item/pickaxe, /obj/item/rfd/construction)
+	allowed = list(/obj/item/flashlight,/obj/item/tank,/obj/item/storage/bag/ore,/obj/item/t_scanner,/obj/item/pickaxe, /obj/item/rfd/construction)
 	heat_protection = UPPER_TORSO|LOWER_TORSO|LEGS|FEET|ARMS|HANDS
 	max_heat_protection_temperature = SPACE_SUIT_MAX_HEAT_PROTECTION_TEMPERATURE
 	species_restricted = list(BODYTYPE_SKRELL,BODYTYPE_HUMAN)
@@ -51,7 +51,7 @@
 /obj/item/clothing/suit/space/void/kala
 	name = "qukala voidsuit"
 	desc = "A sleek skrell voidsuit that slightly shimmers as it moves. This one has a Nralakk Federation emblem on it."
-	icon = 'icons/clothing/kit/skrell_armor.dmi'
+	icon = 'icons/obj/item/clothing/suit/space/void/skrell_armor.dmi'
 	icon_state = "kala_suit"
 	item_state = "kala_suit"
 	contained_sprite = TRUE
@@ -70,7 +70,7 @@
 /obj/item/clothing/head/helmet/space/void/kala
 	name = "qukala voidsuit helmet"
 	desc = "A sleek skrell voidsuit helmet that slightly shimmers as it moves. This one has a Nralakk Federation emblem on it."
-	icon = 'icons/clothing/kit/skrell_armor.dmi'
+	icon = 'icons/obj/item/clothing/head/space/void/kala_helmets.dmi'
 	icon_state = "kala_helm"
 	item_state = "kala_helm"
 	contained_sprite = TRUE

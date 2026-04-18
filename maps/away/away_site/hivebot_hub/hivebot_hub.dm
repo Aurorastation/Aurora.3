@@ -8,6 +8,7 @@
 	suffix = "hivebot_hub.dmm"
 
 	sectors = ALL_POSSIBLE_SECTORS
+	sectors_blacklist = list(ALL_UNCHARTED_SECTORS)
 	spawn_weight = 1
 	spawn_cost = 1
 
@@ -40,7 +41,6 @@
 /area/hivebothub
 	icon_state = "red"
 	requires_power = TRUE
-	dynamic_lighting = TRUE
 	no_light_control = FALSE
 	base_turf = /turf/space
 	area_flags = AREA_FLAG_RAD_SHIELDED
@@ -119,7 +119,7 @@
 /mob/living/simple_animal/hostile/hivebotbeacon/weakened
 	name = "dilapidated hivebot beacon"
 	desc = "An odd and primitive looking machine. It emanates of strange and powerful energies. It bears no manufacturer markings of any kind. This one appears to have been badly damaged."
-	maxHealth = 100
+	maxhealth = 100
 	health = 100
 
 /obj/item/paper/hivebot_hub/diary

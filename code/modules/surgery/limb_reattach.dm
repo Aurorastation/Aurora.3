@@ -52,9 +52,9 @@
 /singleton/surgery_step/limb/connect
 	name = "Connect Limb"
 	allowed_tools = list(
-	/obj/item/surgery/hemostat = 100,	\
-	/obj/item/stack/cable_coil = 75, 	\
-	/obj/item/device/assembly/mousetrap = 20
+	TOOL_HEMOSTAT = 100,	\
+	TOOL_CABLECOIL = 75, 	\
+	/obj/item/assembly/mousetrap = 20
 	)
 	can_infect = TRUE
 

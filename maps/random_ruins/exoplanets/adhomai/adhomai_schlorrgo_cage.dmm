@@ -53,7 +53,7 @@
 /obj/item/cell/super,
 /obj/item/stock_parts/capacitor/adv,
 /obj/item/stock_parts/micro_laser/high,
-/obj/item/device/flashlight/lamp{
+/obj/item/flashlight/lamp{
 	pixel_y = 9
 	},
 /obj/structure/sign/flag/pra{
@@ -85,7 +85,7 @@
 /area/adhomai_schlorrgo_cage)
 "k" = (
 /obj/item/shovel,
-/obj/item/device/flashlight/lantern{
+/obj/item/flashlight/lantern{
 	pixel_y = 5;
 	pixel_x = 8
 	},
@@ -291,7 +291,7 @@
 /obj/item/cell/super,
 /obj/item/stock_parts/manipulator/nano,
 /obj/item/stock_parts/scanning_module/adv,
-/obj/item/device/flashlight/lamp{
+/obj/item/flashlight/lamp{
 	pixel_y = 9
 	},
 /obj/structure/sign/flag/pra{

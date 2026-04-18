@@ -125,10 +125,10 @@
 	var/rank = "Unassigned"
 	var/age = 0
 	var/sex = "Unknown"
+	var/species = "Unknown"
 	var/fingerprint = "Unknown"
 	var/physical_status = "Active"
 	var/mental_status = "Stable"
-	var/species = "Unknown"
 	var/citizenship = "Unknown"
 	var/employer = "Unknown"
 	var/religion = "Unknown"
@@ -138,7 +138,7 @@
 	var/icon/photo_side
 	var/datum/record/medical/medical
 	var/datum/record/security/security
-	var/list/advanced_fields = list("species", "citizenship", "employer", "religion", "ccia_record", "ccia_actions")
+	var/list/advanced_fields = list("citizenship", "employer", "religion", "ccia_record", "ccia_actions")
 	cmp_field = "name"
 	excluded_fields = list("photo_front", "photo_side", "advanced_fields", "real_rank")
 	excluded_print_fields = list("ccia_actions")
@@ -147,11 +147,11 @@
 	..()
 	if (!H)
 		var/mob/living/carbon/human/dummy/mannequin/dummy = SSmobs.get_mannequin("New record")
-		photo_front = getFlatIcon(dummy, SOUTH)
-		photo_side = getFlatIcon(dummy, WEST)
+		photo_front = getFlatIcon(dummy, SOUTH, no_anim = TRUE)
+		photo_side = getFlatIcon(dummy, WEST, no_anim = TRUE)
 	else
-		photo_front = getFlatIcon(H, SOUTH)
-		photo_side = getFlatIcon(H, WEST)
+		photo_front = getFlatIcon(H, SOUTH, no_anim = TRUE)
+		photo_side = getFlatIcon(H, WEST, no_anim = TRUE)
 	if(!nid)
 		nid = generate_record_id()
 	id = nid
@@ -195,9 +195,6 @@
 /datum/record/medical
 	var/blood_type = "AB+"
 	var/blood_dna = "63920c3ec24b5d57d459b33a2f4d6446"
-	var/disabilities = "No disabilities have been declared."
-	var/allergies = "No allergies have been detected in this patient."
-	var/diseases = "No diseases have been diagnosed at the moment."
 	var/list/comments = list()
 
 /datum/record/medical/New(var/mob/living/carbon/human/H, var/nid)
@@ -210,6 +207,7 @@
 		blood_dna = H.dna.unique_enzymes
 		if(H.med_record && !jobban_isbanned(H, "Records"))
 			notes = H.med_record
+		else notes = "No history has been reported yet."
 
 // Record for storing security data
 /datum/record/security

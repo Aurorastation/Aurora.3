@@ -71,6 +71,7 @@ However, if you want finer control over the installation or build process, you w
 - `tools/build/build tgui-clean` - Clean up tgui folder.
 
 > With Juke Build, you can run multiple targets together, e.g.:
+>
 > ```
 > tools/build/build tgui tgui-lint tgui-tsc tgui-test
 > ```
@@ -137,7 +138,7 @@ Press `F12` or click the green bug to open the KitchenSink interface. This inter
 playground to test various tgui components.
 
 **Layout Debugger.**
-Press `F11` to toggle the *layout debugger*. It will show outlines of
+Press `F11` to toggle the _layout debugger_. It will show outlines of
 all tgui elements, which makes it easy to understand how everything comes
 together, and can reveal certain layout bugs which are not normally visible.
 

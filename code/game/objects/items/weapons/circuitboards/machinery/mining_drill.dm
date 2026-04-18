@@ -1,7 +1,3 @@
-#ifndef T_BOARD
-#error T_BOARD macro is not defined but we need it!
-#endif
-
 /obj/item/circuitboard/miningdrill
 	name = T_BOARD("mining drill head")
 	build_path = /obj/machinery/mining/drill

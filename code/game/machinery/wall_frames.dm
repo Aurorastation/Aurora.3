@@ -8,8 +8,13 @@
 	var/refund_amt = 2
 	var/refund_type = /obj/item/stack/material/steel
 
+/obj/item/frame/assembly_hints()
+	. = list()
+	. += ..()
+	. += "It could be installed by using it on an adjacent <b>wall</b>."
+
 /obj/item/frame/attackby(obj/item/attacking_item, mob/user)
-	if (attacking_item.iswrench())
+	if (attacking_item.tool_behaviour == TOOL_WRENCH)
 		new refund_type( get_turf(src.loc), refund_amt)
 		qdel(src)
 		return TRUE

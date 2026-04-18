@@ -36,12 +36,12 @@
 /datum/design/item/mining/kinetic_analyzer
 	req_tech = list(TECH_MATERIAL = 1, TECH_ENGINEERING = 1)
 	materials = list(DEFAULT_WALL_MATERIAL = 4000)
-	build_path = /obj/item/device/kinetic_analyzer
+	build_path = /obj/item/kinetic_analyzer
 
 /datum/design/item/mining/pick_set
 	req_tech = list(TECH_ENGINEERING = 2, TECH_MATERIAL = 2)
 	materials = list(DEFAULT_WALL_MATERIAL = 1700, MATERIAL_GLASS = 200)
-	build_path = /obj/item/storage/box/excavation
+	build_path = /obj/item/storage/box/unique/excavation
 
 //Frames
 /datum/design/item/mining/ka_frame01

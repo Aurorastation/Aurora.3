@@ -19,8 +19,8 @@
 	siemens_coefficient = pick(0, 0.1, 0.3, 0.5, 0.5, 0.75, 1.35)
 
 /obj/item/clothing/gloves/black
+	name = "work gloves"
 	desc = "These work gloves are thick and fire-resistant."
-	name = "black gloves"
 	icon_state = "black"
 	item_state = "black"
 	siemens_coefficient = 0.50
@@ -101,8 +101,8 @@
 	species_restricted = list(BODYTYPE_UNATHI)
 
 /obj/item/clothing/gloves/black/unathi
-	name = "black gloves"
-	desc = "Black gloves made for Unathi use."
+	name = "unathi work gloves"
+	desc = "These work gloves are thick and fire-resistant. These are made for Unathi use."
 	species_restricted = list(BODYTYPE_UNATHI)
 
 //more snowflake gloves for the custom loadout
@@ -174,8 +174,8 @@
 	item_state = "black_leather"
 
 /obj/item/clothing/gloves/black_leather/unathi
-	name = "black leather gloves"
-	desc = "Black leather gloves made for Unathi use."
+	name = "black unathi leather gloves"
+	desc = "A pair of tight-fitting synthleather gloves made for Unathi use."
 	species_restricted = list(BODYTYPE_UNATHI)
 
 /obj/item/clothing/gloves/black_leather/colour
@@ -210,17 +210,10 @@
 	item_state = "full_leather_colour"
 	species_restricted = list("exclude",BODYTYPE_GOLEM,BODYTYPE_VAURCA_BREEDER,BODYTYPE_VAURCA_WARFORM)
 
-/obj/item/clothing/gloves/zeng
-	name = "zeng-hu vinyl gloves"
-	desc = "A key design element in the labwear was utility and compatibility with the Zeng-Hu positronic chassis workers that are ubiquitous throughout the corporation. \
-	As a result they are breathable yet non-porous, allowing for ample airflow while retaining the cleanroom standards expected of a medical and scientific uniform."
-	icon_state = "zeng_gloves"
-	item_state = "zeng_gloves"
-
 /obj/item/clothing/gloves/kala
 	name = "skrell gloves"
 	desc = "A sleek pair of gloves! They seem to be retaining moisture."
-	icon = 'icons/clothing/kit/skrell_armor.dmi'
+	icon = 'icons/obj/item/clothing/gloves/kala_gloves.dmi'
 	icon_state = "kala_gloves"
 	item_state = "kala_gloves"
 	contained_sprite = TRUE

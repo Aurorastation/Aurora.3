@@ -21,7 +21,8 @@
 
 /obj/item/spell/spawner/darkness/New()
 	..()
-	set_light(6, -20, l_color = "#FFFFFF")
+	set_light_range_power_color(6, -20, "#FFFFFF")
+	set_light_on(TRUE)
 
 /obj/effect/temporary_effect/darkness
 	name = "darkness"

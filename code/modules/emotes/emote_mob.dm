@@ -5,14 +5,14 @@
 	return (..() && !(silent && emote_type == AUDIBLE_MESSAGE))
 
 /mob/verb/custom_audible_emote()
-	set name = "Audible Emote"
+	set name = "Emote (Audible)"
 	set category = "IC"
 	set desc = "Type in an emote message that will be received by mobs that can hear you."
 
 	custom_emote(m_type = AUDIBLE_MESSAGE, message = sanitize(input(src,"Choose an emote to display.") as text|null))
 
 /mob/verb/custom_visible_emote()
-	set name = "Visible Emote"
+	set name = "Emote (Visible)"
 	set category = "IC"
 	set desc = "Type in an emote message that will be received by mobs that can see you."
 
@@ -149,7 +149,6 @@
 	return pretext + nametext + subtext
 
 /mob/proc/custom_emote(var/m_type = VISIBLE_MESSAGE, var/message = null, var/do_show_observers = TRUE)
-
 	if((usr && stat) || (!use_me && usr == src))
 		to_chat(src, "You are unable to emote.")
 		return
@@ -157,27 +156,21 @@
 	if(!message)
 		return
 
-	var/animated_chat_message = message
-
-	message = format_emote(src, message)
-
 	if (message)
 		log_emote("[name]/[key] : [message]")
 
 	message = process_chat_markup(message, list("~", "_"))
+	var/langchat_message = message
+	message = format_emote(src, message)
+	var/list/emote_viewers = list()
 	if(m_type == VISIBLE_MESSAGE)
 		visible_message(message, show_observers = do_show_observers)
+		emote_viewers = viewers(world.view, src)
 	else
 		audible_message(message, ghost_hearing = do_show_observers)
+		emote_viewers = get_hearers_in_LOS(world.view, src)
 
-	var/list/hearers = get_hearers_in_view(7, src)
-	var/list/hear_clients = list()
-	for(var/mob/M in hearers)
-		if(M.client)
-			hear_clients |= M.client
-
-	animated_chat_message = SPAN_COLOR("#f3ef09", "*") + animated_chat_message
-	animate_chat(animated_chat_message, null, TRUE, hear_clients, 30)
+	langchat_speech(langchat_message, emote_viewers, GLOB.all_languages, skip_language_check = TRUE, additional_styles = list("emote", "langchat_small"))
 
 // Specific mob type exceptions below.
 /mob/living/silicon/ai/emote(var/act, var/type, var/message)

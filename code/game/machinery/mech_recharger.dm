@@ -22,6 +22,12 @@
 		/obj/item/stock_parts/manipulator = 2
 	)
 
+/obj/machinery/mech_recharger/upgrade_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Upgraded <b>capacitors</b> will increase charging rate."
+	. += "Upgraded <b>scanning modules</b> will increase both charging rate and repair speed."
+	. += "Upgraded <b>manipulators</b> will increase repair speed."
+
 /obj/machinery/mech_recharger/Initialize(mapload)
 	. = ..()
 
@@ -103,7 +109,7 @@
 
 // An ugly proc, but apparently mechs don't have maxhealth var of any kind.
 /obj/machinery/mech_recharger/proc/fully_repaired()
-	return charging && (charging.health == charging.maxHealth)
+	return charging && (charging.health == charging.maxhealth)
 
 /obj/machinery/mech_recharger/proc/start_charging(var/mob/living/heavy_vehicle/M)
 	var/no_power = FALSE

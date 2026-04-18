@@ -35,7 +35,8 @@ export const SuspensionGenerator = (props, context) => {
                   tooltip="Cannot be enabled while unanchored."
                   onClick={() => act('togglefield')}
                 />
-              }>
+              }
+            >
               <ProgressBar
                 ranges={{
                   good: [75, 100],
@@ -44,7 +45,8 @@ export const SuspensionGenerator = (props, context) => {
                 }}
                 value={data.charge}
                 minValue={0}
-                maxValue={100}>
+                maxValue={100}
+              >
                 {data.charge}%
               </ProgressBar>
             </LabeledList.Item>

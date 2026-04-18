@@ -5,6 +5,10 @@
 	icon_state = "bee_pack"
 	var/full = TRUE
 
+/obj/item/bee_pack/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Insert this into a beehive with an open lid to populate it with bees."
+
 /obj/item/bee_pack/Initialize()
 	. = ..()
 	AddOverlays("bee_pack-full")

@@ -36,7 +36,8 @@ export const pAIDoorjack = (props, context) => {
                   <ProgressBar
                     value={data.progress}
                     maxValue={1000}
-                    minValue={0}>
+                    minValue={0}
+                  >
                     {data.progress / 10}%
                   </ProgressBar>{' '}
                   <Button content="Cancel" onClick={() => act('cancel')} />

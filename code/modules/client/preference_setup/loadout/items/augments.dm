@@ -14,6 +14,7 @@
 	path = /obj/item/organ/internal/augment/eye_sensors
 	cost = 1
 	whitelisted = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD, SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI, SPECIES_UNATHI, SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_IPC, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU, SPECIES_IPC_BISHOP, SPECIES_IPC_SHELL, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_ATTENDANT)
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
 
 /datum/gear/augment/eye_sensors/New()
 	..()
@@ -27,6 +28,7 @@
 	description = "A hair augment that allows the user to change the shape and color of their hair."
 	path = /obj/item/organ/internal/augment/cyber_hair
 	whitelisted = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD, SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI, SPECIES_IPC_SHELL)
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
 
 /datum/gear/augment/synthetic_cords
 	display_name = "synthetic vocal cords selection"
@@ -34,6 +36,7 @@
 	path = /obj/item/organ/internal/augment/synthetic_cords
 	whitelisted = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD, SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI, SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_ATTENDANT, SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_BREEDER, SPECIES_UNATHI)
 	cost = 1
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
 
 /datum/gear/augment/synthetic_cords/New()
 	..()
@@ -47,6 +50,7 @@
 	description = "An augment that allows the user to deploy a robotic combitool."
 	path = /obj/item/organ/internal/augment/tool/combitool
 	cost = 5
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
 
 /datum/gear/augment/combitool/New()
 	..()
@@ -60,6 +64,7 @@
 	description = "An augment that allows the user to project a lighter out of their fingertip."
 	path = /obj/item/organ/internal/augment/tool/combitool/lighter
 	cost = 2
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
 
 /datum/gear/augment/lighter/New()
 	..()
@@ -73,6 +78,7 @@
 	description = "An augment that allows the user to deploy a retractable pen."
 	path = /obj/item/organ/internal/augment/tool/pen
 	cost = 1
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
 
 /datum/gear/augment/pen/New()
 	..()
@@ -86,6 +92,7 @@
 	description = "An augment that allows the user to deploy a retractable crayon."
 	path = /obj/item/organ/internal/augment/tool/crayon
 	cost = 1
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
 
 /datum/gear/augment/crayon/New()
 	..()
@@ -100,6 +107,7 @@
 	path = /obj/item/organ/internal/augment/cochlear
 	whitelisted = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD, SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI, SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_IPC, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU, SPECIES_IPC_BISHOP, SPECIES_IPC_SHELL, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_ATTENDANT, SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_BREEDER, SPECIES_UNATHI)
 	cost = 1
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
 
 /datum/gear/augment/analyzer
 	display_name = "retractable cyborg analyzer"
@@ -107,6 +115,7 @@
 	path = /obj/item/organ/internal/augment/tool/cyborg_analyzer
 	allowed_roles = list("Machinist", "Operations Personnel")
 	cost = 3
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
 
 /datum/gear/augment/analyzer/New()
 	..()
@@ -120,6 +129,7 @@
 	description = "An augment that allows the user scan their own health condition."
 	path = /obj/item/organ/internal/augment/health_scanner
 	cost = 3
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
 
 /datum/gear/augment/suspension
 	display_name = "calf suspension"
@@ -127,12 +137,14 @@
 	path = /obj/item/organ/internal/augment/suspension
 	cost = 4
 	whitelisted = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD, SPECIES_TAJARA_ZHAN, SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_IPC, SPECIES_IPC_XION, SPECIES_IPC_BISHOP, SPECIES_IPC_SHELL, SPECIES_VAURCA_WORKER, SPECIES_UNATHI)
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
 
 /datum/gear/augment/taste_boosters
 	display_name = "taste booster selection"
 	description = "A selection of augments that modify the user's taste sensitivity."
 	path = /obj/item/organ/internal/augment/taste_booster
 	whitelisted = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD, SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI, SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_IPC, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU, SPECIES_IPC_BISHOP, SPECIES_IPC_SHELL, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_ATTENDANT, SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_BREEDER, SPECIES_UNATHI)
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
 
 /datum/gear/augment/taste_boosters/New()
 	..()
@@ -146,12 +158,14 @@
 	description = "An augment that allows the user to synthetize welding fuel into nutrients."
 	path = /obj/item/organ/internal/augment/fuel_cell
 	cost = 2
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
 
 /datum/gear/augment/psiaug
 	display_name = "psionic receiver"
 	description = "An augment installed into the head that functions as a surrogate for a missing zona bovinae, also functioning as a filter for the psionically-challenged."
-	path = /obj/item/organ/internal/augment/psi
-	whitelisted = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD, SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI, SPECIES_UNATHI, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_ATTENDANT, SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_BREEDER, SPECIES_IPC, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU, SPECIES_IPC_BISHOP, SPECIES_IPC_SHELL)
+	path = /obj/item/organ/internal/augment/bioaug/psi
+	whitelisted = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD, SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI, SPECIES_UNATHI, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_ATTENDANT, SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_BREEDER)
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
 
 /datum/gear/augment/memory_inhibitor
 	display_name = "memory inhibitor"
@@ -179,12 +193,17 @@
 	allowed_roles = list("Physician", "Surgeon", "Chief Medical Officer", "Pharmacist", "Paramedic", "Psychiatrist", "Medical Intern", "Corporate Liaison", "Research Director","Scientist", "Xenobiologist", "Xenobotanist", "Xenoarchaeologist", "Research Intern", "Assistant", "Off-Duty Crew Member", "Corporate Reporter", "Captain", "Bridge Crew", "Medical Personnel", "Science Personnel")
 
 /datum/gear/augment/sightlights
-	display_name = "ocular installed sightlights"
-	description = "Designed to assist Zeng-Hu medical personnel in darker areas or places experiencing periodic power issues, Sightlights will allow one to be able to use their eyes as a flashlight."
+	display_name = "offbrand ocular sightlights"
+	description = "Designed to assist personnel in darker areas or places experiencing periodic power issues, sightlights allow one to use their eyes as a flashlight. Later SCC-mediated negotiation loosened the augment's patent restrictions, allowing offbrand manufacture and use of lesser models by other members of the Chainlink."
 	path = /obj/item/organ/internal/augment/sightlights
+	cost = 3
+
+/datum/gear/augment/sightlights/zenghu
+	display_name = "Zeng-Hu ocular sightlights"
+	description = "Designed to assist Zeng-Hu medical personnel in darker areas or places experiencing periodic power issues, Sightlights allow one to use their eyes as a flashlight. These are the original high-spec models available exclusively through Zeng-Hu."
+	path = /obj/item/organ/internal/augment/sightlights/zenghu
 	whitelisted = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_ATTENDANT, SPECIES_VAURCA_BULWARK, SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_IPC, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU, SPECIES_IPC_BISHOP, SPECIES_IPC_SHELL)
 	faction = "Zeng-Hu Pharmaceuticals"
-	cost = 3
 	allowed_roles = list("Physician", "Surgeon", "Chief Medical Officer", "Pharmacist", "Paramedic", "Psychiatrist", "Medical Intern", "Corporate Liaison", "Research Director","Scientist", "Xenobiologist", "Xenobotanist", "Xenoarchaeologist", "Research Intern", "Assistant", "Off-Duty Crew Member", "Corporate Reporter", "Captain", "Bridge Crew", "Medical Personnel", "Science Personnel")
 
 /datum/gear/augment/zenghu_mask
@@ -206,13 +225,15 @@
 	display_name = "retractable corrective lenses"
 	description = "A set of corrective lenses that can be deployed & retracted."
 	path = /obj/item/organ/internal/augment/tool/correctivelens
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
 
 /datum/gear/augment/glare_dampeners
 	display_name = "retractable glare dampeners"
 	description = "A subdermal implant installed just above the brow line that deploys a thin sheath of hyperpolycarbonate that protects from eye damage associated with arc flash."
 	path = /obj/item/organ/internal/augment/tool/correctivelens/glare_dampener
-	allowed_roles = list("Chief Engineer", "Engineer", "Atmospheric Technician", "Engineering Apprentice", "Machinist", "Engineering Personnel", "Operations Personnel")
+	allowed_roles = list("Chief Engineer", "Ship Engineer", "Atmospheric Technician", "Engineering Apprentice", "Machinist", "Engineering Personnel", "Operations Personnel")
 	cost = 2
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
 
 /datum/gear/augment/drill
 	display_name = "integrated drill"
@@ -221,6 +242,7 @@
 	whitelisted = list(SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION, SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_WORKER)
 	allowed_roles = list("Shaft Miner", "Operations Personnel")
 	cost = 5
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
 
 /datum/gear/augment/head_fluff
 	display_name = "custom head augmentation"
@@ -276,3 +298,82 @@
 	faction = "Private Military Contracting Group"
 	cost = 4
 	allowed_roles = list("Physician", "Surgeon", "Pharmacist", "Paramedic", "Psychiatrist", "Medical Intern", "Medical Personnel", "Security Officer", "Warden", "Security Cadet", "Investigator", "Security Personnel", "Corporate Liaison", "Assistant", "Off-Duty Crew Member", "Corporate Reporter", "Bridge Crew")
+
+/datum/gear/augment/auxiliary_heart
+	display_name = "Auxiliary Heart"
+	description = "Primarily intended for soldiers and the elderly, the auxiliary heart is a small secondary heart implanted below the original. Should the original heart shut down, the secondary heart will activate, keeping the user alive until the original can be restarted or replaced."
+	path = /obj/item/organ/internal/augment/bioaug/auxiliary_heart
+	origin_restriction = list(/singleton/origin_item/origin/galatea)
+	whitelisted = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD)
+	cost = 2
+
+/datum/gear/augment/boosted_heart
+	display_name = "Boosted Heart"
+	description = "Intended for athletes, some workers, and soldiers, this improved heart increases blood flow and circulation. It provides an improvement to blood oxygenation and stamina, at the cost of requiring more food and water. Outside of Galatea, this augment is popular among professional athletes."
+	path = /obj/item/organ/internal/heart/boosted_heart
+	origin_restriction = list(/singleton/origin_item/origin/galatea)
+	whitelisted = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD)
+	cost = 3
+
+/datum/gear/augment/boosted_liver
+	display_name = "Boosted Liver"
+	description = "Designed primarily for diplomats or Galateans abroad, the boosted liver improves toxin filtering, giving a resistance to toxin damage. As a consequence, it makes it impossible for the user to get drunk."
+	path = /obj/item/organ/internal/liver/boosted_liver
+	origin_restriction = list(/singleton/origin_item/origin/galatea)
+	whitelisted = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD)
+	cost = 2
+
+/datum/gear/augment/gravity_adaptations
+	display_name = "Gravity Adaptations"
+	description = "A suite of chemical glands, tailored genetic therapies, and skeletal reinforcements that are aimed towards Galatean Off-worlders. These bioaugmentations serve to eliminate the weakness experienced by Off-worlders in standard terrestrial gravity."
+	path = /obj/item/organ/internal/augment/bioaug/gravity_adaptations
+	origin_restriction = list(/singleton/origin_item/origin/galatea)
+	whitelisted = list(SPECIES_HUMAN_OFFWORLD)
+	cost = 1
+
+/datum/gear/augment/mind_blanker
+	display_name = "ZHP-MSv3 Mind Blanker"
+	description = "An experimental cranial augmentation based on Galatean bio-engineering and now offered by Zeng-Hu Pharmaceuticals for select consumers. Also known as the Mindshield v3 or \"Mind Blanker\". " \
+		+ "It consists of a small, discrete organ attached near the base of the brainstem. The mind blanker generates interfering 'anti-signals' in response to incoming psychic signals, effectively blocking the user from being telepathically contacted. " \
+		+ "Zeng-Hu marketing pitches these radical bioaugs as a peace of mind solution for explorers traveling into the Lemurian Sea, while ignoring or downplaying any concerns of possible deleterious side effects."
+	path = /obj/item/organ/internal/augment/bioaug/mind_blanker
+	whitelisted = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD, SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI, SPECIES_UNATHI)
+	cost = 2
+
+/datum/gear/augment/mind_blanker_lethal
+	display_name = "Galatean Mind Blanker (Lethal)"
+	description = "Available only to higher-up MfAS agents and members of the Galatean government. This enhanced variant of a mind blanker introduces a psionic trap which inflicts severe neural damage on anyone attempting to read the user's mind."
+	path = /obj/item/organ/internal/augment/bioaug/mind_blanker_lethal
+	origin_restriction = list(/singleton/origin_item/origin/galatea)
+	whitelisted = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD)
+	cost = 4
+	allowed_roles = list("Consular Officer")
+
+/datum/gear/augment/bio_head_fluff
+	display_name = "custom head bioaug"
+	description = "A fluff based bioaug that can be renamed/redescribed to appear as something else for RP purposes."
+	path = /obj/item/organ/internal/augment/bioaug/head_fluff
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
+	whitelisted = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD, SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_DIONA, SPECIES_DIONA_COEUS, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_ATTENDANT, SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_BREEDER, SPECIES_UNATHI)
+
+
+/datum/gear/augment/bio_chest_fluff
+	display_name = "custom chest bioaug"
+	description = "A fluff based bioaug that can be renamed/redescribed to appear as something else for RP purposes."
+	path = /obj/item/organ/internal/augment/bioaug/head_fluff/chest_fluff
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
+	whitelisted = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD, SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_DIONA, SPECIES_DIONA_COEUS, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_ATTENDANT, SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_BREEDER, SPECIES_UNATHI)
+
+/datum/gear/augment/bio_rhand_fluff
+	display_name = "custom right hand bioaug"
+	description = "A fluff based bioaug that can be renamed/redescribed to appear as something else for RP purposes."
+	path = /obj/item/organ/internal/augment/bioaug/head_fluff/rhand_fluff
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
+	whitelisted = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD, SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_DIONA, SPECIES_DIONA_COEUS, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_ATTENDANT, SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_BREEDER, SPECIES_UNATHI)
+
+/datum/gear/augment/bio_lhand_fluff
+	display_name = "custom left hand bioaug"
+	description = "A fluff based bioaug that can be renamed/redescribed to appear as something else for RP purposes."
+	path = /obj/item/organ/internal/augment/bioaug/head_fluff/lhand_fluff
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
+	whitelisted = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD, SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_DIONA, SPECIES_DIONA_COEUS, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_ATTENDANT, SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_BREEDER, SPECIES_UNATHI)

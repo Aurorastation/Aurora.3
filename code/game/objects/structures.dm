@@ -4,10 +4,10 @@
 	layer = STRUCTURE_LAYER
 	blocks_emissive = EMISSIVE_BLOCK_GENERIC
 	pass_flags_self = PASSSTRUCTURE
+	should_use_health = TRUE
 
 	var/material_alteration = MATERIAL_ALTERATION_ALL // Overrides for material shit. Set them manually if you don't want colors etc. See wood chairs/office chairs.
 	var/climbable
-	var/breakable
 	var/parts
 	var/list/climbers
 	var/list/footstep_sound	//footstep sounds when stepped on
@@ -37,18 +37,26 @@
 		QUEUE_SMOOTH_NEIGHBORS(src)
 
 	climbers = null
-
+	material = null
 	return ..()
 
+/obj/structure/attackby(obj/item/attacking_item, mob/user, params)
+	. = ..()
+	if(user?.a_intent == I_HURT && maxhealth)
+		user.do_attack_animation(src)
+		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
+		add_damage(attacking_item.force, attacking_item.damage_flags(), attacking_item.damtype, attacking_item.armor_penetration, attacking_item)
+		if(hitsound)
+			playsound(user, hitsound, attacking_item.get_clamped_volume())
+
 /obj/structure/attack_hand(mob/living/user)
-	if(breakable)
-		if((user.mutations & HULK) && !(user.isSynthetic()) && !(isvaurca(user)))
-			user.say(pick(";RAAAAAAAARGH!", ";HNNNNNNNNNGGGGGGH!", ";GWAAAAAAAARRRHHH!", "NNNNNNNNGGGGGGGGHH!", ";AAAAAAARRRGH!" ))
-			attack_generic(user,1,"smashes")
-		else if(istype(user,/mob/living/carbon/human))
-			var/mob/living/carbon/human/H = user
-			if(H.species.can_shred(user))
-				attack_generic(user,1,"slices")
+	if((user.mutations & HULK) && !(user.isSynthetic()) && !(isvaurca(user)))
+		user.say(pick("RAAAAAAAARGH!!!", "HNNNNNNNNNGGGGGGH!!!", "GWAAAAAAAARRRHHH!!!", "NNNNNNNNGGGGGGGGHH!!!", "AAAAAAARRRGH!!!" ))
+		attack_generic(user, 25, "smashes")
+	else if(istype(user,/mob/living/carbon/human))
+		var/mob/living/carbon/human/H = user
+		if(H.species.can_shred(user))
+			attack_generic(user, 25, "slices")
 
 	if(LAZYLEN(climbers) && !(user in climbers))
 		user.visible_message(SPAN_WARNING("[user] shakes \the [src]."), \
@@ -75,6 +83,8 @@
 		dismantle_material = SSmaterials.get_material_by_name(DEFAULT_WALL_MATERIAL) //if there is no defined material, it will use steel
 	else
 		dismantle_material = get_material()
+	if(should_use_health && health <= 0)
+		build_amt /= rand(2, 4) //if the structure is destroyed by damage, it will yield less materials
 	for(var/i = 1 to build_amt)
 		dismantle_material.place_sheet(loc)
 	qdel(src)
@@ -88,8 +98,8 @@
 
 /obj/structure/proc/climb_on()
 
-	set name = "Climb structure"
-	set desc = "Climbs onto a structure."
+	set name = "Climb Structure"
+	set desc = "Climbs onto a structure. Shortcut middle-mouse click."
 	set category = "Object"
 	set src in oview(1)
 
@@ -103,28 +113,24 @@
 	return FALSE
 
 /obj/structure/mouse_drop_receive(atom/dropped, mob/user, params)
-
 	var/mob/living/H = user
 	if(istype(H) && can_climb(H) && dropped == user)
 		do_climb(dropped)
-	else
-		return ..()
+	return ..()
 
 /obj/structure/proc/can_climb(var/mob/living/user, post_climb_check=0)
 	if (!climbable)
-		to_chat(user, SPAN_WARNING("\The [src] cannot be climbed!"))
 		return FALSE
 
 	if (!can_touch(user) || (!post_climb_check && (user in climbers)))
 		return FALSE
 
 	if (!user.Adjacent(src))
-		to_chat(user, SPAN_WARNING("You must be next to \the [src] to climb it."))
 		return FALSE
 
 	var/obj/occupied = turf_is_crowded()
 	if(occupied)
-		to_chat(user, SPAN_WARNING("There's \a [occupied] in the way."))
+		to_chat(user, SPAN_WARNING("There's \a [occupied] in the way of climbing this."))
 		return FALSE
 	return TRUE
 
@@ -145,7 +151,7 @@
 
 /obj/structure/proc/do_climb(var/mob/living/user)
 	if (!can_climb(user))
-		return
+		return FALSE
 
 	user.visible_message(SPAN_WARNING("[user] starts [atom_flags & ATOM_FLAG_CHECKS_BORDER ? "leaping over" : "climbing onto"] \the [src]!"))
 	LAZYADD(climbers, user)
@@ -231,13 +237,8 @@
 		return 0
 	return 1
 
-/obj/structure/attack_generic(var/mob/user, var/damage, var/attack_verb, var/wallbreaker)
-	if(!breakable || !damage || !wallbreaker)
-		return 0
-	visible_message(SPAN_DANGER("[user] [attack_verb] the [src] apart!"))
-	user.do_attack_animation(src)
-	qdel(src)
-	return 1
+/obj/structure/on_death(damage, damage_flags, damage_type, armor_penetration, obj/weapon)
+	dismantle()
 
 /obj/structure/get_material()
 	return material

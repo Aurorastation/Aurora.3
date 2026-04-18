@@ -3,13 +3,17 @@
 /obj/item/evidencebag
 	name = "evidence bag"
 	desc = "An empty evidence bag."
-	desc_info = "Click drag this onto an object to put it inside. Click it in-hand to remove an object from it."
 	icon = 'icons/obj/forensics.dmi'
 	icon_state = "evidenceobj"
 	item_state = ""
 	w_class = WEIGHT_CLASS_SMALL
 	var/obj/item/stored_item = null
 	var/label_text = ""
+
+/obj/item/evidencebag/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Click drag this onto an object to put it inside."
+	. += "Click it in-hand to remove an object from it."
 
 /obj/item/evidencebag/Initialize()
 	. = ..()
@@ -101,7 +105,7 @@
 		examinate(user, stored_item, show_extended)
 
 /obj/item/evidencebag/attackby(obj/item/attacking_item, mob/user)
-	if(attacking_item.ispen() || istype(attacking_item, /obj/item/device/flashlight/pen))
+	if(attacking_item.tool_behaviour == TOOL_PEN || istype(attacking_item, /obj/item/flashlight/pen))
 		var/tmp_label = sanitizeSafe( tgui_input_text(user, "Enter a label for [name]", "Label", label_text, MAX_NAME_LEN), MAX_NAME_LEN )
 		if(length(tmp_label) > MAX_NAME_LEN)
 			to_chat(user, SPAN_NOTICE("The label can be at most [MAX_NAME_LEN] characters long."))

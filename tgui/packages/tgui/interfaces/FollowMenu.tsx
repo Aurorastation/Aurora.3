@@ -21,7 +21,7 @@ export const FollowMenu = (props, context) => {
   const [searchTerm, setSearchTerm] = useLocalState<string>(
     context,
     `searchTerm`,
-    ``
+    ``,
   );
 
   return (
@@ -30,18 +30,22 @@ export const FollowMenu = (props, context) => {
         <Section
           title="Follow Menu"
           buttons={
-            <Input
-              autoFocus
-              autoSelect
-              placeholder="Search by name"
-              width="40vw"
-              maxLength={512}
-              onInput={(e, value) => {
-                setSearchTerm(value);
-              }}
-              value={searchTerm}
-            />
-          }>
+            <>
+              <Input
+                autoFocus
+                autoSelect
+                placeholder="Search by name"
+                width="40vw"
+                maxLength={512}
+                onInput={(e, value) => {
+                  setSearchTerm(value);
+                }}
+                value={searchTerm}
+              />
+              <Button content="Refresh" onClick={() => act('refresh')} />
+            </>
+          }
+        >
           {data.categories.sort().map((category) => (
             <Section title="" key={category}>
               <Collapsible open={1} title={category}>
@@ -53,7 +57,7 @@ export const FollowMenu = (props, context) => {
                         ghost.name
                           .toLowerCase()
                           .indexOf(searchTerm.toLowerCase()) > -1 &&
-                        category === ghost.category
+                        category === ghost.category,
                     )
                     .map((ghost) => (
                       <Button

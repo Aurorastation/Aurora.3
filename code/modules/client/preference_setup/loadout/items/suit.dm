@@ -42,9 +42,6 @@
 	jackets["flannel jacket, grey"] = /obj/item/clothing/suit/storage/toggle/flannel/gray
 	jackets["flannel jacket, purple"] = /obj/item/clothing/suit/storage/toggle/flannel/purple
 	jackets["flannel jacket, yellow"] = /obj/item/clothing/suit/storage/toggle/flannel/yellow
-	jackets["high visibility jacket"] = /obj/item/clothing/suit/storage/toggle/highvis
-	jackets["high visibility jacket, alt"] = /obj/item/clothing/suit/storage/toggle/highvis_alt
-	jackets["high visibility jacket, red"] = /obj/item/clothing/suit/storage/toggle/highvis_red
 	jackets["black vest"] = /obj/item/clothing/suit/storage/toggle/leather_vest
 	jackets["brown vest"] = /obj/item/clothing/suit/storage/toggle/brown_jacket/sleeveless
 	jackets["leather coat"] = /obj/item/clothing/suit/storage/leathercoat
@@ -55,6 +52,7 @@
 
 /datum/gear/suit/hazard_vest
 	display_name = "hazard vest selection"
+	description = "A selection of hazard vests."
 	path = /obj/item/clothing/suit/storage/hazardvest
 
 /datum/gear/suit/hazard_vest/New()
@@ -69,6 +67,38 @@
 	hazard["hazard vest, idris teal"] = /obj/item/clothing/suit/storage/hazardvest/teal
 	hazard["hazard vest, hephaestus green"] = /obj/item/clothing/suit/storage/hazardvest/green
 	gear_tweaks += new /datum/gear_tweak/path(hazard)
+
+/datum/gear/suit/hazard_vest_colorable
+	display_name = "colorable hazard vest selection"
+	description = "A selection of colorable hazard vests."
+	path = /obj/item/clothing/suit/storage/hazardvest/colorable
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION | GEAR_HAS_ACCENT_COLOR_SELECTION
+
+/datum/gear/suit/hazard_vest_colorable/New()
+	..()
+	var/list/hazard_vest = list()
+	hazard_vest["colorable hazard vest"] = /obj/item/clothing/suit/storage/hazardvest/colorable
+	hazard_vest["colorable hazard vest, alt"] = /obj/item/clothing/suit/storage/hazardvest/colorable/alt
+	gear_tweaks += new /datum/gear_tweak/path(hazard_vest)
+
+/datum/gear/suit/highvis
+	display_name = "high visibility jacket selection"
+	description = "A selection of high visibility jackets."
+	path = /obj/item/clothing/suit/storage/toggle/highvis
+
+/datum/gear/suit/highvis/New()
+	..()
+	var/list/highvis = list()
+	highvis["high visibility jacket"] = /obj/item/clothing/suit/storage/toggle/highvis
+	highvis["high visibility jacket, alt"] = /obj/item/clothing/suit/storage/toggle/highvis/alt
+	highvis["high visibility jacket, red"] = /obj/item/clothing/suit/storage/toggle/highvis/red
+	highvis["high visibility jacket, orange"] = /obj/item/clothing/suit/storage/toggle/highvis/orange
+	gear_tweaks += new /datum/gear_tweak/path(highvis)
+
+/datum/gear/suit/highvis_colorable
+	display_name = "colorable high visibility jacket"
+	path = /obj/item/clothing/suit/storage/toggle/highvis/colorable
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION | GEAR_HAS_ACCENT_COLOR_SELECTION
 
 /datum/gear/suit/hoodie
 	display_name = "hoodie selection"
@@ -319,6 +349,7 @@
 /datum/gear/suit/dominia_cape
 	display_name = "dominian cape"
 	path = /obj/item/clothing/accessory/poncho/dominia_cape
+	slot = slot_in_backpack
 	flags = GEAR_HAS_DESC_SELECTION
 	culture_restriction = list(/singleton/origin_item/culture/dominia, /singleton/origin_item/culture/dominian_unathi)
 
@@ -345,6 +376,7 @@
 /datum/gear/suit/dominia_cape_colorable
 	display_name = "dominian cape selection, colorable"
 	path = /obj/item/clothing/accessory/poncho/dominia_cape/colorable
+	slot = slot_in_backpack
 	flags = GEAR_HAS_DESC_SELECTION | GEAR_HAS_ACCENT_COLOR_SELECTION
 	description = "A black or white Dominian cape with a colorable stripe that can be used to represent either a generic cape or a Minor House."
 	culture_restriction = list(/singleton/origin_item/culture/dominia, /singleton/origin_item/culture/dominian_unathi)
@@ -358,7 +390,8 @@
 
 /datum/gear/suit/dominia_medical_cape
 	display_name = "tribunalist medical cape"
-	path = /obj/item/clothing/accessory/poncho/dominia_cape/hospital
+	path = /obj/item/clothing/accessory/poncho/dominia_cape/tribunalist/medical
+	slot = slot_in_backpack
 	flags = GEAR_HAS_DESC_SELECTION
 	allowed_roles = list("Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "Paramedic", "Medical Intern")
 	culture_restriction = list(/singleton/origin_item/culture/dominia, /singleton/origin_item/culture/dominian_unathi)
@@ -379,21 +412,6 @@
 	coat["dominian great coat, red"] = /obj/item/clothing/suit/storage/dominia
 	coat["dominian great coat, gold"] = /obj/item/clothing/suit/storage/dominia/gold
 	coat["dominian great coat, black"] = /obj/item/clothing/suit/storage/dominia/black
-	gear_tweaks += new /datum/gear_tweak/path(coat)
-
-/datum/gear/suit/dominia_consular
-	display_name = "dominian consular officer coat selection"
-	description = "A selection of coats belonging to the Diplomatic Service."
-	path = /obj/item/clothing/suit/storage/dominia/consular
-	allowed_roles = list("Consular Officer")
-	flags = GEAR_HAS_DESC_SELECTION
-	culture_restriction = list(/singleton/origin_item/culture/dominia, /singleton/origin_item/culture/dominian_unathi)
-
-/datum/gear/suit/dominia_consular/New()
-	..()
-	var/list/coat = list()
-	coat["dominian consular's greatcoat"] = /obj/item/clothing/suit/storage/dominia/consular
-	coat["dominian consular's coat"] = /obj/item/clothing/suit/storage/dominia/consular/coat
 	gear_tweaks += new /datum/gear_tweak/path(coat)
 
 /datum/gear/suit/fisanduhian_bomber
@@ -642,15 +660,3 @@ ABSTRACT_TYPE(/datum/gear/suit/miscellaneous)
 	description = "A heavy threaded tweed gray jacket. For a different sort of Gentleman."
 	path = /obj/item/clothing/suit/storage/toggle/wizrobe/gentlecoat
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
-
-/datum/gear/suit/hazard_vest_colorable
-	display_name = "colorable hazard vest selection"
-	path = /obj/item/clothing/suit/storage/hazardvest/colorable
-	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION | GEAR_HAS_ACCENT_COLOR_SELECTION
-
-/datum/gear/suit/hazard_vest_colorable/New()
-	..()
-	var/list/hazard_vest = list()
-	hazard_vest["colorable hazard vest"] = /obj/item/clothing/suit/storage/hazardvest/colorable
-	hazard_vest["colorable hazard vest, alt"] = /obj/item/clothing/suit/storage/hazardvest/colorable/alt
-	gear_tweaks += new /datum/gear_tweak/path(hazard_vest)

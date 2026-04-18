@@ -38,7 +38,7 @@
 	back = /obj/item/storage/backpack/satchel
 	id = /obj/item/card/id
 	l_pocket = /obj/item/storage/wallet/random
-	l_ear = /obj/item/device/radio/headset/ship
+	l_ear = /obj/item/radio/headset/ship
 
 /obj/outfit/admin/konyang/civ
 	name = "Konyanger Civilian"

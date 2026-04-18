@@ -92,7 +92,9 @@ Quick adjacency (to turf):
 		return TRUE
 	return FALSE
 
-// This is necessary for storage items not on your person.
+/**
+ * This is necessary for storage items not on your person.
+ */
 /obj/item/Adjacent(atom/neighbor, atom/target, atom/movable/mover, recurse = 1)
 	if(neighbor == loc)
 		return TRUE
@@ -111,7 +113,7 @@ Quick adjacency (to turf):
 */
 /turf/proc/ClickCross(target_dir, border_only, target, atom/movable/mover)
 	for(var/obj/O in src)
-		if((mover && O.CanPass(mover, target_dir)) || (!mover && !O.density))
+		if((mover && O.CanPass(mover, target)) || (!mover && !O.density))
 			continue
 
 		//If there's a dense object on the turf, only allow the click to pass if you can throw items over it or it has a special flag.
@@ -131,7 +133,8 @@ Quick adjacency (to turf):
 				return FALSE
 				/*** END AURORA SNOWFLAKE CODE ***/
 
-		else if(!border_only) // dense, not on border, cannot pass over
+		// Dense, not on border, cannot pass over
+		else if(!border_only)
 			return FALSE
 
 	return TRUE

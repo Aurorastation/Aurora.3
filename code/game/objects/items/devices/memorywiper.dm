@@ -1,8 +1,6 @@
-
-/obj/item/device/memorywiper
+/obj/item/memorywiper
 	name = "portable memory wiper"
 	desc = "Inset into a sturdy pelican case, this computer holds the software and wiring necessary to wipe and factory reset any IPC."
-	desc_info = "You can alt-click the laptop while it's set down on surface to open it up and work with it. Left clicking while it is open will allow you to operate it."
 	icon = 'icons/obj/memorywiper.dmi'
 	icon_state = "portable_memorywiper"
 	item_state = "portable_memorywiper"
@@ -14,14 +12,18 @@
 	var/datum/progressbar/wipe_bar
 	var/wipe_start_time = 0
 
-/obj/item/device/memorywiper/Destroy()
+/obj/item/memorywiper/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "ALT-click the device while it's set down on a surface to open or close it."
+	. += "Left-click on it while it is open to operate it."
+
+/obj/item/memorywiper/Destroy()
 	if(attached)
 		attached = null
 	wiping = FALSE
 	return ..()
 
-
-/obj/item/device/memorywiper/AltClick()
+/obj/item/memorywiper/AltClick()
 	if(use_check(usr))
 		return
 	if(!isturf(loc))
@@ -33,7 +35,7 @@
 	playsound(src.loc, 'sound/items/storage/briefcase.ogg', 50, 1, -5)
 	update_icon()
 
-/obj/item/device/memorywiper/update_icon()
+/obj/item/memorywiper/update_icon()
 	ClearOverlays()
 	if(anchored)
 		icon_state = "[initial(icon_state)]_opened"
@@ -44,7 +46,7 @@
 	else
 		icon_state = initial(icon_state)
 
-/obj/item/device/memorywiper/mouse_drop_dragged(atom/over, mob/user, src_location, over_location, params)
+/obj/item/memorywiper/mouse_drop_dragged(atom/over, mob/user, src_location, over_location, params)
 	..()
 	if(use_check_and_message(usr))
 		return
@@ -66,11 +68,11 @@
 					plug(over)
 					visible_message("[usr] plugs \the [src] into \the [attached]'s maintenance port.")
 
-/obj/item/device/memorywiper/attack_hand(user as mob)
+/obj/item/memorywiper/attack_hand(user as mob)
 	if(attached)
 		to_chat(user, SPAN_NOTICE("You initialize the memory wipe protocols. This procedure will take approximately 30 seconds."))
 		to_chat(attached, SPAN_WARNING("The computer hums to life and you feel your memories bleed away into nothingness."))
-		playsound(src.loc, /singleton/sound_category/keyboard_sound, 30, TRUE)
+		playsound(src.loc, SFX_KEYBOARD, 30, TRUE)
 		wiping = TRUE
 		update_icon()
 		if(wipe_bar)
@@ -87,7 +89,7 @@
 	if(..())
 		return
 
-/obj/item/device/memorywiper/proc/memorywipe()
+/obj/item/memorywiper/proc/memorywipe()
 	if(attached && wiping)
 		visible_message(SPAN_NOTICE("\The [src] pings, \"Memory wipe protocols complete.\""))
 		playsound(src.loc, 'sound/machines/ping.ogg', 50, 0)
@@ -97,14 +99,14 @@
 			if("Ghost")
 				attached.ghostize(0)
 
-/obj/item/device/memorywiper/process()
+/obj/item/memorywiper/process()
 	if(attached)
 		if(!attached.Adjacent(src))
 			attached.visible_message(SPAN_WARNING("The cable rips out of [attached]'s maintenace port."), SPAN_DANGER("\The [src]'s cable rips out of your maintenace port."))
 			unplug()
 			return
 
-/obj/item/device/memorywiper/proc/unplug()
+/obj/item/memorywiper/proc/unplug()
 	if(wiping)
 		visible_message(SPAN_WARNING("\The [src]'s screen flashes, \"ERROR : IPC NOT FOUND, TERMINATING PROTOCOL.\""))
 		playsound(src.loc, 'sound/machines/buzz-sigh.ogg', 50, TRUE)
@@ -114,7 +116,7 @@
 	STOP_PROCESSING(SSprocessing, src)
 	update_icon()
 
-/obj/item/device/memorywiper/proc/plug(over_object)
+/obj/item/memorywiper/proc/plug(over_object)
 	playsound(src.loc, 'sound/weapons/click.ogg', 25, 1)
 	attached = over_object
 	START_PROCESSING(SSprocessing, src)

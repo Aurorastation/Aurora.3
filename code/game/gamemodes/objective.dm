@@ -286,7 +286,7 @@ GLOBAL_LIST_EMPTY(process_objectives)
 				var/turf/T = get_turf(player)
 				if(!T)
 					continue
-				if(istype(T.loc.type, /area/shuttle/escape) || istype(T.loc.type, /area/shuttle/escape_pod))
+				if(istype(T.loc.type, /area/shuttle/escape) || istype(T.loc.type, /area/horizon/shuttle/escape_pod))
 					return 0
 	return 1
 
@@ -311,7 +311,7 @@ GLOBAL_LIST_EMPTY(process_objectives)
 	var/area/check_area = location.loc
 	if(istype(check_area, /area/shuttle/escape))
 		return 1
-	if(istype(check_area, /area/shuttle/escape_pod))
+	if(istype(check_area, /area/horizon/shuttle/escape_pod))
 		return 1
 	else
 		return 0
@@ -526,7 +526,7 @@ GLOBAL_LIST_EMPTY(process_objectives)
 					var/area/check_area = get_area(ai)
 					if(istype(check_area, /area/shuttle/escape))
 						return 1
-					if(istype(check_area, /area/shuttle/escape_pod))
+					if(istype(check_area, /area/horizon/shuttle/escape_pod))
 						return 1
 		else
 
@@ -627,7 +627,7 @@ GLOBAL_LIST_EMPTY(process_objectives)
 /datum/objective/heist/kidnap
 
 /datum/objective/heist/kidnap/choose_target()
-	var/list/roles = list("Chief Engineer","Research Director","Machinist","Pharmacist","Engineer")
+	var/list/roles = list("Chief Engineer","Research Director","Machinist","Pharmacist","Ship Engineer")
 	var/list/possible_targets = list()
 	var/list/priority_targets = list()
 
@@ -694,7 +694,7 @@ GLOBAL_LIST_EMPTY(process_objectives)
 			target_amount = 4
 			loot = "four energy guns"
 		if(7)
-			target = /obj/item/gun/energy/laser
+			target = /obj/item/gun/energy/rifle/laser
 			target_amount = 2
 			loot = "two laser guns"
 		if(8)

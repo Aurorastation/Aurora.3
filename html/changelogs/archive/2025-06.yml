@@ -1,0 +1,279 @@
+2025-06-02:
+  Batrachophreno:
+  - bugfix: Air alarms will no longer always show their wire interface- panel must
+      be opened first
+  - qol: Machines (if their wiring panels are open) no longer require certain tools
+      in-hand to access the wires interface.
+  - bugfix: Broken APCs (tentatively) able to be more reliably dismantled.
+  - refactor: Minor internal APC refactor and code documentation.
+  - qol: Updated instances of 'nifberries' to 'dirtberries' in recipes/ingredients/products
+      for general consistency.
+  - qol: Updated instances of 'nm'shaan' to 'sugar tree' in recipes/ingredients/products
+      for general consistency.
+  FlamingLily:
+  - rscadd: Added a latejoin/off-duty spawn point for the medbay's recovery ward,
+      available only to off-duty crew and passengers.
+  - rscadd: Vastly expanded the medbay recovery ward, adding more opportunities for
+      extended RP focusing in the room.
+  Wowzewow (Wezzy):
+  - rscadd: Adds a new food cart to the kitchen.
+  - bugfix: Fixes grill and oven to play their loop sounds only when turned on.
+  - bugfix: Fixes update_icon() of grill and oven so they actually look turned on
+      when turned on.
+  - rscdel: Removes rice, berries and fruits from the produce box rotation.
+  - rscadd: Adds bags of rice to the kitchen.
+  hazelmouse:
+  - rscdel: Tea no longer poisons Dionae.
+  notagonk:
+  - rscadd: Dominian Corvette has been remapped.
+2025-06-03:
+  SimpleMaroon:
+  - rscadd: 'Added three Commonwealth of Hieroaetheria passports to the Xenowear -
+      Diona loadout: Consortium, Union of Gla''orr, and Eternal Republic.'
+  - spellcheck: Fixed an incorrect indefinite article in the Golden Deep passport.
+2025-06-07:
+  hazelmouse:
+  - rscadd: Added a few new items to the biogenerator, including synthetic blood,
+      wooden planks, a mop, an empty first-aid kit, cigarette filters, and cigarette
+      papers.
+  - rscadd: Hydroponics trays now produce sounds when watered, sampled, and weeded.
+      Sampling and weeding both now have a one second timer for completion.
+  - rscadd: Hatchets can now uproot plants growing in soil or in hydroponics trays
+      with a single click.
+  - bugfix: Dyn cartons are no longer invisible after being produced from a Condimaster.
+  - bugfix: Horticultural magazines no longer have broken sprites.
+  - imageadd: Introduced in-hand sprites for horticultural magazines.
+  - code_imp: Transitioned some documentation in hydroponics tray code to DMDocs.
+2025-06-09:
+  Batrachophreno:
+  - balance: Added additional minimum active population requirement of 8 for Greimorian
+      Infestation events.
+  - qol: Events paused when no population is active.
+2025-06-12:
+  Batrachophreno:
+  - rscadd: Added short variants of Punk Shave, Sidecut Left/Right haircuts.
+  - bugfix: Adding missing XGM gas definition for Nitrogen Dioxide so it resolves
+      and behaves correctly in atmospheric scanner results.
+  Ben10083:
+  - balance: Adds missing Intrepid Hangar lockdown shutter.
+  FlamingLily:
+  - rscadd: Partially reverts the scarcity changes to the bar. Rare drinks are now
+      once again in the vendor or the yokes, but there's less of them overall (encouraging
+      use of resupply means).
+  Flpfs:
+  - rscadd: The white cane has been resprited, being able to be extended and retracted.
+  GeneralCamo:
+  - rscadd: Balloon alerts now change their duration on-screen depending on the length
+      of them.
+  - qol: Balloon alerts use a seperate plane that ignores lighting.
+  - qol: Balloon alerts now use the standard established by tgstation, reducing their
+      length and improving their readability.
+  - rscadd: Split body scanner and cryopod sprites; body scanners have new sprites.
+      New sprites by Remission on Baystation12, recolor and touchups by CormallenField/Steviii.
+  - rscadd: Working sleepers now use their working sprite states.
+  - bugfix: Sleepers now correctly show their panel sprites.
+  - rscdel: Arm guards (with the exception of riot variants and a few older variants)
+      no longer protect the hands.
+  - rscdel: Leg guards no longer protect the feet.
+  - bugfix: Buckshot and other pellet-based projectiles now correctly multiply damage
+      dealt when multiple pellets hit a target.
+  Greenjoe:
+  - rscadd: Tajara can now select plural pronouns (they/them)
+  KingOfThePing, The lancer:
+  - rscadd: Adds a dominian lyodii tarot card deck to the loadout and cargo database.
+  Kintsugi:
+  - rscadd: Added a three new playable hivebot mobs (destroyer, marksman, and overseer),
+      which storytellers and admins can spawn.
+  hazelmouse:
+  - bugfix: Spores, eggs, and other hydroponics seeds that should not appear in seed
+      packets no longer have a seed packet underneath their overlays.
+  - bugfix: The Foggy Mendell Skyline and Jupiter Upper Atmosphere holodeck settings
+      now render their rolling fog correctly.
+  - rscadd: Geras Dionae now possess innate melee armour, intended to give them more
+      leeway fighting simplemobs and other melee-based threats.
+  steviii:
+  - qol: Shifts a few objects around in the bar, putting the heater in the backroom,
+      a sink in the front, adding a first aid cabinet back to the bar backroom, and
+      moving a few wall objects so they stop overlapping.
+  - bugfix: Makes the anomalist outfit a path not a string.
+2025-06-17:
+  Batrachophreno:
+  - bugfix: APCs now correctly register themselves as appropriate targets for the
+      Electrical Storm event.
+  Ben10083:
+  - qol: Adds Coalition of Colonies alignment to Burzsia I sensor report.
+  GeneralCamo:
+  - balance: For the duration of the current arc, Burszia is now considered a dangerous
+      sector, and will not spawn civilian craft.
+  - rscadd: The Frontier Rangers can now spawn in Burszia.
+  - balance: Reduced the weight of the Xanan Frigate in Burszia from 1.0 to 0.5 (matching
+      that of Konyang's equivalent response).
+  Kano:
+  - rscadd: Added a few clipboards to several departments for the masses to enjoy.
+  KingOfThePing, PinkBlossom6:
+  - soundadd: Added the Mk II version of SS13's classic song 'Title3' to the lobby
+      and the jukebox.
+  hazelmouse:
+  - bugfix: Custom item prosthetics are no longer spawned twice at roundstart.
+  - rscadd: Added two new audible emotes available to Skrell, accessible via *peep
+      and *puff, ported from Baystation12.
+  - bugfix: Exoplanet water turfs no longer describe mobs as stepping out of them
+      when they shouldn't.
+  - bugfix: Sewage turfs no longer reset in colour when a mob moves over them.
+  steviii:
+  - bugfix: Adds an air alarm to exploratory chemistry.
+  - imageadd: Adds new preview mech sprites.
+  - imagedel: Deletes the deprecated mech sprites.
+  - rscadd: Changes the CCIA level of the Horizon to not have a deprecated mech.
+  - rscadd: Reorganized the kitchen in the Hephaestus Asset Protection ship, added
+      grime and a janitorial closet.
+2025-06-18:
+  CourierBravo:
+  - rscadd: Added a Quik-Pay device and some shelving to the pharmacy to encourage
+      the pharmacist to sell things over the counter.
+  - bugfix: Fixed the service Quik-Pay paying into the operations account instead
+      of the service account.
+  - balance: Doubled the prices for almost everything in the OTC medical wall vendor
+      in the lobby. Everything is still very much affordable, but this should encourage
+      pharmacists to undercut the vending machine.
+2025-06-23:
+  AlaunusLux:
+  - rscadd: Adds option to use a custom background color for highlighted text.
+  - rscadd: Adds opacity slider for highlighted messages.
+  Baldos:
+  - rscadd: Added Armor-Piericing 9mm Pistol Magazines, currently only available on
+      Antagonist Uplinks.
+  - spellcheck: Fixed the Incorrect number of rounds in a magazine that the Uplink
+      displays for both .45 and 9mm.
+  Batrachophreno:
+  - bugfix: Fixed two missing pixels on the punk shave sidecut haircuts.
+  - rscadd: Added variant of the Communications Blackout event which has the potential
+      to damage telecomms machinery (weighted towards Engineering being on-manifest).
+  - rscadd: Telecomms Processors now factor damage into account when uncompressing
+      messages (gibberish factor increases with damage).
+  - balance: Prison Break event adjusted to be in line with Containment events (now
+      affects all of Security excepting certain highly secured areas).
+  - balance: Space Vines, Drone Revolution major events now require minimum population
+      of 4.
+  - qol: Majorly updated Event Probabilities sheet (updated multiple changed events,
+      removed retired events, added missing new events, etc.)
+  - bugfix: Event selection now respects minimum pop requirement param.
+  - balance: Refactored the Electrical Storm behavior to play more interestingly (less
+      grinding busywork, more smoke and mirrors).
+  - rscadd: Added Mundane and Major variants of the Electrical Storm event.
+  - qol: Custodial Supplies Locator app will now only track cleaning supplies on the
+      Horizon (ignoring all offship supplies).
+  - rscadd: Custodial Supplies Locator app now shows objects' z-level in addition
+      to x-y coords.
+  - rscdel: Custodial Supplies Locator app no longer displays user's x-y coords, requiring
+      use of actual GPS unit instead.
+  - balance: Increase drone fall impact damage resistance from 75% to 95%.
+  Ben10083:
+  - bugfix: AI controlled entities now respect antag restrictions.
+  - rscadd: The Burzsia I Hephaestus Mining Outpost has been overhauled and given
+      missing equipment.
+  - bugfix: Burzsia I Hephaestus Mining Outpost airlock now properly configured.
+  Evandorf:
+  - bugfix: Fixed cleanable remains not being able to be clicked, hindering the cleaning
+      process. Clicking on certain decomposed remains (rats, lizards, ect) will cause
+      them to crumble into a cleanable form.
+  - rscadd: Added unique scaleshield coverings for Dominian Unathi.
+  - rscadd: Adds the Unathi Morozi accent for lizards of the Empire.
+  GeneralCamo:
+  - rscadd: Added new Hephaestus ERT/military uniforms.
+  - rscadd: Added new Hephaestus captain's cap and gloves.
+  - rscadd: Added a new Hephaestus physician's uniform.
+  - rscadd: Added a new Hephaestus surgical gown and cap.
+  Greenjoe and Plyushsune:
+  - rscadd: Adds a variation of crutch, selectable in the loadout.
+  - rscadd: Adds the ability to select a pair of crutches in the loadout.
+  Jasorn:
+  - qol: Lowers oven looping sound volume from 100 to 15.
+  Kano:
+  - bugfix: Fixes the SM chamber airlocks not being linked to the button in CE office.
+      Moves SM ejection button to somewhere more visible.
+  - rscadd: Tweaks Freebooter Salvager ship to have insulated gloves for all species
+      and an empty suit cycler, alongside with a few small tweaks.
+  hazelmouse:
+  - bugfix: Fake objects are no longer mouse transparent.
+  - rscadd: Hydroponics trays now have a stasis setting that can be enabled by clicking
+      on them with an empty hand, freezing the metabolic functions of the plant inside
+      and preventing it from both growing or dying. The lid of the tray must be on
+      for stasis to be enabled.
+  - code_imp: Added and reformatted some machinery documentation.
+  - rscadd: Hydroponics has been partially remapped, implementing atmospheric equipment
+      for some trays allowing their temperature to be controlled.
+  - rscadd: Hydroponics now has access to cranberry seeds, glowshroom spores, nettle
+      seeds, k'ois spores, and liberty cap spores. Of these, only cranberry seeds
+      are accessible in the public garden.
+  - rscadd: Hydroponics now contains a secure and sealed chamber for growing hazardous
+      specimens. You probably shouldn't plant your k'ois anywhere but here, and be
+      sure to wear your hazmat suit and face mask! Lethal consequences may lay in
+      malpractice!
+  - rscadd: A few new items have been added to the biogenerator, including trash bags,
+      medical belts, and latex gloves.
+  - rscadd: Hydroponics now has access to autoinhalers and autoinjectors.
+  - refactor: Prefilled hydroponics-related crates now spawn with all the necessary
+      tools, and the beekeeping and herbalist crates on the Horizon are now filled
+      by code rather than by mapping.
+  - refactor: Refactored code of seed dispensers to avoid duplicated lists. This does
+      mean, entirely inadvertantly, that Xenobotany has clams now.
+  - rscadd: Slightly expanded hydroponics access to immediately adjacent maintenance.
+  - bugfix: Empty first-aid kits are no longer inferior in storage capacity to filled
+      first-aid kits.
+  - rscadd: Storytellers can now move freely between z-levels, similarly to an observer.
+  kermit:
+  - code_imp: Nukes a rogue 'Jargon IV' mention.
+  - code_imp: Even renames an icon that mentioned Jargon.
+  - rscadd: Added Radiation Collector Arrays to the Operations order list.
+  steviii:
+  - imageadd: Assault shotgun wielded sprites.
+  - imageadd: Adds new sprites for the distillery, and empty, beer, rice beer, kvass
+      and xuizi juice kegs. Art credit to spookywastaken
+  - rscadd: Adds a dorshafen deluxe kvass keg.
+2025-06-24:
+  FlamingLily:
+  - balance: Nerfs stinger grenades. Reduces projectile count and pain per projectile
+      by half (now 50 and 25 respectively)
+  SleepyGemmy:
+  - bugfix: Made first-aid kits use a define for its max storage space.
+  - rscadd: Updated the title of i105 and the descriptions of i105 and i109.
+  hazelmouse:
+  - rscadd: Doubled the number of glasses available in glasses vendors to 40 from
+      20, and the number of pitchers to 8 from 4 to balance a number of both being
+      removed from the booze vendor in the bar.
+2025-06-26:
+  SleepyGemmy:
+  - spellcheck: Fixed all instances of transferred being spelled as "transfered".
+  - spellcheck: Fixed the hydraulic rescue tool name being capitalized.
+  - spellcheck: Fixed grammar on the long distance wireless bolt control message.
+  - spellcheck: Fixed extra punctuation on the potted cherry blossom tree.
+  - bugfix: Raised the S'rendarr's Hand (tobacco) content from 5 to 10 units in the
+      adhomian cigarettes to match the total amount found in other cigarettes.
+  - spellcheck: Changed the extended description prompt "Show In Chat" to "Show in
+      Chat".
+  - rscadd: Updated the descriptions on regulations i213 and i310.
+  steviii:
+  - imageadd: Adds new wetsuits and swimsuits for Skrell.
+  - rscadd: Adds swimstars swimsuits and adds them to the maint loot pool.
+2025-06-27:
+  CourierBravo:
+  - bugfix: Changes the door names for the drone fabrication room to drone fabrication
+      instead of auxiliary atmospherics.
+  Wowzewow (Wezzy):
+  - rscadd: Reverts the body scanner console sprite.
+  hazelmouse:
+  - rscadd: Yokes now have their contents appended to their name, allowing them to
+      be more easily sorted in stacks. If a yoke contains more than one kind of drink,
+      only the first two are appended.
+2025-06-30:
+  Batrachophreno:
+  - bugfix: Removes a floating black pixel on the icon of the Labourer's Choice cigarette
+      packet when opened with two cigs left inside.
+  - bugfix: Finished partially-implemented Fuel and Aux pipe modes for RFD-P.
+  - refactor: Renamed the air conditioning unit to temperature control unit.
+  - refactor: Migrated the temperature control unit menu to TGUI, made it prettier.
+  - refactor: Migrated the gas tank dispenser menu to TGUI, made it prettier.
+  SleepyGemmy:
+  - bugfix: Fixed double doors with glass having the glass overlay misaligning when
+      access is denied.

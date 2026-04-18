@@ -7,48 +7,59 @@
 /obj/machinery/telecomms/attackby(obj/item/attacking_item, mob/user)
 
 	// Using a multitool lets you access the receiver's interface
-	if(attacking_item.ismultitool())
+	if(attacking_item.tool_behaviour == TOOL_MULTITOOL)
 		user.set_machine(src)
 		interact(user, attacking_item)
 		return TRUE
 
-	// REPAIRING: Use Nanopaste to repair half of the system's integrity. At 24 machines, it will take 48 uses of nanopaste to repair the entire array.
+	// REPAIRING: Use Nanopaste to repair 25pts of system integrity.
+	// This used to be half integrity, but changed by Bat to be simpler after comms blackouts started causing emp damage.
 	if(istype(attacking_item, /obj/item/stack/nanopaste))
 		var/obj/item/stack/nanopaste/T = attacking_item
-		if (integrity < 100)               								//Damaged, let's repair!
-			if (T.use(1))
-				integrity = between(0, initial(integrity) / 2, initial(integrity))
+		// Damaged, let's repair!
+		if(integrity < 100)
+			if(T.use(1))
+				integrity = between(0, integrity + 25, initial(integrity))
 				to_chat(user, "You apply the Nanopaste to [src], repairing some of the damage.")
 		else
 			to_chat(user, "This machine is already in perfect condition.")
 		return TRUE
 
+	// Beat it with a stick!
+	if(!istype(user, /mob/living/silicon))
+		if(user.a_intent == I_HURT)
+			user.visible_message(SPAN_DANGER("\The [user] strikes [src]!"))
+			user.do_attack_animation(user, attacking_item)
+			playsound(loc, hitsound, 60, TRUE)
+			user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
+			integrity = between(0, integrity - round(attacking_item.force / 3), initial(integrity))
+			return TRUE
 
 	switch(construct_op)
 		if(0)
-			if(attacking_item.isscrewdriver())
+			if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 				to_chat(user, SPAN_NOTICE("You unfasten the bolts."))
 				attacking_item.play_tool_sound(get_turf(src), 50)
 				construct_op ++
 				. = TRUE
 		if(1)
-			if(attacking_item.isscrewdriver())
+			if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 				to_chat(user, SPAN_NOTICE("You fasten the bolts."))
 				attacking_item.play_tool_sound(get_turf(src), 50)
 				construct_op --
 				. = TRUE
-			if(attacking_item.iswrench())
+			if(attacking_item.tool_behaviour == TOOL_WRENCH)
 				to_chat(user, SPAN_NOTICE("You dislodge the external plating."))
 				attacking_item.play_tool_sound(get_turf(src), 75)
 				construct_op ++
 				. = TRUE
 		if(2)
-			if(attacking_item.iswrench())
+			if(attacking_item.tool_behaviour == TOOL_WRENCH)
 				to_chat(user, SPAN_NOTICE("You secure the external plating."))
 				attacking_item.play_tool_sound(get_turf(src), 75)
 				construct_op --
 				. = TRUE
-			if(attacking_item.iswirecutter())
+			if(attacking_item.tool_behaviour == TOOL_WIRECUTTER)
 				attacking_item.play_tool_sound(get_turf(src), 50)
 				to_chat(user, SPAN_NOTICE("You remove the cables."))
 				construct_op ++
@@ -57,7 +68,7 @@
 				stat |= BROKEN // the machine's been borked!
 				. = TRUE
 		if(3)
-			if(attacking_item.iscoil())
+			if(attacking_item.tool_behaviour == TOOL_CABLECOIL)
 				var/obj/item/stack/cable_coil/A = attacking_item
 				if (A.use(5))
 					to_chat(user, SPAN_NOTICE("You insert the cables."))
@@ -66,7 +77,7 @@
 				else
 					to_chat(user, SPAN_WARNING("You need five coils of wire for this."))
 				. = TRUE
-			if(attacking_item.iscrowbar())
+			if(attacking_item.tool_behaviour == TOOL_CROWBAR)
 				to_chat(user, SPAN_NOTICE("You begin prying out the circuit board's components..."))
 				if(attacking_item.use_tool(src, user, 60, volume = 50))
 					to_chat(user, SPAN_NOTICE("You finish prying out the components."))
@@ -86,7 +97,7 @@
 								newpath = text2path(component)
 								var/obj/item/s = new newpath
 								s.forceMove(user.loc)
-								if(s.iscoil())
+								if(s.tool_behaviour == TOOL_CABLECOIL)
 									var/obj/item/stack/cable_coil/A = s
 									A.amount = 1
 
@@ -105,7 +116,7 @@
 		return
 	interact(user, user.get_multitool())
 
-/obj/machinery/telecomms/interact(mob/user, var/obj/item/device/multitool/M)
+/obj/machinery/telecomms/interact(mob/user, var/obj/item/multitool/M)
 	if(!M)
 		M = user.get_multitool()
 	var/dat
@@ -218,7 +229,7 @@
 	if(stat & (BROKEN|NOPOWER))
 		return
 
-	var/obj/item/device/multitool/P = usr.get_multitool()
+	var/obj/item/multitool/P = usr.get_multitool()
 
 	if(href_list["input"])
 		switch(href_list["input"])

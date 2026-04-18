@@ -225,7 +225,6 @@
 	icon_state = "beret"
 	problist = list(
 		/obj/item/clothing/head/beret/colorable/random = 5,
-		/obj/item/clothing/head/beret/peaked/colourable/random = 5,
 		/obj/item/clothing/head/beret/engineering = 3,
 		/obj/item/clothing/head/beret/atmos = 3,
 		/obj/item/clothing/head/beret/medical = 3,
@@ -266,3 +265,14 @@
 /obj/random/wizard_dressup/post_spawn(obj/thing)
 	var/obj/item/clothing/head/wizard/H = pick(typesof(/obj/item/clothing/head/wizard))
 	new H(loc)
+
+/obj/random/medical_gown
+	name = "random medical gown"
+	desc = "A random color of medical patient's gown."
+	icon_state = "uniform"
+	problist = list(
+		/obj/item/clothing/under/medical_gown = 1,
+		/obj/item/clothing/under/medical_gown/blue = 1,
+		/obj/item/clothing/under/medical_gown/green = 1,
+		/obj/item/clothing/under/medical_gown/pink = 1
+	)

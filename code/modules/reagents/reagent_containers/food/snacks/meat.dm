@@ -474,3 +474,26 @@
 			icon_state = "tartare_half"
 		if(50 to INFINITY)
 			icon_state = "tartare"
+
+/obj/item/reagent_containers/food/snacks/sliceable/meatloaf
+	name = "meatloaf"
+	desc = "It's a loaf. Of meat. It's coated in a shiny red glaze."
+	icon = 'icons/obj/item/reagent_containers/food/meat.dmi'
+	icon_state = "meatloaf"
+	slice_path = /obj/item/reagent_containers/food/snacks/meatloaf_slice
+	slices_num = 5
+	filling_color = "#68451c"
+	center_of_mass = list("x"=16, "y"=9)
+	reagents_to_add = list(/singleton/reagent/nutriment = 10, /singleton/reagent/nutriment/protein = 15)
+	reagent_data = list(/singleton/reagent/nutriment = list("meat" = 5, "loaf" = 5, "tomatoes" = 3))
+	bitesize = 2
+	trash = /obj/item/trash/plate
+
+/obj/item/reagent_containers/food/snacks/meatloaf_slice
+	name = "meatloaf slice"
+	desc = "A slice of meatloaf. Very meaty, with some kind of zesty red glaze and added spices for extra flavor."
+	icon = 'icons/obj/item/reagent_containers/food/meat.dmi'
+	icon_state = "meatloaf_slice"
+	trash = /obj/item/trash/plate
+	filling_color = "#68451c"
+	bitesize = 2

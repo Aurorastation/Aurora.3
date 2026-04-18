@@ -57,7 +57,7 @@
 		if(!stored_item)
 			to_chat(user,SPAN_NOTICE("There is nothing hidden in [src]."))
 		else
-			if(istype(stored_item, /obj/item/device/paicard))
+			if(istype(stored_item, /obj/item/paicard))
 				stored_item.forceMove(src.loc)
 				to_chat(user,SPAN_NOTICE("You reveal \the [stored_item] from [src]."))
 			else
@@ -151,7 +151,7 @@
 
 /obj/structure/flora/pottedplant/cherrytree
 	name = "potted cherry blossom tree"
-	desc = "A beautiful kwanzan cherry blossom tree. A notably ornamental tree, appreciated for its lack of fruit.."
+	desc = "A beautiful kwanzan cherry blossom tree. A notably ornamental tree, appreciated for its lack of fruit."
 	icon_state = "plant-10"
 
 /obj/structure/flora/pottedplant/smallcactus

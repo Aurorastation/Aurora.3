@@ -1,8 +1,8 @@
 /*
  * Contains:
- *		Security
- *		Detective
- *		Head of Security
+ * * Security
+ * * Detective
+ * * Head of Security
  */
 
 /*
@@ -103,7 +103,7 @@
 /obj/item/clothing/under/rank/security/heph
 	name = "hephaestus security officer uniform"
 	desc = "A green-and-orange uniform worn by Security Officers of smaller Hephaestus Industries vessels."
-	icon = 'icons/clothing/under/uniforms/cyclops_uniforms.dmi'
+	icon = 'icons/obj/item/clothing/under/human/corporation/cyclops_uniforms.dmi'
 	icon_state = "heph_security"
 	item_state = "heph_security"
 	contained_sprite = TRUE
@@ -112,7 +112,7 @@
 	name = "einstein security officer's uniform"
 	desc_extended = "Even the Chainlink's hated enemy puts their security officers in drab officewear. Rumors that these are woven \
 	from Skrellian supermaterials are likely false."
-	icon = 'icons/clothing/under/uniforms/einstein.dmi'
+	icon = 'icons/obj/item/clothing/under/human/corporation/einstein.dmi'
 	icon_state = "ee_officer"
 	item_state = "ee_officer"
 

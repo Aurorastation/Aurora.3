@@ -237,7 +237,7 @@ GLOBAL_LIST_EMPTY(admin_departments)
 	if (!istype(incoming, /obj/item/paper) && !istype(incoming, /obj/item/photo) && !istype(incoming, /obj/item/paper_bundle))
 		return 0
 
-	playsound(loc, 'sound/bureaucracy/print.ogg', 75, 1)
+	playsound(loc, 'sound/items/bureaucracy/print.ogg', 75, 1)
 
 	// give the sprite some time to flick
 	spawn(20)
@@ -273,6 +273,11 @@ GLOBAL_LIST_EMPTY(admin_departments)
 		return
 
 	use_power_oneoff(200)
+
+	if(SSatlas.current_sector.ccia_link == FALSE)
+		if(destination in GLOB.admin_departments)
+			visible_message("[src] beeps, \"Unable to connect to route to [SSatlas.current_map.boss_name].\"")
+			return
 
 	var/obj/item/rcvdcopy
 	if (istype(copy_item, /obj/item/paper))

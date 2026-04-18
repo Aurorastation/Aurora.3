@@ -4,9 +4,6 @@
 /obj/machinery/atmospherics/unary/heater
 	name = "gas heating system"
 	desc = "Heats gas when connected to a pipe network."
-	desc_info = "Heats up the gas of the pipe it is connected to.  It uses massive amounts of electricity while on. \
-	It can be upgraded by replacing the capacitors, manipulators, and matter bins.  It can be deconstructed by screwing the maintenance panel open with a \
-	screwdriver, and then using a crowbar."
 	icon = 'icons/obj/machinery/sleeper.dmi'
 	icon_state = "heater_0"
 	density = 1
@@ -29,6 +26,15 @@
 		/obj/item/stock_parts/capacitor = 2,
 		/obj/item/stack/cable_coil{amount = 5}
 	)
+
+/obj/machinery/atmospherics/unary/heater/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "heats up the gas of the pipe it is connected to. It uses massive amounts of electricity while on."
+
+/obj/machinery/atmospherics/unary/heater/upgrade_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Upgraded <b>matter bins</b> will increase maximum temperature setting and the volume of air it can heat at once."
+	. += "Upgraded <b>capacitors</b> will increase maximum power setting and maximum temperature setting."
 
 /obj/machinery/atmospherics/unary/heater/Initialize()
 	initialize_directions = dir
@@ -104,7 +110,7 @@
 	var/list/data = list()
 
 	data["on"] = !!use_power
-	data["gasPressure"] = round(air_contents.return_pressure())
+	data["gasPressure"] = round(XGM_PRESSURE(air_contents))
 	data["gasTemperature"] = round(air_contents.temperature)
 	data["minGasTemperature"] = 0
 	data["maxGasTemperature"] = round(T20C + 600)
@@ -168,8 +174,3 @@
 		return TRUE
 
 	return ..()
-
-/obj/machinery/atmospherics/unary/heater/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if(panel_open)
-		. += "The maintenance hatch is open."

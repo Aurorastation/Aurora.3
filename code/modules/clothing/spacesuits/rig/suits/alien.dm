@@ -2,7 +2,7 @@
 	name = "NT breacher chassis control module"
 	desc = "A cheap NT knock-off of an Unathi battle-hardsuit. Looks like a fish, moves like a fish, steers like a cow."
 	suit_type = "NT breacher"
-	icon = 'icons/clothing/rig/unathi_breacher_cheap.dmi'
+	icon = 'icons/obj/item/clothing/rig/unathi_breacher_cheap.dmi'
 	icon_state = "breacher_rig_cheap"
 	armor = list(
 		MELEE = ARMOR_MELEE_MAJOR,
@@ -15,14 +15,15 @@
 	)
 	siemens_coefficient = 0.1
 	emp_protection = -20
-	slowdown = 6
-	offline_slowdown = 10
+	slowdown = 3
+	offline_slowdown = 5
 	vision_restriction = TINT_HEAVY
 	offline_vision_restriction = TINT_BLIND
+	boot_type =  /obj/item/clothing/shoes/magboots/rig/chonk
 
 	species_restricted = list(BODYTYPE_UNATHI)
 
-	allowed = list(/obj/item/gun,/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/melee/baton,/obj/item/melee/energy)
+	allowed = list(/obj/item/gun,/obj/item/flashlight,/obj/item/tank,/obj/item/suit_cooling_unit,/obj/item/melee/baton,/obj/item/melee/energy)
 
 	allowed_module_types = MODULE_GENERAL | MODULE_LIGHT_COMBAT
 
@@ -30,7 +31,7 @@
 	name = "breacher chassis control module"
 	desc = "An authentic Unathi breacher chassis. Huge, bulky and absurdly heavy. It must be like wearing a tank."
 	suit_type = "breacher chassis"
-	icon = 'icons/clothing/rig/unathi_breacher.dmi'
+	icon = 'icons/obj/item/clothing/rig/unathi_breacher.dmi'
 	icon_state = "breacher_rig"
 	armor = list(
 		MELEE = ARMOR_MELEE_VERY_HIGH,
@@ -43,7 +44,7 @@
 	)
 	siemens_coefficient = 0.1
 	vision_restriction = TINT_NONE
-	slowdown = 4
+	slowdown = 2
 	glove_type = /obj/item/clothing/gloves/powerfist
 
 	allowed_module_types = MODULE_GENERAL | MODULE_LIGHT_COMBAT | MODULE_HEAVY_COMBAT | MODULE_SPECIAL
@@ -77,7 +78,7 @@
 	name = "redsnout hardsuit control module"
 	desc = "A variation on the Unathi breacher chassis design, fielded by the elite unit of the Tau Ceti Armed Forces known as the Redsnouts."
 	suit_type = "redsnout hardsuit"
-	icon = 'icons/clothing/rig/redsnout.dmi'
+	icon = 'icons/obj/item/clothing/rig/redsnout.dmi'
 	icon_state = "redsnout_rig"
 	armor = list(
 		MELEE = ARMOR_MELEE_VERY_HIGH,
@@ -90,8 +91,8 @@
 	)
 	vision_restriction = TINT_NONE
 	offline_vision_restriction = TINT_BLIND
-	slowdown = 4
-	offline_slowdown = 3
+	slowdown = 2
+	offline_slowdown = 2.5
 	siemens_coefficient = 0.1
 	allowed_module_types = MODULE_GENERAL | MODULE_LIGHT_COMBAT | MODULE_HEAVY_COMBAT | MODULE_SPECIAL
 	glove_type = /obj/item/clothing/gloves/powerfist
@@ -113,7 +114,7 @@
 	name = "combat exoskeleton control module"
 	desc = "An ancient piece of equipment from a bygone age, This highly advanced Vaurcan technology rarely sees use outside of a battlefield."
 	suit_type = "combat exoskeleton"
-	icon = 'icons/clothing/rig/vaurca.dmi'
+	icon = 'icons/obj/item/clothing/rig/vaurca.dmi'
 	icon_state = "vaurca_rig"
 	armor = list(
 		MELEE = ARMOR_MELEE_MAJOR,
@@ -126,15 +127,15 @@
 	)
 	siemens_coefficient = 0.1
 	vision_restriction = 0
-	slowdown = 2
-	offline_slowdown = 3
+	slowdown = 1
+	offline_slowdown = 1.5
 
 	species_restricted = list(BODYTYPE_VAURCA)
 
 	helm_type = /obj/item/clothing/head/helmet/space/rig/vaurca
 	air_type =   /obj/item/tank/phoron
 
-	allowed = list(/obj/item/gun,/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/melee/baton,/obj/item/melee/energy)
+	allowed = list(/obj/item/gun,/obj/item/flashlight,/obj/item/tank,/obj/item/suit_cooling_unit,/obj/item/melee/baton,/obj/item/melee/energy)
 
 	initial_modules = list(
 		/obj/item/rig_module/actuators/combat,
@@ -176,7 +177,7 @@
 	severe loss of Republican Guard units. Additional funding and focus was placed on a previously shelved proposal for heavily armed shock and high technology assault troopers. A \
 	special unit designated to withstand the numerical disadvantages and prolonged engagements special forces of the Republic often faces."
 	suit_type = "tesla suit"
-	icon = 'icons/clothing/rig/tesla.dmi'
+	icon = 'icons/obj/item/clothing/rig/tesla.dmi'
 	icon_state = "tesla_rig"
 	armor = list(
 		MELEE = ARMOR_MELEE_VERY_HIGH,
@@ -189,12 +190,12 @@
 	)
 	siemens_coefficient = 0
 	vision_restriction = 0
-	slowdown = 2
-	offline_slowdown = 3
+	slowdown = 1
+	offline_slowdown = 1.5
 
 	species_restricted = list(BODYTYPE_TAJARA)
 
-	allowed = list(/obj/item/gun,/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/melee/baton,/obj/item/melee/energy)
+	allowed = list(/obj/item/gun,/obj/item/flashlight,/obj/item/tank,/obj/item/suit_cooling_unit,/obj/item/melee/baton,/obj/item/melee/energy)
 
 	initial_modules = list(
 		/obj/item/rig_module/actuators/combat,
@@ -208,9 +209,17 @@
 	..()
 	if(wearer)
 		var/obj/item/organ/internal/augment/tesla/T = wearer.internal_organs_by_name[BP_AUG_TESLA]
-		if(T && !T.is_broken())
+		if(istype(T, /obj/item/organ/internal/augment/tesla/advanced) && !T.is_broken())
 			if(cell)
 				cell.give(T.max_charges)
+
+/obj/item/rig/tesla/toggle_seals(mob/initiator, instant)
+	var/obj/item/organ/internal/augment/tesla/T = wearer.internal_organs_by_name[BP_AUG_TESLA]
+	if(istype(T, /obj/item/organ/internal/augment/tesla/advanced) && !T.is_broken())
+		. = ..()
+	else
+		to_chat(initiator, SPAN_DANGER("Cannot toggle suit: A functional, military grade tesla spine is required to use the suit."))
+		return FALSE
 
 /obj/item/rig/tesla/ninja
 

@@ -35,6 +35,14 @@
 		/obj/item/reagent_containers/glass/beaker = 2
 	)
 
+/obj/machinery/r_n_d/protolathe/upgrade_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "- Upgraded <b>matter bins</b> will increase material storage capacity."
+	. += SPAN_NOTICE("	- The current storage capacity is <b>[max_material_storage / 2000]</b> sheets")
+	. += "- Upgraded <b>manipulators</b> will improve material use efficiency and increase fabrication speed."
+	. += SPAN_NOTICE("	- The current speed increase is <b>[round((1 - (1 / production_speed)) * 100)]%</b>")
+	. += SPAN_NOTICE("	- The current cost reduction is <b>[round((1 - mat_efficiency) * 100)]%</b>")
+
 ///Returns the total of all the stored materials
 /obj/machinery/r_n_d/protolathe/proc/TotalMaterials()
 	var/t = 0
@@ -43,6 +51,7 @@
 	return t
 
 /obj/machinery/r_n_d/protolathe/RefreshParts()
+	..()
 	// Adjust reagent container volume to match combined volume of the inserted beakers
 	var/T = 0
 	for(var/obj/item/reagent_containers/glass/G in component_parts)
@@ -94,35 +103,38 @@
 		AddOverlays("[icon_state]_lights_working")
 
 /obj/machinery/r_n_d/protolathe/attackby(obj/item/attacking_item, mob/user)
+	if(user.a_intent == I_HURT)
+		return ..()
+
 	if(build_callback_timer)
 		to_chat(user, SPAN_NOTICE("\The [src] is busy. Please wait for completion of previous operation."))
-		return 1
+		return TRUE
 	if(default_deconstruction_screwdriver(user, attacking_item))
 		if(linked_console)
 			linked_console.linked_lathe = null
 			linked_console = null
-		return
+		return TRUE
 	if(default_deconstruction_crowbar(user, attacking_item))
-		return
+		return TRUE
 	if(default_part_replacement(user, attacking_item))
-		return
+		return TRUE
 	if(attacking_item.is_open_container())
-		return 1
+		return TRUE
 	if(panel_open)
 		to_chat(user, SPAN_NOTICE("You can't load \the [src] while it's opened."))
-		return 1
+		return TRUE
 	if(!linked_console)
 		to_chat(user, SPAN_NOTICE("The [src] must be linked to an R&D console first!"))
-		return 1
+		return TRUE
 	if(!istype(attacking_item, /obj/item/stack/material))
 		to_chat(user, SPAN_NOTICE("You cannot insert this item into \the [src]!"))
-		return 1
+		return TRUE
 	if(stat)
-		return 1
+		return TRUE
 
 	if(TotalMaterials() + SHEET_MATERIAL_AMOUNT > max_material_storage)
 		to_chat(user, SPAN_NOTICE("The [src]'s material bin is full. Please remove material before adding more."))
-		return 1
+		return TRUE
 
 	var/obj/item/stack/material/stack = attacking_item
 	if(!stack.default_type)

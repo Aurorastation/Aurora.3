@@ -8,8 +8,8 @@
 	///Whether this nuke will explode if caught in an explosion.
 	var/can_explode = TRUE
 
-/obj/structure/undetonated_nuke/get_examine_text(mob/user, distance)
-	. = ..()
+/obj/structure/undetonated_nuke/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
 	if(GLOB.all_languages[LANGUAGE_AZAZIBA] in user.languages)
 		. += SPAN_NOTICE("The inscription reads \"WARNING: FISSILE MATERIAL. HANDLE WITH CARE.\" Underneath are a few words, scratched into the metal. They read \"IF FOUND, RETURN TO SKALAMAR AT HIGH VELOCITY\"")
 

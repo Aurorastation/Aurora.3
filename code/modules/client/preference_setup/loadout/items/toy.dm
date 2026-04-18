@@ -11,6 +11,10 @@
 	display_name = "deck of cards"
 	path = /obj/item/deck/cards
 
+/datum/gear/toy/kotahi
+	display_name = "KOTAHI cards"
+	path = /obj/item/deck/kotahi
+
 /datum/gear/toy/tarot
 	display_name = "deck of tarot cards"
 	path = /obj/item/deck/tarot
@@ -178,3 +182,17 @@
 		if(path) // repeat 3 times for each item
 			for(i = 0, i < 3, ++i)
 				new path(sheet)
+
+/datum/gear/toy/football
+	display_name = "football"
+	description = "A classic, black and white football for kicking. Also known as a soccerball on Biesel and some parts of Earth for some reason."
+	cost = 1
+	allowed_roles = list("Off-Duty Crew Member", "Passenger")
+	path = /obj/item/toy/football
+
+/datum/gear/toy/winterquest
+	display_name = "Winter Quest rulebook"
+	description = "The core rulebook for Winter Quest, a tabletop roleplaying game from Little Adhomai."
+	cost = 1
+	path = /obj/item/journal/winter_quest
+	flags = GEAR_HAS_DESC_SELECTION

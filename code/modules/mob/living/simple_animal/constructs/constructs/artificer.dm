@@ -5,16 +5,23 @@
 	icon = 'icons/mob/mob.dmi'
 	icon_state = "artificer"
 	icon_living = "artificer"
-	maxHealth = 50
+	maxhealth = 250 // Was undertuned prior to our damage numbers
 	health_prefix = "artificer"
 	response_harm = "viciously beaten"
 	melee_damage_lower = 10
 	melee_damage_upper = 10
 	armor_penetration = 20
-	attacktext = "rammed"
+	attacktext = "rams"
 	organ_names = list("core", "production array", "sensor array")
 	speed = 0
 	environment_smash = TRUE
+	natural_armor = list(
+		MELEE = ARMOR_MELEE_KNIVES,
+		BULLET = ARMOR_BALLISTIC_PISTOL,
+		LASER = ARMOR_LASER_SMALL,
+		ENERGY = ARMOR_ENERGY_MINOR,
+		BOMB = ARMOR_BOMB_PADDED
+	)
 	attack_sound = 'sound/weapons/rapidslice.ogg'
 	can_repair = TRUE
 	construct_spells = list(/spell/aoe_turf/cultify_area,

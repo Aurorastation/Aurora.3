@@ -119,3 +119,6 @@
 
 /proc/cmp_fusion_reaction_des(singleton/fusion_reaction/A, singleton/fusion_reaction/B)
 	return B.priority - A.priority
+
+/proc/cmp_faction(datum/faction/A, datum/faction/B)
+	return A.ui_priority - B.ui_priority

@@ -9,19 +9,22 @@
 	var/amount_per_transfer_from_this = 5	//shit I dunno, adding this so syringes stop runtime erroring. --NeoFite
 	var/bucketsize = 600 //about 2x the size relative to a regular bucket.
 
+/obj/structure/mopbucket/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(distance <= 1)
+		. += "It contains <b>[reagents.total_volume] unit\s</b> of water."
+
 /obj/structure/mopbucket/Initialize()
 	. = ..()
 	create_reagents(bucketsize)
-	GLOB.janitorial_supplies |= src
+
+	if(is_station_turf(get_turf(src)))
+		GLOB.janitorial_supplies |= src
 
 /obj/structure/mopbucket/Destroy()
-	GLOB.janitorial_supplies -= src
+	if(src in GLOB.janitorial_supplies)
+		GLOB.janitorial_supplies -= src
 	return ..()
-
-/obj/structure/mopbucket/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if(distance <= 1)
-		. += "It contains [reagents.total_volume] unit\s of water."
 
 /obj/structure/mopbucket/attackby(obj/item/attacking_item, mob/user)
 	if(istype(attacking_item, /obj/item/mop))
@@ -41,8 +44,8 @@
 
 /obj/structure/mopbucket/on_reagent_change()
 	. = ..()
-	if(istype(loc,/obj/structure/janitorialcart))
-		var/obj/structure/janitorialcart/cart = loc
+	if(istype(loc,/obj/structure/cart/storage/janitorialcart))
+		var/obj/structure/cart/storage/janitorialcart/cart = loc
 		cart.update_icon()
 	else
 		update_icon()
