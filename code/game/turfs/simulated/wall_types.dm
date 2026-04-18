@@ -87,9 +87,7 @@
 	icon_state = "brick"
 
 /turf/simulated/wall/brick/Initialize(mapload)
-	canSmoothWith = list(src.type)
 	. = ..(mapload, MATERIAL_BRICK)
-	canSmoothWith = list(src.type)
 
 /turf/simulated/wall/ironphoron/Initialize(mapload)
 	canSmoothWith = list(src.type)

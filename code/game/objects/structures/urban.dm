@@ -745,7 +745,7 @@ ABSTRACT_TYPE(/obj/structure/stairs/urban/road_ramp_assun)
 	pixel_x = -32
 	pixel_y = -32
 	light_range = 3.8
-	light_power = 0.5
+	light_power = 0.7
 	light_color = LIGHT_COLOR_VIOLET
 
 /obj/structure/statue/aec/large/Initialize()
@@ -754,8 +754,8 @@ ABSTRACT_TYPE(/obj/structure/stairs/urban/road_ramp_assun)
 	AddOverlays(emissive_appearance(icon, "[icon_state]-em", src, alpha = src.alpha))
 	set_light_range_power_color(light_range, light_power, light_color)
 	set_light_on(TRUE)
-	bound_width = 96
-	bound_height = 96
+	bound_width = 32
+	bound_height = 64
 	return INITIALIZE_HINT_NORMAL
 
 /obj/structure/sign/urban
