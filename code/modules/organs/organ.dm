@@ -82,6 +82,8 @@ INITIALIZE_IMMEDIATE(/obj/item/organ)
 
 /obj/item/organ/Destroy()
 	STOP_PROCESSING(SSprocessing, src)
+	QDEL_NULL(dna)
+
 	if(!owner)
 		return ..()
 
@@ -90,14 +92,15 @@ INITIALIZE_IMMEDIATE(/obj/item/organ)
 			owner.internal_organs -= src
 		if(istype(owner, /mob/living/carbon/human))
 			if(owner.internal_organs_by_name)
-				owner.internal_organs_by_name -= src
+				owner.internal_organs_by_name[organ_tag] = null
+				owner.internal_organs_by_name -= organ_tag
 			if(owner.organs)
 				owner.organs -= src
 			if(owner.organs_by_name)
-				owner.organs_by_name -= src
+				owner.organs_by_name[organ_tag] = null
+				owner.organs_by_name -= organ_tag
 
 	owner = null
-	QDEL_NULL(dna)
 
 	return ..()
 
