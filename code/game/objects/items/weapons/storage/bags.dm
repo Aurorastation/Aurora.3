@@ -164,8 +164,6 @@
 
 // This is pretty much a copy of it, but sends it to handle_item_insertion instead.
 /obj/item/storage/bag/sheetsnatcher/handle_item_insertion_deferred(obj/item/W, mob/user)
-	SHOULD_NOT_SLEEP(TRUE)
-
 	if (!istype(W))
 		return FALSE
 
