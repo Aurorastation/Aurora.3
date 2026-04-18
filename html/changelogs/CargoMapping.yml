@@ -1,0 +1,12 @@
+author: TheGreyWolf
+
+delete-after: True
+
+changes:
+  - bugfix: "Fixed a large number of overlapping wall objects in operations."
+  - bugfix: "Tool storage is now on the same grid as the hallway, rather than on the ops grid."
+  - rscadd: "Gave hangar techs a blue toolbox in their lockers to do their job with."
+  - rscadd: "Added a sheet snatcher to ops."
+  - rscadd: "Moved miner and OM spawn to the ops break room."
+  - rscadd: "Made the conveyor on the cargo elevator one shorter, to avoid loose items being shuffled off the elevator."
+  - bugfix: "Fixed two sprites mainly seen when mapping random object spawns."
