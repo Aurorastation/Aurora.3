@@ -15,6 +15,22 @@
 		client.handle_ntnet_user_deletion(src)
 
 	GLOB.ntnet_global.chat_users.Remove(src)
+
+	for(var/datum/ntnet_conversation/chan in channels)
+		chan.users -= src
+		if(chan.operator == src)
+			if(chan.users.len)
+				chan.operator = pick(chan.users)
+			else
+				chan.operator = null
+
+	for(var/datum/ntnet_user/other_user in dm_channels)
+		var/datum/ntnet_conversation/chan = dm_channels[other_user]
+		if(istype(chan))
+			chan.users -= src
+		if(istype(other_user) && islist(other_user.dm_channels))
+			other_user.dm_channels -= src
+
 	channels = null
 	dm_channels = null
 	clients = null

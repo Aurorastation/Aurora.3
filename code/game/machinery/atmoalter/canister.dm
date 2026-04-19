@@ -5,7 +5,7 @@
 	icon_state = "yellow"
 	density = TRUE
 	light_system = MOVABLE_LIGHT
-	var/health = 100.0
+	maxhealth = OBJECT_HEALTH_VERY_LOW
 	obj_flags = OBJ_FLAG_SIGNALER | OBJ_FLAG_CONDUCTABLE
 	w_class = WEIGHT_CLASS_HUGE
 
@@ -346,15 +346,12 @@ update_flag
 	. = ..()
 
 	if(exposed_temperature > temperature_resistance)
-		health -= 5
-		healthcheck()
+		add_damage(5)
 
-/obj/machinery/portable_atmospherics/canister/proc/healthcheck()
-	if(destroyed)
-		return TRUE
-
-	if (src.health <= 10)
-		var/atom/location = src.loc
+/obj/machinery/portable_atmospherics/canister/add_damage(damage, damage_flags, damage_type, armor_penetration, obj/weapon)
+	. = ..()
+	if (health <= maxhealth * 0.1)
+		var/atom/location = loc
 		location.assume_air(air_contents)
 
 		destroyed = TRUE
@@ -362,17 +359,13 @@ update_flag
 		playsound(src.loc, 'sound/effects/spray.ogg', 10, 1, -3)
 		density = FALSE
 
-		if (src.holding)
-			src.holding.forceMove(src.loc)
-			src.holding = null
+		if (holding)
+			holding.forceMove(src.loc)
+			holding = null
 
 		detach_signaler()
 
 		update_icon()
-
-		return 1
-	else
-		return 1
 
 /obj/machinery/portable_atmospherics/canister/process()
 	if (destroyed)
@@ -419,8 +412,7 @@ update_flag
 		return BULLET_ACT_BLOCK
 
 	if(hitting_projectile.damage)
-		src.health -= round(hitting_projectile.damage / 2)
-		healthcheck()
+		add_damage(round(hitting_projectile.damage / 2))
 
 /obj/machinery/portable_atmospherics/canister/AltClick(var/mob/abstract/ghost/observer/admin)
 	if (istype(admin))
@@ -450,10 +442,9 @@ update_flag
 		visible_message(SPAN_WARNING("\The [user] hits \the [src] with \the [attacking_item]!"), SPAN_NOTICE("You hit \the [src] with \the [attacking_item]."))
 		user.do_attack_animation(src, attacking_item)
 		playsound(src, 'sound/weapons/smash.ogg', 60, 1)
-		src.health -= attacking_item.force
+		add_damage(attacking_item.force)
 		if(!istype(attacking_item, /obj/item/forensics))
 			src.add_fingerprint(user)
-		healthcheck()
 		return TRUE
 
 	if(istype(user, /mob/living/silicon/robot) && istype(attacking_item, /obj/item/tank/jetpack))

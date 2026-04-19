@@ -18,6 +18,7 @@
 	var/received_by_id = null //Character ID of the person that received the items
 	var/paid_by = null //Person that has paid for the order
 	var/paid_by_id = null //Character ID of the Person that paid for the items
+	var/paying_account = null
 	var/time_submitted = null //Time the order has been sent to cargo
 	var/time_approved = null //Time the order has been approved by cargo
 	var/time_shipped = null //Time the order has been shipped to the station
@@ -226,14 +227,14 @@
 /datum/cargo_order/proc/get_payment_status(var/pretty=1)
 	if(pretty)
 		if(paid_by != null)
-			return "Paid by [paid_by]"
+			return "Paid by [paid_by] using [(paying_account == "Personal") ? "their personal" : "the [paying_account]"] account"
 		else
 			return "Unpaid"
 	else
 		if(paid_by != null)
-			return 1
+			return TRUE
 		else
-			return 0
+			return FALSE
 
 // Returns a Invoice for the Order
 /datum/cargo_order/proc/get_report_invoice()
@@ -350,12 +351,13 @@
 		return "The order could not be delivered - Invalid Status"
 
 //Mark a order as paid
-/datum/cargo_order/proc/set_paid(var/user_name, var/user_id)
+/datum/cargo_order/proc/set_paid(user_name, user_id, account_charged)
 	if(user_id <= 0)
 		user_id = null
 	time_paid = worldtime2text()
 	paid_by = user_name
 	paid_by_id = user_id
+	paying_account = account_charged
 	return "The order has been paid for"
 
 ///	A cargo order item. Part of a category. Specifies the item, the supplier and the price of the item

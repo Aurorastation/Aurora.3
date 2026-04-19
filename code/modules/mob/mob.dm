@@ -7,6 +7,7 @@
 	GLOB.mob_list -= src
 	GLOB.dead_mob_list -= src
 	GLOB.living_mob_list -= src
+	GLOB.player_list -= src
 	unset_machine()
 	QDEL_NULL(hud_used)
 

@@ -8,6 +8,12 @@
 	active_power_usage = 10
 	layer = CAMERA_LAYER
 	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
+	maxhealth = OBJECT_HEALTH_EXTREMELY_LOW
+	armor = list(
+		MELEE = ARMOR_MELEE_SMALL,
+		BULLET = ARMOR_BALLISTIC_MINOR,
+		LASER = ARMOR_LASER_MINOR
+	)
 
 	var/list/network = list(NETWORK_STATION)
 	var/c_tag = null
@@ -143,7 +149,7 @@
 	if(. != BULLET_ACT_HIT)
 		return .
 
-	take_damage(hitting_projectile.get_structure_damage())
+	add_damage(hitting_projectile.get_structure_damage(), hitting_projectile.damage_flags(), hitting_projectile.damage_type, hitting_projectile.armor_penetration, hitting_projectile)
 
 /obj/machinery/camera/ex_act(severity)
 	if(src.invuln)
@@ -161,7 +167,7 @@
 		var/obj/O = hitting_atom
 		if (O.throwforce >= src.toughness)
 			visible_message(SPAN_WARNING("<B>[src] was hit by [O].</B>"))
-		take_damage(O.throwforce)
+		add_damage(O.throwforce, O.damage_flags(), O.damtype, O.armor_penetration, O)
 
 /obj/machinery/camera/proc/setViewRange(var/num = 7)
 	src.view_range = num
@@ -264,7 +270,7 @@
 				var/obj/item/I = attacking_item
 				if (I.hitsound)
 					playsound(loc, I.hitsound, I.get_clamped_volume(), 1, -1)
-		take_damage(attacking_item.force)
+		add_damage(attacking_item.force, attacking_item.damage_flags(), attacking_item.damtype, attacking_item.armor_penetration, attacking_item)
 		return TRUE
 	else
 		return ..()
@@ -281,17 +287,17 @@
 		set_status(!src.status)
 		if (!(src.status))
 			if(user)
-				visible_message(SPAN_NOTICE(" [user] has deactivated [src]!"))
+				visible_message(SPAN_NOTICE("[user] has deactivated [src]!"))
 			else
-				visible_message(SPAN_NOTICE(" [src] clicks and shuts down. "))
+				visible_message(SPAN_NOTICE("[src] clicks and shuts down. "))
 			playsound(src.loc, 'sound/items/Wirecutter.ogg', 100, 1)
 			icon_state = "[initial(icon_state)]1"
 			add_hiddenprint(user)
 		else
 			if(user)
-				visible_message(SPAN_NOTICE(" [user] has reactivated [src]!"))
+				visible_message(SPAN_NOTICE("[user] has reactivated [src]!"))
 			else
-				visible_message(SPAN_NOTICE(" [src] clicks and reactivates itself. "))
+				visible_message(SPAN_NOTICE("[src] clicks and reactivates itself. "))
 			playsound(src.loc, 'sound/items/Wirecutter.ogg', 100, 1)
 			icon_state = initial(icon_state)
 			add_hiddenprint(user)
@@ -303,9 +309,8 @@
 
 	GLOB.cameranet.update_visibility(src)
 
-/obj/machinery/camera/proc/take_damage(var/force, var/message)
-	//prob(25) gives an average of 3-4 hits
-	if (force >= toughness && (force > toughness*4 || prob(25)))
+/obj/machinery/camera/on_death(damage, damage_flags, damage_type, armor_penetration, obj/weapon)
+	if(!(stat & BROKEN))
 		destroy()
 
 //Used when someone breaks a camera

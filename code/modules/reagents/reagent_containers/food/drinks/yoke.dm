@@ -103,6 +103,7 @@
 			/obj/item/reagent_containers/food/drinks/cans/lemon_lime,
 			/obj/item/reagent_containers/food/drinks/cans/iced_tea,
 			/obj/item/reagent_containers/food/drinks/cans/grape_juice,
+			/obj/item/reagent_containers/food/drinks/cans/cherry_juice,
 			/obj/item/reagent_containers/food/drinks/cans/tonic,
 			/obj/item/reagent_containers/food/drinks/cans/sodawater,
 			/obj/item/reagent_containers/food/drinks/cans/root_beer,
@@ -171,6 +172,9 @@
 
 /obj/item/storage/box/fancy/yoke/grape_juice
 	starts_with = list(/obj/item/reagent_containers/food/drinks/cans/grape_juice = 6)
+
+/obj/item/storage/box/fancy/yoke/cherry_juice
+	starts_with = list(/obj/item/reagent_containers/food/drinks/cans/cherry_juice = 6)
 
 /obj/item/storage/box/fancy/yoke/tonic
 	starts_with = list(/obj/item/reagent_containers/food/drinks/cans/tonic = 6)

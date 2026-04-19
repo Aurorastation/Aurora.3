@@ -109,7 +109,7 @@
 	H.real_name = R.dna.real_name
 
 	//Get the clone body ready
-	H.setCloneLoss(H.maxHealth - 50)
+	H.setCloneLoss(H.maxhealth - 50)
 	H.adjustBrainLoss(100, 120) // Even if healed to full health, it will have some brain damage
 	H.Paralyse(4)
 
@@ -162,7 +162,7 @@
 	if(occupant.getCloneLoss() == 0) // Rare case, but theoretically possible
 		return 100
 
-	return between(0, 100 * (occupant.health - occupant.maxHealth * 75 / 100) / (occupant.maxHealth * (heal_level - 75) / 100), 100)
+	return between(0, 100 * (occupant.health - occupant.maxhealth * 75 / 100) / (occupant.maxhealth * (heal_level - 75) / 100), 100)
 
 //Grow clones to maturity then kick them out.  FREELOADERS
 /obj/machinery/clonepod/process()

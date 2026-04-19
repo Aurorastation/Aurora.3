@@ -268,7 +268,7 @@
 /datum/species/machine/handle_death(var/mob/living/carbon/human/H)
 	..()
 	H.f_style = ""
-	addtimer(CALLBACK(H, TYPE_PROC_REF(/mob/living/carbon/human, update_hair)), 100)
+	addtimer(CALLBACK(H, TYPE_PROC_REF(/mob/living/carbon/human, update_hair)), 100, TIMER_STOPPABLE|TIMER_DELETE_ME)
 
 /datum/species/machine/sanitize_name(var/new_name)
 	return sanitizeName(new_name, allow_numbers = 1)

@@ -21,6 +21,9 @@
 
 	var/requires_surgery_compatibility = TRUE
 
+	/// The associative list of skills and their paired requirement levels to be able to perform a given surgery.
+	var/alist/skill_requirements
+
 /// Returns how well tool is suited for this step.
 /singleton/surgery_step/proc/tool_quality(obj/item/tool)
 	for(var/T in allowed_tools)
@@ -127,6 +130,14 @@
 	else if(LAZYLEN(possible_surgeries) >= 1)
 		if(user.client) // In case of future autodocs.
 			S = tgui_input_list(user, "Which surgery would you like to perform?", "Surgery", possible_surgeries)
+
+	// Check via skill components if the user knows how to perform the surgery.
+	for (var/skill_comp, required_level in S.skill_requirements)
+		var/skill_level = GET_SKILL_LEVEL(user, skill_comp)
+		// Null condition handles NPCs and Antags that won't have the skill setup.
+		if (!isnull(skill_level) && skill_level < required_level)
+			to_chat(user, SPAN_WARNING("You lack the skills needed to perform this surgical procedure."))
+			return TRUE
 
 	// We didn't find a surgery, or decided not to perform one.
 	if(!istype(S))

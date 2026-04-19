@@ -48,7 +48,7 @@ GLOBAL_LIST_EMPTY(trackables_pool)
 	tameable = FALSE
 	blood_type = "#490d0d"
 
-	maxHealth = 300
+	maxhealth = 300
 	health = 300
 	speed = 6
 
@@ -138,7 +138,7 @@ GLOBAL_LIST_EMPTY(trackables_pool)
 	icon_living = "the_thing"
 	icon_dead = "the_thing_dead"
 	faction = "abominations"
-	maxHealth = 250
+	maxhealth = 250
 	health = 250
 	speed = 6
 
@@ -149,7 +149,7 @@ GLOBAL_LIST_EMPTY(trackables_pool)
 		icon_living = "the_thing_chitin"
 		icon_dead = "the_thing_chitin_dead"
 
-		maxHealth = 350 // chitinous armor
+		maxhealth = 350 // chitinous armor
 		health = 350
 		speed = 7 // armor heavy
 
@@ -188,7 +188,7 @@ GLOBAL_LIST_EMPTY(trackables_pool)
 		trap_split = TRUE
 	if(prob(20) || starts_disguised)
 		mob_in_disguise = TRUE
-		maxHealth = 400 // the mob in disguise makes it easy target for a few bullets. This should even the odds.
+		maxhealth = 400 // the mob in disguise makes it easy target for a few bullets. This should even the odds.
 		health = 400
 		speed = 15
 		melee_damage_upper = 60 // punishment for clueless preys.
@@ -291,7 +291,7 @@ GLOBAL_LIST_EMPTY(trackables_pool)
 	tameable = FALSE
 	faction = "abominations"
 
-	maxHealth = 50
+	maxhealth = 50
 	health = 50
 
 	speed = 1
@@ -375,7 +375,7 @@ GLOBAL_LIST_EMPTY(trackables_pool)
 /mob/living/simple_animal/hostile/revivable/husked_creature/quarantined_outpost/horde
 	var/tmp/breaking_wall = FALSE
 	break_stuff_probability = 100
-	maxHealth = 200
+	maxhealth = 200
 	health = 200
 
 /mob/living/simple_animal/hostile/revivable/husked_creature/quarantined_outpost/horde/Move(NewLoc)
@@ -433,7 +433,7 @@ GLOBAL_LIST_EMPTY(trackables_pool)
 	var/tmp/breaking_wall = FALSE
 	break_stuff_probability = 100
 	disguise_disabled = TRUE
-	maxHealth = 250
+	maxhealth = 250
 	health = 250
 
 /mob/living/simple_animal/hostile/revivable/abomination/quarantined_outpost/horde/Move(NewLoc)

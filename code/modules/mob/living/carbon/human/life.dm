@@ -877,10 +877,10 @@
 		return
 
 	if(stat != DEAD)
-		if((stat == UNCONSCIOUS && health < maxHealth / 2) || paralysis || InStasis())
+		if((stat == UNCONSCIOUS && health < maxhealth / 2) || paralysis || InStasis())
 			//Critical damage passage overlay
 			var/severity = 0
-			switch(health - maxHealth/2)
+			switch(health - maxhealth/2)
 				if(-20 to -10)			severity = 1
 				if(-30 to -20)			severity = 2
 				if(-40 to -30)			severity = 3
@@ -1267,7 +1267,7 @@
 		Paralyse(3)
 		return
 	if(!can_feel_pain())
-		if(isSynthetic() &&(get_total_health() < maxHealth * 0.5))
+		if(isSynthetic() &&(get_total_health() < maxhealth * 0.5))
 			stuttering = max(stuttering, 5)
 		return
 

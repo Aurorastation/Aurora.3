@@ -4,11 +4,11 @@
 		return ..()
 
 	if(status_flags & GODMODE)
-		health = maxHealth
+		health = maxhealth
 		set_stat(CONSCIOUS)
 		return
 
-	health = maxHealth - getBrainLoss()
+	health = maxhealth - getBrainLoss()
 
 	if(stat == DEAD)
 		var/genetic_damage = getCloneLoss()
@@ -17,15 +17,15 @@
 			ChangeToSkeleton(FALSE)
 		else
 			var/fire_dmg = getFireLoss()
-			if(fire_dmg > maxHealth * 3)
+			if(fire_dmg > maxhealth * 3)
 				ChangeToSkeleton(FALSE)
-			else if(fire_dmg > maxHealth * 1.5)
+			else if(fire_dmg > maxhealth * 1.5)
 				ChangeToHusk()
 
 	UpdateDamageIcon() // to fix that darn overlay bug
 
 /mob/living/carbon/human/proc/get_total_health()
-	var/amount = maxHealth - getFireLoss() - getBruteLoss() - getOxyLoss() - getToxLoss() - getBrainLoss()
+	var/amount = maxhealth - getFireLoss() - getBruteLoss() - getOxyLoss() - getToxLoss() - getBrainLoss()
 	return amount
 
 /mob/living/carbon/human/adjustBrainLoss(var/amount)
@@ -164,7 +164,7 @@
 			breathe_organ = internal_organs_by_name[species.breathing_organ]
 
 		if(!breathe_organ)
-			return maxHealth/2
+			return maxhealth/2
 		return breathe_organ.get_oxygen_deprivation()
 
 /mob/living/carbon/human/setOxyLoss(var/amount)

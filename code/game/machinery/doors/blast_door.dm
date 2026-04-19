@@ -189,14 +189,14 @@
 	for(var/turf/turf in locs)
 		for(var/atom/movable/AM in turf)
 			if(AM.airlock_crush(damage))
-				take_damage(damage*0.2)
+				add_damage(damage * 0.2)
 
 
 /**
  * Fully repairs the blast door.
  */
 /obj/machinery/door/blast/proc/repair()
-	health = maxhealth
+	set_health(maxhealth)
 	if(stat & BROKEN)
 		stat &= ~BROKEN
 
@@ -232,7 +232,7 @@
 	icon_state_closed = "pdoor1"
 	icon_state_closing = "pdoorc1"
 	icon_state = "pdoor1"
-	maxhealth = 600
+	maxhealth = OBJECT_HEALTH_EXTREMELY_HIGH
 	block_air_zones = 1
 
 /obj/machinery/door/blast/regular/open
@@ -267,7 +267,7 @@
 	icon_state_closed = "pdoor1"
 	icon_state_closing = "pdoorc1"
 	icon_state = "pdoor1"
-	maxhealth = 1000
+	maxhealth = OBJECT_HEALTH_EXTREMELY_HIGH
 	block_air_zones = 1
 
 /obj/machinery/door/blast/odin/open
@@ -283,7 +283,7 @@
 /obj/machinery/door/blast/odin/ex_act(var/severity)
 	return
 
-/obj/machinery/door/blast/odin/take_damage(var/damage)
+/obj/machinery/door/blast/odin/add_damage(damage, damage_flags, damage_type, armor_penetration, obj/weapon, message)
 	return
 
 /obj/machinery/door/blast/odin/shuttle

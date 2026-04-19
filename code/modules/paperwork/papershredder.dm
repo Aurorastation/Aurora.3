@@ -5,6 +5,7 @@
 	icon_state = "papershredder0"
 	density = 1
 	anchored = 1
+	maxhealth = OBJECT_HEALTH_LOW
 	var/max_paper = 10
 	var/paperamount = 0
 	var/list/shred_amounts = list(

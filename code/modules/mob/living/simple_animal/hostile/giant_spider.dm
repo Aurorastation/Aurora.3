@@ -28,7 +28,7 @@
 	blood_type = "#51C404"
 	blood_amount = 150
 	stop_automated_movement_when_pulled = 0
-	maxHealth = 200
+	maxhealth = 200
 	health = 200
 	melee_damage_lower = 15
 	melee_damage_upper = 20
@@ -45,7 +45,7 @@
 	mob_size = 6
 	smart_melee = FALSE
 
-	attacktext = "bitten"
+	attacktext = "bites"
 	attack_emote = "skitters toward"
 	attack_sound = 'sound/weapons/bite.ogg'
 	emote_sounds = list('sound/effects/creatures/spider_critter.ogg')
@@ -59,7 +59,7 @@
 	icon_living = "greimorian_worker"
 	icon_dead = "greimorian_worker_dead"
 	blood_amount = 50
-	maxHealth = 40
+	maxhealth = 40
 	health = 40
 	melee_damage_lower = 5
 	melee_damage_upper = 10
@@ -77,7 +77,7 @@
 	icon_living = "greimorian_servant"
 	icon_dead = "greimorian_servant_dead"
 	blood_amount = 150
-	maxHealth = 200
+	maxhealth = 200
 	health = 200
 	melee_damage_lower = 15
 	melee_damage_upper = 20
@@ -102,7 +102,7 @@
 	icon_living = "greimorian_hunter"
 	icon_dead = "greimorian_hunter_dead"
 	blood_amount = 90
-	maxHealth = 120
+	maxhealth = 120
 	health = 120
 	melee_damage_lower = 10
 	melee_damage_upper = 20
@@ -118,7 +118,7 @@
 	icon_state = "greimorian_jackal"
 	icon_living = "greimorian_jackal"
 	icon_dead = "greimorian_jackal_dead"
-	maxHealth = 100
+	maxhealth = 100
 	health = 100
 	melee_damage_lower = 5
 	melee_damage_upper = 10
@@ -135,7 +135,7 @@
 	icon_state = "greimorian_bombardier"
 	icon_living = "greimorian_bombardier"
 	icon_dead = "greimorian_bombardier_dead"
-	maxHealth = 60
+	maxhealth = 60
 	health = 60
 	melee_damage_lower = 5
 	melee_damage_upper = 10

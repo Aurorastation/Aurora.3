@@ -36,6 +36,13 @@
 
 	blacklisted_species = list(SPECIES_TAJARA_MSAI, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_ATTENDANT, SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_BREEDER)
 
+	skill_requirements = alist(
+		/singleton/skill/mechanical_engineering = SKILL_LEVEL_TRAINED,
+		/singleton/skill/electrical_engineering = SKILL_LEVEL_TRAINED,
+		/singleton/skill/atmospherics_systems = SKILL_LEVEL_TRAINED,
+		/singleton/skill/reactor_systems = SKILL_LEVEL_TRAINED
+	)
+
 /obj/outfit/job/chief_engineer
 	name = "Chief Engineer"
 	jobtype = /datum/job/chief_engineer
@@ -103,6 +110,13 @@
 	outfit = /obj/outfit/job/engineer
 
 	blacklisted_species = list(SPECIES_VAURCA_BREEDER)
+
+	skill_requirements = alist(
+		/singleton/skill/mechanical_engineering = SKILL_LEVEL_TRAINED,
+		/singleton/skill/electrical_engineering = SKILL_LEVEL_TRAINED,
+		/singleton/skill/atmospherics_systems = SKILL_LEVEL_TRAINED,
+		/singleton/skill/reactor_systems = SKILL_LEVEL_TRAINED
+	)
 
 /obj/outfit/job/engineer
 	name = "Ship Engineer"
@@ -178,6 +192,13 @@
 	outfit = /obj/outfit/job/atmos
 	blacklisted_species = list(SPECIES_VAURCA_BREEDER)
 
+	skill_requirements = alist(
+		/singleton/skill/mechanical_engineering = SKILL_LEVEL_TRAINED,
+		/singleton/skill/electrical_engineering = SKILL_LEVEL_TRAINED,
+		/singleton/skill/atmospherics_systems = SKILL_LEVEL_TRAINED,
+		/singleton/skill/reactor_systems = SKILL_LEVEL_TRAINED
+	)
+
 /obj/outfit/job/atmos
 	name = "Atmospheric Technician"
 	jobtype = /datum/job/atmos
@@ -249,6 +270,13 @@
 		SPECIES_HUMAN = 24,
 		SPECIES_SKRELL = 58,
 		SPECIES_SKRELL_AXIORI = 58
+	)
+
+	skill_requirements = alist(
+		/singleton/skill/mechanical_engineering = SKILL_LEVEL_TRAINED,
+		/singleton/skill/electrical_engineering = SKILL_LEVEL_TRAINED,
+		/singleton/skill/atmospherics_systems = SKILL_LEVEL_TRAINED,
+		/singleton/skill/reactor_systems = SKILL_LEVEL_TRAINED
 	)
 
 /obj/outfit/job/intern_eng

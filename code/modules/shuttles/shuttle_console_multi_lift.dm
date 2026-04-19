@@ -6,6 +6,7 @@
 	density = FALSE
 	req_access = null
 	ui_template = "ShuttleControlConsoleMultiLift"
+	required_skill = null
 
 /obj/machinery/computer/shuttle_control/multi/lift/wall
 	icon_state = "lift_wall"

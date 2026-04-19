@@ -76,6 +76,11 @@
 	var/aide_job
 	var/bodyguard_job
 
+	/**
+	 * Associated list of /singleton/skill/skill_name = skill_level that this job requires.
+	 */
+	var/alist/skill_requirements = alist()
+
 //Only override this proc
 /datum/job/proc/pre_spawn(mob/abstract/new_player/player)
 	return
