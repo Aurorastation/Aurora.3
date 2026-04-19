@@ -18,6 +18,7 @@
 	power_rating = 7500 //7500 W ~ 10 HP
 	power_losses = 150
 
+	init_flags = INIT_MACHINERY_PROCESS_SELF
 /obj/machinery/portable_atmospherics/powered/pump/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	. += "The internal gas container can be filled by connecting it to a connector port.  The pump can pump the air in (sucking) \

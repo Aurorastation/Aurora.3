@@ -14,6 +14,7 @@
 	var/obj/item/cell/cell
 	var/obj/effect/suspension_field/suspension_field
 
+	init_flags = INIT_MACHINERY_PROCESS_SELF
 /obj/effect/suspension_field/feedback_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	. += SPAN_NOTICE("You can see something floating inside it:")

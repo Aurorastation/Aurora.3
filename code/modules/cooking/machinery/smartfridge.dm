@@ -1,5 +1,6 @@
 /* SmartFridge.  Much todo
 */
+	init_flags = INIT_MACHINERY_PROCESS_SELF
 /obj/machinery/smartfridge
 	name = "\improper SmartFridge"
 	icon = 'icons/obj/machinery/smartfridge.dmi'

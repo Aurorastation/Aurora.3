@@ -7,6 +7,7 @@
 
 // Simple log entry datum
 
+	init_flags = INIT_MACHINERY_PROCESS_SELF
 /datum/comm_log_entry
 	var/input_type = "Speech File"
 	var/name = "data packet (#)"

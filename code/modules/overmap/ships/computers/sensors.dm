@@ -18,6 +18,7 @@
 	var/datum/weakref/sensor_ref
 	var/list/last_scan
 
+	init_flags = INIT_MACHINERY_PROCESS_SELF
 /obj/machinery/computer/ship/sensors/cockpit
 	density = 0
 	icon = 'icons/obj/cockpit_console.dmi'

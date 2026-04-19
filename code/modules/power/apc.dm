@@ -114,6 +114,7 @@ ABSTRACT_TYPE(/obj/machinery/power/apc)
 	gfi_layer_rotation = GFI_ROTATION_DEFDIR
 	clicksound = SFX_SWITCH
 	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
+	init_flags = INIT_MACHINERY_PROCESS_SELF
 	var/area/area
 	var/areastring = null
 	var/obj/item/cell/cell

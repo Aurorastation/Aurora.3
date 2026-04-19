@@ -38,6 +38,7 @@ GLOBAL_LIST_EMPTY(admin_departments)
 	/// A list of PDAs to alert upon arrival of the fax.
 	var/list/obj/item/modular_computer/alert_pdas = list()
 
+	init_flags = INIT_MACHINERY_PROCESS_SELF
 /obj/machinery/photocopier/faxmachine/Initialize()
 	. = ..()
 	GLOB.allfaxes += src

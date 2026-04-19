@@ -15,6 +15,7 @@
 	var/mapped_in = 0					//Do not announce creation when it's mapped in.
 
 	// This should be only used on Dev for testing purposes.
+	init_flags = INIT_MACHINERY_PROCESS_SELF
 /obj/machinery/power/fractal_reactor/New()
 	..()
 	if(!mapped_in)

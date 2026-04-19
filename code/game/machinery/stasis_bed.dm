@@ -5,6 +5,7 @@
 	icon = 'icons/obj/machinery/sleeper.dmi'
 	icon_state = "stasis"
 	anchored = TRUE
+	init_flags = INIT_MACHINERY_PROCESS_SELF
 
 	buckle_lying = TRUE
 	can_buckle = list(/mob/living/carbon/human)

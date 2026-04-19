@@ -109,6 +109,7 @@ pixel_x = 10;
 	clicksound = SFX_BUTTON
 	clickvol = 30
 	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
+	init_flags = INIT_MACHINERY_PROCESS_SELF
 
 	var/alarm_id = null
 	var/frequency = 1439

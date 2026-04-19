@@ -20,6 +20,7 @@
 
 	parts_power_mgmt = FALSE
 
+	init_flags = INIT_MACHINERY_PROCESS_SELF
 /obj/machinery/r_n_d/tech_processor/upgrade_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	. += "Upgraded <b>scanning modules</b> will increase speed at which research calculations are made and reduce active power usage."

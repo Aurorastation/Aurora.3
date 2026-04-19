@@ -39,6 +39,7 @@
 	anchored = TRUE
 	density = TRUE
 	atmos_canpass = CANPASS_DENSITY
+	init_flags = INIT_MACHINERY_PROCESS_SELF
 	var/obj/machinery/power/turbine/turbine
 	var/datum/gas_mixture/gas_contained
 	var/turf/simulated/inturf
@@ -75,6 +76,7 @@
 	anchored = TRUE
 	density = TRUE
 	atmos_canpass = CANPASS_DENSITY
+	init_flags = INIT_MACHINERY_PROCESS_SELF
 	/// Linked [/obj/machinery/power/compressor]. Should not be manipulated directly.
 	var/obj/machinery/power/compressor/compressor
 	/// Turf to output air to. Should not be manipulated directly

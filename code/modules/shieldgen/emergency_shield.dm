@@ -24,6 +24,7 @@
 	/// Gets replaced by the # of shield objs its trying to maintain.
 	active_power_usage = 1000 WATTS
 
+	init_flags = INIT_MACHINERY_PROCESS_SELF
 /obj/machinery/shieldgen/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	. += "This machine's primary function is to project energy shields calibrated for atmospheric containment; these shields keep the air in and the vacuum out."

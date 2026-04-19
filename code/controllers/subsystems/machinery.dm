@@ -148,31 +148,28 @@ SUBSYSTEM_DEF(machinery)
 		CHECK_TICK
 
 /datum/controller/subsystem/machinery/proc/process_pipenets(resumed, no_mc_tick)
-	if (!resumed)
-		queue = pipenets.Copy()
 	var/datum/pipe_network/network
 	var/seconds_per_tick = wait * 0.1
-	for (var/i = queue.len to 1 step -1)
-		network = queue[i]
+	for(var/i = (resumed && queue.len) ? queue[1] : pipenets.len; i >= 1; i--)
+		network = pipenets[i]
 		if (QDELETED(network))
 			if (network)
 				network.datum_flags &= ~DF_ISPROCESSING
-			pipenets -= network
+			pipenets.Remove(network)
+			i-- // compensate for shrinking list
 			continue
 		network.process(seconds_per_tick)
 		if (no_mc_tick)
 			CHECK_TICK
 		else if (MC_TICK_CHECK)
-			queue.Cut(i)
+			queue = list(i)
 			return
 
 /datum/controller/subsystem/machinery/proc/process_machinery(resumed, no_mc_tick)
-	if (!resumed)
-		queue = processing.Copy()
 	var/obj/machinery/machine
 	var/seconds_per_tick = wait * 0.1
-	for (var/i = queue.len to 1 step -1)
-		machine = queue[i]
+	for(var/i = (resumed && queue.len) ? queue[1] : processing.len; i >= 1; i--)
+		machine = processing[i]
 
 		if(!istype(machine)) // Below is a debugging and recovery effort. This should never happen, but has been observed recently.
 			if(!machine)
@@ -181,48 +178,45 @@ SUBSYSTEM_DEF(machinery)
 				processing.Remove(machine)
 				machine.datum_flags &= ~DF_ISPROCESSING
 				WARNING("[log_info_line(machine)] was found illegally queued on SSmachines.")
+				i-- // compensate for shrinking list
 				continue
-			else if(resumed)
-				queue.Cut() // Abandon current run; assuming that we were improperly resumed with the wrong process queue.
-				WARNING("[log_info_line(machine)] was in the wrong subqueue on SSmachines on a resumed fire.")
-				process_machinery(0)
-				return
 			else // ??? possibly dequeued by another machine or something ???
-				WARNING("[log_info_line(machine)] was in the wrong subqueue on SSmachines on an unresumed fire.")
+				WARNING("[log_info_line(machine)] was in the wrong subqueue on SSmachines.")
 				continue
 
 		if (QDELETED(machine))
 			if (machine)
 				machine.datum_flags &= ~DF_ISPROCESSING
-			processing -= machine
+			processing.Remove(machine)
+			i-- // compensate for shrinking list
 			continue
 		//process_all was moved here because of calls overhead for no benefits
 		if((machine.processing_flags & MACHINERY_PROCESS_SELF))
 			if(machine.process(seconds_per_tick) == PROCESS_KILL)
 				STOP_PROCESSING_MACHINE(machine, MACHINERY_PROCESS_SELF)
 				processing -= machine
+				i-- // compensate for shrinking list
 		if (no_mc_tick)
 			CHECK_TICK
 		else if (MC_TICK_CHECK)
-			queue.Cut(i)
+			queue = list(i)
 			return
 
 /datum/controller/subsystem/machinery/proc/process_powernets(resumed, no_mc_tick)
-	if (!resumed)
-		queue = powernets.Copy()
 	var/datum/powernet/network
-	for (var/i = queue.len to 1 step -1)
-		network = queue[i]
+	for(var/i = (resumed && queue.len) ? queue[1] : powernets.len; i >= 1; i--)
+		network = powernets[i]
 		if (QDELETED(network))
 			if (network)
 				network.datum_flags &= ~DF_ISPROCESSING
-			powernets -= network
+			powernets.Remove(network)
+			i-- // compensate for shrinking list
 			continue
 		network.reset(wait)
 		if (no_mc_tick)
 			CHECK_TICK
 		else if (MC_TICK_CHECK)
-			queue.Cut(i)
+			queue = list(i)
 			return
 
 /datum/controller/subsystem/machinery/stat_entry(msg)

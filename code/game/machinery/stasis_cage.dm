@@ -9,6 +9,7 @@
 	idle_power_usage = 0
 	active_power_usage = 5000
 	use_power = POWER_USE_IDLE
+	init_flags = INIT_MACHINERY_PROCESS_SELF
 
 	/// The wires of the cage
 	var/datum/wires/stasis_cage/wires

@@ -10,6 +10,7 @@
 	anchored = FALSE
 	density = TRUE
 	req_access = list(ACCESS_ENGINE_EQUIP)
+	init_flags = INIT_MACHINERY_PROCESS_SELF
 	/// Range at which it can pair with another shield wall generator (must be this many spaces BETWEEN THEM at maximum)
 	var/range = 9
 	var/power_state = FALSE

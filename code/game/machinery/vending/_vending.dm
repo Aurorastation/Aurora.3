@@ -63,6 +63,7 @@
 	density = 1
 	clicksound = SFX_BUTTON
 	manufacturer = "idris"
+	init_flags = INIT_MACHINERY_PROCESS_SELF
 
 	// Every vending machine has one of these.
 	/// `icon_state` when off. Defined on init.

@@ -10,6 +10,7 @@
 	active_power_usage = 45 KILO WATTS
 	pass_flags = PASSTABLE
 	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
+	init_flags = INIT_MACHINERY_PROCESS_SELF
 	var/charging_efficiency = 1.3
 	//Entropy. The charge put into the cell is multiplied by this
 	var/obj/item/charging

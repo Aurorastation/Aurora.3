@@ -267,6 +267,7 @@
 	density = 1
 	use_power = POWER_USE_IDLE
 	idle_power_usage = 250
+	init_flags = INIT_MACHINERY_PROCESS_SELF
 	var/id = 0
 	var/cdir = 0
 	var/targetdir = 0		// target angle in manual tracking (since it updates every game minute)

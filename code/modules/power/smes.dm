@@ -35,6 +35,7 @@
 	anchored = 1
 	use_power = POWER_USE_OFF
 	clicksound = SFX_SWITCH
+	init_flags = INIT_MACHINERY_PROCESS_SELF
 
 	maxhealth = OBJECT_HEALTH_MEDIUM
 

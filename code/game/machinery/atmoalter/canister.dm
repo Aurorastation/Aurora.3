@@ -23,6 +23,7 @@
 	var/release_log = ""
 	var/update_flag = 0
 
+	init_flags = INIT_MACHINERY_PROCESS_SELF
 /obj/machinery/portable_atmospherics/canister/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	. += "The canister can be connected to a connector port with a wrench."

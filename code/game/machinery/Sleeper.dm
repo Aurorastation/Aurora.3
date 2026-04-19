@@ -7,6 +7,7 @@
 	anchored = TRUE
 	clicksound = 'sound/machines/buttonbeep.ogg'
 	clickvol = 30
+	init_flags = INIT_MACHINERY_PROCESS_SELF
 
 	var/mob/living/carbon/human/occupant = null
 	var/list/available_chemicals = list(

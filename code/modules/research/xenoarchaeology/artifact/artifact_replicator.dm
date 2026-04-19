@@ -19,6 +19,7 @@
 
 	var/fail_message
 
+	init_flags = INIT_MACHINERY_PROCESS_SELF
 /obj/machinery/replicator/Initialize()
 	. = ..()
 
