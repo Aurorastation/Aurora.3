@@ -2986,12 +2986,11 @@
 /turf/simulated/floor/sidewalk/assunzione,
 /area/port_volturno/exterior)
 "cra" = (
-/obj/effect/decal/curb,
 /obj/machinery/door/blast/shutters{
 	id = "restaurant";
 	dir = 4
 	},
-/turf/simulated/floor/wood,
+/turf/simulated/wall,
 /area/port_volturno/interior/stafylia)
 "crb" = (
 /obj/structure/road_barrier,
@@ -50788,7 +50787,7 @@ nya
 tVM
 tVM
 tVM
-pUH
+cra
 kSk
 iQe
 sgv
@@ -51045,7 +51044,7 @@ nya
 tVM
 etP
 etP
-cra
+lcD
 wcF
 iUL
 wcF
