@@ -1237,15 +1237,6 @@
 /obj/effect/decal/rolling_fog,
 /turf/simulated/floor/asphalt/assunzione,
 /area/port_volturno/interior/parking)
-"bby" = (
-/obj/effect/decal/rolling_fog,
-/obj/random/dirt_75,
-/obj/machinery/light/spot{
-	dir = 1;
-	pixel_y = 20
-	},
-/turf/simulated/floor/sidewalk/assunzione/flat,
-/area/port_volturno/interior)
 "bbO" = (
 /obj/random/dirt_75,
 /obj/effect/decal/rolling_fog,
@@ -1344,6 +1335,13 @@
 /obj/random/dirt_75,
 /turf/simulated/wall/brick,
 /area/port_volturno/exterior)
+"bfJ" = (
+/obj/structure/structural_support/side,
+/obj/effect/decal/rolling_fog,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/concrete,
+/area/port_volturno/exterior)
 "bfT" = (
 /obj/effect/floor_decal/industrial/outline/medical,
 /obj/effect/floor_decal/industrial/warning{
@@ -1378,14 +1376,6 @@
 	},
 /turf/simulated/floor/concrete,
 /area/port_volturno/interior/riad)
-"bgH" = (
-/obj/effect/decal/road_marking/center,
-/obj/effect/decal/road_marking/reflector,
-/obj/random/dirt_75,
-/obj/effect/decal/rolling_fog,
-/obj/random/dirt_75,
-/turf/simulated/floor/asphalt/assunzione,
-/area/port_volturno/exterior)
 "bgJ" = (
 /obj/random/dirt_75,
 /obj/effect/floor_decal/industrial/warning{
@@ -3850,6 +3840,12 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
 /area/port_volturno/interior/maintenance)
+"cVl" = (
+/obj/structure/structural_support/side,
+/obj/effect/decal/rolling_fog,
+/obj/random/dirt_75,
+/turf/simulated/floor/concrete,
+/area/port_volturno/exterior)
 "cVm" = (
 /obj/structure/flora/assunzione/bush/lucevine,
 /turf/simulated/floor/grass1/no_edge,
@@ -4659,12 +4655,6 @@
 /obj/effect/decal/rolling_fog,
 /turf/simulated/floor/grass1/no_edge,
 /area/port_volturno/interior)
-"dxW" = (
-/obj/machinery/light{
-	pixel_y = -2
-	},
-/turf/simulated/floor/tiled,
-/area/port_volturno/interior/police)
 "dyb" = (
 /obj/structure/table/standard,
 /obj/item/clothing/glasses/safety/goggles{
@@ -6533,14 +6523,6 @@
 /obj/effect/decal/rolling_fog,
 /turf/simulated/floor/sidewalk/assunzione/paved,
 /area/port_volturno/interior/parking)
-"eVp" = (
-/obj/effect/decal/rolling_fog,
-/obj/machinery/light/spot{
-	dir = 1;
-	pixel_y = 20
-	},
-/turf/simulated/floor/sidewalk/assunzione,
-/area/port_volturno/exterior)
 "eVC" = (
 /turf/simulated/floor/tiled,
 /area/port_volturno/interior/police)
@@ -7164,6 +7146,15 @@
 /obj/effect/decal/rolling_fog,
 /turf/simulated/floor/roofing_tiles/assunzione,
 /area/port_volturno/exterior)
+"fqN" = (
+/obj/effect/decal/rolling_fog,
+/obj/random/dirt_75,
+/obj/machinery/light/spot{
+	dir = 1;
+	pixel_y = 20
+	},
+/turf/simulated/floor/sidewalk/assunzione/flat,
+/area/port_volturno/interior)
 "frj" = (
 /obj/effect/decal/curb,
 /obj/effect/decal/road_marking,
@@ -7857,6 +7848,14 @@
 	},
 /turf/simulated/floor/grass1/no_edge,
 /area/port_volturno/interior)
+"fVm" = (
+/obj/effect/decal/road_marking/no_pass{
+	dir = 4
+	},
+/obj/effect/decal/rolling_fog,
+/obj/random/dirt_75,
+/turf/simulated/floor/asphalt/assunzione,
+/area/port_volturno/exterior)
 "fVx" = (
 /obj/item/modular_computer/console{
 	dir = 8
@@ -7946,6 +7945,14 @@
 /obj/item/storage/toolbox/mechanical,
 /turf/simulated/floor/tiled,
 /area/port_volturno/interior/robotics)
+"fYD" = (
+/obj/effect/decal/rolling_fog,
+/obj/machinery/light/spot{
+	dir = 1;
+	pixel_y = 20
+	},
+/turf/simulated/floor/sidewalk/assunzione,
+/area/port_volturno/exterior)
 "fYH" = (
 /obj/structure/ledge/roof,
 /obj/effect/decal/rolling_fog,
@@ -9223,6 +9230,12 @@
 /obj/structure/ledge/roof,
 /turf/simulated/floor/roofing_tiles/assunzione,
 /area/port_volturno/exterior)
+"gWL" = (
+/obj/machinery/light{
+	pixel_y = -2
+	},
+/turf/simulated/floor/tiled,
+/area/port_volturno/interior/police)
 "gXE" = (
 /obj/effect/decal/curb{
 	dir = 1
@@ -13457,12 +13470,6 @@
 /obj/effect/decal/rolling_fog,
 /turf/simulated/floor/asphalt/assunzione,
 /area/port_volturno/interior/parking)
-"kqv" = (
-/obj/machinery/recharge_station,
-/obj/random/dirt_75,
-/obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor/tiled/freezer,
-/area/port_volturno/interior/clothing_store)
 "kse" = (
 /obj/structure/stairs/west,
 /obj/structure/railing/mapped,
@@ -13501,6 +13508,13 @@
 /obj/structure/extinguisher_cabinet/south,
 /turf/simulated/floor/tiled/full,
 /area/port_volturno/interior/spaceport/traffic_control)
+"ktG" = (
+/obj/effect/decal/rolling_fog,
+/obj/structure/sign/urban/assunzione/police{
+	pixel_y = 38
+	},
+/turf/simulated/floor/sidewalk/assunzione/flat,
+/area/port_volturno/exterior)
 "ktP" = (
 /obj/structure/ledge/roof{
 	dir = 1
@@ -13680,11 +13694,10 @@
 /turf/simulated/floor/tiled,
 /area/port_volturno/interior/clinic/storage)
 "kBP" = (
+/obj/effect/decal/curb,
 /obj/effect/decal/rolling_fog,
-/obj/structure/sign/urban/assunzione/police{
-	pixel_y = 38
-	},
-/turf/simulated/floor/sidewalk/assunzione/flat,
+/obj/random/dirt_75,
+/turf/simulated/floor/asphalt/assunzione,
 /area/port_volturno/exterior)
 "kCs" = (
 /turf/simulated/floor/tiled/cargo/brass/full,
@@ -21475,13 +21488,6 @@
 /obj/effect/decal/rolling_fog,
 /turf/simulated/floor/asphalt/assunzione,
 /area/port_volturno/exterior)
-"qiS" = (
-/obj/structure/structural_support/side,
-/obj/effect/decal/rolling_fog,
-/obj/random/dirt_75,
-/obj/random/dirt_75,
-/turf/simulated/floor/concrete,
-/area/port_volturno/exterior)
 "qjj" = (
 /obj/structure/bed/stool/padded/violet{
 	dir = 1;
@@ -22428,14 +22434,6 @@
 /obj/effect/decal/rolling_fog,
 /turf/unsimulated/floor/plating,
 /area/port_volturno/interior/tram_station)
-"qVb" = (
-/obj/effect/decal/road_marking/no_pass{
-	dir = 4
-	},
-/obj/effect/decal/rolling_fog,
-/obj/random/dirt_75,
-/turf/simulated/floor/asphalt/assunzione,
-/area/port_volturno/exterior)
 "qVd" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /obj/machinery/door/blast/shutters{
@@ -24584,6 +24582,14 @@
 /obj/effect/decal/rolling_fog,
 /turf/simulated/floor/asphalt/assunzione,
 /area/port_volturno/exterior)
+"sKT" = (
+/obj/effect/decal/road_marking/center,
+/obj/effect/decal/road_marking/reflector,
+/obj/random/dirt_75,
+/obj/effect/decal/rolling_fog,
+/obj/random/dirt_75,
+/turf/simulated/floor/asphalt/assunzione,
+/area/port_volturno/exterior)
 "sLu" = (
 /obj/structure/table/wood,
 /obj/structure/window/reinforced{
@@ -25382,12 +25388,6 @@
 	},
 /obj/effect/decal/rolling_fog,
 /turf/simulated/floor/sidewalk/assunzione/flat,
-/area/port_volturno/exterior)
-"twg" = (
-/obj/effect/decal/curb,
-/obj/effect/decal/rolling_fog,
-/obj/random/dirt_75,
-/turf/simulated/floor/asphalt/assunzione,
 /area/port_volturno/exterior)
 "twk" = (
 /obj/effect/decal/curb{
@@ -26977,6 +26977,12 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled,
 /area/port_volturno/interior/robotics)
+"uwu" = (
+/obj/machinery/recharge_station,
+/obj/random/dirt_75,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled/freezer,
+/area/port_volturno/interior/clothing_store)
 "uww" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
@@ -30640,12 +30646,6 @@
 	},
 /turf/simulated/floor/wood/maple,
 /area/port_volturno/interior/riad)
-"xEw" = (
-/obj/structure/structural_support/side,
-/obj/effect/decal/rolling_fog,
-/obj/random/dirt_75,
-/turf/simulated/floor/concrete,
-/area/port_volturno/exterior)
 "xFD" = (
 /obj/random/dirt_75,
 /obj/effect/floor_decal/industrial/hatch_door/yellow{
@@ -53487,7 +53487,7 @@ eFn
 jFQ
 ojJ
 xlk
-kqv
+uwu
 nKs
 afo
 xlk
@@ -65288,7 +65288,7 @@ dvD
 dvD
 dvD
 llI
-bby
+fqN
 nyt
 nzi
 oFA
@@ -66835,7 +66835,7 @@ vfW
 kIc
 qkH
 qiP
-bgH
+sKT
 vwR
 sKP
 qiP
@@ -67601,7 +67601,7 @@ dvD
 dvD
 dvD
 llI
-eVp
+fYD
 ozg
 kIc
 kIc
@@ -67618,7 +67618,7 @@ wri
 lRn
 cuA
 gmO
-qVb
+fVm
 kIc
 gmO
 xyn
@@ -67873,7 +67873,7 @@ dwk
 jVb
 vsr
 fbB
-twg
+kBP
 qiP
 cEt
 qiP
@@ -68128,7 +68128,7 @@ lGa
 eEF
 qkH
 nTB
-xEw
+cVl
 bPd
 cuA
 cEt
@@ -69413,7 +69413,7 @@ qkH
 eEF
 qkH
 pWo
-qiS
+bfJ
 vvB
 cuA
 kIc
@@ -115374,7 +115374,7 @@ kRB
 wnn
 dgN
 ejt
-dxW
+gWL
 kRB
 kRB
 kRB
@@ -116145,7 +116145,7 @@ kRB
 uAs
 eVC
 gCO
-dxW
+gWL
 kRB
 kRB
 kRB
@@ -117697,7 +117697,7 @@ ohx
 pRU
 adM
 kRB
-kBP
+ktG
 oFA
 nzi
 tWR
