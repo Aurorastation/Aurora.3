@@ -160,12 +160,12 @@ pixel_x = 10;
 
 	var/global/image/alarm_overlay
 
-	//Used to cache the previous gas mixture result, and evaluate if we can skip processing or not
+	//Used to cache the previous gas mixture values to evaluate if we can skip processing
+	var/previous_gas_len = 0
 	var/previous_environment_group_multiplier = null
 	var/previous_environment_temperature = null
 	var/previous_environment_total_moles = null
 	var/previous_environment_volume = null
-	var/list/previous_environment_gas = list()
 
 /obj/machinery/alarm/north
 	PRESET_NORTH
@@ -432,26 +432,22 @@ pixel_x = 10;
 
 	var/datum/gas_mixture/environment = location.return_air()
 
-	var/is_same_environment = TRUE
-	for(var/k in environment.gas)
-		if(environment.gas[k] != previous_environment_gas[k])
-			is_same_environment = FALSE
-			previous_environment_gas = environment.gas.Copy()
-			break
-	if(is_same_environment)
-		if(	(environment.temperature != previous_environment_temperature) ||\
-			(environment.group_multiplier != previous_environment_group_multiplier) ||\
-			(environment.total_moles != previous_environment_total_moles) ||\
-			(environment.volume != previous_environment_volume)
-		)
-			is_same_environment = FALSE
-			previous_environment_group_multiplier = environment.group_multiplier
-			previous_environment_temperature = environment.temperature
-			previous_environment_total_moles = environment.total_moles
-			previous_environment_volume = environment.volume
-
-	if(is_same_environment)
+	// Cache check: compare cheap scalars instead of iterating and copying the gas dict.
+	// gas.len catches gases added/removed entirely; total_moles catches any mole-count change.
+	// Together they cover all real environmental changes without any list allocation.
+	if(environment.gas.len == previous_gas_len \
+		&& environment.total_moles == previous_environment_total_moles \
+		&& environment.temperature == previous_environment_temperature \
+		&& environment.group_multiplier == previous_environment_group_multiplier \
+		&& environment.volume == previous_environment_volume)
 		return
+
+	// Environment changed — update the cache scalars. No list allocation needed.
+	previous_gas_len = environment.gas.len
+	previous_environment_total_moles = environment.total_moles
+	previous_environment_temperature = environment.temperature
+	previous_environment_group_multiplier = environment.group_multiplier
+	previous_environment_volume = environment.volume
 
 	//Handle temperature adjustment here.
 	handle_heating_cooling(environment, seconds_per_tick)
@@ -464,7 +460,7 @@ pixel_x = 10;
 		apply_danger_level(danger_level)
 
 	if (old_pressurelevel != pressure_dangerlevel)
-		if (breach_detected())
+		if (breach_detected(environment))
 			mode = AALARM_MODE_OFF
 			apply_mode()
 
@@ -537,17 +533,20 @@ pixel_x = 10;
 
 /**
  * Returns whether this air alarm thinks there is a breach, given the sensors that are available to it.
+ * Accepts an optional pre-fetched gas mixture to avoid a redundant return_air() call when invoked from process().
  */
-/obj/machinery/alarm/proc/breach_detected()
+/obj/machinery/alarm/proc/breach_detected(datum/gas_mixture/environment = null)
 	var/turf/simulated/location = loc
 
 	if(!istype(location))
 		return 0
 
-	if(breach_detection	== 0)
+	if(breach_detection == 0)
 		return 0
 
-	var/datum/gas_mixture/environment = location.return_air()
+	if(!environment)
+		environment = location.return_air()
+
 	var/environment_pressure = XGM_PRESSURE(environment)
 	var/pressure_levels = TLV["pressure"]
 
