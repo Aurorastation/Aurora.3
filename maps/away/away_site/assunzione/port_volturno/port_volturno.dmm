@@ -1240,6 +1240,10 @@
 "bbO" = (
 /obj/random/dirt_75,
 /obj/effect/decal/rolling_fog,
+/obj/structure/closet/crate/bin/urban/compact{
+	pixel_y = 24;
+	density = 0
+	},
 /turf/simulated/floor/sidewalk/assunzione/flat,
 /area/port_volturno/interior)
 "bbT" = (
@@ -2259,7 +2263,7 @@
 "bOn" = (
 /obj/machinery/door/urban{
 	dir = 4;
-	req_one_access = list(219)
+	name = "Forensics Laboratory"
 	},
 /obj/effect/floor_decal/industrial/hatch_door/yellow,
 /obj/machinery/door/firedoor{
@@ -3698,14 +3702,13 @@
 /turf/simulated/wall/brick,
 /area/port_volturno/interior/liquor_store)
 "cPI" = (
-/obj/effect/decal/road_marking/no_park{
-	pixel_y = -6
+/obj/random/dirt_75,
+/obj/structure/closet/crate/bin/urban/compact{
+	pixel_y = 24;
+	density = 0
 	},
-/obj/effect/decal/road_marking/thin{
-	pixel_y = -1
-	},
-/turf/simulated/floor/asphalt/assunzione,
-/area/port_volturno/interior/robotics)
+/turf/simulated/floor/wood/maple,
+/area/port_volturno/interior/riad)
 "cQl" = (
 /obj/structure/bed/stool/chair/sofa/right/brown{
 	dir = 4
@@ -4547,6 +4550,11 @@
 /obj/structure/ledge,
 /obj/structure/rod_railing,
 /turf/simulated/floor/sidewalk/assunzione,
+/area/port_volturno/exterior)
+"dsZ" = (
+/obj/effect/decal/rolling_fog,
+/obj/structure/bed/stool/chair,
+/turf/simulated/floor/sidewalk/assunzione/paved,
 /area/port_volturno/exterior)
 "dtB" = (
 /obj/effect/decal/rolling_fog,
@@ -5533,14 +5541,12 @@
 /turf/simulated/floor/tiled/full,
 /area/port_volturno/interior/police/brig)
 "ecN" = (
-/obj/effect/decal/road_marking/thin{
-	pixel_y = -1
+/obj/structure/closet/crate/bin/urban/compact{
+	pixel_y = 24;
+	density = 0
 	},
-/obj/effect/decal/road_marking/no_park{
-	pixel_y = -6
-	},
-/turf/simulated/floor/asphalt/assunzione,
-/area/port_volturno/interior/robotics)
+/turf/simulated/floor/wood/maple,
+/area/port_volturno/interior/riad)
 "ecS" = (
 /obj/structure/ledge/quarter,
 /obj/structure/bed/stool/wood{
@@ -5747,10 +5753,14 @@
 "enb" = (
 /obj/structure/utility_pole/street_aszn/on{
 	pixel_y = 24;
-	pixel_x = 5
+	pixel_x = 16
 	},
 /obj/effect/decal/rolling_fog,
 /obj/random/dirt_75,
+/obj/structure/closet/crate/bin/urban/compact{
+	pixel_y = 24;
+	density = 0
+	},
 /turf/simulated/floor/sidewalk/assunzione,
 /area/port_volturno/exterior)
 "enP" = (
@@ -5928,19 +5938,12 @@
 /turf/simulated/floor/roofing_tiles/assunzione,
 /area/port_volturno/exterior)
 "euF" = (
-/obj/effect/decal/curb{
-	dir = 8
+/obj/structure/closet/crate/bin/urban/compact{
+	pixel_y = 24;
+	density = 0
 	},
-/obj/structure/flora/assunzione/flowers/ppflowers,
-/obj/structure/statue/aec/large{
-	pixel_y = 0;
-	pixel_x = 36
-	},
-/obj/effect/decal/curb{
-	dir = 4
-	},
-/turf/simulated/floor/grass1/no_edge,
-/area/port_volturno/interior/riad/garden)
+/turf/simulated/floor/tiled/cargo/brass/full,
+/area/port_volturno/interior/riad)
 "euU" = (
 /obj/structure/flora/assunzione/grass/full,
 /obj/structure/flora/assunzione/flowers/brflowers,
@@ -6515,6 +6518,10 @@
 /obj/structure/sign/flag/luceist/large{
 	dir = 4;
 	pixel_x = 32
+	},
+/obj/structure/closet/crate/bin/urban/compact{
+	pixel_y = 24;
+	density = 0
 	},
 /turf/simulated/floor/sidewalk/assunzione/detail,
 /area/port_volturno/exterior)
@@ -9816,7 +9823,7 @@
 /area/port_volturno/interior/robotics)
 "htk" = (
 /obj/machinery/button/remote/blast_door{
-	id = "police1";
+	id = "police3";
 	name = "Armory";
 	dir = 1;
 	req_access = list(218);
@@ -11040,6 +11047,10 @@
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
+/obj/structure/statue/aec/large{
+	pixel_y = 0;
+	pixel_x = -28
+	},
 /turf/simulated/floor/tiled/cargo/brass/full,
 /area/port_volturno/interior/riad/garden)
 "isP" = (
@@ -13048,6 +13059,14 @@
 /obj/structure/flora/assunzione/bush/lucevine,
 /turf/simulated/floor/grass1/no_edge,
 /area/port_volturno/interior/chapel)
+"kbN" = (
+/obj/effect/decal/rolling_fog,
+/obj/structure/closet/crate/bin/urban/compact{
+	pixel_y = 24;
+	density = 0
+	},
+/turf/simulated/floor/sidewalk/assunzione/flat,
+/area/port_volturno/exterior)
 "kbW" = (
 /obj/structure/table/standard,
 /obj/item/storage/firstaid/surgery{
@@ -13059,6 +13078,14 @@
 	},
 /turf/simulated/floor/tiled/freezer,
 /area/port_volturno/interior/clinic/pharmacy)
+"kcb" = (
+/obj/random/dirt_75,
+/obj/effect/decal/rolling_fog,
+/obj/structure/bed/stool/chair{
+	dir = 8
+	},
+/turf/simulated/floor/sidewalk/assunzione/flat,
+/area/port_volturno/exterior)
 "kck" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
@@ -13615,6 +13642,51 @@
 /obj/structure/arch/gothic/eastwest/left,
 /turf/simulated/open,
 /area/port_volturno/interior/riad)
+"kwD" = (
+/obj/random/arcade,
+/obj/random/arcade,
+/obj/random/arcade,
+/obj/random/arcade,
+/obj/random/arcade,
+/obj/random/arcade,
+/obj/random/arcade,
+/obj/random/arcade,
+/obj/random/arcade,
+/obj/random/arcade,
+/obj/random/arcade,
+/obj/random/arcade,
+/obj/random/arcade,
+/obj/random/arcade,
+/obj/random/arcade,
+/obj/random/action_figure,
+/obj/random/action_figure,
+/obj/random/action_figure,
+/obj/random/action_figure,
+/obj/random/action_figure,
+/obj/random/action_figure,
+/obj/random/action_figure,
+/obj/random/action_figure,
+/obj/random/action_figure,
+/obj/random/action_figure,
+/obj/random/coin,
+/obj/random/coin,
+/obj/random/coin,
+/obj/random/coin,
+/obj/random/coin,
+/obj/random/coin,
+/obj/random/coin,
+/obj/random/coin,
+/obj/random/lavalamp,
+/obj/random/lavalamp,
+/obj/random/lavalamp,
+/obj/random/lavalamp,
+/obj/structure/closet/crate{
+	name = "saleable goods"
+	},
+/obj/item/quikpay,
+/obj/item/quikpay,
+/turf/simulated/floor/tiled/full,
+/area/port_volturno/interior/hotel)
 "kwG" = (
 /obj/machinery/door/urban{
 	dir = 4;
@@ -14007,6 +14079,12 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
 /area/port_volturno/interior/police/brig)
+"kKM" = (
+/obj/machinery/light{
+	pixel_y = -2
+	},
+/turf/simulated/floor/tiled/full,
+/area/port_volturno/interior/police/overseer)
 "kKV" = (
 /obj/structure/railing/mapped{
 	icon_state = "railing0-0"
@@ -15112,6 +15190,10 @@
 /obj/machinery/space_heater/stationary{
 	pixel_y = 29
 	},
+/obj/structure/closet/crate/bin/urban/compact{
+	pixel_y = 24;
+	density = 0
+	},
 /turf/simulated/floor/lino/diamond,
 /area/port_volturno/interior/clothing_store)
 "lwN" = (
@@ -15847,6 +15929,14 @@
 	},
 /turf/simulated/floor/lino/diamond,
 /area/port_volturno/interior/clothing_store)
+"lYj" = (
+/obj/effect/decal/rolling_fog,
+/obj/structure/closet/crate/bin/urban/compact{
+	pixel_y = 24;
+	density = 0
+	},
+/turf/simulated/floor/sidewalk/assunzione/blocks,
+/area/port_volturno/exterior)
 "lZm" = (
 /turf/simulated/floor/sidewalk/assunzione,
 /area/port_volturno/interior)
@@ -16862,6 +16952,15 @@
 /obj/effect/decal/rolling_fog,
 /turf/simulated/floor/grass1/no_edge,
 /area/port_volturno/interior/chapel)
+"mXz" = (
+/obj/effect/decal/rolling_fog,
+/obj/structure/table/standard,
+/obj/item/flora/pottedplant_small/luce_vine{
+	pixel_y = 6;
+	pixel_x = -6
+	},
+/turf/simulated/floor/sidewalk/assunzione,
+/area/port_volturno/exterior)
 "mXN" = (
 /obj/effect/decal/road_marking{
 	dir = 1
@@ -17276,6 +17375,15 @@
 /obj/structure/flora/assunzione/bush/lucevine,
 /turf/simulated/floor/grass1/no_edge,
 /area/port_volturno/interior/chapel)
+"nnW" = (
+/obj/random/dirt_75,
+/obj/effect/decal/rolling_fog,
+/obj/structure/closet/crate/bin/urban/compact{
+	pixel_y = 24;
+	density = 0
+	},
+/turf/simulated/floor/sidewalk/assunzione/blocks,
+/area/port_volturno/exterior)
 "nnZ" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/vending/engineering{
@@ -17486,14 +17594,10 @@
 /turf/simulated/floor/marble/dark,
 /area/port_volturno/interior/chapel)
 "nuu" = (
-/obj/vehicle/bike/motor/brown{
-	dir = 8;
-	spawns_with_key = 0;
-	name = "moped"
-	},
-/obj/effect/decal/road_marking/thin,
-/turf/simulated/floor/asphalt/assunzione,
-/area/port_volturno/interior/robotics)
+/obj/effect/decal/rolling_fog,
+/obj/structure/table/standard,
+/turf/simulated/floor/sidewalk/assunzione,
+/area/port_volturno/exterior)
 "nuO" = (
 /obj/machinery/light/small{
 	dir = 8
@@ -18887,8 +18991,14 @@
 /turf/simulated/floor/exoplanet/assunzione,
 /area/port_volturno/interior/maintenance)
 "osE" = (
-/turf/simulated/floor/asphalt/assunzione,
-/area/port_volturno/interior/robotics)
+/obj/structure/closet/crate/bin/urban/compact{
+	pixel_y = 24;
+	density = 0
+	},
+/obj/random/dirt_75,
+/obj/effect/decal/rolling_fog,
+/turf/simulated/floor/tiled/cargo/brass,
+/area/port_volturno/interior/tram_station)
 "otc" = (
 /obj/structure/arch/gothic/northsouth/lower,
 /obj/effect/decal/rolling_fog,
@@ -19966,6 +20076,13 @@
 	},
 /turf/simulated/floor/tiled/cargo/brass/full,
 /area/port_volturno/interior/riad/garden)
+"peu" = (
+/obj/structure/closet/crate/bin/urban/compact{
+	pixel_y = 24;
+	density = 0
+	},
+/turf/simulated/floor/tiled/freezer,
+/area/port_volturno/interior/clinic/pharmacy)
 "peX" = (
 /obj/effect/decal/curb{
 	dir = 4
@@ -20432,6 +20549,17 @@
 /obj/effect/decal/rolling_fog,
 /turf/simulated/floor/sidewalk/assunzione/flat,
 /area/port_volturno/interior)
+"pwg" = (
+/obj/effect/floor_decal/corner/purple/diagonal{
+	dir = 4
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/closet/crate/bin/urban/compact{
+	pixel_y = 24;
+	density = 0
+	},
+/turf/simulated/floor/tiled/white,
+/area/port_volturno/interior/clinic/pharmacy)
 "pws" = (
 /obj/machinery/light{
 	dir = 4;
@@ -21054,9 +21182,10 @@
 /turf/simulated/floor/roofing_tiles/assunzione,
 /area/port_volturno/exterior)
 "pSD" = (
-/obj/effect/decal/road_marking/thin,
-/turf/simulated/floor/asphalt/assunzione,
-/area/port_volturno/interior/robotics)
+/obj/effect/decal/rolling_fog,
+/obj/structure/bed/stool/chair,
+/turf/simulated/floor/sidewalk/assunzione/flat,
+/area/port_volturno/exterior)
 "pSK" = (
 /obj/effect/decal/curb{
 	dir = 10
@@ -21241,6 +21370,12 @@
 /obj/effect/decal/rolling_fog,
 /turf/simulated/floor/grass1/no_edge,
 /area/port_volturno/interior/chapel)
+"pZB" = (
+/obj/effect/decal/rolling_fog,
+/obj/random/dirt_75,
+/obj/structure/table/standard,
+/turf/simulated/floor/sidewalk/assunzione/paved,
+/area/port_volturno/exterior)
 "pZC" = (
 /obj/structure/bed/padded,
 /obj/structure/curtain/open/bed,
@@ -21269,6 +21404,15 @@
 	},
 /turf/simulated/floor/grass1/no_edge,
 /area/port_volturno/interior/chapel)
+"qaf" = (
+/obj/effect/decal/rolling_fog,
+/obj/random/dirt_75,
+/obj/structure/closet/crate/bin/urban/compact{
+	pixel_y = 24;
+	density = 0
+	},
+/turf/simulated/floor/sidewalk/assunzione/flat,
+/area/port_volturno/exterior)
 "qai" = (
 /obj/structure/stairs/west,
 /obj/effect/decal/rolling_fog,
@@ -21671,6 +21815,16 @@
 /obj/effect/decal/rolling_fog,
 /turf/simulated/floor/sidewalk/assunzione,
 /area/port_volturno/exterior)
+"qoi" = (
+/obj/effect/decal/rolling_fog,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/structure/closet/crate/bin/urban/compact{
+	pixel_y = 24;
+	density = 0
+	},
+/turf/simulated/floor/concrete,
+/area/port_volturno/exterior)
 "qoq" = (
 /obj/effect/ghostspawpoint{
 	name = "igs - assunzione_pharm";
@@ -21744,6 +21898,9 @@
 	},
 /turf/simulated/floor/tiled/cargo/brass/full,
 /area/port_volturno/interior/music_store)
+"qrV" = (
+/turf/simulated/floor/tiled/full,
+/area/port_volturno/interior/hotel)
 "qrY" = (
 /obj/effect/floor_decal/corner/yellow/full,
 /obj/effect/floor_decal/corner_wide/mauve{
@@ -22680,6 +22837,14 @@
 	},
 /turf/simulated/floor/wood/maple,
 /area/port_volturno/interior/riad)
+"rgW" = (
+/obj/effect/decal/rolling_fog,
+/obj/structure/closet/crate/bin/urban/compact{
+	pixel_y = 24;
+	density = 0
+	},
+/turf/simulated/floor/sidewalk/assunzione,
+/area/port_volturno/exterior)
 "rhi" = (
 /obj/effect/decal/rolling_fog,
 /obj/structure/rod_railing,
@@ -23444,6 +23609,10 @@
 /obj/random/dirt_75,
 /obj/structure/flora/pottedplant/luce_vine,
 /obj/effect/decal/rolling_fog,
+/obj/structure/closet/crate/bin/urban/compact{
+	pixel_y = 24;
+	density = 0
+	},
 /turf/simulated/floor/sidewalk/assunzione/paved,
 /area/port_volturno/interior/parking)
 "rOA" = (
@@ -24925,6 +25094,13 @@
 	},
 /turf/simulated/floor/grass1/no_edge,
 /area/port_volturno/interior/riad/garden)
+"sXf" = (
+/obj/structure/closet/crate/bin/urban/compact{
+	pixel_y = 24;
+	density = 0
+	},
+/turf/simulated/floor/tiled/full,
+/area/port_volturno/interior/spaceport)
 "sXm" = (
 /obj/effect/decal/curb{
 	dir = 1
@@ -26630,6 +26806,11 @@
 	},
 /turf/simulated/floor/tiled/freezer,
 /area/port_volturno/interior/clinic/pharmacy)
+"uhb" = (
+/obj/effect/decal/rolling_fog,
+/obj/structure/table/standard,
+/turf/simulated/floor/sidewalk/assunzione/paved,
+/area/port_volturno/exterior)
 "uhz" = (
 /obj/effect/decal/curb{
 	dir = 8
@@ -29413,6 +29594,14 @@
 /obj/structure/statue/aec/small{
 	pixel_y = 11
 	},
+/obj/machinery/light{
+	dir = 4;
+	pixel_x = 5
+	},
+/obj/machinery/light{
+	dir = 8;
+	pixel_x = -5
+	},
 /turf/simulated/floor/roofing_tiles/assunzione,
 /area/port_volturno/interior/riad)
 "wya" = (
@@ -29628,6 +29817,14 @@
 	},
 /turf/simulated/floor/sidewalk/assunzione/detail,
 /area/port_volturno/exterior)
+"wGt" = (
+/obj/effect/decal/rolling_fog,
+/obj/structure/closet/crate/bin/urban/compact{
+	pixel_y = 24;
+	density = 0
+	},
+/turf/simulated/floor/sidewalk/assunzione,
+/area/port_volturno/interior)
 "wGx" = (
 /obj/machinery/light{
 	dir = 4;
@@ -30103,6 +30300,11 @@
 	},
 /turf/simulated/floor/wood/birch,
 /area/port_volturno/interior/liquor_store)
+"xcO" = (
+/obj/effect/decal/rolling_fog,
+/obj/structure/utility_pole/street/classic/alt/on,
+/turf/simulated/floor/sidewalk/assunzione/flat,
+/area/port_volturno/exterior)
 "xen" = (
 /obj/structure/ladder/up,
 /obj/effect/decal/cleanable/dirt,
@@ -50650,7 +50852,7 @@ gnl
 cVh
 fJj
 odA
-oNL
+wGt
 sqB
 xXr
 jAw
@@ -52414,8 +52616,8 @@ vQQ
 dPL
 vQQ
 fcg
+kwD
 vCz
-wUF
 kyR
 kyR
 kyR
@@ -52671,8 +52873,8 @@ wYd
 kXi
 kXi
 tuW
+qrV
 gzm
-wUF
 chZ
 sfx
 oQy
@@ -54748,7 +54950,7 @@ chZ
 eFt
 vqN
 chZ
-rAD
+lYj
 rAD
 rAD
 rAD
@@ -56556,7 +56758,7 @@ rhB
 nfX
 oFA
 oFA
-nzi
+mXz
 bNq
 nzi
 jmv
@@ -56812,8 +57014,8 @@ fkK
 wsF
 bHN
 oFA
-mKZ
-quI
+kcb
+nuu
 nzi
 iGZ
 jmv
@@ -57069,8 +57271,8 @@ kOd
 wsF
 dui
 oFA
-oFA
-nzi
+pSD
+nuu
 oFA
 oFA
 jmv
@@ -57839,7 +58041,7 @@ kBz
 kBz
 bOZ
 bOZ
-rOH
+nnW
 nzi
 iGZ
 nzi
@@ -58075,7 +58277,7 @@ mAU
 rhB
 rhB
 rhB
-mEe
+ecN
 sNi
 lHy
 sNi
@@ -59109,7 +59311,7 @@ bOZ
 lJj
 opR
 fhw
-euF
+fhw
 uOq
 pyr
 btu
@@ -59154,7 +59356,7 @@ kWX
 kWX
 cQx
 cVr
-jXX
+osE
 mIk
 xNa
 quZ
@@ -59856,7 +60058,7 @@ aES
 pHJ
 bxK
 hTT
-mps
+pwg
 vCS
 hTT
 nya
@@ -60913,7 +61115,7 @@ rqV
 ltl
 mdE
 bOZ
-sNi
+euF
 mEe
 bOZ
 xGq
@@ -64262,7 +64464,7 @@ vqh
 chZ
 chZ
 chZ
-pfO
+qoi
 bPd
 oce
 wep
@@ -69392,11 +69594,11 @@ cQx
 cQx
 dvD
 dvD
-osE
-pSD
-ecN
-pSD
-pSD
+dvD
+dvD
+dvD
+dvD
+dvD
 dvD
 dvD
 llI
@@ -69649,11 +69851,11 @@ cQx
 cQx
 dvD
 dvD
-osE
-nuu
-cPI
-pSD
-pSD
+dvD
+dvD
+dvD
+dvD
+dvD
 dvD
 dvD
 llI
@@ -116158,7 +116360,7 @@ tyZ
 fMH
 bNq
 oFA
-oFA
+xcO
 kyR
 kyR
 kyR
@@ -116170,7 +116372,7 @@ kyR
 kyR
 kyR
 kyR
-bNq
+qaf
 dAi
 fdN
 lZs
@@ -116432,8 +116634,8 @@ uQr
 fdN
 gkT
 rnE
-egO
-xBV
+uhb
+pZB
 egO
 nRN
 duJ
@@ -116689,7 +116891,7 @@ nzi
 esQ
 esQ
 uIh
-egO
+dsZ
 egO
 aFf
 nRN
@@ -116906,7 +117108,7 @@ cQx
 sym
 pth
 vVe
-vVe
+kKM
 sym
 sHf
 fpJ
@@ -120526,7 +120728,7 @@ snN
 snN
 snN
 kKI
-nzi
+rgW
 oFA
 iGZ
 oKr
@@ -122061,7 +122263,7 @@ fkP
 rMg
 fYq
 fkP
-oFA
+kbN
 nzi
 bNq
 oFA
@@ -123870,7 +124072,7 @@ mEe
 bOZ
 mEe
 lWD
-jXr
+bOZ
 lGZ
 sLM
 mds
@@ -123878,7 +124080,7 @@ jXr
 lGZ
 sLM
 mds
-jXr
+bOZ
 sNi
 oqo
 bGU
@@ -124878,7 +125080,7 @@ wwD
 kLR
 nXo
 gBy
-qkz
+peu
 qkz
 xyB
 qkz
@@ -126178,7 +126380,7 @@ fGF
 eWE
 bOZ
 bOZ
-oqo
+cPI
 mEe
 sNi
 mEe
@@ -126440,7 +126642,7 @@ mVs
 bOZ
 mEe
 sNi
-jXr
+bOZ
 luu
 xrQ
 ibt
@@ -126448,8 +126650,8 @@ jXr
 luu
 xrQ
 ibt
-jXr
-sNi
+bOZ
+euF
 mEe
 bGU
 eoM
@@ -128022,7 +128224,7 @@ jhP
 jhP
 jhP
 dRi
-cuV
+sXf
 wau
 wau
 drM
@@ -128486,7 +128688,7 @@ fey
 chZ
 chZ
 chZ
-oFA
+kbN
 oFA
 oFA
 nzi

@@ -186,7 +186,7 @@
 	desc = "Sell gyros! If anyone asks for burgers, scream at them to get the hell out. Bloody tourists, this is gyro territory!"
 	max_count = 2
 	tags = list("External")
-	spawnpoints = list("volturno_stafylia")
+	spawnpoints = list("assunzione_stafylia")
 	outfit = /obj/outfit/admin/assunzione/stafylia
 	possible_species = list(SPECIES_HUMAN,
 							SPECIES_IPC,
