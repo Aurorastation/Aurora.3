@@ -6060,12 +6060,6 @@
 	},
 /turf/simulated/floor/tiled/cargo/brass/full,
 /area/port_volturno/interior/riad)
-"euU" = (
-/obj/machinery/door/urban/glass_sliding{
-	name = "Port Volturno Security"
-	},
-/turf/simulated/floor/lino,
-/area/port_volturno/interior/police)
 "ewa" = (
 /obj/item/storage/box/gloves,
 /obj/structure/table/standard,
@@ -29095,6 +29089,9 @@
 /obj/machinery/door/blast/regular/open{
 	id = "police2";
 	dir = 4
+	},
+/obj/machinery/door/urban/glass_sliding{
+	name = "Port Volturno Security"
 	},
 /turf/simulated/floor/lino/diamond,
 /area/port_volturno/interior/police)
@@ -117858,7 +117855,7 @@ nWQ
 ybn
 pRU
 pRU
-euU
+pRU
 vRw
 nzi
 oFA
