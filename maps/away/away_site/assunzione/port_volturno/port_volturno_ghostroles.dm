@@ -39,6 +39,7 @@
 	desc = "The Keiretsu are depending on you- at least that's what they tell you. The Keiretsu actually have no idea you exist. Try and keep the peace anyway."
 	spawnpoints = list("assunzione_cop_overseer")
 	max_count = 1
+	outfit = /obj/outfit/admin/assunzione/cop/superintendent
 	assigned_role = "Zeng-Hu Security Overseer"
 	special_role = "Zeng-Hu Security Overseer"
 
