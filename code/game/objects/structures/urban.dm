@@ -470,13 +470,8 @@ ABSTRACT_TYPE(/obj/structure/stairs/urban/road_ramp_assun)
 	icon_state = "assunzione"
 
 /obj/structure/neon_sign/assunzione/witch_hand
-	name = "WITCH HAND"
-	desc = "A towering memorial to all the fatalities incurred over the AEC's operations. Beneath the towering ranger in bronze, a plaque reads:<br>\
-			<b>FOR ALL HEROES FALLEN;</b><br>\
-			<b>INTREPID AND PIOUS,</b><br>\
-			<b>IN THAT HOLIEST OF MISSIONS:</b><br>\
-			<b>THE SEARCH OF LIGHT IN DARKNESS.</b><br>\
-			The list of names below is terribly long, the font so small as to be barely readable at all."
+	name = "\improper WITCH HAND"
+	desc = "A massive neon sign for Port Volturno's best underground nightclub. Not for the pious."
 	icon = 'icons/obj/structure/urban/assunzione_96x160.dmi'
 	icon_state = "wh_sign"
 	layer = 5.16 // in the biz, we call this the above above ABOVE human layer
@@ -727,12 +722,12 @@ ABSTRACT_TYPE(/obj/structure/stairs/urban/road_ramp_assun)
 	icon_state = "gusoku"
 
 /obj/structure/statue/aec/small
-	name = "AEC memorial statue"
+	name = "\improper AEC memorial statue"
 	desc = "A bronze statue of the Amitabha Buddha, the Buddha of Limitless Light."
 	icon_state = "aec_small"
 
 /obj/structure/statue/aec/large
-	name = "AEC memorial statue"
+	name = "\improper AEC memorial statue"
 	desc = "A towering memorial to all the fatalities incurred over the AEC's operations. Beneath the towering ranger in bronze, a plaque reads:<br>\
 			<b>FOR ALL HEROES FALLEN;</b><br>\
 			<b>INTREPID AND PIOUS,</b><br>\
