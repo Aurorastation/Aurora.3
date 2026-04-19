@@ -20,6 +20,7 @@
 	var/list/scrubbing_gas = list(GAS_PHORON, GAS_CO2, GAS_N2O, GAS_HYDROGEN, GAS_HELIUM, GAS_DEUTERIUM, GAS_TRITIUM, GAS_HELIUMFUEL, GAS_SULFUR, GAS_NO2, GAS_CHLORINE, GAS_WATERVAPOR)
 
 	init_flags = INIT_MACHINERY_PROCESS_SELF
+
 /obj/machinery/portable_atmospherics/powered/scrubber/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	. += "Filters the air, placing harmful gases into the internal gas container. The container can be emptied by connecting it to a connector port."

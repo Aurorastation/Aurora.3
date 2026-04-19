@@ -13,6 +13,7 @@
 	var/maximum_pressure = 90 * ONE_ATMOSPHERE
 
 	init_flags = INIT_MACHINERY_PROCESS_SELF
+
 /obj/machinery/portable_atmospherics/Destroy()
 	disconnect()
 	QDEL_NULL(air_contents)

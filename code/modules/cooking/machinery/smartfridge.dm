@@ -1,6 +1,5 @@
 /* SmartFridge.  Much todo
 */
-	init_flags = INIT_MACHINERY_PROCESS_SELF
 /obj/machinery/smartfridge
 	name = "\improper SmartFridge"
 	icon = 'icons/obj/machinery/smartfridge.dmi'
@@ -11,6 +10,7 @@
 	idle_power_usage = 5
 	active_power_usage = 100
 	atom_flags = ATOM_FLAG_NO_REACT
+	init_flags = INIT_MACHINERY_PROCESS_SELF
 	opacity = FALSE
 	var/ui_sort_alphabetically = TRUE
 	var/global/max_n_of_items = 999 // Sorry but the BYOND infinite loop detector doesn't look things over 1000.

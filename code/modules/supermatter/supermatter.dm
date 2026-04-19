@@ -105,8 +105,8 @@
 
 	/// cooldown tracker for accent sounds,
 	var/last_accent_sound = 0
-
 	init_flags = INIT_MACHINERY_PROCESS_SELF
+
 /obj/machinery/power/supermatter/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	. += "When energized by a laser (or something hitting it), it emits radiation and heat. If the heat reaches above 7000 kelvin, it will send an alert and start taking damage."

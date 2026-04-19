@@ -18,8 +18,8 @@
 	idle_power_usage = 100 KILO WATTS
 	active_power_usage = 20 MEGA WATTS
 	var/obj/machinery/power/smes/buildable/smes
-
 	init_flags = INIT_MACHINERY_PROCESS_SELF
+
 /obj/machinery/ship_weapon/leviathan/Destroy()
 	smes = null
 	return ..()

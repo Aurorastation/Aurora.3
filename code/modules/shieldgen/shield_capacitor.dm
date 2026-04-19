@@ -20,8 +20,8 @@
 
 	var/charge_rate = 100000		//100 kW
 	var/obj/machinery/shield_gen/owned_gen
-
 	init_flags = INIT_MACHINERY_PROCESS_SELF
+
 /obj/machinery/shield_capacitor/Initialize()
 	..()
 	return INITIALIZE_HINT_LATELOAD

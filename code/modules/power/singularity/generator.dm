@@ -9,8 +9,8 @@
 	use_power = POWER_USE_OFF
 	var/energy = 0
 	var/creation_type = /obj/singularity
-
 	init_flags = INIT_MACHINERY_PROCESS_SELF
+
 /obj/machinery/the_singularitygen/update_icon()
 	ClearOverlays()
 	if(anchored)

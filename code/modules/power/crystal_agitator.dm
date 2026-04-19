@@ -27,8 +27,8 @@
 	)
 
 	parts_power_mgmt = FALSE
-
 	init_flags = INIT_MACHINERY_PROCESS_SELF
+
 /obj/machinery/power/crystal_agitator/upgrade_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	. += "Upgraded <b>capacitors</b> will reduce active power usage."

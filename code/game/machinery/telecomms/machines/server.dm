@@ -7,7 +7,6 @@
 
 // Simple log entry datum
 
-	init_flags = INIT_MACHINERY_PROCESS_SELF
 /datum/comm_log_entry
 	var/input_type = "Speech File"
 	var/name = "data packet (#)"
@@ -29,6 +28,8 @@
 	var/rawcode = ""	// the code to compile (raw text)
 	var/datum/ntsl2_program/tcomm/Program // NTSL2++ datum responsible for script execution
 	var/autoruncode = 0		// 1 if the code is set to run every time a signal is picked up
+
+	init_flags = INIT_MACHINERY_PROCESS_SELF
 
 /obj/machinery/telecomms/server/Initialize()
 	. = ..()
