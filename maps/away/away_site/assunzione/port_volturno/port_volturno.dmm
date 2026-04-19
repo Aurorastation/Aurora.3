@@ -2986,15 +2986,13 @@
 /turf/simulated/floor/sidewalk/assunzione,
 /area/port_volturno/exterior)
 "cra" = (
-/obj/structure/bed/stool/chair/office/light{
+/obj/effect/decal/curb,
+/obj/machinery/door/blast/shutters{
+	id = "restaurant";
 	dir = 4
 	},
-/obj/effect/ghostspawpoint{
-	name = "igs - assunzione_cop";
-	identifier = "assunzione_cop"
-	},
-/turf/simulated/floor/wood/maple,
-/area/port_volturno/interior/police)
+/turf/simulated/floor/wood,
+/area/port_volturno/interior/stafylia)
 "crb" = (
 /obj/structure/road_barrier,
 /obj/structure/flora/assunzione/grass/full,
@@ -6063,12 +6061,11 @@
 /turf/simulated/floor/tiled/cargo/brass/full,
 /area/port_volturno/interior/riad)
 "euU" = (
-/obj/structure/sign/nosmoking_1{
-	pixel_x = -32;
-	pixel_y = -32
+/obj/machinery/door/urban/glass_sliding{
+	name = "Port Volturno Security"
 	},
-/turf/simulated/floor/wood,
-/area/port_volturno/interior/stafylia)
+/turf/simulated/floor/lino,
+/area/port_volturno/interior/police)
 "ewa" = (
 /obj/item/storage/box/gloves,
 /obj/structure/table/standard,
@@ -7146,10 +7143,12 @@
 /turf/simulated/floor/exoplanet/assunzione,
 /area/port_volturno/interior/maintenance)
 "fkf" = (
-/obj/random/dirt_75,
-/obj/machinery/light{
-	dir = 8;
-	pixel_x = -5
+/obj/structure/bed/stool/chair/office/light{
+	dir = 4
+	},
+/obj/effect/ghostspawpoint{
+	name = "igs - assunzione_cop";
+	identifier = "assunzione_cop"
 	},
 /turf/simulated/floor/wood/maple,
 /area/port_volturno/interior/police)
@@ -7507,6 +7506,14 @@
 /obj/random/dirt_75,
 /turf/simulated/floor,
 /area/port_volturno/interior/spaceport)
+"fAp" = (
+/obj/random/dirt_75,
+/obj/structure/closet/crate/bin/urban/compact{
+	pixel_y = 24;
+	density = 0
+	},
+/turf/simulated/floor/tiled/cargo/brass/full,
+/area/port_volturno/interior/riad)
 "fAs" = (
 /obj/structure/tank_wall/air{
 	density = 0;
@@ -7889,29 +7896,41 @@
 /area/port_volturno/interior/robotics)
 "fQu" = (
 /obj/structure/table/wood,
-/obj/item/reagent_containers/food/drinks/bottle/triplesec{
-	pixel_y = 16;
-	pixel_x = 4
+/obj/item/reagent_containers/food/drinks/bottle/limoncello{
+	pixel_x = -6;
+	pixel_y = 16
 	},
-/obj/item/reagent_containers/food/drinks/bottle/triplesec{
-	pixel_x = -4;
-	pixel_y = 8
+/obj/item/reagent_containers/food/drinks/bottle/limoncello{
+	pixel_x = 2;
+	pixel_y = 10
 	},
-/obj/item/reagent_containers/food/drinks/bottle/triplesec{
-	pixel_y = 16;
-	pixel_x = 4
+/obj/item/reagent_containers/food/drinks/bottle/limoncello{
+	pixel_x = -6;
+	pixel_y = 2
 	},
-/obj/item/reagent_containers/food/drinks/bottle/triplesec{
-	pixel_y = 16;
-	pixel_x = 4
+/obj/item/reagent_containers/food/drinks/bottle/limoncello{
+	pixel_x = -6;
+	pixel_y = 16
 	},
-/obj/item/reagent_containers/food/drinks/bottle/triplesec{
-	pixel_x = -4;
-	pixel_y = 8
+/obj/item/reagent_containers/food/drinks/bottle/limoncello{
+	pixel_x = -6;
+	pixel_y = 16
 	},
-/obj/item/reagent_containers/food/drinks/bottle/triplesec{
-	pixel_x = -4;
-	pixel_y = 8
+/obj/item/reagent_containers/food/drinks/bottle/limoncello{
+	pixel_x = 2;
+	pixel_y = 10
+	},
+/obj/item/reagent_containers/food/drinks/bottle/limoncello{
+	pixel_x = 2;
+	pixel_y = 10
+	},
+/obj/item/reagent_containers/food/drinks/bottle/limoncello{
+	pixel_x = -6;
+	pixel_y = 2
+	},
+/obj/item/reagent_containers/food/drinks/bottle/limoncello{
+	pixel_x = -6;
+	pixel_y = 2
 	},
 /turf/simulated/floor/wood/birch,
 /area/port_volturno/interior/liquor_store)
@@ -8321,12 +8340,11 @@
 /turf/simulated/floor/asphalt/assunzione,
 /area/port_volturno/exterior)
 "gjz" = (
-/obj/effect/step_trigger/thrower{
-	tiles = 1;
-	dir = 4
-	},
 /obj/random/dirt_75,
 /obj/effect/decal/rolling_fog,
+/obj/effect/step_trigger/thrower{
+	tiles = 1
+	},
 /turf/unsimulated/floor/plating,
 /area/port_volturno/interior/tram_station)
 "gke" = (
@@ -8397,18 +8415,14 @@
 /turf/simulated/open,
 /area/port_volturno/exterior)
 "gmv" = (
-/obj/effect/decal/fake_object{
-	icon = 'icons/obj/smoothtrack.dmi';
-	icon_state = "track12";
-	name = "tram track"
-	},
-/obj/effect/step_trigger/thrower{
-	tiles = 1;
-	dir = 4
-	},
 /obj/effect/decal/rolling_fog,
-/turf/unsimulated/floor/plating,
-/area/port_volturno/interior/tram_station)
+/obj/machinery/atm{
+	dir = 8;
+	pixel_x = -16;
+	pixel_y = 14
+	},
+/turf/simulated/floor/sidewalk/assunzione,
+/area/port_volturno/exterior)
 "gmO" = (
 /obj/effect/decal/road_marking/no_pass{
 	dir = 4
@@ -9287,7 +9301,9 @@
 /area/port_volturno/interior)
 "gTq" = (
 /obj/machinery/door/urban{
-	dir = 4
+	dir = 4;
+	req_one_access = list(219);
+	support_ids = 1
 	},
 /obj/effect/floor_decal/spline/fancy/wood/cee{
 	dir = 4
@@ -11965,45 +11981,11 @@
 /turf/simulated/floor/tiled/cargo/brass/full,
 /area/port_volturno/interior/riad)
 "iYV" = (
-/obj/structure/table/wood,
-/obj/item/reagent_containers/food/drinks/bottle/limoncello{
-	pixel_x = -6;
-	pixel_y = 16
+/obj/effect/decal/curb{
+	dir = 4
 	},
-/obj/item/reagent_containers/food/drinks/bottle/limoncello{
-	pixel_x = 2;
-	pixel_y = 10
-	},
-/obj/item/reagent_containers/food/drinks/bottle/limoncello{
-	pixel_x = -6;
-	pixel_y = 2
-	},
-/obj/item/reagent_containers/food/drinks/bottle/limoncello{
-	pixel_x = -6;
-	pixel_y = 16
-	},
-/obj/item/reagent_containers/food/drinks/bottle/limoncello{
-	pixel_x = -6;
-	pixel_y = 16
-	},
-/obj/item/reagent_containers/food/drinks/bottle/limoncello{
-	pixel_x = 2;
-	pixel_y = 10
-	},
-/obj/item/reagent_containers/food/drinks/bottle/limoncello{
-	pixel_x = 2;
-	pixel_y = 10
-	},
-/obj/item/reagent_containers/food/drinks/bottle/limoncello{
-	pixel_x = -6;
-	pixel_y = 2
-	},
-/obj/item/reagent_containers/food/drinks/bottle/limoncello{
-	pixel_x = -6;
-	pixel_y = 2
-	},
-/turf/simulated/floor/wood/birch,
-/area/port_volturno/interior/liquor_store)
+/turf/simulated/floor/grass1/no_edge,
+/area/port_volturno/interior/stafylia)
 "iZf" = (
 /obj/structure/flora/assunzione/bush/ferny,
 /obj/structure/flora/assunzione/flowers/ywflowers,
@@ -15360,10 +15342,8 @@
 /turf/simulated/open,
 /area/port_volturno/interior/riad)
 "luE" = (
-/obj/effect/decal/curb,
-/obj/machinery/door/blast/shutters{
-	id = "restaurant";
-	dir = 4
+/obj/effect/decal/curb{
+	dir = 10
 	},
 /turf/simulated/floor/wood,
 /area/port_volturno/interior/stafylia)
@@ -16175,11 +16155,33 @@
 /turf/simulated/open,
 /area/port_volturno/exterior)
 "lZG" = (
-/obj/effect/decal/curb{
-	dir = 4
+/obj/structure/table/wood,
+/obj/item/reagent_containers/food/drinks/bottle/triplesec{
+	pixel_y = 16;
+	pixel_x = 4
 	},
-/turf/simulated/floor/grass1/no_edge,
-/area/port_volturno/interior/stafylia)
+/obj/item/reagent_containers/food/drinks/bottle/triplesec{
+	pixel_x = -4;
+	pixel_y = 8
+	},
+/obj/item/reagent_containers/food/drinks/bottle/triplesec{
+	pixel_y = 16;
+	pixel_x = 4
+	},
+/obj/item/reagent_containers/food/drinks/bottle/triplesec{
+	pixel_y = 16;
+	pixel_x = 4
+	},
+/obj/item/reagent_containers/food/drinks/bottle/triplesec{
+	pixel_x = -4;
+	pixel_y = 8
+	},
+/obj/item/reagent_containers/food/drinks/bottle/triplesec{
+	pixel_x = -4;
+	pixel_y = 8
+	},
+/turf/simulated/floor/wood/birch,
+/area/port_volturno/interior/liquor_store)
 "lZI" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -18131,11 +18133,7 @@
 /turf/simulated/floor/grass1/no_edge,
 /area/port_volturno/exterior)
 "nJp" = (
-/obj/structure/flora/assunzione/flowers/lavendergrass,
-/obj/effect/decal/curb{
-	dir = 4
-	},
-/turf/simulated/floor/grass1/no_edge,
+/turf/simulated/floor/tiled/slate/full,
 /area/port_volturno/interior/stafylia)
 "nJu" = (
 /obj/effect/decal/rolling_fog,
@@ -18400,8 +18398,18 @@
 /turf/simulated/floor,
 /area/port_volturno/interior/spaceport)
 "nSz" = (
-/turf/simulated/floor/tiled/slate/full,
-/area/port_volturno/interior/stafylia)
+/obj/structure/table/wood,
+/obj/structure/curtain/open/bar{
+	pixel_x = -32
+	},
+/obj/item/quikpay{
+	req_one_access = null
+	},
+/obj/item/quikpay{
+	req_one_access = null
+	},
+/turf/simulated/floor/wood/maple,
+/area/port_volturno/interior/music_store)
 "nSN" = (
 /obj/effect/floor_decal/corner/blue{
 	dir = 5
@@ -19153,18 +19161,11 @@
 /turf/simulated/floor/wood,
 /area/port_volturno/interior/riad)
 "opm" = (
-/obj/structure/table/wood,
-/obj/structure/curtain/open/bar{
-	pixel_x = -32
+/obj/effect/decal/curb{
+	dir = 9
 	},
-/obj/item/quikpay{
-	req_one_access = null
-	},
-/obj/item/quikpay{
-	req_one_access = null
-	},
-/turf/simulated/floor/wood/maple,
-/area/port_volturno/interior/music_store)
+/turf/simulated/floor/wood,
+/area/port_volturno/interior/stafylia)
 "opp" = (
 /obj/effect/decal/curb{
 	dir = 6
@@ -19727,6 +19728,13 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/sidewalk/assunzione/blocks,
 /area/port_volturno/exterior)
+"oLW" = (
+/obj/structure/flora/assunzione/flowers/lavendergrass,
+/obj/effect/decal/curb{
+	dir = 4
+	},
+/turf/simulated/floor/grass1/no_edge,
+/area/port_volturno/interior/stafylia)
 "oMh" = (
 /obj/structure/arch/gothic/northsouth/lower,
 /turf/simulated/open,
@@ -20567,34 +20575,12 @@
 /turf/simulated/floor/tiled/cargo/brass/full,
 /area/port_volturno/interior/minimart)
 "pqF" = (
-/obj/effect/decal/fake_object{
-	color = "#ff0000";
-	dir = 4;
-	icon = 'icons/atmos/pipes.dmi';
-	icon_state = "intact-scrubbers";
-	name = "pipe"
+/obj/structure/sign/nosmoking_1{
+	pixel_x = -32;
+	pixel_y = -32
 	},
-/obj/effect/decal/fake_object{
-	color = "#0000ff";
-	dir = 4;
-	icon = 'icons/atmos/pipes.dmi';
-	icon_state = "intact-supply";
-	name = "pipe"
-	},
-/obj/effect/decal/fake_object{
-	color = "#ff0000";
-	icon = 'icons/obj/power_cond_white.dmi';
-	icon_state = "4-8";
-	name = "cable"
-	},
-/obj/effect/step_trigger/thrower{
-	tiles = 1;
-	dir = 4
-	},
-/obj/random/dirt_75,
-/obj/effect/decal/rolling_fog,
-/turf/unsimulated/floor/plating,
-/area/port_volturno/interior/tram_station)
+/turf/simulated/floor/wood,
+/area/port_volturno/interior/stafylia)
 "pqO" = (
 /obj/structure/bed/stool/chair/office/light{
 	dir = 4
@@ -22201,6 +22187,14 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/asphalt/assunzione,
 /area/port_volturno/exterior)
+"qya" = (
+/obj/random/dirt_75,
+/obj/machinery/light{
+	dir = 8;
+	pixel_x = -5
+	},
+/turf/simulated/floor/wood/maple,
+/area/port_volturno/interior/police)
 "qyd" = (
 /obj/machinery/light,
 /turf/simulated/floor/tiled/white,
@@ -23010,11 +23004,10 @@
 /turf/simulated/floor/tiled,
 /area/port_volturno/interior/police)
 "reS" = (
-/obj/effect/step_trigger/thrower{
-	tiles = 1;
-	dir = 8
-	},
 /obj/random/dirt_75,
+/obj/effect/step_trigger/thrower{
+	tiles = 1
+	},
 /obj/effect/decal/rolling_fog,
 /turf/unsimulated/floor/plating,
 /area/port_volturno/interior/tram_station)
@@ -24057,12 +24050,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/port_volturno/interior/minimart)
-"rVY" = (
-/obj/effect/decal/curb{
-	dir = 10
-	},
-/turf/simulated/floor/wood,
-/area/port_volturno/interior/stafylia)
 "rWn" = (
 /obj/structure/ledge{
 	dir = 1
@@ -25097,12 +25084,6 @@
 /obj/effect/decal/rolling_fog,
 /turf/simulated/floor/tiled/cargo/brass,
 /area/port_volturno/interior/tram_station)
-"sSJ" = (
-/obj/effect/decal/curb{
-	dir = 9
-	},
-/turf/simulated/floor/wood,
-/area/port_volturno/interior/stafylia)
 "sSR" = (
 /obj/effect/decal/road_marking/thin,
 /obj/effect/decal/curb/corner{
@@ -30463,9 +30444,6 @@
 	pixel_y = 2
 	},
 /obj/effect/decal/rolling_fog,
-/obj/structure/ledge{
-	dir = 9
-	},
 /turf/simulated/floor/sidewalk/assunzione/flat,
 /area/port_volturno/exterior)
 "xaE" = (
@@ -31517,11 +31495,12 @@
 /turf/simulated/floor/tiled/gunmetal,
 /area/port_volturno/interior/music_store)
 "xWk" = (
-/obj/machinery/door/urban/glass_sliding{
-	name = "Port Volturno Security"
+/obj/machinery/atm{
+	dir = 1;
+	pixel_y = 28
 	},
-/turf/simulated/floor/lino,
-/area/port_volturno/interior/police)
+/turf/simulated/floor/tiled/cargo/brass/full,
+/area/port_volturno/interior/riad)
 "xWE" = (
 /obj/effect/decal/curb,
 /obj/structure/flora/assunzione/bush/ferny,
@@ -51069,7 +51048,7 @@ nya
 tVM
 etP
 etP
-luE
+cra
 wcF
 iUL
 wcF
@@ -51846,7 +51825,7 @@ wPY
 wPY
 wPY
 cja
-euU
+pqF
 iUL
 jGS
 fcO
@@ -52868,9 +52847,9 @@ kyR
 tVM
 bAO
 sPj
-rVY
+luE
 dLK
-sSJ
+opm
 deK
 cPt
 qjj
@@ -53125,8 +53104,8 @@ tVM
 tVM
 fcO
 fcO
-nSz
-nSz
+nJp
+nJp
 fcO
 fcO
 fcO
@@ -53382,8 +53361,8 @@ tVM
 kvy
 sfv
 tUo
-lZG
-nJp
+iYV
+oLW
 hat
 nFF
 wVl
@@ -56972,7 +56951,7 @@ cIr
 cIr
 mAU
 abi
-opm
+nSz
 aNj
 kxq
 eFk
@@ -58784,7 +58763,7 @@ uke
 bgo
 eYS
 bOZ
-lWD
+fAp
 oqo
 bOZ
 xGq
@@ -61354,7 +61333,7 @@ rqV
 ltl
 mdE
 bOZ
-euF
+xWk
 mEe
 bOZ
 xGq
@@ -117879,7 +117858,7 @@ nWQ
 ybn
 pRU
 pRU
-xWk
+euU
 vRw
 nzi
 oFA
@@ -118377,7 +118356,7 @@ cQx
 kRB
 cZy
 skZ
-fkf
+qya
 skZ
 skZ
 skZ
@@ -119661,7 +119640,7 @@ cQx
 cQx
 kRB
 iVd
-cra
+fkf
 koT
 kRB
 iVd
@@ -120931,9 +120910,9 @@ tGT
 nHf
 uEv
 tSU
-gmv
-pqF
-cGN
+nHf
+wTk
+dGC
 gjz
 usQ
 usQ
@@ -121186,12 +121165,12 @@ gLB
 nHf
 tGT
 nHf
-cys
+gLB
 gLB
 nHf
 wTk
 dGC
-pnL
+gjz
 fgs
 eSi
 xot
@@ -121443,12 +121422,12 @@ gLB
 nHf
 tGT
 nHf
-cys
+gLB
 gLB
 nHf
 wTk
 dGC
-pnL
+gjz
 lNe
 atu
 gke
@@ -122784,7 +122763,7 @@ sZT
 uGf
 fSP
 bDc
-fQu
+lZG
 btF
 hNA
 tiU
@@ -123041,7 +123020,7 @@ gzU
 kfN
 bDc
 fSP
-iYV
+fQu
 eWy
 bBK
 dcp
@@ -124320,7 +124299,7 @@ lGZ
 sLM
 mds
 bOZ
-sNi
+xWk
 oqo
 bGU
 eoM
@@ -124532,7 +124511,7 @@ pnL
 dGC
 wTk
 dGC
-pnL
+gjz
 xQL
 eSi
 mOZ
@@ -127616,7 +127595,7 @@ gLB
 nHf
 wTk
 dGC
-pnL
+gjz
 pNt
 mIk
 lWe
@@ -127870,9 +127849,9 @@ tGT
 nHf
 uPC
 tLE
-sqp
-hbI
-byb
+nHf
+wTk
+dGC
 reS
 usQ
 usQ
@@ -128130,7 +128109,7 @@ gLB
 nHf
 wTk
 dGC
-pnL
+reS
 cQx
 cQx
 cQx
@@ -129183,7 +129162,7 @@ agK
 agK
 nAP
 cNU
-nzi
+gmv
 nzi
 nzi
 oFA
