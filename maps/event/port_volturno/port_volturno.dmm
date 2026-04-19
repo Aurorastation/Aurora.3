@@ -366,11 +366,12 @@
 /turf/simulated/floor/lino/diamond,
 /area/port_volturno/interior/riad)
 "amC" = (
-/obj/machinery/atm{
-	pixel_y = 29
-	},
 /obj/structure/bed/handrail{
 	dir = 8
+	},
+/obj/machinery/atm{
+	dir = 1;
+	pixel_y = 28
 	},
 /turf/simulated/floor/shuttle/dark_blue,
 /area/port_volturno/interior/spaceport)
@@ -5651,11 +5652,12 @@
 /turf/simulated/floor/tiled/full,
 /area/port_volturno/interior/police/brig)
 "ecN" = (
-/obj/machinery/atm{
-	pixel_y = 29
-	},
 /obj/structure/bed/handrail{
 	dir = 4
+	},
+/obj/machinery/atm{
+	dir = 1;
+	pixel_y = 28
 	},
 /turf/simulated/floor/shuttle/dark_blue,
 /area/port_volturno/interior/spaceport)
