@@ -912,6 +912,7 @@
 /obj/item/clothing/under/rank/assunzione/stafylia
 	name = "\improper Stafylia uniform"
 	desc = "Only true masters of the art of gyro have the right to wear this uniform. Only at Stafylia will you find such ones."
+	icon = 'icons/obj/item/clothing/under/human/coc/assunzione.dmi'
 	icon_state = "stafylia"
 	item_state = "stafylia"
 	contained_sprite = TRUE
