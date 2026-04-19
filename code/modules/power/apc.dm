@@ -94,6 +94,9 @@
 #define APC_UPDATE_TIME(dp, goal) (world.time + (dp ? ((goal / abs(dp)) * (world.time - src.last_time)) : 0))
 #define APC_CHARGE_MODE(dp) (dp < 0 ? CHARGE_MODE_DISCHARGE : dp > 0 ? CHARGE_MODE_CHARGE : CHARGE_MODE_STABLE)
 
+/// How many consecutive ticks the APC may skip the full cell-accounting pass when in a stable, well-powered state.
+#define STABLE_TICKS_MAX 10
+
 
 // the Area Power Controller (APC), formerly Power Distribution Unit (PDU)
 // one per area, needs wire conection to power network through a terminal
@@ -177,6 +180,11 @@ ABSTRACT_TYPE(/obj/machinery/power/apc)
 	/// If we're actually able to charge
 	var/charge_mode = CHARGE_MODE_CHARGE
 	var/last_time = 1
+	/**
+	 * Consecutive ticks spent on the fast path (stable, full cell, grid surplus).
+	 * Resets to 0 on every full pass to force a recalculation every STABLE_TICKS_MAX ticks.
+	 */
+	var/stable_ticks = 0
 
 /obj/machinery/power/apc/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()
@@ -1197,20 +1205,42 @@ ABSTRACT_TYPE(/obj/machinery/power/apc)
 			SSicon_update.add_to_queue(src)
 		return
 
+	// Always: read and clear area power consumption accumulators.
 	lastused_light = LIGHT_USAGE(area)
 	lastused_equip = EQUIP_USAGE(area)
 	lastused_environ = ENVIRON_USAGE(area)
 	CLEAR_USAGE(area)
-
 	lastused_total = lastused_light + lastused_equip + lastused_environ
+
+	var/excess = POWER_SURPLUS(terminal)
+
+	// Fast path
+	// When the cell is full, the grid has a clear surplus over this area's load,
+	// and all channels are already auto-on, every calculation in the full pass
+	// produces the same result as the previous tick. Skip the expensive cell math
+	// and update_channels(); only register the area's load on the powernet.
+	if(cell && !shorted && charging == CHARGING_FULL && autoflag == AUTOFLAG_ALL_ON \
+			&& excess > lastused_total && stable_ticks < STABLE_TICKS_MAX)
+		stable_ticks++
+		main_status = 2
+		if(longtermpower < 10)
+			longtermpower++
+		// Register this area's power consumption against the powernet load.
+		// This is the only side-effect that cannot be skipped.
+		var/draw = TERMINAL_POWER_DRAW(lastused_total)
+		TERMINAL_DRAW_POWER(draw)
+		return
+
+	// Full pass
+	// Either stability conditions broke, or STABLE_TICKS_MAX was reached.
+	// Force a full recalculation and reset the counter for the next stable window.
+	stable_ticks = 0
 
 	//store states to update icon if any change
 	var/last_lt = lighting
 	var/last_eq = equipment
 	var/last_en = environ
 	var/last_ch = charging
-
-	var/excess = POWER_SURPLUS(src.terminal)
 
 	if(POWER_AVAIL(src.terminal) <= 0)
 		main_status = 0
@@ -1753,3 +1783,4 @@ ABSTRACT_TYPE(/obj/machinery/power/apc)
 #undef APC_GOAL
 #undef APC_UPDATE_TIME
 #undef APC_CHARGE_MODE
+#undef STABLE_TICKS_MAX
