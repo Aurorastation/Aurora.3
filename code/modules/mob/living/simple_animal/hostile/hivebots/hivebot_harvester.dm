@@ -4,7 +4,7 @@
 	icon = 'icons/mob/npc/hivebot.dmi'
 	icon_state = "hivebotharvester"
 	health = 100
-	maxHealth = 100
+	maxhealth = 100
 	blood_type = COLOR_OIL
 	blood_overlay_icon = 'icons/mob/npc/blood_overlay_hivebot.dmi'
 	melee_damage_lower = 30
@@ -12,7 +12,7 @@
 	destroy_surroundings = 0
 	wander = 0
 	ranged = 1
-	attacktext = "skewered"
+	attacktext = "skewers"
 	projectilesound = 'sound/weapons/lasercannonfire.ogg'
 	projectiletype = /obj/projectile/beam/hivebot/incendiary/heavy
 	organ_names = list("head", "core", "side thruster", "harvesting array")

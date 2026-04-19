@@ -4,64 +4,76 @@
 
 	/// Used to store information about the contents of the object.
 	var/list/matter
-	/// Whether the object can be recycled (eaten) by something like the Autolathe
+	/// Whether the object can be recycled (eaten) by something like the Autolathe.
 	var/recyclable = FALSE
 	/// Size of the object.
 	var/w_class
 	/// Used by R&D to determine what research bonuses it grants.
 	var/list/origin_tech = null
-	/// Universal "unacidabliness" var, here so you can use it in any obj.
-	var/unacidable = FALSE
+	/// Universal "unacidabliness" var, here so you can use it in any obj. As xeno acid is gone, this is now only used for chemistry acid.
+	var/unacidable = 0
 
 	/// Special flags such as whether or not this object can be rotated.
 	var/obj_flags
 	/// Integer. Used for varied damage and item volume calculations.
 	var/throwforce = 1
-	/// Used in attackby() to say how something was attacked "[x] has been [z.attack_verb] by [y] with [z]"
+	/// Used in attackby() to say how something was attacked "[x] has been [z.attack_verb] by [y] with [z]".
 	var/list/attack_verb
-	/// Whether this object cuts.
-	var/sharp = FALSE
-	/// Whether this object is more likely to dismember its poor foes.
+	/// Whether this object creates CUT wounds.
+	var/sharp = 0
+	/// Whether this object is more likely to dismember.
 	var/edge = FALSE
 	/// If we have a user using us, this will be set on. We will check if the user has stopped using us, and thus stop updating and LAGGING EVERYTHING!
-	var/in_use = FALSE
-	/// Type of damage this object deals.
+	var/in_use = 0
+	/// The type of damage this object deals.
 	var/damtype = DAMAGE_BRUTE
+	/// The damage this object deals.
 	var/force = 0
+	/// The armour penetration this object has.
 	var/armor_penetration = 0
-	/// Makes an object not able to slice things.
+	/// To make it not able to slice things. Used for curtains, flaps, pumpkins... why aren't you just using edge?
 	var/noslice = FALSE
+	/// The armor of this object, turned into an armor component.
+	var/list/armor
+	/// Set to TRUE when shocked by the tesla ball, to not repeatedly shock the object.
+	var/being_shocked = FALSE
 
-	var/being_shocked = 0
-
-	/// If set, this holds the 3-letter shortname of a species, used for species-specific worn icons.
+	/// The slot the object will equip to.
+	var/equip_slot = 0
+	/// If set, this holds the 3-letter shortname of a species, used for species-specific worn icons
 	var/icon_species_tag = ""
-	/// If TRUE, this item will automatically change its species tag to match the wearer's species, given the wearer's species is listed in icon_supported_species_tags.
-	var/icon_auto_adapt = FALSE
+	/// If 1, this item will automatically change its species tag to match the wearer's species. Requires that the wearer's species is listed in icon_supported_species_tags.
+	var/icon_auto_adapt = 0
 
 	/**
 	 * A list of strings used with icon_auto_adapt, a list of species which have differing appearances for this item,
-	 * based on the specie short name
+	 * based on the species short name
 	 */
 	var/list/icon_supported_species_tags
 
 	/// If `TRUE`, will use the `icon_species_tag` var for rendering this item in the left/right hand.
 	var/icon_species_in_hand = FALSE
 
-	var/equip_slot = 0
-	/// Played when the item is used, for example tools.
+	///Played when the item is used, for example tools
 	var/usesound
-
+	/// The speed of the tool. This is generally a divisor.
 	var/toolspeed = 1
 
+	/// The sound this tool makes in surgery.
 	var/surgerysound
 
 	/* START BUCKLING VARS */
+	/// A list of things that can buckle to this atom.
 	var/list/can_buckle
+	/// If the buckled atom can move, and thus face directions.
 	var/buckle_movable = 0
+	/// The direction forced on a buckled atom.
 	var/buckle_dir = 0
-	var/buckle_lying = -1 //bed-like behavior, forces mob.lying = buckle_lying if != -1
-	var/buckle_require_restraints = 0 //require people to be handcuffed before being able to buckle. eg: pipes
+	/// Causes bed-like behavior, forces mob.lying = buckle_lying if != -1.
+	var/buckle_lying = -1
+	/// Require people to be handcuffed before being able to buckle. eg: pipes.
+	var/buckle_require_restraints = 0
+	/// The atom buckled to us.
 	var/atom/movable/buckled = null
 	/**
 	* Stores the original layer of a buckled atom.
@@ -71,11 +83,14 @@
 	* Used in `/unbuckle()` to restore the original layer.
 	*/
 	var/buckled_original_layer = null
-	var/buckle_delay = 0 //How much extra time to buckle someone to this object.
+	/// How much extra time to buckle someone to this object.
+	var/buckle_delay = 0
 	/* END BUCKLING VARS */
 
 	/* START ACCESS VARS */
+	/// Required access.
 	var/list/req_access
+	/// Only require one of these accesses.
 	var/list/req_one_access
 	/* END ACCESS VARS */
 
@@ -92,6 +107,20 @@
 	// Expiration time used when saving/updating a persistent type, this can be changed depending on the use case by assigning a new value
 	var/persistant_objects_expiration_time_days = PERSISTENT_DEFAULT_EXPIRATION_DAYS
 	/* END PERSISTENCE VARS */
+
+/obj/Initialize(mapload, ...)
+	. = ..()
+	if(maxhealth)
+		if(!health)
+			// Allows you to set dynamic health states on initialize.
+			health = maxhealth
+	if(islist(armor))
+		for(var/type in armor)
+			if(armor[type])
+				AddComponent(/datum/component/armor, armor)
+				break
+	else if(should_use_health)
+		AddComponent(/datum/component/armor, GLOB.default_object_armor, TRUE)
 
 /obj/Destroy()
 	if(persistent_objects_track_active) // Prevent hard deletion of references in the persistence register by removing it preemptively
@@ -126,6 +155,8 @@
 
 /mob/proc/CanUseObjTopic()
 	return 1
+
+
 
 /obj/proc/CouldUseTopic(var/mob/user)
 	user.AddTopicPrint(src)
@@ -168,6 +199,11 @@
 /obj/return_air()
 	if(loc)
 		return loc.return_air()
+
+/obj/condition_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(health < maxhealth)
+		. += get_damage_condition_hints(user, distance, is_adjacent)
 
 /obj/proc/updateUsrDialog()
 	if(in_use)

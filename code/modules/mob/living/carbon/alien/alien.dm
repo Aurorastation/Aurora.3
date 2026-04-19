@@ -5,7 +5,7 @@
 	icon_state = "la_creatura"
 	pass_flags = PASSTABLE
 	health = 50
-	maxHealth = 50
+	maxhealth = 50
 	mob_size = 4
 
 	var/adult_form

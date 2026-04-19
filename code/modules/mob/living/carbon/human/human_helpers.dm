@@ -219,7 +219,7 @@
 	seizure()
 	custom_pain(SPAN_DANGER(FONT_LARGE("[pick(psi_operancy_messages)]")), 25)
 	sleep(30)
-	addtimer(CALLBACK(psi, TYPE_PROC_REF(/datum/psi_complexus, check_psionic_trigger), 100, source, TRUE), 4.5 SECONDS)
+	addtimer(CALLBACK(psi, TYPE_PROC_REF(/datum/psi_complexus, check_psionic_trigger), 100, source, TRUE), 4.5 SECONDS, TIMER_STOPPABLE|TIMER_DELETE_ME)
 
 /mob/living/carbon/human/get_resist_power()
 	return species.resist_mod

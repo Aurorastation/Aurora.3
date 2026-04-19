@@ -1,0 +1,4 @@
+author: Hellfirejag
+delete-after: True
+changes:
+  - bugfix: "Fixed a hard del related to any form of direct organ replacement via loadouts (such as bioaugs)."

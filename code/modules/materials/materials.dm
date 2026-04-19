@@ -420,6 +420,16 @@
 	drop_sound = 'sound/items/drop/boots.ogg'
 	pickup_sound = 'sound/items/pickup/boots.ogg'
 
+/material/stone/brick
+	name = MATERIAL_BRICK
+	reinf_icon = "reinf_stone"
+	icon_colour = COLOR_GRAY30
+	wall_colour = COLOR_GRAY30
+	wall_icon = 'icons/turf/smooth/composite_brick.dmi'
+	multipart_reinf_icon = 'icons/turf/smooth/composite_brick.dmi'
+	hardness = 70
+	golem = SPECIES_GOLEM_MARBLE
+
 /material/concrete
 	name = MATERIAL_CONCRETE
 	icon_colour = COLOR_CONCRETE

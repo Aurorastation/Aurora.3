@@ -3,10 +3,13 @@
 	desc = "It's a basic storage unit."
 	icon = 'icons/obj/containers/closet.dmi'
 	icon_state = "generic"
+	hitsound = 'sound/effects/metalhit.ogg'
 	density = TRUE
 	build_amt = 2
 	slowdown = 2.5
 	pass_flags_self = PASSSTRUCTURE | LETPASSCLICKS | PASSTRACE
+	maxhealth = OBJECT_HEALTH_MEDIUM
+	armor = list(MELEE = ARMOR_MELEE_RESISTANT, BULLET = ARMOR_BALLISTIC_PISTOL, LASER = ARMOR_LASER_KEVLAR)
 
 	var/icon_door = null
 	/// Override to have open overlay use icon different to its base's
@@ -34,7 +37,6 @@
 
 	/// Never solid (You can always pass over it)
 	var/wall_mounted = FALSE
-	var/health = 100
 	/// If someone is currently breaking out. mutex
 	var/breakout = 0
 
@@ -155,6 +157,10 @@
 	QDEL_NULL(door_obj)
 	QDEL_NULL(door_obj_alt)
 
+	. = ..()
+
+/obj/structure/closet/on_death(damage, damage_flags, damage_type, armor_penetration, obj/weapon)
+	dump_contents()
 	. = ..()
 
 /// Fill lockers with this.
@@ -318,11 +324,11 @@
 /obj/structure/closet/ex_act(severity)
 	switch(severity)
 		if(1)
-			health -= rand(120, 240)
+			add_damage(rand(120, 240))
 		if(2)
-			health -= rand(60, 120)
+			add_damage(rand(60, 120))
 		if(3)
-			health -= rand(30, 60)
+			add_damage(rand(30, 60))
 
 	if(health <= 0)
 		for (var/atom/movable/A as mob|obj in src)
@@ -525,9 +531,13 @@
 				playsound(loc, 'sound/weapons/blade.ogg', 50, 1)
 			else
 				attack_hand(user)
+		else
+			return ..()
 	else
-		attack_hand(user)
-	return
+		if(attacking_item.force < 10 && user.a_intent != I_HURT)
+			attack_hand(user)
+		else
+			return ..()
 
 // helper procs for callbacks
 /obj/structure/closet/proc/is_closed()

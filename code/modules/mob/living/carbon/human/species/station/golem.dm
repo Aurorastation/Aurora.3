@@ -691,7 +691,7 @@ GLOBAL_LIST_INIT(golem_types, list(
 		glassify(H)
 		return
 
-	if(H.getFireLoss() >= (H.health - H.maxHealth))	//if the sand golem suffered enough burn damage it turns into a glass one
+	if(H.getFireLoss() >= (H.health - H.maxhealth))	//if the sand golem suffered enough burn damage it turns into a glass one
 		glassify(H)
 		return
 
@@ -825,7 +825,7 @@ GLOBAL_LIST_INIT(golem_types, list(
 	if(turn_into_materials)
 		//This is because otherwise the removal of vital organs in the gibbing will call death again, which calls this again, creating a neverending
 		//server death loop
-		addtimer(CALLBACK(H, TYPE_PROC_REF(/mob/living/carbon/human, gib)), 1 SECONDS)
+		addtimer(CALLBACK(H, TYPE_PROC_REF(/mob/living/carbon/human, gib)), 1 SECONDS, TIMER_STOPPABLE|TIMER_DELETE_ME)
 
 /datum/species/golem/homunculus/handle_environment_special(var/mob/living/carbon/human/H)
 	if(prob(25))

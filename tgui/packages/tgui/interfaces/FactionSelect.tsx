@@ -18,6 +18,8 @@ export type FactionSelectData = {
   chosen_faction: string;
   viewed_faction: string;
   viewed_selection_error: string;
+  citizenship_allowed: boolean;
+  culture_allowed: boolean;
   factions: Faction[];
   wiki_url: string;
 };
@@ -230,11 +232,10 @@ const FactionPanel = (props: { currentFaction: Faction }, context) => {
           <Stack.Item fontFamily="Tahoma" fontSize={1.05}>
             <LabeledList>
               <LabeledList.Item label="Citizenship Check">
-                {Checkmark(true)}
-                {/* NYI (/datum/faction/var/blacklisted_citizenship_types) */}
+                {Checkmark(!data.citizenship_allowed)}
               </LabeledList.Item>
               <LabeledList.Item label="Cultural Check">
-                {Checkmark(!data.viewed_selection_error)}
+                {Checkmark(!data.culture_allowed)}
               </LabeledList.Item>
             </LabeledList>
           </Stack.Item>

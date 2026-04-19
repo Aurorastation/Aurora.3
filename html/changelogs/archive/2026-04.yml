@@ -269,3 +269,19 @@
   TheGreyWolf:
   - bugfix: Fixes APCs saying a room is turned on, but the room is without power and
       the APC is not updating from being bluescreened.
+2026-04-17:
+  Batrachophrenoboocosmomachia:
+  - bugfix: Fixes runtime when running internals with CO2 jetpack caused by distribute_pressure
+      check update.
+  MattAtlas:
+  - experiment: Adds an universal health system. This means that objects can dynamically
+      be made destructible. Currently, this applies to things like machinery or some
+      structures.
+2026-04-18:
+  Hellfirejag:
+  - bugfix: Fixed LED collars becoming excessively bright if you change their color.
+2026-04-19:
+  Hellfirejag and Matt Atlas:
+  - rscadd: Added a basic initial implementation of a Mechanical Skills System.
+  TheGreyWolf:
+  - bugfix: Fixed some things regarding the nation blacklist check for factions.

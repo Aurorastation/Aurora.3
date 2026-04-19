@@ -23,7 +23,7 @@
 		list(mode_name="semiauto",       can_autofire=0, burst=1, fire_delay=ROF_SMG),
 		list(mode_name="3-round bursts", can_autofire=0, burst=3, burst_accuracy=list(1,0,0), dispersion=list(0, 10, 15)),
 		list(mode_name="short bursts",   can_autofire=0, burst=5, burst_accuracy=list(1,0,,-1,-1), dispersion=list(5, 10, 15, 20)),
-		list(mode_name="full auto",		can_autofire=1, burst=1, fire_delay=5, fire_delay_wielded=2, one_hand_fa_penalty=12, burst_accuracy = list(0,-1,-1,-2,-2,-2,-3,-3), dispersion = list(5, 10, 15, 20, 25))
+		list(mode_name="full auto",		can_autofire=1, burst=1, fire_delay=5, fire_delay_wielded=2, burst_accuracy = list(0,-1,-1,-2,-2,-2,-3,-3), dispersion = list(5, 10, 15, 20, 25)) //Guns that can't be wielded shouldn't get a one handed penalty.
 		)
 
 //Submachine guns and personal defence weapons, go.
@@ -180,7 +180,7 @@
 	firemodes = list(
 		list(mode_name="semiauto",       burst=1, fire_delay=ROF_RIFLE),
 		list(mode_name="short bursts",   burst=5, burst_accuracy=list(1,0,0,-1,-1), dispersion=list(5, 5, 15)),
-		list(mode_name="full auto",		can_autofire=1, burst=1, fire_delay=5, fire_delay_wielded=2, one_hand_fa_penalty=12, burst_accuracy = list(0,-1,-1,-2,-2,-2,-3,-3), dispersion = list(5, 10, 15, 20, 25)),
+		list(mode_name="full auto",		can_autofire=1, burst=1, fire_delay=5, fire_delay_wielded=2, burst_accuracy = list(0,-1,-1,-2,-2,-2,-3,-3), dispersion = list(5, 10, 15, 20, 25)),
 		)
 
 /obj/item/gun/projectile/automatic/konyang_pirate/update_icon()
@@ -212,8 +212,8 @@ ABSTRACT_TYPE(/obj/item/gun/projectile/automatic/rifle)
 
 	firemodes = list(
 		list(mode_name="semiauto",       burst=1, fire_delay=ROF_RIFLE),
-		list(mode_name="3-round bursts", burst=3, burst_accuracy=list(1,0,0),       dispersion=list(0, 5, 10)),
-		list(mode_name="short bursts",   burst=5, burst_accuracy=list(1,0,0,-1,-1), dispersion=list(5, 5, 15)),
+		list(mode_name="3-round bursts", burst=3, burst_accuracy=list(1,0,0), one_hand_fa_penalty=12, dispersion=list(0, 5, 10)),
+		list(mode_name="short bursts",   burst=5, burst_accuracy=list(1,0,0,-1,-1), one_hand_fa_penalty=12, dispersion=list(5, 5, 15)),
 		list(mode_name="full auto",		can_autofire=1, burst=1, fire_delay=5, fire_delay_wielded=2, one_hand_fa_penalty=12, burst_accuracy = list(0,-1,-1,-2,-2,-2,-3,-3), dispersion = list(5, 10, 15, 20, 25)),
 		)
 

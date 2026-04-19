@@ -857,11 +857,12 @@
 	desc = "An underfloor disposal pipe."
 	anchored = 1
 	density = 0
+	maxhealth = OBJECT_HEALTH_FRAGILE
 
 	level = 1			// underfloor only
+
 	var/dpdir = 0		// bitmask of pipe directions
 	//dir = 0				// dir will contain dominant direction for junction pipes
-	var/health = 10 	// health points 0-10
 	layer = EXPOSED_DISPOSALS_PIPE_LAYER
 	var/sortType = ""
 	var/subtype = 0
@@ -1003,7 +1004,7 @@
  * Call to break the pipe: will expel any holder inside at the time then delete the pipe
  * remains: Set to leave broken pipe pieces in place.
  */
-/obj/structure/disposalpipe/proc/broken(var/remains = 0)
+/obj/structure/disposalpipe/proc/broken(var/remains = FALSE)
 	if(remains)
 		for(var/D in GLOB.cardinals)
 			if(D & dpdir)
@@ -1039,26 +1040,17 @@
 /obj/structure/disposalpipe/ex_act(severity)
 	switch(severity)
 		if(1.0)
-			broken(0)
-			return
+			broken(FALSE)
 		if(2.0)
-			health -= rand(5,15)
-			healthcheck()
-			return
+			add_damage(rand(5,15))
 		if(3.0)
-			health -= rand(0,15)
-			healthcheck()
-			return
+			add_damage(rand(0,15))
 
-
-/**
- * Test pipe's health. Am I broken?
- */
-/obj/structure/disposalpipe/proc/healthcheck()
+/obj/structure/disposalpipe/on_death(damage, damage_flags, damage_type, armor_penetration, obj/weapon)
 	if(health < -2)
-		broken(0)
-	else if(health<1)
-		broken(1)
+		broken(FALSE)
+	else if(health < 1)
+		broken(TRUE)
 
 /**
  * Attack by item

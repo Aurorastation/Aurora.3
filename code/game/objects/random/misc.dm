@@ -241,7 +241,7 @@
 		/obj/item/clothing/under/syndicate/tacticool = 7,
 		/obj/item/toy/sword = 22,
 		/obj/item/gun/projectile/revolver/capgun = 11,
-		/obj/item/gun/bang = 22,
+		/obj/item/gun/bang/deagle = 22,
 		/obj/item/toy/crossbow = 11,
 		/obj/random/action_figure = 11,
 		/obj/item/toy/cultsword = 7,

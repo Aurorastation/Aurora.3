@@ -271,7 +271,7 @@ ABSTRACT_TYPE(/mob/living/simple_animal/hostile)
 			return
 		face_atom(T)
 		src.do_attack_animation(T)
-		T.take_damage(max(melee_damage_lower, melee_damage_upper) / 2)
+		T.add_damage(max(melee_damage_lower, melee_damage_upper) / 2, armor_penetration = armor_penetration)
 		visible_message(SPAN_DANGER("\The [src] [attacktext] \the [T]!"))
 		return T // no need to take a step back here
 	if(loc && attack_sound)
@@ -478,7 +478,7 @@ ABSTRACT_TYPE(/mob/living/simple_animal/hostile)
 			found_obj = locate(/obj/structure/table) in target_turf
 			if(found_obj)
 				var/obj/structure/table/table = found_obj
-				if(!table.breakable)
+				if(!table.maxhealth)
 					continue
 				found_obj.attack_generic(src, rand(melee_damage_lower, melee_damage_upper), attacktext, TRUE)
 				hostile_last_attack = world.time

@@ -436,6 +436,7 @@
 		/obj/item/reagent_containers/food/drinks/cans/root_beer = 5,
 		/obj/item/reagent_containers/food/drinks/cans/iced_tea = 5,
 		/obj/item/reagent_containers/food/drinks/cans/grape_juice = 5,
+		/obj/item/reagent_containers/food/drinks/cans/cherry_juice = 5,
 		/obj/item/reagent_containers/food/drinks/zobo = 5,
 		// Skrell
 		/obj/item/reagent_containers/food/drinks/cans/dyn = 5,

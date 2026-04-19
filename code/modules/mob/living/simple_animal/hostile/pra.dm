@@ -24,7 +24,7 @@
 	attack_emote = "buzzes menacingly at"
 	stop_automated_movement_when_pulled = FALSE
 	health = 300
-	maxHealth = 300
+	maxhealth = 300
 
 	destroy_surroundings = FALSE
 
@@ -35,7 +35,7 @@
 	melee_damage_upper = 15
 	mob_size = 5
 
-	attacktext = "slashed"
+	attacktext = "slashes"
 	attack_sound = 'sound/weapons/bladeslice.ogg'
 
 	speed = 2
@@ -116,7 +116,7 @@
 	speed = 3
 
 	health = 200
-	maxHealth = 200
+	maxhealth = 200
 
 	ranged = TRUE
 	rapid = TRUE
@@ -168,7 +168,7 @@
 	mob_size = 3
 
 	health = 100
-	maxHealth = 100
+	maxhealth = 100
 
 	melee_damage_lower = 5
 	melee_damage_upper = 5

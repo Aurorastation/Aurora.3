@@ -20,6 +20,7 @@
 #define MATERIAL_BRONZE                     "bronze"
 #define MATERIAL_OSMIUM                     "osmium"
 #define MATERIAL_MARBLE                     "marble"
+#define MATERIAL_BRICK                      "brick"
 #define MATERIAL_CULT                       "cult"
 #define MATERIAL_CULT_REINFORCED            "cult_reinforced"
 #define MATERIAL_TITANIUM                   "titanium"

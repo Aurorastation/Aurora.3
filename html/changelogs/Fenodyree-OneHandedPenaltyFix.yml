@@ -1,0 +1,8 @@
+author: Fenodyree
+
+delete-after: True
+
+changes:
+  - bugfix: "Fixes one handed only guns having a one handed firing penalty."
+  - bugfix: "Fixes the one handed firing penalty not applying to short and 3 round bursts."
+

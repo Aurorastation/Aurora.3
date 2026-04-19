@@ -5,6 +5,7 @@
 	icon_state = "wall"
 	opacity = TRUE
 	density = TRUE
+	should_use_health = TRUE
 	blocks_air = TRUE
 	pass_flags_self = PASSCLOSEDTURF
 	thermal_conductivity = WALL_HEAT_TRANSFER_COEFFICIENT
@@ -20,12 +21,12 @@
 		/obj/structure/window_frame/unanchored,
 		/obj/structure/window_frame/empty,
 		/obj/machinery/door,
-		/obj/machinery/door/airlock
+		/obj/machinery/door/airlock,
+		/obj/structure/arch
 	)
-
+	hitsound = 'sound/weapons/Genhit.ogg'
 	explosion_resistance = 10
 
-	var/damage = 0
 	var/damage_overlay = 0
 	var/global/damage_overlays[16]
 	var/active
@@ -34,7 +35,6 @@
 	var/material/reinf_material
 	var/last_state
 	var/construction_stage
-	var/hitsound = 'sound/weapons/Genhit.ogg'
 	var/use_set_icon_state
 
 	var/under_turf = /turf/simulated/floor/plating
@@ -51,7 +51,7 @@
 
 /turf/simulated/wall/condition_hints(mob/user, distance, is_adjacent)
 	. += ..()
-	if(!damage)
+	if(health >= maxhealth)
 		. += SPAN_NOTICE("It looks fully intact.")
 	else
 		// Total damage is based of base material integrity and optionally, if reinforced, reinforcement material integrity on top
@@ -59,7 +59,7 @@
 		if(reinf_material)
 			integrity += reinf_material.integrity
 
-		var/relative_damage = damage / integrity
+		var/relative_damage = health / maxhealth
 
 		if(relative_damage <= 0.25)
 			. += SPAN_NOTICE("It looks slightly damaged.")
@@ -113,6 +113,7 @@
 		reinf_material = SSmaterials.get_material_by_name(rmaterialtype)
 	update_material()
 	hitsound = material.hitsound
+	set_maxhealth(material.integrity + (reinf_material ? reinf_material.integrity : 0))
 
 	if (material.radioactivity || (reinf_material && reinf_material.radioactivity))
 		START_PROCESSING(SSprocessing, src)
@@ -152,7 +153,7 @@
 	if(hitting_projectile.anti_materiel_potential <= 1)
 		damage = min(proj_damage, 100)
 
-	take_damage(damage)
+	add_damage(damage)
 
 /turf/simulated/wall/hitby(atom/movable/hitting_atom, skipcatch, hitpush, blocked, datum/thrownthing/throwingdatum)
 	..()
@@ -166,7 +167,7 @@
 		var/tforce = O.throwforce * (throwingdatum.speed/THROWFORCE_SPEED_DIVISOR)
 		playsound(src, hitsound, tforce >= 15? 60 : 25, TRUE)
 		if(tforce >= 15)
-			take_damage(tforce)
+			add_damage(tforce)
 
 /turf/simulated/wall/proc/clear_plants()
 	for(var/obj/effect/overlay/wallrot/WR in src)
@@ -197,26 +198,15 @@
 	if(do_message)
 		visible_message(SPAN_DANGER("\The [src] spontaneously combusts!")) //!!OH SHIT!!
 
-/turf/simulated/wall/proc/take_damage(dam)
-	if(dam)
-		damage = max(0, damage + dam)
-		update_damage()
-	return
-
-/turf/simulated/wall/proc/update_damage()
-	var/cap = material.integrity
-	if(reinf_material)
-		cap += reinf_material.integrity
-
+/turf/simulated/wall/add_damage(damage, damage_flags, damage_type, armor_penetration, obj/weapon)
 	if(locate(/obj/effect/overlay/wallrot) in src)
-		cap = cap / 10
+		visible_message(SPAN_WARNING("\The [src] crumbles further under the rot!"))
+		damage *= 10
+	. = ..()
+	update_icon()
 
-	if(damage >= cap)
-		dismantle_wall()
-	else
-		update_icon()
-
-	return
+/turf/simulated/wall/on_death(damage, damage_flags, damage_type, armor_penetration, obj/weapon)
+	dismantle_wall()
 
 /turf/simulated/wall/fire_act(exposed_temperature, exposed_volume) //Doesn't fucking work because walls don't interact with air :[
 	. = ..()
@@ -225,7 +215,7 @@
 /turf/simulated/wall/adjacent_fire_act(turf/simulated/floor/adj_turf, datum/gas_mixture/adj_air, adj_temp, adj_volume)
 	burn(adj_temp)
 	if(adj_temp > material.melting_point)
-		take_damage(log(RAND_F(0.9, 1.1) * (adj_temp - material.melting_point)))
+		add_damage(log(RAND_F(0.9, 1.1) * (adj_temp - material.melting_point)))
 
 	return ..()
 
@@ -262,11 +252,11 @@
 			return
 		if(2.0)
 			if(prob(75))
-				take_damage(rand(150, 250))
+				add_damage(rand(150, 250))
 			else
 				dismantle_wall(1,1)
 		if(3.0)
-			take_damage(rand(0, 250))
+			add_damage(rand(0, 250))
 
 	return
 

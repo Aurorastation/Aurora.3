@@ -44,7 +44,8 @@
 	anchored = TRUE
 	mouse_opacity = MOUSE_OPACITY_ICON
 
-	var/health = 50
+	maxhealth = OBJECT_HEALTH_VERY_LOW
+
 	var/mob/living/affecting = null //Who it is currently affecting, if anyone.
 
 /obj/effect/energy_net/Initialize()
