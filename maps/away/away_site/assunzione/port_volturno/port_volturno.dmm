@@ -234,6 +234,7 @@
 /obj/effect/decal/curb,
 /obj/structure/flora/assunzione/bush/ferny,
 /obj/effect/decal/rolling_fog,
+/obj/random/dirt_75,
 /turf/simulated/floor/grass1/no_edge,
 /area/port_volturno/exterior)
 "ahg" = (
@@ -1236,6 +1237,15 @@
 /obj/effect/decal/rolling_fog,
 /turf/simulated/floor/asphalt/assunzione,
 /area/port_volturno/interior/parking)
+"bby" = (
+/obj/effect/decal/rolling_fog,
+/obj/random/dirt_75,
+/obj/machinery/light/spot{
+	dir = 1;
+	pixel_y = 20
+	},
+/turf/simulated/floor/sidewalk/assunzione/flat,
+/area/port_volturno/interior)
 "bbO" = (
 /obj/random/dirt_75,
 /obj/effect/decal/rolling_fog,
@@ -1368,6 +1378,14 @@
 	},
 /turf/simulated/floor/concrete,
 /area/port_volturno/interior/riad)
+"bgH" = (
+/obj/effect/decal/road_marking/center,
+/obj/effect/decal/road_marking/reflector,
+/obj/random/dirt_75,
+/obj/effect/decal/rolling_fog,
+/obj/random/dirt_75,
+/turf/simulated/floor/asphalt/assunzione,
+/area/port_volturno/exterior)
 "bgJ" = (
 /obj/random/dirt_75,
 /obj/effect/floor_decal/industrial/warning{
@@ -4641,6 +4659,12 @@
 /obj/effect/decal/rolling_fog,
 /turf/simulated/floor/grass1/no_edge,
 /area/port_volturno/interior)
+"dxW" = (
+/obj/machinery/light{
+	pixel_y = -2
+	},
+/turf/simulated/floor/tiled,
+/area/port_volturno/interior/police)
 "dyb" = (
 /obj/structure/table/standard,
 /obj/item/clothing/glasses/safety/goggles{
@@ -4867,11 +4891,15 @@
 	pixel_x = 3;
 	pixel_y = 15
 	},
-/obj/item/storage/box/large/produce{
+/obj/structure/table/rack/retail_shelf,
+/obj/item/storage/box/large/condiment{
 	pixel_x = 3;
 	pixel_y = 15
 	},
-/obj/structure/table/rack/retail_shelf,
+/obj/item/storage/box/large/condiment{
+	pixel_x = 3;
+	pixel_y = 15
+	},
 /turf/simulated/floor/tiled/ridged,
 /area/port_volturno/interior/stafylia)
 "dEV" = (
@@ -5811,7 +5839,8 @@
 /area/port_volturno/interior/riad)
 "eqf" = (
 /obj/machinery/door/urban{
-	req_one_access = list(219)
+	req_one_access = list(219);
+	support_ids = 1
 	},
 /obj/machinery/door/firedoor{
 	req_one_access = null
@@ -5993,6 +6022,7 @@
 	dir = 8
 	},
 /obj/effect/decal/rolling_fog,
+/obj/random/dirt_75,
 /turf/simulated/floor/asphalt/assunzione,
 /area/port_volturno/exterior)
 "ezU" = (
@@ -6503,6 +6533,14 @@
 /obj/effect/decal/rolling_fog,
 /turf/simulated/floor/sidewalk/assunzione/paved,
 /area/port_volturno/interior/parking)
+"eVp" = (
+/obj/effect/decal/rolling_fog,
+/obj/machinery/light/spot{
+	dir = 1;
+	pixel_y = 20
+	},
+/turf/simulated/floor/sidewalk/assunzione,
+/area/port_volturno/exterior)
 "eVC" = (
 /turf/simulated/floor/tiled,
 /area/port_volturno/interior/police)
@@ -10725,6 +10763,7 @@
 	},
 /obj/effect/decal/curb,
 /obj/effect/decal/rolling_fog,
+/obj/random/dirt_75,
 /turf/simulated/floor/grass1/no_edge,
 /area/port_volturno/exterior)
 "ihK" = (
@@ -11454,7 +11493,7 @@
 	pixel_y = 13
 	},
 /obj/machinery/door/blast/shutters{
-	id = 4;
+	id = "restaurant";
 	dir = 4
 	},
 /turf/simulated/floor/tiled/ridged,
@@ -12892,7 +12931,7 @@
 	dir = 8
 	},
 /obj/machinery/button/remote/blast_door{
-	id = "konyang_restaurant";
+	id = "restaurant";
 	name = "Store Shutters";
 	pixel_y = 27;
 	dir = 1;
@@ -13418,6 +13457,12 @@
 /obj/effect/decal/rolling_fog,
 /turf/simulated/floor/asphalt/assunzione,
 /area/port_volturno/interior/parking)
+"kqv" = (
+/obj/machinery/recharge_station,
+/obj/random/dirt_75,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled/freezer,
+/area/port_volturno/interior/clothing_store)
 "kse" = (
 /obj/structure/stairs/west,
 /obj/structure/railing/mapped,
@@ -13635,11 +13680,12 @@
 /turf/simulated/floor/tiled,
 /area/port_volturno/interior/clinic/storage)
 "kBP" = (
+/obj/effect/decal/rolling_fog,
 /obj/structure/sign/urban/assunzione/police{
-	pixel_y = 6
+	pixel_y = 38
 	},
-/turf/simulated/wall,
-/area/port_volturno/interior/police)
+/turf/simulated/floor/sidewalk/assunzione/flat,
+/area/port_volturno/exterior)
 "kCs" = (
 /turf/simulated/floor/tiled/cargo/brass/full,
 /area/port_volturno/interior/riad/garden)
@@ -13792,7 +13838,7 @@
 	dir = 8
 	},
 /obj/machinery/door/blast/shutters{
-	id = 4;
+	id = "restaurant";
 	dir = 4
 	},
 /turf/simulated/floor/tiled/cargo/brass/full,
@@ -14210,8 +14256,12 @@
 	pixel_x = 7;
 	pixel_y = -2
 	},
+/obj/structure/restaurant_menu/stafylia{
+	pixel_y = 31;
+	density = 0
+	},
 /obj/machinery/door/blast/shutters{
-	id = 4;
+	id = "restaurant";
 	dir = 4
 	},
 /turf/simulated/floor/tiled/ridged,
@@ -14389,7 +14439,7 @@
 	pixel_y = 18
 	},
 /obj/machinery/button/remote/blast_door{
-	id = "konyang_restaurant";
+	id = "restaurant";
 	name = "Store Shutters";
 	pixel_y = 4;
 	dir = 4;
@@ -15164,6 +15214,22 @@
 /obj/item/clothing/shoes/laceup/brown,
 /obj/item/clothing/under/sundress,
 /obj/item/clothing/shoes/flats,
+/obj/item/clothing/shoes/flats,
+/obj/item/clothing/shoes/laceup/brown,
+/obj/item/clothing/accessory/tie/darkgreen,
+/obj/item/clothing/under/sundress,
+/obj/item/clothing/under/sl_suit,
+/obj/item/clothing/suit/storage/toggle/labcoat,
+/obj/item/clothing/suit/storage/toggle/labcoat/zeng/alt,
+/obj/item/clothing/suit/storage/toggle/labcoat/zeng/alt,
+/obj/item/clothing/suit/storage/toggle/labcoat/zeng/alt2,
+/obj/item/clothing/suit/storage/toggle/labcoat/zeng/alt2,
+/obj/item/clothing/suit/storage/toggle/longcoat/zeng,
+/obj/item/clothing/suit/storage/toggle/longcoat/zeng,
+/obj/item/clothing/suit/storage/toggle/corp/zeng,
+/obj/item/clothing/suit/storage/toggle/corp/zeng,
+/obj/item/clothing/suit/storage/toggle/corp/zeng/alt,
+/obj/item/clothing/suit/storage/toggle/corp/zeng/alt,
 /turf/simulated/floor/tiled/white,
 /area/port_volturno/interior/clinic/pharmacy)
 "lzL" = (
@@ -16230,6 +16296,7 @@
 "msL" = (
 /obj/structure/structural_support/side,
 /obj/effect/decal/rolling_fog,
+/obj/random/dirt_75,
 /turf/simulated/floor/concrete/square,
 /area/port_volturno/exterior)
 "msR" = (
@@ -16971,7 +17038,8 @@
 /obj/machinery/door/urban{
 	dir = 4;
 	req_one_access = list(219);
-	name = "Hotel"
+	name = "Hotel";
+	support_ids = 1
 	},
 /obj/effect/floor_decal/industrial/hatch_door/yellow,
 /obj/machinery/door/firedoor{
@@ -17718,9 +17786,8 @@
 /turf/simulated/floor/grass1/no_edge,
 /area/port_volturno/exterior)
 "nJp" = (
-/obj/structure/restaurant_menu/stafylia,
 /obj/machinery/door/blast/shutters{
-	id = 4;
+	id = "restaurant";
 	dir = 4
 	},
 /turf/simulated/wall,
@@ -21408,6 +21475,13 @@
 /obj/effect/decal/rolling_fog,
 /turf/simulated/floor/asphalt/assunzione,
 /area/port_volturno/exterior)
+"qiS" = (
+/obj/structure/structural_support/side,
+/obj/effect/decal/rolling_fog,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/concrete,
+/area/port_volturno/exterior)
 "qjj" = (
 /obj/structure/bed/stool/padded/violet{
 	dir = 1;
@@ -22354,6 +22428,14 @@
 /obj/effect/decal/rolling_fog,
 /turf/unsimulated/floor/plating,
 /area/port_volturno/interior/tram_station)
+"qVb" = (
+/obj/effect/decal/road_marking/no_pass{
+	dir = 4
+	},
+/obj/effect/decal/rolling_fog,
+/obj/random/dirt_75,
+/turf/simulated/floor/asphalt/assunzione,
+/area/port_volturno/exterior)
 "qVd" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /obj/machinery/door/blast/shutters{
@@ -22752,7 +22834,7 @@
 	pixel_x = -1
 	},
 /obj/machinery/door/blast/shutters{
-	id = 4;
+	id = "restaurant";
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
@@ -23820,7 +23902,7 @@
 "sgv" = (
 /obj/structure/table/stone/marble,
 /obj/machinery/door/blast/shutters{
-	id = 4;
+	id = "restaurant";
 	dir = 4
 	},
 /turf/simulated/floor/tiled/ridged,
@@ -24950,7 +25032,7 @@
 /area/port_volturno/interior/chapel)
 "tgr" = (
 /obj/effect/floor_decal/corner/blue/diagonal,
-/obj/structure/table/rack/retail_shelf,
+/obj/machinery/chem_heater,
 /turf/simulated/floor/tiled/ridged,
 /area/port_volturno/interior/stafylia)
 "tgy" = (
@@ -25245,7 +25327,7 @@
 /area/port_volturno/interior)
 "tsQ" = (
 /obj/machinery/button/remote/blast_door{
-	id = "konyang_restaurant";
+	id = "restaurant";
 	name = "Store Shutters";
 	pixel_y = 6;
 	dir = 8;
@@ -25300,6 +25382,12 @@
 	},
 /obj/effect/decal/rolling_fog,
 /turf/simulated/floor/sidewalk/assunzione/flat,
+/area/port_volturno/exterior)
+"twg" = (
+/obj/effect/decal/curb,
+/obj/effect/decal/rolling_fog,
+/obj/random/dirt_75,
+/turf/simulated/floor/asphalt/assunzione,
 /area/port_volturno/exterior)
 "twk" = (
 /obj/effect/decal/curb{
@@ -25594,7 +25682,6 @@
 "tDJ" = (
 /obj/machinery/door/urban{
 	dir = 4;
-	req_one_access = list(219);
 	name = "Equipment & Forensics"
 	},
 /obj/effect/floor_decal/industrial/hatch_door/yellow,
@@ -25753,7 +25840,7 @@
 /area/port_volturno/exterior)
 "tJi" = (
 /obj/machinery/button/remote/blast_door{
-	id = "konyang_restaurant";
+	id = "restaurant";
 	name = "Store Shutters";
 	pixel_y = 6;
 	dir = 4;
@@ -25788,8 +25875,8 @@
 "tKx" = (
 /obj/effect/floor_decal/corner/blue/diagonal,
 /obj/effect/ghostspawpoint{
-	name = "igs - volturno_stafylia";
-	identifier = "volturno_stafylia"
+	name = "igs - assunzione_stafylia";
+	identifier = "assunzione_stafylia"
 	},
 /turf/simulated/floor/tiled/ridged,
 /area/port_volturno/interior/stafylia)
@@ -30553,6 +30640,12 @@
 	},
 /turf/simulated/floor/wood/maple,
 /area/port_volturno/interior/riad)
+"xEw" = (
+/obj/structure/structural_support/side,
+/obj/effect/decal/rolling_fog,
+/obj/random/dirt_75,
+/turf/simulated/floor/concrete,
+/area/port_volturno/exterior)
 "xFD" = (
 /obj/random/dirt_75,
 /obj/effect/floor_decal/industrial/hatch_door/yellow{
@@ -31326,13 +31419,12 @@
 /turf/simulated/floor/exoplanet/assunzione,
 /area/port_volturno/interior/maintenance)
 "yky" = (
-/obj/machinery/light/spot{
+/obj/machinery/light{
 	dir = 1;
-	pixel_y = 20
+	pixel_y = 24
 	},
-/obj/effect/decal/rolling_fog,
-/turf/simulated/floor/sidewalk/assunzione/flat,
-/area/port_volturno/interior)
+/turf/simulated/floor/wood/maple,
+/area/port_volturno/interior/police)
 "ykz" = (
 /obj/machinery/light/floor,
 /obj/effect/decal/rolling_fog,
@@ -53395,7 +53487,7 @@ eFn
 jFQ
 ojJ
 xlk
-xlk
+kqv
 nKs
 afo
 xlk
@@ -59248,7 +59340,7 @@ gzg
 vvq
 aES
 aES
-aES
+kmP
 hrz
 hNW
 oaM
@@ -59505,7 +59597,7 @@ kIX
 aES
 aES
 aES
-aES
+kmP
 hTT
 flp
 aES
@@ -63138,7 +63230,7 @@ bOZ
 bOZ
 giY
 xFF
-fbB
+bPd
 lRn
 fbB
 oLg
@@ -63379,7 +63471,7 @@ mdj
 juA
 anJ
 nya
-nya
+fdY
 cIr
 vCd
 nTu
@@ -65196,7 +65288,7 @@ dvD
 dvD
 dvD
 llI
-rad
+bby
 nyt
 nzi
 oFA
@@ -65967,7 +66059,7 @@ dvD
 dvD
 dvD
 llI
-yky
+sqB
 oNL
 nzi
 bNq
@@ -66485,8 +66577,8 @@ hMm
 xNN
 qxT
 eHg
-eHg
-eHg
+qxT
+qxT
 eyQ
 jXc
 mIR
@@ -66741,9 +66833,9 @@ llI
 qGT
 vfW
 kIc
-kIc
+qkH
 qiP
-sKP
+bgH
 vwR
 sKP
 qiP
@@ -67259,7 +67351,7 @@ qkH
 pWo
 rAD
 rAD
-rAD
+mws
 jmv
 kIc
 kIc
@@ -67509,14 +67601,14 @@ dvD
 dvD
 dvD
 llI
-nzi
+eVp
 ozg
 kIc
 kIc
 pWo
 oFA
 rxb
-nzi
+qGT
 bfZ
 lnr
 eEF
@@ -67526,7 +67618,7 @@ wri
 lRn
 cuA
 gmO
-gmO
+qVb
 kIc
 gmO
 xyn
@@ -67781,7 +67873,7 @@ dwk
 jVb
 vsr
 fbB
-cuA
+twg
 qiP
 cEt
 qiP
@@ -68030,14 +68122,14 @@ qkH
 tyM
 nzi
 gCx
-nzi
+qGT
 rBD
 lGa
 eEF
 qkH
 nTB
-prP
-fbB
+xEw
+bPd
 cuA
 cEt
 cEt
@@ -68542,7 +68634,7 @@ ubh
 kIc
 qkH
 bHb
-oFA
+bNq
 ihr
 oFA
 jmv
@@ -68551,7 +68643,7 @@ vtt
 ubh
 nTB
 vsr
-fbB
+bPd
 cuA
 qiP
 cEt
@@ -68799,7 +68891,7 @@ bOl
 kIc
 kIc
 pRD
-oFA
+bNq
 aaI
 oFA
 jmv
@@ -68808,7 +68900,7 @@ vtt
 qkH
 pWo
 vsr
-lRn
+vvB
 cuA
 kIc
 qiP
@@ -69065,7 +69157,7 @@ vtt
 qkH
 pWo
 msL
-fbB
+pfO
 cuA
 gmO
 gmO
@@ -69321,8 +69413,8 @@ qkH
 eEF
 qkH
 pWo
-prP
-lRn
+qiS
+vvB
 cuA
 kIc
 fgK
@@ -69835,7 +69927,7 @@ kIc
 vtt
 kIc
 nTB
-fbB
+bPd
 lRn
 cuA
 kIc
@@ -70350,7 +70442,7 @@ hFS
 kIc
 pWo
 lRn
-lRn
+vvB
 cuA
 kIc
 kIc
@@ -70607,7 +70699,7 @@ hFS
 qkH
 pWo
 vsr
-fbB
+bPd
 cuA
 gmO
 gmO
@@ -115282,7 +115374,7 @@ kRB
 wnn
 dgN
 ejt
-eVC
+dxW
 kRB
 kRB
 kRB
@@ -115536,7 +115628,7 @@ cQx
 cQx
 cQx
 kRB
-nzL
+yky
 nzL
 nzL
 eVC
@@ -116053,7 +116145,7 @@ kRB
 uAs
 eVC
 gCO
-eVC
+dxW
 kRB
 kRB
 kRB
@@ -117604,8 +117696,8 @@ vHJ
 ohx
 pRU
 adM
+kRB
 kBP
-oFA
 oFA
 nzi
 tWR
