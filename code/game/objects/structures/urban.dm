@@ -471,7 +471,7 @@ ABSTRACT_TYPE(/obj/structure/stairs/urban/road_ramp_assun)
 
 /obj/structure/neon_sign/assunzione/witch_hand
 	name = "\improper WITCH HAND"
-	desc = "A massive neon sign for Port Volturno's best underground nightclub. Not for the pious."
+	desc = "A massive neon sign for Port Volturno's best underground nightclub. Not for the pious, and <i>especially</i> not for the photosensitive. Like, seriously. They make you sign a waiver."
 	icon = 'icons/obj/structure/urban/assunzione_96x160.dmi'
 	icon_state = "wh_sign"
 	layer = 5.16 // in the biz, we call this the above above ABOVE human layer

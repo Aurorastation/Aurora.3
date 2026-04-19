@@ -292,6 +292,13 @@
 /obj/effect/decal/rolling_fog,
 /turf/unsimulated/floor/plating,
 /area/port_volturno/interior/tram_station)
+"aiY" = (
+/obj/structure/rod_railing{
+	name = "imposing rod railing"
+	},
+/obj/random/maintenance_junk_or_loot,
+/turf/simulated/floor/exoplanet/assunzione,
+/area/port_volturno/interior)
 "ajH" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -1256,6 +1263,12 @@
 /obj/effect/decal/rolling_fog,
 /turf/simulated/floor/sidewalk/assunzione,
 /area/port_volturno/interior/spaceport)
+"bcS" = (
+/obj/effect/decal/rolling_fog,
+/obj/random/dirt_75,
+/obj/structure/bed/stool/chair/sofa/bench/left,
+/turf/simulated/floor/sidewalk/assunzione,
+/area/port_volturno/exterior)
 "bdW" = (
 /obj/structure/closet/crate/bin,
 /obj/machinery/light{
@@ -1425,6 +1438,14 @@
 	},
 /turf/simulated/floor/wood/maple,
 /area/port_volturno/interior/riad)
+"bjA" = (
+/obj/effect/decal/rolling_fog,
+/obj/structure/bed/stool/padded/violet{
+	dir = 1;
+	pixel_y = 9
+	},
+/turf/simulated/floor/sidewalk/assunzione/flat,
+/area/port_volturno/exterior)
 "bjD" = (
 /obj/structure/flora/assunzione/bush/lucevine,
 /turf/simulated/floor/grass1/no_edge,
@@ -2759,9 +2780,13 @@
 /turf/simulated/floor/exoplanet/assunzione,
 /area/port_volturno/interior/maintenance)
 "cgn" = (
+/obj/structure/flora/assunzione/grass,
+/obj/effect/decal/curb{
+	dir = 4
+	},
 /obj/effect/decal/rolling_fog,
-/obj/structure/bed/stool/chair/sofa/bench/left,
-/turf/simulated/floor/sidewalk/assunzione,
+/obj/structure/flora/assunzione/bush/lucevine,
+/turf/simulated/floor/grass1/no_edge,
 /area/port_volturno/exterior)
 "cgR" = (
 /obj/effect/decal/curb{
@@ -2810,11 +2835,6 @@
 	},
 /turf/simulated/floor/tiled/slate,
 /area/port_volturno/interior/stafylia)
-"cjp" = (
-/obj/structure/table/stone/marble,
-/obj/item/flame/lighter/zippo/luceian,
-/turf/simulated/floor/marble,
-/area/port_volturno/interior/chapel)
 "cjE" = (
 /obj/effect/floor_decal/corner/yellow{
 	dir = 8
@@ -2886,6 +2906,15 @@
 /obj/structure/flora/assunzione/flowers/brflowers,
 /obj/effect/decal/rolling_fog,
 /turf/simulated/floor/grass1/no_edge,
+/area/port_volturno/exterior)
+"cnv" = (
+/obj/effect/decal/rolling_fog,
+/obj/structure/table/rack/cafe_table,
+/obj/item/flora/pottedplant_small/luce_vine{
+	pixel_y = 14;
+	pixel_x = -1
+	},
+/turf/simulated/floor/sidewalk/assunzione,
 /area/port_volturno/exterior)
 "cog" = (
 /obj/effect/decal/curb{
@@ -3095,6 +3124,11 @@
 /obj/effect/decal/rolling_fog,
 /turf/simulated/floor/exoplanet/assunzione,
 /area/port_volturno/interior/maintenance)
+"cwD" = (
+/obj/random/dirt_75,
+/obj/random/maintenance_junk_or_loot,
+/turf/simulated/floor/exoplanet/assunzione,
+/area/port_volturno/interior)
 "cwM" = (
 /obj/structure/closet/walllocker/firecloset{
 	pixel_y = 32
@@ -4385,6 +4419,14 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/port_volturno/interior)
+"dpm" = (
+/obj/effect/decal/rolling_fog,
+/obj/random/dirt_75,
+/obj/structure/bed/stool/padded/violet{
+	dir = 8
+	},
+/turf/simulated/floor/sidewalk/assunzione/flat,
+/area/port_volturno/exterior)
 "dpq" = (
 /obj/random/dirt_75,
 /turf/simulated/floor/lino,
@@ -5910,6 +5952,7 @@
 	dir = 5
 	},
 /obj/effect/decal/rolling_fog,
+/obj/structure/flora/assunzione/bush/lucevine,
 /turf/simulated/floor/grass1/no_edge,
 /area/port_volturno/interior)
 "ewY" = (
@@ -7193,6 +7236,16 @@
 	pixel_x = 14
 	},
 /turf/simulated/floor/grass1/no_edge,
+/area/port_volturno/exterior)
+"fwc" = (
+/obj/effect/decal/rolling_fog,
+/obj/structure/table/rack/cafe_table,
+/obj/random/dirt_75,
+/obj/item/flora/pottedplant_small/luce_vine{
+	pixel_y = 2;
+	pixel_x = -4
+	},
+/turf/simulated/floor/sidewalk/assunzione,
 /area/port_volturno/exterior)
 "fwz" = (
 /turf/simulated/wall,
@@ -9371,6 +9424,14 @@
 /obj/effect/decal/rolling_fog,
 /turf/simulated/floor/asphalt/assunzione,
 /area/port_volturno/exterior)
+"hfH" = (
+/obj/effect/decal/rolling_fog,
+/obj/structure/bed/stool/padded/violet{
+	dir = 8;
+	pixel_y = 9
+	},
+/turf/simulated/floor/sidewalk/assunzione/detail,
+/area/port_volturno/exterior)
 "hfX" = (
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/full,
@@ -9526,13 +9587,10 @@
 /area/port_volturno/interior/chapel)
 "hmc" = (
 /obj/effect/floor_decal/industrial/outline/medical,
-/obj/effect/floor_decal/industrial/warning{
-	dir = 8
-	},
-/obj/random/dirt_75,
 /obj/structure/closet/walllocker/medical/firstaid{
 	pixel_y = -32
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor,
 /area/port_volturno/interior)
 "hmN" = (
@@ -10725,12 +10783,15 @@
 /turf/simulated/floor/wood/maple,
 /area/port_volturno/interior/clothing_store)
 "ijm" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
-/obj/structure/sign/flag/luceist/large{
-	dir = 8
+/obj/effect/decal/curb{
+	dir = 5
 	},
-/turf/simulated/floor/tiled,
-/area/port_volturno/interior/chapel)
+/obj/structure/flora/assunzione/grass,
+/obj/structure/flora/assunzione/flowers/ywflowers,
+/obj/effect/decal/rolling_fog,
+/obj/structure/flora/assunzione/bush/lucevine,
+/turf/simulated/floor/grass1/no_edge,
+/area/port_volturno/exterior)
 "ijI" = (
 /obj/machinery/chemical_dispenser/full{
 	dir = 1
@@ -12161,6 +12222,14 @@
 	},
 /obj/effect/decal/rolling_fog,
 /turf/simulated/floor/asphalt/assunzione,
+/area/port_volturno/exterior)
+"jxa" = (
+/obj/effect/decal/curb{
+	dir = 1
+	},
+/obj/effect/decal/rolling_fog,
+/obj/structure/flora/assunzione/bush/lucevine,
+/turf/simulated/floor/grass1/no_edge,
 /area/port_volturno/exterior)
 "jyQ" = (
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -13613,13 +13682,10 @@
 /turf/simulated/floor/plating,
 /area/port_volturno/interior)
 "kEo" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
-/obj/structure/sign/flag/luceist/large{
-	dir = 4;
-	pixel_y = -16
-	},
-/turf/simulated/floor/tiled,
-/area/port_volturno/interior/chapel)
+/obj/effect/decal/rolling_fog,
+/obj/structure/bed/stool/padded/violet,
+/turf/simulated/floor/sidewalk/assunzione,
+/area/port_volturno/exterior)
 "kEs" = (
 /obj/structure/ledge/quarter{
 	dir = 8
@@ -14270,6 +14336,15 @@
 /obj/effect/decal/road_marking/no_park,
 /turf/simulated/floor,
 /area/port_volturno/interior/spaceport)
+"kWL" = (
+/obj/effect/decal/rolling_fog,
+/obj/structure/flora/assunzione/grass/full,
+/obj/effect/decal/curb{
+	dir = 4
+	},
+/obj/structure/flora/assunzione/bush/lucevine,
+/turf/simulated/floor/grass1/no_edge,
+/area/port_volturno/exterior)
 "kWR" = (
 /obj/structure/bed/stool/chair/office/dark{
 	dir = 4
@@ -14500,6 +14575,15 @@
 	},
 /turf/simulated/floor/tiled,
 /area/port_volturno/interior/police/brig)
+"ldB" = (
+/obj/effect/decal/curb{
+	dir = 8
+	},
+/obj/structure/flora/assunzione/flowers/lavendergrass,
+/obj/effect/decal/rolling_fog,
+/obj/structure/flora/assunzione/bush/lucevine,
+/turf/simulated/floor/grass1/no_edge,
+/area/port_volturno/exterior)
 "ldJ" = (
 /obj/structure/bed/stool/chair/wood{
 	dir = 8
@@ -14507,12 +14591,14 @@
 /turf/simulated/floor/tiled/cargo/brass/full,
 /area/port_volturno/interior/riad)
 "ldK" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
-/obj/structure/sign/flag/luceist/large{
-	dir = 4
+/obj/effect/decal/curb{
+	dir = 1
 	},
-/turf/simulated/floor/tiled,
-/area/port_volturno/interior/chapel)
+/obj/structure/flora/assunzione/flowers/brflowers,
+/obj/effect/decal/rolling_fog,
+/obj/structure/flora/assunzione/bush/lucevine,
+/turf/simulated/floor/grass1/no_edge,
+/area/port_volturno/exterior)
 "ldS" = (
 /obj/structure/extinguisher_cabinet/north,
 /turf/simulated/floor/tiled/full,
@@ -15080,6 +15166,16 @@
 /obj/item/clothing/shoes/flats,
 /turf/simulated/floor/tiled/white,
 /area/port_volturno/interior/clinic/pharmacy)
+"lzL" = (
+/obj/effect/decal/rolling_fog,
+/obj/random/dirt_75,
+/obj/structure/table/rack/cafe_table,
+/obj/item/flora/pottedplant_small/luce_vine{
+	pixel_y = 4;
+	pixel_x = -6
+	},
+/turf/simulated/floor/sidewalk/assunzione/flat,
+/area/port_volturno/exterior)
 "lBn" = (
 /obj/effect/floor_decal/corner/blue/diagonal,
 /obj/structure/table/stone/marble,
@@ -18197,6 +18293,14 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/port_volturno/interior/clinic)
+"ocm" = (
+/obj/effect/decal/rolling_fog,
+/obj/structure/bed/stool/padded/violet{
+	dir = 1;
+	pixel_y = 9
+	},
+/turf/simulated/floor/sidewalk/assunzione/detail,
+/area/port_volturno/exterior)
 "odd" = (
 /obj/structure/table/standard,
 /obj/machinery/reagentgrinder{
@@ -19476,6 +19580,7 @@
 	},
 /obj/structure/flora/assunzione/flowers/ywflowers,
 /obj/effect/decal/rolling_fog,
+/obj/structure/flora/assunzione/bush/lucevine,
 /turf/simulated/floor/grass1/no_edge,
 /area/port_volturno/exterior)
 "oVa" = (
@@ -19996,6 +20101,12 @@
 /obj/effect/decal/rolling_fog,
 /turf/simulated/floor/grass1/no_edge,
 /area/port_volturno/exterior)
+"poI" = (
+/obj/effect/decal/curb,
+/obj/effect/decal/rolling_fog,
+/obj/structure/flora/assunzione/bush/lucevine,
+/turf/simulated/floor/grass1/no_edge,
+/area/port_volturno/exterior)
 "ppb" = (
 /obj/structure/flora/assunzione/flowers/lavendergrass,
 /obj/effect/decal/curb/corner{
@@ -20467,6 +20578,7 @@
 /obj/effect/decal/curb,
 /obj/structure/flora/assunzione/flowers/lavendergrass,
 /obj/effect/decal/rolling_fog,
+/obj/structure/flora/assunzione/bush/lucevine,
 /turf/simulated/floor/grass1/no_edge,
 /area/port_volturno/interior)
 "pDD" = (
@@ -21008,6 +21120,7 @@
 "pYm" = (
 /obj/effect/decal/curb,
 /obj/effect/decal/rolling_fog,
+/obj/structure/flora/assunzione/bush/lucevine,
 /turf/simulated/floor/grass1/no_edge,
 /area/port_volturno/interior)
 "pYz" = (
@@ -23370,6 +23483,11 @@
 	},
 /turf/simulated/floor/tiled/gunmetal/full,
 /area/port_volturno/interior/music_store)
+"rRq" = (
+/obj/structure/table/stone/marble,
+/obj/item/flame/lighter/zippo/luceian,
+/turf/simulated/floor/marble,
+/area/port_volturno/interior/chapel)
 "rSf" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -24278,10 +24396,12 @@
 /turf/simulated/floor/grass1/no_edge,
 /area/port_volturno/exterior)
 "sGN" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
-/obj/structure/sign/flag/luceist/large,
-/turf/simulated/floor/tiled,
-/area/port_volturno/interior/chapel)
+/obj/effect/decal/curb,
+/obj/structure/flora/assunzione/grass,
+/obj/effect/decal/rolling_fog,
+/obj/structure/flora/assunzione/bush/lucevine,
+/turf/simulated/floor/grass1/no_edge,
+/area/port_volturno/exterior)
 "sHf" = (
 /obj/structure/filingcabinet/filingcabinet{
 	pixel_x = -9;
@@ -24415,6 +24535,11 @@
 "sNi" = (
 /turf/simulated/floor/tiled/cargo/brass/full,
 /area/port_volturno/interior/riad)
+"sNx" = (
+/obj/effect/decal/rolling_fog,
+/obj/structure/bed/stool/padded/violet,
+/turf/simulated/floor/sidewalk/assunzione/flat,
+/area/port_volturno/exterior)
 "sOF" = (
 /obj/effect/floor_decal/corner/yellow{
 	dir = 10
@@ -25185,6 +25310,7 @@
 	},
 /obj/structure/flora/assunzione/grass,
 /obj/effect/decal/rolling_fog,
+/obj/structure/flora/assunzione/bush/lucevine,
 /turf/simulated/floor/grass1/no_edge,
 /area/port_volturno/interior)
 "twl" = (
@@ -25544,6 +25670,7 @@
 	dir = 4
 	},
 /obj/effect/decal/rolling_fog,
+/obj/structure/flora/assunzione/bush/lucevine,
 /turf/simulated/floor/grass1/no_edge,
 /area/port_volturno/exterior)
 "tGt" = (
@@ -26696,6 +26823,13 @@
 	},
 /turf/simulated/floor/tiled,
 /area/port_volturno/interior/police/brig)
+"utG" = (
+/obj/effect/decal/curb,
+/obj/structure/flora/assunzione/flowers/brflowers,
+/obj/effect/decal/rolling_fog,
+/obj/structure/flora/assunzione/bush/lucevine,
+/turf/simulated/floor/grass1/no_edge,
+/area/port_volturno/exterior)
 "uug" = (
 /obj/effect/decal/curb,
 /obj/structure/flora/assunzione/bush/lucevine,
@@ -27139,6 +27273,7 @@
 	dir = 10
 	},
 /obj/effect/decal/rolling_fog,
+/obj/structure/flora/assunzione/bush/lucevine,
 /turf/simulated/floor/grass1/no_edge,
 /area/port_volturno/interior)
 "uME" = (
@@ -29810,6 +29945,9 @@
 	pixel_y = 2
 	},
 /obj/effect/decal/rolling_fog,
+/obj/structure/ledge{
+	dir = 9
+	},
 /turf/simulated/floor/sidewalk/assunzione/flat,
 /area/port_volturno/exterior)
 "xaE" = (
@@ -30217,6 +30355,15 @@
 	},
 /turf/simulated/floor/wood/maple,
 /area/port_volturno/interior/liquor_store)
+"xvv" = (
+/obj/random/dirt_75,
+/obj/effect/decal/rolling_fog,
+/obj/structure/bed/stool/padded/violet{
+	dir = 1;
+	pixel_y = 9
+	},
+/turf/simulated/floor/sidewalk/assunzione/flat,
+/area/port_volturno/exterior)
 "xvz" = (
 /obj/structure/bed/stool/chair/sofa/left/brown,
 /obj/effect/floor_decal/corner/yellow/full{
@@ -30775,6 +30922,7 @@
 	dir = 1
 	},
 /obj/effect/decal/rolling_fog,
+/obj/structure/flora/assunzione/bush/lucevine,
 /turf/simulated/floor/grass1/no_edge,
 /area/port_volturno/exterior)
 "xRK" = (
@@ -49132,7 +49280,7 @@ olo
 gBj
 kGi
 peX
-pzf
+cgn
 wqc
 tFS
 kGi
@@ -49140,7 +49288,7 @@ wDU
 cKW
 qMC
 tiy
-thu
+ijm
 dQd
 cqD
 ssA
@@ -49394,7 +49542,7 @@ dHq
 glt
 kQC
 okl
-hpC
+ldB
 ibY
 hnZ
 qkt
@@ -50424,7 +50572,7 @@ rSt
 itM
 lHo
 xlk
-ayN
+utG
 wvt
 nzi
 tBy
@@ -51966,7 +52114,7 @@ tpG
 eRM
 mHN
 xlk
-eAG
+sGN
 cyy
 sqB
 rad
@@ -52224,7 +52372,7 @@ xII
 xlk
 xlk
 wUj
-mJG
+ldK
 rad
 sqB
 sqB
@@ -52972,7 +53120,7 @@ oFA
 iGZ
 oFA
 srr
-iPo
+kWL
 fNf
 fll
 dPx
@@ -53480,14 +53628,14 @@ xWk
 tVM
 mIW
 fcO
+sNx
 oFA
 oFA
 oFA
 oFA
-oFA
-nzi
-oFA
-mKZ
+kEo
+lzL
+xvv
 quI
 nzi
 qnZ
@@ -53737,12 +53885,12 @@ tVM
 tVM
 tVM
 tVM
-nzi
-oFA
+cnv
+bjA
 iGZ
 oFA
-bNq
-bNq
+oFA
+oFA
 oFA
 oFA
 oFA
@@ -53767,7 +53915,7 @@ nzi
 nzi
 oVj
 eCA
-qMe
+poI
 leY
 chZ
 cQx
@@ -53994,13 +54142,13 @@ jEf
 xey
 ipT
 gTh
-iGZ
+hfH
 oFA
 oFA
 eCA
-nzi
-nzi
-iGZ
+kEo
+fwc
+ocm
 nzi
 bNq
 oFA
@@ -54256,7 +54404,7 @@ oFA
 qGT
 oFA
 oFA
-bNq
+dpm
 bNq
 bNq
 qGT
@@ -115692,7 +115840,7 @@ kIc
 kIc
 nNO
 fSk
-dhp
+jxa
 lGx
 lGx
 pxW
@@ -127213,7 +127361,7 @@ nWH
 nWH
 qhD
 pVZ
-qhD
+cwD
 qhD
 nWH
 jHo
@@ -127475,7 +127623,7 @@ tOw
 qhD
 chZ
 chZ
-qGT
+bcS
 bNq
 oFA
 fMH
@@ -127732,7 +127880,7 @@ mnN
 nWH
 hmc
 chZ
-cgn
+qHy
 qGT
 nzi
 dll
@@ -127989,7 +128137,7 @@ fey
 dJU
 uSa
 chZ
-qHy
+nzi
 bNq
 oFA
 bOZ
@@ -128240,7 +128388,7 @@ bus
 chZ
 bXE
 bQx
-alZ
+aiY
 pkd
 fey
 chZ
@@ -130812,7 +130960,7 @@ ctM
 uds
 bie
 hJg
-sGN
+fDq
 aBW
 ijX
 qcV
@@ -130820,7 +130968,7 @@ uvo
 qcV
 sUj
 iGw
-sGN
+fDq
 xeY
 cSr
 nrG
@@ -131578,7 +131726,7 @@ jcy
 jcy
 agK
 fDq
-ijm
+fDq
 agK
 fDq
 fDq
@@ -131599,7 +131747,7 @@ fDq
 fDq
 agK
 fDq
-ijm
+fDq
 agK
 fDq
 agK
@@ -132357,7 +132505,7 @@ hfg
 kab
 qOg
 pxK
-cjp
+rRq
 oVo
 sfw
 jVl
@@ -133376,7 +133524,7 @@ agK
 jcy
 jcy
 agK
-ldK
+fDq
 fDq
 agK
 fDq
@@ -133397,7 +133545,7 @@ agK
 fDq
 fDq
 agK
-ldK
+fDq
 fDq
 agK
 fDq
@@ -133896,7 +134044,7 @@ agK
 hrL
 oEJ
 tzS
-sGN
+fDq
 xQH
 qzN
 lhq
@@ -133904,7 +134052,7 @@ lrj
 bQQ
 ouf
 eog
-sGN
+fDq
 cJo
 pKF
 agK
@@ -134671,7 +134819,7 @@ agK
 fDq
 agK
 fDq
-kEo
+fDq
 fDq
 agK
 fDq
