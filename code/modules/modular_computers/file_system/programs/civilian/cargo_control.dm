@@ -79,7 +79,7 @@
 	if(shuttle)
 		data["shuttle_available"] = 1
 		data["shuttle_has_arrive_time"] = shuttle.has_arrive_time()
-		data["shuttle_eta_minutes"] = shuttle.eta_minutes()
+		data["shuttle_eta_seconds"] = shuttle.eta_seconds()
 		data["shuttle_can_launch"] = shuttle.can_launch()
 		data["shuttle_can_cancel"] = shuttle.can_cancel()
 		data["shuttle_can_force"] = shuttle.can_force()

@@ -277,3 +277,11 @@
   - experiment: Adds an universal health system. This means that objects can dynamically
       be made destructible. Currently, this applies to things like machinery or some
       structures.
+2026-04-18:
+  Hellfirejag:
+  - bugfix: Fixed LED collars becoming excessively bright if you change their color.
+2026-04-19:
+  Hellfirejag and Matt Atlas:
+  - rscadd: Added a basic initial implementation of a Mechanical Skills System.
+  TheGreyWolf:
+  - bugfix: Fixed some things regarding the nation blacklist check for factions.

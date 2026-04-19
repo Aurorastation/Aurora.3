@@ -36,7 +36,9 @@
 		data["id_name"] = id_card ? id_card.name : "-----"
 
 	//Pass the shipped orders
-	data["order_list"] = SScargo.get_orders_by_status("shipped",1) + SScargo.get_orders_by_status("approved",1)
+	var/list/order_list = SScargo.get_orders_by_status("shipped", TRUE) + SScargo.get_orders_by_status("approved", TRUE) + SScargo.get_orders_by_status("Unpaid", TRUE, list("shipped", "approved"))
+
+	data["order_list"] = order_list
 
 	//Pass along the order details
 	data["order_details"] = order_details
@@ -137,7 +139,7 @@
 					charge_card.worth -= transaction_amount
 
 				playsound(computer, 'sound/machines/chime.ogg', 50, TRUE)
-				status_message = co.set_paid(GetNameAndAssignmentFromId(id_card), usr.character_id)
+				status_message = co.set_paid(GetNameAndAssignmentFromId(id_card), usr.character_id, destinationact)
 				order_details = co.get_list()
 		else
 			status_message = "Unable to process - Network Card or Card Reader Missing"

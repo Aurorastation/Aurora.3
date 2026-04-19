@@ -1,0 +1,4 @@
+author: Hellfirejag
+delete-after: True
+changes:
+  - bugfix: "Cleaned up some mob human timers that might sometimes hard del."

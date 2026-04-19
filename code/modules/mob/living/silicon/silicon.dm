@@ -74,7 +74,6 @@
 /mob/living/silicon/Destroy()
 	GLOB.silicon_mob_list -= src
 	QDEL_NULL(computer)
-	QDEL_NULL(computer)
 	QDEL_NULL(id_card)
 	QDEL_NULL(common_radio)
 	for(var/datum/alarm_handler/AH in SSalarm.all_handlers)

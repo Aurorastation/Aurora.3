@@ -238,10 +238,11 @@
 
 /mob/living/simple_animal/hostile/icarus_drone/death()
 	..(null, "suddenly breaks apart.")
-	qdel(src)
+	QDEL_IN(src, 0)
 
 /mob/living/simple_animal/hostile/icarus_drone/Destroy()
 	QDEL_NULL(ion_trail)
+	patrol_target = null
 	//some random debris left behind
 	if(has_loot)
 		spark(src, 3, GLOB.alldirs)

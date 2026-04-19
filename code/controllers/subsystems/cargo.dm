@@ -285,13 +285,15 @@ SUBSYSTEM_DEF(cargo)
 	Submitting, Approving, Rejecting and Shipping Orders
 */
 // Gets the orders based on their status (submitted, approved, shipped).
-/datum/controller/subsystem/cargo/proc/get_orders_by_status(var/status, var/data_list=0)
+/datum/controller/subsystem/cargo/proc/get_orders_by_status(status, data_list = FALSE, list/avoid)
 	if(!status)
 		log_subsystem_cargo("get_orders_by_status has been called with a invalid status")
 		return list()
 	var/list/orders = list()
 	for (var/datum/cargo_order/co in all_orders)
-		if(co.status == status)
+		if(co.status == status || co.get_payment_status() == status)
+			if(avoid && (avoid.Find(co.status) || avoid.Find(co.get_payment_status())))
+				continue
 			if(data_list)
 				orders.Add(list(co.get_list()))
 			else
