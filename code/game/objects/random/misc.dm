@@ -566,7 +566,7 @@
 	name = "random maintenance junk or loot"
 	desc = "Spawns any of: junk, loot, trash, trash pile, locker with junk or loot, (or other things)."
 	icon_state = "maint_junk_loot"
-	spawn_nothing_percentage = 35
+	spawn_nothing_percentage = 45
 	has_postspawn = TRUE
 	problist = list(
 		// spawn just one thing:
