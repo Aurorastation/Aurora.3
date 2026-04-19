@@ -949,6 +949,10 @@
 /obj/structure/curtain/open/bar{
 	pixel_x = -32
 	},
+/obj/item/storage/toolbox/mechanical,
+/obj/item/storage/toolbox/electrical{
+	pixel_y = 13
+	},
 /turf/simulated/floor/wood/maple,
 /area/port_volturno/interior/music_store)
 "aNH" = (
@@ -1460,6 +1464,7 @@
 /area/port_volturno/exterior)
 "bjD" = (
 /obj/structure/flora/assunzione/bush/lucevine,
+/obj/effect/decal/curb,
 /turf/simulated/floor/grass1/no_edge,
 /area/port_volturno/interior/stafylia)
 "bkj" = (
@@ -1675,8 +1680,6 @@
 /turf/simulated/floor/tiled,
 /area/port_volturno/interior/clinic/storage)
 "bsz" = (
-/obj/structure/flora/assunzione/grass/sparse,
-/obj/structure/flora/assunzione/bush/ferny,
 /turf/simulated/floor/grass1/no_edge,
 /area/port_volturno/interior/stafylia)
 "bsM" = (
@@ -2193,8 +2196,10 @@
 /turf/simulated/floor/tiled,
 /area/port_volturno/interior/minimart)
 "bLA" = (
-/obj/structure/flora/bush/mushroom,
-/obj/structure/flora/assunzione/grass/full,
+/obj/structure/flora/assunzione/flowers/lavendergrass,
+/obj/effect/decal/curb{
+	dir = 1
+	},
 /turf/simulated/floor/grass1/no_edge,
 /area/port_volturno/interior/stafylia)
 "bLD" = (
@@ -2981,14 +2986,15 @@
 /turf/simulated/floor/sidewalk/assunzione,
 /area/port_volturno/exterior)
 "cra" = (
-/obj/structure/flora/assunzione/bush/ferny,
-/obj/structure/flora/assunzione/flowers/ywflowers,
-/obj/effect/decal/curb{
-	dir = 8
+/obj/structure/bed/stool/chair/office/light{
+	dir = 4
 	},
-/obj/structure/flora/assunzione/bush/lucevine,
-/turf/simulated/floor/grass1/no_edge,
-/area/port_volturno/interior/stafylia)
+/obj/effect/ghostspawpoint{
+	name = "igs - assunzione_cop";
+	identifier = "assunzione_cop"
+	},
+/turf/simulated/floor/wood/maple,
+/area/port_volturno/interior/police)
 "crb" = (
 /obj/structure/road_barrier,
 /obj/structure/flora/assunzione/grass/full,
@@ -6057,12 +6063,11 @@
 /turf/simulated/floor/tiled/cargo/brass/full,
 /area/port_volturno/interior/riad)
 "euU" = (
-/obj/structure/flora/assunzione/grass/full,
-/obj/structure/flora/assunzione/flowers/brflowers,
-/obj/effect/decal/curb{
-	dir = 10
+/obj/structure/sign/nosmoking_1{
+	pixel_x = -32;
+	pixel_y = -32
 	},
-/turf/simulated/floor/grass1/no_edge,
+/turf/simulated/floor/wood,
 /area/port_volturno/interior/stafylia)
 "ewa" = (
 /obj/item/storage/box/gloves,
@@ -6191,6 +6196,7 @@
 	dir = 4
 	},
 /obj/effect/decal/rolling_fog,
+/obj/structure/flora/assunzione/bush/lucevine,
 /turf/simulated/floor/grass1/no_edge,
 /area/port_volturno/interior)
 "eBO" = (
@@ -7047,30 +7053,18 @@
 /obj/item/reagent_containers/food/snacks/donerkebab,
 /obj/item/reagent_containers/food/snacks/donerkebab,
 /obj/item/reagent_containers/food/snacks/donerkebab,
-/obj/item/reagent_containers/food/drinks/cans/cherry_juice,
-/obj/item/reagent_containers/food/drinks/cans/cherry_juice,
-/obj/item/reagent_containers/food/drinks/cans/cherry_juice,
-/obj/item/reagent_containers/food/drinks/cans/cherry_juice,
-/obj/item/reagent_containers/food/drinks/cans/cherry_juice,
-/obj/item/reagent_containers/food/drinks/cans/cherry_juice,
-/obj/item/reagent_containers/food/drinks/cans/cherry_juice,
-/obj/item/reagent_containers/food/drinks/cans/cherry_juice,
-/obj/item/reagent_containers/food/drinks/cans/cherry_juice,
-/obj/item/reagent_containers/food/drinks/cans/cherry_juice,
-/obj/item/reagent_containers/food/drinks/cans/cherry_juice,
-/obj/item/reagent_containers/food/drinks/cans/cherry_juice,
-/obj/item/reagent_containers/food/drinks/cans/grape_juice,
-/obj/item/reagent_containers/food/drinks/cans/grape_juice,
-/obj/item/reagent_containers/food/drinks/cans/grape_juice,
-/obj/item/reagent_containers/food/drinks/cans/grape_juice,
-/obj/item/reagent_containers/food/drinks/cans/grape_juice,
-/obj/item/reagent_containers/food/drinks/cans/grape_juice,
-/obj/item/reagent_containers/food/drinks/cans/grape_juice,
-/obj/item/reagent_containers/food/drinks/cans/grape_juice,
-/obj/item/reagent_containers/food/drinks/cans/grape_juice,
-/obj/item/reagent_containers/food/drinks/cans/grape_juice,
-/obj/item/reagent_containers/food/drinks/cans/grape_juice,
-/obj/item/reagent_containers/food/drinks/cans/grape_juice,
+/obj/item/storage/box/fancy/yoke/cherry_juice,
+/obj/item/storage/box/fancy/yoke/cherry_juice,
+/obj/item/storage/box/fancy/yoke/cherry_juice,
+/obj/item/storage/box/fancy/yoke/grape_juice,
+/obj/item/storage/box/fancy/yoke/grape_juice,
+/obj/item/storage/box/fancy/yoke/grape_juice,
+/obj/item/storage/box/fancy/yoke/grape_juice,
+/obj/item/storage/box/fancy/yoke/cherry_juice,
+/obj/item/storage/box/fancy/yoke/peach_soda,
+/obj/item/storage/box/fancy/yoke/peach_soda,
+/obj/item/storage/box/fancy/yoke/peach_soda,
+/obj/item/storage/box/fancy/yoke/peach_soda,
 /turf/simulated/floor/tiled/ridged,
 /area/port_volturno/interior/stafylia)
 "fhw" = (
@@ -7152,11 +7146,13 @@
 /turf/simulated/floor/exoplanet/assunzione,
 /area/port_volturno/interior/maintenance)
 "fkf" = (
-/obj/structure/flora/assunzione/grass,
-/obj/structure/flora/assunzione/flowers/brflowers,
-/obj/effect/decal/curb,
-/turf/simulated/floor/grass1/no_edge,
-/area/port_volturno/interior/stafylia)
+/obj/random/dirt_75,
+/obj/machinery/light{
+	dir = 8;
+	pixel_x = -5
+	},
+/turf/simulated/floor/wood/maple,
+/area/port_volturno/interior/police)
 "fkF" = (
 /obj/machinery/light/spot{
 	dir = 1
@@ -7511,11 +7507,6 @@
 /obj/random/dirt_75,
 /turf/simulated/floor,
 /area/port_volturno/interior/spaceport)
-"fAp" = (
-/obj/structure/flora/assunzione/flowers/lavendergrass,
-/obj/structure/flora/assunzione/grass/full,
-/turf/simulated/floor/grass1/no_edge,
-/area/port_volturno/interior/stafylia)
 "fAs" = (
 /obj/structure/tank_wall/air{
 	density = 0;
@@ -7898,6 +7889,30 @@
 /area/port_volturno/interior/robotics)
 "fQu" = (
 /obj/structure/table/wood,
+/obj/item/reagent_containers/food/drinks/bottle/triplesec{
+	pixel_y = 16;
+	pixel_x = 4
+	},
+/obj/item/reagent_containers/food/drinks/bottle/triplesec{
+	pixel_x = -4;
+	pixel_y = 8
+	},
+/obj/item/reagent_containers/food/drinks/bottle/triplesec{
+	pixel_y = 16;
+	pixel_x = 4
+	},
+/obj/item/reagent_containers/food/drinks/bottle/triplesec{
+	pixel_y = 16;
+	pixel_x = 4
+	},
+/obj/item/reagent_containers/food/drinks/bottle/triplesec{
+	pixel_x = -4;
+	pixel_y = 8
+	},
+/obj/item/reagent_containers/food/drinks/bottle/triplesec{
+	pixel_x = -4;
+	pixel_y = 8
+	},
 /turf/simulated/floor/wood/birch,
 /area/port_volturno/interior/liquor_store)
 "fRH" = (
@@ -8453,8 +8468,15 @@
 /obj/machinery/door/firedoor{
 	req_one_access = null
 	},
-/obj/machinery/door/urban,
-/obj/machinery/door/blast/shutters/open{
+/obj/effect/floor_decal/industrial/hatch_door/yellow{
+	dir = 8
+	},
+/obj/machinery/door/airlock/security{
+	door_color = "#46334d";
+	req_access = list(218);
+	name = "Spaceport Security Office"
+	},
+/obj/machinery/door/blast/shutters{
 	id = "police1"
 	},
 /turf/simulated/floor/tiled,
@@ -8463,6 +8485,9 @@
 /obj/structure/table/stone/marble,
 /obj/effect/decal/curb{
 	dir = 8
+	},
+/obj/structure/sign/nosmoking_1{
+	pixel_y = 32
 	},
 /turf/simulated/floor/lino,
 /area/port_volturno/interior/stafylia)
@@ -8493,7 +8518,12 @@
 /area/port_volturno/interior/maintenance)
 "grl" = (
 /obj/structure/closet/chefcloset,
-/obj/item/quikpay,
+/obj/item/quikpay{
+	req_one_access = null
+	},
+/obj/item/quikpay{
+	req_one_access = null
+	},
 /turf/simulated/floor/tiled/ridged,
 /area/port_volturno/interior/stafylia)
 "grx" = (
@@ -8916,12 +8946,10 @@
 /turf/simulated/floor/sidewalk/flat,
 /area/port_volturno/interior/maintenance)
 "gEN" = (
-/obj/structure/flora/assunzione/grass/full,
 /obj/structure/flora/assunzione/flowers/brflowers,
 /obj/effect/decal/curb{
-	dir = 8
+	dir = 9
 	},
-/obj/structure/flora/assunzione/bush/pale,
 /turf/simulated/floor/grass1/no_edge,
 /area/port_volturno/interior/stafylia)
 "gFl" = (
@@ -11399,6 +11427,9 @@
 /obj/structure/window/reinforced{
 	dir = 1
 	},
+/obj/item/quikpay{
+	req_one_access = null
+	},
 /turf/simulated/floor/wood/birch,
 /area/port_volturno/interior/liquor_store)
 "iGw" = (
@@ -11934,9 +11965,45 @@
 /turf/simulated/floor/tiled/cargo/brass/full,
 /area/port_volturno/interior/riad)
 "iYV" = (
-/obj/structure/flora/assunzione/grass/full,
-/turf/simulated/floor/grass1/no_edge,
-/area/port_volturno/interior/stafylia)
+/obj/structure/table/wood,
+/obj/item/reagent_containers/food/drinks/bottle/limoncello{
+	pixel_x = -6;
+	pixel_y = 16
+	},
+/obj/item/reagent_containers/food/drinks/bottle/limoncello{
+	pixel_x = 2;
+	pixel_y = 10
+	},
+/obj/item/reagent_containers/food/drinks/bottle/limoncello{
+	pixel_x = -6;
+	pixel_y = 2
+	},
+/obj/item/reagent_containers/food/drinks/bottle/limoncello{
+	pixel_x = -6;
+	pixel_y = 16
+	},
+/obj/item/reagent_containers/food/drinks/bottle/limoncello{
+	pixel_x = -6;
+	pixel_y = 16
+	},
+/obj/item/reagent_containers/food/drinks/bottle/limoncello{
+	pixel_x = 2;
+	pixel_y = 10
+	},
+/obj/item/reagent_containers/food/drinks/bottle/limoncello{
+	pixel_x = 2;
+	pixel_y = 10
+	},
+/obj/item/reagent_containers/food/drinks/bottle/limoncello{
+	pixel_x = -6;
+	pixel_y = 2
+	},
+/obj/item/reagent_containers/food/drinks/bottle/limoncello{
+	pixel_x = -6;
+	pixel_y = 2
+	},
+/turf/simulated/floor/wood/birch,
+/area/port_volturno/interior/liquor_store)
 "iZf" = (
 /obj/structure/flora/assunzione/bush/ferny,
 /obj/structure/flora/assunzione/flowers/ywflowers,
@@ -12001,7 +12068,9 @@
 /turf/simulated/floor/grass1/no_edge,
 /area/port_volturno/exterior)
 "jbS" = (
-/obj/structure/flora/assunzione/flowers/ppflowers,
+/obj/effect/decal/curb{
+	dir = 8
+	},
 /turf/simulated/floor/grass1/no_edge,
 /area/port_volturno/interior/stafylia)
 "jci" = (
@@ -13295,8 +13364,7 @@
 /turf/simulated/floor/asphalt/assunzione,
 /area/port_volturno/exterior)
 "keM" = (
-/obj/structure/flora/assunzione/grass/full,
-/obj/structure/flora/assunzione/flowers/ywflowers,
+/obj/effect/decal/curb/corner,
 /turf/simulated/floor/grass1/no_edge,
 /area/port_volturno/interior/stafylia)
 "keO" = (
@@ -13709,6 +13777,7 @@
 /obj/effect/decal/curb{
 	dir = 6
 	},
+/obj/structure/flora/assunzione/bush/lucevine,
 /turf/simulated/floor/grass1/no_edge,
 /area/port_volturno/interior/stafylia)
 "kvJ" = (
@@ -13819,8 +13888,12 @@
 /obj/structure/closet/crate{
 	name = "saleable goods"
 	},
-/obj/item/quikpay,
-/obj/item/quikpay,
+/obj/item/quikpay{
+	req_one_access = null
+	},
+/obj/item/quikpay{
+	req_one_access = null
+	},
 /turf/simulated/floor/tiled/full,
 /area/port_volturno/interior/hotel)
 "kwG" = (
@@ -14115,6 +14188,7 @@
 	pixel_x = 4;
 	pixel_y = 6
 	},
+/obj/item/storage/box/slides,
 /turf/simulated/floor/tiled/white,
 /area/port_volturno/interior/police/brig)
 "kIX" = (
@@ -15286,10 +15360,12 @@
 /turf/simulated/open,
 /area/port_volturno/interior/riad)
 "luE" = (
-/obj/structure/flora/assunzione/grass/full,
-/obj/structure/flora/assunzione/grass/full,
-/obj/structure/flora/assunzione/grass,
-/turf/simulated/floor/grass1/no_edge,
+/obj/effect/decal/curb,
+/obj/machinery/door/blast/shutters{
+	id = "restaurant";
+	dir = 4
+	},
+/turf/simulated/floor/wood,
 /area/port_volturno/interior/stafylia)
 "luH" = (
 /obj/effect/decal/curb{
@@ -16099,12 +16175,10 @@
 /turf/simulated/open,
 /area/port_volturno/exterior)
 "lZG" = (
-/turf/unsimulated/wall/fakepdoor{
-	icon_state = "shutter1";
-	name = "shutter";
-	opacity = 0;
+/obj/effect/decal/curb{
 	dir = 4
 	},
+/turf/simulated/floor/grass1/no_edge,
 /area/port_volturno/interior/stafylia)
 "lZI" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -17943,6 +18017,9 @@
 	dir = 4
 	},
 /obj/structure/flora/assunzione/bush/ferny,
+/obj/effect/decal/curb{
+	dir = 8
+	},
 /turf/simulated/floor/grass1/no_edge,
 /area/port_volturno/interior/stafylia)
 "nFI" = (
@@ -18054,11 +18131,11 @@
 /turf/simulated/floor/grass1/no_edge,
 /area/port_volturno/exterior)
 "nJp" = (
-/obj/machinery/door/blast/shutters{
-	id = "restaurant";
+/obj/structure/flora/assunzione/flowers/lavendergrass,
+/obj/effect/decal/curb{
 	dir = 4
 	},
-/turf/simulated/wall,
+/turf/simulated/floor/grass1/no_edge,
 /area/port_volturno/interior/stafylia)
 "nJu" = (
 /obj/effect/decal/rolling_fog,
@@ -18323,12 +18400,7 @@
 /turf/simulated/floor,
 /area/port_volturno/interior/spaceport)
 "nSz" = (
-/obj/machinery/light{
-	dir = 4
-	},
-/obj/effect/decal/curb,
-/obj/random/dirt_75,
-/turf/simulated/floor/wood,
+/turf/simulated/floor/tiled/slate/full,
 /area/port_volturno/interior/stafylia)
 "nSN" = (
 /obj/effect/floor_decal/corner/blue{
@@ -19081,13 +19153,18 @@
 /turf/simulated/floor/wood,
 /area/port_volturno/interior/riad)
 "opm" = (
-/obj/structure/flora/assunzione/grass/sparse,
-/obj/structure/flora/assunzione/bush/ferny,
-/obj/effect/decal/curb{
-	dir = 1
+/obj/structure/table/wood,
+/obj/structure/curtain/open/bar{
+	pixel_x = -32
 	},
-/turf/simulated/floor/grass1/no_edge,
-/area/port_volturno/interior/stafylia)
+/obj/item/quikpay{
+	req_one_access = null
+	},
+/obj/item/quikpay{
+	req_one_access = null
+	},
+/turf/simulated/floor/wood/maple,
+/area/port_volturno/interior/music_store)
 "opp" = (
 /obj/effect/decal/curb{
 	dir = 6
@@ -19321,7 +19398,7 @@
 /obj/machinery/door/firedoor{
 	req_one_access = null
 	},
-/obj/machinery/door/blast/shutters/open{
+/obj/machinery/door/blast/shutters{
 	id = "police1"
 	},
 /turf/simulated/floor/tiled,
@@ -19561,8 +19638,11 @@
 /turf/simulated/floor/asphalt/assunzione,
 /area/port_volturno/exterior)
 "oJb" = (
-/obj/structure/closet/crate/bin,
+/obj/effect/decal/curb,
 /obj/random/dirt_75,
+/obj/machinery/light{
+	dir = 4
+	},
 /turf/simulated/floor/wood,
 /area/port_volturno/interior/stafylia)
 "oJz" = (
@@ -19647,18 +19727,6 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/sidewalk/assunzione/blocks,
 /area/port_volturno/exterior)
-"oLW" = (
-/obj/machinery/door/firedoor{
-	req_one_access = null
-	},
-/obj/effect/floor_decal/industrial/hatch_door/yellow{
-	dir = 8
-	},
-/obj/machinery/door/urban{
-	req_access = list(219)
-	},
-/turf/simulated/floor/tiled/cargo/brass/full,
-/area/port_volturno/interior/clothing_store)
 "oMh" = (
 /obj/structure/arch/gothic/northsouth/lower,
 /turf/simulated/open,
@@ -22133,11 +22201,6 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/asphalt/assunzione,
 /area/port_volturno/exterior)
-"qya" = (
-/obj/structure/flora/assunzione/grass,
-/obj/structure/flora/assunzione/grass/full,
-/turf/simulated/floor/grass1/no_edge,
-/area/port_volturno/interior/stafylia)
 "qyd" = (
 /obj/machinery/light,
 /turf/simulated/floor/tiled/white,
@@ -22198,8 +22261,9 @@
 /turf/simulated/floor/tiled/cargo/brass/full,
 /area/port_volturno/interior/music_store)
 "qAR" = (
-/obj/structure/flora/assunzione/grass/full,
-/obj/structure/flora/assunzione/grass/full,
+/obj/effect/decal/curb{
+	dir = 1
+	},
 /turf/simulated/floor/grass1/no_edge,
 /area/port_volturno/interior/stafylia)
 "qAV" = (
@@ -22939,6 +23003,10 @@
 	pixel_y = 12;
 	pixel_x = -6
 	},
+/obj/item/radio,
+/obj/item/radio,
+/obj/item/radio,
+/obj/item/radio,
 /turf/simulated/floor/tiled,
 /area/port_volturno/interior/police)
 "reS" = (
@@ -23990,13 +24058,10 @@
 /turf/simulated/floor/tiled/white,
 /area/port_volturno/interior/minimart)
 "rVY" = (
-/obj/structure/flora/assunzione/flowers/lavendergrass,
-/obj/structure/flora/assunzione/flowers/ywflowers,
-/obj/structure/flora/assunzione/grass/full,
 /obj/effect/decal/curb{
-	dir = 1
+	dir = 10
 	},
-/turf/simulated/floor/grass1/no_edge,
+/turf/simulated/floor/wood,
 /area/port_volturno/interior/stafylia)
 "rWn" = (
 /obj/structure/ledge{
@@ -24182,6 +24247,7 @@
 /obj/effect/decal/curb{
 	dir = 4
 	},
+/obj/structure/flora/assunzione/bush/pale,
 /turf/simulated/floor/grass1/no_edge,
 /area/port_volturno/interior/stafylia)
 "sfw" = (
@@ -24346,12 +24412,16 @@
 /turf/simulated/floor/wood/maple,
 /area/port_volturno/interior/riad)
 "sli" = (
-/obj/machinery/door/urban,
 /obj/effect/floor_decal/industrial/hatch_door/yellow{
 	dir = 8
 	},
 /obj/machinery/door/firedoor{
 	req_one_access = null
+	},
+/obj/machinery/door/airlock/security{
+	door_color = "#46334d";
+	req_access = list(218);
+	name = "Spaceport Security Office"
 	},
 /turf/simulated/floor/tiled/cargo/brass/full,
 /area/port_volturno/interior/police)
@@ -25028,9 +25098,10 @@
 /turf/simulated/floor/tiled/cargo/brass,
 /area/port_volturno/interior/tram_station)
 "sSJ" = (
-/obj/structure/flora/assunzione/flowers/ppflowers,
-/obj/structure/flora/assunzione/grass/sparse,
-/turf/simulated/floor/grass1/no_edge,
+/obj/effect/decal/curb{
+	dir = 9
+	},
+/turf/simulated/floor/wood,
 /area/port_volturno/interior/stafylia)
 "sSR" = (
 /obj/effect/decal/road_marking/thin,
@@ -26036,10 +26107,10 @@
 /turf/simulated/floor/tiled/white,
 /area/port_volturno/interior/police/brig)
 "tFc" = (
-/obj/structure/flora/assunzione/grass,
 /obj/structure/flora/assunzione/flowers/lavendergrass,
-/obj/effect/decal/curb,
-/obj/structure/flora/assunzione/bush/lucevine,
+/obj/effect/decal/curb{
+	dir = 10
+	},
 /turf/simulated/floor/grass1/no_edge,
 /area/port_volturno/interior/stafylia)
 "tFw" = (
@@ -26530,7 +26601,6 @@
 /obj/effect/decal/curb{
 	dir = 4
 	},
-/obj/structure/flora/assunzione/bush/pale,
 /turf/simulated/floor/grass1/no_edge,
 /area/port_volturno/interior/stafylia)
 "tUy" = (
@@ -28831,7 +28901,7 @@
 /obj/machinery/door/firedoor{
 	req_one_access = null
 	},
-/obj/machinery/door/blast/shutters/open{
+/obj/machinery/door/blast/shutters{
 	id = "police1"
 	},
 /turf/simulated/floor/tiled,
@@ -29040,9 +29110,6 @@
 /obj/effect/decal/exterior_stairs/half,
 /obj/machinery/door/firedoor{
 	req_one_access = null
-	},
-/obj/machinery/door/urban/glass_sliding{
-	name = "Port Volturno Security"
 	},
 /obj/machinery/door/blast/regular/open{
 	id = "police2";
@@ -29594,6 +29661,12 @@
 	req_one_access = null
 	},
 /obj/effect/floor_decal/industrial/hatch_door/yellow,
+/obj/item/quikpay{
+	req_one_access = null
+	},
+/obj/item/quikpay{
+	req_one_access = null
+	},
 /turf/simulated/floor/tiled/freezer,
 /area/port_volturno/interior/clinic/pharmacy)
 "wqu" = (
@@ -30283,6 +30356,10 @@
 /obj/effect/decal/curb{
 	dir = 5
 	},
+/obj/structure/flora/assunzione/bush/lucevine,
+/obj/effect/decal/curb{
+	dir = 9
+	},
 /turf/simulated/floor/grass1/no_edge,
 /area/port_volturno/interior/stafylia)
 "wVr" = (
@@ -30530,6 +30607,7 @@
 /obj/effect/decal/curb{
 	dir = 8
 	},
+/obj/structure/flora/assunzione/bush/lucevine,
 /turf/simulated/floor/grass1/no_edge,
 /area/port_volturno/interior/stafylia)
 "xhk" = (
@@ -30654,7 +30732,7 @@
 /obj/structure/flora/assunzione/bush/ferny,
 /obj/structure/flora/assunzione/flowers/ywflowers,
 /obj/effect/decal/curb{
-	dir = 8
+	dir = 10
 	},
 /turf/simulated/floor/grass1/no_edge,
 /area/port_volturno/interior/stafylia)
@@ -31349,6 +31427,12 @@
 /area/port_volturno/interior/tram_station)
 "xRj" = (
 /obj/structure/table/wood,
+/obj/item/quikpay{
+	req_one_access = null
+	},
+/obj/item/quikpay{
+	req_one_access = null
+	},
 /turf/simulated/floor/lino,
 /area/port_volturno/interior/minimart)
 "xRl" = (
@@ -31433,13 +31517,11 @@
 /turf/simulated/floor/tiled/gunmetal,
 /area/port_volturno/interior/music_store)
 "xWk" = (
-/obj/structure/flora/assunzione/flowers/ywflowers,
-/obj/effect/decal/curb{
-	dir = 9
+/obj/machinery/door/urban/glass_sliding{
+	name = "Port Volturno Security"
 	},
-/obj/structure/flora/assunzione/bush/lucevine,
-/turf/simulated/floor/grass1/no_edge,
-/area/port_volturno/interior/stafylia)
+/turf/simulated/floor/lino,
+/area/port_volturno/interior/police)
 "xWE" = (
 /obj/effect/decal/curb,
 /obj/structure/flora/assunzione/bush/ferny,
@@ -31564,12 +31646,12 @@
 /obj/machinery/door/firedoor{
 	req_one_access = null
 	},
-/obj/machinery/door/blast/shutters/open{
-	id = "police1"
-	},
 /obj/item/flora/pottedplant_small/luce_vine{
 	pixel_y = 5;
 	pixel_x = -8
+	},
+/obj/machinery/door/blast/shutters{
+	id = "police1"
 	},
 /turf/simulated/floor/tiled,
 /area/port_volturno/interior/police)
@@ -31666,6 +31748,12 @@
 /area/port_volturno/interior/tram_station)
 "yfl" = (
 /obj/structure/table/wood,
+/obj/item/quikpay{
+	req_one_access = null
+	},
+/obj/item/quikpay{
+	req_one_access = null
+	},
 /turf/simulated/floor/wood/maple,
 /area/port_volturno/interior/clothing_store)
 "yfp" = (
@@ -50724,7 +50812,7 @@ nya
 tVM
 tVM
 tVM
-nJp
+pUH
 kSk
 iQe
 sgv
@@ -50981,7 +51069,7 @@ nya
 tVM
 etP
 etP
-lcD
+luE
 wcF
 iUL
 wcF
@@ -51758,7 +51846,7 @@ wPY
 wPY
 wPY
 cja
-iUL
+euU
 iUL
 jGS
 fcO
@@ -52267,12 +52355,12 @@ tVM
 ydr
 etP
 lcD
+iUL
 qXc
 dLK
 dLK
 dLK
 qVm
-iUL
 iUL
 rpz
 fcO
@@ -52524,12 +52612,12 @@ tVM
 aMh
 mgX
 lcD
+iUL
 vcY
 deK
 mgX
 qjj
 lcD
-iUL
 lzo
 nVM
 fcO
@@ -52780,12 +52868,12 @@ kyR
 tVM
 bAO
 sPj
-lcD
-vcY
+rVY
+dLK
+sSJ
 deK
 cPt
 qjj
-nSz
 oJb
 tVM
 tVM
@@ -53037,8 +53125,8 @@ tVM
 tVM
 fcO
 fcO
-fcO
-tVM
+nSz
+nSz
 fcO
 fcO
 fcO
@@ -53068,7 +53156,7 @@ eFn
 eFn
 eFn
 oQf
-oLW
+aQM
 eRM
 eRM
 nNG
@@ -53294,8 +53382,8 @@ tVM
 kvy
 sfv
 tUo
-hat
-sfv
+lZG
+nJp
 hat
 nFF
 wVl
@@ -53550,12 +53638,12 @@ iYB
 tVM
 tFc
 jbS
-iYV
+jbS
 keM
-luE
+bsz
 qAR
-fAp
-rVY
+etP
+etP
 tVM
 dFw
 fcO
@@ -53805,14 +53893,14 @@ chZ
 iYB
 iYB
 tVM
-fkf
-qya
-sSJ
+deK
+mgX
+qjj
 bjD
 bsz
 bLA
-jbS
-opm
+aMh
+mgX
 tVM
 wTM
 fcO
@@ -54062,14 +54150,14 @@ chZ
 iYB
 iYB
 tVM
-euU
-cra
-xgY
+deK
+cPt
+qjj
 xmL
 xgY
 gEN
-xgY
-xWk
+bAO
+sPj
 tVM
 mIW
 fcO
@@ -54319,13 +54407,13 @@ chZ
 chZ
 chZ
 tVM
+fcO
+fcO
+fcO
 tVM
-tVM
-tVM
-tVM
-tVM
-tVM
-lZG
+fcO
+fcO
+fcO
 tVM
 tVM
 tVM
@@ -56884,7 +56972,7 @@ cIr
 cIr
 mAU
 abi
-aNj
+opm
 aNj
 kxq
 eFk
@@ -117791,7 +117879,7 @@ nWQ
 ybn
 pRU
 pRU
-pRU
+xWk
 vRw
 nzi
 oFA
@@ -118286,12 +118374,12 @@ cQx
 cQx
 cQx
 cQx
-cQx
-cQx
-cQx
-cQx
 kRB
 cZy
+skZ
+fkf
+skZ
+skZ
 skZ
 skZ
 nzL
@@ -118543,12 +118631,12 @@ cQx
 cQx
 cQx
 cQx
-cQx
-cQx
-cQx
-cQx
 kRB
 pAj
+skZ
+skZ
+skZ
+skZ
 skZ
 nzL
 pGc
@@ -118800,10 +118888,10 @@ cQx
 cQx
 cQx
 cQx
-cQx
-cQx
-cQx
-cQx
+kRB
+jfG
+nTF
+jfG
 kRB
 jfG
 nTF
@@ -119057,10 +119145,10 @@ cQx
 cQx
 cQx
 cQx
-cQx
-cQx
-cQx
-cQx
+kRB
+mlJ
+gCO
+htL
 kRB
 mlJ
 gCO
@@ -119314,10 +119402,10 @@ cQx
 cQx
 cQx
 cQx
-cQx
-cQx
-cQx
-cQx
+kRB
+skZ
+skZ
+ngX
 kRB
 skZ
 skZ
@@ -119571,10 +119659,10 @@ cQx
 cQx
 cQx
 cQx
-cQx
-cQx
-cQx
-cQx
+kRB
+iVd
+cra
+koT
 kRB
 iVd
 sWL
@@ -119828,10 +119916,10 @@ cQx
 cQx
 cQx
 cQx
-cQx
-cQx
-cQx
-cQx
+kRB
+ggs
+nVJ
+vjz
 kRB
 ggs
 nVJ
@@ -122953,7 +123041,7 @@ gzU
 kfN
 bDc
 fSP
-fQu
+iYV
 eWy
 bBK
 dcp

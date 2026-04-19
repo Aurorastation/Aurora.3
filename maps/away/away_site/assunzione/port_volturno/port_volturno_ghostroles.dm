@@ -5,7 +5,7 @@
 	desc = "Maintain overall security and adherence to corporate regulations under the dome of Port Volturno. Look the other way if no one gets hurt."
 	tags = list("External")
 	spawnpoints = list("assunzione_cop")
-	max_count = 2
+	max_count = 3
 	outfit = /obj/outfit/admin/assunzione/cop
 	possible_species = list(SPECIES_HUMAN,
 							SPECIES_IPC,
