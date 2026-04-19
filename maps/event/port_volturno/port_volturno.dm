@@ -1,3 +1,37 @@
+/datum/map/event/port_volturno
+	name = "Assunzione - Port Volturno"
+	path = "event/port_volturno"
+	lobby_transitions = 0
+
+	allowed_jobs = list(/datum/job/visitor, /datum/job/passenger)
+
+	traits = list(
+		//Z1
+		list(ZTRAIT_AWAY = TRUE, ZTRAIT_PORTOFCALL = TRUE, ZTRAIT_UP = TRUE, ZTRAIT_DOWN = FALSE),
+		//Z2
+		list(ZTRAIT_AWAY = TRUE, ZTRAIT_PORTOFCALL = TRUE, ZTRAIT_UP = FALSE, ZTRAIT_DOWN = TRUE),
+	)
+
+	admin_levels = list()
+	contact_levels = list(1,2)
+	player_levels = list(1,2)
+	accessible_z_levels = list(1,2)
+	restricted_levels = list()
+
+	station_name = "Port Volturno"
+	station_short = "Port Volturno"
+	dock_name = "Port Volturno"
+	dock_short = "Port Volturno"
+	boss_name = "Stellar Corporate Conglomerate"
+	boss_short = "SCC"
+	company_name = "Stellar Corporate Conglomerate"
+	company_short = "SCC"
+
+	use_overmap = FALSE
+	force_spawnpoint = TRUE
+
+	map_shuttles = list()
+
 /datum/map_template/ruin/away_site/port_volturno
 	name = "Assunzione - Port Volturno"
 	id = "port_volturno"

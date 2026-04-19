@@ -1955,29 +1955,43 @@
 /area/port_volturno/exterior)
 "bCC" = (
 /obj/structure/table/rack/retail_shelf,
-/obj/item/reagent_containers/food/snacks/proteinbar{
-	pixel_y = 3;
-	pixel_x = 8
-	},
-/obj/item/reagent_containers/food/snacks/proteinbar{
-	pixel_x = -8;
-	pixel_y = 3
-	},
-/obj/item/reagent_containers/food/snacks/proteinbar{
-	pixel_y = 3
-	},
-/obj/item/reagent_containers/food/snacks/proteinbar{
-	pixel_x = -8;
-	pixel_y = 3
-	},
-/obj/item/reagent_containers/food/snacks/proteinbar{
-	pixel_y = 3;
-	pixel_x = 8
-	},
-/obj/item/reagent_containers/food/snacks/proteinbar{
-	pixel_y = 3
-	},
 /obj/random/dirt_75,
+/obj/item/reagent_containers/food/drinks/cans/cherry_juice,
+/obj/item/reagent_containers/food/drinks/cans/cherry_juice{
+	pixel_x = -9
+	},
+/obj/item/reagent_containers/food/drinks/cans/cherry_juice{
+	pixel_x = 9
+	},
+/obj/item/reagent_containers/food/drinks/cans/cherry_juice{
+	pixel_x = -9;
+	pixel_y = 16
+	},
+/obj/item/reagent_containers/food/drinks/cans/cherry_juice{
+	pixel_y = 16
+	},
+/obj/item/reagent_containers/food/drinks/cans/cherry_juice{
+	pixel_x = 9;
+	pixel_y = 16
+	},
+/obj/item/reagent_containers/food/drinks/cans/cherry_juice{
+	pixel_x = -9
+	},
+/obj/item/reagent_containers/food/drinks/cans/cherry_juice,
+/obj/item/reagent_containers/food/drinks/cans/cherry_juice{
+	pixel_x = 9
+	},
+/obj/item/reagent_containers/food/drinks/cans/cherry_juice{
+	pixel_x = 9;
+	pixel_y = 16
+	},
+/obj/item/reagent_containers/food/drinks/cans/cherry_juice{
+	pixel_y = 16
+	},
+/obj/item/reagent_containers/food/drinks/cans/cherry_juice{
+	pixel_x = -9;
+	pixel_y = 16
+	},
 /turf/simulated/floor/tiled/white,
 /area/port_volturno/interior/minimart)
 "bDc" = (
@@ -7100,6 +7114,30 @@
 /obj/item/reagent_containers/food/snacks/donerkebab,
 /obj/item/reagent_containers/food/snacks/donerkebab,
 /obj/item/reagent_containers/food/snacks/donerkebab,
+/obj/item/reagent_containers/food/drinks/cans/cherry_juice,
+/obj/item/reagent_containers/food/drinks/cans/cherry_juice,
+/obj/item/reagent_containers/food/drinks/cans/cherry_juice,
+/obj/item/reagent_containers/food/drinks/cans/cherry_juice,
+/obj/item/reagent_containers/food/drinks/cans/cherry_juice,
+/obj/item/reagent_containers/food/drinks/cans/cherry_juice,
+/obj/item/reagent_containers/food/drinks/cans/cherry_juice,
+/obj/item/reagent_containers/food/drinks/cans/cherry_juice,
+/obj/item/reagent_containers/food/drinks/cans/cherry_juice,
+/obj/item/reagent_containers/food/drinks/cans/cherry_juice,
+/obj/item/reagent_containers/food/drinks/cans/cherry_juice,
+/obj/item/reagent_containers/food/drinks/cans/cherry_juice,
+/obj/item/reagent_containers/food/drinks/cans/grape_juice,
+/obj/item/reagent_containers/food/drinks/cans/grape_juice,
+/obj/item/reagent_containers/food/drinks/cans/grape_juice,
+/obj/item/reagent_containers/food/drinks/cans/grape_juice,
+/obj/item/reagent_containers/food/drinks/cans/grape_juice,
+/obj/item/reagent_containers/food/drinks/cans/grape_juice,
+/obj/item/reagent_containers/food/drinks/cans/grape_juice,
+/obj/item/reagent_containers/food/drinks/cans/grape_juice,
+/obj/item/reagent_containers/food/drinks/cans/grape_juice,
+/obj/item/reagent_containers/food/drinks/cans/grape_juice,
+/obj/item/reagent_containers/food/drinks/cans/grape_juice,
+/obj/item/reagent_containers/food/drinks/cans/grape_juice,
 /turf/simulated/floor/tiled/ridged,
 /area/port_volturno/interior/stafylia)
 "fhw" = (
@@ -15548,6 +15586,21 @@
 /obj/item/clothing/suit/storage/toggle/corp/zeng,
 /obj/item/clothing/suit/storage/toggle/corp/zeng/alt,
 /obj/item/clothing/suit/storage/toggle/corp/zeng/alt,
+/obj/item/clothing/pants/black,
+/obj/item/clothing/pants/black,
+/obj/item/clothing/pants/black,
+/obj/item/clothing/pants/skirt/pencil{
+	color = "#333333"
+	},
+/obj/item/clothing/pants/skirt/pencil{
+	color = "#333333"
+	},
+/obj/item/clothing/pants/skirt/tube{
+	color = "#333333"
+	},
+/obj/item/clothing/pants/skirt/tube{
+	color = "#333333"
+	},
 /turf/simulated/floor/tiled/white,
 /area/port_volturno/interior/clinic/pharmacy)
 "lzL" = (
@@ -25603,21 +25656,39 @@
 /area/port_volturno/exterior)
 "tjD" = (
 /obj/structure/table/rack/retail_shelf,
-/obj/item/reagent_containers/food/drinks/cans/orangeade{
+/obj/item/reagent_containers/food/drinks/cans/grape_juice,
+/obj/item/reagent_containers/food/drinks/cans/grape_juice{
 	pixel_x = -9
 	},
-/obj/item/reagent_containers/food/drinks/cans/orangeade,
-/obj/item/reagent_containers/food/drinks/cans/orangeade{
+/obj/item/reagent_containers/food/drinks/cans/grape_juice{
 	pixel_x = 9
 	},
-/obj/item/reagent_containers/food/drinks/cans/orangeade{
+/obj/item/reagent_containers/food/drinks/cans/grape_juice{
+	pixel_x = 9;
 	pixel_y = 16
 	},
-/obj/item/reagent_containers/food/drinks/cans/orangeade{
+/obj/item/reagent_containers/food/drinks/cans/grape_juice{
+	pixel_y = 16
+	},
+/obj/item/reagent_containers/food/drinks/cans/grape_juice{
 	pixel_x = -9;
 	pixel_y = 16
 	},
-/obj/item/reagent_containers/food/drinks/cans/orangeade{
+/obj/item/reagent_containers/food/drinks/cans/grape_juice{
+	pixel_x = 9
+	},
+/obj/item/reagent_containers/food/drinks/cans/grape_juice,
+/obj/item/reagent_containers/food/drinks/cans/grape_juice{
+	pixel_x = -9
+	},
+/obj/item/reagent_containers/food/drinks/cans/grape_juice{
+	pixel_x = -9;
+	pixel_y = 16
+	},
+/obj/item/reagent_containers/food/drinks/cans/grape_juice{
+	pixel_y = 16
+	},
+/obj/item/reagent_containers/food/drinks/cans/grape_juice{
 	pixel_x = 9;
 	pixel_y = 16
 	},
@@ -27539,6 +27610,46 @@
 	},
 /turf/simulated/floor/marble/dark,
 /area/port_volturno/interior/chapel)
+"uuU" = (
+/obj/structure/table/rack/retail_shelf,
+/obj/item/reagent_containers/food/drinks/cans/orangeade{
+	pixel_x = -9
+	},
+/obj/item/reagent_containers/food/drinks/cans/orangeade,
+/obj/item/reagent_containers/food/drinks/cans/orangeade{
+	pixel_x = 9
+	},
+/obj/item/reagent_containers/food/drinks/cans/orangeade{
+	pixel_y = 16
+	},
+/obj/item/reagent_containers/food/drinks/cans/orangeade{
+	pixel_x = -9;
+	pixel_y = 16
+	},
+/obj/item/reagent_containers/food/drinks/cans/orangeade{
+	pixel_x = 9;
+	pixel_y = 16
+	},
+/obj/item/reagent_containers/food/drinks/cans/orangeade{
+	pixel_x = -9;
+	pixel_y = 16
+	},
+/obj/item/reagent_containers/food/drinks/cans/orangeade{
+	pixel_y = 16
+	},
+/obj/item/reagent_containers/food/drinks/cans/orangeade{
+	pixel_x = 9;
+	pixel_y = 16
+	},
+/obj/item/reagent_containers/food/drinks/cans/orangeade{
+	pixel_x = 9
+	},
+/obj/item/reagent_containers/food/drinks/cans/orangeade,
+/obj/item/reagent_containers/food/drinks/cans/orangeade{
+	pixel_x = -9
+	},
+/turf/simulated/floor/tiled/white,
+/area/port_volturno/interior/minimart)
 "uvf" = (
 /obj/random/dirt_75,
 /obj/structure/flora/assunzione/grass,
@@ -28742,6 +28853,12 @@
 	},
 /turf/simulated/floor/exoplanet/carpet/art,
 /area/port_volturno/interior/chapel)
+"vsi" = (
+/obj/machinery/computer/cryopod/living_quarters{
+	storage_name = "Port Volturno Southern Tram Oversight Console"
+	},
+/turf/simulated/wall/brick,
+/area/port_volturno/interior/maintenance)
 "vsr" = (
 /turf/simulated/wall/r_wall,
 /area/port_volturno/exterior)
@@ -64946,7 +65063,7 @@ cQx
 cQx
 cQx
 cQx
-odA
+vsi
 taG
 sYm
 wQp
@@ -119458,7 +119575,7 @@ kOp
 fuQ
 uyY
 lgr
-tjD
+uuU
 lgr
 tjD
 xYJ
