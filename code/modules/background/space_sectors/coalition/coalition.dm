@@ -192,7 +192,7 @@
 		)
 
 	ports_of_call = list("Port Volturno, Triesto")
-	scheduled_port_visits = list("Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday")
+	scheduled_port_visits = list("Sunday", "Wednesday")
 	starlight_color = "#351035"
 	starlight_power = 1
 	starlight_range = 2
