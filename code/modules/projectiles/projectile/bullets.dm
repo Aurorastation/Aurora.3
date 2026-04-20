@@ -314,6 +314,7 @@
 	hitscan = 1 //so the PTR isn't useless as a sniper weapon
 	maim_rate = 3
 	anti_materiel_potential = 2
+	pierce_decay_damage = 0.9
 
 /obj/projectile/bullet/rifle/kumar_super
 	damage = 40

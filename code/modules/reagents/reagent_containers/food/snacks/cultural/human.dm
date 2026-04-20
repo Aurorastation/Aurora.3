@@ -1286,3 +1286,60 @@ ABSTRACT_TYPE(/obj/item/reagent_containers/food/snacks/bowl)
 	reagent_data = list(/singleton/reagent/nutriment = list("jam" = 5, "salad" =5), /singleton/reagent/nutriment/protein = list("seasoned meat" = 5))
 	bitesize = 3
 	filling_color = "#695753"
+
+/obj/item/reagent_containers/food/snacks/lentil_soup
+	name = "midnight lentil soup"
+	desc = "A self-heating cup of thick lentil soup with garlic, oil, and black pepper, popular on late tram rides between domes. Comes with a too-small plastic spoon clipped to the inside of the lid. Distributed by Dalyan Delights!"
+	icon = 'icons/obj/item/reagent_containers/food/cultural/human.dmi'
+	icon_state = "lentil_soup"
+	is_liquid = TRUE
+	reagents_to_add = list(/singleton/reagent/nutriment/protein = 5, /singleton/reagent/nutriment = 5, /singleton/reagent/spacespice = 1)
+	reagent_data = list(/singleton/reagent/nutriment = list("hot soup" = 6, "lentils" = 5, "garlicky oil" = 4), /singleton/reagent/nutriment/protein = list("lentils" = 5))
+	bitesize = 2
+	filling_color = "#7c3d20"
+
+// If the ungrateful players don't like that under the hood it's literally just ramen, TOO BAD!
+/obj/item/reagent_containers/food/drinks/dry_pasta
+	name = "cup pasta"
+	desc = "All they needed to do was tweak the formula. Just add 10ml water and it self-heats, just like your favorite ramen cup! Has a dash of saffron powder, onion flakes, garlic, and tomato concentrate."
+	icon = 'icons/obj/item/reagent_containers/food/cultural/human.dmi'
+	icon_state = "pasta"
+	trash = /obj/item/trash/pasta
+	drop_sound = 'sound/items/drop/papercup.ogg'
+	pickup_sound = 'sound/items/pickup/papercup.ogg'
+	center_of_mass = list("x"=16, "y"=11)
+	reagents_to_add = list(/singleton/reagent/drink/dry_ramen = 30)
+	is_liquid = FALSE
+
+/obj/item/reagent_containers/food/drinks/dry_pasta/on_reagent_change()
+	..()
+	if(reagents.has_reagent("dry_ramen"))
+		is_liquid = FALSE
+	else
+		is_liquid = TRUE
+
+/obj/item/trash/pasta
+	name = "cup pasta"
+	desc = "This used to be delicious delicious cup pasta."
+	icon = 'icons/obj/item/reagent_containers/food/cultural/human.dmi'
+	icon_state = "pasta_empty"
+	drop_sound = 'sound/items/drop/papercup.ogg'
+	pickup_sound = 'sound/items/pickup/papercup.ogg'
+
+/obj/item/reagent_containers/food/snacks/candied_citrus
+	name = "\improper Seven Lamps candied citrus peels"
+	desc = "A prepackaged assortment of candied citrus peel dusted lightly with sugar. Sticky, fragrant, and easy to snack on. Distributed by Dalyan Delights!"
+	icon = 'icons/obj/item/reagent_containers/food/cultural/human.dmi'
+	icon_state = "candied_citrus"
+	reagents_to_add = list(/singleton/reagent/nutriment = 6, /singleton/reagent/sugar = 4, /singleton/reagent/spacespice = 1)
+	reagent_data = list(/singleton/reagent/nutriment = list("orange" = 5, "lemon" = 5), /singleton/reagent/sugar = list("sugar" = 5))
+	bitesize = 1
+	filling_color = "#ffbb00"
+
+/obj/item/reagent_containers/food/drinks/cans/orangeade
+	name = "\improper Dameri orangeade"
+	desc = "A dark orange-red soft drink with a sharper citrus flavour and a pleasantly bitter finish."
+	icon_state = "orangeade"
+	item_state = "orangeade"
+	contained_sprite = TRUE
+	reagents_to_add = list(/singleton/reagent/drink/orangeade = 30)

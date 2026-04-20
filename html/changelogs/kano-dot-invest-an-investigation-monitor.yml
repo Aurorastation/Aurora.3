@@ -1,0 +1,8 @@
+author: Kano
+
+delete-after: True
+
+changes:
+  - qol: "Tweaked the Deck 3 Security hallway and interrogation room."
+  - rscadd: "Added a portable whiteboard to investigators office."
+  - bugfix: "Added back the missing interrogation camera monitor."

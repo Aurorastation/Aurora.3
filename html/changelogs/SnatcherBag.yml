@@ -1,0 +1,7 @@
+author: TheGreyWolf
+
+delete-after: True
+
+changes:
+  - bugfix: "Fixes stacking materials in the sheet snatcher."
+  - bugfix: "Fixes emptying sheet snatchers made material stacks look like they only had 1 item in them."

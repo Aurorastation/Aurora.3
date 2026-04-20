@@ -103,3 +103,20 @@
 			BIOME_SEMIARID = /singleton/biome/snow/forest/xanu
 			)
 	)
+
+/datum/exoplanet_theme/snow/assunzione
+	name = "Assunzione"
+	surface_turfs = list(
+		/turf/simulated/floor/exoplanet/permafrost
+	)
+	mountain_biome = null
+	possible_biomes = list(
+		BIOME_POLAR = list(
+			BIOME_ARID = /singleton/biome/water/ice,
+			BIOME_SEMIARID = /singleton/biome/snow/assunzione
+		),
+		BIOME_COOL = list(
+			BIOME_ARID = /singleton/biome/water/ice,
+			BIOME_SEMIARID = /singleton/biome/snow/assunzione
+		)
+	)

@@ -1,4 +1,0 @@
-author: Hellfirejag
-delete-after: True
-changes:
-  - bugfix: "Fixed a hard del caused by players joining a round too quickly after first connecting, or by latejoining."

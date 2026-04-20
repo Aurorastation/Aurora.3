@@ -2279,7 +2279,7 @@
 /obj/item/reagent_containers/glass/bottle/thetamycin,
 /obj/item/clothing/accessory/stethoscope,
 /obj/item/cane/crutch,
-/obj/item/clothing/accessory/armband/medgreen,
+/obj/item/clothing/accessory/armband/med,
 /obj/item/storage/belt/medical/paramedic,
 /obj/item/reagent_containers/hypospray,
 /obj/item/mass_spectrometer,

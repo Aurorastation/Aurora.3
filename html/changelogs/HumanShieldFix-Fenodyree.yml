@@ -1,0 +1,6 @@
+author: Fenodyree
+
+delete-after: True
+
+changes:
+  - bugfix: "Fixes human shields not working. If you are redgrabbing someone and facing the direction the shot comes from, the shot will hit your hostage instead of you. Point-blank shots ignore this. Piercing shots can hit both."

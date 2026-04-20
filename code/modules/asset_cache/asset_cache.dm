@@ -584,6 +584,7 @@ GLOBAL_LIST_EMPTY(asset_datums)
 		"biesel.png" = 'html/images/scans/exoplanets/biesel.png',
 		"moghes.png" = 'html/images/scans/exoplanets/moghes.png',
 		"chanterel.png" = 'html/images/scans/exoplanets/chanterel.png',
+		"assunzione.png" = 'html/images/scans/exoplanets/assunzione.png',
 		//end scan images
 		"bluebird.woff" = 'html/fonts/OFL/Bluebird.woff',
 		"grandhotel.woff" = 'html/fonts/OFL/GrandHotel.woff',

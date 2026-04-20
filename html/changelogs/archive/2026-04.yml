@@ -285,3 +285,60 @@
   - rscadd: Added a basic initial implementation of a Mechanical Skills System.
   TheGreyWolf:
   - bugfix: Fixed some things regarding the nation blacklist check for factions.
+2026-04-20:
+  Batrachophrenoboocosmomachia:
+  - rscadd: Adds the space sector for Assunzione, its exoplanet map, and its port
+      of call, Port Volturno.
+  - rscadd: Adds support for billboards to display sets of randomized ads based on
+      icon_state prefixes for different worlds/locations.
+  - rscadd: Adds support for 2x1 illuminated signs to be locked to a single initial
+      setting.
+  - rscadd: All bikes can now run people over if colliding with Run intent, not just
+      monowheels.
+  - rscadd: Adds new Luceist flag (large only), also available in gear loadout.
+  - balance: Increases default vehicle speeds to account for smooth movement speed
+      buffs (currently only affects mopeds, which were painfully slow.)
+  - imageadd: Adds many new sprites by Fyni, Minezeyes, Sammy, and Batrachophrenoboocosmomachia.
+  - bugfix: Rental bike machines no longer vend dummy keys of a type if only configured
+      to sell keys of another type.
+  - bugfix: Status Displays correctly display time on round start rather than attempting
+      to display arrivals shuttle (and remaining blank until changed).
+  - bugfix: Many, many minor improvements and bugfixes in Port Volturno based on observation
+      of Event round.
+  FabianK3:
+  - rscadd: Added a washroom to engineering.
+  - qol: Refactored the multilevel maint between engineering and medical.
+  - qol: Renamed engineering EVA to engineering equipment. Area name change, doors
+      and cameras were already correct.
+  - bugfix: Fixed camera in supermatter monitoring belonging to the wrong network.
+  - bugfix: Removed the left-over unconnected vents in security meeting room.
+  Fenodyree:
+  - bugfix: Fixes one handed only guns having a one handed firing penalty.
+  - bugfix: Fixes the one handed firing penalty not applying to short and 3 round
+      bursts.
+  Hellfirejag:
+  - bugfix: Fixed another harddel related to observers.
+  - bugfix: Fixed a hard del related to ID cards.
+  - bugfix: Cleaned up some mob human timers that might sometimes hard del.
+  - bugfix: Fixed a hard del related to any form of direct organ replacement via loadouts
+      (such as bioaugs).
+  - bugfix: Fixed a hard del related to mechanical mobs that explode on death such
+      as maintenance drones.
+  - bugfix: Fixed a hard del related to PDA channels.
+  - bugfix: Fixed a hard del caused by players joining a round too quickly after first
+      connecting, or by latejoining.
+  TheGreyWolf:
+  - bugfix: Fixed the operations status display screens not showing the elevator status.
+  - bugfix: Fixed the cargo delivery program not displaying the account that was used
+      to pay for an order with.
+  - bugfix: Fixed the cargo delivery program not displaying shipped orders regardless
+      of payment status.
+  - bugfix: Fixed the ghostly ambience on the operations lift and the lift near security.
+  - bugfix: The operations program now displays the elevator time in seconds instead
+      of minutes, given the minutes would always show 0.
+  diggiez:
+  - bugfix: Set GPS Memory in the Telepad Control Console finally, actually functions
+      and displays the last target coordinates.
+  fyni:
+  - rscadd: "Adds Drosi\xE1 Cherry soda, and rejigs the grape soda to be Drosi\xE1\
+      \ Grape soda. Assunzione's favourite soft drink!"
