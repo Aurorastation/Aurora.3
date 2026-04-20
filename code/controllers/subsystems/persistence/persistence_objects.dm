@@ -6,6 +6,10 @@
 	PRIVATE_PROC(TRUE)
 	GLOB.persistence_object_track_register = list()
 
+	if(SSatlas.current_map.path != "sccv_horizon") // The persistence system only supports objects from the main map levels for multiple reasons, e.g. Z level value, mapping support
+		log_subsystem_persistence_info("Persistent objects: Current map did not match SCCV Horizon, skipping persistent object initialization.")
+		return
+
 	// Delete all persistent objects in the database that have expired and have passed the cleanup grace period (PERSISTENT_EXPIRATION_CLEANUP_DELAY_DAYS)
 	objectsDatabaseCleanEntries()
 
@@ -35,6 +39,12 @@
  */
 /datum/controller/subsystem/persistence/proc/objectsFinalize()
 	PRIVATE_PROC(TRUE)
+
+	if(SSatlas.current_map.path != "sccv_horizon") // The persistence system only supports objects from the main map levels for multiple reasons, e.g. Z level value, mapping support
+		log_subsystem_persistence_info("Persistent objects: Current map did not match SCCV Horizon, skipping persistent object finalization.")
+		if(length(GLOB.persistence_object_track_register) > 0)
+			log_subsystem_persistence_warning("Persistent objects: There are [length(GLOB.persistence_object_track_register)] tracked objects at finalization, while the map is not supported! These track will not be saved! Verify that SSatlas.current_map.path has not changed during the round!")
+		return
 
 	// Subsystem shutdown:
 	// Create new persistent records for objects that have been created in the round
