@@ -155,7 +155,7 @@ SUBSYSTEM_DEF(machinery)
 		if (QDELETED(network))
 			if (network)
 				network.datum_flags &= ~DF_ISPROCESSING
-			pipenets.Remove(network)
+			pipenets -= network
 			i-- // compensate for shrinking list
 			continue
 		network.process(seconds_per_tick)
@@ -175,7 +175,7 @@ SUBSYSTEM_DEF(machinery)
 			if(!machine)
 				continue // Hard delete; unlikely but possible. Soft deletes are handled below and expected.
 			if(machine in processing)
-				processing.Remove(machine)
+				processing -= machine
 				machine.datum_flags &= ~DF_ISPROCESSING
 				WARNING("[log_info_line(machine)] was found illegally queued on SSmachines.")
 				i-- // compensate for shrinking list
@@ -187,7 +187,7 @@ SUBSYSTEM_DEF(machinery)
 		if (QDELETED(machine))
 			if (machine)
 				machine.datum_flags &= ~DF_ISPROCESSING
-			processing.Remove(machine)
+			processing -= machine
 			i-- // compensate for shrinking list
 			continue
 		//process_all was moved here because of calls overhead for no benefits
@@ -209,7 +209,7 @@ SUBSYSTEM_DEF(machinery)
 		if (QDELETED(network))
 			if (network)
 				network.datum_flags &= ~DF_ISPROCESSING
-			powernets.Remove(network)
+			powernets -= network
 			i-- // compensate for shrinking list
 			continue
 		network.reset(wait)

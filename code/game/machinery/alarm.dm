@@ -432,9 +432,7 @@ pixel_x = 10;
 
 	var/datum/gas_mixture/environment = location.return_air()
 
-	// Cache check: compare cheap scalars instead of iterating and copying the gas dict.
-	// gas.len catches gases added/removed entirely; total_moles catches any mole-count change.
-	// Together they cover all real environmental changes without any list allocation.
+	// Check for if the current gas state is the same as last ticks'. Skip a LOT of math if it is.
 	if(environment.gas.len == previous_gas_len \
 		&& environment.total_moles == previous_environment_total_moles \
 		&& environment.temperature == previous_environment_temperature \
@@ -442,7 +440,6 @@ pixel_x = 10;
 		&& environment.volume == previous_environment_volume)
 		return
 
-	// Environment changed — update the cache scalars. No list allocation needed.
 	previous_gas_len = environment.gas.len
 	previous_environment_total_moles = environment.total_moles
 	previous_environment_temperature = environment.temperature
