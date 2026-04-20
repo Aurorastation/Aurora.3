@@ -191,7 +191,8 @@
 		update_sound(0)
 		return 1
 
-	if(!sound_token) update_sound(1)
+	if(!sound_token)
+		update_sound(1)
 
 	switch(current_rate_after_armor) //Only plays the sound if you are actually taking radiation through your armour.
 		if(-INFINITY to RAD_LEVEL_LOW + 1) //You heal 1 rad per second, so this dose isn't dangerous.
