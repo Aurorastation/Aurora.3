@@ -1,4 +1,4 @@
 author: Hellfirejag
 delete-after: True
 changes:
-  - refactor: "Refactored the Machinery subsystem to take up roughly 33% less cpu time."
+  - refactor: "Refactored the Machinery subsystem to take up roughly 15% less cpu time."
