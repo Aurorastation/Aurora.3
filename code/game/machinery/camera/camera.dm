@@ -87,6 +87,14 @@
 		QDEL_NULL(assembly)
 
 	cancelCameraAlarm(force = TRUE)
+	cancelAlarm()
+
+	for(var/mob/target in motionTargets.Copy())
+		lostTarget(target)
+
+	if(area_motion && area_motion.motioncamera == src)
+		area_motion.motioncamera = null
+	area_motion = null
 
 	QDEL_NULL(wires)
 
