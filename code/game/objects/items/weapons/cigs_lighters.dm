@@ -229,7 +229,7 @@ ABSTRACT_TYPE(/obj/item/clothing/mask/smokable)
 			M.update_inv_r_hand(1)
 		var/turf/T = get_turf(src)
 		T.visible_message(flavor_text)
-		set_light_range_power_color(2, 0.25, "#E38F46")
+		set_light_range_power_color(2, 0.1, "#ffa251")
 		set_light_on(TRUE)
 		START_PROCESSING(SSprocessing, src)
 

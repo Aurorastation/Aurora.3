@@ -1,0 +1,5 @@
+author: Batrachophrenoboocosmomachia
+delete-after: True
+changes:
+  - balance: "Reduces probability of light sensitivity effects firing, increases minimum threshold."
+  - balance: "Slightly reduces the brightness of cigarettes (turf corner light calculations resulted in outsized returns)."

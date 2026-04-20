@@ -1225,7 +1225,7 @@
 		if(HAS_TRAIT(src, TRAIT_ORIGIN_LIGHT_SENSITIVE))
 			T = loc
 			// From testing, this generally leaves several minutes between each message.
-			if(prob(1) && T.get_lumcount() > 0.8)
+			if(prob(0.5) && T.get_lumcount() > 0.95)
 				var/mob/living/carbon/human/self = src
 
 				// If you have this trait, your default flash protection is -1; check for ANY protection.
