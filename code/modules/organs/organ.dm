@@ -552,7 +552,7 @@ INITIALIZE_IMMEDIATE(/obj/item/organ)
 		found_condition = condition
 
 	// Some conditions can apply more than once. In that case, we count as not having that condition until that limit is reached.
-	if(found_condition.max_condition_amount > 1)
+	if(found_condition?.max_condition_amount > 1)
 		var/found_conditions = 1
 		for(var/datum/condition/same_condition in conditions)
 			if(istype(same_condition, condition))

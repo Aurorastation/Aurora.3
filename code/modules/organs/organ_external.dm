@@ -498,7 +498,7 @@
 
 	// TODOMATT shitty placeholder test code
 	if(length(possible_conditions))
-		if(damage >= max_damage)
+		if((brute_dam + burn_dam) >= max_damage)
 			var/possible_condition = pickweight(possible_conditions)
 			if(!has_condition(possible_condition))
 				apply_condition(possible_condition)

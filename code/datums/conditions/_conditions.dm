@@ -84,7 +84,7 @@
  */
 /datum/condition/proc/on_clear()
 	SHOULD_CALL_PARENT(TRUE)
-	if(length(traits))
+	if(parent && length(traits))
 		for(var/trait in traits)
 			REMOVE_TRAIT(parent, trait, TRAIT_ORIGIN_CONDITION)
 /**

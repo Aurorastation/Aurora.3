@@ -544,6 +544,7 @@
 #include "code\datums\conditions\human\_conditions_human.dm"
 #include "code\datums\conditions\human\generic.dm"
 #include "code\datums\conditions\organ\_conditions_organ.dm"
+#include "code\datums\conditions\organ\external.dm"
 #include "code\datums\elements\_element.dm"
 #include "code\datums\elements\connect_loc.dm"
 #include "code\datums\elements\empprotection.dm"
