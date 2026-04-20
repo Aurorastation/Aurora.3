@@ -568,7 +568,7 @@
 #define MOB_IS_INCAPACITATED(incapacitation_flags)\
 (\
 	((incapacitation_flags & INCAPACITATION_STUNNED) && stunned) ||\
-	((incapacitation_flags & INCAPACITATION_FORCELYING) && (weakened || resting)) ||\
+	((incapacitation_flags & INCAPACITATION_FORCELYING) && (weakened || resting || HAS_TRAIT(src, TRAIT_BROKEN_SPINE))) ||\
 	((incapacitation_flags & INCAPACITATION_KNOCKOUT) && (stat || paralysis || sleeping || (status_flags & FAKEDEATH))) ||\
 	((incapacitation_flags & INCAPACITATION_RESTRAINED) && restrained())\
 	? TRUE :\

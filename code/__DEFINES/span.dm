@@ -23,6 +23,7 @@
 #define SPAN_STYLE(style, str) "<span style=\"[style]\">[str]</span>"
 #define SPAN_COLOR(color, str) SPAN_STYLE("color: [color]", "[str]")
 #define SPAN_CAUTION(str) ("<span class='caution'>" + str + "</span>")
+#define SPAN_CONDITION(str) ("<span class='condition'>" + str + "</span>")
 #define SPAN_STORYTELLER(str) ("<span class='storyteller'>" + str + "</span>")
 
 #define SPAN_MACHINE_WARNING(str) ("<span class='machine-warning'>" + str + "</span>")

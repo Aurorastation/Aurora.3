@@ -496,6 +496,13 @@
 		else
 			created_wound = createwound(INJURY_TYPE_BURN, burn)
 
+	// TODOMATT shitty placeholder test code
+	if(length(possible_conditions))
+		if(damage >= max_damage)
+			var/possible_condition = pickweight(possible_conditions)
+			if(!has_condition(possible_condition))
+				apply_condition(possible_condition)
+
 	add_pain(0.6 * burn + 0.4 * brute)
 
 	if(owner)

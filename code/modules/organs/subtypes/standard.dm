@@ -20,6 +20,9 @@
 	parent_organ = null
 	encased = "ribcage"
 	augment_limit = 3
+	possible_conditions = list(
+		/datum/condition/human/broken_spine = 100
+	)
 
 /obj/item/organ/external/chest/body_part_class()
 	return UPPER_TORSO
