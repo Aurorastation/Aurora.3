@@ -72,3 +72,16 @@
 
 /obj/effect/decal/exterior_stairs/half/right
 	icon_state = "half-stairs-right"
+
+/obj/effect/decal/exterior_stairs/half/dark
+	icon_state = "half-stairs-single-recolorable"
+	color = COLOR_DARK_GUNMETAL
+
+/obj/effect/decal/exterior_stairs/half/dark/center
+	icon_state = "half-stairs-center-recolorable"
+
+/obj/effect/decal/exterior_stairs/half/dark/left
+	icon_state = "half-stairs-left-recolorable"
+
+/obj/effect/decal/exterior_stairs/half/dark/right
+	icon_state = "half-stairs-right-recolorable"

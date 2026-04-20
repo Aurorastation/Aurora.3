@@ -2,7 +2,7 @@
 	name = "rock"
 	desc = "A rock."
 	icon = 'icons/obj/flora/rocks_grey.dmi'
-	icon_state = "basalt"
+	icon_state = "basalt1"
 	is_rock = TRUE
 	sample_data = list("Sample contains igneous rock dust")
 
@@ -19,6 +19,8 @@
 	. = ..()
 	icon_state = "lavarocks[rand(1,3)]"
 
+// ---- Stalagmite
+
 /obj/structure/flora/rock/stalagmite
 	name = "stalagmite"
 	desc = "A pointy pile of rocks."
@@ -28,12 +30,32 @@
 	. = ..()
 	icon_state = "stalagmite[rand(1,4)]"
 
+// Brown
 /obj/structure/flora/rock/stalagmite/brown
 	icon = 'icons/obj/flora/rocks_brown.dmi'
 
 /obj/structure/flora/rock/stalagmite/brown/random/Initialize(mapload)
 	. = ..()
 	icon_state = "stalagmite[rand(1,6)]"
+
+// Purple
+/obj/structure/flora/rock/stalagmite/purple
+	icon = 'icons/obj/flora/rocks_recolorable.dmi'
+	icon_state = "stalagmite1"
+	color = "#453054"
+
+/obj/structure/flora/rock/stalagmite/purple/Initialize()
+	. = ..()
+	icon_state = "stalagmite[rand(1,4)]"
+
+// Teal
+/obj/structure/flora/rock/stalagmite/teal
+	icon = 'icons/obj/flora/rocks_recolorable.dmi'
+	icon_state = "stalagmite1"
+	color = "#223439"
+
+
+// ---- Ice rock
 
 /obj/structure/flora/rock/ice
 	name = "ice"

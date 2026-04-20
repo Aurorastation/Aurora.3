@@ -88,11 +88,12 @@
 	layer = ABOVE_ABOVE_HUMAN_LAYER
 	canSmoothWith = list(
 		/obj/structure/lattice/ceiling,
-		/turf/simulated/wall,
-		/turf/simulated/mineral,
-		/turf/unsimulated/wall,
 		/obj/structure/grille,
-		/turf/unsimulated/mineral/asteroid
+		/obj/structure/girder,
+		/turf/simulated/wall,
+		/turf/unsimulated/wall,
+		/turf/simulated/mineral,
+		/turf/unsimulated/mineral/asteroid,
 	)
 
 /obj/structure/lattice/ceiling/Initialize()

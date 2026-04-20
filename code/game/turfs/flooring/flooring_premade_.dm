@@ -350,6 +350,11 @@
 	tile_decal_state = "grid_light"
 	color = COLOR_GRAY40
 
+/turf/simulated/floor/tiled/gridded/airless
+	name = "airless floor"
+	initial_gas = null
+	temperature = TCMB
+
 /turf/simulated/floor/tiled/ridged
 	name = "ridged tiles"
 	icon_state = "ridged"

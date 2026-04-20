@@ -207,6 +207,7 @@
 	icon = 'icons/turf/newwater.dmi'
 	icon_state = "together"
 	deep = FALSE
+	footstep_sound = SFX_FOOTSTEP_WATER
 	var/base_turf_icon = "together"
 	var/obj/effect/overlay/water/water_bottom_overlay
 	var/obj/effect/overlay/water/top/water_top_overlay
@@ -214,43 +215,69 @@
 	smoothing_hints = SMOOTHHINT_CUT_F | SMOOTHHINT_ONLY_MATCH_TURF | SMOOTHHINT_TARGETS_NOT_UNIQUE
 	var/water_color = "#6a9295"
 	var/water_level = 2
+	/// Whether the turf has a lattice on it or not, handled in initialize.
+	var/has_lattice = FALSE
+	/// Types we ignore when we update the overlay layer.
+	var/static/list/ignored_types = typecacheof(list(
+		/obj/structure/platform,
+		/obj/structure/platform_deco,
+		/obj/structure/bed/stool/chair/office/hover,
+		/obj/structure/bed/stool/hover,
+	))
 
 /turf/simulated/floor/exoplanet/water/smooth/Initialize()
 	.  = ..()
-	return INITIALIZE_HINT_LATELOAD
-
-/turf/simulated/floor/exoplanet/water/smooth/LateInitialize()
 	icon_state = base_turf_icon
 	water_bottom_overlay = new(src)
 	water_top_overlay = new(src)
-	update_icon()
+	// bottom overlay
+	water_bottom_overlay.color = water_color
+	water_bottom_overlay.icon_state = "bottom[water_level]"
+	// top overlay
+	water_top_overlay.color = water_color
+	water_top_overlay.icon_state = "top[water_level]"
 
-/turf/simulated/floor/exoplanet/water/smooth/update_icon()
-	var/turf/T = get_turf(src)
-	if(water_bottom_overlay)
-		water_bottom_overlay.color = water_color
-		water_bottom_overlay.icon_state = "bottom[water_level]"
-		if(locate(/obj/structure/lattice) in T)
-			water_bottom_overlay = DECAL_LAYER
-	if(water_top_overlay)
-		water_top_overlay.color = water_color
-		water_top_overlay.icon_state = "top[water_level]"
-		if(locate(/obj/structure/lattice) in T)
-			water_top_overlay = DECAL_LAYER
+	var/object_found
+	for(var/obj/structure/thing in src)
+		if(istype(thing, /obj/structure/lattice))
+			has_lattice = TRUE
+			movement_cost = 0
+			return // no need to check further if there was an object in our turf initially, since lattice will block
+
+		if(!is_type_in_typecache(thing, ignored_types))
+			object_found = TRUE
+
+	if(object_found) // if there is an object, start with adjusted layer
+		water_bottom_overlay.layer = ABOVE_HUMAN_LAYER
+
+/turf/simulated/floor/exoplanet/water/smooth/proc/update_overlay_layer(atom/movable/AM, entered = FALSE)
+	if(!AM || AM.throwing || isghost(AM))
+		return
+
+	if(entered)
+		// entered
+		water_bottom_overlay.layer = ABOVE_HUMAN_LAYER
+	else
+		// exited
+		for(var/obj/structure/found_thing in src) // check if there's anything left in this turf that we care about, if so don't change the layer
+			if(!is_type_in_typecache(found_thing, ignored_types))
+				return
+
+		water_bottom_overlay.layer = BELOW_DOOR_LAYER
 
 /turf/simulated/floor/exoplanet/water/smooth/Entered(atom/movable/AM, atom/oldLoc)
 	. = ..()
-	if(locate(/obj/structure/lattice) in get_turf(src))
-		movement_cost = 0
+	if(has_lattice)
 		return
 
-	if(AM && !AM.throwing)
-		water_bottom_overlay?.layer = isliving(AM) ? ABOVE_HUMAN_LAYER : ABOVE_STRUCTURE_LAYER
+	update_overlay_layer(AM, TRUE)
 
 /turf/simulated/floor/exoplanet/water/smooth/Exited(atom/movable/AM, atom/newloc)
 	. = ..()
-	if(AM && !locate(AM) in get_turf(src)) // check if there's anything left in this turf, remove the overlay if nothing is found
-		water_bottom_overlay?.layer = BELOW_DOOR_LAYER
+	if(has_lattice)
+		return
+
+	update_overlay_layer(AM)
 
 /turf/simulated/floor/exoplanet/water/smooth/swamp
 	name = "murk"
