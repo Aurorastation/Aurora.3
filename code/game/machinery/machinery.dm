@@ -85,7 +85,7 @@ Class Procs:
 	icon = 'icons/obj/stationobjs.dmi'
 	w_class = WEIGHT_CLASS_GIGANTIC
 	layer = STRUCTURE_LAYER
-	init_flags = 0  // Opt-in: set INIT_MACHINERY_PROCESS_SELF on subtypes that actually implement process()
+	init_flags = INIT_MACHINERY_PROCESS_SELF
 	pass_flags_self = PASSMACHINE | LETPASSCLICKS
 	destroy_sound = 'sound/effects/meteorimpact.ogg'
 	hitsound = 'sound/effects/metalhit.ogg'

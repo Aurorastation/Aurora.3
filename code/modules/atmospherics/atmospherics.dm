@@ -16,7 +16,6 @@ Pipelines + Other Objects -> Pipe network
 	power_channel = AREA_USAGE_ENVIRON
 	var/nodealert = 0
 	var/power_rating //the maximum amount of power the machine can use to do work, affects how powerful the machine is, in Watts
-	init_flags = INIT_MACHINERY_PROCESS_SELF
 
 	layer = EXPOSED_PIPE_LAYER
 

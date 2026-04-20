@@ -6,8 +6,6 @@
 	density = TRUE
 	var/radioactivity = RAD_LEVEL_MODERATE
 
-	init_flags = INIT_MACHINERY_PROCESS_SELF
-
 /obj/machinery/supermatter_growth_tray/Initialize()
 	. = ..()
 	if(radioactivity)

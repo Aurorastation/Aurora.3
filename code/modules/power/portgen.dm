@@ -8,7 +8,6 @@
 	density = TRUE
 	anchored = FALSE
 	atom_flags = CRITICAL_ATOM
-	init_flags = INIT_MACHINERY_PROCESS_SELF
 
 	var/active = FALSE
 	var/power_gen = 5000

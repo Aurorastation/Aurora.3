@@ -9,7 +9,6 @@
 	density = TRUE
 	anchored = TRUE
 	use_power = POWER_USE_OFF
-	init_flags = INIT_MACHINERY_PROCESS_SELF
 
 	// You can buckle someone to RTG, then open its panel. Fun stuff.
 	can_buckle = list(/mob/living)

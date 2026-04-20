@@ -23,7 +23,6 @@
 	density = 0
 	idle_power_usage = 10
 	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
-	init_flags = INIT_MACHINERY_PROCESS_SELF
 	var/hears_arrivals = FALSE
 	var/mode = STATUS_DISPLAY_TIME
 	var/last_mode = STATUS_DISPLAY_TIME

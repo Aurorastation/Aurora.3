@@ -6,7 +6,6 @@
 	density = 1
 	anchored = 1
 	idle_power_usage = 75
-	init_flags = INIT_MACHINERY_PROCESS_SELF
 	/**
 	 * The `/mob/living` that is currently occupying the charger
 	 */

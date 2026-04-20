@@ -30,7 +30,6 @@
 	desc = "An industrial machine for painting and refitting voidsuits."
 	anchored = TRUE
 	density = TRUE
-	init_flags = INIT_MACHINERY_PROCESS_SELF
 
 	icon = 'icons/obj/suit_cycler.dmi'
 	icon_state = "base"

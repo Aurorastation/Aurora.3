@@ -43,7 +43,6 @@
 	var/radiation = 0				//0-100 mSv
 	var/t_left_radspike = 0
 	var/rad_shield = 0
-	init_flags = INIT_MACHINERY_PROCESS_SELF
 
 /obj/machinery/radiocarbon_spectrometer/Initialize()
 	. = ..()

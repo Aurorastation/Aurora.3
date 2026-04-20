@@ -16,7 +16,6 @@
 
 	var/diffuser_enabled = TRUE
 	var/diffuser_range = 0 // 1x1 tiles, including the tile its on.
-	init_flags = INIT_MACHINERY_PROCESS_SELF
 
 /obj/machinery/shield_diffuser/feedback_hints(mob/user, distance, is_adjacent)
 	. += ..()

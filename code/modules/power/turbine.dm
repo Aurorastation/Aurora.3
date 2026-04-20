@@ -39,7 +39,6 @@
 	anchored = TRUE
 	density = TRUE
 	atmos_canpass = CANPASS_DENSITY
-	init_flags = INIT_MACHINERY_PROCESS_SELF
 	var/obj/machinery/power/turbine/turbine
 	var/datum/gas_mixture/gas_contained
 	var/turf/simulated/inturf

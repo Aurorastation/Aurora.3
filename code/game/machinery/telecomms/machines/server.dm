@@ -29,8 +29,6 @@
 	var/datum/ntsl2_program/tcomm/Program // NTSL2++ datum responsible for script execution
 	var/autoruncode = 0		// 1 if the code is set to run every time a signal is picked up
 
-	init_flags = INIT_MACHINERY_PROCESS_SELF
-
 /obj/machinery/telecomms/server/Initialize()
 	. = ..()
 	Program = SSntsl2.new_program_tcomm(src)

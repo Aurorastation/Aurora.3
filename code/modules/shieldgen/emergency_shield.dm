@@ -23,7 +23,6 @@
 	idle_power_usage = 250 WATTS
 	/// Gets replaced by the # of shield objs its trying to maintain.
 	active_power_usage = 1000 WATTS
-	init_flags = INIT_MACHINERY_PROCESS_SELF
 
 /obj/machinery/shieldgen/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()

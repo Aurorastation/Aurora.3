@@ -13,7 +13,6 @@
 	density = TRUE
 	req_access = list(ACCESS_ENGINE_EQUIP)
 	obj_flags = OBJ_FLAG_ROTATABLE | OBJ_FLAG_SIGNALER
-	init_flags = INIT_MACHINERY_PROCESS_SELF
 	var/id
 	/// Uses powernet power, not APC power.
 	use_power = POWER_USE_OFF

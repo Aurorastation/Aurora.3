@@ -22,7 +22,6 @@
 	var/destinationact = "Service"
 	var/ticket_number = 1
 	req_one_access = list(ACCESS_BAR, ACCESS_GALLEY, ACCESS_CARGO) // Access to change the menu
-	init_flags = INIT_MACHINERY_PROCESS_SELF
 
 /obj/machinery/orderterminal/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()

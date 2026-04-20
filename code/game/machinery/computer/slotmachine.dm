@@ -17,7 +17,6 @@
 	clicksound = null
 	idle_power_usage = 250
 	active_power_usage = 500
-	init_flags = INIT_MACHINERY_PROCESS_SELF
 	circuit = /obj/item/circuitboard/slot_machine
 	var/emmaged = FALSE
 	light_color = LIGHT_COLOR_BROWN

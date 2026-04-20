@@ -105,7 +105,6 @@
 
 	/// cooldown tracker for accent sounds,
 	var/last_accent_sound = 0
-	init_flags = INIT_MACHINERY_PROCESS_SELF
 
 /obj/machinery/power/supermatter/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()

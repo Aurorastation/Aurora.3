@@ -24,7 +24,6 @@
 	)
 
 	parts_power_mgmt = FALSE
-	init_flags = INIT_MACHINERY_PROCESS_SELF
 
 /obj/machinery/r_n_d/server/upgrade_hints(mob/user, distance, is_adjacent)
 	. += ..()

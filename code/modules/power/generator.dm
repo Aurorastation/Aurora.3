@@ -5,7 +5,6 @@
 	density = TRUE
 	anchored = FALSE
 	obj_flags = OBJ_FLAG_ROTATABLE
-	init_flags = INIT_MACHINERY_PROCESS_SELF
 
 	use_power = POWER_USE_OFF
 	idle_power_usage = 1000
