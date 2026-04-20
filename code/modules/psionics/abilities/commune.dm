@@ -34,9 +34,10 @@
 	realscribble = "[psiphoto.scribble]"
 	psiphoto.scribble = "[(saved)]"
 	if(psi_deaf && prob(60)) //Psi-deaf targets that do receieve a photo, have it in black & white more than not
+		var/icon/realimg = icon(psiphoto.img)
 		psiphoto.img.MapColors(rgb(77,77,77), rgb(150,150,150), rgb(28,28,28), rgb(0,0,0))
-		psiphoto.tiny.MapColors(rgb(77,77,77), rgb(150,150,150), rgb(28,28,28), rgb(0,0,0))
 		psiphoto.show(target)
+		psiphoto.img = icon(realimg)
 		to_chat(target, SPAN_ALIEN("...Even the colors are half-formed."))
 	else
 		psiphoto.show(target)
