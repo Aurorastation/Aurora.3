@@ -7726,14 +7726,8 @@
 /area/port_volturno/exterior)
 "fMX" = (
 /obj/effect/floor_decal/corner/blue/diagonal,
-/obj/structure/closet/secure_closet/freezer,
-/obj/item/reagent_containers/food/condiment/flour,
-/obj/item/reagent_containers/food/condiment/flour,
-/obj/item/reagent_containers/food/condiment/flour,
-/obj/item/reagent_containers/food/condiment/flour,
-/obj/item/reagent_containers/food/condiment/flour,
-/obj/item/reagent_containers/food/condiment/flour,
 /obj/random/dirt_75,
+/obj/machinery/chem_heater,
 /turf/simulated/floor/tiled/ridged,
 /area/port_volturno/interior/stafylia)
 "fNf" = (
@@ -9557,6 +9551,12 @@
 /obj/item/reagent_containers/food/snacks/meat,
 /obj/item/reagent_containers/food/snacks/meat,
 /obj/item/reagent_containers/food/snacks/meat,
+/obj/item/reagent_containers/food/condiment/flour,
+/obj/item/reagent_containers/food/condiment/flour,
+/obj/item/reagent_containers/food/condiment/flour,
+/obj/item/reagent_containers/food/condiment/flour,
+/obj/item/reagent_containers/food/condiment/flour,
+/obj/item/reagent_containers/food/condiment/flour,
 /turf/simulated/floor/tiled/ridged,
 /area/port_volturno/interior/stafylia)
 "hfg" = (
@@ -25316,7 +25316,10 @@
 /area/port_volturno/interior/chapel)
 "tgr" = (
 /obj/effect/floor_decal/corner/blue/diagonal,
-/obj/machinery/chem_heater,
+/obj/structure/sink{
+	dir = 4;
+	pixel_x = 12
+	},
 /turf/simulated/floor/tiled/ridged,
 /area/port_volturno/interior/stafylia)
 "tgy" = (
