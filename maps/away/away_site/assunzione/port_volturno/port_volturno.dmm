@@ -263,36 +263,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/port_volturno/interior/clinic/pharmacy)
-"aim" = (
-/obj/effect/decal/fake_object{
-	color = "#ff0000";
-	dir = 4;
-	icon = 'icons/atmos/pipes.dmi';
-	icon_state = "intact-scrubbers";
-	name = "pipe"
-	},
-/obj/effect/decal/fake_object{
-	color = "#0000ff";
-	dir = 4;
-	icon = 'icons/atmos/pipes.dmi';
-	icon_state = "intact-supply";
-	name = "pipe"
-	},
-/obj/effect/decal/fake_object{
-	color = "#ff0000";
-	icon = 'icons/obj/power_cond_white.dmi';
-	icon_state = "4-8";
-	name = "cable"
-	},
-/obj/effect/step_trigger/thrower{
-	tiles = 1;
-	dir = 4
-	},
-/obj/random/dirt_75,
-/obj/random/dirt_75,
-/obj/effect/decal/rolling_fog,
-/turf/unsimulated/floor/plating,
-/area/port_volturno/interior/tram_station)
 "aiY" = (
 /obj/structure/rod_railing{
 	name = "imposing rod railing"
@@ -1815,20 +1785,6 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/carpet/rubber,
 /area/port_volturno/interior/clinic/pharmacy)
-"byb" = (
-/obj/effect/decal/fake_object{
-	icon = 'icons/obj/smoothtrack.dmi';
-	icon_state = "track12";
-	name = "tram track"
-	},
-/obj/effect/step_trigger/thrower{
-	tiles = 1;
-	dir = 8
-	},
-/obj/random/dirt_75,
-/obj/effect/decal/rolling_fog,
-/turf/unsimulated/floor/plating,
-/area/port_volturno/interior/tram_station)
 "bym" = (
 /obj/machinery/door/urban{
 	dir = 4
@@ -3436,20 +3392,6 @@
 /obj/effect/decal/rolling_fog,
 /turf/simulated/floor/grass1/no_edge,
 /area/port_volturno/exterior)
-"cGN" = (
-/obj/effect/decal/fake_object{
-	icon = 'icons/obj/smoothtrack.dmi';
-	icon_state = "track12";
-	name = "tram track"
-	},
-/obj/effect/step_trigger/thrower{
-	tiles = 1;
-	dir = 4
-	},
-/obj/random/dirt_75,
-/obj/effect/decal/rolling_fog,
-/turf/unsimulated/floor/plating,
-/area/port_volturno/interior/tram_station)
 "cGQ" = (
 /obj/effect/decal/curb{
 	dir = 8
@@ -5554,6 +5496,17 @@
 	},
 /obj/random/dirt_75,
 /obj/random/dirt_75,
+/obj/item/reagent_containers/food/drinks/bottle/assunzione_wine{
+	pixel_x = -6;
+	pixel_y = 11
+	},
+/obj/item/reagent_containers/food/drinks/bottle/assunzione_wine{
+	pixel_x = 6;
+	pixel_y = 11
+	},
+/obj/item/reagent_containers/food/drinks/bottle/assunzione_wine{
+	pixel_y = 5
+	},
 /turf/simulated/floor/wood/birch,
 /area/port_volturno/interior/liquor_store)
 "dZM" = (
@@ -9492,35 +9445,6 @@
 /obj/effect/decal/rolling_fog,
 /turf/simulated/floor/sidewalk/assunzione/flat,
 /area/port_volturno/exterior)
-"hbI" = (
-/obj/effect/decal/fake_object{
-	color = "#ff0000";
-	dir = 4;
-	icon = 'icons/atmos/pipes.dmi';
-	icon_state = "intact-scrubbers";
-	name = "pipe"
-	},
-/obj/effect/decal/fake_object{
-	color = "#0000ff";
-	dir = 4;
-	icon = 'icons/atmos/pipes.dmi';
-	icon_state = "intact-supply";
-	name = "pipe"
-	},
-/obj/effect/decal/fake_object{
-	color = "#ff0000";
-	icon = 'icons/obj/power_cond_white.dmi';
-	icon_state = "4-8";
-	name = "cable"
-	},
-/obj/effect/step_trigger/thrower{
-	tiles = 1;
-	dir = 8
-	},
-/obj/random/dirt_75,
-/obj/effect/decal/rolling_fog,
-/turf/unsimulated/floor/plating,
-/area/port_volturno/interior/tram_station)
 "hbL" = (
 /obj/structure/table/steel,
 /obj/random/dirt_75,
@@ -10280,6 +10204,17 @@
 	pixel_y = 5
 	},
 /obj/random/dirt_75,
+/obj/item/reagent_containers/food/drinks/bottle/assunzione_wine{
+	pixel_x = -6;
+	pixel_y = 11
+	},
+/obj/item/reagent_containers/food/drinks/bottle/assunzione_wine{
+	pixel_x = 6;
+	pixel_y = 11
+	},
+/obj/item/reagent_containers/food/drinks/bottle/assunzione_wine{
+	pixel_y = 5
+	},
 /turf/simulated/floor/wood/birch,
 /area/port_volturno/interior/liquor_store)
 "hFS" = (
@@ -19512,18 +19447,6 @@
 /obj/effect/decal/rolling_fog,
 /turf/simulated/floor/sidewalk/assunzione/flat,
 /area/port_volturno/exterior)
-"oDX" = (
-/obj/effect/step_trigger/thrower{
-	tiles = 1;
-	dir = 4
-	},
-/obj/structure/ledge/quarter{
-	dir = 1
-	},
-/obj/random/dirt_75,
-/obj/effect/decal/rolling_fog,
-/turf/unsimulated/floor/plating,
-/area/port_volturno/interior/tram_station)
 "oEJ" = (
 /obj/effect/decal/curb/corner{
 	dir = 4
@@ -22778,21 +22701,6 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark,
 /area/port_volturno/interior/clinic)
-"qUN" = (
-/obj/effect/decal/fake_object{
-	icon = 'icons/obj/smoothtrack.dmi';
-	icon_state = "track12";
-	name = "tram track"
-	},
-/obj/effect/step_trigger/thrower{
-	tiles = 1;
-	dir = 4
-	},
-/obj/random/dirt_75,
-/obj/random/dirt_75,
-/obj/effect/decal/rolling_fog,
-/turf/unsimulated/floor/plating,
-/area/port_volturno/interior/tram_station)
 "qVd" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /obj/machinery/door/blast/shutters{
@@ -22902,6 +22810,17 @@
 /obj/machinery/light{
 	dir = 4;
 	pixel_x = 5
+	},
+/obj/item/reagent_containers/food/drinks/bottle/assunzione_wine{
+	pixel_x = -6;
+	pixel_y = 11
+	},
+/obj/item/reagent_containers/food/drinks/bottle/assunzione_wine{
+	pixel_x = 6;
+	pixel_y = 11
+	},
+/obj/item/reagent_containers/food/drinks/bottle/assunzione_wine{
+	pixel_y = 5
 	},
 /turf/simulated/floor/wood/birch,
 /area/port_volturno/interior/liquor_store)
@@ -24529,19 +24448,6 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/sidewalk/assunzione/paved,
 /area/port_volturno/exterior)
-"sqp" = (
-/obj/effect/decal/fake_object{
-	icon = 'icons/obj/smoothtrack.dmi';
-	icon_state = "track12";
-	name = "tram track"
-	},
-/obj/effect/step_trigger/thrower{
-	tiles = 1;
-	dir = 8
-	},
-/obj/effect/decal/rolling_fog,
-/turf/unsimulated/floor/plating,
-/area/port_volturno/interior/tram_station)
 "sqt" = (
 /obj/structure/railing/mapped{
 	dir = 8
@@ -28467,15 +28373,15 @@
 /turf/simulated/floor/concrete,
 /area/port_volturno/interior)
 "vqw" = (
-/obj/effect/step_trigger/thrower{
-	tiles = 1;
-	dir = 8
-	},
 /obj/structure/ledge/quarter{
 	dir = 1
 	},
 /obj/random/dirt_75,
 /obj/effect/decal/rolling_fog,
+/obj/effect/step_trigger/thrower{
+	tiles = 1;
+	dir = 1
+	},
 /turf/unsimulated/floor/plating,
 /area/port_volturno/interior/tram_station)
 "vqN" = (
@@ -58031,10 +57937,10 @@ usQ
 usQ
 usQ
 usQ
-oDX
-qUN
-aim
-cGN
+vqw
+agd
+cPE
+dGC
 tSU
 rNE
 nHf
@@ -58288,7 +58194,7 @@ usQ
 fAO
 mIk
 wYO
-vSD
+vqw
 dGC
 wTk
 nHf
@@ -61372,7 +61278,7 @@ usQ
 fkF
 eSi
 xNa
-vSD
+vqw
 dGC
 wTk
 dGC
@@ -64456,7 +64362,7 @@ pBK
 mOZ
 pxY
 xNa
-vSD
+vqw
 dGC
 wTk
 nHf
@@ -64714,9 +64620,9 @@ usQ
 usQ
 usQ
 vqw
-byb
-hbI
-sqp
+dGC
+wTk
+nHf
 tLE
 oYq
 nHf
