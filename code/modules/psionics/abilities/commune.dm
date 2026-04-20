@@ -39,6 +39,12 @@
 		psiphoto.show(target)
 		psiphoto.img = icon(realimg)
 		to_chat(target, SPAN_ALIEN("...Even the colors are half-formed."))
+	else if(psi_deaf && prob(60)) //Or with random colors
+		var/icon/realimg = icon(psiphoto.img)
+		psiphoto.img.MapColors(rgb(rand(0,255), rand(0,255), rand(0,255)), rgb(rand(0,255), rand(0, 255), rand(0,255)), rgb(rand(0,255), rand(0,255), rand(0,255)), rgb(rand(0,255), rand(0,255), rand(0,255)))
+		psiphoto.show(target)
+		psiphoto.img = icon(realimg)
+		to_chat(target, SPAN_ALIEN("...Even the colors are off."))
 	else
 		psiphoto.show(target)
 	psiphoto.scribble = "[realscribble]"
