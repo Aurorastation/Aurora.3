@@ -150,7 +150,7 @@ SUBSYSTEM_DEF(machinery)
 /datum/controller/subsystem/machinery/proc/process_pipenets(resumed, no_mc_tick)
 	var/datum/pipe_network/network
 	var/seconds_per_tick = wait * 0.1
-	for(var/i = (resumed && queue.len) ? queue[1] : pipenets.len; i >= 1; i--)
+	for(var/i = (resumed && length(queue)) ? queue[1] : length(pipenets); i >= 1; i--)
 		network = pipenets[i]
 		if (QDELETED(network))
 			if (network)
@@ -168,7 +168,7 @@ SUBSYSTEM_DEF(machinery)
 /datum/controller/subsystem/machinery/proc/process_machinery(resumed, no_mc_tick)
 	var/obj/machinery/machine
 	var/seconds_per_tick = wait * 0.1
-	for(var/i = (resumed && queue.len) ? queue[1] : processing.len; i >= 1; i--)
+	for(var/i = (resumed && length(queue)) ? queue[1] : length(processing); i >= 1; i--)
 		machine = processing[i]
 
 		if(!istype(machine)) // Below is a debugging and recovery effort. This should never happen, but has been observed recently.
@@ -204,7 +204,7 @@ SUBSYSTEM_DEF(machinery)
 
 /datum/controller/subsystem/machinery/proc/process_powernets(resumed, no_mc_tick)
 	var/datum/powernet/network
-	for(var/i = (resumed && queue.len) ? queue[1] : powernets.len; i >= 1; i--)
+	for(var/i = (resumed && length(queue)) ? queue[1] : length(powernets); i >= 1; i--)
 		network = powernets[i]
 		if (QDELETED(network))
 			if (network)
