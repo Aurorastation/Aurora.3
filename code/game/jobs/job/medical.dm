@@ -35,6 +35,10 @@
 
 	blacklisted_species = list(SPECIES_TAJARA_MSAI, SPECIES_TAJARA_ZHAN, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_ATTENDANT, SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_BREEDER)
 
+	skill_requirements = alist(
+		/singleton/skill/medicine = SKILL_LEVEL_TRAINED
+	)
+
 /obj/outfit/job/cmo
 	name = "Chief Medical Officer"
 	jobtype = /datum/job/cmo
@@ -83,6 +87,11 @@
 	minimal_access = list(ACCESS_MEDICAL, ACCESS_MEDICAL_EQUIP, ACCESS_MORGUE, ACCESS_SURGERY, ACCESS_GENETICS, ACCESS_EVA)
 	outfit = /obj/outfit/job/doctor
 	blacklisted_species = list(SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_BREEDER)
+	skill_requirements = alist(
+		/singleton/skill/surgery = SKILL_LEVEL_TRAINED,
+		/singleton/skill/medicine = SKILL_LEVEL_PROFESSIONAL,
+		/singleton/skill/anatomy = SKILL_LEVEL_TRAINED
+	)
 
 /datum/job/surgeon
 	title = "Surgeon"
@@ -107,6 +116,11 @@
 	minimal_access = list(ACCESS_MEDICAL, ACCESS_MEDICAL_EQUIP, ACCESS_MORGUE, ACCESS_SURGERY, ACCESS_GENETICS, ACCESS_EVA)
 	outfit = /obj/outfit/job/doctor/surgeon
 	blacklisted_species = list(SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_BREEDER)
+	skill_requirements = alist(
+		/singleton/skill/surgery = SKILL_LEVEL_PROFESSIONAL,
+		/singleton/skill/medicine = SKILL_LEVEL_TRAINED,
+		/singleton/skill/anatomy = SKILL_LEVEL_TRAINED
+	)
 
 /obj/outfit/job/doctor
 	name = "Physician"
@@ -172,6 +186,11 @@
 	minimal_access = list(ACCESS_MEDICAL, ACCESS_MEDICAL_EQUIP, ACCESS_PHARMACY, ACCESS_VIROLOGY)
 	outfit = /obj/outfit/job/pharmacist
 	blacklisted_species = list(SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_BREEDER)
+	skill_requirements = alist(
+		/singleton/skill/pharmacology = SKILL_LEVEL_PROFESSIONAL,
+		/singleton/skill/medicine = SKILL_LEVEL_TRAINED,
+		/singleton/skill/anatomy = SKILL_LEVEL_TRAINED
+	)
 
 /obj/outfit/job/pharmacist
 	name = "Pharmacist"
@@ -282,6 +301,11 @@
 	outfit = /obj/outfit/job/med_tech
 
 	blacklisted_species = list(SPECIES_DIONA, SPECIES_DIONA_COEUS, SPECIES_IPC_G2, SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_BREEDER)
+	skill_requirements = alist(
+		/singleton/skill/surgery = SKILL_LEVEL_FAMILIAR,
+		/singleton/skill/medicine = SKILL_LEVEL_TRAINED,
+		/singleton/skill/anatomy = SKILL_LEVEL_TRAINED
+	)
 
 /obj/outfit/job/med_tech
 	name = "Paramedic"
@@ -358,6 +382,11 @@
 	)
 	outfit = /obj/outfit/job/intern_med
 	blacklisted_species = list(SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_BREEDER)
+	skill_requirements = alist(
+		/singleton/skill/surgery = SKILL_LEVEL_FAMILIAR,
+		/singleton/skill/medicine = SKILL_LEVEL_FAMILIAR,
+		/singleton/skill/anatomy = SKILL_LEVEL_FAMILIAR
+	)
 
 /obj/outfit/job/intern_med
 	name = "Medical Intern"

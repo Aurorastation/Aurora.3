@@ -13,13 +13,13 @@
 	response_harm = "hits"
 	speed = 4
 	stop_automated_movement_when_pulled = 0
-	maxHealth = 100
+	maxhealth = 100
 	health = 100
 
 	harm_intent_damage = 5
 	melee_damage_lower = 30
 	melee_damage_upper = 30
-	attacktext = "slashed"
+	attacktext = "slashes"
 	attack_sound = 'sound/weapons/bladeslice.ogg'
 
 	min_oxy = 5

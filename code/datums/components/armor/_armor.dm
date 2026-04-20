@@ -3,27 +3,33 @@
 	var/full_block_message = "Your armor absorbs the blow!"
 	var/partial_block_message = "Your armor softens the blow!"
 
-	// This controls how some armor types such as mech armor work.
+	/// If this armour component should be hidden on examine.
+	var/hidden = FALSE
+
+	/// This controls how some armor types such as mech armor work.
 	var/armor_flags = ARMOR_TYPE_STANDARD
 
-	// Armor 'works' for damages in range from 0 to [armor_range_mult * armor].
-	// The lower the damage, the harder it gets blocked, tapering to 0 mitigation at [armor_range_mult * armor]
+	/// Armor 'works' for damages in range from 0 to [armor_range_mult * armor].
+	/// The lower the damage, the harder it gets blocked, tapering to 0 mitigation at [armor_range_mult * armor]
 	var/armor_range_mult = 2
-	// [under_armor_mult] multiplies how strongly damage that is <= armor value is blocked.
-	//  E.g. setting it to 0 will flat out block all damage below armor
+	/// [under_armor_mult] multiplies how strongly damage that is <= armor value is blocked.
+	///  E.g. setting it to 0 will flat out block all damage below armor
 	var/under_armor_mult = 0.7
-	// [over_armor_mult] multiplies how strongly damage that is > armor value is blocked.
-	//  E.g. setting it to more than 1 will make mitigation drop off faster, effectively reducing the range of damage mitigation
+	/// [over_armor_mult] multiplies how strongly damage that is > armor value is blocked.
+	///  E.g. setting it to more than 1 will make mitigation drop off faster, effectively reducing the range of damage mitigation
 	var/over_armor_mult = 1
 
-	var/sealed = FALSE // Used with ARMOR_TYPE_RIG.
+	/// Used with ARMOR_TYPE_RIG.
+	var/sealed = FALSE
 
-/datum/component/armor/Initialize(list/armor, armor_type)
+/datum/component/armor/Initialize(list/armor, armor_type, hidden)
 	..()
 	if(armor)
 		armor_values = armor.Copy()
 	if(armor_type)
 		armor_flags = armor_type
+	if(hidden)
+		hidden = TRUE
 
 // Takes in incoming damage value
 // Applies state changes to self, holder, and whatever else caused by damage mitigation

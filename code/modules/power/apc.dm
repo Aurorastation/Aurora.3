@@ -1191,7 +1191,7 @@ ABSTRACT_TYPE(/obj/machinery/power/apc)
 		return
 	if(failure_timer > 0)
 		failure_timer--
-		if(!(update_state & UPDATE_BLUESCREEN))
+		if(!(update_state & UPDATE_BLUESCREEN) || failure_timer == 0)
 			update()
 			SSicon_update.add_to_queue(src)
 		return

@@ -6,12 +6,12 @@
 	icon_dead = "baseline_grey_off"
 	blood_type = COLOR_OIL
 	health = 100
-	maxHealth = 100
+	maxhealth = 100
 	melee_damage_lower = 15
 	melee_damage_upper = 20
 	armor_penetration = 20
 	attack_sound = 'sound/weapons/smash.ogg'
-	attacktext = "smashed"
+	attacktext = "smashes"
 	faction = "hivebot"
 	min_oxy = 0
 	max_oxy = 0

@@ -116,6 +116,11 @@ GLOBAL_DATUM(ninjas, /datum/antagonist/ninja)
 	player.force_update_limbs()
 	player.update_eyes()
 	player.regenerate_icons()
+
+	// Offship antags wipe skill components so that they can bypass skill restrictions entirely.
+	for(var/datum/component/skill/skill in player._datum_components)
+		qdel(skill)
+
 	return TRUE
 
 /datum/antagonist/ninja/proc/generate_ninja_directive(side)

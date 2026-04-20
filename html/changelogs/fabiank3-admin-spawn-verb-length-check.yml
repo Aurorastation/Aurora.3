@@ -1,6 +1,0 @@
-author: FabianK3
-
-delete-after: True
-
-changes:
-  - code_imp: "Fixed server lag when using the admin spawn verb with an empty argument."

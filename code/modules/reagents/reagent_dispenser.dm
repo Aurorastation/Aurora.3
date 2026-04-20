@@ -468,9 +468,10 @@
 
 /obj/structure/reagent_dispensers/acid_barrel
 	name = "chemical barrel"
-	desc = "A metal barrel containing some unknown chemical."
+	desc = "A metal barrel filled with deadly sulfuric acid."
 	icon_state = "acid_barrel"
 	amount_per_transfer_from_this = 300
+	reagents_to_add = list(/singleton/reagent/acid = 1000)
 
 /obj/structure/reagent_dispensers/radioactive_waste
 	name = "radioactive waste barrel"

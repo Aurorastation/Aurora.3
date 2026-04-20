@@ -22,19 +22,23 @@
 	/// drains power from the EQUIPMENT channel
 	power_channel = AREA_USAGE_EQUIP
 
+	maxhealth = OBJECT_HEALTH_MEDIUM
+
 	req_one_access = list(ACCESS_SECURITY, ACCESS_HEADS)
 
 	light_range = 3
 	light_power = 2
 
+	armor = list(
+		MELEE = ARMOR_MELEE_KEVLAR,
+		BULLET = ARMOR_BALLISTIC_PISTOL,
+		LASER = ARMOR_LASER_KEVLAR
+	)
+
 	/// if the turret cover is "open" and the turret is raised
 	var/raised = 0
 	/// if the turret is currently opening or closing its cover
 	var/raising= 0
-	/// the turret's health
-	var/health = 80
-	/// turrets maximal health.
-	var/maxhealth = 80
 	/// if 1 the turret slowly repairs itself.
 	var/auto_repair = 0
 	/// if the turret's behaviour control access is locked
@@ -109,18 +113,15 @@
 
 	var/old_angle = 0
 
-/obj/machinery/porta_turret/condition_hints(mob/user, distance, is_adjacent)
-	. += ..()
-	if(!health)
-		. += SPAN_DANGER("\The [src] is destroyed!")
-	else if(health / maxhealth < 0.35)
-		. += SPAN_DANGER("\The [src] is critically damaged!")
+/obj/machinery/porta_turret/get_damage_condition_hints(mob/user, distance, is_adjacent)
+	if(health / maxhealth < 0.35)
+		. = SPAN_DANGER("\The [src] is critically damaged!")
 	else if(health / maxhealth < 0.6)
-		. += SPAN_ALERT("\The [src] is badly damaged!")
+		. = SPAN_ALERT("\The [src] is badly damaged!")
 	else if(health / maxhealth < 1)
-		. += SPAN_NOTICE("\The [src] is slightly damaged.")
+		. = SPAN_NOTICE("\The [src] is slightly damaged.")
 	else
-		. += "\The [src] is in perfect condition."
+		. = "\The [src] is in perfect condition."
 
 /obj/machinery/porta_turret/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()
@@ -426,8 +427,7 @@
 				if(QDELETED(src) || !WT.isOn())
 					return TRUE
 				playsound(src.loc, 'sound/items/welder_pry.ogg', 50, 1)
-				health += maxhealth / 3
-				health = min(maxhealth, health)
+				add_health(maxhealth * 0.3)
 			else
 				to_chat(user, SPAN_NOTICE("You fail to complete the welding."))
 		else
@@ -436,7 +436,7 @@
 	else
 		//if the turret was attacked with the intention of harming it:
 		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
-		take_damage(attacking_item.force * 0.5)
+		add_damage(attacking_item.force * 0.5)
 		if(attacking_item.force * 0.5 > 1) //if the force of impact dealt at least 1 damage, the turret gets pissed off
 			if(!attacked && !emagged)
 				attacked = 1
@@ -477,17 +477,13 @@
 		enabled = 1 //turns it back on. The cover popUp() popDown() are automatically called in process(), no need to define it here
 		return 1
 
-/obj/machinery/porta_turret/proc/take_damage(var/force)
+/obj/machinery/porta_turret/add_damage(damage, damage_flags, damage_type, armor_penetration, obj/weapon)
 	if(!raised && !raising)
-		force = force / 8
-		if(force < 5)
-			return
+		damage = damage / 8
 
-	health -= force
-	if (force > 5 && prob(45))
+	if (damage > 5 && prob(45))
 		spark_system.queue()
-	if(health <= 0)
-		die()	//the death process :(
+	. = ..()
 
 /obj/machinery/porta_turret/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
 	var/damage = hitting_projectile.get_structure_damage()
@@ -504,7 +500,7 @@
 	if(. != BULLET_ACT_HIT)
 		return .
 
-	take_damage(damage)
+	add_damage(damage)
 
 /obj/machinery/porta_turret/emp_act(severity)
 	. = ..()
@@ -535,11 +531,11 @@
 			if (prob(25))
 				qdel(src)
 			else
-				take_damage(initial(health) * 8) //should instakill most turrets
+				add_damage(maxhealth * 8) //should instakill most turrets
 		if (3)
-			take_damage(initial(health) * 8 / 3)
+			add_damage(maxhealth * 8 / 3)
 
-/obj/machinery/porta_turret/proc/die()	//called when the turret dies, ie, health <= 0
+/obj/machinery/porta_turret/on_death(damage, damage_flags, damage_type, armor_penetration, obj/weapon)
 	health = 0
 	stat |= BROKEN	//enables the BROKEN bit
 	spark_system.queue()	//creates some sparks because they look cool
@@ -555,7 +551,7 @@
 
 	if(auto_repair && (health < maxhealth))
 		use_power_oneoff(20000)
-		health = min(health+1, maxhealth) // 1HP for 20kJ
+		add_health(1)
 
 	if(raising)
 		return // Don't try to do target acquisition while we're resetting

@@ -7816,7 +7816,7 @@
 /obj/item/clothing/accessory/armband/science{
 	pixel_y = 1
 	},
-/obj/item/clothing/accessory/armband/medgreen{
+/obj/item/clothing/accessory/armband/med{
 	pixel_y = -2
 	},
 /obj/item/clothing/accessory/armband/scc{

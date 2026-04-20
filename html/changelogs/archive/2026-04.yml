@@ -206,3 +206,139 @@
       of their icon and examine, like a psionic Show-Held-Item
   - rscadd: With a mental image stored, Commune may be used in hand to warp and add
       custom text after its description.
+2026-04-14:
+  Batrachophrenoboocosmomachia:
+  - bugfix: Removes superficial eye damage from light sensitivity proc.
+  - rscadd: Adds custom voidsuit & cloak items for Shigaraz Hiskyn.
+  - qol: Warehouse submap compartment shutter now spawns closed by default.
+  - qol: Warehouse submap compartment walls are now reinforced walls for radiation
+      blocking.
+  - qol: Modifies several warehouse submaps; removes static objs like ship weapon
+      and cars, increase variety of existing content, removes a few lore-unfriendly
+      items, tunes radiatioactive waste submap, etc.
+  - bugfix: Acid barrel now spawns with acid in it.
+  FabianK3:
+  - code_imp: Fixed server lag when using the admin spawn verb with an empty argument.
+  arrow768:
+  - refactor: Refactors IPIntel (XKeyScore) to use the SShttp subsystem for async
+      HTTP requests instead of world.Export.
+  - refactor: Moves IPIntel logic into the SSipintel subsystem as proper subsystem
+      procs.
+  - code_imp: IPIntel database queries now use SSdbcore with parameterized queries
+      instead of GLOB.dbcon string interpolation.
+  - config: Adds a dedicated IPIntel subsystem log (subsystems/ipintel.log) controlled
+      by log_subsystems_ipintel in logging.json.
+  - code_imp: Refactors BYOND account age lookup (findJoinDate) to use async RUSTG
+      HTTP instead of world.Export.
+  - code_imp: Refactors client login DB logging (log_client_to_db) to use SSdbcore
+      with parameterized queries.
+  - code_imp: Removes unused get_player_age proc.
+  - server: Changed the synthsprites to use the new DBCore
+  - server: Changed the MalfAI to use the new DBCore
+  - server: Changed the Alien Whitelists to use the new DBCore
+  - server: Changed the Requests Console to use the new DBCore
+  - server: Changed the Contracts Uplink to use the new DBCore
+  - server: Changed the Admin Ranks to use the new DBCore
+  - server: Changed the Job Bans to use the new DBCore
+  - server: Changed the Tickets to use the new DBCore
+  - server: Changed the Create Command Report to use the new DBCore
+  - server: Changed the WebInterface interconnect to use the new DBCore
+  - server: Changed the CCIA Recorder to use the new DBCore
+  - server: Changed the IPCTags to use the new DBCore
+  - server: Changed the Main Menu Poll-Check to use the new DBCore
+  - server: Changed the Client-Procs to use the new DBCore
+2026-04-16:
+  Batrachophrenoboocosmomachia:
+  - bugfix: Makes 'tanks' with distribution pressure set to 0 not count for purposes
+      of Internals button trying to find the 'best' tank.
+  - qol: Makes such tanks provide feedback hint text explaining that they cannot be
+      used for Internals.
+  FabianK3:
+  - rscadd: 'Added four new whiteboard overlays: SCCV Horizon, Navigation chart, Task
+      list and Thrust diagram.'
+  SleepyGemmy:
+  - bugfix: Fixed the shuttles' access shutters not allowing the Spark and Canary
+      accesses.
+  - bugfix: Fixed the Spark's access shutters not having mining access.
+  - bugfix: Fixed watches referring to bluespace transfer during the round end timer.
+  - bugfix: Fixed ashtrays not having a examine hint about emptying vs putting it
+      into a disposal.
+  - bugfix: Fixed ashtrays not giving a feedback message when trying to empty a empty
+      one.
+  - bugfix: Fixed a duplicate "the" when putting something inside a disposal.
+  TheGreyWolf:
+  - bugfix: Fixes APCs saying a room is turned on, but the room is without power and
+      the APC is not updating from being bluescreened.
+2026-04-17:
+  Batrachophrenoboocosmomachia:
+  - bugfix: Fixes runtime when running internals with CO2 jetpack caused by distribute_pressure
+      check update.
+  MattAtlas:
+  - experiment: Adds an universal health system. This means that objects can dynamically
+      be made destructible. Currently, this applies to things like machinery or some
+      structures.
+2026-04-18:
+  Hellfirejag:
+  - bugfix: Fixed LED collars becoming excessively bright if you change their color.
+2026-04-19:
+  Hellfirejag and Matt Atlas:
+  - rscadd: Added a basic initial implementation of a Mechanical Skills System.
+  TheGreyWolf:
+  - bugfix: Fixed some things regarding the nation blacklist check for factions.
+2026-04-20:
+  Batrachophrenoboocosmomachia:
+  - rscadd: Adds the space sector for Assunzione, its exoplanet map, and its port
+      of call, Port Volturno.
+  - rscadd: Adds support for billboards to display sets of randomized ads based on
+      icon_state prefixes for different worlds/locations.
+  - rscadd: Adds support for 2x1 illuminated signs to be locked to a single initial
+      setting.
+  - rscadd: All bikes can now run people over if colliding with Run intent, not just
+      monowheels.
+  - rscadd: Adds new Luceist flag (large only), also available in gear loadout.
+  - balance: Increases default vehicle speeds to account for smooth movement speed
+      buffs (currently only affects mopeds, which were painfully slow.)
+  - imageadd: Adds many new sprites by Fyni, Minezeyes, Sammy, and Batrachophrenoboocosmomachia.
+  - bugfix: Rental bike machines no longer vend dummy keys of a type if only configured
+      to sell keys of another type.
+  - bugfix: Status Displays correctly display time on round start rather than attempting
+      to display arrivals shuttle (and remaining blank until changed).
+  - bugfix: Many, many minor improvements and bugfixes in Port Volturno based on observation
+      of Event round.
+  FabianK3:
+  - rscadd: Added a washroom to engineering.
+  - qol: Refactored the multilevel maint between engineering and medical.
+  - qol: Renamed engineering EVA to engineering equipment. Area name change, doors
+      and cameras were already correct.
+  - bugfix: Fixed camera in supermatter monitoring belonging to the wrong network.
+  - bugfix: Removed the left-over unconnected vents in security meeting room.
+  Fenodyree:
+  - bugfix: Fixes one handed only guns having a one handed firing penalty.
+  - bugfix: Fixes the one handed firing penalty not applying to short and 3 round
+      bursts.
+  Hellfirejag:
+  - bugfix: Fixed another harddel related to observers.
+  - bugfix: Fixed a hard del related to ID cards.
+  - bugfix: Cleaned up some mob human timers that might sometimes hard del.
+  - bugfix: Fixed a hard del related to any form of direct organ replacement via loadouts
+      (such as bioaugs).
+  - bugfix: Fixed a hard del related to mechanical mobs that explode on death such
+      as maintenance drones.
+  - bugfix: Fixed a hard del related to PDA channels.
+  - bugfix: Fixed a hard del caused by players joining a round too quickly after first
+      connecting, or by latejoining.
+  TheGreyWolf:
+  - bugfix: Fixed the operations status display screens not showing the elevator status.
+  - bugfix: Fixed the cargo delivery program not displaying the account that was used
+      to pay for an order with.
+  - bugfix: Fixed the cargo delivery program not displaying shipped orders regardless
+      of payment status.
+  - bugfix: Fixed the ghostly ambience on the operations lift and the lift near security.
+  - bugfix: The operations program now displays the elevator time in seconds instead
+      of minutes, given the minutes would always show 0.
+  diggiez:
+  - bugfix: Set GPS Memory in the Telepad Control Console finally, actually functions
+      and displays the last target coordinates.
+  fyni:
+  - rscadd: "Adds Drosi\xE1 Cherry soda, and rejigs the grape soda to be Drosi\xE1\
+      \ Grape soda. Assunzione's favourite soft drink!"

@@ -8,8 +8,7 @@
 	layer = SIDE_WINDOW_LAYER
 	min_force = 4
 	hitsound = 'sound/effects/glass_hit.ogg'
-	maxhealth = 150 //If you change this, consiter changing ../door/window/brigdoor/ health at the bottom of this .dm file
-	health = 150
+	maxhealth = OBJECT_HEALTH_MEDIUM
 	visible = 0.0
 	atom_flags = ATOM_FLAG_CHECKS_BORDER
 	opacity = 0
@@ -34,18 +33,6 @@
 		icon_state = base_state
 	else
 		icon_state = "[base_state]open"
-
-/obj/machinery/door/window/proc/shatter(var/display_message = 1)
-	new /obj/item/trash/broken_electronics(loc)
-	new /obj/item/material/shard(loc)
-	var/obj/item/stack/cable_coil/CC = new /obj/item/stack/cable_coil(loc)
-	CC.amount = 2
-	CC.update_icon()
-	src.density = FALSE
-	playsound(src, SFX_BREAK_GLASS, 70, 1)
-	if(display_message)
-		visible_message("[src] shatters!")
-	qdel(src)
 
 /obj/machinery/door/window/Destroy()
 	density = FALSE
@@ -139,11 +126,17 @@
 	operating = FALSE
 	return 1
 
-/obj/machinery/door/window/take_damage(var/damage)
-	src.health = max(0, src.health - damage)
-	if (src.health <= 0)
-		shatter()
-		return
+/obj/machinery/door/window/on_death(damage, damage_flags, damage_type, armor_penetration, obj/weapon, display_message = FALSE)
+	new /obj/item/trash/broken_electronics(loc)
+	new /obj/item/material/shard(loc)
+	var/obj/item/stack/cable_coil/CC = new /obj/item/stack/cable_coil(loc)
+	CC.amount = 2
+	CC.update_icon()
+	src.density = FALSE
+	playsound(src, SFX_BREAK_GLASS, 70, 1)
+	if(display_message)
+		visible_message("[src] shatters!")
+	qdel(src)
 
 /obj/machinery/door/window/attack_hand(mob/user as mob)
 	var/mob/living/carbon/human/H = user
@@ -152,7 +145,7 @@
 		playsound(src.loc, 'sound/effects/glass_hit.ogg', 75, 1)
 		user.visible_message(SPAN_DANGER("[user] smashes against [src]."),
 								SPAN_DANGER("You smash against [src]!"))
-		take_damage(25)
+		add_damage(25)
 		return
 	else
 		return attackby(null, user)
@@ -212,7 +205,7 @@
 		playsound(src.loc, 'sound/effects/glass_hit.ogg', 75, 1)
 		visible_message(SPAN_DANGER("[src] was hit by [attacking_item]."))
 		if(attacking_item.damtype == DAMAGE_BRUTE || attacking_item.damtype == DAMAGE_BURN)
-			take_damage(aforce)
+			add_damage(aforce, attacking_item.damage_flags(), attacking_item.damtype, attacking_item.armor_penetration, attacking_item)
 		return TRUE
 
 	if(!istype(attacking_item, /obj/item/forensics))
@@ -238,10 +231,9 @@
 	icon_state = "leftsecure"
 	base_state = "leftsecure"
 	req_access = list(ACCESS_SECURITY)
-	var/id = null
-	maxhealth = 300
-	health = 300.0 //Stronger doors for prison (regular window door health is 150)
+	maxhealth = OBJECT_HEALTH_VERY_HIGH
 
+	var/id = null
 
 /obj/machinery/door/window/brigdoor/allowed(mob/M)
 	if(!operable()) // Brigdoors are the exception to the "fail open" windoor - they lock closed

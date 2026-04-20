@@ -1,0 +1,6 @@
+author: SleepyGemmy
+
+delete-after: True
+
+changes:
+  - bugfix: "Fixed chickpeas being unable to spawn in the random produce boxes due to a typo."

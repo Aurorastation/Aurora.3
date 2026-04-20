@@ -112,7 +112,7 @@
 	new_log.SetSuccessCallback(CALLBACK(src, .proc/set_db_log_id))
 	new_log.SetFailCallback(CALLBACK(GLOBAL_PROC, /proc/qdel))
 
-	new_log.ExecuteNoSleep()
+	new_log.ExecuteNoSleep(TRUE) //Allow to execute before roundstarts for roundstart antags
 	return
 
 /datum/antagonist/proc/set_db_log_id(var/datum/db_query/new_log)
@@ -137,4 +137,4 @@
 		)
 	update_query.SetSuccessCallback(CALLBACK(src, .proc/set_db_log_id))
 	update_query.SetFailCallback(CALLBACK(GLOBAL_PROC, /proc/qdel))
-	update_query.ExecuteNoSleep()
+	update_query.ExecuteNoSleep(TRUE) //Shouldnt happen but still, in case it happens we want it to run before roundstart

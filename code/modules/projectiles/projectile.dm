@@ -76,6 +76,8 @@
 	var/pierces = 0
 	///The base chance that a projectile capable of piercing will actually pierce.
 	var/pierce_chance = 0
+	/// 0-1 multiplier, the projectile's damage is modified by multiplying this after each pierce.
+	var/pierce_decay_damage = 0.7
 	///Used to determine whether or not to apply embed chances on hit.
 	var/last_hit_pierced = FALSE
 	/// If objects are below this layer, we pass through them.
@@ -346,6 +348,12 @@
 	else
 		return 50 //if the projectile doesn't do damage, play its hitsound at 50% volume
 
+/obj/projectile/proc/get_structure_damage_sound()
+	if(damage_type == DAMAGE_BRUTE)
+		return 'sound/effects/metalping.ogg'
+	else if(damage_type == DAMAGE_BURN)
+		return pick(SOUNDS_LASER_METAL)
+
 /obj/projectile/proc/on_ricochet(atom/A)
 	if(!ricochet_auto_aim_angle || !ricochet_auto_aim_range)
 		return
@@ -370,6 +378,22 @@
 	beam_index = point_cache
 	beam_segments[beam_index] = null
 
+/obj/projectile/proc/check_human_shield(atom/A)
+	if(!isliving(A) || !starting)
+		return FALSE
+
+	var/mob/living/M = A
+	if(point_blank || !(M.dir & get_dir(M, starting)))
+		return FALSE
+
+	for(var/obj/item/grab/G in list(M.l_hand, M.r_hand))
+		if(!G?.affecting || G.state < GRAB_NECK || G.affecting.lying)
+			continue
+		M.visible_message(SPAN_DANGER("\The [M] uses [G.affecting] as a shield!"))
+		return G.affecting
+
+	return FALSE
+
 /obj/projectile/Collide(atom/A)
 	SEND_SIGNAL(src, COMSIG_MOVABLE_BUMP, A)
 	if(!can_hit_target(A, A == original, TRUE, TRUE))
@@ -388,13 +412,21 @@
  * Also, we select_target to find what to process_hit first.
  */
 /obj/projectile/proc/Impact(atom/A)
+	if(QDELETED(src))
+		return TRUE
 	if(!trajectory)
 		qdel(src)
 		return FALSE
 	if(impacted[A.weak_reference]) // NEVER doublehit
 		return FALSE
-	var/datum/point/point_cache = trajectory.copy_to()
 	var/turf/T = get_turf(A)
+	var/atom/shield_target = check_human_shield(A)
+	if(shield_target)
+		var/datum/weakref/original_ref = A.weak_reference
+		impacted[original_ref] = TRUE
+		process_hit(T, shield_target, A)
+		impacted -= original_ref
+	var/datum/point/point_cache = trajectory.copy_to()
 	if(ricochets < ricochets_max && check_ricochet_flag(A) && check_ricochet(A))
 		ricochets++
 		if(A.handle_ricochet(src))
@@ -653,7 +685,8 @@
 		return PROJECTILE_PIERCE_PHASE
 	if(projectile_piercing & A.pass_flags_self)
 		if (penetrating > pierces)
-			if(damage > 20 && prob(pierce_chance + damage))
+			if(prob(min(100, (pierce_chance + (damage/4) + armor_penetration) * anti_materiel_potential))) //Base pierce_chance is 0. This gives the STS a 30% chance to pierce once.
+				damage *= pierce_decay_damage
 				penetrating--
 				last_hit_pierced = TRUE
 				return PROJECTILE_PIERCE_HIT
@@ -1226,7 +1259,7 @@
 	if(!P || !P.ping_effect)
 		return
 
-	var/image/I = image('icons/obj/projectiles.dmi', src,P.ping_effect,10, pixel_x = pixel_x_offset, pixel_y = pixel_y_offset)
+	var/image/I = image('icons/obj/projectiles.dmi', src, P.ping_effect, 10, pixel_x = pixel_x_offset, pixel_y = pixel_y_offset)
 	var/angle = (P.firer && prob(60)) ? round(get_angle(P.firer,src)) : round(rand(1,359))
 	I.pixel_x += rand(-6,6)
 	I.pixel_y += rand(-6,6)
@@ -1235,6 +1268,7 @@
 	rotate.Turn(angle)
 	I.transform = rotate
 	// Need to do this in order to prevent the ping from being deleted
+	playsound(src, P.get_structure_damage_sound(), P.vol_by_damage())
 	addtimer(CALLBACK(I, TYPE_PROC_REF(/image, flick_overlay), src, 3), 1)
 
 /image/proc/flick_overlay(var/atom/A, var/duration)

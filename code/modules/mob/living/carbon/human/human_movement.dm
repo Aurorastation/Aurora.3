@@ -19,7 +19,7 @@
 	if(embedded_flag)
 		handle_embedded_objects() //Moving with objects stuck in you can cause bad times.
 
-	var/health_deficiency = maxHealth - health
+	var/health_deficiency = maxhealth - health
 	if(health_deficiency >= 40)
 		tally += (health_deficiency / 25)
 

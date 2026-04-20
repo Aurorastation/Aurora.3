@@ -20,8 +20,8 @@
 	response_disarm = "gently pushes aside"
 	response_harm   = "kicks"
 	faction = "goat"
-	attacktext = "kicked"
-	maxHealth = 40
+	attacktext = "kicks"
+	maxhealth = 40
 	melee_damage_lower = 1
 	melee_damage_upper = 5
 	udder = null
@@ -94,7 +94,7 @@
 	response_help  = "pets"
 	response_disarm = "gently pushes aside"
 	response_harm   = "kicks"
-	attacktext = "kicked"
+	attacktext = "kicks"
 	health = 250
 	mob_size = 20//based on mass of holstein fresian dairy cattle, what the sprite is based on
 	emote_sounds = list('sound/effects/creatures/cow.ogg')
@@ -140,7 +140,7 @@
 	response_help  = "pets"
 	response_disarm = "gently pushes aside"
 	response_harm   = "kicks"
-	attacktext = "kicked"
+	attacktext = "kicks"
 	health = 120
 	emote_sounds = list('sound/effects/creatures/pigsnort.ogg')
 	butchering_products = list(/obj/item/stack/material/animalhide/barehide = 6)
@@ -166,8 +166,8 @@
 	response_help  = "pets"
 	response_disarm = "gently pushes aside"
 	response_harm   = "kicks"
-	attacktext = "kicked"
-	maxHealth = 1
+	attacktext = "kicks"
+	maxhealth = 1
 	var/amount_grown = 0
 	pass_flags = PASSTABLE | PASSGRILLE
 	holder_type = /obj/item/holder/chick
@@ -214,8 +214,8 @@
 	response_help  = "pets"
 	response_disarm = "gently pushes aside"
 	response_harm   = "kicks"
-	attacktext = "kicked"
-	maxHealth = 10
+	attacktext = "kicks"
+	maxhealth = 10
 	var/eggsleft = 0
 	var/body_color
 	pass_flags = PASSTABLE
@@ -302,7 +302,7 @@
 	response_help  = "pets"
 	response_disarm = "bops"
 	response_harm   = "kicks"
-	attacktext = "kicked"
+	attacktext = "kicks"
 	mob_size = 2
 
 /mob/living/simple_animal/penguin/baby
