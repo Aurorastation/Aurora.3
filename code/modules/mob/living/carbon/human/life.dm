@@ -1246,6 +1246,15 @@
 							"The bright light leaves your vision strained."
 						)
 						to_chat(src, SPAN_WARNING(pick(eye_sensitivity_messages)))
+						if(prob(20))
+							// If your eyes are covered, people can see you squinting.
+							var/list/protection = list(self.head, self.glasses, self.wear_mask)
+							var/eyes_covered = FALSE
+							for(var/obj/item/I in protection)
+								if(I?.body_parts_covered & EYES)
+									eyes_covered = TRUE
+							if(!eyes_covered)
+								self.visible_message("[self] squints in discomfort.")
 
 /mob/living/carbon/human/proc/handle_changeling()
 	if(mind)
