@@ -3,6 +3,7 @@
 	desc = "A steel window frame."
 	icon = 'icons/obj/smooth/window/full_window_frame_color.dmi'
 	icon_state = "window_frame"
+	maxhealth = OBJECT_HEALTH_MEDIUM
 	color = COLOR_GRAY20
 	build_amt = 4
 	layer = WINDOW_FRAME_LAYER
@@ -10,7 +11,6 @@
 	density = TRUE
 	climbable = TRUE
 	smoothing_flags = SMOOTH_MORE
-	breakable = TRUE
 	can_be_unanchored = TRUE
 	canSmoothWith = list(
 		/turf/simulated/wall,
@@ -19,6 +19,7 @@
 		/turf/unsimulated/wall/steel, // Centcomm wall.
 		/turf/unsimulated/wall/darkshuttlewall, // Centcomm wall.
 		/turf/unsimulated/wall/riveted, // Centcomm wall.
+		/turf/unsimulated/wall/fakepdoor,
 		/obj/structure/window_frame,
 		/obj/structure/window_frame/unanchored,
 		/obj/structure/window_frame/empty,
@@ -169,6 +170,7 @@
 		new_grille.shock(user, 70) // You haven't forgotten your precautions, have you?
 		has_grille_installed = TRUE
 		return
+	else return ..()
 
 /obj/structure/window_frame/hitby(atom/movable/hitting_atom, skipcatch, hitpush, blocked, datum/thrownthing/throwingdatum)
 	. = ..()
@@ -177,6 +179,7 @@
 		W.hitby(arglist(args))
 
 /obj/structure/window_frame/wood
+	maxhealth = OBJECT_HEALTH_LOW
 	color = "#8f5847"
 
 /obj/structure/window_frame/unanchored // Used during in-game construction.
@@ -187,6 +190,7 @@
 	should_check_mapload = FALSE // No glass.
 
 /obj/structure/window_frame/shuttle
+	maxhealth = OBJECT_HEALTH_HIGH
 	icon = 'icons/obj/smooth/window/full_window_frame_color.dmi'
 	color = null
 	smoothing_flags = SMOOTH_MORE

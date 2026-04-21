@@ -8,7 +8,7 @@
 	idle_power_usage = 300
 	active_power_usage = 300
 	clicksound = SFX_KEYBOARD
-
+	maxhealth = OBJECT_HEALTH_MEDIUM
 	/// The path to the circuit board type. If circuit==null, the computer can't be disassembled.
 	var/circuit = null
 	var/processing = 0
@@ -172,6 +172,20 @@
 	// Adds line breaks
 	text = replacetext(text, "\n", "<BR>")
 	return text
+
+/obj/machinery/computer/on_death(damage, damage_flags, damage_type, armor_penetration, obj/weapon)
+	var/obj/structure/computerframe/A = new /obj/structure/computerframe(loc)
+	A.anchored = TRUE
+	if(prob(50))
+		var/obj/item/circuitboard/M = new circuit(A)
+		A.circuit = M
+	else
+		new /obj/effect/decal/cleanable/blood/oil(loc)
+		new /obj/item/trash/broken_electronics(loc)
+	new /obj/item/material/shard(loc)
+	new /obj/effect/decal/cleanable/blood/oil(loc)
+	spark(A, 5, GLOB.alldirs)
+	. = ..()
 
 /obj/machinery/computer/attackby(obj/item/attacking_item, mob/user)
 	if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)

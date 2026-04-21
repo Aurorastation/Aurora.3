@@ -1,0 +1,7 @@
+author: Batrachophrenoboocosmomachia
+delete-after: True
+changes:
+  - balance: "Access pass on all maint doors with minor alterations for more consistent per-department access rights."
+  - balance: "Modified random loot tables and added new loot spawner type to Horizon, that should result in more varied maint tunnel contents without disrupting existing balance."
+  - bugfix: "Fixes box of condiments spawning with generic non-filled condiment bottles."
+  - bugfix: "Removes one of two lights that were directly adjacent to each other in the Operating Theatre."

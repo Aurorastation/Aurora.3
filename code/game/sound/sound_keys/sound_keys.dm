@@ -904,3 +904,11 @@
 		'sound/effects/creatures/robot_talk_1.ogg',
 		'sound/effects/creatures/robot_talk_2.ogg'
 	)
+
+/datum/sound_effect/whiteboard_scribble
+	key = SFX_WHITEBOARD_SCRIBBLE
+	file_paths = list(
+		'sound/effects/whiteboard_scribble_1.ogg',
+		'sound/effects/whiteboard_scribble_2.ogg',
+		'sound/effects/whiteboard_scribble_3.ogg'
+	)

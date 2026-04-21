@@ -19,7 +19,7 @@
 	response_disarm = "shoves"
 	response_harm   = "harmlessly punches"
 	blood_overlay_icon = null
-	maxHealth = 400
+	maxhealth = 400
 	health = 400
 	harm_intent_damage = 0
 	melee_damage_lower = 40
@@ -28,7 +28,7 @@
 	resist_mod = 10
 	mob_size = 30
 	environment_smash = 2
-	attacktext = "chomped"
+	attacktext = "chomps"
 	attack_sound = 'sound/weapons/bloodyslice.ogg'
 
 	lighting_alpha = LIGHTING_PLANE_ALPHA_SOMEWHAT_INVISIBLE
@@ -150,7 +150,7 @@
 	response_disarm = "gently pushes aside the"
 	response_harm = "hits the"
 	speed = -1
-	maxHealth = 50
+	maxhealth = 50
 	health = 50
 	mob_size = 10
 
@@ -158,7 +158,7 @@
 
 	melee_damage_lower = 5
 	melee_damage_upper = 8
-	attacktext = "rammed"
+	attacktext = "rams"
 	attack_sound = 'sound/weapons/punch4_bass.ogg'
 
 	environment_smash = 1

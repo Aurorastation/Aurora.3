@@ -7,8 +7,8 @@
 	w_class = WEIGHT_CLASS_HUGE
 	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
 	pass_flags_self = PASSTABLE
+	maxhealth = OBJECT_HEALTH_HIGH
 	var/state = 0
-	var/health = 200
 	/// How much cover the girder provides against projectiles.
 	var/cover = 50
 	build_amt = 2
@@ -16,10 +16,9 @@
 	var/reinforcing = 0
 	var/plating = FALSE
 
-/obj/structure/girder/condition_hints(mob/user, distance, is_adjacent)
-	. += ..()
+/obj/structure/girder/get_damage_condition_hints(mob/user, distance, is_adjacent)
 	var/state
-	var/current_damage = health / initial(health)
+	var/current_damage = health / maxhealth
 	switch(current_damage)
 		if(0 to 0.2)
 			state = SPAN_DANGER("The support struts are collapsing!")
@@ -29,7 +28,7 @@
 			state = SPAN_NOTICE("The support struts are dented, but holding together.")
 		if(0.8 to 1)
 			state = SPAN_NOTICE("The support struts look completely intact.")
-	. += state
+	. = state
 
 /obj/structure/girder/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()
@@ -68,7 +67,7 @@
 	name = "displaced girder"
 	icon_state = "displaced"
 	anchored = 0
-	health = 50
+	maxhealth = OBJECT_HEALTH_VERY_LOW
 	cover = 25
 
 /obj/structure/girder/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
@@ -83,20 +82,18 @@
 	if(!istype(hitting_projectile, /obj/projectile/beam))
 		damage *= 0.4 //non beams do reduced damage
 
-	take_damage(damage)
+	add_damage(damage)
 
 	return ..()
 
-/obj/structure/girder/proc/take_damage(var/damage)
-	health -= damage
-	if(health <= 0)
-		visible_message(SPAN_WARNING("\The [src] falls apart!"))
-		dismantle()
+/obj/structure/girder/on_death(damage, damage_flags, damage_type, armor_penetration, obj/weapon)
+	visible_message(SPAN_WARNING("\The [src] falls apart!"))
+	. = ..()
 
 /obj/structure/girder/proc/reset_girder()
-	anchored = 1
+	anchored = TRUE
 	cover = initial(cover)
-	health = min(health,initial(health))
+	set_health(maxhealth)
 	state = 0
 	icon_state = initial(icon_state)
 	reinforcing = 0
@@ -200,7 +197,7 @@
 			to_chat(user, SPAN_NOTICE("You dislodged the girder!"))
 			icon_state = "displaced"
 			anchored = 0
-			health = 50
+			set_maxhealth(OBJECT_HEALTH_VERY_LOW, TRUE)
 			cover = 25
 
 	else if(istype(attacking_item, /obj/item/stack/material))
@@ -222,7 +219,7 @@
 		if(damage_to_deal > weaken && (damage_to_deal > MIN_DAMAGE_TO_HIT))
 			damage_to_deal -= weaken
 			visible_message(SPAN_WARNING("[user] strikes \the [src] with \the [attacking_item], [is_sharp(attacking_item) ? "slicing" : "denting"] a support rod!"))
-			take_damage(damage_to_deal)
+			add_damage(damage_to_deal)
 		else
 			visible_message(SPAN_WARNING("[user] strikes \the [src] with \the [attacking_item], but it bounces off!"))
 		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
@@ -301,7 +298,7 @@
 
 /obj/structure/girder/proc/reinforce_girder()
 	cover = reinf_material.hardness
-	health = 500
+	set_maxhealth(OBJECT_HEALTH_EXTREMELY_HIGH, TRUE)
 	state = 2
 	icon_state = "reinforced"
 	reinforcing = 0
@@ -316,26 +313,18 @@
 
 /obj/structure/girder/ex_act(severity)
 	switch(severity)
-		if(1.0)
+		if(1)
 			qdel(src)
-			return
-		if(2.0)
+		if(2)
 			if (prob(30))
 				dismantle()
-				return
 			else
-				health -= rand(60,180)
-
-		if(3.0)
+				add_damage(rand(60,180))
+		if(3)
 			if (prob(5))
 				dismantle()
-				return
 			else
-				health -= rand(40,80)
-
-	if(health <= 0)
-		dismantle()
-	return
+				add_damage(rand(40,80))
 
 /obj/structure/girder/attack_generic(mob/user, damage, attack_message, environment_smash, armor_penetration, attack_flags, damage_type)
 	if(!damage || !environment_smash)

@@ -8,8 +8,8 @@
 	use_power = POWER_USE_OFF
 	idle_power_usage = 0
 	active_power_usage = 0
+
 	var/id = 0
-	var/health = 10
 	var/obscured = 0
 	var/sunfrac = 0
 	var/adir = SOUTH // actual dir
@@ -51,10 +51,8 @@
 		S.anchored = 1
 	S.forceMove(src)
 	if(S.glass_type == /obj/item/stack/material/glass/reinforced) //if the panel is in reinforced glass
-		health *= 2 								 //this need to be placed here, because panels already on the map don't have an assembly linked to
+		set_maxhealth(maxhealth * 2, TRUE)								 //this need to be placed here, because panels already on the map don't have an assembly linked to
 	update_icon()
-
-
 
 /obj/machinery/power/solar/attackby(obj/item/attacking_item, mob/user)
 
@@ -72,22 +70,17 @@
 		return
 	else if (attacking_item)
 		src.add_fingerprint(user)
-		src.health -= attacking_item.force
-		src.healthcheck()
+		add_damage(attacking_item.force)
 	..()
 
 
-/obj/machinery/power/solar/proc/healthcheck()
-	if (src.health <= 0)
-		if(!(stat & BROKEN))
-			broken()
-		else
-			new /obj/item/material/shard(src.loc)
-			new /obj/item/material/shard(src.loc)
-			qdel(src)
-			return
-	return
-
+/obj/machinery/power/solar/on_death(damage, damage_flags, damage_type, armor_penetration, obj/weapon)
+	if(!(stat & BROKEN))
+		broken()
+	else
+		new /obj/item/material/shard(src.loc)
+		new /obj/item/material/shard(src.loc)
+		qdel(src)
 
 /obj/machinery/power/solar/update_icon()
 	..()
@@ -134,8 +127,6 @@
 	stat |= BROKEN
 	unset_control()
 	update_icon()
-	return
-
 
 /obj/machinery/power/solar/ex_act(severity)
 	switch(severity)

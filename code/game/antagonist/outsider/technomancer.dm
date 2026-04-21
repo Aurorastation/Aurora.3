@@ -40,6 +40,10 @@ GLOBAL_DATUM(technomancers, /datum/antagonist/technomancer)
 	technomancer_mob.preEquipOutfit(/obj/outfit/admin/techomancer, FALSE)
 	technomancer_mob.equipOutfit(/obj/outfit/admin/techomancer, FALSE)
 
+	// Offship antags wipe skill components so that they can bypass skill restrictions entirely.
+	for(var/datum/component/skill/skill in technomancer_mob._datum_components)
+		qdel(skill)
+
 	return TRUE
 
 /datum/antagonist/technomancer/proc/equip_apprentice(var/mob/living/carbon/human/technomancer_mob)

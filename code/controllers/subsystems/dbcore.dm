@@ -5,6 +5,7 @@ SUBSYSTEM_DEF(dbcore)
 	wait = 10 // Not seconds because we're running on SS_TICKER
 	runlevels = RUNLEVEL_LOBBY|RUNLEVELS_DEFAULT
 	init_order = INIT_ORDER_DBCORE
+	init_stage = INITSTAGE_FIRST
 	priority = FIRE_PRIORITY_DATABASE
 
 
@@ -308,6 +309,8 @@ SUBSYSTEM_DEF(dbcore)
 
 /// Check if we have established a DB Connection
 /datum/controller/subsystem/dbcore/proc/IsConnected()
+	PRIVATE_PROC(TRUE)
+
 	if(!GLOB.config.sql_enabled)
 		return FALSE
 	if (!connection)
@@ -489,7 +492,7 @@ SUBSYSTEM_DEF(dbcore)
 	if(status == DB_QUERY_STARTED)
 		CRASH("Attempted to start a new query while waiting on the old one")
 
-	if(!SSdbcore.IsConnected())
+	if(!SSdbcore.Connect())
 		last_error = "No connection!"
 		return FALSE
 
@@ -528,7 +531,7 @@ SUBSYSTEM_DEF(dbcore)
 	if(status == DB_QUERY_STARTED)
 		CRASH("Attempted to start a new query while waiting on the old one")
 
-	if(!SSdbcore.IsConnected())
+	if(!SSdbcore.Connect())
 		last_error = "No connection!"
 		return FALSE
 

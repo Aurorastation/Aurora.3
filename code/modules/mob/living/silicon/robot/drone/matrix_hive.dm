@@ -80,7 +80,7 @@ GLOBAL_LIST_EMPTY(drone_matrices)
 		if(MTX_UPG_CELL)
 			D.cell.maxcharge = D.cell.maxcharge * 1.5
 		if(MTX_UPG_HEALTH)
-			D.maxHealth += 15
+			D.maxhealth += 15
 	LAZYADD(D.matrix_upgrades, upgrade_type)
 
 /proc/assign_drone_to_matrix(mob/living/silicon/robot/drone/D, var/matrix_tag)

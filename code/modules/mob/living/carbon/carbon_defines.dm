@@ -38,6 +38,10 @@
 	var/coughedtime = null
 
 	var/willfully_sleeping = FALSE
+	/// Internal time limit based on next REALTIMEOFDAY after which a drug message can play. See #define DRUG_MESSAGE_COOLDOWN
+	var/next_drug_message = 0
+	/// Internal time limit based on next REALTIMEOFDAY after which a sobriety/crash message from drugs can play.
+	var/next_sober_message = 0
 	/// Used by Diona.
 	var/consume_nutrition_from_air = FALSE
 

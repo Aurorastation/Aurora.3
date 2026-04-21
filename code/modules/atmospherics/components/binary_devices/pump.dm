@@ -265,26 +265,6 @@ Thus, the two variables affect pump operation are set in New():
 	ui_interact(user)
 	return
 
-/obj/machinery/atmospherics/binary/pump/Topic(href,href_list)
-	if(..()) return 1
-
-	if(href_list["power"])
-		update_use_power(!use_power)
-
-	switch(href_list["set_press"])
-		if ("min")
-			target_pressure = 0
-		if ("max")
-			target_pressure = max_pressure_setting
-		if ("set")
-			var/new_pressure = input(usr,"Enter new output pressure (0-[max_pressure_setting]kPa)","Pressure control",src.target_pressure) as num
-			src.target_pressure = between(0, new_pressure, max_pressure_setting)
-
-	usr.set_machine(src)
-	src.add_fingerprint(usr)
-
-	src.update_icon()
-
 /obj/machinery/atmospherics/binary/pump/power_change()
 	var/old_stat = stat
 	..()

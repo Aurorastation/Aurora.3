@@ -9,7 +9,7 @@
 	icon_dead = "german_dead"
 
 	health = 75
-	maxHealth = 75
+	maxhealth = 75
 
 	stop_automated_movement_when_pulled = 1 //so people can drag the dog around
 	density = 1
@@ -23,7 +23,7 @@
 	sad_emote = list("whines")
 	emote_sounds = list('sound/effects/creatures/dog_bark.ogg', 'sound/effects/creatures/dog_bark2.ogg', 'sound/effects/creatures/dog_bark3.ogg')
 
-	attacktext = "bitten"
+	attacktext = "bites"
 	attack_sound = 'sound/effects/creatures/dog_bark.ogg'
 	harm_intent_damage = 5
 	melee_damage_lower = 15
@@ -83,7 +83,7 @@
 	gender = MALE
 
 	health = 125
-	maxHealth = 125
+	maxhealth = 125
 
 	icon_state = "columbo"
 	icon_living = "columbo"
@@ -98,7 +98,7 @@
 	icon_dead = "pug_dead"
 
 	health = 25
-	maxHealth = 25
+	maxhealth = 25
 
 	density = 0
 
@@ -146,7 +146,7 @@
 	resist_mod = 4
 
 	health = 100
-	maxHealth = 100
+	maxhealth = 100
 
 	meat_amount = 3
 

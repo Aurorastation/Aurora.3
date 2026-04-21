@@ -46,8 +46,8 @@
 	cell = new /obj/item/cell/high(src)
 
 /obj/item/cloaking_device/Destroy()
-	. = ..()
 	GLOB.cloaking_devices -= src
+	return ..()
 
 /obj/item/cloaking_device/equipped(var/mob/user, var/slot)
 	..()

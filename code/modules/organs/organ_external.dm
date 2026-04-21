@@ -224,8 +224,6 @@
 
 /obj/item/organ/external/Destroy()
 
-	. = ..()
-
 	if(parent?.children)
 		parent.children -= src
 
@@ -262,7 +260,7 @@
 	QDEL_NULL(nymph)
 
 	QDEL_NULL(tendon)
-
+	return ..()
 
 /obj/item/organ/external/proc/invalidate_marking_cache()
 	cached_markings = null
@@ -383,9 +381,8 @@
 				return
 		remove_verb(owner, /mob/living/carbon/human/proc/undislocate)
 
-/obj/item/organ/external/update_health()
+/obj/item/organ/external/update_organ_health()
 	damage = min(max_damage, (brute_dam + burn_dam))
-	return
 
 /obj/item/organ/external/replaced(var/mob/living/carbon/human/target)
 	..()
@@ -512,7 +509,8 @@
 	update_damages()
 	if(owner)
 		owner.updatehealth() //droplimb will call updatehealth() again if it does end up being called
-	update_icon()
+	if (update_icon())
+		SEND_SIGNAL(src, COMSIG_UPDATE_LIMB_IMAGE)
 
 	return created_wound
 
@@ -686,7 +684,7 @@ This function completely restores a damaged organ to perfect condition.
 				fluid_loss_severity = FLUIDLOSS_WIDE_BURN
 			if(INJURY_TYPE_LASER)
 				fluid_loss_severity = FLUIDLOSS_CONC_BURN
-		var/fluid_loss = (damage/(owner.maxHealth - GLOB.config.health_threshold_dead)) * DEFAULT_BLOOD_AMOUNT * fluid_loss_severity
+		var/fluid_loss = (damage/(owner.maxhealth - GLOB.config.health_threshold_dead)) * DEFAULT_BLOOD_AMOUNT * fluid_loss_severity
 		owner.remove_blood_simple(fluid_loss)
 
 	// first check whether we can widen an existing wound
@@ -1359,6 +1357,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 			burn_mod = R.burn_mod
 			robotize_type = company
 			augment_limit += 1	//robotic limbs get one extra augment capacity
+			SEND_SIGNAL(src, COMSIG_UPDATE_LIMB_IMAGE)
 
 	dislocated = -1 //TODO, make robotic limbs a separate type, remove snowflake
 	limb_flags &= ~ORGAN_CAN_BREAK
@@ -1709,6 +1708,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 		return
 	var/last_pain = pain
 	pain = max(0, min(species.total_health * 2, pain - amount))
+	SEND_SIGNAL(src, COMSIG_UPDATE_LIMB_IMAGE)
 	return -(pain-last_pain)
 
 /obj/item/organ/external/proc/add_pain(var/amount)

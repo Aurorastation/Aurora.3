@@ -41,8 +41,8 @@
 	detonator.bomb = src
 
 /obj/item/syndie/c4explosive/Destroy()
-	. = ..()
 	QDEL_NULL(detonator)
+	return ..()
 
 /obj/item/syndie/c4explosive/proc/detonate()
 	icon_state = "c-4[size]_1"

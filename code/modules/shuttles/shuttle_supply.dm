@@ -154,10 +154,10 @@
 /datum/shuttle/autodock/ferry/supply/proc/idle()
 	return (moving_status == SHUTTLE_IDLE)
 
-//returns the ETA in minutes
-/datum/shuttle/autodock/ferry/supply/proc/eta_minutes()
+//returns the ETA in seconds
+/datum/shuttle/autodock/ferry/supply/proc/eta_seconds()
 	var/ticksleft = arrive_time - world.time
-	return round(ticksleft/600,1)
+	return round(ticksleft/10,1)
 
 /**************************
 	Elevator Animations

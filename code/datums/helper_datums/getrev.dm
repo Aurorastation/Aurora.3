@@ -15,7 +15,6 @@ GLOBAL_DATUM_INIT(revdata, /datum/getrev, new())
 	var/date
 	var/showinfo
 	var/list/datum/tgs_revision_information/test_merge/test_merges
-	var/greeting_info
 
 /datum/getrev/New()
 	var/list/head_branch = file2list(".git/HEAD", "\n")
@@ -56,6 +55,9 @@ GLOBAL_DATUM_INIT(revdata, /datum/getrev, new())
 
 	to_chat(src, "<b>Current Map:</b> [SSatlas.current_map.full_name]")
 
+	if(GLOB.revdata.test_merges.len)
+		to_chat(src, GLOB.revdata.testmerge_overview())
+
 /datum/getrev/proc/testmerge_overview()
 	if (!test_merges.len)
 		return
@@ -69,24 +71,6 @@ GLOBAL_DATUM_INIT(revdata, /datum/getrev, new())
 
 	return out.Join()
 
-/datum/getrev/proc/generate_greeting_info()
-	if (!test_merges.len)
-		greeting_info = {"<div class="alert alert-info">
-						There are currently no test merges loaded onto the server.
-						</div>"}
-		return
-
-	var/list/out = list("<p>There are currently [test_merges.len] PRs being tested live.</p>",
-		{"<table class="table table-hover">"}
-	)
-
-	for (var/TM in test_merges)
-		out += testmerge_long_oveview(TM)
-
-	out += "</table>"
-
-	greeting_info = out.Join()
-
 /datum/getrev/proc/testmerge_initialize()
 	var/datum/tgs_api/api = TGS_READ_GLOBAL(tgs)
 
@@ -97,8 +81,6 @@ GLOBAL_DATUM_INIT(revdata, /datum/getrev, new())
 	else
 		LOG_DEBUG("GETREV: No TGS API found.")
 		test_merges = list()
-
-	generate_greeting_info()
 
 /datum/getrev/proc/testmerge_short_overview(datum/tgs_revision_information/test_merge/tm)
 	. = list()

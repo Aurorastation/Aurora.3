@@ -7,7 +7,7 @@
 	icon_dead = "bees1"
 	mob_size = 0.5
 	unsuitable_atoms_damage = 2.5
-	maxHealth = 20
+	maxhealth = 20
 	density = 0
 	var/strength = 1
 	var/feral = 0
@@ -51,7 +51,7 @@
 			qdel(src)
 			return
 		else
-			health = maxHealth
+			health = maxhealth
 			if (prob(25))//probability to reduce spam
 				src.visible_message(SPAN_WARNING("The bee swarm starts to thin out a little."))
 
@@ -283,7 +283,7 @@
 	update_icon()
 
 /mob/living/simple_animal/bee/beegun
-	maxHealth = 30
+	maxhealth = 30
 	strength = 5
 	feral = 30
 

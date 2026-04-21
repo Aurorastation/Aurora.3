@@ -24,12 +24,12 @@
 	RegisterSignal(owner, COMSIG_HEART_BLEED_EVENT, PROC_REF(reduce_bloodloss), override = TRUE)
 
 /obj/item/organ/internal/augment/bioaug/platelet_factories/removed()
-	. = ..()
 	if(!owner)
-		return
+		return ..()
 
 	UnregisterSignal(owner, COMSIG_HEART_PUMP_EVENT)
 	UnregisterSignal(owner, COMSIG_HEART_BLEED_EVENT)
+	return ..()
 
 /obj/item/organ/internal/augment/bioaug/platelet_factories/proc/stroke_risk(var/implantee, var/obj/item/organ/internal/heart/heart, var/blood_volume, var/recent_pump, var/pulse_mod, var/min_efficiency)
 	SIGNAL_HANDLER

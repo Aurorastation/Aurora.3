@@ -5,7 +5,7 @@ ABSTRACT_TYPE(/datum/gear/pants)
 /datum/gear/pants/trousers
 	display_name = "pants and shorts selection"
 	description = "A selection of pants and shorts."
-	path = /obj/item/clothing/pants
+	path = /obj/item/clothing/pants/black
 
 /datum/gear/pants/trousers/New()
 	..()

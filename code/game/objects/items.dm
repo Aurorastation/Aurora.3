@@ -4,6 +4,8 @@
 	w_class = WEIGHT_CLASS_NORMAL
 	light_system = MOVABLE_LIGHT
 	blocks_emissive = EMISSIVE_BLOCK_GENERIC
+	/// Generic hit sound
+	hitsound = SFX_SWING_HIT
 
 	/// This saves our blood splatter overlay, which will be processed not to go over the edges of the sprite
 	var/image/blood_overlay
@@ -11,12 +13,8 @@
 	var/randpixel = 6
 	var/abstract = 0
 	var/r_speed = 1.0
-	var/health
 	var/burn_point
 	var/burning
-
-	/// Generic hit sound
-	var/hitsound = SFX_SWING_HIT
 
 	var/storage_cost
 
@@ -151,10 +149,6 @@
 	/// Sound uses when dropping the item, or when its thrown.
 	var/drop_sound = SFX_DROP
 
-	var/list/armor
-	/// How fast armor will degrade, multiplier to blocked damage to get armor damage value.
-	var/armor_degradation_speed
-
 	//Item_state definition moved to /obj
 	//var/item_state = null // Used to specify the item state for the on-mob overlays.
 
@@ -245,11 +239,6 @@
 
 /obj/item/Initialize(mapload, ...)
 	. = ..()
-	if(islist(armor))
-		for(var/type in armor)
-			if(armor[type])
-				AddComponent(/datum/component/armor, armor)
-				break
 	if(item_flags & ITEM_FLAG_HELD_MAP_TEXT)
 		set_initial_maptext()
 		check_maptext()
@@ -345,7 +334,7 @@
 
 	. = ..(user, distance, is_adjacent, "It is a [size] item.", get_extended = get_extended)
 	var/datum/component/armor/armor_component = GetComponent(/datum/component/armor)
-	if(armor_component)
+	if(armor_component && !armor_component.hidden)
 		. += FONT_SMALL(SPAN_NOTICE("\[?\] This item has armor values. <a href='byond://?src=[REF(src)];examine_armor=1'>\[Show Armor Values\]</a>"))
 
 /obj/item/Topic(href, href_list)

@@ -2962,7 +2962,7 @@
 	},
 /obj/item/reagent_containers/hypospray,
 /obj/item/storage/belt/medical/paramedic,
-/obj/item/clothing/accessory/armband/medgreen,
+/obj/item/clothing/accessory/armband/med,
 /obj/item/clothing/accessory/stethoscope,
 /obj/item/reagent_containers/glass/bottle/thetamycin,
 /obj/item/reagent_containers/glass/bottle/mortaphenyl,

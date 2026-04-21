@@ -188,12 +188,14 @@
 			if(istype(gun, /obj/item/gun/energy/laser/prototype))
 				var/obj/item/gun/energy/laser/prototype/E_prototype = gun
 				var/list/mods = list()
-				var/l_modified_damage = 1 //E_prototype.capacitor.damage * E_prototype.modulator.damage
+				var/l_modified_damage = 1 / (max(1, gun.burst - 1)) //E_prototype.capacitor.damage * E_prototype.modulator.damage
 				var/l_modified_max_shots = 1 //E_prototype.capacitor.shots
 				for(var/i in list(E_prototype.capacitor, E_prototype.focusing_lens, E_prototype.modulator) + E_prototype.gun_mods)
 					var/obj/item/laser_components/l_component = i
-					l_modified_damage *= l_component.damage
-					l_modified_max_shots *= l_component.shots
+					if (l_component.damage != 0)
+						l_modified_damage *= l_component.damage
+					if (l_component.shots != 0)
+						l_modified_max_shots *= l_component.shots
 					var/l_repair_name = initial(l_component.repair_item.name) ? initial(l_component.repair_item.name) : "nothing"
 					mods += list(list(
 						"name" = initial(l_component.name),
@@ -205,7 +207,7 @@
 						"accuracy_modifier" = initial(l_component.accuracy),
 						"repair_tool" = l_repair_name
 					))
-				data["gun"]["damage"] = l_modified_damage
+				data["gun"]["damage"] = min(60, l_modified_damage)
 				data["gun"]["max_shots"] = l_modified_max_shots
 				data["gun_mods"] = mods
 

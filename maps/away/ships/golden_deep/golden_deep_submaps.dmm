@@ -808,8 +808,9 @@
 	name = "secure crate";
 	req_one_access = list(229, 217)
 	},
-/obj/item/rig/tesla,
 /obj/random/dirt_75,
+/obj/item/rig/hazard,
+/obj/item/rig/hazmat,
 /turf/template_noop,
 /area/template_noop)
 "ZZ" = (

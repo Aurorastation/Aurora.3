@@ -449,6 +449,13 @@
 	/// Which species-unique robolimb types can this species take?
 	var/list/valid_prosthetics
 
+	/// Modifiers for the available skill points for this species. Assoc list of SKILL_CATEGORY to number.
+	var/list/skill_points_modifiers = list(
+		SKILL_CATEGORY_EVERYDAY = 1,
+		SKILL_CATEGORY_OCCUPATIONAL = 1,
+		SKILL_CATEGORY_COMBAT = 1
+	)
+
 	//Sleeping stuff
 	/// Does this species sleep standing up?
 	var/sleeps_upright = FALSE
@@ -460,6 +467,9 @@
 	var/indefinite_sleep = FALSE
 	/// The default lighting alpha of this species. Override to set innate NVGs.
 	var/default_lighting_alpha = LIGHTING_PLANE_ALPHA_VISIBLE
+
+	/// Controls whether this species spawns with a Morale Component.
+	var/has_morale = TRUE
 
 /datum/species/proc/get_eyes(var/mob/living/carbon/human/H)
 	return
@@ -590,6 +600,9 @@
 
 	if(natural_armor)
 		H.AddComponent(natural_armor_type, natural_armor)
+
+	if(has_morale)
+		H.LoadComponent(MORALE_COMPONENT)
 
 /datum/species/proc/tap(var/mob/living/carbon/human/H,var/mob/living/target)
 	if(H.on_fire)
@@ -1080,5 +1093,18 @@
  * This proc handles the species temperature regulation. By default, it just adds `passive_temp_gain` to the human's bodytemperature.
  * Can be overridden for more complex calculations.
  */
+
 /datum/species/proc/handle_temperature_regulation(mob/living/carbon/human/human, seconds_per_tick)
 	human.bodytemperature += passive_temp_gain * seconds_per_tick
+
+/**
+ * Gets a modifier for a skill category based on the character age or other species things.
+ * Must return a list with all three skill categories to a modifier (example: list(SKILL_CATEGORY_EVERYDAY = 1.5) )
+ */
+/datum/species/proc/modify_skill_points(singleton/skill_category/skill_category, age)
+	var/list/skill_age_modifiers = list(
+		SKILL_CATEGORY_EVERYDAY = 1,
+		SKILL_CATEGORY_OCCUPATIONAL = 1,
+		SKILL_CATEGORY_COMBAT = 1
+	)
+	return skill_age_modifiers

@@ -22,11 +22,11 @@
 	RegisterSignal(owner, COMSIG_HEART_PUMP_EVENT, PROC_REF(stabilize_circulation), override = TRUE)
 
 /obj/item/organ/internal/augment/bioaug/auxiliary_heart/removed()
-	. = ..()
 	if(!owner)
-		return
+		return ..()
 
 	UnregisterSignal(owner, COMSIG_HEART_PUMP_EVENT)
+	return ..()
 
 /obj/item/organ/internal/augment/bioaug/auxiliary_heart/proc/stabilize_circulation(var/implantee, var/obj/item/organ/internal/heart/heart, var/blood_volume, var/recent_pump, var/pulse_mod, var/min_efficiency)
 	SIGNAL_HANDLER

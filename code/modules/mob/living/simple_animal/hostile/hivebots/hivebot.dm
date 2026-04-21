@@ -6,13 +6,13 @@
 	blood_type = COLOR_OIL
 	blood_overlay_icon = 'icons/mob/npc/blood_overlay_hivebot.dmi'
 	health = 15
-	maxHealth = 15
+	maxhealth = 15
 	melee_damage_lower = 10
 	melee_damage_upper = 10
 	armor_penetration = 40
 	attack_flags = DAMAGE_FLAG_SHARP|DAMAGE_FLAG_EDGE
 	break_stuff_probability = 25
-	attacktext = "slashed"
+	attacktext = "slashes"
 	attack_sound = SFX_HIVEBOT_MELEE
 	projectilesound = 'sound/weapons/gunshot/gunshot_suppressed.ogg'
 	projectiletype = /obj/projectile/bullet/pistol/hivebotspike
@@ -108,7 +108,7 @@
 
 	var/turf/current_turf = get_turf(src)
 	if(!current_turf)
-		qdel(src)
+		QDEL_IN(src, 0)
 		return
 
 	var/robot_gib_type = /obj/effect/decal/cleanable/blood/gibs/robot
@@ -120,7 +120,7 @@
 
 	spark(current_turf, 1, GLOB.alldirs)
 
-	qdel(src)
+	QDEL_IN(src, 0)
 
 /mob/living/simple_animal/hostile/hivebot/think()
 	. =..()
@@ -159,7 +159,7 @@
  */
 /mob/living/simple_animal/hostile/hivebot/guardian
 	health = 80
-	maxHealth = 45
+	maxhealth = 45
 	melee_damage_lower = 20
 	melee_damage_upper = 20
 	wander = 0
@@ -180,10 +180,10 @@
 /mob/living/simple_animal/hostile/hivebot/bomber
 	desc = "A primitive in design, hovering robot, with some menacing looking blades jutting out from it. It bears no manufacturer markings of any kind. This one appears round in design and moves slower than its brethren."
 	health = 100
-	maxHealth = 100
+	maxhealth = 100
 	icon_state = "hivebotbomber"
 	organ_names = list("head", "core", "bottom thruster")
-	attacktext = "bumped"
+	attacktext = "bumps"
 	speed = 8
 	var/has_exploded = FALSE
 
@@ -231,11 +231,11 @@
 	desc = "A primitive-yet-sturdy hovering robot, with some menacing looking blades jutting out from it. This one seems unusually aware of its surroundings."
 	icon_state = "hivebotdestroyer"
 	health = 350
-	maxHealth = 350
+	maxhealth = 350
 	melee_damage_lower = 20
 	melee_damage_upper = 30
 	armor_penetration = 20
-	attacktext = "eviscerated"
+	attacktext = "eviscerates"
 	projectiletype = null
 	var/playable = TRUE
 	speed = -2
@@ -250,19 +250,19 @@
 		SSghostroles.add_spawn_atom("hivebotdestroyer", src)
 
 /mob/living/simple_animal/hostile/hivebot/playable/Destroy()
-	. = ..()
 	SSghostroles.remove_spawn_atom("hivebotdestroyer", src)
+	return ..()
 
 /mob/living/simple_animal/hostile/hivebot/playable/ranged
 	name = "Hivebot marksman"
 	desc = "A primitive-yet-sturdy hovering robot, with some menacing looking blades jutting out from it. This one seems to be carefully surveying all activity."
 	icon_state = "hivebotmarksman"
 	health = 250
-	maxHealth = 250
+	maxhealth = 250
 	melee_damage_lower = 10
 	melee_damage_upper = 20
 	armor_penetration = 20
-	attacktext = "stabbed"
+	attacktext = "stabs"
 	ranged = 1
 	projectiletype = /obj/projectile/bullet/pistol/medium
 	speed = -3
@@ -277,19 +277,19 @@
 		SSghostroles.add_spawn_atom("hivebotmarksman", src)
 
 /mob/living/simple_animal/hostile/hivebot/playable/ranged/Destroy()
-	. = ..()
 	SSghostroles.remove_spawn_atom("hivebotmarksman", src)
+	return ..()
 
 /mob/living/simple_animal/hostile/hivebot/playable/overseer
 	name = "Hivebot overseer"
 	desc = "A primitive-yet-sturdy hovering robot, with some menacing looking blades jutting out from it. This one seems to be buzzing with unseen activity from within."
 	icon_state = "hivebotoverseer"
 	health = 300
-	maxHealth = 300
+	maxhealth = 300
 	melee_damage_lower = 10
 	melee_damage_upper = 10
 	armor_penetration = 10
-	attacktext = "slashed"
+	attacktext = "slashes"
 	ranged = -1
 	projectiletype = /obj/projectile/bullet/pistol/
 
@@ -303,8 +303,8 @@
 		SSghostroles.add_spawn_atom("hivebotoverseer", src)
 
 /mob/living/simple_animal/hostile/hivebot/playable/overseer/Destroy()
-	. = ..()
 	SSghostroles.remove_spawn_atom("hivebotoverseer", src)
+	return ..()
 
 /mob/living/simple_animal/hostile/hivebot/playable/overseer/verb/build_bot()
 	set name = "Assemble hivebot"

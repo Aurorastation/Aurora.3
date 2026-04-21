@@ -22,9 +22,9 @@
 	owner.AddComponent(/datum/component/armor, list(MELEE = ARMOR_MELEE_SMALL, BULLET = ARMOR_BALLISTIC_MINOR))
 
 /obj/item/organ/internal/augment/bioaug/subdermal_carapace/removed()
-	. = ..()
 	if(!owner)
-		return
+		return ..()
 
 	var/datum/component/armor/armor_component = owner.GetComponent(/datum/component/armor)
 	qdel(armor_component)
+	return ..()

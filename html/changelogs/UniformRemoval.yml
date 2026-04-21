@@ -1,0 +1,6 @@
+author: TheGreyWolf
+
+delete-after: True
+
+changes:
+  - rscdel: "Job uniforms and suits replaced by loadout items, no longer spawn in bags."

@@ -23,6 +23,11 @@
 	drop_sound = 'sound/items/drop/paper.ogg'
 	pickup_sound = 'sound/items/pickup/paper.ogg'
 
+/obj/item/paper_bundle/Destroy()
+	pages.Cut()
+	pages = null
+	return ..()
+
 /obj/item/paper_bundle/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	. += "Both papers and photos can be added to a paper bundle."

@@ -142,6 +142,8 @@
 	QDEL_NULL(back)
 	QDEL_NULL(l_hand)
 	QDEL_NULL(r_hand)
+	QDEL_NULL(wrists)
+	QDEL_NULL(pants)
 	// Do this last so the mob's stuff doesn't drop on del.
 	QDEL_NULL(w_uniform)
 
@@ -1282,8 +1284,8 @@
 /mob/living/carbon/human/succumb()
 	set hidden = TRUE
 
-	if(shock_stage > 50 && (maxHealth * 0.6) > get_total_health())
-		adjustBrainLoss(health + maxHealth * 2) // Deal 2x health in BrainLoss damage, as before but variable.
+	if(shock_stage > 50 && (maxhealth * 0.6) > get_total_health())
+		adjustBrainLoss(health + maxhealth * 2) // Deal 2x health in BrainLoss damage, as before but variable.
 		to_chat(src, SPAN_NOTICE("You have given up life and succumbed to death."))
 	else
 		to_chat(src, SPAN_WARNING("You are not injured enough to succumb to death!"))
@@ -1554,8 +1556,8 @@
 
 	species.handle_post_spawn(src,kpg) // should be zero by default
 
-	maxHealth = species.total_health
-	health = maxHealth
+	maxhealth = species.total_health
+	health = maxhealth
 
 	regenerate_icons()
 	if (vessel)
@@ -2100,7 +2102,7 @@
 
 //Point at which you dun breathe no more. Separate from asystole crit, which is heart-related.
 /mob/living/carbon/human/nervous_system_failure()
-	return getBrainLoss() >= maxHealth * 0.75
+	return getBrainLoss() >= maxhealth * 0.75
 
 // Check if we should die.
 /mob/living/carbon/human/proc/handle_death_check()
