@@ -28,8 +28,8 @@
 	)
 
 	blacklisted_citizenship_types = list(
-		CITIZENSHIP_DPRA,
-		CITIZENSHIP_PRA
+		/datum/citizenship/dpra,
+		/datum/citizenship/pra
 	)
 
 	job_species_blacklist = list(
