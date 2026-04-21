@@ -40,7 +40,7 @@
 	var/stage_progress_mod = 0
 
 /datum/condition/New(atom/movable/new_parent, ...)
-	if(!pre_apply(new_parent, arglist(args)))
+	if(!pre_apply(arglist(args)))
 		qdel(src)
 		return FALSE
 	parent = new_parent

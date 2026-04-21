@@ -523,10 +523,9 @@ INITIALIZE_IMMEDIATE(/obj/item/organ)
 /**
  * Applies a given condition type to this organ.
  */
-/obj/item/organ/proc/apply_condition(condition_type)
-	var/datum/condition/organ/new_condition = new condition_type(src)
-	if(new_condition)
-		LAZYADD(conditions, new_condition)
+/obj/item/organ/proc/apply_condition(condition)
+	if(condition)
+		LAZYADD(conditions, condition)
 
 /**
  * Removes a condition type or ref from this organ.
