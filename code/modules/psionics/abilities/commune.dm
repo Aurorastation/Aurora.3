@@ -29,7 +29,7 @@
 	var/savedinfo
 	var/realinfo
 
-/obj/item/spell/commune/proc/ShowSavedScribble(var/mob/target, saved, var/psi_deaf = FALSE)
+/obj/item/spell/commune/proc/ShowSavedScribble(mob/target, saved, psi_deaf = FALSE)
 //Likely a better way, but the trick is quickly swapping real and saved
 	realscribble = "[psiphoto.scribble]"
 	psiphoto.scribble = "[(saved)]"
