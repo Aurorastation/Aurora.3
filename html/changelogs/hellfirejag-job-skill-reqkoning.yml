@@ -1,0 +1,4 @@
+author: Hellfirejag
+delete-after: True
+changes:
+  - rscdel: "Removed all job skill requirements that weren't actually mechanically necessary."
