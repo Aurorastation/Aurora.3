@@ -147,3 +147,64 @@
 
 /obj/item/cargo_package/offship/to_horizon
 	horizon_delivery = TRUE
+
+// ########### Persistent cargo packages for the arc in Assunzione ###########
+
+// There are basically just the cargo packages but reflavored and without the delivery code, meant to be spawned by an arc lead (admin) manually.
+/obj/item/persistent_cargo_package
+	name = "supply package"
+	desc = "An Orion Express supply package."
+	desc_extended = "\
+		This supply package makes use of the small-scale shipping network of Orion Express. \
+		It is a common sight all over the Spur, where Orion Express services depend on ordinary people and ships picking up and delivering packages for each other, \
+		with Orion Express only delivering to automated stations and other distribution points."
+	icon = 'icons/obj/orion_delivery.dmi'
+	icon_state = "express_package"
+	item_state = "express_package"
+	contained_sprite = TRUE
+	update_icon_on_init = TRUE
+	has_accents = TRUE
+	w_class = WEIGHT_CLASS_HUGE
+	force = 15
+	slowdown = 0.5
+	persistant_objects_expiration_time_days = 360
+
+/obj/item/persistent_cargo_package/Initialize()
+	. = ..()
+	SSpersistence.objectsRegisterTrack(src)
+
+/obj/item/persistent_cargo_package/persistent_objects_get_content()
+	return list()
+
+/obj/item/persistent_cargo_package/persistent_objects_apply_content(content, x, y, z)
+	src.x = x
+	src.y = y
+	src.z = z
+
+/obj/item/persistent_cargo_package/proc/wield(var/mob/living/carbon/human/user)
+	var/obj/A = user.get_inactive_hand()
+	if(A)
+		to_chat(user, SPAN_WARNING("Your other hand is occupied!"))
+		return
+	item_state += "_wielded"
+	var/obj/item/offhand/O = new(user)
+	O.name = "[initial(name)] - offhand"
+	O.desc = "Your second grip on \the [initial(name)]."
+	user.put_in_inactive_hand(O)
+
+/obj/item/persistent_cargo_package/dropped(mob/user)
+	..()
+	item_state = initial(item_state)
+	if(user)
+		var/obj/item/offhand/O = user.get_inactive_hand()
+		if(istype(O))
+			O.unwield()
+
+/obj/item/persistent_cargo_package/can_swap_hands(var/mob/user)
+	var/obj/item/offhand/O = user.get_inactive_hand()
+	if(istype(O))
+		return FALSE
+	return TRUE
+
+/obj/item/persistent_cargo_package/too_heavy_to_throw()
+	return TRUE
