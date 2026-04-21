@@ -55,7 +55,7 @@
 	psipaper.show_content(target)
 	psipaper.info = "[realinfo]"
 
-/obj/item/spell/commune/proc/TranslateWritten(var/mob/target, var/mob/user, var/can_read = TRUE)
+/obj/item/spell/commune/proc/TranslateWritten(mob/target, mob/user, can_read = TRUE)
 //This is just parse_languages() & paperwork reuse
 	var/regex/written_lang_regex = new(@"(\[lang=([#_a-zA-Z0-9\^]{1})])(.*?)(\[\/lang])", "g")
 	while(written_lang_regex.Find(psipaper.info))
