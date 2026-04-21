@@ -316,3 +316,27 @@
 
 /obj/item/spacecash/ewallet/c10000
 	worth = 10000
+
+// ########### Persistent cash card for the arc in Assunzione ###########
+
+// This is meant to be spawned by an arc lead (admin) manually.
+/obj/item/spacecash/ewallet/persistent
+	var/initial_worth = 0 // Used for calculating how much cash was spend, needs to be set using VV after spawning it.
+	persistant_objects_expiration_time_days = 360
+
+/obj/item/spacecash/ewallet/persistent/Initialize()
+	. = ..()
+	SSpersistence.objectsRegisterTrack(src)
+
+/obj/item/spacecash/ewallet/persistent/persistent_objects_get_content()
+	var/list/content = list()
+	content["initial_worth"] = src.initial_worth
+	content["worth"] = src.worth
+	return
+
+/obj/item/spacecash/ewallet/persistent/persistent_objects_apply_content(content, x, y, z)
+	initial_worth = content["initial_worth"]
+	worth = content["worth"]
+	src.x = x
+	src.y = y
+	src.z = z
