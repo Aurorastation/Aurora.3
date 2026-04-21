@@ -29,7 +29,7 @@
 	var/savedinfo
 	var/realinfo
 
-/obj/item/spell/commune/proc/ShowSavedScribble(var/mob/target, saved, var/psi_deaf = FALSE)
+/obj/item/spell/commune/proc/ShowSavedScribble(mob/target, saved, psi_deaf = FALSE)
 //Likely a better way, but the trick is quickly swapping real and saved
 	realscribble = "[psiphoto.scribble]"
 	psiphoto.scribble = "[(saved)]"
@@ -64,7 +64,7 @@
 	psipaper.show_content(target)
 	psipaper.info = "[realinfo]"
 
-/obj/item/spell/commune/proc/TranslateWritten(var/mob/target, var/mob/user, var/can_read = TRUE)
+/obj/item/spell/commune/proc/TranslateWritten(mob/target, mob/user, can_read = TRUE)
 //This is just parse_languages() & paperwork reuse
 	var/regex/written_lang_regex = new(@"(\[lang=([#_a-zA-Z0-9\^]{1})])(.*?)(\[\/lang])", "g")
 	while(written_lang_regex.Find(psipaper.info))
