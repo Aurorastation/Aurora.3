@@ -114,7 +114,7 @@ ABSTRACT_TYPE(/datum/character_disabilities/broken)
 /datum/character_disabilities/broken/apply_self(var/mob/living/carbon/human/target)
 	var/obj/item/organ/external/affecting = target.get_organ(affected_limb)
 	if(affecting)
-		affecting.fracture(silent = TRUE)
+		affecting.fracture(TRUE, /datum/condition/organ/fracture/comminuted)
 		affecting.status |= ORGAN_SPLINTED
 
 #define BROKEN_DISABILITY(LIMB_PATH, LIMB_NAME, LIMB_TAG) \

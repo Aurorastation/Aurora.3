@@ -222,6 +222,8 @@
 	else if(limb_flags & ORGAN_HAS_TENDON)
 		limb_flags &= ~ORGAN_HAS_TENDON
 
+	add_possible_conditions()
+
 /obj/item/organ/external/Destroy()
 
 	if(parent?.children)
@@ -261,6 +263,20 @@
 
 	QDEL_NULL(tendon)
 	return ..()
+
+/**
+ * Adds a bunch of generic conditions to the organ to reduce copypaste.
+ * Basically to avoid having to copypaste the same list across a trillion organs.
+ */
+/obj/item/organ/external/proc/add_possible_conditions()
+	if(!possible_conditions)
+		possible_conditions = list()
+	if(limb_flags & ORGAN_CAN_BREAK)
+		possible_conditions += list(
+			/datum/condition/organ/fracture/hairline = 50,
+			/datum/condition/organ/fracture/comminuted = 25,
+			/datum/condition/organ/fracture/compound = 15
+		)
 
 /obj/item/organ/external/proc/invalidate_marking_cache()
 	cached_markings = null
@@ -441,7 +457,6 @@
 	var/sharp = (damage_flags & DAMAGE_FLAG_SHARP)
 	var/edge = (damage_flags & DAMAGE_FLAG_EDGE)
 	var/psionic = (damage_flags & DAMAGE_FLAG_PSIONIC)
-	var/blunt = !!(brute && !sharp && !edge)
 
 	/// Psionics and psionically deaf species take varying amounts of damage from psionic abilities.
 	if(psionic)
@@ -469,10 +484,6 @@
 
 	handle_limb_gibbing(used_weapon, brute, burn)
 
-	if(brute_dam + brute > min_broken_damage && prob(brute_dam + brute * (1 + blunt)))
-		if(blunt || brute > FRACTURE_AND_TENDON_DAM_THRESHOLD)
-			fracture()
-
 	// High brute damage or sharp objects may damage internal organs
 	if(length(internal_organs))
 		if(damage_internal_organs(brute, burn, damage_flags))
@@ -495,13 +506,6 @@
 			created_wound = createwound(INJURY_TYPE_LASER, burn)
 		else
 			created_wound = createwound(INJURY_TYPE_BURN, burn)
-
-	// TODOMATT shitty placeholder test code
-	if(length(possible_conditions))
-		if((brute_dam + burn_dam) >= max_damage)
-			var/possible_condition = pickweight(possible_conditions)
-			if(!has_condition(possible_condition))
-				apply_condition(possible_condition)
 
 	add_pain(0.6 * burn + 0.4 * brute)
 
@@ -723,6 +727,13 @@ This function completely restores a damaged organ to perfect condition.
 						"You hear a nasty ripping noise, as if flesh is being torn apart.")
 
 				return W
+
+	// TODOMATT shitty placeholder test code
+	if(length(possible_conditions))
+		for(var/condition_type in possible_conditions)
+			var/datum/condition/condition = new condition_type(src, type)
+			if(condition && !has_condition(condition))
+				apply_condition(condition)
 
 	//Creating wound
 	var/wound_type = get_wound_type(type, damage)
@@ -1284,45 +1295,12 @@ Note that amputating the affected organ does in fact remove the infection from t
 	return rval
 
 /// Fractures the bone, so long as it isn't robotic or already broken. When the silent flag is set, no message or sound will be played, and there will be no pain effects
-/obj/item/organ/external/proc/fracture(var/silent = FALSE)
-	if(status & ORGAN_ROBOT)
-		return	//ORGAN_BROKEN doesn't have the same meaning for robot limbs
-	if((status & ORGAN_BROKEN) || !(limb_flags & ORGAN_CAN_BREAK))
-		return
-	if(QDELETED(owner))
-		return
-
-	if(!silent)
-		var/message = pick("broke in half", "shattered")
-		owner.visible_message(\
-			SPAN_WARNING("<font size=2>You hear a loud cracking sound coming from \the [owner]!</font>"),\
-			SPAN_DANGER("<font size=3>Something feels like it [message] in your [name]!</font>"),\
-			"You hear a sickening crack!")
-		if(owner.species && owner.can_feel_pain())
-			owner.emote("scream")
-			owner.flash_strong_pain()
-		playsound(src.loc, SFX_FRACTURE, 100, 1, -2)
-
-	status |= ORGAN_BROKEN
-	broken_description = pick("broken", "fracture", "hairline fracture")
-	perma_injury = brute_dam
-
-	// Fractures have a chance of getting you out of restraints
-	if(prob(25))
-		release_restraints()
+/obj/item/organ/external/proc/fracture(var/silent = FALSE, fracture_type = /datum/condition/organ/fracture/comminuted)
+	var/datum/condition/organ/fracture/fracture = new fracture_type(src, silent)
+	apply_condition(fracture)
 
 	// This is mostly for the ninja suit to stop ninja being so crippled by breaks.
 	check_rigsplints()
-
-/obj/item/organ/external/proc/mend_fracture()
-	if(status & ORGAN_ROBOT)
-		return 0	//ORGAN_BROKEN doesn't have the same meaning for robot limbs
-	if(brute_dam > min_broken_damage * GLOB.config.organ_health_multiplier)
-		return 0	//will just immediately fracture again
-
-	status &= ~ORGAN_BROKEN
-
-	return 1
 
 /obj/item/organ/external/robotize(var/company)
 	..()
@@ -1701,9 +1679,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 /obj/item/organ/external/proc/get_pain()
 	if(!ORGAN_CAN_FEEL_PAIN(src) || BP_IS_ROBOTIC(src))
 		return 0
-	. = pain + 0.7 * brute_dam + 0.8 * burn_dam + 0.5 * get_genetic_damage()
-	if(is_broken())
-		. += 10
+	. = pain + 0.7 * brute_dam + 0.8 * burn_dam + 0.5 * get_genetic_damage() + perma_injury
 	else if(ORGAN_IS_DISLOCATED(src))
 		. += 5
 	for(var/obj/item/organ/internal/I as anything in internal_organs)

@@ -10,13 +10,17 @@
 	var/desc
 	/// Condition flags. Used to determine, for example, if a condition needs self-processing without stages.
 	var/flags
+	/// Severity of the condition. Totally relative, mostly used for sounds.
+	var/severity = CONDITION_SEVERITY_LOW
 	/// The generic parent of this condition. Don't use this in the subtypes- use the specific parent designated there. This is only for generic operations in the base type.
 	var/atom/movable/parent
 
 	/// A list of traits that this condition is connected with. Remember that you will need to apply and clear them manually in condition subtypes.
 	var/list/traits
 
-	/// Sound played when the condition is applied. Plays as a playsound, not just as a sound effect only to the person.
+	/// These are generic sounds that play when all conditions are applied. You shouldn't change this unless you want a totally silent condition, like a virus - they're used for combat responsiveness SFX. Plays as a playsound.
+	var/should_play_severity_sound = TRUE
+	/// Sound played when this specific  condition is applied. Plays as a playsound, not just as a sound effect only to the person.
 	var/apply_sound
 
 	/// How many times this condition can be applied. Should be checked individually on human/organ level.
@@ -35,12 +39,13 @@
 	/// Stage_progress_max is multiplied by this every time the stage progresses. Use this if you want the stage progression to get faster or slower as the stage increases.
 	var/stage_progress_mod = 0
 
-/datum/condition/New(atom/movable/new_parent)
-	if(pre_apply(new_parent))
-		parent = new_parent
-		on_apply()
-	else
+/datum/condition/New(atom/movable/new_parent, ...)
+	if(!pre_apply(new_parent, arglist(args)))
 		qdel(src)
+		return FALSE
+	parent = new_parent
+	on_apply()
+	return TRUE
 
 /datum/condition/Destroy()
 	SHOULD_CALL_PARENT(TRUE)
@@ -62,7 +67,7 @@
  * By default, conditions will always apply.
  * If you want to have a condition that can be blocked, shouldn't apply due to organ/human traits, or has a chance to fail application, override this and return FALSE if the condition shouldn't be applied.
  */
-/datum/condition/proc/pre_apply(new_parent)
+/datum/condition/proc/pre_apply(atom/movable/new_parent)
 	return TRUE
 
 /**
@@ -72,6 +77,17 @@
 	SHOULD_CALL_PARENT(TRUE)
 	if(stage != CONDITION_STAGE_NONE || flags & CONDITION_FLAG_PROCESS)
 		START_PROCESSING(SSprocessing, src)
+	if(should_play_severity_sound)
+		switch(severity)
+			if(CONDITION_SEVERITY_LOW)
+				var/list/low_sounds = list('sound/effects/conditions/condition_low_1.ogg')
+				playsound(parent, pick(low_sounds), 100, 1)
+			if(CONDITION_SEVERITY_MEDIUM)
+				var/list/medium_sounds = list('sound/effects/conditions/condition_medium_1.ogg', 'sound/effects/conditions/condition_medium_2.ogg')
+				playsound(parent, pick(medium_sounds), 100, 1)
+			if(CONDITION_SEVERITY_HIGH)
+				var/list/high_sounds = list('sound/effects/conditions/condition_high_1.ogg')
+				playsound(parent, pick(high_sounds), 100, 1)
 	if(apply_sound)
 		playsound(parent, apply_sound, 100, 1)
 	if(length(traits))

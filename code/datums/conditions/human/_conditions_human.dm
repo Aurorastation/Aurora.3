@@ -4,7 +4,12 @@
 	/// If this condition is restricted from certain species. This is a blacklist.
 	var/list/species_restrictions
 
-/datum/condition/human/pre_apply(new_parent)
+/datum/condition/human/Destroy()
+	if(human)
+		human = null
+	return ..()
+
+/datum/condition/human/pre_apply(atom/movable/new_parent)
 	if(!ishuman(new_parent))
 		return FALSE
 	var/mob/living/carbon/human/new_human = new_parent
