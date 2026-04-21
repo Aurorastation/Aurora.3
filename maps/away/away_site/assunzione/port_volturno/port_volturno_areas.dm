@@ -74,7 +74,7 @@
 
 /area/port_volturno/interior/witch_hand/bar
 	name = "Port Volturno - WITCH HAND (Bar)"
-	icon_state = "cafe"
+	icon_state = "bar"
 	area_blurb = "The Assunzionii night club WITCH HAND has a small bar on its upper levels for when the main club is closed. Nice."
 
 /area/port_volturno/interior/stafylia
