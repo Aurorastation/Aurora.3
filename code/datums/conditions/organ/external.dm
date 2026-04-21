@@ -117,6 +117,8 @@
 /datum/condition/organ/fracture/comminuted/on_apply()
 	. = ..()
 	organ.status |= ORGAN_BROKEN
+	var/obj/item/organ/external/affected = organ
+	affected.check_rigsplints()
 
 /datum/condition/organ/fracture/comminuted/fracture_message()
 	if(!silent)
@@ -141,6 +143,7 @@
 	organ.status |= ORGAN_BROKEN
 	var/obj/item/organ/external/affected = organ
 	affected.createwound(INJURY_TYPE_CUT, 20)
+	affected.check_rigsplints()
 
 /datum/condition/organ/fracture/compound/fracture_message()
 	if(!silent)
