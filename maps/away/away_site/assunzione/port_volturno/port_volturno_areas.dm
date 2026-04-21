@@ -72,9 +72,10 @@
 	name = "Port Volturno - QuikStop"
 	icon_state = "merchant"
 
-/area/port_volturno/interior/cafe
-	name = "Port Volturno - Cafe"
+/area/port_volturno/interior/witch_hand/bar
+	name = "Port Volturno - WITCH HAND (Bar)"
 	icon_state = "cafe"
+	area_blurb = "The Assunzionii night club WITCH HAND has a small bar on its upper levels for when the main club is closed. Nice."
 
 /area/port_volturno/interior/stafylia
 	name = "Port Volturno - Stafylia"
