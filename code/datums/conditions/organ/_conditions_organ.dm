@@ -14,10 +14,10 @@
 /datum/condition/organ/pre_apply(atom/movable/new_parent, injury_type)
 	if(!istype(new_parent, /obj/item/organ))
 		return FALSE
-	if(!(injury_type in injury_types))
+	if(length(injury_types) && !(injury_type in injury_types))
 		return FALSE
-	var/obj/item/organ/new_organ = new_parent
-	if(new_organ.damage < min_damage)
+	var/obj/item/organ/affected = new_parent
+	if(affected.get_damage() < min_damage)
 		return FALSE
-	organ = new_organ
+	organ = new_parent
 	return TRUE

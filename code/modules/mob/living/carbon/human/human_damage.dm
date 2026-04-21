@@ -312,8 +312,8 @@
 /mob/living/carbon/human/proc/get_damageable_organs()
 	var/list/obj/item/organ/external/parts = list()
 	for(var/obj/item/organ/external/O in organs)
-		if(O.is_damageable())
-			parts += O
+		//if(O.is_damageable())
+		parts += O
 	return parts
 
 //Heals ONE external organ, organ gets randomly selected from damaged ones.

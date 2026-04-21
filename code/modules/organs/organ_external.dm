@@ -443,9 +443,9 @@
 					DAMAGE PROCS
 ****************************************************/
 
-/obj/item/organ/external/proc/is_damageable(var/additional_damage = 0)
+/*/obj/item/organ/external/proc/is_damageable(var/additional_damage = 0)
 	//Continued damage to vital organs can kill you, and robot organs don't count towards total damage so no need to cap them.
-	return (BP_IS_ROBOTIC(src) || brute_dam + burn_dam + additional_damage < max_damage * 4)
+	return (BP_IS_ROBOTIC(src) || brute_dam + burn_dam + additional_damage < max_damage * 4)*/
 
 /obj/item/organ/external/take_damage(brute, burn, damage_flags, used_weapon = null, list/forbidden_limbs = list(), var/silent)
 	brute = round(brute * brute_mod, 0.1)
@@ -472,7 +472,7 @@
 	if(used_weapon)
 		add_autopsy_data("[used_weapon]", brute + burn)
 
-	var/spillover = 0
+	/*var/spillover = 0 TODOMATT: investigate if this is necessary, and if it is, remember to search it in vsc and re-add it elsewhere
 	if(!is_damageable(brute + burn))
 		spillover = brute_dam + burn_dam + brute - max_damage
 		if(spillover > 0)
@@ -480,7 +480,7 @@
 		else
 			spillover = brute_dam + burn_dam + brute + burn - max_damage
 			if(spillover > 0)
-				burn = max(burn - spillover, 0)
+				burn = max(burn - spillover, 0)*/
 
 	handle_limb_gibbing(used_weapon, brute, burn)
 
@@ -513,8 +513,8 @@
 		SEND_SIGNAL(owner, COMSIG_EXTERNAL_ORGAN_DAMAGE, burn + brute)
 
 	//If there are still hurties to dispense
-	if (spillover)
-		owner.shock_stage += spillover * GLOB.config.organ_damage_spillover_multiplier
+	//if (spillover)
+	//	owner.shock_stage += spillover * GLOB.config.organ_damage_spillover_multiplier
 
 	// sync the organ's damage with its wounds
 	update_damages()
@@ -731,9 +731,11 @@ This function completely restores a damaged organ to perfect condition.
 	// TODOMATT shitty placeholder test code
 	if(length(possible_conditions))
 		for(var/condition_type in possible_conditions)
-			var/datum/condition/condition = new condition_type(src, type)
-			if(condition && !has_condition(condition))
-				apply_condition(condition)
+			if(!has_condition(condition_type))
+				var/datum/condition/organ/new_condition = new condition_type(src, type)
+				if(!QDELETED(new_condition))
+					LAZYADD(conditions, new_condition)
+					break //only one at a time please
 
 	//Creating wound
 	var/wound_type = get_wound_type(type, damage)
@@ -1295,9 +1297,10 @@ Note that amputating the affected organ does in fact remove the infection from t
 	return rval
 
 /// Fractures the bone, so long as it isn't robotic or already broken. When the silent flag is set, no message or sound will be played, and there will be no pain effects
-/obj/item/organ/external/proc/fracture(var/silent = FALSE, fracture_type = /datum/condition/organ/fracture/comminuted)
-	var/datum/condition/organ/fracture/fracture = new fracture_type(src, silent)
-	apply_condition(fracture)
+/obj/item/organ/external/proc/fracture(silent = FALSE, fracture_type = /datum/condition/organ/fracture/comminuted)
+	var/datum/condition/organ/fracture/fracture = new fracture_type(src, INJURY_TYPE_BRUISE, silent)
+	if(!QDELETED(fracture))
+		LAZYADD(conditions, fracture)
 
 	// This is mostly for the ninja suit to stop ninja being so crippled by breaks.
 	check_rigsplints()
@@ -1373,7 +1376,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 		src.status &= ~ORGAN_MUTATED
 		if(owner) owner.update_body()
 
-/obj/item/organ/external/proc/get_damage()	//returns total damage
+/obj/item/organ/external/get_damage()	//returns total damage
 	return max(brute_dam + burn_dam - perma_injury, perma_injury)	//could use max_damage?
 
 /obj/item/organ/external/proc/has_infected_wound()

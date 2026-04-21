@@ -9,7 +9,7 @@
 
 /datum/condition/organ/broken_spine/on_apply()
 	. = ..()
-	organ.owner?.visible_message(SPAN_CONDITION("[organ]'s spine breaks in half!"), SPAN_CONDITION("Your spine breaks in half!"))
+	organ.owner?.visible_message(SPAN_CONDITION("[organ?.owner]'s spine breaks in half!"), SPAN_CONDITION("Your spine breaks in half!"))
 	organ.owner?.Weaken(3)
 	organ.owner?.make_jittery(20)
 
@@ -26,24 +26,29 @@
 	/// The volume at which the fracture sound plays.
 	var/fracture_volume = 50
 	/// The pain applied from the fracture.
-	var/fracture_pain = 20
+	var/fracture_pain = 10
 
-/datum/condition/organ/fracture/New(atom/movable/new_parent, should_be_silent = FALSE)
+/datum/condition/organ/fracture/New(atom/movable/new_parent, injury_type, should_be_silent = FALSE)
 	silent = should_be_silent
+	if(silent)
+		should_play_severity_sound = FALSE
 	. = ..()
 
 /datum/condition/organ/fracture/pre_apply(atom/movable/new_parent)
-	if(!..())
-		return FALSE
 	var/obj/item/organ/external/affected = new_parent
 	if(!istype(affected))
 		return FALSE
 
 	min_damage = affected.min_broken_damage * min_damage_multiplier
+	if(!..())
+		return FALSE
+
 	if(affected.status & ORGAN_ROBOT)
 		return FALSE	//ORGAN_BROKEN doesn't have the same meaning for robot limbs
-	if((affected.status & ORGAN_BROKEN) || !(affected.limb_flags & ORGAN_CAN_BREAK))
+
+	if(!(affected.limb_flags & ORGAN_CAN_BREAK))
 		return FALSE
+
 	if(QDELETED(affected.owner))
 		return FALSE
 	return TRUE
@@ -55,7 +60,7 @@
 		fracture_sound()
 
 	var/obj/item/organ/external/affected = organ
-	affected.perma_injury = fracture_pain
+	affected.perma_injury += fracture_pain
 
 	// Fractures have a chance of getting you out of restraints
 	if(prob(25))
@@ -107,7 +112,7 @@
 	min_damage_multiplier = 1.0
 	fracture_emote = "scream"
 	fracture_volume = 90
-	fracture_pain = 40
+	fracture_pain = 20
 
 /datum/condition/organ/fracture/comminuted/on_apply()
 	. = ..()
@@ -129,7 +134,7 @@
 	min_damage_multiplier = 1.5
 	fracture_emote = "scream"
 	fracture_volume = 100
-	fracture_pain = 60
+	fracture_pain = 30
 
 /datum/condition/organ/fracture/compound/on_apply()
 	. = ..()

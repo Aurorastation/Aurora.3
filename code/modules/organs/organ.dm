@@ -272,6 +272,9 @@ INITIALIZE_IMMEDIATE(/obj/item/organ)
 /obj/item/organ/proc/rejuvenate()
 	damage = 0
 
+/obj/item/organ/proc/get_damage()
+	return damage
+
 /obj/item/organ/proc/heal_damage(amount)
 	if(can_recover())
 		damage = between(0, damage - amount, max_damage)
@@ -519,13 +522,6 @@ INITIALIZE_IMMEDIATE(/obj/item/organ)
 //used by stethoscope
 /obj/item/organ/proc/listen()
 	return
-
-/**
- * Applies a given condition type to this organ.
- */
-/obj/item/organ/proc/apply_condition(condition)
-	if(condition)
-		LAZYADD(conditions, condition)
 
 /**
  * Removes a condition type or ref from this organ.
