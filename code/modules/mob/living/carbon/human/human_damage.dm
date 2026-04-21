@@ -481,6 +481,10 @@ This function restores all organs.
 			def_zone = ran_zone(def_zone)
 		organ = get_organ(check_zone(def_zone))
 
+	if(damage_flags & DAMAGE_FLAG_IGNORE_PROSTHETICS)
+		if(BP_IS_ROBOTIC(organ))
+			return FALSE
+
 	//Handle other types of damage
 	if(!(damagetype in list(DAMAGE_BRUTE, DAMAGE_BURN, DAMAGE_PAIN, DAMAGE_CLONE)))
 		if(!stat && damagetype == DAMAGE_PAIN)

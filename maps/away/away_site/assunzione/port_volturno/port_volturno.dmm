@@ -32429,7 +32429,6 @@
 /obj/item/quikpay{
 	req_one_access = null
 	},
-/obj/item/mop/advanced,
 /turf/simulated/floor/wood/maple,
 /area/port_volturno/interior/clothing_store)
 "yfp" = (

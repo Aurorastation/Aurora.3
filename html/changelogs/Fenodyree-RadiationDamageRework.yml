@@ -1,0 +1,65 @@
+################################
+# Example Changelog File
+#
+# Note: This file, and files beginning with ".", and files that don't end in ".yml" will not be read. If you change this file, you will look really dumb.
+#
+# Your changelog will be merged with a master changelog. (New stuff added only, and only on the date entry for the day it was merged.)
+# When it is, any changes listed below will disappear.
+#
+# Valid Prefixes:
+#   bugfix
+#     - (fixes bugs)
+#   wip
+#     - (work in progress)
+#   qol
+#     - (quality of life)
+#   soundadd
+#     - (adds a sound)
+#   sounddel
+#     - (removes a sound)
+#   rscadd
+#     - (adds a feature)
+#   rscdel
+#     - (removes a feature)
+#   imageadd
+#     - (adds an image or sprite)
+#   imagedel
+#     - (removes an image or sprite)
+#   spellcheck
+#     - (fixes spelling or grammar)
+#   experiment
+#     - (experimental change)
+#   balance
+#     - (balance changes)
+#   code_imp
+#     - (misc internal code change)
+#   refactor
+#     - (refactors code)
+#   config
+#     - (makes a change to the config files)
+#   admin
+#     - (makes changes to administrator tools)
+#   server
+#     - (miscellaneous changes to server)
+#################################
+
+# Your name.
+author: Fenodyree
+
+# Optional: Remove this file after generating master changelog.  Useful for PR changelogs that won't get used again.
+delete-after: True
+
+# Any changes you've made.  See valid prefix list above.
+# INDENT WITH TWO SPACES.  NOT TABS.  SPACES.
+# SCREW THIS UP AND IT WON'T WORK.
+# Also, this gets changed to [] after reading.  Just remove the brackets when you add new shit.
+# Please surround your changes in  double quotes ("). It works without them, but if you use certain characters it screws up compiling. The quotes will not show up in the changelog.
+changes:
+  - rscadd: "Adds a dosimeter. Engineering spawns with two. Counts the amount of radiation it's wearer takes and calculates the real rate of exposure after armor."
+  - imageadd: "Adds sprites to the dosimeter courtesy of The_Ill_fated, with a big thanks!"
+  - rscadd: "Adds an instruction to shelter in maintanance to the Supermatter Delamination alert. Also unlocks maintanance when it does."
+  - rscadd: "Adds radiation armour values to makeshift armour, based on weight. Lead plate on the chest blocks 90% of radiation to the chest. Does nothing for your arms and legs though."
+  - rscadd: "Adds a damage flag that makes certain hits ignore mechanical limbs. Useful for radiation, which shouldn't give metal radaiation burns."
+  - balance: "Multiplies the max radiation level by 10, to 1000. This means radiation takes much logner to accumulate, radiation protection that isn't the radsuit is worth it now."
+  - balance: "Increaes the lethality of maximum radiation doses. Any radiation over your maximum is dealt as burn damage."
+  - balance: "Rebalances radiation damage to be more painful, with more side effects, but less organ damage except at the highest levels."
