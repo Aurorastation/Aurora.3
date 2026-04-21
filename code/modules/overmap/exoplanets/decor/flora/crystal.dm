@@ -26,6 +26,8 @@
 /obj/structure/flora/rock/spire/Initialize(mapload)
 	. = ..()
 	icon_state = "spire[rand(1,3)]"
+	set_light_range_power_color(5, 0.5, LIGHT_COLOR_CYAN)
+	set_light_on(TRUE)
 
 /obj/effect/floor_decal/crystal
 	name = "crystals"

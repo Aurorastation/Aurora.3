@@ -1213,6 +1213,8 @@ ABSTRACT_TYPE(/obj/structure/stairs/urban/road_ramp_assun)
 /obj/item/key/door_key/GetAccess()
 	return access_list
 
+// TO-DO: clean the redundant types and correct the instances placed in port_volturno.
+// Instead of "East/west", "North/south" instances there should just be "single, side, center". See: skrell variant
 // Overhead structural arches. Cool as hell.
 ABSTRACT_TYPE(/obj/structure/arch)
 	icon = 'icons/obj/structure/urban/arches.dmi'
@@ -1240,6 +1242,7 @@ ABSTRACT_TYPE(/obj/structure/arch)
 
 // North/south arch pieces
 /obj/structure/arch/gothic/northsouth/_single
+
 /obj/structure/arch/gothic/northsouth/upper
 	icon_state = "gothic_arch_end"
 /obj/structure/arch/gothic/northsouth/center
@@ -1248,3 +1251,26 @@ ABSTRACT_TYPE(/obj/structure/arch)
 	icon_state = "gothic_arch_end"
 	dir = 1
 
+// ---- Skrell (purple)
+
+/obj/structure/arch/skrell
+	name = "ornate arch"
+	icon_state = "skrellian_arch_single_purple"
+
+/obj/structure/arch/skrell/side
+	icon_state = "skrellian_arch_side_purple"
+
+/obj/structure/arch/skrell/center
+	icon_state = "skrellian_arch_center_purple"
+
+// ---- Skrell (pink)
+
+/obj/structure/arch/skrell/pink
+	name = "ornate arch"
+	icon_state = "skrellian_arch_single_pink"
+
+/obj/structure/arch/skrell/pink/side
+	icon_state = "skrellian_arch_side_pink"
+
+/obj/structure/arch/skrell/pink/center
+	icon_state = "skrellian_arch_center_pink"

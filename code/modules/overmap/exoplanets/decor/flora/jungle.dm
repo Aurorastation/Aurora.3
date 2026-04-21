@@ -59,8 +59,9 @@
 	color = COLOR_DARK_GREEN_GRAY
 	opacity = TRUE
 	density = FALSE
-	var/health = 20
-	var/maxhealth = 20
+	maxhealth = OBJECT_HEALTH_EXTREMELY_LOW
+	hitsound = SFX_BREAK_WOOD
+	destroy_sound = SFX_BREAK_WOOD
 
 /obj/structure/flora/kudzu/Initialize()
 	. = ..()
@@ -73,30 +74,8 @@
 	icon_state = "vines-[rand(4, 5)]"
 	var/turf/T = get_turf(src)
 	T.movement_cost = 4
+//	playsound(loc, SFX_BREAK_WOOD, 50, TRUE)
 
-/obj/structure/flora/kudzu/attackby(obj/item/attacking_item, mob/user)
-	if(!attacking_item.force)
-		return ..()
-
-	var/mob/living/L = user
-	if(!istype(L))
-		return ..()
-
-	L.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
-	var/message = pick(attacking_item.attack_verb)
-	visible_message(SPAN_DANGER("[L] has [message] the [src]!"))
-	L.do_attack_animation(src)
-	playsound(loc, SFX_BREAK_WOOD, 50, TRUE)
-	update_health(attacking_item.force)
-
-/obj/structure/flora/kudzu/proc/update_health(var/damage)
-	health -= damage
-	health = clamp(health, 0, maxhealth)
-	if(health)
-		return
-
-	visible_message(SPAN_DANGER("[src] falls apart!"))
-	qdel(src)
 
 /obj/structure/flora/kudzu/proc/on_entered(datum/source, atom/movable/AM)
 	SIGNAL_HANDLER
