@@ -196,6 +196,7 @@ SUBSYSTEM_DEF(machinery)
 				STOP_PROCESSING_MACHINE(machine, MACHINERY_PROCESS_SELF)
 				processing -= machine
 				i-- // compensate for shrinking list
+				continue
 		if (no_mc_tick)
 			CHECK_TICK
 		else if (MC_TICK_CHECK)
