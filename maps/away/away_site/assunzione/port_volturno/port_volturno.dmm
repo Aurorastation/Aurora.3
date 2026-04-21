@@ -477,6 +477,10 @@
 "atF" = (
 /obj/structure/table/reinforced/wood,
 /obj/effect/decal/rolling_fog,
+/obj/item/material/ashtray/bronze{
+	pixel_x = 6;
+	pixel_y = 6
+	},
 /turf/simulated/floor/lino/diamond,
 /area/port_volturno/interior/witch_hand/bar)
 "atL" = (
@@ -3006,6 +3010,7 @@
 /obj/effect/decal/rolling_fog,
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/extinguisher_cabinet/north,
+/obj/structure/bed/stool/bar/padded/black,
 /turf/simulated/floor/lino/diamond,
 /area/port_volturno/interior/witch_hand/bar)
 "cqD" = (
@@ -5363,6 +5368,19 @@
 /turf/simulated/floor/grass1/no_edge,
 /area/port_volturno/exterior)
 "dNC" = (
+/obj/effect/decal/rolling_fog,
+/obj/structure/bed/stool/bar/padded/black{
+	dir = 8
+	},
+/obj/structure/bed/stool/bar/padded/black{
+	dir = 8
+	},
+/obj/structure/bed/stool/bar/padded/black{
+	dir = 8
+	},
+/obj/structure/bed/stool/bar/padded/black{
+	dir = 8
+	},
 /turf/simulated/floor/exoplanet/assunzione,
 /area/port_volturno/interior/witch_hand/bar)
 "dNL" = (
@@ -7241,6 +7259,10 @@
 /obj/structure/table/rack/cafe_table,
 /obj/effect/decal/rolling_fog,
 /obj/machinery/power/outlet,
+/obj/item/material/ashtray/bronze{
+	pixel_x = 6;
+	pixel_y = 6
+	},
 /turf/simulated/floor/concrete,
 /area/port_volturno/interior/witch_hand/bar)
 "fkf" = (
@@ -8381,6 +8403,16 @@
 	},
 /turf/simulated/floor/sidewalk/assunzione/flat,
 /area/port_volturno/exterior)
+"gfv" = (
+/obj/structure/table/reinforced/wood,
+/obj/effect/decal/rolling_fog,
+/obj/machinery/power/outlet,
+/obj/item/material/ashtray/bronze{
+	pixel_x = 6;
+	pixel_y = 5
+	},
+/turf/simulated/floor/lino/diamond,
+/area/port_volturno/interior/witch_hand/bar)
 "gfU" = (
 /obj/machinery/door/firedoor{
 	req_one_access = null
@@ -8540,6 +8572,7 @@
 /obj/item/storage/bag/trash,
 /obj/item/storage/bag/trash,
 /obj/item/storage/bag/trash,
+/obj/effect/decal/rolling_fog,
 /turf/simulated/floor/exoplanet/assunzione,
 /area/port_volturno/interior/witch_hand/bar)
 "gmc" = (
@@ -9961,6 +9994,7 @@
 /obj/random/dirt_75,
 /obj/effect/decal/road_marking/no_park,
 /obj/structure/closet/crate/bin/urban,
+/obj/effect/decal/rolling_fog,
 /turf/simulated/floor/tiled/dark/full,
 /area/port_volturno/interior/maintenance)
 "hnT" = (
@@ -13722,7 +13756,7 @@
 /obj/effect/decal/rolling_fog,
 /obj/machinery/chemical_dispenser/bar_soft/full{
 	dir = 8;
-	pixel_x = 7;
+	pixel_x = 2;
 	pixel_y = -1
 	},
 /obj/structure/table/reinforced/wood,
@@ -13996,6 +14030,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/random/maintenance_junk_or_loot,
+/obj/effect/decal/rolling_fog,
 /turf/simulated/floor/exoplanet/assunzione,
 /area/port_volturno/interior/maintenance)
 "kvy" = (
@@ -15979,6 +16014,12 @@
 	},
 /turf/simulated/floor/reinforced/airmix,
 /area/port_volturno/interior/spaceport)
+"lGP" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/random/maintenance_junk_or_loot,
+/obj/effect/decal/rolling_fog,
+/turf/simulated/floor/exoplanet/assunzione,
+/area/port_volturno/interior/maintenance)
 "lGR" = (
 /obj/random/dirt_75,
 /obj/structure/filingcabinet/chestdrawer{
@@ -16899,9 +16940,14 @@
 /turf/simulated/floor/tiled/white,
 /area/port_volturno/interior/clinic/pharmacy)
 "mqm" = (
+/obj/structure/table/rack/cafe_table,
 /obj/effect/decal/rolling_fog,
-/turf/unsimulated/mineral/assunzione,
-/area/port_volturno/interior)
+/obj/machinery/power/outlet,
+/obj/item/material/ashtray/bronze{
+	pixel_y = 5
+	},
+/turf/simulated/floor/concrete,
+/area/port_volturno/interior/witch_hand/bar)
 "mrz" = (
 /obj/structure/table/steel,
 /turf/simulated/floor/tiled/white,
@@ -18534,6 +18580,11 @@
 	},
 /obj/random/dirt_75,
 /obj/item/storage/toolbox/mechanical,
+/obj/effect/decal/rolling_fog,
+/obj/machinery/light/colored/decayed{
+	dir = 8;
+	pixel_x = -5
+	},
 /turf/simulated/floor/exoplanet/assunzione,
 /area/port_volturno/interior/witch_hand/bar)
 "nMC" = (
@@ -23312,7 +23363,9 @@
 "rbw" = (
 /obj/effect/decal/rolling_fog,
 /obj/effect/decal/cleanable/dirt,
-/obj/structure/bed/stool/chair/folding,
+/obj/structure/bed/stool/chair/folding{
+	dir = 8
+	},
 /turf/simulated/floor/lino,
 /area/port_volturno/interior/witch_hand/bar)
 "rbV" = (
@@ -25757,6 +25810,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/random/maintenance_junk_or_loot,
+/obj/effect/decal/rolling_fog,
 /turf/simulated/floor/exoplanet/assunzione,
 /area/port_volturno/interior/maintenance)
 "sYm" = (
@@ -26274,6 +26328,11 @@
 /obj/item/reagent_containers/glass/bucket,
 /obj/random/dirt_75,
 /obj/item/mop/advanced,
+/obj/effect/decal/rolling_fog,
+/obj/machinery/light/colored/decayed{
+	dir = 4;
+	pixel_x = 5
+	},
 /turf/simulated/floor/exoplanet/assunzione,
 /area/port_volturno/interior/witch_hand/bar)
 "tyq" = (
@@ -28143,10 +28202,12 @@
 /turf/simulated/floor/wood/birch,
 /area/port_volturno/interior/liquor_store)
 "uGy" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/exoplanet/assunzione,
-/area/port_volturno/interior/maintenance)
+/obj/effect/decal/rolling_fog,
+/obj/structure/bed/stool/bar/padded/black{
+	dir = 8
+	},
+/turf/simulated/floor/lino/diamond,
+/area/port_volturno/interior/witch_hand/bar)
 "uGF" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/exterior_stairs/half/center{
@@ -29259,6 +29320,13 @@
 /obj/structure/table/rack/cafe_table,
 /turf/simulated/floor/sidewalk/assunzione,
 /area/port_volturno/interior)
+"vAl" = (
+/obj/effect/decal/rolling_fog,
+/obj/effect/decal/curb{
+	dir = 8
+	},
+/turf/simulated/floor/concrete,
+/area/port_volturno/interior/witch_hand/bar)
 "vBh" = (
 /obj/random/dirt_75,
 /obj/structure/extinguisher_cabinet/south,
@@ -65543,7 +65611,7 @@ cQx
 cQx
 hqE
 kGS
-fjS
+mqm
 udu
 jZR
 vyd
@@ -66827,7 +66895,7 @@ cQx
 cQx
 hqE
 kQu
-uqi
+vAl
 uqi
 uqi
 kHR
@@ -67085,7 +67153,7 @@ hqE
 hqE
 hqE
 hWl
-dmC
+gfv
 toO
 rBG
 dmC
@@ -67345,15 +67413,15 @@ cqw
 wVg
 vQz
 wVg
-vQz
+uGy
 wVg
 cJS
 hqE
-ufj
-vkU
-uGy
-vkU
-uGy
+lGP
+mhz
+juA
+mhz
+juA
 sXn
 kuZ
 cQx
@@ -67596,7 +67664,7 @@ cQx
 cQx
 hqE
 dNC
-dNC
+wyz
 hNe
 wVg
 wVg
@@ -67606,10 +67674,10 @@ wVg
 wVg
 wVg
 fBG
-uGy
-vuS
-vkU
-vkU
+juA
+sDt
+mhz
+mhz
 odA
 cQx
 cQx
@@ -67864,8 +67932,8 @@ kaD
 xOH
 hqE
 hnN
-uGy
-ufj
+juA
+lGP
 odA
 odA
 cQx
@@ -68368,8 +68436,8 @@ cQx
 cQx
 cQx
 cQx
-mqm
-mqm
+cQx
+cQx
 hqE
 hqE
 hqE
