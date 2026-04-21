@@ -175,7 +175,7 @@ SUBSYSTEM_DEF(machinery)
 			if(!machine)
 				continue // Hard delete; unlikely but possible. Soft deletes are handled below and expected.
 			if(machine in processing)
-				processing -= machine
+				processing.Remove(machine)
 				machine.datum_flags &= ~DF_ISPROCESSING
 				WARNING("[log_info_line(machine)] was found illegally queued on SSmachines.")
 				i-- // compensate for shrinking list
