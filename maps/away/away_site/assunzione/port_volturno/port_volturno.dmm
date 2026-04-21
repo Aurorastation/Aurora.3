@@ -13480,7 +13480,7 @@
 /obj/machinery/button/remote/blast_door{
 	id = "bar";
 	name = "Store Shutters";
-	pixel_y = -15;
+	pixel_y = -5;
 	dir = 4;
 	req_access = list(219);
 	pixel_x = 20
@@ -16941,11 +16941,11 @@
 /area/port_volturno/interior/clinic/pharmacy)
 "mqm" = (
 /obj/structure/table/rack/cafe_table,
-/obj/effect/decal/rolling_fog,
 /obj/machinery/power/outlet,
 /obj/item/material/ashtray/bronze{
 	pixel_y = 5
 	},
+/obj/effect/decal/rolling_fog,
 /turf/simulated/floor/concrete,
 /area/port_volturno/interior/witch_hand/bar)
 "mrz" = (
@@ -23618,7 +23618,9 @@
 	dir = 1;
 	name = "Zeng-Hu Pharmacy and Clinic"
 	},
-/obj/machinery/door/blast/shutters,
+/obj/machinery/door/blast/shutters{
+	id = "bar"
+	},
 /obj/effect/decal/rolling_fog,
 /turf/simulated/floor/tiled/cargo/brass/full,
 /area/port_volturno/interior/witch_hand/bar)
@@ -24668,6 +24670,17 @@
 	},
 /turf/simulated/floor/sidewalk/assunzione,
 /area/port_volturno/exterior)
+"seo" = (
+/obj/machinery/light/colored/red{
+	dir = 8;
+	pixel_x = -5
+	},
+/obj/structure/bed/stool/chair/sofa/black{
+	dir = 4
+	},
+/obj/effect/decal/rolling_fog,
+/turf/simulated/floor/concrete,
+/area/port_volturno/interior/witch_hand/bar)
 "ses" = (
 /obj/structure/flora/assunzione/grass,
 /obj/effect/decal/curb{
@@ -25458,7 +25471,9 @@
 /obj/machinery/door/urban/glass_sliding/double{
 	name = "Zeng-Hu Pharmacy and Clinic"
 	},
-/obj/machinery/door/blast/shutters,
+/obj/machinery/door/blast/shutters{
+	id = "bar"
+	},
 /turf/simulated/floor/tiled/cargo/brass/full,
 /area/port_volturno/interior/witch_hand/bar)
 "sLM" = (
@@ -65353,7 +65368,7 @@ cQx
 cQx
 hqE
 ndG
-wkM
+seo
 rEL
 hqE
 ndG
