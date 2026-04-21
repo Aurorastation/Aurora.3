@@ -18585,6 +18585,9 @@
 	dir = 8;
 	pixel_x = -5
 	},
+/obj/item/gun/projectile/revolver,
+/obj/item/ammo_magazine/c45/revolver,
+/obj/item/storage/backpack,
 /turf/simulated/floor/exoplanet/assunzione,
 /area/port_volturno/interior/witch_hand/bar)
 "nMC" = (
