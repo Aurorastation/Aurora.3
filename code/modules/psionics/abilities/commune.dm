@@ -45,6 +45,15 @@
 		psiphoto.show(target)
 		psiphoto.img = icon(realimg)
 		to_chat(target, SPAN_ALIEN("...Even the colors are off."))
+	else if(prob(10) && SSatlas.current_sector.name in list(SECTOR_LEMURIAN_SEA, SECTOR_LEMURIAN_SEA_FAR)) //Lemurian Sea jumpscare!
+		var/icon/realimg = icon(psiphoto.img)
+		psiphoto.img.MapColors(rgb(0,0,0), rgb(0,0,0), rgb(0,0,0), rgb(0,0,0))
+		target.eye_blind += 20
+		psiphoto.show(target)
+		psiphoto.img = icon(realimg)
+		to_chat(target, SPAN_ALIEN("An eerie void momentarily blanks your perception."))
+		sleep(50)
+		target.eye_blind -= 20
 	else
 		psiphoto.show(target)
 	psiphoto.scribble = "[realscribble]"
@@ -173,7 +182,7 @@
 			var/scrmbldnote = stars(note, (abs(target_sensitivity) * 25))
 			var/scrmbldwarp = stars(warpdesc, (abs(target_sensitivity) * 45)) //Warped descriptions are even more abnormal, so extra scrambled
 			to_chat(T, SPAN_ALIEN("<b>A mental image of \a [prob(40)?"[image] ":""][scrmbldobject] attempts to form in your mind.</b>\n[scrmbldnote]" + " [scrmbldwarp]"))
-			if(prob(40) && popup)
+			if(prob(45) && popup)
 				if(psipaper)
 					var/scrmbldinfo = stars(psipaper.info, (abs(target_sensitivity) * 35)) //upped ratio as pencode itself gets scrambled too
 					ShowSavedInfo(T, scrmbldinfo) //that technically makes text in other langs slightly decipherable ICly, buuut...
