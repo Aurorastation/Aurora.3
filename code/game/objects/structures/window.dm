@@ -230,12 +230,12 @@
 	if(attacking_item.item_flags & ITEM_FLAG_NO_BLUDGEON)
 		return
 
-	if(hanlde_construction(attacking_item, user))
+	if(handle_construction(attacking_item, user))
 		return
 
 	. = ..()
 
-/obj/structure/window/proc/hanlde_construction(obj/item/attacking_item, mob/user)
+/obj/structure/window/proc/handle_construction(obj/item/attacking_item, mob/user)
 	// Screwdriver
 	if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER && user.a_intent != I_HURT)
 		if(reinf && state >= 1)
@@ -635,7 +635,7 @@
 		WF.has_glass_installed = FALSE
 	return ..()
 
-/obj/structure/window/full/hanlde_construction(obj/item/attacking_item, mob/user)
+/obj/structure/window/full/handle_construction(obj/item/attacking_item, mob/user)
 	if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER && user.a_intent != I_HURT)
 		if(state == 2)
 			if(attacking_item.use_tool(src, user, 2 SECONDS, volume = 50))
