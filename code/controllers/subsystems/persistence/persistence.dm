@@ -19,7 +19,7 @@ SUBSYSTEM_DEF(persistence)
  * Subsystem info stub message generation.
  */
 /datum/controller/subsystem/persistence/stat_entry(msg)
-	msg = ("register:[length(GLOB.persistence_object_track_register)]|prevent_safe:[SSpersistence.prevent_safe ? "TRUE" : "FALSE"]")
+	msg = ("Register: [length(GLOB.persistence_object_track_register)] | Prevent saving: [SSpersistence.prevent_safe ? "TRUE" : "FALSE"]")
 	return msg
 
 /**
