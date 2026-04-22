@@ -50,7 +50,7 @@ SUBSYSTEM_DEF(persistence)
 	return TRUE
 
 /datum/admins/proc/toggle_persistence()
-	set name = "Toggle persistence"
+	set name = "Toggle Persistence"
 	set category = "Special Verbs"
 
 	if(!check_rights(R_ADMIN))
