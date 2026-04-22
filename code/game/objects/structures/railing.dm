@@ -15,8 +15,6 @@
 
 	build_amt = 2
 
-	maxhealth = OBJECT_HEALTH_VERY_LOW
-
 	var/broken = FALSE
 	var/neighbor_status = 0
 
@@ -89,7 +87,7 @@
 
 		name = "[material.display_name] [initial(name)]"
 		desc = "A simple [material.display_name] railing designed to protect against careless trespass."
-		set_maxhealth(round(material.integrity / 5))
+		set_maxhealth(round(material.integrity / 2), TRUE)
 		set_health(maxhealth)
 		color = material.icon_colour
 
