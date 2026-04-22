@@ -289,22 +289,16 @@
 /datum/language/bug/format_message(message, verb, speaker_mask, speaker)
 	var/message_color = colour
 	var/list/speaker_surname = splittext(speaker_mask, " ")
-	var/mob/living/carbon/human/H = speaker //Check for Preimminent Shaper robes, which obscure Hive affiliation
-	var/obj/item/clothing/suit/vaurca/shaper/wornrobes = H.get_equipped_item(slot_wear_suit)
 	if(length(speaker_surname) > 1)
-		switch(speaker_surname[2]) //Then prevent Hive colors
+		switch(speaker_surname[2])
 			if("Zo'ra")
-				if(!istype(wornrobes))
-					message_color = "vaurca_zora"
+				message_color = "vaurca_zora"
 			if("C'thur")
-				if(!istype(wornrobes))
-					message_color = "vaurca_cthur"
+				message_color = "vaurca_cthur"
 			if("K'lax")
-				if(!istype(wornrobes))
-					message_color = "vaurca_klax"
+				message_color = "vaurca_klax"
 			if("Lii'dra")
-				if(!istype(wornrobes))
-					message_color = "vaurca_liidra"
+				message_color = "vaurca_liidra"
 	if(copytext(message, 1, 2) == "!")
 		return " projects <span class='message'><span class='[message_color]'>[copytext(message, 2)]</span></span>"
 	return "[verb], <span class='message'><span class='[message_color]'>\"[capitalize(message)]\"</span></span>"
