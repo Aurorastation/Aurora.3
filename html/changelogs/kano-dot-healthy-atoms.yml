@@ -1,0 +1,6 @@
+author: Kano
+
+delete-after: True
+
+changes:
+  - bugfix: "Fixed some atom health bugs and slightly refactored the code."

@@ -8,13 +8,14 @@
 	layer = OBJ_LAYER
 	anchored = FALSE
 	pass_flags_self = LETPASSTHROW|PASSSTRUCTURE|PASSRAILING
+	hitsound = 'sound/effects/metalhit.ogg'
 
 	atom_flags = ATOM_FLAG_CHECKS_BORDER
 	obj_flags = OBJ_FLAG_ROTATABLE|OBJ_FLAG_MOVES_UNSUPPORTED
 
 	build_amt = 2
 
-	maxhealth = OBJECT_HEALTH_EXTREMELY_LOW
+	maxhealth = OBJECT_HEALTH_VERY_LOW
 
 	var/broken = FALSE
 	var/neighbor_status = 0
@@ -315,11 +316,6 @@
 			update_icon()
 		return
 
-	if(attacking_item.force && (attacking_item.damtype == DAMAGE_BURN || attacking_item.damtype == DAMAGE_BRUTE))
-		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
-		visible_message(SPAN_WARNING("\The [src] has been [LAZYLEN(attacking_item.attack_verb) ? pick(attacking_item.attack_verb) : "attacked"] with \the [attacking_item] by \the [user]!"))
-		add_damage(attacking_item.force, attacking_item.damage_flags(), attacking_item.damtype, attacking_item.armor_penetration, attacking_item)
-		return
 	. = ..()
 
 /obj/structure/railing/ex_act(severity)
