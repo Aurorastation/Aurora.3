@@ -65,7 +65,7 @@ SUBSYSTEM_DEF(persistence)
 		message = "The persistence subsystem will save at the end of the round. Do you want to prevent this? This can be un-done before the round ends."
 		options = list("Prevent saving", "Cancel")
 
-	var/confirm = tgui_alert(usr, message, "Toggle persistence saving", options)
+	var/confirm = tgui_alert(usr, message, "Toggle Persistence Saving", options)
 	if(confirm == "Prevent saving")
 		SSpersistence.prevent_safe = TRUE
 		to_world(FONT_LARGE(EXAMINE_BLOCK_RED("Persistence saving at the end of the round has been [SPAN_BOLD(SPAN_WARNING("disabled"))] by an administrator.")))
