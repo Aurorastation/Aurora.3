@@ -30,8 +30,7 @@
 	)
 
 	blacklisted_citizenship_types = list(
-		/datum/citizenship/free_council,
-		/datum/citizenship/nka
+		/datum/citizenship/free_council
 	)
 
 	job_species_blacklist = list(
