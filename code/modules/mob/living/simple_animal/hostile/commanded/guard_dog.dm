@@ -102,6 +102,11 @@
 	icon_dead = "armored_carp_dead"
 	icon_rest = "armored_carp_rest"
 	//Carp code
+	speak = list("Glub!")
+	speak_emote = list("glubs"
+	emote_hear = list("glubs")
+	sad_emote = list("sad glubs")
+	emote_sounds = NULL
 	speak_chance = 0
 	meat_type = /obj/item/reagent_containers/food/snacks/fish/carpmeat
 	butchering_products = list(/obj/item/reagent_containers/food/snacks/fish/roe = 1)
