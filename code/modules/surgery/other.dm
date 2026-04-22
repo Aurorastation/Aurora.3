@@ -17,6 +17,7 @@
 	min_duration = 40
 	max_duration = 60
 	skill_requirements = alist(SURGERY_SKILL_COMPONENT = SKILL_LEVEL_FAMILIAR)
+	skill_diff_fail_modifier = 25 // Not very easy to do without practice or under pressure
 
 /singleton/surgery_step/fix_vein/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(!..())
@@ -67,6 +68,7 @@
 	min_duration = 80
 	max_duration = 130
 	skill_requirements = alist(SURGERY_SKILL_COMPONENT = SKILL_LEVEL_PROFESSIONAL)
+	skill_diff_fail_modifier = 33 // extreme high difficulty
 
 /singleton/surgery_step/internal/fix_dead_tissue/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(!..())
@@ -133,6 +135,7 @@
 	min_duration = 80
 	max_duration = 90
 	skill_requirements = alist(SURGERY_SKILL_COMPONENT = SKILL_LEVEL_PROFESSIONAL)
+	skill_diff_fail_modifier = 33 // extreme high difficulty
 
 /singleton/surgery_step/treat_necrosis/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(!..())
@@ -200,6 +203,7 @@
 	min_duration = 50
 	max_duration = 70
 	skill_requirements = alist(SURGERY_SKILL_COMPONENT = SKILL_LEVEL_TRAINED)
+	skill_diff_fail_modifier = 20 // high difficulty
 
 /singleton/surgery_step/fix_tendon/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(!..())
@@ -241,7 +245,8 @@
 
 	min_duration = 100
 	max_duration = 160
-	skill_requirements = alist(ROBOTICS_SKILL_COMPONENT = SKILL_LEVEL_FAMILIAR)
+	skill_requirements = alist(ROBOTICS_SKILL_COMPONENT = SKILL_LEVEL_TRAINED)
+	skill_diff_fail_modifier = 10 // Not terribly hard but can be time consuming if you aren't practiced
 
 /singleton/surgery_step/hardsuit/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(!..())

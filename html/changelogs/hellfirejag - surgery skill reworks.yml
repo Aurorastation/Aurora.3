@@ -1,0 +1,5 @@
+author: Hellfirejag
+delete-after: True
+changes:
+  - rscadd: "Reworked surgery to use soft requirements and signals to directly modify the success chances of surgery. These penalties or bonuses stack with those from not having ideal tools."
+  - rscadd: "Morale modifiers now affect surgery success rates."
