@@ -106,8 +106,7 @@
 	speak_emote = "glubs"
 	emote_hear = "glubs"
 	sad_emote = "sad glubs"
-	emote_sounds = NULL
-	speak_chance = 0
+	emote_sounds = NONE
 	meat_type = /obj/item/reagent_containers/food/snacks/fish/carpmeat
 	butchering_products = list(/obj/item/reagent_containers/food/snacks/fish/roe = 1)
 	organ_names = list("head", "chest", "tail", "left flipper", "right flipper")
