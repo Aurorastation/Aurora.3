@@ -87,6 +87,10 @@
 				voice_sub = changer.voice
 	if(voice_sub)
 		return voice_sub
+	var/obj/item/clothing/head/shaper/helmet = src.get_equipped_item(slot_head)
+	if(istype(helmet)) //Check for Preimminent Shaper helmet which obscures Hive affiliation, then remove Hive surname when speaking
+		var/list/hiveless_name = splittext(real_name, " ")
+		return hiveless_name[1]
 	var/obj/item/organ/external/head/face = organs_by_name[BP_HEAD]
 	if(face?.disfigured) // if your face is ruined, your ability to vocalize is also ruined
 		return "Unknown" // above ling voice mimicing so they don't get caught out immediately
