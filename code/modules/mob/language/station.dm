@@ -234,11 +234,16 @@
 /datum/language/bug/broadcast(var/mob/living/speaker,var/message,var/speaker_mask)
 	log_say("[key_name(speaker)] : ([name]) [message]")
 
+	var/mob/living/carbon/human/H = speaker //Check for Preimminent Shaper robes, which obscure Hive affiliation
+	var/obj/item/clothing/suit/vaurca/shaper/wornrobes = H.get_equipped_item(slot_wear_suit)
 	if(!speaker_mask)
 		speaker_mask = speaker.real_name
+		if(istype(wornrobes)) //Then remove their Hive name from Hivenet
+			var/list/speaker_surname = splittext(speaker_mask, " ")
+			speaker_mask = speaker_surname[1]
 
-	var/msg = "<i><span class='game say'>[name], <span class='name'>[speaker_mask]</span>[format_message(message, get_spoken_verb(message), speaker_mask)]</span></i>"
-	var/encrypted_msg =  "<i><span class='game say'>[name], <span class='name'>[speaker_mask]</span>[format_message("!a surge of encrypted data", get_spoken_verb(message), speaker_mask)]</span></i>"
+	var/msg = "<i><span class='game say'>[name], <span class='name'>[speaker_mask]</span>[format_message(message, get_spoken_verb(message), speaker_mask, speaker)]</span></i>"
+	var/encrypted_msg =  "<i><span class='game say'>[name], <span class='name'>[speaker_mask]</span>[format_message("!a surge of encrypted data", get_spoken_verb(message), speaker_mask, speaker)]</span></i>"
 
 	if(isvaurca(speaker))
 		speaker.custom_emote(VISIBLE_MESSAGE, "[pick("twitches their antennae", "twitches their antennae rhythmically")].")
@@ -281,19 +286,25 @@
 				continue
 			to_chat(player, msg)
 
-/datum/language/bug/format_message(message, verb, speaker_mask)
+/datum/language/bug/format_message(message, verb, speaker_mask, speaker)
 	var/message_color = colour
 	var/list/speaker_surname = splittext(speaker_mask, " ")
+	var/mob/living/carbon/human/H = speaker //Check for Preimminent Shaper robes, which obscure Hive affiliation
+	var/obj/item/clothing/suit/vaurca/shaper/wornrobes = H.get_equipped_item(slot_wear_suit)
 	if(length(speaker_surname) > 1)
-		switch(speaker_surname[2])
+		switch(speaker_surname[2]) //Then prevent Hive colors
 			if("Zo'ra")
-				message_color = "vaurca_zora"
+				if(!istype(wornrobes))
+					message_color = "vaurca_zora"
 			if("C'thur")
-				message_color = "vaurca_cthur"
+				if(!istype(wornrobes))
+					message_color = "vaurca_cthur"
 			if("K'lax")
-				message_color = "vaurca_klax"
+				if(!istype(wornrobes))
+					message_color = "vaurca_klax"
 			if("Lii'dra")
-				message_color = "vaurca_liidra"
+				if(!istype(wornrobes))
+					message_color = "vaurca_liidra"
 	if(copytext(message, 1, 2) == "!")
 		return " projects <span class='message'><span class='[message_color]'>[copytext(message, 2)]</span></span>"
 	return "[verb], <span class='message'><span class='[message_color]'>\"[capitalize(message)]\"</span></span>"
