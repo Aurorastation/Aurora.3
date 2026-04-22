@@ -545,8 +545,9 @@ INITIALIZE_IMMEDIATE(/obj/item/organ)
 				found_condition = condition_ref
 	else if(condition in conditions)
 		found_condition = condition
-		if(found_condition.can_upgrade && istype(condition, found_condition.type)) //conditions that can upgrade when a new condition of the same type is applied
-			return FALSE
+
+	if(found_condition?.can_upgrade && istype(condition, found_condition.type)) //conditions that can upgrade when a new condition of the same type is applied
+		return FALSE
 
 	// Some conditions can apply more than once. In that case, we count as not having that condition until that limit is reached.
 	if(found_condition?.max_condition_amount > 1)

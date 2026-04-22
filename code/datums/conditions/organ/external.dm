@@ -253,6 +253,7 @@
 	max_condition_amount = 1
 	severity = CONDITION_SEVERITY_LOW
 	apply_sound = 'sound/effects/conditions/eschar.ogg'
+	min_damage = 30
 	/// The amount of times an eschar is stacked on the same organ. Each eschar applied increases this count.
 	var/stacks = 1
 	/// Maximum amount of stacks we can have.
