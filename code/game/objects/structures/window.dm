@@ -1,9 +1,3 @@
-//
-// Glass
-//
-#define FULL_REINFORCED_WINDOW_DAMAGE_FORCE 8
-#define REINFORCED_WINDOW_DAMAGE_FORCE 8
-
 /obj/structure/window
 	name = "glass pane"
 	desc = "A glass pane."
@@ -233,62 +227,58 @@
 			grab_smash_attack(G, DAMAGE_BRUTE)
 			return
 
-	. = ..()
-
 	if(attacking_item.item_flags & ITEM_FLAG_NO_BLUDGEON)
 		return
 
+	if(hanlde_construction(attacking_item, user))
+		return
+
+	. = ..()
+
+/obj/structure/window/proc/hanlde_construction(obj/item/attacking_item, mob/user)
+	// Screwdriver
 	if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER && user.a_intent != I_HURT)
 		if(reinf && state >= 1)
 			state = 3 - state
 			update_nearby_icons()
 			attacking_item.play_tool_sound(get_turf(src), 75)
 			to_chat(user, (state == 1 ? SPAN_NOTICE("You have unfastened the window from the frame.") : SPAN_NOTICE("You have fastened the window to the frame.")))
+
 		else if(reinf && state == 0)
 			anchored = !anchored
 			update_icon()
 			update_nearby_icons()
 			attacking_item.play_tool_sound(get_turf(src), 75)
 			to_chat(user, (anchored ? SPAN_NOTICE("You have fastened the frame to the floor.") : SPAN_NOTICE("You have unfastened the frame from the floor.")))
-		else if(!reinf)
+
+		else
 			anchored = !anchored
 			update_nearby_icons()
 			attacking_item.play_tool_sound(get_turf(src), 75)
 			to_chat(user, (anchored ? SPAN_NOTICE("You have fastened the window to the floor.") : SPAN_NOTICE("You have unfastened the window.")))
 			update_icon()
 			update_nearby_icons()
+
+		return TRUE
+
+	// Crowbar
 	else if(attacking_item.tool_behaviour == TOOL_CROWBAR && reinf && state <= 1 && user.a_intent != I_HURT)
 		state = 1 - state
 		attacking_item.play_tool_sound(get_turf(src), 75)
 		to_chat(user, (state ? SPAN_NOTICE("You have pried the window into the frame.") : SPAN_NOTICE("You have pried the window out of the frame.")))
+		return TRUE
+
+	// Wrench
 	else if(attacking_item.tool_behaviour == TOOL_WRENCH && !anchored && (!state || !reinf) && user.a_intent != I_HURT)
 		if(!glasstype)
 			to_chat(user, SPAN_NOTICE("You're not sure how to dismantle \the [src] properly."))
 		else
 			visible_message(SPAN_NOTICE("[user] dismantles \the [src]."))
 			dismantle_window()
-	else
-		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
-		if(attacking_item.damtype == DAMAGE_BRUTE || attacking_item.damtype == DAMAGE_BURN)
-			if(reinf)
-				user.do_attack_animation(src)
-				if(attacking_item.force >= REINFORCED_WINDOW_DAMAGE_FORCE)
-					user.visible_message(SPAN_DANGER("\The [user] forcefully strikes \the [src] with \the [attacking_item]!"))
-					playsound(src, hitsound, attacking_item.get_clamped_volume(), 1)
-					hit(attacking_item.force)
-				else
-					user.visible_message(SPAN_WARNING("[user] hits \the [src] with \the [attacking_item], but it glances off, doing no damage."))
-					playsound(src, hitsound, attacking_item.get_clamped_volume(), 1)
-			else
-				user.do_attack_animation(src)
-				hit(attacking_item.force)
-			if(health <= 7)
-				anchored = 0
-				update_nearby_icons()
-				step(src, get_dir(user, src))
-		else
-			playsound(src, hitsound, 10, 1)
-	return
+
+		return TRUE
+
+	return FALSE
 
 /obj/structure/window/proc/grab_smash_attack(obj/item/grab/G, var/damtype = DAMAGE_BRUTE)
 	var/mob/living/M = G.affecting
@@ -645,20 +635,21 @@
 		WF.has_glass_installed = FALSE
 	return ..()
 
-/obj/structure/window/full/attackby(obj/item/attacking_item, mob/user)
-	// Assembling/disassembling interaction, screwdriver
+/obj/structure/window/full/hanlde_construction(obj/item/attacking_item, mob/user)
 	if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER && user.a_intent != I_HURT)
 		if(state == 2)
 			if(attacking_item.use_tool(src, user, 2 SECONDS, volume = 50))
 				to_chat(user, SPAN_NOTICE("You have unfastened the glass from the window frame."))
 				state--
 				update_nearby_icons()
+				return TRUE
 
 		else if(state == 1)
 			if(attacking_item.use_tool(src, user, 2 SECONDS, volume = 50))
 				to_chat(user, SPAN_NOTICE("You have fastened the glass to the window frame."))
 				state++
 				update_nearby_icons()
+				return TRUE
 
 	else if(attacking_item.tool_behaviour == TOOL_CROWBAR && user.a_intent != I_HURT)
 		if(state == 1)
@@ -666,12 +657,14 @@
 				to_chat(user, SPAN_NOTICE("You pry the glass out of the window frame."))
 				state--
 				update_nearby_icons()
+				return TRUE
 
 		else if(state == 0)
 			if(attacking_item.use_tool(src, user, 2 SECONDS, volume = 50))
 				to_chat(user, SPAN_NOTICE("You pry the glass into the window frame."))
 				state++
 				update_nearby_icons()
+				return TRUE
 
 	else if(attacking_item.tool_behaviour == TOOL_WRENCH && user.a_intent != I_HURT)
 		if(state == 0)
@@ -679,8 +672,9 @@
 			if(attacking_item.use_tool(src, user, 2 SECONDS, volume = 50))
 				to_chat(user, SPAN_NOTICE("You undo the safety bolts and remove the glass from \the [src]."))
 				dismantle_window()
+				return TRUE
 
-	. = ..()
+	return FALSE
 
 /obj/structure/window/full/shatter(var/display_message = 1)
 	playsound(src, SFX_BREAK_GLASS, 70, 1)
@@ -818,6 +812,3 @@
 	reinf = TRUE
 	maximal_heat = T0C + 4000
 	rad_resistance_modifier = 4
-
-#undef FULL_REINFORCED_WINDOW_DAMAGE_FORCE
-#undef REINFORCED_WINDOW_DAMAGE_FORCE
