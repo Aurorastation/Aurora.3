@@ -271,11 +271,16 @@
 /obj/item/organ/external/proc/add_possible_conditions()
 	if(!possible_conditions)
 		possible_conditions = list()
-	if(limb_flags & ORGAN_CAN_BREAK)
+	if(!BP_IS_ROBOTIC(src))
+		if(limb_flags & ORGAN_CAN_BREAK)
+			possible_conditions += list(
+				/datum/condition/organ/fracture/hairline = 50,
+				/datum/condition/organ/fracture/comminuted = 40,
+				/datum/condition/organ/fracture/compound = 30
+			)
 		possible_conditions += list(
-			/datum/condition/organ/fracture/hairline = 50,
-			/datum/condition/organ/fracture/comminuted = 25,
-			/datum/condition/organ/fracture/compound = 15
+			/datum/condition/organ/slash/incision = 30,
+			/datum/condition/organ/burn/eschar = 30
 		)
 
 /obj/item/organ/external/proc/invalidate_marking_cache()
@@ -491,7 +496,7 @@
 			burn /= 2
 
 	var/datum/wound/created_wound
-	var/can_cut = !BP_IS_ROBOTIC(src) && (sharp || prob(brute))
+	var/can_cut = !BP_IS_ROBOTIC(src) && sharp
 	if(brute)
 		var/to_create = INJURY_TYPE_BRUISE
 		if(can_cut)
@@ -499,13 +504,13 @@
 			//need to check sharp again here so that blunt damage that was strong enough to break skin doesn't give puncture wounds
 			if(sharp && !edge)
 				to_create = INJURY_TYPE_PIERCE
-		created_wound = createwound(to_create, brute)
+		created_wound = createwound(to_create, brute, damage_flags)
 
 	if(burn)
 		if(laser)
-			created_wound = createwound(INJURY_TYPE_LASER, burn)
+			created_wound = createwound(INJURY_TYPE_LASER, burn, damage_flags)
 		else
-			created_wound = createwound(INJURY_TYPE_BURN, burn)
+			created_wound = createwound(INJURY_TYPE_BURN, burn, damage_flags)
 
 	add_pain(0.6 * burn + 0.4 * brute)
 
@@ -665,7 +670,7 @@ This function completely restores a damaged organ to perfect condition.
 	owner.updatehealth()
 
 
-/obj/item/organ/external/proc/createwound(type = INJURY_TYPE_CUT, damage)
+/obj/item/organ/external/proc/createwound(type = INJURY_TYPE_CUT, damage, damage_flags)
 	if(damage <= 0 || !owner)
 		return
 
@@ -738,7 +743,7 @@ This function completely restores a damaged organ to perfect condition.
 					break //only one at a time please
 
 	//Creating wound
-	var/wound_type = get_wound_type(type, damage)
+	var/wound_type = get_wound_type(type, damage, damage_flags)
 
 	if(wound_type)
 		var/datum/wound/W = new wound_type(damage, src)
@@ -1140,6 +1145,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 					SPAN_DANGER("\The [owner]'s [src.name] flies off in an arc!"),\
 					"<span class='moderate'><b><font size=2>Your [src.name] goes flying off!</font></b></span>",\
 					SPAN_DANGER("You hear the terrible sound of [gore_sound]."))
+				playsound(owner, 'sound/effects/conditions/disembowelment.ogg', 100, FALSE)
 		if(DROPLIMB_BURN)
 			var/gore = "[(status & ORGAN_ROBOT) ? "": " of burning flesh"]"
 			owner.visible_message(
@@ -1153,6 +1159,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 				SPAN_DANGER("\The [owner]'s [src.name] explodes[gore]!"),\
 				"<span class='moderate'><b><font size=3>Your [src.name] explodes[gore]!</font></b></span>",\
 				SPAN_DANGER("You hear the [gore_sound]."))
+			playsound(owner, 'sound/effects/conditions/condition_high_1.ogg', 100, FALSE)
 
 	var/mob/living/carbon/human/victim = owner //Keep a reference for post-removed().
 	var/obj/item/organ/external/original_parent = parent
@@ -1393,6 +1400,8 @@ Note that amputating the affected organ does in fact remove the infection from t
 		return FALSE
 	if(get_pain() > pain_disability_threshold)
 		return FALSE
+	if(HAS_TRAIT(src, TRAIT_FOURTH_DEGREE_ESCHAR))
+		return FALSE
 	if(brute_ratio >= 100)
 		return FALSE
 	if(burn_ratio >= 100)
@@ -1433,7 +1442,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 				break
 	//Nothing still? Make a new wound for this object to embed in.
 	if(!supplied_wound)
-		supplied_wound = createwound(INJURY_TYPE_PIERCE, W.w_class * EMBED_BASE_DAMAGE)
+		supplied_wound = createwound(INJURY_TYPE_PIERCE, W.w_class * EMBED_BASE_DAMAGE, W.damage_flags())
 
 	if(!supplied_wound || (W in supplied_wound.embedded_objects)) // Just in case.
 		return

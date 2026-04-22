@@ -20,11 +20,13 @@
 
 	/// These are generic sounds that play when all conditions are applied. You shouldn't change this unless you want a totally silent condition, like a virus - they're used for combat responsiveness SFX. Plays as a playsound.
 	var/should_play_severity_sound = TRUE
-	/// Sound played when this specific  condition is applied. Plays as a playsound, not just as a sound effect only to the person.
+	/// Sound played when this specific condition is applied. Plays as a playsound, not just as a sound effect only to the person.
 	var/apply_sound
 
 	/// How many times this condition can be applied. Should be checked individually on human/organ level.
 	var/max_condition_amount = 1
+	/// If a condition can upgrade if additional conditions of the same type are inflicted. Basically bypasses the has_condition() check on the organ, you need to add the upgrading logic yourself (see eschars).
+	var/can_upgrade = FALSE
 
 	/// If this condition has a stage. On CONDITION_STAGE_NONE it doesn't have any stages; set to CONDITION_STAGE_INITIAL if you want to have stages.
 	var/stage = CONDITION_STAGE_NONE
@@ -50,8 +52,9 @@
 /datum/condition/Destroy()
 	SHOULD_CALL_PARENT(TRUE)
 	STOP_PROCESSING(SSprocessing, src) //theoretically dont need to check if condition is processing, also need to account for conditions manually processing for w/e reason
-	on_clear()
-	parent = null
+	if(parent)
+		on_clear()
+		parent = null
 	return ..()
 
 /datum/condition/process()
@@ -81,15 +84,15 @@
 		switch(severity)
 			if(CONDITION_SEVERITY_LOW)
 				var/list/low_sounds = list('sound/effects/conditions/condition_low_1.ogg')
-				playsound(parent, pick(low_sounds), 100, 1)
+				playsound(parent, pick(low_sounds), 100, FALSE)
 			if(CONDITION_SEVERITY_MEDIUM)
 				var/list/medium_sounds = list('sound/effects/conditions/condition_medium_1.ogg', 'sound/effects/conditions/condition_medium_2.ogg')
-				playsound(parent, pick(medium_sounds), 100, 1)
+				playsound(parent, pick(medium_sounds), 100, FALSE)
 			if(CONDITION_SEVERITY_HIGH)
 				var/list/high_sounds = list('sound/effects/conditions/condition_high_1.ogg')
-				playsound(parent, pick(high_sounds), 100, 1)
+				playsound(parent, pick(high_sounds), 100, FALSE)
 	if(apply_sound)
-		playsound(parent, apply_sound, 100, 1)
+		playsound(parent, apply_sound, 100, FALSE)
 	if(length(traits))
 		for(var/trait in traits)
 			ADD_TRAIT(parent, trait, TRAIT_ORIGIN_CONDITION)

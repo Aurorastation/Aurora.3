@@ -4,7 +4,7 @@
 //the damage amount for the stage with the same name as the wound.
 //e.g. /datum/wound/cut/deep should only be applied for 15 damage and up,
 //because in it's stages list, "deep cut" = 15.
-/proc/get_wound_type(type = INJURY_TYPE_CUT, damage)
+/proc/get_wound_type(type = INJURY_TYPE_CUT, damage, damage_flags)
 	switch(type)
 		if(INJURY_TYPE_CUT)
 			switch(damage)
@@ -21,17 +21,31 @@
 				if(0 to 15)
 					return /datum/wound/cut/small
 		if(INJURY_TYPE_PIERCE)
-			switch(damage)
-				if(60 to INFINITY)
-					return /datum/wound/puncture/massive
-				if(50 to 60)
-					return /datum/wound/puncture/gaping_big
-				if(30 to 50)
-					return /datum/wound/puncture/gaping
-				if(15 to 30)
-					return /datum/wound/puncture/flesh
-				if(0 to 15)
-					return /datum/wound/puncture/small
+			if(!(damage_flags & DAMAGE_FLAG_BULLET))
+				switch(damage)
+					if(60 to INFINITY)
+						return /datum/wound/puncture/massive
+					if(50 to 60)
+						return /datum/wound/puncture/gaping_big
+					if(30 to 50)
+						return /datum/wound/puncture/gaping
+					if(15 to 30)
+						return /datum/wound/puncture/flesh
+					if(0 to 15)
+						return /datum/wound/puncture/small
+			else
+				switch(damage)
+					if(60 to INFINITY)
+						return /datum/wound/avulsion/massive
+					if(50 to 60)
+						return /datum/wound/avulsion/gaping_big
+					if(30 to 50)
+						return /datum/wound/avulsion/gaping
+					if(15 to 30)
+						return /datum/wound/avulsion/flesh
+					if(0 to 15)
+						return /datum/wound/avulsion/small
+
 
 		if(INJURY_TYPE_BRUISE)
 			return /datum/wound/bruise
@@ -188,6 +202,57 @@
 		"massive jagged scar" = 0
 	)
 
+/** AVULSIONS **/
+
+/datum/wound/avulsion
+	bleed_threshold = 10
+	autoheal_cutoff = 5
+	damage_type = INJURY_TYPE_PIERCE
+
+/datum/wound/avulsion/can_worsen(damage_type, damage)
+	return FALSE //puncture wounds cannot be enlargened
+
+/datum/wound/avulsion/small
+	max_bleeding_stage = 2
+	stages = list(
+		"small avulsion" = 5,
+		"healing small  avulsion" = 2,
+		"scarred small avulsion" = 0
+	)
+
+/datum/wound/avulsion/flesh
+	max_bleeding_stage = 2
+	stages = list(
+		"avulsion" = 15,
+		"clotted avulsion" = 5,
+		"scarred avulsion" = 2
+	)
+
+/datum/wound/avulsion/gaping
+	max_bleeding_stage = 3
+	stages = list(
+		"gaping avulsion" = 30,
+		"large blood soaked avulsion" = 15,
+		"blood soaked avulsion" = 10,
+		"scarred avulsion" = 5
+	)
+
+/datum/wound/avulsion/gaping_big
+	max_bleeding_stage = 3
+	stages = list(
+		"big gaping avulsion" = 50,
+		"healing gaping avulsion" = 20,
+		"large blood soaked avulsion" = 15,
+		"large scarred avulsion" = 10,
+	)
+
+/datum/wound/avulsion/massive
+	max_bleeding_stage = 3
+	stages = list(
+		"massive avulsion" = 60,
+		"massive scarred avulsion" = 10
+	)
+
 /** BRUISES **/
 
 /datum/wound/bruise
@@ -201,7 +266,7 @@
 	)
 	bleed_threshold = 20
 	max_bleeding_stage = 3 //only large bruise and above can bleed.
-	autoheal_cutoff = 30
+	autoheal_cutoff = 10
 	damage_type = INJURY_TYPE_BRUISE
 
 /** BURNS **/

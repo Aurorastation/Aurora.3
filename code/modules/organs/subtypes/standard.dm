@@ -45,6 +45,9 @@
 	dislocated = -1
 	gendered_icon = 1
 	augment_limit = 3
+	possible_conditions = list(
+		/datum/condition/organ/slash/disembowelment = 10
+	)
 
 	var/obj/item/storage/internal/tail/tail_storage
 
@@ -243,6 +246,9 @@
 	encased = "skull"
 	augment_limit = 3
 	limb_flags = ORGAN_CAN_AMPUTATE | ORGAN_CAN_BREAK | ORGAN_CAN_MAIM | ORGAN_HEALS_OVERKILL
+	possible_conditions = list(
+		/datum/condition/organ/blunt/intracranial_bleeding = 70
+	)
 	var/can_intake_reagents = 1
 
 /obj/item/organ/external/head/body_part_class()

@@ -3,6 +3,7 @@
 	desc = "AAAAAAUUUUUUUGHHHHHHHH"
 	severity = CONDITION_SEVERITY_HIGH
 	traits = list(TRAIT_BROKEN_SPINE)
+	injury_types = list(INJURY_TYPE_BRUISE, INJURY_TYPE_CUT, INJURY_TYPE_PIERCE)
 	apply_sound = 'sound/effects/conditions/broken_spine.ogg'
 	max_condition_amount = 1
 	min_damage = 100
@@ -150,3 +151,216 @@
 		organ.owner?.visible_message(FONT_LARGE(SPAN_CONDITION("The bone shatters and pierces through [organ.owner]'s [organ.name]!")), \
 			FONT_LARGE(SPAN_CONDITION("The bone in your [organ.name] shatters and pierces through!")), \
 			"You hear a sickening, wet crack!")
+
+// cuts
+/datum/condition/organ/slash
+	name = "Slash"
+	desc = "This is a base type, report this if it somehow appears."
+	injury_types = list(INJURY_TYPE_CUT)
+	/// The wound connected to this condition.
+	var/datum/wound/connected_wound
+
+/datum/condition/organ/slash/pre_apply(atom/movable/new_parent, injury_type)
+	var/obj/item/organ/external/affected = new_parent
+	if(!istype(affected))
+		return FALSE
+	if(!..())
+		return FALSE
+	return TRUE
+
+/datum/condition/organ/slash/on_clear()
+	. = ..()
+	if(connected_wound)
+		connected_wound.damage = 0
+		connected_wound.bandage()
+		connected_wound.disinfect()
+
+/datum/condition/organ/slash/incision
+	name = "Deep Incision"
+	desc = "The skin and muscle have been torn apart."
+	max_condition_amount = 4 //slashing weapons are really good at stacking multiple conditions to cause bleed loss
+	apply_sound = 'sound/effects/conditions/deep_incision.ogg'
+	severity = CONDITION_SEVERITY_MEDIUM
+	min_damage = 30
+
+/datum/condition/organ/slash/incision/on_apply()
+	. = ..()
+	var/obj/item/organ/external/affected = parent
+	connected_wound = new /datum/wound/cut/deep_incision(40, affected)
+	if(!QDELETED(connected_wound))
+		if(!LAZYISIN(affected.wounds, connected_wound))
+			LAZYADD(affected.wounds, connected_wound)
+	affected.owner.visible_message(SPAN_CONDITION("A giant tear opens up on the flesh of [affected.owner]'s [affected]!"), SPAN_CONDITION("A giant tear opens up on the flesh of your [affected]!"))
+	affected.owner.drip(10)
+
+/datum/wound/cut/deep_incision
+	bleed_threshold = 999
+	bleed_timer = 999
+	stages = list(
+		"deep incision" = 40,
+		"sutured deep incision" = 5
+	)
+
+/datum/condition/organ/slash/disembowelment
+	name = "Disemboweled"
+	desc = "The guts are torn open."
+	max_condition_amount = 1 //can't disembowel more than once
+	apply_sound = 'sound/effects/conditions/disembowelment.ogg'
+	severity = CONDITION_SEVERITY_HIGH
+	min_damage = 60
+
+/datum/condition/organ/slash/disembowelment/on_apply()
+	. = ..()
+	var/obj/item/organ/external/affected = parent
+	affected.owner.visible_message(SPAN_CONDITION("[affected.owner]'s guts are violently torn open!"), SPAN_CONDITION("Your guts are violently torn open!"))
+	affected.add_pain(60)
+	connected_wound = new /datum/wound/cut/disembowelment(60, affected)
+	if(!QDELETED(connected_wound))
+		if(!LAZYISIN(affected.wounds, connected_wound))
+			LAZYADD(affected.wounds, connected_wound)
+	gibs(get_turf(affected.owner), fleshcolor = affected.species.flesh_color, bloodcolor = affected.species.blood_color)
+	affected.owner.Weaken(3)
+	affected.owner.emote("scream")
+	affected.owner.make_jittery(5)
+	affected.owner.flash_strong_pain()
+
+/datum/wound/cut/disembowelment
+	bleed_threshold = 999
+	bleed_timer = 999
+	stages = list(
+		"disemboweled guts" = 60,
+		"giant sutured scar" = 10
+	)
+
+//burns
+/datum/condition/organ/burn
+	name = "Severe Burns"
+	desc = "This is a base type. Report this if you somehow see this."
+	/// The wound connected to this condition.
+	var/datum/wound/connected_wound
+
+/datum/condition/organ/burn/pre_apply(atom/movable/new_parent, injury_type)
+	var/obj/item/organ/external/affected = new_parent
+	if(!istype(affected))
+		return FALSE
+	if(!..())
+		return FALSE
+	return TRUE
+
+/datum/condition/organ/burn/eschar
+	name = "Eschar"
+	desc = "The tissue has melted away into a necrotic mess."
+	max_condition_amount = 1
+	severity = CONDITION_SEVERITY_LOW
+	apply_sound = 'sound/effects/conditions/eschar.ogg'
+	/// The amount of times an eschar is stacked on the same organ. Each eschar applied increases this count.
+	var/stacks = 1
+	/// Maximum amount of stacks we can have.
+	var/maximum_stacks = 6
+
+/datum/condition/organ/burn/eschar/pre_apply(atom/movable/new_parent, injury_type)
+	if(!..())
+		return FALSE
+	var/obj/item/organ/external/affected = new_parent
+	for(var/datum/condition/organ/burn/eschar/eschar in affected.conditions)
+		eschar.add_stacks()
+		return FALSE
+	return TRUE
+
+/datum/condition/organ/burn/eschar/on_apply()
+	. = ..()
+	var/obj/item/organ/external/affected = parent
+	connected_wound = new /datum/wound/burn/eschar(20, affected)
+	if(!QDELETED(connected_wound))
+		if(!LAZYISIN(affected.wounds, connected_wound))
+			LAZYADD(affected.wounds, connected_wound)
+		affected.owner.visible_message(SPAN_CONDITION("The flesh on [affected.owner]'s [affected.name] burns horribly!"), SPAN_CONDITION("You feel your flesh burn off of your [affected.name]!"))
+
+/datum/condition/organ/burn/eschar/proc/add_stacks()
+	if(stacks < maximum_stacks)
+		stacks++
+		var/obj/item/organ/external/affected = parent
+		affected.owner.visible_message(SPAN_CONDITION("The flesh on [affected.owner]'s [affected.name] melts away!"), SPAN_CONDITION("The flesh and muscle on your [affected.name] melt away further!"))
+		connected_wound.damage += 20
+		affected.add_pain(20)
+		affected.owner.flash_strong_pain()
+		playsound(affected.owner, 'sound/effects/conditions/eschar.ogg', 100, FALSE)
+		switch(stacks)
+			if(3)
+				name = "Third-Degree Burn Eschar"
+				severity = CONDITION_SEVERITY_MEDIUM
+				to_chat(affected.owner, SPAN_CONDITION("You feel the burns reach deeply inside your [affected.name]!"))
+			if(6)
+				name = "Fourth-Degree Burn Eschar"
+				affected.owner.visible_message(SPAN_CONDITION("[affected.owner]'s [affected.name] melts into almost nothingness!"), SPAN_CONDITION("Your [affected.name] melts into almost nothingness!"))
+				severity = CONDITION_SEVERITY_HIGH
+				ADD_TRAIT(affected, TRAIT_FOURTH_DEGREE_ESCHAR, TRAIT_ORIGIN_CONDITION)
+		return TRUE
+	return FALSE
+
+/datum/condition/organ/burn/eschar/on_clear()
+	. = ..()
+	if(stacks >= 6)
+		REMOVE_TRAIT(parent, TRAIT_FOURTH_DEGREE_ESCHAR, TRAIT_ORIGIN_CONDITION)
+
+/datum/wound/burn/eschar
+	autoheal_cutoff = 10
+	stages = list(
+		"eschar" = 20,
+		"necrotic tissue" = 10,
+		"healing burn scar" = 5
+	)
+
+//blunt
+/datum/condition/organ/blunt
+	name = "Blunt Damage"
+	desc = "This is a base type. Report this if you see this."
+	injury_types = list(INJURY_TYPE_BRUISE)
+
+/datum/condition/organ/blunt/pre_apply(atom/movable/new_parent, injury_type)
+	var/obj/item/organ/external/affected = new_parent
+	if(!istype(affected))
+		return FALSE
+	if(!..())
+		return FALSE
+	return TRUE
+
+/datum/condition/organ/blunt/intracranial_bleeding
+	name = "Intracranial Bleeding"
+	desc = "Excessive blunt damage to the skull has damaged the brain."
+	max_condition_amount = 1
+	apply_sound = 'sound/effects/conditions/concussion.ogg'
+	severity = CONDITION_SEVERITY_HIGH
+	flags = CONDITION_FLAG_PROCESS
+
+	/// The concussed mob, need this to not do a typecast every process.
+	var/mob/living/carbon/human/concussee
+
+/datum/condition/organ/blunt/intracranial_bleeding/pre_apply(atom/movable/new_parent, injury_type)
+	if(!..())
+		return FALSE
+	var/obj/item/organ/external/affected = new_parent
+	var/frac_count = 0
+	for(var/datum/condition/organ/fracture/fracture in affected.conditions)
+		if(fracture.severity >= CONDITION_SEVERITY_MEDIUM)
+			frac_count += 2
+		else
+			frac_count++
+
+	if(frac_count >= 3)
+		concussee = affected.owner
+		return TRUE
+	return FALSE
+
+/datum/condition/organ/blunt/intracranial_bleeding/on_apply()
+	. = ..()
+	concussee.visible_message(SPAN_CONDITION("[concussee]'s skull cracks with a wet noise and [concussee.get_pronoun("he")] goes unconscious!"), SPAN_CONDITION("You feel a heavy impact on your skull - and the world goes dark."))
+	concussee.SetParalysis(5)
+
+/datum/condition/organ/blunt/intracranial_bleeding/process()
+	if(concussee)
+		concussee.vessel.remove_reagent(/singleton/reagent/blood, 2) //slow, invisible bleeding, basically internal bleeding
+		concussee.SetParalysis(5)
+		var/obj/item/organ/internal/brain/sponge = concussee.internal_organs_by_name[BP_BRAIN]
+		if(istype(sponge) && sponge.damage < (sponge.max_damage * 0.5))
+			sponge.take_damage(2)

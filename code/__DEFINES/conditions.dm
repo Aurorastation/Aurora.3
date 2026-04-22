@@ -19,3 +19,4 @@
 
 // Human condition traits.
 #define TRAIT_BROKEN_SPINE "broken_spine"
+#define TRAIT_FOURTH_DEGREE_ESCHAR "melted_limb"
