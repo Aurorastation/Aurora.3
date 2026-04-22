@@ -1,0 +1,4 @@
+author: Batrachophrenoboocosmomachia
+delete-after: True
+changes:
+  - bugfix: "Makes the navigation consoles scattered around the public spaces on the Horizon (that only display nearby starmap) able to be viewed again without any piloting skills."
