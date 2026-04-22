@@ -1823,6 +1823,7 @@
 /obj/item/material/knife{
 	pixel_x = -9
 	},
+/obj/item/reagent_containers/food/snacks/meat/monkey,
 /turf/simulated/floor/tiled/white,
 /area/voidtamer/trader/kitchen)
 "oY" = (
@@ -2996,6 +2997,10 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/voidtamer/trader/autocannon_gun)
+"ys" = (
+/obj/item/reagent_containers/food/snacks/meat/monkey,
+/turf/simulated/floor/diona,
+/area/voidtamer/trader/kitchen)
 "yz" = (
 /obj/structure/bed/handrail{
 	dir = 8
@@ -3022,6 +3027,10 @@
 /obj/structure/lattice,
 /turf/simulated/floor,
 /area/voidtamer/trader/mining_blaster)
+"yS" = (
+/mob/living/simple_animal/hostile/commanded/dog/tamed_carp,
+/turf/simulated/floor/diona/airless,
+/area/voidtamer/trader/exterior)
 "yZ" = (
 /obj/structure/ship_weapon_dummy,
 /obj/structure/lattice/catwalk,
@@ -4131,6 +4140,11 @@
 	},
 /turf/simulated/floor/diona,
 /area/voidtamer/trader/dock)
+"HW" = (
+/obj/structure/diona/vines,
+/mob/living/simple_animal,
+/turf/space/dynamic,
+/area/voidtamer/trader/exterior)
 "Ia" = (
 /obj/item/flag/xanu/l,
 /obj/machinery/recharger{
@@ -4903,6 +4917,11 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/voidtamer/trader/crew)
+"OA" = (
+/obj/random/dirt_75,
+/mob/living/simple_animal/hostile/commanded/dog/tamed_carp,
+/turf/simulated/floor/diona,
+/area/voidtamer/trader/kitchen)
 "OB" = (
 /obj/random/dirt_75,
 /obj/structure/lattice,
@@ -6010,6 +6029,7 @@
 	dir = 4
 	},
 /obj/effect/decal/cleanable/floor_damage/broken4,
+/mob/living/simple_animal/hostile/commanded/dog/tamed_carp,
 /turf/simulated/floor/tiled/dark,
 /area/voidtamer/trader/kitchen)
 "Yl" = (
@@ -28951,7 +28971,7 @@ Wc
 Fr
 il
 il
-Jg
+yS
 SK
 Jg
 Jg
@@ -29980,7 +30000,7 @@ Dl
 il
 RI
 Jg
-Jg
+yS
 Ak
 SK
 kq
@@ -34385,7 +34405,7 @@ sZ
 SW
 WQ
 Ie
-rE
+OA
 iV
 kB
 JV
@@ -34897,9 +34917,9 @@ Eu
 AI
 kj
 gi
-gi
+ys
 AC
-rE
+OA
 dm
 kB
 JV
@@ -35372,7 +35392,7 @@ Wc
 Wc
 Wc
 Wc
-Fr
+HW
 Fr
 il
 jt
