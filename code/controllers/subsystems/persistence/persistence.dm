@@ -13,13 +13,13 @@ SUBSYSTEM_DEF(persistence)
 	name = "Persistence"
 	init_order = INIT_ORDER_PERSISTENCE // The order is tied with the init and maploading subsystem.
 	flags = SS_NO_FIRE // This subsystem has no continues workload, it's init and shutdown only.
-	var/prevent_safe = FALSE // Toggle to prevent saving at round end, changed by toggle_persistence proc, used for admin purposes.
+	var/prevent_saving = FALSE // Toggle to prevent saving at round end, changed by toggle_persistence proc, used for admin purposes.
 
 /**
  * Subsystem info stub message generation.
  */
 /datum/controller/subsystem/persistence/stat_entry(msg)
-	msg = ("Register: [length(GLOB.persistence_object_track_register)] | Prevent saving: [SSpersistence.prevent_safe ? "TRUE" : "FALSE"]")
+	msg = ("Register: [length(GLOB.persistence_object_track_register)] | Prevent saving: [SSpersistence.prevent_saving ? "TRUE" : "FALSE"]")
 	return msg
 
 /**
@@ -58,7 +58,7 @@ SUBSYSTEM_DEF(persistence)
 
 	var/message = ""
 	var/options = list()
-	if(SSpersistence.prevent_safe)
+	if(SSpersistence.prevent_saving)
 		message = "The persistence subsystem will NOT save at the end of the round. Do you want to re-enable it?"
 		options = list("Re-enable saving", "Cancel")
 	else
@@ -67,11 +67,11 @@ SUBSYSTEM_DEF(persistence)
 
 	var/confirm = tgui_alert(usr, message, "Toggle Persistence Saving", options)
 	if(confirm == "Prevent saving")
-		SSpersistence.prevent_safe = TRUE
+		SSpersistence.prevent_saving = TRUE
 		to_world(FONT_LARGE(EXAMINE_BLOCK_RED("Persistence saving at the end of the round has been [SPAN_BOLD(SPAN_WARNING("disabled"))] by an administrator.")))
 		log_and_message_admins("has toggled persistence saving at round end, it is now disabled", usr)
 	else if (confirm == "Re-enable saving")
-		SSpersistence.prevent_safe = FALSE
+		SSpersistence.prevent_saving = FALSE
 		to_world(FONT_LARGE(EXAMINE_BLOCK_RED("Persistence saving at the end of the round has been [SPAN_BOLD(SPAN_GOOD("re-enabled"))] by an administrator.")))
 		log_and_message_admins("has toggled persistence saving at round end, it is now re-enabled", usr)
 	else
@@ -105,7 +105,7 @@ SUBSYSTEM_DEF(persistence)
  * The shutdown consists of finalization steps for each persistent data type.
  */
 /datum/controller/subsystem/persistence/Shutdown()
-	if(prevent_safe)
+	if(prevent_saving)
 		log_subsystem_persistence_warning("Persistence subsystem was toggled to not save. Skipping subsystem finalization.")
 		return
 
