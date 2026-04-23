@@ -32,3 +32,23 @@
 #define BULLET_ACT_FORCE_PIERCE "PIERCE" //It pierces through the object regardless of the bullet being piercing by default.
 
 #define NICE_SHOT_RICOCHET_BONUS 10 //if the shooter has the NICE_SHOT trait and they fire a ricocheting projectile, add this to the ricochet chance and auto aim angle
+
+//attack visual effects
+#define ATTACK_EFFECT_PUNCH "punch"
+#define ATTACK_EFFECT_KICK "kick"
+#define ATTACK_EFFECT_SMASH "smash"
+#define ATTACK_EFFECT_CLAW "claw"
+#define ATTACK_EFFECT_SLASH "slash"
+#define ATTACK_EFFECT_DISARM "disarm"
+#define ATTACK_EFFECT_BITE "bite"
+#define ATTACK_EFFECT_MECHFIRE "mech_fire"
+#define ATTACK_EFFECT_MECHTOXIN "mech_toxin"
+#define ATTACK_EFFECT_BOOP "boop" //Honk
+#define ATTACK_EFFECT_VOID "void"
+
+/// Attack animation for sharp items
+#define ATTACK_ANIMATION_SLASH "slash"
+/// Attack animation for pointy items
+#define ATTACK_ANIMATION_PIERCE "pierce"
+/// Animation for blunt attacks
+#define ATTACK_ANIMATION_BLUNT "blunt"

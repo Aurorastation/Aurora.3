@@ -205,6 +205,13 @@
 	/// Used to override hardcoded clothing dmis in human clothing pr
 	var/icon_override
 
+	/// Angle of the icon, used for piercing and slashing attack animations, clockwise from *east-facing* sprites
+	var/icon_angle = 0
+	///icon file for an alternate attack icon
+	var/attack_icon
+	///icon state for an alternate attack icon
+	var/attack_icon_state
+
 	var/charge_failure_message = " cannot be recharged."
 	var/held_maptext
 
