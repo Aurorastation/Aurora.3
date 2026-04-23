@@ -349,6 +349,10 @@
 	if(user == connected.occupant || user.stat)
 		return
 
+	// DNA Modifier is currently deprecated (old NanoUI code)
+	to_chat(user, SPAN_WARNING("The firmware on this thing is so hopelessly out of date as to render it unusable. Dang."))
+	return
+
 	// this is the data which will be sent to the ui
 	var/data[0]
 	data["selectedMenuKey"] = selected_menu_key
