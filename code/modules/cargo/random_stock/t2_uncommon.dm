@@ -120,9 +120,9 @@ STOCK_ITEM_UNCOMMON(circuitboards, 3)
 	var/list/allboards = subtypesof(/obj/item/circuitboard)
 	var/list/exclusion = list(
 		/obj/item/circuitboard/unary_atmos,
-		/obj/item/circuitboard/telecomms
+		/obj/item/circuitboard/telecomms,
+		/obj/item/circuitboard/rig_assembly
 	)
-	exclusion += typesof(/obj/item/circuitboard/mecha)
 
 	allboards -= exclusion
 	for(var/i in 1 to rand(1, 2))

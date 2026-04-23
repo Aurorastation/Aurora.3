@@ -1,0 +1,4 @@
+author: Hellfirejag
+delete-after: True
+changes:
+  - rscdel: "Removed circuit boards for deprecated \"old mechs\" that could no longer be manufactured."

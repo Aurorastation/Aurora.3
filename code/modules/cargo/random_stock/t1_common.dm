@@ -137,9 +137,9 @@ STOCK_ITEM_COMMON(circuitboard, 1)
 	var/list/allboards = subtypesof(/obj/item/circuitboard)
 	var/list/exclusion = list(
 		/obj/item/circuitboard/unary_atmos,
-		/obj/item/circuitboard/telecomms
+		/obj/item/circuitboard/telecomms,
+		/obj/item/circuitboard/rig_assembly
 	)
-	exclusion += typesof(/obj/item/circuitboard/mecha)
 
 	allboards -= exclusion
 	var/type = pick(allboards)
