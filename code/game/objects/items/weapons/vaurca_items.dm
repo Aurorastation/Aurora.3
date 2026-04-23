@@ -33,7 +33,6 @@
 	icon = 'icons/obj/vaurca_items.dmi'
 	icon_state = "shaper_helmet"
 	item_state = "shaper_helmet"
-	flags_inv = HIDEFACE
 	contained_sprite = TRUE
 	sprite_sheets = list(
 		BODYTYPE_VAURCA_BULWARK = 'icons/mob/species/bulwark/head.dmi'
@@ -43,7 +42,7 @@
 
 /obj/item/clothing/head/shaper/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()
-	. += "Wearing this will remove your Hive name from physical messages."
+	. += "Wearing this will remove your Hive name and color from Hivenet messages."
 
 /obj/item/clothing/head/expression
 	name = "human expression mask"

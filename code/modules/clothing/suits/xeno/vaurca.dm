@@ -34,7 +34,7 @@
 
 /obj/item/clothing/suit/vaurca/shaper/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()
-	. += "Wearing this will remove your Hive name and color from Hivenet."
+	. += "Wearing this will remove your Hive name from physical messages."
 
 /obj/item/clothing/suit/vaurca/breeder
 	name = "zo'ra representative clothes"
