@@ -1,0 +1,7 @@
+# Your name.
+author: Batrachophrenoboocosmomachia
+delete-after: True
+changes:
+  - rscdel: "Removes deprecated AME code and associated power spritefiles."
+  - rscdel: "Removes DNA Modifier NanoUI, replacing interaction behavior with a feedback message."
+  - rscdel: "Removes old NanoUI templates for objects whose UIs have already been converted to TGUI, or which had already been removed from the server."
