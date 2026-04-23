@@ -834,11 +834,11 @@
 		if(paralysis || sleeping || InStasis())
 			blinded = TRUE
 			if(sleeping && !stat)
-				species.sleep_msg(src)
 				set_stat(UNCONSCIOUS)
+				species.sleep_msg(src)
 				if(!sleeping_msg_debounce)
 					sleeping_msg_debounce = TRUE
-					to_chat(src, SPAN_NOTICE(FONT_LARGE("You are now unconscious.<br>You will not remember anything you \"see\" happening around you until you regain consciousness.")))
+					to_chat(src, EXAMINE_BLOCK_BLUE(SPAN_NOTICE(FONT_LARGE("You are now unconscious. You will not remember anything you see, hear, or feel happening around you until you regain consciousness."))))
 
 			adjustHalLoss(-3)
 			if (species.tail)

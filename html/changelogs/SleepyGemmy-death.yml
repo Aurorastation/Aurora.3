@@ -1,0 +1,7 @@
+author: SleepyGemmy
+
+delete-after: True
+
+changes:
+  - rscadd: "Added a death message."
+  - rscadd: "Changed the unconscious and brain damage messages to use the chat examine boxes."
