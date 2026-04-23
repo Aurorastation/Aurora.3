@@ -19,6 +19,7 @@ ABSTRACT_TYPE(/obj/item/clothing/accessory/armband)
 	desc = "A double armband in 16,777,216 designer colours."
 	icon_state = "armband_colourable_double"
 	item_state = "armband_colourable_double"
+	flippable = FALSE
 
 // Colours
 /obj/item/clothing/accessory/armband/white
