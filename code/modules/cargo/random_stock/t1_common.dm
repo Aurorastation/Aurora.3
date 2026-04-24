@@ -138,7 +138,13 @@ STOCK_ITEM_COMMON(circuitboard, 1)
 	var/list/exclusion = list(
 		/obj/item/circuitboard/unary_atmos,
 		/obj/item/circuitboard/telecomms,
-		/obj/item/circuitboard/rig_assembly
+		/* Remove abstract hardsuit circuit boards.
+			These 4 aren't used in hardsuit construction.
+			Their children are used instead. */
+		/obj/item/circuitboard/rig_assembly,
+		/obj/item/circuitboard/rig_assembly/civilian,
+		/obj/item/circuitboard/rig_assembly/combat,
+		/obj/item/circuitboard/rig_assembly/illegal
 	)
 
 	allboards -= exclusion

@@ -9,7 +9,7 @@ ABSTRACT_TYPE(/obj/item/circuitboard/rig_assembly)
 ////CIVILIAN BOARDS////
 ///////////////////////
 
-/obj/item/circuitboard/rig_assembly/civilian
+ABSTRACT_TYPE(/obj/item/circuitboard/rig_assembly/civilian)
 	origin_tech = list(TECH_DATA = 4)
 
 /obj/item/circuitboard/rig_assembly/civilian/industrial
@@ -35,7 +35,7 @@ ABSTRACT_TYPE(/obj/item/circuitboard/rig_assembly)
 ////COMBAT BOARDS////
 /////////////////////
 
-/obj/item/circuitboard/rig_assembly/combat
+ABSTRACT_TYPE(/obj/item/circuitboard/rig_assembly/combat)
 	origin_tech = list(TECH_DATA = 5)
 
 /obj/item/circuitboard/rig_assembly/combat/targeting
@@ -69,7 +69,7 @@ ABSTRACT_TYPE(/obj/item/circuitboard/rig_assembly)
 ////ILLEGAL BOARDS////
 //////////////////////
 
-/obj/item/circuitboard/rig_assembly/illegal
+ABSTRACT_TYPE(/obj/item/circuitboard/rig_assembly/illegal)
 	origin_tech = list(TECH_DATA = 7, TECH_ILLEGAL = 4)
 
 /obj/item/circuitboard/rig_assembly/illegal/targeting
