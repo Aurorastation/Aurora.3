@@ -29,36 +29,55 @@
 	var/criticality = 1 //multiplier for the negative effects of capacitor failures. Not just limited to critical failures.
 	var/named = 0
 	var/described = 0
-	var/improvement_potential = 0
+	var/improvement_potential = 5
 
 /obj/item/gun/energy/laser/prototype/mechanics_hints(mob/user, distance, is_adjacent)
 	. = list()
-	var/datum/component/skill/firearms/firearms = user.GetComponent(FIREARMS_SKILL_COMPONENT)
-	var/datum/component/skill/firearms/research = user.GetComponent(RESEARCH_SKILL_COMPONENT)
-	if (firearms && research)
-		switch(firearms.skill_level + research.skill_level)
-			if(0)
-				. += "Your complete lack of skill in firearms and research will hide all information about this weapon from you, you will also be unable to repair it."
-			if(1)
-				. += "Your low familiarity with firearms and research will hide most information about this weapon from you, you will also struggle to repair it without decreasing it's reliability."
-			if(2 to 3)
-				. += "Your combined familiarity with firearms and research will show you most information about this weapon, you will also be able to repair it without decreasing it's reliability, but are not likely to be able to improve it."
-			if(4 to 5)
-				. += "Your combined training in firearms and research will show you all information about this weapon, you will also be able to repair it without decreasing it's reliability and have a chance to improve it when repairing."
-				. += "It can be improved up to it's improvement potential, which is increased by firing it. Firing it at players increases it most rapidly, following by firing it at simple mobs, then firing it at objects."
-			if(6 to INFINITY)
-				. += "Your combined professional expertise in firearms and research will show you all information about this weapon, you will also be able to repair it without decreasing it's reliability, and have an excellent chance to improve it when repairing."
-				. += "It can be improved up to it's improvement potential, which is increased by firing it. Firing it at players increases it most rapidly, following by firing it at simple mobs, then firing it at objects."
+	var/skill_level = (GET_SKILL_LEVEL(user, FIREARMS_SKILL_COMPONENT) + GET_SKILL_LEVEL(user, RESEARCH_SKILL_COMPONENT))
+	switch(skill_level ? skill_level : 5)
+		if(2)
+			. += "Your complete lack of skill in firearms and research will hide all information about this weapon from you, you will also be unable to repair it."
+		if(3)
+			. += "Your low familiarity with firearms and research will hide most information about this weapon from you, you will also struggle to repair it without decreasing it's reliability."
+		if(4)
+			. += "Your combined familiarity with firearms and research will show you most information about this weapon, you will also be able to repair it without decreasing it's reliability, but are not likely to be able to improve it."
+		if(5)
+			. += "Your combined training in firearms and research will show you all information about this weapon, you will also be able to repair it without decreasing it's reliability and have a chance to improve it when repairing."
+			. += "It can be improved up to it's improvement potential, which is increased by firing it. Firing it at players increases it most rapidly, following by firing it at simple mobs, then firing it at objects."
+		if(6 to INFINITY)
+			. += "Your combined professional expertise in firearms and research will show you all information about this weapon, you will also be able to repair it without decreasing it's reliability, and have an excellent chance to improve it when repairing."
+			. += "It can be improved up to it's improvement potential, which is increased by firing it. Firing it at players increases it most rapidly, following by firing it at simple mobs, then firing it at objects."
 
 /obj/item/gun/energy/laser/prototype/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(distance > 1)
 		return
-	var/skill_level = GET_SKILL_LEVEL(user, FIREARMS_SKILL_COMPONENT) + GET_SKILL_LEVEL(user, RESEARCH_SKILL_COMPONENT)
-	switch(skill_level ? skill_level : 3)
-		if(0)
+	var/skill_level = (GET_SKILL_LEVEL(user, FIREARMS_SKILL_COMPONENT) + GET_SKILL_LEVEL(user, RESEARCH_SKILL_COMPONENT))
+
+	if (capacitor.condition > 0 || focusing_lens.condition > 0 || modulator.condition > 0)
+		switch(skill_level ? skill_level : 5)
+			if (2 to 3) //At this level you can only tell that it's damaged, nothing else.
+				. += SPAN_WARNING("It appears to be damaged.")
+			if (4 to 5) //At this level you can tell when the weapon is damaged and if it could malfunction.
+				if (reliability > 100)
+					. += SPAN_WARNING("It appears to be damaged.")
+				else
+					. += SPAN_DANGER("It appears to be damaged and could malfunction!")
+			if (6 to INFINITY) //At this level you can estimate the weapon's reliability, but only if it's damaged. This won't help if you build a weapon that's inherently unreliable.
+				switch(reliability)
+					if (0 to 65)
+						. += SPAN_HIGHDANGER("It appears to be damaged and could go critical! You estimate it to be around [reliability]% reliable!")
+					if (66 to 80)
+						. += SPAN_DANGER("It appears to be damaged and could overload! You estimate it to be around [reliability]% reliable!")
+					if (81 to 100)
+						. += SPAN_DANGER("It appears to be damaged and could malfunction! You estimate it to be around [reliability]% reliable!")
+					if (101 to INFINITY)
+						. += SPAN_WARNING("It appears to be damaged. You estimate it to be around [reliability]% reliable.")
+
+	switch(skill_level ? skill_level : 5)
+		if(2) //At this level you get no information about the weapon at all.
 			. += "This weapon is completely incomprehensible to you. It seems to be some sort of energy weapon, but you can't make out any details about how it functions."
-		if(1)
+		if(3) //At this level you can only tell if the weapon has modifications or not, you can't make out what those modifications are.
 			if(gun_mods.len)
 				. += "This weapon is mostly incomprehensible to you. You can make out that it has some modifications, but the details of how they function are a mystery."
 			if(capacitor)
@@ -67,7 +86,7 @@
 				. += "You can see \a [focusing_lens] attached."
 			if(modulator)
 				. += "You can see \a [modulator] attached."
-		if(2 to 3)
+		if(4) //At this level you can identify all components and if they're damaged or not.
 			if(gun_mods.len)
 				for(var/obj/item/laser_components/modifier/modifier in gun_mods)
 					. += "You can see \a [icon2html(modifier, user)][modifier] attached. [modifier.malus > modifier.base_malus ? SPAN_WARNING("It appears to be damaged.") : "It appears to be in good condition."]"
@@ -77,37 +96,28 @@
 				. += "You can see \a [icon2html(focusing_lens, user)][focusing_lens] attached. [focusing_lens.condition > 0 ? SPAN_WARNING("It appears to be damaged.") : "It appears to be in good condition."]"
 			if(modulator)
 				. += "You can see \a [icon2html(modulator, user)][modulator] attached. [modulator.condition > 0 ? SPAN_WARNING("It appears to be damaged.") : "It appears to be in good condition."]"
-	 if(4 to INFINITY)
+		if(5) //At this level you can identify all parts and can estimate the health of the three components, but not the modifiers, or the improvement potential.
 			if(gun_mods.len)
 				for(var/obj/item/laser_components/modifier/modifier in gun_mods)
-					. += "You can see \a [icon2html(modifier, user)][modifier] attached. Health: [modifier.malus]/[modifier.base_malus * 2]."
+					. += "You can see \a [icon2html(modifier, user)][modifier] attached. [modifier.malus > modifier.base_malus ? SPAN_WARNING("It appears to be damaged.") : "It appears to be in good condition."]"
 			if(capacitor)
-				. += "You can see \a [icon2html(capacitor, user)][capacitor] attached. [capacitor.condition > 0 ? SPAN_WARNING("It appears to be damaged.") : "It appears to be in good condition."]"
+				. += "You can see \a [icon2html(capacitor, user)][capacitor] attached. [capacitor.condition > 0 ? SPAN_WARNING("It appears to be [round(max(0, min(100, 100 - ((capacitor.condition / capacitor.reliability) * 100))))]% reliable.") : "It is good condition."]"
 			if(focusing_lens)
-				. += "You can see \a [icon2html(focusing_lens, user)][focusing_lens] attached. [focusing_lens.condition > 0 ? SPAN_WARNING("It appears to be damaged.") : "It appears to be in good condition."]"
+				. += "You can see \a [icon2html(focusing_lens, user)][focusing_lens] attached. [focusing_lens.condition > 0 ? SPAN_WARNING("It appears to be [round(max(0, min(100, 100 - ((focusing_lens.condition / focusing_lens.reliability) * 100))))]% reliable.") : "It is good condition."]"
 			if(modulator)
-				. += "You can see \a [icon2html(modulator, user)][modulator] attached. [modulator.condition > 0 ? SPAN_WARNING("It appears to be damaged.") : "It appears to be in good condition."]"
-		// if(6 to INFINITY)
-		// 	. += "This weapon is completely comprehensible to you. You can make out all details about how it functions."
-
-/obj/item/gun/energy/laser/prototype/get_damage_condition_hints(mob/user, distance, is_adjacent)
-	var/datum/component/skill/firearms/firearms = user.GetComponent(FIREARMS_SKILL_COMPONENT)
-	var/datum/component/skill/firearms/research = user.GetComponent(RESEARCH_SKILL_COMPONENT)
-	if (distance > 1)
-		return
-	if (firearms && research)
-		if (firearms.skill_level + research.skill_level >= 4 && firearms.skill_level + research.skill_level < 6)
-			if (health < maxhealth)
-				if (health >= (maxhealth * 0.5))
-					. = SPAN_WARNING("It is slightly torn.")
-				else
-					. = SPAN_DANGER("It is full of tears and holes.")
-		if (firearms.skill_level + research.skill_level >= 6)
-			if (health < maxhealth)
-				if (health >= (maxhealth * 0.5))
-					. = SPAN_WARNING("It is slightly torn.")
-				else
-					. = SPAN_DANGER("It is full of tears and holes.")
+				. += "You can see \a [icon2html(modulator, user)][modulator] attached. [modulator.condition > 0 ? SPAN_WARNING("It appears to be [round(max(0, min(100, 100 - ((modulator.condition / modulator.reliability) * 100))))]% reliable.") : "It is good condition."]"
+		if(6 to INFINITY) //At this level you get the health of the gun, all components and the improvement potential.
+			if(gun_mods.len)
+				for(var/obj/item/laser_components/modifier/modifier in gun_mods)
+					. += "You can see \a [icon2html(modifier, user)][modifier] attached. [modifier.malus > modifier.base_malus ? SPAN_WARNING("It appears to be [round(max(0, min(100, 100 - (((modifier.malus - modifier.base_malus) / modifier.base_malus) * 100))))]% reliable.") : "It is good condition."]" //Base malus can be zero, modifiers with no base malus can't get damaged.
+			if(capacitor)
+				. += "You can see \a [icon2html(capacitor, user)][capacitor] attached. [capacitor.condition > 0 ? SPAN_WARNING("It appears to be [round(max(0, min(100, 100 - ((capacitor.condition / capacitor.reliability) * 100))))]% reliable.") : "It is good condition."]"
+			if(focusing_lens)
+				. += "You can see \a [icon2html(focusing_lens, user)][focusing_lens] attached. [focusing_lens.condition > 0 ? SPAN_WARNING("It appears to be [round(max(0, min(100, 100 - ((focusing_lens.condition / focusing_lens.reliability) * 100))))]% reliable.") : "It is good condition."]"
+			if(modulator)
+				. += "You can see \a [icon2html(modulator, user)][modulator] attached. [modulator.condition > 0 ? SPAN_WARNING("It appears to be [round(max(0, min(100, 100 - ((modulator.condition / modulator.reliability) * 100))))]% reliable.") : "It is good condition."]"
+			if(improvement_potential > 0)
+				. += SPAN_GOOD("You see a few places where damage has revealed design flaws. Correcting them could improve the weapon by up to [improvement_potential]%.")
 
 /obj/item/gun/energy/laser/prototype/attackby(obj/item/attacking_item, mob/user)
 	if(attacking_item.tool_behaviour != TOOL_SCREWDRIVER)

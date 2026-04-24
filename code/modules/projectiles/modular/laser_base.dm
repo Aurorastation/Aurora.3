@@ -19,6 +19,8 @@
 	var/shots = 1
 	///This is added to the number of shots the gun fires in one click.
 	var/burst = 0
+	///The amount it's possible to improve a component by repairing it. This increases when the weapon is used, and decreases when it's repaired. When it hits 0, the component can no longer be improved by repairing it, but can still be lose reliability.
+	var/improvement_potential = 0
 	var/accuracy = 0
 	var/obj/item/repair_item
 	var/gun_overlay
