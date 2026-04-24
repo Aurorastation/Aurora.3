@@ -1,0 +1,5 @@
+author: Batrachophrenoboocosmomachia
+delete-after: True
+changes:
+  - rscadd: "Adds the light meter as a craftable design for the autolathe."
+  - bugfix: "Fixes light meter inhand sprites."
