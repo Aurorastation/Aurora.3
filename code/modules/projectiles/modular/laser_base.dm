@@ -3,13 +3,21 @@
 	icon_state = "bfg"
 	contained_sprite = TRUE
 	w_class = WEIGHT_CLASS_SMALL  //A dissasembled gun is easier to carry, this lets people bring bits of their broken gun back to R&D.
+	///The Max HP of the component. This is added to the overall reliability of the weapon.
 	var/reliability = 0
+	//This multiplies the damage of a shot, the base damage is determined by the capacitor.
 	var/damage = 1
+	///This multiplies the fire delay of the weapon, the base fire delay is determined by the capacitor.
 	var/fire_delay = 1
-	var/condition = 0 //inverse health of the component. subtracted from reliability.
+	///The amount of damage a component has taken. Subtracted from reliability.
+	var/condition = 0
+	///The base amount of damage this modifier does to other components when the gun is fired.
 	var/base_malus = 0 //when modifiers get damaged they do not break, but make other components break faster
-	var/malus = 0 //subtracted from weapon's overall reliability everytime it's fired
+	///The amount of damage this modifier does to other components. This increases as the modifier itself gets damaged.
+	var/malus = 0
+	///Multiplies the total number of shots the gun can fire before recharge.
 	var/shots = 1
+	///This is added to the number of shots the gun fires in one click.
 	var/burst = 0
 	var/accuracy = 0
 	var/obj/item/repair_item

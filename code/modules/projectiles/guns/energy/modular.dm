@@ -29,20 +29,85 @@
 	var/criticality = 1 //multiplier for the negative effects of capacitor failures. Not just limited to critical failures.
 	var/named = 0
 	var/described = 0
+	var/improvement_potential = 0
+
+/obj/item/gun/energy/laser/prototype/mechanics_hints(mob/user, distance, is_adjacent)
+	. = list()
+	var/datum/component/skill/firearms/firearms = user.GetComponent(FIREARMS_SKILL_COMPONENT)
+	var/datum/component/skill/firearms/research = user.GetComponent(RESEARCH_SKILL_COMPONENT)
+	if (firearms && research)
+		switch(firearms.skill_level + research.skill_level)
+			if(0)
+				. += "Your complete lack of skill in firearms and research will hide all information about this weapon from you, you will also be unable to repair it."
+			if(1)
+				. += "Your low familiarity with firearms and research will hide most information about this weapon from you, you will also struggle to repair it without decreasing it's reliability."
+			if(2 to 3)
+				. += "Your combined familiarity with firearms and research will show you most information about this weapon, you will also be able to repair it without decreasing it's reliability, but are not likely to be able to improve it."
+			if(4 to 5)
+				. += "Your combined training in firearms and research will show you all information about this weapon, you will also be able to repair it without decreasing it's reliability and have a chance to improve it when repairing."
+				. += "It can be improved up to it's improvement potential, which is increased by firing it. Firing it at players increases it most rapidly, following by firing it at simple mobs, then firing it at objects."
+			if(6 to INFINITY)
+				. += "Your combined professional expertise in firearms and research will show you all information about this weapon, you will also be able to repair it without decreasing it's reliability, and have an excellent chance to improve it when repairing."
+				. += "It can be improved up to it's improvement potential, which is increased by firing it. Firing it at players increases it most rapidly, following by firing it at simple mobs, then firing it at objects."
 
 /obj/item/gun/energy/laser/prototype/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(distance > 1)
 		return
-	if(gun_mods.len)
-		for(var/obj/item/laser_components/modifier/modifier in gun_mods)
-			. += "You can see \a [modifier] attached."
-	if(capacitor)
-		. += "You can see \a [capacitor] attached."
-	if(focusing_lens)
-		. += "You can see \a [focusing_lens] attached."
-	if(modulator)
-		. += "You can see \a [modulator] attached."
+	var/skill_level = GET_SKILL_LEVEL(user, FIREARMS_SKILL_COMPONENT) + GET_SKILL_LEVEL(user, RESEARCH_SKILL_COMPONENT)
+	switch(skill_level ? skill_level : 3)
+		if(0)
+			. += "This weapon is completely incomprehensible to you. It seems to be some sort of energy weapon, but you can't make out any details about how it functions."
+		if(1)
+			if(gun_mods.len)
+				. += "This weapon is mostly incomprehensible to you. You can make out that it has some modifications, but the details of how they function are a mystery."
+			if(capacitor)
+				. += "You can see \a [capacitor] attached."
+			if(focusing_lens)
+				. += "You can see \a [focusing_lens] attached."
+			if(modulator)
+				. += "You can see \a [modulator] attached."
+		if(2 to 3)
+			if(gun_mods.len)
+				for(var/obj/item/laser_components/modifier/modifier in gun_mods)
+					. += "You can see \a [icon2html(modifier, user)][modifier] attached. [modifier.malus > modifier.base_malus ? SPAN_WARNING("It appears to be damaged.") : "It appears to be in good condition."]"
+			if(capacitor)
+				. += "You can see \a [icon2html(capacitor, user)][capacitor] attached. [capacitor.condition > 0 ? SPAN_WARNING("It appears to be damaged.") : "It appears to be in good condition."]"
+			if(focusing_lens)
+				. += "You can see \a [icon2html(focusing_lens, user)][focusing_lens] attached. [focusing_lens.condition > 0 ? SPAN_WARNING("It appears to be damaged.") : "It appears to be in good condition."]"
+			if(modulator)
+				. += "You can see \a [icon2html(modulator, user)][modulator] attached. [modulator.condition > 0 ? SPAN_WARNING("It appears to be damaged.") : "It appears to be in good condition."]"
+	 if(4 to INFINITY)
+			if(gun_mods.len)
+				for(var/obj/item/laser_components/modifier/modifier in gun_mods)
+					. += "You can see \a [icon2html(modifier, user)][modifier] attached. Health: [modifier.malus]/[modifier.base_malus * 2]."
+			if(capacitor)
+				. += "You can see \a [icon2html(capacitor, user)][capacitor] attached. [capacitor.condition > 0 ? SPAN_WARNING("It appears to be damaged.") : "It appears to be in good condition."]"
+			if(focusing_lens)
+				. += "You can see \a [icon2html(focusing_lens, user)][focusing_lens] attached. [focusing_lens.condition > 0 ? SPAN_WARNING("It appears to be damaged.") : "It appears to be in good condition."]"
+			if(modulator)
+				. += "You can see \a [icon2html(modulator, user)][modulator] attached. [modulator.condition > 0 ? SPAN_WARNING("It appears to be damaged.") : "It appears to be in good condition."]"
+		// if(6 to INFINITY)
+		// 	. += "This weapon is completely comprehensible to you. You can make out all details about how it functions."
+
+/obj/item/gun/energy/laser/prototype/get_damage_condition_hints(mob/user, distance, is_adjacent)
+	var/datum/component/skill/firearms/firearms = user.GetComponent(FIREARMS_SKILL_COMPONENT)
+	var/datum/component/skill/firearms/research = user.GetComponent(RESEARCH_SKILL_COMPONENT)
+	if (distance > 1)
+		return
+	if (firearms && research)
+		if (firearms.skill_level + research.skill_level >= 4 && firearms.skill_level + research.skill_level < 6)
+			if (health < maxhealth)
+				if (health >= (maxhealth * 0.5))
+					. = SPAN_WARNING("It is slightly torn.")
+				else
+					. = SPAN_DANGER("It is full of tears and holes.")
+		if (firearms.skill_level + research.skill_level >= 6)
+			if (health < maxhealth)
+				if (health >= (maxhealth * 0.5))
+					. = SPAN_WARNING("It is slightly torn.")
+				else
+					. = SPAN_DANGER("It is full of tears and holes.")
 
 /obj/item/gun/energy/laser/prototype/attackby(obj/item/attacking_item, mob/user)
 	if(attacking_item.tool_behaviour != TOOL_SCREWDRIVER)
