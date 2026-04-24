@@ -337,3 +337,44 @@ Proc for attack log creation, because really why not
 	else
 		. = invoked_callback.Invoke()
 	usr = temp
+
+/// Returns a list of strings for a given slot flag.
+/proc/parse_slot_flags(slot_flags)
+	var/list/slot_strings = list()
+	if(slot_flags & SLOT_OCLOTHING)
+		slot_strings += "suit"
+	if(slot_flags & SLOT_ICLOTHING)
+		slot_strings += "uniform"
+	if(slot_flags & SLOT_GLOVES)
+		slot_strings += "gloves"
+	if(slot_flags & SLOT_EYES)
+		slot_strings += "eyes"
+	if(slot_flags & SLOT_EARS)
+		slot_strings += "one ear"
+	if(slot_flags & SLOT_MASK)
+		slot_strings += "mask"
+	if(slot_flags & SLOT_HEAD)
+		slot_strings += "head"
+	if(slot_flags & SLOT_FEET)
+		slot_strings += "feet"
+	if(slot_flags & SLOT_ID)
+		slot_strings += "id"
+	if(slot_flags & SLOT_BELT)
+		slot_strings += "belt"
+	if(slot_flags & SLOT_BACK)
+		slot_strings += "back"
+	if(slot_flags & SLOT_POCKET)
+		slot_strings += "pocket"
+	if(slot_flags & SLOT_TWOEARS)
+		slot_strings += "both ears"
+	if(slot_flags & SLOT_TIE)
+		slot_strings += "accessory"
+	if(slot_flags & SLOT_HOLSTER)
+		slot_strings += "holster"
+	if(slot_flags & SLOT_WRISTS)
+		slot_strings += "wrists"
+	if(slot_flags & SLOT_S_STORE)
+		slot_strings += "suit storage"
+	if(slot_flags & SLOT_PANTS)
+		slot_strings += "pants"
+	return slot_strings

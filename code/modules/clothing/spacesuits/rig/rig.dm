@@ -16,7 +16,7 @@
 	req_access = list()
 	w_class = WEIGHT_CLASS_BULKY
 
-	// These values are passed on to all component pieces.
+	/// These values are passed on to all component pieces.
 	armor = list(
 		MELEE = ARMOR_MELEE_RESISTANT,
 		BULLET = ARMOR_BALLISTIC_MINOR,
@@ -34,7 +34,8 @@
 	siemens_coefficient = 0.35
 	permeability_coefficient = 0.1
 	unacidable = 1
-	slowdown = 0.5 // All rigs by default should have slowdown.
+	/// All rigs by default should have slowdown.
+	slowdown = 0.5
 
 	var/has_sealed_state = FALSE
 	var/has_hidden_jumpsuit = FALSE
@@ -42,9 +43,11 @@
 	var/interface_path = "hardsuit.tmpl"
 	var/ai_interface_path = "hardsuit.tmpl"
 	var/interface_title = "Hardsuit Controller"
-	var/wearer_move_delay //Used for AI moving.
+	/// Used for AI moving.
+	var/wearer_move_delay
 	var/ai_controlled_move_delay = 10
-	var/last_remote_message // when did a mounted pAI or AI use a module? used to prevent admin msg spam
+	/// when did a mounted pAI or AI use a module? used to prevent admin msg spam
+	var/last_remote_message
 
 	// Keeps track of what this rig should spawn with.
 	var/suit_type = "hardsuit"
@@ -56,25 +59,48 @@
 	var/cell_type =  /obj/item/cell/high
 	var/air_type =   /obj/item/tank/oxygen
 
+	/// List of hardsuit part datums (helmet, chest, gloves, boots).
+	var/list/suit_parts = list()
+	/// Modules the hardsuit currently has installed.
+	var/list/modules = list()
+	/// Primary system (used with middle-click)
+	var/obj/item/rig_module/selected_module
+	/// Kinda shitty to have a var for a module, but saves time.
+	var/obj/item/rig_module/vision/visor
+	/// As above.
+	var/obj/item/rig_module/voice/speech
+
 	//Component/device holders.
-	var/obj/item/tank/air_supply                       // Air tank, if any.
-	var/obj/item/clothing/shoes/boots = null                  // Deployable boots, if any.
-	var/obj/item/clothing/suit/space/rig/chest                // Deployable chestpiece, if any.
-	var/obj/item/clothing/head/helmet/space/rig/helmet = null // Deployable helmet, if any.
-	var/obj/item/clothing/gloves/rig/gloves = null            // Deployable gauntlets, if any.
-	var/obj/item/cell/cell                             // Power supply, if any.
-	var/obj/item/rig_module/selected_module = null            // Primary system (used with middle-click)
-	var/obj/item/rig_module/vision/visor                      // Kinda shitty to have a var for a module, but saves time.
-	var/obj/item/rig_module/voice/speech                      // As above.
-	var/mob/living/carbon/human/wearer                        // The person currently wearing the rig.
-	var/image/mob_icon                                        // Holder for on-mob icon.
-	var/list/installed_modules = list()                       // Power consumption/use bookkeeping.
+	/// Air tank, if any.
+	var/obj/item/tank/air_supply
+	/// Deployable boots, if any.
+	var/obj/item/clothing/shoes/boots = null
+	/// Deployable chestpiece, if any.
+	var/obj/item/clothing/suit/space/rig/chest
+	/// Deployable helmet, if any.
+	var/obj/item/clothing/head/helmet/space/rig/helmet = null
+	/// Deployable gauntlets, if any.
+	var/obj/item/clothing/gloves/rig/gloves = null
+	/// Power supply, if any.
+	var/obj/item/cell/cell
+
+
+	/// The person currently wearing the rig.
+	var/mob/living/carbon/human/wearer
+	/// Holder for on-mob icon.
+	var/image/mob_icon
+	/// Power consumption/use bookkeeping.
+	var/list/installed_modules = list()
 
 	// Rig status vars.
-	var/open = 0                                              // Access panel status.
-	var/locked = 1                                            // Lock status.
-	var/dnaLock                                               // To whom do we belong?
-	var/crushing = FALSE                                      // Are we crushing the occupant to death?
+	/// Access panel status.
+	var/open = 0
+	/// Lock status.
+	var/locked = 1
+	/// To whom do we belong?
+	var/dnaLock
+	/// Are we crushing the occupant to death?
+	var/crushing = FALSE
 	var/subverted = 0
 	var/interface_locked = 0
 	var/control_overridden = 0
@@ -86,22 +112,28 @@
 	var/locked_down = 0
 
 	var/seal_delay = SEAL_DELAY
-	var/sealing                                               // Keeps track of seal status independantly of canremove.
-	var/offline = 1                                           // Should we be applying suit maluses?
-	var/offline_slowdown = 1.5                                  // If the suit is deployed and unpowered, it sets slowdown to this.
+	/// Keeps track of seal status independantly of canremove.
+	var/sealing
+	/// Should we be applying suit maluses?
+	var/offline = 1
+	/// If the suit is deployed and unpowered, it sets slowdown to this.
+	var/offline_slowdown = 1.5
 	var/vision_restriction = TINT_NONE
 	var/offline_vision_restriction = TINT_HEAVY
-	var/airtight = 1 //If set, will adjust the ITEM_FLAG_AIRTIGHT flag on components. Otherwise it should leave them untouched.
+	/// If set, will adjust the ITEM_FLAG_AIRTIGHT flag on components. Otherwise it should leave them untouched.
+	var/airtight = 1
 
 	var/emp_protection = 0
 
-	// Wiring! How exciting.]
+	// Wiring! How exciting.
 	var/datum/wires/rig/wires
 	var/datum/effect_system/sparks/spark_system
 
-	var/allowed_module_types = MODULE_GENERAL // All rigs by default should have access to general
+	/// All rigs by default should have access to general
+	var/allowed_module_types = MODULE_GENERAL
 	var/list/species_restricted = list(BODYTYPE_HUMAN,BODYTYPE_TAJARA,BODYTYPE_UNATHI, BODYTYPE_SKRELL, BODYTYPE_IPC, BODYTYPE_IPC_BISHOP, BODYTYPE_IPC_ZENGHU)
-	var/anomaly_protection = FALSE //If TRUE, this rig will protect against anomalies. Currently only used for AMI hardsuit.
+	/// If TRUE, this rig will protect against anomalies. Currently only used for AMI hardsuit.
+	var/anomaly_protection = FALSE
 
 /obj/item/rig/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
@@ -507,17 +539,49 @@
 	cell.use(cost*10)
 	return 1
 
-/obj/item/rig/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/nano_state = GLOB.inventory_state)
-	if(!user)
-		return
+/obj/item/rig/ui_interact(mob/user, datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
+	if(!ui)
+		ui = new(user, src, "hardsuit", name)
+		ui.open()
 
+/obj/item/rig/ui_data(mob/user)
 	var/list/data = list()
-
-	if(selected_module)
-		data["primarysystem"] = "[selected_module.interface_name]"
 
 	if(src.loc != user)
 		data["ai"] = 1
+
+	// Contains all data specific to the suit itself.
+	var/suit_status = list(
+		"cell_name" = cell?.name,
+		"charge_current" = get_charge(),
+		"charge_max" = get_max_charge(),
+		"chargebar_color" = get_chargebar_color(),
+		"chargebar_string" = get_chargebar_string(),
+		"aicontrol" = control_overridden,
+		"aioverride" = ai_override_enabled,
+		"securitycheck" = security_check_enabled,
+		"malf" = malfunction_delay,
+		"emagged" = subverted,
+		"electrified" = electrified,
+		"malfunctioning" = malfunctioning,
+		"locked" = locked,
+		"interfacelock" = interface_locked
+	)
+	data["suit_status"] = suit_status
+
+	// Contains all data about individual suit parts (chest, helmet, gloves, boots)
+	var/part_info = list()
+	for(var/obj/item/part as anything in get_parts())
+		part_info += list(list(
+			"slot" = english_list(parse_slot_flags(part.slot_flags)),
+			"name" = part.name,
+			"deployed" = part.loc != src,
+			"ref" = REF(part),
+		))
+	data["parts"] = part_info
+
+	data["primarysystem"] = "[selected_module.interface_name]"
 
 	data["seals"] =     "[src.canremove]"
 	data["sealing"] =   "[src.sealing]"
@@ -525,19 +589,6 @@
 	data["gauntlets"] = (gloves ? "[gloves.name]" : "None.")
 	data["boots"] =     (boots ?  "[boots.name]" :  "None.")
 	data[BP_CHEST] =     (chest ?  "[chest.name]" :  "None.")
-
-	data["charge"] =       cell ? round(cell.charge,1) : 0
-	data["maxcharge"] =    cell ? cell.maxcharge : 0
-	data["chargestatus"] = cell ? FLOOR((cell.charge/cell.maxcharge)*50, 1) : 0
-
-	data["emagged"] =       subverted
-	data["coverlock"] =     locked
-	data["interfacelock"] = interface_locked
-	data["aicontrol"] =     control_overridden
-	data["aioverride"] =    ai_override_enabled
-	data["securitycheck"] = security_check_enabled
-	data["malf"] =          malfunction_delay
-
 
 	var/list/module_list = list()
 	var/i = 1
@@ -575,12 +626,43 @@
 	if(module_list.len)
 		data["modules"] = module_list
 
-	ui = SSnanoui.try_update_ui(user, src, ui_key, ui, data, force_open)
-	if (!ui)
-		ui = new(user, src, ui_key, ((src.loc != user) ? ai_interface_path : interface_path), interface_title, 480, 550, state = nano_state)
-		ui.set_initial_data(data)
-		ui.open()
-		ui.set_auto_update(1)
+	return data
+
+/obj/item/rig/proc/get_charge()
+	return cell ? round(cell.charge,1) : 0
+
+/obj/item/rig/proc/get_max_charge()
+	return cell ? cell.maxcharge : 1 // Avoid dividing by 0
+
+/obj/item/rig/proc/get_charge_percent()
+	return ROUND_UP((get_charge() / get_max_charge()) * 100)
+
+/// Gets the color to be used for the charge bar.
+/obj/item/rig/proc/get_chargebar_color()
+	if(!cell)
+		return "transparent"
+	switch(round(src.get_charge() / src.get_max_charge(), 0.01))
+		if(-INFINITY to 0.33)
+			return "bad"
+		if(0.33 to 0.66)
+			return "average"
+		if(0.66 to INFINITY)
+			return "good"
+
+/// Gets what the UI should use for the charge bar text.
+/obj/item/rig/proc/get_chargebar_string()
+	var/charge_amount = src.get_charge()
+	var/max_charge_amount = src.get_max_charge()
+	return cell ? "[charge_amount] of [max_charge_amount] \
+		([round((100 * charge_amount) / max_charge_amount, 1)]%)" : "No cell inserted!"
+
+/obj/item/rig/proc/get_parts(all = FALSE)
+	. = list()
+	for(var/key in suit_parts)
+		var/datum/suit_part/part = suit_parts[key]
+		if(!all && part.part_item == src)
+			continue
+		. += part.part_item
 
 /obj/item/rig/update_icon(var/update_mob_icon)
 
