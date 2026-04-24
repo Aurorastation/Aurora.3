@@ -91,7 +91,7 @@
 
 /mob/living/simple_animal/hostile/commanded/dog/tamed_carp
 	name = "armored carp"
-	short_name = "Carp"
+	short_name = "carp"
 	desc = "A ferocious, fang-bearing creature that resembles a fish. This one is armored up in a taned hide and gold, it seems somewhat tamed compared to a wild carp."
 
 	health = 125
