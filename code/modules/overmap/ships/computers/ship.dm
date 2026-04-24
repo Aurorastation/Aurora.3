@@ -65,7 +65,7 @@ somewhere on that shuttle. Subtypes of these can be then used to perform ship ov
 	return ..()
 
 /obj/machinery/computer/ship/attack_hand(mob/user)
-	if(stat & (NOPOWER|BROKEN|additional_flags))
+	if(stat & (NOPOWER|BROKEN))
 		return FALSE
 	// Snowflake case for checking player characters for a Pilot Spacecraft Skill.
 	// Only player characters will have the component. Which will both always be present on them, and will only enable its own return logic if it exists.
