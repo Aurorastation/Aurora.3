@@ -1,0 +1,4 @@
+author: Batrachophrenoobocosmomachia
+delete-after: True
+changes:
+  - bugfix: "Airlocks can again be repaired by using hammers on them with an appropriate stack of materials in your offhand."
