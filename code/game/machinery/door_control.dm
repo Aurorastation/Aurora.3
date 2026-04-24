@@ -162,6 +162,8 @@
 /obj/machinery/button/remote/blast_door/hangar_lockdown
 	var/on_message = "A hangar lockdown has been initiated! All personnel within the hangar is to proceed to the security checkpoint in an orderly fashion."
 	var/off_message = "The hangar lockdown has been lifted."
+	var/on_title = "Hangar Lockdown In Effect!"
+	var/off_title = "Hangar Lockdown Lifted!"
 	var/channel = "Common"
 	var/on = FALSE
 
@@ -169,9 +171,9 @@
 	. = ..()
 	on = !on
 	if(on)
-		GLOB.global_announcer.autosay(on_message, capitalize_first_letters(name), channel)
+		security_announcement.Announce(on_message, on_title)
 	else
-		GLOB.global_announcer.autosay(off_message, capitalize_first_letters(name), channel)
+		security_announcement.Announce(off_message, off_title)
 	for(var/obj/machinery/button/remote/blast_door/hangar_lockdown/B in SSmachinery.machinery)
 		if(B.id == src.id)
 			B.on = src.on
