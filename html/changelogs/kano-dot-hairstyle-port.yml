@@ -1,0 +1,6 @@
+author: Kano
+
+delete-after: True
+
+changes:
+  - rscadd: "Ported some hairstyles from Shiptest."
