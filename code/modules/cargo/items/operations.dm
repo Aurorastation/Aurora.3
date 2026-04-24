@@ -589,7 +589,7 @@
 	description = "A box full of stock for the commissary."
 	price = 200
 	items = list(
-		/obj/item/commissary_restrock
+		/obj/item/storage/box/fancy/commissary_restock
 	)
 	access = 0
 	container_type = "crate"
@@ -603,7 +603,7 @@
 	description = "A box full of stock for the commissary."
 	price = 150
 	items = list(
-		/obj/item/commissary_restrock/rollable
+		/obj/item/storage/box/fancy/commissary_restock/rollable
 	)
 	access = 0
 	container_type = "crate"
@@ -617,7 +617,7 @@
 	description = "A box full of stock for the commissary."
 	price = 175
 	items = list(
-		/obj/item/commissary_restrock/chewable
+		/obj/item/storage/box/fancy/commissary_restock/chewable
 	)
 	access = 0
 	container_type = "crate"
@@ -631,7 +631,7 @@
 	description = "A box full of stock for the commissary."
 	price = 400 // includes a bunch of lottery tickets, so it should be relatively high compared to other restocks
 	items = list(
-		/obj/item/commissary_restrock/smoking_accessory
+		/obj/item/storage/box/fancy/commissary_restock/smoking_accessory
 	)
 	access = 0
 	container_type = "crate"
@@ -645,7 +645,7 @@
 	description = "A box full of stock for the commissary."
 	price = 225
 	items = list(
-		/obj/item/commissary_restrock/electronic_cig
+		/obj/item/storage/box/fancy/commissary_restock/electronic_cig
 	)
 	access = 0
 	container_type = "crate"
@@ -659,7 +659,7 @@
 	description = "A box full of stock for the commissary."
 	price = 150
 	items = list(
-		/obj/item/commissary_restrock/food
+		/obj/item/storage/box/fancy/commissary_restock/food
 	)
 	access = 0
 	container_type = "crate"
@@ -673,7 +673,7 @@
 	description = "A box full of stock for the commissary."
 	price = 150
 	items = list(
-		/obj/item/commissary_restrock/food/xeno
+		/obj/item/storage/box/fancy/commissary_restock/food/xeno
 	)
 	access = 0
 	container_type = "crate"
@@ -687,7 +687,7 @@
 	description = "A box full of stock for the commissary."
 	price = 150
 	items = list(
-		/obj/item/commissary_restrock/food/candy
+		/obj/item/storage/box/fancy/commissary_restock/food/candy
 	)
 	access = 0
 	container_type = "crate"
@@ -701,7 +701,7 @@
 	description = "A box full of stock for the commissary."
 	price = 150
 	items = list(
-		/obj/item/commissary_restrock/food/microwave
+		/obj/item/storage/box/fancy/commissary_restock/food/microwave
 	)
 	access = 0
 	container_type = "crate"
@@ -715,7 +715,7 @@
 	description = "A box full of stock for the commissary."
 	price = 300
 	items = list(
-		/obj/item/commissary_restrock/drink
+		/obj/item/storage/box/fancy/commissary_restock/drink
 	)
 	access = 0
 	container_type = "crate"
@@ -729,7 +729,7 @@
 	description = "A box full of stock for the commissary."
 	price = 200
 	items = list(
-		/obj/item/commissary_restrock/drink/booze_cheap
+		/obj/item/storage/box/fancy/commissary_restock/drink/booze_cheap
 	)
 	access = 0
 	container_type = "crate"
