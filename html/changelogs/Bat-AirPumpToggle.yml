@@ -1,0 +1,5 @@
+author: Batrachophrenoobocosmomachia
+delete-after: True
+changes:
+  - bugfix: "Binary atmos devices are again able to be toggled on/off by alt-clicking them."
+  - bugfix: "Temp control units now display correct 'turned on/off' balloon text when toggled."
