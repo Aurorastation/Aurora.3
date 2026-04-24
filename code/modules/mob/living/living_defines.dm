@@ -1,11 +1,7 @@
 /mob/living
+	health = 100
+	maxhealth = 100
 	see_invisible = SEE_INVISIBLE_LIVING
-
-	//Health and life related vars
-	/// Maximum health that should be possible.
-	var/maxHealth = 100
-	/// A mob's current health
-	var/health = 100
 
 	var/hud_updateflag = 0
 

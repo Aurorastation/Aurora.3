@@ -122,21 +122,18 @@ export const AirAlarm = (props, context) => {
         {data.locked ? (
           <NoticeBox>Swipe ID card to unlock interface.</NoticeBox>
         ) : (
-          <Section
-            tabs={
-              <Tabs>
-                {tabs.map((t) => (
-                  <Tabs.Tab
-                    key={t.id}
-                    selected={tab === t.id}
-                    onClick={() => setTab(t.id)}
-                  >
-                    {t.label}
-                  </Tabs.Tab>
-                ))}
-              </Tabs>
-            }
-          >
+          <Section>
+            <Tabs>
+              {tabs.map((t) => (
+                <Tabs.Tab
+                  key={t.id}
+                  selected={tab === t.id}
+                  onClick={() => setTab(t.id)}
+                >
+                  {t.label}
+                </Tabs.Tab>
+              ))}
+            </Tabs>
             {tab === 'status' && <MainSection />}
             {tab === 'vents' && <VentsSection />}
             {tab === 'scrubbers' && <ScrubbersSection />}
@@ -208,7 +205,7 @@ const StatusSection = (props, context) => {
           <LabeledList.Item label="Thermostat">
             <Button
               content={`${data.target_temperature}°C`}
-              disabled={!!data.shorted || !!data.locked}
+              disabled={!!data.shorted}
               onClick={() => act('temperature')}
             />
           </LabeledList.Item>

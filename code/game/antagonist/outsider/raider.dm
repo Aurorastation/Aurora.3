@@ -138,6 +138,10 @@ GLOBAL_DATUM(raiders, /datum/antagonist/raider)
 
 	give_codewords(player)
 
+	// Offship antags wipe skill components so that they can bypass skill restrictions entirely.
+	for(var/datum/component/skill/skill in player._datum_components)
+		qdel(skill)
+
 	return 1
 
 /datum/antagonist/raider/get_antag_radio()

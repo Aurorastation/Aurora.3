@@ -140,6 +140,7 @@
 		stored_mmi.forceMove(get_turf(src))
 		if(owner.mind)
 			owner.mind.transfer_to(stored_mmi.brainmob)
+		stored_mmi = null
 
 	. = ..()
 

@@ -34,29 +34,32 @@ ABSTRACT_TYPE(/datum/gear/accessory)
 	chaps["chaps, black"] = /obj/item/clothing/accessory/chaps/black
 	gear_tweaks += new /datum/gear_tweak/path(chaps)
 
-/datum/gear/accessory/armband
-	display_name = "armband selection"
-	path = /obj/item/clothing/accessory/armband
-
-/datum/gear/accessory/armband/New()
-	..()
-	var/list/armbands = list()
-	armbands["red armband"] = /obj/item/clothing/accessory/armband
-	armbands["security armband"] = /obj/item/clothing/accessory/armband/sec
-	armbands["operations armband"] = /obj/item/clothing/accessory/armband/operations
-	armbands["paramedic armband"] = /obj/item/clothing/accessory/armband/medgreen
-	armbands["medical armband"] = /obj/item/clothing/accessory/armband/med
-	armbands["engineering armband"] = /obj/item/clothing/accessory/armband/engine
-	armbands["hydroponics armband"] = /obj/item/clothing/accessory/armband/hydro
-	armbands["science armband"] = /obj/item/clothing/accessory/armband/science
-	armbands["IAC armband"] = /obj/item/clothing/accessory/armband/iac
-	armbands["tau ceti armband"] = /obj/item/clothing/accessory/armband/tauceti
-	gear_tweaks += new /datum/gear_tweak/path(armbands)
-
 /datum/gear/accessory/armband_coloured
 	display_name = "armband (colourable)"
 	path = /obj/item/clothing/accessory/armband/colourable
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
+/datum/gear/accessory/armband
+	display_name = "armband selection"
+	path = /obj/item/clothing/accessory/armband/white
+
+/datum/gear/accessory/armband/New()
+	..()
+	var/list/armbands = list()
+	armbands["white armband"] = /obj/item/clothing/accessory/armband/white
+	armbands["black armband"] = /obj/item/clothing/accessory/armband/black
+	armbands["red armband"] = /obj/item/clothing/accessory/armband/red
+
+	armbands["research armband"] = /obj/item/clothing/accessory/armband/science
+	armbands["medical armband"] = /obj/item/clothing/accessory/armband/med
+	armbands["engineering armband"] = /obj/item/clothing/accessory/armband/engine
+	armbands["security armband"] = /obj/item/clothing/accessory/armband/sec
+	armbands["hydroponics armband"] = /obj/item/clothing/accessory/armband/hydro
+	armbands["operations armband"] = /obj/item/clothing/accessory/armband/operations
+
+	armbands["IAC armband"] = /obj/item/clothing/accessory/armband/iac
+	armbands["Tau Ceti armband"] = /obj/item/clothing/accessory/armband/tauceti
+	gear_tweaks += new /datum/gear_tweak/path(armbands)
 
 /datum/gear/accessory/holster
 	display_name = "holster selection"

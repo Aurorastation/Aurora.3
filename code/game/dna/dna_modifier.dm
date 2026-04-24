@@ -393,7 +393,7 @@
 		occupantData["stat"] = null
 		occupantData["isViableSubject"] = null
 		occupantData["health"] = null
-		occupantData["maxHealth"] = null
+		occupantData["maxhealth"] = null
 		occupantData["minHealth"] = null
 		occupantData["uniqueEnzymes"] = null
 		occupantData["uniqueIdentity"] = null
@@ -406,7 +406,7 @@
 		if ((connected.occupant.mutations & NOCLONE) || !src.connected.occupant.dna)
 			occupantData["isViableSubject"] = 0
 		occupantData["health"] = connected.occupant.health
-		occupantData["maxHealth"] = connected.occupant.maxHealth
+		occupantData["maxhealth"] = connected.occupant.maxhealth
 		occupantData["minHealth"] = connected.occupant.species.total_health
 		occupantData["uniqueEnzymes"] = connected.occupant.dna.unique_enzymes
 		occupantData["uniqueIdentity"] = connected.occupant.dna.uni_identity

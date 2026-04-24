@@ -6,21 +6,24 @@ SUBSYSTEM_DEF(atlas)
 	init_order = INIT_ORDER_MAPPING
 	init_stage = INITSTAGE_EARLY
 
-	// Whatever map is currently loaded. Null until SSatlas Initialize() starts.
+	/// Whatever map is currently loaded. Null until SSatlas Initialize() starts.
 	var/datum/map/current_map
 
 	var/list/known_maps = list()
 	var/dmm_suite/maploader
 
 	var/list/mapload_callbacks = list()
-	var/map_override	// If set, SSatlas will forcibly load this map. If the map does not exist, mapload will fail and SSatlas will panic.
+	/// If set, SSatlas will forcibly load this map. If the map does not exist, mapload will fail and SSatlas will panic.
+	var/map_override
 	var/list/spawn_locations = list()
 
 	var/datum/space_sector/current_sector
 	var/list/possible_sectors = list()
 
-	//Note that the dirs here are REVERSE because they're used for entry points, so it'd be the dir facing starboard for example.
-	//These are strings because otherwise the list indexes would be out of bounds. Thanks BYOND.
+	/**
+	 * Note that the dirs here are REVERSE because they're used for entry points, so it'd be the dir facing starboard for example.
+	 * These are strings because otherwise the list indexes would be out of bounds. Thanks BYOND.
+	 */
 	var/list/naval_to_dir = list(
 		"1" = list(
 			"starboard" = WEST,

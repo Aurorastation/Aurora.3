@@ -5,14 +5,14 @@
 	icon = 'icons/mob/mob.dmi'
 	icon_state = "behemoth"
 	icon_living = "behemoth"
-	maxHealth = 350 // Slow, melee only and can't sprint. So needs to be a beefcake.
+	maxhealth = 350 // Slow, melee only and can't sprint. So needs to be a beefcake.
 	health_prefix = "juggernaut"
 	response_harm = "harmlessly punches"
 	harm_intent_damage = 0
 	melee_damage_lower = 30
 	melee_damage_upper = 30
 	armor_penetration = 40
-	attacktext = "smashed their armored gauntlet into"
+	attacktext = "smashes their armored gauntlet into"
 	organ_names = list("core", "right arm", "left arm")
 	mob_size = MOB_LARGE
 	speed = 3

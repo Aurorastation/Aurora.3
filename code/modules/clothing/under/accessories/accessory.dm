@@ -1447,7 +1447,7 @@
 	var/new_color = input(user, "Select the color of \the [src]", "LED Collar Color Selection", color) as null|color
 	if(new_color)
 		color = new_color
-		set_light_range_power_color(MINIMUM_USEFUL_LIGHT_RANGE, 1.2, color)
+		set_light_range_power_color(0.5, 0.4, color)
 
 /obj/item/clothing/accessory/led_collar/get_accessory_mob_overlay(var/mob/living/carbon/human/H, var/force = FALSE)
 	var/image/I = ..()

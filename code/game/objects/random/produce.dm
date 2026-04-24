@@ -64,7 +64,7 @@
 		"cucumber" = 0.25,
 		"lime" = 0.25,
 		"lemon" = 0.5,
-		"chickpeas" = 0.1,
+		"chickpea" = 0.1,
 		"banana" = 0.1,
 		"plumphelmet" = 0.1,
 		"orange" = 0.1,

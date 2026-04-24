@@ -6,7 +6,12 @@
 	anchored = TRUE
 	density = FALSE
 	mouse_opacity = MOUSE_OPACITY_ICON
-	var/health = 15
+	should_use_health = TRUE
+	maxhealth = OBJECT_HEALTH_VERY_LOW
+	armor = list(
+		MELEE = ARMOR_MELEE_MINOR,
+		BULLET = ARMOR_BALLISTIC_MINOR
+	)
 
 //similar to weeds, but only barfed out by nurses manually
 /obj/effect/spider/ex_act(severity)
@@ -21,40 +26,18 @@
 				qdel(src)
 	return
 
-/obj/effect/spider/attackby(obj/item/attacking_item, mob/user)
-	visible_message(SPAN_WARNING("\The [src] has been [LAZYPICK(attacking_item.attack_verb, "attacked")] with [attacking_item][(user ? " by [user]." : ".")]"))
-	var/damage = attacking_item.force / 4.0
-	if(attacking_item.tool_behaviour == TOOL_WELDER)
-		var/obj/item/weldingtool/WT = attacking_item
-		if(WT.use(0, user))
-			damage = 15
-			playsound(loc, 'sound/items/Welder.ogg', 100, 1)
-		return TRUE
-	else
-		user.do_attack_animation(src)
-		playsound(loc, attacking_item.hitsound, 50, 1, -1)
-
-	health -= damage
-	healthcheck()
-
 /obj/effect/spider/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
 	. = ..()
 	if(. != BULLET_ACT_HIT)
 		return .
 
-	health -= hitting_projectile.get_structure_damage()
-	healthcheck()
-
-/obj/effect/spider/proc/healthcheck()
-	if(health <= 0)
-		qdel(src)
+	add_damage(hitting_projectile.get_structure_damage())
 
 /obj/effect/spider/fire_act(exposed_temperature, exposed_volume)
 	. = ..()
 
 	if(exposed_temperature > 300 + T0C)
-		health -= 5
-		healthcheck()
+		add_damage(5)
 
 /obj/effect/spider/stickyweb
 	icon_state = "stickyweb1"
@@ -89,7 +72,7 @@
 	name = "egg cluster"
 	desc = "They seem to pulse slightly with an inner life."
 	icon_state = "eggs"
-	health = 10
+	maxhealth = OBJECT_HEALTH_FRAGILE
 	var/amount_grown = 0
 
 /obj/effect/spider/eggcluster/Initialize(var/mapload, var/atom/parent)
@@ -119,11 +102,6 @@
 			new /obj/effect/spider/spiderling(src.loc, src, 0.75)
 		qdel(src)
 
-/obj/effect/spider/eggcluster/proc/take_damage(var/damage)
-	health -= damage
-	if(health <= 0)
-		qdel(src)
-
 /obj/effect/spider/spiderling
 	name = "greimorian larva"
 	desc = "A small, agile alien creature. It oozes some disgusting slime."
@@ -133,7 +111,7 @@
 	icon_state = "spiderling"
 	anchored = FALSE
 	layer = OPEN_DOOR_LAYER // 2.7
-	health = 3
+	maxhealth = 3
 	var/last_itch = 0
 	/// % chance that the spiderling will eventually turn into a fully-grown greimorian.
 	var/can_mature_chance = 50
@@ -184,10 +162,6 @@
 	visible_message(SPAN_WARNING("\The [src] dies!"))
 	new /obj/effect/decal/cleanable/spiderling_remains(loc)
 	qdel(src)
-
-/obj/effect/spider/spiderling/healthcheck()
-	if(health <= 0)
-		die()
 
 /obj/effect/spider/spiderling/process()
 	if(travelling_in_vent)
@@ -274,12 +248,13 @@
 	die()
 
 /obj/effect/spider/spiderling/attackby(obj/item/attacking_item, mob/user)
-	. = ..()
 	if(istype(attacking_item, /obj/item/newspaper))
 		var/obj/item/newspaper/N = attacking_item
 		if(N.rolled)
 			die()
 			return TRUE
+
+	. = ..()
 
 /obj/effect/decal/cleanable/spiderling_remains
 	name = "greimorian larva remains"
@@ -291,11 +266,9 @@
 	name = "cocoon"
 	desc = "Something wrapped in silky greimorian web"
 	icon_state = "cocoon1"
-	health = 60
 
 /obj/effect/spider/cocoon/Initialize()
 	. = ..()
-
 	icon_state = pick("cocoon1","cocoon2","cocoon3")
 
 /obj/effect/spider/cocoon/Destroy()

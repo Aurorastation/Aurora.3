@@ -67,6 +67,11 @@
 	. = ..()
 	update_state()
 
+/obj/structure/door_assembly/Destroy()
+	electronics = null
+	created_name = null
+	return ..()
+
 /obj/structure/door_assembly/door_assembly_generic
 	base_name = "airlock"
 	airlock_type = /obj/machinery/door/airlock

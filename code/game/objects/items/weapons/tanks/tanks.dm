@@ -27,6 +27,8 @@
 
 /obj/item/tank/feedback_hints(mob/user, distance, is_adjacent)
 	. += ..()
+	if(distribute_pressure == 0)
+		. += SPAN_ALERT("This tank's hardware configuration prevents it from being used for Internals, even if filled with compatible gas.")
 	if(distance <= 0)
 		var/celsius_temperature = air_contents.temperature - T0C
 		switch(celsius_temperature)
@@ -69,6 +71,7 @@
 	..()
 	if ((istype(attacking_item, /obj/item/analyzer)) && get_dist(user, src) <= 1)
 		var/obj/item/analyzer/A = attacking_item
+		src.manipulated_by = user
 		A.analyze_gases(src, user)
 
 	if (istype(attacking_item, /obj/item/toy/balloon))

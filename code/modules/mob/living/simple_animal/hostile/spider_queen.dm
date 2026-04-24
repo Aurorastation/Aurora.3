@@ -22,7 +22,7 @@
 	blood_type = "#51C404"
 	blood_overlay_icon = null
 	stop_automated_movement_when_pulled = 0
-	maxHealth = 1000
+	maxhealth = 1000
 	health = 1000
 	melee_damage_lower = 35
 	melee_damage_upper = 40
@@ -37,7 +37,7 @@
 	mob_swap_flags = HUMAN|SIMPLE_ANIMAL|SLIME|MONKEY
 	mob_push_flags = ALLMOBS
 
-	attacktext = "bit"
+	attacktext = "bites"
 	attack_sound = 'sound/weapons/bite.ogg'
 
 	pass_flags = PASSTABLE|PASSRAILING

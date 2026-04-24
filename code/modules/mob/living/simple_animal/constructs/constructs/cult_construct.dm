@@ -98,7 +98,7 @@
 				adjustFireLoss(-5)
 				user.visible_message(SPAN_NOTICE("\The [user] mends some of \the [src]'s wounds."))
 			else
-				if (health < maxHealth)
+				if (health < maxhealth)
 					to_chat(user, SPAN_NOTICE("Healing \the [src] any further is beyond your abilities."))
 				else
 					to_chat(user, SPAN_NOTICE("\The [src] is undamaged."))
@@ -107,8 +107,8 @@
 
 /mob/living/simple_animal/construct/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
-	if(health < maxHealth)
-		if(health >= maxHealth / 2)
+	if(health < maxhealth)
+		if(health >= maxhealth / 2)
 			. += SPAN_WARNING("It looks slightly dented.")
 		else
 			. += SPAN_WARNING("It looks severely dented!")
@@ -149,7 +149,7 @@
 		silence_spells(purge)
 
 	if(healths)
-		var/health_percent = (health / maxHealth) * 100
+		var/health_percent = (health / maxhealth) * 100
 		var/newstate = 0
 		switch(health_percent)
 			if(84 to INFINITY)

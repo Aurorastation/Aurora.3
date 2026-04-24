@@ -59,6 +59,9 @@
 	var/force_layer
 	var/hydrotray_only
 
+	/// The amount of time it takes to harvest this plant.
+	var/harvest_time = 2 SECONDS
+
 /datum/seed/proc/setup_traits()
 
 /datum/seed/New()
@@ -773,13 +776,28 @@
 
 /// Place the plant products at the feet of the user.
 /datum/seed/proc/harvest(var/mob/user,var/yield_mod,var/harvest_sample,var/force_amount,var/stunted_status = FALSE)
-	if(!user)
+	if(!istype(user))
+		return
+
+	var/total_yield = 0
+	var/cancelled = FALSE
+	var/doafter = harvest_time
+	// Check if any components on the user wish to modify the harvest.
+	SEND_SIGNAL(user, COMSIG_PLANT_HARVESTER, src, &total_yield, &cancelled, &doafter)
+	// And check if any components on the plant wish to modify the harvest.
+	SEND_SIGNAL(src, COMSIG_PLANT_HARVESTED, user, &total_yield, &cancelled, &doafter)
+	if (cancelled)
+		return
+
+	user.visible_message(SPAN_WARNING("[user] starts harvesting \the [display_name]"))
+	if (doafter > 0 && !do_after(user, doafter, src))
+		to_chat(user, SPAN_DANGER("You were interrupted while trying to harvest \the [display_name]"))
 		return
 
 	if(!force_amount && GET_SEED_TRAIT(src, TRAIT_YIELD) == 0 && !harvest_sample)
-		if(istype(user)) to_chat(user, SPAN_DANGER("You fail to harvest anything useful."))
+		to_chat(user, SPAN_DANGER("You fail to harvest anything useful."))
 	else
-		if(istype(user)) to_chat(user, "You [harvest_sample ? "take a sample" : "harvest"] from the [display_name].")
+		to_chat(user, "You [harvest_sample ? "take a sample" : "harvest"] from the [display_name].")
 
 		//This may be a new line. Update the global if it is.
 		if(name == "new line" || !(name in SSplants.seeds))
@@ -793,16 +811,15 @@
 			seeds.update_seed()
 			return
 
-		var/total_yield = 0
 		if(!isnull(force_amount))
 			total_yield = force_amount
 		else
 			if(GET_SEED_TRAIT(src, TRAIT_YIELD) > -1)
 				if(isnull(yield_mod) || yield_mod < 1)
 					yield_mod = 0
-					total_yield = GET_SEED_TRAIT(src, TRAIT_YIELD)
+					total_yield += GET_SEED_TRAIT(src, TRAIT_YIELD)
 				else
-					total_yield = GET_SEED_TRAIT(src, TRAIT_YIELD) + rand(yield_mod)
+					total_yield += GET_SEED_TRAIT(src, TRAIT_YIELD) + rand(yield_mod)
 				total_yield = max(1,total_yield)
 
 		// If the plant is stunted, you get half the yield.

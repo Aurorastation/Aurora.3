@@ -12,6 +12,8 @@
 
 	/// If zero/null, show the z-level of the user, otherwise show `z_override` z-level.
 	var/z_override = 0
+	/// If FALSE, do not display the Show/Hide Legend button
+	var/legend_enabled = TRUE
 
 /datum/computer_file/program/map/ui_data(mob/user)
 	var/list/data = list()
@@ -33,6 +35,7 @@
 	data["user_z"] = user.z
 	data["station_levels"] = zlevels_affected
 	data["z_override"] = z_override
+	data["legend_enabled"] = legend_enabled
 
 	data["dept_colors_map"] = list(
 		list("d"="Command", "c"=HOLOMAP_AREACOLOR_COMMAND),

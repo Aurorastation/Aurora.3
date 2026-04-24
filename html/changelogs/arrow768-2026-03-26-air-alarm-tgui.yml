@@ -1,4 +1,0 @@
-author: arrow768
-delete-after: True
-changes:
-  - refactor: "Refactored the air alarm, atmospheric alert computer, oxygen regenerator, omni gas mixer, and omni gas filter from NanoUI to TGUI."

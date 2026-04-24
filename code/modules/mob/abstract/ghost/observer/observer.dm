@@ -85,7 +85,12 @@
 	real_name = name
 
 /mob/abstract/ghost/observer/Destroy()
+	if(client)
+		for(var/image/I in client.images)
+			if(I.loc == src)
+				qdel(I)
 	QDEL_NULL(hud)
+	mind = null
 	return ..()
 
 /mob/abstract/ghost/observer/proc/initialise_postkey(set_timers = TRUE)

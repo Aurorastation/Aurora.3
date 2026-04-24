@@ -9,7 +9,7 @@
 	mob_size = MOB_TINY
 	speak_chance = 0
 	turns_per_move = 1
-	maxHealth = 5
+	maxhealth = 5
 	health = 5
 	meat_type = /obj/item/reagent_containers/food/snacks/hugemushroomslice
 	organ_names = list("cap", "chest", "left leg", "right leg")

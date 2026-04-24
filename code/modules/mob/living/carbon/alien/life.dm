@@ -104,7 +104,7 @@
 
 	if (healths)
 		if (stat != DEAD)
-			switch((health - getHalLoss()) / maxHealth * 100) // Halloss should be factored in here for displaying
+			switch((health - getHalLoss()) / maxhealth * 100) // Halloss should be factored in here for displaying
 				if(100 to INFINITY)
 					healths.icon_state = "health0"
 				if(80 to 100)

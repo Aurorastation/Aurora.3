@@ -53,12 +53,12 @@ paiicon is the pai icon sprite name
 		LOG_DEBUG("Synthsprites: SQL Disabled - Falling back to JSON")
 		loadsynths_from_json()
 		return
-	if(!establish_db_connection(GLOB.dbcon))
+	if(!SSdbcore.Connect())
 		LOG_DEBUG("Synthsprites: SQL ERROR - Failed to connect. - Falling back to JSON")
 		loadsynths_from_json()
 		return
 
-	var/DBQuery/customsynthsprites = GLOB.dbcon.NewQuery("SELECT synthname, synthckey, synthicon, aichassisicon, aiholoicon, paiicon FROM ss13_customsynths ORDER BY synthckey ASC")
+	var/datum/db_query/customsynthsprites = SSdbcore.NewQuery("SELECT synthname, synthckey, synthicon, aichassisicon, aiholoicon, paiicon FROM ss13_customsynths ORDER BY synthckey ASC")
 	customsynthsprites.Execute()
 	while(customsynthsprites.NextRow())
 		CHECK_TICK
@@ -71,3 +71,4 @@ paiicon is the pai icon sprite name
 		synth.aiholoicon = customsynthsprites.item[5]
 		synth.paiicon = customsynthsprites.item[6]
 		robot_custom_icons[synth.synthname] = synth
+	qdel(customsynthsprites)

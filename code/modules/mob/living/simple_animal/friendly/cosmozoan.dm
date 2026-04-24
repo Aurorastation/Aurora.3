@@ -5,7 +5,7 @@
 	icon_state = "cosmozoan"
 	icon_living = "cosmozoan"
 	icon_dead = "cosmozoan_dead"
-	maxHealth = 15
+	maxhealth = 15
 	health = 15
 	meat_type = /obj/item/reagent_containers/food/snacks/fish/cosmozoan
 	meat_amount = 2

@@ -57,7 +57,7 @@
 
 	brainmob.client.init_verbs()
 
-	return src
+	return brainmob
 
 /obj/item/mmi/digital/posibrain/update_name()
 	var/new_name = tgui_input_text(brainmob, "Choose your name.", "Name Selection", brainmob.real_name, MAX_NAME_LEN)

@@ -152,8 +152,6 @@
 
 /obj/item/storage/bag/sheetsnatcher/can_be_inserted(obj/item/W as obj, stop_messages = 0)
 	if(!istype(W,/obj/item/stack/material))
-		if(!stop_messages)
-			to_chat(usr, "The snatcher does not accept [W].")
 		return 0
 	var/current = 0
 	for(var/obj/item/stack/material/S in contents)
@@ -163,6 +161,19 @@
 			to_chat(usr, SPAN_WARNING("The snatcher is full."))
 		return 0
 	return 1
+
+// This is pretty much a copy of it, but sends it to handle_item_insertion instead.
+/obj/item/storage/bag/sheetsnatcher/handle_item_insertion_deferred(obj/item/W, mob/user)
+	if (!istype(W))
+		return FALSE
+
+	if (user)
+		user.prepare_for_slotmove(W)
+
+	if (user)
+		W.dropped(user)
+
+	handle_item_insertion(W)
 
 
 // Modified handle_item_insertion.  Would prefer not to, but...
@@ -181,7 +192,7 @@
 		amount = S.amount
 
 	for(var/obj/item/stack/material/sheet in contents)
-		if(S.type == sheet.type) // we are violating the amount limitation because these are not sane objects
+		if(S.material == sheet.material) // we are violating the amount limitation because these are not sane objects
 			sheet.amount += amount	// they should only be removed through procs in this file, which split them up.
 			S.amount -= amount
 			inserted = 1
@@ -238,6 +249,7 @@
 			var/stacksize = min(S.amount,N.max_amount)
 			N.amount = stacksize
 			S.amount -= stacksize
+			N.update_icon()
 		if(!S.amount)
 			qdel(S) // todo: there's probably something missing here
 	orient2hud(usr)

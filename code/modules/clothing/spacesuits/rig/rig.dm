@@ -612,18 +612,30 @@
 		return cell
 	return ..()
 
-/obj/item/rig/proc/check_suit_access(var/mob/living/carbon/human/user)
+/obj/item/rig/proc/is_integrated_rig_ai(var/mob/living/user)
+	if(!user)
+		return FALSE
+	for(var/obj/item/rig_module/ai_container/module in installed_modules)
+		if(module.integrated_ai == user)
+			return TRUE
+	return FALSE
+
+/obj/item/rig/proc/check_suit_access(var/mob/living/user)
 
 	if(!security_check_enabled || !locked)
 		return 1
 
-	if(istype(user))
-		if(malfunction_check(user))
+	if(is_integrated_rig_ai(user))
+		return 1
+
+	if(ishuman(user))
+		var/mob/living/carbon/human/H = user
+		if(malfunction_check(H))
 			return 0
-		if(user.back != src)
+		if(H.back != src)
 			return 0
-		else if(!src.allowed(user))
-			to_chat(user, SPAN_DANGER("Unauthorized user. Access denied."))
+		else if(!src.allowed(H))
+			to_chat(H, SPAN_DANGER("Unauthorized user. Access denied."))
 			return 0
 
 	else if(!ai_override_enabled)
@@ -912,7 +924,7 @@
 			to_chat(wearer, SPAN_WARNING("The [source] has damaged your [dam_module.interface_name]!"))
 	dam_module.deactivate()
 
-/obj/item/rig/proc/malfunction_check(var/mob/living/carbon/human/user)
+/obj/item/rig/proc/malfunction_check(var/mob/living/user)
 	if(malfunction_delay)
 		if(offline)
 			to_chat(user, SPAN_DANGER("The suit is completely unresponsive."))

@@ -43,6 +43,10 @@ GLOBAL_DATUM(actors, /datum/antagonist/actor)
 	player.update_eyes()
 	player.regenerate_icons()
 
+	// Offship antags wipe skill components so that they can bypass skill restrictions entirely.
+	for(var/datum/component/skill/skill in player._datum_components)
+		qdel(skill)
+
 	return TRUE
 
 /obj/effect/landmark/actor_spawn
