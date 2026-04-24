@@ -137,7 +137,7 @@
 	switch(type)
 		if(0)
 			//The price of the contents of the crate + the price for the crate + the handling fee + the shipment fee
-			return price + SScargo.get_cratefee() + SScargo.get_handlingfee() + get_shipment_cost()
+			return price + SScargo.get_cratefee() + SScargo.get_handlingfee_cost(price) + get_shipment_cost()
 		if(1)
 			//The price of the contents of the crate + the price of the crate + the shipment fee
 			return price + SScargo.get_cratefee() + get_shipment_cost()
@@ -275,8 +275,10 @@
 	for(var/item in get_item_list())
 		order_data += "<li>[item["name"]]: [item["price"]]电</li>"
 	order_data += "<li>Crate Fee: [SScargo.get_cratefee()]电</li>"
-	order_data += "<li>Handling Fee: [SScargo.get_handlingfee()]电</li>"
-	order_data += "<li>Supplier Fee: [get_shipment_cost()]电</li>"
+	order_data += "<li>Handling Fee: [SScargo.get_handlingfee_cost(get_value(2))]电</li>"
+	var/supplier_fee = get_shipment_cost()
+	if(supplier_fee)
+		order_data += "<li>Supplier Fee: [supplier_fee]电</li>"
 	order_data += "</ul>"
 
 	return order_data.Join("")

@@ -629,7 +629,7 @@ export const Settings = (props, context) => {
       <LabeledList>
         <LabeledList.Item label="Handling Fee">
           <Button
-            content={data.handling_fee}
+            content={`${data.handling_fee}%`}
             icon="edit"
             onClick={() => act('handling_fee')}
           />

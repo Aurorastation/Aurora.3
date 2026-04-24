@@ -27,7 +27,7 @@ SUBSYSTEM_DEF(cargo)
 	var/credits_per_crate = 15 // "Cost / Payment" per crate shipped from or to centcomm.
 	var/credits_per_platinum = 140 // Per sheet.
 	var/credits_per_phoron = 100 // Per sheet.
-	var/cargo_handlingfee = 20 // The handling fee cargo takes per crate.
+	var/cargo_handlingfee = 5 // The handling fee cargo takes per crate, as a percentage of the order's value.
 	var/cargo_handlingfee_min = 0 // The minimum handling fee.
 	var/cargo_handlingfee_max = 500 // The maximum handling fee.
 	var/cargo_handlingfee_change = 1 // If the handling fee can be changed -> for a random event.
@@ -358,6 +358,11 @@ SUBSYSTEM_DEF(cargo)
 // Gets the current handlingfee.
 /datum/controller/subsystem/cargo/proc/get_handlingfee()
 	return cargo_handlingfee
+
+/datum/controller/subsystem/cargo/proc/get_handlingfee_cost(shipment_cost)
+	if(shipment_cost)
+		return (cargo_handlingfee / 100) * shipment_cost
+	return 0
 
 // Sets the handling fee and returns a status message.
 /datum/controller/subsystem/cargo/proc/set_handlingfee(var/fee)
