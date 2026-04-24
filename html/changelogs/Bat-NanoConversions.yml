@@ -1,0 +1,7 @@
+author: Batrachophrenoboocosmomachia
+delete-after: True
+changes:
+  - refactor: "Migrates DNA Analyzer NanoUI to TGUI."
+  - refactor: "Migrates Engines Control NanoUI to TGUI."
+  - qol: "DNA Analyzer reports now provide the date and time the scan was produced."
+  - bugfix: "Ship computers no longer function after their power is cut."
