@@ -327,7 +327,7 @@
 
 //Marks a order as rejected - Returns a status message
 /datum/cargo_order/proc/set_rejected()
-	if(status == "submitted")
+	if(status == "submitted" || status == "approved")
 		status = "rejected"
 		time_approved = worldtime2text()
 		return "The order has been rejected"

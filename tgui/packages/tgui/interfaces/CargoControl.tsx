@@ -424,6 +424,15 @@ export const OverviewApproved = (props, context) => {
             <Table.Cell>{order.price_cargo.toFixed(2)}电</Table.Cell>
             <Table.Cell>
               <Button
+                content="Reject"
+                color="red"
+                onClick={() =>
+                  act('order_reject', {
+                    order_reject: order.order_id.toString(),
+                  })
+                }
+              />
+              <Button
                 content="Details"
                 onClick={() =>
                   act('order_details', {
