@@ -47,8 +47,11 @@
 	switch(action)
 		// Opens the interface for the given air alarm.
 		if("alarm")
+			to_chat(world, "alarm")
 			var/obj/machinery/alarm/alarm = locate(params["alarm"]) in (monitored_alarms.len ? monitored_alarms : SSmachinery.processing)
+			to_chat(world, "[alarm]")
 			if(alarm)
+				to_chat(world, "trying to interact")
 				alarm.ui_interact(usr)
 			return TRUE
 		// Manually clear and repopulate the alarm list.
