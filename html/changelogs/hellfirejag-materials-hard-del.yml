@@ -1,4 +1,4 @@
 author: Hellfirejag
 delete-after: True
 changes:
-  - bugfix: "Added a changelog editing system that should cause fewer conflicts and more accurate timestamps."
+  - bugfix: "Removed a hard del related to material stacks."
