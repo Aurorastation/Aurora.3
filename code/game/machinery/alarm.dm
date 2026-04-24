@@ -965,6 +965,13 @@ pixel_x = 10;
 			apply_mode()
 			return TRUE
 
+/// Snowflake proc to make it so users of the Atmosphere Control app (having the UI open) have full access to an alarm.
+/obj/machinery/alarm/ui_status(mob/user)
+	for(var/datum/tgui/open_tgui in user.tgui_open_uis)
+		if(open_tgui.interface == "AtmosAlarmControl")
+			return UI_INTERACTIVE
+	return ..()
+
 /**
  * Resets the area atmospheric alarm. Called by ui_act and directly by atmos_alert computers.
  */
