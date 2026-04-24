@@ -2058,6 +2058,17 @@
 /obj/structure/sign/flag/assunzione/large/west/Initialize(mapload)
 	. = ..(mapload, WEST)
 
+/obj/item/flag/luceist/l
+	name = "large Luceian flag"
+	flag_size = TRUE
+	flag_structure = /obj/structure/sign/flag/luceist/large
+
+/obj/structure/sign/flag/luceist/large
+	icon_state = "luceist_l"
+	flag_path = "luceist"
+	flag_size = TRUE
+	flag_item = /obj/item/flag/luceist/l
+
 // Port Antillia
 
 /obj/item/flag/portantillia

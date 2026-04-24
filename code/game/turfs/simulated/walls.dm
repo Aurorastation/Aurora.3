@@ -21,7 +21,8 @@
 		/obj/structure/window_frame/unanchored,
 		/obj/structure/window_frame/empty,
 		/obj/machinery/door,
-		/obj/machinery/door/airlock
+		/obj/machinery/door/airlock,
+		/obj/structure/arch
 	)
 	hitsound = 'sound/weapons/Genhit.ogg'
 	explosion_resistance = 10

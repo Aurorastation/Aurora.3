@@ -2,24 +2,48 @@
 
 //NOTE: Breathing happens once per FOUR TICKS, unless the last breath fails. In which case it happens once per ONE TICK! So oxyloss healing is done once per 4 ticks while oxyloss damage is applied once per tick!
 
-#define HEAT_DAMAGE_LEVEL_1 2 //Amount of damage applied when your body temperature just passes the 360.15k safety point
-#define HEAT_DAMAGE_LEVEL_2 4 //Amount of damage applied when your body temperature passes the 400K point
-#define HEAT_DAMAGE_LEVEL_3 8 //Amount of damage applied when your body temperature passes the 1000K point
+///Amount of damage applied when your body temperature just passes the 360.15k safety point
+#define HEAT_DAMAGE_LEVEL_1 2
+///Amount of damage applied when your body temperature passes the 400K point
+#define HEAT_DAMAGE_LEVEL_2 4
+///Amount of damage applied when your body temperature passes the 1000K point
+#define HEAT_DAMAGE_LEVEL_3 8
 
-#define COLD_DAMAGE_LEVEL_1 0.5 //Amount of damage applied when your body temperature just passes the 260.15k safety point
-#define COLD_DAMAGE_LEVEL_2 1.5 //Amount of damage applied when your body temperature passes the 200K point
-#define COLD_DAMAGE_LEVEL_3 3 //Amount of damage applied when your body temperature passes the 120K point
+///Amount of damage applied when your body temperature just passes the 260.15k safety point
+#define COLD_DAMAGE_LEVEL_1 0.5
+///Amount of damage applied when your body temperature passes the 200K point
+#define COLD_DAMAGE_LEVEL_2 1.5
+///Amount of damage applied when your body temperature passes the 120K point
+#define COLD_DAMAGE_LEVEL_3 3
 
 //Note that gas heat damage is only applied once every FOUR ticks.
-#define HEAT_GAS_DAMAGE_LEVEL_1 2 //Amount of damage applied when the current breath's temperature just passes the 360.15k safety point
-#define HEAT_GAS_DAMAGE_LEVEL_2 4 //Amount of damage applied when the current breath's temperature passes the 400K point
-#define HEAT_GAS_DAMAGE_LEVEL_3 8 //Amount of damage applied when the current breath's temperature passes the 1000K point
+///Amount of damage applied when the current breath's temperature just passes the 360.15k safety point
+#define HEAT_GAS_DAMAGE_LEVEL_1 2
+///Amount of damage applied when the current breath's temperature passes the 400K point
+#define HEAT_GAS_DAMAGE_LEVEL_2 4
+///Amount of damage applied when the current breath's temperature passes the 1000K point
+#define HEAT_GAS_DAMAGE_LEVEL_3 8
 
-#define COLD_GAS_DAMAGE_LEVEL_1 0.5 //Amount of damage applied when the current breath's temperature just passes the 260.15k safety point
-#define COLD_GAS_DAMAGE_LEVEL_2 1.5 //Amount of damage applied when the current breath's temperature passes the 200K point
-#define COLD_GAS_DAMAGE_LEVEL_3 3 //Amount of damage applied when the current breath's temperature passes the 120K point
+///Amount of damage applied when the current breath's temperature just passes the 260.15k safety point
+#define COLD_GAS_DAMAGE_LEVEL_1 0.5
+///Amount of damage applied when the current breath's temperature passes the 200K point
+#define COLD_GAS_DAMAGE_LEVEL_2 1.5
+///Amount of damage applied when the current breath's temperature passes the 120K point
+#define COLD_GAS_DAMAGE_LEVEL_3 3
 
+///Multiplies the speed at which radiation is processed.
 #define RADIATION_SPEED_COEFFICIENT 0.1
+
+///A dose below this level causes no symptoms.
+#define RADIATION_NEGLIGABLE_DOSE 100
+///A dose above this level causes minor symptoms; nausea, vomiting, headaches.
+#define RADIATION_MINOR_DOSE 250
+///A dose above this level causes slight organ damage and major symptoms; slowdown, confusion, hallucinations. Usually survivable with consequences.
+#define RADIATION_MAJOR_DOSE 500
+///A dose above this level causes heavy organ damage and debilitating symptoms, bleeding, weakness, cloneloss. Usually fatal without treatment.
+#define RADIATION_DEADLY_DOSE 750
+///The maximum dose that can be received, above this level all further radiation is taken as damage directly to the body, ignoring armor. Very rapidly fatal.
+#define RADIATION_MAX_DOSE 1000
 
 /mob/living/carbon/human
 	var/oxygen_alert = 0
@@ -199,7 +223,7 @@
 		if(aid < 3 && prob(10/aid)) //NOSTUTTER at 2 or above prevents it completely.
 			stuttering = max(10/aid, stuttering)
 
-/mob/living/carbon/human/handle_mutations_and_radiation()
+/mob/living/carbon/human/handle_mutations_and_radiation(seconds_per_tick)
 	if(InStasis())
 		return
 
@@ -214,47 +238,85 @@
 		if(gene.is_active(src))
 			gene.OnMobLife(src)
 
-	total_radiation = clamp(total_radiation,0,100)
+	/** radiation damage **/
 
 	if (total_radiation)
 		if(src.is_diona())
+			total_radiation = clamp(total_radiation,0,100) //Dionae processing assumes the radiation will cap at 100.
 			diona_handle_regeneration(get_dionastats())
 			return
-		else
-			var/damage = 0
-			total_radiation -= 1 * RADIATION_SPEED_COEFFICIENT
-			if(prob(25))
-				damage = 2
 
-			if (total_radiation > 50)
-				damage = 3
-				total_radiation -= 1 * RADIATION_SPEED_COEFFICIENT
-				if(prob(5) && prob(100 * RADIATION_SPEED_COEFFICIENT))
-					src.apply_radiation(-5 * RADIATION_SPEED_COEFFICIENT)
-					to_chat(src, SPAN_WARNING("You feel weak."))
-					Weaken(3)
-					if(!lying)
-						emote("collapse")
+		if (total_radiation > RADIATION_MAX_DOSE) //Radiation exceeding the maximum threshold causes immediate burns, ignoring armour.
+			apply_damage(max((total_radiation - RADIATION_MAX_DOSE) * RADIATION_SPEED_COEFFICIENT, 0), DAMAGE_BURN, null, "Radiation Burns", DAMAGE_FLAG_DISPERSED | DAMAGE_FLAG_IGNORE_PROSTHETICS)
 
-			if (total_radiation > 75)
-				src.apply_radiation(-1 * RADIATION_SPEED_COEFFICIENT)
-				damage = 7
-				if(prob(5))
-					take_overall_damage(0, 10 * RADIATION_SPEED_COEFFICIENT, used_weapon = "Radiation Burns")
-					to_chat(src, SPAN_WARNING("You feel a burning sensation!"))
-				if(prob(1))
-					to_chat(src, SPAN_WARNING("You feel strange!"))
-					adjustCloneLoss(5 * RADIATION_SPEED_COEFFICIENT)
-					emote("gasp")
-				hallucination = max(hallucination, 20) //At this level, you're in a constant state of low-level hallucinations. As if you didn't have enough problems.
+		total_radiation = clamp(total_radiation,0,RADIATION_MAX_DOSE) //The maximum dose that can be received, above this level all further radiation is taken as damage directly to the body, ignoring armor. Very rapidly fatal.
 
+		var/damage = 0
 
-			if(damage)
-				adjustToxLoss(damage * RADIATION_SPEED_COEFFICIENT)
-				updatehealth()
-				if(organs.len)
-					var/obj/item/organ/external/O = pick(organs)
-					if(istype(O)) O.add_autopsy_data("Radiation Poisoning", damage)
+		src.apply_radiation(-1 * RADIATION_SPEED_COEFFICIENT * seconds_per_tick)
+
+		if (total_radiation >= RADIATION_DEADLY_DOSE && total_radiation <= RADIATION_MAX_DOSE) //A dose above this level causes heavy organ damage and debilitating symptoms, bleeding, weakness, cloneloss. Usually fatal without treatment.
+			damage = 3.6 //Net 1.2 damage per second on a healthy liver, because the liver heals for 6 and net 0.1 damage on a victim with dylovene.
+			hallucination = max(hallucination, 20)
+			sprint_speed_factor -= 0.3
+			sprint_cost_factor += 0.5
+			if (prob(total_radiation/200)) //3.75 to 5% chance, scaling with rad level.
+				adjustCloneLoss(5)
+			if (prob(total_radiation/200))
+				Weaken(3)
+				if(!lying)
+					emote("collapse")
+			if (prob(total_radiation/200))
+				to_chat(src, SPAN_DANGER("Patches of your skin burn and slough off!"))
+				apply_damage(30, DAMAGE_BURN, null, "Radiation Sickness", DAMAGE_FLAG_DISPERSED | DAMAGE_FLAG_IGNORE_PROSTHETICS)
+			if (prob(total_radiation/200))
+				to_chat(src, SPAN_WARNING("You feel terribly sick, everything aches!"))
+				apply_damage(30, DAMAGE_PAIN, null, "Radiation Sickness", DAMAGE_FLAG_DISPERSED)
+				delayed_vomit()
+			if (prob(total_radiation/200))
+				to_chat(src, SPAN_WARNING("Your head aches horribly and it's getting hard to walk straight!"))
+				confused = max(confused, 100)
+				apply_damage(15, DAMAGE_PAIN, BP_HEAD, "Radiation Sickness")
+
+		else if (total_radiation >= RADIATION_MAJOR_DOSE && total_radiation < RADIATION_DEADLY_DOSE) //A dose above this level causes slight organ damage and major symptoms; slowdown, confusion, hallucinations. Usually survivable with consequences.
+			damage = 3.1 //Net 0.2 damage per second on a healthy liver, because it heals for 6.
+			hallucination = max(hallucination, 20)
+			sprint_speed_factor -= 0.1
+			sprint_cost_factor += 0.25
+
+			if (prob(total_radiation/200)) //2.5 to 3.75% chance, scaling with rad level.
+				to_chat(src, SPAN_WARNING("Your head aches horribly and your vision blurrs!"))
+				eye_blurry = max(eye_blurry, 50)
+				apply_damage(15, DAMAGE_PAIN, BP_HEAD, "Radiation Sickness")
+			if (prob(total_radiation/200))
+				to_chat(src, SPAN_WARNING("You ache all over and it's getting hard to walk straight!"))
+				confused = max(confused, 50)
+				apply_damage(10, DAMAGE_PAIN, null, "Radiation Sickness", DAMAGE_FLAG_DISPERSED)
+			if (prob(total_radiation/200))
+				to_chat(src, SPAN_WARNING("You feel terribly sick; your stomach twists painfully!"))
+				apply_damage(10, DAMAGE_PAIN, BP_CHEST, "Radiation Sickness")
+				delayed_vomit()
+
+		else if (total_radiation >= RADIATION_MINOR_DOSE && total_radiation < RADIATION_MAJOR_DOSE) //A dose above this level causes minor symptoms; nausea, vomiting, headaches, tiredness.
+			damage = 2.1 //Net 0.2 damage per second on a damaged liver, because it heals for 4.
+			sprint_cost_factor += 0.15
+			if (prob(total_radiation/100)) //2.5 to 5% chance, scaling with rad level.
+				to_chat(src, SPAN_WARNING("You feel sick!"))
+				delayed_vomit()
+			if (prob(total_radiation/100))
+				to_chat(src, SPAN_WARNING("You have a splitting headache!"))
+				apply_damage(10, DAMAGE_PAIN, BP_HEAD, "Radiation Sickness")
+
+		else if (total_radiation >= RADIATION_NEGLIGABLE_DOSE && total_radiation < RADIATION_MINOR_DOSE) //A dose below this level causes no symptoms.
+			if(prob(3))
+				to_chat(src, SPAN_NOTICE("You feel a little sick."))
+
+		if(damage)
+			adjustToxLoss(damage * RADIATION_SPEED_COEFFICIENT * seconds_per_tick)
+			updatehealth()
+			if(organs.len)
+				var/obj/item/organ/external/O = pick(organs)
+				if(istype(O)) O.add_autopsy_data("Radiation Poisoning", damage)
 
 	/** breathing **/
 

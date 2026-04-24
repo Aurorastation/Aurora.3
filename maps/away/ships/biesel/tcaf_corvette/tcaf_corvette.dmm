@@ -11832,7 +11832,7 @@
 	dir = 5
 	},
 /obj/structure/table/steel,
-/obj/item/clothing/accessory/armband/medgreen{
+/obj/item/clothing/accessory/armband/med{
 	pixel_x = 5;
 	pixel_y = 12
 	},

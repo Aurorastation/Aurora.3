@@ -19,6 +19,7 @@
 		/turf/unsimulated/wall/steel, // Centcomm wall.
 		/turf/unsimulated/wall/darkshuttlewall, // Centcomm wall.
 		/turf/unsimulated/wall/riveted, // Centcomm wall.
+		/turf/unsimulated/wall/fakepdoor,
 		/obj/structure/window_frame,
 		/obj/structure/window_frame/unanchored,
 		/obj/structure/window_frame/empty,

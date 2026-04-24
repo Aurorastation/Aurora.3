@@ -14,6 +14,8 @@ GLOBAL_LIST_EMPTY(marketsign_overlay_cache)
 	var/currently_on = FALSE
 	var/on_icon_state
 	var/off_icon_state = "off"
+	/// Whether or not the sign settings can be modified.
+	var/sign_change_allowed = TRUE
 	/// Local reference of the global list associated with this object's singletons.
 	var/list/target_cache = list()
 
@@ -47,6 +49,9 @@ GLOBAL_LIST_EMPTY(marketsign_overlay_cache)
 /obj/structure/sign/double/barsign/attackby(obj/item/attacking_item, mob/user)
 	if(cult)
 		return ..()
+	if(!sign_change_allowed)
+		balloon_alert("access denied")
+		return
 	var/obj/item/card/id/card = attacking_item.GetID()
 	if(istype(card))
 		if(!check_access(card))
@@ -83,6 +88,21 @@ GLOBAL_LIST_EMPTY(marketsign_overlay_cache)
 
 	. = TRUE
 
+/obj/structure/sign/double/barsign/AltClick(mob/user) // Alt-click a sign with an empty hand to power or depower it, if it has the associated "[name]-off" state in the .dmi file.
+	if(!on_icon_state)
+		to_chat(user, SPAN_WARNING("The sign is already off!"))
+		return
+	if(!currently_on)
+		currently_on = TRUE
+		icon_state = on_icon_state
+		return
+	icon_state = off_icon_state
+	currently_on = FALSE
+
+/obj/structure/sign/double/barsign/proc/get_sign_choices()
+	var/list/sign_choices = GET_SINGLETON_SUBTYPE_MAP(choice_types)
+	return sign_choices
+
 /obj/structure/sign/double/barsign/proc/set_sign(choice)
 	var/singleton/sign/double/chosen_singleton = text2path(choice)
 
@@ -94,16 +114,6 @@ GLOBAL_LIST_EMPTY(marketsign_overlay_cache)
 	on_icon_state = icon_state
 	update_icon()
 
-/obj/structure/sign/double/barsign/AltClick(mob/user) // Alt-click a sign with an empty hand to power or depower it, if it has the associated "[name]-off" state in the .dmi file.
-	if(!on_icon_state)
-		to_chat(user, SPAN_WARNING("The sign is already off!"))
-		return
-	if(!currently_on)
-		currently_on = TRUE
-		icon_state = on_icon_state
-		return
-	icon_state = off_icon_state
-	currently_on = FALSE
 
 // ---- Kitchen sign
 
@@ -133,6 +143,24 @@ GLOBAL_LIST_EMPTY(marketsign_overlay_cache)
 
 /obj/structure/sign/double/barsign/marketsign/mirrored // Visible from the other end of the sign.
 	pixel_x = -32
+
+/// Static signs can be toggled on and off, but have no alternative icons to set. Used for mapping.
+/obj/structure/sign/double/barsign/marketsign/staticsign
+	sign_change_allowed = FALSE
+
+/obj/structure/sign/double/barsign/marketsign/staticsign/quikstop
+
+/obj/structure/sign/double/barsign/marketsign/staticsign/quikstop/Initialize()
+	..()
+	var/singleton/sign/double/market/signselect = /singleton/sign/double/market/quikstop
+	name = signselect.name
+	desc = signselect.desc
+	desc_extended = signselect.desc_extended
+	icon_state = signselect.icon_state
+	currently_on = TRUE
+	on_icon_state = icon_state
+	update_icon()
+	return INITIALIZE_HINT_NORMAL
 
 /singleton/sign/double
 	var/name = "Holographic Projector"

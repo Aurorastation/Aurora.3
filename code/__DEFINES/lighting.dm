@@ -21,6 +21,8 @@
 #define LIGHT_COLOR_ORANGE			"#FA9632"
 /// Soft purple. rgb(169, 127, 170)
 #define LIGHT_COLOR_PURPLE			"#A97FAA"
+/// Softer purple. Assunzione lighting. rgb(240,200,240)
+#define LIGHT_COLOR_PALE_PURPLE		"#F0C8F0"
 /// Deep purple. rgb(180, 60, 184)
 #define LIGHT_COLOR_VIOLET			"#B43CB8"
 /// Light red. rgb(232, 86, 86)
