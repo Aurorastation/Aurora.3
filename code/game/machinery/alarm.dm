@@ -715,16 +715,13 @@ pixel_x = 10;
 		wires.interact(user)
 
 /obj/machinery/alarm/ui_interact(mob/user, datum/tgui/ui)
-	to_chat(world, "in ui_interact")
 	if(buildstage != 2)
-		to_chat(world, "buildstage != 2")
 		return
 	if(aidisabled && isAI(user))
 		to_chat(user, SPAN_WARNING("AI control for \the [src] interface has been disabled."))
 		return
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
-		to_chat(world, "!ui")
 		ui = new(user, src, "AirAlarm")
 		ui.open()
 
