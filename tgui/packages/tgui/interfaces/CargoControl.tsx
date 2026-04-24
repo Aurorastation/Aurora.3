@@ -135,6 +135,14 @@ export const CargoControl = (props, context) => {
             </>
           }
         >
+          <Box
+            mb={2}
+            p={1}
+            backgroundColor="rgba(255,255,255,0.05)"
+            textColor="yellow"
+          >
+            {data.status_message}
+          </Box>
           <Tabs>
             <Tabs.Tab
               onClick={() => act('page', { page: 'overview_main' })}
@@ -212,9 +220,6 @@ export const CargoControl = (props, context) => {
               </LabeledList.Item>
               <LabeledList.Item label="Operations Expense">
                 {data.order_details.price_cargo.toFixed(2)}电
-              </LabeledList.Item>
-              <LabeledList.Item label="Personal Expense">
-                {data.order_details.price_customer.toFixed(2)}电
               </LabeledList.Item>
               <LabeledList.Item label="Personal Expense">
                 {data.order_details.price_customer.toFixed(2)}电
