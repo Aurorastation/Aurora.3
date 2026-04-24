@@ -1,4 +1,4 @@
-/obj/item/circuitboard/rig_assembly
+ABSTRACT_TYPE(/obj/item/circuitboard/rig_assembly)
 	name = "rig circuit board"
 	icon = 'icons/obj/module.dmi'
 	icon_state = "std_mod"
