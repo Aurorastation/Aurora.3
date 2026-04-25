@@ -87,7 +87,7 @@
 /obj/item/storage/box/fancy/yoke/remove_from_storage(obj/item/W, atom/new_location)
 	. = ..()
 	if(.)
-		cans -= W //C
+		cans -= W
 
 /obj/item/storage/box/fancy/yoke/attackby(obj/item/attacking_item, mob/user)
 	to_chat(user, SPAN_WARNING("\The [src] cannot be refilled with items!"))
