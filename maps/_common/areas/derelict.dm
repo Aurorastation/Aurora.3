@@ -200,3 +200,9 @@
 /area/construction/storage
 	name = "Construction Site Storage"
 	icon_state = "yellow"
+
+/area/exterior
+	name = "Exterior"
+	icon_state = "exterior"
+	needs_starlight = TRUE
+	has_gravity = FALSE
