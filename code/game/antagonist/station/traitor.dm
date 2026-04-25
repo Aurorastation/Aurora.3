@@ -113,8 +113,8 @@ GLOBAL_DATUM(traitors, /datum/antagonist/traitor)
 	//Begin code phrase.
 	give_codewords(traitor_mob)
 
-	// Offship antags wipe skill components so that they can bypass skill restrictions entirely.
-	for(var/datum/component/skill/skill in traitor_mob._datum_components)
+	// Antags wipe skill components so that they can bypass skill restrictions entirely.
+	for(var/skill in traitor_mob.GetComponents(/datum/component/skill))
 		qdel(skill)
 
 /datum/antagonist/traitor/proc/spawn_uplink(var/mob/living/carbon/human/traitor_mob)
