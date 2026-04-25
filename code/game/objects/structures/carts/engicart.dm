@@ -3,7 +3,6 @@
 	desc = "A cart for your engineering-related storage needs."
 	icon = 'icons/obj/engicart.dmi'
 	icon_state = "cart"
-	movesound = 'sound/effects/roll.ogg'
 
 	var/list/my_glass = list()
 	var/list/my_metal = list()

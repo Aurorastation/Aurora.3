@@ -9,7 +9,7 @@ ABSTRACT_TYPE(/obj/structure/cart)
 	material = DEFAULT_WALL_MATERIAL
 	slowdown = 0
 	atom_flags = CRITICAL_ATOM
-	var/movesound
+	var/movesound = 'sound/effects/roll.ogg'
 	var/driving
 	var/mob/living/pulling
 
@@ -87,9 +87,8 @@ ABSTRACT_TYPE(/obj/structure/cart)
 		pulling.pulledby = null
 		to_chat(pulling, SPAN_WARNING("You lost your grip!"))
 		pulling = null
-	if(movesound)
-		if(has_gravity())
-			playsound(src, movesound, 10, TRUE)
+	if(has_gravity())
+		playsound(src, movesound, 10, TRUE)
 
 /obj/structure/cart/CtrlClick(var/mob/user)
 	if(in_range(src, user))
