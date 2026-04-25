@@ -35,10 +35,6 @@
 
 	blacklisted_species = list(SPECIES_TAJARA_MSAI, SPECIES_TAJARA_ZHAN, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_ATTENDANT, SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_BREEDER)
 
-	skill_requirements = alist(
-		/singleton/skill/medicine = SKILL_LEVEL_TRAINED
-	)
-
 /obj/outfit/job/cmo
 	name = "Chief Medical Officer"
 	jobtype = /datum/job/cmo
@@ -88,9 +84,7 @@
 	outfit = /obj/outfit/job/doctor
 	blacklisted_species = list(SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_BREEDER)
 	skill_requirements = alist(
-		/singleton/skill/surgery = SKILL_LEVEL_TRAINED,
-		/singleton/skill/medicine = SKILL_LEVEL_PROFESSIONAL,
-		/singleton/skill/anatomy = SKILL_LEVEL_TRAINED
+		/singleton/skill/surgery = SKILL_LEVEL_TRAINED
 	)
 
 /datum/job/surgeon
@@ -117,9 +111,7 @@
 	outfit = /obj/outfit/job/doctor/surgeon
 	blacklisted_species = list(SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_BREEDER)
 	skill_requirements = alist(
-		/singleton/skill/surgery = SKILL_LEVEL_PROFESSIONAL,
-		/singleton/skill/medicine = SKILL_LEVEL_TRAINED,
-		/singleton/skill/anatomy = SKILL_LEVEL_TRAINED
+		/singleton/skill/surgery = SKILL_LEVEL_PROFESSIONAL
 	)
 
 /obj/outfit/job/doctor
@@ -186,11 +178,6 @@
 	minimal_access = list(ACCESS_MEDICAL, ACCESS_MEDICAL_EQUIP, ACCESS_PHARMACY, ACCESS_VIROLOGY)
 	outfit = /obj/outfit/job/pharmacist
 	blacklisted_species = list(SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_BREEDER)
-	skill_requirements = alist(
-		/singleton/skill/pharmacology = SKILL_LEVEL_PROFESSIONAL,
-		/singleton/skill/medicine = SKILL_LEVEL_TRAINED,
-		/singleton/skill/anatomy = SKILL_LEVEL_TRAINED
-	)
 
 /obj/outfit/job/pharmacist
 	name = "Pharmacist"
@@ -302,9 +289,7 @@
 
 	blacklisted_species = list(SPECIES_DIONA, SPECIES_DIONA_COEUS, SPECIES_IPC_G2, SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_BREEDER)
 	skill_requirements = alist(
-		/singleton/skill/surgery = SKILL_LEVEL_FAMILIAR,
-		/singleton/skill/medicine = SKILL_LEVEL_TRAINED,
-		/singleton/skill/anatomy = SKILL_LEVEL_TRAINED
+		/singleton/skill/surgery = SKILL_LEVEL_FAMILIAR
 	)
 
 /obj/outfit/job/med_tech
@@ -383,9 +368,7 @@
 	outfit = /obj/outfit/job/intern_med
 	blacklisted_species = list(SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_BREEDER)
 	skill_requirements = alist(
-		/singleton/skill/surgery = SKILL_LEVEL_FAMILIAR,
-		/singleton/skill/medicine = SKILL_LEVEL_FAMILIAR,
-		/singleton/skill/anatomy = SKILL_LEVEL_FAMILIAR
+		/singleton/skill/surgery = SKILL_LEVEL_FAMILIAR
 	)
 
 /obj/outfit/job/intern_med
