@@ -561,7 +561,7 @@
 
 /obj/item/storage/box/fancy/commissary_restock/Initialize()
 	can_hold = starts_with
-	..()
+	. = ..()
 
 /obj/item/storage/box/fancy/commissary_restock/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()
