@@ -61,8 +61,7 @@
 	possible_accents = list(ACCENT_GADPATHUR)
 	possible_citizenships = list(CITIZENSHIP_COALITION)
 	possible_religions = list(RELIGION_NONE, RELIGION_CHRISTIANITY, RELIGION_ISLAM, RELIGION_BUDDHISM, RELIGION_HINDU, RELIGION_TAOISM, RELIGION_JUDAISM, RELIGION_SIKHISM, RELIGION_OTHER)
-	origin_traits = list(TRAIT_ORIGIN_LIGHT_SENSITIVE)
-	origin_traits_descriptions = list("have a small resistance to radiation", "are more sensitive to bright lights")
+	origin_traits_descriptions = list("have a small resistance to radiation")
 
 /singleton/origin_item/origin/gadpathur/on_apply(var/mob/living/carbon/human/H)
 	. = ..()
