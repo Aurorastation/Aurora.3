@@ -1,0 +1,4 @@
+author: Batrachophrenoboocosmomachia
+delete-after: True
+changes:
+  - bugfix: "Reduces openspace mimic destruction timers from 10 seconds to 0.1 second to remove persistent ghosting when changing z-levels (such as using stairs or ladders)."
