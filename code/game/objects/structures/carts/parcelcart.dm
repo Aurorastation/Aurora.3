@@ -3,6 +3,7 @@
 	desc = "A cart for moving parcels and packages around."
 	icon = 'icons/obj/parcelcart.dmi'
 	icon_state = "cart"
+	movesound = 'sound/effects/roll.ogg'
 
 	var/list/my_parcels = list()
 
