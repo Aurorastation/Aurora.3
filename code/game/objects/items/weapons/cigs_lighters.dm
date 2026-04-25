@@ -170,6 +170,12 @@ ABSTRACT_TYPE(/obj/item/clothing/mask/smokable)
 	var/burn_rate = 0
 	/// Spam limiter for audio/message when taking a drag of cigarette.
 	var/last_drag = 0
+	/// Used when setting light; change on child obj def for any weird smokables.
+	var/lit_light_radius = 1
+	/// Used when setting light; change on child obj def for any weird smokables.
+	var/lit_light_power = 0.1
+	/// Used when setting light; change on child obj def for any weird smokables.
+	var/lit_light_color = "#ffa251"
 	drop_sound = 'sound/items/drop/food.ogg'
 	pickup_sound = 'sound/items/pickup/food.ogg'
 
@@ -229,7 +235,7 @@ ABSTRACT_TYPE(/obj/item/clothing/mask/smokable)
 			M.update_inv_r_hand(1)
 		var/turf/T = get_turf(src)
 		T.visible_message(flavor_text)
-		set_light_range_power_color(2, 0.25, "#E38F46")
+		set_light_range_power_color(lit_light_radius, lit_light_power, lit_light_color)
 		set_light_on(TRUE)
 		START_PROCESSING(SSprocessing, src)
 

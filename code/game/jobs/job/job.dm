@@ -78,6 +78,14 @@
 
 	/**
 	 * Associated list of /singleton/skill/skill_name = skill_level that this job requires.
+	 * This should only be used for skills that have "Mechanical Hard Requirements"
+	 * EG: Surgery is literally impossible without the skill,
+	 * Thus a surgeon would be actually unplayable if they lacked it.
+	 * This is only intended to prevent situations where a player forgets to set a skill a job NEEDS
+	 * And then tries to join a round as a surgeon who can't do surgery.
+	 *
+	 * If a skill is "hard required" but later gets reworked to only have "soft requirements"
+	 * Then every job listing it should have the requirement removed.
 	 */
 	var/alist/skill_requirements = alist()
 
