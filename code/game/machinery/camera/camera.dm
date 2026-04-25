@@ -43,6 +43,10 @@
 
 	var/affected_by_emp_until = 0
 
+	/// This variable means that a camera is always accessible, no matter the z-level. This is used for integrated cameras in helmets, integrated circuits, etc.
+	/// In the future, this would be more logically tied to telecomms range on the overmap, but for now this is for playability.
+	var/long_range = FALSE
+
 /obj/machinery/camera/Initialize()
 	wires = new(src)
 	assembly = new(src)

@@ -157,7 +157,7 @@
 		A.client.eye = A.eyeobj
 		return TRUE
 
-	if(!is_contact_area(get_area(C)))
+	if(!is_contact_area(get_area(C)) && !C.long_range)
 		to_chat(user, SPAN_NOTICE("This camera is too far away to connect to!"))
 		return FALSE
 

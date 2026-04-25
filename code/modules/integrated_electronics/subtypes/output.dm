@@ -258,6 +258,7 @@
 /obj/item/integrated_circuit/output/video_camera/Initialize()
 	. = ..()
 	camera = new(src, 0, TRUE, TRUE)
+	camera.long_range = TRUE
 	on_data_written()
 
 /obj/item/integrated_circuit/output/video_camera/Destroy()

@@ -66,6 +66,7 @@
 	camera = new /obj/machinery/camera(src, 0, TRUE, TRUE)
 	camera.c_tag = "spiderbot-[real_name]"
 	camera.replace_networks(list("SS13"))
+	camera.long_range = TRUE
 
 /mob/living/simple_animal/spiderbot/Destroy()
 	eject_brain()

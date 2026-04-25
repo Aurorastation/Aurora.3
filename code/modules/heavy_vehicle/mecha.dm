@@ -236,6 +236,7 @@
 		camera = new /obj/machinery/camera(src, 0, TRUE, TRUE)
 		camera.c_tag = name
 		camera.replace_networks(list(NETWORK_MECHS))
+		camera.long_range = TRUE
 
 	// Create HUD.
 	instantiate_hud()

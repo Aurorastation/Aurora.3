@@ -25,6 +25,7 @@
 	camera = new(src)
 	camera.c_tag = channel
 	camera.status = FALSE
+	camera.long_range = TRUE
 	radio = new(src)
 	radio.get_frequency(FALSE)
 	radio.set_frequency(ENT_FREQ)

@@ -164,6 +164,7 @@
 	if(!camera)
 		camera = new /obj/machinery/camera(src, 0, TRUE, TRUE)
 		camera.c_tag = real_name
+		camera.long_range = TRUE
 		if(!scrambled_codes)
 			camera.replace_networks(list(NETWORK_STATION, NETWORK_ROBOTS))
 		else
