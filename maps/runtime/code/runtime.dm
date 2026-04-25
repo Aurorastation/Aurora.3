@@ -62,7 +62,9 @@
 		/datum/shuttle/autodock/overmap/runtime,
 		/datum/shuttle/autodock/ferry/supply/horizon,
 	)
-	warehouse_basearea = /area/storage/primary
+
+	warehouse_basearea = /area/storage/supply
+	warehouse_packagearea = /area/storage/supply/package
 
 /**
  * This file is the only location in which runtime map areas should be defined.
@@ -193,6 +195,13 @@
 	name = "Primary Tool Storage"
 	icon_state = "primarystorage"
 	allow_nightmode = 1
+
+/area/storage/supply
+	name = "Supply Storage"
+
+/area/storage/supply/package
+	name = "Package Storage"
+	requires_power = FALSE
 
 /// TCOMMS_AREAS
 /area/tcommsat
