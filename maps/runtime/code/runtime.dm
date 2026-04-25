@@ -198,9 +198,11 @@
 
 /area/storage/supply
 	name = "Supply Storage"
+	icon_state = "dark128"
 
 /area/storage/supply/package
 	name = "Package Storage"
+	icon_state = "dark160"
 	requires_power = FALSE
 
 /// TCOMMS_AREAS
