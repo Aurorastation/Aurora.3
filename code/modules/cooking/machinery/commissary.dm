@@ -384,9 +384,9 @@
 		/obj/item/storage/box/fancy/vkrexitaffy = 3,
 		/obj/item/clothing/mask/chewable/candy/lolli = 5,
 		/obj/item/storage/box/fancy/admints = 3,
-		/obj/item/reagent_containers/food/drinks/bottle/bestblend,
-		/obj/item/storage/box/fancy/foysnack,
-		/obj/item/reagent_containers/food/snacks/choctruffles
+		/obj/item/reagent_containers/food/drinks/bottle/bestblend = 2,
+		/obj/item/storage/box/fancy/foysnack = 3,
+		/obj/item/reagent_containers/food/snacks/choctruffles = 3
 	)
 
 /obj/item/storage/box/fancy/commissary_restock/food/microwave
@@ -463,17 +463,6 @@
 	starts_with = list(
 		// Toys
 		/obj/item/toy/blink = 3,
-		/obj/item/deck/cards = 5,
-		/obj/item/deck/tarot = 3,
-		/obj/item/deck/tarot/nralakk = 2,
-		/obj/item/deck/tarot/nonnralakk = 2,
-		/obj/item/deck/tarot/adhomai = 2,
-		/obj/item/pack/cardemon = 2,
-		/obj/item/pack/spaceball = 2,
-		/obj/item/storage/card = 4,
-		/obj/item/storage/pill_bottle/dice = 2,
-		/obj/item/storage/pill_bottle/dice/gaming = 2,
-		/obj/item/storage/pill_bottle/dice/tajara = 2,
 		/obj/item/storage/box/unique/snappops = 2,
 		/obj/item/toy/crossbow = 4,
 		/obj/item/toy/ammo/crossbow = 8,
@@ -483,6 +472,24 @@
 		/obj/item/ammo_magazine/caps = 4,
 		/obj/item/toy/balloon = 4,
 		/obj/item/toy/waterballoon = 20
+	)
+
+/obj/item/storage/box/fancy/commissary_restock/toy/cards_dice
+	name = "commissary card and dice restock pack"
+	starts_with = list(
+		// Cards
+		/obj/item/deck/cards = 5,
+		/obj/item/deck/tarot = 3,
+		/obj/item/deck/tarot/nralakk = 2,
+		/obj/item/deck/tarot/nonnralakk = 2,
+		/obj/item/deck/tarot/adhomai = 2,
+		/obj/item/pack/cardemon = 2,
+		/obj/item/pack/spaceball = 2,
+		/obj/item/storage/card = 4,
+		// Dice
+		/obj/item/storage/pill_bottle/dice = 2,
+		/obj/item/storage/pill_bottle/dice/gaming = 2,
+		/obj/item/storage/pill_bottle/dice/tajara = 2
 	)
 
 /obj/item/storage/box/fancy/commissary_restock/toy/mech
@@ -510,6 +517,19 @@
 		/obj/item/toy/comic/stormman = 2,
 		/obj/item/toy/comic/outlandish_tales = 2,
 		/obj/item/toy/comic/witchfinder = 2
+	)
+
+/obj/item/storage/box/fancy/commissary_restock/toy/comic/nka
+	starts_with = list(
+		// Comics
+		/obj/item/toy/comic/azmarian/issue_1 = 2,
+		/obj/item/toy/comic/azmarian/issue_2 = 2,
+		/obj/item/toy/comic/azmarian/issue_3 = 2,
+		/obj/item/toy/comic/azmarian/issue_4 = 2,
+		/obj/item/toy/comic/azmarian/issue_5 = 2,
+		/obj/item/toy/comic/azmarian/issue_6 = 2,
+		/obj/item/toy/comic/azmarian/issue_7 = 2,
+		/obj/item/toy/comic/azmarian/issue_8 = 2
 	)
 
 /obj/item/storage/box/fancy/commissary_restock/music
@@ -564,10 +584,10 @@
 /obj/structure/closet/crate/commissary/resupply
 
 /obj/structure/closet/crate/commissary/resupply/fill()
-	new /obj/item/storage/box/fancy/commissary_restock(src)
 	new /obj/item/storage/box/fancy/commissary_restock/rollable(src)
 	new /obj/item/storage/box/fancy/commissary_restock/chewable(src)
 	new /obj/item/storage/box/fancy/commissary_restock/smoking_accessory(src)
+	new /obj/item/storage/box/fancy/commissary_restock(src)
 	new /obj/item/storage/box/fancy/commissary_restock/electronic_cig(src)
 	new /obj/item/storage/box/fancy/commissary_restock/food(src)
 	new /obj/item/storage/box/fancy/commissary_restock/food/candy(src)
