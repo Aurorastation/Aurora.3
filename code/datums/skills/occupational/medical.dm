@@ -75,13 +75,13 @@
 	skill_level_descriptions = alist(
 		SKILL_LEVEL_UNFAMILIAR = "You have zero training or knowledge of anatomy.<br>" \
 			+ " - You can only distinguish visible damage like cuts and burns.",
-		SKILL_LEVEL_FAMILIAR = "You have minimal training on the basics of anatomy. This is equivalent to a fresh med school graduate, or a military corpsman.<br>" \
+		SKILL_LEVEL_FAMILIAR = "You have minimal training on the basics of anatomy.<br>" \
 			+ "You can diagnose the following conditions: <br>" \
 			+ " - External injuries.<br>" \
 			+ " - Limb dislocation.<br>" \
 			+ " - Broken bones.<br>" \
 			+ " - Simple bleeds.",
-		SKILL_LEVEL_TRAINED = "You have years of formal training and experience with anatomy. This is equivalent to a fully licensed physician.<br>" \
+		SKILL_LEVEL_TRAINED = "You have years of formal training and experience with anatomy.<br>" \
 			+ "You can diagnose the following conditions: <br>" \
 			+ " - External injuries at a high level of detail.<br>" \
 			+ " - Limb dislocation.<br>" \
@@ -89,7 +89,7 @@
 			+ " - Simple bleeds.<br>" \
 			+ " - Limb necrosis.<br>" \
 			+ " - Tag injuries by triage priority.",
-		SKILL_LEVEL_PROFESSIONAL = "You are a world class physician with decades worth of training and experience.<br>" \
+		SKILL_LEVEL_PROFESSIONAL = "You have extensive training and experience with anatomy.<br>" \
 			+ "You can diagnose the following conditions at the highest level of detail: <br>" \
 			+ " - External injuries at a high level of detail.<br>" \
 			+ " - Limb dislocation.<br>" \
