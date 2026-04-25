@@ -591,7 +591,7 @@
 	items = list(
 		/obj/item/storage/box/fancy/commissary_restock
 	)
-	access = 0
+	access = ACCESS_CARGO
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -605,7 +605,7 @@
 	items = list(
 		/obj/item/storage/box/fancy/commissary_restock/rollable
 	)
-	access = 0
+	access = ACCESS_CARGO
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -619,7 +619,7 @@
 	items = list(
 		/obj/item/storage/box/fancy/commissary_restock/chewable
 	)
-	access = 0
+	access = ACCESS_CARGO
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -633,7 +633,7 @@
 	items = list(
 		/obj/item/storage/box/fancy/commissary_restock/smoking_accessory
 	)
-	access = 0
+	access = ACCESS_CARGO
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -647,7 +647,7 @@
 	items = list(
 		/obj/item/storage/box/fancy/commissary_restock/electronic_cig
 	)
-	access = 0
+	access = ACCESS_CARGO
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -661,7 +661,7 @@
 	items = list(
 		/obj/item/storage/box/fancy/commissary_restock/food
 	)
-	access = 0
+	access = ACCESS_CARGO
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -675,7 +675,7 @@
 	items = list(
 		/obj/item/storage/box/fancy/commissary_restock/food/xeno
 	)
-	access = 0
+	access = ACCESS_CARGO
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -689,7 +689,7 @@
 	items = list(
 		/obj/item/storage/box/fancy/commissary_restock/food/candy
 	)
-	access = 0
+	access = ACCESS_CARGO
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -703,7 +703,7 @@
 	items = list(
 		/obj/item/storage/box/fancy/commissary_restock/food/microwave
 	)
-	access = 0
+	access = ACCESS_CARGO
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -717,7 +717,7 @@
 	items = list(
 		/obj/item/storage/box/fancy/commissary_restock/drink
 	)
-	access = 0
+	access = ACCESS_CARGO
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -731,7 +731,7 @@
 	items = list(
 		/obj/item/storage/box/fancy/commissary_restock/drink/booze_cheap
 	)
-	access = 0
+	access = ACCESS_CARGO
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -745,7 +745,7 @@
 	items = list(
 		/obj/item/storage/box/fancy/commissary_restock/toy
 	)
-	access = 0
+	access = ACCESS_CARGO
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -759,7 +759,7 @@
 	items = list(
 		/obj/item/storage/box/fancy/commissary_restock/toy/cards_dice
 	)
-	access = 0
+	access = ACCESS_CARGO
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -773,7 +773,7 @@
 	items = list(
 		/obj/item/storage/box/fancy/commissary_restock/toy/mech
 	)
-	access = 0
+	access = ACCESS_CARGO
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -787,7 +787,7 @@
 	items = list(
 		/obj/item/storage/box/fancy/commissary_restock/toy/comic
 	)
-	access = 0
+	access = ACCESS_CARGO
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -801,7 +801,7 @@
 	items = list(
 		/obj/item/storage/box/fancy/commissary_restock/toy/comic/nka
 	)
-	access = 0
+	access = ACCESS_CARGO
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -815,7 +815,7 @@
 	items = list(
 		/obj/item/storage/box/fancy/commissary_restock/music
 	)
-	access = 0
+	access = ACCESS_CARGO
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -830,7 +830,7 @@
 	items = list(
 		/obj/item/storage/box/fancy/commissary_restock/tea
 	)
-	access = 0
+	access = ACCESS_CARGO
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
