@@ -2296,6 +2296,12 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/construction/storage)
+"jN" = (
+/obj/effect/floor_decal/industrial/outline/operations,
+/obj/structure/closet/crate,
+/obj/structure/railing/mapped/no_density/low,
+/turf/simulated/floor/tiled/full,
+/area/storage/supply)
 "jO" = (
 /obj/structure/railing/mapped{
 	dir = 4
@@ -2414,8 +2420,10 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/supply/dock)
 "kH" = (
-/turf/template_noop,
-/area/hallway/primary/central_one)
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/effect/decal/curb,
+/turf/simulated/floor/plating,
+/area/storage/supply)
 "kI" = (
 /obj/structure/railing/mapped,
 /turf/simulated/open,
@@ -2431,6 +2439,15 @@
 /obj/machinery/firealarm/south,
 /turf/simulated/floor/carpet/rubber,
 /area/bridge)
+"kU" = (
+/obj/effect/floor_decal/corner/brown{
+	dir = 9
+	},
+/obj/effect/decal/curb/corner{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/gridded,
+/area/storage/supply)
 "kW" = (
 /obj/structure/platform/ledge{
 	dir = 4
@@ -2841,6 +2858,15 @@
 /obj/machinery/atmospherics/pipe/manifold/visible/black,
 /turf/simulated/floor/tiled/gridded,
 /area/construction/storage)
+"nb" = (
+/obj/effect/floor_decal/corner/brown{
+	dir = 9
+	},
+/obj/effect/decal/curb/corner{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/gridded,
+/area/storage/supply)
 "nd" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -3952,8 +3978,13 @@
 /turf/simulated/floor/airless,
 /area/template_noop)
 "ui" = (
-/turf/simulated/wall/r_wall,
-/area/template_noop)
+/obj/effect/floor_decal/industrial/outline/operations,
+/obj/structure/closet/crate,
+/obj/structure/railing/mapped/no_density/low{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/full,
+/area/storage/supply)
 "uk" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
@@ -5240,6 +5271,15 @@
 /obj/effect/map_effect/marker/airlock/shuttle/runtime,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/runtime)
+"Ch" = (
+/obj/effect/floor_decal/corner/brown{
+	dir = 6
+	},
+/obj/effect/decal/curb/corner{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/gridded,
+/area/storage/supply)
 "Cl" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -7022,6 +7062,9 @@
 /area/bridge)
 "ML" = (
 /obj/structure/lattice/catwalk/indoor/grate,
+/obj/effect/decal/curb{
+	dir = 1
+	},
 /turf/simulated/floor/plating,
 /area/storage/supply)
 "MQ" = (
@@ -8385,6 +8428,13 @@
 	},
 /turf/simulated/floor/tiled/gridded,
 /area/hallway/primary/central_two)
+"Uy" = (
+/obj/effect/floor_decal/corner/brown{
+	dir = 6
+	},
+/obj/effect/decal/curb/corner,
+/turf/simulated/floor/tiled/gridded,
+/area/storage/supply)
 "UB" = (
 /obj/machinery/light/spot{
 	dir = 1
@@ -9342,7 +9392,7 @@ aa
 aa
 aa
 aa
-fX
+aa
 fX
 fX
 HD
@@ -9599,7 +9649,7 @@ aa
 aa
 aa
 aa
-fX
+aa
 fX
 fX
 HD
@@ -9856,7 +9906,7 @@ aa
 aa
 aa
 aa
-fX
+aa
 fX
 fX
 HD
@@ -10113,7 +10163,7 @@ aa
 aa
 aa
 aa
-fX
+aa
 fX
 fX
 HD
@@ -10370,7 +10420,7 @@ aa
 aa
 aa
 aa
-fX
+aa
 fX
 fX
 HD
@@ -10627,7 +10677,7 @@ aa
 aa
 aa
 aa
-fX
+aa
 fX
 fX
 HD
@@ -10884,7 +10934,7 @@ aa
 aa
 aa
 aa
-fX
+aa
 fX
 fX
 HD
@@ -11141,7 +11191,7 @@ aa
 aa
 aa
 aa
-fX
+aa
 fX
 fX
 HD
@@ -11398,7 +11448,7 @@ aa
 aa
 aa
 aa
-fX
+aa
 fX
 fX
 HD
@@ -11655,7 +11705,7 @@ aa
 aa
 aa
 aa
-fX
+aa
 fX
 fX
 HD
@@ -11912,7 +11962,7 @@ aa
 aa
 aa
 aa
-fX
+aa
 fX
 fX
 HD
@@ -12169,7 +12219,7 @@ aa
 aa
 aa
 aa
-fX
+aa
 fX
 fX
 HD
@@ -12426,7 +12476,7 @@ aa
 aa
 aa
 aa
-fX
+aa
 fX
 fX
 HD
@@ -12683,7 +12733,7 @@ aa
 aa
 aa
 aa
-fX
+aa
 fX
 fX
 HD
@@ -12940,7 +12990,7 @@ aa
 aa
 aa
 aa
-fX
+aa
 fX
 fX
 HD
@@ -13197,7 +13247,7 @@ aa
 aa
 aa
 aa
-fX
+aa
 fX
 fX
 HD
@@ -13454,7 +13504,7 @@ aa
 aa
 aa
 aa
-fX
+aa
 fX
 fX
 HD
@@ -13711,7 +13761,7 @@ aa
 aa
 aa
 aa
-fX
+aa
 fX
 fX
 HD
@@ -13968,7 +14018,7 @@ aa
 aa
 aa
 aa
-fX
+aa
 fX
 fX
 HD
@@ -14225,7 +14275,7 @@ aa
 aa
 aa
 aa
-fX
+aa
 fX
 fX
 HD
@@ -14482,7 +14532,7 @@ aa
 aa
 aa
 aa
-fX
+aa
 fX
 fX
 HD
@@ -14739,7 +14789,7 @@ Oh
 Oh
 Oh
 Oh
-fX
+aa
 fX
 fX
 HD
@@ -14986,7 +15036,7 @@ Jg
 Uc
 rH
 rH
-ML
+kH
 ML
 zE
 zE
@@ -14996,7 +15046,7 @@ pZ
 Hs
 uq
 Oh
-fX
+aa
 fX
 fX
 HD
@@ -15243,8 +15293,8 @@ xk
 Gj
 zR
 Yl
-Yl
-Yl
+nb
+kU
 Yl
 Yl
 Dz
@@ -15253,7 +15303,7 @@ pZ
 KD
 Ld
 Oh
-fX
+aa
 fX
 fX
 HD
@@ -15510,7 +15560,7 @@ pZ
 KD
 Ld
 Oh
-fX
+aa
 fX
 fX
 HD
@@ -15767,7 +15817,7 @@ pZ
 IB
 Db
 Oh
-fX
+aa
 fX
 fX
 HD
@@ -16024,7 +16074,7 @@ Jg
 Jg
 Jg
 Jg
-fX
+aa
 fX
 fX
 HD
@@ -16281,7 +16331,7 @@ gf
 JS
 FK
 Jg
-fX
+aa
 fX
 fX
 HD
@@ -16538,7 +16588,7 @@ RY
 vD
 RJ
 Jg
-fX
+aa
 fX
 fX
 HD
@@ -16785,8 +16835,8 @@ lf
 zI
 gh
 gh
-gh
-gh
+Uy
+Ch
 gh
 gh
 Tg
@@ -16795,7 +16845,7 @@ RY
 vD
 RJ
 Jg
-fX
+aa
 fX
 fX
 HD
@@ -17041,10 +17091,10 @@ bx
 rg
 Nv
 rH
-rH
+jN
+kH
 ML
-ML
-rH
+ui
 rH
 rH
 rH
@@ -17052,7 +17102,7 @@ gf
 GR
 Qx
 Jg
-fX
+aa
 fX
 fX
 fX
@@ -17292,9 +17342,9 @@ bc
 cp
 dq
 bx
-kH
 aa
-ui
+aa
+bx
 Jg
 Jg
 xk
@@ -17309,7 +17359,7 @@ Jg
 Jg
 Jg
 Jg
-fX
+aa
 fX
 fX
 fX
@@ -17566,7 +17616,7 @@ aa
 aa
 aa
 aa
-fX
+aa
 fX
 fX
 fX
@@ -17823,7 +17873,7 @@ aa
 aa
 aa
 aa
-fX
+aa
 fX
 fX
 fX
@@ -18080,7 +18130,7 @@ aa
 aa
 aa
 aa
-fX
+aa
 fX
 fX
 fX
@@ -18337,7 +18387,7 @@ aa
 aa
 aa
 aa
-fX
+aa
 fX
 fX
 fX
@@ -18594,7 +18644,7 @@ aa
 aa
 aa
 aa
-fX
+aa
 fX
 fX
 fX
@@ -18851,7 +18901,7 @@ aa
 aa
 aa
 aa
-fX
+aa
 fX
 fX
 fX
@@ -19108,7 +19158,7 @@ aa
 aa
 aa
 aa
-fX
+aa
 fX
 fX
 fX
@@ -19365,7 +19415,7 @@ aa
 aa
 aa
 aa
-fX
+aa
 fX
 fX
 fX
@@ -19622,7 +19672,7 @@ aa
 aa
 aa
 aa
-fX
+aa
 fX
 fX
 fX
@@ -19879,7 +19929,7 @@ aa
 aa
 aa
 aa
-fX
+aa
 fX
 fX
 fX
@@ -20081,62 +20131,62 @@ fX
 fX
 fX
 fX
-fX
-fX
-fX
-fX
-fX
-fX
-fX
-fX
-fX
-fX
-fX
-fX
-fX
-fX
-fX
-fX
-fX
-fX
-fX
-fX
-fX
-fX
-fX
-fX
-fX
-fX
-fX
-fX
-fX
-fX
-fX
-fX
-fX
-fX
-fX
-fX
-fX
-fX
-fX
-fX
-fX
-fX
-fX
-fX
-fX
-fX
-fX
-fX
-fX
-fX
-fX
-fX
-fX
-fX
-fX
-fX
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 fX
 fX
 fX
@@ -74878,7 +74928,7 @@ aa
 aa
 aa
 aa
-fX
+aa
 fX
 fX
 fX
@@ -75135,7 +75185,7 @@ aa
 aa
 aa
 aa
-fX
+aa
 fX
 fX
 fX
@@ -75392,7 +75442,7 @@ aa
 aa
 aa
 aa
-fX
+aa
 fX
 fX
 fX
@@ -75649,7 +75699,7 @@ aa
 aa
 aa
 aa
-fX
+aa
 fX
 fX
 fX
@@ -75906,7 +75956,7 @@ aa
 aa
 aa
 aa
-fX
+aa
 fX
 fX
 fX
@@ -76163,7 +76213,7 @@ aa
 aa
 aa
 aa
-fX
+aa
 fX
 fX
 fX
@@ -76420,7 +76470,7 @@ aa
 aa
 aa
 aa
-fX
+aa
 fX
 fX
 fX
@@ -76677,7 +76727,7 @@ aa
 aa
 aa
 aa
-fX
+aa
 fX
 fX
 fX
@@ -76934,7 +76984,7 @@ aa
 aa
 aa
 aa
-fX
+aa
 fX
 fX
 fX
@@ -77191,7 +77241,7 @@ aa
 aa
 aa
 aa
-fX
+aa
 fX
 fX
 fX
@@ -77448,7 +77498,7 @@ aa
 aa
 aa
 aa
-fX
+aa
 fX
 fX
 fX
@@ -77705,7 +77755,7 @@ aa
 aa
 aa
 aa
-fX
+aa
 fX
 fX
 fX
@@ -77962,7 +78012,7 @@ aa
 aa
 aa
 aa
-fX
+aa
 fX
 fX
 fX
@@ -78219,7 +78269,7 @@ aa
 aa
 aa
 aa
-fX
+aa
 fX
 fX
 fX
@@ -78476,7 +78526,7 @@ aa
 aa
 aa
 aa
-fX
+aa
 fX
 fX
 fX
@@ -78733,7 +78783,7 @@ aa
 aa
 aa
 aa
-fX
+aa
 fX
 fX
 fX
@@ -78990,7 +79040,7 @@ aa
 aa
 aa
 aa
-fX
+aa
 fX
 fX
 fX
@@ -79247,7 +79297,7 @@ aa
 aa
 aa
 aa
-fX
+aa
 fX
 fX
 fX
@@ -79504,7 +79554,7 @@ aa
 aa
 aa
 aa
-fX
+aa
 fX
 fX
 fX
@@ -79761,7 +79811,7 @@ aa
 aa
 aa
 aa
-fX
+aa
 fX
 fX
 fX
@@ -80018,7 +80068,7 @@ aa
 aa
 aa
 aa
-fX
+aa
 fX
 fX
 fX
@@ -80275,7 +80325,7 @@ uh
 uh
 uh
 uh
-fX
+aa
 fX
 fX
 fX
@@ -80532,7 +80582,7 @@ uh
 uh
 uh
 uh
-fX
+aa
 fX
 fX
 fX
@@ -80789,7 +80839,7 @@ uh
 uh
 uh
 uh
-fX
+aa
 fX
 fX
 fX
@@ -81046,7 +81096,7 @@ uh
 uh
 uh
 uh
-fX
+aa
 fX
 fX
 fX
@@ -81303,7 +81353,7 @@ uh
 uh
 uh
 uh
-fX
+aa
 fX
 fX
 fX
@@ -81560,7 +81610,7 @@ gt
 uh
 uh
 uh
-fX
+aa
 fX
 fX
 fX
@@ -81817,7 +81867,7 @@ gt
 uh
 uh
 uh
-fX
+aa
 fX
 fX
 fX
@@ -82074,7 +82124,7 @@ xy
 uh
 uh
 uh
-fX
+aa
 fX
 fX
 fX
@@ -82331,7 +82381,7 @@ BF
 uh
 uh
 uh
-fX
+aa
 fX
 fX
 fX
@@ -82588,7 +82638,7 @@ dv
 uh
 uh
 uh
-fX
+aa
 fX
 fX
 fX
@@ -82845,7 +82895,7 @@ dv
 uh
 uh
 uh
-fX
+aa
 fX
 fX
 fX
@@ -83102,7 +83152,7 @@ vL
 uh
 uh
 uh
-fX
+aa
 fX
 fX
 fX
@@ -83333,13 +83383,13 @@ uh
 uh
 uh
 BQ
-gt
+uh
 BQ
 wY
 tw
 nh
 BQ
-gt
+uh
 BQ
 uh
 uh
@@ -83359,7 +83409,7 @@ xy
 uh
 uh
 uh
-fX
+aa
 fX
 fX
 fX
@@ -83616,7 +83666,7 @@ gt
 uh
 uh
 uh
-fX
+aa
 fX
 fX
 fX
@@ -83873,7 +83923,7 @@ gt
 uh
 uh
 uh
-fX
+aa
 fX
 fX
 fX
@@ -84130,7 +84180,7 @@ uh
 uh
 uh
 uh
-fX
+aa
 fX
 fX
 fX
@@ -84387,7 +84437,7 @@ uh
 uh
 uh
 uh
-fX
+aa
 fX
 fX
 fX
@@ -84644,7 +84694,7 @@ uh
 uh
 uh
 uh
-fX
+aa
 fX
 fX
 fX
@@ -84901,7 +84951,7 @@ uh
 uh
 uh
 uh
-fX
+aa
 fX
 fX
 fX
@@ -85158,7 +85208,7 @@ uh
 uh
 uh
 uh
-fX
+aa
 fX
 fX
 fX
@@ -85415,7 +85465,7 @@ aa
 aa
 aa
 aa
-fX
+aa
 fX
 fX
 fX
@@ -85617,62 +85667,62 @@ fX
 fX
 fX
 fX
-fX
-fX
-fX
-fX
-fX
-fX
-fX
-fX
-fX
-fX
-fX
-fX
-fX
-fX
-fX
-fX
-fX
-fX
-fX
-fX
-fX
-fX
-fX
-fX
-fX
-fX
-fX
-fX
-fX
-fX
-fX
-fX
-fX
-fX
-fX
-fX
-fX
-fX
-fX
-fX
-fX
-fX
-fX
-fX
-fX
-fX
-fX
-fX
-fX
-fX
-fX
-fX
-fX
-fX
-fX
-fX
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 fX
 fX
 fX

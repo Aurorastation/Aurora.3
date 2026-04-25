@@ -21,6 +21,7 @@
 		/area/tcommsat,
 		/area/construction/hallway,
 		/area/storage/supply/package,
+		/area/supply/dock,
 	)
 
 	excluded_test_types = list(
