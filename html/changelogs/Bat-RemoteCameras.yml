@@ -2,3 +2,5 @@ author: Batrachophrenoboocosmomachia
 delete-after: True
 changes:
   - qol: "Embedded cameras (basically every video camera EXCEPT those which are installed on walls) can now be viewed from any z-level, not just connected ones."
+  - rscadd: "Adds several public camera monitor consoles to the Horizon (near where public sensor grid feed consoles already exist)."
+  - rscadd: "Adds some spare camera console boards to Horizon technical storage."
