@@ -1,8 +1,0 @@
-author: FabianK3
-
-delete-after: True
-
-changes:
-  - bugfix: "Fixed airlock assembly rotation not being properly set when deconstructing an airlock."
-  - rscadd: "Added a squeeze-through mechanic for airlock assemblies. Drag-click yourself on to the airlock assembly to climb through it."
-  - rscadd: "Added basic icon versions for each airlock construction step: New, anchored, wired and electronics."

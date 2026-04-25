@@ -447,3 +447,31 @@
   - rscadd: Made the conveyor on the cargo elevator one shorter, to avoid loose items
       being shuffled off the elevator.
   - bugfix: Fixed two sprites mainly seen when mapping random object spawns.
+2026-04-25:
+  Batrachophrenoboocosmomachia:
+  - bugfix: Air panels again able to be accessed remotely through Atmosphere Control
+      app.
+  - bugfix: Missing chlorine detection added to air panels.
+  - rscadd: Adds minor visual tell to light sensitivity.
+  - balance: Reduces probability of light sensitivity effects firing, increases minimum
+      threshold.
+  - balance: Slightly reduces the brightness of cigarettes and ATMs (turf corner light
+      calculations resulted in outsized returns).
+  Batrachophrenoobocosmomachia:
+  - bugfix: Airlocks can again be repaired by using hammers on them with an appropriate
+      stack of materials in your offhand.
+  - bugfix: Binary atmos devices are again able to be toggled on/off by alt-clicking
+      them.
+  - bugfix: Temp control units now display correct 'turned on/off' balloon text when
+      toggled.
+  FabianK3:
+  - bugfix: Fixed airlock assembly rotation not being properly set when deconstructing
+      an airlock.
+  - rscadd: Added a squeeze-through mechanic for airlock assemblies. Drag-click yourself
+      on to the airlock assembly to climb through it.
+  - rscadd: 'Added basic icon versions for each airlock construction step: New, anchored,
+      wired and electronics.'
+  Hellfirejag:
+  - rscdel: Removed all job skill requirements that weren't actually mechanically
+      necessary.
+  - bugfix: Removed a hard del related to material stacks.
