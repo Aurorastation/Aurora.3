@@ -150,6 +150,16 @@
 	name = "Bridge Maintenance"
 	icon_state = "maintcentral"
 
+// Exterior
+/area/exterior
+	name = "Exterior"
+	icon_state = "exterior"
+	needs_starlight = TRUE
+	has_gravity = FALSE
+	station_area = TRUE
+	requires_power = FALSE
+	ambience = AMBIENCE_SPACE
+
 /// MEDICAL_AREAS
 /// OPERATIONS_AREAS
 

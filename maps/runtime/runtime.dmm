@@ -260,6 +260,11 @@
 /obj/structure/lattice/catwalk,
 /turf/space,
 /area/exterior)
+"aU" = (
+/obj/structure/railing/mapped/no_density/low,
+/obj/machinery/firealarm/north,
+/turf/simulated/floor/tiled/full,
+/area/hallway/primary/central_two)
 "aV" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/ntnet_relay,
@@ -404,9 +409,9 @@
 	},
 /area/hallway/primary/central_one)
 "bq" = (
-/obj/machinery/vending/robotics,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/effect/floor_decal/industrial/warning,
+/obj/structure/closet/secure_closet/scientist/modlaser,
 /turf/simulated/floor/tiled/white,
 /area/hallway/primary/central_one)
 "br" = (
@@ -935,6 +940,7 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
+/obj/effect/landmark/entry_point/aft,
 /turf/simulated/floor/tiled/full,
 /area/hallway/primary/central_one)
 "cA" = (
@@ -1292,6 +1298,10 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/hallway/primary/central_two)
+"dI" = (
+/obj/effect/landmark/entry_point/fore,
+/turf/simulated/wall/r_wall,
+/area/hallway/primary/central_one)
 "dL" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
@@ -1383,6 +1393,14 @@
 	},
 /turf/simulated/floor/tiled/full,
 /area/hallway/primary/central_one)
+"eK" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/camera/network/civilian_main{
+	c_tag = "Construction Room";
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/construction)
 "eR" = (
 /obj/machinery/atmospherics/portables_connector,
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -1511,13 +1529,13 @@
 /turf/simulated/floor/tiled/gridded,
 /area/turret_protected/ai)
 "fS" = (
-/obj/machinery/atmospherics/pipe/simple/heat_exchanging{
+/obj/structure/lattice/catwalk,
+/obj/machinery/atmospherics/pipe/simple/heat_exchanging/junction{
 	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/heat_exchanging/junction{
 	dir = 4
 	},
-/obj/structure/lattice/catwalk,
 /turf/space,
 /area/exterior)
 "fT" = (
@@ -1766,6 +1784,15 @@
 "hm" = (
 /turf/simulated/floor/tiled/bitile,
 /area/construction/storage)
+"hx" = (
+/obj/effect/map_effect/window_spawner/full/shuttle/mercenary,
+/obj/machinery/door/blast/regular/open{
+	id = "runtime_shuttle_blastdoors";
+	dir = 4
+	},
+/obj/effect/landmark/entry_point/fore,
+/turf/simulated/floor/tiled/dark/full,
+/area/shuttle/runtime)
 "hy" = (
 /obj/machinery/atmospherics/portables_connector{
 	dir = 8
@@ -1910,8 +1937,8 @@
 /turf/simulated/floor/tiled/gridded,
 /area/hallway/primary/central_one)
 "ie" = (
-/obj/machinery/camera/network/command{
-	c_tag = "AI Core"
+/obj/machinery/camera/network/civilian_main{
+	c_tag = "Central 4"
 	},
 /turf/simulated/floor/tiled/full,
 /area/hallway/primary/central_one)
@@ -2268,6 +2295,12 @@
 	},
 /turf/simulated/floor/tiled/full,
 /area/construction/storage)
+"ks" = (
+/obj/machinery/camera/network/civilian_main{
+	c_tag = "Central 5"
+	},
+/turf/simulated/floor/tiled/full,
+/area/hallway/primary/central_one)
 "ku" = (
 /obj/machinery/atmospherics/pipe/simple/visible/black{
 	dir = 9
@@ -2306,6 +2339,7 @@
 "kP" = (
 /obj/machinery/light/spot,
 /obj/machinery/atmospherics/pipe/manifold/visible/yellow,
+/obj/machinery/firealarm/south,
 /turf/simulated/floor/carpet/rubber,
 /area/bridge)
 "kW" = (
@@ -2738,7 +2772,7 @@
 /area/construction/storage)
 "nq" = (
 /obj/machinery/camera/network/command{
-	c_tag = "AI Core";
+	c_tag = "AI Core 1";
 	dir = 1
 	},
 /obj/item/modular_computer/console/preset/ai{
@@ -2772,6 +2806,15 @@
 	},
 /turf/simulated/floor/tiled/gridded,
 /area/hallway/primary/central_two)
+"ny" = (
+/obj/structure/lattice/catwalk,
+/obj/machinery/door/blast/regular{
+	dir = 4;
+	id = "runtime_mixchamber_ext"
+	},
+/obj/effect/landmark/entry_point/aft,
+/turf/simulated/floor/airless,
+/area/construction/storage)
 "nA" = (
 /obj/machinery/power/apc/super/critical/west,
 /obj/effect/floor_decal/corner/grey{
@@ -2869,6 +2912,12 @@
 	},
 /turf/simulated/floor/airless,
 /area/construction/storage)
+"oq" = (
+/obj/machinery/camera/network/civilian_main{
+	c_tag = "Central 3"
+	},
+/turf/simulated/floor/tiled/full,
+/area/hallway/primary/central_one)
 "or" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
@@ -2949,16 +2998,20 @@
 	},
 /turf/simulated/floor/reinforced,
 /area/hallway/primary/central_two)
+"oY" = (
+/obj/effect/landmark/entry_point/port,
+/turf/simulated/wall/shuttle/space_ship/mercenary,
+/area/shuttle/runtime)
 "pa" = (
-/obj/machinery/camera/network/command{
-	c_tag = "AI Core"
-	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
+	},
+/obj/machinery/camera/network/civilian_main{
+	c_tag = "Upper Floor 4"
 	},
 /turf/simulated/floor/plating,
 /area/hallway/primary/central_two)
@@ -3350,6 +3403,10 @@
 	},
 /turf/unsimulated/floor/dark_monotile,
 /area/construction)
+"rh" = (
+/obj/effect/landmark/entry_point/port,
+/turf/simulated/wall/r_wall,
+/area/hallway/primary/central_one)
 "rm" = (
 /obj/machinery/suit_cycler/engineering/prepared,
 /obj/effect/floor_decal/industrial/outline/engineering,
@@ -4477,6 +4534,7 @@
 /obj/machinery/atmospherics/pipe/simple/visible/red{
 	dir = 5
 	},
+/obj/machinery/firealarm/south,
 /turf/simulated/floor/tiled/full,
 /area/construction/storage)
 "yT" = (
@@ -4704,6 +4762,9 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
+/obj/machinery/atmospherics/pipe/simple/visible/black{
+	dir = 10
+	},
 /obj/structure/tank_wall/oxygen{
 	icon_state = "o2-8"
 	},
@@ -4763,6 +4824,7 @@
 /obj/structure/cable/yellow{
 	icon_state = "4-8"
 	},
+/obj/machinery/firealarm/north,
 /turf/simulated/floor/plating,
 /area/construction)
 "AS" = (
@@ -4919,6 +4981,10 @@
 /obj/effect/map_effect/marker/airlock/shuttle/runtime,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/runtime)
+"Cd" = (
+/obj/machinery/firealarm/north,
+/turf/simulated/floor/tiled/full,
+/area/hallway/primary/central_one)
 "Cl" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -5052,6 +5118,13 @@
 /obj/structure/lattice/catwalk/indoor,
 /turf/simulated/open,
 /area/hallway/primary/central_two)
+"CM" = (
+/obj/effect/floor_decal/corner/grey{
+	dir = 9
+	},
+/obj/machinery/firealarm/east,
+/turf/simulated/floor/tiled/gridded,
+/area/turret_protected/ai)
 "CT" = (
 /obj/structure/cable/yellow{
 	icon_state = "4-8"
@@ -5269,6 +5342,10 @@
 	},
 /turf/simulated/floor/plating,
 /area/construction/storage)
+"Ei" = (
+/obj/effect/landmark/entry_point/starboard,
+/turf/simulated/wall/r_wall,
+/area/hallway/primary/central_one)
 "En" = (
 /obj/effect/floor_decal/corner/yellow/full,
 /obj/structure/table/rack,
@@ -5306,10 +5383,10 @@
 /turf/simulated/floor/tiled/white,
 /area/hallway/primary/central_one)
 "Ey" = (
-/obj/machinery/atmospherics/pipe/simple/heat_exchanging{
+/obj/structure/lattice/catwalk,
+/obj/machinery/atmospherics/pipe/simple/visible/black{
 	dir = 9
 	},
-/obj/structure/lattice/catwalk,
 /turf/space,
 /area/exterior)
 "EB" = (
@@ -5350,8 +5427,8 @@
 /obj/machinery/atmospherics/pipe/simple/visible/purple{
 	dir = 10
 	},
-/obj/machinery/camera/network/command{
-	c_tag = "AI Core"
+/obj/machinery/camera/network/civilian_main{
+	c_tag = "Atmospherics 1"
 	},
 /turf/simulated/floor/tiled/full,
 /area/construction/storage)
@@ -5370,11 +5447,11 @@
 /turf/simulated/floor/tiled/gridded,
 /area/construction/storage)
 "EQ" = (
-/obj/machinery/camera/network/command{
-	c_tag = "AI Core";
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/camera/network/civilian_main{
+	c_tag = "Upper Floor 3";
 	dir = 8
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/hallway/primary/central_two)
 "EX" = (
@@ -5443,7 +5520,7 @@
 	output = 31
 	},
 /obj/machinery/atmospherics/pipe/simple/heat_exchanging{
-	dir = 9
+	dir = 4
 	},
 /turf/simulated/floor/reinforced/airless,
 /area/construction/storage)
@@ -5563,17 +5640,14 @@
 /obj/effect/floor_decal/industrial/hatch_door/red{
 	dir = 1
 	},
-/obj/machinery/door/airlock/external/blue{
-	dir = 1
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 5
-	},
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/effect/map_effect/marker/airlock/docking/runtime/dock,
+/obj/machinery/door/airlock/external/blue{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/hallway/primary/central_two)
 "GC" = (
@@ -5654,14 +5728,14 @@
 /turf/simulated/floor/tiled/full,
 /area/hallway/primary/central_one)
 "Hi" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
 /obj/machinery/door/blast/regular/open{
 	id = "runtime_blastdoors";
 	dir = 2
 	},
-/obj/machinery/atmospherics/pipe/simple/visible/black{
-	dir = 8
+/obj/machinery/atmospherics/pipe/manifold/visible/black{
+	dir = 1
 	},
+/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
 /turf/simulated/floor/tiled/full,
 /area/construction/storage)
 "Hj" = (
@@ -6220,8 +6294,8 @@
 /obj/machinery/atmospherics/pipe/simple/visible/cyan{
 	dir = 6
 	},
-/obj/machinery/camera/network/command{
-	c_tag = "AI Core"
+/obj/machinery/camera/network/civilian_main{
+	c_tag = "Atmospherics 2"
 	},
 /turf/simulated/floor/tiled/full,
 /area/construction/storage)
@@ -6402,6 +6476,9 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/heat_exchanging,
+/obj/machinery/atmospherics/pipe/simple/heat_exchanging/junction{
+	dir = 8
+	},
 /turf/simulated/floor/reinforced/airless,
 /area/construction/storage)
 "LL" = (
@@ -6447,8 +6524,8 @@
 /area/construction/storage)
 "Mc" = (
 /obj/effect/floor_decal/corner/grey,
-/obj/machinery/camera/network/command{
-	c_tag = "AI Core";
+/obj/machinery/camera/network/civilian_main{
+	c_tag = "Upper Floor 2";
 	dir = 1
 	},
 /turf/simulated/floor/tiled/gridded,
@@ -6512,8 +6589,8 @@
 /turf/simulated/floor/tiled/full,
 /area/hallway/primary/central_one)
 "MD" = (
-/obj/machinery/camera/network/command{
-	c_tag = "AI Core";
+/obj/machinery/camera/network/civilian_main{
+	c_tag = "Central 2";
 	dir = 8
 	},
 /turf/simulated/floor/tiled/full,
@@ -6535,8 +6612,8 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/camera/network/command{
-	c_tag = "AI Core";
+/obj/machinery/camera/network/civilian_main{
+	c_tag = "Flight Deck";
 	dir = 4
 	},
 /turf/simulated/floor/carpet/rubber,
@@ -6563,6 +6640,10 @@
 /obj/item/gun/projectile/shotgun/pump/combat,
 /turf/unsimulated/floor/dark_monotile,
 /area/hallway/primary/central_one)
+"Nd" = (
+/obj/effect/landmark/entry_point/starboard,
+/turf/simulated/wall/shuttle/space_ship/mercenary,
+/area/shuttle/runtime)
 "Ng" = (
 /obj/structure/platform/ledge{
 	dir = 8
@@ -6663,8 +6744,8 @@
 	},
 /area/hallway/primary/central_one)
 "Oe" = (
-/obj/machinery/camera/network/command{
-	c_tag = "AI Core";
+/obj/machinery/camera/network/civilian_main{
+	c_tag = "Central 1";
 	dir = 4
 	},
 /turf/simulated/floor/tiled/full,
@@ -7082,8 +7163,8 @@
 	id = "runtime_mixchamber_int";
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/visible/black{
-	dir = 1
+/obj/machinery/atmospherics/pipe/manifold/visible/black{
+	dir = 8
 	},
 /obj/effect/map_effect/window_spawner/full/borosilicate/reinforced,
 /turf/simulated/floor/tiled/full,
@@ -7126,6 +7207,17 @@
 	icon_state = "h10"
 	},
 /turf/simulated/floor/plating,
+/area/construction/storage)
+"QX" = (
+/obj/machinery/door/blast/regular/open{
+	id = "runtime_blastdoors";
+	dir = 2
+	},
+/obj/machinery/atmospherics/pipe/simple/visible/black{
+	dir = 5
+	},
+/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
+/turf/simulated/floor/tiled/full,
 /area/construction/storage)
 "QZ" = (
 /obj/structure/cable/yellow{
@@ -7419,7 +7511,7 @@
 /area/construction/storage)
 "SG" = (
 /obj/machinery/camera/network/command{
-	c_tag = "AI Core"
+	c_tag = "AI Core 2"
 	},
 /turf/simulated/floor/tiled/gridded,
 /area/turret_protected/ai)
@@ -7646,8 +7738,8 @@
 /turf/simulated/floor/tiled/gridded,
 /area/hallway/primary/central_two)
 "Uf" = (
-/obj/machinery/camera/network/command{
-	c_tag = "AI Core";
+/obj/machinery/camera/network/civilian_main{
+	c_tag = "Upper Floor 1";
 	dir = 4
 	},
 /turf/simulated/floor/tiled/full,
@@ -7746,6 +7838,9 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
+/obj/machinery/atmospherics/pipe/simple/visible/black{
+	dir = 1
+	},
 /obj/structure/tank_wall/oxygen{
 	icon_state = "o2-10"
 	},
@@ -7767,6 +7862,8 @@
 /obj/machinery/light/spot{
 	dir = 1
 	},
+/obj/machinery/r_n_d/server/advanced/core,
+/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/gridded,
 /area/turret_protected/ai)
 "UC" = (
@@ -8008,15 +8105,15 @@
 /obj/machinery/atmospherics/pipe/manifold/visible/yellow,
 /turf/simulated/floor/tiled/gridded,
 /area/construction/storage)
+"WD" = (
+/obj/machinery/atmospherics/pipe/simple/visible/black{
+	dir = 9
+	},
+/turf/simulated/wall/r_wall,
+/area/construction/storage)
 "WE" = (
 /obj/effect/floor_decal/industrial/hatch_door/red{
 	dir = 1
-	},
-/obj/machinery/door/airlock/external/blue{
-	dir = 1
-	},
-/obj/machinery/atmospherics/pipe/manifold/hidden{
-	dir = 4
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/machinery/access_button{
@@ -8025,6 +8122,9 @@
 	},
 /obj/effect/map_effect/marker/airlock/docking/runtime/dock,
 /obj/effect/shuttle_landmark/runtime/dock{
+	dir = 1
+	},
+/obj/machinery/door/airlock/external/blue{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark/full,
@@ -8108,6 +8208,7 @@
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/effect/map_effect/marker/airlock/shuttle/runtime,
+/obj/effect/landmark/entry_point/aft,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/runtime)
 "Xp" = (
@@ -8229,10 +8330,10 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/r_n_d/server/advanced/core,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 6
 	},
+/obj/machinery/vending/robotics,
 /turf/simulated/floor/tiled/white,
 /area/hallway/primary/central_one)
 "Ya" = (
@@ -8292,7 +8393,6 @@
 /obj/machinery/atmospherics/pipe/simple/heat_exchanging{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/heat_exchanging,
 /turf/simulated/floor/reinforced/airless,
 /area/construction/storage)
 "YE" = (
@@ -9656,7 +9756,7 @@ aT
 aT
 cQ
 cQ
-bx
+Ei
 cQ
 cQ
 aT
@@ -10932,7 +11032,7 @@ wN
 Xt
 yK
 fu
-ie
+ks
 IM
 yT
 kX
@@ -11960,7 +12060,7 @@ YE
 kf
 gb
 fu
-dq
+Cd
 dg
 dx
 ay
@@ -12455,7 +12555,7 @@ fX
 fX
 fX
 aa
-Dp
+ny
 Yr
 FF
 RF
@@ -12504,7 +12604,7 @@ is
 is
 is
 oG
-bx
+dI
 aa
 aa
 aa
@@ -12973,7 +13073,7 @@ fu
 td
 Ar
 Us
-fu
+WD
 lx
 HP
 MF
@@ -15037,7 +15137,7 @@ Ug
 JT
 qf
 Hi
-qf
+QX
 Eh
 FT
 FV
@@ -15052,7 +15152,7 @@ fG
 vw
 re
 fG
-ie
+oq
 aO
 bc
 bL
@@ -16855,7 +16955,7 @@ bx
 ba
 ba
 bx
-bx
+rh
 bx
 ba
 ba
@@ -17106,7 +17206,7 @@ dt
 dt
 dt
 dt
-dC
+eK
 fG
 bx
 aT
@@ -77520,7 +77620,7 @@ fH
 Gs
 ml
 cD
-Rv
+CM
 Rv
 Rv
 GO
@@ -81120,7 +81220,7 @@ gt
 xy
 xy
 xy
-xy
+Nd
 xy
 xy
 xy
@@ -81873,7 +81973,7 @@ uh
 uh
 uh
 BQ
-Jf
+aU
 Wh
 Px
 BO
@@ -82152,7 +82252,7 @@ GC
 aL
 qT
 BI
-mB
+hx
 dv
 aa
 aa
@@ -82919,7 +83019,7 @@ gt
 xy
 xy
 xy
-xy
+oY
 xy
 xy
 xy
