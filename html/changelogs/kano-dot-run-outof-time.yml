@@ -1,0 +1,6 @@
+author: Kano
+
+delete-after: True
+
+changes:
+  - rscadd: "Remapped runtime map to provide easier access to variety of testing."
