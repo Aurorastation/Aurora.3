@@ -109,6 +109,10 @@
 		max(astype(user.GetComponent(REACTOR_SYSTEMS_SKILL_COMPONENT), SKILL_COMPONENT)?.skill_level, \
 			astype(user.GetComponent(ELECTRICAL_ENGINEERING_SKILL_COMPONENT), SKILL_COMPONENT)?.skill_level)
 
+	if(issilicon(user))
+		activate(user)
+		return TRUE
+
 	if(max_engineering_skill <= SKILL_LEVEL_TRAINED)
 		to_chat(user, SPAN_WARNING("You try to find the switch on \the [src]... How do you even turn this thing on?"))
 		if(!do_after(user, 3 SECONDS + 1.5 SECONDS * (SKILL_LEVEL_TRAINED - max_engineering_skill)))
