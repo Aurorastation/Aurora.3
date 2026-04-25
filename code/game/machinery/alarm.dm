@@ -59,6 +59,7 @@
 		ALARM_GET_DANGER_LEVEL(co2_dangerlevel, environment.gas[GAS_CO2]*partial_pressure, TLV[GAS_CO2]);\
 		ALARM_GET_DANGER_LEVEL(phoron_dangerlevel, environment.gas[GAS_PHORON]*partial_pressure, TLV[GAS_PHORON]);\
 		ALARM_GET_DANGER_LEVEL(hydrogen_dangerlevel, environment.gas[GAS_HYDROGEN]*partial_pressure, TLV[GAS_HYDROGEN]);\
+		ALARM_GET_DANGER_LEVEL(chlorine_dangerlevel, environment.gas[GAS_CHLORINE]*partial_pressure, TLV[GAS_CHLORINE]);\
 		ALARM_GET_DANGER_LEVEL(temperature_dangerlevel, environment.temperature, TLV["temperature"]);\
 		ALARM_GET_DANGER_LEVEL(other_dangerlevel, other_moles*partial_pressure, TLV["other"]);\
 		\
@@ -68,6 +69,7 @@
 		co2_dangerlevel,\
 		phoron_dangerlevel,\
 		hydrogen_dangerlevel,\
+		chlorine_dangerlevel,\
 		other_dangerlevel,\
 		temperature_dangerlevel\
 		);\
@@ -152,6 +154,7 @@ pixel_x = 10;
 	var/co2_dangerlevel = 0
 	var/phoron_dangerlevel = 0
 	var/hydrogen_dangerlevel = 0
+	var/chlorine_dangerlevel = 0
 	var/temperature_dangerlevel = 0
 	var/other_dangerlevel = 0
 
@@ -418,6 +421,7 @@ pixel_x = 10;
 	TLV[GAS_CO2] = 				list(-1.0, -1.0, 5, 10) // Partial pressure, kpa
 	TLV[GAS_PHORON] =			list(-1.0, -1.0, 0.2, 0.5) // Partial pressure, kpa
 	TLV[GAS_HYDROGEN] =			list(-1.0, -1.0, 0.2, 0.5) // Partial pressure, kpa
+	TLV[GAS_CHLORINE] =			list(-1.0, -1.0, 0.2, 0.5) // Partial pressure, kpa
 	TLV["other"] =			list(-1.0, -1.0, 0.5, 1.0) // Partial pressure, kpa
 	TLV["pressure"] =		list(ONE_ATMOSPHERE*0.80,ONE_ATMOSPHERE*0.90,ONE_ATMOSPHERE*1.10,ONE_ATMOSPHERE*1.20) /* kpa */
 	TLV["temperature"] =	list(T0C-26, T0C, T0C+40, T0C+66) // K
@@ -739,6 +743,7 @@ pixel_x = 10;
 			environment_data += list(list("name" = "Carbon Dioxide",  "value" = environment.gas[GAS_CO2] / total * 100,    "unit" = "%",   "danger_level" = co2_dangerlevel))
 			environment_data += list(list("name" = "Phoron",          "value" = environment.gas[GAS_PHORON] / total * 100, "unit" = "%",   "danger_level" = phoron_dangerlevel))
 			environment_data += list(list("name" = "Hydrogen",        "value" = environment.gas[GAS_HYDROGEN] / total * 100,"unit" = "%",  "danger_level" = hydrogen_dangerlevel))
+			environment_data += list(list("name" = "Chlorine",        "value" = environment.gas[GAS_CHLORINE] / total * 100,"unit" = "%",  "danger_level" = chlorine_dangerlevel))
 			environment_data += list(list("name" = "Temperature",     "value" = environment.temperature,                   "unit" = "K",   "danger_level" = temperature_dangerlevel))
 	data["environment"] = environment_data
 	data["total_danger"] = danger_level
@@ -795,7 +800,8 @@ pixel_x = 10;
 				list("name" = "Carbon Dioxide", "command" = "co2_scrub", "val" = info["filter_co2"]),
 				list("name" = "Phoron",         "command" = "tox_scrub", "val" = info["filter_phoron"]),
 				list("name" = "Hydrogen",       "command" = "h2_scrub",  "val" = info["filter_h"]),
-				list("name" = "Nitrous Oxide",  "command" = "n2o_scrub", "val" = info["filter_n2o"])
+				list("name" = "Nitrous Oxide",  "command" = "n2o_scrub", "val" = info["filter_n2o"]),
+				list("name" = "Chlorine",       "command" = "cl_scrub",  "val" = info["filter_cl"])
 			)
 		)
 		scrubbers += list(scrubber)
@@ -808,6 +814,7 @@ pixel_x = 10;
 		GAS_CO2      = "CO\u2082",
 		GAS_PHORON   = "Phoron",
 		GAS_HYDROGEN = "Hydrogen",
+		GAS_CHLORINE = "Chlorine",
 		"other"      = "Other"
 	)
 	for(var/g in gas_names)
@@ -890,6 +897,7 @@ pixel_x = 10;
 					"tox_scrub",
 					"h2_scrub",
 					"n2o_scrub",
+					"cl_scrub",
 					"panic_siphon",
 					"scrubbing")
 					signal[command] = text2num(params["val"])
@@ -953,6 +961,13 @@ pixel_x = 10;
 			mode = text2num(params["mode"])
 			apply_mode()
 			return TRUE
+
+/// Snowflake proc to make it so users of the Atmosphere Control app (having the UI open) have full access to an alarm.
+/obj/machinery/alarm/ui_status(mob/user)
+	for(var/datum/tgui/open_tgui in user.tgui_open_uis)
+		if(open_tgui.interface == "AtmosAlarmControl")
+			return UI_INTERACTIVE
+	return ..()
 
 /**
  * Resets the area atmospheric alarm. Called by ui_act and directly by atmos_alert computers.

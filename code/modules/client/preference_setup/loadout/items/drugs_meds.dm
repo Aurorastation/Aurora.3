@@ -55,12 +55,16 @@
 	cigarettes["Trans-Stellar Duty Free cigarette packet"] = /obj/item/storage/box/fancy/cigarettes
 	cigarettes["DromedaryCo cigarette packet"] = /obj/item/storage/box/fancy/cigarettes/dromedaryco
 	cigarettes["Nico-Tine cigarette packet"] = /obj/item/storage/box/fancy/cigarettes/nicotine
-	cigarettes["Working Tajara cigarette packet"] = /obj/item/storage/box/fancy/cigarettes/pra
-	cigarettes["Shastar Leaves cigarette packet"] = /obj/item/storage/box/fancy/cigarettes/dpra
-	cigarettes["Royal Choice cigarette packet"] = /obj/item/storage/box/fancy/cigarettes/nka
+
+	cigarettes["Labourer's Choice cigarette packet"] = /obj/item/storage/box/fancy/cigarettes/pra
+	cigarettes["Shastar List'ya cigarette packet"] = /obj/item/storage/box/fancy/cigarettes/dpra
+	cigarettes["Gato Royales menthol cigarette packet"] = /obj/item/storage/box/fancy/cigarettes/nka
+
 	cigarettes["Eriuyushi Sunset cigarette packet"] = /obj/item/storage/box/fancy/cigarettes/federation
 	cigarettes["Xaqixal Dyn Fields cigarette packet"] = /obj/item/storage/box/fancy/cigarettes/dyn
+
 	cigarettes["Natural Vysokan Soothsayer oracle cigarette packet"] = /obj/item/storage/box/fancy/cigarettes/oracle
+
 	cigarettes["Ha'zana Corsair Afterburners cigarette packet"] = /obj/item/storage/box/fancy/cigarettes/koko
 	gear_tweaks += new /datum/gear_tweak/path(cigarettes)
 
