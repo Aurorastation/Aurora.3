@@ -279,7 +279,8 @@
 
 /obj/item/storage/box/fancy/commissary_restock/Initialize()
 	. = ..()
-	can_hold = starts_with
+	// The copy() at the end is required to avoid every line after this from imploding. Why? I have no idea. It just does.
+	can_hold = src.starts_with.Copy()
 
 /obj/item/storage/box/fancy/commissary_restock/rollable
 	name = "commissary tobacco leaves restock pack"
