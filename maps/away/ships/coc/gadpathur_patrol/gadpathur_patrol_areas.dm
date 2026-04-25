@@ -5,6 +5,8 @@
 	no_light_control = FALSE
 	base_turf = /turf/space
 	area_flags = AREA_FLAG_RAD_SHIELDED
+	no_light_control = FALSE
+	allow_nightmode = TRUE
 
 /area/ship/gadpathur_patrol/exterior
 	name = "Gadpathurian Corvette - Exterior"

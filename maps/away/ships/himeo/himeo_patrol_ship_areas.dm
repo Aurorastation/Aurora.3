@@ -3,6 +3,7 @@
 	icon_state = "hallC"
 	requires_power = TRUE
 	no_light_control = FALSE
+	allow_nightmode = TRUE
 	area_flags = AREA_FLAG_RAD_SHIELDED
 	ambience = AMBIENCE_ENGINEERING
 
