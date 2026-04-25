@@ -277,6 +277,10 @@
 		/obj/item/storage/box/fancy/cigarettes/cigar = 3
 	)
 
+/obj/item/storage/box/fancy/commissary_restock/Initialize()
+	. = ..()
+	can_hold = starts_with
+
 /obj/item/storage/box/fancy/commissary_restock/rollable
 	name = "commissary tobacco leaves restock pack"
 	starts_with = list(
@@ -558,10 +562,6 @@
 	/obj/item/storage/box/unique/tea/messa = 3,
 	/obj/item/storage/box/unique/tea/rasnif = 3
 	)
-
-/obj/item/storage/box/fancy/commissary_restock/Initialize()
-	can_hold = starts_with
-	. = ..()
 
 /obj/item/storage/box/fancy/commissary_restock/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()
