@@ -3557,6 +3557,15 @@
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 9
 	},
+/obj/structure/sink/kitchen{
+	name = "surgical sink";
+	dir = 4;
+	pixel_x = -20
+	},
+/obj/item/reagent_containers/glass/beaker/bluespace{
+	pixel_x = 7;
+	pixel_y = -9
+	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_one)
 "rm" = (
@@ -5559,6 +5568,19 @@
 "Dw" = (
 /turf/space/transit/north,
 /area/space)
+"Dy" = (
+/obj/effect/floor_decal/corner/dark_green{
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden{
+	dir = 4
+	},
+/obj/effect/floor_decal/spline/plain/paleblue{
+	dir = 8
+	},
+/mob/living/bot/farmbot,
+/turf/simulated/floor/tiled,
+/area/hallway/primary/central_one)
 "Dz" = (
 /obj/effect/decal/curb{
 	dir = 5
@@ -15278,7 +15300,7 @@ Aw
 vm
 gY
 xV
-xV
+Dy
 rk
 NS
 QK
@@ -15526,7 +15548,7 @@ wV
 fu
 dq
 dq
-ia
+ra
 dq
 dq
 dq
