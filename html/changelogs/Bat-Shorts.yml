@@ -1,0 +1,6 @@
+author: Batrachophrenoboocosmomachia
+delete-after: True
+changes:
+  - bugfix: "Fixes black shorts being invisible."
+  - bugfix: "Removes old grey jean obj defs (no sprites and not used in server)."
+  - bugfix: "Removes two empty unused sprite icon_states from shorts.dmi"
