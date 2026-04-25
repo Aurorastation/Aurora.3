@@ -396,41 +396,13 @@
 	icon_state = "betaray"
 	firing_sound = 'sound/effects/stealthoff.ogg'
 
-/obj/item/laser_components/modulator/arodentia
-	name = "arodentia modulator"
-	desc = "Modulates the beam into firing precise electrical arcs designed for pest control."
-	projectile = /obj/projectile/beam/mousegun
-	damage = 0
+/obj/item/laser_components/modulator/xenovermin
+	name = "xenovermin modulator"
+	desc = "Modulates the beam into firing precise electrical arcs designed for pest and xenofauna control."
+	projectile = /obj/projectile/beam/mousegun/xenofauna
+	damage = 0.1
 	icon_state = "pesker"
 	firing_sound = 'sound/weapons/taser2.ogg'
-
-/obj/item/laser_components/modulator/red
-	name = "red team modulator"
-	desc = "Modulates the beam into firing red team tagger beams."
-	projectile = /obj/projectile/beam/laser_tag
-	damage = 0
-	icon_state = "red"
-
-/obj/item/laser_components/modulator/blue
-	name = "blue team modulator"
-	desc = "Modulates the beam into firing blue team tagger beams."
-	projectile = /obj/projectile/beam/laser_tag/blue
-	damage = 0
-	icon_state = "blue"
-
-/obj/item/laser_components/modulator/omni
-	name = "omni team modulator"
-	desc = "Modulates the beam into firing omni team tagger beams."
-	projectile = /obj/projectile/beam/laser_tag/omni
-	damage = 0
-	icon_state = "omni"
-
-/obj/item/laser_components/modulator/practice
-	name = "practice beam modulator"
-	desc = "Modulates the beam into firing nonlethal practice beams."
-	projectile = /obj/projectile/beam/practice
-	damage = 0
-	icon_state = "practice"
 
 /obj/item/laser_components/modulator/mindflayer
 	name = "mind flayer modulator"

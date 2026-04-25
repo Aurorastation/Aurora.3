@@ -29,7 +29,8 @@
 	var/criticality = 1 //multiplier for the negative effects of capacitor failures. Not just limited to critical failures.
 	var/named = 0
 	var/described = 0
-	var/improvement_potential = 5
+	///When the weapon is disasembled, this is distributed randomly among it's components. When a component with improvement potential is repaired, it gets better by up to improvement potential percent. The actual chance is based on skill level.
+	var/improvement_potential = 0
 
 /obj/item/gun/energy/laser/prototype/mechanics_hints(mob/user, distance, is_adjacent)
 	. = list()
@@ -125,6 +126,19 @@
 	to_chat(user, "You disassemble \the [src].")
 	disassemble(user)
 
+/obj/item/gun/energy/laser/attack(mob/living/target_mob, mob/living/user, target_zone)
+if(target_mob)
+	if(target_mob != user)
+
+		if(isliving(target_mob))
+			improvement_potential += 1
+
+			if(ishuman(target_mob))
+				improvement_potential += 1
+
+
+..()
+
 /obj/item/gun/energy/laser/prototype/update_icon()
 	..()
 	underlays.Cut()
@@ -173,10 +187,6 @@
 	// if(focusing_lens.reliability - focusing_lens.condition <= 0)
 	// 	qdel(focusing_lens)
 	// 	focusing_lens = null
-
-	if(!focusing_lens || !capacitor || !modulator)
-		disassemble(user)
-		return
 
 	reliability = (capacitor.reliability - capacitor.condition) + (focusing_lens.reliability - focusing_lens.condition)
 
@@ -276,18 +286,36 @@
 	var/atom/A = get_turf(src)
 	if(!A)
 		return
-
+	var/potential_to_components
 	if(gun_mods.len)
 		for(var/obj/item/laser_components/modifier/modifier in gun_mods)
+			if(modifier.malus > modifier.base_malus)
+				potential_to_components = rand(0, improvement_potential)
+				if(potential_to_components)
+					modifier.improvement_potential += potential_to_components
+					improvement_potential -= potential_to_components
 			modifier.forceMove(A)
 			gun_mods.Remove(modifier)
 	if(capacitor)
+		if(capacitor.condition > 0)
+			potential_to_components = rand(0, improvement_potential)
+			if(potential_to_components)
+				capacitor.improvement_potential += potential_to_components
+				improvement_potential -= potential_to_components
 		capacitor.forceMove(A)
 		capacitor = null
 	if(focusing_lens)
+		if(focusing_lens.condition > 0)
+			potential_to_components = rand(0, improvement_potential)
+			if(potential_to_components)
+				focusing_lens.improvement_potential += potential_to_components
+				improvement_potential -= potential_to_components
 		focusing_lens.forceMove(A)
 		focusing_lens = null
 	if(modulator)
+		if(improvement_potential)
+			modulator.improvement_potential += improvement_potential
+			improvement_potential = 0
 		modulator.forceMove(A)
 		modulator = null
 	if(pin)
