@@ -81,7 +81,7 @@
 			+ " - Limb dislocation.<br>" \
 			+ " - Broken bones.<br>" \
 			+ " - Simple bleeds.",
-		SKILL_LEVEL_TRAINED = "You have years of formal training and experience with anatomy. This is equivalent to a fully licensed surgeon.<br>" \
+		SKILL_LEVEL_TRAINED = "You have years of formal training and experience with anatomy. This is equivalent to a fully licensed physician.<br>" \
 			+ "You can diagnose the following conditions: <br>" \
 			+ " - External injuries at a high level of detail.<br>" \
 			+ " - Limb dislocation.<br>" \
