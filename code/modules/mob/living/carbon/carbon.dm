@@ -215,48 +215,90 @@
 			var/mob/living/carbon/human/H = src
 			src.visible_message(
 				SPAN_NOTICE("[src] examines [src.get_pronoun("himself")]."), \
-				SPAN_NOTICE("You check yourself for injuries.") \
+				SPAN_NOTICE("You start checking yourself for injuries.") \
 				)
+
+			var/anatomy = GET_SKILL_LEVEL(M, ANATOMY_SKILL_COMPONENT)
+			if (!do_after(M, 5 SECONDS * (1 / (anatomy ? anatomy : 1))))
+				to_chat(M, SPAN_WARNING("You must stand still to examine yourself for injuries."))
+				return
+
+			// Set to vanilla-equivalent for people without the skill.
+			if(!anatomy)
+				anatomy = 2
 
 			for(var/obj/item/organ/external/org in H.organs)
 				var/list/status = list()
 				var/brutedamage = org.brute_dam
 				var/burndamage = org.burn_dam
+
+				// Anatomy 1: All the obvious stuff
 				switch(brutedamage)
-					if(1 to 20)
-						status += "bruised"
-					if(20 to 40)
-						status += "wounded"
-					if(40 to INFINITY)
-						status += "mangled"
+					if(1 to 10)
+						status += (anatomy < 3 ? "bruised" : "superficial cuts")
+					if(10 to 25)
+						status += (anatomy < 3 ? "wounded" : "moderate physical trauma")
+					if(25 to 50)
+						status += (anatomy < 3 ? "badly injured" : "significant physical trauma")
+					if(50 to 75)
+						status += (anatomy < 3 ? "severely injured" : "YELLOW TAGGED physical trauma")
+					if(75 to 100)
+						status += (anatomy < 3 ? "extremely injured" : "RED TAGGED physical injury, loss of limb is imminent")
+					if(100 to INFINITY)
+						status += (anatomy < 3 ? "critically injured" : "BLACK TAGGED physical injury, the limb is beyond saving")
 
 				switch(burndamage)
 					if(1 to 10)
-						status += "numb"
-					if(10 to 40)
-						status += "blistered"
-					if(40 to INFINITY)
-						status += "peeling away"
+						status += (anatomy < 3 ? "numb" : "superficially burned")
+					if(10 to 25)
+						status += (anatomy < 3 ? "blistered" : "moderately burned")
+					if(25 to 50)
+						status += (anatomy < 3 ? "peeling away" : "notable 3rd degree burns")
+					if(50 to 75)
+						status += (anatomy < 3 ? "visibly charred" : "YELLOW TAGGED 3rd degree burns")
+					if(75 to 100)
+						status += (anatomy < 3 ? "black leather" : "RED TAGGED burn injury, loss of limb is imminent")
+					if(100 to INFINITY)
+						status += (anatomy < 3 ? "like charcoal" : "BLACK TAGGED burn injury, the limb is beyond saving")
 
 				if(org.is_stump())
 					status += SPAN_DANGER("MISSING")
 				if(org.status & ORGAN_MUTATED)
 					status += "weirdly shapen"
-				if(org.dislocated == 2)
-					status += "dislocated"
-				if(org.status & ORGAN_BROKEN)
-					status += "hurts when touched"
-				if(org.status & ORGAN_DEAD)
-					status += "is necrotic"
 				if(!org.is_usable())
 					status += "dangling uselessly"
-				if(org.status & ORGAN_BLEEDING)
-					status += SPAN_DANGER("bleeding")
+				// End of Anatomy 1.
+
+				// Anatomy 2: Slightly harder.
+				if(anatomy >= 2)
+					if(org.dislocated == 2)
+						status += "dislocated"
+					if(org.status & ORGAN_BROKEN)
+						status += (anatomy < 3 ? "hurts when touched" : "broken")
+					// Anatomy 2 and 3 can't distinguish between regular bleeding and arterial.
+					if(anatomy < 4 && ((org.status & ORGAN_BLEEDING) || (org.status & ORGAN_ARTERY_CUT)))
+						status += "bleeding"
+				// End of Anatomy 2.
+
+				// Anatomy 3: Descriptions start to get more medical.
+				if(anatomy >= 3)
+					if(org.status & ORGAN_DEAD)
+						status += (anatomy < 4 ? "possibly necrotic" : "visible discoloration of skin that indicates tissue necrosis")
+					if(org.status & ORGAN_BLEEDING)
+						status += "bandage-ably cut"
+				// End of Anatomy 3
+
+				// Anatomy 4:
+				if(anatomy >= 4)
+					if(org.status & ORGAN_ARTERY_CUT)
+						status += "spraying blood from a severed artery"
+				// End of Anatomy 4
+
 				var/output = ""
 				if(length(status))
 					output = "My [org.name] is [SPAN_WARNING("[english_list(status)].")]"
 				else
-					output = "My [org.name] feels [SPAN_NOTICE("OK.")]"
+					output = (anatomy < 3 ? "My [org.name] feels [SPAN_NOTICE("OK.")]" : "My [org.name] has no visible signs of injuries.")
 				if(length(org.implants))
 					output += " [SPAN_WARNING("I can feel something inside it.")]"
 				to_chat(src, output)
