@@ -1,0 +1,12 @@
+author: TheGreyWolf
+
+delete-after: True
+
+changes:
+  - qol: "Reduced the crate fee when making operation orders."
+  - bugfix: "Fixed the wording in some of the operation programs."
+  - bugfix: "Fixed the delivery app showing deliveries it shouldn't."
+  - bugfix: "The cargo control program now properly display status messages."
+  - balance: "Supplier fee was set to 0 for all current suppliers, eliminating the 20 credit charge per supplier."
+  - balance: "The operations order handling fee has been turned into a percentage charge instead, and reduced to 5% by default instead of a flat 20 credits."
+  - rscadd: "It is now possible to reject orders that have been approved but not shipped or paid for."
