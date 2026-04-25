@@ -7,6 +7,7 @@
 	ut_apc_exempt_areas = list(
 		/area/storage/supply/package,
 		/area/supply/dock,
+		/area/centcom,
 		)
 
 	ut_atmos_exempt_areas = list(/area)
@@ -22,6 +23,7 @@
 		/area/construction/hallway,
 		/area/storage/supply/package,
 		/area/supply/dock,
+		/area/centcom,
 	)
 
 	excluded_test_types = list(
