@@ -948,7 +948,6 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
-/obj/effect/landmark/entry_point/aft,
 /turf/simulated/floor/tiled/full,
 /area/hallway/primary/central_one)
 "cA" = (
