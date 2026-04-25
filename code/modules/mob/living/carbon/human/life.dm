@@ -1287,7 +1287,7 @@
 		if(HAS_TRAIT(src, TRAIT_ORIGIN_LIGHT_SENSITIVE))
 			T = loc
 			// From testing, this generally leaves several minutes between each message.
-			if(prob(1) && T.get_lumcount() > 0.8)
+			if(prob(0.5) && T.get_lumcount() > 0.95)
 				var/mob/living/carbon/human/self = src
 
 				// If you have this trait, your default flash protection is -1; check for ANY protection.
@@ -1308,6 +1308,15 @@
 							"The bright light leaves your vision strained."
 						)
 						to_chat(src, SPAN_WARNING(pick(eye_sensitivity_messages)))
+						if(prob(20))
+							// If your eyes are covered, people can see you squinting.
+							var/list/protection = list(self.head, self.glasses, self.wear_mask)
+							var/eyes_covered = FALSE
+							for(var/obj/item/I in protection)
+								if(I?.body_parts_covered & EYES)
+									eyes_covered = TRUE
+							if(!eyes_covered)
+								self.visible_message("[self] squints in discomfort.")
 
 /mob/living/carbon/human/proc/handle_changeling()
 	if(mind)
