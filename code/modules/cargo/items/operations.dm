@@ -587,7 +587,7 @@
 	name = "commissary cigarette restock"
 	supplier = "getmore"
 	description = "A box full of stock for the commissary."
-	price = 200
+	price = 240
 	items = list(
 		/obj/item/storage/box/fancy/commissary_restock
 	)
@@ -601,7 +601,7 @@
 	name = "commissary tobacco leaves restock"
 	supplier = "getmore"
 	description = "A box full of stock for the commissary."
-	price = 150
+	price = 100
 	items = list(
 		/obj/item/storage/box/fancy/commissary_restock/rollable
 	)
@@ -615,7 +615,7 @@
 	name = "commissary chewing tobacco restock"
 	supplier = "getmore"
 	description = "A box full of stock for the commissary."
-	price = 175
+	price = 240
 	items = list(
 		/obj/item/storage/box/fancy/commissary_restock/chewable
 	)
@@ -629,7 +629,7 @@
 	name = "commissary smoking accessories restock"
 	supplier = "getmore"
 	description = "A box full of stock for the commissary."
-	price = 400 // includes a bunch of lottery tickets, so it should be relatively high compared to other restocks
+	price = 140
 	items = list(
 		/obj/item/storage/box/fancy/commissary_restock/smoking_accessory
 	)
@@ -643,7 +643,7 @@
 	name = "commissary electronic cigarette restock"
 	supplier = "getmore"
 	description = "A box full of stock for the commissary."
-	price = 225
+	price = 80
 	items = list(
 		/obj/item/storage/box/fancy/commissary_restock/electronic_cig
 	)
@@ -657,7 +657,7 @@
 	name = "commissary snack restock"
 	supplier = "getmore"
 	description = "A box full of stock for the commissary."
-	price = 150
+	price = 100
 	items = list(
 		/obj/item/storage/box/fancy/commissary_restock/food
 	)
@@ -671,7 +671,7 @@
 	name = "commissary xeno snack restock"
 	supplier = "getmore"
 	description = "A box full of stock for the commissary."
-	price = 150
+	price = 60
 	items = list(
 		/obj/item/storage/box/fancy/commissary_restock/food/xeno
 	)
@@ -685,7 +685,7 @@
 	name = "commissary candy restock"
 	supplier = "getmore"
 	description = "A box full of stock for the commissary."
-	price = 150
+	price = 65
 	items = list(
 		/obj/item/storage/box/fancy/commissary_restock/food/candy
 	)
@@ -699,7 +699,7 @@
 	name = "commissary microwave meal restock"
 	supplier = "getmore"
 	description = "A box full of stock for the commissary."
-	price = 150
+	price = 220
 	items = list(
 		/obj/item/storage/box/fancy/commissary_restock/food/microwave
 	)
@@ -713,7 +713,7 @@
 	name = "commissary drink restock"
 	supplier = "getmore"
 	description = "A box full of stock for the commissary."
-	price = 300
+	price = 150
 	items = list(
 		/obj/item/storage/box/fancy/commissary_restock/drink
 	)
@@ -727,9 +727,108 @@
 	name = "commissary beer restock"
 	supplier = "getmore"
 	description = "A box full of stock for the commissary."
-	price = 200
+	price = 100
 	items = list(
 		/obj/item/storage/box/fancy/commissary_restock/drink/booze_cheap
+	)
+	access = 0
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/toys_restock
+	category = "operations"
+	name = "commissary toy restock"
+	supplier = "getmore"
+	description = "A box full of stock for the commissary."
+	price = 110
+	items = list(
+		/obj/item/storage/box/fancy/commissary_restock/toy
+	)
+	access = 0
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/dice_cards_restock
+	category = "operations"
+	name = "commissary dice and card restock"
+	supplier = "getmore"
+	description = "A box full of stock for the commissary."
+	price = 120
+	items = list(
+		/obj/item/storage/box/fancy/commissary_restock/toy/cards_dice
+	)
+	access = 0
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/toy_mech_restock
+	category = "operations"
+	name = "commissary toy mech restock"
+	supplier = "getmore"
+	description = "A box full of stock for the commissary."
+	price = 200
+	items = list(
+		/obj/item/storage/box/fancy/commissary_restock/toy/mech
+	)
+	access = 0
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/comic_restock
+	category = "operations"
+	name = "commissary comic restock"
+	supplier = "getmore"
+	description = "A box full of stock for the commissary."
+	price = 25
+	items = list(
+		/obj/item/storage/box/fancy/commissary_restock/toy/comic
+	)
+	access = 0
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/nka_comic_restock
+	category = "operations"
+	name = "commissary az'marian comic series restock"
+	supplier = "getmore"
+	description = "A box full of stock for the commissary."
+	price = 50
+	items = list(
+		/obj/item/storage/box/fancy/commissary_restock/toy/comic/nka
+	)
+	access = 0
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/music_restock
+	category = "operations"
+	name = "commissary music restock"
+	supplier = "getmore"
+	description = "A box full of stock for the commissary."
+	price = 50
+	items = list(
+		/obj/item/storage/box/fancy/commissary_restock/music
+	)
+	access = 0
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/tea_restock
+	category = "operations"
+	name = "commissary tea restock"
+	supplier = "getmore"
+	description = "A box full of stock for the commissary."
+	// Bulk commissary orders are at a discount, so cheaper per tin of tea than regularly ordering tea
+	price = 75
+	items = list(
+		/obj/item/storage/box/fancy/commissary_restock/tea
 	)
 	access = 0
 	container_type = "crate"
