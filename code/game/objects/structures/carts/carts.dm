@@ -44,7 +44,7 @@ ABSTRACT_TYPE(/obj/structure/cart)
 	. = ..()
 
 	if(user.stat || user.stunned || user.weakened || user.paralysis || user.lying || user.restrained())
-		if(user==pulling)
+		if(user == pulling)
 			pulling = null
 			user.pulledby = null
 			to_chat(user, SPAN_WARNING("You lost your grip!"))
@@ -58,11 +58,7 @@ ABSTRACT_TYPE(/obj/structure/cart)
 		user.pulledby = null
 		if(user==pulling)
 			return
-	if(pulling && (get_dir(src.loc, pulling.loc) == direction))
-		to_chat(user, SPAN_WARNING("You cannot go there."))
-		// return
 
-	driving = 1
 	var/turf/turf = null
 	if(pulling)
 		turf = pulling.loc
@@ -79,11 +75,10 @@ ABSTRACT_TYPE(/obj/structure/cart)
 				pulling = null
 				user.pulledby = null
 			pulling.set_dir(get_dir(pulling, src))
-	driving = 0
 
 /obj/structure/cart/Move()
 	. = ..()
-	if (pulling && (get_dist(src, pulling) > 1))
+	if(pulling && (get_dist(src, pulling) > 1))
 		pulling.pulledby = null
 		to_chat(pulling, SPAN_WARNING("You lost your grip!"))
 		pulling = null
