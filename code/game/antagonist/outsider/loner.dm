@@ -54,8 +54,5 @@ GLOBAL_DATUM(loners, /datum/antagonist/loner)
 	player.update_eyes()
 	player.regenerate_icons()
 
-	// Antags wipe skill components so that they can bypass skill restrictions entirely.
-	for(var/skill in player.GetComponents(/datum/component/skill))
-		qdel(skill)
 
 	return TRUE

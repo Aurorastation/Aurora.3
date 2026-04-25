@@ -40,9 +40,6 @@ GLOBAL_DATUM(technomancers, /datum/antagonist/technomancer)
 	technomancer_mob.preEquipOutfit(/obj/outfit/admin/techomancer, FALSE)
 	technomancer_mob.equipOutfit(/obj/outfit/admin/techomancer, FALSE)
 
-	// Antags wipe skill components so that they can bypass skill restrictions entirely.
-	for(var/skill in technomancer_mob.GetComponents(/datum/component/skill))
-		qdel(skill)
 
 	return TRUE
 
