@@ -8939,15 +8939,15 @@
 	icon_state = "1-2"
 	},
 /obj/random/dirt_75,
-/obj/item/cargo_package/offship{
+/obj/item/package/delivery/offship{
 	pixel_y = 10;
 	pixel_x = -3
 	},
-/obj/item/cargo_package/offship{
+/obj/item/package/delivery/offship{
 	pixel_y = -2;
 	pixel_x = 3
 	},
-/obj/item/cargo_package/offship{
+/obj/item/package/delivery/offship{
 	pixel_y = 7
 	},
 /turf/simulated/floor/plating,

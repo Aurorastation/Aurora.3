@@ -991,7 +991,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/item/cargo_package/offship,
+/obj/item/package/delivery/offship,
 /obj/effect/floor_decal/industrial/hatch/grey,
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion/cargo)
@@ -1988,7 +1988,7 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
 	},
-/obj/item/cargo_package/offship,
+/obj/item/package/delivery/offship,
 /obj/effect/floor_decal/industrial/hatch/grey,
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion/cargo)
@@ -2058,7 +2058,7 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
-/obj/item/cargo_package/offship,
+/obj/item/package/delivery/offship,
 /obj/effect/floor_decal/industrial/hatch/grey,
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion/cargo)
@@ -3408,7 +3408,7 @@
 /turf/simulated/floor/wood,
 /area/ship/orion/crew)
 "lQT" = (
-/obj/item/cargo_package/offship,
+/obj/item/package/delivery/offship,
 /obj/effect/floor_decal/industrial/hatch/grey,
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion/cargo)
@@ -3662,7 +3662,7 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/obj/item/cargo_package/offship,
+/obj/item/package/delivery/offship,
 /obj/effect/floor_decal/industrial/hatch/grey,
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion/cargo)
@@ -3884,7 +3884,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
 	},
-/obj/item/cargo_package/offship,
+/obj/item/package/delivery/offship,
 /obj/effect/floor_decal/industrial/hatch/grey,
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion/cargo)
@@ -6846,7 +6846,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
 	},
-/obj/item/cargo_package/offship,
+/obj/item/package/delivery/offship,
 /obj/effect/floor_decal/industrial/hatch/grey,
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion/cargo)
@@ -7210,7 +7210,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
 	},
-/obj/item/cargo_package/offship,
+/obj/item/package/delivery/offship,
 /obj/effect/floor_decal/industrial/hatch/grey,
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion/cargo)
@@ -7658,7 +7658,7 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
-/obj/item/cargo_package/offship,
+/obj/item/package/delivery/offship,
 /obj/effect/floor_decal/industrial/hatch/grey,
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion/cargo)

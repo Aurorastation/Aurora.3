@@ -573,8 +573,8 @@
 /area/shuttle/orion_miner/cargo_bay)
 "dY" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/item/cargo_package/offship/to_horizon,
-/obj/item/cargo_package/offship/to_horizon{
+/obj/item/package/delivery/offship/to_horizon,
+/obj/item/package/delivery/offship/to_horizon{
 	pixel_x = -1;
 	pixel_y = 11
 	},
@@ -4362,8 +4362,8 @@
 /area/shuttle/orion_miner/tech_storage)
 "Oc" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/item/cargo_package/offship,
-/obj/item/cargo_package/offship{
+/obj/item/package/delivery/offship,
+/obj/item/package/delivery/offship{
 	pixel_x = 1;
 	pixel_y = 10
 	},

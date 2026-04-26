@@ -152,7 +152,6 @@ ABSTRACT_TYPE(/obj/item/package)
 /obj/item/package/persistent_supply
 	name = "supply package"
 	desc = "A supply package. Usually each packages contains a different set of things one might need as supplies. Doesn't qualify for deliveries."
-	icon = 'icons/obj/supply_crates.dmi'
 	icon_state = "supply_package"
 	item_state = "supply_package"
 	persistant_objects_expiration_time_days = 360

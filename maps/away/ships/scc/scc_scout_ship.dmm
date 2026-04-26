@@ -3873,11 +3873,11 @@
 /area/ship/scc_scout_ship/medbay)
 "wI" = (
 /obj/random/dirt_75,
-/obj/item/cargo_package/offship/to_horizon{
+/obj/item/package/delivery/offship/to_horizon{
 	pixel_y = 10;
 	pixel_x = -3
 	},
-/obj/item/cargo_package/offship{
+/obj/item/package/delivery/offship{
 	pixel_y = -2;
 	pixel_x = 3
 	},
@@ -4915,11 +4915,11 @@
 /area/ship/scc_scout_ship/exterior)
 "DX" = (
 /obj/random/dirt_75,
-/obj/item/cargo_package/offship{
+/obj/item/package/delivery/offship{
 	pixel_y = 10;
 	pixel_x = -3
 	},
-/obj/item/cargo_package/offship{
+/obj/item/package/delivery/offship{
 	pixel_y = -2;
 	pixel_x = 3
 	},
@@ -5689,11 +5689,11 @@
 	},
 /obj/random/dirt_75,
 /obj/random/dirt_75,
-/obj/item/cargo_package/offship{
+/obj/item/package/delivery/offship{
 	pixel_y = 10;
 	pixel_x = -3
 	},
-/obj/item/cargo_package/offship/to_horizon{
+/obj/item/package/delivery/offship/to_horizon{
 	pixel_y = -2;
 	pixel_x = 3
 	},
