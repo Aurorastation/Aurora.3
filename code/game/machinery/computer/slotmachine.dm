@@ -98,7 +98,7 @@
 		return TRUE
 	else if(istype(attacking_item, /obj/item/spacecash))
 		if(paymode == CREDITCHIP)
-			if(istype(attacking_item, /obj/item/spacecash/ewallet/persistent_credit_card))
+			if(istype(attacking_item, /obj/item/spacecash/ewallet/persistent_charge_card))
 				to_chat(user, SPAN_WARNING("This machine does not accept this kind of card!"))
 				return TRUE
 			var/obj/item/spacecash/H = attacking_item

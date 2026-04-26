@@ -544,8 +544,8 @@
 		return 0
 	else
 		wallet.worth -= currently_vending.price
-		if(istype(wallet, /obj/item/spacecash/ewallet/persistent_credit_card))
-			log_and_message_admins("Persistent credit card [wallet] used for a transaction at [src] with amount [currently_vending.price]. Remaining balance: [wallet.worth]", user, get_turf(src))
+		if(istype(wallet, /obj/item/spacecash/ewallet/persistent_charge_card))
+			log_and_message_admins("[wallet] used for a transaction at [src] with amount [currently_vending.price]. Remaining balance: [wallet.worth]", user, get_turf(src))
 		credit_purchase("[wallet.owner_name] (chargecard)")
 		return 1
 
