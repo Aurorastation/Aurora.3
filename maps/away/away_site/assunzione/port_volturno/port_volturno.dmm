@@ -27716,7 +27716,6 @@
 /turf/simulated/floor/sidewalk/assunzione/flat,
 /area/port_volturno/exterior)
 "tvm" = (
-/obj/effect/floor_decal/corner/red/diagonal,
 /obj/structure/table/stone/marble,
 /obj/effect/decal/rolling_fog,
 /obj/machinery/door/firedoor{
@@ -31499,10 +31498,6 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/asphalt/assunzione,
 /area/port_volturno/exterior)
-"wcu" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
-/turf/space,
-/area/port_volturno/interior/pool)
 "wcv" = (
 /obj/structure/hydrant,
 /obj/effect/decal/rolling_fog,
@@ -115545,7 +115540,7 @@ ojg
 ojg
 fNj
 odA
-wcu
+rNe
 rNe
 rNe
 hQk
@@ -115802,7 +115797,7 @@ ojg
 yjv
 fNj
 odA
-oLU
+urp
 mws
 rAD
 cID
