@@ -3,13 +3,13 @@
 /datum/real_instrument
 	var/datum/instrument/instruments
 	var/datum/sound_player/player
-	var/datum/nano_module/song_editor/song_editor
-	var/datum/nano_module/usage_info/usage_info
+	var/datum/instrument_ui/song_editor/song_editor
+	var/datum/instrument_ui/usage_info/usage_info
 	var/maximum_lines
 	var/maximum_line_length
 	var/obj/owner
 	var/datum/nano_module/env_editor/env_editor
-	var/datum/nano_module/echo_editor/echo_editor
+	var/datum/instrument_ui/echo_editor/echo_editor
 
 /datum/real_instrument/New(obj/who, datum/sound_player/how, datum/instrument/what)
 	player = how

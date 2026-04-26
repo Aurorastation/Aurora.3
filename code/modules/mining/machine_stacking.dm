@@ -35,13 +35,13 @@
 
 /obj/machinery/mineral/stacking_unit_console/proc/setup_machine(mob/user)
 	if(!machine)
-		var/area/A = get_area(src)
+		var/area/machine_area = get_area(src)
 		var/best_distance = INFINITY
 		for(var/obj/machinery/mineral/stacking_machine/checked_machine in SSmachinery.machinery)
 			if(id)
 				if(checked_machine.id == id)
 					machine = checked_machine
-			else if(!checked_machine.console && A == get_area(checked_machine) && get_dist_euclidian(checked_machine, src) < best_distance)
+			else if(!checked_machine.console && machine_area == get_area(checked_machine) && get_dist_euclidian(checked_machine, src) < best_distance)
 				machine = checked_machine
 				best_distance = get_dist_euclidian(checked_machine, src)
 		if(machine)
@@ -64,10 +64,17 @@
 	add_fingerprint(user)
 	ui_interact(user)
 
-/obj/machinery/mineral/stacking_unit_console/ui_interact(mob/user, ui_key = "main", datum/nanoui/ui = null, force_open = 1, datum/ui_state/state = GLOB.default_state)
+/obj/machinery/mineral/stacking_unit_console/ui_interact(mob/user, datum/tgui/ui)
 	if(!setup_machine(user))
 		return
+	ui = SStgui.try_update_ui(user, src, ui)
+	if(!ui)
+		ui = new(user, src, "StackingMachine", "Stacking Machine")
+		ui.open()
 
+/obj/machinery/mineral/stacking_unit_console/ui_data(mob/user)
+	if(!machine)
+		return list()
 	var/list/data = list(
 		"stack_amt" = machine.stack_amt,
 		"contents" = list()
@@ -75,41 +82,36 @@
 	for(var/stacktype in machine.stack_storage)
 		if(machine.stack_storage[stacktype] > 0)
 			data["contents"] += list(list(
-				"path" = stacktype,
+				"path" = "[stacktype]",
 				"name" = machine.stack_paths[stacktype],
 				"amount" = machine.stack_storage[stacktype]
 			))
+	return data
 
-	ui = SSnanoui.try_update_ui(user, src, ui_key, ui, data, force_open)
-	if(!ui)
-		ui = new(user, src, ui_key, "stacking_machine.tmpl", "Stacking Machine", 500, 400, state = state)
-		ui.set_initial_data(data)
-		ui.open()
-		ui.set_auto_update(1)
-
-/obj/machinery/mineral/stacking_unit_console/Topic(href, href_list)
-	if(..())
+/obj/machinery/mineral/stacking_unit_console/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
+	. = ..()
+	if(.)
+		return
+	if(!machine)
 		return
 
-	if(href_list["change_stack"])
-		var/choice = tgui_input_list(usr, "What would you like to set the stack amount to?", "Stacking", list(1,5,10,20,50))
-		if(!choice)
-			return TRUE
-		machine.stack_amt = choice
-		return TRUE
-
-	if(href_list["release_stack"])
-		var/stacktype = text2path(href_list["release_stack"])
-		if(!stacktype || !machine.stack_paths[stacktype])
-			return
-
-		if(machine.stack_storage[stacktype] > 0)
-			var/obj/item/stack/material/S = new stacktype(machine.output_turf)
-			S.amount = machine.stack_storage[stacktype]
-			machine.stack_storage[stacktype] = 0
+	switch(action)
+		if("change_stack")
+			var/choice = tgui_input_list(usr, "What would you like to set the stack amount to?", "Stacking", list(1,5,10,20,50))
+			if(!choice)
+				return TRUE
+			machine.stack_amt = choice
 			return TRUE
 
-	add_fingerprint(usr)
+		if("release_stack")
+			var/stacktype = text2path(params["path"])
+			if(!stacktype || !machine.stack_paths[stacktype])
+				return
+			if(machine.stack_storage[stacktype] > 0)
+				var/obj/item/stack/material/new_stack = new stacktype(machine.output_turf)
+				new_stack.amount = machine.stack_storage[stacktype]
+				machine.stack_storage[stacktype] = 0
+				return TRUE
 
 /**********************Mineral stacking unit**************************/
 
@@ -138,9 +140,9 @@
 	. = ..()
 
 	for(var/stacktype in subtypesof(/obj/item/stack/material) - typesof(/obj/item/stack/material/cyborg))
-		var/obj/item/stack/S = stacktype
+		var/obj/item/stack/stack_item = stacktype
 		stack_storage[stacktype] = 0
-		stack_paths[stacktype] = capitalize(initial(S.name))
+		stack_paths[stacktype] = capitalize(initial(stack_item.name))
 
 	setup_io()
 
@@ -167,15 +169,15 @@
 		return
 
 	if(output_turf && input_turf)
-		for(var/obj/item/O in input_turf)
-			if(!O)
+		for(var/obj/item/item in input_turf)
+			if(!item)
 				return
-			var/obj/item/stack/S = O
-			if(istype(S) && stack_storage[S.type] != null)
-				stack_storage[S.type] += S.amount
-				qdel(S)
+			var/obj/item/stack/stack_item = item
+			if(istype(stack_item) && stack_storage[stack_item.type] != null)
+				stack_storage[stack_item.type] += stack_item.amount
+				qdel(stack_item)
 			else
-				O.forceMove(output_turf)
+				item.forceMove(output_turf)
 
 	//Output amounts that are past stack_amt.
 	for(var/sheet in stack_storage)
