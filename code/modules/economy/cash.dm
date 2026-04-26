@@ -321,6 +321,7 @@
 
 // This is meant to be spawned by an arc lead (admin) manually.
 /obj/item/spacecash/ewallet/persistent
+	icon = 'icons/obj/credit_card.dmi'
 	var/initial_worth = 0 // Used for calculating how much cash was spend, needs to be set using VV after spawning it.
 	persistant_objects_expiration_time_days = 360
 
