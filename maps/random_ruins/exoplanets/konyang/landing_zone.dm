@@ -18,6 +18,7 @@
 	no_light_control = FALSE
 	base_turf = /turf/simulated/mineral
 	area_flags = AREA_FLAG_HIDE_FROM_HOLOMAP | AREA_FLAG_INDESTRUCTIBLE_TURFS
+	is_outside = OUTSIDE_YES
 
 /area/konyang_landing_zone/command_center
 	name = "SCC Expedition Command Center"
@@ -39,6 +40,11 @@
 /area/konyang_landing_zone/command_center/landing_pads
 	name = "SCC Expedition Command Center Landing Pads"
 	is_outside = OUTSIDE_YES
+
+/area/konyang_landing_zone/exterior_gas_supply
+	name = "Gas Supply Tank"
+	icon_state = "exterior"
+	is_outside = OUTSIDE_NO
 
 /obj/effect/shuttle_landmark/konyang_landing_zone_intrepid
 	name = "SCC Expedition Command Center - Intrepid"

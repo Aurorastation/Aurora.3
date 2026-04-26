@@ -164,7 +164,7 @@
 				air.temperature -= heat/total_heat_capacity
 				modeled_location.temperature += heat/modeled_location.heat_capacity
 
-		else
+		else if (SHOULD_PARTICIPATE_IN_ZONES(target))
 			var/delta_temperature = 0
 			var/sharer_heat_capacity = 0
 

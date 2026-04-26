@@ -54,12 +54,15 @@ GLOBAL_LIST_EMPTY(turfs_to_map_type)
 //	The primary helper proc.
 //
 /proc/test_air_in_area(var/test_area, var/expectation = UT_NORMAL)
+	RETURN_TYPE(/list)
 	var/test_result = list("result" = FAILURE, "msg"    = "")
 
 	var/area/A = locate(test_area)
 
-	if(!istype(A, test_area))
+	// BYOND creates an instance of every area, so this can't be !A or !istype(A, test_area)
+	if(!(A.x || A.y || A.z))
 		test_result["msg"] = "Unable to get [test_area]"
+		test_result["result"] = FAILURE
 		return test_result
 
 	var/list/GM_checked = list()
@@ -106,7 +109,7 @@ GLOBAL_LIST_EMPTY(turfs_to_map_type)
 
 		GM_checked.Add(GM)
 
-	if(GM_checked.len)
+	if(length(GM_checked))
 		test_result["result"] = SUCCESS
 		test_result["msg"] = "Checked [GM_checked.len] zones"
 	else
@@ -212,7 +215,7 @@ GLOBAL_LIST_EMPTY(turfs_to_map_type)
 /datum/unit_test/zas_active_edges/start_test()
 
 	// Nothing went wrong (this time...)
-	if(!(SSair.active_edges.len))
+	if(!(length(SSair.active_edges)))
 		TEST_PASS("No active ZAS edges at round-start.")
 		return UNIT_TEST_PASSED
 

@@ -18,11 +18,14 @@
 
 /obj/effect/overmap/visitable/sector/exoplanet/lava/caprice/generate_atmosphere()
 	..()
-	if(atmosphere)
-		atmosphere.remove_ratio(1)
-		atmosphere.adjust_gas(GAS_NITROGEN, MOLES_O2STANDARD)
-		atmosphere.temperature = T0C + 400
-		atmosphere.update_values()
+	exterior_atmosphere.remove_ratio(1)
+	exterior_atmosphere.adjust_gas(GAS_NITROGEN, MOLES_O2STANDARD)
+	var/datum/species/H = GLOB.all_species[SPECIES_HUMAN]
+	var/xtreme = H.heat_level_2 + (rand(1,3) *  H.heat_level_2)
+	var/generator/new_temp = generator("num", H.heat_level_2, xtreme, UNIFORM_RAND)
+	exterior_atmosphere.temperature = new_temp.Rand()
+	exterior_atmosphere.update_values()
+	exterior_atmosphere.check_tile_graphic()
 
 // --------------------------------- Luthien
 
@@ -35,22 +38,20 @@
 	color = "#e49135"
 	generated_name = FALSE
 	ring_chance = 0
+	habitability_weight = HABITABILITY_BAD
 
 /obj/effect/overmap/visitable/sector/exoplanet/lava/luthien/update_icon()
 	return
-
-/obj/effect/overmap/visitable/sector/exoplanet/desert/luthien/generate_habitability()
-	return HABITABILITY_BAD
 
 /obj/effect/overmap/visitable/sector/exoplanet/desert/luthien/generate_ground_survey_result()
 	ground_survey_result = "<br>Sandy soil with organic fungal contamination"
 
 /obj/effect/overmap/visitable/sector/exoplanet/desert/luthien/generate_atmosphere()
 	..()
-	if(atmosphere)
-		atmosphere.remove_ratio(1)
-		atmosphere.adjust_gas(GAS_NITROGEN, MOLES_O2STANDARD)
-		atmosphere.update_values()
+	exterior_atmosphere.remove_ratio(1)
+	exterior_atmosphere.adjust_gas(GAS_NITROGEN, MOLES_O2STANDARD)
+	exterior_atmosphere.update_values()
+	exterior_atmosphere.check_tile_graphic()
 
 // --------------------------------- Valkyrie
 
@@ -86,23 +87,21 @@
 	ring_chance = 0
 	ruin_planet_type = PLANET_LORE
 	ruin_type_whitelist = list(/datum/map_template/ruin/exoplanet/gibson_mining, /datum/map_template/ruin/exoplanet/gibson_resupply)
+	habitability_weight = HABITABILITY_BAD
 
 /obj/effect/overmap/visitable/sector/exoplanet/snow/new_gibson/update_icon()
 	return
-
-/obj/effect/overmap/visitable/sector/exoplanet/snow/new_gibson/generate_habitability()
-	return HABITABILITY_BAD
 
 /obj/effect/overmap/visitable/sector/exoplanet/snow/new_gibson/generate_ground_survey_result()
 	ground_survey_result = "<br>Mineral-rich soil with presence of artificial structures"
 
 /obj/effect/overmap/visitable/sector/exoplanet/snow/new_gibson/generate_atmosphere()
 	..()
-	if(atmosphere)
-		atmosphere.remove_ratio(1)
-		atmosphere.adjust_gas(GAS_NITROGEN, MOLES_O2STANDARD)
-		atmosphere.temperature = T0C - 200
-		atmosphere.update_values()
+	exterior_atmosphere.remove_ratio(1)
+	exterior_atmosphere.adjust_gas(GAS_NITROGEN, MOLES_O2STANDARD)
+	exterior_atmosphere.temperature = T0C - 200
+	exterior_atmosphere.update_values()
+	exterior_atmosphere.check_tile_graphic()
 
 // --------------------------------- Chandras
 
@@ -115,12 +114,10 @@
 	rock_colors = list("#b2abbf")
 	generated_name = FALSE
 	ring_chance = 0
+	habitability_weight = HABITABILITY_EXTREME
 
 /obj/effect/overmap/visitable/sector/exoplanet/barren/asteroid/ice/chandras/update_icon()
 	return
-
-/obj/effect/overmap/visitable/sector/exoplanet/barren/asteroid/ice/chandras/generate_habitability()
-	return HABITABILITY_BAD
 
 /obj/effect/overmap/visitable/sector/exoplanet/barren/asteroid/ice/chandras/generate_ground_survey_result()
 	ground_survey_result = "<br>Soil with presence of nitrogen and ice deposits"
@@ -135,6 +132,7 @@
 	generated_name = FALSE
 	ring_chance = 0
 	place_near_main = null
+	habitability_weight = HABITABILITY_BAD
 
 /obj/effect/overmap/visitable/sector/exoplanet/barren/asteroid/dumas/update_icon()
 	return
@@ -175,9 +173,7 @@
 		/datum/map_template/ruin/exoplanet/cargo_ruins_3,
 		/datum/map_template/ruin/exoplanet/pra_camp_site)
 	place_near_main = list(2, 2)
-
-/obj/effect/overmap/visitable/sector/exoplanet/biesel/generate_habitability()
-	return HABITABILITY_IDEAL
+	habitability_weight = HABITABILITY_LOCKED
 
 /obj/effect/overmap/visitable/sector/exoplanet/biesel/generate_map()
 	if(prob(75))
@@ -191,12 +187,12 @@
 
 /obj/effect/overmap/visitable/sector/exoplanet/biesel/generate_atmosphere()
 	..()
-	if(atmosphere)
-		atmosphere.remove_ratio(1)
-		atmosphere.adjust_gas(GAS_OXYGEN, MOLES_O2STANDARD, 1)
-		atmosphere.adjust_gas(GAS_NITROGEN, MOLES_N2STANDARD, 1)
-		atmosphere.temperature = T20C
-		atmosphere.update_values()
+	exterior_atmosphere.remove_ratio(1)
+	exterior_atmosphere.adjust_gas(GAS_OXYGEN, MOLES_O2STANDARD, 1)
+	exterior_atmosphere.adjust_gas(GAS_NITROGEN, MOLES_N2STANDARD, 1)
+	exterior_atmosphere.temperature = T20C
+	exterior_atmosphere.update_values()
+	exterior_atmosphere.check_tile_graphic()
 
 /obj/effect/overmap/visitable/sector/exoplanet/biesel/update_icon()
 	return

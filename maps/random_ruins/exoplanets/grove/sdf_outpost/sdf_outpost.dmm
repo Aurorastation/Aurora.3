@@ -2,7 +2,7 @@
 "aE" = (
 /obj/machinery/power/smes/buildable,
 /turf/simulated/floor/tiled,
-/area/grove_sdf_outpost)
+/area/grove_sdf_outpost/power_plant)
 "bn" = (
 /obj/machinery/porta_turret/ballistic{
 	light_range = 1
@@ -12,28 +12,28 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled/full,
-/area/grove_sdf_outpost)
+/area/grove_sdf_outpost/exterior)
 "bq" = (
 /turf/simulated/mineral/random/exoplanet,
-/area/grove_sdf_outpost)
+/area/grove_sdf_outpost/exterior)
 "bx" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
 /turf/simulated/floor/exoplanet/grass/grove,
-/area/grove_sdf_outpost)
+/area/grove_sdf_outpost/exterior)
 "da" = (
 /obj/structure/blocker/steel/fence,
 /turf/simulated/floor/exoplanet/barren,
-/area/grove_sdf_outpost)
+/area/grove_sdf_outpost/exterior)
 "dr" = (
 /turf/simulated/floor/exoplanet/grass/grove,
-/area/grove_sdf_outpost)
+/area/grove_sdf_outpost/exterior)
 "dJ" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/generic,
 /turf/simulated/floor/tiled/full,
-/area/grove_sdf_outpost)
+/area/grove_sdf_outpost/work_area)
 "dR" = (
 /obj/effect/floor_decal/corner_wide/dark_green/full{
 	dir = 1
@@ -42,24 +42,24 @@
 /obj/effect/decal/cleanable/cobweb2,
 /obj/random/junk,
 /turf/simulated/floor/tiled,
-/area/grove_sdf_outpost)
+/area/grove_sdf_outpost/work_area)
 "dY" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/table/reinforced/steel,
 /obj/item/deck/cards,
 /obj/random/junk,
 /turf/simulated/floor/tiled/full,
-/area/grove_sdf_outpost)
+/area/grove_sdf_outpost/main)
 "fa" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 6
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/full,
-/area/grove_sdf_outpost)
+/area/grove_sdf_outpost/main)
 "fu" = (
 /turf/simulated/floor/tiled,
-/area/grove_sdf_outpost)
+/area/grove_sdf_outpost/power_plant)
 "gb" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -68,19 +68,19 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
-/area/grove_sdf_outpost)
+/area/grove_sdf_outpost/barracks)
 "gA" = (
 /obj/machinery/light/small/red{
 	dir = 8
 	},
 /turf/simulated/floor/exoplanet/barren,
-/area/grove_sdf_outpost)
+/area/grove_sdf_outpost/exterior)
 "gG" = (
 /obj/structure/blocker/steel/fence{
 	dir = 8
 	},
 /turf/simulated/floor/exoplanet/grass/grove,
-/area/grove_sdf_outpost)
+/area/grove_sdf_outpost/exterior)
 "hc" = (
 /obj/structure/cable/yellow{
 	icon_state = "1-2"
@@ -92,7 +92,7 @@
 	icon_state = "1-8"
 	},
 /turf/simulated/floor/exoplanet/plating,
-/area/grove_sdf_outpost)
+/area/grove_sdf_outpost/power_plant)
 "hD" = (
 /obj/effect/map_effect/marker/airlock,
 /obj/effect/floor_decal/industrial/hatch/yellow,
@@ -101,10 +101,13 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/full,
-/area/grove_sdf_outpost)
+/area/grove_sdf_outpost/entrance)
+"hI" = (
+/turf/simulated/wall/r_wall,
+/area/grove_sdf_outpost/barracks)
 "hK" = (
 /turf/simulated/floor/tiled/full,
-/area/grove_sdf_outpost)
+/area/grove_sdf_outpost/main)
 "hM" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -114,7 +117,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/full,
-/area/grove_sdf_outpost)
+/area/grove_sdf_outpost/work_area)
 "if" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
@@ -125,20 +128,23 @@
 	pixel_y = 32
 	},
 /turf/simulated/floor/tiled,
-/area/grove_sdf_outpost)
+/area/grove_sdf_outpost/barracks)
+"iN" = (
+/turf/simulated/wall/r_wall,
+/area/grove_sdf_outpost/work_area)
 "iZ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
 	},
 /turf/simulated/floor/tiled/full,
-/area/grove_sdf_outpost)
+/area/grove_sdf_outpost/main)
 "jF" = (
 /obj/structure/bed/padded,
 /obj/item/bedsheet/blue,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
-/area/grove_sdf_outpost)
+/area/grove_sdf_outpost/barracks)
 "kj" = (
 /obj/effect/floor_decal/corner_wide/dark_green{
 	dir = 9
@@ -149,18 +155,18 @@
 	},
 /obj/random/junk,
 /turf/simulated/floor/tiled,
-/area/grove_sdf_outpost)
+/area/grove_sdf_outpost/main)
 "kU" = (
 /obj/effect/floor_decal/corner_wide/dark_green,
 /obj/machinery/atmospherics/pipe/simple/hidden/universal{
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
-/area/grove_sdf_outpost)
+/area/grove_sdf_outpost/main)
 "ls" = (
 /obj/item/flashlight/maglight/on,
 /turf/simulated/floor/exoplanet/grass/grove,
-/area/grove_sdf_outpost)
+/area/grove_sdf_outpost/exterior)
 "lG" = (
 /obj/effect/floor_decal/corner_wide/dark_green{
 	dir = 10
@@ -175,7 +181,7 @@
 /obj/item/storage/belt/military,
 /obj/item/storage/belt/military,
 /turf/simulated/floor/tiled,
-/area/grove_sdf_outpost)
+/area/grove_sdf_outpost/work_area)
 "lJ" = (
 /obj/structure/bed/padded,
 /obj/structure/bed/padded,
@@ -184,7 +190,7 @@
 	pixel_x = 32
 	},
 /turf/simulated/floor/tiled,
-/area/grove_sdf_outpost)
+/area/grove_sdf_outpost/barracks)
 "mo" = (
 /obj/effect/floor_decal/corner_wide/dark_green{
 	dir = 6
@@ -195,11 +201,11 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
-/area/grove_sdf_outpost)
+/area/grove_sdf_outpost/work_area)
 "mE" = (
 /obj/structure/flora/ausbushes/fullgrass,
 /turf/simulated/floor/exoplanet/grass/grove,
-/area/grove_sdf_outpost)
+/area/template_noop)
 "nD" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/curtain/open/shower,
@@ -209,7 +215,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
-/area/grove_sdf_outpost)
+/area/grove_sdf_outpost/restroom)
 "nL" = (
 /obj/structure/cable/yellow{
 	icon_state = "1-8"
@@ -218,7 +224,7 @@
 	icon_state = "1-4"
 	},
 /turf/simulated/floor/exoplanet/plating,
-/area/grove_sdf_outpost)
+/area/grove_sdf_outpost/power_plant)
 "oB" = (
 /obj/effect/floor_decal/corner_wide/dark_green/full{
 	dir = 8
@@ -228,20 +234,28 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
-/area/grove_sdf_outpost)
+/area/grove_sdf_outpost/main)
+"oJ" = (
+/obj/structure/flora/ausbushes/brflowers,
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/grove_sdf_outpost/exterior)
 "pK" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/universal{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/full,
-/area/grove_sdf_outpost)
+/area/grove_sdf_outpost/main)
 "pM" = (
 /obj/effect/floor_decal/corner_wide/dark_green{
 	dir = 10
 	},
 /obj/machinery/photocopier,
 /turf/simulated/floor/tiled,
-/area/grove_sdf_outpost)
+/area/grove_sdf_outpost/work_area)
+"pS" = (
+/obj/structure/flora/bush/grove,
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/template_noop)
 "pT" = (
 /obj/machinery/door/airlock/generic{
 	dir = 8
@@ -253,7 +267,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
-/area/grove_sdf_outpost)
+/area/grove_sdf_outpost/barracks)
 "qh" = (
 /obj/effect/floor_decal/corner_wide/dark_green{
 	dir = 6
@@ -263,20 +277,20 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
-/area/grove_sdf_outpost)
+/area/grove_sdf_outpost/work_area)
 "qU" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/full,
-/area/grove_sdf_outpost)
+/area/grove_sdf_outpost/main)
 "qW" = (
 /obj/structure/blocker/steel/fence{
 	dir = 8
 	},
 /turf/simulated/floor/exoplanet/barren,
-/area/grove_sdf_outpost)
+/area/grove_sdf_outpost/exterior)
 "ri" = (
 /obj/effect/floor_decal/corner_wide/dark_green{
 	dir = 5
@@ -289,7 +303,7 @@
 	pixel_x = -7
 	},
 /turf/simulated/floor/tiled,
-/area/grove_sdf_outpost)
+/area/grove_sdf_outpost/work_area)
 "ru" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/light/small{
@@ -302,7 +316,7 @@
 	dir = 5
 	},
 /turf/simulated/floor/tiled/white,
-/area/grove_sdf_outpost)
+/area/grove_sdf_outpost/restroom)
 "ry" = (
 /obj/effect/floor_decal/corner_wide/dark_green{
 	dir = 9
@@ -316,7 +330,10 @@
 /obj/machinery/door/window/eastleft,
 /obj/structure/window/reinforced,
 /turf/simulated/floor/tiled,
-/area/grove_sdf_outpost)
+/area/grove_sdf_outpost/main)
+"rF" = (
+/turf/simulated/wall/r_wall,
+/area/grove_sdf_outpost/main)
 "rW" = (
 /obj/machinery/door/airlock/generic{
 	dir = 8
@@ -328,13 +345,13 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/full,
-/area/grove_sdf_outpost)
+/area/grove_sdf_outpost/work_area)
 "sX" = (
 /obj/structure/sign/electricshock{
 	pixel_x = 32
 	},
 /turf/simulated/floor/exoplanet/barren,
-/area/grove_sdf_outpost)
+/area/grove_sdf_outpost/exterior)
 "tl" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/toilet,
@@ -342,24 +359,24 @@
 	dir = 10
 	},
 /turf/simulated/floor/tiled/white,
-/area/grove_sdf_outpost)
+/area/grove_sdf_outpost/restroom)
 "tu" = (
 /obj/machinery/door/airlock/service,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled,
-/area/grove_sdf_outpost)
+/area/grove_sdf_outpost/work_area)
 "tZ" = (
 /obj/item/stack/rods,
 /turf/simulated/floor/exoplanet/barren,
-/area/grove_sdf_outpost)
+/area/grove_sdf_outpost/exterior)
 "uk" = (
 /obj/structure/bed/stool/chair/office/light{
 	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/full,
-/area/grove_sdf_outpost)
+/area/grove_sdf_outpost/work_area)
 "ux" = (
 /obj/effect/floor_decal/corner_wide/dark_green{
 	dir = 10
@@ -375,11 +392,11 @@
 /obj/random/junk,
 /obj/random/junk,
 /turf/simulated/floor/tiled,
-/area/grove_sdf_outpost)
+/area/grove_sdf_outpost/main)
 "uL" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/full,
-/area/grove_sdf_outpost)
+/area/grove_sdf_outpost/work_area)
 "uR" = (
 /obj/effect/floor_decal/corner_wide/dark_green/full{
 	dir = 4
@@ -389,22 +406,22 @@
 /obj/item/pen,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
-/area/grove_sdf_outpost)
+/area/grove_sdf_outpost/work_area)
 "vj" = (
 /obj/item/stack/rods,
 /turf/simulated/floor/exoplanet/grass/grove,
-/area/grove_sdf_outpost)
+/area/grove_sdf_outpost/exterior)
 "vC" = (
 /obj/effect/floor_decal/corner_wide/dark_green{
 	dir = 6
 	},
 /obj/effect/decal/cleanable/generic,
 /turf/simulated/floor/tiled,
-/area/grove_sdf_outpost)
+/area/grove_sdf_outpost/main)
 "vO" = (
 /obj/structure/sign/securearea,
 /turf/simulated/wall/r_wall,
-/area/grove_sdf_outpost)
+/area/grove_sdf_outpost/exterior)
 "vR" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
@@ -414,7 +431,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
-/area/grove_sdf_outpost)
+/area/grove_sdf_outpost/barracks)
 "wl" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
@@ -424,7 +441,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled/full,
-/area/grove_sdf_outpost)
+/area/grove_sdf_outpost/main)
 "wr" = (
 /obj/effect/floor_decal/corner_wide/dark_green{
 	dir = 10
@@ -439,7 +456,7 @@
 	starting_accessories = list(/obj/item/clothing/accessory/armor_plate/military,/obj/item/clothing/accessory/storage/modular_pouch)
 	},
 /turf/simulated/floor/tiled,
-/area/grove_sdf_outpost)
+/area/grove_sdf_outpost/work_area)
 "wO" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/generic,
@@ -447,7 +464,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/full,
-/area/grove_sdf_outpost)
+/area/grove_sdf_outpost/main)
 "yR" = (
 /obj/machinery/embedded_controller/radio/airlock/airlock_controller{
 	pixel_y = 27
@@ -460,11 +477,11 @@
 /obj/machinery/atmospherics/unary/vent_pump/high_volume,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/full,
-/area/grove_sdf_outpost)
+/area/grove_sdf_outpost/entrance)
 "zt" = (
 /obj/machinery/light/small/red,
 /turf/simulated/floor/exoplanet/barren,
-/area/grove_sdf_outpost)
+/area/grove_sdf_outpost/exterior)
 "zT" = (
 /obj/effect/floor_decal/corner_wide/dark_green{
 	dir = 6
@@ -474,7 +491,7 @@
 	pixel_y = -6
 	},
 /turf/simulated/floor/tiled,
-/area/grove_sdf_outpost)
+/area/grove_sdf_outpost/main)
 "At" = (
 /obj/effect/floor_decal/corner_wide/dark_green{
 	dir = 1
@@ -484,19 +501,19 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/full,
-/area/grove_sdf_outpost)
+/area/grove_sdf_outpost/main)
 "Bm" = (
 /obj/structure/bed/stool/chair/office/light{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/full,
-/area/grove_sdf_outpost)
+/area/grove_sdf_outpost/work_area)
 "CT" = (
 /obj/machinery/light/small/red{
 	dir = 4
 	},
 /turf/simulated/floor/exoplanet/barren,
-/area/grove_sdf_outpost)
+/area/grove_sdf_outpost/exterior)
 "Dr" = (
 /obj/effect/floor_decal/corner_wide/dark_green{
 	dir = 5
@@ -506,7 +523,10 @@
 	},
 /obj/structure/flora/pottedplant/dead,
 /turf/simulated/floor/tiled,
-/area/grove_sdf_outpost)
+/area/grove_sdf_outpost/main)
+"DG" = (
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/template_noop)
 "DM" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
@@ -523,7 +543,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
-/area/grove_sdf_outpost)
+/area/grove_sdf_outpost/restroom)
 "DW" = (
 /obj/effect/floor_decal/corner_wide/dark_green{
 	dir = 9
@@ -533,22 +553,26 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/item/clothing/suit/space/void/engineering,
 /turf/simulated/floor/tiled,
-/area/grove_sdf_outpost)
+/area/grove_sdf_outpost/main)
 "Eh" = (
 /obj/structure/flora/ausbushes/brflowers,
 /turf/simulated/floor/exoplanet/grass/grove,
-/area/grove_sdf_outpost)
+/area/template_noop)
+"Eo" = (
+/obj/structure/flora/tree/grove,
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/grove_sdf_outpost/exterior)
 "Gp" = (
 /obj/effect/floor_decal/corner_wide/dark_green{
 	dir = 8
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/full,
-/area/grove_sdf_outpost)
+/area/grove_sdf_outpost/main)
 "Gw" = (
 /obj/structure/flora/tree/grove,
 /turf/simulated/floor/exoplanet/grass/grove,
-/area/grove_sdf_outpost)
+/area/template_noop)
 "Gx" = (
 /obj/effect/floor_decal/corner_wide/dark_green{
 	dir = 6
@@ -558,14 +582,14 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
-/area/grove_sdf_outpost)
+/area/grove_sdf_outpost/work_area)
 "GQ" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
 /turf/simulated/floor/tiled/full,
-/area/grove_sdf_outpost)
+/area/grove_sdf_outpost/work_area)
 "HT" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
@@ -575,7 +599,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/full,
-/area/grove_sdf_outpost)
+/area/grove_sdf_outpost/main)
 "Ih" = (
 /obj/effect/floor_decal/corner_wide/dark_green/full{
 	dir = 4
@@ -586,31 +610,35 @@
 /obj/machinery/portable_atmospherics/canister/air/airlock,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled,
-/area/grove_sdf_outpost)
+/area/grove_sdf_outpost/main)
 "Iu" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/full,
-/area/grove_sdf_outpost)
+/area/grove_sdf_outpost/work_area)
 "Jh" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/simple/hidden/red{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/full,
-/area/grove_sdf_outpost)
+/area/grove_sdf_outpost/main)
+"Jr" = (
+/obj/structure/flora/ausbushes/fullgrass,
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/grove_sdf_outpost/exterior)
 "Ju" = (
 /obj/structure/sign/flag/sol/old{
 	pixel_x = -32;
 	dir = 8
 	},
 /turf/simulated/floor/exoplanet/barren,
-/area/grove_sdf_outpost)
+/area/grove_sdf_outpost/exterior)
 "JO" = (
 /obj/structure/blocker/steel/fence,
 /turf/simulated/floor/exoplanet/grass/grove,
-/area/grove_sdf_outpost)
+/area/grove_sdf_outpost/exterior)
 "Kh" = (
 /obj/machinery/light/small{
 	dir = 8
@@ -620,7 +648,7 @@
 /obj/structure/dispenser/oxygen,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled,
-/area/grove_sdf_outpost)
+/area/grove_sdf_outpost/main)
 "Ki" = (
 /obj/effect/floor_decal/corner_wide/dark_green{
 	dir = 5
@@ -632,11 +660,11 @@
 	pixel_x = -7
 	},
 /turf/simulated/floor/tiled,
-/area/grove_sdf_outpost)
+/area/grove_sdf_outpost/work_area)
 "KL" = (
 /obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/exoplanet/barren,
-/area/grove_sdf_outpost)
+/area/grove_sdf_outpost/exterior)
 "LG" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/floor_decal/corner_wide/dark_green/full,
@@ -644,7 +672,7 @@
 /obj/machinery/portable_atmospherics/canister/oxygen,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled,
-/area/grove_sdf_outpost)
+/area/grove_sdf_outpost/main)
 "LV" = (
 /obj/machinery/door/airlock/external{
 	dir = 8
@@ -656,20 +684,20 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/full,
-/area/grove_sdf_outpost)
+/area/grove_sdf_outpost/main)
 "Mk" = (
 /obj/structure/cable/yellow{
 	icon_state = "0-4"
 	},
 /obj/machinery/power/rtg,
 /turf/simulated/floor/exoplanet/plating,
-/area/grove_sdf_outpost)
+/area/grove_sdf_outpost/power_plant)
 "Ml" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/full,
-/area/grove_sdf_outpost)
+/area/grove_sdf_outpost/work_area)
 "MF" = (
 /obj/effect/floor_decal/corner_wide/dark_green{
 	dir = 9
@@ -681,7 +709,7 @@
 /obj/item/clothing/gloves/yellow,
 /obj/item/multitool,
 /turf/simulated/floor/tiled,
-/area/grove_sdf_outpost)
+/area/grove_sdf_outpost/main)
 "MM" = (
 /obj/effect/floor_decal/corner_wide/dark_green{
 	dir = 9
@@ -692,7 +720,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/reagent_dispensers/watertank,
 /turf/simulated/floor/tiled,
-/area/grove_sdf_outpost)
+/area/grove_sdf_outpost/main)
 "Om" = (
 /obj/machinery/light/small{
 	dir = 8
@@ -709,7 +737,10 @@
 	},
 /obj/random/junk,
 /turf/simulated/floor/tiled,
-/area/grove_sdf_outpost)
+/area/grove_sdf_outpost/barracks)
+"OO" = (
+/turf/simulated/wall/r_wall,
+/area/grove_sdf_outpost/restroom)
 "OS" = (
 /obj/effect/floor_decal/corner_wide/dark_green{
 	dir = 5
@@ -723,13 +754,13 @@
 	},
 /obj/item/gps,
 /turf/simulated/floor/tiled,
-/area/grove_sdf_outpost)
+/area/grove_sdf_outpost/work_area)
 "OW" = (
 /obj/machinery/light/small/red{
 	dir = 4
 	},
 /turf/simulated/floor/exoplanet/grass/grove,
-/area/grove_sdf_outpost)
+/area/grove_sdf_outpost/exterior)
 "Pn" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/floor_decal/corner_wide/dark_green/full{
@@ -746,7 +777,7 @@
 /obj/item/storage/field_ration,
 /obj/item/storage/field_ration,
 /turf/simulated/floor/tiled,
-/area/grove_sdf_outpost)
+/area/grove_sdf_outpost/main)
 "Py" = (
 /obj/effect/floor_decal/corner_wide/dark_green{
 	dir = 5
@@ -755,13 +786,13 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled,
-/area/grove_sdf_outpost)
+/area/grove_sdf_outpost/work_area)
 "Qk" = (
 /obj/item/landmine/frag{
 	deployed = 1
 	},
 /turf/simulated/floor/exoplanet/grass/grove,
-/area/grove_sdf_outpost)
+/area/grove_sdf_outpost/exterior)
 "QH" = (
 /obj/effect/floor_decal/corner_wide/dark_green{
 	dir = 10
@@ -769,7 +800,7 @@
 /obj/structure/table/reinforced/steel,
 /obj/random/junk,
 /turf/simulated/floor/tiled,
-/area/grove_sdf_outpost)
+/area/grove_sdf_outpost/work_area)
 "QK" = (
 /obj/effect/floor_decal/corner_wide/dark_green{
 	dir = 5
@@ -789,7 +820,7 @@
 	pixel_x = 5
 	},
 /turf/simulated/floor/tiled,
-/area/grove_sdf_outpost)
+/area/grove_sdf_outpost/main)
 "QO" = (
 /obj/effect/floor_decal/corner_wide/dark_green{
 	dir = 10
@@ -808,7 +839,7 @@
 /obj/item/ammo_magazine/mc9mm,
 /obj/item/ammo_magazine/mc9mm,
 /turf/simulated/floor/tiled,
-/area/grove_sdf_outpost)
+/area/grove_sdf_outpost/work_area)
 "QS" = (
 /obj/effect/floor_decal/corner_wide/dark_green{
 	dir = 5
@@ -818,23 +849,26 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
-/area/grove_sdf_outpost)
+/area/grove_sdf_outpost/work_area)
 "Rv" = (
 /turf/simulated/wall/r_wall,
-/area/grove_sdf_outpost)
+/area/grove_sdf_outpost/entrance)
 "RN" = (
 /obj/item/landmine/frag{
 	deployed = 1
 	},
 /obj/structure/flora/ausbushes/fullgrass,
 /turf/simulated/floor/exoplanet/grass/grove,
-/area/grove_sdf_outpost)
+/area/grove_sdf_outpost/exterior)
 "RT" = (
 /obj/machinery/door/airlock/engineering{
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
-/area/grove_sdf_outpost)
+/area/grove_sdf_outpost/power_plant)
+"Sj" = (
+/turf/simulated/wall/r_wall,
+/area/grove_sdf_outpost/power_plant)
 "SE" = (
 /obj/effect/map_effect/marker/airlock,
 /obj/effect/floor_decal/industrial/hatch/yellow,
@@ -843,7 +877,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/full,
-/area/grove_sdf_outpost)
+/area/grove_sdf_outpost/entrance)
 "SR" = (
 /obj/machinery/door/airlock/external{
 	dir = 8
@@ -852,20 +886,20 @@
 /obj/effect/map_effect/marker/airlock,
 /obj/effect/floor_decal/industrial/hatch/red,
 /turf/simulated/floor/tiled/full,
-/area/grove_sdf_outpost)
+/area/grove_sdf_outpost/entrance)
 "TC" = (
 /obj/structure/cable/yellow{
 	icon_state = "0-8"
 	},
 /obj/machinery/power/rtg,
 /turf/simulated/floor/exoplanet/plating,
-/area/grove_sdf_outpost)
+/area/grove_sdf_outpost/power_plant)
 "TN" = (
 /obj/machinery/light/small/red{
 	dir = 1
 	},
 /turf/simulated/floor/exoplanet/barren,
-/area/grove_sdf_outpost)
+/area/grove_sdf_outpost/exterior)
 "UW" = (
 /obj/machinery/access_button{
 	pixel_x = -33;
@@ -875,20 +909,27 @@
 	dir = 8
 	},
 /turf/simulated/floor/exoplanet/barren,
-/area/grove_sdf_outpost)
+/area/grove_sdf_outpost/exterior)
+"VB" = (
+/turf/simulated/floor/tiled/full,
+/area/grove_sdf_outpost/work_area)
+"VU" = (
+/obj/structure/flora/tree/jungle,
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/template_noop)
 "Wx" = (
 /turf/simulated/floor/exoplanet/barren,
-/area/grove_sdf_outpost)
+/area/grove_sdf_outpost/exterior)
 "WE" = (
 /obj/structure/flora/tree/jungle,
 /turf/simulated/floor/exoplanet/grass/grove,
-/area/grove_sdf_outpost)
+/area/grove_sdf_outpost/exterior)
 "WL" = (
 /obj/structure/bed/stool{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/full,
-/area/grove_sdf_outpost)
+/area/grove_sdf_outpost/main)
 "WN" = (
 /obj/machinery/power/apc/high/north,
 /obj/machinery/power/terminal{
@@ -898,128 +939,128 @@
 	icon_state = "0-2"
 	},
 /turf/simulated/floor/tiled,
-/area/grove_sdf_outpost)
+/area/grove_sdf_outpost/power_plant)
 "Yu" = (
 /obj/structure/flora/bush/grove,
 /turf/simulated/floor/exoplanet/grass/grove,
-/area/grove_sdf_outpost)
+/area/grove_sdf_outpost/exterior)
 "YN" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/full,
-/area/grove_sdf_outpost)
+/area/grove_sdf_outpost/work_area)
 "Zn" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/red{
 	dir = 4
 	},
 /turf/simulated/wall/r_wall,
-/area/grove_sdf_outpost)
+/area/grove_sdf_outpost/main)
 
 (1,1,1) = {"
 mE
 mE
 mE
-dr
-dr
-dr
-dr
-dr
-dr
-dr
-dr
-dr
+DG
+DG
+DG
+DG
+DG
+DG
+DG
+DG
+DG
 mE
 mE
 mE
-dr
-dr
-dr
-dr
-dr
-dr
-dr
-dr
-dr
-dr
-dr
-dr
-dr
-dr
-dr
+DG
+DG
+DG
+DG
+DG
+DG
+DG
+DG
+DG
+DG
+DG
+DG
+DG
+DG
+DG
 "}
 (2,1,1) = {"
-dr
-dr
-dr
-dr
-dr
+DG
+DG
+DG
+DG
+DG
 Eh
-dr
-dr
-dr
-dr
-dr
-dr
-dr
-dr
-dr
+DG
+DG
+DG
+DG
+DG
+DG
+DG
+DG
+DG
 mE
-dr
-dr
-dr
+DG
+DG
+DG
 Eh
-dr
-dr
-dr
+DG
+DG
+DG
 Gw
-dr
-dr
+DG
+DG
 mE
 mE
-dr
-dr
+DG
+DG
 "}
 (3,1,1) = {"
-dr
-dr
-dr
-Yu
-dr
-dr
-dr
-dr
-dr
-dr
-dr
-dr
-dr
-dr
-dr
-dr
-dr
-dr
-dr
-dr
-dr
-dr
-dr
-dr
-dr
-dr
-dr
-dr
+DG
+DG
+DG
+pS
+DG
+DG
+DG
+DG
+DG
+DG
+DG
+DG
+DG
+DG
+DG
+DG
+DG
+DG
+DG
+DG
+DG
+DG
+DG
+DG
+DG
+DG
+DG
+DG
 mE
-dr
+DG
 "}
 (4,1,1) = {"
-dr
+DG
 vO
 dr
 dr
 dr
 dr
-mE
+Jr
 dr
 dr
 dr
@@ -1030,54 +1071,54 @@ dr
 dr
 dr
 dr
+Jr
+Jr
+dr
+dr
+dr
+dr
+dr
+dr
+Jr
+dr
+dr
 mE
-mE
-dr
-dr
-dr
-dr
-dr
-dr
-mE
-dr
-dr
-mE
-dr
+DG
 "}
 (5,1,1) = {"
+DG
+dr
+dr
+dr
+dr
+dr
+Jr
 dr
 dr
 dr
 dr
 dr
 dr
-mE
 dr
 dr
 dr
 dr
 dr
+Jr
+Jr
+dr
+oJ
 dr
 dr
 dr
-dr
-dr
-dr
-mE
-mE
-dr
-Eh
-dr
-dr
-dr
-mE
+Jr
 dr
 vO
-dr
-dr
+DG
+DG
 "}
 (6,1,1) = {"
-dr
+DG
 dr
 dr
 bq
@@ -1097,7 +1138,7 @@ dr
 dr
 dr
 dr
-mE
+Jr
 dr
 Yu
 dr
@@ -1105,16 +1146,16 @@ dr
 dr
 dr
 dr
-dr
-dr
+DG
+DG
 "}
 (7,1,1) = {"
-dr
+DG
 dr
 bq
 bq
-mE
-mE
+Jr
+Jr
 dr
 dr
 Qk
@@ -1124,12 +1165,12 @@ dr
 dr
 dr
 dr
-mE
+Jr
 dr
 dr
 dr
 dr
-mE
+Jr
 dr
 dr
 dr
@@ -1138,10 +1179,10 @@ dr
 dr
 dr
 Eh
-dr
+DG
 "}
 (8,1,1) = {"
-dr
+DG
 dr
 bq
 bq
@@ -1155,8 +1196,8 @@ dr
 dr
 dr
 dr
-mE
-Eh
+Jr
+oJ
 RN
 dr
 dr
@@ -1167,10 +1208,10 @@ dr
 dr
 bq
 dr
-mE
-mE
-dr
-dr
+Jr
+Jr
+DG
+DG
 "}
 (9,1,1) = {"
 mE
@@ -1178,7 +1219,7 @@ dr
 dr
 bq
 bq
-mE
+Jr
 dr
 dr
 dr
@@ -1201,11 +1242,11 @@ bq
 dr
 dr
 dr
-dr
-dr
+DG
+DG
 "}
 (10,1,1) = {"
-dr
+DG
 dr
 dr
 bq
@@ -1233,13 +1274,13 @@ bq
 bq
 dr
 dr
-dr
-dr
+DG
+DG
 "}
 (11,1,1) = {"
+DG
 dr
-dr
-mE
+Jr
 dr
 gG
 dr
@@ -1259,17 +1300,17 @@ dr
 dr
 dr
 dr
-Eh
+oJ
 bq
 bq
 bq
 dr
 dr
-dr
-dr
+DG
+DG
 "}
 (12,1,1) = {"
-dr
+DG
 dr
 dr
 dr
@@ -1297,7 +1338,7 @@ bq
 bq
 bq
 dr
-dr
+DG
 mE
 "}
 (13,1,1) = {"
@@ -1312,15 +1353,15 @@ dr
 dr
 Wx
 dr
-Rv
-Rv
-Rv
-Rv
+rF
+rF
+rF
+rF
 Zn
-Rv
-Rv
-Rv
-Rv
+rF
+rF
+rF
+rF
 dr
 dr
 dr
@@ -1329,11 +1370,11 @@ bq
 bq
 bq
 dr
-dr
+DG
 mE
 "}
 (14,1,1) = {"
-dr
+DG
 dr
 dr
 dr
@@ -1343,8 +1384,8 @@ dr
 dr
 CT
 Wx
-Rv
-Rv
+rF
+rF
 Pn
 MM
 ry
@@ -1352,8 +1393,8 @@ kj
 MF
 DW
 Kh
-Rv
-Rv
+rF
+rF
 TN
 dr
 gG
@@ -1361,21 +1402,21 @@ dr
 bq
 dr
 dr
-dr
+DG
 mE
 "}
 (15,1,1) = {"
-dr
+DG
 dr
 dr
 WE
 qW
 dr
 dr
-Rv
-Rv
-Rv
-Rv
+OO
+OO
+OO
+rF
 oB
 At
 qU
@@ -1385,29 +1426,29 @@ hK
 hK
 Gp
 LG
-Rv
+rF
 Wx
 dr
 qW
 dr
 dr
 dr
+Jr
 mE
-mE
-dr
+DG
 "}
 (16,1,1) = {"
-dr
+DG
 dr
 dr
 dr
 qW
 dr
-Eh
-Rv
+oJ
+OO
 nD
 DM
-Rv
+rF
 QK
 dY
 HT
@@ -1417,39 +1458,39 @@ vC
 zT
 fa
 Ih
-Rv
+rF
 dr
 Wx
 gG
 dr
 dr
-mE
+Jr
 dr
-dr
-dr
+DG
+DG
 "}
 (17,1,1) = {"
-dr
+DG
 RN
 dr
 dr
 qW
 dr
 dr
-Rv
+OO
 tl
 ru
-Rv
+rF
 Dr
 WL
 wl
 iZ
 ux
-Rv
-Rv
+rF
+rF
 LV
-Rv
-Rv
+rF
+rF
 dr
 dr
 vj
@@ -1457,27 +1498,27 @@ dr
 dr
 dr
 dr
-dr
-dr
+DG
+DG
 "}
 (18,1,1) = {"
-dr
-mE
+DG
+Jr
 dr
 Yu
 qW
 dr
 zt
-Rv
-Rv
+hI
+hI
 pT
-Rv
-Rv
-Rv
+iN
+iN
+iN
 rW
-Rv
-Rv
-Rv
+iN
+iN
+iN
 yR
 hD
 SE
@@ -1488,51 +1529,51 @@ dr
 vj
 dr
 dr
-Eh
-Yu
-dr
+oJ
+pS
+DG
 "}
 (19,1,1) = {"
-dr
-mE
+DG
+Jr
 dr
 dr
 qW
 dr
 Wx
-Rv
+hI
 Om
 gb
-Rv
+iN
 Ki
 uL
 hM
 uL
 wr
-Rv
+iN
 Rv
 SR
 Rv
 Rv
-Eh
+oJ
 dr
 gG
 dr
 dr
 dr
-Eh
-dr
-dr
+oJ
+DG
+DG
 "}
 (20,1,1) = {"
 mE
-mE
+Jr
 dr
 dr
 qW
 dr
 dr
-Rv
+hI
 if
 vR
 tu
@@ -1541,7 +1582,7 @@ YN
 GQ
 Iu
 lG
-Rv
+iN
 Ju
 Wx
 UW
@@ -1549,31 +1590,31 @@ dr
 dr
 dr
 qW
-mE
+Jr
 dr
 dr
 dr
 mE
-dr
+DG
 "}
 (21,1,1) = {"
+DG
 dr
 dr
-dr
-mE
+Jr
 qW
 dr
 dr
-Rv
+hI
 lJ
 jF
-Rv
+iN
 QS
 dJ
 Ml
 uL
 QO
-Rv
+iN
 Wx
 Wx
 Wx
@@ -1581,31 +1622,31 @@ Wx
 dr
 qW
 qW
-mE
+Jr
 dr
 dr
 dr
-dr
+DG
 Eh
 "}
 (22,1,1) = {"
+DG
 dr
 dr
-dr
-mE
+Jr
 gG
 dr
 Wx
-Rv
-Rv
-Rv
-Rv
+hI
+hI
+hI
+iN
 ri
-hK
-hK
+VB
+VB
 uL
 pM
-Rv
+iN
 Wx
 Wx
 Wx
@@ -1617,12 +1658,12 @@ dr
 dr
 dr
 WE
-dr
-dr
+DG
+DG
 "}
 (23,1,1) = {"
-dr
-Eh
+DG
+oJ
 dr
 dr
 gG
@@ -1631,13 +1672,13 @@ dr
 Wx
 Wx
 Wx
-Rv
+iN
 OS
 Bm
 uL
 uk
 QH
-Rv
+iN
 bn
 Wx
 Wx
@@ -1649,11 +1690,11 @@ dr
 dr
 dr
 dr
-dr
-dr
+DG
+DG
 "}
 (24,1,1) = {"
-dr
+DG
 dr
 RN
 dr
@@ -1663,13 +1704,13 @@ dr
 dr
 Wx
 Wx
-Rv
+iN
 dR
 qh
 mo
 Gx
 uR
-Rv
+iN
 Wx
 Wx
 Wx
@@ -1681,55 +1722,55 @@ dr
 dr
 dr
 Yu
-dr
-dr
+DG
+DG
 "}
 (25,1,1) = {"
+DG
 dr
-dr
-Gw
-dr
-qW
-dr
-dr
-dr
-dr
-Wx
-Rv
-Rv
-Rv
-Rv
-Rv
-Rv
-Rv
-Wx
-Wx
-Wx
-dr
-dr
+Eo
 dr
 qW
 dr
 dr
 dr
 dr
+Wx
+iN
+iN
+iN
+iN
+iN
+iN
+iN
+Wx
+Wx
+Wx
 dr
+dr
+dr
+qW
+dr
+dr
+dr
+dr
+DG
 mE
 "}
 (26,1,1) = {"
-dr
+DG
 dr
 dr
 dr
 qW
 dr
-mE
+Jr
 dr
 dr
 dr
 gA
 Wx
-Eh
+oJ
 dr
 Wx
 Wx
@@ -1742,22 +1783,22 @@ dr
 dr
 qW
 dr
-mE
+Jr
 dr
 dr
-dr
-dr
+DG
+DG
 "}
 (27,1,1) = {"
-dr
+DG
 dr
 dr
 dr
 qW
 dr
 dr
-mE
-mE
+Jr
+Jr
 dr
 dr
 Wx
@@ -1777,11 +1818,11 @@ dr
 RN
 dr
 dr
-dr
+DG
 mE
 "}
 (28,1,1) = {"
-dr
+DG
 dr
 dr
 dr
@@ -1807,25 +1848,25 @@ bq
 dr
 dr
 dr
-mE
+Jr
 dr
-dr
+DG
 mE
 "}
 (29,1,1) = {"
+DG
 dr
-dr
-mE
+Jr
 dr
 qW
-Eh
+oJ
 dr
 dr
 dr
 dr
 dr
 dr
-mE
+Jr
 dr
 dr
 dr
@@ -1840,12 +1881,12 @@ dr
 dr
 dr
 dr
-mE
-dr
-dr
+Jr
+DG
+DG
 "}
 (30,1,1) = {"
-dr
+DG
 dr
 dr
 dr
@@ -1856,11 +1897,11 @@ dr
 sX
 Wx
 dr
-mE
+Jr
 dr
 dr
 dr
-mE
+Jr
 dr
 dr
 dr
@@ -1873,11 +1914,11 @@ dr
 dr
 dr
 dr
-dr
-dr
+DG
+DG
 "}
 (31,1,1) = {"
-dr
+DG
 dr
 WE
 dr
@@ -1885,12 +1926,12 @@ bq
 bq
 bq
 bq
-Rv
+Sj
 RT
-Rv
-Rv
-Rv
-Rv
+Sj
+Sj
+Sj
+Sj
 vj
 dr
 dr
@@ -1900,16 +1941,16 @@ bq
 bq
 bq
 dr
-mE
+Jr
 dr
 dr
 dr
 dr
-dr
-dr
+DG
+DG
 "}
 (32,1,1) = {"
-dr
+DG
 dr
 dr
 dr
@@ -1917,12 +1958,12 @@ bq
 bq
 bq
 bq
-Rv
+Sj
 fu
 Mk
 Mk
 Mk
-Rv
+Sj
 JO
 dr
 dr
@@ -1938,23 +1979,23 @@ dr
 dr
 dr
 mE
-dr
+DG
 "}
 (33,1,1) = {"
+DG
 dr
 dr
 dr
-dr
-Eh
+oJ
 bq
 bq
 bq
-Rv
+Sj
 WN
 hc
 hc
 nL
-Rv
+Sj
 dr
 vj
 dr
@@ -1967,26 +2008,26 @@ dr
 dr
 dr
 dr
-Gw
+Eo
 dr
-dr
-dr
+DG
+DG
 "}
 (34,1,1) = {"
-dr
+DG
 dr
 Yu
-mE
+Jr
 dr
 bq
 bq
 bq
-Rv
+Sj
 aE
 TC
 TC
 TC
-Rv
+Sj
 bq
 dr
 dr
@@ -2001,24 +2042,24 @@ dr
 dr
 dr
 dr
-Yu
-dr
+pS
+DG
 "}
 (35,1,1) = {"
+DG
 dr
 dr
+Jr
 dr
-mE
-dr
-Eh
+oJ
 bq
 bq
-Rv
-Rv
-Rv
-Rv
-Rv
-Rv
+Sj
+Sj
+Sj
+Sj
+Sj
+Sj
 bq
 RN
 dr
@@ -2026,21 +2067,21 @@ dr
 dr
 dr
 dr
-mE
+Jr
 dr
 dr
 dr
 dr
 dr
 dr
-dr
-dr
+DG
+DG
 "}
 (36,1,1) = {"
+DG
 dr
-dr
-mE
-mE
+Jr
+Jr
 dr
 dr
 Yu
@@ -2056,8 +2097,8 @@ dr
 dr
 dr
 dr
-mE
-mE
+Jr
+Jr
 dr
 dr
 dr
@@ -2065,16 +2106,16 @@ dr
 dr
 dr
 dr
-dr
-dr
+DG
+DG
 "}
 (37,1,1) = {"
-dr
+DG
 vO
 dr
 dr
 dr
-mE
+Jr
 dr
 dr
 dr
@@ -2082,7 +2123,7 @@ dr
 dr
 dr
 dr
-mE
+Jr
 dr
 dr
 dr
@@ -2097,102 +2138,102 @@ dr
 dr
 dr
 vO
-dr
-dr
+DG
+DG
 "}
 (38,1,1) = {"
-dr
-dr
-dr
+DG
+DG
+DG
 mE
-dr
-dr
+DG
+DG
 mE
-dr
+DG
 mE
-dr
-dr
-dr
-dr
-dr
-dr
+DG
+DG
+DG
+DG
+DG
+DG
 Eh
-dr
-dr
-dr
+DG
+DG
+DG
 Gw
-dr
-dr
-dr
-dr
+DG
+DG
+DG
+DG
 Eh
-dr
-dr
-dr
-WE
-dr
+DG
+DG
+DG
+VU
+DG
 "}
 (39,1,1) = {"
-dr
-dr
+DG
+DG
 Gw
-dr
-dr
-dr
+DG
+DG
+DG
 mE
-dr
-WE
-dr
-dr
-dr
-dr
-dr
-dr
-dr
-dr
-dr
-dr
-dr
-dr
-dr
-dr
-dr
-dr
-dr
-dr
-dr
-dr
-dr
+DG
+VU
+DG
+DG
+DG
+DG
+DG
+DG
+DG
+DG
+DG
+DG
+DG
+DG
+DG
+DG
+DG
+DG
+DG
+DG
+DG
+DG
+DG
 "}
 (40,1,1) = {"
-dr
-dr
-dr
-dr
-dr
-dr
-dr
-dr
-dr
-dr
-dr
-dr
-dr
-dr
-dr
-dr
-dr
-dr
-dr
-dr
-dr
-dr
-dr
-dr
-dr
-dr
-dr
-dr
-dr
-dr
+DG
+DG
+DG
+DG
+DG
+DG
+DG
+DG
+DG
+DG
+DG
+DG
+DG
+DG
+DG
+DG
+DG
+DG
+DG
+DG
+DG
+DG
+DG
+DG
+DG
+DG
+DG
+DG
+DG
+DG
 "}

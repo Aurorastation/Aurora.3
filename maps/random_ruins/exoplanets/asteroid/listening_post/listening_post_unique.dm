@@ -16,15 +16,22 @@
 
 	unit_test_groups = list(1)
 
-/area/listening_post
+ABSTRACT_TYPE(/area/listening_post)
 	name = "Listening Post Installation"
 	icon_state = "bluenew"
 	requires_power = TRUE
 	no_light_control = TRUE
 	is_outside = OUTSIDE_NO
+	ambience = AMBIENCE_TECH_RUINS
 
 /area/listening_post/entrance
 	name = "Listening Post Installation - Entrance"
+
+/area/listening_post/lobby
+	name = "Listening Post Installation - Lobby"
+
+/area/listening_post/common
+	name = "Listening Post Installation - Common Area"
 
 /area/listening_post/quarters
 	name = "Listening Post Installation - Technician's Quarters"

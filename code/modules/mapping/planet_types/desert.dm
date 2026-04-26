@@ -27,13 +27,11 @@
 
 /obj/effect/overmap/visitable/sector/exoplanet/desert/generate_atmosphere()
 	..()
-	if(atmosphere)
-		var/limit = 1000
-		if(habitability_class <= HABITABILITY_OKAY)
-			var/datum/species/human/H = /datum/species/human
-			limit = initial(H.heat_level_1) - rand(1,10)
-		atmosphere.temperature = min(T20C + rand(20, 100), limit)
-		atmosphere.update_values()
+	var/datum/species/H = GLOB.all_species[SPECIES_HUMAN]
+	var/generator/new_temp = generator("num", H.heat_level_1, 2 * H.heat_level_1, NORMAL_RAND)
+	exterior_atmosphere.temperature = new_temp.Rand()
+	exterior_atmosphere.update_values()
+	exterior_atmosphere.check_tile_graphic()
 
 /obj/effect/overmap/visitable/sector/exoplanet/desert/generate_ground_survey_result()
 	..()

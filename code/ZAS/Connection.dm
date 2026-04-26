@@ -66,7 +66,7 @@ Class Procs:
 	src.A = A
 	src.B = B
 	zoneA = A.zone
-	if(!istype(B))
+	if(!SHOULD_PARTICIPATE_IN_ZONES(B))
 		mark_space()
 		edge = SSair.get_edge(A.zone,B)
 		edge.add_connection(src)
@@ -102,6 +102,9 @@ Class Procs:
 	if(!istype(A,/turf/simulated))
 		erase()
 		return
+	if(!SHOULD_PARTICIPATE_IN_ZONES(A))
+		erase()
+		return
 
 	var/block_status = SSair.air_blocked(A,B)
 	if(block_status & AIR_BLOCKED)
@@ -112,7 +115,7 @@ Class Procs:
 	else
 		mark_direct()
 
-	var/b_is_space = !istype(B,/turf/simulated)
+	var/b_is_space = !SHOULD_PARTICIPATE_IN_ZONES(B)
 
 	if(state & CONNECTION_SPACE)
 		if(!b_is_space)

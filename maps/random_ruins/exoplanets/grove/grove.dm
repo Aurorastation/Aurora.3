@@ -49,12 +49,41 @@
 
 	unit_test_groups = list(4)
 
-/area/grove_sdf_outpost
+ABSTRACT_TYPE(/area/grove_sdf_outpost)
 	name = "System Defence Force Outpost"
 	icon_state = "bluenew"
 	requires_power = TRUE
 	no_light_control = FALSE
 	area_flags = AREA_FLAG_HIDE_FROM_HOLOMAP | AREA_FLAG_INDESTRUCTIBLE_TURFS
+	ambience = AMBIENCE_RUINS
+
+/area/grove_sdf_outpost/exterior
+	name = "System Defence Force Outpost Exterior"
+	ambience = AMBIENCE_JUNGLE
+	sound_environment = SOUND_ENVIRONMENT_PLAIN
+	is_outside = OUTSIDE_YES
+
+/area/grove_sdf_outpost/power_plant
+	name = "System Defence Force Outpost Power Plant"
+	ambience = AMBIENCE_MAINTENANCE
+
+/area/grove_sdf_outpost/entrance
+	name = "System Defence Force Outpost Entrance"
+	sound_environment = SOUND_AREA_SMALL_ENCLOSED
+
+/area/grove_sdf_outpost/main
+	name = "System Defence Force Outpost Main Area"
+
+/area/grove_sdf_outpost/barracks
+	name = "System Defence Force Outpost Barracks"
+	sound_environment = SOUND_AREA_SMALL_SOFTFLOOR
+
+/area/grove_sdf_outpost/restroom
+	name = "System Defence Force Outpost Barracks Restroom"
+	sound_environment = SOUND_AREA_SMALL_ENCLOSED
+
+/area/grove_sdf_outpost/work_area
+	name = "System Defence Force Outpost Work Area"
 
 /datum/map_template/ruin/exoplanet/batcave
 	name = "Bat Cave"

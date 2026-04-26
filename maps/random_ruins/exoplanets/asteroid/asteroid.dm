@@ -80,6 +80,18 @@
 
 	unit_test_groups = list(2)
 
+ABSTRACT_TYPE(/area/crashed_sol_shuttle_01)
+	ambience = AMBIENCE_RUINS
+	icon_state = "away"
+	is_outside = OUTSIDE_YES
+
+/area/crashed_sol_shuttle_01/main
+	name = "Crashed Solarian Alliance Shuttle"
+
+/area/crashed_sol_shuttle_01/armory
+	name = "Crashed Solarian Alliance Shuttle Armory"
+	is_outside = OUTSIDE_NO
+
 /datum/map_template/ruin/exoplanet/crashed_skrell_shuttle_01
 	name = "Crashed Skrellian Shuttle"
 	id = "crashed_skrell_shuttle_1"
@@ -96,6 +108,58 @@
 	ruin_tags = RUIN_LOWPOP|RUIN_WRECK
 
 	unit_test_groups = list(1)
+
+ABSTRACT_TYPE(/area/crashed_skrell_shuttle_01)
+	ambience = AMBIENCE_RUINS
+	icon_state = "away"
+
+/area/crashed_skrell_shuttle_01/cockpit
+	name = "Crashed Skrellian Shuttle Cockpit"
+	icon_state = "bridge_helm"
+
+/area/crashed_skrell_shuttle_01/medical
+	name = "Crashed Skrellian Shuttle Medical Bay"
+	icon_state = "medbay"
+
+/area/crashed_skrell_shuttle_01/engineering
+	name = "Crashed Skrellian Shuttle Engineering"
+	icon_state = "engineering"
+
+/area/crashed_skrell_shuttle_01/lounge
+	name = "Crashed Skrellian Shuttle Lounge"
+	icon_state = "lounge"
+
+ABSTRACT_TYPE(/area/crashed_skrell_shuttle_01/hallway)
+	sound_environment = SOUND_AREA_TUNNEL_ENCLOSED
+
+/area/crashed_skrell_shuttle_01/hallway/stern
+	name = "Crashed Skrellian Shuttle Hallway Stern"
+	icon_state = "hallA"
+
+/area/crashed_skrell_shuttle_01/hallway/port
+	name = "Crashed Skrellian Shuttle Hallway Port"
+	icon_state = "hallP"
+
+/area/crashed_skrell_shuttle_01/hallway/port/lounge
+	name = "Crashed Skrellian Shuttle Lounge Hallway Port"
+	icon_state = "entry_1"
+
+/area/crashed_skrell_shuttle_01/hallway/starboard
+	name = "Crashed Skrellian Shuttle Hallway Starboard"
+	icon_state = "hallS"
+
+/area/crashed_skrell_shuttle_01/hallway/starboard/lounge
+	name = "Crashed Skrellian Shuttle Lounge Hallway Starboard"
+	icon_state = "entry_2"
+
+ABSTRACT_TYPE(/area/crashed_skrell_shuttle_01/airlock)
+	sound_environment = SOUND_AREA_SMALL_ENCLOSED
+
+/area/crashed_skrell_shuttle_01/airlock/port
+	name = "Crashed Skrellian Shuttle Airlock Port"
+
+/area/crashed_skrell_shuttle_01/airlock/starboard
+	name = "Crashed Skrellian Shuttle Airlock Starboard"
 
 /datum/map_template/ruin/exoplanet/mystery_ship_1
 	name = "Mystery Ship"

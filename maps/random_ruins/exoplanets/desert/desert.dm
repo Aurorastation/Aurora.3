@@ -66,8 +66,53 @@
 
 	unit_test_groups = list(1)
 
-/area/desert_comms
+ABSTRACT_TYPE(/area/desert_comms)
 	name = "Abandoned Solarian Relay Station"
 	icon_state = "bluenew"
 	requires_power = TRUE
 	no_light_control = FALSE
+	ambience = AMBIENCE_TECH_RUINS
+
+/area/desert_comms/exterior
+	name = "Abandoned Solarian Relay Station Exterior"
+	sound_environment = SOUND_ENVIRONMENT_PLAIN
+	is_outside = OUTSIDE_YES
+	ambience = AMBIENCE_DESERT
+
+/area/desert_comms/entrance
+	name = "Abandoned Solarian Relay Station Entrance"
+	sound_environment = SOUND_AREA_SMALL_ENCLOSED
+
+/area/desert_comms/main_room
+	name = "Abandoned Solarian Relay Station Main Area"
+
+/area/desert_comms/substation
+	name = "Abandoned Solarian Relay Station Substation"
+	ambience = AMBIENCE_SUBSTATION
+	sound_environment = SOUND_AREA_SMALL_ENCLOSED
+
+/area/desert_comms/power
+	name = "Abandoned Solarian Relay Station Nuclear Generators"
+	ambience = AMBIENCE_MAINTENANCE
+	sound_environment = SOUND_AREA_SMALL_ENCLOSED
+
+/area/desert_comms/command
+	name = "Abandoned Solarian Relay Station Command Room"
+
+/area/desert_comms/lounge
+	name = "Abandoned Solarian Relay Station Crew Lounge"
+
+/area/desert_comms/quarters
+	name = "Abandoned Solarian Relay Station Crew Quarters"
+
+/area/desert_comms/quarters/command
+	name = "Abandoned Solarian Relay Station Commander's Quarters"
+	sound_environment = SOUND_AREA_SMALL_SOFTFLOOR
+
+/area/desert_comms/restroom
+	name = "Abandoned Solarian Relay Station Crew Restroom"
+	sound_environment = SOUND_AREA_SMALL_ENCLOSED
+
+/area/desert_comms/freezer
+	name = "Abandoned Solarian Relay Station Crew Freezer"
+	sound_environment = SOUND_AREA_SMALL_ENCLOSED

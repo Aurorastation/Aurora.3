@@ -220,8 +220,12 @@ GLOBAL_LIST_INIT(debug_verbs, list(
 
 	var/turf/simulated/location = get_turf(usr)
 
-	if(!istype(location, /turf/simulated)) // We're in space, let's not cause runtimes.
-		to_chat(usr, SPAN_WARNING("this debug tool cannot be used from space"))
+	if(!istype(location, /turf/simulated))
+		to_chat(src, SPAN_WARNING("This debug tool can only be used while on a simulated turf."))
+		return
+
+	if(!location?.zone)
+		to_chat(src, SPAN_WARNING("The turf you are standing on does not have a zone."))
 		return
 
 	var/icon/red = new('icons/misc/debug_group.dmi', "red")		//created here so we don't have to make thousands of these.

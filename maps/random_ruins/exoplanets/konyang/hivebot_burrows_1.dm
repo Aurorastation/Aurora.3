@@ -22,6 +22,7 @@
 
 	sound_environment = SOUND_AREA_TUNNEL_ENCLOSED
 	ambience = AMBIENCE_FOREBODING
+	is_outside = OUTSIDE_YES
 
 /obj/effect/landmark/corpse/miner/hivebot_burrows
 	name = "unidentifiable corpse"

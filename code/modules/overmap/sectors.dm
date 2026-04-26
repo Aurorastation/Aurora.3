@@ -77,10 +77,16 @@ GLOBAL_DATUM(map_overmap, /area/overmap)
 	var/invisible_until_ghostrole_spawn = FALSE
 	var/hide_from_reports = FALSE
 
+	/// Gas mixture datum returned to exterior return_air. Set to assoc list of material to moles to initialize the gas datum.
+	/// This will be returned in case external turfs are associated with this overmap object
+	var/datum/gas_mixture/exterior_atmosphere
+
 /obj/effect/overmap/visitable/Initialize()
 	. = ..()
 	if(. == INITIALIZE_HINT_QDEL)
 		return
+
+	setup_exterior_atmosphere() //Planets do their own thing, but set exterior atmos to a valid value here first. (empty is valid)
 
 	find_z_levels()     // This populates map_z and assigns z levels to the ship.
 	register_z_levels() // This makes external calls to update global z level information.
@@ -306,6 +312,30 @@ GLOBAL_DATUM(map_overmap, /area/overmap)
 
 	log_module_sectors("Overmap build complete.")
 	return 1
+
+/obj/effect/overmap/visitable/proc/setup_exterior_atmosphere()
+	//Skip setup if we've been set to a ref already
+	if(istype(exterior_atmosphere))
+		exterior_atmosphere.update_values() //Might as well update
+		exterior_atmosphere.check_tile_graphic()
+		return
+	var/list/exterior_atmos_composition = exterior_atmosphere
+	exterior_atmosphere = new
+	if(islist(exterior_atmos_composition))
+		for(var/gas in exterior_atmos_composition)
+			exterior_atmosphere.adjust_gas(gas, exterior_atmos_composition[gas], FALSE)
+		//revisit
+		//exterior_atmosphere.temperature = exterior_atmos_temp
+		exterior_atmosphere.update_values()
+		exterior_atmosphere.check_tile_graphic()
+
+/obj/effect/overmap/visitable/proc/get_exterior_atmosphere()
+	if(exterior_atmosphere && !istype(exterior_atmosphere))
+		CRASH("Attempting to retrieve exterior atmosphere before it is set up!")
+	//copy gas over and return, in practice external atmos is an infinite source
+	var/datum/gas_mixture/gas = new
+	gas.copy_from(exterior_atmosphere)
+	return gas
 
 /// A circular random coordinate pair from 0, unit by default, scaled by radius, then rounded if round.
 /proc/CircularRandomCoordinate(radius = 1, round)
