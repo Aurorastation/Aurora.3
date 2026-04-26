@@ -154,7 +154,7 @@ ABSTRACT_TYPE(/obj/item/package)
 	desc = "A supply package. Doesn't qualify for deliveries."
 	desc_extended = "\
 		Usually each package contains a different set of things one might need as supplies. \
-		Unlike the orion deliveries, these packages are not tied to a specific delivery network and are not eligible for deliveries. \
+		Unlike the Orion deliveries, these packages are not tied to a specific delivery network and are not eligible for deliveries. \
 		Probably more expensive then it should be."
 	icon_state = "supply_package"
 	item_state = "supply_package"
