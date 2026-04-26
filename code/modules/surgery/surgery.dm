@@ -30,7 +30,7 @@
 	var/alist/skill_requirements
 
 	/// The bonus (or penalty) fail rate to a surgery per point of skill diff. As a percent chance.
-	var/skill_diff_fail_modifier = 15
+	var/skill_diff_fail_modifier = SURGERY_DIFFICULTY_EASY
 
 /// Returns how well tool is suited for this step.
 /singleton/surgery_step/proc/tool_quality(obj/item/tool)

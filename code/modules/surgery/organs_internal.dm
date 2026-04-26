@@ -4,7 +4,7 @@
 	can_infect = TRUE
 	blood_level = 1
 	skill_requirements = alist(SURGERY_SKILL_COMPONENT = SKILL_LEVEL_TRAINED)
-	skill_diff_fail_modifier = 33 // Internal organ sugeries all share extremely high penalties for being untrained.
+	skill_diff_fail_modifier = SURGERY_DIFFICULTY_EXTREME
 
 /singleton/surgery_step/internal/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(!..())
