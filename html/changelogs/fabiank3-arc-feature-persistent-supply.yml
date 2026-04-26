@@ -1,0 +1,7 @@
+author: FabianK3
+
+delete-after: True
+
+changes:
+  - rscadd: "Added a persistent version of charge cards - Arc feature / Admin spawn only."
+  - rscadd: "Added a persistent version of cargo packages, called supply package - Arc feature / Admin spawn only."
