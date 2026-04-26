@@ -319,7 +319,7 @@
 	worth = 10000
 
 // Persistent ewallet that keeps it's value across rounds.
-// When spawned, using VV, set "worth", "initial_worth" to the same value, optionally set a "owner_name" and "name".
+// When spawned, using VV, set "worth", "initial_worth", "owner_name" and "name".
 /obj/item/spacecash/ewallet/persistent_charge_card
 	name = "specialized charge card"
 	desc = "A specialized charge card that holds a certain amount of money. This type of charge card is in use for special purposes and not generally available."
@@ -333,7 +333,7 @@
 
 /obj/item/spacecash/ewallet/persistent_charge_card/persistent_objects_get_content()
 	var/list/content = list()
-	content["name"] = src.name // Allows renaming the card using VV to be preserved across rounds.
+	content["name"] = src.name
 	content["initial_worth"] = src.initial_worth
 	content["worth"] = src.worth
 	content["owner_name"] = src.owner_name
