@@ -151,7 +151,11 @@ ABSTRACT_TYPE(/obj/item/package)
 // Persistent supply packages. These are meant to be spawned by admins and feature no mechanics like the orion deliveries.
 /obj/item/package/persistent_supply
 	name = "supply package"
-	desc = "A supply package. Usually each packages contains a different set of things one might need as supplies. Doesn't qualify for deliveries."
+	desc = "A supply package. Doesn't qualify for deliveries."
+	desc_extended = "\
+		Usually each package contains a different set of things one might need as supplies. \
+		Unlike the orion deliveries, these packages are not tied to a specific delivery network and are not eligible for deliveries. \
+		Probably more expensive then it should be."
 	icon_state = "supply_package"
 	item_state = "supply_package"
 	persistant_objects_expiration_time_days = 360
