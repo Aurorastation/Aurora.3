@@ -105,7 +105,7 @@
 	else if(authenticated_account)
 		if(istype(attacking_item,/obj/item/spacecash))
 			if(istype(attacking_item, /obj/item/spacecash/ewallet/persistent_charge_card))
-				to_chat(user, SPAN_WARNING("You insert the [attacking_item] into [src], but the machine immediatly rejects it!"))
+				to_chat(user, SPAN_WARNING("You insert the [attacking_item] into [src], but the machine immediately rejects it!"))
 				return
 			var/obj/item/spacecash/cash = attacking_item
 			//consume the money
