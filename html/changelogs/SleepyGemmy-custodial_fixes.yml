@@ -1,0 +1,7 @@
+author: SleepyGemmy
+
+delete-after: True
+
+changes:
+  - bugfix: "Fixed custodial airlocks not having the correct preview sprite set."
+  - bugfix: "Fixed a message when putting a mop bucket on a custodial cart."
