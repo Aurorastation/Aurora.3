@@ -305,7 +305,7 @@
 	. = ..()
 	if(distance > 2 && user != loc)
 		return
-	if(!src.owner_name)
+	if(src.owner_name)
 		. += SPAN_NOTICE("The charge card's owner is [src.owner_name].")
 	. += SPAN_NOTICE("It has [src.worth]电 left.")
 
@@ -319,7 +319,7 @@
 	worth = 10000
 
 // Persistent ewallet that keeps it's value across rounds.
-// When spawned, using VV, set "worth", "initial_worth" to the same value, optionally set a "owner_name".
+// When spawned, using VV, set "worth", "initial_worth" to the same value, optionally set a "owner_name" and "name".
 /obj/item/spacecash/ewallet/persistent_credit_card
 	name = "credit card"
 	desc = "A credit card that holds a certain amount of money."
@@ -333,12 +333,14 @@
 
 /obj/item/spacecash/ewallet/persistent_credit_card/persistent_objects_get_content()
 	var/list/content = list()
+	content["name"] = src.name // Allows renaming the card using VV to be preserved across rounds.
 	content["initial_worth"] = src.initial_worth
 	content["worth"] = src.worth
 	content["owner_name"] = src.owner_name
 	return
 
 /obj/item/spacecash/ewallet/persistent_credit_card/persistent_objects_apply_content(content, x, y, z)
+	name = content["name"]
 	initial_worth = content["initial_worth"]
 	worth = content["worth"]
 	owner_name = content["owner_name"]
