@@ -1,0 +1,7 @@
+author: SleepyGemmy
+
+delete-after: True
+
+changes:
+  - bugfix: "Fixed an extra comma in the spawn date and time screen message."
+  - bugfix: "Fixed the month number not being prefixed correctly in the status tab."
