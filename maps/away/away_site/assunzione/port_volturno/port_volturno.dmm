@@ -2876,6 +2876,15 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/port_volturno/interior/police/brig)
+"cev" = (
+/obj/machinery/door/firedoor{
+	dir = 4;
+	req_one_access = null
+	},
+/obj/effect/floor_decal/industrial/hatch_door/yellow,
+/obj/machinery/door/window/westleft,
+/turf/simulated/floor/tiled/cargo/brass/full,
+/area/port_volturno/interior/pool)
 "cew" = (
 /obj/structure/table/stone/marble,
 /obj/random/soap{
@@ -8380,6 +8389,9 @@
 	},
 /obj/structure/flora/assunzione/bush/lucevine,
 /obj/structure/flora/assunzione/flowers/ppflowers,
+/obj/machinery/light/spot{
+	dir = 1
+	},
 /turf/simulated/floor/grass1/no_edge,
 /area/port_volturno/interior/pool)
 "fPI" = (
@@ -11877,6 +11889,9 @@
 "iqh" = (
 /obj/effect/floor_decal/spline/fancy{
 	dir = 8
+	},
+/obj/structure/window/reinforced/crescent{
+	dir = 1
 	},
 /turf/simulated/floor/wood,
 /area/port_volturno/interior/pool)
@@ -15546,14 +15561,12 @@
 /turf/simulated/floor/tiled/freezer,
 /area/port_volturno/interior/clinic/pharmacy)
 "kVw" = (
-/obj/machinery/door/urban{
-	dir = 4
-	},
 /obj/machinery/door/firedoor{
 	dir = 4;
 	req_one_access = null
 	},
 /obj/effect/floor_decal/industrial/hatch_door/yellow,
+/obj/machinery/door/window/westright,
 /turf/simulated/floor/tiled/cargo/brass/full,
 /area/port_volturno/interior/pool)
 "kVB" = (
@@ -17894,6 +17907,7 @@
 /obj/effect/floor_decal/corner/red/diagonal,
 /obj/structure/table/reinforced/wood,
 /obj/effect/decal/rolling_fog,
+/obj/machinery/light/spot,
 /turf/simulated/floor/tiled/white,
 /area/port_volturno/interior/pool)
 "mEK" = (
@@ -20422,11 +20436,12 @@
 /turf/simulated/floor/grass1/no_edge,
 /area/port_volturno/exterior)
 "opH" = (
-/obj/effect/floor_decal/industrial/hatch_door/yellow,
 /obj/machinery/door/firedoor{
 	dir = 4;
 	req_one_access = null
 	},
+/obj/effect/floor_decal/industrial/hatch_door/yellow,
+/obj/machinery/door/window/eastright,
 /obj/effect/decal/rolling_fog,
 /turf/simulated/floor/tiled/cargo/brass/full,
 /area/port_volturno/interior/pool)
@@ -25864,6 +25879,16 @@
 /obj/effect/floor_decal/industrial/hatch_door/yellow,
 /turf/simulated/floor/tiled/freezer,
 /area/port_volturno/interior/clinic/pharmacy)
+"saT" = (
+/obj/machinery/door/firedoor{
+	dir = 4;
+	req_one_access = null
+	},
+/obj/effect/floor_decal/industrial/hatch_door/yellow,
+/obj/machinery/door/window/eastleft,
+/obj/effect/decal/rolling_fog,
+/turf/simulated/floor/tiled/cargo/brass/full,
+/area/port_volturno/interior/pool)
 "sbL" = (
 /obj/machinery/door/window/eastleft,
 /turf/simulated/floor/wood,
@@ -27622,15 +27647,13 @@
 /turf/simulated/floor/sidewalk/assunzione/flat,
 /area/port_volturno/exterior)
 "tvm" = (
-/obj/machinery/door/urban{
-	dir = 4
-	},
+/obj/effect/floor_decal/corner/red/diagonal,
+/obj/structure/table/stone/marble,
+/obj/effect/decal/rolling_fog,
 /obj/machinery/door/firedoor{
 	dir = 4;
 	req_one_access = null
 	},
-/obj/effect/floor_decal/industrial/hatch_door/yellow,
-/obj/effect/decal/rolling_fog,
 /turf/simulated/floor/tiled/cargo/brass/full,
 /area/port_volturno/interior/pool)
 "twk" = (
@@ -30678,6 +30701,7 @@
 	pixel_x = 10
 	},
 /obj/effect/decal/rolling_fog,
+/obj/machinery/light/spot,
 /turf/simulated/floor/lino,
 /area/port_volturno/interior/pool)
 "vvB" = (
@@ -30784,9 +30808,6 @@
 "vzR" = (
 /obj/effect/floor_decal/spline/fancy{
 	dir = 8
-	},
-/obj/structure/window/reinforced/crescent{
-	dir = 1
 	},
 /obj/structure/table/wood,
 /turf/simulated/floor/tiled/dark,
@@ -112608,9 +112629,9 @@ fiG
 peU
 rjz
 iqh
+fiG
 vzR
 iAy
-fiG
 fiG
 fiG
 fiG
@@ -112865,7 +112886,7 @@ hQk
 hQk
 hQk
 kVw
-rNe
+cev
 rNe
 rNe
 rNe
@@ -115433,10 +115454,10 @@ wcu
 rNe
 rNe
 hQk
+rNe
+saT
 opH
-opH
-opH
-opH
+rNe
 hQk
 hQk
 tvm
