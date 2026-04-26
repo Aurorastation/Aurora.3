@@ -345,3 +345,7 @@
 	src.x = x
 	src.y = y
 	src.z = z
+
+/obj/item/spacecash/ewallet/persistent_credit_card/Destroy()
+	log_and_message_admins("Persistent credit card at [src] was destroyed!", null, get_turf(src))
+	..()
