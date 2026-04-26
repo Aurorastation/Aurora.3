@@ -1,0 +1,7 @@
+author: TheGreyWolf
+
+delete-after: True
+
+changes:
+  - rscadd: "Added EFTPOS devices to a large amount of away sites and away ships. They are mapped either on the bridge, the captain's quarters or in one instance the kitchen."
+  - bugfix: "Fixed several outdated item paths found on away maps."
