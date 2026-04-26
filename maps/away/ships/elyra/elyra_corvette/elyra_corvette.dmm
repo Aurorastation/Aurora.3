@@ -1092,7 +1092,7 @@
 /turf/simulated/floor/reinforced,
 /area/shuttle/elyran_shuttle)
 "fx" = (
-/obj/effect/floor_decal/plaque,
+/obj/structure/sign/floor_plaque,
 /obj/structure/cable{
 	d1 = 4;
 	d2 = 8;
