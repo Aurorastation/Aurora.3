@@ -1,4 +1,5 @@
 /datum/antagonist/proc/create_antagonist(var/datum/mind/target, var/move, var/gag_announcement, var/preserve_appearance)
+	SHOULD_CALL_PARENT(TRUE)
 
 	if(!target)
 		return
