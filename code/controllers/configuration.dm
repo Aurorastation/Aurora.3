@@ -70,6 +70,7 @@ GLOBAL_LIST_EMPTY(gamemode_cache)
 	"log_subsystems_zas" = FALSE, // ZAS
 	"log_subsystems_zas_debug" = FALSE, // ZAS debug
 	"log_subsystems_http" = TRUE, //HTTP Log
+	"log_subsystems_sentry" = TRUE, //Sentry subsystem self-diagnostics
 
 	/*#### MODULES ####*/
 
@@ -129,6 +130,7 @@ GLOBAL_LIST_EMPTY(gamemode_cache)
 	"world_subsystems_zas" = "subsystems/zas.log",
 	"world_subsystems_zas_debug" = "subsystems/zas.log",
 	"world_subsystems_http" = "subsystems/http.log",
+	"world_subsystems_sentry_log" = "subsystems/sentry.log",
 
 	/*#### MODULES ####*/
 
@@ -1188,6 +1190,41 @@ GENERAL_PROTECT_DATUM(/datum/configuration)
 					SSdiscord.alert_visibility = TRUE
 				else
 					log_config("Unknown setting in discord configuration: '[name]'")
+
+		else if (type == "sentry")
+			if (!SSsentry)
+				log_config("Sentry: Attempted to read config/sentry.txt before SSsentry was initialized.")
+				return
+
+			switch (name)
+				if ("enabled")
+					SSsentry._config_enabled_flag = TRUE
+				if ("dsn")
+					if (!SSsentry.parse_dsn(value))
+						log_config("Sentry: Invalid DSN '[value]' in config/sentry.txt")
+				if ("environment")
+					SSsentry.environment = value
+				if ("server_name")
+					SSsentry.server_name = value
+				if ("capture_runtimes")
+					SSsentry.capture_runtimes = text2num(value) ? TRUE : FALSE
+				if ("capture_sql")
+					SSsentry.capture_sql = text2num(value) ? TRUE : FALSE
+				if ("capture_hard_dels")
+					SSsentry.capture_hard_dels = text2num(value) ? TRUE : FALSE
+				if ("capture_profiler")
+					SSsentry.capture_profiler = text2num(value) ? TRUE : FALSE
+				if ("profiler_top_n")
+					SSsentry.profiler_top_n = text2num(value)
+				if ("dedup_window")
+					SSsentry.dedup_window = text2num(value)
+				if ("scrub_ckeys")
+					SSsentry.scrub_ckeys = text2num(value) ? TRUE : FALSE
+				if ("max_consecutive_failures")
+					SSsentry.max_consecutive_failures = text2num(value)
+				else
+					log_config("Sentry: Unknown setting '[name]' in config/sentry.txt")
+
 	load_logging_config()
 	load_away_sites_config()
 	load_exoplanets_config()

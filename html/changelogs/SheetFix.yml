@@ -1,0 +1,6 @@
+author: TheGreyWolf
+
+delete-after: True
+
+changes:
+  - bugfix: "Fixed another circumstance causing the sheet snatcher to show an incorrect amount of sheets in it."

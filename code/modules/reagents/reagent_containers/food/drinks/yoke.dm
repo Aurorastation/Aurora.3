@@ -80,10 +80,14 @@
 		return
 
 	var/obj/item/reagent_containers/food/drinks/cans/C = cans[length(cans)]
-	cans -= C
 	remove_from_storage(C, get_turf(user))
 	user.put_in_hands(C)
 	update_icon()
+
+/obj/item/storage/box/fancy/yoke/remove_from_storage(obj/item/W, atom/new_location)
+	. = ..()
+	if(.)
+		cans -= W
 
 /obj/item/storage/box/fancy/yoke/attackby(obj/item/attacking_item, mob/user)
 	to_chat(user, SPAN_WARNING("\The [src] cannot be refilled with items!"))

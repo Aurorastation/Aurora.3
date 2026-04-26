@@ -1,0 +1,6 @@
+author: TheGreyWolf
+
+delete-after: True
+
+changes:
+  - bugfix: "The ops status display no longer gets the alert graphics overlaid incorrectly."

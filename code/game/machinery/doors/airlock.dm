@@ -1733,8 +1733,7 @@ About the new airlock wires panel:
 
 /obj/machinery/door/airlock/proc/CreateAssembly()
 	var/obj/structure/door_assembly/da = new assembly_type(src.loc)
-	if (istype(da, /obj/structure/door_assembly/multi_tile))
-		da.set_dir(src.dir)
+	da.set_dir(src.dir)
 
 	da.anchored = 1
 	if(mineral)
@@ -1882,19 +1881,6 @@ About the new airlock wires panel:
 						close(1)
 					else
 						to_chat(user, SPAN_WARNING("You need to be wielding \the [attacking_item] to do that."))
-		return TRUE
-	else if(attacking_item.tool_behaviour == TOOL_HAMMER)
-		if(locked && user.a_intent != I_HURT)
-			to_chat(user, SPAN_NOTICE("The airlock's bolts prevent it from being forced."))
-		else if(user.a_intent == I_HURT)
-			..()
-		else if(arePowerSystemsOn())
-			to_chat(user, SPAN_NOTICE("The airlock's motors resist your efforts to force it."))
-		else if(!welded && !operating)
-			if(density)
-				open(1)
-			else
-				close(1)
 		return TRUE
 	else if(density && istype(attacking_item, /obj/item/material/twohanded/chainsaw))
 		var/obj/item/material/twohanded/chainsaw/ChainSawVar = attacking_item

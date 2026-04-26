@@ -378,3 +378,100 @@
       had 1 item in them.
   - bugfix: Fixed some mapped objects that no longer existed being mapped on the SFA
       patrol ship.
+2026-04-22:
+  Batrachophrenoboocosmomachia:
+  - balance: Access pass on all maint doors with minor alterations for more consistent
+      per-department access rights.
+  - balance: Modified random loot tables and added new loot spawner type to Horizon,
+      that should result in more varied maint tunnel contents without disrupting existing
+      balance.
+  - bugfix: Fixes box of condiments spawning with generic non-filled condiment bottles.
+  - bugfix: Removes one of two lights that were directly adjacent to each other in
+      the Operating Theatre.
+  Fenodyree:
+  - rscadd: Adds a dosimeter. Engineering spawns with two. Counts the amount of radiation
+      it's wearer takes and calculates the real rate of exposure after armor.
+  - imageadd: Adds sprites to the dosimeter courtesy of The_Ill_fated, with a big
+      thanks!
+  - rscadd: Adds an instruction to shelter in maintanance to the Supermatter Delamination
+      alert. Also unlocks maintanance when it does.
+  - rscadd: Adds radiation armour values to makeshift armour, based on weight. Lead
+      plate on the chest blocks 90% of radiation to the chest. Does nothing for your
+      arms and legs though.
+  - rscadd: Adds a damage flag that makes certain hits ignore mechanical limbs. Useful
+      for radiation, which shouldn't give metal radaiation burns.
+  - balance: Multiplies the max radiation level by 10, to 1000. This means radiation
+      takes much logner to accumulate, radiation protection that isn't the radsuit
+      is worth it now.
+  - balance: Increaes the lethality of maximum radiation doses. Any radiation over
+      your maximum is dealt as burn damage.
+  - balance: Rebalances radiation damage to be more painful, with more side effects,
+      but less organ damage except at the highest levels.
+  Hellfirejag:
+  - balance: Tweaked the skill requirements for repairing organs with nanopaste to
+      rank 2 robotics (down from rank 3).
+  SleepyGemmy:
+  - rscadd: Added a custodial airlock.
+  TheGreyWolf:
+  - rscdel: Job uniforms and suits replaced by loadout items, no longer spawn in bags.
+2026-04-23:
+  Batrachophrenoboocosmomachia:
+  - bugfix: Makes the navigation consoles scattered around the public spaces on the
+      Horizon (that only display nearby starmap) able to be viewed again without any
+      piloting skills.
+  - rscadd: Adds a bar to the top floor of WITCH HAND.
+  - rscadd: Adds minimap support and portable map readers to Port Volturno.
+  - rscadd: Adds support for the Map TGUI to not provide a legend (for non-Horizon
+      maps).
+  - bugfix: Some additional cleanup and tweaking in Port Volturno.
+  - bugfix: Fixed some mapping rendering issues.
+  FabianK3:
+  - bugfix: Fixed persistence being used on non-Horizon maps.
+  - rscadd: Added an admin verb to toggle persistence saving.
+  Fenodyree:
+  - bugfix: Fixes projectile accuracy checks not working. Shots can now miss again.
+  Hellfirejag:
+  - bugfix: Fixed a hard delete related to build mode.
+  Kano:
+  - bugfix: Fixed some atom health bugs and slightly refactored the code.
+  SleepyGemmy:
+  - bugfix: Fixed the tajaran cigarettes being named differently in the loadout.
+  TheGreyWolf:
+  - rscadd: The warden now gets a firing pin extractor.
+  - bugfix: Fixed a large number of overlapping wall objects in operations.
+  - bugfix: Tool storage is now on the same grid as the hallway, rather than on the
+      ops grid.
+  - rscadd: Gave hangar techs a blue toolbox in their lockers to do their job with.
+  - rscadd: Added a sheet snatcher to ops.
+  - rscadd: Moved miner and OM spawn to the ops break room.
+  - rscadd: Made the conveyor on the cargo elevator one shorter, to avoid loose items
+      being shuffled off the elevator.
+  - bugfix: Fixed two sprites mainly seen when mapping random object spawns.
+2026-04-25:
+  Batrachophrenoboocosmomachia:
+  - bugfix: Air panels again able to be accessed remotely through Atmosphere Control
+      app.
+  - bugfix: Missing chlorine detection added to air panels.
+  - rscadd: Adds minor visual tell to light sensitivity.
+  - balance: Reduces probability of light sensitivity effects firing, increases minimum
+      threshold.
+  - balance: Slightly reduces the brightness of cigarettes and ATMs (turf corner light
+      calculations resulted in outsized returns).
+  Batrachophrenoobocosmomachia:
+  - bugfix: Airlocks can again be repaired by using hammers on them with an appropriate
+      stack of materials in your offhand.
+  - bugfix: Binary atmos devices are again able to be toggled on/off by alt-clicking
+      them.
+  - bugfix: Temp control units now display correct 'turned on/off' balloon text when
+      toggled.
+  FabianK3:
+  - bugfix: Fixed airlock assembly rotation not being properly set when deconstructing
+      an airlock.
+  - rscadd: Added a squeeze-through mechanic for airlock assemblies. Drag-click yourself
+      on to the airlock assembly to climb through it.
+  - rscadd: 'Added basic icon versions for each airlock construction step: New, anchored,
+      wired and electronics.'
+  Hellfirejag:
+  - rscdel: Removed all job skill requirements that weren't actually mechanically
+      necessary.
+  - bugfix: Removed a hard del related to material stacks.

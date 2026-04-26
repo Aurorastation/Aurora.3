@@ -48,29 +48,19 @@
 
 	pathing_pass_method = TURF_PATHING_PASS_NO //Literally a wall, until we implement bots that can wallwarp, we might aswell save the processing
 
-
-/turf/simulated/wall/condition_hints(mob/user, distance, is_adjacent)
-	. += ..()
-	if(health >= maxhealth)
-		. += SPAN_NOTICE("It looks fully intact.")
-	else
-		// Total damage is based of base material integrity and optionally, if reinforced, reinforcement material integrity on top
-		var/integrity = material.integrity
-		if(reinf_material)
-			integrity += reinf_material.integrity
-
-		var/relative_damage = health / maxhealth
-
-		if(relative_damage <= 0.25)
-			. += SPAN_NOTICE("It looks slightly damaged.")
-		else if(relative_damage <= 0.5)
-			. += SPAN_WARNING("It looks damaged.")
-		else if(relative_damage <= 0.75)
-			. += SPAN_WARNING("It looks moderately damaged.")
-		else if(relative_damage <= 0.9)
-			. += SPAN_DANGER("It looks heavily damaged.")
-		else
-			. += SPAN_DANGER("It looks critically damaged and on the verge of structural collapse.")
+/turf/simulated/wall/get_damage_condition_hints(mob/user, distance, is_adjacent)
+	var/state
+	var/current_damage = health / maxhealth
+	switch(current_damage)
+		if(0 to 0.2)
+			state = SPAN_DANGER("\The [src] is about to collapse into shattered debris!")
+		if(0.2 to 0.4)
+			state = SPAN_WARNING("\The [src] shows massive cracks across its surface and is in dire need of repairs!")
+		if(0.4 to 0.8)
+			state = SPAN_NOTICE("\The [src] is dented, but still sturdy.")
+		if(0.8 to 1)
+			state = SPAN_NOTICE("\The [src] seems completely intact.")
+	. = state
 
 /turf/simulated/wall/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()
@@ -113,7 +103,7 @@
 		reinf_material = SSmaterials.get_material_by_name(rmaterialtype)
 	update_material()
 	hitsound = material.hitsound
-	set_maxhealth(material.integrity + (reinf_material ? reinf_material.integrity : 0))
+	set_maxhealth(material.integrity + (reinf_material ? reinf_material.integrity : 0), TRUE)
 
 	if (material.radioactivity || (reinf_material && reinf_material.radioactivity))
 		START_PROCESSING(SSprocessing, src)

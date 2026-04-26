@@ -52,7 +52,7 @@
 //Civilian
 /datum/ghostspawner/human/assunzione_vendor
 	short_name = "assunzione_vendor"
-	name = "Point Volturno Vendor"
+	name = "Port Volturno Vendor"
 	desc = "Man the stores around Port Volturno. Sell goods to the visiting crewmembers. Don't think too hard about what's probably going to happen to them in the Sea."
 	max_count = 6
 	tags = list("External")
@@ -65,8 +65,8 @@
 							SPECIES_IPC_BISHOP,
 							SPECIES_IPC_SHELL)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
-	assigned_role = "Point Volturno Vendor"
-	special_role = "Point Volturno Vendor"
+	assigned_role = "Port Volturno Vendor"
+	special_role = "Port Volturno Vendor"
 	respawn_flag = null
 
 /obj/outfit/admin/assunzione/vendor

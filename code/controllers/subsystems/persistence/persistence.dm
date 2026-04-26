@@ -13,13 +13,14 @@ SUBSYSTEM_DEF(persistence)
 	name = "Persistence"
 	init_order = INIT_ORDER_PERSISTENCE // The order is tied with the init and maploading subsystem.
 	flags = SS_NO_FIRE // This subsystem has no continues workload, it's init and shutdown only.
+	var/prevent_saving = FALSE // Toggle to prevent saving at round end, changed by toggle_persistence proc, used for admin purposes.
 
 /**
  * Subsystem info stub message generation.
  */
 /datum/controller/subsystem/persistence/stat_entry(msg)
-	msg = ("Tracked object register: [length(GLOB.persistence_object_track_register)]")
-	return ..()
+	msg = ("Register: [length(GLOB.persistence_object_track_register)] | Prevent saving: [SSpersistence.prevent_saving ? "TRUE" : "FALSE"]")
+	return msg
 
 /**
  * Helper method to check and log database connection.
@@ -48,6 +49,36 @@ SUBSYSTEM_DEF(persistence)
 		return FALSE
 	return TRUE
 
+/datum/admins/proc/toggle_persistence()
+	set name = "Toggle Persistence"
+	set category = "Special Verbs"
+
+	if(!check_rights(R_ADMIN))
+		return
+
+	var/message = ""
+	var/options = list()
+	if(SSpersistence.prevent_saving)
+		message = "The persistence subsystem will NOT save at the end of the round. Do you want to re-enable it?"
+		options = list("Re-enable saving", "Cancel")
+	else
+		message = "The persistence subsystem will save at the end of the round. Do you want to prevent this? This can be un-done before the round ends."
+		options = list("Prevent saving", "Cancel")
+
+	var/confirm = tgui_alert(usr, message, "Toggle Persistence Saving", options)
+	if(confirm == "Prevent saving")
+		SSpersistence.prevent_saving = TRUE
+		to_world(FONT_LARGE(EXAMINE_BLOCK_RED("Persistence saving at the end of the round has been [SPAN_BOLD(SPAN_WARNING("disabled"))] by an administrator.")))
+		log_and_message_admins("has toggled persistence saving at round end, it is now disabled", usr)
+	else if (confirm == "Re-enable saving")
+		SSpersistence.prevent_saving = FALSE
+		to_world(FONT_LARGE(EXAMINE_BLOCK_RED("Persistence saving at the end of the round has been [SPAN_BOLD(SPAN_GOOD("re-enabled"))] by an administrator.")))
+		log_and_message_admins("has toggled persistence saving at round end, it is now re-enabled", usr)
+	else
+		return
+
+	feedback_add_details("admin_verb","TP") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
+
 /**
  * Initialization of the persistence subsystem.
  * Includes generic startup checks and init of the different persistent data types.
@@ -74,6 +105,10 @@ SUBSYSTEM_DEF(persistence)
  * The shutdown consists of finalization steps for each persistent data type.
  */
 /datum/controller/subsystem/persistence/Shutdown()
+	if(prevent_saving)
+		log_subsystem_persistence_warning("Persistence subsystem was toggled to not save. Skipping subsystem finalization.")
+		return
+
 	if(!databaseCheckConnection("subsystem shutdown"))
 		log_subsystem_persistence_panic("SQL error during persistence subsystem shutdown. Cannot finalise persistence of the round.")
 		return

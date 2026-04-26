@@ -59,6 +59,9 @@
 	. += "To deflate it safely, use the 'deflate' verb or ctrl-click on it."
 	. += "Hitting these with any objects will probably puncture and break it forever."
 
+/obj/structure/inflatable/on_death()
+	deflate(TRUE)
+
 /obj/structure/inflatable/wall
 	name = "inflatable wall"
 	undeploy_path = /obj/item/inflatable/wall

@@ -43,7 +43,7 @@
 
 	var/mutable_appearance/screen_overlay = mutable_appearance(icon, "atm-active", plane = ABOVE_LIGHTING_PLANE)
 	AddOverlays(screen_overlay)
-	set_light(1.4, 1, COLOR_CYAN)
+	set_light(1.4, 0.75, COLOR_CYAN)
 
 	if(held_card)
 		var/mutable_appearance/card_overlay = mutable_appearance(icon, "atm-cardin", plane = ABOVE_LIGHTING_PLANE)
