@@ -174,4 +174,4 @@ ABSTRACT_TYPE(/obj/item/package)
 
 /obj/item/package/persistent_supply/Destroy()
 	log_and_message_admins("Persistent supply package at [src] was destroyed!", null, get_turf(src))
-	..()
+	. = ..()

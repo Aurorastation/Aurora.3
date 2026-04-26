@@ -350,4 +350,4 @@
 
 /obj/item/spacecash/ewallet/persistent_charge_card/Destroy()
 	log_and_message_admins("Persistent charge card ([src.name]) at [src] was destroyed!", null, get_turf(src))
-	..()
+	. = ..()
