@@ -4542,6 +4542,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
+/obj/item/eftpos,
 /turf/simulated/floor/tiled/dark,
 /area/ship/ssrm_corvette/cic)
 "jsi" = (

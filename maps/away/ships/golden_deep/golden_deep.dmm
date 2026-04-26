@@ -5574,6 +5574,7 @@
 	pixel_y = 10;
 	pixel_x = 8
 	},
+/obj/item/eftpos,
 /turf/simulated/floor/marble/dark,
 /area/golden_deep/bridge)
 "xj" = (

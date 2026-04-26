@@ -1923,6 +1923,7 @@
 	pixel_x = -5;
 	pixel_y = 2
 	},
+/obj/item/eftpos,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/orion_miner/bridge)
 "qb" = (

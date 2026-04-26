@@ -4988,6 +4988,7 @@
 /obj/effect/floor_decal/corner/beige{
 	dir = 6
 	},
+/obj/item/eftpos,
 /turf/simulated/floor/tiled,
 /area/ship/yacht_civ/bridge)
 "Sr" = (

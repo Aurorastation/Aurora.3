@@ -12550,6 +12550,7 @@
 	pixel_x = -11;
 	pixel_y = 2
 	},
+/obj/item/eftpos,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/idris_cruiser/bridge)
 "SZ" = (

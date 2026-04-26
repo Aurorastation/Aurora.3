@@ -3045,6 +3045,7 @@
 	pixel_x = -2;
 	pixel_y = 2
 	},
+/obj/item/eftpos,
 /turf/simulated/floor/tiled/techfloor,
 /area/shuttle/lone_spacer/bridge)
 "VW" = (

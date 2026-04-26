@@ -12373,6 +12373,7 @@
 	pixel_x = 7;
 	pixel_y = 4
 	},
+/obj/item/eftpos,
 /turf/simulated/floor/tiled/gunmetal,
 /area/shuttle/tret_industrial/main)
 "vjz" = (

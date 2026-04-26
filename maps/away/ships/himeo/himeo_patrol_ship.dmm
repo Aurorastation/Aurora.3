@@ -8063,6 +8063,7 @@
 "HU" = (
 /obj/structure/table/steel,
 /obj/effect/floor_decal/corner/blue/full,
+/obj/item/eftpos,
 /turf/simulated/floor/tiled/gunmetal,
 /area/himeo_patrol_ship/bridge)
 "HV" = (

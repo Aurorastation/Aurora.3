@@ -5680,6 +5680,7 @@
 	pixel_y = -4;
 	pixel_x = 7
 	},
+/obj/item/eftpos,
 /turf/simulated/floor/tiled/gunmetal/full,
 /area/tramp_freighter/bridge)
 "CF" = (

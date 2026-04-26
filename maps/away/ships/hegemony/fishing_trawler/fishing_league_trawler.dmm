@@ -2534,6 +2534,7 @@
 /obj/effect/floor_decal/corner/black{
 	dir = 10
 	},
+/obj/item/eftpos,
 /turf/simulated/floor/tiled/dark,
 /area/ship/fishing_trawler/bridge)
 "tO" = (

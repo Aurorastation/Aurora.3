@@ -5267,6 +5267,7 @@
 	pixel_y = 6
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
+/obj/item/eftpos,
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion/bridge)
 "rDd" = (
