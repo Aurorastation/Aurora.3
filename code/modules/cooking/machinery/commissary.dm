@@ -122,7 +122,11 @@
 	/obj/item/gun/bang,
 	/obj/item/eightball,
 	/obj/item/bikehorn,
-	/obj/item/camera_film
+	/obj/item/camera_film,
+	/obj/item/ammo_magazine/caps,
+	/obj/item/pack,
+	/obj/item/storage/card,
+	/obj/item/music_cartridge
 	)
 	display_tiers = 4
 	display_tier_amt = 5

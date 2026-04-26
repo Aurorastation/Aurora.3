@@ -8,3 +8,4 @@ changes:
   - rscadd: "Made the restock packs come with cargo access locks."
   - rscadd: "Restock packs are now actual boxes that can be opened."
   - rscadd: "The commissary restock crate was moved to the operations loading bay."
+  - rscadd: "The toy shelf can now also hold cap gun mags, card packs, card boxes and music cartridges."
