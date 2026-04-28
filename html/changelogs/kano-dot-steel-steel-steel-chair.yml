@@ -1,0 +1,6 @@
+author: Kano
+
+delete-after: True
+
+changes:
+  - bugfix: "Fixed an issue where the chairs update their name incorrectly."
