@@ -1,0 +1,4 @@
+author: Hellfirejag
+delete-after: True
+changes:
+  - bugfix: "Fixed both a hard delete and a random test fail related to hivebot beacons."
