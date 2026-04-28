@@ -242,17 +242,17 @@
 /obj/item/organ/internal/brain/proc/handle_severe_brain_damage()
 	set waitfor = FALSE
 	healed_threshold = 0
-	to_chat(owner, "<span class = 'notice'><font size=4><B>Where am I...?</B></font></span>")
+	to_chat(owner, SPAN_NOTICE(FONT_LARGE("<b>Where am I...?</b>")))
 	owner.Paralyse(20)
 	sleep(5 SECONDS)
 	if(!owner)
 		return
-	to_chat(owner, "<span class = 'notice'><font size=4><B>What's going on...?</B></font></span>")
+	to_chat(owner, SPAN_NOTICE(FONT_LARGE("<b>What is going on...?</b>")))
 	sleep(10 SECONDS)
 	if(!owner)
 		return
-	to_chat(owner, "<span class = 'notice'><font size=4><B>What happened...?</B></font></span>")
-	alert(owner.find_mob_consciousness(), "You have taken massive brain damage! You will not be able to remember the events leading up to your injury.", "Brain Damaged")
+	to_chat(owner, SPAN_NOTICE(FONT_LARGE("<b>What happened...?</b>")))
+	to_chat(owner, EXAMINE_BLOCK_RED(SPAN_NOTICE(FONT_LARGE("You have taken massive brain damage. You will not be able to remember the events leading up to your injury."))))
 
 /obj/item/organ/internal/brain/proc/handle_damage_effects()
 	if(owner.stat)

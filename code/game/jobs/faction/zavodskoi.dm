@@ -23,7 +23,13 @@
 		/datum/species/bug = TRUE,
 		/datum/species/bug/type_b = TRUE,
 		/datum/species/bug/type_b/type_bb = TRUE,
-		/datum/species/bug/type_e = TRUE
+		/datum/species/bug/type_e = TRUE,
+		/datum/species/tajaran
+	)
+
+	blacklisted_citizenship_types = list(
+		/datum/citizenship/dpra,
+		/datum/citizenship/pra
 	)
 
 	job_species_blacklist = list(

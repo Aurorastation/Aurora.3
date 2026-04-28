@@ -51,9 +51,6 @@ GLOBAL_DATUM(jockeys, /datum/antagonist/jockey)
 	player.update_eyes()
 	player.regenerate_icons()
 
-	// Offship antags wipe skill components so that they can bypass skill restrictions entirely.
-	for(var/datum/component/skill/skill in player._datum_components)
-		qdel(skill)
 
 	return TRUE
 

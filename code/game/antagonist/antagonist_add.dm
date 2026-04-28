@@ -61,6 +61,8 @@
 	return 1
 
 /datum/antagonist/proc/remove_antagonist(var/datum/mind/player, var/show_message = TRUE, var/implanted)
+	SHOULD_CALL_PARENT(TRUE)
+
 	if(!istype(player))
 		return 0
 

@@ -566,20 +566,22 @@
 	name = "random maintenance junk or loot"
 	desc = "Spawns any of: junk, loot, trash, trash pile, locker with junk or loot, (or other things)."
 	icon_state = "maint_junk_loot"
-	spawn_nothing_percentage = 25
+	spawn_nothing_percentage = 45
 	has_postspawn = TRUE
 	problist = list(
 		// spawn just one thing:
-		/obj/random/junk = 3,
+		/obj/random/junk = 2,
 		/obj/random/dirt_75 = 1,
-		/obj/random/loot = 1,
-		/obj/structure/trash_pile = 1,
-		/obj/random/tool = 0.2,
-		/obj/random/tech_supply = 0.1,
-		/obj/structure/girder = 0.1,
-		/obj/random/canister/empty = 0.1,
-		/obj/random/canister/filled = 0.05,
-		/obj/structure/closet/crate/loot = 0.01,
+		/obj/random/loot = 1.2,
+		/obj/structure/trash_pile = 1.1,
+		/obj/random/tool = 0.5,
+		/obj/random/tech_supply = 0.2,
+		/obj/structure/girder = 0.2,
+		/obj/random/canister/empty = 0.2,
+		/obj/structure/reagent_dispensers/fueltank = 0.1,
+		/obj/random/canister/filled/restricted = 0.1,
+		/obj/structure/closet/crate/loot = 0.05,
+		/obj/random/contraband = 0.2,
 
 		// spawn a container and maybe fill it with more junk:
 		/obj/structure/table/rack = 1,
@@ -590,10 +592,11 @@
 	)
 
 	var/list/more_junk_problist = list(
-		/obj/random/junk = 2,
-		/obj/random/loot = 1,
+		/obj/random/junk = 1,
+		/obj/random/loot = 1.2,
 		/obj/random/tech_supply = 0.2,
 		/obj/random/tool = 0.2,
+		/obj/random/contraband = 0.2,
 	)
 
 /obj/random/maintenance_junk_or_loot/post_spawn(var/obj/spawned)
@@ -607,6 +610,11 @@
 			for(var/i in 1 to i_max)
 				var/obj/more_junk = pickweight(more_junk_problist)
 				new more_junk(spawned.loc)
+	else if(prob(10) && !spawned.density)
+		var/i_max = rand(1, 2)
+		for(var/i in 1 to i_max)
+			var/obj/more_junk = pickweight(more_junk_problist)
+			new more_junk(spawned.loc)
 
 /obj/random/yarn
 	name = "random yarn"

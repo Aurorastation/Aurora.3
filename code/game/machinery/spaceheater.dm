@@ -161,7 +161,7 @@
 		return
 	switch(action)
 		if("powerToggle")
-			balloon_alert_to_viewers("turned [on ? "on" : "off"]")
+			balloon_alert_to_viewers("turned [on ? "off" : "on"]")
 			on = !on
 			active = 0
 			power_change()

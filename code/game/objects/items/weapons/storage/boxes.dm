@@ -647,7 +647,14 @@
 	desc = "It has a large ketchup smear on it."
 	color = COLOR_YELLOW_GRAY
 	illustration = "condiment"
-	starts_with = list(/obj/item/reagent_containers/food/condiment = 6)
+	starts_with = list(
+		/obj/item/reagent_containers/food/condiment/ketchup = 1,
+		/obj/item/reagent_containers/food/condiment/barbecue = 1,
+		/obj/item/reagent_containers/food/condiment/soysauce = 1,
+		/obj/item/reagent_containers/food/condiment/mayonnaise = 1,
+		/obj/item/reagent_containers/food/condiment/hot_sauce = 1,
+		/obj/item/reagent_containers/food/condiment/ntella = 1
+	)
 
 /obj/item/storage/box/cups
 	name = "box of paper cups"

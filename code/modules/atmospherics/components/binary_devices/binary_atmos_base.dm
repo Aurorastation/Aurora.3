@@ -136,8 +136,17 @@
 /obj/machinery/atmospherics/binary/AltClick(var/mob/user)
 	if(src.anchored)
 		if(!allowed(user))
-			to_chat(user, SPAN_WARNING("Access denied."))
-			return
-		Topic(src, list("power" = "1"))
+			balloon_alert(user, "Access denied.")
+			return FALSE
+		else if(stat && NOPOWER)
+			balloon_alert(user, "No power!")
+			return FALSE
+		else if(stat && BROKEN)
+			balloon_alert(user, "Broken!")
+			return FALSE
+		else
+			update_use_power(!use_power)
+			update_icon()
+			return TRUE
 	else
 		. = ..()

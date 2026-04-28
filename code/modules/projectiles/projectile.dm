@@ -448,6 +448,9 @@
 	if(ismob(A))
 		var/miss_modifier = max(15*(distance-1) - round(25*accuracy), 0)
 		def_zone = get_zone_with_miss_chance(def_zone, A, miss_modifier, (distance > 1 || original != A), point_blank)
+		if (!def_zone)
+			A.visible_message(SPAN_NOTICE("\The [src] misses [A] narrowly!"))
+			return FALSE
 	else
 		def_zone = ran_zone(def_zone, clamp(accurate_range - (accuracy_falloff * distance), 5, 100)) //Lower accurancy/longer range tradeoff. 7 is a balanced number to use.
 
