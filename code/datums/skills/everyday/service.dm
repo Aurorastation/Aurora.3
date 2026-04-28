@@ -49,5 +49,5 @@
 		+ "This does nothing for characters that don't have a liver."
 	maximum_level = SKILL_LEVEL_PROFESSIONAL
 	category =  /singleton/skill_category/everyday
-	subcategory = SKILL_SUBCATEGORY_SERVICE
+	subcategory = SKILL_SUBCATEGORY_PHYSICAL
 	component_type = CAROUSING_SKILL_COMPONENT
