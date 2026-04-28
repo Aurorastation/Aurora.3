@@ -50,8 +50,9 @@
 
 /mob/living/simple_animal/hostile/retaliate/hivebotharvester/Initialize(mapload,mob/living/simple_animal/hostile/hivebotbeacon/beacon)
 	. = ..()
-	parent_beacon = WEAKREF(beacon)
-	beacon.harvester_amt++
+	if (beacon)
+		parent_beacon = WEAKREF(beacon)
+		beacon.harvester_amt++
 	set_light(3,2,LIGHT_COLOR_RED)
 	if(!mapload)
 		spark(get_turf(src), 3, GLOB.alldirs)
