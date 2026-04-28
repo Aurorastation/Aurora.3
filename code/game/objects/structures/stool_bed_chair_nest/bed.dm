@@ -129,7 +129,7 @@
 	if(material_alteration & MATERIAL_ALTERATION_NAME)
 		// pad addition/removal is the only instance we change the name after initialize, in which case we'll need the initial name to avoid "steel steel steel chair"s
 		var/base_name = padding_update ? initial(name) : name
-		name = "[padding_material ? "[padding_material.adjective_name] padded " : ""][material.adjective_name] [base_name]"
+		name = "[padding_material ? "[padding_material?.adjective_name] padded " : ""][material?.adjective_name] [base_name]"
 
 	if(material_alteration & MATERIAL_ALTERATION_DESC)
 		desc = initial(desc)
