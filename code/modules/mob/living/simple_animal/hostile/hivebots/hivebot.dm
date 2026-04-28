@@ -54,6 +54,7 @@
 
 /mob/living/simple_animal/hostile/hivebot/Destroy()
 	astype(parent_beacon.resolve(), /mob/living/simple_animal/hostile/hivebotbeacon)?.linked_bots.Remove(src)
+	parent_beacon = null
 	return ..()
 
 /mob/living/simple_animal/hostile/hivebot/get_bullet_impact_effect_type(var/def_zone)
