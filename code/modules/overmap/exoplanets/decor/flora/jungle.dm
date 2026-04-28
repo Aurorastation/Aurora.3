@@ -89,8 +89,10 @@
 	L.adjustBruteLoss(5)
 	to_chat(L, SPAN_WARNING("Thorns of [src] slash you, as you attempt to pass through!"))
 
+/obj/structure/flora/kudzu/on_death()
+	qdel(src)
+
 /obj/structure/flora/kudzu/Destroy()
-	playsound(loc, SFX_BREAK_WOOD, 50, TRUE)
 	var/turf/T = get_turf(src)
 	T.movement_cost = initial(T.movement_cost)
 	..()

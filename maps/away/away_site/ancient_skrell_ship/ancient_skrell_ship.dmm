@@ -211,6 +211,13 @@
 /obj/machinery/door/blast/odin,
 /turf/simulated/floor/carpet/rubber/airless,
 /area/space)
+"aE" = (
+/obj/structure/table/skrell,
+/obj/effect/floor_decal/spline/plain/cee/mauve{
+	dir = 1
+	},
+/turf/simulated/floor/marble/dark,
+/area/abandoned_skrell_ship)
 "aF" = (
 /obj/structure/table/steel,
 /obj/random/tech_supply,
@@ -336,8 +343,8 @@
 /area/abandoned_skrell_ship)
 "aX" = (
 /obj/structure/bed/aqua,
-/obj/effect/floor_decal/spline/plain/mauve{
-	dir = 5
+/obj/effect/floor_decal/spline/plain/cee/mauve{
+	dir = 4
 	},
 /turf/simulated/floor/marble/dark,
 /area/abandoned_skrell_ship)
@@ -633,6 +640,19 @@
 /obj/structure/flora/kudzu/mycelium,
 /turf/simulated/floor/tiled/dark/full,
 /area/abandoned_skrell_ship)
+"bJ" = (
+/obj/structure/platform/ledge/dark,
+/obj/structure/platform/ledge/dark{
+	dir = 4
+	},
+/obj/structure/platform_deco/ledge/dark{
+	dir = 5
+	},
+/obj/structure/flora/pottedplant/bluefern{
+	pixel_y = 8
+	},
+/turf/simulated/floor/exoplanet/water/smooth/shell,
+/area/abandoned_skrell_ship)
 "bK" = (
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 8
@@ -717,6 +737,14 @@
 /obj/machinery/door/blast/odin,
 /turf/simulated/floor/carpet/rubber/airless,
 /area/space)
+"bW" = (
+/obj/structure/table/skrell,
+/obj/item/storage/box/fancy/tray{
+	pixel_y = 2
+	},
+/obj/item/surgery/scalpel/manager,
+/turf/simulated/floor/marble,
+/area/abandoned_skrell_ship)
 "bX" = (
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 1
@@ -729,6 +757,22 @@
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/carpet/rubber,
+/area/abandoned_skrell_ship)
+"bZ" = (
+/obj/structure/platform/ledge/dark{
+	dir = 1
+	},
+/obj/structure/platform/ledge/dark{
+	dir = 4
+	},
+/obj/structure/platform_deco/ledge/dark{
+	dir = 10
+	},
+/obj/structure/flora/pottedplant/mysterious{
+	pixel_y = 5;
+	pixel_x = -2
+	},
+/turf/simulated/floor/exoplanet/water/smooth/shell,
 /area/abandoned_skrell_ship)
 "ca" = (
 /obj/effect/floor_decal/industrial/outline/grey,
@@ -1158,8 +1202,12 @@
 /turf/simulated/floor/marble,
 /area/abandoned_skrell_ship)
 "dh" = (
-/obj/structure/table/skrell,
-/turf/simulated/floor/marble,
+/obj/effect/floor_decal/spline/plain/cee/mauve,
+/obj/effect/floor_decal/spline/plain/mauve{
+	dir = 1
+	},
+/obj/machinery/atmospherics/unary/cryo_cell,
+/turf/simulated/floor/marble/dark,
 /area/abandoned_skrell_ship)
 "di" = (
 /obj/structure/platform_deco/ledge/dark,
@@ -1347,6 +1395,11 @@
 	dir = 1
 	},
 /turf/simulated/floor/shuttle/skrell/blue,
+/area/abandoned_skrell_ship)
+"dL" = (
+/obj/effect/floor_decal/spline/plain/cee/mauve,
+/obj/structure/bed/aqua,
+/turf/simulated/floor/marble/dark,
 /area/abandoned_skrell_ship)
 "dM" = (
 /obj/structure/lattice/catwalk/indoor/urban{
@@ -1641,12 +1694,20 @@
 /obj/structure/lattice/ceiling,
 /turf/simulated/floor/exoplanet/water/smooth/shell,
 /area/abandoned_skrell_ship)
-"eB" = (
-/obj/structure/railing/mapped/no_density/low,
-/obj/structure/platform/ledge/dark{
-	dir = 1
+"eA" = (
+/obj/structure/table/skrell,
+/obj/effect/floor_decal/spline/plain/cee/mauve{
+	dir = 8
 	},
 /turf/simulated/floor/marble/dark,
+/area/abandoned_skrell_ship)
+"eB" = (
+/obj/machinery/door/airlock/glass/tirakqi,
+/obj/machinery/door/firedoor/noid{
+	dir = 1
+	},
+/obj/effect/map_effect/door_helper/lock,
+/turf/simulated/floor/carpet/rubber,
 /area/abandoned_skrell_ship)
 "eC" = (
 /obj/random/dirt_75,
@@ -1799,6 +1860,16 @@
 /obj/structure/trash_pile,
 /turf/simulated/floor/airless,
 /area/abandoned_skrell_ship)
+"eX" = (
+/obj/structure/lattice/catwalk/indoor/urban{
+	color = "#8a7387"
+	},
+/obj/structure/railing/mapped{
+	dir = 1;
+	pixel_y = 8
+	},
+/turf/simulated/open,
+/area/abandoned_skrell_ship)
 "eY" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
@@ -1876,6 +1947,15 @@
 	},
 /obj/structure/table/skrell,
 /turf/simulated/floor/exoplanet/water/smooth/shell,
+/area/abandoned_skrell_ship)
+"fi" = (
+/obj/structure/konyang_cliff{
+	icon_state = "botcorner_east";
+	color = "#8a7387";
+	pixel_y = 19
+	},
+/obj/structure/flora/rock/stalagmite/purple,
+/turf/simulated/floor/cave/shell/dark_purple,
 /area/abandoned_skrell_ship)
 "fj" = (
 /obj/structure/lattice/catwalk/indoor/urban{
@@ -1959,6 +2039,15 @@
 	},
 /turf/simulated/floor/shuttle/skrell,
 /area/abandoned_skrell_ship)
+"fz" = (
+/obj/effect/floor_decal/spline/plain/cee/mauve{
+	dir = 1
+	},
+/obj/structure/bed/stool/hover{
+	dir = 4
+	},
+/turf/simulated/floor/marble/dark,
+/area/abandoned_skrell_ship)
 "fA" = (
 /obj/effect/floor_decal/industrial/outline_door/grey,
 /obj/effect/floor_decal/industrial/outline_door/grey{
@@ -1980,6 +2069,13 @@
 	},
 /turf/simulated/open,
 /area/space)
+"fC" = (
+/obj/structure/bed/handrail{
+	buckle_dir = 4;
+	pixel_y = 5
+	},
+/turf/simulated/floor/marble,
+/area/abandoned_skrell_ship)
 "fD" = (
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 5
@@ -2115,6 +2211,16 @@
 	},
 /turf/simulated/floor/carpet/rubber/airless,
 /area/space)
+"fT" = (
+/obj/effect/decal/curb{
+	color = "#574267";
+	dir = 4
+	},
+/obj/effect/decal/curb/corner{
+	color = "#574267"
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/abandoned_skrell_ship)
 "fU" = (
 /obj/effect/decal/curb{
 	color = "#574267";
@@ -2490,7 +2596,6 @@
 /turf/simulated/floor/airless,
 /area/abandoned_skrell_ship)
 "gV" = (
-/obj/structure/railing/mapped/no_density/low,
 /obj/effect/decal/exterior_stairs/half/dark/center,
 /turf/simulated/floor/exoplanet/water/smooth/shell,
 /area/abandoned_skrell_ship)
@@ -2877,6 +2982,10 @@
 /obj/effect/decal/exterior_stairs/half/dark/right,
 /turf/simulated/floor/marble/dark,
 /area/abandoned_skrell_ship)
+"ia" = (
+/obj/structure/table/rack,
+/turf/simulated/floor/marble/dark,
+/area/abandoned_skrell_ship)
 "ic" = (
 /obj/structure/platform/ledge/dark,
 /obj/structure/platform/ledge/dark{
@@ -3109,6 +3218,14 @@
 	},
 /obj/structure/table/rack/folding_table,
 /turf/simulated/floor/shuttle/skrell,
+/area/abandoned_skrell_ship)
+"iG" = (
+/obj/random/dirt_75,
+/obj/item/inflatable/door/torn{
+	pixel_x = 6;
+	pixel_y = 6
+	},
+/turf/simulated/floor/tiled/dark/full/airless,
 /area/abandoned_skrell_ship)
 "iH" = (
 /obj/effect/decal/curb{
@@ -3925,8 +4042,25 @@
 	},
 /turf/simulated/floor/marble/dark,
 /area/abandoned_skrell_ship)
+"kX" = (
+/obj/structure/railing/mapped{
+	dir = 1
+	},
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/turf/simulated/open,
+/area/abandoned_skrell_ship)
 "kZ" = (
 /turf/template_noop,
+/area/abandoned_skrell_ship)
+"lb" = (
+/obj/structure/konyang_cliff{
+	icon_state = "cliff2";
+	opacity = 1;
+	color = "#8a7387"
+	},
+/turf/unsimulated/mineral/cave/petrified_shell/dark_purple,
 /area/abandoned_skrell_ship)
 "lc" = (
 /obj/effect/decal/curb{
@@ -4031,10 +4165,14 @@
 /turf/simulated/floor/cave/shell/dark_blue,
 /area/space)
 "lt" = (
-/obj/effect/floor_decal/spline/plain/mauve{
-	dir = 1
+/obj/effect/floor_decal/industrial/outline_door/research,
+/obj/effect/floor_decal/industrial/outline_segment/research{
+	dir = 10
 	},
-/turf/simulated/floor/marble/dark,
+/obj/effect/floor_decal/industrial/outline_segment/research{
+	dir = 4
+	},
+/turf/simulated/floor/marble,
 /area/abandoned_skrell_ship)
 "lu" = (
 /obj/structure/railing/mapped/no_density/low{
@@ -4118,10 +4256,11 @@
 /turf/simulated/floor/exoplanet/water/smooth/shell,
 /area/abandoned_skrell_ship)
 "lF" = (
-/obj/effect/decal/exterior_stairs/half/dark/center{
+/obj/effect/floor_decal/spline/plain/black,
+/obj/structure/arch/skrell/side{
 	dir = 1
 	},
-/turf/simulated/floor/marble/dark,
+/turf/simulated/floor/shuttle/skrell/blue,
 /area/abandoned_skrell_ship)
 "lG" = (
 /obj/random/dirt_75,
@@ -4161,6 +4300,14 @@
 	},
 /obj/structure/lattice/ceiling,
 /turf/simulated/open/airless,
+/area/abandoned_skrell_ship)
+"lL" = (
+/obj/structure/konyang_cliff{
+	icon_state = "botcorner_east";
+	color = "#8a7387";
+	pixel_y = 19
+	},
+/turf/simulated/floor/cave/shell/dark_purple,
 /area/abandoned_skrell_ship)
 "lM" = (
 /obj/structure/platform_deco/dark{
@@ -4231,9 +4378,6 @@
 /turf/simulated/floor/marble/dark,
 /area/abandoned_skrell_ship)
 "lX" = (
-/obj/structure/railing/mapped/no_density/low{
-	dir = 1
-	},
 /obj/structure/bed/stool/hover{
 	dir = 4
 	},
@@ -4310,7 +4454,6 @@
 /turf/simulated/floor/cave/shell/dark_purple,
 /area/abandoned_skrell_ship)
 "mk" = (
-/obj/structure/railing/mapped/no_density/low,
 /obj/structure/platform/ledge/dark{
 	dir = 4
 	},
@@ -4421,6 +4564,16 @@
 	},
 /turf/simulated/floor/cave/shell/dark_purple,
 /area/space)
+"mx" = (
+/obj/effect/floor_decal/spline/plain/mauve{
+	dir = 4
+	},
+/obj/effect/floor_decal/spline/plain/mauve{
+	dir = 8
+	},
+/obj/structure/bed/aqua,
+/turf/simulated/floor/marble/dark,
+/area/abandoned_skrell_ship)
 "my" = (
 /obj/structure/platform/ledge/dark,
 /turf/simulated/floor/cave/shell/dark_purple,
@@ -5098,6 +5251,12 @@
 /obj/structure/flora/kudzu/mycelium,
 /turf/simulated/floor/tiled/dark/full,
 /area/abandoned_skrell_ship)
+"om" = (
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/turf/simulated/open,
+/area/abandoned_skrell_ship)
 "on" = (
 /obj/structure/lattice/catwalk/indoor/urban{
 	color = "#8a7387"
@@ -5330,6 +5489,13 @@
 	icon_state = "11-2"
 	},
 /turf/simulated/open/airless,
+/area/abandoned_skrell_ship)
+"oT" = (
+/obj/structure/stairs/south,
+/obj/structure/stairs_railing{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
 /area/abandoned_skrell_ship)
 "oU" = (
 /obj/structure/lattice/catwalk/indoor,
@@ -5799,9 +5965,6 @@
 /turf/simulated/floor/shuttle/skrell,
 /area/abandoned_skrell_ship)
 "qd" = (
-/obj/structure/railing/mapped/no_density/low{
-	dir = 1
-	},
 /obj/structure/bed/stool/hover,
 /obj/structure/platform/ledge/dark{
 	dir = 4
@@ -5825,9 +5988,10 @@
 /turf/simulated/floor/airless,
 /area/space)
 "qg" = (
-/obj/effect/floor_decal/spline/plain/mauve{
-	dir = 9
+/obj/effect/floor_decal/spline/plain/cee/mauve{
+	dir = 1
 	},
+/obj/structure/bed/aqua,
 /turf/simulated/floor/marble/dark,
 /area/abandoned_skrell_ship)
 "qh" = (
@@ -5922,6 +6086,10 @@
 "qs" = (
 /obj/structure/flora/bush/jungle/large/recolorable/mycelium/random,
 /turf/simulated/floor/grass/recolorable/mycelium,
+/area/abandoned_skrell_ship)
+"qt" = (
+/obj/structure/arch/skrell/center,
+/turf/simulated/floor/carpet/rubber,
 /area/abandoned_skrell_ship)
 "qu" = (
 /obj/structure/platform_deco/dark,
@@ -6029,6 +6197,18 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/carpet/rubber,
 /area/abandoned_skrell_ship)
+"qI" = (
+/obj/structure/sink/kitchen{
+	name = "surgical sink";
+	pixel_y = 22
+	},
+/obj/structure/bed/handrail{
+	buckle_dir = 4;
+	dir = 4;
+	pixel_x = -3
+	},
+/turf/simulated/floor/marble,
+/area/abandoned_skrell_ship)
 "qJ" = (
 /obj/effect/decal/curb{
 	color = "#574267";
@@ -6092,7 +6272,13 @@
 /turf/simulated/floor/shuttle/skrell/blue,
 /area/abandoned_skrell_ship)
 "qW" = (
-/turf/space,
+/obj/effect/floor_decal/spline/plain/mauve{
+	dir = 4
+	},
+/obj/effect/floor_decal/spline/plain/mauve{
+	dir = 8
+	},
+/turf/simulated/floor/marble/dark,
 /area/abandoned_skrell_ship)
 "qX" = (
 /obj/machinery/iv_drip{
@@ -6120,6 +6306,13 @@
 /obj/structure/closet,
 /obj/random/loot,
 /turf/simulated/floor/airless,
+/area/abandoned_skrell_ship)
+"qZ" = (
+/obj/structure/table/skrell,
+/obj/effect/floor_decal/spline/plain/cee/mauve{
+	dir = 4
+	},
+/turf/simulated/floor/marble/dark,
 /area/abandoned_skrell_ship)
 "ra" = (
 /obj/random/dirt_75,
@@ -6163,6 +6356,17 @@
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/shuttle/skrell/blue,
+/area/abandoned_skrell_ship)
+"ri" = (
+/obj/effect/decal/curb/corner{
+	color = "#574267";
+	dir = 8
+	},
+/obj/effect/decal/curb{
+	color = "#574267";
+	dir = 4
+	},
+/turf/simulated/floor/carpet/rubber,
 /area/abandoned_skrell_ship)
 "rj" = (
 /obj/effect/decal/curb/corner{
@@ -6551,6 +6755,13 @@
 	},
 /turf/simulated/floor/exoplanet/water/smooth/shell,
 /area/abandoned_skrell_ship)
+"sj" = (
+/obj/structure/konyang_cliff{
+	icon_state = "innercorner1";
+	color = "#8a7387"
+	},
+/turf/unsimulated/mineral/cave/petrified_shell/dark_purple,
+/area/abandoned_skrell_ship)
 "sk" = (
 /obj/structure/lattice/catwalk/indoor/urban{
 	color = "#8a7387"
@@ -6669,9 +6880,6 @@
 /turf/simulated/floor/carpet/rubber/airless,
 /area/space)
 "sG" = (
-/obj/structure/railing/mapped/no_density/low{
-	dir = 1
-	},
 /obj/structure/platform/ledge/dark{
 	dir = 8
 	},
@@ -6773,7 +6981,11 @@
 /area/abandoned_skrell_ship)
 "sW" = (
 /obj/effect/floor_decal/spline/plain/mauve{
-	dir = 5
+	dir = 9
+	},
+/obj/structure/flora/pottedplant/mysterious{
+	pixel_y = -1;
+	pixel_x = 7
 	},
 /turf/simulated/floor/marble/dark,
 /area/abandoned_skrell_ship)
@@ -8092,12 +8304,15 @@
 /turf/simulated/floor/marble/dark,
 /area/abandoned_skrell_ship)
 "wB" = (
-/obj/machinery/atmospherics/unary/cryo_cell,
-/obj/effect/floor_decal/spline/plain/mauve,
-/obj/effect/floor_decal/spline/plain/mauve{
-	dir = 1
+/obj/effect/decal/curb{
+	color = "#574267";
+	dir = 10
 	},
-/turf/simulated/floor/marble/dark,
+/obj/structure/railing/mapped{
+	dir = 1;
+	pixel_y = 10
+	},
+/turf/simulated/floor/carpet/rubber,
 /area/abandoned_skrell_ship)
 "wC" = (
 /obj/effect/decal/curb{
@@ -8570,7 +8785,10 @@
 /area/space)
 "xI" = (
 /obj/effect/floor_decal/spline/plain/mauve{
-	dir = 10
+	dir = 6
+	},
+/obj/structure/flora/pottedplant/bluefern{
+	pixel_y = 12
 	},
 /turf/simulated/floor/marble/dark,
 /area/abandoned_skrell_ship)
@@ -8617,6 +8835,22 @@
 /obj/structure/railing/mapped/no_density/low,
 /turf/simulated/floor/exoplanet/water/smooth/shell,
 /area/abandoned_skrell_ship)
+"xN" = (
+/obj/effect/floor_decal/industrial/outline_door/grey,
+/obj/effect/floor_decal/industrial/outline_door/grey{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/outline_door/grey{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/outline_door/grey{
+	dir = 4
+	},
+/obj/machinery/computer/loreconsole/skrell/always_powered{
+	dir = 1
+	},
+/turf/simulated/floor/marble/dark,
+/area/abandoned_skrell_ship)
 "xQ" = (
 /obj/effect/floor_decal/industrial/outline_door/grey{
 	dir = 8
@@ -8652,6 +8886,18 @@
 	color = "#8a7387"
 	},
 /turf/simulated/floor/cave/shell/dark_purple,
+/area/abandoned_skrell_ship)
+"xU" = (
+/obj/structure/platform/ledge/dark{
+	dir = 8
+	},
+/obj/machinery/light/skrell{
+	dir = 4
+	},
+/obj/structure/lattice/catwalk/indoor/urban{
+	color = "#8a7387"
+	},
+/turf/simulated/open,
 /area/abandoned_skrell_ship)
 "xV" = (
 /obj/structure/lattice/catwalk/indoor,
@@ -8845,6 +9091,17 @@
 	},
 /turf/simulated/floor/cave/shell/dark_purple,
 /area/space)
+"yu" = (
+/obj/structure/konyang_cliff{
+	icon_state = "botcorner_east";
+	color = "#8a7387";
+	pixel_y = 19
+	},
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/turf/simulated/open,
+/area/abandoned_skrell_ship)
 "yv" = (
 /obj/effect/floor_decal/spline/plain/corner/black{
 	dir = 1
@@ -8901,6 +9158,16 @@
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/carpet/rubber/airless,
+/area/abandoned_skrell_ship)
+"yA" = (
+/obj/structure/konyang_cliff{
+	icon_state = "cliff-east";
+	color = "#8a7387"
+	},
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/turf/unsimulated/mineral/cave/petrified_shell/dark_purple,
 /area/abandoned_skrell_ship)
 "yB" = (
 /obj/effect/decal/curb{
@@ -9006,6 +9273,18 @@
 	dir = 1
 	},
 /turf/simulated/floor/carpet/rubber,
+/area/abandoned_skrell_ship)
+"yP" = (
+/obj/effect/floor_decal/industrial/outline_door/research{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/outline_segment/research{
+	dir = 5
+	},
+/obj/effect/floor_decal/industrial/outline_segment/research{
+	dir = 8
+	},
+/turf/simulated/floor/marble,
 /area/abandoned_skrell_ship)
 "yQ" = (
 /obj/structure/flora/grass/adhomai,
@@ -9998,6 +10277,12 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
 /area/abandoned_skrell_ship)
+"BD" = (
+/obj/structure/lattice/catwalk/indoor/urban{
+	color = "#8a7387"
+	},
+/turf/simulated/open,
+/area/abandoned_skrell_ship)
 "BE" = (
 /obj/structure/lattice/catwalk/indoor/urban{
 	color = "#8a7387"
@@ -10054,6 +10339,10 @@
 /area/abandoned_skrell_ship)
 "BM" = (
 /obj/structure/structural_support,
+/turf/simulated/floor/cave/shell/dark_blue,
+/area/abandoned_skrell_ship)
+"BN" = (
+/obj/structure/flora/rock/stalagmite/teal,
 /turf/simulated/floor/cave/shell/dark_blue,
 /area/abandoned_skrell_ship)
 "BO" = (
@@ -10361,7 +10650,14 @@
 /obj/structure/bed/stool/hover{
 	dir = 8
 	},
-/turf/simulated/floor/shuttle/skrell,
+/obj/structure/platform/ledge/dark,
+/obj/structure/platform/ledge/dark{
+	dir = 8
+	},
+/obj/structure/platform_deco/ledge/dark{
+	dir = 9
+	},
+/turf/simulated/floor/exoplanet/water/smooth/shell,
 /area/abandoned_skrell_ship)
 "CE" = (
 /obj/structure/lattice/catwalk/indoor,
@@ -10435,6 +10731,20 @@
 /obj/effect/decal/curb{
 	color = "#574267";
 	dir = 6
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/abandoned_skrell_ship)
+"CP" = (
+/obj/effect/decal/curb{
+	color = "#574267";
+	dir = 8
+	},
+/obj/effect/decal/curb{
+	color = "#574267";
+	dir = 4
+	},
+/obj/machinery/light/skrell{
+	dir = 8
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/abandoned_skrell_ship)
@@ -10662,6 +10972,10 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/abandoned_skrell_ship)
+"Dw" = (
+/obj/effect/floor_decal/spline/plain/cee/mauve,
+/turf/simulated/floor/marble/dark,
+/area/abandoned_skrell_ship)
 "Dx" = (
 /obj/structure/lattice/catwalk/indoor,
 /turf/space,
@@ -10699,6 +11013,13 @@
 /obj/structure/flora/pottedplant/mysterious,
 /obj/effect/decal/cleanable/floor_damage/rust,
 /turf/simulated/floor/tiled/dark/full,
+/area/abandoned_skrell_ship)
+"DB" = (
+/obj/structure/arch/skrell/side{
+	dir = 8
+	},
+/obj/structure/table/skrell,
+/turf/simulated/floor/carpet/rubber,
 /area/abandoned_skrell_ship)
 "DD" = (
 /obj/structure/lattice/catwalk/indoor/urban{
@@ -10943,10 +11264,10 @@
 /turf/simulated/open,
 /area/abandoned_skrell_ship)
 "Em" = (
-/obj/effect/floor_decal/spline/plain/mauve{
-	dir = 9
-	},
 /obj/structure/bed/aqua,
+/obj/effect/floor_decal/spline/plain/cee/mauve{
+	dir = 8
+	},
 /turf/simulated/floor/marble/dark,
 /area/abandoned_skrell_ship)
 "Eo" = (
@@ -10991,6 +11312,13 @@
 	dir = 4
 	},
 /turf/simulated/floor/exoplanet/water/smooth/shell,
+/area/abandoned_skrell_ship)
+"Eu" = (
+/obj/effect/floor_decal/spline/plain/mauve{
+	dir = 10
+	},
+/obj/machinery/smartfridge,
+/turf/simulated/floor/marble/dark,
 /area/abandoned_skrell_ship)
 "Ew" = (
 /obj/effect/floor_decal/spline/plain/black{
@@ -11138,11 +11466,16 @@
 /turf/simulated/floor/carpet/rubber/airless,
 /area/abandoned_skrell_ship)
 "ER" = (
-/obj/machinery/atmospherics/unary/cryo_cell,
-/obj/effect/floor_decal/spline/plain/cee/mauve{
-	dir = 4
+/obj/effect/floor_decal/industrial/outline_door/research{
+	dir = 1
 	},
-/turf/simulated/floor/marble/dark,
+/obj/effect/floor_decal/industrial/outline_segment/research{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/outline_segment/research{
+	dir = 5
+	},
+/turf/simulated/floor/marble,
 /area/abandoned_skrell_ship)
 "ES" = (
 /obj/effect/decal/curb{
@@ -11265,10 +11598,18 @@
 /turf/simulated/floor/carpet/rubber,
 /area/abandoned_skrell_ship)
 "Fm" = (
-/obj/effect/floor_decal/spline/plain/mauve{
-	dir = 6
+/obj/effect/decal/curb{
+	color = "#574267";
+	dir = 8
 	},
-/turf/simulated/floor/marble/dark,
+/obj/effect/decal/curb{
+	color = "#574267";
+	dir = 4
+	},
+/obj/machinery/light/skrell{
+	dir = 4
+	},
+/turf/simulated/floor/carpet/rubber,
 /area/abandoned_skrell_ship)
 "Fn" = (
 /obj/structure/table/skrell,
@@ -11783,6 +12124,15 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/space)
+"GH" = (
+/obj/structure/platform_deco/ledge/dark{
+	dir = 8
+	},
+/obj/structure/lattice/catwalk/indoor/urban{
+	color = "#8a7387"
+	},
+/turf/simulated/open,
+/area/abandoned_skrell_ship)
 "GI" = (
 /obj/structure/platform/dark{
 	dir = 8
@@ -11876,6 +12226,15 @@
 	},
 /turf/simulated/floor/shuttle/skrell/blue,
 /area/abandoned_skrell_ship)
+"GX" = (
+/obj/structure/konyang_cliff{
+	icon_state = "cliff1-bottom";
+	pixel_y = 19;
+	color = "#8a7387"
+	},
+/obj/structure/flora/rock/stalagmite/purple,
+/turf/simulated/floor/cave/shell/dark_purple,
+/area/abandoned_skrell_ship)
 "GY" = (
 /obj/structure/lattice/catwalk/indoor/urban{
 	color = "#8a7387"
@@ -11908,6 +12267,14 @@
 	dir = 4
 	},
 /turf/simulated/open/airless,
+/area/abandoned_skrell_ship)
+"Hd" = (
+/obj/structure/bed/handrail{
+	buckle_dir = 4;
+	pixel_y = -3;
+	dir = 1
+	},
+/turf/simulated/floor/marble,
 /area/abandoned_skrell_ship)
 "He" = (
 /obj/effect/floor_decal/industrial/outline/grey,
@@ -12057,6 +12424,14 @@
 	},
 /turf/simulated/floor/tiled/dark/full/airless,
 /area/space)
+"Hy" = (
+/obj/structure/platform/ledge/dark,
+/obj/structure/railing/mapped/no_density/low{
+	dir = 1;
+	pixel_y = 6
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/abandoned_skrell_ship)
 "HC" = (
 /obj/structure/lattice/catwalk/indoor/urban{
 	color = "#8a7387"
@@ -12128,6 +12503,24 @@
 /obj/effect/floor_decal/fungus/random,
 /turf/simulated/floor/grass/recolorable/mycelium,
 /area/abandoned_skrell_ship)
+"HK" = (
+/obj/structure/table/skrell,
+/obj/effect/floor_decal/spline/plain/cee/mauve{
+	dir = 1
+	},
+/obj/item/storage/box/unique/sharps{
+	pixel_x = -6;
+	pixel_y = 14
+	},
+/obj/item/reagent_containers/spray/cleaner{
+	desc = "Someone has crossed out the Space from Space Cleaner and written in Surgery. 'Do not remove under punishment of death!!!' is scrawled on the back.";
+	icon_state = "sterilesprayblue";
+	name = "surgery cleaner";
+	pixel_x = -8;
+	pixel_y = 4
+	},
+/turf/simulated/floor/marble/dark,
+/area/abandoned_skrell_ship)
 "HL" = (
 /obj/effect/decal/curb/corner{
 	dir = 8
@@ -12158,6 +12551,16 @@
 /obj/effect/decal/curb,
 /obj/effect/floor_decal/fungus/random,
 /turf/simulated/floor/grass/recolorable/mycelium,
+/area/abandoned_skrell_ship)
+"HS" = (
+/obj/effect/decal/curb/corner{
+	color = "#574267"
+	},
+/obj/effect/decal/curb{
+	color = "#574267";
+	dir = 1
+	},
+/turf/simulated/floor/carpet/rubber,
 /area/abandoned_skrell_ship)
 "HT" = (
 /obj/structure/railing/mapped{
@@ -12406,9 +12809,18 @@
 /area/abandoned_skrell_ship)
 "IB" = (
 /obj/structure/bed/stool/hover{
+	dir = 8
+	},
+/obj/structure/platform/ledge/dark{
 	dir = 1
 	},
-/turf/simulated/floor/shuttle/skrell,
+/obj/structure/platform/ledge/dark{
+	dir = 8
+	},
+/obj/structure/platform_deco/ledge/dark{
+	dir = 6
+	},
+/turf/simulated/floor/exoplanet/water/smooth/shell,
 /area/abandoned_skrell_ship)
 "IC" = (
 /obj/structure/lattice/catwalk/indoor/urban{
@@ -12928,6 +13340,14 @@
 	dir = 8
 	},
 /turf/simulated/floor/carpet/rubber,
+/area/abandoned_skrell_ship)
+"JX" = (
+/obj/structure/konyang_cliff{
+	icon_state = "botcorner_east";
+	color = "#8a7387";
+	pixel_y = 19
+	},
+/turf/simulated/open,
 /area/abandoned_skrell_ship)
 "JZ" = (
 /obj/structure/konyang_cliff{
@@ -13542,6 +13962,12 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/abandoned_skrell_ship)
+"LI" = (
+/obj/structure/bed/stool/hover{
+	dir = 1
+	},
+/turf/simulated/floor/marble/dark,
+/area/abandoned_skrell_ship)
 "LJ" = (
 /obj/effect/floor_decal/spline/plain/mauve,
 /turf/simulated/floor/marble/dark,
@@ -13589,6 +14015,17 @@
 /obj/effect/floor_decal/fungus/random,
 /turf/simulated/floor/carpet/rubber,
 /area/abandoned_skrell_ship)
+"LR" = (
+/obj/structure/konyang_cliff{
+	icon_state = "corner_east";
+	color = "#8a7387"
+	},
+/obj/structure/platform/ledge/dark{
+	dir = 8
+	},
+/obj/structure/railing/mapped,
+/turf/unsimulated/mineral/cave/petrified_shell/dark_purple,
+/area/abandoned_skrell_ship)
 "LS" = (
 /obj/structure/konyang_cliff{
 	icon_state = "topcorner_west";
@@ -13615,6 +14052,14 @@
 	},
 /turf/simulated/floor/plating,
 /area/space)
+"LV" = (
+/obj/structure/bed/handrail{
+	buckle_dir = 4;
+	dir = 4;
+	pixel_x = -3
+	},
+/turf/simulated/floor/marble,
+/area/abandoned_skrell_ship)
 "LW" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/random/dirt_75,
@@ -13636,6 +14081,19 @@
 	},
 /obj/effect/decal/exterior_stairs/half/dark/left,
 /turf/simulated/floor/carpet/rubber/airless,
+/area/abandoned_skrell_ship)
+"Mb" = (
+/obj/effect/floor_decal/industrial/outline_door/research,
+/obj/effect/floor_decal/industrial/outline_door/research{
+	dir = 8
+	},
+/obj/machinery/iv_drip{
+	pixel_x = -9
+	},
+/obj/machinery/iv_drip{
+	pixel_x = 8
+	},
+/turf/simulated/floor/marble,
 /area/abandoned_skrell_ship)
 "Me" = (
 /obj/structure/railing/mapped/no_density/low{
@@ -13774,6 +14232,15 @@
 /area/abandoned_skrell_ship)
 "ME" = (
 /turf/simulated/wall,
+/area/abandoned_skrell_ship)
+"MG" = (
+/obj/structure/platform/ledge/dark{
+	dir = 1
+	},
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/turf/simulated/open,
 /area/abandoned_skrell_ship)
 "MH" = (
 /obj/structure/platform/ledge/dark{
@@ -14029,6 +14496,12 @@
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/carpet/rubber,
+/area/abandoned_skrell_ship)
+"Nr" = (
+/obj/effect/decal/exterior_stairs/half/dark/center{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/water/smooth/shell,
 /area/abandoned_skrell_ship)
 "Ns" = (
 /obj/structure/ledge{
@@ -14356,6 +14829,13 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
 /area/abandoned_skrell_ship)
+"Ok" = (
+/obj/structure/arch/skrell/side{
+	dir = 4
+	},
+/obj/structure/table/skrell,
+/turf/simulated/floor/carpet/rubber,
+/area/abandoned_skrell_ship)
 "Op" = (
 /obj/effect/floor_decal/industrial/outline_door/research{
 	dir = 4
@@ -14391,6 +14871,13 @@
 /obj/structure/table/skrell,
 /obj/structure/arch/skrell/center{
 	dir = 4
+	},
+/turf/simulated/floor/marble/dark,
+/area/abandoned_skrell_ship)
+"Ot" = (
+/obj/machinery/door/airlock/glass/tirakqi,
+/obj/machinery/door/firedoor/noid{
+	dir = 1
 	},
 /turf/simulated/floor/marble/dark,
 /area/abandoned_skrell_ship)
@@ -14598,7 +15085,6 @@
 /turf/simulated/floor/carpet/rubber,
 /area/abandoned_skrell_ship)
 "Pc" = (
-/obj/structure/railing/mapped/no_density/low,
 /obj/structure/bed/stool/hover{
 	dir = 8
 	},
@@ -14772,6 +15258,11 @@
 	},
 /turf/simulated/floor/exoplanet/water/smooth/shell,
 /area/abandoned_skrell_ship)
+"Pv" = (
+/obj/effect/floor_decal/spline/plain/cee/mauve,
+/obj/structure/table/skrell,
+/turf/simulated/floor/marble/dark,
+/area/abandoned_skrell_ship)
 "Pw" = (
 /obj/structure/platform_deco/ledge/dark{
 	dir = 8
@@ -14790,6 +15281,13 @@
 	pixel_y = 2
 	},
 /turf/simulated/floor/exoplanet/water/smooth/shell,
+/area/abandoned_skrell_ship)
+"Pz" = (
+/obj/structure/arch/skrell/side,
+/obj/structure/railing/mapped/no_density/low{
+	dir = 4
+	},
+/turf/simulated/floor/carpet/rubber,
 /area/abandoned_skrell_ship)
 "PB" = (
 /obj/structure/lattice/catwalk/indoor,
@@ -14902,7 +15400,7 @@
 /area/abandoned_skrell_ship)
 "PN" = (
 /obj/structure/platform_deco/ledge/dark,
-/turf/simulated/floor/shuttle/skrell,
+/turf/simulated/floor/carpet/rubber,
 /area/abandoned_skrell_ship)
 "PO" = (
 /obj/effect/floor_decal/spline/plain/black{
@@ -15073,6 +15571,16 @@
 	},
 /turf/simulated/floor/shuttle/skrell/blue,
 /area/abandoned_skrell_ship)
+"Qo" = (
+/obj/structure/table/skrell,
+/obj/effect/floor_decal/spline/plain/mauve{
+	dir = 4
+	},
+/obj/effect/floor_decal/spline/plain/mauve{
+	dir = 8
+	},
+/turf/simulated/floor/marble/dark,
+/area/abandoned_skrell_ship)
 "Qp" = (
 /obj/effect/floor_decal/crystal/random,
 /obj/machinery/light/skrell{
@@ -15181,7 +15689,7 @@
 /obj/effect/decal/exterior_stairs/half/dark/left{
 	dir = 1
 	},
-/turf/simulated/floor/shuttle/skrell,
+/turf/simulated/floor/shuttle/skrell/blue,
 /area/abandoned_skrell_ship)
 "QG" = (
 /obj/structure/crane{
@@ -15202,6 +15710,13 @@
 	dir = 8
 	},
 /turf/simulated/open/airless,
+/area/abandoned_skrell_ship)
+"QI" = (
+/obj/structure/sink{
+	pixel_y = 28;
+	pixel_x = 16
+	},
+/turf/simulated/floor/marble,
 /area/abandoned_skrell_ship)
 "QK" = (
 /obj/effect/decal/curb/corner{
@@ -15638,6 +16153,15 @@
 	},
 /turf/simulated/floor/shuttle/skrell,
 /area/space)
+"RU" = (
+/obj/structure/platform/ledge/dark{
+	dir = 8
+	},
+/obj/structure/lattice/catwalk/indoor/urban{
+	color = "#8a7387"
+	},
+/turf/simulated/open,
+/area/abandoned_skrell_ship)
 "RV" = (
 /obj/effect/decal/curb{
 	color = "#574267"
@@ -15790,6 +16314,15 @@
 	color = "#8a7387"
 	},
 /turf/simulated/floor/marble/dark,
+/area/abandoned_skrell_ship)
+"Sw" = (
+/obj/structure/arch/skrell/side{
+	dir = 8
+	},
+/obj/effect/floor_decal/spline/plain/black{
+	dir = 4
+	},
+/turf/simulated/floor/shuttle/skrell/blue,
 /area/abandoned_skrell_ship)
 "Sy" = (
 /obj/structure/flora/grass/adhomai,
@@ -15988,8 +16521,14 @@
 /turf/simulated/floor/exoplanet/water/smooth/shell,
 /area/space)
 "Tc" = (
-/obj/effect/floor_decal/spline/plain/corner/black,
-/turf/simulated/floor/shuttle/skrell,
+/obj/structure/konyang_cliff{
+	icon_state = "corner_east";
+	color = "#8a7387"
+	},
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/turf/unsimulated/mineral/cave/petrified_shell/dark_purple,
 /area/abandoned_skrell_ship)
 "Td" = (
 /obj/structure/lattice/catwalk/indoor/urban{
@@ -16052,6 +16591,12 @@
 /obj/structure/flora/kudzu/mycelium,
 /turf/simulated/floor/carpet/rubber,
 /area/abandoned_skrell_ship)
+"To" = (
+/obj/effect/floor_decal/spline/plain/cee/mauve{
+	dir = 1
+	},
+/turf/simulated/floor/marble/dark,
+/area/abandoned_skrell_ship)
 "Tp" = (
 /obj/structure/lattice/catwalk/indoor,
 /obj/structure/railing/mapped/no_density/low{
@@ -16101,6 +16646,12 @@
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/carpet/rubber/airless,
+/area/abandoned_skrell_ship)
+"Tw" = (
+/obj/structure/bed/stool/hover{
+	dir = 8
+	},
+/turf/simulated/floor/marble,
 /area/abandoned_skrell_ship)
 "Tx" = (
 /obj/effect/decal/curb/corner{
@@ -16462,10 +17013,11 @@
 /turf/simulated/floor/carpet/rubber,
 /area/abandoned_skrell_ship)
 "UB" = (
-/obj/effect/floor_decal/spline/plain/black{
+/obj/effect/floor_decal/spline/plain/cee/mauve{
 	dir = 1
 	},
-/turf/simulated/floor/shuttle/skrell,
+/obj/structure/table/skrell,
+/turf/simulated/floor/marble/dark,
 /area/abandoned_skrell_ship)
 "UC" = (
 /obj/effect/decal/exterior_stairs/center{
@@ -16759,6 +17311,10 @@
 	density = 0
 	},
 /turf/simulated/floor/shuttle/skrell,
+/area/abandoned_skrell_ship)
+"Vr" = (
+/obj/structure/table/rack/retail_shelf,
+/turf/simulated/floor/marble/dark,
 /area/abandoned_skrell_ship)
 "Vs" = (
 /obj/effect/decal/curb{
@@ -17560,6 +18116,13 @@
 	},
 /turf/simulated/floor/airless,
 /area/abandoned_skrell_ship)
+"Xn" = (
+/obj/effect/floor_decal/spline/plain/cee/mauve,
+/obj/structure/bed/stool/hover{
+	dir = 8
+	},
+/turf/simulated/floor/marble/dark,
+/area/abandoned_skrell_ship)
 "Xo" = (
 /obj/structure/konyang_cliff{
 	icon_state = "cliff-top1";
@@ -17620,6 +18183,14 @@
 /obj/structure/flora/kudzu/mycelium,
 /turf/simulated/floor/carpet/rubber,
 /area/abandoned_skrell_ship)
+"Xv" = (
+/obj/machinery/optable,
+/obj/effect/floor_decal/spline/plain/cee/mauve{
+	dir = 1
+	},
+/obj/effect/floor_decal/spline/plain/mauve,
+/turf/simulated/floor/marble/dark,
+/area/abandoned_skrell_ship)
 "Xw" = (
 /obj/structure/lattice/ceiling,
 /obj/structure/platform/ledge/dark{
@@ -17630,6 +18201,13 @@
 	},
 /turf/simulated/floor/tiled/dark/full/airless,
 /area/space)
+"Xx" = (
+/obj/structure/arch/skrell/center{
+	dir = 4
+	},
+/obj/structure/table/skrell,
+/turf/simulated/floor/carpet/rubber,
+/area/abandoned_skrell_ship)
 "XA" = (
 /obj/effect/floor_decal/industrial/outline_door/grey{
 	dir = 8
@@ -17750,9 +18328,6 @@
 /turf/simulated/floor/shuttle/skrell,
 /area/abandoned_skrell_ship)
 "XP" = (
-/obj/structure/railing/mapped/no_density/low{
-	dir = 1
-	},
 /obj/effect/decal/exterior_stairs/half/dark/center{
 	dir = 1
 	},
@@ -18175,10 +18750,11 @@
 /turf/simulated/floor/shuttle/skrell/blue,
 /area/abandoned_skrell_ship)
 "YM" = (
-/obj/structure/platform/ledge/dark{
-	dir = 1
+/obj/structure/konyang_cliff{
+	icon_state = "corner_east";
+	color = "#8a7387"
 	},
-/turf/simulated/floor/shuttle/skrell,
+/turf/unsimulated/mineral/cave/petrified_shell/dark_purple,
 /area/abandoned_skrell_ship)
 "YN" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -18271,11 +18847,13 @@
 /turf/simulated/floor/airless,
 /area/abandoned_skrell_ship)
 "Zc" = (
-/obj/structure/flora/pottedplant/mysterious{
-	pixel_y = 2;
-	pixel_x = 8
+/obj/structure/bed/stool/hover{
+	dir = 8
 	},
-/turf/simulated/floor/shuttle/skrell,
+/obj/structure/platform/ledge/dark{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/water/smooth/shell,
 /area/abandoned_skrell_ship)
 "Zd" = (
 /obj/effect/floor_decal/spline/plain/black{
@@ -18401,11 +18979,15 @@
 /turf/simulated/floor/airless,
 /area/space)
 "Zv" = (
-/obj/structure/arch/skrell,
+/obj/structure/arch/skrell/side{
+	dir = 1
+	},
+/obj/structure/railing/mapped/no_density/low{
+	dir = 4
+	},
 /turf/simulated/floor/carpet/rubber,
 /area/abandoned_skrell_ship)
 "Zx" = (
-/obj/structure/railing/mapped/no_density/low,
 /obj/structure/bed/stool/hover{
 	dir = 1
 	},
@@ -18482,6 +19064,13 @@
 /obj/random/dirt_75,
 /obj/structure/flora/grass/adhomai,
 /turf/simulated/floor/grass/recolorable/mycelium,
+/area/abandoned_skrell_ship)
+"ZK" = (
+/obj/effect/floor_decal/spline/plain/cee/mauve{
+	dir = 8
+	},
+/obj/structure/table/skrell,
+/turf/simulated/floor/marble/dark,
 /area/abandoned_skrell_ship)
 "ZL" = (
 /obj/effect/decal/curb{
@@ -40252,14 +40841,14 @@ tf
 tf
 tf
 tf
-tf
-tf
-tf
-tf
-tf
-tf
-tf
-tf
+pQ
+pQ
+pQ
+pQ
+pQ
+pQ
+pQ
+pQ
 tf
 tf
 tf
@@ -40508,17 +41097,17 @@ tf
 tf
 tf
 tf
-tf
-tf
-tf
-tf
-tf
-tf
-tf
-tf
-tf
-tf
-tf
+pQ
+pQ
+pQ
+pQ
+pQ
+lb
+GX
+Bp
+Bp
+Bp
+Bp
 tf
 tf
 tf
@@ -40765,17 +41354,17 @@ tf
 tf
 tf
 tf
-tf
-tf
-tf
-tf
-tf
-tf
-tf
-tf
-tf
-tf
-tf
+pQ
+pQ
+pQ
+sj
+Ui
+YM
+lL
+pc
+pc
+pc
+Bp
 tf
 tf
 tf
@@ -41022,17 +41611,17 @@ tf
 tf
 tf
 tf
-tf
-tf
-tf
-tf
-tf
-tf
-tf
-tf
-tf
-tf
-tf
+pQ
+sj
+Ui
+YM
+fi
+VP
+VP
+pc
+fY
+oT
+Bp
 tf
 tf
 Vy
@@ -41279,16 +41868,16 @@ tf
 tf
 tf
 tf
-tf
-tf
-tf
-tf
-tf
-tf
-tf
-tf
-tf
-tf
+pQ
+YM
+lL
+VP
+VP
+VP
+VP
+pc
+tB
+tB
 gv
 gv
 gv
@@ -41536,16 +42125,16 @@ tf
 tf
 tf
 tf
-tf
-tf
-tf
-tf
-tf
-tf
-tf
-tf
-tf
-gv
+VP
+VP
+VP
+VP
+Ml
+BN
+VP
+pc
+pc
+pc
 gv
 gv
 gv
@@ -41793,15 +42382,15 @@ tf
 tf
 tf
 tf
-tf
-tf
-tf
-gv
-gv
-tf
-tf
-tf
-pQ
+VP
+VP
+VP
+BN
+Ml
+Ml
+Ml
+Ml
+BN
 gv
 gv
 gv
@@ -42050,14 +42639,14 @@ tf
 tf
 tf
 tf
-tf
-tf
+VP
+VP
 gv
 gv
 gv
 gv
-tf
-pQ
+BN
+Ml
 pQ
 pQ
 gv
@@ -42307,7 +42896,7 @@ tf
 tf
 tf
 tf
-tf
+kZ
 gv
 gv
 gv
@@ -46747,7 +47336,7 @@ Bp
 RV
 Bp
 JP
-vE
+JP
 vE
 xq
 kd
@@ -47004,7 +47593,7 @@ Bp
 RV
 Bp
 VP
-vE
+JP
 vE
 pS
 kd
@@ -47261,7 +47850,7 @@ Bp
 RV
 Bp
 VP
-pS
+VP
 pS
 kd
 kd
@@ -47518,7 +48107,7 @@ Bp
 PU
 Bp
 do
-pS
+VP
 pS
 kd
 kd
@@ -47775,7 +48364,7 @@ vj
 Oh
 mj
 my
-pS
+VP
 pS
 kd
 mS
@@ -48032,7 +48621,7 @@ rL
 rL
 Oh
 my
-pS
+VP
 kd
 kd
 mS
@@ -48289,7 +48878,7 @@ NB
 NB
 yy
 Uv
-pS
+VP
 kd
 kd
 pS
@@ -48546,7 +49135,7 @@ VP
 VP
 VP
 VP
-pS
+VP
 kd
 kd
 pS
@@ -48803,7 +49392,7 @@ VP
 VP
 VP
 mt
-mS
+gv
 mS
 kd
 pS
@@ -49060,7 +49649,7 @@ pQ
 mt
 mt
 gv
-mS
+gv
 pS
 pS
 pS
@@ -49317,7 +49906,7 @@ mt
 mt
 pQ
 pQ
-kd
+pQ
 Ab
 pS
 pS
@@ -49574,7 +50163,7 @@ VP
 VP
 VP
 VP
-Ab
+mt
 Ab
 vE
 vE
@@ -49831,7 +50420,7 @@ VP
 VP
 VP
 mt
-Ab
+mt
 vE
 vE
 uJ
@@ -50088,7 +50677,7 @@ VP
 VP
 VP
 VP
-vE
+JP
 vE
 xq
 vE
@@ -50345,7 +50934,7 @@ VP
 VP
 VP
 VP
-pS
+VP
 pS
 vE
 vE
@@ -50602,7 +51191,7 @@ VP
 VP
 VP
 VP
-pS
+VP
 pS
 pS
 pS
@@ -50859,7 +51448,7 @@ VP
 JP
 JP
 UG
-pS
+VP
 pS
 pS
 pS
@@ -51116,7 +51705,7 @@ UG
 JP
 JP
 JP
-vE
+JP
 pS
 Ab
 pS
@@ -51373,7 +51962,7 @@ JP
 JP
 mt
 pQ
-kd
+pQ
 pS
 Ab
 Ab
@@ -51630,7 +52219,7 @@ pQ
 JP
 JP
 JP
-pS
+VP
 pS
 Ab
 Ab
@@ -51887,7 +52476,7 @@ pQ
 pQ
 pQ
 VP
-pS
+VP
 pS
 pS
 Ab
@@ -52144,7 +52733,7 @@ pQ
 pQ
 VP
 VP
-pS
+VP
 pS
 pS
 pS
@@ -52401,7 +52990,7 @@ pQ
 kZ
 kZ
 kZ
-pS
+VP
 pS
 kd
 kd
@@ -52658,7 +53247,7 @@ kZ
 kZ
 kZ
 kZ
-pS
+VP
 pS
 kd
 kd
@@ -52915,7 +53504,7 @@ kZ
 kZ
 kZ
 pQ
-kd
+pQ
 kd
 kd
 kd
@@ -53172,7 +53761,7 @@ kZ
 kZ
 kZ
 pQ
-kd
+pQ
 kd
 kd
 kd
@@ -53429,7 +54018,7 @@ kZ
 kZ
 kZ
 kZ
-kd
+pQ
 kd
 tf
 pS
@@ -53686,7 +54275,7 @@ kZ
 kZ
 kZ
 kZ
-tf
+kZ
 tf
 tf
 tf
@@ -105532,12 +106121,12 @@ tf
 tf
 tf
 tf
-tf
-tf
-tf
-tf
-tf
-tf
+pQ
+pQ
+pQ
+pQ
+pQ
+pQ
 tf
 tf
 tf
@@ -105788,15 +106377,15 @@ tf
 tf
 tf
 tf
-tf
-tf
-tf
-tf
-tf
-tf
-tf
-tf
-tf
+pQ
+pQ
+VP
+mt
+pQ
+pQ
+pQ
+pQ
+pQ
 tf
 tf
 tf
@@ -106044,16 +106633,16 @@ tf
 tf
 tf
 tf
-tf
-tf
-tf
-tf
-tf
-tf
-tf
-gv
-gv
-gv
+pQ
+VP
+VP
+mt
+mt
+lb
+bu
+pQ
+pQ
+pQ
 gv
 gv
 gv
@@ -106301,16 +106890,16 @@ tf
 tf
 tf
 tf
-tf
-tf
-tf
-tf
-tf
-tf
-gv
-gv
-gv
-gv
+pQ
+mt
+VP
+sj
+Ui
+YM
+JX
+Gl
+Gl
+Bp
 Bp
 Bp
 Bp
@@ -106324,7 +106913,7 @@ CO
 VA
 VA
 VA
-VA
+Fm
 VA
 DG
 VA
@@ -106332,12 +106921,12 @@ VA
 VA
 VA
 VA
-VA
+CP
 VA
 mV
 Bp
 pc
-pc
+as
 pc
 Bp
 pQ
@@ -106558,20 +107147,20 @@ tf
 tf
 tf
 tf
-tf
-tf
-tf
-tf
 pQ
-pQ
-gv
-gv
-gv
-gv
-Bp
-CO
+sj
+yA
+Tc
+yu
+om
+om
+Gl
+Gl
+Gl
+fT
+ri
 VA
-VA
+Fm
 VA
 VA
 VA
@@ -106583,7 +107172,7 @@ pc
 Bp
 Bp
 Bp
-Jf
+zw
 Bp
 pc
 pc
@@ -106597,7 +107186,7 @@ VA
 bl
 pc
 Bp
-kZ
+pQ
 LO
 LO
 LO
@@ -106815,18 +107404,18 @@ tf
 tf
 tf
 tf
-tf
-tf
-tf
-tf
 pQ
-VA
-VA
-VA
-VA
-VA
-VA
-DH
+LR
+RU
+RU
+RU
+xU
+GH
+kX
+om
+MG
+wB
+HS
 Bp
 Bp
 Bp
@@ -106854,7 +107443,7 @@ pc
 pc
 pc
 Bp
-qW
+pQ
 LO
 zb
 CS
@@ -107072,16 +107661,16 @@ tf
 tf
 tf
 tf
-tf
-tf
-tf
-tf
 pQ
-pc
-pc
-pc
-pc
-pc
+Bp
+Bp
+fZ
+Bp
+Bp
+eX
+BD
+BD
+BD
 pc
 RV
 Bp
@@ -107330,10 +107919,10 @@ tf
 tf
 tf
 tf
-tf
-gv
-LO
-LO
+Bp
+If
+tr
+LI
 LO
 LO
 LO
@@ -107366,7 +107955,7 @@ Bv
 VA
 VA
 VA
-VA
+CP
 DG
 VA
 vY
@@ -107587,15 +108176,15 @@ tf
 tf
 tf
 tf
-LO
-LO
-LO
-wB
-uY
-dh
-wB
-uY
+Bp
+Vr
+ub
+tr
+vY
+TJ
 Qd
+UB
+dL
 LO
 LO
 LO
@@ -107844,17 +108433,17 @@ tf
 tf
 LO
 LO
+Bp
+Vr
+ub
+Vr
 LO
-Qd
 dh
 ER
-uY
-dh
-ER
-uY
 Qd
-Qd
-Qd
+Mb
+qg
+Pv
 LO
 LO
 LO
@@ -108101,18 +108690,18 @@ tf
 tf
 LO
 Qd
+Bp
+ia
+tr
+ia
+LO
+dh
+yP
 Qd
 Qd
 Qd
-Ru
 Qd
-Qd
-Ru
-Qd
-Qd
-Qd
-Qd
-Qd
+xN
 LO
 LO
 EG
@@ -108358,18 +108947,18 @@ tf
 LO
 LO
 Qd
+Bp
+zw
+Bp
+Bp
+LO
+ua
 Qd
 Qd
 Qd
 Qd
 Qd
-Qd
-Qd
-Qd
-Qd
-Qd
-Qd
-ud
+eA
 LO
 Lv
 WB
@@ -108623,7 +109212,7 @@ LO
 LO
 LO
 LO
-rd
+Eu
 Qd
 Qd
 aX
@@ -108652,7 +109241,7 @@ xp
 pc
 Bp
 LO
-Jf
+zw
 LO
 LO
 LO
@@ -108876,9 +109465,9 @@ Qd
 Qd
 LO
 LO
-Qd
-Qd
-Qd
+HK
+Qo
+Dw
 LO
 LO
 Qd
@@ -108890,7 +109479,7 @@ Qd
 Qd
 cG
 cO
-Qd
+dg
 ML
 mk
 qd
@@ -109131,10 +109720,10 @@ Qd
 Qd
 Qd
 Qd
-qg
+RE
 LO
-Qd
-Qd
+qI
+LV
 Qd
 LO
 xI
@@ -109147,7 +109736,7 @@ Qd
 Qd
 lp
 in
-Qd
+dg
 ML
 Zx
 lX
@@ -109390,21 +109979,21 @@ Qd
 Qd
 lt
 eh
-Qd
-Qd
-Qd
+yP
+Xv
+lt
 eh
-LJ
+yP
 Qd
 Qd
-RE
+qZ
 LO
 OY
 Qd
 Qd
 fw
 in
-Qd
+dg
 ML
 gV
 XP
@@ -109647,11 +110236,11 @@ Qd
 Qd
 sW
 LO
-Qd
-Qd
-Qd
+Hd
+bW
+fC
 LO
-Fm
+rd
 Qd
 Qd
 pO
@@ -109661,7 +110250,7 @@ Qd
 Qd
 Qd
 JT
-Qd
+dg
 ML
 Pc
 sG
@@ -109669,11 +110258,11 @@ uY
 Qd
 gc
 ub
+Rb
+Rb
+Rb
 Ew
-Ew
-Ew
-Ew
-GW
+Sw
 Ew
 Ew
 Ew
@@ -109904,9 +110493,9 @@ Qd
 Qd
 LO
 LO
-Qd
-Qd
-Qd
+To
+qW
+Dw
 LO
 LO
 Qd
@@ -109928,7 +110517,7 @@ NN
 LO
 LO
 ub
-ub
+Rb
 ub
 LO
 LO
@@ -110165,7 +110754,7 @@ LO
 LO
 LO
 LO
-Qd
+ZK
 Qd
 Qd
 Qd
@@ -110185,7 +110774,7 @@ KS
 EG
 Bf
 ub
-zz
+Rb
 PN
 LO
 LO
@@ -110417,15 +111006,15 @@ Qd
 Qd
 Qd
 Qd
+LO
+fz
+mx
+Pv
+LO
+qZ
 Qd
 Qd
-Qd
-Qd
-Qd
-Qd
-Qd
-Qd
-Qd
+Em
 LO
 LO
 LO
@@ -110442,8 +111031,8 @@ LO
 EG
 DO
 ub
-zz
-YM
+Rb
+bg
 cw
 LO
 ub
@@ -110674,15 +111263,15 @@ Qd
 Qd
 Qd
 Qd
+LO
+QI
+Qd
+Qd
+EG
 Qd
 Qd
 Qd
-Qd
-Qd
-Qd
-Qd
-Qd
-Qd
+qZ
 LO
 RL
 RL
@@ -110690,8 +111279,8 @@ LO
 EG
 EG
 LO
-UB
-Wa
+St
+ni
 LO
 Ph
 tO
@@ -110699,8 +111288,8 @@ LO
 LO
 LO
 ub
-zz
-YM
+Rb
+bg
 dS
 LO
 LO
@@ -110931,14 +111520,14 @@ LO
 Qd
 Qd
 Qd
+LO
 Qd
 Qd
-Qd
-Qd
-Qd
-Qd
-Qd
-Qd
+lt
+Ot
+yP
+Tw
+Tw
 LO
 LO
 LO
@@ -110947,8 +111536,8 @@ LO
 Ph
 tO
 LO
-UB
-Wa
+St
+ni
 ub
 ub
 ub
@@ -110956,7 +111545,7 @@ ub
 ub
 ub
 ub
-ub
+Rb
 YI
 ub
 wv
@@ -111188,32 +111777,32 @@ LO
 LO
 LO
 Qd
-Qd
-Qd
-Qd
-Qd
-Qd
-Qd
 LO
+UB
+mx
+Xn
 LO
-LO
-tr
-lF
-ub
-KV
-KV
-KV
-KV
-Ed
-zz
-zz
-zz
-zz
-Tc
-ps
-ps
-ps
-ps
+aE
+Bp
+Bp
+Bp
+Bp
+Bp
+Bp
+Yi
+Yi
+Yi
+Yi
+br
+Rb
+Rb
+Rb
+Rb
+jV
+Ew
+Ew
+Ew
+Ew
 QD
 ub
 ub
@@ -111451,11 +112040,12 @@ LO
 LO
 LO
 LO
-LO
-tr
-ub
-ub
+Bp
+ZM
+ZM
+ZM
 eB
+UP
 ub
 ub
 ub
@@ -111465,8 +112055,7 @@ ub
 ub
 ub
 ub
-ub
-Wa
+ni
 LO
 LO
 LO
@@ -111708,22 +112297,22 @@ kZ
 ub
 ub
 ub
+Bp
+tr
 ub
-ub
-ub
-ub
-eB
-ub
-ub
-ub
-ub
+tr
+EG
+Hy
+tr
 ub
 LO
+Pz
+qt
 Zv
 LO
 LO
 fM
-DJ
+lF
 LO
 JI
 Vv
@@ -111965,22 +112554,22 @@ kZ
 tr
 tr
 tr
-tr
-tr
-tr
-tr
-lF
+Bp
+tt
+tt
+tt
+eB
+UP
 ub
-zz
 ub
-ub
-zz
-zz
-zz
+Ok
+bJ
+Nr
+bZ
 Bf
 Yf
 ub
-Wa
+ni
 LO
 LO
 EG
@@ -112222,22 +112811,22 @@ kZ
 LO
 LO
 LO
-LO
-LO
-LO
-LO
-LO
-LO
-zz
+Bp
+Bp
+Bp
+Bp
+Bp
+Bp
+Rb
 ub
-ub
-zz
-zz
-zz
+Xx
+kG
+JP
+eE
 Os
 zz
 ub
-Wa
+ni
 LO
 rG
 fL
@@ -112486,15 +113075,15 @@ pc
 pc
 LO
 LO
-Jf
-LO
+ub
+DB
 CD
 Zc
 IB
 DO
 lI
 ub
-Wa
+ni
 LO
 JJ
 gD
@@ -112741,9 +113330,9 @@ JV
 VA
 VA
 VA
-VA
-VA
-DH
+mV
+LO
+Jf
 LO
 LO
 LO
@@ -112751,7 +113340,7 @@ LO
 LO
 LO
 fM
-DJ
+lF
 LO
 gq
 gD
@@ -112998,9 +113587,9 @@ LO
 LO
 LO
 LO
-LO
-pc
-RV
+JV
+VA
+DH
 pc
 LO
 LO
@@ -113008,7 +113597,7 @@ vw
 ET
 ET
 ub
-Wa
+ni
 LO
 hr
 Jj
@@ -113254,7 +113843,7 @@ kJ
 kG
 JP
 LO
-RL
+LO
 LO
 pc
 RV
@@ -113265,7 +113854,7 @@ Rb
 Rb
 Rb
 ub
-Wa
+ni
 LO
 LO
 LO
@@ -123841,7 +124430,7 @@ AL
 Bp
 ZD
 Af
-od
+iG
 Sc
 ss
 Fi

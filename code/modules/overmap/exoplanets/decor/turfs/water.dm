@@ -256,14 +256,14 @@
 
 	if(entered)
 		// entered
-		water_bottom_overlay.layer = ABOVE_HUMAN_LAYER
+		water_bottom_overlay?.layer = ABOVE_HUMAN_LAYER
 	else
 		// exited
 		for(var/obj/structure/found_thing in src) // check if there's anything left in this turf that we care about, if so don't change the layer
 			if(!is_type_in_typecache(found_thing, ignored_types))
 				return
 
-		water_bottom_overlay.layer = BELOW_DOOR_LAYER
+		water_bottom_overlay?.layer = BELOW_DOOR_LAYER
 
 /turf/simulated/floor/exoplanet/water/smooth/Entered(atom/movable/AM, atom/oldLoc)
 	. = ..()
