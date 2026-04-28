@@ -15,8 +15,7 @@
 		SPECIES_SKRELL_AXIORI = 50
 	)
 
-	access = list(ACCESS_JOURNALIST, ACCESS_MAINT_TUNNELS)
-	minimal_access = list(ACCESS_JOURNALIST, ACCESS_MAINT_TUNNELS)
+	job_access = list(ACCESS_JOURNALIST, ACCESS_MAINT_TUNNELS)
 	alt_titles = list("Freelance Journalist")
 	alt_factions = list(
 		"Corporate Reporter" = list("NanoTrasen", "Idris Incorporated", "Hephaestus Industries", "Orion Express", "Zavodskoi Interstellar", "Zeng-Hu Pharmaceuticals", "Private Military Contracting Group", "Stellar Corporate Conglomerate"),
@@ -88,8 +87,7 @@
 		SPECIES_SKRELL_AXIORI = 80
 	)
 
-	access = list(ACCESS_LAWYER, ACCESS_MAINT_TUNNELS)
-	minimal_access = list(ACCESS_LAWYER)
+	job_access = list(ACCESS_LAWYER)
 	alt_titles = list(
 		"Workplace Liaison",
 		"Corporate Representative",
@@ -218,8 +216,7 @@
 		SPECIES_SKRELL_AXIORI = 150
 	)
 
-	access = list(ACCESS_CONSULAR, ACCESS_MAINT_TUNNELS)
-	minimal_access = list(ACCESS_CONSULAR)
+	job_access = list(ACCESS_CONSULAR)
 	outfit = /obj/outfit/job/representative/consular
 	blacklisted_species = list(SPECIES_VAURCA_BULWARK)
 	blacklisted_citizenship = list(CITIZENSHIP_ERIDANI, CITIZENSHIP_ELYRA_NCP, CITIZENSHIP_NONE, CITIZENSHIP_FREE_COUNCIL)
@@ -327,8 +324,7 @@
 		SPECIES_SKRELL_AXIORI = 50
 	)
 
-	access = list(ACCESS_CONSULAR, ACCESS_MAINT_TUNNELS)
-	minimal_access = list(ACCESS_CONSULAR)
+	job_access = list(ACCESS_CONSULAR)
 	outfit = /obj/outfit/job/diplomatic_aide
 	blacklisted_citizenship = ALL_CITIZENSHIPS //removed based on consular citizensihp
 
@@ -374,8 +370,7 @@
 		SPECIES_SKRELL_AXIORI = 50
 	)
 
-	access = list(ACCESS_CONSULAR, ACCESS_MAINT_TUNNELS)
-	minimal_access = list(ACCESS_CONSULAR)
+	job_access = list(ACCESS_CONSULAR)
 	outfit = /obj/outfit/job/diplomatic_bodyguard
 	blacklisted_citizenship = ALL_CITIZENSHIPS //removed based on consular citizensihp
 
@@ -421,8 +416,7 @@
 		SPECIES_SKRELL_AXIORI = 50
 	)
 
-	access = list(ACCESS_LAWYER, ACCESS_MAINT_TUNNELS)
-	minimal_access = list(ACCESS_LAWYER)
+	job_access = list(ACCESS_LAWYER)
 	outfit = /obj/outfit/job/corporate_aide
 
 /obj/outfit/job/corporate_aide

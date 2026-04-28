@@ -1,8 +1,0 @@
-author: Batrachophrenoboocosmomachia
-delete-after: True
-changes:
-  - rscadd: "Adds a bar to the top floor of WITCH HAND."
-  - rscadd: "Adds minimap support and portable map readers to Port Volturno."
-  - rscadd: "Adds support for the Map TGUI to not provide a legend (for non-Horizon maps)."
-  - bugfix: "Some additional cleanup and tweaking in Port Volturno."
-  - bugfix: "Fixed some mapping rendering issues."

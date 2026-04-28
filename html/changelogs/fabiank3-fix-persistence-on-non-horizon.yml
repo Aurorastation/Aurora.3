@@ -1,7 +1,0 @@
-author: FabianK3
-
-delete-after: True
-
-changes:
-  - bugfix: "Fixed persistence being used on non-Horizon maps."
-  - rscadd: "Added an admin verb to toggle persistence saving."

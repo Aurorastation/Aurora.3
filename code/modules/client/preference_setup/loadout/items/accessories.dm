@@ -34,10 +34,17 @@ ABSTRACT_TYPE(/datum/gear/accessory)
 	chaps["chaps, black"] = /obj/item/clothing/accessory/chaps/black
 	gear_tweaks += new /datum/gear_tweak/path(chaps)
 
-/datum/gear/accessory/armband_coloured
-	display_name = "armband (colourable)"
+/datum/gear/accessory/armband_colourable
+	display_name = "armband selection (colourable)"
 	path = /obj/item/clothing/accessory/armband/colourable
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
+/datum/gear/accessory/armband_colourable/New()
+	..()
+	var/list/armbands_colourable = list()
+	armbands_colourable["colourable armband"] = /obj/item/clothing/accessory/armband/colourable
+	armbands_colourable["colourable armband, double"] = /obj/item/clothing/accessory/armband/colourable/double
+	gear_tweaks += new /datum/gear_tweak/path(armbands_colourable)
 
 /datum/gear/accessory/armband
 	display_name = "armband selection"
