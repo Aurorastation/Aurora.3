@@ -24,6 +24,10 @@
 	toolspeed = 1
 	var/force_opens = FALSE
 
+/obj/item/crowbar/Initialize()
+	. = ..()
+	SET_TOOL_QUALITIES(src, alist(TOOL_RETRACTOR = STANDARD_TOOL_LEVEL - 2), toolComp)
+
 /obj/item/crowbar/red
 	icon = 'icons/obj/tools.dmi'
 	icon_state = "crowbar_red"

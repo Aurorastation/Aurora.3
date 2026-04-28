@@ -736,6 +736,7 @@
 		"multitool"
 		)
 	var/current_tool = 1
+	var/combitool_level = STANDARD_TOOL_LEVEL - 1
 
 /obj/item/combitool/feedback_hints(mob/user, distance, is_adjacent)
 	. = list()
@@ -764,22 +765,27 @@
 				usesound = 'sound/items/wrench.ogg'
 				surgerysound = 'sound/items/surgery/bonesetter.ogg'
 				tool_behaviour = TOOL_WRENCH
+				LOAD_TOOL_QUALITIES(src, alist(TOOL_WRENCH = combitool_level), toolComp)
 			if("screwdriver")
 				usesound = 'sound/items/screwdriver.ogg'
 				surgerysound = 'sound/items/screwdriver.ogg'
 				tool_behaviour = TOOL_SCREWDRIVER
+				LOAD_TOOL_QUALITIES(src, alist(TOOL_SCREWDRIVER = combitool_level), toolComp)
 			if("wirecutters")
 				usesound = 'sound/items/wirecutter.ogg'
 				surgerysound = 'sound/items/surgery/hemostat.ogg'
 				tool_behaviour = TOOL_WIRECUTTER
+				LOAD_TOOL_QUALITIES(src, alist(TOOL_WIRECUTTER = combitool_level), toolComp)
 			if("crowbar")
 				usesound = SFX_CROWBAR
 				surgerysound = 'sound/items/surgery/retractor.ogg'
 				tool_behaviour = TOOL_CROWBAR
+				LOAD_TOOL_QUALITIES(src, alist(TOOL_CROWBAR = combitool_level), toolComp)
 			if("multitool")
 				usesound = null
 				surgerysound = null
 				tool_behaviour = TOOL_MULTITOOL
+				LOAD_TOOL_QUALITIES(src, alist(TOOL_MULTITOOL = combitool_level), toolComp)
 		update_tool()
 	return 1
 
@@ -801,6 +807,7 @@
 		"screwdriver",
 		"wrench"
 		)
+	var/powerdrill_level = STANDARD_TOOL_LEVEL + 1
 
 /obj/item/powerdrill/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()
@@ -810,6 +817,7 @@
 	. = ..()
 	// When spawned, it has the screwdriver bit enabled. Reflect that.
 	tool_behaviour = TOOL_SCREWDRIVER
+	LOAD_TOOL_QUALITIES(src, alist(TOOL_SCREWDRIVER = powerdrill_level), toolComp)
 	update_tool()
 
 /obj/item/powerdrill/set_initial_maptext()
@@ -832,11 +840,13 @@
 		icon_state = "impact_wrench-screw"
 		check_maptext(SMALL_FONTS(7, "S"))
 		tool_behaviour = TOOL_SCREWDRIVER
+		LOAD_TOOL_QUALITIES(src, alist(TOOL_SCREWDRIVER = powerdrill_level), toolComp)
 	else if(tool == TOOL_WRENCH)
 		usesound = 'sound/items/air_wrench.ogg'
 		icon_state = "impact_wrench-wrench"
 		check_maptext(SMALL_FONTS(7, "W"))
 		tool_behaviour = TOOL_WRENCH
+		LOAD_TOOL_QUALITIES(src, alist(TOOL_WRENCH = powerdrill_level), toolComp)
 
 /obj/item/powerdrill/attack_self(var/mob/user)
 	if(++current_tool > tools.len)
