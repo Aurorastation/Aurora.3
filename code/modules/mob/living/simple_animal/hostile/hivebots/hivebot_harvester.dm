@@ -51,6 +51,7 @@
 /mob/living/simple_animal/hostile/retaliate/hivebotharvester/Initialize(mapload,mob/living/simple_animal/hostile/hivebotbeacon/beacon)
 	. = ..()
 	parent_beacon = WEAKREF(beacon)
+	beacon.harvester_amt++
 	set_light(3,2,LIGHT_COLOR_RED)
 	if(!mapload)
 		spark(get_turf(src), 3, GLOB.alldirs)
@@ -61,7 +62,11 @@
 	QDEL_IN(src, 0)
 
 /mob/living/simple_animal/hostile/retaliate/hivebotharvester/Destroy()
-	astype(parent_beacon?.resolve(), /mob/living/simple_animal/hostile/hivebotbeacon)?.linked_bots.Remove(src)
+	var/mob/living/simple_animal/hostile/hivebotbeacon/beacon = parent_beacon?.resolve()
+	if (beacon)
+		beacon.linked_bots.Remove(src)
+		beacon.harvester_amt--
+
 	parent_beacon = null
 	return ..()
 

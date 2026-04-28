@@ -146,6 +146,14 @@
 	mob_swap_flags = ~HEAVY
 	mob_push_flags = 0
 
+/mob/living/simple_animal/hostile/hivebot/guardian/Initialize(mapload, mob/living/simple_animal/hostile/hivebotbeacon/beacon)
+	. = ..()
+	beacon.guard_amt++
+
+/mob/living/simple_animal/hostile/hivebot/guardian/Destroy()
+	astype(parent_beacon?.resolve(), /mob/living/simple_animal/hostile/hivebotbeacon)?.guard_amt--
+	return ..()
+
 /mob/living/simple_animal/hostile/hivebot/guardian/think()
 	. =..()
 	if(stance != HOSTILE_STANCE_IDLE)
