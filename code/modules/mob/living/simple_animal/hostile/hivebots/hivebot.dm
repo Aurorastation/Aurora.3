@@ -53,7 +53,7 @@
 		spark(get_turf(src), 2, GLOB.alldirs)
 
 /mob/living/simple_animal/hostile/hivebot/Destroy()
-	astype(parent_beacon.resolve(), /mob/living/simple_animal/hostile/hivebotbeacon)?.linked_bots.Remove(src)
+	astype(parent_beacon?.resolve(), /mob/living/simple_animal/hostile/hivebotbeacon)?.linked_bots.Remove(src)
 	parent_beacon = null
 	return ..()
 

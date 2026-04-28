@@ -61,7 +61,7 @@
 	QDEL_IN(src, 0)
 
 /mob/living/simple_animal/hostile/retaliate/hivebotharvester/Destroy()
-	astype(parent_beacon.resolve(), /mob/living/simple_animal/hostile/hivebotbeacon)?.linked_bots.Remove(src)
+	astype(parent_beacon?.resolve(), /mob/living/simple_animal/hostile/hivebotbeacon)?.linked_bots.Remove(src)
 	parent_beacon = null
 	return ..()
 
