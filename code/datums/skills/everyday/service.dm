@@ -51,3 +51,9 @@
 	category =  /singleton/skill_category/everyday
 	subcategory = SKILL_SUBCATEGORY_PHYSICAL
 	component_type = CAROUSING_SKILL_COMPONENT
+	skill_level_descriptions = alist(
+		SKILL_LEVEL_UNFAMILIAR = "You have no modifiers to drinking or doing drugs.",
+		SKILL_LEVEL_FAMILIAR = "Your liver is 5% more effective at filtering drugs and alcohol.",
+		SKILL_LEVEL_TRAINED = "Your liver is 10% more effective at filtering drugs and alcohol.",
+		SKILL_LEVEL_PROFESSIONAL = "Your liver is 15% more effective at filtering drugs and alcohol."
+	)
