@@ -42,3 +42,12 @@
 // 	category =  /singleton/skill_category/everyday
 // 	subcategory = SKILL_SUBCATEGORY_SERVICE
 // 	component_type = ENTERTAINING_SKILL_COMPONENT
+
+/singleton/skill/carousing
+	name = "Carousing"
+	description = "Represents a character's ability to resist drugs and alcohol. Higher ranks in this skill slightly improve the filtration effectiveness of the character's liver. " \
+		+ "This does nothing for characters that don't have a liver."
+	maximum_level = SKILL_LEVEL_PROFESSIONAL
+	category =  /singleton/skill_category/everyday
+	subcategory = SKILL_SUBCATEGORY_SERVICE
+	component_type = CAROUSING_SKILL_COMPONENT

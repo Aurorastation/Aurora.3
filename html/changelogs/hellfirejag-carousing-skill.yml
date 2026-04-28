@@ -1,0 +1,4 @@
+author: Hellfirejag
+delete-after: True
+changes:
+  - rscadd: "Added Carousing as a small new Everyday skill. Having ranks in Carousing makes you slightly more resistant to drugs and alcohol."
