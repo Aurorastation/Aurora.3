@@ -37,11 +37,8 @@
 
 	// If your eyes are covered, people can see you squinting.
 	var/list/protection = list(human.head, human.glasses, human.wear_mask)
-	var/eyes_covered = FALSE
 	for(var/obj/item/I in protection)
 		if(I?.body_parts_covered & EYES)
-			eyes_covered = TRUE
-	if(eyes_covered)
-		return
+			return
 
 	human.visible_message("[human] squints in discomfort.")
