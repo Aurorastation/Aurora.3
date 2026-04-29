@@ -914,6 +914,7 @@
 	var/base_flash_protection = flash_protection
 
 	// Fetch flash protection modifiers via ECS methods.
+	// Anything in this proc that doesn't hook into this signal should eventually be replaced with signal registry methods for simplicity.
 	SEND_SIGNAL(src, COMSIG_GET_FLASH_PROTECTION_MODIFIERS, &base_flash_protection)
 
 	if (!ignore_inherent)
