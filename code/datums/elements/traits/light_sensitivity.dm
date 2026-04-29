@@ -1,3 +1,8 @@
+/// Moodlet spawned by the Photosensitivity trait.
+/datum/moodlet/light_sensitivity
+	duration = 2 MINUTES
+
+/// Element used by the Photosensitivity trait.
 /datum/element/light_sensitivity
 	element_flags = ELEMENT_DETACH_ON_HOST_DESTROY
 
@@ -34,6 +39,11 @@
 
 	human.eye_blurry = max(human.eye_blurry, 6)
 	to_chat(human, SPAN_WARNING(pick(eye_sensitivity_messages)))
+	var/datum/component/morale/morale_comp = human.GetComponent(MORALE_COMPONENT)
+	if (morale_comp)
+		var/datum/moodlet/photosensitivity_moodlet = morale_comp.load_moodlet(/datum/moodlet/light_sensitivity, -10.0)
+		photosensitivity_moodlet.refresh_moodlet()
+
 	if(!prob(20))
 		return
 

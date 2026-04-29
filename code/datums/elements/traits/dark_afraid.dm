@@ -1,3 +1,8 @@
+/// Moodlet spawned by the Nyctophobia trait
+/datum/moodlet/dark_afraid
+	duration = 2 MINUTES
+
+/// Element used by the Nyctophobia trait.
 /datum/element/dark_afraid
 	element_flags = ELEMENT_DETACH_ON_HOST_DESTROY
 
@@ -23,3 +28,9 @@
 		return
 
 	to_chat(human, SPAN_WARNING(pick(afraid_of_the_dark_messages)))
+	var/datum/component/morale/morale_comp = human.GetComponent(MORALE_COMPONENT)
+	if (!morale_comp)
+		return
+
+	var/datum/moodlet/nyctophobia_moodlet = morale_comp.load_moodlet(/datum/moodlet/dark_afraid, -10.0)
+	nyctophobia_moodlet.refresh_moodlet()
