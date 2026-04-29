@@ -14,6 +14,9 @@
 		"It's dark enough that you feel a little anxious..."
 	)
 
+	/// How much this trait modifies morale when triggering.
+	var/morale_modifier = -10.0
+
 /datum/element/dark_afraid/Attach(datum/target)
 	. = ..()
 	RegisterSignal(target, COMSIG_MOB_UPDATE_VISION, PROC_REF(handle_vision_update))
@@ -32,5 +35,5 @@
 	if (!morale_comp)
 		return
 
-	var/datum/moodlet/nyctophobia_moodlet = morale_comp.load_moodlet(/datum/moodlet/dark_afraid, -10.0)
+	var/datum/moodlet/nyctophobia_moodlet = morale_comp.load_moodlet(/datum/moodlet/dark_afraid, morale_modifier)
 	nyctophobia_moodlet.refresh_moodlet()

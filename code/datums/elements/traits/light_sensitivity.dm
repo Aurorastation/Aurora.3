@@ -13,6 +13,9 @@
 		"The bright light leaves your vision strained."
 	)
 
+	/// How much this trait modifies morale when triggering.
+	var/morale_modifier = -10.0
+
 /datum/element/light_sensitivity/Attach(datum/target)
 	. = ..()
 	RegisterSignal(target, COMSIG_MOB_UPDATE_VISION, PROC_REF(handle_vision_update))
@@ -41,7 +44,7 @@
 	to_chat(human, SPAN_WARNING(pick(eye_sensitivity_messages)))
 	var/datum/component/morale/morale_comp = human.GetComponent(MORALE_COMPONENT)
 	if (morale_comp)
-		var/datum/moodlet/photosensitivity_moodlet = morale_comp.load_moodlet(/datum/moodlet/light_sensitivity, -10.0)
+		var/datum/moodlet/photosensitivity_moodlet = morale_comp.load_moodlet(/datum/moodlet/light_sensitivity, morale_modifier)
 		photosensitivity_moodlet.refresh_moodlet()
 
 	if(!prob(20))
