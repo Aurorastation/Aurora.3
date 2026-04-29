@@ -6,16 +6,18 @@
 	pass_flags_self = PASSSTRUCTURE
 	should_use_health = TRUE
 
-	var/material_alteration = MATERIAL_ALTERATION_ALL // Overrides for material shit. Set them manually if you don't want colors etc. See wood chairs/office chairs.
+	/// Overrides for material shit. Set them manually if you don't want colors etc. See wood chairs/office chairs.
+	var/material_alteration = MATERIAL_ALTERATION_ALL
 	var/climbable
 	var/parts
 	var/list/climbers
 	var/list/footstep_sound	//footstep sounds when stepped on
 
 	var/material/material
-	var/build_amt = 2 // used by some structures to determine into how many pieces they should disassemble into or be made with
-
-	var/slowdown = 0 //amount that pulling mobs have their movement delayed by
+	/// Used by some structures to determine into how many pieces they should disassemble into or be made with
+	var/build_amt = 2
+	/// Amount that pulling mobs have their movement delayed by
+	var/slowdown = 0
 
 /obj/structure/Initialize(mapload)
 	. = ..()

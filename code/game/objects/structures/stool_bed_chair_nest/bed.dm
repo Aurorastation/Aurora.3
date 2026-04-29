@@ -30,19 +30,23 @@
 	var/base_icon = "bed"
 	var/buckling_sound = 'sound/effects/buckle.ogg'
 
-	var/painted_colour // Used for paint gun and preset colours. I know this name sucks.
+	/// Used for paint gun and preset colours. I know this name sucks.
+	var/painted_colour
 
 	var/can_dismantle = TRUE
 	var/can_pad = TRUE
 
 	gfi_layer_rotation = GFI_ROTATION_DEFDIR
 	var/makes_rolling_sound = FALSE
-	var/held_item = null // Set to null if you don't want people to pick this up.
+	/// Set to null if you don't want people to pick this up.
+	var/held_item = null
 	slowdown = 2.5
 
-	var/driving = FALSE // Shit for wheelchairs. Doesn't really get used here, but it's for code cleanliness.
+	/// Shit for wheelchairs. Doesn't really get used here, but it's for code cleanliness.
+	var/driving = FALSE
 	var/mob/living/pulling = null
-	var/propelled = 0 // Check for fire-extinguisher-driven chairs
+	/// Check for fire-extinguisher-driven chairs
+	var/propelled = 0
 
 /obj/structure/bed/mechanics_hints()
 	. = list()
