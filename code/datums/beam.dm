@@ -40,10 +40,12 @@
 	recalculate()
 
 /datum/beam/proc/recalculate()
-	if(QDELETED(src) || recalculating)
-		if(!QDELETED(src) && recalculating)
-			recalculate_in(sleep_time)
-		return
+	if(QDELETED(src))
+	  return
+	
+	if(recalculating)
+	  recalculate_in(sleep_time)
+	  return
 
 	recalculating = TRUE
 	timing_id = null
