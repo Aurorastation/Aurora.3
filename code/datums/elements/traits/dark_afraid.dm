@@ -14,8 +14,8 @@
 	RegisterSignal(target, COMSIG_MOB_UPDATE_VISION, PROC_REF(handle_vision_update))
 
 /datum/element/dark_afraid/Detach(datum/target)
-	. = ..()
 	UnregisterSignal(target, COMSIG_MOB_UPDATE_VISION)
+	return ..()
 
 /datum/element/dark_afraid/proc/handle_vision_update(mob/living/carbon/human/human)
 	SIGNAL_HANDLER

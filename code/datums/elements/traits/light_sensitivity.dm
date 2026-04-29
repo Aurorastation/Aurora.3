@@ -11,10 +11,12 @@
 /datum/element/light_sensitivity/Attach(datum/target)
 	. = ..()
 	RegisterSignal(target, COMSIG_MOB_UPDATE_VISION, PROC_REF(handle_vision_update))
+	RegisterSignal(target, COMSIG_GET_FLASH_PROTECTION_MODIFIERS, PROC_REF(handle_flash_protection))
 
 /datum/element/light_sensitivity/Detach(datum/target)
-	. = ..()
 	UnregisterSignal(target, COMSIG_MOB_UPDATE_VISION)
+	UnregisterSignal(target, COMSIG_GET_FLASH_PROTECTION_MODIFIERS)
+	return ..()
 
 /datum/element/light_sensitivity/proc/handle_vision_update(mob/living/carbon/human/human)
 	SIGNAL_HANDLER
@@ -42,3 +44,7 @@
 			return
 
 	human.visible_message("[human] squints in discomfort.")
+
+/datum/element/light_sensitivity/proc/handle_flash_protection(mob/living/carbon/human/human, base_flash_protection)
+	SIGNAL_HANDLER
+	*base_flash_protection = *base_flash_protection - 1

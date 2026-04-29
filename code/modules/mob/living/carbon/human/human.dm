@@ -893,6 +893,8 @@
 /// Returns a number between -1 to 2
 /mob/living/carbon/human/get_flash_protection(ignore_inherent = FALSE)
 
+	// Handle all the exits first before we do the standard method.
+
 	//Ling
 	var/datum/changeling/changeling = changeling_power(0, 0, 0)
 	if(changeling && changeling.using_thermals)
@@ -905,13 +907,16 @@
 	if (I && I.status & ORGAN_CUT_AWAY)
 		return FLASH_PROTECTION_MAJOR
 
-	if (!ignore_inherent && species.inherent_eye_protection)
-		. = max(species.inherent_eye_protection, flash_protection)
-	else
-		return flash_protection
+	// Standard method, sum of modifiers.
+	var/base_flash_protection = flash_protection
 
-	if(HAS_TRAIT(src, TRAIT_ORIGIN_LIGHT_SENSITIVE))
-		return max(. - 1, FLASH_PROTECTION_REDUCED)
+	// Fetch flash protection modifiers via ECS methods.
+	SEND_SIGNAL(src, COMSIG_GET_FLASH_PROTECTION_MODIFIERS, &base_flash_protection)
+
+	if (!ignore_inherent)
+		base_flash_protection += species.inherent_eye_protection
+
+	return base_flash_protection
 
 /mob/living/carbon/human/flash_act(intensity = FLASH_PROTECTION_MODERATE, override_blindness_check = FALSE, affect_silicon = FALSE, ignore_inherent = FALSE, type = /atom/movable/screen/fullscreen/flash, length = 2.5 SECONDS)
 	if(..())
