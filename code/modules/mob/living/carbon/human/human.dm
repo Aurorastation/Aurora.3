@@ -890,7 +890,10 @@
 	return
 
 
-/// Returns a number between -1 to 2
+/**
+ * Returns a numerical value between -INFINITY and +INFINITY representing a user's flash protection value.
+ * As a friendly reminder, do not use the == operator on this proc, use >= or <= instead.
+ */
 /mob/living/carbon/human/get_flash_protection(ignore_inherent = FALSE)
 
 	// Handle all the exits first before we do the standard method.
@@ -923,7 +926,7 @@
 		var/obj/item/organ/E = get_eyes(no_synthetic = !affect_silicon)
 		if(istype(E))
 			return E.flash_act(intensity, override_blindness_check, affect_silicon, ignore_inherent, type, length)
-	else if(intensity == get_flash_protection(ignore_inherent))
+	else if(intensity >= get_flash_protection(ignore_inherent))
 		if(prob(20))
 			to_chat(src, SPAN_NOTICE("Something bright flashes in the corner of your vision!"))
 
