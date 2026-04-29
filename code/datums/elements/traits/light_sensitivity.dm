@@ -1,0 +1,47 @@
+/datum/element/light_sensitivity
+	element_flags = ELEMENT_DETACH_ON_HOST_DESTROY
+
+	/// The set of messages to draw from for characters with the Photosensitivity trait.
+	var/list/eye_sensitivity_messages = list(
+		"Your eyes tire a bit from the brightness.",
+		"Your eyes sting a little; it's too bright.",
+		"The bright light leaves your vision strained."
+	)
+
+/datum/element/light_sensitivity/Attach(datum/target)
+	. = ..()
+	RegisterSignal(target, COMSIG_MOB_UPDATE_VISION, PROC_REF(handle_vision_update))
+
+/datum/element/light_sensitivity/Detach(datum/target)
+	. = ..()
+	UnregisterSignal(target, COMSIG_MOB_UPDATE_VISION)
+
+/datum/element/light_sensitivity/proc/handle_vision_update(mob/living/carbon/human/human)
+	SIGNAL_HANDLER
+	// First check the light level every once in awhile
+	if (!prob(0.5) || astype(get_turf(human), /turf)?.get_lumcount() <= 0.95)
+		return
+
+	// Then check if they've got protection from bright lights
+	if (human.get_flash_protection() <= 0 || !istype(human.glasses, /obj/item/clothing/glasses/fakesunglasses))
+		return
+
+	// And check if someone cut their eyes out.
+	if(!human.get_eyes())
+		return
+
+	human.eye_blurry = max(human.eye_blurry, 6)
+	to_chat(human, SPAN_WARNING(pick(eye_sensitivity_messages)))
+	if(!prob(20))
+		return
+
+	// If your eyes are covered, people can see you squinting.
+	var/list/protection = list(human.head, human.glasses, human.wear_mask)
+	var/eyes_covered = FALSE
+	for(var/obj/item/I in protection)
+		if(I?.body_parts_covered & EYES)
+			eyes_covered = TRUE
+	if(eyes_covered)
+		return
+
+	human.visible_message("[human] squints in discomfort.")

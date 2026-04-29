@@ -1,0 +1,5 @@
+author: Hellfirejag
+delete-after: True
+changes:
+  - refactor: "Refactored light sensitivity and dark phobia traits to cut down on Life() performance costs by making them elements instead of hardcoded checks for every mob."
+  - rscadd: "Added disability selections for Photosensitivity and Nyctophobia"
