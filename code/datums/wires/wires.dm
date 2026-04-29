@@ -251,8 +251,16 @@ GLOBAL_LIST_INIT(wire_name_directory, list())
 	if(isghost(user) && check_rights(R_MOD, FALSE, user))
 		return TRUE
 
-	// Station blueprints do that too, but only if the wires are not randomized.
-	if(istype(user.get_active_hand(), /obj/item/blueprints) && !random)
+	// The following checks only apply for non-randomized wires.
+	if (random)
+		return FALSE
+
+	// Station blueprints do that too
+	if(istype(user.get_active_hand(), /obj/item/blueprints))
+		return TRUE
+
+	// Max electrical engineering skill grants this as a perk
+	if (GET_SKILL_LEVEL(user, ELECTRICAL_ENGINEERING_SKILL_COMPONENT) >= SKILL_LEVEL_PROFESSIONAL)
 		return TRUE
 
 	return FALSE
