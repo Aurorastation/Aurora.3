@@ -1,12 +1,12 @@
 //Speeds up chemical regeneration
 /mob/proc/changeling_fastchemical()
-	var/datum/changeling/changeling = mind.antag_datums[MODE_CHANGELING]
+	var/datum/component/changeling/changeling = mind.antag_datums[MODE_CHANGELING]
 	changeling.chem_recharge_rate *= 2.5
 	return TRUE
 
 //Increases maximum chemical storage
 /mob/proc/changeling_engorgedglands()
-	var/datum/changeling/changeling = mind.antag_datums[MODE_CHANGELING]
+	var/datum/component/changeling/changeling = mind.antag_datums[MODE_CHANGELING]
 	changeling.chem_storage += 50
 	return TRUE
 
@@ -33,7 +33,7 @@ GLOBAL_LIST_INIT_TYPED(hivemind_bank, /datum/absorbed_dna, list())
 	set name = "Hive Channel (10)"
 	set desc = "Allows you to channel DNA in the airwaves to allow other changelings to absorb it."
 
-	var/datum/changeling/changeling = changeling_power(10,1)
+	var/datum/component/changeling/changeling = changeling_power(10,1)
 	if(!changeling)
 		return
 
@@ -70,7 +70,7 @@ GLOBAL_LIST_INIT_TYPED(hivemind_bank, /datum/absorbed_dna, list())
 	set name = "Hive Absorb (20)"
 	set desc = "Allows you to absorb DNA that is being channeled in the airwaves."
 
-	var/datum/changeling/changeling = changeling_power(20, 1)
+	var/datum/component/changeling/changeling = changeling_power(20, 1)
 	if(!changeling)
 		return
 

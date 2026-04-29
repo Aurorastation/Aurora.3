@@ -32,7 +32,7 @@ GLOBAL_DATUM(changelings, /datum/antagonist/changeling)
 	GLOB.changelings = src
 
 /datum/antagonist/changeling/get_special_objective_text(var/datum/mind/player)
-	var/datum/changeling/changeling = player.antag_datums[MODE_CHANGELING]
+	var/datum/component/changeling/changeling = player.antag_datums[MODE_CHANGELING]
 	return "<br><b>Changeling ID:</b> [changeling.changelingID].<br><b>Genomes Absorbed:</b> [changeling.absorbedcount]"
 
 /datum/antagonist/changeling/update_antag_mob(var/datum/mind/player)
@@ -99,7 +99,7 @@ GLOBAL_DATUM(changelings, /datum/antagonist/changeling)
 /datum/antagonist/changeling/remove_antagonist(var/datum/mind/player, var/show_message = TRUE, var/implanted)
 	. = ..()
 	if(.)
-		remove_verb(player.current, /datum/changeling/proc/EvolutionMenu)
+		remove_verb(player.current, /datum/component/changeling/proc/EvolutionMenu)
 		for(var/datum/power/changeling/P in powerinstances)
 			remove_verb(player.current, P.verbpath)
 

@@ -1,5 +1,5 @@
 /mob/proc/changeling_equip_clothing(var/list/stuff_to_equip, var/cost)
-	var/datum/changeling/changeling = changeling_power(cost,1,100,CONSCIOUS)
+	var/datum/component/changeling/changeling = changeling_power(cost,1,100,CONSCIOUS)
 	if(!changeling)
 		return
 

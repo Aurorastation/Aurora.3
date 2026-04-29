@@ -91,7 +91,7 @@
 	if(face?.disfigured) // if your face is ruined, your ability to vocalize is also ruined
 		return "Unknown" // above ling voice mimicing so they don't get caught out immediately
 	if(mind)
-		var/datum/changeling/changeling = mind.antag_datums[MODE_CHANGELING]
+		var/datum/component/changeling/changeling = mind.antag_datums[MODE_CHANGELING]
 		if(changeling?.mimicing)
 			return changeling.mimicing
 	if(GetSpecialVoice())

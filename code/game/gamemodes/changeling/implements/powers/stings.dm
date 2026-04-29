@@ -18,7 +18,7 @@
 
 	if(!target || !owner.mind)
 		return FALSE
-	var/datum/changeling/changeling = owner.mind.antag_datums[MODE_CHANGELING]
+	var/datum/component/changeling/changeling = owner.mind.antag_datums[MODE_CHANGELING]
 	if(!changeling)
 		return FALSE
 	if(!(target in view(changeling.sting_range)))
@@ -37,7 +37,7 @@
 /datum/changeling_sting/proc/do_sting(mob/living/target)
 	SHOULD_NOT_SLEEP(TRUE)
 
-	var/datum/changeling/changeling = owner.mind.antag_datums[MODE_CHANGELING]
+	var/datum/component/changeling/changeling = owner.mind.antag_datums[MODE_CHANGELING]
 	changeling.use_charges(required_chems)
 	changeling.sting_range = 1
 	remove_verb(owner, verb_path)
@@ -61,7 +61,7 @@
 	feedback_add_details("changeling_powers", feedback_tag)
 
 /mob/proc/changeling_sting(var/required_chems = 0, var/verb_path, var/datum_path, var/stealthy = FALSE)
-	var/datum/changeling/changeling = mind.antag_datums[MODE_CHANGELING]
+	var/datum/component/changeling/changeling = mind.antag_datums[MODE_CHANGELING]
 	if(istype(changeling.prepared_sting, datum_path))
 		to_chat(src, SPAN_NOTICE("You unprepare the <b>[changeling.prepared_sting.name]</b>."))
 		QDEL_NULL(changeling.prepared_sting)
@@ -164,7 +164,7 @@
 	set name = "Transformation Sting (40)"
 	set desc = "Causes the target to permanently transform into a collected DNA subject."
 
-	var/datum/changeling/changeling = mind.antag_datums[MODE_CHANGELING]
+	var/datum/component/changeling/changeling = mind.antag_datums[MODE_CHANGELING]
 	if(!length(changeling.absorbed_dna))
 		to_chat(src, SPAN_WARNING("You have no DNA to load this sting with!"))
 		return
@@ -265,7 +265,7 @@
 	set name = "Ranged Sting (10)"
 	set desc = "Your next sting ability can be used against targets 2 squares away."
 
-	var/datum/changeling/changeling = mind.antag_datums[MODE_CHANGELING]
+	var/datum/component/changeling/changeling = mind.antag_datums[MODE_CHANGELING]
 	if(changeling.sting_range > 1)
 		to_chat(src, SPAN_WARNING("The range of your sting has already been boosted!"))
 		return

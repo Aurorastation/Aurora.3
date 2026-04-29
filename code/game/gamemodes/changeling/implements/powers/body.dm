@@ -3,7 +3,7 @@
 	set category = "Changeling"
 	set name = "Transform (5)"
 
-	var/datum/changeling/changeling = changeling_power(5, 1, 0)
+	var/datum/component/changeling/changeling = changeling_power(5, 1, 0)
 	if(!changeling)
 		return
 
@@ -45,7 +45,7 @@
 		var/newSpecies = chosen_dna.speciesName
 		H.set_species(newSpecies, 1)
 		if(mind) //likely transfomration sting on ghosted corpse if no mind
-			var/datum/changeling/changeling = mind.antag_datums[MODE_CHANGELING]
+			var/datum/component/changeling/changeling = mind.antag_datums[MODE_CHANGELING]
 			if(changeling && !changeling.mimicing)
 				changeling.mimiced_accent = chosen_dna.accent
 		H.dna = chosen_dna.dna
@@ -67,7 +67,7 @@
 	set category = "Changeling"
 	set name = "Lesser Form (1)"
 
-	var/datum/changeling/changeling = changeling_power(1, 0, 0)
+	var/datum/component/changeling/changeling = changeling_power(1, 0, 0)
 	if(!changeling)
 		return
 
@@ -129,7 +129,7 @@
 	set category = "Changeling"
 	set name = "Transform (1)"
 
-	var/datum/changeling/changeling = changeling_power(1, 1, 0)
+	var/datum/component/changeling/changeling = changeling_power(1, 1, 0)
 	if(!changeling)
 		return
 
@@ -211,7 +211,7 @@
 	set category = "Changeling"
 	set name = "Regenerative Stasis (20)"
 
-	var/datum/changeling/changeling = changeling_power(20, 1, 100, UNCONSCIOUS)
+	var/datum/component/changeling/changeling = changeling_power(20, 1, 100, UNCONSCIOUS)
 	if(!changeling)
 		return
 
@@ -244,7 +244,7 @@
 		to_chat(src, SPAN_HIGHDANGER("We died while regenerating! Our last resort is detaching our head now..."))
 		return
 
-	var/datum/changeling/changeling = changeling_power(20, 1, 100, UNCONSCIOUS)
+	var/datum/component/changeling/changeling = changeling_power(20, 1, 100, UNCONSCIOUS)
 	if(!changeling)
 		return
 
@@ -275,7 +275,7 @@
 	set category = "Changeling"
 	set name = "Emergency Transform (1)"
 
-	var/datum/changeling/changeling = changeling_power(1, 0, 100, DEAD)
+	var/datum/component/changeling/changeling = changeling_power(1, 0, 100, DEAD)
 	if(!changeling)
 		return
 
@@ -335,7 +335,7 @@
 	set name = "Adrenaline Sacs (30)"
 	set desc = "Removes all manner of stuns, as well as producing painkillers and stimulants."
 
-	var/datum/changeling/changeling = changeling_power(30, 0, 100, UNCONSCIOUS)
+	var/datum/component/changeling/changeling = changeling_power(30, 0, 100, UNCONSCIOUS)
 	if(!changeling)
 		return FALSE
 	changeling.use_charges(30)
@@ -362,7 +362,7 @@
 	set name = "Toggle Digital Camouflage"
 	set desc = "The AI can no longer track us, but we will look uncanny if examined. Has a constant cost while active."
 
-	var/datum/changeling/changeling = changeling_power()
+	var/datum/component/changeling/changeling = changeling_power()
 	if(!changeling)
 		return FALSE
 
@@ -389,7 +389,7 @@
 	set name = "Rapid Regeneration (30)"
 	set desc = "We begin rapidly regenerating ourselves. Does not affect stuns or chemicals."
 
-	var/datum/changeling/changeling = changeling_power(30, 0, 100, UNCONSCIOUS)
+	var/datum/component/changeling/changeling = changeling_power(30, 0, 100, UNCONSCIOUS)
 	if(!changeling)
 		return FALSE
 	changeling.use_charges(30)
@@ -416,7 +416,7 @@
 	set name = "Mimic Voice"
 	set desc = "Shape our vocal glands to form a voice of anyone we choose."
 
-	var/datum/changeling/changeling = changeling_power()
+	var/datum/component/changeling/changeling = changeling_power()
 	if(!changeling)
 		return
 
@@ -455,7 +455,7 @@
 	set name = "Form Blades (20)"
 	set desc = "Rupture the flesh and mend the bone of your hand into a deadly blade."
 
-	var/datum/changeling/changeling = changeling_power(20, 0, 0)
+	var/datum/component/changeling/changeling = changeling_power(20, 0, 0)
 	if(!changeling)
 		return FALSE
 	changeling.use_charges(20)
@@ -493,7 +493,7 @@
 	set name = "Form Shield (20)"
 	set desc = "Bend the flesh and bone of your hand into a grotesque shield."
 
-	var/datum/changeling/changeling = changeling_power(20,0,0)
+	var/datum/component/changeling/changeling = changeling_power(20,0,0)
 	if(!changeling)
 		return FALSE
 	changeling.use_charges(20)
@@ -531,7 +531,7 @@
 	set name = "Horror Form (50)"
 	set desc = "Tear apart your human disguise, revealing your true form."
 
-	var/datum/changeling/changeling = changeling_power(50,0,0)
+	var/datum/component/changeling/changeling = changeling_power(50,0,0)
 	if(!changeling)
 		return FALSE
 
@@ -593,7 +593,7 @@
 	set name = "Resonant Shriek (30)"
 	set desc = "Emit a powerful screech which shatters glass within a seven-tile radius, and disorients hearers."
 
-	var/datum/changeling/changeling = changeling_power(30,0,0)
+	var/datum/component/changeling/changeling = changeling_power(30,0,0)
 	if(!changeling)
 		return FALSE
 
@@ -654,7 +654,7 @@
 	set name = "Dissonant Shriek (30)"
 	set desc = "Emit a moderate sized EMP."
 
-	var/datum/changeling/changeling = changeling_power(30,0,0)
+	var/datum/component/changeling/changeling = changeling_power(30,0,0)
 	if(!changeling)
 		return FALSE
 
@@ -669,7 +669,7 @@
 	set name = "Enable Heat Receptors (5)"
 	set desc = "Toggles our thermal vision."
 
-	var/datum/changeling/changeling = changeling_power(5,0,0)
+	var/datum/component/changeling/changeling = changeling_power(5,0,0)
 	if(!changeling)
 		return FALSE
 
@@ -695,7 +695,7 @@
 	set name = "Electric Lockpick (5 + 10/use)"
 	set desc = "Bruteforces open most electrical locking systems, at 10 chemicals per use."
 
-	var/datum/changeling/changeling = changeling_power(5,0,100,CONSCIOUS)
+	var/datum/component/changeling/changeling = changeling_power(5,0,100,CONSCIOUS)
 
 	var/mob/living/carbon/human/H = src
 

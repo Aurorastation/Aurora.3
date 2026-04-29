@@ -145,7 +145,7 @@
 	if(!proximity)
 		return
 
-	var/datum/changeling/changeling = user.changeling_power(10)
+	var/datum/component/changeling/changeling = user.changeling_power(10)
 	if(!changeling)
 		return
 

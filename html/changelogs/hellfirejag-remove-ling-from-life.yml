@@ -1,0 +1,4 @@
+author: Hellfirejag
+delete-after: True
+changes:
+  - refactor: "Refactored changeling code to no longer require every mob checks on every tick if it's a changeling."

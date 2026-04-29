@@ -274,7 +274,7 @@
 		if(vampire)
 			. += "Usable Blood [vampire.blood_usable]"
 			. += "Total Blood [vampire.blood_total]"
-		var/datum/changeling/changeling = mind.antag_datums[MODE_CHANGELING]
+		var/datum/component/changeling/changeling = mind.antag_datums[MODE_CHANGELING]
 		if(changeling)
 			. += "Chemical Storage: [changeling.chem_charges]"
 			. += "Genetic Damage Time: [changeling.geneticdamage]"
@@ -894,7 +894,7 @@
 /mob/living/carbon/human/get_flash_protection(ignore_inherent = FALSE)
 
 	//Ling
-	var/datum/changeling/changeling = changeling_power(0, 0, 0)
+	var/datum/component/changeling/changeling = changeling_power(0, 0, 0)
 	if(changeling && changeling.using_thermals)
 		return FLASH_PROTECTION_REDUCED
 
@@ -2172,7 +2172,7 @@
 	var/used_accent = accent //starts with the mob's default accent
 
 	if(mind)
-		var/datum/changeling/changeling = mind.antag_datums[MODE_CHANGELING]
+		var/datum/component/changeling/changeling = mind.antag_datums[MODE_CHANGELING]
 		if(changeling?.mimiced_accent)
 			used_accent = changeling.mimiced_accent
 

@@ -603,7 +603,7 @@ GLOBAL_LIST_EMPTY(process_objectives)
 				n_p ++
 	else if (SSticker.current_state == GAME_STATE_PLAYING)
 		for(var/mob/living/carbon/human/P in GLOB.player_list)
-			var/datum/changeling/changeling = P.mind.antag_datums[MODE_CHANGELING]
+			var/datum/component/changeling/changeling = P.mind.antag_datums[MODE_CHANGELING]
 			if(P.client && !changeling && P.mind != owner)
 				n_p ++
 	target_amount = min(target_amount, n_p)
@@ -612,7 +612,7 @@ GLOBAL_LIST_EMPTY(process_objectives)
 	return target_amount
 
 /datum/objective/absorb/check_completion()
-	var/datum/changeling/changeling = owner.antag_datums[MODE_CHANGELING]
+	var/datum/component/changeling/changeling = owner.antag_datums[MODE_CHANGELING]
 	if(owner && changeling?.absorbed_dna && (changeling.absorbedcount >= target_amount))
 		return 1
 	else

@@ -2,7 +2,7 @@
 	set category = "Changeling"
 	set name = "Absorb DNA"
 
-	var/datum/changeling/changeling = changeling_power(0, 0, 100)
+	var/datum/component/changeling/changeling = changeling_power(0, 0, 100)
 	if(!changeling)
 		return
 
@@ -81,7 +81,7 @@
 	var/datum/absorbed_dna/newDNA = new(T.real_name, T.dna, T.species.get_cloning_variant(), T.languages, T.height, T.gender, T.pronouns, T.accent, newGradient)
 	absorbDNA(newDNA)
 
-	var/datum/changeling/changeling_check = T.get_antag_datum(MODE_CHANGELING)
+	var/datum/component/changeling/changeling_check = T.get_antag_datum(MODE_CHANGELING)
 	if(changeling_check)
 		if(changeling_check.absorbed_dna)
 			for(var/datum/absorbed_dna/dna_data in changeling_check.absorbed_dna)	//steal all their loot

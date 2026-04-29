@@ -287,11 +287,11 @@ var/list/datum/power/changeling/powerinstances = list()
 // Modularchangling, totally stolen from the new player panel.  YAYY
 //I'm too afraid to touch this, you win this time, oldcode - Geeves
 // After an HTML course, I finally conquered this. Convert into TGUI eventually. - Geeves
-/datum/changeling/proc/EvolutionMenu()//The new one
+/datum/component/changeling/proc/EvolutionMenu()//The new one
 	set category = "Changeling"
 	set desc = "Buy new abilities.."
 
-	var/datum/changeling/changeling = usr.mind.antag_datums[MODE_CHANGELING]
+	var/datum/component/changeling/changeling = usr.mind.antag_datums[MODE_CHANGELING]
 	if(!usr || !usr.mind || !changeling)
 		return
 	src = changeling
@@ -536,7 +536,7 @@ var/list/datum/power/changeling/powerinstances = list()
 	power_win.open()
 
 
-/datum/changeling/Topic(href, href_list)
+/datum/component/changeling/Topic(href, href_list)
 	..()
 	if(!ismob(usr))
 		return
@@ -546,12 +546,12 @@ var/list/datum/power/changeling/powerinstances = list()
 		if(!istype(M))
 			return
 		purchasePower(M, href_list["P"])
-		call(/datum/changeling/proc/EvolutionMenu)()
+		call(/datum/component/changeling/proc/EvolutionMenu)()
 
 
 
-/datum/changeling/proc/purchasePower(var/datum/mind/M, var/power_name, var/remake_verbs = 1)
-	var/datum/changeling/changeling = M.antag_datums[MODE_CHANGELING]
+/datum/component/changeling/proc/purchasePower(var/datum/mind/M, var/power_name, var/remake_verbs = 1)
+	var/datum/component/changeling/changeling = M.antag_datums[MODE_CHANGELING]
 	if(!M || !changeling)
 		return
 

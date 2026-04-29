@@ -9,7 +9,7 @@
 
 /datum/language/ling/broadcast(var/mob/living/speaker,var/message,var/speaker_mask)
 	if(speaker.mind)
-		var/datum/changeling/changeling = speaker.mind.antag_datums[MODE_CHANGELING]
+		var/datum/component/changeling/changeling = speaker.mind.antag_datums[MODE_CHANGELING]
 		if(changeling)
 			..(speaker,message, changeling.changelingID)
 			return

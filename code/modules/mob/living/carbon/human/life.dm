@@ -78,9 +78,6 @@
 
 	//No need to update all of these procs if the guy is dead or in stasis
 	if(stat != DEAD && !InStasis())
-		//Updates the number of stored chemicals for powers
-		handle_changeling()
-
 		//Organs
 		handle_organs(seconds_per_tick)
 		stabilize_body_temperature(seconds_per_tick) //Body temperature adjusts itself (self-regulation)
@@ -1317,12 +1314,6 @@
 									eyes_covered = TRUE
 							if(!eyes_covered)
 								self.visible_message("[self] squints in discomfort.")
-
-/mob/living/carbon/human/proc/handle_changeling()
-	if(mind)
-		var/datum/changeling/changeling = mind.antag_datums[MODE_CHANGELING]
-		if(changeling)
-			changeling.regenerate()
 
 /**
  * This proc assumes that if traumatic_shock = null, then a shock value was NOT passed in, and thus it calculates it itself.

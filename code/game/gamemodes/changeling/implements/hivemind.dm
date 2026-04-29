@@ -14,7 +14,7 @@
 	set desc = "Relinquish your life and enter the land of the dead."
 
 	announce_ghost_joinleave(ghostize(1, 0))
-	var/datum/changeling/changeling = changeling_mob.mind.antag_datums[MODE_CHANGELING]
+	var/datum/component/changeling/changeling = changeling_mob.mind.antag_datums[MODE_CHANGELING]
 	changeling.hivemind_members -= src
 	relay_hivemind(SPAN_NOTICE("[src] has left our hivemind to join the living dead."), changeling_mob)
 
@@ -28,7 +28,7 @@
 		ckey = original_body.ckey
 		changeling_mob = ling
 	if(changeling_mob)
-		var/datum/changeling/changeling = changeling_mob.mind.antag_datums[MODE_CHANGELING]
+		var/datum/component/changeling/changeling = changeling_mob.mind.antag_datums[MODE_CHANGELING]
 		changeling.hivemind_members[name] = src
 		introduction(changeling_mob)
 
@@ -65,7 +65,7 @@
 	M.ckey = ckey
 	GLOB.morphs.add_antagonist(M.mind, TRUE, TRUE, FALSE, TRUE, TRUE)
 
-	var/datum/changeling/changeling = changeling_mob.mind.antag_datums[MODE_CHANGELING]
+	var/datum/component/changeling/changeling = changeling_mob.mind.antag_datums[MODE_CHANGELING]
 	changeling.hivemind_members -= src
 
 	qdel(src)

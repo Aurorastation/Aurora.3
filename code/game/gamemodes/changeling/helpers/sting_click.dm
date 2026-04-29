@@ -2,7 +2,7 @@
 	SHOULD_NOT_SLEEP(TRUE)
 
 	if(isliving(target) && holder.a_intent == I_HURT && holder.mind)
-		var/datum/changeling/changeling = holder.mind.antag_datums[MODE_CHANGELING]
+		var/datum/component/changeling/changeling = holder.mind.antag_datums[MODE_CHANGELING]
 		if(changeling && changeling.prepared_sting)
 			if(changeling.prepared_sting.can_sting(target))
 				changeling.prepared_sting.do_sting(target)

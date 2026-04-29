@@ -4,7 +4,7 @@
 	set name = "Hivemind Eject"
 	set desc = "Ejects a member of our internal hivemind."
 
-	var/datum/changeling/changeling = changeling_power()
+	var/datum/component/changeling/changeling = changeling_power()
 	if(!changeling)
 		return
 	var/chosen_player = tgui_input_list(src, "Choose a hivemind member to eject.", "Eject", changeling.hivemind_members)
@@ -26,7 +26,7 @@
 	return TRUE
 
 /mob/proc/relay_hivemind(var/message, var/mob/ling)
-	var/datum/changeling/changeling = ling.mind.antag_datums[MODE_CHANGELING]
+	var/datum/component/changeling/changeling = ling.mind.antag_datums[MODE_CHANGELING]
 	if(changeling)
 		for(var/H in changeling.hivemind_members) // tell the others in the hivemind
 			var/mob/M = changeling.hivemind_members[H]
@@ -41,7 +41,7 @@
 	set name = "Hivemind Release Morph"
 	set desc = "Releases a member of our internal hivemind as a morph, at the cost of one of our limbs."
 
-	var/datum/changeling/changeling = changeling_power()
+	var/datum/component/changeling/changeling = changeling_power()
 	if(!changeling)
 		return
 

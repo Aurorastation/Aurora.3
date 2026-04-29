@@ -1,6 +1,6 @@
 GLOBAL_LIST_INIT(possible_changeling_IDs, list("Alpha","Beta","Gamma","Delta","Epsilon","Zeta","Eta","Theta","Iota","Kappa","Lambda","Mu","Nu","Xi","Omicron","Pi","Rho","Sigma","Tau","Upsilon","Phi","Chi","Psi","Omega"))
 
-/datum/changeling //stores changeling powers, changeling recharge thingie, changeling absorbed DNA and changeling ID (for changeling hivemind)
+/datum/component/changeling //stores changeling powers, changeling recharge thingie, changeling absorbed DNA and changeling ID (for changeling hivemind)
 	var/list/datum/absorbed_dna/absorbed_dna = list()
 	var/list/absorbed_languages = list()
 	var/list/hivemind_members = list()
@@ -23,8 +23,15 @@ GLOBAL_LIST_INIT(possible_changeling_IDs, list("Alpha","Beta","Gamma","Delta","E
 	/// if they've entered stasis before, then we don't want to give them stasis again
 	var/has_entered_stasis = FALSE
 
-/datum/changeling/New(var/gender=FEMALE)
-	..()
+/datum/component/changeling/process(seconds_per_tick)
+	var/mob/living/carbon/human/human = parent
+	if (QDELING(human) || !istype(human) || human.stat == DEAD)
+		return
+
+	regenerate()
+
+/datum/component/changeling/New(var/gender=FEMALE)
+	. = ..()
 	var/honorific = (gender == FEMALE) ? "Ms." : "Mr."
 	if(GLOB.possible_changeling_IDs.len)
 		changelingID = pick(GLOB.possible_changeling_IDs)
@@ -33,20 +40,20 @@ GLOBAL_LIST_INIT(possible_changeling_IDs, list("Alpha","Beta","Gamma","Delta","E
 	else
 		changelingID = "[honorific] [rand(1,999)]"
 
-/datum/changeling/proc/regenerate()
+/datum/component/changeling/proc/regenerate()
 	chem_charges = min(max(0, chem_charges + chem_recharge_rate), chem_storage)
 	geneticdamage = max(0, geneticdamage - 1)
 
-/datum/changeling/proc/GetDNA(var/dna_owner)
+/datum/component/changeling/proc/GetDNA(var/dna_owner)
 	for(var/datum/absorbed_dna/DNA in absorbed_dna)
 		if(dna_owner == DNA.name)
 			return DNA
 
-/datum/changeling/proc/use_charges(var/charges_used)
+/datum/component/changeling/proc/use_charges(var/charges_used)
 	chem_charges = max(0, chem_charges - charges_used)
 
 /mob/proc/absorbDNA(var/datum/absorbed_dna/newDNA)
-	var/datum/changeling/changeling = null
+	var/datum/component/changeling/changeling = null
 	if(mind)
 		changeling = mind.antag_datums[MODE_CHANGELING]
 	if(!changeling)
@@ -67,9 +74,9 @@ GLOBAL_LIST_INIT(possible_changeling_IDs, list("Alpha","Beta","Gamma","Delta","E
 	if(!changeling_mind)
 		return
 	if(!changeling_mind.antag_datums[MODE_CHANGELING])
-		changeling_mind.antag_datums[MODE_CHANGELING] = new /datum/changeling(gender)
+		changeling_mind.antag_datums[MODE_CHANGELING] = new /datum/component/changeling(gender)
 
-	add_verb(src, /datum/changeling/proc/EvolutionMenu)
+	add_verb(src, /datum/component/changeling/proc/EvolutionMenu)
 	add_language(LANGUAGE_CHANGELING)
 
 	var/lesser_form = !ishuman(src)
@@ -78,7 +85,7 @@ GLOBAL_LIST_INIT(possible_changeling_IDs, list("Alpha","Beta","Gamma","Delta","E
 		for(var/P in powers)
 			powerinstances += new P()
 
-	var/datum/changeling/changeling = changeling_mind.antag_datums[MODE_CHANGELING]
+	var/datum/component/changeling/changeling = changeling_mind.antag_datums[MODE_CHANGELING]
 
 	// Code to auto-purchase free powers.
 	for(var/datum/power/changeling/P in powerinstances)
@@ -111,7 +118,7 @@ GLOBAL_LIST_INIT(possible_changeling_IDs, list("Alpha","Beta","Gamma","Delta","E
  * Resets a changeling to the point where they were when they first became a changeling.
  */
 /mob/proc/changeling_respec()
-	var/datum/changeling/changeling = null
+	var/datum/component/changeling/changeling = null
 	if(mind)
 		changeling = mind.antag_datums[MODE_CHANGELING]
 	if(!changeling)
@@ -132,7 +139,7 @@ GLOBAL_LIST_INIT(possible_changeling_IDs, list("Alpha","Beta","Gamma","Delta","E
  * Removes a changeling's abilities
  */
 /mob/proc/remove_changeling_powers(reset_powers = FALSE)
-	var/datum/changeling/changeling
+	var/datum/component/changeling/changeling
 	if(mind)
 		changeling = mind.antag_datums[MODE_CHANGELING]
 	if(!changeling)
@@ -161,7 +168,7 @@ GLOBAL_LIST_INIT(possible_changeling_IDs, list("Alpha","Beta","Gamma","Delta","E
 	if(!iscarbon(src))
 		return
 
-	var/datum/changeling/changeling = mind.antag_datums[MODE_CHANGELING]
+	var/datum/component/changeling/changeling = mind.antag_datums[MODE_CHANGELING]
 	if(!changeling)
 		return
 	if(src.stat > max_stat)
@@ -191,7 +198,7 @@ GLOBAL_LIST_INIT(possible_changeling_IDs, list("Alpha","Beta","Gamma","Delta","E
 	set category = "Changeling"
 	set name = "Re-evolve"
 
-	var/datum/changeling/changeling
+	var/datum/component/changeling/changeling
 	if(mind)
 		changeling = mind.antag_datums[MODE_CHANGELING]
 	if(!changeling)
@@ -275,7 +282,7 @@ GLOBAL_LIST_INIT(possible_changeling_IDs, list("Alpha","Beta","Gamma","Delta","E
 		to_chat(H, SPAN_WARNING("You don't have any changeling potential."))
 		return
 
-	var/datum/changeling/changeling = H.mind.antag_datums[MODE_CHANGELING]
+	var/datum/component/changeling/changeling = H.mind.antag_datums[MODE_CHANGELING]
 	if(changeling)
 		to_chat(H, SPAN_WARNING("You've already awakened your changeling potential!"))
 		return

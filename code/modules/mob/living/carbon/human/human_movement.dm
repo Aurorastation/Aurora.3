@@ -62,7 +62,7 @@
 
 	var/turf/T = get_turf(src)
 	if(T) // changelings don't get movement costs
-		var/datum/changeling/changeling
+		var/datum/component/changeling/changeling
 		if(mind)
 			changeling = mind.antag_datums[MODE_CHANGELING]
 		if(!changeling)
