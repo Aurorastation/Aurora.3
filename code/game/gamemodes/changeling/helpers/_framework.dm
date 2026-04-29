@@ -23,6 +23,14 @@ GLOBAL_LIST_INIT(possible_changeling_IDs, list("Alpha","Beta","Gamma","Delta","E
 	/// if they've entered stasis before, then we don't want to give them stasis again
 	var/has_entered_stasis = FALSE
 
+/datum/component/changeling/Initialize()
+	. = ..()
+	START_PROCESSING(SSprocessing, src)
+
+/datum/component/changeling/Destroy(force)
+	STOP_PROCESSING(SSprocessing, src)
+	return ..()
+
 /datum/component/changeling/process(seconds_per_tick)
 	var/mob/living/carbon/human/human = parent
 	if (QDELING(human) || !istype(human) || human.stat == DEAD)
