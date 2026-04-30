@@ -1,3 +1,12 @@
+#define SPAN_SCAN_GREEN(str) ("<span class='scan_green'>" + str + "</span>")
+#define SPAN_SCAN_BLUE(str) ("<span class='scan_blue'>" + str + "</span>")
+#define SPAN_SCAN_ORANGE(str) ("<span class='scan_orange'>" + str + "</span>")
+#define SPAN_SCAN_ORANGE_DANGER(str) ("<span class='scan_orange_danger'>" + str + "</span>")
+#define SPAN_SCAN_RED(str) ("<span class='scan_red'>" + str + "</span>")
+#define SPAN_SCAN_NOTICE(str) ("<span class='scan_notice'>" + str + "</span>")
+#define SPAN_SCAN_WARNING(str) ("<span class='scan_warning'>" + str + "</span>")
+#define SPAN_SCAN_DANGER(str) ("<span class='scan_danger'>" + str + "</span>")
+
 /datum/component/health_analyzer
 	var/name = "health analyzer"
 	var/last_scan = 0
@@ -155,7 +164,7 @@
 	// Body temperature. Rounds to one digit after decimal.
 	var/temperature_string
 	if(H.bodytemperature < H.species.cold_level_1 || H.bodytemperature > H.species.heat_level_1)
-		temperature_string = "Body temperature: [SPAN_SCAN_WARNING("[round(H.bodytemperature-T0C, 0.1)]&deg;C ([round(H.bodytemperature*1.8-459.67, 0.1)]&deg;F)]
+		temperature_string = "Body temperature: [SPAN_SCAN_WARNING("[round(H.bodytemperature-T0C, 0.1)]&deg;C ([round(H.bodytemperature*1.8-459.67, 0.1)]&deg;F")]"
 	else
 		temperature_string = "Body temperature: [SPAN_SCAN_GREEN("[round(H.bodytemperature-T0C, 0.1)]&deg;C ([round(H.bodytemperature*1.8-459.67, 0.1)]&deg;F)")]"
 	dat += temperature_string
@@ -196,7 +205,7 @@
 		dat += "Blood pressure: [blood_pressure_string]"
 		dat += "Blood oxygenation: [oxygenation_string]"
 		dat += "Blood volume: [blood_volume_string]"
-		dat += "Blood type: [SPAN_SCAN_GREEN([H.dna.b_type])]"
+		dat += "Blood type: [SPAN_SCAN_GREEN("[H.dna.b_type]")]"
 	else
 		dat += "Blood pressure: N/A"
 
@@ -221,11 +230,11 @@
 			for(var/obj/item/organ/external/org in damaged)
 				var/limb_result = "[capitalize(org.name)][BP_IS_ROBOTIC(org) ? " (Cybernetic)" : ""]:"
 				if(org.brute_dam > 0)
-					limb_result = "[limb_result] \[SPAN_SCAN_DANGER([get_wound_severity(org.brute_dam, (org.limb_flags & ORGAN_HEALS_OVERKILL), TRUE)] physical trauma)]\"
+					limb_result = "[limb_result] [SPAN_SCAN_DANGER("[get_wound_severity(org.brute_dam, (org.limb_flags & ORGAN_HEALS_OVERKILL), TRUE)] physical trauma")]"
 				if(org.burn_dam > 0)
-					limb_result = "[limb_result] \[SPAN_SCAN_ORANGE_DANGER[get_wound_severity(org.burn_dam, (org.limb_flags & ORGAN_HEALS_OVERKILL), TRUE)] burns]\"
+					limb_result = "[limb_result] [SPAN_SCAN_ORANGE_DANGER("[get_wound_severity(org.burn_dam, (org.limb_flags & ORGAN_HEALS_OVERKILL), TRUE)] burns")]"
 				if(org.status & ORGAN_BLEEDING)
-					limb_result = "[limb_result] \[SPAN_SCAN_DANGER("bleeding")]\"
+					limb_result = "[limb_result] [SPAN_SCAN_DANGER("bleeding")]"
 				var/is_bandaged = org.is_bandaged()
 				var/is_salved = org.is_salved()
 				if(is_bandaged && is_salved)
@@ -321,11 +330,11 @@
 	reagent_results += dat
 	ui_interact(user)
 
-// #undef SPAN_SCAN_GREEN
-// #undef SPAN_SCAN_BLUE
-// #undef SPAN_SCAN_ORANGE
-// #undef SPAN_SCAN_ORANGE_DANGER
-// #undef SPAN_SCAN_RED
-// #undef SPAN_SCAN_NOTICE
-// #undef SPAN_SCAN_WARNING
-// #undef SPAN_SCAN_DANGER
+#undef SPAN_SCAN_GREEN
+#undef SPAN_SCAN_BLUE
+#undef SPAN_SCAN_ORANGE
+#undef SPAN_SCAN_ORANGE_DANGER
+#undef SPAN_SCAN_RED
+#undef SPAN_SCAN_NOTICE
+#undef SPAN_SCAN_WARNING
+#undef SPAN_SCAN_DANGER
