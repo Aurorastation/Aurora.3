@@ -85,7 +85,7 @@
 				if(mat in can_harvest && !stored[mat])
 					stored[mat] = 0
 			for(var/mat in harvesting)
-				if(mat in can_harvest && mat in harvest_from.owned_field.reactants)
+				if((mat in can_harvest) && (mat in harvest_from.owned_field.reactants))
 					var/harvest = min(harvest_from.owned_field.reactants[mat], rand(100,200))
 					// Leave a few counts of the reactant to avoid deactivating harvest mode
 					harvest_from.owned_field.reactants[mat] -= (harvest - rand(0,5))

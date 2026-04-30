@@ -84,7 +84,7 @@ ABSTRACT_TYPE(/obj/machinery/fabricator)
 		if(!stored_substances_to_names[mat])
 			if(ispath(mat, /singleton/material))
 				var/singleton/material/mat_instance = mat
-				mat_instance = GET_SINGLETON(initial(mat_instance))
+				mat_instance = GET_SINGLETON(mat_instance)
 				if(istype(mat_instance))
 					stored_substances_to_names[mat] = mat_instance.display_name
 			else if(ispath(mat, /singleton/reagent))
