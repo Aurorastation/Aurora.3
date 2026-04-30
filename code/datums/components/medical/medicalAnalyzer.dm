@@ -63,15 +63,6 @@
 	owner.add_fingerprint(user)
 
 /datum/component/health_analyzer/proc/attack_self(mob/user)
-	sound_scan = FALSE
-	if(last_scan <= world.time - 20)
-		last_scan = world.time
-		sound_scan = TRUE
-
-	user.setClickCooldown(DEFAULT_QUICK_COOLDOWN)
-	flick("[owner.icon_state]-scan", owner)
-
-	health_scan_mob(user, user, mode, sound_scan = sound_scan)
 	ui_interact(user)
 
 	owner.add_fingerprint(user)
