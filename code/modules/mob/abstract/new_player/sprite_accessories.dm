@@ -1231,12 +1231,6 @@ Follow by example and make good judgement based on length which list to include 
 	length = 2
 	chatname = "ponytail"
 
-/datum/sprite_accessory/hair/ponytail_spiky
-	name = "Ponytail, Spiky"
-	icon_state = "hair_ponytail_spiky"
-	length = 4
-	chatname = "ponytail"
-
 /datum/sprite_accessory/hair/ponytail_wisp
 	name = "Ponytail, Wisp"
 	icon_state = "hair_ponytail_wisp"
@@ -2018,6 +2012,30 @@ Follow by example and make good judgement based on length which list to include 
 	name = "Wavy Shoulder (Ponytail)"
 	icon_state = "hair_wavyshoulder_up"
 	length = 2
+	chatname = "ponytail"
+
+/datum/sprite_accessory/hair/balding/bun_short3
+	name = "Bun, Short 3"
+	icon_state = "hair_bun_short3"
+	length = 2
+	chatname = "hair bun"
+
+/datum/sprite_accessory/hair/balding/bun_loose
+	name = "Bun, Loose"
+	icon_state = "hair_bun_loose"
+	length = 2
+	chatname = "hair bun"
+
+/datum/sprite_accessory/hair/balding/ponytail_simple
+	name = "Ponytail, Simple"
+	icon_state = "hair_ponytail_simple"
+	length = 2
+	chatname = "ponytail"
+
+/datum/sprite_accessory/hair/balding/ponytail_spiky
+	name = "Ponytail, Spiky"
+	icon_state = "hair_ponytail_spiky"
+	length = 4
 	chatname = "ponytail"
 
 /*

@@ -447,3 +447,150 @@
   - rscadd: Made the conveyor on the cargo elevator one shorter, to avoid loose items
       being shuffled off the elevator.
   - bugfix: Fixed two sprites mainly seen when mapping random object spawns.
+2026-04-25:
+  Batrachophrenoboocosmomachia:
+  - bugfix: Air panels again able to be accessed remotely through Atmosphere Control
+      app.
+  - bugfix: Missing chlorine detection added to air panels.
+  - rscadd: Adds minor visual tell to light sensitivity.
+  - balance: Reduces probability of light sensitivity effects firing, increases minimum
+      threshold.
+  - balance: Slightly reduces the brightness of cigarettes and ATMs (turf corner light
+      calculations resulted in outsized returns).
+  Batrachophrenoobocosmomachia:
+  - bugfix: Airlocks can again be repaired by using hammers on them with an appropriate
+      stack of materials in your offhand.
+  - bugfix: Binary atmos devices are again able to be toggled on/off by alt-clicking
+      them.
+  - bugfix: Temp control units now display correct 'turned on/off' balloon text when
+      toggled.
+  FabianK3:
+  - bugfix: Fixed airlock assembly rotation not being properly set when deconstructing
+      an airlock.
+  - rscadd: Added a squeeze-through mechanic for airlock assemblies. Drag-click yourself
+      on to the airlock assembly to climb through it.
+  - rscadd: 'Added basic icon versions for each airlock construction step: New, anchored,
+      wired and electronics.'
+  Hellfirejag:
+  - rscdel: Removed all job skill requirements that weren't actually mechanically
+      necessary.
+  - bugfix: Removed a hard del related to material stacks.
+2026-04-27:
+  Batrachophrenoboocosmomachia:
+  - bugfix: Corrects duplicated Engineering skill component definition.
+  - rscdel: Removes deprecated AME code and associated power spritefiles.
+  - rscdel: Removes DNA Modifier NanoUI, replacing interaction behavior with a feedback
+      message.
+  - rscdel: Removes old NanoUI templates for objects whose UIs have already been converted
+      to TGUI, or which had already been removed from the server.
+  - bugfix: After using thermite, replaces the ancient pre-3/4s thermite burnt wall
+      sprite left over with a bubbling mass of molten slag on the floor.
+  - rscadd: Adds a public pool to Port Volturno.
+  - bugfix: Allows borgs to bypass skill checks to toggle emitters.
+  - bugfix: Reduces openspace mimic destruction timers from 10 seconds to 0.1 second
+      to remove persistent ghosting when changing z-levels (such as using stairs or
+      ladders).
+  - bugfix: Ho'taki marksman rifle in Raider prep area now has correct caliber ammunition
+      available next to it.
+  - bugfix: Fixes black shorts being invisible.
+  - bugfix: Removes old grey jean obj defs (no sprites and not used in server).
+  - bugfix: Removes two empty unused sprite icon_states from shorts.dmi
+  - bugfix: Earphones now automatically stop playing when dropped/thrown/etc. to address
+      a few instances of audio strangeness.
+  Hellfirejag:
+  - bugfix: Fixed antags not correctly wiping their skills upon spawning in.
+  - rscdel: Removed circuit boards for deprecated "old mechs" that could no longer
+      be manufactured.
+  - rscdel: Removed the abstract parent of hardsuit circuit boards from circuit board
+      spawners.
+  - rscadd: Reworked surgery to use soft requirements and signals to directly modify
+      the success chances of surgery. These penalties or bonuses stack with those
+      from not having ideal tools.
+  - rscadd: Morale modifiers now affect surgery success rates.
+  Kano:
+  - rscadd: Remapped runtime map to provide easier access to variety of testing.
+  SleepyGemmy:
+  - bugfix: Fixed carts displaying an error message when swapping directions.
+  - config: Renamed the basic role access list and removed the unused expanded role
+      access list.
+  - rscadd: Added a death message.
+  - rscadd: Changed the unconscious and brain damage messages to use the chat examine
+      boxes.
+  - rscadd: Added a colourable double armband.
+  TheGreyWolf:
+  - bugfix: Fixed another circumstance causing the sheet snatcher to show an incorrect
+      amount of sheets in it.
+  - bugfix: The ops status display no longer gets the alert graphics overlaid incorrectly.
+  - bugfix: Fixed that creating a head rev traitor was bugged.
+  - bugfix: Yokes now appear empty when the contents are transfered to a fridge.
+  Yonnimer:
+  - rscadd: Adds a armored carp, effectively a tame carp for primarily voidtamers.
+  - rscadd: Adds a new dock to the voidtamer ship that lets ships such as the spark
+      dock with it.
+  - bugfix: Fixes the waste pipe on the voidtamer ship.
+  arrow768:
+  - code_imp: Added Sentry.io integration (SSsentry) for capturing runtime exceptions,
+      SQL errors, and hard-delete overruns to an external error tracking service.
+  - code_imp: SSsentry can now ship per-window BYOND profiler dumps to Sentry as events
+      with the raw JSON attached and the top-N hottest procs in the event extras (opt-in
+      via CAPTURE_PROFILER).
+  - server: Added config/sentry.txt support for configuring the Sentry DSN and capture
+      settings. See config/example/sentry.txt for setup instructions.
+2026-04-28:
+  Batrachophrenoboocosmomachia:
+  - refactor: Migrates DNA Analyzer NanoUI to TGUI.
+  - refactor: Migrates Engines Control NanoUI to TGUI.
+  - qol: DNA Analyzer reports now provide the date and time the scan was produced.
+  - bugfix: Ship computers no longer function after their power is cut.
+  GeneralCamo:
+  - rscadd: Allowed NKA and FTC tajara to be part of Zavodskoi.
+  - rscdel: Disallowed NKA and FTC tajara to be part of Hephaestus.
+  Kano:
+  - rscadd: Ported some hairstyles from Shiptest.
+2026-04-29:
+  Batrachophrenoboocosmomachia:
+  - rscadd: Adds the light meter as a craftable design for the autolathe.
+  - bugfix: Fixes light meter inhand sprites.
+  GeneralCamo:
+  - rscdel: Gadpathurians no longer have light sensitivity.
+  SierraKomodo:
+  - bugfix: Fixes missing PDA sprites when the Map Program is loaded. Spritework by
+      SierraKomodo.
+  SleepyGemmy:
+  - bugfix: Fixed custodial airlocks not having the correct preview sprite set.
+  - bugfix: Fixed a message when putting a mop bucket on a custodial cart.
+  - soundadd: Made the carts rolling sound quieter.
+  - bugfix: Fixed an extra comma in the spawn date and time screen message.
+  - bugfix: Fixed the month number not being prefixed correctly in the status tab.
+  TheGreyWolf:
+  - bugfix: Fixed that PDAs showed as damaged when they weren't.
+2026-04-30:
+  Kano:
+  - bugfix: Fixed weapon racks not displaying the guns stored inside upon roundstart.
+  SierraKomodo:
+  - rscadd: Added colorable versions of the Tajaran Fancy Uniform and Fancy Uniform
+      With Skirt loadout items.
+  SleepyGemmy:
+  - bugfix: Fixed missing practice shotgun shells and practice revolver speedloaders
+      in the security firing range.
+  TheGreyWolf:
+  - rscadd: Added several new restock packs avaiable from the operations ordering
+      console.
+  - balance: Rebalanced the prices of the restock packs.
+  - rscadd: Made the restock packs come with cargo access locks.
+  - rscadd: Restock packs are now actual boxes that can be opened.
+  - rscadd: The commissary restock crate was moved to the operations loading bay.
+  - rscadd: The toy shelf can now also hold cap gun mags, card packs, card boxes and
+      music cartridges.
+  - qol: Reduced the crate fee when making operation orders.
+  - bugfix: Fixed the wording in some of the operation programs.
+  - bugfix: Fixed the delivery app showing deliveries it shouldn't.
+  - bugfix: The cargo control program now properly display status messages.
+  - balance: Supplier fee was set to 0 for all current suppliers, eliminating the
+      20 credit charge per supplier.
+  - balance: The operations order handling fee has been turned into a percentage charge
+      instead, and reduced to 5% by default instead of a flat 20 credits.
+  - rscadd: It is now possible to reject orders that have been approved but not shipped
+      or paid for.
+  arrow768:
+  - spellcheck: Updates the wording in the unwind admin verb.

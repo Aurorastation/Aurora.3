@@ -89,6 +89,49 @@
 	icon_living = "columbo"
 	icon_dead = "columbo_dead"
 
+/mob/living/simple_animal/hostile/commanded/dog/tamed_carp
+	name = "armored carp"
+	short_name = "carp"
+	desc = "A ferocious, fang-bearing creature that resembles a fish. This one is armored with a tanned hide and gold. It seems somewhat tame compared to a wild carp."
+
+	health = 125
+	maxhealth = 125
+
+	icon_state = "armored_carp"
+	icon_living = "armored_carp"
+	icon_dead = "armored_carp_dead"
+	icon_rest = "armored_carp_rest"
+	//Carp code
+	speak = list("Glub!", "Glub")
+	speak_emote = list("glubs!", "glubs")
+	emote_hear = list("glubs!", "glubs")
+	sad_emote = list("sad glubs", "pained glubs")
+	emote_sounds = NONE
+	meat_type = /obj/item/reagent_containers/food/snacks/fish/carpmeat
+	butchering_products = list(/obj/item/reagent_containers/food/snacks/fish/roe = 1)
+	organ_names = list("head", "chest", "tail", "left flipper", "right flipper")
+	response_help = "pets the"
+	response_disarm = "gently pushes aside the"
+	response_harm = "hits the"
+
+	can_be_milked = TRUE
+	udder_size = 3
+	milk_type = /singleton/reagent/toxin/carpotoxin
+	milk_regeneration = list(1, 2)
+	blood_overlay_icon = 'icons/mob/npc/blood_overlay_carp.dmi'
+	min_oxy = 0
+	max_oxy = 0
+	min_tox = 0
+	max_tox = 0
+	min_co2 = 0
+	max_co2 = 0
+	min_n2 = 0
+	max_n2 = 0
+	minbodytemp = 0
+	attack_emote = "nashes at"
+	flying = TRUE
+	lighting_alpha = LIGHTING_PLANE_ALPHA_SOMEWHAT_INVISIBLE
+
 /mob/living/simple_animal/hostile/commanded/dog/pug
 	name = "pug"
 	desc = "A small dog with a wrinkly muzzle."

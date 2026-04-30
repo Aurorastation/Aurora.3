@@ -143,8 +143,8 @@ ABSTRACT_TYPE(/obj/effect/decal/cleanable/greenglow/radioactive)
 	icon_state = "cobweb2"
 
 /obj/effect/decal/cleanable/molten_item
-	name = "gooey grey mass"
-	desc = "It looks like a melted... something."
+	name = "melted grey mass"
+	desc = "It looks like a gooey melted... something."
 	density = FALSE
 	anchored = TRUE
 	layer = OBJ_LAYER

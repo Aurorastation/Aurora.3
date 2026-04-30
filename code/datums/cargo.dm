@@ -137,7 +137,7 @@
 	switch(type)
 		if(0)
 			//The price of the contents of the crate + the price for the crate + the handling fee + the shipment fee
-			return price + SScargo.get_cratefee() + SScargo.get_handlingfee() + get_shipment_cost()
+			return price + SScargo.get_cratefee() + SScargo.get_handlingfee_cost(price) + get_shipment_cost()
 		if(1)
 			//The price of the contents of the crate + the price of the crate + the shipment fee
 			return price + SScargo.get_cratefee() + get_shipment_cost()
@@ -275,8 +275,10 @@
 	for(var/item in get_item_list())
 		order_data += "<li>[item["name"]]: [item["price"]]电</li>"
 	order_data += "<li>Crate Fee: [SScargo.get_cratefee()]电</li>"
-	order_data += "<li>Handling Fee: [SScargo.get_handlingfee()]电</li>"
-	order_data += "<li>Supplier Fee: [get_shipment_cost()]电</li>"
+	order_data += "<li>Handling Fee: [SScargo.get_handlingfee_cost(get_value(2))]电</li>"
+	var/supplier_fee = get_shipment_cost()
+	if(supplier_fee)
+		order_data += "<li>Supplier Fee: [supplier_fee]电</li>"
 	order_data += "</ul>"
 
 	return order_data.Join("")
@@ -325,7 +327,9 @@
 
 //Marks a order as rejected - Returns a status message
 /datum/cargo_order/proc/set_rejected()
-	if(status == "submitted")
+	if(status == "submitted" || status == "approved")
+		if(paid_by)
+			return "The order could not be rejected - Already Paid For"
 		status = "rejected"
 		time_approved = worldtime2text()
 		return "The order has been rejected"
@@ -441,20 +445,21 @@
 
 	invoice_data += "<p>Shuttle Data</p>"
 	invoice_data += "<table>"
+	if(shuttle_fee)
+		invoice_data += "<tr>"
+		invoice_data += "<td>Supplier fee:</td>"
+		invoice_data += "<td>[shuttle_fee]</td>"
+		invoice_data += "</tr>"
 	invoice_data += "<tr>"
-	invoice_data += "<td>Supplier fee::</td>"
-	invoice_data += "<td>[shuttle_fee]</td>"
-	invoice_data += "</tr>"
-	invoice_data += "<tr>"
-	invoice_data += "<td>Shuttle Time:</td>"
+	invoice_data += "<td>Elevator Time:</td>"
 	invoice_data += "<td>[shuttle_time]</td>"
 	invoice_data += "</tr>"
 	invoice_data += "<tr>"
-	invoice_data += "<td>Shuttle Called By:</td>"
+	invoice_data += "<td>Elevator Called By:</td>"
 	invoice_data += "<td>[shuttle_called_by]</td>"
 	invoice_data += "</tr>"
 	invoice_data += "<tr>"
-	invoice_data += "<td>Shuttle Recalled By:</td>"
+	invoice_data += "<td>Elevator Recalled By:</td>"
 	invoice_data += "<td>[shuttle_recalled_by]</td>"
 	invoice_data += "</tr>"
 	invoice_data += "</table>"

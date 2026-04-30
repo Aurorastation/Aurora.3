@@ -147,7 +147,7 @@
 #define INTER_OFFSET_RIFLE_SLOT 7
 /obj/structure/weapons_rack/update_icon()
 	. = ..()
-	visual_holder.overlays.Cut()
+	visual_holder.ClearOverlays()
 	ClearOverlays()
 
 	for(var/i in 1 to length(src.contents))
@@ -162,7 +162,7 @@
 		var/mutable_appearance/weapon_appearance = mutable_appearance(G.icon, G.icon_state, plane = src.plane, layer = G.layer)
 		weapon_appearance.transform = transform_matrix
 
-		visual_holder.overlays += weapon_appearance
+		visual_holder.AddOverlays(weapon_appearance)
 
 	if(locked)
 		AddOverlays(image(src.icon, "locked_overlay", layer = ABOVE_OBJ_LAYER))

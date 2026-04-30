@@ -511,7 +511,7 @@
 	possible_access["== Default BSTech =="] = get_all_accesses() + get_all_centcom_access() + get_all_syndicate_access()
 	for(var/job in subtypesof(/datum/job))
 		var/datum/job/J = new job
-		possible_access[J.title] = J.access
+		possible_access[J.title] = J.job_access
 	var/chosen_access = input(usr, "Which access do you want your ID to have?", "ID Access") as null|anything in possible_access
 	if(!chosen_access)
 		return
