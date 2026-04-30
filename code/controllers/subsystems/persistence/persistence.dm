@@ -16,12 +16,13 @@ SUBSYSTEM_DEF(persistence)
 	init_order = INIT_ORDER_PERSISTENCE // The order is tied with the init and maploading subsystem.
 	flags = SS_NO_FIRE // This subsystem has no continues workload, it's init and shutdown only.
 	var/prevent_saving = FALSE // Toggle to prevent saving at round end, changed by toggle_persistence proc, used for admin purposes.
+	var/object_track_register = list() // In-memory register of all persistent objects that were loaded or created during the round, used for tracking and finalization purposes.
 
 /**
  * Subsystem info stub message generation.
  */
 /datum/controller/subsystem/persistence/stat_entry(msg)
-	msg = ("Register: [length(GLOB.persistence_object_track_register)] | Prevent saving: [SSpersistence.prevent_saving ? "TRUE" : "FALSE"]")
+	msg = ("Register: [length(object_track_register)] | Prevent saving: [SSpersistence.prevent_saving ? "TRUE" : "FALSE"]")
 	return msg
 
 /**
