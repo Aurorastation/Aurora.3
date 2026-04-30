@@ -286,7 +286,7 @@
 			S = reinforced.place_shard(loc)
 			if(S) shards += S
 	if(material)
-		if(material.stack_type && (full_return || prob(20)))
+		if(material?.stack_type && (full_return || prob(20)))
 			material.place_sheet(loc)
 		else
 			S = material.place_shard(loc)
