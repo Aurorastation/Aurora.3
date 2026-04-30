@@ -82,7 +82,7 @@
 	if(use_power >= POWER_USE_ACTIVE)
 		if(harvest_from && harvest_from.owned_field)
 			for(var/mat in harvest_from.owned_field.reactants)
-				if(mat in can_harvest && !stored[mat])
+				if((mat in can_harvest) && !stored[mat])
 					stored[mat] = 0
 			for(var/mat in harvesting)
 				if(mat in can_harvest)
