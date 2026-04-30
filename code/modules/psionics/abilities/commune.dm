@@ -45,7 +45,7 @@
 		psiphoto.show(target)
 		psiphoto.img = icon(realimg)
 		to_chat(target, SPAN_ALIEN("...Even the colors are off."))
-	else if(prob(10) && SSatlas.current_sector.name in list(SECTOR_LEMURIAN_SEA, SECTOR_LEMURIAN_SEA_FAR)) //Lemurian Sea jumpscare!
+	else if(prob(10) && (SSatlas.current_sector.name in list(SECTOR_LEMURIAN_SEA, SECTOR_LEMURIAN_SEA_FAR))) //Lemurian Sea jumpscare!
 		var/icon/realimg = icon(psiphoto.img)
 		psiphoto.img.MapColors(rgb(0,0,0), rgb(0,0,0), rgb(0,0,0), rgb(0,0,0))
 		target.eye_blind += 20
