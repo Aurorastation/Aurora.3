@@ -223,6 +223,7 @@
 		/obj/structure/platform_deco,
 		/obj/structure/bed/stool/chair/office/hover,
 		/obj/structure/bed/stool/hover,
+		/obj/structure/arch,
 	))
 
 /turf/simulated/floor/exoplanet/water/smooth/Initialize()

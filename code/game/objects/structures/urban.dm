@@ -1251,6 +1251,16 @@ ABSTRACT_TYPE(/obj/structure/arch)
 	icon_state = "gothic_arch_end"
 	dir = 1
 
+// ---- Default
+/obj/structure/arch/gothic
+	icon_state = "gothic_arch_single"
+
+/obj/structure/arch/gothic/side
+	icon_state = "gothic_arch_end"
+
+/obj/structure/arch/gothic/center
+	icon_state = "gothic_arch_middle"
+
 // ---- Skrell (purple)
 
 /obj/structure/arch/skrell

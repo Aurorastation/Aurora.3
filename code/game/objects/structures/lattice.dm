@@ -90,10 +90,11 @@
 		/obj/structure/lattice/ceiling,
 		/obj/structure/grille,
 		/obj/structure/girder,
+		/obj/structure/window_frame,
 		/turf/simulated/wall,
 		/turf/unsimulated/wall,
 		/turf/simulated/mineral,
-		/turf/unsimulated/mineral/asteroid,
+		/turf/unsimulated/mineral,
 	)
 
 /obj/structure/lattice/ceiling/Initialize()

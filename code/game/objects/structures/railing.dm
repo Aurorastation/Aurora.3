@@ -85,7 +85,8 @@
 		desc = "A simple [material.display_name] railing designed to protect against careless trespass."
 		set_maxhealth(round(material.integrity / 2), TRUE)
 		set_health(maxhealth)
-		color = material.icon_colour
+		if(!color)
+			color = material.icon_colour
 
 		if(material.products_need_process())
 			START_PROCESSING(SSprocessing, src)

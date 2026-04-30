@@ -52,3 +52,18 @@ ABSTRACT_TYPE(/obj/structure/decor)
 	icon = 'icons/obj/machinery/ship_guns/francisca_compact.dmi'
 	icon_state = "weapon_base"
 	density = TRUE
+
+/obj/structure/decor/fluff/elevator_button
+	name = "elevator button"
+	desc = "A button for calling the elevator to your floor. Or at least it once did, now it's just here to complete the look."
+	icon = 'icons/obj/turbolift.dmi'
+	icon_state = "button"
+
+/obj/structure/decor/fluff/elevator_button/attack_hand(mob/user)
+	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
+	balloon_alert(user, "\the [src] is unresponsive")
+
+/obj/structure/decor/fluff/elevator_button/panel
+	name = "elevator panel"
+	desc = "A series of buttons, one for each floor. It doesn't seem to be functional at all."
+	icon_state = "panel"
