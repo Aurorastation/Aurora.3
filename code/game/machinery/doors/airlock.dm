@@ -150,7 +150,7 @@
 	/// String (One of `MATERIAL_*`). The material used for the door's window if `glass` is set. Used to set `window_material` during init.
 	var/init_material_window = MATERIAL_GLASS
 	/// The material of the door's window.
-	var/material/window_material
+	var/singleton/material/window_material
 
 	hashatch = TRUE
 
@@ -266,7 +266,7 @@
 
 	if (glass)
 		paintable |= AIRLOCK_PAINTABLE_WINDOW
-		window_material = SSmaterials.get_material_by_name(init_material_window)
+		window_material = GET_SINGLETON(init_material_window)
 		opacity = FALSE
 	update_icon()
 
@@ -308,8 +308,8 @@
 
 /obj/machinery/door/airlock/get_material()
 	if(mineral)
-		return SSmaterials.get_material_by_name(mineral)
-	return SSmaterials.get_material_by_name(DEFAULT_WALL_MATERIAL)
+		return GET_SINGLETON(mineral)
+	return GET_SINGLETON(MATERIAL_STEEL)
 
 /obj/machinery/door/airlock/external//External airlocks start here
 	name = "external airlock"

@@ -30,7 +30,7 @@ Deployable Kits
 /obj/structure/blocker/proc/set_material(var/material_name)
 	if(force_material)
 		material_name = force_material
-	material = SSmaterials.get_material_by_name(material_name)
+	material = GET_SINGLETON(material_name)
 	if(!material)
 		qdel(src)
 		return

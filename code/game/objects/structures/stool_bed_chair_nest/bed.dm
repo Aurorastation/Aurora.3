@@ -25,7 +25,7 @@
 	buckle_lying = 1
 	build_amt = 2
 	pass_flags_self = PASSTABLE
-	var/material/padding_material
+	var/singleton/material/padding_material
 
 	var/base_icon = "bed"
 	var/buckling_sound = 'sound/effects/buckle.ogg'
@@ -80,12 +80,12 @@
 
 /obj/structure/bed/New(newloc, new_material = MATERIAL_STEEL, new_padding_material, new_painted_colour)
 	..(newloc)
-	material = SSmaterials.get_material_by_name(new_material)
+	material = GET_SINGLETON(new_material)
 	if(!istype(material))
 		qdel(src)
 		return
 	if(new_padding_material)
-		padding_material = SSmaterials.get_material_by_name(new_padding_material)
+		padding_material = GET_SINGLETON(new_padding_material)
 	if(new_painted_colour)
 		painted_colour = new_painted_colour
 	update_icon()
@@ -109,7 +109,7 @@
 		generate_overlay_cache(padding_material, CACHE_TYPE_PADDING, apply_painted_colour = TRUE)
 
 /obj/structure/bed/proc/generate_overlay_cache(var/new_material, var/cache_type, var/cache_layer = layer, var/apply_painted_colour = FALSE) // Cache type refers to what cache we're making. Material type refers if we're taking from the padding or the chair material itself.
-	var/material/overlay_material = new_material
+	var/singleton/material/overlay_material = new_material
 	var/list/furniture_cache = SSicon_cache.furniture_cache
 	var/cache_key = "[base_icon]-[overlay_material.name]" // Basically, generates a cache key for an overlay.
 	if(cache_type)
@@ -252,7 +252,7 @@
 	update_icon()
 
 /obj/structure/bed/proc/add_padding(var/padding_type)
-	padding_material = SSmaterials.get_material_by_name(padding_type)
+	padding_material = GET_SINGLETON(padding_type)
 	update_icon()
 
 /obj/structure/bed/dismantle(obj/item/W, mob/user)

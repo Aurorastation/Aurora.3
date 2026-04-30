@@ -22,7 +22,7 @@ Protectiveness | Armor %
 
 /obj/item/clothing/suit/armor/material
 	name = "armor"
-	default_material = DEFAULT_WALL_MATERIAL
+	default_material = MATERIAL_STEEL
 
 /obj/item/clothing/suit/armor/material/makeshift
 	name = "sheet armor"
@@ -37,10 +37,10 @@ Protectiveness | Armor %
 	pocket_slots = 1
 
 /obj/item/clothing/suit/armor/material/makeshift/plasteel
-	default_material = "plasteel"
+	default_material = MATERIAL_PLASTEEL
 
 /obj/item/clothing/suit/armor/material/makeshift/glass
-	default_material = "glass"
+	default_material = MATERIAL_GLASS
 
 /obj/item/material/armor_plating
 	name = "armor plating"
@@ -129,7 +129,7 @@ Protectiveness | Armor %
 /obj/item/clothing/head/helmet/material
 	name = "helmet"
 	flags_inv = HIDEEARS|HIDEEYES|BLOCKHAIR
-	default_material = DEFAULT_WALL_MATERIAL
+	default_material = MATERIAL_STEEL
 	has_storage = FALSE
 
 /obj/item/clothing/head/helmet/material/makeshift
@@ -141,7 +141,7 @@ Protectiveness | Armor %
 	contained_sprite = 1
 
 /obj/item/clothing/head/helmet/material/makeshift/plasteel
-	default_material = "plasteel"
+	default_material = MATERIAL_PLASTEEL
 
 /obj/item/clothing/suit/armor/material/makeshift/trenchcoat
 	name = "armored trenchcoat"

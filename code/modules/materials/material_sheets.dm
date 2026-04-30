@@ -8,8 +8,8 @@
 	max_amount = 50
 	recyclable = TRUE // Pretty much all materials should be recyclable
 
-	var/default_type = DEFAULT_WALL_MATERIAL
-	var/material/material
+	var/default_type = MATERIAL_STEEL
+	var/singleton/material/material
 	var/perunit
 	var/apply_colour //temp pending icon rewrite
 	var/painted_colour
@@ -25,8 +25,8 @@
 	randpixel_xy()
 
 	if(!default_type)
-		default_type = DEFAULT_WALL_MATERIAL
-	material = SSmaterials.get_material_by_name(default_type)
+		default_type = MATERIAL_STEEL
+	material = GET_SINGLETON(default_type)
 	if(!material)
 		return INITIALIZE_HINT_QDEL
 
@@ -285,7 +285,7 @@
 /obj/item/stack/material/steel
 	name = DEFAULT_WALL_MATERIAL
 	icon_state = "sheet-metal"
-	default_type = DEFAULT_WALL_MATERIAL
+	default_type = MATERIAL_STEEL
 	icon_has_variants = TRUE
 
 /obj/item/stack/material/steel/attackby(obj/item/attacking_item, mob/user)
@@ -562,7 +562,7 @@
 /obj/item/stack/material/bronze
 	name = "bronze"
 	icon_state = "sheet-brass"
-	default_type = "bronze"
+	default_type = MATERIAL_BRONZE
 	icon_has_variants = TRUE
 
 /obj/item/stack/material/bronze/full/Initialize()

@@ -31,8 +31,8 @@
 	var/global/damage_overlays[16]
 	var/active
 	var/can_open = 0
-	var/material/material
-	var/material/reinf_material
+	var/singleton/material/material
+	var/singleton/material/reinf_material
 	var/last_state
 	var/construction_stage
 	var/use_set_icon_state
@@ -97,10 +97,10 @@
 	if(!use_set_icon_state)
 		icon_state = "blank"
 	if(!materialtype)
-		materialtype = DEFAULT_WALL_MATERIAL
-	material = SSmaterials.get_material_by_name(materialtype)
+		materialtype = MATERIAL_STEEL
+	material = GET_SINGLETON(materialtype)
 	if(!isnull(rmaterialtype))
-		reinf_material = SSmaterials.get_material_by_name(rmaterialtype)
+		reinf_material = GET_SINGLETON(rmaterialtype)
 	update_material()
 	hitsound = material.hitsound
 	set_maxhealth(material.integrity + (reinf_material ? reinf_material.integrity : 0), TRUE)
@@ -230,7 +230,7 @@
 
 	INVOKE_ASYNC(src, PROC_REF(clear_plants))
 	clear_bulletholes()
-	material = SSmaterials.get_material_by_name("placeholder")
+	material = GET_SINGLETON(MATERIAL_STEEL)
 	reinf_material = null
 
 	if (!no_change)

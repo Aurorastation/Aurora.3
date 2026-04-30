@@ -3708,9 +3708,7 @@
 /turf/simulated/floor/plating,
 /area/abandoned_propellant_depot/maint_storage)
 "lX" = (
-/obj/structure/table/glass{
-	table_reinf = "glass"
-	},
+/obj/structure/table/glass/reinf,
 /obj/item/flashlight/lamp/off{
 	pixel_x = -3;
 	pixel_y = 4
@@ -9934,9 +9932,7 @@
 /turf/simulated/floor/plating,
 /area/abandoned_propellant_depot/atmos_propellant)
 "GW" = (
-/obj/structure/table/glass{
-	table_reinf = "glass"
-	},
+/obj/structure/table/glass/reinf,
 /obj/random/medical{
 	pixel_y = 4
 	},

@@ -40,7 +40,7 @@
 					amt_phoron += 100 * O.get_amount()
 				if("uranium")
 					amt_uranium += 100 * O.get_amount()
-				if(DEFAULT_WALL_MATERIAL)
+				if("DEFAULT_WALL_MATERIAL")
 					amt_iron += 100 * O.get_amount()
 				else
 					processed = FALSE

@@ -184,7 +184,7 @@
 
 /obj/item/reagent_containers/cooking_container/skillet/Initialize(var/mapload, var/mat_key)
 	. = ..(mapload)
-	var/material/material = SSmaterials.get_material_by_name(mat_key || MATERIAL_STEEL)
+	var/singleton/material/material = GET_SINGLETON(mat_key || MATERIAL_STEEL)
 	if(!material)
 		return
 	if(material.name != MATERIAL_STEEL)
@@ -205,7 +205,7 @@
 
 /obj/item/reagent_containers/cooking_container/saucepan/Initialize(var/mapload, var/mat_key)
 	. = ..(mapload)
-	var/material/material = SSmaterials.get_material_by_name(mat_key || MATERIAL_STEEL)
+	var/singleton/material/material = GET_SINGLETON(mat_key || MATERIAL_STEEL)
 	if(!material)
 		return
 	if(material.name != MATERIAL_STEEL)
@@ -227,7 +227,7 @@
 
 /obj/item/reagent_containers/cooking_container/pot/Initialize(mapload, mat_key)
 	. = ..(mapload)
-	var/material/material = SSmaterials.get_material_by_name(mat_key || MATERIAL_STEEL)
+	var/singleton/material/material = GET_SINGLETON(mat_key || MATERIAL_STEEL)
 	if(!material)
 		return
 	if(mat_key && mat_key != MATERIAL_STEEL)

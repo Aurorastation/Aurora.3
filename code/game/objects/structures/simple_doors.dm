@@ -34,7 +34,7 @@
 	..()
 	if(!material_name)
 		material_name = DEFAULT_WALL_MATERIAL
-	material = SSmaterials.get_material_by_name(material_name)
+	material = GET_SINGLETON(material_name)
 	if(!material)
 		qdel(src)
 		return

@@ -12,7 +12,7 @@
 	var/accuracy = 1
 	var/fragile = 0        // If nonzero, above what force do we shatter?
 	var/shatter_sound = SFX_BREAK_GLASS
-	var/material/shatter_material = MATERIAL_GLASS //slight typecasting abuse here, gets converted to a material in initializee
+	var/singleton/material/shatter_material = MATERIAL_GLASS
 	var/can_be_placed_into = list(
 		/obj/machinery/chem_master,
 		/obj/machinery/chem_heater,
@@ -55,7 +55,7 @@
 	if(!possible_transfer_amounts)
 		src.verbs -= /obj/item/reagent_containers/verb/set_APTFT
 	create_reagents(volume)
-	shatter_material = SSmaterials.get_material_by_name(shatter_material)
+	shatter_material = GET_SINGLETON(shatter_material)
 
 /obj/item/reagent_containers/attack_self(mob/user)
 	return

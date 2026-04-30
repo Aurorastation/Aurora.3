@@ -19,7 +19,7 @@ ABSTRACT_TYPE(/obj/machinery/fabricator)
 	var/list/storage_capacity = list()
 	/// Base storage capacity, which is modified by default by the amount and tier of matter bins.
 	var/list/base_storage_capacity = list(
-		DEFAULT_WALL_MATERIAL = 25000,
+		MATERIAL_STEEL = 25000,
 		MATERIAL_ALUMINIUM = 25000,
 		MATERIAL_GLASS = 12500,
 		MATERIAL_PLASTIC = 12500,
@@ -82,9 +82,9 @@ ABSTRACT_TYPE(/obj/machinery/fabricator)
 
 		// Update global type to string cache.
 		if(!stored_substances_to_names[mat])
-			if(ispath(mat, /material))
-				var/material/mat_instance = mat
-				mat_instance = SSmaterials.get_material_by_name(initial(mat_instance.name))
+			if(ispath(mat, /singleton/material))
+				var/singleton/material/mat_instance = mat
+				mat_instance = GET_SINGLETON(initial(mat_instance))
 				if(istype(mat_instance))
 					stored_substances_to_names[mat] = mat_instance.display_name
 			else if(ispath(mat, /singleton/reagent))
@@ -275,7 +275,7 @@ ABSTRACT_TYPE(/obj/machinery/fabricator)
 
 /obj/machinery/fabricator/dismantle()
 	for(var/mat in stored_material)
-		var/material/M = SSmaterials.get_material_by_name(mat)
+		var/singleton/material/M = GET_SINGLETON(mat)
 		if(!istype(M))
 			continue
 		var/obj/item/stack/material/S = new M.stack_type(get_turf(src))

@@ -101,7 +101,7 @@
 	attack_verb = list("hit", "bludgeoned", "whacked", "bonked")
 	force_divisor = 0.1
 	thrown_force_divisor = 0.1
-	default_material = "wood"
+	default_material = MATERIAL_WOOD
 
 /obj/item/material/shaft/attackby(obj/item/attacking_item, mob/user)
 	..()
@@ -130,8 +130,7 @@
 	attack_verb = list("attacked", "poked")
 	force_divisor = 0.1
 	thrown_force_divisor = 0.1
-	default_material = "steel"
-
+	default_material = MATERIAL_STEEL
 
 /obj/item/material/woodenshield
 	name = "shield donut"
@@ -140,7 +139,7 @@
 	icon_state = "shield_fitting_inner"
 	force_divisor = 0.1
 	thrown_force_divisor = 0.1
-	default_material = "wood"
+	default_material = MATERIAL_WOOD
 
 /obj/item/material/woodenshield/attackby(obj/item/attacking_item, mob/user)
 	..()
@@ -164,7 +163,7 @@
 	icon_state = "shield_fitting_outer"
 	force_divisor = 0.1
 	thrown_force_divisor = 0.1
-	default_material = "steel"
+	default_material = MATERIAL_STEEL
 
 /obj/item/woodcirclet
 	name = "wood circlet"

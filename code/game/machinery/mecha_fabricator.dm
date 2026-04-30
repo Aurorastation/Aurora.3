@@ -465,7 +465,7 @@
 	if(!amount)
 		return
 	material = lowertext(material)
-	var/material/mattype = SSmaterials.get_material_by_name(material)
+	var/singleton/material/mattype = GET_SINGLETON(material)
 	var/stack_type = mattype.stack_type
 
 	var/real_amount = round(amount / SHEET_MATERIAL_AMOUNT)

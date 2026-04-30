@@ -1,9 +1,9 @@
-/material/proc/get_recipes()
+/singleton/material/proc/get_recipes()
 	if(!recipes)
 		generate_recipes()
 	return recipes
 
-/material/proc/generate_recipes()
+/singleton/material/proc/generate_recipes()
 	recipes = list()
 
 	// If is_brittle() returns true, these are only good for a single strike.
@@ -44,7 +44,7 @@
 	if(length(hardness_craftables))
 		recipes += new /datum/stack_recipe_list("generic miscellaneous", hardness_craftables)
 
-/material/steel/generate_recipes()
+/singleton/material/steel/generate_recipes()
 	..()
 	recipes += new /datum/stack_recipe_list("construction recipes",
 		list(
@@ -124,7 +124,7 @@
 			new /datum/stack_recipe("large trap foundation", /obj/item/large_trap_foundation, 4, time = 40, required_skills_soft = alist(MECHANICAL_ENGINEERING_SKILL_COMPONENT = SKILL_LEVEL_FAMILIAR))
 		))
 
-/material/plasteel/generate_recipes()
+/singleton/material/plasteel/generate_recipes()
 	..()
 	recipes += new /datum/stack_recipe_list("[display_name] recipes",
 		list(
@@ -135,7 +135,7 @@
 			new /datum/stack_recipe("full dark floor tile", /obj/item/stack/tile/floor_dark/full, 1, 4, 20, required_skills_soft = alist(MECHANICAL_ENGINEERING_SKILL_COMPONENT = SKILL_LEVEL_FAMILIAR))
 		))
 
-/material/plastic/generate_recipes()
+/singleton/material/plastic/generate_recipes()
 	..()
 	recipes += new /datum/stack_recipe_list("[display_name] recipes",
 		list(
@@ -153,7 +153,7 @@
 			new /datum/stack_recipe("plastic flaps", /obj/structure/plasticflaps, BUILD_AMT, 1, 1)
 		))
 
-/material/wood/generate_recipes()
+/singleton/material/wood/generate_recipes()
 	..()
 	recipes += new /datum/stack_recipe_list("[display_name] recipes",
 		list(
@@ -177,14 +177,14 @@
 			new /datum/stack_recipe("easel", /obj/structure/easel, BUILD_AMT, time = 15, one_per_turf = 1, on_floor = 1)
 		))
 
-/material/stone/generate_recipes()
+/singleton/material/stone/generate_recipes()
 	..()
 	recipes += new /datum/stack_recipe_list("[display_name] recipes",
 		list(
 			new /datum/stack_recipe("planting bed", /obj/machinery/portable_atmospherics/hydroponics/soil, 3, time = 10, one_per_turf = 1, on_floor = 1)
 		))
 
-/material/cardboard/generate_recipes()
+/singleton/material/cardboard/generate_recipes()
 	..()
 	recipes += new /datum/stack_recipe_list("[display_name] recipes",
 		list(
@@ -208,7 +208,7 @@
 			new /datum/stack_recipe("yellow folder", /obj/item/folder/yellow)
 		))
 
-/material/cloth/generate_recipes()
+/singleton/material/cloth/generate_recipes()
 	..()
 	recipes += new /datum/stack_recipe_list("[display_name] curtains",
 		list(
@@ -228,14 +228,14 @@
 			new /datum/stack_recipe("canvas 23x23", /obj/item/canvas/twentythree_twentythree, 8)
 		))
 
-/material/hide/corgi/generate_recipes()
+/singleton/material/hide/corgi/generate_recipes()
 	..()
 	recipes += new /datum/stack_recipe_list("[display_name] costumes",
 		list(
 			new /datum/stack_recipe("corgi costume", /obj/item/clothing/suit/storage/hooded/wintercoat/corgi, 3)
 		))
 
-/material/hide/monkey/generate_recipes()
+/singleton/material/hide/monkey/generate_recipes()
 	..()
 	recipes += new /datum/stack_recipe_list("[display_name] costumes",
 		list(
@@ -243,49 +243,49 @@
 			new /datum/stack_recipe("monkey suit", /obj/item/clothing/suit/monkeysuit, 2)
 		))
 
-/material/silver/generate_recipes()
+/singleton/material/silver/generate_recipes()
 	..()
 	recipes += new /datum/stack_recipe_list("[display_name] construction",
 		list(
 			new /datum/stack_recipe("silver floor tile", /obj/item/stack/tile/silver, 1, 4, 20)
 		))
 
-/material/gold/generate_recipes()
+/singleton/material/gold/generate_recipes()
 	..()
 	recipes += new /datum/stack_recipe_list("[display_name] construction",
 		list(
 			new /datum/stack_recipe("golden floor tile", /obj/item/stack/tile/gold, 1, 4, 20)
 		))
 
-/material/uranium/generate_recipes()
+/singleton/material/uranium/generate_recipes()
 	..()
 	recipes += new /datum/stack_recipe_list("[display_name] construction",
 		list(
 			new /datum/stack_recipe("uranium floor tile", /obj/item/stack/tile/uranium, 1, 4, 20)
 		))
 
-/material/phoron/generate_recipes()
+/singleton/material/phoron/generate_recipes()
 	..()
 	recipes += new /datum/stack_recipe_list("[display_name] construction",
 		list(
 			new /datum/stack_recipe("phoron floor tile", /obj/item/stack/tile/phoron, 1, 4, 20)
 		))
 
-/material/diamond/generate_recipes()
+/singleton/material/diamond/generate_recipes()
 	..()
 	recipes += new /datum/stack_recipe_list("[display_name] construction",
 		list(
 			new /datum/stack_recipe("diamond floor tile", /obj/item/stack/tile/diamond, 1, 4, 20)
 		))
 
-/material/stone/marble/generate_recipes()
+/singleton/material/stone/marble/generate_recipes()
 	..()
 	recipes += new /datum/stack_recipe_list("[display_name] construction",
 		list(
 			new /datum/stack_recipe("marble floor tile", /obj/item/stack/tile/marble, 1, 4, 20),
 		))
 
-/material/leather/generate_recipes()
+/singleton/material/leather/generate_recipes()
 	..()
 	recipes += new /datum/stack_recipe_list("[display_name] construction",
 		list(
@@ -293,12 +293,12 @@
 			new /datum/stack_recipe("leather whip", /obj/item/melee/whip, 15, 1, time = 20)
 		))
 
-/material/wood/log/generate_recipes()
+/singleton/material/wood/log/generate_recipes()
 	recipes = list()
 	recipes += new/datum/stack_recipe("bonfire", /obj/structure/bonfire, 3, time = 50, one_per_turf = 1, on_floor = 1)
 	recipes += new/datum/stack_recipe("log bench", /obj/structure/flora/log_bench, 2, time = 20, one_per_turf = 1, on_floor = 1)
 
-/material/wood/branch/generate_recipes()
+/singleton/material/wood/branch/generate_recipes()
 	recipes = list()
 	recipes += new/datum/stack_recipe("bonfire", /obj/structure/bonfire, 10, time = 50, one_per_turf = 1, on_floor = 1)
 	recipes += new/datum/stack_recipe("torch handle", /obj/item/torch, 1, time = 15, one_per_turf = 0, on_floor = 0)
