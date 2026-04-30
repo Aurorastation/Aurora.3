@@ -496,3 +496,10 @@ GLOBAL_VAR(bomb_set)
 				continue
 			T.icon_state = target_icon_state
 		last_turf_state = target_icon_state
+
+#undef BOMB_NO_REMOVAL
+#undef BOMB_COVER_REMOVED
+#undef BOMB_COVER_OPEN
+#undef BOMB_SEALANT_OPEN
+#undef BOMB_UNWRENCHED
+#undef BOMB_UNBOLTED
