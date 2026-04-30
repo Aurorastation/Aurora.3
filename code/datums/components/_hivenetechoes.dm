@@ -39,6 +39,7 @@
 	START_PROCESSING(SSprocessing, src)
 
 /datum/component/HiveEchoes/Destroy()
+	owner = null
 	STOP_PROCESSING(SSprocessing, src)
 	return ..()
 
