@@ -66,6 +66,7 @@
 		SSghostroles.add_spawn_atom("borer", src)
 	name = initial(name) + " ([number])"
 	real_name = name
+	src.LoadComponent(/datum/component/health_analyzer)
 
 /mob/living/simple_animal/borer/Destroy()
 	QDEL_NULL(ability_bar)

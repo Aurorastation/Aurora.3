@@ -171,7 +171,10 @@
 		last_scan = world.time
 		sound_scan = TRUE
 	if(scan_mode == SCANNER_MEDICAL)
-		health_scan_mob(target_mob, user, TRUE, sound_scan = sound_scan)
+		var/datum/component/health_analyzer/h_analyzer = src.GetComponent(/datum/component/health_analyzer)
+		if(!h_analyzer)
+			return
+		h_analyzer.health_scan_mob(target_mob, user, TRUE, sound_scan = sound_scan)
 
 /obj/item/modular_computer/afterattack(atom/A, mob/user, proximity_flag, click_parameters)
 	. = ..()

@@ -344,6 +344,7 @@
 		S.forceMove(src)
 		S.update_use_power(POWER_USE_OFF)
 		connected = S
+	src.LoadComponent(/datum/component/health_analyzer)
 
 /obj/item/healthanalyzer/mech/Destroy()
 	if(connected)
@@ -371,7 +372,10 @@
 		return FALSE
 	if(!fullScan)
 		for(var/mob/pilot in user_vehicle.pilots)
-			health_scan_mob(target_mob, pilot, TRUE, TRUE, sound_scan = TRUE)
+			var/datum/component/health_analyzer/h_analyzer = src.GetComponent(/datum/component/health_analyzer)
+			if(!h_analyzer)
+				return
+			h_analyzer.health_scan_mob(target_mob, pilot, TRUE, TRUE, sound_scan = TRUE)
 	else
 		user_vehicle.visible_message("<b>[user_vehicle]</b> starts scanning \the [target_mob] with \the [src].",
 								SPAN_NOTICE("You start scanning \the [target_mob] with \the [src]."))
