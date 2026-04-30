@@ -17,6 +17,9 @@ SUBSYSTEM_DEF(persistence)
 	flags = SS_NO_FIRE // This subsystem has no continues workload, it's init and shutdown only.
 	var/prevent_saving = FALSE // Toggle to prevent saving at round end, changed by toggle_persistence proc, used for admin purposes.
 	var/object_track_register = list() // In-memory register of all persistent objects that were loaded or created during the round, used for tracking and finalization purposes.
+	var/history_cache = list() // In-memory cache of persistent type history records.
+	var/history_last_id = 0 // ID of last found history record for cache init.
+	var/history_virtual_id = 0 // ID used for assigning to history records that are not yet saved in the database, used for cache tracking.
 
 /**
  * Subsystem info stub message generation.
@@ -96,7 +99,7 @@ SUBSYSTEM_DEF(persistence)
 		return SS_INIT_FAILURE
 
 	try
-		typeDefinitionInitialize()
+		typesInitialize()
 	catch(var/exception/e_types)
 		log_subsystem_persistence_panic("Unhandled exception during persistent type initialization: [e_types]")
 		return SS_INIT_FAILURE

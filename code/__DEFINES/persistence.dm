@@ -24,6 +24,9 @@ ABSTRACT_TYPE(/singleton/persistency_type_definition)
 	// Singleton of /singleton/persistency_type_history_expiration_rule/
 	var/expiration_rule = null
 
+/singleton/persistency_type_definition/history/character
+	// Empty stub
+
 // Persistency type "history" expiration rules
 ABSTRACT_TYPE(/singleton/persistency_type_history_expiration_rule)
 
@@ -55,7 +58,18 @@ ABSTRACT_TYPE(/singleton/persistency_type_history_expiration_rule/round_count)
 	}
 
 #define CREATE_PERSISTENT_TYPE_DEFINITION_HISTORY(TYPE_NAME, TITLE, DESCRIPTION, REQUIRES_ATTRIBUTE, EXPIRATION_RULE) \
+	if(#TYPE_NAME == "character") \
+		fail("Cannot use this macro for creating a type of 'character', use CREATE_PERSISTENT_TYPE_DEFINITION_HISTORY_CHARACTER instead.", __FILE__, __LINE__); \
 	/singleton/persistency_type_definition/history/##TYPE_NAME \
+	{ \
+		title = #TITLE; \
+		description = #DESCRIPTION; \
+		requires_attribute = #REQUIRES_ATTRIBUTE; \
+		expiration_rule = #EXPIRATION_RULE; \
+	}
+
+#define CREATE_PERSISTENT_TYPE_DEFINITION_HISTORY_CHARACTER(TYPE_NAME, TITLE, DESCRIPTION, REQUIRES_ATTRIBUTE, EXPIRATION_RULE) \
+	/singleton/persistency_type_definition/history/character/##TYPE_NAME \
 	{ \
 		title = #TITLE; \
 		description = #DESCRIPTION; \
@@ -67,8 +81,19 @@ ABSTRACT_TYPE(/singleton/persistency_type_history_expiration_rule/round_count)
 // CREATE_PERSISTENT_TYPE_DEFINITION_GENERIC(basic, "Title", "A persistent generic with no special properties.", FALSE)
 // => creates /singleton/persistency_type_definition/generic/basic
 
-
 // Singleton list of history persistent type definitions, created by the macro above.
 // CREATE_PERSISTENT_TYPE_DEFINITION_HISTORY(basic, "Title", "A persistent record type with no special properties.", FALSE, /singleton/persistency_type_history_expiration_rule/row_count/hundred)
 // => creates /singleton/persistency_type_definition/history/basic with an expiration rule of 100 rows per attribute
 
+// Singleton list of history persistent type definitions, created by the macro above.
+// CREATE_PERSISTENT_TYPE_DEFINITION_HISTORY_CHARACTER(basic, "Title", "A persistent record type with no special properties.", FALSE, /singleton/persistency_type_history_expiration_rule/row_count/hundred)
+// => creates /singleton/persistency_type_definition/history/character/basic with an expiration rule of 100 rows per attribue (char name)
+
+/*###################################################
+	Defines of types used as data transfer objects
+###################################################*/
+
+/persistency_record_container
+	var/type_id = 0
+	var/attribute = null
+	var/list/persistency_record/records_lookup = list()
