@@ -6,7 +6,7 @@
  *  attribute =		Custom attribute of the record, can be null if the type definition doesn't require it.
  *	value =			Value of the record, cannot be null or empty.
  */
-/datum/controller/subsystem/persistence/proc/historyAddRecord(/singleton/persistency_type_definition/history/target_type, attribute, value)
+/datum/controller/subsystem/persistence/proc/historyAddRecord(var/singleton/persistency_type_definition/history/target_type, attribute, value)
 	if(!target_type)
 		log_subsystem_persistence_warning("Attempted to add history record with null target type.")
 		return
@@ -20,27 +20,28 @@
 		return
 
 	if(istype(target_type, /singleton/persistency_type_definition/history/character))
+		CRASH("TODO")
 		// For character history types, we want to validate the attribute is a character ID
 		//if(attribute is an integer) // TODO
 
 	// Add record to cache for later insert and quick access
 	// Check if record container exists, if not, create it
 	var/persistency_record_container/container = null
-	for(var/persistency_record_container/c in history_cache as anything)
-        if(c.type_id == target_type.definition_type_value && c.attribute == attribute)
-            container = c
-            break
+	for(var/persistency_record_container/c as anything in history_cache)
+		if(c.type_id == target_type.definition_type_value && c.attribute == attribute)
+			container = c
+			break
 
-    if(!container)
-        container = new /persistency_record_container
-        container.type_id = target_type.definition_type_value
-        container.attribute = attribute
+	if(!container)
+		container = new /persistency_record_container
+		container.type_id = target_type.definition_type_value
+		container.attribute = attribute
 		container.records_lookup = list()
-        history_cache += container
+		history_cache += container
 
 	// Create record and add to container
 	history_virtual_id += 1
-    container.records_lookup[history_virtual_id] = value
+	container.records_lookup[history_virtual_id] = value
 
 /**
  * Queries the last record of a specified type/attribute.
@@ -49,7 +50,7 @@
  *					If the type definition is a character record type, the attribute must be a valid character ID or the record will be rejected.
  *  attribute =		Custom attribute of the record, can be null if the type definition doesn't require it.
  */
-/datum/controller/subsystem/persistence/proc/historyGetLastRecord(/singleton/persistency_type_definition/history/target_type, attribute)
+/datum/controller/subsystem/persistence/proc/historyGetLastRecord(var/singleton/persistency_type_definition/history/target_type, attribute)
 	if(!target_type)
 		log_subsystem_persistence_warning("Attempted to get history record with null target type.")
 		return null
@@ -63,10 +64,10 @@
 	// 2 - Query database for last record of type and add it to record container as new cache
 
 	var/persistency_record_container/container = null
-	for(var/persistency_record_container/c in history_cache as anything)
-        if(c.type_id == target_type.definition_type_value && c.attribute == attribute)
-            container = c
-            break
+	for(var/persistency_record_container/c as anything in history_cache)
+		if(c.type_id == target_type.definition_type_value && c.attribute == attribute)
+			container = c
+			break
 
 	// Query order - 1
 	if(container)
@@ -90,4 +91,4 @@
 		return null
 
 	// Update cache
-    container.records_lookup[results[1].id] = results[1].value
+	container.records_lookup[results[1]["id"]] = results[1]["value"]

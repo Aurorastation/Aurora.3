@@ -96,4 +96,4 @@ ABSTRACT_TYPE(/singleton/persistency_type_history_expiration_rule/round_count)
 /persistency_record_container
 	var/type_id = 0
 	var/attribute = null
-	var/list/persistency_record/records_lookup = list()
+	var/list/records_lookup = list()
