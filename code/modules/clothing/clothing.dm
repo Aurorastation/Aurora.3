@@ -354,10 +354,9 @@
 	result = abs(result - 100)
 	return round(result)
 
-
 /obj/item/clothing/proc/update_armor()
 	if(material)
-		var/melee_armor = 0, bullet_armor = 0, laser_armor = 0, energy_armor = 0, bomb_armor = 0
+		var/melee_armor = 0, bullet_armor = 0, laser_armor = 0, energy_armor = 0, bomb_armor = 0, rad_armor = 0
 
 		melee_armor = calculate_material_armor(material.protectiveness * material_armor_modifer)
 
@@ -371,8 +370,9 @@
 
 		bomb_armor = calculate_material_armor((material.protectiveness * material_armor_modifer) * 0.5)
 
+		rad_armor = calculate_material_armor(((material.weight * material_armor_modifer) * 5) - 70) //Weight 15 (glass): 5%, Weight 23(steel): 45%, Weight 32 (lead): 90%. Material armour doesn't cover limbs, so 90% isn't as good as it seems.
 		// Makes sure the numbers stay capped.
-		for(var/number in list(melee_armor, bullet_armor, laser_armor, energy_armor, bomb_armor))
+		for(var/number in list(melee_armor, bullet_armor, laser_armor, energy_armor, bomb_armor, rad_armor))
 			number = between(0, number, 100)
 
 		var/datum/component/armor/armor_component = GetComponent(/datum/component/armor)
@@ -383,7 +383,8 @@
 			bullet = bullet_armor,
 			laser = laser_armor,
 			energy = energy_armor,
-			bomb = bomb_armor
+			bomb = bomb_armor,
+			rad = rad_armor
 		)
 		AddComponent(/datum/component/armor, armor_list)
 

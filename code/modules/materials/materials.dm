@@ -281,7 +281,7 @@
 /material/uranium
 	name = MATERIAL_URANIUM
 	stack_type = /obj/item/stack/material/uranium
-	radioactivity = 12
+	radioactivity = RAD_LEVEL_LOW
 	icon_base = "stone"
 	reinf_icon = "reinf_stone"
 	icon_colour = "#007A00"
@@ -378,7 +378,7 @@
 /material/phoron/supermatter
 	name = MATERIAL_SUPERMATTER
 	icon_colour = "#ffff00"
-	radioactivity = 20
+	radioactivity = RAD_LEVEL_MODERATE
 	conductivity = 100
 	integrity = 10
 	luminescence = 3
@@ -419,6 +419,16 @@
 	golem = SPECIES_GOLEM_MARBLE
 	drop_sound = 'sound/items/drop/boots.ogg'
 	pickup_sound = 'sound/items/pickup/boots.ogg'
+
+/material/stone/brick
+	name = MATERIAL_BRICK
+	reinf_icon = "reinf_stone"
+	icon_colour = COLOR_GRAY30
+	wall_colour = COLOR_GRAY30
+	wall_icon = 'icons/turf/smooth/composite_brick.dmi'
+	multipart_reinf_icon = 'icons/turf/smooth/composite_brick.dmi'
+	hardness = 70
+	golem = SPECIES_GOLEM_MARBLE
 
 /material/concrete
 	name = MATERIAL_CONCRETE

@@ -29,6 +29,8 @@
 	// Set `viewed_faction` to the `get_faction()` result from it, since that double checks that it's actually valid.
 	data["viewed_faction"] = faction_datum.name
 	data["viewed_selection_error"] = faction_datum.get_selection_error(occupation.pref, user)
+	data["citizenship_allowed"] = faction_datum.check_citizenship(occupation.pref, user)
+	data["culture_allowed"] = faction_datum.check_species(occupation.pref, user)
 
 	return data
 

@@ -68,10 +68,6 @@
 	name = T_BOARD("ProComp Executive")
 	build_path = /obj/machinery/computer/pod/old/syndicate
 
-/obj/item/circuitboard/swfdoor
-	name = T_BOARD("Magix")
-	build_path = /obj/machinery/computer/pod/old/swf
-
 /obj/item/circuitboard/rdservercontrol
 	name = T_BOARD("R&D server control console")
 	build_path = /obj/machinery/computer/rdservercontrol

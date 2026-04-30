@@ -292,6 +292,11 @@ ABSTRACT_TYPE(/obj/item/gun)
 	return
 
 /obj/item/gun/proc/toggle_firing_mode(var/mob/user, var/list/message_mobs)
+	var/cancelled = FALSE
+	SEND_SIGNAL(user, COMSIG_GUN_TOGGLE_FIRING_MODE, src, &cancelled)
+	if (cancelled)
+		return
+
 	var/datum/firemode/new_mode = switch_firemodes(user)
 	if(new_mode)
 		playsound(user, safetyoff_sound, 25)
@@ -433,7 +438,7 @@ ABSTRACT_TYPE(/obj/item/gun)
 
 	return TRUE
 
-/obj/item/gun/proc/Fire(atom/target, mob/living/user, clickparams, pointblank=0, reflex=0, accuracy_decrease=0, is_offhand=0)
+/obj/item/gun/proc/Fire(atom/target, mob/living/user, clickparams, pointblank = 0, reflex = 0, var/accuracy_decrease = 0, is_offhand = 0)
 	if(!fire_checks(target,user,clickparams,pointblank,reflex))
 		return FALSE
 
@@ -442,6 +447,10 @@ ABSTRACT_TYPE(/obj/item/gun)
 		if(istype(SG) && SG.w_class <= w_class)
 			var/decreased_accuracy = SG.w_class - SG.offhand_accuracy
 			addtimer(CALLBACK(SG, PROC_REF(Fire), target, user, clickparams, pointblank, reflex, decreased_accuracy, TRUE), 1)
+
+	/// The amount of extra degrees of firing arc the gun will have from the effects of a signal raised on the user.
+	var/dispersion_increase = 0
+	SEND_SIGNAL(user, COMSIG_BEFORE_GUN_FIRE, &accuracy_decrease, &dispersion_increase)
 
 	//actually attempt to shoot
 	var/turf/targloc = get_turf(target) //cache this in case target gets deleted during shooting, e.g. if it was a securitron that got destroyed.
@@ -452,7 +461,7 @@ ABSTRACT_TYPE(/obj/item/gun)
 			break
 
 		var/acc = burst_accuracy[min(i, burst_accuracy.len)] - accuracy_decrease
-		var/disp = dispersion[min(i, dispersion.len)]
+		var/disp = dispersion[min(i, dispersion.len)] + dispersion_increase
 		process_accuracy(projectile, user, target, acc, disp)
 
 		if(pointblank)
@@ -477,6 +486,8 @@ ABSTRACT_TYPE(/obj/item/gun)
 
 	// Custom formula here because otherwise you can fire bursts within the burst.
 	var/shoot_time = burst > 1 ? burst_delay + 1 : fire_delay
+	if (burst > 1 && burst_delay == 0) //Prevents guns with no burst delay (laser shotguns) from firing as fast as you can click.
+		shoot_time = fire_delay
 	user.setClickCooldown(shoot_time)
 
 /// Similar to the Fire() proc, but does not require a user, which is ideal for things like turrets.
@@ -645,6 +656,12 @@ ABSTRACT_TYPE(/obj/item/gun)
 	if(length(firemodes))
 		F = firemodes[sel_mode]
 	if(one_hand_fa_penalty > 2 && !wielded && F?.name == "full auto") // todo: make firemode names defines
+		P.accuracy -= one_hand_fa_penalty * 0.5
+		P.spread -= one_hand_fa_penalty * 0.5 //Adds 6 degrees of spread on all rifles. Not very significant.
+	if(one_hand_fa_penalty > 2 && !wielded && F?.name == "short burst")
+		P.accuracy -= one_hand_fa_penalty * 0.5
+		P.spread -= one_hand_fa_penalty * 0.5
+	if(one_hand_fa_penalty > 2 && !wielded && F?.name == "3 round burst")
 		P.accuracy -= one_hand_fa_penalty * 0.5
 		P.spread -= one_hand_fa_penalty * 0.5
 
@@ -994,9 +1011,9 @@ ABSTRACT_TYPE(/obj/item/gun)
  */
 /obj/item/gun/proc/handle_reliability_fail(var/mob/user)
 	var/severity = 1
-	if(prob(100-reliability))
+	if(prob(80-reliability)) //Medium severity failures only possible under 80% reliability.
 		severity = 2
-		if(prob(100-reliability))
+		if(prob(65-reliability)) //Critical failures only possible under 65% reliability.
 			severity = 3
 	switch(severity)
 		if(1)

@@ -1359,3 +1359,56 @@ All custom items with worn sprites must follow the contained sprite system: http
 	override_robotize_force_icon = 'icons/mob/human_races/fluff/vien_leg.dmi'
 	override_robotize_painted = FALSE
 	robotize_children = FALSE
+
+/obj/item/voidsuit_modkit/fluff/hiskyn_suit
+	name = "\improper Kaviith requisition modkit"
+	desc = "A small, heavily spraypainted box filled with metal plates, forms and wires. Everything you need to turn an engineering suit into a Kaviith."
+	icon = 'icons/obj/custom_items/hiskyn_suit.dmi'
+	icon_state = "hiskyn_modkit"
+	suit_options = list(
+		/obj/item/clothing/suit/space/void/engineering = /obj/item/clothing/suit/space/void/engineering/fluff/hiskyn_suit,
+		/obj/item/clothing/head/helmet/space/void/engineering = /obj/item/clothing/head/helmet/space/void/engineering/fluff/hiskyn_helm)
+
+/obj/item/clothing/head/helmet/space/void/engineering/fluff/hiskyn_helm //Kaavith Helmet - Shigaraz Hiskyn - Hawkington
+	name = "\improper Kaviith helmet"
+	desc = "This dull-grey helmet exudes a particularly industrial vibe, though the heavy smear of red paint up the left hand side in the shape of stylised claw markings does make it look somewhat less professional. \
+			It has a series of small, dully lit orange slits for a visor supposedly to reduce eyestrain with welding, and whoever speaks inside it sounds somewhat distorted, as if it were being processed through gravel."
+	icon = 'icons/obj/custom_items/hiskyn_suit.dmi'
+	icon_override = 'icons/obj/custom_items/hiskyn_suit.dmi'
+	icon_state = "hiskyn_helm"
+	item_state = "hiskyn_helm"
+	contained_sprite = TRUE
+	species_restricted = list(BODYTYPE_UNATHI)
+
+/obj/item/clothing/suit/space/void/engineering/fluff/hiskyn_suit //Kaavith Voidsuit - Shigaraz Hiskyn - Hawkington
+	name = "\improper Kaavith voidsuit"
+	desc = "A repurposed salvaging voidsuit often seen around Coalition Space. Originally it was designed to be a cheap and modular option for corporations offering relatively high-performance and an anti scale-chafe lining. \
+			It saw limited success after the relative monopoly Hephaestus achieved over the Unathi market and most are now sold secondhand. \
+			This particular version has been heavily modified with an integrated wrist computer that often emits an irritating buzz, insulated fingertips, increased padding around the legs to make the suit \
+			more tolerable to wear over extended periods of time and a spinal support system that helps the operator withstand impacts. It's left shoulderpad was spraypainted heavily red a long time ago. \
+			Rumours circulate that certain less than savoury organisations of Sinta particularly like this voidsuit for how it easily accepts aftermarket modifications."
+	icon = 'icons/obj/custom_items/hiskyn_suit.dmi'
+	icon_override = 'icons/obj/custom_items/hiskyn_suit.dmi'
+	icon_state = "hiskyn_suit"
+	item_state = "hiskyn_suit"
+	contained_sprite = TRUE
+	species_restricted = list(BODYTYPE_UNATHI)
+
+/obj/item/clothing/accessory/poncho/fluff/hiskyn_cloak //Repurposed BRV cloak - Shigaraz Hiskyn - Hawkington
+	name = "repurposed BRV cloak"
+	desc = "What was once a fairly boring piece of crimson cloth. Symbolic ships colours for either a frigate or a corvette, have been torn up, vandalised with abstract bone-white unathi symbols and repurposed to wrap itself around a body, it looks somewhat cozy strangely enough, quite good- it wouldn't look out of place in a Dominian Gala."
+	icon = 'icons/obj/custom_items/hiskyn_suit.dmi'
+	icon_override = 'icons/obj/custom_items/hiskyn_suit.dmi'
+	icon_state = "hiskyn_cloak"
+	item_state = "hiskyn_cloak"
+	contained_sprite = TRUE
+
+/obj/item/clothing/suit/storage/toggle/tajaran/pra_submarine/kalkii_coat //TD-17 submariner coat - Kalkii Dynhvah - CatsinHD
+	name = "TD-17 submariner coat"
+	desc = "A black leather coat with a Zshram fur collar found in use by the People's Republic of Adhomai's submarine service. \
+	This coat is missing the left sleeve past the shoulder, along with holes and rips throughout. Care has been taken to hem the \
+	edges of the holes, rips, and remains of the left sleeve. Rredouane's sword has been stenciled onto the back of the coat in white paint."
+	icon = 'icons/obj/custom_items/kalkii_coat.dmi'
+	icon_override = 'icons/obj/custom_items/kalkii_coat.dmi'
+	icon_state = "kalkii_coat"
+	item_state = "kalkii_coat"

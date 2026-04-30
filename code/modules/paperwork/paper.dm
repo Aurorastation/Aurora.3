@@ -66,6 +66,16 @@
 	var/can_change_icon_state = TRUE
 	var/set_unsafe_on_init = FALSE
 
+/obj/item/paper/Destroy()
+	info = null
+	info_links = null
+	stamps = null
+	ico = null
+	offset_x = null
+	offset_y = null
+	stamped = null
+	return ..()
+
 /obj/item/paper/feedback_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	if (old_name && (icon_state == "paper_plane" || icon_state == "paper_swan"))
@@ -91,7 +101,7 @@
 		if (mapload)
 			update_icon()
 		else
-			addtimer(CALLBACK(src, TYPE_PROC_REF(/atom, update_icon)), 1)
+			addtimer(CALLBACK(src, TYPE_PROC_REF(/atom, update_icon)), 1, TIMER_STOPPABLE | TIMER_DELETE_ME)
 
 /obj/item/paper/proc/set_content(title, text)
 	if(title)
@@ -143,7 +153,7 @@
 /obj/item/paper/proc/show_content(mob/user, forceshow)
 	simple_asset_ensure_is_sent(user, /datum/asset/simple/paper)
 	var/datum/browser/paper_win = new(user, name, null, 450, 500, null, TRUE)
-	paper_win.set_content(get_content(user, can_read(user, forceshow)))
+	paper_win.set_content(get_content(user, can_read(user, forceshow), forceshow))
 	paper_win.add_stylesheet("paper_languages", 'html/browser/paper_languages.css')
 	paper_win.open()
 
@@ -154,8 +164,8 @@
 		can_read = get_dist(src, AI.camera) < 2
 	return can_read
 
-/obj/item/paper/proc/get_content(var/mob/user, var/can_read = TRUE)
-	return "<head><title>[capitalize_first_letters(name)]</title><style>body {background-color: [color];}</style></head><body>[can_read ? parse_languages(user, info) : stars(info)][stamps]</body>"
+/obj/item/paper/proc/get_content(var/mob/user, var/can_read = TRUE, var/ignore_languages = FALSE)
+	return "<head><title>[capitalize_first_letters(name)]</title><style>body {background-color: [color];}</style></head><body>[can_read ? parse_languages(user, info, FALSE, ignore_languages) : stars(info)][stamps]</body>"
 
 /obj/item/paper/verb/rename()
 	set name = "Rename paper"
@@ -188,15 +198,7 @@
 			user.show_message(SPAN_WARNING("\The [src] is already crumpled."))
 			return
 		//crumple dat paper
-		info = stars(info,85)
-		user.visible_message("\The [user] crumples \the [src] into a ball!", "You crumple \the [src] into a ball.")
-		playsound(src, 'sound/items/bureaucracy/papercrumple.ogg', 50, 1)
-		if(istype(src, /obj/item/paper/stickynotes))
-			icon_state = "stickynote_scrap"
-		else
-			icon_state = "scrap"
-		throw_range = 4 //you can now make epic paper ball hoops into the disposals (kinda dumb that you could only throw crumpled paper 1 tile) -wezzy
-		crumpled = TRUE
+		crumple(user)
 		return
 
 	if (user.a_intent == I_GRAB && !crumpled && can_fold)
@@ -243,6 +245,17 @@
 			last_honk = world.time
 			playsound(src.loc, 'sound/items/bikehorn.ogg', 50, 1)
 		src.add_fingerprint(user)
+
+/**
+ * Turns a paper into a crumpled ball. Only prints a message and makes a sound if user is present.
+ */
+/obj/item/paper/proc/crumple(mob/user)
+	info = stars(info,85)
+	if(user)
+		user.visible_message("\The [user] crumples \the [src] into a ball!", "You crumple \the [src] into a ball.")
+		playsound(src, 'sound/items/bureaucracy/papercrumple.ogg', 50, 1)
+	icon_state = "scrap"
+	throw_range = 4
 
 /obj/item/paper/attack_ai(var/mob/living/silicon/ai/user)
 	show_content(user)
@@ -439,7 +452,7 @@
 		else
 			flick("paper_onfire", src)
 
-		addtimer(CALLBACK(src, PROC_REF(burnpaper_callback), P, user, class), 20, TIMER_UNIQUE)
+		addtimer(CALLBACK(src, PROC_REF(burnpaper_callback), P, user, class), 20, TIMER_UNIQUE | TIMER_STOPPABLE | TIMER_DELETE_ME)
 
 /obj/item/paper/proc/burnpaper_callback(obj/item/P, mob/user, class = "warning")
 	if (QDELETED(user) || QDELETED(src))
@@ -474,7 +487,7 @@
  * @return	An HTML string where all of the [lang][/lang] marker contents are replaced
  * with scrambled and properly fonted content depending on what languages the user knows.
  */
-/obj/item/paper/proc/parse_languages(mob/user, input, language_check = FALSE)
+/obj/item/paper/proc/parse_languages(mob/user, input, language_check = FALSE, ignore_languages = FALSE)
 	// Just a safety fallback.
 	if (!user)
 		return input
@@ -492,7 +505,7 @@
 			continue
 
 		var/content = written_lang_regex.group[3]
-		var/reader_understands = user.say_understands(null, L)
+		var/reader_understands = ignore_languages || user.say_understands(null, L)
 
 		// Replace the content with <p>content here</p>
 		if(!reader_understands)

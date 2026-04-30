@@ -184,6 +184,14 @@
 
 
 /*
+ * Barcode Scanner mode defines — used in book/attackby and barcodescanner/attack_self
+ */
+#define BARCODE_SCAN_BUFFER_ONLY    0
+#define BARCODE_SCAN_BUFFER_COMPUTER 1
+#define BARCODE_SCAN_CHECKIN        2
+#define BARCODE_SCAN_ADD_INVENTORY  3
+
+/*
  * Book
  */
 /obj/item/book
@@ -273,35 +281,37 @@
 				return
 	else if(istype(attacking_item, /obj/item/barcodescanner))
 		var/obj/item/barcodescanner/scanner = attacking_item
-		if(!scanner.computer)
+		var/obj/machinery/librarycomp/comp = locate(scanner.computer_ref)
+		if(!comp || QDELETED(comp))
 			to_chat(user, "[attacking_item]'s screen flashes: 'No associated computer found!'")
 		else
 			switch(scanner.mode)
-				if(0)
-					scanner.book = src
+				if(BARCODE_SCAN_BUFFER_ONLY)
+					scanner.book_ref = REF(src)
 					to_chat(user, "[attacking_item]'s screen flashes: 'Book stored in buffer.'")
-				if(1)
-					scanner.book = src
-					scanner.computer.buffer_book = src.name
+				if(BARCODE_SCAN_BUFFER_COMPUTER)
+					scanner.book_ref = REF(src)
+					comp.buffer_book = src.name
 					to_chat(user, "[attacking_item]'s screen flashes: 'Book stored in buffer. Book title stored in associated computer buffer.'")
-				if(2)
-					scanner.book = src
-					for(var/datum/borrowbook/b in scanner.computer.checkouts)
-						if(b.bookname == src.name)
-							scanner.computer.checkouts.Remove(b)
+				if(BARCODE_SCAN_CHECKIN)
+					scanner.book_ref = REF(src)
+					for(var/datum/borrowbook/checkout in comp.checkouts)
+						if(checkout.book_name == src.name)
+							comp.checkouts.Remove(checkout)
 							to_chat(user, "[attacking_item]'s screen flashes: 'Book stored in buffer. Book has been checked in.'")
 							return
 					to_chat(user, "[attacking_item]'s screen flashes: 'Book stored in buffer. No active check-out record found for current title.'")
-				if(3)
-					scanner.book = src
-					for(var/obj/item/book in scanner.computer.inventory)
-						if(book == src)
-							to_chat(user, "[attacking_item]'s screen flashes: 'Book stored in buffer. Title already present in inventory, aborting to avoid duplicate entry.'")
-							return
-					scanner.computer.inventory.Add(src)
+				if(BARCODE_SCAN_ADD_INVENTORY)
+					scanner.book_ref = REF(src)
+					var/datum/weakref/src_wref = WEAKREF(src)
+					if(src_wref in comp.inventory)
+						to_chat(user, "[attacking_item]'s screen flashes: 'Book stored in buffer. Title already present in inventory, aborting to avoid duplicate entry.'")
+						return
+					comp.inventory.Add(src_wref)
 					to_chat(user, "[attacking_item]'s screen flashes: 'Book stored in buffer. Title added to general inventory.'")
 	else if(istype(attacking_item, /obj/item/material/knife) || attacking_item.tool_behaviour == TOOL_WIRECUTTER)
-		if(carved)	return
+		if(carved)
+			return
 		to_chat(user, SPAN_NOTICE("You begin to carve out [title]."))
 		if(attacking_item.use_tool(src, user, 30, volume = 50))
 			to_chat(user, SPAN_NOTICE("You carve out the pages from [title]! You didn't want to read it anyway."))
@@ -326,34 +336,40 @@
 /obj/item/barcodescanner
 	name = "book scanner"
 	icon = 'icons/obj/library.dmi'
-	icon_state ="scanner"
+	icon_state = "scanner"
 	throw_speed = 1
 	throw_range = 5
 	w_class = WEIGHT_CLASS_SMALL
-	var/obj/machinery/librarycomp/computer // Associated computer - Modes 1 to 3 use this
-	var/obj/item/book/book //  Currently scanned book
-	var/mode = 0 // 0 - Scan only, 1 - Scan and Set Buffer, 2 - Scan and Attempt to Check In, 3 - Scan and Attempt to Add to Inventory
+	var/computer_ref // REF string of the associated library computer
+	var/book_ref // REF string of the currently scanned book
+	var/mode = BARCODE_SCAN_BUFFER_ONLY
 
-/obj/item/barcodescanner/attack_self(mob/user as mob)
+/obj/item/barcodescanner/attack_self(mob/user)
 	mode += 1
-	if(mode > 3)
-		mode = 0
+	if(mode > BARCODE_SCAN_ADD_INVENTORY)
+		mode = BARCODE_SCAN_BUFFER_ONLY
 	to_chat(user, "[src] Status Display:")
-	var/modedesc
+	var/mode_desc
 	switch(mode)
-		if(0)
-			modedesc = "Scan book to local buffer."
-		if(1)
-			modedesc = "Scan book to local buffer and set associated computer buffer to match."
-		if(2)
-			modedesc = "Scan book to local buffer, attempt to check in scanned book."
-		if(3)
-			modedesc = "Scan book to local buffer, attempt to add book to general inventory."
+		if(BARCODE_SCAN_BUFFER_ONLY)
+			mode_desc = "Scan book to local buffer."
+		if(BARCODE_SCAN_BUFFER_COMPUTER)
+			mode_desc = "Scan book to local buffer and set associated computer buffer to match."
+		if(BARCODE_SCAN_CHECKIN)
+			mode_desc = "Scan book to local buffer, attempt to check in scanned book."
+		if(BARCODE_SCAN_ADD_INVENTORY)
+			mode_desc = "Scan book to local buffer, attempt to add book to general inventory."
 		else
-			modedesc = "ERROR"
-	to_chat(user, " - Mode [mode] : [modedesc]")
-	if(src.computer)
+			mode_desc = "ERROR"
+	to_chat(user, " - Mode [mode] : [mode_desc]")
+	var/obj/machinery/librarycomp/comp = locate(src.computer_ref)
+	if(comp && !QDELETED(comp))
 		to_chat(user, SPAN_NOTICE("Computer has been associated with this unit."))
 	else
 		to_chat(user, SPAN_WARNING("No associated computer found. Only local scans will function properly."))
 	to_chat(user, "\n")
+
+#undef BARCODE_SCAN_BUFFER_ONLY
+#undef BARCODE_SCAN_BUFFER_COMPUTER
+#undef BARCODE_SCAN_CHECKIN
+#undef BARCODE_SCAN_ADD_INVENTORY

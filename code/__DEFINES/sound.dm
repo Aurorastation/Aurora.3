@@ -183,3 +183,4 @@
 #define SFX_TRAY_HIT "tray_hit"
 #define SFX_WIELD "wield"
 #define SFX_PLASTIC_DRY_FIRE "plastic_dry_fire"
+#define SFX_WHITEBOARD_SCRIBBLE "whiteboard_scribble"

@@ -203,8 +203,17 @@
 
 
 /datum/real_instrument/Destroy()
+	if (islist(instruments))
+		var/list/aslist = instruments
+		QDEL_LIST_ASSOC_VAL(aslist)
+	else
+		QDEL_NULL(instruments)
 	QDEL_NULL(player)
+	QDEL_NULL(song_editor)
+	QDEL_NULL(usage_info)
 	owner = null
+	QDEL_NULL(env_editor)
+	QDEL_NULL(echo_editor)
 	return ..()
 
 /obj/structure/synthesized_instrument
@@ -225,14 +234,9 @@
 	src.real_instrument = new /datum/real_instrument(src, new sound_player(src, instruments[pick(instruments)]), instruments)
 
 /obj/structure/synthesized_instrument/Destroy()
-	QDEL_NULL(src.real_instrument)
-	if (islist(instruments))
-		var/list/as_list = instruments
-		for (var/key in as_list)
-			qdel(as_list[key])
-	instruments = null
-	. = ..()
-
+	QDEL_NULL(real_instrument)
+	QDEL_LIST(instruments)
+	return ..()
 
 /obj/structure/synthesized_instrument/attack_hand(mob/user)
 	src.interact(user)

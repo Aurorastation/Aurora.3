@@ -16,15 +16,15 @@
 
 	/// Speed on land. Higher is slower.
 	/// If 0 it can't go on land turfs at all.
-	var/land_speed = 5
+	var/land_speed = 1.4
 	/// Speed if walk intent is on.
 	/// Should be slower, but does not crash into other bikes or people at this speed.
 	/// If land speed is 0, still can't go on land turfs at all.
-	var/land_speed_careful = 6
+	var/land_speed_careful = 2.2
 	/// Same as land speed, but for space turfs.
 	var/space_speed = 1
 	/// Same as land speed if walk intent is on, but for space turfs.
-	var/space_speed_careful = 4
+	var/space_speed_careful = 2
 
 	var/bike_icon = "bike"
 	var/storage_type = /obj/item/storage/toolbox/bike_storage
@@ -57,7 +57,7 @@
 	. += "CTRL-click the bike to toggle the engine."
 	. += "ALT-click to toggle the kickstand which prevents movement by driving and dragging."
 	. += "Click the resist button or type \"resist\" in the command bar at the bottom of your screen to get off the bike."
-	. += "Use walk intent to move around carefully, or run intent to go fast, and risk crashing into other people or bikes."
+	. += "Go fast! Use the RUN intent to go fast! Just be careful you don't run anyone over."
 
 /obj/vehicle/bike/feedback_hints(mob/user, distance, is_adjacent)
 	. += ..()
@@ -198,6 +198,25 @@
 		return
 	return Move(get_step(src, direction))
 
+/obj/vehicle/bike/RunOver(var/mob/living/carbon/human/H)
+	var/mob/living/M
+
+	if(!buckled)
+		return
+
+	if(istype(buckled, /mob/living))
+		M = buckled
+
+	var/collision_damage = clamp((maxhealth/6), 5, 30)
+	if(M.m_intent == M_RUN)
+		M.attack_log += "\[[time_stamp()]\]<font color='orange'> Was rammed by [src]</font>"
+		M.attack_log += "\[[time_stamp()]\] <span class='warning'>rammed[M.name] ([M.ckey]) rammed [H.name] ([H.ckey]) with the [src].</span>"
+		msg_admin_attack("[src] crashed into [key_name(H)] at (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[H.x];Y=[H.y];Z=[H.z]'>JMP</a>)" )
+		src.visible_message(SPAN_DANGER("\The [src] runs over \the [H]!"))
+		H.apply_damage(collision_damage, DAMAGE_BRUTE)
+		H.apply_effect(4, WEAKEN)
+		return TRUE
+
 /obj/vehicle/bike/proc/check_destination(var/turf/destination)
 	var/static/list/types = typecacheof(list(/turf/space))
 	if((is_type_in_typecache(destination,types) && !locate(/obj/structure/lattice))  || pulledby)
@@ -230,7 +249,7 @@
 
 /obj/vehicle/bike/turn_on()
 	ion.start()
-	anchored = 1
+	anchored = TRUE
 
 	if(can_hover)
 		flying = TRUE
@@ -343,7 +362,7 @@
 	desc = "A Hephaestus-manufactured military speeder, used by the forces of the Izweski Hegemony."
 	icon_state = "heg_speeder_on"
 	bike_icon = "heg_speeder"
-	land_speed = 2
+	land_speed = 1
 	space_speed = 1
 	health = 250
 	maxhealth = 250
@@ -366,26 +385,11 @@
 	dir = EAST
 
 	land_speed = 1
-	land_speed_careful = 4
+	land_speed_careful = 1.6
 	space_speed = 0
 	space_speed_careful = 0
 
 	can_hover = FALSE
-
-/obj/vehicle/bike/monowheel/RunOver(var/mob/living/carbon/human/H)
-	var/mob/living/M
-	if(!buckled)
-		return
-	if(istype(buckled, /mob/living))
-		M = buckled
-	if(M.m_intent == M_RUN)
-		M.attack_log += "\[[time_stamp()]\]<font color='orange'> Was rammed by [src]</font>"
-		M.attack_log += "\[[time_stamp()]\] <span class='warning'>rammed[M.name] ([M.ckey]) rammed [H.name] ([H.ckey]) with the [src].</span>"
-		msg_admin_attack("[src] crashed into [key_name(H)] at (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[H.x];Y=[H.y];Z=[H.z]'>JMP</a>)" )
-		src.visible_message(SPAN_DANGER("\The [src] runs over \the [H]!"))
-		H.apply_damage(30, DAMAGE_BRUTE)
-		H.apply_effect(4, WEAKEN)
-		return TRUE
 
 /obj/vehicle/bike/monowheel/check_destination(var/turf/destination)
 	var/static/list/types = typecacheof(list(/turf/space))
@@ -460,7 +464,7 @@
 	icon_state = "sport_on"
 	bike_icon = "sport"
 	land_speed = 1
-	land_speed_careful = 4
+	land_speed_careful = 1.6
 	space_speed = 0
 	protection_percent = 10
 	can_hover = FALSE

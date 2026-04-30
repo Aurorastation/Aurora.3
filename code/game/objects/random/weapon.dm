@@ -30,7 +30,7 @@
 /obj/random/ammo
 	name = "random ammunition"
 	desc = "This is some random ammunition."
-	icon_state = "needsprite"
+	icon_state = "need-sprite"
 	problist = list(
 		/obj/item/storage/box/shells/beanbags = 6,
 		/obj/item/storage/box/shells/slugs = 2,
@@ -206,7 +206,7 @@
 /obj/random/vault_weapon
 	name = "random vault weapon"
 	desc = "This is a random vault weapon."
-	icon_state = "needsprite"
+	icon_state = "kinetic"
 	spawnlist = list(
 		/obj/item/gun/custom_ka/frameA/prebuilt = 1,
 		/obj/item/gun/custom_ka/frameB/prebuilt = 0.5,

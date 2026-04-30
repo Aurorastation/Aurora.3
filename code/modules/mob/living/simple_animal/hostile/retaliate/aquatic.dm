@@ -43,7 +43,7 @@ ABSTRACT_TYPE(/mob/living/simple_animal/hostile/retaliate/aquatic)
 	icon_dead = "thresher_dead"
 	icon_rest = "thresher_rest"
 	health = 230
-	maxHealth = 230
+	maxhealth = 230
 	melee_damage_lower = 40
 	melee_damage_upper = 70
 	armor_penetration = 80
@@ -53,7 +53,7 @@ ABSTRACT_TYPE(/mob/living/simple_animal/hostile/retaliate/aquatic)
 	name = "large toothed aquatic creature"
 	desc = "A threatening-looking aquatic creature with a mouth full of densely-packed, razor sharp teeth. This one has grown to a substantial size."
 	health = 370
-	maxHealth = 370
+	maxhealth = 370
 	melee_damage_lower = 50
 	melee_damage_upper = 90
 	armor_penetration = 100

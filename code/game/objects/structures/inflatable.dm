@@ -47,15 +47,20 @@
 	anchored = TRUE
 	atmos_canpass = CANPASS_DENSITY
 
+	maxhealth = OBJECT_HEALTH_FRAGILE
+
 	var/deflating = FALSE
 	var/undeploy_path = null
 	var/torn_path = null
-	var/health = 15
+
 
 /obj/structure/inflatable/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	. += "To deflate it safely, use the 'deflate' verb or ctrl-click on it."
 	. += "Hitting these with any objects will probably puncture and break it forever."
+
+/obj/structure/inflatable/on_death()
+	deflate(TRUE)
 
 /obj/structure/inflatable/wall
 	name = "inflatable wall"

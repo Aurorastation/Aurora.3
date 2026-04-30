@@ -907,3 +907,13 @@
 	desc = "Tough synthetic fibres make up the bulk of this Himean planetary guard naval uniform, dyed a deep navy blue. It is embellished with red detailing, signalling the wearer as a fighter pilot."
 	icon_state = "himeo_coveralls_pilot"
 	item_state = "himeo_coveralls_pilot"
+
+// Assunzione
+/obj/item/clothing/under/rank/assunzione/stafylia
+	name = "\improper Stafylia uniform"
+	desc = "Only true masters of the art of gyro have the right to wear this uniform. Only at Stafylia will you find such ones."
+	icon = 'icons/obj/item/clothing/under/human/coc/assunzione.dmi'
+	icon_state = "stafylia"
+	item_state = "stafylia"
+	contained_sprite = TRUE
+	has_sensor = SUIT_NO_SENSORS

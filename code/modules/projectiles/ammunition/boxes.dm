@@ -54,7 +54,7 @@ If nothing is chosen, reload sounds revert to the default, which is metal_slide_
 	name = "speed loader (.45)"
 	icon_state = "a454"
 	caliber = ".45"
-	ammo_type = /obj/item/ammo_casing/c45/revolver
+	ammo_type = /obj/item/ammo_casing/c45
 	max_ammo = 6
 	multiple_sprites = TRUE
 

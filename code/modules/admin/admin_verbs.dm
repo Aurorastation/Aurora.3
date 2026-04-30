@@ -146,7 +146,8 @@ GLOBAL_LIST_INIT(admin_verbs_fun, list(
 	/client/proc/apply_sunstate,
 	/datum/admins/proc/ccannoucment,
 	/datum/admins/proc/set_odyssey,
-	/datum/admins/proc/set_odyssey_canonicity
+	/datum/admins/proc/set_odyssey_canonicity,
+	/datum/admins/proc/toggle_persistence
 	))
 
 GLOBAL_LIST_INIT(admin_verbs_spawn, list(
@@ -668,7 +669,7 @@ GLOBAL_LIST_INIT(admin_verbs_storyteller, list(
 
 /client/proc/player_panel_modern()
 	set name = "Player Panel"
-	set category = "Admin"
+	set category = "Admin.Player Info"
 	if(holder)
 		var/static/datum/tgui_module/moderator/shared/player_panel/global_player_panel = new()
 		global_player_panel.ui_interact(usr)
@@ -678,7 +679,7 @@ GLOBAL_LIST_INIT(admin_verbs_storyteller, list(
 
 /client/proc/check_antagonists()
 	set name = "Check Antagonists"
-	set category = "Admin"
+	set category = "Admin.Player Info"
 	if(holder)
 		var/static/datum/tgui_module/moderator/shared/check_antagonists/global_check_antags = new()
 		global_check_antags.ui_interact(usr)
@@ -694,7 +695,7 @@ GLOBAL_LIST_INIT(admin_verbs_storyteller, list(
 
 /client/proc/jobbans()
 	set name = "Display Job bans"
-	set category = "Admin"
+	set category = "Admin.Player Info"
 	if(holder)
 		if(GLOB.config.ban_legacy_system)
 			holder.Jobbans()
@@ -705,7 +706,7 @@ GLOBAL_LIST_INIT(admin_verbs_storyteller, list(
 
 /client/proc/unban_panel()
 	set name = "Unban Panel"
-	set category = "Admin"
+	set category = "Admin.Player Info"
 	if(holder)
 		if(GLOB.config.ban_legacy_system)
 			holder.unbanpanel()
@@ -815,8 +816,8 @@ GLOBAL_LIST_INIT(admin_verbs_storyteller, list(
 	feedback_add_details("admin_verb","TBMS") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 /client/proc/object_talk(var/msg as text) // -- TLE
-	set category = "Special Verbs"
-	set name = "oSay"
+	set category = "Admin.Chat"
+	set name = "Osay"
 	set desc = "Display a message to everyone who can hear the target"
 	if(mob.control_object)
 		if(!msg)
@@ -885,7 +886,7 @@ GLOBAL_LIST_INIT(admin_verbs_storyteller, list(
 
 /client/proc/check_ai_laws()
 	set name = "Check AI Laws"
-	set category = "Admin"
+	set category = "Admin.Player Info"
 	if(holder || isstoryteller(src.mob))
 		src.holder.output_ai_laws()
 
@@ -1040,7 +1041,7 @@ GLOBAL_LIST_INIT(admin_verbs_storyteller, list(
 
 /client/proc/playernotes()
 	set name = "Show Player Info"
-	set category = "Admin"
+	set category = "Admin.Player Info"
 	if(holder)
 		holder.PlayerNotes()
 	return
@@ -1344,7 +1345,7 @@ GLOBAL_LIST_INIT(admin_verbs_storyteller, list(
 /client/proc/alooc(msg as text)
 	set name = "ALOOC"
 	set desc = "Admin Local OOC, seen only by those in view, regardless of their LOOC preferences."
-	set category = "Admin"
+	set category = "Admin.Chat"
 	set hidden = 1
 
 	if(!check_rights(R_ADMIN|R_MOD))

@@ -177,6 +177,7 @@
 	icon_state = "lightning"
 	range = 6 // Backup plan in-case the effect somehow misses the Technomancer.
 	power = 5 // This fires really fast, so this may add up if someone keeps standing in the beam.
+	projectile_piercing = PASSMOB //This is the only energy projectile with penetrating.
 	penetrating = 5
 
 /obj/projectile/beam/lightning/energy_siphon/Bump(atom/A as mob|obj|turf|area, forced=0)

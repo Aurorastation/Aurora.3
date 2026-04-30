@@ -134,6 +134,10 @@
 		update_icon()
 	return ..()
 
+/obj/item/material/ashtray/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Use help intent to empty into a disposal. Use harm intent to put into a disposal."
+
 /obj/item/material/ashtray/plastic/Initialize(newloc, material_key)
 	. = ..(newloc, MATERIAL_PLASTIC)
 

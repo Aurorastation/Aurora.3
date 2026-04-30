@@ -4253,7 +4253,8 @@
 	req_access = list();
 	opened = 1
 	},
-/obj/item/gun/energy/disruptorpistol,
+/obj/item/gun/projectile/sec/lethal,
+/obj/item/ammo_magazine/c45m,
 /obj/item/storage/box/shells/beanbags,
 /obj/item/storage/box/shells/beanbags,
 /turf/simulated/floor/tiled/dark/full/airless,

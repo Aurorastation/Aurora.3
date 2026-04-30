@@ -2,7 +2,7 @@
 	. = 0
 	var/overlay_stage
 	if (seed)
-		if (mechanical && health <= (GET_SEED_TRAIT(seed, TRAIT_ENDURANCE) / 2))
+		if (mechanical && plant_health <= (GET_SEED_TRAIT(seed, TRAIT_ENDURANCE) / 2))
 			. |= TRAY_LOW_HEALTH
 
 		if (dead)

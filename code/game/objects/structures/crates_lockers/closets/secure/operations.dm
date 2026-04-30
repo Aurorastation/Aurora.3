@@ -54,6 +54,7 @@
 	new /obj/item/flashlight/marshallingwand(src)
 	new /obj/item/flashlight/marshallingwand(src)
 	new /obj/item/paint_sprayer(src)
+	new /obj/item/storage/toolbox/mechanical(src)
 
 // Machinist
 /obj/structure/closet/secure_closet/machinist

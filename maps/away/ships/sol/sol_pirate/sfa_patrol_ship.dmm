@@ -4409,7 +4409,7 @@
 /obj/item/clothing/suit/storage/toggle/leather_jacket/military/old,
 /obj/item/clothing/suit/storage/toggle/leather_jacket/flight,
 /obj/item/clothing/head/beanie/random,
-/obj/item/clothing/head/bucket/boonie/blue,
+/obj/item/clothing/head/bucket/boonie,
 /obj/item/clothing/under/dressshirt/silversun/random,
 /obj/item/clothing/under/dressshirt/silversun/random,
 /turf/simulated/floor/wood,
@@ -7149,7 +7149,7 @@
 	desc = "A rectangular steel footlocker.";
 	name = "footlocker"
 	},
-/obj/item/clothing/accessory/badge/passcard/sol/cytherean,
+/obj/item/clothing/accessory/badge/passcard/sol,
 /obj/item/reagent_containers/syringe{
 	desc = "A syringe of nightlife. Unfortunately this one is empty."
 	},

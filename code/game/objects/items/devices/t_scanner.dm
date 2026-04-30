@@ -24,9 +24,9 @@
 	var/global/list/overlay_cache = list()
 
 /obj/item/t_scanner/Destroy()
-	. = ..()
 	if(on)
 		set_active(FALSE)
+	return ..()
 
 /obj/item/t_scanner/update_icon()
 	icon_state = "t-ray[on]"

@@ -18,7 +18,7 @@
 	icon_state = "egg_arms"
 	melee_damage = 15
 	action_delay = 5
-	max_damage = 100
+	max_damage = 150
 	power_use = 2500
 	has_hardpoints = list(HARDPOINT_RIGHT_HAND, HARDPOINT_LEFT_HAND)
 
@@ -81,7 +81,7 @@
 	desc = "Armored robotics arms designed to carry large weapons."
 	icon_state = "strong_egg_arms"
 	melee_damage = 20
-	max_damage = 120
+	max_damage = 180
 
 /obj/item/mech_component/sensors/pra_egg/armored
 	name = "armored P'kus-3 sensors"

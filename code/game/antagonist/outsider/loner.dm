@@ -54,4 +54,5 @@ GLOBAL_DATUM(loners, /datum/antagonist/loner)
 	player.update_eyes()
 	player.regenerate_icons()
 
+
 	return TRUE

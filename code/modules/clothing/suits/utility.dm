@@ -100,7 +100,7 @@
 	w_class = WEIGHT_CLASS_HUGE //bulky item
 	gas_transfer_coefficient = 0.01
 	permeability_coefficient = 0.01
-	slowdown = 8
+	slowdown = 4
 	armor = list(
 		MELEE = ARMOR_MELEE_VERY_HIGH,
 		BULLET = ARMOR_BALLISTIC_MINOR,
@@ -233,7 +233,7 @@
 	permeability_coefficient = 0.50
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS|HANDS|FEET
 	allowed = list(/obj/item/flashlight,/obj/item/tank,/obj/item/suit_cooling_unit,/obj/item/storage/bag/inflatable,/obj/item/t_scanner,/obj/item/rfd/construction,/obj/item/material/twohanded/fireaxe,/obj/item/storage/backpack/cell,/obj/item/clothing/head/radiation,/obj/item/clothing/mask/gas,/obj/item/reagent_containers/hypospray/autoinjector)
-	slowdown = 1.5
+	slowdown = 0.75
 	armor = list(
 		BIO = ARMOR_BIO_RESISTANT,
 		RAD = ARMOR_RAD_SHIELDED

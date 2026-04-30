@@ -193,6 +193,12 @@
 	armor_penetration = 60
 	incinerate = 2
 
+/obj/projectile/energy/blaster/incendiary/light
+	icon_state = "laser"
+	damage = 30
+	armor_penetration = 35
+	incinerate = 1
+
 /obj/projectile/energy/disruptorskrell // for nralakk fed consular pistol
 	name = "disruptor bolt"
 	icon_state = "bluelaser"

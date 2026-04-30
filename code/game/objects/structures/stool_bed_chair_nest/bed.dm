@@ -38,7 +38,7 @@
 	gfi_layer_rotation = GFI_ROTATION_DEFDIR
 	var/makes_rolling_sound = FALSE
 	var/held_item = null // Set to null if you don't want people to pick this up.
-	slowdown = 5
+	slowdown = 2.5
 
 	var/driving = FALSE // Shit for wheelchairs. Doesn't really get used here, but it's for code cleanliness.
 	var/mob/living/pulling = null
@@ -127,7 +127,7 @@
 
 /obj/structure/bed/proc/generate_strings()
 	if(material_alteration & MATERIAL_ALTERATION_NAME)
-		name = padding_material ? "[padding_material.adjective_name] padded [material.adjective_name] [initial(name)]" : "[material.adjective_name] [initial(name)]" //this is not perfect but it will do for now.
+		name = padding_material ? "[padding_material.adjective_name] padded [material.adjective_name] [name]" : "[material.adjective_name] [name]" //this is not perfect but it will do for now.
 
 	if(material_alteration & MATERIAL_ALTERATION_DESC)
 		desc = initial(desc)
@@ -252,12 +252,15 @@
 	update_icon()
 
 /obj/structure/bed/dismantle(obj/item/W, mob/user)
-	user.visible_message("<b>[user]</b> begins dismantling \the [src].", SPAN_NOTICE("You begin dismantling \the [src]."))
-	if(W.use_tool(src, user, 20, volume = 50))
-		user.visible_message("\The [user] dismantles \the [src].", SPAN_NOTICE("You dismantle \the [src]."))
-		if(padding_material)
-			padding_material.place_sheet(get_turf(src))
-		..()
+	if(user)
+		user.visible_message("<b>[user]</b> begins dismantling \the [src].", SPAN_NOTICE("You begin dismantling \the [src]."))
+		if(W.use_tool(src, user, 20, volume = 50))
+			user.visible_message("\The [user] dismantles \the [src].", SPAN_NOTICE("You dismantle \the [src]."))
+		else
+			return FALSE
+	if(padding_material)
+		padding_material.place_sheet(get_turf(src))
+	..()
 
 /obj/structure/bed/Move()
 	. = ..()

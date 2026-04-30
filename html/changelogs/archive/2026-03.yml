@@ -416,3 +416,31 @@
   - rscadd: Minor remapping of the Bridge to make room for said Jump Console. Moves
       the Medical/Security Consoles to a new command station at the back; BSD Jump
       Computer takes its place.
+2026-03-30:
+  Batrachophrenoboocosmomachia:
+  - bugfix: Submariner's beanie visible again (icon_state typo).
+  Fenodyree:
+  - bugfix: Fixes grabs sometimes breaking when the grabber is moved.
+  - bugfix: Fixes a grabbed mob not being moved along with it's grabber.
+  - balance: Prevents people from pulling blue grabbed mobs.
+  - balance: Prevents people from grabbing red grabbed mobs.
+  arrow768:
+  - rscadd: Added a indicator for the normalized flow rate to atmos pumps, as well
+      as a measurement functionality.
+2026-03-31:
+  Batrachophrenoboocosmomachia:
+  - bugfix: 'All movespeed_modifier slowdown data now applied correctly post-smooth
+      movement PR. IE: active magboots, duffel bags, etc. again slow you down.'
+  - bugfix: Sofas no longer able to be rotated while anchored.
+  - bugfix: Attempting to use crowbars, fire axes, hammers on airlocks while in the
+      Hurt intent will now make you attack the airlock.
+  - bugfix: Fixes graphical bug with open lid graphics for crates painted in any engineering
+      color variants.
+  - bugfix: Individual butterfly knife parts are no longer larger than butterfly knives
+      themselves.
+  - bugfix: Elevators that squish mobs (any type of mob/living) will now appropriately
+      gib instead of just quietly deleting them.
+  - rscadd: Miniature fusion reactor explosions now use subsystem radiation instead
+      of manually applying rad damage to all mobs in range.
+  fyni:
+  - rscadd: Adds the stafylia gyro - THE authentic taste of Assunzione.

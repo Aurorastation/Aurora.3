@@ -18,7 +18,7 @@
 	w_class = WEIGHT_CLASS_HUGE
 	force = 15
 
-	slowdown = 1
+	slowdown = 0.5
 
 	var/delivery_point_id = ""
 	var/datum/weakref/delivery_point_sector
@@ -83,7 +83,7 @@
 		// larger mobs, such as industrials, can hold two pieces of cargo
 		if(user.species.mob_size < 12)
 			wield(user)
-			slowdown = 2
+			slowdown = 1
 		else
 			slowdown = 0
 

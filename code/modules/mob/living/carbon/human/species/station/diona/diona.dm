@@ -35,7 +35,7 @@ They are very slow, reasonably strong, and quite durable. They also require ligh
 		/mob/living/carbon/proc/sample,
 	)
 	//primitive_form = "Nymph"
-	slowdown = 4
+	slowdown = 1.6
 	rarity_value = 4
 	hud_type = /datum/hud_data/diona
 	siemens_coefficient = 0.3
@@ -197,7 +197,7 @@ They are very slow, reasonably strong, and quite durable. They also require ligh
 		H.adjustHalLoss(cost*0.3)
 		H.updatehealth()
 
-	if(H.getHalLoss() > (H.maxHealth*0.6))
+	if(H.getHalLoss() > (H.maxhealth*0.6))
 		var/shock = H.get_shock()
 		if(prob(shock * 2))
 			to_chat(H, SPAN_DANGER("You feel a sharp pain in your nervous system! You can't run anymore, or you might die!"))

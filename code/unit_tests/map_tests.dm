@@ -376,6 +376,7 @@
 		/area/space,
 		/area/shuttle,
 		/area/template_noop,
+		/area/supply/dock, // this is exempt because runtime has this area in its z-level for the sake of not having an additional non-station z-level, since we care about short boot time
 	)
 
 /datum/unit_test/map_test/areas_in_station_zlevels_must_be_marked_as_station_areas/start_test()
