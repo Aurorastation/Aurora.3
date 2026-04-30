@@ -242,7 +242,7 @@
 	desc = "A crate containing gear for a group. Humans only, for now."
 	path = /obj/structure/closet/crate/secure/gear_loadout/outereyes
 
-/datum/uplink_item/item/gear_loadout/outereyes_single
+/datum/uplink_item/item/gear_loadout/outereyes/single
 	name = "Outer Eyes (Single)"
 	desc = "A crate containing gear for a single individual. Humans only, for now."
 	path = /obj/structure/closet/crate/secure/gear_loadout/outereyes/single
