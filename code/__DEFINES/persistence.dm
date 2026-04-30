@@ -9,8 +9,8 @@
 	Defines for type definitions and their relations
 ###################################################*/
 
-// "Abstract type" of persistent type definition found in database
-/singleton/persistency_type_definition
+// Type of persistent type definition found in database
+ABSTRACT_TYPE(/singleton/persistency_type_definition)
 	var/definition_type_value = 0 // Hard coded in ss13_persistent_type_definitions.definition_type, DO NOT MODIFY - Database constant
 	var/title = ""
 	var/description = ""
