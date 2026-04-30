@@ -1499,7 +1499,7 @@
 	new /obj/item/coin/phoron(src)
 	new /obj/item/coin/phoron(src)
 
-/obj/structure/closet/crate/secure/gear_loadout/outereyes_single/fill()
+/obj/structure/closet/crate/secure/gear_loadout/outereyes/single/fill()
 	new /obj/item/clothing/head/helmet/space/void/outereyes(src)
 	new /obj/item/clothing/suit/space/void/outereyes(src)
 	new /obj/item/clothing/under/color/purple(src)
