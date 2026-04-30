@@ -1,0 +1,4 @@
+author: Batrachophrenoboocosmomachia
+delete-after: True
+changes:
+  - refactor: "Migrates Nuclear Bomb NanoUI to TGUI."
