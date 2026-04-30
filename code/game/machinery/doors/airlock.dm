@@ -360,6 +360,7 @@
 	door_color = "#6f8751"
 
 /obj/machinery/door/airlock/service/custodial // Custodial Airlock
+	icon_state = "custodial"
 	paintable = AIRLOCK_PAINTABLE_MAIN | AIRLOCK_PAINTABLE_STRIPE
 	door_color = "#6f8751"
 	stripe_color = COLOR_PURPLE_GRAY
@@ -374,6 +375,7 @@
 	close_sound_powered = 'sound/machines/airlock/hall3c.ogg'
 
 /obj/machinery/door/airlock/glass_service/custodial // Custodial Airlock (Glass)
+	icon_state = "custodial_glass"
 	paintable = AIRLOCK_PAINTABLE_MAIN | AIRLOCK_PAINTABLE_STRIPE
 	door_color = "#6f8751"
 	stripe_color = COLOR_PURPLE_GRAY

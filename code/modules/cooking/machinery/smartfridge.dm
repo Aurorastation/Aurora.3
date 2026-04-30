@@ -416,6 +416,8 @@
 			update_overlays()
 		if(update_static_data)
 			update_static_data_for_all_viewers()
+		astype(P, /obj/item/storage/box/fancy)?.opened = TRUE
+		P.update_icon()
 		return TRUE
 	to_chat(user, SPAN_NOTICE("[src] smartly refuses [attacking_item]."))
 	return TRUE

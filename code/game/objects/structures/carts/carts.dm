@@ -83,7 +83,7 @@ ABSTRACT_TYPE(/obj/structure/cart)
 		to_chat(pulling, SPAN_WARNING("You lost your grip!"))
 		pulling = null
 	if(has_gravity())
-		playsound(src, movesound, 50, 1)
+		playsound(src, movesound, 10, TRUE)
 
 /obj/structure/cart/CtrlClick(var/mob/user)
 	if(in_range(src, user))
