@@ -36,72 +36,72 @@
 
 // Material definition and procs follow.
 /singleton/material
-    /// Unique name for use in indexing the list.
+	/// Unique name for use in indexing the list.
 	var/name
-    /// Prettier name for display.
+	/// Prettier name for display.
 	var/display_name
-    /// To override the name for subtypes and stuff.
+	/// To override the name for subtypes and stuff.
 	var/adjective_name
 	var/use_name
-    /// Various status modifiers.
+	/// Various status modifiers.
 	var/flags = 0
 	var/sheet_singular_name = "sheet"
 	var/sheet_plural_name = "sheets"
 
 	// Shards/tables/structures
-    /// Path of debris object.
+	/// Path of debris object.
 	var/shard_type = SHARD_SHRAPNEL
-    /// Related to above.
+	/// Related to above.
 	var/shard_icon
-    /// Can shards be turned into sheets with a welder?
+	/// Can shards be turned into sheets with a welder?
 	var/shard_can_repair = 1
-    /// Holder for all recipes usable with a sheet of this material.
+	/// Holder for all recipes usable with a sheet of this material.
 	var/list/recipes
-    /// Fancy string for barricades/tables/objects exploding.
+	/// Fancy string for barricades/tables/objects exploding.
 	var/destruction_desc = "breaks apart"
 
 	// Icons
 	var/colour_blend = TRUE
-    /// Colour applied to products of this material.
+	/// Colour applied to products of this material.
 	var/icon_colour
-    /// Colour applied to walls specifically.
+	/// Colour applied to walls specifically.
 	var/wall_colour
-    /// Wall and table base icon tag. See header.
+	/// Wall and table base icon tag. See header.
 	var/icon_base = "solid"
-    /// Door base icon tag. See header.
+	/// Door base icon tag. See header.
 	var/door_icon_base = "metal"
-    /// Handles type of overlay used for tables and walls. Don't change without checking every use case.
+	/// Handles type of overlay used for tables and walls. Don't change without checking every use case.
 	var/reinf_icon = "reinf_over"
 	var/icon/multipart_reinf_icon
-    /// Research level for stacks.
+	/// Research level for stacks.
 	var/list/stack_origin_tech = list(TECH_MATERIAL = 1)
 	var/icon/wall_icon
 	var/icon/table_icon
 
 	// Attributes
-    /// Delay in ticks when cutting through this wall.
+	/// Delay in ticks when cutting through this wall.
 	var/cut_delay = 0
-    /// Radiation var. Used in wall and object processing to irradiate surroundings.
+	/// Radiation var. Used in wall and object processing to irradiate surroundings.
 	var/radioactivity
-    /// K, point at which the material catches on fire.
+	/// K, point at which the material catches on fire.
 	var/ignition_point
-    /// K, walls will take damage if they're next to a fire hotter than this
+	/// K, walls will take damage if they're next to a fire hotter than this
 	var/melting_point = 1800
-    /// General-use HP value for products.
+	/// General-use HP value for products.
 	var/integrity = 150
-    /// How well this material works as armor.  Higher numbers are better, diminishing returns applies.
+	/// How well this material works as armor.  Higher numbers are better, diminishing returns applies.
 	var/protectiveness = 10
-    /// Is the material transparent? 0.5< makes transparent walls/doors.
+	/// Is the material transparent? 0.5< makes transparent walls/doors.
 	var/opacity = 1
-    /// How reflective to light is the material?  Currently used for laser reflection and defense.
+	/// How reflective to light is the material?  Currently used for laser reflection and defense.
 	var/reflectivity = 0
-    /// Only used by walls currently.
+	/// Only used by walls currently.
 	var/explosion_resistance = 5
-    /// Objects with this var add CONDUCTS to flags on spawn.
+	/// Objects with this var add CONDUCTS to flags on spawn.
 	var/conductive = 1
-    /// How conductive the material is. Iron acts as the baseline, at 10.
+	/// How conductive the material is. Iron acts as the baseline, at 10.
 	var/conductivity = null
-    /// If set, object matter var will be a list containing these values.
+	/// If set, object matter var will be a list containing these values.
 	var/list/composite_material
 
 	/// Placeholder vars for the time being, todo properly integrate windows/light tiles/rods.
@@ -111,9 +111,9 @@
 	var/list/window_options = list()
 
 	// Damage values.
-    /// Prob of wall destruction by hulk, used for edge damage in weapons. Also used for bullet protection in armor.
+	/// Prob of wall destruction by hulk, used for edge damage in weapons. Also used for bullet protection in armor.
 	var/hardness = 60
-    /// Determines blunt damage/throwforce for weapons, and whether it can be flipped. Check DEFAULT_TABLE_FLIP_WEIGHT if you want your materai to be tableflippable.
+	/// Determines blunt damage/throwforce for weapons, and whether it can be flipped. Check DEFAULT_TABLE_FLIP_WEIGHT if you want your materai to be tableflippable.
 	var/weight = 20
 
 	/// The price value of the item
@@ -142,7 +142,7 @@
 	var/weapon_pickup_sound = 'sound/items/pickup/metalweapon.ogg'
 	var/weapon_hitsound = SFX_SWING_HIT
 
-    /// Sound it makes when it breaks.
+	/// Sound it makes when it breaks.
 	var/shatter_sound = SFX_BREAK_GLASS
 
 	/// Whether this material is fusion fuel or not.
