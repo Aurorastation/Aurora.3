@@ -1,7 +1,6 @@
 import { useBackend } from '../backend';
 import { Box, Button, Section, Stack } from '../components';
 import { Window } from '../layouts';
-import './HealthAnalyzer.scss';
 
 type HealthAnalyzerData = {
   scan_title?: string;
