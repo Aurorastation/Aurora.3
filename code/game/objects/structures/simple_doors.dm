@@ -30,11 +30,11 @@
 	health -= material.combustion_effect(get_turf(src),temperature, 0.3)
 	CheckHealth()
 
-/obj/structure/simple_door/New(var/newloc, var/material_name, var/locked)
+/obj/structure/simple_door/New(var/newloc, var/newmaterial, var/locked)
 	..()
-	if(!material_name)
-		material_name = DEFAULT_WALL_MATERIAL
-	material = GET_SINGLETON(material_name)
+	if(!newmaterial)
+		newmaterial = MATERIAL_STEEL
+	material = GET_SINGLETON(newmaterial)
 	if(!material)
 		qdel(src)
 		return
