@@ -1152,7 +1152,7 @@
 /obj/item/clothing/head/helmet/space/void/outereyes
 	name = "\improper Outer Eyes voidsuit helmet"
 	desc = "A royal burgandy and black armoured helmet of the mysterious Outer Eyes. At the center of the helmet, a single white eye."
-	desc_extended = "While the Outer Eyes work mostly unseen as agents and infiltrators, getting third parties to perform most direct confrontations, occationally the situation calls for the deployment of a fanatically loyal core of enforcers sporting this suit. Those who live to tell of them learn to fear the suit."
+	desc_extended = "While the Outer Eyes work mostly unseen as agents and infiltrators, getting third parties to perform most direct confrontations, occationally the situation calls for the deployment of a fanatically loyal core of enforcers sporting this suit. Those who live to tell of them learn to the mask, with it's leering eye."
 	icon = 'icons/obj/clothing/voidsuit/outereyes.dmi'
 	icon_state = "outer_eyes_helmet"
 	item_state = "outer_eyes_helmet"
