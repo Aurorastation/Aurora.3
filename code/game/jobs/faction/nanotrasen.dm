@@ -41,17 +41,19 @@
 	var/objective
 	switch(mission_level)
 		if(REPRESENTATIVE_MISSION_HIGH)
-			objective = pick("Have [rand(1,4)] crewmember sign NT apprenticeship contracts",
-						"Make sure that the [station_name()] fullfils [rand(4,12)] cargo bounties",
-						"Make sure that the [station_name()] raises [rand(5000,12000)] credits by the end of the shift")
+			objective = pick("Have the [station_name()] Operations Department set aside 2000 moles of gaseous Phoron or 20x Phoron Crystals for shipping to NanoTrasen Corporation.",
+						"Identify and report SCC command staff who are overtly favouring their origin state or company (IE. displaying origin state/corporation iconography) in breach of Conglomerate ideals",
+						"Identify and report any acts of inter-SCC conflict or espionage")
 		if(REPRESENTATIVE_MISSION_MEDIUM)
-			objective = pick("Have [rand(2,5)] crewmembers sign contract extensions",
-						"Have [rand(2,5)] crewmembers buy Odin real estate",
-						"[rand(3,10)] crewmember must buy Getmore products from the vendors")
+			objective = pick("Have any crew member enroll onto a paid NanoTrasen Academy online learning course",
+						"Have a NanoTrasen employee sign a contract extension",
+						"Evaluate crew opinions on GetMore Corporation products available on the [station_name()]",
+						"Ensure Hazel! Limited positronics are compliant with brand standards",
+						"Evaluate crew opinions on Ingi Usang Entertainment Company products and brands")
 		else
-			objective = pick("Conduct and present a survey on crew morale and content",
-						"Make sure that [rand(2,4)] complaints are solved on the [station_name()]",
-						"Have [rand(3,10)] crewmembers buy Getmore products from the vendors")
+			objective = pick("Conduct a survey on NanoTrasen Corporation employee morale",
+						"Identify and resolve a complaint of a NanoTrasen Corporation employee",
+						"Emphasise the importance of phoronic technologies aboard the [station_name()] and around the Orion Spur")
 
 	return objective
 

@@ -1,0 +1,7 @@
+author: kermit
+
+delete-after: True
+
+changes:
+  - bugfix: "Fixes representative objectives not being sent. They will now appear in-hand on-spawning"
+  - rscadd: "Redoes all megacorporate objectives and Republic of Biesel objectives"
