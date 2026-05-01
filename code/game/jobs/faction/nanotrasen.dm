@@ -38,7 +38,6 @@
 	allowed_role_types = NT_ROLES
 
 /datum/faction/nano_trasen/get_corporate_objectives(var/mission_level)
-	var/objective
 	switch(mission_level)
 		if(REPRESENTATIVE_MISSION_HIGH)
 			return pick("Obtain 2000 moles of gaseous Phoron or 20x Phoron Crystals for shipping to NanoTrasen Corporation.",
