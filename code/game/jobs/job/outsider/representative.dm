@@ -163,19 +163,19 @@
 /obj/outfit/job/representative/proc/send_representative_mission(var/mob/living/carbon/human/H)
 	var/papertext
 
-	papertext += "<center><br><h2><br><b>Office Directives Notice</h2></b></FONT size><HR></center>"
+	papertext += "<hr><center><h2><b>Office Directives Notice</h2></b></FONT size><HR></center>"
 	papertext += "<center><small>This document is confidential and may contain protected internal operation or personnel information. \
 	Any unauthorised review, copying, sharing, or retention of this document may result in legal action. If you are not the \
 	recipient, stop reading, inform the [name] Office, and destroy this document immediately.</small></center><hr>"
 	papertext += "<b><font face='Courier New'>[name], the following directives have been issued to the [station_name()] Office:</font></b><br><ul>"
 
 	papertext += "<li>[get_objectives(H, REPRESENTATIVE_MISSION_LOW)].</li>"
-	if(prob(50))
+	if(prob(66))
 		papertext += "<li>[get_objectives(H, REPRESENTATIVE_MISSION_MEDIUM)].</li>"
-	if(prob(25))
+	if(prob(33))
 		papertext += "<li>[get_objectives(H, REPRESENTATIVE_MISSION_HIGH)].</li>"
 
-	papertext += "<br><b><font face='Courier New'>Please report back if any directives are completed during your shift.</font></b><br><ul>"
+	papertext += "</ul><br><b><font face='Courier New'>Please report back if any directives are completed during your shift.</font></b><br>"
 
 	var/obj/item/paper/P = new /obj/item/paper()
 	P.name = "[name] - Directives"

@@ -41,7 +41,7 @@
 	var/objective
 	switch(mission_level)
 		if(REPRESENTATIVE_MISSION_HIGH)
-			objective = pick("Have the [station_name()] Operations Department set aside 2000 moles of gaseous Phoron or 20x Phoron Crystals for shipping to NanoTrasen Corporation.",
+			objective = pick("Obtain 2000 moles of gaseous Phoron or 20x Phoron Crystals for shipping to NanoTrasen Corporation.",
 						"Identify and report SCC command staff who are overtly favouring their origin state or company (IE. displaying origin state/corporation iconography) in breach of Conglomerate ideals",
 						"Identify and report any acts of inter-SCC conflict or espionage")
 		if(REPRESENTATIVE_MISSION_MEDIUM)
