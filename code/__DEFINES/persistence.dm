@@ -88,7 +88,7 @@ ABSTRACT_TYPE(/singleton/persistent_type/history/character)
 
 // Basic history persistent type definition
 #define CREATE_PERSISTENT_TYPE_HISTORY(TYPE_NAME, TITLE, DESCRIPTION, REQUIRES_ATTRIBUTE, EXPIRATION_RULE) \
-	if(#TYPE_NAME == "character") \
+	if(findtext("character", #TYPE_NAME)) \
 		fail("Cannot use this macro for creating a type of 'character', use CREATE_PERSISTENT_TYPE_HISTORY_CHARACTER instead.", __FILE__, __LINE__); \
 	/singleton/persistent_type/history/##TYPE_NAME \
 	{ \

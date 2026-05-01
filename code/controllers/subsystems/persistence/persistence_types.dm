@@ -4,10 +4,13 @@
 /datum/controller/subsystem/persistence/proc/typesInitialize()
 	// Base types to exclude
 	var/base_types = list(/singleton/persistent_type, /singleton/persistent_type/generic, /singleton/persistent_type/history, /singleton/persistent_type/history/character)
+	var/custom_types = typesof(/singleton/persistent_type) - base_types
 
 	// Upsert all persistent type definitions found in code
-	for (var/singleton/persistent_type/T in typesof(/singleton/persistent_type) - base_types)
+	for (var/singleton/persistent_type/T in custom_types)
 		typesDatabaseUpsertType("[T]", T.title, T.description, T.definition_type_value)
+
+	// TODO CLEANUP - History by history type rules and generics
 
 	// Init internal cache
 	history_last_id = typesHistoryDatabaseGetLastID()
