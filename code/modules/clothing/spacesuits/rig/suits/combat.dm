@@ -31,7 +31,6 @@
 	light_overlay = "helmet_light_dual_cyan"
 
 /obj/item/rig/combat/equipped
-
 	initial_modules = list(
 		/obj/item/rig_module/mounted,
 		/obj/item/rig_module/vision/thermal,
@@ -652,6 +651,14 @@
 	helm_type = /obj/item/clothing/head/helmet/space/rig/combat/zavod_heavy
 	allowed_module_types = MODULE_GENERAL | MODULE_LIGHT_COMBAT | MODULE_HEAVY_COMBAT | MODULE_SPECIAL | MODULE_MEDICAL | MODULE_UTILITY
 
+/obj/item/rig/combat/zavod_heavy/equipped
+	initial_modules = list(
+		/obj/item/rig_module/actuators/combat,
+		/obj/item/rig_module/chem_dispenser/combat,
+		/obj/item/rig_module/grenade_launcher/frag,
+		/obj/item/rig_module/vision/nvg
+		)
+
 /obj/item/clothing/suit/space/rig/zavod_heavy
 	var/lights_active = FALSE
 
@@ -669,7 +676,7 @@
 		return I
 
 	if (!lights_active && !rigcontroller.sealing)
-		set_light_range_power_color(0.3, 0.2, "#bc120d")
+		set_light_range_power_color(0.3, 0.2, "#ff0800")
 		set_light_on(TRUE)
 		lights_active = TRUE
 
