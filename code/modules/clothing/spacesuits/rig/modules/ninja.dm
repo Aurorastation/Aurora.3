@@ -69,9 +69,9 @@
 	desc = "A complex, sleek-looking, hardsuit-integrated teleportation module that exploits bluespace energy to phase from one location to another instantaneously."
 	icon_state = "teleporter"
 	use_power_cost = 40
-	redundant = 1
+	redundant = TRUE
 	usable = TRUE
-	selectable = 1
+	selectable = TRUE
 	var/lastteleport
 	var/phase_in_visual = /obj/effect/temp_visual/phase
 	var/phase_out_visual = /obj/effect/temp_visual/phase/out

@@ -24,32 +24,52 @@
 	var/module_cooldown = 10
 	var/next_use = 0
 
-	var/engage_on_activate = TRUE       // Whether the rig should call engage() in its activate() proc
-	var/toggleable                      // Set to 1 for the device to show up as an active effect.
-	var/usable                          // Set to 1 for the device to have an on-use effect.
-	var/selectable                      // Set to 1 to be able to assign the device as primary system.
-	var/redundant                       // Set to 1 to ignore duplicate module checking when installing.
-	var/permanent                       // If set, the module can't be removed.
-	var/disruptive = 1                  // Can disrupt by other effects.
-	var/activates_on_touch              // If set, unarmed attacks will call engage() on the target.
-	var/confined_use = FALSE				// If set, can be used inside mechs and other vehicles.
+	/// Whether the rig should call engage() in its activate() proc
+	var/engage_on_activate = TRUE
+	/// Set TRUE for the device to show up as an active effect.
+	var/toggleable
+	/// Set TRUE for the device to have an on-use effect.
+	var/usable
+	/// Set TRUE to be able to assign the device as primary system.
+	var/selectable
+	/// Set TRUE to ignore duplicate module checking when installing.
+	var/redundant
+	/// If set, the module can't be removed.
+	var/permanent
+	/// Can disrupt by other effects.
+	var/disruptive = 1
+	/// If set, unarmed attacks will call engage() on the target.
+	var/activates_on_touch
+	/// If set, can be used inside mechs and other vehicles.
+	var/confined_use = FALSE
 
-	var/active                          // Basic module status
-	var/disruptable                     // Will deactivate if some other powers are used.
-	var/attackdisrupts = 0             // Will deactivate if user attacks
+	/// Basic module status
+	var/active
+	/// Will deactivate if some other powers are used.
+	var/disruptable
+	/// Will deactivate if user attacks
+	var/attackdisrupts = 0
 
-	var/use_power_cost = 0              // Power used when single-use ability called.
-	var/active_power_cost = 0           // Power used when turned on.
-	var/passive_power_cost = 0          // Power used when turned off.
+	/// Power used when single-use ability called.
+	var/use_power_cost = 0
+	/// Power used when turned on.
+	var/active_power_cost = 0
+	/// Power used when turned off.
+	var/passive_power_cost = 0
 
-	var/list/charges                    // Associative list of charge types and remaining numbers.
-	var/charge_selected                 // Currently selected option used for charge dispensing.
+	/// Associative list of charge types and remaining numbers.
+	var/list/charges
+	/// Currently selected option used for charge dispensing.
+	var/charge_selected
 
 	// Icons.
 	var/suit_overlay
-	var/suit_overlay_active             // If set, drawn over icon and mob when effect is active.
-	var/suit_overlay_inactive           // As above, inactive.
-	var/suit_overlay_used               // As above, when engaged.
+	/// If set, drawn over icon and mob when effect is active.
+	var/suit_overlay_active
+	/// As above, inactive.
+	var/suit_overlay_inactive
+	/// As above, when engaged.
+	var/suit_overlay_used
 
 	//Display fluff
 	var/interface_name = "hardsuit upgrade"
@@ -59,7 +79,8 @@
 	var/deactivate_string = "Deactivate"
 
 	var/list/stat_rig_module/stat_modules = new()
-	var/category	// Use for restricting modules for specific suits, to specialize
+	/// Use for restricting modules for specific suits, to specialize
+	var/category
 
 /obj/item/rig_module/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
@@ -163,15 +184,17 @@
 //Proc for one-use abilities like teleport.
 /obj/item/rig_module/proc/engage(atom/target, mob/user)
 	if(damage >= 2)
-		to_chat(user, SPAN_WARNING("\The [interface_name] is damaged beyond use!"))
+		playsound(src, 'sound/machines/terminal/terminal_error.ogg', 15, FALSE)
+		balloon_alert(user, "[interface_name] is damaged!")
 		return FALSE
 
 	if(world.time < next_use)
-		to_chat(user, SPAN_WARNING("You cannot use \the [interface_name] again so soon."))
+		playsound(src, 'sound/machines/terminal/terminal_error.ogg', 15, FALSE)
+		balloon_alert(user, "[interface_name] on cooldown!")
 		return FALSE
 
 	if(!holder || holder.canremove)
-		to_chat(user, SPAN_WARNING("The suit is not initialized."))
+		balloon_alert(user, "suit not initialized!")
 		return FALSE
 
 	if(user.lying || user.stat || user.stunned || user.paralysis || user.weakened)
@@ -183,10 +206,12 @@
 		return FALSE
 
 	if(holder.security_check_enabled && holder.locked && !holder.check_suit_access(user))
-		to_chat(user, SPAN_DANGER("Access denied."))
+		playsound(src, 'sound/machines/terminal/terminal_error.ogg', 15, FALSE)
+		balloon_alert(user, "access denied!")
 		return FALSE
 
 	if(!holder.check_power_cost(user, use_power_cost, 0, src, (istype(user,/mob/living/silicon ? 1 : 0) ) ) )
+		balloon_alert(user, "insufficient power!")
 		return FALSE
 
 	if(!confined_use && istype(user.loc, /mob/living/heavy_vehicle))
@@ -259,6 +284,19 @@
 		to_chat(holder.wearer, wearer_text)
 		return
 
+/// Creates a list of configuring options for this module. Possible configs include number, bool, color, list, button.
+/obj/item/rig_module/proc/get_configuration(mob/user)
+	return list()
+
+/// Generates an element of the get_configuration list with a display name, type and value
+/obj/item/rig_module/proc/add_ui_configuration(display_name, type, value, list/values)
+	return list("display_name" = display_name, "type" = type, "value" = value, "values" = values)
+
+/// Receives configure edits from the TGUI and edits the vars
+/obj/item/rig_module/proc/configure_edit(key, value)
+	return
+
+// Procs handling the statpanel 'Hardsuit Modules' tab, which is auto-populated by controls for all modules.
 /mob/living/carbon/human/get_actions_for_statpanel()
 	var/list/data = ..()
 	if(istype(back,/obj/item/rig))

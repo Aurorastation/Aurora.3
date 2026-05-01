@@ -5,3 +5,7 @@
 #define MODULE_MEDICAL 		16
 #define MODULE_SPECIAL 		32
 #define MODULE_VAURCA 		64
+
+#define ONLY_DEPLOY 1
+#define ONLY_RETRACT 2
+#define SEAL_DELAY 30
