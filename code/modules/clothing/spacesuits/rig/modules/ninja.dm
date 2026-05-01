@@ -14,7 +14,7 @@
 	desc = "A robust hardsuit-integrated stealth module."
 	icon_state = "cloak"
 
-	toggleable = TRUE
+	module_type = MODULE_TOGGLE
 	disruptable = TRUE
 	disruptive = FALSE
 	attackdisrupts = TRUE
@@ -249,7 +249,7 @@
 	name = "EMP dissipation module"
 	desc = "A bewilderingly complex bundle of fiber optics and chips. Seems like it uses a good deal of power."
 	active_power_cost = 10
-	toggleable = TRUE
+	module_type = MODULE_TOGGLE
 	usable = FALSE
 	use_power_cost = 70
 	module_cooldown = 30
@@ -279,7 +279,6 @@
 	name = "emergency power generator"
 	desc = "A high yield power generating device that takes a long time to recharge."
 	active_power_cost = 0
-	toggleable = FALSE
 	usable = TRUE
 	confined_use = TRUE
 	var/cooldown = 0
@@ -338,9 +337,9 @@
 	use_power_cost = 10
 	module_cooldown = 5
 
-	usable = FALSE
+
 	selectable = 0
-	toggleable = TRUE
+	module_type = MODULE_TOGGLE
 
 	interface_name = "advanced door hacking tool"
 	interface_desc = "An advanced door hacking tool that sports a low power cost and incredibly quick door hacking time. The device also supports hacking several signals at once remotely, and the last 10 doors hacked can be instantly accessed."

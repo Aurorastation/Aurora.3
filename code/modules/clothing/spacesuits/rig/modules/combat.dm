@@ -286,7 +286,7 @@
 
 	usable = FALSE
 	selectable = TRUE
-	toggleable = TRUE
+	has_secondary_toggle = TRUE
 	use_power_cost = 50
 	active_power_cost = 10
 	passive_power_cost = 0

@@ -24,7 +24,7 @@
 	desc = "Some kind of hardsuit mount."
 	usable = FALSE
 	selectable = 1
-	toggleable = FALSE
+	has_secondary_toggle = FALSE
 	disruptive = FALSE
 
 	var/device_type
@@ -175,9 +175,7 @@
 	name = "mounted chemical dispenser"
 	desc = "A complex web of tubing and needles suitable for hardsuit use."
 	icon_state = "injector"
-	usable = TRUE
-	selectable = FALSE
-	toggleable = FALSE
+	module_type = MODULE_USABLE
 	disruptive = FALSE
 	confined_use = TRUE
 	construction_cost = list(DEFAULT_WALL_MATERIAL=10000, MATERIAL_GLASS =9250, MATERIAL_GOLD =2500, MATERIAL_SILVER =4250,"phoron"=5500)
@@ -376,9 +374,7 @@
 	name = "hardsuit voice synthesiser"
 	desc = "A speaker box and sound processor."
 	icon_state = "megaphone"
-	usable = TRUE
-	selectable = 0
-	toggleable = FALSE
+	module_type = MODULE_USABLE
 	disruptive = FALSE
 	confined_use = TRUE
 
@@ -442,9 +438,7 @@
 	name = "hardsuit maneuvering jets"
 	desc = "A compact gas thruster system for a hardsuit."
 	icon_state = "thrusters"
-	usable = TRUE
-	toggleable = TRUE
-	selectable = 0
+	module_type = MODULE_TOGGLE
 	disruptive = FALSE
 	construction_cost = list(DEFAULT_WALL_MATERIAL = 15000, MATERIAL_GLASS = 4250, MATERIAL_SILVER = 4250, MATERIAL_URANIUM = 5250)
 	construction_time = 300
@@ -460,12 +454,23 @@
 	interface_desc = "An inbuilt EVA maneuvering system that runs off the hardsuit air supply."
 
 	var/obj/item/tank/jetpack/rig/jets
+	/// Do we have stabilizers? If yes the user won't move from inertia.
+	var/stabilize = TRUE
 
 	category = MODULE_GENERAL
 
 /obj/item/rig_module/maneuvering_jets/Destroy()
 	QDEL_NULL(jets)
 	. = ..()
+
+/obj/item/rig_module/maneuvering_jets/get_configuration()
+	. = ..()
+	.["stabilizers"] = add_ui_configuration("Stabilizers", "bool", stabilize)
+
+/obj/item/rig_module/maneuvering_jets/configure_edit(key, value)
+	switch(key)
+		if("stabilizers")
+			engage(src, usr)
 
 /obj/item/rig_module/maneuvering_jets/engage(atom/target, mob/user)
 	if(!..())
@@ -523,11 +528,10 @@
 	name = "hardsuit paper dispenser"
 	desc = "Crisp sheets."
 	icon_state = "paper"
+	module_type = MODULE_USABLE
 	interface_name = "paper dispenser"
 	interface_desc = "Dispenses warm, clean, and crisp sheets of paper."
 	engage_string = "Dispense"
-	usable = TRUE
-	selectable = 0
 	device_type = /obj/item/paper_bin
 
 	category = MODULE_GENERAL
@@ -544,10 +548,10 @@
 	name = "mounted pen"
 	desc = "For mecha John Hancocks."
 	icon_state = "pen"
+	module_type = MODULE_USABLE
 	interface_name = "mounted pen"
 	interface_desc = "Signatures with style(tm)."
 	engage_string = "Change color"
-	usable = TRUE
 	device_type = /obj/item/pen/multi
 
 	category = MODULE_GENERAL
@@ -555,11 +559,11 @@
 /obj/item/rig_module/device/stamp
 	name = "mounted internal affairs stamp"
 	desc = "DENIED."
+	module_type = MODULE_USABLE
 	icon_state = "stamp"
 	interface_name = "mounted stamp"
 	interface_desc = "Leave your mark."
 	engage_string = "Toggle stamp type"
-	usable = TRUE
 	var/iastamp
 	var/deniedstamp
 
@@ -595,6 +599,7 @@
 	name = "mounted matter decompiler"
 	desc = "A drone matter decompiler reconfigured for hardsuit use."
 	icon_state = "ewar"
+	module_type = MODULE_USABLE
 	interface_name = "mounted matter decompiler"
 	interface_desc = "Eats trash like no one's business."
 
@@ -606,6 +611,7 @@
 	name = "leg actuators"
 	desc = "A set of electromechanical actuators, for safe traversal of multilevelled areas."
 	icon_state = "actuators"
+	module_type = MODULE_USABLE_ACTIVE
 	interface_name = "leg actuators"
 	interface_desc = "Allows you to fall from heights and to jump up onto ledges."
 
@@ -621,7 +627,7 @@
 	 * TOGGLE - dampens fall, on or off.
 	 * SELECTABLE - Jump forward or up!
 	 */
-	toggleable = TRUE
+	has_secondary_toggle = TRUE
 	selectable = TRUE
 	usable = FALSE
 
@@ -768,7 +774,7 @@
 
 /obj/item/rig_module/cooling_unit
 	name = "mounted cooling unit"
-	toggleable = TRUE
+	module_type = MODULE_TOGGLE
 	origin_tech = list(TECH_MAGNET = 2, TECH_MATERIAL = 2, TECH_ENGINEERING = 3)
 	interface_name = "mounted cooling unit"
 	interface_desc = "A heat sink with liquid cooled radiator."
@@ -853,7 +859,7 @@ GLOBAL_LIST_EMPTY(lattice_users)
 
 	disruptive = FALSE
 
-	toggleable = TRUE
+	module_type = MODULE_TOGGLE
 	confined_use = TRUE
 
 	category = MODULE_VAURCA
@@ -922,7 +928,7 @@ GLOBAL_LIST_EMPTY(lattice_users)
 /obj/item/rig_module/recharger
 	name = "weapon recharge module"
 	desc = "A specialised power cable designed to connect an energy weapon to a hardsuit's power supply."
-	toggleable = TRUE
+	module_type = MODULE_TOGGLE
 	icon_state = "powersink"
 	interface_name = "integrated weapon recharger"
 	interface_desc = "Can connect to an energy weapon, recharging it off the hardsuit's power supply. Drag the weapon onto the hardsuit control module to connect it."

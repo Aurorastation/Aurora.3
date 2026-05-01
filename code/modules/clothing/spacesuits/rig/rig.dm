@@ -54,51 +54,81 @@
 	var/air_type =   /obj/item/tank/oxygen
 
 	//Component/device holders.
-	var/obj/item/tank/air_supply                       // Air tank, if any.
-	var/obj/item/clothing/shoes/boots = null                  // Deployable boots, if any.
-	var/obj/item/clothing/suit/space/rig/chest                // Deployable chestpiece, if any.
-	var/obj/item/clothing/head/helmet/space/rig/helmet = null // Deployable helmet, if any.
-	var/obj/item/clothing/gloves/rig/gloves = null            // Deployable gauntlets, if any.
-	var/obj/item/cell/cell                             // Power supply, if any.
-	var/obj/item/rig_module/selected_module = null            // Primary system (used with middle-click)
-	var/obj/item/rig_module/vision/visor                      // Kinda shitty to have a var for a module, but saves time.
-	var/obj/item/rig_module/voice/speech                      // As above.
-	var/mob/living/carbon/human/wearer                        // The person currently wearing the rig.
-	var/image/mob_icon                                        // Holder for on-mob icon.
-	var/list/installed_modules = list()                       // Power consumption/use bookkeeping.
+	/// Air tank, if any.
+	var/obj/item/tank/air_supply
+	/// Deployable boots, if any.
+	var/obj/item/clothing/shoes/boots = null
+	/// Deployable chestpiece, if any.
+	var/obj/item/clothing/suit/space/rig/chest
+	/// Deployable helmet, if any.
+	var/obj/item/clothing/head/helmet/space/rig/helmet = null
+	/// Deployable gauntlets, if any.
+	var/obj/item/clothing/gloves/rig/gloves = null
+	/// Power supply, if any.
+	var/obj/item/cell/cell
+	/// Primary system (used with middle-click)
+	var/obj/item/rig_module/selected_module = null
+	/// Kinda shitty to have a var for a module, but saves time.
+	var/obj/item/rig_module/vision/visor
+	/// As above.
+	var/obj/item/rig_module/voice/speech
+	/// The person currently wearing the rig.
+	var/mob/living/carbon/human/wearer
+	/// Holder for on-mob icon.
+	var/image/mob_icon
+	/// Power consumption/use bookkeeping.
+	var/list/installed_modules = list()
 
 	// Rig status vars.
-	var/open = 0                                              // Access panel status.
-	var/locked = 1                                            // Lock status.
-	var/dnaLock                                               // To whom do we belong?
-	var/crushing = FALSE                                      // Are we crushing the occupant to death?
+	/// Access panel status.
+	var/open = FALSE
+	/// Lock status.
+	var/locked = TRUE
+	/// To whom do we belong?
+	var/dnaLock
+	/// Are we crushing the occupant to death?
+	var/crushing = FALSE
 	var/subverted = 0
-	var/interface_locked = 0
-	var/control_overridden = 0
-	var/ai_override_enabled = 0
-	var/security_check_enabled = 1
+	/// Interfaces get locked when the corresponding rig wire is pulsed.
+	var/interface_locked = FALSE
+	/// Whether or not the AI is currently overriding control of the suit.
+	var/control_overridden = FALSE
+	/// Whether or not the AI is capable of overriding control of the suit.
+	var/ai_override_enabled = FALSE
+	var/security_check_enabled = TRUE
 	var/malfunctioning = 0
 	var/malfunction_delay = 0
 	var/electrified = 0
-	var/locked_down = 0
+
+	/// Rate at which the suit cell will passively use power when online.
+	var/cell_draw_rate = CHARGE_DRAIN_DEFAULT
 
 	var/seal_delay = SEAL_DELAY
-	var/sealing                                               // Keeps track of seal status independantly of canremove.
-	var/offline = 1                                           // Should we be applying suit maluses?
-	var/offline_slowdown = 1.5                                  // If the suit is deployed and unpowered, it sets slowdown to this.
+	/// Keeps track of seal status independantly of canremove.
+	var/sealing
+	/// Should we be applying suit maluses? Note that this is tristate: 0 = online; 1 = offline, modules still active; 2 = offline, inc. modules
+	/// Generally speaking, a suit is 0 when on, 1 when just turned off, and 2 after it has run process(), which deactivates all modules if offline == 1
+	var/offline = 0
+	/// If the suit is deployed and unpowered, it sets slowdown to this.
+	var/offline_slowdown = 1.5
 	var/vision_restriction = TINT_NONE
 	var/offline_vision_restriction = TINT_HEAVY
-	var/airtight = 1 //If set, will adjust the ITEM_FLAG_AIRTIGHT flag on components. Otherwise it should leave them untouched.
+	///If set, will adjust the ITEM_FLAG_AIRTIGHT flag on components. Otherwise it should leave them untouched.
+	var/airtight = TRUE
 
 	var/emp_protection = 0
 
-	// Wiring! How exciting.]
+	// Wiring! How exciting.
 	var/datum/wires/rig/wires
 	var/datum/effect_system/sparks/spark_system
 
-	var/allowed_module_types = MODULE_GENERAL // All rigs by default should have access to general
+	/// All rigs by default should have access to general
+	var/allowed_module_types = MODULE_GENERAL
 	var/list/species_restricted = list(BODYTYPE_HUMAN,BODYTYPE_TAJARA,BODYTYPE_UNATHI, BODYTYPE_SKRELL, BODYTYPE_IPC, BODYTYPE_IPC_BISHOP, BODYTYPE_IPC_ZENGHU)
-	var/anomaly_protection = FALSE //If TRUE, this rig will protect against anomalies. Currently only used for AMI hardsuit.
+	///If TRUE, this rig will protect against anomalies. Currently only used for AMI hardsuit.
+	var/anomaly_protection = FALSE
+
+	var/ui_configure_ref
 
 /obj/item/rig/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
@@ -119,7 +149,7 @@
 	wires = new(src)
 
 	if(!LAZYLEN(req_access) && !LAZYLEN(req_one_access))
-		locked = 0
+		locked = FALSE
 
 	spark_system = bind_spark(src, 5)
 
@@ -217,6 +247,7 @@
 		return 0
 	return 1
 
+/// Not currently used.
 /obj/item/rig/proc/reset()
 	offline = 2
 	canremove = 1
@@ -408,6 +439,11 @@
 				piece.forceMove(src)
 
 	var/previous_offline_status = offline
+
+	// Consume energy per tick while active.
+	if(!offline)
+		cell?.use(cell_draw_rate)
+
 	if(!istype(wearer) || loc != wearer || wearer.back != src || canremove || !cell || cell.charge <= 0)
 		if(!cell || cell.charge <= 0)
 			if(electrified > 0)
@@ -439,6 +475,16 @@
 		update_icon(TRUE)
 
 	set_vision(!offline)
+
+	if(cell && cell.charge > 0 && electrified > 0)
+		electrified--
+
+	if(crushing)
+		wearer.apply_damage(10) // Applies 10 brute damage to a random extremity each process
+		if(wearer.stat == DEAD)
+			crushing = FALSE
+			visible_message(SPAN_DANGER("A squelching sound comes from within the sealed hardsuit..")) // this denotes that the user inside has died.
+
 	if(offline)
 		crushing = FALSE
 		if(offline == 1)
@@ -449,15 +495,6 @@
 				slowdown = offline_slowdown
 				wearer?.update_equipment_speed_mods()
 		return
-
-	if(crushing)
-		wearer.apply_damage(10) // Applies 10 brute damage to a random extremity each process
-		if(wearer.stat == DEAD)
-			crushing = FALSE
-			visible_message(SPAN_DANGER("A squelching sound comes from within the sealed hardsuit..")) // this denotes that the user inside has died.
-
-	if(cell && cell.charge > 0 && electrified > 0)
-		electrified--
 
 	if(malfunction_delay > 0)
 		malfunction_delay--
@@ -572,6 +609,7 @@
 	if(!ui)
 		ui = new(user, src, "Hardsuit", src, 480, 550)
 		ui.open()
+		ui.set_autoupdate(TRUE)
 
 /obj/item/rig/ui_data(mob/user)
 	var/list/data = list()
@@ -606,19 +644,20 @@
 	for(var/obj/item/rig_module/module in installed_modules)
 		var/list/module_data = list(
 			"index" = i,
-			"name" = module.interface_name,
+			"module_name" = module.interface_name,
 			"desc" = module.interface_desc,
-			"can_use" = module.usable,
-			"can_select" = module.selectable,
-			"can_toggle" = module.toggleable,
-			"is_active" = module.active,
+			"module_type" = module.module_type,
+			"module_toggleable" = module.has_secondary_toggle,
+			"module_active" = module.active,
 			"engagecost" = module.use_power_cost * 10,
 			"activecost" = module.active_power_cost * 10,
 			"passivecost" = module.passive_power_cost * 10,
 			"engagestring" = module.engage_string,
 			"activatestring" = module.activate_string,
 			"deactivatestring" = module.deactivate_string,
-			"damage" = module.damage
+			"damage" = module.damage,
+			"ref" = REF(module),
+			"configuration_data" = module.get_configuration(user)
 		)
 
 		if(module.charges && module.charges.len)
@@ -711,6 +750,12 @@
 
 		if("toggle_suit_lock")
 			locked = !locked
+
+		if("configure")
+			var/obj/item/rig_module/module = locate(params["ref"]) in installed_modules
+			if(!module)
+				return
+			module.configure_edit(params["key"], params["value"])
 
 	user.set_machine(src)
 	src.add_fingerprint(user)
@@ -885,16 +930,18 @@
 	//possibly damage some modules
 	take_hit((100/severity), "electrical pulse", 1)
 
+/// Handles running electrocute_mob() on the passed user. If the user is wearing the suit, it picks between head, chest, and groin for contact_zone.
+/// If not wearing the suit (i.e. tampering with the wires), contact_zone is assumed to be the passed user's hands.
 /obj/item/rig/proc/shock(mob/user)
 	var/touchy = pick(BP_CHEST,BP_HEAD,BP_GROIN)
 	if(!wearer)
 		touchy = "hand"
 
-	if (electrocute_mob(user, cell, src, contact_zone = touchy)) //electrocute_mob() handles removing charge from the cell, no need to do that here.
+	if(electrocute_mob(user, cell, src, contact_zone = touchy)) //electrocute_mob() handles removing charge from the cell, no need to do that here.
 		spark_system.queue()
 		if(user.stunned)
-			return 1
-	return 0
+			return TRUE
+	return FALSE
 
 /obj/item/rig/proc/take_hit(damage, source, is_emp=0)
 
@@ -977,7 +1024,7 @@
 			to_chat(user, SPAN_WARNING("Your host module is unable to interface with the suit."))
 			return 0
 
-	if(offline || !cell || !cell.charge || locked_down)
+	if(offline || !cell || !cell.charge)
 		if(user) to_chat(user, SPAN_WARNING("Your host rig is unpowered and unresponsive."))
 		return 0
 	if(!wearer || wearer.back != src)

@@ -257,7 +257,7 @@
 
 	var/list/selectable = list()
 	for(var/obj/item/rig_module/module in installed_modules)
-		if(module.toggleable)
+		if(module.module_type == MODULE_TOGGLE || module.has_secondary_toggle)
 			selectable |= module
 
 	var/obj/item/rig_module/module = tgui_input_list(usr, "Which module do you wish to toggle?", "Toggle Module", selectable)

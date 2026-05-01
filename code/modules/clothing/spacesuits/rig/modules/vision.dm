@@ -59,7 +59,7 @@
 
 	engage_on_activate = FALSE
 	usable = TRUE
-	toggleable = TRUE
+	module_type = MODULE_TOGGLE
 	disruptive = FALSE
 	confined_use = TRUE
 

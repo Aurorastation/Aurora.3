@@ -32,9 +32,7 @@
 	name = "IIS module"
 	desc = "An integrated intelligence system module suitable for most hardsuits."
 	icon_state = "IIS"
-	toggleable = TRUE
-	usable = TRUE
-	disruptive = FALSE
+	module_type = MODULE_TOGGLE
 	activates_on_touch = TRUE
 	confined_use = TRUE
 
@@ -227,7 +225,7 @@
 	name = "datajack module"
 	desc = "A simple induction datalink module."
 	icon_state = "datajack"
-	toggleable = TRUE
+	has_secondary_toggle = TRUE
 	activates_on_touch = TRUE
 	usable = FALSE
 
@@ -318,7 +316,7 @@
 	name = "electrowarfare module"
 	desc = "A bewilderingly complex bundle of fiber optics and chips."
 	icon_state = "ewar"
-	toggleable = TRUE
+	module_type = MODULE_TOGGLE
 	usable = FALSE
 	confined_use = TRUE
 
@@ -352,7 +350,7 @@
 	name = "hardsuit power sink"
 	desc = "An heavy-duty power sink."
 	icon_state = "powersink"
-	toggleable = TRUE
+	module_type = MODULE_TOGGLE
 	activates_on_touch = TRUE
 	disruptive = FALSE
 

@@ -3,9 +3,11 @@ import {
   Box,
   Button,
   Collapsible,
+  Dropdown,
   Divider,
   LabeledList,
   NoticeBox,
+  NumberInput,
   ProgressBar,
   Section,
   Stack,
@@ -21,13 +23,12 @@ type RigCharge = {
 
 type RigModule = {
   index: number;
-  name: string;
+  module_name: string;
   desc: string;
 
-  can_use: BooleanLike;
-  can_select: BooleanLike;
-  can_toggle: BooleanLike;
-  is_active: BooleanLike;
+  module_type: number;
+  module_toggleable: BooleanLike;
+  module_active: BooleanLike;
 
   engagecost: number;
   activecost: number;
@@ -41,7 +42,19 @@ type RigModule = {
 
   chargetype?: string;
   charges?: RigCharge[];
+  ref: string;
+  configuration_data: ModuleConfig;
 };
+
+type ModuleConfigEntry = {
+  key: string;
+  display_name: string;
+  type: 'number' | 'bool' | 'color' | 'list' | 'button' | 'pin';
+  value: any;
+  values?: any[];
+};
+
+type ModuleConfig = Record<string, ModuleConfigEntry>;
 
 type Data = {
   primarysystem?: string;
@@ -261,13 +274,6 @@ const HardwareSection = (props, context) => {
   );
 };
 
-const moduleTypeAction = (m: RigModule) => {
-  if (m.can_select) return 'Select';
-  if (m.can_toggle) return 'Toggle';
-  if (m.can_use) return 'Use';
-  return '—';
-};
-
 const ModulesSection = (props, context) => {
   const { act, data } = useBackend<Data>(context);
   const systemsOffline = !!data.seals || !!data.sealing;
@@ -281,6 +287,7 @@ const ModulesSection = (props, context) => {
   }
 
   const modules = data.modules ?? [];
+
   return (
     <Section
       title="Modules"
@@ -296,7 +303,6 @@ const ModulesSection = (props, context) => {
       ) : (
         <Table>
           <Table.Row header>
-            <Table.Cell width={1} />
             <Table.Cell width={1} />
             <Table.Cell width={1} />
             <Table.Cell>Name</Table.Cell>
@@ -328,7 +334,7 @@ const ModulesSection = (props, context) => {
 
           {modules.map((m) => {
             const selected =
-              data.primarysystem && m.name === data.primarysystem;
+              data.primarysystem && m.module_name === data.primarysystem;
             const damagedTag =
               m.damage === 1 ? (
                 <Box inline ml={1} color="average">
@@ -342,46 +348,48 @@ const ModulesSection = (props, context) => {
 
             const disableAll = m.damage > 1;
 
+            const moduleTypeAction =
+              m.module_type === 2
+                ? 'Engage'
+                : m.module_type === 3 && !m.module_active
+                  ? 'Select'
+                  : m.module_type === 3 && m.module_active
+                    ? 'Deselect'
+                    : null;
+
+            // Handles disabling Toggle button
+            const toggleDisabled =
+              disableAll || (m.module_type >= 2 && !m.module_toggleable);
+
+            // Handles disabling Select/Use button
+            const selectDisabled = disableAll || m.module_type < 2;
+
             return (
               <Table.Row key={`m-${m.index}`}>
-                {/* Engage/Use */}
                 <Table.Cell width={1}>
                   <Button
-                    icon="power-off"
-                    tooltip={moduleTypeAction(m)}
+                    icon={m.module_active ? 'toggle-on' : 'toggle-off'}
+                    selected={!!m.module_active}
+                    tooltip={m.module_active ? 'Disable' : 'Enable'}
                     tooltipPosition="left"
-                    disabled={disableAll || !m.can_use}
-                    onClick={() =>
-                      act('interact_module', { index: m.index, mode: 'engage' })
-                    }
-                  />
-                </Table.Cell>
-
-                {/* Toggle */}
-                <Table.Cell width={1}>
-                  <Button
-                    icon={m.is_active ? 'toggle-on' : 'toggle-off'}
-                    selected={!!m.is_active}
-                    tooltip={m.is_active ? 'Deactivate' : 'Activate'}
-                    tooltipPosition="left"
-                    disabled={disableAll || !m.can_toggle}
+                    disabled={toggleDisabled}
                     onClick={() =>
                       act('interact_module', {
                         index: m.index,
-                        mode: m.is_active ? 'deactivate' : 'activate',
+                        mode: m.module_active ? 'deactivate' : 'activate',
                       })
                     }
                   />
                 </Table.Cell>
 
-                {/* Select */}
+                {/* 2) Select */}
                 <Table.Cell width={1}>
                   <Button
                     icon={selected ? 'check-square-o' : 'square-o'}
                     selected={selected}
-                    tooltip="Select"
+                    tooltip={moduleTypeAction}
                     tooltipPosition="left"
-                    disabled={disableAll || !m.can_select}
+                    disabled={selectDisabled}
                     onClick={() =>
                       act('interact_module', { index: m.index, mode: 'select' })
                     }
@@ -395,9 +403,9 @@ const ModulesSection = (props, context) => {
                         <Box
                           inline
                           bold
-                          color={m.is_active ? 'good' : 'average'}
+                          color={m.module_active ? 'good' : 'average'}
                         >
-                          {m.name}
+                          {m.module_name}
                         </Box>
                         {damagedTag}
                       </Box>
@@ -437,6 +445,14 @@ const ModulesSection = (props, context) => {
                       )}
                     </Section>
                   </Collapsible>
+                  <Box>
+                    {!!m.module_active && (
+                      <ConfigureScreen
+                        configuration_data={m.configuration_data}
+                        module_ref={m.ref}
+                      />
+                    )}
+                  </Box>
                 </Table.Cell>
 
                 <Table.Cell width={1} textAlign="center">
@@ -454,6 +470,162 @@ const ModulesSection = (props, context) => {
         </Table>
       )}
     </Section>
+  );
+};
+
+const ConfigureScreen = (props, context) => {
+  const { configuration_data, module_ref } = props;
+
+  const keys = Object.keys(configuration_data || {});
+  if (!keys.length) {
+    return null;
+  }
+
+  return (
+    <Box pb={1}>
+      <LabeledList>
+        {keys.map((k) => {
+          const entry = configuration_data[k];
+          return (
+            <ConfigureDataEntry
+              key={entry.key || k}
+              entryKey={entry.key || k}
+              display_name={entry.display_name}
+              type={entry.type}
+              value={entry.value}
+              values={entry.values}
+              module_ref={module_ref}
+            />
+          );
+        })}
+      </LabeledList>
+    </Box>
+  );
+};
+
+const ConfigureNumberEntry = (props, context) => {
+  const { act } = useBackend(context);
+  const { entryKey, value, values, module_ref } = props;
+  return (
+    <NumberInput
+      value={value}
+      minValue={-50}
+      maxValue={50}
+      step={1}
+      stepPixelSize={5}
+      width="39px"
+      onChange={(value) =>
+        act('configure', {
+          key: entryKey,
+          value: value,
+          ref: module_ref,
+        })
+      }
+    />
+  );
+};
+
+const ConfigureBoolEntry = (props, context) => {
+  const { act } = useBackend(context);
+  const { entryKey, value, values, module_ref } = props;
+  return (
+    <Button.Checkbox
+      checked={entryKey.value}
+      onClick={() =>
+        act('configure', {
+          key: entryKey,
+          value: !entryKey.value,
+          ref: module_ref,
+        })
+      }
+    />
+  );
+};
+
+const ConfigureColorEntry = (props, context) => {
+  const { act } = useBackend(context);
+  const { entryKey, value, values, module_ref } = props;
+  return (
+    <>
+      <Button
+        icon="paint-brush"
+        onClick={() =>
+          act('configure', {
+            key: entryKey,
+            ref: module_ref,
+          })
+        }
+      />
+      <Box color={value} mr={0.5} />
+    </>
+  );
+};
+
+const ConfigureListEntry = (props, context) => {
+  const { act } = useBackend(context);
+  const { entryKey, value, values, module_ref } = props;
+
+  return (
+    <Dropdown
+      selected={value}
+      options={values || []}
+      onSelected={(v) =>
+        act('configure', {
+          ref: module_ref,
+          key: entryKey,
+          value: v,
+        })
+      }
+    />
+  );
+};
+
+const ConfigurePinEntry = (props, context) => {
+  const { act } = useBackend(context);
+  const { entryKey, value, values, module_ref } = props;
+  return (
+    <Button
+      onClick={() =>
+        act('configure', { key: entryKey, value: !value, ref: module_ref })
+      }
+      icon="thumbtack"
+      selected={value}
+      tooltip="Pin"
+      tooltipPosition="left"
+    />
+  );
+};
+
+// fuck u smartkar configs werent meant to be used as actions 🖕🖕🖕
+// and really u couldnt be bothered to make this and instead used
+// the pin entry? 🖕🖕🖕🖕🖕🖕🖕🖕🖕🖕🖕🖕🖕🖕🖕🖕🖕🖕🖕🖕
+const ConfigureButtonEntry = (props, context) => {
+  const { act } = useBackend(context);
+  const { entryKey, value, values, module_ref } = props;
+  return (
+    <Button
+      onClick={() => act('configure', { key: entryKey, ref: module_ref })}
+      selected={value}
+      icon={value}
+    />
+  );
+};
+
+const ConfigureDataEntry = (props, context) => {
+  const { type } = props;
+  const configureEntryTypes = {
+    number: <ConfigureNumberEntry {...props} />,
+    bool: <ConfigureBoolEntry {...props} />,
+    color: <ConfigureColorEntry {...props} />,
+    list: <ConfigureListEntry {...props} />,
+    button: <ConfigureButtonEntry {...props} />,
+    pin: <ConfigurePinEntry {...props} />,
+  };
+
+  return (
+    <LabeledList.Item label={props.display_name}>
+      {configureEntryTypes[type]}
+    </LabeledList.Item>
   );
 };
 

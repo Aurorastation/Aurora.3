@@ -26,9 +26,11 @@
 
 	/// Whether the rig should call engage() in its activate() proc
 	var/engage_on_activate = TRUE
-	/// Set TRUE for the device to show up as an active effect.
-	var/toggleable
-	/// Set TRUE for the device to have an on-use effect.
+	/// The type of module this is.
+	var/module_type
+	/// Set TRUE for the device to show up as an active effect. These are on-going behaviors, like jetpacks.
+	var/has_secondary_toggle
+	/// Set TRUE for the device to have an on-use effect. This is your middle-click style actions, like laser cannons.
 	var/usable
 	/// Set TRUE to be able to assign the device as primary system.
 	var/selectable
@@ -356,7 +358,7 @@
 	module_mode = "activate"
 
 /stat_rig_module/activate/CanUse()
-	return module.toggleable && !module.active
+	return (module.module_type == MODULE_TOGGLE || module.has_secondary_toggle) && !module.active
 
 /stat_rig_module/deactivate/New(var/obj/item/rig_module/module)
 	..()
@@ -368,7 +370,7 @@
 	module_mode = "deactivate"
 
 /stat_rig_module/deactivate/CanUse()
-	return module.toggleable && module.active
+	return (module.module_type == MODULE_TOGGLE || module.has_secondary_toggle) && module.active
 
 /stat_rig_module/engage/New(var/obj/item/rig_module/module)
 	..()
