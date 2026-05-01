@@ -3,23 +3,33 @@
  * Subsytem for managing any form of persistent content across rounds.
  *
  * This subsystem consists of multiple partial files, following the structure:
- * - persistence.dm						- Subsystem definition and generic code.
- * - persistence_objects.dm				- Persistent objects related code.
- * - persistence_objects_sql.dm			- Persistent objects database code.
- * - persistence_objects_public.dm		- Persistent objects public procs.
- * - persistence_types.dm               - Persistent data type definitions.
- * - persistence_types.dm               - Persistent data type database code.
+ * - persistence.dm							- Subsystem definition and generic code.
+ * - persistence_objects.dm					- Persistent objects related code.
+ * - persistence_objects_sql.dm				- Persistent objects database code.
+ * - persistence_objects_public.dm			- Persistent objects public procs.
+ * - persistence_types.dm               	- Persistent data type related code.
+ * - persistence_types_history_public.dm	- Persistent history records public code.
+ * - persistence_types_sql.dm              	- Persistent data type database code.
  */
 
 SUBSYSTEM_DEF(persistence)
 	name = "Persistence"
 	init_order = INIT_ORDER_PERSISTENCE // The order is tied with the init and maploading subsystem.
 	flags = SS_NO_FIRE // This subsystem has no continues workload, it's init and shutdown only.
-	var/prevent_saving = FALSE // Toggle to prevent saving at round end, changed by toggle_persistence proc, used for admin purposes.
-	var/object_track_register = list() // In-memory register of all persistent objects that were loaded or created during the round, used for tracking and finalization purposes.
-	var/history_cache = list() // In-memory cache of persistent type history records.
-	var/history_last_id = 0 // ID of last found history record for cache init.
-	var/history_virtual_id = 0 // ID used for assigning to history records that are not yet saved in the database, used for cache tracking.
+	/// Global toggle to prevent saving at round end, changed by toggle_persistence proc, used for admin purposes.
+	var/prevent_saving = FALSE
+	/// In-memory register of all persistent objects that were loaded or created during the round, used for tracking and finalization purposes.
+	var/object_track_register = list()
+	/// In-memory cache of persistent history records.
+	var/history_cache = list()
+	/// ID of last found history record.
+	/// Higher found IDs mean the record is not yet found in the database, lower or equal found ID means the are record that are already in the database.
+	/// Used during history_virtual_id init and read-through cache hits.
+	var/history_last_id = 0
+	/// ID used for instanciating new history records during the round, used for cache tracking.
+	/// Their database ID will be set during insert/finalization.
+	/// Increment before usage!
+	var/history_virtual_id = 0
 
 /**
  * Subsystem info stub message generation.

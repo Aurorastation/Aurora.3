@@ -1,9 +1,9 @@
 /**
  * Insert or update a type definition in the database. If a type with the same name already exists, it will be updated with the new title and description.
  */
-/datum/controller/subsystem/persistence/proc/typeDatabaseUpsertType(type, title, description, definition_type)
+/datum/controller/subsystem/persistence/proc/typesDatabaseUpsertType(type, title, description, definition_type)
 	PRIVATE_PROC(TRUE)
-	if(!databaseCheckConnection("typeDatabaseUpsertType"))
+	if(!databaseCheckConnection("typesDatabaseUpsertType"))
 		return
 
 	var/datum/db_query/upsert_query = SSdbcore.NewQuery(
@@ -18,12 +18,12 @@
 	)
 	upsert_query.Execute()
 
-	databaseCheckQueryResult(upsert_query, "typeDatabaseUpsertType")
+	databaseCheckQueryResult(upsert_query, "typesDatabaseUpsertType")
 	qdel(upsert_query)
 
-/datum/controller/subsystem/persistence/proc/typeHistoryDatabaseGetLastID()
+/datum/controller/subsystem/persistence/proc/typesHistoryDatabaseGetLastID()
 	PRIVATE_PROC(TRUE)
-	if(!databaseCheckConnection("typeHistoryDatabaseGetLastID"))
+	if(!databaseCheckConnection("typesHistoryDatabaseGetLastID"))
 		return 0
 
 	var/datum/db_query/query = SSdbcore.NewQuery(
@@ -31,7 +31,7 @@
 	)
 	query.Execute()
 
-	if(!databaseCheckQueryResult(query, "typeHistoryDatabaseGetLastID"))
+	if(!databaseCheckQueryResult(query, "typesHistoryDatabaseGetLastID"))
 		qdel(query)
 		return 0
 
@@ -41,9 +41,9 @@
 	qdel(query)
 	return last_id
 
-/datum/controller/subsystem/persistence/proc/typeHistoryDatabaseInsertRecord(type_id, attribute, value, game_id)
+/datum/controller/subsystem/persistence/proc/typesHistoryDatabaseInsertRecord(type_id, attribute, value, game_id)
 	PRIVATE_PROC(TRUE)
-	if(!databaseCheckConnection("typeHistoryDatabaseInsertRecord"))
+	if(!databaseCheckConnection("typesHistoryDatabaseInsertRecord"))
 		return
 
 	var/datum/db_query/insert_query = SSdbcore.NewQuery(
@@ -57,25 +57,25 @@
 	)
 	insert_query.Execute()
 
-	databaseCheckQueryResult(insert_query, "typeHistoryDatabaseInsertRecord")
+	databaseCheckQueryResult(insert_query, "typesHistoryDatabaseInsertRecord")
 	qdel(insert_query)
 
-/datum/controller/subsystem/persistence/proc/typeHistoryDatabaseGetRecords(type_id, attribute, count)
+/datum/controller/subsystem/persistence/proc/typesHistoryDatabaseGetRecords(type_id, attribute, count)
 	PRIVATE_PROC(TRUE)
-	if(!databaseCheckConnection("typeHistoryDatabaseGetRecords"))
+	if(!databaseCheckConnection("typesHistoryDatabaseGetRecords"))
 		return 0
 
 	var/datum/db_query/query = SSdbcore.NewQuery(
-		"SELECT id, value FROM ss13_persistent_type_history ORDER BY id DESC LIMIT :count", list("count" = count)
+		"SELECT id, created_at, value FROM ss13_persistent_type_history ORDER BY id DESC LIMIT :count", list("count" = count)
 	)
 	query.Execute()
 
-	if(!databaseCheckQueryResult(query, "typeHistoryDatabaseGetRecords"))
+	if(!databaseCheckQueryResult(query, "typesHistoryDatabaseGetRecords"))
 		qdel(query)
 		return null
 
 	var/records = list()
 	while(query.NextRow())
-		records += list("id" = query.item[1], "value" = query.item[2])
+		records += list("id" = query.item[1], "created_at" = query.item[2], "value" = query.item[3])
 	qdel(query)
 	return records
