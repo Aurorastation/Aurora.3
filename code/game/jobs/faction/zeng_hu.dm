@@ -67,22 +67,20 @@
 	)
 
 /datum/faction/zeng_hu/get_corporate_objectives(var/mission_level)
-	var/objective
 	switch(mission_level)
 		if(REPRESENTATIVE_MISSION_HIGH)
-			objective = pick("Obtain copies of research documentation from the [station_name()] Science Department",
+			return pick("Obtain copies of research documentation from the [station_name()] Science Department",
 						"Identify veteran NanoTrasen Corporation employees willing to seek employment with Zeng-Hu Pharmaceuticals in exchange for transhuman benefits",
 						"Obtain research prototypes or pharmaceutical products produced by NanoTrasen Corporation employees for analysis")
-		if(REPRESENTATIVE_MISSION_MEDIUM)
-			objective = pick("Have a Zeng-Hu Pharmaceuticals employee sign a contract extension in exchange for company-covered cyber- or bio-augmentation",
+		else if(REPRESENTATIVE_MISSION_MEDIUM)
+			return pick("Have a Zeng-Hu Pharmaceuticals employee sign a contract extension in exchange for company-covered cyber- or bio-augmentation",
 						"Award a seniority or veterancy plate to Zeng-Hu—loaned command personnel. If refused, identify and report why",
 						"Evaluate crew opinions on keiretsu member products and brands")
 		else
-			objective = pick("Conduct a survey on Zeng-Hu Pharmaceuticals employee morale",
+			return pick("Conduct a survey on Zeng-Hu Pharmaceuticals employee morale",
 						"Evaluate crew views towards transhumanity, and preferences towards bioaugmentation or cyberaugmentation",
 						"Identify and resolve a complaint of a Zeng-Hu Pharmaceuticals employee")
 
-	return objective
 
 /obj/outfit/job/doctor/zeng_hu
 	name = "Physician - Zeng-Hu"
