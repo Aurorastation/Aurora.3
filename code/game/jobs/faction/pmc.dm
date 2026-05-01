@@ -60,18 +60,16 @@
 	)
 
 /datum/faction/pmc/get_corporate_objectives(var/mission_level)
-	var/objective
 	switch(mission_level)
 		if(REPRESENTATIVE_MISSION_HIGH)
-			objective = pick("Ensure PMCG contractors are integrating properly into the [station_name()]'s corporate environment")
-		if(REPRESENTATIVE_MISSION_MEDIUM)
-			objective = pick("Encourage team-building exercises between PMCG subcontractors",
+			return pick("Ensure PMCG contractors are integrating properly into the [station_name()]'s corporate environment")
+		else if(REPRESENTATIVE_MISSION_MEDIUM)
+			return pick("Encourage team-building exercises between PMCG subcontractors",
 						"Have a PMCG employee sign a contract extension")
 		else
-			objective = pick("Conduct a survey on Private Military Contracting Group employee morale",
+			return pick("Conduct a survey on Private Military Contracting Group employee morale",
 						"Identify and resolve a complaint of a Private Military Contracting Group employee [station_name()]")
 
-	return objective
 
 /obj/outfit/job/officer/pmc
 	name = "Security Officer - PMC"
