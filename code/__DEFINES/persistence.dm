@@ -78,7 +78,7 @@ ABSTRACT_TYPE(/singleton/persistent_type/history/character)
 //					   See /singleton/persistent_type_history_expiration_rule and subtypes for available rules.
 
 // Basic generic persistent type definition
-#define CREATE_PERSISTENT_TYPE_DEFINITION_GENERIC(TYPE_NAME, TITLE, DESCRIPTION, REQUIRES_ATTRIBUTE) \
+#define CREATE_PERSISTENT_TYPE_GENERIC(TYPE_NAME, TITLE, DESCRIPTION, REQUIRES_ATTRIBUTE) \
 	/singleton/persistent_type/generic/##TYPE_NAME \
 	{ \
 		title = #TITLE; \
@@ -87,9 +87,9 @@ ABSTRACT_TYPE(/singleton/persistent_type/history/character)
 	}
 
 // Basic history persistent type definition
-#define CREATE_PERSISTENT_TYPE_DEFINITION_HISTORY(TYPE_NAME, TITLE, DESCRIPTION, REQUIRES_ATTRIBUTE, EXPIRATION_RULE) \
+#define CREATE_PERSISTENT_TYPE_HISTORY(TYPE_NAME, TITLE, DESCRIPTION, REQUIRES_ATTRIBUTE, EXPIRATION_RULE) \
 	if(#TYPE_NAME == "character") \
-		fail("Cannot use this macro for creating a type of 'character', use CREATE_PERSISTENT_TYPE_DEFINITION_HISTORY_CHARACTER instead.", __FILE__, __LINE__); \
+		fail("Cannot use this macro for creating a type of 'character', use CREATE_PERSISTENT_TYPE_HISTORY_CHARACTER instead.", __FILE__, __LINE__); \
 	/singleton/persistent_type/history/##TYPE_NAME \
 	{ \
 		title = #TITLE; \
@@ -99,7 +99,7 @@ ABSTRACT_TYPE(/singleton/persistent_type/history/character)
 	}
 
 // Character history persistent type definition - Enforces character ID validation when used
-#define CREATE_PERSISTENT_TYPE_DEFINITION_HISTORY_CHARACTER(TYPE_NAME, TITLE, DESCRIPTION, EXPIRATION_RULE) \
+#define CREATE_PERSISTENT_TYPE_HISTORY_CHARACTER(TYPE_NAME, TITLE, DESCRIPTION, EXPIRATION_RULE) \
 	/singleton/persistent_type/history/character/##TYPE_NAME \
 	{ \
 		title = #TITLE; \
@@ -111,15 +111,15 @@ ABSTRACT_TYPE(/singleton/persistent_type/history/character)
 // ##### List of custom type definitions using the macros above
 
 // Singleton list of generic persistent type definitions, created by the macro above.
-// CREATE_PERSISTENT_TYPE_DEFINITION_GENERIC(basic, "Title", "A persistent generic with no special properties.", FALSE)
+// CREATE_PERSISTENT_TYPE_GENERIC(basic, "Title", "A persistent generic with no special properties.", FALSE)
 // => creates /singleton/persistent_type/generic/basic
 
 // Singleton list of history persistent type definitions, created by the macro above.
-// CREATE_PERSISTENT_TYPE_DEFINITION_HISTORY(basic, "Title", "A persistent record type with no special properties.", FALSE, /singleton/persistent_type_history_expiration_rule/row_count/hundred)
+// CREATE_PERSISTENT_TYPE_HISTORY(basic, "Title", "A persistent record type with no special properties.", FALSE, /singleton/persistent_type_history_expiration_rule/row_count/hundred)
 // => creates /singleton/persistent_type/history/basic with an expiration rule of 100 rows
 
 // Singleton list of history persistent type definitions, created by the macro above.
-// CREATE_PERSISTENT_TYPE_DEFINITION_HISTORY_CHARACTER(basic, "Title", "A persistent record type with no special properties.", /singleton/persistent_type_history_expiration_rule/age/year)
+// CREATE_PERSISTENT_TYPE_HISTORY_CHARACTER(basic, "Title", "A persistent record type with no special properties.", /singleton/persistent_type_history_expiration_rule/age/year)
 // => creates /singleton/persistent_type/history/character/basic with an expiration age rule of 365 days and mandatory attribute (character ID)
 
 /*###################################################
