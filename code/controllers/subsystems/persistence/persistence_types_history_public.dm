@@ -138,7 +138,7 @@
 
 	// Query order - 1
 	if(container)
-		var/list/persistent_record/top = typesHistoryCacheSelectTopK(limit, container)
+		top = typesHistoryCacheSelectTopK(limit, container)
 		if(length(top) == limit) // All X records got hit in cache, return
 			return top
 	else
