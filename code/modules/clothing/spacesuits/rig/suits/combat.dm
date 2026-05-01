@@ -686,7 +686,7 @@
 
 /obj/item/clothing/head/helmet/space/rig/combat/zavod_heavy
 	light_overlay = "helmet_light"
-	light_color = "#bc120d"
+	light_color = "#ff0800"
 
 /obj/item/clothing/head/helmet/space/rig/combat/zavod_heavy/get_mob_overlay(mob/living/carbon/human/H, mob_icon, mob_state, slot)
 	var/image/I = ..()
