@@ -24,38 +24,33 @@
 	)
 
 /datum/citizenship/tau_ceti/get_objectives(mission_level, var/mob/living/carbon/human/H)
-	var/rep_objectives
-
 	switch(mission_level)
 		if(REPRESENTATIVE_MISSION_HIGH)
 			if(isvaurca(H))
-				rep_objectives = pick("Investigate and report suspicious individuals who might harbour anti-Republic sentiments",
+				return pick("Investigate and report suspicious individuals who might harbour anti-Republic sentiments",
 								"Collect evidence of the [SSatlas.current_map.boss_name] being unfair or bigoted to Vaurca employees, to be used as leverage in future hive labor negotiations",
 								"Convince the command of the [SSatlas.current_map.station_name] of the utility of Bound labor over similar alternatives such as cyborgs or owned synthetics")
 			else
-				rep_objectives = pick("Investigate and report suspicious individuals who might harbour anti-Republic sentiments",
+				return pick("Investigate and report suspicious individuals who might harbour anti-Republic sentiments",
 								"Identify and document command personnel with non-favourable views towards NanoTrasen Corporation")
 
-		if(REPRESENTATIVE_MISSION_MEDIUM)
+		else if(REPRESENTATIVE_MISSION_MEDIUM)
 			if(isvaurca(H))
-				rep_objectives = pick("Highlight the failures of the Solarian Alliance and promote the Republic of Biesel's successes",
+				return pick("Highlight the failures of the Solarian Alliance and promote the Republic of Biesel's successes",
 								"Refer a non-Republic citizen to citizenship opportunities in the Tau Ceti Armed Forces",
 								"Promote Zo'rane products such as Zo'ra Soda to the crew")
 			else
-				rep_objectives = pick("Highlight the failures of the Solarian Alliance and promote the Republic of Biesel's successes",
+				return pick("Highlight the failures of the Solarian Alliance and promote the Republic of Biesel's successes",
 								"Refer a non-Republic citizen to citizenship opportunities in the Tau Ceti Armed Forces")
-		else
+		else (REPRESENTATIVE_MISSION_LOW)
 			if(isvaurca(H))
-				rep_objectives = pick("Survey Republic citizens views of the Tau Ceti Armed Forces post-Peacekeeper Mandate.",
+				return pick("Survey Republic citizens views of the Tau Ceti Armed Forces post-Peacekeeper Mandate.",
 								"Question non-Vaurca employees about their Vaurca coworkers, looking for areas of improvement.",
 								"Protect and promote the public image of the Zo'ra Hive to all [SSatlas.current_map.boss_name] employees.")
 			else
-				rep_objectives = pick("Survey Republic citizens views of the Tau Ceti Armed Forces post-Peacekeeper Mandate.",
+				return pick("Survey Republic citizens views of the Tau Ceti Armed Forces post-Peacekeeper Mandate.",
 								"Survey Republic citizen views of the Republic of Biesel's multiculturalism.",
 								"Have a Republic citizen re-affirm their pledge of loyalty to the Republic of Biesel")
-
-
-	return rep_objectives
 
 /obj/outfit/job/representative/consular/ceti
 	name = "Tau Ceti Consular Officer"
