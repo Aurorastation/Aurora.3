@@ -32,7 +32,7 @@
  * 	k = Number of records to return.
  * 	Container = Container to search in.
  * RETURN:
- * 	List of top K records by ID, sorted from lowest to highest.
+ * 	List of top K records by ID, sorted from highest to lowest.
  */
 /datum/controller/subsystem/persistence/proc/typesHistoryCacheSelectTopK(k, persistent_record_container/container)
 	PRIVATE_PROC(TRUE)

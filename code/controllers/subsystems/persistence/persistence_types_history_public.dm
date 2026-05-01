@@ -159,6 +159,6 @@
 		r.created_at = result["created_at"]
 		r.value = result["value"]
 		container.records += r // Add to cache
-		top += r // Add to return list
+		top += r // Records in top are either newly created or read from DB already, append to result
 
 	return top
