@@ -43,7 +43,7 @@
 			return pick("Obtain 2000 moles of gaseous Phoron or 20x Phoron Crystals for shipping to NanoTrasen Corporation.",
 						"Identify and report SCC command staff who are overtly favouring their origin state or company (IE. displaying origin state/corporation iconography) in breach of Conglomerate ideals",
 						"Identify and report any acts of inter-SCC conflict or espionage")
-		else if(REPRESENTATIVE_MISSION_MEDIUM)
+		if(REPRESENTATIVE_MISSION_MEDIUM)
 			return pick("Have any crew member enroll onto a paid NanoTrasen Academy online learning course",
 						"Have a NanoTrasen employee sign a contract extension",
 						"Evaluate crew opinions on GetMore Corporation products available on the [station_name()]",

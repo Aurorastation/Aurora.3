@@ -88,7 +88,7 @@
 			return pick("Recruit a crew member to inform Hephaestus Industries contractors of their poor benefits, unsupportive company, and need to unionise.",
 						"Support Zavodskoi employees involved in disputes with Hephaestus Industries contractors",
 						"Identify and document Hephaestus Industries employees with disfavourable views towards Hephaestus")
-		else if(REPRESENTATIVE_MISSION_MEDIUM)
+		if(REPRESENTATIVE_MISSION_MEDIUM)
 			return pick("Identify and rectify Zavodskoi Interstellar employees not compliant with company image standards or otherwise damaging company optics",
 						"Identify and rectify aberrant behaviour in Zavodskoi Interstellar synthetics.",
 						"Have a Zavodskoi employee sign a contract extension in exchange for a nearly-all-paid, 3-day holiday to a destination of choice on Moroz")

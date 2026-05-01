@@ -67,7 +67,7 @@
 			return pick("Recruit a crew member to disperse physical or radio material besmirching the image of Zavodskoi Interstellar",
 						"Support Hephaestus employees involved in disputes with Zavodskoi Interstellar contractors",
 						"Identify and document Zavodskoi Interstellar employees with disfavourable views towards Zavodskoi")
-		else if(REPRESENTATIVE_MISSION_MEDIUM)
+		if(REPRESENTATIVE_MISSION_MEDIUM)
 			return pick("Identify the seeds of unionisation among Hephaestus employees. Report union representatives",
 						"Have a Hephaestus employee sign a contract extension",
 						"Emphasise how relatable Titanius Aeson is to the common worker")

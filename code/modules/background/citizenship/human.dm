@@ -34,7 +34,7 @@
 				return pick("Investigate and report suspicious individuals who might harbour anti-Republic sentiments",
 								"Identify and document command personnel with non-favourable views towards NanoTrasen Corporation")
 
-		else if(REPRESENTATIVE_MISSION_MEDIUM)
+		if(REPRESENTATIVE_MISSION_MEDIUM)
 			if(isvaurca(H))
 				return pick("Highlight the failures of the Solarian Alliance and promote the Republic of Biesel's successes",
 								"Refer a non-Republic citizen to citizenship opportunities in the Tau Ceti Armed Forces",
@@ -42,7 +42,7 @@
 			else
 				return pick("Highlight the failures of the Solarian Alliance and promote the Republic of Biesel's successes",
 								"Refer a non-Republic citizen to citizenship opportunities in the Tau Ceti Armed Forces")
-		else (REPRESENTATIVE_MISSION_LOW)
+		else
 			if(isvaurca(H))
 				return pick("Survey Republic citizens views of the Tau Ceti Armed Forces post-Peacekeeper Mandate.",
 								"Question non-Vaurca employees about their Vaurca coworkers, looking for areas of improvement.",

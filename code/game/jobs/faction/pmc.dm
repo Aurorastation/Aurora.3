@@ -63,7 +63,7 @@
 	switch(mission_level)
 		if(REPRESENTATIVE_MISSION_HIGH)
 			return pick("Ensure PMCG contractors are integrating properly into the [station_name()]'s corporate environment")
-		else if(REPRESENTATIVE_MISSION_MEDIUM)
+		if(REPRESENTATIVE_MISSION_MEDIUM)
 			return pick("Encourage team-building exercises between PMCG subcontractors",
 						"Have a PMCG employee sign a contract extension")
 		else

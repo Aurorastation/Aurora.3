@@ -64,7 +64,7 @@
 	switch(mission_level)
 		if(REPRESENTATIVE_MISSION_HIGH)
 			return pick("Identify and document Orion Express employees slowing or impeding company operations (IE. inadequate mining yields; slow order deliveries; slow service catering)")
-		else if(REPRESENTATIVE_MISSION_MEDIUM)
+		if(REPRESENTATIVE_MISSION_MEDIUM)
 			return pick("Promote competitiveness and the setting personal of goals among Orion Express employees",
 						"Ensure all outbound Orion Express packages aboard the [station_name()] are delivered",
 						"Evaluate crew opinions on Quick-E-Burger catering aboard the [station_name()]")
