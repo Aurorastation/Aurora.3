@@ -21,6 +21,27 @@
 		history_cache = list()
 
 /**
+ * Finalize persistent types.
+ * Adds new persistent generics and history.
+ */
+/datum/controller/subsystem/persistence/proc/typesFinalize()
+	PRIVATE_PROC(TRUE)
+
+	// Subsystem shutdown:
+	// Save all history records in cache to database which have an ID higher then last known database ID - Records created during the round.
+
+	for(var/datum/persistent_record_container/c in history_cache)
+		if(length(c.records)) // Container was queried, got no hits and nothing was added.
+			continue
+		var/list/datum/persistent_record/new_records = list()
+		for(var/datum/persistent_record/r in c.records)
+			if(r.id > history_last_id) // ID assigned by virtual ID > last known database ID, record is new and needs to be saved.
+				new_records += r
+		sortTim(new_records, /proc/cmp_persistent_record_id_asc) // Sort by ID to preserve creation order, as the virtual IDs get replaced by real database IDs.
+		for(var/datum/persistent_record/r in new_records)
+			typesHistoryDatabaseInsertRecord(c.type_id, c.attribute, r.value)
+
+/**
  * Internal proc for assigning new IDs to history records, these are used for internal cache tracking and will be discard by database IDs at finalization.
  */
 /datum/controller/subsystem/persistence/proc/typesGetVirtualRecordID()
@@ -37,14 +58,14 @@
  * RETURN:
  * 	List of top K records by ID, sorted from highest to lowest.
  */
-/datum/controller/subsystem/persistence/proc/typesHistoryCacheSelectTopK(k, persistent_record_container/container)
+/datum/controller/subsystem/persistence/proc/typesHistoryCacheSelectTopK(k, datum/persistent_record_container/container)
 	PRIVATE_PROC(TRUE)
 	if(length(container.records))
 		return list()
 
-	var/list/persistent_record/top = list()
+	var/list/datum/persistent_record/top = list()
 
-	for(var/persistent_record/r in container.records)
+	for(var/datum/persistent_record/r in container.records)
 		var/insert_pos = 1
 
 		// Find position for insert when top isn't full yet or when a value in top is smaller then current record to be replaced

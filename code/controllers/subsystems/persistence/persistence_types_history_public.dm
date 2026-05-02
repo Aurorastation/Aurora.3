@@ -26,21 +26,21 @@
 
 	// Add record to cache for DB insert at finalization and quick access
 	// Check if record container exists, if not, create it
-	var/persistent_record_container/container = null
-	for(var/persistent_record_container/c as anything in history_cache)
+	var/datum/persistent_record_container/container = null
+	for(var/datum/persistent_record_container/c as anything in history_cache)
 		if(c.type_id == target_type.definition_type_value && c.attribute == attribute)
 			container = c
 			break
 
 	if(!container)
-		container = new /persistent_record_container
+		container = new /datum/persistent_record_container
 		container.type_id = target_type.definition_type_value
 		container.attribute = attribute
 		container.records = list()
 		history_cache += container
 
 	// Create record and add to container
-	var/persistent_record/r = new /persistent_record
+	var/datum/persistent_record/r = new /datum/persistent_record
 	r.id = typesGetVirtualRecordID()
 	r.created_at = "[worlddate2text()] [worldtime2text()]" // TODO - Verify this is equvialent to NOW() in SQL
 	r.value = value
@@ -68,8 +68,8 @@
 	// 1 - Check if record container exists, if so, check if a record is in there, return with highest ID, if the ID is higher than history_last_id
 	// 2 - Query database for last record of type and add it to record container as new cache
 
-	var/persistent_record_container/container = null
-	for(var/persistent_record_container/c as anything in history_cache)
+	var/datum/persistent_record_container/container = null
+	for(var/datum/persistent_record_container/c as anything in history_cache)
 		if(c.type_id == target_type.definition_type_value && c.attribute == attribute)
 			container = c
 			break
@@ -78,15 +78,15 @@
 	if(container)
 		if(length(container.records))
 			var/highest_id = 0 // Highest ID = newest record - DB ID + virtual ID comparison faster then datetime sorting
-			var/persistent_record/found_r = null
-			for(var/persistent_record/r as anything in container.records)
+			var/datum/persistent_record/found_r = null
+			for(var/datum/persistent_record/r as anything in container.records)
 				if(r.id > highest_id)
 					highest_id = r.id
 					found_r = r
 			if(highest_id > history_last_id) // Record already in cache and record is newer then last database record
 				return found_r
 	else
-		container = new /persistent_record_container
+		container = new /datum/persistent_record_container
 		container.type_id = target_type.definition_type_value
 		container.attribute = attribute
 		container.records = list()
@@ -98,7 +98,7 @@
 		return null
 
 	// Previous cache was missed, add record to read-through cache
-	var/persistent_record/new_r = new /persistent_record
+	var/datum/persistent_record/new_r = new /datum/persistent_record
 	new_r.id = results[1]["id"]
 	new_r.created_at = results[1]["created_at"]
 	new_r.value = results[1]["value"]
@@ -128,13 +128,13 @@
 	// 1 - Check if record container exists, if so, check if last X records are in there, aggregate found records, step to DB (2) for missing remainders.
 	// 2 - Query database for last X records of type and add it to record container as new cache
 
-	var/persistent_record_container/container = null
-	for(var/persistent_record_container/c as anything in history_cache)
+	var/datum/persistent_record_container/container = null
+	for(var/datum/persistent_record_container/c as anything in history_cache)
 		if(c.type_id == target_type.definition_type_value && c.attribute == attribute)
 			container = c
 			break
 
-	var/list/persistent_record/top = list()
+	var/list/datum/persistent_record/top = list()
 
 	// Query order - 1
 	if(container)
@@ -142,7 +142,7 @@
 		if(length(top) == limit) // All X records got hit in cache, return
 			return top
 	else
-		container = new /persistent_record_container
+		container = new /datum/persistent_record_container
 		container.type_id = target_type.definition_type_value
 		container.attribute = attribute
 		container.records = list()
@@ -154,7 +154,7 @@
 		return list()
 
 	for(var/result in results)
-		var/persistent_record/r = new /persistent_record
+		var/datum/persistent_record/r = new /datum/persistent_record
 		r.id = result["id"]
 		r.created_at = result["created_at"]
 		r.value = result["value"]

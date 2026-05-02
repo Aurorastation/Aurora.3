@@ -41,7 +41,7 @@
 	qdel(query)
 	return last_id
 
-/datum/controller/subsystem/persistence/proc/typesHistoryDatabaseInsertRecord(type_id, attribute, value, game_id)
+/datum/controller/subsystem/persistence/proc/typesHistoryDatabaseInsertRecord(type_id, attribute, value)
 	PRIVATE_PROC(TRUE)
 	if(!databaseCheckConnection("typesHistoryDatabaseInsertRecord"))
 		return
@@ -52,7 +52,7 @@
 			"type" = type_id,
 			"attribute" = (attribute == null) ? null : "[attribute]",
 			"value" = "[value]",
-			"game_id" = game_id
+			"game_id" = "[GLOB.round_id]"
 		)
 	)
 	insert_query.Execute()

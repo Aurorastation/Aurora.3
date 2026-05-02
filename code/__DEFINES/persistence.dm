@@ -126,12 +126,12 @@ ABSTRACT_TYPE(/singleton/persistent_type/history/character)
 	Subsystem cache structures
 ###################################################*/
 
-/persistent_record_container // Container for combining records of type(+attribute)
+/datum/persistent_record_container // Container for combining records of type(+attribute)
 	var/type_id = 0 // Definition type
 	var/attribute = null // Attribute for aggregation records into type+attribute groups
-	var/list/persistent_record/records = list() // Container contents
+	var/list/datum/persistent_record/records = list() // Container contents
 
-/persistent_record
+/datum/persistent_record
 	var/id = 0
 	var/created_at = ""
 	var/value = null

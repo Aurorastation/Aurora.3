@@ -139,4 +139,8 @@ SUBSYSTEM_DEF(persistence)
 		objectsFinalize()
 	catch(var/exception/e)
 		log_subsystem_persistence_panic("Unhandled exception during persistent objects finalization: [e]")
-		return
+
+	try
+		typesFinalize()
+	catch(var/exception/e)
+		log_subsystem_persistence_panic("Unhandled exception during persistent types finalization: [e]")
