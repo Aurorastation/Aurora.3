@@ -310,11 +310,11 @@
 /obj/machinery/recharge_station/verb/eject()
 	set src in oview(1)
 	set category = "Object"
-	set name = "Eject Recharge Station"
+	set name = "Eject from Recharge Station"
 
 	if(!use_check_and_message(usr))
 		return
-	go_out()
+	src.go_out()
 	add_fingerprint(usr)
 	return
 
