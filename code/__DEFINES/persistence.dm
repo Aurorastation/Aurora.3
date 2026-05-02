@@ -3,7 +3,7 @@
 ####################################################*/
 
 #define PERSISTENT_DEFAULT_EXPIRATION_DAYS 30 // Default expire timespan for newly created persistent content, mainly objects and history records with age rule
-#define PERSISTENT_EXPIRATION_CLEANUP_DELAY_DAYS 30 // Grace period for expired database entries before they get cleaned up
+#define PERSISTENT_EXPIRATION_CLEANUP_DELAY_DAYS 30 // Grace period for expired database entries before they get cleaned up, objects only.
 
 // ##### Persistent type "history" expiration rules
 // Rules are applied on the combination type+attribute
@@ -22,13 +22,13 @@ ABSTRACT_TYPE(/singleton/persistent_type_history_expiration_rule/row_count)
 
 // Keep records for X rounds
 ABSTRACT_TYPE(/singleton/persistent_type_history_expiration_rule/round_count)
-	var/max_round_count_per_type = 0
+	var/max_round_count = 0
 
 /singleton/persistent_type_history_expiration_rule/round_count/five
-	max_round_count_per_type = 5
+	max_round_count = 5
 
 /singleton/persistent_type_history_expiration_rule/round_count/ten
-	max_round_count_per_type = 10
+	max_round_count = 10
 
 // Keep records for X days
 ABSTRACT_TYPE(/singleton/persistent_type_history_expiration_rule/age)

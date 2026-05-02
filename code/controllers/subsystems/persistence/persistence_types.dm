@@ -2,6 +2,13 @@
  * Called during subsystem init to upssert persistent type definitions into the database.
  */
 /datum/controller/subsystem/persistence/proc/typesInitialize()
+	PRIVATE_PROC(TRUE)
+	// Types init:
+	// Upsert persistent types, excluding base types
+	// Clean persistent history types by type-specified expiration rules
+	// Persistent history cache init
+
+	// Types upsert
 	// Base types to exclude
 	var/base_types = list(/singleton/persistent_type, /singleton/persistent_type/generic, /singleton/persistent_type/history, /singleton/persistent_type/history/character)
 	var/custom_types = typesof(/singleton/persistent_type) - base_types
@@ -10,9 +17,29 @@
 	for (var/singleton/persistent_type/T in custom_types)
 		typesDatabaseUpsertType("[T]", T.title, T.description, T.definition_type_value)
 
-	// TODO CLEANUP - History by history type rules and generics
+	// Clean persistent history
+	// - Get each used type from database in combination with it's attribute (type+attribute combination called container)
+	// - Check what needs to be done to clean it
+	// - Clean type+attribute combination based of its types expiration rule
+	var/list/containers = list()
 
-	// Init internal cache
+	for(var/singleton/persistent_type/T in custom_types) // Iterate through each type to clean by it's own rule
+		if(!istype(T, /singleton/persistent_type/history)) // Only history has such rules
+			continue
+		var/singleton/persistent_type/history/H = T
+		// Each rule has a different execution flow
+		if(istype(H.expiration_rule, /singleton/persistent_type_history_expiration_rule/row_count))
+			var/max_row_count = astype(H.expiration_rule, /singleton/persistent_type_history_expiration_rule/row_count).max_row_count
+
+		if(istype(H.expiration_rule, /singleton/persistent_type_history_expiration_rule/round_count))
+			var/max_round_count = astype(H.expiration_rule, /singleton/persistent_type_history_expiration_rule/round_count).max_round_count
+
+		if(istype(H.expiration_rule, /singleton/persistent_type_history_expiration_rule/age))
+			var/max_age_days = astype(H.expiration_rule, /singleton/persistent_type_history_expiration_rule/age).max_age_days
+
+
+
+	// Init internal history cache
 	history_last_id = typesHistoryDatabaseGetLastID()
 	if(history_last_id <= 0)
 		CRASH("Failed to get last ID of persistent type history records from the database during initialization. History record caching cannot be prepared!")
