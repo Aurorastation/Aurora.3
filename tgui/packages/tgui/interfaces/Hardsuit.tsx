@@ -71,6 +71,7 @@ type Data = {
 
   charge: number;
   maxcharge: number;
+  chargedisplay: string;
   chargestatus: number;
   emagged: BooleanLike;
 
@@ -123,13 +124,8 @@ const SuitStatusSection = (props, context) => {
       buttons={
         <Stack>
           <Stack.Item>
-            <Button icon="shield" onClick={() => act('examine_armor')}>
-              Armor
-            </Button>
-          </Stack.Item>
-          <Stack.Item>
-            <Button icon="file-alt" onClick={() => act('examine_fluff')}>
-              Info
+            <Button icon="power-off" onClick={() => act('toggle_seals')}>
+              Toggle Suit
             </Button>
           </Stack.Item>
         </Stack>
@@ -143,24 +139,17 @@ const SuitStatusSection = (props, context) => {
 
       <LabeledList>
         <LabeledList.Item label="Charge">
-          <ProgressBar value={chargeFrac}>
-            {data.charge}/{data.maxcharge}
-          </ProgressBar>
+          <ProgressBar value={chargeFrac}>{data.chargedisplay}</ProgressBar>
         </LabeledList.Item>
-
-        <LabeledList.Item
-          label="Suit"
-          buttons={
-            <Button
-              icon="circle-arrow-right"
-              onClick={() => act('toggle_seals')}
-            >
-              Toggle
-            </Button>
-          }
-        >
-          {suitStatus}
+        <LabeledList.Item>
+          <Button icon="shield" onClick={() => act('examine_armor')}>
+            Armor
+          </Button>
+          <Button icon="file-alt" onClick={() => act('examine_fluff')}>
+            Info
+          </Button>
         </LabeledList.Item>
+        <LabeledList.Item label="Suit">{suitStatus}</LabeledList.Item>
 
         <LabeledList.Item
           label="Cover"
@@ -206,6 +195,7 @@ const SuitStatusSection = (props, context) => {
 const HardwareSection = (props, context) => {
   const { act, data } = useBackend<Data>(context);
   const pieceDisabled = !!data.sealing;
+  const pieceCanSeal = pieceDisabled && !!data.charge;
 
   return (
     <Section title="Hardware" fill>
@@ -288,6 +278,28 @@ const ModulesSection = (props, context) => {
 
   const modules = data.modules ?? [];
 
+  const hasBoolConfigEntry = (configuration_data: any): boolean => {
+    if (!configuration_data) return false;
+
+    if (Array.isArray(configuration_data)) {
+      return (
+        configuration_data.some((e) => e?.type === 'bool') ||
+        configuration_data.some(
+          (e) =>
+            Array.isArray(e?.entries) &&
+            e.entries.some((x) => x?.type === 'bool'),
+        )
+      );
+    }
+
+    if (typeof configuration_data === 'object') {
+      const values = Object.values(configuration_data);
+      return values.some((v: any) => hasBoolConfigEntry(v));
+    }
+
+    return false;
+  };
+
   return (
     <Section
       title="Modules"
@@ -358,8 +370,9 @@ const ModulesSection = (props, context) => {
                     : null;
 
             // Handles disabling Toggle button
+            const hasBoolConfig = hasBoolConfigEntry(m.configuration_data);
             const toggleDisabled =
-              disableAll || (m.module_type >= 2 && !m.module_toggleable);
+              disableAll || (m.module_type >= 2 && !hasBoolConfig);
 
             // Handles disabling Select/Use button
             const selectDisabled = disableAll || m.module_type < 2;
@@ -503,6 +516,24 @@ const ConfigureScreen = (props, context) => {
   );
 };
 
+const ConfigureDataEntry = (props, context) => {
+  const { type } = props;
+  const configureEntryTypes = {
+    number: <ConfigureNumberEntry {...props} />,
+    bool: <ConfigureBoolEntry {...props} />,
+    color: <ConfigureColorEntry {...props} />,
+    list: <ConfigureListEntry {...props} />,
+    button: <ConfigureButtonEntry {...props} />,
+    pin: <ConfigurePinEntry {...props} />,
+  };
+
+  return (
+    <LabeledList.Item label={props.display_name}>
+      {configureEntryTypes[type]}
+    </LabeledList.Item>
+  );
+};
+
 const ConfigureNumberEntry = (props, context) => {
   const { act } = useBackend(context);
   const { entryKey, value, values, module_ref } = props;
@@ -596,9 +627,6 @@ const ConfigurePinEntry = (props, context) => {
   );
 };
 
-// fuck u smartkar configs werent meant to be used as actions 🖕🖕🖕
-// and really u couldnt be bothered to make this and instead used
-// the pin entry? 🖕🖕🖕🖕🖕🖕🖕🖕🖕🖕🖕🖕🖕🖕🖕🖕🖕🖕🖕🖕
 const ConfigureButtonEntry = (props, context) => {
   const { act } = useBackend(context);
   const { entryKey, value, values, module_ref } = props;
@@ -608,24 +636,6 @@ const ConfigureButtonEntry = (props, context) => {
       selected={value}
       icon={value}
     />
-  );
-};
-
-const ConfigureDataEntry = (props, context) => {
-  const { type } = props;
-  const configureEntryTypes = {
-    number: <ConfigureNumberEntry {...props} />,
-    bool: <ConfigureBoolEntry {...props} />,
-    color: <ConfigureColorEntry {...props} />,
-    list: <ConfigureListEntry {...props} />,
-    button: <ConfigureButtonEntry {...props} />,
-    pin: <ConfigurePinEntry {...props} />,
-  };
-
-  return (
-    <LabeledList.Item label={props.display_name}>
-      {configureEntryTypes[type]}
-    </LabeledList.Item>
   );
 };
 

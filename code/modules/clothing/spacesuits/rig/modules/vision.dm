@@ -53,13 +53,10 @@
 	name = "hardsuit visor"
 	desc = "A layered, translucent visor system for a hardsuit."
 	icon_state = "optics"
-
+	module_type = MODULE_TOGGLE
 	interface_name = "optical scanners"
 	interface_desc = "An integrated multi-mode vision system."
 
-	engage_on_activate = FALSE
-	usable = TRUE
-	module_type = MODULE_TOGGLE
 	disruptive = FALSE
 	confined_use = TRUE
 
@@ -68,14 +65,54 @@
 	deactivate_string = "Disable Visor"
 
 	var/datum/rig_vision/vision
-	var/list/vision_modes = list(
-		/datum/rig_vision/nvg,
-		/datum/rig_vision/thermal
-		)
+	var/list/vision_modes = list(list(
+		/datum/rig_vision/nvg = "nvg",
+		/datum/rig_vision/thermal = "thermal"
+		))
 
-	var/vision_index
+	var/selected_mode
 
 	category = MODULE_GENERAL
+
+/// There should only ever be one vision module installed in a suit.
+/obj/item/rig_module/vision/installed()
+	..()
+	holder.visor = src
+
+/obj/item/rig_module/vision/New()
+	..()
+
+	if(!vision_modes)
+		return
+
+	var/list/processed_vision = list()
+
+	for(var/vision_mode[0] in vision_modes)
+		var/datum/rig_vision/vision_datum = new vision_mode
+		if(!vision) vision = vision_datum
+		processed_vision += vision_datum
+
+	vision_modes = processed_vision
+
+/obj/item/rig_module/vision/get_configuration()
+	. = ..()
+	if(length(vision_modes) > 1)
+		.["visor_mode"] = add_ui_configuration("Visor Mode", "list", vision_modes[1], assoc_to_keys(vision_modes))
+
+/obj/item/rig_module/vision/configure_edit(key, value)
+	switch(key)
+		if("visor_mode")
+			set_visor_mode(value)
+
+/obj/item/rig_module/vision/proc/set_visor_mode(var/value)
+	if(!vision_modes)
+		return FALSE
+
+	vision = vision_modes[value]
+	// TBD
+	message_user(usr, SPAN_NOTICE("You cycle \the [src] to <b>[vision.mode]</b> mode."), SPAN_NOTICE("\The [usr] cycles \the [src] to <b>[vision.mode]</b> mode."))
+	to_chat(usr, SPAN_WARNING("\The [src] only has one mode."))
+	return TRUE
 
 /obj/item/rig_module/vision/multi
 	name = "hardsuit optical package"
@@ -100,8 +137,6 @@
 	desc = "A layered, translucent visor system for a hardsuit."
 	icon_state = "meson"
 
-	usable = FALSE
-
 	construction_cost = list(DEFAULT_WALL_MATERIAL = 1500, MATERIAL_GLASS = 5000)
 	construction_time = 300
 
@@ -118,8 +153,6 @@
 	desc = "A layered, translucent visor system for a hardsuit."
 	icon_state = "thermal"
 
-	usable = FALSE
-
 	interface_name = "thermal scanner"
 	interface_desc = "An integrated thermal scanner."
 
@@ -131,8 +164,6 @@
 	name = "hardsuit night vision interface"
 	desc = "A multi input night vision system for a hardsuit."
 	icon_state = "night"
-
-	usable = FALSE
 
 	construction_cost = list(DEFAULT_WALL_MATERIAL = 1500, MATERIAL_GLASS = 5000, MATERIAL_URANIUM = 5000)
 	construction_time = 300
@@ -149,8 +180,6 @@
 	desc = "A simple tactical information system for a hardsuit."
 	icon_state = "securityhud"
 
-	usable = FALSE
-
 	construction_cost = list(DEFAULT_WALL_MATERIAL = 1500, MATERIAL_GLASS = 5000)
 	construction_time = 300
 
@@ -166,8 +195,6 @@
 	desc = "A simple medical status indicator for a hardsuit."
 	icon_state = "healthhud"
 
-	usable = FALSE
-
 	construction_cost = list(DEFAULT_WALL_MATERIAL = 1500, MATERIAL_GLASS = 5000)
 	construction_time = 300
 
@@ -177,42 +204,3 @@
 	vision_modes = list(/datum/rig_vision/medhud)
 
 	category = MODULE_MEDICAL
-
-// There should only ever be one vision module installed in a suit.
-/obj/item/rig_module/vision/installed()
-	..()
-	holder.visor = src
-
-/obj/item/rig_module/vision/engage(atom/target, mob/user)
-	if(!..() || !vision_modes)
-		return FALSE
-	if(!active)
-		to_chat(user, SPAN_WARNING("\The [src] isn't activated!"))
-		return FALSE
-
-	if(vision_modes.len > 1)
-		vision_index++
-		if(vision_index > vision_modes.len)
-			vision_index = 1
-		vision = vision_modes[vision_index]
-
-		message_user(user, SPAN_NOTICE("You cycle \the [src] to <b>[vision.mode]</b> mode."), SPAN_NOTICE("\The [user] cycles \the [src] to <b>[vision.mode]</b> mode."))
-	else
-		to_chat(user, SPAN_WARNING("\The [src] only has one mode."))
-	return TRUE
-
-/obj/item/rig_module/vision/New()
-	..()
-
-	if(!vision_modes)
-		return
-
-	vision_index = 1
-	var/list/processed_vision = list()
-
-	for(var/vision_mode in vision_modes)
-		var/datum/rig_vision/vision_datum = new vision_mode
-		if(!vision) vision = vision_datum
-		processed_vision += vision_datum
-
-	vision_modes = processed_vision

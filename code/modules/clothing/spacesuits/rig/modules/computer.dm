@@ -225,10 +225,10 @@
 	name = "datajack module"
 	desc = "A simple induction datalink module."
 	icon_state = "datajack"
-	has_secondary_toggle = TRUE
 	activates_on_touch = TRUE
-	usable = FALSE
+	module_type = MODULE_USABLE
 
+	engage_string = "Eject AI"
 	activate_string = "Enable Datajack"
 	deactivate_string = "Disable Datajack"
 
@@ -317,7 +317,6 @@
 	desc = "A bewilderingly complex bundle of fiber optics and chips."
 	icon_state = "ewar"
 	module_type = MODULE_TOGGLE
-	usable = FALSE
 	confined_use = TRUE
 
 	activate_string = "Enable Countermeasures"

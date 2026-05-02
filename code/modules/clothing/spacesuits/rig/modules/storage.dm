@@ -2,6 +2,7 @@
 	name = "mounted storage unit"
 	interface_name = "mounted storage unit"
 	interface_desc = "A storage unit for storing a precious few items in your hardsuit."
+	module_type = MODULE_PASSIVE
 	icon_state = "paper"
 
 	origin_tech = list(TECH_MAGNET = 2, TECH_MATERIAL = 2, TECH_ENGINEERING = 3)

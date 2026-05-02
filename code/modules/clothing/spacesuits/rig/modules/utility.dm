@@ -22,9 +22,7 @@
 /obj/item/rig_module/device
 	name = "mounted device"
 	desc = "Some kind of hardsuit mount."
-	usable = FALSE
-	selectable = 1
-	has_secondary_toggle = FALSE
+	module_type = MODULE_USABLE_ACTIVE
 	disruptive = FALSE
 
 	var/device_type
@@ -56,8 +54,7 @@
 	interface_name = "vitals tracker"
 	interface_desc = "Shows an informative health readout of the user."
 
-	usable = TRUE
-	selectable = 0
+	module_type = MODULE_USABLE
 
 	category = MODULE_GENERAL
 
@@ -66,6 +63,7 @@
 	name = "hardsuit diamond drill mount"
 	desc = "A very heavy diamond-tipped drill."
 	icon_state = "drill"
+	module_type = MODULE_USABLE_ACTIVE
 	interface_name = "mounted drill"
 	interface_desc = "A diamond-tipped industrial drill."
 	suit_overlay_active = "mounted-drill"
@@ -99,8 +97,6 @@
 	interface_name = "Alden-Saraspova counter"
 	interface_desc = "An exotic particle detector commonly used by xenoarchaeologists."
 	engage_string = "Begin Scan"
-	usable = TRUE
-	selectable = 0
 	device_type = /obj/item/ano_scanner
 
 	category = MODULE_UTILITY
@@ -112,8 +108,6 @@
 	interface_name = "ore detector"
 	interface_desc = "A sonar system for detecting large masses of ore."
 	engage_string = "Begin Scan"
-	usable = TRUE
-	selectable = 0
 	device_type = /obj/item/mining_scanner
 
 	category = MODULE_UTILITY
@@ -124,7 +118,7 @@
 	icon_state = "rcd"
 	interface_name = "mounted RFD-C"
 	interface_desc = "A device for building or removing walls. Cell-powered."
-	usable = TRUE
+	module_type = MODULE_USABLE_ACTIVE
 	engage_string = "Configure RFD-C"
 	construction_cost = list(DEFAULT_WALL_MATERIAL = 30000, MATERIAL_PHORON = 12500, MATERIAL_SILVER = 10000, MATERIAL_GOLD = 10000)
 	construction_time = 1000
@@ -351,8 +345,7 @@
 /obj/item/rig_module/chem_dispenser/injector
 	name = "mounted chemical injector"
 	desc = "A complex web of tubing and a large needle suitable for hardsuit use."
-	usable = FALSE
-	selectable = 1
+	module_type = MODULE_USABLE_ACTIVE
 	disruptive = 1
 	construction_cost = list(DEFAULT_WALL_MATERIAL = 10000, MATERIAL_GLASS = 9250, MATERIAL_GOLD = 2500, MATERIAL_SILVER = 4250, MATERIAL_PHORON = 5500)
 	construction_time = 400
@@ -599,7 +592,6 @@
 	name = "mounted matter decompiler"
 	desc = "A drone matter decompiler reconfigured for hardsuit use."
 	icon_state = "ewar"
-	module_type = MODULE_USABLE
 	interface_name = "mounted matter decompiler"
 	interface_desc = "Eats trash like no one's business."
 
@@ -622,14 +614,6 @@
 
 	use_power_cost = 5
 	module_cooldown = 25
-
-	/*
-	 * TOGGLE - dampens fall, on or off.
-	 * SELECTABLE - Jump forward or up!
-	 */
-	has_secondary_toggle = TRUE
-	selectable = TRUE
-	usable = FALSE
 
 	engage_string = "Toggle Leg Actuators"
 	activate_string = "Enable Leg Actuators"
@@ -776,6 +760,7 @@
 	name = "mounted cooling unit"
 	module_type = MODULE_TOGGLE
 	origin_tech = list(TECH_MAGNET = 2, TECH_MATERIAL = 2, TECH_ENGINEERING = 3)
+	module_type = MODULE_USABLE
 	interface_name = "mounted cooling unit"
 	interface_desc = "A heat sink with liquid cooled radiator."
 	icon_state = "suitcooler"
@@ -825,13 +810,12 @@
 	icon_state = "actuators"
 	interface_name = "boring laser"
 	interface_desc = "Allows you to burrow to the z-level below."
+	module_type = MODULE_USABLE
 
 	disruptive = 1
 
 	use_power_cost = 5
 	module_cooldown = 25
-
-	usable = TRUE
 
 	category = MODULE_VAURCA
 
@@ -856,6 +840,7 @@ GLOBAL_LIST_EMPTY(lattice_users)
 	icon_state = "actuators"
 	interface_name = "neural lattice"
 	interface_desc = "Synchronize neural lattice to reduce pain."
+	module_type = MODULE_USABLE
 
 	disruptive = FALSE
 
@@ -883,7 +868,7 @@ GLOBAL_LIST_EMPTY(lattice_users)
 /obj/item/rig_module/foam_sprayer
 	name = "mounted foam sprayer"
 	desc = "A shoulder-mounted metal foam sprayer."
-	selectable = TRUE
+	module_type = MODULE_USABLE_ACTIVE
 	icon_state = "actuators"
 
 	interface_name = "integrated foam sprayer"
@@ -933,7 +918,7 @@ GLOBAL_LIST_EMPTY(lattice_users)
 	interface_name = "integrated weapon recharger"
 	interface_desc = "Can connect to an energy weapon, recharging it off the hardsuit's power supply. Drag the weapon onto the hardsuit control module to connect it."
 	category = MODULE_LIGHT_COMBAT
-	usable = FALSE
+	module_type = MODULE_USABLE
 	disruptive = FALSE
 	confined_use = TRUE
 	///The gun charging off our hardsuit

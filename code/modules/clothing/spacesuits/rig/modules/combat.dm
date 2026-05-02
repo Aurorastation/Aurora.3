@@ -20,7 +20,7 @@
 /obj/item/rig_module/grenade_launcher
 	name = "mounted grenade launcher"
 	desc = "A shoulder-mounted micro-explosive dispenser."
-	selectable = TRUE
+	module_type = MODULE_USABLE_ACTIVE
 	icon_state = "grenade"
 
 	interface_name = "integrated grenade launcher"
@@ -91,7 +91,6 @@
 /obj/item/rig_module/grenade_launcher/frag
 	name = "mounted frag grenade launcher"
 	desc = "A shoulder-mounted fragmentation explosives dispenser."
-	selectable = TRUE
 	icon_state = "grenade"
 
 	interface_name = "integrated frag grenade launcher"
@@ -114,8 +113,7 @@
 /obj/item/rig_module/mounted
 	name = "mounted laser cannon"
 	desc = "A shoulder-mounted battery-powered laser cannon mount."
-	selectable = TRUE
-	usable = TRUE
+	module_type = MODULE_USABLE_ACTIVE
 	module_cooldown = 0
 	icon_state = "lcannon"
 
@@ -173,8 +171,6 @@
 	icon_state = "taser"
 	construction_cost = list(DEFAULT_WALL_MATERIAL = 7000, MATERIAL_GLASS = 5250)
 	construction_time = 300
-
-	usable = FALSE
 
 	suit_overlay_active = "mounted-taser"
 	suit_overlay_inactive = "mounted-taser"
@@ -257,6 +253,7 @@
 	suit_overlay_inactive = "plasmacutter"
 	construction_cost = list(MATERIAL_GLASS = 5250, DEFAULT_WALL_MATERIAL = 30000, MATERIAL_SILVER = 5250, MATERIAL_PHORON = 7250)
 	construction_time = 300
+	use_power_cost = 50
 
 	category = MODULE_UTILITY
 
@@ -268,6 +265,7 @@
 	icon_state = "thermaldrill"
 	interface_name = "thermal drill"
 	interface_desc = "A potent drill that can pierce rock walls over long distances."
+	use_power_cost = 20
 
 	gun_type = /obj/item/gun/energy/vaurca/thermaldrill/mounted
 
@@ -279,19 +277,17 @@
 	icon_state = "eblade"
 
 	activate_string = "Project Blade"
-	deactivate_string = "Cancel Blade"
 
 	interface_name = "spider fang blade"
 	interface_desc = "A lethal energy projector that can shape a blade projected from the hand of the wearer or launch radioactive darts."
 
-	usable = FALSE
-	selectable = TRUE
-	has_secondary_toggle = TRUE
 	use_power_cost = 50
 	active_power_cost = 10
 	passive_power_cost = 0
 
 	gun_type = /obj/item/gun/energy/crossbow/ninja
+
+	var/blade_deployed = FALSE
 
 	category = MODULE_SPECIAL
 
@@ -302,6 +298,18 @@
 			return FALSE
 
 	return ..()
+
+/obj/item/rig_module/mounted/energy_blade/get_configuration()
+	. = ..()
+	.["deploy_blade"] = add_ui_configuration(activate_string, "bool", blade_deployed)
+
+/obj/item/rig_module/mounted/energy_blade/configure_edit(key, value)
+	switch(key)
+		if("deploy_blade")
+			if(!blade_deployed)
+				activate(src, usr)
+			else
+				deactivate()
 
 /obj/item/rig_module/mounted/energy_blade/activate(mob/user)
 	..()
@@ -319,6 +327,7 @@
 	var/obj/item/melee/energy/blade/blade = new(M)
 	blade.creator = M
 	M.put_in_hands(blade)
+	blade_deployed = TRUE
 
 /obj/item/rig_module/mounted/energy_blade/deactivate()
 	..()
@@ -330,12 +339,12 @@
 
 	for(var/obj/item/melee/energy/blade/blade in M.contents)
 		qdel(blade)
+		blade_deployed = FALSE
 
 /obj/item/rig_module/fabricator
 	name = "matter fabricator"
 	desc = "A self-contained microfactory system for hardsuit integration."
-	selectable = TRUE
-	usable = TRUE
+	module_type = MODULE_USABLE_ACTIVE
 	use_power_cost = 10
 	icon_state = "enet"
 
@@ -356,7 +365,7 @@
 
 	var/mob/living/H = holder.wearer
 
-	if(target)
+	if(target && target != H)
 		var/obj/item/firing = new fabrication_type(get_turf(src))
 		holder.wearer.visible_message(SPAN_DANGER("[user] launches \a [firing]!"))
 		firing.throw_at(target, fire_force, fire_distance)
@@ -390,12 +399,9 @@
 	icon_state = "ewar"
 	interface_name = "mounted tesla coil"
 	interface_desc ="Discharges a powerful lightning strike around the user."
-
+	module_type = MODULE_USABLE
 	use_power_cost = 30
 	module_cooldown = 100
-
-	usable = TRUE
-
 	category = MODULE_LIGHT_COMBAT
 
 /obj/item/rig_module/tesla_coil/engage(atom/target, mob/user)

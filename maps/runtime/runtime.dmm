@@ -873,6 +873,7 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/black/full,
+/obj/item/rig/ce/equipped,
 /turf/simulated/floor/tiled/gridded,
 /area/hallway/primary/central_one)
 "cp" = (
@@ -1965,6 +1966,7 @@
 /obj/effect/floor_decal/corner/black{
 	dir = 9
 	},
+/obj/item/rig/industrial/equipped,
 /turf/simulated/floor/tiled/gridded,
 /area/hallway/primary/central_one)
 "ie" = (
@@ -5993,6 +5995,7 @@
 /obj/effect/floor_decal/corner/black{
 	dir = 6
 	},
+/obj/item/rig/medical/equipped,
 /turf/simulated/floor/tiled/gridded,
 /area/hallway/primary/central_one)
 "Gv" = (
@@ -9138,6 +9141,7 @@
 /obj/effect/floor_decal/corner/black/full{
 	dir = 4
 	},
+/obj/item/rig/combat/equipped,
 /turf/simulated/floor/tiled/gridded,
 /area/hallway/primary/central_one)
 "Zx" = (

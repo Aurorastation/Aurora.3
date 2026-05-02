@@ -627,8 +627,11 @@
 	data["boots"] = boots ? boots.name : "None."
 	data["chest"] = chest ? chest.name : "None."
 
-	data["charge"] = cell ? round(cell.charge, 1) : 0
-	data["maxcharge"] = cell ? cell.maxcharge : 0
+	var/data_charge = cell ? round(cell.charge, 1) : 0
+	var/data_maxcharge = cell ? cell.maxcharge : 0
+	data["charge"] = data_charge
+	data["maxcharge"] = data_maxcharge
+	data["chargedisplay"] = "[power_joules_readable(data_charge)] / [power_joules_readable(data_maxcharge)]"
 	data["chargestatus"] = cell ? FLOOR((cell.charge / cell.maxcharge) * 50, 1) : 0
 
 	data["emagged"] = subverted
@@ -647,7 +650,6 @@
 			"module_name" = module.interface_name,
 			"desc" = module.interface_desc,
 			"module_type" = module.module_type,
-			"module_toggleable" = module.has_secondary_toggle,
 			"module_active" = module.active,
 			"engagecost" = module.use_power_cost * 10,
 			"activecost" = module.active_power_cost * 10,

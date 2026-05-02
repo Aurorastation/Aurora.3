@@ -24,16 +24,8 @@
 	var/module_cooldown = 10
 	var/next_use = 0
 
-	/// Whether the rig should call engage() in its activate() proc
-	var/engage_on_activate = TRUE
 	/// The type of module this is.
 	var/module_type
-	/// Set TRUE for the device to show up as an active effect. These are on-going behaviors, like jetpacks.
-	var/has_secondary_toggle
-	/// Set TRUE for the device to have an on-use effect. This is your middle-click style actions, like laser cannons.
-	var/usable
-	/// Set TRUE to be able to assign the device as primary system.
-	var/selectable
 	/// Set TRUE to ignore duplicate module checking when installing.
 	var/redundant
 	/// If set, the module can't be removed.
@@ -226,8 +218,6 @@
 /obj/item/rig_module/proc/activate(mob/user)
 	if(active)
 		return FALSE
-	if(engage_on_activate && !do_engage(null, user))
-		return FALSE
 
 	if(use_check_and_message(user, USE_ALLOW_NON_ADJACENT))
 		return FALSE
@@ -358,7 +348,7 @@
 	module_mode = "activate"
 
 /stat_rig_module/activate/CanUse()
-	return (module.module_type == MODULE_TOGGLE || module.has_secondary_toggle) && !module.active
+	return (module.module_type == MODULE_TOGGLE) && !module.active
 
 /stat_rig_module/deactivate/New(var/obj/item/rig_module/module)
 	..()
@@ -370,7 +360,7 @@
 	module_mode = "deactivate"
 
 /stat_rig_module/deactivate/CanUse()
-	return (module.module_type == MODULE_TOGGLE || module.has_secondary_toggle) && module.active
+	return (module.module_type == MODULE_TOGGLE) && module.active
 
 /stat_rig_module/engage/New(var/obj/item/rig_module/module)
 	..()
@@ -380,7 +370,7 @@
 	module_mode = "engage"
 
 /stat_rig_module/engage/CanUse()
-	return module.usable
+	return module.module_type == MODULE_USABLE && !module.active
 
 /stat_rig_module/select/New()
 	..()
@@ -388,7 +378,7 @@
 	module_mode = "select"
 
 /stat_rig_module/select/CanUse()
-	if(module.selectable)
+	if(module.module_type == MODULE_USABLE_ACTIVE)
 		name = module.holder.selected_module == module ? "Selected" : "Select"
 		return TRUE
 	return FALSE

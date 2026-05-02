@@ -70,8 +70,7 @@
 	icon_state = "teleporter"
 	use_power_cost = 40
 	redundant = TRUE
-	usable = TRUE
-	selectable = TRUE
+	module_type = MODULE_USABLE_ACTIVE
 	var/lastteleport
 	var/phase_in_visual = /obj/effect/temp_visual/phase
 	var/phase_out_visual = /obj/effect/temp_visual/phase/out
@@ -186,8 +185,7 @@
 	name = "self-destruct module"
 	desc = "Oh my God, Captain. A bomb."
 	icon_state = "deadman"
-	usable = TRUE
-	active = TRUE
+	module_type = MODULE_USABLE
 	permanent = TRUE
 
 	engage_string = "Detonate"
@@ -230,7 +228,7 @@
 	name = "anti-theft system"
 	desc = "An advanced anti-theft system that tracks the user's lifesigns."
 	icon_state = "deadman"
-	usable = FALSE
+	module_type = MODULE_PASSIVE
 	active = FALSE
 	permanent = FALSE
 
@@ -250,7 +248,6 @@
 	desc = "A bewilderingly complex bundle of fiber optics and chips. Seems like it uses a good deal of power."
 	active_power_cost = 10
 	module_type = MODULE_TOGGLE
-	usable = FALSE
 	use_power_cost = 70
 	module_cooldown = 30
 
@@ -279,7 +276,7 @@
 	name = "emergency power generator"
 	desc = "A high yield power generating device that takes a long time to recharge."
 	active_power_cost = 0
-	usable = TRUE
+	module_type = MODULE_USABLE
 	confined_use = TRUE
 	var/cooldown = 0
 
@@ -336,9 +333,6 @@
 	desc = "An advanced door hacking tool that sports a low power cost and incredibly quick door hacking time. The device also supports hacking several signals at once remotely, and the last 10 doors hacked can be instantly accessed."
 	use_power_cost = 10
 	module_cooldown = 5
-
-
-	selectable = 0
 	module_type = MODULE_TOGGLE
 
 	interface_name = "advanced door hacking tool"
