@@ -4,6 +4,7 @@
  * 	target_type =	Singleton persistent type definition. See /singleton/persistent_type and subtypes.
  *					If the type definition is a character record type, the attribute must be a valid character ID or the record will be rejected.
  *  attribute =		Custom attribute of the record, can be null if the type definition doesn't require it.
+					If target_type is of type /singleton/persistent_type/history/character, it's automatically required to be a char_id
  *	value =			Value of the record, cannot be null or empty.
  */
 /datum/controller/subsystem/persistence/proc/historyAddRecord(var/singleton/persistent_type/history/target_type, attribute, value)
@@ -18,15 +19,6 @@
 	if(!length(value))
 		log_subsystem_persistence_warning("Attempted to add history record of type [target_type] with empty value.")
 		return
-
-	if(target_type.is_numeric && !isnum(value))
-		log_subsystem_persistence_warning("Attempted to add history record of type [target_type] with is_numeric=TRUE but value [value] failed the isnum check.")
-		return
-
-	if(istype(target_type, /singleton/persistent_type/history/character))
-		CRASH("TODO")
-		// For character history types, we want to validate the attribute is a character ID
-		//if(attribute is an integer) // TODO
 
 	// Add record to cache for DB insert at finalization and quick access
 	// Check if record container exists, if not, create it
@@ -49,6 +41,24 @@
 	r.created_at = "[worlddate2text()] [worldtime2text()]" // TODO - Verify this is equvialent to NOW() in SQL
 	r.value = value
 	container.records += r
+
+/**
+ * Add a new record to the history for the given type/attribute.
+ * PARAMS:
+ * 	target_type =	Singleton persistent type definition. See /singleton/persistent_type and subtypes.
+ *					If the type definition is a character record type, the attribute must be a valid character ID or the record will be rejected.
+ *  char_id =		Character ID that the record should belong to.
+					If target_type is of type /singleton/persistent_type/history/character, it's automatically required to be a char_id
+ *	value =			Value of the record, cannot be null or empty.
+ */
+/datum/controller/subsystem/persistence/proc/historyAddCharacterRecord(var/singleton/persistent_type/history/character/target_type, char_id, value)
+	if(!istype(target_type, /singleton/persistent_type/history/character))
+		log_subsystem_persistence_warning("Attempted to add character history record, but the provided target type didn't match a character persistent type, provided was [target_type]")
+		return
+	if(!isnum(char_id))
+		log_subsystem_persistence_error("Attempted to add character history record of type [target_type] but char_id failed the isnum check.")
+		return
+	return historyAddRecord(target_type, char_id, value)
 
 /**
  * Queries the last record of a specified type/attribute.

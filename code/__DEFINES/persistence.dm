@@ -66,7 +66,6 @@ ABSTRACT_TYPE(/singleton/persistent_type/generic)
 ABSTRACT_TYPE(/singleton/persistent_type/history)
 	definition_type_value = 2 // DO NOT MODIFY - Database constant
 	var/singleton/persistent_type_history_expiration_rule/expiration_rule = null
-	var/is_numeric = FALSE
 
 ABSTRACT_TYPE(/singleton/persistent_type/history/character)
 	// Empty stub
@@ -98,7 +97,6 @@ ABSTRACT_TYPE(/singleton/persistent_type/history/character)
 		description = #DESCRIPTION; \
 		requires_attribute = #REQUIRES_ATTRIBUTE; \
 		expiration_rule = #EXPIRATION_RULE; \
-		is_numeric = #IS_NUMERIC; \
 	}
 
 // Character history persistent type definition - Enforces character ID validation when used
@@ -109,7 +107,6 @@ ABSTRACT_TYPE(/singleton/persistent_type/history/character)
 		description = #DESCRIPTION; \
 		requires_attribute = TRUE; \
 		expiration_rule = #EXPIRATION_RULE; \
-		is_numeric = #IS_NUMERIC; \
 	}
 
 // ##### List of custom type definitions using the macros above
