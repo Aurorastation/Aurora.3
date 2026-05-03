@@ -48,8 +48,8 @@
 		qdel(query)
 		return 0
 
-	var/type_name = null
+	var/database_id = null
 	if(query.NextRow())
-		type_name = query.item[1]
+		database_id = query.item[1]
 	qdel(query)
-	return type_name
+	return database_id
