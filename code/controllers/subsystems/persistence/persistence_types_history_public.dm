@@ -44,6 +44,7 @@
 	r.created_at = "[worlddate2text()] [worldtime2text()]" // TODO - Verify this is equvialent to NOW() in SQL
 	r.value = value
 	container.records += r
+	history_cache_count++
 
 /**
  * Add a new record that belongs to a specific character to the history for the given type.
@@ -122,8 +123,10 @@
 
 	// Query order - 2
 	var/list/results = typesHistoryDatabaseGetRecords(target_type.database_id, attribute, limit - length(top)) // Draw remaining missing records from DB
-	if(!length(results))
+	var/len = length(results)
+	if(!len)
 		return list()
+	history_cache_count += len
 
 	for(var/result in results)
 		var/datum/persistent_record/r = new /datum/persistent_record

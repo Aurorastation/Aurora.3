@@ -22,20 +22,21 @@ SUBSYSTEM_DEF(persistence)
 	var/object_track_register = list()
 	/// In-memory cache of persistent history records.
 	var/history_cache = list()
+	/// Manual record counter of cache containers, used to prevent bigger count loops over the cache.
+	var/history_cache_count = 0
 	/// ID of last found history record.
 	/// Higher found IDs mean the record is not yet found in the database, lower or equal found ID means the are record that are already in the database.
 	/// Used during history_virtual_id init and read-through cache hits.
 	var/history_last_id = 0
 	/// ID used for instanciating new history records during the round, used for cache tracking.
 	/// Their database ID will be set during insert/finalization.
-	/// Increment before usage!
 	var/history_virtual_id = 0
 
 /**
  * Subsystem info stub message generation.
  */
 /datum/controller/subsystem/persistence/stat_entry(msg)
-	msg = ("Register: [length(object_track_register)] | Prevent saving: [SSpersistence.prevent_saving ? "TRUE" : "FALSE"]")
+	msg = ("[SSpersistence.prevent_saving ? "SAVING DISABLED!|" : ""]Objects:[length(object_track_register)]|Records:[history_cache_count],Containers:[length(history_cache)]")
 	return msg
 
 /**
