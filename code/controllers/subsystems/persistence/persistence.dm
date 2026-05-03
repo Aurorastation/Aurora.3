@@ -90,7 +90,7 @@ SUBSYSTEM_DEF(persistence)
 	else
 		return
 
-	feedback_add_details("admin_verb","TP") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
+	feedback_add_details("admin_verb","TPS") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 /**
  * Initialization of the persistence subsystem.
