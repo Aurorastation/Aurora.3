@@ -1,5 +1,5 @@
 /**
- * Creates/saves or overrides generic content for a type(+attribute)
+ * Saves or overrides generic content for a type(+attribute)
  * PARAMS:
  * 	target_type =		Singleton persistent type definition. See /singleton/persistent_type/generic and subtypes.
  *  attribute =			Custom attribute of the generic, can be null if the type definition doesn't require it.
@@ -21,8 +21,18 @@
 	if(!expires_in_days || expires_in_days <= 0)
 		expires_in_days = PERSISTENT_DEFAULT_EXPIRATION_DAYS
 
-	// CACHE HERE
-	//genericDatabaseSave(target_type.database_id, attribute, expires_in_days, json_encode(content))
+	for(var/datum/persistent_generic/generic as anything in generic_cache)
+		if(generic.type_define == target_type && generic.attribute == attribute)
+			generic.content = content
+			generic.expires_in_days = expires_in_days
+			return
+
+	var/datum/persistent_generic/new_generic = new /datum/persistent_generic/
+	new_generic.type_define = target_type
+	new_generic.attribute = attribute
+	new_generic.content = content
+	new_generic.expires_in_days = expires_in_days
+	generic_cache += new_generic
 
 /**
  * Retrieve/Loads generic content of a type(+attribute)
@@ -30,7 +40,7 @@
  * 	target_type =	Singleton persistent type definition. See /singleton/persistent_type/generic and subtypes.
  *  attribute =		Custom attribute of the generic, can be null if the type definition doesn't require it.
  * RETURN:
- *	List of associative values ("content" = ("id" = 123, "value" = "lorem ipsum"), "created_at" = timestamp, "expires_at" = timestamp) or null if not available.
+ *	/persistent_generic or null if not available.
  */
 /datum/controller/subsystem/persistence/proc/genericLoad(var/singleton/persistent_type/generic/target_type, attribute, content, expiration_in_days = PERSISTENT_DEFAULT_EXPIRATION_DAYS)
 	if(!content || length(content))
@@ -44,8 +54,16 @@
 		log_subsystem_persistence_warning("Attempted to load generic of type [target_type] without required attribute.")
 		return
 
-	var/result = genericDatabaseLoad(target_type.database_id, attribute)
-	if(!result || length(result))
-		return null
+	for(var/datum/persistent_generic/generic as anything in generic_cache)
+		if(generic.type_define == target_type && generic.attribute == attribute)
+			return generic
 
-	return list("content" = json_decode(result[1]), "created_at" = result[2], "expires_at" = result[3])
+	var/result = genericDatabaseLoad(target_type, attribute)
+
+	var/datum/persistent_generic/new_generic = new /datum/persistent_generic/
+	new_generic.type_define = target_type
+	new_generic.attribute = attribute
+	new_generic.content = json_decode(result["id"])
+	new_generic.expires_in_days = PERSISTENT_DEFAULT_EXPIRATION_DAYS
+	generic_cache += new_generic
+	return new_generic

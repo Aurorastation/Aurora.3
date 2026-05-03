@@ -136,3 +136,9 @@ ABSTRACT_TYPE(/singleton/persistent_type/history/character)
 	var/id = 0
 	var/created_at = ""
 	var/value = null
+
+/datum/persistent_generic
+	var/singleton/persistent_type/history/type_define = null // Definition type
+	var/attribute = null // Attribute for aggregation into type+attribute
+	var/content = null
+	var/expires_in_days = PERSISTENT_EXPIRATION_CLEANUP_DELAY_DAYS

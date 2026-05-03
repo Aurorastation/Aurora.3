@@ -1,4 +1,29 @@
 /**
+ * Get the last ID in the generics table.
+ * RETURN:
+ *  Last ID or zero.
+ */
+/datum/controller/subsystem/persistence/proc/genericDatabaseGetLastID()
+	PRIVATE_PROC(TRUE)
+	if(!databaseCheckConnection("genericDatabaseGetLastID"))
+		return 0
+
+	var/datum/db_query/query = SSdbcore.NewQuery(
+		"SELECT id FROM ss13_persistent_generics ORDER BY id DESC LIMIT 1"
+	)
+	query.Execute()
+
+	if(!databaseCheckQueryResult(query, "genericDatabaseGetLastID"))
+		qdel(query)
+		return 0
+
+	var/last_id = 0
+	if(query.NextRow())
+		last_id = query.item[1]
+	qdel(query)
+	return last_id
+
+/**
  * Runs a cleanup query on generics that have expired.
  */
 /datum/controller/subsystem/persistence/proc/genericDatabaseCleanup()
@@ -28,8 +53,8 @@
 		return 0
 
 	var/datum/db_query/query = SSdbcore.NewQuery(
-		"INSERT INTO ss13_persistent_generics (type, attribute, created_at, expires_at, content) VALUES (:type_id, :attribute, DATE_ADD(NOW(), INTERVAL :expire_in_days DAY), :expires_in_days, :content) \
-		ON DUPLICATE KEY UPDATE created_at = VALUES(DATE_ADD(NOW(), INTERVAL :expire_in_days DAY)), expires_at = VALUES(expires_in_days), content = VALUES(:content)",
+		"INSERT INTO ss13_persistent_generics (type, attribute, created_at, expires_at, content) VALUES (:type_id, :attribute, NOW(), DATE_ADD(NOW(), INTERVAL :expire_in_days DAY), :content) \
+		ON DUPLICATE KEY UPDATE created_at = VALUES(NOW()), expires_at = VALUES(DATE_ADD(NOW(), INTERVAL :expire_in_days DAY)), content = VALUES(:content)",
 		list(
 			"type_id" = type_id,
 			"attribute" = attribute,
@@ -48,7 +73,7 @@
  * 	type_id =			Type of ID.
  *  attribute =			Custom attribute of the record, can be null.
  * RETURN:
- *  Associative list of keys "content" (JSON), "created_at" and "expires_at".
+ *  Associative list of keys "id", "content" (JSON).
  */
 /datum/controller/subsystem/persistence/proc/genericDatabaseLoad(type_id, attribute)
 	PRIVATE_PROC(TRUE)
@@ -56,7 +81,7 @@
 		return 0
 
 	var/datum/db_query/query = SSdbcore.NewQuery(
-		"SELECT content, created_at, expires_at FROM ss13_persistent_generics \
+		"SELECT id, content FROM ss13_persistent_generics \
 		WHERE type = :type_id AND attribute = :attribute",
 		list(
 			"type_id" = type_id,
@@ -71,6 +96,6 @@
 
 	var/result = null
 	while(query.NextRow())
-		result = list("content" = query.item[1], "created_at" = query.item[2], "expires_at")
+		result = list("id" = query.item[1], "content" = query.item[2])
 	qdel(query)
 	return result
