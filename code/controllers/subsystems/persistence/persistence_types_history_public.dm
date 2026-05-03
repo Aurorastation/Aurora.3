@@ -122,7 +122,7 @@
 		history_cache += container
 
 	// Query order - 2
-	var/list/results = typesHistoryDatabaseGetRecords(target_type.database_id, attribute, limit - length(top)) // Draw remaining missing records from DB
+	var/list/results = historyDatabaseGetRecords(target_type.database_id, attribute, limit - length(top)) // Draw remaining missing records from DB
 	var/len = length(results)
 	if(!len)
 		return list()
@@ -167,7 +167,7 @@
 			container = c
 			break
 
-	var/values = typesHistoryDatabaseGetAllValues(target_type, attribute)
+	var/values = historyDatabaseGetAllValues(target_type, attribute)
 	if(container)
 		for(var/datum/persistent_record/r as anything in container.records)
 			if(r.id > history_last_database_id)

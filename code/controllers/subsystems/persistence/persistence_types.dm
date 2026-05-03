@@ -23,7 +23,7 @@
 		T.database_id = typesDatabaseGetTypeIdByName("[T]")
 
 	// Init internal history cache
-	history_last_database_id = typesHistoryDatabaseGetLastID()
+	history_last_database_id = historyDatabaseGetLastID()
 	if(history_last_database_id <= 0)
 		CRASH("Failed to get last ID of persistent type history records from the database during initialization. History record caching cannot be prepared!")
 	else
@@ -31,7 +31,7 @@
 		history_cache = list()
 
 	// Clean history records
-	for(var/type_combination in typesHistoryDatabaseGetTypeAttributeCombinations()) // Iterate through each distinct type+attribute combination
+	for(var/type_combination in historyDatabaseGetTypeAttributeCombinations()) // Iterate through each distinct type+attribute combination
 		var/type_id = type_combination["type_id"]
 		var/attribute = type_combination["attribute"]
 		var/singleton/persistent_type/history/found_type
@@ -43,13 +43,13 @@
 		// Clean by the individual cleanup rule
 		if(istype(found_type.expiration_rule, /singleton/persistent_type_history_expiration_rule/row_count))
 			var/max_row_count = astype(found_type.expiration_rule, /singleton/persistent_type_history_expiration_rule/row_count).max_row_count
-			typesHistoryDatabaseCleanByRowCount(found_type.database_id, attribute, max_row_count)
+			historyDatabaseCleanByRowCount(found_type.database_id, attribute, max_row_count)
 		if(istype(found_type.expiration_rule, /singleton/persistent_type_history_expiration_rule/round_count))
 			var/max_round_count = astype(found_type.expiration_rule, /singleton/persistent_type_history_expiration_rule/round_count).max_round_count
-			typesHistoryDatabaseCleanByRoundCount(found_type.database_id, attribute, max_round_count)
+			historyDatabaseCleanByRoundCount(found_type.database_id, attribute, max_round_count)
 		if(istype(found_type.expiration_rule, /singleton/persistent_type_history_expiration_rule/age))
 			var/max_age_days = astype(found_type.expiration_rule, /singleton/persistent_type_history_expiration_rule/age).max_age_days
-			typesHistoryDatabaseCleanByMaxAgeDays(found_type.database_id, attribute, max_age_days)
+			historyDatabaseCleanByMaxAgeDays(found_type.database_id, attribute, max_age_days)
 
 /**
  * Finalize persistent types.
@@ -70,7 +70,7 @@
 				new_records += r
 		sortTim(new_records, /proc/cmp_persistent_record_id_asc) // Sort by ID to preserve creation order, as the virtual IDs get replaced by real database IDs.
 		for(var/datum/persistent_record/r in new_records)
-			typesHistoryDatabaseInsertRecord(c.type_define.database_id, c.attribute, r.value)
+			historyDatabaseInsertRecord(c.type_define.database_id, c.attribute, r.value)
 
 /**
  * Internal proc for assigning new IDs to history records, these are used for internal cache tracking and will be discard by database IDs at finalization.

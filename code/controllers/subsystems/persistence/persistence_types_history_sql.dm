@@ -3,9 +3,9 @@
  * RETURN:
  *  Last ID or zero.
  */
-/datum/controller/subsystem/persistence/proc/typesHistoryDatabaseGetLastID()
+/datum/controller/subsystem/persistence/proc/historyDatabaseGetLastID()
 	PRIVATE_PROC(TRUE)
-	if(!databaseCheckConnection("typesHistoryDatabaseGetLastID"))
+	if(!databaseCheckConnection("historyDatabaseGetLastID"))
 		return 0
 
 	var/datum/db_query/query = SSdbcore.NewQuery(
@@ -13,7 +13,7 @@
 	)
 	query.Execute()
 
-	if(!databaseCheckQueryResult(query, "typesHistoryDatabaseGetLastID"))
+	if(!databaseCheckQueryResult(query, "historyDatabaseGetLastID"))
 		qdel(query)
 		return 0
 
@@ -29,9 +29,9 @@
  * 	Distinct list of list with keys "type_id" and "attribute" (possibly null).
  *  Example: (("type_id" = 1, "attribute" = null), ("type_id" = 1, "attribute" = "lorem ipsum"), ("type_id" = 2, "attribute" = "dolor sit amet"))
  */
-/datum/controller/subsystem/persistence/proc/typesHistoryDatabaseGetTypeAttributeCombinations()
+/datum/controller/subsystem/persistence/proc/historyDatabaseGetTypeAttributeCombinations()
 	PRIVATE_PROC(TRUE)
-	if(!databaseCheckConnection("typesHistoryDatabaseGetTypeAttributeCombinations"))
+	if(!databaseCheckConnection("historyDatabaseGetTypeAttributeCombinations"))
 		return
 
 	var/datum/db_query/query = SSdbcore.NewQuery(
@@ -39,7 +39,7 @@
 	)
 	query.Execute()
 
-	if(!databaseCheckQueryResult(query, "typesHistoryDatabaseGetTypeAttributeCombinations"))
+	if(!databaseCheckQueryResult(query, "historyDatabaseGetTypeAttributeCombinations"))
 		qdel(query)
 		return null
 
@@ -56,9 +56,9 @@
  *  attribute =	Custom attribute of the record, can be null.
  *	row_count =	Count of rows to keep for the specified grouping.
  */
-/datum/controller/subsystem/persistence/proc/typesHistoryDatabaseCleanByRowCount(type_id, attribute, row_count)
+/datum/controller/subsystem/persistence/proc/historyDatabaseCleanByRowCount(type_id, attribute, row_count)
 	PRIVATE_PROC(TRUE)
-	if(!databaseCheckConnection("typesHistoryDatabaseCleanByRowCount"))
+	if(!databaseCheckConnection("historyDatabaseCleanByRowCount"))
 		return
 
 	var/datum/db_query/insert_query = SSdbcore.NewQuery(
@@ -90,7 +90,7 @@
 	)
 	insert_query.Execute()
 
-	databaseCheckQueryResult(insert_query, "typesHistoryDatabaseCleanByRowCount")
+	databaseCheckQueryResult(insert_query, "historyDatabaseCleanByRowCount")
 	qdel(insert_query)
 
 /**
@@ -100,9 +100,9 @@
  *  attribute =		Custom attribute of the record, can be null.
  *	round_count =	Number of rounds to keep for specified grouping.
  */
-/datum/controller/subsystem/persistence/proc/typesHistoryDatabaseCleanByRoundCount(type_id, attribute, round_count)
+/datum/controller/subsystem/persistence/proc/historyDatabaseCleanByRoundCount(type_id, attribute, round_count)
 	PRIVATE_PROC(TRUE)
-	if(!databaseCheckConnection("typesHistoryDatabaseCleanByRoundCount"))
+	if(!databaseCheckConnection("historyDatabaseCleanByRoundCount"))
 		return
 
 	var/datum/db_query/insert_query = SSdbcore.NewQuery(
@@ -151,7 +151,7 @@
 	)
 	insert_query.Execute()
 
-	databaseCheckQueryResult(insert_query, "typesHistoryDatabaseCleanByRoundCount")
+	databaseCheckQueryResult(insert_query, "historyDatabaseCleanByRoundCount")
 	qdel(insert_query)
 
 /**
@@ -161,9 +161,9 @@
  *  attribute =		Custom attribute of the record, can be null.
  *	max_age_days =	Max age of records in days.
  */
-/datum/controller/subsystem/persistence/proc/typesHistoryDatabaseCleanByMaxAgeDays(type_id, attribute, max_age_days)
+/datum/controller/subsystem/persistence/proc/historyDatabaseCleanByMaxAgeDays(type_id, attribute, max_age_days)
 	PRIVATE_PROC(TRUE)
-	if(!databaseCheckConnection("typesHistoryDatabaseCleanByMaxAgeDays"))
+	if(!databaseCheckConnection("historyDatabaseCleanByMaxAgeDays"))
 		return
 
 	var/datum/db_query/insert_query = SSdbcore.NewQuery(
@@ -187,7 +187,7 @@
 	)
 	insert_query.Execute()
 
-	databaseCheckQueryResult(insert_query, "typesHistoryDatabaseCleanByMaxAgeDays")
+	databaseCheckQueryResult(insert_query, "historyDatabaseCleanByMaxAgeDays")
 	qdel(insert_query)
 
 /**
@@ -197,9 +197,9 @@
  *  attribute =	Custom attribute of the record, can be null.
  *	value =		Value of the record, cannot be null or empty.
  */
-/datum/controller/subsystem/persistence/proc/typesHistoryDatabaseInsertRecord(type_id, attribute, value)
+/datum/controller/subsystem/persistence/proc/historyDatabaseInsertRecord(type_id, attribute, value)
 	PRIVATE_PROC(TRUE)
-	if(!databaseCheckConnection("typesHistoryDatabaseInsertRecord"))
+	if(!databaseCheckConnection("historyDatabaseInsertRecord"))
 		return
 
 	var/datum/db_query/insert_query = SSdbcore.NewQuery(
@@ -213,7 +213,7 @@
 	)
 	insert_query.Execute()
 
-	databaseCheckQueryResult(insert_query, "typesHistoryDatabaseInsertRecord")
+	databaseCheckQueryResult(insert_query, "historyDatabaseInsertRecord")
 	qdel(insert_query)
 
 /**
@@ -225,9 +225,9 @@
  * RETURN:
  *  List of records, each as a list consisting of keys "id", "created_at" and "value".
  */
-/datum/controller/subsystem/persistence/proc/typesHistoryDatabaseGetRecords(type_id, attribute, count)
+/datum/controller/subsystem/persistence/proc/historyDatabaseGetRecords(type_id, attribute, count)
 	PRIVATE_PROC(TRUE)
-	if(!databaseCheckConnection("typesHistoryDatabaseGetRecords"))
+	if(!databaseCheckConnection("historyDatabaseGetRecords"))
 		return 0
 
 	var/datum/db_query/query = SSdbcore.NewQuery(
@@ -242,7 +242,7 @@
 	)
 	query.Execute()
 
-	if(!databaseCheckQueryResult(query, "typesHistoryDatabaseGetRecords"))
+	if(!databaseCheckQueryResult(query, "historyDatabaseGetRecords"))
 		qdel(query)
 		return null
 
@@ -260,9 +260,9 @@
  * RETURN:
  *  List of string values.
  */
-/datum/controller/subsystem/persistence/proc/typesHistoryDatabaseGetAllValues(type_id, attribute)
+/datum/controller/subsystem/persistence/proc/historyDatabaseGetAllValues(type_id, attribute)
 	PRIVATE_PROC(TRUE)
-	if(!databaseCheckConnection("typesHistoryDatabaseGetAllValues"))
+	if(!databaseCheckConnection("historyDatabaseGetAllValues"))
 		return 0
 
 	var/datum/db_query/query = SSdbcore.NewQuery(
@@ -276,7 +276,7 @@
 	)
 	query.Execute()
 
-	if(!databaseCheckQueryResult(query, "typesHistoryDatabaseGetAllValues"))
+	if(!databaseCheckQueryResult(query, "historyDatabaseGetAllValues"))
 		qdel(query)
 		return null
 
