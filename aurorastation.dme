@@ -440,6 +440,8 @@
 #include "code\controllers\subsystems\persistence\persistence_objects_public.dm"
 #include "code\controllers\subsystems\persistence\persistence_objects_sql.dm"
 #include "code\controllers\subsystems\persistence\persistence_types.dm"
+#include "code\controllers\subsystems\persistence\persistence_types_generic_public.dm"
+#include "code\controllers\subsystems\persistence\persistence_types_generic_sql.dm"
 #include "code\controllers\subsystems\persistence\persistence_types_history_public.dm"
 #include "code\controllers\subsystems\persistence\persistence_types_history_sql.dm"
 #include "code\controllers\subsystems\persistence\persistence_types_sql.dm"

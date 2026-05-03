@@ -6,8 +6,12 @@
 	// Types init:
 	// Upsert all types found in code into database
 	// Get type ID of each type found in code by name lookup
+	// -- Records
 	// Init history cache
 	// Run cleanup on history records
+	// -- Generics
+	// Init generic cache
+	// Run cleanup on generics
 
 	// Types upsert
 	// Base types to exclude
@@ -21,6 +25,8 @@
 	// For each in code existing type definition retrieve it's ID
 	for (var/singleton/persistent_type/T in custom_types)
 		T.database_id = typesDatabaseGetTypeIdByName("[T]")
+
+	// ### Records
 
 	// Init internal history cache
 	history_last_database_id = historyDatabaseGetLastID()
@@ -50,6 +56,13 @@
 		if(istype(found_type.expiration_rule, /singleton/persistent_type_history_expiration_rule/age))
 			var/max_age_days = astype(found_type.expiration_rule, /singleton/persistent_type_history_expiration_rule/age).max_age_days
 			historyDatabaseCleanByMaxAgeDays(found_type.database_id, attribute, max_age_days)
+
+	// ### Generics
+
+	// Cache init
+	generic_cache = list()
+	// Cleanup
+	genericDatabaseCleanup()
 
 /**
  * Finalize persistent types.

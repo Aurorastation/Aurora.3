@@ -2,7 +2,7 @@
 	Defines for cleanups and expirations
 ####################################################*/
 
-#define PERSISTENT_DEFAULT_EXPIRATION_DAYS 30 // Default expire timespan for newly created persistent content, mainly objects and history records with age rule
+#define PERSISTENT_DEFAULT_EXPIRATION_DAYS 30 // Default expire timespan for newly created persistent content.
 #define PERSISTENT_EXPIRATION_CLEANUP_DELAY_DAYS 30 // Grace period for expired database entries before they get cleaned up, objects only.
 
 // ##### Persistent type "history" expiration rules
