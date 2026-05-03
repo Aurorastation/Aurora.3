@@ -22,6 +22,34 @@
 	qdel(query)
 	return last_id
 
+
+/**
+ * Returns all combinations of types+attributes from persistent history.
+ * RETURN:
+ * 	Distinct list of lists containing type ID and attribute (possibly null)
+ *  Example: (("type_id" = 1, "attribute" = null), ("type_id" = 1, "attribute" = "lorem ipsum"), ("type_id" = 2, "attribute" = "dolor sit amet"))
+ *
+ */
+/datum/controller/subsystem/persistence/proc/typesHistoryDatabaseGetTypeAttributeCombinations()
+	PRIVATE_PROC(TRUE)
+	if(!databaseCheckConnection("typesHistoryDatabaseGetTypeAttributeCombinations"))
+		return
+
+	var/datum/db_query/query = SSdbcore.NewQuery(
+		"SELECT DISTINCT type, attribute FROM ss13_persistent_history;"
+	)
+	query.Execute()
+
+	if(!databaseCheckQueryResult(query, "typesHistoryDatabaseGetTypeAttributeCombinations"))
+		qdel(query)
+		return null
+
+	var/result = list()
+	while(query.NextRow())
+		result += list("type_id" = query.item[1], "attribute" = query.item[2])
+	qdel(query)
+	return result
+
 /**
  * Insert a new history record into the history table.
  * PARAMS:
