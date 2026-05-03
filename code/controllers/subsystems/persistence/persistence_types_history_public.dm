@@ -19,6 +19,10 @@
 		log_subsystem_persistence_warning("Attempted to add history record of type [target_type] with empty value.")
 		return
 
+	if(target_type.is_numeric && !isnum(value))
+		log_subsystem_persistence_warning("Attempted to add history record of type [target_type] with is_numeric=TRUE but value [value] failed the isnum check.")
+		return
+
 	if(istype(target_type, /singleton/persistent_type/history/character))
 		CRASH("TODO")
 		// For character history types, we want to validate the attribute is a character ID

@@ -66,6 +66,7 @@ ABSTRACT_TYPE(/singleton/persistent_type/generic)
 ABSTRACT_TYPE(/singleton/persistent_type/history)
 	definition_type_value = 2 // DO NOT MODIFY - Database constant
 	var/singleton/persistent_type_history_expiration_rule/expiration_rule = null
+	var/is_numeric = FALSE
 
 ABSTRACT_TYPE(/singleton/persistent_type/history/character)
 	// Empty stub
@@ -88,7 +89,7 @@ ABSTRACT_TYPE(/singleton/persistent_type/history/character)
 	}
 
 // Basic history persistent type definition
-#define CREATE_PERSISTENT_TYPE_HISTORY(TYPE_NAME, TITLE, DESCRIPTION, REQUIRES_ATTRIBUTE, EXPIRATION_RULE) \
+#define CREATE_PERSISTENT_TYPE_HISTORY(TYPE_NAME, TITLE, DESCRIPTION, REQUIRES_ATTRIBUTE, EXPIRATION_RULE, IS_NUMERIC) \
 	if(findtext("character", #TYPE_NAME)) \
 		fail("Cannot use this macro for creating a type of 'character', use CREATE_PERSISTENT_TYPE_HISTORY_CHARACTER instead.", __FILE__, __LINE__); \
 	/singleton/persistent_type/history/##TYPE_NAME \
@@ -97,16 +98,18 @@ ABSTRACT_TYPE(/singleton/persistent_type/history/character)
 		description = #DESCRIPTION; \
 		requires_attribute = #REQUIRES_ATTRIBUTE; \
 		expiration_rule = #EXPIRATION_RULE; \
+		is_numeric = #IS_NUMERIC; \
 	}
 
 // Character history persistent type definition - Enforces character ID validation when used
-#define CREATE_PERSISTENT_TYPE_HISTORY_CHARACTER(TYPE_NAME, TITLE, DESCRIPTION, EXPIRATION_RULE) \
+#define CREATE_PERSISTENT_TYPE_HISTORY_CHARACTER(TYPE_NAME, TITLE, DESCRIPTION, EXPIRATION_RULE, IS_NUMERIC) \
 	/singleton/persistent_type/history/character/##TYPE_NAME \
 	{ \
 		title = #TITLE; \
 		description = #DESCRIPTION; \
 		requires_attribute = TRUE; \
 		expiration_rule = #EXPIRATION_RULE; \
+		is_numeric = #IS_NUMERIC; \
 	}
 
 // ##### List of custom type definitions using the macros above
