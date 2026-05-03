@@ -23,11 +23,11 @@
 		T.database_id = typesDatabaseGetTypeIdByName("[T]")
 
 	// Init internal history cache
-	history_last_id = typesHistoryDatabaseGetLastID()
-	if(history_last_id <= 0)
+	history_last_database_id = typesHistoryDatabaseGetLastID()
+	if(history_last_database_id <= 0)
 		CRASH("Failed to get last ID of persistent type history records from the database during initialization. History record caching cannot be prepared!")
 	else
-		history_virtual_id = history_last_id
+		history_virtual_id = history_last_database_id
 		history_cache = list()
 
 	// Clean history records
@@ -66,7 +66,7 @@
 			continue
 		var/list/datum/persistent_record/new_records = list()
 		for(var/datum/persistent_record/r in c.records)
-			if(r.id > history_last_id) // ID assigned by virtual ID is larger then last known database ID, record is new and needs to be saved.
+			if(r.id > history_last_database_id) // ID assigned by virtual ID is larger then last known database ID, record is new and needs to be saved.
 				new_records += r
 		sortTim(new_records, /proc/cmp_persistent_record_id_asc) // Sort by ID to preserve creation order, as the virtual IDs get replaced by real database IDs.
 		for(var/datum/persistent_record/r in new_records)

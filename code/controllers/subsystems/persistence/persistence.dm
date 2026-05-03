@@ -27,7 +27,7 @@ SUBSYSTEM_DEF(persistence)
 	/// ID of last found history record.
 	/// Higher found IDs mean the record is not yet found in the database, lower or equal found ID means the are record that are already in the database.
 	/// Used during history_virtual_id init and read-through cache hits.
-	var/history_last_id = 0
+	var/history_last_database_id = 0
 	/// ID used for instanciating new history records during the round, used for cache tracking.
 	/// Their database ID will be set during insert/finalization.
 	var/history_virtual_id = 0

@@ -1,6 +1,7 @@
 /**
  * Get the last ID in the history table.
- * RETURN: Last ID or zero.
+ * RETURN:
+ *  Last ID or zero.
  */
 /datum/controller/subsystem/persistence/proc/typesHistoryDatabaseGetLastID()
 	PRIVATE_PROC(TRUE)
@@ -222,7 +223,7 @@
  *  attribute =	Custom attribute of the record, can be null.
  *	count =		Number of records to be returned.
  * RETURN:
- * List of records, each as a list consisting of keys "id", "created_at" and "value".
+ *  List of records, each as a list consisting of keys "id", "created_at" and "value".
  */
 /datum/controller/subsystem/persistence/proc/typesHistoryDatabaseGetRecords(type_id, attribute, count)
 	PRIVATE_PROC(TRUE)
@@ -250,3 +251,37 @@
 		records += list("id" = query.item[1], "created_at" = query.item[2], "value" = query.item[3])
 	qdel(query)
 	return records
+
+/**
+ * Get all values for specified type+attribue.
+ * PARAMS:
+ * 	type_id =	ID of type
+ *  attribute =	Custom attribute of the record, can be null.
+ * RETURN:
+ *  List of string values.
+ */
+/datum/controller/subsystem/persistence/proc/typesHistoryDatabaseGetAllValues(type_id, attribute)
+	PRIVATE_PROC(TRUE)
+	if(!databaseCheckConnection("typesHistoryDatabaseGetAllValues"))
+		return 0
+
+	var/datum/db_query/query = SSdbcore.NewQuery(
+		"SELECT value FROM ss13_persistent_history \
+		WHERE type = :type_id AND attribute = :attribute \
+		ORDER BY id DESC",
+		list(
+			"type_id" = type_id,
+			"attribute" = attribute
+		)
+	)
+	query.Execute()
+
+	if(!databaseCheckQueryResult(query, "typesHistoryDatabaseGetAllValues"))
+		qdel(query)
+		return null
+
+	var/values = list()
+	while(query.NextRow())
+		values += query.item[1]
+	qdel(query)
+	return values
