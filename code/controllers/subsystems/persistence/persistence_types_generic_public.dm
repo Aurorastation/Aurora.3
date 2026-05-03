@@ -21,7 +21,8 @@
 	if(!expires_in_days || expires_in_days <= 0)
 		expires_in_days = PERSISTENT_DEFAULT_EXPIRATION_DAYS
 
-	genericDatabaseSave(target_type.database_id, attribute, expires_in_days, json_encode(content))
+	// CACHE HERE
+	//genericDatabaseSave(target_type.database_id, attribute, expires_in_days, json_encode(content))
 
 /**
  * Retrieve/Loads generic content of a type(+attribute)
@@ -43,7 +44,7 @@
 		log_subsystem_persistence_warning("Attempted to load generic of type [target_type] without required attribute.")
 		return
 
-	var/result = genericDatabaseSave(target_type.database_id, attribute)
+	var/result = genericDatabaseLoad(target_type.database_id, attribute)
 	if(!result || length(result))
 		return null
 
