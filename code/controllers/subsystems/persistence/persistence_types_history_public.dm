@@ -68,57 +68,14 @@
  *					If the type definition is a character record type, the attribute must be a valid character ID or the record will be rejected.
  *  attribute =		Custom attribute of the record, can be null if the type definition doesn't require it.
  * RETURN:
- * 	Single /persistent_record
+ * 	Single /persistent_record or null.
  */
 /datum/controller/subsystem/persistence/proc/historyGetLastRecord(var/singleton/persistent_type/history/target_type, attribute)
-	if(!target_type)
-		log_subsystem_persistence_warning("Attempted to get history record with null target type.")
+	var/result = historyGetLastRecords(target_type, attribute, 1)
+	if(length(result) == 0)
 		return null
-
-	if(target_type.requires_attribute && !attribute)
-		log_subsystem_persistence_warning("Attempted to get history record of type [target_type] without required attribute.")
-		return null
-
-	// Query order
-	// 1 - Check if record container exists, if so, check if a record is in there, return with highest ID, if the ID is higher than history_last_id
-	// 2 - Query database for last record of type and add it to record container as new cache
-
-	var/datum/persistent_record_container/container = null
-	for(var/datum/persistent_record_container/c as anything in history_cache)
-		if(c.type_define == target_type.type && c.attribute == attribute)
-			container = c
-			break
-
-	// Query order - 1
-	if(container)
-		if(length(container.records))
-			var/highest_id = 0 // Highest ID = newest record - DB ID + virtual ID comparison faster then datetime sorting
-			var/datum/persistent_record/found_r = null
-			for(var/datum/persistent_record/r as anything in container.records)
-				if(r.id > highest_id)
-					highest_id = r.id
-					found_r = r
-			if(highest_id > history_last_id) // Record already in cache and record is newer then last database record
-				return found_r
 	else
-		container = new /datum/persistent_record_container
-		container.type_define = target_type.type
-		container.attribute = attribute
-		container.records = list()
-		history_cache += container
-
-	// Query order - 2
-	var/list/results = typesHistoryDatabaseGetRecords(target_type.database_id, attribute, 1)
-	if(length(results))
-		return null
-
-	// Previous cache was missed, add record to read-through cache
-	var/datum/persistent_record/new_r = new /datum/persistent_record
-	new_r.id = results[1]["id"]
-	new_r.created_at = results[1]["created_at"]
-	new_r.value = results[1]["value"]
-	container.records += new_r
-	return new_r
+		return result[1]
 
 /**
  * Queries the last X records of a specified type/attribute.
@@ -128,7 +85,7 @@
  *  attribute =		Custom attribute of the record, can be null if the type definition doesn't require it.
  *  limit =			Number of records to retrieve.
  * RETURN:
- * 	List of /persistent_record
+ * 	List of /persistent_record or empty list.
  */
 /datum/controller/subsystem/persistence/proc/historyGetLastRecords(var/singleton/persistent_type/history/target_type, attribute, limit)
 	if(!target_type)
