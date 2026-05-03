@@ -62,11 +62,11 @@
 	// Save all history records in cache to database which have an ID higher then last known database ID - Records created during the round.
 
 	for(var/datum/persistent_record_container/c in history_cache)
-		if(length(c.records)) // Container was queried, got no hits and nothing was added.
+		if(!length(c.records)) // Container was queried, got no hits and nothing was added.
 			continue
 		var/list/datum/persistent_record/new_records = list()
 		for(var/datum/persistent_record/r in c.records)
-			if(r.id > history_last_id) // ID assigned by virtual ID > last known database ID, record is new and needs to be saved.
+			if(r.id > history_last_id) // ID assigned by virtual ID is larger then last known database ID, record is new and needs to be saved.
 				new_records += r
 		sortTim(new_records, /proc/cmp_persistent_record_id_asc) // Sort by ID to preserve creation order, as the virtual IDs get replaced by real database IDs.
 		for(var/datum/persistent_record/r in new_records)
