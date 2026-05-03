@@ -222,7 +222,7 @@
 
 	var/list/selectable = list()
 	for(var/obj/item/rig_module/module in installed_modules)
-		if(module.module_type == MODULE_USABLE_ACTIVE)
+		if(module.module_type == MODULETYPE_USABLE_ACTIVE)
 			selectable |= module
 
 	var/obj/item/rig_module/module = tgui_input_list(usr, "Which module do you wish to select?", "Select Module", selectable)
@@ -257,7 +257,7 @@
 
 	var/list/selectable = list()
 	for(var/obj/item/rig_module/module in installed_modules)
-		if(module.module_type == MODULE_TOGGLE)
+		if(module.module_type == MODULETYPE_TOGGLE)
 			selectable |= module
 
 	var/obj/item/rig_module/module = tgui_input_list(usr, "Which module do you wish to toggle?", "Toggle Module", selectable)
@@ -294,7 +294,7 @@
 
 	var/list/selectable = list()
 	for(var/obj/item/rig_module/module in installed_modules)
-		if(module.module_type == MODULE_USABLE)
+		if(module.module_type == MODULETYPE_USABLE)
 			selectable |= module
 
 	var/obj/item/rig_module/module = tgui_input_list(usr, "Which module do you wish to engage?", "Engage Module", selectable)

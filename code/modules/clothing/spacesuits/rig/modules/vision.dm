@@ -53,7 +53,7 @@
 	name = "hardsuit visor"
 	desc = "A layered, translucent visor system for a hardsuit."
 	icon_state = "optics"
-	module_type = MODULE_TOGGLE
+	module_type = MODULETYPE_TOGGLE
 	interface_name = "optical scanners"
 	interface_desc = "An integrated multi-mode vision system."
 
@@ -64,13 +64,15 @@
 	activate_string = "Enable Visor"
 	deactivate_string = "Disable Visor"
 
-	var/datum/rig_vision/vision
-	var/list/vision_modes = list(list(
-		/datum/rig_vision/nvg = "nvg",
-		/datum/rig_vision/thermal = "thermal"
-		))
+	active_power_cost = 2
 
-	var/selected_mode
+	var/datum/rig_vision/vision_mode
+	var/list/vision_modes = list(
+		/datum/rig_vision/nvg,
+		/datum/rig_vision/thermal
+		)
+
+	var/vision_index
 
 	category = MODULE_GENERAL
 
@@ -86,38 +88,66 @@
 		return
 
 	var/list/processed_vision = list()
-
-	for(var/vision_mode[0] in vision_modes)
-		var/datum/rig_vision/vision_datum = new vision_mode
-		if(!vision) vision = vision_datum
+	for(var/new_vision_mode in vision_modes)
+		var/datum/rig_vision/vision_datum = new new_vision_mode
 		processed_vision += vision_datum
 
 	vision_modes = processed_vision
 
-/obj/item/rig_module/vision/get_configuration()
+	vision_index = 1
+	vision_mode = length(vision_modes) ? vision_modes[vision_index] : null
+
+/obj/item/rig_module/vision/get_configuration(mob/user)
 	. = ..()
-	if(length(vision_modes) > 1)
-		.["visor_mode"] = add_ui_configuration("Visor Mode", "list", vision_modes[1], assoc_to_keys(vision_modes))
+	if(!vision_modes || length(vision_modes) <= 1)
+		return .
+
+	var/list/modes = list()
+	for(var/datum/rig_vision/added_mode in vision_modes)
+		modes += added_mode.mode
+
+	.["vision_mode"] = add_ui_configuration("Visor mode", "list", vision_mode.mode, modes)
 
 /obj/item/rig_module/vision/configure_edit(key, value)
 	switch(key)
-		if("visor_mode")
-			set_visor_mode(value)
+		if("vision_mode")
+			set_vision_mode(src, usr, value)
 
-/obj/item/rig_module/vision/proc/set_visor_mode(var/value)
-	if(!vision_modes)
+/obj/item/rig_module/vision/proc/set_vision_mode(src, mob/user, var/new_mode)
+	to_chat(world, "got vision mode [new_mode]")
+	if(!new_mode || new_mode == "")
 		return FALSE
 
-	vision = vision_modes[value]
-	// TBD
-	message_user(usr, SPAN_NOTICE("You cycle \the [src] to <b>[vision.mode]</b> mode."), SPAN_NOTICE("\The [usr] cycles \the [src] to <b>[vision.mode]</b> mode."))
-	to_chat(usr, SPAN_WARNING("\The [src] only has one mode."))
-	return TRUE
+	if(!active)
+		to_chat(user, SPAN_WARNING("\The [src] isn't activated!"))
+		return FALSE
+
+	var/i = 1
+	for(var/datum/rig_vision/V in vision_modes)
+		to_chat(world, "checking mode of vision [i]: [V.mode]")
+		if(V.mode == new_mode)
+			vision_index = i
+			vision_mode = V
+			sound_to(usr, 'sound/machines/terminal/terminal_select.ogg')
+			return TRUE
+		i++
+
+	return FALSE
+
+/obj/item/rig_module/vision/activate(mob/user)
+	. = ..()
+	sound_to(user, 'sound/items/goggles_charge.ogg')
+
+/obj/item/rig_module/vision/deactivate(mob/user)
+	. = ..()
+	sound_to(user, 'sound/effects/pop.ogg')
 
 /obj/item/rig_module/vision/multi
 	name = "hardsuit optical package"
 	desc = "A complete visor system of optical scanners and vision modes."
 	icon_state = "fulloptics"
+
+	active_power_cost = 3
 
 	interface_name = "multi optical visor"
 	interface_desc = "An integrated multi-mode vision system."
@@ -140,6 +170,8 @@
 	construction_cost = list(DEFAULT_WALL_MATERIAL = 1500, MATERIAL_GLASS = 5000)
 	construction_time = 300
 
+	active_power_cost = 2
+
 	interface_name = "meson/material scanner"
 	interface_desc = "An integrated meson/material scanner."
 
@@ -152,6 +184,8 @@
 	name = "hardsuit thermal scanner"
 	desc = "A layered, translucent visor system for a hardsuit."
 	icon_state = "thermal"
+
+	active_power_cost = 2
 
 	interface_name = "thermal scanner"
 	interface_desc = "An integrated thermal scanner."
@@ -167,6 +201,8 @@
 
 	construction_cost = list(DEFAULT_WALL_MATERIAL = 1500, MATERIAL_GLASS = 5000, MATERIAL_URANIUM = 5000)
 	construction_time = 300
+
+	active_power_cost = 2
 
 	interface_name = "night vision interface"
 	interface_desc = "An integrated night vision system."

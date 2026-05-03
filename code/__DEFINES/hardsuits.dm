@@ -3,17 +3,17 @@
  * Note that these types describe the primary functionality of a given module; additional configuration data provided by modules can
  * give them behavior modes that might seem to fall into multiple types below.
  *
- * For example, the Leg Actuators is type MODULE_USABLE_ACTIVE, because it has a middle-click use functionality as its primary. However,
+ * For example, the Leg Actuators is type MODULETYPE_USABLE_ACTIVE, because it has a middle-click use functionality as its primary. However,
  * it provides a configuration option to toggle fall damping on and off.
  */
 /// Passive module, just acts when put in naturally.
-#define MODULE_PASSIVE 0
+#define MODULETYPE_PASSIVE 0
 /// Toggle module: you turn it on/off and it does stuff.
-#define MODULE_TOGGLE 1
+#define MODULETYPE_TOGGLE 1
 /// Usable module: you can use these for a one-time effect; they are things that just Happen w/o a click action.
-#define MODULE_USABLE 2
+#define MODULETYPE_USABLE 2
 /// Actively usable module: you may only have one selected at a time, and give you a special click action.
-#define MODULE_USABLE_ACTIVE 3
+#define MODULETYPE_USABLE_ACTIVE 3
 
 /// The default cell drain of a hardsuit. The standard hardsuit active power usage drains this much energy per second.
 /// 30000 is the value chosen because by default, rigs are created with High Capacity Power Cells, which have that capacity.

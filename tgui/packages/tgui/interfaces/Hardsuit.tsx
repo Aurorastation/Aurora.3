@@ -4,7 +4,6 @@ import {
   Button,
   Collapsible,
   Dropdown,
-  Divider,
   LabeledList,
   NoticeBox,
   NumberInput,
@@ -17,7 +16,8 @@ import { Window } from '../layouts';
 import { BooleanLike } from '../../common/react';
 
 type RigCharge = {
-  caption: string;
+  chargetype: string;
+  charges: number;
   index: string;
 };
 
@@ -404,7 +404,10 @@ const ModulesSection = (props, context) => {
                     tooltipPosition="left"
                     disabled={selectDisabled}
                     onClick={() =>
-                      act('interact_module', { index: m.index, mode: 'select' })
+                      act('interact_module', {
+                        index: m.index,
+                        mode: 'select',
+                      })
                     }
                   />
                 </Table.Cell>
@@ -428,43 +431,35 @@ const ModulesSection = (props, context) => {
                       <Box fontSize="12px">{m.desc}</Box>
 
                       {!!m.charges?.length && (
-                        <>
-                          <Divider />
-                          <Box mb={0.5}>
-                            <Box inline bold>
-                              Selected charge:{' '}
-                            </Box>
-                            <Box inline>{m.chargetype || 'none'}</Box>
-                          </Box>
-
-                          <Stack wrap>
-                            {m.charges.map((c) => (
-                              <Stack.Item key={`${m.index}-${c.index}`}>
-                                <Button
-                                  onClick={() =>
-                                    act('interact_module', {
-                                      index: m.index,
-                                      mode: 'select_charge_type',
-                                      charge_type: c.index,
-                                    })
-                                  }
-                                >
-                                  {c.caption}
-                                </Button>
-                              </Stack.Item>
-                            ))}
-                          </Stack>
-                        </>
+                        <Stack wrap>
+                          {m.charges.map((c) => (
+                            <Stack.Item key={`${m.index}-${c.index}`}>
+                              <Button
+                                color={c.index === m.chargetype ? 'green' : ''}
+                                disabled={c.charges <= 0}
+                                onClick={() =>
+                                  act('interact_module', {
+                                    index: m.index,
+                                    mode: 'select_charge_type',
+                                    charge_type: c.index,
+                                  })
+                                }
+                              >
+                                {c.chargetype} ({c.charges})
+                              </Button>
+                            </Stack.Item>
+                          ))}
+                        </Stack>
                       )}
                     </Section>
                   </Collapsible>
                   <Box>
-                    {!!m.module_active && (
+                    {
                       <ConfigureScreen
                         configuration_data={m.configuration_data}
                         module_ref={m.ref}
                       />
-                    )}
+                    }
                   </Box>
                 </Table.Cell>
 
@@ -598,6 +593,7 @@ const ConfigureListEntry = (props, context) => {
 
   return (
     <Dropdown
+      width="280px"
       selected={value}
       options={values || []}
       onSelected={(v) =>

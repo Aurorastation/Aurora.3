@@ -93,8 +93,8 @@
 		G.process_hud(src)
 
 /mob/living/carbon/human/proc/process_rig(var/obj/item/rig/O)
-	if(O.visor && O.visor.active && O.visor.vision && O.visor.vision.glasses && (!O.helmet || (head && O.helmet == head)))
-		process_glasses(O.visor.vision.glasses)
+	if(O.visor && O.visor.active && O.visor.vision_mode && O.visor.vision_mode.glasses && (!O.helmet || (head && O.helmet == head)))
+		process_glasses(O.visor.vision_mode.glasses)
 
 /// Applies organ/markings prefs to this mob.
 /mob/living/carbon/human/proc/sync_organ_prefs_to_mob(datum/preferences/prefs, apply_prosthetics = TRUE, apply_markings = TRUE)

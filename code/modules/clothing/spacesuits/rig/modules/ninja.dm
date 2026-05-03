@@ -14,7 +14,7 @@
 	desc = "A robust hardsuit-integrated stealth module."
 	icon_state = "cloak"
 
-	module_type = MODULE_TOGGLE
+	module_type = MODULETYPE_TOGGLE
 	disruptable = TRUE
 	disruptive = FALSE
 	attackdisrupts = TRUE
@@ -70,7 +70,7 @@
 	icon_state = "teleporter"
 	use_power_cost = 40
 	redundant = TRUE
-	module_type = MODULE_USABLE_ACTIVE
+	module_type = MODULETYPE_USABLE_ACTIVE
 	var/lastteleport
 	var/phase_in_visual = /obj/effect/temp_visual/phase
 	var/phase_out_visual = /obj/effect/temp_visual/phase/out
@@ -185,7 +185,7 @@
 	name = "self-destruct module"
 	desc = "Oh my God, Captain. A bomb."
 	icon_state = "deadman"
-	module_type = MODULE_USABLE
+	module_type = MODULETYPE_USABLE
 	permanent = TRUE
 
 	engage_string = "Detonate"
@@ -228,7 +228,7 @@
 	name = "anti-theft system"
 	desc = "An advanced anti-theft system that tracks the user's lifesigns."
 	icon_state = "deadman"
-	module_type = MODULE_PASSIVE
+	module_type = MODULETYPE_PASSIVE
 	active = FALSE
 	permanent = FALSE
 
@@ -247,7 +247,7 @@
 	name = "EMP dissipation module"
 	desc = "A bewilderingly complex bundle of fiber optics and chips. Seems like it uses a good deal of power."
 	active_power_cost = 10
-	module_type = MODULE_TOGGLE
+	module_type = MODULETYPE_TOGGLE
 	use_power_cost = 70
 	module_cooldown = 30
 
@@ -276,7 +276,7 @@
 	name = "emergency power generator"
 	desc = "A high yield power generating device that takes a long time to recharge."
 	active_power_cost = 0
-	module_type = MODULE_USABLE
+	module_type = MODULETYPE_USABLE
 	confined_use = TRUE
 	var/cooldown = 0
 
@@ -333,7 +333,7 @@
 	desc = "An advanced door hacking tool that sports a low power cost and incredibly quick door hacking time. The device also supports hacking several signals at once remotely, and the last 10 doors hacked can be instantly accessed."
 	use_power_cost = 10
 	module_cooldown = 5
-	module_type = MODULE_TOGGLE
+	module_type = MODULETYPE_TOGGLE
 
 	interface_name = "advanced door hacking tool"
 	interface_desc = "An advanced door hacking tool that sports a low power cost and incredibly quick door hacking time. The device also supports hacking several signals at once remotely, and the last 10 doors hacked can be instantly accessed."

@@ -178,16 +178,17 @@
 //Proc for one-use abilities like teleport.
 /obj/item/rig_module/proc/engage(atom/target, mob/user)
 	if(damage >= 2)
-		playsound(src, 'sound/machines/terminal/terminal_error.ogg', 15, FALSE)
+		sound_to(user, 'sound/machines/terminal/terminal_error.ogg')
 		balloon_alert(user, "[interface_name] is damaged!")
 		return FALSE
 
 	if(world.time < next_use)
-		playsound(src, 'sound/machines/terminal/terminal_error.ogg', 15, FALSE)
+		sound_to(user, 'sound/machines/terminal/terminal_error.ogg')
 		balloon_alert(user, "[interface_name] on cooldown!")
 		return FALSE
 
 	if(!holder || holder.canremove)
+		sound_to(user, 'sound/machines/terminal/terminal_error.ogg')
 		balloon_alert(user, "suit not initialized!")
 		return FALSE
 
@@ -200,11 +201,12 @@
 		return FALSE
 
 	if(holder.security_check_enabled && holder.locked && !holder.check_suit_access(user))
-		playsound(src, 'sound/machines/terminal/terminal_error.ogg', 15, FALSE)
+		sound_to(user, 'sound/machines/terminal/terminal_error.ogg')
 		balloon_alert(user, "access denied!")
 		return FALSE
 
 	if(!holder.check_power_cost(user, use_power_cost, 0, src, (istype(user,/mob/living/silicon ? 1 : 0) ) ) )
+		sound_to(user, 'sound/effects/pop.ogg')
 		balloon_alert(user, "insufficient power!")
 		return FALSE
 
@@ -348,7 +350,7 @@
 	module_mode = "activate"
 
 /stat_rig_module/activate/CanUse()
-	return (module.module_type == MODULE_TOGGLE) && !module.active
+	return (module.module_type == MODULETYPE_TOGGLE) && !module.active
 
 /stat_rig_module/deactivate/New(var/obj/item/rig_module/module)
 	..()
@@ -360,7 +362,7 @@
 	module_mode = "deactivate"
 
 /stat_rig_module/deactivate/CanUse()
-	return (module.module_type == MODULE_TOGGLE) && module.active
+	return (module.module_type == MODULETYPE_TOGGLE) && module.active
 
 /stat_rig_module/engage/New(var/obj/item/rig_module/module)
 	..()
@@ -370,7 +372,7 @@
 	module_mode = "engage"
 
 /stat_rig_module/engage/CanUse()
-	return module.module_type == MODULE_USABLE && !module.active
+	return module.module_type == MODULETYPE_USABLE && !module.active
 
 /stat_rig_module/select/New()
 	..()
@@ -378,7 +380,7 @@
 	module_mode = "select"
 
 /stat_rig_module/select/CanUse()
-	if(module.module_type == MODULE_USABLE_ACTIVE)
+	if(module.module_type == MODULETYPE_USABLE_ACTIVE)
 		name = module.holder.selected_module == module ? "Selected" : "Select"
 		return TRUE
 	return FALSE

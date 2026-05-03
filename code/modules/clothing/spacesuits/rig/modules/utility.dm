@@ -22,7 +22,7 @@
 /obj/item/rig_module/device
 	name = "mounted device"
 	desc = "Some kind of hardsuit mount."
-	module_type = MODULE_USABLE_ACTIVE
+	module_type = MODULETYPE_USABLE_ACTIVE
 	disruptive = FALSE
 
 	var/device_type
@@ -54,7 +54,7 @@
 	interface_name = "vitals tracker"
 	interface_desc = "Shows an informative health readout of the user."
 
-	module_type = MODULE_USABLE
+	module_type = MODULETYPE_USABLE
 
 	category = MODULE_GENERAL
 
@@ -63,7 +63,7 @@
 	name = "hardsuit diamond drill mount"
 	desc = "A very heavy diamond-tipped drill."
 	icon_state = "drill"
-	module_type = MODULE_USABLE_ACTIVE
+	module_type = MODULETYPE_USABLE_ACTIVE
 	interface_name = "mounted drill"
 	interface_desc = "A diamond-tipped industrial drill."
 	suit_overlay_active = "mounted-drill"
@@ -118,7 +118,7 @@
 	icon_state = "rcd"
 	interface_name = "mounted RFD-C"
 	interface_desc = "A device for building or removing walls. Cell-powered."
-	module_type = MODULE_USABLE_ACTIVE
+	module_type = MODULETYPE_USABLE_ACTIVE
 	engage_string = "Configure RFD-C"
 	construction_cost = list(DEFAULT_WALL_MATERIAL = 30000, MATERIAL_PHORON = 12500, MATERIAL_SILVER = 10000, MATERIAL_GOLD = 10000)
 	construction_time = 1000
@@ -169,7 +169,7 @@
 	name = "mounted chemical dispenser"
 	desc = "A complex web of tubing and needles suitable for hardsuit use."
 	icon_state = "injector"
-	module_type = MODULE_USABLE
+	module_type = MODULETYPE_USABLE
 	disruptive = FALSE
 	confined_use = TRUE
 	construction_cost = list(DEFAULT_WALL_MATERIAL=10000, MATERIAL_GLASS =9250, MATERIAL_GOLD =2500, MATERIAL_SILVER =4250,"phoron"=5500)
@@ -345,7 +345,7 @@
 /obj/item/rig_module/chem_dispenser/injector
 	name = "mounted chemical injector"
 	desc = "A complex web of tubing and a large needle suitable for hardsuit use."
-	module_type = MODULE_USABLE_ACTIVE
+	module_type = MODULETYPE_USABLE_ACTIVE
 	disruptive = 1
 	construction_cost = list(DEFAULT_WALL_MATERIAL = 10000, MATERIAL_GLASS = 9250, MATERIAL_GOLD = 2500, MATERIAL_SILVER = 4250, MATERIAL_PHORON = 5500)
 	construction_time = 400
@@ -367,7 +367,7 @@
 	name = "hardsuit voice synthesiser"
 	desc = "A speaker box and sound processor."
 	icon_state = "megaphone"
-	module_type = MODULE_USABLE
+	module_type = MODULETYPE_USABLE
 	disruptive = FALSE
 	confined_use = TRUE
 
@@ -431,7 +431,7 @@
 	name = "hardsuit maneuvering jets"
 	desc = "A compact gas thruster system for a hardsuit."
 	icon_state = "thrusters"
-	module_type = MODULE_TOGGLE
+	module_type = MODULETYPE_TOGGLE
 	disruptive = FALSE
 	construction_cost = list(DEFAULT_WALL_MATERIAL = 15000, MATERIAL_GLASS = 4250, MATERIAL_SILVER = 4250, MATERIAL_URANIUM = 5250)
 	construction_time = 300
@@ -521,7 +521,7 @@
 	name = "hardsuit paper dispenser"
 	desc = "Crisp sheets."
 	icon_state = "paper"
-	module_type = MODULE_USABLE
+	module_type = MODULETYPE_USABLE
 	interface_name = "paper dispenser"
 	interface_desc = "Dispenses warm, clean, and crisp sheets of paper."
 	engage_string = "Dispense"
@@ -541,7 +541,7 @@
 	name = "mounted pen"
 	desc = "For mecha John Hancocks."
 	icon_state = "pen"
-	module_type = MODULE_USABLE
+	module_type = MODULETYPE_USABLE
 	interface_name = "mounted pen"
 	interface_desc = "Signatures with style(tm)."
 	engage_string = "Change color"
@@ -552,7 +552,7 @@
 /obj/item/rig_module/device/stamp
 	name = "mounted internal affairs stamp"
 	desc = "DENIED."
-	module_type = MODULE_USABLE
+	module_type = MODULETYPE_USABLE
 	icon_state = "stamp"
 	interface_name = "mounted stamp"
 	interface_desc = "Leave your mark."
@@ -603,7 +603,7 @@
 	name = "leg actuators"
 	desc = "A set of electromechanical actuators, for safe traversal of multilevelled areas."
 	icon_state = "actuators"
-	module_type = MODULE_USABLE_ACTIVE
+	module_type = MODULETYPE_USABLE_ACTIVE
 	interface_name = "leg actuators"
 	interface_desc = "Allows you to fall from heights and to jump up onto ledges."
 
@@ -758,9 +758,9 @@
 
 /obj/item/rig_module/cooling_unit
 	name = "mounted cooling unit"
-	module_type = MODULE_TOGGLE
+	module_type = MODULETYPE_TOGGLE
 	origin_tech = list(TECH_MAGNET = 2, TECH_MATERIAL = 2, TECH_ENGINEERING = 3)
-	module_type = MODULE_USABLE
+	module_type = MODULETYPE_USABLE
 	interface_name = "mounted cooling unit"
 	interface_desc = "A heat sink with liquid cooled radiator."
 	icon_state = "suitcooler"
@@ -810,7 +810,7 @@
 	icon_state = "actuators"
 	interface_name = "boring laser"
 	interface_desc = "Allows you to burrow to the z-level below."
-	module_type = MODULE_USABLE
+	module_type = MODULETYPE_USABLE
 
 	disruptive = 1
 
@@ -840,11 +840,11 @@ GLOBAL_LIST_EMPTY(lattice_users)
 	icon_state = "actuators"
 	interface_name = "neural lattice"
 	interface_desc = "Synchronize neural lattice to reduce pain."
-	module_type = MODULE_USABLE
+	module_type = MODULETYPE_USABLE
 
 	disruptive = FALSE
 
-	module_type = MODULE_TOGGLE
+	module_type = MODULETYPE_TOGGLE
 	confined_use = TRUE
 
 	category = MODULE_VAURCA
@@ -868,7 +868,7 @@ GLOBAL_LIST_EMPTY(lattice_users)
 /obj/item/rig_module/foam_sprayer
 	name = "mounted foam sprayer"
 	desc = "A shoulder-mounted metal foam sprayer."
-	module_type = MODULE_USABLE_ACTIVE
+	module_type = MODULETYPE_USABLE_ACTIVE
 	icon_state = "actuators"
 
 	interface_name = "integrated foam sprayer"
@@ -913,12 +913,12 @@ GLOBAL_LIST_EMPTY(lattice_users)
 /obj/item/rig_module/recharger
 	name = "weapon recharge module"
 	desc = "A specialised power cable designed to connect an energy weapon to a hardsuit's power supply."
-	module_type = MODULE_TOGGLE
+	module_type = MODULETYPE_TOGGLE
 	icon_state = "powersink"
 	interface_name = "integrated weapon recharger"
 	interface_desc = "Can connect to an energy weapon, recharging it off the hardsuit's power supply. Drag the weapon onto the hardsuit control module to connect it."
 	category = MODULE_LIGHT_COMBAT
-	module_type = MODULE_USABLE
+	module_type = MODULETYPE_USABLE
 	disruptive = FALSE
 	confined_use = TRUE
 	///The gun charging off our hardsuit

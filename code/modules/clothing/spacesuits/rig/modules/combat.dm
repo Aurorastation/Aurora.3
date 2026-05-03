@@ -20,7 +20,7 @@
 /obj/item/rig_module/grenade_launcher
 	name = "mounted grenade launcher"
 	desc = "A shoulder-mounted micro-explosive dispenser."
-	module_type = MODULE_USABLE_ACTIVE
+	module_type = MODULETYPE_USABLE_ACTIVE
 	icon_state = "grenade"
 
 	interface_name = "integrated grenade launcher"
@@ -78,7 +78,7 @@
 		return FALSE
 
 	if(charge.charges <= 0)
-		to_chat(user, SPAN_WARNING("Insufficient grenades!"))
+		balloon_alert(user, "insufficient grenades!")
 		return FALSE
 
 	charge.charges--
@@ -113,7 +113,7 @@
 /obj/item/rig_module/mounted
 	name = "mounted laser cannon"
 	desc = "A shoulder-mounted battery-powered laser cannon mount."
-	module_type = MODULE_USABLE_ACTIVE
+	module_type = MODULETYPE_USABLE_ACTIVE
 	module_cooldown = 0
 	icon_state = "lcannon"
 
@@ -344,7 +344,7 @@
 /obj/item/rig_module/fabricator
 	name = "matter fabricator"
 	desc = "A self-contained microfactory system for hardsuit integration."
-	module_type = MODULE_USABLE_ACTIVE
+	module_type = MODULETYPE_USABLE_ACTIVE
 	use_power_cost = 10
 	icon_state = "enet"
 
@@ -399,7 +399,7 @@
 	icon_state = "ewar"
 	interface_name = "mounted tesla coil"
 	interface_desc ="Discharges a powerful lightning strike around the user."
-	module_type = MODULE_USABLE
+	module_type = MODULETYPE_USABLE
 	use_power_cost = 30
 	module_cooldown = 100
 	category = MODULE_LIGHT_COMBAT

@@ -671,7 +671,8 @@
 			for(var/chargetype in module.charges)
 				var/datum/rig_charge/charge = module.charges[chargetype]
 				module_data["charges"] += list(list(
-					"caption" = "[chargetype] ([charge.charges])",
+					"chargetype" = "[chargetype]",
+					"charges" = "[charge.charges]",
 					"index" = "[chargetype]"
 				))
 
@@ -755,14 +756,21 @@
 
 		if("configure")
 			var/obj/item/rig_module/module = locate(params["ref"]) in installed_modules
+			to_chat(world, "attempting to configure module [params["ref"]]. found [module ? module.name : "NOTHING"]")
 			if(!module)
 				return
+			to_chat(world, "passing key [params["key"]] with value [params["value"]]")
 			module.configure_edit(params["key"], params["value"])
 
 	user.set_machine(src)
 	src.add_fingerprint(user)
 
 	return TRUE
+
+/obj/item/rig/ui_status(mob/user)
+	. = ..()
+	if(issilicon(user) && istype(usr.loc.loc, /obj/item/rig_module))
+		return UI_INTERACTIVE
 
 /obj/item/rig/proc/notify_ai(var/message)
 	for(var/obj/item/rig_module/ai_container/module in installed_modules)

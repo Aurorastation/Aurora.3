@@ -7,6 +7,10 @@
 /obj/effect/decal/curb{
 	dir = 1
 	},
+/obj/item/rig/unathi/fancy/equipped{
+	species_restricted = null;
+	req_access = list()
+	},
 /turf/simulated/floor/tiled/full,
 /area/hallway/primary/central_one)
 "ac" = (
@@ -7048,6 +7052,9 @@
 /obj/effect/decal/curb{
 	dir = 1
 	},
+/obj/item/rig/ert/assetprotection{
+	req_access = list()
+	},
 /turf/simulated/floor/tiled/full,
 /area/hallway/primary/central_one)
 "MD" = (
@@ -7313,6 +7320,9 @@
 /obj/structure/railing/mapped/no_density/low,
 /obj/effect/decal/curb{
 	dir = 1
+	},
+/obj/item/rig/merc/einstein/ninja{
+	req_access = list()
 	},
 /turf/simulated/floor/tiled/full,
 /area/hallway/primary/central_one)

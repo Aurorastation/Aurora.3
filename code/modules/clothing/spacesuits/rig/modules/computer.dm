@@ -23,7 +23,7 @@
 		to_chat(usr, SPAN_WARNING("Your module is not installed in a hardsuit."))
 		return
 
-	module.holder.ui_interact(usr, nano_state = GLOB.contained_state)
+	module.holder.ui_interact(usr)
 
 /mob
 	var/get_rig_stats = 0
@@ -32,7 +32,7 @@
 	name = "IIS module"
 	desc = "An integrated intelligence system module suitable for most hardsuits."
 	icon_state = "IIS"
-	module_type = MODULE_TOGGLE
+	module_type = MODULETYPE_TOGGLE
 	activates_on_touch = TRUE
 	confined_use = TRUE
 
@@ -46,8 +46,10 @@
 	interface_name = "integrated intelligence system"
 	interface_desc = "A socket that supports a range of artificial intelligence systems."
 
-	var/mob/integrated_ai // Direct reference to the actual mob held in the suit.
-	var/obj/item/ai_card  // Reference to the MMI, posibrain, intellicard or pAI card previously holding the AI.
+	/// Direct reference to the actual mob held in the suit.
+	var/mob/integrated_ai
+	/// Reference to the MMI, posibrain, intellicard or pAI card previously holding the AI.
+	var/obj/item/ai_card
 	var/obj/item/ai_verbs/verb_holder
 
 	category = MODULE_GENERAL
@@ -226,7 +228,7 @@
 	desc = "A simple induction datalink module."
 	icon_state = "datajack"
 	activates_on_touch = TRUE
-	module_type = MODULE_USABLE
+	module_type = MODULETYPE_USABLE
 
 	engage_string = "Eject AI"
 	activate_string = "Enable Datajack"
@@ -316,7 +318,7 @@
 	name = "electrowarfare module"
 	desc = "A bewilderingly complex bundle of fiber optics and chips."
 	icon_state = "ewar"
-	module_type = MODULE_TOGGLE
+	module_type = MODULETYPE_TOGGLE
 	confined_use = TRUE
 
 	activate_string = "Enable Countermeasures"
@@ -349,7 +351,7 @@
 	name = "hardsuit power sink"
 	desc = "An heavy-duty power sink."
 	icon_state = "powersink"
-	module_type = MODULE_TOGGLE
+	module_type = MODULETYPE_TOGGLE
 	activates_on_touch = TRUE
 	disruptive = FALSE
 
