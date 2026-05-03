@@ -251,37 +251,3 @@
 		records += list("id" = query.item[1], "created_at" = query.item[2], "value" = query.item[3])
 	qdel(query)
 	return records
-
-/**
- * Get all values for specified type+attribue.
- * PARAMS:
- * 	type_id =	ID of type
- *  attribute =	Custom attribute of the record, can be null.
- * RETURN:
- *  List of string values.
- */
-/datum/controller/subsystem/persistence/proc/historyDatabaseGetAllValues(type_id, attribute)
-	PRIVATE_PROC(TRUE)
-	if(!databaseCheckConnection("historyDatabaseGetAllValues"))
-		return 0
-
-	var/datum/db_query/query = SSdbcore.NewQuery(
-		"SELECT value FROM ss13_persistent_history \
-		WHERE type = :type_id AND attribute = :attribute \
-		ORDER BY id DESC",
-		list(
-			"type_id" = type_id,
-			"attribute" = attribute
-		)
-	)
-	query.Execute()
-
-	if(!databaseCheckQueryResult(query, "historyDatabaseGetAllValues"))
-		qdel(query)
-		return null
-
-	var/values = list()
-	while(query.NextRow())
-		values += query.item[1]
-	qdel(query)
-	return values
