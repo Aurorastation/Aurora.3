@@ -28,13 +28,13 @@
 	// Check if record container exists, if not, create it
 	var/datum/persistent_record_container/container = null
 	for(var/datum/persistent_record_container/c as anything in history_cache)
-		if(c.type_id == target_type.definition_type_value && c.attribute == attribute)
+		if(c.type_define == target_type.type && c.attribute == attribute)
 			container = c
 			break
 
 	if(!container)
 		container = new /datum/persistent_record_container
-		container.type_id = target_type.definition_type_value
+		container.type_define = target_type.type
 		container.attribute = attribute
 		container.records = list()
 		history_cache += container
@@ -70,7 +70,7 @@
 
 	var/datum/persistent_record_container/container = null
 	for(var/datum/persistent_record_container/c as anything in history_cache)
-		if(c.type_id == target_type.definition_type_value && c.attribute == attribute)
+		if(c.type_define == target_type.type && c.attribute == attribute)
 			container = c
 			break
 
@@ -87,13 +87,13 @@
 				return found_r
 	else
 		container = new /datum/persistent_record_container
-		container.type_id = target_type.definition_type_value
+		container.type_define = target_type.type
 		container.attribute = attribute
 		container.records = list()
 		history_cache += container
 
 	// Query order - 2
-	var/list/results = typesHistoryDatabaseGetRecords(target_type.definition_type_value, attribute, 1)
+	var/list/results = typesHistoryDatabaseGetRecords(target_type.database_id, attribute, 1)
 	if(length(results))
 		return null
 
@@ -130,7 +130,7 @@
 
 	var/datum/persistent_record_container/container = null
 	for(var/datum/persistent_record_container/c as anything in history_cache)
-		if(c.type_id == target_type.definition_type_value && c.attribute == attribute)
+		if(c.type_define == target_type.type && c.attribute == attribute)
 			container = c
 			break
 
@@ -143,14 +143,14 @@
 			return top
 	else
 		container = new /datum/persistent_record_container
-		container.type_id = target_type.definition_type_value
+		container.type_define = target_type.type
 		container.attribute = attribute
 		container.records = list()
 		history_cache += container
 
 	// Query order - 2
-	var/list/results = typesHistoryDatabaseGetRecords(target_type.definition_type_value, attribute, limit - length(top)) // Draw remaining missing records from DB
-	if(length(results))
+	var/list/results = typesHistoryDatabaseGetRecords(target_type.database_id, attribute, limit - length(top)) // Draw remaining missing records from DB
+	if(!length(results))
 		return list()
 
 	for(var/result in results)

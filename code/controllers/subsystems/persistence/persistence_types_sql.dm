@@ -25,3 +25,31 @@
 
 	databaseCheckQueryResult(upsert_query, "typesDatabaseUpsertType")
 	qdel(upsert_query)
+
+/**
+ * Get ID of type definition.
+ * PARAMS:
+ *	type_name = Type name of singleton definition.
+ * RETURN:
+ *	Database ID of type.
+ */
+/datum/controller/subsystem/persistence/proc/typesDatabaseGetTypeIdByName(type_name)
+	PRIVATE_PROC(TRUE)
+	if(!databaseCheckConnection("typesDatabaseGetTypeIdByName"))
+		return 0
+
+	var/datum/db_query/query = SSdbcore.NewQuery(
+		"SELECT id FROM ss13_persistent_type_defines WHERE type = :type_name",
+		list("type_name" = type_name)
+	)
+	query.Execute()
+
+	if(!databaseCheckQueryResult(query, "typesDatabaseGetTypeIdByName"))
+		qdel(query)
+		return 0
+
+	var/type_name = null
+	if(query.NextRow())
+		type_name = query.item[1]
+	qdel(query)
+	return type_name

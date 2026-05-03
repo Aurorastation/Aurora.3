@@ -54,6 +54,7 @@ ABSTRACT_TYPE(/singleton/persistent_type_history_expiration_rule/age)
 
 // Persistent type definition found in database
 ABSTRACT_TYPE(/singleton/persistent_type)
+	var/database_id = 0 // Set during subsystem init
 	var/definition_type_value = 0 // Hard coded in "ss13_persistent_type_definitions.definition_type", DO NOT MODIFY - Database constant
 	var/title = ""
 	var/description = ""
@@ -127,7 +128,7 @@ ABSTRACT_TYPE(/singleton/persistent_type/history/character)
 ###################################################*/
 
 /datum/persistent_record_container // Container for combining records of type(+attribute)
-	var/type_id = 0 // Definition type
+	var/singleton/persistent_type/history/type_define = null // Definition type
 	var/attribute = null // Attribute for aggregation records into type+attribute groups
 	var/list/datum/persistent_record/records = list() // Container contents
 

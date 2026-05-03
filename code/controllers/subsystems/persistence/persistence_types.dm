@@ -4,40 +4,23 @@
 /datum/controller/subsystem/persistence/proc/typesInitialize()
 	PRIVATE_PROC(TRUE)
 	// Types init:
-	// Upsert persistent types, excluding base types
-	// Clean persistent history types by type-specified expiration rules
-	// Persistent history cache init
+	// Upsert all types found in code into database
+	// Get type ID of each type found in code by name lookup
+	// Init history cache
+	// Run cleanup on history records
 
 	// Types upsert
 	// Base types to exclude
 	var/base_types = list(/singleton/persistent_type, /singleton/persistent_type/generic, /singleton/persistent_type/history, /singleton/persistent_type/history/character)
-	var/custom_types = typesof(/singleton/persistent_type) - base_types
+	var/custom_types = typesof(/singleton/persistent_type) - base_types // These are the types we are actually dealing with
 
 	// Upsert all persistent type definitions found in code
 	for (var/singleton/persistent_type/T in custom_types)
 		typesDatabaseUpsertType("[T]", T.title, T.description, T.definition_type_value)
 
-	// Clean persistent history
-	// - Get each used type from database in combination with it's attribute (type+attribute combination called container)
-	// - Check what needs to be done to clean it
-	// - Clean type+attribute combination based of its types expiration rule
-	var/list/containers = list()
-
-	for(var/singleton/persistent_type/T in custom_types) // Iterate through each type to clean by it's own rule
-		if(!istype(T, /singleton/persistent_type/history)) // Only history has such rules
-			continue
-		var/singleton/persistent_type/history/H = T
-		// Each rule has a different execution flow
-		if(istype(H.expiration_rule, /singleton/persistent_type_history_expiration_rule/row_count))
-			var/max_row_count = astype(H.expiration_rule, /singleton/persistent_type_history_expiration_rule/row_count).max_row_count
-
-		if(istype(H.expiration_rule, /singleton/persistent_type_history_expiration_rule/round_count))
-			var/max_round_count = astype(H.expiration_rule, /singleton/persistent_type_history_expiration_rule/round_count).max_round_count
-
-		if(istype(H.expiration_rule, /singleton/persistent_type_history_expiration_rule/age))
-			var/max_age_days = astype(H.expiration_rule, /singleton/persistent_type_history_expiration_rule/age).max_age_days
-
-
+	// For each in code existing type definition retrieve it's ID
+	for (var/singleton/persistent_type/T in custom_types)
+		T.database_id = typesDatabaseGetTypeIdByName("[T]")
 
 	// Init internal history cache
 	history_last_id = typesHistoryDatabaseGetLastID()
@@ -46,6 +29,27 @@
 	else
 		history_virtual_id = history_last_id
 		history_cache = list()
+
+	// Clean history records
+	for(var/type_combination in typesHistoryDatabaseGetTypeAttributeCombinations()) // Iterate through each distinct type+attribute combination
+		var/type_id = type_combination["type_id"]
+		var/attribute = type_combination["attribute"]
+		var/singleton/persistent_type/history/found_type
+		for (var/singleton/persistent_type/T in custom_types)
+			if(istype(T, /singleton/persistent_type/history) && T.database_id == type_id)
+				found_type = T
+		if(!found_type)
+			continue // The type found in the database is no longer available in the codebase
+		// Clean by the individual cleanup rule
+		if(istype(found_type.expiration_rule, /singleton/persistent_type_history_expiration_rule/row_count))
+			var/max_row_count = astype(found_type.expiration_rule, /singleton/persistent_type_history_expiration_rule/row_count).max_row_count
+			typesHistoryDatabaseCleanByRowCount(found_type.database_id, attribute, max_row_count)
+		if(istype(found_type.expiration_rule, /singleton/persistent_type_history_expiration_rule/round_count))
+			var/max_round_count = astype(found_type.expiration_rule, /singleton/persistent_type_history_expiration_rule/round_count).max_round_count
+			typesHistoryDatabaseCleanByRoundCount(found_type.database_id, attribute, max_round_count)
+		if(istype(found_type.expiration_rule, /singleton/persistent_type_history_expiration_rule/age))
+			var/max_age_days = astype(found_type.expiration_rule, /singleton/persistent_type_history_expiration_rule/age).max_age_days
+			typesHistoryDatabaseCleanByMaxAgeDays(found_type.database_id, attribute, max_age_days)
 
 /**
  * Finalize persistent types.
@@ -66,7 +70,7 @@
 				new_records += r
 		sortTim(new_records, /proc/cmp_persistent_record_id_asc) // Sort by ID to preserve creation order, as the virtual IDs get replaced by real database IDs.
 		for(var/datum/persistent_record/r in new_records)
-			typesHistoryDatabaseInsertRecord(c.type_id, c.attribute, r.value)
+			typesHistoryDatabaseInsertRecord(c.type_define.database_id, c.attribute, r.value)
 
 /**
  * Internal proc for assigning new IDs to history records, these are used for internal cache tracking and will be discard by database IDs at finalization.
