@@ -11,11 +11,11 @@
 		log_subsystem_persistence_warning("Attempted to add history record with null target type.")
 		return
 
-	if(target_type.requires_attribute && !attribute)
+	if(target_type.requires_attribute && !length(attribute))
 		log_subsystem_persistence_warning("Attempted to add history record of type [target_type] without required attribute.")
 		return
 
-	if(!value)
+	if(!length(value))
 		log_subsystem_persistence_warning("Attempted to add history record of type [target_type] with empty value.")
 		return
 
