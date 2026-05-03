@@ -184,9 +184,9 @@
 		list("tricordrazine",	"tricordrazine",	/singleton/reagent/tricordrazine,		80),
 		list("mortaphenyl",		"mortaphenyl",		/singleton/reagent/mortaphenyl,			80),
 		list("dexalin plus",	"dexalinp",			/singleton/reagent/dexalin/plus,		80),
-		list("antibiotics",		"thetamycin",		/singleton/reagent/thetamycin,			80),
-		list("antitoxins",		"dylovene",			/singleton/reagent/dylovene,			80),
-		list("nutrients",		"glucose",			/singleton/reagent/nutriment/glucose,	80),
+		list("thetamycin",		"thetamycin",		/singleton/reagent/thetamycin,			80),
+		list("dylovene",		"dylovene",			/singleton/reagent/dylovene,			80),
+		list("glucose",			"glucose",			/singleton/reagent/nutriment/glucose,	80),
 		list("hyronalin",		"hyronalin",		/singleton/reagent/hyronalin,			80),
 		list("synaptizine",		"synaptizine",		/singleton/reagent/synaptizine,			80),
 		list("radium",			"radium",			/singleton/reagent/radium,				80)
@@ -204,8 +204,8 @@
 		list("tricordrazine",	"tricordrazine",	/singleton/reagent/tricordrazine,		20),
 		list("mortaphenyl",		"mortaphenyl",		/singleton/reagent/mortaphenyl,			20),
 		list("dexalin plus",	"dexalinp",			/singleton/reagent/dexalin/plus,		20),
-		list("antibiotics",		"thetamycin",		/singleton/reagent/thetamycin,			20),
-		list("antitoxins",		"dylovene",			/singleton/reagent/dylovene,			20),
+		list("thetamycin",		"thetamycin",		/singleton/reagent/thetamycin,			20),
+		list("dylovene",		"dylovene",			/singleton/reagent/dylovene,			20),
 		list("nutrients",		"glucose",			/singleton/reagent/nutriment/glucose,	80),
 		list("hyronalin",		"hyronalin",		/singleton/reagent/hyronalin,			20),
 		list("synaptizine",		"synaptizine",		/singleton/reagent/synaptizine,			20),
@@ -253,7 +253,7 @@
 	var/mob/living/carbon/human/H = holder.wearer
 
 	if(!charge_selected)
-		to_chat(user, SPAN_WARNING("You have not selected a chemical type."))
+		balloon_alert(user, "no chem selected!")
 		return FALSE
 
 	var/datum/rig_charge/charge = charges[charge_selected]
@@ -263,7 +263,7 @@
 
 	var/chems_to_use = 5
 	if(charge.charges <= 0)
-		to_chat(user, SPAN_WARNING("Insufficient chems!"))
+		balloon_alert(user, "out of chem!")
 		return FALSE
 	else if(charge.charges < chems_to_use)
 		chems_to_use = charge.charges
@@ -291,6 +291,8 @@
 	charge.charges -= chems_to_use
 	if(charge.charges < 0)
 		charge.charges = 0
+
+	playsound(src,'sound/items/reagent_containers/liquid/plastic_bottle_liquid_slosh1.ogg',25,1)
 
 	return TRUE
 

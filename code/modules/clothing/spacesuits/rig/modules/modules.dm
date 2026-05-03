@@ -68,13 +68,22 @@
 	//Display fluff
 	var/interface_name = "hardsuit upgrade"
 	var/interface_desc = "A generic hardsuit upgrade."
+	/// This is a string when a module with an active use is engaged, fire and forget-style.
 	var/engage_string = "Engage"
+	/// This is when a module is toggled on.
 	var/activate_string = "Activate"
+	/// This is when a module is toggled off.
 	var/deactivate_string = "Deactivate"
 
 	var/list/stat_rig_module/stat_modules = new()
 	/// Use for restricting modules for specific suits, to specialize
 	var/category
+
+	/// Sound played (to user only) when user changes a module configuration setting.
+	var/sound_config = 'sound/machines/terminal/terminal_select.ogg'
+	/// Sound played (to user only) when user activates a module.
+	var/sound_activate = 'sound/machines/terminal/terminal_select.ogg'
+	/// Sound played (to user only) when user deactivates a module.
 
 /obj/item/rig_module/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
@@ -175,8 +184,8 @@
 			if(B)
 				B.set_color_for(COLOR_RED, module_cooldown)
 
-//Proc for one-use abilities like teleport.
-/obj/item/rig_module/proc/engage(atom/target, mob/user)
+/// Handles all usage checks for rig module use; both engage and activate use this.
+/obj/item/rig_module/proc/check_can_use(mob/user)
 	if(damage >= 2)
 		sound_to(user, 'sound/machines/terminal/terminal_error.ogg')
 		balloon_alert(user, "[interface_name] is damaged!")
@@ -192,8 +201,7 @@
 		balloon_alert(user, "suit not initialized!")
 		return FALSE
 
-	if(user.lying || user.stat || user.stunned || user.paralysis || user.weakened)
-		to_chat(user, SPAN_WARNING("You cannot use the suit in this state."))
+	if(use_check_and_message(user, USE_ALLOW_NON_ADJACENT))
 		return FALSE
 
 	if(holder.wearer && holder.wearer.lying)
@@ -201,13 +209,25 @@
 		return FALSE
 
 	if(holder.security_check_enabled && holder.locked && !holder.check_suit_access(user))
-		sound_to(user, 'sound/machines/terminal/terminal_error.ogg')
-		balloon_alert(user, "access denied!")
+		// No sound or balloon alert here, because they live in check_suit_access()
 		return FALSE
 
-	if(!holder.check_power_cost(user, use_power_cost, 0, src, (istype(user,/mob/living/silicon ? 1 : 0) ) ) )
+	if(holder.sealing)
+		sound_to(user, 'sound/machines/terminal/terminal_error.ogg')
+		balloon_alert(user, "suit busy adjusting seals!")
+		return FALSE
+
+	var/is_user_silicon = issilicon(user)
+	if(!holder.check_power_cost(user, use_power_cost, 0, src, is_user_silicon) || !holder.check_power_cost(user, active_power_cost, 0, src, is_user_silicon))
 		sound_to(user, 'sound/effects/pop.ogg')
 		balloon_alert(user, "insufficient power!")
+		return FALSE
+
+	return TRUE
+
+//Proc for one-use abilities like teleport.
+/obj/item/rig_module/proc/engage(atom/target, mob/user)
+	if(!check_can_use(user))
 		return FALSE
 
 	if(!confined_use && istype(user.loc, /mob/living/heavy_vehicle))
@@ -221,7 +241,7 @@
 	if(active)
 		return FALSE
 
-	if(use_check_and_message(user, USE_ALLOW_NON_ADJACENT))
+	if(!check_can_use(user))
 		return FALSE
 
 	active = TRUE
@@ -346,7 +366,7 @@
 	..()
 	name = module.activate_string
 	if(module.active_power_cost)
-		name += " ([module.active_power_cost*10]A)"
+		name += " ([module.active_power_cost]A)"
 	module_mode = "activate"
 
 /stat_rig_module/activate/CanUse()
@@ -357,7 +377,7 @@
 	name = module.deactivate_string
 	// Show cost despite being 0, if it means changing from an active cost.
 	if(module.active_power_cost || module.passive_power_cost)
-		name += " ([module.passive_power_cost*10]P)"
+		name += " ([module.passive_power_cost]P)"
 
 	module_mode = "deactivate"
 
@@ -368,7 +388,7 @@
 	..()
 	name = module.engage_string
 	if(module.use_power_cost)
-		name += " ([module.use_power_cost*10]E)"
+		name += " ([module.use_power_cost]E)"
 	module_mode = "engage"
 
 /stat_rig_module/engage/CanUse()

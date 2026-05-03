@@ -73,6 +73,7 @@ type Data = {
   maxcharge: number;
   chargedisplay: string;
   chargestatus: number;
+  time_to_drain: string;
   emagged: BooleanLike;
 
   coverlock: BooleanLike;
@@ -80,6 +81,8 @@ type Data = {
 
   aicontrol: BooleanLike;
   aioverride: BooleanLike;
+
+  id_lock: BooleanLike;
 
   securitycheck: BooleanLike;
   malf: number;
@@ -97,7 +100,6 @@ const SuitStatusSection = (props, context) => {
   const { act, data } = useBackend<Data>(context);
   const interfaceOffline = !!data.interfacelock || (data.malf ?? 0) > 0;
   const aiOverriddenForWearer = !!data.aicontrol && !data.ai;
-  const coverControlOffline = !!data.emagged || !data.securitycheck;
 
   const chargeFrac =
     data.maxcharge > 0
@@ -108,13 +110,6 @@ const SuitStatusSection = (props, context) => {
     if (data.sealing) return pill('PROCESSING', 'average');
     if (data.seals) return pill('INACTIVE', 'bad');
     return pill('ACTIVE', 'good');
-  })();
-
-  const coverStatus = (() => {
-    if (coverControlOffline) {
-      return pill('ERROR - MAINT LOCK OFFLINE', 'average');
-    }
-    return data.coverlock ? pill('LOCKED', 'bad') : pill('UNLOCKED', 'good');
   })();
 
   return (
@@ -141,51 +136,40 @@ const SuitStatusSection = (props, context) => {
         <LabeledList.Item label="Charge">
           <ProgressBar value={chargeFrac}>{data.chargedisplay}</ProgressBar>
         </LabeledList.Item>
-        <LabeledList.Item>
-          <Button icon="shield" onClick={() => act('examine_armor')}>
-            Armor
-          </Button>
-          <Button icon="file-alt" onClick={() => act('examine_fluff')}>
-            Info
-          </Button>
+        <LabeledList.Item label="Charge Duration">
+          <Box color="average">{data.time_to_drain}</Box>
         </LabeledList.Item>
+
         <LabeledList.Item label="Suit">{suitStatus}</LabeledList.Item>
 
-        <LabeledList.Item
-          label="Cover"
-          buttons={
-            <Button
-              icon={data.coverlock ? 'lock' : 'lock-open'}
-              disabled={coverControlOffline}
-              onClick={() => act('toggle_suit_lock')}
-            >
-              Toggle
-            </Button>
-          }
-        >
-          {coverStatus}
+        <LabeledList.Item label="Cover">
+          {' '}
+          <Button
+            icon={data.coverlock ? 'lock' : 'lock-open'}
+            onClick={() => act('toggle_suit_lock')}
+          >
+            {data.coverlock ? pill('ENABLED', 'good') : pill('DISABLED', 'bad')}
+          </Button>
         </LabeledList.Item>
 
-        <LabeledList.Item
-          label="AI Override"
-          buttons={
-            <Button
-              icon="circle-arrow-right"
-              onClick={() => act('toggle_ai_control')}
-            >
-              Toggle
-            </Button>
-          }
-        >
-          {data.aioverride ? pill('ENABLED', 'good') : pill('DISABLED', 'bad')}
+        <LabeledList.Item label="AI Override">
+          <Button
+            icon="circle-arrow-right"
+            onClick={() => act('toggle_ai_control')}
+          >
+            {data.aioverride
+              ? pill('ENABLED', 'good')
+              : pill('DISABLED', 'bad')}
+          </Button>
         </LabeledList.Item>
 
-        <LabeledList.Item label="Primary System">
-          {data.primarysystem ? (
-            <Box>{data.primarysystem}</Box>
-          ) : (
-            <Box color="average">None</Box>
-          )}
+        <LabeledList.Item label="ID Lock">
+          <Button
+            icon={data.id_lock ? 'lock' : 'lock-open'}
+            onClick={() => act('toggle_id_lock')}
+          >
+            {data.id_lock ? pill('ENABLED', 'good') : pill('DISABLED', 'bad')}
+          </Button>
         </LabeledList.Item>
       </LabeledList>
     </Section>
@@ -198,7 +182,22 @@ const HardwareSection = (props, context) => {
   const pieceCanSeal = pieceDisabled && !!data.charge;
 
   return (
-    <Section title="Hardware" fill>
+    <Section
+      title="Hardware"
+      fill
+      buttons={
+        <Stack>
+          <Stack.Item>
+            <Button icon="shield" onClick={() => act('examine_armor')}>
+              Armor
+            </Button>
+            <Button icon="file-alt" onClick={() => act('examine_fluff')}>
+              Info
+            </Button>
+          </Stack.Item>
+        </Stack>
+      }
+    >
       <LabeledList>
         <LabeledList.Item
           label="Helmet"
@@ -212,7 +211,9 @@ const HardwareSection = (props, context) => {
             </Button>
           }
         >
-          {data.helmet}
+          <Box color={data.sealing ? 'average' : data.seals ? 'bad' : 'good'}>
+            {data.helmet}
+          </Box>
         </LabeledList.Item>
 
         <LabeledList.Item
@@ -227,7 +228,9 @@ const HardwareSection = (props, context) => {
             </Button>
           }
         >
-          {data.gauntlets}
+          <Box color={data.sealing ? 'average' : data.seals ? 'bad' : 'good'}>
+            {data.gauntlets}
+          </Box>
         </LabeledList.Item>
 
         <LabeledList.Item
@@ -242,7 +245,9 @@ const HardwareSection = (props, context) => {
             </Button>
           }
         >
-          {data.boots}
+          <Box color={data.sealing ? 'average' : data.seals ? 'bad' : 'good'}>
+            {data.boots}
+          </Box>
         </LabeledList.Item>
 
         <LabeledList.Item
@@ -257,7 +262,9 @@ const HardwareSection = (props, context) => {
             </Button>
           }
         >
-          {data.chest}
+          <Box color={data.sealing ? 'average' : data.seals ? 'bad' : 'good'}>
+            {data.chest}
+          </Box>
         </LabeledList.Item>
       </LabeledList>
     </Section>
@@ -399,7 +406,7 @@ const ModulesSection = (props, context) => {
                 <Table.Cell width={1}>
                   <Button
                     icon={selected ? 'check-square-o' : 'square-o'}
-                    selected={selected}
+                    selected={data.primarysystem === m.module_name}
                     tooltip={moduleTypeAction}
                     tooltipPosition="left"
                     disabled={selectDisabled}

@@ -15,12 +15,20 @@
 /// Actively usable module: you may only have one selected at a time, and give you a special click action.
 #define MODULETYPE_USABLE_ACTIVE 3
 
-/// The default cell drain of a hardsuit. The standard hardsuit active power usage drains this much energy per second.
-/// 30000 is the value chosen because by default, rigs are created with High Capacity Power Cells, which have that capacity.
-/// Installing a better cell should increase the power duration of a rig, so we don't adjust draw (CELLRATE) based on cap.
-#define CHARGE_DRAIN_DEFAULT ((CELLRATE * 30000) / 6)
-#define CHARGE_DRAIN_LOW ((CELLRATE * 30000) / 8)
-#define CHARGE_DRAIN_HIGH ((CELLRATE * 30000) / 4)
+/*
+ * Hardsuit power usage drains this much energy per tick from the cell. We don't accurately model this with CELLRATE and etc. because
+ * in testing, it just didn't feel as good; static values felt better because they were more consistent/predictable w different configs.
+ * There are 3600 machine ticks in a 2hr round, and a default cell has 30000 power.
+ *
+ * Note that every additional 1 power usage per tick (due to modules) will DECREASE cell lifetime by ~8m
+ */
+
+/// By itself, cell drains fully in 2hr5m
+#define CHARGE_DRAIN_LOW 8
+/// By itself, cell drains fully in 1hr40m
+#define CHARGE_DRAIN_DEFAULT 10
+/// By itself, cell drains fully in 1hr23m
+#define CHARGE_DRAIN_HIGH 12
 
 #define MODULE_GENERAL 		1
 #define MODULE_LIGHT_COMBAT 2

@@ -95,6 +95,7 @@
 	var/control_overridden = FALSE
 	/// Whether or not the AI is capable of overriding control of the suit.
 	var/ai_override_enabled = FALSE
+	/// Access req status.
 	var/security_check_enabled = TRUE
 	var/malfunctioning = 0
 	var/malfunction_delay = 0
@@ -363,7 +364,7 @@
 					var/datum/component/armor/armor_component = piece.GetComponent(/datum/component/armor)
 					if(istype(armor_component))
 						armor_component.sealed = !seal_target
-					playsound(src, "[!seal_target ? 'sound/machines/rig/rig_deploy.ogg' : 'sound/machines/rig/rig_retract.ogg']", 20, FALSE)
+					playsound(src, "[!seal_target ? 'sound/machines/rig/rig_deploy.ogg' : 'sound/machines/rig/rig_retract.ogg']", 30, FALSE)
 
 				else
 					failed_to_seal = 1
@@ -389,7 +390,7 @@
 	// Success!
 	canremove = seal_target
 	to_chat(wearer, SPAN_NOTICE("<b>Your entire suit [canremove ? "loosens as the components relax" : "tightens around you as the components lock into place"].</b>"))
-	playsound(src, 'sound/items/rped.ogg', 20, FALSE)
+	playsound(src, 'sound/items/rped.ogg', 30, FALSE)
 	if (has_sealed_state)
 		icon_state = canremove ? initial(icon_state) : "[initial(icon_state)]_sealed"
 	if(dnaLock && !offline)
@@ -440,9 +441,11 @@
 
 	var/previous_offline_status = offline
 
-	// Consume energy per tick while active.
-	if(!offline)
-		cell?.use(cell_draw_rate)
+	var/power_usage_this_tick = 0.0
+
+	// Consume energy per tick while active. If you don't have a cell... Weird, but we'll deal with that shortly.
+	if(!offline && cell)
+		power_usage_this_tick += cell_draw_rate
 
 	if(!istype(wearer) || loc != wearer || wearer.back != src || canremove || !cell || cell.charge <= 0)
 		if(!cell || cell.charge <= 0)
@@ -450,9 +453,9 @@
 				electrified = 0
 			if(!offline)
 				if(istype(wearer))
-					playsound(src, 'sound/machines/rig/rig_shutdown.ogg', 20, FALSE)
+					playsound(src, 'sound/machines/rig/rig_shutdown.ogg', 35, FALSE)
 					if(!canremove)
-						if (offline_slowdown < 3)
+						if(offline_slowdown < 3)
 							to_chat(wearer, SPAN_DANGER("Your suit beeps stridently, and suddenly goes dead."))
 						else
 							to_chat(wearer, SPAN_DANGER("Your suit beeps stridently, and suddenly you're wearing a leaden mass of metal and plastic composites instead of a powered suit."))
@@ -503,12 +506,15 @@
 		malfunction()
 
 	for(var/obj/item/rig_module/module in installed_modules)
-		cell.use(module.process()*10)
+		power_usage_this_tick += module.process()
+
+	if(power_usage_this_tick)
+		cell.use(power_usage_this_tick)
 
 /obj/item/rig/proc/check_power_cost(var/mob/living/user, var/cost, var/use_unconcious, var/obj/item/rig_module/mod, var/user_is_ai)
 
 	if(!istype(user))
-		return 0
+		return FALSE
 
 	var/fail_msg
 
@@ -524,13 +530,15 @@
 		fail_msg = SPAN_WARNING("You are in no fit state to do that.")
 	else if(!cell)
 		fail_msg = SPAN_WARNING("There is no cell installed in the suit.")
-	else if(cost && cell.charge < cost * 10) //TODO: Cellrate?
+	else if(cost && cell?.charge < cost) //TODO: Cellrate?
 		fail_msg = SPAN_WARNING("Not enough stored power.")
 
 	if(fail_msg)
-		to_chat(user, "[fail_msg]")
+		// If a module has been passed to this proc, then the module will handle its own error messages.
+		if(!mod)
+			to_chat(user, "[fail_msg]")
 		playsound(src, 'sound/items/rfd_empty.ogg', 20, FALSE)
-		return 0
+		return FALSE
 
 	// This is largely for cancelling stealth and whatever.
 	if(mod && mod.disruptive)
@@ -538,8 +546,8 @@
 			if(module.active && module.disruptable)
 				module.deactivate()
 
-	cell.use(cost*10)
-	return 1
+	cell.use(cost)
+	return TRUE
 
 /obj/item/rig/update_icon(var/update_mob_icon)
 	//TODO: Maybe consider a cache for this (use mob_icon as blank canvas, use suit icon overlay).
@@ -580,26 +588,27 @@
 
 /obj/item/rig/proc/check_suit_access(var/mob/living/user)
 	if(!security_check_enabled || !locked)
-		return 1
+		return TRUE
 
 	if(is_integrated_rig_ai(user))
-		return 1
+		return TRUE
 
 	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
 		if(malfunction_check(H))
-			return 0
+			return FALSE
 		if(H.back != src)
-			return 0
+			return FALSE
 		else if(!src.allowed(H))
-			to_chat(H, SPAN_DANGER("Unauthorized user. Access denied."))
-			return 0
+			sound_to(H, 'sound/machines/terminal/terminal_error.ogg')
+			balloon_alert(H, "access denied!")
+			return FALSE
 
 	else if(!ai_override_enabled)
 		to_chat(user, SPAN_DANGER("Synthetic access disabled. Please consult hardware provider."))
-		return 0
+		return FALSE
 
-	return 1
+	return TRUE
 
 /obj/item/rig/ui_interact(mob/user, datum/tgui/ui)
 	if(!user)
@@ -628,7 +637,7 @@
 	data["chest"] = chest ? chest.name : "None."
 
 	var/data_charge = cell ? round(cell.charge, 1) : 0
-	var/data_maxcharge = cell ? cell.maxcharge : 0
+	var/data_maxcharge = cell ? cell.maxcharge : 1
 	data["charge"] = data_charge
 	data["maxcharge"] = data_maxcharge
 	data["chargedisplay"] = "[power_joules_readable(data_charge)] / [power_joules_readable(data_maxcharge)]"
@@ -639,7 +648,7 @@
 	data["interfacelock"] = interface_locked
 	data["aicontrol"] = control_overridden
 	data["aioverride"] = ai_override_enabled
-	data["securitycheck"] = security_check_enabled
+	data["id_lock"] = security_check_enabled
 	data["malf"] = malfunction_delay
 
 	var/list/module_list = list()
@@ -651,9 +660,9 @@
 			"desc" = module.interface_desc,
 			"module_type" = module.module_type,
 			"module_active" = module.active,
-			"engagecost" = module.use_power_cost * 10,
-			"activecost" = module.active_power_cost * 10,
-			"passivecost" = module.passive_power_cost * 10,
+			"engagecost" = module.use_power_cost,
+			"activecost" = module.active_power_cost,
+			"passivecost" = module.passive_power_cost,
 			"engagestring" = module.engage_string,
 			"activatestring" = module.activate_string,
 			"deactivatestring" = module.deactivate_string,
@@ -743,34 +752,43 @@
 							selected_module = module
 						else
 							selected_module = null
+						sound_to(usr, 'sound/machines/terminal/terminal_prompt_confirm.ogg')
 					if("select_charge_type")
 						// "charge_type" is a key into module.charges
 						module.charge_selected = "[params["charge_type"]]"
+						sound_to(usr, 'sound/machines/terminal/terminal_prompt_confirm.ogg')
 
 		if("toggle_ai_control")
 			ai_override_enabled = !ai_override_enabled
 			notify_ai("Synthetic suit control has been [ai_override_enabled ? "enabled" : "disabled"].")
+			sound_to(usr, 'sound/machines/terminal/terminal_prompt_deny.ogg')
 
 		if("toggle_suit_lock")
 			locked = !locked
 
+		if("toggle_id_lock")
+			// Only those people who have access rights in the first place should be able to toggle access on or off.
+			if(!src.allowed(user))
+				sound_to(user, 'sound/machines/terminal/terminal_error.ogg')
+				balloon_alert(user, "access denied!")
+			else
+				security_check_enabled = !security_check_enabled
+
 		if("configure")
 			var/obj/item/rig_module/module = locate(params["ref"]) in installed_modules
-			to_chat(world, "attempting to configure module [params["ref"]]. found [module ? module.name : "NOTHING"]")
 			if(!module)
 				return
-			to_chat(world, "passing key [params["key"]] with value [params["value"]]")
 			module.configure_edit(params["key"], params["value"])
+			sound_to(usr, 'sound/machines/terminal/terminal_prompt_deny.ogg')
 
 	user.set_machine(src)
 	src.add_fingerprint(user)
 
 	return TRUE
 
-/obj/item/rig/ui_status(mob/user)
-	. = ..()
-	if(issilicon(user) && istype(usr.loc.loc, /obj/item/rig_module))
-		return UI_INTERACTIVE
+/obj/item/rig/ui_state(mob/user)
+	if(!issilicon(user))
+		return GLOB.inventory_state
 
 /obj/item/rig/proc/notify_ai(var/message)
 	for(var/obj/item/rig_module/ai_container/module in installed_modules)
@@ -829,22 +847,29 @@
 			check_slot = wearer.wear_suit
 
 	if(use_obj)
+		// Handle retracting the piece, if possible.
 		if(check_slot == use_obj && deploy_mode != ONLY_DEPLOY)
-
 			var/mob/living/carbon/human/holder
+			holder = use_obj.loc
+			if(istype(holder))
+				// Special code for boots. This is to prevent boots from being retracted while the chest piece is deployed.
+				// Otherwise, it is an easy exploit to make any hardsuit stealthy by wearing everything EXCEPT the boots.
+				var/obj/item/chest_slot = holder.wear_suit
+				var/obj/item/chest_obj = chest
+				if(use_obj == boots && chest_slot == chest_obj)
+					to_chat(wearer, SPAN_WARNING("The chest piece of the hardsuit must be retracted first before you can retract your boots!"))
+					return
 
-			if(use_obj)
-				holder = use_obj.loc
-				if(istype(holder))
-					if(use_obj && check_slot == use_obj)
-						to_chat(wearer, "<font color='blue'><b>Your [use_obj.name] [use_obj.gender == PLURAL ? "retract" : "retracts"] swiftly.</b></font>")
-						playsound(src, 'sound/machines/rig/rig_retract.ogg', 20, FALSE)
-						use_obj.canremove = 1
-						holder.drop_from_inventory(use_obj,get_turf(src)) //TODO: TEST THIS CODE!
-						use_obj.dropped(wearer)
-						use_obj.canremove = 0
-						use_obj.forceMove(src)
+				if(check_slot == use_obj)
+					to_chat(wearer, "<font color='blue'><b>Your [use_obj.name] [use_obj.gender == PLURAL ? "retract" : "retracts"] swiftly.</b></font>")
+					playsound(src, 'sound/machines/rig/rig_retract.ogg', 30, FALSE)
+					use_obj.canremove = 1
+					holder.drop_from_inventory(use_obj,get_turf(src)) //TODO: TEST THIS CODE!
+					use_obj.dropped(wearer)
+					use_obj.canremove = 0
+					use_obj.forceMove(src)
 
+		// Handle deploying the piece, if possible.
 		else if (deploy_mode != ONLY_RETRACT)
 			if(check_slot && check_slot == use_obj)
 				return
@@ -859,7 +884,7 @@
 					return
 			else
 				to_chat(wearer, SPAN_NOTICE("Your [use_obj.name] [use_obj.gender == PLURAL ? "deploy" : "deploys"] swiftly."))
-				playsound(src, 'sound/machines/rig/rig_deploy.ogg', 20, FALSE)
+				playsound(src, 'sound/machines/rig/rig_deploy.ogg', 30, FALSE)
 
 	if(piece == "helmet" && helmet)
 		helmet.update_light(wearer)

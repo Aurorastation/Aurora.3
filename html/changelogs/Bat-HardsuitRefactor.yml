@@ -48,6 +48,10 @@ delete-after: True
 changes:
   - refactor: "Migrates Hardsuit NanoUI to TGUI."
   - refactor: "Updates Hardsuit module type definitions, configuration data, many misc other functions for the purpose of the UI refactor (general utility and readability improvements)."
-  - code_imp: "Makes power_wattage_readable() a global proc and adds power_joules_readable() (pending universal SI units implementation)."
+  - balance: "Hardsuits now passively consume a small amount of energy while online, even when retracted."
+  - balance: "Hardsuit boots can no longer be retracted without also retracting the chest piece first."
+  - balance: "Mounted hardsuit storage module max space increased from 9 to 14."
+  - soundadd: "Adds several new sounds for hardsuit use (attribution located w/ files)."
+  - code_imp: "Makes power_wattage_readable() a global proc and adds power_joules_readable()."
   - code_imp: "Lots of misc DMdoc updates."
-  - bugfix: "Synthetic Charging Stations again charge hardsuit power cells as intended."
+  - bugfix: "Synthetic Charging Stations now charge hardsuit power cells as intended."
