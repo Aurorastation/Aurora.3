@@ -2,14 +2,10 @@
  * Persistence subsystem
  * Subsytem for managing any form of persistent content across rounds.
  *
- * This subsystem consists of multiple partial files, following the structure:
- * - persistence.dm							- Subsystem definition and generic code.
- * - persistence_objects.dm					- Persistent objects related code.
- * - persistence_objects_sql.dm				- Persistent objects database code.
- * - persistence_objects_public.dm			- Persistent objects public procs.
- * - persistence_types.dm               	- Persistent data type related code.
- * - persistence_types_history_public.dm	- Persistent history records public code.
- * - persistence_types_sql.dm              	- Persistent data type database code.
+ * This subsystem consists of multiple partial files, split into different responsibilities:
+ *   persistence.dm - Subsystem define and related code
+ *   Objects and types (with Generics and History respectively), each containing:
+ *     Base file (no suffix), public procs (_public.dm suffix), SQL code (_sql.dm suffix)
  */
 
 SUBSYSTEM_DEF(persistence)
