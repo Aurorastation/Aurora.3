@@ -61,7 +61,7 @@
 	if(!databaseCheckConnection("historyDatabaseCleanByRowCount"))
 		return
 
-	var/datum/db_query/insert_query = SSdbcore.NewQuery(
+	var/datum/db_query/query = SSdbcore.NewQuery(
 		"DELETE FROM ss13_persistent_history \
 		WHERE type = :type_id \
 		AND ( \
@@ -88,10 +88,10 @@
 			"row_count" = row_count
 		)
 	)
-	insert_query.Execute()
+	query.Execute()
 
-	databaseCheckQueryResult(insert_query, "historyDatabaseCleanByRowCount")
-	qdel(insert_query)
+	databaseCheckQueryResult(query, "historyDatabaseCleanByRowCount")
+	qdel(query)
 
 /**
  * Clean up history records of type+attribute by specified round count.
@@ -105,7 +105,7 @@
 	if(!databaseCheckConnection("historyDatabaseCleanByRoundCount"))
 		return
 
-	var/datum/db_query/insert_query = SSdbcore.NewQuery(
+	var/datum/db_query/query = SSdbcore.NewQuery(
 		"DELETE h \
 		FROM ss13_persistent_history h \
 		JOIN ( \
@@ -149,10 +149,10 @@
 			"round_count" = round_count
 		)
 	)
-	insert_query.Execute()
+	query.Execute()
 
-	databaseCheckQueryResult(insert_query, "historyDatabaseCleanByRoundCount")
-	qdel(insert_query)
+	databaseCheckQueryResult(query, "historyDatabaseCleanByRoundCount")
+	qdel(query)
 
 /**
  * Clean up history records of type+attribute by max age of record in days
@@ -166,7 +166,7 @@
 	if(!databaseCheckConnection("historyDatabaseCleanByMaxAgeDays"))
 		return
 
-	var/datum/db_query/insert_query = SSdbcore.NewQuery(
+	var/datum/db_query/query = SSdbcore.NewQuery(
 		"DELETE h \
 		FROM ss13_persistent_history h \
 		JOIN ( \
@@ -185,10 +185,10 @@
 			"max_age_days" = max_age_days
 		)
 	)
-	insert_query.Execute()
+	query.Execute()
 
-	databaseCheckQueryResult(insert_query, "historyDatabaseCleanByMaxAgeDays")
-	qdel(insert_query)
+	databaseCheckQueryResult(query, "historyDatabaseCleanByMaxAgeDays")
+	qdel(query)
 
 /**
  * Insert a new history record into the history table.
@@ -202,7 +202,7 @@
 	if(!databaseCheckConnection("historyDatabaseInsertRecord"))
 		return
 
-	var/datum/db_query/insert_query = SSdbcore.NewQuery(
+	var/datum/db_query/query = SSdbcore.NewQuery(
 		"INSERT INTO ss13_persistent_history (type, created_at, attribute, value, game_id) VALUES (:type_id, NOW(), :attribute, :value, :game_id)",
 		list(
 			"type_id" = type_id,
@@ -211,10 +211,10 @@
 			"game_id" = "[GLOB.round_id]"
 		)
 	)
-	insert_query.Execute()
+	query.Execute()
 
-	databaseCheckQueryResult(insert_query, "historyDatabaseInsertRecord")
-	qdel(insert_query)
+	databaseCheckQueryResult(query, "historyDatabaseInsertRecord")
+	qdel(query)
 
 /**
  * Get the last X history records for a type+attribute.
