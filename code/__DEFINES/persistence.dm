@@ -88,7 +88,7 @@ ABSTRACT_TYPE(/singleton/persistent_type/history/character)
 	}
 
 // Basic history persistent type definition
-#define CREATE_PERSISTENT_TYPE_HISTORY(TYPE_NAME, TITLE, DESCRIPTION, REQUIRES_ATTRIBUTE, EXPIRATION_RULE, IS_NUMERIC) \
+#define CREATE_PERSISTENT_TYPE_HISTORY(TYPE_NAME, TITLE, DESCRIPTION, REQUIRES_ATTRIBUTE, EXPIRATION_RULE) \
 	if(findtext("character", #TYPE_NAME)) \
 		fail("Cannot use this macro for creating a type of 'character', use CREATE_PERSISTENT_TYPE_HISTORY_CHARACTER instead.", __FILE__, __LINE__); \
 	/singleton/persistent_type/history/##TYPE_NAME \
@@ -100,7 +100,7 @@ ABSTRACT_TYPE(/singleton/persistent_type/history/character)
 	}
 
 // Character history persistent type definition - Enforces character ID validation when used
-#define CREATE_PERSISTENT_TYPE_HISTORY_CHARACTER(TYPE_NAME, TITLE, DESCRIPTION, EXPIRATION_RULE, IS_NUMERIC) \
+#define CREATE_PERSISTENT_TYPE_HISTORY_CHARACTER(TYPE_NAME, TITLE, DESCRIPTION, EXPIRATION_RULE) \
 	/singleton/persistent_type/history/character/##TYPE_NAME \
 	{ \
 		title = #TITLE; \
