@@ -1,0 +1,5 @@
+author: Batrachophrenoboocosmomachia
+delete-after: True
+changes:
+  - rscadd: "Updates a chunk of D2 starboard maintenance to be ship supply warehousing space for the Lemurian Sea arc."
+  - bugfix: "Fixes 'restricted' random canister spawners inadvertently spawning rare/valuable gases."
