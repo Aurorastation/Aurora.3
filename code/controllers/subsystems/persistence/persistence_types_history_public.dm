@@ -123,15 +123,15 @@
 		history_cache += container
 
 	// Query order - 2
-	var/list/results = historyDatabaseGetRecords(target_type.database_id, attribute, limit - length(top)) // Draw remaining missing records from DB
-	var/len = length(results)
+	var/list/db_records = historyDatabaseGetRecords(target_type.database_id, attribute, limit - length(top)) // Draw remaining missing records from DB
+	var/len = length(db_records)
 	if(!len)
 		return list()
 
 	if(!skip_caching)
 		history_cache_count += len
 
-	for(var/result in results)
+	for(var/result in db_records)
 		var/datum/persistent_record/r = new /datum/persistent_record
 		r.id = result["id"]
 		r.created_at = result["created_at"]
@@ -214,15 +214,15 @@
 			history_cache += container
 
 		// Query order - 2
-		var/list/results = historyDatabaseGetRecords(target_type.database_id, attribute, limit - length(top)) // Draw remaining missing records from DB
-		var/len = length(results)
+		var/list/db_records = historyDatabaseGetRecords(target_type.database_id, attribute, limit - length(top)) // Draw remaining missing records from DB
+		var/len = length(db_records)
 		if(!len)
 			result += list("attribute" = attribute, "records" = list())
 
 		if(!skip_caching)
 			history_cache_count += len
 
-		for(var/result in results)
+		for(var/result in db_records)
 			var/datum/persistent_record/r = new /datum/persistent_record
 			r.id = result["id"]
 			r.created_at = result["created_at"]
