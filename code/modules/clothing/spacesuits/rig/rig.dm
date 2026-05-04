@@ -625,6 +625,7 @@
 
 	if(selected_module)
 		data["primarysystem"] = selected_module.interface_name
+		data["primarysystem_ref"] = REF(selected_module)
 
 	data["ai"] = (src.loc != user)
 
@@ -675,6 +676,7 @@
 			module_data["charges"] = list()
 
 			var/datum/rig_charge/selected = module.charges[module.charge_selected]
+			module_data["charge_selected"] = "[module.charge_selected]"
 			module_data["chargetype"] = selected ? selected.display_name : "none"
 
 			for(var/chargetype in module.charges)
@@ -701,8 +703,10 @@
 	var/mob/user = usr
 	if(!user)
 		return TRUE
-
+	to_chat(world, "<b>ui_act: [action], piece [params["piece"]], mode [params["mode"]], key [params["key"]], value [params["value"]]</b>")
+	// Just handles the UI's examine buttons. Doesn't need to check for access.
 	switch(action)
+		// Returns the Armor Values UI.
 		if("examine_armor")
 			var/list/armor_details = list()
 			for(var/armor_type in armor)
@@ -710,7 +714,6 @@
 			var/datum/tgui_module/armor_values/AV = new /datum/tgui_module/armor_values(user, capitalize_first_letters(name), armor_details)
 			AV.ui_interact(user)
 			return TRUE
-
 		if("examine_fluff")
 			examine(user, show_extended = TRUE)
 			return TRUE
@@ -718,7 +721,9 @@
 	if(!check_suit_access(user))
 		return FALSE
 
+	// Suit access-gated actions.
 	switch(action)
+		// Toggles a 'clothing' piece on or off.
 		if("toggle_piece")
 			var/piece = "[params["piece"]]"
 			if(!piece)
@@ -729,9 +734,11 @@
 
 			toggle_piece(piece, user)
 
+		// Deploys all pieces.
 		if("toggle_seals")
 			toggle_seals(user)
 
+		// Module interactions.
 		if("interact_module")
 			var/module_index = text2num(params["index"])
 			if(!module_index)
@@ -763,9 +770,10 @@
 			notify_ai("Synthetic suit control has been [ai_override_enabled ? "enabled" : "disabled"].")
 			sound_to(usr, 'sound/machines/terminal/terminal_prompt_deny.ogg')
 
+		// Cover panel locked or unlocked (by access ID).
 		if("toggle_suit_lock")
 			locked = !locked
-
+		// Toggles whether access locks are enabled.
 		if("toggle_id_lock")
 			// Only those people who have access rights in the first place should be able to toggle access on or off.
 			if(!src.allowed(user))
@@ -776,8 +784,10 @@
 
 		if("configure")
 			var/obj/item/rig_module/module = locate(params["ref"]) in installed_modules
+			to_chat(world, "attempting to configure module [params["ref"]]. found [module ? module.name : "NOTHING"]")
 			if(!module)
 				return
+			to_chat(world, "passing key [params["key"]] with value [params["value"]]")
 			module.configure_edit(params["key"], params["value"])
 			sound_to(usr, 'sound/machines/terminal/terminal_prompt_deny.ogg')
 
@@ -786,6 +796,7 @@
 
 	return TRUE
 
+// Makes sure the UI is only available if you're wearing it, unless you're an AI.
 /obj/item/rig/ui_state(mob/user)
 	if(!issilicon(user))
 		return GLOB.inventory_state
@@ -857,7 +868,7 @@
 				var/obj/item/chest_slot = holder.wear_suit
 				var/obj/item/chest_obj = chest
 				if(use_obj == boots && chest_slot == chest_obj)
-					to_chat(wearer, SPAN_WARNING("The chest piece of the hardsuit must be retracted first before you can retract your boots!"))
+					to_chat(wearer, SPAN_WARNING("The chest piece of the hardsuit must be retracted before you can retract your boots!"))
 					return
 
 				if(check_slot == use_obj)

@@ -114,7 +114,6 @@
 			set_vision_mode(src, usr, value)
 
 /obj/item/rig_module/vision/proc/set_vision_mode(src, mob/user, var/new_mode)
-	to_chat(world, "got vision mode [new_mode]")
 	if(!new_mode || new_mode == "")
 		return FALSE
 
@@ -124,7 +123,6 @@
 
 	var/i = 1
 	for(var/datum/rig_vision/V in vision_modes)
-		to_chat(world, "checking mode of vision [i]: [V.mode]")
 		if(V.mode == new_mode)
 			vision_index = i
 			vision_mode = V

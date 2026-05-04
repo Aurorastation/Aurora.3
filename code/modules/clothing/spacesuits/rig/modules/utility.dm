@@ -19,6 +19,7 @@
  * /obj/item/rig_module/actuators/combat
  */
 
+/// Device-type modules create a contained /obj/item, which can then be used with middle-click.
 /obj/item/rig_module/device
 	name = "mounted device"
 	desc = "Some kind of hardsuit mount."
@@ -169,7 +170,7 @@
 	name = "mounted chemical dispenser"
 	desc = "A complex web of tubing and needles suitable for hardsuit use."
 	icon_state = "injector"
-	module_type = MODULETYPE_USABLE
+	module_type = MODULETYPE_USABLE_ACTIVE
 	disruptive = FALSE
 	confined_use = TRUE
 	construction_cost = list(DEFAULT_WALL_MATERIAL=10000, MATERIAL_GLASS =9250, MATERIAL_GOLD =2500, MATERIAL_SILVER =4250,"phoron"=5500)
@@ -206,7 +207,7 @@
 		list("dexalin plus",	"dexalinp",			/singleton/reagent/dexalin/plus,		20),
 		list("thetamycin",		"thetamycin",		/singleton/reagent/thetamycin,			20),
 		list("dylovene",		"dylovene",			/singleton/reagent/dylovene,			20),
-		list("nutrients",		"glucose",			/singleton/reagent/nutriment/glucose,	80),
+		list("glucose",			"glucose",			/singleton/reagent/nutriment/glucose,	80),
 		list("hyronalin",		"hyronalin",		/singleton/reagent/hyronalin,			20),
 		list("synaptizine",		"synaptizine",		/singleton/reagent/synaptizine,			20),
 		list("radium",			"radium",			/singleton/reagent/radium,				20)
@@ -366,16 +367,17 @@
 		)
 
 /obj/item/rig_module/voice
-	name = "hardsuit voice synthesiser"
+	name = "hardsuit voice synthesizer"
 	desc = "A speaker box and sound processor."
 	icon_state = "megaphone"
-	module_type = MODULETYPE_USABLE
+	module_type = MODULETYPE_TOGGLE
 	disruptive = FALSE
 	confined_use = TRUE
 
-	engage_string = "Configure Synthesiser"
+	activate_string = "Activate Voice Synthesizer"
+	deactivate_string = "Deactivate Voice Synthesizer"
 
-	interface_name = "voice synthesiser"
+	interface_name = "voice synthesizer"
 	interface_desc = "A flexible and powerful voice modulator system."
 
 	var/obj/item/voice_changer/voice_holder
@@ -397,36 +399,39 @@
 	..()
 	holder.speech = src
 
-/obj/item/rig_module/voice/engage(atom/target, mob/user)
+/obj/item/rig_module/voice/get_configuration()
+	. = ..()
+	.["name"] = add_ui_configuration("Name: ([voice_holder.voice])", "button", voice_holder.voice)
+	.["accent"] += add_ui_configuration("Accent", "button", voice_holder.current_accent)
+
+/obj/item/rig_module/voice/configure_edit(key, value)
+	switch(key)
+		if("name")
+			var/new_name = tgui_input_text(usr,"Set the name displayed by the voice synthesizer.", src, max_length = 64)
+			if(!new_name)
+				return FALSE
+			voice_holder.voice = new_name
+			message_user(usr, SPAN_NOTICE("You set the synthesizer to mimic <b>[voice_holder.voice]</b>."), SPAN_NOTICE("\The [usr] set the speech synthesizer to mimic <b>[voice_holder.voice]</b>."))
+		if("accent")
+			var/new_accent = tgui_input_list(usr, "Please choose an accent to mimic.", src, SSrecords.accents)
+			if(!new_accent)
+				return FALSE
+			voice_holder.current_accent = new_accent
+			message_user(usr, SPAN_NOTICE("You set the synthesizer to mimic the [new_accent] accent."), SPAN_NOTICE("\The [usr] set the speech synthesizer the [new_accent] accent."))
+
+/obj/item/rig_module/voice/activate(mob/user)
+	if(!..())
+		return
+	voice_holder.active = TRUE
+	message_user(user, SPAN_NOTICE("You enable the speech synthesizer."), SPAN_NOTICE("\The [user] enables the speech synthesizer."))
+	return TRUE
+
+/obj/item/rig_module/voice/deactivate(mob/user)
 	if(!..())
 		return FALSE
 
-	var/choice= tgui_input_list(user, "Would you like to toggle the synthesiser, set the name or set an accent?", "Synthesizer", list("Enable","Disable","Set Name", "Set Accent"))
-
-	if(!choice)
-		return FALSE
-
-	switch(choice)
-		if("Enable")
-			active = TRUE
-			voice_holder.active = TRUE
-			message_user(user, SPAN_NOTICE("You enable the speech synthesiser."), SPAN_NOTICE("\The [user] enables the speech synthesiser."))
-		if("Disable")
-			active = FALSE
-			voice_holder.active = FALSE
-			message_user(user, SPAN_NOTICE("You disable the speech synthesiser."), SPAN_NOTICE("\The [user] disables the speech synthesiser."))
-		if("Set Name")
-			var/raw_choice = sanitize(input(user, "Please enter a new name.") as text|null, MAX_NAME_LEN)
-			if(!raw_choice)
-				return FALSE
-			voice_holder.voice = raw_choice
-			message_user(user, SPAN_NOTICE("You set the synthesizer to mimic <b>[voice_holder.voice]</b>."), SPAN_NOTICE("\The [user] set the speech synthesizer to mimic <b>[voice_holder.voice]</b>."))
-		if("Set Accent")
-			var/raw_choice = tgui_input_list(user, "Please choose an accent to mimick.", "Accent Mimicry", SSrecords.accents)
-			if(!raw_choice)
-				return FALSE
-			voice_holder.current_accent = raw_choice
-			message_user(user, SPAN_NOTICE("You set the synthesizer to mimic the [raw_choice] accent."), SPAN_NOTICE("\The [user] set the speech synthesizer the [raw_choice] accent."))
+	voice_holder.active = FALSE
+	message_user(user, SPAN_NOTICE("You disable the speech synthesizer."), SPAN_NOTICE("\The [user] disables the speech synthesizer."))
 	return TRUE
 
 /obj/item/rig_module/maneuvering_jets
@@ -465,7 +470,8 @@
 /obj/item/rig_module/maneuvering_jets/configure_edit(key, value)
 	switch(key)
 		if("stabilizers")
-			engage(src, usr)
+			if(engage(src, usr))
+				stabilize = jets.stabilization_on
 
 /obj/item/rig_module/maneuvering_jets/engage(atom/target, mob/user)
 	if(!..())
@@ -477,19 +483,8 @@
 	return TRUE
 
 /obj/item/rig_module/maneuvering_jets/activate(mob/user)
-	if(active)
+	if(!..())
 		return FALSE
-	if(use_check_and_message(user))
-		return FALSE
-
-	active = TRUE
-
-	if(suit_overlay_active)
-		suit_overlay = suit_overlay_active
-	else
-		suit_overlay = null
-	holder.update_icon()
-
 	if(!jets.on)
 		var/list/extra_mobs = list()
 		if(user != holder.wearer)
@@ -510,6 +505,7 @@
 /obj/item/rig_module/maneuvering_jets/New()
 	..()
 	jets = new(src)
+	stabilize = jets.stabilization_on
 
 /obj/item/rig_module/maneuvering_jets/installed()
 	..()
@@ -523,7 +519,6 @@
 	name = "hardsuit paper dispenser"
 	desc = "Crisp sheets."
 	icon_state = "paper"
-	module_type = MODULETYPE_USABLE
 	interface_name = "paper dispenser"
 	interface_desc = "Dispenses warm, clean, and crisp sheets of paper."
 	engage_string = "Dispense"

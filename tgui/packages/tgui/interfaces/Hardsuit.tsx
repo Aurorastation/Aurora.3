@@ -43,7 +43,7 @@ type RigModule = {
   chargetype?: string;
   charges?: RigCharge[];
   ref: string;
-  configuration_data: ModuleConfig;
+  configuration_data?: ModuleConfig;
 };
 
 type ModuleConfigEntry = {
@@ -58,6 +58,7 @@ type ModuleConfig = Record<string, ModuleConfigEntry>;
 
 type Data = {
   primarysystem?: string;
+  primarysystem_ref?: string;
 
   ai?: BooleanLike;
 
@@ -179,7 +180,6 @@ const SuitStatusSection = (props, context) => {
 const HardwareSection = (props, context) => {
   const { act, data } = useBackend<Data>(context);
   const pieceDisabled = !!data.sealing;
-  const pieceCanSeal = pieceDisabled && !!data.charge;
 
   return (
     <Section
@@ -352,8 +352,7 @@ const ModulesSection = (props, context) => {
           </Table.Row>
 
           {modules.map((m) => {
-            const selected =
-              data.primarysystem && m.module_name === data.primarysystem;
+            const selected = data.primarysystem_ref === m.ref;
             const damagedTag =
               m.damage === 1 ? (
                 <Box inline ml={1} color="average">
@@ -389,7 +388,7 @@ const ModulesSection = (props, context) => {
                 <Table.Cell width={1}>
                   <Button
                     icon={m.module_active ? 'toggle-on' : 'toggle-off'}
-                    selected={!!m.module_active}
+                    selected={selected}
                     tooltip={m.module_active ? 'Disable' : 'Enable'}
                     tooltipPosition="left"
                     disabled={toggleDisabled}
@@ -560,14 +559,15 @@ const ConfigureNumberEntry = (props, context) => {
 
 const ConfigureBoolEntry = (props, context) => {
   const { act } = useBackend(context);
-  const { entryKey, value, values, module_ref } = props;
+  const { entryKey, value, module_ref } = props;
+
   return (
     <Button.Checkbox
-      checked={entryKey.value}
+      checked={value}
       onClick={() =>
         act('configure', {
           key: entryKey,
-          value: !entryKey.value,
+          value: value,
           ref: module_ref,
         })
       }

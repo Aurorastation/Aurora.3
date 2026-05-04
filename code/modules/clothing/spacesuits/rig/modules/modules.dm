@@ -84,6 +84,7 @@
 	/// Sound played (to user only) when user activates a module.
 	var/sound_activate = 'sound/machines/terminal/terminal_select.ogg'
 	/// Sound played (to user only) when user deactivates a module.
+	var/sound_deactivate = 'sound/machines/terminal/terminal_select.ogg'
 
 /obj/item/rig_module/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
