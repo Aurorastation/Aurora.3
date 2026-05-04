@@ -2,6 +2,14 @@
   line-height: 1.35;
 }
 
+.HealthAnalyzer__line img {
+  width: 16px;
+  height: 16px;
+  object-fit: contain;
+  vertical-align: middle;
+  image-rendering: pixelated;
+}
+
 .scan_notice {
   color: #5f94af;
 }
