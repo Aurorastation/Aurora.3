@@ -207,6 +207,42 @@
 	var/report = "The long-range sensor readings have been printed out at all communication consoles."
 	priority_announcement.Announce(message = report)
 
+	// Mining yield report for operations
+	var/report_text = "<center><img src = orionlogo.png><br />[FONT_LARGE("<b>7-day mining yield report</b>")]<br>"
+	report_text += "Report generated on [worlddate2text()] at [worldtime2text()]</center><br /><br /><hr>"
+
+	for(var/attribute_records_pair in SSpersistence.historyGetAllRecordsForAllAttributes(/singleton/persistent_type/history/character/mining_points))
+		var/datum/db_query/query = SSdbcore.NewQuery(
+			"SELECT name FROM ss13_characters WHERE id = :char_id",
+			list("char_id" = attribute_records_pair[1])
+		)
+		query.Execute()
+
+		var/char_name
+		while(query.NextRow())
+			char_name += query.item[1]
+		qdel(query)
+		if(!char_name)
+			continue
+
+		var/point_sum = 0
+		for(var/datum/persistent_record/r in attribute_records_pair[2])
+			point_sum += text2num(r.value)
+		report_text += "<b>[char_name]</b>: [point_sum] points."
+
+	for(var/obj/machinery/requests_console/console in GLOB.allConsoles)
+		var/area/console_area = get_area(console)
+		if(console_area.type in typesof(/area/horizon/operations/lobby, /area/horizon/operations/office, /area/horizon/operations/mining_main/refinery))
+			if(console.paperstock < 1)
+				continue
+			var/obj/item/paper/P = new(console)
+			P.set_content_unsafe("Weekly mining yield report", report_text)
+			console.audible_message("<b>The Requests Console</b> beeps, \"Fax received.\"")
+			for(var/obj/item/modular_computer/pda in console.alert_pdas)
+				var/message = "A fax has arrived!"
+				pda.get_notification(message, 1, "[console.department] Requests Console")
+			console.paperstock -= 1
+
 /datum/map/sccv_horizon/load_holodeck_programs()
 	// loads only if at least two engineers are present
 	// so as to not drain power on deadpop

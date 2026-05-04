@@ -124,6 +124,8 @@ ABSTRACT_TYPE(/singleton/persistent_type/history/character)
 // CREATE_PERSISTENT_TYPE_HISTORY_CHARACTER(basic, "Title", "A persistent record type with no special properties.", /singleton/persistent_type_history_expiration_rule/age/year)
 // => creates /singleton/persistent_type/history/character/basic with an expiration age rule of 365 days and mandatory attribute (character ID)
 
+CREATE_PERSISTENT_TYPE_HISTORY_CHARACTER(mining_points, "Mining yield history", "History of mining points yield of individual miners.", /singleton/persistent_type_history_expiration_rule/age/week)
+
 /*###################################################
 	Subsystem cache structures
 ###################################################*/
