@@ -67,4 +67,5 @@ changes:
   - rscadd: "Reconstructs the Synthesizer's Virtual Environment Editor (was broken since added — its NanoUI template never existed) and unlocks the Custom environment preset that depended on it."
   - bugfix: "Fixes the Autolathe UI re-opening after every print job."
   - bugfix: "Fixes the Song Editor's currently-playing line indicator not advancing during playback."
+  - bugfix: "Fixes a class of bugs where TGUI windows for the Air Alarm, Portable Turret, Mining Vendor, Mineral Processor, Tank Dispenser, Helm Console, all Chemistry machines, and Suit Cycler would force themselves back open after every action, even when the player had closed them."
   - admin: "Adds two requests consoles and two fax machines to the bridge on the runtime test map."

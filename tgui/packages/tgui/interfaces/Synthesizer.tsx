@@ -303,17 +303,17 @@ export const Synthesizer = (props, context) => {
 
         <Section title="Status">
           <LabeledList>
-            <LabeledList.Item label="Channels">
-              {status.channels} / {status.max_channels}
+            <LabeledList.Item label="Channels Used (this instrument)">
+              {status.max_channels - status.channels} / {status.max_channels}
             </LabeledList.Item>
-            <LabeledList.Item label="Events">
+            <LabeledList.Item label="Active Events (this instrument)">
               {status.events} / {status.max_events}
             </LabeledList.Item>
           </LabeledList>
           <Button
             mt={1}
             icon="info-circle"
-            content="Open usage info"
+            content="Open usage info (station-wide)"
             onClick={() => act('show_usage')}
           />
         </Section>

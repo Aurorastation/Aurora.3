@@ -179,7 +179,7 @@ GLOBAL_LIST_INIT(minevendor_list, list(
 				user.put_in_hands(dispensed_equipment)
 		return
 	if(default_deconstruction_screwdriver(user, "mining-open", "mining", attacking_item))
-		updateUsrDialog()
+		SStgui.update_uis(src)
 		return
 	if(default_deconstruction_crowbar(attacking_item))
 		return
