@@ -50,6 +50,32 @@
 	return result
 
 /**
+ * Returns all attributes from persistent history for a specified type.
+ * RETURN:
+ * 	Distinct list of attributes or empty list.
+ */
+/datum/controller/subsystem/persistence/proc/historyDatabaseGetAllAttributes(type_id)
+	PRIVATE_PROC(TRUE)
+	if(!databaseCheckConnection("historyDatabaseGetAllAttributes"))
+		return
+
+	var/datum/db_query/query = SSdbcore.NewQuery(
+		"SELECT DISTINCT attribute FROM ss13_persistent_history WHERE type = :type_id",
+		list("type_id" = type_id)
+	)
+	query.Execute()
+
+	if(!databaseCheckQueryResult(query, "historyDatabaseGetAllAttributes"))
+		qdel(query)
+		return null
+
+	var/result = list()
+	while(query.NextRow())
+		result += query.item[1]
+	qdel(query)
+	return result
+
+/**
  * Clean up history records of type+attribute by specified row count
  * PARAMS:
  * 	type_id =	ID of type.
