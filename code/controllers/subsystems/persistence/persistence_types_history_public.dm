@@ -131,11 +131,11 @@
 	if(!skip_caching)
 		history_cache_count += len
 
-	for(var/result in db_records)
+	for(var/record in db_records)
 		var/datum/persistent_record/r = new /datum/persistent_record
-		r.id = result["id"]
-		r.created_at = result["created_at"]
-		r.value = result["value"]
+		r.id = record["id"]
+		r.created_at = record["created_at"]
+		r.value = record["value"]
 		if(!skip_caching)
 			container.records += r // Add to cache
 		top += r // Records in top are either newly created or read from DB already, append newly queries records.
@@ -222,11 +222,11 @@
 		if(!skip_caching)
 			history_cache_count += len
 
-		for(var/result in db_records)
+		for(var/record in db_records)
 			var/datum/persistent_record/r = new /datum/persistent_record
-			r.id = result["id"]
-			r.created_at = result["created_at"]
-			r.value = result["value"]
+			r.id = record["id"]
+			r.created_at = record["created_at"]
+			r.value = record["value"]
 			if(!skip_caching)
 				container.records += r // Add to cache
 			top += r // Records in top are either newly created or read from DB already, append newly queries records.
