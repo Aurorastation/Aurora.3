@@ -217,7 +217,7 @@
 
 		for(var/job_type in module.specialized_access_types)
 			var/datum/job/job = new job_type()
-			id_card.access |= job.access
+			id_card.access |= job.job_access
 
 		to_chat(src, SPAN_NOTICE("Access set to the department the role belongs to."))
 

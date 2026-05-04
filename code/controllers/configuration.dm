@@ -228,7 +228,6 @@ GLOBAL_LIST_EMPTY(gamemode_cache)
 	var/load_jobs_from_txt = 0
 	var/automute_on = 0					//enables automuting/spam prevention
 	var/macro_trigger = 5				// The grace period between messages before it's counted as abusing a macro.
-	var/jobs_have_minimal_access = 0	//determines whether jobs use minimal access or expanded access.
 	var/override_map
 
 	var/cult_ghostwriter = 1               //Allows ghosts to write in blood in cult rounds...
@@ -549,9 +548,6 @@ GENERAL_PROTECT_DATUM(/datum/configuration)
 
 				if ("load_age_restrictions_from_file")
 					GLOB.config.age_restrictions_from_file = 1
-
-				if ("jobs_have_minimal_access")
-					GLOB.config.jobs_have_minimal_access = 1
 
 				if ("use_spreading_explosions")
 					GLOB.config.use_spreading_explosions = 1

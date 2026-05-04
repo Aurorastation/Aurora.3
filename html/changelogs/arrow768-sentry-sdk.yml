@@ -1,8 +1,0 @@
-author: arrow768
-
-delete-after: True
-
-changes:
-  - code_imp: "Added Sentry.io integration (SSsentry) for capturing runtime exceptions, SQL errors, and hard-delete overruns to an external error tracking service."
-  - code_imp: "SSsentry can now ship per-window BYOND profiler dumps to Sentry as events with the raw JSON attached and the top-N hottest procs in the event extras (opt-in via CAPTURE_PROFILER)."
-  - server: "Added config/sentry.txt support for configuring the Sentry DSN and capture settings. See config/example/sentry.txt for setup instructions."

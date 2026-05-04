@@ -1,4 +1,0 @@
-author: Batrachophrenoboocosmomachia
-delete-after: True
-changes:
-  - bugfix: "Earphones now automatically stop playing when dropped/thrown/etc. to address a few instances of audio strangeness."

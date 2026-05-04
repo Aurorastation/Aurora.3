@@ -1,4 +1,0 @@
-author: Batrachophrenoboocosmomachia
-delete-after: True
-changes:
-  - bugfix: "Allows borgs to bypass skill checks to toggle emitters."

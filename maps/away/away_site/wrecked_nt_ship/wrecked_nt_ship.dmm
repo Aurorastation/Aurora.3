@@ -830,7 +830,6 @@
 /turf/simulated/floor/tiled/steel/airless,
 /area/wrecked_nt_ship)
 "rG" = (
-/obj/item/circuitboard/mecha/phazon/peripherals,
 /obj/structure/largecrate/hoverpod,
 /turf/simulated/floor/tiled/steel/airless,
 /area/wrecked_nt_ship)
@@ -986,7 +985,6 @@
 /obj/structure/window/reinforced/tinted{
 	dir = 8
 	},
-/obj/item/circuitboard/mecha/phazon/main,
 /turf/simulated/floor/tiled/steel/airless,
 /area/wrecked_nt_ship)
 "uR" = (
@@ -1531,7 +1529,6 @@
 /area/wrecked_nt_ship)
 "Jc" = (
 /obj/structure/table/reinforced/steel,
-/obj/item/circuitboard/mecha/phazon,
 /turf/simulated/floor/tiled/steel/airless,
 /area/wrecked_nt_ship)
 "Jw" = (

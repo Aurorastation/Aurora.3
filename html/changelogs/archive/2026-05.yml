@@ -1,0 +1,16 @@
+2026-05-01:
+  Kano:
+  - rscadd: Added a preview icon for brick walls.
+  SleepyGemmy:
+  - rscadd: Tweaked the "Who" and "Staff Who" interfaces.
+2026-05-04:
+  Hellfirejag:
+  - bugfix: Fixed mechanical organs and augments getting infections and never recovering
+      correctly from EMP damage.
+  - bugfix: Fixed some runtime errors with projectiles and firearms.
+  - bugfix: Fixed some runtime errors with Beams.
+  - bugfix: Fixed Mechanical Organs EMP effects being extremely underwhelming and
+      short lived. An EMP grenade will disable mechanical organs for 30 seconds.
+  - bugfix: Fixed both a hard delete and a random test fail related to hivebot beacons.
+  - rscadd: Added Carousing as a small new Everyday skill. Having ranks in Carousing
+      makes you slightly more resistant to drugs and alcohol.

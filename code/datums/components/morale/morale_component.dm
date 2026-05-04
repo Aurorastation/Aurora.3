@@ -51,6 +51,9 @@
 	 */
 	var/panic_chance_ceiling = 10
 
+	/// The maximum possible positive or negative contribution to surgery success chances from morale modifiers.
+	var/surgery_success_contribution = 10
+
 /datum/component/morale/proc/get_morale_ratio()
 	return morale_ratio
 
@@ -96,6 +99,7 @@
 	RegisterSignal(parent, COMSIG_MECH_MOVE_WASD, PROC_REF(handle_user_move), override = TRUE)
 	RegisterSignal(parent, COMSIG_MECH_MOVE_STRAFE, PROC_REF(handle_user_strafe), override = TRUE)
 	RegisterSignal(parent, COMSIG_MECH_TOGGLE_POWER, PROC_REF(handle_mech_toggle_power), override = TRUE)
+	RegisterSignal(parent, COMSIG_GET_SURGERY_SUCCESS_MODIFIERS, PROC_REF(handle_surgery_modifiers), override = TRUE)
 
 /datum/component/morale/Destroy()
 	QDEL_LIST_FORCE(moodlets)
@@ -113,6 +117,7 @@
 	UnregisterSignal(parent, COMSIG_MECH_MOVE_WASD)
 	UnregisterSignal(parent, COMSIG_MECH_MOVE_STRAFE)
 	UnregisterSignal(parent, COMSIG_MECH_TOGGLE_POWER)
+	UnregisterSignal(parent, COMSIG_GET_SURGERY_SUCCESS_MODIFIERS)
 	return ..()
 
 /datum/component/morale/process(seconds_per_tick)
@@ -228,3 +233,7 @@
 
 	*delay = *delay - (5 * morale_ratio) SECONDS
 	to_chat(user, SPAN_WARNING("The pressure on your mind causes you to stumble in searching for the power switch..."))
+
+/datum/component/morale/proc/handle_surgery_modifiers(mob/living/user, success_rate)
+	SIGNAL_HANDLER
+	*success_rate = *success_rate + surgery_success_contribution * morale_ratio
