@@ -26,6 +26,7 @@ type SynthesizerData = {
     all_environments: string[];
     selected_environment: string;
     apply_echo: BooleanLike;
+    can_use_custom: BooleanLike;
   };
   sustain: {
     linear_decay_active: BooleanLike;
@@ -286,12 +287,16 @@ export const Synthesizer = (props, context) => {
               {advanced_options.all_environments.map((envName, i) => {
                 const isSelected =
                   advanced_options.selected_environment === envName;
+                const isCustom = envName === 'Custom';
+                const customLocked =
+                  isCustom && !isSelected && !advanced_options.can_use_custom;
                 return (
                   <Button
                     key={envName}
                     mb={0.25}
                     mr={0.25}
                     selected={isSelected}
+                    disabled={customLocked}
                     content={envName}
                     onClick={() => act('select_env', { value: i - 1 })}
                   />

@@ -39,7 +39,8 @@
 		"advanced_options" = list(
 			"all_environments" = GLOB.musical_config.all_environments,
 			"selected_environment" = GLOB.musical_config.id_to_environment(src.player.virtual_environment_selected),
-			"apply_echo" = src.player.apply_echo
+			"apply_echo" = src.player.apply_echo,
+			"can_use_custom" = GLOB.musical_config.can_use_custom
 		),
 		"sustain" = list(
 			"linear_decay_active" = src.player.song.linear_decay,
@@ -196,7 +197,10 @@
 			return TRUE
 		if("select_env")
 			if(value in -1 to 26)
-				src.player.virtual_environment_selected = round(value)
+				var/new_id = round(value)
+				if(GLOB.musical_config.is_custom_env(new_id) && !GLOB.musical_config.can_use_custom)
+					return TRUE
+				src.player.virtual_environment_selected = new_id
 			return TRUE
 	return FALSE
 
