@@ -536,6 +536,7 @@
 #include "code\datums\components\skills\science\xenobiology_skill_component.dm"
 #include "code\datums\components\skills\science\xenobotany_skill_component.dm"
 #include "code\datums\components\skills\service\bartending_skill_component.dm"
+#include "code\datums\components\skills\service\carousing_skill_component.dm"
 #include "code\datums\components\skills\service\cooking_skill_component.dm"
 #include "code\datums\components\skills\service\entertaining_skill_component.dm"
 #include "code\datums\components\skills\service\gardening_skill_component.dm"

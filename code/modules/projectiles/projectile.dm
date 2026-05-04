@@ -764,6 +764,8 @@
 		pixel_move(pixel_speed_multiplier, FALSE)
 
 /obj/projectile/proc/fire(angle, atom/direct_target)
+	if(QDELETED(src))
+		return
 	LAZYINITLIST(impacted)
 	if(fired_from)
 		SEND_SIGNAL(fired_from, COMSIG_PROJECTILE_BEFORE_FIRE, src, original)
@@ -984,8 +986,7 @@
  */
 /obj/projectile/proc/preparePixelProjectile(atom/target, atom/source, list/modifiers = null, deviation = 0)
 	if(!(isnull(modifiers) || islist(modifiers)))
-		stack_trace("WARNING: Projectile [type] fired with non-list modifiers, likely was passed click params.")
-		modifiers = null
+		modifiers = params2list(modifiers)
 
 	var/turf/source_loc = get_turf(source)
 	var/turf/target_loc = get_turf(target)

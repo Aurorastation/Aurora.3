@@ -6,7 +6,7 @@
 			. += FONT_SMALL(SPAN_NOTICE(" - [capitalize_first_letters(CH.name)]"))
 	if(health <= broken_damage)
 		. += SPAN_DANGER("It is heavily damaged!")
-	else if(health <= maxhealth)
+	else if(health < maxhealth)
 		. += SPAN_WARNING("It is damaged.")
 
 /obj/item/modular_computer/add_damage(damage, damage_flags, damage_type, armor_penetration, obj/weapon)

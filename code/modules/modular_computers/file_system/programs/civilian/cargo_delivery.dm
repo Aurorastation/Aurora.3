@@ -36,7 +36,7 @@
 		data["id_name"] = id_card ? id_card.name : "-----"
 
 	//Pass the shipped orders
-	var/list/order_list = SScargo.get_orders_by_status("shipped", TRUE) + SScargo.get_orders_by_status("approved", TRUE) + SScargo.get_orders_by_status("Unpaid", TRUE, list("shipped", "approved"))
+	var/list/order_list = SScargo.get_orders_by_status("shipped", TRUE) + SScargo.get_orders_by_status("approved", TRUE) + SScargo.get_orders_by_status("Unpaid", TRUE, list("shipped", "approved", "rejected", "basket", "submitted"))
 
 	data["order_list"] = order_list
 

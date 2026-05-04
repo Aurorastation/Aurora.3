@@ -22,8 +22,6 @@ SUBSYSTEM_DEF(statpanels)
 /datum/controller/subsystem/statpanels/fire(resumed = FALSE)
 	if (!resumed)
 		num_fires++
-		var/current_month = text2num(time2text(world.realtime, "MM"))
-		var/current_day = text2num(time2text(world.realtime, "DD"))
 		var/eta_status = "No ETA"
 		if(GLOB.evacuation_controller)
 			eta_status = GLOB.evacuation_controller.get_status_panel_eta()
@@ -31,7 +29,7 @@ SUBSYSTEM_DEF(statpanels)
 			"Map: [SSatlas.current_map.name]",
 			"Round ID: [GLOB.round_id ? GLOB.round_id : "NULL"]",
 			"Server Time: [time2text(world.timeofday, "YYYY-MM-DD hh:mm:ss")]",
-			"Current Date: [GLOB.game_year]-[current_month]-[current_day]",
+			"Current Date: [worlddate2text()]",
 			"Round Time: [get_round_duration_formatted()]",
 			"Ship Time: [worldtime2text()]",
 			"Current Space Sector: [SSatlas.current_sector.name]",
