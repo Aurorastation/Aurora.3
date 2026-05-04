@@ -135,11 +135,6 @@
 
 	category = MODULE_UTILITY
 
-#define RFD_FLOORS_AND_WALL 1
-#define RFD_WINDOW_AND_FRAME 2
-#define RFD_AIRLOCK 3
-#define RFD_DECONSTRUCT 4
-
 /obj/item/rig_module/device/rfd_c/proc/get_current_setting()
 	var/obj/item/rfd/construction/mounted/our_device = device
 	switch(our_device?.mode)

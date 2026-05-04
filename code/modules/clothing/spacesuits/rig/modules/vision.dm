@@ -111,9 +111,9 @@
 /obj/item/rig_module/vision/configure_edit(key, value, mob/user)
 	switch(key)
 		if("vision_mode")
-			set_vision_mode(src, user, value)
+			set_vision_mode(user, value)
 
-/obj/item/rig_module/vision/proc/set_vision_mode(src, mob/user, var/new_mode)
+/obj/item/rig_module/vision/proc/set_vision_mode(mob/user, var/new_mode)
 	if(!new_mode || new_mode == "")
 		return FALSE
 
