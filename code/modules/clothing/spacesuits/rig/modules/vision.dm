@@ -108,10 +108,10 @@
 
 	.["vision_mode"] = add_ui_configuration("Visor mode", "list", vision_mode.mode, modes)
 
-/obj/item/rig_module/vision/configure_edit(key, value)
+/obj/item/rig_module/vision/configure_edit(key, value, mob/user)
 	switch(key)
 		if("vision_mode")
-			set_vision_mode(src, usr, value)
+			set_vision_mode(src, user, value)
 
 /obj/item/rig_module/vision/proc/set_vision_mode(src, mob/user, var/new_mode)
 	if(!new_mode || new_mode == "")
@@ -126,7 +126,7 @@
 		if(V.mode == new_mode)
 			vision_index = i
 			vision_mode = V
-			sound_to(usr, 'sound/machines/terminal/terminal_select.ogg')
+			sound_to(user, 'sound/machines/terminal/terminal_select.ogg')
 			return TRUE
 		i++
 
