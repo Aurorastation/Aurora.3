@@ -120,8 +120,12 @@ const SuitStatusSection = (props, context) => {
       buttons={
         <Stack>
           <Stack.Item>
-            <Button icon="power-off" onClick={() => act('toggle_seals')}>
-              Toggle Suit
+            <Button
+              icon="power-off"
+              color={data.seals ? 'good' : 'bad'}
+              onClick={() => act('toggle_seals')}
+            >
+              {data.seals ? 'Engage Suit' : 'Disengage Suit'}
             </Button>
           </Stack.Item>
         </Stack>
@@ -143,13 +147,22 @@ const SuitStatusSection = (props, context) => {
 
         <LabeledList.Item label="Suit">{suitStatus}</LabeledList.Item>
 
-        <LabeledList.Item label="Cover">
+        <LabeledList.Item label="Cover Lock">
           {' '}
           <Button
             icon={data.coverlock ? 'lock' : 'lock-open'}
             onClick={() => act('toggle_suit_lock')}
           >
             {data.coverlock ? pill('ENABLED', 'good') : pill('DISABLED', 'bad')}
+          </Button>
+        </LabeledList.Item>
+
+        <LabeledList.Item label="ID Lock">
+          <Button
+            icon={data.id_lock ? 'lock' : 'lock-open'}
+            onClick={() => act('toggle_id_lock')}
+          >
+            {data.id_lock ? pill('ENABLED', 'good') : pill('DISABLED', 'bad')}
           </Button>
         </LabeledList.Item>
 
@@ -161,15 +174,6 @@ const SuitStatusSection = (props, context) => {
             {data.aioverride
               ? pill('ENABLED', 'good')
               : pill('DISABLED', 'bad')}
-          </Button>
-        </LabeledList.Item>
-
-        <LabeledList.Item label="ID Lock">
-          <Button
-            icon={data.id_lock ? 'lock' : 'lock-open'}
-            onClick={() => act('toggle_id_lock')}
-          >
-            {data.id_lock ? pill('ENABLED', 'good') : pill('DISABLED', 'bad')}
           </Button>
         </LabeledList.Item>
       </LabeledList>
@@ -368,11 +372,11 @@ const ModulesSection = (props, context) => {
 
             const moduleTypeAction =
               m.module_type === 2
-                ? 'Engage'
-                : m.module_type === 3 && !m.module_active
-                  ? 'Select'
-                  : m.module_type === 3 && m.module_active
-                    ? 'Deselect'
+                ? m.engagestring || 'Engage'
+                : m.module_type === 3 && data.primarysystem !== m.module_name
+                  ? m.activatestring || 'Select'
+                  : m.module_type === 3 && data.primarysystem === m.module_name
+                    ? m.deactivatestring || 'Deselect'
                     : null;
 
             // Handles disabling Toggle button
@@ -385,6 +389,7 @@ const ModulesSection = (props, context) => {
 
             return (
               <Table.Row key={`m-${m.index}`}>
+                {/* 1) Toggle On/Off */}
                 <Table.Cell width={1}>
                   <Button
                     icon={m.module_active ? 'toggle-on' : 'toggle-off'}
@@ -402,7 +407,7 @@ const ModulesSection = (props, context) => {
                   />
                 </Table.Cell>
 
-                {/* 2) Select */}
+                {/* 2) Select/Use */}
                 <Table.Cell width={1}>
                   <Button
                     icon={selected ? 'check-square-o' : 'square-o'}
@@ -426,7 +431,12 @@ const ModulesSection = (props, context) => {
                         <Box
                           inline
                           bold
-                          color={m.module_active ? 'good' : 'average'}
+                          color={
+                            m.module_active ||
+                            data.primarysystem === m.module_name
+                              ? 'good'
+                              : 'average'
+                          }
                         >
                           {m.module_name}
                         </Box>
@@ -538,7 +548,7 @@ const ConfigureDataEntry = (props, context) => {
 
 const ConfigureNumberEntry = (props, context) => {
   const { act } = useBackend(context);
-  const { entryKey, value, values, module_ref } = props;
+  const { entryKey, value, module_ref } = props;
   return (
     <NumberInput
       value={value}
@@ -578,7 +588,7 @@ const ConfigureBoolEntry = (props, context) => {
 
 const ConfigureColorEntry = (props, context) => {
   const { act } = useBackend(context);
-  const { entryKey, value, values, module_ref } = props;
+  const { entryKey, value, module_ref } = props;
   return (
     <>
       <Button
@@ -617,7 +627,7 @@ const ConfigureListEntry = (props, context) => {
 
 const ConfigurePinEntry = (props, context) => {
   const { act } = useBackend(context);
-  const { entryKey, value, values, module_ref } = props;
+  const { entryKey, value, module_ref } = props;
   return (
     <Button
       onClick={() =>
@@ -633,13 +643,14 @@ const ConfigurePinEntry = (props, context) => {
 
 const ConfigureButtonEntry = (props, context) => {
   const { act } = useBackend(context);
-  const { entryKey, value, values, module_ref } = props;
+  const { entryKey, value, module_ref } = props;
   return (
     <Button
       onClick={() => act('configure', { key: entryKey, ref: module_ref })}
-      selected={value}
-      icon={value}
-    />
+      icon="cog"
+    >
+      {value}
+    </Button>
   );
 };
 

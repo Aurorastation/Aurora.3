@@ -15,7 +15,9 @@
 	icon_state = "generic"
 	matter = list(DEFAULT_WALL_MATERIAL = 20000, MATERIAL_PLASTIC = 30000, MATERIAL_GLASS = 5000)
 
+	/// This is literally never read anywhere. All construction cost info lives within the /design. Due for removal.
 	var/list/construction_cost = list(DEFAULT_WALL_MATERIAL=7000, MATERIAL_GLASS =7000)
+	/// This is literally never read anywhere. All construction cost info lives within the /design. Due for removal.
 	var/construction_time = 100
 
 	var/damage = 0
@@ -68,11 +70,11 @@
 	//Display fluff
 	var/interface_name = "hardsuit upgrade"
 	var/interface_desc = "A generic hardsuit upgrade."
-	/// This is a string when a module with an active use is engaged, fire and forget-style.
+	/// This is a string when a module with an active use is engaged, fire and forget-style. The UI will default to 'Engage' if this value is somehow nulled.
 	var/engage_string = "Engage"
-	/// This is when a module is toggled on.
+	/// This is when a module is toggled on. The UI will default to 'Activate' if this value is somehow nulled.
 	var/activate_string = "Activate"
-	/// This is when a module is toggled off.
+	/// This is when a module is toggled off. The UI will default to 'Deactivate' if this value is somehow nulled.
 	var/deactivate_string = "Deactivate"
 
 	var/list/stat_rig_module/stat_modules = new()

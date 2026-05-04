@@ -25,9 +25,15 @@
 	desc = "Some kind of hardsuit mount."
 	module_type = MODULETYPE_USABLE_ACTIVE
 	disruptive = FALSE
+	use_power_cost = 5
 
 	var/device_type
 	var/obj/item/device
+
+/obj/item/rig_module/device/Initialize()
+	. = ..()
+	if(device_type)
+		device = new device_type(src)
 
 /obj/item/rig_module/device/Destroy()
 	if(!ispath(src.device))
@@ -45,6 +51,8 @@
 	construction_cost = list("$glass" = 5250, DEFAULT_WALL_MATERIAL = 2500)
 	construction_time = 300
 
+	engage_string = "Run Self-Diagnostic"
+
 	device_type = /obj/item/healthanalyzer
 
 	category = MODULE_MEDICAL
@@ -55,10 +63,7 @@
 	interface_name = "vitals tracker"
 	interface_desc = "Shows an informative health readout of the user."
 
-	module_type = MODULETYPE_USABLE
-
 	category = MODULE_GENERAL
-
 
 /obj/item/rig_module/device/drill
 	name = "hardsuit diamond drill mount"
@@ -69,7 +74,7 @@
 	interface_desc = "A diamond-tipped industrial drill."
 	suit_overlay_active = "mounted-drill"
 	suit_overlay_inactive = "mounted-drill"
-	use_power_cost = 0.1
+	use_power_cost = 0.2
 	construction_cost = list(DEFAULT_WALL_MATERIAL = 55000, MATERIAL_GLASS = 2250, MATERIAL_SILVER = 5250, MATERIAL_DIAMOND = 3750)
 	construction_time = 350
 
@@ -130,16 +135,34 @@
 
 	category = MODULE_UTILITY
 
+#define RFD_FLOORS_AND_WALL 1
+#define RFD_WINDOW_AND_FRAME 2
+#define RFD_AIRLOCK 3
+#define RFD_DECONSTRUCT 4
+
+/obj/item/rig_module/device/rfd_c/proc/get_current_setting()
+	var/obj/item/rfd/construction/mounted/our_device = device
+	switch(our_device?.mode)
+		if(RFD_FLOORS_AND_WALL)
+			return "Floors & Wall"
+		if(RFD_WINDOW_AND_FRAME)
+			return "Window & Frame"
+		if(RFD_AIRLOCK)
+			return "Airlock"
+		if(RFD_DECONSTRUCT)
+			return "Deconstruct"
+	// How?
+	return "ERROR - CONSULT MANUFACTURER"
+
 /obj/item/rig_module/device/rfd_c/get_configuration()
 	. = ..()
-	.["rfd_settings"] = add_ui_configuration("Configure RFD-C Settings", "button", current_setting)
+	.["rfd_settings"] = add_ui_configuration("Configure RFD-C Settings", "button", get_current_setting())
 
 /obj/item/rig_module/device/rfd_c/configure_edit(key, value, mob/user)
 	var/obj/item/rfd/construction/mounted/our_device = device
 	switch(key)
 		if("rfd_settings")
 			our_device.attack_self(user)
-			our_device.update_display_name()
 
 /obj/item/rig_module/device/rfd_c/handle_device_engage(atom/target, mob/user)
 	var/resolved = target.attackby(device, user)
@@ -150,21 +173,13 @@
 			return FALSE
 	return TRUE
 
-/obj/item/rig_module/device/Initialize()
-	. = ..()
-	if(device_type)
-		device = new device_type(src)
-	var/obj/item/rfd/construction/mounted/our_device = device
-	our_device.update_display_name()
-
-/obj/item/rig_module/device/engage(atom/target, mob/user)
+/obj/item/rig_module/device/rfd_c/engage(atom/target, mob/user)
 	if(!..() || !device)
 		return FALSE
 
 	var/obj/item/rfd/construction/mounted/our_device = device
 	if(!target)
 		our_device.attack_self(user)
-		our_device.update_display_name()
 		return TRUE
 
 	var/turf/T = get_turf(target)
@@ -186,9 +201,10 @@
 /obj/item/rig_module/chem_dispenser
 	name = "mounted chemical dispenser"
 	desc = "A complex web of tubing and needles suitable for hardsuit use."
+	interface_desc = "Dispenses loaded chemicals directly into the wearer's (or adjacent target's) bloodstream."
 	icon_state = "injector"
 	module_type = MODULETYPE_USABLE_ACTIVE
-	disruptive = FALSE
+	disruptive = TRUE
 	confined_use = TRUE
 	construction_cost = list(DEFAULT_WALL_MATERIAL=10000, MATERIAL_GLASS =9250, MATERIAL_GOLD =2500, MATERIAL_SILVER =4250,"phoron"=5500)
 	construction_time = 400
@@ -215,7 +231,7 @@
 	category = MODULE_HEAVY_COMBAT
 
 /obj/item/rig_module/chem_dispenser/ninja
-	interface_desc = "Dispenses loaded chemicals directly into the wearer's bloodstream. This variant is made to be extremely light and flexible."
+	interface_desc = "Dispenses loaded chemicals directly into the wearer's (or adjacent target's) bloodstream. This variant is made to be extremely light and flexible."
 
 	//just over a syringe worth of each. Want more? Go refill. Gives the ninja another reason to have to show their face.
 	charges = list(
@@ -229,7 +245,7 @@
 		list("synaptizine",		"synaptizine",		/singleton/reagent/synaptizine,			20),
 		list("radium",			"radium",			/singleton/reagent/radium,				20)
 		)
-
+	disruptive = FALSE
 	category = MODULE_UTILITY
 
 /obj/item/rig_module/chem_dispenser/accepts_item(var/obj/item/input_item, var/mob/living/user)
@@ -326,7 +342,6 @@
 		)
 
 	interface_name = "combat chem dispenser"
-	interface_desc = "Dispenses loaded chemicals directly into the bloodstream."
 
 	category = MODULE_LIGHT_COMBAT
 
@@ -343,7 +358,6 @@
 		)
 
 	interface_name = "vaurca combat chem dispenser"
-	interface_desc = "Dispenses loaded chemicals directly into the bloodstream."
 
 	category = MODULE_VAURCA
 
@@ -358,7 +372,6 @@
 		)
 
 	interface_name = "chem dispenser"
-	interface_desc = "Dispenses loaded chemicals directly into the bloodstream."
 
 	category = MODULE_GENERAL
 
@@ -366,12 +379,11 @@
 	name = "mounted chemical injector"
 	desc = "A complex web of tubing and a large needle suitable for hardsuit use."
 	module_type = MODULETYPE_USABLE_ACTIVE
-	disruptive = 1
 	construction_cost = list(DEFAULT_WALL_MATERIAL = 10000, MATERIAL_GLASS = 9250, MATERIAL_GOLD = 2500, MATERIAL_SILVER = 4250, MATERIAL_PHORON = 5500)
 	construction_time = 400
 
 	interface_name = "mounted chem injector"
-	interface_desc = "Dispenses loaded chemicals via an arm-mounted injector."
+	interface_desc = "Dispenses loaded chemicals directly into the wearer's (or adjacent target's) bloodstream. This variant is made to be extremely light and flexible."
 
 	category = MODULE_MEDICAL
 
@@ -391,11 +403,8 @@
 	disruptive = FALSE
 	confined_use = TRUE
 
-	activate_string = "Activate Voice Synthesizer"
-	deactivate_string = "Deactivate Voice Synthesizer"
-
 	interface_name = "voice synthesizer"
-	interface_desc = "A flexible and powerful voice modulator system."
+	interface_desc = "A flexible and powerful voice modulator system. Can mimic both names and accents."
 
 	var/obj/item/voice_changer/voice_holder
 
@@ -418,29 +427,42 @@
 
 /obj/item/rig_module/voice/get_configuration()
 	. = ..()
-	.["name"] = add_ui_configuration("Name: ([voice_holder.voice])", "button", voice_holder.voice)
-	.["accent"] += add_ui_configuration("Accent", "button", voice_holder.current_accent)
+	.["configure"] = add_ui_configuration(engage_string, "button", "Name: [voice_holder?.name], Accent: [voice_holder?.current_accent]")
 
 /obj/item/rig_module/voice/configure_edit(key, value, user)
 	switch(key)
-		if("name")
-			var/new_name = tgui_input_text(user,"Set the name displayed by the voice synthesizer.", src, max_length = 64)
-			if(!new_name)
+		if("configure")
+			engage(null, user)
+
+/obj/item/rig_module/voice/engage(atom/target, mob/user)
+	if(!..())
+		return FALSE
+
+	var/choice= tgui_input_list(user, "Would you like to set the name or accent for the synthesizer?", src, list("Set Name", "Set Accent"))
+
+	if(!choice)
+		return FALSE
+
+	switch(choice)
+		if("Set Name")
+			var/raw_choice = sanitize(input(user, "Please enter a new name.") as text|null, MAX_NAME_LEN)
+			if(!raw_choice)
 				return FALSE
-			voice_holder.voice = new_name
-			message_user(user, SPAN_NOTICE("You set the synthesizer to mimic <b>[voice_holder.voice]</b>."), SPAN_NOTICE("\The [user] set the speech synthesizer to mimic <b>[voice_holder.voice]</b>."))
-		if("accent")
-			var/new_accent = tgui_input_list(user, "Please choose an accent to mimic.", src, SSrecords.accents)
-			if(!new_accent)
+			voice_holder.voice = raw_choice
+			message_user(user, SPAN_NOTICE("You set the synthesizer to mimic <b>[raw_choice]</b>."), SPAN_NOTICE("\The [user] set the speech synthesizer to mimic <b>[voice_holder.voice]</b>."))
+		if("Set Accent")
+			var/raw_choice = tgui_input_list(user, "Please choose an accent to mimick.", "Accent Mimicry", SSrecords.accents)
+			if(!raw_choice)
 				return FALSE
-			voice_holder.current_accent = new_accent
-			message_user(user, SPAN_NOTICE("You set the synthesizer to mimic the [new_accent] accent."), SPAN_NOTICE("\The [user] set the speech synthesizer the [new_accent] accent."))
+			voice_holder.current_accent = raw_choice
+			message_user(user, SPAN_NOTICE("You set the synthesizer to mimic the [raw_choice] accent."), SPAN_NOTICE("\The [user] set the speech synthesizer the [raw_choice] accent."))
+	return TRUE
 
 /obj/item/rig_module/voice/activate(mob/user)
 	if(!..())
 		return
 	voice_holder.active = TRUE
-	message_user(user, SPAN_NOTICE("You enable the speech synthesizer."), SPAN_NOTICE("\The [user] enables the speech synthesizer."))
+	message_user(user, SPAN_NOTICE("You enable the speech synthesizer. Name: [voice_holder?.name], Accent: [voice_holder?.current_accent]"), SPAN_NOTICE("\The [user] enables the speech synthesizer."))
 	return TRUE
 
 /obj/item/rig_module/voice/deactivate(mob/user)
@@ -462,10 +484,6 @@
 
 	suit_overlay_active = "maneuvering_active"
 	suit_overlay_inactive = null //"maneuvering_inactive"
-
-	engage_string = "Toggle Stabilizers"
-	activate_string = "Activate Thrusters"
-	deactivate_string = "Deactivate Thrusters"
 
 	interface_name = "maneuvering jets"
 	interface_desc = "An inbuilt EVA maneuvering system that runs off the hardsuit air supply."
@@ -619,7 +637,7 @@
 	icon_state = "actuators"
 	module_type = MODULETYPE_USABLE_ACTIVE
 	interface_name = "leg actuators"
-	interface_desc = "Allows you to fall from heights and to jump up onto ledges."
+	interface_desc = "Allows you to fall from heights and dash up to <b>4</b> tiles at once. To jump onto ledges, stand adjacent and facing a climbable wall (one with a walkable turf above it), then target your own turf to rapidly climb to the turf above!"
 
 	construction_cost = list(DEFAULT_WALL_MATERIAL=15000, MATERIAL_GLASS = 1250, MATERIAL_SILVER =5250)
 	construction_time = 300
@@ -627,12 +645,8 @@
 	disruptive = FALSE
 
 	active_power_cost = 1
-	use_power_cost = 5
+	use_power_cost = 20
 	module_cooldown = 25
-
-	engage_string = "Toggle Leg Actuators"
-	activate_string = "Enable Leg Actuators"
-	deactivate_string = "Disable Leg Actuators"
 
 	/// Determines whether or not the actuators can do special combat oriented tasks,
 	/// such as leaping faster, or grappling targets.
@@ -641,17 +655,20 @@
 	/// Determines how far the actuators allow you to leap (radius, inclusive).
 	var/leapDistance = 4
 
+
+
 	category = MODULE_GENERAL
 
 /obj/item/rig_module/actuators/combat
 	name = "military grade leg actuators"
 	desc = "A set of high-powered hydraulic actuators, for improved traversal of multilevelled areas."
 	interface_name = "combat leg actuators"
-
+	interface_desc = "Allows you to fall from heights and dash up to <b>7</b> tiles at once. To jump onto ledges, stand adjacent and facing a climbable wall (one with a walkable turf above it), \
+	then target your own turf to <b>instantly</b> leap to the turf above! These leg actuators also let you aggressively lunge and grap people by targeting them directly with your dash ability."
 	combatType = 1
 	leapDistance = 7
 
-	use_power_cost = 10
+	use_power_cost = 50
 
 	category = MODULE_LIGHT_COMBAT
 

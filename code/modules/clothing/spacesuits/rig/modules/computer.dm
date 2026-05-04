@@ -44,11 +44,11 @@
 	deactivate_string = "Disable Dataspike"
 
 	interface_name = "integrated intelligence system"
-	interface_desc = "A socket that supports a range of artificial intelligence systems."
+	interface_desc = "A socket that supports a range of artificial intelligence systems. When active, you can click on any active AI (including traditional ship/station AIs, pAIs, and robot intelligence circuits) to attempt to integrate it into your suit systems."
 
 	/// Direct reference to the actual mob held in the suit.
 	var/mob/integrated_ai
-	/// Reference to the MMI, posibrain, intellicard or pAI card previously holding the AI.
+	/// Reference to the MMI, intellicard or pAI card previously holding the AI.
 	var/obj/item/ai_card
 	var/obj/item/ai_verbs/verb_holder
 
@@ -136,6 +136,18 @@
 		return TRUE
 
 	return FALSE
+
+/obj/item/rig_module/ai_container/get_configuration()
+	. = ..()
+	var/button_label = "No AI Currently Installed"
+	if(integrated_ai)
+		button_label = integrated_ai.name
+	.["eject"] = add_ui_configuration(engage_string, "button", button_label)
+
+/obj/item/rig_module/ai_container/configure_edit(key, value, user)
+	switch(key)
+		if("eject")
+			engage(null, user)
 
 /obj/item/rig_module/ai_container/engage(atom/target, mob/user)
 	if(!..())
