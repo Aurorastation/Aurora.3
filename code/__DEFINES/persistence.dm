@@ -37,6 +37,9 @@ ABSTRACT_TYPE(/singleton/persistent_type_history_expiration_rule/age)
 /singleton/persistent_type_history_expiration_rule/age/default
 	max_age_days = PERSISTENT_DEFAULT_EXPIRATION_DAYS
 
+/singleton/persistent_type_history_expiration_rule/age/week
+	max_age_days = 7
+
 /singleton/persistent_type_history_expiration_rule/age/quarter_month
 	max_age_days = 90
 
@@ -89,8 +92,6 @@ ABSTRACT_TYPE(/singleton/persistent_type/history/character)
 
 // Basic history persistent type definition
 #define CREATE_PERSISTENT_TYPE_HISTORY(TYPE_NAME, TITLE, DESCRIPTION, REQUIRES_ATTRIBUTE, EXPIRATION_RULE) \
-	if(findtext("character", #TYPE_NAME)) \
-		fail("Cannot use this macro for creating a type of 'character', use CREATE_PERSISTENT_TYPE_HISTORY_CHARACTER instead.", __FILE__, __LINE__); \
 	/singleton/persistent_type/history/##TYPE_NAME \
 	{ \
 		title = #TITLE; \
@@ -135,7 +136,7 @@ ABSTRACT_TYPE(/singleton/persistent_type/history/character)
 /datum/persistent_record
 	var/id = 0
 	var/created_at = ""
-	var/value = null
+	var/value = null // Treat this as string value
 
 /datum/persistent_generic
 	var/singleton/persistent_type/history/type_define = null // Definition type

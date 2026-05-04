@@ -85,10 +85,11 @@
  *					If the type definition is a character record type, the attribute must be a valid character ID or the record will be rejected.
  *  attribute =		Custom attribute of the record, can be null if the type definition doesn't require it.
  *  limit =			Number of records to retrieve.
+ *  skip_caching =	If set to TRUE, the results won't be added to the types cache, defaults to FALSE. Can be used for rare but large count queries.
  * RETURN:
  * 	List of /persistent_record or empty list.
  */
-/datum/controller/subsystem/persistence/proc/historyGetLastRecords(var/singleton/persistent_type/history/target_type, attribute, limit)
+/datum/controller/subsystem/persistence/proc/historyGetLastRecords(var/singleton/persistent_type/history/target_type, attribute, limit, skip_caching = FALSE)
 	if(!target_type)
 		log_subsystem_persistence_warning("Attempted to get history records with null target type.")
 		return list()
@@ -126,14 +127,34 @@
 	var/len = length(results)
 	if(!len)
 		return list()
-	history_cache_count += len
+
+	if(!skip_caching)
+		history_cache_count += len
 
 	for(var/result in results)
 		var/datum/persistent_record/r = new /datum/persistent_record
 		r.id = result["id"]
 		r.created_at = result["created_at"]
 		r.value = result["value"]
-		container.records += r // Add to cache
-		top += r // Records in top are either newly created or read from DB already, append to result
+		if(!skip_caching)
+			container.records += r // Add to cache
+		top += r // Records in top are either newly created or read from DB already, append newly queries records.
 
 	return top
+
+/**
+ * Queries all records of a specified type/attribute.
+ * PARAMS:
+ * 	target_type =	Singleton persistent type definition. See /singleton/persistent_type and subtypes.
+ *					If the type definition is a character record type, the attribute must be a valid character ID or the record will be rejected.
+ *  attribute =		Custom attribute of the record, can be null if the type definition doesn't require it.
+ *  skip_caching =	If set to TRUE, the results won't be added to the types cache. Recommended to be TRUE for this proc unless further queries are ran for the type+attribute.
+ * RETURN:
+ * 	List of /persistent_record or empty list.
+ */
+/datum/controller/subsystem/persistence/proc/historyGetAllRecords(var/singleton/persistent_type/history/target_type, attribute, skip_caching)
+	var/result = historyGetLastRecords(target_type, attribute, 1000, skip_caching) // TODO 1000 okay?
+	if(length(result) == 0)
+		return null
+	else
+		return result[1]
