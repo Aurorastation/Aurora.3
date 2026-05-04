@@ -236,7 +236,7 @@
 			if(console.paperstock < 1)
 				continue
 			var/obj/item/paper/P = new(console)
-			P.set_content_unsafe("Weekly mining yield report", report_text)
+			P.set_content_unsafe("7-day mining yield report", report_text)
 			console.audible_message("<b>The Requests Console</b> beeps, \"Fax received.\"")
 			for(var/obj/item/modular_computer/pda in console.alert_pdas)
 				var/message = "A fax has arrived!"
