@@ -48,7 +48,9 @@ export const SongEditor = (props, context) => {
             </NoticeBox>
           )}
           {data.lines.length === 0 ? (
-            <NoticeBox>No lines. Click &quot;New Line&quot; to add one.</NoticeBox>
+            <NoticeBox>
+              No lines. Click &quot;New Line&quot; to add one.
+            </NoticeBox>
           ) : (
             <Table>
               <Table.Row header>

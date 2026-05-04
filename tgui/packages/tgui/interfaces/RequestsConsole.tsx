@@ -345,13 +345,7 @@ const SentScreen = ({ act, success }: { act: any; success: boolean }) => (
 
 // ---- View Messages ----
 
-const LogEntryView = ({
-  entry,
-  act,
-}: {
-  entry: LogEntry;
-  act: any;
-}) => {
+const LogEntryView = ({ entry, act }: { entry: LogEntry; act: any }) => {
   if (entry.type === 'error') {
     return (
       <NoticeBox danger mb={0.5}>
@@ -360,7 +354,9 @@ const LogEntryView = ({
     );
   }
   if (entry.type === 'sent') {
-    const sentLabel = entry.category ? CATEGORY_LABEL[entry.category] : 'Message';
+    const sentLabel = entry.category
+      ? CATEGORY_LABEL[entry.category]
+      : 'Message';
     return (
       <Box mb={0.5} p={0.5} style={{ borderLeft: '2px solid #555' }}>
         <Box bold>

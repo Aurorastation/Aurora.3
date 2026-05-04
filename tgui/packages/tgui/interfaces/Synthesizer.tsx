@@ -1,12 +1,6 @@
 import { BooleanLike } from '../../common/react';
 import { useBackend } from '../backend';
-import {
-  Box,
-  Button,
-  LabeledList,
-  ProgressBar,
-  Section,
-} from '../components';
+import { Box, Button, LabeledList, ProgressBar, Section } from '../components';
 import { Window } from '../layouts';
 
 type SynthesizerData = {
@@ -129,10 +123,7 @@ export const Synthesizer = (props, context) => {
                   maxValue={100}
                 />
               </Box>
-              <Button
-                content="+"
-                onClick={() => act('volume', { value: 1 })}
-              />
+              <Button content="+" onClick={() => act('volume', { value: 1 })} />
               <Button
                 content="++"
                 onClick={() => act('volume', { value: 10 })}
@@ -145,10 +136,7 @@ export const Synthesizer = (props, context) => {
               />
             </LabeledList.Item>
             <LabeledList.Item label="BPM">
-              <Button
-                icon="minus"
-                onClick={() => act('tempo', { value: 1 })}
-              />
+              <Button icon="minus" onClick={() => act('tempo', { value: 1 })} />
               <Box inline mx={1} width="40px" textAlign="center">
                 {basic_options.bpm}
               </Box>
@@ -272,9 +260,7 @@ export const Synthesizer = (props, context) => {
             fluid
             icon="volume-down"
             selected={!!advanced_options.apply_echo}
-            content={
-              advanced_options.apply_echo ? 'Echo: On' : 'Echo: Off'
-            }
+            content={advanced_options.apply_echo ? 'Echo: On' : 'Echo: Off'}
             onClick={() =>
               act('echo', { value: advanced_options.apply_echo ? 0 : 1 })
             }
