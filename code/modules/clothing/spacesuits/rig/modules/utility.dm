@@ -125,8 +125,21 @@
 	construction_time = 1000
 
 	device_type = /obj/item/rfd/construction/mounted
+	/// Name of the atom (or mode, if deconstructing) to display in the UI. Default for RFD-C is a wall.
+	var/current_setting = "wall"
 
 	category = MODULE_UTILITY
+
+/obj/item/rig_module/device/rfd_c/get_configuration()
+	. = ..()
+	.["rfd_settings"] = add_ui_configuration("Configure RFD-C Settings", "button", current_setting)
+
+/obj/item/rig_module/device/rfd_c/configure_edit(key, value, mob/user)
+	var/obj/item/rfd/construction/mounted/our_device = device
+	switch(key)
+		if("rfd_settings")
+			our_device.attack_self(user)
+			our_device.update_display_name()
 
 /obj/item/rig_module/device/rfd_c/handle_device_engage(atom/target, mob/user)
 	var/resolved = target.attackby(device, user)
@@ -141,13 +154,17 @@
 	. = ..()
 	if(device_type)
 		device = new device_type(src)
+	var/obj/item/rfd/construction/mounted/our_device = device
+	our_device.update_display_name()
 
 /obj/item/rig_module/device/engage(atom/target, mob/user)
 	if(!..() || !device)
 		return FALSE
 
+	var/obj/item/rfd/construction/mounted/our_device = device
 	if(!target)
-		device.attack_self(user)
+		our_device.attack_self(user)
+		our_device.update_display_name()
 		return TRUE
 
 	var/turf/T = get_turf(target)
@@ -404,20 +421,20 @@
 	.["name"] = add_ui_configuration("Name: ([voice_holder.voice])", "button", voice_holder.voice)
 	.["accent"] += add_ui_configuration("Accent", "button", voice_holder.current_accent)
 
-/obj/item/rig_module/voice/configure_edit(key, value)
+/obj/item/rig_module/voice/configure_edit(key, value, user)
 	switch(key)
 		if("name")
-			var/new_name = tgui_input_text(usr,"Set the name displayed by the voice synthesizer.", src, max_length = 64)
+			var/new_name = tgui_input_text(user,"Set the name displayed by the voice synthesizer.", src, max_length = 64)
 			if(!new_name)
 				return FALSE
 			voice_holder.voice = new_name
-			message_user(usr, SPAN_NOTICE("You set the synthesizer to mimic <b>[voice_holder.voice]</b>."), SPAN_NOTICE("\The [usr] set the speech synthesizer to mimic <b>[voice_holder.voice]</b>."))
+			message_user(user, SPAN_NOTICE("You set the synthesizer to mimic <b>[voice_holder.voice]</b>."), SPAN_NOTICE("\The [user] set the speech synthesizer to mimic <b>[voice_holder.voice]</b>."))
 		if("accent")
-			var/new_accent = tgui_input_list(usr, "Please choose an accent to mimic.", src, SSrecords.accents)
+			var/new_accent = tgui_input_list(user, "Please choose an accent to mimic.", src, SSrecords.accents)
 			if(!new_accent)
 				return FALSE
 			voice_holder.current_accent = new_accent
-			message_user(usr, SPAN_NOTICE("You set the synthesizer to mimic the [new_accent] accent."), SPAN_NOTICE("\The [usr] set the speech synthesizer the [new_accent] accent."))
+			message_user(user, SPAN_NOTICE("You set the synthesizer to mimic the [new_accent] accent."), SPAN_NOTICE("\The [user] set the speech synthesizer the [new_accent] accent."))
 
 /obj/item/rig_module/voice/activate(mob/user)
 	if(!..())
@@ -467,10 +484,10 @@
 	. = ..()
 	.["stabilizers"] = add_ui_configuration("Stabilizers", "bool", stabilize)
 
-/obj/item/rig_module/maneuvering_jets/configure_edit(key, value)
+/obj/item/rig_module/maneuvering_jets/configure_edit(key, value, mob/user)
 	switch(key)
 		if("stabilizers")
-			if(engage(src, usr))
+			if(engage(src, user))
 				stabilize = jets.stabilization_on
 
 /obj/item/rig_module/maneuvering_jets/engage(atom/target, mob/user)
@@ -609,6 +626,7 @@
 
 	disruptive = FALSE
 
+	active_power_cost = 1
 	use_power_cost = 5
 	module_cooldown = 25
 
@@ -616,9 +634,12 @@
 	activate_string = "Enable Leg Actuators"
 	deactivate_string = "Disable Leg Actuators"
 
-	var/combatType = 0		// Determines whether or not the actuators can do special combat oriented tasks.
-							// Such as leaping faster, or grappling targets.
-	var/leapDistance = 4	// Determines how far the actuators allow you to leap (radius, inclusive).
+	/// Determines whether or not the actuators can do special combat oriented tasks,
+	/// such as leaping faster, or grappling targets.
+	var/combatType = 0
+
+	/// Determines how far the actuators allow you to leap (radius, inclusive).
+	var/leapDistance = 4
 
 	category = MODULE_GENERAL
 
@@ -634,26 +655,17 @@
 
 	category = MODULE_LIGHT_COMBAT
 
-/obj/item/rig_module/actuators/proc/is_valid_turf(var/turf/T)
-	if(!T || istype(T, /turf/space) || T.density || T.contains_dense_objects())
-		return null
-	if(isopenturf(T))
-		var/obj/structure/lattice/L = locate() in T
-		if(L)
-			return L.name
-		var/turf/leapBelow = GET_TURF_BELOW(T)
-		if(leapBelow.density)
-			return leapBelow.name
-		else if(T.contains_dense_objects())
-			return "structure"
-		else
-			return null
-	return T.name
+/obj/item/rig_module/actuators/get_configuration()
+	. = ..()
+	.["fall_damping"] = add_ui_configuration("Fall Damping", "bool", active)
+
+/obj/item/rig_module/actuators/configure_edit(key, value)
+	switch(key)
+		if("fall_damping")
+			active = !active
 
 /obj/item/rig_module/actuators/engage(atom/target, mob/user)
-	// This is for when you toggle it on or off. Why do they both run the same
-	// proc chain ...? :l
-	if (!target)
+	if(!target)
 		return TRUE
 
 	var/mob/living/carbon/human/H = holder.wearer
@@ -752,12 +764,26 @@
 		H.forceMove(leapEnd)
 		return TRUE
 
+/obj/item/rig_module/actuators/proc/is_valid_turf(var/turf/T)
+	if(!T || istype(T, /turf/space) || T.density || T.contains_dense_objects())
+		return null
+	if(isopenturf(T))
+		var/obj/structure/lattice/L = locate() in T
+		if(L)
+			return L.name
+		var/turf/leapBelow = GET_TURF_BELOW(T)
+		if(leapBelow.density)
+			return leapBelow.name
+		else if(T.contains_dense_objects())
+			return "structure"
+		else
+			return null
+	return T.name
 
 /obj/item/rig_module/cooling_unit
 	name = "mounted cooling unit"
 	module_type = MODULETYPE_TOGGLE
 	origin_tech = list(TECH_MAGNET = 2, TECH_MATERIAL = 2, TECH_ENGINEERING = 3)
-	module_type = MODULETYPE_USABLE
 	interface_name = "mounted cooling unit"
 	interface_desc = "A heat sink with liquid cooled radiator."
 	icon_state = "suitcooler"

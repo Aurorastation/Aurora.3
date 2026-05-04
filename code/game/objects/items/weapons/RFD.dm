@@ -418,6 +418,14 @@ ABSTRACT_TYPE(/obj/item/rfd)
 /obj/item/rfd/construction/mounted/can_use(var/mob/user,var/turf/T)
 	return (user.Adjacent(T) && !user.stat && !user.restrained())
 
+/// Displays the RFD's current setting in its name in the hardsuit UI.
+/obj/item/rfd/construction/mounted/proc/update_display_name()
+	if(mode == RFD_DECONSTRUCT)
+		return "[name] - <b>Mode:</b> (Deconstruct)"
+	else if(build_type)
+		return "[name] - <b>Mode:</b> [build_type]"
+	// How?
+	return "[name] - <b>Mode:</b> ERROR - CONSULT MANUFACTURER"
 
 //
 // RFD - Service Class

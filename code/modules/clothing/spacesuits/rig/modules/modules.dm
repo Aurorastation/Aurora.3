@@ -308,7 +308,7 @@
 	return list("display_name" = display_name, "type" = type, "value" = value, "values" = values)
 
 /// Receives configure edits from the TGUI and edits the vars
-/obj/item/rig_module/proc/configure_edit(key, value)
+/obj/item/rig_module/proc/configure_edit(key, value, mob/user)
 	return
 
 // Procs handling the statpanel 'Hardsuit Modules' tab, which is auto-populated by controls for all modules.

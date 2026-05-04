@@ -392,6 +392,7 @@ const ModulesSection = (props, context) => {
                     tooltip={m.module_active ? 'Disable' : 'Enable'}
                     tooltipPosition="left"
                     disabled={toggleDisabled}
+                    color={m.module_active ? 'good' : ''}
                     onClick={() =>
                       act('interact_module', {
                         index: m.index,

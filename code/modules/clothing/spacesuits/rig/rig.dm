@@ -32,7 +32,7 @@
 	unacidable = 1
 	slowdown = 0.5 // All rigs by default should have slowdown.
 
-	action_button_name = "Open Hardsuit Panel"
+	action_button_name = "Open Hardsuit Interface"
 
 	var/has_sealed_state = FALSE
 	var/has_hidden_jumpsuit = FALSE
@@ -788,7 +788,7 @@
 			if(!module)
 				return
 			to_chat(world, "passing key [params["key"]] with value [params["value"]]")
-			module.configure_edit(params["key"], params["value"])
+			module.configure_edit(params["key"], params["value"], user)
 			sound_to(usr, 'sound/machines/terminal/terminal_prompt_deny.ogg')
 
 	user.set_machine(src)
