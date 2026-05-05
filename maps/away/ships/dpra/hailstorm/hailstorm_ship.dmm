@@ -1071,6 +1071,7 @@
 /obj/item/storage/toolbox/emergency{
 	pixel_y = 2
 	},
+/obj/item/eftpos,
 /turf/simulated/floor/tiled/full{
 	temperature = 278.15
 	},

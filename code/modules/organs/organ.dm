@@ -17,8 +17,14 @@
 
 	//Organ damage stats.
 	var/damage = 0 // amount of damage to the organ
-	var/surge_damage = 0 // EMP damage counter.
-	var/surge_time   = 0
+	/// Total amount of EMP damage a mechanical organ has taken. Effectively equal to "number of seconds the organ EMP effect will last".
+	var/surge_damage = 0.0
+	/**
+	 * The amount of EMP damage a mechanical organ will recover per second.
+	 * Fractional and floating points are allowed, but it shouldn't ever be negative.
+	 */
+	var/surge_recovery_per_second = 1.0
+
 	var/min_broken_damage = 30
 	var/min_bruised_damage = 10 // Damage before considered bruised
 	var/max_damage = 30
@@ -65,7 +71,7 @@ INITIALIZE_IMMEDIATE(/obj/item/organ)
 			LOG_DEBUG("[src] at [loc] spawned without a proper DNA.")
 		var/mob/living/carbon/human/H = holder
 		if(istype(H))
-			if(internal)
+			if(internal && parent_organ)
 				var/obj/item/organ/external/E = H.get_organ(parent_organ)
 				if(E)
 					if(E.internal_organs == null)
@@ -158,52 +164,52 @@ INITIALIZE_IMMEDIATE(/obj/item/organ)
 	if(istype(loc,/obj/structure/closet/body_bag/cryobag) || istype(loc,/obj/structure/closet/crate/freezer) || istype(loc,/obj/item/storage/box/unique/freezer))
 		return
 	//Process infections
-	if ((status & ORGAN_ROBOT) || (owner && owner.species && (owner.species.flags & IS_PLANT)))
+	var/is_immune = ((status & ORGAN_ROBOT) || robotic >= ROBOTIC_MECHANICAL || (owner && owner.species && (owner.species.flags & IS_PLANT)))
+	if (is_immune)
 		germ_level = 0
-		return
 
-	if(BP_IS_ROBOTIC(src) && surge_damage)
-		tick_surge_damage()
+	if((BP_IS_ROBOTIC(src) || robotic >= ROBOTIC_MECHANICAL) && surge_damage)
+		tick_surge_damage(seconds_per_tick)
 
 	if(!owner)
 		if (QDELETED(reagents))
 			LOG_DEBUG("Organ [DEBUG_REF(src)] had QDELETED reagents! Regenerating.")
 			create_reagents(5)
 
-		if(REAGENT_VOLUME(reagents, /singleton/reagent/blood) && !(status & ORGAN_ROBOT) && prob(40))
+		if(REAGENT_VOLUME(reagents, /singleton/reagent/blood) && !is_immune && prob(40))
 			reagents.remove_reagent(/singleton/reagent/blood,0.1)
 			if (isturf(loc))
 				blood_splatter(src,src,TRUE)
 		if(GLOB.config.organs_decay) damage += rand(1,3)
 		if(damage >= max_damage)
 			damage = max_damage
-		germ_level += rand(2,6)
-		if(germ_level >= INFECTION_LEVEL_TWO)
+		if(!is_immune)
 			germ_level += rand(2,6)
-		if(germ_level >= INFECTION_LEVEL_THREE)
-			die()
+			if(germ_level >= INFECTION_LEVEL_TWO)
+				germ_level += rand(2,6)
+			if(germ_level >= INFECTION_LEVEL_THREE)
+				die()
 
 
 	else if(owner.bodytemperature >= 170)	//cryo stops germs from moving and doing their bad stuffs
 		//** Handle antibiotics and curing infections
 		handle_antibiotics()
-		handle_immunosuppressants()
-		handle_rejection()
-		handle_germ_effects()
+		if(!is_immune)
+			handle_immunosuppressants()
+			handle_rejection()
+			handle_germ_effects()
 
 	//check if we've hit max_damage
 	if(damage >= max_damage)
 		die()
 
-/obj/item/organ/proc/tick_surge_damage()
-	if(surge_damage)
-		do_surge_effects()
-	if(surge_time + 1 SECOND < world.time)
-		surge_damage = max(0, surge_damage - 10)
-		surge_time = world.time
-		if(!surge_damage)
-			surge_time = 0
-			clear_surge_effects()
+/obj/item/organ/proc/tick_surge_damage(seconds_per_tick)
+	if(!surge_damage)
+		clear_surge_effects()
+		return
+
+	do_surge_effects()
+	surge_damage = max(0, surge_damage - (surge_recovery_per_second * seconds_per_tick))
 
 /obj/item/organ/proc/do_surge_effects()
 	return
@@ -232,10 +238,10 @@ INITIALIZE_IMMEDIATE(/obj/item/organ)
 		if(antibiotics < 5 && prob(round(germ_level/7)))
 			germ_level++
 
-	if (germ_level >= INFECTION_LEVEL_TWO)
+	if (germ_level >= INFECTION_LEVEL_TWO && parent_organ)
 		var/obj/item/organ/external/parent = owner.get_organ(parent_organ)
 		//spread germs
-		if (antibiotics < 5 && parent.germ_level < germ_level && ( parent.germ_level < INFECTION_LEVEL_ONE*2 || prob(30) ))
+		if (parent && antibiotics < 5 && parent.germ_level < germ_level && ( parent.germ_level < INFECTION_LEVEL_ONE*2 || prob(30) ))
 			parent.germ_level++
 
 		if (prob(3))	//about once every 30 seconds
@@ -423,7 +429,6 @@ INITIALIZE_IMMEDIATE(/obj/item/organ)
 		return //We check earlier, but just to make sure.
 
 	surge_damage = clamp(0, surge + surge_damage, MAXIMUM_SURGE_DAMAGE) //We want X seconds at most of hampered movement or what have you.
-	surge_time = world.time
 
 /**
  *  Remove an organ
@@ -443,7 +448,7 @@ INITIALIZE_IMMEDIATE(/obj/item/organ)
 	owner.internal_organs_by_name -= null
 	owner.internal_organs -= src
 
-	if(detach)
+	if(detach && parent_organ)
 		var/obj/item/organ/external/affected = owner.get_organ(parent_organ)
 		if(affected)
 			affected.internal_organs -= src

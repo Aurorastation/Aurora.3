@@ -5603,6 +5603,7 @@
 	pixel_y = 10;
 	pixel_x = -4
 	},
+/obj/item/eftpos,
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/bridge)
 "vxO" = (

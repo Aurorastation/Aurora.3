@@ -564,3 +564,33 @@
   - bugfix: Fixed the month number not being prefixed correctly in the status tab.
   TheGreyWolf:
   - bugfix: Fixed that PDAs showed as damaged when they weren't.
+2026-04-30:
+  Kano:
+  - bugfix: Fixed weapon racks not displaying the guns stored inside upon roundstart.
+  SierraKomodo:
+  - rscadd: Added colorable versions of the Tajaran Fancy Uniform and Fancy Uniform
+      With Skirt loadout items.
+  SleepyGemmy:
+  - bugfix: Fixed missing practice shotgun shells and practice revolver speedloaders
+      in the security firing range.
+  TheGreyWolf:
+  - rscadd: Added several new restock packs avaiable from the operations ordering
+      console.
+  - balance: Rebalanced the prices of the restock packs.
+  - rscadd: Made the restock packs come with cargo access locks.
+  - rscadd: Restock packs are now actual boxes that can be opened.
+  - rscadd: The commissary restock crate was moved to the operations loading bay.
+  - rscadd: The toy shelf can now also hold cap gun mags, card packs, card boxes and
+      music cartridges.
+  - qol: Reduced the crate fee when making operation orders.
+  - bugfix: Fixed the wording in some of the operation programs.
+  - bugfix: Fixed the delivery app showing deliveries it shouldn't.
+  - bugfix: The cargo control program now properly display status messages.
+  - balance: Supplier fee was set to 0 for all current suppliers, eliminating the
+      20 credit charge per supplier.
+  - balance: The operations order handling fee has been turned into a percentage charge
+      instead, and reduced to 5% by default instead of a flat 20 credits.
+  - rscadd: It is now possible to reject orders that have been approved but not shipped
+      or paid for.
+  arrow768:
+  - spellcheck: Updates the wording in the unwind admin verb.

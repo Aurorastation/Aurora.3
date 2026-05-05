@@ -1,6 +1,0 @@
-author: Kano
-
-delete-after: True
-
-changes:
-  - bugfix: "Fixed weapon racks not displaying the guns stored inside upon roundstart."

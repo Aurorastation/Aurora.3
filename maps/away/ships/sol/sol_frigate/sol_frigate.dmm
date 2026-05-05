@@ -9411,6 +9411,7 @@
 /obj/structure/table/reinforced,
 /obj/item/paper_bin,
 /obj/item/pen/black,
+/obj/item/eftpos,
 /turf/simulated/floor/tiled/dark,
 /area/ship/sol_frigate/cic)
 "Qz" = (

@@ -183,6 +183,8 @@
 	if(transaction_amount <= E.worth)
 		SSeconomy.charge_to_account(SSeconomy.get_department_account(destinationact)?.account_number, E.owner_name, transaction_purpose, transaction_terminal, transaction_amount)
 		E.worth -= transaction_amount
+		if(istype(E, /obj/item/spacecash/ewallet/persistent_charge_card))
+			log_and_message_admins("[E] used for a transaction at [src] with amount [transaction_amount]. Remaining balance: [E.worth]", user, get_turf(src))
 
 		end_transaction(user)
 	else if (transaction_amount > E.worth)

@@ -1372,6 +1372,7 @@
 /obj/item/paper_bin,
 /obj/item/pen/multi,
 /obj/item/binoculars,
+/obj/item/eftpos,
 /turf/simulated/floor/tiled/dark,
 /area/ship/militia_ship)
 "uaE" = (

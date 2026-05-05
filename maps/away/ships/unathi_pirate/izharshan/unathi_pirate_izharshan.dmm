@@ -2204,6 +2204,7 @@
 	pixel_x = -5;
 	req_access = list(210)
 	},
+/obj/item/eftpos,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/unathi_pirate_izharshan/helm)
 "Zj" = (
