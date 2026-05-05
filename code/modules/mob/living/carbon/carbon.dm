@@ -275,8 +275,8 @@
 						status += "dislocated"
 					if(org.status & ORGAN_BROKEN)
 						status += (anatomy < 3 ? "hurts when touched" : "broken")
-					// Anatomy 2 and 3 can't distinguish between regular bleeding and arterial.
-					if(anatomy < 4 && ((org.status & ORGAN_BLEEDING) || (org.status & ORGAN_ARTERY_CUT)))
+					// Anatomy 2 can't distinguish between regular bleeding and arterial.
+					if(anatomy < 3 && ((org.status & ORGAN_BLEEDING) || (org.status & ORGAN_ARTERY_CUT)))
 						status += "bleeding"
 				// End of Anatomy 2.
 
