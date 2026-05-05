@@ -284,15 +284,11 @@
 				if(anatomy >= 3)
 					if(org.status & ORGAN_DEAD)
 						status += (anatomy < 4 ? "possibly necrotic" : "visible discoloration of skin that indicates tissue necrosis")
-					if(org.status & ORGAN_BLEEDING)
-						status += "bandage-ably cut"
-				// End of Anatomy 3
-
-				// Anatomy 4:
-				if(anatomy >= 3)
 					if(org.status & ORGAN_ARTERY_CUT)
 						status += "spraying blood from a severed artery"
-				// End of Anatomy 4
+					else if(org.status & ORGAN_BLEEDING)
+						status += "bandage-ably cut"
+				// End of Anatomy 3
 
 				var/output = ""
 				if(length(status))
