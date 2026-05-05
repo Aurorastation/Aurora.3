@@ -270,7 +270,8 @@
 		return FALSE
 
 	if(target)
-		if(!target.Adjacent(user))
+		// Don't prevent the player from trying to shoot someone who is up in their face if needs be.
+		if(isliving(target) || !target.Adjacent(user))
 			gun.Fire(target, user)
 		else
 			target.attackby(gun, user)
