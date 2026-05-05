@@ -304,10 +304,16 @@
 	color = COLOR_GRAY30
 	build_type = null
 
+/singleton/flooring/tiling/techmaint/purple
+	color = "#3F3B4D"
+
 /singleton/flooring/tiling/techfloor
 	icon_base = "techfloor"
 	color = COLOR_GRAY40
 	build_type = null
+
+/singleton/flooring/tiling/techfloor/purple
+	color = "#3F3B4D"
 
 /singleton/flooring/tiling/freezer
 	name = "floor"
@@ -423,6 +429,9 @@
 /singleton/flooring/reinforced/ramp/bottom
 	icon_base = "rampbot"
 
+/singleton/flooring/reinforced/ramp/dark
+	color = COLOR_TILED
+
 /singleton/flooring/diona
 	name = "biomass"
 	desc = "A mass of small intertwined aliens forming a floor... Creepy."
@@ -496,6 +505,14 @@
 /singleton/flooring/marble/dark
 	color = COLOR_DARK_GRAY
 	build_type = /obj/item/stack/tile/marble/dark
+
+/singleton/flooring/marble/purple
+	color = "#3F3B4D"
+	build_type = /obj/item/stack/tile/marble/purple
+
+/singleton/flooring/marble/gray
+	color = "#949ea3"
+	build_type = /obj/item/stack/tile/marble/gray
 
 /singleton/flooring/concrete
 	name = "concrete"

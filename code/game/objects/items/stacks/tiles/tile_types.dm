@@ -320,14 +320,24 @@
 /obj/item/stack/tile/marble
 	name = "marble floor tile"
 	singular_name = "marble floor tile"
-	icon_state = "tile_lightmarble"
+	icon_state = "tile_marble"
+	color = COLOR_GRAY80
 	matter = list(MATERIAL_MARBLE = TILE_MATERIAL_AMOUNT)
 
 /obj/item/stack/tile/marble/dark
 	name = "dark marble floor tile"
 	singular_name = "dark marble floor tile"
-	icon_state = "tile_darkmarble"
-	matter = list(MATERIAL_MARBLE = TILE_MATERIAL_AMOUNT)
+	color = COLOR_DARK_GRAY
+
+/obj/item/stack/tile/marble/purple
+	name = "purple marble floor tile"
+	singular_name = "purple marble floor tile"
+	color = "#3F3B4D"
+
+/obj/item/stack/tile/marble/gray
+	name = "gray marble floor tile"
+	singular_name = "gray marble floor tile"
+	color = "#949ea3"
 
 /*
  * Cyborg modules

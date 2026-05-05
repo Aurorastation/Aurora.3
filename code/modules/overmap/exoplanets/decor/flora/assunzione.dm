@@ -28,7 +28,7 @@
 /obj/structure/flora/assunzione/grass/sparse
 	icon_state = "sparsegrass_1"
 
-/obj/structure/flora/assunzione/grass/sparse/New()
+/obj/structure/flora/assunzione/grass/sparse/Initialize()
 	..()
 	icon_state = "sparsegrass_[rand(1, 3)]"
 

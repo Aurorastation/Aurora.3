@@ -154,12 +154,17 @@
 	icon = 'icons/turf/flooring/tiles.dmi'
 	icon_state = "ramptop"
 	initial_flooring = /singleton/flooring/reinforced/ramp
+	color = null
 
 /turf/simulated/floor/tiled/ramp/bottom
 	name = "foot ramp"
 	icon = 'icons/turf/flooring/tiles.dmi'
 	icon_state = "rampbot"
 	initial_flooring = /singleton/flooring/reinforced/ramp/bottom
+
+/turf/simulated/floor/tiled/ramp/dark
+	color = COLOR_TILED
+	initial_flooring = /singleton/flooring/reinforced/ramp/dark
 
 /turf/simulated/floor/lino
 	name = "linoleum"
@@ -371,11 +376,19 @@
 	tile_decal_state = "techmaint_light"
 	color = COLOR_GRAY30
 
+/turf/simulated/floor/tiled/techmaint/purple
+	initial_flooring = /singleton/flooring/tiling/techmaint/purple
+	color = "#3F3B4D"
+
 /turf/simulated/floor/tiled/techfloor
 	name = "techfloor tiles"
 	icon_state = "techfloor"
 	initial_flooring = /singleton/flooring/tiling/techfloor
 	tile_decal_state = "techfloor_light"
 	color = COLOR_GRAY40
+
+/turf/simulated/floor/tiled/techfloor/purple
+	initial_flooring = /singleton/flooring/tiling/techfloor/purple
+	color = "#3F3B4D"
 
 // -------------------------------

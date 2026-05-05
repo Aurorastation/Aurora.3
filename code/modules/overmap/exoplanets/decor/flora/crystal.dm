@@ -21,6 +21,7 @@
 	icon_state = "spire"
 	pixel_x = -32
 	layer = ABOVE_HUMAN_LAYER // this is basically a tree
+	light_system = MOVABLE_LIGHT
 	sample_data = list("Sample contains low density crystaline structures")
 
 /obj/structure/flora/rock/spire/Initialize(mapload)

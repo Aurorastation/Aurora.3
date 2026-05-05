@@ -129,3 +129,11 @@
 
 /turf/simulated/floor/marble/dark/cooled
 	temperature = 278
+
+/turf/simulated/floor/marble/purple
+	initial_flooring = /singleton/flooring/marble/purple
+	color = "#3F3B4D"
+
+/turf/simulated/floor/marble/gray
+	initial_flooring = /singleton/flooring/marble/gray
+	color = "#949ea3"

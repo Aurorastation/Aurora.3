@@ -41,6 +41,15 @@
 	},
 /turf/simulated/floor/shuttle/skrell/blue,
 /area/abandoned_skrell_ship)
+"ah" = (
+/obj/effect/map_effect/window_spawner/full/shuttle/mercenary{
+	spawn_firedoor = 1;
+	spawn_grille = 1;
+	frame_color = "#4e4378";
+	color = "#4e4378"
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/template_noop)
 "ai" = (
 /obj/structure/girder,
 /obj/random/dirt_75,
@@ -65,6 +74,15 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/carpet/rubber,
 /area/abandoned_skrell_ship)
+"am" = (
+/obj/effect/decal/cleanable/floor_damage/rust,
+/obj/structure/flora/grass/adhomai,
+/obj/structure/flora/bush/mushroom{
+	pixel_x = 3;
+	pixel_y = 3
+	},
+/turf/simulated/floor/marble/purple,
+/area/abandoned_skrell_ship)
 "ao" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/structure/table/steel,
@@ -80,7 +98,7 @@
 	color = "#574267"
 	},
 /turf/simulated/floor/carpet/rubber/airless,
-/area/space)
+/area/template_noop)
 "ar" = (
 /obj/structure/railing/mapped/no_density/low{
 	dir = 8
@@ -88,6 +106,7 @@
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 8
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/shuttle/skrell,
 /area/abandoned_skrell_ship)
 "as" = (
@@ -129,7 +148,7 @@
 	dir = 4
 	},
 /turf/template_noop,
-/area/space)
+/area/template_noop)
 "av" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
@@ -215,7 +234,7 @@
 "aD" = (
 /obj/machinery/door/blast/odin,
 /turf/simulated/floor/carpet/rubber/airless,
-/area/space)
+/area/template_noop)
 "aE" = (
 /obj/structure/table/skrell,
 /obj/effect/floor_decal/spline/plain/cee/mauve{
@@ -227,7 +246,7 @@
 /obj/structure/table/steel,
 /obj/random/tech_supply,
 /turf/simulated/floor/tiled/dark/full,
-/area/space)
+/area/template_noop)
 "aG" = (
 /obj/effect/decal/curb{
 	dir = 8
@@ -250,7 +269,7 @@
 /area/abandoned_skrell_ship)
 "aI" = (
 /turf/simulated/open/airless,
-/area/space)
+/area/template_noop)
 "aJ" = (
 /obj/machinery/light/skrell{
 	dir = 4
@@ -261,7 +280,7 @@
 /turf/simulated/wall/shuttle/space_ship{
 	color = "#4e4378"
 	},
-/area/space)
+/area/template_noop)
 "aL" = (
 /obj/effect/floor_decal/spline/plain/cee/black{
 	dir = 4
@@ -277,7 +296,7 @@
 "aN" = (
 /obj/structure/lattice/ceiling,
 /turf/simulated/floor/airless,
-/area/space)
+/area/template_noop)
 "aO" = (
 /obj/effect/decal/curb/corner{
 	color = "#574267"
@@ -296,6 +315,10 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/carpet/rubber/airless,
 /area/abandoned_skrell_ship)
+"aP" = (
+/obj/effect/floor_decal/spline/plain/cee/black,
+/turf/simulated/floor/shuttle/skrell/blue,
+/area/abandoned_skrell_ship)
 "aQ" = (
 /obj/structure/railing/mapped/no_density/low{
 	dir = 8
@@ -304,7 +327,7 @@
 	thrust_limit = 0.25
 	},
 /turf/simulated/floor/reinforced/airless,
-/area/space)
+/area/template_noop)
 "aR" = (
 /obj/structure/railing/mapped{
 	dir = 4
@@ -343,7 +366,16 @@
 /obj/effect/floor_decal/spline/plain/cee/mauve{
 	dir = 4
 	},
-/turf/simulated/floor/marble/dark,
+/turf/simulated/floor/marble/purple,
+/area/abandoned_skrell_ship)
+"ba" = (
+/obj/structure/platform/ledge/dark{
+	dir = 8
+	},
+/obj/machinery/light/skrell{
+	dir = 8
+	},
+/turf/simulated/floor/marble/purple,
 /area/abandoned_skrell_ship)
 "bb" = (
 /obj/effect/floor_decal/industrial/outline/grey,
@@ -386,11 +418,11 @@
 /obj/structure/platform/ledge/dark{
 	dir = 1
 	},
-/turf/simulated/floor/carpet/rubber,
+/turf/simulated/floor/tiled/techmaint/purple,
 /area/abandoned_skrell_ship)
 "bh" = (
 /turf/simulated/floor/tiled/dark/full/airless,
-/area/space)
+/area/template_noop)
 "bi" = (
 /obj/structure/konyang_cliff{
 	icon_state = "topcorner_east";
@@ -410,6 +442,13 @@
 "bj" = (
 /obj/structure/bed/stool/hover,
 /turf/simulated/floor/carpet/rubber,
+/area/abandoned_skrell_ship)
+"bk" = (
+/obj/effect/floor_decal/spline/plain/black{
+	dir = 1
+	},
+/obj/effect/floor_decal/spline/plain/black,
+/turf/simulated/floor/shuttle/skrell/blue,
 /area/abandoned_skrell_ship)
 "bl" = (
 /obj/effect/decal/curb{
@@ -435,7 +474,7 @@
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/carpet/rubber,
-/area/space)
+/area/template_noop)
 "bo" = (
 /obj/effect/floor_decal/industrial/outline_door/grey{
 	dir = 8
@@ -487,7 +526,7 @@
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/airless,
-/area/space)
+/area/template_noop)
 "bu" = (
 /obj/structure/konyang_cliff{
 	icon_state = "cliff1-bottom";
@@ -519,7 +558,7 @@
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /turf/simulated/floor/cave/shell/dark_blue,
-/area/space)
+/area/template_noop)
 "bx" = (
 /obj/structure/table/skrell,
 /obj/item/reagent_containers/glass/beaker/vial{
@@ -541,7 +580,7 @@
 /obj/structure/platform/dark{
 	dir = 4
 	},
-/turf/simulated/floor/shuttle/skrell/blue,
+/turf/simulated/floor/carpet/rubber,
 /area/abandoned_skrell_ship)
 "bz" = (
 /obj/effect/floor_decal/industrial/outline_door/grey{
@@ -566,7 +605,7 @@
 /area/abandoned_skrell_ship)
 "bB" = (
 /turf/simulated/floor/shuttle/skrell/blue,
-/area/space)
+/area/template_noop)
 "bC" = (
 /obj/structure/lattice/catwalk/indoor/urban{
 	color = "#8a7387"
@@ -576,7 +615,7 @@
 	},
 /obj/structure/railing/mapped,
 /turf/simulated/floor/airless,
-/area/space)
+/area/template_noop)
 "bE" = (
 /obj/structure/table/skrell,
 /obj/item/flora/pottedplant_small/crystal{
@@ -620,7 +659,7 @@
 /obj/structure/railing/mapped/no_density/low,
 /obj/structure/flora/pottedplant/mysterious,
 /turf/simulated/floor/exoplanet/water/smooth/shell,
-/area/space)
+/area/template_noop)
 "bI" = (
 /obj/effect/floor_decal/industrial/outline_door/grey{
 	dir = 8
@@ -664,7 +703,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/cave/shell/dark_purple,
-/area/space)
+/area/template_noop)
 "bM" = (
 /obj/structure/railing/mapped/no_density/low{
 	dir = 4
@@ -724,7 +763,7 @@
 	dir = 10
 	},
 /turf/simulated/floor/shuttle/skrell,
-/area/space)
+/area/template_noop)
 "bS" = (
 /obj/effect/decal/curb{
 	color = "#574267";
@@ -733,7 +772,17 @@
 /obj/random/dirt_75,
 /obj/machinery/door/blast/odin,
 /turf/simulated/floor/carpet/rubber/airless,
-/area/space)
+/area/template_noop)
+"bT" = (
+/obj/structure/platform/ledge/dark{
+	dir = 4
+	},
+/obj/random/dirt_75,
+/obj/machinery/light/skrell{
+	dir = 4
+	},
+/turf/simulated/floor/marble/purple,
+/area/abandoned_skrell_ship)
 "bW" = (
 /obj/structure/table/skrell,
 /obj/item/storage/box/fancy/tray{
@@ -747,7 +796,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/shuttle/skrell,
-/area/space)
+/area/template_noop)
 "bY" = (
 /obj/effect/decal/curb{
 	dir = 1
@@ -777,7 +826,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/airless,
-/area/space)
+/area/template_noop)
 "cc" = (
 /obj/structure/lattice/catwalk/indoor/urban{
 	color = "#8a7387"
@@ -794,6 +843,10 @@
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/abandoned_skrell_ship)
+"ce" = (
+/obj/effect/floor_decal/spline/plain/corner/black,
+/turf/simulated/floor/shuttle/skrell,
+/area/abandoned_skrell_ship)
 "cf" = (
 /obj/effect/decal/cleanable/blood/oil,
 /obj/structure/railing/mapped/no_density/low{
@@ -804,6 +857,14 @@
 	},
 /turf/simulated/floor/marble/dark,
 /area/abandoned_skrell_ship)
+"cg" = (
+/obj/structure/table/skrell,
+/obj/effect/floor_decal/spline/plain/mauve{
+	dir = 1
+	},
+/obj/effect/floor_decal/spline/plain/mauve,
+/turf/simulated/floor/marble/dark,
+/area/template_noop)
 "ch" = (
 /obj/effect/decal/curb{
 	color = "#574267"
@@ -835,7 +896,7 @@
 "ck" = (
 /obj/structure/table/skrell,
 /turf/simulated/floor/carpet/rubber,
-/area/space)
+/area/template_noop)
 "cl" = (
 /obj/structure/platform_deco/ledge/dark{
 	dir = 1
@@ -874,7 +935,7 @@
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/random/dirt_75,
 /turf/simulated/floor/airless,
-/area/space)
+/area/template_noop)
 "cs" = (
 /obj/structure/platform/ledge/dark{
 	dir = 8
@@ -941,7 +1002,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/shuttle/skrell/blue,
-/area/space)
+/area/template_noop)
 "cz" = (
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 1
@@ -967,7 +1028,7 @@
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/structure/table/steel,
 /turf/simulated/floor/tiled/dark/full,
-/area/space)
+/area/template_noop)
 "cE" = (
 /obj/structure/flora/grass/adhomai,
 /obj/structure/flora/bush/mushroom{
@@ -1006,7 +1067,7 @@
 /obj/effect/floor_decal/industrial/outline_door/grey{
 	dir = 4
 	},
-/turf/simulated/floor/marble/dark,
+/turf/simulated/floor/marble/purple,
 /area/abandoned_skrell_ship)
 "cH" = (
 /obj/structure/lattice/catwalk/indoor/urban{
@@ -1018,7 +1079,7 @@
 /obj/structure/platform_deco/ledge/dark{
 	dir = 1
 	},
-/turf/simulated/floor/marble/dark,
+/turf/simulated/floor/marble/purple,
 /area/abandoned_skrell_ship)
 "cJ" = (
 /obj/structure/railing/mapped{
@@ -1073,7 +1134,7 @@
 /obj/effect/floor_decal/spline/plain/corner/mauve{
 	dir = 1
 	},
-/turf/simulated/floor/marble/dark,
+/turf/simulated/floor/marble/purple,
 /area/abandoned_skrell_ship)
 "cQ" = (
 /obj/machinery/light/skrell{
@@ -1097,7 +1158,7 @@
 /obj/random/dirt_75,
 /obj/machinery/door/blast/odin,
 /turf/simulated/floor/carpet/rubber/airless,
-/area/space)
+/area/template_noop)
 "cS" = (
 /obj/structure/table/rack/folding_table,
 /obj/effect/floor_decal/industrial/outline_door/grey{
@@ -1123,7 +1184,7 @@
 	color = "#8a7387"
 	},
 /turf/simulated/floor/cave/shell/dark_purple,
-/area/space)
+/area/template_noop)
 "cW" = (
 /obj/effect/decal/curb/corner{
 	color = "#574267";
@@ -1139,19 +1200,22 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/carpet/rubber/airless,
 /area/abandoned_skrell_ship)
+"cX" = (
+/obj/effect/floor_decal/spline/plain/black{
+	dir = 4
+	},
+/obj/effect/floor_decal/spline/plain/black{
+	dir = 8
+	},
+/turf/simulated/floor/shuttle/skrell/blue,
+/area/abandoned_skrell_ship)
 "cY" = (
 /obj/structure/railing/mapped,
 /turf/simulated/floor/carpet/rubber,
 /area/abandoned_skrell_ship)
 "cZ" = (
-/obj/effect/floor_decal/industrial/outline_door/grey{
-	dir = 8
-	},
-/obj/effect/floor_decal/industrial/outline_door/grey{
-	dir = 4
-	},
 /obj/random/dirt_75,
-/turf/simulated/floor/marble/dark,
+/turf/simulated/floor/marble/gray,
 /area/abandoned_skrell_ship)
 "da" = (
 /obj/item/material/shard{
@@ -1281,6 +1345,13 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/carpet/rubber/airless,
 /area/abandoned_skrell_ship)
+"dn" = (
+/obj/machinery/light/skrell{
+	dir = 8
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/dark/full,
+/area/abandoned_skrell_ship)
 "do" = (
 /obj/structure/platform_deco/ledge/dark{
 	dir = 8
@@ -1292,6 +1363,12 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/marble/dark,
 /area/abandoned_skrell_ship)
+"dr" = (
+/obj/structure/bed/stool/chair/office/hover{
+	dir = 4
+	},
+/turf/simulated/floor/marble,
+/area/template_noop)
 "ds" = (
 /obj/effect/decal/curb{
 	color = "#574267";
@@ -1327,7 +1404,7 @@
 /obj/effect/floor_decal/spline/plain/black,
 /obj/structure/table/skrell,
 /turf/simulated/floor/shuttle/skrell/blue,
-/area/space)
+/area/template_noop)
 "dA" = (
 /obj/structure/girder,
 /turf/simulated/floor/airless,
@@ -1349,12 +1426,13 @@
 /turf/simulated/floor/tiled/dark/full/airless,
 /area/abandoned_skrell_ship)
 "dD" = (
-/obj/structure/bed/handrail{
-	dir = 4
-	},
 /obj/effect/floor_decal/spline/plain/corner/black,
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 8
+	},
+/obj/structure/bed/handrail{
+	dir = 4;
+	pixel_x = -2
 	},
 /turf/simulated/floor/shuttle/skrell/blue,
 /area/abandoned_skrell_ship)
@@ -1403,7 +1481,7 @@
 	dir = 8
 	},
 /turf/template_noop,
-/area/space)
+/area/template_noop)
 "dK" = (
 /obj/random/dirt_75,
 /obj/structure/barricade/wooden/road{
@@ -1414,7 +1492,7 @@
 "dL" = (
 /obj/effect/floor_decal/spline/plain/cee/mauve,
 /obj/structure/bed/aqua,
-/turf/simulated/floor/marble/dark,
+/turf/simulated/floor/marble/purple,
 /area/abandoned_skrell_ship)
 "dM" = (
 /obj/structure/lattice/catwalk/indoor/urban{
@@ -1441,7 +1519,7 @@
 	pixel_x = -6;
 	pixel_y = 5
 	},
-/turf/simulated/floor/marble/dark,
+/turf/simulated/floor/marble/purple,
 /area/abandoned_skrell_ship)
 "dP" = (
 /obj/random/dirt_75,
@@ -1547,14 +1625,14 @@
 	dir = 4
 	},
 /turf/simulated/floor/airless,
-/area/space)
+/area/template_noop)
 "ed" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/structure/railing/mapped/no_density/low{
 	dir = 8
 	},
 /turf/simulated/floor/airless,
-/area/space)
+/area/template_noop)
 "ee" = (
 /obj/effect/decal/curb{
 	color = "#574267";
@@ -1587,7 +1665,7 @@
 	dir = 4
 	},
 /obj/structure/flora/pottedplant/bluefern,
-/turf/simulated/floor/marble/dark,
+/turf/simulated/floor/marble/purple,
 /area/abandoned_skrell_ship)
 "eh" = (
 /obj/machinery/door/firedoor/noid{
@@ -1631,7 +1709,7 @@
 /obj/structure/table/rack,
 /obj/random/hydroponics,
 /obj/random/dirt_75,
-/turf/simulated/floor/shuttle/skrell/blue,
+/turf/simulated/floor/carpet/rubber,
 /area/abandoned_skrell_ship)
 "en" = (
 /obj/effect/decal/cleanable/floor_damage/rust,
@@ -1647,7 +1725,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/full,
-/area/space)
+/area/template_noop)
 "ep" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/structure/railing/mapped/no_density/low,
@@ -1666,8 +1744,17 @@
 	dir = 8
 	},
 /obj/structure/table/skrell,
-/turf/simulated/floor/marble/dark,
+/turf/simulated/floor/marble/purple,
 /area/abandoned_skrell_ship)
+"es" = (
+/obj/effect/floor_decal/industrial/arrow/research{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/outline_door/research{
+	dir = 8
+	},
+/turf/simulated/floor/marble,
+/area/template_noop)
 "ew" = (
 /obj/structure/table/rack/retail_shelf,
 /obj/item/reagent_containers/glass/beaker/vial{
@@ -1712,12 +1799,12 @@
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/carpet/rubber/airless,
-/area/space)
+/area/template_noop)
 "ez" = (
-/obj/structure/lattice/catwalk/indoor/urban{
-	color = "#8a7387"
-	},
 /obj/structure/lattice/ceiling,
+/obj/structure/lattice/catwalk/indoor/urban{
+	color = "#949ea3"
+	},
 /turf/simulated/floor/exoplanet/water/smooth/shell,
 /area/abandoned_skrell_ship)
 "eA" = (
@@ -1725,7 +1812,7 @@
 /obj/effect/floor_decal/spline/plain/cee/mauve{
 	dir = 8
 	},
-/turf/simulated/floor/marble/dark,
+/turf/simulated/floor/marble/purple,
 /area/abandoned_skrell_ship)
 "eB" = (
 /obj/machinery/door/airlock/glass/tirakqi,
@@ -1766,7 +1853,7 @@
 	},
 /obj/machinery/door/blast/odin,
 /turf/simulated/floor/carpet/rubber/airless,
-/area/space)
+/area/template_noop)
 "eH" = (
 /obj/effect/decal/cleanable/molten_item{
 	pixel_x = 13;
@@ -1822,9 +1909,10 @@
 /turf/simulated/floor/plating,
 /area/abandoned_skrell_ship)
 "eM" = (
-/obj/effect/decal/cleanable/floor_damage/rust,
-/obj/random/dirt_75,
-/turf/simulated/floor/tiled/dark/full,
+/obj/structure/railing/mapped/no_density/low{
+	dir = 1
+	},
+/turf/simulated/floor/marble/purple,
 /area/abandoned_skrell_ship)
 "eN" = (
 /obj/effect/decal/curb/corner{
@@ -1853,7 +1941,7 @@
 /obj/structure/closet/crate/hydroponics,
 /obj/structure/closet/crate,
 /obj/effect/floor_decal/industrial/outline/grey,
-/turf/simulated/floor/shuttle/skrell/blue,
+/turf/simulated/floor/carpet/rubber,
 /area/abandoned_skrell_ship)
 "eS" = (
 /turf/simulated/floor/grass/recolorable/mycelium,
@@ -1865,6 +1953,7 @@
 /obj/effect/floor_decal/spline/plain/corner/black{
 	dir = 1
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/shuttle/skrell,
 /area/abandoned_skrell_ship)
 "eU" = (
@@ -1912,7 +2001,7 @@
 	color = "#574267"
 	},
 /turf/simulated/floor/carpet/rubber/airless,
-/area/space)
+/area/template_noop)
 "fa" = (
 /obj/structure/lattice/catwalk/indoor/urban{
 	color = "#8a7387"
@@ -1926,7 +2015,7 @@
 /obj/structure/lattice/catwalk/indoor,
 /obj/structure/grille,
 /turf/space,
-/area/space)
+/area/template_noop)
 "fc" = (
 /obj/structure/lattice/catwalk/indoor/urban{
 	color = "#8a7387"
@@ -1936,7 +2025,7 @@
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/airless,
-/area/space)
+/area/template_noop)
 "fe" = (
 /obj/structure/lattice/catwalk/indoor/urban{
 	color = "#8a7387"
@@ -2014,11 +2103,23 @@
 	},
 /obj/effect/floor_decal/industrial/hatch_small/grey,
 /turf/simulated/floor/reinforced/airless,
-/area/space)
+/area/template_noop)
 "fp" = (
 /obj/structure/railing/mapped,
 /turf/simulated/floor/cave/shell/dark_blue,
 /area/abandoned_skrell_ship)
+"fq" = (
+/obj/effect/floor_decal/industrial/outline_door/research{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/outline_segment/research{
+	dir = 5
+	},
+/obj/effect/floor_decal/industrial/outline_door/research{
+	dir = 8
+	},
+/turf/simulated/floor/marble,
+/area/template_noop)
 "fs" = (
 /obj/effect/decal/curb{
 	dir = 1
@@ -2075,7 +2176,7 @@
 /obj/structure/bed/stool/hover{
 	dir = 4
 	},
-/turf/simulated/floor/marble/dark,
+/turf/simulated/floor/marble/purple,
 /area/abandoned_skrell_ship)
 "fA" = (
 /obj/effect/floor_decal/industrial/outline_door/grey,
@@ -2097,7 +2198,7 @@
 	color = "#8a7387"
 	},
 /turf/simulated/open,
-/area/space)
+/area/template_noop)
 "fC" = (
 /obj/structure/bed/handrail{
 	buckle_dir = 4;
@@ -2125,6 +2226,14 @@
 	},
 /obj/effect/map_effect/particle_emitter/bar_smoke,
 /turf/simulated/floor/grass/recolorable/mycelium,
+/area/abandoned_skrell_ship)
+"fG" = (
+/obj/structure/railing/mapped/no_density/low,
+/obj/effect/decal/cleanable/molten_item{
+	pixel_x = 8;
+	pixel_y = 7
+	},
+/turf/simulated/floor/marble/purple,
 /area/abandoned_skrell_ship)
 "fH" = (
 /obj/structure/lattice/catwalk/indoor,
@@ -2167,7 +2276,7 @@
 /obj/structure/railing/mapped/no_density/low{
 	dir = 4
 	},
-/turf/simulated/floor/carpet/rubber,
+/turf/simulated/floor/tiled/techmaint/purple,
 /area/abandoned_skrell_ship)
 "fK" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
@@ -2226,7 +2335,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/reinforced/airless,
-/area/space)
+/area/template_noop)
 "fS" = (
 /obj/effect/decal/curb{
 	color = "#574267";
@@ -2239,7 +2348,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/carpet/rubber/airless,
-/area/space)
+/area/template_noop)
 "fT" = (
 /obj/effect/decal/curb{
 	color = "#574267";
@@ -2273,10 +2382,13 @@
 /turf/simulated/open/airless,
 /area/abandoned_skrell_ship)
 "fW" = (
-/obj/structure/railing/mapped/no_density/low{
+/obj/effect/floor_decal/spline/plain/black{
+	dir = 10
+	},
+/obj/structure/bed/stool/chair/office/hover/command{
 	dir = 8
 	},
-/turf/simulated/floor/tiled/ramp/bottom,
+/turf/simulated/floor/shuttle/skrell,
 /area/abandoned_skrell_ship)
 "fX" = (
 /obj/structure/lattice/catwalk/indoor/urban{
@@ -2324,6 +2436,16 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/abandoned_skrell_ship)
+"ge" = (
+/obj/structure/platform/ledge/dark{
+	dir = 4
+	},
+/obj/structure/flora/assunzione/grass/sparse{
+	pixel_x = 5;
+	pixel_y = -27
+	},
+/turf/simulated/floor/exoplanet/water/smooth/shell,
+/area/abandoned_skrell_ship)
 "gf" = (
 /obj/effect/decal/curb{
 	color = "#574267";
@@ -2352,7 +2474,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/shuttle/skrell/blue,
-/area/space)
+/area/template_noop)
 "gk" = (
 /obj/effect/floor_decal/industrial/outline_door/research{
 	dir = 1
@@ -2404,7 +2526,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/full/airless,
-/area/space)
+/area/template_noop)
 "gp" = (
 /obj/machinery/computer/loreconsole/skrell/always_powered{
 	dir = 4
@@ -2422,7 +2544,7 @@
 /obj/effect/floor_decal/industrial/outline_door/grey{
 	dir = 4
 	},
-/turf/simulated/floor/marble/dark,
+/turf/simulated/floor/marble/purple,
 /area/abandoned_skrell_ship)
 "gq" = (
 /obj/structure/arch/skrell/center{
@@ -2456,7 +2578,7 @@
 "gu" = (
 /obj/structure/lattice/ceiling,
 /turf/simulated/floor/tiled/dark/full/airless,
-/area/space)
+/area/template_noop)
 "gv" = (
 /turf/unsimulated/mineral/cave/petrified_shell/dark_blue,
 /area/abandoned_skrell_ship)
@@ -2469,7 +2591,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/carpet/rubber/airless,
-/area/space)
+/area/template_noop)
 "gx" = (
 /obj/structure/table/rack/retail_shelf,
 /turf/simulated/floor/carpet/rubber,
@@ -2521,7 +2643,7 @@
 "gG" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor/plating,
-/area/space)
+/area/template_noop)
 "gH" = (
 /obj/random/dirt_75,
 /obj/effect/floor_decal/fungus/random,
@@ -2547,7 +2669,7 @@
 	pixel_x = -7;
 	pixel_y = -8
 	},
-/turf/simulated/floor/marble/dark,
+/turf/simulated/floor/marble/purple,
 /area/abandoned_skrell_ship)
 "gK" = (
 /obj/structure/lattice/catwalk/indoor/urban{
@@ -2620,7 +2742,7 @@
 /obj/machinery/atmospherics/unary/freezer{
 	icon_state = "freezer"
 	},
-/turf/simulated/floor/marble/dark,
+/turf/simulated/floor/marble/purple,
 /area/abandoned_skrell_ship)
 "gT" = (
 /obj/structure/flora/pottedplant/mysterious,
@@ -2705,7 +2827,7 @@
 /obj/effect/floor_decal/spline/plain/mauve{
 	dir = 4
 	},
-/turf/simulated/floor/marble/dark,
+/turf/simulated/floor/marble/purple,
 /area/abandoned_skrell_ship)
 "hd" = (
 /obj/structure/platform_deco/ledge/dark,
@@ -2713,6 +2835,9 @@
 	pixel_y = 32
 	},
 /turf/simulated/floor/exoplanet/water/smooth/shell,
+/area/abandoned_skrell_ship)
+"he" = (
+/turf/simulated/floor/tiled/ramp/dark,
 /area/abandoned_skrell_ship)
 "hg" = (
 /obj/structure/platform/ledge/dark,
@@ -2723,7 +2848,7 @@
 	dir = 5
 	},
 /turf/simulated/open,
-/area/space)
+/area/template_noop)
 "hi" = (
 /obj/effect/decal/curb/corner,
 /turf/simulated/floor/carpet/rubber,
@@ -2760,7 +2885,7 @@
 	dir = 4
 	},
 /turf/simulated/open,
-/area/space)
+/area/template_noop)
 "hn" = (
 /obj/effect/floor_decal/industrial/outline_door/grey{
 	dir = 8
@@ -2781,7 +2906,7 @@
 "hq" = (
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
-/area/space)
+/area/template_noop)
 "hr" = (
 /obj/structure/arch/skrell/side{
 	dir = 8
@@ -2802,11 +2927,14 @@
 	},
 /turf/simulated/floor/reinforced/airless,
 /area/abandoned_skrell_ship)
+"ht" = (
+/turf/simulated/floor/marble/dark,
+/area/template_noop)
 "hu" = (
 /obj/structure/platform/ledge/dark{
 	dir = 4
 	},
-/turf/simulated/floor/marble/dark,
+/turf/simulated/floor/marble/purple,
 /area/abandoned_skrell_ship)
 "hv" = (
 /obj/random/dirt_75,
@@ -2876,7 +3004,7 @@
 	dir = 8
 	},
 /turf/simulated/open,
-/area/space)
+/area/template_noop)
 "hC" = (
 /obj/structure/table/skrell,
 /obj/item/flora/pottedplant_small/bluefern{
@@ -2901,7 +3029,14 @@
 	color = "#8a7387"
 	},
 /turf/simulated/open/airless,
-/area/space)
+/area/template_noop)
+"hE" = (
+/obj/structure/flora/pottedplant/mysterious{
+	pixel_y = 2;
+	pixel_x = -7
+	},
+/turf/simulated/floor/marble,
+/area/template_noop)
 "hF" = (
 /obj/effect/decal/curb{
 	color = "#574267";
@@ -2916,7 +3051,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/carpet/rubber/airless,
-/area/space)
+/area/template_noop)
 "hG" = (
 /obj/structure/lattice/catwalk/indoor,
 /obj/effect/decal/curb{
@@ -2958,12 +3093,15 @@
 /obj/structure/bed/stool/hover{
 	dir = 8
 	},
-/turf/simulated/floor/marble/dark,
+/turf/simulated/floor/marble/purple,
 /area/abandoned_skrell_ship)
 "hL" = (
-/obj/structure/arch/skrell/side,
-/turf/simulated/floor/shuttle/skrell,
-/area/abandoned_skrell_ship)
+/obj/structure/table/skrell,
+/obj/effect/floor_decal/spline/plain/mauve{
+	dir = 9
+	},
+/turf/simulated/floor/marble/dark,
+/area/template_noop)
 "hM" = (
 /obj/structure/bed/stool/hover{
 	dir = 8
@@ -3050,6 +3188,10 @@
 /obj/structure/barricade/wooden/road,
 /turf/simulated/floor/cave/shell/dark_purple,
 /area/abandoned_skrell_ship)
+"hX" = (
+/obj/structure/railing/mapped/no_density/low,
+/turf/simulated/floor/tiled/techmaint/purple,
+/area/abandoned_skrell_ship)
 "hY" = (
 /obj/random/dirt_75,
 /obj/structure/flora/kudzu/mycelium,
@@ -3057,7 +3199,7 @@
 /area/abandoned_skrell_ship)
 "hZ" = (
 /obj/effect/decal/exterior_stairs/half/dark/right,
-/turf/simulated/floor/marble/dark,
+/turf/simulated/floor/marble/purple,
 /area/abandoned_skrell_ship)
 "ia" = (
 /obj/structure/table/rack,
@@ -3158,7 +3300,7 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/spline/plain/mauve,
-/turf/simulated/floor/marble/dark,
+/turf/simulated/floor/marble/purple,
 /area/abandoned_skrell_ship)
 "io" = (
 /obj/structure/railing/mapped/no_density/low{
@@ -3168,7 +3310,7 @@
 	thrust_limit = 0.25
 	},
 /turf/simulated/floor/reinforced/airless,
-/area/space)
+/area/template_noop)
 "ip" = (
 /obj/effect/decal/curb{
 	color = "#574267";
@@ -3189,7 +3331,7 @@
 /obj/structure/ore_box,
 /obj/random/dirt_75,
 /turf/simulated/floor/airless,
-/area/space)
+/area/template_noop)
 "ir" = (
 /obj/structure/platform/ledge/dark,
 /obj/structure/platform/ledge/dark{
@@ -3224,7 +3366,7 @@
 	},
 /obj/structure/trash_pile,
 /turf/simulated/floor/airless,
-/area/space)
+/area/template_noop)
 "iv" = (
 /obj/structure/platform/ledge/dark{
 	dir = 1
@@ -3258,7 +3400,7 @@
 	dir = 4
 	},
 /turf/simulated/open,
-/area/space)
+/area/template_noop)
 "iA" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
@@ -3268,19 +3410,24 @@
 	},
 /turf/simulated/floor/reinforced/airless,
 /area/abandoned_skrell_ship)
+"iB" = (
+/obj/structure/foamedmetal,
+/turf/simulated/floor/plating,
+/area/template_noop)
 "iD" = (
 /obj/structure/platform_deco/ledge/dark{
 	dir = 1
 	},
 /obj/random/dirt_75,
 /obj/random/dirt_75,
-/turf/simulated/floor/marble/dark,
+/turf/simulated/floor/marble/gray,
 /area/abandoned_skrell_ship)
 "iE" = (
 /obj/structure/flora/pottedplant/unusual{
 	pixel_x = -8
 	},
-/turf/simulated/floor/marble/dark,
+/obj/random/dirt_75,
+/turf/simulated/floor/carpet/rubber,
 /area/abandoned_skrell_ship)
 "iF" = (
 /obj/effect/floor_decal/spline/plain/black{
@@ -3383,7 +3530,7 @@
 	dir = 4
 	},
 /turf/simulated/open/airless,
-/area/space)
+/area/template_noop)
 "iR" = (
 /obj/structure/platform_deco/ledge/dark,
 /turf/simulated/open,
@@ -3407,6 +3554,14 @@
 /obj/structure/lattice,
 /turf/simulated/floor/airless,
 /area/abandoned_skrell_ship)
+"iV" = (
+/obj/structure/flora/pottedplant/bluefern{
+	pixel_x = -10;
+	pixel_y = 12
+	},
+/obj/effect/floor_decal/spline/plain/corner/mauve,
+/turf/simulated/floor/marble/dark,
+/area/template_noop)
 "iW" = (
 /obj/structure/railing/mapped/no_density/low{
 	dir = 4
@@ -3426,10 +3581,20 @@
 /obj/structure/lattice/ceiling,
 /turf/simulated/floor/airless,
 /area/abandoned_skrell_ship)
+"iY" = (
+/obj/structure/bed/stool/hover{
+	dir = 8
+	},
+/obj/structure/platform/ledge/dark{
+	dir = 8
+	},
+/obj/effect/decal/exterior_stairs/half/dark/right,
+/turf/simulated/floor/exoplanet/water/smooth/shell,
+/area/template_noop)
 "jb" = (
 /obj/structure/table/steel,
 /turf/simulated/floor/tiled/dark/full,
-/area/space)
+/area/template_noop)
 "jd" = (
 /obj/effect/floor_decal/industrial/outline_door/grey{
 	dir = 4
@@ -3470,16 +3635,16 @@
 /turf/simulated/floor/carpet/rubber,
 /area/abandoned_skrell_ship)
 "jh" = (
-/obj/effect/floor_decal/spline/plain/corner/black{
-	dir = 1
+/obj/effect/floor_decal/industrial/outline_door/research{
+	dir = 4
 	},
-/turf/simulated/floor/shuttle/skrell,
-/area/abandoned_skrell_ship)
+/turf/simulated/floor/marble,
+/area/template_noop)
 "ji" = (
 /obj/structure/structural_support,
 /obj/effect/floor_decal/industrial/warning/dust/corner,
 /turf/simulated/floor/cave/shell/dark_blue,
-/area/space)
+/area/template_noop)
 "jk" = (
 /obj/structure/flora/grass/adhomai,
 /obj/structure/flora/bush/mushroom{
@@ -3602,21 +3767,28 @@
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/carpet/rubber/airless,
-/area/space)
+/area/template_noop)
+"jy" = (
+/obj/effect/floor_decal/spline/plain/cee/black{
+	dir = 1
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/shuttle/skrell/blue,
+/area/abandoned_skrell_ship)
 "jz" = (
 /obj/effect/decal/curb{
 	color = "#574267";
 	dir = 4
 	},
 /turf/simulated/floor/carpet/rubber/airless,
-/area/space)
+/area/template_noop)
 "jA" = (
 /obj/structure/lattice/catwalk/indoor,
 /obj/effect/decal/curb{
 	dir = 10
 	},
 /turf/simulated/floor/cave/shell/dark_purple,
-/area/space)
+/area/template_noop)
 "jC" = (
 /obj/effect/decal/cleanable/floor_damage/random_broken,
 /obj/random/dirt_75,
@@ -3645,7 +3817,7 @@
 /obj/effect/decal/cleanable/floor_damage/rust,
 /obj/random/dirt_75,
 /obj/structure/flora/grass/adhomai,
-/turf/simulated/floor/marble/dark,
+/turf/simulated/floor/marble/gray,
 /area/abandoned_skrell_ship)
 "jG" = (
 /obj/effect/floor_decal/industrial/outline_door/grey{
@@ -3712,17 +3884,39 @@
 	},
 /turf/simulated/floor/airless,
 /area/abandoned_skrell_ship)
-"jM" = (
-/obj/structure/bed/stool/hover{
-	dir = 8
+"jN" = (
+/obj/structure/platform/ledge/dark{
+	dir = 4
 	},
-/turf/simulated/floor/tiled/dark/full,
-/area/abandoned_skrell_ship)
+/obj/effect/decal/exterior_stairs/half/dark/left,
+/turf/simulated/floor/exoplanet/water/smooth/shell,
+/area/template_noop)
 "jO" = (
 /obj/effect/decal/curb/corner{
 	dir = 8
 	},
 /turf/simulated/floor/marble/dark,
+/area/abandoned_skrell_ship)
+"jQ" = (
+/obj/structure/table/skrell,
+/obj/effect/floor_decal/spline/plain/mauve{
+	dir = 5
+	},
+/turf/simulated/floor/marble/dark,
+/area/template_noop)
+"jR" = (
+/obj/structure/platform/ledge/dark,
+/obj/structure/platform/ledge/dark{
+	dir = 8
+	},
+/obj/structure/platform_deco/ledge/dark{
+	dir = 9
+	},
+/obj/structure/flora/assunzione/grass/sparse{
+	pixel_x = -7;
+	pixel_y = -8
+	},
+/turf/simulated/floor/exoplanet/water/smooth/shell,
 /area/abandoned_skrell_ship)
 "jS" = (
 /obj/effect/decal/curb{
@@ -3748,6 +3942,20 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark/full/airless,
+/area/abandoned_skrell_ship)
+"jU" = (
+/obj/effect/decal/curb{
+	color = "#574267";
+	dir = 4
+	},
+/obj/effect/decal/curb/corner{
+	color = "#574267"
+	},
+/obj/effect/decal/curb/corner{
+	color = "#574267";
+	dir = 8
+	},
+/turf/simulated/floor/carpet/rubber,
 /area/abandoned_skrell_ship)
 "jV" = (
 /obj/effect/floor_decal/spline/plain/corner/black,
@@ -3799,10 +4007,17 @@
 	dir = 1
 	},
 /turf/simulated/floor/cave/shell/dark_purple,
-/area/space)
+/area/template_noop)
+"kc" = (
+/obj/effect/floor_decal/industrial/arrow/research,
+/obj/effect/floor_decal/industrial/outline_door/research{
+	dir = 4
+	},
+/turf/simulated/floor/marble,
+/area/template_noop)
 "kd" = (
 /turf/unsimulated/mineral/cave/petrified_shell/dark_purple,
-/area/space)
+/area/template_noop)
 "ke" = (
 /obj/structure/platform/ledge/dark{
 	dir = 8
@@ -3816,7 +4031,7 @@
 /obj/structure/lattice/catwalk/indoor,
 /obj/effect/decal/curb,
 /turf/simulated/floor/cave/shell/dark_purple,
-/area/space)
+/area/template_noop)
 "kg" = (
 /obj/effect/map_effect/window_spawner/full/shuttle/mercenary{
 	spawn_firedoor = 1;
@@ -3827,6 +4042,11 @@
 /obj/machinery/door/blast/odin,
 /turf/simulated/floor/tiled/dark/full,
 /area/abandoned_skrell_ship)
+"kh" = (
+/obj/structure/railing/mapped/no_density/low,
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/dark/full,
+/area/abandoned_skrell_ship)
 "kj" = (
 /obj/effect/decal/curb{
 	color = "#574267";
@@ -3835,7 +4055,7 @@
 /obj/abstract/footprint_spawner/oil,
 /obj/random/dirt_75,
 /turf/simulated/floor/carpet/rubber/airless,
-/area/space)
+/area/template_noop)
 "kk" = (
 /obj/structure/platform_deco/ledge/dark{
 	dir = 1
@@ -3901,7 +4121,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/exoplanet/water/smooth/shell,
-/area/space)
+/area/template_noop)
 "ks" = (
 /obj/effect/decal/curb{
 	dir = 6
@@ -3928,7 +4148,7 @@
 /obj/random/dirt_75,
 /obj/machinery/light/skrell,
 /turf/simulated/floor/carpet/rubber/airless,
-/area/space)
+/area/template_noop)
 "kv" = (
 /obj/structure/flora/rock/stalagmite/purple,
 /obj/structure/platform/ledge/dark{
@@ -4040,7 +4260,7 @@
 	},
 /obj/structure/lattice/ceiling,
 /turf/simulated/open,
-/area/space)
+/area/template_noop)
 "kM" = (
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 8
@@ -4142,7 +4362,7 @@
 	density = 1;
 	name = "thruster mount"
 	},
-/area/space)
+/area/template_noop)
 "kX" = (
 /obj/structure/railing/mapped{
 	dir = 1
@@ -4151,6 +4371,10 @@
 	dir = 4
 	},
 /turf/simulated/open,
+/area/abandoned_skrell_ship)
+"kY" = (
+/obj/structure/railing/mapped/no_density/low,
+/turf/simulated/floor/marble/purple,
 /area/abandoned_skrell_ship)
 "kZ" = (
 /turf/template_noop,
@@ -4170,7 +4394,7 @@
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/carpet/rubber/airless,
-/area/space)
+/area/template_noop)
 "ld" = (
 /obj/effect/decal/curb{
 	dir = 1
@@ -4200,11 +4424,11 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/abandoned_skrell_ship)
 "lf" = (
-/obj/structure/lattice/catwalk/indoor/urban{
-	color = "#8a7387"
-	},
 /obj/structure/flora/kudzu/mycelium,
 /obj/effect/map_effect/particle_emitter/bar_smoke,
+/obj/structure/lattice/catwalk/indoor/urban{
+	color = "#949ea3"
+	},
 /turf/simulated/floor/exoplanet/water/smooth/shell,
 /area/abandoned_skrell_ship)
 "lg" = (
@@ -4213,7 +4437,7 @@
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /turf/simulated/floor/airless,
-/area/space)
+/area/template_noop)
 "lh" = (
 /obj/structure/railing/mapped{
 	dir = 1
@@ -4221,6 +4445,11 @@
 /obj/structure/closet/crate/drop,
 /obj/effect/decal/cleanable/blood/oil,
 /turf/simulated/floor/carpet/rubber,
+/area/abandoned_skrell_ship)
+"li" = (
+/obj/effect/decal/cleanable/floor_damage/rust,
+/obj/structure/flora/grass/adhomai,
+/turf/simulated/floor/marble/purple,
 /area/abandoned_skrell_ship)
 "lj" = (
 /obj/structure/sign/flag/assunzione{
@@ -4262,7 +4491,7 @@
 	color = "#4e4378"
 	},
 /turf/simulated/floor/tiled/dark/full/airless,
-/area/space)
+/area/template_noop)
 "lp" = (
 /obj/structure/bed/stool/chair/office/hover,
 /turf/simulated/floor/marble,
@@ -4300,7 +4529,7 @@
 "lw" = (
 /obj/structure/platform_deco/dark,
 /turf/template_noop,
-/area/space)
+/area/template_noop)
 "ly" = (
 /obj/effect/decal/curb{
 	color = "#574267";
@@ -4323,7 +4552,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/carpet/rubber,
-/area/space)
+/area/template_noop)
 "lA" = (
 /obj/effect/floor_decal/spline/plain/corner/black{
 	dir = 8
@@ -4347,11 +4576,9 @@
 /turf/simulated/floor/cave/shell/dark_purple,
 /area/abandoned_skrell_ship)
 "lD" = (
-/obj/effect/floor_decal/industrial/outline_door/grey{
-	dir = 8
-	},
 /obj/random/dirt_75,
-/turf/simulated/floor/marble/dark,
+/obj/random/dirt_75,
+/turf/simulated/floor/marble/gray,
 /area/abandoned_skrell_ship)
 "lE" = (
 /obj/structure/platform_deco/ledge/dark{
@@ -4460,7 +4687,7 @@
 /obj/effect/floor_decal/spline/plain/mauve{
 	dir = 8
 	},
-/turf/simulated/floor/marble/dark,
+/turf/simulated/floor/marble/purple,
 /area/abandoned_skrell_ship)
 "lU" = (
 /obj/effect/decal/curb{
@@ -4475,7 +4702,7 @@
 "lW" = (
 /obj/effect/decal/cleanable/floor_damage/rust,
 /obj/structure/flora/kudzu/mycelium,
-/turf/simulated/floor/marble/dark,
+/turf/simulated/floor/marble/gray,
 /area/abandoned_skrell_ship)
 "lX" = (
 /obj/structure/bed/stool/hover{
@@ -4517,13 +4744,13 @@
 /area/abandoned_skrell_ship)
 "mc" = (
 /turf/simulated/floor/airless,
-/area/space)
+/area/template_noop)
 "md" = (
 /obj/structure/platform/ledge/dark{
 	dir = 4
 	},
 /obj/effect/map_effect/particle_emitter/bar_smoke,
-/turf/simulated/floor/marble/dark,
+/turf/simulated/floor/marble/gray,
 /area/abandoned_skrell_ship)
 "mf" = (
 /obj/effect/floor_decal/industrial/outline/grey,
@@ -4536,14 +4763,14 @@
 /obj/structure/girder,
 /obj/random/dirt_75,
 /turf/simulated/floor/airless,
-/area/space)
+/area/template_noop)
 "mi" = (
 /obj/effect/decal/curb{
 	color = "#574267";
 	dir = 5
 	},
 /turf/simulated/floor/carpet/rubber/airless,
-/area/space)
+/area/template_noop)
 "mj" = (
 /obj/structure/stairs_railing{
 	dir = 1
@@ -4586,7 +4813,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark/full,
-/area/space)
+/area/template_noop)
 "mo" = (
 /obj/structure/platform/ledge/dark{
 	dir = 8
@@ -4655,13 +4882,13 @@
 	color = "#4e4378"
 	},
 /turf/simulated/floor/tiled/dark/full/airless,
-/area/space)
+/area/template_noop)
 "mw" = (
 /obj/effect/decal/curb{
 	color = "#574267"
 	},
 /turf/simulated/floor/cave/shell/dark_purple,
-/area/space)
+/area/template_noop)
 "mx" = (
 /obj/effect/floor_decal/spline/plain/mauve{
 	dir = 4
@@ -4670,7 +4897,7 @@
 	dir = 8
 	},
 /obj/structure/bed/aqua,
-/turf/simulated/floor/marble/dark,
+/turf/simulated/floor/marble/purple,
 /area/abandoned_skrell_ship)
 "my" = (
 /obj/structure/platform/ledge/dark,
@@ -4708,6 +4935,13 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/abandoned_skrell_ship)
+"mC" = (
+/obj/structure/table/skrell,
+/obj/effect/floor_decal/spline/plain/cee/mauve{
+	dir = 4
+	},
+/turf/simulated/floor/marble/purple,
+/area/abandoned_skrell_ship)
 "mE" = (
 /obj/structure/konyang_cliff{
 	icon_state = "cliff-top1";
@@ -4719,7 +4953,7 @@
 /obj/structure/railing/mapped{
 	dir = 4
 	},
-/turf/simulated/floor/marble/dark,
+/turf/simulated/floor/marble/purple,
 /area/abandoned_skrell_ship)
 "mG" = (
 /obj/effect/floor_decal/industrial/outline/grey,
@@ -4764,7 +4998,7 @@
 /obj/structure/railing/mapped/no_density/low{
 	dir = 4
 	},
-/turf/simulated/floor/marble/dark,
+/turf/simulated/floor/marble/purple,
 /area/abandoned_skrell_ship)
 "mL" = (
 /obj/effect/floor_decal/industrial/outline_door/grey{
@@ -4800,7 +5034,7 @@
 /area/abandoned_skrell_ship)
 "mQ" = (
 /obj/effect/decal/exterior_stairs/half/dark/left,
-/turf/simulated/floor/marble/dark,
+/turf/simulated/floor/marble/purple,
 /area/abandoned_skrell_ship)
 "mR" = (
 /obj/effect/decal/curb{
@@ -4813,7 +5047,7 @@
 /area/abandoned_skrell_ship)
 "mS" = (
 /turf/unsimulated/mineral/cave/petrified_shell/dark_blue,
-/area/space)
+/area/template_noop)
 "mT" = (
 /obj/structure/table/rack/folding_table,
 /obj/random/dirt_75,
@@ -4899,7 +5133,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark/full/airless,
-/area/space)
+/area/template_noop)
 "nd" = (
 /obj/structure/platform/ledge/dark{
 	dir = 4
@@ -4911,7 +5145,7 @@
 	dir = 10
 	},
 /turf/simulated/open,
-/area/space)
+/area/template_noop)
 "ne" = (
 /obj/machinery/door/airlock/hatch/tirakqi{
 	name = "Cargo Bay";
@@ -4941,14 +5175,14 @@
 /obj/structure/railing/mapped/no_density/low,
 /obj/structure/trash_pile,
 /turf/simulated/floor/airless,
-/area/space)
+/area/template_noop)
 "ni" = (
 /obj/effect/floor_decal/spline/plain/black,
 /turf/simulated/floor/shuttle/skrell/blue,
 /area/abandoned_skrell_ship)
 "nk" = (
 /turf/unsimulated/wall/steel,
-/area/space)
+/area/template_noop)
 "nl" = (
 /obj/structure/platform_stairs/full{
 	dir = 1
@@ -4960,7 +5194,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/shuttle/skrell,
-/area/space)
+/area/template_noop)
 "nm" = (
 /obj/effect/decal/curb{
 	color = "#574267";
@@ -4971,7 +5205,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/carpet/rubber/airless,
-/area/space)
+/area/template_noop)
 "nn" = (
 /obj/structure/table/skrell,
 /obj/effect/floor_decal/spline/plain/black{
@@ -5024,7 +5258,7 @@
 	color = "#8a7387"
 	},
 /turf/simulated/floor/cave/shell/dark_purple,
-/area/space)
+/area/template_noop)
 "nu" = (
 /obj/structure/lattice/catwalk/indoor,
 /obj/effect/decal/curb/corner{
@@ -5040,6 +5274,13 @@
 	pixel_y = 6
 	},
 /turf/simulated/floor/tiled/dark/full,
+/area/abandoned_skrell_ship)
+"nx" = (
+/obj/structure/table/skrell,
+/obj/effect/floor_decal/spline/plain/mauve{
+	dir = 9
+	},
+/turf/simulated/floor/marble/purple,
 /area/abandoned_skrell_ship)
 "ny" = (
 /obj/machinery/door/firedoor/noid{
@@ -5059,14 +5300,14 @@
 /obj/structure/lattice/ceiling,
 /obj/random/dirt_75,
 /turf/simulated/floor/airless,
-/area/space)
+/area/template_noop)
 "nA" = (
 /obj/structure/lattice/catwalk/indoor/urban{
 	color = "#8a7387"
 	},
 /obj/structure/table/rack,
 /turf/simulated/floor/airless,
-/area/space)
+/area/template_noop)
 "nB" = (
 /obj/machinery/floodlight/randomcharge,
 /obj/random/dirt_75,
@@ -5167,7 +5408,7 @@
 	},
 /obj/machinery/door/blast/regular/open,
 /turf/simulated/floor/tiled/dark/full/airless,
-/area/space)
+/area/template_noop)
 "nO" = (
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 6
@@ -5222,12 +5463,19 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/carpet/rubber/airless,
 /area/abandoned_skrell_ship)
+"nV" = (
+/obj/structure/platform/ledge/dark{
+	dir = 1
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/techmaint/purple,
+/area/abandoned_skrell_ship)
 "nX" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
 /turf/simulated/floor/airless,
-/area/space)
+/area/template_noop)
 "nY" = (
 /obj/structure/platform/ledge/dark{
 	dir = 4
@@ -5235,6 +5483,15 @@
 /obj/structure/arch/skrell/side,
 /turf/simulated/open/airless,
 /area/abandoned_skrell_ship)
+"nZ" = (
+/obj/effect/floor_decal/industrial/outline_door/research{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline_segment/research{
+	dir = 1
+	},
+/turf/simulated/floor/marble,
+/area/template_noop)
 "ob" = (
 /obj/structure/flora/tree/crystal{
 	pixel_x = -20;
@@ -5273,7 +5530,9 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/outline_door/grey,
-/obj/structure/bed/handrail,
+/obj/structure/bed/handrail{
+	pixel_y = 5
+	},
 /turf/simulated/floor/carpet/rubber,
 /area/abandoned_skrell_ship)
 "of" = (
@@ -5290,6 +5549,46 @@
 	},
 /turf/simulated/floor/carpet/rubber/airless,
 /area/abandoned_skrell_ship)
+"og" = (
+/obj/item/flora/pottedplant_small/bluefern{
+	pixel_x = 16;
+	pixel_y = 6
+	},
+/obj/item/flora/pottedplant_small/mysterious{
+	pixel_x = 25;
+	pixel_y = 2
+	},
+/obj/item/flora/pottedplant_small/empty{
+	pixel_x = -5;
+	pixel_y = 6
+	},
+/obj/effect/floor_decal/spline/plain/black,
+/obj/structure/table/skrell,
+/turf/simulated/floor/shuttle/skrell,
+/area/abandoned_skrell_ship)
+"oh" = (
+/obj/structure/platform/ledge/dark{
+	dir = 1
+	},
+/obj/structure/platform/ledge/dark{
+	dir = 4
+	},
+/obj/structure/platform_deco/ledge/dark{
+	dir = 10
+	},
+/obj/structure/flora/assunzione/grass/sparse{
+	pixel_x = 12;
+	pixel_y = 8
+	},
+/turf/simulated/floor/exoplanet/water/smooth/shell,
+/area/abandoned_skrell_ship)
+"oi" = (
+/obj/structure/railing/mapped/no_density/low{
+	dir = 4;
+	pixel_y = 5
+	},
+/turf/simulated/floor/marble/dark,
+/area/abandoned_skrell_ship)
 "oj" = (
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 8
@@ -5298,7 +5597,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/shuttle/skrell,
-/area/space)
+/area/template_noop)
 "ok" = (
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 5
@@ -5375,7 +5674,7 @@
 	},
 /obj/structure/table/reinforced/steel,
 /turf/simulated/floor/carpet/rubber/airless,
-/area/space)
+/area/template_noop)
 "ot" = (
 /obj/effect/decal/curb{
 	color = "#574267"
@@ -5433,6 +5732,13 @@
 /obj/structure/closet/crate/freezer,
 /turf/simulated/floor/grass/recolorable/mycelium,
 /area/abandoned_skrell_ship)
+"oA" = (
+/obj/structure/arch/skrell/side{
+	dir = 1
+	},
+/obj/structure/table/skrell,
+/turf/simulated/floor/marble/dark,
+/area/template_noop)
 "oB" = (
 /obj/effect/decal/curb{
 	color = "#574267";
@@ -5456,11 +5762,18 @@
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/carpet/rubber/airless,
-/area/space)
+/area/template_noop)
 "oD" = (
 /obj/structure/railing/mapped/no_density/low,
 /turf/simulated/floor/shuttle/skrell,
 /area/abandoned_skrell_ship)
+"oE" = (
+/obj/structure/railing/mapped/no_density/low,
+/obj/machinery/light/skrell{
+	dir = 4
+	},
+/turf/simulated/floor/marble,
+/area/template_noop)
 "oF" = (
 /obj/effect/decal/curb{
 	color = "#574267";
@@ -5475,11 +5788,19 @@
 	dir = 1
 	},
 /turf/simulated/floor/carpet/rubber,
-/area/space)
+/area/template_noop)
 "oG" = (
 /obj/structure/structural_support,
 /obj/effect/floor_decal/industrial/warning/dust/corner,
 /turf/simulated/floor/cave/shell/dark_blue,
+/area/abandoned_skrell_ship)
+"oH" = (
+/obj/structure/railing/mapped/no_density/low{
+	dir = 1
+	},
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/marble/purple,
 /area/abandoned_skrell_ship)
 "oI" = (
 /obj/structure/konyang_cliff{
@@ -5494,7 +5815,7 @@
 	},
 /obj/effect/floor_decal/industrial/hatch_door/yellow,
 /turf/simulated/floor/tiled/dark/full/airless,
-/area/space)
+/area/template_noop)
 "oK" = (
 /obj/structure/lattice,
 /turf/simulated/floor/cave/shell/dark_blue,
@@ -5509,7 +5830,7 @@
 /obj/structure/flora/pottedplant/bluefern{
 	pixel_x = 8
 	},
-/turf/simulated/floor/marble/dark,
+/turf/simulated/floor/carpet/rubber,
 /area/abandoned_skrell_ship)
 "oN" = (
 /obj/effect/decal/curb{
@@ -5524,14 +5845,14 @@
 	dir = 4
 	},
 /turf/simulated/floor/carpet/rubber/airless,
-/area/space)
+/area/template_noop)
 "oO" = (
 /obj/structure/platform/ledge/dark{
 	dir = 8
 	},
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor/airless,
-/area/space)
+/area/template_noop)
 "oQ" = (
 /obj/machinery/light/skrell{
 	dir = 8
@@ -5599,7 +5920,7 @@
 	},
 /obj/structure/lattice/ceiling,
 /turf/simulated/floor/carpet/rubber/airless,
-/area/space)
+/area/template_noop)
 "oY" = (
 /obj/effect/floor_decal/industrial/outline_door/grey{
 	dir = 8
@@ -5626,7 +5947,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/full/airless,
-/area/space)
+/area/template_noop)
 "pa" = (
 /obj/structure/platform/ledge/dark{
 	dir = 8
@@ -5663,6 +5984,7 @@
 /obj/effect/floor_decal/spline/plain/corner/black{
 	dir = 8
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/shuttle/skrell,
 /area/abandoned_skrell_ship)
 "pe" = (
@@ -5670,7 +5992,7 @@
 	dir = 8
 	},
 /turf/unsimulated/wall/steel,
-/area/space)
+/area/template_noop)
 "pf" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/machinery/atmospherics/pipe/manifold/hidden/aux{
@@ -5681,7 +6003,7 @@
 /area/abandoned_skrell_ship)
 "pg" = (
 /obj/structure/table/rack/folding_table,
-/turf/simulated/floor/marble/dark,
+/turf/simulated/floor/marble/gray,
 /area/abandoned_skrell_ship)
 "ph" = (
 /obj/effect/floor_decal/industrial/outline/grey,
@@ -5694,7 +6016,7 @@
 	dir = 8
 	},
 /turf/template_noop,
-/area/space)
+/area/template_noop)
 "pj" = (
 /obj/effect/decal/curb{
 	color = "#574267";
@@ -5728,7 +6050,7 @@
 /obj/effect/floor_decal/spline/plain/mauve{
 	dir = 1
 	},
-/turf/simulated/floor/marble/dark,
+/turf/simulated/floor/marble/purple,
 /area/abandoned_skrell_ship)
 "pn" = (
 /obj/effect/floor_decal/industrial/outline_door/grey{
@@ -5768,6 +6090,28 @@
 	},
 /turf/simulated/floor/carpet/rubber/airless,
 /area/abandoned_skrell_ship)
+"pq" = (
+/obj/structure/table/skrell,
+/obj/item/flora/pottedplant_small/bluefern{
+	pixel_y = -1;
+	pixel_x = -7
+	},
+/obj/item/flora/pottedplant_small/mysterious{
+	pixel_x = -2;
+	pixel_y = -3
+	},
+/obj/effect/floor_decal/spline/plain/mauve{
+	dir = 10
+	},
+/obj/effect/floor_decal/spline/plain/corner/mauve{
+	dir = 1
+	},
+/turf/simulated/floor/marble/dark,
+/area/template_noop)
+"pr" = (
+/obj/effect/floor_decal/industrial/outline_door/research,
+/turf/simulated/floor/marble,
+/area/template_noop)
 "ps" = (
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 4
@@ -5819,7 +6163,7 @@
 	color = "#8a7387"
 	},
 /turf/simulated/open/airless,
-/area/space)
+/area/template_noop)
 "py" = (
 /obj/structure/bed/stool/chair/folding{
 	dir = 8
@@ -5836,7 +6180,7 @@
 	},
 /obj/structure/lattice/ceiling,
 /turf/simulated/floor/airless,
-/area/space)
+/area/template_noop)
 "pA" = (
 /obj/effect/decal/curb/corner{
 	color = "#574267";
@@ -5880,11 +6224,11 @@
 	color = "#8a7387"
 	},
 /turf/simulated/floor/exoplanet/water/smooth/shell,
-/area/space)
+/area/template_noop)
 "pD" = (
 /obj/effect/floor_decal/industrial/warning/dust,
 /turf/simulated/floor/cave/shell/dark_purple,
-/area/space)
+/area/template_noop)
 "pE" = (
 /obj/structure/railing/mapped/no_density/low,
 /turf/simulated/floor/exoplanet/crystal,
@@ -5898,7 +6242,7 @@
 	},
 /obj/machinery/portable_atmospherics/canister/oxygen,
 /obj/effect/floor_decal/industrial/hatch_small/research,
-/turf/simulated/floor/marble/dark,
+/turf/simulated/floor/marble/purple,
 /area/abandoned_skrell_ship)
 "pG" = (
 /obj/effect/decal/curb{
@@ -5941,7 +6285,7 @@
 "pK" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/open/airless,
-/area/space)
+/area/template_noop)
 "pM" = (
 /obj/structure/cable/yellow{
 	icon_state = "1-2"
@@ -5952,6 +6296,14 @@
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/airless,
+/area/abandoned_skrell_ship)
+"pN" = (
+/obj/structure/platform_deco/ledge/dark,
+/obj/structure/flora/assunzione/grass/sparse{
+	pixel_x = 7;
+	pixel_y = 5
+	},
+/turf/simulated/floor/exoplanet/water/smooth/shell,
 /area/abandoned_skrell_ship)
 "pO" = (
 /obj/structure/bed/stool/hover{
@@ -5969,9 +6321,28 @@
 "pQ" = (
 /turf/unsimulated/mineral/cave/petrified_shell/dark_purple,
 /area/abandoned_skrell_ship)
+"pR" = (
+/obj/machinery/computer/loreconsole/skrell/always_powered{
+	dir = 4
+	},
+/obj/effect/floor_decal/spline/plain/cee/mauve{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/outline_door/grey{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/outline_door/grey{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/outline_door/grey,
+/obj/effect/floor_decal/industrial/outline_door/grey{
+	dir = 4
+	},
+/turf/simulated/floor/marble/dark,
+/area/template_noop)
 "pS" = (
 /turf/simulated/floor/cave/shell/dark_purple,
-/area/space)
+/area/template_noop)
 "pT" = (
 /obj/effect/floor_decal/industrial/arrow/research{
 	dir = 1
@@ -5991,6 +6362,13 @@
 /turf/simulated/floor/airless,
 /area/abandoned_skrell_ship)
 "pX" = (
+/obj/effect/floor_decal/spline/plain/corner/black{
+	dir = 8
+	},
+/turf/simulated/floor/shuttle/skrell,
+/area/abandoned_skrell_ship)
+"pY" = (
+/obj/effect/floor_decal/spline/plain/corner/black,
 /obj/effect/floor_decal/spline/plain/corner/black{
 	dir = 8
 	},
@@ -6066,13 +6444,13 @@
 "qf" = (
 /obj/structure/girder,
 /turf/simulated/floor/airless,
-/area/space)
+/area/template_noop)
 "qg" = (
 /obj/effect/floor_decal/spline/plain/cee/mauve{
 	dir = 1
 	},
 /obj/structure/bed/aqua,
-/turf/simulated/floor/marble/dark,
+/turf/simulated/floor/marble/purple,
 /area/abandoned_skrell_ship)
 "qh" = (
 /obj/random/dirt_75,
@@ -6137,9 +6515,15 @@
 	pixel_y = -1
 	},
 /turf/simulated/floor/tiled/dark/full,
-/area/space)
+/area/template_noop)
 "qo" = (
 /obj/structure/arch/skrell/side{
+	dir = 8
+	},
+/obj/effect/floor_decal/spline/plain/black{
+	dir = 4
+	},
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 8
 	},
 /turf/simulated/floor/shuttle/skrell/blue,
@@ -6171,6 +6555,19 @@
 /obj/structure/platform_deco/dark,
 /turf/simulated/open,
 /area/abandoned_skrell_ship)
+"qv" = (
+/obj/effect/decal/curb{
+	color = "#574267";
+	dir = 10
+	},
+/obj/effect/decal/curb{
+	color = "#574267";
+	dir = 5
+	},
+/obj/structure/flora/assunzione/flowers/brflowers,
+/obj/structure/flora/assunzione/bush/ferny,
+/turf/simulated/floor/grass1/no_edge,
+/area/abandoned_skrell_ship)
 "qw" = (
 /obj/structure/platform/ledge/dark{
 	dir = 1
@@ -6190,7 +6587,7 @@
 	color = "#8a7387"
 	},
 /turf/simulated/floor/cave/shell/dark_purple,
-/area/space)
+/area/template_noop)
 "qz" = (
 /obj/effect/decal/curb,
 /obj/effect/decal/curb{
@@ -6226,12 +6623,19 @@
 	},
 /obj/structure/lattice/ceiling,
 /turf/simulated/open,
-/area/space)
+/area/template_noop)
 "qC" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/random/canister/filled,
 /turf/simulated/floor/airless,
 /area/abandoned_skrell_ship)
+"qD" = (
+/obj/structure/table/skrell,
+/obj/effect/floor_decal/spline/plain/mauve{
+	dir = 10
+	},
+/turf/simulated/floor/marble/dark,
+/area/template_noop)
 "qE" = (
 /obj/effect/floor_decal/industrial/outline_door/grey{
 	dir = 8
@@ -6273,6 +6677,16 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/carpet/rubber,
 /area/abandoned_skrell_ship)
+"qH" = (
+/obj/effect/floor_decal/spline/plain/black{
+	dir = 1
+	},
+/obj/structure/table/skrell,
+/obj/structure/arch/skrell/side{
+	dir = 4
+	},
+/turf/simulated/floor/marble/dark,
+/area/template_noop)
 "qI" = (
 /obj/structure/sink/kitchen{
 	name = "surgical sink";
@@ -6297,7 +6711,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/carpet/rubber/airless,
-/area/space)
+/area/template_noop)
 "qL" = (
 /obj/structure/platform/ledge/dark{
 	dir = 4
@@ -6316,7 +6730,7 @@
 /obj/item/tank/oxygen,
 /obj/item/clothing/mask/breath/medical,
 /obj/item/clothing/mask/breath/medical,
-/turf/simulated/floor/marble/dark,
+/turf/simulated/floor/marble/purple,
 /area/abandoned_skrell_ship)
 "qO" = (
 /obj/effect/decal/curb,
@@ -6342,7 +6756,12 @@
 	color = "#574267"
 	},
 /turf/template_noop,
-/area/space)
+/area/template_noop)
+"qR" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/dark/full,
+/area/abandoned_skrell_ship)
 "qS" = (
 /obj/effect/decal/curb{
 	dir = 8
@@ -6354,7 +6773,30 @@
 /obj/structure/railing/mapped{
 	dir = 1
 	},
-/turf/simulated/floor/shuttle/skrell/blue,
+/turf/simulated/floor/marble/gray,
+/area/abandoned_skrell_ship)
+"qU" = (
+/obj/effect/floor_decal/spline/plain/black{
+	dir = 8
+	},
+/obj/effect/floor_decal/spline/plain/black{
+	dir = 4
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/shuttle/skrell,
+/area/abandoned_skrell_ship)
+"qV" = (
+/obj/effect/decal/curb{
+	color = "#574267";
+	dir = 10
+	},
+/obj/effect/decal/curb{
+	color = "#574267";
+	dir = 5
+	},
+/obj/structure/flora/assunzione/flowers/lavendergrass,
+/obj/structure/flora/assunzione/bush/pale,
+/turf/simulated/floor/grass1/no_edge,
 /area/abandoned_skrell_ship)
 "qW" = (
 /obj/effect/floor_decal/spline/plain/mauve{
@@ -6366,7 +6808,7 @@
 /obj/machinery/light/skrell{
 	dir = 4
 	},
-/turf/simulated/floor/marble/dark,
+/turf/simulated/floor/marble/purple,
 /area/abandoned_skrell_ship)
 "qX" = (
 /obj/machinery/iv_drip{
@@ -6414,7 +6856,7 @@
 /obj/machinery/light/skrell{
 	dir = 8
 	},
-/turf/simulated/floor/shuttle/skrell/blue,
+/turf/simulated/floor/carpet/rubber,
 /area/abandoned_skrell_ship)
 "rc" = (
 /obj/structure/girder,
@@ -6426,7 +6868,7 @@
 	dir = 10
 	},
 /obj/structure/table/skrell,
-/turf/simulated/floor/marble/dark,
+/turf/simulated/floor/marble/purple,
 /area/abandoned_skrell_ship)
 "rf" = (
 /obj/effect/decal/exterior_stairs/half/dark/left{
@@ -6440,6 +6882,20 @@
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/shuttle/skrell/blue,
+/area/abandoned_skrell_ship)
+"rh" = (
+/obj/structure/platform/ledge/dark,
+/obj/structure/platform/ledge/dark{
+	dir = 8
+	},
+/obj/structure/platform_deco/ledge/dark{
+	dir = 9
+	},
+/obj/structure/flora/assunzione/grass/sparse{
+	pixel_x = -9;
+	pixel_y = -7
+	},
+/turf/simulated/floor/exoplanet/water/smooth/shell,
 /area/abandoned_skrell_ship)
 "ri" = (
 /obj/effect/decal/curb/corner{
@@ -6469,6 +6925,15 @@
 	},
 /turf/simulated/floor/carpet/rubber/airless,
 /area/abandoned_skrell_ship)
+"rk" = (
+/obj/structure/railing/mapped/no_density/low{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/outline_door/research{
+	dir = 4
+	},
+/turf/simulated/floor/marble,
+/area/template_noop)
 "rm" = (
 /obj/effect/decal/curb{
 	color = "#574267";
@@ -6480,6 +6945,13 @@
 "rn" = (
 /obj/effect/floor_decal/spline/plain/cee/black,
 /turf/simulated/floor/shuttle/skrell,
+/area/abandoned_skrell_ship)
+"ro" = (
+/obj/structure/arch/skrell/side{
+	dir = 8
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/marble/purple,
 /area/abandoned_skrell_ship)
 "rp" = (
 /obj/effect/decal/curb/corner{
@@ -6494,7 +6966,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/carpet/rubber/airless,
-/area/space)
+/area/template_noop)
 "rq" = (
 /obj/random/maintenance_junk_or_loot,
 /obj/structure/railing/mapped/no_density/low{
@@ -6516,7 +6988,7 @@
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/carpet/rubber/airless,
-/area/space)
+/area/template_noop)
 "rs" = (
 /obj/effect/floor_decal/industrial/outline_door/grey{
 	dir = 8
@@ -6559,6 +7031,9 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/carpet/rubber/airless,
+/area/abandoned_skrell_ship)
+"rv" = (
+/turf/simulated/floor/tiled/techfloor/purple,
 /area/abandoned_skrell_ship)
 "rw" = (
 /obj/effect/floor_decal/industrial/outline_door/grey{
@@ -6651,7 +7126,7 @@
 /area/abandoned_skrell_ship)
 "rJ" = (
 /turf/simulated/floor/shuttle/skrell,
-/area/space)
+/area/template_noop)
 "rK" = (
 /obj/effect/decal/curb/corner{
 	color = "#574267";
@@ -6665,7 +7140,7 @@
 	color = "#574267"
 	},
 /turf/simulated/floor/carpet/rubber/airless,
-/area/space)
+/area/template_noop)
 "rL" = (
 /obj/structure/lattice/catwalk/indoor/urban{
 	color = "#8a7387"
@@ -6681,7 +7156,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/airless,
-/area/space)
+/area/template_noop)
 "rO" = (
 /obj/structure/tank_wall{
 	icon_state = "m-13"
@@ -6753,6 +7228,9 @@
 /obj/structure/lattice/ceiling,
 /turf/simulated/open/airless,
 /area/abandoned_skrell_ship)
+"rX" = (
+/turf/simulated/floor/tiled/techmaint/purple,
+/area/abandoned_skrell_ship)
 "rY" = (
 /obj/effect/decal/curb{
 	color = "#574267";
@@ -6780,7 +7258,7 @@
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/carpet/rubber/airless,
-/area/space)
+/area/template_noop)
 "sa" = (
 /obj/effect/map_effect/particle_emitter/bar_smoke,
 /obj/structure/flora/grass/adhomai,
@@ -6811,7 +7289,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark/full/airless,
-/area/space)
+/area/template_noop)
 "sf" = (
 /obj/structure/table/skrell,
 /obj/item/flora/pottedplant_small/crystal{
@@ -6837,7 +7315,7 @@
 /area/abandoned_skrell_ship)
 "sh" = (
 /turf/simulated/wall/r_wall,
-/area/space)
+/area/template_noop)
 "si" = (
 /obj/structure/platform_deco/ledge/dark{
 	dir = 1
@@ -6875,7 +7353,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/reinforced/airless,
-/area/space)
+/area/template_noop)
 "sp" = (
 /obj/structure/largecrate,
 /obj/effect/decal/road_marking/no_park,
@@ -6890,6 +7368,16 @@
 /obj/effect/map_effect/particle_emitter/bar_smoke,
 /turf/simulated/floor/grass/recolorable/mycelium,
 /area/abandoned_skrell_ship)
+"sr" = (
+/obj/structure/table/skrell,
+/obj/structure/railing/mapped/no_density/low{
+	dir = 4
+	},
+/obj/effect/floor_decal/spline/plain/mauve{
+	dir = 6
+	},
+/turf/simulated/floor/marble/dark,
+/area/template_noop)
 "ss" = (
 /obj/effect/decal/exterior_stairs/half/dark/right,
 /turf/simulated/floor/cave/shell/dark_purple,
@@ -6960,7 +7448,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/carpet/rubber/airless,
-/area/space)
+/area/template_noop)
 "sG" = (
 /obj/structure/platform/ledge/dark{
 	dir = 8
@@ -6976,13 +7464,8 @@
 /turf/simulated/floor/airless,
 /area/abandoned_skrell_ship)
 "sJ" = (
-/obj/structure/bed/stool/chair/office/hover{
-	dir = 4
-	},
-/obj/effect/floor_decal/industrial/outline_door/grey{
-	dir = 4
-	},
-/turf/simulated/floor/marble/dark,
+/obj/structure/flora/kudzu/mycelium,
+/turf/simulated/floor/marble/gray,
 /area/abandoned_skrell_ship)
 "sK" = (
 /obj/effect/decal/exterior_stairs/half/center,
@@ -7043,11 +7526,20 @@
 /obj/structure/railing/mapped/no_density/low{
 	dir = 8
 	},
-/turf/simulated/floor/carpet/rubber,
+/turf/simulated/floor/tiled/techmaint/purple,
 /area/abandoned_skrell_ship)
 "sS" = (
 /obj/effect/floor_decal/industrial/warning/dust,
 /turf/simulated/floor/cave/shell/dark_purple,
+/area/abandoned_skrell_ship)
+"sT" = (
+/obj/structure/lattice/catwalk/indoor/urban{
+	color = "#8a7387"
+	},
+/obj/machinery/light/skrell{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/water/smooth/shell,
 /area/abandoned_skrell_ship)
 "sU" = (
 /obj/structure/table/skrell,
@@ -7069,7 +7561,7 @@
 	pixel_y = -1;
 	pixel_x = 7
 	},
-/turf/simulated/floor/marble/dark,
+/turf/simulated/floor/carpet/rubber,
 /area/abandoned_skrell_ship)
 "sX" = (
 /obj/structure/platform/ledge/dark,
@@ -7087,7 +7579,7 @@
 "sZ" = (
 /obj/effect/floor_decal/spline/plain/black,
 /turf/simulated/floor/shuttle/skrell/blue,
-/area/space)
+/area/template_noop)
 "ta" = (
 /obj/machinery/light/skrell{
 	dir = 8
@@ -7100,7 +7592,7 @@
 	},
 /obj/effect/map_effect/window_spawner/full/borosilicate/reinforced,
 /turf/simulated/floor/tiled/dark/full,
-/area/space)
+/area/template_noop)
 "tc" = (
 /obj/structure/lattice/catwalk/indoor,
 /obj/effect/decal/curb{
@@ -7122,7 +7614,7 @@
 /area/abandoned_skrell_ship)
 "tf" = (
 /turf/template_noop,
-/area/space)
+/area/template_noop)
 "tg" = (
 /obj/structure/table/skrell,
 /obj/effect/floor_decal/industrial/outline_door/grey,
@@ -7177,19 +7669,19 @@
 /obj/structure/bed/stool/chair/office/hover{
 	dir = 4
 	},
-/obj/effect/floor_decal/industrial/outline_door/grey{
-	dir = 4
-	},
-/obj/effect/floor_decal/industrial/outline_door/grey{
-	dir = 1
-	},
-/turf/simulated/floor/marble/dark,
+/turf/simulated/floor/marble/gray,
 /area/abandoned_skrell_ship)
 "to" = (
 /obj/effect/tent{
 	dir = 4
 	},
 /turf/simulated/floor/cave/shell/dark_purple,
+/area/abandoned_skrell_ship)
+"tp" = (
+/obj/structure/railing/mapped/no_density/low{
+	dir = 4
+	},
+/turf/simulated/floor/marble/purple,
 /area/abandoned_skrell_ship)
 "tq" = (
 /obj/structure/platform_deco/ledge/dark{
@@ -7226,7 +7718,7 @@
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/random/hydroponics,
 /obj/random/hydroponics,
-/turf/simulated/floor/shuttle/skrell/blue,
+/turf/simulated/floor/carpet/rubber,
 /area/abandoned_skrell_ship)
 "tw" = (
 /obj/structure/lattice/catwalk/indoor/urban{
@@ -7243,11 +7735,22 @@
 	},
 /turf/simulated/open/airless,
 /area/abandoned_skrell_ship)
+"tx" = (
+/obj/structure/platform_deco/dark{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/techmaint/purple,
+/area/abandoned_skrell_ship)
 "ty" = (
 /obj/structure/lattice/ceiling,
 /obj/structure/railing/mapped/no_density/low,
 /turf/simulated/floor/tiled/dark/full/airless,
-/area/space)
+/area/template_noop)
+"tz" = (
+/obj/effect/floor_decal/spline/plain/black,
+/obj/structure/railing/mapped/no_density/low,
+/turf/simulated/floor/shuttle/skrell,
+/area/abandoned_skrell_ship)
 "tA" = (
 /obj/machinery/computer/loreconsole/skrell/always_powered{
 	pixel_y = 22;
@@ -7267,7 +7770,7 @@
 	dir = 6
 	},
 /turf/template_noop,
-/area/space)
+/area/template_noop)
 "tD" = (
 /obj/effect/decal/curb{
 	color = "#574267";
@@ -7331,7 +7834,14 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark/full/airless,
-/area/space)
+/area/template_noop)
+"tL" = (
+/obj/effect/floor_decal/industrial/outline_door/research,
+/obj/effect/floor_decal/industrial/outline_segment/research{
+	dir = 10
+	},
+/turf/simulated/floor/marble,
+/area/template_noop)
 "tM" = (
 /obj/effect/decal/curb{
 	color = "#574267";
@@ -7386,7 +7896,7 @@
 "tS" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/carpet/rubber,
-/area/space)
+/area/template_noop)
 "tT" = (
 /obj/structure/lattice/ceiling,
 /obj/structure/lattice/catwalk/indoor,
@@ -7412,7 +7922,7 @@
 	},
 /obj/structure/lattice/ceiling,
 /turf/simulated/open,
-/area/space)
+/area/template_noop)
 "tY" = (
 /obj/item/stack/flag/red/planted{
 	pixel_x = 12;
@@ -7435,7 +7945,7 @@
 /obj/structure/railing/mapped/no_density/low{
 	dir = 8
 	},
-/turf/simulated/floor/marble/dark,
+/turf/simulated/floor/marble/purple,
 /area/abandoned_skrell_ship)
 "ub" = (
 /turf/simulated/floor/carpet/rubber,
@@ -7468,7 +7978,7 @@
 /obj/structure/lattice,
 /obj/item/hullbeacon/red,
 /turf/simulated/open/airless,
-/area/space)
+/area/template_noop)
 "ug" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/structure/closet/crate/hydroponics,
@@ -7485,6 +7995,19 @@
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/carpet/rubber,
+/area/abandoned_skrell_ship)
+"uj" = (
+/obj/effect/decal/curb{
+	color = "#574267";
+	dir = 10
+	},
+/obj/effect/decal/curb{
+	color = "#574267";
+	dir = 5
+	},
+/obj/structure/flora/assunzione/grass/full,
+/obj/structure/flora/assunzione/bush/ferny,
+/turf/simulated/floor/grass1/no_edge,
 /area/abandoned_skrell_ship)
 "uk" = (
 /obj/structure/tank_wall{
@@ -7633,18 +8156,18 @@
 "uA" = (
 /obj/structure/lattice/catwalk/indoor,
 /turf/simulated/open/airless,
-/area/space)
+/area/template_noop)
 "uB" = (
 /obj/structure/structural_support/side,
 /turf/simulated/floor/airless,
-/area/space)
+/area/template_noop)
 "uC" = (
 /obj/structure/konyang_cliff{
 	icon_state = "innercorner5";
 	color = "#8a7387"
 	},
 /turf/simulated/floor/cave/shell/dark_purple,
-/area/space)
+/area/template_noop)
 "uE" = (
 /obj/structure/konyang_cliff{
 	icon_state = "innercorner6";
@@ -7688,12 +8211,12 @@
 /obj/structure/lattice/ceiling,
 /obj/random/dirt_75,
 /turf/simulated/floor/carpet/rubber/airless,
-/area/space)
+/area/template_noop)
 "uJ" = (
 /obj/structure/flora/rock/stalagmite/purple,
 /obj/random/dirt_75,
 /turf/simulated/floor/cave/shell/dark_purple,
-/area/space)
+/area/template_noop)
 "uK" = (
 /obj/structure/lattice,
 /obj/structure/platform/ledge/dark,
@@ -7722,7 +8245,7 @@
 	dir = 1
 	},
 /turf/template_noop,
-/area/space)
+/area/template_noop)
 "uN" = (
 /obj/structure/railing/mapped{
 	color = "#574267";
@@ -7781,6 +8304,13 @@
 	},
 /turf/simulated/floor/shuttle/skrell,
 /area/abandoned_skrell_ship)
+"uV" = (
+/obj/structure/platform_deco/dark{
+	dir = 4
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/carpet/rubber,
+/area/abandoned_skrell_ship)
 "uW" = (
 /obj/structure/flora/pottedplant/bluefern,
 /turf/simulated/floor/shuttle/skrell,
@@ -7802,12 +8332,10 @@
 /obj/structure/platform/ledge/dark{
 	dir = 4
 	},
-/obj/structure/railing/mapped/no_density/low{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/ramp/bottom{
+/obj/effect/decal/exterior_stairs/half/dark/center{
 	dir = 1
 	},
+/turf/simulated/floor/marble/purple,
 /area/abandoned_skrell_ship)
 "vd" = (
 /obj/effect/floor_decal/industrial/outline_door/grey{
@@ -7849,7 +8377,7 @@
 /obj/machinery/light/skrell{
 	dir = 4
 	},
-/turf/simulated/floor/marble/dark,
+/turf/simulated/floor/marble/purple,
 /area/abandoned_skrell_ship)
 "vg" = (
 /obj/effect/decal/curb{
@@ -7886,6 +8414,13 @@
 	},
 /obj/structure/table/rack,
 /turf/simulated/floor/cave/shell/dark_purple,
+/area/abandoned_skrell_ship)
+"vk" = (
+/obj/effect/floor_decal/spline/plain/corner/black{
+	dir = 1
+	},
+/obj/effect/floor_decal/spline/plain/corner/black,
+/turf/simulated/floor/shuttle/skrell/blue,
 /area/abandoned_skrell_ship)
 "vn" = (
 /obj/effect/decal/curb{
@@ -7992,7 +8527,7 @@
 /obj/abstract/footprint_spawner/oil,
 /obj/random/dirt_75,
 /turf/simulated/floor/carpet/rubber/airless,
-/area/space)
+/area/template_noop)
 "vA" = (
 /obj/effect/floor_decal/industrial/outline_door/grey{
 	dir = 8
@@ -8030,10 +8565,10 @@
 	pixel_y = 8
 	},
 /turf/simulated/open,
-/area/space)
+/area/template_noop)
 "vE" = (
 /turf/simulated/floor/exoplanet/water/smooth/shell,
-/area/space)
+/area/template_noop)
 "vF" = (
 /obj/structure/platform/ledge/dark{
 	dir = 8
@@ -8088,7 +8623,7 @@
 	},
 /obj/structure/lattice/ceiling,
 /turf/simulated/open,
-/area/space)
+/area/template_noop)
 "vJ" = (
 /obj/effect/decal/curb{
 	color = "#574267";
@@ -8097,7 +8632,7 @@
 /obj/effect/decal/cleanable/blood/oil,
 /obj/random/dirt_75,
 /turf/simulated/floor/carpet/rubber/airless,
-/area/space)
+/area/template_noop)
 "vK" = (
 /obj/structure/arch/gothic/side{
 	dir = 4
@@ -8198,6 +8733,11 @@
 	},
 /turf/simulated/floor/exoplanet/water/smooth/shell,
 /area/abandoned_skrell_ship)
+"vX" = (
+/obj/structure/platform_deco/ledge/dark,
+/obj/random/dirt_75,
+/turf/simulated/floor/marble/purple,
+/area/abandoned_skrell_ship)
 "vY" = (
 /obj/machinery/door/firedoor/noid{
 	dir = 1
@@ -8213,7 +8753,7 @@
 /obj/machinery/floodlight/randomcharge,
 /obj/random/dirt_75,
 /turf/simulated/floor/airless,
-/area/space)
+/area/template_noop)
 "wa" = (
 /obj/structure/table/rack/folding_table,
 /obj/random/dirt_75,
@@ -8223,7 +8763,7 @@
 "wb" = (
 /obj/random/dirt_75,
 /obj/structure/flora/grass/adhomai,
-/turf/simulated/floor/marble/dark,
+/turf/simulated/floor/marble/gray,
 /area/abandoned_skrell_ship)
 "wc" = (
 /obj/effect/decal/curb/corner{
@@ -8239,14 +8779,14 @@
 	dir = 8
 	},
 /turf/simulated/floor/carpet/rubber/airless,
-/area/space)
+/area/template_noop)
 "wd" = (
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 1
 	},
 /obj/structure/table/skrell,
 /turf/simulated/floor/shuttle/skrell,
-/area/space)
+/area/template_noop)
 "wf" = (
 /obj/effect/floor_decal/crystal,
 /turf/simulated/floor/shuttle/skrell/blue,
@@ -8337,7 +8877,7 @@
 /obj/structure/lattice/catwalk/indoor,
 /obj/item/hullbeacon/red,
 /turf/space,
-/area/space)
+/area/template_noop)
 "wu" = (
 /obj/structure/platform/ledge/dark{
 	dir = 1
@@ -8363,13 +8903,13 @@
 /obj/structure/trash_pile,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
-/area/space)
+/area/template_noop)
 "wx" = (
 /obj/structure/platform/ledge/dark{
 	dir = 4
 	},
 /obj/random/dirt_75,
-/turf/simulated/floor/marble/dark,
+/turf/simulated/floor/marble/gray,
 /area/abandoned_skrell_ship)
 "wy" = (
 /obj/machinery/door/firedoor/noid{
@@ -8392,7 +8932,8 @@
 /obj/structure/platform_deco/ledge/dark{
 	dir = 4
 	},
-/turf/simulated/floor/marble/dark,
+/obj/random/dirt_75,
+/turf/simulated/floor/marble/purple,
 /area/abandoned_skrell_ship)
 "wB" = (
 /obj/structure/railing/mapped{
@@ -8415,6 +8956,13 @@
 	dir = 1
 	},
 /turf/simulated/floor/carpet/rubber,
+/area/abandoned_skrell_ship)
+"wD" = (
+/obj/structure/platform_deco/ledge/dark,
+/obj/structure/flora/assunzione/grass/full{
+	pixel_y = -1
+	},
+/turf/simulated/floor/exoplanet/water/smooth/shell,
 /area/abandoned_skrell_ship)
 "wE" = (
 /obj/structure/platform/dark{
@@ -8486,7 +9034,7 @@
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/carpet/rubber/airless,
-/area/space)
+/area/template_noop)
 "wN" = (
 /obj/structure/railing/mapped/no_density/low{
 	dir = 1
@@ -8494,10 +9042,11 @@
 /turf/simulated/floor/shuttle/skrell/blue,
 /area/abandoned_skrell_ship)
 "wO" = (
-/obj/structure/railing/mapped/no_density/low{
-	dir = 4
+/obj/structure/platform_deco/dark{
+	dir = 8
 	},
-/turf/simulated/floor/tiled/ramp/bottom,
+/obj/structure/table/skrell,
+/turf/simulated/floor/tiled/techmaint/purple,
 /area/abandoned_skrell_ship)
 "wP" = (
 /obj/effect/floor_decal/industrial/hatch_small/grey,
@@ -8513,7 +9062,7 @@
 "wQ" = (
 /obj/structure/lattice,
 /turf/space,
-/area/space)
+/area/template_noop)
 "wR" = (
 /obj/structure/lattice/catwalk/indoor/urban{
 	color = "#8a7387"
@@ -8524,7 +9073,8 @@
 /turf/simulated/floor/exoplanet/water/smooth/shell,
 /area/abandoned_skrell_ship)
 "wS" = (
-/turf/simulated/floor/tiled/ramp/bottom,
+/obj/effect/decal/exterior_stairs/half/dark/center,
+/turf/simulated/floor/tiled/techmaint/purple,
 /area/abandoned_skrell_ship)
 "wT" = (
 /obj/structure/konyang_cliff{
@@ -8541,7 +9091,10 @@
 /obj/structure/platform_deco/dark{
 	dir = 5
 	},
-/turf/simulated/floor/carpet/rubber,
+/obj/structure/flora/pottedplant/fortune_flower{
+	pixel_y = 4
+	},
+/turf/simulated/floor/tiled/techmaint/purple,
 /area/abandoned_skrell_ship)
 "wV" = (
 /obj/effect/floor_decal/industrial/outline_door/grey{
@@ -8560,7 +9113,7 @@
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/carpet/rubber/airless,
-/area/space)
+/area/template_noop)
 "wX" = (
 /obj/structure/lattice/catwalk/indoor/urban{
 	color = "#8a7387"
@@ -8622,6 +9175,13 @@
 	},
 /turf/simulated/floor/shuttle/skrell/blue,
 /area/abandoned_skrell_ship)
+"xe" = (
+/obj/effect/floor_decal/spline/plain/corner/black{
+	dir = 8
+	},
+/obj/effect/floor_decal/spline/plain/corner/black,
+/turf/simulated/floor/shuttle/skrell,
+/area/abandoned_skrell_ship)
 "xf" = (
 /obj/structure/lattice/catwalk/indoor,
 /obj/structure/ladder/up,
@@ -8644,6 +9204,7 @@
 /obj/structure/railing/mapped{
 	dir = 1
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/carpet/rubber,
 /area/abandoned_skrell_ship)
 "xi" = (
@@ -8717,7 +9278,7 @@
 "xq" = (
 /obj/structure/flora/rock/stalagmite/purple,
 /turf/simulated/floor/exoplanet/water/smooth/shell,
-/area/space)
+/area/template_noop)
 "xs" = (
 /obj/effect/decal/curb{
 	color = "#574267";
@@ -8760,7 +9321,7 @@
 "xw" = (
 /obj/structure/lattice,
 /turf/simulated/open/airless,
-/area/space)
+/area/template_noop)
 "xx" = (
 /obj/structure/lattice/catwalk/indoor/urban{
 	color = "#8a7387"
@@ -8782,7 +9343,17 @@
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/carpet/rubber/airless,
-/area/space)
+/area/template_noop)
+"xz" = (
+/obj/structure/bed/stool/hover,
+/obj/structure/platform/ledge/dark{
+	dir = 4
+	},
+/obj/effect/decal/exterior_stairs/half/dark/right{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/water/smooth/shell,
+/area/template_noop)
 "xA" = (
 /obj/effect/floor_decal/fungus/random,
 /obj/structure/flora/grass/adhomai,
@@ -8800,14 +9371,14 @@
 /obj/structure/lattice/ceiling,
 /obj/random/dirt_75,
 /turf/simulated/floor/carpet/rubber/airless,
-/area/space)
+/area/template_noop)
 "xC" = (
 /obj/structure/railing/mapped{
 	dir = 1
 	},
 /obj/effect/decal/cleanable/floor_damage/random_tiled_broken,
 /obj/structure/flora/grass/adhomai,
-/turf/simulated/floor/marble/dark,
+/turf/simulated/floor/marble/gray,
 /area/abandoned_skrell_ship)
 "xD" = (
 /obj/structure/table/skrell,
@@ -8834,7 +9405,7 @@
 "xF" = (
 /obj/structure/platform/ledge/dark,
 /turf/simulated/open,
-/area/space)
+/area/template_noop)
 "xG" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
@@ -8864,7 +9435,7 @@
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
-/area/space)
+/area/template_noop)
 "xI" = (
 /obj/effect/floor_decal/spline/plain/mauve{
 	dir = 6
@@ -8872,7 +9443,7 @@
 /obj/structure/flora/pottedplant/bluefern{
 	pixel_y = 12
 	},
-/turf/simulated/floor/marble/dark,
+/turf/simulated/floor/marble/purple,
 /area/abandoned_skrell_ship)
 "xJ" = (
 /obj/structure/platform/ledge/dark,
@@ -8883,7 +9454,7 @@
 	dir = 9
 	},
 /turf/simulated/open,
-/area/space)
+/area/template_noop)
 "xK" = (
 /obj/structure/bed/stool/chair/folding{
 	dir = 1
@@ -8924,7 +9495,7 @@
 /obj/machinery/computer/loreconsole/skrell/always_powered{
 	dir = 1
 	},
-/turf/simulated/floor/marble/dark,
+/turf/simulated/floor/marble/purple,
 /area/abandoned_skrell_ship)
 "xQ" = (
 /obj/effect/floor_decal/industrial/outline_door/grey{
@@ -8987,12 +9558,8 @@
 /obj/structure/bed/stool/chair/office/hover{
 	dir = 8
 	},
-/obj/effect/floor_decal/industrial/outline_door/grey{
-	dir = 8
-	},
-/obj/effect/floor_decal/industrial/outline_door/grey,
 /obj/effect/decal/cleanable/floor_damage/random_tiled_broken,
-/turf/simulated/floor/marble/dark,
+/turf/simulated/floor/marble/gray,
 /area/abandoned_skrell_ship)
 "xX" = (
 /obj/effect/decal/curb/corner{
@@ -9008,7 +9575,7 @@
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/carpet/rubber/airless,
-/area/space)
+/area/template_noop)
 "xY" = (
 /obj/structure/platform/dark{
 	dir = 1
@@ -9040,7 +9607,7 @@
 /obj/structure/lattice/catwalk/indoor,
 /obj/item/hullbeacon/red,
 /turf/space,
-/area/space)
+/area/template_noop)
 "yb" = (
 /obj/structure/arch/skrell/side{
 	dir = 8
@@ -9057,6 +9624,10 @@
 	icon_state = "0-8"
 	},
 /turf/simulated/floor/airless,
+/area/abandoned_skrell_ship)
+"yd" = (
+/obj/random/dirt_75,
+/turf/simulated/floor/marble/purple,
 /area/abandoned_skrell_ship)
 "ye" = (
 /obj/structure/sign/biohazard{
@@ -9124,12 +9695,19 @@
 /obj/effect/floor_decal/crystal,
 /turf/simulated/floor/shuttle/skrell/blue,
 /area/abandoned_skrell_ship)
+"yl" = (
+/obj/structure/table/skrell,
+/obj/structure/platform/ledge/dark{
+	dir = 4
+	},
+/turf/simulated/floor/marble/dark,
+/area/abandoned_skrell_ship)
 "ym" = (
 /obj/structure/lattice/catwalk/indoor/urban{
 	color = "#8a7387"
 	},
 /turf/simulated/floor/airless,
-/area/space)
+/area/template_noop)
 "yn" = (
 /obj/effect/decal/curb/corner{
 	dir = 1
@@ -9146,7 +9724,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/full/airless,
-/area/space)
+/area/template_noop)
 "yp" = (
 /obj/effect/decal/exterior_stairs/half/dark/center{
 	dir = 8
@@ -9170,18 +9748,7 @@
 	color = "#8a7387"
 	},
 /turf/simulated/floor/cave/shell/dark_purple,
-/area/space)
-"yu" = (
-/obj/structure/konyang_cliff{
-	icon_state = "botcorner_east";
-	color = "#8a7387";
-	pixel_y = 19
-	},
-/obj/structure/railing/mapped{
-	dir = 4
-	},
-/turf/simulated/open,
-/area/abandoned_skrell_ship)
+/area/template_noop)
 "yv" = (
 /obj/effect/floor_decal/spline/plain/corner/black{
 	dir = 1
@@ -9216,7 +9783,7 @@
 	},
 /obj/structure/lattice/ceiling,
 /turf/simulated/open,
-/area/space)
+/area/template_noop)
 "yy" = (
 /obj/effect/decal/exterior_stairs/half/dark/center{
 	dir = 8
@@ -9239,14 +9806,13 @@
 /turf/simulated/floor/carpet/rubber/airless,
 /area/abandoned_skrell_ship)
 "yA" = (
-/obj/structure/konyang_cliff{
-	icon_state = "cliff-east";
-	color = "#8a7387"
+/obj/effect/floor_decal/spline/plain/black{
+	dir = 9
 	},
-/obj/structure/railing/mapped{
-	dir = 4
+/obj/structure/bed/stool/chair/office/hover/command{
+	dir = 8
 	},
-/turf/unsimulated/mineral/cave/petrified_shell/dark_purple,
+/turf/simulated/floor/shuttle/skrell,
 /area/abandoned_skrell_ship)
 "yB" = (
 /obj/effect/decal/curb{
@@ -9280,7 +9846,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/shuttle/skrell,
-/area/space)
+/area/template_noop)
 "yF" = (
 /obj/effect/floor_decal/spline/plain/cee/black{
 	dir = 4
@@ -9346,6 +9912,19 @@
 /obj/effect/floor_decal/industrial/outline_segment/grey,
 /turf/simulated/floor/carpet/rubber,
 /area/abandoned_skrell_ship)
+"yN" = (
+/obj/effect/decal/curb{
+	color = "#574267";
+	dir = 10
+	},
+/obj/effect/decal/curb{
+	color = "#574267";
+	dir = 5
+	},
+/obj/structure/flora/assunzione/grass,
+/obj/structure/flora/assunzione/bush/ferny,
+/turf/simulated/floor/grass1/no_edge,
+/area/abandoned_skrell_ship)
 "yO" = (
 /obj/effect/decal/curb,
 /obj/effect/decal/curb{
@@ -9394,12 +9973,16 @@
 	},
 /turf/simulated/floor/cave/shell/dark_blue,
 /area/abandoned_skrell_ship)
+"yT" = (
+/obj/effect/decal/exterior_stairs/half/dark/center,
+/turf/simulated/floor/exoplanet/water/smooth/shell,
+/area/template_noop)
 "yV" = (
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 5
 	},
 /turf/simulated/floor/shuttle/skrell,
-/area/space)
+/area/template_noop)
 "yW" = (
 /obj/structure/railing/mapped/no_density/low{
 	dir = 8
@@ -9418,7 +10001,7 @@
 /obj/machinery/computer/loreconsole/skrell/always_powered{
 	dir = 4
 	},
-/turf/simulated/floor/marble/dark,
+/turf/simulated/floor/marble/purple,
 /area/abandoned_skrell_ship)
 "yX" = (
 /obj/structure/sign/flag/assunzione{
@@ -9437,10 +10020,10 @@
 /turf/simulated/floor/shuttle/skrell,
 /area/abandoned_skrell_ship)
 "zb" = (
-/obj/structure/table/skrell,
 /obj/structure/arch/skrell/side,
-/turf/simulated/floor/carpet/rubber,
-/area/abandoned_skrell_ship)
+/obj/structure/table/skrell,
+/turf/simulated/floor/marble/dark,
+/area/template_noop)
 "zd" = (
 /obj/effect/decal/curb/corner{
 	dir = 8
@@ -9450,6 +10033,19 @@
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/abandoned_skrell_ship)
+"ze" = (
+/obj/effect/decal/exterior_stairs/half/dark/center{
+	dir = 8
+	},
+/turf/simulated/floor/marble/gray,
+/area/abandoned_skrell_ship)
+"zf" = (
+/obj/effect/floor_decal/industrial/outline_door/research,
+/obj/effect/floor_decal/industrial/outline_segment/research{
+	dir = 4
+	},
+/turf/simulated/floor/marble,
+/area/template_noop)
 "zg" = (
 /obj/random/dirt_75,
 /obj/effect/floor_decal/industrial/outline/grey,
@@ -9474,7 +10070,7 @@
 	color = "#574267"
 	},
 /turf/simulated/floor/carpet/rubber/airless,
-/area/space)
+/area/template_noop)
 "zj" = (
 /obj/structure/railing/mapped/no_density/low{
 	dir = 1
@@ -9501,12 +10097,22 @@
 	},
 /turf/simulated/floor/marble/dark,
 /area/abandoned_skrell_ship)
+"zm" = (
+/obj/structure/platform/ledge/dark{
+	dir = 4
+	},
+/obj/structure/flora/assunzione/grass/sparse{
+	pixel_x = 8;
+	pixel_y = -24
+	},
+/turf/simulated/floor/exoplanet/water/smooth/shell,
+/area/abandoned_skrell_ship)
 "zn" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/structure/girder,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
-/area/space)
+/area/template_noop)
 "zo" = (
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 10
@@ -9539,6 +10145,16 @@
 	},
 /turf/simulated/floor/marble/dark,
 /area/abandoned_skrell_ship)
+"zs" = (
+/obj/effect/floor_decal/industrial/outline_door/research,
+/obj/effect/floor_decal/industrial/outline_segment/research{
+	dir = 4
+	},
+/obj/structure/railing/mapped/no_density/low{
+	dir = 4
+	},
+/turf/simulated/floor/marble,
+/area/template_noop)
 "zt" = (
 /obj/effect/decal/curb/corner{
 	color = "#574267";
@@ -9552,7 +10168,7 @@
 	color = "#574267"
 	},
 /turf/simulated/floor/carpet/rubber/airless,
-/area/space)
+/area/template_noop)
 "zu" = (
 /obj/random/dirt_75,
 /obj/structure/flora/grass/adhomai,
@@ -9617,7 +10233,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/airless,
-/area/space)
+/area/template_noop)
 "zC" = (
 /obj/structure/railing/mapped/no_density/low{
 	dir = 4
@@ -9659,7 +10275,7 @@
 /obj/structure/table/rack,
 /obj/random/toolbox,
 /turf/simulated/floor/tiled/dark/full,
-/area/space)
+/area/template_noop)
 "zK" = (
 /obj/effect/decal/curb/corner{
 	color = "#574267";
@@ -9670,7 +10286,7 @@
 	},
 /obj/abstract/footprint_spawner_turn_helper,
 /turf/simulated/floor/carpet/rubber/airless,
-/area/space)
+/area/template_noop)
 "zL" = (
 /obj/structure/railing/mapped{
 	color = "#574267"
@@ -9705,7 +10321,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/carpet/rubber,
-/area/space)
+/area/template_noop)
 "zP" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/structure/crate_shelf,
@@ -9738,6 +10354,15 @@
 /obj/structure/lattice/ceiling,
 /turf/simulated/floor/carpet/rubber/airless,
 /area/abandoned_skrell_ship)
+"zU" = (
+/obj/structure/bed/stool/hover{
+	dir = 4
+	},
+/obj/effect/floor_decal/spline/plain/mauve{
+	dir = 9
+	},
+/turf/simulated/floor/marble/dark,
+/area/template_noop)
 "zV" = (
 /obj/structure/railing/mapped{
 	dir = 1
@@ -9763,7 +10388,7 @@
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/carpet/rubber/airless,
-/area/space)
+/area/template_noop)
 "zZ" = (
 /obj/effect/decal/curb{
 	dir = 9
@@ -9790,7 +10415,7 @@
 "Ab" = (
 /obj/structure/flora/rock/stalagmite/purple,
 /turf/simulated/floor/cave/shell/dark_purple,
-/area/space)
+/area/template_noop)
 "Ac" = (
 /obj/effect/decal/curb{
 	color = "#574267";
@@ -9804,7 +10429,7 @@
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/carpet/rubber/airless,
-/area/space)
+/area/template_noop)
 "Ad" = (
 /obj/effect/decal/curb{
 	dir = 1
@@ -9831,6 +10456,12 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full/airless,
 /area/abandoned_skrell_ship)
+"Ag" = (
+/obj/structure/railing/mapped/no_density/low{
+	dir = 4
+	},
+/turf/simulated/floor/marble,
+/area/template_noop)
 "Ah" = (
 /obj/structure/platform/ledge/dark{
 	dir = 8
@@ -9931,12 +10562,9 @@
 /turf/simulated/floor/airless,
 /area/abandoned_skrell_ship)
 "At" = (
-/obj/effect/floor_decal/industrial/outline_door/grey{
-	dir = 4
-	},
-/obj/effect/floor_decal/industrial/outline_door/grey,
 /obj/random/dirt_75,
-/turf/simulated/floor/marble/dark,
+/obj/structure/flora/kudzu/mycelium,
+/turf/simulated/floor/marble/gray,
 /area/abandoned_skrell_ship)
 "Av" = (
 /obj/effect/floor_decal/spline/plain/black{
@@ -9967,7 +10595,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/cave/shell/dark_purple,
-/area/space)
+/area/template_noop)
 "Az" = (
 /obj/effect/decal/curb/corner{
 	color = "#574267";
@@ -9992,7 +10620,7 @@
 "AC" = (
 /obj/structure/flora/rock/stalagmite/teal,
 /turf/simulated/floor/cave/shell/dark_blue,
-/area/space)
+/area/template_noop)
 "AD" = (
 /obj/effect/decal/curb{
 	color = "#574267";
@@ -10011,7 +10639,7 @@
 /obj/effect/floor_decal/industrial/outline_segment/research{
 	dir = 4
 	},
-/turf/simulated/floor/marble/dark,
+/turf/simulated/floor/tiled/techfloor/purple,
 /area/abandoned_skrell_ship)
 "AF" = (
 /obj/structure/lattice/catwalk/indoor/urban{
@@ -10045,7 +10673,7 @@
 	},
 /obj/structure/extinguisher_cabinet/north,
 /turf/simulated/floor/carpet/rubber/airless,
-/area/space)
+/area/template_noop)
 "AJ" = (
 /obj/structure/table/skrell,
 /obj/structure/railing/mapped/no_density/low{
@@ -10061,7 +10689,7 @@
 "AK" = (
 /obj/structure/railing/mapped/no_density/low,
 /obj/structure/sign/flag/nralakk,
-/turf/simulated/floor/marble/dark,
+/turf/simulated/floor/marble/purple,
 /area/abandoned_skrell_ship)
 "AL" = (
 /obj/effect/decal/curb{
@@ -10084,7 +10712,7 @@
 /obj/structure/bed/stool/chair/office/hover{
 	dir = 4
 	},
-/turf/simulated/floor/marble/dark,
+/turf/simulated/floor/marble/purple,
 /area/abandoned_skrell_ship)
 "AN" = (
 /obj/structure/flora/grass/adhomai,
@@ -10100,7 +10728,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/airless,
-/area/space)
+/area/template_noop)
 "AP" = (
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 1
@@ -10109,7 +10737,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/shuttle/skrell/blue,
-/area/space)
+/area/template_noop)
 "AQ" = (
 /obj/structure/table/skrell,
 /turf/simulated/floor/shuttle/skrell/blue,
@@ -10154,7 +10782,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/airless,
-/area/space)
+/area/template_noop)
 "AY" = (
 /turf/simulated/open/airless,
 /area/abandoned_skrell_ship)
@@ -10177,7 +10805,7 @@
 	pixel_y = 8
 	},
 /turf/simulated/open/airless,
-/area/space)
+/area/template_noop)
 "Bc" = (
 /obj/effect/decal/curb/corner{
 	color = "#574267";
@@ -10193,7 +10821,7 @@
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/carpet/rubber/airless,
-/area/space)
+/area/template_noop)
 "Bd" = (
 /obj/machinery/door/firedoor/noid{
 	dir = 4
@@ -10231,6 +10859,15 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/carpet/rubber/airless,
 /area/abandoned_skrell_ship)
+"Bi" = (
+/obj/structure/bed/stool/hover{
+	dir = 8
+	},
+/obj/effect/floor_decal/spline/plain/mauve{
+	dir = 1
+	},
+/turf/simulated/floor/marble/dark,
+/area/template_noop)
 "Bj" = (
 /obj/structure/platform/dark{
 	dir = 1
@@ -10250,6 +10887,16 @@
 	dir = 4
 	},
 /turf/simulated/floor/grass/recolorable/mycelium,
+/area/abandoned_skrell_ship)
+"Bl" = (
+/obj/structure/platform_deco/ledge/dark{
+	dir = 1
+	},
+/obj/structure/flora/assunzione/grass/full{
+	pixel_x = -9;
+	pixel_y = 6
+	},
+/turf/simulated/floor/exoplanet/water/smooth/shell,
 /area/abandoned_skrell_ship)
 "Bm" = (
 /obj/effect/floor_decal/industrial/outline/grey,
@@ -10283,7 +10930,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/carpet/rubber/airless,
-/area/space)
+/area/template_noop)
 "Bp" = (
 /turf/simulated/wall/r_wall,
 /area/abandoned_skrell_ship)
@@ -10339,7 +10986,7 @@
 	dir = 4
 	},
 /turf/template_noop,
-/area/space)
+/area/template_noop)
 "Bx" = (
 /obj/effect/decal/curb{
 	color = "#574267"
@@ -10350,6 +10997,19 @@
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/carpet/rubber,
+/area/abandoned_skrell_ship)
+"By" = (
+/obj/effect/decal/curb{
+	color = "#574267";
+	dir = 10
+	},
+/obj/effect/decal/curb{
+	color = "#574267";
+	dir = 5
+	},
+/obj/structure/flora/assunzione/flowers/lavendergrass,
+/obj/structure/flora/assunzione/flowers/brflowers,
+/turf/simulated/floor/grass1/no_edge,
 /area/abandoned_skrell_ship)
 "Bz" = (
 /obj/effect/decal/curb/corner,
@@ -10456,7 +11116,18 @@
 /obj/structure/platform_deco/dark{
 	dir = 9
 	},
-/turf/simulated/floor/carpet/rubber,
+/obj/structure/closet/emcloset/skrell,
+/obj/effect/floor_decal/industrial/outline_door/grey,
+/obj/effect/floor_decal/industrial/outline_door/grey{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline_door/grey{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/outline_door/grey{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/techmaint/purple,
 /area/abandoned_skrell_ship)
 "BQ" = (
 /obj/effect/floor_decal/industrial/outline_door/grey{
@@ -10544,6 +11215,10 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/carpet/rubber/airless,
 /area/abandoned_skrell_ship)
+"Ca" = (
+/obj/structure/bed/stool/chair/office/hover,
+/turf/simulated/floor/marble,
+/area/template_noop)
 "Cb" = (
 /obj/structure/table/skrell,
 /obj/structure/railing/mapped{
@@ -10553,7 +11228,8 @@
 /area/abandoned_skrell_ship)
 "Cc" = (
 /obj/structure/bed/handrail{
-	dir = 4
+	dir = 4;
+	pixel_x = -2
 	},
 /obj/effect/floor_decal/spline/plain/corner/black{
 	dir = 1
@@ -10571,7 +11247,7 @@
 	pixel_y = 8
 	},
 /turf/simulated/floor/tiled/dark/full,
-/area/space)
+/area/template_noop)
 "Ce" = (
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 10
@@ -10600,16 +11276,14 @@
 /turf/simulated/floor/exoplanet/water/smooth/shell,
 /area/abandoned_skrell_ship)
 "Ch" = (
-/obj/effect/decal/cleanable/floor_damage/rust,
-/obj/structure/flora/grass/adhomai,
-/turf/simulated/floor/marble/dark,
+/turf/simulated/floor/marble/gray,
 /area/abandoned_skrell_ship)
 "Ck" = (
 /obj/structure/railing/mapped{
 	dir = 1
 	},
 /obj/random/dirt_75,
-/turf/simulated/floor/shuttle/skrell/blue,
+/turf/simulated/floor/marble/gray,
 /area/abandoned_skrell_ship)
 "Cl" = (
 /obj/structure/table/rack/retail_shelf,
@@ -10693,7 +11367,7 @@
 /obj/structure/arch/skrell/side{
 	dir = 4
 	},
-/turf/simulated/floor/marble/dark,
+/turf/simulated/floor/marble/purple,
 /area/abandoned_skrell_ship)
 "Cv" = (
 /obj/structure/platform/ledge/dark{
@@ -10802,7 +11476,14 @@
 "CH" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor/airless,
-/area/space)
+/area/template_noop)
+"CI" = (
+/obj/structure/railing/mapped/no_density/low,
+/obj/machinery/light/skrell{
+	dir = 8
+	},
+/turf/simulated/floor/marble,
+/area/template_noop)
 "CJ" = (
 /obj/structure/platform/ledge/dark,
 /turf/template_noop,
@@ -10825,7 +11506,7 @@
 	pixel_x = -10;
 	pixel_y = -2
 	},
-/turf/simulated/floor/marble/dark,
+/turf/simulated/floor/marble/gray,
 /area/abandoned_skrell_ship)
 "CM" = (
 /obj/structure/platform_deco/ledge/dark,
@@ -10834,7 +11515,7 @@
 	},
 /obj/structure/lattice/ceiling,
 /turf/simulated/open,
-/area/space)
+/area/template_noop)
 "CN" = (
 /obj/structure/platform/ledge/dark,
 /obj/structure/bed/stool/hover{
@@ -10867,18 +11548,25 @@
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/abandoned_skrell_ship)
+"CQ" = (
+/obj/machinery/light/skrell{
+	dir = 8
+	},
+/turf/simulated/floor/marble,
+/area/template_noop)
 "CS" = (
-/obj/structure/table/skrell,
-/obj/structure/arch/skrell/center,
-/turf/simulated/floor/shuttle/skrell,
-/area/abandoned_skrell_ship)
+/obj/effect/floor_decal/industrial/outline_door/research{
+	dir = 1
+	},
+/turf/simulated/floor/marble,
+/area/template_noop)
 "CT" = (
 /obj/structure/konyang_cliff{
 	icon_state = "innercorner3";
 	color = "#8a7387"
 	},
 /turf/simulated/floor/cave/shell/dark_purple,
-/area/space)
+/area/template_noop)
 "CU" = (
 /obj/structure/platform/ledge/dark{
 	dir = 4
@@ -10900,6 +11588,10 @@
 	},
 /turf/simulated/floor/carpet/rubber/airless,
 /area/abandoned_skrell_ship)
+"CW" = (
+/obj/effect/floor_decal/spline/plain/mauve,
+/turf/simulated/floor/marble/dark,
+/area/template_noop)
 "CX" = (
 /obj/effect/floor_decal/industrial/outline_door/grey{
 	dir = 8
@@ -10961,7 +11653,7 @@
 /obj/structure/lattice/ceiling,
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/open/airless,
-/area/space)
+/area/template_noop)
 "De" = (
 /obj/effect/decal/curb/corner{
 	color = "#574267";
@@ -10993,7 +11685,7 @@
 /obj/structure/lattice/catwalk/indoor,
 /obj/effect/decal/curb/corner,
 /turf/simulated/floor/cave/shell/dark_purple,
-/area/space)
+/area/template_noop)
 "Dj" = (
 /obj/structure/platform/ledge/dark{
 	dir = 8
@@ -11010,7 +11702,7 @@
 /obj/structure/table/rack,
 /obj/random/hydroponics,
 /obj/random/dirt_75,
-/turf/simulated/floor/shuttle/skrell/blue,
+/turf/simulated/floor/marble/gray,
 /area/abandoned_skrell_ship)
 "Dl" = (
 /obj/structure/railing/mapped,
@@ -11041,7 +11733,15 @@
 	density = 1;
 	name = "thruster mount"
 	},
-/area/space)
+/area/template_noop)
+"Dp" = (
+/obj/structure/flora/assunzione/grass,
+/obj/structure/flora/assunzione/flowers/lavendergrass,
+/obj/machinery/light/skrell{
+	dir = 8
+	},
+/turf/simulated/floor/grass1/no_edge,
+/area/abandoned_skrell_ship)
 "Dq" = (
 /obj/structure/railing/mapped/no_density/low{
 	dir = 8
@@ -11061,6 +11761,26 @@
 	},
 /obj/structure/lattice,
 /turf/simulated/floor/cave/shell/dark_purple,
+/area/abandoned_skrell_ship)
+"Dt" = (
+/obj/item/flora/pottedplant_small/crystal{
+	pixel_x = -33;
+	pixel_y = 3
+	},
+/obj/item/flora/pottedplant_small/fern{
+	pixel_x = -22;
+	pixel_y = 1
+	},
+/obj/item/flora/pottedplant_small/empty{
+	pixel_x = 2;
+	pixel_y = 6
+	},
+/obj/effect/floor_decal/spline/plain/black,
+/obj/structure/table/skrell,
+/obj/machinery/light/skrell{
+	pixel_x = -16
+	},
+/turf/simulated/floor/shuttle/skrell,
 /area/abandoned_skrell_ship)
 "Du" = (
 /obj/effect/floor_decal/industrial/outline/grey,
@@ -11085,12 +11805,12 @@
 /area/abandoned_skrell_ship)
 "Dw" = (
 /obj/effect/floor_decal/spline/plain/cee/mauve,
-/turf/simulated/floor/marble/dark,
+/turf/simulated/floor/marble/purple,
 /area/abandoned_skrell_ship)
 "Dx" = (
 /obj/structure/lattice/catwalk/indoor,
 /turf/space,
-/area/space)
+/area/template_noop)
 "Dy" = (
 /obj/effect/decal/curb/corner{
 	dir = 4
@@ -11131,6 +11851,20 @@
 	},
 /obj/structure/table/skrell,
 /turf/simulated/floor/carpet/rubber,
+/area/abandoned_skrell_ship)
+"DC" = (
+/obj/structure/platform/ledge/dark,
+/obj/structure/platform/ledge/dark{
+	dir = 4
+	},
+/obj/structure/platform_deco/ledge/dark{
+	dir = 5
+	},
+/obj/structure/flora/assunzione/grass/sparse{
+	pixel_x = 16;
+	pixel_y = -24
+	},
+/turf/simulated/floor/exoplanet/water/smooth/shell,
 /area/abandoned_skrell_ship)
 "DD" = (
 /obj/structure/lattice/catwalk/indoor/urban{
@@ -11182,11 +11916,20 @@
 /turf/simulated/open/airless,
 /area/abandoned_skrell_ship)
 "DJ" = (
-/obj/effect/floor_decal/spline/plain/black,
-/obj/structure/arch/skrell/side{
-	dir = 1
+/obj/structure/bed/stool/hover{
+	dir = 4
 	},
-/turf/simulated/floor/shuttle/skrell,
+/obj/effect/floor_decal/spline/plain/mauve{
+	dir = 4
+	},
+/turf/simulated/floor/marble/dark,
+/area/template_noop)
+"DK" = (
+/obj/structure/arch/skrell/side{
+	dir = 4
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/dark/full,
 /area/abandoned_skrell_ship)
 "DL" = (
 /obj/structure/flora/tree/mushroom{
@@ -11247,6 +11990,14 @@
 /obj/effect/decal/exterior_stairs/half/center,
 /turf/simulated/floor/carpet/rubber,
 /area/abandoned_skrell_ship)
+"DR" = (
+/obj/effect/floor_decal/spline/plain/black{
+	dir = 1
+	},
+/obj/effect/floor_decal/spline/plain/black,
+/obj/random/dirt_75,
+/turf/simulated/floor/shuttle/skrell,
+/area/abandoned_skrell_ship)
 "DT" = (
 /obj/structure/table/steel,
 /obj/random/tech_supply,
@@ -11255,7 +12006,7 @@
 	pixel_y = 6
 	},
 /turf/simulated/floor/tiled/dark/full,
-/area/space)
+/area/template_noop)
 "DU" = (
 /obj/structure/lattice/catwalk/indoor/urban{
 	color = "#8a7387"
@@ -11356,6 +12107,20 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/carpet/rubber/airless,
 /area/abandoned_skrell_ship)
+"Ei" = (
+/obj/effect/decal/curb/corner{
+	color = "#574267";
+	dir = 1
+	},
+/obj/effect/decal/curb/corner{
+	color = "#574267"
+	},
+/obj/effect/decal/curb{
+	color = "#574267";
+	dir = 1
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/abandoned_skrell_ship)
 "Ej" = (
 /obj/structure/platform_deco/dark{
 	dir = 8
@@ -11375,7 +12140,7 @@
 /obj/effect/floor_decal/spline/plain/cee/mauve{
 	dir = 8
 	},
-/turf/simulated/floor/marble/dark,
+/turf/simulated/floor/marble/purple,
 /area/abandoned_skrell_ship)
 "Eo" = (
 /obj/machinery/door/firedoor/noid{
@@ -11386,6 +12151,10 @@
 	},
 /obj/effect/map_effect/door_helper/lock,
 /turf/simulated/floor/carpet/rubber,
+/area/abandoned_skrell_ship)
+"Ep" = (
+/obj/effect/decal/cleanable/floor_damage/random_tiled_broken,
+/turf/simulated/floor/marble/gray,
 /area/abandoned_skrell_ship)
 "Eq" = (
 /obj/effect/decal/curb{
@@ -11415,7 +12184,7 @@
 	dir = 10
 	},
 /obj/machinery/smartfridge,
-/turf/simulated/floor/marble/dark,
+/turf/simulated/floor/marble/purple,
 /area/abandoned_skrell_ship)
 "Ew" = (
 /obj/effect/floor_decal/spline/plain/black{
@@ -11451,7 +12220,7 @@
 /obj/machinery/power/portgen/basic,
 /obj/random/dirt_75,
 /turf/simulated/floor/airless,
-/area/space)
+/area/template_noop)
 "EC" = (
 /obj/structure/platform_deco/ledge/dark{
 	dir = 4
@@ -11461,7 +12230,7 @@
 	},
 /obj/structure/lattice/ceiling,
 /turf/simulated/open,
-/area/space)
+/area/template_noop)
 "ED" = (
 /obj/effect/floor_decal/spline/plain/corner/black{
 	dir = 4
@@ -11510,7 +12279,19 @@
 	},
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor/airless,
-/area/space)
+/area/template_noop)
+"EK" = (
+/obj/effect/floor_decal/industrial/outline_door/research{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/outline_segment/research{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/outline_door/research{
+	dir = 4
+	},
+/turf/simulated/floor/marble,
+/area/template_noop)
 "EL" = (
 /obj/random/dirt_75,
 /obj/random/maintenance_junk_or_loot,
@@ -11538,7 +12319,7 @@
 	dir = 10
 	},
 /turf/simulated/floor/carpet/rubber/airless,
-/area/space)
+/area/template_noop)
 "EP" = (
 /obj/machinery/door/blast/regular/open{
 	dir = 4
@@ -11550,7 +12331,7 @@
 	color = "#6e2c6e"
 	},
 /turf/simulated/floor/tiled/dark/full/airless,
-/area/space)
+/area/template_noop)
 "EQ" = (
 /obj/effect/decal/curb/corner{
 	color = "#574267";
@@ -11609,13 +12390,28 @@
 	},
 /turf/simulated/floor/cave/shell/dark_blue,
 /area/abandoned_skrell_ship)
+"EW" = (
+/obj/structure/bed/handrail{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/techfloor/purple,
+/area/abandoned_skrell_ship)
+"EY" = (
+/obj/structure/bed/stool/hover{
+	dir = 1
+	},
+/obj/effect/floor_decal/spline/plain/mauve{
+	dir = 1
+	},
+/turf/simulated/floor/marble/dark,
+/area/template_noop)
 "EZ" = (
 /obj/structure/ladder/up{
 	pixel_y = 13
 	},
 /obj/structure/lattice,
 /turf/space,
-/area/space)
+/area/template_noop)
 "Fa" = (
 /obj/effect/floor_decal/industrial/warning/dust{
 	dir = 4
@@ -11720,11 +12516,16 @@
 /turf/simulated/floor/carpet/rubber,
 /area/abandoned_skrell_ship)
 "Fn" = (
-/obj/structure/table/skrell,
-/obj/structure/arch/skrell/side{
+/obj/effect/floor_decal/spline/plain/black{
+	dir = 8
+	},
+/obj/effect/floor_decal/spline/plain/black{
+	dir = 4
+	},
+/obj/effect/decal/exterior_stairs/half/dark/right{
 	dir = 1
 	},
-/turf/simulated/floor/carpet/rubber,
+/turf/simulated/floor/shuttle/skrell,
 /area/abandoned_skrell_ship)
 "Fo" = (
 /obj/effect/decal/curb{
@@ -11791,7 +12592,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/carpet/rubber/airless,
-/area/space)
+/area/template_noop)
 "Fv" = (
 /obj/random/dirt_75,
 /obj/effect/floor_decal/industrial/outline/grey,
@@ -11853,7 +12654,7 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/spline/plain/black,
-/turf/simulated/floor/shuttle/skrell/blue,
+/turf/simulated/floor/shuttle/skrell,
 /area/abandoned_skrell_ship)
 "FH" = (
 /obj/effect/decal/curb/corner{
@@ -11869,6 +12670,30 @@
 	dir = 8
 	},
 /turf/simulated/floor/carpet/rubber/airless,
+/area/abandoned_skrell_ship)
+"FI" = (
+/obj/effect/decal/curb{
+	color = "#574267";
+	dir = 10
+	},
+/obj/effect/decal/curb{
+	color = "#574267";
+	dir = 5
+	},
+/obj/structure/flora/assunzione/grass,
+/obj/structure/flora/assunzione/flowers/brflowers,
+/turf/simulated/floor/grass1/no_edge,
+/area/abandoned_skrell_ship)
+"FJ" = (
+/obj/effect/decal/curb{
+	color = "#574267";
+	dir = 5
+	},
+/obj/effect/decal/curb{
+	color = "#574267";
+	dir = 8
+	},
+/turf/simulated/floor/carpet/rubber,
 /area/abandoned_skrell_ship)
 "FL" = (
 /obj/structure/platform/ledge/dark,
@@ -11896,12 +12721,6 @@
 	},
 /turf/simulated/floor/airless,
 /area/abandoned_skrell_ship)
-"FN" = (
-/obj/structure/sign/flag/nralakk{
-	pixel_y = -32
-	},
-/turf/simulated/floor/marble/dark,
-/area/abandoned_skrell_ship)
 "FO" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/structure/crate_shelf,
@@ -11924,7 +12743,7 @@
 "FQ" = (
 /obj/structure/extinguisher_cabinet/north,
 /obj/effect/decal/cleanable/floor_damage/random_broken,
-/turf/simulated/floor/shuttle/skrell/blue,
+/turf/simulated/floor/marble/gray,
 /area/abandoned_skrell_ship)
 "FR" = (
 /obj/structure/plasticflaps/airtight{
@@ -12014,13 +12833,21 @@
 /obj/structure/sign/flag/nralakk{
 	pixel_y = 32
 	},
-/turf/simulated/floor/shuttle/skrell,
+/turf/simulated/floor/shuttle/skrell/blue,
 /area/abandoned_skrell_ship)
 "Gb" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /obj/machinery/door/blast/odin,
 /turf/simulated/floor/tiled/dark/full,
 /area/abandoned_skrell_ship)
+"Ge" = (
+/obj/structure/table/skrell,
+/obj/structure/flora/pottedplant/fortune_flower{
+	pixel_y = 12
+	},
+/obj/effect/floor_decal/spline/plain/mauve,
+/turf/simulated/floor/marble/dark,
+/area/template_noop)
 "Gf" = (
 /obj/structure/table/skrell,
 /obj/effect/floor_decal/industrial/outline_door/grey{
@@ -12073,7 +12900,7 @@
 	dir = 9
 	},
 /turf/simulated/floor/carpet/rubber/airless,
-/area/space)
+/area/template_noop)
 "Gl" = (
 /turf/simulated/open,
 /area/abandoned_skrell_ship)
@@ -12118,7 +12945,7 @@
 /area/abandoned_skrell_ship)
 "Gt" = (
 /turf/simulated/open,
-/area/space)
+/area/template_noop)
 "Gu" = (
 /obj/structure/lattice/ceiling,
 /obj/structure/flora/grass/adhomai,
@@ -12194,7 +13021,7 @@
 /obj/structure/railing/mapped/no_density/low{
 	dir = 8
 	},
-/turf/simulated/floor/marble/dark,
+/turf/simulated/floor/marble/purple,
 /area/abandoned_skrell_ship)
 "GD" = (
 /obj/effect/floor_decal/industrial/outline_door/grey,
@@ -12202,7 +13029,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/reinforced/airless,
-/area/space)
+/area/template_noop)
 "GE" = (
 /obj/effect/floor_decal/industrial/outline_door/grey{
 	dir = 4
@@ -12215,7 +13042,8 @@
 	},
 /obj/effect/floor_decal/industrial/outline_door/grey,
 /obj/structure/bed/handrail{
-	dir = 1
+	dir = 1;
+	pixel_y = -3
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/abandoned_skrell_ship)
@@ -12234,7 +13062,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/full,
-/area/space)
+/area/template_noop)
 "GH" = (
 /obj/structure/platform_deco/ledge/dark{
 	dir = 8
@@ -12255,7 +13083,7 @@
 	dir = 8
 	},
 /obj/random/dirt_75,
-/turf/simulated/floor/shuttle/skrell/blue,
+/turf/simulated/floor/carpet/rubber,
 /area/abandoned_skrell_ship)
 "GK" = (
 /obj/structure/flora/bush/mushroom,
@@ -12267,7 +13095,7 @@
 /obj/structure/table/rack,
 /obj/random/tech_supply,
 /turf/simulated/floor/tiled/dark/full,
-/area/space)
+/area/template_noop)
 "GN" = (
 /obj/structure/lattice/catwalk/indoor/urban{
 	color = "#8a7387"
@@ -12317,17 +13145,26 @@
 	dir = 9
 	},
 /turf/simulated/floor/carpet/rubber/airless,
-/area/space)
+/area/template_noop)
 "GT" = (
 /obj/effect/decal/cleanable/floor_damage/random_tiled_broken,
 /obj/structure/flora/kudzu/mycelium,
-/turf/simulated/floor/marble/dark,
+/turf/simulated/floor/marble/gray,
 /area/abandoned_skrell_ship)
+"GU" = (
+/obj/structure/platform/ledge/dark{
+	dir = 8
+	},
+/obj/effect/decal/exterior_stairs/half/dark/left{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/water/smooth/shell,
+/area/template_noop)
 "GV" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/structure/trash_pile,
 /turf/simulated/floor/tiled/dark/full,
-/area/space)
+/area/template_noop)
 "GW" = (
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 4
@@ -12355,7 +13192,7 @@
 	},
 /obj/structure/railing/mapped,
 /turf/simulated/floor/airless,
-/area/space)
+/area/template_noop)
 "GZ" = (
 /obj/effect/map_effect/window_spawner/full/shuttle/mercenary{
 	spawn_firedoor = 1;
@@ -12372,7 +13209,7 @@
 /obj/random/dirt_75,
 /obj/machinery/door/blast/odin,
 /turf/simulated/floor/carpet/rubber/airless,
-/area/space)
+/area/template_noop)
 "Hc" = (
 /obj/structure/platform/ledge/dark{
 	dir = 4
@@ -12434,7 +13271,7 @@
 	dir = 1
 	},
 /turf/simulated/open,
-/area/space)
+/area/template_noop)
 "Hj" = (
 /obj/machinery/floodlight/randomcharge,
 /turf/simulated/floor/cave/shell/dark_blue,
@@ -12448,6 +13285,10 @@
 	dir = 1
 	},
 /turf/simulated/floor/shuttle/skrell,
+/area/abandoned_skrell_ship)
+"Hl" = (
+/obj/structure/platform_deco/ledge/dark,
+/turf/simulated/floor/marble/purple,
 /area/abandoned_skrell_ship)
 "Hn" = (
 /obj/effect/decal/curb/corner{
@@ -12526,6 +13367,16 @@
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/abandoned_skrell_ship)
+"Hw" = (
+/obj/structure/platform_deco/ledge/dark{
+	dir = 4
+	},
+/obj/structure/flora/assunzione/grass/sparse{
+	pixel_x = -13;
+	pixel_y = -1
+	},
+/turf/simulated/floor/exoplanet/water/smooth/shell,
+/area/abandoned_skrell_ship)
 "Hx" = (
 /obj/structure/railing/mapped{
 	dir = 1
@@ -12534,7 +13385,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark/full/airless,
-/area/space)
+/area/template_noop)
 "Hy" = (
 /obj/structure/platform/ledge/dark,
 /obj/structure/railing/mapped/no_density/low{
@@ -12587,7 +13438,7 @@
 /area/abandoned_skrell_ship)
 "HG" = (
 /turf/simulated/floor/carpet/rubber,
-/area/space)
+/area/template_noop)
 "HH" = (
 /obj/effect/decal/curb{
 	color = "#574267";
@@ -12601,7 +13452,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/carpet/rubber/airless,
-/area/space)
+/area/template_noop)
 "HI" = (
 /obj/structure/konyang_cliff{
 	icon_state = "cliff-west";
@@ -12630,7 +13481,7 @@
 	pixel_x = -8;
 	pixel_y = 4
 	},
-/turf/simulated/floor/marble/dark,
+/turf/simulated/floor/marble/purple,
 /area/abandoned_skrell_ship)
 "HL" = (
 /obj/effect/decal/curb/corner{
@@ -12656,7 +13507,7 @@
 /area/abandoned_skrell_ship)
 "HP" = (
 /turf/simulated/floor/tiled/dark/full,
-/area/space)
+/area/template_noop)
 "HQ" = (
 /obj/effect/decal/curb{
 	dir = 8
@@ -12701,7 +13552,7 @@
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/carpet/rubber/airless,
-/area/space)
+/area/template_noop)
 "HW" = (
 /obj/structure/lattice/catwalk/indoor/urban{
 	color = "#8a7387"
@@ -12722,7 +13573,7 @@
 	color = "#8a7387"
 	},
 /turf/simulated/open,
-/area/space)
+/area/template_noop)
 "HY" = (
 /obj/structure/lattice,
 /obj/structure/ladder{
@@ -12797,7 +13648,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/shuttle/skrell/blue,
-/area/space)
+/area/template_noop)
 "Ih" = (
 /obj/effect/decal/curb/corner,
 /obj/effect/decal/curb/corner{
@@ -12828,7 +13679,14 @@
 /obj/structure/platform/dark{
 	dir = 8
 	},
-/turf/simulated/floor/tiled/dark/full,
+/turf/simulated/floor/carpet/rubber,
+/area/abandoned_skrell_ship)
+"Ij" = (
+/obj/structure/platform/ledge/dark{
+	dir = 4
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/marble/purple,
 /area/abandoned_skrell_ship)
 "Ik" = (
 /obj/structure/konyang_cliff{
@@ -12843,6 +13701,13 @@
 	},
 /turf/simulated/open/airless,
 /area/abandoned_skrell_ship)
+"In" = (
+/obj/structure/table/skrell,
+/obj/effect/floor_decal/spline/plain/cee/mauve{
+	dir = 4
+	},
+/turf/simulated/floor/marble/dark,
+/area/template_noop)
 "Io" = (
 /obj/effect/decal/curb/corner{
 	color = "#574267";
@@ -12871,7 +13736,7 @@
 	dir = 8
 	},
 /obj/structure/flora/pottedplant/mysterious,
-/turf/simulated/floor/marble/dark,
+/turf/simulated/floor/marble/purple,
 /area/abandoned_skrell_ship)
 "It" = (
 /obj/structure/konyang_cliff{
@@ -12955,7 +13820,7 @@
 	color = "#8a7387"
 	},
 /turf/simulated/floor/cave/shell/dark_purple,
-/area/space)
+/area/template_noop)
 "IE" = (
 /obj/structure/lattice/catwalk/indoor/urban{
 	color = "#8a7387"
@@ -13070,14 +13935,23 @@
 	dir = 1
 	},
 /turf/template_noop,
-/area/space)
+/area/template_noop)
+"IO" = (
+/obj/structure/bed/stool/hover{
+	dir = 4
+	},
+/obj/effect/decal/exterior_stairs/half/dark/center{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/water/smooth/shell,
+/area/template_noop)
 "IQ" = (
 /obj/effect/decal/curb{
 	color = "#574267"
 	},
 /obj/machinery/door/blast/odin,
 /turf/simulated/floor/carpet/rubber/airless,
-/area/space)
+/area/template_noop)
 "IR" = (
 /obj/effect/decal/curb{
 	color = "#574267";
@@ -13144,6 +14018,11 @@
 	},
 /turf/simulated/floor/airless,
 /area/abandoned_skrell_ship)
+"IZ" = (
+/obj/effect/decal/cleanable/floor_damage/rust,
+/obj/structure/flora/grass/adhomai,
+/turf/simulated/floor/marble/gray,
+/area/abandoned_skrell_ship)
 "Ja" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/machinery/computer/general_air_control/large_tank_control{
@@ -13153,13 +14032,13 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark/full,
-/area/space)
+/area/template_noop)
 "Jb" = (
 /obj/structure/table/skrell,
 /obj/effect/floor_decal/spline/plain/mauve{
 	dir = 5
 	},
-/turf/simulated/floor/marble/dark,
+/turf/simulated/floor/marble/purple,
 /area/abandoned_skrell_ship)
 "Jc" = (
 /obj/structure/lattice/catwalk/indoor/urban{
@@ -13245,7 +14124,7 @@
 	},
 /obj/structure/table/skrell,
 /turf/simulated/floor/shuttle/skrell/blue,
-/area/space)
+/area/template_noop)
 "Jo" = (
 /obj/structure/platform/ledge/dark{
 	dir = 8
@@ -13275,17 +14154,15 @@
 	color = "#574267"
 	},
 /turf/simulated/floor/carpet/rubber/airless,
-/area/space)
+/area/template_noop)
 "Js" = (
 /obj/structure/platform/ledge/dark{
 	dir = 8
 	},
-/obj/structure/railing/mapped/no_density/low{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/ramp/bottom{
+/obj/effect/decal/exterior_stairs/half/dark/center{
 	dir = 1
 	},
+/turf/simulated/floor/marble/purple,
 /area/abandoned_skrell_ship)
 "Jt" = (
 /obj/structure/stairs/east,
@@ -13312,6 +14189,13 @@
 /obj/effect/decal/curb,
 /turf/simulated/floor/cave/shell/dark_purple,
 /area/abandoned_skrell_ship)
+"Jw" = (
+/obj/random/dirt_75,
+/obj/machinery/light/skrell{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/abandoned_skrell_ship)
 "Jx" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/aux{
 	dir = 1
@@ -13329,7 +14213,7 @@
 	color = "#574267"
 	},
 /turf/template_noop,
-/area/space)
+/area/template_noop)
 "JA" = (
 /obj/structure/flora/bush/jungle/large/recolorable/mycelium/random{
 	pixel_x = -15;
@@ -13395,14 +14279,14 @@
 	dir = 4
 	},
 /turf/simulated/floor/shuttle/skrell,
-/area/space)
+/area/template_noop)
 "JN" = (
 /obj/structure/lattice/ceiling,
 /obj/structure/platform_stairs{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/full/airless,
-/area/space)
+/area/template_noop)
 "JO" = (
 /obj/structure/closet/crate/miningcart,
 /turf/simulated/floor/cave/shell/dark_blue,
@@ -13523,7 +14407,7 @@
 	},
 /obj/machinery/door/airlock/hatch,
 /turf/simulated/floor/tiled/dark/full/airless,
-/area/space)
+/area/template_noop)
 "Kd" = (
 /obj/structure/konyang_cliff{
 	icon_state = "innercorner5";
@@ -13556,14 +14440,15 @@
 /turf/simulated/floor/cave/shell/dark_purple,
 /area/abandoned_skrell_ship)
 "Kf" = (
-/obj/structure/bed/handrail{
-	dir = 8
-	},
 /obj/effect/floor_decal/spline/plain/corner/black{
 	dir = 8
 	},
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 4
+	},
+/obj/structure/bed/handrail{
+	dir = 8;
+	pixel_x = 2
 	},
 /turf/simulated/floor/shuttle/skrell,
 /area/abandoned_skrell_ship)
@@ -13608,7 +14493,7 @@
 	},
 /obj/structure/lattice/ceiling,
 /turf/simulated/open,
-/area/space)
+/area/template_noop)
 "Kk" = (
 /turf/unsimulated/wall/fakepdoor{
 	dir = 8
@@ -13678,7 +14563,7 @@
 	dir = 4
 	},
 /turf/simulated/open,
-/area/space)
+/area/template_noop)
 "Ku" = (
 /obj/effect/decal/curb/corner{
 	color = "#574267";
@@ -13707,14 +14592,23 @@
 /area/abandoned_skrell_ship)
 "Kv" = (
 /turf/simulated/floor/cave/shell/dark_blue,
-/area/space)
+/area/template_noop)
+"Kw" = (
+/turf/simulated/floor/marble/purple,
+/area/abandoned_skrell_ship)
 "Kx" = (
 /obj/structure/bed/stool/chair/office/hover{
 	dir = 8
 	},
 /obj/random/dirt_75,
-/turf/simulated/floor/marble/dark,
+/turf/simulated/floor/marble/purple,
 /area/abandoned_skrell_ship)
+"Kz" = (
+/obj/structure/railing/mapped/no_density/low{
+	dir = 1
+	},
+/turf/simulated/floor/marble,
+/area/template_noop)
 "KB" = (
 /obj/effect/decal/curb/corner{
 	color = "#574267";
@@ -13728,7 +14622,16 @@
 	color = "#574267"
 	},
 /turf/simulated/floor/carpet/rubber/airless,
-/area/space)
+/area/template_noop)
+"KD" = (
+/obj/structure/bed/stool/hover{
+	dir = 4
+	},
+/obj/effect/floor_decal/spline/plain/mauve{
+	dir = 6
+	},
+/turf/simulated/floor/marble/dark,
+/area/template_noop)
 "KF" = (
 /obj/effect/floor_decal/spline/plain/cee/black{
 	dir = 8
@@ -13738,7 +14641,7 @@
 "KG" = (
 /obj/effect/floor_decal/spline/plain/black,
 /turf/simulated/floor/shuttle/skrell,
-/area/space)
+/area/template_noop)
 "KH" = (
 /obj/structure/platform_deco/ledge/dark,
 /obj/structure/lattice/catwalk/indoor,
@@ -13771,7 +14674,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/airless,
-/area/space)
+/area/template_noop)
 "KJ" = (
 /obj/machinery/door/firedoor/multi_tile{
 	req_one_access = null;
@@ -13784,7 +14687,7 @@
 /obj/structure/girder,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
-/area/space)
+/area/template_noop)
 "KM" = (
 /obj/structure/platform/dark,
 /obj/structure/closet/crate,
@@ -13796,7 +14699,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark/full/airless,
-/area/space)
+/area/template_noop)
 "KQ" = (
 /obj/effect/decal/curb{
 	color = "#574267";
@@ -13819,7 +14722,7 @@
 /obj/effect/floor_decal/spline/plain/corner/mauve{
 	dir = 4
 	},
-/turf/simulated/floor/marble/dark,
+/turf/simulated/floor/marble/purple,
 /area/abandoned_skrell_ship)
 "KT" = (
 /obj/effect/decal/curb{
@@ -13834,7 +14737,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/carpet/rubber/airless,
-/area/space)
+/area/template_noop)
 "KU" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/structure/crate_shelf,
@@ -13865,7 +14768,7 @@
 /obj/structure/railing/mapped{
 	dir = 8
 	},
-/turf/simulated/floor/marble/dark,
+/turf/simulated/floor/marble/purple,
 /area/abandoned_skrell_ship)
 "KZ" = (
 /obj/structure/table/rack/retail_shelf,
@@ -13911,16 +14814,13 @@
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/carpet/rubber/airless,
-/area/space)
+/area/template_noop)
 "Ld" = (
-/obj/effect/floor_decal/industrial/outline_door/grey{
-	dir = 8
+/obj/structure/flora/kudzu/mycelium,
+/obj/structure/lattice/catwalk/indoor/urban{
+	color = "#949ea3"
 	},
-/obj/effect/floor_decal/industrial/outline_door/grey{
-	dir = 1
-	},
-/obj/random/dirt_75,
-/turf/simulated/floor/marble/dark,
+/turf/simulated/floor/exoplanet/water/smooth/shell,
 /area/abandoned_skrell_ship)
 "Lf" = (
 /obj/effect/floor_decal/spline/plain/corner/black{
@@ -13952,6 +14852,15 @@
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/abandoned_skrell_ship)
+"Lh" = (
+/obj/effect/floor_decal/spline/plain/black{
+	dir = 6
+	},
+/obj/structure/bed/stool/chair/office/hover/command{
+	dir = 4
+	},
+/turf/simulated/floor/shuttle/skrell/blue,
+/area/abandoned_skrell_ship)
 "Lj" = (
 /obj/structure/lattice/catwalk/indoor/urban{
 	color = "#8a7387"
@@ -13961,6 +14870,19 @@
 	},
 /turf/simulated/floor/airless,
 /area/abandoned_skrell_ship)
+"Lk" = (
+/obj/structure/table/skrell,
+/obj/structure/flora/pottedplant/bluefern{
+	pixel_y = 12
+	},
+/obj/structure/sign/flag/nralakk{
+	pixel_x = -32
+	},
+/obj/effect/floor_decal/spline/plain/cee/mauve{
+	dir = 4
+	},
+/turf/simulated/floor/marble/dark,
+/area/template_noop)
 "Ln" = (
 /obj/structure/lattice/catwalk/indoor/urban{
 	color = "#8a7387"
@@ -13972,7 +14894,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/airless,
-/area/space)
+/area/template_noop)
 "Lp" = (
 /obj/structure/extinguisher_cabinet/north,
 /turf/simulated/floor/carpet/rubber,
@@ -13987,7 +14909,7 @@
 	dir = 4
 	},
 /turf/simulated/open,
-/area/space)
+/area/template_noop)
 "Ls" = (
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 1
@@ -14007,7 +14929,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/full,
-/area/space)
+/area/template_noop)
 "Lu" = (
 /obj/structure/platform_deco/ledge/dark,
 /obj/structure/platform_deco/ledge/dark{
@@ -14015,14 +14937,14 @@
 	},
 /obj/structure/lattice/ceiling,
 /turf/simulated/open,
-/area/space)
+/area/template_noop)
 "Lv" = (
 /obj/structure/flora/pottedplant/bluefern{
 	pixel_x = -10;
 	pixel_y = 12
 	},
 /obj/effect/floor_decal/spline/plain/corner/mauve,
-/turf/simulated/floor/marble/dark,
+/turf/simulated/floor/marble/purple,
 /area/abandoned_skrell_ship)
 "Lw" = (
 /obj/effect/decal/curb{
@@ -14069,7 +14991,7 @@
 	dir = 4
 	},
 /obj/random/dirt_75,
-/turf/simulated/floor/shuttle/skrell/blue,
+/turf/simulated/floor/carpet/rubber,
 /area/abandoned_skrell_ship)
 "LD" = (
 /obj/structure/konyang_cliff{
@@ -14122,7 +15044,7 @@
 /area/abandoned_skrell_ship)
 "LJ" = (
 /obj/effect/floor_decal/spline/plain/mauve,
-/turf/simulated/floor/marble/dark,
+/turf/simulated/floor/marble/purple,
 /area/abandoned_skrell_ship)
 "LL" = (
 /obj/effect/floor_decal/industrial/outline_door/grey{
@@ -14149,7 +15071,7 @@
 "LP" = (
 /obj/random/dirt_75,
 /turf/simulated/floor/cave/shell/dark_blue,
-/area/space)
+/area/template_noop)
 "LQ" = (
 /obj/effect/decal/curb{
 	dir = 8
@@ -14161,15 +15083,11 @@
 /turf/simulated/floor/carpet/rubber,
 /area/abandoned_skrell_ship)
 "LR" = (
-/obj/structure/konyang_cliff{
-	icon_state = "corner_east";
-	color = "#8a7387"
-	},
 /obj/structure/platform/ledge/dark{
 	dir = 8
 	},
 /obj/structure/railing/mapped,
-/turf/unsimulated/mineral/cave/petrified_shell/dark_purple,
+/turf/simulated/open,
 /area/abandoned_skrell_ship)
 "LS" = (
 /obj/structure/konyang_cliff{
@@ -14196,7 +15114,7 @@
 	color = "#8a7387"
 	},
 /turf/simulated/floor/plating,
-/area/space)
+/area/template_noop)
 "LV" = (
 /obj/structure/bed/handrail{
 	buckle_dir = 4;
@@ -14218,7 +15136,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/full/airless,
-/area/space)
+/area/template_noop)
 "LZ" = (
 /obj/effect/decal/curb{
 	color = "#574267";
@@ -14226,6 +15144,12 @@
 	},
 /obj/effect/decal/exterior_stairs/half/dark/left,
 /turf/simulated/floor/carpet/rubber/airless,
+/area/abandoned_skrell_ship)
+"Ma" = (
+/obj/effect/decal/exterior_stairs/half/dark/center{
+	dir = 8
+	},
+/turf/simulated/floor/carpet/rubber,
 /area/abandoned_skrell_ship)
 "Mb" = (
 /obj/effect/floor_decal/industrial/outline_door/research,
@@ -14240,12 +15164,34 @@
 	},
 /turf/simulated/floor/marble,
 /area/abandoned_skrell_ship)
+"Md" = (
+/obj/structure/railing/mapped/no_density/low{
+	dir = 4
+	},
+/obj/structure/bed/handrail{
+	dir = 4;
+	pixel_x = -2
+	},
+/turf/simulated/floor/shuttle/skrell/blue,
+/area/abandoned_skrell_ship)
 "Me" = (
 /obj/structure/railing/mapped/no_density/low{
 	dir = 8
 	},
-/turf/simulated/floor/marble/dark,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/marble/purple,
 /area/abandoned_skrell_ship)
+"Mf" = (
+/obj/effect/floor_decal/spline/plain/black{
+	dir = 1
+	},
+/obj/structure/table/skrell,
+/obj/structure/arch/skrell/side{
+	dir = 8
+	},
+/turf/simulated/floor/marble/dark,
+/area/template_noop)
 "Mg" = (
 /obj/effect/decal/curb{
 	dir = 4
@@ -14309,19 +15255,21 @@
 "Mo" = (
 /obj/random/dirt_75,
 /turf/simulated/floor/cave/shell/dark_purple,
-/area/space)
+/area/template_noop)
 "Mp" = (
 /obj/effect/decal/road_marking/no_park,
 /obj/structure/largecrate,
-/turf/simulated/floor/marble/dark,
+/turf/simulated/floor/marble/gray,
 /area/abandoned_skrell_ship)
 "Mr" = (
 /obj/structure/lattice/ceiling,
 /turf/simulated/floor/cave/shell/dark_blue,
 /area/abandoned_skrell_ship)
 "Ms" = (
-/obj/effect/decal/cleanable/floor_damage/random_tiled_broken,
-/turf/simulated/floor/marble/dark,
+/obj/structure/lattice/catwalk/indoor/urban{
+	color = "#949ea3"
+	},
+/turf/simulated/floor/exoplanet/water/smooth/shell,
 /area/abandoned_skrell_ship)
 "Mt" = (
 /obj/effect/decal/curb/corner{
@@ -14333,12 +15281,18 @@
 	dir = 6
 	},
 /turf/simulated/floor/carpet/rubber/airless,
-/area/space)
+/area/template_noop)
 "Mv" = (
 /obj/effect/decal/exterior_stairs/half/center{
 	dir = 1
 	},
 /turf/simulated/floor/carpet/rubber,
+/area/abandoned_skrell_ship)
+"Mw" = (
+/obj/structure/bed/stool/chair/office/hover{
+	dir = 4
+	},
+/turf/simulated/floor/marble/purple,
 /area/abandoned_skrell_ship)
 "Mx" = (
 /obj/structure/platform_deco/ledge/dark{
@@ -14346,6 +15300,16 @@
 	},
 /turf/template_noop,
 /area/abandoned_skrell_ship)
+"My" = (
+/obj/effect/floor_decal/industrial/outline_door/research,
+/obj/effect/floor_decal/industrial/outline_segment/research{
+	dir = 10
+	},
+/obj/structure/railing/mapped/no_density/low{
+	dir = 8
+	},
+/turf/simulated/floor/marble,
+/area/template_noop)
 "Mz" = (
 /obj/effect/decal/curb{
 	color = "#574267";
@@ -14368,6 +15332,13 @@
 	dir = 1
 	},
 /turf/simulated/floor/marble,
+/area/abandoned_skrell_ship)
+"MC" = (
+/obj/machinery/computer/loreconsole/skrell/always_powered{
+	pixel_y = 22;
+	density = 0
+	},
+/turf/simulated/floor/shuttle/skrell/blue,
 /area/abandoned_skrell_ship)
 "MD" = (
 /obj/abstract/footprint_spawner_turn_helper{
@@ -14410,6 +15381,12 @@
 /obj/structure/lattice/catwalk/indoor,
 /turf/simulated/floor/airless,
 /area/abandoned_skrell_ship)
+"MK" = (
+/obj/effect/decal/exterior_stairs/half/dark/center{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/water/smooth/shell,
+/area/template_noop)
 "ML" = (
 /obj/effect/floor_decal/industrial/outline_door/research,
 /turf/simulated/floor/marble,
@@ -14420,7 +15397,7 @@
 	color = "#8a7387"
 	},
 /turf/simulated/floor/cave/shell/dark_purple,
-/area/space)
+/area/template_noop)
 "MN" = (
 /obj/structure/railing/mapped/no_density/low{
 	dir = 1
@@ -14432,7 +15409,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/airless,
-/area/space)
+/area/template_noop)
 "MP" = (
 /obj/structure/lattice/catwalk/indoor/urban{
 	color = "#8a7387"
@@ -14667,13 +15644,20 @@
 /obj/structure/platform/ledge/dark,
 /turf/simulated/open,
 /area/abandoned_skrell_ship)
+"Nu" = (
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/marble/purple,
+/area/abandoned_skrell_ship)
 "Nw" = (
 /obj/structure/konyang_cliff{
 	icon_state = "cliff-top1";
 	color = "#8a7387"
 	},
 /turf/simulated/open/airless,
-/area/space)
+/area/template_noop)
 "Nx" = (
 /obj/structure/lattice/catwalk/indoor/urban{
 	color = "#8a7387"
@@ -14685,7 +15669,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/airless,
-/area/space)
+/area/template_noop)
 "Ny" = (
 /obj/structure/table/skrell,
 /obj/structure/decor/nralakk_projector/toggled_on{
@@ -14699,7 +15683,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/cave/shell/dark_purple,
-/area/space)
+/area/template_noop)
 "NA" = (
 /obj/structure/platform/ledge/dark,
 /obj/structure/railing/mapped{
@@ -14709,7 +15693,7 @@
 /obj/machinery/light/skrell{
 	dir = 8
 	},
-/turf/simulated/floor/marble/dark,
+/turf/simulated/floor/marble/purple,
 /area/abandoned_skrell_ship)
 "NB" = (
 /obj/structure/platform/ledge/dark{
@@ -14751,7 +15735,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/cave/shell/dark_purple,
-/area/space)
+/area/template_noop)
 "NF" = (
 /obj/structure/railing/mapped/no_density/low{
 	dir = 1
@@ -14773,7 +15757,7 @@
 	},
 /obj/structure/railing/mapped/no_density/low,
 /turf/simulated/open,
-/area/space)
+/area/template_noop)
 "NH" = (
 /obj/structure/table/skrell,
 /obj/effect/map_effect/particle_emitter/bar_smoke,
@@ -14797,7 +15781,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/airless,
-/area/space)
+/area/template_noop)
 "NK" = (
 /obj/structure/lattice/catwalk/indoor/urban{
 	color = "#8a7387"
@@ -14819,7 +15803,7 @@
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/carpet/rubber/airless,
-/area/space)
+/area/template_noop)
 "NM" = (
 /obj/effect/floor_decal/industrial/warning/dust/corner,
 /obj/machinery/light/skrell{
@@ -14834,7 +15818,7 @@
 /obj/effect/floor_decal/spline/plain/mauve{
 	dir = 9
 	},
-/turf/simulated/floor/marble/dark,
+/turf/simulated/floor/marble/purple,
 /area/abandoned_skrell_ship)
 "NO" = (
 /obj/effect/floor_decal/industrial/outline_door/grey{
@@ -14856,6 +15840,13 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/shuttle/skrell,
 /area/abandoned_skrell_ship)
+"NQ" = (
+/obj/structure/bed/stool/hover{
+	dir = 1
+	},
+/obj/effect/decal/exterior_stairs/half/dark/center,
+/turf/simulated/floor/exoplanet/water/smooth/shell,
+/area/template_noop)
 "NR" = (
 /obj/structure/flora/grass/adhomai,
 /obj/structure/flora/kudzu/mycelium,
@@ -14865,7 +15856,14 @@
 "NS" = (
 /obj/structure/lattice,
 /turf/simulated/open,
-/area/space)
+/area/template_noop)
+"NT" = (
+/obj/structure/railing/mapped/no_density/low{
+	dir = 1
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/dark/full,
+/area/abandoned_skrell_ship)
 "NV" = (
 /obj/structure/platform/ledge/dark{
 	dir = 4
@@ -14879,11 +15877,21 @@
 /turf/simulated/floor/exoplanet/water/smooth/shell,
 /area/abandoned_skrell_ship)
 "NW" = (
-/obj/structure/table/skrell,
-/obj/structure/lattice/catwalk/indoor/urban{
-	color = "#8a7387"
+/obj/structure/platform/dark,
+/obj/machinery/computer/loreconsole/skrell/always_powered{
+	density = 0
 	},
-/turf/simulated/floor/exoplanet/water/smooth/shell,
+/obj/effect/floor_decal/industrial/outline_door/grey,
+/obj/effect/floor_decal/industrial/outline_door/grey{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline_door/grey{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/outline_door/grey{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/techmaint/purple,
 /area/abandoned_skrell_ship)
 "NX" = (
 /obj/effect/decal/curb{
@@ -14900,7 +15908,7 @@
 /turf/simulated/wall/shuttle/space_ship{
 	color = "#8a7387"
 	},
-/area/space)
+/area/template_noop)
 "Oa" = (
 /obj/effect/decal/curb/corner{
 	color = "#574267";
@@ -14992,6 +16000,24 @@
 /obj/structure/table/skrell,
 /turf/simulated/floor/carpet/rubber,
 /area/abandoned_skrell_ship)
+"Ol" = (
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/molten_item{
+	pixel_x = 6;
+	pixel_y = 4
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/abandoned_skrell_ship)
+"Om" = (
+/obj/structure/railing/mapped/no_density/low{
+	dir = 1
+	},
+/obj/effect/decal/cleanable/molten_item{
+	pixel_x = 7;
+	pixel_y = -10
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/abandoned_skrell_ship)
 "Op" = (
 /obj/effect/floor_decal/industrial/outline_door/research{
 	dir = 4
@@ -15008,7 +16034,7 @@
 /obj/structure/railing/mapped{
 	dir = 4
 	},
-/turf/simulated/floor/marble/dark,
+/turf/simulated/floor/marble/purple,
 /area/abandoned_skrell_ship)
 "Or" = (
 /obj/machinery/door/firedoor/noid,
@@ -15065,7 +16091,7 @@
 "Oz" = (
 /obj/structure/platform_deco/ledge/dark,
 /turf/simulated/floor/airless,
-/area/space)
+/area/template_noop)
 "OA" = (
 /obj/effect/decal/curb{
 	color = "#574267";
@@ -15077,7 +16103,7 @@
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/carpet/rubber/airless,
-/area/space)
+/area/template_noop)
 "OC" = (
 /obj/effect/decal/curb{
 	color = "#574267";
@@ -15128,7 +16154,7 @@
 "OI" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /turf/simulated/floor/tiled/dark/full,
-/area/space)
+/area/template_noop)
 "OJ" = (
 /obj/structure/lattice/catwalk/indoor/urban{
 	color = "#8a7387"
@@ -15149,14 +16175,17 @@
 /obj/effect/floor_decal/industrial/outline_segment/research{
 	dir = 4
 	},
-/turf/simulated/floor/marble/dark,
+/turf/simulated/floor/tiled/techfloor/purple,
 /area/abandoned_skrell_ship)
 "OL" = (
 /obj/structure/sign/biohazard{
 	pixel_x = 32
 	},
-/turf/simulated/floor/marble/dark,
+/turf/simulated/floor/marble/gray,
 /area/abandoned_skrell_ship)
+"OM" = (
+/turf/simulated/floor/marble,
+/area/template_noop)
 "ON" = (
 /obj/structure/table/rack/retail_shelf,
 /obj/item/reagent_containers/glass/bottle/dermaline{
@@ -15209,7 +16238,7 @@
 	color = "#8a7387"
 	},
 /turf/simulated/open/airless,
-/area/space)
+/area/template_noop)
 "OV" = (
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 1
@@ -15242,7 +16271,7 @@
 /obj/effect/floor_decal/spline/plain/mauve{
 	dir = 6
 	},
-/turf/simulated/floor/marble/dark,
+/turf/simulated/floor/marble/purple,
 /area/abandoned_skrell_ship)
 "OZ" = (
 /obj/effect/floor_decal/industrial/outline/grey,
@@ -15358,19 +16387,19 @@
 	dir = 4
 	},
 /turf/simulated/floor/carpet/rubber/airless,
-/area/space)
+/area/template_noop)
 "Pk" = (
 /obj/effect/floor_decal/spline/plain/black,
 /obj/structure/table/skrell,
 /turf/simulated/floor/shuttle/skrell,
-/area/space)
+/area/template_noop)
 "Pl" = (
 /obj/structure/table/skrell,
 /obj/structure/flora/pottedplant/fortune_flower{
 	pixel_y = 12
 	},
 /obj/effect/floor_decal/spline/plain/mauve,
-/turf/simulated/floor/marble/dark,
+/turf/simulated/floor/marble/purple,
 /area/abandoned_skrell_ship)
 "Pm" = (
 /obj/effect/floor_decal/spline/plain/black{
@@ -15379,6 +16408,13 @@
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /turf/simulated/floor/shuttle/skrell,
+/area/abandoned_skrell_ship)
+"Pn" = (
+/obj/structure/railing/mapped/no_density/low{
+	dir = 1
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/marble/purple,
 /area/abandoned_skrell_ship)
 "Po" = (
 /obj/effect/floor_decal/industrial/outline_door/grey{
@@ -15419,7 +16455,7 @@
 	dir = 4
 	},
 /obj/structure/railing/mapped/no_density/low,
-/turf/simulated/floor/marble/dark,
+/turf/simulated/floor/marble/purple,
 /area/abandoned_skrell_ship)
 "Ps" = (
 /obj/effect/decal/curb{
@@ -15449,7 +16485,7 @@
 "Pv" = (
 /obj/effect/floor_decal/spline/plain/cee/mauve,
 /obj/structure/table/skrell,
-/turf/simulated/floor/marble/dark,
+/turf/simulated/floor/marble/purple,
 /area/abandoned_skrell_ship)
 "Pw" = (
 /obj/structure/platform_deco/ledge/dark{
@@ -15462,13 +16498,17 @@
 /area/abandoned_skrell_ship)
 "Px" = (
 /obj/structure/table/skrell,
-/obj/structure/lattice/catwalk/indoor/urban{
-	color = "#8a7387"
-	},
 /obj/machinery/recharger{
 	pixel_y = 2
 	},
-/turf/simulated/floor/exoplanet/water/smooth/shell,
+/turf/simulated/floor/carpet/rubber,
+/area/abandoned_skrell_ship)
+"Py" = (
+/obj/structure/railing/mapped/no_density/low{
+	dir = 8
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/marble/purple,
 /area/abandoned_skrell_ship)
 "Pz" = (
 /obj/structure/arch/skrell/side,
@@ -15491,14 +16531,14 @@
 	dir = 1
 	},
 /turf/simulated/floor/cave/shell/dark_blue,
-/area/space)
+/area/template_noop)
 "PE" = (
 /turf/simulated/floor/reinforced{
 	blocks_air = 1;
 	density = 1;
 	name = "thruster mount"
 	},
-/area/space)
+/area/template_noop)
 "PF" = (
 /obj/structure/konyang_cliff{
 	icon_state = "innercorner6";
@@ -15612,7 +16652,15 @@
 	},
 /obj/machinery/door/airlock/multi_tile/glass/tirakqi,
 /turf/simulated/floor/carpet/rubber,
-/area/space)
+/area/template_noop)
+"PQ" = (
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/molten_item{
+	pixel_x = 10;
+	pixel_y = -12
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/abandoned_skrell_ship)
 "PR" = (
 /obj/structure/lattice/catwalk/indoor,
 /obj/machinery/floodlight/randomcharge,
@@ -15676,7 +16724,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/carpet/rubber/airless,
-/area/space)
+/area/template_noop)
 "PY" = (
 /obj/structure/table/skrell,
 /obj/effect/floor_decal/industrial/outline_door/grey,
@@ -15700,7 +16748,7 @@
 /obj/random/dirt_75,
 /obj/structure/flora/grass/adhomai,
 /obj/structure/flora/kudzu/mycelium,
-/turf/simulated/floor/marble/dark,
+/turf/simulated/floor/marble/gray,
 /area/abandoned_skrell_ship)
 "Qd" = (
 /turf/simulated/floor/marble,
@@ -15711,6 +16759,12 @@
 	},
 /obj/structure/arch/skrell/side,
 /turf/simulated/open/airless,
+/area/abandoned_skrell_ship)
+"Qf" = (
+/obj/effect/floor_decal/spline/plain/cee/black{
+	dir = 4
+	},
+/turf/simulated/floor/shuttle/skrell/blue,
 /area/abandoned_skrell_ship)
 "Qg" = (
 /obj/structure/bed/stool/chair/office/hover{
@@ -15762,7 +16816,7 @@
 /obj/structure/sign/flag/nralakk{
 	pixel_y = 32
 	},
-/turf/simulated/floor/shuttle/skrell/blue,
+/turf/simulated/floor/shuttle/skrell,
 /area/abandoned_skrell_ship)
 "Qo" = (
 /obj/structure/table/skrell,
@@ -15775,7 +16829,7 @@
 /obj/machinery/light/skrell{
 	dir = 8
 	},
-/turf/simulated/floor/marble/dark,
+/turf/simulated/floor/marble/purple,
 /area/abandoned_skrell_ship)
 "Qp" = (
 /obj/effect/floor_decal/crystal/random,
@@ -15803,7 +16857,7 @@
 	dir = 4
 	},
 /obj/random/dirt_75,
-/turf/simulated/floor/marble/dark,
+/turf/simulated/floor/marble/gray,
 /area/abandoned_skrell_ship)
 "Qs" = (
 /obj/effect/decal/curb/corner{
@@ -15825,17 +16879,17 @@
 	color = "#8a7387"
 	},
 /turf/simulated/open/airless,
-/area/space)
+/area/template_noop)
 "Qu" = (
 /obj/effect/decal/cleanable/floor_damage/rust,
-/turf/simulated/floor/marble/dark,
+/turf/simulated/floor/marble/gray,
 /area/abandoned_skrell_ship)
 "Qv" = (
 /obj/structure/platform/ledge/dark{
 	dir = 4
 	},
 /turf/template_noop,
-/area/space)
+/area/template_noop)
 "Qw" = (
 /obj/effect/floor_decal/industrial/outline_door/grey{
 	dir = 8
@@ -15885,6 +16939,11 @@
 	},
 /turf/simulated/floor/exoplanet/crystal,
 /area/abandoned_skrell_ship)
+"QC" = (
+/obj/structure/table/skrell,
+/obj/effect/floor_decal/spline/plain/mauve,
+/turf/simulated/floor/marble/dark,
+/area/template_noop)
 "QD" = (
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 4
@@ -15932,7 +16991,7 @@
 	dir = 8
 	},
 /turf/template_noop,
-/area/space)
+/area/template_noop)
 "QK" = (
 /obj/effect/decal/curb/corner{
 	dir = 8
@@ -16057,7 +17116,7 @@
 /area/abandoned_skrell_ship)
 "QX" = (
 /obj/structure/flora/kudzu/mycelium,
-/turf/simulated/floor/marble/dark,
+/turf/simulated/floor/marble/purple,
 /area/abandoned_skrell_ship)
 "QY" = (
 /obj/effect/decal/curb{
@@ -16133,7 +17192,7 @@
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/airless,
-/area/space)
+/area/template_noop)
 "Rk" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
@@ -16143,7 +17202,7 @@
 	density = 1;
 	name = "thruster mount"
 	},
-/area/space)
+/area/template_noop)
 "Rl" = (
 /obj/structure/plasticflaps/airtight,
 /obj/effect/decal/curb{
@@ -16168,6 +17227,28 @@
 	dir = 1
 	},
 /turf/simulated/floor/cave/shell/dark_blue,
+/area/abandoned_skrell_ship)
+"Rn" = (
+/obj/structure/flora/pottedplant/unusual{
+	pixel_x = -7
+	},
+/turf/simulated/floor/marble,
+/area/template_noop)
+"Ro" = (
+/obj/structure/platform/ledge/dark{
+	dir = 1
+	},
+/obj/structure/platform/ledge/dark{
+	dir = 4
+	},
+/obj/structure/platform_deco/ledge/dark{
+	dir = 10
+	},
+/obj/structure/flora/assunzione/grass/sparse{
+	pixel_x = 7;
+	pixel_y = 7
+	},
+/turf/simulated/floor/exoplanet/water/smooth/shell,
 /area/abandoned_skrell_ship)
 "Rp" = (
 /obj/effect/floor_decal/industrial/outline/grey,
@@ -16228,7 +17309,7 @@
 	pixel_y = 32;
 	pixel_x = 6
 	},
-/turf/simulated/floor/marble/dark,
+/turf/simulated/floor/tiled/techfloor/purple,
 /area/abandoned_skrell_ship)
 "Rw" = (
 /obj/effect/map_effect/window_spawner/full/borosilicate/reinforced,
@@ -16258,7 +17339,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/airless,
-/area/space)
+/area/template_noop)
 "RC" = (
 /obj/effect/floor_decal/spline/plain/black,
 /obj/effect/floor_decal/spline/plain/corner/black{
@@ -16268,12 +17349,18 @@
 /obj/structure/largecrate,
 /turf/simulated/floor/shuttle/skrell,
 /area/abandoned_skrell_ship)
+"RD" = (
+/obj/structure/railing/mapped/no_density/low{
+	dir = 8
+	},
+/turf/simulated/floor/marble,
+/area/abandoned_skrell_ship)
 "RE" = (
 /obj/effect/floor_decal/spline/plain/mauve{
 	dir = 5
 	},
 /obj/structure/table/skrell,
-/turf/simulated/floor/marble/dark,
+/turf/simulated/floor/carpet/rubber,
 /area/abandoned_skrell_ship)
 "RF" = (
 /obj/structure/lattice/catwalk/indoor/urban{
@@ -16281,7 +17368,7 @@
 	},
 /obj/structure/lattice/ceiling,
 /turf/simulated/floor/airless,
-/area/space)
+/area/template_noop)
 "RG" = (
 /obj/item/stack/rods{
 	pixel_x = 6;
@@ -16351,13 +17438,13 @@
 /obj/structure/sign/flag/assunzione{
 	pixel_x = -32
 	},
-/turf/simulated/floor/marble/dark,
+/turf/simulated/floor/marble/gray,
 /area/abandoned_skrell_ship)
 "RP" = (
 /obj/structure/arch/skrell/side{
 	dir = 8
 	},
-/turf/simulated/floor/marble/dark,
+/turf/simulated/floor/marble/purple,
 /area/abandoned_skrell_ship)
 "RR" = (
 /obj/structure/lattice/catwalk/indoor/urban{
@@ -16367,13 +17454,13 @@
 	dir = 8
 	},
 /turf/simulated/floor/airless,
-/area/space)
+/area/template_noop)
 "RT" = (
 /obj/effect/floor_decal/spline/plain/corner/black{
 	dir = 8
 	},
 /turf/simulated/floor/shuttle/skrell,
-/area/space)
+/area/template_noop)
 "RU" = (
 /obj/structure/platform/ledge/dark{
 	dir = 8
@@ -16437,7 +17524,7 @@
 	color = "#574267"
 	},
 /turf/simulated/floor/carpet/rubber/airless,
-/area/space)
+/area/template_noop)
 "Sg" = (
 /obj/structure/platform/ledge/dark,
 /obj/item/flora/pottedplant_small/mysterious{
@@ -16507,6 +17594,22 @@
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/abandoned_skrell_ship)
+"Sq" = (
+/obj/machinery/light/skrell{
+	dir = 8
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/template_noop)
+"Sr" = (
+/obj/structure/platform/ledge/dark{
+	dir = 4
+	},
+/obj/structure/flora/assunzione/grass/sparse{
+	pixel_x = 9;
+	pixel_y = 12
+	},
+/turf/simulated/floor/exoplanet/water/smooth/shell,
+/area/abandoned_skrell_ship)
 "Ss" = (
 /obj/item/stack/flag/red/planted{
 	pixel_x = -11;
@@ -16560,6 +17663,15 @@
 /obj/structure/railing/mapped/no_density/low,
 /turf/simulated/floor/shuttle/skrell/blue,
 /area/abandoned_skrell_ship)
+"SC" = (
+/obj/effect/floor_decal/industrial/outline_door/research{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline_segment/research{
+	dir = 6
+	},
+/turf/simulated/floor/marble,
+/area/template_noop)
 "SD" = (
 /obj/structure/plasticflaps/airtight,
 /obj/effect/decal/curb{
@@ -16610,7 +17722,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/airless,
-/area/space)
+/area/template_noop)
 "SI" = (
 /obj/structure/lattice/catwalk/indoor,
 /turf/simulated/floor/exoplanet/water/smooth/shell,
@@ -16644,7 +17756,7 @@
 /obj/abstract/footprint_spawner/oil,
 /obj/random/dirt_75,
 /turf/simulated/floor/carpet/rubber/airless,
-/area/space)
+/area/template_noop)
 "SN" = (
 /obj/structure/platform/ledge/dark{
 	dir = 4
@@ -16674,7 +17786,8 @@
 /obj/structure/railing/mapped{
 	dir = 1
 	},
-/turf/simulated/floor/marble/dark,
+/obj/random/dirt_75,
+/turf/simulated/floor/marble/purple,
 /area/abandoned_skrell_ship)
 "SR" = (
 /obj/structure/platform_deco/ledge/dark,
@@ -16742,11 +17855,21 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/carpet/rubber,
 /area/abandoned_skrell_ship)
+"SY" = (
+/obj/structure/flora/pottedplant/bluefern{
+	pixel_x = 8
+	},
+/obj/effect/floor_decal/spline/plain/corner/mauve{
+	dir = 4
+	},
+/turf/simulated/floor/marble/dark,
+/area/template_noop)
 "SZ" = (
 /obj/structure/closet/crate/hydroponics,
 /obj/random/dirt_75,
 /obj/random/hydroponics,
-/turf/simulated/floor/shuttle/skrell/blue,
+/obj/effect/floor_decal/industrial/outline/grey,
+/turf/simulated/floor/carpet/rubber,
 /area/abandoned_skrell_ship)
 "Ta" = (
 /obj/structure/konyang_cliff{
@@ -16754,23 +17877,26 @@
 	color = "#8a7387"
 	},
 /turf/simulated/floor/exoplanet/water/smooth/shell,
-/area/space)
+/area/template_noop)
 "Tc" = (
-/obj/structure/konyang_cliff{
-	icon_state = "corner_east";
-	color = "#8a7387"
+/obj/effect/floor_decal/spline/plain/black{
+	dir = 10
 	},
-/obj/structure/railing/mapped{
-	dir = 4
+/obj/effect/floor_decal/spline/plain/corner/black{
+	dir = 1
 	},
-/turf/unsimulated/mineral/cave/petrified_shell/dark_purple,
+/obj/structure/railing/mapped/no_density/low{
+	dir = 8
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/shuttle/skrell,
 /area/abandoned_skrell_ship)
 "Td" = (
-/obj/structure/lattice/catwalk/indoor/urban{
-	color = "#8a7387"
-	},
 /obj/structure/bed/stool/chair/office/hover{
 	dir = 1
+	},
+/obj/structure/lattice/catwalk/indoor/urban{
+	color = "#949ea3"
 	},
 /turf/simulated/floor/exoplanet/water/smooth/shell,
 /area/abandoned_skrell_ship)
@@ -16808,6 +17934,22 @@
 /obj/effect/decal/exterior_stairs/half/dark/center,
 /turf/simulated/floor/carpet/rubber,
 /area/abandoned_skrell_ship)
+"Tj" = (
+/obj/structure/platform/ledge/dark{
+	dir = 1
+	},
+/obj/structure/platform/ledge/dark{
+	dir = 4
+	},
+/obj/structure/platform_deco/ledge/dark{
+	dir = 10
+	},
+/obj/structure/flora/assunzione/grass/sparse{
+	pixel_x = 14;
+	pixel_y = 8
+	},
+/turf/simulated/floor/exoplanet/water/smooth/shell,
+/area/abandoned_skrell_ship)
 "Tk" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/structure/railing/mapped/no_density/low{
@@ -16821,7 +17963,7 @@
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /turf/simulated/floor/cave/shell/dark_purple,
-/area/space)
+/area/template_noop)
 "Tn" = (
 /obj/effect/decal/curb{
 	dir = 8
@@ -16837,7 +17979,7 @@
 /obj/effect/floor_decal/spline/plain/cee/mauve{
 	dir = 1
 	},
-/turf/simulated/floor/marble/dark,
+/turf/simulated/floor/marble/purple,
 /area/abandoned_skrell_ship)
 "Tp" = (
 /obj/structure/lattice/catwalk/indoor,
@@ -16846,7 +17988,7 @@
 	},
 /obj/structure/lattice/ceiling,
 /turf/simulated/open,
-/area/space)
+/area/template_noop)
 "Tq" = (
 /obj/structure/bed/stool/hover,
 /obj/machinery/light/skrell{
@@ -16870,7 +18012,7 @@
 	},
 /obj/structure/table/skrell,
 /obj/random/dirt_75,
-/turf/simulated/floor/shuttle/skrell/blue,
+/turf/simulated/floor/carpet/rubber,
 /area/abandoned_skrell_ship)
 "Tu" = (
 /obj/structure/lattice/catwalk/indoor/urban{
@@ -16881,7 +18023,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/airless,
-/area/space)
+/area/template_noop)
 "Tv" = (
 /obj/effect/decal/curb{
 	color = "#574267";
@@ -16930,7 +18072,17 @@
 	dir = 1
 	},
 /turf/simulated/floor/airless,
-/area/space)
+/area/template_noop)
+"Tz" = (
+/obj/machinery/door/firedoor/multi_tile{
+	req_one_access = null;
+	dir = 1
+	},
+/obj/machinery/door/airlock/multi_tile/glass/tirakqi{
+	dir = 1
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/template_noop)
 "TB" = (
 /obj/effect/floor_decal/spline/plain/black,
 /obj/machinery/light/skrell,
@@ -16942,7 +18094,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/cave/shell/dark_purple,
-/area/space)
+/area/template_noop)
 "TD" = (
 /obj/structure/lattice/catwalk/indoor/urban{
 	color = "#8a7387"
@@ -16953,6 +18105,17 @@
 /obj/structure/table/rack,
 /obj/item/wrench,
 /turf/simulated/floor/airless,
+/area/abandoned_skrell_ship)
+"TE" = (
+/obj/structure/platform_deco/ledge/dark{
+	dir = 8
+	},
+/obj/effect/decal/cleanable/molten_item{
+	pixel_x = -2;
+	pixel_y = -14
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/marble/purple,
 /area/abandoned_skrell_ship)
 "TG" = (
 /obj/effect/floor_decal/industrial/outline_door/grey,
@@ -16965,7 +18128,7 @@
 /obj/effect/floor_decal/fungus/random,
 /obj/effect/decal/cleanable/floor_damage/rust,
 /obj/structure/flora/grass/adhomai,
-/turf/simulated/floor/marble/dark,
+/turf/simulated/floor/marble/gray,
 /area/abandoned_skrell_ship)
 "TJ" = (
 /obj/structure/railing/mapped/no_density/low{
@@ -17044,7 +18207,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/airless,
-/area/space)
+/area/template_noop)
 "TS" = (
 /obj/effect/floor_decal/industrial/outline_door/grey{
 	dir = 4
@@ -17079,7 +18242,7 @@
 /obj/effect/decal/cleanable/floor_damage/rust,
 /obj/structure/flora/grass/adhomai,
 /obj/structure/flora/kudzu/mycelium,
-/turf/simulated/floor/marble/dark,
+/turf/simulated/floor/marble/gray,
 /area/abandoned_skrell_ship)
 "TW" = (
 /obj/effect/floor_decal/spline/plain/black{
@@ -17093,7 +18256,7 @@
 	dir = 8
 	},
 /turf/simulated/open,
-/area/space)
+/area/template_noop)
 "TY" = (
 /obj/effect/decal/curb/corner{
 	dir = 4
@@ -17132,7 +18295,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/shuttle/skrell,
-/area/space)
+/area/template_noop)
 "Uf" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/machinery/atmospherics/portables_connector/aux{
@@ -17173,21 +18336,25 @@
 /obj/structure/platform/ledge/dark{
 	dir = 8
 	},
-/turf/simulated/floor/marble/dark,
+/turf/simulated/floor/marble/purple,
+/area/abandoned_skrell_ship)
+"Um" = (
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/techmaint/purple,
 /area/abandoned_skrell_ship)
 "Up" = (
 /obj/structure/platform_deco/ledge/dark{
 	dir = 1
 	},
 /turf/template_noop,
-/area/space)
+/area/template_noop)
 "Uq" = (
 /obj/structure/lattice/catwalk/indoor/urban{
 	color = "#8a7387"
 	},
 /obj/structure/lattice/ceiling,
 /turf/simulated/open,
-/area/space)
+/area/template_noop)
 "Ur" = (
 /obj/structure/platform/ledge/dark,
 /obj/structure/platform/ledge/dark{
@@ -17197,6 +18364,7 @@
 	dir = 5
 	},
 /obj/structure/flora/pottedplant/mysterious,
+/obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/water/smooth/shell,
 /area/abandoned_skrell_ship)
 "Us" = (
@@ -17208,7 +18376,7 @@
 	},
 /obj/structure/railing/mapped/no_density/low,
 /turf/simulated/open,
-/area/space)
+/area/template_noop)
 "Ut" = (
 /obj/effect/decal/cleanable/cobweb,
 /obj/random/dirt_75,
@@ -17225,13 +18393,22 @@
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/structure/table/rack/folding_table,
 /turf/simulated/floor/airless,
-/area/space)
+/area/template_noop)
 "Uv" = (
 /obj/structure/platform_deco/ledge/dark{
 	dir = 4
 	},
 /turf/simulated/floor/cave/shell/dark_purple,
 /area/abandoned_skrell_ship)
+"Uw" = (
+/obj/machinery/light/skrell{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline_door/research{
+	dir = 8
+	},
+/turf/simulated/floor/marble,
+/area/template_noop)
 "Ux" = (
 /obj/structure/lattice/catwalk/indoor/urban{
 	color = "#8a7387"
@@ -17249,7 +18426,13 @@
 	color = "#4e4378"
 	},
 /turf/simulated/floor/tiled/dark/full/airless,
-/area/space)
+/area/template_noop)
+"Uz" = (
+/obj/structure/platform/ledge/dark{
+	dir = 4
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/abandoned_skrell_ship)
 "UA" = (
 /obj/effect/decal/curb{
 	color = "#574267";
@@ -17270,7 +18453,7 @@
 	dir = 1
 	},
 /obj/structure/table/skrell,
-/turf/simulated/floor/marble/dark,
+/turf/simulated/floor/marble/purple,
 /area/abandoned_skrell_ship)
 "UC" = (
 /obj/structure/platform/ledge/dark{
@@ -17321,7 +18504,7 @@
 /obj/effect/floor_decal/spline/plain/corner/mauve{
 	dir = 1
 	},
-/turf/simulated/floor/marble/dark,
+/turf/simulated/floor/marble/purple,
 /area/abandoned_skrell_ship)
 "UJ" = (
 /obj/structure/konyang_cliff{
@@ -17341,7 +18524,7 @@
 	dir = 10
 	},
 /turf/template_noop,
-/area/space)
+/area/template_noop)
 "UL" = (
 /obj/effect/decal/cleanable/floor_damage/random_broken,
 /turf/simulated/floor/carpet/rubber,
@@ -17354,6 +18537,10 @@
 	dir = 1
 	},
 /turf/simulated/floor/shuttle/skrell,
+/area/abandoned_skrell_ship)
+"UN" = (
+/obj/machinery/light/skrell,
+/turf/simulated/floor/marble/purple,
 /area/abandoned_skrell_ship)
 "UO" = (
 /obj/effect/decal/curb/corner{
@@ -17375,7 +18562,7 @@
 /area/abandoned_skrell_ship)
 "UQ" = (
 /turf/space,
-/area/space)
+/area/template_noop)
 "UR" = (
 /obj/effect/decal/curb/corner,
 /obj/effect/decal/curb/corner{
@@ -17437,15 +18624,27 @@
 /obj/structure/railing/mapped{
 	dir = 8
 	},
-/turf/simulated/floor/marble/dark,
+/turf/simulated/floor/marble/purple,
+/area/abandoned_skrell_ship)
+"UY" = (
+/obj/structure/bed/handrail{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/techfloor/purple,
 /area/abandoned_skrell_ship)
 "UZ" = (
 /obj/structure/table/skrell,
 /obj/structure/railing/mapped/no_density/low{
 	dir = 4
 	},
-/turf/simulated/floor/marble/dark,
+/turf/simulated/floor/marble/purple,
 /area/abandoned_skrell_ship)
+"Va" = (
+/obj/effect/floor_decal/industrial/outline_door/research{
+	dir = 8
+	},
+/turf/simulated/floor/marble,
+/area/template_noop)
 "Vb" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/structure/crate_shelf,
@@ -17471,7 +18670,7 @@
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/carpet/rubber/airless,
-/area/space)
+/area/template_noop)
 "Ve" = (
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 6
@@ -17653,7 +18852,7 @@
 "Vy" = (
 /obj/structure/platform_deco/ledge/dark,
 /turf/template_noop,
-/area/space)
+/area/template_noop)
 "Vz" = (
 /obj/structure/lattice/catwalk/indoor/urban{
 	color = "#8a7387"
@@ -17707,7 +18906,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/airless,
-/area/space)
+/area/template_noop)
 "VF" = (
 /obj/effect/decal/curb{
 	color = "#574267"
@@ -17791,7 +18990,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/airless,
-/area/space)
+/area/template_noop)
 "VM" = (
 /obj/structure/railing/mapped{
 	dir = 4
@@ -17823,6 +19022,17 @@
 	pixel_y = 6
 	},
 /turf/simulated/floor/shuttle/skrell,
+/area/abandoned_skrell_ship)
+"VR" = (
+/obj/effect/decal/cleanable/molten_item{
+	pixel_x = 7;
+	pixel_y = -3
+	},
+/obj/effect/decal/cleanable/molten_item{
+	pixel_x = -6;
+	pixel_y = -11
+	},
+/turf/simulated/floor/tiled/dark/full,
 /area/abandoned_skrell_ship)
 "VS" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -17861,7 +19071,7 @@
 "VW" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /turf/simulated/floor/airless,
-/area/space)
+/area/template_noop)
 "VY" = (
 /obj/machinery/power/terminal{
 	dir = 4
@@ -17886,7 +19096,7 @@
 	dir = 1
 	},
 /turf/template_noop,
-/area/space)
+/area/template_noop)
 "Wd" = (
 /obj/effect/floor_decal/spline/plain/cee/black{
 	dir = 4
@@ -17905,13 +19115,20 @@
 /obj/structure/flora/kudzu/mycelium,
 /turf/simulated/floor/grass/recolorable/mycelium,
 /area/abandoned_skrell_ship)
+"Wg" = (
+/obj/machinery/door/firedoor/multi_tile{
+	req_one_access = null;
+	dir = 1
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/abandoned_skrell_ship)
 "Wh" = (
 /obj/effect/decal/curb{
 	color = "#574267";
 	dir = 10
 	},
 /turf/template_noop,
-/area/space)
+/area/template_noop)
 "Wi" = (
 /obj/structure/table/skrell,
 /obj/item/clipboard{
@@ -17930,14 +19147,14 @@
 	color = "#8a7387"
 	},
 /turf/simulated/floor/exoplanet/water/smooth/shell,
-/area/space)
+/area/template_noop)
 "Wl" = (
 /obj/structure/platform/ledge/dark{
 	dir = 4
 	},
 /obj/structure/lattice/ceiling,
 /turf/simulated/open,
-/area/space)
+/area/template_noop)
 "Wm" = (
 /obj/structure/lattice/catwalk/indoor/urban{
 	color = "#8a7387"
@@ -17987,19 +19204,19 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark/full/airless,
-/area/space)
+/area/template_noop)
 "Ws" = (
 /obj/structure/bed/stool/hover{
 	dir = 4
 	},
 /turf/simulated/floor/carpet/rubber,
-/area/space)
+/area/template_noop)
 "Wt" = (
 /obj/machinery/atmospherics/unary/engine{
 	thrust_limit = 0.25
 	},
 /turf/simulated/floor/reinforced/airless,
-/area/space)
+/area/template_noop)
 "Wu" = (
 /obj/effect/decal/exterior_stairs/half/dark/right{
 	dir = 8
@@ -18034,7 +19251,7 @@
 	},
 /obj/structure/lattice,
 /turf/simulated/open/airless,
-/area/space)
+/area/template_noop)
 "Wz" = (
 /obj/effect/decal/curb{
 	color = "#574267";
@@ -18067,7 +19284,7 @@
 /obj/effect/floor_decal/spline/plain/mauve{
 	dir = 6
 	},
-/turf/simulated/floor/marble/dark,
+/turf/simulated/floor/marble/purple,
 /area/abandoned_skrell_ship)
 "WC" = (
 /obj/structure/table/skrell,
@@ -18084,7 +19301,7 @@
 /obj/structure/platform/dark{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/ramp/bottom,
+/turf/simulated/floor/tiled/ramp/dark,
 /area/abandoned_skrell_ship)
 "WE" = (
 /obj/structure/sign/flag/nralakk{
@@ -18122,7 +19339,7 @@
 /obj/effect/floor_decal/spline/plain/mauve{
 	dir = 1
 	},
-/turf/simulated/floor/marble/dark,
+/turf/simulated/floor/marble/purple,
 /area/abandoned_skrell_ship)
 "WJ" = (
 /obj/effect/decal/curb/corner{
@@ -18138,7 +19355,7 @@
 	},
 /obj/abstract/footprint_spawner_turn_helper,
 /turf/simulated/floor/carpet/rubber/airless,
-/area/space)
+/area/template_noop)
 "WK" = (
 /obj/structure/cable/yellow{
 	icon_state = "1-2"
@@ -18225,18 +19442,18 @@
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/carpet/rubber/airless,
-/area/space)
+/area/template_noop)
 "WU" = (
 /obj/random/dirt_75,
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark/full,
-/area/space)
+/area/template_noop)
 "WV" = (
 /obj/structure/lattice,
 /turf/simulated/floor/cave/shell/dark_blue,
-/area/space)
+/area/template_noop)
 "WW" = (
 /obj/structure/flora/rock/stalagmite/purple,
 /obj/structure/platform/ledge/dark{
@@ -18260,6 +19477,9 @@
 "Xa" = (
 /obj/structure/flora/assunzione/grass,
 /obj/structure/flora/assunzione/bush/lucevine,
+/obj/machinery/light/skrell{
+	dir = 4
+	},
 /turf/simulated/floor/grass1/no_edge,
 /area/abandoned_skrell_ship)
 "Xb" = (
@@ -18283,7 +19503,7 @@
 	},
 /obj/machinery/door/airlock/hatch,
 /turf/simulated/floor/tiled/dark/full/airless,
-/area/space)
+/area/template_noop)
 "Xd" = (
 /obj/structure/railing/mapped{
 	dir = 4
@@ -18291,6 +19511,15 @@
 /obj/structure/railing/mapped,
 /turf/simulated/floor/tiled/dark/full/airless,
 /area/abandoned_skrell_ship)
+"Xe" = (
+/obj/structure/flora/pottedplant/fortune_flower{
+	pixel_x = -8
+	},
+/obj/effect/floor_decal/spline/plain/corner/mauve{
+	dir = 1
+	},
+/turf/simulated/floor/marble/dark,
+/area/template_noop)
 "Xf" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/aux{
@@ -18381,7 +19610,7 @@
 /obj/structure/bed/stool/hover{
 	dir = 8
 	},
-/turf/simulated/floor/marble/dark,
+/turf/simulated/floor/marble/purple,
 /area/abandoned_skrell_ship)
 "Xo" = (
 /obj/structure/konyang_cliff{
@@ -18404,7 +19633,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/carpet/rubber/airless,
-/area/space)
+/area/template_noop)
 "Xq" = (
 /obj/effect/floor_decal/spline/plain/corner/black,
 /obj/effect/decal/cleanable/molten_item{
@@ -18431,7 +19660,7 @@
 	},
 /obj/structure/railing/mapped,
 /turf/simulated/floor/airless,
-/area/space)
+/area/template_noop)
 "Xu" = (
 /obj/structure/crate_shelf,
 /obj/structure/closet/crate,
@@ -18460,13 +19689,18 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark/full/airless,
-/area/space)
+/area/template_noop)
 "Xx" = (
 /obj/structure/arch/skrell/center{
 	dir = 4
 	},
 /obj/structure/table/skrell,
 /turf/simulated/floor/carpet/rubber,
+/area/abandoned_skrell_ship)
+"Xz" = (
+/obj/machinery/light/skrell,
+/obj/random/dirt_75,
+/turf/simulated/floor/marble/purple,
 /area/abandoned_skrell_ship)
 "XA" = (
 /obj/effect/floor_decal/industrial/outline_door/grey{
@@ -18497,7 +19731,7 @@
 /area/abandoned_skrell_ship)
 "XC" = (
 /obj/structure/flora/grass/adhomai,
-/turf/simulated/floor/marble/dark,
+/turf/simulated/floor/marble/gray,
 /area/abandoned_skrell_ship)
 "XD" = (
 /obj/structure/railing/mapped{
@@ -18522,7 +19756,7 @@
 /turf/simulated/wall/shuttle/space_ship{
 	color = "#6e2c6e"
 	},
-/area/space)
+/area/template_noop)
 "XG" = (
 /obj/effect/decal/curb/corner{
 	dir = 8
@@ -18542,11 +19776,11 @@
 "XI" = (
 /obj/effect/floor_decal/industrial/outline_door/grey,
 /turf/simulated/floor/reinforced/airless,
-/area/space)
+/area/template_noop)
 "XJ" = (
 /obj/structure/table/skrell,
 /obj/effect/floor_decal/spline/plain/mauve,
-/turf/simulated/floor/marble/dark,
+/turf/simulated/floor/marble/purple,
 /area/abandoned_skrell_ship)
 "XK" = (
 /obj/machinery/door/airlock/glass/tirakqi,
@@ -18559,6 +19793,19 @@
 	name = "Freezer Room Blast Door"
 	},
 /turf/simulated/floor/carpet/rubber,
+/area/abandoned_skrell_ship)
+"XL" = (
+/obj/effect/decal/curb{
+	color = "#574267";
+	dir = 10
+	},
+/obj/effect/decal/curb{
+	color = "#574267";
+	dir = 5
+	},
+/obj/structure/flora/assunzione/grass/full,
+/obj/structure/flora/assunzione/flowers/ywflowers,
+/turf/simulated/floor/grass1/no_edge,
 /area/abandoned_skrell_ship)
 "XM" = (
 /obj/structure/platform_deco/ledge/dark{
@@ -18575,7 +19822,8 @@
 /area/abandoned_skrell_ship)
 "XO" = (
 /obj/structure/bed/handrail{
-	dir = 8
+	dir = 8;
+	pixel_x = 2
 	},
 /obj/effect/floor_decal/spline/plain/corner/black{
 	dir = 4
@@ -18596,7 +19844,7 @@
 /obj/structure/table/steel,
 /obj/random/tech_supply,
 /turf/simulated/floor/tiled/dark/full,
-/area/space)
+/area/template_noop)
 "XR" = (
 /obj/structure/stairs_lower/stairs_upper{
 	dir = 4
@@ -18707,7 +19955,7 @@
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/structure/closet/crate,
 /turf/simulated/floor/tiled/dark/full,
-/area/space)
+/area/template_noop)
 "Yd" = (
 /obj/effect/decal/cleanable/floor_damage/rust,
 /obj/structure/flora/grass/adhomai,
@@ -18715,7 +19963,7 @@
 	pixel_x = -8;
 	pixel_y = -5
 	},
-/turf/simulated/floor/marble/dark,
+/turf/simulated/floor/marble/purple,
 /area/abandoned_skrell_ship)
 "Ye" = (
 /obj/effect/floor_decal/industrial/outline/grey,
@@ -18723,7 +19971,7 @@
 /obj/random/dirt_75,
 /obj/random/tech_supply,
 /turf/simulated/floor/tiled/dark/full,
-/area/space)
+/area/template_noop)
 "Yf" = (
 /obj/structure/flora/pottedplant/bluefern{
 	pixel_x = -10;
@@ -18832,7 +20080,7 @@
 	color = "#4e4378"
 	},
 /turf/simulated/floor/tiled/dark/full/airless,
-/area/space)
+/area/template_noop)
 "Yp" = (
 /obj/structure/platform/ledge/dark,
 /obj/structure/railing/mapped{
@@ -18853,7 +20101,7 @@
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /turf/simulated/floor/carpet/rubber/airless,
-/area/space)
+/area/template_noop)
 "Yr" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/structure/lattice/ceiling,
@@ -18861,7 +20109,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/airless,
-/area/space)
+/area/template_noop)
 "Ys" = (
 /obj/effect/decal/curb/corner{
 	dir = 1
@@ -18911,7 +20159,7 @@
 	},
 /obj/structure/railing/mapped/no_density/low,
 /turf/template_noop,
-/area/space)
+/area/template_noop)
 "Yw" = (
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 8
@@ -18924,7 +20172,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/airless,
-/area/space)
+/area/template_noop)
 "Yy" = (
 /obj/structure/railing/mapped,
 /obj/structure/table/rack,
@@ -18938,19 +20186,22 @@
 "YA" = (
 /obj/effect/decal/cleanable/floor_damage/random_tiled_broken,
 /obj/machinery/light/skrell,
-/turf/simulated/floor/marble/dark,
+/turf/simulated/floor/marble/gray,
 /area/abandoned_skrell_ship)
 "YB" = (
 /obj/structure/platform/ledge/dark{
 	dir = 8
 	},
 /turf/simulated/open,
-/area/space)
+/area/template_noop)
 "YC" = (
-/obj/structure/bed/stool/hover{
+/obj/effect/floor_decal/spline/plain/black{
+	dir = 5
+	},
+/obj/structure/bed/stool/chair/office/hover/command{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/dark/full,
+/turf/simulated/floor/shuttle/skrell/blue,
 /area/abandoned_skrell_ship)
 "YD" = (
 /obj/structure/lattice,
@@ -18960,7 +20211,7 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/door/airlock/external,
 /turf/simulated/floor/tiled/dark/full,
-/area/space)
+/area/template_noop)
 "YF" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/structure/table/steel,
@@ -18994,7 +20245,7 @@
 	dir = 6
 	},
 /turf/simulated/open,
-/area/space)
+/area/template_noop)
 "YL" = (
 /obj/machinery/computer/loreconsole/skrell/always_powered{
 	dir = 1;
@@ -19026,7 +20277,8 @@
 /obj/structure/platform_deco/ledge/dark{
 	dir = 8
 	},
-/turf/simulated/floor/marble/dark,
+/obj/random/dirt_75,
+/turf/simulated/floor/marble/purple,
 /area/abandoned_skrell_ship)
 "YT" = (
 /obj/effect/decal/curb{
@@ -19066,7 +20318,7 @@
 /obj/structure/platform/dark{
 	dir = 8
 	},
-/turf/simulated/floor/tiled/ramp/bottom,
+/turf/simulated/floor/tiled/ramp/dark,
 /area/abandoned_skrell_ship)
 "YY" = (
 /obj/effect/floor_decal/industrial/outline_door/grey,
@@ -19149,7 +20401,7 @@
 /obj/structure/railing/mapped/no_density/low,
 /obj/random/dirt_75,
 /obj/structure/flora/kudzu/mycelium,
-/turf/simulated/floor/marble/dark,
+/turf/simulated/floor/marble/gray,
 /area/abandoned_skrell_ship)
 "Zj" = (
 /obj/structure/lattice,
@@ -19164,7 +20416,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/shuttle/skrell/blue,
-/area/space)
+/area/template_noop)
 "Zl" = (
 /obj/structure/platform/ledge/dark,
 /obj/structure/platform/ledge/dark{
@@ -19195,7 +20447,7 @@
 /obj/structure/closet,
 /obj/random/tech_supply,
 /turf/simulated/floor/tiled/dark/full,
-/area/space)
+/area/template_noop)
 "Zo" = (
 /obj/structure/platform/dark{
 	dir = 1
@@ -19240,7 +20492,12 @@
 	},
 /obj/structure/table/steel,
 /turf/simulated/floor/airless,
-/area/space)
+/area/template_noop)
+"Zu" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/marble/purple,
+/area/abandoned_skrell_ship)
 "Zv" = (
 /obj/structure/arch/skrell/side{
 	dir = 1
@@ -19256,6 +20513,12 @@
 	},
 /obj/effect/decal/exterior_stairs/half/dark/center,
 /turf/simulated/floor/exoplanet/water/smooth/shell,
+/area/abandoned_skrell_ship)
+"Zy" = (
+/obj/effect/decal/exterior_stairs/half/dark/left{
+	dir = 1
+	},
+/turf/simulated/floor/marble/dark,
 /area/abandoned_skrell_ship)
 "ZA" = (
 /obj/effect/floor_decal/industrial/outline_door/grey{
@@ -19274,6 +20537,13 @@
 	},
 /turf/simulated/floor/airless,
 /area/abandoned_skrell_ship)
+"ZB" = (
+/obj/structure/table/skrell,
+/obj/effect/floor_decal/spline/plain/mauve{
+	dir = 8
+	},
+/turf/simulated/floor/marble/dark,
+/area/template_noop)
 "ZD" = (
 /obj/effect/decal/curb{
 	color = "#574267";
@@ -19318,7 +20588,7 @@
 	dir = 6
 	},
 /turf/simulated/floor/shuttle/skrell,
-/area/space)
+/area/template_noop)
 "ZI" = (
 /obj/effect/decal/curb,
 /obj/effect/decal/curb{
@@ -19388,7 +20658,7 @@
 	},
 /obj/effect/floor_decal/industrial/outline_door/grey,
 /turf/simulated/floor/tiled/dark/full,
-/area/space)
+/area/template_noop)
 "ZT" = (
 /obj/effect/decal/curb/corner{
 	dir = 8
@@ -19434,7 +20704,7 @@
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/carpet/rubber/airless,
-/area/space)
+/area/template_noop)
 "ZY" = (
 /obj/random/dirt_75,
 /obj/structure/flora/bush/jungle/large/recolorable/mycelium/random{
@@ -40834,13 +42104,13 @@ tf
 tf
 tf
 tf
-tf
-tf
-tf
-tf
-tf
-tf
-tf
+kd
+kd
+kd
+kd
+kd
+kd
+kd
 mS
 mS
 mS
@@ -41090,14 +42360,14 @@ tf
 tf
 tf
 tf
-tf
-tf
+kd
+kd
 pQ
 pQ
 pQ
-pQ
-pQ
-pQ
+lb
+GX
+VP
 pQ
 pQ
 mS
@@ -41347,14 +42617,14 @@ tf
 tf
 tf
 tf
-tf
+kd
 pQ
 pQ
-pQ
-pQ
-pQ
-lb
-GX
+sj
+Ui
+YM
+lL
+VP
 Bp
 Bp
 Bp
@@ -41604,14 +42874,14 @@ tf
 tf
 tf
 tf
-tf
-pQ
-pQ
-pQ
+kd
 sj
 Ui
 YM
-lL
+fi
+VP
+VP
+VP
 pc
 pc
 pc
@@ -41861,12 +43131,12 @@ tf
 tf
 tf
 tf
-tf
-pQ
-sj
-Ui
+kd
 YM
-fi
+lL
+VP
+VP
+VP
 VP
 VP
 pc
@@ -42120,8 +43390,8 @@ tf
 tf
 pQ
 pQ
-YM
-lL
+VP
+VP
 VP
 VP
 VP
@@ -43977,7 +45247,7 @@ Ux
 Vk
 Vk
 CY
-tr
+Ch
 hx
 Bp
 Bp
@@ -44228,15 +45498,15 @@ tr
 tr
 Bp
 TH
-uG
+At
 iD
-yp
+ze
 md
 wx
 Qr
 TH
-QX
-uG
+sJ
+At
 Bp
 lO
 Ad
@@ -45505,10 +46775,10 @@ gR
 Po
 ZM
 xu
-tr
-tr
-tr
-tr
+Ch
+Ch
+Ch
+Ch
 zk
 Mp
 RO
@@ -45768,7 +47038,7 @@ Yt
 Yt
 Hf
 pg
-tr
+Ch
 pg
 Bp
 Bp
@@ -46019,13 +47289,13 @@ Fy
 yM
 tt
 xu
-tr
-tr
-tr
+Ch
+Ch
+Ch
 CL
 ov
-tr
-tr
+Ch
+Ch
 pg
 Bp
 uG
@@ -46276,9 +47546,9 @@ fZ
 fZ
 Bp
 Bp
-tr
-tr
-tr
+Ch
+Ch
+Ch
 HL
 wC
 Yt
@@ -47050,7 +48320,7 @@ ub
 ub
 ub
 Bp
-tr
+Ch
 yO
 eJ
 lY
@@ -47317,14 +48587,14 @@ Bp
 Bp
 Bp
 zk
-Qg
+Mw
 im
 hv
 Kq
 QX
 AM
 SX
-en
+am
 Bp
 Bp
 RV
@@ -47792,7 +49062,7 @@ VP
 VP
 VP
 VP
-VP
+mt
 UG
 JP
 JP
@@ -48093,7 +49363,7 @@ eJ
 mL
 LH
 mB
-dq
+yd
 HR
 Ni
 VG
@@ -48308,7 +49578,7 @@ JP
 JP
 JP
 VP
-JP
+UG
 JP
 JP
 JP
@@ -48347,10 +49617,10 @@ Bp
 Bk
 DL
 Yd
-dq
+yd
 Kx
-dq
-Ch
+yd
+li
 Ya
 JA
 Bp
@@ -48560,7 +49830,7 @@ UG
 UG
 JP
 JP
-JP
+UG
 JP
 JP
 VP
@@ -49083,11 +50353,11 @@ VP
 VP
 JP
 JP
-kZ
-kZ
-kZ
-kZ
-kZ
+JP
+JP
+JP
+JP
+JP
 kZ
 kZ
 kZ
@@ -49330,21 +50600,21 @@ kZ
 kZ
 kZ
 kZ
-kZ
-kZ
-kZ
-kZ
+JP
+JP
+JP
+JP
 VP
 VP
 VP
 VP
-kZ
-kZ
-kZ
-kZ
-kZ
-kZ
-kZ
+JP
+JP
+JP
+JP
+JP
+JP
+JP
 kZ
 kZ
 kZ
@@ -49587,21 +50857,21 @@ kZ
 kZ
 kZ
 kZ
-kZ
-kZ
-kZ
-kZ
+JP
+JP
+JP
+JP
 VP
 VP
 VP
-kZ
-kZ
-kZ
-kZ
-kZ
-kZ
-kZ
-kZ
+JP
+JP
+JP
+JP
+JP
+JP
+JP
+JP
 kZ
 kZ
 kZ
@@ -49844,21 +51114,21 @@ kZ
 kZ
 kZ
 kZ
-kZ
-kZ
-kZ
+JP
+JP
+JP
 VP
 VP
 VP
-kZ
-kZ
-kZ
-kZ
-kZ
-kZ
-kZ
-kZ
-kZ
+JP
+JP
+JP
+JP
+JP
+JP
+JP
+JP
+JP
 kZ
 kZ
 kZ
@@ -50101,21 +51371,21 @@ kZ
 kZ
 kZ
 kZ
-kZ
-kZ
-kZ
-kZ
+JP
+JP
+JP
+JP
 VP
 VP
 VP
 VP
-kZ
-kZ
-kZ
-kZ
-kZ
-kZ
-kZ
+JP
+JP
+JP
+JP
+JP
+JP
+JP
 kZ
 kZ
 kZ
@@ -50358,21 +51628,21 @@ kZ
 kZ
 kZ
 kZ
-kZ
-kZ
-kZ
-kZ
+JP
+JP
+JP
+JP
 VP
 VP
 VP
 VP
 VP
-kZ
-kZ
-kZ
-kZ
-kZ
-kZ
+JP
+JP
+JP
+JP
+JP
+JP
 kZ
 kZ
 kZ
@@ -105620,14 +106890,14 @@ tf
 tf
 tf
 tf
-tf
-tf
-tf
-tf
-tf
-tf
-tf
-tf
+gv
+gv
+gv
+gv
+gv
+gv
+gv
+gv
 tf
 tf
 tf
@@ -105867,16 +107137,16 @@ tf
 tf
 tf
 tf
+mS
+mS
+mS
+mS
 tf
 tf
 tf
 tf
 tf
-tf
-tf
-tf
-tf
-tf
+mS
 gv
 gv
 gv
@@ -105885,9 +107155,9 @@ gv
 gv
 gv
 gv
+gv
 tf
-tf
-tf
+pQ
 pQ
 pQ
 pQ
@@ -106114,25 +107384,25 @@ tf
 tf
 tf
 tf
+pQ
+pQ
+pQ
+pQ
+pQ
 tf
 tf
 tf
 tf
+mS
+mS
+mS
+mS
+mS
+mS
 tf
 tf
-tf
-tf
-tf
-tf
-tf
-tf
-tf
-tf
-tf
-tf
-tf
-tf
-tf
+kd
+kd
 gv
 gv
 gv
@@ -106143,18 +107413,18 @@ gv
 gv
 gv
 gv
-tf
-tf
 pQ
 pQ
-pQ
-pQ
-pQ
-pQ
-pQ
-pQ
-pQ
-pQ
+Bp
+Bp
+Bp
+Bp
+Bp
+Bp
+Bp
+Bp
+Bp
+Bp
 pQ
 pQ
 pQ
@@ -106369,25 +107639,25 @@ tf
 tf
 tf
 tf
-tf
-tf
-tf
+pQ
+pQ
+pQ
+VP
+mt
 pQ
 pQ
 pQ
 pQ
-pQ
-pQ
-tf
-tf
-tf
-tf
-tf
-tf
-tf
-tf
-tf
-tf
+kd
+kd
+mS
+mS
+mS
+mS
+mS
+mS
+kd
+kd
 pQ
 pQ
 gv
@@ -106401,18 +107671,18 @@ gv
 gv
 gv
 pQ
-pQ
-pQ
-pQ
-pQ
-pQ
-pQ
-pQ
-pQ
-pQ
-pQ
-pQ
-pQ
+Bp
+Bp
+pc
+pc
+pc
+pc
+pc
+pc
+pc
+km
+Bp
+Bp
 pQ
 pQ
 pQ
@@ -106626,25 +107896,25 @@ tf
 tf
 tf
 tf
-tf
-tf
-pQ
 pQ
 VP
+VP
 mt
+mt
+lb
+bu
+Gl
 pQ
 pQ
 pQ
-pQ
-pQ
-tf
-tf
-tf
-tf
-tf
-tf
-tf
-tf
+mS
+mS
+mS
+mS
+mS
+mS
+kd
+kd
 pQ
 pQ
 pQ
@@ -106659,22 +107929,22 @@ Bp
 Bp
 Bp
 Bp
-pQ
-pQ
-pQ
-pQ
-pQ
-pQ
-pQ
-pQ
-pQ
-pQ
-pQ
-LO
-LO
-LO
-LO
-LO
+pc
+CO
+VA
+VA
+VA
+VA
+VA
+mV
+pc
+pc
+Bp
+Bp
+Bp
+Bp
+Bp
+Bp
 LO
 LO
 LO
@@ -106883,14 +108153,14 @@ tf
 tf
 tf
 tf
-tf
 pQ
-VP
-VP
 mt
-mt
-lb
-bu
+VP
+sj
+Ui
+YM
+JX
+Gl
 pQ
 pQ
 pQ
@@ -106916,20 +108186,20 @@ pc
 pc
 pc
 Bp
+pc
+RV
 Bp
 Bp
 Bp
 Bp
 Bp
-Bp
-Bp
-pQ
-pQ
-pQ
-pQ
+JV
 VA
 VA
+jU
 VA
+bl
+pc
 Bp
 Bp
 pc
@@ -107140,14 +108410,14 @@ tf
 tf
 tf
 tf
-tf
 pQ
-mt
-VP
 sj
 Ui
 YM
 JX
+Gl
+Gl
+Gl
 Gl
 Gl
 Bp
@@ -107174,16 +108444,16 @@ VA
 VA
 CP
 VA
-mV
+Ei
 Bp
 pc
 as
 pc
 Bp
-pQ
-pQ
-pQ
-pQ
+pc
+pc
+pc
+HS
 pc
 pc
 pc
@@ -107397,12 +108667,12 @@ tf
 tf
 tf
 tf
-tf
 pQ
-sj
-yA
-Tc
-yu
+YM
+JX
+om
+om
+om
 om
 om
 Gl
@@ -107437,13 +108707,13 @@ VA
 bl
 pc
 Bp
-pQ
+Bp
+LO
+LO
+zw
 LO
 LO
 LO
-LO
-LO
-pc
 Bp
 SF
 pc
@@ -107654,7 +108924,7 @@ tf
 tf
 tf
 tf
-kd
+pQ
 pQ
 LR
 RU
@@ -107694,11 +108964,11 @@ pc
 pc
 pc
 Bp
-pQ
+RL
 LO
-zb
-CS
-Fn
+tr
+tr
+tr
 LO
 Bp
 Bp
@@ -107911,12 +109181,12 @@ tf
 tf
 tf
 tf
-kd
+pQ
 pQ
 Bp
 Bp
 fZ
-Bp
+fZ
 Bp
 eX
 BD
@@ -107953,9 +109223,9 @@ Bp
 Bp
 Bp
 LO
-ub
-zz
-ub
+pc
+pc
+pc
 LO
 Bp
 pc
@@ -107969,9 +109239,9 @@ VA
 xp
 LO
 ug
-tr
-tr
 Ch
+Ch
+IZ
 ph
 LO
 LO
@@ -108210,9 +109480,9 @@ CP
 DG
 VA
 vY
-pc
-pc
-pc
+VA
+VA
+VA
 vY
 DG
 VA
@@ -108226,9 +109496,9 @@ pc
 pc
 LO
 Pb
-dq
+cZ
 ub
-Ms
+Ep
 KU
 LO
 LO
@@ -108467,9 +109737,9 @@ pc
 RV
 pc
 LO
-ub
-zz
-ub
+pc
+pc
+pc
 LO
 RV
 pc
@@ -108483,9 +109753,9 @@ Ex
 LO
 LO
 vP
+IZ
+cZ
 Ch
-dq
-tr
 JS
 LO
 LO
@@ -108724,9 +109994,9 @@ pc
 RV
 LO
 LO
-ub
-zz
-ub
+oi
+tr
+tr
 LO
 RV
 pc
@@ -108980,17 +110250,17 @@ Bp
 pc
 RV
 LO
-If
-ub
-zz
-ub
+yl
+Uz
+Ma
+Ma
 LO
 RV
 pc
 pc
 LO
-Ld
-lD
+cZ
+cZ
 xW
 SZ
 tv
@@ -109239,21 +110509,21 @@ RV
 LO
 Mn
 ub
-zz
+ub
 ub
 LO
 JV
 VA
 VA
 vY
-Ms
-dq
-bs
+Ep
+cZ
+lD
 cZ
 cZ
 yH
-Ms
-dq
+Ep
+cZ
 GT
 lW
 UD
@@ -109262,10 +110532,10 @@ NR
 Gu
 Wf
 lf
-NK
-NK
+Ld
+Ld
 Eo
-NK
+Ld
 DW
 Fg
 xA
@@ -109475,8 +110745,8 @@ TJ
 TJ
 Qd
 Qd
-Qd
-Qd
+TJ
+TJ
 Qd
 Qd
 pm
@@ -109496,29 +110766,29 @@ zw
 LO
 LO
 LO
-hL
-GP
+LO
+zw
 LO
 LO
 pc
 pc
 LO
 tn
-sJ
-At
+tn
+cZ
 eQ
 em
 EG
-Rb
-dq
+Ch
+cZ
 xa
 Xk
 lf
-NK
-kJ
+Ld
+Ms
 ez
-NK
-NK
+Ld
+Ld
 TV
 fE
 eI
@@ -109753,9 +111023,9 @@ ub
 If
 LO
 BX
-zz
 ub
 ub
+vq
 LO
 LO
 LO
@@ -109767,15 +111037,15 @@ LO
 LO
 LO
 FQ
-tr
+Ch
 su
 Td
-kJ
+Ms
 lW
 ye
 EG
 TO
-NK
+Ld
 AN
 np
 LO
@@ -110012,7 +111282,7 @@ EG
 KM
 zz
 zz
-ub
+vq
 LO
 LO
 LO
@@ -110024,9 +111294,9 @@ LO
 LO
 LO
 qT
-Ch
+IZ
 xD
-kJ
+Ms
 XC
 YA
 LO
@@ -110237,7 +111507,7 @@ eh
 yP
 Qd
 Qd
-qZ
+mC
 LO
 OY
 Qd
@@ -110281,15 +111551,15 @@ Yy
 kG
 eE
 qT
-kJ
-kJ
-kJ
-kJ
+Ms
+Ms
+Ms
+Ms
 wb
 gA
 LO
 Wf
-kJ
+Ms
 Kp
 HJ
 LO
@@ -110500,7 +111770,7 @@ LO
 Qd
 Qd
 Qd
-qZ
+mC
 dg
 ML
 Pc
@@ -110535,13 +111805,13 @@ ub
 hS
 ub
 Xr
-kJ
-kJ
-kJ
-kJ
+Ms
+Ms
+Ms
+Ms
 WH
 hl
-kJ
+Ms
 WH
 PI
 LO
@@ -110760,8 +112030,8 @@ mO
 Ru
 hU
 Qd
-Qd
-Qd
+RD
+RD
 Qd
 Qd
 NN
@@ -110792,13 +112062,13 @@ ub
 hS
 Xr
 IS
-kJ
-kJ
-kJ
-kJ
+Ms
+Ms
+Ms
+Ms
 Fb
 iW
-kJ
+Ms
 Nd
 iW
 LO
@@ -111019,7 +112289,7 @@ pT
 Op
 Ip
 La
-ud
+nx
 lT
 KS
 EG
@@ -111052,10 +112322,10 @@ hQ
 kG
 eE
 qT
-kJ
-kJ
-kJ
-kJ
+Ms
+Ms
+Ms
+Ms
 Qu
 dl
 LO
@@ -111309,10 +112579,10 @@ LO
 xR
 eE
 qT
-dq
+cZ
 jF
-dq
-kJ
+cZ
+Ms
 OL
 dl
 LO
@@ -111522,7 +112792,7 @@ EG
 Qd
 Qd
 Qd
-qZ
+mC
 LO
 RL
 RL
@@ -111566,7 +112836,7 @@ LO
 xR
 eE
 Ck
-Ai
+cZ
 LO
 EG
 vQ
@@ -111826,7 +113096,7 @@ Ck
 Zf
 LO
 bc
-eM
+cK
 WH
 LO
 LO
@@ -112083,7 +113353,7 @@ Ck
 zP
 LO
 iW
-dq
+cK
 UU
 LO
 LO
@@ -112292,8 +113562,8 @@ LO
 LO
 LO
 Bp
-ZM
-ZM
+EW
+EW
 OK
 eB
 HO
@@ -112551,10 +113821,10 @@ ub
 Bp
 Rv
 pc
-tr
+rv
 EG
 Hy
-tr
+ub
 Rb
 LO
 Pz
@@ -112566,7 +113836,7 @@ fM
 lF
 LO
 JI
-Vv
+Dp
 jf
 LO
 ub
@@ -112806,8 +114076,8 @@ tr
 tr
 tr
 Bp
-tt
-tt
+UY
+UY
 AE
 eB
 UP
@@ -113366,7 +114636,7 @@ Mz
 hT
 bP
 bP
-wS
+he
 OC
 QZ
 bF
@@ -114080,16 +115350,16 @@ LO
 LO
 tB
 tB
-tB
-II
-tB
+cK
+dn
+PQ
 KF
 tB
-tB
-tB
-tB
 II
-kJ
+tB
+cK
+cK
+sT
 kJ
 kG
 JP
@@ -114101,9 +115371,9 @@ RV
 pc
 LO
 vq
-Rb
-Rb
-Rb
+zz
+zz
+zz
 ub
 ni
 LO
@@ -114126,7 +115396,7 @@ LO
 LO
 LO
 Qn
-ni
+Wa
 Bp
 yz
 Mz
@@ -114335,18 +115605,18 @@ Gl
 Bj
 LO
 tB
-tB
+qv
 fx
-qL
+ge
 zN
 MN
-OV
-Ec
+DR
+kh
 fx
-qL
+zm
 zN
-tB
-tB
+yN
+cK
 kJ
 kG
 JP
@@ -114358,16 +115628,16 @@ RV
 pc
 LO
 bj
-Rb
+zz
 tZ
 OW
 ub
 ub
 KJ
-KV
-Od
-KV
-VI
+Yi
+bK
+Yi
+zo
 sK
 oR
 ax
@@ -114377,13 +115647,13 @@ NP
 Av
 wn
 Mv
-un
-Yi
-bK
-Yi
+iS
+KV
+Od
+KV
 KJ
-br
-ni
+Ed
+Wa
 Bp
 vn
 cH
@@ -114591,19 +115861,19 @@ pQ
 Gl
 Bj
 gd
-Ec
+kh
 fx
-XM
-Cg
+Hw
+wD
 Bq
 MN
 OV
 Ec
-uo
+jR
 WN
 si
-zN
-MN
+Ro
+NT
 kJ
 kG
 Fq
@@ -114615,16 +115885,16 @@ RV
 pc
 LO
 Tq
-Rb
+zz
 Gn
 vq
 ub
 ub
 ub
-ps
-Bt
-ps
-Av
+Ew
+GW
+Ew
+nO
 sK
 bY
 Sd
@@ -114634,13 +115904,13 @@ zI
 AG
 wn
 Mv
-fD
-Ew
-GW
-Ew
+uU
+ps
+Bt
+ps
 ub
-Rb
-ni
+zz
+Wa
 Bp
 vn
 Bp
@@ -114848,15 +116118,15 @@ LO
 Gl
 Bj
 yb
-Ec
-uo
+kh
+jR
 vF
 Bq
-tB
+FI
 tB
 OV
 tB
-tB
+By
 uo
 vF
 Bq
@@ -114872,11 +116142,11 @@ RV
 pc
 LO
 Lp
-Rb
-Sd
-Rb
+zz
+uW
+zz
 ub
-Wa
+ni
 LO
 zy
 LO
@@ -115105,19 +116375,19 @@ Gl
 Gl
 Bj
 LO
-tB
-tB
-tB
-tB
+cK
+qR
+cK
+cK
 tB
 iS
 Yh
-VI
+vT
+cK
+Ol
 tB
-YC
-YC
-YC
-tB
+cK
+VR
 kJ
 kJ
 kJ
@@ -115133,7 +116403,7 @@ ub
 ub
 ub
 ub
-Wa
+ni
 LO
 MH
 LO
@@ -115373,12 +116643,12 @@ wE
 wE
 wE
 Ej
-kJ
-kJ
+ub
+ub
 Px
 sR
 sR
-FN
+WE
 nr
 nr
 pc
@@ -115390,7 +116660,7 @@ nT
 LO
 LO
 fM
-DJ
+lF
 LO
 tq
 NV
@@ -115630,12 +116900,12 @@ ua
 gp
 gp
 BP
-Ej
-kJ
-tr
-iS
-VI
-tr
+wO
+ub
+ub
+yA
+fW
+ub
 iE
 LO
 LO
@@ -115647,7 +116917,7 @@ LO
 LO
 vq
 ub
-TB
+Ze
 LO
 Pu
 eE
@@ -115878,22 +117148,22 @@ Gl
 Gl
 VU
 VN
-sD
-tr
-uh
+eM
+Kw
+Hl
 Ul
+ba
 Ul
-Ul
-YO
-tr
+TE
+yd
 AK
-wk
-kJ
+NW
+ub
 vy
 XO
 Kf
 eT
-cA
+Xz
 LO
 WC
 pk
@@ -115904,7 +117174,7 @@ LO
 LO
 vq
 ub
-Wa
+ni
 LO
 JP
 eE
@@ -116135,33 +117405,33 @@ Sj
 Sj
 kU
 xY
-sD
-uh
+eM
+vX
 Js
 iS
 ar
-VI
+vT
 Zl
 YO
-UF
-wk
+kY
+NW
 ub
 Ls
 IK
 MT
 YJ
-tr
+yd
 Cu
 wG
 IF
 kM
-IF
+qU
 rn
 qj
 NA
 yW
 ub
-Wa
+ni
 LO
 LO
 tV
@@ -116392,34 +117662,34 @@ KX
 UX
 UX
 UX
-tr
-bg
+yd
+nV
 yK
 Hk
 nn
 pd
-eT
-fW
-tr
+Tc
+mQ
+yd
 YX
 Ej
 aL
 AQ
 AQ
 Vq
-tr
+Kw
 RP
-zl
-zl
+tp
+tp
 RP
-tr
-tr
+yd
+Zu
 Rz
 mQ
-tr
+Kw
 ub
-pX
-VI
+lA
+zo
 vY
 Th
 ub
@@ -116646,10 +117916,10 @@ Gl
 Gl
 VU
 SQ
-ub
-ub
-ub
-ub
+Um
+rX
+rX
+rX
 bg
 yk
 Wd
@@ -116657,8 +117927,8 @@ rP
 Rb
 Wd
 wS
-ub
-wv
+rX
+hX
 wk
 GE
 vq
@@ -116670,7 +117940,7 @@ Jo
 Jo
 LO
 cd
-ub
+Xr
 Rz
 UP
 ub
@@ -116903,37 +118173,37 @@ Gl
 Gl
 VU
 Oq
+Nu
+Nu
 mF
-mF
-mF
-tr
+Kw
 bg
 wN
 ob
 Iu
-Rb
-Rb
-wO
-tr
+MC
+UT
+hZ
+Kw
 WD
 gz
 YL
 ZE
 ZE
 tA
-tr
+Kw
 Cu
 Me
-Me
+Py
 Cu
-tr
-tr
+Kw
+Kw
 Rz
 hZ
-tr
+Kw
 ub
-jV
-nO
+ce
+Av
 vY
 AZ
 Xr
@@ -117163,33 +118433,33 @@ cL
 cL
 uE
 Zo
-sD
+Pn
 cI
 vc
 Rb
-UT
+Md
 wf
 Ur
 wA
-UF
-wk
-ub
+fG
+NW
+Xr
 Ao
 cM
 Wi
 Pf
-tr
-RP
-Rb
-Rb
+yd
+ro
+jy
+cX
 qo
-Rb
-Rb
+cX
+aP
 qj
 vf
 Pr
 ub
-ni
+Wa
 LO
 LO
 NV
@@ -117420,22 +118690,22 @@ Gl
 Gl
 VU
 VN
-sD
-tr
+oH
+Zu
 cI
 hu
-hu
-hu
+bT
+Ij
 wA
-tr
+Kw
 AK
-wk
-kJ
+NW
+Xr
 Rq
 Cc
 dD
 Ve
-cA
+UN
 LO
 ou
 Pi
@@ -117446,7 +118716,7 @@ LO
 LO
 vq
 ub
-ni
+Wa
 LO
 JP
 eE
@@ -117684,14 +118954,14 @@ eg
 UZ
 UZ
 mJ
-zl
+tp
 wU
-gz
-kJ
-tr
-fD
-nO
-tr
+tx
+ub
+ub
+YC
+Lh
+ub
 oM
 LO
 LO
@@ -117703,7 +118973,7 @@ LO
 LO
 vq
 ub
-Ze
+TB
 LO
 Pu
 eE
@@ -117942,13 +119212,13 @@ Gs
 Gs
 Gs
 Gs
-gz
-kJ
-kJ
-NW
+uV
+ub
+ub
+vq
 fJ
 fJ
-FN
+WE
 nr
 nr
 rI
@@ -118191,17 +119461,17 @@ Bj
 LO
 tB
 tB
+cK
+cK
 tB
+fD
+vk
+nO
 tB
-tB
-Rb
-Rb
-Rb
-tB
-jM
-jM
-jM
-tB
+cK
+qR
+cK
+cK
 kJ
 kJ
 kJ
@@ -118217,7 +119487,7 @@ cc
 LO
 St
 ub
-ni
+Wa
 LO
 tV
 LO
@@ -118445,20 +119715,20 @@ LO
 LO
 Gl
 Bj
-gd
+DK
 Ec
 fx
-qL
+Sr
 zN
+qV
 tB
-tB
-Rb
-tB
-tB
+bk
+cK
+yN
 fx
 qL
-zN
-MN
+oh
+Om
 kJ
 fx
 qL
@@ -118474,7 +119744,7 @@ Ps
 vY
 xd
 ub
-ni
+Wa
 LO
 Cb
 LO
@@ -118706,14 +119976,14 @@ yb
 Ec
 uo
 WN
-si
-zN
+Bl
+Tj
 MN
-Rb
-Ec
-fx
+bk
+kh
+DC
 XM
-Cg
+pN
 Bq
 MN
 kJ
@@ -118731,12 +120001,12 @@ cc
 LO
 bN
 ub
-lA
+pX
 KJ
-Yi
-bK
-Yi
-zo
+KV
+Od
+KV
+VI
 sK
 bY
 AG
@@ -118746,13 +120016,13 @@ Ce
 Sd
 wn
 RX
-iS
-KV
-Od
-KV
+un
+Yi
+bK
+Yi
 KJ
-zz
-Wa
+Rb
+ni
 Bp
 cH
 AL
@@ -118961,18 +120231,18 @@ Gl
 Bj
 LO
 tB
-tB
-uo
+uj
+rh
 vF
 Bq
 MN
-Rb
-Ec
+bk
+kh
 uo
 vF
 Bq
-tB
-tB
+XL
+cK
 kJ
 kG
 JP
@@ -118988,12 +120258,12 @@ pc
 LO
 Nb
 ub
-jV
+ce
 ub
-Ew
-GW
-Ew
-nO
+ps
+Bt
+ps
+Av
 sK
 oR
 iF
@@ -119003,13 +120273,13 @@ qc
 wz
 Dc
 RX
-uU
-ps
-Bt
-ps
+fD
+Ew
+GW
+Ew
 ub
-jh
-Wa
+RY
+ni
 Bp
 bF
 ds
@@ -119218,18 +120488,18 @@ LO
 LO
 LO
 LO
-tB
-tB
-tB
-DX
-tB
-Rb
-tB
-tB
+cK
 tB
 tB
 DX
-kJ
+tB
+Qf
+cK
+Jw
+cK
+tB
+tB
+ZP
 kJ
 kG
 JP
@@ -119266,7 +120536,7 @@ LO
 LO
 LO
 Ga
-Av
+nO
 Bp
 cH
 eK
@@ -119502,7 +120772,7 @@ pc
 LO
 St
 ub
-Ze
+TB
 LO
 dU
 gD
@@ -119759,7 +121029,7 @@ pc
 LO
 St
 ub
-ni
+Wa
 LO
 JJ
 Jj
@@ -120016,7 +121286,7 @@ pc
 LO
 St
 ub
-ni
+Wa
 LO
 gq
 vt
@@ -120273,7 +121543,7 @@ LO
 LO
 St
 ub
-ni
+Wa
 LO
 Nm
 jt
@@ -120530,7 +121800,7 @@ LO
 un
 br
 ub
-ni
+Wa
 LO
 LO
 EG
@@ -120786,19 +122056,19 @@ kZ
 kZ
 kZ
 kZ
-kZ
-kZ
+ub
+Wa
 LO
 Vv
 Xa
 UW
 LO
-kZ
-kZ
+ub
+ub
+Wa
 LO
-kZ
-kZ
-kZ
+pc
+pc
 zD
 hj
 XH
@@ -121043,19 +122313,19 @@ kZ
 kZ
 kZ
 kZ
-kZ
-kZ
+ub
+Wa
 LO
 LO
 LO
 LO
 LO
-kZ
-kZ
-kZ
-kZ
-kZ
-kZ
+FS
+ub
+pY
+vY
+FJ
+pc
 Jx
 hj
 XH
@@ -121300,16 +122570,16 @@ kZ
 kZ
 kZ
 kZ
-kZ
-kZ
-kZ
-kZ
-kZ
-kZ
-kZ
-kZ
-kZ
-kZ
+ub
+Wa
+ub
+ub
+vq
+vq
+EG
+ub
+ub
+Wa
 Bp
 Bp
 Bp
@@ -121557,16 +122827,16 @@ kZ
 kZ
 kZ
 kZ
-kZ
-kZ
-kZ
-kZ
-kZ
-kZ
-kZ
-kZ
-kZ
-kZ
+ub
+xe
+IF
+IF
+IF
+IF
+Fn
+ub
+ub
+Bp
 Bp
 Du
 Du
@@ -121814,16 +123084,16 @@ kZ
 kZ
 kZ
 kZ
-kZ
-kZ
-kZ
-kZ
-kZ
-kZ
-kZ
-kZ
-kZ
-kZ
+ub
+Wa
+tr
+zl
+zl
+tr
+Zy
+ub
+ub
+og
 Bp
 jI
 Jm
@@ -122071,16 +123341,16 @@ kZ
 kZ
 kZ
 kZ
-kZ
-kZ
-kZ
-kZ
-kZ
-kZ
-kZ
-kZ
-kZ
-kZ
+ub
+tz
+fx
+qL
+qL
+zN
+EG
+ub
+ub
+Dt
 Bp
 ra
 ra
@@ -122328,15 +123598,15 @@ kZ
 kZ
 kZ
 kZ
-kZ
-kZ
-kZ
-kZ
-kZ
-kZ
-kZ
-kZ
-kZ
+ub
+Wa
+LO
+LO
+LO
+LO
+LO
+ub
+Wg
 Bp
 Bp
 YU
@@ -130709,21 +131979,21 @@ tf
 tf
 tf
 tf
-tf
-tf
-tf
-tf
-tf
-tf
-tf
-tf
-tf
-tf
-tf
-tf
-tf
-tf
-tf
+aK
+aK
+zb
+oA
+aK
+aK
+aK
+zb
+oA
+aK
+zb
+oA
+aK
+aK
+xJ
 tf
 tf
 tf
@@ -130966,21 +132236,21 @@ tf
 tf
 tf
 tf
-tf
-tf
-tf
-tf
-tf
-tf
-tf
-tf
-tf
-tf
-tf
-tf
-tf
-tf
-tf
+aK
+aK
+ah
+ah
+aK
+Lk
+aK
+ah
+ah
+aK
+ah
+ah
+aK
+aK
+aK
 tf
 tf
 tf
@@ -131223,21 +132493,21 @@ tf
 tf
 tf
 tf
-tf
-tf
-tf
-tf
-tf
-tf
-tf
-tf
-tf
-tf
-tf
-tf
-tf
-tf
-tf
+aK
+iV
+KD
+Kz
+CQ
+OM
+OM
+Rn
+hE
+CI
+jQ
+DJ
+Xe
+aK
+aK
 tf
 tf
 tf
@@ -131480,21 +132750,21 @@ tf
 tf
 tf
 tf
-tf
-tf
-tf
-tf
-tf
-tf
-tf
-tf
-tf
-tf
-tf
-tf
-tf
-tf
-tf
+aK
+CW
+OM
+OM
+Ag
+Ag
+OM
+OM
+OM
+OM
+OM
+OM
+Bi
+ah
+qH
 tf
 tf
 tf
@@ -131737,21 +133007,21 @@ tf
 tf
 tf
 tf
-tf
-tf
-tf
-tf
-tf
-tf
-tf
-tf
-tf
-tf
-tf
-tf
-tf
-tf
-tf
+aK
+QC
+OM
+OM
+pR
+pq
+Kz
+pr
+jN
+xz
+CS
+OM
+EY
+ah
+Mf
 tf
 tf
 tf
@@ -131994,21 +133264,21 @@ tf
 tf
 tf
 tf
-tf
-tf
-tf
-tf
-tf
-tf
-tf
-tf
-tf
-tf
-tf
-tf
-tf
-tf
-tf
+aK
+Ge
+OM
+OM
+Ca
+cg
+Kz
+pr
+NQ
+IO
+CS
+OM
+jQ
+aK
+aK
 tf
 tf
 tf
@@ -132251,21 +133521,21 @@ tf
 tf
 tf
 tf
-tf
-tf
-tf
-tf
-tf
-tf
-tf
-tf
-tf
-tf
-tf
-tf
-tf
-tf
-tf
+aK
+sr
+OM
+OM
+dr
+cg
+Kz
+pr
+yT
+MK
+CS
+OM
+My
+PP
+ht
 tf
 tf
 tf
@@ -132508,21 +133778,21 @@ tf
 tf
 tf
 tf
-tf
-tf
-tf
-tf
-tf
-tf
-tf
-tf
-tf
-tf
-tf
-tf
-tf
-tf
-tf
+aK
+aK
+OM
+OM
+OM
+In
+Kz
+pr
+iY
+GU
+CS
+OM
+zs
+HG
+bB
 tf
 tf
 tf
@@ -132765,21 +134035,21 @@ tf
 tf
 tf
 tf
-tf
-tf
-tf
-tf
-tf
-tf
-tf
-tf
-tf
-tf
-tf
-tf
-tf
-tf
-tf
+tL
+PP
+EK
+jh
+jh
+rk
+kc
+OM
+OM
+OM
+OM
+OM
+zU
+aK
+aK
 tf
 tf
 tf
@@ -133022,21 +134292,21 @@ tf
 tf
 tf
 tf
-tf
-tf
-tf
-tf
-tf
-tf
-tf
-tf
-tf
-tf
-tf
-tf
-tf
-tf
-tf
+zf
+HG
+fq
+Uw
+Va
+Va
+es
+nZ
+SC
+oE
+hL
+ZB
+SY
+ah
+qH
 tf
 tf
 tf
@@ -133279,21 +134549,21 @@ tf
 tf
 tf
 tf
-tf
-tf
-tf
-tf
-tf
-tf
-tf
-tf
-tf
-tf
-tf
-tf
-tf
-tf
-tf
+aK
+aK
+aK
+aK
+hL
+qD
+aK
+HG
+Tz
+aK
+ah
+ah
+aK
+ah
+Mf
 tf
 tf
 tf
@@ -133536,21 +134806,21 @@ tf
 tf
 tf
 tf
-tf
-tf
-tf
-tf
-tf
-tf
-tf
-tf
-tf
-tf
-tf
-tf
-tf
-tf
-tf
+aK
+iB
+iB
+aK
+ah
+ah
+aK
+Zk
+sZ
+aK
+zb
+oA
+aK
+aK
+aK
 tf
 tf
 tf
@@ -133793,21 +135063,21 @@ tf
 tf
 tf
 tf
-tf
-tf
-tf
-tf
-tf
-tf
-tf
-tf
-tf
-tf
-tf
-tf
-tf
-tf
-tf
+aK
+aK
+aK
+aK
+zb
+oA
+aK
+Zk
+sZ
+Sq
+HG
+HG
+HG
+HG
+HG
 tf
 tf
 tf
