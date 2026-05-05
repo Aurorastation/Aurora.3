@@ -501,35 +501,28 @@
 	switch(key)
 		if("stabilizers")
 			if(engage(src, user))
+				jets.toggle_rockets_stabilization(user)
 				stabilize = jets.stabilization_on
 
 /obj/item/rig_module/maneuvering_jets/engage(atom/target, mob/user)
 	if(!..())
 		return FALSE
-	var/list/extra_mobs = list()
-	if(user != holder.wearer)
-		extra_mobs += holder.wearer
-	jets.toggle_rockets_stabilization(user, extra_mobs)
+	jets.toggle_rockets_stabilization(user)
 	return TRUE
 
 /obj/item/rig_module/maneuvering_jets/activate(mob/user)
 	if(!..())
 		return FALSE
 	if(!jets.on)
-		var/list/extra_mobs = list()
-		if(user != holder.wearer)
-			extra_mobs += holder.wearer
-		jets.toggle_jetpack(user, extra_mobs)
+		jets.enable_jetpack(user)
+		stabilize = jets.stabilization_on
 	return TRUE
 
 /obj/item/rig_module/maneuvering_jets/deactivate(mob/user)
 	if(!..())
 		return FALSE
 	if(jets.on)
-		var/list/extra_mobs = list()
-		if(user != holder.wearer)
-			extra_mobs += holder.wearer
-		jets.toggle_jetpack(user, extra_mobs)
+		jets.disable_jetpack(user)
 	return TRUE
 
 /obj/item/rig_module/maneuvering_jets/New()

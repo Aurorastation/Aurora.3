@@ -252,12 +252,29 @@
 	suit_overlay_active = "plasmacutter"
 	suit_overlay_inactive = "plasmacutter"
 	construction_cost = list(MATERIAL_GLASS = 5250, DEFAULT_WALL_MATERIAL = 30000, MATERIAL_SILVER = 5250, MATERIAL_PHORON = 7250)
+	activates_on_touch = TRUE
 	construction_time = 300
-	use_power_cost = 50
+	use_power_cost = 15
 
 	category = MODULE_UTILITY
 
 	gun_type = /obj/item/gun/energy/plasmacutter/mounted
+
+/// Snowflake; this is a tool more than a gun, so it has special adjacency behaviors.
+/obj/item/rig_module/mounted/plasmacutter/engage(atom/target, mob/user)
+	if(!check_can_use(user))
+		return FALSE
+
+	if(!confined_use && istype(user.loc, /mob/living/heavy_vehicle))
+		to_chat(user, SPAN_DANGER("You cannot use the suit in the confined space."))
+		return FALSE
+
+	if(target)
+		if(!target.Adjacent(user))
+			gun.Fire(target, user)
+		else
+			target.attackby(gun, user)
+	return TRUE
 
 /obj/item/rig_module/mounted/thermalldrill
 	name = "hardsuit thermal drill"
