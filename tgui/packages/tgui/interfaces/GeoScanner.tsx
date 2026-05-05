@@ -26,8 +26,10 @@ type GeoScannerData = {
   optimal_wavelength: number;
   maser_wavelength: number;
   maser_efficiency: number;
-  radiation: number;
-  t_left_radspike: number;
+  radiation_emission: number;
+  radiation_max: number;
+  spike_active: BooleanLike;
+  t_to_next_spike: number;
   rad_shield_on: BooleanLike;
 };
 
@@ -197,10 +199,32 @@ export const GeoScanner = (props, context) => {
 
         <Section title="Radiation">
           <LabeledList>
-            <LabeledList.Item label="Current Level">
-              <Box color={data.radiation > 50 ? 'bad' : 'good'}>
-                {data.radiation} mSv
-              </Box>
+            <LabeledList.Item label="Emission">
+              <ProgressBar
+                value={data.radiation_emission}
+                minValue={0}
+                maxValue={data.radiation_max}
+                color={
+                  data.radiation_emission > data.radiation_max * 0.5
+                    ? 'bad'
+                    : data.radiation_emission > data.radiation_max * 0.1
+                      ? 'average'
+                      : 'good'
+                }
+              >
+                {data.radiation_emission} / {data.radiation_max}
+              </ProgressBar>
+            </LabeledList.Item>
+            <LabeledList.Item label="Spike Status">
+              {data.spike_active ? (
+                <Box color="bad" bold>
+                  RADSPIKE ACTIVE — engage shield!
+                </Box>
+              ) : (
+                <Box color="good">
+                  Stable (next spike in ~{data.t_to_next_spike}s)
+                </Box>
+              )}
             </LabeledList.Item>
             <LabeledList.Item label="Rad Shield">
               <Button

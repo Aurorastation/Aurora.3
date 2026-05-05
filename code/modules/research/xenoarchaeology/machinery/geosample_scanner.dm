@@ -1,3 +1,12 @@
+// Continuous-stress radiation loop tuning. See `process()` block for the full rationale.
+#define RC_RAD_MAX           50      // hard cap on emission power
+#define RC_RAD_RAMP_NORMAL   1       // severity added per second while shield is down (no spike)
+#define RC_RAD_RAMP_SPIKE    10      // severity added per second while shield is down during a radspike
+#define RC_RAD_DECAY_RATE    25      // severity removed per second while shield is up (or after spike ends)
+#define RC_SPIKE_INTERVAL_LO 15      // seconds between spike events (lower bound)
+#define RC_SPIKE_INTERVAL_HI 25      // seconds between spike events (upper bound)
+#define RC_SPIKE_DURATION_LO 5       // seconds a single spike lasts (lower bound)
+#define RC_SPIKE_DURATION_HI 7       // seconds a single spike lasts (upper bound)
 
 /obj/machinery/radiocarbon_spectrometer
 	name = "radiocarbon spectrometer"
@@ -40,8 +49,20 @@
 	var/tleft_retarget_optimal_wavelength = 0
 	var/maser_efficiency = 0
 	//
-	var/radiation = 0				//0-100 mSv
-	var/t_left_radspike = 0
+	/// Current emission power being pushed into SSradiation. Climbs while the shield is down,
+	/// decays while it is up. Capped to RC_RAD_MAX so even RAD_SHIELDED suits keep meaningful
+	/// mitigation at adjacency (over the cap, the armor_pen formula in /mob/living/rad_act
+	/// starts overwhelming the suit's RAD value).
+	var/radiation_emission = 0
+	/// TRUE while a radspike event is currently active. Increases the shield-down ramp rate
+	/// from RC_RAD_RAMP_NORMAL to RC_RAD_RAMP_SPIKE.
+	var/spike_active = FALSE
+	/// Seconds remaining in the current spike event. Used and decremented only while
+	/// `spike_active` is TRUE.
+	var/spike_remaining = 0
+	/// Seconds until the next spike event begins. Counted down only while `spike_active`
+	/// is FALSE; reaches 0 → flips spike_active TRUE.
+	var/t_to_next_spike = 0
 	var/rad_shield = FALSE
 
 /obj/machinery/radiocarbon_spectrometer/Initialize()
@@ -141,8 +162,10 @@
 		"optimal_wavelength" = round(optimal_wavelength),
 		"maser_wavelength" = round(maser_wavelength),
 		"maser_efficiency" = round(maser_efficiency * 100),
-		"radiation" = round(radiation),
-		"t_left_radspike" = round(t_left_radspike),
+		"radiation_emission" = round(radiation_emission),
+		"radiation_max" = RC_RAD_MAX,
+		"spike_active" = spike_active,
+		"t_to_next_spike" = round(t_to_next_spike),
 		"rad_shield_on" = rad_shield
 	)
 
@@ -171,21 +194,32 @@
 			//each unit of coolant
 			scanner_temperature += scanner_rpm * deltaT * 0.05
 
-			//radiation
-			t_left_radspike -= deltaT
-			if(t_left_radspike > 0)
-				//ordinary radiation
-				radiation = rand() * 15
+			// Continuous-stress radiation loop with random spike events. Emission climbs while the
+			// shield is down and decays when it is raised. RC_RAD_RAMP_NORMAL is the baseline rate;
+			// during a spike the rate switches to RC_RAD_RAMP_SPIKE, fast enough that letting it run
+			// 5+ seconds will saturate to the cap. Spike events fire on a randomised interval so the
+			// player has to actually watch the meter / geiger rather than memorise a tempo. The cap
+			// (RC_RAD_MAX) is set just below where /mob/living/rad_act's armor_pen formula starts
+			// overwhelming RAD_SHIELDED suits, so the anomaly suit (RAD=100) still grants meaningful
+			// mitigation at adjacency even at the worst case.
+			if(spike_active)
+				spike_remaining -= deltaT
+				if(spike_remaining <= 0)
+					spike_active = FALSE
+					t_to_next_spike = rand(RC_SPIKE_INTERVAL_LO, RC_SPIKE_INTERVAL_HI)
 			else
-				//radspike
-				if(t_left_radspike > -5)
-					radiation = rand() * 15 + 85
-					if(!rad_shield)
-						//irradiate nearby mobs
-						for(var/mob/living/living_mob in view(7,src))
-							living_mob.apply_damage(radiation / 25, DAMAGE_RADIATION, damage_flags = DAMAGE_FLAG_DISPERSED)
-				else
-					t_left_radspike = pick(10,15,25)
+				t_to_next_spike -= deltaT
+				if(t_to_next_spike <= 0)
+					spike_active = TRUE
+					spike_remaining = rand(RC_SPIKE_DURATION_LO, RC_SPIKE_DURATION_HI)
+
+			if(rad_shield)
+				radiation_emission = max(radiation_emission - RC_RAD_DECAY_RATE * deltaT, 0)
+			else
+				var/ramp = spike_active ? RC_RAD_RAMP_SPIKE : RC_RAD_RAMP_NORMAL
+				radiation_emission = min(radiation_emission + ramp * deltaT, RC_RAD_MAX)
+				if(radiation_emission > 0)
+					SSradiation.radiate(src, radiation_emission)
 
 			//use some coolant to cool down
 			if(coolant_usage_rate > 0)
@@ -239,8 +273,10 @@
 	maser_efficiency = 0
 	maser_wavelength = 0
 	coolant_usage_rate = 0
-	radiation = 0
-	t_left_radspike = 0
+	radiation_emission = 0
+	spike_active = FALSE
+	spike_remaining = 0
+	t_to_next_spike = 0
 	if(used_coolant)
 		src.reagents.remove_any(used_coolant)
 		used_coolant = 0
@@ -324,7 +360,7 @@
 					if(scanner_seal_integrity > 0)
 						scanner_progress = 0
 						scanning = TRUE
-						t_left_radspike = pick(5,10,15)
+						t_to_next_spike = rand(RC_SPIKE_INTERVAL_LO, RC_SPIKE_INTERVAL_HI)
 						to_chat(usr, SPAN_NOTICE("Scan initiated."))
 					else
 						to_chat(usr, SPAN_WARNING("Could not initiate scan, seal requires replacing."))
@@ -349,3 +385,12 @@
 				scanned_item.forceMove(src.loc)
 				scanned_item = null
 			return TRUE
+
+#undef RC_RAD_MAX
+#undef RC_RAD_RAMP_NORMAL
+#undef RC_RAD_RAMP_SPIKE
+#undef RC_RAD_DECAY_RATE
+#undef RC_SPIKE_INTERVAL_LO
+#undef RC_SPIKE_INTERVAL_HI
+#undef RC_SPIKE_DURATION_LO
+#undef RC_SPIKE_DURATION_HI
