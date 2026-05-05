@@ -1,0 +1,4 @@
+author: fyni
+delete-after: True
+changes:
+  - bugfix: "Makes the Outer Eyes helmet properly appear on sprite."
