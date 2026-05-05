@@ -86,7 +86,7 @@
 			+ " - External injuries at a high level of detail.<br>" \
 			+ " - Limb dislocation.<br>" \
 			+ " - Broken bones.<br>" \
-			+ " - Simple bleeds.<br>" \
+			+ " - Distinguish between simple bleeds and severed arteries.<br>" \
 			+ " - Limb necrosis.<br>" \
 			+ " - Tag injuries by triage priority.",
 		SKILL_LEVEL_PROFESSIONAL = "You have extensive training and experience with anatomy.<br>" \

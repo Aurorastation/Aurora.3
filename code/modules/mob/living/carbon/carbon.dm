@@ -289,7 +289,7 @@
 				// End of Anatomy 3
 
 				// Anatomy 4:
-				if(anatomy >= 4)
+				if(anatomy >= 3)
 					if(org.status & ORGAN_ARTERY_CUT)
 						status += "spraying blood from a severed artery"
 				// End of Anatomy 4
