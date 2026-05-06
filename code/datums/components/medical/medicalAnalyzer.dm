@@ -49,7 +49,7 @@
 /datum/component/health_analyzer/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
-		ui = new(user, src, "HealthAnalyzer", name)
+		ui = new(user, src, "HealthAnalyzer", name, 520, 620)
 		ui.open()
 
 /datum/component/health_analyzer/ui_data(mob/user)
