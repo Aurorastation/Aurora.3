@@ -18,6 +18,28 @@
 	/// The owner object, also known as parent. Defined to easily do obj specific procs
 	var/obj/owner
 
+// This one can't scan limbs. Like a simpler version of the analyzer
+/datum/component/health_analyzer/simple
+	mode = 0
+
+/datum/component/health_analyzer/mech
+	name = "mech health analyzer"
+
+/datum/component/health_analyzer/mech/ui_state(mob/user)
+	return GLOB.heavy_vehicle_state
+
+/datum/component/health_analyzer/borer
+	name = "borer health analyzer"
+
+/datum/component/health_analyzer/borer/ui_state(mob/user)
+	return GLOB.conscious_state
+
+/datum/component/health_analyzer/observer
+	name = "observer health analyzer"
+
+/datum/component/health_analyzer/observer/ui_state(mob/user)
+	return GLOB.observer_state
+
 /datum/component/health_analyzer/Initialize(...)
 	. = ..()
 	if(!isobj(parent))
@@ -44,23 +66,25 @@
 		return
 
 	switch(action)
-		if("toggle_mode")
-			mode = !mode
+		if("clear_list")
+			scan_results = list()
+			reagent_results = list()
+			scan_title = null
 			return TRUE
 
 /datum/component/health_analyzer/proc/attack(mob/living/target_mob, mob/living/user, target_zone)
-	sound_scan = FALSE
-	if(last_scan <= world.time - 20)
-		last_scan = world.time
-		sound_scan = TRUE
+	sound_scan = TRUE
 
-	user.setClickCooldown(DEFAULT_QUICK_COOLDOWN)
-	flick("[owner.icon_state]-scan", owner)
+	user.visible_message("\The [user] starts scanning [user == target_mob ? "themself" : "\the [target_mob]"] with \the [owner].")
+	if(do_after(user, 1.5 SECONDS, target_mob, DO_UNIQUE))
+		flick("[owner.icon_state]-scan", owner)
 
-	health_scan_mob(target_mob, user, mode, sound_scan = sound_scan)
-	ui_interact(user)
+		health_scan_mob(target_mob, user, mode, sound_scan = sound_scan)
+		ui_interact(user)
 
-	owner.add_fingerprint(user)
+		owner.add_fingerprint(user)
+	else
+		user.visible_message("\The [user] stops scanning \the [target_mob].")
 
 /datum/component/health_analyzer/proc/attack_self(mob/user)
 	ui_interact(user)

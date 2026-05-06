@@ -344,7 +344,7 @@
 		S.forceMove(src)
 		S.update_use_power(POWER_USE_OFF)
 		connected = S
-	src.LoadComponent(/datum/component/health_analyzer)
+	src.LoadComponent(/datum/component/health_analyzer/mech)
 
 /obj/item/healthanalyzer/mech/Destroy()
 	if(connected)
@@ -372,7 +372,7 @@
 		return FALSE
 	if(!fullScan)
 		for(var/mob/pilot in user_vehicle.pilots)
-			var/datum/component/health_analyzer/h_analyzer = src.GetComponent(/datum/component/health_analyzer)
+			var/datum/component/health_analyzer/mech/h_analyzer = src.GetComponent(/datum/component/health_analyzer/mech)
 			if(!h_analyzer)
 				return
 			h_analyzer.health_scan_mob(target_mob, pilot, TRUE, TRUE, sound_scan = TRUE)

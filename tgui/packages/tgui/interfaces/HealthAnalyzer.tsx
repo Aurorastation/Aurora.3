@@ -14,17 +14,13 @@ export const HealthAnalyzer = (props, context) => {
   const { scan_title, scan_results, reagent_results, mode } = data;
 
   return (
-    <Window width={520} height={620}>
+    <Window width={520} height={620} theme="zenghu">
       <Window.Content scrollable>
         <Section
           title={scan_title || 'Health Analyzer'}
           buttons={
-            <Button
-              icon={mode ? 'eye' : 'eye-slash'}
-              selected={mode}
-              onClick={() => act('toggle_mode')}
-            >
-              Limb Damage: {mode ? 'Shown' : 'Hidden'}
+            <Button icon={'fa-notes-medical'} onClick={() => act('clear_list')}>
+              Clear scan
             </Button>
           }
         >
