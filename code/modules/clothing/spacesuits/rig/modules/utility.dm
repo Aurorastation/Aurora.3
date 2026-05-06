@@ -502,13 +502,6 @@
 		if("stabilizers")
 			if(engage(src, user))
 				jets.toggle_rockets_stabilization(user)
-				stabilize = jets.stabilization_on
-
-/obj/item/rig_module/maneuvering_jets/engage(atom/target, mob/user)
-	if(!..())
-		return FALSE
-	jets.toggle_rockets_stabilization(user)
-	return TRUE
 
 /obj/item/rig_module/maneuvering_jets/activate(mob/user)
 	if(!..())
@@ -639,12 +632,8 @@
 	/// Determines whether or not the actuators can do special combat oriented tasks,
 	/// such as leaping faster, or grappling targets.
 	var/combatType = 0
-
 	/// Determines how far the actuators allow you to leap (radius, inclusive).
 	var/leapDistance = 4
-
-
-
 	category = MODULE_GENERAL
 
 /obj/item/rig_module/actuators/combat
@@ -664,10 +653,11 @@
 	. = ..()
 	.["fall_damping"] = add_ui_configuration("Fall Damping", "bool", active)
 
-/obj/item/rig_module/actuators/configure_edit(key, value)
+/obj/item/rig_module/actuators/configure_edit(key, value, mob/user)
 	switch(key)
 		if("fall_damping")
 			active = !active
+			balloon_alert(user, "fall damping [active ? 'active' : 'inactive']!")
 
 /obj/item/rig_module/actuators/engage(atom/target, mob/user)
 	if(!target)
@@ -946,21 +936,22 @@ GLOBAL_LIST_EMPTY(lattice_users)
 	interface_name = "integrated weapon recharger"
 	interface_desc = "Can connect to an energy weapon, recharging it off the hardsuit's power supply. Drag the weapon onto the hardsuit control module to connect it."
 	category = MODULE_LIGHT_COMBAT
-	module_type = MODULETYPE_USABLE
 	disruptive = FALSE
 	confined_use = TRUE
-	///The gun charging off our hardsuit
+	/// The gun charging off our hardsuit
 	var/obj/item/gun/energy/connected
 
-/obj/item/rig_module/recharger/activate(mob/user)
+/obj/item/rig_module/recharger/engage(atom/target, mob/user)
 	if (!..())
 		return FALSE
-
 
 	if(!connected)
 		to_chat(user, SPAN_NOTICE("\The [src] does not have a connected energy weapon to charge!"))
 		return FALSE
 
+	if(!active)
+		balloon_alert(user, "module inactive!")
+		return FALSE
 
 	to_chat(user, SPAN_NOTICE("\The [connected] is now connected to your hardsuit power supply. Deactivate this module to disconnect it."))
 	return TRUE
@@ -968,9 +959,8 @@ GLOBAL_LIST_EMPTY(lattice_users)
 /obj/item/rig_module/recharger/deactivate(mob/user)
 	if (!..())
 		return FALSE
-
-
 	if(connected)
+		balloon_alert(user, "[connected] disconnected!")
 		connected.disconnect()
 
 

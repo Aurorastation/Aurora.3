@@ -233,8 +233,8 @@
 	if(!check_can_use(user))
 		return FALSE
 
-	if(!confined_use && istype(user.loc, /mob/living/heavy_vehicle))
-		to_chat(user, SPAN_DANGER("You cannot use the suit in the confined space."))
+	if(!confined_use && !isturf(user.loc))
+		to_chat(user, SPAN_DANGER("You cannot use the suit in a confined space."))
 		return FALSE
 
 	return TRUE

@@ -626,10 +626,14 @@
 	if(selected_module)
 		data["primarysystem"] = selected_module.interface_name
 		data["primarysystem_ref"] = REF(selected_module)
+	// Needs to be explicitly nulled when de-selected, otherwise the old data persists in the UI.
+	else
+		data["primarysystem"] = null
+		data["primarysystem_ref"] = null
 
 	data["ai"] = (src.loc != user)
 
-	data["seals"] = canremove
+    data["seals"] = canremove
 	data["sealing"] = sealing
 
 	data["helmet"] = helmet ? helmet.name : "None."
@@ -661,6 +665,7 @@
 			"desc" = module.interface_desc,
 			"module_type" = module.module_type,
 			"module_active" = module.active,
+			"module_selected" = selected_module == module ? TRUE : FALSE,
 			"engagecost" = module.use_power_cost,
 			"activecost" = module.active_power_cost,
 			"passivecost" = module.passive_power_cost,
@@ -756,8 +761,10 @@
 						module.do_engage(null, user)
 					if("select")
 						if(selected_module != module)
+							to_chat(world, "selected_module [selected_module] != module [module]")
 							selected_module = module
 						else
+							to_chat(world, "selected_module [selected_module] == module [module]")
 							selected_module = null
 						sound_to(usr, 'sound/machines/terminal/terminal_prompt_confirm.ogg')
 					if("select_charge_type")
@@ -773,6 +780,7 @@
 		// Cover panel locked or unlocked (by access ID).
 		if("toggle_suit_lock")
 			locked = !locked
+			sound_to(usr, 'sound/machines/terminal/terminal_prompt_deny.ogg')
 		// Toggles whether access locks are enabled.
 		if("toggle_id_lock")
 			// Only those people who have access rights in the first place should be able to toggle access on or off.
@@ -781,6 +789,7 @@
 				balloon_alert(user, "access denied!")
 			else
 				security_check_enabled = !security_check_enabled
+				sound_to(usr, 'sound/machines/terminal/terminal_prompt_deny.ogg')
 
 		if("configure")
 			var/obj/item/rig_module/module = locate(params["ref"]) in installed_modules
@@ -869,6 +878,7 @@
 				var/obj/item/chest_obj = chest
 				if(use_obj == boots && chest_slot == chest_obj)
 					to_chat(wearer, SPAN_WARNING("The chest piece of the hardsuit must be retracted before you can retract your boots!"))
+					sound_to(H, 'sound/machines/terminal/terminal_error.ogg')
 					return
 
 				if(check_slot == use_obj)
@@ -884,6 +894,10 @@
 		else if (deploy_mode != ONLY_RETRACT)
 			if(check_slot && check_slot == use_obj)
 				return
+			if(!do_after(wearer, 8))
+				if(wearer)
+					to_chat(wearer, SPAN_WARNING("You must remain still while the suit deploys its parts."))
+					return FALSE
 			use_obj.forceMove(wearer)
 			if(src.color)
 				use_obj.color = src.color

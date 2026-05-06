@@ -29,6 +29,7 @@ type RigModule = {
   module_type: number;
   module_toggleable: BooleanLike;
   module_active: BooleanLike;
+  module_selected: BooleanLike;
 
   engagecost: number;
   activecost: number;
@@ -411,7 +412,7 @@ const ModulesSection = (props, context) => {
                 <Table.Cell width={1}>
                   <Button
                     icon={selected ? 'check-square-o' : 'square-o'}
-                    selected={data.primarysystem === m.module_name}
+                    selected={m.module_selected}
                     tooltip={moduleTypeAction}
                     tooltipPosition="left"
                     disabled={selectDisabled}
@@ -426,22 +427,9 @@ const ModulesSection = (props, context) => {
 
                 <Table.Cell>
                   <Collapsible
-                    title={
-                      <Box>
-                        <Box
-                          inline
-                          bold
-                          color={
-                            m.module_active ||
-                            data.primarysystem === m.module_name
-                              ? 'good'
-                              : 'average'
-                          }
-                        >
-                          {m.module_name}
-                        </Box>
-                        {damagedTag}
-                      </Box>
+                    title={m.module_name + ' ' + m.damagedTag}
+                    color={
+                      m.module_active || m.module_selected ? 'good' : 'average'
                     }
                   >
                     <Section mt={1}>
