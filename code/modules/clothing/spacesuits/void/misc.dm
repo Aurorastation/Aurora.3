@@ -1125,3 +1125,49 @@
 	icon_state = "ipc_assunzione_suit"
 	item_state = "ipc_assunzione_suit"
 	species_restricted = list(BODYTYPE_IPC, BODYTYPE_IPC_INDUSTRIAL, BODYTYPE_IPC_ZENGHU, BODYTYPE_IPC_BISHOP)
+
+// Outer Eyes armoured voidsuit, for their elites only (and antags of course)
+/obj/item/clothing/suit/space/void/outereyes
+	name = "\improper Outer Eyes voidsuit"
+	desc = "A royal burgandy undersuit and black armour plate of the mysterious Outer Eyes. The suit takes design cues from all over the Spur."
+	desc_extended = "While the Outer Eyes work mostly unseen as agents and infiltrators, getting third parties to perform most direct confrontations, occationally the situation calls for the deployment of a fanatically loyal core of enforcers sporting this suit. Those who live to tell of them learn to fear the suit."
+	icon = 'icons/obj/clothing/voidsuit/outereyes.dmi'
+	icon_state = "outer_eyes_suit"
+	item_state = "outer_eyes_suit"
+	armor = list(
+		MELEE = ARMOR_MELEE_RESISTANT,
+		BULLET = ARMOR_BALLISTIC_MEDIUM,
+		LASER = ARMOR_LASER_PISTOL,
+		ENERGY = ARMOR_ENERGY_MINOR,
+		BOMB = ARMOR_BOMB_PADDED,
+		BIO = ARMOR_BIO_SHIELDED,
+		RAD = ARMOR_RAD_SMALL
+	)
+	species_restricted = list(BODYTYPE_HUMAN)
+	slowdown = 0.5
+	allowed = list(/obj/item/flashlight,/obj/item/tank,/obj/item/suit_cooling_unit,/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/melee/energy/sword,/obj/item/handcuffs)
+	siemens_coefficient = 0.35
+	contained_sprite = TRUE
+
+/obj/item/clothing/head/helmet/space/void/outereyes
+	name = "\improper Outer Eyes voidsuit helmet"
+	desc = "A royal burgandy and black armoured helmet of the mysterious Outer Eyes. At the center of the helmet, a single white eye."
+	desc_extended = "While the Outer Eyes work mostly unseen as agents and infiltrators, getting third parties to perform most direct confrontations, occationally the situation calls for the deployment of a fanatically loyal core of enforcers sporting this suit. Those who live to tell of them learn to the mask, with it's leering eye."
+	icon = 'icons/obj/clothing/voidsuit/outereyes.dmi'
+	icon_state = "outer_eyes_helmet"
+	item_state = "outer_eyes_helmet"
+	armor = list(
+		MELEE = ARMOR_MELEE_RESISTANT,
+		BULLET = ARMOR_BALLISTIC_MEDIUM,
+		LASER = ARMOR_LASER_PISTOL,
+		ENERGY = ARMOR_ENERGY_MINOR,
+		BOMB = ARMOR_BOMB_PADDED,
+		BIO = ARMOR_BIO_SHIELDED,
+		RAD = ARMOR_RAD_SMALL
+	)
+	species_restricted = list(BODYTYPE_HUMAN)
+	contained_sprite = TRUE
+	light_overlay = "helmet_light_outer_eyes"
+	light_range = 6
+	light_color = "#FFFFFF"
+	siemens_coefficient = 0.35

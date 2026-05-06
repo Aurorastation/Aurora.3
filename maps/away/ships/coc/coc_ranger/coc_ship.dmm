@@ -5676,6 +5676,7 @@
 	pixel_x = -15;
 	pixel_y = 2
 	},
+/obj/item/eftpos,
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/bridge)
 "uzX" = (

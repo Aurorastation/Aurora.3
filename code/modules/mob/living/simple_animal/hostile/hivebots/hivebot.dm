@@ -43,42 +43,19 @@
 	psi_pingable = FALSE
 	sample_data = null
 
-	/**
-	 * The hivebot beacon that we are liked to (and likely generated us)
-	 */
-	var/mob/living/simple_animal/hostile/hivebotbeacon/linked_parent = null
+	/// Weakref to the beacon that potentially spawned us.
+	var/datum/weakref/parent_beacon
 
-/mob/living/simple_animal/hostile/hivebot/Initialize(mapload,mob/living/simple_animal/hostile/hivebotbeacon/beacon)
+/mob/living/simple_animal/hostile/hivebot/Initialize(mapload, mob/living/simple_animal/hostile/hivebotbeacon/beacon)
 	. = ..()
-
-	do_link(beacon)
+	parent_beacon = WEAKREF(beacon)
 	if(!mapload)
 		spark(get_turf(src), 2, GLOB.alldirs)
 
 /mob/living/simple_animal/hostile/hivebot/Destroy()
-	unlink()
-	. = ..()
-
-/mob/living/simple_animal/hostile/hivebot/proc/do_link(mob/living/simple_animal/hostile/hivebotbeacon/beacon)
-	if(QDELETED(beacon))
-		return
-
-	if(linked_parent)
-		if(linked_parent == beacon)
-			return
-		unlink()
-
-	linked_parent = beacon
-	beacon.do_link(src)
-	RegisterSignal(linked_parent, COMSIG_QDELETING, PROC_REF(unlink))
-
-/mob/living/simple_animal/hostile/hivebot/proc/unlink()
-	SIGNAL_HANDLER
-	if(!linked_parent)
-		return
-	linked_parent.unlink(src)
-	UnregisterSignal(linked_parent, COMSIG_QDELETING)
-	linked_parent = null
+	astype(parent_beacon?.resolve(), /mob/living/simple_animal/hostile/hivebotbeacon)?.linked_bots.Remove(src)
+	parent_beacon = null
+	return ..()
 
 /mob/living/simple_animal/hostile/hivebot/get_bullet_impact_effect_type(var/def_zone)
 	return BULLET_IMPACT_METAL
@@ -169,8 +146,16 @@
 	mob_swap_flags = ~HEAVY
 	mob_push_flags = 0
 
+/mob/living/simple_animal/hostile/hivebot/guardian/Initialize(mapload, mob/living/simple_animal/hostile/hivebotbeacon/beacon)
+	. = ..()
+	beacon?.guard_amt++
+
+/mob/living/simple_animal/hostile/hivebot/guardian/Destroy()
+	astype(parent_beacon?.resolve(), /mob/living/simple_animal/hostile/hivebotbeacon)?.guard_amt--
+	return ..()
+
 /mob/living/simple_animal/hostile/hivebot/guardian/think()
-	. =..()
+	. = ..()
 	if(stance != HOSTILE_STANCE_IDLE)
 		wander = 1
 

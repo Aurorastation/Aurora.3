@@ -4176,6 +4176,7 @@
 "yu" = (
 /obj/structure/table/reinforced/steel,
 /obj/random/dirt_75,
+/obj/item/eftpos,
 /turf/simulated/floor/tiled/gridded,
 /area/splf_raider/bridge)
 "yw" = (
