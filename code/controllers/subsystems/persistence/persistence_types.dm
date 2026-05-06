@@ -83,7 +83,7 @@
 		try
 			T.finalization_hook()
 		catch(var/exception/e)
-			log_subsystem_persistence_panic("Unhandled exception during [T]: [e]")
+			log_subsystem_persistence_error("Unhandled exception during [T]: [e]")
 
 	// ##### Saving history
 	for(var/datum/persistent_record_container/c as anything in history_cache)
@@ -96,10 +96,12 @@
 		sortTim(new_records, /proc/cmp_persistent_record_id_asc) // Sort by ID to preserve creation order, as the virtual IDs get replaced by real database IDs.
 		for(var/datum/persistent_record/r in new_records)
 			historyDatabaseInsertRecord(c.type_define.database_id, c.attribute, r.value)
+		log_subsystem_persistence_info("Saved new [length(new_records)] persistent history records.")
 
 	// ##### Saving generics
 	for(var/datum/persistent_generic/generic as anything in generic_cache)
 		genericDatabaseSave(generic.type_define, generic.attribute, generic.expires_in_days, json_encode(generic.content))
+	log_subsystem_persistence_info("Saved [length(generic_cache)] persistent generics.")
 
 /**
  * Internal proc for assigning new IDs to history records, these are used for internal cache tracking and will be discard by database IDs at finalization.
