@@ -1,4 +1,39 @@
 /**
+ * Helper proc for history/character persistent types to retrieve a character name based of it's character ID.alist
+ * PARAMS:
+ *  char_id = ID of character.
+ * RETURN:
+ *  Character name or null if not found.
+ */
+/datum/controller/subsystem/persistence/proc/historyGetCharnameByID(char_id)
+	if(!char_id)
+		return null
+
+	var/char_id_num = text2num(char_id)
+	if(char_id_num <= 0)
+		return null
+
+	var/cache_hit = char_cache[char_id_num]
+	if(cache_hit)
+		return cache_hit
+
+	var/datum/db_query/query = SSdbcore.NewQuery(
+		"SELECT name FROM ss13_characters WHERE id = :char_id",
+		list("char_id" = char_id_num)
+	)
+	query.Execute()
+
+	var/char_name
+	while(query.NextRow())
+		char_name += query.item[1]
+	qdel(query)
+	if(!char_name)
+		return null
+	else
+		char_cache[char_id_num] = char_name
+		return char_name
+
+/**
  * Add a new record to the history for the given type/attribute.
  * PARAMS:
  * 	target_type =	Singleton persistent type definition. See /singleton/persistent_type/history and subtypes.

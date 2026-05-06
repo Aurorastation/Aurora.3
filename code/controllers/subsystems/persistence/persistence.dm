@@ -27,6 +27,8 @@ SUBSYSTEM_DEF(persistence)
 	/// ID used for instanciating new history records during the round, used for cache tracking.
 	/// Their database ID will be set during insert/finalization.
 	var/history_virtual_id = 0
+	/// Hashmap cache of Character name by ID for history/character helper.
+	var/char_cache = list()
 	/// In-memory cache of persistent generics.
 	var/generic_cache = list()
 
