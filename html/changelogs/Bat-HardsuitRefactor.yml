@@ -51,6 +51,7 @@ changes:
   - balance: "Hardsuits now passively consume a small amount of energy while online, even when retracted."
   - balance: "Hardsuit boots can no longer be retracted without also retracting the chest piece first."
   - balance: "Mounted hardsuit storage module max space increased from 9 to 14."
+  - balance: "Plasma cutter (standalone and mounted) damage increased and range decreased by 50% each."
   - soundadd: "Adds several new sounds for hardsuit use (attribution located w/ files)."
   - code_imp: "Makes power_wattage_readable() a global proc and adds power_joules_readable()."
   - code_imp: "Lots of misc DMdoc updates."

@@ -187,17 +187,26 @@
 	new /obj/effect/decal/cleanable/molten_item(src)
 
 	if(do_message)
-		visible_message(SPAN_DANGER("\The [src] spontaneously combusts!")) //!!OH SHIT!!
+		visible_message(SPAN_DANGER("\The [src] melts into slag!")) //!!OH SHIT!!
 
 /turf/simulated/wall/add_damage(damage, damage_flags, damage_type, armor_penetration, obj/weapon)
 	if(locate(/obj/effect/overlay/wallrot) in src)
 		visible_message(SPAN_WARNING("\The [src] crumbles further under the rot!"))
 		damage *= 10
 	. = ..()
+	if(!QDELING(src) && (damage_flags & DAMAGE_FLAG_LASER))
+		if(prob(100) && (health < maxhealth * 0.9))
+			create_melt_overlay(1 SECOND)
+			playsound(loc, 'sound/machines/thruster.ogg', 15, FALSE, ignore_walls = TRUE)
 	update_icon()
 
 /turf/simulated/wall/on_death(damage, damage_flags, damage_type, armor_penetration, obj/weapon)
-	dismantle_wall()
+	if(prob(33) && (damage_flags & DAMAGE_FLAG_LASER) && can_melt())
+		create_melt_overlay()
+		playsound(loc, 'sound/machines/thruster.ogg', 40, FALSE, ignore_walls = TRUE)
+		melt()
+	else
+		dismantle_wall()
 
 /turf/simulated/wall/fire_act(exposed_temperature, exposed_volume) //Doesn't fucking work because walls don't interact with air :[
 	. = ..()
@@ -268,11 +277,14 @@
 	if(!can_melt())
 		return
 
-	var/obj/effect/overlay/thermite/O = new /obj/effect/overlay/thermite(src)
 	to_chat(user, SPAN_WARNING("The thermite starts melting through the wall."))
 
-	QDEL_IN(O, 100)
-	addtimer(CALLBACK(src, TYPE_PROC_REF(/atom, melt), FALSE), 100)
+	create_melt_overlay(10 SECONDS)
+	addtimer(CALLBACK(src, TYPE_PROC_REF(/atom, melt), FALSE), 10 SECONDS)
+
+/turf/simulated/wall/proc/create_melt_overlay(overlay_lifetime = 2 SECONDS)
+	var/obj/effect/overlay/thermite/O = new /obj/effect/overlay/thermite(src)
+	QDEL_IN(O, overlay_lifetime)
 
 /turf/simulated/wall/proc/radiate()
 	var/total_radiation = material.radioactivity + (reinf_material ? reinf_material.radioactivity / 2 : 0)

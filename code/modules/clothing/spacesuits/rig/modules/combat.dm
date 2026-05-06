@@ -245,7 +245,7 @@
 
 /obj/item/rig_module/mounted/plasmacutter
 	name = "hardsuit plasma cutter"
-	desc = "A forearm mounted kinetic accelerator"
+	desc = "A forearm-mounted plasma arc cutter."
 	icon_state = "plasmacutter"
 	interface_name = "plasma cutter"
 	interface_desc = "A self-sustaining plasma arc capable of cutting through walls."
