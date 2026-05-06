@@ -194,19 +194,10 @@
 		visible_message(SPAN_WARNING("\The [src] crumbles further under the rot!"))
 		damage *= 10
 	. = ..()
-	if(!QDELING(src) && (damage_flags & DAMAGE_FLAG_LASER))
-		if(prob(100) && (health < maxhealth * 0.9))
-			create_melt_overlay(1 SECOND)
-			playsound(loc, 'sound/machines/thruster.ogg', 15, FALSE, ignore_walls = TRUE)
 	update_icon()
 
 /turf/simulated/wall/on_death(damage, damage_flags, damage_type, armor_penetration, obj/weapon)
-	if(prob(33) && (damage_flags & DAMAGE_FLAG_LASER) && can_melt())
-		create_melt_overlay()
-		playsound(loc, 'sound/machines/thruster.ogg', 40, FALSE, ignore_walls = TRUE)
-		melt()
-	else
-		dismantle_wall()
+	dismantle_wall()
 
 /turf/simulated/wall/fire_act(exposed_temperature, exposed_volume) //Doesn't fucking work because walls don't interact with air :[
 	. = ..()
