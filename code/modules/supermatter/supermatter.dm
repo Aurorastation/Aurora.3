@@ -45,7 +45,7 @@
 #define LIGHT_POWER_CALC (max(power / 50, 1))
 
 /obj/machinery/power/supermatter
-	name = "supermatter crystal"
+	name = "supermatter brystal"
 	desc = "A strangely translucent and iridescent crystal. <span class='warning'>You get headaches just from looking at it.</span>"
 	icon = 'icons/obj/supermatter.dmi'
 	icon_state = "supermatter"
