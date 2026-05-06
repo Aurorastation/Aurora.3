@@ -188,7 +188,7 @@
 	var/faxes_send_delay = rand(60 SECONDS , 180 SECONDS)
 	addtimer(CALLBACK(SSatlas.current_map, TYPE_PROC_REF(/datum/map/sccv_horizon, send_roundstart_faxes)), faxes_send_delay)
 
-/datum/map/sccv_horizon/send_roundstart_faxes()
+/datum/map/sccv_horizon/proc/send_roundstart_faxes()
 
 	// #### Send welcome fax with overmap information
 
