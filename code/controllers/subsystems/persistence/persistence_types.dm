@@ -72,9 +72,20 @@
 	PRIVATE_PROC(TRUE)
 
 	// Subsystem shutdown:
+	// Call finalization hook for each known persistent_type
 	// Save all history records in cache to database which have an ID higher then last known database ID - Records created during the round.
 	// Save all generics in cache to database which have an ID higher then last known database ID - Generics created during the round.
 
+	// ##### Hooks
+	var/base_types = list(/singleton/persistent_type, /singleton/persistent_type/generic, /singleton/persistent_type/history, /singleton/persistent_type/history/character)
+	var/custom_types = typesof(/singleton/persistent_type) - base_types // These are the types we are actually dealing with
+	for (var/singleton/persistent_type/T in custom_types)
+		try
+			T.finalization_hook()
+		catch(var/exception/e)
+			log_subsystem_persistence_panic("Unhandled exception during [T]: [e]")
+
+	// ##### Saving history
 	for(var/datum/persistent_record_container/c as anything in history_cache)
 		if(!length(c.records)) // Container was queried, got no hits and nothing was added.
 			continue
@@ -86,6 +97,7 @@
 		for(var/datum/persistent_record/r in new_records)
 			historyDatabaseInsertRecord(c.type_define.database_id, c.attribute, r.value)
 
+	// ##### Saving generics
 	for(var/datum/persistent_generic/generic as anything in generic_cache)
 		genericDatabaseSave(generic.type_define, generic.attribute, generic.expires_in_days, json_encode(generic.content))
 

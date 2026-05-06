@@ -164,9 +164,29 @@
 	)
 	shuttle_missions = list("Exploration", "Research", "Prospecting", "Salvaging", "Transport", "Combat", "Rescue", "Training", "Humanitarian", "Expedition", "Recreation", "Other")
 
+/singleton/persistent_type/generic/horizon_overmap_position/finalization_hook()
+	if(SSatlas.current_map.use_overmap)
+		var/obj/effect/overmap/visitable/ship/sccv_horizon/ship = locate(/obj/effect/overmap/visitable/ship/sccv_horizon) in GLOB.map_overmap
+		if(ship)
+			SSpersistence.genericSave(/singleton/persistent_type/generic/horizon_overmap_position, null, list("x" = ship.x, "y" = ship.y), 1)
+
 /datum/map/sccv_horizon/post_gamemode_setup()
-	var/welcome_delay = rand(60 SECONDS , 180 SECONDS)
-	addtimer(CALLBACK(SSatlas.current_map, TYPE_PROC_REF(/datum/map/sccv_horizon, send_roundstart_faxes)), welcome_delay)
+	// ##### Set persistent Horizon position on the overmap
+	var/datum/persistent_generic/horizon_location_generic = SSpersistence.genericLoad(/singleton/persistent_type/generic/horizon_overmap_position, FALSE)
+	if(horizon_location_generic)
+		var/area/overmap/map = GLOB.map_overmap
+		// Set Horizon location
+		var/obj/effect/overmap/visitable/ship/sccv_horizon/ship = locate(/obj/effect/overmap/visitable/ship/sccv_horizon) in map
+		ship.x = horizon_location_generic.content["x"]
+		ship.y = horizon_location_generic.content["y"]
+		// Make safe space for the Horizon
+		for(var/obj/effect/overmap/O in map)
+			if(istype(O, /obj/effect/overmap/event/)) // Ions, dust, carps, meteors, etc.
+				qdel(O)
+
+	// ##### Send different faxes after slight delay
+	var/faxes_send_delay = rand(60 SECONDS , 180 SECONDS)
+	addtimer(CALLBACK(SSatlas.current_map, TYPE_PROC_REF(/datum/map/sccv_horizon, send_roundstart_faxes)), faxes_send_delay)
 
 /datum/map/sccv_horizon/send_roundstart_faxes()
 

@@ -63,6 +63,16 @@ ABSTRACT_TYPE(/singleton/persistent_type)
 	var/description = ""
 	var/requires_attribute = FALSE
 
+/**
+ *	Hook proc that is called by the subsystem starting finalization.
+ *  Hooks are used for implementing finalization logic for mechanics that either
+ *  don't have a single trigger to save or where repetitive saving would be too costly.
+ *  Should return nothing, returned values are discarded.
+ */
+/singleton/persistent_type/proc/finalization_hook()
+	SHOULD_CALL_PARENT(FALSE)
+	return
+
 ABSTRACT_TYPE(/singleton/persistent_type/generic)
 	definition_type_value = 1 // DO NOT MODIFY - Database constant
 
@@ -115,6 +125,8 @@ ABSTRACT_TYPE(/singleton/persistent_type/history/character)
 // Singleton list of generic persistent type definitions, created by the macro above.
 // CREATE_PERSISTENT_TYPE_GENERIC(basic, "Title", "A persistent generic with no special properties.", FALSE)
 // => creates /singleton/persistent_type/generic/basic
+
+CREATE_PERSISTENT_TYPE_GENERIC(horizon_overmap_position, "SCCV Horizon sector position", "Position of the SCCV Horizon on the overmap.", FALSE)
 
 // Singleton list of history persistent type definitions, created by the macro above.
 // CREATE_PERSISTENT_TYPE_HISTORY(basic, "Title", "A persistent record type with no special properties.", FALSE, /singleton/persistent_type_history_expiration_rule/row_count/hundred)
