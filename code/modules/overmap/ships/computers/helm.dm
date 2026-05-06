@@ -307,7 +307,7 @@
 					visible_message(SPAN_DANGER("[H] twists the yoke all the way to the [ndir == WEST ? "left" : "right"]!"))
 					connected.combat_turn(ndir)
 			if(!issilicon(usr))
-			var/mob/living/silicon/ai/H = usr
+				var/mob/living/silicon/ai/H = usr
 				if(do_after(H, 1 SECOND) && connected.can_combat_turn())
 					visible_message(SPAN_DANGER("[H] remotely twists the yoke systematically all the way to the [ndir == WEST ? "left" : "right"]!"))
 					connected.combat_turn(ndir)
