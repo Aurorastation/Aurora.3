@@ -3395,6 +3395,7 @@
 /obj/structure/table/steel,
 /obj/effect/floor_decal/corner/blue/full,
 /obj/item/extinguisher,
+/obj/item/eftpos,
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_science_vessel/bridge)
 "jLI" = (

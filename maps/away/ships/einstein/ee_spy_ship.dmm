@@ -740,6 +740,7 @@
 "mwP" = (
 /obj/structure/table/standard,
 /obj/item/flashlight/lamp,
+/obj/item/eftpos,
 /turf/simulated/floor/tiled/dark,
 /area/ship/ee_spy_ship)
 "mEc" = (

@@ -4634,6 +4634,7 @@
 	pixel_x = 5;
 	pixel_y = 6
 	},
+/obj/item/eftpos,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/kasf_corvette/cic)
 "AM" = (

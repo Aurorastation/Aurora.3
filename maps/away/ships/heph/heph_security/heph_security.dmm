@@ -6840,6 +6840,7 @@
 	pixel_y = 31;
 	pixel_x = 3
 	},
+/obj/item/eftpos,
 /turf/simulated/floor,
 /area/heph_security_ship/bridge)
 "WT" = (
