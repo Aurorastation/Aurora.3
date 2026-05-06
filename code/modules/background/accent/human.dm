@@ -110,7 +110,7 @@
 /datum/accent/gibson
 	name = ACCENT_GIBSON
 	description = "A distinctive accent heard within Tau Ceti that sounds notably gruff and melodic. Being associated with New Gibson, it is generally perceived as the accent of a \
-	hardworking but unapproachable individual, however can be reassuring to hear from one's manager. It many regional varieties per colony on New Gibson: Virklunders and Fallanlanders \
+	hardworking but unapproachable individual, however can be reassuring to hear from one's manager. It has many regional varieties per colony on New Gibson: Virklunders and Fallanlanders \
 	have more traditional phonetics and a bouncier lilt; those from Respite have lost these more distinctive sounds to better mesh with Biesellites; and those from Xoikko are known for \
 	their higher-pitched delivery, influenced by skrell."
 	tag_icon = "gibson"
