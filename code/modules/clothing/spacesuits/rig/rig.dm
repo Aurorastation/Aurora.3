@@ -633,7 +633,7 @@
 
 	data["ai"] = (src.loc != user)
 
-    data["seals"] = canremove
+	data["seals"] = canremove
 	data["sealing"] = sealing
 
 	data["helmet"] = helmet ? helmet.name : "None."
@@ -878,7 +878,7 @@
 				var/obj/item/chest_obj = chest
 				if(use_obj == boots && chest_slot == chest_obj)
 					to_chat(wearer, SPAN_WARNING("The chest piece of the hardsuit must be retracted before you can retract your boots!"))
-					sound_to(H, 'sound/machines/terminal/terminal_error.ogg')
+					sound_to(wearer, 'sound/machines/terminal/terminal_error.ogg')
 					return
 
 				if(check_slot == use_obj)
