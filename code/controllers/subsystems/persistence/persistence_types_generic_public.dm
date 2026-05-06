@@ -48,10 +48,7 @@
  * RETURN:
  *	/persistent_generic or null if not available.
  */
-/datum/controller/subsystem/persistence/proc/genericLoad(var/singleton/persistent_type/generic/target_type, attribute, content, expiration_in_days = PERSISTENT_DEFAULT_EXPIRATION_DAYS)
-	if(!content || length(content))
-		return
-
+/datum/controller/subsystem/persistence/proc/genericLoad(var/singleton/persistent_type/generic/target_type, attribute)
 	if(!target_type)
 		log_subsystem_persistence_warning("Attempted to load generic with null target type.")
 		return
