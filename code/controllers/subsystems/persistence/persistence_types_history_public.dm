@@ -61,17 +61,20 @@
 	// Add record to cache for DB insert at finalization and quick access
 	// Check if record container exists, if not, create it
 	var/datum/persistent_record_container/container = null
-	for(var/datum/persistent_record_container/c as anything in history_cache)
-		if(c.type_define == target_type.type && c.attribute == attribute)
-			container = c
-			break
+	if(attribute) // Search for attribute
+		for(var/datum/persistent_record_container/c as anything in history_cache)
+			if(c.type_define == target_type.type && c.attribute == attribute)
+				container = c
+				break
+	else // Try finding type if no attribute
+		container = history_cache[target_type]
 
 	if(!container)
 		container = new /datum/persistent_record_container
 		container.type_define = target_type.type
 		container.attribute = attribute
 		container.records = list()
-		history_cache += container
+		history_cache[target_type] = container
 
 	// Create record and add to container
 	var/datum/persistent_record/r = new /datum/persistent_record
@@ -138,10 +141,13 @@
 	// 2 - Query database for last X records of type and add it to record container as new cache
 
 	var/datum/persistent_record_container/container = null
-	for(var/datum/persistent_record_container/c as anything in history_cache)
-		if(c.type_define == target_type.type && c.attribute == attribute)
-			container = c
-			break
+	if(attribute) // Search for attribute
+		for(var/datum/persistent_record_container/c as anything in history_cache)
+			if(c.type_define == target_type.type && c.attribute == attribute)
+				container = c
+				break
+	else // Try finding type if no attribute
+		container = history_cache[target_type]
 
 	var/list/datum/persistent_record/top = list()
 
@@ -155,7 +161,7 @@
 		container.type_define = target_type.type
 		container.attribute = attribute
 		container.records = list()
-		history_cache += container
+		history_cache[target_type] = container
 
 	// Query order - 2
 	var/list/db_records = historyDatabaseGetRecords(target_type.database_id, attribute, limit - length(top)) // Draw remaining missing records from DB
@@ -229,10 +235,13 @@
 		// 2 - Query database for last X records of type and add it to record container as new cache
 
 		var/datum/persistent_record_container/container = null
-		for(var/datum/persistent_record_container/c as anything in history_cache)
-			if(c.type_define == target_type.type && c.attribute == attribute)
-				container = c
-				break
+		if(attribute) // Search for attribute
+			for(var/datum/persistent_record_container/c as anything in history_cache)
+				if(c.type_define == target_type.type && c.attribute == attribute)
+					container = c
+					break
+		else // Try finding type if no attribute
+			container = history_cache[target_type]
 
 		var/list/datum/persistent_record/top = list()
 
@@ -246,7 +255,7 @@
 			container.type_define = target_type.type
 			container.attribute = attribute
 			container.records = list()
-			history_cache += container
+			history_cache[target_type] = container
 
 		// Query order - 2
 		var/list/db_records = historyDatabaseGetRecords(target_type.database_id, attribute, limit - length(top)) // Draw remaining missing records from DB

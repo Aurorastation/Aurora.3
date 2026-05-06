@@ -21,18 +21,24 @@
 	if(!expires_in_days || expires_in_days <= 0)
 		expires_in_days = PERSISTENT_DEFAULT_EXPIRATION_DAYS
 
-	for(var/datum/persistent_generic/generic as anything in generic_cache)
-		if(generic.type_define == target_type && generic.attribute == attribute)
-			generic.content = content
-			generic.expires_in_days = expires_in_days
-			return
+	if(attribute)
+		for(var/datum/persistent_generic/generic as anything in generic_cache)
+			if(generic.type_define == target_type && generic.attribute == attribute)
+				generic.content = content
+				generic.expires_in_days = expires_in_days
+				return
+	else
+		var/datum/persistent_generic/generic = generic_cache[target_type]
+		generic.content = content
+		generic.expires_in_days = expires_in_days
+		return
 
 	var/datum/persistent_generic/new_generic = new /datum/persistent_generic/
 	new_generic.type_define = target_type
 	new_generic.attribute = attribute
 	new_generic.content = content
 	new_generic.expires_in_days = expires_in_days
-	generic_cache += new_generic
+	generic_cache[target_type] = new_generic
 
 /**
  * Retrieve/Loads generic content of a type(+attribute)
@@ -54,8 +60,13 @@
 		log_subsystem_persistence_warning("Attempted to load generic of type [target_type] without required attribute.")
 		return
 
-	for(var/datum/persistent_generic/generic as anything in generic_cache)
-		if(generic.type_define == target_type && generic.attribute == attribute)
+	if(attribute)
+		for(var/datum/persistent_generic/generic as anything in generic_cache)
+			if(generic.type_define == target_type && generic.attribute == attribute)
+				return generic
+	else
+		var/datum/persistent_generic/generic = generic_cache[target_type]
+		if(generic)
 			return generic
 
 	var/result = genericDatabaseLoad(target_type, attribute)
@@ -65,5 +76,5 @@
 	new_generic.attribute = attribute
 	new_generic.content = json_decode(result["id"])
 	new_generic.expires_in_days = PERSISTENT_DEFAULT_EXPIRATION_DAYS
-	generic_cache += new_generic
+	generic_cache[target_type] = new_generic
 	return new_generic

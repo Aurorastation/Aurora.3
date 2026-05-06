@@ -16,9 +16,9 @@ SUBSYSTEM_DEF(persistence)
 	var/prevent_saving = FALSE
 	/// In-memory register of all persistent objects that were loaded or created during the round, used for tracking and finalization purposes.
 	var/object_track_register = list()
-	/// In-memory cache of persistent history records.
+	/// Dictionary<type, container> cache of persistent history records.
 	var/history_cache = list()
-	/// Manual record counter of cache containers, used to prevent bigger count loops over the cache.
+	/// Manual record counter of cache containers.
 	var/history_cache_count = 0
 	/// ID of last found history record.
 	/// Higher found IDs mean the record is not yet found in the database, lower or equal found ID means the are record that are already in the database.
@@ -27,9 +27,9 @@ SUBSYSTEM_DEF(persistence)
 	/// ID used for instanciating new history records during the round, used for cache tracking.
 	/// Their database ID will be set during insert/finalization.
 	var/history_virtual_id = 0
-	/// Hashmap cache of Character name by ID for history/character helper.
+	/// Dictionary<char_id, charname> cache of Character name by ID for history/character helper.
 	var/char_cache = list()
-	/// In-memory cache of persistent generics.
+	/// Dictionary<type, container> cache of persistent generics.
 	var/generic_cache = list()
 
 /**
