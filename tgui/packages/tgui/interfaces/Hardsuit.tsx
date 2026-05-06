@@ -427,7 +427,7 @@ const ModulesSection = (props, context) => {
 
                 <Table.Cell>
                   <Collapsible
-                    title={m.module_name + ' ' + m.damagedTag}
+                    title={m.module_name + ' ' + damagedTag}
                     color={
                       m.module_active || m.module_selected ? 'good' : 'average'
                     }
