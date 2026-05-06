@@ -7,10 +7,6 @@
 /obj/effect/decal/curb{
 	dir = 1
 	},
-/obj/item/rig/unathi/fancy/equipped{
-	species_restricted = null;
-	req_access = list()
-	},
 /turf/simulated/floor/tiled/full,
 /area/hallway/primary/central_one)
 "ac" = (
@@ -877,7 +873,6 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/black/full,
-/obj/item/rig/ce/equipped,
 /turf/simulated/floor/tiled/gridded,
 /area/hallway/primary/central_one)
 "cp" = (
@@ -1970,7 +1965,6 @@
 /obj/effect/floor_decal/corner/black{
 	dir = 9
 	},
-/obj/item/rig/industrial/equipped,
 /turf/simulated/floor/tiled/gridded,
 /area/hallway/primary/central_one)
 "ie" = (
@@ -5999,7 +5993,6 @@
 /obj/effect/floor_decal/corner/black{
 	dir = 6
 	},
-/obj/item/rig/medical/equipped,
 /turf/simulated/floor/tiled/gridded,
 /area/hallway/primary/central_one)
 "Gv" = (
@@ -7052,9 +7045,6 @@
 /obj/effect/decal/curb{
 	dir = 1
 	},
-/obj/item/rig/ert/assetprotection{
-	req_access = list()
-	},
 /turf/simulated/floor/tiled/full,
 /area/hallway/primary/central_one)
 "MD" = (
@@ -7320,9 +7310,6 @@
 /obj/structure/railing/mapped/no_density/low,
 /obj/effect/decal/curb{
 	dir = 1
-	},
-/obj/item/rig/merc/einstein/ninja{
-	req_access = list()
 	},
 /turf/simulated/floor/tiled/full,
 /area/hallway/primary/central_one)
@@ -9151,7 +9138,6 @@
 /obj/effect/floor_decal/corner/black/full{
 	dir = 4
 	},
-/obj/item/rig/combat/equipped,
 /turf/simulated/floor/tiled/gridded,
 /area/hallway/primary/central_one)
 "Zx" = (

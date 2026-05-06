@@ -657,7 +657,7 @@
 	switch(key)
 		if("fall_damping")
 			active = !active
-			balloon_alert(user, "fall damping [active ? 'active' : 'inactive']!")
+			balloon_alert(user, "fall damping [active ? "active" : "inactive"]!")
 
 /obj/item/rig_module/actuators/engage(atom/target, mob/user)
 	if(!target)
