@@ -49,18 +49,22 @@
 
 		if(success == 2)
 			playsound(loc, 'sound/machines/weapons_analyzer_finish.ogg', 75, 1)
+			SStgui.update_uis(src)
 			addtimer(CALLBACK(src, PROC_REF(reset)), 32)
 		else
 			playsound(loc, 'sound/machines/weapons_analyzer.ogg', 75, 1)
+			SStgui.update_uis(src)
 			addtimer(CALLBACK(src, PROC_REF(reset)), 15)
 		process = TRUE
 		update_icon()
+
 	else if(attacking_item)
 		check_swap(user, attacking_item)
 		item = attacking_item
 		H.drop_from_inventory(attacking_item)
 		attacking_item.forceMove(src)
 		update_icon()
+	ui_interact(user)
 
 /obj/machinery/r_n_d/weapons_analyzer/attack_hand(mob/user)
 	user.set_machine(src)
@@ -69,6 +73,7 @@
 /obj/machinery/r_n_d/weapons_analyzer/proc/reset()
 	process = FALSE
 	update_icon()
+	SStgui.update_uis(src)
 
 /obj/machinery/r_n_d/weapons_analyzer/proc/check_swap(var/mob/user, var/obj/I)
 	if(item)
@@ -97,11 +102,13 @@
 		A.forceMove(get_turf(src))
 		item = null
 		update_icon()
+		SStgui.update_uis(src)
 
 	else if(item)
 		item.forceMove(get_turf(src))
 		item = null
 		update_icon()
+		SStgui.update_uis(src)
 
 	else
 		to_chat(usr, SPAN_WARNING("There is nothing in \the [src]."))
@@ -141,16 +148,24 @@
 				continue
 
 			var/l_repair_name = initial(l_component.repair_item.name) ? initial(l_component.repair_item.name) : "nothing"
-			mods += list(list(
+			var/list/mod = list(
 				"name" = initial(l_component.name),
-				"reliability" = initial(l_component.reliability),
-				"damage_modifier" = initial(l_component.damage),
-				"fire_delay_modifier" = initial(l_component.fire_delay),
-				"shots_modifier" = initial(l_component.shots),
-				"burst_modifier" = initial(l_component.burst),
-				"accuracy_modifier" = initial(l_component.accuracy),
 				"repair_tool" = l_repair_name
-			))
+			)
+			if(l_component.reliability != 0)
+				mod["reliability"] = l_component.reliability
+			if(l_component.damage != 1)
+				mod["damage_modifier"] = l_component.damage
+			if(l_component.fire_delay != 1)
+				mod["fire_delay_modifier"] = l_component.fire_delay
+			if(l_component.shots != 1)
+				mod["shots_modifier"] = l_component.shots
+			if(l_component.burst != 0)
+				mod["burst_modifier"] = l_component.burst
+			if(l_component.accuracy != 0)
+				mod["accuracy_modifier"] = l_component.accuracy
+			mods += list(mod)
+
 		data["gun_mods"] = mods
 		data["laser_assembly"] = list("name" = assembly.name)
 
@@ -171,7 +186,7 @@
 		if(istype(gun, /obj/item/gun/energy))
 			var/obj/item/gun/energy/E = gun
 			var/obj/projectile/P = new E.projectile_type
-			data["gun"]["max_shots"] = initial(E.max_shots)
+			data["gun"]["max_shots"] = E.max_shots
 			data["gun"]["recharge"] = E.self_recharge ? "self recharging" : "not self recharging" //Not initial because modular guns are not self charging at initialization
 			data["gun"]["recharge_time"] = initial(E.recharge_time)
 			data["gun"]["damage"] = initial(P.damage)
@@ -197,16 +212,24 @@
 					if (l_component.shots != 0)
 						l_modified_max_shots *= l_component.shots
 					var/l_repair_name = initial(l_component.repair_item.name) ? initial(l_component.repair_item.name) : "nothing"
-					mods += list(list(
+					var/list/mod = list(
 						"name" = initial(l_component.name),
-						"reliability" = initial(l_component.reliability),
-						"damage_modifier" = initial(l_component.damage),
-						"fire_delay_modifier" = initial(l_component.fire_delay),
-						"shots_modifier" = initial(l_component.shots),
-						"burst_modifier" = initial(l_component.burst),
-						"accuracy_modifier" = initial(l_component.accuracy),
 						"repair_tool" = l_repair_name
-					))
+					)
+					if(l_component.reliability != 0)
+						mod["reliability"] = l_component.reliability //only show these if they do something
+					if(l_component.damage != 1)
+						mod["damage_modifier"] = l_component.damage
+					if(l_component.fire_delay != 1)
+						mod["fire_delay_modifier"] = l_component.fire_delay
+					if(l_component.shots != 1)
+						mod["shots_modifier"] = l_component.shots
+					if(l_component.burst != 0)
+						mod["burst_modifier"] = l_component.burst
+					if(l_component.accuracy != 0)
+						mod["accuracy_modifier"] = l_component.accuracy
+					mods += list(mod)
+
 				data["gun"]["damage"] = min(60, l_modified_damage)
 				data["gun"]["max_shots"] = l_modified_max_shots
 				data["gun_mods"] = mods
@@ -258,17 +281,10 @@
 	return data
 
 /obj/machinery/r_n_d/weapons_analyzer/ui_interact(mob/user, var/datum/tgui/ui)
-	var/height = item ? 600: 300
-	var/width = item ? 500 : 300
-	if(istype(item, /obj/item/gun/energy/laser/prototype) || istype(item, /obj/item/laser_assembly))
-		width = 600
-
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
-		ui = new(user, src, "WeaponsAnalyzer", "Weapons Analyzer", width, height)
+		ui = new(user, src, "WeaponsAnalyzer", "Weapons Analyzer", 600, 600)
 		ui.open()
-
-	ui.open()
 
 /obj/machinery/r_n_d/weapons_analyzer/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	. = ..()

@@ -533,6 +533,7 @@
 	desc = "A box full of laser modulators, used to build laser weapons."
 	illustration = "firecracker"
 	starts_with = list(
+		/obj/item/laser_components/modulator = 1,
 		/obj/item/laser_components/modulator/taser = 1,
 		/obj/item/laser_components/modulator/tesla = 1,
 		/obj/item/laser_components/modulator/ion = 1,
