@@ -39,6 +39,7 @@
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 8
 	},
+/obj/item/eftpos,
 /turf/simulated/floor/tiled,
 /area/tarwa_ship/bridge)
 "ao" = (

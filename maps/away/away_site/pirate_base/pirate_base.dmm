@@ -1315,6 +1315,7 @@
 	pixel_x = -7;
 	pixel_y = 8
 	},
+/obj/item/eftpos,
 /turf/simulated/floor/tiled,
 /area/piratebase/quarters)
 "gj" = (
@@ -2153,7 +2154,7 @@
 /area/piratebase/hallway_south)
 "kn" = (
 /obj/structure/closet,
-/obj/item/clothing/accessory/tshirt,
+/obj/item/clothing/under/dressshirt/tshirt,
 /obj/item/clothing/accessory/holster/utility/machete,
 /obj/item/material/hatchet/machete/steel,
 /turf/simulated/floor/tiled/yellow,
@@ -5864,7 +5865,7 @@
 "DO" = (
 /obj/structure/closet,
 /obj/item/clothing/suit/storage/toggle/leather_jacket,
-/obj/item/clothing/glasses/sunglasses/fluff,
+/obj/item/clothing/glasses/sunglasses,
 /obj/item/storage/box/fancy/cigarettes,
 /turf/simulated/floor/tiled/yellow,
 /area/shuttle/pirate_shuttle/living)
@@ -10026,7 +10027,7 @@
 /obj/item/clothing/pants/black,
 /obj/item/clothing/under/tactical,
 /obj/item/clothing/under/syndicate/tacticool,
-/obj/item/clothing/accessory/longsleeve_s,
+/obj/item/clothing/under/dressshirt/longsleeve_s,
 /obj/item/clothing/suit/storage/toggle/leather_jacket/flight,
 /turf/simulated/floor/tiled,
 /area/piratebase/quarters)

@@ -1753,6 +1753,7 @@
 /obj/structure/table/steel,
 /obj/item/paper_bin,
 /obj/item/pen,
+/obj/item/eftpos,
 /turf/simulated/floor/tiled/steel,
 /area/miners_guild/bridge)
 "nL" = (

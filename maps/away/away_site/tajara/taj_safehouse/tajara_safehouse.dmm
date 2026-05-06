@@ -1289,6 +1289,11 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/tajara_safehouse)
+"UD" = (
+/obj/structure/table/wood,
+/obj/item/eftpos,
+/turf/simulated/floor/tiled/dark,
+/area/tajara_safehouse)
 "UH" = (
 /obj/effect/decal/cleanable/cobweb2,
 /turf/simulated/floor,
@@ -28768,7 +28773,7 @@ lH
 lH
 nk
 hZ
-kc
+UD
 Hp
 lH
 iK

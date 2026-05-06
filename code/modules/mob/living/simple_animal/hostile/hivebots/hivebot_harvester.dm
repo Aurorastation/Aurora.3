@@ -32,7 +32,10 @@
 	mob_size = MOB_LARGE
 	pass_flags = PASSTABLE|PASSRAILING
 	attack_emote = "focuses on"
-	var/mob/living/simple_animal/hostile/hivebotbeacon/linked_parent = null
+
+	/// Weakref to the beacon that potentially spawned us.
+	var/datum/weakref/parent_beacon
+
 	var/turf/last_processed_turf
 	var/turf/last_prospect_target
 	var/turf/last_prospect_loc
@@ -46,41 +49,27 @@
 	sample_data = null
 
 /mob/living/simple_animal/hostile/retaliate/hivebotharvester/Initialize(mapload,mob/living/simple_animal/hostile/hivebotbeacon/beacon)
-	do_link(beacon)
 	. = ..()
+	if (beacon)
+		parent_beacon = WEAKREF(beacon)
+		beacon.harvester_amt++
 	set_light(3,2,LIGHT_COLOR_RED)
 	if(!mapload)
 		spark(get_turf(src), 3, GLOB.alldirs)
 
-/mob/living/simple_animal/hostile/retaliate/hivebotharvester/proc/do_link(mob/living/simple_animal/hostile/hivebotbeacon/beacon)
-	if(QDELETED(beacon))
-		return
-
-	if(linked_parent)
-		if(linked_parent == beacon)
-			return
-		linked_parent.unlink(src)
-
-	linked_parent = beacon
-	beacon.do_link(src)
-	RegisterSignal(linked_parent, COMSIG_QDELETING, PROC_REF(unlink))
-
-/mob/living/simple_animal/hostile/retaliate/hivebotharvester/proc/unlink()
-	SIGNAL_HANDLER
-	if(!linked_parent)
-		return
-	linked_parent.unlink(src)
-	UnregisterSignal(linked_parent, COMSIG_QDELETING)
-	linked_parent = null
-
 /mob/living/simple_animal/hostile/retaliate/hivebotharvester/death()
 	..(null,"teleports away!")
 	spark(get_turf(src), 3, GLOB.alldirs)
-	qdel(src)
+	QDEL_IN(src, 0)
 
 /mob/living/simple_animal/hostile/retaliate/hivebotharvester/Destroy()
-	unlink()
-	. = ..()
+	var/mob/living/simple_animal/hostile/hivebotbeacon/beacon = parent_beacon?.resolve()
+	if (beacon)
+		beacon.linked_bots.Remove(src)
+		beacon.harvester_amt--
+
+	parent_beacon = null
+	return ..()
 
 /mob/living/simple_animal/hostile/retaliate/hivebotharvester/Allow_Spacemove(var/check_drift = 0)
 	return 1
