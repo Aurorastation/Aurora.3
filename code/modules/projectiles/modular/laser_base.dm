@@ -70,15 +70,15 @@
 
 			switch(skill_level ? skill_level : 6)
 				if(-INFINITY to 2)
-					improvement *= rand(-0.5, -0.1) //Always damage it.
+					improvement *= (rand(-5, -1) / 10) //Always damage it.
 				if(3)
-					improvement *= rand(-0.5, 0.3)
+					improvement *= (rand(-5, 3) / 10)
 				if(4)
-					improvement *= rand(0.3, 0.5)
+					improvement *= (rand(3, 5) / 10)
 				if(5)
-					improvement *= rand(0.7, 1)
+					improvement *= (rand(7, 10) / 10)
 				if(6 to INFINITY)
-					improvement *= rand(0.8, 1.2)
+					improvement *= (rand(8, 12) / 10)
 
 			if (src.vars[stat_name] > (initial(src.vars[stat_name]) * INCREASE_CAP) && stat_direction > 0) //It is possible to waste improvement potential by hitting the cap on a stat, this is fine, it should be harder to improve a component that's already of high quality.
 				continue
@@ -88,7 +88,7 @@
 			src.vars[stat_name] += stat_direction * abs(initial(src.vars[stat_name]) * improvement) //Adds improvement % of the initial value to the stat.
 
 			if (improvement > 0)
-				to_chat(user, SPAN_NOTICE("Your careful repairs to \the [src] [stat_direction > 0 ? "increase" : "decrease"] its [replacetext(stat_name, "-", " ")] by [improvement * 100] percent!"))
+				to_chat(user, SPAN_NOTICE("Your careful repairs to \the [src] [stat_direction > 0 ? "increase" : "decrease"] its [replacetext(stat_name, "_", " ")] by [improvement * 100] percent!"))
 				total_improved += improvement
 			else if (improvement == 0)
 				to_chat(user, SPAN_NOTICE("Your repairs to \the [src], don't seem to improve it, but at least you didn't make it worse."))
@@ -111,38 +111,38 @@
 		if (4)
 			for (var/stat in increasable_stats)
 				if (src.vars[stat] != initial(src.vars[stat]))
-					. += SPAN_NOTICE("You can see \the [src]'s [replacetext(stat, "-", " ")] has had some custom work done to it.")
+					. += SPAN_NOTICE("You can see \the [src]'s [replacetext(stat, "_", " ")] has had some custom work done to it.")
 			for (var/stat in decreaseable_stats)
 				if (src.vars[stat] != initial(src.vars[stat]))
-					. += SPAN_NOTICE("You can see \the [src]'s [replacetext(stat, "-", " ")] has had some custom work done to it.")
+					. += SPAN_NOTICE("You can see \the [src]'s [replacetext(stat, "_", " ")] has had some custom work done to it.")
 			if(improvement_potential > 0)
 				. += SPAN_GOOD("You think you could repair \the [src] and improve it, but you might also make it worse if you aren't careful.")
 		if (5)
 			for (var/stat in increasable_stats)
 				if (src.vars[stat] > initial(src.vars[stat]))
-					. += SPAN_NOTICE("You can see \the [src]'s [replacetext(stat, "-", " ")] has been improved and increased.")
+					. += SPAN_NOTICE("You can see \the [src]'s [replacetext(stat, "_", " ")] has been improved and increased.")
 				else if (src.vars[stat] < initial(src.vars[stat]))
-					. += SPAN_WARNING("You can see \the [src]'s [replacetext(stat, "-", " ")] has been degraded and decreased.")
+					. += SPAN_WARNING("You can see \the [src]'s [replacetext(stat, "_", " ")] has been degraded and decreased.")
 			for (var/stat in decreaseable_stats)
-				if (src.vars[stat] > initial(src.vars[stat]))
-					. += SPAN_NOTICE("You can see \the [src]'s [replacetext(stat, "-", " ")] has been improved and decreased.")
-				else if (src.vars[stat] < initial(src.vars[stat]))
-					. += SPAN_WARNING("You can see \the [src]'s [replacetext(stat, "-", " ")] has been degraded and increased.")
+				if (src.vars[stat] < initial(src.vars[stat]))
+					. += SPAN_NOTICE("You can see \the [src]'s [replacetext(stat, "_", " ")] has been improved and decreased.")
+				else if (src.vars[stat] > initial(src.vars[stat]))
+					. += SPAN_WARNING("You can see \the [src]'s [replacetext(stat, "_", " ")] has been degraded and increased.")
 			if(improvement_potential > 0)
 				. += SPAN_GOOD("You see a few places where damage has revealed design flaws. You could correct them to improve \the [src].")
 		if (6 to INFINITY)
 			for (var/stat in increasable_stats)
 				if (src.vars[stat] > initial(src.vars[stat]))
-					. += SPAN_NOTICE("You can see \the [src]'s [replacetext(stat, "-", " ")] has been improved and increased by approximately [round((src.vars[stat] - initial(src.vars[stat])) / initial(src.vars[stat]) * 100)] percent.")
+					. += SPAN_NOTICE("You can see \the [src]'s [replacetext(stat, "_", " ")] has been improved, increasing it by approximately [round((src.vars[stat] - initial(src.vars[stat])) / initial(src.vars[stat]) * 100)] percent.")
 				else if (src.vars[stat] < initial(src.vars[stat]))
-					. += SPAN_WARNING("You can see \the [src]'s [replacetext(stat, "-", " ")] has been degraded and decreased by approximately [round((initial(src.vars[stat]) - src.vars[stat]) / initial(src.vars[stat]) * 100)] percent.")
+					. += SPAN_WARNING("You can see \the [src]'s [replacetext(stat, "_", " ")] has been degraded, decreasing it by approximately [round((initial(src.vars[stat]) - src.vars[stat]) / initial(src.vars[stat]) * 100)] percent.")
 			for (var/stat in decreaseable_stats)
-				if (src.vars[stat] > initial(src.vars[stat]))
-					. += SPAN_NOTICE("You can see \the [src]'s [replacetext(stat, "-", " ")] has been improved and decreased by approximately [round((src.vars[stat] - initial(src.vars[stat])) / initial(src.vars[stat]) * 100)] percent.")
-				else if (src.vars[stat] < initial(src.vars[stat]))
-					. += SPAN_WARNING("You can see \the [src]'s [replacetext(stat, "-", " ")] has been degraded and increased by approximately [round((initial(src.vars[stat]) - src.vars[stat]) / initial(src.vars[stat]) * 100)] percent.")
+				if (src.vars[stat] < initial(src.vars[stat]))
+					. += SPAN_NOTICE("You can see \the [src]'s [replacetext(stat, "_", " ")] has been improved, decreasing it by approximately [round((src.vars[stat] - initial(src.vars[stat])) / initial(src.vars[stat]) * 100)] percent.")
+				else if (src.vars[stat] > initial(src.vars[stat]))
+					. += SPAN_WARNING("You can see \the [src]'s [replacetext(stat, "_", " ")] has been degraded, increasing it by approximately [round((initial(src.vars[stat]) - src.vars[stat]) / initial(src.vars[stat]) * 100)] percent.")
 			if(improvement_potential > 0)
-				. += SPAN_GOOD("You see a few places where damage has revealed design flaws. Correcting them could improve \the [src] by up to [improvement_potential]%.")
+				. += SPAN_GOOD("You see a few places where damage has revealed design flaws. Correcting them could improve \the [src] by up to [improvement_potential] percent.")
 
 /obj/item/laser_components/attackby(obj/item/attacking_item, mob/user)
 	if(!istype(attacking_item, repair_item))
@@ -266,15 +266,14 @@
 			H.electrocute_act(shock_damage * 0.4, prototype, def_zone = BP_R_ARM, tesla_shock = 0)
 	else
 		tesla_zap(prototype, 0, 4000*prototype.criticality)
-	capacitor.degrade(10 * prototype.criticality) //If you keep shooting after a critical failure, you deserve what you get.
 	return
 
 /obj/item/laser_components/focusing_lens
 	name = "focusing lens"
 	desc = "A basic laser weapon focusing lens."
 	icon_state = "lens"
-	var/list/dispersion = list(0, 5, 10, 15)
-	reliability = 25
+	var/list/dispersion = list(2, 4, 6, 8, 10)
+	accuracy = 1
 	repair_item = /obj/item/stack/material/glass
 	increasable_stats = list("reliability", "accuracy")
 	decreaseable_stats = list()

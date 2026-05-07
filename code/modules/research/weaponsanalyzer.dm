@@ -233,7 +233,7 @@
 					mods += list(mod)
 
 				data["gun"]["damage"] = min(60, l_modified_damage)
-				data["gun"]["max_shots"] = l_modified_max_shots
+				data["gun"]["max_shots"] = round(l_modified_max_shots)
 				data["gun_mods"] = mods
 
 			if(E.secondary_projectile_type)

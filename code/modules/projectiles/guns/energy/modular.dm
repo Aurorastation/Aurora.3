@@ -286,8 +286,8 @@
 	power_supply.maxcharge = max_shots*charge_cost
 	charge_cost /= max(1, (burst - 1))
 	fire_delay_wielded = fire_delay * 0.75
-	accuracy_wielded = accuracy + abs(accuracy)/4
-	scoped_accuracy = accuracy_wielded + abs(accuracy)/4
+	accuracy_wielded = accuracy + abs(accuracy)/2
+	scoped_accuracy = accuracy_wielded + abs(accuracy)
 	w_class = gun_type
 	reliability = max(reliability, 1)
 
