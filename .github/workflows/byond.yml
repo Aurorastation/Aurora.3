@@ -356,7 +356,7 @@ jobs:
     if: needs.validate-structure.outputs.skipci != 'true'
 
     concurrency:
-      group: lint-misc-${{ github.head_ref || github.run_id }}
+      group: lint-forbidden-map-types-${{ github.head_ref || github.run_id }}
       cancel-in-progress: true
 
     steps:
