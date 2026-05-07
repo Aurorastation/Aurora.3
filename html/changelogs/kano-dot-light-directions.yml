@@ -1,0 +1,6 @@
+author: Kano
+
+delete-after: True
+
+changes:
+  - bugfix: "Fixed flashlights not lighting the direction they're supposed to when dropped."
