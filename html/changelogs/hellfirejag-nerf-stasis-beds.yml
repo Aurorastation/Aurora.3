@@ -1,0 +1,4 @@
+author: Hellfirejag
+delete-after: True
+changes:
+  - balance: "Nerfed stasis beds to provide 8x stasis per part level, down from 10x stasis."
