@@ -367,7 +367,9 @@ const ModulesSection = (props, context) => {
                 <Box inline ml={1} color="bad">
                   (destroyed)
                 </Box>
-              ) : null;
+              ) : (
+                ''
+              );
 
             const disableAll = m.damage > 1;
 

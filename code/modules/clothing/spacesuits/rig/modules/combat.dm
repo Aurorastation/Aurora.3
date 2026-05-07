@@ -158,6 +158,8 @@
 	construction_cost= list(DEFAULT_WALL_MATERIAL = 7000, MATERIAL_GLASS = 2250, MATERIAL_URANIUM = 3250, MATERIAL_GOLD = 2500)
 	construction_time = 300
 
+	suit_overlay_active = "mounted-lascannon"
+
 	interface_name = "mounted energy gun"
 	interface_desc = "A forearm-mounted suit-powered energy gun."
 
@@ -173,7 +175,6 @@
 	construction_time = 300
 
 	suit_overlay_active = "mounted-taser"
-	suit_overlay_inactive = "mounted-taser"
 
 	interface_name = "mounted taser"
 	interface_desc = "A shoulder-mounted cell-powered taser."
@@ -186,6 +187,8 @@
 	name = "mounted pulse rifle"
 	desc = "A shoulder-mounted battery-powered pulse rifle mount."
 	icon_state = "pulse"
+
+	suit_overlay_active = "mounted-ion"
 
 	interface_name = "mounted pulse rifle"
 	interface_desc = "A shoulder-mounted cell-powered pulse rifle."
@@ -208,6 +211,8 @@
 	desc = "A forearm-mounted suit-powered ballistic submachine gun."
 	icon_state = "smg"
 
+	suit_overlay_active = "mounted-ion"
+
 	interface_name = "mounted submachine gun"
 	interface_desc = "A forearm-mounted suit-powered ballistic submachine gun."
 
@@ -217,6 +222,8 @@
 	name = "mounted xray laser gun"
 	desc = "A forearm-mounted suit-powered xray laser gun."
 	icon_state = "xray"
+
+	suit_overlay_active = "mounted-ion"
 
 	interface_name = "mounted xray laser gun"
 	interface_desc = "A forearm-mounted suit-powered xray laser gun."
@@ -228,6 +235,8 @@
 	desc = "A shoulder-mounted battery-powered ion rifle mount."
 	icon_state = "ion"
 
+	suit_overlay_active = "mounted-ion"
+
 	interface_name = "mounted ion rifle"
 	interface_desc = "A shoulder-mounted cell-powered ion rifle."
 
@@ -237,6 +246,8 @@
 	name = "mounted tesla carbine"
 	desc = "A shoulder-mounted battery-powered tesla carbine mount."
 	icon_state = "tesla"
+
+	suit_overlay_active = "mounted-ion"
 
 	interface_name = "mounted tesla carbine"
 	interface_desc = "A shoulder-mounted cell-powered tesla carbine."
@@ -415,6 +426,7 @@
 	name = "mounted tesla coil"
 	desc = "A mounted tesla coil that discharges a powerful lightning strike around the user."
 	icon_state = "ewar"
+	suit_overlay_active = "mounted-ion"
 	interface_name = "mounted tesla coil"
 	interface_desc ="Discharges a powerful lightning strike around the user."
 	module_type = MODULETYPE_USABLE

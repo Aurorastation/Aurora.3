@@ -560,7 +560,7 @@
 			species_icon =  sprite_sheets[wearer.species.get_bodytype()]
 		mob_icon = image("icon" = species_icon, "icon_state" = "[icon_state]")
 
-	if(installed_modules.len)
+	if(length(installed_modules))
 		for(var/obj/item/rig_module/module in installed_modules)
 			if(module.suit_overlay)
 				chest.AddOverlays(image("icon" = 'icons/mob/rig_modules.dmi', "icon_state" = "[module.suit_overlay]", "dir" = SOUTH))
@@ -572,6 +572,15 @@
 		wearer.update_inv_wear_suit()
 		wearer.update_inv_back()
 	return
+
+/obj/item/rig/get_mob_overlay(var/mob/living/carbon/human/H, var/mob_icon, var/mob_state, var/slot)
+	var/image/I = ..()
+	if(length(installed_modules))
+		if((chest_type && (chest && wearer?.wear_suit == chest)))
+			for(var/obj/item/rig_module/module in installed_modules)
+				if(module.suit_overlay)
+					I.AddOverlays(image('icons/mob/rig_modules.dmi', null, module.suit_overlay))
+	return I
 
 /obj/item/rig/get_cell()
 	if(cell)
@@ -708,7 +717,6 @@
 	var/mob/user = usr
 	if(!user)
 		return TRUE
-	to_chat(world, "<b>ui_act: [action], piece [params["piece"]], mode [params["mode"]], key [params["key"]], value [params["value"]]</b>")
 	// Just handles the UI's examine buttons. Doesn't need to check for access.
 	switch(action)
 		// Returns the Armor Values UI.
@@ -755,22 +763,23 @@
 				switch(mode)
 					if("activate")
 						module.activate(user)
+						sound_to(usr, module?.sound_activate)
 					if("deactivate")
 						module.deactivate(user)
+						sound_to(usr, module?.sound_deactivate)
 					if("engage")
 						module.do_engage(null, user)
 					if("select")
 						if(selected_module != module)
-							to_chat(world, "selected_module [selected_module] != module [module]")
 							selected_module = module
+							sound_to(usr, module?.sound_activate)
 						else
-							to_chat(world, "selected_module [selected_module] == module [module]")
+							sound_to(usr, selected_module?.sound_deactivate)
 							selected_module = null
-						sound_to(usr, 'sound/machines/terminal/terminal_prompt_confirm.ogg')
+						playsound(src.loc, 'sound/items/rfd_dispense.ogg', 25, FALSE)
 					if("select_charge_type")
-						// "charge_type" is a key into module.charges
 						module.charge_selected = "[params["charge_type"]]"
-						sound_to(usr, 'sound/machines/terminal/terminal_prompt_confirm.ogg')
+						sound_to(usr, module.sound_config)
 
 		if("toggle_ai_control")
 			ai_override_enabled = !ai_override_enabled
@@ -793,12 +802,10 @@
 
 		if("configure")
 			var/obj/item/rig_module/module = locate(params["ref"]) in installed_modules
-			to_chat(world, "attempting to configure module [params["ref"]]. found [module ? module.name : "NOTHING"]")
 			if(!module)
 				return
-			to_chat(world, "passing key [params["key"]] with value [params["value"]]")
 			module.configure_edit(params["key"], params["value"], user)
-			sound_to(usr, 'sound/machines/terminal/terminal_prompt_deny.ogg')
+			sound_to(usr, module.sound_config)
 
 	user.set_machine(src)
 	src.add_fingerprint(user)
@@ -913,6 +920,8 @@
 
 	if(piece == "helmet" && helmet)
 		helmet.update_light(wearer)
+
+	update_icon(1)
 
 /obj/item/rig/proc/deploy(mob/M,var/sealed)
 

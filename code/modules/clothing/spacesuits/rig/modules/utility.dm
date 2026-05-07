@@ -73,7 +73,6 @@
 	interface_name = "mounted drill"
 	interface_desc = "A diamond-tipped industrial drill."
 	suit_overlay_active = "mounted-drill"
-	suit_overlay_inactive = "mounted-drill"
 	use_power_cost = 0.2
 	construction_cost = list(DEFAULT_WALL_MATERIAL = 55000, MATERIAL_GLASS = 2250, MATERIAL_SILVER = 5250, MATERIAL_DIAMOND = 3750)
 	construction_time = 350
@@ -89,7 +88,6 @@
 	interface_name = "mounted drill"
 	interface_desc = "A basic industrial drill."
 	suit_overlay_active = "mounted-drill"
-	suit_overlay_inactive = "mounted-drill"
 	use_power_cost = 0.1
 
 	device_type = /obj/item/pickaxe/drill
@@ -122,6 +120,7 @@
 	name = "RFD-C mount"
 	desc = "A cell-powered rapid construction device for a hardsuit."
 	icon_state = "rcd"
+	suit_overlay_active = "mounted-rfd"
 	interface_name = "mounted RFD-C"
 	interface_desc = "A device for building or removing walls. Cell-powered."
 	module_type = MODULETYPE_USABLE_ACTIVE
@@ -196,6 +195,7 @@
 /obj/item/rig_module/chem_dispenser
 	name = "mounted chemical dispenser"
 	desc = "A complex web of tubing and needles suitable for hardsuit use."
+	suit_overlay_active = "mounted-injector"
 	interface_desc = "Dispenses loaded chemicals directly into the wearer's (or adjacent target's) bloodstream."
 	icon_state = "injector"
 	module_type = MODULETYPE_USABLE_ACTIVE
@@ -478,7 +478,7 @@
 	construction_time = 300
 
 	suit_overlay_active = "maneuvering_active"
-	suit_overlay_inactive = null //"maneuvering_inactive"
+	suit_overlay_inactive = "maneuvering_inactive"
 
 	interface_name = "maneuvering jets"
 	interface_desc = "An inbuilt EVA maneuvering system that runs off the hardsuit air supply."
@@ -888,6 +888,8 @@ GLOBAL_LIST_EMPTY(lattice_users)
 	desc = "A shoulder-mounted metal foam sprayer."
 	module_type = MODULETYPE_USABLE_ACTIVE
 	icon_state = "actuators"
+
+	suit_overlay_active = "mounted-gun"
 
 	interface_name = "integrated foam sprayer"
 	interface_desc = "Projects a line of metal foam where the user selects."

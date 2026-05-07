@@ -60,11 +60,11 @@
 
 	// Icons.
 	var/suit_overlay
-	/// If set, drawn over icon and mob when effect is active.
+	/// If set, drawn over icon and mob when module is active OR selected.
 	var/suit_overlay_active
-	/// As above, inactive.
+	/// As above, when inactive.
 	var/suit_overlay_inactive
-	/// As above, when engaged.
+	/// As above, when engaged. Not currently used, but in future should be a flick animation.
 	var/suit_overlay_used
 
 	//Display fluff
@@ -84,9 +84,9 @@
 	/// Sound played (to user only) when user changes a module configuration setting.
 	var/sound_config = 'sound/machines/terminal/terminal_select.ogg'
 	/// Sound played (to user only) when user activates a module.
-	var/sound_activate = 'sound/machines/terminal/terminal_select.ogg'
+	var/sound_activate = 'sound/machines/terminal/terminal_prompt_confirm.ogg'
 	/// Sound played (to user only) when user deactivates a module.
-	var/sound_deactivate = 'sound/machines/terminal/terminal_select.ogg'
+	var/sound_deactivate = 'sound/machines/terminal/terminal_prompt_deny.ogg'
 
 /obj/item/rig_module/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
