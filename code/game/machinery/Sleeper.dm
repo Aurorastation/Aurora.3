@@ -20,7 +20,7 @@
 	var/obj/item/reagent_containers/glass/beaker = null
 	var/filtering = FALSE
 	var/pump = FALSE
-	var/list/stasis_settings = list(1, 2, 5, 10)
+	var/list/stasis_settings = list(1, 2, 4)
 	var/stasis = 1
 	var/allow_occupant_types = list(/mob/living/carbon/human)
 	var/disallow_occupant_types = list()
