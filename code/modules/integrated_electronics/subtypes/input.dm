@@ -151,11 +151,11 @@
 		"body temperature" = IC_PINTYPE_NUMBER,
 		"in cardiac arrest?" = IC_PINTYPE_BOOLEAN,
 		// Advanced
-		"brute damage" = IC_PINTYPE_NUMBER,
-		"burn damage" = IC_PINTYPE_NUMBER,
-		"toxin damage" = IC_PINTYPE_NUMBER,
-		"radiation dose" = IC_PINTYPE_NUMBER,
-		"genetic instability" = IC_PINTYPE_NUMBER
+		"brute damage" = IC_PINTYPE_STRING,
+		"burn damage" = IC_PINTYPE_STRING,
+		"toxin damage" = IC_PINTYPE_STRING,
+		"radiation dose" = IC_PINTYPE_STRING,
+		"genetic instability" = IC_PINTYPE_STRING
 	)
 	activators = list("scan" = IC_PINTYPE_PULSE_IN, "on scanned" = IC_PINTYPE_PULSE_OUT)
 	spawn_flags = IC_SPAWN_RESEARCH
@@ -179,11 +179,11 @@
 		set_pin_data(IC_OUTPUT, 5, H.bodytemperature)
 		set_pin_data(IC_OUTPUT, 6, H.is_asystole())
 		// Advanced
-		set_pin_data(IC_OUTPUT, 7, H.getBruteLoss())
-		set_pin_data(IC_OUTPUT, 8, H.getFireLoss())
-		set_pin_data(IC_OUTPUT, 9, H.getToxLoss())
-		set_pin_data(IC_OUTPUT, 10, H.total_radiation)
-		set_pin_data(IC_OUTPUT, 11, H.getCloneLoss())
+		set_pin_data(IC_OUTPUT, 7, get_severity(H.getBruteLoss(), TRUE))
+		set_pin_data(IC_OUTPUT, 8, get_severity(H.getFireLoss(), TRUE))
+		set_pin_data(IC_OUTPUT, 9, get_severity(H.getToxLoss(), TRUE))
+		set_pin_data(IC_OUTPUT, 10, get_severity(H.total_radiation, TRUE))
+		set_pin_data(IC_OUTPUT, 11, get_severity(H.getCloneLoss(), TRUE))
 
 	push_data()
 	activate_pin(2)
