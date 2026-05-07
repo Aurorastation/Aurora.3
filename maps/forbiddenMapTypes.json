@@ -3,7 +3,7 @@
 		{
 			"name": "sccv_horizon.dmm",
 			"forbidden_types": [
-				"/obj/item/material/ashtray" // Persistency object
+				"/obj/item/material/ashtray"
 			]
 		}
 	]
