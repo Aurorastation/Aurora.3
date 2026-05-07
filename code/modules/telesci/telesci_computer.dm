@@ -520,7 +520,7 @@
 	if(href_list["setMemory"])
 		if(last_target && inserted_gps)
 			inserted_gps.locked_location = last_target
-			temp_msg = "Location saved."
+			temp_msg = "Location saved.<BR>Target Location: ([inserted_gps.locked_location.x], [inserted_gps.locked_location.y])"
 		else
 			temp_msg = "ERROR!<BR>No data was stored."
 

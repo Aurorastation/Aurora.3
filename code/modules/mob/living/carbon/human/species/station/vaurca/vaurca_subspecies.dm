@@ -321,6 +321,9 @@
 	H.mutations |= HULK
 	return ..()
 
+/datum/species/bug/type_big/New()
+	..()
+
 /datum/species/bug/type_e
 	name = SPECIES_VAURCA_BULWARK
 	short_name = "vak"

@@ -9,9 +9,6 @@
 	. = ..()
 	QDEL_IN(src, 15 SECONDS)	// In case whatever made it forgets to delete it
 
-/obj/effect/effect/water/Destroy()
-	reagents = null
-	return ..()
 
 /obj/effect/effect/water/proc/set_color() // Call it after you move reagents to it
 	if(!reagents)

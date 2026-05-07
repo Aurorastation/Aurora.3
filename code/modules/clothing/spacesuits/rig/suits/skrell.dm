@@ -20,7 +20,7 @@
 	emp_protection = 30
 	vision_restriction = TINT_NONE
 	slowdown = 0
-	offline_slowdown = 3
+	offline_slowdown = 1.5
 	species_restricted = list(BODYTYPE_SKRELL)
 
 	helm_type = /obj/item/clothing/head/helmet/space/rig/skrell

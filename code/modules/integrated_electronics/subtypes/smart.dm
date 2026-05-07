@@ -12,7 +12,7 @@
 	outputs = list("dir" = IC_PINTYPE_DIR)
 	activators = list("calculate dir" = IC_PINTYPE_PULSE_IN, "on calculated" = IC_PINTYPE_PULSE_OUT,"not calculated" = IC_PINTYPE_PULSE_OUT)
 	spawn_flags = IC_SPAWN_RESEARCH
-	power_draw_per_use = 40
+	power_draw_per_use = 400
 
 /obj/item/integrated_circuit/smart/basic_pathfinder/do_work()
 	var/datum/integrated_io/I = inputs[1]
@@ -50,7 +50,7 @@
 	)
 	activators = list("calculate dir" = IC_PINTYPE_PULSE_IN, "on calculated" = IC_PINTYPE_PULSE_OUT,"not calculated" = IC_PINTYPE_PULSE_OUT)
 	spawn_flags = IC_SPAWN_RESEARCH
-	power_draw_per_use = 40
+	power_draw_per_use = 400
 
 /obj/item/integrated_circuit/smart/coord_basic_pathfinder/do_work()
 	if(!assembly)

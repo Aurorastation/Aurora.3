@@ -19,7 +19,7 @@
 	/// The time passed since the last "fail", AKA losing charge faster than you can replenish it.
 	var/time_since_fail = 100
 	/// How many renwicks per watt.
-	var/energy_conversion_rate = 0.0002
+	var/energy_conversion_rate = 0.00006
 	/// If the field is strong, then the energy field objects will turn dense.
 	var/strong_field = FALSE
 

@@ -44,6 +44,10 @@
 
 	var/image/targeted_overlay
 
+/obj/effect/overmap/Destroy()
+	QDEL_NULL(targeted_overlay)
+	return ..()
+
 //Overlay of how this object should look on other skyboxes
 /obj/effect/overmap/proc/get_skybox_representation()
 	return

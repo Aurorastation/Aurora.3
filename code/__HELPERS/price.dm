@@ -11,34 +11,72 @@
 /proc/read_paper_price_list(var/obj/item/paper/R)
 	var/text = R.info
 
-	// Split on new line
+	// Split on line breaks
 	var/list/lines = splittext(text, "<BR>")
 	var/list/result = list()
 
-	// Skip a header line
+	// Skip header line
 	for(var/i = 2; i <= lines.len; i++)
-		var/line = lines[i]
+		var/line = trim(lines[i])
 		if(!length(line))
 			continue
 
-		// Split the name and price
 		var/list/split_input = splittext(line, ";")
 
-		if(split_input.len < 2)
+		// category;name;price
+		if(length(split_input) >= 3)
+			var/category = trim(split_input[1])
+			var/name = trim(split_input[2])
+			var/price_text = trim(split_input[3])
+
+			if(!length(category))
+				category = "Uncategorized"
+			if(!length(name))
+				continue
+
+			var/price = text2num(price_text)
+
+			// Reject null prices
+			if(isnull(price))
+				continue
+
+			// Reject invalid prices
+			if(price == 0 && price_text != "0" && price_text != "0.0" && price_text != "0.00")
+				continue
+
+			result += list(list(
+				"name" = name,
+				"price" = price,
+				"category" = category
+			))
 			continue
 
-		var/name = split_input[1]
-		var/price_text = split_input[2]
+		// name;price
+		if(length(split_input) >= 2)
+			var/name = trim(split_input[1])
+			var/price_text = trim(split_input[2])
 
-		var/price = text2num(price_text)
+			if(!length(name))
+				continue
 
-		// In case of invalid prices for some reason
-		if(price == 0 && price_text != "0" && price_text != "0.0")
-			continue
+			var/price = text2num(price_text)
 
-		result += list(list("name" = name, "price" = price))
+			// Reject null prices
+			if(isnull(price))
+				continue
+
+			// Reject invalid prices
+			if(price == 0 && price_text != "0" && price_text != "0.0" && price_text != "0.00" && price != null)
+				continue
+
+			result += list(list(
+				"name" = name,
+				"price" = price,
+				"category" = "Uncategorized"
+			))
 
 	return result
+
 
 // Prints the prices from a register/quikpay into a list that can be used for read_paper_price_list()
 /proc/print_price_to_paper(var/shop_name, var/list/items, var/paper_loc, mob/user)
@@ -47,12 +85,17 @@
 
 	var/obj/item/paper/notepad/receipt/R = new(paper_loc)
 	var/title = "Price List: [shop_name]"
-	var/text = "name;price<BR>"
+	var/text = "category;name;price<BR>"
 
 	for(var/list/L in items)
-		var/item_name = L["name"]
+		var/item_category = sanitize_tg(L["category"])
+		var/item_name = sanitize_tg(L["name"])
 		var/item_price = L["price"]
-		text += "[item_name];[round(item_price, 0.01)]<BR>"
+
+		if(!length(item_category))
+			item_category = "Uncategorized"
+
+		text += "[item_category];[item_name];[round(item_price, 0.01)]<BR>"
 
 	R.set_content(title, text)
 

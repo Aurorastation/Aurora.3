@@ -4,6 +4,7 @@
 	icon = 'icons/obj/structure/sofa.dmi'
 	icon_state = "sofa_middle"
 	base_icon = "sofa_middle"
+	obj_flags = OBJ_FLAG_ROTATABLE
 
 /obj/structure/bed/stool/chair/sofa/brown/New(var/newloc)
 	..(newloc, MATERIAL_STEEL, MATERIAL_LEATHER)
@@ -205,6 +206,24 @@
 
 /obj/structure/bed/stool/chair/sofa/corner/convex/violet/New(var/newloc)
 	..(newloc, MATERIAL_STEEL, MATERIAL_CLOTH, COLOR_VIOLET)
+
+/obj/structure/bed/stool/chair/sofa/bench
+	name = "bench"
+	desc = "A long, simple bench with a backboard, commonly found in subways, spaceports, and so on. Not known for being particularly comfortable."
+	icon_state = "pewmiddle"
+	base_icon = "pewmiddle"
+	build_amt = 3
+
+/obj/structure/bed/stool/chair/sofa/bench/New(var/newloc)
+	..(newloc, MATERIAL_STEEL)
+
+/obj/structure/bed/stool/chair/sofa/bench/left
+	icon_state = "pewend_left"
+	base_icon = "pewend_left"
+
+/obj/structure/bed/stool/chair/sofa/bench/right
+	icon_state = "pewend_right"
+	base_icon = "pewend_right"
 
 /obj/structure/bed/stool/chair/sofa/pew
 	name = "pew"

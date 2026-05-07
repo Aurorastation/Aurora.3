@@ -29,7 +29,8 @@
 		/turf/unsimulated/wall/fakepdoor,
 		/obj/structure/window_frame,
 		/obj/structure/window_frame/unanchored,
-		/obj/structure/window_frame/empty
+		/obj/structure/window_frame/empty,
+		/obj/structure/arch
 	)
 
 /turf/unsimulated/wall/fakepdoor
@@ -56,6 +57,7 @@
 	icon_state = "map-shuttle"
 	desc = "It's a wall. It appears to be composed of a highly durable alloy."
 	smoothing_flags = SMOOTH_TRUE
+	color = COLOR_WALL_GUNMETAL
 	canSmoothWith = list(
 		/turf/unsimulated/wall/darkshuttlewall,
 		/turf/unsimulated/wall/riveted,

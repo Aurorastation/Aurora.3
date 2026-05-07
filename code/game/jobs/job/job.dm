@@ -2,11 +2,8 @@
 	/// The name of the job.
 	var/title = "NOPE"
 
-	/// Job access. The use of minimal_access or access is determined by a config setting: config.jobs_have_minimal_access
-	/// Useful for servers which prefer to only have access given to the places a job absolutely needs (Larger server population)
-	var/list/minimal_access = list()
-	/// Useful for servers which either have fewer players, so each person needs to fill more than one role, or servers which like to give more access, so players can't hide forever in their super secure departments (I'm looking at you, chemistry!)
-	var/list/access = list()
+	/// Job access.
+	var/list/job_access = list()
 
 	/// Bitflags for the job.
 	var/flag = 0
@@ -75,6 +72,19 @@
 	/// The job name of the aide and bodyguard slots. Used for consulars and representatives.
 	var/aide_job
 	var/bodyguard_job
+
+	/**
+	 * Associated list of /singleton/skill/skill_name = skill_level that this job requires.
+	 * This should only be used for skills that have "Mechanical Hard Requirements"
+	 * EG: Surgery is literally impossible without the skill,
+	 * Thus a surgeon would be actually unplayable if they lacked it.
+	 * This is only intended to prevent situations where a player forgets to set a skill a job NEEDS
+	 * And then tries to join a round as a surgeon who can't do surgery.
+	 *
+	 * If a skill is "hard required" but later gets reworked to only have "soft requirements"
+	 * Then every job listing it should have the requirement removed.
+	 */
+	var/alist/skill_requirements = alist()
 
 //Only override this proc
 /datum/job/proc/pre_spawn(mob/abstract/new_player/player)
@@ -184,10 +194,7 @@
 /datum/job/proc/get_access(selected_title)
 	SHOULD_NOT_SLEEP(TRUE)
 
-	if(!GLOB.config || GLOB.config.jobs_have_minimal_access)
-		. = minimal_access.Copy()
-	else
-		. = access.Copy()
+	. = job_access.Copy()
 
 	if (LAZYLEN(title_accesses) && title_accesses[selected_title])
 		. += title_accesses[selected_title]

@@ -29,8 +29,9 @@
 		to_chat(user, "You deactivate \the [src].")
 		return
 
-/obj/item/organ/internal/augment/eye_sensors/phalanx/process()
-	..()
+/obj/item/organ/internal/augment/eye_sensors/phalanx/handle_vision_update(mob/living/carbon/human/H)
+	if(!owner)
+		return
 
 	switch(selected_hud)
 		if(SEC_HUDTYPE)

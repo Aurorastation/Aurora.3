@@ -146,6 +146,7 @@
 	req_access = null
 	},
 /obj/item/pickaxe,
+/obj/item/eftpos,
 /turf/simulated/floor/tiled/rust{
 	temperature = 278.15
 	},

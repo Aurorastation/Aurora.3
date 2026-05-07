@@ -10,7 +10,7 @@ GLOBAL_LIST_INIT_TYPED(all_cargo_receptacles, /obj/structure/cargo_receptacle, l
 		These are set up by Orion to expand its small-scale shipping network, especially in more remote areas, like outer edges of the Frontier or Coalition. \
 		It is a common sight all over the Spur, however, where Orion Express services depend on ordinary people and ships picking up and delivering packages for each other, \
 		with Orion Express only delivering to automated stations and other distribution points."
-	icon = 'icons/obj/orion_delivery.dmi'
+	icon = 'icons/obj/package.dmi'
 	icon_state = "delivery_point"
 	density = TRUE
 
@@ -86,7 +86,7 @@ GLOBAL_LIST_INIT_TYPED(all_cargo_receptacles, /obj/structure/cargo_receptacle, l
 	for(var/i = 1 to package_amount)
 		var/turf/random_turf = pick_n_take(warehouse_turfs)
 		if(random_turf)
-			new /obj/item/cargo_package(random_turf, src)
+			new /obj/item/package/delivery(random_turf, src)
 	if(late_spawner)
 		playsound(pick(warehouse_turfs), 'sound/machines/twobeep.ogg', 50, 1)
 		GLOB.global_announcer.autosay(announcement_message, capitalize_first_letters(announcer_name), channel)
@@ -96,8 +96,8 @@ GLOBAL_LIST_INIT_TYPED(all_cargo_receptacles, /obj/structure/cargo_receptacle, l
 	return ..()
 
 /obj/structure/cargo_receptacle/attackby(obj/item/attacking_item, mob/user)
-	if(istype(attacking_item, /obj/item/cargo_package))
-		var/obj/item/cargo_package/package = attacking_item
+	if(istype(attacking_item, /obj/item/package/delivery))
+		var/obj/item/package/delivery/package = attacking_item
 		if(!package.associated_delivery_point)
 			to_chat(user, SPAN_WARNING("Something's wrong with the cargo package, submit a bug report. ERRCODE: 0"))
 			return
@@ -120,14 +120,14 @@ GLOBAL_LIST_INIT_TYPED(all_cargo_receptacles, /obj/structure/cargo_receptacle, l
 				visible_message("\The [src] beeps, \"[SPAN_NOTICE("New package available for delivery.")]\"")
 				playsound(src, SFX_PRINT, 50, TRUE)
 
-				var/obj/item/cargo_package/printed_package = new /obj/item/cargo_package/offship(get_turf(user), selected_delivery_point)
+				var/obj/item/package/delivery/printed_package = new /obj/item/package/delivery/offship(get_turf(user), selected_delivery_point)
 				printed_package.pays_horizon_account = pays_horizon_account
 				animate(printed_package, alpha = 0, alpha = 255, time = 1 SECOND) // Makes them fade in
 
 		return
 	return ..()
 
-/obj/structure/cargo_receptacle/proc/pay_account(var/mob/living/carbon/human/courier, var/obj/item/cargo_package/package)
+/obj/structure/cargo_receptacle/proc/pay_account(var/mob/living/carbon/human/courier, var/obj/item/package/delivery/package)
 	if(package.pays_horizon_account)
 		var/datum/money_account/supply_account = SScargo.supply_account
 		if(supply_account && !supply_account.suspended)

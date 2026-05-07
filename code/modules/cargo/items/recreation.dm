@@ -382,3 +382,31 @@
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
+
+/singleton/cargo_item/whiteboard
+	category = "recreation"
+	name = "whiteboard"
+	supplier = "orion"
+	description = "A standard whiteboard."
+	price = 100
+	items = list(
+		/obj/structure/whiteboard
+	)
+	access = 0
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/whiteboard_portable
+	category = "recreation"
+	name = "portable whiteboard"
+	supplier = "orion"
+	description = "A portable whiteboard, smaller than the standard alternatives."
+	price = 75
+	items = list(
+		/obj/item/portable_whiteboard
+	)
+	access = 0
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1

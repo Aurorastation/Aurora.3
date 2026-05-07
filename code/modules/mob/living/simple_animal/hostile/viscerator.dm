@@ -6,12 +6,12 @@
 	icon_living = "viscerator_attack"
 	pass_flags = PASSTABLE|PASSRAILING
 	health = 15
-	maxHealth = 15
+	maxhealth = 15
 	melee_damage_lower = 10
 	melee_damage_upper = 15
 	armor_penetration = 20
 	density = 0
-	attacktext = "cut"
+	attacktext = "cuts"
 	attack_sound = 'sound/weapons/bladeslice.ogg'
 	blood_overlay_icon = null
 	faction = "syndicate"
@@ -39,7 +39,7 @@
 	var/T = get_turf(src)
 	new /obj/effect/gibspawner/robot(T)
 	spark(T, 3, GLOB.alldirs)
-	qdel(src)
+	QDEL_IN(src, 0)
 
 /mob/living/simple_animal/hostile/viscerator/CanPass(atom/movable/mover, turf/target, height, air_group)
 	. = ..()
@@ -48,6 +48,9 @@
 			return FALSE
 
 /mob/living/simple_animal/hostile/viscerator/proc/wakeup()
+	if(QDELETED(src))
+		return
+
 	change_stance(HOSTILE_STANCE_IDLE)
 
 /mob/living/simple_animal/hostile/viscerator/emp_act(severity)
@@ -65,3 +68,4 @@
 /mob/living/simple_animal/hostile/viscerator/lube/death()
 	reagents.splash(get_turf(src), 30)
 	..()
+

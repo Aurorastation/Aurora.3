@@ -2096,6 +2096,7 @@
 	pixel_y = 7;
 	pixel_x = 9
 	},
+/obj/item/eftpos,
 /turf/simulated/floor/tiled,
 /area/hegemony_waypoint/monitoring)
 "Ly" = (

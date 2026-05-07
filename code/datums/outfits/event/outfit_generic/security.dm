@@ -19,7 +19,6 @@
 	belt = list(
 		/obj/item/storage/belt/security/full,
 		/obj/item/storage/belt/security/full/alt,
-		/obj/item/storage/belt/security/full/disruptor,
 		/obj/item/storage/belt/security/full/pistol45,
 	)
 	glasses = list(

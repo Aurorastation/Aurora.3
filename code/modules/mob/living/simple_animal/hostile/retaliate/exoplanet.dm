@@ -17,7 +17,7 @@
 	icon_state = "royalcrab"
 	icon_living = "royalcrab"
 	icon_dead = "royalcrab_dead"
-	maxHealth = 150
+	maxhealth = 150
 	health = 150
 	speed = 3
 	melee_damage_lower = 10
@@ -36,7 +36,7 @@
 	icon_dead = "char_dead"
 	mob_size = MOB_LARGE
 	health = 45
-	maxHealth = 45
+	maxhealth = 45
 	speed = 2
 	response_help = "pats briefly"
 	response_disarm = "gently pushes"

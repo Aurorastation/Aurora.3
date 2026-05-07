@@ -20,7 +20,7 @@
 		RAD = ARMOR_RAD_SMALL
 	)
 	siemens_coefficient = 0.1
-	offline_slowdown = 3
+	offline_slowdown = 1.5
 	offline_vision_restriction = TINT_HEAVY
 	emp_protection = 30
 
@@ -89,7 +89,7 @@
 		RAD = ARMOR_RAD_SMALL
 	)
 	siemens_coefficient = 0.1
-	offline_slowdown = 3
+	offline_slowdown = 1.5
 	offline_vision_restriction = TINT_HEAVY
 	emp_protection = 20
 

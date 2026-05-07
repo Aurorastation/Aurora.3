@@ -8,12 +8,12 @@
 	icon_gib = "brownbear_gib"
 
 	health = 100
-	maxHealth = 100
+	maxhealth = 100
 
 	density = TRUE
 	belongs_to_station = FALSE
 
-	attacktext = "swatted"
+	attacktext = "swats"
 	melee_damage_lower = 25
 	melee_damage_upper = 25
 	resist_mod = 5

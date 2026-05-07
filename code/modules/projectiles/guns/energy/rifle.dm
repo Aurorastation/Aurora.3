@@ -1,8 +1,8 @@
 /obj/item/gun/energy/rifle
-	name = "energy rifle"
+	name = "\improper ER-2 energy rifle"
 	desc = "A NanoTrasen designed energy-based rifle with two settings: Stun and Kill."
-	desc_extended = "The NT ER-2 is an energy rifle developed and produced by NanoTrasen. Widely produced and sold across the galaxy. Designed to both stun and kill with concentrated energy blasts of varying strengths based on the fire mode, focused through a crystal lens. Considered to be a dual-purpose rifle with prolonged combat capability."
-	icon = 'icons/obj/guns/erifle.dmi'
+	desc_extended = "The ER-2 is an energy rifle developed and produced by NanoTrasen. Widely produced and sold across the galaxy. Designed to both stun and kill with concentrated energy blasts of varying strengths based on the fire mode, focused through a crystal lens. Considered to be a dual-purpose rifle with prolonged combat capability."
+	icon = 'icons/obj/guns/faction/nanotrasen_corporation/erifle.dmi'
 	icon_state = "eriflestun"
 	item_state = "eriflestun"
 	fire_sound = 'sound/weapons/Taser.ogg'
@@ -38,10 +38,10 @@
 		)
 
 /obj/item/gun/energy/rifle/laser
-	name = "laser rifle"
+	name = "\improper LR-6 laser rifle"
 	desc = "A NanoTrasen designed laser weapon, designed to kill with concentrated energy blasts."
-	desc_extended = "The NT LR-6 is a laser rifle developed and produced by NanoTrasen. Designed to kill with concentrated energy blasts focused through a crystal lens. It is considered to be the template of other standard laser weaponry."
-	icon = 'icons/obj/guns/laserrifle.dmi'
+	desc_extended = "The LR-6 is a laser rifle developed and produced by NanoTrasen. Designed to kill with concentrated energy blasts focused through a crystal lens. It is considered to be the template of other standard laser weaponry."
+	icon = 'icons/obj/guns/faction/nanotrasen_corporation/laserrifle.dmi'
 	icon_state = "laserrifle"
 	item_state = "laserrifle"
 	has_item_ratio = FALSE // the back and suit slots have ratio sprites but the in-hands dont
@@ -60,15 +60,68 @@
 	modifystate = null
 
 /obj/item/gun/energy/rifle/laser/practice
-	name = "practice laser rifle"
-	desc = "A modified version of the NT LR-6. It fires less concentrated laser beams that are visible, but ultimately harmless, designed for target practice."
+	name = "\improper LR-6P practice laser rifle"
+	desc = "A modified version of the LR-6. It fires less concentrated laser beams that are visible, but ultimately harmless, designed for target practice."
 	projectile_type = /obj/projectile/beam/practice
 
+
+/obj/item/gun/energy/rifle/laser/mounted
+	name = "mounted laser rifle"
+	has_safety = FALSE
+	self_recharge = TRUE
+	use_external_power = TRUE
+	can_turret = FALSE
+
+/obj/item/gun/energy/rifle/laser/mounted/cyborg/overclocked
+	max_shots = 15
+	recharge_time = 1
+
+/obj/item/gun/energy/rifle/laser/sniper
+	name = "\improper HI L.W.A.P. marksman energy rifle"
+	desc = "The HI L.W.A.P. is an older NanoTrasen design. A designated marksman rifle capable of shooting powerful ionized beams, this is a weapon to kill from a distance."
+	icon = 'icons/obj/guns/faction/nanotrasen_corporation/nt_laser_sniper.dmi'
+	icon_state = "sniper"
+	item_state = "sniper"
+	has_item_ratio = FALSE // same as the laserrifle
+	fire_sound = 'sound/weapons/marauder.ogg'
+	origin_tech = list(TECH_COMBAT = 6, TECH_MATERIAL = 5, TECH_POWER = 4)
+	projectile_type = /obj/projectile/beam/sniper
+	slot_flags = SLOT_BACK
+	charge_cost = 400
+	max_shots = 4
+	fire_delay = 45
+	force = 15
+	w_class = WEIGHT_CLASS_BULKY
+	accuracy = -3 //shooting at the hip
+	scoped_accuracy = 4
+	can_turret = TRUE
+	turret_sprite_set = "sniper"
+	turret_is_lethal = TRUE
+
+	is_wieldable = TRUE
+
+	fire_delay_wielded = 35
+	accuracy_wielded = 0
+
+/obj/item/gun/energy/rifle/laser/sniper/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "To use the scope, use the appropriate verb in the object tab."
+
+/obj/item/gun/energy/rifle/laser/sniper/verb/scope()
+	set category = "Object.Held"
+	set name = "Use Scope"
+	set src in usr
+
+	if(wielded)
+		toggle_scope(2.0, usr)
+	else
+		to_chat(usr, SPAN_WARNING("You can't look through the scope without stabilizing the rifle!"))
+
 /obj/item/gun/energy/rifle/laser/noctiluca
-	name = "combat laser rifle"
+	name = "\improper Noctiluca XM/24 combat laser rifle"
 	desc = "The Noctiluca XM/24 is a brand new model of laser rifle, developed entirely by Kumar Arms, a Zavodskoi Interstellar subsidiary. Easy to handle for users with minimal training, reliable and with a reasonable form factor, it is poised to become the new standard for laser weaponry."
 	desc_extended = "The Noctiluca XM/24 was unveiled at the tail end of 2463 in the SCC Future Firearms contest and was released by Zavodskoi in June 2464 after achieving a stunning victory over the other competitors. Zavodskoi installations are prioritized for acquisition of this new rifle, with along the SCCV Horizon. The Noctiluca's specialty lies in its revolutionary dual-function laser diffuser, which is able to modulate the laser into either a standard beam or an armor-piercing super-concentrated beam."
-	icon = 'icons/obj/guns/crew_laser.dmi'
+	icon = 'icons/obj/guns/faction/zavodskoi_interstellar/crew_laser.dmi'
 	icon_state = "trilaser"
 	item_state = "trilaser"
 	max_shots = 15
@@ -90,10 +143,10 @@
 	it has a secondary armor-piercing mode, which does less damage but has extremely high armor piercing."
 
 /obj/item/gun/energy/rifle/laser/heavy
-	name = "laser cannon"
-	desc = "A nanotrasen designed laser cannon capable of acting as a powerful support weapon."
-	desc_extended = "The NT LC-4 is a laser cannon developed and produced by NanoTrasen. Produced and sold to organizations both in need of a highly powerful support weapon and can afford its high unit cost. In spite of the low capacity, it is a highly capable tool, cutting down fortifications and armored targets with ease."
-	icon = 'icons/obj/guns/lasercannon.dmi'
+	name = "\improper LC-4 laser cannon"
+	desc = "A NanoTrasen designed laser cannon capable of acting as a powerful support weapon."
+	desc_extended = "The LC-4 is a laser cannon developed and produced by NanoTrasen. Produced and sold to organizations both in need of a highly powerful support weapon and can afford its high unit cost. In spite of the low capacity, it is a highly capable tool, cutting down fortifications and armored targets with ease."
+	icon = 'icons/obj/guns/faction/nanotrasen_corporation/lasercannon.dmi'
 	icon_state = "lasercannon100"
 	item_state = "lasercannon100"
 	has_item_ratio = TRUE
@@ -115,11 +168,22 @@
 	accuracy_wielded = 2
 	fire_delay_wielded = 20
 
+/obj/item/gun/energy/rifle/laser/heavy/mounted
+	name = "mounted laser cannon"
+	self_recharge = TRUE
+	use_external_power = TRUE
+	recharge_time = 10
+	can_turret = FALSE
+
+/obj/item/gun/energy/rifle/laser/heavy/mounted/cyborg/overclocked
+	recharge_time = 1
+	max_shots = 15
+
 /obj/item/gun/energy/rifle/laser/xray
-	name = "xray laser rifle"
-	desc = "A NanoTrasen designed high-power laser rifle capable of expelling concentrated xray blasts."
-	desc_extended = "The NT XR-1 is a laser firearm developed and produced by NanoTrasen. A recent innovation, used for specialist operations, it is presently being produced and sold in limited capacity over the galaxy. Designed for precision strikes, releasing concentrated xray blasts that are capable of hitting targets behind cover, all the while having a large ammo capacity."
-	icon = 'icons/obj/guns/xrifle.dmi'
+	name = "\improper XR-1 X-Ray laser rifle"
+	desc = "A NanoTrasen designed high-power laser rifle capable of expelling concentrated X-Ray blasts."
+	desc_extended = "The XR-1 is a laser firearm developed and produced by NanoTrasen. A recent innovation, used for specialist operations, it is presently being produced and sold in limited capacity over the galaxy. Designed for precision strikes, releasing concentrated xray blasts that are capable of hitting targets behind cover, all the while having a large ammo capacity."
+	icon = 'icons/obj/guns/faction/nanotrasen_corporation/xrifle.dmi'
 	icon_state = "xrifle"
 	item_state = "xrifle"
 	fire_sound = 'sound/weapons/laser3.ogg'
@@ -133,44 +197,6 @@
 	can_switch_modes = FALSE
 	turret_sprite_set = "xray"
 	turret_is_lethal = TRUE
-
-/obj/item/gun/energy/rifle/pulse
-	name = "pulse rifle"
-	desc = "A weapon that uses advanced pulse-based beam generation technology to emit powerful laser blasts. Because of its complexity and cost, it is rarely seen in use except by specialists."
-	icon = 'icons/obj/guns/pulse.dmi'
-	icon_state = "pulse"
-	item_state = "pulse"
-	fire_sound = 'sound/weapons/laser1.ogg'
-	projectile_type = /obj/projectile/beam
-	sel_mode = 2
-	origin_tech = list(TECH_COMBAT = 7, TECH_MATERIAL = 6, TECH_MAGNET = 4)
-	secondary_projectile_type = /obj/projectile/beam/pulse
-	secondary_fire_sound = 'sound/weapons/pulse.ogg'
-	can_switch_modes = FALSE
-	turret_sprite_set = "pulse"
-	turret_is_lethal = TRUE
-
-	modifystate = null
-
-	firemodes = list(
-		list(mode_name="stun", projectile_type=/obj/projectile/beam/stun, fire_sound='sound/weapons/Taser.ogg'),
-		list(mode_name="lethal", projectile_type=/obj/projectile/beam, fire_sound='sound/weapons/laser1.ogg'),
-		list(mode_name="DESTROY", projectile_type=/obj/projectile/beam/pulse, fire_sound='sound/weapons/pulse.ogg')
-		)
-
-/obj/item/gun/energy/rifle/pulse/destroyer
-	name = "pulse destroyer"
-	desc = "A heavy-duty, pulse-based energy weapon. Because of its complexity and cost, it is rarely seen in use except by specialists."
-	fire_sound = 'sound/weapons/pulse.ogg'
-	projectile_type = /obj/projectile/beam/pulse
-	burst_delay = 5
-	burst = 3
-	max_shots = 30
-	secondary_projectile_type = null
-	secondary_fire_sound = null
-
-/obj/item/gun/energy/rifle/pulse/destroyer/toggle_firing_mode(mob/living/user)
-	to_chat(user, SPAN_WARNING("[src.name] has three settings, and they are all DESTROY."))
 
 /obj/item/gun/energy/rifle/laser/tachyon
 	name = "tachyon rifle"
@@ -200,9 +226,9 @@
 		to_chat(usr, SPAN_WARNING("You can't look through the scope without stabilizing the rifle!"))
 
 /obj/item/gun/energy/rifle/ionrifle
-	name = "ion rifle"
-	desc = "The NT Mk70 EW Halicon is a man portable anti-armor weapon designed to disable mechanical threats, produced by NanoTrasen."
-	icon = 'icons/obj/guns/ionrifle.dmi'
+	name = "\improper Mk70 EW ion rifle"
+	desc = "The Mk70 EW \"Halicon\" is a man portable anti-armor weapon designed to disable mechanical threats, produced by NanoTrasen."
+	icon = 'icons/obj/guns/faction/nanotrasen_corporation/ionrifle.dmi'
 	icon_state = "ionrifle"
 	item_state = "ionrifle"
 	has_item_ratio = FALSE
@@ -242,10 +268,10 @@
 	projectile_type = /obj/projectile/beam/midlaser/skrell/heavy
 
 /obj/item/gun/energy/rifle/hegemony
-	name = "hegemony energy rifle"
+	name = "\improper Zkrehk-Guild heavy beamgun"
 	desc = "An upgraded variant of the standard laser rifle. It does not have a stun setting."
 	desc_extended = "The Zkrehk-Guild Heavy Beamgun, an energy-based rifle designed and manufactured on Moghes. A special crystal used in its design allows it to penetrate armor with pinpoint accuracy."
-	icon = 'icons/obj/guns/hegemony_rifle.dmi'
+	icon = 'icons/obj/guns/faction/izweski_hegemony/hegemony_rifle.dmi'
 	icon_state = "hegemonyrifle"
 	item_state = "hegemonyrifle"
 	has_item_ratio = FALSE

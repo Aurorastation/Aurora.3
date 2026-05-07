@@ -27,7 +27,7 @@
 	cigarette_to_spawn = /obj/item/clothing/mask/smokable/cigarette/adhomai
 
 /obj/item/storage/box/fancy/cigarettes/nka
-	name = "\improper Gato Royales cigarette packet"
+	name = "\improper Gato Royales menthol cigarette packet"
 	desc = "Popular with the aristocrats of the New Kingdom of Adhomai for its mild menthol flavor."
 	desc_extended = "Imported from the New Kingdom of Adhomai."
 	icon_state = "nkapacket"

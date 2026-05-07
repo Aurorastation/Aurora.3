@@ -41,7 +41,7 @@
 	var/T = get_turf(usr)
 	var/mob/living/carbon/human/bst/bst = new(T)
 	if(istype(mob, /mob/living))
-		bst.original_mob = mob
+		bst.original_mob = WEAKREF(mob)
 
 	bst.anchored = 1
 	bst.ckey = usr.ckey
@@ -138,7 +138,7 @@
 	status_flags = GODMODE|NOFALL
 
 	/// The BST's original mob. Moved here from /datum/holder to support storytellers.
-	var/mob/original_mob
+	var/datum/weakref/original_mob
 
 /mob/living/carbon/human/bst/Destroy(force)
 	original_mob = null
@@ -174,8 +174,10 @@
 	QDEL_IN(src, 10)
 	animate(src, alpha = 0, time = 9, easing = QUAD_EASING)
 	if(key)
-		if(original_mob)
-			client.key = key
+		var/mob/living/origin = original_mob?.resolve()
+		if(origin)
+			origin.key = key
+			original_mob = null
 			client.init_verbs()
 		else
 			var/mob/abstract/ghost/observer/ghost = new(src, src)	//Transfer safety to observer spawning proc.
@@ -326,12 +328,13 @@
 	set desc = "Jump into bluespace and continue wherever you left off. Deletes the BSTech and returns to your original mob if you have one."
 	set category = "BST"
 
-	if(original_mob)
-		if(original_mob.key)//Thanks for kicking Tish off the Server Meow, wouldn't have spotted this otherwise.
+	var/mob/living/origin = original_mob?.resolve()
+	if(origin)
+		if(origin.key)//Thanks for kicking Tish off the Server Meow, wouldn't have spotted this otherwise.
 			//suicide()
 			return
 
-		original_mob.key = key
+		origin.key = key
 		original_mob = null
 	suicide()
 
@@ -508,7 +511,7 @@
 	possible_access["== Default BSTech =="] = get_all_accesses() + get_all_centcom_access() + get_all_syndicate_access()
 	for(var/job in subtypesof(/datum/job))
 		var/datum/job/J = new job
-		possible_access[J.title] = J.access
+		possible_access[J.title] = J.job_access
 	var/chosen_access = input(usr, "Which access do you want your ID to have?", "ID Access") as null|anything in possible_access
 	if(!chosen_access)
 		return

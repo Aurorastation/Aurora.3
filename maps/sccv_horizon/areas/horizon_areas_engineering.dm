@@ -25,10 +25,16 @@
 	horizon_deck = 1
 	lightswitch = FALSE
 
-/area/horizon/engineering/storage_eva
-	name = "EVA Storage"
+/area/horizon/engineering/equipment
+	name = "Equipment"
 	icon_state = "engineering_storage"
 	horizon_deck = 2
+
+/area/horizon/engineering/washroom
+	name = "Washroom"
+	sound_environment = SOUND_AREA_SMALL_ENCLOSED
+	horizon_deck = 2
+	area_blurb = "The air in here not only smells like aggresive cleaning reagents, but everything you find around the whole department, oil, paint and other highly flammable chemicals... Unfortunately."
 
 /area/horizon/engineering/break_room
 	name = "Break Room"

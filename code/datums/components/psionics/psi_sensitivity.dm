@@ -28,15 +28,15 @@
 	RegisterSignal(parent, COMSIG_PSI_CHECK_SENSITIVITY, PROC_REF(modify_sensitivity), override = TRUE)
 
 /datum/component/psi_sensitivity/Destroy()
-	. = ..()
 	if (!parent)
-		return
+		return ..()
 
 	// This is the second half of the fundamental pattern for Entity-Component-Systems (ECS)
 	// When this component is taken away from a datum via RemoveComponent(), such as from a player character
 	// The component tells the character it no longer wishes to do anything when a specific signal happens.
 	// We MUST do this for garbage collection reasons, else we'll get hard deletes.
 	UnregisterSignal(parent, COMSIG_PSI_CHECK_SENSITIVITY)
+	return ..()
 
 /datum/component/psi_sensitivity/proc/modify_sensitivity(var/parent, var/effective_sensitivity)
 	SIGNAL_HANDLER

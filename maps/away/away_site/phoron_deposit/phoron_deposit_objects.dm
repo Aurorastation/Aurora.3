@@ -1,20 +1,20 @@
 // Mob stuff
 /mob/living/simple_animal/hostile/carp/shark/phoron_deposit
-	maxHealth = 60
+	maxhealth = 60
 	health = 60
 
 /mob/living/simple_animal/hostile/carp/shark/reaver/phoron_deposit
-	maxHealth = 60
+	maxhealth = 60
 	health = 60
 	speed = 6
 
 /mob/living/simple_animal/hostile/gnat/phoron_deposit
-	maxHealth = 15
+	maxhealth = 15
 	health = 15
 	destroy_surroundings = TRUE
 
 /mob/living/simple_animal/hostile/carp/shark/reaver/eel/phoron_deposit
-	maxHealth = 90
+	maxhealth = 90
 	health = 90
 	speed = 3
 	var/tmp/wall_breaking_allowed = FALSE // The eel gets to break walls just to make sure the event can't be cheesed by building them

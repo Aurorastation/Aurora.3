@@ -53,4 +53,4 @@
 
 /datum/species/slime/handle_death(var/mob/living/carbon/human/H)
 	if(H)
-		addtimer(CALLBACK(H, TYPE_PROC_REF(/mob/living/carbon/human, gib)),  1)
+		addtimer(CALLBACK(H, TYPE_PROC_REF(/mob/living/carbon/human, gib)),  1, TIMER_STOPPABLE|TIMER_DELETE_ME)

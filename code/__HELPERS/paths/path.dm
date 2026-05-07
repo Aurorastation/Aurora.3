@@ -98,11 +98,11 @@
 	var/datum/can_pass_info/pass_info
 
 /datum/pathfind/Destroy(force)
-	. = ..()
 	SSpathfinder.active_pathing -= src
 	SSpathfinder.currentrun -= src
 	hand_back(null)
 	avoid = null
+	return ..()
 
 /**
  * "starts" off the pathfinding, by storing the values this datum will need to work later on

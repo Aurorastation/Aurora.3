@@ -8251,6 +8251,7 @@
 /obj/machinery/button/distress{
 	pixel_y = 8
 	},
+/obj/item/eftpos,
 /turf/simulated/floor/tiled/dark,
 /area/hegemony_ship/bridge)
 "VD" = (

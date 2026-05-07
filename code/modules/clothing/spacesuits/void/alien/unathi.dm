@@ -25,7 +25,7 @@
 	icon_state = "kataphract"
 	item_state = "kataphract"
 	contained_sprite = TRUE
-	slowdown = 1
+	slowdown = 0.5
 	w_class = WEIGHT_CLASS_NORMAL
 	armor = list(
 		MELEE = ARMOR_MELEE_RESISTANT,

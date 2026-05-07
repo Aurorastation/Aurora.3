@@ -30,6 +30,8 @@
 	priority = 2
 	min_duration = 50
 	max_duration = 70
+	// Basic procedure any novice can do
+	skill_requirements = alist(SURGERY_SKILL_COMPONENT = SKILL_LEVEL_FAMILIAR)
 
 /singleton/surgery_step/generic/cut_with_laser/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(!..())
@@ -73,6 +75,8 @@
 	priority = 2
 	min_duration = 60
 	max_duration = 80
+	// Automated tool that requires no skill
+	skill_requirements = alist(SURGERY_SKILL_COMPONENT = SKILL_LEVEL_UNFAMILIAR)
 
 /singleton/surgery_step/generic/incision_manager/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(!..())
@@ -117,6 +121,8 @@
 
 	min_duration = 60
 	max_duration = 80
+	// Basic surgery any novice surgeon can do
+	skill_requirements = alist(SURGERY_SKILL_COMPONENT = SKILL_LEVEL_FAMILIAR)
 
 /singleton/surgery_step/generic/cut_open/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(!..())
@@ -161,6 +167,8 @@
 
 	min_duration = 80
 	max_duration = 100
+	// Basic surgery any novice surgeon can do
+	skill_requirements = alist(SURGERY_SKILL_COMPONENT = SKILL_LEVEL_FAMILIAR)
 
 /singleton/surgery_step/generic/cut_open_vaurca/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(!..())
@@ -205,6 +213,8 @@
 
 	min_duration = 20
 	max_duration = 30
+	// Basic surgery any novice surgeon can do
+	skill_requirements = alist(SURGERY_SKILL_COMPONENT = SKILL_LEVEL_FAMILIAR)
 
 /singleton/surgery_step/generic/clamp_bleeders/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(!..())
@@ -244,6 +254,8 @@
 
 	min_duration = 20
 	max_duration = 30
+	// Basic surgery any novice surgeon can do
+	skill_requirements = alist(SURGERY_SKILL_COMPONENT = SKILL_LEVEL_FAMILIAR)
 
 /singleton/surgery_step/generic/retract_skin/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(!..())
@@ -307,6 +319,8 @@
 
 	min_duration = 40
 	max_duration = 70
+	// Basic surgery any novice surgeon can do
+	skill_requirements = alist(SURGERY_SKILL_COMPONENT = SKILL_LEVEL_FAMILIAR)
 
 /singleton/surgery_step/generic/cauterize/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(!..())

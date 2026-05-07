@@ -2858,6 +2858,7 @@
 	dir = 8
 	},
 /obj/random/dirt_75,
+/obj/item/eftpos,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/scc_scout_ship_shuttle/cockpit)
 "qd" = (
@@ -3873,11 +3874,11 @@
 /area/ship/scc_scout_ship/medbay)
 "wI" = (
 /obj/random/dirt_75,
-/obj/item/cargo_package/offship/to_horizon{
+/obj/item/package/delivery/offship/to_horizon{
 	pixel_y = 10;
 	pixel_x = -3
 	},
-/obj/item/cargo_package/offship{
+/obj/item/package/delivery/offship{
 	pixel_y = -2;
 	pixel_x = 3
 	},
@@ -4915,11 +4916,11 @@
 /area/ship/scc_scout_ship/exterior)
 "DX" = (
 /obj/random/dirt_75,
-/obj/item/cargo_package/offship{
+/obj/item/package/delivery/offship{
 	pixel_y = 10;
 	pixel_x = -3
 	},
-/obj/item/cargo_package/offship{
+/obj/item/package/delivery/offship{
 	pixel_y = -2;
 	pixel_x = 3
 	},
@@ -5689,11 +5690,11 @@
 	},
 /obj/random/dirt_75,
 /obj/random/dirt_75,
-/obj/item/cargo_package/offship{
+/obj/item/package/delivery/offship{
 	pixel_y = 10;
 	pixel_x = -3
 	},
-/obj/item/cargo_package/offship/to_horizon{
+/obj/item/package/delivery/offship/to_horizon{
 	pixel_y = -2;
 	pixel_x = 3
 	},
@@ -7816,7 +7817,7 @@
 /obj/item/clothing/accessory/armband/science{
 	pixel_y = 1
 	},
-/obj/item/clothing/accessory/armband/medgreen{
+/obj/item/clothing/accessory/armband/med{
 	pixel_y = -2
 	},
 /obj/item/clothing/accessory/armband/scc{

@@ -15,7 +15,7 @@
 		RAD = ARMOR_RAD_SMALL
 	)
 	siemens_coefficient = 0.1
-	offline_slowdown = 3
+	offline_slowdown = 1.5
 	offline_vision_restriction = TINT_HEAVY
 
 	helm_type = /obj/item/clothing/head/helmet/space/rig/combat
@@ -59,7 +59,7 @@
 		RAD = ARMOR_RAD_SMALL
 	)
 	siemens_coefficient = 0.1
-	offline_slowdown = 3
+	offline_slowdown = 1.5
 	offline_vision_restriction = TINT_HEAVY
 	allowed = list(/obj/item/flashlight,/obj/item/tank,/obj/item/suit_cooling_unit,/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/melee/energy/sword,/obj/item/handcuffs)
 
@@ -141,7 +141,7 @@
 	)
 	emp_protection = 30
 	slowdown = 0
-	offline_slowdown = 3
+	offline_slowdown = 1.5
 
 	initial_modules = list(
 		/obj/item/rig_module/ai_container,
@@ -177,8 +177,8 @@
 		RAD = ARMOR_RAD_RESISTANT
 	)
 	siemens_coefficient = 0.35
-	slowdown = 2
-	offline_slowdown = 4
+	slowdown = 1
+	offline_slowdown = 2
 	offline_vision_restriction = TINT_HEAVY
 
 	helm_type = /obj/item/clothing/head/helmet/space/rig/tcfl
@@ -233,7 +233,7 @@
 		RAD = ARMOR_RAD_SMALL
 	)
 	siemens_coefficient = 0.1
-	offline_slowdown = 2
+	offline_slowdown = 1
 	offline_vision_restriction = TINT_HEAVY
 
 	boot_type =  /obj/item/clothing/shoes/magboots/rig/heavy
@@ -287,7 +287,7 @@
 		RAD = ARMOR_RAD_SMALL
 	)
 	siemens_coefficient = 0.1
-	offline_slowdown = 2
+	offline_slowdown = 1
 	offline_vision_restriction = TINT_HEAVY
 
 	boot_type =  /obj/item/clothing/shoes/magboots/rig/heavy
@@ -356,7 +356,7 @@
 		RAD = ARMOR_RAD_SMALL
 	)
 	siemens_coefficient = 0.1
-	offline_slowdown = 2
+	offline_slowdown = 1
 	offline_vision_restriction = TINT_HEAVY
 
 	boot_type =  /obj/item/clothing/shoes/magboots/rig/heavy
@@ -410,8 +410,8 @@
 	)
 	offline_vision_restriction = TINT_HEAVY
 	emp_protection = -30
-	slowdown = 8
-	offline_slowdown = 10
+	slowdown = 4
+	offline_slowdown = 5
 
 	allowed = list(/obj/item/flashlight,/obj/item/tank,/obj/item/suit_cooling_unit,/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/melee/energy/sword,/obj/item/handcuffs)
 
@@ -455,7 +455,7 @@
 		RAD = ARMOR_RAD_SMALL
 	)
 	offline_vision_restriction = TINT_HEAVY
-	slowdown = 1
+	slowdown = 0.5
 
 	allowed = list(/obj/item/flashlight,/obj/item/tank,/obj/item/suit_cooling_unit,/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/melee/energy/sword,/obj/item/handcuffs)
 
@@ -487,7 +487,7 @@
 		RAD = ARMOR_RAD_SMALL
 	)
 	offline_vision_restriction = TINT_HEAVY
-	offline_slowdown = 10
+	offline_slowdown = 5
 
 	allowed = list(/obj/item/flashlight,/obj/item/tank,/obj/item/suit_cooling_unit,/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/melee/energy/sword,/obj/item/handcuffs)
 
@@ -540,8 +540,8 @@
 	helm_type = /obj/item/clothing/head/helmet/space/rig/nanotrasen
 	boot_type =  /obj/item/clothing/shoes/magboots/rig/heavy
 
-	slowdown = 1
-	offline_slowdown = 2
+	slowdown = 0.5
+	offline_slowdown = 1
 	offline_vision_restriction = TINT_HEAVY
 
 	allowed_module_types = MODULE_GENERAL | MODULE_LIGHT_COMBAT | MODULE_HEAVY_COMBAT | MODULE_SPECIAL | MODULE_MEDICAL | MODULE_UTILITY | MODULE_VAURCA
@@ -594,7 +594,7 @@
 		RAD = ARMOR_RAD_SMALL
 	)
 	siemens_coefficient = 0.1
-	offline_slowdown = 3
+	offline_slowdown = 1.5
 	offline_vision_restriction = TINT_HEAVY
 
 	helm_type = /obj/item/clothing/head/helmet/space/rig/legionnaire

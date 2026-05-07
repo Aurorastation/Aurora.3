@@ -1683,10 +1683,6 @@
 /turf/simulated/floor/reinforced/airless,
 /area/abandoned_industrial_station/atmos)
 "fz" = (
-/obj/item/circuitboard/mecha/ripley{
-	pixel_x = 3;
-	pixel_y = 8
-	},
 /obj/effect/decal/remains/robot{
 	pixel_x = -18;
 	pixel_y = -5

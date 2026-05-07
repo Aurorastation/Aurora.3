@@ -10,11 +10,11 @@
 	universal_speak = FALSE
 	density = FALSE
 	health = 50
-	maxHealth = 50
+	maxhealth = 50
 	melee_damage_lower = 5
 	melee_damage_upper = 8
 	armor_penetration = 5
-	attacktext = "sliced"
+	attacktext = "slices"
 	faction = "silicon"
 	min_oxy = 0
 	minbodytemp = 0
@@ -33,6 +33,10 @@
 	eye_overlay.appearance_flags = KEEP_APART
 	AddOverlays(eye_overlay)
 
+/mob/living/simple_animal/hostile/rogue_drone/Destroy()
+	QDEL_NULL(eye_overlay)
+	return ..()
+
 /mob/living/simple_animal/hostile/rogue_drone/CanPass(atom/movable/mover, turf/target, height, air_group)
 	. = ..()
 	if(.)
@@ -44,7 +48,7 @@
 	var/T = get_turf(src)
 	new /obj/effect/gibspawner/robot(T)
 	spark(T, 1, GLOB.alldirs)
-	qdel(src)
+	QDEL_IN(src, 0)
 
 /mob/living/simple_animal/hostile/rogue_drone/validator_living(var/mob/living/L, var/atom/current)
 	. = ..()

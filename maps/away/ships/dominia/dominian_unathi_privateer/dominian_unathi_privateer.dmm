@@ -6003,6 +6003,7 @@
 	pixel_x = 6
 	},
 /obj/structure/table/reinforced/steel,
+/obj/item/eftpos,
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/bridge)
 "PR" = (

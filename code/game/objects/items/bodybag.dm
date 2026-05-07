@@ -159,6 +159,10 @@
 	if(stasis_power)
 		C.stasis_power = stasis_power
 
+/obj/item/bodybag/cryobag/Destroy()
+	color = null
+	return ..()
+
 /obj/structure/closet/body_bag/cryobag
 	name = "stasis bag"
 	desc = "A reusable plastic bag designed to prevent additional damage to an occupant, especially useful if short on time or in \
@@ -195,6 +199,7 @@
 /obj/structure/closet/body_bag/cryobag/Destroy()
 	STOP_PROCESSING(SSprocessing, src)
 	QDEL_NULL(airtank)
+	overlays.Cut()
 	return ..()
 
 /obj/structure/closet/body_bag/cryobag/Entered(atom/movable/AM)

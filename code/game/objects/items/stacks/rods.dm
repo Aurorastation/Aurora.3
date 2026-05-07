@@ -49,7 +49,7 @@ GLOBAL_LIST_INIT_TYPED(rod_recipes, /datum/stack_recipe, list(
 	. += "Using a welder on two metal rods will recombine them back into a steel sheet."
 
 /obj/item/stack/rods/Destroy()
-	. = ..()
+	return ..()
 
 /obj/item/stack/rods/full/Initialize()
 	. = ..()

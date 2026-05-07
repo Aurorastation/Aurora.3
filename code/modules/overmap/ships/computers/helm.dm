@@ -338,6 +338,17 @@
 	can_pass_under = FALSE
 	light_power_on = 1
 
+/obj/machinery/computer/ship/navigation/attack_hand(mob/user)
+	if(stat & (NOPOWER|BROKEN))
+		return FALSE
+	if(use_check_and_message(user))
+		return FALSE
+	if(!emagged && !allowed(user))
+		to_chat(user, SPAN_WARNING("Access denied."))
+		return FALSE
+	user.set_machine(src)
+	ui_interact(user)
+
 /obj/machinery/computer/ship/navigation/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)

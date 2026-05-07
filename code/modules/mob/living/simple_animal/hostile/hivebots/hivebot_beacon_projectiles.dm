@@ -19,7 +19,7 @@
 	damage_type = DAMAGE_BURN
 	damage = 20
 	armor_penetration = 15
-	incinerate = 5
+	incinerate = 2
 	muzzle_type = /obj/effect/projectile/muzzle/laser/blue
 	tracer_type = /obj/effect/projectile/tracer/laser/blue
 	impact_type = /obj/effect/projectile/impact/laser/blue

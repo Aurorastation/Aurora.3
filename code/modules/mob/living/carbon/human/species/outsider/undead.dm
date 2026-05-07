@@ -511,7 +511,7 @@
 			if(target.reagents)
 				target.reagents.add_reagent(/singleton/reagent/toxin/hylemnomil, min(10, ZOMBIE_MAX_HYLEMNOMIL - hylemnomil_amount))
 
-		if (target.getBruteLoss() > target.maxHealth * 3)
+		if (target.getBruteLoss() > target.maxhealth * 3)
 			if (target.stat != DEAD)
 				to_chat(src,SPAN_WARNING("You've scraped \the [target] down to the bones already!."))
 			else
@@ -539,7 +539,7 @@
 
 		playsound(loc, 'sound/effects/splat.ogg', 20, 1)
 		new /obj/effect/decal/cleanable/blood/splatter(get_turf(src), target.get_blood_color())
-		if (target.getBruteLoss() > target.maxHealth*0.75)
+		if (target.getBruteLoss() > target.maxhealth*0.75)
 			if (prob(50))
 				gibs(get_turf(src), target.dna)
 				src.visible_message(SPAN_DANGER("\The [src] tears out \the [target]'s insides!"))

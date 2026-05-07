@@ -60,10 +60,17 @@
 	RegisterSignal(user, COMSIG_QDELETING, PROC_REF(on_user_delete))
 	RegisterSignal(user, COMSIG_MOB_LOGOUT, PROC_REF(clean_user_client))
 	RegisterSignal(user, COMSIG_MOB_LOGIN, PROC_REF(on_user_login))
+	RegisterSignal(bar_loc, COMSIG_QDELETING, PROC_REF(on_bar_loc_delete))
 
 
 /datum/progressbar/Destroy()
 	if(user)
+		UnregisterSignal(user, list(COMSIG_QDELETING, COMSIG_MOB_LOGOUT, COMSIG_MOB_LOGIN))
+		if(isliving(user))
+			var/mob/living/L = user
+			if(L.stamina_bar == src)
+				L.stamina_bar = null
+
 		for(var/pb in user.progressbars[bar_loc])
 			var/datum/progressbar/progress_bar = pb
 			if(progress_bar == src || progress_bar.listindex <= listindex)
@@ -80,7 +87,9 @@
 	if(user_client)
 		clean_user_client()
 
-	bar_loc = null
+	if(bar_loc)
+		UnregisterSignal(bar_loc, COMSIG_QDELETING)
+		bar_loc = null
 	bar = null
 
 	return ..()
@@ -94,6 +103,12 @@
 	user = null
 	qdel(src)
 
+
+///Called right before the bar_loc's Destroy()
+/datum/progressbar/proc/on_bar_loc_delete(datum/source)
+	SIGNAL_HANDLER
+
+	qdel(src)
 
 ///Removes the progress bar image from the user_client and nulls the variable, if it exists.
 /datum/progressbar/proc/clean_user_client(datum/source)

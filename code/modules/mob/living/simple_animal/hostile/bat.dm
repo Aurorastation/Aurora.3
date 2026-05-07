@@ -15,7 +15,7 @@
 	response_disarm = "gently pushes aside the"
 	response_harm = "hits the"
 	speed = 4
-	maxHealth = 20
+	maxhealth = 20
 	health = 20
 	mob_size = 2.5
 

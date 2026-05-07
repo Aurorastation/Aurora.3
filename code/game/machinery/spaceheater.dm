@@ -7,6 +7,7 @@
 	density = TRUE
 	use_power = POWER_USE_OFF
 	clicksound = SFX_SWITCH
+	light_system = MOVABLE_LIGHT
 	var/on = FALSE
 	/// Currently heating or cooling the environment, if on, and by how much (in terms of heat transfer).
 	var/active = 0
@@ -160,7 +161,7 @@
 		return
 	switch(action)
 		if("powerToggle")
-			balloon_alert_to_viewers("turned [on ? "on" : "off"]")
+			balloon_alert_to_viewers("turned [on ? "off" : "on"]")
 			on = !on
 			active = 0
 			power_change()

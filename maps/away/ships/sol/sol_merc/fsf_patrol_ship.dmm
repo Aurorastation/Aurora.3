@@ -4317,6 +4317,7 @@
 /obj/structure/table/wood,
 /obj/item/paper_bin,
 /obj/item/pen,
+/obj/item/eftpos,
 /turf/simulated/floor/wood,
 /area/ship/fsf_patrol_ship/officer)
 "pej" = (

@@ -248,9 +248,15 @@
 		else
 			step(user.pulling, get_dir(user.pulling.loc, src))
 
-	// Check if objects in the turf want to slap the attacker back.
-	for (var/atom/target_atom in src)
-		SEND_SIGNAL(target_atom, COMSIG_HANDLE_HAND_INTERCEPTION, user, src)
+	// Check if objects in the turf want to intercept the click.
+	var/datum/component/turf_hand/best_interceptor
+	for(var/atom/A in src)
+		var/datum/component/turf_hand/TH = A.GetComponent(/datum/component/turf_hand)
+		if(TH && (!best_interceptor || TH.priority > best_interceptor.priority))
+			best_interceptor = TH
+
+	if(best_interceptor)
+		best_interceptor.OnHandInterception(user)
 
 	return TRUE
 

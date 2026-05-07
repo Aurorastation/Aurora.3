@@ -110,7 +110,7 @@
 	item_flags = ITEM_FLAG_THICK_MATERIAL
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|FEET|ARMS
 	allowed = list(/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/handcuffs,/obj/item/tank/emergency_oxygen)
-	slowdown = 1
+	slowdown = 0.5
 	armor = list(
 		MELEE = ARMOR_MELEE_RESISTANT,
 		BULLET = ARMOR_BALLISTIC_MEDIUM,
@@ -147,7 +147,7 @@
 	icon_state = "reactiveoff"
 	item_state = "reactiveoff"
 	blood_overlay_type = "armor"
-	slowdown = 1
+	slowdown = 0.5
 	armor = null
 
 /obj/item/clothing/suit/armor/reactive/handle_shield(mob/user, var/on_back, var/damage, atom/damage_source = null, mob/attacker = null, var/def_zone = null, var/attack_text = "the attack")
@@ -198,7 +198,7 @@
 	item_state = "armor"
 	var/obj/item/gun/holstered = null
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
-	slowdown = 1
+	slowdown = 0.5
 	armor = list(
 		MELEE = ARMOR_MELEE_KNIVES,
 		BULLET = ARMOR_BALLISTIC_MEDIUM,
@@ -608,7 +608,7 @@
 	w_class = WEIGHT_CLASS_BULKY//bulky item
 	gas_transfer_coefficient = 0.90
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|FEET|ARMS|HANDS
-	slowdown = 3
+	slowdown = 1.5
 	flags_inv = HIDEWRISTS|HIDEGLOVES|HIDESHOES|HIDEJUMPSUIT
 	siemens_coefficient = 0.1
 	pocket_slots = 3

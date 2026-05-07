@@ -18,7 +18,7 @@
 	)
 	category_text = "Trig"
 	extended_desc = "Input and output are in degrees."
-	power_draw_per_use = 1 // Still cheap math.
+	power_draw_per_use = 10 // Still cheap math.
 
 // Sine //
 

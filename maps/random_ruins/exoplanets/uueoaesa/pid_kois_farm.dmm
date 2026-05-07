@@ -462,7 +462,7 @@
 /obj/effect/floor_decal/corner/green/full{
 	dir = 1
 	},
-/obj/machinery/seed_storage/xenobotany,
+/obj/machinery/seed_storage/garden/xenobotany,
 /turf/simulated/floor/tiled,
 /area/pid_kois_farm)
 "xh" = (

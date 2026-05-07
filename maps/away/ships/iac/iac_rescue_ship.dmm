@@ -5239,6 +5239,7 @@
 	name = "brand-new analog radio";
 	desc = "A portable radio capable of receiving radio waves from nearby space systems. This particular unit looks hot off the assembly line, with a Hephaestus Industries stamp on the back of the model, indicating it was manufactured and shipped from Valkyrie, Tau Ceti."
 	},
+/obj/item/eftpos,
 /turf/simulated/floor/tiled/dark,
 /area/ship/iac_rescue_ship/bridge)
 "lgd" = (

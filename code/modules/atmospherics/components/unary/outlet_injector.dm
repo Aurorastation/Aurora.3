@@ -59,6 +59,7 @@
 
 	last_power_draw = 0
 	last_flow_rate = 0
+	last_mole_transfer = 0
 
 	if (broadcast_status_next_process)
 		broadcast_status()

@@ -54,3 +54,6 @@
 
 /// For when the players intent changes
 #define COMSIG_INTENT_CHANGE "intent_change"
+
+/// Signal raised at the end of a mob's vision update to check if signals wish to supplement their own huds.
+#define COMSIG_MOB_UPDATE_VISION "mob_update_vision"

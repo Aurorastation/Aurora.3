@@ -702,3 +702,17 @@
 	)
 	reagent_mix = RECIPE_REAGENT_REPLACE
 	result = /obj/item/reagent_containers/food/snacks/blitz_shake
+
+
+	//Assunzione
+
+/singleton/recipe/stafylia_gyro
+	appliance = MIX
+	fruit = list ("grapes" = 1, "cabbage" = 1, "tomato" = 1)
+	reagents = list(/singleton/reagent/spacespice = 2)
+	items = list(
+		/obj/item/reagent_containers/food/snacks/cutlet,
+		/obj/item/reagent_containers/food/snacks/pita
+	)
+	reagent_mix = RECIPE_REAGENT_REPLACE
+	result = /obj/item/reagent_containers/food/snacks/stafylia_gyro

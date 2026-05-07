@@ -104,7 +104,7 @@
 
 	if (healths)
 		if (stat != DEAD)
-			switch((health - getHalLoss()) / maxHealth * 100) // Halloss should be factored in here for displaying
+			switch((health - getHalLoss()) / maxhealth * 100) // Halloss should be factored in here for displaying
 				if(100 to INFINITY)
 					healths.icon_state = "health0"
 				if(80 to 100)
@@ -148,11 +148,8 @@
 
 	if(environment.temperature > (T0C+66))
 		adjustFireLoss((environment.temperature - (T0C+66))/5) // Might be too high, check in testing.
-		if (fire) fire.icon_state = "fire2"
 		if(prob(20))
 			to_chat(src, SPAN_DANGER("You feel a searing heat!"))
-	else
-		if (fire) fire.icon_state = "fire0"
 
 /mob/living/carbon/alien/handle_fire(var/seconds_per_tick, var/datum/gas_mixture/environment)
 	if(..())

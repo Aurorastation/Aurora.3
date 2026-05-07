@@ -107,7 +107,7 @@
 		/obj/item/clothing/mask/gas/monkeymask                  = TRADER_THIS_TYPE,
 		/obj/item/clothing/suit/monkeysuit                      = TRADER_THIS_TYPE,
 		/obj/item/clothing/mask/luchador                        = TRADER_ALL,
-		/obj/item/gun/bang                               = TRADER_SUBTYPES_ONLY
+		/obj/item/gun/bang/deagle                               = TRADER_SUBTYPES_ONLY
 	)
 	species_bias = list(
 		ALL_DIONA_SPECIES = TRADER_BIAS_DISCOUNT

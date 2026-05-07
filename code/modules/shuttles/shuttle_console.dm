@@ -15,6 +15,11 @@
 	/// For hotwiring, how many cycles are needed. This decreases by 1 each cycle and triggers at 0
 	var/hotwire_progress = 8
 
+	/// Skill needed to use this computer.
+	var/required_skill = PILOT_SPACECRAFT_SKILL_COMPONENT
+	/// Skill level needed to use this computer, see required_skill
+	var/required_skill_level = SKILL_LEVEL_FAMILIAR
+
 /obj/machinery/computer/shuttle_control/feedback_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	if(initial(hotwire_progress) != hotwire_progress)
@@ -89,6 +94,15 @@
 	return ..()
 
 /obj/machinery/computer/shuttle_control/attack_hand(mob/user)
+	// Snowflake case for checking player characters for a Pilot Spacecraft Skill.
+	// Only player characters will have the component. Which will both always be present on them, and will only enable its own return logic if it exists.
+	// NPCs, Ghostroles, and Offship Antags that don't generate skills are unaffected by this check by intentional design so that we don't have to account for them.
+	if (required_skill)
+		var/datum/component/skill/skill_check = user.GetComponent(astype(required_skill, SKILL_COMPONENT))
+		if (skill_check && skill_check.skill_level < required_skill_level)
+			to_chat(user, SPAN_WARNING("There's just so many buttons... You have no idea where to even begin."))
+			return
+
 	if(use_check_and_message(user))
 		return
 	if(!emagged && !allowed(user))

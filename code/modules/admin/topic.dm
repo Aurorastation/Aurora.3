@@ -833,7 +833,7 @@
 			dat += "Special Role Desc: [special_role_description]<br>"
 		dat += "(<a href='byond://?src=[REF(usr)];priv_msg=[REF(M)]'>PM</a>) (<A href='byond://?src=[REF(src)];adminplayeropts=[REF(M)]'>PP</A>) (<A href='byond://?_src_=vars;Vars=[REF(M)]'>VV</A>) (<A href='byond://?src=[REF(src)];subtlemessage=[REF(M)]'>SM</A>) ([admin_jump_link(M, src)]) (<A href='byond://?src=[REF(src)];secretsadmin=check_antagonist'>CA</A>)"
 
-		var/datum/browser/extrainfo_win = new(usr, "extrainfo", "Extra Info (M.name)", 450, 500)
+		var/datum/browser/extrainfo_win = new(usr, "extrainfo", "Extra Info", 450, 500)
 		extrainfo_win.set_content(dat)
 		extrainfo_win.open()
 

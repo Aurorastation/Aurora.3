@@ -19,7 +19,7 @@
 	response_help  = "pets"
 	response_disarm = "shoves"
 	response_harm   = "harmlessly punches"
-	maxHealth = 1000
+	maxhealth = 1000
 	health = 1000
 	harm_intent_damage = 0
 	melee_damage_lower = 30
@@ -27,7 +27,7 @@
 	resist_mod = 15
 	mob_size = 25
 	environment_smash = 2
-	attacktext = "punished"
+	attacktext = "punishes"
 	attack_sound = 'sound/weapons/bladeslice.ogg'
 
 	lighting_alpha = LIGHTING_PLANE_ALPHA_SOMEWHAT_INVISIBLE
@@ -134,13 +134,13 @@
 	response_disarm = "pushes"
 	response_harm = "hits"
 	speed = 4
-	maxHealth = 50
+	maxhealth = 50
 	health = 50
 
 	harm_intent_damage = 5
 	melee_damage_lower = 5
 	melee_damage_upper = 5
-	attacktext = "nibbled"
+	attacktext = "nibbles"
 	attack_sound = 'sound/weapons/bite.ogg'
 
 	min_oxy = 0
@@ -170,7 +170,7 @@
 			icon_state = "gift2_evil"
 			icon_living = "gift2_evil"
 			icon_dead = "gift2"
-			maxHealth = 100
+			maxhealth = 100
 			health = 100
 			melee_damage_lower = 10
 			melee_damage_upper = 10
@@ -179,7 +179,7 @@
 			icon_state = "gift3_evil"
 			icon_living = "gift3_evil"
 			icon_dead = "gift3"
-			maxHealth = 150
+			maxhealth = 150
 			health = 150
 			melee_damage_lower = 15
 			melee_damage_upper = 15

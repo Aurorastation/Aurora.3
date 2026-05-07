@@ -284,11 +284,11 @@
 /area/shuttle/lone_spacer/storage)
 "G" = (
 /obj/effect/floor_decal/industrial/outline/operations,
-/obj/item/cargo_package/offship/to_horizon{
+/obj/item/package/delivery/offship/to_horizon{
 	pixel_y = 10;
 	pixel_x = -1
 	},
-/obj/item/cargo_package/offship{
+/obj/item/package/delivery/offship{
 	pixel_y = -2;
 	pixel_x = 1
 	},

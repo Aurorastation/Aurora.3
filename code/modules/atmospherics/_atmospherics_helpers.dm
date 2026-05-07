@@ -10,8 +10,9 @@
 
 /obj/machinery/atmospherics/var/last_flow_rate = 0
 /obj/machinery/atmospherics/var/last_power_draw = 0
+/obj/machinery/atmospherics/var/last_mole_transfer = 0
 /obj/machinery/portable_atmospherics/var/last_flow_rate = 0
-
+/obj/machinery/portable_atmospherics/var/last_mole_transfer = 0
 
 /obj/machinery/atmospherics/var/debug = 0
 
@@ -46,6 +47,7 @@
 	if (istype(M, /obj/machinery/atmospherics))
 		var/obj/machinery/atmospherics/A = M
 		A.last_flow_rate = (transfer_moles/source.total_moles)*source.volume //group_multiplier gets divided out here
+		A.last_mole_transfer = transfer_moles
 
 		if (A.debug)
 			A.visible_message("[A]: source entropy: [round(source.specific_entropy(), 0.01)] J/Kmol --> sink entropy: [round(sink.specific_entropy(), 0.01)] J/Kmol")
@@ -56,6 +58,7 @@
 	if (istype(M, /obj/machinery/portable_atmospherics))
 		var/obj/machinery/portable_atmospherics/P = M
 		P.last_flow_rate = (transfer_moles/source.total_moles)*source.volume //group_multiplier gets divided out here
+		P.last_mole_transfer = transfer_moles
 
 	var/datum/gas_mixture/removed = source.remove(transfer_moles)
 	if (!removed) //Just in case
@@ -87,12 +90,14 @@
 	if (istype(M, /obj/machinery/atmospherics))
 		var/obj/machinery/atmospherics/A = M
 		A.last_flow_rate = (transfer_moles/source.total_moles)*source.volume //group_multiplier gets divided out here
+		A.last_mole_transfer = transfer_moles
 		if (A.debug)
 			A.visible_message("[A]: moles transferred = [transfer_moles] mol")
 
 	if (istype(M, /obj/machinery/portable_atmospherics))
 		var/obj/machinery/portable_atmospherics/P = M
 		P.last_flow_rate = (transfer_moles/source.total_moles)*source.volume //group_multiplier gets divided out here
+		P.last_mole_transfer = transfer_moles
 
 	var/datum/gas_mixture/removed = source.remove(transfer_moles)
 	if(!removed) //Just in case
@@ -149,9 +154,11 @@
 	if (istype(M, /obj/machinery/atmospherics))
 		var/obj/machinery/atmospherics/A = M
 		A.last_flow_rate = (total_transfer_moles/source.total_moles)*source.volume //group_multiplier gets divided out here
+		A.last_mole_transfer = total_transfer_moles
 	if (istype(M, /obj/machinery/portable_atmospherics))
 		var/obj/machinery/portable_atmospherics/P = M
 		P.last_flow_rate = (total_transfer_moles/source.total_moles)*source.volume //group_multiplier gets divided out here
+		P.last_mole_transfer = total_transfer_moles
 
 	var/power_draw = 0
 	for (var/g in filtering)
@@ -218,9 +225,11 @@
 	if (istype(M, /obj/machinery/atmospherics))
 		var/obj/machinery/atmospherics/A = M
 		A.last_flow_rate = (total_transfer_moles/source.total_moles)*source.volume //group_multiplier gets divided out here
+		A.last_mole_transfer = total_transfer_moles
 	if (istype(M, /obj/machinery/portable_atmospherics))
 		var/obj/machinery/portable_atmospherics/P = M
 		P.last_flow_rate = (total_transfer_moles/source.total_moles)*source.volume //group_multiplier gets divided out here
+		P.last_mole_transfer = total_transfer_moles
 
 	var/datum/gas_mixture/removed = source.remove(total_transfer_moles)
 	if (!removed) //Just in case
@@ -291,9 +300,11 @@
 	if (istype(M, /obj/machinery/atmospherics))
 		var/obj/machinery/atmospherics/A = M
 		A.last_flow_rate = (total_transfer_moles/source.total_moles)*source.volume //group_multiplier gets divided out here
+		A.last_mole_transfer = total_transfer_moles
 	if (istype(M, /obj/machinery/portable_atmospherics))
 		var/obj/machinery/portable_atmospherics/P = M
 		P.last_flow_rate = (total_transfer_moles/source.total_moles)*source.volume //group_multiplier gets divided out here
+		P.last_mole_transfer = total_transfer_moles
 
 	var/datum/gas_mixture/removed = source.remove(total_transfer_moles)
 	if (!removed) //Just in case
@@ -372,9 +383,11 @@
 	if (istype(M, /obj/machinery/atmospherics))
 		var/obj/machinery/atmospherics/A = M
 		A.last_flow_rate = (total_transfer_moles/total_input_moles)*total_input_volume //group_multiplier gets divided out here
+		A.last_mole_transfer = total_transfer_moles
 	if (istype(M, /obj/machinery/portable_atmospherics))
 		var/obj/machinery/portable_atmospherics/P = M
 		P.last_flow_rate = (total_transfer_moles/total_input_moles)*total_input_volume //group_multiplier gets divided out here
+		P.last_mole_transfer = total_transfer_moles
 
 	var/total_power_draw = 0
 	for (var/datum/gas_mixture/source in mix_sources)

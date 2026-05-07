@@ -12,7 +12,7 @@
 	response_disarm = "gently pushes aside the"
 	response_harm = "hits the"
 	speed = -2
-	maxHealth = 80
+	maxhealth = 80
 	health = 80
 	mob_size = 10
 
@@ -20,7 +20,7 @@
 
 	melee_damage_lower = 15
 	melee_damage_upper = 15
-	attacktext = "bitten"
+	attacktext = "bites"
 	attack_sound = 'sound/weapons/bite.ogg'
 
 	environment_smash = 1
@@ -49,14 +49,14 @@
 	response_harm = "hits the"
 
 	speed = -1
-	maxHealth = 75
+	maxhealth = 75
 	health = 75
 
 	mob_size = 5
 
 	melee_damage_lower = 15
 	melee_damage_upper = 15
-	attacktext = "bitten"
+	attacktext = "bites"
 	attack_sound = 'sound/weapons/bite.ogg'
 
 	faction = "Adhomai"
@@ -76,7 +76,7 @@
 	meat_amount = 5
 	organ_names = list("body", "tentacles")
 	faction = "Adhomai"
-	maxHealth = 100
+	maxhealth = 100
 	health = 100
 
 	speak_emote = list("gurgles")
@@ -93,7 +93,7 @@
 	mob_swap_flags = HUMAN|SIMPLE_ANIMAL|SLIME|MONKEY
 	mob_push_flags = ALLMOBS
 
-	attacktext = "strangled"
+	attacktext = "strangles"
 	attack_sound = 'sound/effects/noosed.ogg'
 
 	speed = 1
@@ -119,12 +119,12 @@
 	emote_hear = list("hums")
 	emote_see = list("hums ominously", "crackles with energy", "floats around")
 
-	maxHealth = 50
+	maxhealth = 50
 	health = 50
 
 	melee_damage_lower = 5
 	melee_damage_upper = 5
-	attacktext = "shocked"
+	attacktext = "shocks"
 	attack_sound = 'sound/magic/LightningShock.ogg'
 
 	speed = 1

@@ -27,9 +27,9 @@
 	. += "Its mag-pulse traction system appears to be [state]."
 
 /obj/item/clothing/shoes/magboots/Destroy()
-	. = ..()
 	src.shoes = null
 	src.wearer = null
+	return ..()
 
 /obj/item/clothing/shoes/magboots/proc/set_slowdown(mob/user)
 	slowdown = shoes? max(0, shoes.slowdown): 0	//So you can't put on magboots to make you walk faster.

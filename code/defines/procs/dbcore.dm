@@ -195,8 +195,7 @@ Delayed insert mode was removed in mysql 7 and only works with MyISAM type table
 
 	var/error = ErrorMsg()
 	if (error)
-		log_sql("SQL Error: '[error]'")
-		log_sql(" - during query: [sql_query]")
+		log_sql("SQL Error: '[error]' during query: [sql_query]")
 		// This is hacky and should probably be changed
 		if (error == "MySQL server has gone away")
 			log_game("MySQL connection drop detected, attempting to reconnect.")
@@ -319,11 +318,9 @@ Delayed insert mode was removed in mysql 7 and only works with MyISAM type table
 					parsed += cache[curr_arg]
 				else
 #ifdef UNIT_TEST
-					log_world("ERROR: SQL ARGPARSE: Unpopulated argument found in an SQL query.")
-					log_world("ERROR: SQL ARGPARSE: [curr_arg]. Query: [query_to_parse]")
+					log_world("ERROR: SQL ARGPARSE: Unpopulated argument found in an SQL query: [curr_arg]. Query: [query_to_parse]")
 #else
-					log_sql("SQL ARGPARSE: Unpopulated argument found in an SQL query.")
-					log_sql("SQL ARGPARSE: [curr_arg]. Query: [query_to_parse]")
+					log_sql("SQL ARGPARSE: Unpopulated argument found in an SQL query: [curr_arg]. Query: [query_to_parse]")
 #endif
 					return null
 

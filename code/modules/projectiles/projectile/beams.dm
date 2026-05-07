@@ -46,7 +46,7 @@
 	impact_type = /obj/effect/projectile/impact/laser/scc
 
 /obj/projectile/beam/pistol/hegemony
-	icon = 'icons/obj/guns/hegemony_pistol.dmi'
+	icon = 'icons/obj/guns/faction/izweski_hegemony/hegemony_pistol.dmi'
 	icon_state = "hegemony_pistol"
 	damage = 30
 
@@ -379,7 +379,7 @@
 	name = "thermal lance"
 	icon_state = "gauss"
 	damage = 10
-	incinerate = 5
+	incinerate = 2
 	armor_penetration = 10
 
 	muzzle_type = /obj/effect/projectile/muzzle/solar
@@ -397,9 +397,6 @@
 					M.emitter_blasts_taken += 1
 				else if(prob(33))
 					M.emitter_blasts_taken += 1
-	if(ismob(target))
-		var/mob/living/M = target
-		M.apply_effect(1, INCINERATE, 0)
 	explosion(target, -1, 0, 2)
 	. = ..()
 

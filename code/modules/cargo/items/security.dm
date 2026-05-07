@@ -56,6 +56,20 @@
 	groupable = TRUE
 	spawn_amount = 1
 
+/singleton/cargo_item/implant_tracker
+	category = "security"
+	name = "box of tracking implants"
+	supplier = "nanotrasen"
+	description = "A full implant kit with tracker implants to keep check on prisoners."
+	price = 600
+	items = list(
+		/obj/item/storage/box/tactical/trackimp
+	)
+	access = ACCESS_SECURITY
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
 /singleton/cargo_item/maglight
 	category = "security"
 	name = "maglight"

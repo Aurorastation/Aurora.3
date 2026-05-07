@@ -1071,6 +1071,7 @@
 /obj/item/storage/toolbox/emergency{
 	pixel_y = 2
 	},
+/obj/item/eftpos,
 /turf/simulated/floor/tiled/full{
 	temperature = 278.15
 	},
@@ -2962,7 +2963,7 @@
 	},
 /obj/item/reagent_containers/hypospray,
 /obj/item/storage/belt/medical/paramedic,
-/obj/item/clothing/accessory/armband/medgreen,
+/obj/item/clothing/accessory/armband/med,
 /obj/item/clothing/accessory/stethoscope,
 /obj/item/reagent_containers/glass/bottle/thetamycin,
 /obj/item/reagent_containers/glass/bottle/mortaphenyl,

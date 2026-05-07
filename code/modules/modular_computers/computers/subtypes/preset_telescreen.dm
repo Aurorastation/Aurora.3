@@ -1,5 +1,5 @@
 /obj/item/modular_computer/telescreen/preset/Destroy()
-	. = ..()
+	return ..()
 
 /obj/item/modular_computer/telescreen/preset/install_default_hardware()
 	..()

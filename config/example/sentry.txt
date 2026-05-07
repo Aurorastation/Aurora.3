@@ -1,0 +1,46 @@
+## Sentry.io Integration for Aurora Station
+##
+## Copy this file to config/sentry.txt and fill in your project DSN.
+## Without ENABLED uncommented the subsystem does nothing.
+##
+## DSN format: https://PUBLIC_KEY@HOST/PROJECT_ID
+## Find your DSN at: Settings → Projects → <your project> → SDK Setup → DSN
+
+## Uncomment to activate.
+# ENABLED
+
+## Your project DSN (required).
+# DSN https://examplekey@o0.ingest.sentry.io/0
+
+## Sentry environment tag. Shown in the Sentry UI.
+## Defaults to "production".
+# ENVIRONMENT production
+
+## Server name shown on each event. Defaults to the value of SERVERNAME in config.txt.
+# SERVER_NAME my-server
+
+## Which categories of events to forward (1 = enabled, 0 = disabled).
+## CAPTURE_RUNTIMES, CAPTURE_SQL, CAPTURE_HARD_DELS default to 1 (enabled).
+## CAPTURE_PROFILER defaults to 0 — each dump attaches the full profiler JSON,
+## which can be large. Only enable if you actually want it in Sentry.
+# CAPTURE_RUNTIMES 1
+# CAPTURE_SQL 1
+# CAPTURE_HARD_DELS 1
+# CAPTURE_PROFILER 0
+
+## How many of the hottest procs (by self-time) to include in event extras
+## alongside the attached JSON. Defaults to 20.
+# PROFILER_TOP_N 20
+
+## How long (in deciseconds of game time) to suppress duplicate file:line exceptions.
+## Set to 0 to disable deduplication. Defaults to 600 (60 seconds).
+# DEDUP_WINDOW 600
+
+## Hash (md5) ckeys before sending instead of forwarding them in the clear.
+## Defaults to 1 (enabled).
+# SCRUB_CKEYS 1
+
+## Disable Sentry after this many consecutive HTTP failures (kill-switch).
+## An admin can reset it in-round via VV (SSsentry → active = TRUE).
+## Defaults to 10.
+# MAX_CONSECUTIVE_FAILURES 10

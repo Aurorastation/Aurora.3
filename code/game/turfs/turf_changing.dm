@@ -251,7 +251,7 @@
 
 /turf/simulated/wall/copy_turf(turf/simulated/wall/other, ignore_air = FALSE)
 	.=..()
-	other.damage = damage
+	other.health = health
 
 /turf/simulated/floor/copy_turf(turf/simulated/floor/other, ignore_air = FALSE)
 	.=..()

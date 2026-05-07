@@ -277,8 +277,8 @@
 	queue_icon_update()
 
 /obj/item/gun/custom_ka/Destroy()
-	. = ..()
 	STOP_PROCESSING(SSprocessing, src)
+	return ..()
 
 /obj/item/gun/custom_ka/process()
 	if(installed_cell)

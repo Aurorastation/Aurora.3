@@ -8,7 +8,7 @@
 	var/list/rod_quantities = list()
 	var/fuel_type
 	var/fuel_colour
-	var/radioactivity = 0
+	var/radioactivity = RAD_LEVEL_NONE
 	var/initial_amount
 
 /obj/item/fuel_assembly/New(newloc, _material, _colour)

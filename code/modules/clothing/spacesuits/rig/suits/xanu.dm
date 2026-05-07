@@ -22,7 +22,7 @@
 	allowed_module_types = MODULE_GENERAL | MODULE_LIGHT_COMBAT | MODULE_HEAVY_COMBAT | MODULE_SPECIAL | MODULE_MEDICAL | MODULE_UTILITY
 
 	siemens_coefficient = 0.2
-	offline_slowdown = 2
+	offline_slowdown = 1
 	offline_vision_restriction = TINT_HEAVY
 
 	species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_IPC, BODYTYPE_IPC_BISHOP, BODYTYPE_IPC_ZENGHU)
@@ -69,7 +69,7 @@
 		RAD = ARMOR_RAD_MINOR
 	)
 	slowdown = 0
-	offline_slowdown = 1
+	offline_slowdown = 0.5
 
 	allowed_module_types = MODULE_GENERAL | MODULE_UTILITY
 

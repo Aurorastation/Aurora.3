@@ -28,7 +28,7 @@ SUBSYSTEM_DEF(radiation)
 		if(QDELETED(S))
 			sources -= S
 		else if(S.decay)
-			S.update_rad_power(S.rad_power - RADIATION_DECAY_RATE)
+			S.update_rad_power(S.rad_power - (RADIATION_DECAY_RATE + S.accelerated_decay_rate))
 		if (MC_TICK_CHECK)
 			return
 
@@ -122,12 +122,13 @@ SUBSYSTEM_DEF(radiation)
  *
  * This source will send out regular radiation pulses that take walls and distance into account.
  */
-/datum/controller/subsystem/radiation/proc/radiate(source, power)
+/datum/controller/subsystem/radiation/proc/radiate(source, power, increased_decay)
 	if(!(source && power)) //Sanity checking
 		return
 	var/datum/radiation_source/S = new()
 	S.source_turf = get_turf(source)
 	S.update_rad_power(power)
+	S.accelerated_decay_rate = increased_decay
 	add_source(S)
 
 /**

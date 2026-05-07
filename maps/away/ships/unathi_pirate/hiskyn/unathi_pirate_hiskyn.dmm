@@ -6266,6 +6266,7 @@
 	dir = 1
 	},
 /obj/item/binoculars/spyglass,
+/obj/item/eftpos,
 /turf/simulated/floor/tiled/dark,
 /area/hiskyn_ship/bridge)
 "sEq" = (

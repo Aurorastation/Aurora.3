@@ -101,7 +101,7 @@
 	name = "weapons lockbox"
 	desc = "A high security weapons lockbox"
 	req_access = list(ACCESS_ARMORY)
-	starts_with = list(/obj/item/gun/energy/lawgiver = 1)
+	starts_with = list(/obj/item/gun/energy/acp = 1)
 
 /obj/item/storage/lockbox/medal
 	name = "medal box"

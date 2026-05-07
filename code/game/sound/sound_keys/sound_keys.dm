@@ -419,6 +419,14 @@
 		'sound/weapons/empty/empty_shotgun1.ogg'
 	)
 
+/datum/sound_effect/plastic_dry_fire
+	key = SFX_PLASTIC_DRY_FIRE
+	file_paths = list(
+		'sound/weapons/empty/dryfire_plastic_01.ogg',
+		'sound/weapons/empty/dryfire_plastic_02.ogg',
+		'sound/weapons/empty/dryfire_plastic_03.ogg'
+	)
+
 /datum/sound_effect/metal_slide_reload
 	key = SFX_RELOAD_METAL_SLIDE
 	file_paths = list(
@@ -895,4 +903,12 @@
 	file_paths = list(
 		'sound/effects/creatures/robot_talk_1.ogg',
 		'sound/effects/creatures/robot_talk_2.ogg'
+	)
+
+/datum/sound_effect/whiteboard_scribble
+	key = SFX_WHITEBOARD_SCRIBBLE
+	file_paths = list(
+		'sound/effects/whiteboard_scribble_1.ogg',
+		'sound/effects/whiteboard_scribble_2.ogg',
+		'sound/effects/whiteboard_scribble_3.ogg'
 	)

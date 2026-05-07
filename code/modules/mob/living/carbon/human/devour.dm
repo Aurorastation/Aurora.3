@@ -51,7 +51,7 @@
 		victim.calculate_composition()
 	var/dam_multiplier = 1
 
-	var/victim_maxhealth = victim.maxHealth //We cache this here in case we need to edit it.
+	var/victim_maxhealth = victim.maxhealth //We cache this here in case we need to edit it.
 
 	var/damage_dealt = victim_maxhealth * PEPB * dam_multiplier
 

@@ -29,9 +29,7 @@
 		if(C_imp_in.handcuffed)
 			var/obj/item/W = C_imp_in.handcuffed
 			C_imp_in.handcuffed = null
-			if(C_imp_in.buckled_to && C_imp_in.buckled_to.buckle_require_restraints)
-				C_imp_in.buckled_to.unbuckle()
-			C_imp_in.update_inv_handcuffed()
+			C_imp_in.handcuff_update()
 			if(C_imp_in.client)
 				C_imp_in.client.screen -= W
 			if(W)
@@ -42,7 +40,7 @@
 		if(C_imp_in.legcuffed)
 			var/obj/item/W = C_imp_in.legcuffed
 			C_imp_in.legcuffed = null
-			C_imp_in.update_inv_legcuffed()
+			C_imp_in.legcuff_update()
 			if(C_imp_in.client)
 				C_imp_in.client.screen -= W
 			if(W)

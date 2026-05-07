@@ -52,7 +52,7 @@
 
 	var/datum/ship_engine/ion/controller
 	var/thrust_limit = 1
-	var/on = 1
+	var/on = TRUE
 	var/burn_cost = 36000
 	var/generated_thrust = 2.5
 
@@ -66,11 +66,14 @@
 
 /obj/machinery/ion_engine/proc/get_status()
 	. = list()
-	.+= "Location: [get_area(src)]."
-	if(!powered())
-		.+= "Insufficient power to operate."
 
-	. = jointext(.,"<br>")
+	. += list(list(
+		"text" = "Location: [get_area(src)].",
+		"severity" = "info"
+	))
+
+	if(!powered())
+		. += list(list("text" = "Insufficient power to operate.", "severity" = "bad"))
 
 /obj/machinery/ion_engine/proc/burn(var/power_modifier = 1)
 	if(!on && !powered())

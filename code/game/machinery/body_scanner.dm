@@ -473,7 +473,7 @@
 		data["blood_volume"] = occupant.get_blood_volume()
 		data["blood_o2"] = blood_oxygenation
 		data["blood_type"] = occupant.dna.b_type
-		data["rads"] = occupant.total_radiation
+		data["rads"] = occupant.total_radiation / 100 //4 Gy is a 50% chance of death, total_radiation caps at 1000.
 
 		data["cloneLoss"] = get_severity(occupant.getCloneLoss(), TRUE)
 		data["oxyLoss"] = get_severity(occupant.getOxyLoss(), TRUE)

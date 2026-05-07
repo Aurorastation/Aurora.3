@@ -553,7 +553,7 @@ GLOBAL_LIST_EMPTY(additional_antag_types)
 			to_chat(C.mob, logout_report)
 
 /client/proc/print_logout_report()
-	set category = "Admin"
+	set category = "Admin.Player Info"
 	set name = "Print Logout Report"
 
 	if(!check_rights(R_ADMIN|R_MOD))

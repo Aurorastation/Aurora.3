@@ -23,10 +23,9 @@
 	fore_dir = WEST
 	vessel_size = SHIP_SIZE_SMALL
 
-/obj/machinery/computer/shuttle_control/explore/runtime
+/obj/machinery/computer/shuttle_control/explore/terminal/runtime
 	name = "whiletrue control console"
 	shuttle_tag = "WhileTrue"
-	req_access = list()
 
 /area/shuttle/runtime
 	name = "While True"
@@ -36,18 +35,34 @@
 	name = "WhileTrue"
 	move_time = 90
 	shuttle_area = list(/area/shuttle/runtime)
-	dock_target = "runtime_shuttle"
-	current_location = "nav_runtime_hangar"
+	dock_target = "airlock_runtime_shuttle"
+	current_location = "nav_runtime_dock"
 	landmark_transition = "nav_transit_runtime"
+	logging_home_tag = "nav_runtime_dock"
 	range = 1
 	fuel_consumption = 4
 	ceiling_type = /turf/simulated/floor/shuttle_ceiling
 
-/obj/effect/shuttle_landmark/runtime/hangar
-	name = "Runtime Hangar"
-	landmark_tag = "nav_runtime_hangar"
-	base_area = /area/construction
-	base_turf = /turf/simulated/floor/plating
+/obj/effect/shuttle_landmark/runtime/dock
+	name = "Runtime Dock"
+	landmark_tag = "nav_runtime_dock"
+	docking_controller = "nav_runtime_dock"
+	base_area = /area/exterior
+	base_turf = /turf/simulated/floor/airless
+	movable_flags = MOVABLE_FLAG_EFFECTMOVE
+
+// runtime dock airlocks
+/obj/effect/map_effect/marker/airlock/docking/runtime/dock
+	name = "Shuttle Dock"
+	landmark_tag = "nav_runtime_dock"
+	master_tag = "nav_runtime_dock"
+
+// runtime shuttle airlocks
+/obj/effect/map_effect/marker/airlock/shuttle/runtime
+	name = "WhileTrue"
+	shuttle_tag = "WhileTrue"
+	master_tag = "airlock_runtime_shuttle"
+	cycle_to_external_air = TRUE
 
 /obj/effect/shuttle_landmark/runtime/transit
 	name = "In transit"

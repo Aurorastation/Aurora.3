@@ -213,7 +213,7 @@
 		playsound(src.loc, 'sound/effects/glass_hit.ogg', 75, 1)
 		visible_message(SPAN_DANGER("[src] was hit by [attacking_item]."))
 		if(attacking_item.damtype == DAMAGE_BRUTE || attacking_item.damtype == DAMAGE_BURN)
-			take_damage(aforce)
+			add_damage(aforce)
 		return
 
 	src.add_fingerprint(user)
@@ -231,12 +231,12 @@
 
 	return
 
-/obj/machinery/door/window/holowindoor/shatter(var/display_message = 1)
-	src.density = 0
+/obj/machinery/door/window/holowindoor/on_death(damage, damage_flags, damage_type, armor_penetration, obj/weapon, display_message = TRUE)
+	density = FALSE
 	playsound(src, SFX_BREAK_GLASS, 70, 1)
 	if(display_message)
-		visible_message("[src] fades away as it shatters!")
-	qdel(src)
+		visible_message(SPAN_WARNING("[src] fades away as it shatters!"))
+	. = ..()
 
 /obj/structure/bed/stool/chair/holochair
 	held_item = null

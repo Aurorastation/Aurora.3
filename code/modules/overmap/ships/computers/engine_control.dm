@@ -10,7 +10,7 @@
 	var/display_state = "status"
 
 /obj/machinery/computer/ship/engines/cockpit
-	density = 0
+	density = FALSE
 	icon = 'icons/obj/cockpit_console.dmi'
 	icon_state = "right"
 	icon_screen = "engine"
@@ -28,91 +28,116 @@
 	can_pass_under = FALSE
 	light_power_on = 1
 
-/obj/machinery/computer/ship/engines/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1)
+/obj/machinery/computer/ship/engines/ui_interact(mob/user, datum/tgui/ui)
 	if(!connected)
 		display_reconnect_dialog(user, "ship control systems")
 		return
 
+	ui = SStgui.try_update_ui(user, src, ui)
+	if(!ui)
+		ui = new(user, src, "EnginesControl", "[connected.get_real_name()] Engines Control")
+		ui.open()
 
-	var/data[0]
+/obj/machinery/computer/ship/engines/ui_data(mob/user)
+	var/list/data = list()
+
+	if(!connected)
+		return
+
 	data["state"] = display_state
-	data["global_state"] = connected.engines_state
-	data["global_limit"] = round(connected.thrust_limit*100)
-	var/total_thrust = 0
+	data["global_state"] = !!connected.engines_state
+	data["global_limit"] = round(connected.thrust_limit * 100)
 
-	var/list/enginfo[0]
+	var/total_thrust = 0
+	var/list/enginfo = list()
+
 	for(var/datum/ship_engine/E in connected.engines)
-		var/list/rdata[0]
-		rdata["eng_type"] = E.name
-		rdata["eng_on"] = E.is_on()
-		rdata["eng_thrust"] = E.get_thrust()
-		rdata["eng_thrust_limiter"] = round(E.get_thrust_limit()*100)
-		rdata["eng_status"] = E.get_status()
-		rdata["eng_reference"] = "[REF(E)]"
+		var/list/edata = list()
+		edata["eng_type"] = E.name
+		edata["eng_on"] = !!E.is_on()
+		edata["eng_thrust"] = E.get_thrust() * 10
+		edata["eng_thrust_limiter"] = round(E.get_thrust_limit() * 100)
+		edata["eng_status"] = E.get_status()
+		edata["eng_reference"] = "[REF(E)]"
 		total_thrust += E.get_thrust()
-		enginfo.Add(list(rdata))
+		enginfo += list(edata)
 
 	data["engines_info"] = enginfo
 	data["total_thrust"] = total_thrust
 
-	ui = SSnanoui.try_update_ui(user, src, ui_key, ui, data, force_open)
-	if (!ui)
-		ui = new(user, src, ui_key, "engines_control.tmpl", "[connected.get_real_name()] Engines Control", 390, 530)
-		ui.set_initial_data(data)
-		ui.open()
-		ui.set_auto_update(1)
+	return data
 
-/obj/machinery/computer/ship/engines/Topic(href, href_list)
-	if(..())
-		return TOPIC_HANDLED
+/obj/machinery/computer/ship/engines/ui_act(action, params)
+	. = ..()
+	if(.)
+		return
 
-	if(href_list["state"])
-		display_state = href_list["state"]
-		return TOPIC_REFRESH
+	if(!connected)
+		return FALSE
 
-	if(href_list["global_toggle"])
-		connected.engines_state = !connected.engines_state
-		for(var/datum/ship_engine/E in connected.engines)
-			if(connected.engines_state == !E.is_on())
-				E.toggle()
-		return TOPIC_REFRESH
+	if(use_check_and_message(usr))
+		return FALSE
 
-	if(href_list["set_global_limit"])
-		var/newlim = tgui_input_number(usr, "Input the new thrust limit.", "Thrust Limit", connected.thrust_limit*100, 100, 0)
-		if(!CanInteract(usr, GLOB.physical_state))
-			return TOPIC_NOACTION
-		connected.thrust_limit = clamp(newlim/100, 0, 1)
-		for(var/datum/ship_engine/E in connected.engines)
-			E.set_thrust_limit(connected.thrust_limit)
-		return TOPIC_REFRESH
+	switch(action)
+		if("set_state")
+			var/new_state = params["state"]
+			if(new_state in list("status", "engines"))
+				display_state = new_state
+				return TRUE
+			return FALSE
 
-	if(href_list["global_limit"])
-		connected.thrust_limit = clamp(connected.thrust_limit + text2num(href_list["global_limit"]), 0, 1)
-		for(var/datum/ship_engine/E in connected.engines)
-			E.set_thrust_limit(connected.thrust_limit)
-		return TOPIC_REFRESH
+		if("global_toggle")
+			connected.engines_state = !connected.engines_state
+			for(var/datum/ship_engine/E in connected.engines)
+				if(connected.engines_state == !E.is_on())
+					E.toggle()
+			return TRUE
 
-	if(href_list["engine"])
-		if(href_list["set_limit"])
-			var/datum/ship_engine/E = locate(href_list["engine"])
-			var/newlim = tgui_input_number(usr, "Input the new thrust limit.", "Thrust Limit", E.get_thrust_limit(), 100, 0)
-			if(!CanInteract(usr, GLOB.physical_state))
-				return
-			var/limit = clamp(newlim/100, 0, 1)
-			if(istype(E))
-				E.set_thrust_limit(limit)
-			return TOPIC_REFRESH
-		if(href_list["limit"])
-			var/datum/ship_engine/E = locate(href_list["engine"])
-			var/limit = clamp(E.get_thrust_limit() + text2num(href_list["limit"]), 0, 1)
-			if(istype(E))
-				E.set_thrust_limit(limit)
-			return TOPIC_REFRESH
+		if("set_global_limit")
+			var/newlim = tgui_input_number(usr, "Input the new thrust limit.", "Thrust Limit", connected.thrust_limit * 100, 100, 0)
+			if(isnull(newlim))
+				return FALSE
 
-		if(href_list["toggle"])
-			var/datum/ship_engine/E = locate(href_list["engine"])
-			if(istype(E))
-				E.toggle()
-			return TOPIC_REFRESH
-		return TOPIC_REFRESH
-	return TOPIC_NOACTION
+			connected.thrust_limit = clamp(newlim / 100, 0, 1)
+			for(var/datum/ship_engine/E in connected.engines)
+				E.set_thrust_limit(connected.thrust_limit)
+			return TRUE
+
+		if("global_limit_delta")
+			var/delta = text2num(params["delta"])
+			connected.thrust_limit = round(clamp(connected.thrust_limit + delta, 0, 1),0.1)
+			for(var/datum/ship_engine/E in connected.engines)
+				E.set_thrust_limit(connected.thrust_limit)
+			return TRUE
+
+		if("engine_set_limit")
+			var/datum/ship_engine/E = locate(params["engine"])
+			if(!istype(E))
+				return FALSE
+			var/newlim = tgui_input_number(usr, "Input the new thrust limit.", "Thrust Limit", E.get_thrust_limit() * 100, 100, 0)
+			if(isnull(newlim))
+				return FALSE
+
+			var/limit = clamp(newlim / 100, 0, 1)
+			E.set_thrust_limit(limit)
+			return TRUE
+
+		if("engine_limit_delta")
+			var/datum/ship_engine/E = locate(params["engine"])
+			if(!istype(E))
+				return FALSE
+
+			var/delta = text2num(params["delta"])
+			var/limit = clamp(E.get_thrust_limit() + delta, 0, 1)
+			E.set_thrust_limit(limit)
+			return TRUE
+
+		if("engine_toggle")
+			var/datum/ship_engine/E = locate(params["engine"])
+			if(!istype(E))
+				return FALSE
+
+			E.toggle()
+			return TRUE
+
+	return FALSE

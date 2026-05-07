@@ -12,7 +12,7 @@
 	GLOB.player_list |= src
 
 	client.playtitlemusic()
-	addtimer(CALLBACK(src, PROC_REF(show_lobby_info)), 5 SECONDS)
+	addtimer(CALLBACK(src, PROC_REF(show_lobby_info)), 5 SECONDS, TIMER_STOPPABLE | TIMER_DELETE_ME)
 
 /mob/abstract/new_player/proc/show_lobby_info()
 	if(!client)

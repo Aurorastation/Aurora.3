@@ -3119,6 +3119,7 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
+/obj/item/eftpos,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},

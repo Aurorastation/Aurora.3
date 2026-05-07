@@ -1971,6 +1971,7 @@
 	pixel_y = -11;
 	pixel_x = -5
 	},
+/obj/item/eftpos,
 /turf/simulated/floor/carpet/rubber,
 /area/sensor_relay/monitoring)
 "aIl" = (

@@ -1,4 +1,4 @@
-/obj/item/gun/projectile
+ABSTRACT_TYPE(/obj/item/gun/projectile)
 	name = "gun"
 	desc = "A gun that fires bullets."
 	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2)
@@ -71,7 +71,7 @@
 /obj/item/gun/projectile/update_icon()
 	..()
 	if(suppressed)
-		var/mutable_appearance/MA = mutable_appearance('icons/obj/guns/suppressor.dmi', "suppressor")
+		var/mutable_appearance/MA = mutable_appearance('icons/obj/guns/attachments/suppressor.dmi', "suppressor")
 		if(suppressor_x_offset)
 			MA.pixel_x = suppressor_x_offset
 		if(suppressor_y_offset)

@@ -74,7 +74,6 @@
 /mob/living/silicon/Destroy()
 	GLOB.silicon_mob_list -= src
 	QDEL_NULL(computer)
-	QDEL_NULL(computer)
 	QDEL_NULL(id_card)
 	QDEL_NULL(common_radio)
 	for(var/datum/alarm_handler/AH in SSalarm.all_handlers)
@@ -187,7 +186,7 @@
 		. += ""
 
 	if(!stat)
-		. += "System Integrity: [round((health/maxHealth)*100)]%"
+		. += "System Integrity: [round((health/maxhealth)*100)]%"
 	else
 		. += "System Integrity: NON-FUNCTIONAL"
 		show_malf_ai()

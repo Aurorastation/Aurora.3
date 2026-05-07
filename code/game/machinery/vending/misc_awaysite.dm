@@ -120,8 +120,10 @@
 	var/list/key_data_sports = list()
 
 /obj/machinery/vending/rental_bikes/build_products()
-	products[/obj/item/key/bike/moped] = length(key_data_mopeds)
-	products[/obj/item/key/bike/sport] = length(key_data_sports)
+	if(length(key_data_mopeds))
+		products[/obj/item/key/bike/moped] = length(key_data_mopeds)
+	if(length(key_data_sports))
+		products[/obj/item/key/bike/sport] = length(key_data_sports)
 
 /obj/machinery/vending/rental_bikes/vended_product_post(var/obj/vended)
 	var/obj/item/key/key = vended

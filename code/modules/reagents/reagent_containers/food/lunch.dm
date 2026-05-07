@@ -186,6 +186,29 @@ GLOBAL_LIST_INIT(lunchables_alcohol_reagents_, list(
 	/singleton/reagent/alcohol/sugartree_liquor/darmadhirbrew
 ))
 
+GLOBAL_LIST_INIT(teas_tea_type_, list(
+	/obj/item/storage/box/unique/tea,
+	/obj/item/storage/box/unique/tea/tieguanyin,
+	/obj/item/storage/box/unique/tea/jaekseol,
+	/obj/item/storage/box/unique/tea/messa,
+	/obj/item/storage/box/unique/tea/rasnif
+))
+
+GLOBAL_LIST_INIT(teas_teapot_type_, list(
+	/obj/item/reagent_containers/glass/beaker/teapot,
+	/obj/item/reagent_containers/glass/beaker/teapot/lidded,
+	/obj/item/reagent_containers/glass/beaker/teapot/lidded/kyusu
+))
+
+GLOBAL_LIST_INIT(teas_teacup_type_, list(
+	"plain tea cup" = /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/teacup,
+	"clay yunomi" = /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/konyang,
+	"grey yunomi" = /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/konyang/grey,
+	"glazed pattern yunomi" = /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/konyang/pattern,
+	"manila pattern yunomi" = /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/konyang/manila,
+	"nature pattern yunomi" = /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/konyang/nature
+))
+
 /proc/lunchables_lunches()
 	if(!(GLOB.lunchables_lunches_[GLOB.lunchables_lunches_[1]]))
 		GLOB.lunchables_lunches_ = init_lunchable_list(GLOB.lunchables_lunches_)
@@ -215,6 +238,21 @@ GLOBAL_LIST_INIT(lunchables_alcohol_reagents_, list(
 	if(!(GLOB.lunchables_utensil_[GLOB.lunchables_utensil_[1]]))
 		GLOB.lunchables_utensil_ = init_lunchable_list(GLOB.lunchables_utensil_)
 	return GLOB.lunchables_utensil_
+
+/proc/teas_tea_type()
+	if(!(GLOB.teas_tea_type_[GLOB.teas_tea_type_[1]]))
+		GLOB.teas_tea_type_ = init_lunchable_list(GLOB.teas_tea_type_)
+	return GLOB.teas_tea_type_
+
+/proc/teas_teapot_type()
+	if(!(GLOB.teas_teapot_type_[GLOB.teas_teapot_type_[1]]))
+		GLOB.teas_teapot_type_ = init_lunchable_list(GLOB.teas_teapot_type_)
+	return GLOB.teas_teapot_type_
+
+/proc/teas_teacup_type()
+	if(!(GLOB.teas_teacup_type_[GLOB.teas_teacup_type_[1]]))
+		GLOB.teas_teacup_type_ = init_lunchable_list(GLOB.teas_teacup_type_)
+	return GLOB.teas_teacup_type_
 
 /proc/lunchables_drink_reagents()
 	if(!(GLOB.lunchables_drink_reagents_[GLOB.lunchables_drink_reagents_[1]]))

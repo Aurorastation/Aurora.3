@@ -28,8 +28,8 @@
 	SSmachinery.all_sensors += src
 
 /obj/machinery/power/sensor/Destroy()
-	. = ..()
 	SSmachinery.all_sensors -= src
+	return ..()
 
 // Proc: auto_set_name()
 // Parameters: None

@@ -12,7 +12,7 @@
 	icon_state = "hivebotbeacon_active"
 	icon_living = "hivebotbeacon_active"
 	health = 300
-	maxHealth = 300
+	maxhealth = 300
 	blood_type = COLOR_OIL
 	projectilesound = 'sound/weapons/taser2.ogg'
 	projectiletype = /obj/projectile/beam/hivebot
@@ -127,61 +127,12 @@
 	set_light(6,0.5,LIGHT_COLOR_GREEN)
 
 /mob/living/simple_animal/hostile/hivebotbeacon/Destroy()
-	//Remove the reference from all linked bots to us
-	for(var/mob/living/simple_animal/hostile/retaliate/hivebotharvester/hbh in linked_bots)
-		hbh.unlink()
-	for(var/mob/living/simple_animal/hostile/hivebot/hb in linked_bots)
-		hb.unlink()
 	linked_bots.Cut()
+	destinations.Cut()
+	close_destinations.Cut()
+	latest_area = null
 
-	//Smoke effect, we disappear in a smoke
-	var/datum/effect/effect/system/smoke_spread/S = new /datum/effect/effect/system/smoke_spread()
-	S.set_up(5, 0, src.loc)
-	S.start()
-
-	. = ..()
-
-/mob/living/simple_animal/hostile/hivebotbeacon/proc/do_link(mob/living/simple_animal/hostile/add)
-	if(QDELETED(add) || (add in linked_bots))
-		return
-	var/mob/living/simple_animal/hostile/hivebot/hb = astype(add)
-	if(!hb)
-		var/mob/living/simple_animal/hostile/retaliate/hivebotharvester/hbh = astype(add)
-		if(hbh)
-			if(hbh.linked_parent != src)
-				hbh.do_link(src)
-			harvester_amt++
-			. = TRUE
-	else
-		if(hb.linked_parent != src)
-			hb.do_link(src)
-		if(istype(add, /mob/living/simple_animal/hostile/hivebot/guardian))
-			guard_amt++
-			. = TRUE
-
-	if(.)
-		linked_bots += add
-		RegisterSignal(add, COMSIG_QDELETING, PROC_REF(unlink))
-
-
-/mob/living/simple_animal/hostile/hivebotbeacon/proc/unlink(mob/living/simple_animal/hostile/remove)
-	SIGNAL_HANDLER
-	if(!remove || !(remove in linked_bots))
-		return
-	UnregisterSignal(remove, COMSIG_QDELETING)
-	linked_bots -= remove
-	var/mob/living/simple_animal/hostile/hivebot/hb = astype(remove)
-	if(hb)
-		if(hb.linked_parent == src)
-			hb.unlink()
-		if(istype(remove, /mob/living/simple_animal/hostile/hivebot/guardian))
-			guard_amt--
-	else
-		var/mob/living/simple_animal/hostile/retaliate/hivebotharvester/hbh = astype(remove)
-		if(hbh)
-			if(hbh.linked_parent == src)
-				hbh.unlink()
-			harvester_amt--
+	return ..()
 
 /mob/living/simple_animal/hostile/hivebotbeacon/proc/generate_warp_destinations()
 
@@ -214,7 +165,11 @@
 	var/T = get_turf(src)
 	new /obj/effect/gibspawner/robot(T)
 	spark(T, 3, GLOB.alldirs)
-	qdel(src)
+	//Smoke effect, we disappear in a smoke
+	var/datum/effect/effect/system/smoke_spread/S = new /datum/effect/effect/system/smoke_spread()
+	S.set_up(5, 0, src.loc)
+	S.start()
+	QDEL_IN(src, 0)
 	return
 
 /mob/living/simple_animal/hostile/hivebotbeacon/think()
@@ -227,9 +182,7 @@
 /mob/living/simple_animal/hostile/hivebotbeacon/MoveToTarget()
 	if(!stop_automated_movement)
 		stop_automated_movement = 1
-	if(QDELETED(last_found_target) || SA_attackable(last_found_target))
-		LoseTarget()
-	if(!see_target(last_found_target))
+	if(last_found_target && (QDELETED(last_found_target) || SA_attackable(last_found_target) || !see_target(last_found_target)))
 		LoseTarget()
 	if(last_found_target in targets)
 		if(get_dist(src, last_found_target) <= 6)
@@ -280,6 +233,9 @@
 		do_teleport(src, random_turf)
 
 /mob/living/simple_animal/hostile/hivebotbeacon/proc/wakeup()
+	if(QDELETED(src))
+		return
+
 	change_stance(HOSTILE_STANCE_IDLE)
 	activated = 0
 	activate_beacon()
@@ -289,7 +245,7 @@
 		visible_message(SPAN_DANGER("[src] disappears in a cloud of smoke!"))
 		playsound(src.loc, 'sound/effects/teleport.ogg', 25, 1)
 		new /obj/effect/decal/cleanable/greenglow(src.loc)
-		qdel(src)
+		QDEL_IN(src, 0)
 		return
 
 	if(activated == -1)

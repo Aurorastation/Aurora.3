@@ -1092,7 +1092,7 @@
 /turf/simulated/floor/reinforced,
 /area/shuttle/elyran_shuttle)
 "fx" = (
-/obj/effect/floor_decal/plaque,
+/obj/structure/sign/floor_plaque,
 /obj/structure/cable{
 	d1 = 4;
 	d2 = 8;
@@ -7025,7 +7025,7 @@
 /obj/item/clothing/accessory/storage/white_vest,
 /obj/item/clothing/accessory/storage/pouches/white,
 /obj/item/storage/belt/medical/paramedic/combat/full,
-/obj/item/clothing/accessory/armband/medgreen,
+/obj/item/clothing/accessory/armband/med,
 /obj/item/clothing/head/beret/elyra,
 /turf/simulated/floor/carpet/rubber,
 /area/ship/elyran_corvette/dorm)
@@ -7228,6 +7228,7 @@
 /obj/structure/sign/flag/aemaq{
 	pixel_y = -32
 	},
+/obj/item/eftpos,
 /turf/simulated/floor/tiled/dark,
 /area/ship/elyran_corvette/cic)
 "OQ" = (

@@ -90,7 +90,7 @@
 	if(istype(mopbucket, /obj/structure/mopbucket) && !my_bucket && do_after(user, 20))
 		mopbucket.forceMove(src)
 		my_bucket = mopbucket
-		to_chat(user, "You mount the [mopbucket] on the janicart.")
+		to_chat(user, SPAN_NOTICE("You mount \the [mopbucket] on \the [src]."))
 		get_storage_contents_list()
 	else
 		..()

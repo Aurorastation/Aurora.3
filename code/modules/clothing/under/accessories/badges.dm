@@ -502,6 +502,22 @@
 	icon_state = "passcard_coc"
 	item_state = "passcard_coc"
 
+/obj/item/clothing/accessory/badge/passcard/coalition/xanu
+	name = "xanu passcard"
+	desc = "An identity document, or 'passcard' issued to citizens of the All-Xanu Republic."
+	desc_extended = "The principal identification document issued by the government of the All-Xanu Republic, this passcard is embedded with encrypted biometric, demographic, and civil registry data, serving as secure proof of identity and citizenship. \
+	A security hologram of the Xanan Feather is centered within the background, its iridescent contours shifting subtly with movement. The Republic's motto 'Liberty, Equality, Solidarity' is displayed both above, and beneath the emblem."
+	icon_state = "xanu_passcard"
+	item_state = "xanu_passcard"
+
+/obj/item/clothing/accessory/badge/passcard/coalition/xanu/military
+	name = "xanu militia reservist card"
+	desc = "An identification document issued to reservists of the All-Xanu National Militia."
+	desc_extended = "A form of identification certifying its bearer as a reservist within Xanu's National Militia. Embedded with encrypted biometric identifiers, service status, and mobilization data, it functions as proof of militia affiliation and the holder's military status.\
+	A subdued security-hologram of the Militia Crest is set into the background. Fine-lined guilloche patterns and spectral watermarking reinforce the card's anti-tamper features."
+	icon_state = "nationa_militia"
+	item_state = "nationa_militia"
+
 /obj/item/clothing/accessory/badge/passcard/himeo
 	name = "himean passcard"
 	desc = "A passcard issued to a citizen of the planet Himeo."

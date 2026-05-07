@@ -2225,6 +2225,7 @@
 /obj/effect/floor_decal/corner/dark_blue/full{
 	dir = 1
 	},
+/obj/item/eftpos,
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},

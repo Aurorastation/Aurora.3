@@ -171,3 +171,38 @@
 		"77.7 SoulFM" = 'texts/lore_radio/konyang/77.7_SoulFM.txt',
 		"78.1 RealFM" = 'texts/lore_radio/konyang/78.1_RealFM.txt'
 	)
+
+/datum/space_sector/al_maqdisi
+	name = SECTOR_AL_MAQDISI
+	description = "Located in the southeastern reaches of the Spur, Light's Edge was the furthest that explorers from the Alliance's hegemonic colonization era reached. Few attempts were made to colonize it prior to the Interstellar War, and it remains sparsely populated even today. It is home to Assunzione in the Al-Maqdisi sector and the mysterious, inimical Lemurian Sea, about which extraordinarily little is known."
+	skybox_icon = "lights_edge"
+	guaranteed_exoplanets = list(/obj/effect/overmap/visitable/sector/exoplanet/assunzione)
+	cargo_price_coef = list(
+		"nanotrasen" = 1.1,
+		"orion" = 0.7,
+		"hephaestus" = 0.7,
+		"zeng_hu" = 0.6,
+		"eckharts" = 1,
+		"blam" = 0.9,
+		"zharkov" = 1.2,
+		"virgo" = 0.9,
+		"bishop" = 0.5,
+		"xion" = 0.8,
+		"zavodskoi" = 0.8,
+		)
+
+	ports_of_call = list("Port Volturno, Triesto")
+	scheduled_port_visits = list("Sunday", "Wednesday")
+	starlight_color = "#351035"
+	starlight_power = 1
+	starlight_range = 2
+	sector_lobby_transitions = 0
+	sector_welcome_message = 'sound/AI/welcome_assunzione.ogg'
+
+	lobby_tracks = list(
+		'sound/music/lobby/lights_edge/lights_edge_1.ogg',
+		'sound/music/lobby/lights_edge/lights_edge_2.ogg'
+	)
+
+	lore_radio_stations = list(
+	)

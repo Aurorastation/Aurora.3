@@ -586,20 +586,6 @@
 	groupable = TRUE
 	spawn_amount = 1
 
-/singleton/cargo_item/packagedantimatterreactorsection
-	category = "engineering"
-	name = "packaged antimatter reactor section"
-	supplier = "eckharts"
-	description = "A section of antimatter reactor shielding. Do not eat."
-	price = 220
-	items = list(
-		/obj/item/am_shielding_container
-	)
-	access = ACCESS_CE
-	container_type = "crate"
-	groupable = TRUE
-	spawn_amount = 1
-
 /singleton/cargo_item/debugger
 	category = "engineering"
 	name = "debugger"
@@ -836,34 +822,6 @@
 		/obj/item/clothing/head/welding
 	)
 	access = 0
-	container_type = "crate"
-	groupable = TRUE
-	spawn_amount = 1
-
-/singleton/cargo_item/antimattercontainmentjar
-	category = "engineering"
-	name = "antimatter containment jar"
-	supplier = "eckharts"
-	description = "Holds antimatter. Warranty void if exposed to matter."
-	price = 280
-	items = list(
-		/obj/item/am_containment
-	)
-	access = ACCESS_CE
-	container_type = "crate"
-	groupable = TRUE
-	spawn_amount = 1
-
-/singleton/cargo_item/antimattercontrolunit
-	category = "engineering"
-	name = "antimatter control unit"
-	supplier = "eckharts"
-	description = "The control unit for an antimatter reactor. Probably safe."
-	price = 1950
-	items = list(
-		/obj/machinery/power/am_control_unit
-	)
-	access = ACCESS_CE
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1

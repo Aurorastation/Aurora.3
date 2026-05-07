@@ -158,20 +158,33 @@
 
 /obj/machinery/atmospherics/unary/engine/proc/get_status()
 	. = list()
-	.+= "Location: [get_area(src)]."
-	if(stat & NOPOWER)
-		.+= "<span class='average'>Insufficient power to operate.</span>"
-	if(!check_fuel())
-		.+= "<span class='average'>Insufficient fuel for a burn.</span>"
-	if(stat & BROKEN)
-		.+= "<span class='average'>Inoperable engine configuration.</span>"
-	if(blockage)
-		.+= "<span class='average'>Obstruction of airflow detected.</span>"
 
-	.+= "Propellant total mass: [round(air_contents.get_mass(),0.01)] kg."
-	.+= "Propellant used per burn: [round(air_contents.get_mass() * volume_per_burn * thrust_limit / air_contents.volume,0.01)] kg."
-	.+= "Propellant pressure: [round(XGM_PRESSURE(air_contents)/1000,0.1)] MPa."
-	. = jointext(.,"<br>")
+	. += list(list(
+		"text" = "Location: [get_area(src)].",
+		"severity" = "info"
+	))
+
+	if(stat & NOPOWER)
+		. += list(list("text" = "Insufficient power to operate.", "severity" = "bad"))
+	if(!check_fuel())
+		. += list(list("text" = "Insufficient fuel for a burn.", "severity" = "bad"))
+	if(stat & BROKEN)
+		. += list(list("text" = "Inoperable engine configuration.", "severity" = "bad"))
+	if(blockage)
+		. += list(list("text" = "Obstruction of airflow detected.", "severity" = "bad"))
+
+	. += list(list(
+		"text" = "Propellant total mass: [round(air_contents.get_mass(), 0.01)] kg.",
+		"severity" = null
+	))
+	. += list(list(
+		"text" = "Propellant used per burn: [round(air_contents.get_mass() * volume_per_burn * thrust_limit / air_contents.volume, 0.01)] kg.",
+		"severity" = null
+	))
+	. += list(list(
+		"text" = "Propellant pressure: [round(XGM_PRESSURE(air_contents)/1000, 0.1)] MPa.",
+		"severity" = null
+	))
 
 /obj/machinery/atmospherics/unary/engine/power_change()
 	. = ..()
@@ -246,7 +259,7 @@
 		new/obj/effect/engine_exhaust(T, dir, is_cmb && air_contents.temperature >= PHORON_MINIMUM_BURN_TEMPERATURE)
 
 /obj/machinery/atmospherics/unary/engine/proc/calculate_thrust(datum/gas_mixture/propellant, used_part = 1)
-	return round(sqrt(propellant.get_mass() * used_part * sqrt(XGM_PRESSURE(air_contents)/200)),0.1)
+	return round(sqrt(propellant.get_mass() * used_part * sqrt(XGM_PRESSURE(air_contents)/200)),0.01)
 
 //Exhaust effect
 /obj/effect/engine_exhaust

@@ -21,7 +21,7 @@
 	new /obj/item/flash(src)
 	new /obj/item/taperoll/engineering(src)
 	new /obj/item/rfd/piping(src)
-	new /obj/item/gun/energy/disruptorpistol/miniature(src)
+	new /obj/item/gun/projectile/sec(src)
 	new /obj/item/clothing/accessory/holster/waist(src)
 	new /obj/item/gps/engineering(src)
 	new /obj/item/pipewrench(src)
@@ -32,6 +32,7 @@
 	new /obj/item/storage/lockbox/shuttle_blueprints(src)
 	new /obj/item/blueprints/outpost(src)
 	new /obj/item/base_planning_blueprints(src)
+	new /obj/item/geiger/dosimeter(src)
 
 // Chief Engineer - Clothing Satchel
 // This satchel is used nowhere except in conjunction with the locker above,

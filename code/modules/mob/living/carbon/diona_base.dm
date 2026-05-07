@@ -501,7 +501,7 @@ Lightstates:
 	if (DS.dionatype == 0)
 		return health
 	else
-		return health+(maxHealth*0.5)
+		return health+(maxhealth*0.5)
 
 /mob/living/carbon/proc/get_dionastats()
 	return

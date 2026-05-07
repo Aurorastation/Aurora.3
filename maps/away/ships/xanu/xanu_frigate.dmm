@@ -8234,6 +8234,7 @@
 	pixel_x = 8;
 	pixel_y = 5
 	},
+/obj/item/eftpos,
 /turf/simulated/floor/tiled/dark,
 /area/ship/xanu_frigate/bridge)
 "CQ" = (

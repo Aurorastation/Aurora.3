@@ -253,7 +253,7 @@
 /datum/uplink_item/item/visible_weapons/laser_cannon
 	name = "Laser Cannon"
 	telecrystal_cost = 12
-	path = /obj/item/gun/energy/lasercannon
+	path = /obj/item/gun/energy/rifle/laser/heavy
 
 /datum/uplink_item/item/visible_weapons/derringer
 	name = "Derringer"
@@ -272,7 +272,7 @@
 
 /datum/uplink_item/item/visible_weapons/psionic_jumpstarter
 	name = "Psionic Jumpstarter"
-	telecrystal_cost = 19
+	telecrystal_cost = 15
 	path = /obj/item/psionic_jumpstarter
 
 /datum/uplink_item/item/visible_weapons/vampiric_jumpstarter
@@ -285,6 +285,12 @@
 	name = "Changeling Jumpstarter"
 	telecrystal_cost = 20
 	path = /obj/item/changeling_jumpstarter
+	antag_roles = list(MODE_TRAITOR)
+
+/datum/uplink_item/item/visible_weapons/loner_jumpstarter
+	name = "Loner Jumpstarter"
+	telecrystal_cost = 20
+	path = /obj/item/psionic_jumpstarter/loner
 	antag_roles = list(MODE_TRAITOR)
 
 /datum/uplink_item/item/visible_weapons/flamethrower

@@ -2,11 +2,14 @@
 	icon = 'icons/obj/guns/modular_laser.dmi'
 	icon_state = "bfg"
 	contained_sprite = TRUE
+	w_class = WEIGHT_CLASS_SMALL  //A dissasembled gun is easier to carry, this lets people bring bits of their broken gun back to R&D.
 	var/reliability = 0
 	var/damage = 1
-	var/fire_delay = 0
+	var/fire_delay = 1
 	var/condition = 0 //inverse health of the component. subtracted from reliability.
-	var/shots = 0
+	var/base_malus = 0 //when modifiers get damaged they do not break, but make other components break faster
+	var/malus = 0 //subtracted from weapon's overall reliability everytime it's fired
+	var/shots = 1
 	var/burst = 0
 	var/accuracy = 0
 	var/obj/item/repair_item
@@ -21,8 +24,11 @@
 /obj/item/laser_components/attackby(obj/item/attacking_item, mob/user)
 	if(!istype(attacking_item, repair_item))
 		return ..()
+	if (condition == 0 && malus == base_malus)
+		to_chat(user, SPAN_WARNING("\The [src] is not damaged."))
+		return ..()
 	to_chat(user, SPAN_WARNING("You begin repairing \the [src]."))
-	if(do_after(user, 20) && repair_module(attacking_item))
+	if(do_after(user, rand(2 SECONDS, 6 SECONDS), src, DO_UNIQUE) && repair_module(attacking_item))
 		to_chat(user, SPAN_NOTICE("You repair \the [src]."))
 	else
 		to_chat(user, SPAN_WARNING("You fail to repair \the [src]."))
@@ -35,8 +41,6 @@
 	desc = "A basic laser weapon modifier."
 	reliability = -5
 	var/mod_type
-	var/base_malus = 2 //when modifiers get damaged they do not break, but make other components break faster
-	var/malus = 2 //subtracted from weapon's overall reliability everytime it's fired
 	var/gun_force = 0 //melee damage of the gun
 	var/chargetime = 0
 	var/burst_delay = 0
@@ -61,7 +65,7 @@
 		return
 	if(malus == base_malus)
 		return 0
-	if(W.use(5))
+	if(W.use(2))
 		malus = max(malus - 5, base_malus)
 		return 1
 	return 0
@@ -73,6 +77,7 @@
 	shots = 5
 	damage = 10
 	reliability = 50
+	fire_delay = 5
 	repair_item = /obj/item/stack/cable_coil
 
 /obj/item/laser_components/capacitor/condition_hints(mob/user, distance, is_adjacent)
@@ -85,40 +90,44 @@
 		return
 	if(!condition > 0)
 		return 0
-	if(C.use(5))
+	if(C.use(2))
 		condition = max(condition - 5, 0)
 		return 1
 	return 0
 
-/obj/item/laser_components/capacitor/proc/small_fail(var/mob/user, var/obj/item/gun/energy/laser/prototype/prototype)
+/obj/item/laser_components/capacitor/proc/small_fail(var/mob/living/user, var/obj/item/gun/energy/laser/prototype/prototype)
+	tesla_zap(prototype, 0, 1000*max(prototype.criticality, 1))
 	return
 
-/obj/item/laser_components/capacitor/proc/medium_fail(var/mob/user, var/obj/item/gun/energy/laser/prototype/prototype)
+/obj/item/laser_components/capacitor/proc/medium_fail(var/mob/living/user, var/obj/item/gun/energy/laser/prototype/prototype)
+	tesla_zap(prototype, 0, 1500*max(prototype.criticality, 1))
+	visible_message(SPAN_DANGER("\The [src] in \the [prototype] sparks a little angrily as it overloads!"), range = 3)
 	return
 
-/obj/item/laser_components/capacitor/proc/critical_fail(var/mob/user, var/obj/item/gun/energy/laser/prototype/prototype)
-	qdel(src)
+/obj/item/laser_components/capacitor/proc/critical_fail(var/mob/living/user, var/obj/item/gun/energy/laser/prototype/prototype)
+	tesla_zap(prototype, 1, 2000*max(prototype.criticality, 1))
+	visible_message(SPAN_DANGER("\The [src] in \the [prototype] goes critical in a shower of sparks!"), range = 5)
 	return
 
 /obj/item/laser_components/focusing_lens
 	name = "focusing lens"
 	desc = "A basic laser weapon focusing lens."
 	icon_state = "lens"
-	var/list/dispersion = list(0.6,1.0,1.0,1.0,1.2,0.6,1.0,1.0,1.0,1.2,0.6,1.0,1.0,1.0,1.2,0.6,1.0,1.0,1.0,1.2)
+	var/list/dispersion = list(0, 5, 10, 15, 20, 25, 30, 35, 40, 45)
 	reliability = 25
-	repair_item = /obj/item/stack/nanopaste
+	repair_item = /obj/item/stack/material/glass
 
 /obj/item/laser_components/focusing_lens/condition_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	if(distance <= 1 && condition > 0)
 		. += SPAN_WARNING("\The [src] appears damaged.")
 
-/obj/item/laser_components/focusing_lens/repair_module(var/obj/item/stack/nanopaste/N)
-	if(!istype(N))
+/obj/item/laser_components/focusing_lens/repair_module(var/obj/item/stack/material/G)
+	if(!istype(G))
 		return
 	if(!condition > 0)
 		return 0
-	if(N.use(5))
+	if(G.use(1))
 		condition = max(condition - 5, 0)
 		return 1
 	return 0
@@ -137,7 +146,6 @@
 /obj/item/laser_assembly
 	name = "laser assembly (small)"
 	desc = "A case for shoving things into. Hopefully they work."
-	w_class = WEIGHT_CLASS_SMALL
 	icon = 'icons/obj/guns/modular_laser.dmi'
 	var/base_icon_state = "small"
 	contained_sprite = TRUE

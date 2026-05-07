@@ -24,7 +24,7 @@
 	holder_type = /obj/item/holder/diona
 	meat_type = /obj/item/reagent_containers/food/snacks/meat/dionanymph
 	meat_amount = 2
-	maxHealth = 50
+	maxhealth = 50
 	health = 50
 	max_stamina = -1
 	pass_flags = PASSTABLE
@@ -238,7 +238,7 @@
 	DS = new/datum/dionastats()
 	DS.max_energy = energy_duration * MLS
 	DS.stored_energy = (DS.max_energy / 2)
-	DS.max_health = maxHealth
+	DS.max_health = maxhealth
 	DS.pain_factor = (50 / dark_consciousness) / MLS
 	DS.trauma_factor = (DS.max_health / dark_survival) / MLS
 	DS.dionatype = DIONA_NYMPH
@@ -250,7 +250,7 @@
 		var/mob/living/carbon/human/H = gestalt
 		if(!H.bad_internal_organs)
 			return
-		if(health < maxHealth)
+		if(health < maxhealth)
 			if (!(src in H.bad_internal_organs))
 				H.bad_internal_organs.Add(src)
 		else
@@ -387,10 +387,10 @@
 /mob/living/carbon/alien/diona/adjustBruteLoss(var/amount)
 	if (status_flags & GODMODE)
 		return
-	health = min(health - amount, maxHealth)
+	health = min(health - amount, maxhealth)
 
 /mob/living/carbon/alien/diona/getHalLoss()
 	if(status_flags & GODMODE)
 		return
 
-	return max((maxHealth - health), 0)
+	return max((maxhealth - health), 0)

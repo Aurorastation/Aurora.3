@@ -91,12 +91,12 @@
 		if (reinforcement_images)
 			overlays_to_add += reinforcement_images
 
-	if(damage != 0)
+	if(health < maxhealth)
 		var/integrity = material.integrity
 		if(reinf_material)
 			integrity += reinf_material.integrity
 
-		var/overlay = round(damage / integrity * damage_overlays.len) + 1
+		var/overlay = round(abs(health - maxhealth) / integrity * damage_overlays.len) + 1
 		if(overlay > damage_overlays.len)
 			overlay = damage_overlays.len
 

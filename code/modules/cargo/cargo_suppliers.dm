@@ -15,7 +15,7 @@
 	var/shuttle_time = 100
 
 	/// The additional price an order incurs for ordering a shuttle from this supplier.
-	var/shuttle_price = 20
+	var/shuttle_price = 0
 
 	/// Whether or not this supplier is available or not.
 	var/available = TRUE
@@ -69,6 +69,7 @@
 	description = "A janitorial supplies company best known for their highly-effective and mostly-non-toxic 'space cleaner' formula, in wide usage throughout the Spur."
 	tag_line = "Just say BLAM! And it's gone!"
 
+/// Unused with the removal of Antimatter-based energy sources from the codebase.
 /singleton/cargo_supplier/eckharts
 	short_name = "eckharts"
 	name = "Eckhart's Energy Solutions Limited"

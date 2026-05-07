@@ -3,6 +3,7 @@
 	desc = "An unfinished concealed knife, it looks like the screws need to be tightened."
 	icon = 'icons/obj/weapons_build.dmi'
 	icon_state = "butterflystep1"
+	w_class = WEIGHT_CLASS_SMALL
 	force_divisor = 0.1
 	thrown_force_divisor = 0.1
 
@@ -18,6 +19,7 @@
 	desc = "A knife blade. Unusable as a weapon without a grip."
 	icon = 'icons/obj/weapons_build.dmi'
 	icon_state = "butterfly2"
+	w_class = WEIGHT_CLASS_SMALL
 	force_divisor = 0.1
 	thrown_force_divisor = 0.1
 
@@ -26,6 +28,7 @@
 	desc = "A plasteel grip with screw fittings for a blade."
 	icon = 'icons/obj/weapons_build.dmi'
 	icon_state = "butterfly1"
+	w_class = WEIGHT_CLASS_SMALL
 	force_divisor = 0.1
 	thrown_force_divisor = 0.1
 

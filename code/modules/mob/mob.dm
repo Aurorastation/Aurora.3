@@ -7,6 +7,7 @@
 	GLOB.mob_list -= src
 	GLOB.dead_mob_list -= src
 	GLOB.living_mob_list -= src
+	GLOB.player_list -= src
 	unset_machine()
 	QDEL_NULL(hud_used)
 
@@ -70,7 +71,6 @@
 	i_select = null
 	m_select = null
 	toxin = null
-	fire = null
 	bodytemp = null
 	healths = null
 	throw_icon = null
@@ -767,6 +767,11 @@
 		if(length(M.grabbed_by))
 			to_chat(src, SPAN_WARNING("You can't pull someone being held in a grab!"))
 			return
+
+		for (var/obj/item/grab/G in list(M.l_hand, M.r_hand))
+			if(G && G.state >= GRAB_AGGRESSIVE)
+				to_chat(src, SPAN_WARNING("You can't pull both people at once, break the grab first!"))
+				return
 
 		// If your size is larger than theirs and you have some
 		// kind of mob pull value AT ALL, you will be able to pull

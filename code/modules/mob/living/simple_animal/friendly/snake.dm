@@ -8,7 +8,7 @@
 	speak_emote = list("hisses")
 	emote_see = list("flicks out its tongue", "looks around")
 	health = 15
-	maxHealth = 15
+	maxhealth = 15
 	organ_names = list("head", "body")
 	response_help  = "pets"
 	response_disarm = "boops"

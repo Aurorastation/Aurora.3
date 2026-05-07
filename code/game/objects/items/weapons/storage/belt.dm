@@ -339,7 +339,6 @@
 		/obj/item/crowbar,
 		/obj/item/gun/projectile/sec,
 		/obj/item/gun/energy/repeater/pistol,
-		/obj/item/gun/energy/disruptorpistol,
 		/obj/item/taperoll/police,
 		/obj/item/material/knife/trench,
 		/obj/item/shield/energy,
@@ -371,16 +370,6 @@
 		/obj/item/handcuffs = 2,
 		/obj/item/flash = 1,
 		/obj/item/gun/energy/taser = 1,
-	)
-
-/obj/item/storage/belt/security/full/disruptor
-	starts_with = list(
-		/obj/item/melee/baton/loaded = 1,
-		/obj/item/reagent_containers/spray/pepper = 1,
-		/obj/item/handcuffs = 2,
-		/obj/item/flash = 1,
-		/obj/item/gun/energy/disruptorpistol = 1,
-		/obj/item/flashlight/flare = 1,
 	)
 
 /obj/item/storage/belt/security/full/pistol45

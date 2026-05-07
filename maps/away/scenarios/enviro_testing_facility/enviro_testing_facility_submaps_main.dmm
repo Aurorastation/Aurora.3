@@ -10349,7 +10349,7 @@
 /area/template_noop)
 "krM" = (
 /obj/structure/weapons_rack,
-/obj/item/gun/projectile/automatic/rifle{
+/obj/item/gun/projectile/automatic/rifle/sts35{
 	pixel_y = 7
 	},
 /obj/item/gun/projectile/automatic/rifle/jingya,

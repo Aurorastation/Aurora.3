@@ -12,7 +12,7 @@
 	icon_state = "flippers"
 	item_state = "flippers"
 	item_flags = ITEM_FLAG_NO_SLIP
-	slowdown = 1
+	slowdown = 0.5
 
 /obj/item/clothing/shoes/footwraps
 	name = "cloth footwraps"
@@ -64,7 +64,7 @@
 	item_state = "galoshes"
 	permeability_coefficient = 0.05
 	item_flags = ITEM_FLAG_NO_SLIP
-	slowdown = 1
+	slowdown = 0.5
 	species_restricted = null
 	icon_auto_adapt = TRUE
 	icon_supported_species_tags = list("taj")

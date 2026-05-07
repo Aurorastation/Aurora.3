@@ -8,6 +8,11 @@
 	var/floor_type = /turf/simulated/floor/plating
 	var/wall_type = /turf/simulated/wall
 
+/datum/build_mode/room_builder/Destroy()
+	coordinate_A = null
+	coordinate_B = null
+	. = ..()
+
 /datum/build_mode/room_builder/Help()
 	to_chat(user, SPAN_NOTICE("***********************************************************"))
 	to_chat(user, SPAN_NOTICE("Left Click on Turf               = Select as point A"))

@@ -28,7 +28,7 @@
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN*2.5)
 	to_chat(user, SPAN_DANGER("You smash against the wall!"))
 	user.do_attack_animation(src)
-	take_damage(rand(60,135)*multiplier)
+	add_damage(rand(60,135)*multiplier)
 	return 1
 
 /turf/simulated/wall/proc/success_smash(var/mob/user)
@@ -167,7 +167,7 @@
 
 	var/turf/T = user.loc	//get user's location for delay checks
 
-	if(damage && attacking_item.tool_behaviour == TOOL_WELDER)
+	if(health < maxhealth && attacking_item.tool_behaviour == TOOL_WELDER)
 
 		var/obj/item/weldingtool/WT = attacking_item
 
@@ -177,9 +177,9 @@
 		if(WT.use(0,user))
 			to_chat(user, SPAN_NOTICE("You start repairing the damage to [src]."))
 			playsound(src, 'sound/items/Welder.ogg', 50, 1)
-			if(WT.use_tool(src, user, max(5, damage / 5), volume = 50) && WT && WT.isOn())
+			if(WT.use_tool(src, user, max(5, abs(health - maxhealth) / 5), volume = 50) && WT && WT.isOn())
 				to_chat(user, SPAN_NOTICE("You finish repairing the damage to [src]."))
-				take_damage(-damage)
+				add_health(maxhealth - health)
 				clear_bulletholes()
 		else
 			to_chat(user, SPAN_NOTICE("You need more welding fuel to complete this task."))
@@ -389,7 +389,7 @@
 			//Steel walls take 3 & 15 minimum damage.
 			damage_to_deal -= weaken
 			visible_message(SPAN_WARNING("[user] strikes \the [src] with \the [attacking_item], [is_sharp(attacking_item) ? "slicing some of the plating" : "putting a heavy dent on it"]!"))
-			take_damage(damage_to_deal)
+			add_damage(damage_to_deal, attacking_item.damage_flags(), attacking_item.damtype, attacking_item.armor_penetration, attacking_item)
 		else
 			visible_message(SPAN_WARNING("[user] strikes \the [src] with \the [attacking_item], but it bounces off!"))
 			playsound(src, hitsound, 25, 1)

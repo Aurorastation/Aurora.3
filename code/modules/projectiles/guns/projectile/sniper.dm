@@ -1,10 +1,10 @@
 /obj/item/gun/projectile/heavysniper
-	name = "anti-materiel rifle"
+	name = "\improper PTR-7 anti-materiel rifle"
 	desc = "The PTR-7 is man-portable anti-armor rifle fitted with a high-powered scope, capable of penetrating through most windows, airlocks, and non-reinforced walls with ease."
 	desc_extended = "A single-shot, bolt-action anachronism in an age of energy weapons, the PTR-7 was originally developed to combat exosuits, either by disabling critical systems \
 	or killing the pilot. Firing a high-velocity 14.5mm cartridge designed to defeat heavy armor, the PTR-7 boasts penetrative power unmatched by most in its class, though recent advancements \
 	in composites have rendered the weapon less effective at its intended purpose. Nonetheless, it still sees use among some groups as a general-purpose anti-materiel rifle."
-	icon = 'icons/obj/guns/heavysniper.dmi'
+	icon = 'icons/obj/guns/faction/frontier/heavysniper.dmi'
 	icon_state = "heavysniper"
 	item_state = "heavysniper"
 	w_class = WEIGHT_CLASS_BULKY
@@ -100,7 +100,7 @@
 /obj/item/gun/projectile/heavysniper/unathi
 	name = "hegemony slugger"
 	desc = "An incredibly large firearm, produced by an Ouerean Guild. Uses custom slugger rounds."
-	icon = 'icons/obj/guns/unathi_slugger.dmi'
+	icon = 'icons/obj/guns/faction/izweski_hegemony/unathi_slugger.dmi'
 	icon_state = "slugger"
 	item_state = "slugger"
 	origin_tech = list(TECH_COMBAT = 8, TECH_MATERIAL = 2, TECH_ILLEGAL = 4)
@@ -146,7 +146,7 @@
 	desc_extended = "Designed and sold by Zeng-Hu Pharmaceuticals and produced on contract by Zavodskoi's Kumar Arms subsidiary, the rifle has quietly become ubiquitous among xenobiological researchers. \
 	While the weapon platform itself is expensive for a dart gun, users have come to adore it thanks to the benefit of its conditionally cheap ammo. Pricey off the shelf, facilities often pay a fraction \
 	of the cost thanks to rebates and bulk order discounts."
-	icon = 'icons/obj/guns/tranqsniper.dmi'
+	icon = 'icons/obj/guns/faction/zavodskoi_interstellar/tranqsniper.dmi'
 	icon_state = "tranqsniper"
 	item_state = "tranqsniper"
 	w_class = WEIGHT_CLASS_BULKY
@@ -176,9 +176,9 @@
 		icon_state = "tranqsniper"
 
 /obj/item/gun/projectile/dragunov
-	name = "adhomian marksman rifle"
+	name = "\improper Ho'taki marksman rifle"
 	desc = "A semi-automatic marksman rifle."
-	icon = 'icons/obj/guns/dragunov.dmi'
+	icon = 'icons/obj/guns/faction/pra/hotaki.dmi'
 	icon_state = "dragunov"
 	item_state = "dragunov"
 
@@ -231,11 +231,11 @@
 		to_chat(usr, SPAN_WARNING("You can't look through the scope without stabilizing the rifle!"))
 
 /obj/item/gun/projectile/automatic/rifle/w556
-	name = "scout rifle"
-	desc = "The ZI Greyhound, the designated marksman rifle variant of Zavodskoi's ZI Bulldog carbine. Features a longer, heavier barrel \
+	name = "\improper Greyhound marksman rifle"
+	desc = "The Greyhound, the designated marksman rifle variant of Zavodskoi's Bulldog carbine. Features a longer, heavier barrel \
 	with a low-power fixed-magnification optic. A vertical grip has been attached under the forend, to help offset the change in balance \
 	and improve handling."
-	icon = 'icons/obj/guns/w556.dmi'
+	icon = 'icons/obj/guns/faction/zavodskoi_interstellar/w556.dmi'
 	icon_state = "w556rifle"
 	item_state = "w556rifle"
 	w_class = WEIGHT_CLASS_BULKY

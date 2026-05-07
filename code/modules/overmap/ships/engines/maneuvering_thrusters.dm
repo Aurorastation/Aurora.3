@@ -71,8 +71,11 @@
 
 /obj/machinery/maneuvering_engine/proc/get_status()
 	. = list()
-	.+= "Location: [get_area(src)]."
-	. = jointext(.,"<br>")
+
+	. += list(list(
+		"text" = "Location: [get_area(src)].",
+		"severity" = "info"
+	))
 
 /obj/machinery/maneuvering_engine/proc/burn(var/power_modifier = 1)
 	. = thrust_limit * generated_thrust * power_modifier

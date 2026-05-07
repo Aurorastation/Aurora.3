@@ -102,6 +102,7 @@
 	if (power_draw < 0)
 		last_flow_rate = 0
 		last_power_draw = 0
+		last_mole_transfer = 0
 	else
 		power_draw = max(power_draw, power_losses)
 		cell.use(power_draw * CELLRATE)

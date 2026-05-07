@@ -63,6 +63,8 @@
 /// Logging for DB errors
 /proc/log_sql(text)
 	WRITE_LOG(GLOB.config.logfiles["sql_error_log"], "SQL: [text]")
+	if(SSsentry)
+		SSsentry.capture_message(text, "error", "sql")
 
 /// Logging for world/Topic
 /proc/_log_topic(text)

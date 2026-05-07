@@ -83,7 +83,7 @@
 	d2 = 8;
 	icon_state = "0-8"
 	},
-/obj/item/gun/energy/toxgun,
+/obj/item/gun/energy/pistol,
 /obj/item/frame/apc,
 /obj/item/trash/broken_electronics,
 /turf/simulated/floor/holofloor/tiled/dark,

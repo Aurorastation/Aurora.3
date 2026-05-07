@@ -819,8 +819,6 @@
 /area/zavod_shuttle_destroyed)
 "zV" = (
 /obj/structure/closet/crate/drop/grey,
-/obj/item/circuitboard/mecha,
-/obj/item/circuitboard/mecha,
 /obj/item/robot_parts/robot_component/actuator,
 /obj/item/robot_parts/robot_component/actuator,
 /obj/item/robot_parts/robot_component/actuator,

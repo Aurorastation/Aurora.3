@@ -28,6 +28,8 @@
 	if(stat == DEAD)
 		return
 
+	to_chat(src, EXAMINE_BLOCK_RED(SPAN_DANGER(FONT_LARGE("<i>You have died.</i>"))))
+
 	vr_disconnect()
 
 	BITSET(hud_updateflag, HEALTH_HUD)

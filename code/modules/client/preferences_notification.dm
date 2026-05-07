@@ -139,113 +139,87 @@
 			new_notification("info", "You have unread updates in the changelog.")
 
 	if (GLOB.config.sql_enabled)
-
-		var/list/warnings = user.warnings_gather()
-		if (warnings["unread"])
-			new_notification("danger", warnings["unread"], 1)
-		if (warnings["expired"])
-			new_notification("info", warnings["expired"])
-
-		var/linking = user.gather_linking_requests()
-		if (linking)
-			new_notification("info", linking, callback_src = user, callback_proc = "check_linking_requests")
-
-		var/cciaa_actions = count_ccia_actions(user)
-		if (cciaa_actions)
-			new_notification("info", cciaa_actions)
-
+		user.warnings_gather()
+		user.gather_linking_requests()
+		count_ccia_actions(user)
 		add_active_notifications(user)
 
 /datum/preferences/proc/add_active_notifications(var/client/user)
-	if(!user)
-		return null
+	if (!user)
+		return
 
-	if (!establish_db_connection(GLOB.dbcon))
-		log_world("ERROR: Error initiatlizing database connection while getting notifications.")
-		return null
+	if (!SSdbcore.Connect())
+		return
 
-	var/DBQuery/query = GLOB.dbcon.NewQuery({"SELECT
-		message, type, id
-		FROM ss13_player_notifications
-		WHERE acked_at IS NULL AND ckey = :ckey:
-	"})
-	query.Execute(list("ckey" = user.ckey))
+	var/datum/db_query/query = SSdbcore.NewQuery(
+		"SELECT message, type, id FROM ss13_player_notifications WHERE acked_at IS NULL AND ckey = :ckey",
+		list("ckey" = user.ckey))
+	query.SetSuccessCallback(CALLBACK(src, PROC_REF(_add_active_notifications_cb), user))
+	query.SetFailCallback(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(qdel)))
+	query.ExecuteNoSleep(TRUE)
 
-	var/chat_notification=0
-	var/panel_notification=0
-	var/notification_count=0
-
-	while(query.NextRow())
-		var/autoack=0
-		//Lets loop through the results
+/datum/preferences/proc/_add_active_notifications_cb(var/client/user, datum/db_query/query)
+	var/chat_notification = 0
+	var/panel_notification = 0
+	var/notification_count = 0
+	while (query.NextRow())
+		var/autoack = 0
 		switch(query.item[2])
 			if("player_greeting")
-				panel_notification=1
+				panel_notification = 1
 				notification_count++
 			if("player_greeting_chat")
-				chat_notification=1
-				panel_notification=1
+				chat_notification = 1
+				panel_notification = 1
 				notification_count++
 			if("admin")
 				SSdiscord.send_to_admins("Server Notification for [user.ckey]: [query.item[1]]")
 				SSdiscord.post_webhook_event(WEBHOOK_ADMIN, list("title"="Server Notification for: [user.ckey]", "message"="Server Notification Triggered for [user.ckey]: [query.item[1]]"))
-				//Immediately ack the notification
-				autoack=1
+				autoack = 1
 			if("ccia")
 				SSdiscord.send_to_cciaa("Server Notification for [user.ckey]: [query.item[1]]")
 				SSdiscord.post_webhook_event(WEBHOOK_CCIAA_EMERGENCY_MESSAGE, list("title"="Server Notification for: [user.ckey]", "message"="Server Notification Triggered for [user.ckey]: [query.item[1]]"))
-				//Immeidately ack the notification
-				autoack=1
-		if(autoack)
-			var/DBQuery/ackquery = GLOB.dbcon.NewQuery({"UPDATE ss13_player_notifications
-				SET acked_by = 'autoack-server', acked_at = NOW()
-				WHERE id = :id:
-			"})
-			ackquery.Execute(list("id" = query.item[3]))
-	if(panel_notification)
-		new_notification("warning","You have <b>[notification_count] unread notifications!</b> Click <a href='byond://?JSlink=warnings;notification=:src_ref'>here</a> to review and acknowledge them!")
-	if(chat_notification)
-		to_chat(user,SPAN_WARNING("<BIG><B>You have unacknowledged notifications.</B></BIG><br>Click <a href='byond://?JSlink=warnings;notification=:src_ref'>here</a> to review and acknowledge them!"))
+				autoack = 1
+		if (autoack)
+			var/datum/db_query/ackquery = SSdbcore.NewQuery(
+				"UPDATE ss13_player_notifications SET acked_by = 'autoack-server', acked_at = NOW() WHERE id = :id",
+				list("id" = query.item[3]))
+			ackquery.SetSuccessCallback(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(qdel)))
+			ackquery.SetFailCallback(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(qdel)))
+			ackquery.ExecuteNoSleep(TRUE)
+	qdel(query)
+	if (panel_notification)
+		new_notification("warning", "You have <b>[notification_count] unread notifications!</b> Click <a href='byond://?JSlink=warnings;notification=:src_ref'>here</a> to review and acknowledge them!")
+	if (chat_notification)
+		to_chat(user, SPAN_WARNING("<BIG><B>You have unacknowledged notifications.</B></BIG><br>Click <a href='byond://?JSlink=warnings;notification=:src_ref'>here</a> to review and acknowledge them!"))
 
 /*
  * Helper proc for getting a count of active CCIA actions against the player's characters.
  */
 /datum/preferences/proc/count_ccia_actions(var/client/user)
 	if (!user)
-		return null
+		return
 
-	if (!establish_db_connection(GLOB.dbcon))
-		log_world("ERROR: Error initiatlizing database connection while counting CCIA actions.")
-		return null
+	if (!SSdbcore.Connect())
+		return
 
-	var/DBQuery/prep_query = GLOB.dbcon.NewQuery("SELECT id FROM ss13_characters WHERE ckey = :ckey:")
-	prep_query.Execute(list("ckey" = user.ckey))
-	var/list/chars = list()
+	var/datum/db_query/actions_query = SSdbcore.NewQuery(
+		{"SELECT COUNT(act_chr.action_id) AS action_count
+		FROM ss13_ccia_action_char act_chr
+		JOIN ss13_characters chr ON act_chr.char_id = chr.id
+		JOIN ss13_ccia_actions act ON act_chr.action_id = act.id
+		WHERE
+			chr.ckey = :ckey AND
+			(act.expires_at IS NULL OR act.expires_at >= CURRENT_DATE()) AND
+			act.deleted_at IS NULL;"},
+		list("ckey" = user.ckey))
+	actions_query.SetSuccessCallback(CALLBACK(src, PROC_REF(_count_ccia_actions_cb)))
+	actions_query.SetFailCallback(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(qdel)))
+	actions_query.ExecuteNoSleep(TRUE)
 
-	while (prep_query.NextRow())
-		chars += text2num(prep_query.item[1])
-
-	if (!chars.len)
-		return null
-
-	var/DBQuery/query = GLOB.dbcon.NewQuery({"SELECT
-		COUNT(act_chr.action_id) AS action_count
-	FROM ss13_ccia_action_char act_chr
-	JOIN ss13_characters chr ON act_chr.char_id = chr.id
-	JOIN ss13_ccia_actions act ON act_chr.action_id = act.id
-	WHERE
-		act_chr.char_id IN :char_id: AND
-		(act.expires_at IS NULL OR act.expires_at >= CURRENT_DATE()) AND
-		act.deleted_at IS NULL;"})
-	query.Execute(list("char_id" = chars))
-
+/datum/preferences/proc/_count_ccia_actions_cb(datum/db_query/query)
 	if (query.NextRow())
 		var/action_count = text2num(query.item[1])
-
-		if (action_count == 0)
-			return null
-
-		var/string = "There are [action_count] active CCIA actions currently active against your character(s)."
-		return string
-
-	return null
+		if (action_count > 0)
+			new_notification("info", "There are [action_count] active CCIA actions currently active against your character(s).")
+	qdel(query)

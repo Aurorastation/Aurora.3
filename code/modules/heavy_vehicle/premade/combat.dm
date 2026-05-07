@@ -19,7 +19,7 @@
 	icon_state = "combat_arms"
 	melee_damage = 30
 	action_delay = 5
-	max_damage = 130
+	max_damage = 195
 	power_use = 2500
 	has_hardpoints = list(HARDPOINT_LEFT_SHOULDER, HARDPOINT_RIGHT_SHOULDER)
 

@@ -15,13 +15,13 @@
 	response_disarm = "pushes"
 	response_harm = "hits"
 	speed = 4
-	maxHealth = 250
+	maxhealth = 250
 	health = 250
 
 	harm_intent_damage = 5
 	melee_damage_lower = 8
 	melee_damage_upper = 12
-	attacktext = "attacked"
+	attacktext = "attacks"
 	attack_sound = 'sound/weapons/bite.ogg'
 
 	min_oxy = 0
@@ -57,7 +57,7 @@
 // Aggro when you try to open them. Will also pickup loot when spawns and drop it when dies.
 /mob/living/simple_animal/hostile/mimic/crate
 
-	attacktext = "bitten"
+	attacktext = "bites"
 
 	stop_automated_movement = 1
 	wander = 0
@@ -125,7 +125,7 @@ GLOBAL_LIST_INIT(protected_objects, list(/obj/structure/table, /obj/structure/ca
 /mob/living/simple_animal/hostile/mimic/copy
 
 	health = 100
-	maxHealth = 100
+	maxhealth = 100
 	var/mob/living/creator = null // the creator
 	var/destroy_objects = 0
 	var/knockdown_people = 0
@@ -165,7 +165,7 @@ GLOBAL_LIST_INIT(protected_objects, list(/obj/structure/table, /obj/structure/ca
 			melee_damage_upper = 2 + I.force
 			speed = 2 * I.w_class
 
-		maxHealth = health
+		maxhealth = health
 		if(creator)
 			src.creator = creator
 			faction = "[REF(creator)]" // very unique

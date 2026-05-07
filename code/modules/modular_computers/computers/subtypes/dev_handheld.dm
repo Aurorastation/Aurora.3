@@ -23,7 +23,7 @@
 	set_icon()
 
 /obj/item/modular_computer/handheld/Destroy()
-	. = ..()
+	return ..()
 
 /obj/item/modular_computer/handheld/proc/set_icon()
 	icon_state_unpowered = icon_state

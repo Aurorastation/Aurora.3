@@ -53,7 +53,7 @@
 			sound_to(M, 'sound/effects/EMPulse.ogg')
 			CHECK_TICK
 
-	for(var/atom/A in spiral_range(max(light_range, heavy_range)))
+	for(var/atom/A in spiral_range(max(light_range, heavy_range), epicenter))
 
 		#ifdef EMPDEBUG
 		var/time = world.timeofday

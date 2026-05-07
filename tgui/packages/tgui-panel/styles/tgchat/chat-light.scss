@@ -554,6 +554,11 @@ h2.alert {
   color: #ff0000;
   font-style: italic;
 }
+.boldwarning {
+  color: #ff0000;
+  font-style: italic;
+  font-weight: bold;
+}
 .boldannounce {
   color: #ff0000;
   font-weight: bold;
@@ -566,6 +571,10 @@ h2.alert {
 }
 .notice {
   color: #000099;
+}
+.boldnotice {
+  color: #000099;
+  font-weight: bold;
 }
 .alium {
   color: #00ff00;

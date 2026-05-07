@@ -4,85 +4,111 @@
 	desc = "A high tech machine that is designed to read DNA samples properly."
 	icon = 'icons/obj/forensics.dmi'
 	icon_state = "dnaopen"
-	anchored = 1
-	density = 1
+	anchored = TRUE
+	density = TRUE
 
 	var/obj/item/forensics/swab/bloodsamp = null
-	var/closed = 0
-	var/scanning = 0
+	var/closed = FALSE
+	var/scanning = FALSE
 	var/scanner_progress = 0
 	var/scanner_rate = 2.50
 	var/last_process_worldtime = 0
 	var/report_num = 0
 
 /obj/machinery/dnaforensics/attackby(obj/item/attacking_item, mob/user)
-
-	if(bloodsamp)
-		to_chat(user, SPAN_WARNING("There is already a sample in the machine."))
-		return
-
-	if(closed)
-		to_chat(user, SPAN_WARNING("Open the cover before inserting the sample."))
-		return
-
 	var/obj/item/forensics/swab/swab = attacking_item
-	if(istype(swab) && swab.is_used())
-		user.unEquip(attacking_item)
-		src.bloodsamp = swab
-		swab.forceMove(src)
-		to_chat(user, SPAN_NOTICE("You insert \the [attacking_item] into \the [src]."))
-	else
-		to_chat(user, SPAN_WARNING("\The [src] only accepts used swabs."))
-		return
+	// General intended use (w swabs)
+	if(istype(swab))
+		if(swab.is_used())
+			// Already a sample loaded
+			if(bloodsamp)
+				to_chat(user, SPAN_WARNING("There is already a sample in the machine."))
+				return FALSE
+			// Open the lid, dummy
+			if(closed)
+				to_chat(user, SPAN_WARNING("Open the cover before inserting the sample."))
+				return FALSE
+			// Insert the sample
+			else
+				user.unEquip(attacking_item)
+				src.bloodsamp = swab
+				swab.forceMove(src)
+				to_chat(user, SPAN_NOTICE("You insert \the [attacking_item] into \the [src]."))
+				return TRUE
+		// Used swabs only
+		else
+			to_chat(user, SPAN_WARNING("\The [src] only accepts used swabs."))
+			return FALSE
 
-/obj/machinery/dnaforensics/ui_interact(mob/user, ui_key = "main",var/datum/nanoui/ui = null)
-	if(stat & (NOPOWER)) return
-	if(user.stat || user.restrained()) return
+	else if(attacking_item.tool_behaviour == TOOL_WRENCH)
+		attacking_item.play_tool_sound(get_turf(src), 100)
+		balloon_alert(user, "[anchored ? "secure" : "unsecure"]")
+		user.visible_message("[user.name] [anchored ? "secures" : "unsecures"] the bolts holding [src.name] to the floor.", \
+					"You [anchored ? "secure" : "unsecure"] the bolts holding [src] to the floor.", \
+					"You hear a ratchet")
+		anchored = !anchored
+		return TRUE
+	return ..()
+
+/obj/machinery/dnaforensics/ui_interact(mob/user, datum/tgui/ui)
+	if(stat & NOPOWER)
+		return
+	if(use_check_and_message(user))
+		return
+	ui = SStgui.try_update_ui(user, src, ui)
+	if(!ui)
+		ui = new(user, src, "DnaForensics", "QuikScan DNA Analyzer")
+		ui.open()
+		ui.set_autoupdate(TRUE)
+
+/obj/machinery/dnaforensics/ui_data(mob/user)
 	var/list/data = list()
+
 	data["scan_progress"] = round(scanner_progress)
 	data["scanning"] = scanning
 	data["bloodsamp"] = (bloodsamp ? bloodsamp.name : "")
 	data["bloodsamp_desc"] = (bloodsamp ? (bloodsamp.desc ? bloodsamp.desc : "No information on record.") : "")
-	data["lidstate"] = closed
+	data["lid_closed"] = closed
 
-	ui = SSnanoui.try_update_ui(user, src, ui_key, ui, data)
-	if (!ui)
-		ui = new(user, src, ui_key, "dnaforensics.tmpl", "QuikScan DNA Analyzer", 540, 326)
-		ui.set_initial_data(data)
-		ui.open()
-		ui.set_auto_update(1)
+	return data
 
-/obj/machinery/dnaforensics/Topic(href, href_list)
+/obj/machinery/dnaforensics/ui_act(action, params)
+	. = ..()
+	if(.)
+		return
 
-	if(..()) return 1
+	switch(action)
+		if("scanItem")
+			if(scanning)
+				scanning = FALSE
+				return TRUE
 
-	if(stat & (NOPOWER))
-		return 0 // don't update UIs attached to this object
-
-	if(href_list["scanItem"])
-		if(scanning)
-			scanning = 0
-		else
-			if(bloodsamp)
-				if(closed == 1)
-					scanner_progress = 0
-					scanning = 1
-					to_chat(usr, SPAN_NOTICE("Scan initiated."))
-					update_icon()
-				else
-					to_chat(usr, SPAN_NOTICE("Please close sample lid before initiating scan."))
-			else
+			if(!bloodsamp)
 				to_chat(usr, SPAN_WARNING("Insert an item to scan."))
+				return TRUE
 
-	if(href_list["ejectItem"])
-		if(bloodsamp)
-			bloodsamp.forceMove(src.loc)
-			bloodsamp = null
+			if(closed)
+				scanner_progress = 0
+				scanning = TRUE
+				to_chat(usr, SPAN_NOTICE("Scan initiated."))
+				update_icon()
+				return TRUE
 
-	if(href_list["toggleLid"])
-		toggle_lid()
+			to_chat(usr, SPAN_NOTICE("Please close sample lid before initiating scan."))
+			return TRUE
 
-	return 1
+		if("ejectItem")
+			if(bloodsamp && !scanning)
+				bloodsamp.forceMove(src.loc)
+				bloodsamp = null
+				return TRUE
+			return FALSE
+
+		if("toggleLid")
+			toggle_lid()
+			return TRUE
+
+	return FALSE
 
 /obj/machinery/dnaforensics/process()
 	if(scanning)
@@ -108,6 +134,7 @@
 		P.stamped = list(/obj/item/stamp)
 		P.overlays = list("paper_stamped")
 		//dna data itself
+		var/datetime = "[worlddate2text()] [worldtime2text()]"
 		var/data = "No scan information available."
 		if(bloodsamp.dna != null)
 			data = "Spectometric analysis on provided sample has determined the presence of [length(bloodsamp.dna)] string\s of DNA.<br><br>"
@@ -117,7 +144,7 @@
 				data += "<b>DNA:</b> [blood]<br><br>"
 		else
 			data += "No DNA found.<br>"
-		info = "<b><font size=\"4\">[src] analysis report #[report_num]</font></b><HR>"
+		info = "<b><font size=\"4\">[src] forensic report #[report_num]</font></b><br><i>Scanned [datetime]</i><HR>"
 		info += "<b>Scanned item:</b> [bloodsamp.name]<br><br>" + data
 		P.set_content_unsafe(pname, info)
 		print(P, user = usr)
@@ -138,7 +165,7 @@
 	set name = "Toggle Lid"
 	set src in oview(1)
 
-	if(usr.stat || !isliving(usr))
+	if(use_check_and_message(usr))
 		return
 
 	if(scanning)

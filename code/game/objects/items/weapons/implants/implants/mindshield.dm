@@ -42,12 +42,12 @@
 	return TRUE
 
 /obj/item/implant/mindshield/removed()
-	. = ..()
 	if(!imp_in)
-		return
+		return ..()
 
 	UnregisterSignal(imp_in, COMSIG_PSI_CHECK_SENSITIVITY)
 	UnregisterSignal(imp_in, COMSIG_PSI_MIND_POWER)
+	return ..()
 
 /obj/item/implant/mindshield/proc/modify_sensitivity(var/implantee, var/effective_sensitivity)
 	SIGNAL_HANDLER

@@ -413,7 +413,7 @@
 /obj/effect/floor_decal/corner_wide/paleblue{
 	dir = 6
 	},
-/obj/item/gun/energy/sniperrifle,
+/obj/item/gun/energy/rifle/laser/sniper,
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
 "hC" = (

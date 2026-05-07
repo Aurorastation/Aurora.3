@@ -51,8 +51,8 @@
 	..()
 
 /obj/item/clothing/mask/chewable/Destroy()
-	. = ..()
 	STOP_PROCESSING(SSprocessing, src)
+	return ..()
 
 /obj/item/clothing/mask/chewable/proc/chew()
 	chewtime--

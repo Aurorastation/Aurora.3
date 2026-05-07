@@ -244,7 +244,7 @@
 
 /obj/machinery/suit_cycler/offship/konyang
 	model_text = "Konyang Aerospace Force"
-	req_access = list(ACCESS_KONYANG_POLICE)
+	req_access = list(ACCESS_PORTOFCALL_POLICE)
 	departments = list("Konyang")
 	species = list(BODYTYPE_HUMAN, BODYTYPE_IPC)
 	suit = /obj/item/clothing/suit/space/void/sol/konyang

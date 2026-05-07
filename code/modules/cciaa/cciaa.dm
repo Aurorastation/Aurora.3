@@ -1,7 +1,7 @@
 /datum/admins/proc/create_admin_fax()
 	set name = "Send Admin Fax"
 	set desc = "Send a fax from Central Command."
-	set category = "Special Verbs"
+	set category = "Special Verbs.Narration/Messaging"
 
 	if (check_rights(R_ADMIN|R_CCIAA|R_FUN) || isstoryteller(usr))
 		var/list/faxes = list()
@@ -68,7 +68,7 @@
 /client/proc/check_fax_history()
 	set name = "Check fax history"
 	set desc = "Look up the faxes sent this round."
-	set category = "Special Verbs"
+	set category = "Special Verbs.Narration/Messaging"
 
 	if (check_rights(R_ADMIN|R_CCIAA|R_FUN) || isstoryteller(usr))
 		var/data = "<center><a href='byond://?_src_=holder;CentcommFaxReply=1'>Send New Fax</a></center>"

@@ -297,7 +297,7 @@
 	name = "charge card"
 	icon_state = "efundcard"
 	desc = "A card that holds an amount of money."
-	var/owner_name = "" //So the ATM can set it so the EFTPOS can put a valid name on transactions.
+	var/owner_name = "unknown" //So the ATM can set it so the EFTPOS can put a valid name on transactions.
 	drop_sound = 'sound/items/drop/card.ogg'
 	pickup_sound = 'sound/items/pickup/card.ogg'
 
@@ -305,7 +305,8 @@
 	. = ..()
 	if(distance > 2 && user != loc)
 		return
-	. += SPAN_NOTICE("The charge card's owner is [src.owner_name].")
+	if(src.owner_name)
+		. += SPAN_NOTICE("The charge card's owner is [src.owner_name].")
 	. += SPAN_NOTICE("It has [src.worth]电 left.")
 
 /obj/item/spacecash/ewallet/c2000
@@ -316,3 +317,37 @@
 
 /obj/item/spacecash/ewallet/c10000
 	worth = 10000
+
+// Persistent ewallet that keeps it's value across rounds.
+// When spawned, using VV, set "worth", "initial_worth", "owner_name" and "name".
+/obj/item/spacecash/ewallet/persistent_charge_card
+	name = "specialized charge card"
+	desc = "A specialized charge card that holds a certain amount of money. This type of charge card is in use for special purposes and not generally available."
+	icon_state = "efundcard_special"
+	var/initial_worth = 0 // Used for calculating how much cash was spend, needs to be set using VV after spawning it.
+	persistant_objects_expiration_time_days = 360
+
+/obj/item/spacecash/ewallet/persistent_charge_card/Initialize()
+	. = ..()
+	SSpersistence.objectsRegisterTrack(src)
+
+/obj/item/spacecash/ewallet/persistent_charge_card/persistent_objects_get_content()
+	var/list/content = list()
+	content["name"] = src.name
+	content["initial_worth"] = src.initial_worth
+	content["worth"] = src.worth
+	content["owner_name"] = src.owner_name
+	return content
+
+/obj/item/spacecash/ewallet/persistent_charge_card/persistent_objects_apply_content(content, x, y, z)
+	name = isnull(content["name"]) ? src.name : content["name"]
+	initial_worth = isnull(content["initial_worth"]) ? 0 : content["initial_worth"]
+	worth = isnull(content["worth"]) ? 0 : content["worth"]
+	owner_name = isnull(content["owner_name"]) ? src.owner_name : content["owner_name"]
+	src.x = x
+	src.y = y
+	src.z = z
+
+/obj/item/spacecash/ewallet/persistent_charge_card/Destroy()
+	log_and_message_admins("Persistent charge card ([src.name]) at [src] was destroyed!", null, get_turf(src))
+	. = ..()

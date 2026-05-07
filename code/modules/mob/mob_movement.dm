@@ -299,6 +299,11 @@
 
 		var/tally = mob.movement_delay() + GLOB.config.walk_speed
 
+		// Factor in delay from sources handled by the mob's movespeed_modifier datum (this is what we Should be using).
+		var/movespeed_modifier_delay = mob.cached_multiplicative_slowdown
+
+		move_delay += movespeed_modifier_delay
+
 		// Apply human specific modifiers.
 		var/mob_is_human = ishuman(mob)	// Only check this once and just reuse the value.
 		var/sprint_tally = 0
@@ -359,6 +364,8 @@
 			if (G.state == GRAB_NECK)
 				mob.set_dir(REVERSE_DIR(direct))
 			G.affecting.set_glide_size(new_glide_size)
+			for (var/obj/item/grab/T in list(G.affecting.l_hand, G.affecting.r_hand))
+				T.adjust_position()
 			G.adjust_position()
 
 		for (var/obj/item/grab/G in mob.grabbed_by)

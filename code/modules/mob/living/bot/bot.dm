@@ -2,7 +2,7 @@
 	name = "Bot"
 	accent = ACCENT_TTS
 	health = 20
-	maxHealth = 20
+	maxhealth = 20
 	icon = 'icons/mob/npc/aibots.dmi'
 	layer = MOB_LAYER
 	universal_speak = TRUE
@@ -72,10 +72,10 @@
 
 /mob/living/bot/updatehealth()
 	if(status_flags & GODMODE)
-		health = maxHealth
+		health = maxhealth
 		set_stat(CONSCIOUS)
 	else
-		health = maxHealth - getFireLoss() - getBruteLoss()
+		health = maxhealth - getFireLoss() - getBruteLoss()
 
 /mob/living/bot/death()
 	explode()
@@ -117,9 +117,9 @@
 			to_chat(user, SPAN_WARNING("You need to unlock the controls first."))
 		return
 	else if(attacking_item.tool_behaviour == TOOL_WELDER)
-		if(health < maxHealth)
+		if(health < maxhealth)
 			if(open)
-				health = min(maxHealth, health + 10)
+				health = min(maxhealth, health + 10)
 				user.visible_message(SPAN_NOTICE("\The [user] repairs [src]."), SPAN_NOTICE("You repair [src]."))
 			else
 				to_chat(user, SPAN_WARNING("You are unable to repair [src] with the maintenance panel closed."))

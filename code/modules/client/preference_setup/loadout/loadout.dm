@@ -104,6 +104,8 @@ GLOBAL_LIST_INIT(gear_datums, list())
 	var/list/whitelist_cache = list()
 
 	if(preference_mob)
+		if(preference_mob.client)
+			preference_mob.client.load_whitelist_status()
 		for(var/species in GLOB.all_species)
 			var/datum/species/S = GLOB.all_species[species]
 			if(is_alien_whitelisted(preference_mob, S))
@@ -593,6 +595,12 @@ GLOBAL_LIST_INIT(gear_datums, list())
 			qdel(replaced_organ)
 
 	var/item = new spawn_path(spawn_location)
+	if(istype(item, /obj/item/organ/internal) && ishuman(H))
+		var/obj/item/organ/internal/I = item
+		var/obj/item/organ/external/E = H.get_organ(I.parent_organ)
+		if(E)
+			I.replaced(H, E)
+
 	for(var/datum/gear_tweak/gt in gear_tweaks)
 		if(metadata["[gt]"])
 			gt.tweak_item(item, metadata["[gt]"], H)

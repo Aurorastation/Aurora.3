@@ -52,7 +52,7 @@
 	item_flags = ITEM_FLAG_THICK_MATERIAL|ITEM_FLAG_INJECTION_PORT
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|FEET|ARMS|HANDS
 	allowed = list(/obj/item/flashlight, /obj/item/tank/emergency_oxygen, /obj/item/suit_cooling_unit, /obj/item/tank)
-	slowdown = 1
+	slowdown = 0.4
 	armor = list(
 		BIO = ARMOR_BIO_SHIELDED,
 		RAD = ARMOR_RAD_SMALL
@@ -122,7 +122,7 @@
 	icon_state = "softsuit_emergency"
 	item_state = "softsuit_emergency"
 	contained_sprite = TRUE
-	slowdown = 2
+	slowdown = 1
 
 /obj/item/clothing/suit/space/emergency/marooning_equipment
 	name = "marooning softsuit"

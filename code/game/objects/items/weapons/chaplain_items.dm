@@ -138,6 +138,7 @@
 	else
 		to_chat(user, SPAN_NOTICE("You extinguish \the [src]!"))
 
+	set_light_on(lit)
 	update_icon()
 	user.update_inv_l_hand(FALSE)
 	user.update_inv_r_hand()
@@ -223,6 +224,11 @@
 	light_range = 4
 	light_power = 2
 	light_color = LIGHT_COLOR_BLUE
+
+/obj/item/nullrod/luceiansceptre/Initialize(mapload)
+	set_light_on(TRUE)
+	..()
+	return INITIALIZE_HINT_NORMAL
 
 /obj/item/nullrod/clockworkstave
 	name = "\improper clockwork stave"
@@ -431,6 +437,11 @@
 	w_class = WEIGHT_CLASS_SMALL
 	drop_sound = 'sound/items/drop/glass.ogg'
 	pickup_sound = 'sound/items/pickup/glass.ogg'
+
+/obj/item/assunzioneorb/Initialize(mapload)
+	set_light_on(TRUE)
+	..()
+	return INITIALIZE_HINT_NORMAL
 
 /obj/item/assunzioneorb/proc/shatter()
 	visible_message(SPAN_WARNING("\The [src] shatters!"), SPAN_WARNING("You hear a small glass object shatter!"))

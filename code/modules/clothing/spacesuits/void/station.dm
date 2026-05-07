@@ -38,7 +38,7 @@
 	)
 	contained_sprite = TRUE
 	icon_supported_species_tags = list("skr", "taj", "una", "ipc", "vau")
-	slowdown = 1
+	slowdown = 0.3
 	armor = list(
 		MELEE = ARMOR_MELEE_RESISTANT,
 		BULLET = ARMOR_BALLISTIC_MINOR,

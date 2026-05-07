@@ -76,36 +76,44 @@ ABSTRACT_TYPE(/obj/effect/decal/cleanable/greenglow/radioactive)
 	. += "Characters directly adjacent to or on top of this object will be exposed to <b>[radioactivity] IU/s</b> of radiation. Radiation falls off (approximately) by 75% for every tile away you move."
 
 /obj/effect/decal/cleanable/greenglow/radioactive/low
-	radioactivity = 20
+	radioactivity = RAD_LEVEL_LOW
 
 /obj/effect/decal/cleanable/greenglow/radioactive/low/antagonist_hints(mob/user, distance, is_adjacent)
 	. += ..()
-	. += "Geiger counters will start clicking at ~5 tiles away from this object."
+	. += "Geiger counters will start clicking at ~3 tiles away from this object."
 	. += "Almost all voidsuits, including softsuits, provide sufficient protection to move safely adjacent to it."
 
 /obj/effect/decal/cleanable/greenglow/radioactive/medium
-	radioactivity = 40
+	radioactivity = RAD_LEVEL_MODERATE
 
 /obj/effect/decal/cleanable/greenglow/radioactive/medium/antagonist_hints(mob/user, distance, is_adjacent)
 	. += ..()
-	. += "Geiger counters will start clicking at ~8 tiles away from this object."
+	. += "Geiger counters will start clicking at ~5 tiles away from this object."
 	. += "An engineering or atmos voidsuit is necessary to move safely adjacent to it."
 
 /obj/effect/decal/cleanable/greenglow/radioactive/high
-	radioactivity = 80
+	radioactivity = RAD_LEVEL_HIGH
 
 /obj/effect/decal/cleanable/greenglow/radioactive/high/antagonist_hints(mob/user, distance, is_adjacent)
 	. += ..()
-	. += "Geiger counters will start clicking at ~10 tiles away from this object."
+	. += "Geiger counters will start clicking at ~7 tiles away from this object."
+	. += "A radsuit is necessary to move safely adjacent to it."
+
+/obj/effect/decal/cleanable/greenglow/radioactive/very_high
+	radioactivity = RAD_LEVEL_VERY_HIGH
+
+/obj/effect/decal/cleanable/greenglow/radioactive/very_high/antagonist_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Geiger counters will start clicking at ~11 tiles away from this object."
 	. += "A radsuit is necessary to move safely adjacent to it."
 
 /obj/effect/decal/cleanable/greenglow/radioactive/extreme
 	/// This is higher than radsuits can absorb! Use with caution.
-	radioactivity = 120
+	radioactivity = RAD_LEVEL_CATASTROPHIC
 
 /obj/effect/decal/cleanable/greenglow/radioactive/extreme/antagonist_hints(mob/user, distance, is_adjacent)
 	. += ..()
-	. += "Geiger counters will start clicking at ~12 tiles away from this object."
+	. += "Geiger counters will start clicking at ~11 tiles away from this object."
 	. += "No living thing can safely stand next to this object! Borgs or IPCs only!"
 
 /obj/effect/decal/cleanable/greenglow/radioactive/Initialize()
@@ -135,8 +143,8 @@ ABSTRACT_TYPE(/obj/effect/decal/cleanable/greenglow/radioactive)
 	icon_state = "cobweb2"
 
 /obj/effect/decal/cleanable/molten_item
-	name = "gooey grey mass"
-	desc = "It looks like a melted... something."
+	name = "melted grey mass"
+	desc = "It looks like a gooey melted... something."
 	density = FALSE
 	anchored = TRUE
 	layer = OBJ_LAYER

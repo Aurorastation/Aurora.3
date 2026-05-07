@@ -34,11 +34,11 @@
 	RegisterSignal(owner, COMSIG_PSI_CHECK_SENSITIVITY, PROC_REF(modify_sensitivity), override = TRUE)
 
 /obj/item/organ/internal/augment/bioaug/psi/removed()
-	. = ..()
 	if(!owner)
-		return
+		return ..()
 
 	UnregisterSignal(owner, COMSIG_PSI_CHECK_SENSITIVITY)
+	return ..()
 
 /obj/item/organ/internal/augment/bioaug/psi/proc/modify_sensitivity(var/implantee, var/effective_sensitivity)
 	SIGNAL_HANDLER

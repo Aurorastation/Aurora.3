@@ -65,8 +65,9 @@
 			owner.Weaken(10)
 
 		var/obj/item/organ/external/E = owner.get_organ(parent_organ)
-		E.sever_artery()
-		E.germ_level = max(INFECTION_LEVEL_TWO, E.germ_level)
+		if(E)
+			E.sever_artery()
+			E.germ_level = max(INFECTION_LEVEL_TWO, E.germ_level)
 		owner.adjustToxLoss(25)
 		removed()
 		qdel(src)

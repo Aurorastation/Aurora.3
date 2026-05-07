@@ -5012,6 +5012,7 @@
 	},
 /obj/item/paper_bin,
 /obj/item/pen/black,
+/obj/item/eftpos,
 /turf/simulated/floor/tiled/dark,
 /area/ihss_reclamation/bridge)
 "yf" = (

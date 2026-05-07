@@ -4,7 +4,7 @@
 	icon = 'icons/obj/machinery/ship_guns/leviathan.dmi'
 	icon_state = "weapon_off"
 	special_firing_mechanism = TRUE
-	max_damage = 10000
+	maxhealth = 10000
 
 	projectile_type = /obj/projectile/ship_ammo/leviathan
 	use_ammunition = FALSE

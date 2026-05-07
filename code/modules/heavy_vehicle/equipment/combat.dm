@@ -37,7 +37,7 @@
 	desc = "An exosuit-mounted laser rifle. Handle with care."
 	icon_state = "mecha_laser"
 	restricted_hardpoints = list(HARDPOINT_LEFT_HAND, HARDPOINT_RIGHT_HAND)
-	holding_type = /obj/item/gun/energy/laser/mounted/mech
+	holding_type = /obj/item/gun/energy/rifle/laser/mounted/mech
 
 /obj/item/mecha_equipment/mounted_system/combat/smg
 	name = "mounted submachinegun"
@@ -107,7 +107,7 @@
 	name = "mounted riot submachine gun"
 	projectile_type = /obj/projectile/bullet/pistol/rubber
 
-/obj/item/gun/energy/laser/mounted/mech
+/obj/item/gun/energy/rifle/laser/mounted/mech
 	use_external_power = TRUE
 	self_recharge = TRUE
 	has_safety = FALSE

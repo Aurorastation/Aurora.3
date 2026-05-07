@@ -1,7 +1,7 @@
 /obj/item/integrated_circuit/memory
 	complexity = 1
 	category_text = "Memory"
-	power_draw_per_use = 1
+	power_draw_per_use = 10
 
 /obj/item/integrated_circuit/memory/storage
 	name = "memory chip"
@@ -48,7 +48,7 @@
 	name = "memory circuit"
 	desc = "This circuit can store four pieces of data."
 	icon_state = "memory4"
-	power_draw_per_use = 2
+	power_draw_per_use = 20
 	number_of_pins = 4
 
 /obj/item/integrated_circuit/memory/storage/large
@@ -56,7 +56,7 @@
 	desc = "This big circuit can hold eight pieces of data."
 	icon_state = "memory8"
 	origin_tech = list(TECH_ENGINEERING = 3, TECH_DATA = 3)
-	power_draw_per_use = 4
+	power_draw_per_use = 40
 	number_of_pins = 8
 
 /obj/item/integrated_circuit/memory/storage/huge
@@ -66,7 +66,7 @@
 	w_class = WEIGHT_CLASS_NORMAL
 	spawn_flags = IC_SPAWN_RESEARCH
 	origin_tech = list(TECH_ENGINEERING = 4, TECH_DATA = 4)
-	power_draw_per_use = 8
+	power_draw_per_use = 80
 	number_of_pins = 16
 
 /obj/item/integrated_circuit/memory/constant

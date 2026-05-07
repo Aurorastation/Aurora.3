@@ -24,12 +24,12 @@
 	RegisterSignal(owner, COMSIG_PSI_CHECK_SENSITIVITY, PROC_REF(modify_sensitivity), override = TRUE)
 
 /obj/item/organ/internal/augment/bioaug/mind_blanker/removed()
-	. = ..()
 	if(!owner)
-		return
+		return ..()
 
 	UnregisterSignal(owner, COMSIG_PSI_MIND_POWER)
 	UnregisterSignal(owner, COMSIG_PSI_CHECK_SENSITIVITY)
+	return ..()
 
 /obj/item/organ/internal/augment/bioaug/mind_blanker/proc/cancel_power(var/implantee, var/caster, var/cancelled, var/cancel_return, var/wide_field)
 	SIGNAL_HANDLER

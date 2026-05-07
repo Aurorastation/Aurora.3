@@ -248,6 +248,7 @@
 		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN) //puts a limit on how fast people can eat/drink things
 		self_feed_message(user)
 		reagents.trans_to_mob(user, min(10,amount_per_transfer_from_this), CHEM_INGEST) //A sane limiter. So you don't go drinking 300u all at once.
+		SEND_SIGNAL(src, COMSIG_CONTAINER_DRANK, user)
 		feed_sound(user)
 		return TRUE
 	else
@@ -350,8 +351,8 @@
 
 	var/trans = reagents.trans_to(target, amount_per_transfer_from_this)
 	to_chat(user, SPAN_NOTICE("You transfer [trans] units of the solution to [target]."))
-	on_pour()
+	on_pour(target)
 	return 1
 
-/obj/item/reagent_containers/proc/on_pour()
+/obj/item/reagent_containers/proc/on_pour(atom/target)
 	playsound(src, SFX_POUR, 25, 1)

@@ -7147,7 +7147,7 @@
 /obj/item/clothing/accessory/storage/pouches/white,
 /obj/item/clothing/glasses/hud/health,
 /obj/item/clothing/glasses/hud/health,
-/obj/item/clothing/accessory/armband/medgreen,
+/obj/item/clothing/accessory/armband/med,
 /obj/item/clothing/accessory/armband/med,
 /obj/item/clothing/accessory/stethoscope,
 /obj/item/clothing/accessory/stethoscope,
@@ -9411,6 +9411,7 @@
 /obj/structure/table/reinforced,
 /obj/item/paper_bin,
 /obj/item/pen/black,
+/obj/item/eftpos,
 /turf/simulated/floor/tiled/dark,
 /area/ship/sol_frigate/cic)
 "Qz" = (

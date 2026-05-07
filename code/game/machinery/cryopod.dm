@@ -199,11 +199,17 @@
 	var/allow_occupant_types = list(/mob/living/carbon/human)
 	var/disallow_occupant_types = list()
 
-	var/mob/occupant					// Person waiting to be despawned.
-	var/time_till_despawn = 1200		// Two minute safe period before being despawned.
-	var/time_till_force_cryo = 3000		// Five minutes safe period until they're despawned even if active.
-	var/time_entered = 0				// Used to keep track of the safe period.
+	/// Person waiting to be despawned.
+	var/mob/occupant
+	/// Two minute safe period before being despawned.
+	var/time_till_despawn = 1200
+	/// Five minutes safe period until they're despawned even if active.
+	var/time_till_force_cryo = 3000
+	/// Used to keep track of the safe period.
+	var/time_entered = 0
 	var/obj/item/radio/intercom/announce
+	/// If this cryopod/lift should ALWAYS announce that a person is departing the map. Primarily used in ports of call for flavorful custom text.
+	var/force_announce = FALSE
 
 	var/obj/machinery/computer/cryopod/control_computer
 
@@ -379,7 +385,7 @@
 			else
 				W.forceMove(T)
 
-	if(is_station_level(z))
+	if(force_announce || is_station_level(z))
 		GLOB.global_announcer.autosay("[occupant.real_name], [occupant.mind.role_alt_title], [on_store_message] [on_store_location].", "[on_store_name]")
 	visible_message(SPAN_NOTICE("\The [src] hums and hisses as it moves [occupant] to [on_store_location]."))
 	playsound(loc, on_store_sound, 25)

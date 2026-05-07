@@ -1,6 +1,6 @@
 /obj/item/integrated_circuit/transfer
 	category_text = "Data Transfer"
-	power_draw_per_use = 2
+	power_draw_per_use = 20
 
 /obj/item/integrated_circuit/transfer/multiplexer
 	name = "two multiplexer"
@@ -16,7 +16,7 @@
 		"on select" = IC_PINTYPE_PULSE_OUT
 	)
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
-	power_draw_per_use = 4
+	power_draw_per_use = 40
 	var/number_of_inputs = 2
 
 /obj/item/integrated_circuit/transfer/multiplexer/Initialize()
@@ -73,7 +73,7 @@
 		"on select" = IC_PINTYPE_PULSE_OUT
 	)
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
-	power_draw_per_use = 4
+	power_draw_per_use = 40
 	var/number_of_outputs = 2
 
 /obj/item/integrated_circuit/transfer/demultiplexer/Initialize()
@@ -119,7 +119,7 @@
 	complexity = 12
 	spawn_flags = IC_SPAWN_RESEARCH
 	icon_state = "bluespace"
-	power_draw_per_use = 100	// fancy subspace comms aren't cheap power-wise
+	power_draw_per_use = 1000	// fancy subspace comms aren't cheap power-wise
 	w_class = WEIGHT_CLASS_SMALL
 	inputs = list(
 		"data" = IC_PINTYPE_ANY,

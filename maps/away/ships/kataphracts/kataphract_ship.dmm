@@ -7171,6 +7171,7 @@
 	pixel_y = 7;
 	pixel_x = -6
 	},
+/obj/item/eftpos,
 /turf/simulated/floor/tiled/dark/full,
 /area/kataphract_chapter/bridge)
 "WI" = (

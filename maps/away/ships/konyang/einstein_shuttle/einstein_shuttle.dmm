@@ -1333,6 +1333,7 @@
 /obj/item/paper_bin,
 /obj/item/pen/black,
 /obj/item/stamp/einstein,
+/obj/item/eftpos,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/einstein_shuttle/helm)
 "FW" = (

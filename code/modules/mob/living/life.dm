@@ -25,7 +25,7 @@
 			aura_check(AURA_TYPE_LIFE)
 		if(!InStasis())
 			//Mutations and radiation
-			handle_mutations_and_radiation()
+			handle_mutations_and_radiation(seconds_per_tick)
 
 	//Check if we're on fire
 	handle_fire(seconds_per_tick, environment)
@@ -52,10 +52,10 @@
 /mob/living/proc/handle_breathing()
 	return
 
-/mob/living/proc/handle_mutations_and_radiation()
+/mob/living/proc/handle_chemicals_in_body()
 	return
 
-/mob/living/proc/handle_chemicals_in_body()
+/mob/living/proc/handle_mutations_and_radiation(seconds_per_tick)
 	return
 
 /mob/living/proc/handle_random_events()

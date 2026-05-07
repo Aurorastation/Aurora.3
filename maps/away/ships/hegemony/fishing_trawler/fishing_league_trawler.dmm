@@ -2534,6 +2534,7 @@
 /obj/effect/floor_decal/corner/black{
 	dir = 10
 	},
+/obj/item/eftpos,
 /turf/simulated/floor/tiled/dark,
 /area/ship/fishing_trawler/bridge)
 "tO" = (
@@ -2868,7 +2869,7 @@
 /obj/item/clothing/suit/storage/hooded/wintercoat,
 /obj/item/clothing/suit/storage/hooded/wintercoat,
 /obj/item/clothing/suit/storage/hooded/wintercoat/heph,
-/obj/item/clothing/suit/storage/hooded/wintercoat/heph/alt,
+/obj/item/clothing/suit/storage/hooded/wintercoat/heph,
 /obj/item/clothing/accessory/temperature/volcano,
 /obj/item/clothing/accessory/temperature/volcano,
 /obj/effect/floor_decal/industrial/outline/red,
@@ -4577,7 +4578,7 @@
 /obj/structure/closet,
 /obj/item/clothing/suit/storage/hooded/wintercoat,
 /obj/item/clothing/suit/storage/hooded/wintercoat,
-/obj/item/clothing/suit/storage/hooded/wintercoat/heph/alt,
+/obj/item/clothing/suit/storage/hooded/wintercoat/heph,
 /obj/item/clothing/suit/storage/hooded/wintercoat/heph,
 /obj/item/clothing/accessory/temperature/volcano,
 /obj/item/clothing/accessory/temperature/volcano,

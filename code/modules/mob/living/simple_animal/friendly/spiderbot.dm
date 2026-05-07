@@ -29,10 +29,10 @@
 	wander = 0
 	density = 0
 	health = 25
-	maxHealth = 25
+	maxhealth = 25
 	hunger_enabled = 0
 
-	attacktext = "shocked"
+	attacktext = "shocks"
 	melee_damage_lower = 1
 	melee_damage_upper = 3
 
@@ -122,10 +122,10 @@
 	if (attacking_item.tool_behaviour == TOOL_WELDER)
 		var/obj/item/weldingtool/WT = attacking_item
 		if (WT.use(0))
-			if(health < maxHealth)
+			if(health < maxhealth)
 				health += pick(1,1,1,2,2,3)
-				if(health > maxHealth)
-					health = maxHealth
+				if(health > maxhealth)
+					health = maxhealth
 				add_fingerprint(user)
 				src.visible_message(SPAN_NOTICE("\The [user] has spot-welded some of the damage to \the [src]!"))
 			else

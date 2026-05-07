@@ -49,3 +49,7 @@ ABSTRACT_TYPE(/singleton/fabricator_recipe/tools)
 /singleton/fabricator_recipe/tools/hammer
 	name = "hammer"
 	path = /obj/item/hammer
+
+/singleton/fabricator_recipe/tools/light_meter
+	name = "light meter"
+	path = /obj/item/light_meter

@@ -10,3 +10,11 @@
 #define NO_HUD  0
 #define SEC_HUD 1
 #define MED_HUD 2
+
+// Notification action types
+#define NOTIFY_JUMP "jump"
+#define NOTIFY_ATTACK "attack"
+#define NOTIFY_ORBIT "orbit"
+
+#define ALERT_BUCKLED "buckled"
+#define ALERT_FIRE "fire"

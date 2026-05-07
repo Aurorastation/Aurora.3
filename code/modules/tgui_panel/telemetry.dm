@@ -65,5 +65,27 @@
 	if (!ckey)
 		return
 
+	// Convert assoc-list connections to positional format for apply_ban_mirror,
+	// which reads extra_info[i][1] to extract ckeys for DB storage.
+	var/list/extra_info = list()
+	for(var/list/conn in telemetry_connections)
+		extra_info += list(list(conn["ckey"], conn["address"], conn["computer_id"]))
+
+	var/ban_id = 0
+	for(var/list/conn in telemetry_connections)
+		var/list/bdata = world.IsBanned(conn["ckey"], conn["address"], conn["computer_id"], 1, real_bans_only = TRUE, log_connection = FALSE)
+		if(bdata && bdata.len && !isnull(bdata["id"]))
+			ban_id = bdata["id"]
+			break
+
+	if(ban_id)
+		if(!client.holder)
+			log_and_message_admins("[ckey] from [client.address]-[client.computer_id] was caught bandodging. Mirror applied for ban #[ban_id], kicking shortly.")
+			apply_ban_mirror(ckey, client.address, client.computer_id, ban_id, 2, extra_info)
+			spawn(20)
+				del(client)
+		else
+			log_and_message_admins("[ckey] is a staff but was caught bandodging! Ban ID: #[ban_id].")
+
 #undef TGUI_TELEMETRY_MAX_CONNECTIONS
 #undef TGUI_TELEMETRY_RESPONSE_WINDOW

@@ -888,7 +888,7 @@
 		//metabolism = REM * 0.22
 		M.adjustToxLoss(45 * removed * (0.22/0.25)) // Multiplier is to replace the above line
 	else
-		M.apply_radiation(-30 * removed)
+		M.apply_radiation(-90 * removed)
 
 /singleton/reagent/hyronalin/overdose(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	if(prob(60))
@@ -919,10 +919,10 @@
 		//metabolism = REM * 0.195
 		M.adjustToxLoss(115 * removed * (0.195/0.25)) // Multiplier is to replace the above line
 	else
-		M.apply_radiation(-70 * removed)
+		M.apply_radiation(-280 * removed)
 		M.add_chemical_effect(CE_ITCH, M.chem_doses[type]/2)
 		if(prob(60))
-			M.take_organ_damage(4 * removed, 0)
+			M.take_organ_damage(8 * removed, 0)
 
 /singleton/reagent/arithrazine/overdose(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	if(prob(50))
@@ -1232,9 +1232,10 @@
 	if(alchohol_affected && bac > 0.03)
 		H.hallucination = max(H.hallucination, bac * 400)
 
-	if(H.chem_doses[type] < overdose && H.shock_stage < 5) //Don't want feel-good messages when we're suffering an OD or particularly hurt/injured
+	if(H.chem_doses[type] < overdose && H.shock_stage < 5 && REALTIMEOFDAY >= H.next_drug_message)
 		message = feedback_message(H)
 		to_chat(H, SPAN_GOOD("[message]"))
+		H.next_drug_message = REALTIMEOFDAY + DRUG_MESSAGE_COOLDOWN
 
 	LAZYSET(holder.reagent_data[type], "last_tick_time", world.time + (messagedelay))
 

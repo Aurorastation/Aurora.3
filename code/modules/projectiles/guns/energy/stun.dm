@@ -1,7 +1,7 @@
 /obj/item/gun/energy/taser
-	name = "taser gun"
-	desc = "The NT Mk30 NL is a small, low capacity gun used for non-lethal takedowns."
-	icon = 'icons/obj/guns/taser.dmi'
+	name = "\improper Mk30 NL stun pistol"
+	desc = "The Mk30 NL is a small, low capacity pistol produced by NanoTrasen used for non-lethal takedowns."
+	icon = 'icons/obj/guns/faction/nanotrasen_corporation/stunpistol.dmi'
 	icon_state = "taser"
 	item_state = "taser"
 	fire_sound = 'sound/weapons/Taser.ogg'
@@ -13,16 +13,16 @@
 	turret_is_lethal = FALSE
 
 /obj/item/gun/energy/taser/mounted
-	name = "mounted taser gun"
+	name = "mounted stun gun"
 	self_recharge = TRUE
 	use_external_power = TRUE
 	can_turret = FALSE
 
 /obj/item/gun/energy/stunrevolver
-	name = "stun revolver"
+	name = "\improper ST-30 stun revolver"
 	desc = "A NanoTrasen designed high-tech revolver that fires rechargeable stun bolts."
 	desc_extended = "The ST-30 is a highly advanced sidearm produced by NanoTrasen. It is designed for self-defense in a less-than-lethal manner. While the weapon design itself is not groundbreaking, it fires high velocity energy bolts with rechargeable cartridges, possessing unusual high stopping power."
-	icon = 'icons/obj/guns/stunrevolver.dmi'
+	icon = 'icons/obj/guns/faction/nanotrasen_corporation/stunrevolver.dmi'
 	icon_state = "stunrevolver"
 	item_state = "stunrevolver"
 	has_item_ratio = FALSE

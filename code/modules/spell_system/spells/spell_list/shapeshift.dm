@@ -65,12 +65,12 @@
 			M.status_flags |= GODMODE //dont want him to die or breathe or do ANYTHING
 			spawn(duration)
 				M.status_flags &= ~GODMODE //no more godmode.
-				var/ratio = trans.health/trans.maxHealth
+				var/ratio = trans.health/trans.maxhealth
 				if(ratio <= 0) //if he dead dont bother transforming them.
 					qdel(M)
 					return
 				if(share_damage)
-					M.adjustBruteLoss(M.maxHealth - round(M.maxHealth*(trans.health/trans.maxHealth))) //basically I want the % hp to be the same afterwards
+					M.adjustBruteLoss(M.maxhealth - round(M.maxhealth*(trans.health/trans.maxhealth))) //basically I want the % hp to be the same afterwards
 				if(trans.mind)
 					trans.mind.transfer_to(M)
 				else

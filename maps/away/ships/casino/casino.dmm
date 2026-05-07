@@ -187,6 +187,7 @@
 "aL" = (
 /obj/item/radio,
 /obj/structure/table/steel,
+/obj/item/eftpos,
 /turf/simulated/floor/tiled,
 /area/casino/casino_bridge)
 "aN" = (

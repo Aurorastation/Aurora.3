@@ -1247,7 +1247,7 @@
 /obj/item/spacecash/c1000{
 	pixel_x = 3
 	},
-/obj/item/gun/energy/lawgiver,
+/obj/item/gun/energy/acp,
 /turf/simulated/floor/wood,
 /area/cursed/living_area)
 "hkX" = (

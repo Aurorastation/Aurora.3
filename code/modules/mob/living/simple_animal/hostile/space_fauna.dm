@@ -18,7 +18,7 @@
 	response_disarm = "gently pushes aside the"
 	response_harm = "hits the"
 	speed = 4
-	maxHealth = 25
+	maxhealth = 25
 	health = 25
 	mob_size = 10
 
@@ -33,7 +33,7 @@
 	melee_damage_upper = 15
 	armor_penetration = 5
 	attack_flags = DAMAGE_FLAG_EDGE
-	attacktext = "bitten"
+	attacktext = "bites"
 	attack_sound = 'sound/weapons/bite.ogg'
 
 	//Space carp aren't affected by atmos.
@@ -108,7 +108,7 @@
 	icon_state = "carp_russian"
 	icon_living = "carp_russian"
 	icon_dead = "carp_russian_dead"
-	maxHealth = 50 //stronk
+	maxhealth = 50 //stronk
 	health = 50
 
 /mob/living/simple_animal/hostile/carp/russian/FindTarget()
@@ -131,7 +131,7 @@
 	icon_rest = "shark_rest"
 	meat_amount = 5
 
-	maxHealth = 100
+	maxhealth = 100
 	health = 100
 
 	mob_size = 15
@@ -149,7 +149,7 @@
 	icon_dead = "reaver"
 	meat_amount = 5
 
-	maxHealth = 100
+	maxhealth = 100
 	health = 100
 
 	speed = 10
@@ -174,7 +174,7 @@
 	icon_dead = "eel"
 	meat_amount = 5
 
-	maxHealth = 150
+	maxhealth = 150
 	health = 150
 
 	speed = 6
@@ -212,7 +212,7 @@
 	icon_dead = "bloater"
 	meat_amount = 5
 
-	maxHealth = 50
+	maxhealth = 50
 	health = 50
 
 	mob_size = 5
@@ -288,7 +288,7 @@
 	response_disarm = "gently pushes aside the"
 	response_harm = "hits the"
 	speed = 2
-	maxHealth = 5
+	maxhealth = 5
 	health = 5
 	mob_size = 2
 	density = FALSE
@@ -298,7 +298,7 @@
 	harm_intent_damage = 5
 	melee_damage_lower = 5
 	melee_damage_upper = 5
-	attacktext = "bitten"
+	attacktext = "bites"
 	attack_sound = 'sound/weapons/bite.ogg'
 
 	min_oxy = 0

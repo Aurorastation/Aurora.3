@@ -32,6 +32,13 @@
 	var/hide_pilot = TRUE
 	has_hardpoints = list(HARDPOINT_BACK, HARDPOINT_LEFT_SHOULDER, HARDPOINT_RIGHT_SHOULDER)
 
+	/**
+	 * Maximum % chance for an ejection to fail based on how much damage the mech's torso has taken.
+	 * If you're stuck, better hope there's a friend available to bail you out..
+	 * Or you can keep the hatch open if you would rather risk getting zipped by incoming fire.
+	 */
+	var/ejection_fail_chance = 75
+
 /obj/item/mech_component/chassis/Initialize()
 	. = ..()
 	AddComponent(/datum/component/armor, armor, ARMOR_TYPE_STANDARD|ARMOR_TYPE_EXOSUIT)

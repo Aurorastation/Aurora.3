@@ -37,7 +37,7 @@
 				var/obj/item/organ/external/O = organ
 				var/obj/effect/spider/eggcluster/C = locate() in O
 				if(C)
-					C.take_damage(removed * 2)
+					C.add_damage(removed * 2)
 		if(dam)
 			M.adjustToxLoss(target_organ ? (dam * 0.5) : dam)
 			M.add_chemical_effect(CE_TOXIN, removed * strength)

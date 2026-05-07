@@ -20,14 +20,14 @@
 	new /obj/effect/smoke/illumination(T, brightness=15)
 	qdel(src)
 
-/obj/item/grenade/flashbang/explode_in_hand(var/mob/living/carbon/human/victim, var/obj/item/organ/external/exploded_hand)
+/obj/item/grenade/flashbang/explode_in_hand(var/mob/living/carbon/human/victim, var/obj/item/organ/external/exploded_organ)
 	. = ..()
-	if(exploded_hand)
-		victim.apply_damage(30, DAMAGE_BRUTE, exploded_hand, src, DAMAGE_FLAG_EXPLODE, 20)
-		victim.apply_damage(20, DAMAGE_BURN, exploded_hand, src, DAMAGE_FLAG_EXPLODE, 20)
-	else
-		victim.apply_damage(20, DAMAGE_BRUTE, exploded_hand, src, DAMAGE_FLAG_EXPLODE|DAMAGE_FLAG_DISPERSED, 20)
-		victim.apply_damage(30, DAMAGE_BURN, exploded_hand, src, DAMAGE_FLAG_EXPLODE|DAMAGE_FLAG_DISPERSED, 20)
+	if(exploded_organ)
+		victim.apply_damage(20, DAMAGE_BRUTE, exploded_organ, src, DAMAGE_FLAG_EXPLODE, 20)
+		victim.apply_damage(30, DAMAGE_BURN, exploded_organ, src, DAMAGE_FLAG_EXPLODE, 20)
+
+	victim.apply_damage(20, DAMAGE_BRUTE, null, src, DAMAGE_FLAG_EXPLODE|DAMAGE_FLAG_DISPERSED, 20)
+	victim.apply_damage(30, DAMAGE_BURN, null, src, DAMAGE_FLAG_EXPLODE|DAMAGE_FLAG_DISPERSED, 20)
 
 /obj/item/grenade/flashbang/proc/bang(turf/T, mob/living/M)
 	to_chat(M, SPAN_HIGHDANGER("BANG!"))

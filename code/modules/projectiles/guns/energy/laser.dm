@@ -1,43 +1,6 @@
-/obj/item/gun/energy/laser
-	name = "laser carbine"
-	desc = "A NanoTrasen G40E carbine, designed to kill with concentrated energy blasts."
-	icon = 'icons/obj/guns/laserrifle.dmi'
-	icon_state = "laserrifle100"
-	item_state = "laserrifle100"
-	has_item_ratio = FALSE // the back and suit slots have ratio sprites but the in-hands dont
-	fire_sound = 'sound/weapons/laser1.ogg'
-	slot_flags = SLOT_BELT|SLOT_BACK
-	accuracy = 1
-	w_class = WEIGHT_CLASS_NORMAL
-	force = 20
-	origin_tech = list(TECH_COMBAT = 3, TECH_MAGNET = 2)
-	matter = list(DEFAULT_WALL_MATERIAL = 2000)
-	projectile_type = /obj/projectile/beam/midlaser
-	can_turret = TRUE
-	turret_is_lethal = TRUE
-	turret_sprite_set = "laser"
-
-	modifystate = "laserrifle"
-
-/obj/item/gun/energy/laser/mounted
-	name = "mounted laser carbine"
-	has_safety = FALSE
-	self_recharge = TRUE
-	use_external_power = TRUE
-	can_turret = FALSE
-
-/obj/item/gun/energy/laser/mounted/cyborg/overclocked
-	max_shots = 15
-	recharge_time = 1
-
-/obj/item/gun/energy/laser/practice
-	name = "practice laser carbine"
-	desc = "A modified version of the NT G40E, this one fires less concentrated energy bolts designed for target practice."
-	projectile_type = /obj/projectile/beam/practice
-
 /obj/item/gun/energy/retro
-	name = "retro laser"
-	icon = 'icons/obj/guns/retro.dmi'
+	name = "\improper L104 laser gun"
+	icon = 'icons/obj/guns/faction/antique/retro.dmi'
 	icon_state = "retro"
 	item_state = "retro"
 	has_item_ratio = FALSE
@@ -57,9 +20,9 @@
 	modifystate = "retro"
 
 /obj/item/gun/energy/captain
-	name = "antique laser gun"
-	icon = 'icons/obj/guns/caplaser.dmi'
-	desc = "This is an antique laser gun. All craftsmanship is of the highest quality. The object menaces with spikes of energy."
+	name = "\improper X-00 laser gun"
+	icon = 'icons/obj/guns/faction/antique/caplaser.dmi'
+	desc = "This is the X-00, an antique laser gun, out of production for decades and well beyond anyone's capacity to recreate. All craftsmanship is of the highest quality. The gun menaces with spikes of energy."
 	icon_state = "caplaser"
 	item_state = "caplaser"
 	has_item_ratio = FALSE
@@ -80,42 +43,11 @@
 	. += ..()
 	. += "Unlike most energy weapons, this weapon recharges itself."
 
-/obj/item/gun/energy/lasercannon
-	name = "laser cannon"
-	desc = "A NanoTrasen designed laser cannon capable of acting as a powerful support weapon."
-	desc_extended = "The NT LC-4 is a laser cannon developed and produced by NanoTrasen. Produced and sold to organizations both in need of a highly powerful support weapon and can afford its high unit cost. In spite of the low capacity, it is a highly capable tool, cutting down fortifications and armored targets with ease."
-	icon = 'icons/obj/guns/lasercannon.dmi'
-	icon_state = "lasercannon100"
-	item_state = "lasercannon100"
-	fire_sound = 'sound/weapons/lasercannonfire.ogg'
-	origin_tech = list(TECH_COMBAT = 4, TECH_MATERIAL = 3, TECH_POWER = 3)
-	slot_flags = SLOT_BELT|SLOT_BACK
-	projectile_type = /obj/projectile/beam/heavylaser
-	charge_cost = 400
-	max_shots = 5
-	fire_delay = 20
-	can_turret = TRUE
-	turret_is_lethal = TRUE
-	turret_sprite_set = "cannon"
-
-	modifystate = "lasercannon"
-
-/obj/item/gun/energy/lasercannon/mounted
-	name = "mounted laser cannon"
-	self_recharge = TRUE
-	use_external_power = TRUE
-	recharge_time = 10
-	can_turret = FALSE
-
-/obj/item/gun/energy/lasercannon/mounted/cyborg/overclocked
-	recharge_time = 1
-	max_shots = 15
-
 /obj/item/gun/energy/xray
-	name = "xray laser gun"
-	desc = "A NanoTrasen designed high-power laser sidearm capable of expelling concentrated xray blasts."
-	desc_extended = "The NT XG-1 is a laser sidearm developed and produced by NanoTrasen. A recent invention, used for specialist operations, it is presently being produced and sold in limited capacity over the galaxy. Designed for precision strikes, releasing concentrated xray blasts that are capable of hitting targets behind cover. It is compact with relatively high capacity to other sidearms."
-	icon = 'icons/obj/guns/xray.dmi'
+	name = "\improper XG-1 X-Ray laser pistol"
+	desc = "A NanoTrasen designed high-power laser sidearm capable of expelling concentrated X-Ray blasts."
+	desc_extended = "The XG-1 is a laser sidearm developed and produced by NanoTrasen. A recent invention, used for specialist operations, it is presently being produced and sold in limited capacity over the galaxy. Designed for precision strikes, releasing concentrated xray blasts that are capable of hitting targets behind cover. It is compact with relatively high capacity to other sidearms."
+	icon = 'icons/obj/guns/faction/nanotrasen_corporation/xray.dmi'
 	icon_state = "xray"
 	item_state = "xray"
 	has_item_ratio = FALSE
@@ -138,52 +70,11 @@
 	recharge_time = 5
 	can_turret = FALSE
 
-/obj/item/gun/energy/sniperrifle
-	name = "marksman energy rifle"
-	desc = "The HI L.W.A.P. is an older NanoTrasen design. A designated marksman rifle capable of shooting powerful ionized beams, this is a weapon to kill from a distance."
-	icon = 'icons/obj/guns/sniper.dmi'
-	icon_state = "sniper"
-	item_state = "sniper"
-	has_item_ratio = FALSE // same as the laserrifle
-	fire_sound = 'sound/weapons/marauder.ogg'
-	origin_tech = list(TECH_COMBAT = 6, TECH_MATERIAL = 5, TECH_POWER = 4)
-	projectile_type = /obj/projectile/beam/sniper
-	slot_flags = SLOT_BACK
-	charge_cost = 400
-	max_shots = 4
-	fire_delay = 45
-	force = 15
-	w_class = WEIGHT_CLASS_BULKY
-	accuracy = -3 //shooting at the hip
-	scoped_accuracy = 4
-	can_turret = TRUE
-	turret_sprite_set = "sniper"
-	turret_is_lethal = TRUE
-
-	is_wieldable = TRUE
-
-	fire_delay_wielded = 35
-	accuracy_wielded = 0
-
-/obj/item/gun/energy/sniperrifle/mechanics_hints(mob/user, distance, is_adjacent)
-	. += ..()
-	. += "To use the scope, use the appropriate verb in the object tab."
-
-/obj/item/gun/energy/sniperrifle/verb/scope()
-	set category = "Object.Held"
-	set name = "Use Scope"
-	set src in usr
-
-	if(wielded)
-		toggle_scope(2.0, usr)
-	else
-		to_chat(usr, SPAN_WARNING("You can't look through the scope without stabilizing the rifle!"))
-
 /obj/item/gun/energy/laser/shotgun
-	name = "laser shotgun"
+	name = "\improper QB-2 laser shotgun"
 	desc = "A NanoTrasen designed laser weapon, designed to split a single amplified beam four times."
-	desc_extended = "The NT QB-2 is a laser weapon developed and produced by NanoTrasen. Designed to fill in the niche that ballistic shotguns do, but in the form of laser weaponry. It is equipped with a special crystal lens that splits a single laser beam into four."
-	icon = 'icons/obj/guns/lasershotgun.dmi'
+	desc_extended = "The QB-2 is a laser weapon developed and produced by NanoTrasen. Designed to fill in the niche that ballistic shotguns do, but in the form of laser weaponry. It is equipped with a special crystal lens that splits a single laser beam into four."
+	icon = 'icons/obj/guns/faction/nanotrasen_corporation/lasershotgun.dmi'
 	icon_state = "lasershotgun"
 	item_state = "lasershotgun"
 	modifystate = null
@@ -209,13 +100,13 @@
 	turret_sprite_set = "laser"
 
 /obj/item/gun/energy/laser/shotgun/research
-	name = "expedition shotgun"
+	name = "\improper QB-2E laser shotgun"
 	desc = "A NanoTrasen designed laser weapon, designed to split a single amplified beam four times. This one is marked for expeditionary use."
 	pin = /obj/item/firing_pin/away_site
 
 ////////Laser Tag////////////////////
 
-/obj/item/gun/energy/lasertag
+ABSTRACT_TYPE(/obj/item/gun/energy/lasertag)
 	name = "laser tag gun"
 	desc = "A simple low-power laser gun, outfitted for use in laser tag arenas."
 	item_state = "laser"
@@ -249,16 +140,16 @@
 		pin = new pin_path(src)
 	switch(set_color)
 		if("red")
-			icon = 'icons/obj/guns/redtag.dmi'
+			icon = 'icons/obj/guns/faction/toy/redtag.dmi'
 		if("blue")
-			icon = 'icons/obj/guns/bluetag.dmi'
+			icon = 'icons/obj/guns/faction/toy/bluetag.dmi'
 	icon_state = "[set_color]tag"
 	item_state = icon_state
 	modifystate = item_state
 	update_held_icon()
 
 /obj/item/gun/energy/lasertag/blue
-	icon = 'icons/obj/guns/bluetag.dmi'
+	icon = 'icons/obj/guns/faction/toy/bluetag.dmi'
 	icon_state = "bluetag"
 	item_state = "bluetag"
 	projectile_type = /obj/projectile/beam/laser_tag/blue
@@ -266,6 +157,6 @@
 	turret_sprite_set = "blue"
 
 /obj/item/gun/energy/lasertag/red
-	icon = 'icons/obj/guns/redtag.dmi'
+	icon = 'icons/obj/guns/faction/toy/redtag.dmi'
 	icon_state = "redtag"
 	item_state = "redtag"

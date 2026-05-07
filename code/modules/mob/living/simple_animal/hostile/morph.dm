@@ -25,7 +25,7 @@
 	status_flags = CANPUSH
 	pass_flags = PASSTABLE
 
-	maxHealth = 125
+	maxhealth = 125
 	health = 125
 	max_stamina = -1
 
@@ -43,7 +43,7 @@
 
 	wander = FALSE
 
-	attacktext = "glomped"
+	attacktext = "glomps"
 	attack_sound = 'sound/effects/blobattack.ogg'
 	blood_overlay_icon = null
 
@@ -71,7 +71,7 @@
 		healths.icon_state = "health6"
 	if(.)
 		if(healths)
-			switch(health / maxHealth * 100)
+			switch(health / maxhealth * 100)
 				if(100 to INFINITY)
 					healths.icon_state = "health0"
 				if(80 to 100)
@@ -88,7 +88,7 @@
 					healths.icon_state = "health6"
 
 		if((stat == UNCONSCIOUS || resting) && locate(/obj/structure/gore/tendrils) in loc)
-			health = min(maxHealth, health + 1)
+			health = min(maxhealth, health + 1)
 
 /mob/living/simple_animal/hostile/morph/verb/toggle_darkview()
 	set name = "Toggle Darkvision"

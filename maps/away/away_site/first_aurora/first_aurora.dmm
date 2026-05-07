@@ -591,7 +591,7 @@
 /turf/simulated/floor/tiled/airless,
 /area/derelict/hallway/northeast)
 "cf" = (
-/obj/item/gun/energy/laser/practice{
+/obj/item/gun/energy/rifle/laser/practice{
 	desc = "This laser gun has been modified in some way.";
 	name = "modified laser gun"
 	},
@@ -859,7 +859,7 @@
 /turf/simulated/floor/airless,
 /area/derelict/hallway/northeast)
 "dd" = (
-/obj/item/gun/energy/laser/practice,
+/obj/item/gun/energy/rifle/laser/practice,
 /turf/simulated/floor/airless,
 /area/derelict/hallway/northeast)
 "de" = (

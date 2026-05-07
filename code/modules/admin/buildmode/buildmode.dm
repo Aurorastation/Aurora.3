@@ -14,6 +14,7 @@
 
 /datum/build_mode/Destroy()
 	host = null
+	user = null
 	. = ..()
 
 /datum/build_mode/proc/OnClick(var/atom/A, var/list/parameters)

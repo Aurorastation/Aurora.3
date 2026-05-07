@@ -261,7 +261,7 @@
 /obj/item/reagent_containers/spray/chemsprayer/xenobiology
 	name = "xenoblaster"
 	desc = "A child's plastic watergun repurposed for the use in pacifying slimes. Has an adjustable nozzle that controls precision as well as strength."
-	icon = 'icons/obj/guns/xenoblaster.dmi'
+	icon = 'icons/obj/guns/faction/toy/xenoblaster.dmi'
 	icon_state = "xenoblaster"
 	item_state = "xenoblaster"
 	contained_sprite = TRUE

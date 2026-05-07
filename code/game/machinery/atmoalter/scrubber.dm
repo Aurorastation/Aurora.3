@@ -76,6 +76,7 @@
 	if (power_draw < 0)
 		last_flow_rate = 0
 		last_power_draw = 0
+		last_mole_transfer = 0
 	else
 		power_draw = max(power_draw, power_losses)
 		cell.use(power_draw * CELLRATE)
@@ -197,6 +198,7 @@
 		update_use_power(POWER_USE_OFF)
 		last_flow_rate = 0
 		last_power_draw = 0
+		last_mole_transfer = 0
 		return 0
 
 	var/power_draw = -1
@@ -212,6 +214,7 @@
 	if (power_draw < 0)
 		last_flow_rate = 0
 		last_power_draw = 0
+		last_mole_transfer = 0
 	else
 		use_power_oneoff(power_draw)
 		update_connected_network()

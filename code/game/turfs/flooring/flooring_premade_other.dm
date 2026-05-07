@@ -110,6 +110,11 @@
 /turf/simulated/floor/grass/no_edge
 	has_edge_icon = FALSE
 
+/turf/simulated/floor/grass1/no_edge
+	icon = 'icons/turf/flooring/grass2.dmi'
+	icon_state = "grass10"
+	has_edge_icon = FALSE
+
 /turf/simulated/floor/diona
 	name = "biomass flooring"
 	icon = 'icons/turf/flooring/diona.dmi'

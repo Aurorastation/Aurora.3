@@ -368,6 +368,9 @@ If you add a drink with an empty icon sprite, ensure it is in the same folder, e
 	var/twisted = FALSE
 	var/obj/item/shaker_top/top
 	var/obj/item/reagent_containers/food/drinks/shaker_cup/cap
+	var/drink_quality = null
+	var/drink_moodlet_value = null
+	var/moodlet_value_per_bartending_rank = 5
 
 /obj/item/reagent_containers/food/drinks/shaker/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()
@@ -429,6 +432,16 @@ If you add a drink with an empty icon sprite, ensure it is in the same folder, e
 	if(last_shake <= world.time - 10) //Spam limiter.
 		last_shake = world.time
 		playsound(src.loc, SFX_SHAKER_SHAKING, 50, 1)
+
+		/**
+					------------	Bartender Skill Handling	------------
+		 */
+		var/datum/component/skill/bartending/bar_skill = user.GetComponent(BARTENDING_SKILL_COMPONENT)
+		if (bar_skill)
+			drink_moodlet_value = moodlet_value_per_bartending_rank * bar_skill.skill_level
+			if (isnull(drink_quality))
+				drink_quality = rand(1, 20) + 3 * bar_skill.skill_level
+
 	src.add_fingerprint(user)
 	return
 
@@ -464,7 +477,15 @@ If you add a drink with an empty icon sprite, ensure it is in the same folder, e
 		return TRUE
 	return ..()
 
-/obj/item/reagent_containers/food/drinks/shaker/on_pour()
+/obj/item/reagent_containers/food/drinks/shaker/on_pour(atom/target)
+	if (!isnull(drink_moodlet_value))
+		target.LoadComponent(/datum/component/drink_moodlet_provider, drink_moodlet_value, FALSE, drink_quality)
+
+	// Bartender has finished pouring a drink, prepare the shaker to make the next one.
+	if (!reagents.total_volume)
+		drink_quality = null
+		drink_moodlet_value = null
+
 	if(!top)
 		playsound(src, 'sound/effects/pour_big.ogg', 50, 1)
 		return

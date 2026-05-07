@@ -2,21 +2,21 @@
 	name = "flesh floor"
 	desc = "Looks like the floor was covered by some fleshlike growth."
 	icon_state = "flesh_floor"
-	maxHealth = 100
+	maxhealth = OBJECT_HEALTH_LOW
 
 /obj/structure/gore/wall
 	name = "flesh wall"
 	desc = "Chunks of flesh sculpted to form an impassable wall."
 	icon_state = "flesh_wall"
 	opacity = TRUE
-	maxHealth = 200
+	maxhealth = OBJECT_HEALTH_HIGH
 
 /obj/structure/gore/wall/membrane
 	name = "flesh membrane"
 	desc = "Skin and muscle stretched just thin enough to let light pass through."
 	icon_state = "flesh_membrane"
 	opacity = FALSE
-	maxHealth = 120
+	maxhealth = 120
 
 /obj/structure/gore/wall/Initialize()
 	. = ..()
@@ -33,8 +33,7 @@
 	user.do_attack_animation(src, FIST_ATTACK_ANIMATION)
 	if((user.mutations & HULK))
 		visible_message(SPAN_DANGER("\The [user] destroys \the [src]!"))
-		health = 0
+		add_damage(maxhealth)
 	else
 		visible_message(SPAN_DANGER("\The [user] claws at \the [src]!"))
-		health -= rand(5, 10)
-	healthcheck()
+		add_damage(rand(5, 10))

@@ -21,7 +21,7 @@
 	. += "Upgraded <b>capacitors</b> will increase maximum power output."
 
 /obj/machinery/power/portgen/feedback_hints(mob/user, distance, is_adjacent)
-	. = ..()
+	. += ..()
 	if(active)
 		. += "The generator is on."
 	else
@@ -120,18 +120,28 @@
 		temperature_gain and max_temperature are set so that the max safe power level is 4.
 		Setting to 5 or higher can only be done temporarily before the generator overheats.
 	*/
-	power_gen = 50000				//Watts output per power_output level
-	var/max_power_output = 5		//The maximum power setting without emagging.
-	var/max_safe_output = 4			// For UI use, maximal output that won't cause overheat.
-	var/time_per_sheet = 576		//fuel efficiency - how long 1 sheet lasts at power level 1
-	var/max_sheets = 50 			//max capacity of the hopper
-	var/max_temperature = 300		//max temperature before overheating increases
-	var/temperature_gain = 50		//how much the temperature increases per power output level, in degrees per level
-
-	var/sheets = 0			//How many sheets of material are loaded in the generator
-	var/sheet_left = 0		//How much is left of the current sheet
-	var/temperature = 0		//The current temperature
-	var/overheating = 0		//if this gets high enough the generator explodes
+	/// Watts output per power_output level
+	power_gen = 50000
+	/// The maximum power setting without emagging.
+	var/max_power_output = 5
+	/// For UI use, maximal output that won't cause overheat.
+	var/max_safe_output = 4
+	/// Fuel efficiency - how long 1 sheet lasts at power level 1
+	var/time_per_sheet = 576
+	/// Max capacity of the hopper
+	var/max_sheets = 50
+	/// Max temperature before overheating increases
+	var/max_temperature = 300
+	/// How much the temperature increases per power output level, in degrees per level
+	var/temperature_gain = 50
+	/// How many sheets of material are loaded in the generator
+	var/sheets = 0
+	/// How much is left of the current sheet
+	var/sheet_left = 0
+	/// The current temperature
+	var/temperature = 0
+	/// If this gets high enough the generator explodes
+	var/overheating = 0
 
 	component_types = list(
 		/obj/item/stock_parts/matter_bin,
@@ -428,7 +438,7 @@
 
 /obj/machinery/power/portgen/basic/advanced/explode()
 	//a nice burst of radiation
-	var/rads = 50 + (sheets + sheet_left)*1.5
+	var/rads = 20 + (sheets + sheet_left)*1.5
 	SSradiation.radiate(src, max(40, rads))
 	explosion(loc, 3, 3, 5, 3)
 	qdel(src)
@@ -467,8 +477,8 @@
 	base_icon = "reactor"
 	portgen_lightcolour = "#458943"
 	max_safe_output = 5
-	max_power_output = 8	//The maximum power setting without emagging.
-	temperature_gain = 70	//how much the temperature increases per power output level, in degrees per level
+	max_power_output = 8
+	temperature_gain = 70
 	max_temperature = 450
 	time_per_sheet = 400
 
@@ -485,12 +495,8 @@
 
 /obj/machinery/power/portgen/basic/fusion/explode()
 	//a nice burst of radiation
-	var/rads = 50 + (sheets + sheet_left)*1.5
-	for (var/mob/living/L in range(src, 10))
-		//should really fall with the square of the distance, but that makes the rads value drop too fast
-		//I dunno, maybe physics works different when you live in 2D -- SM radiation also works like this, apparently
-		L.apply_damage(max(20, round(rads/get_dist(L,src))), DAMAGE_RADIATION, damage_flags = DAMAGE_FLAG_DISPERSED)
-
+	var/rads = 40 + (sheets + sheet_left)*1.5
+	SSradiation.radiate(src, max(50, rads))
 	explosion(loc, 3, 6, 12, 16, 1)
 	qdel(src)
 

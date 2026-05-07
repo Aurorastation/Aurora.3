@@ -36,7 +36,7 @@
 		user.drop_from_inventory(attacking_item, src)
 		notices++
 		update_icon()
-		SSpersistence.register_track(attacking_item, ckey(usr.key)) // Add paper to persistent tracker
+		SSpersistence.objectsRegisterTrack(attacking_item, ckey(usr.key)) // Add paper to persistent tracker
 		to_chat(user, SPAN_NOTICE("You pin the paper to the noticeboard."))
 	else
 		to_chat(user, SPAN_NOTICE("\The [src] is already full of papers and can not fit another."))
@@ -71,7 +71,7 @@
 			add_fingerprint(usr)
 			notices--
 			update_icon()
-			SSpersistence.deregister_track(P) // Remove paper from persistent tracker
+			SSpersistence.objectsDeregisterTrack(P) // Remove paper from persistent tracker
 	if(href_list["write"])
 		if((usr.stat || usr.restrained())) //For when a player is handcuffed while they have the notice window open
 			return

@@ -21,12 +21,6 @@
 	mymob.healths.name = "health"
 	mymob.healths.screen_loc = ui_alien_health
 
-	mymob.fire = new /atom/movable/screen()
-	mymob.fire.icon = 'icons/mob/screen/diona_nymph.dmi'
-	mymob.fire.icon_state = "fire0"
-	mymob.fire.name = "fire"
-	mymob.fire.screen_loc = ui_fire
-
 	mymob.client.screen = null
-	mymob.client.screen += list(mymob.healths, mymob.fire)
+	mymob.client.screen += list(mymob.healths)
 	mymob.client.screen += src.adding + src.other

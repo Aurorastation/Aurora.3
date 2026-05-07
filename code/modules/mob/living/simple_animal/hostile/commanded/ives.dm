@@ -12,7 +12,7 @@
 	blood_overlay_icon = null
 
 	health = 70
-	maxHealth = 70
+	maxhealth = 70
 
 	belongs_to_station = TRUE
 	stop_automated_movement_when_pulled = TRUE
@@ -35,7 +35,7 @@
 	projectilesound = 'sound/weapons/taser2.ogg'
 	projectiletype = /obj/projectile/beam/hivebot/harmless
 
-	attacktext = "harmlessly clawed"
+	attacktext = "harmlessly claws"
 	harm_intent_damage = 5 // the damage we take
 	melee_damage_lower = 0
 	melee_damage_upper = 0

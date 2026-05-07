@@ -9,12 +9,18 @@
 	var/total_damage = 0
 	var/brute_damage = 0
 	var/burn_damage = 0
+
+	/// The maximum combined brute and burn damage that the mech component can take before becoming completely broken.
 	var/max_damage = 120
+
 	var/damage_state = 1
 	var/list/has_hardpoints = list()
 	var/power_use = 0
 	matter = list(DEFAULT_WALL_MATERIAL = 15000, MATERIAL_PLASTIC = 1000, MATERIAL_OSMIUM = 500)
 	dir = SOUTH
+
+	/// Half of the baseline chance that attempting to use these arms will create sparks. Actual chance is twice this since the motivator damage contributes to the ratio.
+	var/spark_chance_ratio = 50
 
 /obj/item/mech_component/feedback_hints(mob/user, distance, is_adjacent)
 	. += ..()
@@ -72,7 +78,7 @@
 	user.visible_message(SPAN_NOTICE("\The [user] installs \the [thing] in \the [src]."))
 	return 1
 
-/obj/item/mech_component/proc/update_health()
+/obj/item/mech_component/proc/update_component_damage()
 	total_damage = brute_damage + burn_damage
 	if(total_damage > max_damage) total_damage = max_damage
 	damage_state = clamp(round((total_damage/max_damage) * 4), MECH_COMPONENT_DAMAGE_UNDAMAGED, MECH_COMPONENT_DAMAGE_DAMAGED_TOTAL)
@@ -88,13 +94,13 @@
 
 /obj/item/mech_component/proc/take_brute_damage(var/amt)
 	brute_damage = max(0, brute_damage + amt)
-	update_health()
+	update_component_damage()
 	if(total_damage == max_damage)
 		take_component_damage(amt,0)
 
 /obj/item/mech_component/proc/take_burn_damage(var/amt)
 	burn_damage = max(0, burn_damage + amt)
-	update_health()
+	update_component_damage()
 	if(total_damage == max_damage)
 		take_component_damage(0,amt)
 

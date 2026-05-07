@@ -24,8 +24,8 @@
 	idle_power_usage = 10
 	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
 	var/hears_arrivals = FALSE
-	var/mode = STATUS_DISPLAY_TRANSFER_SHUTTLE_TIME
-	var/last_mode = STATUS_DISPLAY_TRANSFER_SHUTTLE_TIME
+	var/mode = STATUS_DISPLAY_TIME
+	var/last_mode = STATUS_DISPLAY_TIME
 
 	var/picture_state	// icon_state of alert picture
 
@@ -70,7 +70,7 @@
 		remove_display()
 		update_lighting()
 		return
-	if((mode == STATUS_DISPLAY_TIME) && (message2 != worldtime2text()))
+	if((mode == STATUS_DISPLAY_TIME) && (message2 != worldtime2text()) || ((mode == STATUS_DISPLAY_CUSTOM)))
 		update()
 
 /obj/machinery/status_display/update_use_power(new_use_power)

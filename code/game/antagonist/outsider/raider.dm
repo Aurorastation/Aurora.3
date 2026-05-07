@@ -138,6 +138,7 @@ GLOBAL_DATUM(raiders, /datum/antagonist/raider)
 
 	give_codewords(player)
 
+
 	return 1
 
 /datum/antagonist/raider/get_antag_radio()

@@ -113,6 +113,7 @@ GLOBAL_DATUM(traitors, /datum/antagonist/traitor)
 	//Begin code phrase.
 	give_codewords(traitor_mob)
 
+
 /datum/antagonist/traitor/proc/spawn_uplink(var/mob/living/carbon/human/traitor_mob)
 	if(!istype(traitor_mob))
 		return

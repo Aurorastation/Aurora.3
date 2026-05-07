@@ -6,7 +6,7 @@
 	law_type = /datum/ai_laws/mining_drone
 	module_type = /obj/item/robot_module/mining_drone
 	holder_type = /obj/item/holder/drone/mining
-	maxHealth = 45
+	maxhealth = 45
 	health = 45
 	pass_flags = PASSTABLE|PASSRAILING
 	req_access = list(ACCESS_MINING, ACCESS_ROBOTICS)
@@ -105,7 +105,7 @@
 		if(seeking_player)
 			to_chat(user, SPAN_WARNING("\The [src] is already in the reboot process."))
 			return
-		if(!GLOB.config.allow_drone_spawn || emagged || health < -maxHealth) //It's dead, Dave.
+		if(!GLOB.config.allow_drone_spawn || emagged || health < -maxhealth) //It's dead, Dave.
 			to_chat(user, SPAN_WARNING("The interface is fried, and a distressing burned smell wafts from the robot's interior. You're not rebooting this one."))
 			return
 
@@ -168,7 +168,7 @@
 	if(M.health_upgrade)
 		to_chat(user, SPAN_WARNING("[src] already has a reinforced chassis!"))
 		return
-	M.maxHealth = 100
+	M.maxhealth = 100
 	M.health += 55
 	for(var/V in M.components)
 		if(V != "power cell")

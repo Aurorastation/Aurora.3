@@ -3025,6 +3025,7 @@
 /obj/structure/table/standard,
 /obj/item/paper_bin,
 /obj/item/pen,
+/obj/item/eftpos,
 /turf/simulated/floor/tiled,
 /area/merchants_guild/office)
 "NM" = (

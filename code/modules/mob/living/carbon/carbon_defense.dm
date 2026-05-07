@@ -15,7 +15,7 @@
 	if(H && show_ssd && !client && !teleop)
 		if(H.bg)
 			visible_message(SPAN_DANGER("[src] is hit by [hitting_atom] waking [get_pronoun("him")] up!"))
-			if(H.health / H.maxHealth < 0.5)
+			if(H.health / H.maxhealth < 0.5)
 				H.bg.awaken_impl(TRUE)
 				sleeping = 0
 				willfully_sleeping = FALSE
@@ -52,7 +52,7 @@
 				if(!hitting_projectile.do_not_log)
 					visible_message(SPAN_DANGER("[hitting_projectile] hit [src] waking [get_pronoun("him")] up!"))
 
-				if(H.health / H.maxHealth < 0.5)
+				if(H.health / H.maxhealth < 0.5)
 					H.bg.awaken_impl(TRUE)
 					sleeping = 0
 					willfully_sleeping = FALSE
@@ -79,7 +79,7 @@
 		show_ssd = H.species.show_ssd
 	if(H && show_ssd && !client && !teleop)
 		if(H.bg)
-			if(H.health / H.maxHealth < 0.5)
+			if(H.health / H.maxhealth < 0.5)
 				H.bg.awaken_impl(TRUE)
 				sleeping = 0
 				willfully_sleeping = FALSE

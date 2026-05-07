@@ -755,3 +755,7 @@
 	name = "SSF Nemora plaque"
 	desc = "On the plaque's bronze surface, the old emblem of the Alliance of Sovereign Solarian Nations is engraved. Just below it, the text reads: <i>'SSF Nemora: Research Rooted in Discovery'</i>."
 	desc_extended = "At the bottom, there is an engraved text stained in dried blood that reads: <i>'Department of Colonization. Taking necessary steps today, charting the future.'</i>."
+
+/obj/structure/sign/floor_plaque/runtime
+	name = "Runtime"
+	desc = "Abandon hope all ye who enter here. May your runtimes be few and debugging sessions fruitful."

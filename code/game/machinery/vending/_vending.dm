@@ -402,7 +402,7 @@
 			handled = 1
 		else if (istype(attacking_item, /obj/item/spacecash/ewallet))
 			var/obj/item/spacecash/ewallet/C = attacking_item
-			paid = pay_with_ewallet(C)
+			paid = pay_with_ewallet(C, user)
 			handled = 1
 		else if (istype(attacking_item, /obj/item/spacecash))
 			var/obj/item/spacecash/C = attacking_item
@@ -535,7 +535,7 @@
  * Takes payment for whatever is the currently_vending item. Returns 1 if
  * successful, 0 if failed.
  */
-/obj/machinery/vending/proc/pay_with_ewallet(var/obj/item/spacecash/ewallet/wallet)
+/obj/machinery/vending/proc/pay_with_ewallet(var/obj/item/spacecash/ewallet/wallet, var/mob/user)
 	visible_message("<span class='info'>\The [usr] swipes \the [wallet] through \the [src].</span>")
 	playsound(src.loc, 'sound/machines/id_swipe.ogg', 50, 1)
 	if(currently_vending.price > wallet.worth)
@@ -544,6 +544,8 @@
 		return 0
 	else
 		wallet.worth -= currently_vending.price
+		if(istype(wallet, /obj/item/spacecash/ewallet/persistent_charge_card))
+			log_and_message_admins("[wallet] used for a transaction at [src] with amount [currently_vending.price]. Remaining balance: [wallet.worth]", user, get_turf(src))
 		credit_purchase("[wallet.owner_name] (chargecard)")
 		return 1
 

@@ -7,6 +7,7 @@
 /* Aurora Snowflake */
 #define ZTRAIT_OVERMAP "Overmap"
 #define ZTRAIT_EXPLANET "Exoplanet"
+#define ZTRAIT_PORTOFCALL "Port of Call"
 
 
 // Whether this z level is linked up/down. Bool.

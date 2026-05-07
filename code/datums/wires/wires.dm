@@ -251,8 +251,16 @@ GLOBAL_LIST_INIT(wire_name_directory, list())
 	if(isghost(user) && check_rights(R_MOD, FALSE, user))
 		return TRUE
 
-	// Station blueprints do that too, but only if the wires are not randomized.
-	if(istype(user.get_active_hand(), /obj/item/blueprints) && !random)
+	// The following checks only apply for non-randomized wires.
+	if (random)
+		return FALSE
+
+	// Station blueprints do that too
+	if(istype(user.get_active_hand(), /obj/item/blueprints))
+		return TRUE
+
+	// Max electrical engineering skill grants this as a perk
+	if (GET_SKILL_LEVEL(user, ELECTRICAL_ENGINEERING_SKILL_COMPONENT) >= SKILL_LEVEL_PROFESSIONAL)
 		return TRUE
 
 	return FALSE
@@ -292,9 +300,13 @@ GLOBAL_LIST_INIT(wire_name_directory, list())
 	var/reveal_wires = can_reveal_wires(user)
 
 	for(var/color in colors)
+		var/wire_label = null
+		if (reveal_wires || always_reveal_wire(color))
+			wire_label = is_dud_color(color) ? "None" : get_wire(color)
+
 		payload.Add(list(list(
 			"color" = color,
-			"wire" = (((reveal_wires || always_reveal_wire(color)) && !is_dud_color(color)) ? get_wire(color) : null),
+			"wire" = wire_label,
 			"cut" = is_color_cut(color),
 			"attached" = is_attached(color)
 		)))

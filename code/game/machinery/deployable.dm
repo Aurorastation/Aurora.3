@@ -17,10 +17,9 @@ Deployable Kits
 	build_amt = 5
 	anchored = TRUE
 	density = TRUE
+	maxhealth = OBJECT_HEALTH_LOW
 
 	var/force_material
-	var/health = 100
-	var/maxhealth = 100
 
 /obj/structure/blocker/Initialize(mapload, var/material_name)
 	. = ..()
@@ -38,8 +37,8 @@ Deployable Kits
 	name = "[material.display_name] [name]"
 	desc = "This space is blocked off by a barricade made of [material.display_name]."
 	color = material.icon_colour
-	maxhealth = material.integrity
-	health = maxhealth
+	set_maxhealth(material.integrity)
+	set_health(maxhealth)
 
 /obj/structure/blocker/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
 	. = ..()
@@ -71,7 +70,7 @@ Deployable Kits
 				user.visible_message("<b>[user]</b> begins to repair \the [src].", SPAN_NOTICE("You begin to repair \the [src]."))
 				if(I.use_tool(src, user, 20, volume = 50) && health < maxhealth)
 					if(D.use(1))
-						health = maxhealth
+						set_health(maxhealth)
 						visible_message("<b>[user]</b> repairs \the [src].", SPAN_NOTICE("You repair \the [src]."))
 			return TRUE
 	else
@@ -146,8 +145,7 @@ Deployable Kits
 	anchored = 0.0
 	density = 1.0
 	icon_state = "barrier"
-	var/health = 100.0
-	var/maxhealth = 100.0
+	maxhealth = OBJECT_HEALTH_LOW
 	var/locked = 0.0
 //	req_access = list(ACCESS_MAINT_TUNNELS)
 

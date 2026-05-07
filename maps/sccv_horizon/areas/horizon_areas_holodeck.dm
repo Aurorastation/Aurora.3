@@ -138,6 +138,9 @@
 /area/horizon/holodeck/source_trinary
 	name = "Holodeck - Trinarist Chapel"
 
+/area/horizon/holodeck/source_luceism
+	name = "Holodeck - Luceian Chapel"
+
 /area/horizon/holodeck/source_cafe
 	name = "Holodeck - Animal Cafe"
 

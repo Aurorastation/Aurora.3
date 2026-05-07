@@ -1,7 +1,7 @@
 /obj/item/integrated_circuit/input
 	var/can_be_asked_input = 0
 	category_text = "Input"
-	power_draw_per_use = 5
+	power_draw_per_use = 50
 
 /obj/item/integrated_circuit/input/proc/ask_for_input(mob/user)
 	return
@@ -48,7 +48,7 @@
 	outputs = list("number entered" = IC_PINTYPE_NUMBER)
 	activators = list("on entered" = IC_PINTYPE_PULSE_OUT)
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
-	power_draw_per_use = 4
+	power_draw_per_use = 40
 
 /obj/item/integrated_circuit/input/numberpad/ask_for_input(mob/user)
 	var/new_input = input(user, "Enter a number, please.","Number pad") as null|num
@@ -67,7 +67,7 @@
 	outputs = list("string entered" = IC_PINTYPE_STRING)
 	activators = list("on entered" = IC_PINTYPE_PULSE_OUT)
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
-	power_draw_per_use = 4
+	power_draw_per_use = 40
 
 /obj/item/integrated_circuit/input/textpad/ask_for_input(mob/user)
 	var/new_input = sanitize(input(user, "Enter some words, please.","Number pad") as null|text, MAX_MESSAGE_LEN, 1, 0, 1)
@@ -86,7 +86,7 @@
 	outputs = list("color entered" = IC_PINTYPE_COLOR)
 	activators = list("on entered" = IC_PINTYPE_PULSE_OUT)
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
-	power_draw_per_use = 4
+	power_draw_per_use = 40
 
 /obj/item/integrated_circuit/input/colorpad/ask_for_input(mob/user)
 	var/new_color = input(user, "Enter a color, please.", "Color pad", get_pin_data(IC_OUTPUT, 1)) as color|null
@@ -102,24 +102,35 @@
 	complexity = 4
 	inputs = list("target" = IC_PINTYPE_REF)
 	outputs = list(
-		"total health %" = IC_PINTYPE_NUMBER,
-		"total missing health" = IC_PINTYPE_NUMBER
+		// Basic medical analyser stuff
+		"brain activity" = IC_PINTYPE_NUMBER,
+		"heart pulse" = IC_PINTYPE_NUMBER,
+		"blood pressure" = IC_PINTYPE_LIST,
+		"blood oxygenation" = IC_PINTYPE_NUMBER,
+		"body temperature" = IC_PINTYPE_NUMBER,
+		"in cardiac arrest?" = IC_PINTYPE_BOOLEAN,
 	)
 	activators = list("scan" = IC_PINTYPE_PULSE_IN, "on scanned" = IC_PINTYPE_PULSE_OUT)
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 	origin_tech = list(TECH_ENGINEERING = 2, TECH_DATA = 2, TECH_BIO = 2)
-	power_draw_per_use = 40
+	power_draw_per_use = 400
 
 /obj/item/integrated_circuit/input/med_scanner/do_work()
 	var/mob/living/carbon/human/H = get_pin_data_as_type(IC_INPUT, 1, /mob/living/carbon/human)
 	if(!istype(H)) //Invalid input
 		return
-	if(H.Adjacent(get_turf(src))) // Like normal analysers, it can't be used at range.
-		var/total_health = round(H.health/H.getMaxHealth(), 0.01)*100
-		var/missing_health = H.getMaxHealth() - H.health
 
-		set_pin_data(IC_OUTPUT, 1, total_health)
-		set_pin_data(IC_OUTPUT, 2, missing_health)
+	if(H.isSynthetic() || H.is_diona()) // incompatible anatomy
+		return
+
+	if(H.Adjacent(get_turf(src))) // Like normal analysers, it can't be used at range.
+		// Basic medical analyser stuff
+		set_pin_data(IC_OUTPUT, 1, H.get_brain_result())
+		set_pin_data(IC_OUTPUT, 2, H.get_pulse_as_number(GETPULSE_TOOL))
+		set_pin_data(IC_OUTPUT, 3, H.blood_pressure())
+		set_pin_data(IC_OUTPUT, 4, H.get_blood_oxygenation())
+		set_pin_data(IC_OUTPUT, 5, H.bodytemperature)
+		set_pin_data(IC_OUTPUT, 6, H.is_asystole())
 
 	push_data()
 	activate_pin(2)
@@ -132,34 +143,47 @@
 	complexity = 12
 	inputs = list("target" = IC_PINTYPE_REF)
 	outputs = list(
-		"total health %"       = IC_PINTYPE_NUMBER,
-		"total missing health" = IC_PINTYPE_NUMBER,
-		"brute damage"         = IC_PINTYPE_NUMBER,
-		"burn damage"          = IC_PINTYPE_NUMBER,
-		"tox damage"           = IC_PINTYPE_NUMBER,
-		"oxy damage"           = IC_PINTYPE_NUMBER,
-		"clone damage"         = IC_PINTYPE_NUMBER
+		// Basic medical analyser stuff
+		"brain activity" = IC_PINTYPE_NUMBER,
+		"heart pulse" = IC_PINTYPE_NUMBER,
+		"blood pressure" = IC_PINTYPE_LIST,
+		"blood oxygenation" = IC_PINTYPE_NUMBER,
+		"body temperature" = IC_PINTYPE_NUMBER,
+		"in cardiac arrest?" = IC_PINTYPE_BOOLEAN,
+		// Advanced
+		"brute damage" = IC_PINTYPE_NUMBER,
+		"burn damage" = IC_PINTYPE_NUMBER,
+		"toxin damage" = IC_PINTYPE_NUMBER,
+		"radiation dose" = IC_PINTYPE_NUMBER,
+		"genetic instability" = IC_PINTYPE_NUMBER
 	)
 	activators = list("scan" = IC_PINTYPE_PULSE_IN, "on scanned" = IC_PINTYPE_PULSE_OUT)
 	spawn_flags = IC_SPAWN_RESEARCH
 	origin_tech = list(TECH_ENGINEERING = 3, TECH_DATA = 3, TECH_BIO = 4)
-	power_draw_per_use = 80
+	power_draw_per_use = 800
 
 /obj/item/integrated_circuit/input/adv_med_scanner/do_work()
 	var/mob/living/carbon/human/H = get_pin_data_as_type(IC_INPUT, 1, /mob/living/carbon/human)
 	if(!istype(H)) //Invalid input
 		return
-	if(H.Adjacent(get_turf(src))) // Like normal analysers, it can't be used at range.
-		var/total_health = round(H.health/H.getMaxHealth(), 0.01)*100
-		var/missing_health = H.getMaxHealth() - H.health
 
-		set_pin_data(IC_OUTPUT, 1, total_health)
-		set_pin_data(IC_OUTPUT, 2, missing_health)
-		set_pin_data(IC_OUTPUT, 3, H.getBruteLoss())
-		set_pin_data(IC_OUTPUT, 4, H.getFireLoss())
-		set_pin_data(IC_OUTPUT, 5, H.getToxLoss())
-		set_pin_data(IC_OUTPUT, 6, H.getOxyLoss())
-		set_pin_data(IC_OUTPUT, 7, H.getCloneLoss())
+	if(H.isSynthetic() || H.is_diona()) // incompatible anatomy
+		return
+
+	if(H.Adjacent(get_turf(src))) // Like normal analysers, it can't be used at range.
+		// Basic medical analyser stuff
+		set_pin_data(IC_OUTPUT, 1, H.get_brain_result())
+		set_pin_data(IC_OUTPUT, 2, H.get_pulse_as_number(GETPULSE_TOOL))
+		set_pin_data(IC_OUTPUT, 3, H.blood_pressure())
+		set_pin_data(IC_OUTPUT, 4, H.get_blood_oxygenation())
+		set_pin_data(IC_OUTPUT, 5, H.bodytemperature)
+		set_pin_data(IC_OUTPUT, 6, H.is_asystole())
+		// Advanced
+		set_pin_data(IC_OUTPUT, 7, H.getBruteLoss())
+		set_pin_data(IC_OUTPUT, 8, H.getFireLoss())
+		set_pin_data(IC_OUTPUT, 9, H.getToxLoss())
+		set_pin_data(IC_OUTPUT, 10, H.total_radiation)
+		set_pin_data(IC_OUTPUT, 11, H.getCloneLoss())
 
 	push_data()
 	activate_pin(2)
@@ -186,7 +210,7 @@
 	activators = list("scan" = IC_PINTYPE_PULSE_IN, "on scanned" = IC_PINTYPE_PULSE_OUT, "not scanned" = IC_PINTYPE_PULSE_OUT)
 	spawn_flags = IC_SPAWN_RESEARCH
 	origin_tech = list(TECH_ENGINEERING = 3, TECH_DATA = 3, TECH_BIO = 4)
-	power_draw_per_use = 80
+	power_draw_per_use = 800
 
 /obj/item/integrated_circuit/input/examiner/do_work()
 	var/atom/H = get_pin_data_as_type(IC_INPUT, 1, /atom)
@@ -230,7 +254,7 @@
 		"on locate" = IC_PINTYPE_PULSE_OUT
 	)
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
-	power_draw_per_use = 20
+	power_draw_per_use = 200
 
 /obj/item/integrated_circuit/input/local_locator/do_work()
 	if(assembly && istype(assembly.loc, /mob/living))
@@ -252,7 +276,7 @@
 	outputs = list("located ref" = IC_PINTYPE_REF)
 	activators = list("locate" = IC_PINTYPE_PULSE_IN)
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
-	power_draw_per_use = 30
+	power_draw_per_use = 300
 
 /obj/item/integrated_circuit/input/adjacent_locator/do_work()
 	var/atom/A = get_pin_data_as_type(IC_INPUT, 1, /atom)
@@ -282,7 +306,7 @@
 	outputs = list("located ref" = IC_PINTYPE_REF )
 	activators = list("locate" = IC_PINTYPE_PULSE_IN,"found" = IC_PINTYPE_PULSE_OUT,"not found" = IC_PINTYPE_PULSE_OUT)
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
-	power_draw_per_use = 30
+	power_draw_per_use = 300
 	var/radius = 1
 
 /obj/item/integrated_circuit/input/advanced_locator/on_data_written()
@@ -337,8 +361,8 @@
 	)
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 	origin_tech = list(TECH_ENGINEERING = 2, TECH_DATA = 2, TECH_MAGNET = 2)
-	power_draw_idle = 5
-	power_draw_per_use = 40
+	power_draw_idle = 50
+	power_draw_per_use = 400
 
 	var/frequency = 1457
 	var/code = 30
@@ -422,7 +446,7 @@
 		"on get coordinates" = IC_PINTYPE_PULSE_OUT
 	)
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
-	power_draw_per_use = 30
+	power_draw_per_use = 300
 
 /obj/item/integrated_circuit/input/gps/do_work()
 	var/turf/T = get_turf(src)
@@ -458,7 +482,7 @@
 		"on translation" = IC_PINTYPE_PULSE_OUT
 	)
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
-	power_draw_per_use = 15
+	power_draw_per_use = 150
 
 /obj/item/integrated_circuit/input/microphone/Initialize()
 	. = ..()
@@ -497,7 +521,7 @@
 	outputs = list("scanned" = IC_PINTYPE_REF)
 	activators = list("on scanned" = IC_PINTYPE_PULSE_OUT)
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
-	power_draw_per_use = 120
+	power_draw_per_use = 1200
 
 /obj/item/integrated_circuit/input/sensor/proc/sense(var/atom/A, mob/user)
 	if(!user.Adjacent(A))
@@ -532,7 +556,7 @@
 		GAS_DEUTERIUM		= IC_PINTYPE_NUMBER,
 		GAS_TRITIUM			= IC_PINTYPE_NUMBER,
 		GAS_HELIUM			= IC_PINTYPE_NUMBER,
-		GAS_HELIUMFUE		= IC_PINTYPE_NUMBER,
+		GAS_HELIUMFUEL		= IC_PINTYPE_NUMBER,
 		GAS_SULFUR			= IC_PINTYPE_NUMBER,
 		GAS_NO2				= IC_PINTYPE_NUMBER,
 		GAS_CHLORINE		= IC_PINTYPE_NUMBER,
@@ -542,7 +566,7 @@
 	activators = list("scan" = IC_PINTYPE_PULSE_IN, "on scanned" = IC_PINTYPE_PULSE_OUT)
 	spawn_flags = IC_SPAWN_RESEARCH
 	origin_tech = list(TECH_ENGINEERING = 3, TECH_DATA = 3)
-	power_draw_per_use = 60
+	power_draw_per_use = 600
 
 /obj/item/integrated_circuit/input/internalbm
 	name = "internal battery monitor"
@@ -561,7 +585,7 @@
 	activators = list("read" = IC_PINTYPE_PULSE_IN, "on read" = IC_PINTYPE_PULSE_OUT)
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 	origin_tech = list(TECH_ENGINEERING = 4, TECH_DATA = 4, TECH_POWER = 4, TECH_MAGNET = 3)
-	power_draw_per_use = 1
+	power_draw_per_use = 10
 
 /obj/item/integrated_circuit/input/internalbm/do_work()
 	set_pin_data(IC_OUTPUT, 1, null)
@@ -593,7 +617,7 @@
 	activators = list("read" = IC_PINTYPE_PULSE_IN, "on read" = IC_PINTYPE_PULSE_OUT)
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 	origin_tech = list(TECH_ENGINEERING = 4, TECH_DATA = 4, TECH_POWER = 4, TECH_MAGNET = 3)
-	power_draw_per_use = 1
+	power_draw_per_use = 10
 
 /obj/item/integrated_circuit/input/externalbm/do_work()
 
@@ -699,7 +723,7 @@
 	activators = list("scan" = IC_PINTYPE_PULSE_IN, "on scanned" = IC_PINTYPE_PULSE_OUT)
 	spawn_flags = IC_SPAWN_RESEARCH
 	origin_tech = list(TECH_ENGINEERING = 3, TECH_DATA = 3)
-	power_draw_per_use = 20
+	power_draw_per_use = 200
 
 /obj/item/integrated_circuit/input/pressure_sensor/do_work()
 	var/turf/T = get_turf(src)
@@ -729,7 +753,7 @@
 	activators = list("scan" = IC_PINTYPE_PULSE_IN, "on scanned" = IC_PINTYPE_PULSE_OUT)
 	spawn_flags = IC_SPAWN_RESEARCH
 	origin_tech = list(TECH_ENGINEERING = 3, TECH_DATA = 3)
-	power_draw_per_use = 20
+	power_draw_per_use = 200
 
 /obj/item/integrated_circuit/input/temperature_sensor/do_work()
 	var/turf/T = get_turf(src)
@@ -754,15 +778,12 @@
 	activators = list("scan" = IC_PINTYPE_PULSE_IN, "on scanned" = IC_PINTYPE_PULSE_OUT)
 	spawn_flags = IC_SPAWN_RESEARCH
 	origin_tech = list(TECH_ENGINEERING = 3, TECH_DATA = 3)
-	power_draw_per_use = 20
+	power_draw_per_use = 200
 
 	var/gas_name = GAS_OXYGEN
 	var/gas_display_name = GAS_OXYGEN
 
 /obj/item/integrated_circuit/input/gas_sensor/Initialize()
-	name = "[gas_display_name] sensor"
-	displayed_name = "[gas_display_name] sensor"
-	desc = "A tiny [gas_display_name] sensor module similar to that found in a PDA atmosphere analyser."
 	outputs = list(
 		gas_name = IC_PINTYPE_NUMBER
 	)
@@ -785,50 +806,86 @@
 	activate_pin(2)
 
 /obj/item/integrated_circuit/input/gas_sensor/co2
+	name = "carbon dioxide sensor"
+	displayed_name = "carbon dioxide sensor"
+	desc = "A tiny carbon dioxide sensor module similar to that found in a PDA atmosphere analyser."
 	gas_name = GAS_CO2
 	gas_display_name = "carbon dioxide"
 
 /obj/item/integrated_circuit/input/gas_sensor/nitrogen
+	name = "nitrogen sensor"
+	displayed_name = "nitrogen sensor"
+	desc = "A tiny nitrogen sensor module similar to that found in a PDA atmosphere analyser."
 	gas_name = GAS_NITROGEN
 	gas_display_name = "nitrogen"
 
 /obj/item/integrated_circuit/input/gas_sensor/phoron
+	name = "phoron sensor"
+	displayed_name = "phoron sensor"
+	desc = "A tiny phoron sensor module similar to that found in a PDA atmosphere analyser."
 	gas_name = GAS_PHORON
 	gas_display_name = GAS_PHORON
 
 /obj/item/integrated_circuit/input/gas_sensor/hydrogen_level
+	name = "hydrogen sensor"
+	displayed_name = "hydrogen sensor"
+	desc = "A tiny hydrogen sensor module similar to that found in a PDA atmosphere analyser."
 	gas_name = GAS_HYDROGEN
 	gas_display_name = GAS_HYDROGEN
 
 /obj/item/integrated_circuit/input/gas_sensor/deuterium_level
+	name = "deuterium sensor"
+	displayed_name = "deuterium sensor"
+	desc = "A tiny deuterium sensor module similar to that found in a PDA atmosphere analyser."
 	gas_name = GAS_DEUTERIUM
 	gas_display_name = GAS_DEUTERIUM
 
 /obj/item/integrated_circuit/input/gas_sensor/tritium_level
+	name = "tritium sensor"
+	displayed_name = "tritium sensor"
+	desc = "A tiny tritium sensor module similar to that found in a PDA atmosphere analyser."
 	gas_name = GAS_TRITIUM
 	gas_display_name = GAS_TRITIUM
 
 /obj/item/integrated_circuit/input/gas_sensor/helium_level
+	name = "helium sensor"
+	displayed_name = "helium sensor"
+	desc = "A tiny helium sensor module similar to that found in a PDA atmosphere analyser."
 	gas_name = GAS_HELIUM
 	gas_display_name = GAS_HELIUM
 
 /obj/item/integrated_circuit/input/gas_sensor/helium3_level
+	name = "helium-3 sensor"
+	displayed_name = "helium-3 sensor"
+	desc = "A tiny helium-3 sensor module similar to that found in a PDA atmosphere analyser."
 	gas_name = GAS_HELIUMFUEL
 	gas_display_name = GAS_HELIUMFUEL
 
 /obj/item/integrated_circuit/input/gas_sensor/sulfurdioxide_level
+	name = "sulphur dioxide sensor"
+	displayed_name = "sulphur dioxide sensor"
+	desc = "A tiny sulphur dioxide sensor module similar to that found in a PDA atmosphere analyser."
 	gas_name = GAS_SULFUR
 	gas_display_name = GAS_SULFUR
 
 /obj/item/integrated_circuit/input/gas_sensor/nitrogendioxide_level
+	name = "nitrogen dioxide sensor"
+	displayed_name = "nitrogen dioxide sensor"
+	desc = "A tiny nitrogen dioxide sensor module similar to that found in a PDA atmosphere analyser."
 	gas_name = GAS_NO2
 	gas_display_name = GAS_NO2
 
 /obj/item/integrated_circuit/input/gas_sensor/chlorine_level
+	name = "chlorine sensor"
+	displayed_name = "chlorine sensor"
+	desc = "A tiny chlorine sensor module similar to that found in a PDA atmosphere analyser."
 	gas_name = GAS_CHLORINE
 	gas_display_name = GAS_CHLORINE
 
 /obj/item/integrated_circuit/input/gas_sensor/watervapor_level
+	name = "water vapour sensor"
+	displayed_name = "water vapour sensor"
+	desc = "A tiny water vapour sensor module similar to that found in a PDA atmosphere analyser."
 	gas_name = GAS_WATERVAPOR
 	gas_display_name = GAS_WATERVAPOR
 
@@ -843,7 +900,7 @@
 	outputs = list("tile" = IC_PINTYPE_REF)
 	activators = list("calculate dir" = IC_PINTYPE_PULSE_IN, "on calculated" = IC_PINTYPE_PULSE_OUT,"not calculated" = IC_PINTYPE_PULSE_OUT)
 	spawn_flags = IC_SPAWN_RESEARCH
-	power_draw_per_use = 40
+	power_draw_per_use = 400
 
 /obj/item/integrated_circuit/input/turfpoint/do_work()
 	if(!assembly)
@@ -881,7 +938,7 @@
 		"not scanned" = IC_PINTYPE_PULSE_OUT
 		)
 	spawn_flags = IC_SPAWN_RESEARCH
-	power_draw_per_use = 40
+	power_draw_per_use = 400
 	cooldown_per_use = 10
 
 /obj/item/integrated_circuit/input/turfscan/do_work()
@@ -922,7 +979,7 @@
 	outputs = list("located ref" = IC_PINTYPE_LIST)
 	activators = list("locate" = IC_PINTYPE_PULSE_IN,"found" = IC_PINTYPE_PULSE_OUT,"not found" = IC_PINTYPE_PULSE_OUT)
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
-	power_draw_per_use = 30
+	power_draw_per_use = 300
 	var/radius = 1
 	cooldown_per_use = 10
 
@@ -979,7 +1036,7 @@
 	outputs = list("scanned" = IC_PINTYPE_REF)
 	activators = list("on scanned" = IC_PINTYPE_PULSE_OUT)
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
-	power_draw_per_use = 120
+	power_draw_per_use = 1200
 
 /obj/item/integrated_circuit/input/sensor/ranged/sense(atom/A, mob/user)
 	if(!user || (!istype(A)  && !isliving(A)))
@@ -1013,7 +1070,7 @@
 	outputs = list("scanned" = IC_PINTYPE_REF)
 	activators = list("on scanned" = IC_PINTYPE_PULSE_OUT)
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
-	power_draw_per_use = 20
+	power_draw_per_use = 200
 
 /obj/item/integrated_circuit/input/obj_scanner/attackby_react(var/atom/A,var/mob/user,intent)
 	if(intent!=I_HELP)
@@ -1073,3 +1130,129 @@
 	push_data()
 	activate_pin(1)
 	return TRUE
+
+/obj/item/integrated_circuit/input/radiation_sensor
+	name = "radiation sensor"
+	desc = "A tiny radiation sensor module similar to that found in a geiger counter."
+	icon_state = "medscan_adv"
+	complexity = 3
+	inputs = list()
+	outputs = list(
+		"radiation" = IC_PINTYPE_NUMBER
+	)
+	activators = list("scan" = IC_PINTYPE_PULSE_IN, "on scanned" = IC_PINTYPE_PULSE_OUT)
+	spawn_flags = IC_SPAWN_DEFAULT
+	origin_tech = list(TECH_ENGINEERING = 3, TECH_DATA = 3)
+	power_draw_per_use = 200
+
+/obj/item/integrated_circuit/input/radiation_sensor/do_work()
+	var/turf/T = get_turf(src)
+	if(!istype(T)) //Invalid input
+		return
+
+	var/radiation_count = SSradiation.get_rads_at_turf(get_turf(src))
+
+	if(radiation_count)
+		set_pin_data(IC_OUTPUT, 1, round(radiation_count,0.1))
+	else
+		set_pin_data(IC_OUTPUT, 1, 0)
+	push_data()
+
+/obj/item/integrated_circuit/input/light_sensor
+	name = "light sensor"
+	desc = "A tiny light sensor module."
+	icon_state = "medscan_adv"
+	complexity = 3
+	inputs = list()
+	outputs = list(
+		"lumens" = IC_PINTYPE_NUMBER
+	)
+	activators = list("scan" = IC_PINTYPE_PULSE_IN, "on scanned" = IC_PINTYPE_PULSE_OUT)
+	spawn_flags = IC_SPAWN_DEFAULT
+	origin_tech = list(TECH_ENGINEERING = 3, TECH_DATA = 3)
+	power_draw_per_use = 200
+
+/obj/item/integrated_circuit/input/light_sensor/do_work()
+	var/turf/T = get_turf(src)
+	if(!istype(T)) //Invalid input
+		return
+
+	var/lumens = T.get_lumcount(0, 3) * 5
+	if(lumens)
+		set_pin_data(IC_OUTPUT, 1, round(lumens,0.1))
+	else
+		set_pin_data(IC_OUTPUT, 1, 0)
+	push_data()
+
+/obj/item/integrated_circuit/input/face_scanner
+	name = "face scanner"
+	desc = "A complex camera and in-built scanner, similar to an examiner but specifically for people.\
+	It can identify species type, height and eye colour, and it can estimate age (to the half-decade).\
+	It also provides a short description of the person and their face (if able)."
+	icon_state = "video_camera"
+	complexity = 12
+	inputs = list("target" = IC_PINTYPE_REF)
+	outputs = list(
+		"name" = IC_PINTYPE_STRING,
+		"description (general)" = IC_PINTYPE_STRING,
+		"description (face)" = IC_PINTYPE_STRING,
+		"species" = IC_PINTYPE_STRING,
+		"height" = IC_PINTYPE_NUMBER,
+		"estimated age" = IC_PINTYPE_NUMBER,
+		"eye colour" = IC_PINTYPE_COLOR
+	)
+	activators = list("scan" = IC_PINTYPE_PULSE_IN, "on scanned" = IC_PINTYPE_PULSE_OUT, "not scanned" = IC_PINTYPE_PULSE_OUT)
+	spawn_flags = IC_SPAWN_RESEARCH
+	origin_tech = list(TECH_ENGINEERING = 3, TECH_DATA = 3, TECH_BIO = 5)
+	power_draw_per_use = 1000
+
+/obj/item/integrated_circuit/input/face_scanner/do_work()
+	var/mob/living/carbon/human/H = get_pin_data_as_type(IC_INPUT, 1, /mob/living/carbon/human)
+	if(!istype(H)) //Invalid input
+		return
+
+	if(H in view(get_turf(src))) // This is a camera. It can't examine things that it can't see.
+		set_pin_data(IC_OUTPUT, 1, H.name)
+		set_pin_data(IC_OUTPUT, 2, H.flavor_texts["general"])
+		set_pin_data(IC_OUTPUT, 3, H.flavor_texts["face"])
+		set_pin_data(IC_OUTPUT, 4, H.species.name)
+		set_pin_data(IC_OUTPUT, 5, H.height)
+		set_pin_data(IC_OUTPUT, 6, round(H.age, 5))
+		set_pin_data(IC_OUTPUT, 7, rgb(H.r_eyes, H.g_eyes, H.b_eyes))
+		push_data()
+		activate_pin(2)
+	else
+		activate_pin(3)
+
+/obj/item/integrated_circuit/input/anomaly_scanner
+	name = "alden-saraspova counter"
+	desc = "A miniaturised Alden-Saraspova counter, used to detected anomalous readings. Often used by xenoarchaeologists."
+	extended_desc = "It can only scan a 14x14 area and has an built-in 15 second cooldown."
+	icon_state = "medscan_adv"
+	complexity = 12
+	outputs = list(
+		"exotic particle type" = IC_PINTYPE_STRING,
+		"range detected at" = IC_PINTYPE_NUMBER
+	)
+	activators = list("scan" = IC_PINTYPE_PULSE_IN, "anomaly found" = IC_PINTYPE_PULSE_OUT)
+	spawn_flags = IC_SPAWN_RESEARCH
+	origin_tech = list(TECH_ENGINEERING = 4, TECH_DATA = 4, TECH_MAGNET = 6, TECH_BLUESPACE = 4)
+	power_draw_per_use = 2000
+	cooldown_per_use = 15 SECONDS // sizeable cooldown to prevent view spam
+
+/obj/item/integrated_circuit/input/anomaly_scanner/do_work()
+	if(!SSxenoarch)
+		return
+
+	var/turf/our_turf = get_turf(src)
+	for(var/turf/simulated/mineral/scanned_turf in view(our_turf)) // Restrict range to only visible tiles, instead of the entire Z-level like standalone AS counters
+		if(scanned_turf.artifact_find)
+			if(scanned_turf.artifact_find.artifact_id)
+				set_pin_data(IC_OUTPUT, 1, scanned_turf.artifact_find.artifact_id)
+			else
+				set_pin_data(IC_OUTPUT, 1, "Exotic Particles (Various)")
+			set_pin_data(IC_OUTPUT, 2, get_dist(our_turf, scanned_turf))
+			push_data()
+			activate_pin(2)
+			break
+	..()

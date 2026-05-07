@@ -48,13 +48,13 @@ GLOBAL_LIST_EMPTY(trackables_pool)
 	tameable = FALSE
 	blood_type = "#490d0d"
 
-	maxHealth = 300
+	maxhealth = 300
 	health = 300
 	speed = 6
 
-	melee_damage_lower = 30
-	melee_damage_upper = 30
-	armor_penetration = 15
+	melee_damage_lower = 15
+	melee_damage_upper = 25
+	armor_penetration = 10
 
 	/// Used on deleting revive timer if the mob is burning while being dead.
 	var/revive_timer
@@ -112,6 +112,9 @@ GLOBAL_LIST_EMPTY(trackables_pool)
 
 	if(on_fire)
 		AddOverlays(image("icon" = 'icons/mob/burning/burning_generic.dmi', "icon_state" = "lower"))
+		throw_alert(ALERT_FIRE, /atom/movable/screen/alert/fire)
+	else
+		clear_alert(ALERT_FIRE)
 
 /mob/living/simple_animal/hostile/revivable/AttackTarget()
 	. = ..()
@@ -135,7 +138,7 @@ GLOBAL_LIST_EMPTY(trackables_pool)
 	icon_living = "the_thing"
 	icon_dead = "the_thing_dead"
 	faction = "abominations"
-	maxHealth = 250
+	maxhealth = 250
 	health = 250
 	speed = 6
 
@@ -146,7 +149,7 @@ GLOBAL_LIST_EMPTY(trackables_pool)
 		icon_living = "the_thing_chitin"
 		icon_dead = "the_thing_chitin_dead"
 
-		maxHealth = 350 // chitinous armor
+		maxhealth = 350 // chitinous armor
 		health = 350
 		speed = 7 // armor heavy
 
@@ -185,7 +188,7 @@ GLOBAL_LIST_EMPTY(trackables_pool)
 		trap_split = TRUE
 	if(prob(20) || starts_disguised)
 		mob_in_disguise = TRUE
-		maxHealth = 400 // the mob in disguise makes it easy target for a few bullets. This should even the odds.
+		maxhealth = 400 // the mob in disguise makes it easy target for a few bullets. This should even the odds.
 		health = 400
 		speed = 15
 		melee_damage_upper = 60 // punishment for clueless preys.
@@ -288,7 +291,7 @@ GLOBAL_LIST_EMPTY(trackables_pool)
 	tameable = FALSE
 	faction = "abominations"
 
-	maxHealth = 50
+	maxhealth = 50
 	health = 50
 
 	speed = 1
@@ -372,7 +375,7 @@ GLOBAL_LIST_EMPTY(trackables_pool)
 /mob/living/simple_animal/hostile/revivable/husked_creature/quarantined_outpost/horde
 	var/tmp/breaking_wall = FALSE
 	break_stuff_probability = 100
-	maxHealth = 200
+	maxhealth = 200
 	health = 200
 
 /mob/living/simple_animal/hostile/revivable/husked_creature/quarantined_outpost/horde/Move(NewLoc)
@@ -430,7 +433,7 @@ GLOBAL_LIST_EMPTY(trackables_pool)
 	var/tmp/breaking_wall = FALSE
 	break_stuff_probability = 100
 	disguise_disabled = TRUE
-	maxHealth = 250
+	maxhealth = 250
 	health = 250
 
 /mob/living/simple_animal/hostile/revivable/abomination/quarantined_outpost/horde/Move(NewLoc)
@@ -1112,9 +1115,21 @@ GLOBAL_LIST_EMPTY(trackables_pool)
 /obj/structure/filler/ex_act()
 	return
 
-/*######################################
-				PAPERS
-######################################*/
+/*####################################
+		PAPERS & LORE CONSOLES
+####################################*/
+
+/obj/machinery/computer/terminal/loreconsole/always_powered/quarantined_outpost/maintenance_log
+	entries = list(
+		new/datum/lore_console_entry(
+			"\[11 FEB 2274 - CYCLE 451 - ATKINSON\]", {"
+	<hr>
+	Regular check-up, all green.
+	<br><br>
+	We're pushing more and more processing into the labs, even though the gear wasn't built for this kind of workload. Miracles don't happen by itself,
+	we <i>need</i> proper requipment and being in the middle of nowhere is no excuse. Open a ticket, get us some real hardware. Maybe then we can stop having to
+	manually pulse this box every time the red lights start blinking.
+	"}))
 
 /obj/item/paper/fluff/quarantined_outpost/engineers_note
 	name = "crumpled instructions"
@@ -1138,16 +1153,6 @@ GLOBAL_LIST_EMPTY(trackables_pool)
 	\[whatever once was written here is now mostly unintelligible, claimed by a fire. Following is the only things you can discern.\]
 	<br><br>
 	...bring the equipment to... dispose of... if you see any, make sure they stay down... burn...
-	"}
-
-/obj/item/paper/fluff/quarantined_outpost/maintenance_log
-	name = "maintenance log"
-	info = {"
-	...
-	<br><br>
-	- \[11 FEB 2274 - CYCLE 451 - ATKINSON\] Regular check-up, all green. Lately we allocate more and more processing space for the labs, even though these equipments
-	weren't meant to pull off such an intense workload. We may be in the middle of damn nowhere, but hoping for miracles won't get you too far either. Put a ticket,
-	get us some proper hardware and then maybe you will see less blinking red lights in the box that we have to pulse to reboot every now and then.
 	"}
 
 /obj/item/paper/fluff/quarantined_outpost/venusians_note

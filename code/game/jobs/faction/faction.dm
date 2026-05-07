@@ -10,7 +10,9 @@
 
 	var/list/allowed_role_types
 	var/list/allowed_species_types
-	var/list/job_species_blacklist //will override the normal job species list for a member of this faction
+	//will override the normal job species list for a member of this faction
+	var/list/job_species_blacklist
+	/// The nation types not allowed to be a faction. To be set as nation datums.
 	var/list/blacklisted_citizenship_types
 
 	var/is_default = FALSE
@@ -65,6 +67,22 @@
 			. += role
 
 /datum/faction/proc/get_selection_error(datum/preferences/prefs, mob/user)
+	var/result
+
+	result = check_citizenship(prefs, user)
+	if(result)
+		return result
+
+	result = check_species(prefs, user)
+	if(result)
+		return result
+
+	if(!is_visible(user))
+		return "This faction is not available to you"
+
+	return null
+
+/datum/faction/proc/check_species(datum/preferences/prefs, mob/user)
 	if(length(allowed_species_types))
 		var/datum/species/S = prefs.get_species_datum()
 
@@ -74,6 +92,9 @@
 		if(!is_type_in_typecache(S, allowed_species_types))
 			return "Invalid species"
 
+	return null
+
+/datum/faction/proc/check_citizenship(datum/preferences/prefs, mob/user)
 	if(length(blacklisted_citizenship_types))
 		var/datum/citizenship/C = SSrecords.citizenships[prefs.citizenship]
 
@@ -82,9 +103,6 @@
 
 		if(is_type_in_typecache(C, blacklisted_citizenship_types))
 			return "Invalid nation"
-
-	if(!is_visible(user))
-		return "This faction is not available to you"
 
 	return null
 
