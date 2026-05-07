@@ -355,7 +355,7 @@
 	if(A && istype(A, /area/horizon/command))
 		target_area = A // Command areas are deemed safe
 	else
-		target_area = locate(/area/horizon/command/heads/om) in GLOB.areas // Non safe area - Operations manager office as fallback
+		target_area = locate(/area/horizon/command/heads/xo) in GLOB.areas // Non safe area - XO office as fallback
 
 	var/obj/structure/table/T = locate(/obj/structure/table) in target_area // Put it on a table
 	if(T)
