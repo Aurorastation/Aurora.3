@@ -15,6 +15,10 @@
 	if(LAZYLEN(rand_icons))
 		icon_state = pick(rand_icons)
 
+/obj/item/sticker/Destroy()
+	attached = null
+	return ..()
+
 /obj/item/sticker/attack_hand(mob/user)
 	if(!isliving(user) || !attached)
 		return ..()
@@ -63,6 +67,7 @@
 	user.drop_from_inventory(src, A)
 	attached = WEAKREF(A)
 	A.add_vis_contents(src)
+	SSpersistence.objectsRegisterTrack(src, ckey(user.key))
 
 /obj/item/sticker/proc/remove_sticker(var/mob/user)
 	user.put_in_hands(src)
@@ -71,6 +76,44 @@
 		to_chat(user, SPAN_NOTICE("You remove \the [src] from \the [attached_atom]."))
 		attached_atom.remove_vis_contents(src)
 		attached = null
+		SSpersistence.objectsDeregisterTrack(src)
+
+/obj/item/sticker/persistent_objects_get_content()
+	var/list/content = ..()
+	content["pixel_x"] = pixel_x
+	content["pixel_y"] = pixel_y
+	content["attached_type"] = attached ? astype(attached.resolve(), /atom/movable)?.type : null
+	return content
+
+/obj/item/sticker/persistent_objects_apply_content(content, x, y, z)
+	var/attached_type = content["attached_type"]
+	if (!attached_type)
+		// Exit early, this was an invalid sticker that wasn't attached to anything.
+		qdel(src)
+		SSpersistence.objectsDeregisterTrack(src)
+		return
+
+	src.pixel_x = content["pixel_x"]
+	src.pixel_y = content["pixel_y"]
+	src.x = x
+	src.y = y
+	src.z = z
+
+	var/thing_found = FALSE
+	// Find the thing to attach it to. Which will only work if the sticker was attached to an object that spawns during map initialization.
+	for (var/atom/movable/AM in get_turf(src))
+		if(AM.type != attached_type)
+			continue
+
+		thing_found = TRUE
+		attached = WEAKREF(AM)
+		AM.add_vis_contents(src)
+		break
+
+	// If it was attached to an object that doesn't spawn during map init, delete the sticker and deregister it.
+	if (!thing_found)
+		qdel(src)
+		SSpersistence.objectsDeregisterTrack(src)
 
 //
 //generic stickers, catch all for anything that doesn't fit in another category
