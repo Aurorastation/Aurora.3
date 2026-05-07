@@ -136,7 +136,15 @@
 	description = "An augment that allows the wearer to jump further and slightly reduces the damage from falling from heights."
 	path = /obj/item/organ/internal/augment/suspension
 	cost = 4
-	whitelisted = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD, SPECIES_TAJARA_ZHAN, SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_IPC, SPECIES_IPC_XION, SPECIES_IPC_BISHOP, SPECIES_IPC_SHELL, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_ATTENDANT, SPECIES_UNATHI)
+	whitelisted = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD, SPECIES_TAJARA_ZHAN, SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_IPC, SPECIES_IPC_XION, SPECIES_IPC_BISHOP, SPECIES_IPC_SHELL, SPECIES_VAURCA_WORKER, SPECIES_UNATHI)
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
+
+/datum/gear/augment/absorber
+	display_name = "calf absorber"
+	description = "A sturdy, highly-compatible alternative to calf suspension focused on moderately absorbing damage from falling."
+	path = /obj/item/organ/internal/augment/absorber
+	cost = 3
+	whitelisted = ALL_SPECIES
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
 
 /datum/gear/augment/taste_boosters
