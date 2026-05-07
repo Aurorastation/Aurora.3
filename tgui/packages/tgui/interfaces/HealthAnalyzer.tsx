@@ -6,12 +6,11 @@ type HealthAnalyzerData = {
   scan_title?: string;
   scan_results: string[];
   reagent_results: string[];
-  mode: boolean;
 };
 
 export const HealthAnalyzer = (props, context) => {
   const { act, data } = useBackend<HealthAnalyzerData>(context);
-  const { scan_title, scan_results, reagent_results, mode } = data;
+  const { scan_title, scan_results, reagent_results } = data;
 
   return (
     <Window theme="zenghu">

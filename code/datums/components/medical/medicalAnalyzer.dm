@@ -10,7 +10,7 @@
 /datum/component/health_analyzer
 	var/name = "health analyzer"
 	var/last_scan = 0
-	var/mode = 1
+	var/device_level = 4
 	var/sound_scan = FALSE
 	var/list/scan_results = list()
 	var/list/reagent_results = list()
@@ -20,7 +20,7 @@
 
 // This one can't scan limbs. Like a simpler version of the analyzer
 /datum/component/health_analyzer/simple
-	mode = 0
+	device_level = 1
 
 /datum/component/health_analyzer/mech
 	name = "mech health analyzer"
@@ -57,7 +57,6 @@
 	data["scan_title"] = scan_title
 	data["scan_results"] = scan_results
 	data["reagent_results"] = reagent_results
-	data["mode"] = mode
 	return data
 
 /datum/component/health_analyzer/ui_act(action, list/params)
@@ -79,7 +78,7 @@
 	if(do_after(user, 1.5 SECONDS, target_mob, DO_UNIQUE))
 		flick("[owner.icon_state]-scan", owner)
 
-		health_scan_mob(target_mob, user, mode, sound_scan = sound_scan)
+		health_scan_mob(target_mob, user, device_level, sound_scan = sound_scan)
 		ui_interact(user)
 
 		owner.add_fingerprint(user)
@@ -91,7 +90,7 @@
 
 	owner.add_fingerprint(user)
 
-/datum/component/health_analyzer/proc/health_scan_mob(var/mob/M, var/mob/living/user, var/show_limb_damage = TRUE, var/just_scan = FALSE, var/sound_scan)
+/datum/component/health_analyzer/proc/health_scan_mob(var/mob/M, var/mob/living/user, var/device_level = 2, var/just_scan = FALSE, var/sound_scan)
 	scan_results = list()
 	reagent_results = list()
 	scan_title = null
@@ -239,7 +238,7 @@
 	if(H.getBruteLoss() > 50)
 		dat += SPAN_SCAN_RED("[b]Severe anatomical damage detected.[endb]")
 
-	if(show_limb_damage)
+	if(device_level >= 2)
 		var/list/damaged = H.get_damaged_organs(1,1)
 		if(damaged.len)
 			for(var/obj/item/organ/external/org in damaged)
@@ -266,37 +265,39 @@
 		else
 			dat += "No detectable limb injuries."
 
-	for(var/name in H.organs_by_name)
-		var/obj/item/organ/external/e = H.organs_by_name[name]
-		if(!e)
-			continue
-		var/limb = e.name
-		if(e.status & ORGAN_BROKEN)
-			if(((e.name == BP_L_ARM) || (e.name == BP_R_ARM) || (e.name == BP_L_LEG) || (e.name == BP_R_LEG)) && !(e.status & ORGAN_SPLINTED))
-				dat += SPAN_SCAN_WARNING("Unsecured fracture in subject [limb]. Splinting recommended for transport.")
+	if(device_level >= 3)
+		for(var/name in H.organs_by_name)
+			var/obj/item/organ/external/e = H.organs_by_name[name]
+			if(!e)
+				continue
+			var/limb = e.name
+			if(e.status & ORGAN_BROKEN)
+				if(((e.name == BP_L_ARM) || (e.name == BP_R_ARM) || (e.name == BP_L_LEG) || (e.name == BP_R_LEG)) && !(e.status & ORGAN_SPLINTED))
+					dat += SPAN_SCAN_WARNING("Unsecured fracture in subject [limb]. Splinting recommended for transport.")
 
-	for(var/name in H.organs_by_name)
-		var/obj/item/organ/external/e = H.organs_by_name[name]
-		if(e && e.status & ORGAN_BROKEN)
-			dat += SPAN_SCAN_WARNING("Bone fractures detected. Advanced scanner required for location.")
-			break
+		for(var/name in H.organs_by_name)
+			var/obj/item/organ/external/e = H.organs_by_name[name]
+			if(e && e.status & ORGAN_BROKEN)
+				dat += SPAN_SCAN_WARNING("Bone fractures detected. Advanced scanner required for location.")
+				break
 
-	var/found_bleed
-	var/found_tendon
-	var/found_disloc
-	for(var/obj/item/organ/external/e in H.organs)
-		if(e)
-			if(!found_disloc && e.dislocated == 2)
-				dat += SPAN_SCAN_WARNING("Dislocation detected. Advanced scanner required for location.")
-				found_disloc = TRUE
-			if(!found_bleed && (e.status & ORGAN_ARTERY_CUT))
-				dat += SPAN_SCAN_WARNING("Arterial bleeding detected. Advanced scanner required for location.")
-				found_bleed = TRUE
-			if(!found_tendon && (e.tendon_status() & TENDON_CUT))
-				dat += SPAN_SCAN_WARNING("Tendon or ligament damage detected. Advanced scanner required for location.")
-				found_tendon = TRUE
-		if(found_disloc && found_bleed && found_tendon)
-			break
+	if(device_level >= 4)
+		var/found_bleed
+		var/found_tendon
+		var/found_disloc
+		for(var/obj/item/organ/external/e in H.organs)
+			if(e)
+				if(!found_disloc && e.dislocated == 2)
+					dat += SPAN_SCAN_WARNING("Dislocation detected. Advanced scanner required for location.")
+					found_disloc = TRUE
+				if(!found_bleed && (e.status & ORGAN_ARTERY_CUT))
+					dat += SPAN_SCAN_WARNING("Arterial bleeding detected. Advanced scanner required for location.")
+					found_bleed = TRUE
+				if(!found_tendon && (e.tendon_status() & TENDON_CUT))
+					dat += SPAN_SCAN_WARNING("Tendon or ligament damage detected. Advanced scanner required for location.")
+					found_tendon = TRUE
+			if(found_disloc && found_bleed && found_tendon)
+				break
 
 	scan_results += dat
 	dat = list()
@@ -306,38 +307,40 @@
 
 	var/print_reagent_default_message = TRUE
 
-	if(H.reagents.total_volume)
-		var/unknown = 0
-		var/reagentdata[0]
-		for(var/_R in H.reagents.reagent_volumes)
-			var/singleton/reagent/R = GET_SINGLETON(_R)
-			if(R.scannable)
+	if(device_level >= 3)
+		if(H.reagents.total_volume)
+			var/unknown = 0
+			var/reagentdata[0]
+			for(var/_R in H.reagents.reagent_volumes)
+				var/singleton/reagent/R = GET_SINGLETON(_R)
+				if(R.scannable)
+					print_reagent_default_message = FALSE
+					reagentdata["[_R]"] = SPAN_NOTICE("    [round(REAGENT_VOLUME(H.reagents, _R), 1)]u [R.name]")
+				else
+					unknown++
+			if(reagentdata.len)
 				print_reagent_default_message = FALSE
-				reagentdata["[_R]"] = SPAN_NOTICE("    [round(REAGENT_VOLUME(H.reagents, _R), 1)]u [R.name]")
-			else
-				unknown++
-		if(reagentdata.len)
-			print_reagent_default_message = FALSE
-			dat += SPAN_NOTICE("Beneficial reagents detected in subject's blood:")
-			for(var/d in reagentdata)
-				dat += reagentdata[d]
-		if(unknown)
-			print_reagent_default_message = FALSE
-			dat += SPAN_WARNING("Warning: Unknown substance[(unknown>1)?"s":""] detected in subject's blood.")
+				dat += SPAN_NOTICE("Beneficial reagents detected in subject's blood:")
+				for(var/d in reagentdata)
+					dat += reagentdata[d]
+			if(unknown)
+				print_reagent_default_message = FALSE
+				dat += SPAN_WARNING("Warning: Unknown substance[(unknown>1)?"s":""] detected in subject's blood.")
 
-	var/datum/reagents/ingested = H.get_ingested_reagents()
-	if(ingested && ingested.total_volume)
-		var/unknown = 0
-		for(var/_R in ingested.reagent_volumes)
-			var/singleton/reagent/R = GET_SINGLETON(_R)
-			if(R.scannable)
+	if(device_level >= 4)
+		var/datum/reagents/ingested = H.get_ingested_reagents()
+		if(ingested && ingested.total_volume)
+			var/unknown = 0
+			for(var/_R in ingested.reagent_volumes)
+				var/singleton/reagent/R = GET_SINGLETON(_R)
+				if(R.scannable)
+					print_reagent_default_message = FALSE
+					dat += SPAN_NOTICE("[R.name] found in subject's stomach.")
+				else
+					++unknown
+			if(unknown)
 				print_reagent_default_message = FALSE
-				dat += SPAN_NOTICE("[R.name] found in subject's stomach.")
-			else
-				++unknown
-		if(unknown)
-			print_reagent_default_message = FALSE
-			dat +=  SPAN_WARNING("Non-medical reagent[(unknown > 1)?"s":""] found in subject's stomach.")
+				dat +=  SPAN_WARNING("Non-medical reagent[(unknown > 1)?"s":""] found in subject's stomach.")
 
 	if(print_reagent_default_message)
 		dat += "No results."
