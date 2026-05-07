@@ -49,11 +49,9 @@
 
 		if(success == 2)
 			playsound(loc, 'sound/machines/weapons_analyzer_finish.ogg', 75, 1)
-			SStgui.update_uis(src)
 			addtimer(CALLBACK(src, PROC_REF(reset)), 32)
 		else
 			playsound(loc, 'sound/machines/weapons_analyzer.ogg', 75, 1)
-			SStgui.update_uis(src)
 			addtimer(CALLBACK(src, PROC_REF(reset)), 15)
 		process = TRUE
 		update_icon()
@@ -138,6 +136,10 @@
 
 /obj/machinery/r_n_d/weapons_analyzer/ui_data(mob/user)
 	var/list/data = list()
+	data["laser_assembly"] = null
+	data["gun"] = null
+	data["item"] = null
+	data["gun_mods"] = null
 
 	if(istype(item, /obj/item/laser_assembly))
 		var/obj/item/laser_assembly/assembly = item

@@ -15,6 +15,8 @@
 	var/base_malus = 0.1 //when modifiers get damaged they do not break, but make other components break faster
 	///The amount of damage this modifier does to other components. This increases as the modifier itself gets damaged.
 	var/malus = 0
+	///The malus of all components is multiplied by this value.
+	var/malus_multiplier = 1
 	///Multiplies the total number of shots the gun can fire before recharge.
 	var/shots = 1
 	///This is added to the number of shots the gun fires in one click.
@@ -264,13 +266,14 @@
 			H.electrocute_act(shock_damage * 0.4, prototype, def_zone = BP_R_ARM, tesla_shock = 0)
 	else
 		tesla_zap(prototype, 0, 4000*prototype.criticality)
+	capacitor.degrade(10 * prototype.criticality) //If you keep shooting after a critical failure, you deserve what you get.
 	return
 
 /obj/item/laser_components/focusing_lens
 	name = "focusing lens"
 	desc = "A basic laser weapon focusing lens."
 	icon_state = "lens"
-	var/list/dispersion = list(0, 5, 10, 15, 20, 25, 30, 35, 40, 45)
+	var/list/dispersion = list(0, 5, 10, 15)
 	reliability = 25
 	repair_item = /obj/item/stack/material/glass
 	increasable_stats = list("reliability", "accuracy")

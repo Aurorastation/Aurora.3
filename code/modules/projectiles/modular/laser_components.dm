@@ -35,6 +35,21 @@
 	desc = "A reinforced laser weapon capacitor."
 	icon_state = "reinforced_capacitor"
 	reliability = 100
+	malus_multiplier = 0.9
+
+/obj/item/laser_components/capacitor/highcap
+	name = "high-capacity capacitor"
+	desc = "A capacitor with increased charge capacity, at the cost of peak output"
+	reliability = 45
+	shots = 15
+	damage = 8
+
+/obj/item/laser_components/capacitor/highpower
+	name = "overclocked capacitor"
+	desc = "A capacitor withhigher output, at the cost of total charge."
+	damage = 20
+	shots = 4
+	reliability = 45
 
 /obj/item/laser_components/capacitor/nuclear
 	name = "uranium-enriched capacitor"
@@ -305,8 +320,9 @@
 	name = "exhaust venting"
 	desc = "More efficient exhaust venting reduces the impact of firing the prototype."
 	reliability = 0
-	base_malus = -5
-	malus = -5
+	base_malus = -1
+	malus = -1
+	malus_multiplier = 0.5
 	icon_state = "vents"
 	increasable_stats = list()
 	decreaseable_stats = list("base_malus")

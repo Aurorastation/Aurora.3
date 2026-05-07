@@ -28,6 +28,8 @@
 	var/is_charging
 	///All malfunction effects are multiplied by this value. It can be increased by some powerful mods and decreased by safety mods.
 	var/criticality = 1 //multiplier for the negative effects of capacitor failures. Not just limited to critical failures.
+	///This multiplies the malus of all components, above 1 the gun degrades faster, below 1 it degrades slower.
+	var/fragility = 1
 	///True if the gun has a custom name.
 	var/named = 0
 	///True if the gun has a custom description.
@@ -214,6 +216,7 @@
 	fire_delay_wielded = initial(fire_delay_wielded)
 	accuracy = initial(accuracy)
 	criticality = initial(criticality)
+	fragility = initial(fragility)
 	fire_sound = initial(fire_sound)
 	force = initial(force)
 	is_wieldable = initial(is_wieldable)
@@ -253,6 +256,7 @@
 	accuracy = focusing_lens.accuracy
 	burst += round(focusing_lens.burst)
 	fire_sound = modulator.firing_sound
+	fragility = capacitor.malus_multiplier
 
 	if(gun_mods.len)
 		handle_mod()
@@ -282,8 +286,8 @@
 	power_supply.maxcharge = max_shots*charge_cost
 	charge_cost /= max(1, (burst - 1))
 	fire_delay_wielded = fire_delay * 0.75
-	accuracy_wielded = accuracy + accuracy/4
-	scoped_accuracy = accuracy_wielded + accuracy/4
+	accuracy_wielded = accuracy + abs(accuracy)/4
+	scoped_accuracy = accuracy_wielded + abs(accuracy)/4
 	w_class = gun_type
 	reliability = max(reliability, 1)
 
@@ -321,6 +325,7 @@
 		chargetime += modifier.chargetime SECONDS
 		accuracy += modifier.accuracy
 		criticality *= modifier.criticality
+		fragility *= modifier.malus_multiplier
 		if(modifier.scope_name)
 			zoomdevicename = modifier.scope_name
 
@@ -343,12 +348,12 @@
 
 	if(!bypass_degrade)
 		for(var/obj/item/laser_components/modifier/modifier in gun_mods) //This repeats for EVERY MOD, fail chance goes up quadratically with the number of mods
-			if(prob((gun_mods.len * 2 * damage_coeff)/(max(1,(burst)))))
-				capacitor.degrade(modifier.malus)
-			if(prob((gun_mods.len * damage_coeff)/(max(1,(burst)))))
-				focusing_lens.degrade(modifier.malus)
-			if(prob((5 + capacitor.condition)/(max(1,(burst))))) //Firing a gun with a damaged capacitor risks arcing to other components, damaging them
-				modifier.degrade(0.2)
+			if(prob(max(1,(gun_mods.len * 2 * damage_coeff)/(max(1,(burst))))))
+				capacitor.degrade(modifier.malus * fragility)
+			if(prob(max(1,(gun_mods.len * damage_coeff)/(max(1,(burst))))))
+				focusing_lens.degrade(modifier.malus * fragility)
+			if(prob(max(1,(5 + capacitor.condition)/(max(1,(burst)))))) //Firing a gun with a damaged capacitor risks arcing to other components, damaging them
+				modifier.degrade(0.2 * fragility)
 
 	if(burst > 1)
 		A.damage = A.damage/(max(1, burst - 1)) //Damage is divided by the number of shots
