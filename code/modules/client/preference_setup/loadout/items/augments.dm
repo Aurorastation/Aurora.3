@@ -141,10 +141,10 @@
 
 /datum/gear/augment/absorber
 	display_name = "calf absorber"
-	description = "A sturdy, highly-compatible alternative to calf suspension focused on moderately absorbing damage from falling."
+	description = "A much-sturdier, highly-compatible alternative to calf suspension focused on moderately absorbing damage from falling."
 	path = /obj/item/organ/internal/augment/absorber
 	cost = 3
-	whitelisted = ALL_SPECIES
+	whitelisted = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD, SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI, SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_IPC, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU, SPECIES_IPC_BISHOP, SPECIES_IPC_SHELL, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_ATTENDANT, SPECIES_UNATHI)
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
 
 /datum/gear/augment/taste_boosters
