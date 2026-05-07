@@ -57,8 +57,6 @@
 		var/turf/T = get_turf(track)
 		if(!T || !is_station_level(T.z)) // The persistence system only supports objects from the main map levels for multiple reasons, e.g. Z level value, mapping support
 			objectsDeregisterTrack(track)
-		if(astype(track, /obj/item)?.in_inventory) // Objects that are held by players won't become persistent
-			objectsDeregisterTrack(track)
 
 	var/created = 0
 	var/updated = 0

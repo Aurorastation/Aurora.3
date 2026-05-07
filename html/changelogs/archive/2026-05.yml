@@ -38,3 +38,14 @@
 2026-05-06:
   fyni:
   - bugfix: Makes the Outer Eyes helmet properly appear on sprite.
+2026-05-07:
+  Hellfirejag:
+  - bugfix: Fixed EMP damage not ticking down on prosthetics.
+  diggiez:
+  - rscadd: Wearing Shaper robes now removes Hive name from physical messages. The
+      helmet will remove Hive name from Hivenet messages.
+  - spellcheck: Preimminent misspelling on the robe corrected.
+  kermit:
+  - bugfix: Fixes representative objectives not being sent. They will now appear in-hand
+      on-spawning
+  - rscadd: Redoes all megacorporate objectives and Republic of Biesel objectives

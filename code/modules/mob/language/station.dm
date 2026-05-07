@@ -234,11 +234,16 @@
 /datum/language/bug/broadcast(var/mob/living/speaker,var/message,var/speaker_mask)
 	log_say("[key_name(speaker)] : ([name]) [message]")
 
+	var/mob/living/carbon/human/H = speaker //Check for Preimminent Shaper robes, which obscure Hive affiliation
+	var/obj/item/clothing/head/shaper/helmet = H.get_equipped_item(slot_head)
 	if(!speaker_mask)
 		speaker_mask = speaker.real_name
+		if(istype(helmet)) //Then remove their Hive name from Hivenet
+			var/list/speaker_surname = splittext(speaker_mask, " ")
+			speaker_mask = speaker_surname[1]
 
-	var/msg = "<i><span class='game say'>[name], <span class='name'>[speaker_mask]</span>[format_message(message, get_spoken_verb(message), speaker_mask)]</span></i>"
-	var/encrypted_msg =  "<i><span class='game say'>[name], <span class='name'>[speaker_mask]</span>[format_message("!a surge of encrypted data", get_spoken_verb(message), speaker_mask)]</span></i>"
+	var/msg = "<i><span class='game say'>[name], <span class='name'>[speaker_mask]</span>[format_message(message, get_spoken_verb(message), speaker_mask, speaker)]</span></i>"
+	var/encrypted_msg =  "<i><span class='game say'>[name], <span class='name'>[speaker_mask]</span>[format_message("!a surge of encrypted data", get_spoken_verb(message), speaker_mask, speaker)]</span></i>"
 
 	if(isvaurca(speaker))
 		speaker.custom_emote(VISIBLE_MESSAGE, "[pick("twitches their antennae", "twitches their antennae rhythmically")].")
@@ -281,7 +286,7 @@
 				continue
 			to_chat(player, msg)
 
-/datum/language/bug/format_message(message, verb, speaker_mask)
+/datum/language/bug/format_message(message, verb, speaker_mask, speaker)
 	var/message_color = colour
 	var/list/speaker_surname = splittext(speaker_mask, " ")
 	if(length(speaker_surname) > 1)

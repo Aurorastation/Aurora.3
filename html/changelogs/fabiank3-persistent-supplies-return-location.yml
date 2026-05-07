@@ -1,0 +1,7 @@
+author: FabianK3
+
+delete-after: True
+
+changes:
+  - bugfix: "Fixed trash in inventory persistence prevention disallowing any items to be persistent on character locations."
+  - bugfix: "Fixed persistent charge card location on new round start."

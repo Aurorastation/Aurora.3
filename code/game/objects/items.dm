@@ -495,7 +495,7 @@
 	if(!persistency_considered_trash)
 		return
 
-	if(in_storage) // Items getting moved into storages (lunchboxes, backpacks) triggers the dropped handler and requires no persistency as a result
+	if(in_storage || in_inventory) // Items getting moved into storages (lunchboxes, backpacks) triggers the dropped handler and requires no persistency as a result
 		SSpersistence.objectsDeregisterTrack(src)
 		return
 
@@ -543,6 +543,7 @@
 		addtimer(CALLBACK(src, PROC_REF(check_maptext)), 1) // invoke async does not work here
 	in_inventory = TRUE
 	do_pickup_animation(user)
+	try_make_persistent_trash()
 
 // called when this item is removed from a storage item, which is passed on as S. The loc variable is already set to the new destination before this is called.
 /obj/item/proc/on_exit_storage(obj/item/storage/S as obj)
