@@ -350,7 +350,7 @@ jobs:
   ############### Forbidden map types ##############
   ##################################################
   lint-forbidden-map-types:
-    name: Check forbidden map types
+    name: Lint Forbidden map types
     runs-on: ubuntu-24.04
     needs: validate-structure
     if: needs.validate-structure.outputs.skipci != 'true'

@@ -26,7 +26,7 @@ def check_forbidden_types():
 
         # Check if map file was found
         if map_path is None:
-            print(f"Map file not found: {map_name} - Check maps/forbiddenMapTypes.json")
+            print(f"ERROR: Map file not found: {map_name} - Check maps/forbiddenMapTypes.json")
             sys.exit(1)
 
         # Read the map file
@@ -40,7 +40,7 @@ def check_forbidden_types():
 
     # Print results
     if findings:
-        print("Forbidden types found in map(s):")
+        print("LINT FAILED: Forbidden types found in map(s):")
         for finding in findings:
             print(finding)
         print("Check the listed maps for the selected types and remove them.")
