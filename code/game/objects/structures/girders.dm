@@ -298,7 +298,7 @@
 
 /obj/structure/girder/proc/reinforce_girder()
 	cover = reinf_material.hardness
-	set_maxhealth(OBJECT_HEALTH_EXTREMELY_HIGH, TRUE)
+	set_maxhealth(OBJECT_HEALTH_VERY_HIGH, TRUE)
 	state = 2
 	icon_state = "reinforced"
 	reinforcing = 0

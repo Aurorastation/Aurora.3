@@ -4912,6 +4912,7 @@
 	pixel_x = -3
 	},
 /obj/item/radio/intercom/expedition/hailing/west,
+/obj/item/eftpos,
 /turf/simulated/floor/carpet/rubber,
 /area/ship/coc_scarab/bridge)
 "ur" = (

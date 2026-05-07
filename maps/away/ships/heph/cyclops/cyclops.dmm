@@ -3342,6 +3342,7 @@
 /obj/effect/floor_decal/corner/orange{
 	dir = 9
 	},
+/obj/item/eftpos,
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_bridge)
 "CB" = (

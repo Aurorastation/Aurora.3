@@ -499,6 +499,7 @@
 /obj/machinery/alarm/cold/north{
 	req_one_access = null
 	},
+/obj/item/eftpos,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},

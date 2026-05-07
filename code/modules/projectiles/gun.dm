@@ -519,7 +519,8 @@ ABSTRACT_TYPE(/obj/item/gun)
 
 			P.suppressed =  suppressed
 
-			P.preparePixelProjectile(target, get_turf(src))
+			if(!P.preparePixelProjectile(target, get_turf(src)))
+				return FALSE
 			P.fired_from = src
 			P.fire()
 
@@ -680,7 +681,8 @@ ABSTRACT_TYPE(/obj/item/gun)
 		else if(mob.shock_stage > 70)
 			added_spread = 15
 
-	P.preparePixelProjectile(target, src, deviation = added_spread)
+	if(!P.preparePixelProjectile(target, src, params, added_spread))
+		return FALSE
 	P.firer = user
 	P.fired_from = src
 	P.def_zone = target_zone

@@ -146,7 +146,8 @@ GLOBAL_LIST_INIT(admin_verbs_fun, list(
 	/client/proc/apply_sunstate,
 	/datum/admins/proc/ccannoucment,
 	/datum/admins/proc/set_odyssey,
-	/datum/admins/proc/set_odyssey_canonicity
+	/datum/admins/proc/set_odyssey_canonicity,
+	/datum/admins/proc/toggle_persistence
 	))
 
 GLOBAL_LIST_INIT(admin_verbs_spawn, list(

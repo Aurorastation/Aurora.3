@@ -6339,6 +6339,7 @@
 	pixel_x = 4
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/item/eftpos,
 /turf/simulated/floor/tiled/gunmetal,
 /area/tcaf_corvette/cic)
 "ym" = (

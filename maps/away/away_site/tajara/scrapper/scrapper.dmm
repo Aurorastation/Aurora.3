@@ -321,6 +321,7 @@
 /obj/effect/floor_decal/corner/beige{
 	dir = 10
 	},
+/obj/item/eftpos,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/scrapper_ship/bridge)
 "dI" = (

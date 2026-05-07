@@ -5260,6 +5260,7 @@
 /obj/machinery/light/broken{
 	dir = 4
 	},
+/obj/item/eftpos,
 /turf/simulated/floor/tiled,
 /area/abandoned_propellant_depot/bridge)
 "rG" = (

@@ -607,8 +607,8 @@
 "DX" = (
 /obj/effect/map_effect/marker/mapmanip/submap/extract/himeo_patrol_ship/storage_1,
 /obj/effect/floor_decal/industrial/outline/grey,
-/obj/item/cargo_package/offship,
-/obj/item/cargo_package/offship{
+/obj/item/package/delivery/offship,
+/obj/item/package/delivery/offship{
 	pixel_x = 3;
 	pixel_y = 9
 	},
@@ -776,8 +776,8 @@
 "Oe" = (
 /obj/effect/map_effect/marker/mapmanip/submap/extract/himeo_patrol_ship/storage_2,
 /obj/effect/floor_decal/industrial/outline/grey,
-/obj/item/cargo_package/offship,
-/obj/item/cargo_package/offship{
+/obj/item/package/delivery/offship,
+/obj/item/package/delivery/offship{
 	pixel_x = 3;
 	pixel_y = 9
 	},
