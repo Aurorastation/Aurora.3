@@ -219,20 +219,20 @@
 						"repair_tool" = l_repair_name
 					)
 					if(l_component.reliability != 0)
-						mod["reliability"] = l_component.reliability //only show these if they do something
+						mod["reliability"] = round(l_component.reliability, 1) //only show these if they do something
 					if(l_component.damage != 1)
-						mod["damage_modifier"] = l_component.damage
+						mod["damage_modifier"] = round(l_component.damage, 0.1)
 					if(l_component.fire_delay != 1)
-						mod["fire_delay_modifier"] = l_component.fire_delay
+						mod["fire_delay_modifier"] = round(l_component.fire_delay, 0.1)
 					if(l_component.shots != 1)
-						mod["shots_modifier"] = l_component.shots
+						mod["shots_modifier"] = round(l_component.shots, 0.1)
 					if(l_component.burst != 0)
-						mod["burst_modifier"] = l_component.burst
+						mod["burst_modifier"] = round(l_component.burst, 1)
 					if(l_component.accuracy != 0)
-						mod["accuracy_modifier"] = l_component.accuracy
+						mod["accuracy_modifier"] = round(l_component.accuracy, 0.1)
 					mods += list(mod)
 
-				data["gun"]["damage"] = min(60, l_modified_damage)
+				data["gun"]["damage"] = round(min(60, l_modified_damage), 1)
 				data["gun"]["max_shots"] = round(l_modified_max_shots)
 				data["gun_mods"] = mods
 

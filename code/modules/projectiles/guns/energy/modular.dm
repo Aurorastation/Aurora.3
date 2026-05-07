@@ -34,7 +34,7 @@
 	var/named = 0
 	///True if the gun has a custom description.
 	var/described = 0
-	///When the weapon is disasembled, this is distributed randomly among it's components. When a component with improvement potential is repaired, it gets better by up to improvement potential percent. The actual chance is based on skill level.
+	///When the weapon is disasembled, this is distributed randomly among it's components. When a component with improvement potential is repaired, one appropriate variable gets better by up to improvement potential percent. The actual chance is based on skill level.
 	var/improvement_potential = 0 //This is a percentage increase of a single variable on one component, a 100% increase is not a doubling of all stats, it is instead spread out across all components.
 
 /obj/item/gun/energy/laser/prototype/mechanics_hints(mob/user, distance, is_adjacent)
@@ -70,8 +70,8 @@
 				else
 					. += SPAN_WARNING("It appears to be damaged and could malfunction!")
 			if (6 to INFINITY) //At this level you can estimate the weapon's reliability, but only if it's damaged. This won't help if you build a weapon that's inherently unreliable.
-				if(improvement_potential > 0)
-					. += SPAN_GOOD("You see a few places where damage has revealed design flaws. Correcting them could improve the weapon by up to [improvement_potential]%.")
+				if(improvement_potential > 2.5)
+					. += SPAN_GOOD("You see a few places where damage has revealed design flaws. Correcting them could improve one of the weapon's components by up to [round(improvement_potential, 5)]%.")
 				switch(reliability)
 					if (0 to 65)
 						. += SPAN_HIGHDANGER("It appears to be damaged and could go critical! You estimate it to be around [round(reliability, 5)]% reliable!")
@@ -169,27 +169,31 @@
 
 		if (istype(target, /obj/machinery/portable_atmospherics/hydroponics))
 			if (istype(modulator, /obj/item/laser_components/modulator/floramut) || istype(modulator, /obj/item/laser_components/modulator/floramut2))
-				improvement_potential += (0.2  * IMPROVEMENT_MULTIPLIER) / (max(1, burst))
-				..()
+				improvement_potential += (1  * IMPROVEMENT_MULTIPLIER) / (max(1, burst))
+				return ..()
 
 		if(target != user) //No improvement from shooting yourself.
 			if(isliving(target))  //No improvement unless your target is a mob.
 				var/mob/living/target_mob = target
-				if(target_mob.stat != DEAD) //No improvement from shooting at dead things.
+				if(target_mob.stat != DEAD) //No improvement from shooting at dead things. Bring a doctor in to keep your target dummy alive. This also makes it harder to improve more powerful weapons, as you kill your target faster.
 					if(ishuman(target_mob))
-						if(!target_mob.get_species() == "monkey")
-							improvement_potential += (1  * IMPROVEMENT_MULTIPLIER) / (max(1, burst))
-							..()
-						if(target_mob.client)
-							improvement_potential += (10  * IMPROVEMENT_MULTIPLIER) / (max(1, burst)) //10 seems like a lot, but this is a 10% improvement to 1 variable on 1 component. A 5 mod gun (8 total components), with an average of 3 improvable variables would need 240 shots on a player to max out.
-							..()
+						var/mob/living/carbon/human/human_target = target
+						if (istype(modulator, /obj/item/laser_components/modulator/taser))
+							if (human_target.incapacitated()) //No benefit from tasing someone who's already incapacitated. Get the phramacist to make you oxycomorphine.
+								return ..()
+						if(human_target.get_species() == SPECIES_MONKEY)
+							improvement_potential += (2  * IMPROVEMENT_MULTIPLIER) / (max(1, burst)) //Monkeys die easily, research only gets two boxes of monkey cubes without xenobiology.
+							return ..()
+						if(human_target.client)
+							improvement_potential += (10  * IMPROVEMENT_MULTIPLIER) / (max(1, burst)) //10 seems like a lot, but this is a 20% improvement to 1 variable on 1 component. A 5 mod gun (8 total components), with an average of 3 improvable variables would need 120 shots on a player to max out.
+							return ..()
 
 					if(isslime(target_mob))
 						if (istype(modulator, /obj/item/laser_components/modulator/freeze))
-							improvement_potential += (1 * IMPROVEMENT_MULTIPLIER) / (max(1, burst))
-							..()
+							improvement_potential += (2 * IMPROVEMENT_MULTIPLIER) / (max(1, burst))
+							return ..()
 
-					improvement_potential += (2 * IMPROVEMENT_MULTIPLIER) / (max(1, burst))
+					improvement_potential += (5 * IMPROVEMENT_MULTIPLIER) / (max(1, burst)) //Mechs, protohumans, and any other human mobs without a player.
 	..()
 
 /obj/item/gun/energy/laser/prototype/update_icon()
@@ -531,15 +535,15 @@
 		. += "<br>Component Name: [initial(l_component.name)]</br><br>"
 		var/l_repair_name = initial(l_component.repair_item.name) ? initial(l_component.repair_item.name) : "nothing"
 		if(l_component.reliability != 0)
-			. += "Reliability: [l_component.reliability]<br>"
+			. += "Reliability: [round(l_component.reliability, 1)]<br>"
 		if(l_component.damage != 1)
-			. += "Damage Modifier: [l_component.damage]<br>"
+			. += "Damage Modifier: [round(l_component.damage, 0.1)]<br>"
 		if(l_component.fire_delay != 1)
-			. += "Fire Delay Modifier: [l_component.fire_delay]<br>"
+			. += "Fire Delay Modifier: [round(l_component.fire_delay, 0.1)]<br>"
 		if(l_component.shots != 1)
-			. += "Shots Modifier: [l_component.shots]<br>"
+			. += "Shots Modifier: [round(l_component.shots, 0.1)]<br>"
 		if(l_component.burst != 0)
-			. += "Burst Modifier: [l_component.burst]<br>"
+			. += "Burst Modifier: [round(l_component.burst, 1)]<br>"
 		if(l_component.accuracy != 0)
-			. += "Accuracy Modifier: [l_component.accuracy]<br>"
+			. += "Accuracy Modifier: [round(l_component.accuracy, 0.1)]<br>"
 		. += "Repair Tool: [l_repair_name]<br>"
