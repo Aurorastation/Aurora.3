@@ -10,7 +10,9 @@ def check_forbidden_types():
     with open(json_path, 'r') as f:
         data = json.load(f)
 
-    output = []
+    failed = False
+    missing_maps = []
+    illegal_types = []
 
     # Loop through each forbidden type mapping
     for mapping in data["forbidden_type_mappings"]:
@@ -18,10 +20,11 @@ def check_forbidden_types():
         maps = mapping["maps"]
         forbidden_types = mapping["forbidden_types"]
         print(f"Linting step: {reason}")
+        print(f"  - Maps: {', '.join(maps)}")
+        print(f"  - Forbidden types: {', '.join(forbidden_types)}")
 
         # Loop through each map in this mapping
         for map_name in maps:
-            print(f"  - Map: {map_name}")
             # Recursively search for the map file in maps/ directory
             map_path = None
             for root, dirs, files in os.walk(Path("maps")):
@@ -31,7 +34,8 @@ def check_forbidden_types():
 
             # Check if map file was found
             if map_path is None:
-                output.append(f"- Map not found - {map_name}")
+                missing_maps.append(f"- {map_name}")
+                failed = True
                 break
 
             # Read the map file
@@ -40,18 +44,24 @@ def check_forbidden_types():
 
             # Search for each forbidden type
             for forbidden_type in forbidden_types:
-                print(f"    - Type: {forbidden_type}")
                 if forbidden_type in map_content:
-                    output.append(f"- Forbidden type found - {map_name} - {forbidden_type} ({reason})")
+                    illegal_types.append(f"- {map_name} - {forbidden_type} ({reason})")
+                    failed = True
 
     # Print results
-    if output:
-        print("LINT FAILED: See reasons below.")
-        for finding in output:
-            print(finding)
-        sys.exit(1) # This is the important line for CI checks - Fail if we had any issues
+    if failed:
+        print(" ===== LINT FAILED =====")
+        if missing_maps:
+            print("Maps not found:")
+            for item in missing_maps:
+                print(item)
+        if illegal_types:
+            print("Forbidden types found:")
+            for item in illegal_types:
+                print(item)
+        sys.exit(1)
     else:
-        print("LINT PASSED: No forbidden types found on any specified maps.")
+        print(" ===== LINT PASSED =====")
 
 if __name__ == "__main__":
     check_forbidden_types()
