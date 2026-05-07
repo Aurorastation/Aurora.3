@@ -11,7 +11,7 @@
 
 /obj/item/material/ashtray/Initialize(newloc, material_key)
 	. = ..()
-	persistant_objects_expiration_time_days = rand(7, 180) // Imagine they get stolen, lost or break...
+	persistent_objects_expiration_time_days = rand(7, 180) // Imagine they get stolen, lost or break...
 	max_butts = round(material.hardness/10) //This is arbitrary but whatever.
 	randpixel_xy()
 	update_icon()

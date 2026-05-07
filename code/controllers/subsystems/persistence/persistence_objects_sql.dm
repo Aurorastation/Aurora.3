@@ -71,7 +71,7 @@
 		list(
 			"author_ckey" = track.persistent_objects_author_ckey,
 			"type" = "[track.type]",
-			"expire_in_days" = track.persistant_objects_expiration_time_days,
+			"expire_in_days" = track.persistent_objects_expiration_time_days,
 			"content" = objectsGetTrackContent(track),
 			"x" = T.x,
 			"y" = T.y,
@@ -99,7 +99,7 @@
 		"UPDATE ss13_persistent_objects SET author_ckey=:author_ckey, expires_at=DATE_ADD(NOW(), INTERVAL :expire_in_days DAY), content=:content, x=:x, y=:y, z=:z WHERE id = :id",
 		list(
 			"author_ckey" = track.persistent_objects_author_ckey,
-			"expire_in_days" = track.persistant_objects_expiration_time_days,
+			"expire_in_days" = track.persistent_objects_expiration_time_days,
 			"content" = objectsGetTrackContent(track),
 			"x" = T.x,
 			"y" = T.y,
