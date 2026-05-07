@@ -10,41 +10,49 @@ def check_forbidden_types():
     with open(json_path, 'r') as f:
         data = json.load(f)
 
-    findings = []
+    output = []
 
-    # Loop through each map configuration
-    for map_config in data["maps"]:
-        map_name = map_config["name"]
-        forbidden_types = map_config["forbidden_types"]
+    # Loop through each forbidden type mapping
+    for mapping in data["forbidden_type_mappings"]:
+        reason = mapping["reason"]
+        maps = mapping["maps"]
+        forbidden_types = mapping["forbidden_types"]
+        print(f"Linting step: {reason}")
 
-        # Recursively search for the map file in maps/ directory
-        map_path = None
-        for root, dirs, files in os.walk(Path("maps")):
-            if map_name in files:
-                map_path = Path(root) / map_name
+        # Loop through each map in this mapping
+        for map_name in maps:
+            print(f"  - Map: {map_name}")
+            # Recursively search for the map file in maps/ directory
+            map_path = None
+            for root, dirs, files in os.walk(Path("maps")):
+                if map_name in files:
+                    map_path = Path(root) / map_name
+                    break
+
+            # Check if map file was found
+            if map_path is None:
+                print(f"Map not found - {map_name}")
                 break
 
-        # Check if map file was found
-        if map_path is None:
-            print(f"ERROR: Map file not found: {map_name} - Check maps/forbiddenMapTypes.json")
-            sys.exit(1)
+            # Read the map file
+            with open(map_path, 'r') as f:
+                map_content = f.read()
 
-        # Read the map file
-        with open(map_path, 'r') as f:
-            map_content = f.read()
-
-        # Search for each forbidden type
-        for forbidden_type in forbidden_types:
-            if forbidden_type in map_content:
-                findings.append(f"- {map_name} - {forbidden_type}")
+            # Search for each forbidden type
+            for forbidden_type in forbidden_types:
+            print(f"    - Type: {forbidden_type}")
+                if forbidden_type in map_content:
+                    output.append(f"Forbidden type found - {map_name} - {forbidden_type} ({reason})")
 
     # Print results
-    if findings:
+    if output:
         print("LINT FAILED: Forbidden types found in map(s):")
-        for finding in findings:
+        for finding in output:
             print(finding)
         print("Check the listed maps for the selected types and remove them.")
         sys.exit(1)
+    else:
+        print("LINT PASSED: No forbidden types found.")
 
 if __name__ == "__main__":
     check_forbidden_types()

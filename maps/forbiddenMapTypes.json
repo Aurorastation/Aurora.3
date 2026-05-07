@@ -1,10 +1,13 @@
 {
-	"maps": [
-		{
-			"name": "sccv_horizon.dmm",
-			"forbidden_types": [
-				"/obj/item/material/ashtray"
-			]
-		}
+	"forbidden_type_mappings": [
+		"reason": "Objects excluded due to persistent mechanics"
+		"maps": [
+			"sccv_horizon.dmm",
+			"ops_warehouse_small_storage.dmm",
+			"ci-fun-ci-check-ci-win-ci-fail.dmm"
+		]
+		"forbidden_types": [
+			"/obj/item/material/ashtray",
+		]
 	]
 }
