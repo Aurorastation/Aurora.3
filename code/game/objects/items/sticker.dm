@@ -6,6 +6,7 @@
 	item_flags = ITEM_FLAG_NO_BLUDGEON
 	w_class = WEIGHT_CLASS_TINY
 	vis_flags = VIS_INHERIT_LAYER | VIS_INHERIT_DIR
+	persistant_objects_expiration_time_days = 7
 
 	var/datum/weakref/attached
 	var/list/rand_icons
@@ -90,7 +91,6 @@
 	if (!attached_type)
 		// Exit early, this was an invalid sticker that wasn't attached to anything.
 		qdel(src)
-		SSpersistence.objectsDeregisterTrack(src)
 		return
 
 	src.pixel_x = content["pixel_x"]
@@ -110,10 +110,9 @@
 		AM.add_vis_contents(src)
 		break
 
-	// If it was attached to an object that doesn't spawn during map init, delete the sticker and deregister it.
+	// If it was attached to an object that doesn't spawn during map init, delete the sticker.
 	if (!thing_found)
 		qdel(src)
-		SSpersistence.objectsDeregisterTrack(src)
 
 //
 //generic stickers, catch all for anything that doesn't fit in another category
