@@ -74,7 +74,12 @@
 	sound_scan = TRUE
 
 	user.visible_message("\The [user] starts scanning [user == target_mob ? "themself" : "\the [target_mob]"] with \the [owner].")
-	if(do_after(user, 1.5 SECONDS, target_mob, DO_UNIQUE))
+	var/anatomy = GET_SKILL_LEVEL(user, ANATOMY_SKILL_COMPONENT)
+
+	// each device level and anatomy rank reduces the time by half a second. Get that skill up
+	var/time = max(5 - (0.5 * (device_level + (anatomy ? anatomy : 1))), 1)
+
+	if(do_after(user, time SECONDS, target_mob, DO_UNIQUE))
 		flick("[owner.icon_state]-scan", owner)
 
 		health_scan_mob(target_mob, user, device_level, sound_scan = sound_scan)
