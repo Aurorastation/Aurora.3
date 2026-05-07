@@ -36,7 +36,7 @@
  * * address - The string to check.
  */
 /proc/validate_ntnet_address(address)
-	var/static/regex/check_re = regex(@"^fc00(:[0-9a-f]{4}){3}$", "i")
+	var/static/regex/check_re = regex(@"^fc00(:[0-9a-z]{4}){3}$", "i")
 	/*
 		^			 	Beginning of the string
 		fc00		 	String starts with "fc00"
