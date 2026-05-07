@@ -29,7 +29,6 @@
 	return GLOB.heavy_vehicle_state
 
 /datum/component/health_analyzer/borer
-	name = "borer health analyzer"
 
 /datum/component/health_analyzer/borer/ui_state(mob/user)
 	return GLOB.conscious_state
