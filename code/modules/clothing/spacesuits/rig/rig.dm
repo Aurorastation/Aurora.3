@@ -578,7 +578,7 @@
 	if(length(installed_modules))
 		if((chest_type && (chest && wearer?.wear_suit == chest)))
 			for(var/obj/item/rig_module/module in installed_modules)
-				if(module.suit_overlay && (module.active || (selected_module == module) || module.suit_overlay_inactive))
+				if(module.suit_overlay)
 					I.AddOverlays(image('icons/mob/rig_modules.dmi', null, module.suit_overlay))
 	return I
 
@@ -771,11 +771,19 @@
 						module.do_engage(null, user)
 					if("select")
 						if(selected_module != module)
+							// Clear the currently selected module's overlay.
+							if(selected_module)
+								selected_module.suit_overlay = null
 							selected_module = module
+							// Set the new selected module's suit overlay.
+							if(selected_module.suit_overlay_active)
+								selected_module.suit_overlay = selected_module.suit_overlay_active
 							sound_to(usr, module?.sound_activate)
 						else
 							sound_to(usr, selected_module?.sound_deactivate)
+							selected_module.suit_overlay = null
 							selected_module = null
+						update_icon(TRUE)
 						playsound(src.loc, 'sound/items/rfd_dispense.ogg', 25, FALSE)
 					if("select_charge_type")
 						module.charge_selected = "[params["charge_type"]]"
@@ -833,7 +841,7 @@
 		M.visible_message(SPAN_NOTICE("<b>[M] struggles into \the [src].</b>"), SPAN_NOTICE("<b>You struggle into \the [src].</b>"))
 		wearer = M
 		wearer.wearing_rig = src
-		update_icon()
+		update_icon(TRUE)
 		return TRUE
 	return TRUE
 
@@ -921,7 +929,7 @@
 	if(piece == "helmet" && helmet)
 		helmet.update_light(wearer)
 
-	update_icon(1)
+	update_icon(TRUE)
 
 /obj/item/rig/proc/deploy(mob/M,var/sealed)
 

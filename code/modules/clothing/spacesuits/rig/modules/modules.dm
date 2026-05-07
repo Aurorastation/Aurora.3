@@ -143,10 +143,6 @@
 	if(suit_overlay_inactive)
 		suit_overlay = suit_overlay_inactive
 
-	// If we have an active overlay but NOT an inactive one.
-	else if(suit_overlay_active)
-		suit_overlay = suit_overlay_active
-
 	if(charges && charges.len)
 		var/list/processed_charges = list()
 		for(var/list/charge in charges)
@@ -257,7 +253,8 @@
 		suit_overlay = suit_overlay_active
 	else
 		suit_overlay = null
-	holder.update_icon()
+
+	holder?.update_icon(TRUE)
 
 	return TRUE
 
@@ -275,8 +272,8 @@
 		suit_overlay = suit_overlay_inactive
 	else
 		suit_overlay = null
-	if(holder)
-		holder.update_icon()
+
+	holder?.update_icon(TRUE)
 
 	return TRUE
 
