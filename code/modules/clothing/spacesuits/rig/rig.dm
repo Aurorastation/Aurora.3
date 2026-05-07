@@ -578,7 +578,7 @@
 	if(length(installed_modules))
 		if((chest_type && (chest && wearer?.wear_suit == chest)))
 			for(var/obj/item/rig_module/module in installed_modules)
-				if(module.suit_overlay)
+				if(module.suit_overlay && (module.active || (selected_module == module) || module.suit_overlay_inactive))
 					I.AddOverlays(image('icons/mob/rig_modules.dmi', null, module.suit_overlay))
 	return I
 

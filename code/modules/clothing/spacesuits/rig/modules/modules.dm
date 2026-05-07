@@ -143,6 +143,10 @@
 	if(suit_overlay_inactive)
 		suit_overlay = suit_overlay_inactive
 
+	// If we have an active overlay but NOT an inactive one.
+	else if(suit_overlay_active)
+		suit_overlay = suit_overlay_active
+
 	if(charges && charges.len)
 		var/list/processed_charges = list()
 		for(var/list/charge in charges)
@@ -228,7 +232,7 @@
 
 	return TRUE
 
-//Proc for one-use abilities like teleport.
+/// Proc for one-use abilities like teleport.
 /obj/item/rig_module/proc/engage(atom/target, mob/user)
 	if(!check_can_use(user))
 		return FALSE
@@ -239,7 +243,7 @@
 
 	return TRUE
 
-// Proc for toggling on active abilities.
+/// Proc for toggling on active abilities.
 /obj/item/rig_module/proc/activate(mob/user)
 	if(active)
 		return FALSE

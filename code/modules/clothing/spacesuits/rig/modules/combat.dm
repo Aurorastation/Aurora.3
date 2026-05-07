@@ -260,8 +260,7 @@
 	icon_state = "plasmacutter"
 	interface_name = "plasma cutter"
 	interface_desc = "A self-sustaining plasma arc capable of cutting through walls."
-	suit_overlay_active = "plasmacutter"
-	suit_overlay_inactive = "plasmacutter"
+	suit_overlay_active = "mounted-plasmacutter"
 	construction_cost = list(MATERIAL_GLASS = 5250, DEFAULT_WALL_MATERIAL = 30000, MATERIAL_SILVER = 5250, MATERIAL_PHORON = 7250)
 	activates_on_touch = TRUE
 	construction_time = 300
