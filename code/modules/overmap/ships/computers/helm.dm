@@ -261,8 +261,8 @@
 			if(do_after(H, 1 SECOND) && connected.can_combat_roll())
 				visible_message(SPAN_DANGER("[H] tilts the yoke all the way to the [ndir == WEST ? "left" : "right"]!"))
 				connected.combat_roll(ndir)
-		if(!issilicon(usr))
-			var/mob/living/silicon/ai/H = usr
+		if(issilicon(usr))
+			var/mob/living/silicon = usr
 			var/dir_to_move = turn(connected.dir, ndir == WEST ? 90 : -90)
 			var/turf/new_turf = get_step(connected, dir_to_move)
 			if(new_turf.x > SSatlas.current_map.overmap_size || new_turf.y > SSatlas.current_map.overmap_size)
@@ -306,8 +306,8 @@
 				if(do_after(H, 1 SECOND) && connected.can_combat_turn())
 					visible_message(SPAN_DANGER("[H] twists the yoke all the way to the [ndir == WEST ? "left" : "right"]!"))
 					connected.combat_turn(ndir)
-			if(!issilicon(usr))
-				var/mob/living/silicon/ai/H = usr
+			if(issilicon(usr))
+				var/mob/living/silicon = usr
 				if(do_after(H, 1 SECOND) && connected.can_combat_turn())
 					visible_message(SPAN_DANGER("[H] remotely twists the yoke systematically all the way to the [ndir == WEST ? "left" : "right"]!"))
 					connected.combat_turn(ndir)
