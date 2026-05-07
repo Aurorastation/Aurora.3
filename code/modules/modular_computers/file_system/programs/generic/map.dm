@@ -3,8 +3,7 @@
 	filedesc = "Map Program"
 	extended_desc = "This program may be used to see the decks or levels of the vessel, station, or ship."
 	program_icon_state = "map"
-	program_key_icon_state = "lightblue_key"
-	color = LIGHT_COLOR_BLUE
+	program_key_icon_state = "black_key"
 	size = 4
 	requires_ntnet = TRUE
 	available_on_ntnet = TRUE

@@ -11,6 +11,7 @@
 #define SKILL_CATEGORY_EVERYDAY			"Everyday"
 	#define SKILL_SUBCATEGORY_SERVICE		"Service"
 	#define SKILL_SUBCATEGORY_MUNDANE		"Mundane"
+	#define SKILL_SUBCATEGORY_PHYSICAL		"Physical"
 
 /// Occupational skills are the skills necessary for you to do your job to a minimum degree.
 #define SKILL_CATEGORY_OCCUPATIONAL 	"Occupational"

@@ -86,8 +86,9 @@
 
 	// Damage to internal organs hurts a lot.
 	for(var/obj/item/organ/internal/I in internal_organs)
-		if(prob(1) && !((I.status & ORGAN_DEAD) || BP_IS_ROBOTIC(I)) && I.damage > 5)
+		if(prob(1) && !((I.status & ORGAN_DEAD) || BP_IS_ROBOTIC(I)) && I.damage > 5 && I.parent_organ)
 			var/obj/item/organ/external/parent = get_organ(I.parent_organ)
+			if (!parent) continue
 			var/pain = 10
 			var/message = I.unknown_pain_location ? "You feel a dull pain in your [parent.name]..." : "You feel a dull pain radiating from your [I.name]..."
 			if(I.is_bruised())

@@ -126,3 +126,7 @@
 // Various computer signals for interrupting via skill or other effects.
 #define COMSIG_USE_REACTOR_COMPUTER "use_reactor_computer"
 #define COMSIG_USE_MECH_FAB "use_mech_fab"
+
+// Surgery Signals
+/// Signal raised against the surgeon attempting to perform a surgery to query their components for any rate mods.
+#define COMSIG_GET_SURGERY_SUCCESS_MODIFIERS "get_surgery_success_modifiers"

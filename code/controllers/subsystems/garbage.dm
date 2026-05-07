@@ -312,6 +312,14 @@ SUBSYSTEM_DEF(garbage)
 			log_game("Error: [type]([refID]) took longer than [threshold] seconds to delete (took [round(time/10, 0.1)] seconds to delete)")
 			message_admins("Error: [type]([refID]) took longer than [threshold] seconds to delete (took [round(time/10, 0.1)] seconds to delete).")
 			type_info.qdel_flags |= QDEL_ITEM_ADMINS_WARNED
+			if(SSsentry)
+				SSsentry.capture_message(
+					"Hard delete overrun: [type] ([refID])",
+					"warning",
+					"garbage",
+					tags = list("datum_type" = "[type]"),
+					extra = list("ref_id" = refID, "time_ms" = tick_usage)
+				)
 		type_info.hard_deletes_over_threshold++
 		var/overrun_limit = 0 // Used to be CONFIG_GET(number/hard_deletes_overrun_limit)
 		if (overrun_limit && type_info.hard_deletes_over_threshold >= overrun_limit)

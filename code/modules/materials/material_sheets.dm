@@ -50,10 +50,6 @@
 
 	matter = material.get_matter()
 
-/obj/item/stack/material/Destroy()
-	material = null
-	return ..()
-
 /obj/item/stack/material/get_material()
 	return material
 

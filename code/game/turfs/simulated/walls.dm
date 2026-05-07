@@ -182,8 +182,9 @@
 	if(!can_melt())
 		return
 
-	new /obj/effect/overlay/burnt_wall(get_turf(src), name, material, reinf_material)
 	src.ChangeTurf(under_turf)
+	// Create a gooey mass of slag.
+	new /obj/effect/decal/cleanable/molten_item(src)
 
 	if(do_message)
 		visible_message(SPAN_DANGER("\The [src] spontaneously combusts!")) //!!OH SHIT!!

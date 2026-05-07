@@ -21,8 +21,16 @@
 
 	var/requires_surgery_compatibility = TRUE
 
-	/// The associative list of skills and their paired requirement levels to be able to perform a given surgery.
+	/**
+	 * The associative list of skills and their paired requirement levels to be able to perform a given surgery.
+	 * These are considered soft requirements, so if a surgery requires skill level 3 in something, and you're at level 1
+	 * Then the surgery will take a penalty of twice the skill_diff_fail_modifier (30% by default).
+	 * Exceeding the skill requirement can also offset having lower success rates from things like tools.
+	 */
 	var/alist/skill_requirements
+
+	/// The bonus (or penalty) fail rate to a surgery per point of skill diff. As a percent chance.
+	var/skill_diff_fail_modifier = SURGERY_DIFFICULTY_EASY
 
 /// Returns how well tool is suited for this step.
 /singleton/surgery_step/proc/tool_quality(obj/item/tool)
@@ -131,14 +139,6 @@
 		if(user.client) // In case of future autodocs.
 			S = tgui_input_list(user, "Which surgery would you like to perform?", "Surgery", possible_surgeries)
 
-	// Check via skill components if the user knows how to perform the surgery.
-	for (var/skill_comp, required_level in S.skill_requirements)
-		var/skill_level = GET_SKILL_LEVEL(user, skill_comp)
-		// Null condition handles NPCs and Antags that won't have the skill setup.
-		if (!isnull(skill_level) && skill_level < required_level)
-			to_chat(user, SPAN_WARNING("You lack the skills needed to perform this surgical procedure."))
-			return TRUE
-
 	// We didn't find a surgery, or decided not to perform one.
 	if(!istype(S))
 		if(tool.item_flags & ITEM_FLAG_SURGERY) //Is this supposed to be used for surgery?
@@ -155,7 +155,23 @@
 			M.op_stage.in_progress += list(zone = user)
 			S.begin_step(user, M, zone, tool)
 			var/duration = rand(S.min_duration, S.max_duration)
-			if(prob(S.tool_quality(tool)) && do_mob(user, M, duration) && !autofail)
+
+			// Get the base surgery success rate based on tools.
+			// This should eventually be reworked to use ToolQualityComponents when we add that.
+			var/success_rate = S.tool_quality(tool)
+
+			// Query the surgeon if they have any components that would like to modify the success chance.
+			SEND_SIGNAL(user, COMSIG_GET_SURGERY_SUCCESS_MODIFIERS, &success_rate)
+
+			// Skill modifier checks
+			for (var/skill_comp, required_level in S.skill_requirements)
+				var/skill_level = GET_SKILL_LEVEL(user, skill_comp)
+				// Null condition handles NPCs and Antags that won't have the skill setup.
+				if (!isnull(skill_level))
+					success_rate += (skill_level - required_level) * S.skill_diff_fail_modifier
+			// End of skill modifier checks
+
+			if(prob(success_rate) && do_mob(user, M, duration) && !autofail)
 				S.end_step(user, M, zone, tool)
 			else if ((tool in user.contents) && user.Adjacent(M))
 				S.fail_step(user, M, zone, tool)

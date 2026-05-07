@@ -122,32 +122,17 @@
 	/obj/item/gun/bang,
 	/obj/item/eightball,
 	/obj/item/bikehorn,
-	/obj/item/camera_film
+	/obj/item/camera_film,
+	/obj/item/ammo_magazine/caps,
+	/obj/item/pack,
+	/obj/item/storage/card,
+	/obj/item/music_cartridge
 	)
 	display_tiers = 4
 	display_tier_amt = 5
 
 /obj/machinery/smartfridge/tradeshelf/mouse_drop_receive(atom/dropping, mob/user, params)
 	LoadComponent(/datum/component/leanable, dropping)
-
-/obj/machinery/smartfridge/tradeshelf/attackby(obj/item/attacking_item, mob/user)
-	if(istype(attacking_item, /obj/item/commissary_restrock))
-		var/obj/item/commissary_restrock/P = attacking_item
-		var/item_loaded = 0
-		for(var/obj/G in P.contents)
-			if(accept_check(G))
-				if(length(contents) >= max_n_of_items)
-					break
-				P.remove_from_storage(G,src)
-				item_quants[G.name]++
-				item_loaded++
-		if(item_loaded)
-			user.visible_message("<b>[user]</b> loads [src] with [P].", SPAN_NOTICE("You load [src] with [P]."))
-			if(length(P.contents) > 0)
-				to_chat(user, SPAN_NOTICE("Some items are refused."))
-			update_icon()
-		return TRUE
-	. = ..()
 
 // -------------------------------------------------
 /obj/structure/cash_register/commissary
@@ -265,14 +250,24 @@
 		set_light(FALSE)
 		return
 
-/obj/item/commissary_restrock
+/obj/item/storage/box/fancy/commissary_restock
 	name = "commissary cigarette restock pack"
 	icon = 'icons/obj/storage/boxes.dmi'
 	icon_state = "commissary_restock"
 	item_state = "commissary_restock"
 	w_class = WEIGHT_CLASS_NORMAL
-	var/illustration = "sparkler"
-	var/starts_with = list(
+	illustration = "sparkler"
+	label = null
+	foldable = /obj/item/stack/material/cardboard
+	color = null
+	icon_overlays = FALSE
+	display_contents_with_number = TRUE
+	allow_quick_gather = TRUE
+	make_exact_fit = TRUE
+	can_hold_strict = TRUE
+	closable = FALSE
+	opened_icon_state = "commissary_restock_used"
+	starts_with = list(
 		// Cigarettes
 		/obj/item/storage/box/fancy/cigarettes/pra = 3,
 		/obj/item/storage/box/fancy/cigarettes/dpra = 3,
@@ -286,7 +281,12 @@
 		/obj/item/storage/box/fancy/cigarettes/cigar = 3
 	)
 
-/obj/item/commissary_restrock/rollable
+/obj/item/storage/box/fancy/commissary_restock/Initialize()
+	. = ..()
+	// The copy() at the end is required to avoid every line after this from imploding. Why? I have no idea. It just does.
+	can_hold = src.starts_with.Copy()
+
+/obj/item/storage/box/fancy/commissary_restock/rollable
 	name = "commissary tobacco leaves restock pack"
 	starts_with = list(
 		// Rollables
@@ -298,7 +298,7 @@
 		/obj/item/storage/chewables/rollable/vedamor = 3
 	)
 
-/obj/item/commissary_restrock/chewable
+/obj/item/storage/box/fancy/commissary_restock/chewable
 	name = "commissary chewing tobacco restock pack"
 	starts_with = list(
 		// Chewing tobacco
@@ -313,7 +313,7 @@
 		/obj/item/storage/chewables/solar_salve = 3
 	)
 
-/obj/item/commissary_restrock/smoking_accessory
+/obj/item/storage/box/fancy/commissary_restock/smoking_accessory
 	name = "commissary smoking accessories restock pack"
 	starts_with = list(
 		// Misc smoking
@@ -327,7 +327,7 @@
 		/obj/item/spacecash/ewallet/lotto = 8 // A bit of a risk that hangar techs may just use them instead of selling, but that should be handled IC as theft
 	)
 
-/obj/item/commissary_restrock/electronic_cig
+/obj/item/storage/box/fancy/commissary_restock/electronic_cig
 	name = "commissary electronic cigarette restock pack"
 	starts_with = list(
 		// Electronic
@@ -339,7 +339,7 @@
 		/obj/item/reagent_containers/ecig_cartridge/grape = 2
 	)
 
-/obj/item/commissary_restrock/food
+/obj/item/storage/box/fancy/commissary_restock/food
 	name = "commissary snack restock pack"
 	illustration = "snack"
 	starts_with = list(
@@ -361,7 +361,7 @@
 		/obj/item/reagent_containers/food/snacks/sosjerky = 3
 	)
 
-/obj/item/commissary_restrock/food/xeno
+/obj/item/storage/box/fancy/commissary_restock/food/xeno
 	name = "commissary xeno snack restock pack"
 	illustration = "snack"
 	starts_with = list(
@@ -381,7 +381,7 @@
 		/obj/item/reagent_containers/food/snacks/adhomian_can = 2,
 	)
 
-/obj/item/commissary_restrock/food/candy
+/obj/item/storage/box/fancy/commissary_restock/food/candy
 	name = "commissary candy restock pack"
 	starts_with = list(
 		// Candy
@@ -393,12 +393,12 @@
 		/obj/item/storage/box/fancy/vkrexitaffy = 3,
 		/obj/item/clothing/mask/chewable/candy/lolli = 5,
 		/obj/item/storage/box/fancy/admints = 3,
-		/obj/item/reagent_containers/food/drinks/bottle/bestblend,
-		/obj/item/storage/box/fancy/foysnack,
-		/obj/item/reagent_containers/food/snacks/choctruffles
+		/obj/item/reagent_containers/food/drinks/bottle/bestblend = 2,
+		/obj/item/storage/box/fancy/foysnack = 3,
+		/obj/item/reagent_containers/food/snacks/choctruffles = 3
 	)
 
-/obj/item/commissary_restrock/food/microwave
+/obj/item/storage/box/fancy/commissary_restock/food/microwave
 	name = "commissary microwave meal restock pack"
 	starts_with = list(
 		// Microwave meals
@@ -418,7 +418,7 @@
 		/obj/item/storage/box/unique/donkpockets = 3
 	)
 
-/obj/item/commissary_restrock/drink
+/obj/item/storage/box/fancy/commissary_restock/drink
 	name = "commissary drink restock pack"
 	illustration = "soda"
 	starts_with = list(
@@ -451,7 +451,7 @@
 		/obj/item/reagent_containers/food/drinks/carton/small/milk/strawberry = 5
 	)
 
-/obj/item/commissary_restrock/drink/booze_cheap
+/obj/item/storage/box/fancy/commissary_restock/drink/booze_cheap
 	name = "commissary cheap booze restock pack"
 	starts_with = list(
 		// Booze
@@ -465,60 +465,113 @@
 		/obj/item/reagent_containers/food/drinks/bottle/small/xuizijuice = 6
 	)
 
-/obj/item/commissary_restrock/Initialize(mapload, ...)
-	. = ..()
-	if(illustration)
-		var/image/illustration_img = image(icon, illustration)
-		illustration_img.appearance_flags |= RESET_COLOR
-		AddOverlays(illustration_img)
-	fill()
 
-/obj/item/commissary_restrock/proc/fill()
-	if(LAZYLEN(starts_with))
-		for(var/t in starts_with)
-			if(!ispath(t))
-				crash_with("[t] in [src]'s starts_with list is not a path!")
-				continue
-			for(var/i=0, i<starts_with[t], i++)
-				new t(src)
-	return
+/obj/item/storage/box/fancy/commissary_restock/toy
+	name = "commissary toy restock pack"
+	illustration = "checkers"
+	starts_with = list(
+		// Toys
+		/obj/item/toy/blink = 3,
+		/obj/item/storage/box/unique/snappops = 2,
+		/obj/item/toy/crossbow = 4,
+		/obj/item/toy/ammo/crossbow = 8,
+		/obj/item/toy/sword = 3,
+		/obj/item/toy/katana = 2,
+		/obj/item/gun/projectile/revolver/capgun = 2,
+		/obj/item/ammo_magazine/caps = 4,
+		/obj/item/toy/balloon = 4,
+		/obj/item/toy/waterballoon = 20
+	)
 
-/obj/item/commissary_restrock/mechanics_hints(mob/user, distance, is_adjacent)
+/obj/item/storage/box/fancy/commissary_restock/toy/cards_dice
+	name = "commissary card and dice restock pack"
+	starts_with = list(
+		// Cards
+		/obj/item/deck/cards = 5,
+		/obj/item/deck/tarot = 3,
+		/obj/item/deck/tarot/nralakk = 2,
+		/obj/item/deck/tarot/nonnralakk = 2,
+		/obj/item/deck/tarot/adhomai = 2,
+		/obj/item/pack/cardemon = 2,
+		/obj/item/pack/spaceball = 2,
+		/obj/item/storage/card = 4,
+		// Dice
+		/obj/item/storage/pill_bottle/dice = 2,
+		/obj/item/storage/pill_bottle/dice/gaming = 2,
+		/obj/item/storage/pill_bottle/dice/tajara = 2
+	)
+
+/obj/item/storage/box/fancy/commissary_restock/toy/mech
+	name = "commissary mech toy restock pack"
+	starts_with = list(
+		// Mech toys
+		/obj/item/toy/mech/ripley = 2,
+		/obj/item/toy/mech/fireripley = 2,
+		/obj/item/toy/mech/deathripley = 2,
+		/obj/item/toy/mech/gygax = 2,
+		/obj/item/toy/mech/durand = 2,
+		/obj/item/toy/mech/marauder = 2,
+		/obj/item/toy/mech/seraph = 2,
+		/obj/item/toy/mech/mauler = 2,
+		/obj/item/toy/mech/odysseus = 2,
+		/obj/item/toy/mech/phazon = 2
+	)
+
+/obj/item/storage/box/fancy/commissary_restock/toy/comic
+	name = "commissary comic restock pack"
+	starts_with = list(
+		// Comics
+		/obj/item/toy/comic = 2,
+		/obj/item/toy/comic/inspector = 2,
+		/obj/item/toy/comic/stormman = 2,
+		/obj/item/toy/comic/outlandish_tales = 2,
+		/obj/item/toy/comic/witchfinder = 2
+	)
+
+/obj/item/storage/box/fancy/commissary_restock/toy/comic/nka
+	starts_with = list(
+		// Comics
+		/obj/item/toy/comic/azmarian/issue_1 = 2,
+		/obj/item/toy/comic/azmarian/issue_2 = 2,
+		/obj/item/toy/comic/azmarian/issue_3 = 2,
+		/obj/item/toy/comic/azmarian/issue_4 = 2,
+		/obj/item/toy/comic/azmarian/issue_5 = 2,
+		/obj/item/toy/comic/azmarian/issue_6 = 2,
+		/obj/item/toy/comic/azmarian/issue_7 = 2,
+		/obj/item/toy/comic/azmarian/issue_8 = 2
+	)
+
+/obj/item/storage/box/fancy/commissary_restock/music
+	name = "commissary music restock pack"
+	illustration = "disk_kit"
+	starts_with = list(
+		// Music cartridges
+		/obj/item/music_cartridge/ss13 = 2,
+		/obj/item/music_cartridge/adhomai_swing = 2,
+		/obj/item/music_cartridge/adhomai_vibes = 2,
+		/obj/item/music_cartridge/europa_various = 2,
+		/obj/item/music_cartridge/konyang_retrowave = 2,
+		/obj/item/music_cartridge/venus_funkydisco = 2,
+		/obj/item/music_cartridge/xanu_rock = 2,
+		/obj/item/music_cartridge/audioconsole = 2,
+	)
+
+/obj/item/storage/box/fancy/commissary_restock/tea
+	name = "commissary tea restock pack"
+	illustration = "tea"
+	starts_with = list(
+		// Music cartridges
+	/obj/item/storage/box/unique/tea = 3,
+	/obj/item/storage/box/unique/tea/tieguanyin = 3,
+	/obj/item/storage/box/unique/tea/jaekseol = 3,
+	/obj/item/storage/box/unique/tea/messa = 3,
+	/obj/item/storage/box/unique/tea/rasnif = 3
+	)
+
+/obj/item/storage/box/fancy/commissary_restock/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	. += "This item can be used to restock the commissary shelves."
 	. += "Left-click on this when empty to fold it into a sheet if it is empty."
-
-/obj/item/commissary_restrock/attack_self(mob/user as mob)
-	. = ..()
-
-	if(contents.len)
-		to_chat(user, SPAN_NOTICE("There are still things left in \the [src]."))
-		return
-	to_chat(user, SPAN_NOTICE("You fold \the [src] flat."))
-	playsound(src.loc, 'sound/items/storage/boxfold.ogg', 30, 1)
-	var/obj/item/foldable = new /obj/item/stack/material/cardboard()
-	qdel(src)
-	user.put_in_hands(foldable) //try to put it inhands if possible
-
-/obj/item/commissary_restrock/proc/remove_from_storage(obj/item/W, atom/new_location)
-	if(!istype(W))
-		return FALSE
-
-	if(new_location)
-		W.forceMove(new_location)
-	else
-		W.forceMove(get_turf(src))
-
-	W.on_exit_storage(src)
-	update_icon()
-	return TRUE
-
-/obj/item/commissary_restrock/update_icon()
-	. = ..()
-
-	if(length(contents) == 0)
-		icon_state = "[initial(icon_state)]_used"
-		item_state = "[initial(item_state)]_used"
 
 /obj/structure/closet/crate/commissary
 	name = "commissary crate"
@@ -536,14 +589,14 @@
 /obj/structure/closet/crate/commissary/resupply
 
 /obj/structure/closet/crate/commissary/resupply/fill()
-	new /obj/item/commissary_restrock(src)
-	new /obj/item/commissary_restrock/rollable(src)
-	new /obj/item/commissary_restrock/chewable(src)
-	new /obj/item/commissary_restrock/smoking_accessory(src)
-	new /obj/item/commissary_restrock/electronic_cig(src)
-	new /obj/item/commissary_restrock/food(src)
-	new /obj/item/commissary_restrock/food/candy(src)
-	new /obj/item/commissary_restrock/food/xeno(src)
-	new /obj/item/commissary_restrock/food/microwave(src)
-	new /obj/item/commissary_restrock/drink(src)
-	new /obj/item/commissary_restrock/drink/booze_cheap(src)
+	new /obj/item/storage/box/fancy/commissary_restock/rollable(src)
+	new /obj/item/storage/box/fancy/commissary_restock/chewable(src)
+	new /obj/item/storage/box/fancy/commissary_restock/smoking_accessory(src)
+	new /obj/item/storage/box/fancy/commissary_restock(src)
+	new /obj/item/storage/box/fancy/commissary_restock/electronic_cig(src)
+	new /obj/item/storage/box/fancy/commissary_restock/food(src)
+	new /obj/item/storage/box/fancy/commissary_restock/food/candy(src)
+	new /obj/item/storage/box/fancy/commissary_restock/food/xeno(src)
+	new /obj/item/storage/box/fancy/commissary_restock/food/microwave(src)
+	new /obj/item/storage/box/fancy/commissary_restock/drink(src)
+	new /obj/item/storage/box/fancy/commissary_restock/drink/booze_cheap(src)

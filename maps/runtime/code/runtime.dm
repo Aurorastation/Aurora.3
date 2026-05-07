@@ -58,8 +58,13 @@
 	away_site_budget = 2
 	away_ship_budget = 2
 
-	map_shuttles = list(/datum/shuttle/autodock/overmap/runtime)
-	warehouse_basearea = /area/storage/primary
+	map_shuttles = list(
+		/datum/shuttle/autodock/overmap/runtime,
+		/datum/shuttle/autodock/ferry/supply/horizon,
+	)
+
+	warehouse_basearea = /area/storage/supply
+	warehouse_packagearea = /area/storage/supply/package
 
 /**
  * This file is the only location in which runtime map areas should be defined.
@@ -147,6 +152,16 @@
 	name = "Bridge Maintenance"
 	icon_state = "maintcentral"
 
+// Exterior
+/area/exterior
+	name = "Exterior"
+	icon_state = "exterior"
+	needs_starlight = TRUE
+	has_gravity = FALSE
+	station_area = TRUE
+	requires_power = FALSE
+	ambience = AMBIENCE_SPACE
+
 /// MEDICAL_AREAS
 /// OPERATIONS_AREAS
 
@@ -180,6 +195,15 @@
 	name = "Primary Tool Storage"
 	icon_state = "primarystorage"
 	allow_nightmode = 1
+
+/area/storage/supply
+	name = "Supply Storage"
+	icon_state = "dark128"
+
+/area/storage/supply/package
+	name = "Package Storage"
+	icon_state = "dark160"
+	requires_power = FALSE
 
 /// TCOMMS_AREAS
 /area/tcommsat

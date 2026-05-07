@@ -38,12 +38,15 @@
 
 /datum/beam/proc/Start()
 	recalculate()
-	recalculate_in(sleep_time)
 
 /datum/beam/proc/recalculate()
+	if(QDELETED(src))
+		return
+
 	if(recalculating)
 		recalculate_in(sleep_time)
 		return
+
 	recalculating = TRUE
 	timing_id = null
 	var/turf/origin_turf = get_turf(origin)
@@ -67,10 +70,12 @@
 	return
 
 /datum/beam/proc/recalculate_in(time)
+	if(QDELETED(src))
+		return
 	timing_id = addtimer(CALLBACK(src, PROC_REF(recalculate)), time, TIMER_STOPPABLE | TIMER_UNIQUE | TIMER_NO_HASH_WAIT | TIMER_OVERRIDE)
 
 /datum/beam/proc/after_calculate()
-	if((sleep_time == null) || finished)	//Does not automatically recalculate.
+	if(QDELETED(src) || (sleep_time == null) || finished)	//Does not automatically recalculate.
 		return
 	timing_id = addtimer(CALLBACK(src, PROC_REF(recalculate)), sleep_time, TIMER_STOPPABLE | TIMER_UNIQUE | TIMER_NO_HASH_WAIT)
 
@@ -82,16 +87,17 @@
 		qdel(src)
 
 /datum/beam/proc/Reset()
-	for(var/obj/effect/ebeam/B in elements)
-		qdel(B)
-	elements.Cut()
+	QDEL_LIST(elements)
 
 /datum/beam/Destroy()
 	if(timing_id)
 		deltimer(timing_id)
+	timing_id = null
 	Reset()
 	target = null
 	origin = null
+	target_oldloc = null
+	origin_oldloc = null
 	return ..()
 
 /datum/beam/proc/Draw()

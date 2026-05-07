@@ -62,10 +62,6 @@
 	if (src && usr && usr.machine == src)
 		usr << browse(null, "window=stack")
 		usr.unset_machine()
-
-	recipes = null
-	build_type = null
-	synths = null
 	return ..()
 
 /obj/item/stack/update_icon()

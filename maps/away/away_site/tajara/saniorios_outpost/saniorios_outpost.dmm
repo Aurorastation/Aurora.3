@@ -3348,6 +3348,7 @@
 "Yj" = (
 /obj/structure/table/standard,
 /obj/item/flashlight/lamp,
+/obj/item/eftpos,
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},

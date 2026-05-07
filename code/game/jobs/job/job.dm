@@ -2,11 +2,8 @@
 	/// The name of the job.
 	var/title = "NOPE"
 
-	/// Job access. The use of minimal_access or access is determined by a config setting: config.jobs_have_minimal_access
-	/// Useful for servers which prefer to only have access given to the places a job absolutely needs (Larger server population)
-	var/list/minimal_access = list()
-	/// Useful for servers which either have fewer players, so each person needs to fill more than one role, or servers which like to give more access, so players can't hide forever in their super secure departments (I'm looking at you, chemistry!)
-	var/list/access = list()
+	/// Job access.
+	var/list/job_access = list()
 
 	/// Bitflags for the job.
 	var/flag = 0
@@ -197,10 +194,7 @@
 /datum/job/proc/get_access(selected_title)
 	SHOULD_NOT_SLEEP(TRUE)
 
-	if(!GLOB.config || GLOB.config.jobs_have_minimal_access)
-		. = minimal_access.Copy()
-	else
-		. = access.Copy()
+	. = job_access.Copy()
 
 	if (LAZYLEN(title_accesses) && title_accesses[selected_title])
 		. += title_accesses[selected_title]

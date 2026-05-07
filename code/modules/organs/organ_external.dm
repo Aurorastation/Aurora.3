@@ -783,7 +783,7 @@ This function completely restores a damaged organ to perfect condition.
 		return TRUE
 	return FALSE
 
-/obj/item/organ/external/process()
+/obj/item/organ/external/process(seconds_per_tick)
 	if(owner)
 		//Specialized handling for tesla limbs. Checks if the limb currently has an associated tesla spine. Else, will disable the emissive and active overlays
 		if(is_tesla)
@@ -815,7 +815,7 @@ This function completely restores a damaged organ to perfect condition.
 			N.handle_nymph(src)
 
 		if(surge_damage && (status & ORGAN_ASSISTED))
-			tick_surge_damage() //Yes, this being here is intentional since this proc does not call ..() unless the owner is null.
+			tick_surge_damage(seconds_per_tick) //Yes, this being here is intentional since this proc does not call ..() unless the owner is null.
 
 		//Infections
 		update_germs()
