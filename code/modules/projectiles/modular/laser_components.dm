@@ -40,6 +40,7 @@
 /obj/item/laser_components/capacitor/highcap
 	name = "high-capacity capacitor"
 	desc = "A capacitor with increased charge capacity, at the cost of peak output"
+	icon_state = "reinforced_capacitor"
 	reliability = 45
 	shots = 15
 	damage = 8
@@ -47,6 +48,7 @@
 /obj/item/laser_components/capacitor/highpower
 	name = "overclocked capacitor"
 	desc = "A capacitor withhigher output, at the cost of total charge."
+	icon_state = "reinforced_capacitor"
 	damage = 20
 	shots = 4
 	reliability = 45
@@ -264,7 +266,7 @@
 
 /obj/item/laser_components/modifier/auxiliarycap
 	name = "auxiliary capacitor"
-	desc = "A string of sub-capacitors along the central capacitor moderate its discharge, increasing capacitor efficiency by reducing peak output."
+	desc = "A string of sub-capacitors along the central capacitor moderates its discharge, increasing capacitor efficiency by reducing peak output."
 	base_malus = 3
 	malus = 3
 	reliability = -10

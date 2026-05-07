@@ -1231,8 +1231,6 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 	. += "Penetration: [armor_penetration]<br>"
 	. += "Throw Force: [throwforce]<br>"
 
-
-
 /obj/item/proc/use_resource(var/mob/user, var/use_amount)
 	return
 

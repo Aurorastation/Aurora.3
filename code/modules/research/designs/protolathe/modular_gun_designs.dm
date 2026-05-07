@@ -43,6 +43,16 @@
 	materials = list(DEFAULT_WALL_MATERIAL = 4000)
 	build_path = /obj/item/laser_components/capacitor/reinforced
 
+/datum/design/item/modular_weapon/modular_capacitor_highcap
+	req_tech = list(TECH_POWER = 3, TECH_ENGINEERING = 3)
+	materials = list(DEFAULT_WALL_MATERIAL = 4000, MATERIAL_GLASS = 1000, MATERIAL_PHORON = 500)
+	build_path = /obj/item/laser_components/capacitor/highcap
+
+/datum/design/item/modular_weapon/modular_capacitor_highpower
+	req_tech = list(TECH_POWER = 3, TECH_ENGINEERING = 3)
+	materials = list(DEFAULT_WALL_MATERIAL = 4000, MATERIAL_GLASS = 1000, MATERIAL_PHORON = 500)
+	build_path = /obj/item/laser_components/capacitor/highpower
+
 /datum/design/item/modular_weapon/modular_nuke
 	req_tech = list(TECH_POWER = 5, TECH_ENGINEERING = 5)
 	materials = list(DEFAULT_WALL_MATERIAL = 4000, MATERIAL_URANIUM = 1000)
