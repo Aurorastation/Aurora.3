@@ -16,10 +16,10 @@ def check_forbidden_types():
 
     # Loop through each forbidden type mapping
     for mapping in data["forbidden_type_mappings"]:
-        reason = mapping["reason"]
+        title = mapping["title"]
         maps = mapping["maps"]
         forbidden_types = mapping["forbidden_types"]
-        print(f"Linting step: {reason}")
+        print(f"Linting step - {title}")
         print(f"  - Maps: {', '.join(maps)}")
         print(f"  - Forbidden types: {', '.join(forbidden_types)}")
 
@@ -34,7 +34,7 @@ def check_forbidden_types():
 
             # Check if map file was found
             if map_path is None:
-                missing_maps.append(f"- {map_name}")
+                missing_maps.append(f"- {map_name} (step: {title})")
                 failed = True
                 break
 
@@ -45,7 +45,7 @@ def check_forbidden_types():
             # Search for each forbidden type
             for forbidden_type in forbidden_types:
                 if forbidden_type in map_content:
-                    illegal_types.append(f"- {map_name} - {forbidden_type} ({reason})")
+                    illegal_types.append(f"- {map_name} - {forbidden_type} (step: {title})")
                     failed = True
 
     # Print results
