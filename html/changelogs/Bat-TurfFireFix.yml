@@ -2,5 +2,6 @@ author: Batrachophrenoboocosmomachia
 delete-after: True
 changes:
   - bugfix: "Fixes turf fires not spreading."
+  - bugfix: "Fixes atmos fires not consistently igniting."
   - bugfix: "Fixes dead mobs burning forever."
-  - bugfix: "Fixes fire_act() runtime called by turf fires."
+  - bugfix: "Fixes fire_act() runtimes for multiple objects."

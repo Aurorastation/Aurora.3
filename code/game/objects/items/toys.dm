@@ -181,7 +181,7 @@
 /obj/item/toy/balloon/fire_act(exposed_temperature, exposed_volume)
 	. = ..()
 
-	if(temperature > T0C+100)
+	if(exposed_temperature > T0C+100)
 		burst()
 	return
 
