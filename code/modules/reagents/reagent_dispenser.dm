@@ -126,6 +126,7 @@
 	icon_state = "extinguisher_tank"
 	amount_per_transfer_from_this = 150
 	reagents_to_add = list(/singleton/reagent/toxin/fertilizer/monoammoniumphosphate = 1000)
+	is_persistent = TRUE
 
 // Tanks
 /obj/structure/reagent_dispensers/watertank
@@ -134,6 +135,7 @@
 	icon_state = "watertank"
 	amount_per_transfer_from_this = 300
 	reagents_to_add = list(/singleton/reagent/water = 1000)
+	is_persistent = TRUE
 
 /obj/structure/reagent_dispensers/lube
 	name = "lube tank"
@@ -152,6 +154,7 @@
 	var/armed = 0
 	var/obj/item/assembly_holder/rig = null
 	reagents_to_add = list(/singleton/reagent/fuel = 1000)
+	is_persistent = TRUE
 
 /obj/structure/reagent_dispensers/fueltank/feedback_hints(mob/user, distance, is_adjacent)
 	. += ..()
