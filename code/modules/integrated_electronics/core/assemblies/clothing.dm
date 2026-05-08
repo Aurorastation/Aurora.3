@@ -221,7 +221,8 @@
 	return ..()
 
 // Ear
-/obj/item/radio/headset/circuitry
+/obj/item/clothing/ears/circuitry
+	parent_type = /obj/item/radio/headset/circuitry
 	name = "electronic earwear"
 	desc = "It's a wearable case for electronics. This one appears to be a technical-looking headset."
 	icon = 'icons/obj/assemblies/wearable_electronic_setups.dmi'
@@ -231,11 +232,11 @@
 	ks1type = null
 	ks2type = null
 
-/obj/item/radio/headset/circuitry/Initialize()
+/obj/item/clothing/ears/circuitry/Initialize()
 	. = ..()
 	setup_integrated_circuit(/obj/item/electronic_assembly/clothing/small)
 
-/obj/item/radio/headset/circuitry/build_additional_parts(mob/living/carbon/human/H, mob_icon, slot)
+/obj/item/clothing/ears/circuitry/build_additional_parts(mob/living/carbon/human/H, mob_icon, slot)
 	var/static/list/valid_slots
 	if(!valid_slots)
 		valid_slots = list(slot_l_ear_str, slot_r_ear_str)
@@ -244,7 +245,7 @@
 		return electronic_overlay
 	return ..()
 
-/obj/item/radio/headset/circuitry/proc/get_wearer()
+/obj/item/clothing/ears/circuitry/proc/get_wearer()
 	if(ishuman(loc))
 		var/mob/living/carbon/human/H = loc
 		if(H.l_ear == src || H.r_ear == src)
