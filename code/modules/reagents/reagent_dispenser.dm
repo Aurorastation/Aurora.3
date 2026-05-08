@@ -12,6 +12,7 @@
 	var/capacity = 1000
 	var/can_tamper = TRUE
 	var/is_leaking = FALSE
+	var/is_persistent = FALSE
 
 /obj/structure/reagent_dispensers/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()
@@ -31,6 +32,23 @@
 	create_reagents(capacity)
 	if (!possible_transfer_amounts)
 		src.verbs -= /obj/structure/reagent_dispensers/verb/set_APTFT
+	if(is_persistent)
+		SSpersistence.objectsRegisterTrack(src)
+
+/obj/structure/reagent_dispensers/persistent_objects_get_content()
+	var/list/content = ..()
+	content["remaining_volume"] = reagents ? reagents.total_volume : 0
+	return content
+
+/obj/structure/reagent_dispensers/persistent_objects_apply_content(content, x, y, z)
+	src.x = x
+	src.y = y
+	src.z = z
+	if(!content["remaining_volume"] || content["remaining_volume"] <= 0)
+		qdel(src)
+	if(reagents)
+		qdel(reagents)
+	create_reagents(content["remaining_volume"])
 
 /obj/structure/reagent_dispensers/verb/set_APTFT() //set amount_per_transfer_from_this
 	set name = "Set transfer amount"
@@ -55,6 +73,9 @@
 			return
 		if (usr.a_intent == I_HELP)
 			RG.standard_dispenser_refill(user,src)
+			if(!reagents || !reagents.total_volume)
+				SSpersistence.objectsDeregisterTrack(src)
+				return
 			playsound(src.loc, 'sound/machines/reagent_dispense.ogg', 25, 1)
 		else
 			if(!accept_any_reagent)
@@ -103,7 +124,7 @@
 	name = "extinguisher tank"
 	desc = "A tank filled with extinguisher fluid."
 	icon_state = "extinguisher_tank"
-	amount_per_transfer_from_this = 30
+	amount_per_transfer_from_this = 150
 	reagents_to_add = list(/singleton/reagent/toxin/fertilizer/monoammoniumphosphate = 1000)
 
 // Tanks
