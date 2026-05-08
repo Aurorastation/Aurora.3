@@ -107,7 +107,7 @@
 	emote_hear = list("glubs", "glubs")
 	sad_emote = list("sad glubs", "pained glubs")
 	emote_sounds = NONE
-	attack_sound = NONE
+	attack_sound = 'sound/weapons/bite.ogg'
 	meat_type = /obj/item/reagent_containers/food/snacks/fish/carpmeat
 	butchering_products = list(/obj/item/reagent_containers/food/snacks/fish/roe = 1)
 	organ_names = list("head", "chest", "tail", "left flipper", "right flipper")
