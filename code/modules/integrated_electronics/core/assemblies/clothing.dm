@@ -75,7 +75,7 @@
 		clothing.name = input_name
 
 // This is defined higher up, in /clothing to avoid lots of copypasta.
-/obj/item/clothing
+/obj/item
 	var/obj/item/electronic_assembly/clothing/IC = null
 	var/obj/item/integrated_circuit/built_in/action_button/action_circuit = null // This gets pulsed when someone clicks the button on the hud, OR when certain interactions are performed (such as clicking on something with gloves worn)
 
@@ -91,7 +91,7 @@
 		..()
 
 // Does most of the repeatative setup.
-/obj/item/clothing/proc/setup_integrated_circuit(new_type)
+/obj/item/proc/setup_integrated_circuit(new_type)
 	// Set up the internal circuit holder.
 	IC = new new_type(src)
 	IC.clothing = src
@@ -257,6 +257,8 @@
 	contained_sprite = TRUE
 	icon_state = "headset"
 	item_state = "headset"
+	ks1type = null
+	ks2type = null
 
 	// Empty by default, but can accept encryption keys through normal headset attackby().
 	ks1type = null
