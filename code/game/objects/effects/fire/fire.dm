@@ -160,7 +160,7 @@
 			other_tile.hotspot_expose(effective_temperature)
 
 	for(var/atom/movable/burning_atom as anything in T)
-		burning_atom.fire_act(effective_temperature, TURF_FIRE_VOLUME)
+		burning_atom.fire_act(exposed_temperature = effective_temperature, exposed_volume = TURF_FIRE_VOLUME)
 
 	UpdateFireState()
 	if(!interact_with_atmos || prob(fire_power) || !istype(T, /turf/simulated/floor))
