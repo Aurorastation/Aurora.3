@@ -41,6 +41,9 @@
 	HTML += "<a href='byond://?src=[REF(src)];flavor_change=feet'>Feet:</a> "
 	HTML += TextPreview(flavor_texts["feet"])
 	HTML += "<br>"
+	HTML += "<a href='byond://?src=[REF(src)];flavor_change=accent'>Accent:</a> "
+	HTML += TextPreview(flavor_texts["accent"])
+	HTML += "<br>"
 	HTML += "<hr />"
 	HTML +="<a href='byond://?src=[REF(src)];flavor_change=done'>\[Done\]</a>"
 	HTML += "<tt>"
