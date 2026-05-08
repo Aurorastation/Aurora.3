@@ -44,11 +44,9 @@
 	src.x = x
 	src.y = y
 	src.z = z
-	if(!content["remaining_volume"] || content["remaining_volume"] <= 0)
+	if(!content["remaining_volume"] || content["remaining_volume"] <= 0 || !reagents)
 		qdel(src)
-	if(reagents)
-		qdel(reagents)
-	create_reagents(content["remaining_volume"])
+	reagents.total_volume = content["remaining_volume"]
 
 /obj/structure/reagent_dispensers/verb/set_APTFT() //set amount_per_transfer_from_this
 	set name = "Set transfer amount"
