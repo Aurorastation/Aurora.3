@@ -47,7 +47,7 @@
 		clothing.name = input_name
 
 // This is defined higher up, in /clothing to avoid lots of copypasta.
-/obj/item/clothing
+/obj/item
 	var/obj/item/electronic_assembly/clothing/IC = null
 	var/obj/item/integrated_circuit/built_in/action_button/action_circuit = null // This gets pulsed when someone clicks the button on the hud, OR when certain interactions are performed (such as clicking on something with gloves worn)
 
@@ -63,7 +63,7 @@
 		..()
 
 // Does most of the repeatative setup.
-/obj/item/clothing/proc/setup_integrated_circuit(new_type)
+/obj/item/proc/setup_integrated_circuit(new_type)
 	// Set up the internal circuit holder.
 	IC = new new_type(src)
 	IC.clothing = src
@@ -221,19 +221,21 @@
 	return ..()
 
 // Ear
-/obj/item/clothing/ears/circuitry
+/obj/item/radio/headset/circuitry
 	name = "electronic earwear"
 	desc = "It's a wearable case for electronics. This one appears to be a technical-looking headset."
 	icon = 'icons/obj/assemblies/wearable_electronic_setups.dmi'
 	contained_sprite = TRUE
 	icon_state = "headset"
 	item_state = "headset"
+	ks1type = null
+	ks2type = null
 
-/obj/item/clothing/ears/circuitry/Initialize()
+/obj/item/radio/headset/circuitry/Initialize()
+	. = ..()
 	setup_integrated_circuit(/obj/item/electronic_assembly/clothing/small)
-	return ..()
 
-/obj/item/clothing/ears/circuitry/build_additional_parts(mob/living/carbon/human/H, mob_icon, slot)
+/obj/item/radio/headset/circuitry/build_additional_parts(mob/living/carbon/human/H, mob_icon, slot)
 	var/static/list/valid_slots
 	if(!valid_slots)
 		valid_slots = list(slot_l_ear_str, slot_r_ear_str)
@@ -241,6 +243,13 @@
 		var/image/electronic_overlay = overlay_image(icon, "[item_state][slot_str_to_contained_flag(slot)]-color", IC.detail_color, RESET_COLOR)
 		return electronic_overlay
 	return ..()
+
+/obj/item/radio/headset/circuitry/proc/get_wearer()
+	if(ishuman(loc))
+		var/mob/living/carbon/human/H = loc
+		if(H.l_ear == src || H.r_ear == src)
+			return H
+	return null
 
 // Exo-slot
 /obj/item/clothing/suit/circuitry
