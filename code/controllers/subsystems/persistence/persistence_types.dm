@@ -32,7 +32,7 @@
 	if(history_last_database_id == 0)
 		log_subsystem_persistence_warning("Failed to get last ID of persistent type history records from the database during initialization. Either the table is empty or something went wrong.")
 	history_virtual_id = history_last_database_id
-	history_cache = list()
+	history_cache = alist()
 
 	// Clean history records
 	for(var/type_combination in historyDatabaseGetTypeAttributeCombinations()) // Iterate through each distinct type+attribute combination
@@ -59,9 +59,12 @@
 	// ### Generics
 
 	// Init internal generic cache
-	generic_cache = list()
+	generic_cache = alist()
 	// Cleanup
 	genericDatabaseCleanup()
+
+	// ### Char lookup
+	char_cache = alist()
 
 /**
  * Finalize persistent types.
@@ -83,11 +86,11 @@
 		try
 			type_instance.finalization_hook()
 		catch(var/exception/e)
-			log_subsystem_persistence_error("Unhandled exception during [type_instance]: [e]")
+			log_subsystem_persistence_error("Unhandled exception during finalization_hook of [type_instance]: [e]")
 
 	// ##### Saving history
-	for(var/kvp in history_cache)
-		var/datum/persistent_record_container/container = kvp[2] // Dictionary<"[type](+[attribute])", container>
+	for(var/key in history_cache)
+		var/datum/persistent_record_container/container = history_cache[key] // Dictionary<"[type](+[attribute])", container>
 		if(!length(container.records)) // Container was queried, got no hits and nothing was added.
 			continue
 		var/list/datum/persistent_record/new_records = list()
@@ -101,8 +104,8 @@
 		log_subsystem_persistence_info("Saved new [length(new_records)] persistent history records.")
 
 	// ##### Saving generics
-	for(var/kvp in generic_cache)
-		var/datum/persistent_generic/container = kvp[2] // Dictionary<"[type](+[attribute])", container>
+	for(var/key in generic_cache)
+		var/datum/persistent_generic/container = generic_cache[key] // Dictionary<"[type](+[attribute])", container>
 		var/singleton/persistent_type/type_instance = GET_SINGLETON(container.type_define)
 		genericDatabaseSave(type_instance.database_id, container.attribute, container.expires_in_days, json_encode(container.content))
 	log_subsystem_persistence_info("Saved [length(generic_cache)] persistent generics.")

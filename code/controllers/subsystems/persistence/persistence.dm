@@ -19,7 +19,7 @@ SUBSYSTEM_DEF(persistence)
 	/// In-memory register of all persistent objects that were loaded or created during the round, used for tracking and finalization purposes.
 	var/object_track_register = list()
 	/// Dictionary<"[type](+[attribute])" cache of persistent history records.
-	var/history_cache = list()
+	var/history_cache = alist()
 	/// Manual record counter of cache containers.
 	var/history_cache_count = 0
 	/// ID of last found history record.
@@ -30,9 +30,9 @@ SUBSYSTEM_DEF(persistence)
 	/// Their database ID will be set during insert/finalization.
 	var/history_virtual_id = 0
 	/// Dictionary<char_id, charname> cache of Character name by ID for history/character helper.
-	var/char_cache = list()
+	var/char_cache = alist()
 	/// Dictionary<"[type](+[attribute])", container> cache of persistent generics.
-	var/generic_cache = list()
+	var/generic_cache = alist()
 
 /**
  * Subsystem info stub message generation.
