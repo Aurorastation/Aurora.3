@@ -94,7 +94,7 @@
 			if(record.id > history_last_database_id) // ID assigned by virtual ID is larger then last known database ID, record is new and needs to be saved.
 				new_records += record
 		sortTim(new_records, /proc/cmp_persistent_record_id_asc) // Sort by ID to preserve creation order, as the virtual IDs get replaced by real database IDs.
-		for(var/datum/persistent_record/r in new_records)
+		for(var/datum/persistent_record/record in new_records)
 			var/singleton/persistent_type/type_instance = GET_SINGLETON(container.type_define)
 			historyDatabaseInsertRecord(type_instance.database_id, container.attribute, record.value)
 		log_subsystem_persistence_info("Saved new [length(new_records)] persistent history records.")
