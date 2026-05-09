@@ -39,7 +39,7 @@
 		return 0
 
 	var/datum/db_query/query = SSdbcore.NewQuery(
-		"SELECT id FROM ss13_persistent_type_defines WHERE type = :type_name",
+		"SELECT id FROM ss13_persistent_type_definitions WHERE type = :type_name",
 		list("type_name" = type_name)
 	)
 	query.Execute()
