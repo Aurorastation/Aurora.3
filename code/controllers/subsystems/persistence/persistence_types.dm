@@ -83,7 +83,7 @@
 		try
 			type_instance.finalization_hook()
 		catch(var/exception/e)
-			log_subsystem_persistence_error("Unhandled exception during [T]: [e]")
+			log_subsystem_persistence_error("Unhandled exception during [type_instance]: [e]")
 
 	// ##### Saving history
 	for(var/datum/persistent_record_container/c as anything in history_cache)
