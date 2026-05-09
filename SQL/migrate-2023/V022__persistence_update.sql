@@ -8,6 +8,7 @@ ALTER TABLE `ss13_persistent_objects` MODIFY COLUMN `content` MEDIUMTEXT NULL;
 CREATE TABLE `ss13_persistent_type_definitions` (
     `id` INT AUTO_INCREMENT PRIMARY KEY,
     `type` VARCHAR(128) NOT NULL UNIQUE,
+    `title` VARCHAR(128) NOT NULL,
     `description` VARCHAR(256) NOT NULL,
     `definition_type` INT NOT NULL COMMENT '1 = GENERIC, 2 = HISTORY'
 );
