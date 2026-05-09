@@ -34,7 +34,6 @@ CREATE TABLE `ss13_persistent_history` (
     `value` VARCHAR(64) NOT NULL,
     `game_id` VARCHAR(30) NOT NULL,
     CONSTRAINT `fk_history_type_definition` FOREIGN KEY (`type`) REFERENCES `ss13_persistent_type_definitions` (`id`),
-    CONSTRAINT `unique_history_created_value` UNIQUE (`created_at`, `value`),
     INDEX `idx_history_created_at` (`created_at`),
     INDEX `idx_history_attribute` (`attribute`)
 );
