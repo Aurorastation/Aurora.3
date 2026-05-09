@@ -19,11 +19,10 @@
 	var/custom_types = typesof(/singleton/persistent_type) - base_types // These are the types we are actually dealing with
 
 	// Upsert all persistent type definitions found in code
-	for (var/singleton/persistent_type/T in custom_types)
+	// Whether or not it's new, get its database ID
+	for (var/C in custom_types)
+		var/singleton/persistent_type/T = GET_SINGLETON(C)
 		typesDatabaseUpsertType("[T]", T.title, T.description, T.definition_type_value)
-
-	// For each in code existing type definition retrieve it's ID
-	for (var/singleton/persistent_type/T in custom_types)
 		T.database_id = typesDatabaseGetTypeIdByName("[T]")
 
 	// ### Records
@@ -41,7 +40,8 @@
 		var/type_id = type_combination["type_id"]
 		var/attribute = type_combination["attribute"]
 		var/singleton/persistent_type/history/found_type
-		for (var/singleton/persistent_type/T in custom_types)
+		for (var/C in custom_types)
+			var/singleton/persistent_type/T = GET_SINGLETON(C)
 			if(istype(T, /singleton/persistent_type/history) && T.database_id == type_id)
 				found_type = T
 		if(!found_type)
