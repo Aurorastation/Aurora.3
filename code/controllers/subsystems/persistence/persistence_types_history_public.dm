@@ -234,53 +234,13 @@
 
 	var/singleton/persistent_type/type_instance = GET_SINGLETON(target_type)
 	var/list/result = list()
-	for(var/attribute in historyDatabaseGetAllAttributes(type_instance.database_id))
-		// Query order
-		// 1 - Check if record container exists, if so, check if last X records are in there, aggregate found records, step to DB (2) for missing remainders.
-		// 2 - Query database for last X records of type and add it to record container as new cache
 
-		var/datum/persistent_record_container/container = null
-		if(attribute) // Search for attribute
-			for(var/datum/persistent_record_container/c as anything in history_cache)
-				if(c.type_define == target_type && c.attribute == attribute)
-					container = c
-					break
-		else // Try finding type if no attribute
-			container = history_cache[target_type]
-
-		var/list/datum/persistent_record/top = list()
-
-		// Query order - 1
-		if(container)
-			top = typesHistoryCacheSelectTopK(limit, container)
-			if(length(top) == limit) // All X records got hit in cache, return
-				result += list("attribute" = attribute, "records" = top)
-		else
-			container = new /datum/persistent_record_container
-			container.type_define = target_type.type
-			container.attribute = attribute
-			container.records = list()
-			history_cache[target_type] = container
-
-		// Query order - 2
-		var/list/db_records = historyDatabaseGetRecords(type_instance.database_id, attribute, limit - length(top)) // Draw remaining missing records from DB
-		var/len = length(db_records)
-		if(!len)
-			result += list("attribute" = attribute, "records" = list())
-
-		if(!skip_caching)
-			history_cache_count += len
-
-		for(var/record in db_records)
-			var/datum/persistent_record/r = new /datum/persistent_record
-			r.id = record["id"]
-			r.created_at = record["created_at"]
-			r.value = record["value"]
-			if(!skip_caching)
-				container.records += r // Add to cache
-			top += r // Records in top are either newly created or read from DB already, append newly queries records.
-
-		result += list("attribute" = attribute, "records" = top)
+	var/attributes = historyDatabaseGetAllAttributes(type_instance.database_id)
+	if(attributes && length(attributes) > 0)
+		for(var/attribute in attributes)
+			result += list("attribute" = attribute, "records" = historyGetAllRecords(target_type, attribute, skip_caching))
+	else
+		result = list("attributer" = null, "records" = historyGetAllRecords(target_type, null, skip_caching))
 	return result
 
 /**
