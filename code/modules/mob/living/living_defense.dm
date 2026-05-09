@@ -445,7 +445,7 @@
 		return TRUE
 
 	// If we're dead, slowly put out the fire.
-	if((stat & DEAD) && fire_stacks > 0 )
+	if(((stat & DEAD) || (status_flags & FAKEDEATH)) && fire_stacks > 0 )
 		fire_stacks--
 
 	else if(fire_stacks <= 0)
