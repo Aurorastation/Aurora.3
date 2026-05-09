@@ -86,7 +86,8 @@
 			log_subsystem_persistence_error("Unhandled exception during [type_instance]: [e]")
 
 	// ##### Saving history
-	for(var/datum/persistent_record_container/container in history_cache)
+	for(var/kvp in history_cache)
+		var/datum/persistent_record_container/container = kvp[2] // Dictionary<"[type](+[attribute])", container>
 		if(!length(container.records)) // Container was queried, got no hits and nothing was added.
 			continue
 		var/list/datum/persistent_record/new_records = list()
@@ -100,7 +101,8 @@
 		log_subsystem_persistence_info("Saved new [length(new_records)] persistent history records.")
 
 	// ##### Saving generics
-	for(var/datum/persistent_generic/container in generic_cache)
+	for(var/kvp in generic_cache)
+		var/datum/persistent_generic/container = kvp[2] // Dictionary<"[type](+[attribute])", container>
 		var/singleton/persistent_type/type_instance = GET_SINGLETON(container.type_define)
 		genericDatabaseSave(type_instance.database_id, container.attribute, container.expires_in_days, json_encode(container.content))
 	log_subsystem_persistence_info("Saved [length(generic_cache)] persistent generics.")

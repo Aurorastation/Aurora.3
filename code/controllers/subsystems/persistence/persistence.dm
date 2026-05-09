@@ -18,7 +18,7 @@ SUBSYSTEM_DEF(persistence)
 	var/prevent_saving = FALSE
 	/// In-memory register of all persistent objects that were loaded or created during the round, used for tracking and finalization purposes.
 	var/object_track_register = list()
-	/// Dictionary<type, container> cache of persistent history records.
+	/// Dictionary<"[type](+[attribute])" cache of persistent history records.
 	var/history_cache = list()
 	/// Manual record counter of cache containers.
 	var/history_cache_count = 0
@@ -31,7 +31,7 @@ SUBSYSTEM_DEF(persistence)
 	var/history_virtual_id = 0
 	/// Dictionary<char_id, charname> cache of Character name by ID for history/character helper.
 	var/char_cache = list()
-	/// Dictionary<type, container> cache of persistent generics.
+	/// Dictionary<"[type](+[attribute])", container> cache of persistent generics.
 	var/generic_cache = list()
 
 /**
