@@ -228,7 +228,9 @@
 		for(var/attribute in attributes)
 			result += list("attribute" = attribute, "records" = historyGetAllRecords(target_type, attribute, skip_caching))
 	else
-		result = list("attributer" = null, "records" = historyGetAllRecords(target_type, null, skip_caching))
+		var/no_attribute_records = historyGetAllRecords(target_type, null, skip_caching)
+		if(no_attribute_records && length(no_attribute_records) > 0)
+			result = list("attribute" = null, "records" = no_attribute_records)
 	return result
 
 /**
