@@ -180,9 +180,9 @@
 		ship.x = horizon_location_generic.content["x"]
 		ship.y = horizon_location_generic.content["y"]
 		// Make safe space for the Horizon
-		for(var/obj/effect/overmap/O in map)
-			if(istype(O, /obj/effect/overmap/event/)) // Ions, dust, carps, meteors, etc.
-				qdel(O)
+		for(var/obj/effect/overmap/hazard in map)
+			if(hazard.x = ship.x && hazard.y == ship.y && istype(hazard, /obj/effect/overmap/event/)) // Ions, dust, carps, meteors, etc.
+				qdel(hazard)
 
 	// ##### Send different faxes after slight delay
 	var/faxes_send_delay = rand(60 SECONDS , 180 SECONDS)
