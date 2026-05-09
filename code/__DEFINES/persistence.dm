@@ -150,6 +150,7 @@ CREATE_PERSISTENT_TYPE_HISTORY_CHARACTER(mining_points, "Mining yield history", 
 /datum/persistent_record
 	var/id = 0
 	var/created_at = ""
+	var/game_id = ""
 	var/value = null // Treat this as string value
 
 /datum/persistent_generic

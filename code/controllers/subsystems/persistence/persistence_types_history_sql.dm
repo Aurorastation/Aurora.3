@@ -255,7 +255,7 @@
 		return 0
 
 	var/datum/db_query/query = SSdbcore.NewQuery(
-		"SELECT id, created_at, value FROM ss13_persistent_history \
+		"SELECT id, created_at, value, game_id FROM ss13_persistent_history \
 		WHERE type = :type_id AND attribute <=> :attribute \
 		ORDER BY id DESC LIMIT :count",
 		list(

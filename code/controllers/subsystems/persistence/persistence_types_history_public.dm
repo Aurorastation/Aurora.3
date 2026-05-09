@@ -75,7 +75,8 @@
 	// Create record and add to container
 	var/datum/persistent_record/r = new /datum/persistent_record
 	r.id = typesGetVirtualRecordID()
-	r.created_at = "[worlddate2text()] [worldtime2text()]" // TODO - Verify this is equvialent to NOW() in SQL
+	r.created_at = "[worlddate2text()] [worldtime2text()]"
+	r.game_id = GLOB.round_id
 	r.value = value
 	container.records += r
 	history_cache_count++
@@ -168,6 +169,7 @@
 		var/datum/persistent_record/r = new /datum/persistent_record
 		r.id = record["id"]
 		r.created_at = record["created_at"]
+		r.game_id = record["game_id"]
 		r.value = record["value"]
 		if(!skip_caching)
 			container.records += r // Add to cache
