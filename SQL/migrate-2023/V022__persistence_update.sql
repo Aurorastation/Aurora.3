@@ -1,3 +1,5 @@
+-- PR: https://github.com/Aurorastation/Aurora.3/pull/22114
+
 -- Updates to existing objects table
 ALTER TABLE `ss13_persistent_objects` MODIFY COLUMN `x` INT NOT NULL;
 ALTER TABLE `ss13_persistent_objects` MODIFY COLUMN `y` INT NOT NULL;
