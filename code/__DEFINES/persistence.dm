@@ -97,7 +97,7 @@ ABSTRACT_TYPE(/singleton/persistent_type/history/character)
 	{ \
 		title = #TITLE; \
 		description = #DESCRIPTION; \
-		requires_attribute = #REQUIRES_ATTRIBUTE; \
+		requires_attribute = ##REQUIRES_ATTRIBUTE; \
 	}
 
 // Basic history persistent type definition
@@ -106,7 +106,7 @@ ABSTRACT_TYPE(/singleton/persistent_type/history/character)
 	{ \
 		title = #TITLE; \
 		description = #DESCRIPTION; \
-		requires_attribute = #REQUIRES_ATTRIBUTE; \
+		requires_attribute = ##REQUIRES_ATTRIBUTE; \
 		expiration_rule = #EXPIRATION_RULE; \
 	}
 
