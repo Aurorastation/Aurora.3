@@ -66,7 +66,7 @@
 	var/datum/persistent_generic/new_generic = new /datum/persistent_generic/
 	new_generic.type_define = target_type
 	new_generic.attribute = attribute
-	new_generic.content = json_decode(result["id"])
+	new_generic.content = json_decode(result["content"])
 	new_generic.expires_in_days = 0
 	generic_cache[typesGetCacheName(target_type, attribute)] = new_generic
 	return new_generic
