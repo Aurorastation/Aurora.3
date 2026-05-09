@@ -53,8 +53,8 @@
 		return 0
 
 	var/datum/db_query/query = SSdbcore.NewQuery(
-		"INSERT INTO ss13_persistent_generics (type, attribute, created_at, expires_at, content) VALUES (:type_id, :attribute, NOW(), DATE_ADD(NOW(), INTERVAL :expire_in_days DAY), :content) \
-		ON DUPLICATE KEY UPDATE created_at = VALUES(NOW()), expires_at = VALUES(DATE_ADD(NOW(), INTERVAL :expire_in_days DAY)), content = VALUES(:content)",
+		"INSERT INTO ss13_persistent_generics (type, attribute, created_at, expires_at, content) VALUES (:type_id, :attribute, NOW(), DATE_ADD(NOW(), INTERVAL :expires_in_days DAY), :content) \
+		ON DUPLICATE KEY UPDATE created_at = NOW(), expires_at = DATE_ADD(NOW(), INTERVAL :expires_in_days DAY), content = :content",
 		list(
 			"type_id" = type_id,
 			"attribute" = attribute,
