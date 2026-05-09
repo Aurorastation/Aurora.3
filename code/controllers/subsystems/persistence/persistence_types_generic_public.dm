@@ -22,6 +22,7 @@
 	if(!expires_in_days || expires_in_days <= 0)
 		expires_in_days = PERSISTENT_DEFAULT_EXPIRATION_DAYS
 
+	attribute = length(attribute) > 0 ? attribute : null
 	if(attribute)
 		for(var/datum/persistent_generic/generic as anything in generic_cache)
 			if(generic.type_define == target_type && generic.attribute == attribute)
@@ -59,6 +60,7 @@
 		log_subsystem_persistence_warning("Attempted to load generic of type [target_type] without required attribute.")
 		return
 
+	attribute = length(attribute) > 0 ? attribute : null
 	if(attribute)
 		for(var/datum/persistent_generic/generic as anything in generic_cache)
 			if(generic.type_define == target_type && generic.attribute == attribute)
@@ -68,7 +70,7 @@
 		if(generic)
 			return generic
 
-	var/result = genericDatabaseLoad(type_instance.database_id, attribute)
+	var/result = genericDatabaseLoad(type_instance.database_id, attribute )
 
 	var/datum/persistent_generic/new_generic = new /datum/persistent_generic/
 	new_generic.type_define = target_type

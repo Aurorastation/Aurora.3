@@ -62,6 +62,7 @@
 	// Add record to cache for DB insert at finalization and quick access
 	// Check if record container exists, if not, create it
 	var/datum/persistent_record_container/container = null
+	attribute = length(attribute) > 0 ? attribute : null
 	if(attribute) // Search for attribute
 		for(var/datum/persistent_record_container/c as anything in history_cache)
 			if(c.type_define == target_type.type && c.attribute == attribute)
@@ -143,6 +144,7 @@
 	// 2 - Query database for last X records of type and add it to record container as new cache
 
 	var/datum/persistent_record_container/container = null
+	attribute = length(attribute) > 0 ? attribute : null
 	if(attribute) // Search for attribute
 		for(var/datum/persistent_record_container/c as anything in history_cache)
 			if(c.type_define == target_type && c.attribute == attribute)
@@ -289,8 +291,8 @@
  * RETURN:
  * 	List of associative list with "attribute" and "records" of type list(/persistent_record) or empty list.
  */
-/datum/controller/subsystem/persistence/proc/historyGetAllRecordsForAllAttributes(var/singleton/persistent_type/history/target_type, attribute, skip_caching = TRUE)
-	var/result = historyGetLastRecordsForAllAttributes(target_type, attribute, 1000, skip_caching) // TODO 1000 okay?
+/datum/controller/subsystem/persistence/proc/historyGetAllRecordsForAllAttributes(var/singleton/persistent_type/history/target_type, skip_caching = TRUE)
+	var/result = historyGetLastRecordsForAllAttributes(target_type, 1000, skip_caching) // TODO 1000 okay?
 	if(length(result) == 0)
 		return null
 	else
