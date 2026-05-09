@@ -54,7 +54,7 @@
 
 	// Because MariaDB doesn't consider NULL in the attribute to be a violation of the UNIQUE constraint,
 	// we have to verify if the generic already exists, if the attribute is null.
-	// If the attribute is null and it the generic exists, manually update the row instead of insert+on duplicate.
+	// If the attribute is null and the generic exists, manually update the row instead of INSERT + ON DUPLICATE KEY.
 	// Otherwise, with valid unique constraint (not null attributes), we can continue with the regular INSERT + ON DUPLICATE KEY directly.
 	if(!attribute)
 		var/datum/db_query/null_attribute_query = SSdbcore.NewQuery(
