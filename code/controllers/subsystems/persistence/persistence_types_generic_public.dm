@@ -7,7 +7,7 @@
  *	expires_in_days =	Days until the content is deemed expired. Defaults to PERSISTENT_DEFAULT_EXPIRATION_DAYS
  */
 /datum/controller/subsystem/persistence/proc/genericSave(var/singleton/persistent_type/generic/target_type, attribute, content, expires_in_days = PERSISTENT_DEFAULT_EXPIRATION_DAYS)
-	if(!content || length(content))
+	if(!content || !length(content))
 		return
 
 	if(!target_type)
@@ -59,12 +59,14 @@
 	if(generic)
 		return generic
 
-	var/result = genericDatabaseLoad(type_instance.database_id, attribute )
+	var/result = genericDatabaseLoad(type_instance.database_id, attribute)
+	if(!result)
+		return null
 
 	var/datum/persistent_generic/new_generic = new /datum/persistent_generic/
 	new_generic.type_define = target_type
 	new_generic.attribute = attribute
 	new_generic.content = json_decode(result["id"])
-	new_generic.expires_in_days = PERSISTENT_DEFAULT_EXPIRATION_DAYS
+	new_generic.expires_in_days = 0
 	generic_cache[typesGetCacheName(target_type, attribute)] = new_generic
 	return new_generic
