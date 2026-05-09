@@ -1,4 +1,0 @@
-author: Batrachophrenoboocosmomachia
-delete-after: True
-changes:
-  - bugfix: "Status Displays correctly display time on round start rather than attempting to display arrivals shuttle (and remaining blank until changed)."

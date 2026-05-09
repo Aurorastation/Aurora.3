@@ -285,3 +285,312 @@
   - rscadd: Added a basic initial implementation of a Mechanical Skills System.
   TheGreyWolf:
   - bugfix: Fixed some things regarding the nation blacklist check for factions.
+2026-04-20:
+  Batrachophrenoboocosmomachia:
+  - rscadd: Adds the space sector for Assunzione, its exoplanet map, and its port
+      of call, Port Volturno.
+  - rscadd: Adds support for billboards to display sets of randomized ads based on
+      icon_state prefixes for different worlds/locations.
+  - rscadd: Adds support for 2x1 illuminated signs to be locked to a single initial
+      setting.
+  - rscadd: All bikes can now run people over if colliding with Run intent, not just
+      monowheels.
+  - rscadd: Adds new Luceist flag (large only), also available in gear loadout.
+  - balance: Increases default vehicle speeds to account for smooth movement speed
+      buffs (currently only affects mopeds, which were painfully slow.)
+  - imageadd: Adds many new sprites by Fyni, Minezeyes, Sammy, and Batrachophrenoboocosmomachia.
+  - bugfix: Rental bike machines no longer vend dummy keys of a type if only configured
+      to sell keys of another type.
+  - bugfix: Status Displays correctly display time on round start rather than attempting
+      to display arrivals shuttle (and remaining blank until changed).
+  - bugfix: Many, many minor improvements and bugfixes in Port Volturno based on observation
+      of Event round.
+  FabianK3:
+  - rscadd: Added a washroom to engineering.
+  - qol: Refactored the multilevel maint between engineering and medical.
+  - qol: Renamed engineering EVA to engineering equipment. Area name change, doors
+      and cameras were already correct.
+  - bugfix: Fixed camera in supermatter monitoring belonging to the wrong network.
+  - bugfix: Removed the left-over unconnected vents in security meeting room.
+  Fenodyree:
+  - bugfix: Fixes one handed only guns having a one handed firing penalty.
+  - bugfix: Fixes the one handed firing penalty not applying to short and 3 round
+      bursts.
+  Hellfirejag:
+  - bugfix: Fixed another harddel related to observers.
+  - bugfix: Fixed a hard del related to ID cards.
+  - bugfix: Cleaned up some mob human timers that might sometimes hard del.
+  - bugfix: Fixed a hard del related to any form of direct organ replacement via loadouts
+      (such as bioaugs).
+  - bugfix: Fixed a hard del related to mechanical mobs that explode on death such
+      as maintenance drones.
+  - bugfix: Fixed a hard del related to PDA channels.
+  - bugfix: Fixed a hard del caused by players joining a round too quickly after first
+      connecting, or by latejoining.
+  TheGreyWolf:
+  - bugfix: Fixed the operations status display screens not showing the elevator status.
+  - bugfix: Fixed the cargo delivery program not displaying the account that was used
+      to pay for an order with.
+  - bugfix: Fixed the cargo delivery program not displaying shipped orders regardless
+      of payment status.
+  - bugfix: Fixed the ghostly ambience on the operations lift and the lift near security.
+  - bugfix: The operations program now displays the elevator time in seconds instead
+      of minutes, given the minutes would always show 0.
+  diggiez:
+  - bugfix: Set GPS Memory in the Telepad Control Console finally, actually functions
+      and displays the last target coordinates.
+  fyni:
+  - rscadd: "Adds Drosi\xE1 Cherry soda, and rejigs the grape soda to be Drosi\xE1\
+      \ Grape soda. Assunzione's favourite soft drink!"
+2026-04-21:
+  CatsinHD:
+  - rscadd: Added the name of the scanned crate onto the name of the printed crate
+      content manifest.
+  Fenodyree:
+  - balance: Adjusts piercing chance to be based more on armour piercing than damage.
+      This nerfs the STS from 55% pierce chance to 30%
+  - balance: Multiplies piercing chance by anti-material potential. This gives the
+      PEAC 100% pierce chance.
+  - balance: Projectile damage is now reduced by default 30% on every pierce. This
+      can be set per projectile. Ship weapons only lose 5% damage.
+  - bugfix: Fixes combat actuators leap and grab failing and breaking your movement
+      forever.
+  - bugfix: Fixes human shields not working. If you are redgrabbing someone and facing
+      the direction the shot comes from, the shot will hit your hostage instead of
+      you. Point-blank shots ignore this. Piercing shots can hit both.
+  Hellfirejag:
+  - bugfix: Fixed a hard del related to doafter progress bars. This one was incredibly
+      niche.
+  - bugfix: Some more fixes for a variety of hard dels..
+  Kano:
+  - qol: Tweaked the Deck 3 Security hallway and interrogation room.
+  - rscadd: Added a portable whiteboard to investigators office.
+  - bugfix: Added back the missing interrogation camera monitor.
+  SleepyGemmy:
+  - refactor: Refactored the armbands to use contained sprites and cleaned up the
+      code and spritesheet.
+  - bugfix: Fixed chickpeas being unable to spawn in the random produce boxes due
+      to a typo.
+  TheGreyWolf:
+  - bugfix: Fixed the Ao Dai accessory sprites.
+  - bugfix: Fixes stacking materials in the sheet snatcher.
+  - bugfix: Fixes emptying sheet snatchers made material stacks look like they only
+      had 1 item in them.
+  - bugfix: Fixed some mapped objects that no longer existed being mapped on the SFA
+      patrol ship.
+2026-04-22:
+  Batrachophrenoboocosmomachia:
+  - balance: Access pass on all maint doors with minor alterations for more consistent
+      per-department access rights.
+  - balance: Modified random loot tables and added new loot spawner type to Horizon,
+      that should result in more varied maint tunnel contents without disrupting existing
+      balance.
+  - bugfix: Fixes box of condiments spawning with generic non-filled condiment bottles.
+  - bugfix: Removes one of two lights that were directly adjacent to each other in
+      the Operating Theatre.
+  Fenodyree:
+  - rscadd: Adds a dosimeter. Engineering spawns with two. Counts the amount of radiation
+      it's wearer takes and calculates the real rate of exposure after armor.
+  - imageadd: Adds sprites to the dosimeter courtesy of The_Ill_fated, with a big
+      thanks!
+  - rscadd: Adds an instruction to shelter in maintanance to the Supermatter Delamination
+      alert. Also unlocks maintanance when it does.
+  - rscadd: Adds radiation armour values to makeshift armour, based on weight. Lead
+      plate on the chest blocks 90% of radiation to the chest. Does nothing for your
+      arms and legs though.
+  - rscadd: Adds a damage flag that makes certain hits ignore mechanical limbs. Useful
+      for radiation, which shouldn't give metal radaiation burns.
+  - balance: Multiplies the max radiation level by 10, to 1000. This means radiation
+      takes much logner to accumulate, radiation protection that isn't the radsuit
+      is worth it now.
+  - balance: Increaes the lethality of maximum radiation doses. Any radiation over
+      your maximum is dealt as burn damage.
+  - balance: Rebalances radiation damage to be more painful, with more side effects,
+      but less organ damage except at the highest levels.
+  Hellfirejag:
+  - balance: Tweaked the skill requirements for repairing organs with nanopaste to
+      rank 2 robotics (down from rank 3).
+  SleepyGemmy:
+  - rscadd: Added a custodial airlock.
+  TheGreyWolf:
+  - rscdel: Job uniforms and suits replaced by loadout items, no longer spawn in bags.
+2026-04-23:
+  Batrachophrenoboocosmomachia:
+  - bugfix: Makes the navigation consoles scattered around the public spaces on the
+      Horizon (that only display nearby starmap) able to be viewed again without any
+      piloting skills.
+  - rscadd: Adds a bar to the top floor of WITCH HAND.
+  - rscadd: Adds minimap support and portable map readers to Port Volturno.
+  - rscadd: Adds support for the Map TGUI to not provide a legend (for non-Horizon
+      maps).
+  - bugfix: Some additional cleanup and tweaking in Port Volturno.
+  - bugfix: Fixed some mapping rendering issues.
+  FabianK3:
+  - bugfix: Fixed persistence being used on non-Horizon maps.
+  - rscadd: Added an admin verb to toggle persistence saving.
+  Fenodyree:
+  - bugfix: Fixes projectile accuracy checks not working. Shots can now miss again.
+  Hellfirejag:
+  - bugfix: Fixed a hard delete related to build mode.
+  Kano:
+  - bugfix: Fixed some atom health bugs and slightly refactored the code.
+  SleepyGemmy:
+  - bugfix: Fixed the tajaran cigarettes being named differently in the loadout.
+  TheGreyWolf:
+  - rscadd: The warden now gets a firing pin extractor.
+  - bugfix: Fixed a large number of overlapping wall objects in operations.
+  - bugfix: Tool storage is now on the same grid as the hallway, rather than on the
+      ops grid.
+  - rscadd: Gave hangar techs a blue toolbox in their lockers to do their job with.
+  - rscadd: Added a sheet snatcher to ops.
+  - rscadd: Moved miner and OM spawn to the ops break room.
+  - rscadd: Made the conveyor on the cargo elevator one shorter, to avoid loose items
+      being shuffled off the elevator.
+  - bugfix: Fixed two sprites mainly seen when mapping random object spawns.
+2026-04-25:
+  Batrachophrenoboocosmomachia:
+  - bugfix: Air panels again able to be accessed remotely through Atmosphere Control
+      app.
+  - bugfix: Missing chlorine detection added to air panels.
+  - rscadd: Adds minor visual tell to light sensitivity.
+  - balance: Reduces probability of light sensitivity effects firing, increases minimum
+      threshold.
+  - balance: Slightly reduces the brightness of cigarettes and ATMs (turf corner light
+      calculations resulted in outsized returns).
+  Batrachophrenoobocosmomachia:
+  - bugfix: Airlocks can again be repaired by using hammers on them with an appropriate
+      stack of materials in your offhand.
+  - bugfix: Binary atmos devices are again able to be toggled on/off by alt-clicking
+      them.
+  - bugfix: Temp control units now display correct 'turned on/off' balloon text when
+      toggled.
+  FabianK3:
+  - bugfix: Fixed airlock assembly rotation not being properly set when deconstructing
+      an airlock.
+  - rscadd: Added a squeeze-through mechanic for airlock assemblies. Drag-click yourself
+      on to the airlock assembly to climb through it.
+  - rscadd: 'Added basic icon versions for each airlock construction step: New, anchored,
+      wired and electronics.'
+  Hellfirejag:
+  - rscdel: Removed all job skill requirements that weren't actually mechanically
+      necessary.
+  - bugfix: Removed a hard del related to material stacks.
+2026-04-27:
+  Batrachophrenoboocosmomachia:
+  - bugfix: Corrects duplicated Engineering skill component definition.
+  - rscdel: Removes deprecated AME code and associated power spritefiles.
+  - rscdel: Removes DNA Modifier NanoUI, replacing interaction behavior with a feedback
+      message.
+  - rscdel: Removes old NanoUI templates for objects whose UIs have already been converted
+      to TGUI, or which had already been removed from the server.
+  - bugfix: After using thermite, replaces the ancient pre-3/4s thermite burnt wall
+      sprite left over with a bubbling mass of molten slag on the floor.
+  - rscadd: Adds a public pool to Port Volturno.
+  - bugfix: Allows borgs to bypass skill checks to toggle emitters.
+  - bugfix: Reduces openspace mimic destruction timers from 10 seconds to 0.1 second
+      to remove persistent ghosting when changing z-levels (such as using stairs or
+      ladders).
+  - bugfix: Ho'taki marksman rifle in Raider prep area now has correct caliber ammunition
+      available next to it.
+  - bugfix: Fixes black shorts being invisible.
+  - bugfix: Removes old grey jean obj defs (no sprites and not used in server).
+  - bugfix: Removes two empty unused sprite icon_states from shorts.dmi
+  - bugfix: Earphones now automatically stop playing when dropped/thrown/etc. to address
+      a few instances of audio strangeness.
+  Hellfirejag:
+  - bugfix: Fixed antags not correctly wiping their skills upon spawning in.
+  - rscdel: Removed circuit boards for deprecated "old mechs" that could no longer
+      be manufactured.
+  - rscdel: Removed the abstract parent of hardsuit circuit boards from circuit board
+      spawners.
+  - rscadd: Reworked surgery to use soft requirements and signals to directly modify
+      the success chances of surgery. These penalties or bonuses stack with those
+      from not having ideal tools.
+  - rscadd: Morale modifiers now affect surgery success rates.
+  Kano:
+  - rscadd: Remapped runtime map to provide easier access to variety of testing.
+  SleepyGemmy:
+  - bugfix: Fixed carts displaying an error message when swapping directions.
+  - config: Renamed the basic role access list and removed the unused expanded role
+      access list.
+  - rscadd: Added a death message.
+  - rscadd: Changed the unconscious and brain damage messages to use the chat examine
+      boxes.
+  - rscadd: Added a colourable double armband.
+  TheGreyWolf:
+  - bugfix: Fixed another circumstance causing the sheet snatcher to show an incorrect
+      amount of sheets in it.
+  - bugfix: The ops status display no longer gets the alert graphics overlaid incorrectly.
+  - bugfix: Fixed that creating a head rev traitor was bugged.
+  - bugfix: Yokes now appear empty when the contents are transfered to a fridge.
+  Yonnimer:
+  - rscadd: Adds a armored carp, effectively a tame carp for primarily voidtamers.
+  - rscadd: Adds a new dock to the voidtamer ship that lets ships such as the spark
+      dock with it.
+  - bugfix: Fixes the waste pipe on the voidtamer ship.
+  arrow768:
+  - code_imp: Added Sentry.io integration (SSsentry) for capturing runtime exceptions,
+      SQL errors, and hard-delete overruns to an external error tracking service.
+  - code_imp: SSsentry can now ship per-window BYOND profiler dumps to Sentry as events
+      with the raw JSON attached and the top-N hottest procs in the event extras (opt-in
+      via CAPTURE_PROFILER).
+  - server: Added config/sentry.txt support for configuring the Sentry DSN and capture
+      settings. See config/example/sentry.txt for setup instructions.
+2026-04-28:
+  Batrachophrenoboocosmomachia:
+  - refactor: Migrates DNA Analyzer NanoUI to TGUI.
+  - refactor: Migrates Engines Control NanoUI to TGUI.
+  - qol: DNA Analyzer reports now provide the date and time the scan was produced.
+  - bugfix: Ship computers no longer function after their power is cut.
+  GeneralCamo:
+  - rscadd: Allowed NKA and FTC tajara to be part of Zavodskoi.
+  - rscdel: Disallowed NKA and FTC tajara to be part of Hephaestus.
+  Kano:
+  - rscadd: Ported some hairstyles from Shiptest.
+2026-04-29:
+  Batrachophrenoboocosmomachia:
+  - rscadd: Adds the light meter as a craftable design for the autolathe.
+  - bugfix: Fixes light meter inhand sprites.
+  GeneralCamo:
+  - rscdel: Gadpathurians no longer have light sensitivity.
+  SierraKomodo:
+  - bugfix: Fixes missing PDA sprites when the Map Program is loaded. Spritework by
+      SierraKomodo.
+  SleepyGemmy:
+  - bugfix: Fixed custodial airlocks not having the correct preview sprite set.
+  - bugfix: Fixed a message when putting a mop bucket on a custodial cart.
+  - soundadd: Made the carts rolling sound quieter.
+  - bugfix: Fixed an extra comma in the spawn date and time screen message.
+  - bugfix: Fixed the month number not being prefixed correctly in the status tab.
+  TheGreyWolf:
+  - bugfix: Fixed that PDAs showed as damaged when they weren't.
+2026-04-30:
+  Kano:
+  - bugfix: Fixed weapon racks not displaying the guns stored inside upon roundstart.
+  SierraKomodo:
+  - rscadd: Added colorable versions of the Tajaran Fancy Uniform and Fancy Uniform
+      With Skirt loadout items.
+  SleepyGemmy:
+  - bugfix: Fixed missing practice shotgun shells and practice revolver speedloaders
+      in the security firing range.
+  TheGreyWolf:
+  - rscadd: Added several new restock packs avaiable from the operations ordering
+      console.
+  - balance: Rebalanced the prices of the restock packs.
+  - rscadd: Made the restock packs come with cargo access locks.
+  - rscadd: Restock packs are now actual boxes that can be opened.
+  - rscadd: The commissary restock crate was moved to the operations loading bay.
+  - rscadd: The toy shelf can now also hold cap gun mags, card packs, card boxes and
+      music cartridges.
+  - qol: Reduced the crate fee when making operation orders.
+  - bugfix: Fixed the wording in some of the operation programs.
+  - bugfix: Fixed the delivery app showing deliveries it shouldn't.
+  - bugfix: The cargo control program now properly display status messages.
+  - balance: Supplier fee was set to 0 for all current suppliers, eliminating the
+      20 credit charge per supplier.
+  - balance: The operations order handling fee has been turned into a percentage charge
+      instead, and reduced to 5% by default instead of a flat 20 credits.
+  - rscadd: It is now possible to reject orders that have been approved but not shipped
+      or paid for.
+  arrow768:
+  - spellcheck: Updates the wording in the unwind admin verb.

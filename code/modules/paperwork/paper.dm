@@ -66,6 +66,16 @@
 	var/can_change_icon_state = TRUE
 	var/set_unsafe_on_init = FALSE
 
+/obj/item/paper/Destroy()
+	info = null
+	info_links = null
+	stamps = null
+	ico = null
+	offset_x = null
+	offset_y = null
+	stamped = null
+	return ..()
+
 /obj/item/paper/feedback_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	if (old_name && (icon_state == "paper_plane" || icon_state == "paper_swan"))
@@ -91,7 +101,7 @@
 		if (mapload)
 			update_icon()
 		else
-			addtimer(CALLBACK(src, TYPE_PROC_REF(/atom, update_icon)), 1)
+			addtimer(CALLBACK(src, TYPE_PROC_REF(/atom, update_icon)), 1, TIMER_STOPPABLE | TIMER_DELETE_ME)
 
 /obj/item/paper/proc/set_content(title, text)
 	if(title)
@@ -442,7 +452,7 @@
 		else
 			flick("paper_onfire", src)
 
-		addtimer(CALLBACK(src, PROC_REF(burnpaper_callback), P, user, class), 20, TIMER_UNIQUE)
+		addtimer(CALLBACK(src, PROC_REF(burnpaper_callback), P, user, class), 20, TIMER_UNIQUE | TIMER_STOPPABLE | TIMER_DELETE_ME)
 
 /obj/item/paper/proc/burnpaper_callback(obj/item/P, mob/user, class = "warning")
 	if (QDELETED(user) || QDELETED(src))

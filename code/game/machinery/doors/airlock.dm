@@ -359,11 +359,26 @@
 	paintable = AIRLOCK_PAINTABLE_MAIN
 	door_color = "#6f8751"
 
+/obj/machinery/door/airlock/service/custodial // Custodial Airlock
+	icon_state = "custodial"
+	paintable = AIRLOCK_PAINTABLE_MAIN | AIRLOCK_PAINTABLE_STRIPE
+	door_color = "#6f8751"
+	stripe_color = COLOR_PURPLE_GRAY
+
 /obj/machinery/door/airlock/glass_service // Service Airlock (Glass)
 	icon_state = "ser_glass"
 	paintable = AIRLOCK_PAINTABLE_MAIN
 	door_color = "#6f8751"
-	glass = 1
+	glass = TRUE
+	hitsound = 'sound/effects/glass_hit.ogg'
+	open_sound_powered = 'sound/machines/airlock/hall3o.ogg'
+	close_sound_powered = 'sound/machines/airlock/hall3c.ogg'
+
+/obj/machinery/door/airlock/glass_service/custodial // Custodial Airlock (Glass)
+	icon_state = "custodial_glass"
+	paintable = AIRLOCK_PAINTABLE_MAIN | AIRLOCK_PAINTABLE_STRIPE
+	door_color = "#6f8751"
+	stripe_color = COLOR_PURPLE_GRAY
 
 /obj/machinery/door/airlock/command
 	icon_state = "cmd"
@@ -1720,8 +1735,7 @@ About the new airlock wires panel:
 
 /obj/machinery/door/airlock/proc/CreateAssembly()
 	var/obj/structure/door_assembly/da = new assembly_type(src.loc)
-	if (istype(da, /obj/structure/door_assembly/multi_tile))
-		da.set_dir(src.dir)
+	da.set_dir(src.dir)
 
 	da.anchored = 1
 	if(mineral)
@@ -1869,19 +1883,6 @@ About the new airlock wires panel:
 						close(1)
 					else
 						to_chat(user, SPAN_WARNING("You need to be wielding \the [attacking_item] to do that."))
-		return TRUE
-	else if(attacking_item.tool_behaviour == TOOL_HAMMER)
-		if(locked && user.a_intent != I_HURT)
-			to_chat(user, SPAN_NOTICE("The airlock's bolts prevent it from being forced."))
-		else if(user.a_intent == I_HURT)
-			..()
-		else if(arePowerSystemsOn())
-			to_chat(user, SPAN_NOTICE("The airlock's motors resist your efforts to force it."))
-		else if(!welded && !operating)
-			if(density)
-				open(1)
-			else
-				close(1)
 		return TRUE
 	else if(density && istype(attacking_item, /obj/item/material/twohanded/chainsaw))
 		var/obj/item/material/twohanded/chainsaw/ChainSawVar = attacking_item

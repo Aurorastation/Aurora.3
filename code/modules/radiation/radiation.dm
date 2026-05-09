@@ -7,6 +7,8 @@
 	var/rad_power
 	/// True for automatic decay. False if owner promises to handle it (i.e. Supermatter, INDRA, etc.)
 	var/decay = TRUE
+	///Added to the base decay rate of a source, for sudden spikes of radiation that don't persist as long
+	var/accelerated_decay_rate
 	/// True for not affecting AREA_FLAG_RAD_SHIELDED areas.
 	var/respect_rad_shielding = FALSE
 	/// True for power falloff with distance.
@@ -92,6 +94,7 @@
  */
 /mob/living/rad_act(severity)
 	if(severity > RAD_LEVEL_VERY_LOW)
-		apply_damage(severity, DAMAGE_RADIATION, damage_flags = DAMAGE_FLAG_DISPERSED)
+		var/normal_armour_piercing = severity - (severity / 11) //As damage is split across all 11 limbs, this is subtracted from the armour value to replicate one big hit.
+		apply_damage(severity, DAMAGE_RADIATION, damage_flags = DAMAGE_FLAG_DISPERSED | DAMAGE_FLAG_IGNORE_PROSTHETICS, armor_pen = normal_armour_piercing) //Metal body parts do not contribute to radiation dose.
 		for(var/atom/I in src)
 			I.rad_act(severity)

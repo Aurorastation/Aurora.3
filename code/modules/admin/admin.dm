@@ -1337,7 +1337,7 @@ var/global/enabled_spooking = 0
 			target.visible_message("<font color='#002eb8'><b>OOC Information:</b></font> <span class='warning'>[target] has been winded by a member of staff! Please freeze all roleplay involving their character until the matter is resolved! Adminhelp if you have further questions.</span>", SPAN_WARNING("<b>You have been winded by a member of staff! Please stand by until they contact you!</b>"))
 			target.paralysis = 8000
 		else
-			if (alert(user, "The player is currently winded. Do you want to unwind him?", "Unwind player?", "Yes", "No") == "No")
+			if (alert(user, "The player is currently winded. Do you want to unwind the player?", "Unwind player?", "Yes", "No") == "No")
 				return
 			target.paralysis = 0
 			msg = "has unparalyzed [key_name_admin(target)]."

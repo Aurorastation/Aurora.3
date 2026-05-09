@@ -6339,6 +6339,7 @@
 	pixel_x = 4
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/item/eftpos,
 /turf/simulated/floor/tiled/gunmetal,
 /area/tcaf_corvette/cic)
 "ym" = (
@@ -11832,7 +11833,7 @@
 	dir = 5
 	},
 /obj/structure/table/steel,
-/obj/item/clothing/accessory/armband/medgreen{
+/obj/item/clothing/accessory/armband/med{
 	pixel_x = 5;
 	pixel_y = 12
 	},

@@ -16,20 +16,28 @@
 	DAMAGE_RATE_LIMIT	Controls the maximum rate at which the SM will take damage due to high temperatures.
 */
 
-//Controls how much power is produced by each collector in range - this is the main parameter for tweaking SM balance, as it basically controls how the power variable relates to the rest of the game.
+///Controls how much power is produced by each collector in range - this is the main parameter for tweaking SM balance, as it basically controls how the power variable relates to the rest of the game.
 #define POWER_FACTOR 1.0
-#define DECAY_FACTOR 700			//Affects how fast the supermatter power decays
-#define CRITICAL_TEMPERATURE 5000	//K
+///Affects how fast the supermatter power decays
+#define DECAY_FACTOR 700
+///The temperature at which the SM starts taking damage.
+#define CRITICAL_TEMPERATURE 5000//K
+///Controls how much emitter shots excite the SM.
 #define CHARGING_FACTOR 0.05
-#define DAMAGE_RATE_LIMIT 4			//damage rate cap at power = 300, scales linearly with power
-#define SPACED_DAMAGE_FACTOR 0.5	//multiplier for damage taken in a vacuum, but on a tile. Used to prevent/configure near-instant explosions when vented
+///damage rate cap at power = 300, scales linearly with power
+#define DAMAGE_RATE_LIMIT 4
+///multiplier for damage taken in a vacuum, but on a tile. Used to prevent/configure near-instant explosions when vented
+#define SPACED_DAMAGE_FACTOR 0.5
 
-//These would be what you would get at point blank, decreases with distance
-#define DETONATION_RADS 200
+//These would be what you would get at point blank, does NOT decrease with distance.
+///The amount of radiation the whole Z level (except maintenance) will recieve. Rads decay slowly over time. This will give an unprotected person 1275 rads over 100 seconds.
+#define DETONATION_RADS 50
+///How many seconds of halucinations affected mobs are given.
 #define DETONATION_HALLUCINATION 600
-
-
-#define WARNING_DELAY 20			//seconds between warnings.
+///This creates a radiation source of strength 500 at the explosion site. This will kill through a radsuit but falls off rapidly with distance.
+#define LOCAL_DETONATION_RADS 500
+///Seconds between warnings.
+#define WARNING_DELAY 20
 
 ///to prevent accent sounds from layering
 #define SUPERMATTER_ACCENT_SOUND_MIN_COOLDOWN 2 SECONDS
@@ -142,6 +150,7 @@
 				var/mob/living/carbon/human/H = mob
 				H.hallucination += max(50, min(300, DETONATION_HALLUCINATION * sqrt(1 / (get_dist(mob, src) + 1)) ) )
 	SSradiation.z_radiate(locate(1, 1, z), DETONATION_RADS, TRUE)
+	SSradiation.radiate(src, LOCAL_DETONATION_RADS)
 	spawn(pull_time)
 		explosion(get_turf(src), explosion_power, explosion_power * 2, explosion_power * 3, explosion_power * 4, 1)
 		qdel(src)
@@ -182,8 +191,9 @@
 		radio.autosay(alert_msg, "Supermatter Monitor", "Engineering")
 		//Public alerts
 		if((damage > emergency_point) && !public_alert)
-			radio.autosay("WARNING: SUPERMATTER CRYSTAL DELAMINATION IMMINENT!", "Supermatter Monitor")
+			radio.autosay("WARNING: SUPERMATTER CRYSTAL DELAMINATION IMMINENT! EVACUATE INTO MAINTAINANCE IMMEDIATELY!" , "Supermatter Monitor") //Adds a warning that lets people know maint is safe.
 			public_alert = 1
+			make_maint_all_access() //Radiation will persist for a long time after the explosion, so we want to make sure people can get into maint to avoid it.
 			for(var/mob/M in GLOB.player_list)
 				var/turf/T = get_turf(M)
 				if(T && !istype(M, /mob/abstract/new_player) && !isdeaf(M))

@@ -4004,17 +4004,17 @@
 	req_access = list(217);
 	name = "Personal Wear"
 	},
-/obj/item/clothing/under/skirt{
+/obj/item/clothing/pants/skirt{
 	color = "#333333"
 	},
-/obj/item/clothing/under/skirt/high{
+/obj/item/clothing/pants/skirt/high{
 	color = "#333333"
 	},
-/obj/item/clothing/accessory/goldendeep/gambeson{
+/obj/item/clothing/accessory/goldendeep{
 	color = "#333333";
 	accent_color = "#991517"
 	},
-/obj/item/clothing/accessory/goldendeep/pompous{
+/obj/item/clothing/under/dressshirt/goldendeep/pompous{
 	color = "#333333";
 	accent_color = "#991517"
 	},
@@ -5574,6 +5574,7 @@
 	pixel_y = 10;
 	pixel_x = 8
 	},
+/obj/item/eftpos,
 /turf/simulated/floor/marble/dark,
 /area/golden_deep/bridge)
 "xj" = (
@@ -7750,11 +7751,11 @@
 /area/golden_deep/owned_lounge)
 "Ga" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/item/cargo_package/offship/to_horizon{
+/obj/item/package/delivery/offship/to_horizon{
 	pixel_y = 10;
 	pixel_x = -1
 	},
-/obj/item/cargo_package/offship{
+/obj/item/package/delivery/offship{
 	pixel_y = -2;
 	pixel_x = 3
 	},
@@ -8240,11 +8241,11 @@
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/item/cargo_package/offship/to_horizon{
+/obj/item/package/delivery/offship/to_horizon{
 	pixel_y = 10;
 	pixel_x = -1
 	},
-/obj/item/cargo_package/offship{
+/obj/item/package/delivery/offship{
 	pixel_y = -2;
 	pixel_x = 3
 	},
@@ -11554,11 +11555,11 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/item/cargo_package/offship{
+/obj/item/package/delivery/offship{
 	pixel_y = 10;
 	pixel_x = -2
 	},
-/obj/item/cargo_package/offship{
+/obj/item/package/delivery/offship{
 	pixel_y = -2;
 	pixel_x = 3
 	},

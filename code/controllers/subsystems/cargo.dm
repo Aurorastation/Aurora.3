@@ -24,10 +24,10 @@ SUBSYSTEM_DEF(cargo)
 	var/list/all_orders = list() // All orders.
 
 	// Fee Variables
-	var/credits_per_crate = 30 // "Cost / Payment" per crate shipped from or to centcomm.
+	var/credits_per_crate = 15 // "Cost / Payment" per crate shipped from or to centcomm.
 	var/credits_per_platinum = 140 // Per sheet.
 	var/credits_per_phoron = 100 // Per sheet.
-	var/cargo_handlingfee = 20 // The handling fee cargo takes per crate.
+	var/cargo_handlingfee = 5 // The handling fee cargo takes per crate, as a percentage of the order's value.
 	var/cargo_handlingfee_min = 0 // The minimum handling fee.
 	var/cargo_handlingfee_max = 500 // The maximum handling fee.
 	var/cargo_handlingfee_change = 1 // If the handling fee can be changed -> for a random event.
@@ -359,6 +359,11 @@ SUBSYSTEM_DEF(cargo)
 /datum/controller/subsystem/cargo/proc/get_handlingfee()
 	return cargo_handlingfee
 
+/datum/controller/subsystem/cargo/proc/get_handlingfee_cost(shipment_cost)
+	if(shipment_cost)
+		return (cargo_handlingfee / 100) * shipment_cost
+	return 0
+
 // Sets the handling fee and returns a status message.
 /datum/controller/subsystem/cargo/proc/set_handlingfee(var/fee)
 	if(!fee)
@@ -448,7 +453,7 @@ SUBSYSTEM_DEF(cargo)
 			movetime = current_shipment.shuttle_time
 			//Launch it
 			shuttle.launch(src)
-			. = "The cargo elevator has been called and will arrive in approximately [round(SScargo.movetime/600, 2)] minutes."
+			. = "The cargo elevator has been called and will arrive in approximately [shuttle.eta_seconds()] seconds."
 			current_shipment.shuttle_called_by = requester_name
 
 // Cancels the elevator. Can return a status message.

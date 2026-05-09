@@ -7681,7 +7681,7 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 4
 	},
-/obj/effect/floor_decal/plaque{
+/obj/structure/sign/floor_plaque{
 	name = "Ship Commemorative Plaque";
 	desc = "A plaque commemorating the details of the ship, including shipyard, date of construction and commissioning, and technical specifications. The Idris logo is watermarked behind the text."
 	},
@@ -12550,6 +12550,7 @@
 	pixel_x = -11;
 	pixel_y = 2
 	},
+/obj/item/eftpos,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/idris_cruiser/bridge)
 "SZ" = (

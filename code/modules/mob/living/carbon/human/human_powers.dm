@@ -180,25 +180,27 @@
 
 	T.Weaken(3)
 
-	var/use_hand = "left"
 	if(l_hand)
 		if(r_hand)
 			to_chat(src, SPAN_DANGER("You need to have one hand free to grab someone."))
 			return TRUE
-		else
-			use_hand = "right"
 
 	visible_message(SPAN_WARNING("<b>[src]</b> seizes [T] aggressively!"),
 					SPAN_WARNING("You aggressively seize [T]!"))
 
-	var/obj/item/grab/G = new(src,T)
-	if(use_hand == "left")
-		l_hand = G
-	else
-		r_hand = G
+	var/obj/item/grab/G = new /obj/item/grab(src, src, T)
 
-	G.state = GRAB_PASSIVE
+	if(buckled_to)
+		to_chat(src, SPAN_WARNING("You cannot grab [T], [T.get_pronoun("he")] [get_pronoun("is")] buckled in!"))
+	if(!G)	//the grab will delete itself in New if affecting is anchored
+		return
+	src.put_in_active_hand(G)
+	LAssailant = WEAKREF(src)
+	playsound(loc, SFX_GRAB, 50, FALSE, -1)
+	G.state = GRAB_AGGRESSIVE
 	G.icon_state = "grabbed1"
+	G.hud.icon_state = "reinforce1"
+	G.last_action = world.time
 	G.synch()
 
 	return TRUE

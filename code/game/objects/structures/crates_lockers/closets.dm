@@ -898,3 +898,4 @@
 	var/obj/item/paper/printout = new /obj/item/paper(targetloc)
 	printout.info = "contents of [targetname]<br>"
 	printout.info += "[outputstring]"
+	printout.name = "[targetname] manifest"

@@ -5453,6 +5453,12 @@
 	},
 /turf/simulated/floor,
 /area/ship/gadpathur_patrol/eva)
+"QY" = (
+/obj/structure/table/reinforced/glass,
+/obj/effect/floor_decal/corner_wide/brown/diagonal,
+/obj/item/eftpos,
+/turf/simulated/floor/tiled/dark,
+/area/ship/gadpathur_patrol/sit_room)
 "Re" = (
 /obj/machinery/appliance/cooker/stove,
 /obj/machinery/light/small{
@@ -38402,7 +38408,7 @@ lO
 qC
 om
 xJ
-vW
+QY
 fl
 GK
 cS

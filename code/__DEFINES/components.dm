@@ -18,7 +18,7 @@
 #define SKILL_COMPONENT /datum/component/skill
 #define MORALE_COMPONENT /datum/component/morale
 #define ELECTRICAL_ENGINEERING_SKILL_COMPONENT /datum/component/skill/electrical_engineering
-#define MECHANICAL_ENGINEERING_SKILL_COMPONENT /datum/component/skill/electrical_engineering
+#define MECHANICAL_ENGINEERING_SKILL_COMPONENT /datum/component/skill/mechanical_engineering
 #define ATMOSPHERICS_SYSTEMS_SKILL_COMPONENT /datum/component/skill/atmospherics_systems
 #define REACTOR_SYSTEMS_SKILL_COMPONENT /datum/component/skill/reactor_systems
 #define LEADERSHIP_SKILL_COMPONENT /datum/component/skill/leadership
@@ -26,6 +26,7 @@
 #define FORENSICS_SKILL_COMPONENT /datum/component/skill/forensics
 #define PHARMACOLOGY_SKILL_COMPONENT /datum/component/skill/pharmacology
 #define SURGERY_SKILL_COMPONENT /datum/component/skill/surgery
+#define CAROUSING_SKILL_COMPONENT /datum/component/skill/carousing
 
 /**
  * Trinary-Boolean helper that either returns null, or the skill level of a given skill component(which can be zero).

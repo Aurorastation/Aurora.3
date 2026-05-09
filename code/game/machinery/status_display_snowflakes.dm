@@ -5,6 +5,7 @@
 
 /obj/machinery/status_display/supply_display/update()
 	if(mode == STATUS_DISPLAY_CUSTOM)
+		remove_display()
 		var/message1 = "CARGO"
 		var/message2 = ""
 

@@ -4,6 +4,11 @@
 	var/turf/ladder_upper
 	var/turf/ladder_lower
 
+/datum/build_mode/ladders/Destroy()
+	ladder_upper = null
+	ladder_lower = null
+	. = ..()
+
 /datum/build_mode/ladders/Help()
 	to_chat(user, SPAN_NOTICE("***********************************************************"))
 	to_chat(user, SPAN_NOTICE("Left Click on Turf   = Set as upper ladder loc"))

@@ -473,6 +473,7 @@
 	min_duration = 50
 	max_duration = 70
 	skill_requirements = alist(ROBOTICS_SKILL_COMPONENT = SKILL_LEVEL_TRAINED)
+	skill_diff_fail_modifier = SURGERY_DIFFICULTY_MEDIUM
 
 /singleton/surgery_step/internal/fix_internal_wiring/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(!..())
@@ -523,6 +524,7 @@
 	min_duration = 100
 	max_duration = 200
 	skill_requirements = alist(ROBOTICS_SKILL_COMPONENT = SKILL_LEVEL_TRAINED)
+	skill_diff_fail_modifier = SURGERY_DIFFICULTY_HARD
 
 /singleton/surgery_step/internal/fix_internal_electronics/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(!..())
@@ -564,6 +566,7 @@
 	min_duration = 75
 	max_duration = 120
 	skill_requirements = alist(ROBOTICS_SKILL_COMPONENT = SKILL_LEVEL_TRAINED)
+	skill_diff_fail_modifier = SURGERY_DIFFICULTY_HARD
 
 /singleton/surgery_step/internal/fix_internal_plating/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(!..())
@@ -616,6 +619,7 @@
 	min_duration = 100
 	max_duration = 150
 	skill_requirements = alist(ROBOTICS_SKILL_COMPONENT = SKILL_LEVEL_TRAINED)
+	skill_diff_fail_modifier = SURGERY_DIFFICULTY_HARD
 
 /singleton/surgery_step/internal/replace_internal_plating/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(!..())
@@ -662,6 +666,7 @@
 
 	var/fast_repair = FALSE
 	skill_requirements = alist(ROBOTICS_SKILL_COMPONENT = SKILL_LEVEL_TRAINED)
+	skill_diff_fail_modifier = SURGERY_DIFFICULTY_MEDIUM
 
 /singleton/surgery_step/internal/replace_external_plating/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(!..())
@@ -703,6 +708,7 @@
 	min_duration = 100
 	max_duration = 150
 	skill_requirements = alist(ROBOTICS_SKILL_COMPONENT = SKILL_LEVEL_FAMILIAR)
+	skill_diff_fail_modifier = SURGERY_DIFFICULTY_TRIVIAL
 
 /singleton/surgery_step/internal/replace_external_plating/g2
 	name = "Replace G2 External Armour Plating"
@@ -755,6 +761,7 @@
 	min_duration = 15
 	max_duration = 25
 	skill_requirements = alist(ROBOTICS_SKILL_COMPONENT = SKILL_LEVEL_TRAINED)
+	skill_diff_fail_modifier = SURGERY_DIFFICULTY_MEDIUM
 
 /singleton/surgery_step/robotics/repair_endoskeleton/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(!..())

@@ -3,6 +3,10 @@
 	icon_state = "buildmode2"
 	var/build_type
 
+/datum/build_mode/advanced/Destroy()
+	build_type = null
+	. = ..()
+
 /datum/build_mode/advanced/Help()
 	to_chat(user, SPAN_NOTICE("***********************************************************"))
 	to_chat(user, SPAN_NOTICE("Left Click                       = Create objects"))
