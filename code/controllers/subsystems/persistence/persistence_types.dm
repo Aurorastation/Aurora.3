@@ -78,7 +78,7 @@
 	// ##### Hooks
 	var/base_types = list(/singleton/persistent_type, /singleton/persistent_type/generic, /singleton/persistent_type/history, /singleton/persistent_type/history/character)
 	var/custom_types = typesof(/singleton/persistent_type) - base_types // These are the types we are actually dealing with
-	for (var/singleton/persistent_type/C in custom_types)
+	for (var/C in custom_types)
 		var/singleton/persistent_type/type_instance = GET_SINGLETON(C)
 		try
 			type_instance.finalization_hook()
