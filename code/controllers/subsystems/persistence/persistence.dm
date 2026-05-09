@@ -12,6 +12,8 @@ SUBSYSTEM_DEF(persistence)
 	name = "Persistence"
 	init_order = INIT_ORDER_PERSISTENCE // The order is tied with the init and maploading subsystem.
 	flags = SS_NO_FIRE // This subsystem has no continues workload, it's init and shutdown only.
+	/// Sanity check to confirm init was a success before finalizing.
+	var/init_success = FALSE
 	/// Global toggle to prevent saving at round end, changed by toggle_persistence proc, used for admin purposes.
 	var/prevent_saving = FALSE
 	/// In-memory register of all persistent objects that were loaded or created during the round, used for tracking and finalization purposes.
@@ -121,6 +123,7 @@ SUBSYSTEM_DEF(persistence)
 		log_subsystem_persistence_panic("Unhandled exception during persistent type initialization: [e_types]")
 		return SS_INIT_FAILURE
 
+	init_success = TRUE
 	return SS_INIT_SUCCESS
 
 /**
@@ -128,6 +131,10 @@ SUBSYSTEM_DEF(persistence)
  * The shutdown consists of finalization steps for each persistent data type.
  */
 /datum/controller/subsystem/persistence/Shutdown()
+	if(!init_success)
+		log_subsystem_persistence_panic("Init success flag is FALSE. Something went wrong during subsystem init! Aborting finalization to prevent corrupt data!")
+		return
+
 	if(prevent_saving)
 		log_subsystem_persistence_warning("Persistence subsystem was toggled to not save. Skipping subsystem finalization.")
 		return
