@@ -89,25 +89,32 @@
 			log_subsystem_persistence_error("Unhandled exception during finalization_hook of [type_instance]: [e]")
 
 	// ##### Saving history
+	var/total_saved_count = 0
 	for(var/key in history_cache)
 		var/datum/persistent_record_container/container = history_cache[key] // Dictionary<"[type](+[attribute])", container>
-		if(!length(container.records)) // Container was queried, got no hits and nothing was added.
-			continue
+		if(!length(container.records))
+			continue // Container was queried, got no hits and nothing was added.
+
 		var/list/datum/persistent_record/new_records = list()
 		for(var/datum/persistent_record/record in container.records)
 			if(record.id > history_last_database_id) // ID assigned by virtual ID is larger then last known database ID, record is new and needs to be saved.
 				new_records += record
+
 		sortTim(new_records, /proc/cmp_persistent_record_id_asc) // Sort by ID to preserve creation order, as the virtual IDs get replaced by real database IDs.
+
 		for(var/datum/persistent_record/record in new_records)
 			var/singleton/persistent_type/type_instance = GET_SINGLETON(container.type_define)
 			historyDatabaseInsertRecord(type_instance.database_id, container.attribute, record.value)
-		log_subsystem_persistence_info("Saved new [length(new_records)] persistent history records.")
+			total_saved_count++
+
+	log_subsystem_persistence_info("Saved new [length(total_saved_count)] persistent history records.")
 
 	// ##### Saving generics
 	for(var/key in generic_cache)
 		var/datum/persistent_generic/container = generic_cache[key] // Dictionary<"[type](+[attribute])", container>
 		var/singleton/persistent_type/type_instance = GET_SINGLETON(container.type_define)
 		genericDatabaseSave(type_instance.database_id, container.attribute, container.expires_in_days, json_encode(container.content))
+
 	log_subsystem_persistence_info("Saved [length(generic_cache)] persistent generics.")
 
 /**
