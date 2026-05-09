@@ -3,14 +3,21 @@
 // E.g. Glasses have less room than something worn over the chest.
 // Note that the electronic assembly is INSIDE the object that actually gets worn, in a similar way to implants.
 
+// Base vars for any item that can hold wearable circuitry.
+/obj/item
+	var/obj/item/electronic_assembly/clothing/IC = null
+	var/obj/item/integrated_circuit/built_in/action_button/action_circuit = null
+
+// Electronic assembly holder.
+// This is still named /clothing to avoid rewriting every existing circuit item path.
 /obj/item/electronic_assembly/clothing
 	name = "electronic clothing"
-	var/clothing_icon_state = "circuitry" // Needs to match the clothing's base icon_state.
+	var/clothing_icon_state = "circuitry"
 	desc = "It's a case, for building machines attached to clothing."
 	w_class = WEIGHT_CLASS_SMALL
 	max_components = IC_COMPONENTS_BASE
 	max_complexity = IC_COMPLEXITY_BASE
-	var/obj/item/clothing/clothing = null
+	var/obj/item/clothing = null
 
 /obj/item/electronic_assembly/clothing/ui_host()
 	return clothing
@@ -22,12 +29,33 @@
 	return clothing
 
 /obj/item/electronic_assembly/clothing/update_icon()
+	if(!clothing)
+		return
+
 	clothing.icon_state = "[initial(clothing.icon_state)][opened ? "-open" : ""]"
 	clothing.ClearOverlays()
+
 	var/image/detail_overlay = image('icons/obj/assemblies/wearable_electronic_setups.dmi', "[initial(clothing.icon_state)][opened ? "-open" : ""]-color")
 	detail_overlay.color = detail_color
 	clothing.AddOverlays(detail_overlay)
-	clothing.update_clothing_icon()
+
+	if(hascall(clothing, "update_clothing_icon"))
+		call(clothing, "update_clothing_icon")()
+
+// Generic setup usable by clothing AND radio headsets.
+/obj/item/proc/setup_integrated_circuit(new_type)
+	IC = new new_type(src)
+	IC.clothing = src
+	IC.name = name
+
+	action_circuit = new(src.IC)
+	IC.force_add_circuit(action_circuit)
+
+	default_action_type = /datum/action/item_action/integrated_circuit
+	action_button_name = "Activate [capitalize_first_letters(name)]"
+
+	icon = 'icons/obj/assemblies/wearable_electronic_setups.dmi'
+	contained_sprite = TRUE
 
 // This is 'small' relative to the size of regular clothing assemblies.
 /obj/item/electronic_assembly/clothing/small
@@ -47,7 +75,7 @@
 		clothing.name = input_name
 
 // This is defined higher up, in /clothing to avoid lots of copypasta.
-/obj/item/clothing
+/obj/item
 	var/obj/item/electronic_assembly/clothing/IC = null
 	var/obj/item/integrated_circuit/built_in/action_button/action_circuit = null // This gets pulsed when someone clicks the button on the hud, OR when certain interactions are performed (such as clicking on something with gloves worn)
 
@@ -63,7 +91,7 @@
 		..()
 
 // Does most of the repeatative setup.
-/obj/item/clothing/proc/setup_integrated_circuit(new_type)
+/obj/item/proc/setup_integrated_circuit(new_type)
 	// Set up the internal circuit holder.
 	IC = new new_type(src)
 	IC.clothing = src
@@ -221,26 +249,59 @@
 	return ..()
 
 // Ear
-/obj/item/clothing/ears/circuitry
+// Ear: baseline radio headset + wearable circuitry.
+/obj/item/radio/headset/circuitry
 	name = "electronic earwear"
 	desc = "It's a wearable case for electronics. This one appears to be a technical-looking headset."
 	icon = 'icons/obj/assemblies/wearable_electronic_setups.dmi'
 	contained_sprite = TRUE
 	icon_state = "headset"
 	item_state = "headset"
+	ks1type = null
+	ks2type = null
 
-/obj/item/clothing/ears/circuitry/Initialize()
+	// Empty by default, but can accept encryption keys through normal headset attackby().
+	ks1type = null
+	ks2type = null
+
+/obj/item/radio/headset/circuitry/Initialize()
+	. = ..()
 	setup_integrated_circuit(/obj/item/electronic_assembly/clothing/small)
+
+/obj/item/radio/headset/circuitry/Destroy()
+	QDEL_NULL(IC)
+	action_circuit = null
 	return ..()
 
-/obj/item/clothing/ears/circuitry/build_additional_parts(mob/living/carbon/human/H, mob_icon, slot)
+/obj/item/radio/headset/circuitry/attack_self(mob/user)
+	if(IC)
+		return IC.attack_self(user)
+	return ..()
+
+/obj/item/radio/headset/circuitry/build_additional_parts(mob/living/carbon/human/H, mob_icon, slot)
 	var/static/list/valid_slots
 	if(!valid_slots)
 		valid_slots = list(slot_l_ear_str, slot_r_ear_str)
-	if(IC.detail_color && (slot in valid_slots))
+
+	if(IC?.detail_color && (slot in valid_slots))
 		var/image/electronic_overlay = overlay_image(icon, "[item_state][slot_str_to_contained_flag(slot)]-color", IC.detail_color, RESET_COLOR)
 		return electronic_overlay
+
 	return ..()
+
+/obj/item/radio/headset/circuitry/proc/get_wearer()
+	if(ishuman(loc))
+		var/mob/living/carbon/human/H = loc
+		if(H.l_ear == src || H.r_ear == src)
+			return H
+	return null
+
+/obj/item/radio/headset/circuitry/proc/private_output(message)
+	var/mob/living/carbon/human/H = get_wearer()
+	if(!H)
+		return
+
+	to_chat(H, SPAN_NOTICE("[message]"))
 
 // Exo-slot
 /obj/item/clothing/suit/circuitry
