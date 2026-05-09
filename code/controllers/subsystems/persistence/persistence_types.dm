@@ -78,9 +78,10 @@
 	// ##### Hooks
 	var/base_types = list(/singleton/persistent_type, /singleton/persistent_type/generic, /singleton/persistent_type/history, /singleton/persistent_type/history/character)
 	var/custom_types = typesof(/singleton/persistent_type) - base_types // These are the types we are actually dealing with
-	for (var/singleton/persistent_type/T in custom_types)
+	for (var/singleton/persistent_type/C in custom_types)
+		var/singleton/persistent_type/type_instance = GET_SINGLETON(C)
 		try
-			T.finalization_hook()
+			type_instance.finalization_hook()
 		catch(var/exception/e)
 			log_subsystem_persistence_error("Unhandled exception during [T]: [e]")
 
@@ -94,12 +95,14 @@
 				new_records += r
 		sortTim(new_records, /proc/cmp_persistent_record_id_asc) // Sort by ID to preserve creation order, as the virtual IDs get replaced by real database IDs.
 		for(var/datum/persistent_record/r in new_records)
-			historyDatabaseInsertRecord(c.type_define.database_id, c.attribute, r.value)
+			var/singleton/persistent_type/type_instance = GET_SINGLETON(c.type_define)
+			historyDatabaseInsertRecord(type_instance.database_id, c.attribute, r.value)
 		log_subsystem_persistence_info("Saved new [length(new_records)] persistent history records.")
 
 	// ##### Saving generics
 	for(var/datum/persistent_generic/generic as anything in generic_cache)
-		genericDatabaseSave(generic.type_define, generic.attribute, generic.expires_in_days, json_encode(generic.content))
+		var/singleton/persistent_type/type_instance = GET_SINGLETON(generic.type_define)
+		genericDatabaseSave(type_instance.database_id, generic.attribute, generic.expires_in_days, json_encode(generic.content))
 	log_subsystem_persistence_info("Saved [length(generic_cache)] persistent generics.")
 
 /**

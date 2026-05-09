@@ -45,7 +45,8 @@
 		log_subsystem_persistence_warning("Attempted to add history record with null target type.")
 		return
 
-	if(target_type.requires_attribute && !length(attribute))
+	var/singleton/persistent_type/type_instance = GET_SINGLETON(target_type)
+	if(type_instance.requires_attribute && !length(attribute))
 		log_subsystem_persistence_warning("Attempted to add history record of type [target_type] without required attribute.")
 		return
 
@@ -132,7 +133,8 @@
 		log_subsystem_persistence_warning("Attempted to get history records with null target type.")
 		return list()
 
-	if(target_type.requires_attribute && !attribute)
+	var/singleton/persistent_type/type_instance = GET_SINGLETON(target_type)
+	if(type_instance.requires_attribute && !attribute)
 		log_subsystem_persistence_warning("Attempted to get history records of type [target_type] without required attribute.")
 		return list()
 
@@ -143,7 +145,7 @@
 	var/datum/persistent_record_container/container = null
 	if(attribute) // Search for attribute
 		for(var/datum/persistent_record_container/c as anything in history_cache)
-			if(c.type_define == target_type.type && c.attribute == attribute)
+			if(c.type_define == target_type && c.attribute == attribute)
 				container = c
 				break
 	else // Try finding type if no attribute
@@ -164,7 +166,7 @@
 		history_cache[target_type] = container
 
 	// Query order - 2
-	var/list/db_records = historyDatabaseGetRecords(target_type.database_id, attribute, limit - length(top)) // Draw remaining missing records from DB
+	var/list/db_records = historyDatabaseGetRecords(type_instance.database_id, attribute, limit - length(top)) // Draw remaining missing records from DB
 	var/len = length(db_records)
 	if(!len)
 		return list()
@@ -228,8 +230,9 @@
 		log_subsystem_persistence_warning("Attempted to get history records with null target type.")
 		return list()
 
+	var/singleton/persistent_type/type_instance = GET_SINGLETON(target_type)
 	var/list/result = list()
-	for(var/attribute in historyDatabaseGetAllAttributes(target_type.database_id))
+	for(var/attribute in historyDatabaseGetAllAttributes(type_instance.database_id))
 		// Query order
 		// 1 - Check if record container exists, if so, check if last X records are in there, aggregate found records, step to DB (2) for missing remainders.
 		// 2 - Query database for last X records of type and add it to record container as new cache
@@ -237,7 +240,7 @@
 		var/datum/persistent_record_container/container = null
 		if(attribute) // Search for attribute
 			for(var/datum/persistent_record_container/c as anything in history_cache)
-				if(c.type_define == target_type.type && c.attribute == attribute)
+				if(c.type_define == target_type && c.attribute == attribute)
 					container = c
 					break
 		else // Try finding type if no attribute
@@ -258,7 +261,7 @@
 			history_cache[target_type] = container
 
 		// Query order - 2
-		var/list/db_records = historyDatabaseGetRecords(target_type.database_id, attribute, limit - length(top)) // Draw remaining missing records from DB
+		var/list/db_records = historyDatabaseGetRecords(type_instance.database_id, attribute, limit - length(top)) // Draw remaining missing records from DB
 		var/len = length(db_records)
 		if(!len)
 			result += list("attribute" = attribute, "records" = list())

@@ -14,7 +14,8 @@
 		log_subsystem_persistence_warning("Attempted to add generic with null target type.")
 		return
 
-	if(target_type.requires_attribute && !length(attribute))
+	var/singleton/persistent_type/type_instance = GET_SINGLETON(target_type)
+	if(type_instance.requires_attribute && !length(attribute))
 		log_subsystem_persistence_warning("Attempted to add generic of type [target_type] without required attribute.")
 		return
 
@@ -53,7 +54,8 @@
 		log_subsystem_persistence_warning("Attempted to load generic with null target type.")
 		return
 
-	if(target_type.requires_attribute && !length(attribute))
+	var/singleton/persistent_type/type_instance = GET_SINGLETON(target_type)
+	if(type_instance.requires_attribute && !length(attribute))
 		log_subsystem_persistence_warning("Attempted to load generic of type [target_type] without required attribute.")
 		return
 
@@ -66,7 +68,7 @@
 		if(generic)
 			return generic
 
-	var/result = genericDatabaseLoad(target_type, attribute)
+	var/result = genericDatabaseLoad(type_instance.database_id, attribute)
 
 	var/datum/persistent_generic/new_generic = new /datum/persistent_generic/
 	new_generic.type_define = target_type
