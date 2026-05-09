@@ -91,8 +91,7 @@
 		"DELETE FROM ss13_persistent_history \
 		WHERE type = :type_id \
 		AND ( \
-				(:attribute IS NULL AND attribute IS NULL) \
-				OR attribute = :attribute \
+				attribute <=> :attribute \
 			) \
 		AND id NOT IN ( \
 				SELECT id FROM ( \
@@ -101,8 +100,7 @@
 					WHERE type = :type_id \
 						) \
 					AND ( \
-							(:attribute IS NULL AND attribute IS NULL) \
-							OR attribute = :attribute \
+							attribute <=> :attribute \
 						) \
 					ORDER BY id DESC \
 					LIMIT :row_count \
@@ -232,7 +230,7 @@
 		"INSERT INTO ss13_persistent_history (type, created_at, attribute, value, game_id) VALUES (:type_id, NOW(), :attribute, :value, :game_id)",
 		list(
 			"type_id" = type_id,
-			"attribute" = (attribute == null) ? null : "[attribute]",
+			"attribute" = attribute,
 			"value" = "[value]",
 			"game_id" = "[GLOB.round_id]"
 		)
@@ -258,7 +256,7 @@
 
 	var/datum/db_query/query = SSdbcore.NewQuery(
 		"SELECT id, created_at, value FROM ss13_persistent_history \
-		WHERE type = :type_id AND attribute = :attribute \
+		WHERE type = :type_id AND attribute <=> :attribute \
 		ORDER BY id DESC LIMIT :count",
 		list(
 			"type_id" = type_id,

@@ -82,7 +82,7 @@
 
 	var/datum/db_query/query = SSdbcore.NewQuery(
 		"SELECT id, content FROM ss13_persistent_generics \
-		WHERE type = :type_id AND attribute = :attribute",
+		WHERE type = :type_id AND attribute <=> :attribute",
 		list(
 			"type_id" = type_id,
 			"attribute" = attribute
