@@ -63,20 +63,14 @@
 	// Check if record container exists, if not, create it
 	var/datum/persistent_record_container/container = null
 	attribute = length(attribute) > 0 ? attribute : null
-	if(attribute) // Search for attribute
-		for(var/datum/persistent_record_container/c as anything in history_cache)
-			if(c.type_define == target_type.type && c.attribute == attribute)
-				container = c
-				break
-	else // Try finding type if no attribute
-		container = history_cache[target_type]
+	container = history_cache[typesGetCacheName(target_type, attribute)]
 
 	if(!container)
 		container = new /datum/persistent_record_container
 		container.type_define = target_type.type
 		container.attribute = attribute
 		container.records = list()
-		history_cache[target_type] = container
+		history_cache[typesGetCacheName(target_type, attribute)] = container
 
 	// Create record and add to container
 	var/datum/persistent_record/r = new /datum/persistent_record
@@ -145,13 +139,7 @@
 
 	var/datum/persistent_record_container/container = null
 	attribute = length(attribute) > 0 ? attribute : null
-	if(attribute) // Search for attribute
-		for(var/datum/persistent_record_container/c as anything in history_cache)
-			if(c.type_define == target_type && c.attribute == attribute)
-				container = c
-				break
-	else // Try finding type if no attribute
-		container = history_cache[target_type]
+	container = history_cache[typesGetCacheName(target_type, attribute)]
 
 	var/list/datum/persistent_record/top = list()
 
@@ -165,7 +153,7 @@
 		container.type_define = target_type.type
 		container.attribute = attribute
 		container.records = list()
-		history_cache[target_type] = container
+		history_cache[typesGetCacheName(target_type, attribute)] = container
 
 	// Query order - 2
 	var/list/db_records = historyDatabaseGetRecords(type_instance.database_id, attribute, limit - length(top)) // Draw remaining missing records from DB

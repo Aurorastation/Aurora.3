@@ -143,3 +143,9 @@
 			top.Cut(k+1)
 
 	return top
+
+/datum/controller/subsystem/persistence/proc/typesGetCacheName(var/singleton/persistent_type/target_type, var/attribute)
+	if(attribute && length(attribute) > 0)
+		return "[target_type]+[attribute]"
+	else
+		return "[target_type]"

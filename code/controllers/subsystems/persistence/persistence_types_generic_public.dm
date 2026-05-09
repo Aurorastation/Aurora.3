@@ -23,14 +23,8 @@
 		expires_in_days = PERSISTENT_DEFAULT_EXPIRATION_DAYS
 
 	attribute = length(attribute) > 0 ? attribute : null
-	if(attribute)
-		for(var/datum/persistent_generic/generic as anything in generic_cache)
-			if(generic.type_define == target_type && generic.attribute == attribute)
-				generic.content = content
-				generic.expires_in_days = expires_in_days
-				return
-	else
-		var/datum/persistent_generic/generic = generic_cache[target_type]
+	var/datum/persistent_generic/generic = generic_cache[typesGetCacheName(target_type, attribute)]
+	if(generic)
 		generic.content = content
 		generic.expires_in_days = expires_in_days
 		return
@@ -40,7 +34,7 @@
 	new_generic.attribute = attribute
 	new_generic.content = content
 	new_generic.expires_in_days = expires_in_days
-	generic_cache[target_type] = new_generic
+	generic_cache[typesGetCacheName(target_type, attribute)] = new_generic
 
 /**
  * Retrieve/Loads generic content of a type(+attribute)
@@ -61,14 +55,9 @@
 		return
 
 	attribute = length(attribute) > 0 ? attribute : null
-	if(attribute)
-		for(var/datum/persistent_generic/generic as anything in generic_cache)
-			if(generic.type_define == target_type && generic.attribute == attribute)
-				return generic
-	else
-		var/datum/persistent_generic/generic = generic_cache[target_type]
-		if(generic)
-			return generic
+	var/datum/persistent_generic/generic = generic_cache[typesGetCacheName(target_type, attribute)]
+	if(generic)
+		return generic
 
 	var/result = genericDatabaseLoad(type_instance.database_id, attribute )
 
@@ -77,5 +66,5 @@
 	new_generic.attribute = attribute
 	new_generic.content = json_decode(result["id"])
 	new_generic.expires_in_days = PERSISTENT_DEFAULT_EXPIRATION_DAYS
-	generic_cache[target_type] = new_generic
+	generic_cache[typesGetCacheName(target_type, attribute)] = new_generic
 	return new_generic
