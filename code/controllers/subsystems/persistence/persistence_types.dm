@@ -29,11 +29,10 @@
 
 	// Init internal history cache
 	history_last_database_id = historyDatabaseGetLastID()
-	if(history_last_database_id <= 0)
-		CRASH("Failed to get last ID of persistent type history records from the database during initialization. History record caching cannot be prepared!")
-	else
-		history_virtual_id = history_last_database_id
-		history_cache = list()
+	if(history_last_database_id == 0)
+		log_subsystem_persistence_warning("Failed to get last ID of persistent type history records from the database during initialization. Either the table is empty or something went wrong.")
+	history_virtual_id = history_last_database_id
+	history_cache = list()
 
 	// Clean history records
 	for(var/type_combination in historyDatabaseGetTypeAttributeCombinations()) // Iterate through each distinct type+attribute combination
