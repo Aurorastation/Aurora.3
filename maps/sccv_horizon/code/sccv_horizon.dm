@@ -181,7 +181,7 @@
 		ship.y = horizon_location_generic.content["y"]
 		// Make safe space for the Horizon
 		for(var/obj/effect/overmap/hazard in map)
-			if(hazard.x = ship.x && hazard.y == ship.y && istype(hazard, /obj/effect/overmap/event/)) // Ions, dust, carps, meteors, etc.
+			if(hazard.x == ship.x && hazard.y == ship.y && istype(hazard, /obj/effect/overmap/event/)) // Ions, dust, carps, meteors, etc.
 				qdel(hazard)
 
 	// ##### Send different faxes after slight delay
