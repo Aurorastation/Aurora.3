@@ -52,6 +52,42 @@
 	if(!databaseCheckConnection("genericDatabaseSave"))
 		return 0
 
+	// Because MariaDB doesn't consider NULL in the attribute to be a violation of the UNIQUE constraint,
+	// we have to verify if the generic already exists, if the attribute is null.
+	// If the attribute is null and it the generic exists, manually update the row instead of insert+on duplicate.
+	// Otherwise, with valid unique constraint (not null attributes), we can continue with the regular INSERT + ON DUPLICATE KEY directly.
+	if(!attribute)
+		var/datum/db_query/null_attribute_query = SSdbcore.NewQuery(
+			"SELECT id FROM ss13_persistent_generics WHERE type = :type_id AND attribute IS NULL",
+			list(
+				"type_id" = type_id
+			)
+		)
+		null_attribute_query.Execute()
+
+		if(!databaseCheckQueryResult(null_attribute_query, "genericDatabaseSaveNullAttributeCheck"))
+			qdel(null_attribute_query)
+			return 0
+
+		var/id = 0
+		if(null_attribute_query.NextRow())
+			id = null_attribute_query.item[1]
+		qdel(null_attribute_query)
+		if(id > 0) // Attribute null and row found - Invalid unique contraint for MariaDB - Update manually.
+			var/datum/db_query/update_query = SSdbcore.NewQuery(
+                    "UPDATE ss13_persistent_generics SET created_at = NOW(), expires_at = DATE_ADD(NOW(), INTERVAL :expires_in_days DAY), content = :content WHERE id = :id",
+                    list(
+                        "expires_in_days" = expires_in_days,
+                        "content" = content,
+                        "id" = id
+                    )
+                )
+			update_query.Execute()
+
+			databaseCheckQueryResult(update_query, "genericDatabaseSaveNullAttributeUpdate")
+			qdel(update_query)
+			return // Skip regular upcoming query due to the reasons above
+
 	var/datum/db_query/query = SSdbcore.NewQuery(
 		"INSERT INTO ss13_persistent_generics (type, attribute, created_at, expires_at, content) VALUES (:type_id, :attribute, NOW(), DATE_ADD(NOW(), INTERVAL :expires_in_days DAY), :content) \
 		ON DUPLICATE KEY UPDATE created_at = NOW(), expires_at = DATE_ADD(NOW(), INTERVAL :expires_in_days DAY), content = :content",
