@@ -4,5 +4,5 @@ delete-after: True
 
 changes:
   - rscadd: "Added in two new converter integrated circuits based off of the num-to-string circuit. Instead of just a 1 I/O there is now a 4 and 8 I/O version."
-  - rscqol: "Changed weight class on integrated circuit printer from BULKY to NORMAL."
-  - rscqol: "Changed integrated circuit advanced med scanner from NUM to Severity based detection to further align with the current health scanners."
+  - qol: "Changed weight class on integrated circuit printer from BULKY to NORMAL."
+  - qol: "Changed integrated circuit advanced med scanner from NUM to Severity based detection to further align with the current health scanners."
