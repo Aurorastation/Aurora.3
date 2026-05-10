@@ -858,6 +858,10 @@
  * Misc
  */
 
+/*
+ * Electronic Radio Headset
+ */
+
 /obj/item/radio/headset/headset_medsci
 	name = "medical research radio headset"
 	desc = "A headset that is a result of the mating between medical and science."
