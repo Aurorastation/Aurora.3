@@ -1,0 +1,7 @@
+author: mineymonkey
+
+delete-after: True
+
+changes:
+  - qol: "Changed electronic headset to work and behave like both a radio headset and integrated circuits."
+  - qol: "Changed both integrated circuit microphone and text-to-speech to allow for specific instance useage with /obj/item/radio/headset/circuitry so it preserves normal function, but now will take speech from the radio into consideration and not announce it to anyone within range, now it needs to be worn to hear."
