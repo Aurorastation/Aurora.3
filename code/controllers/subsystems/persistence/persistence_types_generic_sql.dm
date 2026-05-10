@@ -75,13 +75,13 @@
 		qdel(null_attribute_query)
 		if(id > 0) // Attribute null and row found - Invalid unique contraint for MariaDB - Update manually.
 			var/datum/db_query/update_query = SSdbcore.NewQuery(
-                    "UPDATE ss13_persistent_generics SET created_at = NOW(), expires_at = DATE_ADD(NOW(), INTERVAL :expires_in_days DAY), content = :content WHERE id = :id",
-                    list(
-                        "expires_in_days" = expires_in_days,
-                        "content" = content,
-                        "id" = id
-                    )
-                )
+				"UPDATE ss13_persistent_generics SET created_at = NOW(), expires_at = DATE_ADD(NOW(), INTERVAL :expires_in_days DAY), content = :content WHERE id = :id",
+				list(
+					"expires_in_days" = expires_in_days,
+					"content" = content,
+					"id" = id
+				)
+			)
 			update_query.Execute()
 
 			databaseCheckQueryResult(update_query, "genericDatabaseSaveNullAttributeUpdate")
