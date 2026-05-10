@@ -54,3 +54,11 @@
   - bugfix: Fixed trash in inventory persistence prevention disallowing any items
       to be persistent on character locations.
   - bugfix: Fixed persistent charge card location on new round start.
+2026-05-09:
+  Batrachophrenoboocosmomachia:
+  - bugfix: Makes blobs no longer immortal.
+  Kano:
+  - bugfix: Fixed walls not updating damage overlay status when fixed.
+2026-05-10:
+  arrow768:
+  - bugfix: Fixes an issue with deleting tgui buttons on alerts.
