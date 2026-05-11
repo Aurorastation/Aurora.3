@@ -186,10 +186,9 @@
 
 /obj/item/electronic_assembly/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
-	if(distance <= 1)
+	if(opened && get_dist(user, src) <= 1)
 		for(var/obj/item/integrated_circuit/IC in contents)
-			. += IC.external_examine(user)
-		if(opened)
+			. += SPAN_NOTICE("It contains \a [IC].")
 			interact(user)
 
 /obj/item/electronic_assembly/proc/get_part_complexity()
