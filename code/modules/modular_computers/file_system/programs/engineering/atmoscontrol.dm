@@ -49,8 +49,7 @@
 		if("alarm")
 			var/obj/machinery/alarm/alarm = locate(params["alarm"]) in (monitored_alarms.len ? monitored_alarms : SSmachinery.processing)
 			if(alarm)
-				var/datum/ui_state/TS = generate_state(alarm)
-				alarm.ui_interact(usr, state = TS) //what the fuck?
+				alarm.ui_interact(usr)
 			return TRUE
 		// Manually clear and repopulate the alarm list.
 		if("refresh")
@@ -79,29 +78,3 @@
 
 	return data
 
-/datum/computer_file/program/atmos_control/proc/generate_state(air_alarm)
-	var/datum/ui_state/air_alarm/state = new()
-	state.atmos_control = src
-	state.air_alarm = air_alarm
-	return state
-
-/datum/ui_state/air_alarm
-	var/datum/computer_file/program/atmos_control/atmos_control
-	var/obj/machinery/alarm/air_alarm
-
-/datum/ui_state/air_alarm/can_use_topic(var/src_object, var/mob/user)
-	var/obj/item/card/id/I = user.GetIdCard()
-	if(has_access(req_one_access = atmos_control.required_access_run, accesses = I.GetAccess()))
-		return STATUS_INTERACTIVE
-	return STATUS_UPDATE
-
-/datum/ui_state/air_alarm/href_list(var/mob/user)
-	var/list/extra_href = list()
-	extra_href["remote_connection"] = TRUE
-	extra_href["remote_access"] = can_access(user)
-
-	return extra_href
-
-/datum/ui_state/air_alarm/proc/can_access(var/mob/user)
-	var/obj/item/card/id/I = user.GetIdCard()
-	return user && (isAI(user) || has_access(req_one_access = atmos_control.required_access_run, accesses = I.GetAccess()) || atmos_control.computer_emagged || air_alarm.rcon_setting == RCON_YES || (air_alarm.alarm_area.atmosalm && air_alarm.rcon_setting == RCON_AUTO))

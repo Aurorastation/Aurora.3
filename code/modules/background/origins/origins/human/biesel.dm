@@ -22,6 +22,8 @@
 	possible_accents = list(ACCENT_GIBSON_OVAN, ACCENT_GIBSON_UNDIR)
 	possible_citizenships = list(CITIZENSHIP_BIESEL, CITIZENSHIP_SOL)
 	possible_religions = RELIGIONS_BIESEL
+	origin_traits = list(TRAIT_ORIGIN_COLD_RESISTANCE)
+	origin_traits_descriptions = list("are more acclimatised to the cold.")
 
 /singleton/origin_item/origin/reade
 	name = "Reade"

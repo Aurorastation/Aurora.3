@@ -103,6 +103,7 @@ Pipelines + Other Objects -> Pipe network
 /obj/machinery/atmospherics/process(seconds_per_tick)
 	last_flow_rate = 0
 	last_power_draw = 0
+	last_mole_transfer = 0
 
 	build_network()
 

@@ -318,7 +318,7 @@
 /obj/machinery/light/small{
 	dir = 8
 	},
-/obj/item/clothing/under/dress/tajaran/summer,
+/obj/item/clothing/pants/skirt/tajaran,
 /obj/item/clothing/under/dress/tajaran/red,
 /obj/item/clothing/under/dress/tajaran,
 /obj/item/clothing/accessory/tajaran/ruddy,
@@ -855,7 +855,7 @@
 /obj/structure/closet/cabinet,
 /obj/item/clothing/under/dress/tajaran/fancy,
 /obj/item/clothing/under/dress/tajaran/green,
-/obj/item/clothing/under/dress/tajaran/summer,
+/obj/item/clothing/pants/skirt/tajaran,
 /obj/item/clothing/shoes/flats,
 /obj/item/clothing/under/dress/tajaran,
 /obj/item/clothing/head/tajaran/circlet/silver,

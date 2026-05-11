@@ -172,7 +172,7 @@
 			var/obj/item/gun/energy/E = gun
 			var/obj/projectile/P = new E.projectile_type
 			data["gun"]["max_shots"] = initial(E.max_shots)
-			data["gun"]["recharge"] = initial(E.self_recharge) ? "self recharging" : "not self recharging"
+			data["gun"]["recharge"] = E.self_recharge ? "self recharging" : "not self recharging" //Not initial because modular guns are not self charging at initialization
 			data["gun"]["recharge_time"] = initial(E.recharge_time)
 			data["gun"]["damage"] = initial(P.damage)
 			data["gun"]["damage_type"] = initial(P.damage_type)
@@ -188,8 +188,14 @@
 			if(istype(gun, /obj/item/gun/energy/laser/prototype))
 				var/obj/item/gun/energy/laser/prototype/E_prototype = gun
 				var/list/mods = list()
+				var/l_modified_damage = 1 / (max(1, gun.burst - 1)) //E_prototype.capacitor.damage * E_prototype.modulator.damage
+				var/l_modified_max_shots = 1 //E_prototype.capacitor.shots
 				for(var/i in list(E_prototype.capacitor, E_prototype.focusing_lens, E_prototype.modulator) + E_prototype.gun_mods)
 					var/obj/item/laser_components/l_component = i
+					if (l_component.damage != 0)
+						l_modified_damage *= l_component.damage
+					if (l_component.shots != 0)
+						l_modified_max_shots *= l_component.shots
 					var/l_repair_name = initial(l_component.repair_item.name) ? initial(l_component.repair_item.name) : "nothing"
 					mods += list(list(
 						"name" = initial(l_component.name),
@@ -201,6 +207,8 @@
 						"accuracy_modifier" = initial(l_component.accuracy),
 						"repair_tool" = l_repair_name
 					))
+				data["gun"]["damage"] = min(60, l_modified_damage)
+				data["gun"]["max_shots"] = l_modified_max_shots
 				data["gun_mods"] = mods
 
 			if(E.secondary_projectile_type)

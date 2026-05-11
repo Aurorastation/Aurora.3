@@ -215,12 +215,10 @@ This saves us from having to call add_fingerprint() any time something is put in
 		update_inv_back()
 	else if (W == handcuffed)
 		handcuffed = null
-		if(buckled_to && buckled_to.buckle_require_restraints)
-			buckled_to.unbuckle()
-		update_inv_handcuffed()
+		handcuff_update()
 	else if (W == legcuffed)
 		legcuffed = null
-		update_inv_legcuffed()
+		legcuff_update()
 	else if (W == r_hand)
 		r_hand = null
 		update_inv_r_hand()
@@ -265,11 +263,11 @@ This saves us from having to call add_fingerprint() any time something is put in
 			update_inv_wear_mask(redraw_mob)
 		if(slot_handcuffed)
 			src.handcuffed = W
-			update_inv_handcuffed(redraw_mob)
+			handcuff_update()
 		if(slot_legcuffed)
 			src.legcuffed = W
 			W.on_equipped(src, slot, assisted_equip)
-			update_inv_legcuffed(redraw_mob)
+			legcuff_update()
 		if(slot_l_hand)
 			src.l_hand = W
 			W.on_equipped(src, slot, assisted_equip)

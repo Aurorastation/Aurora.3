@@ -139,10 +139,9 @@
 				continue
 			// Update identification information for this record.
 			record.update_marker_icon()
-
-			var/time_delay = max((SENSOR_TIME_DELAY * get_dist(linked, contact)),1)
-			if(!record.pinged)
-				addtimer(CALLBACK(record, PROC_REF(ping)), time_delay)
+			if(record.pinged_until <= world.time)
+				var/time_delay = max((SENSOR_TIME_DELAY * get_dist(linked, contact)), 1 SECOND)
+				record.ping(time_delay)
 
 /**
  * Adds an overmap object to the known contacts.

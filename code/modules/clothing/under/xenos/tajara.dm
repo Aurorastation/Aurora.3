@@ -29,6 +29,17 @@
 	icon_state = "male_taj_fancy_alt2"
 	item_state = "male_taj_fancy_alt2"
 
+/obj/item/clothing/under/tajaran/fancy/colorable
+	icon_state = "male_taj_fancy_colorable"
+	item_state = "male_taj_fancy_colorable"
+	contained_sprite = TRUE
+	build_from_parts = TRUE
+	has_accents = TRUE
+	worn_overlay = "base"
+
+/obj/item/clothing/under/tajaran/fancy/colorable/silver
+	worn_overlay = "base_silver"
+
 /obj/item/clothing/under/tajaran/nt
 	name = "NanoTrasen overalls"
 	desc = "Overalls meant for NanoTrasen employees of xeno descent, modified to prevent overheating."
@@ -193,13 +204,16 @@
 	icon_state = "female_taj_fancy_alt2"
 	item_state = "female_taj_fancy_alt2"
 
-/obj/item/clothing/under/dress/tajaran/summer
-	name = "adhomian summer dress"
-	desc = "An Adhomian dress usually worn during the summer."
-	icon_state = "summer-dress"
-	item_state = "summer-dress"
-	body_parts_covered = LOWER_TORSO
-	starting_accessories = list(/obj/item/clothing/accessory/tajaran/summershirt)
+/obj/item/clothing/under/dress/tajaran/formal/colorable
+	icon_state = "female_taj_fancy_colorable"
+	item_state = "female_taj_fancy_colorable"
+	contained_sprite = TRUE
+	build_from_parts = TRUE
+	has_accents = TRUE
+	worn_overlay = "base"
+
+/obj/item/clothing/under/dress/tajaran/formal/colorable/silver
+	worn_overlay = "base_silver"
 
 /obj/item/clothing/pants/tajaran
 	name = "adhomian summer pants"
@@ -208,10 +222,23 @@
 	icon_state = "summer-pants"
 	item_state = "summer-pants"
 	contained_sprite = TRUE
-	starting_accessories = list(/obj/item/clothing/accessory/tajaran/summershirt)
 	desc_extended = "Having direct and friendly contact with humanity, The People's Republic of Adhomai has been the most influenced by the spacer fashion. The most known \
 	being the \"assistant jumpsuits\" which directly inspired the design of factory overalls, the plight and low pay of the assistants being close to the hearts of Tajara Hadiist \
 	workers and their Republic."
+
+/obj/item/clothing/pants/skirt/tajaran
+	name = "adhomian summer skirt"
+	desc = "An Adhomian skirt usually worn during the summer."
+	icon = 'icons/obj/tajara_items.dmi'
+	icon_state = "summer-dress"
+	item_state = "summer-dress"
+
+/obj/item/clothing/under/dressshirt/tajaran
+	name = "adhomian summer shirt"
+	desc = "A simple piece of Adhomian summerwear made with linen."
+	icon = 'icons/obj/tajara_items.dmi'
+	icon_state = "summer-shirt"
+	item_state = "summer-shirt"
 
 /obj/item/clothing/under/tajaran/pra_uniform
 	name = "republican army uniform"

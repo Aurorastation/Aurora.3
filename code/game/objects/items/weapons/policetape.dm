@@ -53,7 +53,7 @@ GLOBAL_LIST_INIT(tape_roll_applications, list())
 /obj/item/tape/police
 	name = "police tape"
 	desc = "A length of police tape.  Do not cross."
-	req_one_access = list(ACCESS_SECURITY, ACCESS_KONYANG_POLICE) // Any role that is considered 'police' and gets this item should also have it's access added to this variable. If this list gets too long we may need to make subtypes.
+	req_one_access = list(ACCESS_SECURITY, ACCESS_PORTOFCALL_POLICE) // Any role that is considered 'police' and gets this item should also have it's access added to this variable. If this list gets too long we may need to make subtypes.
 	icon_base = "police"
 
 /obj/item/taperoll/medical
@@ -98,12 +98,12 @@ GLOBAL_LIST_INIT(tape_roll_applications, list())
 
 /obj/item/tape/engineering/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()
-	. += "You can use a multitool on this tape to allow emergency shield generators to deploy shields on this tile."
+	. += "You can use a multitool on this tape to allow emergency shield projectors to deploy shields on this tile."
 
 /obj/item/tape/engineering/feedback_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	if(shield_marker)
-		. += "This strip of tape has been modified to serve as a marker for emergency shield generators to lock onto."
+		. += "This strip of tape has been modified to serve as a marker for emergency shield projectors to lock onto."
 
 /obj/item/tape/engineering/attackby(obj/item/attacking_item, mob/user)
 	if(attacking_item.tool_behaviour == TOOL_MULTITOOL)

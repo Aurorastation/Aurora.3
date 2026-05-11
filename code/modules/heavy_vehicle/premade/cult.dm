@@ -24,7 +24,7 @@
 	icon_state = "cult_arms"
 	melee_damage = 50
 	action_delay = 5
-	max_damage = 90
+	max_damage = 135
 	power_use = 3500
 	punch_sound = 'sound/mecha/mech_punch_slow.ogg'
 

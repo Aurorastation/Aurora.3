@@ -269,6 +269,16 @@
 					data += list(list("Hardsuit Modules", "[SRM.module.interface_name]", "[SRM]", REF(SRM)))
 	return data
 
+/mob/living/silicon/get_actions_for_statpanel()
+	var/list/data = ..()
+	var/obj/item/rig/R = get_rig()
+	if(istype(R))
+		for(var/obj/item/rig_module/module in R.installed_modules)
+			for(var/stat_rig_module/SRM in module.stat_modules)
+				if(SRM.CanUse())
+					data += list(list("Hardsuit Modules", "[SRM.module.interface_name]", "[SRM]", REF(SRM)))
+	return data
+
 /stat_rig_module
 	parent_type = /atom/movable
 	var/module_mode = ""

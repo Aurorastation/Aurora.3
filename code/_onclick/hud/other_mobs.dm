@@ -112,11 +112,6 @@
 		constructtype = "harvester"
 
 	if(constructtype)
-		mymob.fire = new /atom/movable/screen()
-		mymob.fire.icon = 'icons/mob/screen/construct.dmi'
-		mymob.fire.icon_state = "fire0"
-		mymob.fire.name = "fire"
-		mymob.fire.screen_loc = ui_construct_fire
 
 		mymob.healths = new /atom/movable/screen()
 		mymob.healths.icon = 'icons/mob/screen/construct.dmi'
@@ -144,4 +139,4 @@
 
 	mymob.client.screen = null
 
-	mymob.client.screen += list(mymob.fire, mymob.healths, mymob.pullin, mymob.zone_sel, mymob.purged)
+	mymob.client.screen += list(mymob.healths, mymob.pullin, mymob.zone_sel, mymob.purged)

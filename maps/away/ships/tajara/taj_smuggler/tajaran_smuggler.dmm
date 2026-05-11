@@ -499,6 +499,7 @@
 /obj/machinery/alarm/cold/north{
 	req_one_access = null
 	},
+/obj/item/eftpos,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -2212,7 +2213,7 @@
 /obj/item/clothing/accessory/tajaran/charm/steel/silver/seashell,
 /obj/item/clothing/accessory/tajaran/charm/steel/silver,
 /obj/item/clothing/accessory/tajaran/charm/tajani,
-/obj/item/clothing/accessory/tajaran/summershirt,
+/obj/item/clothing/under/dressshirt/tajaran,
 /obj/item/clothing/accessory/tajaran/ruddy,
 /obj/item/clothing/accessory/tajaran/silver,
 /obj/item/clothing/accessory/tajaran/orange,

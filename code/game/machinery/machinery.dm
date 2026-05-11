@@ -87,6 +87,9 @@ Class Procs:
 	layer = STRUCTURE_LAYER
 	init_flags = INIT_MACHINERY_PROCESS_SELF
 	pass_flags_self = PASSMACHINE | LETPASSCLICKS
+	destroy_sound = 'sound/effects/meteorimpact.ogg'
+	hitsound = 'sound/effects/metalhit.ogg'
+	should_use_health = TRUE
 
 	/**
 	 * 'stat' = 'state'. Controlled by a bitflag, differentiates between a few different possible states including the machine being broken or unpowered.
@@ -141,15 +144,20 @@ Class Procs:
 	var/uid
 	var/panel_open = 0
 	var/global/gl_uid = 1
-	var/interact_offline = 0 // Can the machine be interacted with while de-powered.
-	var/printing = 0 // Is this machine currently printing anything?
-	var/list/processing_parts // Component parts queued for processing by the machine. Expected type: `/obj/item/stock_parts` Unused currently
+	/// Can the machine be interacted with while de-powered?
+	var/interact_offline = FALSE
+	/// Is this machine currently printing anything?
+	var/printing = FALSE
+	/// Component parts queued for processing by the machine. Expected type: `/obj/item/stock_parts` Unused currently.
+	var/list/processing_parts
 
 	/// Bitflag. What is being processed. One of `MACHINERY_PROCESS_*`.
 	var/processing_flags
 
-	var/clicksound //played sound on usage
-	var/clickvol = 40 //volume
+	/// Played sound on usage.
+	var/clicksound
+	/// Volume.
+	var/clickvol = 40
 	/// Signaller attached to the machine
 	var/obj/item/assembly/signaler/signaler
 	/// Overmap sector the machine is linked to
@@ -226,6 +234,30 @@ Class Procs:
 
 	return ..()
 
+/obj/machinery/on_death(damage, damage_flags, damage_type, armor_penetration, obj/weapon)
+	var/turf/current_turf = get_turf(src)
+	spark(current_turf, 3, GLOB.alldirs)
+	if(component_parts)
+		for(var/obj/item/stock_parts/part in component_parts)
+			if(prob(25))
+				part.forceMove(current_turf)
+				component_parts -= part
+		var/obj/item/circuitboard/board = locate() in component_parts
+		if(istype(board))
+			if(prob(25))
+				board.forceMove(current_turf)
+				component_parts -= board
+			else
+				new /obj/item/trash/broken_electronics(current_turf)
+	var/metal_to_spawn = 0
+	for(var/i = 1 to 2)
+		if(prob(50))
+			metal_to_spawn++
+	if(metal_to_spawn)
+		new /obj/item/stack/material/steel(get_turf(src), metal_to_spawn)
+	. = ..()
+
+
 // /obj/machinery/proc/process_all()
 // 	/* Uncomment this if/when you need component processing
 // 	if(processing_flags & MACHINERY_PROCESS_COMPONENTS)
@@ -258,18 +290,12 @@ Class Procs:
 
 /obj/machinery/ex_act(severity)
 	switch(severity)
-		if(1.0)
-			qdel(src)
-			return
-		if(2.0)
-			if (prob(50))
-				qdel(src)
-				return
-		if(3.0)
-			if (prob(25))
-				qdel(src)
-				return
-	return
+		if(1)
+			add_damage(maxhealth)
+		if(2)
+			add_damage(maxhealth * 0.5)
+		if(3)
+			add_damage(maxhealth * 0.25)
 
 /**
  * Check to see if the machine is operable
@@ -366,7 +392,6 @@ Class Procs:
 			user.visible_message("<b>[user]</b> removes \the [signaler] from \the [src].", SPAN_NOTICE("You remove \the [signaler] from \the [src]."), range = 3)
 			user.put_in_hands(detach_signaler())
 			return TRUE
-
 	return ..()
 
 /obj/machinery/proc/detach_signaler(var/turf/detach_turf)
@@ -567,6 +592,8 @@ Class Procs:
 
 	if(hitting_projectile.get_structure_damage() > 5)
 		bullet_ping(hitting_projectile)
+
+	add_damage(hitting_projectile.damage, hitting_projectile.damage_flags(), hitting_projectile.damage_type, hitting_projectile.armor_penetration, hitting_projectile)
 
 /obj/machinery/proc/do_hair_pull(mob/living/carbon/human/H)
 	if(stat & (NOPOWER|BROKEN))

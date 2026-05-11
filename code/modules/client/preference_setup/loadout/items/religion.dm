@@ -181,6 +181,7 @@ ABSTRACT_TYPE(/datum/gear/religion/dominia)
 	path = /obj/item/clothing/under/dominia/priest/consular
 	slot = slot_w_uniform
 	allowed_roles = list("Consular Officer")
+	citizenship = CITIZENSHIP_DOMINIA
 
 /datum/gear/religion/dominia/beret_consular
 	display_name = "tribunalist consular beret"
@@ -188,6 +189,7 @@ ABSTRACT_TYPE(/datum/gear/religion/dominia)
 	path = /obj/item/clothing/head/beret/dominia/consular
 	slot = slot_head
 	allowed_roles = list("Consular Officer")
+	citizenship = CITIZENSHIP_DOMINIA
 
 /datum/gear/religion/dominia/cape_consular
 	display_name = "tribunalist cousular cape"
@@ -195,6 +197,7 @@ ABSTRACT_TYPE(/datum/gear/religion/dominia)
 	path = /obj/item/clothing/accessory/poncho/dominia_cape/tribunalist/consular
 	slot = slot_wear_suit
 	allowed_roles = list("Consular Officer")
+	citizenship = CITIZENSHIP_DOMINIA
 
 /datum/gear/religion/dominia/codex
 	display_name = "tribunal codex"

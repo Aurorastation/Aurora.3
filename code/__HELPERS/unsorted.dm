@@ -782,24 +782,6 @@ Turf and target are seperate in case you want to teleport some distance from a t
 	if(A.vars.Find(lowertext(varname))) return 1
 	else return 0
 
-/proc/DuplicateObject(obj/original, var/perfectcopy = 0 , var/sameloc = 0)
-	if(!original)
-		return null
-
-	var/obj/O = null
-
-	if(sameloc)
-		O=new original.type(original.loc)
-	else
-		O=new original.type(locate(0,0,0))
-
-	if(perfectcopy)
-		if((O) && (original))
-			for(var/V in original.vars)
-				if(!(V in list("type","loc","locs","vars", "parent", "parent_type","verbs","ckey","key")))
-					O.vars[V] = original.vars[V]
-	return O
-
 /proc/get_cardinal_dir(atom/A, atom/B)
 	var/dx = abs(B.x - A.x)
 	var/dy = abs(B.y - A.y)
@@ -1246,3 +1228,18 @@ GLOBAL_LIST_INIT(wall_items, typecacheof(list(
 
 	if(final_x || final_y)
 		return locate(final_x, final_y, T.z)
+
+/**
+ * Basically just transforms the ROLL_RESULT defines into text.
+ */
+/proc/roll_result_text(roll)
+	switch(roll)
+		if(ROLL_RESULT_CRITICAL_SUCCESS)
+			return "critical success"
+		if(ROLL_RESULT_SUCCESS)
+			return "success"
+		if(ROLL_RESULT_FAILURE)
+			return "failure"
+		if(ROLL_RESULT_CRITICAL_FAILURE)
+			return "critical failure"
+	crash_with("Roll result given invalid roll: [roll]")

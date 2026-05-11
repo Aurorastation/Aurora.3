@@ -111,13 +111,6 @@
 /obj/item/gun/projectile/dragunov,
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/gunnery)
-"q" = (
-/obj/item/paper{
-	name = "Armory notice no. 1";
-	info = "Our old shorties and most of our PDWs and sidearms are busted. So we lifted some stuff from some local 'taj smuggler who calls himself Sergei or something. The rifle with the curved mag (I can't pronounce the name for shit) can't take any lathed mags, so hold on to what we have. You'll have to handload the other rifle (again, can't pronounce the name for shit) with 7.62 clips or by hand."
-	},
-/turf/template_noop,
-/area/space)
 "r" = (
 /obj/item/ammo_magazine/a68,
 /obj/item/ammo_magazine/a68,
@@ -140,6 +133,10 @@
 /obj/item/ammo_magazine/mc9mm,
 /obj/item/ammo_magazine/mc9mm,
 /obj/item/ammo_magazine/mc9mm,
+/obj/item/paper{
+	name = "Armory notice no. 1";
+	info = "Our old shorties and most of our PDWs and sidearms are busted. So we lifted some stuff from some local 'taj smuggler who calls himself Sergei or something. The rifle with the curved mag (I can't pronounce the name for shit) can't take any lathed mags, so hold on to what we have. You'll have to handload the other rifle (again, can't pronounce the name for shit) with 7.62 clips or by hand."
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/gunnery)
 "s" = (
@@ -264,7 +261,7 @@
 /obj/item/ammo_magazine/a556/carbine,
 /obj/item/paper{
 	name = "Armory notice no. 1";
-	info = "Our old shorties and most of our PDWs and sidearms are busted. We had to use a few rifles and shit we captured off the 'imps as a backstop. They aren't too bad, once you get used to the wood furniture and the blood stains."
+	info = "Our old shorties and most of our PDWs and sidearms are busted. So we're using some old Solarian stuff and some kit that was donated from the KAF as a holdover. The mags for our new rifles can't be printed by a 'lathe. So hold on to what you got."
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/gunnery)
@@ -342,7 +339,7 @@
 /obj/item/ammo_magazine/c45m/dominia,
 /obj/item/paper{
 	name = "Armory notice no. 1";
-	info = "Our old shorties and most of our PDWs and sidearms are bused. So we're using some old Solarian stuff and some kit that was donated from the KAF as a holdover. The mags for our new rifles can't be printed by a 'lathe. So hold on to what you got."
+	info = "Our old shorties and most of our PDWs and sidearms are busted. We had to use a few rifles and shit we captured off the 'imps as a backstop. They aren't too bad, once you get used to the wood furniture and the blood stains."
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/gunnery)
@@ -653,7 +650,7 @@ a
 a
 x
 r
-q
+a
 a
 a
 a

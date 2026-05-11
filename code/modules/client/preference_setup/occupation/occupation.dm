@@ -219,6 +219,26 @@
 			if(C.name in job.blacklisted_citizenship)
 				dat += "<del>[dispRank]</del></td><td><b> \[BACKGROUND RESTRICTED]</b></td></tr>"
 				continue
+
+		// Skill requirement handling.
+		var/skills_length = length(job.skill_requirements)
+		var/skill_index = 0
+		var/missing_skills = ""
+		for (var/key,value in job.skill_requirements)
+			skill_index++
+			if (!key || pref.skills[key] >= value)
+				continue
+
+			var/singleton/skill/skill = GET_SINGLETON(key)
+			missing_skills += "[skill.name] [value]"
+			if (skill_index != skills_length)
+				missing_skills += "\n"
+
+		if (missing_skills != "")
+			dat += "<del>[dispRank]</del></td><td> MISSING SKILLS: [missing_skills]</td></tr>"
+			continue
+		// End of skill requirement handling.
+
 		if(job.alt_titles && (LAZYLEN(pref.GetValidTitles(job)) > 1))
 			dispRank = "<span width='60%' align='center'>&nbsp<a href='byond://?src=[REF(src)];select_alt_title=[REF(job)]'>\[[pref.GetPlayerAltTitle(job)]\]</a></span>"
 		if((pref.job_civilian_low & ASSISTANT) && (rank != "Assistant"))
@@ -285,7 +305,7 @@
 		var/list/choices = pref.GetValidTitles(job)
 		if(!LAZYLEN(choices))
 			return ..()// should never happen
-		var/choice = input("Choose a title for [job.title].", "Choose Title", pref.GetPlayerAltTitle(job)) as anything in choices|null
+		var/choice = input("Choose a title for [job.title]. Be aware that choosing an alternative title does not absolve you from the job's regular duties!", "Choose Title", pref.GetPlayerAltTitle(job)) as anything in choices|null
 		if(choice && CanUseTopic(user))
 			SetPlayerAltTitle(job, choice)
 			return TOPIC_REFRESH_UPDATE_PREVIEW

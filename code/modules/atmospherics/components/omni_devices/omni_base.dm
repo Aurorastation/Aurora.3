@@ -68,6 +68,7 @@
 /obj/machinery/atmospherics/omni/process()
 	last_power_draw = 0
 	last_flow_rate = 0
+	last_mole_transfer = 0
 
 	if(error_check())
 		update_use_power(POWER_USE_OFF)

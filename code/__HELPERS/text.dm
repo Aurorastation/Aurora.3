@@ -666,6 +666,10 @@
 	t = replacetext(t, "\[logo_pvpolice_small\]", "<img src = pvpolicelogo_small.png>")
 	t = replacetext(t, "\[logo_outereyes\]", "<img src = outereyeslogo.png>")
 	t = replacetext(t, "\[logo_outereyes_small\]", "<img src = outereyeslogo_small.png>")
+	t = replacetext(t, "\[twinsuns\]", "<img src = twinsuns.png>")
+	t = replacetext(t, "\[twinsuns_small\]", "<img src = twinsuns_small.png>")
+	t = replacetext(t, "\[raskara_sigil\]", "<img src = raskara_sigil.png>")
+	t = replacetext(t, "\[raskara_sigil_small\]", "<img src = raskara_sigil_small.png>")
 	t = replacetext(t, "\[barcode\]", "<img src = barcode[rand(0, 3)].png>")
 	t = replacetext(t, "\[time\]", "[worldtime2text()]")
 	t = replacetext(t, "\[date\]", "[worlddate2text()]")
@@ -741,6 +745,10 @@
 		t = replacetext(t, "<img src = pvpolicelogo_small.png>", "\[logo_pvpolice_small\]")
 		t = replacetext(t, "<img src = outereyeslogo.png>", "\[logo_outereyes\]")
 		t = replacetext(t, "<img src = outereyeslogo_small.png>", "\[logo_outereyes_small\]")
+		t = replacetext(t, "<img src = twinsuns.png>", "\[twinsuns\]")
+		t = replacetext(t, "<img src = twinsuns_small.png>", "\[twinsuns_small\]")
+		t = replacetext(t, "<img src = raskara_sigil.png>", "\[raskara_sigil\]")
+		t = replacetext(t, "<img src = raskara_sigil_small.png>", "\[raskara_sigil_small\]")
 
 	return t
 

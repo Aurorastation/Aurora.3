@@ -19,7 +19,7 @@
 	if(embedded_flag)
 		handle_embedded_objects() //Moving with objects stuck in you can cause bad times.
 
-	var/health_deficiency = maxHealth - health
+	var/health_deficiency = maxhealth - health
 	if(health_deficiency >= 40)
 		tally += (health_deficiency / 25)
 
@@ -44,8 +44,8 @@
 	if (!(species.flags & NO_COLD_SLOWDOWN))	// Bugs and machines don't move slower when cold.
 		if((mutations & FAT))
 			tally += 1.5
-		if (bodytemperature < 283.222)
-			tally += (283.222 - bodytemperature) / 10 * 1.75
+		if (bodytemperature < species.cold_discomfort_level)
+			tally += (species.cold_discomfort_level - bodytemperature) / 10 * 1.75
 
 	tally += max(2 * stance_damage, 0) //damaged/missing feet or legs is slow
 	if((mutations & mRun))
@@ -113,7 +113,8 @@
 	return prob_slip
 
 /mob/living/carbon/human/Check_Shoegrip(checkSpecies = TRUE)
-	if(shoes && (shoes.item_flags & ITEM_FLAG_NO_SLIP) && istype(shoes, /obj/item/clothing/shoes/magboots) && !lying && !buckled_to && !length(grabbed_by))  //magboots + dense_object = no floating. Doesn't work if lying. Grabbedby and buckled_to are for mob carrying, wheelchairs, roller beds, etc.
+	//magboots + dense_object = no floating. Doesn't work if lying. Grabbedby and buckled_to are for mob carrying, wheelchairs, roller beds, etc.
+	if(shoes && (shoes.item_flags & ITEM_FLAG_NO_SLIP) && istype(shoes, /obj/item/clothing/shoes/magboots) && !lying && !buckled_to && !length(grabbed_by))
 		return TRUE
 	if(HAS_TRAIT(src, TRAIT_SHOE_GRIP))
 		return TRUE
@@ -123,8 +124,6 @@
 	. = ..()
 	if(. && tail_style)
 		update_tail_showing(!lying)
-	if(lying)
-		update_icon(TRUE)
 
 /mob/living/carbon/human/Move()
 	. = ..()

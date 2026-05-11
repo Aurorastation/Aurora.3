@@ -100,7 +100,7 @@
 	clear_important_client_contents()
 	enable_client_mobs_in_contents()
 
-	update_client_color()
+	update_client_color(no_animate = TRUE)
 	add_click_catcher()
 
 	if(client) //Should work based on "change_view" but we lack the infrastructure behind to make it useful, for now

@@ -131,7 +131,7 @@
  * Called whenever the field needs to take charge from the capacitor.
  */
 /obj/machinery/shield_gen/proc/assume_charge(required_energy)
-	if(!owned_capacitor)
+	if(!owned_capacitor || !owned_capacitor.active)
 		return 0
 	var/assumed_charge = min(owned_capacitor.stored_charge, required_energy)
 	assumed_charge = max(assumed_charge, 0)
@@ -144,6 +144,13 @@
 	return ..()
 
 /obj/machinery/shield_gen/proc/toggle()
+	if(!active)
+		if(!owned_capacitor)
+			balloon_alert_to_viewers("no capacitor")
+			return
+		else if(!owned_capacitor?.active)
+			balloon_alert_to_viewers("capacitor offline")
+			return
 	active = !active
 	update_icon()
 	if(active)

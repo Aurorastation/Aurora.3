@@ -5,7 +5,7 @@ ABSTRACT_TYPE(/datum/gear/pants)
 /datum/gear/pants/trousers
 	display_name = "pants and shorts selection"
 	description = "A selection of pants and shorts."
-	path = /obj/item/clothing/pants
+	path = /obj/item/clothing/pants/black
 
 /datum/gear/pants/trousers/New()
 	..()
@@ -41,8 +41,6 @@ ABSTRACT_TYPE(/datum/gear/pants)
 	pants["mustang jeans short shorts"] = /obj/item/clothing/pants/shorts/jeans/mustang/short
 	pants["black jeans shorts"] = /obj/item/clothing/pants/shorts/jeans/black
 	pants["black jeans short shorts"] = /obj/item/clothing/pants/shorts/jeans/black/short
-	pants["grey jeans shorts"] = /obj/item/clothing/pants/shorts/jeans/grey
-	pants["grey jeans short shorts"] = /obj/item/clothing/pants/shorts/jeans/grey/short
 
 	// Athletic Shorts
 	pants["black athletic shorts"] = /obj/item/clothing/pants/shorts/athletic/black

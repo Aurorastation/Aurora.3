@@ -29,6 +29,9 @@
 		/datum/species/diona
 	)
 
+	blacklisted_citizenship_types = list(
+		/datum/citizenship/free_council
+	)
 
 	job_species_blacklist = list(
 		"Corporate Liaison" = list(
@@ -44,7 +47,7 @@
 		"Hangar Technician" = /obj/outfit/job/hangar_tech/hephaestus,
 		"Shaft Miner" = /obj/outfit/job/mining/hephaestus,
 		"Machinist" = /obj/outfit/job/machinist/hephaestus,
-		"Engineer" = /obj/outfit/job/engineer/hephaestus,
+		"Ship Engineer" = /obj/outfit/job/engineer/hephaestus,
 		"Atmospheric Technician" = /obj/outfit/job/atmos/hephaestus,
 		"Engineering Apprentice" = /obj/outfit/job/intern_eng/hephaestus,
 		"Atmospherics Apprentice" = /obj/outfit/job/intern_atmos/hephaestus,
@@ -57,6 +60,23 @@
 		"Engineering Personnel" = /obj/outfit/job/engineer/event/hephaestus,
 		"Operations Personnel" = /obj/outfit/job/hangar_tech/event/hephaestus
 	)
+
+/datum/faction/hephaestus_industries/get_corporate_objectives(var/mission_level)
+	switch(mission_level)
+		if(REPRESENTATIVE_MISSION_HIGH)
+			return pick("Recruit a crew member to disperse physical or radio material besmirching the image of Zavodskoi Interstellar",
+						"Support Hephaestus employees involved in disputes with Zavodskoi Interstellar contractors",
+						"Identify and document Zavodskoi Interstellar employees with disfavourable views towards Zavodskoi")
+		if(REPRESENTATIVE_MISSION_MEDIUM)
+			return pick("Identify the seeds of unionisation among Hephaestus employees. Report union representatives",
+						"Have a Hephaestus employee sign a contract extension",
+						"Emphasise how relatable Titanius Aeson is to the common worker")
+		else
+			return pick("Conduct a survey on Hephaestus Industries employee morale",
+						"Evaluate crew opinions on Hephaestus industrial synthetics",
+						"Survey unathi crew members on their views of Hephaestus Industries",
+						"Identify and resolve a complaint of a Hephaestus Industries employee")
+
 
 /obj/outfit/job/hangar_tech/hephaestus
 	name = "Hangar Technician - Hephaestus"

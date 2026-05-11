@@ -375,7 +375,7 @@
 /turf/simulated/floor/exoplanet/asphalt,
 /area/trove/tunnels)
 "cf" = (
-/obj/item/gun/energy/lasercannon,
+/obj/item/gun/energy/rifle/laser/heavy,
 /obj/random/dirt_75,
 /turf/simulated/floor/wood/mahogany,
 /area/trove/vault)
@@ -1177,7 +1177,7 @@
 "gf" = (
 /obj/random/dirt_75,
 /obj/random/ammo,
-/obj/item/gun/energy/lawgiver,
+/obj/item/gun/energy/acp,
 /turf/simulated/floor/wood/mahogany,
 /area/trove/vault)
 "gh" = (
@@ -2264,9 +2264,9 @@
 /obj/item/ammo_magazine/c762,
 /obj/item/ammo_magazine/c762,
 /obj/item/gun/projectile/shotgun/pump,
-/obj/item/storage/box/shotgunshells,
-/obj/item/storage/box/flashshells,
-/obj/item/storage/box/beanbags,
+/obj/item/storage/box/shells/shotgunshells,
+/obj/item/storage/box/shells/flashshells,
+/obj/item/storage/box/shells/beanbags,
 /obj/item/gun/projectile/automatic/tommygun,
 /obj/item/ammo_magazine/submachinemag,
 /obj/item/ammo_magazine/submachinemag,
@@ -2341,7 +2341,7 @@
 /turf/simulated/floor/exoplanet/grass/moghes,
 /area/trove/beach)
 "mx" = (
-/obj/item/gun/energy/sniperrifle,
+/obj/item/gun/energy/rifle/laser/sniper,
 /obj/random/dirt_75,
 /turf/simulated/floor/wood/mahogany,
 /area/trove/vault)
@@ -8107,7 +8107,6 @@
 /turf/simulated/floor/plating,
 /area/trove/vault)
 "TL" = (
-/obj/item/gun/energy/noisecannon,
 /obj/random/dirt_75,
 /turf/simulated/floor/wood/mahogany,
 /area/trove/vault)

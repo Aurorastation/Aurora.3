@@ -1,0 +1,70 @@
+2026-05-01:
+  Kano:
+  - rscadd: Added a preview icon for brick walls.
+  SleepyGemmy:
+  - rscadd: Tweaked the "Who" and "Staff Who" interfaces.
+2026-05-04:
+  Hellfirejag:
+  - bugfix: Fixed mechanical organs and augments getting infections and never recovering
+      correctly from EMP damage.
+  - bugfix: Fixed some runtime errors with projectiles and firearms.
+  - bugfix: Fixed some runtime errors with Beams.
+  - bugfix: Fixed Mechanical Organs EMP effects being extremely underwhelming and
+      short lived. An EMP grenade will disable mechanical organs for 30 seconds.
+  - bugfix: Fixed both a hard delete and a random test fail related to hivebot beacons.
+  - rscadd: Added Carousing as a small new Everyday skill. Having ranks in Carousing
+      makes you slightly more resistant to drugs and alcohol.
+2026-05-05:
+  FabianK3:
+  - rscadd: Added a persistent version of charge cards - Arc feature / Admin spawn
+      only.
+  - rscadd: Added a persistent version of cargo packages, called supply package -
+      Arc feature / Admin spawn only.
+  Kano:
+  - bugfix: Fixed an issue where the chairs update their name incorrectly.
+  SierraKomodo:
+  - rscadd: Electrical Engineering skill of Professional now allows you to see the
+      purpose of non-randomized wires, without needing to have blueprints or fancy
+      tools.
+  - rscadd: Dud wires (Wires that do nothing) now appear as 'None' in the wire panel
+      UI if wire purposes are revealed.
+  TheGreyWolf:
+  - rscadd: Added EFTPOS devices to a large amount of away sites and away ships. They
+      are mapped either on the bridge, the captain's quarters or in one instance the
+      kitchen.
+  - bugfix: Fixed several outdated item paths found on away maps.
+  fyni:
+  - rscadd: Adds the Outer Eyes voidsuit, and new gear loadouts featuring it for Antags!
+2026-05-06:
+  fyni:
+  - bugfix: Makes the Outer Eyes helmet properly appear on sprite.
+2026-05-07:
+  Hellfirejag:
+  - bugfix: Fixed EMP damage not ticking down on prosthetics.
+  diggiez:
+  - rscadd: Wearing Shaper robes now removes Hive name from physical messages. The
+      helmet will remove Hive name from Hivenet messages.
+  - spellcheck: Preimminent misspelling on the robe corrected.
+  kermit:
+  - bugfix: Fixes representative objectives not being sent. They will now appear in-hand
+      on-spawning
+  - rscadd: Redoes all megacorporate objectives and Republic of Biesel objectives
+2026-05-08:
+  FabianK3:
+  - bugfix: Fixed trash in inventory persistence prevention disallowing any items
+      to be persistent on character locations.
+  - bugfix: Fixed persistent charge card location on new round start.
+2026-05-09:
+  Batrachophrenoboocosmomachia:
+  - bugfix: Makes blobs no longer immortal.
+  Kano:
+  - bugfix: Fixed walls not updating damage overlay status when fixed.
+2026-05-10:
+  arrow768:
+  - bugfix: Fixes an issue with deleting tgui buttons on alerts.
+2026-05-11:
+  Batrachophrenoboocosmomachia:
+  - rscadd: Updates a chunk of D2 starboard maintenance to be ship supply warehousing
+      space for the Lemurian Sea arc.
+  - bugfix: Fixes 'restricted' random canister spawners inadvertently spawning rare/valuable
+      gases.

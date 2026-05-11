@@ -28,8 +28,6 @@ ABSTRACT_TYPE(/mob/living/simple_animal/hostile)
 	var/destroy_surroundings = 1
 	a_intent = I_HURT
 	hunger_enabled = 0//Until automated eating mechanics are enabled, disable hunger for hostile mobs
-	var/shuttletarget = null
-	var/enroute = 0
 	var/obj/effect/landmark/mob_waypoint/target_waypoint = null // The waypoint mobs that are spawned by mapped in spawners move to
 
 	// Vars to help find targets
@@ -54,10 +52,13 @@ ABSTRACT_TYPE(/mob/living/simple_animal/hostile)
 	setup_target_type_validators()
 
 /mob/living/simple_animal/hostile/Destroy()
-	friends = null
+	GLOB.move_manager.stop_looping(src)
 	unset_last_found_target()
-	targets = null
-	target_type_validator_map = null
+	friends.Cut()
+	target_waypoint = null
+	targets.Cut()
+	target_type_validator_map.Cut()
+	tolerated_types.Cut()
 	return ..()
 
 /mob/living/simple_animal/hostile/proc/setup_target_type_validators()
@@ -270,7 +271,7 @@ ABSTRACT_TYPE(/mob/living/simple_animal/hostile)
 			return
 		face_atom(T)
 		src.do_attack_animation(T)
-		T.take_damage(max(melee_damage_lower, melee_damage_upper) / 2)
+		T.add_damage(max(melee_damage_lower, melee_damage_upper) / 2, armor_penetration = armor_penetration)
 		visible_message(SPAN_DANGER("\The [src] [attacktext] \the [T]!"))
 		return T // no need to take a step back here
 	if(loc && attack_sound)
@@ -477,7 +478,7 @@ ABSTRACT_TYPE(/mob/living/simple_animal/hostile)
 			found_obj = locate(/obj/structure/table) in target_turf
 			if(found_obj)
 				var/obj/structure/table/table = found_obj
-				if(!table.breakable)
+				if(!table.maxhealth)
 					continue
 				found_obj.attack_generic(src, rand(melee_damage_lower, melee_damage_upper), attacktext, TRUE)
 				hostile_last_attack = world.time

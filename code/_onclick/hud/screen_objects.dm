@@ -476,14 +476,17 @@
 
 /// This updates the run/walk button on the hud.
 /atom/movable/screen/movement_intent/proc/update_move_icon(var/mob/living/user)
-	if(!user.client)
+	if(!user?.client || QDELETED(user) || QDELETED(src))
 		return
 
 	if(user.max_stamina == -1 || user.stamina == user.max_stamina)
 		if(user.stamina_bar)
-			user.stamina_bar.end_progress()
+			if(!QDELETED(user.stamina_bar))
+				user.stamina_bar.end_progress()
 			QDEL_NULL(user.stamina_bar) //Because otherwise they stack weirdly when calculating the progress bar offsets
 	else
+		if(QDELETED(user.stamina_bar))
+			user.stamina_bar = null
 		if(!user.stamina_bar)
 			user.stamina_bar = new(user, user.max_stamina, src)
 		user.stamina_bar.goal = user.max_stamina
@@ -491,8 +494,6 @@
 
 	if(user.m_intent == M_RUN)
 		icon_state = "running"
-	else if(user.m_intent == M_LAY)
-		icon_state = "lying"
 	else
 		icon_state = "walking"
 
@@ -521,25 +522,10 @@
 			if(M_WALK)
 				if(!(usr.get_species() in BLACKLIST_SPECIES_RUNNING))
 					usr.m_intent = M_RUN
-			if(M_LAY)
-				// No funny "haha i get the bonuses then stand up"
-				var/obj/item/gun/gun_in_hand = C.get_type_in_hands(/obj/item/gun)
-				if(gun_in_hand?.wielded)
-					to_chat(C, SPAN_WARNING("You cannot wield and stand up!"))
-					return
 
-				if(C.lying_is_intentional)
-					usr.m_intent = M_WALK
+		if(modifiers["button"] == "middle")
+			C.lay_down()
 
-		if(modifiers["button"] == "middle" && !C.lying)	// See /mob/proc/update_canmove() for more logic on the lying FSM
-			// You want this bonus weapon or not? Wield it when you are lying, not before!
-			var/obj/item/gun/gun_in_hand = C.get_type_in_hands(/obj/item/gun)
-			if(gun_in_hand?.wielded)
-				to_chat(C, SPAN_WARNING("You cannot wield and lie down!"))
-				return
-			C.m_intent = M_LAY
-
-		// this works in conjunction with M_LAY to make the mob stand up or lie down instantly
 		C.update_canmove()
 		C.update_icon()
 

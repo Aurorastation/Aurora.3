@@ -172,17 +172,20 @@ and changes are stored in volumes.
 services:
     flyway:
         image: flyway/flyway
-        command: -url=jdbc:mysql://db -user=root -password=P@ssw0rd -workingDirectory="project" migrate
+        command: -url=jdbc:mysql://db -user=root -password=my-password -defaultSchema=aurora migrate
         volumes:
-            - ./SQL/migrate-VERSION:/flyway/project # Pathing!
+            - ./SQL/migrate-VERSION:/flyway/sql # Pathing!
         depends_on:
             - db
     db:
         image: mariadb
         environment:
-            MARIADB_ROOT_PASSWORD: Pssw0rd
+            MARIADB_ROOT_PASSWORD: my-password
         volumes:
             - aurora:/var/lib/mysql:Z
         ports:
         - 3306:3306
+
+volumes:
+  aurora:
 ```

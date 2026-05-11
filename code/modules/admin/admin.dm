@@ -35,7 +35,7 @@ var/global/enabled_spooking = 0
 ///////////////////////////////////////////////////////////////////////////////////////////////Panels
 
 /datum/admins/proc/show_player_panel(var/mob/M in GLOB.mob_list)
-	set category = "Admin"
+	set category = "Admin.Player Info"
 	set name = "Show Player Panel"
 	set desc="Edit player (respawn, ban, heal, etc)"
 
@@ -236,7 +236,7 @@ var/global/enabled_spooking = 0
 
 #define PLAYER_NOTES_ENTRIES_PER_PAGE 50
 /datum/admins/proc/PlayerNotes()
-	set category = "Admin"
+	set category = "Admin.Player Info"
 	set name = "Player Notes"
 	if (!istype(src,/datum/admins))
 		src = usr.client.holder
@@ -299,7 +299,7 @@ var/global/enabled_spooking = 0
 
 
 /datum/admins/proc/show_player_info(var/key as text)
-	set category = "Admin"
+	set category = "Admin.Player Info"
 	set name = "Show Player Info"
 	if (!istype(src,/datum/admins))
 		src = usr.client.holder
@@ -694,16 +694,16 @@ var/global/enabled_spooking = 0
 
 
 /datum/admins/proc/announce()
-	set category = "Special Verbs"
+	set category = "Special Verbs.Narration/Messaging"
 	set name = "Announce"
 	set desc="Announce your desires to the world"
 
 	if (!check_rights(R_ADMIN))
 		return
 
-	var/message = tgui_input_text(usr, "Enter a global message to send.", "Admin Announce", multiline = TRUE)
+	var/message = tgui_input_text(usr, "Enter a global message to send.", "Admin Announce", multiline = TRUE, encode = FALSE)
 	if(message)
-		if(!check_rights(R_SERVER, 0))
+		if(!check_rights(R_ADMIN, 0))
 			message = sanitize(message, 500, extra = 0)
 		message = replacetext(message, "\n", "<br>") // required since we're putting it in a <p> tag
 		to_world("<span class=notice><b>[usr.client.holder.fakekey ? "Administrator" : usr.key] Announces:</b><p style='text-indent: 50px'>[message]</p></span>")
@@ -1024,6 +1024,10 @@ var/global/enabled_spooking = 0
 	if(!check_rights(R_SPAWN))
 		return
 
+	if(!length(object)) // Prevent server lag caused by searching all atoms
+		to_chat(src, SPAN_WARNING("Spawn verb requires an argument, partial or full type path, e.g.: Spawn \"/obj/item/toy"))
+		return
+
 	var/list/matches = typesof(/atom)
 
 	for(var/path in matches)
@@ -1333,7 +1337,7 @@ var/global/enabled_spooking = 0
 			target.visible_message("<font color='#002eb8'><b>OOC Information:</b></font> <span class='warning'>[target] has been winded by a member of staff! Please freeze all roleplay involving their character until the matter is resolved! Adminhelp if you have further questions.</span>", SPAN_WARNING("<b>You have been winded by a member of staff! Please stand by until they contact you!</b>"))
 			target.paralysis = 8000
 		else
-			if (alert(user, "The player is currently winded. Do you want to unwind him?", "Unwind player?", "Yes", "No") == "No")
+			if (alert(user, "The player is currently winded. Do you want to unwind the player?", "Unwind player?", "Yes", "No") == "No")
 				return
 			target.paralysis = 0
 			msg = "has unparalyzed [key_name_admin(target)]."
@@ -1352,7 +1356,7 @@ var/global/enabled_spooking = 0
 	feedback_add_details("admin_verb","SPOOKY") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 /datum/admins/proc/ccannoucment()
-	set category = "Special Verbs"
+	set category = "Special Verbs.Narration/Messaging"
 	set name = "Custom sound Command Announcment"
 	set desc = "Emulate announcement that looks and sounds like the real one."
 	if(!check_rights(R_FUN))

@@ -40,10 +40,10 @@
 		original_settings = null
 
 /// Parent gun type. Guns are weapons that can be aimed at mobs and act over a distance.
-/obj/item/gun
+ABSTRACT_TYPE(/obj/item/gun)
 	name = "gun"
 	desc = "It's a gun. It's pretty terrible, though."
-	icon = 'icons/obj/guns/pistol.dmi'
+	icon = 'icons/obj/guns/faction/zavodskoi_interstellar/pistol.dmi'
 	var/gun_gui_icons = 'icons/obj/guns/gun_gui.dmi'
 	icon_state = "pistol"
 	item_state = "pistol"
@@ -258,7 +258,7 @@
 	underlays.Cut()
 	if(bayonet)
 		var/image/I
-		I = image(icon = 'icons/obj/guns/bayonet.dmi', icon_state = "bayonet")
+		I = image(icon = 'icons/obj/guns/attachments/bayonet.dmi', icon_state = "bayonet")
 		I.pixel_x = knife_x_offset
 		I.pixel_y = knife_y_offset
 		underlays += I
@@ -292,6 +292,11 @@
 	return
 
 /obj/item/gun/proc/toggle_firing_mode(var/mob/user, var/list/message_mobs)
+	var/cancelled = FALSE
+	SEND_SIGNAL(user, COMSIG_GUN_TOGGLE_FIRING_MODE, src, &cancelled)
+	if (cancelled)
+		return
+
 	var/datum/firemode/new_mode = switch_firemodes(user)
 	if(new_mode)
 		playsound(user, safetyoff_sound, 25)
@@ -407,7 +412,9 @@
 		if(user.a_intent == I_HURT)
 			toggle_safety(user)
 		else
+			var/safety_cooldown = 5 // Half a second
 			handle_click_empty(user)
+			user.setClickCooldown(safety_cooldown)
 			return FALSE
 
 	if(!special_check(user))
@@ -431,7 +438,7 @@
 
 	return TRUE
 
-/obj/item/gun/proc/Fire(atom/target, mob/living/user, clickparams, pointblank=0, reflex=0, accuracy_decrease=0, is_offhand=0)
+/obj/item/gun/proc/Fire(atom/target, mob/living/user, clickparams, pointblank = 0, reflex = 0, var/accuracy_decrease = 0, is_offhand = 0)
 	if(!fire_checks(target,user,clickparams,pointblank,reflex))
 		return FALSE
 
@@ -440,6 +447,10 @@
 		if(istype(SG) && SG.w_class <= w_class)
 			var/decreased_accuracy = SG.w_class - SG.offhand_accuracy
 			addtimer(CALLBACK(SG, PROC_REF(Fire), target, user, clickparams, pointblank, reflex, decreased_accuracy, TRUE), 1)
+
+	/// The amount of extra degrees of firing arc the gun will have from the effects of a signal raised on the user.
+	var/dispersion_increase = 0
+	SEND_SIGNAL(user, COMSIG_BEFORE_GUN_FIRE, &accuracy_decrease, &dispersion_increase)
 
 	//actually attempt to shoot
 	var/turf/targloc = get_turf(target) //cache this in case target gets deleted during shooting, e.g. if it was a securitron that got destroyed.
@@ -450,7 +461,7 @@
 			break
 
 		var/acc = burst_accuracy[min(i, burst_accuracy.len)] - accuracy_decrease
-		var/disp = dispersion[min(i, dispersion.len)]
+		var/disp = dispersion[min(i, dispersion.len)] + dispersion_increase
 		process_accuracy(projectile, user, target, acc, disp)
 
 		if(pointblank)
@@ -475,6 +486,8 @@
 
 	// Custom formula here because otherwise you can fire bursts within the burst.
 	var/shoot_time = burst > 1 ? burst_delay + 1 : fire_delay
+	if (burst > 1 && burst_delay == 0) //Prevents guns with no burst delay (laser shotguns) from firing as fast as you can click.
+		shoot_time = fire_delay
 	user.setClickCooldown(shoot_time)
 
 /// Similar to the Fire() proc, but does not require a user, which is ideal for things like turrets.
@@ -506,7 +519,8 @@
 
 			P.suppressed =  suppressed
 
-			P.preparePixelProjectile(target, get_turf(src))
+			if(!P.preparePixelProjectile(target, get_turf(src)))
+				return FALSE
 			P.fired_from = src
 			P.fire()
 
@@ -644,6 +658,12 @@
 		F = firemodes[sel_mode]
 	if(one_hand_fa_penalty > 2 && !wielded && F?.name == "full auto") // todo: make firemode names defines
 		P.accuracy -= one_hand_fa_penalty * 0.5
+		P.spread -= one_hand_fa_penalty * 0.5 //Adds 6 degrees of spread on all rifles. Not very significant.
+	if(one_hand_fa_penalty > 2 && !wielded && F?.name == "short burst")
+		P.accuracy -= one_hand_fa_penalty * 0.5
+		P.spread -= one_hand_fa_penalty * 0.5
+	if(one_hand_fa_penalty > 2 && !wielded && F?.name == "3 round burst")
+		P.accuracy -= one_hand_fa_penalty * 0.5
 		P.spread -= one_hand_fa_penalty * 0.5
 
 //does the actual launching of the projectile
@@ -661,7 +681,8 @@
 		else if(mob.shock_stage > 70)
 			added_spread = 15
 
-	P.preparePixelProjectile(target, src, deviation = added_spread)
+	if(!P.preparePixelProjectile(target, src, params, added_spread))
+		return FALSE
 	P.firer = user
 	P.fired_from = src
 	P.def_zone = target_zone
@@ -762,6 +783,7 @@
 	return new_mode
 
 /obj/item/gun/attack_self(mob/user)
+	. = ..()
 	if(is_wieldable)
 		toggle_wield(usr)
 		update_held_icon()
@@ -908,6 +930,9 @@
 		var/mob/living/living_user = user
 		living_user.stop_aiming(src)
 
+	// so that mobs don't rest with the gun already wielded to bypass the firing delay updates
+	UnregisterSignal(user, COMSIG_MOB_RESTED)
+
 	queue_icon_update()
 	//Unwields the item when dropped, deletes the offhand
 	update_maptext()
@@ -922,6 +947,8 @@
 	..()
 	queue_icon_update()
 	addtimer(CALLBACK(src, PROC_REF(update_maptext)), 1)
+	// so that mobs don't rest with the gun already wielded to bypass the firing delay updates
+	RegisterSignal(user, COMSIG_MOB_RESTED, PROC_REF(update_firing_delays))
 	if(is_wieldable)
 		unwield()
 
@@ -986,9 +1013,9 @@
  */
 /obj/item/gun/proc/handle_reliability_fail(var/mob/user)
 	var/severity = 1
-	if(prob(100-reliability))
+	if(prob(80-reliability)) //Medium severity failures only possible under 80% reliability.
 		severity = 2
-		if(prob(100-reliability))
+		if(prob(65-reliability)) //Critical failures only possible under 65% reliability.
 			severity = 3
 	switch(severity)
 		if(1)
@@ -1007,7 +1034,7 @@
 /obj/item/gun/proc/critical_fail(var/mob/user)
 	return
 
-/obj/item/gun/attackby(obj/item/attacking_item, mob/user)
+/obj/item/gun/attackby(obj/item/attacking_item, mob/user, params)
 	if(istype(attacking_item, /obj/item/material/knife/bayonet))
 		if(!can_bayonet)
 			balloon_alert(user, "doesn't fit!")

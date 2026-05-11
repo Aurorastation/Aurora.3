@@ -178,35 +178,10 @@
 	muzzle_type = /obj/effect/projectile/muzzle/bolt
 	impact_effect_type = /obj/effect/temp_visual/blaster_effect
 
-/obj/projectile/energy/blaster/disruptor
-	damage = 20
-	pass_flags = PASSTABLE | PASSRAILING
-
-/obj/projectile/energy/blaster/disruptor/practice
-	damage = 5
-	damage_type = DAMAGE_PAIN
-	eyeblur = 0
-
 /obj/projectile/energy/blaster/skrell // for nralakk fed consular pistol
 	damage = 30
 	armor_penetration = 5
 	pass_flags = PASSTABLE | PASSRAILING
-
-/obj/projectile/energy/disruptorstun
-	name = "disruptor bolt"
-	icon_state = "bluelaser"
-	damage = 1
-	agony = 40
-	speed = 0.4
-	damage_type = DAMAGE_BURN
-	eyeblur = 1
-	pass_flags = PASSTABLE | PASSRAILING
-	muzzle_type = /obj/effect/projectile/muzzle/bolt
-
-/obj/projectile/energy/disruptorstun/practice
-	damage = 5
-	damage_type = DAMAGE_PAIN
-	eyeblur = 0
 
 /obj/projectile/energy/blaster/heavy
 	damage = 35
@@ -216,7 +191,21 @@
 	icon_state = "laser"
 	damage = 35
 	armor_penetration = 60
-	incinerate = 15
+	incinerate = 2
 
-/obj/projectile/energy/disruptorstun/skrell // for nralakk fed consular pistol
+/obj/projectile/energy/blaster/incendiary/light
+	icon_state = "laser"
+	damage = 30
+	armor_penetration = 35
+	incinerate = 1
+
+/obj/projectile/energy/disruptorskrell // for nralakk fed consular pistol
+	name = "disruptor bolt"
+	icon_state = "bluelaser"
+	damage = 1
 	agony = 45
+	speed = 0.4
+	damage_type = DAMAGE_BURN
+	eyeblur = 1
+	pass_flags = PASSTABLE | PASSRAILING
+	muzzle_type = /obj/effect/projectile/muzzle/bolt

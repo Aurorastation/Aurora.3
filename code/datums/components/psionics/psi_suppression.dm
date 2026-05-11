@@ -20,12 +20,12 @@
 	RegisterSignal(parent, COMSIG_PSI_MIND_POWER, PROC_REF(cancel_power), override = TRUE)
 
 /datum/component/psi_suppression/Destroy()
-	. = ..()
 	if (!parent)
-		return
+		return ..()
 
 	UnregisterSignal(parent, COMSIG_PSI_CHECK_SENSITIVITY)
 	UnregisterSignal(parent, COMSIG_PSI_MIND_POWER)
+	return ..()
 
 /datum/component/psi_suppression/proc/modify_sensitivity(var/parent, var/effective_sensitivity)
 	SIGNAL_HANDLER

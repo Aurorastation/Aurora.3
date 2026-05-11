@@ -1473,6 +1473,9 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8
 	},
+/obj/item/clothing/accessory/temperature/cold,
+/obj/item/clothing/accessory/temperature/cold,
+/obj/item/clothing/accessory/temperature/cold,
 /turf/simulated/floor/carpet/red,
 /area/himeo_patrol_ship/barracks)
 "fQ" = (
@@ -3297,6 +3300,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/himeo_patrol/central)
 "nK" = (
+/obj/machinery/recharge_station,
 /turf/simulated/floor/tiled/dark,
 /area/himeo_patrol_ship/generator)
 "nM" = (
@@ -8059,6 +8063,7 @@
 "HU" = (
 /obj/structure/table/steel,
 /obj/effect/floor_decal/corner/blue/full,
+/obj/item/eftpos,
 /turf/simulated/floor/tiled/gunmetal,
 /area/himeo_patrol_ship/bridge)
 "HV" = (
@@ -10306,7 +10311,7 @@
 /obj/item/storage/belt/medical/paramedic/combat,
 /obj/item/clothing/head/beret/medical,
 /obj/item/clothing/head/softcap/medical,
-/obj/item/clothing/accessory/armband/medgreen,
+/obj/item/clothing/accessory/armband/med,
 /obj/item/reagent_containers/hypospray,
 /obj/item/auto_cpr,
 /obj/item/auto_cpr,

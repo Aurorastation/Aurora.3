@@ -3061,6 +3061,7 @@
 	pixel_y = 5
 	},
 /obj/item/storage/toolbox/lunchbox/nt,
+/obj/item/eftpos,
 /turf/simulated/floor/tiled/dark,
 /area/abandoned_diner/backroom)
 "fPy" = (

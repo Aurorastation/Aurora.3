@@ -1,0 +1,5 @@
+author: Batrachophrenoboocosmomachia
+delete-after: True
+changes:
+  - bugfix: "Fixes broken disposal line segment."
+  - rscadd: "Adds missing cameras to new Supply warehouse areas."

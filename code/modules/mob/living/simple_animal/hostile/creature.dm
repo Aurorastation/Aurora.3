@@ -6,11 +6,11 @@
 	icon_living = "otherthing"
 	icon_dead = "otherthing-dead"
 	health = 80
-	maxHealth = 80
+	maxhealth = 80
 	melee_damage_lower = 20
 	melee_damage_upper = 30
 	organ_names = list("meaty core")
-	attacktext = "chomped"
+	attacktext = "chomps"
 	attack_sound = 'sound/weapons/bite.ogg'
 	faction = "creature"
 	speed = 4

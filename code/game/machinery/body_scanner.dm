@@ -473,7 +473,7 @@
 		data["blood_volume"] = occupant.get_blood_volume()
 		data["blood_o2"] = blood_oxygenation
 		data["blood_type"] = occupant.dna.b_type
-		data["rads"] = occupant.total_radiation
+		data["rads"] = occupant.total_radiation / 100 //4 Gy is a 50% chance of death, total_radiation caps at 1000.
 
 		data["cloneLoss"] = get_severity(occupant.getCloneLoss(), TRUE)
 		data["oxyLoss"] = get_severity(occupant.getOxyLoss(), TRUE)
@@ -536,9 +536,9 @@
 	for(var/obj/item/organ/external/O in H.organs)
 		var/list/data = list()
 		data["name"] = capitalize_first_letters(O.name)
-		var/burn_damage = get_severity(O.burn_dam, (O.limb_flags & ORGAN_HEALS_OVERKILL), TRUE)
+		var/burn_damage = get_wound_severity(O.burn_dam, (O.limb_flags & ORGAN_HEALS_OVERKILL), TRUE)
 		data["burn_damage"] = burn_damage
-		var/brute_damage = get_severity(O.brute_dam, (O.limb_flags & ORGAN_HEALS_OVERKILL), TRUE)
+		var/brute_damage = get_wound_severity(O.brute_dam, (O.limb_flags & ORGAN_HEALS_OVERKILL), TRUE)
 		data["brute_damage"] = brute_damage
 
 		var/list/wounds = list()

@@ -68,7 +68,10 @@
 	reliability = initial(reliability)
 	burst_delay = initial(burst_delay)
 	max_shots = initial(max_shots)
+	charge_cost = initial(charge_cost)
 	chargetime = initial(chargetime)
+	fire_delay = initial(fire_delay)
+	fire_delay_wielded = initial(fire_delay_wielded)
 	accuracy = initial(accuracy)
 	criticality = initial(criticality)
 	fire_sound = initial(fire_sound)
@@ -83,18 +86,18 @@
 		return
 
 	update_chassis()
+	//TODO: When the skill system test is merged, rework this to give high skills a chance to avoid the failure.
+	// if(capacitor.reliability - capacitor.condition <= 0)
+	// 	if(prob(66))
+	// 		capacitor.small_fail(user)
+	// 	else
+	// 		capacitor.medium_fail(user)
+	// 	qdel(capacitor)
+	// 	capacitor = null
 
-	if(capacitor.reliability - capacitor.condition <= 0)
-		if(prob(66))
-			capacitor.small_fail(user)
-		else
-			capacitor.medium_fail(user)
-		qdel(capacitor)
-		capacitor = null
-
-	if(focusing_lens.reliability - focusing_lens.condition <= 0)
-		qdel(focusing_lens)
-		focusing_lens = null
+	// if(focusing_lens.reliability - focusing_lens.condition <= 0)
+	// 	qdel(focusing_lens)
+	// 	focusing_lens = null
 
 	if(!focusing_lens || !capacitor || !modulator)
 		disassemble(user)
@@ -107,7 +110,7 @@
 
 	fire_delay = capacitor.fire_delay
 	max_shots = capacitor.shots
-	power_supply.maxcharge = max_shots*charge_cost
+
 	dispersion = focusing_lens.dispersion
 	accuracy = focusing_lens.accuracy
 	burst += focusing_lens.burst
@@ -116,10 +119,11 @@
 	if(gun_mods.len)
 		handle_mod()
 
-	fire_delay_wielded = min(0,(fire_delay - fire_delay*3))
+	power_supply.maxcharge = max_shots*charge_cost
+	charge_cost /= max(1, (burst - 1))
+	fire_delay_wielded = fire_delay * 0.75
 	accuracy_wielded = accuracy + accuracy/4
 	scoped_accuracy = accuracy_wielded + accuracy/4
-	max_shots = max_shots * burst
 	w_class = gun_type
 	reliability = max(reliability, 1)
 
@@ -160,7 +164,7 @@
 		if(modifier.scope_name)
 			zoomdevicename = modifier.scope_name
 
-/obj/item/gun/energy/laser/prototype/consume_next_projectile(var/bypass_degrade = FALSE)
+/obj/item/gun/energy/laser/prototype/consume_next_projectile(var/mob/user, var/bypass_degrade = FALSE)
 	if(!power_supply)
 		return null
 	if(!ispath(projectile_type))
@@ -177,18 +181,18 @@
 	for(var/obj/item/laser_components/modifier/modifier in gun_mods)
 		damage_coeff *= modifier.damage
 	if(burst > 1)
-		A.damage = A.damage/(burst - 1)
+		A.damage = A.damage/(max(1, burst - 1)) //Damage is divided by the number of shots
 	damage_coeff *= modulator.damage
 	A.damage *= damage_coeff
-	A.damage = min(A.damage, 60) //let's not get too ridiculous here
+	A.damage = min(A.damage, 60) //Caps the maximum damage one shot can do, this matches the laser cannon
 	if(!bypass_degrade)
-		for(var/obj/item/laser_components/modifier/modifier in gun_mods)
-			if(prob((gun_mods.len * 10 * damage_coeff)/(max(1,(burst - 1)))))
+		for(var/obj/item/laser_components/modifier/modifier in gun_mods) //This repeats for EVERY MOD, fail chance goes up quadratically with the number of mods
+			if(prob((gun_mods.len * damage_coeff)/(max(1,(burst)))))
 				capacitor.degrade(modifier.malus)
-			if(prob((gun_mods.len * 10 * damage_coeff)/(max(1,(burst - 1)))))
+			if(prob((gun_mods.len * damage_coeff)/(max(1,(burst)))))
 				focusing_lens.degrade(modifier.malus)
-			if(prob((33 + capacitor.damage)/(max(1,(burst - 1)))))
-				modifier.degrade(1)
+			if(prob((5 + capacitor.damage)/(max(1,(burst))))) //Firing a gun with a damaged capacitor risks arcing to other components, damaging them
+				modifier.degrade(0.2)
 
 	updatetype(ismob(loc) ? loc : null)
 	return A
@@ -227,6 +231,7 @@
 /obj/item/gun/energy/laser/prototype/small_fail(var/mob/user)
 	if(capacitor)
 		to_chat(user, SPAN_DANGER("\The [src]'s [capacitor] short-circuits!"))
+		visible_message(SPAN_DANGER("Sparks fly from \the [src] as it short-circuits!"), range = 6)
 		capacitor.small_fail(user, src)
 	return
 
@@ -338,7 +343,7 @@
 		. += "Reliability: [initial(l_component.reliability)]<br>"
 		. += "Damage Modifier: [initial(l_component.damage)]<br>"
 		. += "Fire Delay Modifier: [initial(l_component.fire_delay)]<br>"
-		. += "Shots Modifier: [initial(l_component.fire_delay)]<br>"
+		. += "Shots Modifier: [initial(l_component.shots)]<br>"
 		. += "Burst Modifier: [initial(l_component.burst)]<br>"
 		. += "Accuracy Modifier: [initial(l_component.accuracy)]<br>"
 		. += "Repair Tool: [l_repair_name]<br>"

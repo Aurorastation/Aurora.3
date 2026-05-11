@@ -141,8 +141,6 @@
 /area/turbolift/scc_ship/operations_lift
 	name = "Operations Lift"
 	sound_environment = SOUND_AREA_TUNNEL_ENCLOSED
-	ambience = AMBIENCE_GHOSTLY
-
 
 //Robotics Lift
 /datum/shuttle/autodock/multi/lift/robotics
@@ -185,6 +183,3 @@
 /area/turbolift/scc_ship/robotics_lift
 	name = "Robotics Lift"
 	sound_environment = SOUND_AREA_TUNNEL_ENCLOSED
-	ambience = AMBIENCE_GHOSTLY
-
-

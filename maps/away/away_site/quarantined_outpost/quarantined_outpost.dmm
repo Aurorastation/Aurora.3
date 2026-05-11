@@ -797,10 +797,6 @@
 /obj/item/material/knife{
 	pixel_x = -9
 	},
-/obj/item/storage/box/produce{
-	pixel_y = 9;
-	pixel_x = 6
-	},
 /obj/item/reagent_containers/food/condiment/enzyme{
 	pixel_y = 3
 	},
@@ -4229,12 +4225,15 @@
 	pixel_x = -9;
 	pixel_y = 8
 	},
-/obj/item/paper/fluff/quarantined_outpost/maintenance_log{
-	pixel_x = 5
-	},
 /obj/item/pen/black{
 	pixel_y = -2;
 	pixel_x = -8
+	},
+/obj/item/clipboard{
+	pixel_x = 5
+	},
+/obj/item/paper{
+	pixel_x = 5
 	},
 /turf/simulated/floor/tiled/gunmetal/full,
 /area/quarantined_outpost/server_relay/south_east)
@@ -8963,10 +8962,6 @@
 "gcC" = (
 /obj/effect/floor_decal/industrial/hatch/grey,
 /obj/structure/table/rack/retail_shelf,
-/obj/item/storage/box/freezer/organcooler{
-	pixel_y = 16;
-	pixel_x = 8
-	},
 /obj/item/reagent_containers/glass/bottle/inaprovaline{
 	pixel_x = -8
 	},
@@ -16403,10 +16398,6 @@
 "kVw" = (
 /obj/structure/table/standard,
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/item/storage/box/flares{
-	pixel_y = 13;
-	pixel_x = 2
-	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full/airless,
 /area/quarantined_outpost/security)
@@ -20080,10 +20071,6 @@
 	dir = 6
 	},
 /obj/structure/table/standard,
-/obj/item/storage/box/sharps{
-	pixel_y = 11;
-	pixel_x = 6
-	},
 /obj/item/reagent_containers/spray/cleaner{
 	desc = "Someone has crossed out the Space from Space Cleaner and written in Surgery. 'Do not remove under punishment of death!!!' is scrawled on the back.";
 	icon_state = "sterilesprayblue";
@@ -20503,15 +20490,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/quarantined_outpost/elevator_hallway)
-"nIX" = (
-/obj/structure/railing/mapped{
-	dir = 8
-	},
-/obj/structure/lattice/catwalk/indoor/grate/dark,
-/obj/machinery/portable_atmospherics/canister/empty/boron,
-/obj/effect/decal/rolling_fog,
-/turf/simulated/floor/plating,
-/area/quarantined_outpost/research)
 "nJg" = (
 /obj/effect/decal/cleanable/blood,
 /turf/simulated/floor/tiled/white,
@@ -22498,9 +22476,6 @@
 	},
 /obj/random/dirt_75,
 /obj/effect/floor_decal/industrial/outline/custodial,
-/obj/structure/janitorialcart{
-	dir = 4
-	},
 /turf/simulated/floor/tiled,
 /area/quarantined_outpost/dorm_hallway)
 "oWe" = (
@@ -22612,8 +22587,6 @@
 /obj/structure/closet/crate/freezer{
 	name = "Fridge"
 	},
-/obj/item/storage/box/monkeycubes,
-/obj/item/storage/box/freezer/organcooler,
 /turf/simulated/floor/tiled/freezer{
 	name = "cooled tiles";
 	temperature = 253.15
@@ -23885,7 +23858,6 @@
 /obj/machinery/light/small/broken{
 	dir = 8
 	},
-/obj/machinery/portable_atmospherics/canister/empty/boron,
 /obj/effect/floor_decal/corner/yellow{
 	dir = 8
 	},
@@ -24261,10 +24233,6 @@
 /area/quarantined_outpost/cargo_bay)
 "qfQ" = (
 /obj/structure/table/standard,
-/obj/item/storage/box/sharps{
-	pixel_y = 12;
-	pixel_x = -7
-	},
 /obj/item/reagent_containers/spray/cleaner{
 	desc = "Someone has crossed out the Space from Space Cleaner and written in Surgery. 'Do not remove under punishment of death!!!' is scrawled on the back.";
 	icon_state = "sterilesprayblue";
@@ -28418,8 +28386,6 @@
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/closet/secure_closet/guncabinet,
-/obj/item/storage/box/shotgunshells,
-/obj/item/storage/box/shotgunshells,
 /obj/item/ammo_magazine/c762/sol,
 /obj/item/ammo_magazine/c762/sol,
 /obj/item/ammo_magazine/c762/sol,
@@ -28427,7 +28393,6 @@
 /obj/item/ammo_magazine/c762/sol,
 /obj/item/ammo_magazine/c762/sol,
 /obj/item/ammo_magazine/c762/sol,
-/obj/item/storage/box/shotgunshells,
 /turf/simulated/floor/tiled/dark/full/airless,
 /area/quarantined_outpost/security)
 "sOv" = (
@@ -34550,7 +34515,6 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/structure/engineeringcart/half_filled,
 /obj/machinery/light/small/maybe_broken/decayed{
 	dir = 1
 	},
@@ -35336,9 +35300,9 @@
 /area/quarantined_outpost/entrance_maintenance)
 "xwn" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/computer/terminal/inactive,
 /obj/effect/decal/cleanable/cobweb2,
 /obj/random/dirt_75,
+/obj/machinery/computer/terminal/loreconsole/always_powered/quarantined_outpost/maintenance_log,
 /turf/simulated/floor/tiled/gunmetal/full,
 /area/quarantined_outpost/server_relay/south_east)
 "xwE" = (
@@ -75670,7 +75634,7 @@ dPa
 ksz
 kgg
 ppZ
-nIX
+cLu
 cLu
 cLu
 aMQ

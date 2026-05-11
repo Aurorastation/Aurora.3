@@ -47,15 +47,20 @@
 	anchored = TRUE
 	atmos_canpass = CANPASS_DENSITY
 
+	maxhealth = OBJECT_HEALTH_FRAGILE
+
 	var/deflating = FALSE
 	var/undeploy_path = null
 	var/torn_path = null
-	var/health = 15
+
 
 /obj/structure/inflatable/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	. += "To deflate it safely, use the 'deflate' verb or ctrl-click on it."
 	. += "Hitting these with any objects will probably puncture and break it forever."
+
+/obj/structure/inflatable/on_death()
+	deflate(TRUE)
 
 /obj/structure/inflatable/wall
 	name = "inflatable wall"
@@ -293,7 +298,7 @@
 	icon_state = "folded_wall-torn"
 	persistency_considered_trash = TRUE
 
-/obj/item/inflatable/torn/persistence_apply_content(content, x, y, z)
+/obj/item/inflatable/torn/persistent_objects_apply_content(content, x, y, z)
 	src.x = x
 	src.y = y
 	src.z = z
@@ -308,7 +313,7 @@
 	icon_state = "folded_door-torn"
 	persistency_considered_trash = TRUE
 
-/obj/item/inflatable/door/torn/persistence_apply_content(content, x, y, z)
+/obj/item/inflatable/door/torn/persistent_objects_apply_content(content, x, y, z)
 	src.x = x
 	src.y = y
 	src.z = z

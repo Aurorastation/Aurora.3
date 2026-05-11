@@ -40,6 +40,10 @@
 	species_restricted = list(BODYTYPE_VAURCA, BODYTYPE_VAURCA_BULWARK)
 	body_parts_covered = HEAD|EYES
 
+/obj/item/clothing/head/shaper/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Wearing this will remove your Hive name and color from Hivenet messages."
+
 /obj/item/clothing/head/expression
 	name = "human expression mask"
 	desc = "A mask that allows emotively challenged aliens to convey facial expressions. This one depicts a human."
@@ -298,7 +302,7 @@
 	icon_state = "scout"
 	item_state = "scout"
 	desc = "Armor designed for K'laxan scouts, made of lightweight sturdy material that does not restrict movement."
-	slowdown = -0.2
+	slowdown = -0.1
 
 	species_restricted = list(BODYTYPE_VAURCA)
 	armor = list(
@@ -401,6 +405,7 @@
 	throw_speed = 5
 	throw_range = 10
 	w_class = WEIGHT_CLASS_BULKY
+	slot_flags = list(SLOT_BACK, SLOT_BELT)
 	atom_flags = ATOM_FLAG_NO_BLOOD
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	attack_verb = list("stabbed", "chopped", "sliced", "cleaved", "slashed", "cut")

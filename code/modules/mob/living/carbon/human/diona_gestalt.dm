@@ -149,7 +149,7 @@ Nymphs have 100 health, so without armor there is a small possibility for each n
 	var/MLS = (1.5 / 2.1)
 	DS = new/datum/dionastats()
 	DS.max_energy = energy_duration * MLS
-	DS.max_health = maxHealth*2
+	DS.max_health = maxhealth*2
 	DS.stored_energy = DS.max_energy
 	DS.pain_factor = (100 / dark_consciousness) / MLS
 	DS.trauma_factor = (DS.max_health / dark_survival) / MLS
@@ -329,10 +329,10 @@ Nymphs have 100 health, so without armor there is a small possibility for each n
 			bestNymph = D
 		nymphos += D
 		D.forceMove(T)
-		if(gestalt_health >= D.maxHealth * 0.20)
+		if(gestalt_health >= D.maxhealth * 0.20)
 			D.health = gestalt_health
 		else
-			D.health = D.maxHealth * 0.20
+			D.health = D.maxhealth * 0.20
 		D.split_languages(src)
 		D.set_dir(pick(NORTH, SOUTH, EAST, WEST))
 		D.gestalt = null
@@ -399,7 +399,7 @@ Slows you down while being used, and will be automatically retracted if both fee
 
 /// Movespeed modifier used in the root_to_ground proc. This determines how much the ability slows you down by.
 /datum/movespeed_modifier/root_to_ground
-	multiplicative_slowdown = 1.5
+	multiplicative_slowdown = 0.375
 
 /// Engages Diona magboot roots.
 /mob/living/carbon/human/proc/root_enable()

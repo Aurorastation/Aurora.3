@@ -25,7 +25,7 @@
 	var/wires_exposed = FALSE
 
 	// Health and interaction
-	maxHealth = 200
+	maxhealth = 200
 	health = 200
 	mob_size = 16 //robots are heavy
 	mob_bump_flag = ROBOT
@@ -217,7 +217,7 @@
 
 		for(var/job_type in module.specialized_access_types)
 			var/datum/job/job = new job_type()
-			id_card.access |= job.access
+			id_card.access |= job.job_access
 
 		to_chat(src, SPAN_NOTICE("Access set to the department the role belongs to."))
 
@@ -1221,7 +1221,7 @@
 
 /mob/living/silicon/robot/succumb()
 	set hidden = TRUE
-	if(health < maxHealth / 3)
+	if(health < maxhealth / 3)
 		death()
 		to_chat(src, SPAN_NOTICE("You have given up life and succumbed to death."))
 	else

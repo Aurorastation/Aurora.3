@@ -17,14 +17,7 @@
 		SPECIES_SKRELL_AXIORI = 80
 	)
 
-	access = list(
-		ACCESS_ENGINE, ACCESS_ENGINE_EQUIP, ACCESS_TECH_STORAGE, ACCESS_MAINT_TUNNELS, ACCESS_TELEPORTER, ACCESS_EXTERNAL_AIRLOCKS, ACCESS_ATMOSPHERICS,
-		ACCESS_EMERGENCY_STORAGE, ACCESS_EVA, ACCESS_LEVIATHAN, ACCESS_SHIP_WEAPONS, ACCESS_HEADS, ACCESS_CONSTRUCTION, ACCESS_SEC_DOORS, ACCESS_RESEARCH,
-		ACCESS_MEDICAL, ACCESS_MINING, ACCESS_MAILSORTING, ACCESS_CE, ACCESS_RC_ANNOUNCE, ACCESS_KEYCARD_AUTH, ACCESS_TCOMSAT, ACCESS_AI_UPLOAD, ACCESS_IT,
-		ACCESS_INTREPID, ACCESS_SPARK, ACCESS_QUARK, ACCESS_CANARY, ACCESS_NETWORK
-	)
-
-	minimal_access = list(
+	job_access = list(
 		ACCESS_ENGINE, ACCESS_ENGINE_EQUIP, ACCESS_TECH_STORAGE, ACCESS_MAINT_TUNNELS, ACCESS_TELEPORTER, ACCESS_EXTERNAL_AIRLOCKS, ACCESS_ATMOSPHERICS,
 		ACCESS_EMERGENCY_STORAGE, ACCESS_EVA, ACCESS_LEVIATHAN, ACCESS_SHIP_WEAPONS, ACCESS_HEADS, ACCESS_CONSTRUCTION, ACCESS_SEC_DOORS, ACCESS_RESEARCH,
 		ACCESS_MEDICAL, ACCESS_MINING, ACCESS_MAILSORTING, ACCESS_CE, ACCESS_RC_ANNOUNCE, ACCESS_KEYCARD_AUTH, ACCESS_TCOMSAT, ACCESS_AI_UPLOAD, ACCESS_IT,
@@ -35,6 +28,13 @@
 	outfit = /obj/outfit/job/chief_engineer
 
 	blacklisted_species = list(SPECIES_TAJARA_MSAI, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_ATTENDANT, SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_BREEDER)
+
+	skill_requirements = alist(
+		/singleton/skill/mechanical_engineering = SKILL_LEVEL_TRAINED,
+		/singleton/skill/electrical_engineering = SKILL_LEVEL_TRAINED,
+		/singleton/skill/atmospherics_systems = SKILL_LEVEL_TRAINED,
+		/singleton/skill/reactor_systems = SKILL_LEVEL_TRAINED
+	)
 
 /obj/outfit/job/chief_engineer
 	name = "Chief Engineer"
@@ -76,7 +76,7 @@
 		H.equip_to_slot_or_del(new /obj/item/clothing/gloves/yellow(H), slot_gloves)
 
 /datum/job/engineer
-	title = "Engineer"
+	title = "Ship Engineer"
 	flag = ENGINEER
 	departments = SIMPLEDEPT(DEPARTMENT_ENGINEERING)
 	department_flag = ENGSEC
@@ -86,6 +86,7 @@
 	supervisors = "the chief engineer"
 	selection_color = "#c67519"
 	economic_modifier = 5
+	alt_titles = list("Reactor Operator", "Maintenance Technician", "Systems Engineer")
 
 	minimum_character_age = list(
 		SPECIES_HUMAN = 25,
@@ -93,18 +94,22 @@
 		SPECIES_SKRELL_AXIORI = 60
 	)
 
-	access = list(
-		ACCESS_EVA, ACCESS_ENGINE, ACCESS_ENGINE_EQUIP, ACCESS_TECH_STORAGE, ACCESS_MAINT_TUNNELS, ACCESS_SHIP_WEAPONS, ACCESS_EXTERNAL_AIRLOCKS, ACCESS_CONSTRUCTION, ACCESS_ATMOSPHERICS, ACCESS_LEVIATHAN
-	)
-	minimal_access = list(
+	job_access = list(
 		ACCESS_EVA, ACCESS_ENGINE, ACCESS_ENGINE_EQUIP, ACCESS_TECH_STORAGE, ACCESS_MAINT_TUNNELS, ACCESS_SHIP_WEAPONS, ACCESS_EXTERNAL_AIRLOCKS, ACCESS_CONSTRUCTION, ACCESS_LEVIATHAN
 	)
 	outfit = /obj/outfit/job/engineer
 
 	blacklisted_species = list(SPECIES_VAURCA_BREEDER)
 
+	skill_requirements = alist(
+		/singleton/skill/mechanical_engineering = SKILL_LEVEL_TRAINED,
+		/singleton/skill/electrical_engineering = SKILL_LEVEL_TRAINED,
+		/singleton/skill/atmospherics_systems = SKILL_LEVEL_TRAINED,
+		/singleton/skill/reactor_systems = SKILL_LEVEL_TRAINED
+	)
+
 /obj/outfit/job/engineer
-	name = "Engineer"
+	name = "Ship Engineer"
 	jobtype = /datum/job/engineer
 	box = /obj/item/storage/box/survival/engineer
 
@@ -160,6 +165,7 @@
 	supervisors = "the chief engineer"
 	selection_color = "#c67519"
 	economic_modifier = 5
+	alt_titles = list("Environmental Systems Engineer", "Propulsion Engineer", "Damage Control Technician")
 
 	minimum_character_age = list(
 		SPECIES_HUMAN = 25,
@@ -167,14 +173,18 @@
 		SPECIES_SKRELL_AXIORI = 60
 	)
 
-	access = list(
-		ACCESS_EVA, ACCESS_ENGINE, ACCESS_ENGINE_EQUIP, ACCESS_TECH_STORAGE, ACCESS_MAINT_TUNNELS, ACCESS_EXTERNAL_AIRLOCKS, ACCESS_CONSTRUCTION, ACCESS_ATMOSPHERICS, ACCESS_LEVIATHAN
-	)
-	minimal_access = list(
+	job_access = list(
 		ACCESS_EVA, ACCESS_ENGINE, ACCESS_MAINT_TUNNELS, ACCESS_EXTERNAL_AIRLOCKS, ACCESS_CONSTRUCTION, ACCESS_ATMOSPHERICS, ACCESS_LEVIATHAN
 	)
 	outfit = /obj/outfit/job/atmos
 	blacklisted_species = list(SPECIES_VAURCA_BREEDER)
+
+	skill_requirements = alist(
+		/singleton/skill/mechanical_engineering = SKILL_LEVEL_TRAINED,
+		/singleton/skill/electrical_engineering = SKILL_LEVEL_TRAINED,
+		/singleton/skill/atmospherics_systems = SKILL_LEVEL_TRAINED,
+		/singleton/skill/reactor_systems = SKILL_LEVEL_TRAINED
+	)
 
 /obj/outfit/job/atmos
 	name = "Atmospheric Technician"
@@ -234,10 +244,8 @@
 	intro_prefix = "an"
 	supervisors = "the Chief Engineer"
 	selection_color = "#c67519"
-	access = list(
-		ACCESS_MAINT_TUNNELS, ACCESS_CONSTRUCTION, ACCESS_ENGINE_EQUIP, ACCESS_ENGINE
-	)
-	minimal_access = list(
+
+	job_access = list(
 		ACCESS_MAINT_TUNNELS, ACCESS_CONSTRUCTION, ACCESS_ENGINE_EQUIP, ACCESS_ENGINE
 	)
 	outfit = /obj/outfit/job/intern_eng
@@ -247,6 +255,13 @@
 		SPECIES_HUMAN = 24,
 		SPECIES_SKRELL = 58,
 		SPECIES_SKRELL_AXIORI = 58
+	)
+
+	skill_requirements = alist(
+		/singleton/skill/mechanical_engineering = SKILL_LEVEL_TRAINED,
+		/singleton/skill/electrical_engineering = SKILL_LEVEL_TRAINED,
+		/singleton/skill/atmospherics_systems = SKILL_LEVEL_TRAINED,
+		/singleton/skill/reactor_systems = SKILL_LEVEL_TRAINED
 	)
 
 /obj/outfit/job/intern_eng

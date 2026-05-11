@@ -94,7 +94,7 @@
 
 	src.blinded = null
 
-	health = maxHealth - (getOxyLoss() + getToxLoss() + getFireLoss() + getBruteLoss() + getCloneLoss())
+	health = maxhealth - (getOxyLoss() + getToxLoss() + getFireLoss() + getBruteLoss() + getCloneLoss())
 
 	if(health < 0 && stat != DEAD)
 		death()

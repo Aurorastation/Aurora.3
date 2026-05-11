@@ -1,6 +1,6 @@
-/obj/item/gun/energy/lawgiver
-	name = "advanced combi-pistol mk2"
-	icon = 'icons/obj/guns/lawgiver.dmi'
+/obj/item/gun/energy/acp
+	name = "\improper ACP-2"
+	icon = 'icons/obj/guns/faction/stellar_corporate_conglomerate/combipistol.dmi'
 	icon_state = "lawgiver"
 	item_state = "lawgiver"
 	has_item_ratio = FALSE
@@ -86,17 +86,17 @@
 		)
 	)
 
-/obj/item/gun/energy/lawgiver/Initialize()
+/obj/item/gun/energy/acp/Initialize()
 	. = ..()
 	become_hearing_sensitive()
 	power_supply = new /obj/item/cell/device/variable(src, 2000)
 	var/datum/firemode/new_mode = firemodes[sel_mode]
 	new_mode.apply_to(src)
 
-/obj/item/gun/energy/lawgiver/Destroy()
+/obj/item/gun/energy/acp/Destroy()
 	return ..()
 
-/obj/item/gun/energy/lawgiver/proc/play_message()
+/obj/item/gun/energy/acp/proc/play_message()
 	while (message_enabled && !message_disable) //Shut down command issued. Inform user that boardcasting has been stopped
 		usr.audible_message(SPAN_WARNING("[usr]'s [src.name] broadcasts: [message]"),"")
 		playsound(get_turf(src), 'sound/voice/halt.ogg', 100, 1, vary = 0)
@@ -105,7 +105,7 @@
 	message_enabled = 0
 	message_disable = 0
 
-/obj/item/gun/energy/lawgiver/unique_action(mob/living/carbon/user) //can probably remove this in favor of the DNA locked firing pins. not touching that now though. edit: lol nevermind snowflake code of the year
+/obj/item/gun/energy/acp/unique_action(mob/living/carbon/user) //can probably remove this in favor of the DNA locked firing pins. not touching that now though. edit: lol nevermind snowflake code of the year
 	if(dna != null)
 		return
 	else
@@ -115,7 +115,7 @@
 		desc += "<br>Linked to: [user.real_name]"
 		return
 
-/obj/item/gun/energy/lawgiver/Fire(atom/target as mob|obj|turf|area, mob/living/user as mob|obj, params, pointblank=0, reflex = 0)
+/obj/item/gun/energy/acp/Fire(atom/target as mob|obj|turf|area, mob/living/user as mob|obj, params, pointblank=0, reflex = 0)
 	if(src.dna != user.dna.unique_enzymes && !emagged)
 		if(istype(user, /mob/living/carbon/human))
 			//Save the users active hand
@@ -136,18 +136,18 @@
 		return 0
 	..()
 
-/obj/item/gun/energy/lawgiver/proc/Emag(mob/user as mob)
+/obj/item/gun/energy/acp/proc/Emag(mob/user as mob)
 	to_chat(usr, SPAN_WARNING("You short out [src]'s id check"))
 	emagged = 1
 	return 1
 
-/obj/item/gun/energy/lawgiver/attackby(obj/item/attacking_item, mob/user)
+/obj/item/gun/energy/acp/attackby(obj/item/attacking_item, mob/user)
 	if (istype(attacking_item, /obj/item/card/emag) && !emagged)
 		Emag(user)
 	else
 		..()
 
-/obj/item/gun/energy/lawgiver/hear_talk(mob/living/M in range(0,src), msg)
+/obj/item/gun/energy/acp/hear_talk(mob/living/M in range(0,src), msg)
 	var/mob/living/carbon/human/H = M
 	if (!H || !istype(H))
 		return
@@ -155,7 +155,7 @@
 		hear(msg)
 	return
 
-/obj/item/gun/energy/lawgiver/proc/hear(var/msg)
+/obj/item/gun/energy/acp/proc/hear(var/msg)
 	var/datum/firemode/old_mode = firemodes[sel_mode]
 
 	var/list/replacechars = list("'" = "","\"" = "",">" = "","<" = "","(" = "",")" = ""," " = "")

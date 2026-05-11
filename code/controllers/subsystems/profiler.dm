@@ -72,6 +72,9 @@ SUBSYSTEM_DEF(profiler)
 	WRITE_FILE(sendmaps_file, current_sendmaps_data)
 	write_cost = MC_AVERAGE(write_cost, TICK_DELTA_TO_MS(TICK_USAGE_REAL - timer))
 
+	if(SSsentry)
+		SSsentry.capture_profiler_dump(current_profile_data, fetch_cost, write_cost)
+
 #undef PROFILER_FILENAME
 #undef SENDMAPS_FILENAME
 #undef PROFILER_PATH

@@ -407,9 +407,9 @@
 	projectile_type = /obj/projectile/bullet/gauss
 	max_stack = 2
 
-/obj/item/ammo_casing/gauss/carbine
-	name = "compact tungsten slug"
-	desc = "A heavy tungsten gauss slug. This one has a casing adapated for carbine models."
+/obj/item/ammo_casing/gauss/old
+	name = "depleted uranium slug"
+	desc = "A depleted uranium gauss slug. It seems quite old."
 	projectile_type = /obj/projectile/bullet/gauss/carbine
 
 /obj/item/ammo_casing/gauss/emp
@@ -541,7 +541,7 @@
 	icon_state = "rifle-casing"
 	spent_icon = "rifle-casing-spent"
 	caliber = ".599 Kumar Super"
-	projectile_type = /obj/projectile/bullet
+	projectile_type = /obj/projectile/bullet/rifle/kumar_super
 	max_stack = 5
 
 /obj/item/ammo_casing/c6mm

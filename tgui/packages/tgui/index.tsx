@@ -33,6 +33,7 @@ import './styles/themes/hammertail.scss';
 import './styles/themes/hephaestus.scss';
 import './styles/themes/sol.scss';
 import './styles/themes/vaurca.scss';
+import './styles/themes/amberpos.scss';
 
 import { StoreProvider, configureStore } from './store';
 

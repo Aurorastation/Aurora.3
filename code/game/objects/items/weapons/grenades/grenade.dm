@@ -93,18 +93,18 @@
 
 	if(ishuman(loc))
 		var/mob/living/carbon/human/victim = loc
-		var/obj/item/organ/external/exploded_hand
-		if(victim.hand == src)
-			exploded_hand = victim.organs_by_name[BP_R_HAND]
-		else if(victim.l_hand == src)
-			exploded_hand = victim.organs_by_name[BP_L_HAND]
-		explode_in_hand(victim, exploded_hand)
+		var/obj/item/organ/external/exploded_organ
+		if(victim.l_hand == src)
+			exploded_organ = victim.get_organ(BP_L_HAND)
+		else if(victim.r_hand == src)
+			exploded_organ = victim.get_organ(BP_R_HAND)
+		explode_in_hand(victim, exploded_organ)
 
-/// This proc is called when the grenade explodes in your hand or on you. Exploded_hand can be null in case the grenade explodes in a pocket or something.
-/obj/item/grenade/proc/explode_in_hand(var/mob/living/carbon/human/victim, var/obj/item/organ/external/exploded_hand)
+/// This proc is called when the grenade explodes in your hand or on you. Exploded_organ can be null in case the grenade explodes in a pocket or something.
+/obj/item/grenade/proc/explode_in_hand(var/mob/living/carbon/human/victim, var/obj/item/organ/external/exploded_organ)
 	SHOULD_CALL_PARENT(TRUE)
-	if(exploded_hand)
-		to_chat(victim, SPAN_HIGHDANGER("\The [src] goes off in your hand!"))
+	if(exploded_organ)
+		victim.visible_message(SPAN_DANGER("\The [src] goes off in \the [victim]'s hands!"), SPAN_HIGHDANGER("\The [src] goes off in your hand!"))
 	else
 		to_chat(victim, SPAN_HIGHDANGER("\The [src] goes off on you!"))
 

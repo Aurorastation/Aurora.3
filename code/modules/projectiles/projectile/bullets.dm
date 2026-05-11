@@ -8,7 +8,8 @@
 	embed = TRUE
 	sharp = TRUE
 	shrapnel_type = /obj/item/material/shard/shrapnel
-	var/mob_passthrough_check = 0
+	ping_effect = "ping_b"
+	projectile_piercing = PASSMOB|PASSFLAPS|PASSGRILLE //These are the things it can piece, a number of times up to 'penetrating', if it actually does pierce is decided by projectile/prehit_pierce()
 
 	muzzle_type = /obj/effect/projectile/muzzle/bullet
 
@@ -16,17 +17,6 @@
 	if(isliving(target) && (..(target, blocked, def_zone) == BULLET_ACT_HIT))
 		var/mob/living/L = target
 		shake_camera(L, 3, 2)
-
-	if(penetrating > 0 && damage > 20 && prob(damage))
-		mob_passthrough_check = 1
-	else
-		mob_passthrough_check = 0
-	return ..()
-
-/obj/projectile/bullet/can_embed()
-	//prevent embedding if the projectile is passing through the mob
-	if(mob_passthrough_check)
-		return 0
 	return ..()
 
 /**
@@ -205,8 +195,8 @@
 /obj/projectile/bullet/pistol/rubber //"rubber" bullets
 	name = "rubber bullet"
 	check_armor = MELEE
-	damage = 5
-	agony = 40
+	damage = 3
+	agony = 30
 	embed = 0
 
 /obj/projectile/bullet/pistol/assassin
@@ -235,7 +225,7 @@
 	agony = 0
 	embed = 0
 	sharp = 0
-	incinerate = 10
+	incinerate = 2
 
 /obj/projectile/bullet/tracking
 	name = "tracking shot"
@@ -276,11 +266,12 @@
 	damage = 40
 	armor_penetration = 15
 	penetrating = FALSE
+	projectile_piercing = PASSMOB|PASSFLAPS|PASSGRILLE|PASSDOORS|PASSDOORHATCH|PASSCLOSEDTURF|PASSWINDOW|PASSGLASS|PASSMACHINE
 
 /obj/projectile/bullet/rifle/a762
 	damage = 35
 	armor_penetration = 22
-	penetrating = TRUE
+	penetrating = 1
 
 /obj/projectile/bullet/rifle/a556
 	damage = 30
@@ -290,7 +281,7 @@
 /obj/projectile/bullet/rifle/a556/ap
 	damage = 25
 	armor_penetration = 45
-	penetrating = TRUE
+	penetrating = 1
 
 /obj/projectile/bullet/rifle/a556/polymer
 	damage = 25
@@ -303,16 +294,16 @@
 	penetrating = FALSE
 
 /obj/projectile/bullet/rifle/a68
-	name = "R33 Tamparii bullet"
+	name = "Z33 Tamparii bullet"
 	damage = 40
-	armor_penetration = 17
+	armor_penetration = 12
 	penetrating = FALSE
 
 /obj/projectile/bullet/rifle/a68/ap
-	name = "R33s Tamparii bullet"
+	name = "Z33s Tamparii bullet"
 	damage = 30
 	armor_penetration = 30
-	penetrating = TRUE
+	penetrating = 1
 
 /obj/projectile/bullet/rifle/a145
 	damage = 80
@@ -323,17 +314,18 @@
 	hitscan = 1 //so the PTR isn't useless as a sniper weapon
 	maim_rate = 3
 	anti_materiel_potential = 2
+	pierce_decay_damage = 0.9
 
-/obj/projectile/rifle/kumar_super
+/obj/projectile/bullet/rifle/kumar_super
 	damage = 40
 	armor_penetration = 30
-	penetrating = TRUE
+	penetrating = 1
 
 /obj/projectile/bullet/rifle/vintage
 	name = ".30-06 Govt. bullet"
 	damage = 50
 	weaken = 1
-	penetrating = TRUE
+	penetrating = 1
 
 /obj/projectile/bullet/rifle/govt
 	name = ".40-70 Govt. bullet"
@@ -459,6 +451,8 @@
 	embed = 1
 	sharp = 1
 	penetrating = 1
+	projectile_piercing = PASSMOB|PASSFLAPS|PASSGRILLE|PASSDOORS|PASSDOORHATCH|PASSCLOSEDTURF|PASSWINDOW|PASSGLASS|PASSMACHINE
+
 
 	muzzle_type = /obj/effect/projectile/muzzle/pulse
 
@@ -559,6 +553,7 @@
 	anti_materiel_potential = 6
 	embed = FALSE
 	penetrating = 1
+	projectile_piercing = PASSMOB|PASSDOORS|PASSGLASS|PASSCLOSEDTURF|PASSWINDOW|PASSMACHINE|PASSBLOB|PASSFLAPS|PASSVEHICLE //It's designed to penetrate mechs.
 
 	var/devastation_range = -1
 	var/heavy_impact_range = -1

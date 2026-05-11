@@ -1,5 +1,5 @@
 /client/proc/cmd_admin_drop_everything(mob/M as mob in GLOB.mob_list)
-	set category = null
+	set category = "Admin"
 	set name = "Drop Everything"
 	if(!holder)
 		to_chat(src, "Only administrators may use this command.")
@@ -18,7 +18,7 @@
 
 
 /client/proc/cmd_admin_subtle_message(mob/M as mob in GLOB.mob_list)
-	set category = "Special Verbs"
+	set category = "Special Verbs.Narration/Messaging"
 	set name = "Subtle Message"
 
 	if(!ismob(M))	return
@@ -26,7 +26,7 @@
 		to_chat(src, "Only administrators may use this command.")
 		return
 
-	var/msg = tgui_input_text(usr, "Enter your subtle message", "Subtle PM to [M.key]")
+	var/msg = tgui_input_text(usr, "Enter your subtle message.", "Subtle PM to [M.key]", encode = FALSE)
 
 	if (!msg)
 		return
@@ -36,11 +36,11 @@
 				to_chat(M, "<b>You hear a voice in your head... <i>[msg]</i></b>")
 
 	log_admin("SubtlePM: [key_name(usr)] -> [key_name(M)] : [msg]")
-	message_admins(SPAN_NOTICE("<b>SubtleMessage: [key_name_admin(usr)] -> [key_name_admin(M)] : [msg]</b>"), 1)
+	message_admins(SPAN_NOTICE("<b>SubtleMessage: [key_name_admin(usr)] -> [key_name_admin(M)] : [sanitize_tg(msg)]</b>"), 1)
 	feedback_add_details("admin_verb","SMS") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 /client/proc/cmd_mentor_check_new_players()	//Allows mentors / admins to determine who the newer players are.
-	set category = "Admin"
+	set category = "Admin.Player Info"
 	set name = "Check new Players"
 	if(!holder)
 		to_chat(src, "Only staff members may use this command.")
@@ -76,24 +76,24 @@
 
 
 /client/proc/cmd_admin_world_narrate() // Allows administrators to fluff events a little easier -- TLE
-	set category = "Special Verbs"
+	set category = "Special Verbs.Narration/Messaging"
 	set name = "Global Narrate"
 
 	if (!holder)
 		to_chat(src, "Only administrators may use this command.")
 		return
 
-	var/msg = tgui_input_text(usr, "Enter the text you wish to appear to everyone:", "Message:")
+	var/msg = tgui_input_text(usr, "Enter the text you wish to appear to everyone.", "Global Narrate", encode = FALSE)
 
 	if (!msg)
 		return
 	to_world("[msg]")
-	log_admin("GlobalNarrate: [key_name(usr)] : [msg]")
+	log_admin("GlobalNarrate: [key_name(usr)] : [sanitize_tg(msg)]")
 	message_admins(SPAN_NOTICE("\bold GlobalNarrate: [key_name_admin(usr)] : [msg]<BR>"), 1)
 	feedback_add_details("admin_verb","GLN") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 /client/proc/cmd_admin_local_narrate()
-	set category = "Special Verbs"
+	set category = "Special Verbs.Narration/Messaging"
 	set name = "Local Narrate"
 
 	if(!check_rights(R_ADMIN, TRUE))
@@ -110,18 +110,18 @@
 	else
 		return
 
-	var/msg = tgui_input_text(usr, "Enter the text you wish to appear to everyone within seven tiles of you:", "Message:")
+	var/msg = tgui_input_text(usr, "Enter the text you wish to appear to everyone within seven tiles of you.", "Local Narrate", encode = FALSE)
 	if(!msg)
 		return
 	for(var/M in message_mobs)
 		to_chat(M, msg)
 	log_admin("LocalNarrate: [key_name(usr)] : [msg]")
-	message_admins(SPAN_NOTICE("\bold LocalNarrate: [key_name_admin(usr)] : [msg]<BR>"), 1)
+	message_admins(SPAN_NOTICE("\bold LocalNarrate: [key_name_admin(usr)] : [sanitize_tg(msg)]<BR>"), 1)
 	feedback_add_details("admin_verb", "LCLN") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 
 /client/proc/cmd_admin_local_screen_text()
-	set category = "Special Verbs"
+	set category = "Special Verbs.Narration/Messaging"
 	set name = "Local Screen Text"
 
 	if(!check_rights(R_ADMIN, TRUE))
@@ -155,7 +155,7 @@
 	feedback_add_details("admin_verb", "LSTX") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 /client/proc/cmd_admin_global_screen_text()
-	set category = "Special Verbs"
+	set category = "Special Verbs.Narration/Messaging"
 	set name = "Global Screen Text"
 
 	if(!check_rights(R_ADMIN, TRUE))
@@ -179,7 +179,7 @@
 	feedback_add_details("admin_verb", "GSTX") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 /client/proc/cmd_admin_direct_narrate(var/mob/M)	// Targetted narrate -- TLE
-	set category = "Special Verbs"
+	set category = "Special Verbs.Narration/Messaging"
 	set name = "Direct Narrate"
 
 	if(!holder)
@@ -192,14 +192,14 @@
 	if(!M)
 		return
 
-	var/msg = tgui_input_text(usr, "Enter the text you wish to appear to your target:", "Message:")
+	var/msg = tgui_input_text(usr, "Enter the text you wish to appear to your target.", "Direct Narrate", encode = FALSE)
 
 	if( !msg )
 		return
 
 	to_chat(M, msg)
 	log_admin("DirectNarrate: [key_name(usr)] to ([M.name]/[M.key]): [msg]")
-	message_admins(SPAN_NOTICE("\bold DirectNarrate: [key_name(usr)] to ([M.name]/[M.key]): [msg]<BR>"), 1)
+	message_admins(SPAN_NOTICE("\bold DirectNarrate: [key_name(usr)] to ([M.name]/[M.key]): [sanitize_tg(msg)]<BR>"), 1)
 	feedback_add_details("admin_verb","DIRN") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 /client/proc/cmd_admin_godmode(mob/M as mob in GLOB.mob_list)
@@ -602,7 +602,7 @@ Traitors and the like can also be revived with the previous role mostly intact.
 	feedback_add_details("admin_verb","REJU") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 /client/proc/cmd_admin_create_centcom_report()
-	set category = "Special Verbs"
+	set category = "Special Verbs.Narration/Messaging"
 	set name = "Create Command Report"
 
 	if(!holder)
@@ -620,7 +620,7 @@ Traitors and the like can also be revived with the previous role mostly intact.
 			if (!establish_db_connection(GLOB.dbcon))
 				to_chat(src, SPAN_NOTICE("Unable to connect to the database."))
 				return
-			var/DBQuery/query = GLOB.dbcon.NewQuery("SELECT title, message FROM ss13_ccia_general_notice_list WHERE deleted_at IS NULL")
+			var/datum/db_query/query = SSdbcore.NewQuery("SELECT title, message FROM ss13_ccia_general_notice_list WHERE deleted_at IS NULL")
 			query.Execute()
 
 			var/list/template_names = list()
@@ -629,6 +629,8 @@ Traitors and the like can also be revived with the previous role mostly intact.
 			while (query.NextRow())
 				template_names += query.item[1]
 				templates[query.item[1]] = query.item[2]
+
+			qdel(query)
 
 			// Catch empty list
 			if (!templates.len)
@@ -1129,7 +1131,7 @@ Traitors and the like can also be revived with the previous role mostly intact.
 
 // Variant of the narrate panel that is for admins. This is logged to check if people are abusing it.
 /client/proc/cmd_admin_open_narrate_panel()
-	set category = "Special Verbs"
+	set category = "Special Verbs.Narration/Messaging"
 	set name = "Narration Panel"
 
 	if (!check_rights(R_ADMIN, TRUE))

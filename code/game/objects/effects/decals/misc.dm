@@ -29,6 +29,12 @@
 	layer = OBJ_LAYER
 	mouse_opacity = MOUSE_OPACITY_ICON
 
+/obj/effect/decal/fake_object/assunzione_flag
+	name = "\improper Assunzione flag"
+	desc = "The flag of the Republic of Assunzione."
+	icon = 'icons/obj/structure/flags.dmi'
+	icon_state = "assunzione"
+
 // Fancy animated effect used for the holodecks.
 /obj/effect/decal/rolling_fog
 	name = "rolling fog"
