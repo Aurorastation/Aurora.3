@@ -4542,6 +4542,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
+/obj/item/eftpos,
 /turf/simulated/floor/tiled/dark,
 /area/ship/ssrm_corvette/cic)
 "jsi" = (
@@ -8241,7 +8242,7 @@
 /obj/structure/table/wood,
 /obj/item/modular_computer/laptop/preset/civilian,
 /obj/item/clothing/head/sol,
-/obj/item/device/radio/headset/ship,
+/obj/item/radio/headset/ship,
 /turf/simulated/floor/tiled/dark,
 /area/ship/ssrm_corvette/cpo_cabin)
 "sIJ" = (

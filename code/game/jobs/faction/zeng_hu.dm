@@ -66,6 +66,22 @@
 		"Medical Personnel" = /obj/outfit/job/med_tech/event/zeng_hu
 	)
 
+/datum/faction/zeng_hu/get_corporate_objectives(var/mission_level)
+	switch(mission_level)
+		if(REPRESENTATIVE_MISSION_HIGH)
+			return pick("Obtain copies of research documentation from the [station_name()] Science Department",
+						"Identify veteran NanoTrasen Corporation employees willing to seek employment with Zeng-Hu Pharmaceuticals in exchange for transhuman benefits",
+						"Obtain research prototypes or pharmaceutical products produced by NanoTrasen Corporation employees for analysis")
+		if(REPRESENTATIVE_MISSION_MEDIUM)
+			return pick("Have a Zeng-Hu Pharmaceuticals employee sign a contract extension in exchange for company-covered cyber- or bio-augmentation",
+						"Award a seniority or veterancy plate to Zeng-Hu—loaned command personnel. If refused, identify and report why",
+						"Evaluate crew opinions on keiretsu member products and brands")
+		else
+			return pick("Conduct a survey on Zeng-Hu Pharmaceuticals employee morale",
+						"Evaluate crew views towards transhumanity, and preferences towards bioaugmentation or cyberaugmentation",
+						"Identify and resolve a complaint of a Zeng-Hu Pharmaceuticals employee")
+
+
 /obj/outfit/job/doctor/zeng_hu
 	name = "Physician - Zeng-Hu"
 

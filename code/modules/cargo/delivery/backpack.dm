@@ -1,7 +1,7 @@
 /obj/item/cargo_backpack
 	name = "cargo pack"
 	desc = "A robust set of rigs and buckles that allows the wearer to carry two additional Orion Express delivery packages on their back."
-	icon = 'icons/obj/orion_delivery.dmi'
+	icon = 'icons/obj/package.dmi'
 	icon_state = "package_pack"
 	item_state = "package_pack"
 	contained_sprite = TRUE
@@ -41,7 +41,7 @@
 	var/list/data = list()
 
 	data["cargo_pack_details"] = list()
-	for(var/obj/item/cargo_package/package in contained_packages)
+	for(var/obj/item/package/delivery/package in contained_packages)
 		var/delivery_site = "Unknown"
 		if(package.delivery_point_sector)
 			var/obj/effect/overmap/visitable/delivery_sector = package.delivery_point_sector.resolve()
@@ -82,7 +82,7 @@
 		return
 
 	for(var/package_index = 1 to length(contained_packages))
-		var/obj/item/cargo_package/package = contained_packages[package_index]
+		var/obj/item/package/delivery/package = contained_packages[package_index]
 		var/image/package_tag = image(icon, icon_state = "package_pack_[package_index]_tag")
 		package_tag.color = package.accent_color
 		mob_overlay.AddOverlays(package_tag)
@@ -110,7 +110,7 @@
 				to_chat(user, SPAN_WARNING("Your other hand is occupied!"))
 				return
 		user.visible_message("<b>[user]</b> unloads a package from \the [src]!", SPAN_NOTICE("You unload a package from \the [src]!"))
-		var/obj/item/cargo_package/package = contained_packages[1]
+		var/obj/item/package/delivery/package = contained_packages[1]
 		user.put_in_hands(package)
 		if(user.species.mob_size < 12)
 			package.wield(user)
@@ -121,11 +121,11 @@
 	if(!ishuman(user))
 		return ..()
 	if(user.back != src)
-		if(istype(attacking_item, /obj/item/cargo_package))
+		if(istype(attacking_item, /obj/item/package/delivery))
 			to_chat(user, SPAN_WARNING("Put \the [src] on your back before you load packages onto it!"))
 			return
 		return ..()
-	if(!istype(attacking_item, /obj/item/cargo_package))
+	if(!istype(attacking_item, /obj/item/package/delivery))
 		return ..()
 
 	if(LAZYLEN(contained_packages) >= 2)
