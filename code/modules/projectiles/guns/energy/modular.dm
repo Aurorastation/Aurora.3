@@ -34,7 +34,7 @@
 	var/named = 0
 	///True if the gun has a custom description.
 	var/described = 0
-	///When the weapon is disasembled, this is distributed randomly among it's components. When a component with improvement potential is repaired, one appropriate variable gets better by up to improvement potential percent. The actual chance is based on skill level.
+	///When the weapon is disasembled, this is distributed randomly among its components. When a component with improvement potential is repaired, one appropriate variable gets better by up to improvement potential percent. The actual chance is based on skill level.
 	var/improvement_potential = 0 //This is a percentage increase of a single variable on one component, a 100% increase is not a doubling of all stats, it is instead spread out across all components.
 
 /obj/item/gun/energy/laser/prototype/mechanics_hints(mob/user, distance, is_adjacent)
@@ -44,15 +44,15 @@
 		if(2)
 			. += "Your complete lack of skill in firearms and research will hide all information about this weapon from you, you will also be unable to repair it decreasing its reliability."
 		if(3)
-			. += "Your low familiarity with firearms and research will hide most information about this weapon from you, you will also struggle to repair it without decreasing it's reliability."
+			. += "Your low familiarity with firearms and research will hide most information about this weapon from you, you will also struggle to repair it without decreasing its reliability."
 		if(4)
-			. += "Your combined familiarity with firearms and research will show you most information about this weapon, you will also be able to repair it without decreasing it's reliability, but are not likely to be able to improve it much."
+			. += "Your combined familiarity with firearms and research will show you most information about this weapon, you will also be able to repair it without decreasing its reliability, but are not likely to be able to improve it much."
 		if(5)
-			. += "Your combined training in firearms and research will show you all information about this weapon, you will also be able to repair it without decreasing it's reliability and have a chance to improve it when repairing."
-			. += "It can be improved up to it's improvement potential, which is increased by firing it. Firing it at players increases it most rapidly, following by firing it at simple mobs, then firing it at objects."
+			. += "Your combined training in firearms and research will show you all information about this weapon, you will also be able to repair it without decreasing its reliability and have a chance to improve it when repairing."
+			. += "It can be improved up to its improvement potential, which is increased by firing it. Firing it at players increases it most rapidly, following by firing it at simple mobs, then firing it at objects."
 		if(6 to INFINITY)
-			. += "Your combined professional expertise in firearms and research will show you all information about this weapon, you will also be able to repair it without decreasing it's reliability, and have an excellent chance to improve it when repairing."
-			. += "It can be improved up to it's improvement potential, which is increased by firing it. Firing it at players increases it most rapidly, following by firing it at simple mobs, then firing it at objects."
+			. += "Your combined professional expertise in firearms and research will show you all information about this weapon, you will also be able to repair it without decreasing its reliability, and have an excellent chance to improve it when repairing."
+			. += "It can be improved up to its improvement potential, which is increased by firing it. Firing it at players increases it most rapidly, following by firing it at simple mobs, then firing it at objects."
 
 /obj/item/gun/energy/laser/prototype/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
@@ -62,14 +62,14 @@
 
 	if (capacitor.condition > 0 || focusing_lens.condition > 0 || modulator.condition > 0)
 		switch(skill_level ? skill_level : 6)
-			if (2 to 3) //At this level you can only tell that it's damaged, nothing else.
+			if (2 to 3) //At this level you can only tell that its damaged, nothing else.
 				. += SPAN_WARNING("It appears to be damaged.")
 			if (4 to 5) //At this level you can tell when the weapon is damaged and if it could malfunction.
 				if (reliability > 100)
 					. += SPAN_NOTICE("It appears to be damaged.")
 				else
 					. += SPAN_WARNING("It appears to be damaged and could malfunction!")
-			if (6 to INFINITY) //At this level you can estimate the weapon's reliability, but only if it's damaged. This won't help if you build a weapon that's inherently unreliable.
+			if (6 to INFINITY) //At this level you can estimate the weapon's reliability, but only if its damaged. This won't help if you build a weapon that's inherently unreliable.
 				if(improvement_potential > 2.5)
 					. += SPAN_GOOD("You see a few places where damage has revealed design flaws. Correcting them could improve one of the weapon's components by up to [round(improvement_potential, 5)]%.")
 				switch(reliability)
@@ -128,7 +128,7 @@
 /obj/item/gun/energy/laser/prototype/attackby(obj/item/attacking_item, mob/user)
 	var/skill_level = (GET_SKILL_LEVEL(user, FIREARMS_SKILL_COMPONENT) + GET_SKILL_LEVEL(user, RESEARCH_SKILL_COMPONENT))
 
-	if(istype(attacking_item, /obj/item/stack/nanopaste)) //Nanopaste can be used for emergency repairs, but it's not ideal and will reduce the reliability of the gun.
+	if(istype(attacking_item, /obj/item/stack/nanopaste)) //Nanopaste can be used for emergency repairs, but its not ideal and will reduce the reliability of the gun.
 		var/obj/item/stack/nanopaste/N = attacking_item
 
 		if (skill_level ? skill_level : 6)
@@ -148,8 +148,8 @@
 	if(capacitor && capacitor.condition > 0)
 		if(N.use(1))
 			capacitor.condition = max(0, capacitor.condition - 5 * skill_level)
-			capacitor.reliability = max(0, capacitor.reliability - 12/skill_level) //Using nanopaste to repair the capacitor reduces its reliability, this is to represent the fact that it's a suboptimal repair job, and to prevent players from using nanopaste as a free repair method.
-			to_chat(user, "You repair \the [capacitor]. The leftover nanopaste is gumming up the delicate component, reducing it's reliability.")
+			capacitor.reliability = max(0, capacitor.reliability - 12/skill_level) //Using nanopaste to repair the capacitor reduces its reliability, this is to represent the fact that its a suboptimal repair job, and to prevent players from using nanopaste as a free repair method.
+			to_chat(user, "You repair \the [capacitor]. The leftover nanopaste is gumming up the delicate component, reducing its reliability.")
 	else if(focusing_lens && focusing_lens.condition > 0)
 		if(N.use(1))
 			focusing_lens.condition = max(0, focusing_lens.condition - 5 * skill_level)
@@ -265,7 +265,7 @@
 	if(gun_mods.len)
 		handle_mod()
 
-	if(capacitor.reliability - capacitor.condition <= 0) //The gun explodes if it's capacitor reaches 0 reliability.
+	if(capacitor.reliability - capacitor.condition <= 0) //The gun explodes if its capacitor reaches 0 reliability.
 		var/overload_delay = 3/criticality
 		var/skill_level = (GET_SKILL_LEVEL(user, FIREARMS_SKILL_COMPONENT) + GET_SKILL_LEVEL(user, RESEARCH_SKILL_COMPONENT))
 		switch(skill_level ? skill_level : 6)
