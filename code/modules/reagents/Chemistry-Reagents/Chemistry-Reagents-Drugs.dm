@@ -852,7 +852,7 @@
 	description = "A drug that provides temporary protection against psionic effects. It is marketed towards explorers intending to enter or travel near to the Lemurian Sea."
 	color = "#b0b0b0"
 	taste_description = "inexplicably the color grey itself, then all other tastes fade into nothingness"
-	initial_effect_message_list = list("Everything feels dulled and distant.", "You feel like you can't focus on anything.", "Your thoughts feel sluggish.", "Why should you care about others?")
+	initial_effect_message_list = null
 	sober_message_list = null
 	var/component_to_add = /datum/component/timed_life/psiblock_drugs
 	var/component_timer = 10 MINUTES

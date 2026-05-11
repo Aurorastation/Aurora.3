@@ -2,6 +2,9 @@
 	/// Typecasted parent of this component.
 	var/mob/living/carbon/human/owner
 
+	/// The set of messages to choose from when this drug is first taken.
+	var/initial_effect_message_list = list("Everything feels dulled and distant.", "You feel like you can't focus on anything.", "Your thoughts feel sluggish.", "Why should you care about others?")
+
 	/// The set of messages to choose from when this drug wears off.
 	var/removal_message_list = list("You feel more sensitive to your surroundings.", "Your thoughts feel clearer.", "You feel more aware of others around you.", "You can focus better.")
 
@@ -18,6 +21,9 @@
 
 	if (ishuman(parent))
 		owner = parent
+
+	if (length(initial_effect_message_list))
+		to_chat(parent, SPAN_NOTICE(pick(initial_effect_message_list)))
 
 	RegisterSignal(parent, COMSIG_PSI_CHECK_SENSITIVITY, PROC_REF(modify_sensitivity), override = TRUE)
 	RegisterSignal(parent, COMSIG_PSI_MIND_POWER, PROC_REF(cancel_power), override = TRUE)
