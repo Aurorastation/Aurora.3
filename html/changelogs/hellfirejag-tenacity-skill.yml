@@ -1,0 +1,4 @@
+author: Hellfirejag
+delete-after: True
+changes:
+  - rscadd: "Added Tenacity to the Combat skills category. Ranks in tenacity allow a character to survive longer while in critical condition."

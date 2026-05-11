@@ -20,7 +20,7 @@
 	var/stasis_can_toggle = 0
 
 	/// The amount of Stasis Value that this machine provides to an occupant.
-	var/stasis_power = 10
+	var/stasis_power = 6
 
 	/**
 	 * The type of stasis this machine provides to an occupant.

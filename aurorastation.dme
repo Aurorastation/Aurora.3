@@ -518,6 +518,7 @@
 #include "code\datums\components\skills\combat\armed_combat_skill_component.dm"
 #include "code\datums\components\skills\combat\firearms_skill_component.dm"
 #include "code\datums\components\skills\combat\leadership_skill_component.dm"
+#include "code\datums\components\skills\combat\tenacity_skill_component.dm"
 #include "code\datums\components\skills\combat\unarmed_combat_skill_component.dm"
 #include "code\datums\components\skills\engineering\atmospherics_systems_skill_component.dm"
 #include "code\datums\components\skills\engineering\electrical_engineering_skill_component.dm"

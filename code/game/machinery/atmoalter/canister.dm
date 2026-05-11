@@ -351,8 +351,9 @@ update_flag
 /obj/machinery/portable_atmospherics/canister/add_damage(damage, damage_flags, damage_type, armor_penetration, obj/weapon)
 	. = ..()
 	if (health <= maxhealth * 0.1)
-		var/atom/location = loc
-		location.assume_air(air_contents)
+		var/turf/simulated/floor/location = loc
+		if(air_contents)
+			location?.assume_air(air_contents)
 
 		destroyed = TRUE
 		obj_flags &= ~OBJ_FLAG_SIGNALER
