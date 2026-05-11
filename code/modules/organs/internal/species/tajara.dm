@@ -60,12 +60,12 @@
 	if(!ability_check())
 		return
 	if(zoom)
-		owner.visible_message("<b>[owner]'s</b> eyes whirrs loudly as the zoom lenses retract.", range = 3)
+		owner.visible_message("<b>[owner]'s</b> eyes adjusts.", range = 3) // TODO: Get taj lore to give some proper messages
 	else
-		owner.visible_message("<b>[owner]'s</b> eyes whirrs loudly as the zoom lenses begin sliding into place...", range = 3)
+		owner.visible_message("<b>[owner]'s</b> eyes stops adjusting", range = 3)
 		if(!do_after(owner, 1.5 SECONDS))
 			return
-		owner.visible_message("<b>[owner]'s</b> eyes clicks loudly as they focus ahead.", range = 3)
+		owner.visible_message("<b>[owner]'s</b> eyes finishing adjusting to look ahead.", range = 3)
 
 	zoom(owner, 3, 7, FALSE, FALSE)
 
