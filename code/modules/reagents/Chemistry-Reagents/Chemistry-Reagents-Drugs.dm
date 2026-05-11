@@ -20,7 +20,7 @@
 	var/ignores_drug_resistance = FALSE
 
 /singleton/reagent/drugs/initial_effect(mob/living/carbon/human/M, alien, datum/reagents/holder)
-	if (effect_messages && REALTIMEOFDAY >= M.next_drug_message)
+	if (length(initial_effect_message_list) && effect_messages && REALTIMEOFDAY >= M.next_drug_message)
 		var/msg = pick(initial_effect_message_list)
 		to_chat(M, SPAN_GOOD("[msg]"))
 		M.next_drug_message = REALTIMEOFDAY + DRUG_MESSAGE_COOLDOWN
@@ -35,7 +35,7 @@
 		power = max(power - 2, 0)
 
 /singleton/reagent/drugs/final_effect(mob/living/carbon/M, datum/reagents/holder)
-	if (effect_messages && REALTIMEOFDAY >= M.next_sober_message)
+	if (length(sober_message_list) && effect_messages && REALTIMEOFDAY >= M.next_sober_message)
 		var/msg = pick(sober_message_list)
 		to_chat(M, SPAN_WARNING("[msg]"))
 		M.next_sober_message = REALTIMEOFDAY + SOBER_MESSAGE_COOLDOWN
@@ -851,7 +851,9 @@
 	name = "PsiProtect"
 	description = "A drug that provides temporary protection against psionic effects. It is marketed towards explorers intending to enter or travel near to the Lemurian Sea."
 	color = "#b0b0b0"
+	taste_description = "inexplicably the color grey itself, then all other tastes fade into nothingness"
 	initial_effect_message_list = list("Everything feels dulled and distant.", "You feel like you can't focus on anything.", "Your thoughts feel sluggish.", "Why should you care about others?")
+	sober_message_list = null
 
 /singleton/reagent/drugs/psiblock/affect_blood(mob/living/carbon/M, alien, removed, datum/reagents/holder)
 	var/datum/component/timed_life/psiblock_drugs/psiblock_comp = M.LoadComponent(/datum/component/timed_life/psiblock_drugs, 10 MINUTES)
