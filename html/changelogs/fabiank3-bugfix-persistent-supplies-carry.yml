@@ -3,5 +3,5 @@ author: FabianK3
 delete-after: True
 
 changes:
-  - bugfix: "Fixed two handy carry and pickup of persistent supply packages."
+  - bugfix: "Fixed two-hand carry and pickup of persistent supply packages."
   - bugfix: "Removed location check on persistent object register."
