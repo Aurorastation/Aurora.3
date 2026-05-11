@@ -122,7 +122,7 @@
 					log_and_message_admins("[usr] has fired [cannon] with target [linked.targeting] and entry point [LM]!", location = get_turf(usr))
 					. = TRUE
 					if(issilicon(usr))
-						to_chat(usr,SPAN_WARNING("The targetting systems register, showing a sucessful firing sequence."))
+						to_chat(usr,SPAN_WARNING("The targeting systems register, showing a successful firing sequence."))
 						visible_message(SPAN_WARNING("The console shows a neutral message: firing sequence successful, Silicon unit registered firing: [usr]"))
 					else
 						visible_message(SPAN_WARNING("The console shows a positive message: firing sequence successful!"))
