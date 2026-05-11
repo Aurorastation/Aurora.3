@@ -98,5 +98,4 @@
 	max_tremor_time = 5 MINUTES
 	min_seizure_time = 30 MINUTES // Will never induce a seizure.
 	telepathy_cancel_probability = 100
-	max_seizure_time = 2 HOURS
 	psi_sensitivity_modifier = -1.25
