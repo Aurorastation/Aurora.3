@@ -4,3 +4,6 @@ delete-after: True
 
 changes:
   - bugfix: "Allows the ability for reading off what IC components are in an assembly when opened and used the examine function on it. Examine function doesn't show the circuits when closed."
+  - rscadd: "Added in two new converter integrated circuits based off of the num-to-string circuit. Instead of just a 1 I/O there is now a 4 and 8 I/O version."
+  - qol: "Changed weight class on integrated circuit printer from BULKY to NORMAL."
+  - qol: "Changed integrated circuit advanced med scanner from NUM to Severity based detection to further align with the current health scanners."
