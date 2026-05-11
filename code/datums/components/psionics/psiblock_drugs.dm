@@ -1,16 +1,29 @@
 /datum/component/timed_life/psiblock_drugs
+	/// Typecasted parent of this component.
+	var/mob/living/carbon/human/owner
 
+	/// The set of messages to choose from when this drug wears off.
 	var/removal_message_list = list("You feel more sensitive to your surroundings.", "Your thoughts feel clearer.", "You feel more aware of others around you.", "You can focus better.")
+
+	/// How much this drug modifies the user's psi sensitivity.
+	var/psi_sensitivity_modifier = -1
+
+	/// The percent chance that this drug will cancel a psionic power when the user is targeted by one.
+	var/telepathy_cancel_probability = 95
 
 /datum/component/timed_life/psiblock_drugs/Initialize(lifetime_seconds = 5 MINUTES)
 	. = ..()
 	if (!parent)
 		return
 
+	if (ishuman(parent))
+		owner = parent
+
 	RegisterSignal(parent, COMSIG_PSI_CHECK_SENSITIVITY, PROC_REF(modify_sensitivity), override = TRUE)
 	RegisterSignal(parent, COMSIG_PSI_MIND_POWER, PROC_REF(cancel_power), override = TRUE)
 
 /datum/component/timed_life/psiblock_drugs/Destroy()
+	owner = null
 	if (!parent)
 		return ..()
 
@@ -26,8 +39,64 @@
 /datum/component/timed_life/psiblock_drugs/proc/modify_sensitivity(parent, effective_sensitivity)
 	SIGNAL_HANDLER
 
-	*effective_sensitivity = *effective_sensitivity - 1
+	*effective_sensitivity = *effective_sensitivity + psi_sensitivity_modifier
 
 /datum/component/timed_life/psiblock_drugs/proc/cancel_power(parent, caster, cancelled, cancel_return, wide_field)
 	SIGNAL_HANDLER
-	*cancelled = TRUE
+	if (prob(telepathy_cancel_probability))
+		*cancelled = TRUE
+
+/datum/component/timed_life/psiblock_drugs/process(seconds_per_tick)
+	. = ..()
+
+// Variants of psiblocking drugs
+/datum/component/timed_life/psiblock_drugs/yomi_genetics
+	/// The next time (in real life seconds) that a hand tremor will occur.
+	var/next_tremor_time = 0
+
+	/// The minimum time between hand tremors, in real life seconds.
+	var/min_tremor_time = 1 MINUTE
+
+	/// The maximum time between hand tremors, in real life seconds.
+	var/max_tremor_time = 3 MINUTES
+
+	/// The next time (in real life seconds) that a seizure will occur.
+	var/next_seizure_time = 0
+
+	/// The minimum time between seizures, in real life seconds.
+	var/min_seizure_time = 9 MINUTES + 30 SECONDS
+
+	/// The maximum time between seizures, in real life seconds.
+	var/max_seizure_time = 2 HOURS // Intentionally far greater than the actual duration, seizures are meant to be rare.
+
+/datum/component/timed_life/psiblock_drugs/yomi_genetics/Initialize(lifetime_seconds = 5 MINUTES)
+	. = ..()
+	next_tremor_time = REALTIMEOFDAY + rand(min_tremor_time, max_tremor_time)
+	next_seizure_time = REALTIMEOFDAY + rand(min_seizure_time, max_seizure_time)
+
+/datum/component/timed_life/psiblock_drugs/yomi_genetics/process(seconds_per_tick)
+	. = ..()
+	var/time_of_day = REALTIMEOFDAY
+	if (time_of_day >= next_tremor_time)
+		owner.visible_message(SPAN_NOTICE("[owner]'s hand shakes..."), SPAN_NOTICE("Your hand shakes..."))
+		next_tremor_time = time_of_day + rand(min_tremor_time, max_tremor_time)
+
+	if (time_of_day >= next_seizure_time)
+		owner.seizure()
+		next_seizure_time = time_of_day + rand(min_seizure_time, max_seizure_time)
+
+/datum/component/timed_life/psiblock_drugs/yomi_genetics/cheap
+	min_tremor_time = 30 SECONDS
+	max_tremor_time = 2 MINUTES
+	min_seizure_time = 5 MINUTES
+	max_seizure_time = 30 MINUTES
+	telepathy_cancel_probability = 75
+	psi_sensitivity_modifier = -0.75
+
+/datum/component/timed_life/psiblock_drugs/yomi_genetics/expensive
+	min_tremor_time = 2 MINUTES
+	max_tremor_time = 5 MINUTES
+	min_seizure_time = 30 MINUTES // Will never induce a seizure.
+	telepathy_cancel_probability = 100
+	max_seizure_time = 2 HOURS
+	psi_sensitivity_modifier = -1.25

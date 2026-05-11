@@ -211,7 +211,32 @@
 	desc = "Contains psychotropic pills derived from certain species of mushroom."
 	starts_with = list(/obj/item/reagent_containers/pill/psilocybin = 4)
 
+/**
+ * The base psi-protect pills. Childs of this have variations of side effects.
+ * This version of the pill has no side effects, and is not intended to be spawned directly.
+ */
 /obj/item/storage/pill_bottle/psi_protect
 	name = "bottle of Psi-protect pills"
-	desc = "Contains pills used to protect against ADPI."
+	desc = "A high-precision, personalised drug tailored to a patient's genetic, neurological, and psionic profile. " \
+		+ "It is marketed towards those with psionic disorders, such as psionic echoes, and made available at discounted prices to Zeng-Hu-affiliated explorers of the Lemurian Sea."
 	starts_with = list(/obj/item/reagent_containers/pill/psi_protect = 6)
+
+/obj/item/storage/pill_bottle/psi_protect/yomi_genetics
+	name = "bottle of Psi-protect Personalized pills"
+	desc = "A YomiGenetics high-precision, personalised drug tailored to a patient's genetic, neurological, and psionic profile. " \
+		+ "It is marketed towards those with psionic disorders, such as psionic echoes, and made available at discounted prices to Zeng-Hu-affiliated explorers of the Lemurian Sea."
+	starts_with = list(/obj/item/reagent_containers/pill/psi_protect/yomi_genetics = 6)
+
+/obj/item/storage/pill_bottle/psi_protect/yomi_genetics/cheap
+	name = "bottle of Psi-protect Broad-Use pills"
+	desc = "A cheaper, broad-targetting drug under the PsiProtect brand, with a more brute-force mechanism and only requiring the most basic of psionic profiling tests. " \
+		+ "This one has long stopped being prescribed or marketed, but is available at clearance prices."
+	starts_with = list(/obj/item/reagent_containers/pill/psi_protect/yomi_genetics/cheap = 6)
+
+/obj/item/storage/pill_bottle/psi_protect/yomi_genetics/expensive
+	name = "bottle of Psi-protect Personalized Gold pills"
+	desc = "A high-precision, personalised drug tailored to a patient's genetic, neurological, and psionic profile. " \
+		+ "It is marketed towards those with psionic disorders, such as psionic echoes, and made available at discounted prices to Zeng-Hu-affiliated explorers of the Lemurian Sea. " \
+		+ "This one is thrice as expensive, for more affluent customers, and requiring more genetic and neurological profiling. " \
+		+ "Nonetheless, it remains cheaper than the more elegant ZHP-MSV3 'Mindblankers'."
+	starts_with = list(/obj/item/reagent_containers/pill/psi_protect/yomi_genetics/expensive = 6)

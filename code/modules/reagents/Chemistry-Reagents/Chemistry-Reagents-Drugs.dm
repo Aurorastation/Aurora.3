@@ -854,9 +854,21 @@
 	taste_description = "inexplicably the color grey itself, then all other tastes fade into nothingness"
 	initial_effect_message_list = list("Everything feels dulled and distant.", "You feel like you can't focus on anything.", "Your thoughts feel sluggish.", "Why should you care about others?")
 	sober_message_list = null
+	var/component_to_add = /datum/component/timed_life/psiblock_drugs
+	var/component_timer = 10 MINUTES
 
 /singleton/reagent/drugs/psiblock/affect_blood(mob/living/carbon/M, alien, removed, datum/reagents/holder)
-	var/datum/component/timed_life/psiblock_drugs/psiblock_comp = M.LoadComponent(/datum/component/timed_life/psiblock_drugs, 10 MINUTES)
+	var/datum/component/timed_life/psiblock_drugs/psiblock_comp = M.LoadComponent(component_to_add, component_timer)
 	psiblock_comp.refresh()
+
+/singleton/reagent/drugs/psiblock/yomi_genetics
+	component_to_add = /datum/component/timed_life/psiblock_drugs/yomi_genetics
+
+/singleton/reagent/drugs/psiblock/yomi_genetics/cheap
+	component_to_add = /datum/component/timed_life/psiblock_drugs/yomi_genetics/cheap
+
+/singleton/reagent/drugs/psiblock/yomi_genetics/expensive
+	component_to_add = /datum/component/timed_life/psiblock_drugs/yomi_genetics/expensive
+	component_timer = 8 MINUTES
 
 #undef DRUG_MESSAGE_DELAY
