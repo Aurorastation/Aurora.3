@@ -166,6 +166,7 @@
 	icon_state = "revenant_eyes"
 	eye_emote = null
 	vision_color = null
+	action_button_name = list("Activate Low Light Vision")
 	default_action_type = /datum/action/item_action/organ/night_eyes/rev
 
 /obj/item/organ/internal/eyes/night/revenant/flash_act()
