@@ -29,7 +29,7 @@
 
 	// This is here and not on the reagent because the reagent's duration is handled by this component rather than metabolism.
 	// If the parent is being deleted, then there's no need to send a message about the drug wearing off.
-	if (!QDELING(parent))
+	if (!QDELING(parent) && length(removal_message_list))
 		to_chat(parent, SPAN_NOTICE(pick(removal_message_list)))
 
 	UnregisterSignal(parent, COMSIG_PSI_CHECK_SENSITIVITY)
