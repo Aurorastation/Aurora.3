@@ -1,0 +1,4 @@
+author: Hellfirejag
+delete-after: True
+changes:
+  - rscadd: "Added new Psi-protect drugs to the Psychiatric Drugs loadout selection. These pills provide temporary protection against psionic effects."

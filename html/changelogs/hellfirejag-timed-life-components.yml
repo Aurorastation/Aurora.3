@@ -1,4 +1,0 @@
-author: Hellfirejag
-delete-after: True
-changes:
-  - rscadd: "Added a new type of component called Timed Life Component, which will delete itself after a certain amount of time has passed. Effectively a timer that can interact with signals."
