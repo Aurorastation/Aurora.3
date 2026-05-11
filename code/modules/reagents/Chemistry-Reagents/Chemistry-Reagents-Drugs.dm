@@ -847,4 +847,14 @@
 		return
 	. = ..()
 
+/singleton/reagent/drugs/psiblock
+	name = "PsiProtect"
+	description = "A drug that provides temporary protection against psionic effects. It is marketed towards explorers intending to enter or travel near to the Lemurian Sea."
+	color = "#b0b0b0"
+	initial_effect_message_list = list("Everything feels dulled and distant.", "You feel like you can't focus on anything.", "Your thoughts feel sluggish.", "Why should you care about others?")
+
+/singleton/reagent/drugs/psiblock/affect_blood(mob/living/carbon/M, alien, removed, datum/reagents/holder)
+	var/datum/component/timed_life/psiblock_drugs/psiblock_comp = M.LoadComponent(/datum/component/timed_life/psiblock_drugs, 10 MINUTES)
+	psiblock_comp.refresh()
+
 #undef DRUG_MESSAGE_DELAY

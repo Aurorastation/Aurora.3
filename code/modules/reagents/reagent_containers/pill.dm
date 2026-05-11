@@ -411,3 +411,9 @@
 	desc = "A strong psychotropic derived from certain species of mushroom."
 	icon_state = "pill10"
 	reagents_to_add = list(/singleton/reagent/drugs/psilocybin = 5)
+
+/obj/item/reagent_containers/pill/psi_protect
+	name = "5u Psi-protect Pill"
+	desc = "A pill used to protect against ADPI."
+	icon_state = "pill10"
+	reagents_to_add = list(/singleton/reagent/drugs/psiblock = 5)

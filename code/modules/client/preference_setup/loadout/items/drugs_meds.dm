@@ -179,6 +179,7 @@
 	psych_meds["Orastabin pills"] = /obj/item/storage/pill_bottle/orastabin
 	psych_meds["Parvosil pills"] = /obj/item/storage/pill_bottle/parvosil
 	psych_meds["Corophenidate pills"] = /obj/item/storage/pill_bottle/corophenidate
+	psych_meds["Psi-protect pills"] = /obj/item/storage/pill_bottle/psi_protect
 	gear_tweaks += new /datum/gear_tweak/path(psych_meds)
 
 /datum/gear/drugs_meds/otc
