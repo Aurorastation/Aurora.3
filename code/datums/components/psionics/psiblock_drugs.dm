@@ -19,8 +19,7 @@
 	if (!parent)
 		return
 
-	if (ishuman(parent))
-		owner = parent
+	owner = ashuman(parent)
 
 	if (length(initial_effect_message_list))
 		to_chat(parent, SPAN_NOTICE(pick(initial_effect_message_list)))
