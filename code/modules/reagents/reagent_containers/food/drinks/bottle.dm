@@ -504,10 +504,10 @@
 	reagents_to_add = list(/singleton/reagent/alcohol/patron = 100)
 
 /obj/item/reagent_containers/food/drinks/bottle/rum
-	name = "Undirstader Broeckhouser rum"
-	desc = "If Getmore gets any alcohol right, it's certainly rum, according to (most) New Gibsoners (only Ovanstaders were polled)! This is <b>real</b>, <i><b>GENUINE</b></i> Undirstader rum, made using <b>OLD WORLD</b> recipes! The most authentic \
-	Undirstader drink in Getmore's wide arsenal! Or so the advertisements say. Undirstader critics often point to this rum as a corporate mockery of their culture, yet it remains the most \
-	popular Getmore product in New Gibson's Ovanstads by far, and most people simply know it as a famous Undirstader drink produced by Getmore."
+	name = "Fallanland Broeckhouser rum"
+	desc = "If Getmore gets any alcohol right, it's certainly rum, according to (most) New Gibsoners (only Respiters were polled)! This is <b>real</b>, <i><b>GENUINE</b></i> Fallanlander rum, made using <b>OLD WORLD</b> recipes! The most authentic \
+	Fallanlander drink in Getmore's wide arsenal! Or so the advertisements say; critics often point to this rum as a corporate mockery of their culture, yet it remains one of the most \
+	popular Getmore products around Tau Ceti by far, and most people simply know it as a famous New Gibsonite drink produced by Getmore."
 	desc_extended = DRINK_FLUFF_GETMORE
 	icon_state = "rumbottle"
 	center_of_mass = list("x"=16, "y"=4)
@@ -687,8 +687,8 @@
 
 /obj/item/reagent_containers/food/drinks/bottle/small/beer
 	name = "Virklunder beer"
-	desc = "Contains only water, malt and hops. Not really as high-quality as the label says, but it's still popular. This particular line of beer is made by Getmore on New Gibson, specifically in the Ovanstad of \
-	Virklund in a massive beer brewery complex. It quickly became the most consumed kind of beer across the Republic of Biesel and has since been in stock in practically every bar across the nation."
+	desc = "Contains only water, malt and hops. Not really as high-quality as the label says, but it's still popular. This particular line of beer is made by Getmore on New Gibson, specifically in \
+	Respite in a massive beer brewery complex. It quickly became the most consumed kind of beer across the Republic of Biesel, to the chagrin of Virklunders, and has since been in stock in practically every bar across the nation."
 	desc_extended = DRINK_FLUFF_GETMORE
 	icon_state = "beer"
 
@@ -708,7 +708,7 @@
 
 /obj/item/reagent_containers/food/drinks/bottle/small/ale
 	name = "\improper Burszi-ale"
-	desc = "Manufactured in Virklund on New Gibson by Getmore, this is a true Burszian's drink of choice. That is, if you're not an IPC. You wouldn't be able to buy this ale then. Or think of buying it. Or afford it."
+	desc = "Manufactured in Respite on New Gibson by Getmore, this is a true Burszian's drink of choice. That is, if you're not an IPC. You wouldn't be able to buy this ale then. Or think of buying it. Or afford it."
 	icon_state = "alebottle"
 	item_state = "beer"
 	reagents_to_add = list(/singleton/reagent/alcohol/ale = 30)

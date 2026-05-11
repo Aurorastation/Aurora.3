@@ -1,0 +1,8 @@
+author: kermit
+
+delete-after: True
+
+changes:
+  - rscadd: "Updates Reade and New Gibson accents, origins and other associated flavour text following lore expansion to both."
+  - rscadd: "Reflavours 'Hengsha Rolls' into 'Reade Lobster Rolls' following removal of Hengsha."
+  - imagedel: "Removes Ovanstader accent and icons."

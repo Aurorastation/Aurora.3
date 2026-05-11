@@ -613,6 +613,8 @@
 	var/light_applied
 	var/on = FALSE
 	var/protects_against_weather = FALSE
+	/// Boolean. If set, uses `HEAD_LAYER_ALT` for mob sprite layering.
+	var/use_alt_layer = FALSE
 
 /obj/item/clothing/head/Initialize(mapload, material_key)
 	. = ..()
