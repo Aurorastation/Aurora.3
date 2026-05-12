@@ -74,6 +74,15 @@
 	/// The maximum time between seizures, in real life seconds.
 	var/max_seizure_time = 2 HOURS // Intentionally far greater than the actual duration, seizures are meant to be rare.
 
+	/// The penalty to accuracy for gun attacks due to hand tremors.
+	var/accuracy_penalty = 0.25
+
+	/// The penalty to dispersion for gun attacks due to hand tremors.
+	var/dispersion_penalty = 5
+
+	/// The penalty to surgery success chance due to hand tremors.
+	var/surgery_success_penalty = -10
+
 /datum/component/timed_life/psiblock_drugs/yomi_genetics/Initialize(lifetime_seconds = 5 MINUTES)
 	. = ..()
 	next_tremor_time = REALTIMEOFDAY + rand(min_tremor_time, max_tremor_time)
@@ -90,12 +99,12 @@
 
 /datum/component/timed_life/psiblock_drugs/yomi_genetics/proc/check_tremor_gun(mob/shooter, accuracy_decrease, dispersion_increase)
 	SIGNAL_HANDLER
-	*accuracy_decrease = *accuracy_decrease + 0.25
-	*dispersion_increase = *dispersion_increase + 5
+	*accuracy_decrease = *accuracy_decrease + accuracy_penalty
+	*dispersion_increase = *dispersion_increase + dispersion_penalty
 
 /datum/component/timed_life/psiblock_drugs/yomi_genetics/proc/check_tremor_surgery(mob/living/user, success_rate)
 	SIGNAL_HANDLER
-	*success_rate = *success_rate - 10
+	*success_rate = *success_rate + surgery_success_penalty
 
 /datum/component/timed_life/psiblock_drugs/yomi_genetics/process(seconds_per_tick)
 	. = ..()
@@ -115,6 +124,9 @@
 	max_seizure_time = 30 MINUTES
 	telepathy_cancel_probability = 75
 	psi_sensitivity_modifier = -0.75
+	accuracy_penalty = 0.35
+	dispersion_penalty = 10
+	surgery_success_penalty = -20
 
 /datum/component/timed_life/psiblock_drugs/yomi_genetics/expensive
 	min_tremor_time = 2 MINUTES
@@ -122,3 +134,6 @@
 	min_seizure_time = 30 MINUTES // Will never induce a seizure.
 	telepathy_cancel_probability = 100
 	psi_sensitivity_modifier = -1.25
+	accuracy_penalty = 0.15
+	dispersion_penalty = 2
+	surgery_success_penalty = -5
