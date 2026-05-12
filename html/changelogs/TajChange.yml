@@ -2,6 +2,7 @@ author: TheGreyWolf
 
 delete-after: True
 
+changes:
   - balance: "Tajara brute mods were changed from 10%, 20% and 30% for zhan, base tajara and m'sai to 5%, 10%, 15%."
   - balance: "Flashbangs no longer stun tajara unless they have sensitive hearing on."
   - rscadd: "The height difference between hharar, m'sai and zhan were tweaked to not be identical."
