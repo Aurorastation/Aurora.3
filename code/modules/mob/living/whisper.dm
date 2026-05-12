@@ -62,7 +62,7 @@
 	for(var/mob/M as anything in all_in_range)
 		// If they got sensitive hearing enabled, increase the whisper hearing range by one
 		var/sensitive = astype(M, /mob/living/carbon/human)?.is_listening() ? 1 : 0
-		 //Preventing duplicate messages to ghostear'd observers
+		//Preventing duplicate messages to ghostear'd observers
 		if(M.stat == DEAD && M.client && (M.client.prefs.toggles & CHAT_GHOSTEARS))
 			continue
 		if(get_dist(src, M) <= (message_range + sensitive)) //In range to hear
