@@ -335,19 +335,27 @@
 		var/datum/reagents/ingested = H.get_ingested_reagents()
 		if(ingested && ingested.total_volume)
 			var/unknown = 0
+			var/ingesteddata[0]
+
 			for(var/_R in ingested.reagent_volumes)
 				var/singleton/reagent/R = GET_SINGLETON(_R)
 				if(R.scannable)
 					print_reagent_default_message = FALSE
-					dat += SPAN_NOTICE("[R.name] found in subject's stomach.")
+					ingesteddata["[_R]"] = SPAN_NOTICE("    [round(REAGENT_VOLUME(ingested, _R), 1)]u [R.name]")
 				else
 					++unknown
+
+			if(ingesteddata.len)
+				print_reagent_default_message = FALSE
+				dat += SPAN_NOTICE("Reagents detected in subject's stomach:")
+				for(var/d in ingesteddata)
+					dat += ingesteddata[d]
+
 			if(unknown)
 				print_reagent_default_message = FALSE
-				dat +=  SPAN_WARNING("Non-medical reagent[(unknown > 1)?"s":""] found in subject's stomach.")
-
-	if(print_reagent_default_message)
-		dat += "No results."
+				dat += SPAN_WARNING("Warning: Unknown substance[(unknown > 1) ? "s" : ""] detected in subject's stomach.")
+		if(print_reagent_default_message)
+			dat += "No results."
 
 	reagent_results += dat
 	ui_interact(user)
