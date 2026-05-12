@@ -250,8 +250,16 @@
 		var/mob/m = loc
 		m.drop_from_inventory(src, null)
 
-	if(!QDELETED(action))
+	if(islist(action))
+		var/list/action_list = action
+		for(var/i in 1 to action_list.len)
+			var/datum/action/A = action_list[i]
+			if(!QDELETED(A))
+				QDEL_NULL(A)
+		action_list.Cut()
+	else if(!QDELETED(action))
 		QDEL_NULL(action) // /mob/living/proc/handle_actions() creates it, for ungodly reasons
+
 	action = null
 
 	if(!QDELETED(hidden_uplink))
