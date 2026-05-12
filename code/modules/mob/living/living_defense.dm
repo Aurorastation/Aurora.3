@@ -531,8 +531,9 @@
 
 		else
 			if(!I.action)
-				if(I.default_action_type)
-					I.action = new I.default_action_type
+				var/action_type = action_types.len ? action_types[1] : null
+				if(action_type)
+					I.action = new action_type
 				else
 					continue
 
