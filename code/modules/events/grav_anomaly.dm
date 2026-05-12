@@ -97,9 +97,8 @@
 					)))
 
 			if("nausea_mild")
-				var/nausea = rand(4,10)
-				victim.dizziness += nausea
-				victim.confused += nausea
+				victim.dizziness += rand(4,10)
+				victim.confused += rand(4,10)
 				if(isipc(victim))
 					to_chat(victim, SPAN_MACHINE_WARNING(pick(nausea_mild_ipc)))
 				else
