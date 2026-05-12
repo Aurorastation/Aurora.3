@@ -24,6 +24,11 @@
 	drop_sound = 'sound/items/drop/helm.ogg'
 	pickup_sound = 'sound/items/pickup/helm.ogg'
 
+/obj/item/clothing/head/hardhat/dropped(mob/user)
+	. = ..()
+	if(user?.dir)
+		set_dir(user.dir)
+
 /obj/item/clothing/head/hardhat/orange
 	icon_state = "hardhat_orange"
 	item_state = "hardhat_orange"
