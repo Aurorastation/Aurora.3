@@ -170,6 +170,10 @@
 						else
 							victim.fall_impact(1)
 
+			else
+				log_admin("Failed to generate grav anom result for user [victim].")
+				break
+
 /datum/event/grav_anomaly/announce_end()
 	. = ..()
 	if(.)
