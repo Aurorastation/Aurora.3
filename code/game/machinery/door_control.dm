@@ -160,7 +160,7 @@
 				return
 
 /obj/machinery/button/remote/blast_door/hangar_lockdown
-	var/on_message = "A hangar lockdown has been initiated. All personnel within the hangar are to follow Command and Security orders."
+	var/on_message = "A hangar lockdown has been initiated."
 	var/off_message = "The hangar lockdown has been lifted."
 	var/on_title = "Hangar Lockdown In Effect!"
 	var/off_title = "Hangar Lockdown Lifted!"
