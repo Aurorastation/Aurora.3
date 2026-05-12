@@ -79,6 +79,24 @@
 	next_tremor_time = REALTIMEOFDAY + rand(min_tremor_time, max_tremor_time)
 	next_seizure_time = REALTIMEOFDAY + rand(min_seizure_time, max_seizure_time)
 
+	// Some skill check penalties related to hand tremors. Tremors give a small penalty to some skill checks.
+	RegisterSignal(parent, COMSIG_BEFORE_GUN_FIRE, PROC_REF(check_tremor_gun), override = TRUE)
+	RegisterSignal(parent, COMSIG_GET_SURGERY_SUCCESS_MODIFIERS, PROC_REF(check_tremor_surgery), override = TRUE)
+
+/datum/component/timed_life/psiblock_drugs/yomi_genetics/Destroy()
+	UnregisterSignal(parent, COMSIG_BEFORE_GUN_FIRE)
+	UnregisterSignal(parent, COMSIG_GET_SURGERY_SUCCESS_MODIFIERS)
+	return ..()
+
+/datum/component/timed_life/psiblock_drugs/yomi_genetics/proc/check_tremor_gun(mob/shooter, accuracy_decrease, dispersion_increase)
+	SIGNAL_HANDLER
+	*accuracy_decrease = *accuracy_decrease + 0.25
+	*dispersion_increase = *dispersion_increase + 5
+
+/datum/component/timed_life/psiblock_drugs/yomi_genetics/proc/check_tremor_surgery(mob/living/user, success_rate)
+	SIGNAL_HANDLER
+	*success_rate = *success_rate - 10
+
 /datum/component/timed_life/psiblock_drugs/yomi_genetics/process(seconds_per_tick)
 	. = ..()
 	var/time_of_day = REALTIMEOFDAY
