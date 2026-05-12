@@ -136,6 +136,8 @@
 	var/zoomdevicename
 	/// Boolean, `TRUE` if item is actively being used to zoom. For scoped guns and binoculars.
 	var/zoom = FALSE
+	/// The message used when stopping looking through a pair of binoculars/scope
+	var/zoom_out_message
 
 	/// Boolean, if item_state, lefthand, righthand, and worn sprite are all in one dmi
 	var/contained_sprite = FALSE
@@ -994,9 +996,11 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 		M.client.pixel_x = 0
 		M.client.pixel_y = 0
 
-		if(!cannotzoom)
-			if(show_zoom_message)
+		if(!cannotzoom && show_zoom_message)
+			if(!zoom_out_message)
 				M.visible_message("[zoomdevicename ? "<b>[M]</b> looks up from \the [src.name]" : "<b>[M]</b> lowers \the [src.name]"].")
+			else
+				M.visible_message("[zoomdevicename ? "<b>[M]</b> [zoom_out_message] \the [src.name]." : "<b>[M]</b> [zoom_out_message]"]")
 
 	if(ishuman(M))
 		var/mob/living/carbon/human/H = M

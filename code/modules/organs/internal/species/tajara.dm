@@ -11,6 +11,7 @@
 	var/eye_emote = "'s eyes dilate!"
 	var/allowed_model = PROSTHETIC_TESLA //what robotic model allows this eyes to use the night vision
 	var/cooldown = 30
+	zoom_out_message = "eyes widens as they stop focusing ahead."
 
 /obj/item/organ/internal/eyes/night/Destroy()
 	disable_night_vision()
@@ -60,12 +61,13 @@
 	if(!ability_check())
 		return
 	if(zoom)
-		owner.visible_message("<b>[owner]'s</b> eyes adjusts.", range = 3) // TODO: Get taj lore to give some proper messages
+		owner.visible_message("<b>[owner]'s</b> eyes widens as they stop focusing ahead.", range = 3)
 	else
-		owner.visible_message("<b>[owner]'s</b> eyes stops adjusting", range = 3)
+		owner.visible_message("<b>[owner]'s</b> eyes begins to narrow as they focus on something in the distance.", range = 3)
 		if(!do_after(owner, 1.5 SECONDS))
+			owner.visible_message("<b>[owner]'s</b> eyes stop focusing.", range = 3)
 			return
-		owner.visible_message("<b>[owner]'s</b> eyes finishing adjusting to look ahead.", range = 3)
+		owner.visible_message("<b>[owner]'s</b> eyes narrows as their lenses shift to focus ahead.", range = 3)
 
 	zoom(owner, 3, 7, FALSE, FALSE)
 
