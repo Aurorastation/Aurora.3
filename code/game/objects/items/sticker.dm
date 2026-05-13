@@ -81,7 +81,7 @@
 	SSpersistence.objectsDeregisterTrack(src)
 
 /obj/item/sticker/persistent_objects_get_content()
-	var/list/content = ..()
+	var/list/content = list()
 	content["pixel_x"] = pixel_x
 	content["pixel_y"] = pixel_y
 	return content
