@@ -1,4 +1,5 @@
 /datum/antagonist/proc/create_antagonist(var/datum/mind/target, var/move, var/gag_announcement, var/preserve_appearance)
+	SHOULD_CALL_PARENT(TRUE)
 
 	if(!target)
 		return
@@ -18,6 +19,10 @@
 	if(!gag_announcement)
 		announce_antagonist_spawn()
 	LAZYDISTINCTADD(SSticker.mode.antag_templates, src)
+
+	// Antags wipe skill components so that they can bypass skill restrictions entirely.
+	for(var/skill in target.current.GetComponents(/datum/component/skill))
+		qdel(skill)
 
 /datum/antagonist/proc/create_default(var/mob/source)
 	var/mob/living/M

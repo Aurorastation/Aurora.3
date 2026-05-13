@@ -107,19 +107,14 @@
 	tag_icon = "luna"
 	text_tag = "LUN"
 
-/datum/accent/gibson_ovan
-	name = ACCENT_GIBSON_OVAN
-	description = "The New Gibson Ovanstad accent is very close to the accent of Tau Ceti proper, due to the nature of the planet's colonization. However, New Gibsoners are known for talking \
-	with a faster and more clipped accent than those from Biesel and, at times, sound as if they are tripping over their words due to the rapid pace at which they speak."
-	tag_icon = "gibson_ovan"
-	text_tag = "OVA"
-
-/datum/accent/gibson_undir
-	name = ACCENT_GIBSON_UNDIR
-	description = "The New Gibson Undirstad accent is not wildly known or heard outside of New Gibson itself, as those hailing from the Undirstads are quite insular and isolated from the more attractive surface archologies. The Undirstad accent is much slower than the Ovanstad accent, \
-	and keeps more to its cultural roots."
-	tag_icon = "gibson_undir"
-	text_tag = "UND"
+/datum/accent/gibson
+	name = ACCENT_GIBSON
+	description = "A distinctive accent heard within Tau Ceti that sounds notably gruff and melodic. Being associated with New Gibson, it is generally perceived as the accent of a \
+	hardworking but unapproachable individual, however can be reassuring to hear from one's manager. It has many regional varieties per colony on New Gibson: Virklunders and Fallanlanders \
+	have more traditional phonetics and a bouncier lilt; those from Respite have lost these more distinctive sounds to better mesh with Biesellites; and those from Xoikko are known for \
+	their higher-pitched delivery, influenced by skrell."
+	tag_icon = "gibson"
+	text_tag = "GIB"
 
 /datum/accent/konyang
 	name = ACCENT_KONYAN

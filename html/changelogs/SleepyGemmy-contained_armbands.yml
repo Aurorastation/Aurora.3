@@ -1,6 +1,0 @@
-author: SleepyGemmy
-
-delete-after: True
-
-changes:
-  - refactor: "Refactored the armbands to use contained sprites and cleaned up the code and spritesheet."

@@ -23,15 +23,15 @@
 
 // --------------------- docks
 
-/obj/effect/shuttle_landmark/voidtamer_trader/dock/west
-	name = "Dock, West"
-	landmark_tag = "nav_voidtamer_ship_west"
-	docking_controller = "airlock_voidtamer_ship_west"
+/obj/effect/shuttle_landmark/voidtamer_trader/dock/north
+	name = "Dock, North"
+	landmark_tag = "nav_voidtamer_ship_north"
+	docking_controller = "airlock_voidtamer_ship_north"
 
-/obj/effect/map_effect/marker/airlock/docking/voidtamer_trader/dock/west
-	name = "Dock, West"
-	landmark_tag = "nav_voidtamer_ship_dock_west"
-	master_tag = "airlock_voidtamer_ship_west"
+/obj/effect/map_effect/marker/airlock/docking/voidtamer_trader/dock/north
+	name = "Dock, North"
+	landmark_tag = "nav_voidtamer_ship_dock_north"
+	master_tag = "airlock_voidtamer_ship_north"
 
 /obj/effect/shuttle_landmark/voidtamer_trader/dock/east
 	name = "Dock, East"

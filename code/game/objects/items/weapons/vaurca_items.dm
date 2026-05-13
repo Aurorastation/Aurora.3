@@ -40,6 +40,10 @@
 	species_restricted = list(BODYTYPE_VAURCA, BODYTYPE_VAURCA_BULWARK)
 	body_parts_covered = HEAD|EYES
 
+/obj/item/clothing/head/shaper/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Wearing this will remove your Hive name and color from Hivenet messages."
+
 /obj/item/clothing/head/expression
 	name = "human expression mask"
 	desc = "A mask that allows emotively challenged aliens to convey facial expressions. This one depicts a human."

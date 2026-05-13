@@ -1,6 +1,0 @@
-author: Fenodyree
-
-delete-after: True
-
-changes:
-  - bugfix: "Fixes combat actuators leap and grab failing and breaking your movement forever."

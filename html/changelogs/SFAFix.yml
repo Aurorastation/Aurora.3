@@ -1,6 +1,0 @@
-author: TheGreyWolf
-
-delete-after: True
-
-changes:
-  - bugfix: "Fixed some mapped objects that no longer existed being mapped on the SFA patrol ship."
