@@ -728,7 +728,7 @@
 		if(gloves && (gloves.heat_protection & HANDS))
 			protected = TRUE
 
-		if(!species.flags & PHORON_IMMUNE)
+		if(!(species.flags & PHORON_IMMUNE))
 			for(var/obj/item/held_item in list(r_hand, l_hand, wear_suit, head, wear_mask, w_uniform, gloves, shoes))
 				if(held_item.contaminated)
 					if(held_item.body_parts_covered & HEAD)
@@ -749,11 +749,11 @@
 						apply_damage(GLOB.vsc.plc.CONTAMINATION_LOSS, DAMAGE_BURN, BP_L_HAND, "Contamination burns", DAMAGE_FLAG_IGNORE_PROSTHETICS, 100, TRUE)
 					if (held_item.body_parts_covered & HAND_RIGHT)
 						apply_damage(GLOB.vsc.plc.CONTAMINATION_LOSS, DAMAGE_BURN, BP_R_HAND, "Contamination burns", DAMAGE_FLAG_IGNORE_PROSTHETICS, 100, TRUE)
-				if(!protected)
-					if(held_item == r_hand)
-						apply_damage(GLOB.vsc.plc.CONTAMINATION_LOSS * gloves.permeability_coefficient, DAMAGE_BURN, BP_R_HAND, "Contamination burns", DAMAGE_FLAG_IGNORE_PROSTHETICS, 100, TRUE)
-					else if(held_item == l_hand)
-						apply_damage(GLOB.vsc.plc.CONTAMINATION_LOSS * gloves.permeability_coefficient, DAMAGE_BURN, BP_L_HAND, "Contamination burns", DAMAGE_FLAG_IGNORE_PROSTHETICS, 100, TRUE)
+					if(!protected)
+						if(held_item == r_hand)
+							apply_damage(GLOB.vsc.plc.CONTAMINATION_LOSS * gloves.permeability_coefficient, DAMAGE_BURN, BP_R_HAND, "Contamination burns", DAMAGE_FLAG_IGNORE_PROSTHETICS, 100, TRUE)
+						else if(held_item == l_hand)
+							apply_damage(GLOB.vsc.plc.CONTAMINATION_LOSS * gloves.permeability_coefficient, DAMAGE_BURN, BP_L_HAND, "Contamination burns", DAMAGE_FLAG_IGNORE_PROSTHETICS, 100, TRUE)
 
 	if (intoxication)
 		handle_intoxication()
