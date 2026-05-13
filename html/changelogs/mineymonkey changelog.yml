@@ -1,0 +1,7 @@
+author: mineymonkey
+
+delete-after: True
+
+changes:
+  - qol: "Added a search bar in the integrated circuits printer."
+

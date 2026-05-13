@@ -1,6 +1,12 @@
 import { BooleanLike } from '../../common/react';
-import { useBackend } from '../backend';
-import { Button, LabeledList, ProgressBar, Section } from '../components';
+import { useBackend, useLocalState } from '../backend';
+import {
+  Button,
+  Input,
+  LabeledList,
+  ProgressBar,
+  Section,
+} from '../components';
 import { Window } from '../layouts';
 
 export type PrinterData = {
@@ -23,6 +29,14 @@ type Circuit = {
 
 export const CircuitPrinter = (props, context) => {
   const { act, data } = useBackend<PrinterData>(context);
+
+  const [searchTerm, setSearchTerm] = useLocalState<string>(
+    context,
+    'searchTerm',
+    '',
+  );
+
+  const normalizedSearchTerm = searchTerm.toLowerCase();
 
   return (
     <Window resizable>
@@ -48,20 +62,62 @@ export const CircuitPrinter = (props, context) => {
             </LabeledList.Item>
           </LabeledList>
         </Section>
-        {data.categories.sort().map((category) => (
-          <Section title={category} key={category}>
-            {data.circuits.map((circuit) =>
-              circuit.category === category ? (
-                <Button
-                  content={circuit.name}
-                  onClick={() => act('build', { build: circuit.path })}
-                />
-              ) : (
-                ''
-              ),
-            )}
-          </Section>
-        ))}
+
+        <Section
+          title="Circuits"
+          buttons={
+            <Input
+              autoFocus
+              autoSelect
+              placeholder="Search categories or circuits"
+              maxLength={512}
+              onInput={(e, value) => {
+                setSearchTerm(value);
+              }}
+              value={searchTerm}
+            />
+          }
+        >
+          {data.categories.sort().map((category) => {
+            const categoryMatches =
+              category.toLowerCase().indexOf(normalizedSearchTerm) > -1;
+
+            const circuits = data.circuits.filter((circuit) => {
+              if (circuit.category !== category) {
+                return false;
+              }
+
+              if (!normalizedSearchTerm) {
+                return true;
+              }
+
+              if (categoryMatches) {
+                return true;
+              }
+
+              return (
+                circuit.name?.toLowerCase().indexOf(normalizedSearchTerm) > -1
+              );
+            });
+
+            if (!circuits.length) {
+              return null;
+            }
+
+            return (
+              <Section title={category} key={category}>
+                {circuits.map((circuit) => (
+                  <Button
+                    key={circuit.path}
+                    content={circuit.name}
+                    tooltip={circuit.desc}
+                    onClick={() => act('build', { build: circuit.path })}
+                  />
+                ))}
+              </Section>
+            );
+          })}
+        </Section>
       </Window.Content>
     </Window>
   );
