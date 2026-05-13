@@ -66,7 +66,7 @@
 	var/can_change_icon_state = TRUE
 	var/set_unsafe_on_init = FALSE
 
-	persistant_objects_expiration_time_days = 90
+	persistant_objects_expiration_time_days = 180
 
 /obj/item/paper/Destroy()
 	info = null
