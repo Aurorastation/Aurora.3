@@ -1,0 +1,6 @@
+author: FabianK3
+
+delete-after: True
+
+changes:
+  - bugfix: "Fixed bad index exception when saving persistent objects using the parent persistent_objects_get_content proc."
