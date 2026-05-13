@@ -3,4 +3,4 @@ author: FabianK3
 delete-after: True
 
 changes:
-  - bugfix: "Fixed repeting default font tag getting added to persistent papers, breaking their life cycle and resulting in massive text sizes."
+  - bugfix: "Fixed repeating default font tag getting added to persistent papers, breaking their life cycle and resulting in massive text sizes."
