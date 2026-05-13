@@ -151,11 +151,11 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/lone_spacer/port_nacelle)
 "aT" = (
-/obj/item/cargo_package/offship/to_horizon{
+/obj/item/package/delivery/offship/to_horizon{
 	pixel_y = 10;
 	pixel_x = -1
 	},
-/obj/item/cargo_package/offship{
+/obj/item/package/delivery/offship{
 	pixel_y = -2;
 	pixel_x = 1
 	},
@@ -2435,11 +2435,11 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/lone_spacer/storage)
 "Mz" = (
-/obj/item/cargo_package/offship/to_horizon{
+/obj/item/package/delivery/offship/to_horizon{
 	pixel_y = 11;
 	pixel_x = 1
 	},
-/obj/item/cargo_package/offship{
+/obj/item/package/delivery/offship{
 	pixel_y = -2;
 	pixel_x = 3
 	},
@@ -3045,6 +3045,7 @@
 	pixel_x = -2;
 	pixel_y = 2
 	},
+/obj/item/eftpos,
 /turf/simulated/floor/tiled/techfloor,
 /area/shuttle/lone_spacer/bridge)
 "VW" = (

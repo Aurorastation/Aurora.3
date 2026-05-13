@@ -73,6 +73,7 @@
 /obj/structure/bed/Initialize()
 	. = ..()
 	LAZYADD(can_buckle, /mob/living)
+	generate_strings()
 
 /obj/structure/bed/New(newloc, new_material = MATERIAL_STEEL, new_padding_material, new_painted_colour)
 	..(newloc)
@@ -93,7 +94,6 @@
 
 // Reuse the cache/code from stools, todo maybe unify.
 /obj/structure/bed/update_icon()
-	generate_strings()
 	// Prep icon.
 	icon_state = ""
 	ClearOverlays()
@@ -125,13 +125,15 @@
 		furniture_cache[cache_key] = I
 	AddOverlays(furniture_cache[cache_key]) // Use image from cache key!
 
-/obj/structure/bed/proc/generate_strings()
+/obj/structure/bed/proc/generate_strings(padding_update = FALSE)
 	if(material_alteration & MATERIAL_ALTERATION_NAME)
-		name = padding_material ? "[padding_material.adjective_name] padded [material.adjective_name] [name]" : "[material.adjective_name] [name]" //this is not perfect but it will do for now.
+		// pad addition/removal is the only instance we change the name after initialize, in which case we'll need the initial name to avoid "steel steel steel chair"s
+		var/base_name = padding_update ? initial(name) : name
+		name = "[padding_material ? "[padding_material.adjective_name] padded " : ""][material?.adjective_name] [base_name]"
 
 	if(material_alteration & MATERIAL_ALTERATION_DESC)
 		desc = initial(desc)
-		desc += padding_material ? " It's made of [material.use_name] and covered with [padding_material.use_name][painted_colour ? ", colored in <font color='[painted_colour]'>[painted_colour]</font>" : ""]." : " It's made of [material.use_name]." //Yeah plain hex codes suck but at least it's a little funny and less of a headache for players.
+		desc += padding_material ? " It's made of [material?.use_name] and covered with [padding_material.use_name][painted_colour ? ", colored in <font color='[painted_colour]'>[painted_colour]</font>" : ""]." : " It's made of [material?.use_name]." //Yeah plain hex codes suck but at least it's a little funny and less of a headache for players.
 
 /obj/structure/bed/proc/set_colour(new_colour)
 	if(padding_material)
@@ -245,10 +247,12 @@
 	if(padding_material)
 		padding_material.place_sheet(get_turf(src))
 		padding_material = null
+		generate_strings(TRUE)
 	update_icon()
 
-/obj/structure/bed/proc/add_padding(var/padding_type)
+/obj/structure/bed/proc/add_padding(padding_type)
 	padding_material = SSmaterials.get_material_by_name(padding_type)
+	generate_strings(TRUE)
 	update_icon()
 
 /obj/structure/bed/dismantle(obj/item/W, mob/user)

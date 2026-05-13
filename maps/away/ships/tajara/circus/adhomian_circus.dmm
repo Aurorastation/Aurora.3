@@ -1348,6 +1348,7 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
+/obj/item/eftpos,
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},

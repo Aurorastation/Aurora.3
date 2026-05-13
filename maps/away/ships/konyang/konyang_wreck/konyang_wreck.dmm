@@ -659,6 +659,7 @@
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 9
 	},
+/obj/item/eftpos,
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/bridge)
 "eW" = (

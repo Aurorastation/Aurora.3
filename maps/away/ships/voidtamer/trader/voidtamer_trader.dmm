@@ -519,6 +519,7 @@
 	req_one_access = null;
 	req_access = list(256)
 	},
+/obj/item/eftpos,
 /turf/simulated/floor/tiled/gunmetal,
 /area/voidtamer/trader/bridge)
 "dG" = (

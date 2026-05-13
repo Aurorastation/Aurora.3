@@ -6206,6 +6206,7 @@
 /obj/item/binoculars{
 	pixel_y = 6
 	},
+/obj/item/eftpos,
 /turf/simulated/floor/carpet/rubber,
 /area/ship/sadar_scout/bridge)
 "TT" = (

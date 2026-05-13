@@ -7364,6 +7364,7 @@
 	pixel_x = -32;
 	stand_icon = "banner"
 	},
+/obj/item/eftpos,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/dominian_shuttle)
 "nKq" = (

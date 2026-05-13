@@ -1502,6 +1502,7 @@
 /obj/structure/sign/flag/galatea_government{
 	pixel_y = 31
 	},
+/obj/item/eftpos,
 /turf/simulated/floor/tiled/dark,
 /area/coc_survey_ship/bridge)
 "mV" = (
