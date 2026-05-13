@@ -25,7 +25,7 @@ GLOBAL_DATUM_INIT(contamination_overlay, /image, image('icons/effects/contaminat
 /obj/item/proc/can_contaminate()
 	if(item_flags & ITEM_FLAG_PHORON_GUARD)
 		return FALSE
-	if(prob(10 * min(gas_transfer_coefficient, permeability_coefficient)))
+	if(!(prob(100 * min(gas_transfer_coefficient, permeability_coefficient))))
 		return FALSE
 	return TRUE
 
