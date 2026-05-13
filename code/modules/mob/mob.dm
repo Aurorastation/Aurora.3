@@ -545,7 +545,7 @@
 
 	to_chat(usr, "You can respawn now, enjoy your new life!")
 	log_game("[usr.name]/[usr.key] used abandon mob.")
-	to_chat(usr, SPAN_NOTICE("<B>If your died, make sure to play a different character, and remember to roleplay correctly!</B>"))
+	to_chat(usr, SPAN_NOTICE("<B>If you died, make sure to play a different character, and remember to roleplay correctly!</B>"))
 
 	client?.screen.Cut()
 	if(!client)
