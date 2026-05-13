@@ -114,7 +114,7 @@
 		if(length(content))
 			result = json_encode(content)
 	catch(var/exception/e)
-		log_subsystem_persistence_error("Error during json serialization or retrieval of content for persistent object. Exception: [e]")
+		log_subsystem_persistence_error("Error during json serialization or retrieval of content for persistent object. Type: [track.type] | Exception: [e]")
 	return result
 
 /**
@@ -129,4 +129,4 @@
 	try
 		track.persistent_objects_apply_content(json_decode(json), x, y, z)
 	catch(var/exception/e)
-		log_subsystem_persistence_error("Error during json deserialization or applying content for persistent object. Exception: [e]")
+		log_subsystem_persistence_error("Error during json deserialization or applying content for persistent object. Type: [track.type] | Exception: [e]")
