@@ -17,6 +17,7 @@ Deployable Kits
 	build_amt = 5
 	anchored = TRUE
 	density = TRUE
+	layer = ABOVE_DOOR_LAYER // above door layer so it can appear as if the airlocks were barricaded on
 	maxhealth = OBJECT_HEALTH_LOW
 
 	var/force_material

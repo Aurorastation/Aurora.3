@@ -902,3 +902,7 @@
 	id = ACCESS_VOIDTAMER_SHIP
 	access_type = ACCESS_TYPE_CENTCOM
 
+#define ACCESS_ABANDONED_CASINO_STAFF 257
+/datum/access/quarantined_outpost_engineer
+	id = ACCESS_ABANDONED_CASINO_STAFF
+

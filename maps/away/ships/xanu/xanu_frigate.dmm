@@ -319,7 +319,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 8
 	},
-/obj/structure/lattice/catwalk/indoor/grate/gunmetal,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor/plating,
 /area/ship/xanu_frigate/corridor/aft)
 "bu" = (
@@ -962,7 +962,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/disposalpipe/segment,
-/obj/structure/lattice/catwalk/indoor/grate/gunmetal,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor/plating,
 /area/ship/xanu_frigate/corridor/fore)
 "dz" = (
@@ -1151,7 +1151,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
 	},
-/obj/structure/lattice/catwalk/indoor/grate/gunmetal,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor,
 /area/ship/xanu_frigate/corridor/aft)
 "ek" = (
@@ -1981,7 +1981,7 @@
 /obj/structure/cable{
 	icon_state = "1-8"
 	},
-/obj/structure/lattice/catwalk/indoor/grate/gunmetal,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/machinery/light{
 	dir = 4
 	},
@@ -2090,7 +2090,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
-/obj/structure/lattice/catwalk/indoor/grate/gunmetal,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor/plating,
 /area/ship/xanu_frigate/corridor/aft)
 "hh" = (
@@ -2109,7 +2109,7 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
-/obj/structure/lattice/catwalk/indoor/grate/gunmetal,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor/plating,
 /area/ship/xanu_frigate/cargo_bay)
 "hm" = (
@@ -2260,7 +2260,7 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/obj/structure/lattice/catwalk/indoor/grate/gunmetal,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor/plating,
 /area/ship/xanu_frigate/corridor/fore_atrium)
 "hN" = (
@@ -2310,7 +2310,7 @@
 /obj/structure/cable{
 	icon_state = "1-8"
 	},
-/obj/structure/lattice/catwalk/indoor/grate/gunmetal,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor/plating,
 /area/ship/xanu_frigate/corridor/aft)
 "hT" = (
@@ -2434,7 +2434,7 @@
 /area/ship/xanu_frigate/engineering/starboard)
 "il" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/universal,
-/obj/structure/lattice/catwalk/indoor/grate/gunmetal,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor/plating,
 /area/ship/xanu_frigate/corridor/central)
 "in" = (
@@ -3222,7 +3222,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/structure/lattice/catwalk/indoor/grate/gunmetal,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor/plating,
 /area/ship/xanu_frigate/corridor/port)
 "kR" = (
@@ -3700,7 +3700,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
 	},
-/obj/structure/lattice/catwalk/indoor/grate/gunmetal,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor/plating,
 /area/ship/xanu_frigate/corridor/fore_atrium)
 "mX" = (
@@ -4080,7 +4080,7 @@
 /obj/structure/disposalpipe/junction{
 	dir = 4
 	},
-/obj/structure/lattice/catwalk/indoor/grate/gunmetal,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor/plating,
 /area/ship/xanu_frigate/corridor/fore_atrium)
 "nU" = (
@@ -4217,7 +4217,7 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 8
 	},
-/obj/structure/lattice/catwalk/indoor/grate/gunmetal,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor/plating,
 /area/ship/xanu_frigate/corridor/aft_port)
 "op" = (
@@ -4818,7 +4818,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
 	},
-/obj/structure/lattice/catwalk/indoor/grate/gunmetal,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/machinery/alarm/west,
 /turf/simulated/floor/plating,
 /area/ship/xanu_frigate/corridor/fore_atrium)
@@ -5110,7 +5110,7 @@
 /obj/structure/disposalpipe/junction/yjunction{
 	dir = 8
 	},
-/obj/structure/lattice/catwalk/indoor/grate/gunmetal,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor/plating,
 /area/ship/xanu_frigate/corridor/aft_starboard)
 "rr" = (
@@ -5170,7 +5170,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/disposalpipe/segment,
-/obj/structure/lattice/catwalk/indoor/grate/gunmetal,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/structure/cable{
 	icon_state = "1-8"
 	},
@@ -5323,7 +5323,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/structure/lattice/catwalk/indoor/grate/gunmetal,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor/plating,
 /area/ship/xanu_frigate/corridor/fore_atrium)
 "sx" = (
@@ -5584,7 +5584,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
 	},
-/obj/structure/lattice/catwalk/indoor/grate/gunmetal,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 8
 	},
@@ -6332,7 +6332,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 8
 	},
-/obj/structure/lattice/catwalk/indoor/grate/gunmetal,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor/plating,
 /area/ship/xanu_frigate/corridor/aft)
 "vK" = (
@@ -6852,7 +6852,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/structure/lattice/catwalk/indoor/grate/gunmetal,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/structure/cable{
 	icon_state = "1-8"
 	},
@@ -7303,7 +7303,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/structure/lattice/catwalk/indoor/grate/gunmetal,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor/plating,
 /area/ship/xanu_frigate/corridor/central)
 "zx" = (
@@ -7370,7 +7370,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/disposalpipe/segment,
-/obj/structure/lattice/catwalk/indoor/grate/gunmetal,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor/plating,
 /area/ship/xanu_frigate/corridor/aft_port)
 "zL" = (
@@ -7560,7 +7560,7 @@
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/lattice/catwalk/indoor/grate/gunmetal,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor/plating,
 /area/ship/xanu_frigate/corridor/aft_port)
 "Ax" = (
@@ -8447,7 +8447,7 @@
 	icon_state = "pipe-j2"
 	},
 /obj/structure/extinguisher_cabinet/east,
-/obj/structure/lattice/catwalk/indoor/grate/gunmetal,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor/plating,
 /area/ship/xanu_frigate/corridor/aft_starboard)
 "DC" = (
@@ -8707,7 +8707,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/lattice/catwalk/indoor/grate/gunmetal,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor/plating,
 /area/ship/xanu_frigate/corridor/aft_port)
 "Eu" = (
@@ -8960,7 +8960,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/disposalpipe/segment,
-/obj/structure/lattice/catwalk/indoor/grate/gunmetal,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor/plating,
 /area/ship/xanu_frigate/corridor/aft_starboard)
 "Fj" = (
@@ -8968,7 +8968,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/structure/lattice/catwalk/indoor/grate/gunmetal,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor/plating,
 /area/ship/xanu_frigate/corridor/aft_starboard)
 "Fk" = (
@@ -9222,7 +9222,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/disposalpipe/segment,
-/obj/structure/lattice/catwalk/indoor/grate/gunmetal,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor/plating,
 /area/ship/xanu_frigate/corridor/starboard)
 "Gg" = (
@@ -10046,7 +10046,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/disposalpipe/segment,
-/obj/structure/lattice/catwalk/indoor/grate/gunmetal,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor/plating,
 /area/ship/xanu_frigate/corridor/aft_port)
 "IO" = (
@@ -10111,7 +10111,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/disposalpipe/segment,
-/obj/structure/lattice/catwalk/indoor/grate/gunmetal,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor/plating,
 /area/ship/xanu_frigate/corridor/aft_starboard)
 "IZ" = (
@@ -10136,7 +10136,7 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/lattice/catwalk/indoor/grate/gunmetal,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor/plating,
 /area/ship/xanu_frigate/hydroponics)
 "Jj" = (
@@ -10296,7 +10296,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/structure/lattice/catwalk/indoor/grate/gunmetal,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor/plating,
 /area/ship/xanu_frigate/corridor/starboard)
 "JE" = (
@@ -10618,7 +10618,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 8
 	},
-/obj/structure/lattice/catwalk/indoor/grate/gunmetal,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor/plating,
 /area/ship/xanu_frigate/corridor/aft)
 "Kr" = (
@@ -10884,7 +10884,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
 	},
-/obj/structure/lattice/catwalk/indoor/grate/gunmetal,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/structure/extinguisher_cabinet/west,
 /turf/simulated/floor/plating,
 /area/ship/xanu_frigate/corridor/fore_atrium)
@@ -11102,7 +11102,7 @@
 /obj/structure/cable{
 	icon_state = "1-8"
 	},
-/obj/structure/lattice/catwalk/indoor/grate/gunmetal,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor/plating,
 /area/ship/xanu_frigate/hydroponics)
 "Ma" = (
@@ -11136,7 +11136,7 @@
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
-/obj/structure/lattice/catwalk/indoor/grate/gunmetal,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/random/pottedplant,
 /turf/simulated/floor/plating,
 /area/ship/xanu_frigate/corridor/fore_atrium)
@@ -11304,7 +11304,7 @@
 /area/ship/xanu_frigate/engineering/starboard)
 "MO" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/lattice/catwalk/indoor/grate/gunmetal,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor/plating,
 /area/ship/xanu_frigate/hydroponics)
 "MU" = (
@@ -11380,7 +11380,7 @@
 /obj/structure/cable{
 	icon_state = "1-4"
 	},
-/obj/structure/lattice/catwalk/indoor/grate/gunmetal,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor/plating,
 /area/ship/xanu_frigate/corridor/aft_port)
 "Nd" = (
@@ -11652,7 +11652,7 @@
 	dir = 8
 	},
 /obj/structure/disposalpipe/segment,
-/obj/structure/lattice/catwalk/indoor/grate/gunmetal,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor/plating,
 /area/ship/xanu_frigate/corridor/aft_port)
 "NX" = (
@@ -11717,7 +11717,7 @@
 /obj/structure/cable{
 	icon_state = "1-8"
 	},
-/obj/structure/lattice/catwalk/indoor/grate/gunmetal,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor/plating,
 /area/ship/xanu_frigate/corridor/aft_starboard)
 "Og" = (
@@ -11949,7 +11949,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/disposalpipe/segment,
-/obj/structure/lattice/catwalk/indoor/grate/gunmetal,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor/plating,
 /area/ship/xanu_frigate/corridor/fore)
 "OY" = (
@@ -11965,7 +11965,7 @@
 /obj/structure/disposalpipe/junction{
 	dir = 8
 	},
-/obj/structure/lattice/catwalk/indoor/grate/gunmetal,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor/plating,
 /area/ship/xanu_frigate/corridor/port)
 "Pc" = (
@@ -12009,7 +12009,7 @@
 /obj/structure/cable{
 	icon_state = "1-8"
 	},
-/obj/structure/lattice/catwalk/indoor/grate/gunmetal,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor/plating,
 /area/ship/xanu_frigate/corridor/aft)
 "Pi" = (
@@ -12620,7 +12620,7 @@
 	dir = 4
 	},
 /obj/structure/disposalpipe/segment,
-/obj/structure/lattice/catwalk/indoor/grate/gunmetal,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor/plating,
 /area/ship/xanu_frigate/corridor/aft_starboard)
 "Rl" = (
@@ -13548,7 +13548,7 @@
 /obj/structure/cable{
 	icon_state = "0-2"
 	},
-/obj/structure/lattice/catwalk/indoor/grate/gunmetal,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor/plating,
 /area/ship/xanu_frigate/corridor/central)
 "Uq" = (
@@ -14176,7 +14176,7 @@
 	dir = 8
 	},
 /obj/structure/disposalpipe/segment,
-/obj/structure/lattice/catwalk/indoor/grate/gunmetal,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor/plating,
 /area/ship/xanu_frigate/corridor/fore)
 "Ws" = (
@@ -14235,7 +14235,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/structure/lattice/catwalk/indoor/grate/gunmetal,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor/plating,
 /area/ship/xanu_frigate/corridor/starboard)
 "WE" = (
@@ -14396,7 +14396,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/lattice/catwalk/indoor/grate/gunmetal,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor/plating,
 /area/ship/xanu_frigate/corridor/central)
 "Xl" = (
@@ -14679,7 +14679,7 @@
 /obj/structure/cable{
 	icon_state = "1-8"
 	},
-/obj/structure/lattice/catwalk/indoor/grate/gunmetal,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/structure/cable{
 	icon_state = "2-8"
 	},
@@ -14829,7 +14829,7 @@
 	dir = 4;
 	name = "Distribution to Aft Airlock"
 	},
-/obj/structure/lattice/catwalk/indoor/grate/gunmetal,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor/plating,
 /area/ship/xanu_frigate/corridor/aft)
 "YA" = (
@@ -14857,7 +14857,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/aux,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/lattice/catwalk/indoor/grate/gunmetal,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor/plating,
 /area/ship/xanu_frigate/corridor/aft)
 "YF" = (

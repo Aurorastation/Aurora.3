@@ -70,6 +70,9 @@
 /turf/simulated/wall/shuttle/dark/cardinal/closet_gold
 	color = COLOR_CLOSET_GOLD
 
+/turf/simulated/wall/shuttle/dark/cardinal/brown
+	color = COLOR_MUTED_BROWN
+
 /turf/simulated/wall/shuttle/dark/long_diagonal_2
 	name = "test diagonal"
 	icon_state = "d2-we-1"

@@ -98,7 +98,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/structure/lattice/catwalk/indoor/grate/gunmetal,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor{
 	temperature = 278.15
 	},
@@ -506,7 +506,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
-/obj/structure/lattice/catwalk/indoor/grate/gunmetal,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor{
 	temperature = 278.15
 	},
@@ -587,7 +587,7 @@
 /turf/simulated/floor/carpet/rubber,
 /area/headmaster_ship/propulsion)
 "bY" = (
-/obj/structure/lattice/catwalk/indoor/grate/gunmetal,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor{
 	temperature = 278.15
 	},
@@ -654,7 +654,7 @@
 /obj/machinery/alarm/cold/north{
 	req_one_access = list(209)
 	},
-/obj/structure/lattice/catwalk/indoor/grate/gunmetal,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor{
 	temperature = 278.15
 	},
@@ -1142,7 +1142,7 @@
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
-/obj/structure/lattice/catwalk/indoor/grate/gunmetal,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor{
 	temperature = 278.15
 	},
@@ -1281,7 +1281,7 @@
 /obj/machinery/power/apc/north{
 	req_access = list(209)
 	},
-/obj/structure/lattice/catwalk/indoor/grate/gunmetal,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor{
 	temperature = 278.15
 	},
@@ -1467,7 +1467,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 1
 	},
-/obj/structure/lattice/catwalk/indoor/grate/gunmetal,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/machinery/light/small/emergency{
 	dir = 4
 	},
@@ -1495,7 +1495,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
-/obj/structure/lattice/catwalk/indoor/grate/gunmetal,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor{
 	temperature = 278.15
 	},
@@ -1549,7 +1549,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 10
 	},
-/obj/structure/lattice/catwalk/indoor/grate/gunmetal,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/machinery/light/small/emergency{
 	dir = 1
 	},
@@ -1639,7 +1639,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
 	},
-/obj/structure/lattice/catwalk/indoor/grate/gunmetal,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor{
 	temperature = 278.15
 	},
@@ -1762,7 +1762,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
 	},
-/obj/structure/lattice/catwalk/indoor/grate/gunmetal,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor{
 	temperature = 278.15
 	},
@@ -2307,7 +2307,7 @@
 	},
 /area/headmaster_ship/propulsion)
 "hV" = (
-/obj/structure/lattice/catwalk/indoor/grate/gunmetal,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/machinery/atmospherics/pipe/simple/hidden/aux,
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -2483,7 +2483,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 10
 	},
-/obj/structure/lattice/catwalk/indoor/grate/gunmetal,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor{
 	temperature = 278.15
 	},
@@ -3076,7 +3076,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
 	},
-/obj/structure/lattice/catwalk/indoor/grate/gunmetal,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor{
 	temperature = 278.15
 	},
@@ -3177,7 +3177,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 4
 	},
-/obj/structure/lattice/catwalk/indoor/grate/gunmetal,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor{
 	temperature = 278.15
 	},
@@ -3464,7 +3464,7 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/aux{
 	dir = 1
 	},
-/obj/structure/lattice/catwalk/indoor/grate/gunmetal,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor{
 	temperature = 278.15
 	},
@@ -3535,7 +3535,7 @@
 /obj/structure/ladder/up{
 	pixel_y = 10
 	},
-/obj/structure/lattice/catwalk/indoor/grate/gunmetal,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor{
 	temperature = 278.15
 	},
@@ -3568,7 +3568,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 5
 	},
-/obj/structure/lattice/catwalk/indoor/grate/gunmetal,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor{
 	temperature = 278.15
 	},
@@ -3698,7 +3698,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
 	},
-/obj/structure/lattice/catwalk/indoor/grate/gunmetal,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor{
 	temperature = 278.15
 	},
@@ -3712,7 +3712,7 @@
 	},
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
-/obj/structure/lattice/catwalk/indoor/grate/gunmetal,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
@@ -4032,7 +4032,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 4
 	},
-/obj/structure/lattice/catwalk/indoor/grate/gunmetal,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor{
 	temperature = 278.15
 	},
@@ -4185,7 +4185,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
-/obj/structure/lattice/catwalk/indoor/grate/gunmetal,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/structure/sign/flag/pra/large/north{
 	pixel_y = 32
 	},
@@ -4401,7 +4401,7 @@
 /area/headmaster_ship/captains_cabin)
 "qb" = (
 /obj/structure/platform/dark,
-/obj/structure/lattice/catwalk/indoor/grate/gunmetal,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor{
 	temperature = 278.15
 	},
@@ -4794,7 +4794,7 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/structure/lattice/catwalk/indoor/grate/gunmetal,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/machinery/light{
 	dir = 4
 	},
@@ -5192,7 +5192,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 6
 	},
-/obj/structure/lattice/catwalk/indoor/grate/gunmetal,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor{
 	temperature = 278.15
 	},
@@ -5207,7 +5207,7 @@
 /obj/structure/cable/green{
 	icon_state = "2-8"
 	},
-/obj/structure/lattice/catwalk/indoor/grate/gunmetal,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor,
 /area/headmaster_ship/morgue)
 "tM" = (
@@ -5307,7 +5307,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 1
 	},
-/obj/structure/lattice/catwalk/indoor/grate/gunmetal,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/machinery/light/small/emergency{
 	dir = 8
 	},
@@ -6414,7 +6414,7 @@
 /obj/structure/platform/dark{
 	dir = 1
 	},
-/obj/structure/lattice/catwalk/indoor/grate/gunmetal,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor{
 	temperature = 278.15
 	},
@@ -6493,7 +6493,7 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/structure/lattice/catwalk/indoor/grate/gunmetal,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor{
 	temperature = 278.15
 	},
@@ -6786,7 +6786,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 4
 	},
-/obj/structure/lattice/catwalk/indoor/grate/gunmetal,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor{
 	temperature = 278.15
 	},
@@ -7511,7 +7511,7 @@
 /area/headmaster_ship/barracks)
 "Ea" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/lattice/catwalk/indoor/grate/gunmetal,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor{
 	temperature = 278.15
 	},
@@ -7857,7 +7857,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 1
 	},
-/obj/structure/lattice/catwalk/indoor/grate/gunmetal,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
@@ -8213,7 +8213,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
 	},
-/obj/structure/lattice/catwalk/indoor/grate/gunmetal,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor{
 	temperature = 278.15
 	},
@@ -8541,7 +8541,7 @@
 	req_one_access = list(209)
 	},
 /obj/structure/cable/green,
-/obj/structure/lattice/catwalk/indoor/grate/gunmetal,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
@@ -9351,7 +9351,7 @@
 /obj/structure/cable/green{
 	icon_state = "1-4"
 	},
-/obj/structure/lattice/catwalk/indoor/grate/gunmetal,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
@@ -10190,7 +10190,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
 	},
-/obj/structure/lattice/catwalk/indoor/grate/gunmetal,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor{
 	temperature = 278.15
 	},
@@ -10952,7 +10952,7 @@
 	},
 /area/headmaster_ship/dock/fore)
 "SW" = (
-/obj/structure/lattice/catwalk/indoor/grate/gunmetal,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/machinery/light/small/emergency,
 /turf/simulated/floor{
 	temperature = 278.15
@@ -11160,7 +11160,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
 	},
-/obj/structure/lattice/catwalk/indoor/grate/gunmetal,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor,
 /area/headmaster_ship/morgue)
 "Ua" = (
@@ -11793,7 +11793,7 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/aux{
 	dir = 1
 	},
-/obj/structure/lattice/catwalk/indoor/grate/gunmetal,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor{
 	temperature = 278.15
 	},
