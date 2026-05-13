@@ -482,7 +482,8 @@
 			return
 		for(var/g in env.gas)
 			if(gas_data.flags[g] & XGM_GAS_CONTAMINANT && env.gas[g] > gas_data.overlay_limit[g] + 1)
-				I.contaminate()
+				if(I.can_contaminate())
+					I.contaminate()
 				break
 
 /turf/hitby(atom/movable/hitting_atom, skipcatch, hitpush, blocked, datum/thrownthing/throwingdatum)
