@@ -6,7 +6,7 @@
 	item_flags = ITEM_FLAG_NO_BLUDGEON
 	w_class = WEIGHT_CLASS_TINY
 	vis_flags = VIS_INHERIT_LAYER | VIS_INHERIT_DIR
-	persistant_objects_expiration_time_days = 7
+	persistent_objects_expiration_time_days = 7
 
 	var/datum/weakref/attached
 	var/list/rand_icons
