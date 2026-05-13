@@ -36,6 +36,31 @@ ABSTRACT_TYPE(/obj/item/package)
 /obj/item/package/too_heavy_to_throw()
 	return TRUE
 
+/obj/item/package/do_additional_pickup_checks(var/mob/living/carbon/human/user)
+	if(!ishuman(user))
+		return FALSE
+
+	if(user.species.mob_size < 12)
+		var/obj/A = user.get_inactive_hand()
+		if(A)
+			to_chat(user, SPAN_WARNING("Your other hand is occupied!"))
+			return
+
+	user.visible_message("<b>[user]</b> tightens their grip on \the [src] and starts heaving...", SPAN_NOTICE("You tighten your grip on \the [src] and start heaving..."))
+	if(do_after(user, 1 SECONDS, src, DO_UNIQUE))
+		user.visible_message("<b>[user]</b> heaves \the [src] up!", SPAN_NOTICE("You heave \the [src] up!"))
+		// larger mobs, such as industrials, can hold two pieces of cargo
+		if(user.species.mob_size < 12)
+			wield(user)
+			slowdown = 1
+		else
+			slowdown = 0
+
+		user.update_equipment_speed_mods()
+
+		return TRUE
+	return FALSE
+
 /obj/item/package/delivery
 	name = "cargo package"
 	desc = "\
@@ -95,31 +120,6 @@ ABSTRACT_TYPE(/obj/item/package)
 		delivery_site = delivery_point.override_name
 	delivery_point_coordinates = "[delivery_point.x]-[delivery_point.y]"
 	pay_amount = pay_amount * delivery_point.payment_modifier
-
-/obj/item/package/delivery/do_additional_pickup_checks(var/mob/living/carbon/human/user)
-	if(!ishuman(user))
-		return FALSE
-
-	if(user.species.mob_size < 12)
-		var/obj/A = user.get_inactive_hand()
-		if(A)
-			to_chat(user, SPAN_WARNING("Your other hand is occupied!"))
-			return
-
-	user.visible_message("<b>[user]</b> tightens their grip on \the [src] and starts heaving...", SPAN_NOTICE("You tighten your grip on \the [src] and start heaving..."))
-	if(do_after(user, 1 SECONDS, src, DO_UNIQUE))
-		user.visible_message("<b>[user]</b> heaves \the [src] up!", SPAN_NOTICE("You heave \the [src] up!"))
-		// larger mobs, such as industrials, can hold two pieces of cargo
-		if(user.species.mob_size < 12)
-			wield(user)
-			slowdown = 1
-		else
-			slowdown = 0
-
-		user.update_equipment_speed_mods()
-
-		return TRUE
-	return FALSE
 
 /obj/item/package/delivery/offship
 	pays_horizon_account = FALSE
