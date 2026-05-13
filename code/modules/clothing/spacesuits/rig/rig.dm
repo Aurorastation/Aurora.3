@@ -916,7 +916,7 @@
 			// If we're deploying the chest, we also try to deploy boots. If we can't also deploy boots, the entire thing fails.
 			if(use_obj == chest)
 				if(!toggle_piece("boots", initiator, ONLY_DEPLOY))
-					to_chat(initiator, SPAN_DANGER("You are unable to deploy \the [piece] as \the boots were unable to also deploy!"))
+					to_chat(initiator, SPAN_DANGER("You are unable to deploy \the [piece] as the boots were unable to also deploy!"))
 					playsound(src, 'sound/items/rfd_empty.ogg', 20, FALSE)
 					return FALSE
 			use_obj.forceMove(wearer)
