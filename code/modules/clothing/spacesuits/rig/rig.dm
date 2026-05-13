@@ -908,10 +908,16 @@
 		// Handle deploying the piece, if possible.
 		else if (deploy_mode != ONLY_RETRACT)
 			if(check_slot && check_slot == use_obj)
-				return
+				return TRUE
 			if(!do_after(wearer, 8))
 				if(wearer)
 					to_chat(wearer, SPAN_WARNING("You must remain still while the suit deploys its parts."))
+					return FALSE
+			// If we're deploying the chest, we also try to deploy boots. If we can't also deploy boots, the entire thing fails.
+			if(use_obj == chest)
+				if(!toggle_piece("boots", initiator, ONLY_DEPLOY))
+					to_chat(initiator, SPAN_DANGER("You are unable to deploy \the [piece] as \the boots were unable to also deploy!"))
+					playsound(src, 'sound/items/rfd_empty.ogg', 20, FALSE)
 					return FALSE
 			use_obj.forceMove(wearer)
 			if(src.color)
@@ -921,7 +927,7 @@
 				if(check_slot)
 					to_chat(initiator, SPAN_DANGER("You are unable to deploy \the [piece] as \the [check_slot] [check_slot.gender == PLURAL ? "are" : "is"] in the way."))
 					playsound(src, 'sound/items/rfd_empty.ogg', 20, FALSE)
-					return
+					return FALSE
 			else
 				to_chat(wearer, SPAN_NOTICE("Your [use_obj.name] [use_obj.gender == PLURAL ? "deploy" : "deploys"] swiftly."))
 				playsound(src, 'sound/machines/rig/rig_deploy.ogg', 30, FALSE)
@@ -930,6 +936,8 @@
 		helmet.update_light(wearer)
 
 	update_icon(TRUE)
+
+	return TRUE
 
 /obj/item/rig/proc/deploy(mob/M,var/sealed)
 
