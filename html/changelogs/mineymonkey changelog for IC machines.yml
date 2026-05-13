@@ -1,0 +1,6 @@
+author: mineymonkey
+
+delete-after: True
+
+changes:
+  - qol: "Made anchored machines behave properly by staying anchored and unable to be moved/picked up. Also made it so buttons can be used on a anchored machine and added in a power network interface to machines as a built-in item for simplicity."
