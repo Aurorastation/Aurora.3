@@ -1,0 +1,6 @@
+author: Kano
+
+delete-after: True
+
+changes:
+  - rscadd: "Remapped casino.dmm."
