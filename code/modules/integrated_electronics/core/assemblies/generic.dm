@@ -30,6 +30,7 @@
 	icon_state = "setup_small_pda"
 	desc = "It's a case, for building small electronics with. This one resembles a PDA."
 
+
 // Tiny assemblies.
 
 /obj/item/electronic_assembly/tiny
@@ -62,6 +63,7 @@
 	name = "type-e electronic device"
 	icon_state = "setup_device_box"
 	desc = "It's a case, for building tiny-sized electronics with. This one has a boxy design."
+
 
 // Medium assemblies.
 
@@ -103,6 +105,7 @@
 	icon_state = "setup_medium_radio"
 	desc = "It's a case, for building medium-sized electronics with. This one resembles an old radio."
 
+
 // Large assemblies.
 
 /obj/item/electronic_assembly/large
@@ -113,6 +116,10 @@
 	max_components = IC_COMPONENTS_BASE * 4
 	max_complexity = IC_COMPLEXITY_BASE * 4
 	can_anchor = TRUE
+
+/obj/item/electronic_assembly/large/Initialize()
+	. = ..()
+	install_builtin_power_network_interface()
 
 /obj/item/electronic_assembly/large/default
 	name = "type-a electronic machine"
@@ -141,6 +148,7 @@
 	name = "type-f electronic machine"
 	icon_state = "setup_large_industrial"
 	desc = "It's a case, for building large electronics with. This one resembles some kind of industrial machinery."
+
 
 // Drone assemblies, which can move with the locomotion circuit.
 
@@ -179,6 +187,7 @@
 	icon_state = "setup_drone_android"
 	desc = "It's a case, for building mobile electronics with. This one has a hominoid design."
 
+
 // Wall mounted assemblies.
 
 /obj/item/electronic_assembly/wallmount
@@ -190,6 +199,10 @@
 	max_components = IC_COMPONENTS_BASE * 2
 	max_complexity = IC_COMPLEXITY_BASE * 2
 	can_anchor = TRUE
+
+/obj/item/electronic_assembly/wallmount/Initialize()
+	. = ..()
+	install_builtin_power_network_interface()
 
 /obj/item/electronic_assembly/wallmount/proc/mount_assembly(turf/on_wall, mob/user)
 	if(get_dist(on_wall,user) > 1)
@@ -248,5 +261,35 @@
 	max_components = IC_COMPONENTS_BASE / 2
 	max_complexity = IC_COMPLEXITY_BASE / 2
 
+
+// To allow anchored machines to work like an anchored object.
+
 /obj/item/electronic_assembly/proc/get_assembly_holder()
 	return src
+
+/obj/item/electronic_assembly/attack_hand(mob/user)
+	if(anchored)
+		if(!check_interactivity(user))
+			return TRUE
+
+		attack_self(user)
+		return TRUE
+
+	return ..()
+
+
+// Built-in power network interface for machine and wall-mounted assemblies.
+// This uses the existing Power-Passive power network interface circuit.
+
+#define IC_BUILTIN_POWER_NETWORK_INTERFACE /obj/item/integrated_circuit/passive/power/powernet
+
+/obj/item/electronic_assembly/proc/install_builtin_power_network_interface()
+	for(var/obj/item/integrated_circuit/IC in contents)
+		if(istype(IC, IC_BUILTIN_POWER_NETWORK_INTERFACE))
+			return
+
+	var/obj/item/integrated_circuit/power_interface = new IC_BUILTIN_POWER_NETWORK_INTERFACE(src)
+	power_interface.removable = FALSE
+	force_add_circuit(power_interface)
+
+#undef IC_BUILTIN_POWER_NETWORK_INTERFACE
