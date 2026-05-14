@@ -12,6 +12,7 @@
 
 	layer = BLOB_SHIELD_LAYER
 
+	should_use_health = TRUE
 	maxhealth = 30
 
 	var/regen_rate = 5
