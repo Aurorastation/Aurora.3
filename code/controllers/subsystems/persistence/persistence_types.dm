@@ -89,7 +89,7 @@
 		try
 			type_instance.finalization_hook()
 		catch(var/exception/e)
-			log_subsystem_persistence_error("Unhandled exception during finalization_hook of [type_instance]: [e]")
+			log_subsystem_persistence_error("Unhandled exception during finalization_hook of [type_instance]", e)
 
 	// ##### Saving history
 	var/total_saved_count = 0

@@ -114,13 +114,13 @@ SUBSYSTEM_DEF(persistence)
 	try
 		objectsInitialize()
 	catch(var/exception/e_objects)
-		log_subsystem_persistence_panic("Unhandled exception during persistent objects initialization: [e_objects]")
+		log_subsystem_persistence_panic("Unhandled exception during persistent objects initialization!", e_objects)
 		return SS_INIT_FAILURE
 
 	try
 		typesInitialize()
 	catch(var/exception/e_types)
-		log_subsystem_persistence_panic("Unhandled exception during persistent type initialization: [e_types]")
+		log_subsystem_persistence_panic("Unhandled exception during persistent type initialization!", e_types)
 		return SS_INIT_FAILURE
 
 	init_success = TRUE
@@ -146,9 +146,9 @@ SUBSYSTEM_DEF(persistence)
 	try
 		objectsFinalize()
 	catch(var/exception/e_objects)
-		log_subsystem_persistence_panic("Unhandled exception during persistent objects finalization: [e_objects]")
+		log_subsystem_persistence_panic("Unhandled exception during persistent objects finalization!", e_objects)
 
 	try
 		typesFinalize()
 	catch(var/exception/e_types)
-		log_subsystem_persistence_panic("Unhandled exception during persistent types finalization: [e_types]")
+		log_subsystem_persistence_panic("Unhandled exception during persistent types finalization!", e_types)
