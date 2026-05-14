@@ -1,7 +1,0 @@
-author: FabianK3
-
-delete-after: True
-
-changes:
-  - bugfix: "Fixed two-hand carry and pickup of persistent supply packages."
-  - bugfix: "Removed location check on persistent object register."

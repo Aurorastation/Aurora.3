@@ -68,3 +68,46 @@
       space for the Lemurian Sea arc.
   - bugfix: Fixes 'restricted' random canister spawners inadvertently spawning rare/valuable
       gases.
+2026-05-12:
+  Batrachophrenoboocosmomachia:
+  - bugfix: Hairstyles no longer rendered on monkeys or golems.
+  - balance: Nerfs stasis beds to provide 6x stasis per part level, down from 10x
+      stasis.
+  - balance: Nerfs sleeper stasis settings options to 1x,2x,4x, down from 1x,2x,5x,10x.
+  - bugfix: Fixes broken disposal line segment.
+  - rscadd: Adds missing cameras to new Supply warehouse areas.
+  - bugfix: Fixes turf fires not spreading.
+  - bugfix: Fixes atmos fires not consistently igniting.
+  - bugfix: Fixes dead mobs burning forever.
+  - bugfix: Fixes fire_act() runtimes for multiple objects.
+  FabianK3:
+  - bugfix: Fixed two-hand carry and pickup of persistent supply packages.
+  - bugfix: Removed location check on persistent object register.
+  GeneralCamo:
+  - bugfix: Resolve a runtime related to TGUI alert modals being deleted.
+  Hellfirejag:
+  - rscadd: Added Persistence for Stickers.
+  - rscadd: Added Tenacity to the Combat skills category. Ranks in tenacity allow
+      a character to survive longer while in critical condition.
+  Kano:
+  - bugfix: Fixed flashlights not lighting the direction they're supposed to when
+      dropped.
+  SierraKomodo:
+  - rscadd: Welding goggles now render on top of bandanas when flipped up.
+  SimpleMaroon:
+  - rscdel: Removed the xenomorph-like talking noises from Vaurca Breeders.
+  kermit:
+  - rscadd: Updates Reade and New Gibson accents, origins and other associated flavour
+      text following lore expansion to both.
+  - rscadd: Reflavours 'Hengsha Rolls' into 'Reade Lobster Rolls' following removal
+      of Hengsha.
+  - imagedel: Removes Ovanstader accent and icons.
+2026-05-14:
+  FabianK3:
+  - bugfix: Fixed repeating default font tag getting added to persistent papers, breaking
+      their life cycle and resulting in massive text sizes.
+  - balance: Raised expiration time of persistent papers from 30 to 180 days.
+  - bugfix: Fixed bad index exception when saving persistent objects using the parent
+      persistent_objects_get_content proc.
+  Hellfirejag:
+  - bugfix: Hotfixed a hard del related to stickers.
