@@ -66,6 +66,8 @@
 	var/can_change_icon_state = TRUE
 	var/set_unsafe_on_init = FALSE
 
+	persistant_objects_expiration_time_days = 180
+
 /obj/item/paper/Destroy()
 	info = null
 	info_links = null
@@ -103,11 +105,11 @@
 		else
 			addtimer(CALLBACK(src, TYPE_PROC_REF(/atom, update_icon)), 1, TIMER_STOPPABLE | TIMER_DELETE_ME)
 
-/obj/item/paper/proc/set_content(title, text)
+/obj/item/paper/proc/set_content(title, text, adddefaultfont = TRUE)
 	if(title)
 		name = title
 	if (text && length(text))
-		info = parsepencode(text)
+		info = parsepencode(text, skipdefaultfont = !adddefaultfont)
 	else
 		info = ""
 
@@ -357,7 +359,7 @@
 
 	return signfont
 
-/obj/item/paper/proc/parsepencode(t, obj/item/pen/P, mob/user, iscrayon, isfountain, istypewriter)
+/obj/item/paper/proc/parsepencode(t, obj/item/pen/P, mob/user, iscrayon, isfountain, istypewriter, skipdefaultfont = FALSE)
 	if(user)
 		t = parse_languages(user, t, TRUE)
 	if(P)
@@ -413,14 +415,15 @@
 		t = replacetext(t, "\[cell\]", "")
 		t = replacetext(t, "\[barcode\]", "")
 
-	if(iscrayon)
-		t = "<font face=\"[crayonfont]\" color=[P ? P.colour : "black"]><b>[t]</b></font>"
-	else if(isfountain)
-		t = "<font face=\"[fountainfont]\" color=[P ? P.colour : "black"]><i>[t]</i></font>"
-	else if(istypewriter)
-		t = "<font face=\"[typewriterfont]\" color=[P ? P.colour : "black"]><i>[t]</i></font>"
-	else
-		t = "<font face=\"[deffont]\" color=[P ? P.colour : "black"]>[t]</font>"
+	if(!skipdefaultfont)
+		if(iscrayon)
+			t = "<font face=\"[crayonfont]\" color=[P ? P.colour : "black"]><b>[t]</b></font>"
+		else if(isfountain)
+			t = "<font face=\"[fountainfont]\" color=[P ? P.colour : "black"]><i>[t]</i></font>"
+		else if(istypewriter)
+			t = "<font face=\"[typewriterfont]\" color=[P ? P.colour : "black"]><i>[t]</i></font>"
+		else
+			t = "<font face=\"[deffont]\" color=[P ? P.colour : "black"]>[t]</font>"
 
 	t = pencode2html(t)
 
@@ -842,7 +845,7 @@
 	return content
 
 /obj/item/paper/persistent_objects_apply_content(content, x, y, z)
-	set_content(content["title"], content["text"])
+	set_content(content["title"], content["text"], adddefaultfont = FALSE)
 	src.x = x
 	src.y = y
 	src.z = z

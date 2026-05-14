@@ -425,7 +425,7 @@
  * RETURN: Associated list with custom information (e.g.: ["test" = "abc", "counter" = 123])
  */
 /obj/proc/persistent_objects_get_content()
-	return
+	return list()
 
 /**
  * Called by the persistence subsystem to apply persistent data on the created object.

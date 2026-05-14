@@ -102,3 +102,12 @@
   - rscadd: Reflavours 'Hengsha Rolls' into 'Reade Lobster Rolls' following removal
       of Hengsha.
   - imagedel: Removes Ovanstader accent and icons.
+2026-05-14:
+  FabianK3:
+  - bugfix: Fixed repeating default font tag getting added to persistent papers, breaking
+      their life cycle and resulting in massive text sizes.
+  - balance: Raised expiration time of persistent papers from 30 to 180 days.
+  - bugfix: Fixed bad index exception when saving persistent objects using the parent
+      persistent_objects_get_content proc.
+  Hellfirejag:
+  - bugfix: Hotfixed a hard del related to stickers.
