@@ -21,6 +21,7 @@
 	// Upsert all persistent type definitions found in code
 	// Whether or not it's new, get its database ID
 	for (var/C in custom_types)
+		CHECK_TICK
 		var/singleton/persistent_type/T = GET_SINGLETON(C)
 		typesDatabaseUpsertType("[T]", T.title, T.description, T.definition_type_value)
 		T.database_id = typesDatabaseGetTypeIdByName("[T]")
@@ -36,6 +37,7 @@
 
 	// Clean history records
 	for(var/type_combination in historyDatabaseGetTypeAttributeCombinations()) // Iterate through each distinct type+attribute combination
+		CHECK_TICK
 		var/type_id = type_combination["type_id"]
 		var/attribute = type_combination["attribute"]
 		var/singleton/persistent_type/history/found_type
@@ -82,6 +84,7 @@
 	var/base_types = list(/singleton/persistent_type, /singleton/persistent_type/generic, /singleton/persistent_type/history, /singleton/persistent_type/history/character)
 	var/custom_types = typesof(/singleton/persistent_type) - base_types // These are the types we are actually dealing with
 	for (var/C in custom_types)
+		CHECK_TICK
 		var/singleton/persistent_type/type_instance = GET_SINGLETON(C)
 		try
 			type_instance.finalization_hook()
@@ -91,6 +94,7 @@
 	// ##### Saving history
 	var/total_saved_count = 0
 	for(var/key in history_cache)
+		CHECK_TICK
 		var/datum/persistent_record_container/container = history_cache[key] // Dictionary<"[type](+[attribute])", container>
 		if(!length(container.records))
 			continue // Container was queried, got no hits and nothing was added.
@@ -111,6 +115,7 @@
 
 	// ##### Saving generics
 	for(var/key in generic_cache)
+		CHECK_TICK
 		var/datum/persistent_generic/container = generic_cache[key] // Dictionary<"[type](+[attribute])", container>
 		var/singleton/persistent_type/type_instance = GET_SINGLETON(container.type_define)
 		genericDatabaseSave(type_instance.database_id, container.attribute, container.expires_in_days, json_encode(container.content))
