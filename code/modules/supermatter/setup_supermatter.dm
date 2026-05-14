@@ -186,7 +186,7 @@
 	invisibility = 101
 	anchored = 1
 	density = 0
-	icon = 'icons/mob/screen/generic.dmi'
+	icon = 'icons/hud/mob/generic.dmi'
 	icon_state = "x4"
 
 /obj/effect/landmark/engine_setup/proc/activate(var/last = 0)

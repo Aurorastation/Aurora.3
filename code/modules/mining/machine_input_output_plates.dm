@@ -1,7 +1,7 @@
 /**********************Input and output plates**************************/
 
 /obj/machinery/mineral/input
-	icon = 'icons/mob/screen/generic.dmi'
+	icon = 'icons/hud/mob/generic.dmi'
 	icon_state = "x2"
 	name = "Input Area"
 	invisibility = INVISIBILITY_ABSTRACT
@@ -13,7 +13,7 @@
 	icon_state = "blank"
 
 /obj/machinery/mineral/output
-	icon = 'icons/mob/screen/generic.dmi'
+	icon = 'icons/hud/mob/generic.dmi'
 	icon_state = "x"
 	name = "Output Area"
 	invisibility = INVISIBILITY_ABSTRACT

@@ -828,7 +828,7 @@
 			var/static/list/tags = list()
 			if(!length(tags))
 				for(var/thing in list(TRIAGE_NONE, TRIAGE_GREEN, TRIAGE_YELLOW, TRIAGE_RED, TRIAGE_BLACK))
-					tags[thing] = image(icon = 'icons/mob/screen/triage_tag.dmi', icon_state = thing)
+					tags[thing] = image(icon = 'icons/hud/mob/triage_tag.dmi', icon_state = thing)
 			var/chosen_tag = show_radial_menu(usr, src, tags, radius = 42, tooltips = TRUE)
 			if(chosen_tag)
 				triage_tag = chosen_tag
