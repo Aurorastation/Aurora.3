@@ -315,6 +315,7 @@ GLOBAL_VAR(bomb_set)
 				else
 					secure_device()
 					visible_message(SPAN_WARNING("The anchoring bolts slide back into the depths of [src]."))
+					playsound(src, 'sound/machines/boltsup.ogg', 30, 0, extrarange = SILENCED_SOUND_EXTRARANGE)
 			else
 				to_chat(usr, SPAN_WARNING("There is nothing to anchor to!"))
 			return TRUE
