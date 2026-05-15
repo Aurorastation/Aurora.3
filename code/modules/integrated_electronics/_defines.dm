@@ -60,7 +60,8 @@
 	var/power_draw_per_use = 0      // How much power is drawn when work()'d.
 	var/power_draw_idle = 0         // How much power is drawn when doing nothing.
 	var/spawn_flags                 // Used for world initializing, see the #defines above.
-	var/category_text = "NO CATEGORY THIS IS A BUG" // To show up on circuit printer, and perhaps other places.
+	var/category_text = "General" // To show up on circuit printer, and perhaps other places.
+	var/phoron_cost = 0.005        // 1/200th of one phoron sheet per circuit.
 	var/removable = TRUE            // Determines if a circuit is removable from the assembly.
 	var/displayed_name = ""
 	var/allow_multitool = TRUE      // Allows additional multitool functionality

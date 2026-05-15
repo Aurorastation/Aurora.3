@@ -10,7 +10,7 @@
 	w_class = WEIGHT_CLASS_SMALL
 	max_components = IC_COMPONENTS_BASE
 	max_complexity = IC_COMPLEXITY_BASE
-	var/obj/item/clothing/clothing = null
+	var/obj/item/clothing = null
 
 /obj/item/electronic_assembly/clothing/ui_host()
 	return clothing
@@ -22,12 +22,18 @@
 	return clothing
 
 /obj/item/electronic_assembly/clothing/update_icon()
-	clothing.icon_state = "[initial(clothing.icon_state)][opened ? "-open" : ""]"
+	if(!clothing)
+		return
+
+	clothing.icon_state = opened ? "[initial(clothing.icon_state)]-open" : initial(clothing.icon_state)
 	clothing.ClearOverlays()
-	var/image/detail_overlay = image('icons/obj/assemblies/wearable_electronic_setups.dmi', "[initial(clothing.icon_state)][opened ? "-open" : ""]-color")
+
+	var/image/detail_overlay = image('icons/obj/assemblies/wearable_electronic_setups.dmi', "[clothing.icon_state]-color")
 	detail_overlay.color = detail_color
 	clothing.AddOverlays(detail_overlay)
-	clothing.update_clothing_icon()
+
+	if(hascall(clothing, "update_clothing_icon"))
+		call(clothing, "update_clothing_icon")()
 
 // This is 'small' relative to the size of regular clothing assemblies.
 /obj/item/electronic_assembly/clothing/small
@@ -98,7 +104,7 @@
 	var/static/list/valid_slots
 	if(!valid_slots)
 		valid_slots = list(slot_w_uniform_str)
-	if(IC.detail_color && (slot in valid_slots))
+	if(IC?.detail_color && (slot in valid_slots))
 		var/image/electronic_overlay = overlay_image(icon, "[item_state][slot_str_to_contained_flag(slot)]-color", IC.detail_color, RESET_COLOR)
 		return electronic_overlay
 	return ..()
@@ -121,7 +127,7 @@
 	var/static/list/valid_slots
 	if(!valid_slots)
 		valid_slots = list(slot_gloves_str)
-	if(IC.detail_color && (slot in valid_slots))
+	if(IC?.detail_color && (slot in valid_slots))
 		var/image/electronic_overlay = overlay_image(icon, "[item_state][slot_str_to_contained_flag(slot)]-color", IC.detail_color, RESET_COLOR)
 		return electronic_overlay
 	return ..()
@@ -154,7 +160,7 @@
 	var/static/list/valid_slots
 	if(!valid_slots)
 		valid_slots = list(slot_glasses_str, slot_l_hand_str, slot_r_hand_str)
-	if(IC.detail_color && (slot in valid_slots))
+	if(IC?.detail_color && (slot in valid_slots))
 		var/image/electronic_overlay = overlay_image(icon, "[item_state][slot_str_to_contained_flag(slot)]-color", IC.detail_color, RESET_COLOR)
 		return electronic_overlay
 	return ..()
@@ -192,7 +198,7 @@
 	var/static/list/valid_slots
 	if(!valid_slots)
 		valid_slots = list(slot_shoes_str)
-	if(IC.detail_color && (slot in valid_slots))
+	if(IC?.detail_color && (slot in valid_slots))
 		var/image/electronic_overlay = overlay_image(icon, "[item_state][slot_str_to_contained_flag(slot)]-color", IC.detail_color, RESET_COLOR)
 		return electronic_overlay
 	return ..()
@@ -215,12 +221,12 @@
 	var/static/list/valid_slots
 	if(!valid_slots)
 		valid_slots = list(slot_head_str)
-	if(IC.detail_color && (slot in valid_slots))
+	if(IC?.detail_color && (slot in valid_slots))
 		var/image/electronic_overlay = overlay_image(icon, "[item_state][slot_str_to_contained_flag(slot)]-color", IC.detail_color, RESET_COLOR)
 		return electronic_overlay
 	return ..()
 
-// Ear
+// Ears
 /obj/item/clothing/ears/circuitry
 	name = "electronic earwear"
 	desc = "It's a wearable case for electronics. This one appears to be a technical-looking headset."
@@ -237,7 +243,7 @@
 	var/static/list/valid_slots
 	if(!valid_slots)
 		valid_slots = list(slot_l_ear_str, slot_r_ear_str)
-	if(IC.detail_color && (slot in valid_slots))
+	if(IC?.detail_color && (slot in valid_slots))
 		var/image/electronic_overlay = overlay_image(icon, "[item_state][slot_str_to_contained_flag(slot)]-color", IC.detail_color, RESET_COLOR)
 		return electronic_overlay
 	return ..()
@@ -260,7 +266,7 @@
 	var/static/list/valid_slots
 	if(!valid_slots)
 		valid_slots = list(slot_wear_suit_str)
-	if(IC.detail_color && (slot in valid_slots))
+	if(IC?.detail_color && (slot in valid_slots))
 		var/image/electronic_overlay = overlay_image(icon, "[item_state][slot_str_to_contained_flag(slot)]-color", IC.detail_color, RESET_COLOR)
 		return electronic_overlay
 	return ..()

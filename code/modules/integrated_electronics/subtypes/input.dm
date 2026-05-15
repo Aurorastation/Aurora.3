@@ -491,7 +491,16 @@
 /obj/item/integrated_circuit/input/microphone/Destroy()
 	return ..()
 
-/obj/item/integrated_circuit/input/microphone/hear_talk(mob/living/M, msg, var/verb="says", datum/language/speaking=null)
+/obj/item/integrated_circuit/input/microphone/hear_talk(mob/living/M, msg, var/verb = "says", datum/language/speaking = null)
+	receive_radio_message(M, msg, null, speaking)
+
+/obj/item/integrated_circuit/input/microphone/proc/receive_radio_message(mob/living/M, msg, channel = null, datum/language/speaking = null)
+	/*
+	 * Shared microphone intake.
+	 *
+	 * Local speech enters through hear_talk().
+	 * Radio speech enters when /obj/item/radio/headset/circuitry relays it.
+	 */
 	if(isanimal(M))
 		if(!M.universal_speak)
 			return
@@ -509,6 +518,23 @@
 	push_data()
 	activate_pin(1)
 	if(translated)
+		activate_pin(2)
+
+/obj/item/integrated_circuit/input/microphone/proc/receive_radio_text(speaker_name, msg, channel = null, language_name = null)
+	/*
+	 * Text-only fallback for radio relay hooks that do not expose mob/language datums.
+	 * This cannot perform real datum-based translation because no datum/language is provided.
+	 */
+	if(!msg)
+		return
+
+	set_pin_data(IC_OUTPUT, 1, speaker_name ? speaker_name : "Unknown")
+	set_pin_data(IC_OUTPUT, 2, msg)
+
+	push_data()
+	activate_pin(1)
+
+	if(language_name && language_name != "Tau Ceti Basic" && language_name != "Common")
 		activate_pin(2)
 
 /obj/item/integrated_circuit/input/sensor
@@ -1086,28 +1112,57 @@
 	activate_pin(1)
 	return TRUE
 
+/proc/ic_split_assignment(raw_assignment)
+	var/list/result = list(
+		"job title" = null,
+		"corporation" = null
+	)
+
+	if(!istext(raw_assignment) || !length(raw_assignment))
+		return result
+
+	var/assignment = trim(raw_assignment)
+	var/open_paren = findtext(assignment, "(")
+	var/close_paren = findtext(assignment, ")", open_paren + 1)
+
+	if(open_paren && close_paren && close_paren > open_paren)
+		result["job title"] = trim(copytext(assignment, 1, open_paren))
+		result["corporation"] = trim(copytext(assignment, open_paren + 1, close_paren))
+	else
+		result["job title"] = assignment
+
+	return result
+
+
 /obj/item/integrated_circuit/input/card_reader
-	name = "ID card reader" //To differentiate it from the data card reader
-	desc = "A circuit that can read the registred name, assignment, and PassKey string from an ID card."
+	name = "ID card reader" // To differentiate it from the data card reader.
+	desc = "A circuit that can read the registered name, assignment, job title, corporation, and PassKey string from an ID card."
 	icon_state = "card_reader"
 
 	complexity = 4
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
+
 	inputs = list(
 		"enable credential cache" = IC_PINTYPE_BOOLEAN
 	)
+
 	outputs = list(
 		"registered name" = IC_PINTYPE_STRING,
 		"assignment" = IC_PINTYPE_STRING,
+		"job title" = IC_PINTYPE_STRING,
+		"corporation" = IC_PINTYPE_STRING,
 		"passkey" = IC_PINTYPE_LIST
 	)
+
 	activators = list(
 		"on read" = IC_PINTYPE_PULSE_OUT
 	)
 
+
 /obj/item/integrated_circuit/input/card_reader/attackby_react(obj/item/I, mob/living/user, intent)
 	var/obj/item/card/id/card = I.GetID()
 	var/list/access = I.GetAccess()
+
 	if(!access)
 		return
 
@@ -1115,17 +1170,23 @@
 		assembly?.access_card.access |= access
 
 	if(card) // An ID card.
+		var/list/split_assignment = ic_split_assignment(card.assignment)
+
 		set_pin_data(IC_OUTPUT, 1, card.registered_name)
 		set_pin_data(IC_OUTPUT, 2, card.assignment)
+		set_pin_data(IC_OUTPUT, 3, split_assignment["job title"])
+		set_pin_data(IC_OUTPUT, 4, split_assignment["corporation"])
 
-	else if(length(access))	// A non-card object that has access levels.
+	else if(length(access)) // A non-card object that has access levels.
 		set_pin_data(IC_OUTPUT, 1, null)
 		set_pin_data(IC_OUTPUT, 2, null)
+		set_pin_data(IC_OUTPUT, 3, null)
+		set_pin_data(IC_OUTPUT, 4, null)
 
 	else
 		return FALSE
 
-	set_pin_data(IC_OUTPUT, 3, access)
+	set_pin_data(IC_OUTPUT, 5, access)
 
 	push_data()
 	activate_pin(1)

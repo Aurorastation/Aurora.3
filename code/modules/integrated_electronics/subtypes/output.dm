@@ -156,10 +156,29 @@
 	power_draw_per_use = 600
 
 /obj/item/integrated_circuit/output/text_to_speech/do_work()
-	text = get_pin_data(IC_INPUT, 1)
-	if(!isnull(text))
-		var/obj/O = assembly ? loc : assembly
-		audible_message("[icon2html(O, viewers(get_turf(O)))] \The [O.name] states, \"[text]\"")
+	var/text = get_pin_data(IC_INPUT, 1)
+
+	if(isnull(text))
+		return
+
+	/*
+	 * If this TTS circuit is inside an electronic radio headset,
+	 * output privately to the headset wearer only.
+	 */
+	var/obj/item/electronic_assembly/clothing/A = loc
+
+	if(istype(A))
+		var/obj/item/radio/headset/circuitry/H = A.clothing
+
+		if(istype(H))
+			H.private_tts_output(text)
+			return
+
+	/*
+	 * Fallback behavior for every TTS circuit outside the electronic radio headset.
+	 */
+	var/obj/O = loc ? loc : src
+	audible_message("[icon2html(O, viewers(get_turf(O)))] \The [O.name] states, \"[text]\"")
 
 /obj/item/integrated_circuit/output/sound/Initialize()
 	. = ..()

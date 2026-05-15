@@ -186,7 +186,11 @@
 
 /obj/item/electronic_assembly/feedback_hints(mob/user, distance, is_adjacent)
 	. = ..()
+<<<<<<< HEAD
 	if(opened && is_adjacent)
+=======
+	if(distance <= 1 && !opened)
+>>>>>>> 68d142f2f2 (WIP of a circuit overhaul!)
 		for(var/obj/item/integrated_circuit/IC in contents)
 			. += SPAN_NOTICE("It contains \a [IC].")
 
@@ -313,6 +317,7 @@
 		return
 	if(opened)
 		interact(user)
+		return
 
 	var/list/input_selection = list()
 	var/list/available_inputs = list()

@@ -34,6 +34,10 @@
 	name = "4-way number to string"
 	desc = "This circuit can convert up to four number variables into strings."
 	extended_desc = "Because of game limitations null/false variables will output a '0' string."
+<<<<<<< HEAD
+=======
+	complexity = 2
+>>>>>>> 68d142f2f2 (WIP of a circuit overhaul!)
 	icon_state = "num-string"
 	inputs = list(
 		"input 1" = IC_PINTYPE_NUMBER,

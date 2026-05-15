@@ -164,3 +164,96 @@
 
 	push_data()
 	activate_pin(2)
+
+/obj/item/integrated_circuit/timed/signal_burst_ticker
+	name = "signal burst ticker"
+	desc = "A ticker that starts when pulsed, ticks a fixed number of times, then stops."
+	extended_desc = "Useful when you want a signaler, scanner, button, or other pulse source to temporarily enable a repeating circuit chain."
+	icon_state = "clock"
+	complexity = 4
+	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
+	category_text = "Time"
+	power_draw_per_use = 50
+
+	inputs = list(
+		"delay seconds" = IC_PINTYPE_NUMBER,
+		"tick count" = IC_PINTYPE_NUMBER
+	)
+
+	inputs_default = list(
+		"1" = 2,
+		"2" = 4
+	)
+
+	outputs = list(
+		"current tick" = IC_PINTYPE_NUMBER,
+		"running" = IC_PINTYPE_BOOLEAN
+	)
+
+	activators = list(
+		"start" = IC_PINTYPE_PULSE_IN,
+		"on tick" = IC_PINTYPE_PULSE_OUT,
+		"on finished" = IC_PINTYPE_PULSE_OUT
+	)
+
+	var/running = FALSE
+	var/current_tick = 0
+	var/max_ticks = 4
+	var/delay_time = 2 SECONDS
+
+
+/obj/item/integrated_circuit/timed/signal_burst_ticker/do_work()
+	if(running)
+		return
+
+	pull_data()
+
+	var/input_delay = get_pin_data(IC_INPUT, 1)
+	var/input_ticks = get_pin_data(IC_INPUT, 2)
+
+	if(isnum(input_delay))
+		input_delay = max(0.1, input_delay)
+	else
+		input_delay = 2
+
+	if(isnum(input_ticks))
+		input_ticks = max(1, round(input_ticks))
+	else
+		input_ticks = 4
+
+	delay_time = input_delay SECONDS
+	max_ticks = input_ticks
+	current_tick = 0
+	running = TRUE
+
+	set_pin_data(IC_OUTPUT, 1, current_tick)
+	set_pin_data(IC_OUTPUT, 2, running)
+	push_data()
+
+	addtimer(CALLBACK(src, PROC_REF(process_tick)), delay_time)
+
+
+/obj/item/integrated_circuit/timed/signal_burst_ticker/proc/process_tick()
+	if(!running)
+		return
+
+	current_tick++
+
+	set_pin_data(IC_OUTPUT, 1, current_tick)
+	set_pin_data(IC_OUTPUT, 2, running)
+	push_data()
+	activate_pin(2)
+
+	if(current_tick >= max_ticks)
+		running = FALSE
+		set_pin_data(IC_OUTPUT, 2, running)
+		push_data()
+		activate_pin(3)
+		return
+
+	addtimer(CALLBACK(src, PROC_REF(process_tick)), delay_time)
+
+
+/obj/item/integrated_circuit/timed/signal_burst_ticker/Destroy()
+	running = FALSE
+	return ..()
