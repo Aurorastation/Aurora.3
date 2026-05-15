@@ -112,3 +112,9 @@
 /obj/effect/turf_vision_blocker
 	name = "turf vision blocker"
 	opacity = FALSE
+
+/obj/machinery/door/airlock/multi_tile/brown
+	door_color = "#574b3d"
+
+/obj/machinery/door/airlock/multi_tile/glass/brown
+	door_color = "#574b3d"

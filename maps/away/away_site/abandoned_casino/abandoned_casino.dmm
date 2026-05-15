@@ -120,6 +120,16 @@
 /obj/effect/decal/cleanable/floor_damage/random_wood_broken,
 /turf/simulated/floor/wood/walnut,
 /area/abandoned_casino/reception)
+"ao" = (
+/obj/structure/lattice/catwalk,
+/obj/structure/cable/yellow{
+	icon_state = "4-8"
+	},
+/obj/structure/cable/yellow{
+	icon_state = "1-4"
+	},
+/turf/space,
+/area/abandoned_casino/exterior)
 "ap" = (
 /obj/structure/table/wood,
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -151,8 +161,8 @@
 /obj/structure/table/wood,
 /obj/effect/floor_decal/corner/red/diagonal,
 /obj/random/pottedplant_small{
-	pixel_x = 6;
-	pixel_y = 9
+	pixel_x = 1;
+	pixel_y = 19
 	},
 /obj/machinery/light/colored/beige,
 /turf/simulated/floor/lino,
@@ -170,10 +180,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/abandoned_casino/reception)
 "au" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/firedoor{
-	frame_color = "#5c503f";
-	color = "#5c503f"
-	},
+/obj/effect/map_effect/window_spawner/full/shuttle/brown/firedoor,
 /turf/simulated/floor/tiled/dark/full,
 /area/abandoned_casino/security_checkpoint)
 "av" = (
@@ -211,10 +218,7 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/abandoned_casino/reception)
 "az" = (
-/obj/effect/map_effect/window_spawner/full/reinforced{
-	frame_color = "#5c503f";
-	color = "#5c503f"
-	},
+/obj/effect/map_effect/window_spawner/full/shuttle/brown/firedoor,
 /turf/simulated/floor/tiled/dark/full,
 /area/abandoned_casino/vip_room_one)
 "aA" = (
@@ -232,6 +236,7 @@
 	dir = 1
 	},
 /obj/effect/decal/cleanable/floor_damage/random_wood_broken,
+/obj/structure/extinguisher_cabinet/north,
 /turf/simulated/floor/wood/walnut,
 /area/abandoned_casino/vip_room_one)
 "aE" = (
@@ -305,7 +310,7 @@
 /turf/simulated/floor/lino,
 /area/abandoned_casino/restaurant)
 "aQ" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
+/obj/effect/map_effect/window_spawner/full/shuttle/brown/firedoor,
 /obj/structure/curtain/black,
 /turf/simulated/floor/tiled/dark/full,
 /area/abandoned_casino/maintenance/kitchen)
@@ -351,6 +356,7 @@
 /obj/random/pottedplant{
 	pixel_y = 14
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/white,
 /area/abandoned_casino/restroom)
 "aX" = (
@@ -419,9 +425,6 @@
 /obj/effect/floor_decal/industrial/hatch_door/yellow{
 	dir = 4
 	},
-/obj/machinery/door/airlock{
-	dir = 4
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
 	},
@@ -430,6 +433,9 @@
 	},
 /obj/structure/cable{
 	icon_state = "4-8"
+	},
+/obj/machinery/door/airlock/brown{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/abandoned_casino/bar)
@@ -1268,6 +1274,16 @@
 	},
 /turf/simulated/floor/carpet/brown,
 /area/abandoned_casino/reception)
+"cX" = (
+/obj/structure/cable/yellow{
+	icon_state = "1-8"
+	},
+/obj/structure/cable/yellow{
+	icon_state = "4-8"
+	},
+/obj/structure/lattice/catwalk,
+/turf/space,
+/area/abandoned_casino/exterior)
 "cY" = (
 /obj/structure/bed/stool/chair/folding,
 /obj/random/dirt_75,
@@ -1457,9 +1473,8 @@
 /turf/simulated/floor/wood/walnut,
 /area/abandoned_casino/casino)
 "dy" = (
-/obj/effect/decal/cleanable/ash{
-	pixel_x = 7;
-	pixel_y = -4
+/obj/structure/cable/yellow{
+	icon_state = "0-2"
 	},
 /turf/simulated/floor/airless,
 /area/abandoned_casino/exterior)
@@ -1740,6 +1755,14 @@
 	},
 /turf/simulated/floor/lino,
 /area/abandoned_casino/bar)
+"el" = (
+/obj/structure/table/stone/marble,
+/obj/item/reagent_containers/glass/rag{
+	pixel_x = 8;
+	pixel_y = 1
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/abandoned_casino/bar)
 "en" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
@@ -1761,14 +1784,9 @@
 /turf/simulated/floor/tiled/white,
 /area/abandoned_casino/restroom)
 "es" = (
-/obj/machinery/power/tracker,
-/obj/structure/cable/yellow{
-	icon_state = "0-2"
-	},
-/obj/structure/cable/yellow{
-	icon_state = "1-2"
-	},
-/turf/simulated/floor/airless,
+/obj/structure/lattice/catwalk,
+/obj/item/stack/rods,
+/turf/space,
 /area/abandoned_casino/exterior)
 "et" = (
 /obj/structure/railing/mapped/no_density/low,
@@ -1851,6 +1869,9 @@
 	},
 /obj/random/pottedplant,
 /obj/effect/decal/cleanable/floor_damage/random_wood_broken,
+/obj/structure/sign/staff_only{
+	pixel_y = -32
+	},
 /turf/simulated/floor/wood/walnut,
 /area/abandoned_casino/restaurant)
 "eF" = (
@@ -2074,6 +2095,9 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
+/obj/structure/closet/walllocker/firecloset{
+	pixel_x = -32
+	},
 /turf/simulated/floor/carpet/brown,
 /area/abandoned_casino/reception)
 "fc" = (
@@ -2138,15 +2162,15 @@
 /turf/simulated/floor/wood/walnut,
 /area/abandoned_casino/casino)
 "fj" = (
-/obj/structure/closet/crate/solar{
-	name = "backup power generation supplies"
-	},
-/obj/item/stack/material/glass/full,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
 /obj/random/dirt_75,
+/obj/structure/closet/crate/solar{
+	name = "backup power generation supplies"
+	},
+/obj/item/stack/material/glass/full,
 /turf/simulated/floor/plating,
 /area/abandoned_casino/maintenance/solar_wing)
 "fk" = (
@@ -2202,7 +2226,7 @@
 /turf/simulated/floor/tiled/full,
 /area/abandoned_casino/docking_arm/center)
 "fs" = (
-/turf/simulated/wall/shuttle/dark/cardinal/brown,
+/turf/simulated/wall/shuttle/brown,
 /area/abandoned_casino/bar/kitchen)
 "fu" = (
 /obj/structure/bed/stool/chair{
@@ -2310,9 +2334,6 @@
 	dir = 8
 	},
 /obj/machinery/door/firedoor/multi_tile,
-/obj/machinery/door/airlock/multi_tile/glass{
-	door_frame_color = "#5c503f"
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 1
 	},
@@ -2321,6 +2342,9 @@
 	},
 /obj/structure/cable{
 	icon_state = "1-2"
+	},
+/obj/machinery/door/airlock/multi_tile/glass/brown{
+	name = "Casino"
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/abandoned_casino/reception)
@@ -2355,15 +2379,13 @@
 /turf/simulated/floor/plating,
 /area/abandoned_casino/staff/hangar_passage)
 "fL" = (
-/obj/structure/closet/walllocker/firecloset{
-	pixel_y = 32
-	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
 	},
+/obj/structure/extinguisher_cabinet/north,
 /turf/simulated/floor/carpet/brown,
 /area/abandoned_casino/reception)
 "fM" = (
@@ -2418,6 +2440,10 @@
 	},
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 8
+	},
+/obj/random/pottedplant_small{
+	pixel_x = 16;
+	pixel_y = 5
 	},
 /turf/simulated/floor/lino,
 /area/abandoned_casino/restaurant)
@@ -2499,8 +2525,8 @@
 /obj/structure/table/wood,
 /obj/effect/floor_decal/corner/red/diagonal,
 /obj/random/pottedplant_small{
-	pixel_x = 6;
-	pixel_y = 9
+	pixel_x = 2;
+	pixel_y = 21
 	},
 /obj/effect/floor_decal/spline/plain/black,
 /turf/simulated/floor/lino,
@@ -2553,8 +2579,6 @@
 /turf/simulated/floor/wood/walnut,
 /area/abandoned_casino/restaurant)
 "gh" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
-/obj/structure/curtain/black,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
 	},
@@ -2564,6 +2588,7 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
+/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
 /turf/simulated/floor/tiled/dark/full,
 /area/abandoned_casino/maintenance/port)
 "gj" = (
@@ -2846,6 +2871,8 @@
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 1
 	},
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/machinery/vending/coffee,
 /turf/simulated/floor/tiled/dark/full,
 /area/abandoned_casino/reception)
 "gY" = (
@@ -2915,11 +2942,11 @@
 /turf/simulated/floor/wood/walnut,
 /area/abandoned_casino/casino)
 "hh" = (
-/obj/structure/lattice/catwalk,
 /obj/structure/cable/yellow{
 	icon_state = "0-2"
 	},
-/turf/space,
+/obj/machinery/power/tracker,
+/turf/simulated/floor/airless,
 /area/abandoned_casino/exterior)
 "hi" = (
 /obj/machinery/atmospherics/pipe/simple/visible/universal{
@@ -2994,6 +3021,10 @@
 /obj/effect/floor_decal/corner/red/diagonal,
 /obj/structure/table/wood,
 /obj/effect/floor_decal/spline/plain/black,
+/obj/random/pottedplant_small{
+	pixel_x = 4;
+	pixel_y = 17
+	},
 /turf/simulated/floor/lino,
 /area/abandoned_casino/restaurant)
 "hv" = (
@@ -3254,6 +3285,7 @@
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/outline/grey,
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
 /area/abandoned_casino/bar/kitchen)
 "ih" = (
@@ -3271,6 +3303,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/white,
 /area/abandoned_casino/restroom)
 "ik" = (
@@ -3284,8 +3317,8 @@
 /obj/structure/table/wood,
 /obj/effect/floor_decal/corner/red/diagonal,
 /obj/random/pottedplant_small{
-	pixel_x = -4;
-	pixel_y = -5
+	pixel_x = 3;
+	pixel_y = -10
 	},
 /obj/item/reagent_containers/food/condiment/shaker/salt{
 	pixel_x = -4;
@@ -3495,8 +3528,8 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/abandoned_casino/reception)
 "iJ" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
 /obj/structure/curtain/black,
+/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
 /turf/simulated/floor/tiled/dark/full,
 /area/abandoned_casino/staff/breakroom)
 "iK" = (
@@ -3582,7 +3615,9 @@
 /obj/effect/floor_decal/industrial/hatch_door/yellow{
 	dir = 8
 	},
-/obj/machinery/door/airlock,
+/obj/machinery/door/airlock/brown{
+	name = "Storage"
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/abandoned_casino/bar)
 "iT" = (
@@ -3839,6 +3874,10 @@
 	},
 /obj/effect/floor_decal/corner/grey{
 	dir = 8
+	},
+/obj/item/reagent_containers/spray/cleaner{
+	pixel_x = 8;
+	pixel_y = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/abandoned_casino/bar)
@@ -4258,6 +4297,10 @@
 	pixel_x = -5;
 	pixel_y = 9
 	},
+/obj/item/reagent_containers/glass/rag{
+	pixel_x = 8;
+	pixel_y = -1
+	},
 /turf/simulated/floor/lino,
 /area/abandoned_casino/bar)
 "kp" = (
@@ -4446,6 +4489,14 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/abandoned_casino/security_checkpoint)
+"kL" = (
+/obj/structure/bed/stool/chair/padded/brown{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/red/diagonal,
+/obj/effect/floor_decal/spline/plain/black,
+/turf/simulated/floor/lino,
+/area/abandoned_casino/restaurant)
 "kM" = (
 /obj/structure/lattice/catwalk,
 /turf/space,
@@ -4488,12 +4539,14 @@
 /turf/simulated/floor/wood/walnut,
 /area/abandoned_casino/reception)
 "kU" = (
-/obj/structure/extinguisher_cabinet/north,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 1
+	},
+/obj/structure/sign/staff_only{
+	pixel_y = 32
 	},
 /turf/simulated/floor/carpet/brown,
 /area/abandoned_casino/reception)
@@ -4699,6 +4752,10 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
 /area/abandoned_casino/docking_arm/starboard)
+"lA" = (
+/obj/item/stack/material/steel,
+/turf/space,
+/area/abandoned_casino/exterior)
 "lB" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 4
@@ -5171,10 +5228,7 @@
 /turf/simulated/floor/marble/dark,
 /area/abandoned_casino/casino)
 "mN" = (
-/obj/effect/map_effect/window_spawner/full/reinforced{
-	frame_color = "#5c503f";
-	color = "#5c503f"
-	},
+/obj/effect/map_effect/window_spawner/full/shuttle/brown,
 /obj/machinery/door/blast/shutters/open{
 	id = "abandoned_casino_bank_safety"
 	},
@@ -5856,7 +5910,7 @@
 /turf/simulated/floor/wood/walnut,
 /area/abandoned_casino/reception)
 "pL" = (
-/turf/simulated/wall/shuttle/dark/cardinal/brown,
+/turf/simulated/wall/shuttle/brown,
 /area/abandoned_casino/the_bank)
 "pO" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
@@ -5950,6 +6004,16 @@
 	},
 /turf/simulated/floor/carpet/brown,
 /area/abandoned_casino/reception)
+"qi" = (
+/obj/structure/lattice/catwalk,
+/obj/structure/cable/yellow{
+	icon_state = "4-8"
+	},
+/obj/structure/cable/yellow{
+	icon_state = "1-8"
+	},
+/turf/space,
+/area/abandoned_casino/exterior)
 "qn" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/atmospherics/pipe/simple/hidden{
@@ -6004,6 +6068,9 @@
 	},
 /obj/structure/cable/yellow{
 	icon_state = "1-8"
+	},
+/obj/structure/cable/yellow{
+	icon_state = "4-8"
 	},
 /turf/space,
 /area/abandoned_casino/exterior)
@@ -6098,6 +6165,13 @@
 /obj/item/clothing/head/bowlerhat,
 /turf/simulated/floor/wood/walnut,
 /area/abandoned_casino/casino)
+"qL" = (
+/obj/structure/bed/stool/chair/padded/brown{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/red/diagonal,
+/turf/simulated/floor/lino,
+/area/abandoned_casino/restaurant)
 "qN" = (
 /obj/machinery/door/firedoor/noid{
 	dir = 4
@@ -6165,6 +6239,7 @@
 	pixel_x = 24;
 	specialfunctions = 4
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/white,
 /area/abandoned_casino/restroom)
 "rc" = (
@@ -6382,7 +6457,7 @@
 /turf/simulated/floor/plating,
 /area/abandoned_casino/staff/hangar_passage)
 "sk" = (
-/turf/simulated/wall/shuttle/dark/cardinal/brown,
+/turf/simulated/wall/shuttle/brown,
 /area/abandoned_casino/bar/kitchen/freezer)
 "sl" = (
 /obj/item/ammo_casing/pistol/magnum/used{
@@ -6467,6 +6542,15 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/abandoned_casino/reception)
+"sz" = (
+/obj/structure/cable/yellow,
+/obj/effect/decal/cleanable/floor_damage/random_broken,
+/obj/effect/decal/cleanable/ash{
+	pixel_x = 5;
+	pixel_y = -1
+	},
+/turf/simulated/floor/airless,
+/area/abandoned_casino/exterior)
 "sB" = (
 /obj/effect/decal/curb{
 	dir = 10
@@ -6483,6 +6567,7 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/white,
 /area/abandoned_casino/restroom)
 "sE" = (
@@ -6510,6 +6595,10 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/abandoned_casino/bar/kitchen)
+"sI" = (
+/obj/item/stack/rods,
+/turf/space,
+/area/abandoned_casino/exterior)
 "sN" = (
 /obj/machinery/atm{
 	dir = 1;
@@ -6534,6 +6623,10 @@
 /obj/effect/decal/cleanable/blood/oil,
 /turf/simulated/floor/plating,
 /area/abandoned_casino/maintenance/solar_wing)
+"sQ" = (
+/obj/effect/decal/cleanable/floor_damage/random_broken,
+/turf/simulated/floor/airless,
+/area/abandoned_casino/exterior)
 "sT" = (
 /obj/effect/decal/cleanable/floor_damage/random_wood_broken,
 /obj/structure/table/wood,
@@ -6805,6 +6898,15 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/abandoned_casino/staff/breakroom)
+"tS" = (
+/obj/structure/cable/yellow,
+/turf/simulated/floor/airless,
+/area/abandoned_casino/exterior)
+"tV" = (
+/obj/structure/lattice,
+/obj/item/stack/material/steel,
+/turf/space,
+/area/abandoned_casino/exterior)
 "tX" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
@@ -6892,7 +6994,7 @@
 /turf/simulated/floor/plating,
 /area/abandoned_casino/maintenance/reception)
 "uw" = (
-/turf/simulated/wall/shuttle/dark/cardinal/brown,
+/turf/simulated/wall/shuttle/brown,
 /area/abandoned_casino/restroom)
 "ux" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -6920,7 +7022,7 @@
 /turf/simulated/floor/plating,
 /area/abandoned_casino/staff/hangar_passage)
 "uH" = (
-/turf/simulated/wall/shuttle/dark/cardinal/brown,
+/turf/simulated/wall/shuttle/brown,
 /area/abandoned_casino/vip_room_two)
 "uI" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -7000,6 +7102,16 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/abandoned_casino/the_bank/vault)
+"vi" = (
+/obj/structure/cable/yellow{
+	icon_state = "0-2"
+	},
+/obj/machinery/power/solar{
+	id = "auxsolarstarboard";
+	name = "Starboard Auxiliary Solar Array"
+	},
+/turf/simulated/floor/airless,
+/area/abandoned_casino/exterior)
 "vj" = (
 /obj/effect/decal/cleanable/floor_damage/random_wood_broken,
 /obj/machinery/light/colored/beige,
@@ -7037,16 +7149,13 @@
 	pixel_x = -8;
 	pixel_y = 14
 	},
-/obj/item/storage/box/lights/colored/beige{
+/obj/item/storage/box/lights/mixed{
 	pixel_x = 8;
 	pixel_y = 14
 	},
 /obj/item/storage/box/lights/colored/beige{
-	pixel_x = -6
-	},
-/obj/item/storage/box/lights/colored/beige{
-	pixel_x = 6;
-	pixel_y = -7
+	pixel_x = 3;
+	pixel_y = 1
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/abandoned_casino/staff/breakroom)
@@ -7175,7 +7284,7 @@
 /turf/simulated/floor/plating,
 /area/abandoned_casino/docking_arm/starboard)
 "wm" = (
-/turf/simulated/wall/shuttle/dark/cardinal/brown,
+/turf/simulated/wall/shuttle/brown,
 /area/abandoned_casino/casino)
 "ws" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -7464,6 +7573,11 @@
 /obj/structure/lattice/catwalk/indoor/grate/damaged,
 /turf/simulated/floor/plating,
 /area/abandoned_casino/docking_arm/starboard)
+"xN" = (
+/obj/structure/lattice/catwalk,
+/obj/item/stack/material/steel,
+/turf/space,
+/area/abandoned_casino/exterior)
 "xP" = (
 /obj/effect/floor_decal/corner/red/diagonal,
 /obj/random/dirt_75,
@@ -7620,6 +7734,16 @@
 /obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
 /turf/simulated/floor/tiled/dark/full,
 /area/abandoned_casino/staff/operator_room)
+"yG" = (
+/obj/structure/table/wood,
+/obj/effect/floor_decal/corner/red/diagonal,
+/obj/random/pottedplant_small{
+	pixel_x = 4;
+	pixel_y = 17
+	},
+/obj/effect/floor_decal/spline/plain/black,
+/turf/simulated/floor/lino,
+/area/abandoned_casino/restaurant)
 "yH" = (
 /obj/effect/decal/cleanable/floor_damage/random_wood_broken,
 /obj/effect/floor_decal/industrial/outline_corner/grey{
@@ -7934,7 +8058,7 @@
 /turf/simulated/floor/plating,
 /area/abandoned_casino/security_checkpoint)
 "zZ" = (
-/turf/simulated/wall/shuttle/dark/cardinal/brown,
+/turf/simulated/wall/shuttle/brown,
 /area/abandoned_casino/maintenance/kitchen)
 "Aa" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
@@ -7961,6 +8085,10 @@
 	icon_state = "2-8"
 	},
 /turf/simulated/floor/carpet/brown,
+/area/abandoned_casino/casino)
+"Al" = (
+/obj/effect/map_effect/window_spawner/full/shuttle/brown/firedoor,
+/turf/simulated/floor/tiled/dark/full,
 /area/abandoned_casino/casino)
 "Am" = (
 /obj/structure/girder,
@@ -8047,6 +8175,10 @@
 "AV" = (
 /obj/random/pottedplant,
 /obj/effect/floor_decal/spline/fancy/wood,
+/obj/structure/sign/urban/restroom{
+	pixel_y = -18;
+	pixel_x = -4
+	},
 /turf/simulated/floor/wood/walnut,
 /area/abandoned_casino/casino)
 "AW" = (
@@ -8063,6 +8195,11 @@
 	},
 /turf/simulated/floor/lino,
 /area/abandoned_casino/bar)
+"AY" = (
+/obj/structure/lattice,
+/obj/item/stack/rods,
+/turf/space,
+/area/abandoned_casino/exterior)
 "AZ" = (
 /obj/effect/floor_decal/corner/dark_blue,
 /obj/effect/floor_decal/corner/dark_blue{
@@ -8215,7 +8352,7 @@
 /turf/simulated/floor/plating,
 /area/abandoned_casino/docking_arm/port)
 "BA" = (
-/turf/simulated/wall/shuttle/dark/cardinal/brown,
+/turf/simulated/wall/shuttle/brown,
 /area/abandoned_casino/maintenance/solar_wing)
 "BB" = (
 /obj/effect/floor_decal/corner/red/diagonal,
@@ -8274,6 +8411,17 @@
 	},
 /turf/simulated/floor/carpet/brown,
 /area/abandoned_casino/vip_room_two)
+"BQ" = (
+/obj/effect/floor_decal/corner/beige/diagonal,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/white,
+/area/abandoned_casino/restroom)
 "BR" = (
 /turf/simulated/wall/r_wall,
 /area/abandoned_casino/maintenance/kitchen)
@@ -8407,7 +8555,7 @@
 /turf/simulated/floor/tiled/full,
 /area/abandoned_casino/docking_arm/starboard)
 "CC" = (
-/turf/simulated/wall/shuttle/dark/cardinal/brown,
+/turf/simulated/wall/shuttle/brown,
 /area/abandoned_casino/restaurant)
 "CD" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -8535,11 +8683,8 @@
 /turf/simulated/floor/tiled/white,
 /area/abandoned_casino/bar/kitchen)
 "Dc" = (
-/obj/effect/map_effect/window_spawner/full/reinforced{
-	frame_color = "#5c503f";
-	color = "#5c503f"
-	},
 /obj/structure/curtain/open/bar,
+/obj/effect/map_effect/window_spawner/full/shuttle/brown/firedoor,
 /turf/simulated/floor/tiled/dark/full,
 /area/abandoned_casino/restaurant)
 "De" = (
@@ -8638,7 +8783,7 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/abandoned_casino/maintenance/solar_wing)
 "DE" = (
-/turf/simulated/wall/shuttle/dark/cardinal/brown,
+/turf/simulated/wall/shuttle/brown,
 /area/abandoned_casino/maintenance/port)
 "DH" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
@@ -8767,7 +8912,9 @@
 /obj/effect/floor_decal/industrial/hatch_door/yellow{
 	dir = 8
 	},
-/obj/machinery/door/airlock,
+/obj/machinery/door/airlock/brown{
+	name = "Storage"
+	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 1
 	},
@@ -8862,7 +9009,7 @@
 /turf/simulated/floor/plating,
 /area/abandoned_casino/maintenance/port)
 "EH" = (
-/turf/simulated/wall/shuttle/dark/cardinal/brown,
+/turf/simulated/wall/shuttle/brown,
 /area/abandoned_casino/maintenance/reception)
 "EL" = (
 /obj/effect/floor_decal/spline/fancy/wood/corner,
@@ -8891,6 +9038,13 @@
 	},
 /turf/simulated/floor/tiled,
 /area/abandoned_casino/docking_arm/port)
+"EQ" = (
+/obj/item/ore/hydrogen{
+	pixel_x = 5;
+	pixel_y = -5
+	},
+/turf/simulated/floor/airless,
+/area/abandoned_casino/exterior)
 "EW" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
@@ -8915,6 +9069,16 @@
 /obj/effect/map_effect/marker/airlock/abandoned_casino/solars,
 /turf/simulated/floor/plating,
 /area/abandoned_casino/maintenance/solar_wing)
+"Fb" = (
+/obj/structure/lattice/catwalk,
+/obj/structure/cable/yellow{
+	icon_state = "4-8"
+	},
+/obj/structure/cable/yellow{
+	icon_state = "2-8"
+	},
+/turf/space,
+/area/abandoned_casino/exterior)
 "Fc" = (
 /turf/simulated/wall/r_wall,
 /area/abandoned_casino/staff/breakroom)
@@ -8974,7 +9138,7 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/abandoned_casino/staff/warehouse)
 "FA" = (
-/turf/simulated/wall/shuttle/dark/cardinal/brown,
+/turf/simulated/wall/shuttle/brown,
 /area/abandoned_casino/reception)
 "FB" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -9068,10 +9232,7 @@
 /turf/simulated/floor/carpet/brown,
 /area/abandoned_casino/casino)
 "Gc" = (
-/obj/effect/map_effect/window_spawner/full/reinforced{
-	frame_color = "#5c503f";
-	color = "#5c503f"
-	},
+/obj/effect/map_effect/window_spawner/full/shuttle/brown,
 /turf/simulated/floor/tiled/dark/full,
 /area/abandoned_casino/casino)
 "Ge" = (
@@ -9195,6 +9356,10 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/abandoned_casino/vip_room_two)
+"GB" = (
+/obj/item/stack/rods,
+/turf/simulated/floor/airless,
+/area/abandoned_casino/exterior)
 "GD" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -9316,7 +9481,7 @@
 /turf/simulated/floor/tiled,
 /area/abandoned_casino/docking_arm/starboard)
 "Hb" = (
-/turf/simulated/wall/shuttle/dark/cardinal/brown,
+/turf/simulated/wall/shuttle/brown,
 /area/abandoned_casino/the_bank/vault)
 "Hc" = (
 /obj/structure/cable/yellow{
@@ -9344,6 +9509,16 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
 /area/abandoned_casino/staff/warehouse)
+"Hl" = (
+/obj/structure/lattice/catwalk,
+/obj/structure/cable/yellow{
+	icon_state = "4-8"
+	},
+/obj/structure/cable/yellow{
+	icon_state = "2-4"
+	},
+/turf/space,
+/area/abandoned_casino/exterior)
 "Hn" = (
 /obj/effect/floor_decal/corner/red/diagonal,
 /obj/effect/floor_decal/spline/plain/black{
@@ -9391,7 +9566,7 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/abandoned_casino/maintenance/solar_wing)
 "Hy" = (
-/turf/simulated/wall/shuttle/dark/cardinal/brown,
+/turf/simulated/wall/shuttle/brown,
 /area/abandoned_casino/bar)
 "HC" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -9523,7 +9698,7 @@
 	},
 /obj/effect/floor_decal/corner/red/diagonal,
 /obj/effect/floor_decal/spline/plain/black{
-	dir = 9
+	dir = 1
 	},
 /turf/simulated/floor/lino,
 /area/abandoned_casino/restaurant)
@@ -9534,6 +9709,14 @@
 	},
 /turf/simulated/floor/wood/walnut,
 /area/abandoned_casino/casino)
+"Io" = (
+/obj/item/ore/hydrogen{
+	pixel_x = 4;
+	pixel_y = 7
+	},
+/obj/effect/decal/cleanable/floor_damage/random_broken,
+/turf/simulated/floor/airless,
+/area/abandoned_casino/exterior)
 "Iq" = (
 /obj/structure/cable/yellow{
 	icon_state = "0-2"
@@ -9725,6 +9908,10 @@
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 4
 	},
+/obj/random/pottedplant_small{
+	pixel_x = -17;
+	pixel_y = 1
+	},
 /turf/simulated/floor/lino,
 /area/abandoned_casino/restaurant)
 "Jm" = (
@@ -9736,10 +9923,10 @@
 /turf/simulated/floor/plating,
 /area/abandoned_casino/maintenance/solar_wing)
 "Jn" = (
-/obj/effect/decal/cleanable/ash{
-	pixel_x = -10;
-	pixel_y = 13
+/obj/structure/cable/yellow{
+	icon_state = "0-2"
 	},
+/obj/effect/decal/cleanable/floor_damage/random_broken,
 /turf/simulated/floor/airless,
 /area/abandoned_casino/exterior)
 "Jq" = (
@@ -9813,6 +10000,15 @@
 /obj/effect/map_effect/marker/airlock/abandoned_casino/solars,
 /turf/simulated/floor/tiled/dark/full,
 /area/abandoned_casino/maintenance/solar_wing)
+"JU" = (
+/obj/structure/cable/yellow,
+/obj/item/ore/hydrogen{
+	pixel_x = 6;
+	pixel_y = -8
+	},
+/obj/effect/decal/cleanable/floor_damage/random_broken,
+/turf/simulated/floor/airless,
+/area/abandoned_casino/exterior)
 "JW" = (
 /obj/structure/trash_pile,
 /turf/simulated/floor/tiled/dark/full,
@@ -9845,6 +10041,7 @@
 /obj/structure/mirror{
 	pixel_y = 36
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/white,
 /area/abandoned_casino/restroom)
 "Kc" = (
@@ -9914,6 +10111,7 @@
 	dir = 8
 	},
 /obj/structure/railing/mapped/no_density/low,
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
 /area/abandoned_casino/restroom)
 "Ky" = (
@@ -10337,13 +10535,10 @@
 /turf/simulated/floor/tiled/dark,
 /area/abandoned_casino/security_checkpoint)
 "Mz" = (
-/turf/simulated/wall/shuttle/dark/cardinal/brown,
+/turf/simulated/wall/shuttle/brown,
 /area/abandoned_casino/vip_room_one)
 "MA" = (
-/obj/effect/map_effect/window_spawner/full/reinforced{
-	frame_color = "#5c503f";
-	color = "#5c503f"
-	},
+/obj/effect/map_effect/window_spawner/full/shuttle/brown/firedoor,
 /turf/simulated/floor/tiled/dark/full,
 /area/abandoned_casino/vip_room_two)
 "ME" = (
@@ -10403,8 +10598,8 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/abandoned_casino/docking_arm/starboard)
 "MY" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
 /obj/structure/curtain/black,
+/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
 /turf/simulated/floor/tiled/dark/full,
 /area/abandoned_casino/maintenance/solar_wing)
 "Nc" = (
@@ -10666,6 +10861,13 @@
 /obj/structure/table/rack/retail_shelf,
 /turf/simulated/floor/tiled/dark/full,
 /area/abandoned_casino/security_checkpoint)
+"Ov" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 1
+	},
+/obj/structure/extinguisher_cabinet/north,
+/turf/simulated/floor/wood/walnut,
+/area/abandoned_casino/vip_room_two)
 "Ow" = (
 /obj/structure/railing/mapped/no_density/low,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -11035,8 +11237,8 @@
 /turf/simulated/floor/wood/walnut,
 /area/abandoned_casino/casino)
 "Qb" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
 /obj/structure/curtain/black,
+/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
 /turf/simulated/floor/tiled/dark/full,
 /area/abandoned_casino/maintenance/starboard)
 "Qc" = (
@@ -11150,6 +11352,8 @@
 	dir = 1
 	},
 /obj/random/dirt_75,
+/obj/machinery/vending/cigarette,
+/obj/effect/floor_decal/industrial/outline/grey,
 /turf/simulated/floor/tiled/dark/full,
 /area/abandoned_casino/reception)
 "QE" = (
@@ -11157,6 +11361,14 @@
 /obj/structure/largecrate,
 /turf/simulated/floor/tiled/dark/full,
 /area/abandoned_casino/staff/warehouse)
+"QG" = (
+/obj/structure/lattice,
+/obj/item/ore/hydrogen{
+	pixel_x = -1;
+	pixel_y = 3
+	},
+/turf/space,
+/area/abandoned_casino/exterior)
 "QI" = (
 /obj/structure/closet/crate/bin{
 	pixel_x = 7;
@@ -11285,6 +11497,7 @@
 	id_tag = "abandoned_casino_stall_3";
 	name = "Stall 3"
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/white,
 /area/abandoned_casino/restroom)
 "Rm" = (
@@ -11324,7 +11537,7 @@
 /turf/simulated/floor/plating,
 /area/abandoned_casino/maintenance/starboard)
 "RB" = (
-/turf/simulated/wall/shuttle/dark/cardinal/brown,
+/turf/simulated/wall/shuttle/brown,
 /area/abandoned_casino/maintenance/starboard)
 "RC" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark/damaged,
@@ -11339,7 +11552,7 @@
 /turf/simulated/floor/carpet/brown,
 /area/abandoned_casino/casino)
 "RE" = (
-/turf/simulated/wall/shuttle/dark/cardinal/brown,
+/turf/simulated/wall/shuttle/brown,
 /area/abandoned_casino/the_bank/office)
 "RG" = (
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -11352,10 +11565,7 @@
 /turf/simulated/floor/wood/walnut,
 /area/abandoned_casino/vip_room_one)
 "RH" = (
-/obj/effect/map_effect/window_spawner/full/reinforced{
-	frame_color = "#5c503f";
-	color = "#5c503f"
-	},
+/obj/effect/map_effect/window_spawner/full/shuttle/brown,
 /obj/structure/curtain/open/bar,
 /turf/simulated/floor/tiled/dark/full,
 /area/abandoned_casino/casino)
@@ -11387,6 +11597,16 @@
 	},
 /turf/simulated/floor/plating,
 /area/abandoned_casino/maintenance/kitchen)
+"RR" = (
+/obj/structure/lattice/catwalk,
+/obj/structure/cable/yellow{
+	icon_state = "0-4"
+	},
+/obj/structure/cable/yellow{
+	icon_state = "1-4"
+	},
+/turf/space,
+/area/abandoned_casino/exterior)
 "RU" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/machinery/embedded_controller/radio/airlock/docking_port{
@@ -11503,10 +11723,7 @@
 /turf/simulated/floor/plating,
 /area/abandoned_casino/maintenance/kitchen)
 "Ss" = (
-/obj/effect/map_effect/window_spawner/full/reinforced{
-	frame_color = "#5c503f";
-	color = "#5c503f"
-	},
+/obj/effect/map_effect/window_spawner/full/shuttle/brown,
 /turf/simulated/floor/tiled/dark/full,
 /area/abandoned_casino/reception)
 "Sy" = (
@@ -11525,10 +11742,7 @@
 /turf/simulated/floor/tiled,
 /area/abandoned_casino/docking_arm/center)
 "SB" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/firedoor{
-	frame_color = "#5c503f";
-	color = "#5c503f"
-	},
+/obj/effect/map_effect/window_spawner/full/shuttle/brown/firedoor,
 /turf/simulated/floor/tiled/dark/full,
 /area/abandoned_casino/reception)
 "SC" = (
@@ -11623,6 +11837,19 @@
 /obj/random/coin,
 /turf/simulated/floor/tiled/ridged,
 /area/abandoned_casino/the_bank/vault)
+"SX" = (
+/obj/structure/lattice/catwalk,
+/obj/structure/cable/yellow{
+	icon_state = "4-8"
+	},
+/obj/structure/cable/yellow{
+	icon_state = "2-4"
+	},
+/obj/structure/cable/yellow{
+	icon_state = "1-4"
+	},
+/turf/space,
+/area/abandoned_casino/exterior)
 "SZ" = (
 /obj/effect/floor_decal/industrial/warning,
 /obj/machinery/atmospherics/unary/vent_scrubber,
@@ -11684,10 +11911,7 @@
 /turf/simulated/floor/plating,
 /area/abandoned_casino/maintenance/reception)
 "Tn" = (
-/obj/effect/map_effect/window_spawner/full/reinforced{
-	frame_color = "#5c503f";
-	color = "#5c503f"
-	},
+/obj/effect/map_effect/window_spawner/full/shuttle/brown,
 /turf/simulated/floor/tiled/dark/full,
 /area/abandoned_casino/restaurant)
 "To" = (
@@ -11903,6 +12127,19 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
 /area/abandoned_casino/staff/breakroom)
+"Uj" = (
+/obj/structure/lattice/catwalk,
+/obj/structure/cable/yellow{
+	icon_state = "4-8"
+	},
+/obj/structure/cable/yellow{
+	icon_state = "2-8"
+	},
+/obj/structure/cable/yellow{
+	icon_state = "1-8"
+	},
+/turf/space,
+/area/abandoned_casino/exterior)
 "Ul" = (
 /obj/effect/floor_decal/spline/fancy/wood,
 /obj/structure/bed/stool/chair/padded/brown{
@@ -12237,8 +12474,8 @@
 /turf/simulated/floor/wood/walnut,
 /area/abandoned_casino/reception)
 "VT" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
 /obj/structure/curtain/black,
+/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
 /turf/simulated/floor/tiled/dark/full,
 /area/abandoned_casino/staff/operator_room)
 "VU" = (
@@ -12254,7 +12491,9 @@
 /obj/effect/floor_decal/industrial/hatch_door/yellow{
 	dir = 8
 	},
-/obj/machinery/door/airlock,
+/obj/machinery/door/airlock/brown{
+	name = "Restroom"
+	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 1
 	},
@@ -12608,6 +12847,14 @@
 /obj/machinery/alarm/east,
 /turf/simulated/floor/plating,
 /area/abandoned_casino/maintenance/reception)
+"Ya" = (
+/obj/structure/cable/yellow,
+/obj/machinery/power/solar{
+	id = "auxsolarstarboard";
+	name = "Starboard Auxiliary Solar Array"
+	},
+/turf/simulated/floor/airless,
+/area/abandoned_casino/exterior)
 "Yb" = (
 /obj/structure/bed/stool/chair/padded/brown{
 	dir = 1
@@ -12852,6 +13099,7 @@
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/outline/grey,
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
 /area/abandoned_casino/bar/kitchen)
 "Zv" = (
@@ -12935,7 +13183,7 @@
 	},
 /obj/effect/floor_decal/corner/red/diagonal,
 /obj/effect/floor_decal/spline/plain/black{
-	dir = 10
+	dir = 8
 	},
 /turf/simulated/floor/lino,
 /area/abandoned_casino/restaurant)
@@ -30005,10 +30253,10 @@ uc
 uc
 uc
 uc
-lU
-lU
-lU
-lU
+uc
+uc
+uc
+uc
 lU
 lU
 lU
@@ -30261,6 +30509,10 @@ uc
 uc
 uc
 uc
+uc
+uc
+uc
+uc
 lU
 lU
 uL
@@ -30276,11 +30528,7 @@ Ec
 uL
 uL
 uL
-Ec
-uL
-uL
-uL
-uL
+sI
 Ec
 uL
 uL
@@ -30518,13 +30766,13 @@ uc
 uc
 uc
 uc
+uc
+uc
+uc
+uc
 lU
 uL
-Yc
-kM
-Yc
-uL
-Yc
+Ec
 kM
 Yc
 uL
@@ -30775,13 +31023,13 @@ uc
 uc
 uc
 uc
+uc
+uc
+uc
+uc
 Xj
 kM
-Jn
-kM
-Yc
-kM
-Yc
+Io
 kM
 Yc
 kM
@@ -31032,15 +31280,15 @@ uc
 uc
 uc
 uc
+uc
+uc
+uc
+uc
 lU
-uL
+sI
 Yc
-kM
-Yc
-uL
-Yc
-kM
-Yc
+Sm
+Ec
 uL
 ih
 ad
@@ -31058,7 +31306,7 @@ uL
 ih
 ad
 fM
-uL
+sI
 lU
 uc
 uc
@@ -31289,14 +31537,14 @@ uc
 uc
 uc
 uc
+uc
+uc
+uc
+uc
 lU
 uL
-Yc
-kM
-Yc
-uL
-Yc
-kM
+vi
+ao
 VZ
 uL
 ih
@@ -31314,7 +31562,7 @@ fM
 uL
 ih
 ad
-fM
+JU
 uL
 Xj
 uc
@@ -31546,15 +31794,15 @@ uc
 uc
 uc
 uc
+uc
+uc
+uc
+uc
 lU
 Ec
 Yc
-kM
-Yc
-Ec
-Yc
-kM
-Yc
+Rm
+sQ
 Ec
 ih
 ad
@@ -31803,14 +32051,14 @@ uc
 uc
 uc
 uc
+uc
+uc
+uc
+uc
 lU
 Ec
 Yc
-kM
-Yc
-Ec
-Yc
-kM
+xN
 Yc
 Ec
 ih
@@ -31826,7 +32074,7 @@ ih
 ad
 fM
 Ec
-ih
+dy
 ad
 fM
 Ec
@@ -32060,21 +32308,21 @@ uc
 uc
 uc
 uc
+uc
+uc
+uc
+uc
 lU
 uL
-Yc
-kM
-Yc
-uL
-Yc
-kM
+vi
+RR
 Yc
 uL
 ih
 ad
 fM
 uL
-ih
+dy
 ad
 fM
 uL
@@ -32317,15 +32565,15 @@ uc
 uc
 uc
 uc
+uc
+uc
+uc
+uc
 lU
 uL
-Yc
-Sm
-Yc
-uL
-Yc
-Sm
-Yc
+sQ
+Hl
+Ya
 uL
 ih
 ad
@@ -32574,15 +32822,15 @@ uc
 uc
 uc
 uc
+uc
+uc
+uc
+uc
 lU
 kM
-Yc
-qB
-Yc
-kM
-Yc
-qB
-Yc
+vi
+SX
+Ya
 kM
 ih
 ad
@@ -32831,26 +33079,26 @@ uc
 uc
 uc
 uc
+uc
+uc
+uc
+uc
 Xj
 uL
 Yc
 qB
 Yc
 uL
-Yc
-Rm
-Yc
-uL
 ih
 ad
 fM
 uL
-ih
+Jn
 ad
 fM
 uL
 uL
-ih
+dy
 ad
 fM
 uL
@@ -33088,32 +33336,32 @@ uc
 uc
 uc
 uc
+uc
+uc
+uc
+uc
 Xj
 uL
+Ec
+qB
+Ec
 uL
-Rm
+Ec
+bb
+Ec
+sI
+Ec
+bb
+Ec
 uL
 uL
 Ec
-Sm
+bb
 Ec
 uL
-uL
+Ec
 bb
-uL
-uL
-uL
-bb
-uL
-uL
-uL
-uL
-bb
-uL
-uL
-uL
-bb
-uL
+Ec
 uL
 Xj
 uc
@@ -33345,15 +33593,15 @@ uc
 uc
 uc
 uc
+uc
+uc
+uc
+uc
 Xj
-kM
-kM
-kM
-kM
 kM
 hh
 qy
-es
+gK
 gK
 gK
 KH
@@ -33370,7 +33618,7 @@ gK
 gK
 gK
 yN
-uL
+es
 uL
 lU
 uc
@@ -33602,32 +33850,32 @@ uc
 uc
 uc
 uc
+uc
+uc
+uc
+uc
 qD
 uL
-uL
-kM
-uL
-uL
-Ec
-kM
+AY
+qB
 Ec
 uL
+Ec
+bb
+Ec
+uL
+Ec
+bb
+Ec
 uL
 bb
-uL
-uL
-uL
+Ec
 bb
+Ec
 uL
-uL
+Ec
 bb
-uL
-bb
-uL
-uL
-uL
-bb
-uL
+Ec
 uL
 lU
 uc
@@ -33859,23 +34107,23 @@ uc
 uc
 uc
 uc
+uc
+uc
+uc
+uc
 lU
 uL
-Yc
-kM
-Yc
+vi
+qi
+GB
 uL
-Yc
-kM
-Yc
-uL
-ih
+dy
 Hc
 fM
 uL
 ih
 Hc
-fM
+tS
 uL
 bb
 ih
@@ -34116,15 +34364,15 @@ uc
 uc
 uc
 uc
+uc
+uc
+uc
+uc
 lU
 kM
 Yc
-Sm
-Yc
-kM
-Yc
-kM
-Yc
+Fb
+Ya
 kM
 ih
 Hc
@@ -34135,7 +34383,7 @@ Hc
 fM
 kM
 bb
-ih
+dy
 Hc
 fM
 kM
@@ -34373,14 +34621,14 @@ uc
 uc
 uc
 uc
+uc
+uc
+uc
+uc
 Xj
 uL
-dy
+Ec
 qB
-Yc
-uL
-Yc
-kM
 Yc
 uL
 ih
@@ -34630,19 +34878,19 @@ uc
 uc
 uc
 uc
+uc
+uc
+uc
+uc
 lU
-uL
-Yc
-Rm
-Yc
-uL
-Yc
-kM
+lA
+vi
+qi
 Yc
 uL
 ih
 Hc
-fM
+tS
 uL
 ih
 Hc
@@ -34651,11 +34899,11 @@ uL
 bb
 ih
 Hc
-fM
+tS
 uL
 ih
 Hc
-fM
+sz
 uL
 lU
 uc
@@ -34887,15 +35135,15 @@ uc
 uc
 uc
 uc
+uc
+uc
+uc
+uc
 Xj
 Ec
-Yc
-kM
-Yc
-Ec
-Yc
-kM
-Yc
+vi
+Uj
+Ya
 Ec
 ih
 Hc
@@ -34912,8 +35160,8 @@ fM
 Ec
 ih
 Hc
-fM
 Ec
+tV
 Xj
 uc
 uc
@@ -35144,14 +35392,14 @@ uc
 uc
 uc
 uc
+uc
+uc
+uc
+uc
 Xj
 Ec
-Yc
-kM
-Yc
-Ec
-Yc
-kM
+EQ
+Rm
 Yc
 Ec
 ih
@@ -35168,8 +35416,8 @@ Hc
 fM
 Ec
 ih
-Hc
-fM
+cX
+QG
 Ec
 Xj
 uc
@@ -35401,13 +35649,13 @@ uc
 uc
 uc
 uc
+uc
+uc
+uc
+uc
 lU
 uL
-Yc
-kM
-Yc
-uL
-Yc
+GB
 kM
 Yc
 uL
@@ -35426,8 +35674,8 @@ fM
 uL
 ih
 Hc
-fM
-uL
+Ec
+sI
 Xj
 uc
 uc
@@ -35658,15 +35906,15 @@ uc
 uc
 uc
 uc
+uc
+uc
+uc
+uc
 lU
 uL
 Yc
 kM
-Yc
-uL
-Yc
-kM
-Yc
+sQ
 uL
 ih
 Hc
@@ -35915,11 +36163,11 @@ uc
 uc
 uc
 uc
+uc
+uc
+uc
+uc
 lU
-kM
-Yc
-kM
-Yc
 kM
 Yc
 kM
@@ -36172,15 +36420,15 @@ uc
 uc
 uc
 uc
+uc
+uc
+uc
+uc
 lU
 uL
-Yc
+sQ
 kM
-Yc
-uL
-Yc
-kM
-Yc
+Ec
 uL
 ih
 cJ
@@ -36429,12 +36677,12 @@ uc
 uc
 uc
 uc
+uc
+uc
+uc
+uc
 lU
 lU
-uL
-Ec
-uL
-uL
 uL
 Ec
 uL
@@ -36687,10 +36935,10 @@ uc
 uc
 uc
 uc
-lU
-lU
-lU
-Xj
+uc
+uc
+uc
+uc
 lU
 lU
 lU
@@ -40554,11 +40802,11 @@ ug
 pO
 Dz
 BA
-mw
-iB
+qL
+kL
 lk
 Ik
-mw
+qL
 CC
 CC
 CC
@@ -40812,7 +41060,7 @@ Xk
 FB
 BA
 Jh
-fZ
+yG
 xA
 jt
 as
@@ -42624,7 +42872,7 @@ iF
 kD
 lk
 tf
-hn
+el
 Tt
 nR
 TL
@@ -46968,7 +47216,7 @@ xR
 sx
 Qt
 uH
-US
+Ov
 SP
 ci
 FZ
@@ -46990,7 +47238,7 @@ Mc
 bd
 uw
 bn
-cj
+BQ
 gI
 uw
 uw
@@ -47247,7 +47495,7 @@ Av
 by
 uw
 Kb
-cj
+BQ
 fA
 Rk
 rb
@@ -47747,17 +47995,17 @@ uH
 uH
 uH
 wm
-Gc
-Gc
+Al
+Al
 wm
 wm
-Gc
-Gc
-Gc
+Al
+Al
+Al
 wm
 wm
-Gc
-Gc
+Al
+Al
 wm
 uw
 bn

@@ -28,6 +28,7 @@
 /area/abandoned_casino/maintenance
 	icon_state = "maint"
 	area_flags = AREA_FLAG_RAD_SHIELDED
+	sound_environment = SOUND_AREA_TUNNEL_ENCLOSED
 
 /area/abandoned_casino/maintenance/security_checkpoint
 	name = "Security Checkpoint - Maintenance"
@@ -55,14 +56,17 @@
 /area/abandoned_casino/reception
 	name = "Casino Reception"
 	icon_state = "reception"
+	sound_environment = SOUND_AREA_LARGE_SOFTFLOOR
 
 /area/abandoned_casino/casino
 	name = "Casino"
 	icon_state = "casino"
+	sound_environment = SOUND_AREA_LARGE_SOFTFLOOR
 
 /area/abandoned_casino/restaurant
 	name = "Restaurant"
 	icon_state = "restaurant"
+	sound_environment = SOUND_AREA_LARGE_SOFTFLOOR
 
 /area/abandoned_casino/bar
 	name = "Bar"
@@ -77,14 +81,17 @@
 /area/abandoned_casino/restroom
 	name = "Restroom"
 	icon_state = "maint"
+	sound_environment = SOUND_ENVIRONMENT_BATHROOM
 
 /area/abandoned_casino/vip_room_one
 	name = "V.I.P. Room #1"
 	icon_state = "vip"
+	sound_environment = SOUND_AREA_MEDIUM_SOFTFLOOR
 
 /area/abandoned_casino/vip_room_two
 	name = "V.I.P. Room #2"
 	icon_state = "vip"
+	sound_environment = SOUND_AREA_MEDIUM_SOFTFLOOR
 
 /area/abandoned_casino/the_bank
 	name = "The Bank"
