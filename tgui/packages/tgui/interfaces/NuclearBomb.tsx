@@ -142,6 +142,7 @@ export const NuclearBomb = (props, context) => {
                   <Button
                     fluid
                     textAlign="center"
+                    disabled={!data.auth}
                     content={key}
                     onClick={() => act('type', { value: key })}
                   />
