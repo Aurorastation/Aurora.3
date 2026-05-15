@@ -311,6 +311,7 @@ GLOBAL_VAR(bomb_set)
 				anchored = !anchored
 				if(anchored)
 					visible_message(SPAN_WARNING("With a steely snap, bolts slide out of [src] and anchor it to the flooring."))
+					playsound(src, 'sound/machines/boltsdown.ogg', 30, 0, extrarange = SILENCED_SOUND_EXTRARANGE)
 				else
 					secure_device()
 					visible_message(SPAN_WARNING("The anchoring bolts slide back into the depths of [src]."))
