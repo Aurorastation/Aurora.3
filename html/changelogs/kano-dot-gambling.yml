@@ -4,5 +4,5 @@ delete-after: True
 
 changes:
   - rscadd: "Remapped casino.dmm."
-  - rcsadd: "Coat racks can now hold mapped-in clothings."
+  - rscadd: "Coat racks can now hold mapped-in clothings."
   - code_imp: "Removed a duplicate grate object from the code (gunmetal)."

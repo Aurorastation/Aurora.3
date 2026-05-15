@@ -17,7 +17,7 @@
 #define LIGHT_COLOR_YELLOW			"#E1E17D"
 /// Clear brown, mostly dim. rgb(150, 100, 50)
 #define LIGHT_COLOR_BROWN			"#966432"
-/// Soft, light beige.
+/// Soft, light beige.  rgb(252, 207, 144)
 #define LIGHT_COLOR_BEIGE	"#fccf90"
 /// Mostly pure orange. rgb(250, 150, 50)
 #define LIGHT_COLOR_ORANGE			"#FA9632"
