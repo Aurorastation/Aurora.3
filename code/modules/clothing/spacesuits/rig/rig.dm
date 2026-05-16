@@ -441,8 +441,7 @@
 
 	var/previous_offline_status = offline
 	// Consume energy per tick while active. If you don't have a cell... Weird, but we'll deal with that shortly.
-	if(!offline && cell)
-		power_usage_this_tick += cell_draw_rate
+	var/power_usage_this_tick = ((!offline && cell) ? cell_draw_rate : 0.0)
 
 	if(!istype(wearer) || loc != wearer || wearer.back != src || canremove || !cell || cell.charge <= 0)
 		if(!cell || cell.charge <= 0)
