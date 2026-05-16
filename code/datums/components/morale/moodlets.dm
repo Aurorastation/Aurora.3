@@ -15,11 +15,10 @@ ABSTRACT_TYPE(/datum/moodlet)
 	 */
 	VAR_PRIVATE/morale_modifier = 0.0 // Positive and negative floating points are allowed.
 
-	/**
-	 * The moodlet description to display to chat when someone with a morale component clicks on their morale icon.
-	 */
+	/// The moodlet description to display to chat when someone with a morale component clicks on their morale icon.
 	var/moodlet_descriptor = SPAN_GOOD("It's a moodlet!")
 
+	/// The moodlet description that gets sent to the chat of someone when they first obtain a moodlet.
 	var/initial_descriptor = SPAN_GOOD("You have gained a morale modifier from a moodlet!")
 
 	/**
