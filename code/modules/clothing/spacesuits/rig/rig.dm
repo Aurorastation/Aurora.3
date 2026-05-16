@@ -440,9 +440,6 @@
 				piece.forceMove(src)
 
 	var/previous_offline_status = offline
-
-	var/power_usage_this_tick = 0.0
-
 	// Consume energy per tick while active. If you don't have a cell... Weird, but we'll deal with that shortly.
 	if(!offline && cell)
 		power_usage_this_tick += cell_draw_rate
