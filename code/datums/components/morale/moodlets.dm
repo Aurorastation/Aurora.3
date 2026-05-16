@@ -51,16 +51,19 @@ ABSTRACT_TYPE(/datum/moodlet)
 /datum/moodlet/Destroy(force)
 	if (force)
 		// This will be forced when a Morale Component is deleted directly, as it QDEL_NULL_LIST's its own moodlets.
+		morale_component = null
 		return ..()
 
 	// Else if the moodlet is deleted directly rather than its parent.
 	var/datum/component/morale/parent = morale_component.resolve()
 	if (!parent || !parent.moodlets[src])
+		morale_component = null
 		return ..()
 
 	// Clean the effects of this moodlet from the parent.
 	parent.moodlets -= src
 	parent.add_morale_points(-morale_modifier)
+	morale_component = null
 	return ..()
 
 /datum/moodlet/proc/get_morale_modifier()
