@@ -16,9 +16,11 @@ ABSTRACT_TYPE(/datum/moodlet)
 	VAR_PRIVATE/morale_modifier = 0.0 // Positive and negative floating points are allowed.
 
 	/**
-	 *
+	 * The moodlet description to display to chat when someone with a morale component clicks on their morale icon.
 	 */
-	var/moodlet_descriptor = "It's a moodlet!"
+	var/moodlet_descriptor = SPAN_GOOD("It's a moodlet!")
+
+	var/initial_descriptor = SPAN_GOOD("You have gained a morale modifier from a moodlet!")
 
 	/**
 	 * How long this moodlet will last if not refreshed. For Aurora's purposes, moodlets are targeted as having "Small effect, extreme duration".
@@ -45,6 +47,7 @@ ABSTRACT_TYPE(/datum/moodlet)
 	morale_component = WEAKREF(_morale_component)
 	if (set_points) morale_modifier = set_points
 	_morale_component.add_morale_points(morale_modifier)
+	send_initial_description(_morale_component.parent)
 
 /datum/moodlet/Destroy(force)
 	if (force)
@@ -81,3 +84,25 @@ ABSTRACT_TYPE(/datum/moodlet)
 
 /datum/moodlet/proc/refresh_moodlet()
 	time_to_die = REALTIMEOFDAY + duration
+
+/**
+ * Returns a descriptor for the moodlet.
+ *
+ * Before you ask why this exists,
+ * know that some moodlets will override this with more complicated logic.
+ */
+/datum/moodlet/proc/get_moodlet_descriptor()
+	var/remaining_duration = time_to_die - REALTIMEOFDAY
+	var/seconds = round(remaining_duration % 600)
+	var/minutes = round((remaining_duration - seconds) / 600)
+
+	return "\t [moodlet_descriptor]\n" \
+		+ "\t - worth [morale_modifier] points\n" \
+		+ "\t - remaining duration: [minutes] minutes, [round(seconds / 10)] seconds"
+
+/**
+ * Similarly to get_moodlet_descriptor(), some moodlets are going to want to override this with more complicated effects.
+ * By default, this just sends an initial descriptor.
+ */
+/datum/moodlet/proc/send_initial_description(datum/owner)
+	to_chat(owner, initial_descriptor)
