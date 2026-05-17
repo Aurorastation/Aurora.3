@@ -66,6 +66,7 @@
 	ammunition = null
 	target = null
 	entry_target = null
+	walk(src, 0)
 	return ..()
 
 /obj/effect/overmap/projectile/proc/prepare_for_entry()
