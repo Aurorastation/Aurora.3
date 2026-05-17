@@ -443,16 +443,7 @@
 			return TRUE
 
 	var/distance = get_dist(T, starting) // Get the distance between the turf shot from and the mob we hit and use that for the calculations.
-	// Originally was only `def_zone = ran_zone(def_zone, max(100-(7*distance), 5)) //Lower accurancy/longer range tradeoff. 7 is a balanced number to use.`
-	//Because snowflake aurora BS, this is how we calculate what to hit if anything with a mob
-	if(ismob(A))
-		var/miss_modifier = max(15*(distance-1) - round(25*accuracy), 0)
-		def_zone = get_zone_with_miss_chance(def_zone, A, miss_modifier, (distance > 1 || original != A), point_blank)
-		if (!def_zone)
-			A.visible_message(SPAN_NOTICE("\The [src] misses [A] narrowly!"))
-			return FALSE
-	else
-		def_zone = ran_zone(def_zone, clamp(accurate_range - (accuracy_falloff * distance), 5, 100)) //Lower accurancy/longer range tradeoff. 7 is a balanced number to use.
+	def_zone = ran_zone(def_zone, clamp(accurate_range - (accuracy_falloff * distance), 5, 100)) //Lower accurancy/longer range tradeoff. 7 is a balanced number to use.
 
 	return process_hit(T, select_target(T, A, A), A) // SELECT TARGET FIRST!
 

@@ -1,0 +1,4 @@
+author: Hellfirejag
+delete-after: True
+changes:
+  - rscdel: "Removed projectiles being able to 'miss narrowly' things that they hit. If you want inaccurate guns, make their dispersion high..."
