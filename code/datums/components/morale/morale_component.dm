@@ -54,6 +54,9 @@
 	/// The maximum possible positive or negative contribution to surgery success chances from morale modifiers.
 	var/surgery_success_contribution = 10
 
+	/// The maximum possible positive or negative (percentage as decimal) contribution to surgery speed from morale modifiers.
+	var/surgery_speed_contribution = 0.1
+
 /datum/component/morale/proc/get_morale_ratio()
 	return morale_ratio
 
@@ -234,6 +237,7 @@
 	*delay = *delay - (5 * morale_ratio) SECONDS
 	to_chat(user, SPAN_WARNING("The pressure on your mind causes you to stumble in searching for the power switch..."))
 
-/datum/component/morale/proc/handle_surgery_modifiers(mob/living/user, success_rate)
+/datum/component/morale/proc/handle_surgery_modifiers(mob/living/user, mob/living/carbon/target, success_rate, duration)
 	SIGNAL_HANDLER
 	*success_rate = *success_rate + surgery_success_contribution * morale_ratio
+	*duration = *duration * (1 - surgery_speed_contribution * morale_ratio)
