@@ -356,7 +356,7 @@ GLOBAL_LIST_INIT(organ_rel_size, list(
 	miss_chance = max(miss_chance + miss_chance_mod, 0)
 	if(prob(miss_chance))
 		if(prob(70))
-			return null
+			return BP_CHEST
 		return pick(GLOB.base_miss_chance)
 	return zone
 
